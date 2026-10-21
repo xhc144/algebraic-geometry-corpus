@@ -1,0 +1,2791 @@
+% BEGIN INCLUDED SGA4_English_current_buildable_source_20260906/source/05/drafts/SGA4_V_LINES_57_369_English.texfrag
+\section*{引言}
+
+本篇\pageoriginale 介绍拓扑斯的交换的、初等的上同调不变量。在第 ${\rm n^{\circ}}$ 1 节中, 研究平坦模与赋环拓扑斯的平坦态射。证明使用了拓扑斯有足够多的点 (IV 6) 这一在实际中往往成立的假设。在附录第 8 节中, Deligne 利用局部归纳极限的技巧, 在一般情形下重新给出这些证明, 并将 D. Lazard 关于平坦模结构的定理推广到拓扑斯。本篇的定理\sisi{,}{}是联系各种上同调不变量的谱序列的存在性定理 (第 3、5、6 节)。众所周知, 即使对于拓扑空间, Čech 上同调一般也不与层上同调一致 \cite{sga4.exp.V.bib.11}。在附录第 7 节中, 引入一种修改后的 Čech 计算, 使得能通过覆盖得到任意拓扑斯的层上同调。在该附录中, 我们将使用单纯覆盖 (超覆盖), 其同伦不变量已在 \cite{sga4.exp.V.bib.1} 中研究过 (另参见 \cite{sga4.exp.V.bib.17})。
+
+此处引入的上同调不变量是初等的, 其含义是不使用导出范畴 \cite{sga4.exp.V.bib.12}。熟悉这种语言的读者能立即用它重述本篇的各种陈述, 进而将它们推广到复形与超上同调。此外, 本讨论班以后还将使用导出范畴的语言。
+
+此处仅限于交换上同调。关于本讨论班中用到的非交换 $H^1$ 以及非交换 $H^2$, 参见 \cite{sga4.exp.V.bib.9}。我们取导出函子的那些函子都是加性的; 不讨论乘法结构 (参见 \cite{sga4.exp.V.bib.7})。
+
+\setcounter{section}{-1}
+\section{阿贝尔范畴的一般性质}\etiquette[0]{V.sec0}
+
+本节\pageoriginale 回顾几个引理, 其中大多数可在 \cite{sga4.exp.V.bib.11} 中找到。
+
+\begin{enonce*}{命题 0.1}\etiquette[0.1]{V.prop0.1}
+设 $\mathfrak{A}$ 是具有生成元的阿贝尔范畴。下列条件等价:
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 范畴 $\mathfrak{A}$ 满足公理 $AB$ $5$): 小直和可表; 若 $(X_i)$, $i \in I$, 是 $\mathfrak{A}$ 的对象 $X$ 的一个小的递增滤过子对象族, 而 $Y$ 是 $X$ 的子对象, 则
+$$
+(\displaystyle{\sup_i}\ X_i) \cap Y = \displaystyle{\sup_i}\ (X_i \cap Y) {\quoi}.
+$$
+\item 小伪滤过归纳极限\emph{(\hyperref[I.def2.7]{I.2.7})} %% label \XXX
+可表, 且与有限投射极限可交换。
+\end{enumerate}
+
+此外, 若上述条件成立, 则小滤过归纳极限是普遍的\emph{(I \hyperref[I.prop2.6]{2.6})}。
+\end{enonce*}
+
+\begin{enonce*}[remark]{证明}
+显然 (ii) $\Rightarrow$ (i)。为证 \sisi{i)}{(i)} $\Rightarrow$ (ii) 以及附加断言, 只需利用下述事实: $\mathfrak{A}$ 是某个合适的环上的模范畴 $\Mm$ 的全子范畴, 使包含函子 $u : \mathfrak{A} \rightarrow \Mm$ 有一个正合的左伴随 $v$ \cite{sga4.exp.V.bib.5}。此时验证是直接的。
+\end{enonce*}
+
+\setcounter{subsection}{1}
+\subsubsection{}\etiquette[0.1.1]{V.subsubsec0.1.1}
+
+已知 \cite{sga4.exp.V.bib.11}, 具有生成元且满足公理 $AB$ 5) 的阿贝尔范畴 $\mathfrak{A}$ 有足够多的内射对象, 即每个对象都可嵌入某个内射对象。此外, 由已引用的结果 \cite{sga4.exp.V.bib.5}, 小积在 $\mathfrak{A}$ 中可表 (公理 $AB$ 3) $^{\ast}$)。
+
+\begin{enonce*}{命题 0.2}\etiquette[0.2]{V.prop0.2}
+设 $\mathfrak{A}$、$\mathfrak{B}$ 是两个阿贝尔范畴,
+$\xymatrix{\mathfrak{A} \ar@<-2pt>[r]_{u}& \mathfrak{B} \ar@<-2pt>[l]_{v}
+}
+$
+是两个伴随函子 ($u$ 是 $v$ 的左伴随)。考虑下列两个性质:
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 函子 $u$ 正合。
+
+\item 函子\pageoriginale $v$ 将 $\mathfrak{B}$ 的内射对象映为 $\mathfrak{A}$ 的内射对象。
+\begin{enumerate}
+\renewcommand{\theenumii}{\arabic {enumii}}
+\renewcommand{\labelenumii}{\theenumii)}
+\item 蕴含关系\emph{(i) $\Rightarrow$ (ii)} 总成立。
+
+若再假定 $\mathfrak{B}$ 的每个非零对象都是一个到内射对象的非零态射的源, 则有\emph{(ii) $\Leftrightarrow$ (i)}。
+\item 假定:
+\begin{enumerate}
+\renewcommand{\theenumiii}{\alph {enumiii}}
+\renewcommand{\labelenumiii}{\theenumiii)}
+\item 范畴 $\mathfrak{B}$ 有足够多的内射对象;
+\item 上述等价条件 {\rm(i)} 与 {\rm(ii)} 之一成立;
+\item 函子 $u$ 忠实。
+\end{enumerate}
+\end{enumerate}
+\end{enumerate}
+则范畴 $\mathfrak{A}$ 有足够多的内射对象。
+\end{enonce*}
+
+\begin{enonce*}[remark]{证明}
+证明留给读者。
+\end{enonce*}
+
+\begin{enonce*}[remark]{注 0.2.1}\etiquette[0.2.1]{V.rem0.2.1}
+交换群范畴有足够多的内射对象。应用命题 \hyperref[V.prop0.2]{0.2}, 可知含幺环上的每个幺模范畴都有足够多的内射对象。应用 \cite{sga4.exp.V.bib.5} 的结果 (曾用于 \hyperref[V.prop0.1]{0.1} 的证明), 再结合 \hyperref[V.prop0.2]{0.2}, 可知每个具有生成元且小滤过归纳极限正合的阿贝尔范畴都有足够多的内射对象; 这给出了该事实的另一个证明。
+\end{enonce*}
+
+\begin{enonce*}{命题 0.3}\etiquette[0.3]{V.prop0.3}
+设 $\mathfrak{A}$、$\mathfrak{B}$、$\mathfrak{C}$ 是三个阿贝尔范畴, $u : \mathfrak{A} \rightarrow
+\mathfrak{B}$ 与 $v : \mathfrak{B} \rightarrow \mathfrak{C}$ 是两个左正合的加性函子。假定 $\mathfrak{A}$ 与 $\mathfrak{B}$ 有足够多的内射对象。下列两个性质等价:
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 存在一个谱函子, 其 $E^{p, q}_2$ 项为
+$$
+R^p vR^qu
+$$
+并收敛到 (配备适当滤过的) $R^{p+q} vu$。
+\item 函子 $u$ 将 $\mathfrak{A}$ 的内射对象映为对函子 $v$ 无环的对象。
+\end{enumerate}
+\end{enonce*}
+
+\begin{enonce*}[remark]{证明}
+(i) $\Rightarrow$ (ii) 是直接的, 因为只需将谱函子应用于一个\pageoriginale 内射对象。蕴含关系 (ii) $\Rightarrow$ (i) 已在 \cite{sga4.exp.V.bib.11} 中证明。
+\end{enonce*}
+
+\begin{enonce*}{命题 0.4}\etiquette[0.4]{V.prop0.4}
+设 $\mathfrak{A}$、$\mathfrak{B}$ 是两个阿贝尔范畴, $u : \mathfrak{A} \rightarrow \mathfrak{B}$ 是一个左正合的加性函子。%% correct word break?
+设 $M$ 是 $\mathfrak{A}$ 的对象集的子集, 满足下列性质:
+\begin{enumerate}
+\renewcommand{\labelenumi}{\theenumi)}
+\item $\mathfrak{A}$ 的每个对象都能嵌入 $M$ 的某个元素。
+
+\item 若 $X \oplus Y$ 属于 $M$, 则对象 $X$ 属于 $M$。
+
+\item 若
+$$
+0 \longrightarrow X' \longrightarrow X \longrightarrow X''
+\longrightarrow 0
+$$
+是正合列, 且 $X'$ 与 $X$ 属于 $M$, 则 $X''$ 属于 $M$, 且序列
+$$
+0 \longrightarrow u(X') \longrightarrow u(X) \longrightarrow u(X'')
+\longrightarrow 0
+$$
+正合。零对象属于 $M$。
+\end{enumerate}
+
+则每个内射对象都属于 $M$, 且 $M$ 的对象对 $u$ 都无环, 即对每个 $q \neq 0$ 以及 $M$ 的每个对象 $X$, 都有 $R^q u(X) = 0$。(特别地, 可用 $M$ 中对象组成的消解来计算 $u$ 的导出函子。)
+\end{enonce*}
+
+证明\sisi{}{,}见 \cite{sga4.exp.V.bib.11} 3.3.1。
+
+\begin{enonce*}{命题 0.5}\etiquette[0.5]{V.prop0.5}
+设 $𝒰 \subset 𝒱$ 是两个宇宙, $\mathfrak{A}$ (分别为 $\mathfrak{B}$) 是一个阿贝尔的 $𝒰$-范畴 (分别为 $𝒱$-范畴), 相对于 $𝒰$ (分别相对于 $𝒱$) 满足公理 $AB$ 5), 且有一个 $𝒰$-小 (分别为 $𝒱$-小) 生成族。设 $\epsilon : \mathfrak{A} \to \mathfrak{B}$ 是正合的全忠实函子。下列条件等价:
+\begin{itemize}
+\item[1)] $\mathfrak{A}$ 存在一个生成族 $(X_i)_{i\in I}$, 使族 $(\epsilon(X_i))_{i\in I}$ 在 $\mathfrak{B}$ 中生成。
+
+\item[1′)] $\mathfrak{B}$ 的每个对象都同构于某个形如 $\displaystyle{⨁_{\alpha \in A}} \epsilon (Y_\alpha)$ 的对象的商, 其中 $A \in 𝒱$。
+
+在这些条件下, 下述性质成立:
+
+\item[2)] $\epsilon$ 将 $𝒰$-小积映为积 (因而与 $𝒰$-小投射极限可交换)。
+\end{itemize}
+
+此外, 在等价条件 1) 或 1′) 下, 下列条件等价\pageoriginale:
+\begin{itemize}
+\item[a)] 对 $\mathfrak{A}$ 的每个对象 $Y$, $\epsilon(Y)$ 的每个子对象都同构于 $Y$ 的某个子对象在 $\epsilon$ 下的像。
+
+\item[a′)] $\mathfrak{A}$ 存在一个生成族 $(X_i)_{i \in I}$, 使族 $(\epsilon(X_i))_{i \in I}$ 在 $\mathfrak{B}$ 中生成, 且对每个 $i \in
+  I$, $\epsilon(X_i)$ 的每个子对象都同构于 $X_i$ 的某个子对象在 $\epsilon$ 下的像。
+
+\item[b)] $\mathfrak{B}$ 的每个对象都同构于某个形如 $\prod_{\alpha \in A} \epsilon(Y_\alpha)$ 的对象的子对象, 其中 $A \in 𝒱$。
+
+\item[c)] $\epsilon$ 与 $𝒰$-小直和可交换 (因而与 $𝒰$-小归纳极限可交换)。
+
+此外, 在条件 1) 与 a′) 下, 有:
+
+\item[d)] $\epsilon$ 将内射对象映为内射对象。
+\end{itemize}
+\end{enonce*}
+
+\begin{enonce*}[remark]{注 0.5.1}\etiquette[0.5.1]{V.rem0.5.1}
+若在 \hyperref[V.prop0.5]{0.5} 中有 $𝒰 = 𝒱$, 则条件 1) 与 a′) 蕴含 $\epsilon$ 是范畴等价 (因为此时 b)、2) 和 a) 成立)。
+\end{enonce*}
+
+\setcounter{subsection}{5}
+\subsubsection{}\etiquette[0.5.2]{V.subsubsec0.5.2}
+这里只给出证明的提示。蕴含关系 1) $\Leftrightarrow$ $1'$) 以及 1) $\Rightarrow$ 2) 留给读者。显然 a) $\Rightarrow$ a′)。我们证明 a′) 蕴含 d)。设 $M$ 在 $\mathfrak{A}$ 中内射。对每个 $i \in I$ 及 $X_i$ 的每个子对象 $Y \hookrightarrow X_i$, 同态 $\Hom(X_i, M) \rightarrow \Hom(Y, M)$ 满射。因此, 由 a′) 及 $\epsilon$ 的全忠实性, 对每个子对象 $U \hookrightarrow \epsilon(X_i)$, 同态 $\Hom(\epsilon (X_i), \epsilon(M)) \to \Hom(U,
+\epsilon(M))$ 满射。由于各 $\epsilon(X_i)$ 组成 $\mathfrak{B}$ 的生成族, $\epsilon(M)$ 内射 \cite{sga4.exp.V.bib.11}。
+
+证明 a′) $\Rightarrow$ b)。必要时扩大 $X_i$ 族后, 可假定对每个 $i \in I$, $X_i$ 的每个商都同构于某个合适的 $j$ 所对应的 $X_j$。对每个 $i \in I$, 取到某个内射对象的单态射 $X_i \hookrightarrow M_i$。族 $(\epsilon (X_i))_{i\in I}$ 对取商稳定, 且对 $i
+\in I$, 由 d), 态射 $\epsilon(X_i) \hookrightarrow
+\epsilon(M_i)$ 是到内射对象的单态射。此时立即可验证, 由于族 $\epsilon(X_i)$ 生成, 族 $(\epsilon(M_i))_{i \in
+I}$ 余生成, 从而得到 b)。
+
+证明 b) $\Rightarrow$ c)。设 $(Z_\alpha)_{\alpha \in A}$ 是 $\mathfrak{A}$ 中的一个 $𝒰$-小对象族; 证明典范态射
+$$
+⨁_{\alpha\in A} \epsilon(Z_\alpha) \to \epsilon(⨁_{\alpha \in A} Z_\alpha)
+$$
+是\pageoriginale 同构。由于对象族 $\epsilon(Y)$ 余生成, 只需证明对 $\mathfrak{A}$ 的每个对象 $Y$, 同态
+$$
+\Hom(\epsilon(⨁_a Z_a), \epsilon(Y)) \to
+\Hom(⨁_a \epsilon(Z_a), \epsilon(Y))
+$$
+是同构, 而这由 $\epsilon$ 的全忠实性得到。
+
+只需再证 c) $\Rightarrow$ a)。设 $Z$ 是 $\epsilon(Y)$ 的子对象。由 $1'$), 存在一个由 $\mathfrak{A}$ 的对象组成的 $𝒰$-小族 $Y_\alpha$, 以及从 $\bigoplus_{\alpha} \epsilon(Y_\alpha)$ 到 $Z$ 的满态射。由于 $\epsilon$ 与 $𝒰$-小直和可交换, 因而有满态射 $\epsilon(Y') \to Z$。将复合态射记为 $u : \epsilon(Y') \to Z
+\to \epsilon(Y)$。有 $Z =
+\text{Im}(u)$。由于 \sisi{}{$\epsilon$} 全忠实, 有 $u \sisi{:}{=} \epsilon(v)$, 因而 $Z = \text{Im}(\epsilon(\sisi{V}{v})) = \epsilon(\text{Im}(v))$。
+
+\begin{enonce*}[remark]{习题 0.5.2}\etiquette[0.5.2]{V.exe0.5.2}
+设 $\Sex_{𝒱} (\mathfrak{A})$ 为从 $\mathfrak{A}$ 到 $𝒱$-交换群范畴且与 $𝒰$-小归纳极限可交换的反变函子所成的范畴。证明, 在条件 1) 与 a′) 下, 从 $\mathfrak{B}$ 到 $\Sex_{𝒱}(\mathfrak{A})$ 的典范函子是等价。
+\end{enonce*}
+
+% END INCLUDED SGA4_English_current_buildable_source_20260906/source/05/drafts/SGA4_V_LINES_57_369_English.texfrag
+
+% BEGIN INCLUDED SGA4_English_current_buildable_source_20260906/source/05/drafts/SGA4_V_LINES_370_602_English.texfrag
+\section{平坦模}\etiquette[1]{V.sec1}
+
+\begin{enonce*}{定义 1.1}\etiquette[1.1]{V.def1.1}
+设 $(E,A)$ 是赋环拓扑斯\emph{(IV \hyperref[IV.subsubsec11.1.1]{11.1.1})}。%% label
+右 (分别为左) $A$-模 $M$ 称为平坦的, 如果从左 (分别为右) $A$-模范畴到 $E$ 的阿贝尔层范畴的函子 $M\otimes_A⋅$ (分别为 $⋅\otimes_A M$)\sisi{,}{}正合。
+\end{enonce*}
+
+\begin{enonce*}{命题 1.2}\etiquette[1.2]{V.prop1.2}
+设 $M$ 是 $B$-$A$-双模。
+\begin{enumerate}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 下列性质等价:
+\renewcommand{\theenumii}{\roman{enumii}}
+\renewcommand{\labelenumii}{\theenumii)}
+\begin{enumerate}
+\item 模 $M$ 作为右 $A$-模平坦。
+\item 对每个内射的 $B$-模 $I$, 左 $A$-模 $\Hhom_B(M,I)$ 内射。
+\end{enumerate}
+\item 平坦模的伪滤过归纳极限\emph{(I \hyperref[I.exem2.7.1]{2.7.1})} %% label
+$M$ 是平坦的。
+
+\item 最后, 若
+$M_∙=\cdots\sisi{}{\to}M_{i+1}\to M_i\sisi{}{\to}\cdots$
+是平坦模组成的无环复形, 其中 $(M_i=0$、$i<i_0)$, 则对每个模 $F$, 复形
+$$
+M_∙\otimes_A F=\cdots\sisi{}{\to}M_{i+1}\otimes_A F\to
+M_i\otimes_A F\sisi{}{\to}\cdots
+$$
+是\pageoriginale 无环的。
+\end{enumerate}
+\end{enonce*}
+
+\begin{enonce*}[remark]{证明}
+由 (IV \hyperref[IV.cor12.12]{12.12}), %% label
+有伴随同构:
+$$
+\Hom_B(M\otimes_A\mathord\cdot,\mathord\cdot)\xrightarrow{\sim}
+\Hom_A(\mathord\cdot,\Hhom_B(M,\mathord\cdot)){\quoi}.
+$$
+此时只需应用 \hyperref[V.prop0.2]{0.2} 即得等价性 (i) $\Leftrightarrow$ (ii)。此伴随同构也表明张量积与归纳极限可交换。伪滤过归纳极限正合这一事实 (\hyperref[V.prop0.1]{0.1}) 蕴含第二个断言。要证明复形 $M_∙\otimes_A F$ 无环, 只需证明对每个内射阿贝尔层 $I$, 复形 $\Hom^{∙}_{\ZZ}(M_∙\otimes_A F,I)$ 无环。由伴随公式, 此复形同构于 $\Hom^{∙}_A(F,\Hhom_{\ZZ}(M_∙,I))$。但由等价性 (i) $\Leftrightarrow$ (ii), 层复形
+$$
+\Hhom_{\ZZ}(M_∙,I)
+$$
+是由内射对象组成的无环复形, 从而得到结论。
+\end{enonce*}
+
+\begin{enonce*}{命题 1.3.1}\etiquette[1.3.1]{V.prop1.3.1}
+设 $(E,A)$ 是赋环拓扑斯, $H$ 是 $E$ 的对象, $M$ 是平坦的 $A_{/H}$-模。则 $j_{H!}M$ 是平坦的 $A$-模。特别地, $A_H$ 左右平坦。
+\end{enonce*}
+
+为明确起见, 假定 $M$ 是右 $A_{/H}$-模。对每个左 $A$-模 $P$, 有典范同构 (IV 12) %% label
+$$
+j_{H!}M\otimes_A P\simeq
+j_{H!}(M\otimes_{A_{/H}}j_H^{\ast}P){\quoi}.
+$$
+函子 $j_{H!}$ 与 $j_H^{\ast}$ 正合 (IV \hyperref[IV.prop11.3.1]{11.3.1} 和 \hyperref[IV.subsubsec11.2.2]{11.12.2}), 且根据假设, 函子 $M\otimes_{A_{/H}}-$ 正合。因此函子 $P\longmapsto j_{H!}M\otimes_A P$ 正合, $j_{H!}M$ 平坦。
+
+\begin{enonce*}{命题 1.3.2}\etiquette[1.3.2]{V.prop1.3.2}
+(闭浸入的投影公式):
+
+设 $(E,A)$ 是赋环拓扑斯, $i:F\to E$ 是 $E$ 的闭子拓扑斯。令 $i^{\ast}A=A_{/F}$。对每个右 $A_{/F}$-模 $M$ 及每个左 $A$-模 $P$, 都有\pageoriginale 函子性的同构
+$$
+i_\ast(M\otimes_{A_{/F}}i^\ast P)\simeq(i_\ast M)\otimes_A P.
+$$
+\end{enonce*}
+
+设 $U$ 为 $F$ 的开补集, $j:U\to E$ 为典范浸入态射。有 $j^{\ast}(i_\ast M\otimes_A P)\simeq
+0\otimes_{A_{/U}}j^\ast(P)$ (IV 12); 因此 $i_\ast M\otimes_A P$ 的支集包含于 $F$。于是伴随态射 $i_\ast M\otimes_A P\to i_\ast i^\ast(i_\ast M\otimes_A P)$ 是同构 (IV 14)。有 $i^{\ast}(i_\ast M\otimes_A P)\simeq
+i^\ast i_\ast M\otimes_{A_{/F}}i^\ast P$ (IV 12), 且由于 $i:F\to E$ 是闭浸入, $i^{\ast}i_\ast M\simeq M$ (IV 14); 由此得到所断言的同构。
+
+\begin{enonce*}{推论 1.3.3}\etiquette[1.3.3]{V.cor1.3.3}
+对每个平坦的 $A_{/F}$-模 $M$, $i_\ast M$ 都平坦。
+\end{enonce*}
+
+由 \hyperref[V.prop1.3.2]{1.3.2} 及 (IV 14) 可知, 函子 $P\longmapsto(i_\ast M)\otimes_A P$ 正合。
+
+\setcounter{subsection}{3}
+\subsection{}\etiquette[1.4]{V.subsec1.4}
+设 $(E,A)$ 是赋环拓扑斯, $x:P\to E$ 是 $E$ 的一个点 (IV \hyperref[IV.def6.1]{6.1}), $\Vois(x)$ 是 $x$ 的邻域范畴 (IV \hyperref[IV.subsec6.8]{6.8})。$\Vois(x)$ 的每个对象 $V$ 对应于一个 $E$ 的对象 (也记为 $V$), 以及 $E/V$ 的一个点 $x_V:P\to E/V$。此外, $\Vois(x)$ 中的每个态射 $u:V\to W$ 都对应于一个由拓扑斯态射组成的本质交换图 (IV \hyperref[IV.subsec6.7]{6.7})
+\[\vcenter{
+\xymatrix@C=2.5cm@R=1.5cm{
+P \ar[r]^{x_V} \ar[rd]_{x_W}& E/V \ar[d]^{j_u}\\
+& E/W\quad .
+}}\leqno{(1.4.1)}
+\]\etiquette[1.4.1]{V.eq1.4.1}
+设 $N$ 是 $A_x$-模 (分别为集合)。由图 \eqhyperref[V.eq1.4.1]{1.4.1} 得到 $A_x$-模图 (分别为集合图):
+\[\vcenter{
+\xymatrix@C=2cm@R=1.5cm{
+x^{\ast}_W x_{W\ast}N \ar[r]^{\ad_W} \ar[d]_{\phi(u)}& N\\
+x^{\ast}_V x_{V\ast}N \ar[ru]_{\ad_V}&
+}}\leqno{(1.4.2)}
+\]\etiquette[1.4.2]{V.1.4.2}
+其中\pageoriginale $\ad_W$ 和 $\ad_V$ 为伴随态射。此外, 立即可验证 $\phi(uv)=\phi(v)\phi(u)$。因此有从滤过范畴 $\Vois(x)^{\circ}$ 到 $A_x$-模范畴 (分别为集合范畴) 的函子, 以及同态
+\begin{equation}
+\Lambda(N):\varinjlim_{V\in\Vois(x)^{\circ}}
+x^{\ast}_Vx_{V\ast}N\to N{\quoi}.\tag{1.4.3}
+\end{equation}\etiquette[1.4.3]{V.1.4.3}
+
+\begin{enonce*}{命题 1.5}\etiquette[1.5]{V.prop1.5}
+对每个 $A_x$-模 (分别为集合) $N$, $\Lambda(N)$ 都是同构。
+\end{enonce*}
+
+此命题是 Deligne 的一个命题 (\hyperref[V.prop8.2.6]{8.2.6}) 的特殊情形。给出一个直接证明。通过转到底集合, 只需在 $N$ 是集合时证明此命题 (I \hyperref[I.prop2.8]{2.8})。%% label
+由 $\Vois(x)$ 的箭头组成的余滤过范畴 $\mathrm{Fl}(\Vois(x))$, 通过将箭头映为其靶的函子 $p:\mathrm{Fl}(\Vois(x))\to\Vois(x)$ 成为 $\Vois(x)$ 上的纤维范畴。设 $D$ 是范畴, $F:\mathrm{Fl}(\Vois(x))\to D$ 是 pro-对象 (I \hyperref[I.sec8.10]{8.10})。%% label
+对 $\Vois(x)$ 的每个对象 $V$, 用 $F_V$ 表示将函子 $F$ 限制到纤维范畴 $\Vois(x)/V$ 而得到的 pro-对象。对 $\Vois(x)$ 的每个态射 $m:U\to V$, 沿 $m$ 的基变换函子配以一个从 pro-对象 $F_U$ 到 pro-对象 $F_V$ 的态射, 而典范 pro-对象态射 $F\to F_V$ 决定一个 pro-对象态射
+\begin{equation*}
+F\to\varprojlim_{V\in\Vois(x)^{\circ}}F_V\tag{1.5.1}
+\end{equation*}\etiquette[1.5.1]{V.1.5.1}
+立即可验证它是同构。将此观察应用于带点集合的 pro-对象
+\begin{equation*}
+(U,V,m)\longmapsto x^{\ast}_V(m)=F(U,V,m){\quoi}.\tag{1.5.2}
+\end{equation*}\etiquette[1.5.2]{V.1.5.2}
+得到 pro-对象同构
+\begin{equation*}
+F\xrightarrow{\sim}\varprojlim_{\Vois(x)}
+\varprojlim_{\Vois(x)/V}x^{\ast}_V(m){\quoi};\tag{1.5.3}
+\end{equation*}\etiquette[1.5.3]{V.1.5.3}
+从而对每个集合 $N$ 有双射
+\begin{equation*}
+\varinjlim_{\mathrm{Fl}(\Vois(x))^{\circ}}
+\Hom(x^{\ast}_V(m),N)\simeq
+\varinjlim_{\Vois(x)^{\circ}}
+\varinjlim_{(\Vois(x)/V)^{\circ}}
+\Hom(x^{\ast}_V(m),N).\tag{1.5.4}
+\end{equation*}\etiquette[1.5.4]{V.1.5.4}
+但\pageoriginale 固定 $V$ 时, $\varinjlim_{(\Vois(x)/V)^{\circ}}\Hom(x^{\ast}_V(m),N)$ 等同于 $x^{\ast}_Vx_{V\ast}N$。事实上, 由 IV \hyperref[IV.eq6.8.1]{6.8.1} 有 $x^{\ast}_Vx_{V\ast}N\simeq
+\varinjlim_{\Vois(x_V)^\circ}\Hom_{E/V}(W,x_{V\ast}N)$, 从而由伴随性有 $x^{\ast}_Vx_{V\ast}N\simeq
+\varinjlim_{\Vois(x_V)^\circ}\Hom(x^{\ast}_V(W),N)$; 此外, 范畴 $\Vois(x_V)$ 等价于范畴 $\Vois(x)/V$ (IV \hyperref[IV.eq6.7.2]{6.7.2})。最后, \eqhyperref[V.1.5.4]{1.5.4} 中的典范转移映射 \[
+\varinjlim_{(\Vois(x)/U)^{\circ}}\Hom(x^{\ast}_U(m),N)\to
+\varinjlim_{(\Vois(x)/V)^{\circ}}\Hom(x^{\ast}_V(n),N)
+\] 等同于 \eqhyperref[V.1.4.3]{1.4.3} 中的典范映射 $x^{\ast}_Ux_{U\ast}N\to x^{\ast}_Vx_{V\ast}N$, 读者可自行验证。因此有双射
+\begin{equation*}
+\varinjlim_{\mathrm{Fl}(\Vois(x))^{\circ}}
+\Hom(x^{\ast}_V(m),N)\simeq
+\varinjlim_{\Vois(x)^{\circ}}x^{\ast}_Vx_{V\ast}N\tag{1.5.5}
+\end{equation*}\etiquette[1.5.5]{V.1.5.5}
+且 \eqhyperref[V.1.4.3]{1.4.3} 的映射 $\Lambda(N):\varinjlim_{\Vois(x)^{\circ}}x^{\ast}_Vx_{V\ast}N\to N$ 与双射 \eqhyperref[V.1.5.5]{1.5.5} 复合后, 来自那些将映射 $r:x^{\ast}_V(m)\to N$ 映为 $x^{\ast}_V(m)$ 的指定点在 $r$ 下的像的映射 $\Hom(x^{\ast}_V(m),N)\to N$。要证明命题, 此时只需观察到, $\mathrm{Fl}(\Vois(x))$ 的每个对象 $(U,V,m)$ 都以 $(U,U,\id_U)$ 为下界, 且 $x^{\ast}_U(\id_U)$ 只有一个元素; 换言之, 从由单个元素组成的常值 pro-对象到 $F$ 的典范态射是 pro-对象同构。
+
+\begin{enonce*}{命题 1.6}\etiquette[1.6]{V.prop1.6}
+设 $(E,A)$ 是赋环拓扑斯, $M$ 是 $A$-模。
+\begin{enumerate}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 若 $M$ 平坦, 则对 $E$ 的每个点 $x:P\to E$, $A_x$-模 $M_x$ 平坦。
+\item 设 $(x_i)_{i\in I}$ 是 $E$ 的一个保守点族, 使对每个 $i\in I$, $M_{x_i}$ 都是平坦的 $A_{x_i}$-模。
+\end{enumerate}
+则 $M$ 平坦。
+\end{enonce*}
+
+\begin{enonce*}{引理 1.6.1}\etiquette[1.6.1]{V.lem1.6.1}
+设 $M$ 是平坦模, $V$ 是 $E$ 的对象。则 $A/V$-模 $j^{\ast}_VM$ 平坦。
+\end{enonce*}
+
+须证明函子 $P\longmapsto P\otimes_{A/V}j^{\ast}_VM$ 正合。由于补零延拓函子 $j_{V!}$ 正合且忠实 (IV \hyperref[IV.prop11.3.1]{11.3.1}), 只需证明函子 $P\longmapsto j_{V!}(P\otimes_{A/V}j^{\ast}_VM)$ 正合。有函子性的同构\pageoriginale $j_{V!}(P\otimes_{A/V}j^{\ast}_VM)\simeq
+j_{V!}(P)\otimes_A M$ (IV \hyperref[IV.prop12.11]{12.11}); 因此函子 $P\longmapsto j_{V!}(P)\otimes_A M$ 正合 (IV \hyperref[IV.prop11.3.1]{11.3.1})。
+
+\setcounter{subsection}{6}
+\setcounter{subsubsection}{1}
+
+% END INCLUDED SGA4_English_current_buildable_source_20260906/source/05/drafts/SGA4_V_LINES_370_602_English.texfrag
+
+% BEGIN INCLUDED SGA4_English_current_buildable_source_20260906/source/05/drafts/SGA4_V_LINES_603_925_English.texfrag
+\subsubsection{}\etiquette[1.6.2]{V.subusbsec1.6.2}
+先证 1)。为明确起见, 假定 $M$ 是平坦的左 $A$-模, $x:P\to E$ 是 $E$ 的一个点。证明从右 $A_x$-模范畴到交换群范畴的函子 $N\mapsto N\otimes_{A_x}M_x$ 正合。为此只需证明该函子左正合。沿用 \hyperref[V.subsec1.4]{1.4} 的记号, 设 $V$ 是 $x$ 的邻域, $j_V:E/V\to E$ 是局部化态射。对每个 $A_x$-模 $N$, 有 $x_V^\ast x_{V\ast}N\otimes_{A_x}M_x\simeq
+x_V^\ast x_{V\ast}N\otimes_{A_x}x_V^\ast j_V^\ast M\simeq
+x_V^\ast(x_{V\ast}N\otimes_{A/V}j_V^\ast M)$ (IV \hyperref[IV.prop12.11]{12.11})。因此函子 $N\mapsto x_V^\ast x_{V\ast}N\otimes_{A_x}M_x$ 左正合。于是函子 $N\mapsto N\otimes_{A_x}M_x$ 作为左正合函子的滤过归纳极限 (\hyperref[V.prop1.5]{1.5}), 也是左正合的。
+
+再证 2)。设 $0\to P'\to P\to P''\to0$ 是 $A$-模的正合列, 证明序列 $0\to P'\otimes_A M\to P\otimes_A M\to P''\otimes_A M\to0$ 正合。只需证明对每个 $i\in I$, 转到 $x_i$ 处的纤维后得到的序列正合 (IV 6)。但 $x_i$ 处的纤维序列正是 (IV \hyperref[IV.cor13.5]{13.5})
+$$
+0\to P'_{x_i}\otimes_{A_{x_i}}M_{x_i}\to
+P_{x_i}\otimes_{A_{x_i}}M_{x_i}\to
+P''_{x_i}\otimes_{A_{x_i}}M_{x_i}\to0,
+$$
+由于 $M_{x_i}$ 平坦, 此序列正合。
+
+\begin{enonce*}{命题 1.7}\etiquette[1.7]{V.prop1.7}
+设 $(E,A)$ 是赋环拓扑斯, $u:E'\to E$ 是拓扑斯态射, 令 $A'=u^{\ast}A$。设 $M$ 是右 (分别为左) $A'$-模。下列条件等价:
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 从左 (分别为右) $A$-模范畴到 $E'$ 上阿贝尔层范畴的函子 $N\mapsto M\otimes_{A'}u^{\ast}N$ (分别为 $N\mapsto u^{\ast}N\otimes_{A'}M$) 正合。
+\item $M$ 是平坦的 $A'$-模。
+\end{enumerate}
+\end{enonce*}
+
+显然 ii) $\Rightarrow$ i)。
+
+证明 i) $\Rightarrow$ ii)。只在 $E'$ 具有保守点族 $(x_i)_{i\in I}$ 时给出证明。一般情形将在 (\hyperref[V.prop8.2.7]{8.2.7}) 中讨论。在这个涵盖多数应用的特殊情形下, 归结\pageoriginale 到 $E'$ 为点拓扑斯, 从而态射 $u$ (此时记为 $x$) 为 $E$ 的点的情形 (\hyperref[V.prop1.6]{1.6} 及 IV \hyperref[IV.prop11.3.1]{11.3.1})。只讨论 $M$ 为右 $A'$-模的情形。通过转到对径环, $M$ 为左 $A'$-模的情形可归结到此情形。设 $V$ 是 $x$ 的邻域, $V_x$ 是其在 $x$ 处的纤维。沿用 \hyperref[V.subsec1.4]{1.4} 的记号, 有由拓扑斯态射组成的本质交换图:
+\[
+\xymatrix@C=2.25cm@R=1.5cm{
+P \ar[r]^{j} \ar[rd]_{x_V}& P/V_{x}\ar[r]^{j_{V_x}} \ar[d]^{x/V}& P\ar[d]^{x}\\
+  & E/V \ar[r] & E\quad \sisi{,}{}
+}
+\]
+其中 $x/V$ 是由 $x$ 在 $V$ 上局部化而得到的态射 (IV \hyperref[IV.subsec5.10]{5.10}), $j$ 是由 $V_x$ 的指定点得到的态射。证明函子 $N'\mapsto M\otimes_{A'}x_V^{\ast}N'$ 正合。有 $x_V^{\ast}=j^{\ast}(x/V)^{\ast}$ 与 $\id=j^{\ast}j_{V_x}^{\ast}$; 因此有典范同构
+$$
+M\otimes_{A'}x_V^{\ast}N'\simeq
+j^{\ast}\bigl(j_{V_x}^{\ast}M\otimes_{A'/V_x}(x/V)^{\ast}N'\bigr).
+$$
+由于 $j^{\ast}$ 正合, 且函子 $j_{V_x!}$ 正合且忠实 (IV \hyperref[IV.prop11.3.1]{11.3.1}), 只需证明函子
+$$
+N'\longmapsto j_{V_x!}\Bigl(j_{V_x}^{\ast}M\otimes_{A'/V_x}
+(x/V)^{\ast}N'\bigr)
+$$
+正合; 因此 (IV \hyperref[IV.prop12.11]{12.11}), 只需证明函子 $N'\mapsto M\otimes_{A'}x^{\ast}j_{V!}N'$ 正合。但由诱导拓扑斯的逆像的定义 (\hyperrefext[IV][IV.eq5.10.2]{5.10.2}) 可知, $j_{V_x!}(x/V)^{\ast}N'$ 等于 $x^{\ast}j_{V!}N'$, 又由于函子 $j_{V!}$ 正合 (\hyperrefext[IV][IV.prop11.3.1]{11.3.1}), 根据假设, 函子 $N'\mapsto M\otimes_{A'}j_{V_x!}(x/V)^{\ast}N'$ 正合。
+
+对每个 $A'$-模 $Q$, 都有函子性的同构 (\hyperref[V.prop1.5]{1.5}):
+$$
+Q\simeq \varinjlim_{\Vois(x)^{\circ}}x_V^{\ast}x_{V\ast}Q{\quoi}.
+$$
+由上所述, 函子 $Q\mapsto M\otimes_{A'}Q$ 是左正合函子的滤过归纳极限。因而它左正合, 从而 $M$ 平坦。
+
+\begin{enonce*}{推论 1.7.1}\etiquette[1.7.1]{V.cor1.7.1}
+设 $u:(E',A')\to(E,A)$ 是赋环拓扑斯态射, $M$ 是平坦的 $A$-模。则 $u^{\ast}M$ 是平坦的 $A'$-模。
+\end{enonce*}
+
+这由 \hyperref[V.prop1.7]{1.7} 给出的判据及公式 (IV \hyperlink{sga4.exp.IV.equation.13.4.5}{13.4.5}) 得到。
+
+\begin{enonce*}{推论 1.7.2}\etiquette[1.7.2]{V.cor1.7.2}
+设\pageoriginale $u:(E',A')\to(E,A)$ 是赋环拓扑斯态射。下列条件等价:
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 右 (分别为左) $u^{-1}(A)$-模 $A'$ 平坦。
+\item 从左 (分别为右) $A$-模范畴到左 (分别为右) $A'$-模范畴的函子 $u^{\ast}$ 正合。
+\end{enumerate}
+\end{enonce*}
+
+等价性由 \hyperref[V.prop1.7]{1.7} 及 $u^{\ast}$ 的定义 (IV \hyperref[IV.subsubsec13.2.1]{13.2.1}) 得到。
+
+\begin{enonce*}{定义 1.8}\etiquette[1.8]{V.def1.8}
+具有 \hyperref[V.cor1.7.2]{1.7.2} 中的等价性质的赋环拓扑斯态射, 称为左 (分别为右) 平坦的赋环拓扑斯态射。
+\end{enonce*}
+
+\begin{enonce*}{命题 1.9}\etiquette[1.9]{V.prop1.9}
+设 $𝒰\subset 𝒱$ 是两个宇宙, $C$ 是 $𝒰$-景, $C^{\sim}_{𝒰}$ 和 $C^{\sim}_{𝒱}$ 分别为 $𝒰$-集合层与 $𝒱$-集合层的范畴, $\epsilon:C^{\sim}_{𝒰}\to C^{\sim}_{𝒱}$ 是典范包含函子, $A$ 是 $C$ 上的 $𝒰$-环层。
+\begin{enumerate}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 函子 $\epsilon$ 与模的 $𝒰$-小归纳极限及投射极限可交换。函子 $\epsilon$ 在模范畴上保守且全忠实。
+
+\item 对 $C^{\sim}_{𝒰}$ 的每个对象 $H$, 有典范同构 $\epsilon(A_H)\simeq \epsilon(A)_{\epsilon(H)}$。
+
+\item 每个内射的左或右 $A$-模都被 $\epsilon$ 映为内射的 $\epsilon(A)$-模。
+
+\item 每个平坦的右或左 $A$-模都被 $\epsilon$ 映为平坦的 $\epsilon(A)$-模。
+
+\item 函子 $\epsilon$ 与张量积及同态层的构造可交换。
+\end{enumerate}
+\end{enonce*}
+
+相伴层的构造与宇宙无关 (II \hyperref[II.prop3.6]{3.6})。于是由层范畴中归纳极限和投射极限的构造 (II \hyperref[II.theo4.1]{4.1} 与 \hyperref[II.prop6.4]{6.4}) 可知, 函子 $\epsilon$ 与集合或模的 $𝒰$-小投射极限可交换, 由此得 1)。证明 2)。取 $C^{\sim}_{𝒰}$ 的一个 $𝒰$-小生成子范畴, 可归结为 $C$ 为 $𝒰$-小的情形\pageoriginale (III \hyperref[III.theo4.1]{4.1})。由 (II \hyperref[II.prop6.5]{6.5}) 可知, 由 $H$ 生成的自由 $A$-模可如下得到: 先构造由 $H$ 生成的自由 $A$-模预层 (此构造与扩大宇宙可交换), 再构造相伴层 (此运算同样与扩大宇宙可交换 (II \hyperref[II.prop3.6]{3.6}))。为证 3), 根据 \hyperref[V.prop0.5]{0.5} 只需证明, $𝒰$-层的每个 $𝒱$-子层都是 $𝒰$-层, 这是显然的。
+
+证明 4)。设 $M$ 是平坦的 $A$-模。只需证明, 对每个内射的 $\epsilon(A)$-模 $J$, 阿贝尔层 $\Hhom_{\epsilon(A)}(\epsilon(M),J)$ 都内射 (\hyperref[V.prop1.2]{1.2})。由 \hyperref[V.prop0.5]{0.5}, $J$ 是一个形如 $\prod_{\alpha}\epsilon(I_{\alpha})$ 的对象的子对象, 从而是它的直因子, 其中各 $I_{\alpha}$ 内射。因此可假定 $J=\epsilon(I)$, 其中 $I$ 是内射对象。如果同态
+$$
+\epsilon(\Hhom_A(M,I))\longrightarrow
+\Hhom_{\epsilon(A)}(\epsilon(M),\epsilon(I))
+$$
+是同构, 则由 3) 可知 $\Hhom_{\epsilon(A)}(\epsilon(M),\epsilon(I))$ 内射。因此只需再证 5)。张量积的构造与函子 $\epsilon$ 可交换, 这由 IV \hyperref[IV.cor12.6]{12.6} 以及相伴层的构造与扩大宇宙可交换 (II \hyperref[II.prop3.6]{3.6}) 得到。于是对 $C^{\sim}_{𝒰}$ 的每个对象 $X$ 及 $C^{\sim}_{𝒰}$ 的每对 $A$-模 $M,N$, 由 $\epsilon$ 的全忠实性有
+$$
+\begin{aligned}
+\Hom_{C^{\sim}_{𝒱}}(\epsilon(X),\epsilon(\Hhom_A(M,N)))&\simeq
+\Hom_{C^{\sim}_{𝒰}}(X,\Hhom_A(M,N))\\
+&\simeq\Hom_A(\ZZ_X\otimes_{\ZZ}M,N)
+\end{aligned}
+$$
+进而由 $\epsilon$ 的全忠实性及上述结果有
+$$
+\begin{aligned}
+\Hom_A(\ZZ_X\otimes_{\ZZ}M,N)&\simeq
+\Hom_{\epsilon(A)}(\epsilon(\ZZ_X\otimes_{\ZZ}M),\epsilon(N))\\
+&\simeq
+\Hom_{\epsilon(A)}(\epsilon(\ZZ_X)\otimes_{\ZZ}\epsilon(M),
+\epsilon(N))
+\end{aligned}
+$$
+最后利用 2) 和 IV \hyperref[IV.prop12.14]{12.14}, 得到同构
+$$
+\Hom_{C^{\sim}_{𝒱}}(\epsilon(X),\epsilon(\Hhom_A(M,N)))\simeq
+\Hom_{C^{\sim}_{𝒱}}(\epsilon(X),
+\Hhom_{\epsilon(A)}(\epsilon(M),\epsilon(N)));
+$$
+从而得到所断言的同构。
+
+\setcounter{subsection}{9}
+\subsection{}\etiquette[1.10]{V.subsec1.10}
+设 $E$ 是拓扑斯, $\Uu=(U_i\to X)_{i\in I}$ 是同靶态射组成的小族。对每个有限集 $\Delta_n=\sisi{[0,\ldots,n]}{\{0,\ldots,n\}}$, 令
+$$
+S_n(\Uu)=\coprod_{f:\Delta_n\to I}
+U_{f(0)}\times_X\cdots\times_X U_{f(n)}{\quoi},
+$$
+其中余积取遍从 $\Delta_n$ 到 $I$ 的映射集。设 $m,n$ 是两个整数,\pageoriginale $g:\Delta_m\to\Delta_n$ 是映射。如下定义态射
+\begin{equation*}
+s(g):S_n(\Uu)\to S_m(\Uu){\quoi}\sisi{,}{}\tag{1.10.1}
+\end{equation*}\etiquette[1.10.1]{V.1.10.1}
+: 对每个 $f:\Delta_n\to I$, $s(g)$ 在 \mbox{$U_{f(0)}\times_X\cdots\times_X U_{f(n)}$} 上的限制, 是典范包含
+$$
+U_{f(g(0))}\times_X\cdots\times_X U_{f(g(m))}
+\hookrightarrow S_m(\Uu){\quoi},
+$$
+与满足对每个 $i\in\Delta_m$ 有
+$$
+\pr_{f(g(i))}s_f(g)=\pr_{f(g(i))}
+$$
+的唯一态射
+$$
+s_f(g):U_{f(0)}\times_X\cdots\times_X U_{f(n)}\to
+U_{f(g(0))}\times_X\cdots\times_X U_{f(g(m))}
+$$
+的复合 ($\pr_a$ 表示第 $a$ 个投影)。这样得到从有限集范畴到 $E$ 的反变函子 $\Delta_n\mapsto S_n$; 换言之, 得到由 $E$ 的对象组成的半单纯复形 $S_∙(\Uu)$。注意, 此复形典范增广到 $X$。每个从 $E$ 到范畴 $C$ 的函子, 都将 $S_∙(\Uu)$ 映为 $C$ 的单纯对象。特别地, 若 $A$ 是 $E$ 的环, 则“由它生成的自由 $A$-模”函子将 $S_∙(\Uu)$ 映为一个增广到 $A_X$ 的 $A$-双模的单纯复形, 记为 $A_∙(\Uu)$。有
+\begin{equation*}
+A_n(\Uu)=\bigoplus_{f:\Delta_n\to I}
+A_{U_{f(0)}\times_X\cdots\times_X U_{f(n)}}{\quoi}.\tag{1.10.2}
+\end{equation*}\etiquette[1.10.2]{V.1.10.2}
+常将此复形写为
+\[
+\xymatrix@C=1cm@M=.5cm{
+  \cdots  \ar@<12pt>[r]^(.4){s_0} \ar[r]^(.4){s_1} \ar@<-12pt>[r]^(.4){s_2}&
+\displaystyle{\mathop{\bigoplus}_{i,j}} \quad A_{U_i ×_X U_j}
+ \ar@<6pt>[r]^(.55){s_0}\ar@<-6pt>[r]^(.55){s_1} &
+\displaystyle{\mathop{\bigoplus}_{i}}\quad A_{U_i} \ar@<2pt>[r]& A_X \\
+}\tag{1.10.3} %% problem (numbering in the wrong place) \XXX
+\]\etiquette[1.10.3]{V.1.10.3}
+其中 \eqhyperref[V.1.10.3]{1.10.3} 中的箭头 (除去作为增广的最后一个箭头) 表示单纯复形 $A_∙(\Uu)$ 的面算子, 即与从 $\Delta_n$ 到 $\Delta_{n+1}$ 的递增单射相应的态射 ($s_i$ 略去整数 $i$)。对复形 $A_∙(\Uu)$, 配以增广到 $A_X$ 的微分复形
+\begin{equation}
+\cdots\xrightarrow{d}\bigoplus_{i,j}A_{U_i\times_XU_j}
+\xrightarrow{d}\bigoplus_iA_{U_i}\to A_X{\quoi},
+\sisi{\tag*{1.10.4}}{\tag{1.10.4}}
+\end{equation}\etiquette[1.10.4]{V.1.10.4}
+其定义为\pageoriginale
+\begin{equation}
+d=\sum(-1)^is_i.\sisi{\tag*}{\tag}{1.10.5}
+\end{equation}\etiquette[1.10.5]{V.1.10.5}
+
+\begin{enonce*}{命题 1.11}\etiquette[1.11]{V.prop1.11}
+当族 $\Uu=(U_i\to X)_{i\in I}$ 是满态射族时, 微分复形 \eqhyperref[V.1.10.4]{1.10.4} 无环, 并给出 $A_X$ 的一个消解。
+\end{enonce*}
+
+以 $\ZZ$ 表示值为 $\ZZ$ 的常值层。由“由它生成的自由 $A$-模”函子的定义, 对 $E$ 的每个对象 $H$ 有
+$$
+A_H\simeq {\ZZ}_H\otimes_{\ZZ}A{\quoi},
+$$
+从而
+$$
+A_∙(\Uu)\simeq \ZZ_∙(\Uu)\otimes_{\ZZ}A{\quoi}.
+$$
+由于 $\ZZ_∙(\Uu)$ 的各项都是平坦的 $\ZZ$-模 (\hyperref[V.prop1.3.1]{1.3.1}), 只需在 $A=\ZZ$ 时证明命题。
+
+先假定 $E$ 是集合拓扑斯。此时增广复形 $S_∙(\Uu)$ 是形如
+\[
+\xymatrix@C=.6cm@M=.18cm@R=.3cm{
+\cdots \ar@<9pt>[r] \ar@<3pt>[r] \ar@<-3pt>[r] \ar@<-9pt>[r]&
+S\times S\times S \ar@<5pt>[r]\ar[r]\ar@<-5pt>[r]&S\times S
+\ar@<2pt>[r]\ar@<-2pt>[r]&S\ar[r]&\{e\}&
+\txt{（$\{e\}$ 为单元素集）。}
+}
+\]
+的增广复形的直和。每个这样的增广复形都同伦平凡。因而 $S_∙(\Uu)$ 是同伦平凡的增广复形, 其同调平凡, 从而证明了此情形的命题。
+
+现在设 $p:\text{Ens}\to E$ 为 $E$ 的一个点。由于复形 $\ZZ_∙(\Uu)$ 的构造与拓扑斯态射的逆像函子可交换, $p^{\ast}(\ZZ_∙(\Uu))\simeq\ZZ_∙(p^{\ast}(\Uu))$ 是 ${\ZZ}_{p^{\ast}X}\simeq p^{\ast}({\ZZ}_X)$ 的一个消解; 这就证明了 $E$ 有足够多的纤维函子时的命题 (IV \hyperref[IV.subsec4.6]{4.6})。特别地, 若 $E$ 为预层拓扑斯 $C^{\wedge}$, 此条件成立, 因为对 $C$ 的每个对象 $X$, $\Gamma(X,-)$ 都是纤维函子。在一般情形下, $E$ 等价于某个小景 $C$ 上的层拓扑斯 (IV 1), 而满态射族 $\Uu=(U_i\to X)_{i\in I}$ 是某个满态射族 $\Uu'=(U'_i\to X')_{i\in I}$ 在“相伴层”函子下的像。因此,\pageoriginale ${\ZZ}_∙(\Uu)\simeq\underline{a}{\ZZ}_∙(\Uu')$ 是 $\underline{a}{\ZZ}_{X'}\simeq{\ZZ}_X$ 的一个消解。
+
+% END INCLUDED SGA4_English_current_buildable_source_20260906/source/05/drafts/SGA4_V_LINES_603_925_English.texfrag
+
+% BEGIN INCLUDED SGA4_English_current_buildable_source_20260906/source/05/drafts/SGA4_V_LINES_926_1361_English.texfrag
+\section{Čech 上同调. 上同调记号}\etiquette[2]{V.sec2}
+
+\subsection{一般记号}\etiquette[2.1]{V.subsec2.1}
+
+\subsubsection{}\etiquette[2.1.1]{V.subsubsec2.1.1}
+设 $(E, A)$ 是赋环拓扑斯, $M$、$N$ 是两个 $A$-模 (为明确起见, 设为左模)。以 $\Ext^q_A (E; M, N)$ 表示函子 $\Hom_A(M,⋅)$ \cite{sga4.exp.V.bib.11} 的第 $q$ 个右导出函子在 $N$ 处的值。函子 $\Ext_A^q(E; M, N)$, $q \in
+\NN$, 关于变量 $N$ 组成一个 $\delta$-函子。它们关于变量 $M$ 也组成一个反变的 $\delta$-函子。按定义有 $\Ext_A^0(E; M, N) = \Hom_A(M, N)$。
+
+\subsubsection{}\etiquette[2.1.2]{V.subsubsec2.1.2}
+
+设 $X$ 是 $E$ 的对象。当 $M = A_X$ 为由 $X$ 生成的自由 $A$-模时 (IV 12), 令 $\Ext_A^q(E; A_X, N) = H^q(X,
+N)$。注意, 此新记号中不再出现环 $A$。这不会引起混淆, 因为将证明 (\hyperref[V.cor3.5]{3.5}), $H^q(X,⋅)$ 的构造\sisi{与}{与}标量限制可交换。函子 $H^q(X,⋅)$ 是函子 $\Hom_A(A_X,⋅) = \Hom_E(X,⋅)$ (也记作 $\Gamma(X,⋅)$) 的第 $q$ 个右导出函子。当 $M = A$ 时, 令 $\Ext^q_A(E; A, N) = H^q(E, N)$。
+
+\subsection{局部化}\etiquette[2.2]{V.subsec2.2}
+
+设 $X$ 是 $E$ 的对象, $j : E_{/X} \to E$ 是局部化态射 (IV 8)。模函子 $j^\ast_X$\sisi{,}{}正合 (\hyperref[V.prop4.11]{4.11}), 且有一个正合的左伴随 $j_{X!}$ (\hyperref[V.prop4.11]{4.11})。因此它将内射模映为内射模。于是对于 $E$ 的变动 $A$-模 $N$ 与 $E_{/X}$ 的变动 $A | X$-模 $M$, 有函子性的同构
+\begin{equation*}
+\Ext^q_{A | X}(E_{/X} ; M, j^\ast_X N) \simeq \Ext^q_A(E; j_{X!}M,
+N){\quoi}.\tag{2.2.1}
+\end{equation*}\etiquette[2.2.1]{V.2.2.1}
+特别地, 有典范同构
+$$
+H^q(E_{/X}, j^\ast_X N) \simeq H^q (X, N){\quoi}.
+$$
+
+对 $E$ 的每个对象 $X$ 及每对 $A$-模 $M$、$N$, 令
+\begin{equation*}
+\Ext^q_A(X; M, N) \simeq \Ext^q_{A|X}(E_{/X}; M | X, N|X){\quoi}.\tag{2.2.2}
+\end{equation*}\etiquette[2.2.2]{V.2.2.2}
+由\pageoriginale 上述结果, 函子 $\Ext^q_A(X; M, ⋅)$ 是函子 $N \mapsto
+\Hom_{A|X}(M|X, N|X)$ 的导出函子。\sisi{函子}{函子} $(M, N) \mapsto \Ext^q_A(X; M, N)$, $q > 0$, 关于每个变量都组成一个 $\delta$-函子。
+
+\subsection{预层拓扑斯的情形. 覆盖的上同调}\etiquette[2.3]{V.subsec2.3}
+
+\subsubsection{}\etiquette[2.3.1]{V.subsubsec2.3.1}
+设 $C$ 是配备环预层 $A$ 的小范畴, $C^{\wedge}$ 是 $C$ 上的预层拓扑斯, $X$ 是 $C^{\wedge}$ 的可表对象。将 $A$-模 $M$ 映为群 $\Gamma(X, M) = M(X)$ 的函子正合 (I 3)。因此, 对每个 $q > 0$ 及每个 $A$-模 $M$, 都有 $H^q(X, M)=0$; 等价地, $A_X$ 是投射的 $A$-模。
+
+\subsubsection{}\etiquette[2.3.2]{V.subsubsec2.3.2}
+设 $S$ 是 $C$ 上的预层。对每个 $A$-模 $M$, 有典范同构 (I 2):
+$$
+\Gamma(S, M) \simeq \varprojlim_{C/S} M|S
+$$
+此外, 对每个内射的 $A$-模 $M$, $A | S$-模 $M | S$ 内射 \hyperref[V.subsec2.2]{(2.2)}。因此, 群 $H^{q}(S, M)$ 是 $\varprojlim_{C/S}$ 的右导出函子在 $M | S$ 处的值。将这些导出函子记为 $\varprojlim_{C/S}^{q}$, 就有典范同构
+$$
+H^q (S, M) \simeq {\varprojlim_{C/S}}^{q} M | S{\quoi}.
+$$
+特别地, 有典范同构
+$$
+H^q (C^{\wedge}, M) \simeq {\varprojlim_{C}}^{q} M{\quoi}.
+$$
+
+\subsubsection{}\etiquette[2.3.3]{V.subsubsec2.3.3}
+设 $X$ 是 $C$ 的对象, $\Uu = (U_i \to X)$、$i \in
+I$ 是 $C$ 的一个态射族, 使对每个 $i \in I$, $U_i \to X$ 都可拉回 (I 10)。以 $A_∙$ 表示 \hyperref[V.subsec1.10]{1.10} 中研究的单纯复形:
+\[
+\xymatrix@M=.25cm@C=1cm{
+A_∙ = \cdots \ar@<7pt>[r] \ar@<1pt>[r]  \ar@<-5pt>[r] &
+\displaystyle{\mathop{\coprod}_{(i,j)\in I \times I}}\quad
+A_{U_i \times_X U_j} \ar@<3pt>[r]\ar@<-3pt>[r]&
+\displaystyle{\mathop{\coprod}_{i\in I}} \quad A_{U_i}.
+}
+\]
+% Why ∐ rather than ⨁ as above?
+对每个 $A$-模 $M$, 令 $C^{∙}(\Uu, M) = \Hom_A (A_∙, M)$:
+\[\vcenter{
+\xymatrix@C=.75cm@M=.25cm{
+C^{∙}(\mathcal{U},M): \displaystyle{\mathop{\prod}_{i\in I}}
+M(U_i) \ar@<6pt>[r]\ar@<-2pt>[r]& \displaystyle{\mathop{\prod}_{(i,j)\in
+    I\times I}} M(U_i ×_X U_j) \ar@<10pt>[r] \ar@<3pt>[r]
+\ar@<-5pt>[r]& \cdots .
+}}\leqno{(2.3.3.1)}
+\]\etiquette[2.3.3.1]{V.2.3.3.1}
+令 $H^q(\Uu, M) = H^q(C^{∙} (\Uu, M))$。
+
+\begin{enonce*}{命题 2.3.4}\etiquette[2.3.4]{V.prop2.3.4}
+\mbox{ }
+\begin{enumerate}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 沿用\pageoriginale \hyperref[V.subsubsec2.3.3]{2.3.3} 的记号, 设 $R \hookrightarrow X$ 为族 $(U_i \to X)$、$i \in I$ 生成的筛。有典范同构
+$$
+H^{q}(\Uu, M) \simeq H^q(R, M){\quoi}.
+$$
+
+\item 函子 $H^q(\Uu,⋅)$ 与标量限制可交换。
+\end{enumerate}
+\end{enonce*}
+
+由于 $R$ 是 $C^{\wedge}$ 中 $X$ 的子对象, 纤维积 $U_{i_1} \times_R U_{i_2} \sisi{\times}{\times_R} \cdots
+\times_{R} U_{i_n}$ 与 $U_{i_1} \times_X U_{i_2}
+\sisi{\times}{\times_X} \cdots \times_{X} U_{i_n}$ 典范同构。由 \hyperref[V.prop1.11]{1.11} 可知, 复形 $A_{𝒰 ∙}$ 是 $A_R$ 的消解, 而由 \hyperref[V.subsubsec2.3.1]{2.3.1} 可知, $A_{𝒰 ∙}$ 的各项是投射模。因此, $C^{∙}(\mathcal{U}, M)$ 的\sisi{上同调}{上同调}群典范同构于 $\Ext^{q}_A(C^{\wedge}; A_R, M)$, 从而得到该同构。断言 2) 直接由 $C^{∙}(\mathcal{U}, M)$ 的描述 \eqhyperref[V.2.3.3.1]{2.3.3.1} 得到。
+
+\begin{enonce*}{推论 2.3.5}\etiquette[2.3.5]{V.cor2.3.5}
+设 $\mathcal{U} = (U_i \to X, i \in I)$ 与 $\mathcal{U}' = (U'_j \to X, j \in J)$ 是两个以 $X$ 为靶的态射族; 设 $\phi = (\phi : I \to J, m_i : U_i \to
+U'_{\phi(i)})$ 与 $\phi' = (\phi' : I \to J, m'_i : U_i \to
+U'_{\phi(i)})$ 是从 $\mathcal{U}$ 到 $\mathcal{U}'$ 的两个 (在 $X$ 上的) 态射。态射 $\phi$ 和 $\phi'$ 诱导态射 $\phi^{q}$ 和 ${\phi'}^{q} :
+\sisi{{\phi'}^{q} :}{} H^q(\mathcal{U}, M) \to H^q(\mathcal{U}',
+M)$。态射 $\phi^q$ 与 ${\phi'}^{q}$ 相等。特别地, 若族 $\mathcal{U}$ 与 $\mathcal{U}'$ 等价 (即存在从 $\mathcal{U}$ 到 $\mathcal{U}'$ 的态射以及从 $\mathcal{U}'$ 到 $\mathcal{U}$ 的态射), 则 $A$-模 $H^{q} (\mathcal{U}, M)$ 与 $H^q(\mathcal{U}', M)$ 典范同构。
+\end{enonce*}
+
+\begin{enonce*}[remark]{证明}
+事实上, 设 $R$ 与 $R'$ 为由族 $\mathcal{U}$ 和 $\mathcal{U}'$ 生成的 $X$ 的筛。态射 $\phi$ 与 $\phi'$ 定义同一个从 $R$ 到 $R'$ 的态射, 因此在投射消解 $A_{\mathcal{U}∙}$ 与 $A_{\mathcal{U}'∙}$ 之间诱导两个同伦的态射。
+\end{enonce*}
+
+\begin{enonce*}[remark]{习题 2.3.6}\etiquette[2.3.6]{V.exer2.3.6}
+(标准消解)
+\begin{enumerate}
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 设 $C$ 是小范畴。对每个整数 $n > 0$, 用 $\mathrm{Fl}^{n}(C)$ 表示 $C :
+  (u_1, \ldots, u_n)$ 的态射序列所成的集合, 要求对每个 $i$、$0 < i < n$, $u_i$ 的靶等于 $u_{i + 1}$ 的源, 从而态射 $u_i$ 与 $u_{i +1}$ 可\pageoriginale 合成。定义半单纯集
+\[
+\xymatrix@M=.25cm@C=.75cm{
+ES(C) = \ob \;C  & \mathrm{Fl}^{1}(C) \ar@<3pt>[l]\ar@<-3pt>[l]
+ & \mathrm{Fl}^{2}(C) \ar@<6pt>[l] \ar[l] \ar@<-6pt>[l] & \mathrm{Fl}^{3}(C)\ar@<9pt>[l]
+\ar@<3pt>[l] \ar@<-3pt>[l] \ar@<-9pt>[l] \quad \cdots ,
+}
+\]
+其面算子 $s_i : \mathrm{Fl}^n(C) \to
+\mathrm{Fl}^{n-1}(C)$ 如下:
+\begin{align*}
+s_{0}(u_1, \ldots, u_n) &= (u_2, \ldots, u_n),\\
+s_{i}(u_1, \ldots, u_n) &= (u_1, \ldots, u_{i+1} u_i, \ldots, u_n), \hskip1em 0
+< i < n ,\\
+s_{n}(u_1, \ldots, u_n) &= (u_1, \ldots, u_{n-1}).
+\end{align*}
+
+\item 证明, 当 $C$ 有始对象或终对象时, 复形 $ES(C)$ 同伦平凡。
+
+\item 对 $C$ 的每个对象 $X$, 用 ${}_{X\backslash}C$ 表示以 $X$ 为源的箭头范畴。定义半单纯预层 $ES(C)$, 它在 $C$ 的每个对象 $X$ 处的值为 $ES({}_{X\backslash}C)$。用 $\ZZ_{ES(C)}$ 表示由 $ES(C)$ 生成的自由阿贝尔半单纯预层。它有到值为 $\ZZ$ 的常值预层的典范增广 $\ZZ_{ES(C)}\to \ZZ$。证明, 转到相伴的微分复形后, 复形 $\ZZ_{ES(C)}$ 是 $\ZZ$ 的消解, 且其各项均为投射阿贝尔预层。
+
+\item 对每个阿贝尔预层 $M$, 令 $ST^{∙}(M) =
+  \Hom(\ZZ_{ES(C)}, M)$。明确描述 $ST^{∙}(M)$ 的各项。证明, 对每个整数 $q \geq 0$ 有 $H^q(ST^{∙}(M)) = H^q(C^{\wedge}, M)$。
+
+\item 证明, 对 $C$ 上的每个层 $S$, 函子 $H^q(S,⋅)$ 与标量限制可交换。
+
+\item 注意, 当 $C$ 是群时, $\ZZ_{ES(C)}$ 是平凡模 $\ZZ$、\cite{sga4.exp.V.bib.3} 的标准消解。
+
+\item 证明, 对 $C$ 上的每个阿贝尔预层 $M$, $\ZZ_{ES(C)} \otimes M$ 是 $M$ 的 (左) 消解。在预层上定义函子 $\varinjlim_{C}$。证明它右正合。用 $H_q(C, M)$ 表示其左导出函子。证明复形 $\ZZ_{ES(C)} \otimes M$ 的各项对 $\varinjlim_{C}$ 无环。将复形 $\varinjlim_{C}(\ZZ_{ES(C)} \otimes M)$ 记为 $ST_{∙}(M)$, 由此推出同构 $H_q(ST_{∙}(M)) \simeq H_q(C, M)$。
+
+\item 设\pageoriginale $u : C^{\wedge} \to \Ens$ 是从拓扑斯 $C^{\wedge}$ 到点拓扑斯的唯一态射。用 $u_{!} : C^{\wedge}_{\ZZ} \to \Ab$ 表示函子 $u^\ast : \Ab \to C^{\wedge}_{\ZZ}$ 的左伴随。证明, 对每个阿贝尔预层 $M$ 有 $u_{!}M =\varinjlim_{C} M$。
+
+\item 以下用 $ST^{∙}(C, M)$ 和 $ST_{∙}(C, M)$ 表示上文记为 $ST^{∙}(M)$ 和 $ST_{∙}(M)$ 的复形。$C$ 上的预层 $M$ 称为局部常值的, 如果它将 $C$ 的所有态射都映为同构。对每个局部常值预层 $M$, 配以范畴 $C^{\circ}$ ($C$ 的对径范畴) 上的局部常值预层 $\check{M}$, 使对 $C$ 的每个态射 $u$ 有 $\check{M}(u) = M(u)^{-1}$。求复形 $ST^{∙}(C, M)$ 与 $ST^{∙}(C^{\circ}, \check{M})$ 之间 (分别为 $ST_{∙}(C, M)$ 与 $ST_{∙}(C^{\circ}, \check{M})$ 之间) 的典范同构。
+
+\item 设 $C$ 是具有始对象的小范畴 (分别为小滤过范畴)。证明, 对每个常值预层 $M$, 当 $q > 0$ 时有 $H^{q} (C^{\wedge}, M) = 0$ (分别为当 $q > 0$ 时有 $H_q(C, M) =
+  0$)。
+\end{enumerate}
+\end{enonce*}
+
+\subsection{小景的情形. Čech 上同调}\etiquette[2.4]{V.subsec2.4}
+
+\subsubsection{}\etiquette[2.4.1]{V.subsubsec2.4.1}
+设 $(C, A)$ 是赋环的 $𝒰$-景, $C^{\sim}$ 是 $C$ 上的层拓扑斯, $\epsilon: C \to C^{\sim}$ 是将 $C$ 的对象映为该对象所代表的预层的相伴层的典范函子。滥用记号, 对 $C$ 的每个对象 $X$ 及每个 $A$-模层 $M$, 令 $H^q(X, M) = H^q(\epsilon(X), M)$ (参见 \hyperref[V.subsubsec2.3.1]{2.3.1})。回顾, 当 $C$ 的拓扑比典范拓扑粗时 (实际中总是如此), 函子 $\epsilon$ 全忠实, 从而可将 $C$ 与其在 $\epsilon$ 下的像等同。
+
+\subsubsection{}\etiquette[2.4.2]{V.subsubsec2.4.2}
+用 $\Hh^0 : C^{\sim{\phantom{a}}}_A \to C^{\wedge}_A$ 表示从 $A$-模层到 $A$-模预层范畴的包含函子。于是按定义, 对每个 $A$-模层 $M$, 以及 $C$ 的每个对象 $X$, 有
+\begin{equation*}
+\Hh^{0}(M)(X) = H^{0}(X, M) = M(X){\quoi},\tag{2.4.2.1}
+\end{equation*}\etiquette[2.4.2.1]{V.2.4.2.1}
+函子 $\Hh^{0}$ 左正合。其右导出函子记为 $\Hh^{q}$。由于对 $C$ 的每个对象 $X$, “$X$ 上的截面”函子在预层范畴中正合, 因此对\pageoriginale $C$ 的每个对象 $X$ 以及每个 $A$-模层 $M$, 有
+\begin{equation*}
+\mathcal{H}^q(M)(X) = H^q(X, M){\quoi}, \tag{2.4.2.2}
+\end{equation*}\etiquette[2.4.2.2]{V.2.4.2.2}
+从而预层 $\mathcal{H}^q(M)$ 就是预层 $X \mapsto H^q(X, M)$。
+
+\subsubsection{}\etiquette[2.4.3]{V.subsubsec2.4.3}
+假定 $(C, A)$ 是赋环的\emph{小景}, 从而 $C^{\wedge}$ 是可应用 \hyperref[V.subsec2.3]{2.3} 的结果的\emph{拓扑斯}。设 $X$ 是 $C$ 的对象, $R \hookrightarrow X$ 是覆盖筛。对每个 $A$-模\emph{预层} $G$, 群 $H^{q}(R, G)$ (因而在拓扑斯 $C^{\wedge}$ 中计算) 称为\emph{预层 $G$ 关于覆盖筛 $R$ 的 Čech 上同调群}。当 $R \hookrightarrow X$ 是由可拉回态射组成的覆盖族 $\mathcal{U} = (U_i \to X)_{i \in I}$ 所生成的筛时, 可利用复形 $C^{∙}(\mathcal{U}, G)$ (\hyperref[V.subsubsec2.3.3]{2.3.3}) 计算这些群; 此复形称为 \emph{$G$ 关于覆盖族 $\mathcal{U}$} (或关于覆盖 $\Uu$) \emph{的 Čech 复形}。此时, 群 $H^{q}(\Uu,G)=H^{q}(R,G)$ (\hyperref[V.prop2.3.4]{2.3.4}) 称为 \emph{$G$ 关于覆盖族 $\Uu$ 的 Čech 上同调群}。
+
+\subsubsection{}\etiquette[2.4.4]{V.subsubsec2.4.4}
+设 $M$ 是 $C$ 上的 $A$-模层。常滥用记号, 将群 $H^q(\mathcal{U}, \Hh^{0}(M))$ 记作 $H^q(\mathcal{U}, M)$, 并称为层 $M$ 关于覆盖族 $\mathcal{U}$ 的 \sisi{Čech}{Čech} 上同调群。
+
+\subsubsection{}\etiquette[2.4.5]{V.subsubsec2.4.5}
+以 $\check{\Hh}^0 : C^{\wedge}_A \to C^{\wedge}_A$ 表示 II 中描述的函子 $L$ 到 $A$-模预层的自然延拓。于是按定义, 对预层 $G$ 及 $C$ 的对象 $X$, 有
+\begin{equation}
+\check{\Hh}^0 (G) (X) = \varinjlim_{R \hookrightarrow X}
+G(R){\quoi},\tag{2.4.5.1}
+\end{equation}\etiquette[2.4.5.1]{V.2.4.5.1}
+其中归纳极限取遍 $X$ 的覆盖筛。由 \eqhyperref[V.2.4.5.1]{2.4.5.1} 可知函子 $\check{\Hh}^{0}$ 左正合。$\check{\Hh}^{0}$ 的右导出函子记为 $\check{\Hh}^{q}$。由于“$X$ 上的截面”函子及“滤过归纳极限”函子正合, 由 \eqhyperref[V.2.4.5.1]{2.4.5.1} 可知
+\begin{equation}
+\check{\Hh}^{q} (G) (X) = \varinjlim_{R \hookrightarrow
+  X} H^q(R, G){\quoi},\tag{2.4.5.2}
+\end{equation}\etiquette[2.4.5.2]{V.2.4.5.2}
+其中极限取遍 $X$ 的覆盖筛。
+
+预层\pageoriginale $\check{\Hh}^{q}$ 称为 \emph{Čech 上同调预层}。对 $C$ 的每个对象 $X$, 令
+\begin{equation*}
+{\check{H}}^q (X, G) = \check{\Hh}^{q} (G) (X){\quoi}.\tag{2.4.5.3}
+\end{equation*}\etiquette[2.4.5.3]{V.2.4.5.3}
+群 ${\check{H}}^q(X, G)$ 称为 \emph{Čech 上同调群}。当 $C$ 的拓扑由一个预拓扑定义时 (实际中通常如此), 由 \hyperref[V.prop2.3.4]{2.3.4} 可知
+\begin{equation*}
+{\check{H}}^q (X, G) \simeq \varinjlim_{\mathcal{U}} {H}^{q}
+(\mathcal{U}, G){\quoi},\tag{2.4.5.4}
+\end{equation*}\etiquette[2.4.5.4]{V.2.4.5.4}
+其中归纳极限取遍可拉回覆盖族, 这些覆盖族按其对应筛上的自然序关系预序 (\hyperref[V.cor2.3.5]{2.3.5})。
+
+\subsubsection{}\etiquette[2.4.6]{V.subsubsec2.4.6}
+设 $M$ 为 $A$-模层。滥用记号, 令
+\begin{equation}
+{\check{H}}^q (X, M) = {\check{H}}^q (X, \check{\Hh}^{0}(M)),
+\qquad \check{\Hh}^{q} (M) = \check{\Hh}^{q}(\check{\Hh}^{0} (M)){\quoi},\tag{2.4.6.1}
+\end{equation}\etiquette[2.4.6.1]{V.2.4.6.1}
+并称群 ${\check{H}}^q(X, M)$ 为层 $M$ 的 \sisi{Čech}{Čech} 上同调群。注意, 虽然函子 ${\check{H}}^q$ 是预层范畴上的导出函子, 但它们一般不在层范畴上组成 $\delta$-函子。
+
+\subsection{宇宙的变更. $𝒰$-景的 Čech 上同调}\etiquette[2.5]{V.subsec2.5}
+
+\subsubsection{}\etiquette[2.5.1]{V.subsubsec2.5.1}
+设 $(C, A)$ 是赋环的 $𝒰$-景, $𝒱$ 是包含 $𝒰$ 的宇宙。此时景 $(C, A)$ 是 $𝒱$-景, 并有 $𝒰$-拓扑斯 $C^{\sim}_{𝒰}$、$𝒱$-拓扑斯 $C^{\sim}_{𝒱}$ 以及典范包含函子 $\epsilon : C^{\sim}_{𝒰}
+\hookrightarrow C^{\sim}_{𝒱}$。函子 $\epsilon$ 在模范畴上正合且全忠实, 并将内射模映为内射模 (\hyperref[V.prop1.9]{1.9})。因此, 对每对 $𝒰$-$A$-模层, 有典范同构
+\begin{equation*}
+\Ext^q_A(C^{\sim}_{𝒰}; M, N) \simeq
+\Ext^q_{\epsilon A}(C^{\sim}_{𝒱}; \epsilon M,
+\epsilon N),\quad q \geq 0{\quoi}.\tag{2.5.1.1}
+\end{equation*}\etiquette[2.5.1.1]{V.2.5.1.1}
+特别地, 对 $C$ 上的每个 $𝒰$-集合层 $R$, 有典范同构 (\hyperref[V.subsubsec2.1.1]{2.1.1})
+\begin{equation*}
+H^q(R, M) \simeq H^q(\epsilon R, \epsilon M),\quad q \geq
+0{\quoi},\tag{2.5.1.2}
+\end{equation*}\etiquette[2.5.1.2]{V.2.5.1.2}
+更特别地, 对\pageoriginale $C$ 的每个对象 $X$, 有典范同构 (\hyperref[V.subsubsec2.4.1]{2.4.1})
+\begin{equation*}
+H^q(X, M) \simeq H^q(X, \epsilon M){\quoi}.\tag{2.5.1.3}
+\end{equation*}\etiquette[2.5.1.3]{V.2.5.1.3}
+粗略地说, 因而可以说层上同调不依赖于宇宙的选择, 在证明\sisi{或}{或}构造需要时, 总可扩大宇宙来计算层的上同调。
+
+\subsubsection{}\etiquette[2.5.2]{V.subsubsec2.5.2}
+设 $(C, A)$ 是赋环的 $𝒰$-景, $𝒱$ 是包含 $𝒰$ 的宇宙。以 $C^{\sim}_{A}$ 表示 $𝒰$-模层范畴, $\widehat{\epsilon} : C^{\wedge}_{A, 𝒰} \to
+C^{\wedge}_{A, 𝒱}$ 为从 $𝒰$-预层到 $A$-模的 $𝒱$-预层的包含函子。函子 $\widehat{\epsilon}$ 正合, 因此函子 $\widehat{\epsilon} \Hh^{0} : C^{\sim}_A \to C^{\wedge}_{A,
+𝒱} (\phantom{ABCD})$ 的导出函子为 $\widehat{\epsilon} \Hh^q$、$q \geq 0$。滥用记号, 仍将函子 $\widehat{\epsilon} \Hh^q$ 记为 $\Hh^q :C^{\sim}_A \to C^{\wedge}_{A, 𝒱}$、$q \geq 0$。当 $C$ 为 $𝒱$-小时, 扩大宇宙有如下好处: 范畴 $C^{\wedge}_{𝒰}$ 一般不是 $𝒰$-拓扑斯, $A$-模的 $𝒰$-预层不一定是内射 $𝒰$-预层的子模, 而 $𝒱$-预层范畴是拓扑斯 (一个 $𝒱$-拓扑斯), 因此每个 $A$-模的 $𝒱$-预层都是内射 $𝒱$-预层的子对象 (\hyperref[V.subsubsec0.1.1]{0.1.1})。所以, 对每个 $𝒱$-集合预层 $R$ (特别地, 当 $R$ 是 $𝒰$-预层时) 及每个 $𝒰$-$A$-模层 $M$, 群 $H^q(R, \Hh^q (M))$ 由 \hyperref[V.subsubsec2.1.1]{2.1.1} 定义, 且由 \eqhyperref[V.2.5.1.2]{2.5.1.2} 可知这些群不依赖于所考虑的宇宙 $𝒱$。同样, 对每对记为 $p$ 和 $q$ 的整数 $\geq 0$, 预层 $\check{\Hh}^p (\Hh^q (M))$ 由 \hyperref[V.subsubsec2.4.5]{2.4.5} 定义, 且由 \eqhyperref[V.2.5.1.2]{2.5.1.2} 和 \eqhyperref[V.2.4.5.4]{2.4.5.4} 可知它们不依赖于定义它们时所用的宇宙 $𝒱$。
+
+% END INCLUDED SGA4_English_current_buildable_source_20260906/source/05/drafts/SGA4_V_LINES_926_1361_English.texfrag
+
+% BEGIN INCLUDED SGA4_English_current_buildable_source_20260906/source/05/drafts/SGA4_V_LINES_1362_1552_English.texfrag
+\section{与覆盖相伴的 Cartan--Leray 谱序列}\etiquette[3]{V.sec3}\pageoriginale
+
+\begin{enonce*}{命题 3.1}\etiquette[3.1]{V.prop3.1}
+设 $(C,A)$ 是赋环的 $𝒰$-景, $𝒱$ 是包含 $𝒰$ 的宇宙。函子
+$\Hh^{0}:C^{\sim}_A\to C^{\wedge}_{A,𝒱}$
+(\hyperref[V.subsubsec2.5.2]{2.5.2}) 将内射 $A$-模映为内射预层。对每个整数 $q>0$ 以及每个 $A$-模 $M$, 与预层 $\Hh^q(M)$ 相伴的层为零。
+\end{enonce*}
+
+用 $\underline{a}_{𝒱}$ 表示 $𝒱$-预层的“相伴层”函子, $\epsilon:C^{\sim}_A\hookrightarrow C^{\sim}_{A,𝒱}$ 表示从 $𝒰$-层到 $𝒱$-层的包含函子。有 $\underline{a}_{𝒱}\Hh^{0}=\epsilon$ (II \hyperref[II.prop3.6]{3.6}), 且由于函子 $\underline{a}_{𝒱}$ 与 $\epsilon$ 正合, 对每个整数 $q>0$ 有 $\underline{a}_{𝒱}\Hh^q=0$。对每个 $𝒰$-层 $M$ 及每个 $𝒱$-预层 $N$, 都有函子性的同构 $\Hom_{C^{\wedge}_{A,𝒱}}(N,\Hh^{0}(M))\simeq
+\Hom_{C^{\sim}_{A,𝒱}}(\underline{a}_{𝒱}N,\epsilon M)$。当 $M$ 内射时, $\epsilon M$ 内射 (\hyperref[V.prop1.9]{1.9}), 且由于函子 $\underline{a}_{𝒱}$ 正合, 函子 $N\longmapsto\Hom_{C^{\wedge}_{A,𝒱}}(N,\Hh^{0}(M))$ 正合。因此 $\Hh^{0}(M)$ 内射。
+
+\begin{enonce*}{定理 3.2}\etiquette[3.2]{V.thm3.2}
+设 $(C,A)$ 是赋环的 $𝒰$-景, $R$ 是 $C$ 上的 $𝒰$-集合预层, $M$ 是 $A$-模层。存在关于 $R$ 与 $M$ 函子性的谱序列:
+\begin{equation*}
+H^{p+q}(\underline{a}R,M)\Longleftarrow E^{p,q}_2=
+H^p(R,\Hh^q(M)){\quoi}.
+\tag{3.2.1}
+\end{equation*}\etiquette[3.2.1]{V.3.2.1}
+(当 $C$ 不是 $𝒰$-小时, 必须将项 $H^p(R,\Hh^q(M))$ 理解为预层 $\Hh^q(M)$ 在拓扑斯 $C^{\wedge}_{𝒱}$ 中的上同调, 其中 $𝒱$ 是包含 $𝒰$ 的宇宙, 使 $C$ 为 $𝒱$-小 (\hyperref[V.subsubsec2.5.2]{2.5.2})。)
+\end{enonce*}
+
+由“相伴层”函子的定义 (参见 II), 有函子同构 $H^{0}(\underline{a}R,M)\simeq H^0(R,\Hh^{0}(M))$。函子 $\Hh^{0}$ 将内射对象映为内射对象。复合函子的谱序列 (\hyperref[V.prop0.3]{0.3}) 即为所求的谱序列。
+
+\begin{enonce*}{推论 3.3}\etiquette[3.3]{V.cor3.3}
+设 $X$ 是 $C$ 的对象, $\mathcal{U}=(U_i\to X)$、$i\in I$ 是覆盖族, 使对每个 $i\in I$, 态射 $U_i\to X$ 可拉回。则有一个谱序列 (称为 Cartan--Leray 谱序列):
+\begin{equation}
+H^{p+q}(X,M)\Longleftarrow E^{p,q}_2=
+H^p(\mathcal{U},\Hh^q(M)){\quoi}.\tag{3.3.1}
+\end{equation}\etiquette[3.3.1]{V.3.3.1}
+\end{enonce*}
+
+设\pageoriginale $R\hookrightarrow X$ 为 $\mathcal{U}$ 生成的筛。由于此筛覆盖, 与 $R$ 相伴的层就是与 $X$ 相伴的层 (II \hyperref[II.def5.2]{5.2})。考虑到 \hyperref[V.subsubsec2.4.1]{2.4.1}, 有 $H^{p+q}(\underline{a}R,M)=H^{p+q}(X,M)$。因此推论由 \hyperref[V.prop2.3.4]{2.3.4} 得到。
+
+\begin{enonce*}{推论 3.4}\etiquette[3.4]{V.cor3.4}
+存在一个关于层 $M$ 及 $C$ 的对象 $X$ 函子性的谱序列
+\begin{equation}
+H^{p+q}(X,M)\Longleftarrow E^{p,q}_2=
+\check{H}^p(X,\Hh^q(M)){\quoi}.\tag{3.4.1}
+\end{equation}\etiquette[3.4.1]{V.3.4.1}
+当 $X$ 在 $C$ 中变动时, 此谱序列给出预层的谱序列
+\begin{equation}
+\Hh^{p+q}(M)\Longleftarrow E^{p,q}_2=
+\check{\Hh}^p(\Hh^q(M)){\quoi}.
+\tag{3.4.2}
+\end{equation}\etiquette[3.4.2]{V.3.4.2}
+这些谱序列给出函子性的态射 (边缘态射):
+\hypertarget{sga4.exp.V.equation.3.4.3}{}\begin{align*}%\etiquette[3.4.3]{V.3.4.3}
+\Phi^q(M)&:\check{\Hh}^q(M)\to\Hh^q(M){\quoi},\tag{3.4.3}\\
+\Phi^q_X(M)&:\check{H}^q(X,M)\to H^q(X,M){\quoi}.\tag{3.4.4}
+\end{align*}\hypertarget{sga4.exp.V.equation.3.4.4}{}
+当 $q$ 为 $0$ 或 $1$ 时, 态射 $\Phi^q$ 与 $\Phi^q_X$ 都是同构。态射 $\Phi^2$ 与 $\Phi^2_X$ 都是单态射。更一般地, 当预层 $\Hh^i(M)$ 在 $0<i<n$ 时为零, 则态射 $\Phi^q(M)$ 与 $\Phi^q_X(M)$ 在 $0\leq q\leq n$ 时为同构, 在 $q=n+1$ 时为单态射。
+\end{enonce*}
+
+第一个谱序列由在谱序列 \eqhyperref[V.3.2.1]{3.2.1} 中对 $X$ 的覆盖筛 $R\hookrightarrow X$ 取归纳极限得到 \eqhyperref[V.2.4.5.2]{2.4.5.2}。第二个谱序列直接由它得到 \eqhyperref[V.2.4.5.3]{2.4.5.3}。当 $q>0$ 时, 与预层 $\Hh^q(M)$ 相伴的层为零 (\hyperref[V.prop3.1]{3.1})。因此对每个 $q>0$ 有 $\check{\Hh}^{0}\check{\Hh}^{0}\check{\Hh}^{q}(M)=0$ (\hyperref[II.theo3.4]{II.3.4})。从而, 当 $q>0$ 时有 $\check{\Hh}^{0}\check{\Hh}^{q}(M)=0$ (II \hyperref[II.prop3.2]{3.2})。关于态射 $\Phi^q$ 与 $\Phi^q_X$ 的断言立即得到。
+
+\begin{enonce*}{推论 3.5}\etiquette[3.5]{V.cor3.5}
+设 $(E,A)$ 是赋环拓扑斯, $M$ 是 $A$-模 (为明确起见, 设为左模)。以 $ℳ$ 表示 $M$ 的底阿贝尔层。函子 $M\longmapstoℳ$ 正合; 因此对 $E$ 的每个对象 $X$, 典范同构
+$$
+H^{0}(X,M)\xrightarrow{\sim}H^{0}(X,ℳ)
+$$
+延拓\pageoriginale 为态射
+$$
+H^q(X,M)\to H^q(X,ℳ)\qquad q\geq0{\quoi}.
+$$
+这些态射都是同构。
+\end{enonce*}
+
+对 $E$ 的每个对象 $Y$, 有 \eqhyperref[V.2.4.5.4]{2.4.5.4}:
+$$
+H^p(Y,M)=\varinjlim_{\mathcal{U}}H^p(\mathcal{U},M)\quav
+H^p(Y,ℳ)=\varinjlim_{\mathcal{U}}H^p(\mathcal{U},ℳ),
+$$
+其中归纳极限取遍满态射族 $\mathcal{U}=(Y_i\to Y)$、$i\in I$。
+
+因此典范同态 $\check{H}^p(Y,M)\to\check{H}^p(Y,ℳ)$ 是同构 (\hyperref[V.prop2.3.4]{2.3.4})。从而由 \eqhyperref[V.2.4.5.3]{2.4.5.3}, 典范同态 $\check{\Hh}^p(M)\to\check{\Hh}^p(ℳ)$ 是同构。如果 $M$ 是内射的 $A$-模, 则当 $p>0$ 时有 $\check{\Hh}^p(ℳ)=0$; 因而 $\Hh^1(ℳ)=0$, 并对 $p$ 归纳可得, 当 $p>0$ 时有 $\Hh^p(ℳ)=0$ (\hyperref[V.cor3.4]{3.4})。于是当 $p>0$ 时有 $H^p(X,ℳ)=0$ \eqhyperref[V.2.4.2.2]{2.4.2.2} 和 \hyperref[V.subsec2.5]{2.5}。因此函子 $M\longmapstoℳ$ 将内射对象映为对函子 $H^{0}(X,⋅)$ 无环的对象, 由此得所断言的同构。
+
+\begin{enonce*}[remark]{习题 3.6}\etiquette[3.6]{V.exer3.6}
+设 $G$ 是拓扑群, $B_G$ 是其分类拓扑斯 (IV \hyperref[IV.subsec2.5]{2.5})。用 $E_G$ 表示 $B_G$ 的对象, 它由 $G$ 的底拓扑空间配备 $G$ 的左平移作用得到。从 $E_G$ 到 $B_G$ 的终对象 $e_G$ 的典范态射是满态射; 因而有覆盖 $\mathcal{U}=(E_G\to e_G)$, 并对 $B_G$ 的每个阿贝尔层 $F$ 有谱序列
+\begin{equation*}
+E^{p,q}_2=H^p(\mathcal{U},\Hh^q(F))\Longrightarrow
+H^{p+q}(B_G,F){\quoi},\tag{3.6.1}
+\end{equation*}\etiquette[3.6.1]{V.3.6.1}
+我们拟对它进行研究。
+\end{enonce*}
+
+\begin{enumerate}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 证明, 对每个整数 $n$, 拓扑斯
+$$
+B_{G/E_G\times E_G\times\ldots\times E_G}\quad
+(n\quad\mbox{ 个因子})
+$$
+典范等价于拓扑斯 (IV \hyperref[IV.subsec2.5]{2.5})
+$$
+\TOP(G\times G\times G\times\ldots\times G)\quad
+(n-1\quad\mbox{ 个因子}).
+$$
+对\pageoriginale 每个整数 $n$, 用 $F_n$ 表示拓扑空间 $G\times\ldots\times G$ ($n$ 个因子) 上由 $F$ 诱导的层。
+
+\item 推出 \eqhyperref[V.3.6.1]{3.6.1} 的 $E^{p,q}_2$ 项典范同构于某个形如下式的复形的第 $p$ 个上同调群:
+$$
+H^{q}(e,F_0)\to H^{q}(G,F_1)\to H^{q}(G\times G,F_2)\to
+\cdots{\quoi},
+$$
+需将此复形明确写出 ($e$ 表示单点拓扑空间)。
+
+\item 推出, 只要在形如 $G\times G\times\ldots\times G$ 的空间上, 局部常值层系数的上同调与相应的奇异上同调一致 (例如当 $G$ 局部可缩时即如此), 则分类拓扑斯 $B_G$ 的局部常值层系数上同调同构于分类空间的相应奇异上同调。(关于分类空间, 可参阅 \cite{sga4.exp.V.bib.15}。)
+\end{enumerate}
+
+% END INCLUDED SGA4_English_current_buildable_source_20260906/source/05/drafts/SGA4_V_LINES_1362_1552_English.texfrag
+
+% BEGIN INCLUDED SGA4_English_current_buildable_source_20260906/source/05/drafts/SGA4_V_LINES_1553_1946_English.texfrag
+\section{无环层}\etiquette[4]{V.sec4}
+
+\begin{enonce*}{定义 4.1}\etiquette[4.1]{V.def4.1}
+\emph{设 $(E,A)$ 是赋环拓扑斯, $F$ 是 $A$-模, $S$ 是 $E$ 的拓扑生成族。若对 $S$ 的每个对象 $X$ 及每个整数 $q>0$ 都有 $H^q(X,F)=0$, 就称层 $F$ 为 $S$-无环的。当 $S$ 等于 $\ob E$ 时, $S$-无环层称为}松弛层。
+\end{enonce*}
+
+\setcounter{subsection}{1}
+\subsection{}\etiquette[4.2]{V.subsec4.2}
+设 $(C,A)$ 是 $𝒰$-赋环景, $F$ 是 $C$ 上的 $A$-模层。层 $F$ 称为 $C$-\emph{无环的}, 如果它是 $S$-无环的, 其中 $S$ 是与 $C$ 的对象相伴的层所成的族。
+
+\begin{enonce*}{命题 4.3}\etiquette[4.3]{V.prop4.3}
+设 $(C,A)$ 是 $𝒰$-赋环景, $F$ 是 $A$-模层。用
+$\mathcal{H}^{0}:C^{\sim}_{A}\to C^{\wedge}_{A}$
+表示从 $A$-模到 $A$-模预层范畴的包含函子 (此处指 $𝒱$-预层, 其中 $𝒱$ 是使 $C$ 为 $𝒱$-小的宇宙)。下列条件等价:
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item $F$\pageoriginale 是 $C$-无环的。
+
+\item 对 $C$ 的每个对象 $X$ 以及每个覆盖筛 $R\hookrightarrow X$, 有
+$$
+H^q(R,\Hh^{0}(F))=0\quad\mbox{对每个 }q>0{\quoi}.
+$$
+
+\item 对 $C$ 的每个对象 $X$, 有
+$$
+\check{H}^q(X,F)=0\quad\mbox{对每个 }q>0{\quoi}.
+$$
+\end{enumerate}
+\end{enonce*}
+
+\begin{itemize}
+\item[i $\Rightarrow$ ii)]: 由于 $F$ 是 $C$-无环的, 预层 $\Hh^q(F)$ 当 $q>0$ 时为零。于是谱序列 \eqhyperref[V.3.2.1]{3.2.1} 对每个 $q$ 给出同构 $H^q(R,\Hh^{0}(F))\simeq H^q(X,F)$。因此当 $q>0$ 时有 $H^q(R,\Hh^{0}(F))=0$。
+\item[ii $\Rightarrow$ iii)]: 转到归纳极限后, 这是显然的。
+\item[iii $\Rightarrow$ i)]: 对 $q$ 归纳证明, 预层 $\Hh^q(F)$ 在 $q>0$ 时为零。为此使用 \eqhyperref[V.3.4.2]{3.4.2}。
+\end{itemize}
+
+\setcounter{subsection}{3}
+\subsection{}\etiquette[4.4]{V.subsec4.4}
+由判据 \hyperref[V.prop4.3]{4.3} ii) 以及 \hyperref[V.cor3.5]{3.5} 可知, $S$-无环性只依赖于底阿贝尔层。特别地, $A$-模层是松弛的当且仅当其底阿贝尔层松弛。
+
+\begin{enonce*}{推论 4.5}\etiquette[4.5]{V.cor4.5}
+设 $(E,A)$ 是赋环拓扑斯, $F$ 是 $A$-模。下列性质等价:
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item $F$ 松弛;
+
+\item 对每个满态射族
+$𝒳=(X_i\to X)_{i\in I}$
+有
+$$
+H^q(𝒳,F)=0\quad\mbox{对每个 }q>0{\quoi}.
+$$
+\end{enumerate}
+\end{enonce*}
+
+在 \hyperref[V.subsec4.2]{4.2} 中取 $C$ 为拓扑斯 $E$ 本身, 则推论由 \hyperref[V.prop4.3]{4.3} 中的等价性 i) $\Leftrightarrow$ ii) 得到。
+
+\setcounter{subsection}{5}
+\subsection{}\etiquette[4.6]{V.subsec4.6}
+内射层是松弛层。对每个拓扑生成族 $S$, 松弛层都是 $S$-无环的。松弛层不一定内射 (取 $E$ 为集合拓扑斯)。$S$-无环层不一定松弛 (习题 \hyperref[V.exer4.13]{4.1.3})。
+
+\begin{enonce*}{命题 4.7}\etiquette[4.7]{V.prop4.7}
+设 $(E,A)$ 是赋环拓扑斯, $F$ 是松弛的 $A$-模, $X$ 是 $E$ 的对象。对 $X$ 的每个子对象 $Y$, 典范同态 $H^{0}(X,F)\rightarrow H^{0}(Y,F)$ 都\pageoriginale 满射。
+\end{enonce*}
+
+假定 $Y$ 是 $X$ 的子对象, 使态射 $H^{0}(X,F)\to H^{0}(Y,F)$ 不满射。设 $Z$ 是将 $X$ 的两个副本 $X_1$ 与 $X_2$ 沿 $Y$ 粘合所得到的对象。对象 $Z$ 被两个子对象 $X_1$ 与 $X_2$ 覆盖, 且有 $X_1\times_ZX_2=Y$。将所得覆盖记为 $𝒳=(X_1,X_2)$。立即可见 $H^1(𝒳,F)\neq0$, 矛盾。
+
+\setcounter{subsection}{7}
+\subsection{}\etiquette[4.8]{V.subsec4.8}
+对于一般拓扑斯, \hyperref[V.prop4.7]{4.7} 中描述的性质不能刻画松弛层 (习题 \hyperref[V.exer4.15]{4.15})。不过, 对于由其开子对象生成的拓扑斯, 特别是与拓扑空间相伴的拓扑斯, 该性质可以刻画松弛层 (习题 \hyperref[V.exer4.16]{4.16})。在拓扑空间的情形下, 这里采用的“松弛”术语与 \cite{sga4.exp.V.bib.7} 中的术语一致 (习题 \hyperref[V.exer4.16]{4.16})。
+
+\begin{enonce*}{命题 4.9}\etiquette[4.9]{V.prop4.9}
+设 $u:(E,A)\to(E',A')$ 是赋环拓扑斯态射。
+\begin{enumerate}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 函子 $u_\ast$ 将松弛的 $A$-模映为松弛的 $A'$-模。
+
+\item 设 $S$ 与 $S'$ 分别为 $E$ 和 $E'$ 的拓扑生成族, 且 $u^\ast(S')\subset S$。则函子 $u_\ast$ 将 $S$-无环的 $A$-模映为 $S'$-无环的 $A'$-模。
+
+\item 当 $u$ 为平坦态射时 (\hyperref[V.def1.8]{1.8}), 函子 $u_\ast$ 将内射的 $A$-模映为内射的 $A'$-模。
+\end{enumerate}
+\end{enonce*}
+
+设 $X$ 是 $E'$ 的对象, $𝒳=(X_i\to X)_{i\in I}$ 是满态射族, $F$ 是松弛的 $A$-模, $C^{∙}(𝒳,u_\ast F)$ 是覆盖 $𝒳$ 的 Čech 复形。利用 $u_\ast$ 与 $u^\ast$ 之间的伴随关系以及 $u^\ast$ 与纤维积可交换这一事实, 得到典范同构
+$$
+C^{∙}(𝒳,u_\ast F)\simeq C^{∙}(u^\ast(𝒳),F).
+$$
+此外, $u^\ast$ 与归纳极限可交换, 因此 $u^\ast(𝒳)=(u^\ast X_i\to u^\ast X)_{i\in I}$ 是满态射族。由于 $F$ 松弛, 当 $q>0$ 时有 $H^q(u^\ast(𝒳),F)=0$, 因而当 $q>0$ 时有
+$$
+H^q(𝒳,u_\ast F)=H^q(C^{∙}(𝒳,u_\ast F))
+=H^q(C^{∙}(u^\ast(𝒳),F))=H^q(u^\ast(𝒳),F)=0
+$$
+于是 $u_\ast F$ 松弛。
+
+证明 2)。当 $S'$ 对纤维积稳定时, 与上述类似的论证证明 2)。在一般情形下, 使用态射 $u$ 的谱序列 \eqhyperref[V.5.3.2]{5.3.2}。在\pageoriginale \eqhyperref[V.5.3.2]{5.3.2} 之前不会用到断言 2)。设 $F$ 为 $S$-无环层。层 $R^qu_\ast F$ 是与预层 $X\mapsto H^q(u^\ast X,F)$ 相伴的层。由于 $S'$ 是拓扑生成族, 且 $F$ 是 $S$-无环的, 对每个 $q>0$ 有 $R^qu_\ast F=0$。于是谱序列 \eqhyperref[V.5.3.2]{5.3.2} 对 $E'$ 的每个对象 $X$ 给出同构 $H^q(X,u_\ast F)\simeq H^q(u^\ast X,F)$; 因此对 $S'$ 中的每个 $X$, 有 $H^q(X,u_\ast F)=0$。
+
+证明 3)。当 $u$ 平坦时, 模的逆像函子 $u^\ast$ 正合 (\hyperref[V.def1.8]{1.8})。因此其右伴随 $u_\ast$ 将内射对象映为内射对象 (\hyperref[V.prop0.2]{0.2})。
+
+\begin{enonce*}{命题 4.10}\etiquette[4.10]{V.prop4.10}
+设 $F$ 是赋环拓扑斯 $(E,A)$ 的 $A$-模, $G$ 是内射的 $A$-模。
+\begin{enumerate}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 函子 $F\mapsto\Hhom_A(F,G)$ 正合。
+
+\item 阿贝尔层 $\Hhom_A(F,G)$ 松弛。
+\end{enumerate}
+\end{enonce*}
+
+\begin{enonce*}[remark]{证明}
+依次证明各断言。
+\begin{enumerate}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 设
+$$
+0\to F'\to F\to F''\to0
+$$
+是正合列。须证明序列
+$$
+0\to\Hhom_A(F'',G)\to\Hhom_A(F,G)\to
+\Hhom_A(F',G)\to0
+$$
+正合; 为此只需证明对 $E$ 的每个对象 $H$, 序列
+\begin{align*}
+0\to \Hom_E(H,\Hhom_A(F'',G))\to \Hom_E(H,
+\Hhom_A(F,G))\hspace{3cm} \\
+\to \Hom_E(H,\Hhom_A(F',G))\to0
+\end{align*}
+正合。由 (IV \hyperref[IV.cor12.6]{6.12}), 后一个序列同构于
+$$
+0\to\Hom_A(A_H\otimes_AF'',G)\to
+\Hom_A(A_H\otimes_AF,G)\to
+\Hom_A(A_H\otimes_AF',G)\to0,
+$$
+而 $A$-模 $A_H$ 平坦 (\hyperref[V.prop1.3.1]{1.3.1})。
+
+\item 证明 $\Hhom_A(F,G)$ 松弛。设
+$$
+𝒳=(X_i\to X)_{i\in I}{\quoi}
+$$
+是 $E$ 的满态射族, 并设
+\[
+\xymatrix@M=.25cm@C=1cm{
+C_∙(𝒳):\cdots \ar@<5pt>[r] \ar[r] \ar@<-5pt>[r] &
+\displaystyle{\mathop{\coprod}_{i,j}}\ZZ_{X_i\times_X X_j}
+\ar@<3pt>[r]\ar@<-3pt>[r]&
+\displaystyle{\mathop{\coprod}_{i}}\ZZ_{X_i}
+}
+\]
+为\pageoriginale \hyperref[V.prop1.5]{1.5} 中定义的复形。此复形是对象 $\ZZ_X$ 的平坦消解, 而该对象本身也平坦 (\hyperref[V.subsec1.4]{1.4} 与 \hyperref[V.prop1.3.1]{1.3})。
+
+\noindent
+于是计算群:
+$$
+\begin{aligned}
+H^q(𝒳,\Hhom_A(F,G))&\xrightarrow{\sim}
+H^q\bigl(\Hom_{\ZZ}^{∙}(C_∙(𝒳),\Hhom_A(F,G))\bigr)\\
+&\xrightarrow{\sim}
+H^q\bigl(\Hom_A(C_∙(𝒳)\otimes_{\ZZ}F,G)\bigr){\quoi}.
+\end{aligned}
+$$
+复形
+$$
+C_∙(𝒳)\otimes_{\ZZ}F
+$$
+在异于 $0$ 的次数上无环, 因为 $C_∙(𝒳)$ 是平坦模的平坦消解。因此 $\Hom_A(C_∙(𝒳)\otimes_{\ZZ}F,G)$ 在异于 $0$ 的次数上无环。
+\end{enumerate}
+\end{enonce*}
+
+\begin{enonce*}{命题 4.11}\etiquette[4.11]{V.prop4.11}
+设 $(E,A)$ 是赋环拓扑斯, $F$ 是松弛的 (分别为内射的) $A$-模层。
+\begin{enumerate}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 对 $E$ 的每个对象 $X$, $A|X$-模 $j_X^\ast F$ 松弛 (分别为内射)。
+
+\item 对 $E$ 的每个闭子拓扑斯 $Z$, $F$ 中支集包含于 $Z$ 的截面所成的层\emph{(IV 14)} 松弛 (分别为内射)。
+\end{enumerate}
+\end{enonce*}
+
+当 $F$ 松弛时, 断言 1) 由 \hyperref[V.cor4.5]{4.5} 得到。函子 $j_X^\ast$ 有一个正合的左伴随 $j_{X!}$ (IV 11)。因此当 $F$ 内射时, $j_X^\ast F$ 内射 (\hyperref[V.prop0.2]{0.2})。证明 2)。将包含态射记为 $i:Z\to E$。$F$ 中支集包含于 $Z$ 的截面所成的层, 就是层 $i_\ast i^{!}F$ (IV 14)。函子 $i_\ast i^{!}$ 是正合函子 $i_\ast i^\ast$ 的右伴随 (IV 14)。因此它将内射层映为内射层。设 $U$ 是 $Z$ 的开补集, $j:U\to E$ 是包含态射, $F$ 是松弛层。有正合列 (IV 14):
+\begin{equation*}
+0\to i_\ast i^{!}F\to F\to j_\ast j^\ast F{\quoi}.\tag{4.11.1}
+\end{equation*}\etiquette[4.11.1]{V.4.11.1}
+对 $E$ 的每个对象 $X$, 有 $j_\ast j^\ast F(X)=F(X\times U)$, 而由 \eqhyperref[V.4.11.1]{4.11.1} 的最后一个箭头诱导的态射 $F(X)\to j_\ast j^\ast F(X)$ 来自典范单射 $X\times U\hookrightarrow X$。由于 $F$ 松弛, 此态射满射 (\hyperref[V.prop4.7]{4.7}), 因此 \eqhyperref[V.4.11.1]{4.11.1} 的最后一个箭头是预层的满态射。对 $E$ 的每个对象 $X$, 由 \eqhyperref[V.4.11.1]{4.11.1} 得到的上同调正合列给出, 当 $q>0$ 时有 $H^q(X,i_\ast i^{!}F)=0$, 因而 $i_\ast i^{!}F$ 松弛。
+
+\setcounter{subsection}{11}
+\subsection{}\etiquette[4.12]{V.subsec4.12}
+层的松弛性\pageoriginale (分别为内射性) 在局部化下保持 \eqhyperref[V.4.11.1]{4.11.1}。一般而言, 它不是局部性质 (习题 \hyperref[V.exer4.15]{4.15})。不过, 对由其开子对象生成的拓扑斯, 特别是与拓扑空间相伴的拓扑斯, 它是局部性质 (习题 \hyperref[V.exer4.16]{4.16})。
+
+\begin{enonce*}[remark]{习题 4.13}\etiquette[4.13]{V.exer4.13}
+设 $X$ 是局部紧空间, $F$ 是 $c$-软层 \cite{sga4.exp.V.bib.7}。利用软性是局部性质这一事实 (上述引文), 证明 $F$ 在 $X$ 的每个仿紧开子集上的限制都是软层。证明仿紧开子集组成 $X$ 的拓扑的一组基。推出, 若 $S$ 表示 $X$ 的仿紧开子集族, 则 $F$ 是 $S$-无环的。证明 $X$ 上的连续函数层是 $S$-无环的, 但当 $X$ 不离散时并不松弛。
+\end{enonce*}
+
+\begin{enonce*}[remark]{问题 4.14}\etiquette[4.14]{V.prob4.14}
+研究完全无环的拓扑斯, 即满足对每个 $q>0$、每个对象 $X$ 和每个阿贝尔层 $F$ 都有 $H^q(X,F)=0$ 的拓扑斯。
+\end{enonce*}
+
+\begin{enonce*}[remark]{习题 4.15}\etiquette[4.15]{V.exer4.15}
+设 $G$ 是离散群, $B_G$ 是其分类拓扑斯 (IV \hyperref[IV.subsec2.4]{2.4})。证明, 对每个阿贝尔层 $F$ 及每个单态射 $X\hookrightarrow Y$, 同态 $F(Y)\to F(X)$ 满射。设 $E(G)$ 为群 $G$ 在其自身作用下所成的齐性空间。它是 $B_G$ 的对象。拓扑斯 $B_{G/E(G)}$ 等价于点拓扑斯 (IV 8)。态射 $E(G)\to e$ ($e$ 为 $B_G$ 的终对象) 是满态射。对 $B_G$ 上的每个阿贝尔层 $F$, 层 $F|E(G)$ 松弛。推出松弛性或内射性不是局部性质。
+\end{enonce*}
+
+\begin{enonce*}[remark]{习题 4.16}\etiquette[4.16]{V.exer4.16}
+拓扑斯 $E$ 称为由其开子对象生成的, 如果 $E$ 的开子对象 (即 $E$ 的终对象 $e$ 的子对象) 组成一个生成族 (I 7)。这样的拓扑斯有下列性质:
+
+\noindent
+(P) 每个满态射族 $X_i\to X$、$i\in I$ 都可由一个满态射族 $U_j\to X$、$j\in J$ 加细, 其中各 $U_j\to X$ 均为单态射。
+
+\begin{enumerate}
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 是否存在\pageoriginale 具有性质 (P) 却不由其开子对象生成的拓扑斯? 与拓扑空间相伴的拓扑斯由其开子对象生成。如果 $E$ 由其开子对象生成 (分别为具有 (P)), 则对 $E$ 的每个对象 $X$, $E_{/X}$ 也由其开子对象生成 (分别为具有 (P))。由其开子对象生成的拓扑斯的每个子拓扑斯, 仍由其开子对象生成。性质 (P) 不是局部性质。
+
+\item 设 $E$ 是拓扑斯, $\Ouv(E)$ 是 $E$ 的开子对象范畴, 配备诱导拓扑。包含函子 $\Ouv(E)\to E$ 是景态射, 因而给出拓扑斯态射 $\Pi:E\to\Ouv(E)^{\sim}$。函子 $\Pi^{\ast}$ 全忠实。相对于由其开子对象生成的拓扑斯所成的 2-范畴, 态射 $\Pi$ 有一个泛性质, 请读者明确写出。
+
+\item 设 $E$ 是由其开子对象生成的拓扑斯, $\Point(E)$ 是 $E$ 的点在同构意义下所成的集合。证明 $\Point(E)$ 是小的。在 $\Point(E)$ 上赋予拓扑, 并定义一个使 $\Top(\Point(E))$ 成为 $\Ouv(E)^{\sim}$ 的子拓扑斯的态射 $\Top(\Point(E))\to\Ouv(E)^{\sim}$。对每个拓扑空间 $X$, 证明每个从 $\Top(X)$ 到 $E$ 的态射都给出从 $\Top(X)$ 到 $\Top(\Point(E))$ 的态射。证明, 由其开子对象生成的拓扑斯等价于某个拓扑斯 $\Top(X)$ ($X$ 为拓扑空间), 当且仅当它有足够多的点。证明存在由其开子对象生成, 却不等价于任何拓扑斯 $\Top(X)$ ($X$ 为拓扑空间) 的拓扑斯。
+
+\item 设 $E$ 是具有性质 (P) 的拓扑斯。$E$ 上的阿贝尔层 $F$ 松弛, 当且仅当对每个单态射 $X\hookrightarrow Y$, 同态 $F(Y)\to F(X)$ 都满射。
+
+\item 设 $E$ 是具有性质 (P) 的拓扑斯。证明层 $F$ 的松弛性是局部性质。
+
+\item 设 $E$ 是由其开子对象生成的拓扑斯, $e$ 是 $E$ 的终对象。阿贝尔层 $F$ 松弛, 当且仅当对 $e$ 的每个开子对象 $U$, 典范态射 $F(e)\to F(U)$ 都满射。
+\end{enumerate}
+\end{enonce*}
+
+\begin{enonce*}[remark]{习题 4.17}\etiquette[4.17]{V.exer4.17}
+(松弛层\pageoriginale 与宇宙的变更)
+
+设 $C$ 是 $𝒰$-景 (例如 $𝒰$-拓扑斯), $𝒱$ 是包含 $𝒰$ 的宇宙。将相应的层范畴记为 $C^{\sim}_{𝒰}$ 与 $C^{\sim}_{𝒱}$, 典范包含记为
+$\epsilon:C^{\sim}_{𝒰}\to C^{\sim}_{𝒱}$
+设 $F$ 是 $C$ 上的松弛阿贝尔 $𝒰$-层。我们证明 $\epsilon F$ 松弛。先注意, 对 $C^{\sim}_{𝒰}$ 的每个对象 $X$, 当 $q>0$ 时有 $H^q(\epsilon X,\epsilon F)=0$。$C^{\sim}_{𝒱}$ 的每个对象 $Y$ 都具有一个满态射族 $\epsilon X_i\to Y$、$i\in I$, 其中各 $\epsilon X_i\to Y$ 是单态射。于是
+$$
+H^q(Y,\epsilon F)=displaystyle
+\varprojlim_{\epsilon X\hookrightarrow Y}^{q}F(X).
+$$
+要证明这些 $\varprojlim^q$ 在 $q\neq0$ 时为零, 可归结到拓扑斯 $\Ouv(C_{𝒱/Y})^{\sim}$, 并利用对于此拓扑斯, 一个层若局部松弛, 则它松弛。
+\end{enonce*}
+
+% END INCLUDED SGA4_English_current_buildable_source_20260906/source/05/drafts/SGA4_V_LINES_1553_1946_English.texfrag
+
+% BEGIN INCLUDED SGA4_English_current_buildable_source_20260906/source/05/drafts/SGA4_V_LINES_1947_2047_English.texfrag
+\section{$R^qu_*$ 与拓扑斯态射的 Cartan--Leray 谱序列}\etiquette[5]{V.sec5}
+
+\setcounter{subsection}{-1}
+\subsection{}\etiquette[5.0]{V.subsec5.0}
+设 $u:(E,A)\to(E',A')$ 是赋环拓扑斯态射, $u_\ast:E\to E'$ 是直像函子。记号 $u_\ast$ 也表示直像函子到模的延拓。模函子 $u_\ast$ (为明确起见, 取左模) 左正合。其右导出函子记为 $R^qu_\ast$、$q\geq 0$。
+
+\begin{enonce*}{命题 5.1}\etiquette[5.1]{V.prop5.1}
+\begin{enumerate}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 对每个 $A$-模 $M$, 层 $R^qu_\ast M$ 是与预层 $X'\mapsto H^q(u^\ast X',M)$ 相伴的层 $(X'\in\ob E')$。
+
+\item 函子 $R^qu_\ast$ 的构造与标量限制可交换。
+
+\item 函子 $R^qu_\ast$ 的构造与局部化可交换。更确切地说, 对 $E'$ 的每个对象 $X'$, 若以 $u_{/X'}:E_{/u^\ast X'}\to E'_{/X'}$ 表示由 $u$ 经局部化\emph{(IV 8)} 得到的态射, 则对每个 $A$-模 $M$ 有典范同构
+\begin{equation*}
+R^q(u_{/X'})_\ast(M|u^\ast X')\simeq R^qu_\ast(M)|X'\qquad q\geq
+0{\quoi}.\tag{5.1.1}
+\end{equation*}\etiquette[5.1.1]{V.5.1.1}
+\end{enumerate}
+\end{enonce*}
+
+以 $u^{\wedge}_\ast:E^{\wedge}\to E^{\prime\wedge}$ 表示 $𝒰$-预层的直像函子 $(u^{\wedge}_\ast M=M\circ u^\ast)$。由于 $u^\ast$ 与 $u_\ast$ 互为伴随, 有同构
+$$
+u_\ast\simeq\underline{a}u^{\wedge}_\ast{}^{0}{\quoi},
+$$
+其中\pageoriginale $\underline{a}$ 是 $E'$ 的相伴层函子。由于函子 $\underline{a}$ 与 $u^{\wedge}_\ast$ 正合, 有
+$$
+R^qu_\ast\simeq\underline{a}u^{\wedge}_\ast\Hh^q{\quoi},
+$$
+这正是 1) 的另一种表述。于是断言 2) 由 1) 及 \hyperref[V.cor3.5]{3.5} 得到。由态射 $u_{/X'}$ 的定义, 当 $q=0$ 时有典范同构 \eqhyperref[V.5.1.1]{5.1.1}。一般情形由下述事实得到: 局部化函子 (IV 8) 正合, 且将内射对象映为内射对象 (\hyperref[V.prop4.11]{4.11})。
+
+\begin{enonce*}{命题 5.2}\etiquette[5.2]{V.prop5.2}
+设 $u:E\to E'$ 是拓扑斯态射, $S'$ 是 $E'$ 的生成族。对函子 $H^0(u^\ast X',\mathord\cdot)$、$X'\in S'$ 无环的层 $M$, 对函子 $u_\ast$ 无环。特别地, 松弛层对 $u_\ast$ 无环。
+\end{enonce*}
+
+这由 \hyperref[V.prop5.1]{5.1}, 1) 得到。
+
+\begin{enonce*}{命题 5.3}\etiquette[5.3]{V.prop5.3}
+设 $u:E\to E'$ 是拓扑斯态射, $M$ 是 $E$ 的阿贝尔群。有谱序列
+\begin{equation*}
+E^{p,q}_2=H^p(E',R^qu_\ast M)\Longrightarrow H^{p+q}(E,M){\quoi}.
+\tag{5.3.1}
+\end{equation*}\etiquette[5.3.1]{V.5.3.1}
+更一般地, 对 $E'$ 的每个对象 $X'$, 有谱序列
+\begin{equation}
+E^{p,q}_2=H^p(X',R^qu_\ast M)\Rightarrow H^{p+q}(u^\ast X',M){\quoi}.
+\tag{5.3.2}
+\end{equation}\etiquette[5.3.2]{V.5.3.2}
+\end{enonce*}
+
+由直像与逆像函子的定义, 有同构 $H^0(X',u_\ast M)\simeq H^0(u^\ast X',M)$。函子 $u_\ast$ 将内射对象映为松弛层 (\hyperref[V.subsec4.6]{4.6} 与 \hyperref[V.prop4.9]{4.9})。因而所断言的谱序列就是复合函子的谱序列 (\hyperref[V.prop0.3]{0.3})。
+
+\begin{enonce*}{命题 5.4}\etiquette[5.4]{V.prop5.4}
+设 $u:E\to E'$ 与 $v:E'\to E''$ 是两个拓扑斯态射。有谱序列
+$$
+R^pv_\ast R^qu_\ast\Longrightarrow R^{p+q}(v\circ u)_\ast{\quoi}.
+$$
+\end{enonce*}
+
+有 $v_\ast u_\ast\simeq(vu)_\ast$, 且函子 $u_\ast$ 将内射对象映为\pageoriginale 松弛层 (\hyperref[V.prop4.9]{4.9}), 从而映为对 $v_\ast$ 无环的对象 (\hyperref[V.prop5.2]{5.2})。因此存在复合函子的谱序列 (\hyperref[V.prop0.3]{0.3})。
+
+% END INCLUDED SGA4_English_current_buildable_source_20260906/source/05/drafts/SGA4_V_LINES_1947_2047_English.texfrag
+
+% BEGIN INCLUDED SGA4_English_current_buildable_source_20260906/source/05/drafts/SGA4_V_LINES_2048_2300_English.texfrag
+\section{局部 Ext 与带支集上同调}\etiquette[6]{V.sec6}
+
+\setcounter{subsection}{-1}
+\subsection{}\etiquette[6.0]{V.subsec6.0}
+
+设 $(E,A)$ 是赋环拓扑斯, $M$ 是 $A$-模, 为明确起见设为左模。从左 $A$-模范畴到阿贝尔群范畴的函子 $N\longmapsto\Hhom_A(M,N)$ 左正合 (IV 12)。其右导出函子记为
+\begin{equation*}
+\Eext_A^q(M,N){\quoi}.\tag{6.0.1}
+\end{equation*}\etiquette[6.0.1]{V.6.0.1}
+特别地, 有
+\begin{equation*}
+\Eext_A^{0}(M,N)=\Hhom_A(M,N){\quoi}.\tag{6.0.2}
+\end{equation*}\etiquette[6.0.2]{V.6.0.2}
+按定义有典范同构 (\hyperref[V.subsec2.1]{2.1} 及 IV 12)
+\begin{equation*}
+H^{0}(E,\Eext_A^{0}(M,N))=\Ext^{0}_A(E;M,N)
+=\Hom_A(M,N){\quoi}.\tag{6.0.3}
+\end{equation*}\etiquette[6.0.3]{V.6.0.3}
+更一般地, 对 $E$ 的每个对象 $X$, 有 (\hyperref[V.subsec2.2]{2.2})
+\begin{equation*}
+H^{0}(X,\Eext_A^{0}(M,N))=\Ext^{0}_A(X;M,N)
+=\Hom_{A|X}(M|X,N|X){\quoi}.\tag{6.0.4}
+\end{equation*}\etiquette[6.0.4]{V.6.0.4}
+
+\begin{enonce*}{命题 6.1}\etiquette[6.1]{V.prop6.1}
+\begin{enumerate}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 函子 $\Eext^q_A$ 的构造与局部化可交换。更确切地说, 对 $E$ 的每个对象 $X$, 有函子性的同构
+\begin{equation*}
+\Eext^q_A(M,N)|X\simeq
+\Eext^q_{A|X}(M|X,N|X){\quoi}.\tag{6.1.1}
+\end{equation*}\etiquette[6.1.1]{V.6.1.1}
+
+\item 层 $\Eext^q_A(M,N)$ 同构于与预层 $X\longmapsto\Ext^q_A(X;M,N)$ 相伴的层。
+
+\item 有谱序列
+\begin{equation*}
+\Ext^{p+q}_A(E;M,N)\Longleftarrow E^{p,q}_2
+=H^p(E,\Eext^q_A(M,N)){\quoi}.\tag{6.1.2}
+\end{equation*}\etiquette[6.1.2]{V.6.1.2}
+\end{enumerate}
+更\pageoriginale 一般地, 对 $E$ 的每个对象 $X$, 有关于 $X$ 及自变量 $M$、$N$ 函子性的谱序列:
+\begin{equation*}
+\Ext^{p+q}_A(X;M,N)\Longleftarrow E^{p,q}_2
+=H^p(X,\Eext^q_A(M,N)){\quoi}.\tag{6.1.3}
+\end{equation*}\etiquette[6.1.3]{V.6.1.3}
+\end{enonce*}
+
+按定义, 当 $q=0$ 时, \eqhyperref[V.6.1.1]{6.1.1} 是同构 (IV 12)。考虑到局部化函子正合且将内射模映为内射模这一事实 (\hyperref[V.subsec2.2]{2.2}), 即得一般情形。函子 $N\longmapsto\Hhom_A(M,N)=\Eext^0_A(M,N)$ 将内射模映为松弛层, 从而映为对 $H^{0}(X,⋅)$ 无环的层 (\hyperref[V.prop4.10]{4.10})。考虑到 \eqhyperref[V.6.0.3]{6.0.3} 与 \eqhyperref[V.6.0.4]{6.0.4}, 谱序列 \eqhyperref[V.6.1.2]{6.1.2} 和 \eqhyperref[V.6.1.3]{6.1.3} 是复合函子的谱序列。当 $X$ 在 $E$ 中变动时, 谱序列 \eqhyperref[V.6.1.3]{6.1.3} 给出预层的谱序列, 因而转到相伴层后得到层的谱序列。由于当 $p\neq0$ 时, 与预层 $X\longmapsto H^p(X,⋅)$ 相伴的层为零 (\hyperref[V.prop3.1]{3.1}), 此谱序列退化, 并给出 2) 中所断言的同构。
+
+\begin{enonce*}{命题 6.2}\etiquette[6.2]{V.prop6.2}
+函子 $(M,N)\longmapsto\Eext^q_A(M,N)$, $q\geq0$, 关于变量 $M$ 和变量 $N$ 都组成一个 $\delta$-函子。明确地说, 对每个正合列
+$0\to N'\to N\to N''\to0$
+(分别为 $0\to M'\to M\to M''\to0$), 有长正合列
+\begin{equation*}
+\cdots\to\Eext^q_A(M,N')\to\Eext^q_A(M,N)\to\Eext^q_A(M,N'')
+\xrightarrow{\delta}\Eext^{q+1}_A(M,N')\to\cdots\tag{6.2.1}
+\end{equation*}\etiquette[6.2.1]{V.6.2.1}
+(分别为
+\begin{equation*}
+\cdots\to\Eext^q_A(M'',N)\to\Eext^q_A(M,N)\to\Eext^q_A(M',N)
+\xrightarrow{\delta}\Eext^{q+1}_A(M'',N)\to\cdots){\quoi}.
+\tag{6.2.2}
+\end{equation*}\etiquette[6.2.2]{V.6.2.2}
+\end{enonce*}
+
+由函子 $\Ext^q$ 的一般性质可知, 对 $E$ 的每个对象 $X$, 函子 $(M,N)\longmapsto\Ext^q_A(X;M,N)$, $q\geq0$, 关于每个自变量都组成一个 $\delta$-函子。让 $X$ 变动并取相伴层 (\hyperref[V.prop6.1]{6.1}), 即得断言。
+
+\setcounter{subsection}{2}
+\subsection{}\etiquette[6.3]{V.subsec6.3}
+设 $(E,A)$ 是赋环拓扑斯, $M$ 是 $A$-模, $Z$ 是 $E$ 的闭子拓扑斯 (IV 9), $U$ 是其开补集。以 $H^{0}_Z(E,M)$ 表示 $M$ 中支集\pageoriginale 包含于 $Z$ 的截面所成的群 (IV 14), 以 $ℋ^{0}_Z(M)$ 表示由 $M$ 中“支集在 $Z$ 中”的截面所定义的 $M$ 的子层 (IV 14)。函子 $H^{0}_Z(E,⋅)$ 与 $ℋ^{0}_Z(⋅)$ 左正合 (IV 14)。它们的导出函子分别记为 $H^q_Z(E,⋅)$ 和 $ℋ^q_Z(⋅)$, 称为 \emph{$M$ 的支集在 $Z$ 中的上同调群 (\emph{分别为}上同调层)}\footnote{对于通常的拓扑空间的情形, 比较 \SGA 2 I, 以及下文第 80 页所引用的 \textsc{Hartshorne} 的报告。}。
+
+有典范同构 (IV 14)
+\hypertarget{sga4.exp.V.equation.6.3.1}{}\begin{align*}
+H^{0}_Z(E,M)&\simeq\Hom_A(A_Z,M)\simeq
+\Ext^{0}_A(E;A_Z,M){\quoi},\tag{6.3.1}\\
+ℋ^{0}_Z(M)&\simeq\Hhom_A(A_Z,M)\simeq
+\Eext^{0}_A(A_Z,M){\quoi},\tag{6.3.2}
+\end{align*}\hypertarget{sga4.exp.V.equation.6.3.2}{}
+因此对每个 $q\geq0$, 有同构
+\hypertarget{sga4.exp.V.equation.6.3.3}{}\begin{align*}%\etiquette[6.3.3]{V.6.3.3}
+H^q_Z(E,M)&\simeq\Ext^q_A(E;A_Z,M){\quoi},\tag{6.3.3}\\
+ℋ^q_Z(M)&\simeq\Eext^q_A(A_Z,M){\quoi}.\tag{6.3.4}
+\end{align*}\hypertarget{sga4.exp.V.equation.6.3.4}{}
+注意, 由于 $A_Z$ 是双模, 层 $\Eext^q_A(A_Z,M)\simeqℋ^q_Z(M)$ 典范地配备 $A$-模结构。
+
+对 $E$ 的每个对象 $X$, 以 $Z_{/X}$ 表示由 $Z$ 经局部化得到的 $E_{/X}$ 的闭子拓扑斯 (它是 $U\times X$ 的补)。按定义有典范同构
+\begin{equation*}
+H^{0}(X,ℋ^{0}_Z(M))\simeq
+H^{0}_{Z_{/X}}(E_{/X},M|X){\quoi}.\tag{6.3.5}
+\end{equation*}\etiquette[6.3.5]{V.6.3.5}
+令
+\begin{equation*}
+H^q_Z(X,M)\simeq H^q_{Z_{/X}}(E_{/X},M|X){\quoi}.\tag{6.3.6}
+\end{equation*}\etiquette[6.3.6]{V.6.3.6}
+考虑到 \hyperlink{sga4.exp.V.equation.6.3.2}{(6.3.2)}, 有典范同构
+\begin{equation*}
+H^q_Z(X,M)\simeq\Ext^q_A(X;A_Z,M){\quoi}.\tag{6.3.7}
+\end{equation*}\etiquette[6.3.7]{V.6.3.7}
+
+\begin{enonce*}{命题 6.4}\etiquette[6.4]{V.prop6.4}
+\begin{enumerate}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 函子 $ℋ^q_Z$ 的构造\pageoriginale 与局部化可交换。更确切地说, 对 $E$ 的每个对象 $X$ 及每个 $A$-模 $M$, 有典范同构
+\begin{equation*}
+ℋ^{q}_Z(M)|X\simeqℋ^q_{Z_{/X}}(M|X){\quoi}.\tag{6.4.1}
+\end{equation*}\etiquette[6.4.1]{V.6.4.1}
+
+\item 层 $ℋ^q_Z(M)$ 是与预层 $X\longmapsto H^q_Z(X,M)$ 相伴的层。
+
+\item 有谱序列
+\begin{equation*}
+H^{p+q}_Z(E,M)\Longleftarrow H^p(E,ℋ^q_Z(M)){\quoi}.\tag{6.4.2}
+\end{equation*}\etiquette[6.4.2]{V.6.4.2}
+更一般地, 对 $E$ 的每个对象 $X$, 有谱序列
+\begin{equation*}
+H^{p+q}_Z(X,M)\Longleftarrow H^p(X,ℋ^q_Z(M)){\quoi}.\tag{6.4.3}
+\end{equation*}\etiquette[6.4.3]{V.6.4.3}
+\end{enumerate}
+\end{enonce*}
+
+这不过是通过 \hyperref[V.subsec6.3]{6.3} 中的对应关系重述命题 \hyperref[V.prop6.1]{6.1}。
+
+\begin{enonce*}{命题 6.5}\etiquette[6.5]{V.prop6.5}
+沿用 \hyperref[V.subsec6.3]{6.3} 的记号, 以 $j:U\to E$ 表示典范态射。对每个 $A$-模 $M$, 有层的正合列
+\begin{equation*}
+0\toℋ^{0}_Z(M)\to M\to j_\ast(M|U)\to
+ℋ^1_Z(M)\to0{\quoi},\tag{6.5.1}
+\end{equation*}\etiquette[6.5.1]{V.6.5.1}
+并且在 $q\geq2$ 时有同构
+\begin{equation*}
+ℋ^q_Z(M)\simeq\Eext^{q-1}_A(A_U,M)\simeq
+R^{q-1}j_\ast(M|U){\quoi}.\tag{6.5.2}
+\end{equation*}\etiquette[6.5.2]{V.6.5.2}
+此外有长正合列
+\begin{equation*}
+\cdots\to H^q_Z(E,M)\to H^q(E,M)\to H^q(U,M)\to
+H^{q+1}_Z(E,M)\to\cdots
+\footnote{此正合列明确了整体上同调不变量 $H^q_Z(E,M)$ 作为“$E$ \emph{模去}开子拓扑斯 $U$ 后, 以 $M$ 为系数的上同调群”的作用。}
+\tag{6.5.3}
+\end{equation*}\etiquette[6.5.3]{V.6.5.3}
+更一般地, 对 $E$ 的每个对象 $X$, 有长正合列
+\begin{equation*}
+\cdots\to H^q_Z(X,M)\to H^q(X,M)\to H^q(X\times U,M)\to
+H^{q+1}_Z(X,M)\to\cdots.\tag{6.5.4}
+\end{equation*}\etiquette[6.5.4]{V.6.5.4}
+\end{enonce*}
+
+由 $A_Z$ 的定义, 有正合列 (IV 14)
+\begin{equation*}
+0\to A_U\to A\to A_Z\to0{\quoi}.\tag{6.5.5}
+\end{equation*}\etiquette[6.5.5]{V.6.5.5}
+函子\pageoriginale $\Eext^q_A(A,⋅)$ 当 $q>0$ 时为零。有 $\Hhom_A(A_U,M)\simeq j_\ast(M|U)$ (IV 14), 因而 (\hyperref[V.subsec2.2]{2.2}) 有 $\Eext^q_A(A_U,M)\simeq R^qj_\ast(M|U)$。最后, $\Eext^q_A(A_Z,M)\simeqℋ^q_Z(M)$ \hyperlink{sga4.exp.V.equation.6.3.4}{(6.3.4)}。此时长正合列 \eqhyperref[V.6.2.2]{6.2.2} 给出 \eqhyperref[V.6.5.1]{6.5.1} 与 \eqhyperref[V.6.5.2]{6.5.2}。正合列 \eqhyperref[V.6.5.3]{6.5.3} 与 \eqhyperref[V.6.5.4]{6.5.4} 由 \hyperref[V.subsec6.3]{6.3} 中的对应关系, 以及与 \eqhyperref[V.6.5.5]{6.5.5} 相伴的 $\delta$-函子 $\Ext^q_A(X;\mathord\cdot,M)$、$q\geq0$ 的长正合列得到。
+
+\begin{enonce*}{命题 6.6}\etiquette[6.6]{V.prop6.6}
+\begin{enumerate}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 松弛层对函子 $ℋ^{0}_Z$ 与 $H^{0}_Z(X,⋅)$ 无环。
+
+\item 对每个 $q\geq0$, 函子 $ℋ^{q}_Z$ 与 $H^{q}_Z(X,⋅)$ 与标量限制可交换。
+\end{enumerate}
+\end{enonce*}
+
+设 $M$ 为松弛层。正合列 \eqhyperref[V.6.5.4]{6.5.4} 给出等式 $H^q_Z(X,M)=0$, 其中 $X$、$q\geq2$ 任意, 并给出正合列
+$$
+0\to H^{0}_Z(X,M)\to H^{0}(X,M)\to H^{0}(X\times U,M)
+\to H^1_Z(X,M)\to0{\quoi}.
+$$
+但由于层 $M$ 松弛, 态射 $H^{0}(X,M)\to H^{0}(X\times U,M)$ 满射 (\hyperref[V.sec4]{4})。因此 $H^1_Z(X,M)=0$, 且 $M$ 对 $H^{0}_Z(X,⋅)$ 无环。转到相伴层后, 可知 $M$ 对函子 $ℋ^{0}_Z$ 无环 (\hyperref[V.prop6.4]{6.4})。显然函子 $ℋ^{0}_Z$ 与 $H^{0}_Z(X,⋅)$ 与标量限制可交换; 由于松弛层对这两个函子均无环, 断言 2) 得证。
+
+\begin{enonce*}{命题 6.7}\etiquette[6.7]{V.prop6.7}
+设 $(E,A)$ 是赋环拓扑斯, $Z$ 是 $E$ 的闭子拓扑斯, $U$ 是其开补集, $M$ 与 $N$ 是两个 $A$-模。有关于 $M$、$N$ 函子性, 且与闭子拓扑斯的变更相容的同构:
+$$
+ℋ^{0}_Z(\Hhom_A(M,N))\simeq\Hhom_A(M,ℋ^0_Z(N))
+\simeq\Hhom_A(M\otimes_AA_Z,N){\quoi}.
+$$
+\end{enonce*}
+
+考虑到 \hyperlink{sga4.exp.V.equation.6.3.2}{(6.3.2)}, 这由 (IV 14) 得到。
+
+\setcounter{subsection}{7}
+\subsection{}\etiquette[6.8]{V.subsec6.8}
+
+% END INCLUDED SGA4_English_current_buildable_source_20260906/source/05/drafts/SGA4_V_LINES_2048_2300_English.texfrag
+
+% BEGIN INCLUDED SGA4_English_current_buildable_source_20260906/source/05/drafts/SGA4_V_LINES_2301_2629_English.texfrag
+令
+\begin{equation*}
+\Hhom_{A,Z}(M,N)=ℋ^{0}_Z(\Hhom_A(M,N)){\quoi}.\tag{6.8.1}
+\end{equation*}\etiquette[6.8.1]{V.6.8.1}
+函子 $N\longmapsto\Hhom_{A,Z}(M,N)$ 左正合。其导出函子记为 $\Eext^q_{A,Z}(M,N)$: 它们是\emph{支集在 $Z$ 中的 $\Eext$ 层}。因此
+\begin{equation*}
+\Eext^{0}_{A,Z}(M,N)=\Hhom_{A,Z}(M,N){\quoi}.\tag{6.8.2}
+\end{equation*}\etiquette[6.8.2]{V.6.8.2}
+令\pageoriginale $M_Z=M\otimes_AA_Z$。由 IV 14 可知, $M_Z$ 是 $M$ 在 $Z$ 上的逆像在 $E$ 上的直像。因此, 考虑到 \hyperref[V.prop6.7]{6.7}, 有同构
+\begin{equation*}
+\Eext^{q}_{A,Z}(M,N)\simeq\Eext^{q}_{A}(M_Z,N){\quoi}.\tag{6.8.3}
+\end{equation*}\etiquette[6.8.3]{V.6.8.3}
+现在转到整体不变量。令
+\begin{equation*}
+\Hom_{A,Z}(M,N)=\Ext^{0}_{A,Z}(E;M,N)
+=H^{0}_Z(E,\Hhom_A(M,N)){\quoi}.\tag{6.8.4}
+\end{equation*}\etiquette[6.8.4]{V.6.8.4}
+群 $\Hom_{A,Z}(M,N)$ 是从 $M$ 到 $N$ 的态射群中, 支集在 $Z$ 中 (IV 14), 即在 $U$ 上为零的态射所成的子群。更一般地, 对 $E$ 的每个对象 $X$, 令
+\begin{equation*}
+\Ext^{0}_{A,Z}(X;M,N)=H^{0}_Z(X,\Hhom_A(M,N)){\quoi}.\tag{6.8.5}
+\end{equation*}\etiquette[6.8.5]{V.6.8.5}
+函子 $N\longmapsto\Ext^{0}_{A,Z}(X;M,N)$ 左正合。其导出函子记为 $\Ext^q_{A,Z}(X;M,N)$。它们是\emph{支集在 $Z$ 中的 $\Ext$ 群}。定义 \eqhyperref[V.6.3.6]{6.3.6}、\eqhyperref[V.6.8.1]{6.8.1}、\eqhyperref[V.6.8.5]{6.8.5} 以及 \hyperref[V.prop6.7]{6.7} 中的同构给出同构
+\begin{equation*}
+\Ext^{0}_{A,Z}(X;M,N)\simeq
+\begin{cases}
+H^{0}(X,\Hhom_{A,Z}(M,N)){\quoi},\\[3pt]
+\Ext^{0}_A(X;M,ℋ^{0}_Z(N)){\quoi},\\[3pt]
+\Ext^{0}_A(X;M_Z,N){\quoi}.
+\end{cases}\tag{6.8.6}
+\end{equation*}\etiquette[6.8.6]{V.6.8.6}
+\eqhyperref[V.6.8.6]{6.8.6} 中最后一个同构给出同构
+\begin{equation*}
+\Ext^{q}_{A,Z}(X;M,N)\simeq
+\Ext^{q}_{A}(X;M_Z,N){\quoi}.\tag{6.8.7}
+\end{equation*}\etiquette[6.8.7]{V.6.8.7}
+
+\begin{enonce*}{命题 6.9}\etiquette[6.9]{V.prop6.9}
+\begin{enumerate}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 有两个关于 $M$、$N$ 函子性且与闭子拓扑斯的变更相容的谱序列:
+\begin{equation*}
+\Eext^{p+q}_{A,Z}(M,N)\Longleftarrow\tag{6.9.1}
+\begin{cases}
+E^{p,q}_2=ℋ^p_Z(\Eext^q_A(M,N)){\quoi},\\[3pt]
+'E^{p,q}_2=\Eext^p_A(M,ℋ^q_Z(N)){\quoi}.
+\end{cases}
+\end{equation*}\etiquette[6.9.1]{V.6.9.1}
+
+\item 有\pageoriginale 三个关于 $X$、$M$、$N$ 函子性且与闭子拓扑斯的变更相容的谱序列:
+\begin{equation*}
+\Ext^{p+q}_{A,Z}(X;M,N)\Longleftarrow\tag{6.9.2}
+\begin{cases}
+E^{p,q}_2=H^p_Z(X,\Eext^q_A(M,N)){\quoi},\\[3pt]
+'E^{p,q}_2=H^p(X,\Eext^q_{A,Z}(M,N)){\quoi},\\[3pt]
+``E^{p,q}_2=\Ext^p_A(X;M,ℋ^q_Z(N)).
+\end{cases}
+\end{equation*}\etiquette[6.9.2]{V.6.9.2}
+
+\item 层 $\Eext^q_{A,Z}(M,N)$ 典范同构于与预层 $X\longmapsto\Ext^q_{A,Z}(X;M,N)$ 相伴的层。
+\end{enumerate}
+\end{enonce*}
+
+当 $N$ 内射时, 层 $\Hhom_A(M,N)$ 松弛 (\hyperref[V.prop4.10]{4.10}), 因而对 $ℋ^{0}_Z$ 无环 (\hyperref[V.prop6.6]{6.6})。\eqhyperref[V.6.9.1]{6.9.1} 的第一个谱序列是复合函子的谱序列 \eqhyperref[V.6.8.1]{6.8.1}。同样, 当 $N$ 内射时, $ℋ^{0}_Z(N)$ 内射 (\hyperref[V.prop4.11]{4.11}), 因而 \eqhyperref[V.6.9.1]{6.9.1} 的第二个谱序列是由 \hyperref[V.prop6.7]{6.7} 得到的复合函子的谱序列。\eqhyperref[V.6.9.2]{6.9.2} 的谱序列是由定义 \eqhyperref[V.6.8.5]{6.8.5} 及 \eqhyperref[V.6.8.6]{6.8.6} 中前两个同构得到的复合函子的谱序列。最后, 在 \eqhyperref[V.6.9.2]{6.9.2} 的第二个谱序列中让 $X$ 变动, 再取相伴层, 就得到层的谱序列; 由 \hyperref[V.prop3.1]{3.1}, 它退化并给出 3) 中的同构。
+
+\begin{enonce*}{命题 6.10}\etiquette[6.10]{V.prop6.10}
+函子 $(M,N)\longmapsto\Eext^q_{A,Z}(M,N)$、$q\geq0$ 以及 $(M,N)\longmapsto\Ext^q_{A,Z}(X;M,N)$、$q\geq0$, 关于每个变量 $M$、$N$ 都是 $\delta$-函子。以 $M_U$ 表示层 $M\otimes_AA_U$ (参见 IV 11), 有长正合列
+\begin{equation}
+\ldots\xrightarrow{\delta}\Eext^q_{A,Z}(M,N)\to\Eext^q_A(M,N)
+\to\Eext^q_A(M_U,N)\xrightarrow{\delta}
+\Eext^{q+1}_{A,Z}(M,N)\to\ldots\tag{6.10.1}
+\end{equation}\etiquette[6.10.1]{V.6.10.1}
+以及 $\Ext$ 群的类似正合列。
+\end{enonce*}
+
+函子 $\Eext^q_A(⋅,⋅)$ 与 $\Ext^q_A(X;⋅,⋅)$ 关于每个变量都组成 $\delta$-函子 (\hyperref[V.prop6.2]{6.2}), 而函子 $M\longmapsto M_Z$ 正合, 因为 $A_Z$ 平坦 (\hyperref[V.cor1.3.3]{1.3.3})。因此第一个断言由同构 \eqhyperref[V.6.8.3]{6.8.3} 与 \eqhyperref[V.6.8.7]{6.8.7} 得到。正合列 \eqhyperref[V.6.10.1]{6.10.1} 及 $\Ext$ 群的类似正合列, 是与正合列\pageoriginale $0\to M_U\to M\to M_Z\to0$ 相伴的 $\delta$-函子 $$
+\Eext^q_A(⋅,N),\ q\geq0
+(\resp\ \Ext^q_A(X;⋅,N),\ q\geq0)
+$$ 的长正合列, 这里考虑了 \eqhyperref[V.6.8.3]{6.8.3} 与 \eqhyperref[V.6.8.7]{6.8.7}。
+
+\setcounter{subsection}{10}
+\subsection{}\etiquette[6.11]{V.subsec6.11}
+简述如何将这些结果推广到支集族的情形。设 $E$ 是拓扑斯。对 $E$ 的每个对象 $X$, 以 $\Fer(X)$ 表示拓扑斯 $E_{/X}$ 的闭子拓扑斯所成的集合。通过取补, 此集合与 $E_{/X}$ 的开子拓扑斯集, 即 $X$ 的子对象集 (IV 8) 双射对应。预层 $\Fer:X\longmapsto\Fer(X)$ 实际上是 $𝒰$-层, 这可立即验证, 因而它可表。换言之, $E$ 中有一个仍记为 $\Fer$ 的对象, 以及 $E_{/\Fer}$ 的闭子拓扑斯 $Z_{\Fer}$, 使对每个 $X$, $\Fer(X)$ 的每个元素都由 $Z_{\Fer}$ 沿某个由 $Z$ 唯一确定的态射 $u_Z:X\to\Fer$ 作基变换得到。
+
+\begin{enonce*}{定义 6.12}\etiquette[6.12]{V.def6.12}
+$E$ 的一个支集族是 $E$ 的闭子拓扑斯集的子集 $\Phi$, 满足下列性质:
+\begin{itemize}
+\item[{\rm (S1)}] $\Phi$ 的有限元素族的并仍属于 $\Phi$。
+\item[{\rm (S2)}] $E$ 中包含于 $\Phi$ 的某个元素的每个闭子拓扑斯都是 $\Phi$ 的元素。
+\end{itemize}
+\end{enonce*}
+
+\setcounter{subsection}{12}
+\setcounter{subsubsection}{0}
+\subsubsection{}\etiquette[6.12.1]{V.subsubsec6.12.1}
+设 $E$ 是拓扑斯, $\Phi$ 是 $E$ 的支集族, $X$ 是 $E$ 的对象。以 $\Phi(X)$ 表示 $E_{/X}$ 的最小支集族, 它包含由 $\Phi$ 中的闭子拓扑斯沿基变换 $X\to e$ ($e$ 是 $E$ 的终对象) 得到的 $E_{/X}$ 的闭子拓扑斯。函子 $X\longmapsto\Phi(X)$ 是层 $\Fer$ 的子预层。因此它是分离的。
+
+\subsubsection{}\etiquette[6.12.2]{V.subsubsec6.12.2}
+$E$ 的支集族 $\Phi$ 称为\emph{具有局部性}, 如果它有下述性质:
+
+\noindent
+(LC) 对每个满态射族 $(X_i\to e)$、$i\in I$ (其中 $e$ 为 $E$ 的终对象), 集合序列
+$$
+\Phi\to\prod_i\Phi(X_i)\rightrightarrows
+\prod_{i,j}\Phi(X_i\times X_j)
+$$
+正合。
+
+设 $\vieuxsheaf{a\Phi}$ 是与预层 $X\longmapsto\Phi(X)$ 相伴的层 (\hyperref[V.subsubsec6.12.1]{6.12.1})。条件 (LC) 等价于典范态射 $\Phi\to\vieuxsheaf{a\Phi}(e)$ 是\pageoriginale 双射 (参见 II 中分离预层的相伴层构造)。因此, 验证 (LC) 时, 可以只考虑满态射族 $(X_i\to e)$、$i\in I$ 所成的终族。
+
+\begin{enonce*}[remark]{例 6.12.3}\etiquette[6.12.3]{V.exem6.12.3}
+\begin{enumerate}
+\renewcommand{\labelenumi}{\theenumi)}
+\hypertarget{sga4.exp.V.example.6.12.3.item.1}{}\item 设 $Z$ 是 $E$ 的闭子拓扑斯。$E$ 的包含于 $Z$ 的闭子拓扑斯所成的集合是 $E$ 的支集族。它具有局部性。
+
+\item 设 $T$ 是拓扑空间, $\Phi$ 是 $T$ 的仿紧化支集族 \cite{sga4.exp.V.bib.7}。一般而言, 族 $\Phi$ 不具有局部性。
+
+\item 设 $T$ 是拓扑空间, $p$ 是整数。$T$ 的 Krull 余维数 $\geq p$ 的闭子集所成的族 $\Phi_p$ 是 $T$ 的支集族。它具有局部性。
+
+\item 设 $E$ 是具有下列性质的拓扑斯: 每个满态射族 $(X_i\to e)$、$i\in I$ 都被某个有限满态射族支配。则 $E$ 的每个支集族都具有局部性。事实上, 利用 \hyperlink{sga4.exp.V.example.6.12.3.item.1}{例 1}), 只需证明具有局部性的族的滤过归纳极限 $\Phi_\lambda$ 仍是具有局部性的族。对集合序列
+$$
+\Phi_\lambda\to\prod_i\Phi_\lambda(X_i)
+\rightrightarrows\prod_{i,j}\Phi_\lambda(X_i\times X_j){\quoi},
+$$
+取归纳极限即得, 其中 $(X_i\to e)$、$i\in I$ 为有限满态射族。事实上, 由 \hyperref[V.subsubsec6.12.2]{6.12.2} 及对 $E$ 的假设, 在验证条件 (LC) 时只需考虑有限满态射族; 而由于滤过归纳极限与有限投射极限可交换 (I 2), 这些集合序列的正合性在转到归纳极限后保持。
+
+\item 设 $E$ 是凝聚拓扑斯 (\hyperrefext[VI][VI.def2.3]{2.3})。由前一个例子, $E$ 的每个支集族都具有局部性。
+\end{enumerate}
+\end{enonce*}
+
+\setcounter{subsection}{12}
+\subsection{}\etiquette[6.13]{V.subsec6.13}
+设 $(E,A)$ 是赋环拓扑斯, $\Phi$ 是 $E$ 的支集族, $N$ 是 $A$-模 (为明确起见设为左模), $X$ 是 $E$ 的对象。令
+\hypertarget{sga4.exp.V.equation.6.13.1}{}\begin{align*}
+ℋ^{0}_{\Phi}(N)&=\varinjlim_{Z\in\Phi}ℋ^{0}_Z(N){\quoi},\tag{6.13.1}\\
+H^{0}_{\Phi}(E,N)&=\varinjlim_{Z\in\Phi}H^{0}_Z(E,N){\quoi}.
+\tag{6.13.2}
+\end{align*}\hypertarget{sga4.exp.V.equation.6.13.2}{}
+设\pageoriginale $M$ 是左 $A$-模, 令
+\hypertarget{sga4.exp.V.equation.6.13.3}{}\begin{gather*}
+\Eext^{0}_{A,\Phi}(M,N)=\Hhom_{A,\Phi}(M,N)
+=\varinjlim_{Z\in\Phi}\Eext^{0}_{A,Z}(M,N){\quoi},\tag{6.13.3}\\
+\Ext^{0}_{A,\Phi}(X;M,N)=
+\Hom_{A|X,\Phi(X)}(M|X,N|X)
+=\varinjlim_{Z\in\Phi}\Ext^{0}_{A,Z}(X;M,N){\quoi}.
+\tag{6.13.4}
+\end{gather*}\hypertarget{sga4.exp.V.equation.6.13.4}{}
+有典范同构
+\begin{equation*}%
+\Eext^{0}_{A,\Phi}(M,N)\simeq
+ℋ^{0}_{\Phi}(\Eext^{0}_A(M,N)){\quoi},\tag{6.13.5}
+\end{equation*}\etiquette[6.13.5]{V.6.13.5}
+
+\begin{equation*}%
+\Ext^{0}_{A,\Phi}(X;M,N)\simeq
+H^{0}_{\Phi}(X,\Eext^{0}_A(M,N)){\quoi}.\tag{6.13.6}
+\end{equation*}\etiquette[6.13.6]{V.6.13.6}
+
+若 $\Phi$ 是包含于某个固定闭子拓扑斯 $Z$ 的闭子拓扑斯所成的族, 则有同构
+\begin{equation*}
+\begin{cases}
+ℋ^{0}_{\Phi}\simeqℋ^{0}_Z,\\
+H^{0}_{\Phi}\simeq H^{0}_Z,\\
+\Eext^{0}_{A,\Phi}(⋅,⋅)\simeq\Eext^{0}_{A,Z}(⋅,⋅),\\
+\Ext^{0}_{A,\Phi}(X;⋅,⋅)\simeq\Ext^{0}_{A,Z}(X;⋅,⋅){\quoi}.
+\end{cases}\tag{6.13.7}
+\end{equation*}\etiquette[6.13.7]{V.6.13.7}
+定义上述函子的归纳极限是滤过的。因此, 这些函子左正合。其右导出函子记为
+\begin{equation}
+ℋ^q_{\Phi},\ H^q_{\Phi},\ \Eext^q_{A,\Phi}(⋅,⋅),\
+\Ext^q_{A,\Phi}(X;⋅,⋅){\quoi}.\tag{6.13.8}
+\end{equation}\etiquette[6.13.8]{V.6.13.8}
+它们也可由函子 $ℋ^q_Z$、$H^q_Z$ 等在 $Z$ 变动于 $\Phi$ 时的归纳极限计算。
+
+由同构 \eqhyperref[V.6.13.5]{6.13.5} 与 \hyperref[V.6.13.6]{(6.13.6)}, 在 \eqhyperref[V.6.9.1]{6.9.1} 的第一个谱序列以及 \eqhyperref[V.6.9.2]{6.9.2} 的第一个谱序列中取归纳极限, 得到两个谱序列:
+\hypertarget{sga4.exp.V.equation.6.13.9}{}\begin{gather*}
+\Eext^{p+q}_{A,\Phi}(M,N)\Leftarrow E^{p,q}_2=
+ℋ^p_{\Phi}(\Eext^q_A(M,N)){\quoi},\tag{6.13.9}\\
+\Ext^{p+q}_{A,\Phi}(X;M,N)\Leftarrow E^{p,q}_2=
+H^p_{\Phi}(X,\Eext^q_A(M,N)){\quoi}.\tag{6.13.10}
+\end{gather*}\hypertarget{sga4.exp.V.equation.6.13.10}{}
+
+\subsection{}\etiquette[6.14]{V.subsec6.14}\pageoriginale
+沿用 \hyperref[V.subsec6.13]{6.13} 的记号, 不对 $\Phi$ 作任何假设, 有函子性的态射
+\begin{equation*}
+\theta:H^{0}_{\Phi}(N)\to H^{0}(E,ℋ^{0}_{\Phi}(N)){\quoi}.
+\tag{6.14.1}
+\end{equation*}\etiquette[6.14.1]{V.6.14.1}
+此态射总是单射, 但一般不是同构。不过, 若 $\Phi$ \emph{具有局部性}, 则态射 $\theta$ 是同构, 这可立即验证。同样, 若 $\Phi$ \emph{具有局部性}, 则有同构
+\begin{equation}
+\theta':\Ext^{0}_{A,\Phi}(E;M,N)\simeq
+H^{0}(E,\Eext^{0}_{A,\Phi}(M,N)){\quoi}.\tag{6.14.2}
+\end{equation}\etiquette[6.14.2]{V.6.14.2}
+
+\begin{enonce*}{命题 6.15}\etiquette[6.15]{V.prop6.15}
+设 $(E,A)$ 是赋环拓扑斯, 其中 $E$ 凝聚\emph{(VI)}, $\Phi$ 是 $E$ 的支集族, $M$、$N$ 是两个 $A$-模。有两个谱序列:
+\hypertarget{sga4.exp.V.equation.6.15.1}{}\begin{align*}%\etiquette[6.15.1]{V.6.15.1}
+H^{p+q}_{\Phi}(E,N)\Leftarrow E^{p,q}_2
+&=H^p(E,ℋ^q_{\Phi}(N)){\quoi},\tag{6.15.1}\\
+\Ext^{p+q}_{A,\Phi}(E;M,N)\Leftarrow E^{p,q}_2
+&=H^p(E,\Eext^q_{A,\Phi}(M,N)){\quoi}.\tag{6.15.2}
+\end{align*}\hypertarget{sga4.exp.V.equation.6.15.2}{}
+\end{enonce*}
+
+这些谱序列由谱序列 \eqhyperref[V.6.4.2]{6.4.2} 以及 \eqhyperref[V.6.9.2]{6.9.2} 的第二个谱序列, 对 $\Phi$ 中的闭子拓扑斯 $Z$ 取归纳极限得到, 这里考虑了凝聚拓扑斯的上同调与层的归纳极限可交换这一事实 (IV 5)。
+
+\setcounter{subsection}{15}
+\subsection{}\etiquette[6.16]{V.subsec6.16}
+不加证明地指出, \eqhyperref[V.6.9.1]{6.9.1} 的第二个谱序列以及 \eqhyperref[V.6.9.2]{6.9.2} 的第三个谱序列 (其中 $X$ 等于 $E$ 的终对象) 可以推广到支集族的情形, 只要拓扑斯 $E$ 凝聚且模 $M$ 完美 \cite{sga4.exp.V.bib.13}。
+
+最后, 也可通过引入支集族预层、支集族层以及相应的上同调群\pageoriginale 与上同调层, 来推广支集族的概念\footnote{参见 \cite{sga4.exp.V.bib.12}, Chap.~IV, \S 1 (Lecture Notes 20, Springer), 其中以带变奏的赋格形式展开了这些概念。}。
+
+% END INCLUDED SGA4_English_current_buildable_source_20260906/source/05/drafts/SGA4_V_LINES_2301_2629_English.texfrag
+
+% BEGIN INCLUDED SGA4_English_current_buildable_source_20260906/source/05/drafts/SGA4_V_LINES_2630_2810_English.texfrag
+\section{附录: Čech 上同调}\etiquette[7]{V.sec7}
+
+发挥 P. Cartier 的一个想法, 本节说明如何在任意拓扑斯中通过覆盖计算层的上同调。关于仿紧空间的经典理论, 参见 \cite{sga4.exp.V.bib.7}; 关于适用于某些拓扑斯, 特别是平展拓扑斯的另一种方法, 参见 \cite{sga4.exp.V.bib.14}。
+
+\subsection{骨架与余骨架}\etiquette[7.1]{V.subsec7.1}
+
+\setcounter{subsubsection}{-1}
+\subsubsection{}\etiquette[7.1.0]{V.subsubsec7.1.0}
+
+设 $𝚫$ 是标准单形范畴 ($𝚫$ 的对象是有序集 $\Delta_n=[0,\ldots,n]$, 态射是递增映射)。设 $E$ 是 $𝒰$-拓扑斯, $𝚫(E)$ 是 $𝚫$ 上取值于 $E$ 的预层范畴; 换言之, 是 $E$ 的\emph{半单纯对象}范畴。以 $𝚫[n]$ 表示 $𝚫$ 中由对象 $\Delta_p$、$p\leq n$ 定义的全子范畴, $i_n:𝚫[n]\to𝚫$ 表示包含函子, $𝚫 E[n]$ 表示 $𝚫[n]$ 上取值于 $E$ 的预层范畴; 换言之, 是 \emph{$E$ 中截断到 $n$ 阶的半单纯对象}范畴。由 I \hyperref[I.prop5.1]{5.1}, 有三个伴随函子组成的序列 (I \hyperref[I.sec5.3]{5.3})
+\[
+\xymatrix@C=3cm@M=.5cm{
+𝚫 E[n] \ar@<17pt>[r]^{i_{n!}} \ar@<-19pt>[r]^{i_{n\ast}}&
+𝚫 E \ar@<1pt>[l]_{i^{\ast}_n}\\
+}
+\]
+其中 $i_n^\ast$ 是到范畴 $𝚫[n]$ 的限制函子, $i_{n\ast}$ 与 $i_{n!}$ 分别为其右伴随和左伴随。注意, $𝚫 E$ 和 $𝚫 E[n]$ 是 $𝒰$-拓扑斯 (IV \hyperref[IV.theo1.2]{1.2}), 且 $(i_n^\ast,i_{n\ast})$ 是拓扑斯态射 (IV \hyperref[IV.def3.1]{3.1}), 它是 $𝚫 E[n]$ 到 $𝚫 E$ 的嵌入 (I \hyperref[I.prop5.6]{5.6} 及 IV \hyperref[IV.def9.1.1]{9.1.1})。
+
+\begin{enonce*}{定义 7.1.1}\etiquette[7.1.1]{V.def7.1.1}
+从\pageoriginale $𝚫_E$ 到 $𝚫_E$ 的函子 $i_{n!}i_n^\ast$ (分别为 $i_{n\ast}i_n^\ast$) 记为 $\sk_n$ (分别为 $\cosk_n$), 称为\emph{$n$ 阶骨架函子} (分别为\emph{$n$ 阶余骨架函子})。
+\end{enonce*}
+
+骨架函子与余骨架函子在半单纯集理论中经常用到 \cite{sga4.exp.V.bib.3}。
+
+\begin{enonce*}{命题 7.1.2}\etiquette[7.1.2]{V.prop7.1.2}
+\begin{enumerate}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 伴随态射 $\sk_n\to\id$ 是单态射。当 $n\leq m$ (分别为 $n\geq m$) 时, 典范态射 $\sk_n\sk_m\to\sk_n$ (分别为 $\cosk_n\to\cosk_n\cosk_m$) 是同构。
+
+\item 设 $u:E\to E'$ 是拓扑斯态射。将函子 $u^\ast$ 延拓到半单纯对象和截断半单纯对象后, 它与函子 $i_{n!}$、$i_n^\ast$、$\sk_n$、$\cosk_n$ 可交换。
+\end{enumerate}
+\end{enonce*}
+
+第一个断言直接由定义得到。为证 2), 只需注意, 由 I \hyperref[I.prop5.1]{5.1}, 函子 $i_{n!},\ldots,\cosk_n$ 可利用归纳极限和有限投射极限计算。
+
+\subsection{一个无环性引理}\etiquette[7.2]{V.subsec7.2}
+
+\setcounter{subsubsection}{-1}
+\subsubsection{}\etiquette[7.2.0]{V.subsubsec7.2.0}
+
+设 $M$ 是 $E$ 的阿贝尔群。按通常方式定义 $E$ 的半单纯对象 $K$ 以 $M$ 为系数的\emph{同调}。先考虑由 $K$ 生成的自由阿贝尔半单纯群 $A(K)$, 再取张量积 $M\otimes_{\ZZ}A(K)$; 由此得到 $E$ 的阿贝尔半单纯群。然后考虑相伴的阿贝尔群复形 (通过取边界算子的交错和形成), 并取其同调。同调对象记为 $H_i(K,M)$。它们是 $E$ 的阿贝尔群。当 $M$ 是群 $\mathbb{Z}_E$ (由 $E$ 的终对象生成的自由阿贝尔群) 时, 简记为 $H_i(K)$。群 $H_i(K)$ 称为 $K$ 的\emph{同调群}。半单纯对象 $K$ 称为\emph{无环的}, 如果对 $E$ 的每个阿贝尔群 $M$, 群 $H_i(K,M)$ 当 $i>0$ 时为零。
+
+同调的构造与拓扑斯态射的逆像可交换\pageoriginale。
+
+本小节的目的是证明下述引理:
+
+\begin{enonce*}{引理 7.2.1}\etiquette[7.2.1]{V.lem7.2.1}
+设 $E$ 是拓扑斯, $K_{∙}$ 和 $L_{∙}$ 是 $E$ 的两个半单纯对象, $v_{∙}:K_{∙}\to L_{∙}$ 是半单纯对象态射, $n$ 是整数 $\geq0$。假定 $v$ 具有下列性质:
+\begin{enumerate}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 对每个整数 $p<n$ $(p\geq0)$, 态射 $v_p:K_p\to L_p$ 是同构。
+
+\item 态射 $K_n\xrightarrow{v_n}L_n$ 是满态射。
+
+\item 典范态射 $K_{∙}\to\cosk_n(K_{∙})$ 与 $L_{∙}\to\cosk_n(L_{∙})$ 均为同构。
+\end{enumerate}
+则对每个整数 $p$, 态射 $v_p$ 是满态射, 而态射 $v_{∙}$ 在同调对象上诱导同构。
+\end{enonce*}
+
+\begin{enonce*}[remark]{注}
+证明实际上表明, 在拓扑斯中采用适当的同伦定义后, 态射 $v_{∙}$ 是同伦等价。
+\end{enonce*}
+
+\begin{enonce*}[remark]{证明}
+可假定 $E$ 是某个小景 $C$ 上的层拓扑斯 (IV 1), 从而 $E$ 是某个有足够多纤维函子的拓扑斯 $E'$ 的子拓扑斯 (例如取拓扑斯 $C^{\wedge}$)。以 $a^\ast:E'\to E$ 表示嵌入态射 $E\hookrightarrow E'$ 的逆像函子。设
+$$
+v_{∙}[n]:K_{∙}[n]\to L_{∙}[n]
+$$
+为将 $v_{∙}$ 截断到 $n$ 阶而得到的截断半单纯对象态射。以 $L_{∙}[n]'$ 表示 $K_{∙}[n]$ 在 $v_{∙}[n]$ 下的像 (在 $E'$ 中), 以 $v_{∙}[n]':K_{∙}[n]\to L_{∙}[n]'$ 表示由 $v_{∙}[n]$ 诱导的态射。令 $L!=i_{n\ast}L_{∙}[n]'$、$K!=i_{n\ast}K_{∙}[n]$ 及 $v!=i_{n\ast}v_{∙}[n]'$ (此处 $i_{n\ast}$ 相对于 $E'$ 而言)。由 1), 态射 $v!:K!\to L!$ 具有引理中的性质 1)、2)、3)。此外, 由 2)、3) 及 \hyperref[V.prop7.1.2]{7.1.2}, 态射 $a^\ast v!$ 正是 $v_{∙}$。因此只需对 $v!$ 证明引理, 从而可假定 $E$ 有足够多的纤维函子。利用这些纤维函子, 又可归结到 $E$ 为集合范畴的情形。
+\end{enonce*}
+
+先注意, 引理中对态射 $v_{∙}$ 的假设, 在每个使 $M_{∙}$ 为 $n$ 阶余骨架的基变换 $M_{∙}\to L_{∙}$ 下\pageoriginale 保持。因此, $v_{∙}$ 在 $L_{∙}$ 的任意基点处的纤维 $P_{∙}$ 都形如 $i_{n\ast}P_{∙}[n]$, 其中 $P_{∙}[n]$ 是非空的 $n$ 阶截断复形, 形如
+\begin{equation*}
+P_n\to e\to e\to e\to\cdots\to e{\quoi}.\tag{7.2.2}
+\end{equation*}\etiquette[7.2.2]{V.7.2.2}
+对每个整数 $i$, 以 $\delta\sheaf{\Delta}_i$ 表示构成单形 $\sheaf{\Delta}_i$ 的边界的半单纯集。从 $\delta\sheaf{\Delta}_i$ 到 $P_{∙}$ 的每个态射都延拓为从 $\sheaf{\Delta}_i$ 到 $P_{∙}$ 的态射。事实上, 当 $i\geq n$ 时此性质是直接的, 因为 $P_{∙}$ 是 $n$ 阶余骨架; 而当 $i<n$ 时, 由描述 \eqhyperref[V.7.2.2]{7.2.2} 可知此性质显然成立。由于 $P_{∙}$ 是 Kan 复形, 它同伦平凡 \cite{sga4.exp.V.bib.6}。注意, 态射 $v_{∙}$ 是 Kan 意义下的纤维化 \cite{sga4.exp.V.bib.6}。由于此纤维化的纤维同伦平凡, $v_{∙}$ 在 $K_{∙}$ 的所有基点处诱导 $K_{∙}$ 与 $L_{∙}$ 的同伦群之间的同构。由 Hurewicz 定理, 这蕴含 $v_{∙}$ 在同调上诱导同构 \cite{sga4.exp.V.bib.6}。这证明了引理的第二个断言。为证第一个断言, 注意从 $n$ 阶截断复形到 $L_{∙}[n]$ 的每个态射都能提升为到 $K_{∙}[n]$ 的态射。因此由 3), 从某个复形到 $L_{∙}$ 的每个态射都能提升为到 $K_{∙}$ 的态射。于是 $v_{∙}$ 满射。
+
+% END INCLUDED SGA4_English_current_buildable_source_20260906/source/05/drafts/SGA4_V_LINES_2630_2810_English.texfrag
+
+% BEGIN INCLUDED SGA4_English_current_buildable_source_20260906/source/05/drafts/SGA4_V_LINES_2811_3070_English.texfrag
+\subsection{超覆盖}\etiquette[7.3]{V.subsec7.3}
+
+\setcounter{subsubsection}{-1}
+\subsubsection{}\etiquette[7.3.0]{V.subsubsec7.3.0}
+设 $C$ 是属于宇宙 $𝒰$ 的景, 其中纤维积与两个对象的积可表。用 $C^{\wedge}$ 表示 $C$ 上的 $𝒰$-预层拓扑斯, $C^{\sim}$ 表示 $C$ 上的 $𝒰$-层拓扑斯。$C^{\wedge}$ 的对象 $K$ 称为\emph{半可表的}, 如果它同构于可表预层的余积。
+
+设 $SR(C)$ 是 $C^{\wedge}$ 中由半可表对象定义的全子范畴。在范畴 $SR(C)$ 中, 以非空有限范畴为指标的投射极限可表, 且包含函子 $SR(C) \hookrightarrow C^{\wedge}$ 与这些有限投射极限可交换。由已作的观察可知, 若 $K_∙$ 是 $C^{\wedge}$ 中的 $n$ 次截断半单纯对象, 且其所有对象\pageoriginale 都半可表, 则延拓 $i^+_n(K_∙)$ 也有此性质。因此, 若 $K_∙$ 是 $C^{\wedge}$ 的半单纯对象, 且其所有对象都半可表, 则对每个 $n$, 对象 $\cosk_n (K_∙)$ 也有此性质。
+
+\subsubsection{定义与记号}\etiquette[7.3.1]{V.subsubsec7.3.1}
+
+\paragraph{}\etiquette[7.3.1.1]{V.par7.3.1.1}
+
+设 $p > 0$ 是整数。$C^{\wedge}$ 的半单纯对象 $K_∙$ 称为 $C$ 的 \emph{$p$ 型超覆盖}, 或在无混淆时简称为 $p$ 型超覆盖, 如果它有下列性质:
+\begin{itemize}
+\item[HR1)] 对每个整数 $n \geq 0$, $K_n$ 半可表。
+
+\item[HR2)] 典范态射 $K_∙ \to \cosk_p (K_∙)$ 是同构。
+
+\item[HR3)] 对每个整数 $n \geq 0$, 典范预层态射 $K_{n + 1} \to (\cosk_n(K_∙))_{n + 1}$ 是预层的覆盖态射 (II \hyperref[II.rem6.2]{6.2})。典范预层态射 $K_{0} \to e$ 也是预层的覆盖态射, 其中 $e$ 是 $C^{\wedge}$ 的终对象。
+\end{itemize}
+
+\paragraph{}\etiquette[7.3.1.2]{V.par7.3.1.2}
+对每个 $q \geq p$, $p$ 型超覆盖也是 $q$ 型超覆盖。满足性质 HR 1) 与 HR 3) 的半单纯对象 $K_∙$ 称为 ($C$ 的) \emph{超覆盖}。
+
+\paragraph{}\etiquette[7.3.1.3]{V.par7.3.1.3}
+将下述范畴记为 $HR_p$ (分别为 $HR$), 称为 $p$ 型超覆盖范畴 (分别为超覆盖范畴):
+\begin{enumerate}
+\renewcommand{\theenumi}{\alph {enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item $HR_p$ (分别为 $HR$) 的对象是 $p$ 型超覆盖 (分别为超覆盖)。
+
+\item 设 $K_∙$ 与 $L_∙$ 是 $HR_p$ (分别为 $HR$) 的两个对象。以 $K_∙$ 为源、$L_∙$ 为靶的 $HR_p$ (分别为 $HR$) 的态射, 是 $C^{\wedge}$ 的半单纯对象态射 $v_∙ : K_∙ \to L_∙$。
+\end{enumerate}
+
+\paragraph{}\etiquette[7.3.1.4]{V.par7.3.1.4}
+设 $C$ 是纤维积可表的景, $X$ 是 $C$ 的对象。$X$ 的超覆盖 (分别为 $X$ 的 $p$ 型超覆盖) 是指景 $C/X$ 的超覆盖 (分别为 $C/X$ 的 $p$ 型超覆盖)。类似地定义\pageoriginale $X$ 的超覆盖范畴 (分别为 $X$ 的 $p$ 型超覆盖范畴)。有包含函子序列
+$$
+\cdots HR_p \hookrightarrow HR_{p + 1} \hookrightarrow \cdots
+\hookrightarrow HR{\quoi}.
+$$
+这些函子全忠实。用 $HR_{\infty}$ 表示各范畴 $HR_p$ 的归纳极限。
+
+\setcounter{paragraph}{5}
+\paragraph{}\etiquette[7.3.1.6]{V.par7.3.1.6}
+对每个整数 $n \geq 0$, 用 $\sheaf{\Delta}_n^c$ 表示取值于集合范畴的 $n$ 维标准半单纯对象, 即有序集 $[0, n]$ 所代表的 $𝚫$ 上的函子。也用 $\sheaf{\Delta}_n^c$ 表示 $C$ 上取值于半单纯集范畴、值恒为 $\sheaf{\Delta}_n$ 的预层。因此预层 $\sheaf{\Delta}_n^c$ 是半单纯集预层。从 $\Delta_0$ 到 $\Delta_1$ 的两个典范单射定义两个半单纯预层态射:
+\[
+\xymatrix@C=2cm@M=.25cm{
+\underline{\Delta}_0^{c} \ar@<3pt>[r]^{e_{0}} \ar@<-3pt>[r]_{e_{1}} &
+\underline{\Delta}_1^c ,
+}
+\]
+从而对每个半单纯预层 $K_∙$ 定义两个典范单射:
+\[
+\xymatrix@C=2cm@M=.25cm{
+K_{∙} \ar@<3pt>[r]^(.45){e_{0}} \ar@<-3pt>[r]_(.45){e_{1}}&  K_{∙}
+\times \underline{\Delta}_1^c .
+}
+\]
+两个半单纯预层态射
+$
+\xymatrix@C=1cm@M=.25cm{
+K_{∙} \ar@<3pt>[r]^(.45){u_{0}} \ar@<-3pt>[r]_(.45){u_{1}}&  L_{∙}
+}
+$
+称为\emph{同伦的态射}, 如果存在态射
+$$
+v : K_∙ \times \sheaf{\Delta}_1^c \to L_∙
+$$
+使图
+\[
+\xymatrix@R=.5cm@C=1.25cm{
+K_∙ \ar[rr]^{e_i} \ar[rdd]_{u_i}&   &K_{∙}\times \sheaf{\Delta}_1^c
+\ar[ldd]^v\\
+                                    &   & &\txt{i = 0,1}\\
+                       & L_{∙} &
+}
+\]
+交换\pageoriginale。态射 $v$ 称为\emph{连接 $u_0$ 与 $u_1$ 的同伦}。关系“$u_0$ 与 $u_1$ 是从 $K_∙$ 到 $L_∙$ 的两个同伦的态射”一般不是等价关系。不过, 此关系生成的等价关系与态射复合相容。因此, 可对此同伦关系生成的等价关系取商, 定义同伦意义下的半单纯预层范畴。
+
+\paragraph{}\etiquette[7.3.1.7]{V.par7.3.1.7}
+如此定义范畴 $\sheaf{HR}_p$、$\sheaf{HR}_{\infty}$ 和 $\sheaf{HR}$, 即\emph{同伦意义下的超覆盖范畴}。
+
+\begin{enonce*}{定理 7.3.2}\etiquette[7.3.2]{V.thm7.3.2}
+设 $C$ 是满足 \hyperref[V.subsubsec7.3.0]{7.3.0} 的条件的景。
+\begin{enumerate}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 范畴 $\sheaf{HR}^{0}_p$ (分别为 $\sheaf{HR}^{0}$) 滤过\emph{(I \hyperref[I.def2.7]{2.7})}。
+
+\item 设 $K_∙$ 是 $HR_p$ (分别为 $HR$) 的对象, $n$ 是满足 $0 \leq n \leq p$ (分别为 $0 \leq n$) 的整数, 并设
+$$
+u : X \to K_n
+$$
+为预层的覆盖态射。存在 $HR_p$ (分别为 $HR$) 的对象 $L_∙$ 及态射 $f : L_∙ \to K_∙$, 使态射
+$$
+f_n : L_n \to K_n
+$$
+经过 $u$ 分解。
+
+\item 超覆盖的相伴半单纯层\emph{(II \hyperref[II.def3.5]{3.5})} 在严格正次数上无环 (\hyperref[V.subsubsec7.2.0]{7.2.0})。第 $0$ 个同调层同构于常值预层 $𝒵$ 的相伴层。
+\end{enumerate}
+\end{enonce*}
+
+\begin{enonce*}[remark]{证明}
+先证 3)。设 ${K}^{\sim}_{∙}$ 为与 $K_∙$ 相伴的半单纯层。“相伴层”函子与函子 $\cosk_n$ 可交换 (\hyperref[V.prop7.1.2]{7.1.2}. 2))。因而半单纯层 ${K}^{\sim}_{∙}$ 有下列性质:
+\begin{enumerate}
+\renewcommand{\theenumi}{\alph {enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 典范态射 $K_0 \to e$ 是层的满态射。
+
+\item 对每个整数 $n \geq 0$, 典范态射 $K_{n + 1} \to (\cosk_n(K_∙))_{n + 1}$ 是层的满态射。
+\end{enumerate}
+\end{enonce*}
+
+对 $n \geq 0$, 令 ${L_∙}_n = \cosk_n {K}^{\sim}_{∙}$。则对每个 $n$, 有半单纯层态射序列
+$$
+{K_∙}^{\sim} \xrightarrow{u_n}{L_∙}_n\xrightarrow{v_n} {L_∙}_{n - 1}
+\cdots \to {L_∙}_{0} \xrightarrow{v_0} e_∙{\quoi},
+$$
+并且\pageoriginale 对每个 $j$、$0 \leq j \leq n$, $v_j$ 都具有 \hyperref[V.lem7.2.1]{7.2.1} 的性质。此外, 态射 $u_n$ 在 $\leq n$ 次项上诱导同构。于是由 \hyperref[V.lem7.2.1]{7.2.1}, 对 $n$ 归纳可知 $K_∙$ 无环。
+
+为证明 1) 与 2), 引入一些术语。
+
+\begin{enonce*}{定义 7.3.3}\etiquette[7.3.3]{V.def7.3.3}
+设 $f : X_{∙} \to Y_∙$ 是半单纯预层态射。称 $f$ 为\emph{$p$ 型特殊态射} (分别为\emph{特殊态射}), 如果:
+\begin{enumerate}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 对象 $X_{∙}$ 与 $Y_∙$ 典范同构于它们的 $p$ 阶余骨架, 且 $\cosk_p (f) = f$ (分别为不对 $f$、\sisi{$X^{∙}$}{$X_{∙}$} 或 \sisi{$Y^{∙}$}{$Y_{∙}$} 施加条件)。
+
+\item 对每个满足 $0 \leq n \leq p$ (分别为 $0 \leq n$) 的整数 $n$, 下图中的态射 $\Phi_{n + 1}$ 覆盖:
+\[
+\xymatrix@C=1cm@R=1.25cm{
+X_{n+1} \ar[rrr]^{f_{n+1}} \ar[rd]^{\Phi_{n+1}} \ar[dd]       & & & Y_{n+1}\ar[dd]\\
+                                    &P_{n+1} \ar[ld] \ar[rru]& &\\
+(\cosk_n X_{∙})_{n+1}\ar[rrr]_{(\cosk_n f)_{n+1}}& & &
+(\cosk_n Y_{∙})_{n+1} .
+}
+\]
+(竖直箭头由典范态射 $X_{∙} \to \cosk_n X_{∙}$ 与 $Y_∙ \to \cosk_n Y_∙$ 定义。对象 $P_{n+1}$ 为纤维积, $\Phi_{n+1}$ 是使该图交换的唯一箭头。)
+
+\item 态射 $f_0 : X_0 \to Y_0$ 覆盖。
+\end{enumerate}
+
+半单纯预层 $K_∙$ 称为 $p$ 型特殊的 (分别为特殊的), 如果典范态射
+$$
+K_∙ \to e_{∙}\quad (e_{∙}\quad \mbox{\rm 为终半单纯对象})
+$$
+是 $p$ 型特殊态射 (分别为特殊态射), 即 $K_∙$ 满足 \hyperref[V.par7.3.1.1]{7.3.1.1} 的条件\emph{HR 2)} 与\emph{HR 3)} (分别为\emph{HR 3)})。
+\end{enonce*}
+
+\begin{enonce*}{引理 7.3.4}\etiquette[7.3.4]{V.lem7.3.4}
+\begin{enumerate}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 两个特殊态射\pageoriginale (分别为 $p$ 型特殊态射) 的复合仍为特殊态射 (分别为 $p$ 型特殊态射)。
+
+\item 设 $K_∙$ 为特殊的 (分别为 $p$ 型特殊的) 半单纯预层, $X_{∙}\xrightarrow{f}Y_∙$ 为特殊态射 (分别为 $p$ 型特殊态射), $u : K_∙ \to Y_∙$ 为复形态射。则纤维积 $P_{∙} =
+  K_∙ ×_{Y_∙} X_∙$ 特殊 (分别为 $p$ 型特殊的)。
+\end{enumerate}
+\end{enonce*}
+
+此引理的证明留给读者。
+
+\setcounter{subsubsection}{4}
+
+% END INCLUDED SGA4_English_current_buildable_source_20260906/source/05/drafts/SGA4_V_LINES_2811_3070_English.texfrag
+
+% BEGIN INCLUDED SGA4_English_current_buildable_source_20260906/source/05/drafts/SGA4_V_LINES_3071_3430_English.texfrag
+\subsubsection{}\etiquette[7.3.5]{V.subsubsec7.3.5}
+\emph{\hyperref[V.thm7.3.2]{7.3.2} 中断言 2) 的证明}。
+先可假定 $X$ 半可表。对每个半单纯对象 $L_∙$, 用 $\Hom_{(X)}(L_∙,K_∙)$ 表示配备分解 $L_n\to X\xrightarrow{u}K_n$ 的半单纯对象态射所成的集合。函子 $\Hom_{(X)}(⋅,K_∙)$ 可表。事实上, 此函子将归纳极限映为投射极限, 而范畴 $𝚫(C^{\wedge})$ 是拓扑斯。以 $P_{∙}$ 表示代表此函子的对象。类似地, 对 $C^{\wedge}$ 的对象 $Z$, 以 $j_n^{+}(Z)$ 表示代表 $𝚫 C^{\wedge}$ 上函子 $L_∙\mapsto\Hom(L_n,Z)$ 的对象, 其由 $\varprojlim$ 给出的构造已在 III \hyperref[III.def1.1]{1.1} 中明确描述。在此注意, 此构造只涉及有限投射极限。立即可知, $j_n^{+}$ 将半可表预层映为各项均半可表的半单纯预层, 并将覆盖态射 $Z'\to Z$ 映为特殊态射 (\hyperref[V.def7.3.3]{7.3.3})。
+
+由 $P_{∙}$ 的定义, 有笛卡尔方图:
+\[
+\xymatrix@C=2cm@R=1.5cm{
+P_{∙} \ar[r]\ar[d]& j_n^{+}(X) \ar[d]^{j_n^{+}(u)}\\
+K_{∙} \ar[r]      &  j_n^{+}(K_n)\quad.
+}
+\]
+由刚才的观察, 半单纯对象 $j_n^{+}(X)$ 与 $j_n^{+}(K_n)$ 半可表, 且态射 $j_n^{+}(u)$ 是 $n$ 型特殊态射。应用 \hyperref[V.cor3.4]{3.4} 及一组性质 \hyperref[V.subsubsec7.3.0]{7.3.0} 即得结果。
+
+\setcounter{subsubsection}{6}
+\setcounter{paragraph}{-1}
+\paragraph{}\etiquette[7.3.6.0]{V.par7.3.6.0}
+设\pageoriginale $M_∙$ 与 $N_∙$ 是两个半单纯预层。函子
+$$
+L_∙\longmapsto\Hom(L_∙\times M_∙,N_∙)
+$$
+可表。代表它的半单纯预层记为
+$$
+\Hhom_∙(M_∙,N_∙){\quoi}.
+$$
+此对象的 $n$ 次项预层记为 $\Hhom_n(M_∙,N_∙)$。有典范同构
+$$
+\Hhom_n(M_∙,N_∙)\xrightarrow{\sim}
+\Hhom_0(M_∙\times\sheaf{\Delta}^c_n,N_∙){\quoi}.
+$$
+
+\begin{enonce*}{引理 7.3.6}\etiquette[7.3.6]{V.lem7.3.6}
+设
+\[
+\xymatrix@C=2cm@R=1.5cm{
+M_{∙} \ar@{^{(}->}[r]& N_{∙}\\
+\sk_n\sheaf{\Delta}_{n+1}^c \ar[u] \ar@{^{(}->}[r]^{u}&
+\sheaf{\Delta}_{n+1}^c \ar[u] &
+\kern -1.5cm \txt{\rm ($u$ 为典范单射)}
+}
+\]
+为半单纯预层的余笛卡尔图。
+
+对每个超覆盖 $L_∙$, 态射
+$$
+\Hhom_0(N_∙,L_∙)\to\Hhom_0(M_∙,L_∙)
+$$
+覆盖。
+\end{enonce*}
+
+\begin{enonce*}[remark]{证明}
+有笛卡尔图:
+\[
+\xymatrix{
+\Hhom_0(N_{∙},L_{∙})\ar[d] \ar[r]&
+\Hhom_0(M_{∙},L_{∙}) \ar[d]\\
+\Hhom_0(\sheaf{\Delta}^c_{n+1},L_{∙})\ar[r]^{(\ast)} &
+\Hhom_0(\sk_n\sheaf{\Delta}^c_{n+1},L_{∙}).
+}
+\]
+因此只需证明态射 $(\ast)$ 覆盖。但 $(\ast)$ 同构于态射
+$$
+L_{n+1}\to(\cosk_nL_∙)_{n+1},
+$$
+后者根据假设覆盖。\cqfd
+\end{enonce*}
+
+\subsubsection{}\etiquette[7.3.7]{V.subsubsec7.3.7}
+\hyperref[V.thm7.3.2]{7.3.2} 中断言 1) 的证明。$HR_p$ (分别为 $HR$) 的两个对象的积仍是 $HR_p$ (分别为 $HR$) 的对象 (\hyperref[V.lem7.3.4]{7.3.4})。要证明范畴 $\sheaf{HR}^{0}_p$ (分别为 $\sheaf{HR}^{0}$) 滤过, 只需证明给定 $HR_p$ (分别为 $HR$) 的两个态射
+\[
+\xymatrix@C=2cm@M=.2cm{
+K_{∙} \ar@<3pt>[r]^{u_0} \ar@<-3pt>[r]_{u_1}&L_∙
+}
+\]
+都存在 $HR_p$ (分别为 $HR$) 的态射 $v:M_∙\to K_∙$, 使态射
+\[
+\xymatrix@C=2cm@M=.2cm{
+M_{∙} \ar@<3pt>[r]^{u_0v} \ar@<-3pt>[r]_{u_1v}&L_∙
+}
+\]
+同伦\pageoriginale, 即存在 $w:M_∙\times\sheaf{\Delta}_1^c\to L_∙$ 使图
+\[
+\vcenter{
+\xymatrix@C=2cm@R=1.5cm{
+M_{∙} \ar[d]_{v} \ar[r]^(.4){e_i}&
+M_{∙}\times\underline{\Delta}^c_1 \ar[d]^{w}\\
+K_{∙} \ar[r]^{u_i}&L_{∙}&\kern -1.5cm\txt{$i=0,1$.}
+}}\leqno({\rm x})
+\]
+交换。对 $C^{\wedge}$ 的每个半单纯对象 $M_∙$ (不必为超覆盖), 设 $F(M_∙)$ 为使图 (x) 交换的对 $(v,w)$ 所成的集合, 其中 $v:M_∙\to K_∙$ 且 $w:M_∙\times\sheaf{\Delta}_1^c\to L_∙$。函子 $M_∙\mapsto F(M_∙)$ 关于 $M_∙$ 反变, 将归纳极限映为投射极限, 因而由某个半单纯对象 $F_{∙}$ 代表。对象 $F_{∙}$ 显然是一个笛卡尔图的左上顶点:
+\[
+\xymatrix@=2cm{
+F_{∙}\ar[r]\ar[d]&
+\Hhom_{∙}(\sheaf{\Delta}^{c}_{1},L_{∙})\ar[d]^{\pi}\\
+K_{∙}\ar[r]_{u_0,u_1}&L_{∙}\times L_{∙},
+}
+\]
+其中 $\pi$ 由 $\sheaf{\Delta}^c_0$ 到 $\sheaf{\Delta}^c_1$ 的两个包含映射定义。因此, 为证明断言, 只需证明 $F_{∙}$ 是 $HR_p$ (分别为 $HR$) 的对象。为此, 由 \hyperref[V.lem7.3.4]{7.3.4} 2) 及一组性质 \hyperref[V.subsubsec7.3.0]{7.3.0}, 只需证明
+
+\begin{enumerate}
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item $\Hhom_∙(\sheaf{\Delta}^c_1,L_∙)$\pageoriginale 半可表,
+
+\item 态射 $\pi$ 是 $p$ 型特殊态射 (分别为特殊态射)。
+\end{enumerate}
+
+首先, 立即可知 $\Hhom_∙(\sheaf{\Delta}^c_1,L_∙)$ 是半可表的半单纯对象。事实上, 它的各项由各 $L_n$ 通过有限投射极限计算, 因而半可表。现在验证 b)。先证明, 当 $L_∙$ 是 $p$ 型特殊的时, 态射
+$$
+\Hhom_∙(\sheaf{\Delta}_1^c,L_∙)\to
+\cosk_p\Hhom_∙(\sheaf{\Delta}^c_1,L_∙)
+$$
+为同构; 这验证了 \hyperref[V.def7.3.3]{7.3.3} 的性质 1)。其次, 态射
+$$
+\pi_0:\Hhom_0(\sheaf{\Delta}^c_1,L_∙)\to L_0\times L_0
+$$
+同构于典范态射
+$$
+L_1\xrightarrow{(d_0,d_1)}L_0\times L_0,
+$$
+后者根据假设覆盖 ($L_∙$ 是超覆盖)。
+
+只需再验证 \hyperref[V.def7.3.3]{7.3.3} 的性质 2), 即验证对每个 $n$, 在图
+\[
+\xymatrix@C=.75cm@R=1.25cm{
+\Hhom_{n+1}(\sheaf{\Delta}_1^c,L_∙)
+\ar[rr]^{\pi_{n+1}} \ar[dd] \ar[rd]_{\Phi_{n+1}}&&
+L_{n+1}\times L_{n+1}\ar[dd]\\
+&P_{n+1}\ar[ru]\ar[ld]&\\
+(\cosk_n\Hhom_∙(\sheaf{\Delta}_1^c,L_∙))_{n+1}
+\ar[rr]^{(\cosk_n\pi)_{n+1}}&&
+(\cosk_nL_∙)_{n+1}\times(\cosk_nL_∙)_{n+1}
+}
+\]
+($P_{n+1}$ 为纤维积) 中, 态射 $\Phi_{n+1}$ 覆盖。一个简单的“伴随函子追踪”表明
+\begin{align*}
+P_{n+1}&\xrightarrow{\sim}
+\Hhom_0\bigl(\sk_{n+1}(\sheaf{\Delta}_{n+1}^c\times
+\sheaf{\Delta}_1^c),L_∙\bigr),\\
+\Hhom_{n+1}(\sheaf{\Delta}_1^c,L_∙)&\xrightarrow{\sim}
+\Hhom_0(\sheaf{\Delta}_{n+1}^c\times
+\sheaf{\Delta}_1^c,L_∙),
+\end{align*}
+并且\pageoriginale 态射 $\Phi_{n+1}$ 同构于从单射
+$$
+\sk_{n+1}(\sheaf{\Delta}_{n+1}^c\times\sheaf{\Delta}_1^c)
+\hookrightarrow
+\sheaf{\Delta}_{n+1}^c\times\sheaf{\Delta}_1^c{\quoi}.
+$$
+得到的态射
+$$
+\Hhom_0(\sheaf{\Delta}_{n+1}^c\times\sheaf{\Delta}_1^c,L_∙)
+\to
+\Hhom_0\bigl(\sk_{n+1}(\sheaf{\Delta}_{n+1}^c\times
+\sheaf{\Delta}_1^c),L_∙\bigr)
+$$
+在 $\sheaf{\Delta}_{n+1}^c\times\sheaf{\Delta}_1^c$ 中有子对象序列:
+$$
+\sk_{n+1}(\sheaf{\Delta}_{n+1}^c\times\sheaf{\Delta}_1^c)
+=M_0\hookrightarrow M_1\hookrightarrow\cdots\hookrightarrow M_k
+=\sheaf{\Delta}_{n+1}^c\times\sheaf{\Delta}_1^c{\quoi},
+$$
+使对每个 $0\leq i<k$, 态射 $$
+M_i\hookrightarrow M_{i+1}
+$$ 嵌入一个余笛卡尔图:
+\[
+\xymatrix@C=1.5cm@R=1.5cm{
+M_i \ar@{^{(}->}[r]&M_{i+1}&\\
+\sk_{n+1}\underline{\Delta}{}^c_{n+2}
+\ar@{^{(}->}[r]\ar[u]&
+\underline{\Delta}{}^c_{n+2}\ar[u]\;.
+}
+\]
+(逐个添加 $\sheaf{\Delta}_{n+1}\times\sheaf{\Delta}_1$ 中维数为 $n+2$ 的非退化单形。) 由 \hyperref[V.lem7.3.6]{7.3.6}, 态射 $\Phi_{n+1}$ 是覆盖态射的复合, 因而自身也是覆盖态射。这就完成了 \hyperref[V.thm7.3.2]{7.3.2} 的证明。
+
+\subsection{同构定理}\etiquette[7.4]{V.subsec7.4}
+
+\setcounter{subsubsection}{-1}
+\subsubsection{}\etiquette[7.4.0]{V.subsubsec7.4.0}
+
+设 $F$ 是满足条件 \hyperref[V.subsubsec7.3.0]{7.3.0} 的景 $C$ 上的阿贝尔群预层。对每个超覆盖 $K_∙$, 令
+$$
+H^q(K_∙,F)=H^q(\Hom_{C^{\wedge}}(K_∙,F)){\quoi}.
+$$
+各 $H^q(K_∙,F)$ 在 $C$ 上的阿贝尔预层范畴上组成一个 $\delta$-函子, 但一般不是函子 $H^0(K_∙,F)$ 的导出函子。
+
+现在\pageoriginale 令
+\begin{equation*}
+\Hvr{q}(C,F)=\varinjlim_{HR_r}H^q(⋅,F)
+\text{ }(r\mbox{ 可以是无限的}){\quoi},\tag{7.4.0.1}
+\end{equation*}\etiquette[7.4.0.1]{V.7.4.0.1}
+以及
+\begin{equation*}
+\Hvv{q}(C,F)=\varinjlim_{HR}H^q(⋅,F){\quoi}.\tag{7.4.0.2}
+\end{equation*}\etiquette[7.4.0.2]{V.7.4.0.2}
+由于范畴 $\sheaf{HR}^0_r$ (分别为 $\sheaf{HR}^0$) 滤过 (\hyperref[V.thm7.3.2]{7.3.2}), 各 $\Hvr{q}(C,F)$ (分别为 $\Hvv{q}(C,F)$) 仍组成一个 $\delta$-函子。由于范畴 $\sheaf{HR}_r$ 不一定是 $𝒰$-范畴, 这些 $\delta$-函子取值于某个合适宇宙 $𝒱$ 的阿贝尔 $𝒱$-群范畴。
+
+现在假定预层 $F$ 是层。由于与超覆盖相伴的半单纯层无环 (\hyperref[V.thm7.3.2]{7.3.2}), 有关于 $F$、$K_∙$ 函子性的谱序列:
+\begin{equation*}
+H^p(K_∙,\Hh^q(F))\Rightarrow
+H^{p+q}(C^{\sim},F){\quoi}.\tag{7.4.0.3}
+\end{equation*}\etiquette[7.4.0.3]{V.7.4.0.3}
+取极限后, 得到谱序列
+\begin{equation*}
+\begin{split}
+\Hvr{p}(C,\Hh^q(F))&\Rightarrow H^{p+q}(C^{\sim},F){\quoi},\\
+\Hvv{p}(C,\Hh^q(F))&\Rightarrow H^{p+q}(C^{\sim},F){\quoi}.
+\end{split}\tag{7.4.0.4}
+\end{equation*}\etiquette[7.4.0.4]{V.7.4.0.4}
+
+\begin{enonce*}{定理 7.4.1}\etiquette[7.4.1]{V.thm7.4.1}
+设 $C$ 是满足条件 \hyperref[V.subsubsec7.3.0]{7.3.0} 的景, $F$ 是 $C$ 上的阿贝尔层。
+\begin{enumerate}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 谱序列 \eqhyperref[V.7.4.0.4]{7.4.0.4} 定义同构
+$$
+\Hvr{q}(C,F)\xrightarrow{\sim}H^q(C^{\sim},F),\quad q\leq r+1,
+$$
+以及单态射
+$$
+\Hvr{r+2}(C,F)\longrightarrow H^{r+2}(C^{\sim},F){\quoi}.
+$$
+
+\item 有\pageoriginale $\delta$-函子的同构:
+$$
+\Hvi{q}(C,F)\xrightarrow{\sim}\Hvv{q}(C,F)
+\xrightarrow{\sim}H^q(C^{\sim},F)\quad(\text{对每个 }q){\quoi}.
+$$
+
+\item 设 $G$ 是阿贝尔群预层, $F$ 为其相伴层。有函子性的同构
+$$
+\Hvr{q}(C,G)\xrightarrow{\sim}H^q(C^{\sim},F),\quad q\leq r-1,
+$$
+以及单态射
+$$
+\Hvr{r}(C,G)\longrightarrow H^r(C^{\sim},F){\quoi}.
+$$
+当 $G$ 是分离预层时, 后一个态射为同构, 且有单态射
+$$
+\Hvr{r+1}(C,G)\to H^{r+1}(C^{\sim},F){\quoi}.
+$$
+
+\item 有同构
+$$
+\Hvi{q}(C,G)\xrightarrow{\sim}\Hvv{q}(C,G)
+\xrightarrow{\sim}H^q(C^{\sim},F)\quad(\text{对每个 }q){\quoi}.
+$$
+\end{enumerate}
+\end{enonce*}
+
+\begin{enonce*}[remark]{证明}
+只需证明, 若 $N$ 是相伴层为零的阿贝尔预层, 则当 $q\leq r$ 时有 $\Hvr{q}(C,N)=0$ (分别为对每个 $q$ 有 $\Hvv{q}(C,N)=0$); 这立即由 \hyperref[V.thm3.2]{3.2} 得到。
+\end{enonce*}
+
+\begin{enonce*}[remark]{注 7.4.2}\etiquette[7.4.2]{V.rem7.4.2}
+\begin{enumerate}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 注意, 对满足条件 \hyperref[V.subsubsec7.3.0]{7.3.0} 的景, $0$ 型超覆盖就是通常的覆盖, 而 $r=0$ 时的函子 $\Hvr{q}$ 正是 \eqhyperref[V.2.4.5.1]{2.4.5.1} 中引入的函子 $\Hv{q}$。
+
+\item 设 $C$ 是有限投射极限可表的景, 并假定对 $C$ 的每个对象 $X$ 及每个覆盖族 $(X_i\to X)$、$i\in I$, 都存在 $i_0\in I$ 使 $X_{i_0}\to X$ 覆盖。此时可证明, 各项均可表的 $p$ 型超覆盖在 $\sheaf{HR}_p$ 中共尾。同样, 那些存在整数 $p$ 使 $K_∙$ 为 $p$ 型, 且各项均可表的超覆盖 $K_∙$, 在\pageoriginale $\sheaf{HR}$ 中共尾。(可循 \hyperref[V.cor3.5]{3.5} 的论证证明。) 因此, 在所考虑的情形下, 这些各项均可表的超覆盖足以计算与预层相伴的层的上同调。
+\end{enumerate}
+\end{enonce*}
+
+% END INCLUDED SGA4_English_current_buildable_source_20260906/source/05/drafts/SGA4_V_LINES_3071_3430_English.texfrag
+
+% BEGIN INCLUDED SGA4_English_current_buildable_source_20260906/source/05/drafts/SGA4_V_LINES_3431_3814_English.texfrag
+\section{附录. 局部归纳极限 (P. Deligne 撰)}\etiquette[8]{V.sec8}
+
+编者建议读者通常不必阅读本附录。这里介绍一种技巧, 有时可将因点的存在而显然成立的断言推广到没有足够多点的拓扑斯。此技巧给出了 D. Lazard 定理的一个层论变形; 该定理断言, 环上的平坦模是有限自由模的归纳极限。
+
+\subsection{局部滤过范畴}\etiquette[8.1]{V.subsec8.1}
+
+\setcounter{subsubsection}{-1}
+\subsubsection{}\etiquette[8.1.0]{V.subsubsec8.1.0}
+若 $\Bb$ 为范畴, $p:\Aa\to\Bb$ 为 $\Bb$ 上的范畴, 则采用如下记号:
+\begin{itemize}
+\item 对 $U\in\Ob\Bb$, $\Aa_U$ 为纤维范畴 $p^{-1}(U)$。
+
+\item 对 $\Bb$ 中的 $f:U\to V$ 及满足 $p(\lambda)=U$、$p(\mu)=V$ 的 $\lambda,\mu\in\Ob\Aa$, 令
+$$
+\Hom_f(\lambda,\mu)=p^{-1}(f),\quad\text{其中 }p:\Hom(\lambda,\mu)
+\to\Hom(U,V){\quoi}.
+$$
+\end{itemize}
+
+\begin{enonce*}{定义 8.1.1}\etiquette[8.1.1]{V.def8.1.1}
+设 $\Ss$ 是景。$\Ss$ 上的\emph{局部余滤过范畴 (或局部左滤过范畴)}, 是 $\Ss$ 上满足下列条件的范畴 $p:\Ll\to\Ss$:
+\begin{itemize}
+\item[($\Ll0$)] 对 $\Ss$ 中每个 $f:U\to V$ 及每个 $\mu\in\Ob\Ll_V$, 存在 $\lambda\in\Ob\Ll_U$ 使 $\Hom_f(\lambda,\mu)\neq\varnothing$;
+
+\item[($\Ll1$)] 对每个 $U\in\Ob\Ss$ 及 $\Ll_U$ 的每个有限对象族 $(\lambda_i)$, 存在 $U$ 的覆盖 $f_j:U_j\to U$ 以及对象 $\mu_j\in\Ob\Ll_{U_j}$, 使对所有 $i$ 和 $j$ 有 $\Hom_{f_j}(\mu_j,\lambda_i)\neq\varnothing$;
+
+\item[($\Ll2$)] 对 $\Ss$ 中每个 $f:U\to V$ 及每对在 $f$ 上的平行箭头 $(\phi_0,\phi_1):\lambda\rightrightarrows\mu$, 存在 $U$ 的覆盖 $f_j:U_j\to U$ 以及以 $\lambda$ 为靶的箭头 $\psi_j$, 使 $p(\psi_j)=f_j$ 且 $\phi_0\psi_j=\phi_1\psi_j$。
+\end{itemize}
+\end{enonce*}
+
+\setcounter{subsubsection}{1}
+\paragraph{}\etiquette[8.1.1.1]{V.par8.1.1.1}
+当 $\Ll$ 在 $\Ss^{\ast}$ 上纤维化时, 此定义可以简化: 此时公理
+\begin{itemize}
+\item[$(\Ll_\ast0)$] 已成立, 而 $(\Ll1)$、$(\Ll2)$ 可如下表述:
+
+\item[$(\Ll'1)$] 对每个 $U\in\Ob\Ss$ 及 $\Ll_U$ 的每个有限对象族 $\lambda_i$, 在 $U$ 上局部存在一个映到所有 $\lambda_i$ 的 $\mu$。
+
+\item[$(\Ll'2)$] 对每个 $U\in\Ob\Ss$, $\Ll_U$ 中每对平行箭头 $(\phi_0,\phi_1):\lambda\rightrightarrows\mu$ 都可在 $U$ 上局部地, 由一个以 $\lambda$ 为靶的箭头等化。
+\end{itemize}
+
+\subsubsection{}\etiquette[8.1.2]{V.subsubsec8.1.2}
+设 $\Ss$ 是景, $\Ll$ 是 $\Ss$ 上的范畴, $\mathsf{e}$ 是 $\Ss$ 上的叠。用 $\sheaf{\Gamma}\mathsf{e}$ 表示 $\mathsf{e}$ 的整体截面 $\Hhom^{\cart}_{\Ss}(\Ss,\mathsf{e})$ 所成的范畴。如果 $\Ss$ 有终对象 $S$, 则 $\sheaf{\Gamma}\mathsf{e}$ “正是” $\mathsf{e}_S$。
+
+\begin{enonce*}{定义 8.1.2.1}\etiquette[8.1.2.1]{V.def8.1.2.1}
+\emph{以 $\Ll$ 为指标的 $\mathsf{e}$ 的对象的局部投射系}所成的范畴是范畴
+$\Hhom_{\Ss}(\Ll,\mathsf{e})$
+\end{enonce*}
+
+用 $c$ (“相伴的常值局部投射系”) 表示复合函子
+$$
+\sheaf{\Gamma}\mathsf{e}=\Hhom^{\cart}_{\Ss}(\Ss,\mathsf{e})
+\hookrightarrow\Hhom_{\Ss}(\Ss,\mathsf{e})
+\xrightarrow{u\mapsto u\circ p}\Hhom_{\Ss}(\Ll,\mathsf{e}).
+$$
+当需要明确表示它对 $\Ll$ 的依赖时, 改记为 $c_{\Ll}$。
+
+\begin{enonce*}{定义 8.1.3}\etiquette[8.1.3]{V.def8.1.3}
+局部投射极限函子记为 $\varprojlim_{\lambda\in\Ll}$, 是函子 $c$ 的只部分有定义的右伴随函子。
+\end{enonce*}
+
+因此函子
+$$
+\varprojlim:\Hhom_{\Ss}(\Ll,\mathsf{e})\to
+\sheaf{\Gamma}\mathsf{e}
+$$
+满足
+$$
+\Hom(X,\varprojlim_{\lambda\in\Ll}X_\lambda)\simeq
+\Hom(c(X),(X_\lambda)_{\lambda\in\Ll}){\quoi}.
+$$
+
+\begin{enonce*}{定义 8.1.4}\etiquette[8.1.4]{V.def8.1.4}
+$\Ss$ 上的局部余滤过范畴之间的 $\Ss$-函子 $F:\Ll\to\Mm$ 称为共尾的, 如果它满足下列两个条件:
+\begin{itemize}
+\item[$(C\mathfrak{F}1)$] 对每个\pageoriginale $U\in\Ob\Ss$ 及 $\mu\in\Ob\Mm_U$, 存在 $U$ 的覆盖 $f_j:U_j\to U$ 以及对象 $\lambda_j\in\Ob\Ll_{U_j}$, 使 $\Hom_{f_j}(F(\lambda_j),\mu)\neq\varnothing$。
+
+\item[$(C\mathfrak{F}2)$] 对 $\Ss$ 中每个 $f:U\to V$ 及每对在 $f$ 上的平行箭头 $(\phi_0,\phi_1):F(\lambda)
+\rightrightarrows\mu$, 存在 $U$ 的覆盖 $f_j:U_j\to U$ 以及 $\Ll$ 中以 $\lambda$ 为靶的箭头 $\psi_j$, 使 $p(\psi_j)=f_j$ 且 $\phi_0F(\psi_j)=\phi_1F(\psi_j)$。
+\end{itemize}
+\end{enonce*}
+
+两个共尾函子的复合仍共尾; 局部滤过范畴的等价是共尾的 (证明留给读者)。
+
+\begin{enonce*}{命题 8.1.5}\etiquette[8.1.5]{V.prop8.1.5}
+设 $F:\Ll\to\Mm$ 是 $\Ss$ 上的局部余滤过范畴之间的共尾函子, $\mathsf{e}$ 是 $\Ss$ 上的叠, $(X_\mu)_{\mu\in\Mm}$ 是以 $\Mm$ 为指标的局部投射系。则关于 $X\in\sheaf{\Gamma}\mathsf{e}$ 函子性的态射
+\[
+F^{\ast}:\Hom(c_{\Mm}(X),(X_\mu)_{\mu\in\Mm})\longrightarrow
+\Hom(c_{\Ll}(X),(X_{F(\lambda)})_{\lambda\in\Ll})
+\]
+是同构, 从而
+$$
+F^{\ast}:\varprojlim_{\Mm}X_\mu\longrightarrow
+\varprojlim_{\Ll}X_{F(\lambda)}
+$$
+是同构, 两端同时有定义或同时无定义。
+\end{enonce*}
+
+证明用到以下引理, 其证明留给读者:
+
+\begin{enonce*}{引理 8.1.6}\etiquette[8.1.6]{V.lem8.1.6}
+若 $F:\Ll\to\Mm$ 共尾, 则对 $\Ss$ 中每个 $f:U\to V$ 以及在 $f$ 上的箭头 $\phi_i:F(\lambda_i)\to\mu$、$(i=1,2)$, 存在 $U$ 的覆盖 $f_j:U_j\to U$、对象 $\lambda'_j\in\Ob\Ll_{U_j}$ 以及交换图
+\[
+\xymatrix@=1.25cm{
+              & F(\lambda_1)   \ar[rd]^{\phi_1}&\\
+F(\lambda'_j) \ar@{--}[ru] \ar@{--}[rd]&                & \mu\\
+              & F(\lambda_2) \ar[ru]_{\phi_2}  &
+}
+\]
+$$
+U_j\xrightarrow{f_j}U\to V
+$$
+它们在 $\Ss$ 中的投影为 $(f_j,f)$。
+\end{enonce*}
+
+对每个 $U\in\Ob\Ss$ 和 $\mu\in\Mm_U$, 条件 $(C\mathfrak{F}1)$ 给出 $U$ 的覆盖 $f_j:U_j\to U$ 以及在各 $f_j$ 上的箭头 $\phi_j:F(\lambda_j)\to\mu$。若
+$$
+\psi=(\psi_\lambda)\in\Hom(c_{\Ll}X,
+(X_{F(\lambda)})_{\lambda\in\Ll}):\quad
+\psi_\lambda:X|p(\lambda)\to X_{F(\lambda)}
+$$
+为
+$$
+\phi=(\phi_\mu)\in\Hom(c_{\Mm}X,(X_\mu)_{\mu\in\Mm}):\quad
+\phi_\mu:X|p(\mu)\to X_\mu,
+$$
+的像, 则图
+\[
+\xymatrix@=1.5cm{
+                               & X_{F(\lambda_j)}
+                               \ar[ld]_{\psi_{\lambda_j}} \ar[rd]^{\phi_j}&        \\
+X|U_j \ar[rr]_{\phi_\mu|U_j} &                  & X_\mu|U_j
+}
+\]
+交换。因此各 $\phi_\mu$ 局部地由 $\psi$ 确定; 由于 $\mathsf{e}$ 是叠, $F^{\ast}$ 为单射。为证明 $F^{\ast}$ 满射, 从 $\psi$ 出发构造满足 $\psi=F^{\ast}\phi$ 的 $\phi$。上述构造给出复合箭头
+$$
+\phi_{\mu,j}=\phi_j\circ\psi_{\lambda_j}:X|U_j\to X_\mu|U_j{\quoi}.
+$$
+验证这些箭头可以粘合, 从而存在 $\phi_\mu:X|U\to X_\mu$ 使 $\phi_\mu|U_j=\phi_{\mu,j}$。考虑如下交换图:
+\[
+\xymatrix@=1cm{
+                 & U_{ij}\ar[ld]_{g_i} \ar[rd]^{g_j}     &            \\
+U_i  \ar[rd]_{f_i}            &            & U_j \ar[ld]^{f_j}\\
+                 & U     &
+}
+\]
+要\pageoriginale 验证 $\phi_{\mu,j}|U_{ij}=\phi_{\mu,i}|U_{ij}$, 只需在 $U_{ij}$ 上局部验证; 由 \hyperref[V.lem8.1.6]{8.1.6} 与 $(\Ll0)$, 归结到在上述图之上存在交换图
+\[
+\xymatrix@=1.5cm{
+             & F(\lambda_{ij}) \ar[ld]_{F(a_{ij})} \ar[rd]^{F(a_{ji})} &\\
+F(\lambda_i) \ar[rd]_{\phi_i}&                 & F(\lambda_j) \ar[ld]^{\phi_j}\\
+             & \mu             &
+}
+\]
+的情形。此时图
+\[
+\xymatrix@R=1.5cm@C=2cm{
+  & X_{F(\lambda_{ij})} \ar[ld] \ar[rd] \ar@/_1.68pc/[dd]&\\
+X_{F(\lambda_i)}\ar[rd] & X|U_{ij}\ar[u]\ar[l]\ar[r] & X_{F(\lambda_j)} \ar[ld]\\
+                 & X_\mu &
+}
+\]
+交换, 因而存在族 $(\phi_\mu)$, 使对每个在 $f:V\to U$ 上的箭头 $\phi:F(\lambda)\to\mu$, 图
+\[
+\xymatrix@=1.5cm{
+                              & X_{F(\lambda)} \ar[rd]^{\phi}      &    \\
+X|V \ar[rr]_{\phi_\mu|V} \ar[ru]^{\psi_\lambda} &
+                              & X_\mu|V
+}
+\]
+交换。若 $\sigma:\mu\to\mu'$ 是 $\Mm$ 的箭头, 则 $(\sigma|V)(\phi_\mu|V)=(\sigma|V)\phi\cdot\psi_\lambda
+=(\sigma\phi|V)\cdot\psi_\lambda=\phi_{\mu'}|V$; 因而 $\phi=(\phi_\mu)$ 是满足 $\psi=F^{\ast}\phi$ 的函子态射, 如所要求的那样。
+
+若\pageoriginale $E$ 是有序集, 也用 $E$ 表示如下范畴: 对象集为 $E$, 当 $i\leq j$ 时 $\Hom(i,j)$ 为单元素集, 否则为空。
+
+\begin{enonce*}{命题 8.1.7}\etiquette[8.1.7]{V.prop8.1.7}
+设 $\Ll$ 是景 $\Ss$ 上的局部余滤过范畴。存在有序集 $E$ 以及从 $E$ 到 $\Ll$ 的函子 $F$, 使得:
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item 通过 $pF:E\to\Ss$ 将 $E$ 看作 $\Ss$ 上的范畴时, 它局部余滤过。
+\item 函子 $F$ 共尾。
+\end{enumerate}
+\end{enonce*}
+
+设 $\Ll'$ 为 $\Ll$ 与有序集 $\ZZ$ 所定义的范畴的乘积, 它局部余滤过。从 $\Ll'$ 到 $\Ll$ 的投影共尾, 因而只需对 $\Ll'$ 证明 \hyperref[V.prop8.1.7]{8.1.7}。
+
+若 $X$ 是 $\Ll'$ 的有限箭头集, 用 $X^0$ 表示 $X$ 中箭头的端点集。设 $E$ 为 $\mathrm{Fl}(\Ll')$ 中满足下述条件的非空有限子集 $X$ 所成的集合: 存在 $\lambda_X\in\Ob\Ll'$ 使得
+\begin{enumerate}
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 除 $1_{\lambda_X}$ 外, $X$ 中没有以 $\lambda_X$ 为靶的箭头;
+
+\item 若 $\mu\in X^0$, 则 $1_\mu\in X$ 且 $\Hom(\lambda_X,\mu)\cap X\neq\varnothing$;
+
+\item 每个由 $X$ 中箭头组成的形如下式的图都交换:
+\[
+\xymatrix@=1.75cm{
+\lambda_X \ar[r] \ar[rd]& \mu \ar[d]\\
+            & \mu'
+}
+\]
+\end{enumerate}
+
+用包含关系的反关系给 $E$ 赋序。若 $X\in E$ 且 $\mu\in X^0$, 则 $X$ 中有从 $\lambda_X$ 到 $\mu$ 的唯一箭头。若 $X,Y\in E$ 且 $X\supset Y$, 设 $\lambda_{X,Y}$ 为 $X$ 中从 $\lambda_X$ 到 $\lambda_Y$ 的唯一箭头。对应 $X\mapsto\lambda_X$ 与 $(X\supset Y)\mapsto\lambda_{X,Y}$ 组成从 $E$ 到 $\Ll'$ 的函子。
+
+\begin{enonce*}{引理 8.1.8}\etiquette[8.1.8]{V.lem8.1.8}
+范畴\pageoriginale $E$ 在 $\Ss$ 上局部余滤过, 且函子 $\lambda:E\to\Ll'$ 共尾。
+\end{enonce*}
+
+须依次验证下列公理:
+\begin{itemize}
+\item[(i) \emph{公理} ($\Ll0$)] 设 $f:V\to U$ 且 $X\in E_U$。存在 $\lambda\in\Ob\Ll'_V$ 和 $\phi\in\Hom_f(\lambda,\lambda_X)$。此外, 可选择 $\lambda$ 使 $\lambda\notin X^0$ (此处用到 $\Ll'=\Ll\times\ZZ$)。令 $X'=X\cup\{1_\lambda\}\cup Y$, 其中 $Y$ 为复合箭头
+$\lambda\xrightarrow{\phi}\lambda_X\xrightarrow{\psi}\mu$
+$(\psi\in X)$ 所成的集合。则 $X'\in E$、$\lambda_{X'}=\lambda$ 且 $\Hom(X',X)\neq\varnothing$。
+
+\item[(ii) \emph{公理} ($\Ll1$)] 设 $(X_i)$ 是 $E_U$ 的有限对象族。存在覆盖 $f_j:U_j\to U$、对象 $\lambda_j\in\Ob\Ll'_{U_j}$ 及箭头
+$\phi_{ji}\in\Hom_{f_j}(\lambda_j,\lambda_{X_i})$
+若 $x\in X_a^0\cap X_b^0$, 则对每个 $j$ 存在覆盖 $g_{jk}:U_{jk}\to U_j$ 及箭头 $\psi_{jk}:\lambda_{jk}\to\lambda_j$, 使 $p(\psi_{jk})=g_{jk}$, 并等化箭头对 $\lambda_j\rightrightarrows x$, 其中一个属于 $X_a$, 另一个属于 $X_b$。可以使各 $\lambda_{jk}$ 不属于任何 $X_i^0$。用各 $(f_jg_{jk},\lambda_{jk},\phi_{ji}\psi_{jk})$ 替换各 $(f_j,\lambda_j,\phi_{ji})$, 并对任意两个 $X_i$ 的交中的每个 $x$ 重复此构造。得到新的系统 $(f_j,\lambda_j,\phi_{ji})$; 令
+$$
+X_j=\bigcup_iX_i\cup\{1_{\lambda_j}\}\cup Y_j,
+$$
+其中 $Y_j$ 为复合箭头
+$$
+\lambda_j\xrightarrow{\phi_{ji}}\lambda_{X_i}
+\xrightarrow{\psi}x\quad(\psi\in X_i){\quoi}.
+$$
+所成的集合。则 $X_j\in E_{U_j}$, 且这些 $X_j$ 满足 $(\Ll1)$。
+
+\item[(iii) \emph{公理} ($\Ll2$)] 平凡, 因为不存在非平凡的平行箭头!
+
+\item[(iv) \emph{公理} $(C\mathfrak{F}1)$] 平凡, 因为函子 $\lambda$ 满射。
+
+\item[(v) \emph{公理} $(C\mathfrak{F}2)$] 设 $f:U\to V$, $(\phi_0,\phi_1):\lambda_X\rightrightarrows\lambda$ 为在 $f$ 上的一对平行箭头。存在 $U$ 的覆盖 $f_j:U_j\to U$ 及箭头 $\psi_j:\lambda_j\to\lambda_X$, 使 $p(\psi_j)=f_j$、$\phi_0\psi_j=\phi_1\psi_j$ 且 $\lambda_j\notin X^0$。令 $X_j=X\cup\{1_{\lambda_j}\}\cup Y_j$, 其中 $Y_j$ 为复合箭头
+$$
+\lambda_j\xrightarrow[]{\psi_j}\lambda_X\xrightarrow{\psi}\mu
+\quad(\psi\in X){\quoi}.
+$$
+所成的集合。于是\pageoriginale $X_j\in E_{U_j}$, 且 $F(\lambda_{X_j,X})=\psi_j$ 等化 $(\phi_0,\phi_1)$。
+\end{itemize}
+
+\setcounter{subsubsection}{9}
+\setcounter{paragraph}{-1}
+\paragraph{}\etiquette[8.1.9.0]{V.par8.1.9.0}
+
+假定 $\Ss$ 是单点拓扑空间 (的非空开子集所成的景)。则 $\Ss$ 上的局部余滤过范畴就是左滤过范畴 (即 $\Ss^0$ 在 I \hyperref[I.def2.7]{2.7} 的意义下滤过), 而共尾函子对应于左滤过范畴之间的共尾函子 (I 8)。于是命题 \hyperref[V.prop8.1.7]{8.1.7} 可重述如下。
+
+\begin{enonce*}{命题 8.1.9}\etiquette[8.1.9]{V.prop8.1.9}
+对每个余滤过范畴 $\Ll$, 都存在余滤过有序集 $E$ 及从 $E$ 到 $\Ll$ 的共尾函子。
+\end{enonce*}
+
+在此特殊情形下, \hyperref[V.prop8.1.7]{8.1.7} 的证明本质上归结为 I 8 中给出的 \hyperref[V.prop8.1.9]{8.1.9} 的证明。
+
+% END INCLUDED SGA4_English_current_buildable_source_20260906/source/05/drafts/SGA4_V_LINES_3431_3814_English.texfrag
+
+% BEGIN INCLUDED SGA4_English_current_buildable_source_20260906/source/05/drafts/SGA4_V_LINES_3815_4065_English.texfrag
+\subsubsection{}\etiquette[8.1.10]{V.subsubsec8.1.10}
+设 $q:\Tt\to\Ss$ 是景态射, $p:\Ll\to\Ss$ 是 $\Ss$ 上的局部余滤过范畴。如下定义范畴 $\Ll^{\ast}$:
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item $\Ll^{\ast}$ 的一个对象是满足 $V\in\Ob\Tt$、$U\in\Ob\Ss$、$\phi\in\Hom(V,q^{\ast}U)$ 及 $\lambda\in\Ob\Ll_U$ 的四元组 $(V,U,\phi,\lambda)$。
+
+\item 箭头 $f:(V,U,\phi,\lambda)\to(V',U',\phi',\lambda')$ 是三元组 $(f_1,f_2,f_3)$, 其中 $f_1\in\Hom(V,V')$、$f_2\in\Hom(U,U')$、$f_3\in\Hom(\lambda,\lambda')$, 且满足 $q^{\ast}f_2\circ\phi=\phi'\circ f_1$ 与 $p(f_3)=f_2$。
+
+函子 $f\mapsto f_1$ 使 $\Ll^{\ast}$ 成为 $\Tt$ 上的范畴。
+\end{enumerate}
+
+\begin{enonce*}{引理 8.1.11}\etiquette[8.1.11]{V.lem8.1.11}
+范畴 $\Ll^{\ast}$ 在 $\Tt$ 上局部余滤过。
+\end{enonce*}
+
+公理 $(\Ll0)$ 是平凡的。验证 $(\Ll1)$。
+
+设 $L_i=(V,U_i,\phi_i,\lambda_i)$ 为有限族。各 $\phi_i$ 定义了从 $V$ 到层 $q^{\ast}a\prod U_i=a\prod q^{\ast}U_i$ 的态射。因此存在交换图
+\[
+\xymatrix@C=2.5cm@R=1.5cm{
+V_j \ar[r]^{f_j}\ar[d]^{\psi_j}&V\ar[d]^{\phi_i}\\
+q^{\ast}U_j\ar[r]_{q^{\ast}(p_{ij})}&q^{\ast}U_i
+}
+\]
+使\pageoriginale 各 $f_j$ 覆盖 $V$。
+
+选取 $\lambda_{ji}$ 使 $\Hom_{p_{ij}}(\lambda_{ji},\lambda_i)\neq\varnothing$。由 $(\Ll1)$, 加细 $U_j$ (以及 $V_j$) 后, 可以将 $\lambda_{ji}=\lambda_j$ 选得与 $i$ 无关, 且各 $L_j=(V_j,U_j,\psi_j,\lambda_j)$ 满足 $(\Ll1)$。
+
+验证 $(\Ll2)$。设 $(f_1,f_2):L^1\rightrightarrows L^2$, 其中 $L^i=(V^i,U^i,\phi^i,\lambda^i)$ 且 $f_i=(f,g_i,h_i)$。各 $\phi^i$ 定义了从 $V^1$ 到层 $q^{\ast}a\Ker(U^1\rightrightarrows U^2)
+=a\Ker(q^{\ast}U^1\rightrightarrows q^{\ast}U^2)$ 的态射, 因而存在交换图
+\[
+\xymatrix@C=2cm@R=1.5cm{
+V_j \ar[r]^{f_j}\ar@{-}[d]^{\psi_j}&
+V^1\ar[r]\ar@{-}[d]^{\phi^1}&V^2\ar@{-}[d]^{\phi^2}\\
+q^{\ast}U_j\ar[r]_{q^{\ast}p_j}&q^{\ast}U^1
+\ar@<2pt>[r]^{q^{\ast}g_1}\ar@<-2pt>[r]_{q^{\ast}g_2}&
+q^{\ast}U^2&\kern-1cm(g_1p_j=g_2p_j),
+}
+\]
+使各 $f_j$ 覆盖 $V^1$。设 $\chi_j:\lambda_j\to\lambda^1$ 满足 $p(\chi_j)=p_j$。对 $(h_1\chi_j,h_2\chi_j)$ 应用 $(\Ll2)$, 必要时加细 $U_j$ (以及 $V_j$), 可使 $h_1\chi_j=h_2\chi_j$; 于是各 $L_j=(V_j,U_j,\psi_j,\lambda_j)$ 满足 $(\Ll2)$。
+
+\begin{enonce*}{命题 8.1.12}\etiquette[8.1.12]{V.prop8.1.12}
+设 $t^{\ast}:\Ss^{\ast}\to\Ss$ 是 $\Ss$ 上的局部余滤过范畴, 给 $\Ss^{\ast}$ 配备由 $t^{\ast}$ 从 $\Ss$ 的拓扑诱导的拓扑。则 $t^{\ast}$ 是景等价 $t:\Ss\to\Ss^{\ast}$。
+\end{enonce*}
+
+根据构造, 函子 $t^\ast:\Ff\mapsto\Ff\circ t^{\ast}$ 将 $\Ss$ 上的层映为 $\Ss^{\ast}$ 上的层。将 $(\Ll0)$ 与 $(\Ll1)$ 应用于空族, 可知 $\Ss$ 的每个“充分小”的对象都属于 $t^{\ast}$ 的像 (即 $t^{\ast}$ 的像是 $\Ss$ 中的\emph{覆盖筛})。因此, 由“比较引理” (III 4), 由 $t^{\ast}(\Ob\Ss^{\ast})$ 定义的全子范畴到 $\Ss$ 的包含是景等价。所以可假定 $t^{\ast}$ 在对象上满射。
+
+设 $\Ff$ 是 $\Ss^{\ast}$ 上的层。
+
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item 设 $(f_j:U_j\to U)$ 为 $\Ss$ 中的覆盖, $\lambda^1,\lambda^2\in\Ob\Ss^{\ast}_U$, 并设当 $i=1,2$ 时 $f_j^i\in\Hom_{f_j}(\mu_j,\lambda^i)$。则 $\Ff(\lambda^1)$ 与 $\Ff(\lambda^2)$ 在 $\displaystyle\mathop{\prod}_j\Ff(\mu_j)$ 中有相同的像。
+
+事实上, 设\pageoriginale $x=(x_j)$ 属于 $\Ff(\lambda^1)$ 的像。要使 $x$ 属于 $\Ff(\lambda^2)$ 的像, 只需对每个交换图
+\[
+\xymatrix@C=2.5cm@R=1.5cm{
+\mu\ar[r]\ar[d]&\mu_j\ar[d]\\
+\mu_k\ar[r]&\lambda^2,
+}
+\]
+$x_j$ 与 $x_k$ 在 $\Ff(\mu)$ 中有相同的像。由于 $\Ff$ 是层, 只需用 $\mu$ 的某个覆盖的各对象代替它之后验证此点。由 $(\Ll2)$, 此时可假定将 $\lambda^2$ 替换为 $\lambda^1$ 所得的类似图也交换, 而这时断言显然成立。
+
+\item 设 $f:U\to V$ 是 $\Ss$ 的箭头, $\lambda\in\Ob\Ss^{\ast}_U$ 且 $\mu\in\Ob\Ss^{\ast}_V$。则存在覆盖 $f_j:U_j\to U$、对象 $\mu'\in\Ob\Ss^{\ast}_U$ 以及图
+\[
+\xymatrix@C=2.5cm@R=1cm{
+&\lambda&\\
+\lambda_j\ar[ru]^{\phi_j}\ar[rd]_{\psi_j}&&\mu\\
+&\mu'\ar[ru]_{\psi}&
+}
+\]
+中的箭头, 该图位于
+$$
+U_j\xrightarrow{f_j}U\xrightarrow{f}V{\quoi}.
+$$
+之上。由 (i), 存在唯一箭头 $\overline f$ 使下图交换:
+\[
+\xymatrix@C=2.5cm@R=1.5cm{
+\Ff(\mu)\ar[r]^{\overline f}\ar[d]_{\psi}&
+\Ff(\lambda)\ar[d]^{\phi_j}\\
+\Ff(\mu')\ar[r]_{\psi_j}&\Ff(\lambda_j).
+}
+\]
+若将 $(f_j)$ 替换为更细的覆盖 $f_k:U_k\to U_{j(k)}$, 将 $\lambda_j$ 替换为配备 $\phi_k\in\Hom_{f_k}(\lambda_k,\lambda_{j(k)})$ 的 $\lambda_k$, 并将 $\phi_j$ (分别为 $\psi_j$) 替换为 $\phi_{j(k)}\circ\phi_k$ (分别为 $\psi_{j(k)}\circ\phi_k$), 则箭头 $\overline f$ 不变。\pageoriginale
+
+读者可由此推出, $\overline f$ 只依赖于 $f$。
+
+\item 证明 $\overline f$ 关于 $f$ 是函子性的。设
+$$
+W\xrightarrow{h}V\xrightarrow{g}U
+$$
+为 $\Ss$ 中的箭头, $\lambda^0$、$\mu^0$、$\nu^0$ 分别属于 $\Ob\Ss^{\ast}_U$、$\Ob\Ss^{\ast}_V$、$\Ob\Ss^{\ast}_W$。存在交换图
+\[
+\xymatrix@C=.5cm@R=.5cm{
+\nu^{0}& &&&&\mu^{0}&&\lambda^{0}\\
+&&\nu^{1}\ar[rrru]&&&&\mu^{1}\ar[ru]&\\
+&&&{\nu^{2}}\ar[rrru]&&&&\\
+&&&&&&&\\
+&\nu_{jk}\ar[luuuu]^(.7){e^{0}_{jk}}
+\ar[uuur]^(.7){e^{1}_{jk}}\ar[rruu]_{e^{2}_{jk}}\ar[rrrr]&&&&
+\mu_j\ar[uuur]_{f^{1}_j}\ar[uuuu]^(.3){f^{0}_j}&&
+}
+\]
+使得
+
+\begin{enumerate}
+\renewcommand{\theenumii}{\alph{enumii}}
+\renewcommand{\labelenumii}{\theenumii)}
+\item $t^{\ast}(\nu^i)$、$t^{\ast}(\mu^i)$、$t^{\ast}(e^i_{jk})$ 和 $t^{\ast}(f^i_j)$ 不依赖于 $i$;
+
+\item 固定 $i$ 后, 各 $e^i_{jk}$ 覆盖 $W$, 各 $f^i_j$ 覆盖 $V$。
+\end{enumerate}
+
+先由 $(\Ll0)$ 构造 $\mu^1$、$\nu^1$ 和 $\nu^2$, 再如 (ii) 中那样构造各 $\mu_j$。设 $(W'_{jk})$ 为 $W$ 的一个覆盖, 如图所要求的那样映到覆盖 $V_j=t^{\ast}(\mu_j)$。加细 $(W'_{jk})$ 并应用 $(\Ll0)$ 与 $(\Ll1)$ 后, 得到一个所需类型的图, 满足 a) 与 b), 但不一定交换。再次加细并应用 $(\Ll2)$ 即可使它交换。
+
+此时只需考察下列交换图:
+\[
+\xymatrix@C=1.5cm@R=.25cm{
+\Ff(\lambda^{0})\ar[r]^{\bar g}&\Ff(\mu^0)\ar[rd]\ar[rr]^{\bar h}&&
+\Ff(\nu^{0})\ar[dddd]\\
+&&\Ff(\nu^1)\ar[rddd]&\\
+\Ff(\mu^{1})\ar[r]&\prod\Ff(\mu_j)\ar[rrdd]&&&\\
+&&&\\
+\Ff(\nu^2)\ar[rrr]&&&\prod\Ff(\nu_{jk})
+}
+\]
+
+\item 显然\pageoriginale $\overline f$ 关于 $\Ff$ 是函子性的。因此 $\Ss^{\ast}$ 上的每个层 $\Ff$ 都是一个唯一确定的 $\Ss$ 上的预层 $\Ff_0$ 在 $t$ 下的直像, 而每个层态射 $f:\Ff\to\mathfrak g$ 都是一个唯一的预层态射 $f_0:\Ff_0\to\mathfrak g_0$ 的像。
+\end{enumerate}
+
+由此已知 $t_{\ast}$ 全忠实; 只需再证 $\Ff_0$ 是层。若 $(f_j:U_j\to U)$ 为覆盖, 则此覆盖是 $\Ss^{\ast}$ 中某个覆盖的像, 因而 $\Ff_0(U)$ 单射到 $\prod_j\Ff_0(U_j)$。若元素 $x_j\in\Ff_0(U_j)$ 可粘合, 则它们当然在 $\Ss^{\ast}$ 中也可粘合, 从而来自 $\Ff_0(U)$ 的某个元素。\hyperref[V.prop8.1.12]{8.1.12} 的证明完毕。
+
+\setcounter{subsubsection}{13}
+\setcounter{paragraph}{-1}
+\paragraph{}\etiquette[8.1.13.0]{V.par8.1.13.0}
+
+设 $q:\Tt\to\Ss$、$p:\Ll\to\Ss$ 如 (\hyperref[V.subsubsec8.1.10]{8.1.10}) 中所述, $\Ll^{\ast}$ 为该处定义的范畴, $\mathsf e$ 为 $\Tt$ 上的叠。$\Ss$ 上的叠 $q_{\ast}\mathsf e$ 是由 $(q_{\ast}\mathsf e)_U=\mathsf e_{q^{\ast}U}$ 定义的叠。
+
+若 $(X_{\lambda})_{\lambda\in\Ll}$ 是以 $\Ll$ 为指标且取值于 $q_{\ast}\mathsf e$ 的局部投射系, 则它通过公式
+$$
+X_L=\phi^{\ast}X_{\lambda}\quad\text{对 }
+L=(V,U,\phi,\lambda){\quoi}.
+$$
+定义一个取值于 $\mathsf e$ 的局部投射系 $(X_L)_{L\in\Ll^{\ast}}$。
+
+读者可验证下述命题:
+
+\begin{enonce*}{命题 8.1.13.1}\etiquette[8.1.13.1]{V.prop8.1.13.1}
+沿用上述记号, 有
+$$
+\varprojlim_{\lambda\in\Ll}X_{\lambda}
+=\varprojlim_{L\in\Ll^{\ast}}X_L{\quoi},
+$$
+两端同时有定义或同时无定义。
+\end{enonce*}
+
+设 $\Ss$ 是景, $p^{\ast}:\Ss^{\ast}\to\Ss$ 是 $\Ss$ 上的局部滤过范畴。若 $\mathsf e$ 是 $\Ss$ 上的叠, 则 $p_{\ast}\mathsf e$ 是 $\Ss^{\ast}$ 上的叠 (\hyperref[V.par8.1.13.0]{8.1.13.0})。此外, 恒等函子 $\Ss^{\ast}\to\Ss^{\ast}$ 是配备诱导拓扑的 $\Ss^{\ast}$ 上的局部滤过范畴, 每个以 $\Ss^{\ast}$ 为指标的局部归纳系 $(X_{\lambda})$ 都定义一个以 $\Ss^{\ast}$ 为指标、在 $\Ss^{\ast}$ 上的局部归纳系。
+
+容易验证:
+
+\begin{enonce*}{命题 8.1.14}\etiquette[8.1.14]{V.prop8.1.14}
+沿用\pageoriginale 上述记号, 有
+$$
+\varprojlim_{\lambda\in\Ss^{\ast}/\Ss}X_{\lambda}
+=\varprojlim_{\lambda\in\Ss^{\ast}/\Ss^{\ast}}X_{\lambda}{\quoi},
+$$
+两端同时有定义或同时无定义。
+\end{enonce*}
+
+% END INCLUDED SGA4_English_current_buildable_source_20260906/source/05/drafts/SGA4_V_LINES_3815_4065_English.texfrag
+
+% BEGIN INCLUDED SGA4_English_current_buildable_source_20260906/source/05/drafts/SGA4_V_LINES_4066_4380_English.texfrag
+\subsection{层范畴中的局部归纳极限}\etiquette[8.2]{V.subsec8.2}
+
+\setcounter{subsubsection}{-1}
+\subsubsection{}\etiquette[8.2.0]{V.subsubsec8.2.0}
+
+设 $p:\Tt\to\Ss$ 是景态射。设 $\mathsf{e}$ 为 $\Ss$ 上的如下叠:
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item $\mathsf{e}$ 的一个对象是由 $\Ss$ 的对象 $U$ 以及 $p^{\ast}U$ 上的层 $\Ff$ 组成的对 $(U,\Ff)$。
+
+\item 箭头 $f:(U,\Ff)\to(V,\Gg)$ 是由一个箭头 $f_0:U\to V$ 以及一个 $p^{\ast}U$ 上的层态射组成的对:
+$$
+f_1:p^{\ast}(f_0)^{\ast}\Gg\to\Ff.
+$$
+
+\item 从 $\mathsf{e}$ 到 $\Ss$ 的函子由
+$f\longmapsto f_0$
+给出。
+\end{enumerate}
+
+须注意, $\mathsf{e}_U$ 是 $p^{\ast}U$ 上层范畴的\emph{对径范畴}。
+
+设 $\Ll$ 是 $\Ss$ 上的局部 (左) 余滤过范畴。
+
+\begin{enonce*}{定义 8.2.1}\etiquette[8.2.1]{V.def8.2.1}
+沿用上述记号, 以 $\Ll$ 为指标的 $\Tt$ 上的层的局部归纳系所成的范畴, 是范畴
+$\Hom_{\Ss}(\Ll,\mathsf{e})^{\circ}$
+\end{enonce*}
+
+\hyperref[V.def8.1.3]{8.1.3} 的“投射极限”函子在此称为\emph{“局部归纳极限”函子}。它是从 $\Hom_{\Ss}(\Ll,\mathsf{e})^{\circ}$ 到 $(\Gamma\mathsf{e})^{\circ}=(\Tt)^{\sim}$ 的函子。
+
+\begin{enonce*}{定理 8.2.2}\etiquette[8.2.2]{V.thm8.2.2}
+从以 $\Ll$ 为指标的 $\Tt$ 上的层的归纳系范畴到 $\Tt$ 上的层范畴的“局部归纳极限”函子处处有定义, 与有限投射极限可交换, 并与任意归纳极限可交换。
+\end{enonce*}
+
+由\pageoriginale \hyperref[V.prop8.1.13.1]{命题 8.1.13}、\hyperref[V.prop8.1.14]{8.1.14} 和 \hyperref[V.prop8.1.12]{8.1.12}, 断言归结到 $\Ss=\Tt=\Ll$ 的情形。此时局部归纳系由对每个 $U\in\Ob\Ss$ 给定的 $\Ss/U$ 上的层 $\Ff_U$, 以及对 $\Ss$ 中每个箭头 $f:V\to U$ 给定的关于 $f$ 函子性的箭头 $f^{\ast}\Ff_U\to\Ff_V$ 组成。
+
+对这样的归纳系, 各 $\varinjlim$ 如下计算:
+
+\begin{enonce*}{引理 8.2.3}\etiquette[8.2.3]{V.lem8.2.3}
+设 $U\longmapsto\Ff_U$ 是 $\Ss$ 的各对象上的预层范畴的一个截面。则
+$$
+a(U\longmapsto\Gamma(U,\Ff_U))\simeq
+\varinjlim_U a\Ff_U{\quoi}.
+$$
+\end{enonce*}
+
+按定义, 右端代表的函子将 $\Ss$ 上的每个层 $\Ff$ 映为相容箭头系 $\phi_U:\Ff_U\to\Ff|U$ 所成的集合。一个箭头 $\phi_U$ 又是由每个 $g:V\to U$ 对应一个箭头 $\phi_g$ 所组成的相容系, 其中 $\phi_g:\Ff_U(V)\to\Ff(V)$。将 \hyperref[V.lem8.1.11]{8.1.11} 应用于 $\Ss$ 的恒等函子, 得到 $\Ss$ 上的局部滤过范畴 $\Ss^{\ast}$。我们已知
+$$
+\varinjlim_{g\in\Ss^{\ast}}\Ff_U(V_g)^{\sim}
+\simeq\varinjlim_U a\Ff_U{\quoi},
+$$
+其中 $V_g$ 是 $g$ 的源, ${}^{\sim}$ 表示“生成的常值层”函子。从 $\Ss$ 到 $\Ss^{\ast}$ 的函子 $U\longmapsto1_U$ 共尾, 因而再次由 \hyperref[V.prop8.1.5]{8.1.5} 有
+$$
+\varinjlim_U\Ff_U(U)^{\sim}\simeq
+\varinjlim_U a\Ff_U{\quoi}.
+$$
+回到定义, 最后得到
+$$
+\varinjlim_U\Ff_U(U)^{\sim}
+=a(U\longmapsto\Gamma(U,\Ff_U)){\quoi}.
+$$
+
+这表明, 在我们所归结的情形下, 函子 $\varinjlim$ 处处有定义, 且可作为“预层生成的层”函子与函子 $(\Ff_U)\longmapsto(U\longmapsto\Gamma(U,\Ff_U))$ 的复合来计算。这两个函子都与有限投射极限可交换, 而函子 $\varinjlim$ 按其作为伴随函子的定义, 还与任意归纳极限可交换。
+
+引理\pageoriginale \hyperref[V.lem8.2.3]{8.2.3} 提供了一个系统的方法, 可由“与预层相伴的层”函子的类似性质证明局部归纳极限函子的性质。如此得到:
+
+\begin{enonce*}{命题 8.2.4}\etiquette[8.2.4]{V.prop8.2.4}
+设 $\Tt$、$\Ss$、$\Ll$ 如上, $\Aa_\lambda$ 是 $\Tt$ 上的环层的局部归纳系, $\Ll_\lambda$ (分别为 $\Mm_\lambda$) 是 $\Aa_\lambda$ 上的右 (分别为左) 模层的局部归纳系, 三者均以 $\Ll$ 为指标。
+
+则
+$$
+\varinjlim(\Ll_\lambda\otimes_{\Aa_\lambda}\Mm_\lambda)
+\simeq\varinjlim\Ll_\lambda
+\mathop{\otimes}_{\varinjlim\Aa_\lambda}
+\varinjlim\Mm_\lambda{\quoi}.
+$$
+\end{enonce*}
+
+(归结到 $\Tt=\Ss=\Ll$ 的情形, 并注意两端均与预层
+$$
+\Ll_U(U)\mathop{\otimes}_{\Aa_U(U)}\Mm_U(U){\quoi}.
+$$
+生成的层一致。)
+
+\begin{enonce*}{命题 8.2.5}\etiquette[8.2.5]{V.prop8.2.5}
+设 $\Tt_1\xrightarrow{q}\Tt_2\to\Ss$ 是两个景态射, $(F_\lambda)$ 是以 $\Ss$ 上的局部余滤过范畴 $\Ll$ 为指标的 $\Tt_2$ 上的层的局部归纳系。则
+$$
+q^{\ast}\varinjlim_{\lambda\in\Ll}F_\lambda\simeq
+\varinjlim_{\lambda\in\Ll}q^{\ast}F_\lambda{\quoi}.
+$$
+\end{enonce*}
+
+这直接由 $q^{\ast}$ 有右伴随 $q_\ast$ 得到。
+
+设 $\Ss$ 与 $\Tt$ 是有限 $\varprojlim$ 可表的两个景, $p:\Tt\to\Ss$ 是使 $p^{\ast}:\Ss\to\Tt$ 与有限 $\varprojlim$ 可交换的景态射, $\Ll$ 是 $\Tt$ 上的局部余滤过范畴, 其对象是三元组 $(V,U,\phi)$, 其中 $V\in\Ob\Tt$、$U\in\Ob\Ss$ 且 $\phi\in\Hom(V,p^{\ast}U)$。它由对 $p:\Tt\to\Ss$ 应用 \hyperref[V.lem8.1.11]{8.1.11} 得到。
+
+\begin{enonce*}{命题 8.2.6}\etiquette[8.2.6]{V.prop8.2.6}
+对 $\Tt$ 上的每个层 $\Ff$, 有
+$$
+\Ff=\varinjlim_{\lambda\in\Ll}\phi^{\ast}\phi_\ast\Ff,
+$$
+其中滥用记号, $\phi$ 表示 $p$ 所诱导的从 $\Tt/V$ 到 $\Ss/U$ 的态射。
+\end{enonce*}
+
+设\pageoriginale $\phi'$ 为预层意义下的逆像函子。由 \hyperref[V.lem8.2.3]{8.2.3} 得到
+$$
+\varinjlim_{\lambda\in\Ll}{\phi'}^{\ast}\phi_\ast\Ff
+=\varinjlim_{\lambda\in\Ll}a{\phi'}^{\ast}\phi_\ast\Ff
+=\varinjlim_{\lambda\in\Ll}\Ff(V)^{\sim}
+=\varinjlim_V\Ff(V)^{\sim}=\Ff{\quoi}.
+$$
+
+\begin{enonce*}{命题 8.2.7}\etiquette[8.2.7]{V.prop8.2.7}
+设 $p:T\to S$ 是拓扑斯态射, $\Oo_S$ 是 $S$ 上的环层, $\Oo_T$ 是其在 $T$ 上的逆像。右 $\Oo_T$-模 $\Mm$ 在 $\Oo_T$ 上平坦, 当且仅当从左 $\Oo_S$-模范畴到 $T$ 上阿贝尔层范畴的函子
+\begin{equation*}
+\Nn\longmapsto\Mm\mathop{\otimes}_{\Oo_T}p^{\ast}\Nn
+\tag{8.2.7.1}
+\end{equation*}\etiquette[8.2.7.1]{V.8.2.7.1}
+正合。
+\end{enonce*}
+
+“仅当”部分是平凡的; 因此假定函子 \eqhyperref[V.8.2.7.1]{8.2.7.1} 正合, 证明 $\Mm$ 平坦。
+
+可假定 $p$ 由满足 \hyperref[V.prop8.2.6]{8.2.6} 中假设的景态射 $p:\Tt\to\Ss$ 定义。令 $V\in\Ob\Tt$、$U\in\Ob\Ss$ 及 $\phi:V\to p^{\ast}U$。仍用 $\phi$ 表示诱导的景态射 $\phi:\Tt/V\to\Ss/U$。
+
+\begin{enonce*}{引理 8.2.8}\etiquette[8.2.8]{V.lem8.2.8}
+从 $\Ss/U$ 上的 $\Oo_S|U$-模范畴到 $\Tt/V$ 上的 $\Oo_T|V$-模范畴的函子
+$\Nn\longmapsto\Mm|V\mathop{\otimes}_{\Oo_V}\phi^{\ast}\Nn$
+正合。
+\end{enonce*}
+
+归结到取 $V=p^{\ast}U$ 的情形。设 $j$ 与 $j'$ 为“包含态射” $j:\Ss/U\to\Ss$ 和 $j':\Tt/p^{\ast}U\to\Tt$。有
+$$
+j'_!(\Mm|V\mathop{\otimes}_{\Oo_V}\phi^{\ast}\Nn)
+=\Mm\mathop{\otimes}_{\Oo_T}p^{\ast}j_!\Nn{\quoi},
+$$
+由此得到 \hyperref[V.lem8.2.8]{8.2.8}, 因为 $j_!$ 与 $j'_!$ 正合且忠实。
+
+现在设 $Q$ 为左 $\Oo_T$-模。由 \hyperref[V.prop8.2.6]{(8.2.6)} 有
+$$
+Q=\varinjlim_{\phi:V\to p^{\ast}U}
+\phi^{\ast}\phi_\ast(Q|V),
+$$
+从而 (\hyperref[V.prop8.2.4]{8.2.4})
+$$
+\Mm\mathop{\otimes}_{\Oo_T}Q
+=\varinjlim_{\phi:V\to p^{\ast}U}
+\Mm|V\mathop{\otimes}_{\Oo_V}
+\phi^{\ast}\phi_\ast(Q|V){\quoi}.
+$$
+由\pageoriginale \hyperref[V.lem8.2.8]{8.2.8}, 函子 $Q\longmapsto\Mm|V\mathop{\otimes}_{\Oo_V}
+\phi^{\ast}\phi_\ast(Q|V)$ 左正合; 因此 $\Mm\mathop{\otimes}_{\Oo_T}Q$ 关于 $Q$ 左正合, 从而正合。
+
+\begin{enonce*}{推论 8.2.9}\etiquette[8.2.9]{V.cor8.2.9}
+设 $f:(T,\Oo_T)\to(S,\Oo_S)$ 是赋环拓扑斯态射。则平坦右模层沿 $f$ 的逆像是平坦模层。
+\end{enonce*}
+
+使 $f$ 经过 $(T,f^{\ast}\Oo_S)$ 分解, 即归结到 $\Oo_T=f^{\ast}\Oo_S$ 的情形。此时设 $\Mm$ 为 $S$ 上的平坦模层。由 \hyperref[V.prop8.2.7]{8.2.7}, 验证 $f^{\ast}\Mm$ 平坦, 只需验证函子
+$$
+\Nn\longmapsto f^{\ast}\Mm\mathop{\otimes}_{\Oo_T}f^{\ast}\Nn
+=f^{\ast}(\Mm\mathop{\otimes}_{\Oo_S}\Nn),
+$$
+的正合性。由于 $f^{\ast}$ 正合, 断言得证。
+
+\begin{enonce*}{引理 8.2.10}\etiquette[8.2.10]{V.lem8.2.10}
+设 $(S,\Oo_S)$ 是赋环拓扑斯, $\Ff$ 是局部有限表现的左模层, $\Gg$ 是双模层, $\Hh$ 是平坦左模层。则典范箭头
+$$
+\Hhom(\Ff,\Gg)\otimes\Hh\to
+\Hhom(\Ff,\Gg\otimes\Hh)
+$$
+是同构。
+\end{enonce*}
+
+问题在 $S$ 上是局部的, 因而可假定 $\Ff$ 有有限表现
+$$
+\Ff_1\to\Ff_0\to\Ff\to0{\quoi}.
+$$
+下图第一行正合, 因为 $\Hh$ 平坦:
+\[
+\xymatrix{
+0 \to \Hhom(\Ff,\Gg) \otimes \Hh \ar[r] \ar[d]&
+\Hhom(\Ff_0,\Gg) \otimes \Hh \ar[r]\ar[d]^{S}&
+\Hhom(\Ff_1,\Gg) \otimes \Hh \ar[d]^{S}\\
+0 \to \Hhom(\Ff,\Gg \otimes \Hh) \ar[r]&
+\Hhom(\Ff_0,\Gg \otimes \Hh) \ar[r]&
+\Hhom(\Ff_1,\Gg \otimes \Hh)
+}
+\]
+这证明了断言。取 $\Gg=\Oo_S$, 由 \hyperref[V.lem8.2.10]{8.2.10} 推出:
+
+\begin{enonce*}{引理 8.2.11}\etiquette[8.2.11]{V.lem8.2.11}
+从局部有限表现的模层到平坦模层的每个\pageoriginale 态射, 在 $S$ 上局部都经过某个有限自由层 $\Oo_S^n$ $(n\in\NN)$ 分解。
+\end{enonce*}
+
+\begin{enonce*}{定理 8.2.12}\etiquette[8.2.12]{V.thm8.2.12}
+\emph{(D. Lazard).} 赋环景 $(S,\Oo_S)$ 上的模层 $\Mm$ 平坦, 当且仅当它是有限自由模的局部归纳极限。
+\end{enonce*}
+
+“当”部分由 \hyperref[V.thm8.2.2]{8.2.2} 和 \hyperref[V.prop8.2.4]{8.2.4} 得到。
+
+对每个 $U\in\Ob\Ss$, 以 $\Ll_0(U)$ (分别为 $\Ll_1(U)$) 表示 $U$ 上配备到 $\Mm|U$ 的线性映射的有限自由模层 (分别为有限表现的模层) 所成的范畴。对 $\Ss$ 的每个箭头 $f:V\to U$, 设 $f^{\ast}$ 为从 $\Ll_i(U)$ 到 $\Ll_i(V)$ 的限制函子。这些函子定义了一个在 $\Ss$ 上纤维化的范畴 $\Ll_i$, 其纤维为各范畴 $\Ll_i(U)$ 的对径范畴。
+
+读者可验证, 范畴 $\Ll_1$ 在 $\Ss$ 上局部滤过, 且有
+$$
+\Mm=\varinjlim_{(M,f)\in\Ll_1}M.
+$$
+
+若 $\Mm$ 平坦, 则 $\Ll_0$ 到 $\Ll_1$ 的包含全忠实, 且由 \hyperref[V.lem8.2.11]{8.2.11}, 满足 \hyperref[V.def8.1.4]{8.1.4} 中的 $(C\mathfrak{F}1)$。它因而自动满足 $(C\mathfrak{F}2)$, 且 $\Ll_0$ 局部滤过。由 \hyperref[V.prop8.1.5]{8.1.5}, 有
+$$
+\Mm=\varinjlim_{(M,f)\in\Ll_0}M{\quoi},
+$$
+这就证明了 \hyperref[V.thm8.2.12]{8.2.12}。
+
+% END INCLUDED SGA4_English_current_buildable_source_20260906/source/05/drafts/SGA4_V_LINES_4066_4380_English.texfrag
+
+% BEGIN INCLUDED SGA4_English_current_buildable_source_20260906/source/05/drafts/SGA4_V_LINES_4381_4410_English.texfrag
+\begin{thebibliography}{99}\pageoriginale
+\bibitem{sga4.exp.V.bib.1} M. Artin 与 B. Mazur: Etale Homotopy Theory, Lecture Notes no.~100, Springer-Verlag.
+\bibitem{sga4.exp.V.bib.2} Blum 与 Herrera: 即将发表于 Inventiones 的文章。
+\bibitem{sga4.exp.V.bib.3} H. Cartan 与 S. Eilenberg: Homological Algebra.
+\bibitem{sga4.exp.V.bib.4} P. Deligne: Théorie de Hodge (Publications de l'I.H.E.S.).
+\bibitem{sga4.exp.V.bib.5} P. Gabriel 与 N. Popescu: CRAS.
+\bibitem{sga4.exp.V.bib.6} P. Gabriel 与 M. Zisman: Homotopy Theory and Calculus of
+  Fractions, Ergebnisse der Mathematik, Bd 35.
+\bibitem{sga4.exp.V.bib.7} R. Godement: Théorie des faisceaux. Hermann.
+\bibitem{sga4.exp.V.bib.8} J. Giraud: Méthode de la descente. Mémoire de la S.M.F.
+\bibitem{sga4.exp.V.bib.9} J. Giraud: Algèbre homologique non commutative (待刊).
+\bibitem{sga4.exp.V.bib.10} A. Grothendieck: On the De Rham Cohomology of Algebraic
+  Varieties, I.H.E.S. no.~29.
+\bibitem{sga4.exp.V.bib.11} A. Grothendieck: Sur quelques points d'Algèbre Homologique,
+  Tohoku Math. Journal.
+\bibitem{sga4.exp.V.bib.12} R. Hartshorne: Residues and Duality. Lecture Notes
+  no.~20, Springer-Verlag.
+\bibitem{sga4.exp.V.bib.13} L. Illusie: \SGA 6 I.
+\bibitem{sga4.exp.V.bib.14} S. Lubkin: On a Conjecture of A. Weil. Am. J. of
+  Math., p.~456, 1967.
+\bibitem{sga4.exp.V.bib.15} G. Segal: Classifying Spaces and Spectral Sequences,
+  I.H.E.S. no.~34.
+\bibitem{sga4.exp.V.bib.16} Séminaire Cartan 1957--1958.
+\bibitem{sga4.exp.V.bib.17} D. Sullivan: Geometric Topology, Part I, 油印讲义,
+  M.I.T., 1970.
+\end{thebibliography}
+
+\ifx\danslelivre\undefined
+\end{document}
+\fi
+
+% END INCLUDED SGA4_English_current_buildable_source_20260906/source/05/drafts/SGA4_V_LINES_4381_4410_English.texfrag
+
+

@@ -1,0 +1,1463 @@
+\section{预层范畴的函子性}\etiquette[5]{I.sec5}
+
+\setcounter{subsection}{-1}
+\subsection{}\etiquette[5.0]{I.sec5.0}
+设 $C$, $C'$ 和 $D$ 是三个范畴, $u:C\rightarrow C'$ 是一个函子.
+由与函子 $u$ 复合所得到的函子记为 $u^\ast$:
+\sisi{$$
+u^\ast:\Hhom({C'}^\circ,D)\longrightarrow \Hhom(C^\circ, D),
+G\longmapsto G\circ u{\quoi},
+$$}{$$u^\ast:\left\{\begin{array}{ccc}
+                      \Hhom({C'}^\circ,D) & \longrightarrow & \Hhom(C^\circ, D) \\
+                      G & \longmapsto & G\circ u{\quoi}
+                    \end{array}
+\right.$$}
+函子 $u^\ast$ 与归纳极限和投射极限交换.
+
+\begin{enonce*}{命题 5.1}\etiquette[5.1]{I.prop5.1}
+假设\pageoriginale $C$ 是小范畴, 且 $D$ 中的 $𝒰$-归纳极限
+(\resp 投射极限) 可表. 函子 $u^\ast$ 有一个左伴随 $u_{!}$
+(\resp 右伴随 $u_\ast$). 因而有同构
+\begin{gather*}
+\Hom_{\Hhom(C^\circ,D)}(F,u^\ast G)\xrightarrow{\sim}
+\Hom_{\Hhom({C'}^\circ,D)}(u_{!}F,G)\\
+(\mbox{\resp  } \Hom_{\Hhom(C^\circ,D)}(u^\ast G,F)\simeq
+\Hom_{\Hhom({C'}^\circ,D)}(G,u_\ast F){\quoi}).
+\end{gather*}
+\end{enonce*}
+
+\begin{enonce*}[remark]{证明}
+我们只证明左伴随函子的存在性. 命题中 \resp 后的部分便形式地由同构
+$$
+\Hhom(C^\circ,
+D)\xrightarrow{\sim}\Hhom(C,D^\circ)^\circ\xrightarrow{\sim}\Hhom((C^\circ)^\circ,D^\circ)^\circ{\quoi}.
+$$
+推出.
+\end{enonce*}
+
+设 $Y$ 是 $C'$ 的一个对象. 用 $I^Y_u$ 表示如下范畴.
+$I^Y_u$ 的对象是二元组 $(X,m)$, 其中 $X$ 是 $C$ 的对象,
+$m$ 是一个态射 $Y\rightarrow u(X)$. 设 $(X,m)$ 和 $(X',m')$
+是 $I^Y_u$ 的两个对象. 从 $(X,m)$ 到 $(X',m')$ 的态射是满足
+$m'=u(\xi)m$ 的态射 $\xi:X\rightarrow X'$. 态射的复合按显然的方式定义.
+
+设 $f:Y\rightarrow Y'$ 是 $C'$ 的一个态射. 由复合, 态射 $f$
+定义一个函子 $I^f_u:I^{Y'}_u\rightarrow I^Y_u$.
+
+此外还有一个函子 $\pr_Y:I^Y_u\rightarrow C$, 它将对象 $(X,m)$
+对应到对象 $X$. 注意, 此时图
+\[\vcenter{
+\xymatrix@=1.5cm{
+       &I^{Y'}_u \ar[rr]^{I^f_u} \ar[rd]_{\pr_{Y'}}& & I^Y_u \ar[ld]^{\pr_Y}\\
+       & &   C   & \\
+}}\leqno{(*)}
+\]
+交换.
+
+现在\pageoriginale 设 $F$ 是 $C$ 上的一个预层, 并置
+\hypertarget{sga4.exp.I.equation.5.1.1}{}$$
+\displaylines{\rlap{(5.1.1)}\hfill u_{!}
+  F(Y)=\varinjlim_{I^Y_u} F\sisi{}{\circ}\pr_Y(.){\quoi}.\hfill}
+$$
+图 ($^\ast$) 的交换性和归纳极限的函子性使 $u_{!}F$ 成为 $C'$ 上的预层.
+下面证明函子 $u_{!}$ 是函子 $u^\ast$ 的一个左伴随. 为此,
+我们证明对 $C'$ 上的每个预层 $G$, 都有一个函子同构
+$$
+\Hom(u_{!}F,G)\xrightarrow{\sim}\Hom(F,u^\ast G){\quoi}.
+$$
+设 $\xi\in \Hom(u_{!}F,G)$. 那么对 $C$ 的每个对象 $X$, 都有一个态射
+$$
+\xi_X:u_{!}F(u(X))\longrightarrow G(u(X)){\quoi}.
+$$
+但 $(u(X),\id_{u(X)})$ 是 $I^{u(X)}_u$ 的一个对象, 而由归纳极限的定义,
+有一个典范态射
+$$
+F(X)\longrightarrow u_{!}F(u(X)){\quoi}.
+$$
+因此, 对 $C$ 的每个对象 $X$, 我们得到一个态射
+$$
+\eta_X:F(X)\longrightarrow G(u(X))
+$$
+它显然关于 $X$ 具有函子性. 从而有一个态射
+$$
+\eta:F\longrightarrow u^\ast G{\quoi}.
+$$
+
+反过来, 设 $\eta\in \Hom(F,u^\ast G)$. 对 $C'$ 的每个对象 $Y$,
+由此得到一个函子态射
+$$
+\eta_Y:F\sisi{}{\circ}\pr_Y\longrightarrow (u^\ast G)\circ\pr_Y{\quoi},
+$$
+于是, 再与从函子 $(u^\ast G)\circ\pr_Y$ 到常值函子 $G(Y)$ 的显然态射复合,
+便得到一个态射
+$$
+\xi_Y:u_{!}F(Y)\longrightarrow G(Y)
+$$
+它关于 $Y$ 具有函子性. 从而有一个态射
+$$
+\xi:u_{!}F\longrightarrow G{\quoi}.
+$$
+
+读者\pageoriginale 可验证, 如此定义的两个映射互为逆映射, 证明即告完成.
+
+\begin{enonce*}{命题 5.2}\etiquette[5.2]{I.prop5.2}
+假设 $D$ 中的 $𝒰$-归纳极限可表, 有限投射极限可表,
+且滤过 $𝒰$-归纳极限与有限投射极限交换. 还假设 $C$ 中的有限投射极限可表,
+且函子 $u$ 左正合 $(\hyperref[I.cor2.3.2]{2.3.2})$.
+则 $\Hhom(C^\circ,D)$ 和 $\Hhom({C'}^\circ,D)$ 中的有限投射极限可表,
+且函子 $u_{!}$ 左正合.
+\end{enonce*}
+
+\begin{enonce*}[remark]{证明}
+第一个断言显然. 我们证明第二个断言. 由 \hyperref[I.prop5.1]{5.1} 的证明,
+对 $C$ 上的每个预层 $F$ 和 $C'$ 的每个对象 $Y$, 都有
+$$
+u_{!}F(Y)\xrightarrow{\sim} \varinjlim_{I^Y_u}
+F\sisi{}{\circ}\pr_Y{\quoi}.
+$$
+因此只须证明范畴 $(I^Y_u)^\circ$ 满足公理 (PS 1) 和 (PS 2)
+\hyperref[I.def2.7]{(2.7)}, 并且这个范畴连通. 验证留给读者.
+\end{enonce*}
+
+% END INCLUDED SGA4_English_current_buildable_source_20260906/source/01/drafts/SGA4_I_LINES_1025_1161_English.texfrag
+
+
+% BEGIN INCLUDED SGA4_English_current_buildable_source_20260906/source/01/drafts/SGA4_I_LINES_1162_1346_English.texfrag
+\setcounter{subsection}{2}
+\subsection{}\etiquette[5.3]{I.sec5.3}
+将上述结果用于 $D$ 是 $𝒰$-集合范畴的情形, 得到由三个函子组成的序列:
+$$
+u_{!}, u^\ast, u_\ast {\quoi},
+$$
+这是一个“伴随函子序列”, 其含义是: 对序列中任意两个相邻函子,
+右边的函子是另一个的右伴随. 它们的\pageoriginale 主要性质概括在以下命题中:
+
+\begin{enonce*}{命题 5.4}\etiquette[5.4]{I.prop5.4}
+设 $C$ 是一个小范畴, $C'$ 是一个 $𝒰$-范畴, $u:C\rightarrow C'$ 是一个函子.
+\begin{enumerate}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 函子 $u^\ast:\widehat{C'}\rightarrow
+  \widehat{C}$ 与归纳极限和投射极限交换.
+
+\item 函子 $u_\ast:\widehat{C}\rightarrow
+  \widehat{C'}$ 与投射极限交换. 对 $C$ 上的每个预层 $F$ 和 $C'$ 的每个对象 $Y$, 都有:
+  $$
+  u_\ast F(Y)\xrightarrow{\sim}
+  \Hom_{\widehat{C}}(u^\ast(Y),F){\quoi}.
+  $$
+
+\hypertarget{sga4.exp.I.proposition.5.4.item.3}{}\item 函子 $u_{!}:\widehat{C}\rightarrow
+  \widehat{C'}$ 与归纳极限交换. 函子 $u_{!}$ 仅在相差同构的意义下有定义,
+  但总可以选取它使图
+\[
+\xymatrix@C=2.75cm@R=1.5cm{
+  C \ar[r]^{u}\ar[d]_{h}& C' \ar[d]^{h^\prime}\\
+C{\widehat{\phantom{\;i}}}\ar[r]^{u_{!}}&C'{\widehat{\phantom{\;i}}}}
+\]
+($h$ 和 $h'$ 为典范包含函子) 交换.
+
+对 $C$ 上的每个预层 $F$, 都有:
+$$
+u_{!}F\xrightarrow{\sim} \varinjlim_{C/F} h'\sisi{}{\circ}u{\quoi}.
+$$
+
+\item 若 $C$ 中的有限投射极限可表且 $u$ 左正合 $\hyperref[I.cor2.3.2]{(2.3.2)}$,
+则函子 $u_{!}$ 左正合.
+\end{enumerate}
+\end{enonce*}
+
+\begin{enonce*}[remark]{证明}
+断言 (1) 显然. 断言 (2) 由 $u_\ast$ 是右伴随函子这一事实,
+结合 (\hyperref[I.prop2.11]{2.11}) 和 (\hyperref[I.prop1.4]{1.4}) 得出.
+断言 (3) 也是如此, 不过还要应用 (\hyperref[I.prop3.4]{3.4}).
+最后, 断言 (4) 就是 \sisi{5.2}({\hyperref[I.prop5.2]{5.2}}),
+由 (\hyperref[I.def2.7]{2.7}) 可知它适用于此处.
+\end{enonce*}
+
+\begin{enonce*}{命题 5.5}\etiquette[5.5]{I.prop5.5}
+设\pageoriginale $C$ 和 $C'$ 是两个小范畴,
+$\xymatrix@C=1cm{
+ C \ar@<-2.5pt>[r]_{u} & C'\ar@<-2.5pt>[l]_{v}
+}$ 是一对函子, 其中 $v$ 是 $u$ 的左伴随. 那么存在与伴随同构相容的同构:
+\[
+\xymatrix@R=.75cm{
+v^{\ast} \ar[rr]^{\sim}&    & u_!      &\\
+v_{\ast} \ar[rr]^{\sim}&    & u^{\ast} & . }
+\]
+\end{enonce*}
+
+\begin{enonce*}[remark]{证明}
+只须给出一个同构 $v^\ast\xrightarrow{\sim}
+u_{!}$; 另一个同构由伴随关系得到.
+设 $F$ 是 $C$ 上的一个预层, $Y$ 是 $C'$ 的一个对象. 则有:
+$$
+v^\ast F(Y)\xrightarrow{\sim} \Hom(v(Y),F){\quoi}.
+$$
+其次, 利用 (\hyperref[I.prop3.4]{3.4}):
+$$
+\Hom(v(Y),F)\xrightarrow{\sim} \varinjlim_{C/F} \Hom(v(Y),.){\quoi}.
+$$
+但 $v$ 是 $u$ 的左伴随, 因而:
+$$
+\varinjlim_{C/F}\Hom(v(Y),.)\xrightarrow{\sim}\varinjlim_{C/F}\Hom(Y,u(.)){\quoi}.
+$$
+再利用 (\hyperref[I.prop5.4]{5.4}.3)), 得到:
+$$
+\varinjlim_{C/F}\Hom(Y,u(.))\xrightarrow{\sim}
+\Hom(Y,u_{!}F)\xrightarrow{\sim} u_{!}F(Y){\quoi}.
+$$
+因此, 对 $C'$ 的每个对象 $Y$, 我们确定了一个同构
+$v^\ast F(Y)\xrightarrow{\sim} u_{!}F(Y)$, 它显然关于 $Y$ 和 $F$
+都具有函子性, \cqfd
+\end{enonce*}
+
+\begin{enonce*}{推论 5.5.1}\etiquette[5.5.1]{I.cor5.5.1}
+设 $u:C\rightarrow C'$ 是一个有左伴随的函子.
+函子 $u_{!}:\widehat{C}\rightarrow
+\widehat{C'}$ 与投射极限交换
+(回顾一下, 由 $\hyperlink{sga4.exp.I.proposition.5.4.item.3}{(1.4.3)}$,
+它也与归纳极限交换).
+\end{enonce*}
+
+\begin{enonce*}[remark]{注 5.5.2}\etiquette[5.5.2]{I.rem5.5.2}
+这样\pageoriginale 便得到一个“\emph{四个}伴随函子的序列”
+(\cf \hyperref[I.sec5.3]{5.3}):
+$$
+v_{!}, v^\ast=u_{!}, v_\ast = u^\ast, u_\ast{\quoi},
+$$
+因此, 其中的前三个 (\resp 后三个) 与 $\varinjlim$ (\resp $\varprojlim$) 交换.
+\end{enonce*}
+
+\begin{enonce*}{命题 5.6}\etiquette[5.6]{I.prop5.6}
+假设与 $\hyperref[I.prop5.4]{5.4}$ 相同. 下列条件等价:
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 函子 $u$ 全忠实.
+
+\item 函子 $u_{!}$ 全忠实.
+
+\item 伴随态射
+  $\id_{\widehat{C}}\rightarrow u^\ast u_{!}$ 是一个同构.
+
+\item 函子 $u_\ast$ 全忠实.
+
+\item 伴随态射 $u^\ast u_\ast\rightarrow
+  \id_{\widehat{C}}$ 是一个同构.
+\end{enumerate}
+\end{enonce*}
+
+\begin{enonce*}[remark]{证明}
+显然有 ii) $\Leftrightarrow$ iii) 和 iv) $\Leftrightarrow$
+v) (伴随函子的一般性质), 以及 ii)
+$\Rightarrow$ i) (\hyperref[I.prop5.4]{5.4}.3)). 我们证明 i) $\Rightarrow$
+iii). 函子 $\id_{\widehat{C}}$, $u^\ast$ 和
+$u_{!}$ 都与归纳极限交换. 因此由 \hyperref[I.prop3.4]{(3.4)},
+只须在 $H$ 可表时证明 $H\rightarrow u^\ast u_{!} H$ 是同构, 这是显然的.
+下面证明 iii) 与 v) 等价.
+对 $\widehat{C}$ 的每个对象 $H$ (\resp $K$), 用
+$\Phi(H):H\rightarrow u^\ast u_{!} H$ (\resp
+$\Psi(K):u^\ast u_\ast\rightarrow K$) 表示伴随态射. 我们便有交换图:
+\[
+\xymatrix@C=3.5cm@L=6pt{
+\Hom_{\widehat{C}}(H,u^{\ast}u_{\ast}
+K)\ar@{-}[d]_{\wr}\ar[r]^{\quad \Hom(H,\Psi(K))}   & \Hom_{\widehat{C}}(H,K)\\
+\Hom_{\widehat{C}}(u_{!}H,u_{\ast}K)\ar@{-}[d]_{\wr} &  \\
+\Hom_{\widehat{C}}(u^{\ast}u_{!}H,K)\ar[uru]_{\quad
+   \Hom(\Phi(H),K)} & .
+}
+\]
+
+由此\pageoriginale 可见, 对每个 $H$, $\Phi(H)$ 都是同构,
+当且仅当对每个 $K$, $\Psi(𝒦)$ 都是同构, \cqfd
+\end{enonce*}
+
+\begin{enonce*}[remark]{注 5.7}\etiquette[5.7]{I.rem5.7}
+\begin{enumerate}
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 等价关系 ii) $\Leftrightarrow$ iii)
+  $\Leftrightarrow$ iv) $\Leftrightarrow$ v) 是伴随函子的一般结论.
+
+\item \hyperref[I.prop1.4]{1.4} 的证明中给出的 $u_{!}$ \resp $u_\ast$
+的显式形式直接表明, 在 \hyperref[I.def1.1]{1.1} 的一般假设下,
+若 $u$ 全忠实, 则伴随态射 $\id\rightarrow u^\ast u_{!}$
+(\resp $u^\ast u_\ast\rightarrow \id$) 是同构,
+\ie $u_{!}$ (\resp $u_\ast$) 全忠实.
+\end{enumerate}
+\end{enonce*}
+
+\setcounter{subsection}{8} \setcounter{subsubsection}{-1}
+
+% END INCLUDED SGA4_English_current_buildable_source_20260906/source/01/drafts/SGA4_I_LINES_1162_1346_English.texfrag
+
+
+% BEGIN INCLUDED SGA4_English_current_buildable_source_20260906/source/01/drafts/SGA4_I_LINES_1347_1496_English.texfrag
+\subsubsection{}\etiquette[5.8.0]{I.sec5.8.0}
+设 $\gamma$ 是一个由有限投射极限定义的代数结构类型,
+$𝒰$-$\gamma$-$\Ens$ 是 $𝒰$-$\Ens$ 中的 $\gamma$-对象范畴,
+esj: $𝒰$-$\gamma$-$\Ens\rightarrow 𝒰$-$\Ens$ 是底层集合函子
+(为简单起见, 我们假设所考虑的结构类型只有一个底层集合).
+设 $C$ 是一个范畴. 与 $\esj$ 复合得到一个函子, 记为
+$$
+\mbox{esj}^{\widehat{\phantom{,}}}:\Hhom(C^\circ,
+𝒰\text{-}\gamma\text{-}\Ens)\longrightarrow
+\widehat{C}{\quoi}.
+$$
+由于 $\widehat{C}$ 中的投射极限逐点计算,
+函子 $\mbox{esj}^{\widehat{\phantom{,}}}$ 分解为一个等价
+\hypertarget{sga4.exp.I.equation.5.8.1}{}$$
+\displaylines{\rlap{(5.8.1)}\hfill \Hhom(C^\circ,
+  𝒰\text{-}\gamma\text{-}\Ens)\xrightarrow{\approx}
+  \widehat{C}_\gamma{\quoi},\hfill}
+$$
+其中 $\widehat{C}_\gamma$ 是 $\widehat{C}$ 中的 $\gamma$-对象范畴,
+再接上一个仍记为
+$$
+\mbox{esj}^{\widehat{\phantom{,}}}:\widehat{C}_\gamma\longrightarrow
+\widehat{C}{\quoi},
+$$
+的函子, 称为“\emph{底层集合预层}”函子.
+
+\setcounter{subsubsection}{1}
+\subsubsection{}\etiquette[5.8.2]{I.sec5.8.2}
+假设\pageoriginale 函子
+$\esj:𝒰$-$\gamma$-$\Ens\rightarrow 𝒰$-$\Ens$ 有一个左伴随
+$\Lib:𝒰$-$\Ens\rightarrow 𝒰$-$\gamma$-$\Ens$
+\footnote[1]{函子 $\Lib$ 是“自由生成的 $\gamma$-对象”函子.
+例子: 自由群, 自由 Abel 群, 自由 $A$-模, \etc}
+(事实上可以证明, 这个条件总是满足的). 与 $\Lib$ 复合得到一个函子
+$$
+\Lib^{\widehat{\phantom{,}}}:\widehat{C}\longrightarrow
+\Hhom(C^\circ, 𝒰\text{-}\gamma\text{-}\Ens)
+$$
+再与等价 \hyperlink{sga4.exp.I.equation.5.8.1}{(5.8.1)} 复合,
+得到一个仍记为
+$$
+\Lib^{\widehat{\phantom{,}}}:\widehat{C}\longrightarrow
+\widehat{C}_\gamma
+$$
+的函子, 称为“自由生成的 $\gamma$-对象预层”函子.
+函子 $\Lib^{\widehat{\phantom{,}}}$ 是函子
+$\esj^{\widehat{\phantom{,}}}$ 的左伴随.
+
+\begin{enonce*}{命题 5.8.3}\etiquette[5.8.3]{I.prop5.8.3}
+设 $\gamma$ 是由有限投射极限定义的代数结构类型,
+并且 $𝒰$-$\Ens$ 中的 $\gamma$-对象范畴的 $𝒰$-归纳极限可表
+\footnote[2]{可以证明, 这个条件总是满足的.};
+设 $C$ 是属于 $𝒰$ 的一个范畴, $C'$ 是一个 $𝒰$-范畴,
+$u:C\rightarrow C'$ 是一个函子. 用 $\widehat{C}_\gamma$
+(\resp $\widehat{C'}_\gamma$) 表示 $\widehat{C}$
+(\resp $\widehat{C'}$) 中的 $\gamma$-对象范畴,
+用 ${u^\ast}^\gamma$ 表示函子 $u^\ast$ 在 $\gamma$-对象上诱导的函子.
+由 \hyperref[I.prop5.1]{5.1} 和等价
+\hyperlink{sga4.exp.I.equation.5.8.1}{5.8.1} 可知,
+函子 ${u^\ast}^\gamma$ 有一个左 (\resp 右) 伴随.
+这个函子记为 $u_{!_\gamma}$ (\resp $u_{\ast_\gamma}$).
+\begin{enumerate}
+\item 函子 ${u^\ast}^\gamma$ 与归纳极限和投射极限交换. 图
+\[\vcenter{
+\xymatrix@C=3cm@R=1.5cm{
+ \widehat{C'}_\gamma \ar[r]^{u^{\ast^{\gamma}}} \ar[d]_{\esj'\widehat{\phantom{a}}}&
+\widehat{C}_\gamma  \ar[d]_{\esj^{\widehat{\phantom{a}}}}\\
+ \widehat{C'} \ar[r]^{u_{\ast}}& \widehat{C}
+}}\leqno{(*)}
+\]
+\pageoriginale 交换 ($\esj'^{\widehat{\phantom{,}}}$ 和
+$\esj^{\widehat{\phantom{,}}}$ 表示“底层集合”函子).
+
+\item 函子 $u_{\ast_\gamma}$ 与投射极限交换. 图
+\[\vcenter{
+\xymatrix@C=3cm@R=1.5cm{
+ \widehat{C}_\gamma \ar[r]^{u_{\ast_\gamma}} \ar[d]_{\esj\widehat{\phantom{a}}}&
+  \widehat{C'}_\gamma\ar[d]_{\esj'\widehat{\phantom{a}}}\\
+\widehat{C} \ar[r]^{u_{\ast}}&
+\widehat{C'} }}\leqno{({*}{*})}
+\]
+在相差同构的意义下交换.
+
+\item 函子 $u_{!_\gamma}$ 与归纳极限交换. 假设
+$\esj^{\widehat{\phantom{,}}}$
+(\resp ${\esj'}^{\widehat{\phantom{,}}}$) 有一个左伴随
+$\Lib^{\widehat{\phantom{,}}}$
+(\resp ${\Lib'}^{\widehat{\phantom{,}}}$) $\hyperref[I.sec5.8.2]{(5.8.2)}$.
+图
+\[\vcenter{
+\xymatrix@C=3.5cm@R=1.75cm{
+ \widehat{C} \ar[r]^{u_{!}} \ar[d]_{\Lib\widehat{\phantom{a}}}&
+  \widehat{C'} \ar[d]_{\Lib'\widehat{\phantom{a}}}\\
+\widehat{C}_{\gamma} \ar[r]^{u_{!\gamma}} &
+\widehat{C'}_{\gamma} }}\leqno{({*}{*}{*})}
+\]
+在相差同构的意义下交换.
+\end{enumerate}
+
+假设 $u_{!}$ 与有限投射极限交换
+(\hyperref[I.prop5.4]{5.4}) 和 (\hyperref[I.prop5.6]{5.6}). 则图
+\[\vcenter{
+\xymatrix@C=3.5cm@R=1.5cm{
+ \widehat{C}_\gamma \ar[r]^{u_{!\gamma}} \ar[d]_{\esj\widehat{\phantom{a}}}&
+  \widehat{C'}_\gamma\ar[d]_{\esj'\widehat{\phantom{a}}}\\
+\widehat{C} \ar[r]^{u_{!}}& \widehat{C'}
+}}\leqno{({*}{*}{*}{*})}
+\]
+在相差同构的意义下交换, 且 $u_{!\gamma}$ 与有限投射极限交换.
+\end{enonce*}
+
+\begin{enonce*}[remark]{证明}
+断言 (1) 显然. 断言 (2) 也显然, 因为 $u_\ast$ 是右伴随,
+所以 (\hyperref[I.prop2.11]{2.11}) 与投射极限交换, 尤其与有限投射极限交换;
+这就给出了图 $({\ast}{\ast})$ 的交换性.
+图 $({\ast}{\ast}{\ast})$ 的交换性来自左伴随函子在\pageoriginale 相差同构意义下的唯一性;
+最后, 图 $({\ast}{\ast}{\ast}{\ast})$ 的交换性直接来自 $u_{!}$ 与有限投射极限交换这一事实.
+\end{enonce*}
+
+\begin{enonce*}[remark]{记号 5.9}\etiquette[5.9]{I.not5.9}
+我们常滥用记号, 将函子 ${u^\ast}^\gamma$ 和 $u_{\ast\gamma}$
+记为 $u^\ast$ 和 $u_\ast$. 由于图 $(\ast)$ 和 $({\ast}{\ast})$ 交换,
+这不会引起混淆. 另一方面, 当 $u_{!}$ 不与有限投射极限交换时,
+图 $({\ast}{\ast}{\ast}{\ast})$ 在相差同构的意义下也不交换,
+因而必须使用记号 $u_{!}$ 和 $u_{!\gamma}$ 来避免混淆.
+\end{enonce*}
+
+\setcounter{subsection}{9}
+
+% END INCLUDED SGA4_English_current_buildable_source_20260906/source/01/drafts/SGA4_I_LINES_1347_1496_English.texfrag
+
+
+% BEGIN INCLUDED SGA4_English_current_buildable_source_20260906/source/01/drafts/SGA4_I_LINES_1497_1738_English.texfrag
+\subsection{}\etiquette[5.10]{I.sec5.10}
+设 $C$ 是一个小范畴. 对 $\widehat{C}$ 的每个对象 $X$,
+用 $C/X$ 表示以 $X$ 为靶、以 $C$ 的对象为源的箭头组成的范畴.
+源函子定义一个函子 $j_X:C/X\rightarrow C$.
+设 $m:Y\rightarrow X$ 是 $\widehat{C}$ 的一个态射.
+态射的复合定义一个函子 $j_m:C/Y\rightarrow C/X$. 图
+\[
+\xymatrix@=1.5cm{
+C/Y \ar[rr]^{j_m} \ar[rd]_{j_{Y}}&   & C/X\ar[ld]^{j_{X}}\\
+    & C &
+}
+\]
+交换. 由 \hyperref[I.prop5.1]{5.1} 可知, 对 $(C/X)^{\widehat{\phantom{,}}}$
+的每个对象 $F$ 和 $C$ 的每个对象 $Y$, 都有
+\hypertarget{sga4.exp.I.equation.5.10.1}{}$$
+\displaylines{\rlap{(5.10.1)}\hfill j_{X!}F(Y)=\coprod_{u\in
+    \Hom_{\widehat{C}}(Y,X)} F(u){\quoi}.\hfill}
+$$
+当 $C$ 是一个 $𝒰$-范畴时, 公式
+\hyperlink{sga4.exp.I.equation.5.10.1}{(5.10.1)} 定义 $j_{X!}$,
+而且可验证如此定义的函子 $j_{X!}$ 总是函子
+$j^\ast_X:\widehat{C}\rightarrow
+(C/X)^{\widehat{\phantom{,}}}$ (\hyperref[I.sec5.0]{5.0}) 的右伴随\pageoriginale.
+
+\begin{enonce*}{命题 5.11}\etiquette[5.11]{I.prop5.11}
+设 $C$ 是一个 $𝒰$-范畴, $X$ 是 $C$ 上的一个预层.
+\begin{enumerate}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 函子
+$$
+j_{X!}:(C/X)^{\widehat{\phantom{,}}}\longrightarrow
+\widehat{C}
+$$
+经过范畴 $\widehat{C}/X$ 分解:
+$$
+(C/X)^{\widehat{\phantom{,}}}\xrightarrow{e_X}
+\widehat{C}/X\longrightarrow
+\widehat{C}{\quoi}.
+$$
+函子 $e_X$ 是一个范畴等价.
+
+\item 函子 $e_{X}\circ j^\ast_X:\widehat{C}
+\to  \widehat{C}/X$ 与函子
+$H\mapsto (H\times X \xrightarrow{\pr_2} X)$ 典范同构.
+\end{enumerate}
+\end{enonce*}
+
+\begin{enonce*}[remark]{证明}
+\begin{enumerate}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 设 $f$ 是 $(C/X)^{\widehat{\phantom{,}}}$ 的终对象.
+有一个典范同构 $f\xrightarrow{\sim}
+\varinjlim_{Y\in \ob C/X}Y$, 因而
+$j_{X!}(f)=\varinjlim_{Y\in \ob C/X}j_X(Y)$ \hyperref[I.prop5.4]{(5.4)}.
+但 $j_{X!}(f)\simeq X$, 这就给出了所述分解.
+要证明 $e_X$ 是等价, 只须给出一个拟逆函子.
+将 $\widehat{C}/X$ 的每个对象 $H\rightarrow X$ 对应到 $C/X$ 上的预层
+$$
+(Y\rightarrow X)\longmapsto
+  \Hom_{\widehat{C}/X}((Y\rightarrow X), (H\rightarrow
+  X)){\quoi}.
+$$
+
+\item 函子 $e_X\circ j^\ast_X$ 是遗忘函子的右伴随,
+因此函子 $e_X\circ j^\ast$ 与函子 $H\mapsto (H\times
+  H\xrightarrow{\pr_2}X)$ 典范同构.
+\end{enumerate}
+\end{enonce*}
+
+\setcounter{subsection}{11}
+\subsection{}\etiquette[5.12]{I.sec5.12}
+设 $m:Y\rightarrow X$ 是 $\widehat{C}$ 的一个态射.
+由 \hyperref[I.prop5.11]{(5.11)}, 态射 $m$ 典范同构于
+$(C/X)^{\widehat{\phantom{,}}}$ 的某个对象在 $e_X$ 下的像,
+我们将这个对象记为 $[m]$. 将函子 $e_X$ 限制到相应子范畴上, 得到一个等价
+$$
+(C/X)/[m]\xrightarrow{e_m}C/Y{\quoi}.
+$$
+图\pageoriginale
+\[
+\xymatrix{
+  (C/X)/[m]\ar[rr]^{e_m} \ar[rd]_{j_{[m]}} &       & C/Y \ar[ld]^{j_m}\\
+          & C/X   &
+}
+\]
+在相差典范同构的意义下交换.
+
+\subsection{}\etiquette[5.13]{I.sec5.13}
+
+我们记录一个将在第 VI 讲中用到的结果.
+设 $u:C\rightarrow C'$ 是小范畴之间的一个函子.
+对 $\widehat{C}$ 的每个对象 $H$, 用 $u/H:C/H\rightarrow C'/u_{!}H$
+表示将每个态射 $m:X\rightarrow H$ 对应到态射
+$u_{!}X\xrightarrow{u_{!}m}u_{!}H$ 的函子
+(我们知道 (\hyperref[I.prop5.4]{5.4}), 总可以令 $u_{!}X=uX$).
+下图交换:
+\hypertarget{sga4.exp.I.equation.5.13.1}{}\[\vcenter{
+\xymatrix@C=3cm@R=1.75cm{
+C/H \ar[r]^{u/H}\ar[d]_{J_H} & C'/u_{!}H \ar[d]_{j_{u_{!}H}} \\
+C\ar[r]^{u}   & C'\quad. }}\leqno{(5.13.1)}
+\]
+因此有一个在相差同构意义下交换的图:
+%\[\vcenter{
+%\xymatrix@C=2.5cm@R=1.5cm{ (C/H){\widehat{\phantom{a}}}
+%\ar[r]^{(u/H)_{!}} \ar[d]_{(j_H)_!}&
+%  (C'/u^·H){\widehat{\phantom{a}}} \ar[d]_{(j_{u!H})_{!}}\\
+%  C{\widehat{\phantom{\;a}}} \ar[r]^{u_!}& C'{\widehat{\phantom{\;a}}}\quad,
+%}}\leqno{(5.13.2)}
+%\]
+又因为 $(u/H)_{!}$ 将 $(C/H)^{\widehat{\phantom{,}}}$ 的终对象映到
+$(C'/u_{!}H)^{\widehat{\phantom{,}}}$ 的终对象, 所以图
+\hypertarget{sga4.exp.I.equation.5.13.3}{}\[\vcenter{
+\xymatrix@C=3.5cm@R=1.5cm{ (C/H)\widehat{\phantom{a}}
+\ar[r]^{(u/H)_!} \ar[d]_{e_H}&
+  (C'/u_!H)\widehat{\phantom{a}} \ar[d]_{e_{u_{!}H}}\\
+C\widehat{\phantom{a}}/H  \ar[r]^{u_{!}/H} &
+C'\widehat{\phantom{a}}/u_{!}H }}\leqno{(5.13.3)}
+\]
+在相差同构的意义下\pageoriginale 交换 \hyperref[I.def6.1]{(6.1)}.
+
+\begin{enonce*}{命题 5.14}\etiquette[5.14]{I.prop5.14}
+设 $u:C\rightarrow C'$ 是小范畴之间的一个函子. 假设 $u$ 具有如下性质:
+
+{\rm(PPF)} 对 $C$ 的每个对象 $X$, 函子
+$u/X:C/X\rightarrow C'/uX$ 全忠实.
+
+则:
+\begin{enumerate}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 设 $f$ 是 $\widehat{C}$ 的终对象. 函子 $u$ 分解为
+$$
+C=C/f\xrightarrow{u/f}C'/u_{!}f\xrightarrow{j_{u_{!}f}} C'{\quoi}.
+$$
+函子 $u/f$ 全忠实.
+
+\item 函子 $u_{!}:\widehat{C}\rightarrow
+  \widehat{C'}$ 分解为
+$$
+\widehat{C}=(C/f)^{\widehat{\phantom{,}}}\xrightarrow{(u/f)_{!}}
+(C'/u_{!}f)^{\widehat{\phantom{,}}}\xrightarrow{e_{u_{!}f}}\widehat{C'}/u_{!}f\longrightarrow
+\widehat{C'}{\quoi},
+$$
+其中函子 $(u/f)_{!}$ 全忠实, 函子 $e_{u_{!}f}$ 是一个等价,
+函子 $\widehat{C'}/u_{!}f\rightarrow\widehat{C'}$ 是遗忘函子.
+
+\item 特别地, 函子 $u_{!}$ 忠实, 因而单位态射
+$\id\xrightarrow{\Phi}u^\ast u_{!}$ 是单态射.
+此外, 对 $\widehat{C}$ 的每个态射 $\alpha:H\rightarrow K$, 图
+\[
+\xymatrix@C=3.5cm@R=1.5cm@M=.2cm{
+H \ar@{^{(}->}[r]^{\Phi(H)}\ar[d]_{\alpha} & u^{*}u_{!}H \ar[d]^{u.u^{\bigdot}(\alpha)}\\
+K \ar@{^{(}->}[r]^{\Phi(K)} &  u^{*}u_!K }
+\]
+是 Cartesian 图.
+\end{enumerate}
+\end{enonce*}
+
+\begin{enonce*}[remark]{证明}
+\begin{enumerate}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 所述\pageoriginale 分解来自图
+\hyperlink{sga4.exp.I.equation.5.13.1}{(5.13.1)}.
+函子 $u$ 忠实. 因而 $u/f$ 忠实. 我们证明它全忠实.
+设 $X$ 和 $Y$ 是 $C$ 的两个对象,
+$\can_X:uX\rightarrow u_{!}f$ (\resp $\can_Y:uY\rightarrow u_{!}f$)
+是典范态射, 并设
+\[
+\xymatrix@=1.25cm{
+uX \ar[rr]^{m} \ar[rd]_{\can_X}&               & uY \ar[ld]^{\can_Y}\\
+   & u^{\bigdot}f &
+}
+\]
+是 $C'/u_{!}f$ 的一个态射. 我们有
+$u_{!}f=\varinjlim_{Z\in \ob C}uZ$, 因而 \hyperref[I.prop3.1]{(3.1)}
+$$
+\Hom_{\widehat{C'}}(uX,u_{!}f)=\varinjlim_{Z\in
+  \ob C}\Hom_{C'}(uX, uZ){\quoi}.
+$$
+由归纳极限的定义, 说 $\can_Ym=\can_X$, 等价于说存在
+\begin{enumerate}
+\renewcommand{\theenumii}{\alph{enumii}}
+\renewcommand{\labelenumii}{\theenumii)}
+\item $C$ 的一个有限对象序列 $X_i$, $i\in [0,n]$,
+满足 $X_\circ=X$, $X_n=Y$,
+
+\item 对每个 $i$, 一个态射 $m_i:uX\rightarrow
+  uX_i$ $(m_\circ=\id_{X}, m_n=m)$,
+
+\item 对每一对 $(i,i+1)$, 一个态射 $f_i:X_i\rightarrow
+  X_{i+1}$ 或 $f_i:X_{i+1}\rightarrow X_i$,
+\end{enumerate}
+使图
+\begin{displaymath}
+\xymatrix@R=1.25cm@C=1.25cm{
+   &  uX \ar[rd]^{\;\;m_{i+1} \qquad\quad\text{ 或 }} \ar[ld]_{m_i}&\\
+  uX_i\ar[rr]^{u(f_i)} &          &  uX_{i+1}
+}\qquad \xymatrix@R=1.25cm@C=1.25cm{
+      &  uX \ar[rd]^{\;\;m_{i+1}} \ar[ld]_{m_i}&\\
+ uX_i &                                        &
+   uX_{i+1}\ar[ll]_{u(f_i)}\quad ,
+}
+\end{displaymath}
+交换.
+
+于是对 $i$ 归纳并利用性质 (PPF), 立即得出 $m_i$ 具有形式 $u(p_i)$.
+特别地, $m=u(p)$, 因而 $u/f$ 全忠实.
+
+\item 所述\pageoriginale 分解显然. 由 \hyperref[I.prop5.6]{5.6},
+函子 $(u/f)_{!}$ 全忠实. 其他断言由 \hyperref[I.prop5.11]{5.11} 得出.
+
+\item 函子 $u_{!}$ 是忠实的遗忘函子与全忠实函子的复合, 因而忠实.
+由伴随函子的一般性质可知, 单位态射 $\id\rightarrow u^\ast u_{!}$ 是单态射.
+由 2), 函子 $u_{!}$ 可看成一个全忠实函子
+$v:\widehat{C}\to\widehat{C'}/u_{!}f$ 与遗忘函子的复合.
+因此, $u_{!}$ 的右伴随函子 $u^\ast$ 是“与 $u_{!}f$ 作积”函子
+(遗忘函子的右伴随) 与 $v$ 的右伴随函子 $w$ 的复合.
+此外, 由于 $v$ 全忠实, 单位态射 $\id\rightarrow wv$ 是同构.
+最后一个断言容易得出.
+\end{enumerate}
+\end{enonce*}
+
+
+% END INCLUDED SGA4_English_current_buildable_source_20260906/source/01/drafts/SGA4_I_LINES_1497_1738_English.texfrag
+
+
+% BEGIN INCLUDED SGA4_English_current_buildable_source_20260906/source/01/drafts/SGA4_I_LINES_1739_1946_English.texfrag
+\section{忠实函子与保守函子}\etiquette[6]{I.sec6}\pageoriginale
+
+\begin{enonce*}{定义 6.1}\etiquette[6.1]{I.def6.1}
+设 $E$ 是一个范畴, $(\varphi_i:E\rightarrow F_i)_{i\in I}$ 是一个函子族
+$$
+\varphi_i:E\longrightarrow F_i{\quoi}.
+$$
+若对 $E$ 的每对对象 $X$, $Y$ 以及每对箭头
+$u$, $v:X\rightrightarrows Y$, 对每个 $i\in I$ 都有
+$\varphi_i(u)=\varphi_i(v)$ 蕴含 $u=v$
+(换言之, 由 $(\varphi_i)$ 定义的映射 $\Hom(X,Y)\rightarrow
+\Pi_i\Hom(\varphi_i(X),\varphi_i(Y))$ 是单射),
+就称函子族 $(\varphi_i)$ \emph{忠实}.
+若 $E$ 的每个满足对所有 $i\in I$, $\varphi_i(u)$ 都是同构的箭头 $u$
+本身也是同构, 就称函子族 $(\varphi_i)$ \emph{保守}.
+若只要 $u$ 是单态射 (\resp 满态射, \resp \ldots), 上述条件就成立,
+则称 $(\varphi_i)$ 对单态射 (\resp 满态射, \resp \ldots) 保守.
+\end{enonce*}
+
+\setcounter{subsection}{1} \setcounter{subsubsection}{0}
+\subsubsection{}\etiquette[6.1.1]{I.sec6.1.1}
+若引入由函子族 $(\varphi_i)$ 定义的唯一函子
+$$
+\varphi:E\longrightarrow F=\prod_{i\in I} F_i
+$$
+则显然, 这个族忠实 (\resp 保守, \resp 对单态射保守, \resp\ldots),
+当且仅当函子 $\varphi$ 忠实 (\resp 保守, \resp\ldots)
+(这里的意思是仅由 $\varphi$ 组成的族忠实, \resp 保守, \resp\ldots).
+因此, 下文即使只考虑由单个函子组成的族, 也没有多大不便.
+不过, 为便于以后引用, 以下结果仍对函子族来陈述.
+
+当\pageoriginale $\varphi_i$ 满足适当的正合性条件时,
+\hyperref[I.def6.1]{6.1} 中的概念尤其有用, 而且在这种情况下它们往往重合:
+
+\begin{enonce*}{命题 6.2}\etiquette[6.2]{I.prop6.2}
+记号与 \hyperref[I.prop5.1]{5.1} 相同.
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item 若 $E$ 中双箭头的核或双箭头的余核可表,
+且 $\varphi_i$ 与它们交换, 则有蕴含关系
+$$
+(\varphi_i)\mbox{ 保守 } \Longrightarrow (\varphi_i)\mbox{
+    忠实}{\quoi}.
+$$
+
+\item 假设 $E$ 中的纤维积 (\resp 纤维余积) 可表,
+且 $\varphi_i$ 与它们交换. 假设 $(\varphi_i)$ 忠实或保守;
+则对 $E$ 的每个箭头 $u$, $u$ 是单态射 (\resp 满态射),
+当且仅当对每个 $i\in I$, $\varphi_i(u)$ 都如此.
+
+\item 假设 $E$ 中的纤维积和纤维余积可表, $\varphi_i$ 与它们交换,
+且 $E$ 中每个既是单态射又是满态射的箭头 (即双态射) 都是同构.
+则有蕴含关系
+$$
+(\varphi_i)\mbox{ 忠实 } \Longrightarrow (\varphi_i)\mbox{
+    保守}{\quoi}.
+$$
+
+\item 假设 $E$ 中的纤维积 (\resp 纤维余积) 可表,
+且 $\varphi_i$ 与它们交换. 则若 $(\varphi_i)$ 对单态射
+(\resp 满态射) 保守, 它实际上就是保守的.
+
+\item 设 $D$ 是一种图式类型, $F:d\mapsto F(d)$ 是 $E$ 中一个 $D$ 型图式,
+$X$ 是 $E$ 的一个对象, $u=(u_d)_{d\in D}$ 是一个箭头族
+$$
+X\longrightarrow F(d)\quad (\mbox{\resp  } F(d)\longrightarrow
+X){\quoi}.
+$$
+假设\pageoriginale $(\varphi_i)$ 保守, $E$ 中 $D$ 型的投射极限
+(\resp 归纳极限) 可表, 且 $\varphi_i$ 与它们交换.
+则 $u$ 使 $X$ 成为 $F$ 在 $E$ 中的投射极限 (\resp 归纳极限),
+当且仅当对每个 $i\in I$, $\varphi_i(u)$ 使 $\varphi_i(X)$ 成为
+$\varphi_i(D)$ 在 $E_i$ 中的投射极限 (\resp 归纳极限).
+\end{enumerate}
+\end{enonce*}
+
+\noindent \emph{证明.}
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item 对于不带 \resp 的陈述, 给定一个双箭头
+$u$, $v:X\rightrightarrows Y$, 只须将等式 $u=v$ 表述为
+包含态射 $\Ker(u,v)\rightarrow X$ 是同构这一条件.
+此处及下文中, 对偶陈述的对偶论证均不再重复.
+
+\item 若 $(\varphi_i)$ 忠实, 则 $u:X\rightarrow Y$ 是单态射这一条件,
+可表述为纤维积 $\fprod{X}{X}{Y}$ 的两个投射满足等式 $\pr_1=\pr_2$.
+若 $(\varphi_i)$ 保守, 则可表述为对角态射
+$\delta:X\rightarrow \fprod{X}{X}{Y}$ 是同构这一条件.
+
+\setcounter{enumi}{3}
+\item 由于后一论证中的态射 $\delta$ 是单态射,
+可见实际上只须假设 $(\varphi_i)$ 对单态射保守.
+但这又蕴含 $(\varphi_i)$ 无条件地保守.
+事实上, 若 $u\in F\ell\,E$ 满足 $\varphi_i(u)$ 都是同构,
+则前面的论证表明它们是单态射, 从而由关于 $(\varphi_i)$ 的假设,
+它们是同构.
+
+\setcounter{enumi}{2}
+\item 这是 (ii) 的显然推论.
+
+\setcounter{enumi}{4}
+\item 这是定义的显然推论.
+\end{enumerate}
+
+我们记录由 (i), (ii) 和 (iv) 得到的以下推论:
+
+\begin{enonce*}{推论 6.3}\etiquette[6.3]{I.cor6.3}
+假设\pageoriginale $E$ 中的纤维积和纤维余积可表,
+$\varphi_i$ 与它们交换, 并且双箭头的核或双箭头的余核可表,
+$\varphi_i$ 与它们交换.
+(例如, $E$ 中的有限投射极限和有限归纳极限可表,
+且 $\varphi_i$ 是正合函子, 就足够了.) 则下列条件等价:
+\begin{itemize}
+\item[a)] $(\varphi_i)$ 忠实.
+
+\item[b)] $(\varphi_i)$ 保守.
+
+\item[c)] $(\varphi_i)$ 对单态射保守.
+
+\item[${\rm c')}$] $(\varphi_i)$ 对满态射保守.
+\end{itemize}
+\end{enonce*}
+为便于引用, 我们还记录:
+
+\begin{enonce*}{命题 6.4}\etiquette[6.4]{I.prop6.4}
+设 $\varphi:E\rightarrow F$ 是一个有右伴随 $\psi$ 的函子
+(因而 $\Hom(\varphi(X),Y)\simeq \Hom(X,\psi(Y))$).
+函子 $\varphi$ (\resp $\psi$) 忠实,
+当且仅当对 $E$ 的每个元素 $X$ (\resp $F$ 的每个元素 $Y$),
+单位态射 $X\rightarrow \psi\varphi(X)$ 是单态射.
+函子 $\varphi$ (\resp $\psi$) 全忠实,
+当且仅当上述单位态射是同构.
+\end{enonce*}
+事实上, 若 $X'$, $X$ 是 $E$ 的两个对象, 则映射
+\begin{equation*}
+\Hom(X',X)\longrightarrow
+  \Hom(\varphi(X'),\varphi(X))\tag{$\ast$}
+\end{equation*}
+可视为对
+\begin{equation*}
+X\longrightarrow \psi
+  \varphi (X)\tag{${\ast}{\ast}$}
+\end{equation*}
+应用函子 $\Hom(X',-)$ 所得的映射.
+因此, 固定 $X$ 后, 对每个 $X'$ 映射 $(\ast)$ 都是单态射\pageoriginale
+(\resp 同构) 的充要条件, 是单位态射 $({\ast}{\ast})$ 为单态射
+(\resp 同构).
+
+\begin{enonce*}{命题 6.5}\etiquette[6.5]{I.prop6.5}
+设 $p:E'\rightarrow E$ 是一个函子. 下列条件等价:
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item $p$ 忠实、保守且纤维化 {\rm(SGA 1 VI 6.1).}
+
+\item $p$ 是一个纤维为离散范畴的纤维化函子.
+
+\item 对每个 $X'\in \ob E'$, 由 $p$ 诱导的函子 $E'_{/X'}\rightarrow
+  E_{/p(X)}$ 是一个在对象上满射的范畴等价.
+
+\item (当 $E$ 是一个 $𝒰$-范畴时.) 存在元素
+  $F\in \ob\widehat{C}$ 和 $E$ 上的一个范畴等价
+  {\rm(SGA 1 VI 4.3)} $E'\xrightarrow{\approx}E_{/F}$
+  (其中 $E_{/F}$ 是 $\widehat{E}_{/F}$ 的全子范畴,
+  由源属于 $E$ 的箭头 $X\rightarrow F$ 组成).
+\end{enumerate}
+\end{enonce*}
+
+\setcounter{subsection}{5} \setcounter{subsubsection}{0}
+
+% END INCLUDED SGA4_English_current_buildable_source_20260906/source/01/drafts/SGA4_I_LINES_1739_1946_English.texfrag
+
+
+% BEGIN INCLUDED SGA4_English_current_buildable_source_20260906/source/01/drafts/SGA4_I_LINES_1947_2034_English.texfrag
+\subsubsection{}\etiquette[6.5.1]{I.sec6.5.1}
+回顾一下, 称一个范畴 $C$ 是\emph{离散的}, 是指它是一个\emph{群胚}
+(\ie 其中的每个箭头都可逆), 并且是\emph{刚性的}
+(\ie 每个对象的自同构群都退化为平凡群);
+等价地, 这个范畴等价于某个集合 $I$ 定义的范畴 $C'$
+(其中 $\text{ob}C'=I$, 且仅有恒等箭头).
+若已假设 $C$ 是群胚, 则说 $C$ 离散, 等价于说对 $C$ 的两个对象 $X$, $Y$,
+从 $X$ 到 $Y$ 至多存在一个箭头, \ie $C$ 同构于一个预序集所定义的范畴.
+
+\hyperref[I.prop6.5]{6.5} 中条件 (i) 和 (ii) 的等价性\pageoriginale
+是上述观察以及以下引理的直接推论:
+
+\begin{enonce*}{引理 6.5.2}\etiquette[6.5.2]{I.lem6.5.2}
+设 $p:E'\rightarrow E$ 是一个纤维化函子. 则:
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item $p$ 保守的充要条件是它的纤维范畴都是群胚.
+
+\item $p$ 忠实的充要条件是它的纤维范畴都是有序范畴.
+\end{enumerate}
+\end{enonce*}
+
+\noindent \emph{\hyperref[I.lem6.5.2]{6.5.2} 的证明.}
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item 假设 $p$ 保守. 对纤维 $E'_X$ 中的每个箭头 $u$,
+$p(u)=\id_X$ 是同构, 所以 $u$ 在 $E'$ 中是同构,
+从而在 $E'_X$ 中也是同构
+(因为 $u$ 在 $E'$ 中的逆显然也在 $E'_X$ 中作逆).
+因此 $E'_X$ 是群胚. 反过来, 假设 $E'_X$ 都是群胚,
+设 $u'$ 是 $E'$ 中的一个箭头, 且 $p(u')$ 是同构; 我们证明 $u$ 是同构.
+为此注意, 由于 $p$ 纤维化, 可将 $u':X'\rightarrow Y'$ 分解为复合
+$X'\rightarrow u^\ast(Y')\rightarrow Y'$, 其中第一个箭头是 $X$-态射
+(注意 $X=p(X')$, $u=p(u')$), 第二个是 $u$ 上的 Cartesian 态射.
+第一个箭头是同构, 因为 $E'_X$ 是群胚;
+第二个也是同构, 因为纤维化范畴的一个 \emph{Cartesian} 态射,
+只要其投影是同构, 显然就是同构.
+
+\item 假设 $p$ 忠实, 并设 $X'$, $Y'$ 是纤维范畴 $E_X$ 的两个对象.
+从 $X'$ 到 $Y'$ 的任意两个箭头都位于 $E$ 的同一箭头 $\id_X$ 之上,
+所以相等, 因而 $E_X$ 有序. 反过来,\pageoriginale 假设纤维范畴都有序,
+我们证明 $p$ 忠实. 设 $u'$, $v':X'\rightrightarrows Y'$ 是 $E'$ 中的箭头,
+位于 $E$ 的同一箭头 $u:X\rightarrow Y$ 之上.
+它们便分解为 $X'\rightrightarrows u^\ast(Y)\rightarrow Y'$,
+其中两个箭头 $X'\rightrightarrows u^\ast(Y')$ 是 $E'_X$ 中具有相同源和靶的箭头;
+因此它们相等, 从而 $u'=v'$, \cqfd
+\end{enumerate}
+
+现在回到 \hyperref[I.prop6.5]{6.5} 的证明. 我们已证明
+(i) $\Leftrightarrow$ (ii). 另一方面, (ii) $\Leftrightarrow$ (iv) 相当清楚:
+事实上, 一方面, 范畴 $E_{/F}$ 在 $E$ 上纤维化,
+它的纤维范畴是集合 $F(X)$ 所定义的离散范畴, 这直接由定义得出;
+另一方面, 若 $p$ 如 (ii) 所述, 则由 SGA 1 VI 8 中的成串推论,
+$E$ 上的纤维化范畴 $E'$ 与由函子 $E\rightarrow (\Cat)$
+定义的 $E$ 上的分裂范畴 $E$-等价,
+其中该函子由函子 $F:E\rightarrow (\Ens)$ 确定,
+后者将每个 $X\in \ob E$ 对应到 $E'_X$ 的对象同构类的集合.
+这个分裂范畴与范畴 $E_{/F}$ $E$-同构.
+由于 (iv) $\Rightarrow$ (iii) 显然, 只须证明 (iii) $\Rightarrow$ (i).
+显然, $p$ 忠实 (\resp 保守) 的充要条件是诱导函子
+$E'_{/X'}\rightarrow E_{/p(X)}$ 也如此;
+因此, 这些函子全忠实当然就足够了; 故只剩下证明 (iii) 蕴含 $p$ 纤维化.
+但同样可见, 函子 $p$ 纤维化, 当且仅当诱导函子
+$E'_{/X'}\rightarrow E_{/p(X')}$ 纤维化.
+特别地, 当它们是在对象上满射的范畴等价时, 这一条件成立.
+
+
+% END INCLUDED SGA4_English_current_buildable_source_20260906/source/01/drafts/SGA4_I_LINES_1947_2034_English.texfrag
+
+
+% BEGIN INCLUDED SGA4_English_current_buildable_source_20260906/source/01/drafts/SGA4_I_LINES_2035_2353_English.texfrag
+\section{生成子范畴与余生成子范畴}\etiquette[7]{I.sec7}\pageoriginale
+
+\begin{enonce*}{定义 7.1}\etiquette[7.1]{I.def7.1}
+设 $E$ 是一个范畴, $C$ 是 $E$ 的一个全子范畴.
+若对 $E$ 的每个对象 $X$, $E$ 中以 $X$ 为靶、以 $X'\in \ob C$ 为源的箭头族
+是满态射族 (\resp 严格满态射族) (\hyperref[I.condef1.3]{1.3}),
+则称 $C$ 是 $E$ 的一个\emph{由严格满态射生成 (\resp 由满态射生成)} 的子范畴.
+若对每个箭头 $u:Y\rightarrow X$
+(\resp $E$ 的每个单态射, \resp $E$ 的每个严格单态射 $\hyperref[I.sec10.5]{(10.5)}$),
+只要对每个 $X'\in \ob C$, 相应映射 $\Hom(X',Y)\rightarrow \Hom(X',X)$
+是双射, $u$ 就是同构, 则称 $C$ 是 $E$ 的一个\emph{生成
+(\resp 对单态射生成, \resp 对严格单态射生成)} 子范畴.
+最后, 若由 $E$ 的对象族 $(X_i)$ 生成的 $E$ 的全子范畴 $C$
+是由严格满态射生成 (\resp \ldots) 的,
+则称这个对象族由严格满态射生成 (\resp \ldots).
+\end{enonce*}
+
+\setcounter{subsection}{1} \setcounter{subsubsection}{0}
+\subsubsection{}\etiquette[7.1.1]{I.sec7.1.1}
+注意, 用 $X'\in \ob C$ 所代表的函子族 $(h_{X'})_{X'\in \ob C}$
+$$
+h_{X'}:E\longrightarrow (\Ens)\; (X'\in \ob C)
+$$
+来表述, $C$ 生成 (\resp 对单态射生成, \resp 对严格单态射生成) 的条件,
+就是说函子族 $(h_{X'})$ \emph{保守}
+(\resp 对单态射保守, \resp 对严格单态射保守)
+(\hyperref[I.def6.1]{6.1}). 由定义还直接可知,
+$C$ 由满态射生成, 当\pageoriginale 且仅当族 $(h_{X'})_{X'\in \ob C}$
+\emph{忠实} (\hyperref[I.def6.1]{6.1}).
+下文 (\hyperref[I.prop7.2]{7.2} (i)) 还将对 $C$ 由严格满态射生成这一条件给出类似的解释.
+
+\subsubsection{}\etiquette[7.1.2]{I.sec7.1.2}
+与 \hyperref[I.def6.1]{6.1} 中引入的概念一样,
+当 $E$ 有适当的正合性性质时, \hyperref[I.def7.1]{7.1} 中的概念尤其有用;
+在这种情况下, 所引入的各个概念很有可能全部等价
+(\hyperref[I.cor7.3]{7.3}).
+因此, 几乎无须讨论 \hyperref[I.def7.1]{7.1} 中的这些概念哪一个最为重要;
+在最重要的情形中, 这些概念重合,
+因而“生成子范畴”这一术语可以不加区别地解释为
+\hyperref[I.def7.1]{7.1} 中考虑的任一种性质
+(例如第一种; 如我们将看到的 (\hyperref[I.prop7.2]{7.2} (ii)), 它是所有性质中最强的).
+
+\subsubsection{}\etiquette[7.1.3]{I.sec7.1.3}
+假设 $E$ 是一个 $𝒰$-范畴, 考虑典范函子
+\begin{equation*}
+\varphi:E\longrightarrow
+  \widehat{C}=\Hhom(C, 𝒰\text{-}\Ens)\tag{7.1.3.1}
+\end{equation*}\etiquette[7.1.3.1]{I.sec7.1.3.1}
+它是函子 $E\rightarrow \widehat{E}\rightarrow \widehat{C}$ 的复合,
+其中第一个是典范函子 (\hyperref[I.sec1.3.3]{1.3.3}),
+第二个是限制到 $C$ 的函子.
+注意, 说上述函子 $\varphi$ 保守 (\resp 忠实),
+显然等价于说随着 $X'\in\ob C$ 变化的函子族
+$h_{X'}:X\rightarrow \Hom(X',X)=\varphi(X)(X')$
+是一个保守 (\resp 忠实) 族,
+也就是 (\hyperref[I.sec7.1.2]{7.1.2}) 说 $C$ 生成 (\resp 由满态射生成).
+类似地, $\varphi$ 对单态射\pageoriginale (\resp 严格单态射) 保守,
+当且仅当 $h_{X'}(X'\in \ob C)$ 所成的族对单态射
+(\resp 严格单态射) 保守,
+\ie 当且仅当 $E$ 的子范畴 $C$ 对单态射 (\resp 严格单态射) 生成.
+
+\begin{enonce*}{命题 7.2}\etiquette[7.2]{I.prop7.2}
+设 $E$ 是一个 $𝒰$-范畴, $C$ 是一个全子范畴.
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item 下列条件等价:
+\begin{enumerate}
+\renewcommand{\theenumii}{\alph{enumii}}
+\renewcommand{\labelenumii}{\theenumii)}
+\item $C$ 是由严格满态射生成的子范畴.
+
+\item 对每个 $X\in \ob E$, 用 $C_{/X}$ 表示 $E_{/X}$ 的全子范畴,
+其对象为源 $X'\in \ob C$ 的箭头 $X'\rightarrow X$.
+从包含函子 $j:C_{/X}\rightarrow E$ 到 $C_{/X}$ 上值为 $X$ 的常值函子的自然箭头,
+使 $X$ 成为 $j$ 的归纳极限:
+$$
+X\xleftarrow{\sim} \lim_{C_{/X}}X'{\quoi}.
+$$
+
+\item (\hyperref[I.sec7.1.3.1]{7.1.3.1}) 中的典范函子 $\varphi$ 全忠实.
+\end{enumerate}
+
+\item \hyperref[I.def7.1]{7.1} 中的概念之间存在如下蕴含关系:
+\[
+\xymatrix@C=-.7cm@R=.45cm{
+  &  \txt{{\rm 1)} $C$ 由严格满态射\\ 生成\\
+  \emph{($\varphi$ 全忠实)}} \ar@{=>}[rd]&\\
+ \txt{{\rm 2)} $C$ 由满态射\\ 生成\\
+ \emph{($\varphi$ 忠实)}} &    &
+ \txt{{\rm 3)} $C$ 生成 \phantom{aaa}\\
+ \emph{($\varphi$ 保守)}} \ar@{=>}[d]\\
+    &      &  \txt{{\rm 4)} $C$ 对单态射\\ 生成\\
+  \emph{($\varphi$ 对单态射保守)}}\ar@{=>}[d]\\
+    &      &  \txt{{\rm 5)} $C$ 对严格单态射\\ 生成\\
+  \emph{($\varphi$ 对严格单态射保守).}}\\
+}
+\]
+
+\item 此外\pageoriginale 还有下列带条件的蕴含关系:
+\begin{enumerate}
+\renewcommand{\theenumii}{\alph{enumii}}
+\renewcommand{\labelenumii}{\theenumii)}
+\item 若 $E$ 中的满态射族都是严格满态射族, 则 $2)\Rightarrow 1)$.
+若 $E$ 中的单态射都是严格的, 则 $5)\Rightarrow 4)$.
+
+\item 若 $E$ 中箭头对的核 (\resp 纤维积) 可表,
+则 $3)\Rightarrow 2)$ (\resp $4)\Rightarrow 3)$).
+
+\item 若 $E$ 中具有共同靶 $X$ 的每个态射族 $X_i\rightarrow X$
+都可分解为严格满态射族 (\resp 满态射族) $X_i\rightarrow Y$,
+后接一个单态射 (\resp 严格单态射) $Y\rightarrow X$,
+则 $4)\Rightarrow 1)$ (\resp $5)\Rightarrow 2)$).
+\end{enumerate}
+\end{enumerate}
+\end{enonce*}
+立即记录如下推论.
+
+\begin{enonce*}{推论 7.3}\etiquette[7.3]{I.cor7.3}
+在以下两种情形中, $\hyperref[I.def6.1]{6.1}$ 中考虑的全部概念
+(并在上面 {\rm(ii)} 的蕴含关系图中再次列出) 都等价:
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item $E$ 中箭头对的核和纤维积可表, 单态射都是严格的,
+且满态射族都是严格满态射族.
+
+\item $E$ 中具有共同靶 $X$ 的每个箭头族 $(X_i\rightarrow X)_{i\in I}$
+都可分解为一个满态射族 $(X_i\rightarrow Y)$,
+后接一个单态射 $Y\rightarrow X$,
+$E$ 的每个单态射都严格, 且 $E$ 的每个满态射族都严格.
+\end{enumerate}
+\end{enonce*}
+
+事实上,\pageoriginale 在情形 (i) 中, 由 b) 有 4) $\Rightarrow$ 3)
+和 3) $\Rightarrow$ 2), 由 a) 有 5) $\Rightarrow$ 4)
+和 2) $\Rightarrow$ 1). 在情形 (ii) 中, 由 c) 有蕴含关系
+4) $\Rightarrow$ 1) 和 5) $\Rightarrow$ 2).
+因此, 根据蕴含关系图 \hyperref[I.prop6.2]{6.2} (ii) 即得结论.
+
+\medskip
+\noindent \emph{\hyperref[I.prop7.2]{7.2} 的证明.}
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item 蕴含关系 b) $\Rightarrow$ a) 直接由定义得出.
+我们证明 a) $\Rightarrow$ b). 因此在假设 a) 下,
+须证明对所有 $X$, $Y\in \ob E$, 以 $X'\in \ob C_{/X}$ 为指标、
+且对 $C_{/X}$ 中每个箭头 $f:X''\rightarrow X'$ 都满足
+$u_{X'}f=u_{X''}$ 的每个箭头系
+$$
+u_{X'}:X'\longrightarrow Y
+$$
+都经过一个箭头 $X\rightarrow Y$ 分解 (由假设 a), 此箭头必唯一).
+由假设 a), 只须验证对 $E_{/X}$ 的每个对象 $Z$ 和 $E_{/X}$ 中每对态射
+$v':Z\rightarrow X'$, $v'':Z\rightarrow X''$,
+其中 $X'$ 和 $X''$ 在 $C_{/X}$ 中, 有 $u_{X'}v'=u_{X''}v''$.
+但由假设 a), 源满足 $X'''\in \ob C$ 的箭头族 $w:X'''\rightarrow Z$
+是满态射族, 因此只须验证对每个这样的 $w$, 都有
+$(u_{X'}v')w=(u_{X''}v'')w$.
+这个等式也可写为 $u_{X'}(v'w)=u_{X''}(v''w)$,
+而它直接由关于 $u$ 所成族的假设得出.
+
+现在证明条件 b) 与 c) 等价. 为此注意, 对每个 $X\in \ob E$,
+$\widehat{C}$ 的对象 $\varphi(X)$ 是典范函子
+$\widehat{C}_{/\varphi(X)}\rightarrow \widehat{C}$ 在 $\widehat{C}$ 中的归纳极限
+(\hyperref[I.prop3.4]{3.4});
+但 $\widehat{C}_{/\varphi(X)}$ 典范同构于 $C_{/X}$,
+所以在 $\widehat{C}$ 中有
+$$
+\varphi(X)=\varinjlim_{C_{/X}}X'{\quoi},
+$$
+其中\pageoriginale 将 $C$ 的对象 $X'$ 与它所代表的函子
+$\in \widehat{C}$ 等同. 因此, 对 $E$ 的另一个对象 $Y$, 有典范同构
+\begin{align*}
+\Hom(\varphi(X),\varphi(Y))\simeq\varprojlim_{C_{/X}}
+\Hom(X',\varphi(Y))&\simeq
+\varprojlim_{C_{/X}}\varphi(Y)(X')\hyperref[I.prop1.4]{(1.4)}\\
+&\simeq \varprojlim_{C_{/C}} \Hom(X'%%
+,Y){\quoi}.\tag{$\ast$}
+\end{align*}
+于是, 通过 $(\ast)$ 两端之间的同构, 由 $\varphi$ 定义的映射
+$$
+\Hom(X,Y)\longrightarrow \Hom(\varphi(X),\varphi(Y))
+$$
+恰是由 \hyperref[I.prop7.2]{7.2} (i) b) 中考虑的、
+以 $C_{/X}$ 为指标的箭头归纳系 $X'\rightarrow X$ 得出的映射
+$$
+\Hom(X,Y)\longrightarrow \varprojlim_{C_{/X}} \Hom(X',Y)
+$$
+因此, 固定 $X$ 后, 第一个映射对每个 $Y$ 都是双射,
+当且仅当 $X$ 是包含函子 $j:C_{/X}\rightarrow E$ 的归纳极限;
+这就证明了 b) 和 c) 等价.
+
+\item 蕴含关系 1) $\Rightarrow$ 2) 和 3) $\Rightarrow$ 4)
+$\Rightarrow$ 5) 由定义显然成立.
+对于蕴含关系 1) $\Rightarrow$ 3), 根据 (i),
+将性质 1) 解释为 $\varphi$ 全忠实, 再注意全忠实函子是保守的, 即可得出.
+而我们已经指出 (\hyperref[I.sec7.1.1]{7.1.1}),
+3) 就是说 $\varphi$ 保守.
+
+\item 断言\pageoriginale a) 是重言式.
+断言 b) 是将 \hyperref[I.prop6.2]{6.2} (i)
+(\resp \hyperref[I.prop6.2]{6.2} (iv)) 应用于函子 $\varphi$ 所得的结论,
+其中用到后者左正合这一事实. 最后证明 c).
+对 $X\in \ob E$, 考虑满足 $X_i\in \ob C$ 的所有态射 $X_i\rightarrow X$
+构成的族; 由关于 $E$ 的假设, 它分解为一个有效满态射族
+(\resp 满态射族) $X_i\rightarrow Y$,
+后接一个单态射 (\resp 严格单态射) $Y\rightarrow X$.
+此时假设 4) (\resp 5)) 蕴含 $Y\rightarrow X$ 是同构,
+所以所考虑的族是严格满态射族 (\resp 满态射族), \cqfd
+\end{enumerate}
+
+\begin{enonce*}{命题 7.4}\etiquette[7.4]{I.prop7.4}
+设 $E$ 是一个范畴, $C$ 是 $E$ 的一个全子范畴,
+$X$ 是 $E$ 的一个对象. 假设 $C$ 在 $E$ 中生成
+(\resp $C$ 对单态射生成, 并且 $X$ 的两个子对象在 $X$ 上的纤维积在 $E$ 中可表).
+则只要对每个 $T\in \ob C$, 已知 $\Hom(T,X')$ 的像所成的
+$\Hom(T,X)$ 的子集, 就确定了 $X$ 的一个严格子对象
+$\hyperref[I.sec10.11]{(10.11)}$ (\resp 子对象) $X'$.
+因此, $X$ 的严格子对象集合 (\resp 子对象集合) 的基数
+不超过 $\prod_{T\in \ob C} 2^{\card \Hom(T,X)}$;
+若 $X\in \ob C$, 则不超过 $2^{\card%%
+F\ell\,C}$.
+\end{enonce*}
+
+先证明括号内的断言. 设 $X'$ 和 $X''$ 是 $X$ 的两个子对象,
+满足对每个 $T\in \ob C$, $\Hom(T,X')$ 和 $\Hom(T,X'')$
+在 $\Hom(T,X)$ 中的像相等.
+因此, 它们也等于 $\Hom(T,X''')$ 的像,
+其中 $X'''$ 是 $X'$ 和 $X''$ 在 $X$ 上的纤维积.
+由于 $C$ 对单态射生成, 可知单态射\pageoriginale
+$X'''\rightarrow X'$ 和 $X'''\rightarrow X''$ 都是同构,
+所以 $X'$ 和 $X''$ 相等, 两者均等于 $X$ 的子对象 $X'''$.
+
+再证明不带括号的断言. 根据严格子对象这一概念的定义,
+只须验证: 若对每个 $T\in\ob C$, 已知 $\Hom(T,X)$ 的子集 $\Hom(T,X')$,
+就知道哪些箭头对 $\xymatrix{
+X\ar@<2pt>[r]^{u,v}\ar@<-2pt>[r]& T }$ 满足 $ui=vi$,
+其中 $i:X'\rightarrow X$ 是典范单射.
+但由于 $C$ 生成, 关系 $ui=vi$ 等价于对每个 $f\in \Hom(T,X')$
+都有 $(ui)f=(vi)f$,
+\ie 对来自 $\Hom(T,X')$ 的每个 $g\in \Hom(T,X)$
+(\ie 形如 if, 其中 $f\in \Hom(T,X')$), 都有 $ug=vg$,
+这就证明了我们的断言.
+
+\begin{enonce*}{推论 7.5}\etiquette[7.5]{I.cor7.5}
+设 $E$ 是一个范畴, $C$ 是一个全生成子范畴, $X$ 是 $C$ 的一个对象.
+则只要对每个 $T\in \ob C$, 已知由满足 $qu=qv$ 的对 $(u,v)$
+构成的 $\Hom(T,X)^2$ 的子集, 就确定了 $X$ 的一个严格商
+(\hyperref[I.sec10.8]{10.8}) $X'$, 其中 $q:X\rightarrow X'$ 是典范态射.
+因此, $X$ 的严格商的集合的基数不超过
+$\prod_{T\in \ob C} 2^{\card\Hom(T,X)^2}$.
+\end{enonce*}
+
+事实上, 根据定义, 只要对 $E$ 的每个对象 $Y$,
+已知由满足 $qu=qv$ 的对 $(u,v)$ 组成的
+$\Hom(Y,X)\times \Hom(Y,X)$ 的子集,
+就确定了 $X$ 的一个严格商 $X'$, 其中 $q:X\rightarrow X'$ 是典范态射.
+但由于 $C$ 生成, 关系 $qu=qv$ 等价于对每个源 $T$ 在 $C$ 中的态射
+$f:T\rightarrow Y$, 都有 $(qu)f=(qv)f$.
+这个关系也可写为 $q(uf)=q(vf)$, 这就证明了
+\hyperref[I.cor7.5]{7.5} 的第一个断言. 第二个断言立即得出.
+
+\setcounter{subsection}{5} \setcounter{subsubsection}{0}
+
+% END INCLUDED SGA4_English_current_buildable_source_20260906/source/01/drafts/SGA4_I_LINES_2035_2353_English.texfrag
+
+
+% BEGIN INCLUDED SGA4_English_current_buildable_source_20260906/source/01/drafts/SGA4_I_LINES_2354_2668_English.texfrag
+\subsubsection{}\etiquette[7.5.1]{I.sec7.5.1}
+我们\pageoriginale 可以推广 \hyperref[I.cor7.5]{7.5}:
+对 $E$ 的一个对象族 $(X_i)_{i\in I}$,
+引入\emph{该族在 $E$ 中的严格商}这一概念,
+其含义是 $E$ 的态射组成的一个严格满态射族
+$(p_i:X_i\rightarrow X')_{i\in I}$;
+和通常的商一样, 这里约定, 若能找到一个同构
+$v:X'\rightarrow X''$ (它必唯一),
+使对每个 $i\in I$ 都有 $fp_i=q_i$,
+就将两个这样的族 $(p_i:X_i\rightarrow X')$ 和
+$(q_i:X_i\rightarrow X'')$ 等同.
+采用这个术语后, \hyperref[I.cor7.5]{7.5} 的证明原封不动地适用,
+给出如下变式:
+
+\begin{enonce*}[remark]{变式 7.5.2}\etiquette[7.5.2]{I.var7.5.2}
+设 $E$, $C$ 如 \hyperref[I.cor7.5]{7.5} 所述,
+$(X_i)_{i\in I}$ 是 $E$ 的一个对象族.
+则 $(X_i)_{i\in I}$ 在 $E$ 中的一个严格商 $X'$
+(\hyperref[I.sec7.5.1]{7.5.1}) 由以下数据确定:
+对每个 $T\in \ob C$ 和每对 $(i,j)\in I\times I$,
+由满足 $p_iu=p_jv$ 的对 $(u,v)$ 组成的
+$\Hom(T,X_i)\times \Hom(T,X_j)$ 的子集,
+其中对每个 $i\in I$, $p_i:X_i\rightarrow X'$ 表示典范态射.
+因此, $(X_i)_{i\in I}$ 在 $E$ 中的严格商的集合的基数不超过
+$ \prod_{T\in \ob C} \prod_{i, j\in I}2^{\card \Hom(T,X_i)\times
+  \card\Hom(T,X_j)}{\quoi}.
+$
+\end{enonce*}
+
+\setcounter{subsubsection}{2}
+\subsubsection{}\etiquette[7.5.3]{I.sec7.5.3}
+显然, 若只假设 $C$ 对严格单态射生成, 类似的结论仍成立,
+只要积 $X_i\times X_j$ 可表,
+并且仅考虑族 $(X_{i})_{i\in I}$ 的\emph{有效}商,
+\ie 满足纤维积 $\fprod{X_i}{X_{j}}{X'}$ 在 $E$ 中可表的严格商 $X'$
+(若 $E$ 对纤维积稳定, 这就不构成限制).
+
+\begin{enonce*}{命题 7.6}\etiquette[7.6]{I.prop7.6}
+设\pageoriginale $E$ 是一个范畴,
+$C$ 是 $E$ 的一个由满态射生成的全子范畴
+(\hyperref[I.def7.1]{7.1}),
+$\Pi_\circ=$ 是一个无限基数 $\geq \card  F\ell  C$,
+$\Pi\geq \Pi_\circ$ 是一个基数,
+$(u_i:X_i\rightarrow X)_{i\in I}$ 是 $E$ 中一个泛满态射族
+(\hyperref[I.sec10.3]{10.3}),
+由可作基变换的态射 (\hyperref[I.sec10.7]{10.7}) 组成,
+源满足 $X_i\in\ob C$, 且 $\card I\leq \Pi$.
+则 $\card F\ell  C_{/X}\leq \Pi^{\Pi_\circ}$.
+\end{enonce*}
+
+设 $T\in \ob C$; 只须证明
+\begin{equation*}
+\card\Hom(T,X)\leq
+  \Pi^{\Pi_\circ}{\quoi},\tag{7.6.1}
+\end{equation*}\MakeLinkTarget*{sga4.exp.I.equation.7.6.1}\label{I.eq7.6.1}
+因为由此可依次得到
+$$
+\card\ob C_{/X}\leq(\Pi^{\Pi_\circ})\times\card \ob C_{/X}\leq
+(\Pi^{\Pi_\circ})\times \Pi_\circ=\Pi^{\Pi_\circ}{\quoi},
+$$
+最后得到 $\card F\ell C_{/X}\leq ((\Pi^{\Pi_\circ})^2)\times
+\Pi_\circ=\Pi^{\Pi_\circ}$,
+因为对 $C_{/X}$ 的两个对象 $S$, $T$, 有
+$\card \Hom_{C_{/X}}(S,T)\leq
+\car\Hom_C(S,T)\leq\Pi_\circ$.
+为证明 \ref{I.eq7.6.1}, 先注意如下引理:
+
+\begin{enonce*}{引理 7.6.2}\etiquette[7.6.2]{I.lem7.6.2}
+设 $J$ 是一个满足 $\card J=\Pi_\circ$ 的集合.
+对 $C$ 的每个对象 $T$ 和每个态射 $f:T\rightarrow X$,
+存在一个满态射族 $(v_j:S_j\rightarrow T)_{j\in J}$,
+源满足 $S_j\in\ob C$,
+并且对每个 $j\in J$, 存在 $i(j)\in I$ 和
+$g_j:S_j\rightarrow X_{i(j)}$, 使 $u_{i(j)}g_j=fv_j$.
+\end{enonce*}
+
+事实上, 由假设, $\fprod{X_i}{T}{X}\rightarrow$ 所成的族是满态射族;
+另一方面, 由于 $C$ 由严格满态射生成, 对每个 $i$,
+源满足 $S\in \ob C$ 的箭头 $S\rightarrow \fprod{X_i}{T}{X}$
+所成的族是满态射族.
+因此, 由传递性, 源在 $\ob C$ 中、并经过某个 $\fprod{X_i}{T}{X}$
+分解的箭头 $v:S\rightarrow T$ 所成的族是满态射族.
+这些恰好是源在 $C$ 中且满足存在 $i\in I$ 和 $g:S\rightarrow X_i$
+使 $u_ig=fv$ 的箭头 $v:S\rightarrow T$.
+由于\pageoriginale 这些箭头 $v:S\rightarrow T$ 组成的集合包含在 $F\ell$ $C$ 中,
+从而基数 $\leq \Pi_\circ$, 所以它可以用指标集 $J$ 编号, 引理得证.
+
+现在注意, 知道了 $fv_j$ 就确定了态射 $f:T\rightarrow X$,
+而知道了 $g_j$ 又确定了它们.
+因此, $\card\Hom(T,X)$ 不超过族 $(i(j),S_j,v_j,g_j)_{j\in J}$
+组成的集合的基数;
+由于映射 $j\rightarrow I$ 组成的集合的基数 $\leq \Pi^{\Pi_\circ}$,
+并且固定这样的一个映射 $j\mapsto i(j)$ 后,
+相应的族 $S_j$, $f_j$, $v_j$ 组成的集合的基数,
+不超过从 $J$ 到 $F\ell  C\times F\ell  C$ 的映射集的基数,
+而后者 $\leq \Pi^{\Pi_\circ}_\circ$,
+因为 $\card(F\ell C\times F\ell C)=\Pi_\circ^2=\Pi_\circ$,
+所以 \hyperref[I.eq7.6.1]{(7.6.1)} 的左端不超过
+$\Pi^{\Pi_\circ}\times \Pi_\circ^{\Pi_\circ}=\Pi^{\Pi_\circ}$,
+这就完成了 \hyperref[I.prop7.6]{7.6} 的证明.
+
+\begin{enonce*}{命题 7.7}\etiquette[7.7]{I.prop7.7}
+设 $E$ 是一个纤维积可表的范畴,
+$(X_\alpha)_{\alpha\in A}$ 是 $E$ 的一个生成对象族,
+$(\varphi_i)_{i\in I}$ 是一个与纤维积交换的函子族
+$\varphi_i:E\rightarrow E_i$.
+族 $(\varphi_i)$ 保守 (\hyperref[I.prop5.1]{5.1}),
+当且仅当对每个 $\alpha \in A$ 和 $X_\alpha$ 的每个不同于 $X_\alpha$ 的子对象 $X'$,
+存在 $i\in I$ 使 $\varphi_i(X')\rightarrow \varphi_i(X_\alpha)$ 不是同构.
+此时, 若 $E$ 是一个 $𝒰$-范畴且 $A$ 是 $𝒰$-小的,
+则存在 $I$ 的一个 $𝒰$-小子集 $J$,
+使 $(\varphi_j)_{j\in J}$ 已经是一个保守函子族.
+\end{enonce*}
+
+所述保守性条件的必要性显然, 我们证明其充分性.
+由 \hyperref[I.def6.1]{6.1} (iv),
+只须证明 $(\varphi_i)$ 对单态射保守.
+设 $u:Y'\rightarrow Y$\pageoriginale 是 $E$ 中一个非同构的单态射;
+须证明存在 $i\in I$ 使 $\varphi_i(u)$ 不是同构.
+由关于 $(X_\alpha)$ 的假设,
+存在 $\alpha$ 和一个不经过 $Y'$ 分解的态射 $X_\alpha\rightarrow Y$;
+换言之, $Y'$ 的逆像 $X'$ 是 $X_\alpha$ 的一个不同于 $X_\alpha$ 的子对象.
+由假设, 存在 $i\in I$ 使 $\varphi_i(X')\rightarrow \varphi(X)$ 不是同构.
+由于 $\varphi_i(X')\simeq
+\fprod{\varphi(X_\alpha)}{\varphi_i(Y')}{\varphi_{i(Y)}}$,
+确可推出 $\varphi_i(Y')\rightarrow \varphi_i(Y)$ 不是同构.
+
+根据 \hyperref[I.prop7.4]{7.4},
+\hyperref[I.prop7.7]{7.7} 的第二个断言直接由第一个断言得出.
+
+\begin{enonce*}{推论 7.7.1}\etiquette[7.7.1]{I.cor7.7.1}
+设 $E$ 是一个 $𝒰$-范畴, 其中纤维积可表,
+并且它有一个 $𝒰$-小的生成对象族.
+则 $E$ 的每个生成族 $(Y_i)_{i\in I}$
+都包含一个 $𝒰$-小的生成子族 $(Y_j)_{j\in J}(\card J\in 𝒰)$.
+\end{enonce*}
+
+事实上, 只须将 \hyperref[I.prop7.7]{7.7} 应用于
+$E$ 的一个 $𝒰$-小生成族 $(X_\alpha)_{\alpha\in A}$
+以及由 $Y_i$ 代表的函子族 $\varphi_i$ $(i\in I)$.
+
+\begin{enonce*}{命题 7.8}\etiquette[7.8]{I.prop7.8}
+设 $E$ 是一个范畴, $C$ 是一个由严格满态射生成的全子范畴,
+$D$ 是一个范畴,
+$\Hhom'(E,D)$ 是 $\Hhom(E,D)$ 的全子范畴,
+由与 $C_{/X}$ 型归纳极限交换的函子组成, 其中 $X$ 是 $E$ 的任意对象.
+则函子 $F\rightarrow F| C$ 诱导一个全忠实函子
+$$
+\Hhom'(E,D)\longrightarrow \Hhom(C,D){\quoi}.
+$$
+因此,\pageoriginale 若 $\Hhom(C,D)$ 是一个 $𝒰$-范畴
+$(\hyperref[I.def1.1]{1.1}.)$,
+例如当 $C$ 是 $𝒰$-小的且 $D$ 是 $𝒰$-范畴时
+{\rm(\hyperref[I.sec1.1.1]{1.1.1}. b))},
+则 $\Hhom'(E,D)$ 也是一个 $𝒰$-范畴.
+\end{enonce*}
+
+设 $F$, $G:E\rightarrow D$ 是左端范畴中的两个函子,
+$u:F\rightarrow G$ 是一个自然变换.
+若在 $E$ 中 $X=\varinjlim X_i$,
+且 $F$ 和 $G$ 与所考虑的归纳极限交换,
+则 $u(X):F(X)\rightarrow G(X)$ 可视为态射
+$u(X_i):F(X_i)\rightarrow G(X_i)$ 的归纳极限,
+所以知道了 $u(X_i)$ 就确定了它.
+根据 \hyperref[I.prop7.2]{7.2} (i) 中的蕴含关系 a) $\Rightarrow$ b),
+这表明 \hyperref[I.prop7.8]{7.8} 中所考虑的函子忠实.
+反过来, 设 $v:F|\sisi{D}{C}\rightarrow G|\sisi{D}{C}$ 是一个自然变换;
+我们证明它来自一个自然变换 $u:F\rightarrow G$.
+对每个 $X\in \ob E$, 将
+$$
+u(X):F(X)=\varinjlim_{C_{/X}}F(X_i)\longrightarrow
+G(X)=\varinjlim_{C_{/X}}G(X_i)
+$$
+定义为 $v(X_i)$ 的归纳极限.
+显然, 如此得到的映射关于 $X$ 具有函子性,
+因此给出一个自然变换 $u:F\rightarrow G$,
+\sisi{中}{并且}最后, $u$ 从 $F|C\sisi{'}{}$ 到 $G|C\sisi{'}{}$
+诱导的态射就是 $v$, 证明完成.
+
+
+\setcounter{subsection}{8}
+\subsection{余生成族与余生成子范畴}\etiquette[7.9]{I.sec7.9}
+
+设 $E$ 是一个范畴, $C$ 是 $E$ 的一个全子范畴.
+若 $E^\circ$ 的全子范畴 $C^\circ$ 由严格满态射生成 (\resp\ldotsn),
+则称 $C$ 由严格单态射余生成 (\resp 由单态射余生成,
+\resp 余生成, \resp 对满态射余生成, \resp 对严格满态射余生成).
+对象族的术语与此类似.
+因此本节关于\pageoriginale 生成子范畴概念及其变式
+(\hyperref[I.def7.1]{7.1}) 的全部结果,
+都给出这些对偶概念的相应结果; 具体表述留待读者自行写出.
+
+\begin{enonce*}{命题 7.10}\etiquette[7.10]{I.prop7.10}
+设 $E$ 是一个范畴, $C$ 是一个全生成子范畴
+$\hyperref[I.def7.1]{(7.1)}$, $D$ 是 $E$ 的一个全子范畴.
+子范畴 $D$ 余生成 $\hyperref[I.sec7.9]{(7.9)}$,
+当且仅当对 $E$ 中每对源满足 $T\in \ob C$ 且 $u\neq v$ 的平行箭头
+$\xymatrix{ T\ar@<2pt>[r]^{u,v}\ar@<-2pt>[r]& X }$,
+存在一个靶满足 $I\in \ob D$ 的箭头 $w:X\rightarrow I$, 使 $wu\neq wv$.
+\end{enonce*}
+
+根据定义, 说 $D$ 余生成, 就是说对 $E$ 中满足 $u\neq v$ 的每对平行箭头
+$\xymatrix{ Y\ar@<2pt>[r]^{u,v}\ar@<-2pt>[r]& X
+}$, 存在一个箭头 $w:X\rightarrow I$,
+其中 $I\in\ob D$, 使 $wu\neq wv$.
+因此 \hyperref[I.prop7.10]{7.10} 仅仅是说,
+检验这个性质时只须考虑 $Y\in \ob C$ 的情形.
+现在, 由于 $C$ 生成, 假设 $u\neq v$ 蕴含存在
+$f:T\rightarrow Y$ 使 $uf\neq vf$;
+于是由假设, 存在靶满足 $I\in\ob D$ 的 $w:X\rightarrow I$,
+使 $w(uf)\neq w(vf)$, 从而 $wu=wv$, \cqfd
+
+\begin{enonce*}{推论 7.11}\etiquette[7.11]{I.cor7.11}
+沿用 \hyperref[I.prop7.10]{7.10} 的记号,
+假设 $D$ 的对象 $I$ 都是 $E$ 的内射对象,
+\ie 对 $E$ 中每个单态射 $X\rightarrow Y$,
+相应映射 $\Hom(Y,I)\rightarrow \Hom(X,I)$ 都是满射.
+还假设 $E$ 中每对平行箭头 $\xymatrix{
+T\ar@<2pt>[r]^{u,v}\ar@<-2pt>[r]& X }$
+都可分解为一对满态射 (\resp 有效满态射) 平行箭头
+$\xymatrix{ Y\ar@<2pt>[r]^{u',v'}\ar@<-2pt>[r]& X }$,
+后接一个单态射 $i:X'\rightarrow X$.
+则在 \hyperref[I.prop7.10]{7.10} 中 $D$ 余生成的判据中,
+可以仅考虑满态射 (\resp 有效满态射) 对 $(u,v)$.
+\end{enonce*}
+
+我们\pageoriginale 得到:
+
+\begin{enonce*}{推论 7.12}\etiquette[7.12]{I.cor7.12}
+设 $E$ 是一个 $𝒰$-范畴, 它有一个小生成子范畴 $C$,
+并且 $E$ 的每个对象都能作为某个单态射的源, 该单态射的靶是 $E$ 的内射对象.
+还假设对每个 $T\in\ob C$, $E$ 中的余积 $T\amalg T$ 可表,
+且以 $T\amalg T$ 为源的每个态射都可分解为有效满态射后接单态射.
+则 $E$ 有一个小的全余生成子范畴 $D$.
+更确切地, 可以取 $D$ 使 $\card \ob D\leq
+\prod_{T,T'\in \ob C}2^{\card(\Hom(T',T\coprod T))^2}$.
+\end{enonce*}
+
+事实上, 由 \hyperref[I.cor7.11]{7.11},
+只须对每个 $T\in \ob C$ 以及 $T\amalg T$ 的每个有效商 $X$,
+选取 $X$ 到 $E$ 的一个内射对象 $I$ 的嵌入,
+再取 $D$ 为这些 $I$ 张成的 $E$ 的全子范畴.
+于是由 \hyperref[I.cor7.5]{7.5} 得到结论.
+
+\begin{enonce*}[remark]{例 7.13}\etiquette[7.13]{I.exem7.13}
+因此, 要由小生成子范畴构造小余生成子范畴,
+就须寻找 $𝒰$-范畴 $E$ 有“足够多内射对象”的条件,
+\ie 每个对象都能 (通过单态射) 嵌入某个内射对象.
+众所周知 [Tohoku], 若一个 Abel $𝒰$-范畴有正合的 (小) 滤过归纳极限
+(\loccit 中的公理 $AB$ 5), 并且有一个小生成族, 则它满足这个条件.
+此外, \loccit 中的构造并非本质上局限于 Abel 范畴,
+也适用于拓扑空间 $X\in 𝒰$ 上的 $𝒰$-集合层范畴.
+我们不在此陈述使这个构造有效的正合性性质,
+只指出, 在\pageoriginale $X$ 上的集合层范畴这一特殊情形中,
+可以如下直接归结到 \loccit 的情形.
+注意, 若 $\mathcal{O}_X$ 是 $X$ 上的一个环,
+则 $\mathcal{O}_X$-模范畴的每个内射对象 $I$,
+作为集合层范畴的对象也是内射的.
+事实上, 若 $F$ 是一个集合层,
+$\mathcal{O}_X[F]$ 是“由 $F$ 生成的自由 $\mathcal{O}_X$-模”,
+则根据定义, 有一个集合层同态
+\begin{equation*}
+F\longrightarrow \mathcal{O}_X[F]\tag{$\ast$}
+\end{equation*}
+它给出一个关于 $F$ 具有函子性的同构
+$$
+\Hom_{\mathcal{O}_X}(\mathcal{O}_X[F], I)\xrightarrow{\sim} \Hom
+(F,I){\quoi}.
+$$
+由于函子 $F\mapsto \mathcal{O}_X[F]$ 显然把单态射映为单态射,
+立即可知, 若 $I$ 是内射 $\mathcal{O}_X$-模,
+它也是一个内射集合层.
+由此可知, 若态射 $(\ast)$ 是单态射
+(例如取 $\mathcal{O}_X$ 为值是某个环 $A\neq 0$ 的常值环时就是如此),
+则 $\mathcal{O}_X[F^\ast]$ 到某个内射 $\mathcal{O}_X$-模 $I$ 的嵌入,
+给出 $F$ 到 $I$ 的底层内射集合层的一个嵌入.
+\end{enonce*}
+
+同样的论证原封不动地适用于 $𝒰$-景上的 $𝒰$-集合层范畴,
+这一范畴将在下一讲中引入.
+
+小余生成子范畴的存在性之所以重要,
+主要在于下文的可表性判据 \hyperref[I.cor8.12.7]{8.12.7}.
+
+\setcounter{section}{7}
+
+% END INCLUDED SGA4_English_current_buildable_source_20260906/source/01/drafts/SGA4_I_LINES_2354_2668_English.texfrag
+
+
+% BEGIN INCLUDED SGA4_English_current_buildable_source_20260906/source/01/drafts/SGA4_I_LINES_2669_2936_English.texfrag

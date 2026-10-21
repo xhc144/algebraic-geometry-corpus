@@ -1,0 +1,875 @@
+\section[可及函子与小生成子范畴]{可及函子、基数滤过与小生成子范畴的构造}\etiquette[9]{I.sec9}
+
+本节比本篇其他各节更具技术性, 在本讨论班中只用于 IV 9 和 VI 4, 而这两处又不在本讨论班的其他地方使用。因此, 至少在初读时, 读者应当略过本节!
+
+\setcounter{subsection}{-1}
+\subsection{}\etiquette[9.0]{I.sec9.0}
+本节所考虑的一切范畴均假定为 $𝒰$-范畴。除去我们有时要用到的小指标范畴 $I,J\ldots$ 以外, 以下论述主要适用于对小滤过归纳极限稳定的“大”范畴 $E,F\ldots$。不过, 大多数时候只需满足一个稍弱的条件\pageoriginale (下文 \hyperref[I.def9.1]{9.1} 中的条件 $L$) 就够了。本节所考虑的一切基数均假定属于 $𝒰$。
+
+根据 P. \textsc{Deligne} 的建议, 对大范畴之间的函子 $f:E\rightarrow F$, 我们将研究要求 $f$ 与某些类型的滤过归纳极限可交换的条件。这个条件具有很好的稳定性, 而且自然出现的最重要的函子都满足它。就本讨论班而言, 我们所着眼的应用是 9.13.3、9.13.4 (用于 VI 4), 尤其是 \hyperref[I.cor9.25]{9.25}; 后者在一个非平凡的情形下给出了纤维范畴的截面范畴中小生成族的存在性, 此结果将用于 IV \hyperref[IV.theo9.5.4]{9.16}。
+
+\begin{enonce*}{定义 9.1}\etiquette[9.1]{I.def9.1}
+\begin{enumerate}
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 设 $I$ 是预序集, $pi$ 是基数。如果 $I$ 是滤过的, 而且 $I$ 的每个基数 $\leq \pi$ 的子集都在 $I$ 中有上界, 就称 $I$ 相对于 $pi$ 是大的。
+
+\item 设 $E$ 是范畴。如果 $pi$ 是基数, 而且对每个相对于 $\pi$ 为大的小有序集 $I$, $E$ 对 $I$ 型归纳极限稳定, 就称 $E$ 满足条件 $L_{\pi}$。如果存在基数 $\pi\in 𝒰$ 使 $E$ 满足条件 $L_{\pi}$, 就称 $E$ 满足条件 $L$。
+\end{enumerate}
+\end{enonce*}
+
+\setcounter{subsection}{1}
+\subsubsection{}\etiquette[9.1.1]{I.sec9.1.1}
+在 \hyperref[I.def9.1]{9.1} a) 中, 当 $\pi\geq 2$ 时, 所陈述的第二个条件已经蕴含 $I$ 是滤过的; 如果 $\pi$ 有限, 则 $I$ 相对于 $\pi$ 为大仅仅意味着 $I$ 是滤过的。下文几乎只考虑 $\pi$ 为无限基数的情形。注意, 如果 $\pi,\pi'$ 是两个满足 $\pi'\geq\pi$ 的基数, 那么 $I$ 相对于 $\pi'$ 为大显然蕴含它相对于 $\pi$ 为大。
+
+\subsubsection{}\etiquette[9.1.2]{I.sec9.1.2}
+如\pageoriginale \hyperref[I.sec9.0]{9.0} 所述, 条件 $L_{\pi}$ 和 $L$ 应当看作“对小滤过归纳极限稳定”这一较强条件的技术性变形。显然, 如果基数 $\pi,\pi'$ 满足 $\pi'\geq\pi$, 则条件 $L_{\pi}$ 蕴含条件 $L_{\pi'}$。
+
+\begin{enonce*}{定义 9.2}\etiquette[9.2]{I.def9.2}
+设 $f:E\rightarrow F$ 是函子。如果 $\Pi$ 是基数, $E$ 满足 $L_{\Pi}$ (\hyperref[I.def9.1]{9.1}), 而且对每个相对于 $\Pi$ 为大的有序集 $I\in 𝒰$ 及 $E$ 中每个 $I$ 型归纳系 $(X_i)_{i\in I}$, 典范态射
+$$
+\varinjlim f(X_i)\longrightarrow f(\varinjlim X_i)
+$$
+都是单态射 (分别为同构), 就称 $f$ 是 $\Pi$-预可及的 (分别为 $\Pi$-可及的)。如果存在基数 $\Pi\in 𝒰$ 使 $f$ 是 $\Pi$-预可及的 (分别为 $\Pi$-可及的), 就称 $f$ 是预可及的 (分别为可及的) (相对于宇宙 $𝒰$)。
+\end{enonce*}
+
+从 $E$ 到 $F$ 的 $\Pi$-可及函子 (分别为可及函子) 所成的范畴记作 $\Hhom(E,F)_{\Pi}$ (分别记作 $\Hhom(E,F)_{\acc}$)。
+
+\setcounter{subsection}{2} \setcounter{subsubsection}{0}
+\subsubsection{}\etiquette[9.2.1]{I.sec9.2.1}
+显然, 与小滤过 $\varinjlim$ 可交换的函子 (例如具有右伴随的函子) 对每个基数 $\Pi\geq 2$ 都是 $\Pi$-可及的。
+
+\begin{enonce*}{定义 9.3}\etiquette[9.3]{I.def9.3}
+设 $E$ 是范畴, $X$ 是 $E$ 的对象,
+$$
+h^\circ_X:E\longrightarrow (𝒰\text{-}\Ens)
+$$
+是它所代表的协变函子, $\Pi\in 𝒰$ 是基数。如果函子 $h^\circ_X$\pageoriginale 是 $\Pi$-预可及的 (分别为 $\Pi$-可及的), 就称 $X$ 是 $E$ 的\emph{$\Pi$-预可及对象 (分别为 $\Pi$-可及对象)}; 如果存在基数 $\Pi\in 𝒰$ 使 $X$ 是 $E$ 的 $\Pi$-预可及对象 (分别为 $\Pi$-可及对象), 就称 $X$ 是\emph{预可及的 (分别为可及的)}。
+\end{enonce*}
+
+\setcounter{subsection}{3} \setcounter{subsubsection}{0}
+\subsubsection{}\etiquette[9.3.1]{I.sec9.3.1}
+由 $E$ 的 $\Pi$-可及对象组成的 $E$ 的全子范畴记作 $E_{\Pi}$。
+
+当把 \hyperref[I.def9.3]{定义 9.3} 应用于形如 $\Hhom(C,F)$ 的范畴时, 若将 $\Hhom(C,F)$ 的对象看作函子, 则刚引入的术语与 \hyperref[I.def9.2]{9.2} 中引入的类似术语\textit{乍看之下}有歧义; 不过, 似乎没有严重混淆的危险。
+
+\begin{enonce*}{定义 9.4}\etiquette[9.4]{I.def9.4}
+设 $E$ 是范畴, $\pi\in 𝒰$ 是基数。如果 $E$ 中存在一个生成的 (\hyperref[I.def7.1]{7.1}) 小全子范畴 $C$, 其对象都是 $\pi$-预可及的 (分别为 $\pi$-可及的) (\hyperref[I.def9.3]{9.3}), 就称 $E$ 是 $\pi$-预可及范畴 (分别为 $\pi$-可及范畴)。如果存在基数 $\pi\in 𝒰$ 使 $E$ 是 $\pi$-预可及的 (分别为 $\pi$-可及的), 就称 $E$ 是预可及范畴 (分别为可及范畴)。
+\end{enonce*}
+
+重要的例子见下文 \hyperref[I.rem9.11.3]{9.11.3}。
+
+% END INCLUDED SGA4_English_current_buildable_source_20260906/source/01/drafts/SGA4_I_LINES_5805_5940_English.texfrag
+
+% BEGIN INCLUDED SGA4_English_current_buildable_source_20260906/source/01/drafts/SGA4_I_LINES_5941_6010_English.texfrag
+\begin{enonce*}{命题 9.5}\etiquette[9.5]{I.prop9.5}
+设 $f:E\rightarrow F$ 是范畴之间的函子, 其中 $F$ 可及, 且 $E$ 的每个对象都可及。则如果 $f$ 有左伴随, $f$ 就是可及的。
+\end{enonce*}
+
+事实上,\pageoriginale 根据假设, $F$ 有一个由可及的可表函子 $F\rightarrow
+(𝒰\text{-}\Ens)$ 组成的小保守族, 因而立即归结为证明 $f$ 与上述每个函子的复合都是可及的。然而, 由于 $f$ 有左伴随, 这些复合都是\emph{可表}函子 $E\rightarrow
+(𝒰\text{-}\Ens)$, 因此由对 $E$ 的假设可知它们可及。
+
+\begin{enonce*}{命题 9.6}\etiquette[9.6]{I.prop9.6}
+设 $E$ 和 $F$ 是两个范畴, $\pi\in 𝒰$ 是基数, 考虑由从 $E$ 到 $F$ 的 $\Pi$-可及函子 $\hyperref[I.def9.2]{(9.2)}$ 组成的 $\Hhom(E,F)$ 的全子范畴 $\Hhom(E,F)_{\Pi}$。
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item 此子范畴对在 $F$ 中可表的每种类型的 $\varinjlim$ 都稳定。
+
+\item 假定 $F$ 是 $\pi$-可及的 (\hyperref[I.def9.4]{9.4}), 并设 $J$ 是满足 $\card  F\ell \  J\leq \pi$ 的范畴, 且 $J$ 型 $\varprojlim$ 在 $F$ 中可表, 从而 $J$ 型 $\varprojlim$ 在 $\Hhom(E,F)$ 中可表。那么子范畴 $\Hhom(E,F)_{\Pi}$ 对 $J$ 型 $\varprojlim$ 稳定。
+\end{enumerate}
+\end{enonce*}
+
+\begin{enonce*}{推论 9.7}\etiquette[9.7]{I.cor9.7}
+设 $E$ 和 $F$ 是两个范畴, 其中 $F$ 可及 (\hyperref[I.def9.4]{9.4})。则由可及函子组成的 $\Hhom(E,F)$ 的全子范畴 $\Hhom(E,F)_{\acc}$, 对每种由小范畴 $J$ 为指标、且在 $F$ 中 (从而在 $\Hhom(E,F)$ 中) 可表的归纳极限或投射极限都稳定。
+\end{enonce*}
+
+\hyperref[I.prop9.6]{9.6} 的证明。断言 (i) 由函子 $\varinjlim$ 与任意归纳极限的可交换性平凡地得到。对于 (ii), 设 $(f_j)_{j\in J}$ 是由 $\Pi$-可及函子 $E\rightarrow F$ 组成的投射系, 并设 $f=\varprojlim
+f_j$\pageoriginale 是其“逐个自变量”计算的投射极限。我们证明 $f$ 是 $\Pi$-可及的, 即对每个相对于 $\Pi$ 为大的有序集 $I\in 𝒰$ 及 $E$ 中的每个归纳系 $(X_i)_{i\in I}$, 典范态射
+$$
+\varinjlim_i ((\varprojlim_j f_j)(X_i))\longrightarrow
+(\varprojlim_j f_j) (\varinjlim_i X_i)
+$$
+都是同构。由函子 $\varprojlim_j f_j$ 的“逐个自变量”计算, 可将上述典范态射等同于与双函子
+$$
+(i,j)\longmapsto f_j(X_i):I\times J\longrightarrow F{\quoi}.
+$$
+相伴的典范态射
+$$
+\varinjlim_i \varprojlim_j f_j (X_i)\longrightarrow \varprojlim_j
+\varinjlim_i f_j (X_i)
+$$
+因此 \hyperref[I.prop9.6]{9.6} 是下面这个更一般断言的推论:
+
+% END INCLUDED SGA4_English_current_buildable_source_20260906/source/01/drafts/SGA4_I_LINES_5941_6010_English.texfrag
+
+% BEGIN INCLUDED SGA4_English_current_buildable_source_20260906/source/01/drafts/SGA4_I_LINES_6011_6089_English.texfrag
+\begin{enonce*}{推论 9.8}\etiquette[9.8]{I.cor9.8}
+设 $F$ 是 $\Pi$-可及范畴, $I$ 是相对于 $\Pi$ 为大的有序集, $J$ 是满足 $\card F\ell\leq
+\Pi$ 且 $J$ 型投射极限在 $F$ 中可表的小范畴, $h:I\times J\rightarrow F$ 是函子; 则典范态射
+\hypertarget{sga4.exp.I.equation.9.8.1}{}\begin{equation}
+\varinjlim_i \varprojlim_j h(i,j)\longrightarrow \varprojlim_j
+\varinjlim_i h(i,j)\tag{9.8.1}
+\end{equation}
+是同构。换言之, 函子
+\hypertarget{sga4.exp.I.equation.9.8.2}{}\begin{equation}
+\varinjlim_i:\Hhom(I,F)\longrightarrow F\tag{9.8.2}
+\end{equation}
+与 $J$ 型投射极限可交换 (对每个满足 $\card F\ell\,(J)\leq\Pi$ 且 $J$ 型投射极限在 $F$ 中可表的小范畴 $J$\pageoriginale)。等价地, 对上述每个 $J$, 函子
+\hypertarget{sga4.exp.I.equation.9.8.3}{}\begin{equation}
+\varinjlim_j:\Hhom(J,F)\longrightarrow F\tag{9.8.3}
+\end{equation}
+是 $\Pi$-可及的。
+\end{enonce*}
+
+根据假设, $F$ 有一个由协变可表 $\Pi$-可及函子 $g:F\rightarrow(𝒰\text{-}\Ens)$ 组成的保守族, 因而显然只需在 $F=𝒰\text{-}\Ens$ 的情形下证明 \hyperref[I.cor9.8]{9.8}。我们将以如下形式证明断言: \hyperlink{sga4.exp.I.equation.9.8.2}{(9.8.2)} 与 $J$ 型投射极限可交换, 其中 $\card F\ell\,J\leq\Pi$。由于 $I$ 是滤过的, 我们知道 \hyperlink{sga4.exp.I.equation.9.8.2}{(9.8.2)} 与有限投射极限可交换 \hyperref[I.prop2.8]{(2.8)}。由一个标准论证 (参见 \hyperref[I.prop2.3]{2.3}), 只需再证明它与以满足 $\card J\leq\Pi$ 的集合 $J$ 为指标的积可交换。这就归结为在 $J$ 离散时证明 \hyperlink{sga4.exp.I.equation.9.8.1}{(9.8.1)} 是双射。先证单射性: 考虑左端的两个元素 $a,b$; 它们来自某个合适的 $i_\circ\in I$ 所对应的 $\prod_jh(i_\circ,j)$ %
+, 记为 $\prod_j a(i_\circ,j)$ 和 $\prod_j b(i_\circ,j)$。假定它们所定义的右端 $\prod_jh(\infty,j)$ 的元素相等, 即对每个 $j$, 存在 $i(j)\geq i_\circ$, 使 $a(i_\circ,j)$ 和 $b(i_\circ,j)$ 在 $h(i,j)$ 中有相同的像。由于 $I$ 相对于 $\card J$ 为大, 所有 $i(j)$ 有一个公共上界 $i_1\in I$。因此, 所考虑的 $\prod_jh(i_\circ,j)$ 的两个元素在 $\prod_jh(i_1,j)$ 中有相同的像, 从而定义 \hyperlink{sga4.exp.I.equation.9.8.1}{(9.8.1)} 左端的同一元素, 单射性得证。\pageoriginale 再证满射性: 设 $\prod_j a(\infty,j)$ 是右端的元素; 则对每个 $j\in J$, $a(\infty,j)$ 来自某个合适的 $i(j)\in I$ 所对应的 $h(i(j),j)$ 的一个元素。如前所述, 可找到各 $i(j)$ 的公共上界 $i\in I$, 因而 $\prod_j a(\infty,j)$ 来自 $\prod_jh(i,j)$ 的元素 $\prod_j a(i,j)$, 从而属于 \hyperlink{sga4.exp.I.equation.9.8.1}{(9.8.1)} 的像。证明完毕。
+
+\begin{enonce*}{推论 9.9}\etiquette[9.9]{I.cor9.9}
+设 $F$ 是 $\Pi$-可及范畴 (分别为可及范畴)。则对每个满足 $\card F\ell\,J\leq\Pi$ 的范畴 $J$ (分别为每个小范畴 $J$), 以及每个在 $F$ 中投射极限可表的函子 $(X_j)_{j\in J}:J\rightarrow F$, 如果各 $X_j$ 都是 $\Pi$-可及的 (分别为可及的), 则 $\varprojlim X_j$ 也如此。
+\end{enonce*}
+
+事实上, 由 $\varprojlim X_j$ 所代表的函子 $F\rightarrow(𝒰\text{-}\Ens)$ 是由各 $X_j$ 所代表的函子的投射极限, 对这些函子组成的投射系应用 \hyperref[I.prop9.6]{9.6} (ii) 即可。
+
+\begin{enonce*}[remark]{注 9.10}\etiquette[9.10]{I.rem9.10}
+在 \hyperref[I.prop9.6]{9.6}、\hyperref[I.cor9.7]{9.7}、\hyperref[I.cor9.8]{9.8} 和 \hyperref[I.cor9.9]{9.9} 的陈述中, 可以处处将“$\Pi$-可及”、“可及”替换成“$\Pi$-预可及”、“预可及”。事实上, 所给出的证明也证明了上述陈述的这个变形。
+\end{enonce*}
+
+% END INCLUDED SGA4_English_current_buildable_source_20260906/source/01/drafts/SGA4_I_LINES_6011_6089_English.texfrag
+
+% BEGIN INCLUDED SGA4_English_current_buildable_source_20260906/source/01/drafts/SGA4_I_LINES_6090_6222_English.texfrag
+\begin{enonce*}{命题 9.11}\etiquette[9.11]{I.prop9.11}
+设 $E$ 是满足条件 $L$ (\hyperref[I.def9.1]{9.1}) 的范畴, $C$ 是小全生成子范畴 (\hyperref[I.def7.1]{7.1})。假定满足下述条件:
+\begin{enumerate}
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item $E$ 对平行箭图的核稳定, 且 $E$ 中平行箭图所成范畴上的函子 $\Ker$ 可及 (例如它\pageoriginale 与小滤过归纳极限可交换)。
+
+则 $E$ 的每个对象都是预可及的 (\hyperref[I.def9.3]{9.3}), \textit{从而} $E$ 是预可及的。再假定 $C$ 甚至是以严格满态射生成的 (\hyperref[I.def7.1]{7.1}), 并假定 $E$ 满足下列条件:
+
+\item $E$ 对纤维积稳定。
+
+\item $E$ 中的每个小严格满态射族都是泛严格满态射族 (\hyperref[I.sec10.3]{10.3}), 或者小直和在 $E$ 中可表, 且 $E$ 的每个严格满态射都是泛严格满态射。
+\end{enumerate}
+
+则 $E$ 的每个对象都是可及的, \textit{从而} $E$ 是可及的。
+\end{enonce*}
+
+在 (a) 下 $E$ 的每个对象都预可及, 这由以下事实及随后引理得到: 对 $E$ 的每个对象 $X$, $X$ 的严格子对象所成的集合是小的 (\hyperref[I.prop7.4]{7.4})。
+
+\begin{enonce*}{引理 9.11.1}\etiquette[9.11.1]{I.lem9.11.1}
+在 (\hyperref[I.prop9.11]{9.11}a) 的条件下, 设 $X\in\ob E$, $\Pi$ 是基数, 使 $E$ 满足 $L_{\Pi}$ (\hyperref[I.def9.1]{9.1}), (\hyperref[I.prop9.11]{9.11}a) 中的函子 $\Ker$ 是 $\Pi$-可及的, 且 $X$ 的严格子对象集的基数以 $\Pi$ 为上界。则 $X$ 是 $\Pi$-预可及的。
+\end{enonce*}
+
+事实上, 设 $I$ 是相对于 $\Pi$ 为大的有序集, $(Y_i)_{i\in I}$ 是 $E$ 中以 $Y$ 为归纳极限的归纳系, $(u_i,v_i:X\rightrightarrows Y_i)$ 是一对箭头, 使复合箭图 $ \xymatrix{ X \ar@<2pt>[r]^{u,v} \ar@<-2pt>[r]& Y }$ 满足 $u=v$; 我们证明 $I$ 中存在 $j\geq i$ 使 $u_j=v_j$。为此,\pageoriginale 考虑平行箭图组成的归纳系 $(u_j,v_j:X\rightrightarrows Y_j)_{j\geq i}$, 其归纳极限为 $(u,v)$。由假设有 $X=\Ker(u,v)=\varinjlim_j\Ker(u_j,v_j)=\varinjlim_jX_j$, 其中 $X_j=\Ker(u_j,v_j)$。各 $X_j$ 是 $X$ 的严格子对象, 因而 $I$ 有一个由指标 $j\geq i$ 组成的子集 $I'$, 使 $\card I'\leq\Pi$, 且每个 $X_j$ 都等于某个 $X_{i'}$ $(i'\in I')$。由于 $I$ 相对于 $\Pi$ 为大, $I'$ 在 $I$ 中有上界 $j$。此时 $X_j$ 包含 $j'\geq i$ 时的所有 $X_{j'}$, 因而 $X_j\rightarrow X$ 是满态射 (因为 $X_{j'}\rightarrow X$ 族是满态射族), 又因为它是严格单态射, 所以是同构。于是 $u_j=v_j$, 这就证明了 \hyperref[I.lem9.11.1]{9.11.1}。
+
+\hyperref[I.prop9.11]{9.11} 的第二个断言由第一个断言及下述引理得到。
+
+\begin{enonce*}{引理 9.11.2}\etiquette[9.11.2]{I.lem9.11.2}
+在 (\hyperref[I.prop9.11]{9.11}a)、b)、c) 的条件下, 设 $X$ 是 $E$ 的对象, $\Pi$ 是无限基数, 使 $E$ 满足 $L_{\Pi}$ $\hyperref[I.def9.1]{(9.1)}$, $\card\ob C_{/X}\leq\Pi$, 对 $C_{/X}$ 的两个对象 $X'\rightarrow X$ 和 $X''\rightarrow X$, $\fprod{X'}{X''}{X}$ 是 $\Pi$-预可及的, 并且 $X$ 是 $\Pi$-预可及的。则 $X$ 是 $\Pi$-可及的。
+\end{enonce*}
+
+沿用 \hyperref[I.lem9.11.1]{9.11.1} 证明中的记号, 只需证明每个态射 $u:X\rightarrow Y$ 都来自某个态射 $u_i:X\rightarrow Y_i$。考虑态射族 $Y_i\rightarrow Y$, 它是严格满态射族; 由 b) 和 c), 态射族 $\fprod{Y_i}{X}{Y}\rightarrow X$ 也是严格满态射族。另一方面, 对每个 $i$, 由于 $C$ 是以严格满态射生成的, 源属于 $C$ 的箭头族
+$$
+T\longrightarrow \fprod{Y_i}{X}{Y}
+$$
+是严格满态射族\pageoriginale。在 c) 所考虑的第二种情形下, 可以找到这样一个严格满态射, 其源是 $C$ 中对象的 (小) 和。由泛严格满态射族这一概念的传递性 (II \hyperref[II.def2.5]{2.5}), 源属于 $C$ 且经过某个 $\fprod{Y_i}{X}{Y}$ 分解的箭头 $T_\alpha\xrightarrow{f_\alpha}X$ 所成的族是严格满态射族。设 $J$ 为此族的指标集; 其基数以 $\card\ob C_{/X}\leq\Pi$ 为上界。对每个 $\alpha\in J$, 选取 $i=i(\alpha)\in I$ 及 $X$-态射 $T_\alpha\rightarrow\fprod{Y_i}{X}{Y}$, 等价地, 选取满足 $p_iv_\alpha=uf_\alpha$ 的 $v_\alpha:T_\alpha\rightarrow Y_i$, 其中 $p_i:Y_i\rightarrow Y$ 是典范态射。由于 $I$ 相对于 $\Pi$ 为大, 可将 $i(\alpha)$ 选得与 $\alpha$ 无关, 记其为 $i$。对每对指标 $\alpha,\beta\in J$, 考虑复合
+$$
+\pr_1v_\alpha,\pr_2v_\beta:
+\fprod{T_\alpha}{T_\beta}{X}\rightrightarrows Y_i{\quoi}.
+$$
+它们与 $Y_i\rightarrow Y$ 的复合相等, 因而由于根据假设 $\fprod{T_\alpha}{T_\beta}{X}$ 是 $\Pi$-预可及的, 存在指标 $i'=i(\alpha,\beta)\geq i$, 使所考虑的两个箭头与 $Y_i\rightarrow Y_{i'}$ 的复合相等。指标对 $\alpha,\beta$ 的集合的基数 $\leq\Pi^2=\Pi$ (因为 $\Pi$ 是无限的), 因而仍可将 $i'$ 选得与 $\alpha,\beta$ 无关。显然可以假定 $i'=i$。但此时, 由于族 $(f_\alpha:T_\alpha\rightarrow X)$ 是严格满态射族, 可找到态射 $u_i:X\rightarrow Y_i$ 使 $u_if_\alpha=v_\alpha$。于是 $p_iu_i=u$, 因为对每个 $\alpha$ 有 $(p_iu_i)f_\alpha=p_i(u_if_\alpha)=p_iv_\alpha=uf_\alpha$, 而 $f_\alpha$ 族是满态射族。\hyperref[I.lem9.11.2]{9.11.2} 得证。
+
+\begin{enonce*}[remark]{注 9.11.3}\etiquette[9.11.3]{I.rem9.11.3}
+作为 \hyperref[I.prop9.11]{9.11} 的特殊情形,\pageoriginale 可知在下列两种情形中, 范畴 $E$ 的每个对象都可及: 1) $E$ 是一个 $𝒰$-阿贝尔范畴, 具有正合的滤过归纳极限, 且有一个小生成子范畴 (此时适用的是 c) 中的\emph{第二}种情形)。2) $E$ 是拓扑空间 $X\in 𝒰$ 上的集合层范畴。更一般地, 只需 $E$ 是 $𝒰$-景上的集合层范畴 (II \hyperref[II.def2.1]{2.1}), 或者 $E$ 是 $𝒰$-拓扑斯 (IV \hyperref[IV.def1.1]{1.1})。
+\end{enonce*}
+
+% END INCLUDED SGA4_English_current_buildable_source_20260906/source/01/drafts/SGA4_I_LINES_6090_6222_English.texfrag
+
+% BEGIN INCLUDED SGA4_English_current_buildable_source_20260906/source/01/drafts/SGA4_I_LINES_6223_6376_English.texfrag
+\begin{enonce*}{定义 9.12}\etiquette[9.12]{I.def9.12}
+设 $E$ 是范畴。$E$ 的基数滤过是 $E$ 的一个由严格全子范畴 $\Filt^{\Pi}(E)$ 组成的递增滤过 $(\Filt^{\Pi}(E))_{\Pi\geq \Pi_\circ}$, 其指标为满足 $\Pi\geq
+\Pi_\circ$ 的基数 $\Pi\in 𝒰$ (其中 $\Pi_\circ$ 是依赖于所考虑的基数滤过的固定无限基数), 并满足下列条件:
+\begin{enumerate}
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 对每个 $\Pi\geq\Pi_\circ$, $\Filt^{\Pi}(E)$ 都等价于一个小范畴。
+
+\item $E$ 满足 $L_{\Pi_\circ}$ (\hyperref[I.def9.3]{9.3}), 且对每个 $\Pi\geq \Pi_\circ$, $\Filt^{\Pi}(E)$ 在 $E$ 中对以相对于 $\Pi_\circ$ 为大且满足 $\card I\leq \Pi$ 的有序集 $I$ 为指标的滤过归纳极限稳定。
+
+\item 对每个 $\Pi\geq \Pi_\circ$ 以及每个 $X\in \ob E$, 可找到同构
+$$
+X\simeq \varinjlim_I X_i{\quoi},
+$$
+其中 $(X_i)_{i\in I}$ 是 $E$ 中的一个归纳系, 以相对于 $\Pi$ (\hyperref[I.def9.1]{9.1}) 为大的有序集 $I$\pageoriginale 为指标, 且各 $X_i$ 属于 $\Filt^{\Pi}(E)$。此外, 如果 $X\in \ob
+\Filt^{\Pi}(E)$、$\Pi'\geq \Pi$, 则可选取 $I$ 使 $\card
+I\leq {\Pi'}^{\Pi}$。
+\end{enumerate}
+\end{enonce*}
+
+\setcounter{subsection}{12} \setcounter{subsubsection}{0}
+\subsubsection{}\etiquette[9.12.1]{I.9.12.1}
+注意, 由 b) 和 c) 可知, 对每个 $X\in \ob E$, 当 $\Pi$ 充分大时, 它属于某个 $\Filt^{\Pi}(E)$。
+
+\begin{enonce*}[remark]{例 9.12.2}\etiquette[9.12.2]{I.exem9.12.2}
+取 $E=(𝒰\text{-}\Ens)$、$\Phi_\circ=\aleph_\circ$, 并令 $\Filt^{\Pi}(E)=$ 为由满足 $\card X\leq \Pi$ 的集合组成的 $E$ 的全子范畴。更一般地:
+\end{enonce*}
+
+\begin{enonce*}{命题 9.13}\etiquette[9.13]{I.prop9.13}
+设 $E$ 是 $𝒰$-范畴。假定 $E$ 对小滤过 $\varinjlim$、两个对象的和、平行箭图的余核稳定, $E$ 对纤维积稳定, 且 $E$ 中的满态射都是泛严格满态射。设 $C$ 是 $E$ 的一个以严格满态射生成的小全子范畴。设 $\Pi_\circ$ 是无限基数 $\geq \card F\ell\,  C$。对每个基数 $\Pi\geq
+\Pi_\circ$, 令 $\Filt^{\Pi}(E)$ 为 $E$ 的严格全子范畴, 由 $E$ 中满足下述条件的对象 $X$ 组成: 存在以 $X$ 为靶的严格满态射族 $(X_i\rightarrow X)_{i \in I}$, 使 $\card I\leq \Pi$, 且对每个 $i\in I$ 有 $X_i\in \ob C$。那么 $(\Filt^{\Pi}(E))_{\Pi\geq \Pi_\circ}$ 是 $E$ 的一个基数滤过。此外, 对每个 $X\in \ob
+\Filt^{\Pi}(E)$, $C_{/X}$ 的箭头集 (\textit{从而} $C_{/X}$ 的对象集) 的基数以 $\Pi^{\Pi_\circ}$ 为上界。
+\end{enonce*}
+
+最后这个断言正是 \hyperref[I.prop7.6]{7.6}。
+
+要证明这是一个基数滤过, 必须验证 \hyperref[I.def9.12]{9.12} 的条件 a)、b)、c)。条件 a) 直接由 \hyperref[I.var7.5.2]{7.5.2} 得到。对于 b), 假定 $X=\varinjlim_I X_i$, 其中 $\card I\leq \Pi$ 且\pageoriginale 各 $X_i\in \ob \Filt^{\Pi}(E)$。典范态射族 $X_i\rightarrow X$ 是严格满态射族, 而由对各 $X_i$ 的假设, 对每个 $i\in I$ 存在严格满态射族 $(X_{ij}\rightarrow
+X_i)_{j\in J_i}$, 其中 $\card J_i\leq \Pi$。取和 $\amalg_i X_i$ 与 $\amalg_{i,j}X_{ij}$, 由泛严格满态射的传递性 (II \hyperref[II.def2.5]{2.5}) 可知, 复合态射族 $X_{ij}\rightarrow X_i\rightarrow X$ (以 $i\in I$ 时各 $J_i$ 的不交并为指标) 是严格满态射族。但 $\card J\leq \Pi^2=\Pi$, 由此得出结论。(注意, 我们只用到了 $\varinjlim_I X_i$ 存在, 而没有用到 $I$ 相对于 $\Pi_\circ$ 为大, 甚至没有用到它是滤过的。) 最后证明 c)。注意, 对每个 $X\in \ob E$, 由于 $C$ 是以严格满态射生成的, 源属于 $\ob C$ 的箭头 $X_i\rightarrow X$ 所成的族是严格满态射族, 且显然是小的, 因而存在基数 $\Pi\geq \Pi_\circ$ 使 $X\in \ob \Filt^{\Pi}(E)$。只需再证明, 若 $\Pi'\geq \Pi\geq \Pi_\circ$ 是基数且 $X\in \ob
+\Filt^{\Pi'}(E)$, 则存在同构
+$$
+X\simeq \varinjlim_I X_i{\quoi},
+$$
+其中 $I$ 相对于 $\Pi$ 为大, $\card I\leq {\Pi'}^{\Pi}$, 且各 $X_i$ 属于 $\ob \Filt^{\Pi}(E)$。由于 $C$ 是以严格满态射生成的, 有
+\begin{equation*}
+X\simeq \varinjlim_{C_{/X}} T\tag{$\ast$}{\quoi}.
+\end{equation*}
+还需注意, 依次向 $C$ 添加 $C$ 中的和与平行箭图的余核, 对所得范畴重复此操作, 如此继续, 就归结到 $C$ 对 $E$ 中两个对象的和及 $E$ 中平行箭图的余核稳定的情形, 同时不失去假设 $\Pi_\circ \geq \card F\ell\, C$。还可假定, 如果 $E$ 包含所选的始对象\pageoriginale $∅_E$, 则 $∅_E\in \ob C$。这蕴含范畴 $C_{/X}$ 对两个对象的和与平行箭图的余核稳定。它因而是滤过的, 因为它非空: 若为空, 等式 $(\ast)$ 将表明 $X$ 是始对象, 从而 $C_{/X}$ 包含箭头 $∅_E\rightarrow X$, 矛盾。设 $I$ 为按包含关系排序的集合, 其元素是 $C_{/X}$ 中满足 $\card \ob i\leq
+\Pi$ 的滤过全子范畴 $i$。对每个 $i\in I$, 设 $X_i\in \ob E$ 为复合函子 $i\rightarrow C_{/X}\rightarrow E$ 的归纳极限, 根据假设它存在。那么显然
+$$
+\varinjlim_I X_i \simeq \varinjlim_{C/X} T\simeq X{\quoi}.
+$$
+另一方面, 我们已经指出 $\card \ob C_{/X}\leq
+{\Pi'}^{\Pi_\circ}$。由以下引理可知, $I$ 相对于 $\Pi$ 为大, 且 $\card I\leq
+({\Pi'}^{\Pi_\circ})^{\Pi}={\Pi'}^{\Pi\Pi_\circ}={\Pi'}^{\Pi}$; 引理的证明留给读者 (此处取 $I=C_{/X}$、$c={\Pi'}^{\Pi_\circ}$):
+
+\begin{enonce*}{引理 9.13.1}\etiquette[9.13.1]{I.lem9.13.1}
+设 $J$ 是滤过范畴, $c$ 和 $\Pi$ 是满足 $c\geq \Sup(\card  F\ell\,  J,\Pi)$ 的两个基数, 并假定对 $J$ 的每对对象 $j$、$j'$ 有 $\card
+\Hom(j,J')\leq \Pi_\circ$。设 $I$ 为 $J$ 中满足 $\card \ob i\leq \Pi$ 的滤过全子范畴 $i$ 所成的集合。则按包含关系排序后, $I$ 相对于 $\Pi$ 为大, 且有 $\card I\leq
+c^{\Pi}$。
+\end{enonce*}
+
+\hyperref[I.prop9.13]{9.13} 的证明完毕。
+
+\begin{enonce*}[remark]{注 9.13.2}\etiquette[9.13.2]{I.rem9.13.2}
+再稍作努力,\pageoriginale 应当可以把 \hyperref[I.prop9.13]{9.13} 中 $E$ 对小滤过归纳极限稳定的假设替换为 $E$ 满足 $L$ (\hyperref[I.def9.1]{9.1}) 的假设, 只要 $E$ 对小和稳定, 或者 $E$ 中每个满态射\emph{族}都是泛满态射族。在 c) 的证明中, 此时必须选取 $\Pi_\circ$ 使 $E$ 满足 $L_{\Pi_\circ}$, 并且只考虑 $C_{/X}$ 中这样的全子范畴 $i$: 它们不仅滤过, 而且预序集 $\ob
+i$ 相对于 $\Pi_\circ$ 为大。利用 \hyperref[I.sec8]{第 8 节} 及 $E$ 满足 $L_{\Pi_\circ}$ 的假设, 可知各 $X_i$ 存在, 然后应当能够通过 \hyperref[I.lem9.13.1]{9.13.1} 的适当变形得出结论; 编者没有验证这一点。
+\end{enonce*}
+
+% END INCLUDED SGA4_English_current_buildable_source_20260906/source/01/drafts/SGA4_I_LINES_6223_6376_English.texfrag
+
+% BEGIN INCLUDED SGA4_English_current_buildable_source_20260906/source/01/drafts/SGA4_I_LINES_6377_6439_English.texfrag
+\begin{enonce*}{命题 9.14}\etiquette[9.14]{I.prop9.14}
+设 $f:E\rightarrow F$ 是可及函子 (\hyperref[I.def9.2]{9.2}), 两端范畴分别配备基数滤过 $(\Filt^{\Pi}(E))_{\Pi\geq\Pi_\circ}$ 和 $(\Filt^{\Pi}(F))_{\Pi\geq\Pi'_\circ}$。则存在基数 $\Pi_1\geq\Sup(\Pi_\circ,\Pi'_\circ)$, 使对每个基数 $\Pi\geq\Pi_1$ 有
+\hypertarget{sga4.exp.I.equation.9.14.1}{}\begin{equation}
+f(\Filt^{\Pi}(E))\subset \Filt^{\Pi^{\Pi_1}}(F){\quoi}.\tag{9.14.1}
+\end{equation}
+特别地, 如果 $\Pi=2^c$, 其中 $c\geq\Pi_1$, 从而 $\Pi^{\Pi_1}=2^{c\Pi_1}=2^c=\Pi$, 则有
+\hypertarget{sga4.exp.I.equation.9.14.2}{}\begin{equation}
+f(\Filt^{\Pi}(E))\subset \Filt^{\Pi}(F){\quoi}.\tag{9.14.2}
+\end{equation}
+\end{enonce*}
+
+立即指出以下推论。
+
+\begin{enonce*}{推论 9.15}\etiquette[9.15]{I.cor9.15}
+设\pageoriginale $E$ 是配备两个基数滤过\linebreak $(\Filt^{\Pi}(E))_{\Pi\geq\Pi_\circ}$ 和 $({\Filt'}^{\Pi}(E))_{\Pi\geq %%
+\Pi'_\circ}$ 的范畴。则存在基数 $\Pi_1\geq\Sup(\Pi_\circ,\Pi'_\circ)$, 使对每个基数 $c\geq\Pi_1$, 令 $\Pi=2^c$, 就有 $\Filt^{\Pi}(E)={\Filt'}^{\Pi}(E)$。
+\end{enonce*}
+
+\noindent \emph{\hyperref[I.prop9.14]{9.14} 的证明}。设 $c$ 是基数, 使 $c\geq\Sup(\Pi_\circ,\Pi'_\circ)$, 且 $f$ 是 $c$-可及的。再设 $\Pi_1\geq c$ 使
+\begin{equation}
+f(\Filt^c(E))\subset \Filt^{\Pi_1}(F){\quoi}.\tag{$\ast$}
+\end{equation}
+这样的 $\Pi_1$ 存在, 因为 $\Filt^c(E)$ 等价于一个小范畴 \hyperref[I.def9.12]{(9.12 a)}), 从而 $f(\Filt^c(E))$ 也是如此, 所以可对后者的对象应用 \hyperref[I.9.12.1]{9.12.1}, 找到包含它们全体的 $\Filt^{\Pi}(F)$ (同时注意各 $\Filt^{\Pi}(F)$ 为全子范畴)。设 $\Pi\geq\Pi_1$ 且 $X\in\ob\Filt^{\Pi}(E)$; 我们证明 $f(X)\in\Filt^{\Pi^{\Pi_1}}(F)$。事实上, 写成
+$$
+X=\varinjlim_I X_i{\quoi},
+$$
+其中各 $X_i\in\ob\Filt^c(E)$, $I$ 相对于 $c$ 为大, 且
+$\card I\leq\Pi^c\leq\Pi^{\Pi_1}$
+(\hyperref[I.def9.12]{9.12}c))。由于 $f$ 是 $c$-可及的, 而 $I$ 相对于 $c$ 为大, 有
+$$
+f(X)\simeq \varinjlim_I f(X_i){\quoi},
+$$
+又由 $(\ast)$, 有 $\card I\leq\Pi^{\Pi_1}$ 且 $f(X_i)\in\ob\Filt^{\Pi_1}(F)\subset
+\ob\Filt^{\Pi^{\Pi_1}}(F)$, 因而根据 \hyperref[I.def9.12]{9.12} b) 有 $f(X)\in\Filt^{\Pi^{\Pi_1}}(F)$, \cqfd
+
+\setcounter{subsection}{15} \setcounter{subsubsection}{0}
+\subsubsection{}\etiquette[9.15.1]{I.sec9.15.1}
+基数滤过 \hyperref[I.def9.12]{9.12} 这一概念主要在 $E$ 的对象可及时才有意义。指出, 由 \hyperref[I.prop9.11]{9.11} 可知, 若除 \hyperref[I.prop9.13]{9.13} 的假设之外,\pageoriginale 还假定 $E$ 中平行箭图所成范畴上的函子 $\Ker$ 可及, 则此条件成立。还要指出:
+
+% END INCLUDED SGA4_English_current_buildable_source_20260906/source/01/drafts/SGA4_I_LINES_6377_6439_English.texfrag
+
+% BEGIN INCLUDED SGA4_English_current_buildable_source_20260906/source/01/drafts/SGA4_I_LINES_6440_6522_English.texfrag
+\begin{enonce*}{命题 9.16}\etiquette[9.16]{I.prop9.16}
+设 $E$ 是配备基数滤过 $(\Filt^{\Pi}(E))_{\Pi\geq\Pi_\circ}$ 的范畴。假定 $\Filt^{\Pi_\circ}(E)$ 的对象都是 $E$ 的可及对象; 则 $𝒰$ 中存在基数 $\Pi_1\geq\Pi_\circ$, 使 $\Filt^{\Pi_\circ}(E)$ 的对象都是 $\Pi_1$-可及的。如此选定 $\Pi_1$ 后, 对每个基数 $\Pi\geq \Pi_1$ 有 (沿用 \hyperref[I.sec9.3.1]{9.3.1} 的记号):
+\hypertarget{sga4.exp.I.equation.9.16.1}{}\begin{equation}
+E_{\Pi}\subset \Filt^{\Pi}(E)\subset
+E_{(\Pi^{\Pi_\circ})}{\quoi}.\tag{9.16.1}
+\end{equation}
+\end{enonce*}
+
+$\Pi_1$ 的存在性直接来自 $\Filt^{\Pi_\circ}(E)$ 等价于一个小范畴 (\hyperref[I.def9.12]{9.12}a))。现在设 $\Pi\geq \Pi_1$。如果 $X$ 属于 $\Filt^{\Pi}(E)$, 则写成 $X\simeq \varinjlim_I X_i$, 其中 $\card I\leq
+\Pi^{\Pi_\circ}$, 且对每个 $i$ 有 $X_i\in \ob \Filt^{\Pi_\circ}(E)$ (\hyperref[I.def9.12]{9.12}c))。由 \hyperref[I.cor9.9]{9.9} 可知 $X$ 是 $\Pi^{\Pi_\circ}$-可及的, 从而得到第二个包含关系 \hyperlink{sga4.exp.I.equation.9.16.1}{(9.16.1)}。假定 $X$ 是 $\Pi$-可及的, 并写成 $X\simeq
+\varinjlim_I X_i$, 其中 $I$ 相对于 $\Pi$ 为大, 且各 $X_i\in \ob
+\Filt^{\Pi}(E)$ (\hyperref[I.def9.12]{9.12}c))。由对 $X$ 的假设, 给定的同构 $X\xrightarrow{\sim} \varinjlim_I X_i$ 经过某个 $X_i$ 分解, 因而 $X$ 同构于这个 $X_i$ 的一个直因子。由下述引理可知 $X\in \ob \Filt^{\Pi}(E)$, 于是得到第一个包含关系 \hyperlink{sga4.exp.I.equation.9.16.1}{(9.16.1)}。
+
+\begin{enonce*}{引理 9.16.2}\etiquette[9.16.2]{I.lem9.16.2}
+$E$ 中每个作为 $\Filt^{\Pi}(E)$ 中某对象的直因子的对象都属于 $\Filt^{\Pi}(E)$。
+\end{enonce*}
+
+事实上, 若 $X$ 是 $E$ 的某个对象 $Y$ 上的投影子 $p$ 的像 (即满足 $p^2=p$ 的自态射 $p$), 而 $I$ 是一个有序\pageoriginale 滤过集, 则 $X$ 是滤过归纳系 $(Y_i)_{i\in I}$ 的归纳极限, 该归纳系定义为对每个 $i\in I$ 有 $Y_i=Y$, 而当 $i<j$ 时 $p:Y_i\rightarrow Y_j$。取相对于 $\Pi_\circ$ 为大且满足 $\card I\leq \Pi$ 的 $I$, 根据 \hyperref[I.def9.12]{9.12} b) 可知, 如果 $Y\in \Filt^{\Pi}(E)$, 那么 $X$ 也成立。
+
+\begin{enonce*}{推论 9.17}\etiquette[9.17]{I.cor9.17}
+在 \hyperref[I.prop9.16]{9.16} 的条件下, 对每个基数 $c\geq
+\Pi_1$, 令 $\Pi=2^c$, 则 $\Filt^{\Pi}(E)$ 与由 $\Pi$-可及对象组成的 $E$ 的严格全子范畴 $E_{\Pi}$ 相同。
+\end{enonce*}
+
+\begin{enonce*}{推论 9.18}\etiquette[9.18]{I.cor9.18}
+设 $E$ 是满足条件 $L_{\Pi}$ (\hyperref[I.def9.1]{9.1}) 的范畴, 其中 $\Pi$ 是基数, $C$ 是 $E$ 的全子范畴。以 $\Ind(C)_{\Pi}$ 表示 $C$ 的 ind-对象范畴 $\Ind(C)$ (\hyperref[I.sec8.2]{8.2}) 的全子范畴, 由形如 $(X_i)_{i\in I}$ 的 ind-对象组成, 其中 $I$ 是相对于 $\Pi$ 为大的有序集。考虑典范函子
+\hypertarget{sga4.exp.I.equation.9.18.1}{}\begin{equation}
+(X_i)_{i\in I}\longmapsto \varinjlim_I
+X_i:\Ind(C)_{\Pi}\longrightarrow E{\quoi}.\tag{9.18.1}
+\end{equation}
+\begin{enumerate}
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 此函子全忠实当且仅当 $C$ 的每个对象 $X$ 都是 $E$ 的 $\Pi$-可及对象 (\hyperref[I.def9.3]{9.3})。
+
+\item 假定满足 \hyperref[I.cor9.17]{9.17} 的条件, 特别是 $\Pi=2^c$, 并取 $C=\Filt^{\Pi}(E)$。则函子 \hyperlink{sga4.exp.I.equation.9.18.1}{(9.18.1)} 是范畴等价。
+\end{enumerate}
+\end{enonce*}
+
+断言 a) 是 \hyperref[I.prop8.7.5]{8.7.5} a) 的直接推广, 证明也相同。而 b) 由 \hyperref[I.cor9.17]{9.17} 及基数滤过的条件 \hyperref[I.def9.12]{9.12} c) 得到; 后者蕴含所考虑的函子本质满。
+
+% END INCLUDED SGA4_English_current_buildable_source_20260906/source/01/drafts/SGA4_I_LINES_6440_6522_English.texfrag
+
+% BEGIN INCLUDED SGA4_English_current_buildable_source_20260906/source/01/drafts/SGA4_I_LINES_6523_6659_English.texfrag
+\begin{enonce*}{推论 9.19}\etiquette[9.19]{I.cor9.19}
+在\pageoriginale \hyperref[I.cor9.17]{9.17} 的条件下, 设 $C=\Filt^{\Pi}(E)$, $F$ 是 $𝒰$-范畴, 考虑由“限制到 $C$”的函子 $f\mapsto f| C$ 所诱导的函子
+\hypertarget{sga4.exp.I.equation.9.19.1}{}\begin{equation}
+\Hhom(E,F)_{\Pi}\longrightarrow \Hhom(C,F)\tag{9.19.1}
+\end{equation}
+其中 \hyperlink{sga4.exp.I.equation.9.19.1}{(9.19.1)} 的源为从 $E$ 到 $F$ 的 $\Pi$-可及函子所成的范畴 (\hyperref[I.def9.2]{9.2})。上述函子全忠实。如果 $F$ 满足条件 $L_{\Pi}$ (\hyperref[I.def9.1]{9.1}), 则函子 \hyperlink{sga4.exp.I.equation.9.19.1}{(9.19.1)} 是范畴等价。
+\end{enonce*}
+
+第一个断言如 \hyperref[I.prop7.8]{7.8} 一样证明, 其中用到 \hyperref[I.cor9.18]{9.18} b)。第二个断言可通过构造 \hyperlink{sga4.exp.I.equation.9.19.1}{(9.19.1)} 的一个拟逆函子得到: 对每个函子 $f:C\rightarrow F$, 配以从 $\Ind(E_{\Pi})$ 到 $F$ 的函子 $(X_i)_{i\in I}\rightarrow
+\varinjlim_i f(X_i)$, 再利用 \hyperref[I.cor9.18]{9.18} b) 由此得到函子 $\bar{f}:E\rightarrow
+F$。只需再证明后者是 $\Pi$-可及的。但证明与类似断言 \hyperref[I.prop8.7.3]{8.7.3} 相同。
+
+\begin{enonce*}{推论 9.20}\etiquette[9.20]{I.cor9.20}
+设 $E$ 是具有基数滤过且 $E$ 的每个对象都可及的范畴 (参见 \hyperref[I.prop9.16]{9.16}), $F$ 是范畴。则:
+\begin{enumerate}
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 从 $E$ 到 $F$ 的可及函子范畴 $\Hhom(E,F)_{acc}$ (\hyperref[I.def9.2]{9.2}) 是 $𝒰$-范畴。({\rm 注意}, 回顾 (\hyperref[I.sec9.0]{9.0}), 给定的范畴 $E$、$F$ 均假定为 $𝒰$-范畴。)
+
+\item 假定 $F$ 对小滤过归纳极限稳定。对 $E$ 的每个等价于小范畴的全子范畴 $C$, 设包含函子为 $i:C\rightarrow E$, 考虑相应的函子
+$$
+i_{!}:\Hhom(C,F)\longrightarrow \Hhom(E,F)
+$$
+$\hyperref[I.prop5.1]{(5.1)}$。\pageoriginale 函子 $f:E\rightarrow F$ 可及当且仅当 $E$ 存在一个小子范畴 $C$, 使 $f$ 属于上述函子 $i_{!}$ 的本质像。
+\end{enumerate}
+\end{enonce*}
+
+\noindent \emph{证明}。
+\begin{enumerate}
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 只需证明, 对每个使 $E$ 满足 $L_{\Pi}$ 的基数 $\Pi$, $\Hhom(E,F)_{acc}$ 的全子范畴 $\Hhom(E,F)_{\Pi}$ 都是 $𝒰$-范畴。显然只需对形如 $2^c$ 且 $c$ 充分大的基数验证这一点。但此时这由 \hyperref[I.cor9.19]{9.19} 得到, 因为 ($C=\Filt^{\Pi}(E)$ 本质小) $\Hhom(C,F)$ 显然是 $𝒰$-范畴。
+
+\item 由函子 $i_{!}$ 构造的传递性, 在陈述中可以只考虑形如 $\Filt^{\Pi}(E)$ 的子范畴 $C$, 其中 $\Pi$ 如 \hyperref[I.cor9.17]{9.17} 中所述。此时易见, 复合函子 $\Hhom(\Filt^{\Pi}(E),F)\rightarrow
+\Hhom(E,F)_{\Pi}\rightarrow \Hhom(E,F)$ (其中第一个箭头是 \hyperlink{sga4.exp.I.equation.9.19.1}{(9.19.1)} 的拟逆, 第二个是包含函子) 在同构的意义下正是函子 $i_{!}$。因而断言 b) 由 \hyperref[I.cor9.19]{9.19} 得到。
+\end{enumerate}
+
+\begin{enonce*}[remark]{*习题 9.20.1}\etiquette[9.20.1]{I.exer9.20.1}
+(本题用到第 II、IV 篇中发展的景与拓扑斯的概念。) 设 $E$ 是 $𝒰$-拓扑斯, $𝒱$ 是满足 $𝒰\in
+𝒱$ 的宇宙, $C$ 是 $𝒰$-拓扑斯 $E$ 的一个小全生成子范畴, $\Pi_\circ\in 𝒰$ 是满足 $\Pi_\circ\in \card F\ell\,  C$ 的无限基数。对每个基数 $\Pi\geq
+\Pi_\circ$、$\Pi\in 𝒰$, 令 $\Filt^{\Pi}(E)$ 为 $E$ 的严格全子范畴, 由满足下述条件的对象 $X$ 组成: 存在以 $X$ 为靶的严格满态射族\pageoriginale $(X_i\rightarrow X)_{i\in I}$, 使 $\card I\leq
+\Pi$, 且对每个 $i\in I$ 有 $X_i\in \Ob C$。
+\begin{enumerate}
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 证明 $(\Filt^{\Pi}(E))_{\Pi\geq \Pi_\circ}$ 是 $𝒰$-范畴 $E$ 的基数滤过, 且可选取 $\Pi_\circ$, 使对每个 $\Pi\geq \Pi_\circ$ 有包含关系
+$$
+E_{\Pi}\subset \Filt^{\Pi}(E)\subset E_{\Pi^{\Pi_\circ}}{\quoi},
+$$
+其中对每个基数 $c$, $E_c$ 表示由 $c$-可及对象组成的 $E$ 的严格全子范畴。
+
+\item 选取满足 $\Pi=\Pi^{\Pi_\circ}$ 的基数 $\Pi\geq \Pi_\circ$ (例如形如 $2^c$ 且 $c>\Pi_\circ$ 的 $\Pi$), 并令 $C=\Filt^{\Pi}(E)$, 证明存在范畴等价
+$$
+\Ind(C)_{\Pi}\xrightarrow{\approx} E{\quoi},
+$$
+(记号 $\Ind(C)_{\Pi}$ 见 \hyperref[I.cor9.18]{9.18})。
+
+\item 沿用 b) 的记号, 并设 $𝒱$ 是满足 $𝒰\subset 𝒱$ 的宇宙, 令 $%%
+E^{\sim{\phantom{,}}}_{\underline{V}}$ 为景 $E$ (配备典范拓扑) 上 $𝒱$-层所成的 $𝒱$-拓扑斯。以 $\Ind(C,𝒱)_{\Pi}$ 表示以\emph{相对于} $\Pi$ \emph{为大}的预序集为指标的 $C$ 的 $𝒱\text{-}\Ind$-对象范畴。证明存在范畴等价
+$$
+\Ind(C,𝒱)_{\Pi}\xrightarrow{\approx}%%
+E^{\tilde{\phantom{,}}}_{𝒱}{\quoi}.
+$$
+
+\item 设 $c\in 𝒱$ 是基数, 令 $\Ind(E,𝒱)'_c$ 为 $\Ind(E,𝒱)$ 的全子范畴, 由 $E$ 的那些以相对于每个基数 $<c$ 都为大的预序集为指标的 $𝒱$-ind-对象组成。取 $c=\card 𝒰$, 证明\pageoriginale 存在范畴等价
+$$
+\displaylines{\hfill \Ind(E,𝒱)'_{c}\xrightarrow{\approx}%%
+E^{\tilde{\phantom{,}}}_{𝒱}{\quoi}.\hfill{\llap{\textbf{*}}}}
+$$
+\end{enumerate}
+\end{enonce*}
+
+\setcounter{subsection}{20}
+
+% END INCLUDED SGA4_English_current_buildable_source_20260906/source/01/drafts/SGA4_I_LINES_6523_6659_English.texfrag
+
+% BEGIN INCLUDED SGA4_English_current_buildable_source_20260906/source/01/drafts/SGA4_I_LINES_6660_6750_English.texfrag
+\subsection{}\etiquette[9.21]{I.sec9.21}
+本小节 \hyperref[I.sec9.21]{9.21} 建立证明下文定理 \hyperref[I.them9.22]{9.22} 所需的技术性准备; 该定理是本节 \hyperref[I.sec9]{9} 的主要结果。设
+\hypertarget{sga4.exp.I.equation.9.21.1}{}\begin{equation}
+p:E\rightarrow B\tag{9.21.1}
+\end{equation}
+为纤维函子, 其中 $B$ 是小范畴, 且与 $B$ 的箭头 $f:\alpha\rightarrow\beta$ 相伴的逆像函子
+$$
+f^\ast:E_\beta\longrightarrow E_\alpha
+$$
+是可及的 (\hyperref[I.def9.2]{9.2})。特别地, 纤维范畴 $E_\alpha$ $(\alpha\in\ob B)$ 满足条件 $L$ (\hyperref[I.def9.1]{9.1}), 因此由于 $B$ 是小的, 存在基数 $\Pi'_\circ\in 𝒰$ 使所有范畴 $E_\alpha$ 都满足条件 $L_{\Pi'_\circ}$。设 $\Pi_\circ\in 𝒰$ 是无限基数 $>\Pi'_\circ$, 因而有
+\hypertarget{sga4.exp.I.equation.9.21.2}{}\begin{equation}
+\Pi_{\circ}>\Pi'_{\circ}, E_\alpha \mbox{ 满足 }
+L_{\Pi'_{\circ}} \mbox{ 对每个 } \alpha\in \ob B.\tag{9.21.2}
+\end{equation}
+此外, 所作的假设立即蕴含存在满足下列条件的基数 $c\in 𝒰$:
+\hypertarget{sga4.exp.I.equation.9.21.3}{}\begin{equation}
+\left\{
+\begin{tabular}{rp{6cm}}
+a) & $c$ 是无限的,\\
+b) & $c\geq \card F\ell\,B$,\\
+c) & 对 $B$ 的每个箭头 $f:\alpha\rightarrow\beta$, 函子
+$f^\ast:E_\beta\rightarrow E_\alpha$ 是 $c$-可及的。
+\end{tabular}\right.
+\tag{9.21.3}
+\end{equation}
+再假定,\pageoriginale 对每个 $\alpha\in\ob B$ 都可以找到 $E_\alpha$ 中满足下列条件的全子范畴 $C_\alpha$:
+\hypertarget{sga4.exp.I.equation.9.21.4}{}\begin{equation}
+\left\{
+\begin{tabular}{rp{6cm}}
+a) & 对每个 $X\in\ob C_\alpha$, $X$ 在
+$E_\alpha$ 中是 $c$-可及的 \hyperref[I.def9.3]{(9.3)}.\\
+b) & 对每个 $X\in\ob E_\alpha$, 可在 $E_\alpha$ 中找到同构
+$X\simeq\varinjlim_I X_i$, 其中各 $X_i$ 属于
+$C_\alpha$, 且 $I$ 是相对于 $c$ 为大的有序集。
+\end{tabular}\right.
+\tag{9.21.4}
+\end{equation}
+
+设 $\Pi$ 是满足下式的基数:
+\hypertarget{sga4.exp.I.equation.9.21.5}{}\begin{equation}
+\Pi\geq \Pi_\circ\quav\mbox{ 因而 }
+\Pi>\Pi'_\circ{\quoi},\tag{9.21.5}
+\end{equation}
+并对每个 $\alpha\in\ob B$, 令
+\hypertarget{sga4.exp.I.equation.9.21.6}{}\begin{equation}
+C^{\Pi}_{\alpha}\subset E_{\alpha}\tag{9.21.6}
+\end{equation}
+由可写成 $\varinjlim_I X_i$ 形式的对象组成, 其中 $I$ 是相对于 $\Pi'_\circ$ 为大且满足 $\card I\leq\Pi$ 的有序集, 各 $X_i$ 属于 $C_\alpha$。由 \hyperref[I.var7.5.2]{7.5.2} 显然可知 $C^{\Pi}_{\alpha}$ 本质小, 即等价于一个小范畴。
+
+设
+\hypertarget{sga4.exp.I.equation.9.21.7}{}\begin{equation}
+F=\Hhom_B(B,E)\tag{9.21.7}
+\end{equation}
+为 $E$ 在 $B$ 上的截面范畴, 令
+\hypertarget{sga4.exp.I.equation.9.21.8}{}\begin{equation}
+F^{\Pi}\subset F\tag{9.21.8}
+\end{equation}
+为由满足对每个 $\alpha\in\ob B$ 有
+$$
+X(\alpha)\in C^{\Pi}_{\alpha}{\quoi}.
+$$
+的截面 $X:\alpha\mapsto X(\alpha)$ 组成的 $F$ 的严格全子范畴。由于\pageoriginale 各 $C^{\Pi}_{\alpha}$ 本质小, 范畴 $F^{\Pi}$ 显然也如此。我们将证明此范畴是生成的, 更确切地说:
+
+% END INCLUDED SGA4_English_current_buildable_source_20260906/source/01/drafts/SGA4_I_LINES_6660_6750_English.texfrag
+
+% BEGIN INCLUDED SGA4_English_current_buildable_source_20260906/source/01/drafts/SGA4_I_LINES_6751_6838_English.texfrag
+\begin{enonce*}{引理 9.21.9}\etiquette[9.21.9]{I.lem9.21.9}
+在上述条件与记号下, 以下陈述成立:
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item $F$ 的每个对象都可及 (\hyperref[I.def9.3]{9.3})。如果 $d$ 是基数 $\geq\Pi'_\circ$, 而 $\alpha\mapsto X(\alpha)$ 是 $F$ 的元素, 使对每个 $\alpha$, $X(\alpha)$ 在 $E_\alpha$ 中是 $d$-可及的, 则 $X$ 在 $F$ 中是 $d$-可及的。
+
+\item 假定 $\Pi\leq c$, 或者 $\Pi'_\circ$ 有限 (即各 $E_\alpha$ 对小滤过 $\varinjlim$ 稳定)。则 $F$ 的每个对象 $X$ 都同构于形如 $\varinjlim_I X_i$ 的对象, 其中各 $X_i$ 属于 $F^{\Pi}$, 且 $I$ 相对于 $\Pi$ 为大。
+\end{enumerate}
+\end{enonce*}
+
+为证 (i), 注意由 \hyperlink{sga4.exp.I.equation.9.21.4}{(9.21.4)} 和 \hyperref[I.cor9.9]{9.9} 可知, $E_\alpha$ 的每个对象都可及。另一方面, 由下述引理, $F$ 满足条件 $L_{\Pi'_\circ}$。
+
+\begin{enonce*}{引理 9.21.10}\etiquette[9.21.10]{I.lem9.21.10}
+设 $p:E\rightarrow B$ 是纤维函子, $F=\Hhom_B(B,E)$, $I$ 是范畴, $i\mapsto X_i$ 是从 $I$ 到 $F$ 的函子。要使 $\varinjlim_I X_i$ 在 $F$ 中可表, 只需对每个 $\alpha\in\ob B$, $\varinjlim_I X_i(\alpha)$ 在纤维范畴 $E_\alpha$ 中可表; 此时 $\varinjlim_I X_i$ 是“逐个自变量计算的”。特别地, 如果纤维范畴满足条件 $L_{\Pi'_\circ}$ (其中 $\Pi'_\circ$ 为给定基数), 则 $F$ 也满足此条件。
+\end{enonce*}
+
+我们\pageoriginale 将 \hyperref[I.lem9.21.10]{9.21.10} 的 (简单) 证明的细节留给读者, 仅指出可方便地用到下述结果, 其证明是直接的:
+
+\begin{enonce*}{推论 9.21.10.1}\etiquette[9.21.10.1]{I.cor9.21.10.1}
+对 $p:E\rightarrow B$ 与 $I$ 沿用 \hyperref[I.lem9.21.10]{9.21.10} 的假设和记号, 则对每个 $\alpha\in\ob B$, 包含函子 $E_\alpha\rightarrow E$ 与 $I$ 型归纳极限可交换。
+\end{enonce*}
+
+现在回到 \hyperref[I.lem9.21.9]{9.21.9} 的一般条件, 设 $X$ 是 $F$ 的对象。由于对每个 $\alpha\in\ob B$, $X(\alpha)$ 在 $E_\alpha$ 中可及, 存在基数 $d\in 𝒰$, 使对每个 $\alpha$, $X(\alpha)$ 在 $E_\alpha$ 中是 $d$-可及的。可以选取 $d\geq\Pi'_\circ$, 因而由 \hyperref[I.lem9.21.10]{9.21.10} 可知 $F$ 满足 $L_d$。再次利用 \hyperref[I.lem9.21.10]{9.21.10} 计算 $F$ 中的归纳极限 $\varinjlim_IY_i$ (其中 $I$ 相对于 $d$ 为大), 立即可见 $X$ 是 $d$-可及的。(i) 得证。
+
+现在分几步证明 \hyperref[I.lem9.21.9]{9.21.9} (ii) (\hyperlink{sga4.exp.I.equation.9.21.11}{(9.21.11)} 至 (\hyperref[I.lem9.21.16]{9.21.16}))。
+
+设
+$$
+X:\alpha\longmapsto X(\alpha)
+$$
+为 $F$ 的对象。根据 \hyperlink{sga4.exp.I.equation.9.21.4}{(9.21.4 b)}), 对每个 $\alpha\in\ob B$ 可找到相对于 $c$ 为大的有序集 $I_\alpha$ 及同构 $X(\alpha)=\varinjlim_{i\in I_\alpha}X(\alpha)_i$, 其中 $i\mapsto X(\alpha)_i$ 是 $E_\alpha$ 中的 $I_\alpha$ 型归纳系, 各 $X(\alpha)_i$ 属于 $C_\alpha$。考虑乘积有序集 $I=\Pi_\alpha I_\alpha$; 它显然相对于 $c$ 为大, 上述归纳系\pageoriginale 给出各 $E_\alpha$ 中以同一个有序集 $I$ 为指标的归纳系
+\hypertarget{sga4.exp.I.equation.9.21.11}{}\begin{equation}
+i\longmapsto X(\alpha)_i\in \ob C_{\alpha}, i\in \ob
+I{\quoi},\tag{9.21.11}
+\end{equation}
+以及对每个 $\alpha\in\ob B$ 的同构
+\hypertarget{sga4.exp.I.equation.9.21.12}{}\begin{equation}
+X(\alpha)\xrightarrow{\sim}\varinjlim_I X(\alpha)_i\mbox{ 在 }
+E_{\alpha}{\quoi},\tag{9.21.12}
+\end{equation}
+下文假定数据 \hyperlink{sga4.exp.I.equation.9.21.11}{(9.21.11)} 和 \hyperlink{sga4.exp.I.equation.9.21.12}{(9.21.12)} 已固定。
+
+% END INCLUDED SGA4_English_current_buildable_source_20260906/source/01/drafts/SGA4_I_LINES_6751_6838_English.texfrag
+
+% BEGIN INCLUDED SGA4_English_current_buildable_source_20260906/source/01/drafts/SGA4_I_LINES_6839_6963_English.texfrag
+\begin{enonce*}{引理 9.21.13}\etiquette[9.21.13]{I.lem9.21.13}
+在上述条件下, 可找到一个映射 $\varphi:I\rightarrow I$, 使对每个 $i\in I$ 有 $\varphi(i)\geq i$, 以及一个从 $I\times %%
+\mathrm{F}{}l\,B$ 到 $%%
+\mathrm{F}{}l\,E$ 的映射 $(i,f)\mapsto\lambda(i,f)$, 满足下列条件:
+\begin{enumerate}
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 对 $i\in I$ 和 $(f:\alpha\rightarrow\beta)\in F\ell B$, $\lambda(i,f)$ 是从 $X(\alpha)_i$ 到 $X(\beta)_{\varphi(i)}$ 的 $f$-态射, 使图
+\[
+\xymatrix@C=3cm@R=.8cm{
+ X(\alpha)\ar[r]^{X(f)} & X(\beta)\\
+           &  X(\beta)_{\varphi(i)}\ar[u]\\
+X(\alpha)_{i} \ar[uu]\ar[ru]^{\lambda(i,f)}&
+                  \\
+\alpha \ar[r]^{f}& \beta\quad , }
+\]
+交换, 其中竖直箭头是由 \hyperlink{sga4.exp.I.equation.9.21.12}{(9.21.12)} 得到的典范态射。
+
+\item 对\pageoriginale 每个 $i\in I$ 和每个 $(f:\alpha\rightarrow\beta)\in %%
+\mathrm{F}{}l\,B$, 图
+\[
+\xymatrix@C=3cm@R=.9cm@L=6pt{
+                      & X(\beta)_{\varphi^{2}(i)}\\
+  X(\alpha)_\varphi(i) \ar[ru]^{\lambda(\varphi(i),f)}  & X(\beta)_{\varphi(i)} \ar[u]\\
+X(\alpha)_i  \ar[ru]_{\lambda(i,f)} \ar[u]         \\
+\alpha \ar[r]^{f} & \beta\quad . }
+\]
+是交换的。
+
+\item 对 $B$ 中每对可合成箭头 $\alpha\xrightarrow{f}\beta\xrightarrow{g}\gamma$, 下图交换:
+\[
+\xymatrix@C=2cm@L=6pt@R=.5cm{
+X(\alpha) \ar[r]^{X(f)}& X(\beta) \ar[r]^{X(g)}            & X(\gamma)\\
+          &                      & X(\gamma)_{\varphi^{2}(i)}\ar[u]\\
+          & X(\beta)_{\varphi(i)} \ar[uu]\ar[ru]^{\lambda(\varphi(i),g)} & X(\gamma)_{\varphi(i)}\ar[u]\\
+X(\alpha)_i \ar[uuu]\ar[ru]^{\lambda(i,f)} \ar[rru]_{\lambda(i,gf)}&
+ \\
+\alpha \ar[r]^{f}& \beta \ar[r]^{g}& \gamma\quad , }
+\]
+其中竖直箭头由 \hyperlink{sga4.exp.I.equation.9.21.12}{(9.21.12)} 得到。
+\end{enumerate}
+\end{enonce*}
+
+还\pageoriginale 应注意, c) 中上方两个梯形的交换性已经包含在 a) 中, 因而 c) 实际上断言的是所考虑的图中下方三角形的交换性。
+
+证明 \hyperref[I.lem9.21.13]{9.21.13}。设 $i\in I$, $f:\alpha\rightarrow\beta$ 是 $B$ 中的箭头。考虑复合 $X(\alpha)_i\rightarrow X(\alpha)\xrightarrow{X(f)}X(\beta)\simeq
+\varinjlim_jX(\beta)_j$; 它定义了 $E$ 中的态射:
+$$
+X(\alpha)_i\rightarrow f^\ast(X(\beta))\simeq
+f^\ast(\varinjlim_jX(\beta)_j)\simeq
+\varinjlim_jf^\ast(X(\beta)_j){\quoi},
+$$
+其中最后的等式来自 $f^\ast$ 是 $c$-可及的 \hyperlink{sga4.exp.I.equation.9.21.3}{(9.21.3 c)}, 且 $I$ 相对于 $c$ 为大。由 \hyperlink{sga4.exp.I.equation.9.21.4}{(9.21.4 a)}), 由于 $X(\alpha)_i\in\ob C_\alpha$, 所考虑的态射经过某个 $f^\ast(X(\beta)_j)$ 分解, 其中 $j$ \textit{起初}依赖于 $i$ 和 $f\in %%
+\mathrm{F}{}l\,(B)$。但由 \hyperlink{sga4.exp.I.equation.9.21.3}{(9.21.3 b)}), 且因 $I$ 相对于 $c$ 为大, 可以将 $j$ 选得与 $f$ 无关, 记其为 $j=\varphi(i)$。由于 $I$ 滤过, 可以假定 $\varphi(i)\geq i$。这样, 对 $i\in I$ 及 $f\in %%
+\mathrm{F}{}l\,B$ 就得到态射
+$$
+X(\alpha)_i\longrightarrow f^\ast(X(\beta)_{\varphi(i)}){\quoi},
+$$
+等价地, 得到 $f$-态射
+$$
+\lambda(i,f):X(\alpha)_i\longrightarrow
+X(\beta)_{\varphi(i)}{\quoi},
+$$
+它根据构造使图
+\[\vcenter{
+\xymatrix@C=3cm{
+X(\alpha)\ar[r]^{X(f)} & X(\beta)\\
+          & X(\beta)_{\varphi(i)} \ar[u]\\
+X(\alpha)_i \ar[uu] \ar[ru]^{\lambda(i,f)}&\\
+\alpha \ar[r]^{f} & \beta \quad . }}\leqno{D(f)}
+\]
+交换。现在,\pageoriginale 对给定的 $i,f,g$, 考虑 \hyperref[I.lem9.21.13]{9.21.13} c) 中图的下方三角形; 它是否交换尚不清楚, 但两个复合 $X(\alpha)_i\rightrightarrows X(\gamma)_{\varphi^2(i)}$ 与 $X(\gamma)_{\varphi^2(i)}\rightarrow X(\gamma)$ 复合后相等, 因为上方两个梯形及外部梯形分别是交换图 $D(f)$、$D(g)$ 和 $D(gf)$。因此, 由于 $X(\alpha)_i$ 是 $c$-可及的 \hyperlink{sga4.exp.I.equation.9.21.4}{(9.21.4 a)}), 且 $X(\gamma)\simeq\varinjlim_{j\in I}X(\gamma)_j$, 其中 $I$ 相对于 $c$ 为大, 可知能找到 $I$ 的元素 $j\geq\varphi^2(i)$, 使所考虑的两个箭头与 $X(\gamma)_{\varphi^2(i)}\rightarrow X(\gamma)_j$ 复合后相等。起初 $j$ 依赖于 $i,f,g$。但固定 $i$ 后, 由 \hyperlink{sga4.exp.I.equation.9.21.3}{(9.21.3 a)} 和 b)) 可知, 可能的指标对 $f,g$ 的集合的基数 $\leq c^2=c$, 因而由于 $I$ 相对于 $c$ 为大, 可将 $j$ 选得与 $f$、$g$ 无关, 记其为 $j=\varphi'(i)\geq\varphi^2(i)\geq\varphi(i)$。此时对每个 $i\in I$ 及 $f:\alpha\rightarrow\beta$, 令
+$$
+\lambda'(i,f):X(\alpha)_i\longrightarrow X(\beta)_{\varphi'(i)}
+$$
+为复合的 $f$-态射 $X(\alpha)_i\rightarrow X(\beta)_{\varphi(i)}\rightarrow
+X(\beta)_{\varphi'(i)}$, 其中第二个箭头是转移态射。根据构造立即可知, $(\varphi',\lambda')$ 满足 \hyperref[I.lem9.21.13]{9.21.13} a) 和 c) 对 $(\varphi,\lambda)$ 所要求的条件。对条件 b) 同样处理, 可见能选择 $\varphi'$, 使 $(\varphi',\lambda')$ 也满足此条件。\hyperref[I.lem9.21.13]{(9.21.13)} 得证。
+
+\setcounter{subsection}{21} \setcounter{subsubsection}{13}
+
+% END INCLUDED SGA4_English_current_buildable_source_20260906/source/01/drafts/SGA4_I_LINES_6839_6963_English.texfrag
+
+% BEGIN INCLUDED SGA4_English_current_buildable_source_20260906/source/01/drafts/SGA4_I_LINES_6964_7051_English.texfrag
+\subsubsection{}\etiquette[9.21.14]{I.sec9.21.14}
+现在\pageoriginale 设
+$$
+J\subset I
+$$
+是 $I$ 中满足下列条件的子集:
+\begin{enumerate}
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item $J$ 是滤过的,
+
+\item 对每个 $j\in J$, 有 $\varphi(j)\in J$,
+
+\item 对每个 $\alpha\in\ob B$, $X_J(\alpha)=\varinjlim_{i\in J}X(\alpha)_i$ 在 $E_\alpha$ 中可表。
+\end{enumerate}
+特别地, 若 $J$ 相对于 $\Pi'_\circ$ 为大 \hyperlink{sga4.exp.I.equation.9.21.2}{(9.21.2)}, 则条件 a) 和 c) 成立。由 \hyperref[I.cor9.21.10.1]{9.21.10.1} 可知, 对每个 $\alpha\in\ob B$, $X_J(\alpha)$ 是 $E$ 中的归纳极限 $\varinjlim_{i\in J}X(\alpha)_i$。此时, 对 $B$ 的箭头 $f:\alpha\rightarrow\beta$, 由 (\hyperref[I.lem9.21.13]{9.21.13} b)), 当 $i$ 变动于 $J$ 时, 各箭头 $\lambda(i,f)$ 定义了从 $(X(\alpha)_i)_{i\in J}$ 到 $(X(\beta)_i)_{i\in J}$ 的 ind-对象态射, 从而在归纳极限上给出态射
+$$
+X_J(f):X_J(\alpha)\rightarrow X_J(\beta)
+$$
+它显然是 $f$-态射。利用 (\hyperref[I.lem9.21.13]{9.21.13} (c)), 得到传递关系
+$$
+X_J(gf)=X_J(g)X_J(f){\quoi},
+$$
+因而定义了 $E$ 在 $B$ 上的截面 $X_J\in\ob F$。最后, (\hyperref[I.lem9.21.13]{9.21.13} a)) 表明典范态射
+$$
+X_J(\alpha)\longrightarrow X(\alpha)\quav \alpha\in \ob B{\quoi},
+$$
+关于 $\alpha$ 是函子性的, 因而存在典范态射
+$$
+u_J:X_J\longrightarrow X{\quoi}.
+$$
+另一方面,\pageoriginale 若
+$$
+J'\supset J
+$$
+是 $I$ 中另一个满足上述条件 a)、b)、c) 的子集, 则得到典范态射
+$$
+u_{J',J}:X_J\longrightarrow X_{J'}{\quoi},
+$$
+因此各 $X_J$ 在 $F$ 中组成一个归纳系, 以满足所考虑条件的 $I$ 的子集 $J$ 所成的集合 (按包含关系排序) 为指标。最后, 上述态射 $u_J$ 定义了此归纳系到 $X$ (所定义的常值归纳系) 的态射。
+
+\setcounter{subsection}{21} \setcounter{subsubsection}{14}
+\subsubsection{}\etiquette[9.21.15]{I.sec9.21.15}
+现在设 $K$ 是由 $I$ 的子集 $J$ 组成的集合, 这些子集满足 \hyperref[I.sec9.21.14]{9.21.14} 中的条件 a)、b)、c), 并假定 $K$ 是滤过的, 且其并为 $I$。利用 \hyperref[I.cor9.21.10.1]{9.21.10.1} 将问题归结为逐个自变量验证同构后, 显然有
+$$
+\varinjlim_{J\in K}X_J\xrightarrow{\sim}X{\quoi},
+$$
+
+例如, 取 $K$ 为 $I$ 中相对于 $\Pi'_\circ$ 为大、对 $\varphi$ 稳定且满足 $\card J\leq\Pi$ 的所有子集 $J$ 所成的集合。根据 $C^{\Pi}_\alpha$ 的定义 \hyperlink{sga4.exp.I.equation.9.21.6}{(9.21.6)}, 对每个 $\alpha\in\ob B$ 有 $X_J(\alpha)\in\ob C^{\Pi}_\alpha$, 因而 $X_J\in\ob F^{\Pi}$。所以, 只要证明 $K$ 相对于 $\Pi$ 为大 (从而滤过) 且其并为 $I$, 就证明了 \hyperref[I.lem9.21.9]{9.21.9} (ii)。为此, 显然只需证明满足 $\card S\leq\Pi$ 的 $I$ 的每个子集 $S$ 都包含于某个 $J\in K$。这将由\pageoriginale \hyperref[I.lem9.21.9]{9.21.9} (ii) 中陈述的预备假设及下述引理得到。
+
+% END INCLUDED SGA4_English_current_buildable_source_20260906/source/01/drafts/SGA4_I_LINES_6964_7051_English.texfrag
+
+% BEGIN INCLUDED SGA4_English_current_buildable_source_20260906/source/01/drafts/SGA4_I_LINES_7052_7130_English.texfrag
+\begin{enonce*}{引理 9.21.16}\etiquette[9.21.16]{I.lem9.21.16}
+设 $I$ 是有序集, $\Pi$ 是无限基数, $\varphi:I\rightarrow I$ 是从 $I$ 到自身的映射。
+\begin{enumerate}
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 假定 $I$ 是滤过的。那么, 对满足 $\card S\leq\Pi$ 的 $I$ 的每个子集 $S$, 存在 $I$ 的滤过子集 $J\supset S$, 使 $\varphi(J)\subset J$ 且 $\card(J)\leq\Pi$。
+
+\item 设 $\Pi'_\circ$ 是基数 $<\Pi$, 并假定 $I$ 相对于 $\Pi$ 为大。那么, 对满足 $\card S\leq\Pi$ 的 $I$ 的每个子集 $S$, 存在 $I$ 中相对于 $\Pi'_\circ$ 为大的子集 $J\supset S$, 使 $\varphi(J)\subset J$ 且 $\card J\leq\Pi$。
+\end{enumerate}
+\end{enonce*}
+
+例如证明 b) (a) 的证明类似且更简单)。设 $P$ 是 $I$ 中基数 $\leq\Pi$ 的子集所成的集合, $T\mapsto i_T:P\rightarrow I$ 是使得对 $T\in P$, $i_T$ 为 $T$ 在 $I$ 中的上界的映射; 此映射的存在仅表达了 $I$ 相对于 $\Pi$ 为大的假设。设 $A$ 是良序集, 满足 $\card A=\Pi$, 且对每个 $a\in A$, 各 $a'\leq a$ 所成的集合的基数 $<\Pi$。特别地, 由于 $\Pi'_\circ<\Pi$, 可知 $A$ \emph{相对于} $\Pi'_\circ$ \emph{为大}。用下列公式通过超限递归定义映射
+$$
+S\longmapsto S_a:P\longrightarrow P\quad(a\in A){\quoi},
+$$
+:
+
+$S_\circ=S$, $S_{a+1}=S_a\cup\varphi(S_a)\cup\{i_{S_a}\}$,
+当 $a$ 是极限序数时, 令 $S_a=\bigcup_{a'<a}S_{a'}$。
+
+于是对 $S\in P$, 令\pageoriginale
+$$
+J(S)=\bigcup_{a\in A}S_a{\quoi}.
+$$
+显然 $J(S)\supset S$, $J(S)$ 对 $\varphi$ 稳定, $\card J(S)\leq\Pi$ (因为 $\card A=\Pi$), 且最后 $J(S)$ 相对于 $\Pi'_\circ$ 为大 (这里用到 $A$ 相对于 $\Pi'_\circ$ 为大)。
+
+这证明了 \hyperref[I.lem9.21.16]{9.21.16}, 并完成 \hyperref[I.lem9.21.9]{9.21.9} 的证明。
+
+还指出 \hyperref[I.lem9.21.9]{9.21.9} 的一个变形:
+
+\begin{enonce*}{引理 9.21.17}\etiquette[9.21.17]{I.lem9.21.17}
+沿用 \hyperref[I.lem9.21.9]{9.21.9} 的记号。以 $F'$ 表示由 $E$ 在 $B$ 上的笛卡尔截面组成的 $F=\Hhom_B(B,E)$ 的全子范畴 $\Hhomcart_B(B,E)$。则:
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item $F'$ 的每个对象都可及。更确切地说, 设 $\alpha\mapsto X(\alpha)$ 是 $F'$ 的元素, $d$ 是满足 $d\geq\Pi'_\circ$、$d\geq c$ 的基数, 且对每个 $\alpha\in\ob B$, $X(\alpha)$ 是 $E_\alpha$ 的 $d$-可及对象。则 $X$ 是 $F'$ 的 $d$-可及对象。
+
+\item 假定 $\Pi\leq c$ 且各函子 $f^\ast:E_\beta\rightarrow E_\alpha$ 是 $\Pi'_\circ$-可及的, 或者各范畴 $E_\alpha$ 对小滤过归纳极限稳定, 且各函子 $f^\ast:E_\beta\rightarrow E_\alpha$ 与这些归纳极限可交换。则 $F'$ 的每个对象 $X$ 都同构于形如 $\varinjlim_I X_i$ 的对象, 其中对每个 $i\in I$, $X_i$ 是 $F'$ 的全子范畴 ${F'}^{\Pi}=F'\cap F^{\Pi}$ 的对象, 且 $I$ 相对于 $\Pi$ 为大。
+\end{enumerate}
+\end{enonce*}
+
+证明\pageoriginale 与 \hyperref[I.lem9.21.9]{9.21.9} 的证明完全类似, 因而我们只指出后者需要修改的地方。先指出:
+
+% END INCLUDED SGA4_English_current_buildable_source_20260906/source/01/drafts/SGA4_I_LINES_7052_7130_English.texfrag
+
+% BEGIN INCLUDED SGA4_English_current_buildable_source_20260906/source/01/drafts/SGA4_I_LINES_7131_7193_English.texfrag
+\begin{enonce*}{引理 9.21.18}\etiquette[9.21.18]{I.lem9.21.18}
+在 \hyperref[I.lem9.21.10]{9.21.10} 中将 $F=\Hhom_B(B,E)$ 替换为 $F'=\Hhomcart_B(B,E)$ 后, 只要逆像函子 $f^\ast:E_{\beta}\rightarrow
+E_{\alpha}$ 与 $I$ 型归纳极限可交换, 其陈述仍然成立。
+\end{enonce*}
+
+因此, 在 \hyperref[I.lem9.21.17]{9.21.17} 的条件下, 若 $d$ 是满足 $d\geq c$ 和 $d\geq \Pi'_{\circ}$ 的基数, 则由上述结果与假设 \hyperlink{sga4.exp.I.equation.9.21.3}{(9.21.3 c)}) 可知, 对每个相对于 $d$ 为大的有序集 $I$, $I$ 型归纳极限在 $F'$ 中可表, 且逐个自变量计算, 因而由一个直接的论证即可得到 \hyperref[I.lem9.21.17]{9.21.17} (i) 的结论。
+
+为证明 (ii), 必须补充 \hyperref[I.lem9.21.13]{9.21.13}:
+
+\begin{enonce*}{引理 9.21.19}\etiquette[9.21.19]{I.lem9.21.19}
+在 \hyperref[I.lem9.21.13]{9.21.13} 的条件下, 假定 $X\in \ob F'$, 即 $X$ 是 $E$ 在 $B$ 上的笛卡尔截面。那么, 结论可以加强为还存在函数 $μ$, 它对每个 $i\in I$ 以及 $B$ 的每个箭头 $f:\alpha\rightarrow
+\beta$, 配以 $E_{\alpha}$ 中的态射 $μ(i,f):f^\ast
+X(\beta)_i\rightarrow X(\alpha)_{\varphi(i)}$, 使得:
+
+\begin{enumerate}
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\setcounter{enumi}{3}
+\item 对每个 $i\in I$ 和 $B$ 的每个箭头 $f:\alpha\rightarrow \beta$, 下列两个图交换:
+
+\begin{displaymath}
+\xymatrix@L=5pt@R=1.25cm@C=2.2cm{
+                       & f^{\ast}X(\beta)_{\varphi^{2}(i)}\\
+X(\alpha)_{\varphi(i)}\ar[ru]^{\lambda(\varphi (i),f)} &\\
+                       & f^{\ast}X(\beta)_i \ar[lu]^{\mu(i,f)}\ar[uu]
+} \qquad\qquad \xymatrix@L=5pt@R=1.35cm@C=2cm{
+X(\alpha)_{\varphi^2(i)} & \\
+                         & f^{\ast}X(\alpha)_{\varphi(i)} \ar[lu]_{\mu(\varphi(i),f)}\\
+x(\alpha)_i \ar[uu]\ar[ru]_{\lambda(i,j)}             &. }
+\end{displaymath}
+\end{enumerate}
+\end{enonce*}
+
+\begingroup\tolerance=9999\emergencystretch=4em
+为\pageoriginale 证明此点, 如 \hyperref[I.lem9.21.13]{9.21.13} 中一样进行, 考虑复合态射 $f^\ast(X(\beta)_i)\rightarrow
+f^\ast(X(\beta))\xrightarrow{X(f)^{-1}}X(\alpha)$; 其中 (如在条件 d) 的陈述中已做的那样) 我们在记号上将 $E$ 的 $f$-态射 $R\rightarrow S$ 与 $E_{\alpha}$ 的相应态射 $R\rightarrow f^\ast(S)$ 等同。由于 $X(\alpha)=\varinjlim_j X(\alpha)_j$, 且 $I$ 相对于 $c$ 为大, 可使上述态射经过某个 $X(\alpha)_j$ 分解, 其中 $j$ \textit{起初}依赖于 $i$ \emph{以及} $f$, 但可选得与 $f$ 无关, 记为 $\psi(i)$。增大 \hyperref[I.lem9.21.13]{9.21.13} 的函数 $\varphi$ 后, 可假定 $\psi=\varphi$。如对 \hyperref[I.lem9.21.13]{9.21.13} 的条件 b)、c) 所做的一样进行, 可见在进一步增大映射 $\varphi$ 后, 可假定 \hyperref[I.lem9.21.19]{9.21.19} d) 的两个图都交换。
+\par\endgroup
+
+\setcounter{subsection}{21} \setcounter{subsubsection}{19}
+
+% END INCLUDED SGA4_English_current_buildable_source_20260906/source/01/drafts/SGA4_I_LINES_7131_7193_English.texfrag
+
+% BEGIN INCLUDED SGA4_English_current_buildable_source_20260906/source/01/drafts/SGA4_I_LINES_7194_7240_English.texfrag
+\subsubsection{}\etiquette[9.21.20]{I.sec9.21.20}
+按 \hyperref[I.lem9.21.19]{9.21.19} 选定映射 $\varphi$ 后, 再作 \hyperref[I.sec9.21.14]{9.21.14} 的论证, 但除了所陈述的条件 a)、b)、c) 外, 还须假定 $J$ 满足下述条件:
+\begin{enumerate}
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\setcounter{enumi}{3}
+\item 对 $B$ 的每个箭头 $f:\alpha\rightarrow \beta$, 函子 $f^\ast:E_{\beta}\rightarrow E_{\alpha}$ 与 $J$ 型归纳极限可交换。
+\end{enumerate}
+
+我们\pageoriginale 断言, 在这个附加条件下, $E$ 在 $B$ 上的截面 $X_J$ 是笛卡尔的, 即对 $B$ 的每个箭头 $f:\alpha\rightarrow \beta$, 态射
+\begin{equation}
+X_J(\alpha)\longrightarrow f^\ast X_J(\beta)\tag{$\ast$}
+\end{equation}
+都是同构。事实上, 由上述条件 d), 所考虑的态射的靶等同于 $\varinjlim_{i\in J}f^\ast(X(\beta)_i)$, 而此态射通过对 $E_{\alpha}$ 中的 ind-对象态射
+$$
+(X(\alpha)_i)_{i\in J}\longrightarrow (f^\ast)(X(\beta)_i)_{i\in
+J}{\quoi},
+$$
+取 $\varinjlim_J$ 得到, 其中该 ind-对象态射由 $i\in J$ 时的各态射 $\lambda(i,f):X(\alpha)_i\rightarrow
+f^\ast(X(\beta)_{\varphi(i)})$ 诱导。\hyperref[I.lem9.21.19]{9.21.19} 中列出的条件保证上述 ind-对象同态实际上是同构, 其逆可由 $i\in J$ 时的 $\mu(i,f)$ 系统所诱导的同态得到。这就证明了我们所断言的 $(\ast)$ 是同构, 从而 $X\in \ob F'$。
+
+\subsubsection{}\etiquette[9.21.21]{I.sec9.21.21}
+现在假定各函子 $f^\ast:E_{\beta}\rightarrow E_{\alpha}$ 是 $\Pi'_{\circ}$-\emph{可及的}。则如果 $J$ 相对于 $\Pi'_{\circ}$ 为大、对 $\varphi$ 稳定且满足 $\card J\leq \Pi$, 就满足 \hyperref[I.sec9.21.20]{9.21.20} 中对 $J$ 所考虑的条件。于是完全像 \hyperref[I.sec9.21.15]{9.21.15} 中那样完成 \hyperref[I.lem9.21.17]{9.21.17} 的证明。
+
+% END INCLUDED SGA4_English_current_buildable_source_20260906/source/01/drafts/SGA4_I_LINES_7194_7240_English.texfrag
+
+% BEGIN INCLUDED SGA4_English_current_buildable_source_20260906/source/01/drafts/SGA4_I_LINES_7241_7301_English.texfrag
+\begin{enonce*}{定理 9.22}\etiquette[9.22]{I.them9.22}
+设\pageoriginale $p:E\rightarrow B$ 是纤维函子, 其中 $B$ 是本质等价于小范畴的范畴, 且对 $B$ 的每个箭头 $f:\alpha\rightarrow \beta$, 逆像函子 $f^\ast:E_{\beta}\rightarrow
+E_{\alpha}$ 都可及 (\hyperref[I.def9.2]{9.2})。再假定对每个 $\alpha\in \ob E$, 纤维范畴 $E_{\alpha}$ 具有基数滤过 (\hyperref[I.def9.12]{9.12}), 且 $E_{\alpha}$ 的每个对象都可及 (\hyperref[I.def9.3]{9.3})。则范畴 $F=\Hhom_B(B,E)$ 与 $F'=\Hhomcart_B(B,E)$ 各有一个以严格满态射生成的小全子范畴 (\hyperref[I.def7.1]{7.1}), 而且两者的每个对象都可及。
+\end{enonce*}
+
+显然, 若把 $B$ 替换为一个使包含函子 $B_{\circ}\rightarrow B$ 为等价的全子范畴 $B_{\circ}$, 并把 $E$ 替换为 $E_{\circ}=E\times_B B_{\circ}$, 则陈述本质上不变。因此可假定 $B$ 是小范畴。
+
+对每个 $\alpha\in \ob B$, 设 $(\Filt^{\Pi}(E))_{\Pi\geq
+\Pi_{\alpha}}$ 为 $E_{\alpha}$ 的基数滤过。设 $c_{\circ}\in 𝒰$ 是满足下述条件的基数:
+\hypertarget{sga4.exp.I.equation.9.22.1}{}\begin{equation}
+\begin{cases}
+& c_{\circ}\geq {\displaystyle{\mathop{\Sup}_{\alpha\in ob
+B}}}\Pi_{\alpha}{\quav} c_{\circ}\geq \card %%
+\mathrm{F}{}l\, B;\\
+& \mbox{对 $B$ 的每个箭头 $f:\alpha\rightarrow \beta$,
+$f^\ast:E_{\beta}\rightarrow E_{\alpha}$ 是
+$c_{\circ}$-可及的;} \\
+& \mbox{对每个 $\alpha\in \ob B$,
+$\Filt^{\Pi_{\alpha}}(E_{\alpha})$ 的对象都是 $c_\circ$-可及的。}
+\end{cases}\tag{9.22.1}
+\end{equation}
+令
+$$
+c=2^{c_{\circ}}{\quoi},
+$$
+因而 $c>c_{\circ}$, 并对每个 $\alpha\in \ob B$ 令
+$$
+C_{\alpha}=\Filt^c(E_{\alpha}){\quoi}.
+$$
+我们\pageoriginale 断言, 取 $\Pi=\Pi_{\circ}=c$ 时, 满足 \hyperref[I.lem9.21.9]{9.21.9} 和 \hyperref[I.lem9.21.17]{9.21.17} 的预备条件。对 \hyperlink{sga4.exp.I.equation.9.21.2}{(9.21.2)} 和 \hyperlink{sga4.exp.I.equation.9.21.3}{(9.21.3)}, 这是显然的。对于 \hyperlink{sga4.exp.I.equation.9.21.4}{(9.21.4 a)}), 它由 \hyperref[I.cor9.17]{9.17} 得到, 而 \hyperlink{sga4.exp.I.equation.9.21.4}{(9.21.4 b)}) 由基数滤过的条件 \hyperref[I.def9.12]{9.12} c) 得到。还需注意, 基数滤过的条件 \hyperref[I.def9.12]{9.12} b) 蕴含, 对每个 $\alpha\in \ob B$ 有 $C^{\Pi}_{\alpha}=C_{\alpha}=\Filt^C(E_{\alpha})$, 其中 $C^{\Pi}_{\alpha}$ 定义于 \hyperlink{sga4.exp.I.equation.9.21.6}{(9.21.6)}。因此, 由 \hyperref[I.lem9.21.9]{9.21.9} 和 \hyperref[I.lem9.21.17]{9.21.17} 得到 \hyperref[I.them9.22]{9.22}; 更确切地说, 我们已经证明了下述推论。
+
+% END INCLUDED SGA4_English_current_buildable_source_20260906/source/01/drafts/SGA4_I_LINES_7241_7301_English.texfrag
+
+% BEGIN INCLUDED SGA4_English_current_buildable_source_20260906/source/01/drafts/SGA4_I_LINES_7302_7379_English.texfrag
+\begin{enonce*}{推论 9.23}\etiquette[9.23]{I.cor9.23}
+在 \hyperref[I.them9.22]{9.22} 的条件下, 如果 $c_\circ\in 𝒰$ 是满足条件 \hyperlink{sga4.exp.I.equation.9.22.1}{(9.22.1)} 的基数, 且 $c=2^{c_\circ}$, 则 $F$ 的子范畴 $F^c$ (分别为 $F'$ 的子范畴 ${F'}^c$), 由那些对每个 $\alpha\in\ob B$ 都满足 $X(\alpha)\in\ob\Filt^c(E_\alpha)$ 的 $X$ 组成, 是本质小的, 且以严格满态射生成。更确切地说, $F$ (分别为 $F'$) 的每个对象 $X$ 都同构于形如 $\varinjlim_I X_i$ 的对象, 其中各 $X_i$ 属于 $F^c$ (分别属于 ${F'}^c$), 而 $I$ 是相对于 $c$ 为大的有序集。
+\end{enonce*}
+
+在 \hyperref[I.them9.22]{9.22} 中稍微加强假设, 还可大幅细化 \hyperref[I.them9.22]{9.22} 和 \hyperref[I.cor9.23]{9.23}:
+
+\begin{enonce*}{推论 9.24}\etiquette[9.24]{I.cor9.24}
+在 \hyperref[I.them9.22]{9.22} 的条件下, 假定各范畴 $E_\alpha$ $(\alpha\in\ob B)$ 对小滤过归纳极限稳定, 且对每个 $\Pi\geq\Pi_\alpha$, $\Filt^{\Pi}(E_\alpha)$ 对以满足 $\card I\leq\Pi$ 的滤过有序集 $I$ 为指标的滤过归纳极限稳定 (这稍微加强了基数\pageoriginale 滤过的条件 \hyperref[I.def9.12]{9.12} {\rm b)})。在考虑 $F'$ 时, 再假定对 $B$ 的每个箭头 $f:\alpha\rightarrow\beta$, 函子 $f^\ast:E_\beta\rightarrow E_\alpha$ 与小滤过归纳极限可交换。最后, 设 $c_\circ\in 𝒰$ 是满足条件 \hyperlink{sga4.exp.I.equation.9.22.1}{(9.22.1)} 的基数, 并对每个基数 $\Pi\geq c=2^{c_\circ}$, 考虑 $F$ (分别为 $F'$) 的严格全子范畴 $F^{\Pi}$ (分别为 ${F'}^{\Pi}$), 它由对每个 $\alpha\in\ob B$ 都满足 $X(\alpha)\in\Filt^{\Pi}(E_\alpha)$ 的 $X$ 组成。则所考虑的子范畴定义了 $F$ (分别为 $F'$) 的基数滤过 (\hyperref[I.def9.12]{9.12})。
+\end{enonce*}
+
+必须验证 \hyperref[I.def9.12]{9.12} 的条件 a)、b)、c)。条件 a) 和 b) 由各 $E_\alpha$ 上给定的基数滤过的类似条件, 以及 \hyperref[I.lem9.21.10]{9.21.10} (分别为 \hyperref[I.lem9.21.18]{9.21.18}, 此时需考虑条件 \hyperlink{sga4.exp.I.equation.9.22.1}{(9.22.1)} 中的第二个) 得到。只需再证 c)。其第一部分直接由 \hyperref[I.lem9.21.9]{9.21.9} (分别为 \hyperref[I.lem9.21.17]{9.21.17}) 得到, 其中取 $\Pi'_\circ=0$ 与 $\Pi_\circ=c$。只需再证, 如果 $\Pi'\geq\Pi\geq c$ 是两个基数, 那么对 $F^{\Pi'}$ (分别为 ${F'}^{\Pi'}$) 中的每个 $X$ 有 $X\simeq\varinjlim_{i\in K}X_i$, 其中各 $X_i$ 属于 $F^{\Pi}$ (分别属于 ${F'}^{\Pi}$), $K$ 相对于 $\Pi$ 为大, 且 $\card K\leq{\Pi'}^{\Pi}$。为此, 回到 \hyperref[I.lem9.21.9]{9.21.9} (ii) 与 \hyperref[I.lem9.21.17]{9.21.17} (ii) 的证明。由 $E_\alpha$ 的基数滤过的条件 \hyperref[I.def9.12]{9.12} c), 可假定每个 $I_\alpha$ 的基数 $\leq\Pi'$, 因而有
+$$
+\card I\leq ({\Pi'}^{\Pi})^{\card \ob B}\leq
+({\Pi'}^{\Pi})^c={\Pi'}^{\Pi c}={\Pi'}^{\Pi}{\quoi}.
+$$
+\hyperref[I.sec9.21.15]{9.21.15} (分别为 \hyperref[I.sec9.21.21]{9.21.21}) 中所用的指标集 $K$ 是由 $I$ 中那些滤过的 (即相对于 $\Pi'_\circ=0$ 为大的)、对 $\varphi$ 稳定且满足 $\card J\leq\Pi$ 的子集 $J$ 组成的集合。此时立即有
+$$
+\card K\leq (\card I)^{\Pi}\leq
+({\Pi'}^{\Pi})^{\Pi}={\Pi'}^{\Pi^2}={\Pi'}^{\Pi}{\quoi},
+$$
+这就\pageoriginale 完成了 \hyperref[I.cor9.24]{9.24} 的证明。
+
+最后, 宜给出一个去除了 \hyperref[I.them9.22]{9.22} 中那些稍具技术性的假设的陈述, 用对各 $E_\alpha$ 同时满足 \hyperref[I.prop9.11]{9.11} 中的假设 (它们保证各 $E_\alpha$ 的对象可及) 及 \hyperref[I.prop9.13]{9.13} 中的假设 (它们保证 $E_\alpha$ 中存在基数滤过) 来代替它们:
+
+% END INCLUDED SGA4_English_current_buildable_source_20260906/source/01/drafts/SGA4_I_LINES_7302_7379_English.texfrag
+
+% BEGIN INCLUDED SGA4_English_current_buildable_source_20260906/source/01/drafts/SGA4_I_LINES_7380_7423_English.texfrag
+\begin{enonce*}{推论 9.25}\etiquette[9.25]{I.cor9.25}
+设 $p:E\rightarrow B$ 是纤维函子, 其中 $B$ 是等价于小范畴的范畴, 且对 $B$ 的每个箭头 $f:\alpha\rightarrow\beta$, 函子 $f^\ast:E_\beta\rightarrow E_\alpha$ 都可及 (\hyperref[I.def9.2]{9.2})。再假定对每个 $\alpha\in\ob B$, 纤维范畴 $E_\alpha$ 满足下列条件:
+\begin{enumerate}
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item $E_\alpha$ 有一个以严格满态射生成的小全子范畴 (\hyperref[I.def7.1]{7.1})。
+
+\item $E_\alpha$ 对纤维积、平行箭图的核、两个对象的和、平行箭图的余核, 以及最后对小滤过归纳极限稳定\footnote[1]{最后这个条件很可能是不必要的; 参见 \hyperref[I.rem9.13.2]{9.13.2}。}。
+
+\item $E_\alpha$ 的平行箭图所成范畴上的函子 $\Ker(u,v)$ 可及 (例如它与小滤过归纳极限可交换)。
+
+\item $E_\alpha$ 的每个严格满态射 (\hyperref[I.sec10.2]{10.2}) 都是泛严格满态射。
+\end{enumerate}
+
+在这些条件下, 范畴 $F=\Hhom_B(B,E)$ 与 $F'=\Hhomcart_B(B,E)$ 各有一个以严格满态射生成的小子范畴, 且其所有对象都可及 (\hyperref[I.def9.3]{9.3})。
+\end{enonce*}
+此外,\pageoriginale \hyperref[I.cor9.24]{9.24} 给出:
+
+\begin{enonce*}{推论 9.26}\etiquette[9.26]{I.cor9.26}
+在 $\hyperref[I.cor9.25]{9.25}$ 的条件下, 若考虑 $F'=\Hhomcart_B(B,E)$, 则假定各函子 $f^\ast:E_\beta\rightarrow E_\alpha$ 与小滤过归纳极限可交换。此时 $F$ (分别为 $F'$) 有一个基数滤过, 它可由 \hyperref[I.cor9.24]{9.24} 的过程明确给出。
+\end{enonce*}
+
+% END INCLUDED SGA4_English_current_buildable_source_20260906/source/01/drafts/SGA4_I_LINES_7380_7423_English.texfrag
+
+% BEGIN INCLUDED SGA4_English_current_buildable_source_20260906/source/01/drafts/SGA4_I_LINES_7424_7512_English.texfrag
+

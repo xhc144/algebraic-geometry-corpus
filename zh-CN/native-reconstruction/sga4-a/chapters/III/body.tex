@@ -1,0 +1,1255 @@
+% BEGIN INCLUDED SGA4_English_current_buildable_source_20260906/source/03/drafts/SGA4_III_LINES_31_241_English.texfrag
+在\pageoriginale{} \hyperrefext[I][I.sec5]{5} 中, 我们研究了预层范畴相对于变元范畴之间函子的行为.
+本篇将此研究推广到景及层范畴的情形 (第 ${\rm n^{\circ}}$ 1 和 2 节).
+引入诱导拓扑 (第 ${\rm n^{\circ}}$ 3 节) 后, 我们在第 ${\rm n^{\circ}}$ 4 节讨论比较引理,
+它将在第 IV 篇中起重要作用. 第 5 节为有耐心的读者研究与局部化范畴
+(形如 $C/X$) 有关的某些交换图.
+在定理 \hyperrefext[I][I.prop5.1]{5.1} 中, 我们对所考虑的范畴作了小性假设.
+实际遇到的景 ($𝒰$-景) 一般不满足这些假设.
+因此不得不作一些迂回处理 (\hyperref[III.subsec4.2]{4.2}, \hyperref[III.subsec4.3]{4.3},
+\hyperref[III.subsec4.4]{4.4}).
+
+\section{连续函子}\etiquette[1]{III.sec1}
+
+\begin{enonce*}{定义 1.1}\etiquette[1.1]{III.def1.1}
+设 $C$ 与 $C'$ 为两个 $𝒰$-景, $u:C\rightarrow C'$ 为其底层范畴之间的函子.
+若对 $C'$ 上的每个集合层 $F$, $C$ 上的预层 $X\mapsto F\circ u(X)$ 都是层,
+就称 $u$ 连续.
+\end{enonce*}
+
+此连续性概念先验地依赖于使这两个景为 $𝒰$-景的宇宙 $𝒰$.
+命题 \hyperref[III.prop1.5]{1.5} 将表明它与宇宙无关.
+
+%\setcounter{subsection}{1}
+\setcounter{subsection}{10}
+\subsection{}\etiquette[1.11]{III.subsec1.11}
+%% original misprint: 1.11 should be 1.1.1!? \XXX
+用\pageoriginale{} $i:C^{\sim}\rightarrow C^{\widehat{\phantom{,}}}$
+(分别用 $i':{C'}^{\sim}\rightarrow {C'}^{\widehat{\phantom{,}}}$)
+表示从层到预层的典范包含函子. 由定义 \hyperref[III.def1.1]{1.1},
+函子 $u$ 连续当且仅当存在函子 $u_s:{C'}^{\sim}\rightarrow C^{\sim}$,
+使 $iu_s=u^\ast i'$ (其中 $u^\ast F=F\circ u$
+(\hyperrefext[I][I.sec5.0]{5.0})).
+
+\begin{enonce*}{命题 1.2}\etiquette[1.2]{III.prop1.2}
+设 $C$ 为小景, $C'$ 为 $𝒰$-景, $u:C\rightarrow C'$ 为其底层范畴之间的函子.
+下述性质等价:
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 函子 $u$ 连续.
+
+\item 对 $C$ 的每个对象 $X$ 及每个覆盖 $X$ 的筛 $R\hookrightarrow X$,
+态射 $u_{!}R\hookrightarrow u(X)$ 在 ${C'}^{\widehat{\phantom{,}}}$ 中双覆盖 (bicovering)
+{\rm(\hyperrefext[II][II.def5.2]{5.2} 和 \hyperrefext[I][I.prop5.1]{5.1}).}
+\footnote[1]{以“覆盖”代替“双覆盖”未必足够; 参见下文例 \hyperref[III.exem1.9.3]{1.9.3}.}
+
+\item 对 $C^{\widehat{\phantom{,}}}$ 中的每个双覆盖族 $H_i\rightarrow K$, $i\in I$,
+态射族 $u_{!}H_i\rightarrow u_{!}K$, $i\in I$ 在 ${C'}^{\widehat{\phantom{,}}}$ 中双覆盖.
+
+\item 存在与归纳极限交换并且“扩张 $u$”的函子
+$u^s:C^{\sim}\rightarrow {C'}^{\sim}$, 即下列典范函子图
+\[
+\xymatrix@C=3cm@R=1.25cm{
+  C \ar[r]^{u} \ar[d]_{\epsilon_C} & C' \ar[d]^{\epsilon_{C'}}\\
+C{\widetilde{\phantom{A}}} \ar[r]^{u^s}&
+  C'{\widetilde{\phantom{A}}},
+}
+\]
+交换, 精确到同构.
+\end{enumerate}
+
+此外, 当 $C$ 不再一定为小景而为 $𝒰$-景时, 仍有 {\rm i) $\Leftrightarrow$ iv)},
+且 {\rm iv)} 的函子 $u^s$ 必为函子 $u_s:\widetilde{C}'\rightarrow \widetilde{C}$ 的左伴随,
+因而确定到唯一同构.
+\end{enonce*}
+
+\begin{enonce*}[remark]{证明}
+当 $C$ 为 $𝒰$-景时, i) $\Leftrightarrow$ iv) 的\pageoriginale{}证明将在
+\hyperref[III.subsec4.2]{4.2} 中给出. 假定 $C$ 小. 显然 iii) $\Rightarrow$ ii).
+\begin{itemize}
+\item[i) $\Rightarrow$ iii):] 设 $H_i\rightarrow K$, $i\in I$ 为
+$C^{\widehat{\phantom{,}}}$ 中的双覆盖族. 对 $C'$ 上的每个层 $F$,
+预层 $u^\ast F$ (\hyperrefext[I][I.sec5.0]{5.0}) 是 $C$ 上的层.
+故 (\hyperrefext[II][II.prop5.3]{5.3}) 典范映射
+$$
+\Hom(K, u^\ast F)\longrightarrow \prod_i \Hom(H_i, u^\ast F){\quoi},
+$$
+为双射. 由伴随关系 (\hyperrefext[I][I.prop5.1]{5.1}), 得出典范映射
+$$
+\Hom(u_{!}K,F)\longrightarrow \prod_i \Hom(u_{!}H_i, F)
+$$
+为双射. 因而 (\hyperrefext[II][II.prop5.3]{5.3}),
+族 $u_{!}H_i\rightarrow u_{!}K$, $i\in I$ 双覆盖.
+
+\item[ii) $\Rightarrow$ i):] 设 $X$ 为 $C$ 的对象,
+$R\hookrightarrow X$ 为覆盖筛, $F$ 为 $C'$ 上的层.
+由 (\hyperrefext[II][II.prop5.3]{5.3}), 映射
+$$
+\Hom(u_{!}X,F)\longrightarrow \Hom(u_{!}R,F)
+$$
+为双射. 由伴随关系 (\hyperrefext[I][I.prop5.1]{5.1}), 得出映射
+$$
+\Hom(X,u^\ast F)\longrightarrow \Hom(R, u^\ast F)
+$$
+为双射. 因而 $u^\ast F$ 为层.
+
+\item[i) $\Rightarrow$ iv):] 用通常的记号 $\underline{a}$ 和 $i$
+(分别用 $\underline{a}'$ 和 $i'$) 表示“伴随层”与“包含到预层”函子.
+对 $C$ 上的每个层 $G$, 令 $u^sG=\underline{a}'u_{!}iG$.
+对 $C'$ 上的每个层 $F$, 有如下自然同构序列:
+\begin{align*}
+\Hom(G,u_sF) &\simeq \Hom(iG, iu_s F)\simeq \Hom(iG, u^\ast i'F)\\
+             &\simeq \Hom(u_{!}iG, i'F)\simeq \Hom(\underline{a}'u_{!} iG,
+             F){\quoi}.
+\end{align*}
+(第一个\pageoriginale{}同构来自 $i$ 的全忠实性; 第二个来自 $u_s$ 的定义;
+第三个和第四个由伴随关系得到.) 因而 $u^s$ 为 $u_s$ 的左伴随.
+特别地, $u^s$ 与归纳极限交换. 对 $C$ 上的每个预层 $K$ 及 $C'$ 上的每个层 $F$,
+有如下自然同构序列:
+$\Hom(u^s\underline{a}K,F)\simeq
+\Hom(\underline{a}K, u_s F)\simeq \Hom(K,iu_sF)\simeq \Hom(K,u^\ast
+i'F)\simeq \Hom(u_{!}K, i'F)\simeq \Hom(\underline{a}'u_{!}K,F)$
+(第三个同构来自 $u_s$ 的定义; 其余由伴随关系得到);
+由此得到函子性同构 $u^s\underline{a}K\simeq \underline{a}'u_{!}K$.
+特别地, 当 $K$ 可表时应用此同构, 并考虑 \hyperrefext[I][I.prop5.4]{5.4} 3),
+得到交换到同构的图:
+\[
+\xymatrix@C=2.75cm@R=1.25cm{
+C \ar[d]_{\epsilon_C} \ar[r]^{u}& C'\ar[d]^{\epsilon_{C'}}\\
+\widetilde{C} \ar[r]^{u^{S}}& \widetilde{C'} }
+\]
+
+\item[iv) $\Rightarrow$ ii):] 令 $h:C\rightarrow C^{\widehat{\phantom{,}}}$
+(分别令 $h':C'\rightarrow {C'}^{\widehat{\phantom{,}}}$)
+为将对象映到其所表示的预层的函子. 考虑图:
+\[
+\xymatrix@C=2.5cm@R=1cm{
+C \ar[r]^{u}\ar[d]_{h}             &   C' \ar[d]^{h'}\\
+C{\widehat{\phantom{i}}} \ar[d]_{\underline{a}} \ar[r]^{u_!}&
+C'{\widehat{\phantom{i}}} \ar[d]^{\underline{a}'}\\
+C{\widetilde{\phantom{A}}} \ar[r]^{u^{S}}&
+C'{\widetilde{\phantom{A}}}. }
+\]
+上\pageoriginale{}方块交换 (\hyperref[III.rem1.4]{1.4} 3)),
+且有 $\underline{a}h=\epsilon_C$, $\underline{a}'h'=\epsilon_{C'}$.
+对 $C^{\widehat{\phantom{,}}}$ 的每个对象 $K$, 有典范同构
+(I \hyperref[I.prop3.4]{3.4}):
+$$
+\varinjlim_{(h(X)\rightarrow K)\in \ob (C/K)} h(X)\xrightarrow{\sim}
+K{\quoi}.
+$$
+由于函子 $u_{!}$、$u^s$、$\underline{a}$ 与 $\underline{a}'$ 与归纳极限交换,
+得到同构:
+\begin{gather*}
+\varinjlim_{(h(X)\rightarrow K)\in \ob (C/K)}
+u^s\underline{a}h(X)\xrightarrow{\sim} u^s \underline{a}K{\quoi},\\
+\varinjlim_{(h(X)\rightarrow K)\in \ob (C/K)}
+\underline{a}'u_{!}h(X)\xrightarrow{\sim} \underline{a}'u_{!}K{\quoi}.
+\end{gather*}
+有 $u_{!}h=h'u$, 且由假设有同构
+$\underline{a}'h'u\simeq u^s \underline{a}h$, 从而有同构
+$$
+u^s\underline{a}K\simeq \underline{a}'u_{!}K{\quoi},
+$$
+立即可见它对 $K$ 函子性. 因此图
+\[
+\xymatrix@C=2.5cm@R=1.35cm{
+C\widehat{\phantom{a}} \ar[r]^{u_!} \ar[d]_{\underline{a}}&  C'\widehat{\phantom{a}}\ar[d]^{\underline{a}'}\\
+C \widetilde{\phantom{A}} \ar[r]^{u^{S}}&  C',& }
+\]
+交换到同构. 由于 $\underline{a}i$ 同构于恒等函子,
+有同构 $u^s\simeq \underline{a}'u_{!}i$, 从而有 $u^s$ 的唯一性.
+设 $v:H\rightarrow K$ 为 $C^{\widehat{\phantom{,}}}$ 中的双覆盖态射.
+则 $\underline{a}(v)$ 为同构 (\hyperrefext[II][II.prop5.3]{5.3}),
+故 $\underline{a}'u_{!}(v)$ (同构于 $u^s\underline{a}(v)$) 为同构.
+因此 $u_{!}(v)$ 被 $\underline{a}'$ 映为同构, 因而 $u_{!}(v)$ 双覆盖
+(\hyperrefext[II][II.prop5.3]{5.3}), 由此得 ii).
+\end{itemize}
+\end{enonce*}
+
+当 $C$ 小时的附加\pageoriginale{}断言已在证明过程中得到, \cqfd
+
+\setcounter{subsection}{2} \setcounter{subsubsection}{0}
+
+% END INCLUDED SGA4_English_current_buildable_source_20260906/source/03/drafts/SGA4_III_LINES_31_241_English.texfrag
+
+
+% BEGIN INCLUDED SGA4_English_current_buildable_source_20260906/source/03/drafts/SGA4_III_LINES_242_461_English.texfrag
+\subsubsection{}\etiquette[1.2.1]{III.subsubsec1.2.1}
+
+\hyperref[III.prop2.2]{2.2} iv) 的函子 $u^s:C^{\sim}\rightarrow {C'}^{\sim}$
+通常可解释为“拓扑斯态射” ${C'}^{\sim}\rightarrow C^{\sim}$ 的“逆像”函子,
+参见 \hyperrefext[IV][IV.subsec4.9]{4.9}.
+其性质概括于下述命题:
+
+\begin{enonce*}{命题 1.3}\etiquette[1.3]{III.prop1.3}
+设 $u:C\rightarrow C'$ 为从小景 $C$ 到 $U$-景 $C'$ 的连续函子.
+\begin{enumerate}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 函子 $u^s$ 为函子 $u_s$ 的左伴随.
+
+\item 有典范同构 $u^s\simeq \underline{a}'u_{!}i$.
+
+\item 有典范同构 $u^s\underline{a}\simeq \underline{a}'u_{!}$.
+
+\item 函子 $u^s$ 与归纳极限交换.
+
+\item 当函子 $u_{!}$ 左正合时 (参见 \hyperrefext[I][I.prop5.4]{5.4} 4)),
+函子 $u^s$ 也左正合. 更一般地, 函子 $u^s$ 与函子 $u_{!}$ 所交换的那些类型的有限投射极限交换.
+\end{enumerate}
+\end{enonce*}
+
+\begin{enonce*}[remark]{证明}
+断言 1)、2)、3) 和 4) 已在 \hyperref[III.prop1.2]{1.2} 的证明过程中得到.
+断言 5) 来自 2) 中的同构, 因为 $i$ 与投射极限交换,
+且 $\underline{a}'$ 与有限投射极限交换 (\hyperrefext[II][II.theo4.1]{4.1}).
+\end{enonce*}
+
+\begin{enonce*}[remark]{注 1.4}\etiquette[1.4]{III.rem1.4}
+结合 \hyperrefext[I][I.prop5.4]{5.4} 3) 及 \hyperref[III.prop1.3]{1.3} 3), 得到图:
+\[
+\xymatrix@C=3.5cm@R=1cm{
+C \ar[r]^{u} \ar[d]_{h}& C'\ar[d]_{h'}\\
+C\widehat{\phantom{a}} \ar[r]^{u_!} \ar[d]_{\underline{a}}&
+C'\widehat{\phantom{a}} \ar[d]_{\underline{a}'}\\
+C\widetilde{\phantom{a}} \ar[r]& C'\widetilde{\phantom{a}}, }
+\]
+其中\pageoriginale{}上方块交换, 下方块交换到同构.
+但函子 $\underline{a}$、$\underline{a}'$、$u_{!}$ 与 $u^s$ 只定义到同构.
+请读者验证, 可以选取函子 $\underline{a}$、$\underline{a}'$ 及 $u^s$, 使:
+\begin{enumerate}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 复合函子 $\underline{a}h$ 与 $\underline{a}'h'$ 在对象集上单射;
+
+\item 图
+\[
+\xymatrix@C=2cm@R=1.25cm{
+C \ar[r]^{u} \ar[d]_{\underline{a}h}& C' \ar[d]_{\underline{a}'h'}\\
+C{\widetilde{\phantom{a}}} \ar[r]^{u^{s}}&
+C'{\widetilde{\phantom{a}}} }
+\]
+交换.
+\end{enumerate}
+
+更确切地说, 可选取函子 $\underline{a}$ 与 $\underline{a}'$ 使满足条件 1).
+函子 $\underline{a}$ 和 $\underline{a}'$ 选定后, 可选取函子 $u^s$ 使满足条件 2).
+\end{enonce*}
+
+\begin{enonce*}{命题 1.5}\etiquette[1.5]{III.prop1.5}
+设 $𝒰\subset 𝒱$ 为两个宇宙, $C$ 和 $C'$ 为两个 $𝒰$-景,
+$u:C\rightarrow C'$ 为底层范畴之间的函子.
+则 $u$ 相对于 $𝒰$ 连续当且仅当它相对于 $𝒱$ 连续.
+此外, 当 $u$ 连续时, 用 $u^s_{𝒰}$ (分别用 $u^s_{𝒱}$)
+表示 \hyperref[III.prop1.2]{1.2} {\rm iv)} 中引入的
+$𝒰$-层 (分别为 $𝒱$-层) 范畴之间的函子. 则图
+\[\vcenter{
+\xymatrix@C=3cm@R=1.5cm{ \widetilde{C}_{𝒰}
+\ar[r]^{u_{\underline{U}}^s} \ar[d]&
+\widetilde{C'}_{\underline{U}} \ar[d]\\
+ C\widetilde{\phantom{a}}_{\underline{V}} \ar[r]^{u_{\underline{V}}^s}
+ &  C'\widetilde{\phantom{a}}_{\underline{V}} ,
+}}\leqno{(1.5.1)}
+\]\etiquette[1.5.1]{III.eq1.5.1}
+(其中\pageoriginale{}竖函子为典范包含函子) 交换到典范同构.
+\end{enonce*}
+
+\begin{enonce*}[remark]{证明}
+仅给出 $C$ 为 $𝒰$-小时的证明. 一般情形将在 \hyperref[III.subsec4.3]{4.3} 中证明.
+显然, 若函子 $u^\ast$ 将 $C'$ 上的每个 $𝒱$-层映为 $C$ 上的 $𝒱$-层,
+则它也将 $C'$ 上的每个 $𝒰$-层映为 $C$ 上的 $𝒰$-层.
+设 $u^\ast$ 将 $C'$ 上的每个 $𝒰$-层映为 $C$ 上的 $𝒰$-层.
+用 $C^{\widehat{\phantom{,}}}_{𝒰}\hookrightarrow C^{\widehat{\phantom{,}}}_{𝒱}$
+(分别用 ${C'}^{\widehat{\phantom{,}}}_{𝒰}\hookrightarrow {C'}_{𝒱}^{\widehat{\phantom{,}}}$)
+表示 $𝒰$-预层和 $𝒱$-预层的范畴, 用 $u_{𝒰!}$ 和 $u_{𝒱!}$
+分别表示 $𝒰$-预层和 $𝒱$-预层的“逆像”函子. 有交换图
+(参见 \hyperrefext[I][I.prop5.1]{5.1} 中 $u_{!}$ 的显式构造):
+\[\vcenter{
+  \xymatrix@C=3cm@R=1.25cm@M=.2cm{
+C\widehat{\phantom{a}}_{\underline{U}} \ar[r]^{u_{{\underline{U}}!}}
+\ar @{_{(}->}[d]&
+C'\widehat{\phantom{a}}_{\underline{V}} \ar @{_{(}->}[d]\\
+C\widehat{\phantom{a}}_{\underline{V}}
+\ar[r]^{u_{{\underline{V}}!}}&
+C'\widehat{\phantom{a}}_{\underline{V}}. }}\leqno{(*)}
+\]
+从 $𝒰$-预层到 $𝒱$-预层的包含函子全忠实且与投射极限交换.
+由 (\hyperrefext[II][II.prop5.1]{5.1} i)) 得出,
+$𝒰$-预层的双覆盖态射也是 $𝒱$-预层的双覆盖态射.
+现设 $R\hookrightarrow X$ 为覆盖 $C$ 的对象 $X$ 的筛.
+由 \hyperref[III.prop1.2]{1.2} ii), 态射 $u_{𝒰!}R\rightarrow u_{𝒰!}X$ 双覆盖.
+利用 $(\ast)$ 的交换性及上述论断, 推出态射 $u_{𝒱!}R\rightarrow u_{𝒱!}X$ 双覆盖.
+因而 (\hyperref[III.prop1.2]{1.2}), 函子 $u^\ast$ 将 $C'$ 上的 $𝒱$-层映为 $C$ 上的 $𝒱$-层.
+于是 \eqhyperref[III.eq1.5.1]{1.5.1} 的交换性来自 $(\ast)$ 的交换性、
+\hyperrefext[II][II.prop3.6]{3.6} 以及 \hyperref[III.prop1.3]{1.3} 2).
+\end{enonce*}
+
+\begin{enonce*}{命题 1.6}\etiquette[1.6]{III.prop1.6}
+设\pageoriginale{} $C$ 和 $C'$ 为两个 $𝒰$-景,
+$u:C\rightarrow C'$ 为底层范畴之间的函子. 考虑下述条件:
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item $u$ 连续 {\rm(参见 \hyperref[III.def1.1]{1.1} 与 \hyperref[III.prop1.2]{1.2}).}
+
+\item 对 $C$ 中的每个覆盖族 $(X_i\rightarrow X)$, $i\in I$,
+$C'$ 中的族 $(uX_i\rightarrow uX)$, $i\in I$ 覆盖.
+
+有蕴含关系 {\rm i) $\Rightarrow$ ii).}
+
+假定 $C$ 的拓扑可由预拓扑 {\rm $T$ (\hyperrefext[II][II.def1.3]{1.3})} 定义,
+且函子 $u$ 与纤维积交换.\footnote[1]{实际上,
+只须 $u$ 与 $T$ 的覆盖族中的态射在基变换中出现的纤维积交换.}
+则条件 {\rm i)} 与 {\rm ii)} 等价, 且也等价于下述条件:
+
+\item 函子 $u$ 将 $T$ 的覆盖族映为 $C'$ 中的覆盖族.
+\end{enumerate}
+
+特别地, 假定 $C$ 中的纤维积可表且函子 $u$ 与纤维积交换.
+则条件 {\rm i)} 与 {\rm ii)} 等价.
+\end{enonce*}
+
+\begin{enonce*}[remark]{证明}
+先证 i) $\Rightarrow$ ii). 设 $X_i\rightarrow X$, $i\in I$ 为 $C$ 中的覆盖族.
+对 $C'$ 上的每个层 $F$, $u^\ast F$ 为层. 因而映射
+$$
+\Hom(X,u^\ast F)\longrightarrow \prod_i\Hom(X_i,u^\ast F)
+$$
+单射 (\hyperrefext[II][II.prop5.1]{5.1}). 故有单射
+$$
+\Hom(u_{!}X,F)\longrightarrow \prod_i \Hom(u_{!}X_i, F){\quoi}.
+$$
+因此族 $u_{!}X_i\rightarrow u_{!}X$, $i\in I$ 在 $C'$ 中覆盖
+(\hyperrefext[II][II.prop5.1]{5.1}).
+
+预拓扑 $T$ 的每个覆盖族均为 $C$ 中的覆盖族, 故 ii) $\Rightarrow$ iii).
+下面证明 iii) $\Rightarrow$ i). 设 $X$ 为 $C$ 的对象,\pageoriginale
+$X_i\rightarrow X$, $i\in I$ 为 $\Cov(X)$ 中的覆盖族
+(II \hyperref[II.def1.3]{1.3}). 态射 $X_i\rightarrow X$ 可作拉回,
+且函子 $u$ 与纤维积交换. 因而纤维积 $u(X_i)\times_{u(X)} u(X_j)$ 可表,
+且典范同构于 $u(X_i\times_X X_j)$. 设 $F$ 为 $C'$ 上的层. 则集合图
+$$
+F(u(X))\rightarrow \prod_i F(u(X_i))\rightrightarrows
+\prod_{i,j}F(u(X_i\times_X X_j))
+$$
+正合 (\hyperrefext[II][II.def2.1]{2.1}, \hyperrefext[I][I.cor3.5]{3.5}
+以及 \hyperrefext[I][I.prop2.12]{2.12}). 因而集合图
+$$
+u^\ast F(X)\rightarrow \prod_i u^\ast F(X_i)\rightrightarrows
+\prod_{i,j}u^\ast F(X_i\times_X X_j)
+$$
+正合. 故 $u^\ast F$ 为层 (\hyperrefext[II][II.cor2.4]{2.4}), 由此得 i).
+\hyperref[III.prop1.6]{1.6} 的最后一个断言来自上述论证以及如下事实:
+当纤维积在 $C$ 中可表时, $C$ 中的所有覆盖族\footnote[1]{以属于适当宇宙的集合为指标.}
+定义 $C$ 上的一个预拓扑, 其相伴拓扑即为 $C$ 的拓扑.
+\end{enonce*}
+
+
+% END INCLUDED SGA4_English_current_buildable_source_20260906/source/03/drafts/SGA4_III_LINES_242_461_English.texfrag
+
+
+% BEGIN INCLUDED SGA4_English_current_buildable_source_20260906/source/03/drafts/SGA4_III_LINES_462_612_English.texfrag
+\begin{enonce*}{命题 1.7}\etiquette[1.7]{III.prop1.7}
+设 $C$ 为小景, $C'$ 为 $𝒰$-景, $u:C\rightarrow C'$ 为连续函子.
+设 $\gamma$ 为由有限投射极限定义的代数结构,
+使 $𝒰-\Ens$ 的 $\gamma$-对象范畴中以 $𝒰$ 为指标的归纳极限可表
+\footnote[2]{事实上, 可以证明此条件总满足.}.
+采用命题 {\rm II \hyperref[II.prop6.4]{6.4}} 的记号.
+函子 $u_s$ 与投射极限交换, 因而定义函子
+$u^{\gamma}_s:C^{\sim}_{\gamma}\rightarrow {C'}^{\sim}_{\gamma}$.
+函子 $u^{\gamma}_s$ 有左伴随 $u^s_{\gamma}$, 具有下述性质:
+\begin{enumerate}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 有\pageoriginale{}典范同构
+$u^s_{\gamma}\xrightarrow{\sim}\underline{a}'_{\gamma}u_{\gamma !}i_{\gamma}$,
+且 $u^s_{\gamma}$ 与 $u_{\gamma !}$ 所交换的每个有限投射极限交换.
+
+\item 有典范同构
+$u^s_{\gamma}\underline{a}_{\gamma}\xrightarrow{\sim}\underline{a}'_{\gamma} u'_{\gamma !}$.
+
+\item 函子 $u^s_{\gamma}$ 与归纳极限交换.
+
+\item 若 $u^s$ 左正合, 则图 {\rm(采用 II \hyperref[II.subsubsec6.3.0]{6.3.0} 的记号)}
+\[
+\xymatrix@C=3.5cm@R=1.25cm{ C^{\widetilde{\phantom{a}}_\gamma}
+\ar[r]^{u_{Y}^{s}}
+\ar[d]_{\esj^{\widetilde{\phantom{a}}}}& C'\widetilde{\phantom{a}}_\gamma \ar[d]_{{\esj'}^{\widetilde{\phantom{a}}}}\\
+C^{\widetilde{\phantom{a}}} \ar[r]^{u^{s}}  &
+{C'}\widetilde{\phantom{a}} }
+\]
+交换到同构, 且函子 $u^s_{\gamma}$ 正合.
+
+\item 假定函子 $\esj^{\sim}$ (分别为 $\esj^{\sim}$) 有左伴随
+$\Lib^{\sim}$ (分别为 ${\Lib'}^{\sim}$)
+{\rm (\hyperrefext[II][II.prop6.5]{6.5})}. 则有典范同构
+$u^s_{\gamma}\Lib^{\sim}\xrightarrow{\sim}{\Lib'}^{\sim} u^s$.
+\end{enumerate}
+
+此外, 当 $C$ 不一定为小景而为 $𝒰$-景时, 函子 $u^{\gamma}_s$ 有左伴随 $u^s_{\gamma}$.
+最后, 若 $V$ 为包含 $𝒰$ 的宇宙, 并且 $u^s_{\gamma𝒰}$
+(分别为 $u^s_{\gamma𝒱}$) 表示 $u_s$ 相对于宇宙 $𝒰$ (分别为 $𝒱$) 的左伴随,
+则下述类似于图 \eqhyperref[III.eq1.5.1]{1.5.1} 的图:
+
+\hypertarget{sga4.exp.III.equation.1.7.1}{}\[\vcenter{
+\xymatrix@C=3.5cm@R=1.25cm{ C^{\widetilde{\phantom{a}}}_{\gamma
+\underline{U}} \ar[r]^{u_{\gamma \underline{U}}^{s}}
+\ar@{_{(}->}[d]&
+\widetilde{C}'_{\gamma \underline{U}} \ar@{_{(}->}[d]\\
+C^{\widetilde{\phantom{a}}}_{\gamma \underline{V}}
+\ar[r]^{u^s_{r\underline{V}}}  &  \widetilde{C}'_{\gamma
+\underline{V}} }}\leqno{(1.7.1)}
+\]
+交换到典范同构.
+\end{enonce*}
+
+\begin{enonce*}[remark]{证明}
+当 $C$ 为小景时的证明留待读者完成.
+对 $C$ 为 $𝒰$-景的情形, 将在 \hyperref[III.subsec4.3]{4.3} 中补全.
+\end{enonce*}
+
+\begin{enonce*}[remark]{记号 1.8}\etiquette[1.8]{III.not1.8}
+此后\pageoriginale{}将用记号 $u_s$ 表示函子 $u^{\gamma}_s$.
+此记号不太可能引起混淆, 因为函子 $u_s$ (定义在集合层上) 与有限投射极限交换.
+\end{enonce*}
+
+同样地, 当 $u^s$ 左正合时, 用记号 $u^s$ 表示函子 $u^s_{\gamma}$.
+\hyperref[III.prop1.7]{1.7} 4) 说明了这种记号滥用的合理性.
+
+\begin{enonce*}[remark]{例 1.9.1}\etiquette[1.9.1]{III.exem1.9.1}
+设 $X$ 为小拓扑空间. 用 $\Ouv(X)$ 表示 $X$ 的开子集范畴
+($\Ouv(X)$ 的对象为 $X$ 的开子集, $\Ouv(X)$ 的态射为包含), 并赋予典范拓扑.
+族 $(U_i\subset U)$, $i\in I$ 覆盖当且仅当开子集 $U_i$ 覆盖 $U$
+(\hyperrefext[II][II.prop2.6]{2.6}). 因此 $\Ouv(X)$ 上的集合层就是 [TF] 意义下的集合层.
+设 $f:X\rightarrow Y$ 为连续映射. 它诱导函子
+$f^{-1}:\Ouv(Y)\rightarrow \Ouv(X)$: 对 $Y$ 的每个开子集 $U$,
+$f^{-1}(U)$ 是 $U$ 在映射 $f$ 下的逆像.
+函子 $f^{-1}$ 连续 (\hyperref[III.prop1.6]{1.6}).
+函子 $f^{-1}_s:\Ouv(X)^{\sim}\rightarrow \Ouv(Y)^{\sim}$
+为 [TF] 意义下的层的正像函子.
+函子 $(f^{-1})^s:\Ouv(Y)^{\sim}\rightarrow \Ouv(X)^{\sim}$
+为 [TF] 意义下的层的逆像函子.
+由 \hyperref[III.prop1.3]{1.3} 5), 函子 $(f^{-1})^s$ 与有限投射极限交换.
+\end{enonce*}
+
+\begin{enonce*}[remark]{例 1.9.2}\etiquette[1.9.2]{III.exem1.9.2}
+设 $X$ 为拓扑空间, $Y\hookrightarrow X$ 为 $X$ 的开子集.
+$Y$ 的每个开子集都是 $X$ 的开子集, 从而得到函子
+$\Phi:\Ouv(Y)\rightarrow \Ouv(X)$.
+函子 $\Phi$ 连续 (\hyperref[III.prop1.6]{1.6}).
+函子 $\Phi_s:\Ouv(X)^{\sim}\rightarrow \Ouv(Y)^{\sim}$
+是\pageoriginale“限制到 $Y$”函子.
+函子 $\Phi^s_{\ab}:\Ouv(Y)^{\sim}_{\ab}\rightarrow \Ouv(X)^{\sim}_{\ab}$
+(\hyperrefext[II][II.subsubsec6.3.3]{6.3.3}, I \hyperref[III.prop1.7]{1.7})
+为 [TF] 中引入的“在 $Y$ 外延拓为零”函子.
+函子 $\Phi^s:\Ouv(Y)^{\sim}\rightarrow \Ouv(X)^{\sim}$
+(\hyperref[III.prop1.3]{1.3}) 类似于“延拓为零”函子:
+对 $Y$ 上的每个层 $H$ 及每点 $y\in Y$,
+$\Phi^sH$ 在 $y$ 处的茎典范同构于 $H$ 在 $y$ 处的茎;
+对每点 $x\in X$, $x\not\in Y$, $\Phi^sH$ 在 $x$ 处的茎为空.
+函子 $\Phi^s$ 称为“在 $Y$ 外延拓为空集”函子.
+函子 $\Phi^s$ 与纤维积以及以非空指标集为指标的有限积交换,
+但它不将 $\Ouv(Y)^{\sim}$ 的终对象映为 $\Ouv(X)^{\sim}$ 的终对象.
+\end{enonce*}
+
+\begin{enonce*}[remark]{例 1.9.3}\etiquette[1.9.3]{III.exem1.9.3}
+设 $C$ 和 $C'$ 为两个小景, $u:C\rightarrow C'$ 为其底层范畴之间的函子,
+它将 $C$ 的每个覆盖族映为 $C'$ 的覆盖族.
+函子 $u$ 一般并不连续 (但参见 \hyperref[III.prop1.6]{1.6}).
+下面给出反例. 设 $S$ 为宇宙 $𝒰$ 中基数无限的集合,
+$C$ 为集合范畴的满子范畴, 其对象为 $S$ 的有限非空子集.
+给 $C$ 赋予典范拓扑. 注意, $C$ 的覆盖族是满射的映射族, 并且覆盖族非空.
+还应注意, 精确到同构, $C$ 上只有两个常值层:
+取值为空集的层和取值为单元素集的层.
+令 $C=C'$, 并设 $u:C\rightarrow C'$ 为常值函子.
+函子 $u$ 将 $C$ 的覆盖族映为 $C'$ 的覆盖族. 函子 $u$ 并不连续.
+事实上, 由于 $C'$ 的可表预层都是层, 对 $C'$ 的每个对象 $X$,
+存在 $C'$ 上的层\pageoriginale{} $F$, 使 $F(X)$ 的基数 $\geq 2$,
+因而预层 $u^\ast F$ 不是层.
+\end{enonce*}
+
+
+% END INCLUDED SGA4_English_current_buildable_source_20260906/source/03/drafts/SGA4_III_LINES_462_612_English.texfrag
+
+
+% BEGIN INCLUDED SGA4_English_current_buildable_source_20260906/source/03/drafts/SGA4_III_LINES_613_861_English.texfrag
+\section{余连续函子}\etiquette[2]{III.sec2}
+
+\begin{enonce*}{定义 2.1}\etiquette[2.1]{III.def2.1}
+设 $C$ 和 $C'$ 为两个 $𝒰$-景, $u:C\rightarrow C'$ 为底层范畴之间的函子.
+若 $u$ 具有下述性质, 就称它余连续:
+
+$(COC)$ 对 $C$ 的每个对象 $Y$ 及每个覆盖筛 $R\hookrightarrow u(Y)$,
+那些使 $u(Z)\rightarrow u(Y)$ 经 $R$ 分解的箭头 $Z\rightarrow Y$
+在 $Y$ 上生成的筛覆盖~$Y$.
+\end{enonce*}
+
+\begin{enonce*}{命题 2.2}\etiquette[2.2]{III.prop2.2}
+设 $C$ 为小景, $C'$ 为 $𝒰$-景, $u:C\rightarrow C'$ 为底层范畴之间的函子.
+用 $\widehat{u}_{\ast}:C^{\widehat{\phantom{,}}}\rightarrow {C'}^{\widehat{\phantom{,}}}$
+表示函子 $F\mapsto F\circ u=\widehat{u}^{\ast}F$ 的右伴随
+{\rm (\hyperrefext[I][I.prop5.1]{5.1}).}
+函子 $u$ 余连续当且仅当对 $C$ 上的每个层 $G$, $\widehat{u}_{\ast}G$ 是 $C'$ 上的层.
+\end{enonce*}
+
+\begin{enonce*}[remark]{证明}
+\emph{此条件充分.} 假定对 $C$ 上的每个层 $G$, 预层 $\widehat{u}_{\ast}G$ 为层.
+设 $Y$ 为 $C$ 的对象, $R\hookrightarrow u(Y)$ 为覆盖筛.
+有同构 $\Hom(u(Y),u_{\ast}G)\xrightarrow{\sim}\Hom(R,u_{\ast}G)$,
+故由伴随关系 (\hyperrefext[I][I.prop5.1]{5.1}), 有同构
+$\Hom(\widehat{u}^{\ast}\circ u(Y),G)\xrightarrow{\sim}\Hom(\widehat{u}^{\ast}R,G)$.
+由此 (\hyperrefext[II][II.prop5.3]{5.3}) 得出态射
+$\widehat{u}^{\ast}R\rightarrow \widehat{u}^{\ast}u(Y)$ 双覆盖.
+但函子 $\widehat{u}^{\ast}$ 与投射极限交换, 因而态射
+$\widehat{u}^{\ast}R\rightarrow \widehat{u}^{\ast}u(Y)$ 为单态射.
+所以它是覆盖单态射. 另一方面, 有由伴随态射
+$\id_C\rightarrow \widehat{u}^{\ast}u_{!}$\pageoriginale{}
+(\hyperrefext[I][I.prop5.4]{5.4} 3)) 得出的典范态射
+$Y\xrightarrow{p}\widehat{u}^{\ast}u(Y)$.
+现在作基变换 $Y\xrightarrow{p}\widehat{u}^{\ast}u(Y)$, 得到 $Y$ 上的覆盖筛:
+$$
+\widehat{u}^{\ast}R\times_{\widehat{u}^{\ast}u(Y)}Y\longrightarrow
+Y{\quoi},
+$$
+确定哪些箭头 $Z\rightarrow Y$ 经此筛分解, 就得到性质 (COC) 所描述的筛.
+\end{enonce*}
+
+\emph{此条件必要.} 设 $S$ 为 $C'$ 的对象, $R\hookrightarrow S$ 为 $S$ 上的覆盖筛.
+须证对 $C$ 上的每个层 $G$, 存在同构
+$$
+\Hom(S,u_{\ast}G)\xrightarrow{\sim} \Hom(R,u_{\ast}G){\quoi}.
+$$
+
+利用命题 \hyperrefext[II][II.prop5.3]{5.3} 以及伴随同构,
+可见只须证明单态射 $\widehat{u}^{\ast}R\rightarrow \widehat{u}^{\ast}S$ 覆盖.
+为此, 只须证明 (\hyperrefext[II][II.prop5.1]{5.1}), 对每个基变换
+$Y\rightarrow \widehat{u}^{\ast}S$, 筛
+$\widehat{u}^{\ast}R\times_{\widehat{u}^{\ast}S}Y$ 覆盖,
+其中 $Y$ 为 $C$ 的对象. 但由伴随函子的性质,
+以及 \hyperrefext[I][I.prop5.4]{5.4} 3), 态射
+$Y\rightarrow \widehat{u}^{\ast}S$ 经
+$Y\xrightarrow{p}\widehat{u}^{\ast}u(Y)\rightarrow \widehat{u}^{\ast}S$ 分解,
+因而筛 $\widehat{u}^{\ast}R\times_{\widehat{u}^{\ast}S}Y\hookrightarrow Y$
+由单态射
+$\xymatrix@1@M=.15cm{
+\fprod{\hat{u}^{\ast}R}{\hat{u}^{\ast}u(Y)}{\hat{u}^{\ast}S}
+\ar@{^{(}->}@<-1pt>[r]^(.6){q}&\hat{u}^{\ast}u(Y)}$
+经基变换 $Y\xrightarrow{p}\widehat{u}^{\ast}u(Y)$ 得到.
+现有函子 $\widehat{u}^{\ast}$ 与投射极限交换,
+因而单态射 $q$ 是覆盖筛 $R\times_S u(Y)\hookrightarrow u(Y)$
+在 $\widehat{u}^{\ast}$ 下的像. 于是由假设 (COC) 得出筛
+$\widehat{u}^{\ast}R\times_{\widehat{u}^{\ast}S}Y\hookrightarrow Y$ 覆盖, \cqfd
+
+\begin{enonce*}{命题 2.3}\etiquette[2.3]{III.prop2.3}
+设 $C$ 和 $C'$ 为两个 $𝒰$-景, $u:C\rightarrow C'$ 为余连续函子.
+用 $u^{\ast}:\widehat{C}'\rightarrow \widehat{C}$ 表示函子
+$u^{\ast}=\underline{a}\widehat{u}^{\ast}i'$,
+其中 $\underline{a}$ 表示 $C^{\widehat{\phantom{,}}}$ 的“伴随层”函子,
+$\widehat{u}^{\ast}$ 为函子 $F\mapsto F\circ u$,
+$i'$ 为包含函子\pageoriginale{}
+$\widetilde{C}'\rightarrow {C'}^{\widehat{\phantom{,}}}$.
+\begin{enumerate}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 函子 $u^{\ast}$ 与归纳极限交换且正合.
+
+\item 有典范同构 $u^{\ast}\underline{a}'\simeq \underline{a}\widehat{u}^{\ast}$,
+其中 $\underline{a}'$ 表示 ${C'}^{\widehat{\phantom{,}}}$ 的“伴随层”函子.
+
+\item 函子 $u^\ast$ 有右伴随 $u_{\ast}:\widetilde{C}\rightarrow \widetilde{C}'$.
+当 $C$ 小时, 图
+\[\vcenter{
+\xymatrix@C=3.25cm@R=1.25cm@M=.25cm{
+C\widetilde{\phantom{a}}\ar[r]^{u_\ast} \ar@{_{(}->}[d]_{i}&
+\widetilde{C}' \ar@{_{(}->}[d]^{i'}\\
+C\widehat{\phantom{a}} \ar[r]^{\widehat{u}_{\ast}}  &
+C'\widehat{\phantom{a}}, }}\leqno{(2.3.1)}
+\]\etiquette[2.3.1]{III.eq2.3.1}
+(其中下方函子为函子 $\widehat{u}^{\ast}$ 的右伴随
+(\hyperrefext[I][I.prop5.1]{5.1})) 交换到典范同构.
+
+\item 设 $𝒱\supset 𝒰$ 为宇宙. 用
+$u_{\ast_{𝒰}}:C^{\sim}_{𝒰}\rightarrow \widetilde{C}'_{𝒰}$
+(分别用 $u_{\ast_{𝒱}}:C^{\sim}_{𝒱}\rightarrow \widetilde{C}'_{𝒱}$)
+表示 $3$) 中断言存在的相对于宇宙 $𝒰$ (分别为 $𝒱$) 的右伴随. 则图
+\[\vcenter{
+\xymatrix@C=3.25cm@R=1.25cm@M=.2cm{
+C\widetilde{\phantom{a}}_{\underline{U}}
+\ar[r]^{u_{\ast_{\underline{U}}}} \ar@{_{(}->}[d]&
+\widetilde{C}'_{\underline{U}} \ar@{_{(}->}[d]\\
+C\widetilde{\phantom{a}}_{\underline{V}}
+\ar[r]^{u_{\ast_{\underline{V}}}}& \widetilde{C}'_{\underline{V}}
+}}\leqno{(2.3.2)}
+\]\etiquette[2.3.2]{III.eq2.3.2}
+交换到同构.
+\end{enumerate}
+\end{enonce*}
+
+\begin{enonce*}[remark]{证明}
+断言 1) 和 2) 立即来自 \hyperrefext[II][II.theo3.4]{3.4}.
+当 $C$ 小时, 断言 3) 来自 \hyperref[III.prop2.2]{2.2}.
+当 $C$ 为 $𝒰$-景时, 将在 \hyperref[III.subsec4.4]{4.4} 中证明.
+当 $C$ 小时, 断言 4) 来自 $C$ 与 $C'$ 的拓扑均为混沌拓扑时的类似交换性断言,
+以及 \hyperrefext[I][I.cor3.5]{3.5}.
+当 $C$ 和 $C'$ 的拓扑为混沌拓扑时,\pageoriginale{}
+\eqhyperref[III.eq2.3.2]{2.3.2} 的交换性立即来自
+$u_{\ast}$ 的显式描述 (\hyperrefext[I][I.prop5.1]{5.1}).
+\end{enonce*}
+
+\setcounter{subsection}{3}
+\subsection{}\etiquette[2.4]{III.subsec2.4}
+这里不展开关于层范畴的 $\gamma$-对象的讨论.
+只须注意, 本节引入的函子 $u^{\ast}$ 和 $u_{\ast}$ 总与有限投射极限交换
+(与前节中函子 $u^s$ 的情形不同).
+因而它们自然扩张为定义在 $\gamma$-对象上的函子;
+这些函子互为伴随, 并与“底层集合层”函子交换.
+我们将采用 \hyperref[III.not1.8]{1.8} 中提及的记号滥用,
+也用 $u^{\ast}$ 和 $u_{\ast}$ 表示向 $\gamma$-对象的扩张.
+
+\begin{enonce*}{命题 2.5}\etiquette[2.5]{III.prop2.5}
+设 $C$ 和 $C'$ 为两个 $𝒰$-景, 并设
+$\xymatrix{ C \ar@<2pt>[r]^{v}& C'\ar@<2pt>[l]^{u} }$
+为一对函子, 其中 $v$ 为 $u$ 的左伴随. 下述性质等价:
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 函子 $u$ 连续.
+
+\item 函子 $v$ 余连续.
+\end{enumerate}
+此外, 在这些等价条件下, 有典范同构 $v_{\ast}\simeq u_{s}$ 以及 $v^{\ast}\simeq u^s$.
+特别地, 函子 $u^s$ 与有限投射极限交换.
+\end{enonce*}
+
+\begin{enonce*}[remark]{证明}
+函子连续或余连续的性质不依赖于使 $C$ 与 $C'$ 成为 $𝒰$-景的宇宙 $𝒰$
+(对余连续函子这是直接的, 对连续函子则来自 \hyperref[III.prop1.5]{1.5}).
+因此可以扩大宇宙后假定 $C$ 与 $C'$ 小.
+此时命题来自 \hyperref[III.prop2.2]{2.2} 及 \hyperrefext[I][I.prop5.6]{5.6}.
+\end{enonce*}
+
+\begin{enonce*}{命题 2.6}\etiquette[2.6]{III.prop2.6}
+设\pageoriginale{} $u:C\rightarrow C'$ 为两个 $𝒰$-景之间的连续且余连续的函子.
+则函子 $u^{\ast}:{C'}^{\sim}\rightarrow C^{\sim}$
+$(\hyperref[III.prop2.3]{2.3})$ 与 $𝒰$-归纳极限及投射极限交换.
+用 $u_{!}:C^{\sim}\rightarrow {C'}^{\sim}$ 与 $u_{\ast}:C^{\sim}\rightarrow {C'}^{\sim}$
+分别表示 $u^{\ast}$ 的左伴随和右伴随.
+函子 $u_{!}$ 全忠实当且仅当函子 $u_{\ast}$ 全忠实.
+当 $u$ 全忠实时, $u_{!}$ 全忠实;
+若 $C$ 与 $C'$ 的拓扑比典范拓扑粗, 则逆命题成立.
+\end{enonce*}
+
+函子 $u^{\ast}$ 有右伴随 $u_{\ast}$ (\hyperref[III.prop2.3]{2.3})
+及左伴随 $u_{!}$ (\hyperref[III.prop1.2]{1.2}).
+因此函子 $u^{\ast}$ 与归纳极限及投射极限交换 (\hyperrefext[I][I.prop2.11]{2.11}).
+$u_{!}$ 全忠实当且仅当 $u_{\ast}$ 全忠实是伴随函子的一般性质
+(\hyperrefext[I][I.rem5.7]{5.7} 1).
+当 $u$ 全忠实时, 对充分大的宇宙 $𝒱$,
+$𝒱$-预层上的函子
+$\widehat{u}_{\ast}:C^{\widehat{\phantom{,}}}_{𝒱}\rightarrow {C'}^{\widehat{\phantom{,}}}_{𝒱}$
+全忠实 (\hyperrefext[I][I.rem5.7]{5.7}).
+因而, 由 \eqhyperref[III.eq2.3.1]{2.3.1} 与 \eqhyperref[III.eq2.3.2]{2.3.2} 的交换性,
+函子 $u_{\ast}:C^{\sim}\rightarrow \widetilde{C}'$ 全忠实,
+从而由上述论证, $u_{!}$ 也全忠实.
+逆命题来自 \hyperref[III.prop1.2]{1.2} iv) 中交换图的存在性,
+并须考虑到当拓扑比典范拓扑粗时函子 $\epsilon_C$ 和 $\epsilon_{C'}$ 全忠实, \cqfd
+
+\begin{enonce*}[remark]{例 2.7}\etiquette[2.7]{III.exem2.7}
+采用 \hyperref[III.exem1.9.2]{1.9.2} 的记号, 函子
+$$
+\Phi:\Ouv(Y)\longrightarrow \Ouv(X)
+$$
+连续 (\hyperref[III.exem1.9.2]{1.9.2}) 且余连续 (\hyperref[III.prop2.2]{2.2}).
+此外, 设 $i:Y\rightarrow X$ 为典范包含,\pageoriginale{}
+$i^{-1}:\Ouv(X)\rightarrow \Ouv(Y)$ 为它定义的函子
+(\hyperref[III.exem1.9.1]{1.9.1}). 函子 $i^{-1}$ 为函子 $\Phi$ 的右伴随.
+因而有三个伴随函子的序列:
+\begin{align*}
+\Phi^s\quad ,\quad & \Phi_s\\
+        & ‖\\
+        &\Phi^{\ast}\quad,\quad \Phi_{\ast},
+\end{align*}
+以及典范同构 $\Phi^{\ast}\simeq (i^{-1})^s$ 与 $\Phi_{\ast}\simeq i^{-1}_s$.
+\end{enonce*}
+
+% END INCLUDED SGA4_English_current_buildable_source_20260906/source/03/drafts/SGA4_III_LINES_613_861_English.texfrag
+
+
+% BEGIN INCLUDED SGA4_English_current_buildable_source_20260906/source/03/drafts/SGA4_III_LINES_862_1113_English.texfrag
+\section{诱导拓扑}\etiquette[3]{III.sec3}
+
+\subsection{}\etiquette[3.1]{III.subsec3.1}
+设 $C'$ 为景, $C$ 为范畴, $u:C\rightarrow C'$ 为函子.
+对每个使 $C'$ 为 $𝒰$-景且 $C$ 为 $𝒰$-小范畴的宇宙 $𝒰$,
+用 $𝒯_{𝒰}$ 表示 $C$ 上使 $u$ 连续的各拓扑 $T$ 中最细的一个
+(\hyperref[III.def1.1]{1.1}). (这样的拓扑由 \hyperrefext[II][II.prop2.2]{2.2} 存在.)
+拓扑 $𝒯_{𝒰}$ 不依赖宇宙 $𝒰$.
+事实上, 若 $𝒱\supset 𝒰$ 为宇宙, 则 $𝒯_{𝒰}=𝒯_{𝒱}$
+(\hyperref[III.def1.1]{1.1} 与 \hyperref[III.prop1.5]{1.5}).
+拓扑 $𝒯_{𝒰}$ 称为\emph{借助函子 $u$, 由 $C'$ 的拓扑在 $C$ 上诱导的拓扑}
+\footnote[1]{在不会混淆时, 称此拓扑为\emph{由 $C'$ 的拓扑在 $C$ 上诱导的拓扑}.}.
+
+\begin{enonce*}{命题 3.2}\etiquette[3.2]{III.prop3.2}
+设 $C$ 为小范畴, $C'$ 为 $𝒰$-景, $u:C\rightarrow C'$ 为函子,
+$𝒯$ 为 $u$ 在 $C$ 上诱导的拓扑.
+设 $X$ 为 $C$ 的对象, $R\rightarrow X$ 为 $X$ 上的筛. 下述性质等价:
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 筛 $R\hookrightarrow X$ 对 $𝒯$ 覆盖.
+
+\item 对每个基变换 $Y\rightarrow X$, 其中 $Y$ 为 $C$ 的对象,
+态射 $u_{!}(R\times_X Y)\rightarrow u(Y)$ 在 ${C'}^{\widehat{\phantom{,}}}$ 中双覆盖
+{\rm (\hyperrefext[II][II.def5.2]{5.2}).}
+\end{enumerate}
+\end{enonce*}
+
+\begin{enonce*}[remark]{证明}
+\begin{itemize} %%% \XXX display problem [2016-11-23]: crossed-out i in i) below
+\item[i) $\Rightarrow$ ii):] 来自拓扑的公理 (T 1) 及 \hyperref[III.prop1.2]{1.2}.
+
+\item[ii) $\Rightarrow$ i):] 对 $C'$ 上的每个层 $F$, 映射
+$$
+\Hom(Y,u^{\ast}F)\longrightarrow \Hom(R\times_X Y, u^{\ast}F)
+$$
+由伴随关系\pageoriginale{} (\hyperrefext[I][I.prop5.1]{5.1}) 同构于映射
+$$
+\Hom(u(Y),F)\longrightarrow \Hom(u_{!}(R\times_X Y),F),
+$$
+而后者为双射 (\hyperrefext[II][II.prop5.3]{5.3}).
+因而 (\hyperrefext[II][II.prop2.2]{2.2}), 筛 $R\hookrightarrow X$ 对 $𝒯$ 覆盖.
+\end{itemize}
+\end{enonce*}
+
+\begin{enonce*}{推论 3.3}\etiquette[3.3]{III.cor3.3}
+设 $C'$ 为景, $C$ 为范畴, $u:C\rightarrow C'$ 为函子,
+$𝒯$ 为由 $C'$ 的拓扑在 $C$ 上诱导的拓扑.
+设 $(X_i\rightarrow X)$, $i\in I$ 为 $C$ 中的一族可作拉回的态射,
+并假定 $u$ 与纤维积交换\footnote[2]{实际上, 只须 $u$ 与形如
+$\fprod{X_i}{X'}{X}$ 的纤维积交换.}. 下述性质等价:
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 族 $X_i\rightarrow X$, $i\in I$ 对 $𝒯$ 覆盖.
+
+\item 族 $(u(X_i)\rightarrow u(X))$, $i\in I$ 覆盖.
+\end{enumerate}
+\end{enonce*}
+
+\begin{enonce*}[remark]{证明}
+\begin{itemize}
+\item[i) $\Rightarrow$ ii):] 来自 \hyperref[III.prop1.6]{1.6}.
+
+\item[ii) $\Rightarrow$ i):] 设 $𝒰$ 为使 $C$ 为 $𝒰$-小且 $C'$ 为 $𝒰$-景的宇宙.
+令 $R\hookrightarrow X$ 为由 $X_i\rightarrow X$ 生成的筛.
+预层 $R$ 为下述箭头对的余等化子
+(\hyperrefext[I][I.prop2.12]{2.12} 与 \hyperrefext[I][I.cor3.5]{3.5})
+$$
+\coprod_{i,j} \fprod{X_i}{X_j}{X}\rightrightarrows \coprod_i X_i
+$$
+(余积在此于 $C^{\wedge}$ 中取得).
+由于函子 $u_{!}$ 与归纳极限交换 (\hyperrefext[I][I.prop5.4]{5.4}),
+预层 $u_{!}R$ 为下述箭头对的余等化子
+$$
+\coprod_{i,j}u(\fprod{X_i}{X_j}{X})\rightrightarrows \coprod_i
+u(X_i){\quoi}.
+$$
+由于函子 $u$ 与纤维积交换, 预层 $u_{!}R$ 为下述箭头对的余等化子
+$$
+\coprod_{i,j}\fprod{u(X_i)}{u(X_j)}{u(X)}\rightrightarrows \coprod_i
+u(X_i){\quoi},
+$$
+因而\pageoriginale{} $u_{!}R\rightarrow u(X)$ 为 $u(X)$ 上由
+$u(X_i)\rightarrow u(X)$, $i\in I$ 生成的筛.
+再次利用 $u$ 与纤维积交换这一事实可证, 对每个基变换
+$Y\rightarrow X$, 其中 $Y$ 为 $C$ 的对象,
+$u_{!}(\fprod{R}{Y}{X})\rightarrow u(Y)$ 为 $u(Y)$ 上由
+$\fprod{u(X_i)}{u(Y)}{u(X)}\rightarrow u(Y)$, $i\in I$ 生成的筛.
+由于族 $u(X_i)\rightarrow u(X)$, $i\in I$ 覆盖,
+族 $\fprod{u(X_i)}{u(Y)}{u(X)}\rightarrow u(Y)$, $i\in I$ 覆盖.
+故 $u_{!}(\fprod{R}{Y}{X})\rightarrow u(Y)$ 为覆盖筛,
+因而 (\hyperref[III.prop3.2]{3.2}) $R\rightarrow X$ 对 $𝒯$ 覆盖, \cqfd
+\end{itemize}
+\end{enonce*}
+
+\begin{enonce*}{推论 3.4}\etiquette[3.4]{III.cor3.4}
+设 $C'$ 为 $𝒰$-景, $C$ 为 $C'$ 的满子范畴, $u:C\rightarrow C'$ 为包含函子.
+假定纤维积在 $C$ 中可表且 $u$ 与纤维积交换. 下述条件等价:
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item
+\begin{enumerate}
+\renewcommand{\theenumii}{\alph{enumii}}
+\renewcommand{\labelenumii}{\theenumii)}
+\item 对 $C$ 的每个对象 $X$, $C'$ 中的每个覆盖族
+$(Y_j\rightarrow X)$, $j\in J$ 都有覆盖族 $X_i\rightarrow X$, $i\in I$ 作为加细,
+其中各 $X_i$ 为 $C$ 的对象.
+
+\item 存在由 $C$ 的对象组成的小集 $G$, 使 $C$ 的每个对象都成为
+$C'$ 中某个覆盖态射族的终点, 且这些态射的起点均属于 $G$.
+\end{enumerate}
+
+\item 由 $C'$ 的拓扑诱导的拓扑为 $𝒰$-拓扑
+{\rm (I \hyperref[II.def3.0.2]{3.0.2})}, 且函子 $u$ 对此拓扑连续且余连续.
+\end{enumerate}
+\end{enonce*}
+
+\begin{enonce*}[remark]{证明}
+立即来自 \hyperref[III.cor3.3]{3.3} 及 \hyperref[III.def2.1]{2.1}.
+\end{enonce*}
+
+\begin{enonce*}{命题 3.5}\etiquette[3.5]{III.prop3.5}
+设\pageoriginale{} $C$ 为 $𝒰$-景, $\epsilon_C:C\rightarrow C^{\sim}$ 为典范函子
+{\rm (\hyperrefext[II][II.subsubsec4.4.0]{4.4.0})}.
+赋予 $C^{\sim}$ 典范拓扑. 则景 $C$ 的拓扑就是由 $C^{\sim}$ 的拓扑诱导的拓扑.
+\end{enonce*}
+
+\begin{enonce*}[remark]{证明}
+$C^{\sim}$ 的典范拓扑的覆盖族是泛有效满态射族
+(\hyperrefext[II][II.def2.5]{2.5}), 即 (\hyperrefext[II][II.prop4.3]{4.3}) 满态射族.
+设 $T$ 为景 $C$ 的拓扑, $𝒯_{𝒰}$ 为 $C$ 上满足如下条件的各拓扑 $T'$ 中最细的一个:
+对 $C^{\sim}$ 上的每个层 $F$, $F\circ\epsilon_C$ 是关于 $T'$ 的层.
+只须证 $T=𝒯_{𝒰}$, 因为此时 $𝒯_{𝒰}$ 为 $𝒰$-拓扑, 从而 $𝒯_{𝒰}$ 为诱导拓扑,
+\begin{itemize}
+\item[A)] \emph{拓扑 $T$ 比 $𝒯_{𝒰}$ 细}:
+设 $(X_i\rightarrow X)$, $i\in I$ 为 $𝒯_{𝒰}$ 的覆盖族.
+则对 $C^{\sim}$ 上的每个层 $F$, 映射
+$F(\epsilon_C(X))\rightarrow\prod_i F(\epsilon_C(X_i))$ 单射,
+因而 (\hyperrefext[II][II.def5.2]{5.2})
+$(\epsilon_C X_i\rightarrow \epsilon_CX)$, $i\in I$
+对 $C^{\sim}$ 的典范拓扑覆盖, 从而
+(\hyperrefext[II][II.def5.2]{5.2}) $(X_i\rightarrow X)$, $i\in I$ 对 $T$ 覆盖.
+
+\item[B)] \emph{拓扑 $T$ 比 $𝒯_{𝒰}$ 粗}:
+只须证明 $\epsilon_C:C\rightarrow C^{\sim}$ 连续 (\hyperref[III.def1.1]{1.1}).
+我们将在 IV 第 ${\rm n^{\circ}}$ 1 节证明 $C^{\sim}$ 上的每个层均可表,
+因而对 $C^{\sim}$ 上的每个层 $F$, $F\circ\epsilon_C$ 是 $C$ 上的层.
+(在 \hyperrefext[IV][IV.sec1]{1} 以前我们不会使用 \hyperref[III.prop3.5]{3.5}.)
+\end{itemize}
+记录将在 VI 7 中使用的两个结果.
+\end{enonce*}
+
+\begin{enonce*}{命题 3.6}\etiquette[3.6]{III.prop3.6}
+设 $(C_i)_{i\in I}$ 为一族景, $C$ 为范畴,
+并对每个 $i\in I$ 设 $u_i:C_i\rightarrow C$ 为函子.
+设 $\sheaf{\Uu}$ 为使范畴 $C_i$ 与 $C$ 为 $𝒰$-小的宇宙.
+存在 $C$ 上的拓扑 $𝒯_{𝒰}$, 它在使各 $u_i$ 连续的拓扑中最粗.
+拓扑 $𝒯_{𝒰}$ 不依赖于使所考虑的范畴为小的宇宙 $𝒰$.
+\end{enonce*}
+
+\hyperref[III.prop3.6]{3.6} 的最后一个断言来自 \hyperref[III.prop1.5]{1.5}.
+
+设 $T$ 为 $C$ 上的拓扑. 各函子 $u_i$ 连续, 当且仅当对每个 $i\in I$ 及
+$C_i$ 的对象 $X$ 上的每个覆盖筛 $R\hookrightarrow X$,\pageoriginale{}态射
+$$
+u_{i!}(R)\longrightarrow u_i(X)
+$$
+在 $\widehat{C}$ 中双覆盖 (\hyperref[III.prop1.2]{1.2} (ii)).
+因而 \hyperref[III.prop3.6]{3.6} 为下述引理的推论.
+
+\begin{enonce*}{引理 3.6.1}\etiquette[3.6.1]{III.lem3.6.1}
+设 $C$ 为小范畴, $(u_i:F_i\rightarrow G_i)_{i\in I}$ 为 $\widehat{C}$ 中的一族箭头.
+在 $C$ 上存在一个使各态射 $u_i$ 覆盖 (分别地, 双覆盖) 的最粗拓扑
+{\rm(\hyperrefext[II][II.def5.2]{5.2})}.
+\end{enonce*}
+
+称 $u:F\rightarrow G$ 对给定拓扑 $T$ 覆盖,
+就是说对每个 $X\in\Ob C$ 及每条箭头 $X\rightarrow G$,
+相应的箭头 $F\times_G X\rightarrow X$ 覆盖;
+等价地, $C$ 中经上述箭头分解的箭头 $X'\rightarrow X$ 所成的族覆盖.
+因此, 使各 $u_i:F_i\rightarrow G_i$ 覆盖的最粗拓扑的存在性来自
+I \hyperref[II.subsubsec1.1.6]{1.1.6},
+由此证明 \hyperref[III.lem3.6.1]{3.6.1} 不含括号内替代说法的断言.
+回顾态射 $u:F\rightarrow G$ 双覆盖当且仅当态射 $u:F\rightarrow G$
+和 $\diag_u:F\rightarrow F\times_G F$ 均覆盖, 便得括号内的断言.
+
+\begin{enonce*}{命题 3.7}\etiquette[3.7]{III.prop3.7}
+设 $(C_i)_{i\in I}$ 为一族景, $C$ 为范畴,
+对每个 $i\in I$ 设 $u_i:C_i\rightarrow C$ 为函子,
+并设 $\sheaf{\Uu}$ 为使范畴 $C_i$ 与 $C$ 为 $𝒰$-小的宇宙.
+存在使各 $u_i$ 余连续的最细拓扑 $\mathfrak{T}_{𝒰}$.
+拓扑 $\mathfrak{T}_{𝒰}$ 不依赖于使所考虑的范畴为小的宇宙 $𝒰$.
+\end{enonce*}
+
+设 $𝒰$ 为使所考虑的范畴为小的宇宙.
+各函子 $u_i$ 对 $C$ 上的拓扑 $\mathfrak{T}$ 余连续,
+当且仅当对每个 $i\in I$ 及 $C_i$ 上的每个层 $F$,
+预层 $\widehat{u}_{i^{\ast}}F$ 是关于 $\mathfrak{T}$ 的层
+(\hyperref[III.prop2.2]{2.2}).
+因此拓扑 $\mathfrak{T}_{𝒰}$ 是使各预层
+$\widehat{u}_{i^\ast}F$, $i\in I$, $F\in C_i^{\sim}$ 为层的最细拓扑
+(\hyperrefext[II][II.prop2.2]{2.2}).
+最后一个断言来自 \hyperref[III.prop2.2]{2.2}.
+
+
+% END INCLUDED SGA4_English_current_buildable_source_20260906/source/03/drafts/SGA4_III_LINES_862_1113_English.texfrag
+
+
+% BEGIN INCLUDED SGA4_English_current_buildable_source_20260906/source/03/drafts/SGA4_III_LINES_1114_1313_English.texfrag
+\section{比较引理}\etiquette[4]{III.sec4}\pageoriginale
+
+\begin{enonce*}{定理 4.1}\etiquette[4.1]{III.theo4.1}
+{\rm(比较引理)}. 设 $C$ 为小范畴, $C'$ 为底层范畴是 $𝒰$-范畴的景,
+$u:C\rightarrow C'$ 为全忠实函子.
+赋予 $C$ 由 $u$ 诱导的拓扑 {\rm(\hyperref[III.subsec3.1]{3.1}).}
+考虑下述性质:
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item $C'$ 的每个对象均可由来自 $C$ 的对象覆盖.
+
+\item 函子 $F\mapsto F\circ u$ 诱导从 $C'$ 上层的范畴到 $C$ 上层的范畴的等价.
+\end{enumerate}
+
+总有 {\rm i) $\Rightarrow$ ii).}
+当 $C'$ 为 $𝒰$-景且 $C'$ 的拓扑比典范拓扑粗时, 有 {\rm ii) $\Rightarrow$ i).}
+\end{enonce*}
+
+\setcounter{subsection}{1}
+\subsubsection{}\etiquette[4.1.1]{III.subsubsec4.1.1}
+先证 i) $\Rightarrow$ ii). 证明分两步.
+
+%\emph{ %% causes compilation problems
+第一步. 对 $C'$ 上的每个预层 $H$, 伴随态射
+$\varphi:u_{!}u^{\ast}H\rightarrow H$ {\rm(\hyperrefext[I][I.prop5.1]{5.1})}
+双覆盖 {\rm(\hyperrefext[II][II.prop5.3]{5.3})},
+且函子 $u_s:\widetilde{C'}\rightarrow \widetilde{C}$
+$\hyperref[III.subsec1.11]{(1.1.1)}$ 全忠实.
+%} %% cf. above
+
+设 $C/H$ 为如下小范畴: 其对象为配备态射 $u(Y)\rightarrow H$ 的 $C$ 的对象 $Y$,
+其态射为交换图
+\[
+\xymatrix@=1.25cm{
+u(Y) \ar[rr]^{u(m)} \ar[rd]&     &u(Y')\ar[ld]\\
+     &  H  & .
+}
+\]
+有 $u^{\ast}H=\varinjlim_{Y\in \ob C/H} Y$ (\hyperrefext[I][I.prop3.4]{3.4}),
+从而 (\hyperrefext[I][I.prop5.4]{5.4})
+$u_{!}u^{\ast}H=\varinjlim_{Y\in \ob C/H} u(Y)$.
+伴随态射就是由将 $u_{!}u^{\ast}H$ 描述为归纳极限而来的显然态射.
+态射 $\varphi$ 具有下述性质:\pageoriginale{} $(\ast)$
+对 $C$ 的每个对象 $Y$, 每个态射 $m:u(Y)\rightarrow H$
+唯一分解为典范态射 $\alpha(m):u(Y)\rightarrow u_{!}u^{\ast}H$ 后接 $\varphi$.
+由 i) 立即得出 $\varphi$ 覆盖 (\hyperrefext[II][II.prop5.1]{5.1}); 下面证明它双覆盖.
+设 $p,q:Z\rightrightarrows u_{!}u^{\ast}H$ 为从 $C'$ 的对象 $Z$ 出发的两个态射,
+满足 $\varphi p=\varphi q$.
+对 $C$ 的每个对象 $Y$ 及每个态射 $n:u(Y)\rightarrow Z$, 有 $\varphi pn=\varphi qn$.
+由性质 $(\ast)$ 得出 $pn=qn$, 且因各 $u(Y)$ 覆盖 $Z$,
+$(p,q)$ 的核为 $Z$ 的覆盖筛. 因而 $\varphi$ 双覆盖 (\hyperrefext[II][II.prop5.3]{5.3}).
+对 $C'$ 上的每个层 $H$, $u^{\ast}H$ 为 $C$ 上的层,
+记为 $u_sH$ \hyperref[III.subsec1.11]{(1.1.1)}.
+此外, 有 $u^su_sH=\underline{a}'u_{!}u_sH$ (\hyperref[III.prop1.3]{1.3}),
+且伴随态射 $u^su_sH\rightarrow H$ 是对
+$\varphi:u_{!}u^{\ast}H\rightarrow H$ 应用“伴随层”函子得到的.
+因而 (\hyperrefext[II][II.prop5.3]{5.3}), 伴随态射 $u^su_sH\rightarrow H$ 为同构.
+故 $u_s:\widetilde{C}'\rightarrow \widetilde{C}$ 全忠实.
+
+\noindent \emph{第二步. 函子 $u$ 余连续, 且函子 $u^s:C^{\sim}\rightarrow {C'}^{\sim}$
+$(\hyperref[III.prop1.2]{1.2})$ 全忠实. 因而 $u_s:{C'}^{\sim}\rightarrow C^{\sim}$ 为等价.}
+设 $Y$ 为 $C$ 的对象, $i:R\hookrightarrow u(Y)$ 为覆盖筛.
+由于函子 $u^{\ast}$ 与投射极限交换 (\hyperrefext[I][I.prop5.5]{5.5}),
+态射 $u^{\ast}(i):u^{\ast}(R)\hookrightarrow u^{\ast}u(Y)$ 为单态射.
+由于 $u$ 全忠实, 有 $u^{\ast}u(Y)\simeq Y$, 因而得到 $Y$ 的筛
+$u^{\ast}(i):u^{\ast}(R)\rightarrow Y$.
+为证 $u$ 余连续, 只须证明 $u^{\ast}(i):u^{\ast}(R)\hookrightarrow Y$
+是关于 $C$ 上诱导拓扑的覆盖筛 (\hyperref[III.def2.1]{2.1}).
+为此, 只须证明 (\hyperref[III.prop3.2]{3.2}), 对每个基变换 $m:X\rightarrow Y$,
+态射 $u_{!}(u^{\ast}(R)\times_Y X)\rightarrow u(X)$ 双覆盖.
+但由于 $u^{\ast}$ 与\pageoriginale{}投射极限交换, 有
+$\fprod{u^{\ast}(R)}{X}{Y}=u^{\ast}(\fprod{R}{u(X)}{u(Y)})$,
+且 $\fprod{R}{u(X)}{u(Y)}$ 为 $u(X)$ 的覆盖筛.
+因而只须证明, 对 $C$ 的每个对象 $Y$ 及每个覆盖筛 $i:R\hookrightarrow u(Y)$,
+${C'}^{\widehat{\phantom{,}}}$ 中的态射
+$u_{!}u^{\ast}(R)\xrightarrow{u_{!}u^{\ast}(i)}u(Y)$ 双覆盖.
+此态射分解为双覆盖的伴随态射 $u_{!}u^{\ast}(R)\rightarrow R$ (第一步),
+后接覆盖单态射 $R\hookrightarrow u(Y)$.
+因此它双覆盖 (\hyperrefext[II][II.prop5.3]{5.3}). 这表明 $u$ 余连续.
+由于 $u$ 连续且全忠实, 由 \hyperref[III.prop2.6]{2.6}
+(用于 $C$ 小的情形) 得出 $u^s$ (在 \hyperref[III.prop2.6]{2.6} 中记为 $u_{!}$) 全忠实.
+由于 $u^s$ 和 $u_s$ 互为伴随且都全忠实, 它们互为拟逆函子, 故 $u_s$ 为等价.
+
+\setcounter{subsection}{1}
+\subsubsection{}\etiquette[4.1.2]{III.subsubsec4.1.2}
+现证 ii) $\Rightarrow$ i). $C$ 的对象 $Y$ 构成 $C^{\sim}$ 的一个生成族
+(\hyperrefext[II][II.prop4.10]{4.10}),
+因而对 $C'$ 的每个对象 $X$, 存在满态射族 (在 $C^{\sim}$ 中)
+$v_i:Y_i\rightarrow u_s X$, $i\in I$.
+有 $u_su(Y_i)=Y_i$, 且因 $u_s$ 为范畴等价, 有 $v_i=u_s(w_i)$,
+其中各 $w_i:u(Y_i)\rightarrow X$ 在 ${C'}^{\sim}$ 中构成满态射族.
+于是由 \hyperrefext[II][II.prop5.1]{5.1}, 族
+$w_i:u(Y_i)\rightarrow X$, $i\in I$ 覆盖.
+
+\subsection{补全 \hyperref[III.prop1.2]{1.2} 的证明}\etiquette[4.2]{III.subsec4.2}
+
+设 $G$ 为 $C$ 的满子范畴, 其对象构成 $C$ 的一个小拓扑生成族
+(II \hyperref[II.def3.0.1]{3.0.1}).
+赋予 $G$ 由包含函子 $i:G\rightarrow C$ 诱导的拓扑 (\hyperref[III.subsec3.1]{3.1}).
+由 \hyperref[III.prop1.2]{1.2} 证明的第一部分,
+函子 $(u\circ i)_s=i_s\circ u_s$ \hyperref[III.subsec1.11]{(1.1.1)} 有左伴随.
+由于 $i_s$ 为范畴\pageoriginale{}等价 (\hyperref[III.theo4.1]{4.1}),
+函子 $u_s$ 有左伴随 $u^s$, 且有函子性同构 $u^s\simeq (u\circ i)^s\circ i_s$.
+下面证明图
+\hypertarget{sga4.exp.III.equation.4.2.1}{}\[\vcenter{
+\xymatrix@C=3cm@R=1.5cm{
+C \ar[r]^{u} \ar[d]_{\epsilon_C}& C'\ar[d]^{\epsilon_{C'}}\\
+C\widetilde{\phantom{a}} \ar[r]^{u^{s}}& \widetilde{C}'
+}}\leqno{(4.2.1)}
+\]
+交换到同构. 对 $C'$ 上的每个层 $H$, 对每个 $X\in \ob C$,
+有 $\Hom_{\widetilde{C}'}(\epsilon_{C'}uX,H)\simeq u_sH(X)$.
+此外, 由伴随关系,
+$\Hom_{\widetilde{C}'}(u^s\epsilon_CX,H)\simeq \Hom_{\widetilde{C}}(\epsilon_CX,u_sH)$,
+继而由 $\epsilon_C$ 的定义,
+$\Hom_{\widetilde{C}}(\epsilon_CX,u_sH)\simeq u_sH(X)$.
+故对每个 $X\in \ob C$, 有同构 $\epsilon_{C'}uX\simeq u^s\epsilon_CX$.
+这就证明 i) $\Rightarrow$ iv). 再证 iv) $\Rightarrow$ i). 有交换图
+\hypertarget{sga4.exp.III.equation.4.2.2}{}\[\vcenter{
+\xymatrix@C=2.25cm@R=1.5cm{ G \ar[r]^{i} \ar[d]_{\epsilon_G} & C
+\ar[r]^{u} \ar[d]_{\epsilon_C}&
+C' \ar[d]_{\epsilon_{C'}}\\
+\widetilde{G} \ar[r]^{i^{s}}& \widetilde{C} \ar[r]^{u^s}&
+\widetilde{C'}, }}\leqno{(4.2.2)}
+\]
+因而由证明的第一部分, 函子 $u\circ i:G\rightarrow C'$ 连续.
+由 \hyperref[III.theo4.1]{4.1} 和 \hyperref[III.def1.1]{1.1} 立即得出 $u$ 连续,
+故 iv) $\Rightarrow$ i).
+这也给出 $u^s$ 的唯一性, 因为证明的第一部分已在 $C$ 小时给出了唯一性.
+
+\subsection{补全 \hyperref[III.prop1.5]{1.5} 和 \hyperref[III.prop1.7]{1.7} 的证明}\etiquette[4.3]{III.subsec4.3}
+\pageoriginale
+
+设 $u:C\rightarrow C'$ 为两个 $𝒰$-景之间的函子,
+$G$ 为 $C$ 的满子范畴, 其对象集为 $C$ 的一个小拓扑生成族
+(II \hyperref[II.def3.0.1]{3.0.1}).
+赋予 $G$ 由包含函子 $i:G\rightarrow C$ 诱导的拓扑.
+由 \hyperref[III.theo4.1]{4.1} 及 \hyperref[III.def1.1]{1.1} 立即得出,
+$u$ 连续当且仅当 $u\circ i$ 连续.
+此观察连同 \hyperref[III.prop1.5]{1.5} 证明的第一部分给出一般情形.
+同样的观察也将 \hyperref[III.prop1.7]{1.7} 的证明归结为范畴 $C$ 小的情形.
+
+\subsection{补全 \hyperref[III.prop2.3]{2.3} 的证明}\etiquette[4.4]{III.subsec4.4}
+
+设 $u:C\rightarrow C'$ 为两个 $𝒰$-景之间的函子,
+$G$ 为 $C$ 的满子范畴, 其对象集为 $C$ 的一个小拓扑生成族
+(\hyperrefext[II][II.def3.0.1]{3.0.1}),
+并赋予由包含函子 $i:G\rightarrow C$ 诱导的拓扑.
+由 \hyperref[III.theo4.1]{4.1} 的证明
+(\hyperref[III.subsubsec4.1.1]{4.1.1}, 第二步), $i$ 余连续.
+因而当 $u$ 余连续时, 函子 $u\circ i:G\rightarrow C'$ 余连续.
+此外, $i^{\ast}:\widetilde{C}\rightarrow \widetilde{G}$ 为范畴等价
+(\hyperref[III.theo4.1]{4.1}).
+所以函子 $u^{\ast}:\widetilde{C}'\rightarrow \widetilde{C}$ 有右伴随. 这证明了 3).
+为证 4), 只须注意 $(u\circ i)_{\ast}\simeq u_{\ast}\circ i_{\ast}$,
+且 $i_{\ast}$ 为等价 (\hyperref[III.theo4.1]{4.1}).
+于是 \eqhyperref[III.eq2.3.2]{2.3.2} 的交换性来自 $C$ 小时这些图的交换性.
+
+
+% END INCLUDED SGA4_English_current_buildable_source_20260906/source/03/drafts/SGA4_III_LINES_1114_1313_English.texfrag
+
+
+% BEGIN INCLUDED SGA4_English_current_buildable_source_20260906/source/03/drafts/SGA4_III_LINES_1314_1551_English.texfrag
+\section{局部化}\etiquette[5]{III.sec5}\pageoriginale
+
+\subsection{}\etiquette[5.1]{III.subsec5.1}
+现设 $C$ 为 $𝒰$-景, $X$ 为 $C^{\widehat{\phantom{,}}}$ 的对象.
+除非另有明文说明, 赋予范畴 $C/X$ 由函子 $j_X:C/X\rightarrow C$ 诱导的拓扑 $𝒯$
+(\hyperref[III.subsec3.1]{3.1}). 记号 $C/X$ 将表示配备拓扑 $𝒯$ 的范畴 $C/X$.
+命题 \hyperrefext[I][I.prop5.11]{5.11} 表明函子 $j_{X!}$ 与纤维积交换,
+因而将每个单态射映为单态射.
+特别地, 对 $C/X$ 的每个对象 $(Y\rightarrow X)$,
+函子 $j_{X!}$ 在范畴 $C/X$ 中对象 $(Y\rightarrow X)$ 上的筛,
+与 $C$ 中对象 $Y$ 上的筛之间建立一一对应.
+
+\begin{enonce*}{命题 5.2}\etiquette[5.2]{III.prop5.2}
+设 $C$ 为 $𝒰$-景, $X$ 为 $C^{\widehat{\phantom{,}}}$ 的对象,
+$j_X:C/X\rightarrow C$ 为相应的连续函子.
+\begin{enumerate}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 对象 $(Z\rightarrow X)$ 上的筛 $R$ 在 $C/X$ 中覆盖,
+当且仅当筛 $j_{X!}(R)\hookrightarrow Z$ 在 $C$ 中覆盖.
+
+\item 函子 $j_X:C/X\rightarrow C$ 余连续且连续.
+
+\item 设 $m:Y\rightarrow X$ 为 $C^{\widehat{\phantom{,}}}$ 的态射. 则有交换图
+\[
+\xymatrix@C=1cm@R=1.25cm{
+C/Y \ar[rr]^{j_m} \ar[rd]_{j_Y}&       &C/X \ar[ld]^{j_X}\\
+    &  C    &.
+}
+\]
+函子 $j_Y$ 在 $C/Y$ 上诱导的拓扑等于 $j_m$ 在 $C/Y$ 上诱导的拓扑.
+
+\item $j_X:C/X\rightarrow C$ 诱导的拓扑是 $𝒰$-拓扑
+(\hyperrefext[II][II.def3.0.2]{3.0.2}).
+\end{enumerate}
+\end{enonce*}
+
+\begin{enonce*}[remark]{证明}
+\begin{enumerate}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 如果\pageoriginale{} $(Z\rightarrow X)$ 上的筛 $R$ 覆盖,
+则筛 $j_{X!}(R)\hookrightarrow Z$ 覆盖 (\hyperref[III.prop1.6]{1.6}).
+
+反之, 若筛 $j_{X!}(R)\rightarrow Z$ 在 $C$ 中覆盖,
+可见对在 $C/X$ 中作任意基变换得到的筛也如此.
+因而筛 $R$ 覆盖 (\hyperref[III.prop3.2]{3.2}).
+
+\item 对 1) 应用 \hyperref[III.def2.1]{2.1} 立即得出.
+
+\item 立即来自 1) 中对覆盖筛的描述.
+
+\item 设 $(G_i)_{i\in I}$ 为 $C$ 的小拓扑生成族.
+立即可验, 小族 $(u:G_i\rightarrow X)$,
+$u\in \amalg_{i\in I}\Hom_{C^{\widehat{\phantom{,}}}}(G_i, X)$ 在 $C/X$ 中拓扑生成.
+\end{enumerate}
+\end{enonce*}
+
+\phantomsection\MakeLinkTarget*{sga4.exp.III.terminology.5.3}\label{sga4.exp.III.terminology.5.3}\label{III.subsec5.3}%
+\noindent \emph{术语与记号} 5.3. 由上述命题, 函子 $j_X$ 连续且余连续.
+因而它定义集合层范畴之间的三个伴随函子的序列 (4.3.2)
+(\hyperref[III.prop1.3]{1.3} 与 \hyperref[III.prop2.3]{2.3}):
+\begin{gather*}
+j^s_X:(C/X)^{\sim}\longrightarrow
+C^{\sim}\\
+j^{\ast}_X=j_{X,s}:C^{\sim}\longrightarrow
+(C/X)^{\sim}\\
+j_{X\ast}:(C/X)^{\sim}\longrightarrow C^{\sim}{\quoi}.
+\end{gather*}
+
+在命题 \hyperref[III.prop5.2]{5.2} 的特定情形中, 将采用下述术语和记号:
+\begin{enumerate}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 函子 $j_{X\ast}$ 称为\emph{正像函子}.
+
+\item 函子 $j_{X,s}=j^{\ast}_X$ 将记为 $j^{\ast}_X$,
+称为\emph{限制到 $C/X$ 的函子}.
+
+\item 集合层上的\pageoriginale{}函子 $j^s_X$ 称为
+“向 $C$ 延拓为空集”的函子, 记为 $j_{X!}$ (参见 2.9.2).
+\end{enumerate}
+
+因此在 $(C/X)^{\sim}$ 与 $C^{\sim}$ 之间有三个伴随函子的序列:
+$$
+j_{X!},\; j^{\ast}_X,\; j_{X\ast}{\quoi}.
+$$
+
+\begin{enonce*}{命题 5.4}\etiquette[5.4]{III.prop5.4}
+函子 $j_{X!}:(C/X)^{\sim}\rightarrow C^{\sim}$ 经范畴
+$C^{\sim}/\underline{a}X$ 分解 ($\underline{a}$ 为伴随层函子):
+
+$(C/X)^{\sim}\xrightarrow{e^{\sim}_X} C^{\sim}/\underline{a}X\rightarrow C^{\sim}$.
+函子
+$$
+e^{\sim}_X:(C/X)^{\sim}\longrightarrow \widetilde{C}/\underline{a}X
+$$
+为范畴等价. 限制到 $C/X$ 的函子后接等价 $e^{\sim}_X$,
+同构于“沿 $\underline{a}X\rightarrow \epsilon$ 作基变换”的函子
+($\epsilon$ 为 $C^{\sim}$ 的终对象):
+$F\mapsto (F\times \underline{a}X\xrightarrow{\pr_2}\underline{a}X)$.
+\end{enonce*}
+
+\begin{enonce*}[remark]{证明}
+$(C/X)^{\sim}$ 的终对象在 $j_{X!}$ 下的像为对象 $\underline{a}X$,
+由此得到分解. 为证函子 $e^{\sim}_X$ 为等价, 我们只给出一些提示.
+由 \hyperrefext[I][I.prop5.11]{5.11}, $C/X$ 上的预层由
+$C$ 上配备态射 $F\rightarrow X$ 的预层 $F$ 定义.
+继而可证下述两个性质等价:
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 由 $F\rightarrow X$ 定义的 $C/X$ 上的预层为层.
+
+\item 下图为笛卡尔图 (其中 $i$ 与 $\underline{a}$ 分别表示包含到预层范畴的函子和伴随层函子):
+\[
+\xymatrix@C=2.75cm@R=1cm{
+F \ar[r]\ar[d]& i\mathsf{\underline{a}}F \ar[d]\\
+X \ar[r]& i\mathsf{\underline{a}}X\quad . }
+\]
+\end{enumerate}
+
+由此\pageoriginale{}立即得出 $e^{\sim}_X$ 为等价. 最后一个断言显然成立.
+\end{enonce*}
+
+\begin{enonce*}{命题 5.5}\etiquette[5.5]{III.prop5.5}
+\begin{enumerate}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 设 $C$ 为 $𝒰$-景, $X$ 为 $C^{\widehat{\phantom{,}}}$ 的对象.
+下列范畴与函子图交换到典范同构:
+\[
+\xymatrix@C=1.5cm@R=1.5cm{ C/X \ar[r]^{h_X} \ar[d]&
+(C/X)\widehat{\phantom{a}} \ar[d]^{e\widehat{\phantom{a}}_X}
+\ar[r]^{\underline{a}_X}& (C/X)\widetilde{\phantom{a}} \ar[rr]^{i_X}
+\ar[d]^{e\widetilde{\phantom{a}}_X}& &
+(C/X)\widehat{\phantom{a}} \ar[d]^{e\widehat{\phantom{a}}/X}\\
+C/X \ar[r]^{h/X}& C\widehat{\phantom{a}}/X \ar[r]^{\underline{a}/X}&
+C\widetilde{\phantom{a}}/\underline{a}X \ar[r]^{i/\underline{a}X}&
+C\widehat{\phantom{a}}/i\underline{a}X \ar[r]^{\pi}&
+C\widehat{\phantom{a}}/X. }
+\]
+
+记号 $\underline{a}_X$ 与 $i_X$ 表示景 $C/X$ 的“伴随层”函子及包含到预层的函子.
+记号 $\underline{a}/X$ 表示函子 $\underline{a}$
+(景 $C$ 的伴随层函子) 向以 $X$ 为终点的箭头范畴的自然扩张;
+记号 $i/\underline{a}X$ 类似.
+最后, 记号 $\pi$ 表示沿典范箭头 $X\rightarrow i\underline{a}X$ 的基变换函子.
+
+\item 再设 $m:Y\rightarrow X$ 为 $C^{\widehat{\phantom{,}}}$ 的态射.
+下图交换到典范同构:
+\[
+\xymatrix@C=1.75cm@H=.5cm{ C\widetilde{\phantom{a}}
+/\underline{a}X/\underline{a}Y \ar@{=}[dd]&
+(C/X)\widetilde{\phantom{a}}/\underline{a}_X Y \ar[l]_{f}& \\
+& & (C/X/Y)\widetilde{\phantom{a}} \ar[lu]_{g} \ar[ld]_{e\widetilde{\phantom{a}}_m}\\
+C\widetilde{\phantom{a}}/\underline{a}Y & (C/Y)\widetilde{\phantom{a}}
+\ar[l]_{e\widetilde{\phantom{a}}_Y}&. }
+\]
+
+箭头\pageoriginale{} $f$ 是等价 $e^{\sim}/X$ 向以 $\underline{a}_XY$
+为终点的箭头范畴的自然扩张, 因而为范畴等价.
+箭头 $g$ 正是将 \hyperref[III.prop5.4]{5.4} 应用于情形 $(C/X)/[m]$ 所得的等价.
+
+\item 用 $j_{\underline{a}X!}:C^{\sim}/\underline{a}X\rightarrow C^{\sim}$
+表示“遗忘 $\underline{a}X$”函子, 用
+$j^{\ast}_{\underline{a}X}:C^{\sim}\rightarrow C^{\sim}/\underline{a}X$
+表示“与 $\underline{a}X$ 作积”函子. 下列各图交换到典范同构:
+\begin{displaymath}
+\xymatrix@C=2.25cm@R=1.25cm{ (C/X)^{\widetilde{\phantom{a}}}
+\ar[r]^{j_{X!}} \ar[d]   &
+  C\widetilde{\phantom{a}} \ar@{=}[d]\\
+C\widetilde{\phantom{a}}/\underline{a}X \ar[r]^{j_{\underline{a}X!}} &
+C\widetilde{\phantom{a}} } \qquad {\raisebox{-1.75cm}{,}}\qquad
+\xymatrix@C=2.5cm@R=1.25cm{
+C{\widetilde{\phantom{a}}} \ar[r]^{j_X^{\ast}} \ar@{=}[d]&  (C/X)\widetilde{\phantom{a}}\ar[d]^{e\widetilde{\phantom{a}}/X}\\
+C{\widetilde{\phantom{a}}} \ar[r]^{j_{\underline{a}X}^{\ast}} &
+C{\widetilde{\phantom{a}}}/\underline{a}X. }
+\end{displaymath}
+\end{enumerate}
+\end{enonce*}
+
+\begin{enonce*}[remark]{证明}
+这些断言的证明立即来自等价 $e^{\sim}_X$ (\hyperref[III.prop5.4]{5.4})
+及 $e^{\widehat{\phantom{\,}}}_X$ (\hyperrefext[I][I.prop5.11]{5.11}) 的定义.
+\end{enonce*}
+
+\begin{thebibliography}{99}%
+\bibitem[TF]{sga4.exp.III.bib.TF} R. Godement, théorie des faisceaux, Hermann,
+1958. Act. Scient.
+
+Ind ${\rm n^{\circ}}$ 1252, (Paris).
+\end{thebibliography}
+
+
+%I didn't get the label...
+%---\widetilde{C}$ $(1.1.1)$ is fully faithful.}
+%---\emph{Terminology and notation} 5.3. By the proposition
+%---4.3.2
+%---2.9.2
+
+\ifx\danslelivre\undefined
+\end{document}
+\fi
+
+% END INCLUDED SGA4_English_current_buildable_source_20260906/source/03/drafts/SGA4_III_LINES_1314_1551_English.texfrag
+
+

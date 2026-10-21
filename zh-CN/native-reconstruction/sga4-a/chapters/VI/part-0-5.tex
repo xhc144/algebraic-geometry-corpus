@@ -1,0 +1,3528 @@
+% BEGIN INCLUDED SGA4_English_current_buildable_source_20260906/source/06/drafts/SGA4_VI_LINES_44_390_English.texfrag
+\setcounter{pageoriginal}{164}
+
+\setcounter{section}{-1}
+\section{引言}\etiquette[0]{VI.sec0}
+
+本篇\pageoriginale{}研究两类密切相关的问题.
+
+首先, 系统研究拓扑斯的有限性条件,
+依次考察\emph{拟紧性（quasi-compactness）}、
+\emph{拟分离性（quasi-separatedness）}与\emph{凝聚性（coherence）}
+(= 拟紧性 $+$ 拟分离性) 的概念.
+它们来自概形理论中熟悉的类似概念.
+我们先对拓扑斯的对象 $X$ 及箭头 $u : X \to Y$
+研究这些概念 (\hyperref[VI.sec1]{\S 1}),
+再对拓扑斯 $E$ 本身 (\hyperref[VI.sec2]{\S 2}),
+最后对拓扑斯态射 $f : E \to E'$ (\hyperref[VI.sec3]{\S 3}) 研究它们.
+\hyperref[VI.sec4]{第 4 节} 研究由两个拓扑斯粘合 (IV 9) 得到的拓扑斯这一特殊情形.
+为了阅读后续各节, 在这些稍显技术性的讨论中须记住的基本事实如下:
+\emph{凝聚拓扑斯}是等价于某个形如 $C^{\sim}$ 的拓扑斯的拓扑斯,
+其中 $C$ 是小景, 有限投射极限在其中可表示,
+且每个覆盖族都含有一个有限覆盖子族;
+凝聚拓扑斯之间的\emph{凝聚态射} $f : E \to E'$
+是可以在等价意义下描述为由景态射 $f : C \to C'$ 伴随的态射,
+其中 $C$ 与 $C'$ 如上, 且相应函子 $f^{\ast} : C'\to C$ 左正合.
+
+指出下面一点无疑有益:
+使用这里的有限性概念, 尤其是凝聚拓扑斯概念,
+我们坚决地 (而且是第一次) 离开分析学家和“拓扑学家”熟悉的拓扑空间\footnote{引号表示这是一个不熟悉拓扑斯概念的“\ldots”
+(\cf IV \hyperref[IV.subsec0.4]{0.4} 中“拓扑”一词的含义).}.
+例如, 与一个分离拓扑空间 $X$ 相伴的拓扑斯
+(IV \hyperref[IV.subsec2.1]{2.1}) 凝聚, 只有当 $X$ 为有限集时才可能!
+换句话说, 本篇完全面向代数几何与代数中出现的各种拓扑斯.
+事实上, 迄今在这些学科中使用的一切拓扑斯
+(当然, 复数域上的代数几何超越方法除外!) 都是局部凝聚的.
+
+其次, 对拓扑斯的上同调建立两个\emph{过渡到归纳极限的定理}.
+其中一个 (\hyperref[VI.cor5.2]{5.2}) 表明,
+凝聚拓扑斯上的函子 $H^{i}(E, -)$\pageoriginale{}
+与 Abel 层的归纳极限交换.
+另一个 (\hyperref[VI.subsec8.7]{8.7}) 基本上是说:
+若拓扑斯 $X$ 表示为凝聚拓扑斯 $X_i$ 的滤过投射极限,
+转移态射 $f_{ij} : X_j \to X_i$ 凝聚,
+则 $X$ 的上同调 (取值于任意 Abel 层)
+可作为各 $X_i$ 的上同调的归纳极限来计算.
+要赋予这个陈述以精确含义,
+主要须明确“拓扑斯的投射极限”的概念,
+这将在 \S\hyperref[VI.sec7]{\S 7}, 8 中完成.
+这是很有用的几何概念,
+无疑在概形投射极限以外的背景中也同样有用
+(概形投射极限曾是 M.\textsc{Artin} 最初定义这一概念时的模型).
+例如, 我们在 (\hyperref[VI.subsec8.4]{8.4}) 中表明,
+通过将局部化定义为一点的各“邻域”的投射极限,
+可以统一各种“在一点局部化”的概念
+(对于 Noether 空间、配备通常拓扑的概形, 甚至配备平展拓扑的概形).
+这与一点处局部化的直观想法完全一致.
+
+这两个过渡到极限的定理将在下一篇中,
+针对概形的平展上同调这一特殊背景再次明确陈述
+(\hyperrefext[VII][VII.prop3.3]{3.3} 及 \hyperref[VI.prop5.7]{5.7});
+在此情形下, 本讨论班余下部分会不断使用它们,
+而且迄今几乎所有运用平展上同调的地方也都如此.
+因此, 如果读者愿意接受第 VII 篇陈述的这两个特殊情形的定理,
+且只关心平展上同调的应用, 就可以略过本篇.
+诚然, 拓扑斯的\emph{可构造对象（constructible object）}概念
+(\ie 到终对象 $e$ 的结构态射 $X \to e$ 凝聚的对象)
+也将在本讨论班余下部分发挥重要作用
+(而它在本篇中只起很次要的作用,
+仅仅因为在凝聚拓扑斯中, 它与这里居于核心的凝聚对象概念重合).
+不过, 第 IX 篇在概形上的平展层这一特殊情形下,
+不使用本篇的一般研究而独立发展了这一概念;
+在此情形中, 它还呈现出很有用的特殊现象,
+这些现象构成了第 IX 篇对它进行处理的基础
+(从 \hyperref[IX.def2.3]{定义 IX 2.3} 开始).
+由于第 IX 篇的文字比当前\pageoriginale{}第 VI 篇的文字早五年,
+但读者使用起来仍无妨碍,
+故我们只在第 IX 篇末证明第 IX 篇采用的可构造性概念与这里引入的概念等价.
+
+\section{拓扑斯的对象与箭头的有限性条件}\etiquette[1]{VI.sec1}
+
+\begin{enonce*}{定义 1.1}\etiquette[1.1]{VI.def1.1}
+设 $C$ 是一个景.
+$C$ 的对象 $X$ 称为拟紧的, 是指对每个覆盖族
+$(X_i \to X)_{i\in I}$,
+指标集 $I$ 都存在一个有限子集 $J$,
+使子族 $(X_i \to X)_{i \in J}$ 仍覆盖.
+\end{enonce*}
+
+由于 $𝒰$-拓扑斯 $E$ 总被看作景
+(IV \hyperref[IV.subsubsec1.1.1]{1.1.1}),
+上述定义特别适用于 $E$ 的对象.
+而且由下一个命题, 这一情形就是一般情形.
+
+\begin{enonce*}{命题 1.2}\etiquette[1.2]{VI.prop1.2}
+设 $C$ 是一个 $𝒰$-景,
+$\epsilon : C \to C^{\sim}$ 为典范函子,
+$X$ 是 $C$ 的一个对象.
+则 $X$ 是景 $C$ 的拟紧对象,
+当且仅当 $\epsilon(X)$ 是拓扑斯 $C^{\sim}$ 的拟紧对象.
+\end{enonce*}
+
+假定 $X$ 拟紧; 证明 $\epsilon(X)$ 也拟紧.
+设 $(F_i \to \epsilon(X))_{i \in I}$ 为一个满族.
+对每个 $i \in I$, 选取满族
+$\epsilon(X_{ij}) \to F_i$, $j \in J_i$.
+复合 $\epsilon(X_{ij}) \to \epsilon(X)$
+等同于 $\epsilon(X)(X_{ij})$ 的一个元素 $\alpha_{ij}$.
+一般不能断言它来自一个态射 $X_{ij} \to X$,
+但由相伴层 $\epsilon(X)$ 的构造可知,
+对固定的 $i$ 和 $j$, 可以找到覆盖族 $Y_k \to X_{ij}$,
+使各 $\alpha_{ij}$ 在 $\epsilon(X)(Y_k)$ 中的像来自 $X(Y_k)$ 的元素,
+\ie 来自态射 $Y_k \to X$.
+因此, 加细满族 $\epsilon(X_{ij}) \to F_i$ 后,
+可以假定各复合 $\epsilon(X_{ij}) \to \epsilon(X)$ 来自态射
+$X_{ij} \to X$.\pageoriginale{}
+当 $i$ 与 $j$ 变化时,
+各 $\epsilon(X_{ij}) \to \epsilon(X)$ 构成满族,
+故 (II \hyperref[VI.cor4.4]{4.4}) 各 $X_{ij} \to X$ 构成覆盖族.
+由对 $X$ 的假设, 它具有有限覆盖子族,
+相应的有限态射族 $\epsilon(X_{ij}) \to \epsilon(X)$ 仍为满族.
+由于这些态射通过有限多个态射 $F_i \to \epsilon(X)$ 分解,
+那一有限族就已是满族.
+这就证明 $\epsilon(X)$ 拟紧.
+
+反过来, $\epsilon(X)$ 的拟紧性蕴含 $X$ 的拟紧性,
+由 \loccit{} 是显然的.
+
+因此, 上述结果说明,
+景中的拟紧性概念可归结为拓扑斯中的相应概念.
+
+\begin{enonce*}{命题 1.3}\etiquette[1.3]{VI.prop1.3}
+设 $C$ 是一个景, $(X_i \to X)_{i \in I}$ 为有限覆盖族,
+且各 $X_i$ 拟紧. 则 $X$ 拟紧.
+\end{enonce*}
+
+为此, 由 \hyperref[VI.prop1.2]{1.2}, 可假定 $C$ 是一个拓扑斯.
+设 $(X'_j \to X)$ 为 $C$ 中的一个覆盖族, \ie 满族.
+对每个 $i \in I$, 经基变换 $X_{i} \to X$ 得到的族为满族,
+因而 (由于 $X_i$ 拟紧) 具有一个有限满子族,
+对应于指标集 $J$ 的一个有限子集 $J_i \subset J$.
+置 $J'= \bigcup_{i\in I} J_i$.
+由于 $I$ 有限, $J'$ 是 $J$ 的有限子集,
+而族 $(X'_j \to X)_{j \in {J'}}$ 已为满族,
+因为它局部是满族, \cqfd
+
+\begin{enonce*}{推论 1.4}\etiquette[1.4]{VI.cor1.4}
+设\pageoriginale{} $(X_i)_{i \in I}$ 是拓扑斯 $E$ 的一族对象,
+$X$ 是它们的和.
+则 $X$ 拟紧, 当且仅当所有 $X_i$ 都拟紧,
+且除有限多个以外的 $X_i$ 都同构于 $E$ 的“空对象” $∅_{E}$.
+\end{enonce*}
+
+充分性立即来自 \hyperref[VI.prop1.3]{1.3}
+(因为去掉为空的和项, 和不变).
+证明必要性, 注意必须有有限子族 $(X_i)_{i \in J}$ 覆盖 $X$,
+这蕴含对 $i \in I-J$, 有
+$X_i = \fprod{X_{i}}{\amalg_{j=J}}{X}X_{j} =
+\fprod{\amalg_{j=J}X_{i}}{X_j}{X} = ∅$
+(II \hyperref[VI.lem4.5.1]{4.5.1}).
+另一方面, 要证明每个 $X_i$ 拟紧,
+注意 $X \simeq X_i \amalg {X'}_i$,
+而 $X_i$ 的每个覆盖族 $Y_j \to X_i$
+都定义了 $X$ 的一个覆盖族
+$Y_j \amalg {X'}_i \to X_i \amalg {X'}_i = X$.
+后者具有有限覆盖子族,
+这显然蕴含相应的有限态射族 $Y_j \to X_i$ 也覆盖;
+所以 $X_i$ 拟紧.
+
+\begin{enonce*}[remark]{注 1.5.1}\etiquette[1.5.1]{VI.rem1.5.1}
+拓扑斯 $E$ 的对象 $X$ 拟紧这一性质,
+只依赖于诱导拓扑斯 $E_{/X}$,
+且意味着后者的终对象拟紧.
+同样, 景 $C$ 的对象 $X$ 拟紧,
+当且仅当诱导景 $C_{/X}$ (III \hyperref[III.subsec5.1]{5.1}) 的终对象拟紧.
+\end{enonce*}
+
+\setcounter{subsection}{5}
+\setcounter{subsubsection}{1}
+\subsubsection{}\etiquette[1.5.2]{VI.subsubsec1.5.2}
+设 $X$ 是拓扑斯 $E$ 的一个对象.
+则 $X$ 拟紧, 当且仅当 $X$ 的每个覆盖 $X$ 的滤过递增子对象族
+$(X_i)_{i \in I}$ 中都有某个 $X_i$ 等于 $X$.
+因此, 这一条件\pageoriginale{}只依赖于 $X$ 的子对象所成的有序集
+(\ie 诱导拓扑斯 $E_{/X}$ 的开子集).
+
+\subsubsection{}\etiquette[1.5.3]{VI.subsubsec1.5.3}
+考察 $E$ 的一个生成族 $(X_i)_{i \in I}$.
+由定义和 \hyperref[VI.prop1.3]{1.3} 可知,
+$E$ 的对象 $X$ 拟紧的必要条件是,
+它具有由有限多个 $X_i$ 构成的覆盖族,
+\ie $X$ 同构于 $E$ 的对象的一个有限和的商对象;
+当各 $X_i$ 拟紧时, 这一条件也充分.
+还要注意, 在对 $E$ 所作的假设下,
+必要时将所考察的生成族换成一个子族后,
+显然可以假定 $I \in 𝒰$.
+利用 $E$ 的一个对象的商集为小集这一事实
+(I \hyperref[I.cor7.5]{7.5}),
+可知由 $E$ 的拟紧对象构成的 $E$ 的满子范畴 $E_{\qc}$
+等价于一个 $\in 𝒰$ 的范畴,
+\ie $E_{\qc}$ 的对象的同构类集的基数 $\in 𝒰$.
+
+\begin{enonce*}[remark]{例 1.6.1}\etiquette[1.6.1]{VI.exem1.6.1}
+设 $X$ 是一个拓扑空间.
+$X$ 的开子集 $U$ 是 $X$ 的开子集景 $\Ouv(X)$ 的拟紧对象,
+当且仅当 $U$ 配备由 $X$ 诱导的拓扑后是拟紧空间.
+更一般地, $X$ 上的层 $F$ 是拓扑斯 $\Top(X)$ 的拟紧对象,
+当且仅当与 $F$ 相伴的 $X$ 上的展空间 $X'$ 拟紧.
+(这来自前一个断言、\hyperref[VI.rem1.5.1]{1.5}
+及 $\Top (X)_{/F}$ 等价于 $\Top(X')$ 这一事实
+(IV \hyperref[IV.subsec5.7]{5.7})).
+\end{enonce*}
+
+\setcounter{subsection}{6}
+\setcounter{subsubsection}{1}
+\subsubsection{}\etiquette[1.6.2]{VI.subsubsec1.6.2}
+在\pageoriginale{}概形 (即 $𝒰$ 的元素) 范畴 ($\Sch$) 上,
+考察 \cite{sga4.exp.VI.bib.6} \hyperref[VI.def6.3]{6.3} 中的一个拓扑 $T_i$
+(例如 Zariski 拓扑、平展拓扑、fppf 拓扑或 fpqc 拓扑).
+概形关于这个拓扑拟紧,
+当且仅当它是通常意义下的拟紧概形.
+(沿用 \loccit{} 的记号, 这里只用到每个族 $\in P'$ 都有限这一事实.)
+
+\begin{enonce*}{定义 1.7}\etiquette[1.7]{VI.def1.7}
+设 $E$ 是一个拓扑斯, $f : X \to Y$ 是 $E$ 的一个箭头.
+若对每个 $Y'$ 拟紧的箭头 $Y'\to Y$,
+对象 $X'= \fprod{X}{Y'}{Y}$ 也拟紧,
+就称 $f$ 为拟紧态射.
+若对角态射 $X \to \fprod{X}{X}{Y}$ 拟紧,
+就称 $f$ 拟分离.
+若 $f$ 拟紧且拟分离, 就称 $f$ 凝聚.
+\end{enonce*}
+
+\setcounter{subsection}{7}
+\setcounter{subsubsection}{0}
+\subsubsection{}\etiquette[1.7.1]{VI.subsubsec1.7.1}
+展开拟分离态射 $f : X \to Y$ 的定义可见,
+它也意味着: 对每对“在 $Y$ 上”的箭头
+$g_1, g_2 : X'\rightrightarrows X$,
+\ie 满足 $fg_1 = fg_2$ 的箭头,
+$X'$ 的拟紧性蕴含 $\Ker(g_1, g_2)$ 的拟紧性.
+
+\begin{enonce*}{命题 1.8}\etiquette[1.8]{VI.prop1.8}
+设 $E$ 是一个拓扑斯.
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item $E$ 中的每个同构都是凝聚态射,
+\ie 拟紧且拟分离.
+两个拟紧 (\resp 拟分离, \resp 凝聚) 态射的复合
+拟紧 (\resp 拟分离, \resp 凝聚).
+
+\item 设\pageoriginale{} $f : X \to Y$ 和 $g : Y' \to Y$ 为 $E$ 中的态射,
+$f': X'= \fprod{X}{Y'}{Y} \to Y'$ 由 $f$ 经基变换 $g$ 得到.
+若 $f$ 拟紧 (\resp 拟分离, \resp 凝聚),
+则 $f'$ 也如此.
+
+\item 设 $f : X \to Y$ 和 $g : Y \to Z$ 是 $E$ 中的态射.
+若 $gf$ 拟分离, 则 $f$ 拟分离.
+
+\item 设 $f : X \to Y$ 和 $g : Y \to Z$ 是 $E$ 中的态射,
+且 $g$ 拟分离.
+若 $gf$ 拟紧 (\resp 凝聚), 则 $f$ 拟紧 (\resp 凝聚).
+\end{enumerate}
+\end{enonce*}
+
+这些证明是熟知的 (\Cf \EGA IV 1 或 EGA I, 第 2 版).
+在拟紧情形, 陈述 (i) 与 (ii) 由定义显然得到.
+在拟分离情形, (ii) 中的基变换稳定性,
+以及每个同构拟分离这一事实,
+都立即来自定义及前一种情形.
+复合 $X \to Y \to Z$ 的稳定性来自图
+\[\vcenter{
+\xymatrix@R=1.5cm@C=1.5cm{
+X \ar[d] \ar@/_3.5pc/[dd]^(.2){\Delta_{X/Y}}_{\Delta_{X/Z}}&\\
+\fprod{X}{X}{Y} \ar[d]^{u} \ar[rr]&  &Y \ar[d]^{\Delta_{Y/Z}}\\
+\fprod{X}{X}{Z}  \ar[rr]&        & \fprod{Y}{Y}{Z}
+}}\leqno{(*)}
+\]
+其中的方形\pageoriginale{}为笛卡儿方形.
+由假设, $\Delta_{Y/Z}$ 拟紧,
+故由它经基变换得到的 $u$ 也拟紧;
+此外 $\Delta_{X/Y}$ 拟紧,
+因此复合 $u\Delta_{X/Y} = \Delta_{X/Z}$ 也拟紧.
+这就证明了 (i) 与 (ii);
+凝聚情形由前两种情形合并得到.
+要证明 (iv) 中首先考察的情形,
+考察下列各方形均为笛卡儿方形的图:
+\[\vcenter{
+\xymatrix@C=2.75cm@R=1.5cm{
+  &     X \ar[r]^{gf}          & Z\\
+  X \ar[r]^{\Gamma_f=(\id_X,f)}  \ar[d]
+  \ar@/_2pc/[rr]_(.55){f\qquad\qquad \fprod{f}{\id_{Y}}{Z}}  &\fprod{X}{Y}{Z} \ar[r]^{\pr_2}\ar[d]\ar[u]^{\pr_1}& Y\ar[u]_{g}\\
+Y \ar[r]^{\Delta_{Y/Z}}&  \fprod{Y}{Y}{Z}& \quad .
+}}\leqno{(**)}
+\]
+由假设, $g$ 拟分离,
+故 $\Delta_{Y/Z}$ 拟紧,
+从而经基变换得到的 $\Gamma_f$ 拟紧.
+同样, 由假设 $gf$ 拟紧,
+故经基变换得到的 $\pr_2$ 也拟紧.
+因此, $f = \pr_2 \Gamma_f$ 作为两个拟紧态射的复合而拟紧.
+(iv) 的相应情形立即来自前一种情形及尚待证明的 (iii).
+为此回到图 $(\ast)$.
+假设 $gf$ 拟分离意味着 $\Delta_{X/Z} = u \Delta_{X/Y}$ 拟紧,
+而结论 $f$ 拟分离意味着 $\Delta_{X/Y}$ 拟紧.
+一旦证明 $u$ 拟分离, 这就由 (iv) 得到.
+不过 $u$ 显然\pageoriginale{}是单态射,
+而我们确有如下显然结果:
+
+\begin{enonce*}{推论 1.8.1}\etiquette[1.8.1]{VI.cor1.8.1}
+每个单态射都拟分离.
+\end{enonce*}
+
+事实上, 若 $u : X \to Y$ 为单态射,
+则 $\Delta_{X/Y}$ 是同构, 因而拟紧, \cqfd
+
+\begin{enonce*}{推论 1.8.2}\etiquette[1.8.2]{VI.cor1.8.2}
+设 $f:X \to Y$ 和 $f':X' \to Y'$ 是 $E$ 中的两个 $S$-态射.
+若 $f$ 和 $f'$ 拟紧 (\resp 拟分离, \resp 凝聚),
+则 $\fprod{f}{f'}{S} : \fprod{X}{X'}{S} \to \fprod{Y}{Y'}{S}$ 也如此.
+\end{enonce*}
+
+通常地合并 (i) 与 (ii) 即得.
+
+\begin{enonce*}{注 1.9.1}\etiquette[1.9.1]{VI.rem1.9.1}
+
+% END INCLUDED SGA4_English_current_buildable_source_20260906/source/06/drafts/SGA4_VI_LINES_44_390_English.texfrag
+
+
+% BEGIN INCLUDED SGA4_English_current_buildable_source_20260906/source/06/drafts/SGA4_VI_LINES_391_677_English.texfrag
+设 $E$ 是任意范畴,
+$Q$ 是 $\ob E$ 的一个在同构下稳定的子集
+(因此, 给定 $Q$ 就相当于给定 $E$ 的一个严格满子范畴),
+扮演“拟紧”对象的角色.
+假定 $E$ 中纤维积可表示.
+于是可以仿照定义 \hyperref[VI.def1.7]{1.7},
+定义 $Q$-拟紧、$Q$-拟分离及 $Q$-凝聚态射的概念.
+此时命题 \hyperref[VI.prop1.8]{1.8}
+及推论 \hyperref[VI.cor1.8.1]{1.8.1} 成立;
+当两个对象的积在 $E$ 中可表示时,
+\hyperref[VI.cor1.8.2]{1.8.2} 也成立.
+\end{enonce*}
+
+\setcounter{subsection}{9}
+\setcounter{subsubsection}{1}
+\subsubsection{}\etiquette[1.9.2]{VI.subsubsec1.9.2}
+设 $S$ 是 $E$ 的一个对象,
+$f:X\to Y$ 是 $E_{/S}$ 的一个态射.
+由 \hyperref[VI.rem1.5.1]{注 1.5} 立即可知,
+$f$ 拟紧 (\resp 拟分离, \resp 凝聚),
+当且仅当 $E$ 中相应的态射\pageoriginale{}
+(由“忘掉 $S$”函子作用于 $f$ 得到) 具有相同性质.
+特别地, 若 $f:X\to Y$ 是 $E$ 中的态射,
+则在上面取 $S=Y$ 可见,
+$f$ 拟紧 (\resp 拟分离, \resp 凝聚),
+当且仅当诱导拓扑斯 $E_{/Y}$ 的对象 $(X,f)$
+到该拓扑斯的终对象的结构态射拟紧 (\resp 拟分离, \resp 凝聚).
+也说 (借助结构态射 $f$)
+$X$ \emph{在 $Y$ 上拟紧 (\emph{\resp} 拟分离, \emph{\resp} 凝聚)};
+这种说法既可以理解为关于拓扑斯 $E$,
+也可以理解为关于诱导拓扑斯 $E_{/Y}$
+(其中 $Y$ 被看作终对象).
+
+\subsubsection{}\etiquette[1.9.3]{VI.subsubsec1.9.3}
+若拓扑斯 $E$ 的对象 $X$ 在终对象上凝聚,
+就称其为\emph{可构造的}.
+两个可构造对象之间的每个态射都凝聚
+(\hyperref[VI.prop1.8]{1.8} (iv)).
+由 $E$ 的可构造对象构成的 $E$ 的满子范畴 $E_{\cons}$
+在有限逆极限下稳定,
+这立即来自 \hyperref[VI.cor1.8.2]{1.8.2}
+及 \hyperref[VI.prop1.8]{1.8} (ii).
+
+\subsubsection{}\etiquette[1.9.4]{VI.subsubsec1.9.4}
+\hyperref[VI.def1.7]{1.7} 的概念,
+只在具有由拟紧对象构成的生成族的拓扑斯 $E$ 中才真正有意义.
+在此情形, 这些概念“在底上局部”
+(IV \hyperref[IV.subsubsec8.5.4]{8.5.4}), 现证明如下.
+
+\begin{enonce*}{命题 1.10}\etiquette[1.10]{VI.prop1.10}
+假定\pageoriginale{}拓扑斯 $E$ 具有一个由拟紧对象构成的生成子范畴 $C$,
+并设 $f:X\to Y$ 是 $E$ 中的一个态射.
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item 态射 $f$ 拟紧, 当且仅当对满足 $S\in\Ob C$ 的每个态射 $S\to Y$,
+对象 $\fprod{X}{S}{Y}$ 拟紧.
+
+\item 设 $Y_i\to Y$, $i\in I$, 为一个覆盖族.
+态射 $f$ 拟紧 (\emph{\resp} 拟分离, \emph{\resp} 凝聚),
+当且仅当对每个 $i\in I$,
+态射 $f_i:X_i=\fprod{X}{Y_i}{Y}\to Y_i$ 具有相同性质.
+\end{enumerate}
+\end{enonce*}
+
+证明 (i). 必要性由定义立即得到.
+证明充分性, 须证明对每个拟紧对象 $Y'$ 及每个态射 $Y'\to Y$,
+对象 $X'=\fprod{X}{Y'}{Y}$ 拟紧.
+存在各 $S_i$ 属于 $\Ob C$ 的覆盖族 $S_i\to Y'$;
+由于 $Y'$ 拟紧, 可以取这一覆盖族为\emph{有限}族.
+由假设, 各对象
+${X'}_i=\fprod{X}{S_i}{Y}\simeq\fprod{X'}{S_i}{Y'}$
+拟紧, 而且它们覆盖 $X'$ (因为各 $S_i$ 覆盖 $Y'$),
+故由 \hyperref[VI.prop1.3]{1.3}, $X'$ 拟紧.
+
+证明 (ii). 只须处理拟紧情形,
+因为拟分离情形由定义 \hyperref[VI.def1.7]{1.7} 得到,
+而凝聚情形由前两种情形合并得到.
+必要性已在 \hyperref[VI.prop1.8]{1.8} (ii) 中证明.
+只须证明若各 $f_i$ 拟紧, 则 $f$ 拟紧,
+\ie 对每个拟紧的 $Y'$ 及每个态射 $Y'\to Y$,
+对象 $X'=\fprod{X}{Y'}{Y}$ 拟紧.
+由于 $(Y_i\to Y)$ 是覆盖族,\pageoriginale{}
+存在 $Y$ 上的对象 $S_{\alpha}$ 覆盖 $Y'$,
+且每个复合 $S_{\alpha}\to Y'\to Y$ 通过某个 $Y_i$ 分解.
+由于 $C$ 生成, 可以取各 $S_{\alpha}$ 属于 $\Ob C$;
+又因 $Y'$ 拟紧, 可以取该覆盖族有限.
+于是各 $\fprod{X'}{S_{\alpha}}{Y'}$ 构成 $X'$ 的有限覆盖族,
+由 \hyperref[VI.prop1.3]{1.3},
+归结为证明每个
+$\fprod{X'}{S_{\alpha}}{Y'}=\fprod{X}{S_{\alpha}}{Y}$ 拟紧.
+选定 $S_{\alpha}\to Y$ 通过某个 $Y_i$ 的分解后,
+所考察的对象也同构于 $\fprod{X_i}{S_{\alpha}}{Y_i}$;
+它确实拟紧, 因为 $X_i$ 在 $Y_i$ 上拟紧, 而 $S_{\alpha}$ 拟紧.
+
+\begin{enonce*}{推论 1.11}\etiquette[1.11]{VI.cor1.11}
+设 $g:Y\to Z$ 是拓扑斯 $E$ 中的态射,
+$(f_i:X_i\to Y)_{i\in I}$ 是以 $Y$ 为靶的一个覆盖态射族.
+则:
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item 假定 $I$ 有限. 若各 $gf_i$ 拟紧, 则 $g$ 也拟紧.
+
+\item 假定各 $f_i$ 拟紧.
+若各 $gf_i$ 拟分离, 则 $g$ 也拟分离.
+若 $I$ 有限且各 $gf_i$ 凝聚, 则 $g$ 凝聚.
+\end{enumerate}
+\end{enonce*}
+
+情形 (i) 立即来自定义及 \hyperref[VI.prop1.3]{1.3},
+无须对 $E$ 作任何假设.
+证明 (ii), 由 (i), 只须处理非括号内情形.
+考察图 \hyperref[VI.prop1.8]{1.8} $(\ast)$,
+将 $X$ 换成某个 $X_i$.
+由于各 $f_i$ 构成的族覆盖,
+由它经基变换得到的各 $\fprod{f_i}{\id_Y}{Z}$ 构成的族也覆盖.
+因此\pageoriginale{}, 由 \hyperref[VI.prop1.10]{1.10} (ii),
+要证明 $\Delta_{Y/Z}$ 拟紧, 只须证明各 $\Gamma_{f_i}$ 拟紧.
+由假设, $gf_i$ 拟分离,
+故由它经基变换得到的 $\pr_2:\fprod{X_i}{Y}{Z}\to Y$ 也拟分离.
+另一方面, $\pr_2\Gamma_{f_i}=f_i$ 由假设拟紧.
+因此, 将 \hyperref[VI.prop1.8]{1.8} (iv)
+用于 $\Gamma_{f_i}$ 与 $\pr_2$ 的复合, 即知 $\Gamma_{f_i}$ 拟紧, \cqfd
+
+\begin{enonce*}{推论 1.12}\etiquette[1.12]{VI.cor1.12}
+设 $(X_i)_{i\in I}$ 是 $E$ 的一个有限对象族,
+$X$ 是各 $X_i$ 的余积,
+$f_i:X_i\to Y$ 是 $E$ 中的态射,
+$f:X\to Y$ 为相应态射.
+态射 $f$ 拟紧 (\resp 拟分离, \resp 凝聚),
+当且仅当各 $f_i$ 具有相同性质;
+在拟分离情形, 可以去掉 $I$ 有限的假设.
+\end{enonce*}
+
+充分性是 \hyperref[VI.cor1.11]{1.11} 的特殊情形,
+因为典范态射 $X_i\to X$ 构成有限覆盖族且为拟紧态射,
+后一点由定义及 \hyperref[VI.cor1.4]{1.4} 立即得到.
+必要性来自传递性 \hyperref[VI.prop1.8]{1.8} (i),
+因为态射 $X_i\to X$ 甚至凝聚
+(由 \hyperref[VI.cor1.8.1]{1.8.1}, 它们拟分离).
+
+\begin{enonce*}{定义 1.13}\etiquette[1.13]{VI.def1.13}
+设 $X$ 是拓扑斯 $E$ 的一个对象.
+如果对 $E$ 的每个拟紧对象 $S$,
+从 $S$ 到 $X$ 的每个态射都拟紧,
+\ie (\hyperref[VI.def1.7]{1.7})
+如果对 $E$ 的任意两个拟紧对象 $S,T$
+及态射 $S\to X$, $T\to X$,
+纤维积 $\fprod{S}{T}{X}$ 总拟紧,
+就称 $X$ 为\emph{拓扑斯 $E$ 的拟分离对象}.
+若 $X$ 拟紧且拟分离, 就称 $X$ 为拓扑斯 $E$ 的凝聚对象.
+\end{enonce*}
+
+\begin{enonce*}{命题 1.14}\etiquette[1.14]{VI.prop1.14}
+设\pageoriginale{} $f:X\to Y$ 是拓扑斯 $E$ 中的态射.
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item 若 $Y$ 拟紧, 则 $f$ 拟紧蕴含 $X$ 拟紧.
+若 $Y$ 拟分离, 则 $X$ 拟紧蕴含 $f$ 拟紧.
+若 $Y$ 凝聚, 则 $f$ 拟紧当且仅当 $X$ 拟紧.
+
+\item 若 $Y$ 拟紧 (\emph{\resp} 拟分离, \emph{\resp} 凝聚),
+且 $f$ 拟紧 (\emph{\resp} 拟分离, \emph{\resp} 凝聚),
+则 $X$ 拟紧 (\emph{\resp} 拟分离, \emph{\resp} 凝聚).
+\end{enumerate}
+\end{enonce*}
+
+(i) 的前两个断言分别直接包含在拟紧态射的定义
+(\hyperref[VI.def1.7]{1.7})
+与拟分离对象的定义 (\hyperref[VI.def1.13]{1.13}) 中;
+第三个由前两个合并得到.
+(ii) 的第一种情形只是重述, 第三种仍由前两种合并得到.
+只须处理拟分离情形.
+设 $S$ 是 $E$ 的一个拟紧对象,
+$g:S\to X$ 为态射; 证明 $g$ 拟紧.
+由于 $Y$ 拟分离, $fg$ 拟紧;
+又因 $f$ 拟分离, 由 (\hyperref[VI.prop1.8]{1.8} (iii)) 可知
+$g$ 拟紧, \cqfd
+
+\begin{enonce*}{推论 1.15}\etiquette[1.15]{VI.cor1.15}
+$E$ 的拟分离对象的每个子对象都拟分离.
+设 $(X_i)_{i\in I}$ 是 $E$ 的一族对象, $I\in 𝒰$;
+则 $X=\amalg_iX_i$ 拟分离 (\emph{\resp} 凝聚),
+当且仅当各 $X_i$ 也如此.
+\end{enonce*}
+
+第一个\pageoriginale{}断言来自 \hyperref[VI.prop1.14]{1.14} (ii)
+及 \hyperref[VI.cor1.8.1]{1.8.1}, 但由定义也可立即得到.
+对第二个断言的非括号内情形,
+由于各 $X_i\to X$ 都是单态射, 只须证明充分性,
+而这容易由定义及 \hyperref[VI.prop1.3]{1.3} 得到;
+括号内情形来自刚处理的情形及 \hyperref[VI.cor1.4]{1.4}.
+
+\begin{enonce*}{推论 1.16}\etiquette[1.16]{VI.cor1.16}
+在 \hyperref[VI.prop1.10]{1.10} (ii) 的条件下,
+若各 $Y_i$ 凝聚, 则 $f$ 拟紧,
+当且仅当各 $X_i=\fprod{X}{Y_i}{Y}$ 是 $E$ 的拟紧对象.
+\end{enonce*}
+
+事实上, 由判据 \hyperref[VI.prop1.10]{1.10} (ii),
+须表达各 $f_i:X_i\to Y_i$ 拟紧;
+由 \hyperref[VI.prop1.14]{1.14} (i),
+这等价于各 $X_i$ 拟紧.
+
+\begin{enonce*}{推论 1.17}\etiquette[1.17]{VI.cor1.17}
+设 $E$ 是一个具有由拟紧对象构成的生成族的拓扑斯,
+$(g_i:Y_i\to Y)_{i\in I}$ 是 $E$ 中的覆盖族 (\resp 有限覆盖族),
+且各 $Y_i$ 凝聚.
+对象 $Y$ 拟分离 (\resp 凝聚),
+当且仅当对每个 $i\in I$, $g_i$ 拟紧;
+或等价地, 当且仅当对每对指标 $i,j\in I$,
+$\fprod{Y_i}{Y_j}{Y}$ 为 $E$ 的拟紧对象.
+\end{enonce*}
+
+括号内情形立即来自非括号内情形及 \hyperref[VI.prop1.3]{1.3}.
+第一个条件的必要性由定义立即得到; 证明其充分性.
+设 $f:X\to Y$ 为态射, 且\pageoriginale{} $X$ 拟紧;
+证明 $f$ 拟紧.
+由于各 $g_i$ 拟紧, 各 $X_i=\fprod{X}{Y_i}{Y}$ 拟紧,
+由 \hyperref[VI.cor1.16]{1.16} 可知 $f$ 拟紧.
+最后, 用同一判据 \hyperref[VI.cor1.16]{1.16}
+表达各 $g_i$ 的拟紧性,
+就得到 \hyperref[VI.cor1.17]{1.17} 的第二个判据.
+特别地:
+
+\begin{enonce*}{推论 1.17.1}\etiquette[1.17.1]{VI.cor1.17.1}
+设 $E$ 如 \hyperref[VI.cor1.17]{1.17},
+$X$ 是 $E$ 的一个凝聚对象,
+$\Rr\rightrightarrows X$ 是 $X$ 中的一个等价关系,
+$Y=X/\Rr$. 则下列条件等价:
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item $Y$ 凝聚;
+\item $f:X\to Y$ 拟紧;
+\item $\Rr$ 拟紧.
+\end{enumerate}
+\end{enonce*}
+
+\begin{enonce*}{推论 1.18}\etiquette[1.18]{VI.cor1.18}
+设 $E$ 是具有由拟紧对象构成的生成子范畴 $C$ 的拓扑斯,
+$Y$ 是 $E$ 的一个对象.
+对象 $Y$ 拟分离,
+当且仅当每个满足 $X\in\ob C$ 的态射 $X\to Y$ 拟紧.
+\end{enonce*}
+
+必要性由定义立即得到,
+因为由假设各对象 $X\in\ob C$ 都拟紧.
+证明充分性, 设 $Z$ 是 $E$ 的一个拟紧对象;
+证明每个态射 $Z\to Y$ 拟紧.
+由 \hyperref[VI.prop1.10]{1.10} (i),
+只须验证对每个满足 $X\in\ob C$ 的 $X\to Y$,
+对象 $\fprod{Z}{X}{Y}$ 拟紧.
+这来自各 $X\to Y$ 由假设拟紧, 而 $Z$ 拟紧这一事实.
+
+\begin{enonce*}{推论 1.19}\etiquette[1.19]{VI.cor1.19}
+设\pageoriginale{} $E$ 是一个具有由拟紧对象构成的生成子范畴的拓扑斯,
+$(g_i:Y_i\to Y)_{i\in I}$ 是 $E$ 中的覆盖族,
+各 $Y_i$ 拟分离且各 $g_i$ 拟紧. 则 $Y$ 拟分离.
+\end{enonce*}
+
+事实上, 设 $X$ 是 $E$ 的拟紧对象;
+证明每个态射 $f:X\to Y$ 拟紧.
+由 \hyperref[VI.prop1.10]{1.10} (ii),
+只须证明诱导态射 $f_i:X_i=\fprod{X}{Y_i}{Y}\to Y_i$ 拟紧.
+由于 $g_i$ 拟紧, $X_i$ 拟紧 (因为 $X$ 拟紧),
+又因 $Y_i$ 拟分离, 可知 $f_i$ 拟紧.
+
+\begin{enonce*}[remark]{注 1.20.1}\etiquette[1.20.1]{VI.rem1.20.1}
+习惯于代数几何中“拟紧”与“拟分离”术语的读者,
+会预期这里考察的“绝对”概念 (关于拓扑斯 $E$ 的对象)
+和“相对”概念 (关于 $E$ 的箭头) 之间还有某些其他关系;
+例如, 若 $f:X\to Y$ 是 $E$ 中的态射,
+且 $X$ 拟紧并拟分离, 则 $f$ 拟分离.
+这类性质只在对拓扑斯 $E$ 施加限制性的有限性条件时才成立,
+它们比 \hyperref[VI.prop1.10]{1.10} 中考虑的条件更强;
+下一节将研究这些条件.
+\end{enonce*}
+
+\setcounter{subsection}{20}
+\setcounter{subsubsection}{1}
+\subsubsection{}\etiquette[1.20.2]{VI.subsubsec1.20.2}
+由 \hyperref[VI.rem1.5.1]{1.5} 还可知,
+拓扑斯 $E$ 的对象 $X$ 是否拟分离,
+只依赖于诱导拓扑斯 $E_{/X}$,
+并意味着该拓扑斯的终对象拟分离,
+\ie $E_{/X}$ 中两个拟紧对象的积拟紧.
+
+
+% END INCLUDED SGA4_English_current_buildable_source_20260906/source/06/drafts/SGA4_VI_LINES_391_677_English.texfrag
+
+
+% BEGIN INCLUDED SGA4_English_current_buildable_source_20260906/source/06/drafts/SGA4_VI_LINES_678_1095_English.texfrag
+\subsection{景的情形}\etiquette[1.21]{VI.subsec1.21}\pageoriginale
+
+设 $C$ 是一个 $𝒰$-景,
+$E$ 是 $C$ 上的 $𝒰$-层拓扑斯,
+$f$ 是 $C$ 的一个箭头, $X$ 是 $C$ 的一个对象.
+若 $\epsilon(f)$ 是拓扑斯 $E$ 的拟紧态射 (\resp 拟分离态射),
+就称 $f$ 为\emph{景 $C$ 的拟紧态射} (\resp 拟分离态射);
+同样, 若 $\epsilon(X)$ 是拓扑斯 $E$ 的拟分离对象,
+就称 $X$ 为\emph{景 $C$ 的拟分离对象}
+(比较 \hyperref[VI.prop1.2]{1.2}).
+当 $C$ 是配备其典范拓扑的 $𝒰$-拓扑斯时,
+典范函子 $\epsilon:C\to E$ 为范畴等价,
+因而上述定义与先前的\hyperref[VI.def1.7]{定义 1.7}
+及 \hyperref[VI.def1.13]{1.13} 相容.
+还要注意, 将宇宙 $𝒰$ 换成另一个使 $C$ 也为 $𝒱$-景的宇宙 $𝒱$ 时,
+所考察的定义不变, 至少在 $C$ 具有一个由拟紧对象构成的拓扑生成族时如此.
+为此立即归结为情形 $𝒰\subset 𝒱$,
+于是 $E$ 是一个 $𝒱$-景;
+并须证明对 $𝒰$-拓扑斯 $E$ 的每个箭头 $f$,
+$f$ 拟紧 (\resp 拟分离), 当且仅当它在 $E$ 上的 $𝒱$-层拓扑斯 $E'$
+中定义一个拟紧箭头;
+同样, 须证明对 $E$ 的每个对象 $X$,
+$X$ 拟分离, 当且仅当 $E'$ 中的相应对象拟分离.
+对拟紧对象的相应断言, 我们已经知道
+(\hyperref[VI.prop1.2]{1.2}), 而且无须对 $E$ 作任何假设.
+情形“$f$ 拟紧”由此得到,
+只须将判据 \hyperref[VI.prop1.10]{1.10} (i)
+先后在 $E$ 及\pageoriginale{} $E'$ 中
+应用于 $E$ 的同一个由拟紧对象构成的生成族 $(X_i)_{i\in I}$.
+这也给出了情形“$f$ 拟分离”,
+即相应对角态射拟紧的情形.
+最后, 在“$X$ 拟分离”的情形,
+由判据 \hyperref[VI.cor1.18]{1.18},
+仍归结为“$X$ 拟紧”的情形.
+
+\subsection{}\etiquette[1.22]{VI.subsec1.22}
+{\textit{\textbf{例.}}}
+回到配备拓扑 $T_i$ 的范畴 $(\Sch)$
+这一例子 \hyperref[VI.subsubsec1.6.2]{1.6.2}.
+对适当的 $𝒱$, 它是一个 $𝒱$-景,
+且具有以仿射概形子范畴为拓扑生成范畴,
+其中的对象拟紧.
+请读者验证, 此景的箭头 $f:X\to Y$ 拟紧 (\resp 拟分离),
+当且仅当它是通常意义下的拟紧 (\resp 拟分离) 概形态射
+(\cite{sga4.exp.VI.bib.3} 或 \cite{sga4.exp.VI.bib.4});
+同样, 景的对象拟紧 (\resp 拟分离),
+当且仅当它是 \loccit{} 通常意义下的拟紧 (\resp 拟分离) 概形.
+实际上, 用我们这里的说法, 称\emph{凝聚概形态射、凝聚概形},
+代替“拟紧且拟分离的概形态射”、“拟紧且拟分离的概形”, 是恰当的;
+\EGA I, 第 $2^{\text{nd}}$ 版中也这样做.
+
+\setcounter{subsection}{22}
+\subsubsection{}\etiquette[1.22.1]{VI.subsubsec1.22.1}
+
+对给定的概形 $X\in 𝒰$,
+还可以考察与底拓扑空间相伴的拓扑斯 $\Top(X)$,
+或与属于 $𝒰$ 的平展 $X$-概形
+(\resp 在 $X$ 上局部\pageoriginale{}有限呈示的概形)
+所成的景配备平展拓扑 (\resp fppf 拓扑) 后相伴的拓扑斯
+$\Top(X_{\et})$ (\resp $\Top(X_{\text{fppf}})$).
+这是一个具有由凝聚对象构成的生成族的 $𝒰$-拓扑斯,
+这些对象对应于定义景中的仿射对象.
+
+明确这一点后, 此拓扑斯的终对象拟紧 (\resp 拟分离, \resp 凝聚),
+当且仅当概形 $X$ 拟紧 (\resp 拟分离, \resp 凝聚).
+同样, $X$ 上展空间景
+(\resp $X$ 上平展概形景 $X_{\text{et}}$,
+\resp $X$ 上局部有限呈示概形景 $X_{\text{fppf}}$) 的态射
+拟紧 (\resp 拟分离, \resp 凝聚),
+当且仅当它是 \loccit{} 通常意义下的拟紧
+(\resp 拟分离, \resp 凝聚) 概形态射.
+
+\begin{enonce*}{定理 1.23}\etiquette[1.23]{VI.thm1.23}
+设 $E$ 是一个 $𝒰$-拓扑斯, $X$ 是 $E$ 的一个对象.
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item $X$ 拟紧的充要条件是,
+对 $E$ 的每个滤过归纳系 $(Y_i)_{i\in I}$, $I\in 𝒰$,
+自然映射
+\begin{equation*}
+\varinjlim  \Hom(X, Y_i) \to \Hom(X, \varinjlim Y_i)\tag{1.23.1}
+\end{equation*}\etiquette[1.23.1]{VI.eq1.23.1}
+为单射.
+
+\item 假定 $E$ 具有由拟紧对象构成的生成子范畴 $C$.
+$X$ 凝聚的必要条件是,
+对 \emph{(i)} 中的每个数据,
+映射 \emph{\hyperref[VI.eq1.23.1]{(1.23.1)}} 为双射.
+\end{enumerate}
+\end{enonce*}
+
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item \underline{必要性}.
+假定\pageoriginale{} $X$ 拟紧.
+须证明, 若 $i\in I$ 及 $f_i,g_i:X\rightrightarrows Y_i$
+使 $f_i,g_i$ 与 $Y_i\to Y=\varinjlim Y_j$ 的复合 $f,g$ 相等,
+则存在 $j\geq i$,
+使它们与 $Y_i\to Y_j$ 的复合 $f_j,g_j$ 就已相等.
+由于 $E$ 中的滤过归纳极限与有限投射极限交换,
+特别与核交换, 有
+$$
+\Ker (f, g) = \mathop{\lim}_{j\geq l} \Ker (f_j, g_j){\quoi}.
+$$
+由假设 $\Ker(f,g)=X$,
+故 $X$ 是由其子对象 $\Ker(f_j,g_j)$ 构成的滤过递增族的极限.
+由于 $X$ 拟紧, 它等于其中一个子对象;
+故存在 $j\geq i$ 使得 $f_j=g_j$.
+
+\underline{充分性}.
+要证明 $X$ 拟紧,
+等价地 (\hyperref[VI.subsubsec1.5.2]{1.5.2})
+须证明对 $X$ 的每个 $\varinjlim$ 为 $X$ 的滤过递增子对象族
+$(X_i)_{i\in I}$, 存在 $i\in I$ 使得 $X_i=X$.
+由于 $E$ 中每个单态射都有效 (II \hyperref[II.sec4]{4.0}), 有
+$$
+X_i = \Ker (f_i, g_i : X \rightrightarrows X \amalg_{X_{i}} X){\quoi}.
+$$
+设 $Y_i=X\amalg_{X_i}X$,
+并考察由各 $Y_i$ 构成的归纳系.
+若 $Y$ 为其归纳极限, 则
+$Y\simeq X\amalg_{\varinjlim X_i}X=X\amalg_X X=X$.
+因此, 对固定的 $i\in I$,
+$f_i,g_i$ 给出 $\Hom(X,Y)$ 的同一元素,
+故由假设, 存在 $j\geq i$ 使得 $f_j=g_j$,
+\ie $X_j=X$, \cqfd
+
+\item 只须\pageoriginale{}证明,
+在所给条件下, 每个态射 $X\to Y$
+都来自适当 $i\in I$ 的某个态射 $X\to Y_i$.
+由于 $C$ 生成 $E$, 各 $Y_i$ 覆盖 $Y$,
+可以用 $C$ 的对象 $X_{\alpha}$ 覆盖 $X$,
+使每个复合 $X_{\alpha}\to X\to Y$ 通过某个 $Y_i$ 分解.
+由于 $X$ 拟紧, 可以假定各 $X_{\alpha}$ 构成的族有限,
+从而各态射 $X_{\alpha}\to Y$ 通过一个固定的 $Y_i$
+分解为态射 $g_{\alpha i}:X_{\alpha}\to Y_i$.
+由于 $X$ 拟分离, 各 $\fprod{X_{\alpha}}{X_{\beta}}{X}$ 拟紧.
+此外, 对每个 $(\alpha,\beta)$,
+$\fprod{X_{\alpha}}{X_{\beta}}{X}$ 上的 $\pr_1$ 和 $\pr_2$
+与 $X_{\alpha},X_{\beta}\to Y_i$ 的复合
+\[
+\xymatrix{
+\fprod{X_{\alpha}}{X_{\beta}}{X} \ar[rd] \ar[dd]& &\\
+                            &X_{\alpha} \ar[ld] \ar[rrrr]&   & & & Y_i
+\ar[lld]\\
+X    \ar[rrr]                       &          & & Y  &
+}
+\]
+与 $Y_i\to Y$ 复合后相等.
+由 (i), 因而存在 $j\geq i$,
+使它们与 $Y_i\to Y_j$ 的复合就已相等.
+由于对 $(\alpha,\beta)$ 所成的集合有限,
+可以不依赖于这一对选取 $j$.
+因此, 态射 $g_{\alpha j}$
+由一个态射 $g_j:X\to Y_j$ 复合而来;
+后者与 $Y_j\to Y$ 的复合又为给定态射 $X\to Y$,
+因为与覆盖映射 $X_{\alpha}\to X$ 复合后确实如此.
+这就完成了证明.
+\end{enumerate}
+
+\begin{enonce*}[remark]{注 1.23.2}\etiquette[1.23.2]{VI.rem1.23.2}
+(ii) 中对 $E$ 的假设可换为\emph{对 $X$ 的}一个附加假设,
+即 $X$ 具有一个由拟紧对象组成的覆盖族基本系.
+\end{enonce*}
+
+\begin{enonce*}{推论 1.24}\etiquette[1.24]{VI.cor1.24}
+设\pageoriginale{} $E$ 是一个拓扑斯,
+$C$ 是 $E$ 的一个由凝聚对象构成的严格满子范畴.
+利用 $E$ 中的 $𝒰$-归纳极限可表示这一事实,
+得到 \emph{(I \hyperref[I.sec8.6.1]{8.6.1})} 典范函子
+\begin{equation*}
+\Ind (C) \to E{\quoi}.\tag{1.24.1}
+\end{equation*}\etiquette[1.24.1]{VI.eq1.24.1}
+这个函子全忠实.
+若 $E$ 具有一个由凝聚对象构成的生成子范畴,
+且 $C$ 对直因子稳定, 则下列条件等价:
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item 函子 \emph{\hyperref[VI.eq1.24.1]{(1.24.1)}} 本质满,
+\ie 它为范畴等价.
+
+\item $C$ 是 $E$ 的生成子范畴, 且对有限归纳极限稳定.
+
+\item 范畴 $C$ 等于 $E$ 中由 $E$ 的所有凝聚对象构成的满子范畴 $E_{\coh}$,
+而且 $E$ 的对象凝聚的必要条件
+\emph{\hyperref[VI.thm1.23]{1.23} (ii)} 也充分.
+\end{enumerate}
+\end{enonce*}
+
+设 $E_{PF}$ 为 I \hyperref[I.cor8.7.6]{8.7.6} 中定义的 $E$ 的满子范畴.
+由 I \hyperref[I.prop8.7.5]{8.7.5} a),
+陈述 \hyperref[VI.thm1.23]{1.23} (ii) 等价于
+$$
+C \subset E_{\coh} \subset E_{PF}{\quoi},
+$$
+中的第二个包含;
+而复合包含 $C\supset E_{PF}$ 意味着
+\hyperref[VI.eq1.24.1]{(1.24.1)} 全忠实.
+由于\pageoriginale{}由假设, $E$ 的子范畴 $E_{\coh}$ 生成,
+$E_{PF}$ 更是如此;
+此外 $E$ 中有限投射极限可表示,
+故可以应用 I \hyperref[VI.cor8.7.7]{8.7.7}.
+\hyperref[VI.cor1.24]{1.24} 的条件 (iii)
+也可写为 $C=E_{\coh}=E_{PF}$,
+并等价于条件 $C=E_{PF}$,
+这正是 \loccit{} 的条件 (ii bis)
+(这里用到由假设, $E_{\coh}$
+因而 $E_{PF}$ 是 $E$ 的生成子范畴).
+同样, \hyperref[VI.cor1.24]{1.24} 的条件 (ii)
+正是 \loccit{} 的条件 (iii bis).
+因此, \loccit{} 中条件 (i)、(ii bis) 与 (iii bis) 的等价性
+给出 \hyperref[VI.cor1.24]{1.24} 中条件 (i)、(ii)、(iii) 的等价性, \cqfd
+
+该证明 (更确切地说,
+引用 I \hyperref[I.cor8.7.7]{8.7.7} (ii bis)) 还给出了下述推论的 a) 部分.
+
+\begin{enonce*}{推论 1.24.2}\etiquette[1.24.2]{VI.cor1.24.2}
+设 $E$ 是一个具有由凝聚对象构成的生成子族的拓扑斯,
+$E_{PF}$ 是由 $E$ 中满足如下条件的对象 $X$ 构成的严格满子范畴:
+由 $X$ 表示的协变函子 $\Hom(X,-)$ 与滤过归纳极限交换.
+则:
+\begin{enumerate}
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 自然函子
+$$
+\Ind (E_{PF}) \to E
+$$
+为范畴等价.
+
+\item $E$ 的对象 $X$ 属于 $E_{PF}$ 的充要条件是,
+它同构于某个双箭头 $X_1\rightrightarrows X_0$ 的余核\pageoriginale{}的一个直因子
+($=$ 投影子的像 (\hyperref[I.sec10.6]{I, 10.6})),
+其中 $X_1$ 和 $X_0$ 凝聚.
+\item $E$ 的子范畴 $E_{PF}$ 对有限归纳极限稳定,
+并且等价于一个小范畴.
+\end{enumerate}
+\end{enonce*}
+
+还须证明 b) 和 c).
+c) 的第一个断言立即来自 I \hyperref[I.prop2.8]{2.8},
+并由 \hyperref[VI.thm1.23]{1.23} (ii)
+蕴含 b) 的“若”方向.
+证明“仅当”方向, 使用 \hyperref[VI.thm1.23]{1.23} (i),
+它表明 $X$ 拟紧,
+从而由于 $E_{\coh}$ 生成 $E$ 且对有限和稳定,
+存在满态射 $X_0\to X$, 其中 $X_0$ 凝聚.
+设 $R=\fprod{X_0}{X_0}{X}$,
+则 $X$ 等同于 $R\rightrightarrows X_0$ 的余核.
+由 a), 有 $R=\varinjlim R_i$,
+为各 coker $(R_i\rightrightarrows X_0)=X_i$ 的滤过归纳极限.
+由假设 $X\in\Ob E_{PF}$,
+对充分大的 $i$, 态射 $u_i:X'_i\to X$ 有截面 $v:X\to X'_i$.
+设 $w=vu_i:X'_i\to X'_i$,
+则 $w^2=w$, 且
+$X\simeq\Coker(w,\id_{X'_i}:X'_i\rightrightarrows X'_i)$.
+由于 $R_i$ 仍拟紧, 用 $X_1\to R_i$ 覆盖它,
+其中 $X_i$ 凝聚,
+从而 $X_i\simeq\Coker(X_1\rightrightarrows X_0)$,
+这就证明了 b).
+
+最后, 由于 $E_{PF}\subset E_{\text{qu.cpct}}$,
+c) 的最后一个断言来自 \hyperref[VI.subsubsec1.5.3]{1.5.3}.
+
+\begin{enonce*}{推论 1.25}\etiquette[1.25]{VI.cor1.25}
+设 $E$ 是一个拓扑斯,
+由凝聚对象构成的 $E$ 的满子范畴 $C$ 生成.
+考察典范函子
+$$
+\varphi : \Ind(c) \to E{\quoi}.
+$$
+下列\pageoriginale{}条件等价:
+\begin{itemize}
+\item[(i)] 函子 $\varphi$ 本质满,
+\ie $E$ 的每个对象都是凝聚对象的滤过归纳极限.
+
+\item[(i bis)] 函子 $\varphi$ 为范畴等价.
+
+\item[(ii)] $E$ 中凝聚对象的每个有限归纳极限都是凝聚对象.
+
+\item[(ii bis)] $E$ 中凝聚对象的双箭头的余核是凝聚对象.
+
+\item[(iii)] \emph{\hyperref[VI.thm1.23]{1.23} (ii)} 的逆命题成立.
+\end{itemize}
+\end{enonce*}
+
+这是 \hyperref[VI.cor1.24]{1.24} 的特殊情形,
+因为 $C$ 对有限和稳定 (\hyperref[VI.cor1.4]{1.4}),
+从而 (ii) 与 (ii bis) 等价, 并且有如下引理.
+
+\begin{enonce*}{引理 1.25.1}\etiquette[1.25.1]{VI.lem1.25.1}
+设 $E$ 是一个拓扑斯.
+$E$ 的凝聚对象 $X$ 的每个直因子 $X'$ 都凝聚.
+\end{enonce*}
+
+事实上, $X'$ 作为 $X$ 的商而拟紧
+(\hyperref[VI.prop1.3]{1.3}),
+作为 $X$ 的子对象而拟分离 (\hyperref[VI.cor1.15]{1.15}).
+
+\begin{enonce*}{推论 1.26}\etiquette[1.26]{VI.cor1.26}
+设 $E$ 是满足等价条件 \emph{\hyperref[VI.cor1.25]{1.25}} 的拓扑斯.
+则每个诱导拓扑斯也如此.
+\end{enonce*}
+
+这由判据 (ii) 立即得到,
+只须考虑 \hyperref[VI.subsubsec1.20.2]{1.20.2},
+以及由凝聚对象构成的 $E$ 的生成子范畴的存在性,
+显然蕴含诱导拓扑斯的相同性质这一事实.
+
+\begin{enonce*}[remark]{注 1.27}\etiquette[1.27]{VI.rem1.27}
+在\pageoriginale{}满足 \hyperref[VI.cor1.25]{1.25} 的条件的重要拓扑斯例子中,
+可以列举 Noether 拓扑斯 (\hyperref[VI.subsec2.14]{2.14}),
+以及概形 $X$ 的 Zariski 或平展拓扑斯
+(\hyperrefext[VII][VII.sec1]{1}) (\cf IX, 注, 第 42 页).
+不过, 即使拓扑斯 $E$ \emph{凝聚}
+(\hyperref[VI.def2.3]{2.3})
+(\ie 凝聚对象的满子范畴 $C$ 生成且对有限投射极限稳定),
+$C$ 也未必\emph{完美（perfect）}
+(\hyperref[VI.def2.9.1]{2.9.1}),
+\ie 未必满足 \hyperref[VI.cor1.25]{1.25} 的等价条件;
+\cf 下文 \hyperref[VI.exer1.28]{1.28}.
+\end{enonce*}
+
+\begin{enonce*}[remark]{习题 1.28}\etiquette[1.28]{VI.exer1.28}
+设 $E$ 是一个拓扑斯,
+$p_1,p_2:X_1\rightrightarrows X_0$ 是 $E$ 中的双箭头.
+定义 $X_0\times X_0$ 的子对象的递增序列 $R_n$ $(n\geq0)$,
+使得 $R_0=\Sup(\text{Im}(p_1,p_2),\text{Im}(p_2,p_1))$,
+并且对每个 $n\geq1$,
+$R_n=\pr_{13}(\pr_{12}^{-1}(R_{n-1}),\pr_{23}^{-1}(R_{n-1}))$,
+其中 $\pr_{ij}$ $(1\leq i<j\leq3)$
+表示从 $X_0$ 的三重积到二重积的显然投影.
+\begin{enumerate}
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 证明这样得到 $X_0\times X_0$ 的一个递增子对象序列,
+$R=\varinjlim R_n$ 是 $X_0$ 中的等价图式
+(I \hyperref[I.sec10.4]{10.4}), 并且典范态射
+$$
+X = \Coker (p_1, p_2) \to X_0 /R
+$$
+为同构.
+
+\item 推出, 若 $X_0$ 拟紧且 $X=\Coker(p_1,p_2)$ 拟分离
+(从而凝聚), 则序列 $(R_n)$ 稳定.
+反过来\pageoriginale{}, 若这一序列稳定,
+且假定 $X_0$ 凝聚、$X_1$ 拟紧, 则 $X$ 凝聚.
+(证明最后一点, 写成
+$R_n\simeq\fprod{(R_{n-1},\pr_2)}{(R_{n-1},\pr_1)}{X_0}$,
+推出对每个 $n$, $R_n$ 在 $X_0$ 上拟紧,
+然后应用 \hyperref[VI.cor1.19]{1.19}.)
+
+\item 构造两个集合映射 $p_1,p_2:X_1\rightrightarrows X_0$ 的例子,
+使序列 $(R_n)$ 不稳定.
+
+\item 设 $C$ 是一个小范畴,
+其中有限归纳极限与有限投射极限均可表示,
+且每个态射都分解为一个有效满态射后接一个单态射.
+对 $C$ 的双箭头 $(p_1,p_2)$ 重复各 $R_n$ 的构造.
+给 $C$ 配备典范拓扑,
+证明典范函子 $\epsilon:C\to C^{\sim}$ 正合,
+从而与各 $R_n$ 的形成交换.
+
+\item 取 $C$ 为 $(\Ens)$ 的一个小满子范畴,
+它在同构意义下对有限投射极限与有限归纳极限稳定,
+并含有 c) 中的集合 $X_0,X_1$.
+推出拓扑斯 $C^{\sim}$
+(它是\emph{凝聚}拓扑斯 (\hyperref[VI.def2.3]{2.3}),
+\ie 由其凝聚对象子范畴生成, 而该子范畴对有限投射极限稳定)
+不满足 \hyperref[VI.cor1.25]{1.25} 的等价条件.
+
+\item 设 $k$ 是一个域,
+$C$ 是 $k$ 上局部有限呈示概形的 fppf 景 (\SGA 3 IV 6.3).
+证明存在一个 $k$ 上的约化仿射概形 $X$,
+具有一个阶无限的自同构 $f$
+(例如取仿射平面 $E^2$, 配备自同构 $f(x)=x$, $f(y)=x+y$).\pageoriginale{}
+证明若 $p_1,p_2:X_1\rightrightarrows X_0$ 是 $C$ 中的双箭头,
+使其在集合范畴中的相应双箭头
+$(\Ens) p_1(\bar{k}):p_2(\bar{k}):
+  X_1(\bar{k})\rightrightarrows X_0(\bar{k})$
+给出不稳定序列 $(R_n)$,
+则 $p_1,p_2$ 定义的 $C^{\sim}$ 中的双箭头也如此.
+因此, 若 $X_0$ 在 $k$ 上有限型,
+则 $C^{\sim}$ 中 $(p_1,p_2)$ 的余核不凝聚.
+推出 $C^{\sim}$ 中对 $(f,\id_X)$ 的余核不凝聚,
+从而拓扑斯 $C^{\sim}$ 不满足 \hyperref[VI.cor1.25]{1.25} 的等价条件.
+更一般地推出, 若 $S$ 为非空概形,
+$C$ 是 $S$ 上局部有限呈示概形的 fppf 景,
+则拓扑斯 $C^{\sim}$ 不满足 \hyperref[VI.cor1.25]{1.25} 的条件.
+(须注意, 与表面印象相反,
+$C^{\sim}$ 为 Noether (\hyperref[VI.def2.11]{2.11})
+只有在 $S$ 为空时才可能,
+这来自前面的讨论及 \hyperref[VI.subsec2.14]{2.14}.)
+\end{enumerate}
+\end{enonce*}
+
+\begin{enonce*}{定义 1.30}\etiquette[1.30]{VI.def1.30}
+设 $E$ 是一个拓扑斯.
+$E$ 的对象 $X$ 称为拓扑斯 $E$ 的\emph{预 Noether 对象（pre-Noetherian object）}\footnote{更强的 \emph{Noether} 对象概念在下文
+\hyperref[VI.def2.11]{2.11} 给出.},
+是指它满足下列两个等价条件:
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+
+\item $X$ 的每个子对象都拟紧.
+
+\item $X$ 的每个递增子对象序列都稳定.
+\end{enumerate}
+\end{enonce*}
+
+\setcounter{subsection}{30}
+\setcounter{subsubsection}{0}
+\subsubsection{}\etiquette[1.30.1]{VI.subsubsec1.30.1}
+条件 (i) 与 (ii) 的等价性是显然的.
+注意, 这些条件仍然只依赖于诱导拓扑斯 $E_{/X}$,
+甚至只依赖于 $E_{/X}$ 的开子集有序集,
+而它同构于 $X$ 的子对象有序集.
+这些条件在过渡到 $X$ 的子对象时稳定.
+
+
+
+% END INCLUDED SGA4_English_current_buildable_source_20260906/source/06/drafts/SGA4_VI_LINES_678_1095_English.texfrag
+
+
+% BEGIN INCLUDED SGA4_English_current_buildable_source_20260906/source/06/drafts/SGA4_VI_LINES_1096_1382_English.texfrag
+\subsection{}\etiquette[1.31]{VI.subsec1.31}
+仿照\pageoriginale{} \hyperref[VI.prop1.3]{1.3}
+及 \hyperref[VI.cor1.4]{1.4}, 可证明下列事实:
+若 $(X_i\to X)$ 是有限覆盖族, 且各 $X_i$ 为预 Noether,
+则 $X$ 为预 Noether;
+特别地, $E$ 的预 Noether 对象的商仍为预 Noether.
+若 $(X_i)_{i\in I}$ 是 $E$ 的一族对象,
+则其余积 $X$ 是 $E$ 的预 Noether 对象,
+当且仅当除有限多个外的 $X_i$ 都同构于 $∅_E$,
+且所有 $X_i$ 都为预 Noether.
+
+\subsection{}\etiquette[1.32]{VI.subsec1.32}
+显然, 拓扑斯 $E$ 的预 Noether 对象拟紧.
+当 $E$ 具有一个由预 Noether 对象构成的生成族时,
+逆命题成立 (这立即来自 \hyperref[VI.subsec1.31]{1.31}):
+此时 $E$ 的预 Noether 对象恰为其拟紧对象.
+
+假定 $E$ 具有一个由拟紧对象构成的生成族 $(X_i)_{i\in I}$.
+则下列三个条件等价:
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item 各 $X_i$ 为预 Noether.
+
+\item $E$ 的每个拟紧对象都为预 Noether.
+
+\item $E$ 中的每个单态射都拟紧.
+\end{enumerate}
+\noindent
+(我们刚已证明 (i) 与 (ii) 等价;
+(ii) $\Rightarrow$ (iii) 由定义立即得到,
+而 (iii) $\Rightarrow$ (ii) 来自定义 \hyperref[VI.def1.30]{1.30} (i).)
+
+注意\pageoriginale{}, (iii) 蕴含 \emph{$E$ 的每个态射都拟分离};
+从而 (\hyperref[VI.prop1.14]{1.14} (ii))
+$E$ 中位于 $E$ 的某个拟分离对象之上的每个对象本身也拟分离.
+
+\begin{enonce*}[remark]{例 1.33}\etiquette[1.33]{VI.exem1.33}
+(\emph{群的分类拓扑斯}).
+设 $G$ 是一个 $\in 𝒰$ 的群,
+$B_G$ 为其分类拓扑斯 (IV \hyperref[IV.subsec2.4]{2.4}),
+\ie 由配备 $G$ 的左作用的 $\in 𝒰$ 的集合构成的范畴.
+$B_G$ 的非空连通对象
+(IV \hyperref[IV.subsubsec4.3.5]{4.3.5})
+是 $G$ 传递作用的非空 $G$-集合;
+$B_G$ 的每个对象 $E$ 都是其连通分支的余积,
+这些连通分支为 $E$ 的极小非空子对象
+(即 $G$ 在 $E$ 中的轨道).
+因此, $E$ 是 $B_G$ 的拟紧对象,
+当且仅当 $G$ 在 $E$ 中的轨道集 $\pi_0(E)$ 有限;
+此时 $E$ 甚至是 $B_G$ 的预 Noether 对象.
+这些对象 (甚至单个非空连通对象 $G_s$)
+构成 $B_G$ 的生成子范畴.
+$B_G$ 的终对象 $e$ 拟分离,
+\ie $B_G$ 中两个拟紧对象的积拟紧,
+当且仅当积 $G_s\times G_s$ 拟紧,
+这显然等价于 $G$ 有限.
+更一般地, 可知 $B_G$ 的对象 $E$ 拟分离,
+当且仅当其各点的稳定子是 $G$ 的\emph{有限}子群,
+\ie 它同构于齐性空间 $G/H$ 的一个余积,
+其中 $H$ \emph{有限}.
+事实上, 由 \hyperref[VI.cor1.15]{1.15},
+在此判据中可以假定 $E$ 连通;
+但若 $x\in E$ 的稳定子群为 $G_x$,
+已知 (IV \hyperref[IV.subsec5.8]{5.8})\pageoriginale{}
+$B_G/E$ 等价于拓扑斯 $B_{G_x}$,
+故其终对象拟分离, 当且仅当 $G_x$ 有限.
+这一判据表明,
+$B_G$ 中位于一个拟分离对象之上的每个对象都拟分离;
+更有甚者, $B_G$ 中两个拟分离对象的积拟分离.
+它还表明, $B_G$ 的凝聚对象,
+是 $B_G$ 中那些同构于齐性空间 $G/H$ 的有限余积的对象,
+其中 $H$ \emph{有限}.
+由于 $G_s$ 凝聚, $B_G$ 的凝聚对象已经构成一个生成子范畴.
+此外, 此子范畴对纤维积稳定
+(这来自位于一个拟分离对象之上的每个对象都拟分离这一事实).
+(用下文 \hyperref[VI.def2.11]{2.11} 的术语,
+$B_G$ 是一个\emph{局部 Noether} 拓扑斯,
+但它拟分离仅当 $G$ 有限,
+此时 $B_G$ 甚至为 Noether.)
+
+立即可知, 态射 $f:E'\to E$ 拟紧,
+当且仅当轨道集上诱导的映射
+$\pi_0(f):\pi_0(E')\to\pi_0(E)$ 为固有的,
+\ie 其纤维有限.
+我们重新得出单态射拟紧这一事实
+(\hyperref[VI.subsec1.32]{1.32}),
+从而每个态射拟分离.
+因此, $B_G$ 中的凝聚态射就是拟紧态射,
+我们刚刚刻画了它们.
+
+设 $E$ 是拓扑斯 $B_G$ 的一个对象.
+容易验证, $E$ 是 $B_G$ 的凝聚对象的滤过归纳极限,
+当且仅当 $E$ 的各点的稳定子为 ind-有限群
+(\ie 其有限子群的滤过\pageoriginale{}归纳极限).
+特别地, 若 $G$ 不是 ind-有限的 (例如 $G=\ZZ$),
+则拓扑斯 $B_G$ 的终对象不是凝聚对象的归纳极限.
+更确切地说, 拓扑斯 $B_G$ 满足 \hyperref[VI.cor1.25]{1.25} 的等价条件,
+当且仅当其终对象是凝聚对象的滤过归纳极限,
+或者等价地, 当且仅当群 $G$ 为 ind-有限.
+\end{enonce*}
+
+
+\section{拓扑斯的有限性条件}\etiquette[2]{VI.sec2}
+
+\begin{enonce*}{命题 2.1}\etiquette[2.1]{VI.prop2.1}
+设 $E$ 是一个 $𝒰$-拓扑斯.
+下列条件等价:
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item $E$ 中存在一个由拟紧对象构成且对纤维积稳定的满生成子范畴 $C$.
+
+\item 存在一个 $𝒰$-景 $C$,
+使 $C$ 的每个对象拟紧、$C$ 中纤维积可表示,
+且 $E$ 等价于层范畴 $C^{\sim}$.
+\end{enumerate}
+
+假定这些条件成立.
+则在 \emph{(i) (\resp (ii))} 中甚至可以选取范畴 $C$ 为 $𝒰$-小的.
+此外, 对每个 $X\in\ob C$,
+拓扑斯 $E$ 的对象 $X$ \emph{(\resp $\epsilon(X)$)} \emph{凝聚}.
+\end{enonce*}
+
+蕴含 (i) $\Rightarrow$ (ii) 来自 IV \hyperref[IV.cor1.2.1]{1.2.1};
+而在 (i) (\resp (ii)) 中可以取 $C$ 为 $𝒰$-小的这一事实,
+立即来自将 IV \hyperref[IV.subsubsec1.2.3]{1.2.3} 的论证
+应用于 $C$ 的一个拓扑意义下
+(II \hyperref[II.def3.0.1]{3.0.1}) 的小满生成子范畴.
+只须证明 (ii) $\Rightarrow$ (i)
+及 \hyperref[VI.prop2.1]{2.1} 的最后一个断言;
+它们立即来自下面的结果.
+
+\begin{enonce*}{推论 2.1.1}\etiquette[2.1.1]{VI.cor2.1.1}
+设\pageoriginale{} $C$ 是一个其中纤维积可表示且每个对象拟紧的 $𝒰$-景,
+$E=C^{\sim}$, $\varepsilon:C\to E$ 为典范函子.
+则对每个 $X\in\ob C$, $\varepsilon(X)$ 是 $E$ 的凝聚对象.
+$E$ 中由位于某个 $\varepsilon(X)$ 之上的 $E$ 的凝聚对象构成的满子范畴
+对纤维积稳定 (并且显然在 $E$ 中生成).
+\end{enonce*}
+
+已经知道 $\epsilon(X)$ 拟紧 (\hyperref[VI.prop1.2]{1.2});
+下面证明它拟分离.
+设 $F,G$ 是 $E$ 的两个拟紧对象,
+$F\to\varepsilon(X)$, $G\to\epsilon(X)$ 是两个态射.
+须证明纤维积 $\fprod{F}{G}{\epsilon(X)}$ 拟紧.
+用有限多个形如 $\epsilon(Y_i)$ 及分别形如 $\epsilon(Z_j)$ 的对象
+覆盖 $F$ 及 $G$,
+并仿照 \hyperref[VI.prop1.2]{1.2},
+归结为复合 $\epsilon(Y_i)\to\epsilon(X)$
+及 $\epsilon(Z_j)\to\epsilon(X)$
+分别来自态射 $Y_i\to X$ 及 $Z_j\to X$ 的情形,
+由 \hyperref[VI.prop1.3]{1.3} 可归结为
+态射 $F\to\epsilon(X)$ 和 $G\to\epsilon(X)$
+由 $\epsilon$ 作用于态射 $Y\to X$ 和 $Z\to X$ 得到的情形.
+但因 $C$ 中纤维积可表示, 且 $\epsilon$ 与纤维积交换,
+归结为证明 $\epsilon(\fprod{Y}{Z}{X})$ 拟紧;
+对每个形如 $\epsilon(U)$ 的对象, 这已在上面指出.
+
+再设 $G\to F$, $H\to F$ 是 $E$ 的凝聚对象之间的态射,
+并假定对某个 $X\in\ob C$ 存在态射 $F\to\epsilon(X)$.
+证明 $\fprod{G}{H}{F}$ 凝聚.
+由于 $G$ 与 $H$ 拟紧而 $F$ 拟分离,
+由定义已知此纤维积拟紧.
+还须\pageoriginale{}证明它拟分离,
+或等价地 (\hyperref[VI.cor1.15]{1.15}),
+证明 $\fprod{G}{H}{\epsilon(X)}$ 拟分离.
+这来自更一般的事实:
+
+\begin{enonce*}{推论 2.1.2}\etiquette[2.1.2]{VI.cor2.1.2}
+在 \hyperref[VI.cor2.1.1]{2.1.1} 的条件下,
+对 $E$ 的每个拟分离对象 $G$,
+每个态射 $G\to\epsilon(X)$ 都拟分离.
+若 $H\to\epsilon(X)$ 为第二个态射, $H$ 拟分离,
+则 $\fprod{G}{H}{\epsilon(X)}$ 拟分离.
+\end{enonce*}
+
+第一个断言蕴含第二个:
+经基变换, 它蕴含 $\fprod{G}{H}{\epsilon(X)}\to H$ 拟分离;
+又因 $H$ 拟分离,
+$\fprod{G}{H}{\epsilon(X)}$ 也拟分离
+(\hyperref[VI.prop1.14]{1.14} (ii)).
+要证明 $G\to\epsilon(X)$ 拟分离, 将用下面的引理.
+
+\begin{enonce*}{引理 2.1.3}\etiquette[2.1.3]{VI.lem2.1.3}
+设 $E$ 是一个拓扑斯, $f:X\to Y$ 是 $E$ 中的态射.
+假定 $E$ 有由拟紧对象构成的生成族,
+且 $X$ 有一个覆盖族 $(g_i:X_i\to X)_{i\in I}$,
+使各 $X_i$ 拟紧, 且对每对指标 $i,j\in I$,
+$\fprod{X_i}{X_j}{Y}$ 拟分离.
+则若 $X$ 是 $E$ 的拟分离对象, $f$ 为拟分离态射.
+\end{enonce*}
+
+事实上, 族
+$(\fprod{g_i}{g_j}{Y}:\fprod{X_i}{X_j}{Y}\to
+\fprod{X}{X}{Y})_{(i,j)\in I\times I}$ 覆盖.
+因此, 要证明态射 $\Delta_{X/Y}:X\to\fprod{X}{X}{Y}$ 拟紧,
+只须证明对每个 $(i,j)\in I\times I$,
+由它沿 $\fprod{g_i}{g_j}{Y}$ 经基变换\pageoriginale{}所得的态射拟紧
+(\hyperref[VI.prop1.10]{1.10} (ii)).
+后者正是典范态射
+$\fprod{X_i}{X_j}{X}\to\fprod{X_i}{X_j}{Y}$.
+由假设 $X$ 拟分离且各 $X_i$ 拟紧,
+故 $\fprod{X_i}{X_j}{X}$ 拟紧;
+而由假设 $\fprod{X_i}{X_j}{Y}$ 拟分离,
+故态射 $\fprod{X_i}{X_j}{X}\to\fprod{X_i}{X_j}{Y}$ 确实拟紧, \cqfd
+
+现在可完成 \hyperref[VI.cor2.1.2]{2.1.2} 的证明,
+即证明每个 $G$ 拟分离的态射 $f:G\to\epsilon(X)$ 拟分离.
+为此, 用对象 $\epsilon(X_i)$ 覆盖 $G$,
+使复合态射 $\epsilon(X_i)\to\epsilon(X)$ 来自态射 $X_i\to X$.
+由 \hyperref[VI.lem2.1.3]{2.1.3},
+因各 $\epsilon(X_i)$ 拟紧,
+只须验证纤维积
+$\fprod{\epsilon(X_i)}{\epsilon(X_j)}{\epsilon(X)}=
+\epsilon(\fprod{X_i}{X_j}{X})$ 拟分离.
+我们已知 $E$ 中每个形如 $\epsilon(U)$ 的对象都凝聚.
+这就证明 \hyperref[VI.cor2.1.2]{2.1.2},
+并完成 \hyperref[VI.prop2.1]{2.1} 的证明.
+
+\begin{enonce*}{命题 2.2}\etiquette[2.2]{VI.prop2.2}
+设 $E$ 是一个含有由凝聚对象构成的满生成子范畴 $C$ 的拓扑斯.
+下列关于 $E$ 的条件等价:
+\begin{itemize}
+\item[(i)] $E$ 的每个拟分离对象都在终对象上拟分离.
+
+\item[(i bis)] 对 $E$ 中的每个态射 $f:X\to Y$,
+若 $X$ 拟分离, 则 $f$ 拟分离.
+
+\item[(i ter)] $C$ 的每个对象 $X$ 都在 $E$ 的终对象上拟分离,
+\ie 对角态射 $X\to X\times X$ 拟紧.
+
+\item[(ii)] $E$ 中两个拟分离对象的积\pageoriginale{}拟分离.
+
+\item[(ii bis)] $C$ 的两个对象在 $E$ 中的积拟分离.
+\end{itemize}
+
+这些条件蕴含 $E$ 中由 $E$ 的凝聚对象构成的满子范畴 $E_{\coh}$
+对纤维积稳定
+(从而 $E$ 更满足 \hyperref[VI.prop2.1]{2.1} 的等价条件).
+\end{enonce*}
+
+显然 (i bis) $\Rightarrow$ (i),
+逆向蕴含来自 \hyperref[VI.prop1.8]{1.8} (iii).
+用已使用过的论证可得 (i) $\Rightarrow$ (ii):
+若 $X$ 与 $Y$ 拟分离, 则由假设 (i), $X$ 在 $e$ 上拟分离,
+故经基变换 $X\times Y$ 在 $Y$ 上拟分离,
+从而由 \hyperref[VI.prop1.14]{1.14} (ii), $X\times Y$ 拟分离.
+同一论证表明 (i ter) $\Rightarrow$ (ii bis),
+而 (i) $\Rightarrow$ (i ter) 及 (ii) $\Rightarrow$ (ii bis) 显然.
+因此, 只须证明 (ii bis) $\Rightarrow$ (i).
+若 $X$ 是 $E$ 的拟分离对象,
+用 $C$ 的对象 $X_i$ 覆盖 $X$
+(由于 $C$ 生成, 这可以做到).
+由于对 $C$ 的假设, 各 $X_i$ 拟紧,
+可以将 \hyperref[VI.lem2.1.3]{2.1.3} 用于态射 $X\to e$;
+因此, 要证明此态射拟分离,
+恰好归结为验证各 $X_i\times X_j$ 拟分离,
+这正是假设 (ii bis).
+
+\begin{enonce*}[remark]{注 2.2.1}\etiquette[2.2.1]{VI.rem2.2.1}
+条件 (i ter) 也等价于下列条件 (i quater):
+对 $C$ 中的每个双箭头 $g_1,g_2:Y\rightrightarrows X$,
+其在 $E$ 中的核拟紧
+(或等价地 (\hyperref[VI.cor1.15]{1.15}), 凝聚).
+\end{enonce*}
+
+为\pageoriginale{}证明这一点,
+只须将判据 \hyperref[VI.prop1.10]{1.10} (i)
+用于 (i ter) 中考察的对角态射 $X\to X\times X$.
+
+\begin{enonce*}{定义 2.3}\etiquette[2.3]{VI.def2.3}
+满足 \emph{\hyperref[VI.prop2.2]{2.2}
+(\resp \hyperref[VI.prop2.1]{2.1})} 的等价条件的拓扑斯 $E$,
+称为\emph{代数拓扑斯（algebraic topos）
+(\resp 局部代数拓扑斯, 或局部凝聚拓扑斯)}.
+拓扑斯 $E$ 的对象 $X$ 称为\emph{拓扑斯 $E$ 的代数对象},
+是指诱导拓扑斯 $E_{/X}$ 为代数的.
+拓扑斯 $E$ 称为\emph{拟分离的 (\resp 凝聚的)},
+是指它为代数拓扑斯,
+且其终对象拟分离 (\resp 凝聚).
+\end{enonce*}
+
+\setcounter{subsection}{3}
+\subsubsection{}\etiquette[2.3.1]{VI.subsubsec2.3.1}
+在代数拓扑斯中,
+第 ${\rm n^{\circ}}$~1 节发展的有限性概念具有完全令人满意的性质,
+与概形范畴中同名概念的性质类似.
+实际遇到的所有局部代数 (= 局部凝聚) 拓扑斯事实上都是代数拓扑斯,
+因此这一概念当前的实际意义似乎颇为有限.
+不过, 可以构造局部代数但不是代数的拓扑斯
+(\hyperref[VI.exer2.17]{2.17} f).
+
+
+% END INCLUDED SGA4_English_current_buildable_source_20260906/source/06/drafts/SGA4_VI_LINES_1096_1382_English.texfrag
+
+
+% BEGIN INCLUDED SGA4_English_current_buildable_source_20260906/source/06/drafts/SGA4_VI_LINES_1383_1678_English.texfrag
+\subsection{}\etiquette[2.4]{VI.subsec2.4}
+下面对 \hyperref[VI.def2.3]{2.3} 引入的概念作若干一般说明,
+希望读者由此相信, 那里引入的术语是一致的.
+
+\subsubsection{}\etiquette[2.4.1]{VI.subsubsec2.4.1}
+在 \hyperref[VI.prop2.1]{2.1} (i) \resp (ii) 的条件下,
+对每个 $X\in C$, $X$ (\resp $\epsilon(X)$)
+是 $E$ 的一个代数 (凝聚) 对象
+(\hyperref[VI.cor2.1.2]{2.1.2} 及 1.19.2);
+换句话\pageoriginale{}说,
+诱导拓扑斯 $E_{/X}$
+(\resp $E_{\epsilon(X)}\approxeq(C_{/X})^{\sim}$)
+为代数的, 从而\emph{凝聚}.
+等价地, \emph{当 $C$ 具有终对象时, $E$ 本身为代数的, 从而凝聚.}
+
+\subsubsection{}\etiquette[2.4.2]{VI.subsubsec2.4.2}
+若 $E$ 是代数拓扑斯,
+则每个诱导拓扑斯 $E_{/X}$ 也为代数的
+(\hyperref[VI.prop2.2]{2.2} (i bis)).
+拓扑斯 $E$ 局部代数 $=$ 局部凝聚的充要条件是:
+存在 $E$ 的一个覆盖终对象的对象族 $(X_i)_{i\in I}$,
+使各 $X_i$ 为代数的 (\resp 凝聚的),
+\ie 各诱导拓扑斯 $E_{/X_i}$ 为代数的 (\resp 凝聚的).
+充分性由定义立即得到,
+必要性来自 \hyperref[VI.subsubsec2.4.1]{2.4.1} 的观察.
+当然, 代数拓扑斯局部代数;
+若 $E$ 为局部代数拓扑斯, 每个诱导拓扑斯 $E_{/X}$ 都局部代数.
+
+\subsubsection{}\etiquette[2.4.3]{VI.subsubsec2.4.3}
+若 $X$ 是拓扑斯 $E$ 的代数对象,
+则 $E$ 中位于 $X$ 之上的每个对象 $X'$ 仍为代数的
+(\cf \hyperref[VI.subsubsec2.4.2]{2.4.2}).
+特别地, 代数拓扑斯的每个对象都为代数的; 逆命题当然也成立.
+
+\subsubsection{}\etiquette[2.4.4]{VI.subsubsec2.4.4}
+$E$ 中由\emph{代数的拟分离}对象构成的满子范畴,
+对纤维积及子对象稳定 (\hyperref[VI.cor1.15]{1.15}),
+因而也对核稳定.
+若 $E$ 为代数的,
+此范畴 (这时它就是\pageoriginale{} $E$ 的拟分离对象范畴)
+还对两个对象的积稳定.
+若 $E$ 拟分离 (且仅在此时),
+这一范畴对任意有限投射极限稳定,
+或者等价地, 含有 $E$ 的终对象.
+
+$E$ 中由\emph{代数的凝聚}对象构成的满子范畴 $C$ 对纤维积稳定.
+若 $E$ 局部代数, \ie 局部凝聚,
+称 $E$ 为代数的, 相当于称 $C$ 还对双箭头的核稳定
+(\hyperref[VI.rem2.2.1]{2.2.1});
+称 $E$ 拟分离, 相当于再要求 $C$ 对两个对象的积稳定
+(\cf \hyperref[VI.cor1.17]{1.17}).
+最后, 称 $E$ 凝聚,
+相当于称 $C$ 对任意有限投射极限稳定,
+或者等价地, 含有 $E$ 的终对象.
+
+\subsubsection{}\etiquette[2.4.5]{VI.subsubsec2.4.5}
+设 $E$ 是一个拓扑斯.
+$E$ 局部凝聚 (\resp 代数, \resp 拟分离, \resp 凝聚)
+的充要条件是, 它具有一个由拟紧对象构成的满生成子范畴 $C$
+(这些对象自动凝聚 (\hyperref[VI.prop2.1]{2.1})),
+且\emph{对}纤维积
+(\resp 对纤维积与核,
+\resp 对纤维积及两个对象的积,
+\resp 对任意有限投射极限) \emph{稳定};
+或等价地, $E$ 等价于一个拓扑斯 $C^{\sim}$,
+其中 $C$ 为每个对象都拟紧的 $𝒰$-景,
+且其中纤维积及两个对象的积
+(\resp 所有有限投射极限) 可表示.
+(证明必要性, 取\pageoriginale{} $C$ 为 $E$ 的凝聚且\emph{代数的}对象范畴,
+并应用 \hyperref[VI.subsec2.4]{2.4};
+证明充分性, 应用 \hyperref[VI.prop2.2]{2.2} (i ter).)
+在这一陈述中, 当然还可假定 $C$ 为 $𝒰$-小的.
+
+\subsubsection{}\etiquette[2.4.6]{VI.subsubsec2.4.6}
+设 $E$ 是一个拓扑斯.
+若 $E$ 为代数的, $E$ 的对象 $X$ 拟分离 (\resp 凝聚),
+当且仅当诱导拓扑斯 $E_{/X}$ 也如此.
+当不再假定 $E$ 为代数的时,
+只能说 $E_{/X}$ 拟分离 (\resp 凝聚),
+当且仅当 $X$ 拟分离 (\resp 凝聚) 且\emph{为代数的}.
+这无关大局, 因为我们大概无须在 $E$ 为代数的情形之外使用这些概念.
+
+\subsubsection{}\etiquette[2.4.7]{VI.subsubsec2.4.7}
+为了使拓扑斯 $E$ 的凝聚 (\resp 拟分离) 对象概念具有令人满意的性质,
+须限于同时为代数的对象;
+若 $E$ 为代数的, 这一条件自动满足.
+由于我们大概始终无须处理非代数的局部代数拓扑斯 $E$,
+修改 \hyperref[VI.def1.13]{1.13} 引入的术语,
+可能将它仅保留给代数对象的问题, 因而并不十分迫切!
+
+此外, 我们没有定义拟紧拓扑斯的概念.
+按本段的思路, 自然会把这一名称给予终对象拟紧的\emph{代数}拓扑斯.
+
+我们\pageoriginale{}对引入这样的用法有所犹豫,
+因为若 $X$ 是拓扑空间,
+则 $X$ 拟紧当且仅当相伴拓扑斯 $\Top(X)$ 拟紧这一说法就不成立.
+关于这一点, 注意 $\Top(X)$ 局部凝聚,
+当且仅当 $X$ 具有一个由拟紧开集 $U$ 构成的开集基,
+使对 $U_j,U_k\subset U_i$, $U_j\cap U_k$ 仍拟紧
+(这时 $\Top(X)$ 甚至为代数的).
+概形的底拓扑空间满足这一条件,
+但分析学家遇到的空间很少满足它, 即使空间本身紧致也如此.
+为了便于查阅, 明确陈述如下:
+
+\begin{enonce*}{命题 2.5}\etiquette[2.5]{VI.prop2.5}
+设 $E$ 是一个代数拓扑斯, $f:X\to Y$ 是 $E$ 中的态射.
+若 $Y$ 是 $E$ 的拟分离 (\resp 凝聚) 对象,
+则 $X$ 是 $E$ 的拟分离 (\resp 凝聚) 对象的充要条件是,
+态射 $f$ 拟分离 (\resp 凝聚).
+\end{enonce*}
+
+充分性已在 \hyperref[VI.prop1.14]{1.14} (ii) 中见到,
+且不需对 $E$ 作任何假设.
+非括号内情形的必要性, 甚至无须假定 $Y$ 拟分离就成立,
+它通过 \hyperref[VI.prop2.2]{2.2} i bis)
+就是定义 \hyperref[VI.def2.3]{2.3}.
+只须证明若 $Y$ 凝聚且 $X$ 凝聚, 则 $f$ 凝聚.
+既已知道 $f$ 拟分离, 只须证明 $f$ 拟紧;
+这来自 $X$ 拟紧而 $Y$ 拟分离
+(\hyperref[VI.def1.13]{1.13}).
+
+\begin{enonce*}{推论 2.6}\etiquette[2.6]{VI.cor2.6}
+设\pageoriginale{} $E$ 是一个代数拓扑斯,
+$f:X\to Y$ 是 $E$ 中的态射,
+$(Y_i\to Y)_{i\in I}$ 为覆盖族,
+且各 $Y_i$ 拟分离 (\resp 凝聚).
+$f$ 拟分离 (\resp 拟紧, \resp 凝聚) 的充要条件是,
+对每个 $i\in I$,
+$X_i=\fprod{X}{Y_i}{Y}$ 是 $E$ 的拟分离
+(\resp 拟紧, \resp 凝聚) 对象.
+\end{enonce*}
+
+在“拟分离”或“凝聚”情形,
+只须合并 \hyperref[VI.prop1.10]{1.10} (ii)
+及 \hyperref[VI.prop2.5]{2.5};
+“拟紧”情形已在 \hyperref[VI.cor1.16]{1.16} 中见到.
+注意, \hyperref[VI.cor2.6]{2.6} 中所述条件的必要性,
+也无须对拓扑斯 $E$ 作任何假设就成立.
+
+作为 \hyperref[VI.cor2.6]{2.6} 的特殊情形, 得到:
+
+\begin{enonce*}{推论 2.7}\etiquette[2.7]{VI.cor2.7}
+设 $E$ 是一个凝聚拓扑斯, $X$ 是 $E$ 的一个对象.
+$X$ 是 $E$ 的拟紧 (\resp 拟分离, \resp 凝聚) 对象的充要条件是,
+它在终对象上拟紧 (\resp 拟分离, \resp 凝聚)
+(\hyperref[VI.subsubsec1.9.2]{1.9.2}).
+\end{enonce*}
+
+特别地, $X$ 可构造 (\hyperref[VI.subsubsec1.9.2]{1.9.2}),
+当且仅当它凝聚.
+
+\begin{enonce*}{推论 2.8}\etiquette[2.8]{VI.cor2.8}
+设 $E$ 是一个局部凝聚拓扑斯,
+$f:X\to Y$ 是 $E$ 中的态射.
+$f$ 拟分离的充要条件是,
+对 $E_{/Y}$ 的每个拟分离对象 $Y'$,
+$f^{\ast}(Y')=\fprod{X}{Y'}{Y}$
+是 $E_{/X}$ 的拟分离对象
+(或者是 $E$ 的拟分离对象, 两者相同
+(\hyperref[VI.subsubsec1.20.2]{1.20.2})).
+\end{enonce*}
+
+“仅当”\pageoriginale{}方向无须对 $E$ 作任何条件就成立,
+因为若 $Y'$ 拟分离,
+则经基变换 $f':X'=\fprod{X}{Y'}{Y}\to Y'$ 拟分离,
+从而 $X'$ 拟分离 (\hyperref[VI.prop1.14]{1.14} (ii)).
+证明逆向, 注意存在一个由拟分离代数对象构成的 $Y$ 的覆盖族 $Y_i\to Y$.
+由 \hyperref[VI.prop1.10]{1.10} (ii),
+要验证 $f$ 拟分离, 只须验证各
+$f_i:X_i=\fprod{X}{X_i}{Y}\to Y_i$ 拟分离.
+但对 $f^{\ast}$ 的假设蕴含各 $X_i$ 拟分离,
+因而各 $f_i$ 也拟分离,
+因为 $E_{/Y_i}$ 为代数拓扑斯.
+
+\begin{enonce*}[remark]{注 2.8.1}\etiquette[2.8.1]{VI.rem2.8.1}
+将假设“$E$ 为代数的”换为更一般的假设“$Y$ 为代数的”时,
+陈述 \hyperref[VI.prop2.5]{2.5} 及 \hyperref[VI.cor2.6]{2.6} 仍成立;
+只须将原陈述应用于为代数的诱导拓扑斯 $E_{/Y}$, 立即可见.
+同样, 在 \hyperref[VI.cor2.8]{2.8} 中,
+只须假定 $E_{/Y}$ (而非 $E$) 局部凝聚.
+\end{enonce*}
+
+\begin{enonce*}{命题 2.9}\etiquette[2.9]{VI.prop2.9}
+设 $E$ 是一个拓扑斯, $C$ 是 $E$ 的一个子范畴.
+下列条件等价:
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item $E$ 局部凝聚 (\resp 凝聚),
+满足 \hyperref[VI.cor1.25]{1.25} 的等价条件,
+且 $C$ 是 $E$ 中由凝聚对象构成的满子范畴 $E_{\coh}$.
+
+\item $C$ 是 $E$ 的一个严格满生成子范畴,
+对有限归纳极限和纤维积
+(\resp 以及有限投射极限) 稳定,
+且由拟紧对象构成.
+\end{enumerate}
+\end{enonce*}
+
+蕴含\pageoriginale{} (i) $\Rightarrow$ (ii)
+立即来自定义以及 \hyperref[VI.cor1.25]{1.25} 中所考察条件的表述
+\hyperref[VI.cor1.25]{1.25} (ii).
+证明逆向蕴含.
+$C$ 是一个由拟紧对象构成且对纤维积
+(\resp 有限投射极限) 稳定的满生成子范畴,
+由定义就蕴含 $E$ 局部凝聚 (\resp 凝聚).
+再由 $C$ 严格满且对有限归纳极限稳定,
+可知 $C=E_{\coh}$
+(由 \hyperref[VI.cor1.24]{1.24} (ii) $\Rightarrow$ (iii)),
+且条件 \hyperref[VI.cor1.25]{1.25} (ii) 满足, \cqfd
+
+\begin{enonce*}{定义 2.9.1}\etiquette[2.9.1]{VI.def2.9.1}
+$𝒰$-拓扑斯 $E$ 称为完美的,
+是指它凝聚 (\hyperref[VI.def2.3]{2.3})
+且满足 \hyperref[VI.cor1.25]{1.25} 的等价条件,
+\ie $E$ 中由 $E$ 的凝聚对象构成的子范畴 $E_{\coh}$ 对有限归纳极限稳定.
+若 $E$ 存在一个覆盖终对象的对象族 $(X_i)_{i\in I}$,
+使对每个 $i\in I$, 诱导拓扑斯 $E_{/X_i}$ 完美,
+就称 $E$ 局部完美.
+\end{enonce*}
+
+\setcounter{subsection}{9}
+\setcounter{subsubsection}{1}
+\subsubsection{}\etiquette[2.9.2]{VI.subsubsec2.9.2}
+
+由此定义立即可知,
+完美 (\resp 局部完美) 拓扑斯凝聚 (\resp 局部凝聚).
+完美 (\resp 局部完美) 拓扑斯的例子,
+可以列举下文 \hyperref[VI.def2.11]{2.11} 引入的
+Noether (\resp 局部 Noether) 拓扑斯
+(\cf \hyperref[VI.subsec2.14]{2.14}),
+以及凝聚概形 (\resp 任意概形) 的 Zariski 与平展拓扑斯
+(IX, 注, 第 42 页).
+反例\pageoriginale{}则可列举概形 $S$ 的 fppf 拓扑斯,
+它局部凝聚
+(而且若 $S$ 为凝聚概形, \ie 拟紧且拟分离, 则甚至凝聚)
+(\hyperrefext[VII][VII.lem5.6]{5.6}),
+但若 $S\neq∅$, 它不局部完美 (\hyperref[VI.exer1.28]{1.28} f)).
+
+在局部完美拓扑斯中, 可构造对象的概念特别稳定
+(下文 \hyperref[VI.prop2.9.3]{2.9.3}),
+这是此概念似乎有用的一个理由.
+另一个理由是, 与凝聚或局部凝聚拓扑斯概念一样,
+完美或局部完美拓扑斯概念在形成某个开集的补闭子拓扑斯时稳定
+(\hyperref[VI.prop4.6]{4.6}),
+且在拓扑斯粘合运算下的行为特别简单
+(\hyperref[VI.cor4.11]{4.11}, \hyperref[VI.cor4.14]{4.14}).
+
+\begin{enonce*}{命题 2.9.3}\etiquette[2.9.3]{VI.prop2.9.3}
+设 $E$ 是一个局部完美拓扑斯 (\hyperref[VI.def2.9.1]{2.9.1}).
+则 $E$ 中由 $E$ 的可构造对象
+(\hyperref[VI.subsubsec1.9.3]{1.9.3}) 构成的满子范畴 $E_{\cons}$
+对有限归纳极限稳定
+(当然, 由 (\hyperref[VI.subsubsec1.9.3]{1.9.3}), 也对有限投射极限稳定).
+\end{enonce*}
+
+由于 $E$ 的对象可构造的性质在 $E$ 上局部
+(\hyperref[VI.prop1.10]{1.10} (ii)),
+归结为 $E$ 是完美拓扑斯的情形.
+但此时 $E_{\cons}=E_{\coh}$ (\hyperref[VI.cor2.7]{2.7}),
+结论由定义 \hyperref[VI.def2.9.1]{2.9.1} 得到.
+
+\begin{enonce*}{推论 2.9.4}\etiquette[2.9.4]{VI.cor2.9.4}
+设\pageoriginale{} $E$ 是一个局部完美拓扑斯.
+则 $E$ 完美, 当且仅当 $E$ 凝聚.
+对 $E$ 的每个对象 $X$, 诱导拓扑斯 $E_{/X}$ 局部完美.
+\end{enonce*}
+
+\begin{enonce*}[remark]{问题 2.9.5}\etiquette[2.9.5]{VI.prob2.9.5}
+可以设想, 完美拓扑斯足够特殊,
+容许同样明确的\emph{结构理论}
+(沿着 M.\textsc{Artin} 在口头讨论班期间提出的模型).
+若一个拓扑斯等价于形如 $\widehat{C}$ 的拓扑斯,
+其中 $C$ 是有限范畴 (\cf 习题 \hyperref[VI.exer3.11]{3.11}),
+就称其为\emph{有限的};
+若一个拓扑斯是有限拓扑斯的滤过投射极限,
+就称其为\emph{pro-有限的}
+(取下文第 6 节的意义, 由 \hyperref[VI.exer3.12]{3.12} c) 可应用).
+由于有限拓扑斯为 Noether (\hyperref[VI.exer2.17]{2.17} g)),
+因而完美, 而完美拓扑斯的滤过投射极限完美 (6),
+故 pro-有限拓扑斯完美.
+问题是, 反过来每个完美拓扑斯是否 pro-有限.
+这等价于问, $E_{\coh}$ 的每个有限子范畴
+是否都包含在 $E_{\coh}$ 的一个满子范畴 $F_0$ 中,
+使其等价于某个范畴 $F_{\coh}$,
+其中 $F$ 为有限拓扑斯 (\cf \hyperref[VI.exer3.11]{3.11}).
+(若答案是否定的,
+就须找到对完美拓扑斯的便于处理的内在附加条件,
+保证它为 pro-有限.)
+最后, 还须用适当的“Karoubi pro-有限范畴”概念
+研究 pro-有限拓扑斯的结构,
+这一概念受 IV \hyperref[IV.exer7.6]{7.6} h) 启发.
+即使在 $E$ 是某个良好的凝聚概形 $X$ 的 Zariski 或平展拓扑斯的特殊情形,
+这一研究\pageoriginale{}也尚未开展;
+它应当给出比与 $X$ 相伴的紧空间 $X_{\cons}$
+(\EGA IV 1.) 更精细的不变量.
+
+同样地, 可以提出下列问题:
+设 $E$ 是完美拓扑斯,
+$E'$ 是由 $E$ 的一个开集诱导的拓扑斯,
+$E''$ 是相应的闭子拓扑斯
+(IV \hyperref[IV.subsubsec9.3.5]{9.9}).
+若 $E'$ 与 $E''$ 为有限拓扑斯, $E$ 是否也如此?
+\end{enonce*}
+
+% END INCLUDED SGA4_English_current_buildable_source_20260906/source/06/drafts/SGA4_VI_LINES_1383_1678_English.texfrag
+
+
+% BEGIN INCLUDED SGA4_English_current_buildable_source_20260906/source/06/drafts/SGA4_VI_LINES_1679_2073_English.texfrag
+\begin{enonce*}{命题 2.10}\etiquette[2.10]{VI.prop2.10}
+设 $E$ 是一个拓扑斯. 下列条件等价:
+\begin{itemize}
+\item[(i)] $E$ 具有一个对纤维积稳定、
+由 $E$ 的预 Noether 对象构成的满生成子范畴.
+
+\item[(ii)] $E$ 具有一个由拟分离预 Noether 对象
+(\ie 凝聚预 Noether 对象) 构成的满生成子范畴.
+
+\item[(iii)] $E$ 局部凝聚 (\hyperref[VI.def2.3]{2.3}),
+且 $E$ 的每个拟紧对象都为预 Noether.
+
+\item[(iii bis)] $E$ 局部凝聚,
+且具有由 $E$ 的预 Noether 对象构成的生成族.
+\end{itemize}
+\end{enonce*}
+
+(iii) 与 (iii bis) 的等价性来自 \hyperref[VI.subsec1.32]{1.32},
+而 (i) $\Rightarrow$ (iii bis) 及 (iii) $\Rightarrow$ (i) 显然;
+故 (i) 等价于 (iii) 及 (iii bis).
+最后, (i) $\Rightarrow$ (ii)
+来自 \hyperref[VI.prop2.1]{2.1} 的最后一个断言,\pageoriginale{}
+只须证明 (ii) $\Rightarrow$ (i).
+这一蕴含来自以下事实:
+$E$ 中由拟分离 Noether 对象构成的满子范畴若生成, 则对纤维积稳定:
+这样的纤维积由定义拟紧,
+故由 \hyperref[VI.subsec1.32]{1.32} 的第一个断言为 Noether;
+而由 \hyperref[VI.subsec1.32]{1.32} 的最后一个断言, 它拟分离.
+
+\begin{enonce*}{定义 2.11}\etiquette[2.11]{VI.def2.11}
+拓扑斯 $E$ 称为局部 Noether 的,
+是指它满足 \hyperref[VI.prop2.10]{2.10} 的等价条件;
+若其终对象还凝聚
+(或等价地 (\hyperref[VI.subsec1.32]{1.32}), 为预 Noether 且拟分离),
+就称它为 Noether 的.
+拓扑斯 $E$ 的对象 $X$ 称为 $E$ 的 Noether 对象,
+是指诱导拓扑斯 $E_{/X}$ 为 Noether 拓扑斯.
+\end{enonce*}
+
+\setcounter{subsection}{11}
+\subsection{}\etiquette[2.12]{VI.subsec2.12}
+若 $E$ 是局部 Noether 拓扑斯,
+则每个诱导拓扑斯 $E_{/X}$ 也如此.
+反过来, 若能找到覆盖终对象的一个族 $(X_i)$,
+使各 $E_{/X_i}$ 局部 Noether, 则 $E$ 也如此.
+若 $C$ 是 $E$ 的一个由预 Noether 对象构成、对纤维积稳定的满生成子范畴
+(\hyperref[VI.def2.11]{2.11} (i)),
+则对每个 $X \in C$, $E_{/X}$ 为 Noether 拓扑斯,
+\ie $C$ 的对象甚至是 \emph{Noether} 的
+(因为若 $E$ 局部 Noether 且 $X \in \Ob E$,
+则 $E_{/X}$ 为 Noether 的, 当且仅当 $X$ 凝聚).
+由此可知, 拓扑斯 $E$ 局部 Noether,
+当且仅当 $E$ 的终对象可以由 Noether 对象 $X_i$ 覆盖.
+
+\subsection{}\etiquette[2.13]{VI.subsec2.13}
+在局部 Noether 拓扑斯 $E$ 中,\pageoriginale{}
+每个单态射拟紧, 每个态射拟分离
+(\hyperref[VI.subsec1.32]{1.32}).
+更有甚者, $E$ 为\emph{代数}拓扑斯
+(\hyperref[VI.def2.3]{2.3}),
+而不只是局部凝聚, \ie 局部代数.
+因此, 拓扑斯 $E$ 为 Noether 的,
+当且仅当它局部 Noether 且\emph{凝聚}
+(\hyperref[VI.def2.3]{2.3}).
+换句话说, 若 $E$ 是局部 Noether 拓扑斯,
+则 $E$ 的 Noether 对象恰为 $E$ 的\emph{凝聚}对象.
+
+\subsection{}\etiquette[2.14]{VI.subsec2.14}
+设 $E$ 是一个局部 Noether 拓扑斯.
+若 $E$ 拟分离, \ie 其终对象拟分离,
+则 $E$ 的\emph{每个}对象都拟分离
+(\hyperref[VI.subsec1.32]{1.32});
+故 $E$ 的预 Noether 对象与 $E$ 的 Noether
+(\ie 凝聚) 对象相同.
+由于预 Noether 对象的商对象仍为预 Noether,
+可知 $E$ 满足 \hyperref[VI.cor1.25]{1.25} 的等价条件
+(因为它满足条件 \hyperref[VI.cor1.25]{1.25} (ii bis)).
+特别地, 若 $C$ 是 $E$ 中由 $E$ 的 Noether (凝聚) 对象构成的满子范畴,
+则自然函子
+$$
+\Ind(C) \to E
+$$
+为范畴等价.
+得到结论: \emph{Noether 拓扑斯完美}
+(\hyperref[VI.def2.9.1]{2.9.1}),
+因而局部 Noether 拓扑斯局部完美.
+
+若只假定 $E$ 局部 Noether,
+$E$ 的每个对象仍是其预 Noether 子对象的归纳极限
+(因为在具有由\pageoriginale{}拟紧对象构成的生成子范畴的拓扑斯中,
+每个对象都是其拟紧子对象的滤过归纳极限).
+但由于 $E$ 的预 Noether 对象不再一定凝聚,
+这个陈述此时的用途很有限;
+由 (\hyperref[VI.exem1.33]{1.33}) 已知,
+\hyperref[VI.cor1.25]{1.25} 的条件不再一定满足.
+
+\begin{enonce*}[remark]{例 2.15}\etiquette[2.15]{VI.exem2.15}
+(\emph{拓扑空间}.) 设 $X$ 是一个拓扑空间.
+则下列条件等价:
+(i) 拓扑空间 $X$ 为 Noether 的
+(\ie $X$ 的每个开子集拟紧,
+\ie $X$ 的每个递增开子集序列稳定);
+(ii) 拓扑斯 $\Top(X)$ 为 Noether 的;
+(iii) $\Top(X)$ 的终对象 $X$ 为 Noether 的;
+(iv) $\Top(X)$ 的终对象 $X$ 为预 Noether 的.
+
+事实上, 显然有 (ii) $\Leftrightarrow$ (iii) $\Rightarrow$ (iv)
+$\Leftrightarrow$ (i).
+另一方面, (i) 蕴含 $\Top(X)$ 的对有限投射极限稳定的生成子范畴 Ouv(X)
+由预 Noether 对象构成, 从而得到 (ii).
+
+同样可见, 拓扑空间 $X$ 局部 Noether
+(\ie 为 Noether 开子集的并),
+当且仅当拓扑斯 $\Top(X)$ 局部 Noether.
+\end{enonce*}
+
+\setcounter{subsection}{15}
+\setcounter{subsubsection}{0}
+\subsubsection{}\etiquette[2.15.1]{VI.subsubsec2.15.1}
+因此, 定义 \hyperref[VI.def1.30]{1.30}
+及 \hyperref[VI.def2.11]{2.11}
+与拓扑空间的通用术语一致.
+另一方面, 在一般情形,
+我们选择赋予“Noether 对象”一词比
+\hyperref[VI.def1.30]{1.30} 中更朴素的概念更强的\pageoriginale{}含义,
+使与这一概念相联的所有性质
+(而不只是定义的语法结构)
+都与 \emph{Noether} 拓扑空间及概形所附有的直觉完全一致.
+
+读者可在下面的习题中找到更多例子.
+
+\begin{enonce*}[remark]{习题 2.16}\etiquette[2.16]{VI.exer2.16}
+(\emph{具有算子群的空间与分类拓扑斯}.)
+
+设 $X$ 是一个拓扑空间, 离散群 $G$ 在其上作用,
+得到 (IV \hyperref[IV.subsec2.3]{2.3}) 拓扑斯 $E = \Top(X, G)$.
+此拓扑斯的对象 $X'$ 解释为 $X$ 上配备算子群 $G$ 的展空间;
+并注意诱导拓扑斯 $E_{/X'}$ 典范等价于 $\Top(X', G)$.
+\begin{enumerate}
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 拓扑斯 $E$ 的终对象拟紧,
+当且仅当商拓扑空间 $X/G$ 拟紧
+(利用 IV \hyperref[IV.subsubsec8.4.1]{8.4.1}).
+
+\item 设 $P$ 为 $E$ 的对象,
+由配备 $G$ 的对角作用的平凡展空间 $X \times G$ 定义.
+证明诱导拓扑斯 $E_{/P}$ 等价于拓扑斯 $\Top(X)$
+(比较 IV \hyperref[IV.subsubsec5.8.3]{5.8.3}).
+推出 $E$ 局部凝聚 (\resp 局部 Noether),
+当且仅当 $\Top(X)$ 局部凝聚
+(\cf \hyperref[VI.subsubsec2.4.7]{2.4.7})
+(\resp 局部 Noether (\cf \hyperref[VI.exem2.15]{2.15})).
+证明若 $E$ 局部凝聚, \ie 局部代数, 则它实际上为代数的;
+利用由对象 $T_U$ 构成\pageoriginale{}的生成族,
+其中 $U$ 为 $X$ 的凝聚开子集,
+$T_U = G \times U$ 配备 $G$ 的作用
+$g \cdot (u, g') = (u, gg')$,
+结构态射 $p_U : T_U \to X$
+由 $p_U(u, g) = g\cdot u$ 定义.
+
+\item 假定 $E$ 为代数的,
+\ie $\Top(X)$ 为代数的 (\hyperref[VI.subsubsec2.4.7]{2.4.7}).
+证明结构态射 $P \to e$ 拟分离.
+证明 $E$ 拟分离,
+当且仅当 $\Top(X)$ 拟分离
+(或等价地, 拓扑空间 $X$ 拟分离,
+\ie $X$ 的两个拟紧开子集的交是拟紧开子集),
+\emph{并且} $G$ 有限或 $X$ 为空.
+(比较 \hyperref[VI.exem1.33]{1.33}.)
+
+\item 证明结构态射 $P \to e$ 拟紧,
+当且仅当 $G$ 有限.
+证明 $E$ 凝聚 (\resp Noether),
+当且仅当 $\Top(X)$ 也如此,
+\emph{并且} $G$ 有限或 $X$ 为空.
+
+\item 设 $E$ 是一个拓扑斯, $G$ 是 $E$ 的一个群,
+得到分类拓扑斯 $B_G$ (IV \hyperref[IV.subsec2.4]{2.4}).
+以前述讨论为指引, 研究 $B_G$ 中的有限性条件.
+从 $E$ 的严格 pro-群 $𝒢 = (G_i)_{i \in I}$ 出发提出同样的问题.
+特别地, 证明若 $E$ 凝聚 (\resp Noether)
+且各 $G_i$ 凝聚, 则 $B_{𝒢}$ 凝聚 (\resp Noether).
+\end{enumerate}
+\end{enonce*}
+
+\begin{enonce*}[remark]{习题 2.17}\etiquette[2.17]{VI.exer2.17}
+(\emph{形如 $\widehat{C}$ 的拓扑斯}.)
+设 $C$ 是一个等价于某个 $\in 𝒰$ 的范畴的范畴,
+$E = \widehat{C}$ 为 $C$ 上的预层范畴.
+借助典范函子 $\varepsilon : C \to \widehat{C}$,
+将 $C$ 等同于 $E$ 的一个满子范畴.
+\begin{enumerate}
+\renewcommand{\theenumi}{\alph {enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item $C$ 是\pageoriginale{} $E$ 的一个由拟紧对象构成的生成子范畴.
+这些对象为预 Noether
+(\cf \hyperref[VI.subsec1.32]{1.32}),
+当且仅当对 $C$ 的每个对象 $X$,
+$X$ 上的每个筛都由 $C$ 的一个有限态射族 $X_i \to X$ 生成.
+$E$ 的终对象拟紧 (\resp 预 Noether),
+当且仅当存在一个对象集有限的 $C$ 的终子范畴
+(\resp $C$ 上的每个筛都由 $C$ 的一个对象集有限的子范畴生成).
+
+\item 拓扑斯 $E$ 具有由凝聚
+(或等价地, 拟分离) 对象构成的生成子范畴,
+当且仅当 $C$ 的对象在 $E$ 中凝聚;
+或等价地, 对 $C$ 中的两个箭头
+$Y \xrightarrow{f} X$, $Z \xrightarrow{g} X$,
+$E$ 的对象 $\fprod{Y}{Z}{X}$ 拟紧,
+\ie 能找到 $C$ 中有限个交换方形
+\[
+\xymatrix@=1cm{
+ & T_i \ar[ld] \ar[rd]& \\
+Y\ar[rd]_{f}&    & Z\ar[ld]^{g}\\
+ & X  &,
+}
+\]
+使 $C$ 中的每个其他交换方形
+\[
+\xymatrix@=1cm{
+ & T \ar[ld] \ar[rd]& \\
+Y\ar[rd]_{f}&    & Z\ar[ld]^{g}\\
+ & X  &,
+}
+\]
+都来自\pageoriginale{}某个态射 $T \to T_i$.
+(注意, 若 $(F_i)_{i \in I}$ 为 $E$ 的生成族,
+则每个 $X \in \ob C$ 都同构于某个 $F_i$ 的一个直因子.)
+
+\item 拓扑斯 $E$ 局部凝聚,
+\ie 由一族凝聚且\emph{代数}的对象生成,
+当且仅当 $C$ 的对象 $X$ 为 $E$ 的凝聚代数对象,
+\ie 条件 b) 及下列条件成立:
+对 $C$ 中的每对\emph{在 $C$ 的某个对象 $X$ 上的}箭头
+$f$, $g : Y \rightrightarrows Z$,
+这对箭头在 $E$ 中的核为 $E$ 的拟紧对象,
+\ie $C$ 中存在有限个交换图
+\[
+\xymatrix@C=1.5cm{
+T_i \ar[r]& Y \ar@<2pt>[r]^{f,g}\ar@<-2pt>[r]&Z
+}
+\]
+使 $C$ 中的每个其他交换图
+\[
+\xymatrix@C=1.5cm{
+T \ar[r]& Y \ar@<2pt>[r]^{f,g}\ar@<-2pt>[r]&Z
+}
+\]
+都来自某个态射 $T \to T_i$.
+拓扑斯 $E$ 为代数的,
+当且仅当它满足条件 b) 及前述条件,
+但其中 $(f, g)$ 为 $C$ 的任意箭头对
+(不一定在 $C$ 的某个对象 $X$ 上).
+拓扑斯 $E$ 拟分离,
+当且仅当它满足 b) 的条件,
+且对两个对象 $X$, $Y\in\ob C$,
+$E$ 中的积 $X\times Y$ 拟紧.
+拓扑斯 $E$ 凝聚,
+当且仅当它满足前两个条件,
+且 $C$ 有一个底集有限的终子范畴.
+
+\item 给出\pageoriginale{}一个例子,
+使 $E$ 的生成子范畴 $C$ 的对象为预 Noether,
+但 $E$ 不具有由凝聚对象构成的生成族
+(\ie b) 不成立, 或 $C$ 的对象不全凝聚).
+为此取 $C$ 为下列范畴:
+对象为 $X$, $T_i$ $(i = 0, 1, \ldots)$
+及 $e$ (终对象);
+除到 $e$ 的结构态射及恒等态射外,
+这些对象之间的态射只有满足 $u_i v_i = \id_X$ 的态射
+$u_i : T_i \to X$ 及 $v_i : X \to T_i$;
+最后置 $p_i = v_i u_i$ (它必然满足 $p_i^2 = p_i$).
+验证 $X$ 或任意 $T_i$ 上的筛只有两个平凡筛,
+而 $e$ 恰有一个非平凡筛.
+因此由 a), $C$ 的对象都是 $E$ 的预 Noether 对象.
+不过, $E$ 中的积 $X \times X$ 不拟紧,
+因为它不满足 b) 的判据.
+
+\item 给出一个例子,
+使 $E$ 的生成子范畴 $C$ 由 $E$ 的凝聚对象构成,
+但 $E$ 不局部凝聚.
+为此取 $C$ 为下列范畴:
+对象集由相异对象 $e$ (终对象)、$Y$、$Z$
+及 $T_i$ $(i=0, 1, \ldots)$ 构成;
+除到终对象 $e$ 的态射及恒等态射外,
+这些对象间的态射只有满足 $fu_i = gu_i$ 的态射
+$f$, $g : Y \rightrightarrows Y$.
+验证 $C$ 满足条件 b)
+(稍加耐心可得, $C$ 的对象的所有纤维积都同构于 $∅_E$
+或属于 $C$,\pageoriginale{}
+但 $\fprod{Z}{Z}{e}$ 和 $\fprod{Y}{Z}{e}$ 除外,
+它们由 $C$ 的两个元素覆盖),
+而显然 $\Ker(f, g)$ 不满足条件 c).
+
+\item 给出一个例子, 使 $C$ 对纤维积稳定
+(从而 $E$ 更是局部凝聚, \ie 局部代数拓扑斯),
+但 $E$ 不是代数拓扑斯.
+(取 d) 给出的例子,
+以及 $E$ 中由对象 $Y$、$Z$、$T_{i}$ $(i > 0)$
+及 $∅_{E}$ 构成的满子范畴 $C'$.)
+
+\item 假定范畴 $C$ 有限.
+证明拓扑斯 $E$ 为 Noether 的;
+其 Noether (\ie 拟紧) 对象为那些对 $C$ 的每个对象 $X$,
+$F(X)$ 都是\emph{有限}集的反变函子
+$F : C^{\circ} \to (\Ens)$;
+而 $E$ 上的纤维函子将 Noether 对象映为有限集
+(\cf IV \hyperref[IV.exer7.6]{7.6}. h)).
+
+\item 假定 $C$ 的每个态射 $f: X \to X$
+都可分解为复合 $ip$, 其中 $i$ 为单态射, $p$ 有右逆.
+设 $X$ 为 $C$ 的对象,
+$I(X)$ 为 $C$ 意义下其子对象所成的集合, 看作有序集;
+并设 $S(I(X))$ 为 $I(X)$ 的那些子集 $U$ 所成的集合,
+使对两个元素 $X'$, $X'' \in I(X)$,
+条件 $X'\in U$ 和 $X''\leq X'$ 蕴含 $X''\in U$.
+证明 $X$ 在 $E$ 中的子对象有序集
+同构于集合 $S(I(X))$ (按包含关系排序).
+推出若 $I(X)$ 有限, 则 $X$ 为 $E$ 的预 Noether 对象.
+特别地, 若 (除上述分解条件外)
+$C$ 对纤维积 (\resp 有限投射极限) 稳定,
+并且\pageoriginale{}对每个 $X \in \ob C$,
+$X$ 在 $C$ 中的子对象集 $I(X)$ 有限,
+则拓扑斯 $E$ 局部 Noether (\resp Noether).
+
+\item 设 $C$ 为 $\in 𝒰$ 的有限集
+(或者非空有限集) 范畴,
+于是 $E = \widehat{C}$ 为增广单纯集
+(\resp 通常的单纯集) 范畴.
+证明 $E$ 是 Noether 拓扑斯. (利用 h).)
+取 $C$ 的非本质常值 pro-对象 $(X_i)_{i \in I}$,
+证明 $E$ 具有并不将 Noether 对象映为 Noether 对象
+(\ie 有限集) 的纤维函子.
+
+\item 考察拓扑斯 $E$ 的各性质之间的下列蕴含图:
+\[
+\xymatrix@R=.75cm{
+**[r]\txt{E 为 Noether} \ar@{=>}[d] \ar@{=>}[r]& **[r]\txt{E
+局部 Noether} \ar@{=>}[d] & \ar@{=>}[rdd]\\
+**[r]\txt{E 凝聚} \ar@{=>}[r] & **[r]\txt{E
+为代数的} \ar@{=>}[d]\\
+ & **[r]\txt<9.5pc>{E 局部凝聚, 即\\E \raisebox{-1ex}{cohalg}
+  生成 E} \ar@{=>}[d]& & \txt{E \raisebox{-1ex}{pre-Noeth}
+  生成 E} \ar@{=>}[ldd] \\
+ & **[r]\txt{E \raisebox{-1ex}{coh} 生成 E} \ar@{=>}[d]&\\
+ & **[r]\txt{E \raisebox{-1ex}{qucpct} 生成 E}  &&.\\
+}
+\]
+证明此图中的每个蕴含都严格,
+而且所考察概念之间除上图中各蕴含的复合外没有其他蕴含.
+这里 $E_{\coh}, E_{\text{qucpct}}$, $E_{\text{prénoeth}}$,
+$E_{\text{cohalg}}$\pageoriginale{}
+分别表示 $E$ 中由 $E$ 的凝聚、\resp 拟紧、
+\resp 预 Noether、\resp 凝聚且代数的对象构成的满子范畴.
+(可以只考虑形如 $\widehat{C}$ 的拓扑斯,
+利用 d)、e)、f) 中所述结果.)
+
+\item 回答下列问题 (本段作者不知道答案):
+$E = \widehat{C}$ 能否局部 Noether,
+而各 $\Hom(X, Y)$ (其中 $X$, $Y \in \ob C$) 不为有限集?
+\end{enumerate}
+\end{enonce*}
+
+\begin{enonce*}[remark]{习题 2.18}\etiquette[2.18]{VI.exer2.18}
+设 $E$ 是一个拓扑斯.
+\begin{enumerate}
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 设 $X$ 为 $E$ 的预 Noether 对象.
+证明 $X$ 同构于 $E$ 的有限个连通对象
+(IV \hyperref[IV.subsubsec4.3.5]{4.3.5}) 的和.
+(用反证法证明, $X$ 的递增分拆序列
+(IV \hyperref[IV.exer8.7]{8.7}) 稳定.)
+
+\item 设 $X$ 是 $E$ 的一个对象,
+$(f_i : X_i \to X)_{i \in I}$ 为 $X$ 的一个覆盖族.
+证明若每个 $X_i$ 都同构于 $E$ 的连通对象的一个和,
+则 $X$ 也如此.
+(归结为各 $X_i$ 连通的情形,
+再归结为它们是 $X$ 的子对象的情形,
+并在指标集 $I$ 上考察由关系 $X_i \cap X_j \neq \phi_E$
+生成的等价关系 $R$.
+证明若 $J = I/R$, 则 $X$ 是各
+$X(i) = \displaystyle{\mathop{\Sup}_{i \in I}} X_i .)$ 的和.
+
+\item 由 b) 推出,
+若 $(X_i)_{i \in I}$ 表示 $E$ 的生成族,
+则 $E$ 局部连通 (IV \hyperref[IV.exer8.7]{8.7}. $\ell$)),
+当且\pageoriginale{}仅当每个 $X_i$ $(i \in I)$
+都同构于 $E$ 的连通对象的和.
+
+\item 由 a) 及 c) 推出,
+若 $E$ 具有由预 Noether 对象构成的生成子范畴,
+特别地, 若 $E$ 局部 Noether,
+则 $E$ 局部连通,
+从而更同构于一族连通拓扑斯
+(IV \hyperref[IV.exer8.7]{8.7} e))
+的和拓扑斯 (IV \hyperref[IV.exer8.7]{8.7} b)),
+\ie 各终对象连通的拓扑斯.
+(特别地, 对每个态射 $f : P \to E$,
+其中 $P$ 是一个“非空连通且单连通”的拓扑斯
+(IV \hyperref[IV.exer2.7.5]{2.7.5}),
+可以给 $E$ 对应一个基本 pro-群 $\pi_1(E, f)$.
+注意, 由 \textsc{Deligne} 的一个结果 ([9]),
+若 $E$ 局部 Noether 且“非空”,
+总能找到这样的 $f$, 其中 $P$ 为点拓扑斯.
+\end{enumerate}
+\end{enonce*}
+
+% END INCLUDED SGA4_English_current_buildable_source_20260906/source/06/drafts/SGA4_VI_LINES_1679_2073_English.texfrag
+
+
+% BEGIN INCLUDED SGA4_English_current_buildable_source_20260906/source/06/drafts/SGA4_VI_LINES_2074_2418_English.texfrag
+\section{拓扑斯态射的有限性条件}\etiquette[3]{VI.sec3}
+
+\begin{enonce*}{定义 3.1}\etiquette[3.1]{VI.def3.1}
+设 $f:E'\to E$ 是一个拓扑斯态射.
+若对 $E$ 的每个拟紧 (\resp 拟分离) 对象 $X$,
+$f^{\ast}(X)$ 拟紧 (\resp 拟分离),
+就称 $f$ \emph{拟紧 (\resp 拟分离)}.
+若 $f$ 拟紧且拟分离, 就称 $f$ 凝聚.
+\end{enonce*}
+
+\setcounter{subsection}{1}
+\setcounter{subsubsection}{0}
+\subsubsection{}\etiquette[3.1.1]{VI.subsubsec3.1.1}
+注意, 若 $f$ 具有上述任一性质,
+则与 $f$ 同构的每个拓扑斯态射都具有相同性质.
+还立即可知, 两个拟紧 (\resp 拟分离, \resp 凝聚) 拓扑斯态射的复合,
+仍拟紧 (\resp 拟分离, \resp 凝聚).
+
+\begin{enonce*}{命题 3.2}\etiquette[3.2]{VI.prop3.2}
+沿用\pageoriginale{} \hyperref[VI.def3.1]{3.1} 的记号,
+设 $(X_i)_{i\in I}$ 为 $E$ 的一个由拟紧
+(\resp 凝聚) 对象构成的生成族.
+在括号内情形, 假定 $E'$ 具有由拟紧对象构成的生成族.
+则 $f$ 拟紧 (\resp 凝聚),
+当且仅当对每个 $i\in I$, $f^{\ast}(X_i)$ 拟紧 (\resp 凝聚).
+\end{enonce*}
+
+必要性是显然的.
+证明第一种情形的充分性,
+注意对 $E$ 的每个拟紧对象 $X$,
+存在有限满态射族 $X_i\to X$.
+因此存在有限满族 $f^{\ast}(X_i)\to f^{\ast}(X)$,
+其中各 $f^{\ast}(X_i)$ 由假设拟紧,
+故 $f^{\ast}(X)$ 拟紧 (\hyperref[VI.prop1.3]{1.3}).
+在第二种情形, 还须证明若 $X$ 是 $E$ 的拟分离对象,
+则 $f^{\ast}(X)$ 拟分离.
+对 $X$ 的假设可以表述为 (\hyperref[VI.cor1.17]{1.17}):
+存在满态射族 $X_i\to X$,
+使各 $\fprod{X_i}{X_j}{X}$ 拟紧.
+于是有覆盖族 $f^{\ast}(X_i)\to f^{\ast}(X)$,
+使纤维积
+$\fprod{f^{\ast}(X_i)}{f^{\ast}(X_j)}{f^{\ast}(X)}$ 拟紧
+(因为由第一种情形, $f^{\ast}$ 将拟紧对象映为拟紧对象).
+由于各 $f^{\ast}(X_i)$ 凝聚,
+结论仍由 \hyperref[VI.cor1.17]{1.17} 得到.
+
+\begin{enonce*}{推论 3.3}\etiquette[3.3]{VI.cor3.3}
+设 $C$ 与 $C'$ 是两个 $𝒰$-景,
+其中纤维积可表示, 且每个覆盖族都有有限覆盖子族,
+并设 $g:C\to C'$ 为景态射
+\emph{(IV \hyperref[IV.subsubsec4.9.1]{4.9.1})}.
+则 $g$ 定义的拓扑斯态射
+$f:C^{\sim}\to{C'}^{\sim}$ 凝聚.
+\end{enonce*}
+
+事实上\pageoriginale{},
+$\epsilon_C(C)$ (\resp $\epsilon_{C'}(C')$)
+是 $C^{\sim}$ (\resp ${C'}^{\sim}$) 的生成族,
+满足 \hyperref[VI.prop3.2]{3.2} 的相应条件
+(\hyperref[VI.cor2.1.1]{2.1.1}).
+
+\begin{enonce*}{命题 3.4}\etiquette[3.4]{VI.prop3.4}
+设 $E$ 是一个局部凝聚拓扑斯
+(\hyperref[VI.def2.3]{2.3}),
+$f:X\to Y$ 是 $E$ 的箭头,
+从而有诱导拓扑斯的态射
+\emph{(IV \hyperref[IV.eq5.5.2]{(5.5.2)})} $E_{/X}\to E_{/Y}$.
+这个拓扑斯态射拟紧 (\resp 拟分离, \resp 凝聚),
+当且仅当 $f$ 为拟紧 (\resp 拟分离, \resp 凝聚) 态射.
+\end{enonce*}
+
+拟紧情形由定义立即得到 (无须对 $E$ 作任何条件);
+拟分离情形正是 \hyperref[VI.cor2.8]{2.8};
+凝聚情形由前两种情形合并得到.
+
+\begin{enonce*}{命题 3.5}\etiquette[3.5]{VI.prop3.5}
+设 $f:E'\to E$ 是局部凝聚拓扑斯之间的态射.
+设 $(X_i)_{i\in I}$ 为 $E$ 中由凝聚代数对象构成的生成族.
+下列条件等价:
+\begin{itemize}
+\item[(i)] 对 $E$ 的每个拟紧箭头 $u$, $f^{\ast}(u)$ 拟紧.
+
+\item[(i bis)] 对每个箭头 $u:X_i\to X_j$, $f^{\ast}(u)$ 拟紧.
+
+\item[(ii)] 对 $E'$ 的每个凝聚对象 $Y'$、
+$E$ 的每个凝聚代数对象 $Y$,
+以及每个箭头 $v:Y'\to f^{\ast}(Y)$,
+相应拓扑斯态射
+$$
+f_v:{E'}_{/Y'}\to E_{/Y}
+$$
+凝聚; 这里该态射由从 $v$ 得到的局部化态射\pageoriginale{}
+${E'}_{/Y'}\to{E'}_{/f^{\ast}(Y)}$
+\emph{(IV \hyperref[IV.eq5.5.2]{(5.5.2)})}
+与 $f$ 诱导的态射
+${E'}_{/f^{\ast}(Y)}\to E_{/Y}$
+\emph{(IV \hyperref[IV.eq5.10.1]{(5.10.1)})} 复合而成.
+
+\item[(ii bis)] 与 \emph{(ii)} 相同的条件,
+但只限于一组数据 $v_{\alpha}:{Y'}_{\alpha}\to f^{\ast}(Y_{\alpha})$,
+使各 ${Y'}_{\alpha}$ 为代数的, 且覆盖 $E'$ 的终对象.
+
+\item[(ii ter)] (给定 $E'$ 中由凝聚对象构成的生成族
+$(X'_{i'})_{i'\in I'}$,
+并对每个 $i'\in I'$ 给定一个 $i\in I$
+及箭头 $v_{i'}:X'_{i'}\to f^{\ast}(X_i)$ 时.)
+对每个 $i'\in I'$,
+$v_{i'}$ 定义的拓扑斯态射 $E'_{/{X'}_{i'}}\to E_{/X_i}$ 凝聚.
+\end{itemize}
+\end{enonce*}
+
+由于每个箭头 $X_i\to X_j$ 都拟紧,
+显然 (i) $\Rightarrow$ (i bis).
+反过来, 假定 (i bis) 成立, 证明 (i).
+设 $u:X\to Y$ 为 $E$ 的拟紧箭头.
+通过一个满族 $X_i\to Y$,
+对 $u$ 的假设就是说各 $\fprod{X}{X_i}{Y}$ 拟紧
+(\hyperref[VI.cor1.16]{1.16}),
+\ie 对每个 $i$, 存在有限满态射族
+$X_j\to\fprod{X}{X_i}{Y}$ (\hyperref[VI.prop1.3]{1.3}).
+于是有相应的满族 $f^{\ast}(X_i)\to f^{\ast}(Y)$,
+使对每个 $i$ 存在有限满族
+$f^{\ast}(X_j)\to f^{\ast}(\fprod{X}{X_i}{Y})\simeq
+\fprod{f^{\ast}(X)}{f^{\ast}(X_i)}{f^{\ast}(Y)}$;
+由假设 (i bis), 其与到 $f^{\ast}(X_i)$ 的投影 $\pr_2$ 的复合,
+是拟紧态射 $f^{\ast}(X_j)\to f^{\ast}(X_i)$.
+由此 (\hyperref[VI.cor1.11]{1.11} (i)) 可知,
+对每个 $i$,
+$\pr_2:\fprod{f^{\ast}(X)}{f^{\ast}(X_i)}{f^{\ast}(Y)}$ 拟紧,
+故 (\hyperref[VI.prop1.10]{1.10} (ii))
+$f^{\ast}(u):f^{\ast}(X)\to f^{\ast}(Y)$ 拟紧.
+
+还须\pageoriginale{}证明 (i) $\Rightarrow$ (ii)
+及 (ii bis) $\Rightarrow$ (i);
+蕴含 (ii) $\Rightarrow$ (ii bis) 是显然的,
+而 (ii ter) 是 (ii bis) 的特殊情形.
+蕴含 (i) $\Rightarrow$ (ii) 是立即的:
+事实上, $E_{/Y}$ 的对象 $X$ 拟紧 (\resp 拟分离),
+当且仅当其结构态射 $X\to Y$
+(\resp 其对角态射 $X\to\fprod{X}{X}{Y}$) 拟紧
+(\hyperref[VI.cor2.7]{2.7});
+同样的拟紧性与拟分离性判据也适用于 $f^{\ast}_Y(X')$.
+最后, 证明 (ii bis) $\Rightarrow$ (i).
+设 $u:X\to Y$ 是 $E$ 的拟紧箭头;
+须证明 $f^{\ast}(u)$ 拟紧.
+由于各 $Y'_{\alpha}$ 覆盖 $E'$ 的终对象,
+只须证明各 $f^{\ast}(u)|Y'_{\alpha}$ 拟紧
+(\hyperref[VI.prop1.10]{1.10} (ii)).
+这些态射正是各 $f^{\ast}_{v_\alpha}(u|Y_{\alpha})$,
+故归结为证明下面的结果.
+
+\begin{enonce*}{推论 3.6}\etiquette[3.6]{VI.cor3.6}
+设 $f:E'\to E$ 是局部凝聚拓扑斯之间的凝聚态射.
+则对 $E$ 的每个拟紧箭头 $u$, $f^{\ast}(u)$ 拟紧.
+\end{enonce*}
+
+由已证的 \hyperref[VI.prop3.5]{3.5} 的蕴含
+(i bis) $\Rightarrow$ (i),
+只须证明, 若 $u:X\to Y$ 是 $E$ 的箭头, $X,Y$ 凝聚,
+则 $f^{\ast}(u)$ 是拟紧态射.
+这立即来自对 $f$ 的假设,
+它蕴含 $f^{\ast}(X)$ 与 $f^{\ast}(Y)$ 也凝聚.
+
+\begin{enonce*}{定义 3.7}\etiquette[3.7]{VI.def3.7}
+设 $f:E'\to E$\pageoriginale{} 是局部凝聚拓扑斯之间的态射.
+若 $f$ 满足 \hyperref[VI.prop3.5]{3.5} 的等价条件,
+就称其为\emph{局部凝聚的}.
+\end{enonce*}
+
+注意, “局部”指在源上局部.
+
+\setcounter{subsection}{7}
+\setcounter{subsubsection}{0}
+\subsubsection{}\etiquette[3.7.1]{VI.subsubsec3.7.1}
+这一概念仍然只依赖于拓扑斯态射 $f$ 的同构类,
+且显然在拓扑斯态射的复合下稳定.
+此外, 由 \hyperref[VI.prop3.5]{3.5},
+若 $f$ 凝聚, 则它局部凝聚;
+若 $E'$ 和 $E$ 凝聚, 则逆命题成立
+(由 \hyperref[VI.prop3.5]{3.5} (ii bis)).
+判据 \hyperref[VI.prop3.5]{3.5} (ii bis) 立即给出下列判据:
+
+\begin{enonce*}{推论 3.7}\etiquette[3.7]{VI.cor3.7}
+设 $f:E'\to E$ 是局部凝聚拓扑斯之间的态射,
+$(Y_i)_{i\in I}$ 与 $({Y'}_i)_{i\in I}$
+为 $E$ 及 $E'$ 的两个对象族;
+并对每个 $i\in I$, 设 $v_i:Y'_i\to f^{\ast}(Y_i)$ 为态射,
+从而有拓扑斯态射
+$$
+f_{v_i}:E'_{/Y'_i}\to E_{/Y_i}{\quoi}.
+$$
+假定各 ${Y'}_i$ 覆盖 $E'$ 的终对象.
+则 $f$ 局部凝聚,
+当且仅当对每个 $i\in I$, $f_{v_i}$ 局部凝聚.
+\end{enonce*}
+
+特别地, 将此用于诱导拓扑斯的恒等态射, 得到:
+
+\begin{enonce*}{推论 3.8}\etiquette[3.8]{VI.cor3.8}
+设 $E$ 是一个局部凝聚拓扑斯, $v:X\to Y$ 是 $E$ 的箭头.
+则 $v$ 定义的诱导拓扑斯态射 $E_{/X}\to E_{/Y}$ 局部凝聚.
+\end{enonce*}
+
+\begin{enonce*}{注 3.9}\etiquette[3.9]{VI.rem3.9}
+看来\pageoriginale{}实际遇到的所有代数拓扑斯态射都局部凝聚
+(因此“局部凝聚”一词大概不会经常用到).
+等价地, 实际遇到的凝聚拓扑斯之间的态射都是凝聚的.
+不过, 可以构造凝聚拓扑斯之间的非凝聚态射;
+更具体地说, 可以构造从点拓扑斯
+\emph{(IV \hyperref[IV.subsec2.2]{2.2})}
+到某个 Noether 拓扑斯 $E$ 的非凝聚态射,
+\emph{\cf \hyperref[VI.exer2.17]{2.17} i)}.
+\end{enonce*}
+
+\begin{enonce*}[remark]{例 3.10}\etiquette[3.10]{VI.exem3.10}
+(\emph{与概形相伴的拓扑斯}.)
+回到范畴 $(\Sch)$ 配备 \SGA IV 6.3 的各拓扑 $T_i$
+这一例子 \hyperref[VI.subsec1.22]{1.22}.
+对每个概形 $X$,
+设 $X_{T_i}$ 为诱导景 $(\Sch)_{/X}$ 定义的 $𝒱$-拓扑斯.
+概形态射 $f:X\to Y$ 因而定义拓扑斯态射
+$f_{T_i}:X_{T_i}\to Y_{T_i}$;
+由 \hyperref[VI.prop3.4]{3.4} 及 \hyperref[VI.subsec1.22]{1.22} 可知,
+这个拓扑斯态射拟紧 (\resp 拟分离, \resp 凝聚),
+当且仅当概形态射 $f$ 在 \EGA IV 1 的通常意义下
+拟紧 (\resp 拟分离, \resp 凝聚).
+无论如何, 由 \hyperref[VI.cor3.8]{3.8}, $f_{T_i}$ 局部凝聚.
+
+还可以如 \hyperref[VI.subsubsec1.22.1]{1.22.1}
+给概形 $X$ 对应 $𝒰$-拓扑斯 $\Top(X)$ 与 $\Top(X_{\text{ét}})$,
+并给每个概形态射 $f:X\to Y$
+对应相应拓扑斯之间的态射 $\Top(f)$ 与 $\Top(f_{\text{ét}})$.
+以 $T(f)$ 表示这两个拓扑斯态射之一.\pageoriginale{}
+由 \hyperref[VI.prop3.2]{3.2} 立即可验证,
+此拓扑斯态射总局部凝聚,
+并且它拟紧 (\resp 拟分离, \resp 凝聚),
+当且仅当概形态射 $f$ 在通常意义下拟紧
+(\resp 拟分离, \resp 凝聚).
+
+这些观察再次表明,
+本节引入的术语与概形理论的通用术语相容,
+因而即使最不情愿的读者也应当接受它们.
+\end{enonce*}
+
+\begin{enonce*}[remark]{习题 3.11}\etiquette[3.11]{VI.exer3.11}
+(\emph{凝聚拓扑斯与预拓扑斯}.)
+\begin{enumerate}
+\renewcommand{\theenumi}{\alph {enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item $𝒰$-预拓扑斯（pretopos）
+(或简称预拓扑斯) 是满足下列条件的范畴 $C$:
+\begin{enumerate}
+\renewcommand{\theenumii}{\arabic{enumii}}
+\renewcommand{\labelenumii}{\theenumii)}
+\item $C$ 中有限投射极限可表示.
+
+\item $C$ 中有限余积可表示, 且它们不交且泛.
+
+\item $C$ 中的等价关系有效, 且 $C$ 中的每个满态射泛有效.
+
+\item $C$ 等价于某个 $\in 𝒰$ 的范畴.
+\end{enumerate}
+证明若 $E$ 是凝聚 $𝒰$-拓扑斯,
+则 $E$ 中由其凝聚对象构成的满子范畴 $E_{\coh}$ 为 $𝒰$-预拓扑斯,
+而包含函子 $E_{\coh}\to E$ 左正合,
+与\pageoriginale{}有限余积交换,
+并与过渡到等价关系的商交换.
+(利用 \hyperref[VI.subsubsec1.5.3]{1.5.3}、
+\hyperref[VI.cor1.15]{1.15} 及 \hyperref[VI.cor1.17.1]{1.17.1}.)
+证明 $E$ 在 $C$ 上诱导的拓扑为“预典范”拓扑,
+\ie 其覆盖族 $X_i\to X$
+恰为那些具有关于 $C$ 的典范拓扑覆盖的\emph{有限}子族的族.
+因此, 可以在等价意义下由预拓扑斯 $C=E_{\coh}$
+恢复 $E$ 为拓扑斯 $C^{\sim}$
+(其中 $C$ 配备其预典范拓扑).
+
+\item 设 $C$ 是 $𝒰$-预拓扑斯.
+给 $C$ 配备预典范拓扑.
+证明 $C$ 的每个态射 $f$ 都分解为 $f''f'$,
+其中 $f'$ 为满态射, $f''$ 为单态射.
+证明拓扑斯 $E=C^{\sim}$ 凝聚,
+且典范函子 $\epsilon:C\to E$
+诱导 $C$ 到 $E$ 的子范畴 $E_{\coh}$ 的等价.
+(先证明 $\varepsilon$ 为全忠实左正合函子,
+与有限余积以及过渡到等价关系的商交换;
+再证明 $C$ 的一个对象在 $E$ 中的凝聚子对象属于 $C$ 的本质像.)
+因此, 可以在范畴等价意义下,
+由其相伴 $𝒰$-拓扑斯 $E=C^{\sim}$ 恢复 $𝒰$-预拓扑斯 $C$.
+
+\item 设 $C$ 和 $C'$ 是两个 $𝒰$-预拓扑斯.
+证明函子 $\varphi:C'\to C$
+为从 $C$ 到 $C'$ 的景态射 (关于预典范拓扑),
+当且仅当 $\varphi$ 左正合,
+且与有限余积以及过渡到等价关系的商交换.
+
+\item 沿用\pageoriginale{} c) 的记号,
+假定 $C$ 和 $C'$ 如 a) 中那样与两个凝聚 $𝒰$-拓扑斯 $E,E'$ 相伴.
+证明典范函子 (IV \hyperref[IV.subsubsec4.9.3]{4.9.3})
+$$
+\Mmorsite(C,C')\to\Hhomtop(E,E')
+$$
+从其源 (在 c) 中明确描述) 到其靶中
+由\emph{凝聚}拓扑斯态射 $E\to E'$ 构成的满子范畴诱导等价.
+给每个凝聚拓扑斯态射 $f:E\to E'$
+对应由 $f^{\ast}$ 诱导的函子 $E'_{\coh}=C'\to E_{\coh}=C$,
+即可得到一个拟逆.
+
+\item 设 $C$ 是一个 $𝒰$-预拓扑斯, $E=C^{\sim}$.
+直接用 $C$ 的正合性表述 \hyperref[VI.cor1.25]{1.25} 的等价条件
+(参看 \hyperref[VI.exer1.28]{1.28} b).
+证明 $C$ 的对象 $X$ 在 $E$ 中为 Noether 的,
+当且仅当 $X$ 在 $C$ 中的每个递增子对象序列稳定;
+从而 $E$ 为 Noether 的,
+当且仅当 $C$ 的每个对象满足上述条件.
+\end{enumerate}
+\end{enonce*}
+
+\begin{enonce*}[remark]{习题 3.12}\etiquette[3.12]{VI.exer3.12}
+若存在有限范畴 $C$, 使拓扑斯 $E$ 等价于 $\widehat{C}$,
+就称 $E$ 为\emph{有限}拓扑斯.
+\begin{enumerate}
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 拓扑斯 $E$ 有限,
+当且仅当 $E$ 有足够多的本质点
+(IV \hyperref[IV.exer7.6]{7.6} b)),
+且 $E$ 的本质点范畴 $\Ppointess(E)$ 等价于有限范畴.
+(利用 IV \hyperref[IV.exer7.6]{7.6} d) 及 h).)
+
+\item 假定\pageoriginale{} $E$ 有限.
+证明 $E$ 的每个点都本质.
+证明 2-函子 $E\mapsto\Ppoint(E)$ 及 $C\mapsto\widehat{C}$
+在有限拓扑斯 $E$ 的 2-范畴
+与等价于有限范畴的 Karoubi 范畴
+(IV \hyperref[IV.exer7.5]{7.5} a)) $C$ 的 2-范畴之间建立 2-等价,
+且有限拓扑斯之间的每个态射都本质
+(IV \hyperref[IV.exer7.6]{7.6} a)).
+(利用 a) 及 IV \hyperref[IV.exer7.6]{7.6} h).)
+
+\item 假定 $E=\widehat{C}$, $C$ 等价于有限范畴,
+$F$ 是凝聚拓扑斯.
+回忆 (IV \hyperref[IV.eq4.6.3.1]{(4.6.3.1)}),
+拓扑斯态射 $f:E\to F$ 对应于函子 $u:C\to\Ppoint(F)$.
+证明 $f$ 凝聚,
+当且仅当 $f$ 将 $E$ 的每个凝聚点
+(\hyperref[VI.def3.1]{3.1}) 映为 $F$ 的凝聚点;
+或者等价地, 当且仅当对每个 $X\in\ob C$,
+$u(X)$ 为 $F$ 的\emph{凝聚}点.
+(利用 \hyperref[VI.prop3.2]{3.2}
+及 \hyperref[VI.exer2.17]{2.17} g).)
+推出从有限拓扑斯到有限拓扑斯的每个态射 $f:E\to F$ 都凝聚.
+
+\item 设 $X$ 是一个清醒拓扑空间
+(IV \hyperref[IV.subsubsec4.2.1]{4.2.1}).
+拓扑斯 $\Top(X)$ (IV \hyperref[IV.subsec2.1]{2.1}) 有限,
+当且仅当 $X$ 为有限集.
+(利用 IV \hyperref[IV.subsubsec7.1.6]{7.1.6}.)
+\end{enumerate}
+\end{enonce*}
+
+
+% END INCLUDED SGA4_English_current_buildable_source_20260906/source/06/drafts/SGA4_VI_LINES_2074_2418_English.texfrag
+
+
+% BEGIN INCLUDED SGA4_English_current_buildable_source_20260906/source/06/drafts/SGA4_VI_LINES_2419_2936_English.texfrag
+\section{粘合得到的拓扑斯中的有限性条件}\etiquette[4]{VI.sec4}
+
+本节在本讨论班后文中不会用到.
+
+\subsection{}\etiquette[4.1]{VI.subsec4.1}
+设 $E$ 是一个拓扑斯, $U$ 是 $E$ 的一个开集
+(\ie $E$ 的终对象的子对象),
+并考察 $E$ 的相应开子拓扑斯与闭子拓扑斯\pageoriginale{} (IV 9)
+$$
+E'= E_{/U}, E'' = E_{/U}{\quoi}.
+$$
+以
+$$
+j : E'\to E, i : E''\to E
+$$
+表示典范拓扑斯态射.
+回忆 (\hyperref[VI.prop3.4]{3.4}),
+$j$ 为拟紧 (\resp 凝聚) 拓扑斯态射的充要条件是,
+$U$ 到 $E$ 的终对象的包含
+$$
+j : U \to e
+$$
+(也记为 $j$) 为 $E$ 中的拟紧 (\resp 凝聚) 态射;
+此外, $j:E'\to E$ 总拟分离
+(因为 $j:U\to e$ 拟分离 (\hyperref[VI.cor1.8.1]{1.8.1})).
+我们拟给出拓扑斯 $E''$ 凝聚
+以及拓扑斯态射 $i:E''\to E$ 凝聚的判据.
+先注意:
+
+\begin{enonce*}{命题 4.2}\etiquette[4.2]{VI.prop4.2}
+沿用 \hyperref[VI.subsec4.1]{4.1} 的记号,
+包含态射 $i:E''\to E$ 拟紧,
+\ie 对 $E$ 的每个拟紧对象 $X$,
+$E''$ 的对象 $i^{\ast}(X)$ 拟紧;
+此外, 若 $X$ 为预 Noether
+(\hyperref[VI.def1.30]{1.30}),
+则 $i^{\ast}(X)$ 为预 Noether.
+\end{enonce*}
+
+这来自\hyperref[VI.def1.1]{定义 1.1} 以及下述引理.
+
+\begin{enonce*}{引理 4.2.1}\etiquette[4.2.1]{VI.lem4.2.1}
+映射\pageoriginale{} $Y\mapsto i^{\ast}(Y)$
+在 $X$ 中包含 $X$ 的子对象 $X_U=X\times U$ 的子对象集
+与 $i^{\ast}(X)$ 的子对象集之间诱导有序集同构.
+\end{enonce*}
+
+注意, 由于 $i_{\ast}$ 保守
+(因为它全忠实) 且左正合
+(特别地, 它与纤维积交换),
+立即可知 $E''$ 中的态射 $u:Y\to Z$ 为单态射,
+当且仅当 $i_{\ast}(u):i_{\ast}(Y)\to i_{\ast}(Z)$ 为单态射.
+因此, 用 $i_{\ast}$ 将 $E''$ 等同于 $E$ 中
+由满足 IV \hyperref[IV.subsec9.7]{9.7} 1) 的等价条件的对象 $Z$
+构成的满子范畴后,
+$E''$ 的对象 $Z$ 在 $E''$ 中的子对象,
+等同于 $Z$ 在 $E$ 中属于 $E''$ 的子对象 $Y$,
+或等价地, 包含 $Z_U\xrightarrow{\sim}U$ 的子对象.
+对形如由融合和 IV \hyperref[IV.subsubsec9.5.1]{(9.5.1)} 给出的
+$i_{\ast}i^{\ast}(X)=X_{\complement U}$ 的 $Z$,
+$$
+i_{\ast} i^{\ast} (X) = X_{\complement U} = X \amalg_{X_U} U {\quoi},
+$$
+给定后者在 $E$ 中的子对象 $Y$,
+等价于给定由 $X$ 的子对象 $Y_1$ 及 $U$ 的子对象 $Y_2$ 构成的一个对,
+条件是这些子对象在 $X_U$ 中的逆像相同.
+此时 $Y$ 包含 $U$ 的条件意味着 $Y_2=U$,
+而对 $Y_1$ 剩下的条件就是它包含 $X_U$.
+由此在 $i^{\ast}(X)$ 于 $E''$ 中的子对象集
+与 $X$ 的包含 $X_U$ 的子对象集之间建立了双射.
+显然\pageoriginale{}, 这是有序集同构,
+其逆映射确为 \hyperref[VI.lem4.2.1]{4.2.1} 中所述映射.
+
+\begin{enonce*}{推论 4.3}\etiquette[4.3]{VI.cor4.3}
+\begin{enumerate}
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 设 $X$ 是 $E$ 的对象.
+$X$ 拟紧的充分条件是 $i^{\ast}(X)$ 与 $j^{\ast}(X)$ 拟紧;
+若 $j:U\to e$ 拟紧, 则此条件也必要.
+
+\item 设 $Y$ 是 $E''$ 的对象.
+$Y$ 拟紧的充分条件是 $i_{\ast}(Y)$ 拟紧;
+若 $U$ 拟紧, 则此条件也必要.
+\end{enumerate}
+\end{enonce*}
+
+\noindent
+\underline{证明}
+\begin{enumerate}
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 充分性来自\hyperref[VI.def1.1]{定义 1.1}
+及函子对 $(i^{\ast},j^{\ast})$ 保守这一事实
+(IV \hyperlink{sga4.exp.IV.proposition.9.4.1.item.c}{9.11} 3)).
+必要性来自 $i$ 与 $j$ 拟紧这一事实
+(由 \hyperref[VI.prop4.2]{3.14} 及 $j$ 拟紧的假设).
+
+\item 由于 $Y\simeq i^{\ast}i_{\ast}(Y)$,
+充分性来自 \hyperref[VI.prop4.2]{4.2}.
+必要性来自 a) 的充分性,
+只须考虑 $i^{\ast}i_{\ast}(Y)\simeq Y$
+及 $j^{\ast}i_{\ast}(Y)\simeq U$.
+\end{enumerate}
+
+\begin{enonce*}{推论 4.4}\etiquette[4.4]{VI.cor4.4}
+设 $Y$ 是 $E''$ 的对象.
+若 $U$ 拟紧, 或 $E$ 有一个由拟紧对象构成的生成族,
+则 $Y$ 拟分离 (\resp 凝聚) 的\emph{充分}条件是
+$i_{\ast}(Y)$ 拟分离 (\resp 凝聚).
+若 $U$ 拟分离 (\resp 凝聚) 且 $j:U\to e$ 为拟紧态射,
+则 $Y$ 拟分离 (\resp 凝聚) 的必要条件是
+$i_{\ast}(Y)$ 拟分离 (\resp 凝聚).
+\end{enonce*}
+
+括号内\pageoriginale{}情形来自非括号内情形,
+只须考虑 \hyperref[VI.cor4.3]{4.3} b).
+假定 $i_{\ast}(Y)$ 拟分离,
+证明在所述两个假设之一成立时 $Y$ 拟分离.
+因此须证明, 对 $Y$ 上的两个拟紧对象 $Y'$ 与 $Y''$,
+纤维积 $\fprod{Y'}{Y''}{Y}$ 拟紧.
+当假定 $U$ 拟紧时,
+注意只须证明 $i_{\ast}(\fprod{Y'}{Y''}{Y})$ 拟紧
+(\hyperref[VI.cor4.3]{4.3} b));
+这来自 $i_{\ast}(Y')$ 与 $i_{\ast}(Y'')$ 拟紧
+(\hyperref[VI.cor4.3]{4.3} b)) 这一事实,
+这里用到 $U$ 的拟紧性、$i_{\ast}$ 与纤维积交换,
+以及 $i_{\ast}(Y)$ 拟分离的假设.
+当假定 $E$ 具有由拟紧对象构成的生成族时,
+$i_{\ast}(Y')$ 是其拟紧子对象 ${X'}_{\alpha}$ 的滤过归纳极限;
+故 $Y'\simeq i^{\ast}i_{\ast}(Y')$
+是子对象 $i^{\ast}({X'}_{\alpha})$ 的滤过归纳极限;
+由于 $Y'$ 拟紧, 它等于其中一个 $i^{\ast}({X'}_{\alpha})$.
+同样, $Y''$ 形如 $i^{\ast}({X''}_{\beta})$,
+其中 ${X''}_{\beta}$ 是 $i_{\ast}(Y'')$ 的拟紧子对象.
+但此时
+$\fprod{Y'}{Y''}{Y}=
+i^{\ast}(\fprod{X'_{\alpha}}{X''_{\beta}}{i_{\ast}Y})$;
+而由 $i_{\ast}(Y)$ 拟分离的假设,
+$\fprod{X'_{\alpha}}{X''_{\beta}}{i_{\ast}(Y)}$ 拟紧,
+故由 \hyperref[VI.prop4.2]{4.2},
+$\fprod{Y'}{Y''}{Y}$ 也拟紧.
+
+反过来, 假定 $U$ 拟分离且 $j:U\to e$ 拟紧,
+并假定 $Y$ 拟分离.
+证明 $i_{\ast}(Y)$ 也拟分离,
+\ie 对 $i_{\ast}(Y)$ 上的两个拟紧对象 $X',X''$,
+纤维积 $\fprod{X'}{X''}{i_{\ast}(Y)}$ 拟紧.
+由 \hyperref[VI.cor4.3]{4.3} a),
+只须证明其在 $i^{\ast}$ 下的像拟紧\pageoriginale{}
+(这来自 \hyperref[VI.prop4.2]{4.2} 及 $Y$ 拟分离的假设),
+\emph{并且}其在 $j^{\ast}$ 下的像拟紧.
+后者为 $j^{\ast}(X')\times j^{\ast}(X'')$,
+它确实拟紧,
+因为 $j^{\ast}(X')$ 与 $j^{\ast}(X'')$ 拟紧
+($j$ 拟紧), 而 $U$ 拟分离.
+
+\begin{enonce*}{推论 4.5}\etiquette[4.5]{VI.cor4.5}
+假定 $E$ 具有一个由拟紧
+(\emph{\resp} 预 Noether) 对象构成的生成子范畴.
+则 $E''$ 也如此.
+\end{enonce*}
+
+这来自 \hyperref[VI.prop4.2]{4.2} 及下述引理.
+
+\begin{enonce*}{引理 4.5.1}\etiquette[4.5.1]{VI.lem4.5.1}
+若 $(X_{\alpha})_{\alpha}$ 是 $E$ 的生成族,
+则 $(i^{\ast}(X_{\alpha}))_{\alpha}$ 是 $E''$ 的生成族.
+\end{enonce*}
+
+事实上, 这意味着 $E''$ 上的函子族
+$$
+Y \to \Hom (i^{\ast}(X_{\alpha}), Y)
+$$
+保守.
+但 $\Hom(i^{\ast}(X_{\alpha}),Y)\simeq\Hom(X_{\alpha},i_{\ast}(Y))$,
+所以只须利用函子 $i_{\ast}$ 保守这一事实.
+
+\begin{enonce*}{命题 4.6}\etiquette[4.6]{VI.prop4.6}
+沿用 \hyperref[VI.subsec4.1]{4.1} 的记号.
+\begin{enumerate}
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 若 $E$ 具有由凝聚对象构成的生成族,
+则闭子拓扑斯 $E''$ 也如此,
+且包含态射 $i:E''\to E$ 凝聚.
+
+\item 假定 $E$ 中的态射 $j:U\to e$ 拟紧.
+若\pageoriginale{} $E$ 局部凝聚
+(\emph{\resp} 凝聚,
+\emph{\resp} 拟分离,
+\emph{\resp} 局部 Noether,
+\emph{\resp} Noether,
+\emph{\resp} 局部完美,
+\emph{\resp} 完美),
+则 $E''$ 也如此, 且包含态射 $i:E''\to E$ 凝聚.
+\end{enumerate}
+\end{enonce*}
+
+\begin{enumerate}
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 第一个断言将来自第二个断言及 \hyperref[VI.lem4.5.1]{4.5.1}.
+无论如何, \hyperref[VI.cor4.5]{4.5}
+蕴含 $E''$ 具有一个由拟紧对象构成的生成族,
+故 \hyperref[VI.prop3.2]{3.2} 可应用,
+并表明只须验证对 $E$ 的每个凝聚对象 $X$,
+$E''$ 的对象 $i^{\ast}(X)$ 凝聚.
+利用开集的补拓扑斯的形成与局部化相容这一事实
+(IV \hyperref[IV.cor9.4.3]{9.13} b)),
+归结为 $X$ 为 $E$ 的终对象的情形,
+从而归结为证明 $E''$ 的终对象凝聚.
+现在 \hyperref[VI.cor4.4]{4.4} 可应用,
+故只须证明 $i_{\ast}(e_{E''})=e_E$ 凝聚, 而这确实成立.
+
+\item 在 b) 的每一个假设下,
+$E$ 都具有由凝聚对象构成的生成族,
+故由 a) 已知 $i:E''\to E$ 凝聚.
+此外, \hyperref[VI.lem4.5.1]{4.5.1} 因而蕴含,
+其一个生成子范畴为凝聚对象构成的满子范畴 ${E''}_{\coh}$.
+假定 $E$ 凝聚, 证明 $E''$ 也凝聚,
+\ie (\hyperref[VI.subsubsec2.4.5]{2.4.5})
+$E''$ 的子范畴 ${E''}_{\coh}$ 对有限投射极限稳定,
+已知 $E$ 的子范畴 $E_{\coh}$ 具有此性质.
+这立即来自括号内判据 \hyperref[VI.cor4.4]{4.4}
+(它可以应用, 因为现在 $U$ 凝聚,
+这是因为 $e$\pageoriginale{} 凝聚而 $j:U\to e$ 拟紧),
+只须考虑 $i_{\ast}$ 左正合.
+经局部化, 再次使用 IV \hyperref[IV.cor9.4.3]{9.13} b),
+可知若 $E$ 局部凝聚, 则 $E''$ 也如此.
+若 $E$ 拟分离, 则 $E''$ 也拟分离:
+事实上, 由 \hyperref[VI.cor4.4]{4.4},
+因 $E$ 的终对象拟分离, $E''$ 的终对象拟分离;
+还须证明 $E''$ 的两个拟分离对象的积拟分离
+(已知 $E$ 中如此);
+这再次来自判据 \hyperref[VI.cor4.4]{4.4}
+以及 $i_{\ast}$ 与积交换这一事实
+(注意 $e$ 的子对象 $U$ 拟分离, 因为 $e$ 拟分离,
+故 \hyperref[VI.cor4.4]{4.4} 可应用).
+\end{enumerate}
+
+由于拓扑斯局部 Noether (\resp Noether),
+当且仅当它局部凝聚 (\resp 凝聚)
+且具有由预 Noether 对象构成的生成族
+(\hyperref[VI.prop2.10]{2.10} (iii bis)),
+由前面的讨论及 \hyperref[VI.cor4.5]{4.5} 可知,
+若 $E$ 局部 Noether (\resp Noether), 则 $E''$ 也如此.
+再假定 $E$ 完美, 证明 $E''$ 完美.
+既已知道它凝聚,
+只须验证它满足判据 \hyperref[VI.cor1.25]{1.25} (i),
+\ie $E''$ 的每个对象 $Y$ 都是凝聚对象的滤过归纳极限,
+已知 $E$ 中的类似陈述成立.
+由于 $i_{\ast}(Y)$ 是凝聚对象 $X_{\alpha}$ 的滤过归纳极限,
+$Y\simeq i^{\ast}i_{\ast}(Y)$
+是凝聚对象 $i^{\ast}(X_{\alpha})$ 的滤过归纳极限.
+经局部化 (IV \hyperref[IV.cor9.4.3]{9.13} b)),
+可知若 $E$ 局部完美, 则 $E''$ 也如此.
+这就完成 \hyperref[VI.prop4.6]{4.6} 的证明.
+
+\begin{enonce*}[remark]{注 4.6.1}\etiquette[4.6.1]{VI.rem4.6.1}
+事实上\pageoriginale{},
+\hyperref[VI.prop4.6]{4.6} b) 中 $j:U\to e$ 拟紧的假设并不必要,
+或许“$E$ 拟分离”情形除外.
+确实, 由前面的证明,
+只须证明若 $E$ 凝聚, 则 $E''$ 凝聚.
+$U$ 是其拟紧子对象 $U_{\alpha}$ 的滤过归纳极限;
+而在 \hyperref[VI.sec7]{7} 中将验证,
+$E''$ 此时等同于闭子拓扑斯 $E''_i$ 的投射极限拓扑斯
+(取 \hyperref[VI.sec7]{7} 的意义),
+其中这些子拓扑斯是各 $E_{/U_i}$ 的补,
+由 \hyperref[VI.prop4.6]{4.6} b),
+它们为凝聚拓扑斯, 且转移态射凝聚.
+于是可知 $E''$ 为凝聚拓扑斯 (\hyperref[VI.sec7]{7}).
+\end{enonce*}
+
+\begin{enonce*}{推论 4.7}\etiquette[4.7]{VI.cor4.7}
+假定 $E$ 中由凝聚对象构成的子范畴 $E_{\coh}$ 生成,
+并设 $X$ 是 $E$ 的一个对象.
+\begin{enumerate}
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 若 $X$ 拟分离, 则 $i^{\ast}(X)$ 与 $j^{\ast}(X)$ 拟分离;
+若 $j:U\to e$ 拟紧, 此条件也充分.
+
+\item 假定 $j:U\to e$ 拟紧.
+则 $X$ 凝聚, 当且仅当 $i^{\ast}(X)$ 与 $j^{\ast}(X)$ 凝聚.
+
+\item 假定 $E$ 凝聚且 $j:U\to e$ 拟紧.
+则 $E$ 完美 (\hyperref[VI.def2.9.1]{2.9.1}),
+当且仅当 $E'$ 和 $E''$ 完美.
+\end{enumerate}
+\end{enonce*}
+
+\begin{enumerate}
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 在 \hyperref[VI.subsec4.1]{4.1} 中已指出 $j:E'\to E$ 拟分离,
+由 \hyperref[VI.prop4.6]{4.6} a) 知 $i$ 也如此,
+这就给出必要性.
+证明充分性, 设 $X'$ 和 $X''$ 是 $X$ 上的拟紧对象.
+须证明 $\fprod{X'}{X''}{X}$ 拟紧;
+为此\pageoriginale{}, 只须证明其在 $i^{\ast}$ 及 $j^{\ast}$ 下的像拟紧
+(\hyperref[VI.cor4.3]{4.3} a)).
+由于 $i$ 及 $j$ 拟紧
+(由 \hyperref[VI.prop4.2]{4.2} 及 $j:U\to e$ 拟紧的假设),
+结论来自 $i^{\ast}$ 及 $j^{\ast}$ 与纤维积交换,
+以及 $i^{\ast}(X)$ 与 $j^{\ast}(X)$ 拟分离的假设.
+
+\item 合并 a) 与 \hyperref[VI.cor4.3]{4.3} a) 即得.
+
+\item 必要性已见到 (\hyperref[VI.prop4.6]{4.6} b)).
+充分性来自以下事实:
+由于 $E$ 凝聚, $E'$ 与 $E''$ 凝聚
+(\hyperref[VI.prop4.6]{4.6} b)),
+故对所考察的任一拓扑斯,
+完美意味着其凝聚对象范畴对有限 $\varinjlim$ 稳定.
+于是由 b) 得到结论.
+\end{enumerate}
+
+\begin{enonce*}[remark]{习题 4.8}\etiquette[4.8]{VI.exer4.8}
+\begin{enumerate}
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 解决下列问题
+(写下这段话的人惭愧地承认不知道答案):
+沿用 \hyperref[VI.subsec4.1]{4.1} 的记号,
+若 $E$ 拟分离 (\resp 代数), $E''$ 是否也如此?
+
+\item 假定 $E$ 等价于形如 $\widehat{C}$ 的拓扑斯,
+其中 $C$ 是等价于某个 $\in 𝒰$ 的范畴的范畴.
+利用 \hyperref[VI.exer2.17]{2.17} c) 及 IV 9.24,
+直接证明若 $E$ 局部凝聚
+(\resp 凝聚, \resp 代数, \resp 拟分离,
+\resp 局部 Noether, \resp Noether),
+则 $E''$ 也如此.
+\end{enumerate}
+\end{enonce*}
+
+\setcounter{subsection}{8}
+\subsection{}\etiquette[4.9]{VI.subsec4.9}
+沿用 \hyperref[VI.subsec4.1]{4.1} 的记号,
+并回忆 (IV \hyperref[IV.theo9.5.4]{9.16}),
+给定由一个拓扑斯 $E$ 和 $E$ 的一个开集 $U$ 构成的情形 $(E,U)$,
+本质上等价于给定一个三元组 $(E',E'',f)$,
+其中 $E'$ 和 $E''$ 为\pageoriginale{}拓扑斯,
+\begin{equation*}
+f : E'\to E''\tag{4.9.1}
+\end{equation*}\etiquette[4.9.1]{VI.eq4.9.1}
+为“粘合函子”, \ie \emph{左正合且可及}的函子;
+从 \hyperref[VI.subsec4.1]{4.1} 中的 $(E,U)$ 出发,
+相伴粘合函子给出为
+\begin{equation*}
+  f = i^{\ast} j_{\ast}{\quoi}.\tag{4.9.2}
+\end{equation*}\etiquette[4.9.2]{VI.eq4.9.2}
+
+我们拟用数据 $E'$、$E''$ 及 $f$
+表达 $E$ 为凝聚 (\resp 完美) 拓扑斯且 $U$ 为拟紧对象这一事实,
+或者等价地, 表达 $E$ 与 $E'$ 凝聚这一事实.
+已经知道, 这蕴含 $E''$ 也凝聚
+(\hyperref[VI.prop4.6]{4.6} b)),
+因此问题变为:
+给定两个\emph{凝聚}拓扑斯 $E'$ 与 $E''$
+及粘合函子 $f$ \eqhyperref[VI.eq4.9.1]{4.9.1},
+$f$ 须满足什么条件, 才能使粘合拓扑斯 $E$ 凝聚 (\resp 完美)?
+还知道 (\hyperref[VI.cor4.7]{4.7} c)),
+$E$ 完美, 当且仅当 $E$ 凝聚且 $E'$ 与 $E''$ 完美;
+故问题的括号内情形归结为非括号内情形.
+不过应当指出, 若已假定 $E'$ 完美,
+后者的解答 (\hyperref[VI.prop4.10]{4.10}) 更为优美.
+
+\setcounter{subsection}{9}
+\setcounter{subsubsection}{2}
+\subsubsection{}\etiquette[4.9.3]{VI.subsubsec4.9.3}
+
+先注意, 若 $E$ 凝聚,
+则 $E$ 中由 $E$ 的凝聚对象
+$X=(X',X'',u:X''\to f(X'))$ 构成的满子范畴 $E_{\coh}$,
+可恢复为 $E$ 的子范畴 $E_0$,
+其对象为\pageoriginale{}使
+$X'=j^{\ast}(X)$ 与 $X''=i^{\ast}(X)$ 凝聚的 $X$
+(\hyperref[VI.cor4.7]{4.7} b)).
+因此, $E$ 凝聚的必要条件是前述子范畴 $E_0$ 生成.
+此条件也充分,
+因为由 \hyperref[VI.cor4.3]{4.3} a),
+$E_0$ 由拟紧对象构成;
+而且 $E_0$ 显然对有限投射极限稳定,
+故由 \hyperref[VI.subsubsec2.4.5]{3.4.5} 得到结论.
+
+再回忆 (IV \hyperref[IV.subsec9.6]{9.18}),
+给定粘合函子 \eqhyperref[VI.eq4.9.1]{4.9.1},
+等价于给定 $E''$ 上取值于 $\Pro(E')^0$ 的一个\emph{层}:
+\begin{equation*}
+G \in \Ffaisc (E'', \Pro(E')^{0}), G : {E''}^{0} \to \Pro({E'}^{0})
+\tag{4.9.4}{\quoi},
+\end{equation*}\etiquette[4.9.4]{VI.eq4.9.4}
+或等价于给定一个\emph{与归纳极限交换}的函子 $g=G^0$,
+\begin{equation*}
+g:E''\to \Pro (E')\tag{4.9.5}
+\end{equation*}\etiquette[4.9.5]{VI.eq4.9.5}
+若 $C$ 是 $E''$ 的生成子范畴, 配备诱导拓扑,
+则已知 (II \hyperref[VI.subsec6.10]{6.10}),
+给定 $G$ 也等价于
+(在唯一同构意义下) 给定 $C$ 上取值于 $\Pro(E')^0$ 的一个层
+\begin{equation*}
+G_C \in \Ffaisc (C, \Pro(E')^0), G_C : C^{\circ} \to \Pro (E')^{0}{\quoi},\tag{4.9.6}
+\end{equation*}\etiquette[4.9.6]{VI.eq4.9.6}
+或等价于给定一个函子 $g_C=G_C^0$,
+\begin{equation*}
+g_C : C \to \Pro (E'){\quoi},\tag{4.9.7}
+\end{equation*}\etiquette[4.9.7]{VI.eq4.9.7}
+满足\pageoriginale{}熟悉的左正合条件
+(II \hyperlink{sga4.exp.II.remark.6.2.item.1}{6.2.1})).
+当然, $g_C$ 就是\emph{$g$ $\hyperref[VI.eq4.9.5]{(4.9.5)}$ 在 $C$ 上的限制}.
+我们最感兴趣的情形是取 $C=E''_{\coh}$,
+得到对象
+\hypertarget{sga4.exp.VI.equation.4.9.8}{}\begin{align*}
+& G_0 \in \Ffaisc (E''_{\coh}, \Pro (E')^{0}), G_0 : {E''}_{\coh}^0 \to
+ \Pro (E')^0 {\quoi},\tag{4.9.8}\\
+& g_0 = G^0_0 : E''_{\coh} \to \Pro(E'){\quoi},\tag{4.9.9}
+\end{align*}\hypertarget{sga4.exp.VI.equation.4.9.9}{}
+它们中的每一个仍等价于给定 $f$.
+
+\setcounter{subsubsection}{9}
+\subsubsection{}\etiquette[4.9.10]{VI.subsubsec4.9.10}
+
+假定 $E''$ 的满生成子范畴 $C$ 由拟紧对象构成,
+且在 $E''$ 中对有限和、过渡到等价关系的商以及纤维积稳定;
+例如 $C=E''_{\coh}$ 就是如此
+(\hyperref[VI.cor1.15]{1.15} 及 \hyperref[VI.cor1.17.1]{1.17.1}).
+若 $P$ 是有限投射极限在其中可表示的范畴
+(例如 $P=\Pro(E')^0$),
+则立即可知,
+函子 $G_C:C^{\circ}\to P$ 是取值于 $P$ 的层,
+当且仅当函子 $g_C=G_C^0:C\to P^0$
+与有限和以及过渡到等价关系的商交换.
+这特别说明了哪些对象是层 \eqhyperref[VI.eq4.9.6]{4.9.6}
+(从而表达了粘合函子 $f:E'\to E''$).
+
+明确上述事实后, 可给出 \hyperref[VI.subsec4.9]{4.9} 中所提问题的解答:
+
+\begin{enonce*}{命题 4.10}\etiquette[4.10]{VI.prop4.10}
+设 $E'$ 与 $E''$\pageoriginale{} 是两个凝聚拓扑斯,
+$f:E'\to E''$ 为粘合函子
+\emph{(IV \hyperref[IV.eq9.3.6.3]{9.10})},
+\ie 左正合且可及的函子.
+设 $E$ 为由它经粘合得到的拓扑斯
+\emph{(IV \hyperref[IV.theo9.5.4]{9.16})},
+以 $E'_{\coh}$ (\resp $E'_{PF}$)
+表示 $E'$ 中由凝聚对象
+(\resp 由对象 $X$ 所表示的协变函子 $\Hom(X,-)$
+与小滤过归纳极限交换的对象 $X$)
+构成的严格满子范畴.
+考察下列条件:
+\begin{itemize}
+\item[(i)] $E$ 凝聚.
+
+\item[(ii)] 对 $E'$ 的每个对象 $X'$,
+存在以 $X'$ 为靶、以 $E'$ 的凝聚对象为源的态射族
+$$
+v_{\alpha} : Y'_{\alpha} \to X'
+$$
+使 $E''$ 中各
+$$
+f(v_{\alpha}) : f(Y'_{\alpha}) \to f(X')
+$$
+构成的族覆盖.
+
+\item[(ii bis)] $f$ 与 (小) 滤过归纳极限交换,
+且对每个 $X'\in\Ob E'_{PF}$, \emph{(ii)} 成立.
+
+\item[(ii ter)] 由粘合函子 $f$ 定义的典范函子
+\emph{(IV \hyperref[IV.eq9.7.2.3]{9.20.1})}
+\begin{equation*}
+\pi : \Ppoint(E'') \to \Pro(E')\tag{4.10.1}
+\end{equation*}\etiquette[4.10.1]{VI.eq4.10.1}
+在同构意义下通过 $\Pro(E'_{\coh})$ 分解
+(借助由包含 $E'_{\coh}\to E'$ 得到的全忠实函子
+$\Pro(E'_{\coh})\to\Pro(E')$):
+\begin{equation*}
+\pi_0 : \Ppoint (E'') \to \Pro(E'_{\coh}){\quoi}.\tag{4.10.2}
+\end{equation*}\etiquette[4.10.2]{VI.eq4.10.2}
+
+\item[(iii)] 函子\pageoriginale{} $f$ 与 (小) 滤过归纳极限交换.
+
+\item[(iii bis)] 函子 $g_0$
+\hyperlink{sga4.exp.VI.equation.4.9.9}{(4.9.9)}
+在同构意义下通过函子
+\begin{equation*}
+E''_{\coh} \to \Pro(E'_{PF}){\quoi},\tag{4.10.3}
+\end{equation*}\etiquette[4.10.3]{VI.eq4.10.3}
+分解, 借助由包含 $E'_{PF}\to E'$ 得到的全忠实函子
+$\Pro(E'_{PF})\to\Pro(E')$.
+
+\item[(iii ter)] 典范函子 $\pi$
+\eqhyperref[VI.eq4.10.1]{4.10.1}
+在同构意义下分解为
+\begin{equation*}
+\pi_1 : \Ppoint(E'') \to \Pro(E'_{PF}){\quoi}.\tag{4.10.4}
+\end{equation*}\etiquette[4.10.4]{VI.eq4.10.4}
+
+\item[(iv)] 函子 $g_0$
+\hyperlink{sga4.exp.VI.equation.4.9.9}{(4.9.9)}
+在同构意义下通过一个函子
+\begin{equation*}
+E''_{\coh} \to \Pro(E'_{\coh}){\quoi}.\tag{4.10.5}
+\end{equation*}\etiquette[4.10.5]{VI.eq4.10.5}
+分解. 此时有下列蕴含图:
+\begin{equation*}
+\text{\rm (iv) $\Rightarrow$ (i) $\Leftrightarrow$ (ii) $\Leftrightarrow$ (ii bis)
+  $\Leftrightarrow$ (ii ter) $\Rightarrow$ (iii) $\Leftrightarrow$ (iii bis)
+  $\Leftrightarrow$ (iii ter)}{\quoi}.\tag{4.10.6}
+\end{equation*}\etiquette[4.10.6]{VI.eq4.10.6}
+\end{itemize}
+\end{enonce*}
+
+立即记下如下推论.
+
+\begin{enonce*}{推论 4.11}\etiquette[4.11]{VI.cor4.11}
+\begin{enumerate}
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 假定 $E'$ 完美.
+则 \hyperref[VI.prop4.10]{4.10} 中考察的一切条件都等价;
+特别地, $E$ 凝聚, 当且仅当 $f$ 与滤过归纳极限交换,
+或等价地, 当且仅当函子 $g_0$
+\hyperlink{sga4.exp.VI.equation.4.9.9}{(4.9.9)}
+在同构意义下\pageoriginale{}通过 $\Pro(E'_{\coh})$ 分解.
+
+\item $E$ 完美的充要条件是 $E'$ 与 $E''$ 完美,
+且 $f$ (\resp $g_0$) 满足 {\rm a)} 中所述条件.
+\end{enumerate}
+\end{enonce*}
+
+事实上, a) 来自 $E'$ 完美意味着 $E'_{\coh}=E'_{PF}$,
+从而 (iii bis) 蕴含 (iv) 这一事实.
+断言 b) 则如 \hyperref[VI.subsec4.9]{4.9} 的预备说明所示.
+
+
+\setcounter{subsection}{11}
+
+% END INCLUDED SGA4_English_current_buildable_source_20260906/source/06/drafts/SGA4_VI_LINES_2419_2936_English.texfrag
+
+
+% BEGIN INCLUDED SGA4_English_current_buildable_source_20260906/source/06/drafts/SGA4_VI_LINES_2937_3239_English.texfrag
+\subsection{4.10 的证明}\etiquette[4.12]{VI.subsec4.12}
+
+\begin{enumerate}
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 明确写出 \hyperref[VI.subsubsec4.9.3]{4.9.3}
+中得到的与 (i) 等价的条件,
+即 $E$ 的满子范畴 $E_0$ 生成:
+\ie 对 $E$ 的每个对象
+$X = (X', X'', u : X''\to f(X'))$,
+满足 $Y \in \Ob E_0$,
+\ie $Y'$ 与 $Y''$ 凝聚的所有态射
+$$
+v = (v', v'') : Y = (Y', Y'', v : Y''\to f(Y')) \to X {\quoi},
+$$
+构成满族.
+由于函子对 $(i^{\ast}, j^{\ast})$ 保守,
+这也就是说相应态射 $Y' \to X'$ 构成的族在 $E'$ 中为满族,
+且相应态射 $Y''\to X''$ 构成的族在 $E''$ 中为满族.
+对第一个族, 这显然成立:
+只须取\emph{在 $U$ 上的} $Y \in \Ob E_0$,
+\ie 满足 $Y'' = \varnothing_{E''}$ 的对象;
+得到 $E'$ 中以 $X'$ 为靶且源凝聚的所有箭头构成的族,
+它确实为满族,
+因为 $E'$ 凝聚, 故子范畴 ${E'}_{\coh}$ 生成.
+因此只须表达对每个给定的 $E$ 的对象 $X$,
+族 $Y''\to X''$ 为满族的条件.
+
+\item 再假定\pageoriginale{}对所考察的对象 $X'$, 条件 (ii) 满足.
+由此可找到一个满态射族 $Y''_{\beta} \to X''$,
+其与 $u : X''\to f(X')$ 的复合,
+各自提升为适当 $\alpha = \phi(\beta)$ 的态射
+$Y''_{\beta} \to f({Y'_{\alpha}})$.
+由于 $E''_{\coh}$ 是 $E''$ 的生成子范畴,
+还可以假定各 $Y''_{\beta}$ 凝聚.
+交换图
+\[
+\xymatrix@C=2.25cm@R=1.25cm{
+Y''_{\beta}  \ar[r] \ar[d]& f(Y'_{\varphi(\beta)}) \ar[d]\\
+X'' \ar[r] & f(X')
+}
+\]
+于是给出 $E$ 中所需的态射族,
+形成满族 $Y''_{\beta} \to X''$.
+因此 (ii) $\Rightarrow$ (i).
+
+反过来, 假定 (i), 证明 (ii).
+将 a) 中明确写出的条件应用于对象
+$$
+X = j_{\ast}(X') = (X', f(X'), \id = f(X') \xrightarrow{\sim} f(X')){\quoi}.
+$$
+由于各 $Y''\to X''\simeq f(X')$ 构成满族,
+各 $f(v') : f(Y') \to f(X')$ 构成的族更为满族.
+由于各 $Y'$ 由假设凝聚, 得到结论.
+因此
+$$
+{\rm(i)} \Leftrightarrow {\rm(ii)}{\quoi}.
+$$
+
+\item 再注意\pageoriginale{},
+条件 (iv) 也意味着对 $E''$ 的每个对象 $X''$,
+$E'$ 上的 pro-可表示函子
+$$
+g(X'') : X'\longmapsto \Hom (X'', f(X'))
+$$
+由一个各分量属于 ${E'}_{\coh}$ 的 pro-对象 pro-表示.
+等价地, 在由 $E'$ 的对象 $X'$
+和元素 $u \in g(X'')(X') =\Hom(X'', f(X'))$,
+$u : X''\to f(X')$, 构成的对所成的范畴 $E'_{/g(X'')}$ 中,
+存在共尾对象集 $(X'_{\alpha},u_{\alpha})$,
+其中 $u_{\alpha} : X'' \to f(X'_{\alpha})$
+且 $X'_{\alpha} \in \Ob E'_{\coh}$.
+由于范畴 $E'_{/g(X'')}$ 滤过,
+共尾条件就是说对 $E'_{/g(X'')}$ 的每个对象 $(X',u)$,
+$u : X''\to f(X')$,
+都存在从某个 $(X'_{\alpha},u_{\alpha})$ 到此对象的态射,
+\ie 一个使三角形
+\[\vcenter{
+\xymatrix@C=2cm@R=1.5cm{
+                      &f(X'_{\alpha}) \ar[d]^{f(v'_\alpha)}\\
+X''\ar@{-}[ru]^{u_{\alpha}} \ar[r]& f(X').
+}}\leqno{(*)}
+\]
+交换的态射 $v'_{\alpha} : X'_{\alpha} \to X'$.
+因此条件 (iv) 等价于下面的条件:
+
+\begin{itemize}
+\item[(iv bis)] 对每个箭头 $u : X''\to f(X')$,
+$X'\in \Ob E'$, $X''\in \Ob E''_{\coh}$,
+存在 $E'$ 中源 $Y'$ 凝聚的箭头 $v' : Y'\to X'$,
+使 $u$ 通过 $f(v') : f(Y') \to f(X')$ 分解.
+
+显然条件 (iv bis) 蕴含 (ii),
+因为对固定的 $X'$, 源凝聚的各 $u : X''\to f(X')$ 构成满族.
+因而各相应图 $(\ast)$ 中所有 $f(v'_{\alpha})$ 构成的族更为满族.
+因此
+$$
+{\rm(iv)} \Rightarrow {\rm(i)}{\quoi}.
+$$
+\end{itemize}
+
+\item 明确写出条件 (ii ter).
+设 $p$ 是 $E''$ 的一个点.
+由定义, $\pi(p)$ 是 pro-表示函子
+$h : X'\longmapsto f(X')_{p}$ 的 $E'$ 的 pro-对象;
+或者等价地, 是由典范函子 $E'_{/h} \to E'$ 定义的 pro-对象,
+其中 $E'_{/h}$ 表示由 $X'\in \Ob E'$ 及 $u\in h(X')$,
+\ie $u\in f(X')_p$, 构成的对 $(X',u)$ 的范畴.
+说这个 pro-对象同构于一个来自 $\Pro(E'_{\coh})$ 的 pro-对象,
+意味着 $E'_{/h}$ 中由 $X'\in\Ob E'_{\coh}$ 的各 $(X',u)$
+构成的子范畴共尾.
+换句话说, 对 $E'_{/h}$ 的每个对象 $(X',u)$,
+$u\in f(X')_p$,
+存在一个映向它的对象 $(X'_0,u_0)$, $X'_0$ 凝聚;
+即存在态射 $X'_0\to X'$ ($X'_0$ 凝聚),
+使 $u\in\text{Im}(f(X'_0)\to f(X'))$.
+称这对每个点 $p$ 都成立,
+意味着对 $E'$ 的每个对象 $X'$,
+各 $X'_0$ 凝聚的映射 $f(X'_0)\to f(X')$ 所成的族在每个茎上满射.
+我们将在附录 (10) 中看到凝聚拓扑斯 $E''$ 有足够多的点,
+故所得条件也就是说对每个 $X'\in\Ob E'$,
+族 $f(X'_0)\to f(X')$ 为满族.
+这正是条件 (ii), 从而
+$$
+{\rm(ii)} \Leftrightarrow \text{(ii ter)}{\quoi}.
+$$
+
+\item $f$ 与滤过归纳极限交换的条件\pageoriginale{}
+(条件 (iii)),
+由于 $E''$ 的纤维函子族保守,
+等价于复合函子 $h : X'\longmapsto f(X')_p$ 具有此性质.
+下面证明, 这意味着 pro-表示此函子的 pro-对象 $\pi(p)$
+属于 $\Pro(E'_{PF})$ 的本质像.
+这就证明蕴含
+$$
+{\rm(iii)} \Leftrightarrow \text{(iii ter)} \Leftarrow \text{(ii ter)}
+\Rightarrow \text{(iii bis)}{\quoi}.
+$$
+因此归结为证明下列引理.
+
+\begin{enonce*}{引理 4.12.1}\etiquette[4.12.1]{VI.lem4.12.1}
+设 $E'$ 是一个子范畴 $E'_{\coh}$ 生成的拓扑斯,
+$X' \in \Ob \Pro(E')$.
+则 $X'$ 属于 $\Pro(E'_{PF})$ 的本质像,
+当且仅当它 pro-表示的函子
+$h : E'\to (\Ens)$ 与滤过归纳极限交换.
+\end{enonce*}
+
+由于与滤过归纳极限交换的函子的滤过归纳极限仍具有相同性质,
+充分性来自 $E'_{PF}$ 的定义.
+证明必要性, 须证明若函子 $h$ 与滤过归纳极限交换,
+则在由满足 $u\in h(X')$ 的对 $(X',u)$ 构成的滤过范畴 $E'_{/h}$ 中,
+各 $X'\in\Ob E'_{PF}$ 的对 $(X',u)$ 构成的子范畴共尾.
+就是说, 对 $E'_{/h}$ 的每个 $(X',u)$,
+存在态射 $X'_0\to X'$, $X'_0\in\Ob E'_{PF}$,
+使 $u\in\text{Im}(h(X'_0)\to h(X'))$.\pageoriginale{}
+但已知 $X'$ 是 $E'_{PF}$ 的对象 $X'_i$ 的滤过归纳极限
+(\hyperref[VI.cor1.24.2]{1.24.2} a)),
+故 $h(X')$ 是各 $h(X'_i)$ 的滤过归纳极限,
+这就证明了断言.
+
+\item 只须再证明蕴含
+$$
+\text{(ii bis)} \Rightarrow \text{(ii)\quad 以及\quad (iii)}
+\Leftrightarrow \text{(iii bis)}{\quoi}.
+$$
+第一个蕴含显然来自 $E'$ 的每个对象 $X'$
+都是 $E'_{PF}$ 的对象 $X'_i$ 的滤过归纳极限这一事实.
+对第二个蕴含, 只须注意对 $X''\in\Ob {E''}_{\coh}$ 的函子族
+$$
+Y'' \longmapsto \Hom(X'', Y'') {\quoi},
+$$
+保守, 且由与滤过归纳极限交换的函子构成
+(\hyperref[VI.thm1.23]{1.23} (ii)).
+因此, 函子 $f : E'\to E''$ 与滤过归纳极限交换,
+当且仅当复合函子
+$X'\longmapsto \Hom(X'',f(X'))=
+\Hom_{\Pro(E')}(g_0(X''),X')$ 具有此性质.
+由 \hyperref[VI.lem4.12.1]{4.12.1},
+这等价于各 $g_0(X'')$ 属于 $\Pro(E'_{PF})$ 的本质像. \cqfd
+\end{enumerate}
+
+\begin{enonce*}[remark]{注 4.13}\etiquette[4.13]{VI.rem4.13}
+用层论语言说明条件 \hyperref[VI.prop4.10]{4.10} (iv) 的含义很有用.
+考察函子的交换图
+\[\vcenter{
+\xymatrix@C=2.5cm@R=1.5cm{
+\Pro(E'_{\coh})^{\circ}  \ar@{^{(}->}[r]^{\alpha}  \ar[d]^{\beta_0}&
+\Pro(E')^{\circ}_{\beta} \ar[d]^{\beta}\\
+\text{$\Ev{\coh}$} & \text{$\Ev{}$}\ar[l]^{\gamma} ,
+}}\leqno{(4.13.1)}
+\]\etiquette[4.13.1]{VI.eq4.13.1}
+其中\pageoriginale{}上标圆圈表示反范畴,
+第二个横箭头 $\gamma$ 为函子的限制,
+其余箭头都表示熟悉的全忠实函子.
+注意, 包含箭头 $\alpha$ \emph{一般不与投射极限交换},
+即使有限投射极限也不例外.
+因此, 一般说来, 景 $C$ (例如 $E''$) 上的层 $F$
+在同一景上定义取值于 $\Pro(E'')^{0}$ 的预层 $\alpha\circ F$,
+它未必为层.
+不过, 若 $C$ 上取值于 $\Pro(E'_{\coh})^{0}$ 的一个\emph{预层} $F$,
+使相应的取值于 $\Pro(E')^{0}$ 的预层 $\alpha F$ 为层,
+则 $F$ 本身为层.
+事实上, 层条件为左正合性质
+(II \hyperlink{sga4.exp.II.remark.6.2.item.1}{6.2.1})),
+而函子 $\beta$、$\beta_0$ 及 $\gamma$ 与小投射极限交换.
+\end{enonce*}
+
+另一方面, \hyperref[VI.subsubsec4.9.10]{4.9.10}
+对 $E''_{\coh}$ 上取值于任意范畴 $P$ 的层的刻画表明:
+对每个使 $\alpha^{0}:P^0\to Q^0$
+与\emph{有限余积}及\pageoriginale{}\emph{过渡到等价关系的商}交换的函子
+$\alpha:P\to Q$,
+从 $\Hom({E''}^0_{\coh},P)$ 到 $\Hom({E''}^0_{\coh},Q)$
+的函子 $g\mapsto\alpha\circ g$ 将层映为层.
+还知道, 在 $\Pro(E'_{\coh})$ 及 $\Pro(E')$ 中,
+有限余积与等价关系的商可表示,
+且包含 $E'_{\coh}\to E'$ 与它们交换
+(\hyperref[VI.cor1.15]{1.15} 及 \hyperref[VI.cor1.17.1]{1.17.1}).
+因此, 对范畴 $\Pro(E'_{\coh})$ 及 $\Pro(E')$
+以及它们之间的包含, 同样成立
+(I \hyperref[I.prop8.9.5]{8.9.5} b) 及 \hyperref[I.prop8.9.7]{8.9.7});
+而这一包含正是 $\alpha^0$,
+其中 $\alpha$ 为 \eqhyperref[VI.eq4.13.1]{4.13.1} 中的函子.
+由此可知, 若
+\begin{equation*}
+\varphi:{E''}^0_{\coh}\to\Pro(E'_{\coh})^0\tag{4.13.2}
+\end{equation*}\etiquette[4.13.2]{VI.eq4.13.2}
+为函子, 则 \emph{$\varphi$ 是 $E''_{\coh}$ 上取值于
+$\Pro(E'_{\coh})^0$ 的层,
+当且仅当 $\alpha\circ\varphi$ 是 $E''_{\coh}$ 上取值于
+$\Pro(E')^0$ 的层}.
+因此, 满足条件 \hyperref[VI.prop4.10]{4.10} (iv)
+的粘合函子 $f:E'\to E''$ 的范畴,
+典范等价于 $E''_{\coh}$ 上取值于 $\Pro(E'_{\coh})^0$ 的层 $\varphi$ 的范畴.
+考虑 \hyperref[VI.prop4.10]{4.10},
+得到这样的层 $\varphi$ 典范地定义粘合函子
+(在唯一同构意义下),
+由后者得到的拓扑斯 $E$ \emph{凝聚}.
+此外 (\hyperref[VI.cor4.11]{4.11}),
+\emph{若 $E'$ 完美},
+就由此得到可以由 $E'$ 与 $E''$ 经粘合得到的\emph{所有}凝聚拓扑斯.
+
+还注意\pageoriginale{}, $E'_{\coh}$ 等价于小范畴,
+并对有限投射极限稳定.
+因此 (I \hyperref[I.sec8.10.14]{8.10.14}),
+借助 \eqhyperref[VI.eq4.13.1]{4.13.1} 的全忠实函子 $\beta_0$,
+$\Pro(E'_{\coh})^0$ 等价于
+$\widehat{E'_{\coh}}=\Hom(E'_{\coh},(\Ens))$
+中由左正合函子构成的满子范畴.
+因此, 给定一个层 \eqhyperref[VI.eq4.13.2]{4.13.2},
+等价于给定一个函子
+\begin{equation*}
+F:{E''}_{\coh}^0\times E'_{\coh}\to(\Ens)\tag{4.13.3}
+\end{equation*}\etiquette[4.13.3]{VI.eq4.13.3}
+它关于第一个自变量为层, 关于第二个自变量左正合;
+或者等价地, 给定一个左正合函子
+\begin{equation*}
+f_0:E'_{\coh}\to E''\tag{4.13.4}
+\end{equation*}\etiquette[4.13.4]{VI.eq4.13.4}
+若 $f$ 是与 $\varphi$ 相伴且满足条件
+\hyperref[VI.prop4.10]{4.10} (iv) 的粘合函子,
+立即可验证, $f_0$ 典范同构于 $f:E'\to E''$ 的限制.
+因此, \emph{在所考察的条件下, $f_0$ 确定 $f$}
+(在典范同构意义下).
+为概括 \hyperref[VI.cor4.11]{4.11} 的内容, 最后陈述:
+
+\begin{enonce*}{推论 4.14}\etiquette[4.14]{VI.cor4.14}
+当 $E'$ 是完美拓扑斯时,
+由粘合给出凝聚拓扑斯 $E$ 的粘合函子 $f:E'\to E''$ 的范畴,
+在 $f\mapsto f_0=f|E'_{\coh}$ 下,
+等价于左正合函子 $f_0:E'_{\coh}\to E''$ 的范畴;
+或者等价地, 等价于\pageoriginale{}景 $E''_{\coh}$ 上
+(或同样地, 拓扑斯 $E''$ 上)
+取值于范畴 $\Pro(E'_{\coh})^0$ 的层 $\varphi$ 的范畴
+\emph{(\cf \hyperref[VI.subsubsec4.9.10]{4.9.10})}.
+\end{enonce*}
+
+第一个断言还可以由 \hyperref[VI.prop4.10]{4.10} 得到,
+只须注意 $E'\approxeq\Ind(E'_{\coh})$
+(\hyperref[VI.cor1.25]{1.25}).
+事实上, 限制给出如下两个范畴的等价:
+与滤过归纳极限交换的函子 $f:E'\to P$ 的范畴
+(其中 $P$ 为小滤过归纳极限可表示的范畴),
+以及任意函子 $f:E'_{\coh}\to P$ 的范畴.
+立即可知, 在这些条件下,
+若 $P$ 中有限投射极限可表示,
+则 $f$ 左正合, 当且仅当 $f_0$ 左正合.
+
+\begin{enonce*}[remark]{注 4.15}\etiquette[4.15]{VI.rem4.15}
+\begin{enumerate}
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item \hyperref[VI.prop4.10]{4.10} 的证明表明,
+将范畴 $\Ppoint(E'')$ 换成一个定义\emph{保守}纤维函子族的子范畴,
+可得与 (ii ter) \resp (iii ter) 等价的条件.
+
+\item 取 $E''$ 为点拓扑斯
+(IV \hyperref[IV.subsec2.2]{2.2}),
+立即可见, 条件 (ii ter) 与 (iii ter)
+等价\emph{仅当} $E'_{\coh}=E'_{PF}$,
+\ie 仅当 $E'$ 完美.
+因此, 条件“$E$ 凝聚”等价于条件“$f$ 与滤过归纳极限交换”,
+仅当 $E'$ 完美.
+另一方面, 更一般地取 $E''$ 为形如 $\widehat{C}$ 的凝聚拓扑斯,
+可见\emph{在此情形, 对每个 $E'$, 条件} (i) \emph{等价于} (iv).
+事实上, 在一般情形,
+编者一直未能构造 $E$ 凝聚而条件 (iv) 不满足的例子.
+实在惭愧!
+\end{enumerate}
+\end{enonce*}
+
+
+% END INCLUDED SGA4_English_current_buildable_source_20260906/source/06/drafts/SGA4_VI_LINES_2937_3239_English.texfrag
+
+
+% BEGIN INCLUDED SGA4_English_current_buildable_source_20260906/source/06/drafts/SGA4_VI_LINES_3240_3413_English.texfrag
+\section{函子 $H^i(X,-)$ 与滤过归纳极限的交换}\etiquette[5]{VI.sec5}\pageoriginale
+
+\begin{enonce*}{定理 5.1}\etiquette[5.1]{VI.thm5.1}
+设 $E'$ 是一个代数拓扑斯
+(\hyperref[VI.def2.3]{2.3}),
+$E$ 是一个局部凝聚拓扑斯
+(\hyperref[VI.def2.3]{2.3}),
+$f:E'\to E$ 是凝聚拓扑斯态射
+(\hyperref[VI.def3.1]{3.1}).
+则对每个整数 $q$, 函子 $R^qf_{\ast}$
+\emph{(V \hyperref[V.subsec5.0]{5.0})}
+与 Abel 层的滤过归纳极限交换.
+\end{enonce*}
+
+\begin{enonce*}{推论 5.2}\etiquette[5.2]{VI.cor5.2}
+设 $E'$ 是一个凝聚拓扑斯
+(\hyperref[VI.def2.3]{2.3}).
+对每个整数 $q$, 函子 $H^q(E',-)$
+与 Abel 层的滤过归纳极限交换.
+\end{enonce*}
+
+\begin{enonce*}{推论 5.3}\etiquette[5.3]{VI.cor5.3}
+设 $E$ 是一个拓扑斯 (\resp 代数拓扑斯)
+(\hyperref[VI.def2.3]{2.3}),
+$X$ 是 $E$ 的代数且凝聚 (\resp 凝聚) 对象
+(\hyperref[VI.def2.3]{2.3}).
+对每个整数 $q$, 函子 $H^q(X,-)$
+与 Abel 层的滤过归纳极限交换.
+\end{enonce*}
+
+在 \hyperref[VI.thm5.1]{5.1} 中取 $E$ 为点拓扑斯,
+$f:E'\to E$ 为唯一的态射
+(IV \hyperref[IV.subsec2.2]{2.2}),
+即得推论 \hyperref[VI.cor5.2]{5.2}.
+证明 \hyperref[VI.cor5.2]{5.2} 蕴含 \hyperref[VI.cor5.3]{5.3}.
+设 $j_X:E_{/X}\to E$ 为局部化态射.
+有关于 Abel 层 $F$ 函子性的典范同构
+(V \hyperref[V.2.2.1]{2.2.1}),
+$H^q(X,F)\simeq H^q(E_{/X},j_X^{\ast}F)$.
+函子 $j_X^{\ast}$ 与归纳极限交换,
+且拓扑斯 $E_{/X}$ 凝聚
+(\hyperref[VI.subsubsec2.4.6]{2.4.6}),
+从而得到 \hyperref[VI.cor5.3]{5.3}.
+证明 \hyperref[VI.cor5.3]{5.3} 蕴含 \hyperref[VI.thm5.1]{5.1}.
+设 $E_{\text{cohalg}}$ 为 $E$ 中由 $E$ 的代数且凝聚的对象定义的满子范畴.
+它是生成范畴 (\hyperref[VI.subsubsec2.4.5]{2.4.5}).
+对每个 Abel 层 $F$,
+$R^qf_{\ast}F$ 为预层
+$X\mapsto H^q(f^{\ast}X,F)$ $(X\in\ob C)$ 的相伴层
+(\hyperrefext[V][V.prop5.1]{5.1}).
+由于 $f$ 凝聚,
+对 $C$ 的每个对象 $X$, $f^{\ast}X$ 凝聚
+(\hyperref[VI.def3.1]{3.1}).
+由 \hyperref[VI.cor5.3]{5.3},
+预层 $X\mapsto H^q(f^{\ast}X,F)$
+关于自变量 $F$ 与滤过归纳极限交换;
+而相伴层函子与归纳极限交换, 故得到 \hyperref[VI.thm5.1]{5.1}.
+(这里只用到态射 $f$ 的下列性质:
+$E$ 存在一个生成族 $S$,
+使对 $S$ 的每个 $X$, $f^{\ast}(X)$ 为代数且凝聚的.)
+因此只须证明 \hyperref[VI.cor5.2]{5.2}.
+已经知道函子 $H^{\circ}(E',-)$
+与 Abel 层的滤过归纳极限交换
+\hyperref[VI.thm1.23]{(1.2.3)}.
+由 \cite{sga4.exp.VI.bib.7} 的一个经典结果,
+要证明 \hyperref[VI.cor5.2]{5.2},
+只须证明对函子 $H^{\circ}(E',-)$ 无上同调的层的滤过归纳极限,
+对 $H^{\circ}(E',-)$ 仍无上同调.
+这来自下述引理, 其中取 $C=E'_{\coh}$.
+
+\begin{enonce*}{引理 5.4}\etiquette[5.4]{VI.lem5.4}
+设\pageoriginale{} $E$ 是一个局部凝聚拓扑斯
+(\hyperref[VI.def2.3]{2.3}),
+$C$ 是 $E$ 的一个对纤维积稳定、
+所有对象均拟紧 (\hyperref[VI.def1.1]{1.1}) 的满生成子范畴.
+$C$-无上同调层 \emph{(\hyperrefext[V][V.subsec4.2]{4.2})}
+的滤过归纳极限仍为 $C$-无上同调层.
+\end{enonce*}
+
+设 $(F_i)_{i\in I}$ 是 $C$-无上同调层的一个滤过归纳系,
+以 $F$ 表示其归纳极限.
+$C$ 的每个对象 $Y$ 都凝聚 (\hyperref[VI.prop2.1]{2.1}),
+因此 $F(Y)=\displaystyle\mathop{\varinjlim}_iF_i(Y)$
+\hyperref[VI.thm1.23]{(1.2.3)}.
+要证明 $F$ 为 $C$-无上同调的,
+只须证明对每个 $q>0$ 及 $C$ 的每个 $Y$,
+$\check H^q(Y,F)=0$
+(\hyperrefext[V][V.prop4.3]{4.3}).
+设 $X$ 是 $C$ 的对象,
+$\Xx=(X_{\alpha}\to X)_{\alpha\in A}$
+是由 $C$ 的对象构成的一个有限覆盖族.
+有 $H^q(\Xx,F)=H^q(C^{\bigdot}(\Xx,F))$
+(\hyperrefext[V][V.subsubsec2.4.3]{2.4.3}).
+由前述结果及 $C^{\bigdot}(\Xx,F)$ 只涉及群的有限积这一事实
+(\hyperrefext[V][V.subsubsec2.3.3]{2.3.3}), 有
+$C^{\bigdot}(\Xx,F)=\varinjlim_iC^{\bigdot}(\Xx,F_i)$.
+因此
+$$
+H^q(\Xx,F)
+=H^q\bigl(\varinjlim_iC^{\bigdot}(\Xx,F_i)\bigr)
+=\varinjlim_iH^q(C^{\bigdot}(\Xx,F_i))=0
+$$
+对 $q>0$ 成立 (\hyperrefext[V][V.prop4.3]{4.3}).
+因而 $\check H^q(X,F)=\varinjlim_{\mathfrak X}H^q(\mathfrak X,F)=0$.
+
+\begin{enonce*}{推论 5.5}\etiquette[5.5]{VI.cor5.5}
+设 $E$ 是一个凝聚拓扑斯
+(\hyperref[VI.def2.3]{2.3}),
+${(X_i)_{i\in I}}$ 为终对象的凝聚子对象的一个递减滤过族.
+以 $\Phi$ 表示 $E$ 的闭子拓扑斯
+\emph{(IV 9)} 中那些包含于某个 $X_i$ 的闭补的子拓扑斯所成的族.
+则 $\Phi$ 为 $E$ 的支族
+\emph{(\hyperrefext[V][V.def6.12]{6.12})},
+并且对每个整数 $q$,
+函子 $H^q_{\Phi}(E,-)$ 与 $H^q_{\Phi}$
+\emph{(\hyperrefext[V][V.subsec6.13]{6.13})}
+同滤过归纳极限交换.
+\end{enonce*}
+
+设 $Z_i$ 是 $X_i$ 的闭补.
+对每个 Abel 层 $F$, 有正合序列
+(\hyperrefext[V][V.prop6.5]{6.5}):
+$$
+0 \to H^{0}_{Z_i} (E, F) \to H^{0} (E, F) \to H^{0} (X_i, F) \to
+H^{1}_{Z_i} (E, F) \to \ldots\quad {\quoi}.
+$$
+函子 $H^q(E,F)$ 与 $H^q(X_i,F)$
+关于 $F$ 与滤过归纳极限交换
+(\hyperref[VI.cor5.2]{5.2}, \hyperref[VI.cor5.3]{5.3}).
+因此 $H^q_{Z_i}(E,F)$ 也如此;
+再对各 $Z_i$ 取归纳极限
+(\hyperrefext[V][V.subsec6.13]{6.13}),
+即得 $H^q_{\Phi}(E,F)$ 的相同性质.
+关于函子 $\mathcal H^q_{\Phi}$ 的断言,
+由局部化及过渡到相伴层得到.
+
+\begin{enonce*}[remark]{定义 5.6}\etiquette[5.6]{VI.def5.6}
+设\pageoriginale{} $E$ 是一个环为 $A$ 的赋环拓扑斯,
+$q$ 为整数.
+$A$-模 $G$ 称为有限 $q$-呈示的,
+是指存在 $E$ 的一个对象族 $X_i$ 覆盖 $E$ 的终对象,
+使对每个 $i$, $E_{/X_i}$ 上存在模的正合序列:
+\begin{equation*}
+L_q \to L_{q-1} \to \cdots L_1 \to L_0 \to G_{/X_i} \to 0\tag{5.5.1}
+\end{equation*}\etiquette[5.5.1]{VI.eq5.5.1}
+其中对每个 $p$, $L_p=A^{n_p}_{/X_i}$,
+且 $n_p$ 为整数.
+\end{enonce*}
+
+\begin{enonce*}{命题 5.7}\etiquette[5.7]{VI.prop5.7}
+设 $G$ 为有限 $q$-呈示的层.
+对每个 $i\leq q-1$,
+函子 $\Eext^i_A(G,-)$ 与 $A$-模的滤过归纳极限交换.
+\end{enonce*}
+
+问题在 $E$ 上局部 (\hyperrefext[V][V.prop6.1]{6.1}).
+因此局部化到各 $E_{/X_i}$ 后,
+可以假定存在形如 \eqhyperref[VI.eq5.5.1]{5.5.1} 的正合序列.
+置 $L^{\bigdot}=L_q\to\cdots\to L_1\to L_0$.
+有 $\Eext^i_A(G,F)\simeq\Hh^i(\Hhom_A(L^{\bigdot},F))$,
+且函子 $F\mapsto\Hhom_A(L^{\bigdot},F)$ 与归纳极限交换,
+这就证明了命题.
+
+\begin{enonce*}{推论 5.8}\etiquette[5.8]{VI.cor5.8}
+设 $(E,A)$ 为赋环拓扑斯,
+$G$ 为有限 $q$-呈示的 $A$-模层,
+$X$ 是 $E$ 的代数且凝聚的对象.
+对 $\frac{i(i-1)}{2}\leq q-1$,
+函子 $F\mapsto\Ext^i_A(X;G,F)$ 关于 $F$ 与滤过归纳极限交换.
+\end{enonce*}
+
+这由 \hyperref[VI.prop5.7]{5.7} 及 \hyperref[VI.cor5.3]{5.3},
+通过 V \hyperref[V.6.1.3]{6.1.3} 的谱序列得到.
+
+\setcounter{subsection}{8}
+\subsection{}\etiquette[5.9]{VI.subsec5.9}
+
+设 $(E,A)$ 为赋环拓扑斯,
+$\Phi$ 是 $E$ 的支族
+(\hyperrefext[V][V.def6.12]{6.12}),
+$G$ 为有限 $r$-呈示的 $A$-模
+(\hyperref[VI.def5.6]{5.6}),
+$X$ 是 $E$ 的代数且凝聚的对象
+(\hyperref[VI.def2.3]{2.3}).
+分别对 V \hyperref[V.6.9.1]{6.9.1}
+及 V \hyperref[V.6.9.2]{6.9.2} 的最后几个谱序列
+中 $\Phi$ 内的闭子拓扑斯取归纳极限,
+得到两个谱序列 (\hyperrefext[V][V.subsec6.13]{6.13}):
+\begin{equation*}
+\begin{cases}
+'E^{pq}_2 = \varinjlim_{Z \in \Phi} \Ext^p_A (X; G, H^q_Z F)
+\Rightarrow \Ext^{p+q}_{A, \Phi} (X; G, F){\quoi},\\
+''E^{pq}_2 = \varinjlim_{Z \in \Phi} \Eext^p_A (G, H^q_Z F)
+\Rightarrow \Eext^{p+q}_{A, \Phi} (G, F){\quoi}.
+\end{cases}\tag{5.9.1}
+\end{equation*}\etiquette[5.9.1]{VI.eq5.9.1}
+
+由 \hyperref[VI.prop5.7]{5.7} 及 \hyperref[VI.cor5.8]{5.8},
+有典范同构
+\begin{equation*}
+\begin{cases}
+'E^{pq}_2 \simeq \Ext^p_A (X; G, H^q_\Phi F)&\quav
+\frac{p(p-1)}{2} \leq r - 1{\quoi},\\
+''E^{pq}_2 \simeq \Eext^p_A (G, H^q_\Phi F) &\quav p \leq r-1{\quoi}.
+\end{cases}\tag{5.9.2}
+\end{equation*}\etiquette[5.9.2]{VI.eq5.9.2}
+
+\begin{enonce*}{推论 5.10}\etiquette[5.10]{VI.cor5.10}
+采用\pageoriginale{} \hyperref[VI.cor5.5]{5.5} 的假设及记号.
+设 $A$ 为 $E$ 的环,
+$G$ 为有限 $q$-呈示的 $A$-模.
+对满足 $\dfrac{i(i-1)}{2}\leq q-1$ 的每个整数 $i$,
+函子 $F\mapsto\Ext^i_{A,\Phi}(E;G,F)$
+及 $F\mapsto\Eext^i_{A,\Phi}(G,F)$
+\emph{(\hyperrefext[V][V.subsec6.13]{6.13})}
+与滤过归纳极限交换.
+\end{enonce*}
+
+这由 \hyperref[VI.cor5.5]{5.5} 及 \hyperref[VI.prop5.7]{5.7},
+分别通过 V \hyperref[V.6.9.1]{6.9.1}
+及 V \hyperref[V.6.9.2]{6.9.2} 的第一个谱序列得到.
+
+
+% END INCLUDED SGA4_English_current_buildable_source_20260906/source/06/drafts/SGA4_VI_LINES_3240_3413_English.texfrag
+
+
+% BEGIN INCLUDED SGA4_English_current_buildable_source_20260906/source/06/drafts/SGA4_VI_LINES_3414_3872_English.texfrag
