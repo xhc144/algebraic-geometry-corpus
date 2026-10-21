@@ -14,6 +14,8 @@ xelatex -no-shell-escape -interaction=nonstopmode -halt-on-error -file-line-erro
 xelatex -no-shell-escape -interaction=nonstopmode -halt-on-error -file-line-error -output-directory=build main.tex
 ```
 
-依赖：XeLaTeX、fontspec、xeCJK、unicode-math、amsmath、Xy-pic、hyperref、xr-hyper、xcolor、xspace、pifont；Noto Serif/Sans/Mono CJK SC、Nimbus Roman、Latin Modern Math。未打包字体。`support/preamble-zh.tex` 中 Nimbus Roman 使用此环境的标准字体目录；其他系统可改为已安装的同名字体定位方式。
+依赖：XeLaTeX、fontspec、xeCJK、unicode-math、amsmath、Xy-pic、TikZ（arrows.meta、decorations.pathreplacing）、longtable、hyperref、xr-hyper、xcolor、xspace、pifont；Noto Serif/Sans/Mono CJK SC、Nimbus Roman、Latin Modern Math。未打包字体。Nimbus Roman 显式选用 OTF 字体，避免 fontconfig 误选同名 Type1 字体。在非本系统字体目录的环境中，西文字体自动回退到 TeX Live 的显式 Latin Modern OTF；CJK 字体及数学字体仍须安装。
 
 实际覆盖、编译和审校状态以 `PROGRESS.json`、`audit/VALIDATION.json` 为准。源文疑点单列在各节段 `*-review.md`；原文数学不作静默更正。编译通过、源文完整覆盖、逐段语言审校与法文原文数学核对是四件不同的事。
+
+原始扫描本中英文源工程漏收的两篇序言及第一、二卷索引另按原页补译，保留原索引顺序和原书篇节号。各源页边界、逐页核对记录在对应 review 文件；索引引用的篇节号不是中文成品页码。

@@ -2,12 +2,20 @@
 % Dependency origins and adaptations are recorded in audit/SOURCE_AUDIT.json.
 \usepackage{fontspec}
 \usepackage{xeCJK}
-\setmainfont{NimbusRoman-Regular.otf}[
-  Path=/usr/share/fonts/opentype/urw-base35/,
-  BoldFont=NimbusRoman-Bold.otf,
-  ItalicFont=NimbusRoman-Italic.otf,
-  BoldItalicFont=NimbusRoman-BoldItalic.otf,
-  SmallCapsFont=NimbusRoman-Regular.otf]
+\IfFileExists{/usr/share/fonts/opentype/urw-base35/NimbusRoman-Regular.otf}{%
+  \setmainfont{NimbusRoman-Regular.otf}[
+    Path=/usr/share/fonts/opentype/urw-base35/,
+    BoldFont=NimbusRoman-Bold.otf,
+    ItalicFont=NimbusRoman-Italic.otf,
+    BoldItalicFont=NimbusRoman-BoldItalic.otf,
+    SmallCapsFont=NimbusRoman-Regular.otf]
+}{%
+  \setmainfont{lmroman10-regular.otf}[
+    BoldFont=lmroman10-bold.otf,
+    ItalicFont=lmroman10-italic.otf,
+    BoldItalicFont=lmroman10-bolditalic.otf,
+    SmallCapsFont=lmroman10-regular.otf]
+}
 \setCJKmainfont{Noto Serif CJK SC}[AutoFakeSlant=0.18,SmallCapsFont=Noto Serif CJK SC]
 \setCJKsansfont{Noto Sans CJK SC}
 \setCJKmonofont{Noto Sans Mono CJK SC}

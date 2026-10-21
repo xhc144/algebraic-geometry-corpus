@@ -1,0 +1,1049 @@
+\section{态射层}\etiquette[10]{IV.sec10}\pageoriginale
+
+\begin{enonce*}{命题 10.1}\etiquette[10.1]{IV.prop10.1}
+设 $E$ 是拓扑斯, $X$ 与 $Y$ 是 $E$ 的两个对象; 函子 $Z\mapsto \Hom_E(Z\times X,Y)\simeq \Hom_{E_{/Z}}(X_Z,Y_Z)$ 可表。
+\end{enonce*}
+
+事实上, $E$ 中的归纳极限是普遍的 (II \hyperref[II.prop4.3]{4.3})。因此函子 $Z\mapsto Z\times X$ 与归纳极限可交换。从而函子 $Z\mapsto \Hom_E(Z\times X,Y)$ 将自变量 $Z$ 中的归纳极限映为投射极限。因此它可表\sisi{(IV~\hyperref[IV.prop1.4]{1.4} 与 \hyperref[IV.theo1.2]{1.2})}{(\hyperref[IV.cor1.2.1]{1.2.1})}。
+
+\setcounter{subsection}{1}
+\subsection{}\etiquette[10.2]{IV.subsec10.2}
+代表函子 $Z\mapsto \Hom_E(Z\times X,Y)$ 的对象记为 $\scrHom_E(X,Y)$ (或简记为 $\scrHom(X,Y)$), 称为\emph{从 $X$ 到 $Y$ 的态射层}。它关于 $X$、$Y$ 为双函子。因此有三重函子性的同构
+\begin{equation*}
+\Hom_E(Z,\scrHom_E(X,Y))\simeq \Hom_E(Z\times X,
+Y){\quoi}.\tag{10.2.1}
+\end{equation*}\etiquette[10.2.1]{IV.eq10.2.1}
+
+由公式 \eqhyperref[IV.eq10.2.1]{10.2.1} 可知, 双函子 $(X,Y)\mapsto \scrHom(X,Y)$ 将自变量 $X$ 中的归纳极限 (分别为自变量 $Y$ 中的投射极限) 映为 $E$ 中的投射极限。
+
+\begin{enonce*}{命题 10.3}\etiquette[10.3]{IV.prop10.3}
+设 $v:E\rightarrow E'$ 是拓扑斯态射。对 $E$ 的变动对象 $X$ 及 $E'$ 的变动对象 $Y$, 有双重函子性的同构
+\begin{equation*}
+v_{\ast}\scrHom_E(v^{\ast}Y,X)\simeq
+\scrHom_{E'}(Y,v_{\ast}X){\quoi}.\tag{10.3.1}
+\end{equation*}\etiquette[10.3.1]{IV.eq10.3.1}
+\end{enonce*}
+
+\noindent \emph{证明}。对 $E'$ 的每个对象 $Z$, 有关于所有自变量函子性的同构序列:
+\begin{alignat*}{4}
+&\Hom_{E'}(Z,v_{\ast}\scrHom_E(v^{\ast}Y,X)) &&\simeq
+&& \Hom_E(v^{\ast}Z,\scrHom_E(v^{\ast}Y,X)) &&\quad \text{(伴随性)}\\
+& \Hom_E(v^{\ast}Z,\scrHom_E(v^{\ast}Y,X)) && \simeq
+&& \Hom_E(v^{\ast}Z\times v^{\ast}Y,X) &&\quad \eqhyperref[IV.eq10.2.1]{10.2.1}\\
+&\Hom_E(v^{\ast}Z\times v^{\ast}Y,X) &&\simeq &&
+\Hom_E(v^{\ast}(Z\times Y),X) &&\quad \text{($v^{\ast}$ 左正合)}\\
+&\Hom_E(v^{\ast}(Z\times Y),X) &&\simeq && \Hom_{E'}(Z\times Y,
+v_{\ast}X) &&\quad \text{(伴随性)}\\
+& \Hom_{E'}(Z\times Y,v_{\ast}X) &&\simeq &&
+\Hom_{E'}(Z,\scrHom_{E'}(Y,v_{\ast}X)) &&\quad \eqhyperref[IV.eq10.2.1]{10.2.1}
+\end{alignat*}
+因此 \eqhyperref[IV.eq10.3.1]{10.3.1} 的两端代表同构的函子, \cqfd
+
+\begin{enonce*}{推论 10.4}\etiquette[10.4]{IV.cor10.4}
+设\pageoriginale $C$ 是 $𝒰$-景, $X$ 是 $C$ 上的 $𝒰$-预层, $Y$ 是 $C$ 上的 $𝒰$-层, $𝒱$ 是包含 $𝒰$ 且使 $C$ 为 $𝒱$-小的宇宙。设 $C^{\widehat{\phantom{,}}}_{𝒱}$ 为 $C$ 上的 $𝒱$-预层拓扑斯, $C^{\sim}_{𝒰}$ 为 $C$ 上的 $𝒰$-层拓扑斯。预层 $\scrHom_{C^{\widehat{\phantom{,}}}_{𝒱}}(X,Y)$ 是 $𝒰$-层。设 $X\rightarrow \underline{a}X$ 为从 $X$ 到其相伴层的典范态射。相应的态射 $\scrHom_{C^{\widehat{\phantom{,}}}_{𝒱}}(\underline{a}X,Y)\rightarrow
+\scrHom_{C^{\widehat{\phantom{,}}}_{𝒱}}(X,Y)$ 是同构。有典范同构 $\scrHom_{C^{\widehat{\phantom{,}}}_{𝒱}}(\underline{a}X,Y)\simeq
+\scrHom_{C^{\sim}_{𝒰}}(\underline{a}X,Y)$。
+\end{enonce*}
+
+\setcounter{subsection}{4} \setcounter{subsubsection}{0}
+\subsubsection{}\etiquette[10.4.1]{IV.subsubsec10.4.1}
+先假定 $C$ 是小景且 $𝒱=𝒰$。此时有拓扑斯态射 $C^{\sim}_{𝒰}\rightarrow
+C^{\widehat{\phantom{,}}}_{𝒰}$ (\sisi{IV~}{}\hyperref[IV.subsec4.8]{4.8}), 由它及 \eqhyperref[IV.eq10.3.1]{10.3.1} 得到此情形下的各断言。为由此转到一般情形, 先注意“相伴层”函子与宇宙无关 (\hyperrefext[II][II.prop3.6]{3.6}), 且 $C$ 上的 $𝒱$-层拓扑斯等价于 $C^{\sim}_{𝒰}$ 上的 $𝒱$-层拓扑斯 (\hyperrefext[III][III.sec4]{4} 与 \hyperref[IV.sec1]{1})。因此只需证明下述引理:
+
+\begin{enonce*}{引理 10.4.2}\etiquette[10.4.2]{IV.lem10.4.2}
+设 $E$ 是 $𝒰$-拓扑斯, $𝒱$ 是包含 $𝒰$ 的宇宙, $E^{\sim}_{𝒱}$ 是 $E$ 上的 $𝒱$-层拓扑斯, $X$ 与 $Y$ 是 $E$ 的两个对象。有典范同构 $\scrHom_E(X,Y)\simeq \scrHom_{E^{\sim}_{𝒱}}(X,Y)$。
+\end{enonce*}
+
+\setcounter{subsubsection}{2}
+\subsubsection{}\etiquette[10.4.3]{IV.subsubsec10.4.3}
+函子 $\epsilon_E:E\rightarrow E_{\widetilde{𝒱}}$ 全忠实且左正合。因此对 $E$ 的每个对象 $Z$, 有同构
+$$
+\Hom_{E_{\widetilde{𝒱}}}(\epsilon_E Z,\epsilon_E
+\scrHom_E(X,Y))\simeq \Hom_{E_{\widetilde{𝒱}}}(\epsilon_E
+Z\times \epsilon_E X,\epsilon_E Y).
+$$
+但 $E_{\widetilde{𝒱}}$ 的每个对象都是来自 $E$ 的对象的归纳极限; 因而断言由 \eqhyperref[IV.eq10.2.1]{10.2.1} 得到。
+
+\subsection{}\etiquette[10.5]{IV.subsec10.5}
+设 $v:E\rightarrow E'$ 是拓扑斯态射。定义四个双重函子性的态射:
+\begin{alignat*}{4}
+\Phi_v & : v^{\ast}\scrHom(X,Y) &&\longrightarrow
+\scrHom(v^{\ast}X,v^{\ast}Y) &\quav
+& X \text{ 与 } Y \text{ 为 } E'\text{ 的对象}{\quoi},\\
+\Psi_v & : v_{\ast}\scrHom(X,Y) &&\longrightarrow \scrHom(v_{\ast}X,
+v_{\ast}Y) &\quav & X \text{ 与 } Y \text{ 为 } E\text{ 的对象}{\quoi},\\
+\Xi_v & : \scrHom(v_{!}X,Y) &&\longrightarrow
+v_{\ast}\scrHom(X,v^{\ast}Y) &\quav & X\in \ob E, Y\in \ob
+E'{\quoi},\\
+\Lambda_v & : v_{!}(X\times v^{\ast}Y) &&\longrightarrow
+v_{!}(X)\times Y & & X\in \ob E, Y\in \ob E'{\quoi},
+\end{alignat*}
+其中,\pageoriginale 为定义态射 $\Xi_v$ 与 $\Lambda_v$, 假定 $v$ 的逆像函子 $v^{\ast}$ 具有左伴随 $v_{!}$。
+
+\subsubsection{}\etiquette[10.5.1]{IV.subsubsec10.5.1}
+\emph{$\Psi_v$ 的定义}。设 $X$ 是 $E$ 的对象。有伴随态射 $v^{\ast}v_{\ast}X\rightarrow X$, 因而对 $E'$ 的每个对象 $Z$ 有双重函子性的态射 $v^{\ast}(Z\times v_{\ast}X)\rightarrow (v^{\ast}Z)\times X$。于是对 $E$ 的每个对象 $Y$, 有三重函子性的态射
+$$
+\Hom_E((v^{\ast}Z)\times X,Y)\longrightarrow
+\Hom_E(v^{\ast}(Z\times v_{\ast}X),Y){\quoi}.
+$$
+由伴随性得到三重函子性的态射
+$$
+\Hom_{E'}(Z,v_{\ast}\scrHom(X,Y))\longrightarrow \Hom_{E'}(Z,
+\scrHom(v_{\ast}X,v_{\ast}Y)){\quoi};
+$$
+从而得到态射 $\Psi_v$。
+
+\subsubsection{}\etiquette[10.5.2]{IV.subsubsec10.5.2}
+\emph{$\Lambda_v$ 的定义}。对 $E$ 的每个对象 $X$, 有伴随态射 $X\rightarrow v^{\ast}v_{!}X$, 因而对 $E'$ 的每个对象 $Y$ 有双重函子性的态射 $X\times v^{\ast}Y\rightarrow v^{\ast}v_{!}(X)\times v^{\ast}Y
+\simeq v^{\ast}(v_{!}(X)\times Y)$; 由伴随性得到态射 $\Lambda_v$。
+
+\subsubsection{}\etiquette[10.5.3]{IV.subsubsec10.5.3}
+\emph{$\Xi_v$ 的定义}。设 $X$ 是 $E$ 的对象, $Z$ 和 $Y$ 是 $E'$ 的两个对象。态射
+$\Lambda_v:v_{!}(X\times v^{\ast}Z)\rightarrow v_{!}(X)\times Z$
+给出三重函子性的态射 $\Hom_{E'}(v_{!}(X)\times Z,Y)\rightarrow
+\Hom_{E'}(v_{!}(X\times v^{\ast}Z),Y)$; 由伴随性得到三重函子性的态射
+$$
+\Hom_{E'}(Z,\scrHom(v_{!}X,Y))\longrightarrow
+\Hom_{E'}(Z,v_{\ast}\scrHom(X,v^{\ast}Y)){\quoi};
+$$
+从而得到态射 $\Xi_v$。
+
+\subsubsection{}\etiquette[10.5.4]{IV.subsubsec10.5.4}
+\emph{$\Phi_v$ 的定义}。(\hyperref[IV.subsubsec10.5.3]{10.5.3}) 中的三重函子性态射
+$$
+\Hom_{E'}(v_{!}(Z)\times X,Y)\longrightarrow
+\Hom_{E'}(v_{!}(Z\times v^{\ast}X),Y){\quoi},
+$$
+(其中 $Z$ 是 $E$ 的对象, $X,Y$ 是 $E'$ 的对象) 由伴随性给出三重函子性的态射
+$$
+\Hom_E(Z,v^{\ast}\scrHom(X,Y))\longrightarrow
+\Hom_E(Z,\scrHom(v^{\ast}X,v^{\ast}Y)){\quoi};
+$$
+从而定义态射 $\Phi_v$。还可用第二种方式定义 $\Phi_v$。设 $X$、$Y$、$Z$ 是 $E'$ 的三个对象。函子 $v^{\ast}:E'\rightarrow E$ 给出三重函子性的态射
+$$
+\Hom_{E'}(Z\times X,Y)\longrightarrow \Hom_E(v^{\ast}(Z)\times
+v^{\ast}(X),v^{\ast}Y){\quoi};
+$$
+从而由伴随性给出三重函子性的态射
+$$
+\Hom_{E'}(Z,\scrHom(X,Y))\longrightarrow
+\Hom_{E'}(Z,v_{\ast}\scrHom(v^{\ast}X,v^{\ast}Y)){\quoi}.
+$$
+因此\pageoriginale 有双重函子性的态射
+$$
+\scrHom(X,Y)\longrightarrow v_{\ast}\scrHom(v^{\ast}X,
+v^{\ast}Y){\quoi};
+$$
+由伴随性得到一个态射; 读者可验证它正是上述定义的态射 $\Phi_v$。
+
+\begin{enonce*}{命题 10.6}\etiquette[10.6]{IV.prop10.6}
+设 $v:E\rightarrow E'$ 是拓扑斯态射。
+\begin{enumerate}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 对 $E$ 的每个对象 $Y$, 态射 $\Psi_v$ (\hyperref[IV.subsubsec10.5.1]{10.5.1}) 都是同构, 当且仅当伴随态射 $v^{\ast}v_{\ast}X\rightarrow X$ 是同构。特别地, 对每对对象 $(X,Y)$, $\Psi_v$ 都为同构, 当且仅当函子 $v_{\ast}:E\rightarrow E'$ 全忠实, 即 $v$ 为拓扑斯嵌入。
+
+\item 下列条件等价:
+\begin{enumerate}
+\renewcommand{\theenumii}{\roman{enumii}}
+\renewcommand{\labelenumii}{(\theenumii)}
+\item 对 $E'$ 的每对对象 $(X,Y)$, 态射 $\Phi_v$ (\hyperref[IV.subsubsec10.5.4]{10.5.4}) 都是同构。
+
+\item 函子 $v^{\ast}$ 具有左伴随 $v_{!}$, 且对 $E$ 的每个对象 $X$ 和 $E'$ 的每个对象 $Y$, 态射 $\Xi_v$ (\hyperref[IV.subsubsec10.5.3]{10.5.3}) 都是同构。
+
+\item 函子 $v^{\ast}$ 具有左伴随 $v_{!}$, 且对 $E$ 的每个对象 $X$ 和 $E'$ 的每个对象 $Y$, 态射 $\Lambda_v$ (\hyperref[IV.subsubsec10.5.2]{10.5.2}) 都是同构。
+\end{enumerate}
+\end{enumerate}
+\end{enonce*}
+
+\setcounter{subsection}{6} \setcounter{subsubsection}{0}
+\subsubsection{}\etiquette[10.6.1]{IV.subsubsec10.6.1}
+第一个断言立即由 (\hyperref[IV.subsubsec10.5.1]{10.5.1}) 得到。由 (\hyperref[IV.subsubsec10.5.2]{10.5.2})、(\hyperref[IV.subsubsec10.5.3]{10.5.3})、(\hyperref[IV.subsubsec10.5.4]{10.5.4}) 也立即可知, (iii) $\Leftrightarrow$ (ii) $\Leftrightarrow$ ((i) 且函子 $v^{\ast}$ 具有左伴随 $v_{!}$)。只需再证明 (i) 蕴含 $v^{\ast}$ 具有左伴随, 即 (\hyperref[IV.rem1.8]{1.8}) 证明 (i) 蕴含 $v^{\ast}$ 与小积可交换。设 $e'$ 是 $E'$ 的终对象, $I$ 是小集合。由于 $v^{\ast}$ 左正合, $v^{\ast}(e')$ 是 $E$ 的终对象, 且由于 $v^{\ast}$ 与归纳极限可交换, 有 $v^{\ast}(\amalg_I e')\simeq \amalg_I v^{\ast}(e')$。对 $E'$ 的每个对象 $Y$, 有 $\scrHom(\amalg_I e',Y)\simeq \Pi_I\scrHom(e',Y)\simeq \Pi_IY$ 以及 $\scrHom(\amalg_I v^{\ast}(e'),v^{\ast}Y)\simeq
+\Pi_I\scrHom(v^{\ast}(e'),v^{\ast}Y)\simeq
+\Pi_Iv^{\ast}Y$。\pageoriginale 因此, 函子性态射 $\Phi_v$ 诱导同构 $v^{\ast}\Pi_IY\simeq \Pi_Iv^{\ast}Y$, 可验证它是典范同构。\cqfd
+
+\begin{enonce*}{推论 10.7}\etiquette[10.7]{IV.cor10.7}
+设 $E$ 是拓扑斯, $Z$ 是 $E$ 的对象, $j_Z:E_{/Z}\rightarrow E$ 是局部化态射 (\hyperref[IV.subsec5.2]{5.2}), $X,Y$ 是 $E$ 的两个对象。
+\begin{enumerate}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 有双重函子性的同构
+$$
+j^{\ast}_Z\scrHom(X,Y)\simeq \scrHom(j^{\ast}_ZX,
+j^{\ast}_ZY){\quoi}.
+$$
+
+\item 设 $X'$ 是 $E_{/Z}$ 的对象。有双重函子性的同构
+$$
+\scrHom_E(j_{Z!}X',Y)\simeq
+j_{Z\ast}\scrHom_{E/Z}(X',j^{\ast}_ZY){\quoi}.
+$$
+
+\item 设 $Y'$ 是 $E/Z$ 的对象。当 $Z$ 在 $E$ 中为开时, 有双重函子性的同构
+$$
+j_{Z\ast}\scrHom(X',Y')\simeq \scrHom(j_{Z\ast}X',
+j_{Z\ast}Y'){\quoi}.
+$$
+\end{enumerate}
+\end{enonce*}
+
+断言 1) 和 2) 由态射 $\Lambda_{j_Z}$ 是同构这一事实证明。对于断言 3), 只需注意, $j_{Z\ast}$ 全忠实, 因为 $j_{Z!}$ 全忠实 (\hyperrefext[I][I.rem5.7]{5.7}. a))。
+
+\begin{enonce*}{推论 10.8}\etiquette[10.8]{IV.cor10.8}
+设 $E$ 是拓扑斯, $X$、$Y$、$Z$ 是 $E$ 的三个对象, $j_Z:E_{/Z}\rightarrow E$ 是局部化态射。
+\begin{enumerate}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 有典范同构
+$$
+j_{Z\ast}j^{\ast}_ZY\simeq \scrHom(Z,Y){\quoi}.
+$$
+
+\item 有典范同构
+$$
+\Hom_E(Z,\scrHom(X,Y))\simeq
+\Hom_{E_{/Z}}(j^{\ast}_ZX,j^{\ast}_ZY){\quoi}.
+$$
+\end{enumerate}
+\end{enonce*}
+
+设 $e_Z$ 是 $E_{/Z}$ 的终对象 (即对象 $\id_Z:Z\rightarrow Z$)。由 \eqhyperref[IV.eq10.2.1]{10.2.1} 可知, 有典范同构
+$$
+\scrHom_{E/Z}(e_Z,j^{\ast}_ZY)\simeq j^{\ast}_ZY{\quoi};
+$$
+因此由 (\hyperref[IV.cor10.7]{10.7} 2), 有同构
+$$
+j_{Z\ast}j^{\ast}_ZY\simeq \scrHom(j_{Z!}e_Z,Y){\quoi.}
+$$
+由于 $j_{Z!}e_Z=Z$, 这就证明了 1)。证明 2)。由 (\hyperref[IV.cor10.7]{10.7}), 得到典范\pageoriginale 同构
+$$
+\Hom_{E_{/Z}}(e_Z,j^{\ast}_Z\scrHom(X,Y))\simeq
+\Hom_{E_{/Z}}(j^{\ast}_ZX,j^{\ast}_ZY){\quoi};
+$$
+从而在左端利用伴随性得到
+$$
+\Hom_E(Z,\scrHom(X,Y))\simeq
+\Hom_{E_{/Z}}(j^{\ast}_ZX,j^{\ast}_ZY){\quoi}.
+$$
+
+% END INCLUDED SGA4_English_current_buildable_source_20260906/source/04/drafts/SGA4_IV_LINES_8246_8573_English.texfrag
+
+% BEGIN INCLUDED SGA4_English_current_buildable_source_20260906/source/04/drafts/SGA4_IV_LINES_8574_8831_English.texfrag
+\section{赋环拓扑斯与赋环拓扑斯中的局部化}\etiquette[11]{IV.sec11}
+
+\setcounter{subsection}{1} \setcounter{subsubsection}{0}
+\subsubsection{}\etiquette[11.1.1]{IV.subsubsec11.1.1}
+设 $𝒰$ 是宇宙。一个 $𝒰$-\emph{赋环拓扑斯}是对 $(E,A)$, 其中 $E$ 为 $𝒰$-拓扑斯, $A$ 为配备环结构的对象。一个 $𝒰$-赋环景是对 $(C,A)$, 其中 $C$ 为 $𝒰$-景, $A$ 为 $C$ 上的 $𝒰$-环层。当上下文不会引起混淆时, 不再提及宇宙。赋环景 $(C,A)$ 相伴于赋环拓扑斯 $(C^{\sim},A)$。赋环拓扑斯 $(E,A)$ 相伴于一个赋环景, 由景 $E$ 及 $A$ 所代表的环层组成。
+
+\subsubsection{}\etiquette[11.1.2]{IV.subsubsec11.1.2}
+设 $(E,A)$ 是赋环拓扑斯。用 ${}_AE$ (分别为 $E_A$) 表示幺左 (分别为右) $A$-模层的范畴 (也将其写作 $A$-模)。范畴 ${}_AE$ (分别为 $E_A$) 是阿贝尔范畴 (\hyperrefext[II][II.prop6.7]{6.7})。设 $M$ 与 $N$ 是两个左 (分别为右) $A$-模层。从 $M$ 到 $N$ 的 $A$-模态射所成的交换群记为 $\Hom_A(M,N)$。
+
+\subsubsection{}\etiquette[11.1.3]{IV.subsubsec11.1.3}
+设 $A$、$B$、$C$ 是拓扑斯 $E$ 中的三个环, $M$ 是 $A-B$-双模层, $N$ 是 $A-C$-双模层。设 $e$ 为 $E$ 的终对象, 令 $\Hom(e,B)=\Gamma(B)$ 与 $\Hom(e,C)=\Gamma(C)$。$M$ 上的 $A-B$-双模结构给出从 $\Gamma(B)^{\circ}$ 到 $A$-模 $M$ 的自同态环的环同态; 同样, $N$ 上的 $A-C$-双模结构给出从 $\Gamma(C)^{\circ}$ 到 $A$-模 $N$ 的自同态环的环同态。由函子性, 得到交换群 $\Hom_A(M,N)$ 上的 $\Gamma(B)-\Gamma(C)$-双模结构。特别地, 当 $A$ 是交换环层时, 群 $\Hom_A(M,N)$ 典范地配备 $\Gamma(A)$-模结构。
+
+\subsubsection{}\etiquette[11.1.4]{IV.subsubsec11.1.4}
+设\pageoriginale $E$ 是拓扑斯, $A$ 与 $B$ 是 $E$ 中的两个环, $u:A\rightarrow B$ 是环层态射, $M$ 是 $B$-模 (为明确起见设为左模)。通过 $u$, 可将层 $M$ 看作 $A$-模层: 对 $E$ 的每个对象 $X$, $M(X)$ 配备的 $A(X)$-模结构由其 $B(X)$-模结构及同态 $u(X):A(X)\rightarrow B(X)$ 经标量限制得到。因此得到“\emph{沿 $u$ 的标量限制}”函子
+$$
+\Res(u):{}_BE\longrightarrow {}_AE{\quoi}.
+$$
+
+\subsubsection{}\etiquette[11.1.5]{IV.subsubsec11.1.5}
+特别地, 当 $A=\ZZ$ (常值层 $\sisi{\underline{\underline{\ZZ}}}{\underline{\ZZ}}$, 即常值预层 $\ZZ$ 的相伴层), 而
+$u:\sisi{\underline{\underline{\ZZ}}}{\underline{\ZZ}}\rightarrow B$
+为唯一的典范态射时, 得到从 ${}_BE$ 到范畴 ${}_{\sisi{\underline{\underline{\ZZ}}}{\underline{\ZZ}}}E$ 的函子, 后者正是记为 $E_{Ab}$ 的阿贝尔层范畴。此函子称为\emph{底阿贝尔层函子}。
+
+\begin{enonce*}{命题 11.1.6}\etiquette[11.1.6]{IV.prop11.1.6}
+沿 $u$ 的标量限制函子与归纳极限和投射极限可交换。它是保守的。
+\end{enonce*}
+
+此命题对于通常的模的标量限制函子成立, 即当 $E$ 为点拓扑斯时成立。因此当 $E$ 为小景上的预层拓扑斯时也成立。由通过相伴层函子确定归纳极限和投射极限的方法 (\hyperrefext[II][II.prop6.4]{6.4}), 可知命题在一般情形下成立。
+
+\setcounter{subsection}{2} \setcounter{subsubsection}{0}
+\subsubsection{}\etiquette[11.2.1]{IV.subsubsec11.2.1}
+设 $(E,A)$ 是赋环拓扑斯, $X$ 是 $E$ 的对象, $j_X:E_{/X}\rightarrow E$ 是局部化态射\sisi{(\hyperref[IV.sec8]{8})}{\hyperref[IV.subsec5.2]{5.2}}。由 \hyperrefext[III][III.prop1.7]{1.7} 或 \hyperref[IV.subsubsec3.1.2]{3.1.2}, 层 $j^{\ast}_XA$ 典范地配备环结构。环层 $j^{\ast}_XA$ 通常记为 $A|X$, 或滥用记号, 简记为 $A$。除非另作说明, 拓扑斯 $E_{/X}$ 赋环为 $A|X$。层 $j_{X\ast}j^{\ast}_XA$ 典范地配备环结构。伴随态射 $A\rightarrow j_{X\ast}j^{\ast}_XA$ 是环层态射。
+
+\subsubsection{}\etiquette[11.2.2]{IV.subsubsec11.2.2}
+再设\pageoriginale $M$ 为 $A$-模 (为明确起见设为左模)。层 $j^{\ast}_XM$ 配备 $A|X$-模结构 (\hyperrefext[III][III.prop1.7]{1.7}; 或 \hyperref[IV.subsubsec3.1.2]{3.1.2}); 因而有函子
+$$
+j^{\ast}_X:{}_AE\longrightarrow {}_{A|X}E_{/X}
+$$
+称为到 $E_{/X}$ 的限制函子, 也称为到 $X$ 的限制函子。函子 $j^{\ast}_X$ 与归纳极限和投射极限可交换 (上述引文)。特别地, 它正合。再设 $N$ 为 $A|X$-模。层 $j_{X\ast}N$ 是 $j_{X\ast}A|X$-模层 (\hyperrefext[III][III.prop1.7]{1.7} 或 \hyperref[IV.subsubsec3.1.2]{3.1.2}); 因而沿伴随态射 $A\rightarrow j_{X\ast}(A|X)$ (\hyperref[IV.subsubsec11.1.4]{11.1.4}) 限制标量后, 它是 $A$-模, 仍记为 $j_{X\ast}N$。由此定义了函子
+$$
+j_{X\ast}:{}_{A|X}E_{/X}\longrightarrow {}_AE
+$$
+它与投射极限可交换 (\hyperref[IV.prop11.1.6]{11.1.6} 与 \hyperrefext[III][III.prop1.7]{1.7})。对每个 $A$-模 $M$, 伴随态射 $M\rightarrow j_{X\ast}j^{\ast}_XM$ 是 $A$-模态射。对每个 $A|X$-模 $N$ 及每个 $A$-模 $M$, 伴随态射 $M\rightarrow j_{X\ast}j^{\ast}_XM$ 定义了一个关于 $M$ 与 $N$ 双重函子性的态射
+\begin{equation*}
+\Hom_{A|X}(j^{\ast}_XM,N)\longrightarrow
+\Hom_A(M,j_{X\ast}N){\quoi}.\tag{11.2.2.1}
+\end{equation*}\etiquette[11.2.2.1]{IV.eq11.2.2.1}
+后一个态射为同构; 即 $A$-模函子 $j^{\ast}_X$ 与 $j_{X\ast}$ 互为伴随 (III \hyperref[III.prop1.7]{1.7})。
+
+\subsubsection{}\etiquette[11.2.3]{IV.subsubsec11.2.3}
+模函子 $j^{\ast}_X$ 与 $j_{X\ast}$ 与“底集合”函子可交换 (\hyperrefext[III][III.prop1.7]{1.7} 4))。因此它们与标量限制函子可交换, 特别地, 与底阿贝尔层函子可交换。
+
+\setcounter{subsection}{3} \setcounter{subsubsection}{0}
+\begin{enonce*}{命题 11.3.1}\etiquette[11.3.1]{IV.prop11.3.1}
+设 $(E,A)$ 是赋环拓扑斯, $X$ 是 $E$ 的对象。函子
+$$
+j^{\ast}_X:{}_{A}E\longrightarrow {}_{A|X}E_{/X}
+$$
+具有左伴随, 记为 $j_{X!}:{}_{A|X}E_{/X}\rightarrow {}_{A}E$, 称为补零延拓。补零延拓函子正合且忠实, 并与归纳极限可交换。模函子\pageoriginale $j_{X!}$ 与标量限制函子可交换, 特别地, 它们与底阿贝尔层函子可交换。
+\end{enonce*}
+
+函子 $j_{X!}$ 的存在性由 \hyperrefext[III][III.prop1.7]{1.7} 得到。由于 $j_{X!}$ 为左伴随, 它与归纳极限可交换 (\hyperrefext[I][I.sec2]{2})。为证其余断言, 先假定 $E$ 是包含对象 $X$ 的小范畴 $C$ 上的集合预层拓扑斯。此时知道 $E_{/X}$ 等价于 $C_{/X}$ 上的预层范畴, 且在此等价下, 函子 $j^{\ast}_X:E\rightarrow E_{/X}$ 就是与遗忘函子 $C_{/X}\rightarrow C$ 复合 (\hyperrefext[I][I.prop5.11]{5.11})。由 $j_{X!}$ 的显式构造 (\hyperrefext[I][I.prop5.1]{5.1}) 立即可知, 对每个 $A|X$-模 $N$ 及 $C$ 的每个对象 $Y$, 有
+$$
+j_{X!}N(Y)=\bigoplus_{u\in \Hom_C(Y,X)}N(u){\quoi};
+$$
+因而 $j_{X!}$ 正合, 且在此情形下补零延拓与标量限制函子可交换。在一般情形下, 可假定 $E$ 为某个小景 $C$ 上的层拓扑斯, 且 $X$ 来自 $C$ 的一个对象 (\hyperref[IV.cor1.2.1]{1.2.1})。此时拓扑斯 $E_{/X}$ 等价于 $C_{/X}$ 上的层拓扑斯 (配备诱导拓扑) (\hyperrefext[III][III.prop5.4]{5.4}), 拓扑斯态射 $j_X:E_{/X}\rightarrow E$ 来自遗忘函子 $C_{/X}\rightarrow C$, 后者连续且余连续 (\hyperrefext[III][III.prop5.2]{5.2})。由 \hyperrefext[III][III.prop1.7]{1.7} 可知, 层的补零延拓由预层的补零延拓再复合相伴层函子得到; 从而得到正合性断言以及与标量限制的相容性。
+
+为证忠实性, 等价地须证明对每个 $A|X$-模 $N$, 伴随态射
+$$
+\ad_N:N\longrightarrow j^{\ast}_X j_{X!}N
+$$
+都是单态射。以 $j_{\widehat{X}!}$ 表示预层的补零延拓函子, $\underline{a}$ 表示“相伴层”函子, 则有交换图
+\[
+\xymatrix@C=2.75cm@R=1.5cm{ N \ar[r]^{\ad_{N}}
+\ar[rd]_{\ad_{\hat{N}}} & j^{\ast}_{X} \underline{a}
+j_{\widehat{X}!} N \\
+                   & \underline{a} j^{\ast}_X j_{\widehat X!} N,\ar[u]
+}
+\]
+其中\pageoriginale $\ad_{\widehat{N}}$ 是预层的伴随态射。由上述结果, 态射 $\ad_{\widehat{N}}$ 是单态射, 因此 $\underline{a}(\ad_{\widehat{N}})$ 是单态射。此外, 由于遗忘函子 $C_{/X}\rightarrow C$ 连续且余连续, 典范态射 $\underline{a}j^{\ast}_X\rightarrow j^{\ast}_X\underline{a}$ 是同构 (\hyperrefext[III][III.prop2.3]{2.3})。因此 $\ad_N$ 是单态射。
+
+\begin{enonce*}[remark]{注 11.3.2}\etiquette[11.3.2]{IV.rem11.3.2}
+设 $N$ 是 $A|X$-模。$j_{X!}N$ 的底集合层一般不同构于将 $N$ 的底集合层补空集延拓而得到的层 (\hyperref[sga4.exp.III.terminology.5.3]{III 5.3} 与 \hyperref[IV.subsec5.2]{5.2})。因此, 须注意区分 \hyperref[IV.prop11.3.1]{11.3.1} 中记为 $j_{X!}:{}_{A|X}E_{/X}\rightarrow {}_{A}E$ 的\emph{补零延拓}函子, 与 III \hyperref[III.subsec5.3]{5.3} 及 IV \hyperref[IV.subsec5.2]{5.2} 中同样记为 $j_{X!}:E_{/X}\rightarrow E$ 的补空集延拓函子。在实际遇到的大多数情形下, 上述记号的滥用不会造成混淆。如果仍可能混淆, 将分别用记号 $j^{\ab}_{X!}$ 和 $j^{\ens}_{X!}$ 表示补零延拓函子与补空集延拓函子。
+\end{enonce*}
+
+\begin{enonce*}{命题 11.3.3}\etiquette[11.3.3]{IV.prop11.3.3}
+设 $(E,A)$ 是赋环拓扑斯, $X$ 是 $E$ 的对象。$A$-模 $j_{X!}(A|X)$ (通常记为 $A_X$ 或 $A_{X,E}$) 是由 $X$ 生成的自由 $A$-模 {\rm (\hyperrefext[II][II.prop6.5]{6.5})}; 即对每个 $A$-模 $M$, 有关于 $M$ 函子性的典范同构:
+$$
+\Hom_E(X,M)\xleftarrow{\sim} \Hom_A (A_X, M){\quoi}.
+$$
+设 $(X_i)_{i\in I}$ 是 $E$ 的拓扑生成族 {\rm (\hyperrefext[II][II.def3.0.1]{3.0.1})。} 则族 $(A_{X_i})_{i\in I}$ 是 $A$-模范畴的生成族。
+\end{enonce*}
+
+设 $e_X$ 是拓扑斯 $E_{/X}$ 的终对象 $(e_X=X\xrightarrow{\id}X)$。由单位截面 $e_X\rightarrow A|X$ 得到\pageoriginale 同构
+$$
+\Hom_{A|X}(A|X,j^{\ast}_XM)\xrightarrow{\sim}
+\Hom_{E_{/X}}(e_X,j^{\ast}_XM){\quoi};
+$$
+从而由伴随性得到同构
+$$
+\Hom_A(j^{\ab}_{X!}(A|X),
+M)\xrightarrow{\sim}\Hom_E(j^{\ens}_{X!}(e_X),M){\quoi}.
+$$
+由于 $j^{\ens}_{X!}(e_X)=X$, 得到所断言的同构。最后一个断言由 \hyperrefext[II][II.cor6.6]{6.6} 得到。
+
+\begin{enonce*}[remark]{注 11.3.4}\etiquette[11.3.4]{IV.rem11.3.4}
+设 $A$ 与 $B$ 是拓扑斯 $E$ 上的两个环层, $X$ 是 $E$ 的对象, $N$ 是 $A|X$-$B| X$-双模。将 $N$ 补零延拓得到的阿贝尔层典范地配备 $A$-$B$-双模结构, 这直接由其显式描述 (\hyperref[IV.prop11.3.1]{11.3.1}) 得到。特别地, 这样得到的自由 $A$-模 $A_X$ 是 $A$-双模。
+\end{enonce*}
+
+\begin{enonce*}[remark]{习题 11.3.5}\etiquette[11.3.5]{IV.exer11.3.5}
+设 $E$ 是拓扑斯, $X$ 是 $E$ 的对象, $x:P\rightarrow E$ 是 $E$ 的点 (\hyperref[IV.def6.1]{6.1}), $(x_i)_{i\in I}$ 是 $x$ 上方的 $E_{/X}$ 的点族 (与纤维 $X_x$ 双射对应 (\hyperref[IV.eq6.7.2]{6.7.2}))。证明, 对 $E_{/X}$ 上的每个阿贝尔层 $M$, 纤维 $(j_{X!}M)_x$ 典范同构于 $\oplus_i M_{x_i}$。
+\end{enonce*}
+
+% END INCLUDED SGA4_English_current_buildable_source_20260906/source/04/drafts/SGA4_IV_LINES_8574_8831_English.texfrag
+
+% BEGIN INCLUDED SGA4_English_current_buildable_source_20260906/source/04/drafts/SGA4_IV_LINES_8832_9247_English.texfrag
+\section{模上的运算}\etiquette[12]{IV.sec12}
+
+\begin{enonce*}{命题 12.1}\etiquette[12.1]{IV.prop12.1}
+设 $(E,A)$ 是赋环拓扑斯, $M$ 与 $N$ 是两个左 $A$-模 (分别为右 $A$-模)。$E$ 上将 $E$ 的每个对象 $X$ 映为交换群 $\Hom_A(M,\scrHom_E(X,N))$ 的函子, 可由一个阿贝尔层代表, 记为 $\scrHom_A(M,N)$ (有时在无混淆时记为 $\scrHom(M,N)$)。对 $E$ 的每个对象 $X$, 有典范同构
+\begin{equation*}
+\scrHom_A(M,N)(X)\simeq \Hom_{A| X}(j^{\ast}_XM,
+j^{\ast}_XN){\quoi}.\tag{12.1.1}
+\end{equation*}\etiquette[12.1.1]{IV.eq12.1.1}
+\end{enonce*}
+
+有典范同构
+$\scrHom_E(X,N)=j_{X\ast}j^{\ast}_XN$
+(\hyperref[IV.cor10.8]{10.8}); 因此 $\scrHom_E(X,N)$ 关于 $X$ 函子性地配备左 $A$-模 (分别为右 $A$-模) 结构。函子 $X\longmapsto\scrHom_E(X,N)$ 将自变量 $X$ 中的归纳极限变为 $A$-模的投射极限 (\hyperref[IV.subsec10.2]{10.2} 与 \hyperref[IV.subsubsec11.2.3]{11.2.3}); 因此函子
+$$
+X\longmapsto \Hom_A(M,\scrHom_E(X,N))
+$$
+将自变量 $X$ 中的归纳极限\pageoriginale 变为交换群的投射极限, 从而变为底集合的投射极限。因此它可表 (\hyperref[IV.prop1.4]{1.4} 与 \hyperref[IV.theo1.2]{1.2}), 代表它的对象配备阿贝尔层结构。按定义, 对 $E$ 的每个对象 $X$, 有典范同构
+\begin{equation*}
+\scrHom_A(M,N)(X)=\Hom(X,\scrHom_A(M,N))\simeq
+\Hom_A(M,\scrHom(X,N))\tag{12.1.2}
+\end{equation*}\etiquette[12.1.2]{IV.eq12.1.2}
+同构 (\hyperref[IV.eq12.1.1]{12.1.1}) 由 \eqhyperref[IV.eq12.1.2]{12.1.2}、同构 $\scrHom(X,N)\approx j_{X\ast}j^{\ast}_XN$ (\hyperref[IV.cor10.8]{10.8}) 以及第 10 节的伴随公式得到。
+
+\setcounter{subsection}{1}
+\subsection{}\etiquette[12.2]{IV.subsec12.2}
+阿贝尔层 $\scrHom_A(M,N)$ 称为\emph{从 $M$ 到 $N$ 的 $A$-模同态层}。它关于 $M$ 与 $N$ 是双函子。由其定义及 (\hyperref[IV.subsec10.2]{10.2}), 可知它将自变量 $N$ 中的投射极限 (分别为 $M$ 中的归纳极限) 变为阿贝尔层的投射极限。特别地, 它关于两个自变量都左正合。
+
+\begin{enonce*}{命题 12.3}\etiquette[12.3]{IV.prop12.3}
+设 $(E,A)$ 是赋环拓扑斯, $M$ 与 $N$ 是两个右 $A$-模 (分别为左 $A$-模), $X$ 是 $E$ 的对象:
+\begin{enumerate}
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 有典范同构:
+$$
+\begin{aligned}
+\scrHom_A(M,N)(X)&\approx \Hom_A(M, j_{X\ast}j^{\ast}_XN)\\
+&\simeq\Hom_{A| X}(j^{\ast}_XM, j^{\ast}_XN)\\
+&\simeq\Hom_A(j_{X!}j^{\ast}_XM, N).
+\end{aligned}
+$$
+
+\item 有典范同构:
+$$
+\Phi_X:j^{\ast}_X\scrHom_A(M,N)\simeq
+\scrHom_{A| X}(j^{\ast}_XM,j^{\ast}_XN).
+$$
+再设 $P$ 为右 $A|X$-模 (分别为左 $A|X$-模):
+
+\item 有典范同构:
+$$
+j_{X\ast}\scrHom_{A| X}(j^{\ast}_XM,P)\simeq
+\scrHom_A(M,j_{X\ast}P).
+$$
+
+\item 有典范同构:
+$$
+\Xi_X:\scrHom_A(j_{X!}P,N)\simeq j_{X\ast}\scrHom_{A|X}
+(P,j^{\ast}_XN).
+$$
+\end{enumerate}
+\end{enonce*}
+
+\noindent a) 中的同构由 \eqhyperref[IV.eq12.1.2]{12.1.2}、同构 $\scrHom_E(X,N)\simeq j_{X\ast}j^{\ast}_XN$ (\hyperref[IV.cor10.8]{10.8}) 以及第 10 节的伴随公式得到。
+
+\begin{itemize}
+\item[b) 的证明。] 对 $E_{/X}$ 的每个对象 $Y$, 有下列同构序列:
+
+$\Hom(Y,j^{\ast}_X\scrHom_A(M,N))\simeq
+\Hom(j_{X!}Y,\scrHom_A(M,N))$ (集合层的伴随关系)
+\begin{alignat*}{2}
+& \Hom(j_{X!}Y,\scrHom_A(M,N))\simeq
+\Hom_A(M,\scrHom_E(j_{X!}Y,N))
+&\quad& \hyperref[IV.eq12.1.2]{(12.1.2)}\\
+& \Hom_A(M,\scrHom_E(j_{X!}Y,N))\simeq
+\Hom_A(M,j_{X\ast}\scrHom_{E_{/X}}(Y,j^{\ast}_XN))
+&& (\hyperref[IV.cor10.7]{10.7})\\
+& \Hom_A(M,j_{X\ast}\scrHom_{E_{/X}}(Y,j^{\ast}_XN))\simeq
+\Hom_{A|X}(j^{\ast}_XM,\scrHom_E(Y,j^{\ast}_XN))
+&& \eqhyperref[IV.eq11.2.2.1]{11.2.2.1}\\
+& \Hom_{A|X}(j^{\ast}_XM,\scrHom_E(Y,j^{\ast}_XN))\simeq
+\Hom(Y,\scrHom_{A|X}(j^{\ast}_XM,j^{\ast}_XN))
+&& \hyperref[IV.eq12.1.2]{(12.1.2)}
+\end{alignat*}\pageoriginale
+
+\item[c) 的证明。] 对 $E$ 的每个对象 $Y$, 有下列同构序列:
+\begin{alignat*}{2}
+& \Hom(Y,j_{X\ast}\scrHom_{A|X}(j^{\ast}_XM,P))\simeq
+\Hom(j^{\ast}_XY,\scrHom_{A|X}(j^{\ast}_XM,P))
+&\quad& \text{(伴随性)}\\
+& \Hom(j^{\ast}_XY,\scrHom_{A|X}(j^{\ast}_XM,P))\simeq
+\Hom_{A|X}(j^{\ast}_XM,\scrHom_{E_{/X}}(j^{\ast}_XY,P))
+&& \hyperref[IV.eq12.1.2]{(12.1.2)}\\
+& \Hom_{A|X}(j^{\ast}_XM,\scrHom_{E_{/X}}(j^{\ast}_XY,P))\simeq
+\Hom_A(M,j_{X\ast}\scrHom_{E_{/X}}(j^{\ast}_XY,P))
+&& \eqhyperref[IV.eq11.2.2.1]{11.2.2.1}\\
+& \Hom_A(M,j_{X\ast}\scrHom_{E_{/X}}(j^{\ast}_XY,P))\simeq
+\Hom_A(M,\scrHom_E(Y,j_{X\ast}P))
+&& (\hyperref[IV.prop10.3]{10.3})\\
+& \Hom_A(M,\scrHom_E(Y,j_{X\ast}P))\simeq
+\Hom(Y,\scrHom_A(M,j_{X\ast}P))
+&& \hyperref[IV.eq12.1.2]{(12.1.2)}
+\end{alignat*}
+
+\item[d) 的证明。] 对 $E$ 的每个对象 $Y$, 有下列同构序列:
+\begin{alignat*}{2}
+& \Hom(Y,\scrHom_A(j_{X!}P,N))\simeq
+\Hom_A(j_{X!}P,\scrHom_E(Y,N))
+&\quad& \hyperref[IV.eq12.1.2]{(12.1.2)}\\
+& \Hom_A(j_{X!}P,\scrHom_E(Y,N))\simeq
+\Hom_{A|X}(P,j^{\ast}_X\scrHom_E(Y,N))
+&& (\hyperref[IV.prop11.3.1]{11.3.1})\\
+& \Hom_{A|X}(P,j^{\ast}_X\scrHom_E(Y,N))\simeq
+\Hom_{A|X}(P,\scrHom_{E_{/X}}(j^{\ast}_XY,j^{\ast}_XN))
+&& (\hyperref[IV.cor10.7]{10.7})\\
+& \Hom_{A|X}(P,\scrHom_{E_{/X}}(j^{\ast}_XY,j^{\ast}_XN))\simeq
+\Hom(j^{\ast}_XY,\scrHom_{A|X}(P,j^{\ast}_XN))
+&& \hyperref[IV.eq12.1.2]{(12.1.2)}\\
+& \Hom(j^{\ast}_XY,\scrHom_{A|X}(P,j^{\ast}_XN))\simeq
+\Hom(Y,j_{X\ast}\scrHom_{A|X}(P,j^{\ast}_XN))
+&& \text{(伴随性)}
+\end{alignat*}
+\end{itemize}
+
+\begin{enonce*}{推论 12.4}\etiquette[12.4]{IV.cor12.4}
+设 $C$ 是 $𝒰$-景, $A'$ 是 $C$ 上的 $𝒰$-环预层, $M$ 是 $A'$-模的 $𝒰$-预层 (为明确起见设为左模), $N$ 是 $A'$-模的 $𝒰$-层 (左模)。以 $A$ 表示与 $A'$ 相伴的层, 从而层 $N$ 与 $\underline{a}M$ (与 $M$ 相伴的层) 都是 $A$-模。预层 $X\longmapsto\Hom_{A'|X}(j^{\ast}_XM,j^{\ast}_XN)$ 是一个 $𝒰$-阿贝尔层, 典范同构于 $\scrHom_A(\underline{a}M,N)$。
+\end{enonce*}
+
+事实上, 由 \hyperrefext[III][III.prop5.5]{5.5} 与 \hyperrefext[III][III.prop2.3]{2.3} 可知, 到 $C_{/X}$ 的局部化函子与相伴层函子 (对 $C$ 及 $C_{/X}$ 而言) 可交换。因此有关于 $C$ 的变动对象 $X$ 函子性的同构:
+\begin{align*}
+\Hom_{A'|X}(j^{\ast}_XM,j^{\ast}_XN)
+&\simeq \Hom_{A|X}(\underline{a}j^{\ast}_XM,j^{\ast}_XN)\\
+&\simeq \Hom_{A|X}(j^{\ast}_X\underline{a}M,j^{\ast}_XN)
+\simeq \scrHom_A(\underline{a}M,N)(X){\quoi}.
+\end{align*}
+
+\begin{enonce*}{推论 12.5}\etiquette[12.5]{IV.cor12.5}
+设\pageoriginale $E$ 是拓扑斯, $A$、$B$、$C$ 是 $E$ 上的三个环层, $M$ 是 $A$-$B$-双模, $N$ 是 $A$-$C$-双模。阿贝尔层 $\scrHom_A(M,N)$ 典范地配备 $B$-$C$-双模结构。特别地, 当 $A$ 是交换环层, $M$ 与 $N$ 是 $A$-模时, $\scrHom_A(M,N)$ 典范地配备 $A$-模结构。$\hyperref[IV.prop12.3]{12.3}$ 中 b)、c)、d) 的典范同构都是双模的同构。
+\end{enonce*}
+
+这里只给出证明的提示。对 $E$ 的每个对象 $X$, 有 $\scrHom_A(M,N)(X)\simeq\Hom_{A|X}(j^{\ast}_XM,j^{\ast}_XN)$ (\hyperref[IV.prop12.3]{12.3})。因此交换群\\
+$\scrHom_A(M,N)(X)$ 典范地配备 $B(X)$-$C(X)$-双模结构 (\hyperref[IV.subsubsec11.1.3]{11.1.3}), 容易验证该结构关于 $X$ 是函子性的。其余断言留给读者。
+
+\begin{enonce*}{推论 12.6}\etiquette[12.6]{IV.cor12.6}
+设 $(E,A)$ 是赋环拓扑斯, $X$ 是 $E$ 的对象, $N$ 是 $A$-模 (为明确起见设为左模)。有典范的 $A$-模同构:
+$$
+\scrHom_E(X,N)\simeq j_{X\ast}j^{\ast}_XN\simeq
+\scrHom_A(A_X,N){\quoi};
+$$
+其中 $\scrHom_A(A_X,N)$ 上的 $A$-模结构来自 $A_X$ 上的双模结构 $(\hyperref[IV.rem11.3.4]{11.3.4})$。
+\end{enonce*}
+
+第一个同构由 \hyperref[IV.cor10.7]{10.7} 得到, 第二个由 $A$-模同构 $N\simeq\scrHom_A(A,N)$ 及 \hyperref[IV.prop12.3]{12.3} 得到。
+
+\begin{enonce*}{命题 12.7}\etiquette[12.7]{IV.prop12.7}
+设 $(E,A)$ 是赋环拓扑斯, $M$ 是右 $A$-模, $N$ 是左 $A$-模。将每个阿贝尔层 $P$ 映为交换群
+$\Hom_A(M,\scrHom_{\sisi{\underline{\underline{\ZZ}}}{\underline{\ZZ}}}(N,P))$
+的函子, 可由一个记为 $M\otimes_A N$ 的阿贝尔层代表, 称为 $M$ 与 $N$ 在 $A$ 上的张量积。
+\end{enonce*}
+
+有从
+$\Hom_A(M,\scrHom_{\sisi{\underline{\underline{\ZZ}}}{\underline{\ZZ}}}(N,P))$
+到集合
+$\Hom(M,\scrHom(N,P))\simeq\Hom(M\times N,P)$
+的典范单射; 回到定义立即可见, 从集合层 $M\times N$ 到 $P$ 的态射 $f$ 来自 $\Hom_A(M,\scrHom_Z(N,P))$ 的元素, 当且仅当对 $E$ 的每个对象 $X$, 映射 $f(X):M(X)\times N(X)\rightarrow P(X)$ 是从 $M(X)\times N(X)$ 到 $P(X)$ 的 $A(X)$-双线性映射\pageoriginale。将从集合层 $M\times N$ 到 $P$ 的具有此性质的态射称为 $A$-双线性态射。因此, 问题是要表示从 $M\times N$ 到 $P$ 的 $A$-双线性态射所成的函子。为此如通常情形, 即 $E$ 为点拓扑斯的情形一样进行。考虑八个态射:
+\begin{itemize}
+\item[(i):] $M\times M\times N\longrightarrow M\times N$\qquad
+$1\leq i\leq 3$
+
+\item[(i):] $M\times N\times N\longrightarrow M\times N$\qquad
+$4\leq i\leq 6$
+
+\item[(i):] $M\times A\times N\longrightarrow M\times N$\qquad
+$7\leq i\leq 8$
+\end{itemize}
+它们由如下公式定义:
+\begin{tabbing}
+\quad\= (1) \= $(m_1, m_2, n)$ \= $\longmapsto$ \= $(m_1+m_2, n)$\\
+\> (2) \> $(m_1, m_2, n)$ \> $\longmapsto$ \> $(m_1, n)$\\
+\> (3) \> $(m_1, m_2, n)$ \> $\longmapsto$ \> $(m_2, n)$\\
+\> (4) \> $(m, n_1, n_2)$ \> $\longmapsto$ \> $(m, n_1+n_2)$\\
+\> (5) \> $(m, n_1, n_2)$ \> $\longmapsto$ \> $(m, n_1)$\\
+\> (6) \> $(m, n_1, n_2)$ \> $\longmapsto$ \> $(m, n_2)$\\
+\> (7) \> $(m, a, n)$ \> $\longmapsto$ \> $(ma, n)$\\
+\> (8) \> $(m, a, n)$ \> $\longmapsto$ \> $(m, an)$;
+\end{tabbing}
+其中公式 (i) 描述了变动对象 $E$ 的 $X$ 所对应的映射 (i)$(X)$。用 $L$ 表示“生成的自由阿贝尔层”函子。显然, $L(M\times N)$ 的将 $L(1)$ 与 $L(2)+L(3)$、$L(4)$ 与 $L(5)+L(6)$、$L(7)$ 与 $L(8)$ 等化的最大商 (在阿贝尔层意义下) 代表从 $M\times N$ 到 $P$ 的 $A$-双线性态射所成的函子。
+
+\setcounter{subsection}{7}
+
+\subsection{}\etiquette[12.8]{IV.subsec12.8}
+注意到函子
+$P\longmapsto
+\Hom_A(N,\scrHom_{\sisi{\underline{\underline{\ZZ}}}{\underline{\ZZ}}}(M,P))$
+也典范同构于从 $M\times N$ 到 $P$ 的 $A$-双线性映射所成的函子。因此张量积 $M\otimes_A N$ 也代表函子 $\Hom_A(N,\scrHom_{\sisi{\underline{\underline{\ZZ}}}{\underline{\ZZ}}}(M,P))$。于是有关于所有自变量函子性的同构:
+\hypertarget{sga4.exp.IV.equation.12.8.1}{}\begin{align*}%\etiquette[12.8.1]{IV.eq12.8.1}
+\Hom_Z(M\otimes_A N,P)
+&\simeq \Hom_A(M,\scrHom_{\sisi{\underline{\underline{\ZZ}}}{\underline{\ZZ}}}(N,P)){\quoi},\tag{12.8.1}\\
+\Hom_Z(M\otimes_A N,P)
+&\simeq \Hom_A(N,\scrHom_{\sisi{\underline{\underline{\ZZ}}}{\underline{\ZZ}}}(M,P)){\quoi}.\tag{12.8.2}
+\end{align*}\hypertarget{sga4.exp.IV.equation.12.8.2}{}
+
+\subsection{}\etiquette[12.9]{IV.subsec12.9}
+由\pageoriginale \hyperref[IV.subsec12.8]{(12.8)}, 或者由 \hyperlink{sga4.exp.IV.equation.12.8.1}{(12.8.1)} 及 (\hyperref[IV.subsec12.2]{12.2}), 可知函子 $\otimes_A$ 与两个自变量中的归纳极限都可交换。
+
+\begin{enonce*}{命题 12.10}\etiquette[12.10]{IV.prop12.10}
+设 $C$ 是 $𝒰$-景, $A'$ 是 $C$ 上的环预层, $M'$ (分别为 $N'$) 是右 (分别为左) $A'$-模, $A$、$M$、$N$ 分别为与 $A'$、$M'$、$N'$ 相伴的层。与预层 $X\longmapsto M'(X)\otimes_{A'(X)}N'(X)$ $(X\in\ob C)$ 相伴的层, 典范同构于层 $M\otimes_A N$。
+\end{enonce*}
+
+预层 $X\longmapsto M'(X)\otimes_{A'(X)}N'(X)$ 可由预层 $M'$、$N'$、$A'$ 通过 \hyperref[IV.prop12.7]{12.7} 证明中所列的运算构造。由于“相伴层”函子与有限投射极限、归纳极限及“生成的自由阿贝尔对象”函子可交换, 张量积的构造与“相伴层”函子可交换。
+
+\begin{enonce*}{命题 12.11}\etiquette[12.11]{IV.prop12.11}
+设 $(E,A)$ 是赋环拓扑斯, $M$ 是右 $A$-模, $N$ 是左 $A$-模, $X$ 是 $E$ 的对象。
+\begin{enumerate}
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 有典范同构
+$$
+j^{\ast}_X(M\otimes_A N)\simeq
+(j^{\ast}_XM)\otimes_{A|X}(j^{\ast}_XN){\quoi}.
+$$
+再设 $P$ 为右 $A|X$-模, $Q$ 为左 $A|X$-模。
+
+\item 有典范同构 (投影公式):
+\begin{align*}
+j_{X!}(P\otimes_{A|X}j^{\ast}_XN)&\simeq(j_{X!}P)\otimes_A N\\
+j_{X!}(j^{\ast}_XM\otimes_{A|X}Q)&\simeq
+M\otimes_A(j_{X!}Q){\quoi}.
+\end{align*}
+\end{enumerate}
+\end{enonce*}
+
+\begin{itemize}
+\item[a) 的证明。] 对 $E_{/X}$ 上的每个阿贝尔层 $R$, 有下列关于 $R$ 函子性的同构序列:
+\begin{alignat*}{2}
+&\Hom_{\sisi{\underline{\underline{\ZZ}}}{\underline{\ZZ}}}
+(j^{\ast}_X(M\otimes_A N),R)\simeq
+\Hom_{\sisi{\underline{\underline{\ZZ}}}{\underline{\ZZ}}}
+(M\otimes_A N,j_{X\ast}R)
+&\quad& \eqhyperref[IV.eq11.2.2.1]{11.2.2.1}\\
+&\Hom_{\sisi{\underline{\underline{\ZZ}}}{\underline{\ZZ}}}
+(M\otimes_A N,j_{X\ast}R)\simeq
+\Hom_A(M,\scrHom_Z(N,j_{X\ast}R))
+&& \hyperlink{sga4.exp.IV.equation.12.8.1}{(12.8.1)}\\
+&\Hom_A(M,\scrHom_Z(N,j_{X\ast}R))\simeq
+\Hom_A(M,j_{X\ast}\scrHom_{\sisi{\underline{\underline{\ZZ}}}{\underline{\ZZ}}}
+(j^{\ast}_XN,R))
+&& (\hyperref[IV.prop12.3]{12.3})\\
+&\Hom_A(M,j_{X\ast}\scrHom_{\sisi{\underline{\underline{\ZZ}}}{\underline{\ZZ}}}
+(j^{\ast}_XN,R))\simeq
+\Hom_{A|X}(j^{\ast}_XM,
+\scrHom_{\sisi{\underline{\underline{\ZZ}}}{\underline{\ZZ}}}
+(j^{\ast}_XN,R))
+&& \eqhyperref[IV.eq11.2.2.1]{11.2.2.1}\\
+&\Hom_{A|X}(j^{\ast}_XM,
+\scrHom_{\sisi{\underline{\underline{\ZZ}}}{\underline{\ZZ}}}
+(j^{\ast}_XN,R))\simeq
+\Hom_{\sisi{\underline{\underline{\ZZ}}}{\underline{\ZZ}}}
+(j^{\ast}_XM\otimes_{A|X}j^{\ast}_XN,R)
+&& \hyperlink{sga4.exp.IV.equation.12.8.1}{(12.8.1)}
+\end{alignat*}
+
+给出\pageoriginale b) 中的第一个同构。对每个阿贝尔层 $R$, 有关于 $R$ 函子性的同构序列:
+\begin{alignat*}{2}
+&\Hom_Z(j_{X!}(P\otimes_{A|X}j^{\ast}_XN),R)\simeq
+\Hom_Z(P\otimes_{A|X}j^{\ast}_XN,j^{\ast}_XR)
+&\quad& (\hyperref[IV.prop11.3.1]{11.3.1})\\
+&\Hom_Z(P\otimes_{A|X}j^{\ast}_XN,j^{\ast}_XR)\simeq
+\Hom_{\sisi{A/X}{A|X}}(P,\scrHom_Z(j^{\ast}_XN,j^{\ast}_XR))
+&& \hyperlink{sga4.exp.IV.equation.12.8.1}{(12.8.1)}\\
+&\Hom_{A|X}(P,\scrHom_Z(j^{\ast}_XN,j^{\ast}_XR))\simeq
+\Hom_{A|X}(P,j^{\ast}_X\scrHom_Z(N,R))
+&& (\hyperref[IV.prop12.3]{12.3})\\
+&\Hom_{A|X}(P,j^{\ast}_X\scrHom_Z(N,R))\simeq
+\Hom_A(j_{X!}P,\scrHom_Z(N,R))
+&& (\hyperref[IV.prop11.3.1]{11.3.1})\\
+&\Hom_A(j_{X!}P,\scrHom_Z(N,R))\simeq
+\Hom_Z(j_{X!}P\otimes_A N,R)
+&& \hyperlink{sga4.exp.IV.equation.12.8.1}{(12.8.1)}
+\end{alignat*}
+
+利用 \hyperlink{sga4.exp.IV.equation.12.8.2}{(12.8.2)}, 类似地得到第二个同构。
+\end{itemize}
+
+\begin{enonce*}{推论 12.12}\etiquette[12.12]{IV.cor12.12}
+设 $E$ 是拓扑斯, $A$、$B$、$C$ 是 $E$ 上的三个环层, $M$ 是 $B$-$A$-双模, $N$ 是 $A$-$C$-双模。阿贝尔层 $M\otimes_A N$ 典范地配备 $B$-$C$-双模结构。特别地, 当 $A$ 是交换环层, $M$ 与 $N$ 是 $A$-模时, $M\otimes_AN$ 典范地配备 $A$-模结构。\hyperref[IV.prop12.11]{12.11} 的同构都是双模的同构。
+\end{enonce*}
+
+对 $E$ 的每个对象 $X$, $j^{\ast}_XM$ 是一个右 $A|X$-模, 环 $B(X)$ 在其上左作用; 同样, $j^{\ast}_XN$ 是一个左 $\sisi{A/X}{A|X}$-模, $C(X)$ 在其上右作用。由函子性, 阿贝尔层 $j^{\ast}_XM\otimes_{\sisi{A/X}{A|X}}j^{\ast}_XN\simeq
+j^{\ast}_X(M\otimes_A N)$ 配备 $B(X)$-$C(X)$-双模结构, 而此结构关于 $X$ 函子性地变动。因此 $M\otimes_A N$ 配备 $B$-$C$-双模结构。$j^{\ast}_X(M\otimes_A N)$ 上的此 $B(X)$-$C(X)$-双模结构, 以显然的方式反映在“$A$-双线性态射”所成的函子上。于是注意到, 当 $A$ 交换且 $M$、$N$ 是 $A$-模时, 如此得到的右、左 $A$-模结构“相等”; 因而此时 $M\otimes_A N$ 是 $A$-模。最后一个断言留给读者。
+
+\begin{enonce*}{推论 12.13}\etiquette[12.13]{IV.cor12.13}
+设 $(E,A)$ 是赋环拓扑斯, $M$ 是左\pageoriginale $A$-模 (分别为右 $A$-模), $X$ 是 $E$ 的对象。沿用 \hyperref[IV.prop11.3.3]{11.3.3} 的记号 $A_X$, 有典范同构
+$$
+A_X\otimes_AM\simeq j_{X!}j^{\ast}_XM
+\quad\text{(\resp }M\otimes_AA_X\simeq j_{X!}j^{\ast}_XM\text{)}{\quoi}.
+$$
+\end{enonce*}
+
+\noindent 这由投影公式 (\hyperref[IV.prop12.11]{12.11}) 得到。
+
+\begin{enonce*}{命题 12.14}\etiquette[12.14]{IV.prop12.14}
+设 $E$ 是拓扑斯, $A$ 与 $B$ 是 $E$ 上的两个环层, $M$ 是右 $A$-模, $N$ 是 $A$-$B$-双模, $P$ 是右 $B$-模。有典范同构
+$$
+\Hom_B(M\otimes_A N,P)\simeq
+\Hom_A(M,\scrHom_B(N,P)){\quoi}.
+$$
+\end{enonce*}
+
+\noindent 从 \hyperlink{sga4.exp.IV.equation.12.8.1}{(12.8.1)} 得到典范的 $A$-双线性态射 $\scrHom_Z(N,P)\times N\rightarrow P$; 因而将其限制到 $\scrHom_B(N,P)\times N$ (它是子层), 得到 $A$-双线性态射 $\scrHom_B(N,P)\times N\rightarrow P$, 立即可见它关于第二个因子是 $B$-线性的。因此有典范的 $B$-模态射 $\scrHom_B(N,P)\otimes_A N\rightarrow P$; 从而有关于 $M$ 函子性的典范映射:
+\begin{equation*}
+\Hom_A(M,\scrHom_B(N,P))\longrightarrow
+\Hom_B(M\otimes_A N,P){\quoi}.\tag{12.14.1}
+\end{equation*}\etiquette[12.14.1]{IV.eq12.14.1}
+证明此函子态射为同构。由于两端都将 $M$ 中的归纳极限变为投射极限, 只需在 $M$ 取遍范畴 $E_A$ 的一个生成族时证明 \eqhyperref[IV.eq12.14.1]{12.14.1} 是同构。因此只需在 $M=A_X$ (其中 $X$ 为 $E$ 的对象) 时证明 \eqhyperref[IV.eq12.14.1]{12.14.1} 是同构。此时验证是直接的。
+
+% END INCLUDED SGA4_English_current_buildable_source_20260906/source/04/drafts/SGA4_IV_LINES_8832_9247_English.texfrag
+
+% BEGIN INCLUDED SGA4_English_current_buildable_source_20260906/source/04/drafts/SGA4_IV_LINES_9248_9593_English.texfrag
+\section{赋环拓扑斯态射}\etiquette[13]{IV.sec13}
+
+\begin{enonce*}{定义 13.1}\etiquette[13.1]{IV.def13.1}
+设 $(E,A)$ 与 $(E',A')$ 是两个赋环拓扑斯。赋环拓扑斯态射 $u:(E,A)\rightarrow(E',A')$ 是对 $(m,\theta)$, 其中 $m:E\rightarrow E'$ 为拓扑斯态射\textup{(\hyperref[IV.def3.1]{3.1})}, $\theta:m^{\ast}A'\rightarrow A$ 为环态射。
+\end{enonce*}
+
+\setcounter{subsection}{1}
+\subsubsection{}\etiquette[13.1.1]{IV.subsubsec13.1.1}
+由于函子 $m^{\ast}:E'\rightarrow E$ 是函子 $m_{\ast}:E\rightarrow E'$ 的左伴随, 给出赋环拓扑斯态射 $(m,\theta):(E,A)\rightarrow(E',A')$ 等价于给出拓扑斯态射 $m:E\rightarrow E'$ 以及环层态射 $\Theta:A'\rightarrow m_{\ast}A$。
+
+\subsection{}\etiquette[13.2]{IV.subsec13.2}
+对\pageoriginale 赋环拓扑斯态射 $u=(m,\theta):(E,A)\rightarrow(E',A')$, 配以模范畴之间的两个重要函子:
+
+\subsubsection{模的直像函子:}\etiquette[13.2.1]{IV.subsubsec13.2.1}
+设 $M$ 是左 (分别为右) $A$-模。对象 $m_{\ast}M$ 典范地配备 $m_{\ast}A$-模结构; 沿典范态射 $\Theta:A'\rightarrow m_{\ast}A$ 限制标量, 就得到一个 $A'$-模, 记为 $u_{\ast}(M)$, 称为 \emph{$M$ 沿态射 $u$ 的直像}。
+
+\subsubsection{模的逆像函子:}\etiquette[13.2.2]{IV.subsubsec13.2.2}
+设 $N$ 是左 (分别为右) $A'$-模。$E$ 的对象 $m^{\ast}N$ 典范地配备左 (分别为右) $m^{\ast}A'$-模结构。左 $A$-模 $A\otimes_{m^{\ast}A'}m^{\ast}N$ (分别为右 $A$-模 $m^{\ast}N\otimes_{m^{\ast}A'}A$), 其中 $A$ 配备由 $\theta:m^{\ast}A'\rightarrow A$ 定义的 $m^{\ast}A'$-模结构, 记为 $u^{\ast}N$, 称为\emph{模 $N$ 沿赋环拓扑斯态射 $u$ 的逆像}。
+
+\subsubsection{}\etiquette[13.2.3]{IV.subsubsec13.2.3}
+注意, 对每个 $A$-模 $M$, $u_{\ast}M$ 的底集合层和底阿贝尔层都是层 $m_{\ast}M$。因此记号 $u_{\ast}$ 通常也用于函子 $m_{\ast}$, 即集合层的直像。另一方面, 对于 $A'$-模 $N$, $u^{\ast}N$ 的底集合层或底阿贝尔层一般既不等于也不同构于 $m^{\ast}N$ (除非 $\theta$ 为同构)。因此必须区分模的逆像与集合层或阿贝尔层的逆像。记号 $u^{-1}:E'\rightarrow E$ 通常用于函子 $m^{\ast}$, 即集合层的逆像。函子 $u^{-1}$ 称为赋环拓扑斯态射 $u$ 下的\emph{“集合论意义的”逆像函子}, 以区别于“模意义的”逆像 $u^{\ast}$。
+
+\begin{enonce*}{定义 13.3}\etiquette[13.3]{IV.def13.3}
+设 $(C,A)$ 与 $(C',A')$ 是两个 $𝒰$-赋环景。赋环景态射 $u:(C,A)\rightarrow(C',A')$ 是对 $(m,\theta)$, 其中 $m$ 为从景 $C$ 到景 $C'$ 的态射 (\hyperref[IV.subsec4.9]{4.9}), $\theta:m^{\ast}A'\rightarrow A$ 是\pageoriginale 环态射。
+\end{enonce*}
+
+\setcounter{subsection}{3} \setcounter{subsubsection}{0}
+\subsubsection{}\etiquette[13.3.1]{IV.subsubsec13.3.1}
+赋环拓扑斯态射是 $𝒰$-赋环景态射。赋环景态射给出相应的赋环拓扑斯之间的态射 (\hyperref[IV.subsubsec11.1.1]{11.1.1} 与 \hyperref[IV.subsubsec4.9.1]{4.9.1})。
+
+\begin{enonce*}{命题 13.4}\etiquette[13.4]{IV.prop13.4}
+设 $u:(E,A)\rightarrow(E',A')$ 是赋环拓扑斯态射。
+\begin{enumerate}
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 对变动的左 (分别为右) $A$-模 $M$ 与变动的左 (分别为右) $A'$-模 $N$, 有典范的双重函子性同构 (称为伴随同构):
+\hypertarget{sga4.exp.IV.equation.13.4.1}{}\begin{align*}
+\Hom_A(u^{\ast}N,M) &\simeq
+\Hom_{A'}(N,u_{\ast}M){\quoi},\tag{13.4.1}\\
+u_{\ast}\scrHom_A(u^{\ast}N,M) &\simeq
+\scrHom_{A'}(N,u_{\ast}M){\quoi}.\tag{13.4.2}
+\end{align*}\hypertarget{sga4.exp.IV.equation.13.4.2}{}
+
+\item 对 $E'$ 的变动对象 $X$, 有关于 $X$ 函子性的典范同构:
+\begin{equation*}
+u^{\ast}A'_X\xrightarrow{\sim} A_{u^{-1}(X)}{\quoi},\tag{13.4.3}
+\end{equation*}\etiquette[13.4.3]{IV.eq13.4.3}
+其中 $A'_X$ 与 $A_{u^{-1}(X)}$ 表示生成的自由模 (\hyperref[IV.prop11.3.3]{11.3.3})。
+
+\item 当 $A'$ 交换且典范态射 $u^{-1}A'\rightarrow A$ 为中心的 (分别为典范态射 $u^{-1}A'\rightarrow A$ 是同构) 时, 对变动的右 $A'$-模 $M$ 及变动的左 $A'$-模 $N$, 有典范的双重函子性同构:
+\hypertarget{sga4.exp.IV.equation.13.4.4}{}\begin{align*}
+u^{\ast}M\otimes_A u^{\ast}N &\simeq
+u^{\ast}(M\otimes_{A'}N)\tag{13.4.4}\\
+u^{\ast}M\otimes_A u^{\ast}N &\simeq
+u^{-1}(M\otimes_{A'}N){\quoi}.\tag*{(\resp (13.4.5))}
+\end{align*}\hypertarget{sga4.exp.IV.equation.13.4.5}{}
+\end{enumerate}
+\end{enonce*}
+
+先有典范同构
+$\Hom_A(u^{\ast}N,M)\simeq \Hom_{u^{-1}A'}(u^{-1}N,M)$
+(\sisi{\hyperref[IV.cor12.12]{12.12}}{\hyperref[IV.prop12.14]{12.14}}), 再有同构
+$\Hom_{u^{-1}A'}(u^{-1}N,M)\simeq
+\Hom_{A'}(N,u_{\ast}M)$
+(\hyperrefext[III][III.prop1.7]{1.7}); 由此得到 \hyperlink{sga4.exp.IV.equation.13.4.1}{(13.4.1)}。给出同构 \hyperlink{sga4.exp.IV.equation.13.4.2}{(13.4.2)}。对 $E'$ 的每个对象 $X$, 有下列函子性的同构序列:
+\begin{alignat*}{3}
+& \Hom_{E'}(X,u_{\ast}\scrHom_A(u^{\ast}N,M))\simeq && \Hom(
+u^{-1}X,
+ \scrHom_A(u^{\ast}N,M)) &\quad& \text{(伴随性){\quoi},}\\
+&\Hom_A(u^{\ast}N,\scrHom_E(u^{-1}X,M)) \simeq &&\qquad ''\qquad ''\qquad
+''\qquad '' && (\hyperref[IV.prop12.1]{12.1}){\quoi},\\
+& \Hom_A(u^{\ast}N,\scrHom_E(u^{-1}X,M))\simeq &&\Hom_{A'}(N,
+u_{\ast}\scrHom_E(u^{-1}X,M)) && \hyperlink{sga4.exp.IV.equation.13.4.1}{(13.4.1)}{\quoi},\\
+& \Hom_{A'}(N,\scrHom_{E'}(X,u_{\ast}M))\simeq &&\qquad ''\qquad ''\qquad
+ ''\qquad '' && \eqhyperref[IV.eq10.3.1]{10.3.1}{\quoi},\\
+& \qquad ''\qquad ''\qquad ''\qquad '' \simeq &&
+ \Hom_{E'}(X,\scrHom_{A'}(N,u_{\ast}M)) &&
+ (\hyperref[IV.prop12.1]{12.1}){\quoi}.
+\end{alignat*}
+于是公式 \hyperlink{sga4.exp.IV.equation.13.4.5}{(13.4.5)}\pageoriginale 通过伴随性由公式 \hyperlink{sga4.exp.IV.equation.13.4.2}{(13.4.2)} 得到 (张量积的定义 (\hyperref[IV.prop12.7]{12.7}))。公式 \hyperlink{sga4.exp.IV.equation.13.4.4}{(13.4.4)} 由 \hyperlink{sga4.exp.IV.equation.13.4.5}{(13.4.5)} 得到, 这里用到底环交换时张量积的交换性 (\hyperref[IV.subsec12.8]{12.8})。最后, 为证 \eqhyperref[IV.eq13.4.3]{13.4.3}, 考虑同构序列
+\begin{alignat*}{3}
+& \Hom_A(u^{\ast}A'_X,M) && \simeq\Hom_{A'}(A'_X,u_{\ast}M)
+&\quad& \hyperlink{sga4.exp.IV.equation.13.4.1}{(13.4.1)}{\quoi},\\
+& \Hom_{E'}(X,u_{\ast}M) && \simeq\quad ''\qquad ''\qquad ''&&
+(\hyperref[IV.prop11.3.3]{11.3.3}){\quoi},\\
+&\quad ''\qquad ''\qquad ''&& \simeq\Hom_E(u^{-1}X,M) &&
+\text{(伴随性)}{\quoi},\\
+&\Hom_A(A_{u^{-1}X},M) &&\simeq\quad ''\qquad ''\qquad ''&&
+(\hyperref[IV.prop11.3.3]{11.3.3}){\quoi}.
+\end{alignat*}
+
+\begin{enonce*}{推论 13.5}\etiquette[13.5]{IV.cor13.5}
+设 $(E,A)$ 是赋环拓扑斯, $x:P\rightarrow E$ 是 $E$ 的一个点, $F\mapsto F_x$ 是相伴的纤维函子 (\hyperref[IV.def6.1]{6.1})。$x$ 处的纤维函子将 $A$-模的张量积映为 $A_x$-模的 (通常的) 张量积。
+\end{enonce*}
+
+$P$ 中的张量积是通常的模的张量积 ($P$ 为点拓扑斯, 即集合范畴)。因此断言由 \hyperlink{sga4.exp.IV.equation.13.4.4}{(13.4.4)} 得到。
+
+\begin{enonce*}{推论 13.6}\etiquette[13.6]{IV.cor13.6}
+设 $u:(E,A)\rightarrow(E',A')$ 是赋环拓扑斯态射。右模或左模的直像函子 $u_{\ast}$ 与投射极限可交换, 特别地, 它左正合。右模或左模的逆像函子 $u^{\ast}$ 与归纳极限可交换, 特别地, 它右正合。
+\end{enonce*}
+
+这由公式 \hyperlink{sga4.exp.IV.equation.13.4.1}{(13.4.1)} (\hyperrefext[I][I.prop2.11]{2.11}) 得到。
+
+\setcounter{subsection}{6}
+\subsection{}\etiquette[13.7]{IV.subsec13.7}
+注意, 模的逆像函子 $u^{\ast}$ 一般不正合, 而集合论意义的逆像函子 $u^{-1}$ 正合。不过, 当典范态射 $u^{-1}A'\rightarrow A$ (在右侧\pageoriginale 或左侧) 平坦时, 可以断言 $u^{\ast}$ 正合 (V \hyperref[V.def1.8]{1.8})。特别地, 当典范态射 $u^{-1}A'\rightarrow A$ 为同构时即如此。
+
+\subsection{}\etiquette[13.8]{IV.subsec13.8}
+设 $C$ 是 $𝒰$-景, $A'$ 是 $C$ 上的环预层, 将其相伴层记为 $A$。那些为层的 $A'$-模预层所成的范畴, 等价于 $A$-模范畴。有时用记号 $\Hom_{A'}(M,N)$ 表示群 $\Hom_A(M,N)$ (\hyperref[IV.subsubsec11.1.2]{11.1.2})。同样, 滥用记号, 用 $\scrHom_{A'}(M,N)$ 与 $M\otimes_{A'}N$ 表示层 $\scrHom_A(M,N)$ 与 $M\otimes_A N$。当 $A'=k_E$ 为通常的环 $k$ 所定义的常值预层时, 也用 $\scrHom_k$、$\otimes_k$ 代替 $\scrHom_{k_E}$、$\otimes_{k_E}$。
+
+\begin{enonce*}[remark]{习题 13.9}\etiquette[13.9]{IV.exer13.9}
+\emph{局部赋环拓扑斯} (关于下述方向的进一步资料, 参见 [\hyperref[IV.sec9]{9}])。
+
+设 $(E,{\Oo}_E)$ 是交换赋环拓扑斯。对 $X\in \ob E$ 和 $f\in {\Oo}_E(X)$, 设 $X_f$ 为 $X$ 中使 $f$ 可逆的最大子对象。
+\begin{enumerate}
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 证明, 对 $X'\in \ob E_{/X}$, $f_{X'}$ 可逆当且仅当结构态射 $X'\rightarrow X$ 经过 $X_f$ 分解, 且对 $f,g\in {\Oo}_E(X)$ 有
+$$
+X_{fg}=X_f\cap X_g{\quoi}.
+$$
+
+\item 证明下列条件 (i) 至 (iii) 等价:
+\begin{enumerate}
+\renewcommand{\theenumii}{\roman{enumii}}
+\renewcommand{\labelenumii}{(\theenumii)}
+\item 对 $X\in \ob E$ 和 $f,g\in {\Oo}_E(X)$, 有
+$$
+X_{f+g}\subset \Sup(X_f,X_g).
+$$
+
+\item 对使 $f+g$ 可逆的 $X\in \ob E$ 和 $f,g\in {\Oo}_E(X)$, 有 $X=\Sup(X_f,X_g)$。
+
+\item 对 $X\in \ob E$ 和 $f\in {\Oo}_E(X)$, 有
+$$
+X=\Sup(X_f,X_{1-f}){\quoi}.
+$$
+
+证明这些条件蕴含下述条件 (iv), 并且\pageoriginale 当 $E$ 有足够多的点时, 与它等价:
+
+\item 对 $E$ 的每个点 $p$, 纤维环 ${\Oo}_{E,p}$ 都是\emph{局部环}。
+\end{enumerate}
+
+当等价条件 (i) 至 (iii) 成立时, 称 $(E,{\Oo}_E)$ 为\emph{局部赋环拓扑斯}; 同样, 若一个赋环景对应的赋环拓扑斯为局部赋环拓扑斯, 则称此赋环景为\emph{局部赋环景}。
+
+\item 设 $(E,{\Oo}_E)$ 与 $(E',{\Oo}_{E'})$ 是两个局部赋环拓扑斯, $f$ 是从前者到后者的赋环拓扑斯态射。证明下述条件 (i) 蕴含条件 (ii), 并且当 $E$ 有足够多的点时与它等价:
+\begin{enumerate}
+\renewcommand{\theenumii}{\roman{enumii}}
+\renewcommand{\labelenumii}{(\theenumii)}
+\item 对每个 $X'\in \ob E'$ 和 $s'\in {\Oo}_{E'}(X')$, 令 $X=f^{-1}(X')$ 与 $s=f^{\ast}(s')$, 则有
+$$
+X_s=f^{-1}(X'_{s'}){\quoi}.
+$$
+
+\item 对 $E$ 的每个点 $p$, 令 $p'=f(p)$, 则纤维上的自然同态
+$$
+{\Oo}_{E',p'}\longrightarrow {\Oo}_{E,p}
+$$
+为局部环的\emph{局部}同态。
+\end{enumerate}
+
+当条件 (i) 成立时, 称 $f$ 为\emph{局部赋环拓扑斯态射}, 若可能混淆时也称为\emph{局部赋环拓扑斯的容许态射}。以 $\Hhomtoplocan(E,E')$ 表示从 $E$ 到 $E'$ 的所有赋环拓扑斯态射所成的范畴 $\Hhomtopan(E,E')$ 中, 由从 $E$ 到 $E'$ 的容许态射定义的全子范畴。
+
+\item 假定 $(E,{\Oo}_E)$ 是与赋环拓扑空间 $(X,{\Oo}_X)$ 相伴的赋环拓扑斯 (\hyperref[IV.subsec2.1]{2.1})。证明 $(E,{\Oo}_E)$ 局部赋环当且仅当 $(X,{\Oo}_X)$ 局部赋环, 即当且仅当对每个 $x\in X$, 纤维 ${\Oo}_{X,x}$ 都是局部环。(注意, 在 b) 的判据 (iv) 中, 只需让 $p$ 取遍 $E$ 的一个\emph{保守}点族。) 设\pageoriginale $f:(X,{\Oo}_X)\rightarrow(X',{\Oo}_{X'})$ 是赋环空间态射, 其中 ${\Oo}_X$ 与 ${\Oo}_{X'}$ 为局部环层。证明相应的赋环拓扑斯态射 $\Top(X,{\Oo}_X)\rightarrow \Top(X',{\Oo}_{X'})$ 容许, 当且仅当态射 $f$ 容许, 即当且仅当对每个 $x\in X$,
+$${\Oo}_{X',f(x)}\longrightarrow {\Oo}_{X,x}$$
+都是局部环的\emph{局部}同态。
+
+\item 设 $(E,{\Oo}_E)$ 与 $(E',{\Oo}_{E'})$ 是两个局部赋环拓扑斯, 其中 $E$ 有足够多的点, $(E',{\Oo}_{E'})$ 等价于某个\emph{概形} $(X',{\Oo}_{X'})$ 所定义的赋环拓扑斯; 证明范畴 $\Hhomtoplocan(E,E')$ 等价于\emph{离散}范畴, 即它是刚性群胚 (每个态射都是同构, 且对象的自同构群都为平凡群)。
+
+\noindent (提示: 归结到 $(E,{\Oo}_E)$ 为以某个域赋环的点拓扑斯的情形。) 另一方面回顾, 一般而言 $\Hhomtop(E,E')$ 不等价于离散范畴, 即使 $E$ 与 $E'$ 都是概形所定义的拓扑斯 (甚至 $E$ 为点拓扑斯时) 也如此; 参见 \hyperref[IV.subsubsec4.2.3]{4.2.3}。
+
+\item 设 $E$ 是局部赋环拓扑斯, $P$ 是由赋环空间 $\Spec k$ 所定义的赋环拓扑斯, 其中 $k$ 是域。证明局部赋环拓扑斯的容许态射 $P\rightarrow E$ 对应于对 $(p,u)$, 由 $E$ 的一个点 $p$ 以及 $k(p)$ 到 $k$ 的一个单射组成, 其中 $k(p)$ 为局部环 ${\Oo}_{E,p}$ 的剩余域。将此推广为一个描述从点局部赋环拓扑斯到 $E$ 的容许态射的陈述 (推广 EGA I 2.4.4)。
+
+局部赋环拓扑斯 $E$ 的\emph{几何点}, 是从一个形如 $\Spec(k)$ 的赋环空间所定义的局部赋环拓扑斯到 $E$ 的容许态射, 其中 $k$ 为\emph{代数闭}域。定义 \emph{$E$ 的几何点范畴} (约定相应的域 $k$ 属于 $𝒰$), 记为 $\Pptgeom(E)$, 并定义典范函子 $\Pptgeom(E)\rightarrow \Ppoint(E)$。证明此函子忠实当且仅当\pageoriginale $E$ 没有点, 即 $\Ppoint(E)$ 为空范畴。
+
+\item 设 $E$ 是 $𝒰$-拓扑斯, $𝒱$ 是满足 $𝒰\in 𝒱$ 的宇宙。按照 \hyperref[IV.exer5.14]{5.14} a), 利用 2-范畴 $(𝒱\text{-}𝒰\text{-}\Top)$ 的对象 $E$ (\hyperref[IV.subsubsec3.3.1]{3.3.1}), 定义 2-范畴 $(𝒱\text{-}𝒰\text{-}\Top)_{/E}$。当 $E$ 由环 $A$ 赋环时, 类似地定义 2-范畴 $(𝒱\text{-}𝒰\text{-}\text{Topan})_{/E}$; 当 $E$ 局部赋环时, 利用容许态射的概念 (参见 c)) 定义 2-范畴 $(𝒱\text{-}𝒰\text{-}\text{Topanloc})_{/E}$, 它以 $\Pptgeom(E)$ (参见 f)) 为全子范畴。
+\end{enumerate}
+\end{enonce*}
+
+% END INCLUDED SGA4_English_current_buildable_source_20260906/source/04/drafts/SGA4_IV_LINES_9248_9593_English.texfrag
+
+% BEGIN INCLUDED SGA4_English_current_buildable_source_20260906/source/04/drafts/SGA4_IV_LINES_9594_9852_English.texfrag
+\section{粘合所定义的拓扑斯上的模}\etiquette[14]{IV.sec14}
+
+\subsection{}\etiquette[14.1]{IV.subsec14.1}
+设 $(E,A)$ 是赋环拓扑斯, $U$ 是 $E$ 的开子拓扑斯, $F$ 是互补的闭子拓扑斯, $j:U\rightarrow E$ 与 $i:F\rightarrow E$ 是典范态射 (\hyperref[IV.subsec9.3]{9.3})。拓扑斯 $U$ 赋环为 $j^{\ast}A$ (\sisi{\hyperref[IV.subsubsec11.2.2]{11.2.2}}{\hyperref[IV.subsubsec11.2.1]{11.2.1}}), 而将拓扑斯态射 $j$ 以显然的方式补充后, 它成为赋环拓扑斯态射。本节中, 拓扑斯 $F$ 将以层 $i^{\ast}A$ (记为 $A|F$) 赋环, 此时将态射 $i$ 以显然的方式补充后, 它也是赋环拓扑斯态射。
+
+\subsection{}\etiquette[14.2]{IV.subsec14.2}
+因此有两个赋环拓扑斯态射:
+$$
+j:(U,A| U)\longrightarrow (E,A)\text{ 与 } i:(F,A| F)\longrightarrow
+(E,A){\quoi};
+$$
+从而有相应的模范畴 (为明确起见取左模) 之间的五个函子:
+\[\vcenter{
+\xymatrix@C=2cm@R=1.5cm@M=.25cm{ ({}_{A|U}U) \ar@<14pt>[r]^{j_!}
+\ar@<-14pt>[r]^{j_{\ast}}&
+  ({}_{A}E) \ar[l]_{j^{\ast}} \ar@<7pt>[r]^{i^{\ast}} &
+  ({}_{A|F}F)\quad. \ar@<7pt>[l]_{i_{\ast}}
+}}\leqno(14.2.1)
+\]\etiquette[14.2.1]{IV.eq14.2.1}
+图 \eqhyperref[IV.eq14.2.1]{14.2.1} 中的每个函子都是位于其下方的函子的左伴随。
+
+\subsection{}\etiquette[14.3]{IV.subsec14.3}
+我们\pageoriginale 知道函子 $X\mapsto (j^{\ast}X,
+i^{\ast}X;i^{\ast}X\rightarrow i^{\ast}j_{\ast}j^{\ast}X)$ 是从 $E$ 到拓扑斯 $(U,F,i^{\ast}j_{\ast})$ 的等价 (\hyperref[IV.theo9.5.4]{9.5.4})。此等价诱导相应的模范畴之间的等价, 因而函子 $P\mapsto (j^{\ast}P,i^{\ast}P;
+i^{\ast}P\rightarrow i^{\ast}j_{\ast}j^{\ast}P)$ 是从范畴 ${}_AE$ 到范畴 $({}_{A| U}U,{}_{A| F}F,i^{\ast}j_{\ast})$ 的等价, 记为 $\Phi$。于是 \hyperref[IV.eq14.2.1]{(14.2.1)} 中的函子与 $\Phi$ 或 $\Phi^{-1}$ 复合后, 就是函子:
+\begin{align*}
+\Phi\circ j_{\ast} &: M\mapsto (M,i^{\ast} j_{\ast}M;
+i^{\ast}j_{\ast}M\xrightarrow{\id} i^{\ast}j_{\ast}M){\quoi},\\
+j^{\ast}\circ \Phi^{-1} &: (M,N; N\rightarrow
+i^{\ast}j_{\ast}M)\mapsto M{\quoi},\\
+\Phi\circ j_{!} &: M\mapsto (M,0;0\rightarrow i^{\ast}
+j_{\ast}M){\quoi},\\
+\Phi\circ i_{\ast} &: N\mapsto (0,N;N\rightarrow 0){\quoi},\\
+i^{\ast}\circ \Phi^{-1} &: (M,N;N\rightarrow
+i^{\ast}j_{\ast}M)\mapsto N{\quoi}.
+\end{align*}
+读者可作为练习明确写出各种伴随态射。
+
+\subsection{}\etiquette[14.4]{IV.subsec14.4}
+用
+\begin{equation*}
+i^{!}:{}_AE\longrightarrow {}_{A| F}F\tag{14.4.1}
+\end{equation*}\etiquette[14.4.1]{IV.eq14.4.1}
+表示由公式
+\begin{equation*}
+i^{!}\circ
+\Phi^{-1}(M,N;N\xrightarrow{u}i^{\ast}j_{\ast}M)=\Ker(u){\quoi}.\tag{14.4.2}
+\end{equation*}\etiquette[14.4.2]{IV.eq14.4.2}
+定义的函子。
+
+\begin{enonce*}{命题 14.5}\etiquette[14.5]{IV.prop14.5}
+函子 $i^{!}$ 是函子 $i_{\ast}$ 的右伴随。伴随态射 $i_{\ast}i^{!}\rightarrow\id$ 是单态射。函子 $i^{!}$ (环变动时) 与标量限制函子可交换。
+\end{enonce*}
+
+显然, 每个态射
+$$
+(0,N;0)\longrightarrow (M,N;N\xrightarrow{u}i^{\ast}j_{\ast}M)
+$$
+都唯一经过 $(0,\ker(u);0)$ 分解, 从而证明了伴随性质。其余断言是平凡的。
+
+\begin{enonce*}{命题 14.6}\etiquette[14.6]{IV.prop14.6}
+对\pageoriginale ${}_AE$ 的每个对象 $P$, 有关于 $P$ 函子性的正合列:
+\hypertarget{sga4.exp.IV.equation.14.6.1}{}\begin{gather}
+0\longrightarrow j_{!}j^{\ast}P\longrightarrow P\longrightarrow
+i_{\ast}i^{\ast}P\longrightarrow 0{\quoi};\tag{14.6.1}\\
+0\longrightarrow i_{\ast}i^{!}P\longrightarrow P\longrightarrow
+j_{\ast}j^{\ast}P{\quoi},\tag{14.6.2}
+\end{gather}\hypertarget{sga4.exp.IV.equation.14.6.2}{}
+其中非平凡的箭头均为伴随箭头。
+\end{enonce*}
+
+先注意, $({}_{A|U}U,{}_{A|F}F;i^{\ast}j_{\ast})$ 中的序列
+$$
+(M',N';u')\longrightarrow(M,N;u)\longrightarrow(M'',N'';u'')
+$$
+正合, 当且仅当相应的序列
+\begin{align*}
+& M'\longrightarrow M\longrightarrow M''\\
+& N'\longrightarrow N\longrightarrow N''
+\end{align*}
+正合。
+
+序列 \hyperlink{sga4.exp.IV.equation.14.6.1}{(14.6.1)} 与 \hyperlink{sga4.exp.IV.equation.14.6.2}{(14.6.2)} 在等价 $\Phi$ 下变为 \eqhyperref[IV.subsec14.3]{14.3} 中的类型的序列:
+\begin{align*}
+& 0\longrightarrow (M,0;0)\longrightarrow(M,N;u)\longrightarrow
+(0,N;0)\longrightarrow 0\\
+& 0\longrightarrow(0,\ker(u);0)\longrightarrow
+(M,N,u)\longrightarrow(M,i^{\ast}j_{\ast}M;\id){\quoi}.
+\end{align*}
+这些序列的正合性是直接的。
+
+\setcounter{subsection}{6}
+\subsection{}\etiquette[14.7]{IV.subsec14.7}
+正合列 \hyperlink{sga4.exp.IV.equation.14.6.2}{(14.6.2)} 给出函子 $i_{\ast}i^{!}$ 的新解释。事实上, 设 $X$ 为 $E$ 的对象。序列 \hyperlink{sga4.exp.IV.equation.14.6.2}{(14.6.2)} 给出阿贝尔群的正合列
+$$
+0\longrightarrow \Hom_E(X,i_{\ast}i^{!}P)\longrightarrow
+\Hom_E(X,P)\longrightarrow \Hom_E(X,j_{\ast}j^{\ast}P){\quoi}.
+$$
+也用 $U$ 表示 $E$ 中的开子对象, 它是开子拓扑斯 $U$ 的终对象。由函子 $j_{\ast}$、$j^{\ast}$、$j_{!}^{\ens}$ 的伴随性质可知, 群 $\Hom_E(X,j_{\ast}j^{\ast}P)$ 典范同构于 $\Hom_E(X\times U,P)$, 且态射 $\Hom_E(X,P)\rightarrow\Hom_E(X,j_{\ast}j^{\ast}P)$ 正是由单态射 $X\times U\rightarrow X$ 定义的态射 (\hyperref[IV.sec5]{5})。换言之 (\hyperref[IV.subsubsec8.5.2]{8.5.2}):
+
+\begin{enonce*}{命题 14.8}\etiquette[14.8]{IV.prop14.8}
+$i_{\ast}i^{!}P$ 在 $E_{/X}$ 上的\pageoriginale 截面, 是 $P$ 在 $E_{/X}$ 上支集 $(\hyperref[IV.subsubsec9.3.5]{9.3.5})$ 包含于 $F$ 的截面\sisi{(沿用 $5.9.1$ 的记号)}{}。换言之, $i_{\ast}i^{!}P$ 是 $P$ 中支集包含于 $F$ 的最大子层。
+\end{enonce*}
+
+\setcounter{subsection}{8}
+\subsection{}\etiquette[14.9]{IV.subsec14.9}
+有时滥用语言, 将 $i_{\ast}i^{!}P$ 称为 $P$ 中由 $P$ 的支集在 $F$ 中的截面定义的子模。由 \hyperref[IV.rem8.5.3]{8.5.3} 可知, 此术语只是将拓扑空间上的层拓扑斯所用的术语延伸到一般拓扑斯。
+
+\begin{enonce*}{命题 14.10}\etiquette[14.10]{IV.prop14.10}
+\begin{enumerate}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 函子 $P\mapsto i_{\ast}i^{\ast}P$ 同构于函子 $P\mapsto i_{\ast}i^{\ast}A\otimes_A P$。
+
+\item 函子 $P\mapsto i_{\ast}i^{!}P$ 同构于函子 $P\mapsto\scrHom_A(i_{\ast}i^{\ast}A,P)$。
+\end{enumerate}
+\end{enonce*}
+
+在 $P$ 为 $A$-模 $A$ 的特殊情形下, 正合列 \hyperlink{sga4.exp.IV.equation.14.6.1}{(14.6.1)} 写为
+\begin{equation*}
+0\longrightarrow A_U\longrightarrow A\longrightarrow
+i_{\ast}i^{\ast}A\longrightarrow 0.\tag{14.10.1}
+\end{equation*}\etiquette[14.10.1]{IV.eq14.10.1}
+此处 $A_U$ 是由与开子拓扑斯 $U$ 相应的开子对象 $U$ 生成的自由 $A$-模 (9 与 \hyperref[IV.prop11.3.3]{11.3.3})。对每个 $A$-模 $P$, $A$-模 $j_{!}j^{\ast}P$ 和 $j_{\ast}j^{\ast}P$ 分别典范同构于 $A_U\otimes_A P$ 和 $\scrHom_A(A_U,P)$ (\hyperref[IV.prop12.3]{12.3} 与 \hyperref[IV.cor12.6]{12.6})。此外, 在这些同构下, 典范态射 $j_{!}j^{\ast}P\rightarrow P$ 与 $P\rightarrow j_{\ast}j^{\ast}P$ 来自单态射 $A_U\rightarrow A$。因此正合列 \hyperref[IV.eq14.10.1]{14.10.1} 给出两个正合列 (\hyperref[IV.subsec12.2]{12.2} 与 \hyperref[IV.prop12.11]{12.11}):
+\begin{align*}
+& j_{!}j^{\ast}P\longrightarrow P\longrightarrow
+i_{\ast}i^{\ast}A\otimes_AP\longrightarrow 0{\quoi},\\
+& 0\longrightarrow \scrHom_A(i_{\ast}i^{\ast}A,P)\longrightarrow
+P\longrightarrow j_{\ast}j^{\ast}P{\quoi};
+\end{align*}
+与 \hyperlink{sga4.exp.IV.equation.14.6.1}{(14.6.1)} 及 \hyperlink{sga4.exp.IV.equation.14.6.2}{(14.6.2)} 比较即得所陈述的同构。
+
+\begin{thebibliography}{99}\pageoriginale
+\bibitem{sga4.exp.IV.bib.1} M. Artin 与 B. Mazur, Homotopy of varieties in the etale
+topology, 载于: Proceedings of a Conference on Local Fields,
+Driebergen 1966, Springer.
+\bibitem{sga4.exp.IV.bib.2} P. Gabriel 与 G. Zisman, Calculus of fractions and
+homotopy theory, Ergebnisse der Mathematik, Bd 35.
+
+\bibitem{sga4.exp.IV.bib.3} J. Giraud, Algèbre homologique non commutative,
+Grundlehren Springer 1971.
+
+\bibitem{sga4.exp.IV.bib.4} A. Grothendieck, Sur quelques points d'Algèbre
+homologique, Tohoku Math. Journal (引为 [Toh])。
+
+\bibitem{sga4.exp.IV.bib.5} A. Grothendieck, Fondements de la Géométrie
+Algébrique (Bourbaki 报告 1957/62 汇编), Secrétariat
+mathématique, 11 rue P. Curie, Paris.
+
+\bibitem{sga4.exp.IV.bib.6} A. Grothendieck, Crystals and the De Rham cohomology
+of schemes (I. Coates 与 O. Jussila 记录), 载于: Dix exposés sur
+la cohomologie des schémas, North Holland Pub. Cie., 1969.
+
+\bibitem{sga4.exp.IV.bib.7} A. Grothendieck, Classes de Chern des
+représentations linéaires des groupes discrets, 载于: Dix exposés sur
+la cohomologie des schémas, North Holland Pub. Cie., 1969.
+
+\bibitem{sga4.exp.IV.bib.8} R. Godement, Théorie des faisceaux,
+Act. Scient. Ind. ${\rm n^{\circ}}$ 1 252 (1958), Hermann (Paris)
+(引为 [TF])。
+
+\bibitem{sga4.exp.IV.bib.9} M. Hakim, Topos annelés et schémas relatifs,
+油印学位论文, Orsay 1967.
+
+\bibitem{sga4.exp.IV.bib.10} D. Mumford, Picard groups of moduli problems, 载于
+Arithmetic Algebraic Geometry, Harper's Series in Modern
+Mathematics.
+
+\bibitem{sga4.exp.IV.bib.11} Nguyen Dinh Ngoc, Thèse Sciences Mathématiques,
+Paris 1963, ${\rm n^{\circ}}$ 4 995.
+
+\bibitem{sga4.exp.IV.bib.12} J.E. Roos, Distributivité des $\varinjlim$ par
+rapport aux $\varprojlim$ des topos
+
+\begin{tabular}{@{}r@{\;}l@{\hspace{1cm}}r@{\;}l}
+a) & CR t.259 p. 969-972 & b) & CR T. 259 p. 1605-1608\\
+c) & CR t.259 p. 1801-1804 & & (1964 年 8 月与 9 月)。
+\end{tabular}
+
+\bibitem{sga4.exp.IV.bib.13} P. Deligne--D. Mumford, The irreducibility of
+the space of curves of given genus, Pub. math. ${\rm n^{\circ}}$ 36
+(1969).
+
+\bibitem{sga4.exp.IV.bib.14} B. Mitchell, Theory of categories, Academic Press
+(1965).
+
+\bibitem{sga4.exp.IV.bib.15} J. Lurie, Higher Topos Theory, Annals of Mathematics Studies, 170. Princeton University Press,
+Princeton, NJ, 2009. xviii+925 pp.
+
+\bibitem{sga4.exp.IV.bib.16} P. Johnstone, Topos theory,
+London Mathematical Society Monographs, Vol. 10.
+Academic Press [Harcourt Brace Jovanovich, Publishers], London--New York, 1977. xxiii+367 pp.
+
+\bibitem{sga4.exp.IV.bib.17} F. Borceux, G. Van den Bossche, Structure des topologies
+d'un topos, Cahiers de topologie et géométrie différentielle catégoriques,
+t. 25, n°1 (1984), p. 37--39.
+
+\end{thebibliography}
+
+\ifx\danslelivre\undefined
+\end{document}
+\fi
+
+% END INCLUDED SGA4_English_current_buildable_source_20260906/source/04/drafts/SGA4_IV_LINES_9594_9852_English.texfrag
+
+
