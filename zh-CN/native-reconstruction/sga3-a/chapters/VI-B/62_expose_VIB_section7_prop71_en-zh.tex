@@ -1,0 +1,204 @@
+% SGA 3, Expose VI_B, Loop 1 English reconstruction.
+% Scope: Section 7 heading and Proposition 7.1 in full, including
+% its complete proof and source editor's notes 68--69.
+% Authority: Polo--Gille Exp6B-13oct24.pdf, component-local pages
+% 50--51 (combined-reader pages 391--392; re-edition headers
+% 380--381; original-margin printed page 363 at the seam).
+% Corollary 7.1.1 begins on local page 51 and is excluded.
+% OCR and Reinhold English Markdown are comparison witnesses only.
+% This unit contains no diagrams.
+
+\section*{7. 生成的子群; 换位子群}
+\phantomsection\label{sec:sga3-VIB-7}%
+\addcontentsline{toc}{section}{7. 生成的子群; 换位子群}
+
+本节始终用 \(k\) 表示一个固定的域.
+
+\medskip
+\phantomsection\label{prop:sga3-VIB-7.1}%
+\noindent\textbf{命题 7.1.---}
+\emph{设 \(G\) 为 \(k\)-群,
+\((X_i)_{i\in I}\) 为一族几何约化的
+\(k\)-概形,}%
+\footnote{\label{note:sga3-VIB-68}编者注: 在此处及下文中,
+将不常用的术语 ``可分'' 替换为
+惯用术语 ``几何约化''; 见 EGA~IV\(_2\),
+4.6.2.}
+\emph{并且对每个 \(i\in I\), 设 \(f_i:X_i\to G\) 为
+\(k\)-态射.}
+\begin{enumerate}
+\item[\textup{\SGAInlineRefTarget{prop:sga3-VIB-7.1:item:i}(i)}]\phantomsection\label{concl:sga3-VIB-7.1-i}
+  \emph{存在 \(G\) 的一个最小的闭 \(k\)-子群概形,
+  使得每个 \(f_i\) 都经由它分解. 将其记为
+  \[
+    \Gamma_G\bigl((f_i)_{i\in I}\bigr).
+  \]
+  它是几何约化的 \(k\)-概形, 因而当 \(G\) 在 \(k\) 上局部有限型时,
+  它平滑
+  (\hyperref[cor:sga3-VIB-1.3.1]{1.3.1}).}
+\item[\textup{\SGAInlineRefTarget{prop:sga3-VIB-7.1:item:ii}(ii)}]\phantomsection\label{concl:sga3-VIB-7.1-ii}
+  \emph{令
+  \[
+    X=\coprod_{i\in I}X_i,
+  \]
+  并设 \(f:X\to G\) 为满足对每个 \(i\in I\),
+  在 \(X_i\) 上的限制为 \(f_i\) 的态射. 令
+  \[
+    X^1=X\amalg X,
+  \]
+  并设 \(f^1:X^1\to G\) 为在 \(X\) 的两个副本上的限制
+  分别为 \(f\) 和 \(c\circ f\) 的态射.
+  对每个 \(n>1\), 令
+  \[
+    X^n=X^1\times_kX^{n-1},
+    \qquad
+    f^n=\mu\circ(f^1\times_k f^{n-1}):X^n\longrightarrow G.
+  \]
+  则 \(\Gamma_G((f_i)_{i\in I})\) 是 \(G\) 的约化子概形,
+  其底空间为
+  \[
+    \bigcup_{n\geq1}f^n(X^n).
+  \]
+  的闭包.}
+\item[\textup{\SGAInlineRefTarget{prop:sga3-VIB-7.1:item:iii}(iii)}]\phantomsection\label{concl:sga3-VIB-7.1-iii}
+  \emph{对每个 \(k\)-概形 \(S\),
+  \(\Gamma_G((f_i)_{i\in I})_S\) 是 \(G_S\) 的最小闭子群
+  概形, 使得每个
+  \[
+    f_{i,S}:(X_i)_S\longrightarrow G_S
+  \]
+  都经由它分解.}
+\item[\textup{(iii\(^{\prime}\))}]
+  \phantomsection\label{concl:sga3-VIB-7.1-iiiprime}
+  \emph{此外, \(\Gamma_G((f_i)_{i\in I})_S\) 是
+  \(G_S\) 的最小的、未必闭的子群概形,
+  使得每个 \(f_{i,S}\) 都经由它分解.}%
+  \footnote{\label{note:sga3-VIB-69}编者注: 原文在额外假设
+  \(G\) 在 \(k\) 上局部有限型时陈述
+  \textup{(iii\(^{\prime}\))}; 根据
+  \hyperref[sga3:VIA:0.5.2]{VI\(_A\), 0.5.2}, 此假设可省略.}
+\end{enumerate}
+
+首先注意, 为证明 \textup{\SGARefLink{prop:sga3-VIB-7.1:item:i}{(i)}}, \textup{\SGARefLink{prop:sga3-VIB-7.1:item:iii}{(iii)}} 以及
+\textup{(iii\(^{\prime}\))}, 按 \textup{\SGARefLink{concl:sga3-VIB-7.1-ii}{(ii)}} 定义 \(X\) 和 \(f\) 后,
+即可化归为 \(I\) 只有一个元素的情形.
+
+设 \(H\) 为 \(G\) 的约化子概形, 其底集
+为
+\[
+  \overline{\bigcup_{n\geq1}f^n(X^n)}.
+\]
+态射族
+\[
+  f^n:X^n\longrightarrow H
+\]
+是概形支配的 (参见 EGA~IV\(_3\), 11.10.4), 因而
+\(G\) 的每个使所有 \(f^n\) 经由它分解的闭子概形
+都包含 \(H\). 此外, 由\emph{同上},
+11.10.7, \(H\) 几何约化. 因此为证明
+\textup{\SGARefLink{prop:sga3-VIB-7.1:item:i}{(i)}} 和 \textup{\SGARefLink{prop:sga3-VIB-7.1:item:ii}{(ii)}}, 只需证明
+\(H\) 为 \(G\) 的子群概形, 即 \(c\) 在 \(H\) 上的限制
+及 \(\mu\) 在
+\(H\times_kH\) 上的限制均经由包含态射 \(H\to G\) 分解.
+
+由于 \(H\) 几何约化, \(H\times_kH\) 约化,
+只需在集合意义下验证
+\[
+  c(H)\subset H,
+  \qquad
+  \mu(H\times_kH)\subset H.
+\]
+由 EGA~IV\(_3\), 11.10.6, 所有
+\[
+  f^n_{(H)}(X^n\times_kH)
+\]
+的并在 \(H\times_kH\) 中概形稠密. 同样, 对每个
+\(n\geq1\), 所有
+\[
+  f^m_{(X^n)}(X^n\times_kX^m),
+  \qquad m\geq1,
+\]
+的并在 \(X^n\times_kH\) 中概形稠密.
+因此只需证明
+\[
+  \mu\!\left(
+    f^n_{(H)}
+      \bigl(f^m_{(X^n)}(X^n\times_kX^m)\bigr)
+  \right)\subset H
+\]
+及 \(c(f^n(X^n))\subset H\). 但有
+\[
+\begin{aligned}
+  \mu\!\left(
+    f^n_{(H)}
+      \bigl(f^m_{(X^n)}(X^n\times_kX^m)\bigr)
+  \right)
+  &=
+  \mu\!\left((f^n\times_k f^m)(X^n\times_kX^m)\right)\\
+  &=f^{n+m}(X^{n+m})\subset H.
+\end{aligned}
+\]
+此外, 由于 \(c(f^1(X^1))\subset f^1(X^1)\), 对每个 \(n\)
+有
+\[
+  c(f^n(X^n))\subset f^n(X^n)\subset H.
+\]
+这就证明了 \textup{\SGARefLink{prop:sga3-VIB-7.1:item:i}{(i)}} 和 \textup{\SGARefLink{prop:sga3-VIB-7.1:item:ii}{(ii)}}.
+
+现在证明 \textup{\SGARefLink{concl:sga3-VIB-7.1-iii}{(iii)}}. 设 \(G'\) 为 \(G_S\) 的闭子群
+概形, 使得 \(f_S\) 经由它分解. 须证明
+\(G'\) 包含 \(H_S\), 或等价地证明
+\[
+  H_S=H_S\times_{G_S}G'.
+\]
+令
+\[
+  H'_S=H_S\times_{G_S}G'=G'\cap H_S.
+\]
+每个 \(f^n_S\) 都经由 \(G'\) 和 \(H_S\) 分解,
+从而经由 \(H'_S\) 分解. 由于态射族
+\[
+  f^n:X^n\longrightarrow H
+\]
+为概形支配的, EGA~IV\(_3\), 11.10.6 蕴涵
+经基变换得到的态射族
+\[
+  f^n_S:X^n_S\longrightarrow H_S
+\]
+也为概形支配的. 因为每个 \(f^n_S\)
+都经由 \(H'_S\) 分解, EGA~IV\(_3\), 11.10.1\textup{(c)}
+给出
+\[
+  H'_S=H_S.
+\]
+这就证明了 \textup{\SGARefLink{prop:sga3-VIB-7.1:item:iii}{(iii)}}.
+
+最后证明 \(H_S\) 为 \(G_S\) 的最小的、
+未必闭的子群概形, 使得 \(f_S\)
+经由它分解. 设 \(G'\) 为这样的子群概形, 并再次令
+\[
+  H'_S=H_S\times_{G_S}G'.
+\]
+须证明 \(H'_S=H_S\). 由 \textup{\SGARefLink{concl:sga3-VIB-7.1-iii}{(iii)}}, 只需
+证明 \(H'_S\) 在 \(H_S\) 中闭. 为此又只需
+证明 \(H_S\) 和 \(H'_S\) 的底集相同,
+而为此只需对每个 \(s\in S\) 证明
+\[
+  H'_s
+  :=H'_S\times_S\kappa(s)
+  =H_s\times_{G_s}G'_s
+  =H_s.
+\]
+由 \hyperref[sga3:VIA:0.5.2]{VI\(_A\), 0.5.2},
+\(\kappa(s)\)-子群概形 \(G'_s\) 在 \(G_s\) 中闭.
+所以 \(H'_s\) 在 \(H_s\) 中闭, 将上述论证
+应用于 \(H'_s\), \(H_s\) 和 \(f^n_s\), 可知
+\[
+  H'_s=H_s.
+\]
+这就证明了 \textup{(iii\(^{\prime}\))}, 并完成了证明.
+
+% 翻译统计: 源行数 200; 输出行数 201 (含本统计行); 行内/行间数学片段 120; 翻译占位 0. 底本疑点另报主线程.
+
+% 独立复核检查点：已逐段对照英文源文，覆盖正文、假设、证明、脚注与源注。
+% 行内/陈列数学及全部引用键机械对照通过；仅统一群的invariant为“正规”，保留源文疑点另报。

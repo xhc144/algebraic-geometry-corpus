@@ -1,0 +1,225 @@
+% SGA 3, Expose VI_A, Loop 1 English reconstruction.
+% Scope: Lemma 2.5.3 through the end of Proposition 2.5.4;
+% paragraph 2.6 is excluded.
+% Authority: Polo--Gille Exp6A-13oct24.pdf, component-local pages 13--15
+% (combined-reader pages 316--318; printed pages 305--307).
+% OCR and the Reinhold English Markdown are comparison witnesses only.
+% Three source diagrams are reconstructed natively below with tikzcd.
+% Original locators retained for verification:
+% - local p. 13: x=625,y=1495,w=230,h=165 on a 1488x2105 render;
+% - local p. 14: x=590,y=550,w=320,h=160 on a 1488x2105 render;
+% - local p. 15: x=620,y=580,w=300,h=135 on a 1488x2105 render.
+
+\setcounter{footnote}{29}
+\medskip
+\phantomsection\label{lem:sga3-VIA-2.5.3}%
+\noindent\textbf{引理 2.5.3.}%
+\footnote{\label{note:sga3-VIA-30}编者注: 本陈述未作任何有限性假设;
+这在后文会有用 (参见 \SGARefLink{cor:sga3-VIA-6.2}{6.2} 及
+第 VI\textsubscript{B} 篇 \S~12).}
+\textit{设 \(A\) 是 Artin 局部环, \(k\) 是其剩余域,
+\(G\) 是一个平坦 \(A\)-群,
+\(X\) 是一个配备了 \(G\) 的左作用
+\[
+  \mu:G\times_AX\longrightarrow X
+\]
+及一个截面 \(s_0:\operatorname{Spec}A\to X\) 的 \(A\)-概形.
+(例如, 若 \(G'\) 是另一个 \(A\)-群,
+且给定了一个 \(A\)-群态射 \(G\to G'\), 就是这种情形.)}
+
+\textit{设 \(\varphi\) 为态射
+\[
+  \mu\circ(\operatorname{id}_G\times s_0):
+  G=G\times_AA\longrightarrow X.
+\]
+若 \(\varphi\) 在 \(G\) 的某点 \(g\) 处平坦,
+则 \(\varphi\) 平坦.}
+
+\noindent\textit{证明.}
+由于 \(G\) 在 \(A\) 上平坦,
+平坦性的逐纤维判别法 (EGA~IV\textsubscript{3}, 11.3.10.2)
+表明只需证明 \(\varphi\otimes_Ak\) 平坦.
+因此可以假设 \(A=k\).
+此时, 给定 \(s_0\) 等价于给定一个 \(k\)-值点 \(x_0\in X(k)\),
+且 \(\varphi\) 是态射 \(h\mapsto hx_0\).
+
+设 \(h\in G\); 我们证明 \(\varphi\) 在 \(h\) 处平坦.
+设 \(K\) 是 \(k\) 的一个扩域,
+同时包含 \(\kappa(g)\) 与 \(\kappa(h)\) 的副本.
+有笛卡尔方块
+\begin{center}
+  \phantomsection\label{diag:sga3-VIA-2.5.3-basechange}%
+  \begin{tikzcd}[row sep=large,column sep=large]
+    G_K \arrow[r,"\varphi_K"] \arrow[d] &
+    X_K \arrow[d] \\
+    G \arrow[r,"\varphi"'] &
+    X
+  \end{tikzcd}
+\end{center}
+其中两个竖直箭头都忠实平坦.
+因此, 由\SGARefLink{lem:sga3-V-7.4:item:i}{第 V 篇, 7.4(i)},
+\(\varphi_K\) 在位于 \(g\) 上方的每个点 \(g'\in G_K\) 处平坦;
+并且要证明 \(\varphi\) 在 \(h\) 处平坦,
+只需证明 \(\varphi_K\) 在位于 \(h\) 上方的某一点 \(h'\) 处平坦.
+所以归约到 \(g\) 与 \(h\) 都有理的情形.
+
+置 \(u=hg^{-1}\),
+以 \(\ell_u\) (分别地, \(\mu_u\)) 表示
+由 \(u\) 定义的 \(G\) (分别地, \(X\)) 上的左平移.
+由于 \(\varphi\circ\ell_u=\mu_u\circ\varphi\), 得到交换方块
+\begin{center}
+  \phantomsection\label{diag:sga3-VIA-2.5.3-translations}%
+  \begin{tikzcd}[row sep=large,column sep=huge]
+    \mathcal O_{G,h} \arrow[r,"\sim"] &
+    \mathcal O_{G,g} \\
+    \mathcal O_{X,hx_0} \arrow[u] \arrow[r,"\sim"'] &
+    \mathcal O_{X,gx_0} \arrow[u]
+  \end{tikzcd}
+\end{center}
+其中水平箭头都是同构. 由于态射
+\[
+  \mathcal O_{X,gx_0}\longrightarrow\mathcal O_{G,g}
+\]
+平坦, 态射
+\[
+  \mathcal O_{X,hx_0}\longrightarrow\mathcal O_{G,h}
+\]
+也平坦.
+
+\medskip
+\phantomsection\label{prop:sga3-VIA-2.5.4}%
+\noindent\textbf{命题 2.5.4.}
+\textit{设 \(A\) 是 Artin 局部环, \(k\) 是其剩余域,
+\(G\) 是局部有限型的 \(A\)-群,
+\(X\ne\varnothing\) 是配备了 \(G\) 的一个左作用的局部有限型 \(A\)-概形.
+假设由以下显示的规则在底集合上定义的态射
+\[
+  \varphi:G\times_AX\longrightarrow X\times_AX,
+  \qquad (g,x)\longmapsto(gx,x),
+\]
+是满射. 则:}
+\begin{enumerate}
+\item[(i)] \textit{\(X\) 的连通分支有限型、不可约, 且维数全都相同.}
+\item[(ii)]\phantomsection\label{concl:sga3-VIA-2.5.4-ii}
+\textit{更确切地说, 设 \(\overline{k}\) 是 \(k\) 的一个代数闭包,
+\(x\) 是 \(X\otimes_A\overline{k}\) 的一个闭点.
+它的稳定子 \(F\) 是 \(G\otimes_A\overline{k}\) 的一个闭群子概形,
+且 \(X\) 的不可约分支的维数为
+\[
+  \dim G-\dim F.
+\]}
+\end{enumerate}
+
+由\hyperref[lem:sga3-VIA-2.5.1]{引理 2.5.1}, 可以假设 \(A=k\).
+先假设 \(k\) 代数闭.
+则 \(G_{\mathrm{red}}\) 是一个局部有限型的 \(k\)-群;
+因此, 以 \(G_{\mathrm{red}}\) 代替 \(G\),
+以 \(X_{\mathrm{red}}\) 代替 \(X\),
+可以假设 \(G\) 和 \(X\) 约化.
+
+由于 \(G\times_kX\) 在 \(k\) 上局部有限型,
+态射 \(\varphi\) 局部有限型 (参见 EGA~I, 6.6.6(v)),
+并且因为 \(X\times_kX\) 局部 Noether 型, 它局部有限呈示.
+设 \(x\) 是 \(X\) 的一个有理点.
+由 \(\varphi\) 经基变换得到的态射
+\[
+  \varphi_x:G\longrightarrow X
+\]
+是满射且局部有限呈示.
+若 \(\eta\) 是 \(X\) 的一个极大点,
+则由于 \(X\) 约化, \(\mathcal O_{X,\eta}\) 是域;
+所以 \(\varphi_x\) 在 \(G\) 中位于 \(\eta\) 上方的每个点处平坦.
+由\hyperref[lem:sga3-VIA-2.5.3]{引理 2.5.3}, \(\varphi_x\) 因而平坦.
+因此 \(\varphi_x:G\to X\) 忠实平坦且局部有限呈示,
+从而为开映射 (参见 EGA~IV\textsubscript{2}, 2.4.6).
+
+由于 \(G^0\) 在 \(G\) 中是开的, 且不可约、拟紧
+(由 \hyperref[prop:sga3-VIA-2.4]{2.4}),
+当 \(x\) 遍历 \(X\) 的有理点时, 每个轨道
+\[
+  G^0x=\varphi_x(G^0),
+\]
+都是 \(X\) 的一个开、不可约且拟紧的子集,
+因而在 \(k\) 上有限型, 因为 \(X\) 在 \(k\) 上局部有限型.
+
+\(X\) 的每个非空开子集都包含一个有理点,
+所以这些开子集覆盖 \(X\).
+此外, 其中任意两个或者不交, 或者相等.
+事实上, 若
+\[
+  \varphi_x(G^0)\cap\varphi_y(G^0)
+\]
+非空, 则它包含一个有理点 \(z\).
+于是存在有理点 \(g,h\in G^0\), 使得
+\[
+  gx=z=hy,
+\]
+从而 \(x=g^{-1}z\) 且 \(y=h^{-1}z\), 因而
+\[
+  \varphi_x(G^0)=\varphi_z(G^0)=\varphi_y(G^0).
+\]
+因此轨道 \(\varphi_x(G^0)\) 也是闭的,
+从而既是 \(X\) 的连通分支, 也是其不可约分支.
+
+最后, 设 \(x,y\) 是 \(X\) 的两个有理点.
+由于 \(\varphi_x\) 是满射, 存在一个有理点 \(g\in G\),
+使得 \(y=gx\).
+由于 \(G^0\) 是 \(G\) 的正规子群,
+轨道 \(G^0y\) 是 \(G^0x\)\begingroup
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}%
+\footnote[1]{译者注: 法文原文在此印为 \(G^0\);
+由于所平移的对象是 \(X\) 中的一个轨道,
+原表达式应为 \(G^0x\).}%
+\endgroup
+在 \(X\) 上的平移 \(\ell_g\) 下的像;
+所以 \(G^0y\) 与 \(G^0x\) 的维数相同.
+
+此外, 由\SGARefLink{sga3:i:scholium:2-3-3-1}{第 I 篇, 2.3.3.1},
+\(x\) 的稳定子由 \(G\) 的一个闭子概形 \(F\) 表出,
+它由下列笛卡尔方块定义:
+\begin{center}
+  \phantomsection\label{diag:sga3-VIA-2.5.4-stabilizer}%
+  \begin{tikzcd}[row sep=large,column sep=large]
+    F \arrow[r] \arrow[d] &
+    G \arrow[d,"\varphi_x"] \\
+    \operatorname{Spec}k \arrow[r] &
+    X
+  \end{tikzcd}
+\end{center}
+所以 \(F\) 是一个局部有限型的 \(k\)-群,
+而 \(F\cap G^0\) 是一个包含 \(F^0\) 的有限型 \(k\)-群.
+由 \hyperref[cor:sga3-VIA-2.4.1]{2.4.1},
+概形 \(F\) 与 \(F\cap G^0\) 都等维, 且与 \(F^0\) 的维数相同.
+设
+\[
+  C=\varphi_x(G^0)
+\]
+是 \(X\) 中包含 \(x\) 的不可约分支.
+如 \hyperref[prop:sga3-VIA-2.5.2]{2.5.2 的第 (b) 部分} 的证明那样论证, 得到
+\[
+  \dim C=\dim G^0-\dim F^0=\dim G-\dim F.
+\]
+
+在一般情形, 即 \(k\) 为任意域时,
+设 \(\overline{k}\) 是 \(k\) 的一个代数闭包.
+设 \(C\) 是 \(X\) 的一个连通分支,
+\(C'\) 是 \(C\otimes_k\overline{k}\) 的一个连通分支.
+则 \(C'\) 是
+\[
+  X'=X\otimes_k\overline{k}.
+\]
+的一个连通分支.
+态射 \(\pi:X'\to X\) 是开的
+(参见 EGA~IV\textsubscript{2}, 2.4.10),
+且因为它是整的, 也是闭的; 因此 \(\pi(C')=C\).
+由于 \(C'\) 不可约且拟紧, \(C\) 不可约且拟紧,
+因而在 \(k\) 上有限型, 因为 \(X\) 在 \(k\) 上局部有限型.
+
+最后, 维数在基域扩张下不变 (参见 EGA~IV\textsubscript{2}, 4.1.4),
+所以 \(\dim C=\dim C'\).
+由于 \(X'\) 的所有不可约分支都有相同的维数,
+\(X\) 的不可约分支也如此.
+
+% Translation coverage: entire assigned component, retaining all source statements and proofs.
+% Statistics: source lines=220; target lines=224; inline math=154; display math=14; unresolved translation TODOs=0; independent compilation not performed here.
+% Independent prose review: source and translation compared paragraph by paragraph through this component; statements, hypotheses, proofs, notes and diagram captions covered; bibliography reserved for its assigned reviewer; source math and reference keys unchanged.

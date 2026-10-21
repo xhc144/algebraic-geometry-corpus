@@ -1,0 +1,399 @@
+% SGA 3, Expose VI_B, Loop 1 English reconstruction.
+% Loop 2 R1: the source-bound base-change crop is replaced by a
+% faithful native tikz-cd square; prose, mathematics, and labels
+% otherwise remain identical to the reviewed Loop-1 component.
+% Scope: Remarks 11.18.5 and all of Section 12, through
+% Remarks 12.10.2, including editor's notes 135--138.
+% Authority: Polo--Gille Exp6B-13oct24.pdf, component-local
+% pages 99--105 (combined-reader pages 440--446; re-edition
+% headers 429--435). Opening Remarks 11.18.5 remain under
+% original-print marker 411. Editor-added Section 12 has no
+% original-print pagination.
+% Section 13 begins on local page 105 / combined page 446 /
+% header 435 and is excluded; it too is editor-added.
+% OCR is locator-only. Reinhold e7a259f English Markdown is
+% comparison-only and is credited in the component report.
+% Loop 2 replaces the source-bound cartesian-square crop in the proof
+% of Theorem 12.2 with a faithful native LaTeX reconstruction; it is closed.
+
+
+\medskip
+\phantomsection\label{rem:sga3-VIB-11.18.5}%
+\noindent\textbf{注 11.18.5.---}
+\begin{enumerate}
+\item[\textup{(a)}]\phantomsection\label{rem:sga3-VIB-11.18.5-a}%
+  前一定理的一个推论是，交换仿射 \(k\)-群范畴是阿贝尔范畴。关于此点及仿射 \(k\)-群的其他结果，参见 \textup{[DG70]}，\S~III.3，\SGARefLink{prop:sga3-VIB-7.4}{7.4}--\SGARefLink{prop:sga3-VIB-7.8}{7.8}。
+
+\item[\textup{(b)}]\phantomsection\label{rem:sga3-VIB-11.18.5-b}%
+  最后指出，M.~Takeuchi 给出了 \hyperref[thm:sga3-VIB-11.17]{11.17}--\hyperref[cor:sga3-VIB-11.18.4]{11.18.4} 中结果的另一个证明；见 \textup{[Ta72]}，\S~5。他还加强了上面的 \hyperref[concl:sga3-VIB-11.18.4-i]{11.18.4}\textup{\SGARefLink{cor:sga3-VIB-11.18.4:item:i}{(i)}}，证明 \(A\) 甚至是投射 \(B\)-模；见 \textup{[Ta79]}，\SGARefLink{sec:sga3-VIB-5}{定理~5}\textup{（亦见 [MW94]，定理~3.6）}。
+\end{enumerate}
+
+\section*{12. 关于 \(G_{\mathrm{af}}\) 及“反仿射”群的补充}
+\phantomsection\label{sec:sga3-VIB-12}%
+\addcontentsline{toc}{section}{12. 关于 Gaf 及“反仿射”群的补充}
+
+\footnote{\label{note:sga3-VIB-135}编者注：本节为增补内容。}
+先给出下述引理，将 \hyperref[lem:sga3-VIB-11.18.1]{11.18.1} 推广到不假设 \(G\) 有限型的情形。%
+\footnote{\label{note:sga3-VIB-136}编者注：此引理由 M.~Raynaud 提供；它将用于命题~\hyperref[prop:sga3-VIB-12.9]{12.9} 的证明。}
+
+\medskip
+\phantomsection\label{lem:sga3-VIB-12.1}%
+\noindent\textbf{引理 12.1.---}
+\emph{设 \(k\) 为域，\(u:G\to H\) 为 \(k\)-群的单态射，且 \(H\) 仿射。假设 \(u\) 拟紧。则 \(u\) 为闭浸入。}
+
+由 \textup{(fpqc)} 下降，可假设 \(k\) 代数闭。由 \hyperref[prop:sga3-VIA-6.4]{VI\(_A\)，6.4}，\(u\) 的闭像 \(I\) 是 \(H\) 的闭子群概形，因而仍仿射。因此，用 \(I\) 代替 \(H\)，可假设 \(u\) 概形稠密。由于 \(k\) 代数闭，\(H'=H_{\mathrm{red}}\) 是 \(H\) 的子群概形。置 \(G'=G\times_HH'\)。由 \(u\) 作基变换得到的态射
+\[
+  u':G'\longrightarrow H'
+\]
+为拟紧单态射，且为稠密态射\textup{（\(u\) 和 \(u'\) 的底连续映射相同）}。因此，由 \hyperref[cor:sga3-VIA-6.2]{VI\(_A\)，6.2}，\(u'\) 忠实平坦。故它是拟紧忠实平坦单态射，从而为同构\textup{（参见第 IV 篇 \SGARefLink{sga3:iv:remark:1:14}{1.14}）}。
+
+因此 \(u:G\to H\) 为同胚，从而由 \hyperref[lem:sga3-VIB-2.9.1]{2.9.1} 为仿射态射。故 \(G\) 仿射，且由 \hyperref[thm:sga3-VIB-11.18.2]{11.18.2\textup{(iii)}}，\(u\) 为闭浸入。
+
+\medskip
+\phantomsection\label{thm:sga3-VIB-12.2}%
+\noindent\textbf{定理 12.2.---}
+\emph{设 \(G\) 为代数 \(k\)-群。用 \(\rho:G\to G_{\mathrm{af}}\) 表示典范态射，用 \(N\) 表示其核。}
+\begin{enumerate}
+\item[\textup{(i)}]\phantomsection\label{thm:sga3-VIB-12.2-i}%
+  \emph{典范态射 \(G/N\to G_{\mathrm{af}}\) 为同构。因此 \(G_{\mathrm{af}}\) 是仿射代数群，且 \(\rho\) 忠实平坦。}
+
+\item[\textup{(ii)}]\phantomsection\label{thm:sga3-VIB-12.2-ii}%
+  \emph{存在典范同构 \((G/N)_{\mathrm{af}}=G_{\mathrm{af}}\)。}
+
+\item[\textup{(iii)}]\phantomsection\label{thm:sga3-VIB-12.2-iii}%
+  \emph{\(N\) 是 \(G\) 的特征子群。}
+
+\item[\textup{(iv)}]\phantomsection\label{thm:sga3-VIB-12.2-iv}%
+  \emph{\(\mathcal O(N)=k\)。}
+
+\item[\textup{(v)}]\phantomsection\label{thm:sga3-VIB-12.2-v}%
+  \emph{\(N\) 平滑、连通且交换。}
+\end{enumerate}
+
+断言~\hyperref[thm:sga3-VIB-12.2-i]{\textup{(i)}} 是 \hyperref[lem:sga3-VIB-11.18.1]{11.18.1} 的特例，而 \hyperref[thm:sga3-VIB-12.2-ii]{\textup{(ii)}} 由 \(G_{\mathrm{af}}\) 与 \((G/N)_{\mathrm{af}}\) 的泛性质得到。
+
+证明 \hyperref[thm:sga3-VIB-12.2-iii]{\textup{(iii)}}。对任意 \(k\)-概形 \(\pi:S\to\operatorname{Spec}k\)，考虑笛卡尔方块
+\begin{center}
+  \phantomsection\label{diag:sga3-VIB-12.2-base-change}%
+  \begin{tikzcd}[row sep=large,column sep=large]
+    G_S \arrow[r] \arrow[d,"q"'] &
+    G \arrow[d,"p"] \\
+    S \arrow[r,"\pi"] &
+    \operatorname{Spec}k\mathpunct{,}
+  \end{tikzcd}
+\end{center}
+由于 \(p\) 拟紧且分离，\(\pi\) 平坦，由 EGA~III，1.4.15 和 EGA~IV\(_1\)，1.7.21 得到
+\phantomsection\label{form:sga3-VIB-12.2-base-change-global-sections}%
+\[
+  q_*(\mathcal O_{G_S})
+   =\pi^*(\mathcal O(G))
+   =\pi^*(\mathcal O(G_{\mathrm{af}})).
+\]
+因此，由 EGA~II，1.5.2 得到
+\[
+  (G_S)_{\mathrm{af}}=(G_{\mathrm{af}})_S.
+\]
+所以 \(N_S\) 作为典范态射 \(G_S\to(G_S)_{\mathrm{af}}\) 的核，在 \(G_S\) 的每个自同构下不变；换言之，\(N\) 是 \(G\) 的特征子群。
+
+为证明 \hyperref[thm:sga3-VIB-12.2-iv]{\textup{(iv)}}，置
+\[
+  N'=\operatorname{Ker}(N\longrightarrow N_{\mathrm{af}}).
+\]
+由 \hyperref[thm:sga3-VIB-12.2-ii]{\textup{(ii)}}，这是 \(G\) 的不变子群。由于 \(N\) 是代数群\textup{（它是 \(G\) 的闭子群）}，由 \hyperref[thm:sga3-VIB-12.2-i]{\textup{(i)}} 得到 \(N/N'\simeq N_{\mathrm{af}}\)。此外，由 VI\(_A\)，\hyperref[thm:sga3-VIA-3.2]{3.2} 和 \SGARefLink{par:sga3-VIA-5.3.2}{5.3.2}，存在 \(k\)-群同构
+\phantomsection\label{form:sga3-VIB-12.2-double-quotient}%
+\[
+  (G/N')/N_{\mathrm{af}}
+    \simeq (G/N')/(N/N')
+    \simeq G/N.
+\]
+由于 \(N_{\mathrm{af}}\) 仿射，由 \hyperref[prop:sga3-VIB-9.2]{9.2\textup{(vii)}}，投影 \(G/N'\to G/N\) 为仿射态射；又因 \(G/N=G_{\mathrm{af}}\) 仿射，\(G/N'\) 也仿射。因此由 \(G_{\mathrm{af}}\) 的泛性质，投影
+\[
+  p':G\longrightarrow G/N'
+\]
+经由 \(G_{\mathrm{af}}=G/N\) 分解。故 \(N\subset N'\)，从而 \(N=N'\)。所以 \(N_{\mathrm{af}}\) 为平凡群，且 \(\mathcal O(N)=k\)。
+
+最后，\hyperref[thm:sga3-VIB-12.2-v]{\textup{(v)}} 由下述引理得到。
+
+\medskip
+\phantomsection\label{lem:sga3-VIB-12.3}%
+\noindent\textbf{引理 12.3.---}
+\emph{设 \(k\) 为域，\(N\) 为满足 \(\mathcal O(N)=k\) 的代数 \(k\)-群。则 \(N\) 平滑、连通且交换。}
+
+事实上，可以假设 \(k\) 代数闭。此时
+\[
+  H=N_{\mathrm{red}}^0
+\]
+是 \(N\) 的 \(k\)-子群，且由 \hyperref[prop:sga3-VIA-5.5.1]{VI\(_A\)，5.5.1} 和 \hyperref[prop:sga3-VIA-5.6.1]{5.6.1}，商 \(k\)-概形 \(X=N/H\) 在 \(k\) 上有限\textup{（因而仿射）}。由于 \(p:N\to X\) 忠实平坦，
+\[
+  \mathcal O(X)\subset\mathcal O(N)=k.
+\]
+可知 \(N=N_{\mathrm{red}}^0\)，从而 \(N\) 平滑\textup{（VI\(_A\)，\hyperref[prop:sga3-VIA-1.3.1]{1.3.1}）}且连通。
+
+设 \(Z\) 为 \(N\) 的中心。由 \hyperref[cor:sga3-VIB-6.2.6]{6.2.6}，\(N/Z\) 仿射，且前述论证给出 \(\mathcal O(N/Z)=k\)。故 \(N=Z\)。引理得证，\hyperref[thm:sga3-VIB-12.2]{12.2} 的证明也随之完成。
+
+我们还不加证明地记录下述定理。回顾，域 \(k\) 上的\emph{阿贝尔簇}是固有、平滑、连通的 \(k\)-群概形。
+
+\medskip
+\phantomsection\label{thm:sga3-VIB-12.4}%
+\noindent\textbf{定理 12.4 \textup{(Chevalley)}.---}
+\emph{设 \(k\) 为完美域，\(G\) 为平滑连通代数 \(k\)-群。则存在一个平滑连通仿射 \(k\)-子群 \(L\)，它在 \(G\) 中不变，且 \(G/L\) 为阿贝尔簇。此外，\(L\) 唯一，且其构造与底域扩张可交换。}
+
+\medskip
+\phantomsection\label{rem:sga3-VIB-12.5}%
+\noindent\textbf{注 12.5.---}
+\begin{enumerate}
+\item[\textup{(1)}]\phantomsection\label{rem:sga3-VIB-12.5-1}%
+  C.~Chevalley 于 1953 年宣布了此定理，并于 1960 年发表证明\textup{（[Ch60]）}。在此期间，I.~Barsotti 和 M.~Rosenlicht 分别独立得到其他证明\textup{（[Ba55, Ro56]）}；历史评述见 \textup{[Se99]}。
+
+\item[\textup{(2)}]\phantomsection\label{rem:sga3-VIB-12.5-2}%
+  B.~Conrad 给出了 Chevalley 证明的现代版本\textup{（即以概形语言表述的版本）}\textup{（[Co02]）}。\textup{（在\emph{该文}中，“代数群”指平滑连通 \(k\)-群概形。）}
+
+\item[\textup{(3)}]\phantomsection\label{rem:sga3-VIB-12.5-3}%
+  Ngô B.-C.\ 则于 2005--2006 年在 Orsay 的一门课程中给出了 Rosenlicht 证明的现代版本。
+
+\item[\textup{(4)}]\phantomsection\label{rem:sga3-VIB-12.5-4}%
+  若去掉 \(k\) 为完美域的假设，仍存在一个最小的不变连通仿射子群 \(L\)，它未必平滑，且 \(G/L\) 为阿贝尔簇\textup{（[BLR]，\S~\SGARefLink{prop:sga3-VIB-9.2}{9.2}，定理~1）}。
+
+\item[\textup{(5)}]\phantomsection\label{rem:sga3-VIB-12.5-5}%
+  也可去掉 \(G\) 在 \(k\) 上平滑的假设。事实上，由 VII\(_A\)，\SGARefLink{prop:sga3-VIB-8.3}{8.3}，存在整数 \(n\geq1\)，使商
+\[
+    G'=G/(\operatorname{Fr}^nG)
+  \]
+  平滑。于是 \(G'\) 包含一个如上面 \hyperref[rem:sga3-VIB-12.5-4]{\textup{(4)}} 中所述的子群 \(L'\)，而 \(L'\) 在 \(G\) 中的逆像仍具有同样的性质。因此，对域 \(k\) 上的每个连通代数群 \(G\)，都存在正合列
+  \phantomsection\label{form:sga3-VIB-12.5-connected-exact-sequence}%
+\[
+    1\longrightarrow H\longrightarrow G
+      \longrightarrow A\longrightarrow1,
+  \]
+  其中 \(H\) 为仿射 \(k\)-群，\(A\) 为阿贝尔 \(k\)-簇。此外，由 \textup{[Per76]}，推论~4.2.9，这样的正合列对每个未必为代数群的连通 \(k\)-群 \(G\) 也存在。
+
+\item[\textup{(6)}]\phantomsection\label{rem:sga3-VIB-12.5-6}%
+  设 \(k\) 为代数闭域，\(G\) 为椭圆曲线 \(E\) 与常值 \(k\)-群 \(\{\pm1\}_k\) 关于作用 \((-1)\cdot x=-x\) 的半直积。在此情形下，若 \(L\) 为 \(G\) 的闭不变子群，且 \(G/L\) 连通，则 \(L=G\)。
+\end{enumerate}
+
+\medskip
+\phantomsection\label{rem:sga3-VIB-12.6}%
+\noindent\textbf{注 12.6.---}
+依照 \textup{[Br09]}，若 \(\mathcal O(N)=k\)，则称 \(k\)-群 \(N\) 为\emph{反仿射群}。由 \hyperref[lem:sga3-VIB-12.3]{12.3} 和 \hyperref[thm:sga3-VIB-12.4]{12.4}，若 \(k\) 完美，则每个反仿射代数 \(k\)-群都是阿贝尔簇以平滑、连通、交换仿射代数 \(k\)-群为核的扩张。关于完美域上反仿射代数群的精确结构及各种推论，见 M.~Brion 与 C.\ 和 F.~Sancho de Salas 的近期文章\textup{（[Br09, SS09]）}。
+
+本节最后将证明 M.~Raynaud 的两个结果，第一个是\hyperref[rem:sga3-VIB-11.11.1]{注 11.11.1}，第二个是第 XVII 篇附录 III 的\SGARefLink{prop:sga3-VIB-2.1}{命题~2.1}。需要用到下述引理，%
+\footnote{\label{note:sga3-VIB-137}编者注：这是 O.~Gabber 对 M.~Raynaud 提供的一个陈述所作的改进版本。}
+它在 \(R\) 为完备离散赋值环时，改进了 \textup{[BAC]}，\S~III.5 中的平坦性判别法。
+
+\medskip
+\phantomsection\label{lem:sga3-VIB-12.7}%
+\noindent\textbf{引理 12.7.---}
+\emph{设 \(R\) 为离散赋值环，\(K\) 为其分式域，\(\pi\) 为素元。设 \(A\) 为平坦 \(R\)-代数，\(M\) 为在 \(R\) 上平坦的 \(A\)-模。假设}
+\begin{enumerate}
+\item[\textup{(i)}]\phantomsection\label{lem:sga3-VIB-12.7-i}%
+  \emph{\(M/\pi M\) 在 \(\overline A=A/\pi A\) 上平坦，}
+
+\item[\textup{(ii)}]\phantomsection\label{lem:sga3-VIB-12.7-ii}%
+  \emph{\(M\otimes_RK\) 在 \(A\otimes_RK\) 上平坦。}
+\end{enumerate}
+\emph{则 \(M\) 在 \(A\) 上平坦。}
+
+由幂零情形的平坦性判别法\textup{（参见 [BAC]，III \S~\SGARefLink{prop:sga3-VIB-5.2}{5.2}，定理~1）}，
+\[
+  M/\pi^nM
+\]
+对每个 \(n\in\mathbb N^*\) 都在 \(A/\pi^nA\) 上平坦。再由 \textup{[RG71]}，II，引理~1.4.2.1，\(M\) 在 \(A\) 上平坦。为便于读者查阅，简要说明证明。置
+\[
+  s=\pi^n,\qquad P=M/sM.
+\]
+由于 \(P\) 在 \(A/sA\) 上平坦，而 \(A/sA\) 在 \(A\) 上的投射维数为 \(1\)，复合函子的谱序列表明 \(P\) 在 \(A\) 上的 Tor 维数至多为 \(1\)。由于 \(M\) 在 \(R\) 上平坦，因而无 \(\pi\)-挠，\(M_K/M\) 是 \(A\)-模
+\[
+  \pi^{-n}M/M\simeq M/\pi^nM.
+\]
+的归纳极限。因此 \(M_K/M\) 的 Tor 维数也至多为 \(1\)。由正合列
+\phantomsection\label{form:sga3-VIB-12.7-MK-exact-sequence}%
+\[
+  0\longrightarrow M\longrightarrow M_K
+    \longrightarrow M_K/M\longrightarrow0
+\]
+以及 \(M_K\) 在 \(A_K\) 上平坦、因而在 \(A\) 上平坦的假设，可知 \(M\) 平坦。
+
+为完整起见，再给出 O.~Gabber 指出的如下更简单的证明。设 \(I\) 为 \(A\) 的有限生成理想。须证明
+\[
+  u:M\otimes_AI\longrightarrow M
+\]
+单射。由 \hyperref[lem:sga3-VIB-12.7-ii]{\textup{(ii)}}，\(u\otimes_RK\) 单射，故 \(\operatorname{Ker}(u)\) 是 \(\pi\)-挠 \(R\)-模。因此，只须证明 \(M\otimes_AI\) 的 \(\pi\)-挠子模为零。该子模是 \(\operatorname{Tor}_1^A(M,I/\pi I)\) 的商，这可由将正合列
+\phantomsection\label{form:sga3-VIB-12.7-I-exact-sequence}%
+\[
+  0\longrightarrow I\xrightarrow{\ \pi\ }I
+    \longrightarrow I/\pi I\longrightarrow0.
+\]
+与 \(M\) 作张量积看出。
+
+另一方面，由于 \(M\) 无 \(\pi\)-挠\textup{（它在 \(R\) 上平坦）}，有
+\[
+  \operatorname{Tor}_i^A(M,\overline A)=0
+  \qquad(i\geq1).
+\]
+因此，若 \(P_\bullet\) 为 \(A\)-模 \(M\) 的投射分解，则
+\[
+  P_\bullet\otimes_A\overline A
+\]
+为 \(\overline A\)-模 \(\overline M=M/\pi M\) 的投射分解。于是对每个 \(\overline A\)-模 \(Q\)，
+\[
+  \operatorname{Tor}_i^A(M,Q)
+    =\operatorname{Tor}_i^{\overline A}(\overline M,Q),
+\]
+由于 \(\overline M\) 在 \(\overline A\) 上平坦，该式对 \(i\geq1\) 为零。故 \(\operatorname{Tor}_1^A(M,I/\pi I)=0\)，引理得证。
+
+\medskip
+\phantomsection\label{rem:sga3-VIB-12.8}%
+\noindent\textbf{注 12.8.---}
+设 \(S\) 为维数为 \(1\) 的正则且局部 Noether 的概形，\(X\) 为在 \(S\) 上平坦、拟分离且拟紧的 \(S\)-概形。则 \(\mathcal A(X)\) 为平坦 \(\mathcal O_S\)-模。事实上，可假设 \(S\) 局部。设 \(s\) 为其闭点，\(i:X_s\hookrightarrow X\) 为包含映射，\(\pi\) 为 \(R=\mathcal O(S)\) 的素元。由于 \(X\) 在 \(S\) 上平坦，存在层的正合列
+\phantomsection\label{form:sga3-VIB-12.8-sheaf-exact-sequence}%
+\[
+  0\longrightarrow\mathcal O_X
+    \xrightarrow{\ \pi\ }\mathcal O_X
+    \longrightarrow i_*(\mathcal O_{X_s})
+    \longrightarrow0.
+\]
+取整体截面，可知 \(\mathcal A(X)\) 作为 \(R\)-模无 \(\pi\)-挠，因而平坦。%
+\footnote{\label{note:sga3-VIB-138}编者注：更一般地，当 \(S\) 正则、局部 Noether 且维数至多为 \(2\) 时，此点成立；见 \textup{[Ray70a]}，\SGARefLink{sga3:VIIB:3.2:prop}{VII~3.2}。}
+此外，由 \(X\to X_{\mathrm{af}}\) 诱导的态射
+\[
+  \mathcal A((X_{\mathrm{af}})_s)
+    =\mathcal A(X)/\pi\mathcal A(X)
+    \longrightarrow\mathcal A(X_s),
+\]
+单射。
+
+现在可以证明下述命题\textup{（参见\hyperref[rem:sga3-VIB-11.11.1]{注 11.11.1}）}。
+
+\medskip
+\phantomsection\label{prop:sga3-VIB-12.9}%
+\noindent\textbf{命题 12.9.---}
+\emph{设 \(S\) 为维数至多为 \(1\) 的正则且局部 Noether 的概形，\(G\) 为在 \(S\) 上平坦、拟分离且拟紧的 \(S\)-群概形。则下列条件等价：}
+\begin{enumerate}
+\item[\textup{(i)}]\phantomsection\label{prop:sga3-VIB-12.9-i}%
+  \emph{\(G\) 在 \(S\) 上仿射。}
+
+\item[\textup{(ii)}]\phantomsection\label{prop:sga3-VIB-12.9-ii}%
+  \emph{\(G\) 在 \(S\) 上拟仿射。}
+
+\item[\textup{(iii)}]\phantomsection\label{prop:sga3-VIB-12.9-iii}%
+  \emph{\(G\) 忠实地作用于一个拟仿射且平坦的 \(S\)-概形 \(X\)。}
+
+\item[\textup{(iv)}]\phantomsection\label{prop:sga3-VIB-12.9-iv}%
+  \emph{\(G\) 线性且忠实地作用于一个在 \(S\) 上平坦的拟凝聚模 \(\mathcal E\)。}
+
+\item[\textup{(v)}]\phantomsection\label{prop:sga3-VIB-12.9-v}%
+  \emph{态射 \(\rho:G\to G_{\mathrm{af}}\) 为单态射。}
+\end{enumerate}
+
+蕴涵 \hyperref[prop:sga3-VIB-12.9-i]{\textup{(i)}}\(\Rightarrow\)\hyperref[prop:sga3-VIB-12.9-ii]{\textup{(ii)}} 显然，\hyperref[prop:sga3-VIB-12.9-ii]{\textup{(ii)}}\(\Rightarrow\)\hyperref[prop:sga3-VIB-12.9-iii]{\textup{(iii)}} 也显然\textup{（取 \(X=G\)）}。
+
+假设 \hyperref[prop:sga3-VIB-12.9-iii]{\textup{(iii)}} 成立。由于 \(\mathcal A(G)\) 和 \(\mathcal A(X)\) 都是平坦 \(\mathcal O_S\)-模，\hyperref[prop:sga3-VIB-11.11]{11.11} 的论证表明，\(G\) 忠实地右作用于 \(X_{\mathrm{af}}\)，从而线性且忠实地左作用于平坦拟凝聚 \(\mathcal O_S\)-模 \(\mathcal A(X)\)。
+
+若 \hyperref[prop:sga3-VIB-12.9-iv]{\textup{(iv)}} 成立，\hyperref[prop:sga3-VIB-11.6.1]{11.6.1\textup{(ii)}} 表明单态射
+\[
+  G\longrightarrow\operatorname{Aut}_{\mathcal O_S}(\mathcal E)
+\]
+经由 \(G_{\mathrm{af}}\) 分解。故 \(G\to G_{\mathrm{af}}\) 为单态射。
+
+最后，假设 \hyperref[prop:sga3-VIB-12.9-v]{\textup{(v)}} 成立，证明 \(\rho:G\to G_{\mathrm{af}}\) 是同构。以一个连通分支替代 \(S\)，可假设 \(S\) 不可约，其泛点为 \(\eta\)。由于 \(G_{\mathrm{af}}\) 的构造与平坦基变换可交换，
+\[
+  (G_{\mathrm{af}})_\eta=(G_\eta)_{\mathrm{af}}.
+\]
+因此 \(G_\eta\to(G_\eta)_{\mathrm{af}}\) 是单态射，从而由 \hyperref[lem:sga3-VIB-12.1]{12.1} 为闭浸入，并因此为同构，因为
+\[
+  \mathcal O((G_\eta)_{\mathrm{af}})=\mathcal O(G_\eta).
+\]
+若 \(S=\operatorname{Spec}(\kappa(\eta))\)，证明已经完成；故可假设 \(\dim S=1\)。
+
+设 \(s\) 为 \(S\) 的闭点。我们将证明
+\[
+  G_s\longrightarrow(G_{\mathrm{af}})_s
+\]
+是同构，且 \(\rho\) 在 \(G_s\) 的每一点处平坦。可以假设 \(S\) 局部，其闭点为 \(s\)。基变换态射
+\[
+  \rho_s:G_s\longrightarrow(G_{\mathrm{af}})_s
+\]
+是单态射，从而由 \hyperref[lem:sga3-VIB-12.1]{12.1} 为闭浸入。所以由 \(\rho_s\) 诱导的态射
+\[
+  \mathcal O((G_{\mathrm{af}})_s)
+    \longrightarrow\mathcal O(G_s)
+\]
+满射。由前一注，它还单射，故为同构。特别地，\(\rho\) 满射。
+
+由\hyperref[lem:sga3-VIB-12.7]{引理 12.7}，\(\rho:G\to G_{\mathrm{af}}\) 忠实平坦。由于 \(G\) 在 \(S\) 上拟紧，而 \(G_{\mathrm{af}}\) 在 \(S\) 上分离，\(\rho\) 还拟紧\textup{（参见 EGA~I，6.6.4）}。因此 \(\rho\) 是拟紧忠实平坦单态射，从而为同构。命题得证。
+
+最后证明第 XVII 篇附录 III 的命题~2.1。根据 \textup{[Per76]}，推论~4.2.5，我们将假设中的“有限型”替换为“拟紧且拟分离”。\textup{（若假设 \(G\) 有限型，可用 \hyperref[lem:sga3-VIB-12.1]{12.1} 代替\emph{该文所引结果}。）}
+
+\medskip
+\phantomsection\label{prop:sga3-VIB-12.10}%
+\noindent\textbf{命题 12.10.---}
+\emph{设 \(S\) 为维数至多为 \(1\) 的正则且局部 Noether 的概形，\(G\) 为平坦、拟紧且拟分离的 \(S\)-群概形。}
+\begin{enumerate}
+\item[\textup{(i)}]\phantomsection\label{prop:sga3-VIB-12.10-i}%
+  \emph{典范态射 \(\rho:G\to G_{\mathrm{af}}\) 忠实平坦且拟紧。因此 \(G_{\mathrm{af}}\) 表出 \(G\) 关于 \(N=\operatorname{Ker}(\rho)\) 的 \textup{(fpqc)} 商层。}
+
+\item[\textup{(ii)}]\phantomsection\label{prop:sga3-VIB-12.10-ii}%
+  \emph{若此外 \(G\) 在 \(S\) 上有限型，则 \(\rho\) 有限呈示，\(G_{\mathrm{af}}\) 表出 \(G\) 关于 \(N\) 的 \textup{(fppf)} 商层，且 \(G_{\mathrm{af}}\) 在 \(S\) 上有限型。}
+
+\item[\textup{(iii)}]\phantomsection\label{prop:sga3-VIB-12.10-iii}%
+  \emph{再假设对 \(S\) 的每个极大点 \(\eta\)，\(G_\eta\) 都仿射。则 \(N\) 为平展 \(S\)-群；若 \(G\) 在 \(S\) 上分离，则它为单位群。}
+\end{enumerate}
+
+由于 \(G_{\mathrm{af}}\) 在 \(S\) 上仿射，因而分离，态射 \(\rho\) 拟紧\textup{（参见 EGA~I，6.6.4）}，且其核
+\[
+  N=\operatorname{Ker}(\rho)
+\]
+为 \(G\) 的闭子群。以一个连通分支替代 \(S\)，可假设 \(S\) 不可约，其泛点为 \(\eta\)。
+
+为证明 \hyperref[prop:sga3-VIB-12.10-i]{\textup{(i)}} 和 \hyperref[prop:sga3-VIB-12.10-ii]{\textup{(ii)}}，只须证明 \(\rho\) 忠实平坦。事实上，此时由 \SGARefLink{sga3:iv:corollary:5:1:7:1}{第 IV 篇，5.1.7.1}，\(G_{\mathrm{af}}\) 表出 \(G\) 关于 \(N\) 的 \textup{(fpqc)} 商层。若此外 \(G\) 在 \(S\) 上有限型，则由于 \(S\) 局部 Noether，它有限呈示；由 \hyperref[prop:sga3-VIB-9.2]{9.2\textup{(xiii)}}，\(\rho\) 以及 \(G_{\mathrm{af}}\to S\) 都有限呈示，故 \(\rho\) 是 \textup{(fppf)} 拓扑的覆盖。
+
+因此可假设
+\[
+  S=\operatorname{Spec}(R),
+\]
+其中，若 \(\dim S=1\)，则 \(R\) 为离散赋值环；若 \(\dim S=0\)，则它为域 \(\kappa(\eta)\)。设 \(s\) 为 \(S\) 的闭点。由于 \(G_{\mathrm{af}}\) 的构造与平坦基变换可交换，典范态射 \(G_\eta\to(G_\eta)_{\mathrm{af}}\) 等同于
+\[
+  \rho_\eta:G_\eta\longrightarrow(G_{\mathrm{af}})_\eta.
+\]
+由于
+\[
+  \mathcal O((G_{\mathrm{af}})_\eta)
+    =\mathcal O((G_\eta)_{\mathrm{af}})
+    =\mathcal O(G_\eta),
+\]
+由 \textup{[Per76]}，4.2.5，\(\rho_\eta\) 忠实平坦\textup{（亦见 VI\(_A\)，\hyperref[cor:sga3-VIA-6.6]{6.6} 的增补）}。若 \(\dim S=1\)，同样的论证表明 \(\rho_s\) 忠实平坦，因为态射
+\[
+  \mathcal O((G_{\mathrm{af}})_s)
+    \longrightarrow\mathcal O(G_s)
+\]
+由\hyperref[rem:sga3-VIB-12.8]{注 12.8} 单射。再由引理~\hyperref[lem:sga3-VIB-12.7]{12.7}，\(\rho\) 忠实平坦。这证明了 \hyperref[prop:sga3-VIB-12.10-i]{\textup{(i)}} 和 \hyperref[prop:sga3-VIB-12.10-ii]{\textup{(ii)}}。特别地，\(N\) 在 \(S\) 上平坦。
+
+现在假设 \(G_\eta\) 仿射。由于 \(\rho_\eta\) 与典范态射
+\[
+  G_\eta\longrightarrow(G_\eta)_{\mathrm{af}},
+\]
+一致，其核 \(N_\eta\) 为单位群。证明 \(N\) 在 \(S\) 上平展。由于 \(N\) 在 \(S\) 上平坦，还须证明对 \(S\) 中每个点 \(s\neq\eta\)，\(N_s\) 在 \(\kappa(s)\) 上平展。当 \(S=\operatorname{Spec}(\kappa(\eta))\) 时无须证明，故可假设 \(S=\operatorname{Spec}(R)\)，其中 \(R\) 为离散赋值环。设 \(s\) 为 \(S\) 的闭点，\(K\) 为 \(R\) 的分式域，\(\pi\) 为素元。
+
+设 \(x\in N_s\)，并设 \(U_x\) 为 \(x\) 在 \(N\) 中的仿射开邻域。由于 \(N\) 在 \(S\) 上平坦，交集 \(U_x\cap N_\eta\) 非空，因而等于 \(\{\epsilon(\eta)\}\)，其中 \(\epsilon\) 表示单位截面。于是
+\[
+  A=\mathcal O(U_x)
+\]
+为满足 \(A_K=K\) 的平坦 \(R\)-代数，且 \(\pi^{-1}\notin A\)，因为 \(\pi\) 属于 \(\mathcal O_{U_x,x}\) 的极大理想。可知 \(A=R\)，从而投影 \(U_x\to S\) 为同构。因此 \(N\) 在 \(S\) 上平展。若 \(G\) 在 \(S\) 上还分离，则逆同构 \(S\to U_x\) 就是单位截面，因为两者在 \(S=\operatorname{Spec}(R)\) 的稠密开集 \(\{\eta\}\) 上一致。故 \(N\) 为单位群。命题得证。
+
+特别地，得到下述推论，其另外两个证明见 \textup{[An73]}，\SGARefLink{prop:sga3-VIA-2.3.1}{命题~2.3.1}，以及 \textup{[PY06]}，\SGARefLink{def:sga3-VIB-3.1}{命题~3.1}。
+
+\medskip
+\phantomsection\label{cor:sga3-VIB-12.10.1}%
+\noindent\textbf{推论 12.10.1.---}
+\emph{设 \(R\) 为离散赋值环，\(K\) 为其分式域，\(G\) 为在 \(R\) 上分离、平坦且有限型的 \(R\)-群概形。若 \(G_K\) 仿射，则 \(G\) 仿射。}
+
+\medskip
+\phantomsection\label{rem:sga3-VIB-12.10.2}%
+\noindent\textbf{注 12.10.2.---}
+\begin{enumerate}
+\item[\textup{(a)}]\phantomsection\label{rem:sga3-VIB-12.10.2-a}%
+  O.~Gabber 向我们指出一些例子，其中 \(G\) 为离散赋值环上的平坦有限型群，其泛纤维为阿贝尔簇，而 \(G\to G_{\mathrm{af}}\) 的核 \(N\) 不平滑。
+
+\item[\textup{(b)}]\phantomsection\label{rem:sga3-VIB-12.10.2-b}%
+  M.~Raynaud 则给出了这样一个例子：\(S\) 为域 \(k\) 上维数为 \(2\) 的仿射平面，有一个平滑拟仿射 \(S\)-群概形，其纤维仿射且连通，但它在 \(S\) 上不仿射；见 \textup{[Ray70a]}，\S~VII.3，第~116 页。
+\end{enumerate}

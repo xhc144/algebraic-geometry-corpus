@@ -1,0 +1,376 @@
+% SGA 3, Expose VI_A, English reconstruction -- Loop 1.
+% Scope: component-local pages 1--4, from the title through the end of
+% Corollary 0.5.2, stopping before the Section 1 heading.
+% Combined-reader pages: 304--307. Printed pages: 293--296.
+% Authority: Polo--Gille Exp6A-13oct24.pdf,
+% SHA-256 6C8795572D1FC3B21BD02D24B1BFB20A8FB447475702C2674C96939B1EB69582.
+% Jacob Reinhold's CC BY 4.0 English Markdown was consulted only as a
+% comparison lineage. The Polo--Gille PDF controls prose, formulas,
+% numbering, footnotes, and the source-bound Loop-1 diagram.
+
+\setcounter{footnote}{-1}
+\chapter*{第 \texorpdfstring{VI\textsubscript{A}}{VI_A} 篇\\
+代数群的一般理论}
+\phantomsection
+\label{sga3:VIA:title}
+\addcontentsline{toc}{chapter}{第 VI-A 篇. 代数群的一般理论}
+\markboth{第 VI\textsubscript{A} 篇. 代数群的一般理论}%
+  {第 VI\textsubscript{A} 篇. 代数群的一般理论}
+
+\begin{center}
+  \textit{P. Gabriel 著}
+\end{center}
+
+% Authority: Exp6A local p. 1; combined-reader p. 304; printed p. 293.
+\footnote{编者注: 2024 年 10 月 13 日版本.}
+本章中, \(A\) 都表示剩余域为 \(k\) 的 Artin 局部环.
+\(\operatorname{Spec} A\) 上的群概形 \(G\) 简称为
+\(A\)-\emph{群}. 若其底概形在 \(A\) 上局部有限型,
+则称此 \(A\)-群\emph{局部有限型};
+若其底概形在 \(A\) 上有限型, 则称其为\emph{代数的}.
+
+\section*{0. 预备说明}
+\phantomsection
+\label{sga3:VIA:0}
+\addcontentsline{toc}{section}{0. 预备说明}
+
+\medskip
+\noindent\textbf{0.1.}
+\phantomsection
+\label{sga3:VIA:0.1}
+先考虑任意概形 \(S\) 上的一个群概形 \(G\).
+称结构态射
+\[
+  \mu:G\times_S G\longrightarrow G
+\]
+为\emph{乘法}; 称态射 \(c:G\to G\) 为\emph{求逆},
+其中对 \(S\) 上的每个概形 \(T\) 及每个 \(x\in G(T)\),
+有 \(c(T)(x)=x^{-1}\).
+若 \(U\) 与 \(V\) 是 \(G\) 的底集合的子集,
+以 \(U\cdot V\) 表示 \(G\times_S G\) 的如下子集在乘法下的像:
+其第一投影属于 \(U\), 第二投影属于 \(V\) 的那些点所成的子集.
+同样地, 记号 \(U^{-1}\) 与 \(c(U)\) 等价.
+
+设 \(\operatorname{pr}_1\) 是 \(G\times_S G\) 到第一因子的投影,
+设
+\[
+  \sigma:G\times_S G\longrightarrow G\times_S G
+\]
+是以 \(\operatorname{pr}_1\) 和 \(\mu\) 为分量的态射.
+对每个 \(S\)-概形 \(T\), 映射 \(\sigma(T)\) 为
+\[
+  (x,y)\longmapsto (x,xy);
+\]
+所以 \(\sigma\) 是自同构.
+此自同构与 \(G\times_S G\) 到第二因子的投影
+\(\operatorname{pr}_2\) 的复合就是乘法态射.
+当 \(G\) 在 \(S\) 上平坦时, \(\operatorname{pr}_2\),
+因而 \(\mu\), 都是平坦态射;
+当 \(G\) 在 \(S\) 上平滑时, \(\operatorname{pr}_2\),
+因而 \(\mu\), 都是平滑态射, 其余类推.
+
+\medskip
+\noindent\textbf{0.2.}
+\phantomsection
+\label{sga3:VIA:0.2}
+从现在起, 假设 \(S\) 是剩余域为 \(k\) 的 Artin 局部环 \(A\) 的谱.
+以 \((\mathbf{Sch}_{/k})_{\mathrm{red}}\) 表示 \(k\) 上的约化概形范畴.
+对 \(A\) 上的每个概形 \(X\), 约化概形 \(X_{\mathrm{red}}\)
+是 \((\mathbf{Sch}_{/k})_{\mathrm{red}}\) 的对象,
+且函子
+\[
+  X\longmapsto X_{\mathrm{red}}
+\]
+是 \((\mathbf{Sch}_{/k})_{\mathrm{red}}\) 到
+\(\mathbf{Sch}_{/A}\) 的包含函子的右伴随.
+所以, 对每个 \(A\)-群 \(G\), \(G_{\mathrm{red}}\)
+是范畴 \((\mathbf{Sch}_{/k})_{\mathrm{red}}\) 中的一个群.
+\footnote{编者注: 以下几句为新增内容.}
+换言之, 对每个约化 \(k\)-概形 \(T\),
+\(G_{\mathrm{red}}(T)\) 配备了一个关于 \(T\) 函子性的群结构.
+必须记住, \(G_{\mathrm{red}}\) 未必是一个 \(k\)-群,
+因为其 ``乘法'' 只是一个态射
+\stepcounter{footnote}%
+\[
+  (G_{\mathrm{red}}\times_k G_{\mathrm{red}})_{\mathrm{red}}
+  \longrightarrow
+  G_{\mathrm{red}}\text{\hyperlink{sga3:VIA:fn:red-examples}{%
+    \textsuperscript{\normalfont\thefootnote}}}.
+\]
+\footnotetext[\value{footnote}]{\hypertarget{sga3:VIA:fn:red-examples}{}编者注:
+非完美域 \(k\) 上使得 \(G_{\mathrm{red}}\) 不是 \(k\) 上的群概形的
+群概形 \(G\) 的例子, 见下文 \SGARefLink{ex:sga3-VIA-1.3.2}{1.3.2}.}
+
+\footnote{编者注: \SGARefLink{sga3:VIA:0.2}{0.2} 的余下部分及
+\SGARefLink{sga3:VIA:0.3}{0.3} 作了少量修改.}
+然而, 若 \(k\) 是完美域, 则
+\((\mathbf{Sch}_{/k})_{\mathrm{red}}\) 到 \(\mathbf{Sch}_{/k}\)
+的包含函子与积可交换.
+所以, \((\mathbf{Sch}_{/k})_{\mathrm{red}}\) 中的群可等同于
+\(k\) 上底概形约化的群概形.
+此时, 若 \(G\) 是一个 \(k\)-群,
+则 \(G_{\mathrm{red}}\) 是 \(G\) 的一个群子概形;
+一般来说, 此子群在 \(G\) 中并不正规.
+
+例如, 若 \(k\) 是特征为 \(3\) 的域,
+则常群 \((\mathbb Z/2\mathbb Z)_k\) 在可对角化群
+\(D_k(\mathbb Z/3\mathbb Z)\) 上有非平凡作用
+(参见 \SGARefLink{sga3:i:subsection:4-1}{第 I 篇, 4.1} 和
+\SGARefLink{cor:sga3-VIB-4.4}{4.4}).
+若以 \(G\) 表示由此作用定义的 \(D_k(\mathbb Z/3\mathbb Z)\)
+与 \((\mathbb Z/2\mathbb Z)_k\) 的半直积,
+则 \(G_{\mathrm{red}}\) 等同于 \((\mathbb Z/2\mathbb Z)_k\),
+且在 \(G\) 中不正规.
+\footnote{编者注: 若要 \(G\) 连通的类似例子,
+可在 \(\operatorname{char}(k)=p>0\) 时,
+取 \(\alpha_{p,k}\) 与 \(\mathbb G_{m,k}\) 的半直积.}
+
+设 \(k\) 是任意域, \(k^{p^{-\infty}}\) 是其完美闭包,
+\(H\) 是 \((\mathbf{Sch}_{/k})_{\mathrm{red}}\) 中的一个群. 则
+\[
+  (H\otimes_k k^{p^{-\infty}})_{\mathrm{red}}
+\]
+是完美域 \(k^{p^{-\infty}}\) 上的一个群概形.
+由于 \(H\otimes_k k^{p^{-\infty}}\) 与
+\((H\otimes_k k^{p^{-\infty}})_{\mathrm{red}}\)
+有相同的底拓扑空间,
+\((\mathbf{Sch}_{/k})_{\mathrm{red}}\) 中的群与 \(k\)-群
+共有某些在基域扩张下不变的拓扑性质.
+例如, 由 \hyperref[sga3:VIA:0.3]{0.3} 及以上说明将可推出,
+\((\mathbf{Sch}_{/k})_{\mathrm{red}}\) 中的每个群都是分离的.
+
+以下, 当我们处理一个 \(A\)-群 \(G\) 的非空局部闭子集 \(U\),
+且它满足
+\[
+  U\cdot U=U
+  \qquad\text{及}\qquad
+  U^{-1}=U.
+\]
+时, 就会遇到 \((\mathbf{Sch}_{/k})_{\mathrm{red}}\) 中的群.
+事实上, \(G\) 的由 \(U\) 定义的约化子概形,
+此时就是 \((\mathbf{Sch}_{/k})_{\mathrm{red}}\) 中的一个群.
+
+% Authority: Exp6A local p. 2; combined-reader p. 305; printed p. 294.
+\medskip
+\noindent\textbf{0.3.}
+\phantomsection
+\label{sga3:VIA:0.3}
+\textit{\(A\)-群 \(G\) 总是分离的,
+因为单位截面 \(e:\operatorname{Spec}A\to G\) 是闭浸入.}
+事实上, 设 \(x\) 是 \(\operatorname{Spec}A\) 的唯一点,
+\(\eta:G\to\operatorname{Spec}A\) 是结构态射.
+由于 \(\eta\circ e=\operatorname{id}_{\operatorname{Spec}A}\),
+对 \(G\) 的每个包含 \(e(x)\) 的仿射开集 \(U=\operatorname{Spec}B\),
+同态 \(B\to A\) 都有一个截面, 从而是满射.
+因此 \(e\) 是闭浸入.
+\footnote{编者注: 这个论证对每个零维局部环 \(A\) 都有效,
+并表明当 \(S\) 是离散概形时, 每个 \(S\)-群都是分离的;
+参见 VI\textsubscript{B}, \SGARefLink{prop:sga3-VIB-5.2}{5.2}.
+另一方面 (参见 VI\textsubscript{B}, \SGARefLink{ctr:sga3-VIB-5.6.4}{5.6.4}),
+若 \(S\) 含有一个非孤立闭点 \(s\),
+则将 \(S\) 的两个副本沿开子集 \(S-\{s\}\) 粘合所得的
+\(S\)-概形 \(G\) 在 \(S\) 上并不分离,
+尽管它带有一个 \(S\)-群结构.}
+
+\(G\times_A G\) 中的对角等同于从
+\((\mathbf{Sch}_{/A})^\circ\) 到 \(\mathbf{Sets}\) 的如下函子:
+它将每个 \(A\)-概形 \(S\) 映为 \(G(S)\) 的单位元在映射
+\[
+  \varphi(S):G(S)\times G(S)\longrightarrow G(S),
+  \qquad (x,y)\longmapsto x\cdot y^{-1}.
+\]
+下的逆像. 因此有下列笛卡尔方块.
+由于对角态射由一个闭浸入经基变换得到, 它本身也是闭浸入.
+
+\begin{center}
+  \phantomsection
+  \label{sga3:VIA:0.3-cartesian-square}
+  \begin{tikzcd}[row sep=large,column sep=large]
+    G\times_S G
+      \arrow[r,"\varphi"]
+    &
+    G
+    \\
+    G
+      \arrow[u,"\text{对角态射}"]
+      \arrow[r]
+    &
+    \operatorname{Spec}A
+      \arrow[u,"\text{单位截面}"']
+  \end{tikzcd}
+\end{center}
+
+% The exact source-PDF crop above prints G x_S G in its upper-left corner.
+% The surrounding source prose identifies the fiber product as G x_A G.
+
+% Authority: Exp6A local p. 3; combined-reader p. 306; printed p. 295.
+\medskip
+\noindent\textbf{0.4.}\footnote{编者注: 以下内容对原文作了扩充;
+特别新增了\hyperref[sga3:VIA:0.4.1]{注 0.4.1}.}
+\phantomsection
+\label{sga3:VIA:0.4}
+设 \(G\) 是一个 \(A\)-概形.
+若存在一个 \(A\)-态射
+\[
+  s:\operatorname{Spec}A\longrightarrow G
+\]
+将 \(\operatorname{Spec}A\) 的唯一点映到 \(G\) 的点 \(g\),
+即同态 \(A\to\mathcal O_{G,g}\) 有一个收缩,
+则称 \(g\) \emph{在 \(A\) 上严格有理 (strictly rational)}.
+此时有 \(\kappa(g)=k\), 所以 \(g\) 是 \(G\) 的一个闭点.
+事实上, 若 \(B\) 是 \(g\) 的某个仿射开邻域的环,
+\(\mathfrak p\) 是 \(B\) 中对应于 \(g\) 的素理想,
+则 \(B/\mathfrak p\subset k\) 是有限 \(A\)-代数,
+从而是整的 Artin 环, 因而是域.
+
+此后假设 \(G\) 是一个 \(A\)-群.
+这样的态射 \(s:\operatorname{Spec}A\to G\)
+定义了概形 \(G\) 在 \(A\) 上的一个自同构 \(r_s\),
+称为\emph{由 \(s\) 给出的右平移}.
+对每个态射 \(\pi:S\to\operatorname{Spec}A\),
+\(G(S)\) 的自同构 \(r_s(\pi)\) 由下式定义:
+\[
+  x\longmapsto x\cdot G(\pi)(s),
+  \qquad x\in G(S).
+\]
+同样地, \(\ell_s\) 表示\emph{由 \(s\) 给出的左平移},
+即由下式定义的 \(G\) 的自同构:
+\[
+  \ell_s(\pi)(x)=G(\pi)(s)\cdot x,
+  \qquad x\in G(S).
+\]
+
+概形 \(G\otimes_A k\) 与 \(G\) 有相同的底拓扑空间
+\(\underline G\), \(G\otimes_A k\) 是一个 \(k\)-群,
+且 \(s\otimes_A k\) 只依赖于 \(g\), 而不依赖于 \(s\).
+因此, \(r_s\) 与 \(\ell_s\)
+(或 \(r_{s\otimes k}\) 与 \(\ell_{s\otimes k}\))
+所诱导的 \(\underline G\) 的自同构只依赖于 \(g\), 而不依赖于 \(s\).
+所以, 若 \(P\) 是 \(\underline G\) 的子集, 可以记
+\[
+  r_g(P)\ \text{或}\ P\cdot g
+  \qquad
+  \bigl(\text{分别地, }\ell_g(P)\ \text{或}\ g\cdot P\bigr)
+\]
+来代替 \(r_s(P)\) (分别地, \(\ell_s(P)\)),
+这与 \hyperref[sga3:VIA:0.1]{0.1} 一致.
+
+\medskip
+\noindent\textbf{注 0.4.1.}
+\phantomsection
+\label{sga3:VIA:0.4.1}
+\textit{若 \(g\) 是 \(G\) 的一个严格有理点,
+且 \(A\to A'\) 是 Artin 局部环态射,
+则 \(G'=G\otimes_A A'\) 在 \(g\) 上方有唯一的点 \(g'\),
+且 \(g'\) 在 \(A'\) 上严格有理.
+此外, 若 \(P'\) 表示 \(P\) 在 \(G'\) 中的逆像,
+则 \(P'\cdot g'\) 是 \(P\cdot g\) 的逆像 (参见 EGA I, 3.4.8).}
+
+\medskip
+\noindent\SGAInlineRefTarget{sga3:vi:proposition:0-5}\textbf{命题 0.5.}
+\footnote{编者注: 原文在 \(G\) 于 \(A\) 上局部有限型的假设下陈述此结果.
+由于此结果在一般情形中也有用, 且证明本质上相同,
+此处在完全一般的情形下陈述并证明它. 下文将多次使用它.}
+\phantomsection
+\label{sga3:VIA:0.5}
+\textit{设 \(G\) 是一个 \(A\)-群,
+\(U,V\) 是 \(G\) 的两个稠密开子集.
+则 \(U\cdot V\), 即 \(U\times_A V\) 在乘法下的像,
+是 \(G\) 的整个底空间.}
+
+\begin{proof}
+由于 \(G\) 与 \(G\otimes_A k\) 有相同的底空间,
+必要时以 \(k\) 代替 \(A\), 以 \(G\otimes_A k\) 代替 \(G\),
+可以假设 \(A=k\).
+设 \(g\in G\), 并置 \(K=\kappa(g)\).
+则左平移 \(\ell_g\) 是 \(G_K\) 的自同构.
+由于投影 \(G_K\to G\) 是开映射,
+\(U_K\) 与 \(V_K\) 是 \(G_K\) 的稠密开子集,
+\(V_K\) 在 \(\ell_g\) 下的像也如此.
+因此存在 \(v\in V_K\), 使得 \(u=\ell_g(v)\) 属于 \(U_K\).
+
+设 \(L\) 是包含 \(\kappa(v)\), 因而也包含 \(\kappa(u)\) 的
+\(K\) 的一个扩域; 设 \(g_L\) 和 \(v_L\) 是由 \(g\) 和 \(v\)
+诱导的 \(G_L\) 的 \(L\)-值点. 则
+\[
+  g_L\cdot v_L=u'
+\]
+是 \(G_L\) 中位于 \(u\) 上方的点, 因而
+\[
+  g_L=u'\cdot v_L^{-1}
+\]
+位于 \(U\cdot V\) 上方.
+所以 \(g\in U\cdot V\), 命题得证.
+\end{proof}
+
+% Authority: Exp6A local p. 4; combined-reader p. 307; printed p. 296.
+\medskip
+\noindent\textbf{推论 0.5.1.}
+\footnote{编者注: 此推论插入于此;
+参见下文 \SGARefLink{prop:sga3-VIA-2.4}{2.4} 和
+\SGARefLink{cor:sga3-VIA-2.6.2}{2.6.2}.}
+\phantomsection
+\label{sga3:VIA:0.5.1}
+\textit{若 \(G\) 是不可约的 \(A\)-群, 则 \(G\) 拟紧.}
+
+\begin{proof}
+设 \(U\) 是 \(G\) 的一个非空仿射开子集.
+则 \(U\) 在 \(G\) 中稠密, 所以由 \hyperref[sga3:VIA:0.5]{0.5}, 态射
+\[
+  \mu:U\times_A U\longrightarrow G
+\]
+是满射. 因此, 由于 \(U\times_A U\) 拟紧, \(G\) 也拟紧.
+\end{proof}
+
+\medskip
+\noindent\textbf{推论 0.5.2.}\footnote{编者注: 此推论为新增内容,
+在 VIII, \SGARefLink{sga3:viii:corollary:6:7}{6.7} 中隐含地使用了它;
+另见 VI\textsubscript{B}, \SGARefLink{cor:sga3-VIB-6.2.5}{6.2.5}.}
+\phantomsection
+\label{sga3:VIA:0.5.2}
+\textit{设 \(G\) 是一个 \(A\)-群概形,
+\(H\) 是 \(G\) 在 \(A\) 上的一个群子概形. 则 \(H\) 是闭的.}
+
+\begin{proof}
+设 \(k'\) 是 \(A\) 的剩余域 \(k\) 的完美闭包.
+由于 \(G\) 与 \(H\) 的底拓扑空间在基变换
+\(A\to k\to k'\) 下不变, 可以假设 \(A=k\) 是完美域.
+于是还可假设 \(G\) 与 \(H\) 约化, 因而几何约化.
+
+设 \(\overline H\) 是 \(H\) 的闭包.
+则 \(\mu^{-1}(\overline H)\) 是 \(G\times G\) 中包含
+\(H\times H\) 的闭子集. 态射
+\[
+  H\longrightarrow\operatorname{Spec}k
+  \qquad\text{及}\qquad
+  \overline H\longrightarrow\operatorname{Spec}k
+\]
+都是普遍开映射.
+由于 \(H\) 在 \(\overline H\) 中稠密,
+\(H\times H\) 在 \(\overline H\times H\) 中稠密,
+且 \(\overline H\times H\) 在
+\(\overline H\times\overline H\) 中稠密.
+所以 \(H\times H\) 在 \(\overline H\times\overline H\) 中稠密. 因而
+\[
+  \mu(\overline H\times\overline H)\subset\overline H.
+\]
+由于 \(\overline H\times\overline H\) 约化, \(\mu\) 诱导一个态射
+\[
+  \mu':\overline H\times\overline H\longrightarrow\overline H.
+\]
+
+现在设 \(g\in\overline H\), 并置 \(K=\kappa(g)\).
+投影 \(\overline H_K\to\overline H\) 是开映射,
+所以 \(H_K\) 与 \(\ell_g(H_K)\) 是
+\(\overline H_K\) 的两个稠密开子集.
+因此存在 \(u,v\in H_K\), 使得 \(\ell_g(v)=u\).
+如 \SGARefLink{sga3:vi:proposition:0-5}{0.5} 的证明,
+可得 \(g\) 属于 \(H\cdot H=H\). 因此 \(\overline H=H\).
+\end{proof}
+
+% Exact continuation cursor: Exp6A local p. 4, immediately before
+% "1. Local properties of an A-group locally of finite type".
+
+% Translation coverage: entire assigned component, retaining all source statements and proofs.
+% Statistics: source lines=369; target lines=375; inline math=294; display math=18; unresolved translation TODOs=0; independent compilation not performed here.
+% Independent prose review: source and translation compared paragraph by paragraph through this component; statements, hypotheses, proofs, notes and diagram captions covered; bibliography reserved for its assigned reviewer; source math and reference keys unchanged.

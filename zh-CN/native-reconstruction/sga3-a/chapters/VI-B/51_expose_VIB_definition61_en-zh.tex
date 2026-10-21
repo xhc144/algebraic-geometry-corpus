@@ -1,0 +1,144 @@
+% SGA 3, Expose VI_B, Loop 1 English reconstruction.
+% Scope: Section 6 heading, Definition 6.1 (i)--(iii), and
+% Remark 6.1.1 in full, including the section star note and source
+% editor's notes 48--50.
+% Authority: Polo--Gille Exp6B-13oct24.pdf, component-local pages
+% 37--39 (combined-reader pages 378--380; displayed re-edition
+% headers 367--369; original-margin printed page 358 begins on
+% local page 38).
+% Proposition 6.2 begins on local page 39 / combined page 380 and
+% is excluded.
+% OCR and Reinhold English Markdown are comparison witnesses only.
+% This unit contains no diagrams.
+
+\begingroup
+\renewcommand{\thefootnote}{*}%
+\section*{6. 子函子与群子概形%
+  \texorpdfstring{\protect\footnotemark}{}}
+\footnotetext{\label{note:sga3-VIB-section6-star}关于同一主题，另见第~XI~篇 \S6 的结果；这些结果本应自然地置于本篇~VI\(_B\) 中。其中特别给出了一个给定群概形的某些群子函子的可表性判据。
+\phantomsection\label{note:sga3-VIB-48}\textup{(48) 编者注：我们已将这些结果插入下文
+(\hyperref[thm:sga3-VIB-6.5.2]{6.5.2}--%
+\hyperref[cor:sga3-VIB-6.5.5]{6.5.5})。}}
+\endgroup
+\phantomsection\label{sec:sga3-VIB-6}%
+\addcontentsline{toc}{section}{6. 子函子与群子概形}
+
+\medskip
+\phantomsection\label{def:sga3-VIB-6.1}%
+\noindent\textbf{定义 6.1.---}
+\textup{(i)} 设 \(X\) 为一个 \(S\)-函子（即从 \((\mathbf{Sch}/S)^\circ\) 到 \((\mathbf{Ens})\) 的函子），\(G\) 为一个 \(S\)-群函子，\(u\) 与 \(v\) 为从 \(X\) 到 \(G\) 的两个 \(S\)-态射。\emph{将 \(u\) 送入 \(v\) 的传送子}记作
+\(\underline{\operatorname{Transp}}(u,v)\)，它是 \(G\) 的如下 \(S\)-子函子：
+\phantomsection\label{eq:sga3-VIB-6.1-transp-uv}%
+\[
+\begin{aligned}
+\underline{\operatorname{Transp}}(u,v)(S')
+  &=
+  \bigl\{g\in G(S')\bigm|
+    (\operatorname{int}g)\circ u_{S'}=v_{S'}\bigr\}                                      \\
+  &=
+  \left\{g\in G(S')\mathrel{\left|\,\vphantom{\begin{array}{c}a\\a\end{array}}\right.}
+    \begin{array}{l}
+      g_{S''}u_{S''}(x)g_{S''}^{-1}=v_{S''}(x),\\[-1pt]
+      \text{对每个 \(x\in X(S'')\) 及每个 \(S''\to S'\)}
+    \end{array}
+  \right\}.
+\end{aligned}
+\]
+特别地，
+\(\underline{\operatorname{Transp}}(u,u)\) 是 \(G\) 的一个 \(S\)-群子函子；称它为 \emph{\(u\) 的中心化子}，记作
+\(\underline{\operatorname{Centr}}(u)\)。
+
+\smallskip
+\noindent\textup{(ii)} 设 \(G\) 为一个 \(S\)-群函子，\(X\) 与 \(Y\) 为 \(G\) 的两个 \(S\)-子函子。\emph{将 \(X\) 送入 \(Y\) 的传送子}（分别地，\emph{将 \(X\) 送入 \(Y\) 的严格传送子}）记作
+\(\underline{\operatorname{Transp}}_G(X,Y)\)（分别地，
+\(\underline{\operatorname{Transp}}^{\mathrm{str}}_G(X,Y)\)），它是 \(G\) 的如下 \(S\)-子函子：
+\phantomsection\label{eq:sga3-VIB-6.1-transp-XY}%
+\[
+\begin{aligned}
+\underline{\operatorname{Transp}}_G(X,Y)(S')
+  &=
+  \bigl\{g\in G(S')\bigm|
+    (\operatorname{int}g)(X_{S'})\subset Y_{S'}\bigr\}                 \\
+  &=
+  \bigl\{g\in G(S')\bigm|
+    g_{S''}X(S'')g_{S''}^{-1}\subset Y(S'')
+    \text{ 对每个 \(S''\to S'\)}\bigr\},
+\end{aligned}
+\]
+以及分别地，
+\phantomsection\label{eq:sga3-VIB-6.1-transpstr-XY}%
+\[
+\begin{aligned}
+\underline{\operatorname{Transp}}^{\mathrm{str}}_G(X,Y)(S')
+  &=
+  \bigl\{g\in G(S')\bigm|
+    (\operatorname{int}g)(X_{S'})=Y_{S'}\bigr\}                       \\
+  &=
+  \bigl\{g\in G(S')\bigm|
+    g_{S''}X(S'')g_{S''}^{-1}=Y(S'')
+    \text{ 对每个 \(S''\to S'\)}\bigr\}.
+\end{aligned}
+\]
+注意
+\phantomsection\label{eq:sga3-VIB-6.1-inversion}%
+\[
+\underline{\operatorname{Transp}}^{\mathrm{str}}_G(X,Y)
+ =
+\underline{\operatorname{Transp}}_G(X,Y)
+ \cap
+c\bigl(\underline{\operatorname{Transp}}_G(Y,X)\bigr),
+\]
+其中 \(c\) 表示 \(G\) 的取逆态射。%
+\footnote{\label{note:sga3-VIB-49}编者注：若
+\(u:X\to G\) 与 \(v:Y\to G\) 为任意两个 \(S\)-函子态射，令 \(u(X)\) 为 \(u\) 的像函子，定义为
+\[
+  u(X)(S')=u(S')\bigl(X(S')\bigr)\subset G(S');
+\]
+它是 \(G\) 的子函子，像函子 \(v(Y)\) 亦然。于是可以考虑将 \(u\) 的像送入 \(v\) 的像的传送子
+\(\underline{\operatorname{Transp}}_G(u(X),v(Y))\)。因此，定义的 \textup{(ii)} 部分不必限于子函子，也就是不必限于 \(u\) 与 \(v\) 为单态射的情形。原文中的这一限制有时迫使假设出现重复，例如：“设 \(u,v:X\to G\) 为 \(S\)-函子态射，\(w:H\to G\) 与 \(w':K\to G\) 为单态射；则
+\(\underline{\operatorname{Transp}}(u,v)\)、
+\(\underline{\operatorname{Centr}}_G(w)
+ =\underline{\operatorname{Centr}}_G H\) 以及
+\(\underline{\operatorname{Transp}}_G(H,K)\) 满足 \(\ldots\)。”考虑
+\(\underline{\operatorname{Transp}}_G(u(X),v(Y))\) 即可避免这种重复。我们已在 \hyperref[prop:sga3-VIB-6.2]{6.2} 以及后文的 \hyperref[prop:sga3-VIB-10.11]{10.11} 中作了此类修改。}
+
+\smallskip
+\noindent\textup{\SGARefLink{prop:sga3-VIB-6.2:item:iii}{(iii)}} 设 \(G\) 为一个 \(S\)-群函子，\(H\) 为 \(G\) 的一个 \(S\)-子函子，\(i:H\to G\) 为典范 \(S\)-态射。\emph{\(H\) 在 \(G\) 中的中心化子}与\emph{正规化子}是 \(G\) 的如下 \(S\)-群子函子：
+\phantomsection\label{eq:sga3-VIB-6.1-centralizer-normalizer}%
+\[
+\underline{\operatorname{Centr}}_G H
+  =\underline{\operatorname{Centr}}(i)
+  =\underline{\operatorname{Transp}}(i,i),
+\qquad
+\underline{\operatorname{Norm}}_G H
+  =\underline{\operatorname{Transp}}^{\mathrm{str}}_G(H,H).
+\]
+最后，\emph{\(G\) 的中心}是 \(S\)-群函子
+\[
+  \underline{\operatorname{Centr}}(\operatorname{id}_G)
+  =\underline{\operatorname{Centr}}_G G;
+\]
+将它记作 \(\underline{\operatorname{Centr}}G\)。
+
+\medskip
+\phantomsection\label{rem:sga3-VIB-6.1.1}%
+\noindent\textbf{注 6.1.1.---}%
+\footnote{\label{note:sga3-VIB-50}编者注：我们补入了本注，\hyperref[prop:sga3-VIB-6.2]{命题~6.2} 隐含地使用了它。}
+由定义可知，函子
+\(\underline{\operatorname{Transp}}(u,v)\) 与
+\(\underline{\operatorname{Transp}}_G(X,Y)\)（从而也有
+\(\underline{\operatorname{Transp}}^{\mathrm{str}}_G(X,Y)\)）与基变换可交换：对每个 \(S'\to S\)，若
+\(G',X',Y',u',v'\) 由 \(G,X,Y,u,v\) 经基变换得到，则
+\phantomsection\label{eq:sga3-VIB-6.1.1-base-change}%
+\[
+\underline{\operatorname{Transp}}(u,v)_{S'}
+  =\underline{\operatorname{Transp}}(u',v'),
+\qquad
+\underline{\operatorname{Transp}}(X,Y)_{S'}
+  =\underline{\operatorname{Transp}}(X',Y').
+\]
+
+% 翻译覆盖：本组件全文；源文件 51_expose_VIB_definition61_en.tex。
+% 自检：行内数学 83，陈列数学 8，原生 tikzcd 0；全部数学及编号保留，公式内自然语言已译。
+% 引用键核对：label 13，hyperref 5，SGARefLink 1，行内目标 0；脚注 2，星号脚注正文 1，均与源文件一致。
+% 编译及渲染审查由主线程整合完成；此处未宣称编译或独立校对完成。

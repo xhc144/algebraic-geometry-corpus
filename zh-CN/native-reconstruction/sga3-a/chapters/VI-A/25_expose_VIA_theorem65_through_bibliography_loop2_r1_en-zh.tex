@@ -1,0 +1,236 @@
+% SGA 3, Expose VI_A, Loop 1 English reconstruction.
+% Scope: Theorem 6.5 through Corollary 6.10 and the bibliography;
+% this closes Expose VI_A. Exp6A local page 38 is substantive.
+% Authority: Polo--Gille Exp6A-13oct24.pdf, component-local pages 36--38
+% (combined-reader pages 339--341; printed pages 328--330).
+% OCR and the Reinhold English Markdown are comparison witnesses only.
+% Loop 2 replaces the two exact 180-dpi source crops with native tikz-cd
+% reconstructions controlled against local page 37.
+
+现在可以陈述下述定理 (\textup{[Per75]}, V, \SGARefLink{prop:sga3-V-3.1}{3.1}
+及 \SGARefLink{thm:sga3-VIA-3.2}{3.2}; 另见 \textup{[Per76]}, 0.0 和
+\SGARefLink{sga3:VIA:0.1}{0.1}).
+
+\medskip
+\phantomsection\label{thm:sga3-VIA-6.5}%
+\noindent\textbf{定理 6.5 (D. Perrin).---}
+\emph{设 \(G\) 是拟紧 \(k\)-群.
+\begin{enumerate}
+\item[\textup{(i)}]\phantomsection\label{concl:sga3-VIA-6.5-i}
+\(G\) 是有限型 \(k\)-群组成的滤过系统 \((G_i)\) 的逆极限
+(当 \(i\) 足够大时, 其过渡态射 \(u_{ij}:G_j\to G_i\) 仿射),
+且态射 \(G\to G_i\) 忠实平坦 (并在 \(i\) 足够大时仿射).
+\item[\textup{(ii)}]\phantomsection\label{concl:sga3-VIA-6.5-ii}
+设 \(H\) 是 \(G\) 的闭 \(k\)-子群.
+则在下述两种情形的任一种中, \(\mathrm{fpqc}\) 商层
+\(\widetilde{G/H}\) 都是 \(k\)-概形:
+  \begin{enumerate}
+  \item[\textup{(1)}] 浸入 \(H\to G\) 有限呈示;
+    此时 \(G/H\) 在 \(k\) 上有限型;
+  \item[\textup{(2)}] \(H\) 在 \(G\) 中正规.
+  \end{enumerate}
+\end{enumerate}}
+
+这个定理的证明依赖于若干中间定理, 我们请读者参阅 \textup{[Per75]}.
+不过, 为方便读者, 下面给出两个推论的证明;
+参见 \textup{[Per75]}, V, \SGARefLink{par:sga3-VIA-3.3}{3.3}--3.4,
+或 \textup{[Per76]}, 4.2.3--4.2.5.
+
+\medskip
+\phantomsection\label{cor:sga3-VIA-6.6}%
+\noindent\textbf{推论 6.6.---}
+\emph{设 \(f:G\to H\) 是 \(k\)-群之间的拟紧态射.
+\begin{enumerate}
+\item[\textup{(i)}] 若 \(f\) 概形占优, 则它忠实平坦.
+\item[\textup{(ii)}] 特别地, 若 \(H\) 仿射, 且态射
+  \[
+    f^\natural:\mathcal O(H)\longrightarrow\mathcal O(G)
+  \]
+  为单射, 则上述结论成立.
+\end{enumerate}}
+
+\emph{证明.}
+假设 \(f\) 概形占优. 由 \hyperref[concl:sga3-VIA-6.2-i]{6.2(i)},
+\(f\) 满射, 因此由 \hyperref[lem:sga3-VIA-2.5.3]{2.5.3},
+只需证明 \(f\) 在 \(G\) 的单位元处平坦. 由于
+\[
+  \mathcal O_{H,e}=\mathcal O_{H^0,e}
+\]
+(参见 \hyperref[thm:sga3-VIA-2.6.5]{2.6.5}),
+可以将 \(H\) 换成 \(H^0\), 从而假设 \(H\) 不可约.
+此时 \(H\) 拟紧 (同上); 由于 \(f\) 拟紧, \(G\) 也拟紧.
+由 \hyperref[concl:sga3-VIA-6.5-i]{6.5(i)},
+\[
+  H=\varprojlim_i H_i,
+\]
+其中每个 \(H_i\) 都是代数 \(k\)-群.
+设 \(N_i\) 为 \(G\to H_i\) 的核;
+它是 \(G\) 的闭正规 \(k\)-子群.
+此外, 由于单位截面 \(\{e\}\to H_i\) 有限呈示,
+浸入 \(N_i\to G\) 有限呈示.
+因此由 \hyperref[concl:sga3-VIA-6.5-ii]{6.5(ii)},
+\(\mathrm{fpqc}\) 商 \(G/N_i\) 是代数 \(k\)-群.
+于是有交换图
+\begin{center}
+  \phantomsection\label{diag:sga3-VIA-6.6-square}%
+  \begin{tikzcd}[row sep=large,column sep=large]
+    G
+      \arrow[r,"f"]
+      \arrow[d,"q_i"'] &
+    H
+      \arrow[d,"p_i"] \\
+    G/N_i
+      \arrow[r,"f_i"'] &
+    H_i
+  \end{tikzcd}
+\end{center}
+其中 \(f\) 概形占优, \(p_i,q_i\) 忠实平坦, 因而概形占优.
+所以
+\[
+  f_i\circ q_i=p_i\circ f
+\]
+概形占优, 因此 \(f_i\) 也概形占优.
+另一方面, \(f_i\) 为单态射,
+而由于 \(G/N_i\) 和 \(H_i\) 是代数群, 它为闭浸入
+(\hyperref[prop:sga3-VIA-2.5.2]{2.5.2}).
+可知 \(f_i\) 为同构, 因此 \(G\to H_i\) 忠实平坦.
+由 \textup{[BAC]}, I, \S~\SGARefLink{prop:sga3-VIB-2.7}{2.7}, 命题~9,
+态射 \(G\to H\) 平坦;
+由 \hyperref[concl:sga3-VIA-6.2-i]{6.2(i)}, 它也满射, 因而忠实平坦.
+这就证明了 \SGARefLink{prop:sga3-VIB-2.7:item:i}{(i)}.
+断言 \SGARefLink{prop:sga3-VIB-2.7:item:ii}{(ii)} 也随之得到,
+因为若 \(H\) 仿射且 \(f^\natural\) 为单射,
+则 \(f\) 的闭像为 \(H\), 所以 \(f\) 概形占优
+(参见 \hyperref[prop:sga3-VIA-6.4]{6.4}).
+
+\medskip
+\phantomsection\label{cor:sga3-VIA-6.7}%
+\noindent\textbf{推论 6.7.---}
+\emph{设 \(u:G\to H\) 是 \(k\)-群态射, 置 \(N=\ker(u)\).
+假设 \(u\) 拟紧.
+\begin{enumerate}
+\item[\textup{\SGAInlineRefTarget{cor:sga3-VIA-6.7:item:i}(i)}]
+\(\mathrm{fpqc}\) 商层 \(\widetilde{G/N}\)
+由一个 \(k\)-群概形 \(G/N\) 代表, 且 \(u\) 分解为
+  \begin{center}
+    \phantomsection\label{diag:sga3-VIA-6.7-factorization}%
+    \begin{tikzcd}[ampersand replacement=\&,row sep=large,column sep=large]
+      G \arrow[r,"u"] \arrow[d,"p"'] \& H \\
+      G/N \arrow[ur,"i"']
+    \end{tikzcd}
+  \end{center}
+  其中 \(p\) 忠实平坦, \(i\) 为闭浸入.
+\item[\textup{\SGAInlineRefTarget{cor:sga3-VIA-6.7:item:ii}(ii)}]
+特别地, 若 \(u\) 为单态射, 则 \(u\) 为闭浸入;
+若 \(u\) 概形占优, 则 \(u\) 忠实平坦.
+\end{enumerate}}
+
+\emph{证明.}
+\textup{\SGARefLink{cor:sga3-VIA-6.7:item:i}{(i)}}
+由 \hyperref[prop:sga3-VIA-6.4]{6.4} 和 \hyperref[cor:sga3-VIA-6.6]{6.6},
+\(u\) 的闭像 \(G'\) 是 \(H\) 的一个闭子群概形, 且
+\[
+  p:G\longrightarrow G'
+\]
+忠实平坦且拟紧.%
+\begingroup
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}%
+\footnote[1]{\label{note:sga3-VIA-6.7-image-ambient}英译者注:
+法文底本此处印为“\(G\) 的一个闭子群概形”.
+由于 \(u:G\to H\), 它的闭像位于 \(H\) 中,
+所显示的分解也表明了这一点.}%
+\endgroup{}
+显然, \(\ker(p)=\ker(u)=N\).
+因此, 由\SGARefLink{sga3:iv:scholium:3:3:2:1}{第~IV~篇 3.3.2.1}
+及 5.1.7, \(G'\) 代表 \(\mathrm{fpqc}\) 商层 \(\widetilde{G/N}\).
+
+\textup{\SGARefLink{cor:sga3-VIA-6.7:item:ii}{(ii)}}
+第二个断言已包含在 \hyperref[cor:sga3-VIA-6.6]{6.6} 中; 来证明第一个断言.
+若 \(u\) 为单态射, 则 \(p\) 也是单态射.
+所以 \(p\) 既是单态射, 又是有效满态射,
+因而是同构 (参见\SGARefLink{sga3:iv:remark:1:14}{第~IV~篇 1.14}).
+这就证明了 \hyperref[cor:sga3-VIA-6.7]{6.7}.
+
+最后记录以下推论 (参见 \textup{[Per76]}, 4.2.6--4.2.8).
+
+\medskip
+\phantomsection\label{cor:sga3-VIA-6.8}%
+\noindent\textbf{推论 6.8.---}
+\emph{交换拟紧 \(k\)-群概形组成的范畴是阿贝尔范畴.}
+
+结合 \hyperref[cor:sga3-VIA-6.7]{6.7},
+证明与 \hyperref[thm:sga3-VIA-5.4.2]{5.4.2} 的证明类似.
+
+\medskip
+\phantomsection\label{cor:sga3-VIA-6.9}%
+\noindent\textbf{推论 6.9.---}
+\emph{若 \(\operatorname{char}(k)=0\), 则每个 \(k\)-群概形 \(G\)
+都几何约化.}
+
+事实上, 若 \(g\in G\), \(K\) 是 \(\kappa(g)\) 的一个代数闭包, 则
+\[
+  \mathcal O_{G,e}\otimes_k K
+    \simeq
+  \mathcal O_{G_K,g_K}.
+\]
+因此只需证明 \(\mathcal O_{G,e}=\mathcal O_{G^0,e}\) 几何约化.
+于是化归到 \(G\) 连通的情形,
+由 \hyperref[thm:sga3-VIA-2.6.5]{2.6.5}, 此时它拟紧.
+结果遂由 \hyperref[thm:sga3-VIA-6.5]{6.5}
+及 Cartier 关于代数群的定理得到
+(参见第~VI\(_B\)~篇 \SGARefLink{cor:sga3-VIB-1.6.1}{1.6.1},
+或 \textup{[DG70]}, \S~II.6, \SGARefLink{par:sga3-VIA-1.1}{定理~1.1}).
+
+\medskip
+\phantomsection\label{cor:sga3-VIA-6.10}%
+\noindent\textbf{推论 6.10.---}
+\emph{设 \(G\) 是拟紧 \(k\)-群, 并假设 \(k\) 代数闭.
+\begin{enumerate}
+\item[\textup{(i)}] 若 \(f:G\to H\) 为忠实平坦的 \(k\)-群态射,
+则诱导映射 \(G(k)\to H(k)\) 满射.
+\item[\textup{(ii)}] 有理点集在 \(G\) 中稠密.
+\end{enumerate}}
+
+证明请参阅 \textup{[Per75]}, V, \SGARefLink{prop:sga3-VIB-3.7}{3.7} 和 3.9.
+
+\section*{参考文献}
+\phantomsection\label{bib:sga3-VIA}
+\addcontentsline{toc}{section}{参考文献}
+\footnote{\label{note:sga3-VIA-59}编者注: 本篇引用的补充参考文献.}
+
+\begin{description}
+\item[{[An73]}] S. Anantharaman,
+  \emph{一维底上的群概形、齐性空间与代数空间〔Sch\'emas en groupes, espaces homog\`enes et espaces
+  alg\'ebriques sur une base de dimension 1〕},
+  M\'em. Soc. Math. France \textbf{33} (1973), 5--79.
+\item[{[BAC]}] N. Bourbaki,
+  \emph{交换代数〔Alg\`ebre commutative〕}, 第 I--IV 章及第 V--VII 章,
+  Masson, 1985.
+\item[{[DG70]}] M. Demazure 和 P. Gabriel,
+  \emph{代数群〔Groupes alg\'ebriques〕}, Masson \& North-Holland, 1970.
+\item[{[Per75]}] D. Perrin,
+  \emph{域上的准紧群概形〔Sch\'emas en groupes quasi-compacts sur un corps〕},
+  Publ. Math. Orsay 第~165--75.46 号 (第 1 部分),
+  \texttt{http://portail.mathdoc.fr/PMO/}.
+\item[{[Per76]}] D. Perrin,
+  \emph{域上准紧群概形的逼近〔Approximation des sch\'emas en groupes, quasi-compacts
+  sur un corps〕}, Bull. Soc. Math. France \textbf{104} (1976),
+  323--335.
+\item[{[Ray67a]}] M. Raynaud,
+  \emph{对平坦等价关系取商〔Passage au quotient par une relation d'\'equivalence
+  plate〕}, 载于 \emph{局部域会议录（Driebergen）〔Proc. Conf. Local Fields
+  (Driebergen)〕}, 第~78--85 页, T.~A. Springer 编, Springer-Verlag, 1967.
+\item[{[Ray67b]}] M. Raynaud,
+  \emph{关于对平坦群胚取商〔Sur le passage au quotient par un groupo\"\i de plat〕},
+  C. R. Acad. Sci. Paris (S\'er. A) \textbf{265} (1967),
+  384--387.
+\item[{[Ray70]}] M. Raynaud,
+  \emph{群概形与齐性空间上的丰沛层〔Faisceaux amples sur les sch\'emas en groupes et les
+  espaces homog\`enes〕}, Lecture Notes in Mathematics
+  \textbf{119}, Springer-Verlag, 1970.
+\end{description}
+
+% End of Expose VI_A. Exp6B begins in the next component.
+
+% 书目补译核对：9个著作／论文／论文集题名已附中文，原题完整保留于〔〕；人名、刊名、出版机构、卷期页码与引用键保留。
+% Independent prose review: source and translation compared paragraph by paragraph through this component; statements, hypotheses, proofs, notes and diagram captions covered; bibliography reserved for its assigned reviewer; source math and reference keys unchanged.

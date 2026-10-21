@@ -1,0 +1,445 @@
+% SGA 3, Expose II, Loop 1 English reconstruction.
+% Scope: opening through Nota 2.2.2, stopping immediately before Section 3.
+% Authority: Polo--Gille Exp2-14oct24.pdf, component-local pages 1--7
+% (combined-reader pages 59--65). Force-OCR is a drafting locator; English
+% wording was compared with Jacob Reinhold's CC BY 4.0 Markdown lineage.
+
+\setcounter{footnote}{-1}
+\chapter*{第 II 篇\\切丛与 Lie 代数}
+\addcontentsline{toc}{chapter}{第 II 篇. 切丛与 Lie 代数}
+\markboth{第 II 篇. 切丛与 Lie 代数}%
+  {第 II 篇. 切丛与 Lie 代数}
+
+\begin{center}
+  \textit{M. Demazure 著}
+\end{center}
+
+本篇拟在概形理论中构造经典理论中的切丛 (tangent bundle) 和 Lie 代数
+(Lie algebra) 的对应物. 不过, 不把讨论局限于概形本身, 而也考虑概形范畴上
+某些未必可表的函子 (例如函子
+\(\underline{\operatorname{Hom}}\), \(\underline{\operatorname{Norm}}\)
+等), 将是有益的. 正如前篇所说 (参见 \SGARefLink{sga3:i:subsection:1-1}{I~1.1}),
+我们将概形与其相应的函子等同.\footnote{编者注:
+2024 年 10 月 14 日版本.}
+
+另一方面, 下述构造超出了概形理论的范围. 例如, 只需作一些细节上的改动,
+这些构造就同样适用于带有幂零元的解析空间理论.
+
+在开始这一构造之前, 必须先给出几个一般定义, 以补充
+\SGARefLink{sga3:i:subsection:1:7}{I~1.7} 中的定义.
+
+% Source page: Exp2 component-local p. 1; combined-reader p. 59.
+\SGARefTarget{sga3:ii:section:1}\section*{1. 函子
+  \(\underline{\operatorname{Hom}}_{Z/S}(X,Y)\)}
+\addcontentsline{toc}{section}{1. 函子 Hom Z/S (X,Y)}
+
+沿用 \SGARefLink{sga3:i:subsection:1-1}{I~1.1} 的记号. 将范畴 \(\mathscr C\)
+与
+\[
+  \widehat{\mathscr C}
+  =\operatorname{Hom}(\mathscr C^{\circ},\mathbf{Set})
+\]
+的一个满子范畴等同 (特别地, 省去用来在书写上区分
+\(\widehat{\mathscr C}\) 的对象与 \(\mathscr C\) 的对象的下划线).
+\footnote{编者注: 在本版中, 这些用黑体字母
+\(\mathbf F,\mathbf G,\mathbf V,\mathbf W\) 表示; 参见第 I 篇.
+但对于 \(\underline{\operatorname{Norm}}\) 和
+\(\underline{\operatorname{Centr}}\) 等函子 (参见
+\SGARefLink{sga3:ii:subsection:5-2}{5.2}), 则保留了原文的下划线,
+并且在函子 \(\underline{\operatorname{Lie}}\) 下也加上下划线,
+以区分函子 \(\underline{\operatorname{Lie}}(G/S)\) 与
+\(\Gamma(S,\mathcal O_S)\)-Lie 代数
+\(\operatorname{Lie}(G/S)=\underline{\operatorname{Lie}}(G/S)(S)\);
+例如, 第 VII\textsubscript{A} 篇中就用到了后者.}
+
+考虑如下情形: \(\widehat{\mathscr C}\) 的四个对象
+\(S,X,Y,Z\), 其中第一个实际上是 \(\mathscr C\) 的对象,
+而 \(X\) 和 \(Y\) 在 \(Z\) 上, \(Z\) 在 \(S\) 上.
+
+\SGAThreeNativeDiagram[0.24\textwidth]
+  {figures/exp2/exp2_p002_XY_over_ZS.tex}
+  {对象 \(X\) 和 \(Y\) 在 \(Z\) 上, 而 \(Z\) 在 \(S\) 上.}
+  {fig:exp2-xy-over-zs}
+  {Polo--Gille Exp2-14oct24.pdf, 分篇第 2 页; 合订本第 60 页}
+
+% Source page: Exp2 component-local p. 2; combined-reader p. 60.
+\SGAInlineRefTarget{sga3:ii:definition:1-1}\subsection*{\SGARefLink{sga3:ii:definition:1-1}{定义 1.1}.}
+对 \(\mathscr C_{/S}\) 的每个对象 \(S'\), 如下定义
+\(\widehat{\mathscr C}_{/S}\) 的一个对象, 记为
+\(\underline{\operatorname{Hom}}_{Z/S}(X,Y)\):
+\begin{equation}
+  \underline{\operatorname{Hom}}_{Z/S}(X,Y)(S')
+  =\operatorname{Hom}_{Z_{S'}}(X_{S'},Y_{S'})
+  =\operatorname{Hom}_{Z}(X\times_S S',Y),
+  \tag{1}\label{sga3:ii:section:1:equation:1}
+\end{equation}
+立即可见, \(\underline{\operatorname{Hom}}_{Z/S}(X,Y)\) 就是
+\(\underline{\operatorname{Hom}}_S(X,Y)\) 中与 \(p_X\) 和 \(p_Y\)
+相容的态射所成的子对象; 也就是态射对
+\[
+  \underline{\operatorname{Hom}}_S(X,Y)
+  \rightrightarrows
+  \underline{\operatorname{Hom}}_S(X,Z),
+\]
+的核, 其中第一个态射由与 \(p_Y\) 的复合定义,
+第二个则是以 \(p_X\) 为``像''的常值态射.
+
+与 \SGARefLink{sga3:i:subsection:1:7}{I~1.7} 中一样, 对
+\(\widehat{\mathscr C}\) 中 \(S\) 上的每个对象 \(T\), 有自然双射
+\begin{equation}
+  \operatorname{Hom}_S
+    \bigl(T,\underline{\operatorname{Hom}}_{Z/S}(X,Y)\bigr)
+  \simeq \operatorname{Hom}_Z(X\times_S T,Y).
+  \tag{2}\label{sga3:ii:section:1:equation:2}
+\end{equation}
+此外, 由 \SGARefLink{sga3:i:proposition:1-7-1}{I~1.7.1},
+若 \(E,F\) 是 \(\widehat{\mathscr C}\) 中 \(Z\) 上的对象, 则
+\[
+  \operatorname{Hom}_Z\bigl(E,\underline{\operatorname{Hom}}_Z(F,Y)\bigr)
+  \simeq \operatorname{Hom}_Z(E\times_ZF,Y)
+  \simeq
+  \operatorname{Hom}_Z\bigl(F,\underline{\operatorname{Hom}}_Z(E,Y)\bigr).
+\]
+将其用于 \(E=X\) 和 \(F=Z\times_ST\), 得到对
+\(\widehat{\mathscr C}_{/S}\) 的每个对象 \(T\) 的自然双射
+\begin{equation}
+\begin{aligned}
+  \operatorname{Hom}_S
+    \bigl(T,\underline{\operatorname{Hom}}_{Z/S}(X,Y)\bigr)
+  &\simeq \operatorname{Hom}_Z(X\times_ST,Y)\\
+  &\simeq
+  \begin{cases}
+    \operatorname{Hom}_Z\bigl(Z\times_ST,
+      \underline{\operatorname{Hom}}_Z(X,Y)\bigr),\\
+    \operatorname{Hom}_Z\bigl(X,
+      \underline{\operatorname{Hom}}_Z(Z\times_ST,Y)\bigr).
+  \end{cases}
+\end{aligned}
+\tag{3}\label{sga3:ii:section:1:equation:3}
+\end{equation}
+这些双射关于 \(T\) 是函子性的, 因而给出 \(S\)-函子的同构.
+\footnote{编者注: 已扩充了 \SGARefLink{sga3:ii:section:2}{(2)},
+\SGARefLink{sga3:ii:section:3}{(3)} 和 \SGARefLink{sga3:ii:section:4}{(4)};
+特别地, \SGARefLink{fig:exp2-hom-adjunction-triangle}{(4)} 将用于
+\SGARefLink{sga3:ii:proposition:3-11}{3.11}.}
+
+\SGAThreeNativeDiagram[0.68\textwidth]
+  {figures/exp2/exp2_p002_hom_adjunction_triangle.tex}
+  {函子性同构 (4).}
+  {fig:exp2-hom-adjunction-triangle}
+  {Polo--Gille Exp2-14oct24.pdf, 分篇第 2 页; 合订本第 60 页}
+
+指出定义的两个特殊情形. 若 \(Z=S\), 则
+\[
+  \underline{\operatorname{Hom}}_{S/S}(X,Y)
+  =\underline{\operatorname{Hom}}_S(X,Y).
+\]
+
+% Source page: Exp2 component-local p. 3; combined-reader p. 61.
+另一方面, 当 \(X=Z\) 时, 置
+\begin{equation}
+  \prod_{Z/S}Y
+  =\underline{\operatorname{Hom}}_{Z/S}(Z,Y),
+  \tag{5}\label{sga3:ii:section:1:equation:5}
+\end{equation}
+于是, 由定义,
+\[
+  \left(\prod_{Z/S}Y\right)(S')
+  =\operatorname{Hom}_Z(Z\times_SS',Y)
+  \simeq \Gamma(Y_{S'}/Z_{S'}).
+\]
+函子
+\(\prod_{Z/S}:\widehat{\mathscr C}_{/Z}\to
+\widehat{\mathscr C}_{/S}\) 是从 \(S\) 到 \(Z\) 的基变换函子的右伴随:
+对每个 \(S\)-函子 \(U\),
+\[
+  \operatorname{Hom}_S\left(U,\prod_{Z/S}Y\right)
+  =\operatorname{Hom}_Z(U\times_SZ,Y).
+\]
+若 \(\mathscr C=\mathbf{Sch}\) 且 \(Z\) 是 \(S\)-概形,
+则称函子 \(\prod_{Z/S}\) 为``Weil 标量限制 (Weil restriction of scalars)''.
+\footnote{编者注: 前面两句话是新增的.}
+还有同构
+\begin{equation}
+  \underline{\operatorname{Hom}}_{Z/S}(X,Y)
+  \simeq
+  \underline{\operatorname{Hom}}_{X/S}(X,Y\times_ZX)
+  =\prod_{X/S}(Y\times_ZX),
+  \tag{6}\label{sga3:ii:section:1:equation:6}
+\end{equation}
+特别地, 当 \(Z=S\) 时, 由此得到同构
+\begin{equation}
+  \underline{\operatorname{Hom}}_S(X,Y)
+  \simeq \prod_{X/S}Y_X.
+  \tag{7}\label{sga3:ii:section:1:equation:7}
+\end{equation}
+
+\SGAInlineRefTarget{sga3:ii:remark:1-2}\subsection*{\SGARefLink{sga3:ii:remark:1-2}{注 1.2}.}
+函子
+\(Y\mapsto\underline{\operatorname{Hom}}_{Z/S}(X,Y)\) 在如下意义下与积可交换:
+有函子性同构
+\[
+  \underline{\operatorname{Hom}}_{Z/S}(X,Y\times_ZY')
+  \simeq
+  \underline{\operatorname{Hom}}_{Z/S}(X,Y)
+  \times_S
+  \underline{\operatorname{Hom}}_{Z/S}(X,Y').
+  \tag{*}\label{sga3:ii:section:1:equation:star}
+\]
+因此, 若 \(Y\) 是 \(Z\)-群, 分别地, 是 \(Z\)-环,
+等等, 则 \(\underline{\operatorname{Hom}}_{Z/S}(X,Y)\) 是
+\(S\)-群, 分别地, 是 \(S\)-环, 等等.
+
+\SGAInlineRefTarget{sga3:ii:remark:1-3}\subsection*{\SGARefLink{sga3:ii:remark:1-3}{注 1.3}.}
+设 \(\pi:M\to Y\) 是取值于 \(\mathcal O_Y\)-模的 \(Y\)-函子
+(参见 \SGARefLink{sga3:i:paragraph:4-3-3-1}{I~4.3.3.1}), 并置
+\(H=\underline{\operatorname{Hom}}_{Z/S}(X,Y)\). 则
+\(\underline{\operatorname{Hom}}_{Z/S}(X,M)\) 有自然的
+\(\mathcal O_H\)-模结构; 更确切地说, 对 \(H\) 上的每个 \(H'\), 集合
+\[
+  \operatorname{Hom}_H
+    \bigl(H',\underline{\operatorname{Hom}}_{Z/S}(X,M)\bigr)
+\]
+有自然的 \(\mathcal O(X\times_SH')\)-模结构.
+\footnote{编者注: 此注是新增的; 将用于推论~3.11.1.}
+
+事实上, 设 \(m:M\times_YM\to M\) 和
+\(\lambda:\mathcal O_Y\times_YM\to M\) 表示定义
+\(Y\)-交换群结构和 \(\mathcal O_Y\)-模结构的态射.
+设 \(H'\) 是 \(H=\underline{\operatorname{Hom}}_{Z/S}(X,Y)\)
+上的 \(S\)-概形; 等价地, 给定了一个 \(Z\)-态射
+\(f:X\times_SH'\to Y\), 它使 \(X\times_SH'\) 成为 \(Y\)-对象. 于是
+\[
+  \operatorname{Hom}_H
+    \bigl(H',\underline{\operatorname{Hom}}_{Z/S}(X,M)\bigr)
+\]
+是满足 \(\pi\circ\phi=f\) 的 \(Z\)-态射
+\(\phi:X\times_SH'\to M\) 所成的集合, 即 \(Y\)-态射
+\(X\times_SH'\to M\) 所成的集合.
+
+% Source page: Exp2 component-local p. 4; combined-reader p. 62.
+若 \(\phi,\psi\) 是两个这样的态射, 则定义 \(\phi+\psi\)
+为复合 \(Y\)-态射
+\[
+  X\times_SH'\xrightarrow{\ \phi\times\psi\ }
+  M\times_YM\xrightarrow{\ m\ }M.
+\]
+这使 \(\underline{\operatorname{Hom}}_{Z/S}(X,M)\) 成为
+\(H=\underline{\operatorname{Hom}}_{Z/S}(X,Y)\) 上的交换群.
+\footnote{编者注: 若 \(M\) 是一个未必交换的 \(Y\)-群,
+并置 \(\phi\cdot\psi=m\circ(\phi\times\psi)\), 则这使
+\(\underline{\operatorname{Hom}}_{Z/S}(X,M)\) 成为
+\(\underline{\operatorname{Hom}}_{Z/S}(X,Y)\) 上的群.}
+
+同样, 若 \(a\in\mathcal O(X\times_SH')\), 即
+\(a:X\times_SH'\to\mathcal O_S\) 是 \(S\)-态射, 则定义
+\(a\phi\) 为复合 \(\lambda\circ(a\times\phi)\), 其中
+\(a\times\phi\) 是从 \(X\times_SH'\) 到
+\(\mathcal O_Y\times_YM\simeq\mathcal O_S\times_SM\) 的 \(Y\)-态射,
+其分量为 \(a\) 和 \(\phi\). 这就赋予
+\(\operatorname{Hom}_H(H',\underline{\operatorname{Hom}}_{Z/S}(X,M))\)
+一个 \(\mathcal O(X\times_SH')\)-模结构, 它关于
+\(H\)-对象 \(H'\) 是函子性的.
+
+\section*{\SGAInlineRefTarget{sga3:ii:section:2}2. 概形 \(I_S(\mathcal M)\)}
+\addcontentsline{toc}{section}{2. 概形 I S (M)}
+
+\SGAInlineRefTarget{sga3:ii:definition:2-1}\subsection*{\SGARefLink{sga3:ii:definition:2-1}{定义 2.1}.}
+设 \(S\) 是概形, \(\mathcal M\) 是拟凝聚
+\(\mathcal O_S\)-模. 用
+\(\mathscr D_{\mathcal O_S}(\mathcal M)\) 表示拟凝聚
+\(\mathcal O_S\)-代数 \(\mathcal O_S\oplus\mathcal M\),
+其中把 \(\mathcal M\) 看作平方为零的理想. 用
+\[
+  I_S(\mathcal M)=\operatorname{Spec}
+    \mathscr D_{\mathcal O_S}(\mathcal M)
+\]
+表示相应的 \(S\)-概形.\footnote{编者注:
+\(I_S(\mathcal M)\) 的底空间与 \(S\) 的底空间相同.}
+特别地, 置
+\[
+  \mathscr D_{\mathcal O_S}
+  =\mathscr D_{\mathcal O_S}(\mathcal O_S),
+  \qquad I_S=I_S(\mathcal O_S),
+\]
+并分别称它们为 \(S\) 上的对偶数代数和 \(S\) 上的对偶数概形
+(dual numbers).
+
+对应 \(\mathcal M\mapsto I_S(\mathcal M)\) 是从拟凝聚
+\(\mathcal O_S\)-模到 \(S\)-概形的反变函子.
+特别地, 态射 \(0\to\mathcal M\) 和
+\(\mathcal M\to0\) 分别定义结构态射
+\[
+  \rho:I_S(\mathcal M)\longrightarrow I_S(0)=S
+\]
+及其一个截面 \(\varepsilon_{\mathcal M}\), 称为
+\emph{零截面 (zero section)}.\footnote{编者注: 比较
+\SGARefLink{sga3:ii:remark:3-1-1}{3.1.1}.}
+
+\subsection*{\SGAInlineRefTarget{sga3:ii:subsection:2-1-1}2.1.1.}
+由于 \(\mathcal M\mapsto I_S(\mathcal M)\) 是反变的, 每个
+\(a\in\operatorname{End}_{\mathcal O_S}(\mathcal M)\) 定义了
+\(I_S(\mathcal M)\) 的一个 \(S\)-自同态 \(a^*\), 且
+\[
+  1^*=\operatorname{id},\qquad (ab)^*=b^*\circ a^*,\qquad
+  0^*=\varepsilon_{\mathcal M}\circ\rho,\qquad
+  a^*\circ\varepsilon_{\mathcal M}=\varepsilon_{\mathcal M}.
+\]
+因此, \(I_S(\mathcal M)\) 带有
+\(\operatorname{End}_{\mathcal O_S}(\mathcal M)\) 的乘法幺半群的右作用,
+它与由态射 \(\mathcal M'\to\mathcal M\) 导出的
+\(S\)-态射 \(I_S(\mathcal M)\to I_S(\mathcal M')\) 可交换;
+特别地, 算子 \(a^*\) 保持零截面.
+\footnote{编者注: 下面的内容扩充了原文; 编号
+\SGARefLink{sga3:ii:subsection:2-1-1}{2.1.1}--\SGARefLink{sga3:ii:subsection:2-1-3}{2.1.3}
+也是新增的.}
+
+对每个 \(a\in\operatorname{End}_{\mathcal O_S}(\mathcal M)\), 每个
+\(f:S'\to S\), 以及每个 \(m\in I_S(\mathcal M)(S')\), 记
+\(m\cdot a=a^*(m)\). 则
+\[
+  m\cdot1=m,\qquad (m\cdot a)\cdot b=m\cdot(ab),\qquad
+  m\cdot0=\varepsilon_{\mathcal M}(\rho(m)),
+\]
+而若 \(m=\varepsilon_{\mathcal M}(f)\), 则 \(m\cdot a=m\).
+\footnote{编者注: 后面我们主要关心的是
+\(a\in\mathcal O(S)\), 它以位似变换作用于 \(\mathcal M\).
+例如, 若 \(\mathcal M\) 是秩为 \(r\) 的自由模,
+则对每个 \(S'\to S\), \(\operatorname{Hom}_S(S',I_S(\mathcal M))\)
+与满足对所有 \(i,j\) 均有 \(\epsilon_i\epsilon_j=0\) 的
+\(r\)-元组 \((\epsilon_1,\ldots,\epsilon_r)\in\mathcal O(S')^r\)
+所成的集合等同, 并且对每个 \(a\in\mathcal O(S)\), 有
+\((\epsilon_1,\ldots,\epsilon_r)\cdot a
+=(a\epsilon_1,\ldots,a\epsilon_r)\).}
+
+% Source page: Exp2 component-local p. 5; combined-reader p. 63.
+\SGAInlineRefTarget{sga3:ii:remark:2-1-2}\subsection*{\SGARefLink{sga3:ii:remark:2-1-2}{注 2.1.2}.}
+\(I_S(\mathcal M)\) 的构造与基扩张可交换: 有典范同构
+\[
+  I_S(\mathcal M)_{S'}
+  \simeq I_{S'}(\mathcal M\otimes_{\mathcal O_S}\mathcal O_{S'}).
+\]
+为简便起见, 记 \(I_{S'}(\mathcal M)=I_S(\mathcal M)_{S'}\).
+更一般地, 若 \(X\) 是未必可表的 \(S\)-函子, 则记
+\(I_X(\mathcal M)=I_S(\mathcal M)\times_SX\).
+
+\subsection*{\SGAInlineRefTarget{sga3:ii:subsection:2-1-3}2.1.3.}
+由前面的讨论, \(\mathcal O(S')\) 的乘法幺半群作用于
+\(S'\)-概形 \(I_{S'}(\mathcal M)\), 且关于 \(\mathcal M\) 是函子性的.
+换言之, \(S\)-概形 \(I_S(\mathcal M)\) 是一个带有算子幺半群
+\(\mathcal O_S\) 的对象, 且关于 \(\mathcal M\) 是函子性的.
+因此, 有满足显然条件的 \(S\)-概形态射
+\[
+  \lambda:I_S(\mathcal M)\times_S\mathcal O_S
+  \longrightarrow I_S(\mathcal M),
+\]
+对每个 \(S\)-函子 \(X\), 基变换给出 \(X\)-函子的态射
+\[
+  \lambda_X:I_X(\mathcal M)\times_S\mathcal O_S
+  \longrightarrow I_X(\mathcal M),
+\]
+使 \(I_X(\mathcal M)\) 成为带有算子幺半群
+\(\mathcal O(X)\) 的对象. 每个
+\(a\in\mathcal O(X)=\operatorname{Hom}_S(X,\mathcal O_S)\) 定义了
+\(X\)-自同态
+\[
+  a^*=\lambda_X\circ
+  \bigl(\operatorname{id}_{I_X(\mathcal M)}\times(a\circ\operatorname{pr}_X)\bigr).
+\]
+明确地说, 若 \(x\in X(S')\) 且
+\(m\in I_S(\mathcal M)(S')=I_{S'}(\mathcal M)(S')\), 则
+\(a(x)=a\circ x\in\mathcal O(S')\), 且
+\[
+  (m,x)\cdot a=(m\cdot a(x),x).
+\]
+此运算关于 \(\mathcal M\) 是函子性的, 并保持零截面
+\(\varepsilon_{\mathcal M}:X\to I_X(\mathcal M)\); 因而
+\(a^*\circ\varepsilon_{\mathcal M}=\varepsilon_{\mathcal M}\).
+\footnote{编者注: 此段是新增的; 将用于
+\SGARefLink{sga3:ii:remark:3-4-2}{3.4.2} 和 \SGARefLink{sga3:ii:lemma:4-6-2}{4.6.2}.}
+
+该运算还在如下意义下``关于 \(X\) 是函子性的'': 若
+\(\pi:Y\to X\) 是 \(S\)-函子的态射,
+\(u:\mathcal O(X)\to\mathcal O(Y)\) 是相应的环态射,
+从而 \(u(a)=a\circ\pi\), 则下图交换.
+
+\SGAThreeNativeDiagram[0.30\textwidth]
+  {figures/exp2/exp2_p005_operator_functoriality_square.tex}
+  {算子作用在 \(Y\to X\) 下的函子性.}
+  {fig:exp2-operator-functoriality}
+  {Polo--Gille Exp2-14oct24.pdf, 分篇第 5 页; 合订本第 63 页}
+
+\subsection*{\SGAInlineRefTarget{sga3:ii:subsection:2-2}2.2.}
+设 \(\mathcal M\) 和 \(\mathcal N\) 是两个拟凝聚
+\(\mathcal O_S\)-模. 下面的交换图导出下一页上相应的 \(S\)-概形图.
+
+\SGAThreeNativeDiagram[0.26\textwidth]
+  {figures/exp2/exp2_p005_module_sum_diamond.tex}
+  {\(\mathcal O_S\)-模的直和图.}
+  {fig:exp2-module-sum-diamond}
+  {Polo--Gille Exp2-14oct24.pdf, 分篇第 5 页; 合订本第 63 页}
+
+% Source page: Exp2 component-local p. 6; combined-reader p. 64.
+\SGAThreeNativeDiagram[0.42\textwidth]
+  {figures/exp2/exp2_p006_IS_sum_scheme_diagram.tex}
+  {导出的 \(S\)-概形交换图.}
+  {fig:exp2-is-sum-schemes}
+  {Polo--Gille Exp2-14oct24.pdf, 分篇第 6 页; 合订本第 64 页}
+
+\subsection*{命题 2.2.}
+对每个 \(S\)-概形 \(X\), 将
+\(\underline{\operatorname{Hom}}_S(-,X)\) 应用于前图所得的
+\(S\) 上的函子图是笛卡尔图.
+
+\SGAThreeNativeDiagram[0.58\textwidth]
+  {figures/exp2/exp2_p006_Hom_cartesian_diagram.tex}
+  {\(\underline{\operatorname{Hom}}_S\)-函子的笛卡尔图.}
+  {fig:exp2-hom-cartesian}
+  {Polo--Gille Exp2-14oct24.pdf, 分篇第 6 页; 合订本第 64 页}
+
+事实上, 对每个 \(S'\to S\), 必须验证在 \(S'\) 上取函子值所得的集合图
+是笛卡尔图. 由于 \(I_S(\mathcal P)\) 的构造与基扩张可交换,
+只需取 \(S'=S\), 因而只需验证下面的集合图是笛卡尔图.
+
+\SGAThreeNativeDiagram[0.58\textwidth]
+  {figures/exp2/exp2_p006_points_cartesian_diagram.tex}
+  {在 \(S\) 上取值后的笛卡尔图.}
+  {fig:exp2-points-cartesian}
+  {Polo--Gille Exp2-14oct24.pdf, 分篇第 6 页; 合订本第 64 页}
+
+若 \(x\in X(S)\), 由 SGA~1, III~5.1 可知,
+\(X(\varepsilon_{\mathcal M})^{-1}(x)\) 关于 \(\mathcal M\)
+函子性地同构于
+\[
+  \operatorname{Hom}_{\mathcal O_S}
+    \bigl(x^*(\Omega^1_{X/S}),\mathcal M\bigr),
+\]
+其中 \(\Omega^1_{X/S}\) 表示 \(X\) 在 \(S\) 上的相对微分层.
+后一个关于 \(\mathcal M\) 的函子显然将 \(\mathcal O_S\)-模的直和
+变为相应集合的积, 这就证明了命题.
+\footnote{编者注: 也可参见第 III 篇中增补的
+\SGARefLink{sga3:iii:theorem:0-1-8}{0.1.8}.}
+
+% Source page: Exp2 component-local p. 7; combined-reader p. 65.
+\SGAInlineRefTarget{sga3:ii:corollary:2-2-1}\subsection*{\SGARefLink{sga3:ii:corollary:2-2-1}{推论 2.2.1}.}
+设 \(X\) 是 \(S\)-概形, \(\mathcal M\) 是有限自由
+\(\mathcal O_S\)-模. 函子
+\(\underline{\operatorname{Hom}}_S(I_S(\mathcal M),X)\) 作为
+\(X\) 上的函子, 同构于有限多个
+\(\underline{\operatorname{Hom}}_S(I_S,X)\) 在 \(X\) 上的积.
+
+\SGAInlineRefTarget{sga3:ii:nota:2-2-2}\subsection*{附注 2.2.2.}
+由命题的证明可知,
+\(\underline{\operatorname{Hom}}_S(I_S,X)\) 作为 \(X\)-函子,
+同构于 \(\mathbf V(\Omega^1_{X/S})\) (\SGARefLink{sga3:i:definition:4-6-1}{I~4.6.1}),
+因而由向量纤维化\footnote{编者注: 参见第 I 篇编者注 (33).}
+\[
+  V(\Omega^1_{X/S}).
+\]
+表示.
+
+% Translation coverage: full opening through Nota 2.2.2, immediately before Section 3.
+% Source lines: 449; translated body lines before audit comment: 439.
+% Math preserved: 233 inline formulas, 22 display blocks, 6 equation environments.
+% Footnotes: 13/13; reference targets: 12/12; reference links: 25/25; equation labels: 7/7; diagrams: 7/7.
+% Unresolved TODOs: 0; compile and visual review delegated to the volume integrator.

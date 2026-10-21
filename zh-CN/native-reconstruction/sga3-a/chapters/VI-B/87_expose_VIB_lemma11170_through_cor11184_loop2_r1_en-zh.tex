@@ -1,0 +1,543 @@
+% SGA 3, Expose VI_B, Loop 1 English reconstruction.
+% Loop 2 R1: two source-bound crops are replaced by faithful native
+% tikz-cd diagrams; prose, mathematics, and labels otherwise remain
+% identical to the independently reviewed Loop-1 component.
+% Scope: Lemma 11.17.0 through Corollary 11.18.4, including
+% the complete proof of Theorem 11.17, Lemma 11.17.1,
+% Subsection 11.18, Lemma 11.18.1, Theorem 11.18.2,
+% Remark 11.18.3, Corollary 11.18.4, and editor's notes
+% 130--134.
+% Authority: Polo--Gille Exp6B-13oct24.pdf, component-local
+% pages 94--99 (combined-reader pages 435--440; re-edition
+% headers 424--429; original-print margin markers 409--411).
+% Remarks 11.18.5 begin later on local page 99 / combined
+% page 440 / header 429 and are excluded.
+% OCR is locator-only. Reinhold e7a259f English Markdown is
+% comparison-only and is credited in the component report.
+% Loop 2 replaces both source-bound commutative-diagram crops with
+% faithful native LaTeX reconstructions; both are closed.
+
+
+\medskip
+\phantomsection\label{lem:sga3-VIB-11.17.0}%
+\noindent\textbf{引理 11.17.0.---}%
+\footnote{\label{note:sga3-VIB-130}编者注：我们增补了这一引理，取自 \textup{[DG70]} 第 III.3 节\SGARefLink{par:sga3-VIB-5.6}{定理 5.6} 的证明。略滥用记号，用同一字母 \(E\) 表示 \(k\)-向量空间及 \(k\)-模概形 \(W(E)=\operatorname{Spec}S(E^*)\)。}
+\emph{设 \(k\) 为代数闭域，\(G\) 为约化仿射代数 \(k\)-群，\(V\) 为 \(k\) 上的有限维 \(G\)-模，\(v\in V\)。设 \(E\) 为由向量 \(gv\)（\(g\in G(k)\)）张成的 \(V\) 的向量子空间。则 \(E\) 是 \(V\) 中包含 \(v\) 的最小 \(G\)-子模。因此，态射}
+\[
+  G\times E\longrightarrow V,\qquad (g,x)\longmapsto gx,
+\]
+\emph{经由 \(E\) 分解。}
+
+\emph{证明。}
+由 \hyperref[lem:sga3-VIB-11.8]{11.8}，存在 \(V\) 中包含 \(v\) 的最小 \(G\)-子模 \(U\)。事实上，若
+\[
+  \mu:V\longrightarrow V\otimes\mathcal A(G)
+\]
+表示余模结构，且
+\[
+  \mu(v)=\sum_{i=1}^{n}v_i\otimes a_i
+\]
+其中各 \(a_i\) 线性无关，则
+\[
+  U=\operatorname{Span}_k(v_1,\ldots,v_n).
+\]
+显然 \(U\) 包含 \(E\)，且态射 \(G\times U\to V\) 经由 \(U\) 分解。
+
+反之，\(E\) 在态射
+\[
+  \mu_v:G\longrightarrow V,\qquad g\longmapsto gv,
+\]
+下的逆像是 \(G\) 的一个包含全部有理点的闭子集。由于 \(G\) 在 \(k\) 上有限型，这些点在 \(G\) 中稠密\textup{（参见 EGA IV\(_3\)，10.4.8）}。因此
+\[
+  \mu_v^{-1}(E)=G.
+\]
+由于 \(G\) 约化，\(\mu_v\) 因而经由 \(E\) 分解，从而 \(E=U\)。
+
+\medskip
+\phantomsection\label{thm:sga3-VIB-11.17}%
+\noindent\textbf{定理 11.17 \textup{(Chevalley)}.---}
+\emph{设 \(k\) 为域，\(G\) 为仿射 \(k\)-群\textup{（未必有限型）}，\(N\) 为 \(G\) 的闭子群概形，且在 \(G\) 中不变。则 \textup{(fpqc)} 商层 \(G/N\) 可由仿射 \(k\)-群表出。}%
+\footnote{\label{note:sga3-VIB-131}编者注：不使用第 VI\(_A\) 篇结果的另一个证明，见 \textup{[Ta72]}，\SGARefLink{prop:sga3-VIB-5.2}{定理 5.2}\textup{（亦见\hyperref[rem:sga3-VIB-11.18.5]{注 11.18.5}）}。}
+
+\emph{证明。}
+先假设 \(G\) 有限型。由 \hyperref[thm:sga3-VIA-3.2]{VI\(_A\)，3.2} 和 \hyperref[par:sga3-VIA-5.2]{5.2}，\textup{(fpqc)} 商层 \(G/N\) 可由一个 \(k\)-群 \(Q\) 表出；还须证明 \(Q\) 仿射。分几步证明，先假设 \(k\) 代数闭。%
+\footnote{\label{note:sga3-VIB-132}编者注：下文扩充了原文，并借助 \textup{[DG70]} 第 III.3 节 \SGARefLink{par:sga3-VIB-5.6}{5.6} 改正了错误断言 \((G/N)_{\mathrm{red}}=G_{\mathrm{red}}/N_{\mathrm{red}}\)。}
+
+\smallskip
+\phantomsection\label{case:sga3-VIB-11.17-a}%
+\noindent\textup{(a)}
+再假设 \(G\) 约化且连通，\(N\) 约化。由 \hyperref[thm:sga3-VIB-11.16]{11.16}，存在 \(k\) 上的有限维 \(G\)-模 \(V\) 及直线 \(D=ke_0\)，使得
+\[
+  \operatorname{Norm}_G(D)=N.
+\]
+特别地，\(N\) 通过特征标
+\[
+  \chi:N\longrightarrow\mathbb G_{m,k}.
+\]
+作用于 \(D\)。
+
+固定 \(h\in N(k)\)。对每个 \(g\in G(k)\)，有
+\[
+  hge_0=g(g^{-1}hg)e_0
+       =\chi(g^{-1}hg)\,ge_0.
+\]
+因此 \(\chi(g^{-1}hg)\) 是 \(h\) 的一个特征值。故连续映射
+\[
+  \varphi:G(k)\longrightarrow k,\qquad
+  g\longmapsto\chi(g^{-1}hg),
+\]
+仅取有限多个值。由于 \(G(k)\) 不可约\textup{（它在 \(G\) 中稠密）}，可知
+\[
+  \varphi(g)=\varphi(e)=\chi(h)
+  \qquad\text{对每个 }g\in G(k).
+\]
+因此，
+\phantomsection\label{form:sga3-VIB-11.17-character-invariance}%
+\[
+  \chi(g^{-1}hg)=\chi(h)
+  \qquad
+  \text{对所有 }g\in G(k),\ h\in N(k).
+\]
+设 \(E\) 为由向量 \(ge_0\)（\(g\in G(k)\)）张成的 \(V\) 的向量子空间。由\hyperref[lem:sga3-VIB-11.17.0]{引理 11.17.0}，它就是 \(V\) 中由 \(e_0\) 生成的 \(G\)-子模。
+
+由前一恒等式，两个态射
+\[
+  N\times E\longrightarrow E,\qquad
+  (h,x)\longmapsto hx
+  \quad\text{和}\quad
+  (h,x)\longmapsto\chi(h)x,
+\]
+在
+\[
+  (N\times E)(k)=N(k)\times E(k),
+\]
+上一致，而该集合在 \(N\times E\) 中稠密。由于 \(N\times E\) 约化\textup{（且 \(E\) 分离）}，这两个态射相等。因此 \(N\) 以数乘作用于 \(E\)。
+
+可知 \(N\) 包含在态射
+\[
+  \rho:G\longrightarrow
+    \operatorname{GL}\bigl(\operatorname{End}_k(E)\bigr)
+\]
+的核 \(K\) 中；该态射对每个 \(k\)-代数 \(R\) 定义为
+\[
+  \rho(g)(u)=gug^{-1}
+  \qquad
+  \bigl(g\in G(R),\
+  u\in\operatorname{End}_R(E\otimes_kR)\bigr).
+\]
+反之，若 \(g\in K(R)\)，则
+\[
+  g(Re_0)=Re_0,
+\]
+从而 \(g\in N(R)\)。因此 \(N=K\)。由 \hyperref[prop:sga3-VIA-5.4.1]{VI\(_A\)，5.4.1}，态射
+\[
+  G/N\longrightarrow
+  \operatorname{GL}\bigl(\operatorname{End}_k(E)\bigr)
+\]
+是闭浸入。故 \(G/N\) 仿射。
+
+\smallskip
+\phantomsection\label{case:sga3-VIB-11.17-b}%
+\noindent\textup{(b)}
+现在假设 \(G\) 和 \(N\) 约化，不假设 \(G\) 连通。置
+\[
+  N'=N\cap G^0.
+\]
+则由 \textup{(a)}，\(G^0/N'\) 仿射。此外，\(NG^0\) 是 \(G\) 的不变子群，而 \(G/NG^0\) 是有限常值群 \(G/G^0\) 的商\textup{（参见 \hyperref[prop:sga3-VIA-5.5.1]{VI\(_A\)，5.5.1}）}，因而自身也是有限常值群。因此概形 \(G/N\) 是
+\[
+  G/N\longrightarrow G/NG^0.
+\]
+的各条纤维的不交并。由 \hyperref[par:sga3-VIA-5.3.3]{VI\(_A\)，5.3.3}，这些纤维都同构于 \(NG^0/N\)，从而同构于 \(G^0/N'\)。所以 \(G/N\) 仿射。
+
+\smallskip
+\phantomsection\label{case:sga3-VIB-11.17-c}%
+\noindent\textup{(c)}
+假设 \(G\) 约化，而 \(N\) 任意。态射
+\[
+  G\times N\longrightarrow N,\qquad
+  (g,h)\longmapsto ghg^{-1},
+\]
+诱导态射
+\[
+  (G\times N)_{\mathrm{red}}\longrightarrow N_{\mathrm{red}}.
+\]
+由于 \(G\) 约化且 \(k\) 代数闭，
+\[
+  (G\times N)_{\mathrm{red}}=G\times N_{\mathrm{red}},
+\]
+故 \(N_{\mathrm{red}}\) 是 \(G\) 的不变子群。\textup{（当 \(G\) 不约化时此点不成立；见 \hyperref[sga3:VIA:0.2]{VI\(_A\)，0.2}。）}
+
+因此，由 \textup{\SGARefLink{case:sga3-VIB-11.17-b}{(b)}}，%
+\begingroup
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}%
+\footnote[1]{\label{note:sga3-VIB-11.17-case-c-source-reading}
+源文读法注：法文重版本此处印作“由 \textup{(a)}”，Reinhold 对照版本沿袭该引用。此时 \(G\) 未必连通；适用的前述情形是 \textup{\SGARefLink{case:sga3-VIB-11.17-b}{(b)}}。}
+\endgroup\ 
+\[
+  G'=G/N_{\mathrm{red}}
+\]
+仿射。由 \hyperref[prop:sga3-VIA-5.6.1]{VI\(_A\)，5.6.1}，
+\[
+  N'=N/N_{\mathrm{red}}
+\]
+是有限 \(k\)-群。因此，由\hyperref[thm:sga3-V-4.1]{第 V 篇定理 4.1}，
+\[
+  G/N=G'/N'
+\]
+仿射。
+
+\smallskip
+\phantomsection\label{case:sga3-VIB-11.17-d}%
+\noindent\textup{(d)}
+对任意 \(G\) 和 \(N\)，沿 \(G_{\mathrm{red}}\to G\) 对等价关系
+\[
+  G\times N\rightrightarrows G
+\]
+作基变换，得到
+\phantomsection\label{form:sga3-VIB-11.17-reduced-relation}%
+\[
+  G_{\mathrm{red}}\times N'
+    \rightrightarrows G_{\mathrm{red}},
+  \qquad
+  N'=N\cap G_{\mathrm{red}}.
+\]
+由于底空间相同\textup{（且商为商赋环空间）}，态射
+\[
+  G_{\mathrm{red}}/N'\longrightarrow G/N
+\]
+为同胚。商 \(G_{\mathrm{red}}/N'\) 约化，因为
+\[
+  p:G_{\mathrm{red}}\longrightarrow G_{\mathrm{red}}/N'
+\]
+忠实平坦。因此
+\[
+  (G/N)_{\mathrm{red}}
+    \simeq G_{\mathrm{red}}/N'.
+\]
+由 \textup{\SGARefLink{case:sga3-VIB-11.17-c}{(c)}}，右边的概形仿射。由于 \(G/N\) 在 \(k\) 上有限型\textup{（参见 \hyperref[thm:sga3-VIA-3.3.2]{VI\(_A\)，3.3.2}）}，EGA I，5.1.10 蕴含 \(G/N\) 仿射。
+
+最后，设 \(k\) 任意，\(\overline{k}\) 为其代数闭包。由 \hyperref[concl:sga3-VIB-9.2-v]{9.2\textup{(v)}}，有
+\[
+  (G\otimes_k\overline{k})/
+    (N\otimes_k\overline{k})
+  \simeq
+  (G/N)\otimes_k\overline{k}.
+\]
+第一个概形仿射，故第二个概形也仿射。因此由 \textup{(fpqc)} 下降\textup{（参见 EGA IV\(_2\)，2.7.1）}，\(G/N\) 仿射。这就证明了 \(G\) 有限型时的\hyperref[thm:sga3-VIB-11.17]{定理 11.17}。为转到一般情形，需要下述引理。%
+\footnote{\label{note:sga3-VIB-133}编者注：我们增补了这一引理，取自 \textup{[DG70]}，第 III.3 节，7.1。}
+
+\medskip
+\phantomsection\label{lem:sga3-VIB-11.17.1}%
+\noindent\textbf{引理 11.17.1.---}
+\emph{设 \((C_i\to A_i)_{i\in I}\) 为一个环同态的滤过归纳系统，其中所有同态均忠实平坦。则}
+\[
+  A=\varinjlim_i A_i
+\]
+\emph{在}
+\[
+  C=\varinjlim_i C_i.
+\]
+\emph{上忠实平坦。}
+
+\emph{证明。}
+由 \textup{[BAC]}，\SGARefLink{sec:sga3-VIB-3}{第 I.3 节}，命题 9，环同态 \(B\to B'\) 忠实平坦，当且仅当它单射且 \(B'/B\) 为平坦 \(B\)-模。由于每个 \(C_i\to A_i\) 忠实平坦，有正合列
+\phantomsection\label{seq:sga3-VIB-11.17.1-stage}%
+\[
+  0\longrightarrow C_i\longrightarrow A_i
+   \longrightarrow A_i/C_i\longrightarrow0,
+\]
+且 \(A_i/C_i\) 为平坦 \(C_i\)-模。因此
+\[
+  (A_i/C_i)\otimes_{C_i}C
+\]
+是平坦 \(C\)-模。由于归纳极限正合且与张量积可交换，得到正合列
+\phantomsection\label{seq:sga3-VIB-11.17.1-limit}%
+\[
+  0\longrightarrow C\longrightarrow A
+   \longrightarrow A/C\longrightarrow0
+\]
+及同构
+\phantomsection\label{form:sga3-VIB-11.17.1-limit-quotient}%
+\[
+  \varinjlim_i\bigl((A_i/C_i)\otimes_{C_i}C\bigr)
+    =(A/C)\otimes_CC=A/C.
+\]
+可知 \(A/C\) 为平坦 \(C\)-模。故 \(A\) 在 \(C\) 上忠实平坦。
+
+现在回到不假设 \(G\) 有限型的一般情形下的\hyperref[thm:sga3-VIB-11.17]{定理 11.17} 的证明。置
+\[
+  \mathcal A(G)=A,
+  \qquad
+  \mathcal A(N)=B=A/J.
+\]
+由 \hyperref[prop:sga3-VIB-11.13]{11.13}，\(A\) 是一个有限生成 Hopf 子代数的递增滤过族 \((A_i)_{i\in I}\) 的归纳极限。因此
+\[
+  G=\varprojlim_iG_i,
+  \qquad
+  G_i=\operatorname{Spec}(A_i),
+\]
+其中各 \(G_i\) 为仿射代数 \(k\)-群。用 \(\Delta\) 和 \(\tau\) 分别表示 \(A\) 的余乘法和对极，并置
+\[
+  \Delta^2=(\Delta\otimes\mathrm{id}_A)\circ\Delta.
+\]
+对每个 \(i\)，
+\[
+  B_i=A_i/(J\cap A_i)
+\]
+是 \(A_i\) 的商 Hopf 代数，故
+\[
+  N_i=\operatorname{Spec}(B_i)
+\]
+是 \(G_i\) 的闭子群。由于 \(N\) 在 \(G\) 中不变，态射
+\[
+  G\times N\longrightarrow G,\qquad
+  (g,n)\longmapsto gng^{-1},
+\]
+经由 \(N\) 分解。等价地，\((A,J)\) 满足
+\phantomsection\label{form:sga3-VIB-11.17-conjugation-coideal}%
+\[
+  \bigl(m_{13}\circ(\Delta\otimes\tau)\circ\Delta\bigr)(J)
+    \subset A\otimes_kJ,
+\]
+其中
+\[
+  m_{13}(a_1\otimes a_2\otimes a_3)
+    =a_1a_3\otimes a_2.
+\]
+可知 \((A_i,A_i\cap J)\) 满足类似性质，故 \(N_i\) 在 \(G_i\) 中不变。此外，
+\[
+  \varinjlim_iB_i=B,
+  \qquad
+  \varprojlim_iN_i=N.
+\]
+由已经证明的有限型情形，每个 \textup{(fpqc)} 商层 \(G_i/N_i\) 均由仿射 \(k\)-群
+\[
+  Q_i=\operatorname{Spec}(C_i).
+\]
+表出。置
+\[
+  C=\varinjlim_iC_i.
+\]
+各 \(Q_i\) 组成一个仿射 \(k\)-群的滤过射影系统，其射影极限
+\[
+  Q=\varprojlim_iQ_i
+\]
+是 \(k\)-群 \(\operatorname{Spec}(C)\)\textup{（参见 EGA IV\(_3\)，8.2.3）}。有 \(k\)-群正合列
+\phantomsection\label{seq:sga3-VIB-11.17-Q}%
+\[
+  1\longrightarrow N\longrightarrow G\longrightarrow Q.
+\]
+断言 \(Q\) 表出 \(G\) 关于 \(N\) 的 \textup{(fpqc)} 商层。只须验证
+\[
+  G\longrightarrow Q
+\]
+是 \textup{(fpqc)} 拓扑的覆盖\textup{（参见第 IV 篇 \SGARefLink{sga3:iv:scholium:3:3:2:1}{3.3.2.1} 及 5.1.7.1）}。每个态射
+\[
+  G_i\longrightarrow Q_i
+\]
+均忠实平坦\textup{（参见 \hyperref[concl:sga3-VIB-9.2-xi]{9.2\textup{(xi)}}）}；等价地，\(A_i\) 在 \(C_i\) 上忠实平坦。由于
+\[
+  A=\varinjlim_iA_i,
+  \qquad
+  C=\varinjlim_iC_i,
+\]
+由\hyperref[lem:sga3-VIB-11.17.1]{引理 11.17.1}，\(A\) 在 \(C\) 上忠实平坦。因此 \(G\to Q\) 忠实平坦。它还仿射，故拟紧，从而是一个 \textup{(fpqc)} 覆盖。这就完成了\hyperref[thm:sga3-VIB-11.17]{定理 11.17} 的证明。
+
+\medskip
+\phantomsection\label{par:sga3-VIB-11.18}%
+\noindent\textbf{11.18. 补充。---}%
+\footnote{\label{note:sga3-VIB-134}编者注：我们增补了这一小节。}
+\hyperref[thm:sga3-VIB-11.17]{定理 11.17} 及其证明还给出下列结果，取自 \textup{[DG70]}，第 III.3.7 节。设 \(k\) 为域。先给出稍后\textup{（见 \hyperref[prop:sga3-VIB-12.10]{12.10}）}将要用到的一个引理\textup{（参见 \textup{[An73]}，2.3.3.2）}。
+
+\medskip
+\phantomsection\label{lem:sga3-VIB-11.18.1}%
+\noindent\textbf{引理 11.18.1.---}
+\emph{设 \(u:G\to G'\) 为 \(k\)-群态射，置 \(N=\operatorname{Ker}(u)\)。假设 \(G'\) 仿射，\(G\) 有限型。}
+\begin{enumerate}
+\item[\textup{\SGAInlineRefTarget{lem:sga3-VIB-11.18.1:item:i}(i)}]\phantomsection
+  \label{concl:sga3-VIB-11.18.1-i}%
+  \emph{态射 \(\tau:G/N\to G'\) 为闭浸入。特别地，\(G/N\) 仿射。}
+
+\item[\textup{(ii)}]\phantomsection
+  \label{concl:sga3-VIB-11.18.1-ii}%
+  \emph{若此外态射 \(u^\natural:\mathcal O(G')\to\mathcal O(G)\) 单射，则 \(\tau\) 是同构。因此 \(G'\) 有限型，且 \(u\) 忠实平坦。}
+\end{enumerate}
+
+事实上，由 \hyperref[prop:sga3-VIB-11.13]{11.13}，\(G'\) 是一个仿射代数 \(k\)-群 \(G'_i\) 的滤过系统的射影极限。设
+\[
+  u_i:G\longrightarrow G'\longrightarrow G'_i
+\]
+为复合态射，并设 \(N_i\) 为其核。各 \(N_i\) 构成 \(G\) 的一个递减滤过闭子群系统，其交为 \(N\)。由于 \(G\) 为 Noether 概形，存在指标 \(i\)，使得
+\[
+  N=N_i.
+\]
+群 \(G\) 和 \(G'_i\) 都有限型。因此，由 \hyperref[thm:sga3-VIA-3.2]{VI\(_A\)，3.2} 和 \hyperref[prop:sga3-VIA-5.4.1]{5.4.1}，商 \(G/N\) 为有限型 \(k\)-群，且 \(u_i\) 为忠实平坦投影
+\[
+  p:G\longrightarrow G/N
+\]
+与闭浸入
+\[
+  \tau_i:G/N\hookrightarrow G'_i.
+\]
+的复合。
+
+考虑交换图
+\begin{center}
+  \phantomsection\label{diag:sga3-VIB-11.18.1-closed-immersion}%
+  \begin{tikzcd}[row sep=large,column sep=large]
+    G \arrow[r,"u"] \arrow[d,"p"'] &
+    G' \arrow[d,"q_i"] \\
+    G/N \arrow[r,"\tau_i"'] \arrow[ur,"\tau"] &
+    G'_i\mathpunct{.}
+  \end{tikzcd}
+\end{center}
+由于
+\[
+  q_i\circ\tau=\tau_i
+\]
+为闭浸入，且 \(q_i\) 分离\textup{（\(G'\) 分离；参见 \hyperref[sga3:VIA:0.3]{VI\(_A\)，0.3}）}，\(\tau\) 为闭浸入\textup{（参见 EGA I，5.4.4）}。故 \(G/N\) 仿射，且
+\[
+  \tau^\natural:\mathcal O(G')\longrightarrow
+    \mathcal O(G/N)
+\]
+满射，证明了 \textup{\SGARefLink{lem:sga3-VIB-11.18.1:item:i}{(i)}}。
+
+若 \(u^\natural:\mathcal O(G')\to\mathcal O(G)\) 还单射，则 \(\tau^\natural\) 也单射。可知 \(\tau^\natural\) 是同构；由于 \(G'\) 和 \(G/N\) 仿射，\(\tau\) 也是同构。这就证明了 \textup{\SGARefLink{concl:sga3-VIB-11.18.1-i}{(ii)}}。
+
+\medskip
+\phantomsection\label{thm:sga3-VIB-11.18.2}%
+\noindent\textbf{定理 11.18.2.---}
+\emph{设 \(G\) 和 \(G'\) 为仿射 \(k\)-群，代数分别为 \(A\) 和 \(A'\)，并设 \(u:G\to G'\) 为 \(k\)-群态射。置 \(N=\operatorname{Ker}(u)\)，用 \(\varphi:A'\to A\) 表示由 \(u\) 诱导的态射。}
+\begin{enumerate}
+\item[\textup{\SGAInlineRefTarget{thm:sga3-VIB-11.18.2:item:i}(i)}]\phantomsection
+  \label{concl:sga3-VIB-11.18.2-i}%
+  \emph{若 \(\varphi\) 单射，则 \(u\) 忠实平坦，并将 \(G'\) 等同于 \(G/N\)。}
+
+\item[\textup{\SGAInlineRefTarget{thm:sga3-VIB-11.18.2:item:ii}(ii)}]\phantomsection
+  \label{concl:sga3-VIB-11.18.2-ii}%
+  \emph{有 \(G/N=\operatorname{Spec}(B)\)，其中 \(B=\varphi(A')\)。因此 \(u\) 是与包含映射 \(B\hookrightarrow A\) 相对应的忠实平坦态射 \(G\to G/N\)，同与满射 \(A'\to B\) 相对应的闭浸入 \(G/N\hookrightarrow G'\) 的复合。此外，\(N\) 在 \(G\) 中由理想 \(AB_+\) 定义，其中 \(B_+\) 表示 \(B\) 的增广理想。}
+
+\item[\textup{\SGAInlineRefTarget{thm:sga3-VIB-11.18.2:item:iii}(iii)}]\phantomsection
+  \label{concl:sga3-VIB-11.18.2-iii}%
+  \emph{特别地，若 \(u\) 为单态射，则它是闭浸入。}
+\end{enumerate}
+
+\emph{证明。}
+\textup{(i)}
+假设 \(\varphi\) 单射，并将 \(A'\) 等同于 \(A\) 的一个 Hopf 子代数。由 \hyperref[prop:sga3-VIB-11.13]{11.13}，\(A\) 是有限生成 Hopf 子代数
+\[
+  A_i=\mathcal O(G_i).
+\]
+的滤过并。置
+\[
+  A'_i=A'\cap A_i,
+  \qquad
+  G'_i=\operatorname{Spec}(A'_i),
+\]
+并设 \(N_i\) 为由 \(A'_i\hookrightarrow A_i\) 诱导的态射
+\[
+  G_i\longrightarrow G'_i
+\]
+的核。由\hyperref[lem:sga3-VIB-11.18.1]{引理 11.18.1}，
+\[
+  G_i/N_i\simeq G'_i.
+\]
+因此，对每个 \(i\)，有正合列
+\phantomsection\label{seq:sga3-VIB-11.18.2-stage}%
+\[
+  1\longrightarrow N_i\longrightarrow G_i
+   \xrightarrow{\ p_i\ }G'_i\longrightarrow1,
+\]
+其中 \(p_i\) 忠实平坦。由于
+\[
+  G=\varprojlim_iG_i,
+  \qquad
+  G'=\varprojlim_iG'_i,
+\]
+得到正合列
+\begingroup
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}%
+\footnote[2]{\label{note:sga3-VIB-11.18.2-limit-target-source-reading}
+源文读法注：法文重版本将这个极限正合列的末项印作 \(G/N\)，Reinhold 对照版本亦然。此时论证正在证明 \(G'\) 表出 \(G/N\)；对前述正合列取射影极限，得到的末项是 \(G'\)。}
+\endgroup
+\phantomsection\label{seq:sga3-VIB-11.18.2-limit}%
+\[
+  1\longrightarrow N\longrightarrow G
+   \xrightarrow{\ p\ }G',
+\]
+其中 \(N=\varprojlim_iN_i\)。由\hyperref[lem:sga3-VIB-11.17.1]{引理 11.17.1}，\(p\) 忠实平坦\textup{（且仿射）}。因此 \(G'\) 表出 \(G\) 关于 \(N\) 的 \textup{(fpqc)} 商层，证明了 \textup{\SGARefLink{thm:sga3-VIB-11.18.2:item:i}{(i)}}。
+
+在一般情形下，\(B=\varphi(A')\) 是 \(A\) 的一个 Hopf 子代数。设
+\[
+  H=\operatorname{Spec}(B),
+\]
+并设 \(N'\) 为由 \(B\hookrightarrow A\) 诱导的态射 \(G\to H\) 的核。由 \textup{\SGARefLink{thm:sga3-VIB-11.18.2:item:i}{(i)}}，\(H\) 等同于 \(G/N'\)，而 \(u\) 是投影 \(G\to G/N'\) 与由满射 \(A'\to B\) 诱导的闭浸入
+\[
+  G/N'\hookrightarrow G'
+\]
+的复合。故 \(N'=N\)。此外，由 \hyperref[concl:sga3-VIB-9.2-ii]{9.2\textup{(ii)}}，方块
+\begin{center}
+  \phantomsection\label{diag:sga3-VIB-11.18.2-cartesian}%
+  \begin{tikzcd}[row sep=large,column sep=large]
+    N \arrow[r] \arrow[d] &
+    G \arrow[d,"p"] \\
+    \operatorname{Spec}(k) \arrow[r,"\varepsilon"'] &
+    H
+  \end{tikzcd}
+\end{center}
+是笛卡尔方块。这里 \(\varepsilon\) 为 \(H\) 的单位截面，与增广 \(B\to k\) 相对应。\footnote{定本源文注（SGA-SRC-000862）：重版本在右下角印作 \(G'\)，并称 \(\varepsilon\) 为它的单位。但增广 \(B\to k\) 定义的是 \(H=\operatorname{Spec}(B)=G/N\) 的单位。}
+可知 \(N\) 在 \(G\) 中由理想 \(AB_+\) 定义。这就证明了 \textup{\SGARefLink{thm:sga3-VIB-11.18.2:item:ii}{(ii)}}，而 \textup{\SGARefLink{thm:sga3-VIB-11.18.2:item:iii}{(iii)}} 随即得到。
+
+\medskip
+\phantomsection\label{rem:sga3-VIB-11.18.3}%
+\noindent\textbf{注 11.18.3.---}
+设 \(G\) 为仿射 \(k\)-群，\(N\) 为不变 \(k\)-子群。由于
+\[
+  p:G\longrightarrow G/N
+\]
+忠实平坦且拟紧，由第 IV 篇 \SGARefLink{sga3:iv:remark:3:3:3:2}{3.3.3.2}，\(\mathcal O(G/N)\) 是 \(\mathcal O(G)\) 的由右 \(N\)-不变函数 \(\phi\) 组成的子代数；即
+\[
+  \phi(gh)=\phi(g)
+\]
+对每个 \(k\)-概形 \(S\)、每个 \(g\in G(S)\) 及每个 \(h\in N(S)\) 成立。设 \(J\) 为
+\[
+  A=\mathcal O(G)
+\]
+中定义 \(N\) 的理想。前述条件等价于
+\phantomsection\label{form:sga3-VIB-11.18.3-invariants}%
+\[
+  \Delta(\phi)-\phi\otimes1
+    \in\mathcal O(G)\otimes J,
+\]
+其中 \(\Delta\) 为 \(A\) 的余乘法。
+
+因此，前一定理可以用 Hopf 代数的语言重述如下。
+
+\medskip
+\phantomsection\label{cor:sga3-VIB-11.18.4}%
+\noindent\textbf{推论 11.18.4.---}
+\emph{设 \(k\) 为域，\(A\) 为交换 \(k\)-Hopf 代数，置 \(G=\operatorname{Spec}(A)\)。}
+\begin{enumerate}
+\item[\textup{\SGAInlineRefTarget{cor:sga3-VIB-11.18.4:item:i}(i)}]\phantomsection
+  \label{concl:sga3-VIB-11.18.4-i}%
+  \emph{若 \(B\) 为 \(A\) 的 Hopf 子代数，则 \(A\) 在 \(B\) 上忠实平坦。}
+
+\item[\textup{(ii)}]\phantomsection
+  \label{concl:sga3-VIB-11.18.4-ii}%
+  \emph{映射}
+\[
+    N\longmapsto\mathcal O(G/N)
+  \]
+  \emph{为从 \(G\) 的不变子群集合到 \(A\) 的 Hopf 子代数集合的双射。其逆为}
+\[
+    B\longmapsto\operatorname{Spec}(A/AB_+).
+  \]
+  \emph{此外，若 \(J\) 为 \(A\) 中定义 \(N\) 的理想，则}
+  \phantomsection\label{form:sga3-VIB-11.18.4-invariant-ring}%
+\[
+    \mathcal O(G/N)
+      =
+    \{\,x\in A\mid
+      \Delta(x)-x\otimes1\in A\otimes J\,\}.
+  \]
+\end{enumerate}

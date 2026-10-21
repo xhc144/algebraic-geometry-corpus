@@ -1,0 +1,106 @@
+% SGA 3, Expose IV, English reconstruction.
+% Scope: Lemma 4.4.6 and its complete proof, stopping before Lemma 4.4.7.
+% Authority: Polo--Gille Exp4-13oct24.pdf, component-local pages 39--40
+% (both partial; combined-reader pages 227--228).
+% The external English Markdown was used only as a comparison. The PDF controls
+% prose, formulas, numbering, and editorial notes.
+
+\setcounter{footnote}{33}
+
+\medskip
+\noindent\SGARefTarget{sga3:iv:lemma:4:4:6}\textbf{引理 4.4.6.}
+\footnote{编者注: 已详细给出\SGARefLink{sga3:iv:lemma:4:4:6}{此引理}的陈述及其证明.}
+\begin{enumerate}
+  \item[(i)]\SGARefTarget{sga3:iv:lemma:4:4:6:item:i:01}
+    \textit{设 \(\{F_i\xrightarrow{f_i}F\}\) 是预层的态射族,
+    \(G\subset F\) 是其预层像. 则 \(\widehat{\mathscr C}\) 中的
+    \SGARefLink{sga3:iv:supp:lemma:4:4:6:diagram:01}{下图}正合:}
+    \SGARefTarget{sga3:iv:supp:lemma:4:4:6:diagram:01}\[
+      \left(\coprod_i F_i\right)\times_G
+      \left(\coprod_j F_j\right)
+      \overset{\operatorname{pr}_1}
+        {\underset{\operatorname{pr}_2}{\rightrightarrows}}
+      \coprod_i F_i\longrightarrow G.
+    \]
+    \textit{等价地, 对每个预层 \(H\), 集合的
+    \SGARefLink{sga3:iv:lemma:4:4:6:eq:unnamed:01}{下图}正合:}
+    \[
+    \tag{*}\label{sga3:iv:lemma:4:4:6:eq:unnamed:01}
+      \operatorname{Hom}(G,H)
+      \longrightarrow
+      \prod_i\operatorname{Hom}(F_i,H)
+      \overset{p}{\underset{q}{\rightrightarrows}}
+      \prod_{i,j}\operatorname{Hom}(F_i\times_G F_j,H).
+    \]
+
+  \item[(ii)]\SGARefTarget{sga3:iv:lemma:4:4:6:item:ii:01}
+    \textit{层的态射的每个覆盖族都是普遍有效满态射族.}
+\end{enumerate}
+
+\noindent\textit{证明.}
+对 \SGARefLink{sga3:iv:lemma:4:4:6:item:i:01}{(i)}, 设 \(H\) 是预层. 映射
+\[
+  f^*:\operatorname{Hom}(G,H)
+  \longrightarrow\prod_i\operatorname{Hom}(F_i,H),
+  \qquad
+  \phi\longmapsto(\phi\circ f_i)_i,
+\]
+是单射. 事实上, 对每个 \(S\in\operatorname{Ob}\mathscr C\),
+映射 \(\phi(S)\) 由各映射 \((\phi\circ f_i)(S)\) 确定, 因为族
+\[
+  f_i(S):F_i(S)\longrightarrow G(S)
+\]
+是满射族. 显然 \(f^*\) 的像包含在 \(\ker(p,q)\) 中.
+
+反过来, 设 \(\phi_i:F_i\to H\) 是一个态射族,
+使得对每个 \(i,j\), 图
+\[
+\begin{array}{ccc}
+  F_i\times_G F_j&\longrightarrow&F_j\\
+  \big\downarrow&&\big\downarrow{\scriptstyle\phi_j}\\
+  F_i&\xrightarrow{\ \phi_i\ }&H
+\end{array}
+\]
+交换. 则对每个 \(S\), 映射
+\[
+  \coprod_i F_i(S)\longrightarrow H(S)
+\]
+唯一地经过映射 \(\phi(S):G(S)\to H(S)\) 分解.
+这些映射定义一个满足 \(f^*(\phi)=(\phi_i)\) 的态射 \(\phi:G\to H\).
+这就证明了 \(\SGARefLink{sga3:iv:lemma:4:4:6:eq:unnamed:01}{(*)}\)
+的正合性, 因而证明了 \SGARefLink{sga3:iv:lemma:4:4:6:item:i:01}{(i)}.
+
+证明 \SGARefLink{sga3:iv:lemma:4:4:6:item:ii:01}{(ii)}.
+由于覆盖族在基变换下稳定, 只须证明每个覆盖族都是有效满态射族.
+设 \(\{F_i\to F\}\) 是层的态射的覆盖族, \(G\) 是其预层像.
+由于此族是覆盖族, 单态射 \(G\hookrightarrow F\) 也是覆盖态射;
+因此由 \SGARefLink{sga3:iv:corollary:4:3:12}{4.3.12},
+\[
+  a(G)=F.
+\]
+此外, 由于 \(G\hookrightarrow F\) 是单态射, 纤维积
+\(F_i\times_G F_j\) 与 \(F_i\times_F F_j\) 相同.
+因此 \SGARefLink{sga3:iv:lemma:4:4:6:item:i:01}{(i)} 项表明,
+对每个预层 \(H\), 图
+\[
+\tag{**}\label{sga3:iv:lemma:4:4:6:eq:unnamed:02}
+  \operatorname{Hom}(G,H)
+  \longrightarrow
+  \prod_i\operatorname{Hom}(F_i,H)
+  \overset{p}{\underset{q}{\rightrightarrows}}
+  \prod_{i,j}\operatorname{Hom}(F_i\times_F F_j,H)
+\]
+正合. 若再假设 \(H\) 是层, 则
+\[
+  \operatorname{Hom}(G,H)
+  =\operatorname{Hom}(a(G),H)
+  =\operatorname{Hom}(F,H).
+\]
+于是 \(\SGARefLink{sga3:iv:lemma:4:4:6:eq:unnamed:02}{(**)}\)
+表明 \(\{F_i\to F\}\) 是层范畴 \(\widetilde{\mathscr C}\) 中的有效满态射族.
+
+% Translation coverage: entire assigned source component.
+% Source lines: 99; translated body lines before this audit comment: 100.
+% Math preserved: 28 inline formulas, 9 display blocks.
+% Reference targets: 4/4; links: 10/10; labels: 2/2; footnotes: 1/1.
+% Unresolved TODOs: 0; compile and visual review delegated to the volume integrator.

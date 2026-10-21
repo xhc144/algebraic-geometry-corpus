@@ -1,0 +1,1065 @@
+% SGA 3, Expose IV, English reconstruction.
+% Scope: section 4 heading and sections 4.1--4.3 in full, stopping
+% immediately before the section 4.4 heading.
+% Authority: Polo--Gille Exp4-13oct24.pdf, component-local pages 20 (partial)
+% through 35 (partial), combined-reader pages 208--223, printed pages 196--211.
+% Jacob Reinhold's CC BY 4.0 Markdown lineage was used only as a phrasing
+% comparison. The Polo--Gille PDF controls prose, formulas, numbering, notes,
+% and diagrams.
+
+% Source page: Exp4 component-local p. 20 (partial); printed p. 196.
+\SGARefTarget{sga3:iv:section:4}\section*{4. 拓扑与层}
+\addcontentsline{toc}{section}{4. 拓扑与层}
+
+筛的概念以及这里（\SGARefLink{sga3:iv:definition:4:2:1}{4.2.1}）采用的拓扑概念的表述,
+都由 J.~Giraud \SGARefLink{sga3:iv:bib:as}{[AS]} 提出;
+与 \SGARefLink{sga3:iv:bib:ma}{[MA]} 中使用覆盖族的表述相比,
+这种表述更为内蕴, 并在许多方面更为方便.
+
+\SGARefTarget{sga3:iv:subsection:4:1}\subsection*{4.1. 筛}
+\addcontentsline{toc}{subsection}{\SGARefLink{sga3:iv:subsection:4:1}{4.1}. 筛}
+
+\medskip
+\noindent\SGARefTarget{sga3:iv:definition:4:1:1}\textbf{定义 4.1.1.}
+\textit{范畴 \(\mathscr C\) 的一个\emph{筛 (sieve)}, 是指终函子}
+\[
+  e:\mathscr C^{\circ}\longrightarrow\mathbf{Set}.
+\]
+\textit{的一个子函子 \(C\).}
+
+% Source page: Exp4 component-local p. 21; printed p. 197.
+对 \(\mathscr C\) 的每个筛 \(C\), 关联一个由 \(\mathscr C\) 中满足
+\(C(X)\ne\varnothing\) 的对象 \(X\) 组成的集合 \(E(C)\);
+也就是说, 这些对象使结构态射 \(X\to e\) 经由 \(C\) 分解. 因此
+\[
+\tag{+}\label{sga3:iv:definition:4:1:1:eq:unnamed:01}
+\left\{
+\begin{aligned}
+ X\in E(C)&\quad\Longleftrightarrow\quad C(X)=e(X)=\{\varnothing\},\\
+ X\notin E(C)&\quad\Longleftrightarrow\quad C(X)=\varnothing.
+\end{aligned}
+\right.
+\]
+集合 \(E=E(C)\) 具有\SGARefLink{sga3:iv:definition:4:1:1:eq:unnamed:02}{下述性质}:
+\[
+\tag{++}\label{sga3:iv:definition:4:1:1:eq:unnamed:02}
+ X\in E\ \text{且}\ \operatorname{Hom}(Y,X)\ne\varnothing
+ \quad\Longrightarrow\quad Y\in E.
+\]
+（若在集合 \(\operatorname{Ob}\mathscr C\) 上赋予自然的预序,
+即当存在从 \(Y\) 到 \(X\) 的箭头时称 \(Y\) 支配 \(X\),
+则满足 \SGARefLink{sga3:iv:definition:4:1:1:eq:unnamed:02}{(++)}
+的集合 \(E\), 恰好是 \(\operatorname{Ob}\mathscr C\) 中具有以下性质的子集:
+它包含支配其某个元素的每个对象.）
+\footnote{编者注: 这里的“支配”采用刚才所述预序的意义:
+若存在箭头 \(Y\to X\), 就称 \(Y\) 支配 \(X\).
+另一方面, 若 \(X,Y\) 是对象 \(Z\) 的两个子对象,
+当 \(X\subset Y\) 时, 称 \(Y\) 包含 \(X\)
+（参见 \SGARefLink{sga3:iv:proposition:2:4}{2.4}）.
+为避免这两种用法产生歧义, 后文在第一种情形中使用“支配”, 在第二种情形中使用“包含”.}
+
+反之, 若 \(E\) 是 \(\operatorname{Ob}\mathscr C\) 的一个具有性质
+\SGARefLink{sga3:iv:definition:4:1:1:eq:unnamed:02}{(++)} 的子集,
+则 \(E\) 可唯一地写成 \(E(C)\) 的形式, 其中 \(C\)
+由公式 \SGARefLink{sga3:iv:definition:4:1:1:eq:unnamed:01}{(+)} 定义.
+因此, \(\mathscr C\) 的筛与 \(\operatorname{Ob}\mathscr C\)
+中满足 \SGARefLink{sga3:iv:definition:4:1:1:eq:unnamed:02}{(++)} 的子集一一对应.
+我们有时略不严格地将集合 \(E(C)\) 本身也称为 \(\mathscr C\) 的筛.
+
+设 \(C\) 和 \(C'\) 是 \(\mathscr C\) 的两个筛.
+\footnote{编者注: 下文一句作了展开.}
+由于两者都是终函子 \(e\) 的子函子, 以下说法等价:
+\(C\) 支配 \(C'\)（相对于 \(\operatorname{Ob}\widehat{\mathscr C}\)
+中的支配关系）; \(C\) 是 \(C'\) 的子函子;
+\(E(C)\subset E(C')\). 此时称 \(C\) 比 \(C'\) \emph{更细}.
+这在 \(\mathscr C\) 的筛的集合上定义了一个序关系. 此外,
+\[
+ E(C)\cap E(C')=E(C\times C'),
+\]
+所以 \(\mathscr C\) 的筛的集合对于“更细”这一序关系是滤过的.
+
+\(\operatorname{Ob}\widehat{\mathscr C}\) 的每个子集 \(E\),
+特别是 \(\operatorname{Ob}\mathscr C\) 的每个子集, 都定义一个筛 \(C(E)\):
+由满足至少对某个 \(F\in E\) 有 \(F(X)\ne\varnothing\) 的
+\(X\in\operatorname{Ob}\mathscr C\) 组成的集合满足
+\SGARefLink{sga3:iv:definition:4:1:1:eq:unnamed:02}{(++)},
+因而定义了所需的筛.
+
+这个筛也可以定义为态射族 \(\{F\to e\mid F\in E\}\)
+在\SGARefLink{sga3:iv:definition:4:1:2}{下述定义}意义下的像.
+
+\medskip
+\noindent\SGARefTarget{sga3:iv:definition:4:1:2}\textbf{定义 4.1.2.}
+\textit{设 \(\{F_i\to F\}\) 是 \(\widehat{\mathscr C}\)
+中具有共同靶 \(F\) 的一个态射族. 这个族的\emph{像},
+是指由下式定义的 \(F\) 的子函子:}
+\[
+ S\longmapsto\bigcup_i\operatorname{Im}F_i(S)\subset F(S).
+\]
+
+\medskip
+\noindent\SGARefTarget{sga3:iv:proposition:4:1:3}\textbf{命题 4.1.3.}
+\textit{像的构造与基变换可交换. 沿用上述记号,
+设 \(I\) 是族 \(\{F_i\to F\}\) 的像.
+对 \(\widehat{\mathscr C}\) 中的每个态射 \(G\to F\), 族}
+\[
+ \{F_i\times_FG\longrightarrow G\}
+\]
+\textit{的像是 \(G\) 的子函子 \(I\times_FG\).}
+
+% Source page: Exp4 component-local p. 22; printed p. 198.
+\medskip
+\noindent\SGARefTarget{sga3:iv:definition:4:1:4:0}\textbf{定义 4.1.4.0.}
+\footnote{编者注: 为突出\SGARefLink{sga3:iv:definition:4:1:4:0}{这一定义},
+增加了编号 \SGARefLink{sga3:iv:definition:4:1:4:0}{4.1.4.0}.}
+\textit{设 \(C\) 是 \(\mathscr C\) 的一个筛.
+若 \(E\) 是 \(\operatorname{Ob}\mathscr C\) 中满足 \(C(E)=C\) 的一个子集,
+就称 \(E\) 为 \(C\) 的一个\emph{基}.
+每个筛 \(C\) 都有一个基, 例如 \(E(C)\).}
+
+现在借助 \(C\) 的一个基 \(\{S_i\}\), 描述
+\(\operatorname{Hom}(C,F)\), 这里 \(C\) 是 \(\mathscr C\) 的一个筛,
+而 \(F\in\operatorname{Ob}\widehat{\mathscr C}\).
+对每一对 \((i,j)\), 在 \(\widehat{\mathscr C}\) 中有图:
+\[
+\begin{array}{ccc}
+ S_i\times S_j&\longrightarrow&S_i\\
+ \big\downarrow&&\big\downarrow\\
+ S_j&\longrightarrow&e.
+\end{array}
+\]
+它给出集合的图
+\[
+ \Gamma(F)=\operatorname{Hom}(e,F)
+ \xrightarrow{\sigma}
+ \prod_i\operatorname{Hom}(S_i,F)
+ \mathrel{\substack{\xrightarrow{\tau_1}\\[-0.5ex]
+                     \xrightarrow[\tau_2]{}}}
+ \prod_{i,j}\operatorname{Hom}(S_i\times S_j,F),
+\]
+满足 \(\tau_1\sigma=\tau_2\sigma\). 因而有态射
+\[
+ \operatorname{Hom}(e,F)\longrightarrow
+ \operatorname{Ker}\!\left(
+ \prod_i\operatorname{Hom}(S_i,F)
+ \rightrightarrows
+ \prod_{i,j}\operatorname{Hom}(S_i\times S_j,F)
+ \right).
+\]
+立即可验证:
+
+\medskip
+\noindent\SGARefTarget{sga3:iv:proposition:4:1:4}\textbf{命题 4.1.4.}
+\textit{有一个关于 \(F\) 具函子性的同构}
+\[
+ \operatorname{Hom}(C,F)\xrightarrow{\sim}
+ \operatorname{Ker}\!\left(
+ \prod_i\operatorname{Hom}(S_i,F)
+ \rightrightarrows
+ \prod_{i,j}\operatorname{Hom}(S_i\times S_j,F)
+ \right),
+\]
+\textit{使下图}
+\[
+\begin{array}{ccc}
+ \operatorname{Hom}(e,F)&\longrightarrow&
+ \operatorname{Ker}\!\left(
+ \prod_i\operatorname{Hom}(S_i,F)\rightrightarrows
+ \prod_{i,j}\operatorname{Hom}(S_i\times S_j,F)\right)\\
+ \Big\Vert&&\overset{\sim}{\Big\uparrow}\\
+ \operatorname{Hom}(e,F)&\longrightarrow&\operatorname{Hom}(C,F)
+\end{array}
+\]
+\textit{交换; 下方箭头由典范态射 \(C\to e\) 诱导.}
+
+\medskip
+\noindent\SGARefTarget{sga3:iv:corollary:4:1:5}\textbf{推论 4.1.5.}
+\textit{假设纤维积 \(S_i\times S_j\) 可表,
+例如 \(S_i\) 可平方时就是如此.
+则对每个 \(F\in\operatorname{Ob}\widehat{\mathscr C}\), 有同构}
+\[
+ \operatorname{Hom}(C,F)\xrightarrow{\sim}
+ \operatorname{Ker}\!\left(
+ \prod_iF(S_i)\rightrightarrows
+ \prod_{i,j}F(S_i\times S_j)\right).
+\]
+
+% Source page: Exp4 component-local p. 23; printed p. 199.
+\medskip
+\noindent\SGARefTarget{sga3:iv:remark:4:1:6}\textbf{注 4.1.6.}
+设 \(R\) 是 \(\mathscr C\) 的一个筛,
+以 \(\overline R\) 表示 \(\mathscr C\) 中对象集为 \(E(R)\) 的全子范畴,
+并设
+\[
+ i_R:\overline R\longrightarrow\mathscr C
+\]
+是包含函子. 有一个关于 \(F\in\operatorname{Ob}\widehat{\mathscr C}\)
+具函子性的同构
+\[
+ \operatorname{Hom}(R,F)\xrightarrow{\sim}\Gamma(F\circ i_R),
+\]
+使下图
+\[
+\begin{array}{ccc}
+ \operatorname{Hom}(e,F)&\longrightarrow&\operatorname{Hom}(R,F)\\
+ \overset{\sim}{\Big\downarrow}&&
+ \overset{\sim}{\Big\downarrow}\\
+ \Gamma(F)&\longrightarrow&\Gamma(F\circ i_R)
+\end{array}
+\]
+交换; 下方箭头由 \(i_R\) 诱导.
+
+\medskip
+\noindent\SGARefTarget{sga3:iv:definition:4:1:7}\textbf{定义 4.1.7.}
+\textit{设 \(\mathscr C\) 是一个范畴.
+\(\mathscr C\) 的\emph{对象} \(S\) 的一个\emph{筛},
+是指范畴 \(\mathscr C_{/S}\) 的一个筛.}
+
+因此, \(S\) 的一个筛是 \(\widehat{\mathscr C}\) 中 \(S\) 的一个子对象.
+它典范地对应于 \(\operatorname{Ob}\mathscr C_{/S}\) 的一个子集,
+该子集一旦包含某箭头的靶, 就也包含该箭头的源.
+我们也略不严格地将这种子集称为 \(S\) 的筛.
+
+\SGARefTarget{sga3:iv:subsection:4:2}\subsection*{4.2. 拓扑: 定义}
+\addcontentsline{toc}{subsection}{\SGARefLink{sga3:iv:subsection:4:2}{4.2}. 拓扑: 定义}
+
+\medskip
+\noindent\SGARefTarget{sga3:iv:definition:4:2:1}\textbf{定义 4.2.1.}
+\textit{范畴 \(\mathscr C\) 上的一个\emph{拓扑},
+是指对 \(\mathscr C\) 的每个对象 \(S\), 给定 \(S\) 的筛的一个集合
+\(J(S)\), 其中的筛称为 \(S\) 的\emph{覆盖筛}或\emph{加细 (refinement)},
+并满足下列公理:}
+\begin{enumerate}
+ \item[(T 1)]\SGARefTarget{sga3:iv:definition:4:2:1:item:t:1:01} \textit{对 \(S\)
+ 的每个加细 \(R\) 和每个态射 \(T\to S\), \(T\) 的筛
+ \(R\times_ST\) 都是覆盖筛（“在基变换下稳定”）.}
+ \item[(T 2)]\SGARefTarget{sga3:iv:definition:4:2:1:item:t:2:01} \textit{若
+ \(R,C\) 是 \(S\) 的两个筛, \(R\) 是覆盖筛,
+ 并且对每个 \(T\in\operatorname{Ob}\mathscr C\) 及每个态射
+ \(T\to R\), \(T\) 的筛 \(C\times_ST\) 都是覆盖筛,
+ 则 \(C\) 是 \(S\) 的一个加细.}
+ \footnote{编者注: 换言之, 若 \(C\)“相对于覆盖筛 \(R\) 局部为覆盖筛”,
+ 则 \(C\) 为覆盖筛.}
+ \item[(T 3)]\SGARefTarget{sga3:iv:definition:4:2:1:item:t:3:01} \textit{若
+ \(C\supset R\) 是 \(S\) 的两个筛, 且 \(R\) 为覆盖筛,
+ 则 \(C\) 为覆盖筛.}
+ \item[(T 4)]\SGARefTarget{sga3:iv:definition:4:2:1:item:t:4:01} \textit{对每个
+ \(S\), \(S\) 是 \(S\) 的一个加细.}
+\end{enumerate}
+
+% Source page: Exp4 component-local p. 24; printed p. 200.
+这些公理可以重新表述如下. 假设给定 \(\mathscr C\) 上的一个拓扑
+\(S\mapsto J(S)\). 对每个 \(F\in\operatorname{Ob}\widehat{\mathscr C}\),
+以 \(J(F)\) 表示 \(F\) 的下述子函子 \(R\) 所成的集合:
+对 \(\widehat{\mathscr C}\) 中的每个态射 \(T\to F\),
+其中 \(T\) 可表, \(T\) 的筛 \(R\times_FT\) 都是覆盖筛.
+由 \SGARefLink{sga3:iv:definition:4:2:1:item:t:1:01}{(T~1)}, 此记号与前述记号一致.
+仍称 \(R\in J(F)\) 为 \(F\) 的一个\emph{加细}.
+上述公理立即给出:
+\begin{enumerate}
+ \item[\((T'0)\)]\SGARefTarget{sga3:iv:definition:4:2:1:item:tprime0:01} 若
+ \(F\supset G\) 是 \(\widehat{\mathscr C}\) 的对象,
+ 且对每个 \(S\in\operatorname{Ob}\mathscr C\) 及每个态射 \(S\to F\),
+ 均有 \(G\times_FS\in J(S)\), 则 \(G\in J(F)\).
+ \item[\((T'1)\)]\SGARefTarget{sga3:iv:definition:4:2:1:item:tprime1:01} 若
+ \(G\in J(F)\), 且 \(H\to F\) 是 \(\widehat{\mathscr C}\) 中的态射,
+ 则 \(G\times_FH\in J(H)\).
+ \item[\((T'2)\)]\SGARefTarget{sga3:iv:definition:4:2:1:item:tprime2:01} 若
+ \(F\supset G\supset H\), \(G\in J(F)\), 且 \(H\in J(G)\), 则 \(H\in J(F)\).
+ \item[\((T'3)\)]\SGARefTarget{sga3:iv:definition:4:2:1:item:tprime3:01} 若
+ \(F\supset G\supset H\) 且 \(H\in J(F)\), 则 \(G\in J(F)\).
+ \item[\((T'4)\)]\SGARefTarget{sga3:iv:definition:4:2:1:item:tprime4:01} 对每个
+ \(F\in\operatorname{Ob}\widehat{\mathscr C}\), 有 \(F\in J(F)\).
+\end{enumerate}
+反之, 若对每个 \(F\in\operatorname{Ob}\widehat{\mathscr C}\),
+给定 \(F\) 的一个子对象集 \(J(F)\), 满足
+\SGARefLink{sga3:iv:definition:4:2:1:item:tprime0:01}{\(T'0\)}--\SGARefLink{sga3:iv:definition:4:2:1:item:tprime4:01}{\(T'4\)},
+则 \(S\mapsto J(S)\) 定义 \(\mathscr C\) 上的一个拓扑,
+且这两种构造互为逆构造.
+
+性质 \SGARefLink{sga3:iv:definition:4:2:1:item:tprime1:01}{\(T'1\)},
+\SGARefLink{sga3:iv:definition:4:2:1:item:tprime2:01}{\(T'2\)} 和
+\SGARefLink{sga3:iv:definition:4:2:1:item:tprime3:01}{\(T'3\)} 还蕴含下述性质
+\footnote{编者注: \SGARefLink{sga3:iv:definition:4:2:1:item:tprime1:01}{\(T'1\)}
+和 \SGARefLink{sga3:iv:definition:4:2:1:item:tprime2:01}{\(T'2\)} 已经足够:
+由 \SGARefLink{sga3:iv:definition:4:2:1:item:tprime1:01}{\(T'1\)},
+\(G\cap H=G\times_FH\) 属于 \(J(H)\), 进而由
+\SGARefLink{sga3:iv:definition:4:2:1:item:tprime2:01}{\(T'2\)} 属于 \(J(F)\).}:
+\begin{enumerate}
+ \item[\((T'5)\)]\SGARefTarget{sga3:iv:definition:4:2:1:item:tprime5:01} 若
+ \(G\) 和 \(H\) 是 \(F\) 的两个子对象, 且 \(G,H\in J(F)\),
+ 则 \(G\cap H\in J(F)\).
+\end{enumerate}
+因此, 按 \(\supset\) 排序的 \(J(F)\) 是滤过的.
+这一观察将在下面用到.
+
+\medskip
+\noindent\SGARefTarget{sga3:iv:para:4:2:2}\textbf{4.2.2.}
+若对每个 \(S\in\operatorname{Ob}\mathscr C\), 均有
+\(J(S)\supset J'(S)\), 就称由 \(J\) 定义的拓扑比由 \(J'\) 定义的拓扑\emph{更细}.
+等价地, 对每个 \(F\in\operatorname{Ob}\widehat{\mathscr C}\),
+有 \(J(F)\supset J'(F)\).
+
+\(\mathscr C\) 上的任意一个拓扑集都有最大下界.
+更确切地说, 设 \(I\) 是指标集, 对每个 \(i\in I\),
+设 \(S\mapsto J_i(S)\) 是 \(\mathscr C\) 上的拓扑. 则
+\[
+ J(S)=\bigcap_{i\in I}J_i(S)
+\]
+定义一个拓扑, 它是所给拓扑集的最大下界.
+
+特别地, 假设对每个 \(S\in\operatorname{Ob}\mathscr C\),
+给定 \(S\) 的筛的一个集合 \(E(S)\).
+\emph{这些集合生成的拓扑}, 是指使 \(E(S)\) 的每个元素成为 \(S\)
+的加细的最粗拓扑.
+
+\medskip
+\noindent\SGARefTarget{sga3:iv:definition:4:2:3}\textbf{定义 4.2.3.}
+\textit{设 \(\{F_i\to F\}\) 是 \(\widehat{\mathscr C}\) 中的一个态射族,
+\(G\subset F\) 是它的像（\SGARefLink{sga3:iv:definition:4:1:2}{4.1.2}）.
+若 \(G\in J(F)\), 就称该族是\emph{覆盖族}.
+若只含一个态射的族为覆盖族, 就称该态射为覆盖态射.}
+
+\SGARefLink{sga3:iv:definition:4:2:3}{这一定义}特别适用于包含态射:
+\(S\) 的一个筛 \(C\) 是覆盖筛, 当且仅当典范态射 \(C\to S\) 是覆盖态射.
+
+% Source page: Exp4 component-local p. 25; printed p. 201.
+公理 \SGARefLink{sga3:iv:definition:4:2:1:item:tprime0:01}{\(T'0\)}--\SGARefLink{sga3:iv:definition:4:2:1:item:tprime5:01}{\(T'5\)}
+给出覆盖族的下列性质:
+\begin{enumerate}
+ \item[(C 0)]\SGARefTarget{sga3:iv:definition:4:2:3:item:c:0:01} 若
+ \(\{F_i\to F\}\) 是 \(\widehat{\mathscr C}\) 中的一个族,
+ 且每个可表基变换 \(\{F_i\times_FS\to S\}\) 都是覆盖族,
+ 则原族是覆盖族.
+ \item[(C 1)]\SGARefTarget{sga3:iv:definition:4:2:3:item:c:1:01} 若
+ \(\{F_i\to F\}\) 是覆盖族, 而 \(G\to F\) 是任意态射,
+ 则 \(\{F_i\times_FG\to G\}\) 是覆盖族（“在基变换下稳定”）.
+ \item[(C 2)]\SGARefTarget{sga3:iv:definition:4:2:3:item:c:2:01} 若
+ \(\{F_i\to F\}\) 是覆盖族, 且对每个 \(i\),
+ \(\{F_{ij}\to F_i\}\) 是覆盖族, 则复合族
+ \(\{F_{ij}\to F\}\) 是覆盖族（“在复合下稳定”）.
+ \item[(C 3)]\SGARefTarget{sga3:iv:definition:4:2:3:item:c:3:01} 若
+ \(\{G_j\to F\}\) 是覆盖族, 而 \(\{F_i\to F\}\) 是满足下述条件的族:
+ 对每个 \(j\), 存在一个 \(i\), 使 \(G_j\to F\) 经由 \(F_i\to F\) 分解,
+ 则 \(\{F_i\to F\}\) 是覆盖族（“饱和性”）.
+ \item[(C 4)]\SGARefTarget{sga3:iv:definition:4:2:3:item:c:4:01} 每个仅含一个同构的族都是覆盖族.
+\end{enumerate}
+注意, \SGARefLink{sga3:iv:definition:4:2:3:item:c:2:01}{(C~2)} 和
+\SGARefLink{sga3:iv:definition:4:2:3:item:c:3:01}{(C~3)} 还蕴含:
+\begin{enumerate}
+ \item[(C 5)]\SGARefTarget{sga3:iv:definition:4:2:3:item:c:5:01} 若对族
+ \(\{F_i\to F\}\), 存在覆盖族 \(\{G_j\to F\}\),
+ 使得对每个 \(j\), \(\{F_i\times_FG_j\to G_j\}\) 都是覆盖族,
+ 则 \(\{F_i\to F\}\) 是覆盖族（“局部覆盖的族是覆盖族”）.
+\end{enumerate}
+
+\medskip
+\noindent\SGARefTarget{sga3:iv:para:4:2:4}\textbf{4.2.4.}
+反之, 设 \(\mathscr C\) 是具有纤维积的范畴,
+并假设对每个 \(S\in\operatorname{Ob}\mathscr C\),
+给定 \(\mathscr C\) 中以 \(S\) 为靶的某些态射族组成的集合,
+称其中各族为覆盖族; 它们满足
+\SGARefLink{sga3:iv:definition:4:2:3:item:c:1:01}{(C~1)}--\SGARefLink{sga3:iv:definition:4:2:3:item:c:4:01}{(C~4)},
+从而也满足 \SGARefLink{sga3:iv:definition:4:2:3:item:c:5:01}{(C~5)}.
+以 \(J(S)\) 表示 \(S\) 的具有覆盖基的筛所成的集合
+（由 \SGARefLink{sga3:iv:definition:4:2:3:item:c:3:01}{(C~3)},
+这等价于其所有基均为覆盖族）.
+则 \(S\mapsto J(S)\) 定义 \(\mathscr C\) 上的一个拓扑,
+且上述两种构造互为逆构造.
+
+在应用中, 考虑所有覆盖族很不方便,
+因为往往可以相当简单地描述其中“足够多”的一些族.
+这就引出下列定义.
+
+\medskip
+\noindent\SGARefTarget{sga3:iv:definition:4:2:5:0}\textbf{定义 4.2.5.0.}
+\footnote{编者注: \SGARefLink{sga3:iv:definition:4:2:5:0}{这一定义}在原文中位于
+\SGARefLink{sga3:iv:definition:4:2:5}{4.2.5} 之后,
+现将它移到这里, 因为 \SGARefLink{sga3:iv:proposition:6:2:1}{6.2.1}
+将在比 \SGARefLink{sga3:iv:definition:4:2:5}{4.2.5} 略为一般的情形中使用它.}
+\textit{设 \(\mathscr C\) 是一个范畴,
+并假设对每个 \(S\in\operatorname{Ob}\mathscr C\),
+给定 \(\mathscr C\) 中以 \(S\) 为靶的态射族的一个集合 \(P(S)\).
+\emph{由 \(P\) 生成的拓扑}, 是指使这些给定族均为覆盖族的最粗拓扑.}
+
+\medskip
+\noindent\SGARefTarget{sga3:iv:definition:4:2:5}\textbf{定义 4.2.5.}
+\textit{范畴 \(\mathscr C\) 上的一个\emph{预拓扑 (pretopology)},
+是指对每个 \(S\in\operatorname{Ob}\mathscr C\), 给定族 \(\{S_i\to S\}\)
+的一个集合 \(R(S)\), 称其中各族为\emph{该预拓扑的覆盖族}, 并满足:}
+\begin{enumerate}
+ \item[(P 1)]\SGARefTarget{sga3:iv:definition:4:2:5:item:p:1:01} \textit{对每个
+ \(\{S_i\to S\}\in R(S)\) 和每个态射 \(T\to S\),
+ 纤维积 \(S_i\times_ST\) 均存在, 且
+ \(\{S_i\times_ST\to T\}\in R(T)\).}
+ \item[(P 2)]\SGARefTarget{sga3:iv:definition:4:2:5:item:p:2:01} \textit{若
+ \(\{S_i\to S\}\in R(S)\), 且对每个 \(i\),
+ \(\{T_{ij}\to S_i\}\in R(S_i)\), 则复合族
+ \(\{T_{ij}\to S\}\) 属于 \(R(S)\).}
+ \item[(P 3)]\SGARefTarget{sga3:iv:definition:4:2:5:item:p:3:01} \textit{每个仅含一个同构的族都是覆盖族.}
+\end{enumerate}
+
+% Source page: Exp4 component-local p. 26; printed p. 202.
+\medskip
+\noindent\SGARefTarget{sga3:iv:proposition:4:2:6}\textbf{命题 4.2.6.}
+\textit{对每个 \(S\), 以 \(J(S)\) 表示 \(S\) 的下述筛所成的集合:
+它们是预拓扑 \(R\) 所生成的拓扑的覆盖筛.
+以 \(J_R(S)\) 表示 \(J(S)\) 中由 \(R(S)\) 中的族定义的筛所成的子集.
+则 \(J_R(S)\) 在 \(J(S)\) 中共尾:
+\(S\) 的每个加细都包含一个由 \(R(S)\) 中的某个族定义的筛.}
+
+对每个 \(S\), 以 \(J'(S)\) 表示 \(S\) 的包含 \(J_R(S)\)
+中某个筛的筛所成的集合. 显然 \(J'(S)\subset J(S)\).
+要证明 \(J(S)=J'(S)\), 只须证明这些 \(J'(S)\) 定义一个拓扑,
+即满足 \SGARefLink{sga3:iv:definition:4:2:1:item:t:1:01}{(T~1)}--\SGARefLink{sga3:iv:definition:4:2:1:item:t:4:01}{(T~4)}.
+公理 \SGARefLink{sga3:iv:definition:4:2:1:item:t:1:01}{(T~1)},
+\SGARefLink{sga3:iv:definition:4:2:1:item:t:3:01}{(T~3)} 和
+\SGARefLink{sga3:iv:definition:4:2:1:item:t:4:01}{(T~4)} 是直接的;
+只须验证 \SGARefLink{sga3:iv:definition:4:2:1:item:t:2:01}{(T~2)}.
+\footnote{编者注: 以下修正了原文中的排印错误.}
+
+设 \(U\in J'(S)\), \(C\) 是 \(S\) 的一个筛,
+并假设对每个 \(T\to U\), 有 \(C\times_ST\in J'(T)\).
+须证明 \(C\in J'(S)\). 根据定义, \(U\) 包含一个由族
+\(\{S_i\to S\}\in R(S)\) 定义的加细 \(U'\).
+由于已经验证了 \SGARefLink{sga3:iv:definition:4:2:1:item:t:3:01}{(T~3)},
+只须证明 \(U'\cap C\in J'(S)\); 因而可假设 \(U=U'\).
+由假设, 对每个 \(i\), 有 \(C\times_SS_i\in J'(S_i)\).
+因此, 对每个 \(i\), 都有覆盖族 \(\{T_{ij}\to S_i\}\in R(S_i)\),
+使 \(T_{ij}\to S_i\) 经由 \(C\times_SS_i\to S_i\) 分解.
+所以 \(T_{ij}\to S\) 经由 \(C\to S\) 分解.
+于是 \(C\) 包含由复合族 \(\{T_{ij}\to S\}\) 定义的筛,
+由 \SGARefLink{sga3:iv:definition:4:2:5:item:p:2:01}{(P~2)} 即完成证明.
+
+公理 \SGARefLink{sga3:iv:definition:4:2:5:item:p:1:01}{(P~1)}--\SGARefLink{sga3:iv:definition:4:2:5:item:p:3:01}{(P~3)}
+就是 \SGARefLink{sga3:iv:bib:ma}{[MA]} 中的公理.
+由于预拓扑在实际应用中很有用, 我们将通过定义所讨论拓扑的一个预拓扑,
+来解释每个重要结果.
+
+\medskip
+\noindent\SGARefTarget{sga3:iv:remark:4:2:7}\textbf{注 4.2.7.}
+可以引入一个略为一般的概念:
+对每个 \(S\), 指定覆盖族的一个集合, 使其满足
+\SGARefLink{sga3:iv:definition:4:2:5:item:p:1:01}{(P~1)},
+\SGARefLink{sga3:iv:definition:4:2:5:item:p:3:01}{(P~3)}
+以及命题 \SGARefLink{sga3:iv:proposition:4:2:6}{4.2.6} 的结论.
+特别地, 当所给族满足
+\SGARefLink{sga3:iv:definition:4:2:5:item:p:1:01}{(P~1)},
+\SGARefLink{sga3:iv:definition:4:2:5:item:p:3:01}{(P~3)} 和
+\SGARefLink{sga3:iv:definition:4:2:3:item:c:5:01}{(C~5)} 时就是如此.
+见 \SGARefLink{sga3:iv:bib:d}{[D]}.
+
+\medskip
+\noindent\SGARefTarget{sga3:iv:definition:4:2:8}\textbf{定义 4.2.8.}
+\textit{设 \(\mathscr C\) 赋有一个拓扑, \(S\) 是 \(\mathscr C\) 的一个对象,
+而 \(P(S')\) 是关于变元 \(S'\in\operatorname{Ob}\mathscr C_{/S}\) 的一个条件.
+假设 \(\operatorname{Hom}(S'',S')\ne\varnothing\) 蕴含
+\(P(S')\Rightarrow P(S'')\).
+若下列等价条件成立, 就称条件 \(P\) 对于所讨论的拓扑\emph{在 \(S\) 上局部成立}:}
+\begin{enumerate}
+ \item[(i)]\SGARefTarget{sga3:iv:definition:4:2:8:item:i:01} \textit{使 \(P(S')\)
+ 成立的 \(S'\to S\) 所成的集合是 \(S\) 的一个加细.}
+ \item[(ii)]\SGARefTarget{sga3:iv:definition:4:2:8:item:ii:01} \textit{存在
+ \(S\) 的一个加细, 使该加细中的每个 \(S'\) 都满足 \(P(S')\).}
+ \item[(iii)]\SGARefTarget{sga3:iv:definition:4:2:8:item:iii:01} \textit{若拓扑由一个预拓扑定义,
+ 则存在此预拓扑的一个覆盖族, 使该族中的每个 \(S'\) 都满足 \(P(S')\).}
+\end{enumerate}
+
+% Source page: Exp4 component-local p. 27; printed p. 203.
+\medskip
+\noindent\SGARefTarget{sga3:iv:example:4:2:9}\textbf{例 4.2.9.}
+\textit{设 \(f:X\to Y\) 是一个 \(S\)-态射.
+若存在覆盖族 \(\{S_i\to S\}\), 使对每个 \(i\),
+\(f\times_SS_i\) 都是同构, 就称 \(f\) \emph{局部为同构}.
+等价地, 存在 \(S\) 的一个加细 \(R\),
+使对每个 \(T\to R\), \(X(T)\to Y(T)\) 都是同构.}
+
+后文还会出现许多使用这种“局部”语言的例子.
+
+\SGARefTarget{sga3:iv:subsection:4:3}\subsection*{4.3. 预层、层以及预层的伴随层}
+\addcontentsline{toc}{subsection}{\SGARefLink{sga3:iv:subsection:4:3}{4.3}. 预层、层以及预层的伴随层}
+
+\medskip
+\noindent\SGARefTarget{sga3:iv:definition:4:3:1}\textbf{定义 4.3.1.}
+\textit{设 \(\mathscr C\) 是一个范畴.
+\(\mathscr C\) 上的一个\emph{集合预层}, 是指从 \(\mathscr C\) 到集合范畴的反变函子.
+范畴}
+\[
+ \widehat{\mathscr C}
+ =\operatorname{Hom}(\mathscr C^{\circ},\mathbf{Set})
+\]
+\textit{称为 \(\mathscr C\) 上的\emph{预层范畴}.
+若 \(\mathscr C\) 赋有一个拓扑, 则一个预层 \(P\) 称为\emph{分离的}
+（分别地, 称为一个\emph{层}）, 如果对每个
+\(S\in\operatorname{Ob}\mathscr C\) 以及每个 \(R\in J(S)\), 典范映射}
+\[
+\tag{+}\label{sga3:iv:definition:4:3:1:eq:unnamed:01}
+ P(S)=\operatorname{Hom}(S,P)\longrightarrow\operatorname{Hom}(R,P)
+\]
+\textit{为单射（分别地, 双射）.
+\(\widehat{\mathscr C}\) 中对象为层的全子范畴称为\emph{层范畴},
+记作 \(\widetilde{\mathscr C}\).}
+\footnote{编者注: 若 \(Q\) 是一个分离预层 \(P\) 的子预层,
+则 \(Q\) 是分离的. 事实上, 对 \(S\) 的每个筛 \(R\),
+复合 \(Q(S)\hookrightarrow P(S)\hookrightarrow P(R)\)
+是单射, 并且经由 \(Q(S)\to Q(R)\) 分解.}
+
+\medskip
+\noindent\SGARefTarget{sga3:iv:proposition:4:3:2}\textbf{命题 4.3.2.}
+\textit{设 \(P\) 是一个分离预层（分别地, 层）.
+对每个 \(H\in\operatorname{Ob}\widehat{\mathscr C}\) 和每个
+\(R\in J(H)\), 典范映射}
+\[
+\tag{+}\label{sga3:iv:proposition:4:3:2:eq:unnamed:01}
+ \operatorname{Hom}(H,P)\longrightarrow\operatorname{Hom}(R,P)
+\]
+\textit{为单射（分别地, 双射）.}
+
+设 \(P\) 分离, \(H\) 是一个预层, \(R\in J(H)\),
+并设 \(u,v:H\to P\) 满足 \(uj=vj\).
+对每个 \(f:S\to H\), 其中 \(S\in\operatorname{Ob}\mathscr C\),
+筛 \(R\times_HS\) 是 \(S\) 的一个加细, 且 \(ufj_S=vfj_S\).
+这由下图表示:
+\[
+\begin{array}{ccccc}
+ R\times_HS&\xrightarrow{j_S}&S&&\\
+ \overset{f_R}{\big\downarrow}&&
+ \overset{f}{\big\downarrow}&&\\
+ R&\xrightarrow{j}&H&
+ \mathrel{\substack{\xrightarrow{u}\\[-0.5ex]\xrightarrow[v]{}}}&P.
+\end{array}
+\]
+由于 \(P\) 分离, 可得 \(uf=vf\).
+这一点对每个可表的 \(S\) 都成立, 所以 \(u=v\).
+
+% Source page: Exp4 component-local p. 28; printed p. 204.
+现假设 \(P\) 是一个层. 设 \(g:R\to P\); 我们证明它经由 \(H\) 分解.
+对每个 \(f:S\to H\), 其中 \(S\in\operatorname{Ob}\mathscr C\),
+态射 \(g\circ f_R:R\times_HS\to P\) 唯一地经由 \(S\) 分解,
+从而定义一个态射 \(h:S\to P\).
+由唯一性, \(h\) 显然关于 \(f\) 具有函子性:
+\[
+\begin{tikzcd}[column sep=4.5em,row sep=3.1em]
+ R\times_HS
+   \arrow[r,"f_R"]
+   \arrow[d,"j_S"']
+ &
+ R
+   \arrow[r,"g"]
+   \arrow[d,"j"']
+ &
+ P
+ \\
+ S
+   \arrow[r,"f"']
+   \arrow[rru,bend right=38,"h"']
+ &
+ H
+   \arrow[ru,dashed]
+ &
+ {}
+\end{tikzcd}
+\]
+因此, 对每个 \(S\), 我们都定义了一个关于 \(S\) 具函子性的映射
+\(H(S)\to P(S)\), 从而给出一个具有所需性质的态射 \(H\to P\).
+
+\medskip
+\noindent\SGARefTarget{sga3:iv:corollary:4:3:2:1}\textbf{推论 4.3.2.1.}
+\footnote{编者注: \SGARefLink{sga3:iv:corollary:4:3:2:1}{本推论}为新增内容.}
+\textit{设 \(R\) 和 \(F\) 是两个层.
+若 \(R\) 是 \(F\) 的一个加细, 则 \(R=F\).}
+
+事实上, 假设 \(R\) 是 \(F\) 的一个加细,
+并以 \(j:R\hookrightarrow F\) 表示包含态射.
+由 \SGARefLink{sga3:iv:proposition:4:3:2}{4.3.2},
+\(\operatorname{Hom}(F,R)=\operatorname{End}(R)\);
+因而存在 \(\pi:F\to R\), 使 \(\pi j=\operatorname{id}_R\).
+同样, \(\operatorname{End}(F)=\operatorname{Hom}(R,F)\),
+且 \(j\pi j=j\) 蕴含 \(j\pi=\operatorname{id}_F\).
+所以 \(j\) 是同构.
+
+\medskip
+\noindent\SGARefTarget{sga3:iv:proposition:4:3:3}\textbf{命题 4.3.3 (\SGARefLink{sga3:iv:bib:as}{[AS]}, \SGARefLink{sga3:iv:definition:1:3}{1.3}).}
+\textit{设 \(\mathscr C\) 是一个范畴, \(P\) 是 \(\mathscr C\) 上的一个预层.
+对每个 \(S\in\operatorname{Ob}\mathscr C\), 以 \(J(S)\) 表示
+\(S\) 的下述筛 \(R\) 所成的集合: 对每个 \(T\to S\), 映射}
+\[
+\tag{+}\label{sga3:iv:proposition:4:3:3:eq:unnamed:01}
+ \operatorname{Hom}(T,P)\longrightarrow
+ \operatorname{Hom}(R\times_ST,P)
+\]
+\textit{为单射（分别地, 双射）.
+则这些 \(J(S)\) 定义 \(\mathscr C\) 上的一个拓扑;
+也就是说, 它们满足 \SGARefLink{sga3:iv:definition:4:2:1:item:t:1:01}{(T~1)}--\SGARefLink{sga3:iv:definition:4:2:1:item:t:4:01}{(T~4)}.}
+
+\medskip
+\noindent\SGARefTarget{sga3:iv:corollary:4:3:4}\textbf{推论 4.3.4.}
+\textit{对每个 \(S\in\operatorname{Ob}\mathscr C\),
+设 \(K(S)\) 是一个满足 \SGARefLink{sga3:iv:definition:4:2:1:item:t:1:01}{(T~1)}
+的筛族, 并设 \(P\) 是 \(\mathscr C\) 上的一个预层.
+则 \(P\) 对于这些 \(K(S)\) 所生成的拓扑是分离的（分别地, 是层）, 当且仅当
+对每个 \(S\in\operatorname{Ob}\mathscr C\) 以及每个 \(R\in K(S)\), 典范映射}
+\[
+\tag{+}\label{sga3:iv:corollary:4:3:4:eq:unnamed:01}
+ \operatorname{Hom}(S,P)\longrightarrow\operatorname{Hom}(R,P)
+\]
+\textit{为单射（分别地, 双射）.}
+
+\medskip
+\noindent\SGARefTarget{sga3:iv:corollary:4:3:5}\textbf{推论 4.3.5.}
+\textit{对每个 \(S\in\operatorname{Ob}\mathscr C\),
+设 \(R(S)\) 是 \(\mathscr C\) 中以 \(S\) 为靶的态射族的一个集合,
+满足 \SGARefLink{sga3:iv:definition:4:2:5:item:p:1:01}{(P~1)}, 例如一个预拓扑.
+设 \(P\) 是 \(\mathscr C\) 上的一个预层.
+则 \(P\) 对于 \(R\) 所生成的拓扑是分离的（分别地, 是层）, 当且仅当
+对每个 \(S\in\operatorname{Ob}\mathscr C\) 以及每个族
+\(\{S_i\to S\}\in R(S)\), 映射}
+\[
+ P(S)\longrightarrow\prod_iP(S_i)
+\]
+\textit{为单射（分别地, 下图}
+\[
+ P(S)\longrightarrow\prod_iP(S_i)
+ \rightrightarrows\prod_{i,j}P(S_i\times_SS_j)
+\]
+\textit{正合）.}
+
+% Source page: Exp4 component-local p. 29; printed p. 205.
+\medskip
+\noindent\SGARefTarget{sga3:iv:definition:4:3:6}\textbf{定义 4.3.6.}
+\textit{范畴 \(\mathscr C\) 上的\emph{典范拓扑},
+是指使每个可表函子均为层的最细拓扑.}
+
+\medskip
+\noindent\SGARefTarget{sga3:iv:corollary:4:3:7}\textbf{推论 4.3.7.}
+\textit{\(S\) 的一个筛 \(R\) 是典范拓扑的加细, 当且仅当
+对 \(\mathscr C\) 中的每个态射 \(T\to S\) 以及每个
+\(X\in\operatorname{Ob}\mathscr C\), 典范映射}
+\[
+ \operatorname{Hom}(T,X)\longrightarrow
+ \operatorname{Hom}(R\times_ST,X)
+\]
+\textit{为双射.}
+
+\medskip
+\noindent\SGARefTarget{sga3:iv:definition:4:3:8}\textbf{定义 4.3.8.}
+\textit{典范拓扑的覆盖筛称为\emph{普遍有效满态射筛}.}
+
+\medskip
+\noindent\SGARefTarget{sga3:iv:corollary:4:3:9}\textbf{推论 4.3.9.}
+\textit{普遍有效满态射族定义一个普遍有效满态射筛.
+反之, 每个定义了普遍有效满态射筛的可平方族都是普遍有效满态射族.}
+
+现在回到赋有任意拓扑的范畴 \(\mathscr C\), 讨论预层 \(P\) 的伴随层的构造.
+设 \(S\) 是 \(\mathscr C\) 的一个对象.
+若 \(R\supset R'\) 是 \(S\) 的两个加细, 则有图
+\[
+\begin{array}{ccc}
+ \operatorname{Hom}(S,P)&\longrightarrow&\operatorname{Hom}(R,P)\\
+ &\searrow&\big\downarrow\\
+ &&\operatorname{Hom}(R',P).
+\end{array}
+\]
+如前所述, 有序集 \(J(S)\) 是滤过的.
+由于 \(S\in J(S)\), 有一个显然的态射
+\[
+ \operatorname{Hom}(S,P)\longrightarrow
+ \varinjlim_{R\in J(S)}\operatorname{Hom}(R,P).
+\]
+
+% Source page: Exp4 component-local p. 30; printed p. 206.
+\medskip
+\noindent\SGARefTarget{sga3:iv:definition:4:3:10:0}\textbf{定义 4.3.10.0.}
+\footnote{编者注: 为便于后文引用, 增加了编号
+\SGARefLink{sga3:iv:definition:4:3:10:0}{4.3.10.0}.
+此外, 由\SGARefLink{sga3:iv:definition:4:3:10:0}{定义}可知,
+若 \(Q\to P\) 是单态射, 则 \(LP\to LQ\) 也是单态射;
+因此 \(L\)“保持单态射”（另见 \SGARefLink{sga3:iv:remark:4:3:16}{4.3.16},
+那里给出了 \(L\)“与有限逆极限可交换”这一更一般的陈述）.}
+置
+\[
+ \check H^0(S,P)=
+ \varinjlim_{R\in J(S)}\operatorname{Hom}(R,P).
+\]
+可以验证, \(\check H^0(S,P)\) 关于 \(S\) 具有函子性,
+因而通过下式定义一个函子 \(LP\):
+\[
+\tag{++}\label{sga3:iv:definition:4:3:10:0:eq:unnamed:01}
+ \operatorname{Hom}(S,LP)=\check H^0(S,P)
+ =\varinjlim_{R\in J(S)}\operatorname{Hom}(R,P).
+\]
+根据构造, 有态射
+\[
+ \ell_P:P\longrightarrow LP,
+ \qquad
+ z_R:\operatorname{Hom}(R,P)\longrightarrow\operatorname{Hom}(S,LP).
+\]
+
+\medskip
+\noindent\SGARefTarget{sga3:iv:lemma:4:3:10}\textbf{引理 4.3.10.}
+\begin{enumerate}
+ \item[(i)]\SGARefTarget{sga3:iv:lemma:4:3:10:item:i:01} \textit{对 \(S\) 的每个加细
+ \(R\) 以及每个 \(u:R\to P\), 下图}
+ \[
+ \begin{array}{ccc}
+ P&\xrightarrow{\ell_P}&LP\\
+ \overset{u}{\Big\uparrow}&&
+ \overset{z_R(u)}{\Big\uparrow}\\
+ R&\xrightarrow{i_R}&S
+ \end{array}
+ \]
+ \textit{交换.}
+ \item[(ii)]\SGARefTarget{sga3:iv:lemma:4:3:10:item:ii:01} \textit{对每个态射
+ \(v:S\to LP\), 都存在 \(S\) 的一个加细 \(R\) 和一个态射
+ \(u:R\to P\), 使得 \(v=z_R(u)\).}
+ \item[(iii)]\SGARefTarget{sga3:iv:lemma:4:3:10:item:iii:01} \textit{设 \(Q\)
+ 是一个函子, 且 \(u,v:Q\to P\) 满足 \(\ell_Pu=\ell_Pv\).
+ 则二元组 \((u,v)\) 的核是 \(Q\) 的一个加细.}
+ \item[(iv)]\SGARefTarget{sga3:iv:lemma:4:3:10:item:iv:01} \textit{设
+ \(u:R\to P\) 和 \(u':R'\to P\).
+ 等式 \(z_R(u)=z_{R'}(u')\) 成立, 当且仅当存在 \(S\) 的一个加细
+ \(R''\subset R\cap R'\), 使 \(u\) 与 \(u'\) 在其上相同.}
+\end{enumerate}
+
+\noindent\textit{证明.}
+对于 \SGARefLink{sga3:iv:lemma:4:3:10:item:i:01}{(i)}, 须证明
+\(z_R(u)i_R=\ell_Pu\).
+只须将这两个态射与每个态射 \(g:T\to R\) 复合后作比较, 其中 \(T\) 可表.
+置 \(f=i_Rg\) 和 \(R'=R\times_ST\).
+\footnote{编者注: 设 \(p:R'\to R\) 是投影.
+由于 \(i_R\) 是单态射, 有 \(p=gi_{R'}\).
+设 \(g'\) 是由 \(g\) 定义的 \(i_{R'}\) 的截面.
+则 \(pg'=g\), 从而 \(pg'i_{R'}=gi_{R'}=p\).
+这蕴含 \(g'i_{R'}=\operatorname{id}_{R'}\),
+所以 \(i_{R'}:R'\to T\) 是同构, 其逆为 \(g'\).}
+有图
+\[
+\begin{array}{ccccc}
+ P&\xrightarrow{\ell_P}&LP&&\\
+ \overset{u}{\Big\uparrow}&&
+ \overset{z_R(u)}{\Big\uparrow}&&\\
+ R&\xrightarrow{i_R}&S&&\\
+ \overset{p}{\Big\uparrow}&\overset{g}{\nwarrow}&
+ \overset{f}{\Big\uparrow}&&\\
+ R'&\xrightarrow[\sim]{i_{R'}}&T.&&
+\end{array}
+\]
+由 \(\ell_P\) 的\SGARefLink{sga3:iv:definition:4:3:10:0}{定义},
+\(\ell_Pug=z_R(u)f\); 这是\SGARefLink{sga3:iv:lemma:4:3:10:item:i:01}{所述断言}
+在 \(i_R\) 为同构时的特例.
+而 \(z_R(u)f=z_R(u)i_Rg\), 所以
+\SGARefLink{sga3:iv:lemma:4:3:10:item:i:01}{(i)} 得证.
+
+断言 \SGARefLink{sga3:iv:lemma:4:3:10:item:ii:01}{(ii)} 和
+\SGARefLink{sga3:iv:lemma:4:3:10:item:iv:01}{(iv)}
+只是表达了 \(\operatorname{Hom}(S,LP)\) 作为正向极限的
+\SGARefLink{sga3:iv:definition:4:3:10:0}{定义}.
+
+对于 \SGARefLink{sga3:iv:lemma:4:3:10:item:iii:01}{(iii)},
+设 \(K\) 是 \((u,v)\) 的核.
+对每个态射 \(f:S\to Q\), 其中 \(S\) 可表,
+\(K\times_QS\) 是 \(uf,vf:S\to P\) 的核的一个子函子.
+因此由 \SGARefLink{sga3:iv:definition:4:2:1:item:tprime0:01}{\(T'0\)},
+只须在 \(Q=S\) 可表时证明\SGARefLink{sga3:iv:lemma:4:3:10:item:iii:01}{所述断言}.
+此时, 由 \SGARefLink{sga3:iv:lemma:4:3:10:item:ii:01}{(ii)} 和
+\SGARefLink{sga3:iv:lemma:4:3:10:item:iv:01}{(iv)},
+\(K\) 包含 \(S\) 的一个加细, 因而它本身就是 \(S\) 的一个加细.
+
+最后可验证, \(P\mapsto LP\) 定义一个函子
+\[
+ L:\widehat{\mathscr C}\longrightarrow\widehat{\mathscr C},
+\]
+且 \(P\mapsto\ell_P\) 定义一个函子态射
+\[
+ \ell:\operatorname{Id}_{\widehat{\mathscr C}}\longrightarrow L.
+\]
+
+% Source page: Exp4 component-local p. 31; printed p. 207.
+现在陈述关键结果.
+
+\medskip
+\noindent\SGARefTarget{sga3:iv:proposition:4:3:11}\textbf{命题 4.3.11.}
+\begin{enumerate}
+ \item[(i)]\SGARefTarget{sga3:iv:proposition:4:3:11:item:i:01} \textit{对每个预层
+ \(P\), 预层 \(LP\) 是分离的, 且 \(\ell_P:P\to LP\) 是覆盖态射
+ （\SGARefLink{sga3:iv:definition:4:2:3}{4.2.3}）.}
+ \item[(ii)]\SGARefTarget{sga3:iv:proposition:4:3:11:item:ii:01} \textit{若 \(P\)
+ 是一个层, 则 \(P\to LP\) 是同构.}
+ \item[(iii)]\SGARefTarget{sga3:iv:proposition:4:3:11:item:iii:01} \textit{对每个预层
+ \(P\) 和每个分离预层（分别地, 层）\(F\), 映射}
+ \[
+  \operatorname{Hom}(\ell_P,F):
+  \operatorname{Hom}(LP,F)\longrightarrow\operatorname{Hom}(P,F)
+ \]
+ \textit{为单射（分别地, 双射）.}
+ \item[(iv)]\SGARefTarget{sga3:iv:proposition:4:3:11:item:iv:01} \textit{若 \(P\)
+ 分离, 则 \(\ell_P:P\to LP\) 是覆盖单态射
+ （因而 \(P\) 是 \(LP\) 的一个加细）, 且 \(LP\) 是一个层.}
+\end{enumerate}
+
+\noindent\textit{证明.}
+\SGARefLink{sga3:iv:proposition:4:3:11:item:i:01}{(i)} 首先,
+\(P\to LP\) 是覆盖态射. 事实上, 对每个 \(v:S\to LP\),
+引理 \SGARefLink{sga3:iv:lemma:4:3:10:item:i:01}{4.3.10(i)},\SGARefLink{sga3:iv:lemma:4:3:10:item:ii:01}{(ii)}
+给出 \(S\) 的一个加细 \(R\) 和一个交换图
+（从 \(R\) 到纤维积的映射由 \(v':R\to P\) 与 \(i_R:R\to S\) 诱导）
+\[
+\begin{tikzcd}[column sep=4.2em,row sep=2.8em]
+ {}
+ &
+ P
+   \arrow[r,"\ell_P"]
+ &
+ LP
+ \\
+ {}
+ &
+ P\times_{LP}S
+   \arrow[u]
+   \arrow[r]
+ &
+ S
+   \arrow[u,"v"']
+ \\
+ R
+   \arrow[ru]
+   \arrow[ruu,bend left=10,"v'"]
+   \arrow[rru,bend right=8,"i_R"']
+ &
+ {}
+ &
+ {}
+\end{tikzcd}
+\]
+所以 \(P\times_{LP}S\to S\) 是覆盖态射.
+由 \SGARefLink{sga3:iv:definition:4:2:3:item:c:0:01}{(C~0)},
+\(P\to LP\) 是覆盖态射.
+
+% Source page: Exp4 component-local p. 32; printed p. 208.
+现假设两个态射 \(v_1,v_2:S\to LP\) 在 \(S\) 的某个加细 \(R\)
+上诱导出同一态射. 存在加细 \(R_i\), \(i=1,2\),
+以及态射 \(u_i:R_i\to P\), 满足 \(z_{R_i}(u_i)=v_i\).
+将 \(R\) 换成更小的加细后, 可假设 \(R_1=R_2=R\).
+此时引理 \SGARefLink{sga3:iv:lemma:4:3:10:item:i:01}{4.3.10(i)}
+中的交换图给出 \(\ell_Pu_1=\ell_Pu_2\).
+由 \SGARefLink{sga3:iv:lemma:4:3:10:item:iii:01}{4.3.10(iii)},
+\(u_1\) 与 \(u_2\) 在 \(R\) 的某个加细上相同,
+因而在 \(S\) 的某个加细上相同;
+由 \SGARefLink{sga3:iv:lemma:4:3:10:item:iv:01}{4.3.10(iv)},
+\(z_R(u_1)=z_R(u_2)\). 所以 \(LP\) 分离.
+
+\SGARefLink{sga3:iv:proposition:4:3:11:item:ii:01}{(ii)} 这是显然的:
+若 \(P\) 是层, 则对 \(S\) 的每个加细 \(R\),
+\(\operatorname{Hom}(S,P)\to\operatorname{Hom}(R,P)\) 已经是同构.
+
+\SGARefLink{sga3:iv:proposition:4:3:11:item:iii:01}{(iii)} 设
+\(u,v:LP\to F\) 满足 \(u\ell_P=v\ell_P\).
+要证明 \(u=v\), 只须对每个 \(f:S\to LP\), 其中 \(S\) 可表,
+证明 \(uf=vf\). 存在 \(S\) 的一个加细 \(R\) 和一个态射
+\(g:R\to P\), 使 \(f=z_R(g)\).
+态射 \(uf\) 与 \(vf\) 在 \(R\) 上相同,
+两者在其上都等于 \(u\ell_Pg=v\ell_Pg\).
+若 \(F\) 分离, 则它们在 \(S\) 上相同, 这证明了单射性.
+若 \(F\) 是层, 则交换图
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+ P \arrow[r,"\ell_P"] \arrow[d] &
+ LP \arrow[d] \arrow[dl]\\
+ F \arrow[r,"\sim"] & LF
+\end{tikzcd}
+\]
+表明 \(\operatorname{Hom}(\ell_P,F)\) 也是满射.
+
+\SGARefLink{sga3:iv:proposition:4:3:11:item:iv:01}{(iv)} 假设 \(P\) 分离.
+要证明 \(P\to LP\) 是单态射, 只须考虑 \(u,v:S\to P\),
+其中 \(S\) 可表, 且满足 \(\ell_Pu=\ell_Pv\).
+由 \SGARefLink{sga3:iv:lemma:4:3:10:item:iii:01}{4.3.10(iii)},
+\(u\) 与 \(v\) 在 \(S\) 的一个加细上相同,
+因此由 \(P\) 的分离性, 它们相同.
+所以 \(P\to LP\) 是单态射; 又由
+\SGARefLink{sga3:iv:proposition:4:3:11:item:i:01}{(i)}, 它是覆盖态射,
+故 \(P\) 是 \(LP\) 的一个加细.
+
+只须再证明 \(LP\) 是层. 由 \SGARefLink{sga3:iv:proposition:4:3:11:item:i:01}{(i)},
+已经知道它是分离的. 设 \(S\in\operatorname{Ob}\mathscr C\),
+\(R\) 是 \(S\) 的一个加细, \(h:R\to LP\).
+须求 \(u:S\to LP\), 使 \(ui_R=h\).
+由于 \(P\) 是 \(LP\) 的一个加细,
+\(R'=P\times_{LP}R\) 是 \(R\) 的一个加细, 从而也是 \(S\) 的一个加细.
+置 \(u=z_{R'}(h')\); 情形如下:
+\[
+\begin{array}{ccccc}
+ P&\xrightarrow{\ell_P}&LP&&\\
+ \overset{h'}{\Big\uparrow}&&
+ \overset{h}{\Big\uparrow}&\overset{u}{\nwarrow}&\\
+ R'&\xrightarrow{j}&R&\xrightarrow{i_R}&S.
+\end{array}
+\]
+这里斜箭头是 \(u:S\to LP\).
+有 \(ui_{R'}=\ell_Ph'=hj\), 从而 \(ui_Rj=hj\).
+由于 \(R'\) 是 \(R\) 的一个加细, 且 \(LP\) 分离,
+命题 \SGARefLink{sga3:iv:proposition:4:3:2}{4.3.2} 给出 \(ui_R=h\).
+
+% Source page: Exp4 component-local p. 33; printed p. 209.
+\medskip
+\noindent\SGARefTarget{sga3:iv:corollary:4:3:12}\textbf{推论 4.3.12.}
+\footnote{编者注: \SGARefLink{sga3:iv:corollary:4:3:12}{本推论}的陈述与证明作了展开.}
+\textit{设 \(F\) 是层, \(R\) 是 \(\widehat{\mathscr C}\) 中 \(F\) 的一个子对象.
+则 \(R\) 是一个分离预层, \(\ell_R:R\to LR\) 是覆盖单态射,
+并且有交换图}
+\[
+\begin{array}{ccc}
+ R&\xrightarrow{i}&F\\
+ &\overset{\ell_R}{\searrow}
+ &\overset{j}{\Big\uparrow}\\[-0.5ex]
+ &&LR.
+\end{array}
+\]
+\textit{因此, \(R\) 是 \(F\) 的一个加细, 当且仅当 \(j\) 是同构.}
+
+我们已经指出, \(R\) 分离, 且 \(j\) 是单态射;
+见编者注 (24) 和 (26).
+由命题 \SGARefLink{sga3:iv:proposition:4:3:11:item:iv:01}{4.3.11(iv)},
+\(\ell_R\) 是覆盖单态射.
+所以, 若 \(j\) 是同构, 则 \(R\) 是 \(F\) 的一个加细.
+反之, 若 \(i\) 是覆盖态射, 则 \(j\) 也是覆盖态射,
+而命题 \SGARefLink{sga3:iv:corollary:4:3:2:1}{4.3.2.1} 表明 \(j\) 是同构.
+
+\medskip
+\noindent\SGARefTarget{sga3:iv:remark:4:3:13}\textbf{注 4.3.13.}
+若 \(J'(S)\) 是 \(J(S)\) 的一个共尾子集, 则
+\SGARefTarget{sga3:iv:supp:remark:4:3:13:display:01}\[
+ \operatorname{Hom}(S,LP)=
+ \varinjlim_{R\in J'(S)}\operatorname{Hom}(R,P).
+\]
+特别地, 设 \(S\mapsto R(S)\) 是生成给定拓扑的一个预拓扑.
+函子 \(L\) 可用属于 \(R(S)\) 的覆盖族描述.
+将\SGARefLink{sga3:iv:supp:remark:4:3:13:display:01}{上述公式}写开,
+就得到 \SGARefLink{sga3:iv:bib:ma}{[MA]} 中的构造.
+
+设 \(i:\widetilde{\mathscr C}\to\widehat{\mathscr C}\) 是包含函子.
+命题 \SGARefLink{sga3:iv:proposition:4:3:11}{4.3.11}
+给出\SGARefLink{sga3:iv:theorem:4:3:14}{下述定理}.
+
+\medskip
+\noindent\SGARefTarget{sga3:iv:theorem:4:3:14}\textbf{定理 4.3.14.}
+\textit{存在唯一的函子 \(a:\widehat{\mathscr C}\to\widetilde{\mathscr C}\),
+使下图}
+\[
+\begin{array}{ccc}
+ \widehat{\mathscr C}&\xrightarrow{L}&\widehat{\mathscr C}\\
+ \overset{a}{\Big\downarrow}&&
+ \overset{L}{\Big\downarrow}\\
+ \widetilde{\mathscr C}&\xrightarrow{i}&\widehat{\mathscr C}
+\end{array}
+\]
+\textit{交换; 也就是说, 对每个预层 \(P\), \(L(L(P))\) 都是层.
+函子 \(i\) 与 \(a\) 互为伴随:
+对每个预层 \(P\) 以及每个层 \(F\), 存在一个关于 \(P\) 和 \(F\) 具函子性的同构}
+\[
+ \operatorname{Hom}_{\widehat{\mathscr C}}(P,i(F))
+ \simeq
+ \operatorname{Hom}_{\widetilde{\mathscr C}}(a(P),F),
+\]
+\textit{或简单地写为}
+\[
+ \operatorname{Hom}(P,F)\simeq\operatorname{Hom}(a(P),F).
+\]
+
+% Source page: Exp4 component-local p. 34; printed p. 210.
+\medskip
+\noindent\SGARefTarget{sga3:iv:definition:4:3:15}\textbf{定义 4.3.15.}
+\textit{层 \(a(P)\) 称为预层 \(P\) 的\emph{伴随层}.}
+
+\medskip
+\noindent\SGARefTarget{sga3:iv:remark:4:3:16}\textbf{注 4.3.16.}
+由于 \(L\) 通过逆极限与滤过正向极限构造而成, 它与有限逆极限可交换.
+\footnote{编者注: 特别地, 若 \(K\) 是一对预层态射
+\(u,v:Q\rightrightarrows P\) 的核,
+则 \(LK\) 是 \(Lu,Lv:LQ\rightrightarrows LP\) 的核.
+这一点将在 \SGARefLink{sga3:iv:lemma:4:4:5}{4.4.5} 中用到.}
+
+此外, 在等同 \(L(P\times P)=LP\times LP\) 下,
+态射 \(\ell_{P\times P}\) 与 \(\ell_P\times\ell_P\) 等同.
+因此, 例如当 \(P\) 是群预层时, \(LP\) 就典范地成为群预层,
+且典范态射 \(P\to LP\) 是群态射.
+对函子 \(a\), 也有同样结论.
+所以, 若 \(P\) 是群预层, \(F\) 是群层, 就有同构
+\[
+ \operatorname{Hom}_{\widehat{\mathscr C}\text{-gr.}}(P,i(F))
+ \simeq
+ \operatorname{Hom}_{\widetilde{\mathscr C}\text{-gr.}}(a(P),F).
+\]
+更多细节见 \SGARefLink{sga3:iv:bib:d}{[D]}.
+
+\medskip
+\noindent\SGARefTarget{sga3:iv:para:4:3:17}\textbf{4.3.17.}
+设 \(\mathscr V\) 是任意范畴.
+一个\emph{取值于 \(\mathscr V\) 的 \(\mathscr C\) 上的预层},
+是指从 \(\mathscr C\) 到 \(\mathscr V\) 的反变函子.
+在定义取值于 \(\mathscr V\) 的层之前, 先回顾函子的逆极限的定义.
+设 \(\mathscr R\) 和 \(\mathscr V\) 是范畴, 并设
+\[
+ F:\mathscr R^{\circ}\longrightarrow\mathscr V
+\]
+是一个反变函子.
+以 \(\varprojlim F\) 表示 \(\widehat{\mathscr V}\) 中由下式定义的对象:
+\[
+ \begin{aligned}
+ (\varprojlim F)(X)
+ &=\operatorname{Hom}_{\widehat{\mathscr V}}
+     (X,\varprojlim F)\\
+ &=\varprojlim_{U\in\operatorname{Ob}\mathscr R}
+     \operatorname{Hom}_{\mathscr V}(F(U),X)\\
+ &=\operatorname{Hom}(c_X,F),
+ \end{aligned}
+\]
+其中 \(X\) 遍历 \(\mathscr V\) 的对象,
+\(c_X\) 表示将每个对象映为 \(X\)、每个箭头映为
+\(\operatorname{id}_X\) 的从 \(\mathscr R\) 到 \(\mathscr V\) 的反变函子,
+且最后一个 \(\operatorname{Hom}\) 是在
+\(\operatorname{Hom}(\mathscr R^{\circ},\mathscr V)\) 中取的.
+若 \(\mathscr R\) 有终对象 \(e_{\mathscr R}\), 则
+\(\varprojlim F=F(e_{\mathscr R})\).
+若 \(\mathscr V=\mathbf{Set}\), 函子 \(\varprojlim\) 就与 \(\Gamma\) 等同.
+
+% Source page: Exp4 component-local p. 35 (partial); printed p. 211.
+设 \(S\) 是 \(\mathscr C\) 的一个对象, \(R\) 是 \(S\) 的一个筛.
+以 \(\overline R\) 表示 \(\mathscr C_{/S}\) 中对象集为 \(E(R)\) 的全子范畴,
+并设 \(i_R:\overline R\to\mathscr C_{/S}\) 是典范函子.
+\(\mathscr C\) 上取值于 \(\mathscr V\) 的预层 \(P\) 限制为一个函子
+\[
+ P_S:(\mathscr C_{/S})^{\circ}\longrightarrow\mathscr V.
+\]
+函子 \(i_R\) 诱导 \(\widehat{\mathscr V}\) 中的一个态射:
+\[
+ P(S)=P_S(S)=\varprojlim P_S
+ \longrightarrow\varprojlim(P_S\circ i_R).
+\]
+我们将 \(\widehat{\mathscr V}\) 中后一个对象记为
+\[
+ \varprojlim_RP=\varprojlim(P_S\circ i_R)
+\]
+. 由 \SGARefLink{sga3:iv:remark:4:1:6}{4.1.6},
+定义 \SGARefLink{sga3:iv:definition:4:3:1}{4.3.1} 推广如下.
+
+\medskip
+\noindent\SGARefTarget{sga3:iv:definition:4:3:18}\textbf{定义 4.3.18.}
+\textit{\(\mathscr C\) 上取值于 \(\mathscr V\) 的预层 \(P\)
+称为\emph{分离的}（分别地, 称为一个\emph{层}）, 如果对每个
+\(S\in\operatorname{Ob}\mathscr C\) 以及每个 \(R\in J(S)\),
+\(\widehat{\mathscr V}\) 中的典范态射}
+\[
+ P(S)\longrightarrow\varprojlim_RP
+\]
+\textit{是单态射（分别地, 同构）.}
+
+当 \(\mathscr V\) 是群范畴 \(\mathbf{Gr}\)
+（或其他任何由有限逆极限所定义的代数结构的集合所成的范畴）时,
+下述概念等价（参见 \SGARefLink{sga3:iv:bib:d}{[D]}）:
+\(\mathscr C\) 上取值于 \(\mathbf{Gr}\) 且底集合预层为层的预层,
+与集合层范畴中的群对象.
+在作了这些等同之后, 对取值于具有由有限逆极限所定义的代数结构的集合所成范畴的层,
+我们总将其视为在 \(\widetilde{\mathscr C}\) 中赋有相应代数结构的集合层.
+
+% Scope ends here, immediately before section 4.4 on source page 35.

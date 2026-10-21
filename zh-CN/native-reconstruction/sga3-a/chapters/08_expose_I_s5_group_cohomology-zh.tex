@@ -1,0 +1,754 @@
+% SGA 3, Expose I, Loop 1 English reconstruction.
+% Scope: all of Section 5, "Group cohomology", stopping immediately before
+% Section 6, "G-equivariant objects and modules".
+% Authority: Polo--Gille Exp1-13oct24.pdf, component-local/printed pages 31--38
+% (combined-reader pages 41--48). Force-OCR and the jcreinhold Markdown are
+% drafting and comparison witnesses only; the PDF controls text, formulas,
+% numbering, editorial notes, page boundaries, and the single diagram.
+
+% Source page: Exp1 component-local/printed p. 31; combined-reader p. 41.
+% Original-edition marginal p. 37 begins at Section 5.1 on this page.
+\section*{\SGAInlineRefTarget{sga3:i:section:5}5. 群上同调}
+\addcontentsline{toc}{section}{5. 群上同调}
+
+\subsection*{\SGAInlineRefTarget{sga3:i:subsection:5-1}5.1. 标准复形}
+
+设 \(\mathscr C\) 为范畴, \(\mathbf G\) 为
+\(\widehat{\mathscr C}\)-群, \(\mathbf O\) 为
+\(\widehat{\mathscr C}\)-环, \(\mathbf F\) 为
+\(\mathbf G\)-\(\mathbf O\)-模.\footnote{编者注: 此复形常称为 Hochschild 复形; 例如, 见
+\([\mathrm{DG}70]\) 第 II.3 节.} 对 \(n\geq 0\), 令
+\[
+  C^n(\mathbf G,\mathbf F)
+    =\operatorname{Hom}(\mathbf G^n,\mathbf F),
+  \qquad
+  \underline C^{\,n}(\mathbf G,\mathbf F)
+    =\underline{\operatorname{Hom}}(\mathbf G^n,\mathbf F),
+\]
+其中 \(\mathbf G^0\) 为终对象 \(\underline{\mathbf e}\).
+于是 \(\underline C^{\,n}(\mathbf G,\mathbf F)\) (相应地,
+\(C^n(\mathbf G,\mathbf F)\)) 以显然的方式具有
+\(\mathbf O\)-模结构 (相应地,
+\(\Gamma(\mathbf O)\)-模结构), 并且
+\[
+  C^n(\mathbf G,\mathbf F)
+    \simeq \Gamma\bigl(\underline C^{\,n}(\mathbf G,\mathbf F)\bigr),
+  \qquad
+  \underline C^{\,n}(\mathbf G,\mathbf F)(S)
+    =C^n(\mathbf G_S,\mathbf F_S).
+\]
+
+% --- Authority page transition: component/printed p. 31 -> p. 32;
+% combined-reader p. 41 -> p. 42. ---
+给定 \(C^n(\mathbf G,\mathbf F)\) 的一个元素, 就是对每个
+\(S\in\operatorname{Ob}(\mathscr C)\), 给定 \(\mathbf G(S)\) 的一个取值于
+\(\mathbf F(S)\) 的 \(n\)-余链 (cochain), 且它关于 \(S\) 具有函子性.
+回顾余边界算子
+\[
+  \partial:C^n\bigl(\mathbf G(S),\mathbf F(S)\bigr)
+    \longrightarrow
+    C^{n+1}\bigl(\mathbf G(S),\mathbf F(S)\bigr)
+\]
+由下式给出
+\begin{align*}
+  \partial f(g_1,\ldots,g_{n+1})
+    ={}&g_1f(g_2,\ldots,g_{n+1}) \\
+     &+\sum_{i=1}^{n}(-1)^i
+       f(g_1,\ldots,g_i g_{i+1},\ldots,g_{n+1}) \\
+     &+(-1)^{n+1}f(g_1,\ldots,g_n).
+\end{align*}
+它关于 \(S\) 具有函子性, 因而定义同态
+\[
+  \partial:C^n(\mathbf G,\mathbf F)
+    \longrightarrow C^{n+1}(\mathbf G,\mathbf F)
+\]
+使得 \(\partial\circ\partial=0\). 这样就定义了一个交换群复形
+(实际上是 \(\Gamma(\mathbf O)\)-模复形), 记为
+\(C^*(\mathbf G,\mathbf F)\). 同样可定义
+\(\mathbf O\)-模复形 \(\underline C^{\,*}(\mathbf G,\mathbf F)\), 并且
+\[
+  C^*(\mathbf G,\mathbf F)
+    =\Gamma\bigl(\underline C^{\,*}(\mathbf G,\mathbf F)\bigr).
+\]
+我们用 \(H^n(\mathbf G,\mathbf F)\) (相应地,
+\(\underline H^{\,n}(\mathbf G,\mathbf F)\)) 表示
+\(C^*(\mathbf G,\mathbf F)\) (相应地,
+\(\underline C^{\,*}(\mathbf G,\mathbf F)\)) 的上同调群
+(相应地, 上同调 \(\widehat{\mathscr C}\)-群). 特别地,
+\[
+  \underline H^{\,0}(\mathbf G,\mathbf F)=\mathbf F^{\mathbf G},
+  \qquad
+  H^0(\mathbf G,\mathbf F)=\Gamma(\mathbf F^{\mathbf G}).
+\]
+
+\medskip
+\noindent\SGAInlineRefTarget{sga3:i:remark:5-1-1}\textbf{注 5.1.1.}
+上面对 \(\partial\) 的``集合论''描述便于验证
+\(\partial\circ\partial=0\). 也可以利用乘法
+\(m:\mathbf G\times\mathbf G\to\mathbf G\) 和作用
+\(\mu:\mathbf G\times\mathbf F\to\mathbf F\), 如下定义
+\(\partial\): 对每个 \(f\in C^n(\mathbf G,\mathbf F)\),
+\[
+  \partial f
+    =\mu\circ(\operatorname{id}_{\mathbf G}\times f)
+     +\sum_{i=1}^{n}(-1)^i
+       f\circ
+       \bigl(\operatorname{id}_{\mathbf G^{i-1}}\times m\times
+             \operatorname{id}_{\mathbf G^{n-i}}\bigr)
+     +(-1)^{n+1}f\circ\operatorname{pr}_{[1,n]},
+\]
+其中 \(\operatorname{pr}_{[1,n]}\) 表示
+\(\mathbf G^{n+1}=\mathbf G^n\times\mathbf G\) 到 \(\mathbf G^n\) 的投影.
+同样, 对每个 \(S\in\operatorname{Ob}(\mathscr C)\) 以及
+\(f\in\underline C^{\,n}(\mathbf G,\mathbf F)(S)
+      =C^n(\mathbf G_S,\mathbf F_S)\),
+\[
+  \partial f
+    =\mu_S\circ(\operatorname{id}_{\mathbf G_S}\times f)
+     +\sum_{i=1}^{n}(-1)^i
+       f\circ
+       \bigl(\operatorname{id}_{\mathbf G_S^{i-1}}\times m_S\times
+             \operatorname{id}_{\mathbf G_S^{n-i}}\bigr)
+     +(-1)^{n+1}f\circ\operatorname{pr}_{[1,n]},
+\]
+其中 \(m_S\) 和 \(\mu_S\) 由 \(m\) 和 \(\mu\) 经基变换得到.
+\footnote{编者注: 此注为新增内容.}
+
+\subsection*{\SGAInlineRefTarget{sga3:i:subsection:5-2}5.2.}
+
+回顾 (见\SGARefLink{sga3:i:section:3}{第~3~节}),
+\((\mathbf G\text{-}\mathbf O\text{-Mod.})\) 是阿贝尔范畴,
+其结构逐对象定义. 因此,
+\[
+  0\longrightarrow\mathbf F'
+   \longrightarrow\mathbf F
+   \longrightarrow\mathbf F''
+   \longrightarrow0
+\]
+为 \(\mathbf G\)-\(\mathbf O\)-模的正合列, 当且仅当对每个
+\(S\in\operatorname{Ob}(\mathscr C)\), 交换群序列
+\[
+  0\longrightarrow\mathbf F'(S)
+   \longrightarrow\mathbf F(S)
+   \longrightarrow\mathbf F''(S)
+   \longrightarrow0
+\]
+正合.
+\footnote{编者注: 上述回顾为新增内容.}
+
+% --- Authority page transition: component/printed p. 32 -> p. 33;
+% combined-reader p. 42 -> p. 43. ---
+假设 \(\mathscr C\) 是小范畴. 则由\SGARefLink{sga3:i:remark:3-2-1}{3.2.1},
+\((\mathbf G\text{-}\mathbf O\text{-Mod.})\) 有足够的内射对象,
+故左正合函子 \(\underline H^{\,0}\) 和 \(H^0\) 的导出函子有定义.
+下面证明, 函子 \(\underline H^{\,n}\) (相应地, \(H^n\))
+确实是 \(\underline H^{\,0}\) (相应地, \(H^0\)) 的导出函子.
+\footnote{编者注: 上一句为新增内容.}
+
+\medskip
+\noindent\SGAInlineRefTarget{sga3:i:definition:5-2-0}\textbf{定义 5.2.0.}
+对每个 \(\mathbf O\)-模 \(\mathbf P\), 用 \(E(\mathbf P)\) 表示
+\(\widehat{\mathscr C}\) 的对象 \(\underline{\operatorname{Hom}}(\mathbf G,\mathbf P)\),
+并赋予它如下的 \(\mathbf G\)-\(\mathbf O\)-模结构. 对每个
+\(S\in\operatorname{Ob}(\mathscr C)\),
+\[
+  \underline{\operatorname{Hom}}(\mathbf G,\mathbf P)(S)
+    =\operatorname{Hom}_S(\mathbf G_S,\mathbf P_S),
+\]
+而 \(g\in\mathbf G(S)\) 和 \(a\in\mathbf O(S)\) 在
+\(\phi\in\operatorname{Hom}_S(\mathbf G_S,\mathbf P_S)\) 上的作用由下式给出:
+\[
+  (g\cdot\phi)(h)=\phi(hg),
+  \qquad
+  (a\cdot\phi)(h)=a\phi(h),
+\]
+其中 \(h\in\mathbf G(S')\), \(S'\to S\) 任意. 此外, 对每个
+\(\phi\in\operatorname{Hom}_S(\mathbf G_S,\mathbf P_S)\), 令
+\[
+  \varepsilon(\phi)=\phi(1)\in\mathbf P(S),
+\]
+其中 \(1\) 表示 \(\mathbf G(S)\) 的单位元.
+这就定义了函子
+\[
+  E:(\mathbf O\text{-Mod.})
+    \longrightarrow(\mathbf G\text{-}\mathbf O\text{-Mod.})
+\]
+以及自然变换 \(\varepsilon:E\to\operatorname{Id}\), 其中
+\(\operatorname{Id}\) 表示 \((\mathbf O\text{-Mod.})\) 的恒等函子.
+\footnote{编者注: 对原文作了修改, 引入
+\SGARefLink{sga3:i:remark:5-2-0-1}{5.2.0.1} 和\SGARefLink{sga3:i:lemma:5-2-0-2}{5.2.0.2},
+它们将在\SGARefLink{sga3:i:theorem:5-3-1}{定理~5.3.1} 的证明中用到.}
+
+\medskip
+\noindent\SGAInlineRefTarget{sga3:i:remark:5-2-0-1}\textbf{注 5.2.0.1.}
+在下文中, 用 \(\mathbf G_1\) 和 \(\mathbf G_2\) 表示
+\(\mathbf G\) 的两个副本. 态射
+\[
+  \mathbf G_1\times E(\mathbf P)\longrightarrow E(\mathbf P),
+  \qquad
+  (g_1,\phi)\longmapsto\bigl(g_2\longmapsto\phi(g_2g_1)\bigr)
+\]
+经由同构
+\begin{align*}
+  \operatorname{Hom}\bigl(\mathbf G_1\times E(\mathbf P),E(\mathbf P)\bigr)
+    &\simeq
+      \operatorname{Hom}\Bigl(E(\mathbf P),
+        \underline{\operatorname{Hom}}\bigl(
+          \mathbf G_1,
+          \underline{\operatorname{Hom}}(\mathbf G_2,\mathbf P)
+        \bigr)\Bigr)\\
+    &\simeq
+      \operatorname{Hom}\Bigl(E(\mathbf P),
+        \underline{\operatorname{Hom}}(
+          \mathbf G_2\times\mathbf G_1,\mathbf P)
+      \Bigr),
+\end{align*}
+对应于态射
+\[
+  \phi\longmapsto\bigl((g_2,g_1)\longmapsto\phi(g_2g_1)\bigr),
+\]
+即对应于态射
+\[
+  \underline{\operatorname{Hom}}(\mathbf G,\mathbf P)
+    \longrightarrow
+  \underline{\operatorname{Hom}}(\mathbf G_2\times\mathbf G_1,\mathbf P)
+\]
+此态射由如下乘法诱导:
+\[
+  \mu_{\mathbf G}:\mathbf G\times\mathbf G\longrightarrow\mathbf G,
+  \qquad (g_2,g_1)\longmapsto g_2g_1.
+\]
+
+\medskip
+\noindent\SGAInlineRefTarget{sga3:i:lemma:5-2-0-2}\textbf{引理 5.2.0.2.}
+\textit{\SGAInlineRefTarget{sga3:i:lemma:5-2-0-2:item:i}(i) 函子 \(E\) 是如下遗忘函子的右伴随:
+\[
+  (\mathbf G\text{-}\mathbf O\text{-Mod.})
+    \longrightarrow(\mathbf O\text{-Mod.}).
+\]
+更确切地, 对每个
+\(\mathbf M\in(\mathbf G\text{-}\mathbf O\text{-Mod.})\) 和
+\(\mathbf P\in\operatorname{Ob}(\mathbf O\text{-Mod.})\),
+\(\varepsilon:E\to\operatorname{Id}\) 诱导双射}
+\[
+  \operatorname{Hom}_{\mathbf G\text{-}\mathbf O\text{-Mod.}}
+    \bigl(\mathbf M,E(\mathbf P)\bigr)
+  \xrightarrow{\ \sim\ }
+  \operatorname{Hom}_{\mathbf O\text{-Mod.}}(\mathbf M,\mathbf P)
+\]
+\textit{它关于 \(\mathbf M\) 和 \(\mathbf P\) 具有函子性.}
+
+\textit{\SGAInlineRefTarget{sga3:i:lemma:5-2-0-2:item:ii}(ii) 因此, 若 \(\mathbf I\) 为
+\((\mathbf O\text{-Mod.})\) 的内射对象, 则 \(E(\mathbf I)\) 为
+\((\mathbf G\text{-}\mathbf O\text{-Mod.})\) 的内射对象.}
+
+% --- Authority page transition: component/printed p. 33 -> p. 34;
+% combined-reader p. 43 -> p. 44. ---
+\medskip
+\noindent\textit{证明.}
+对每个 \(\mathbf O\)-态射 \(f:\mathbf M\to\mathbf P\), 关联如下定义的
+\(\operatorname{Hom}_{\mathbf O}(\mathbf M,E(\mathbf P))\) 的元素 \(\phi_f\).
+对每个 \(S\in\operatorname{Ob}(\mathscr C)\) 及
+\(m\in\mathbf M(S)\), 元素 \(\phi_f(m)\) 属于
+\(\operatorname{Hom}_S(\mathbf G_S,\mathbf P_S)\), 对每个
+\(g\in\mathbf G(S')\), \(S'\to S\), 定义为
+\[
+  \phi_f(m)(g)=f(gm)\in\mathbf P(S').
+\]
+于是, 对每个 \(h\in\mathbf G(S)\), 有
+\(\phi_f(hm)=h\cdot f(m)\); 即 \(\phi_f\) 是下列集合的元素:
+\[
+  \operatorname{Hom}_{\mathbf G\text{-}\mathbf O\text{-Mod.}}
+    \bigl(\mathbf M,E(\mathbf P)\bigr).
+\]
+若
+\(\phi\in\operatorname{Hom}_{\mathbf G\text{-}\mathbf O\text{-Mod.}}
+  (\mathbf M,E(\mathbf P))\), 且对每个 \(m\in\mathbf M(S)\),
+记 \(f(m)=\phi(m)(1)\), 则
+\[
+  \phi_f(m)(g)
+    =f(gm)
+    =\phi(gm)(1)
+    =(g\cdot\phi(m))(1)
+    =\phi(m)(g);
+\]
+故 \(\phi_f=\phi\). 反之, 显然有
+\(\phi_f(m)(1)=f(m)\). 这就证明了\SGARefLink{sga3:i:lemma:5-2-0-2:item:i}{(i)},
+而\SGARefLink{sga3:i:lemma:5-2-0-2:item:ii}{(ii)} 随即成立.
+
+\medskip
+\noindent\SGAInlineRefTarget{sga3:i:definition:5-2-0-3}\textbf{定义 5.2.0.3.}
+设 \(\mathbf M\) 为 \(\mathbf G\)-\(\mathbf O\)-模.
+将 \(\mathbf M\) 视为 \(\mathbf O\)-模时, 它的恒等映射在该伴随下对应于
+\(\mathbf G\)-\(\mathbf O\)-模态射
+\[
+  \mu_{\mathbf M}:\mathbf M\longrightarrow E(\mathbf M)
+\]
+使得对每个 \(S\in\operatorname{Ob}(\mathscr C)\) 以及
+\(m\in\mathbf M(S)\), \(\mu_{\mathbf M}(m)\) 为如下定义的态射
+\(\mathbf G_S\to\mathbf M_S\): 对每个
+\(S'\to S\) 和 \(g\in\mathbf G(S')\),
+\[
+  \mu_{\mathbf M}(m)(g)=g\cdot m_{S'}\in\mathbf M(S').
+\]
+注意 \(\mu_{\mathbf M}\) 是单态射. 事实上,
+\(\varepsilon_{\mathbf M}:E(\mathbf M)\to\mathbf M\) 是
+\(\mathbf O\)-模态射, 且满足
+\(\varepsilon_{\mathbf M}\circ\mu_{\mathbf M}
+  =\operatorname{id}_{\mathbf M}\). 因此, 作为
+\(\mathbf O\)-模, \(\mathbf M\) 是 \(E(\mathbf M)\) 的直和因子.
+
+\medskip
+\noindent\SGAInlineRefTarget{sga3:i:proposition:5-2-1}\textbf{命题 5.2.1.}
+\textit{假设 \(\mathscr C\) 是小范畴, \(\mathscr C\) 中存在有限积,
+且 \(\mathbf G\) 可表. 则函子
+\(\underline H^{\,n}(\mathbf G,-)\) (相应地,
+\(H^n(\mathbf G,-)\)) 是 \(\mathbf G\)-\(\mathbf O\)-模范畴上左正合函子
+\(\underline H^{\,0}(\mathbf G,-)\) (相应地,
+\(H^0(\mathbf G,-)\)) 的导出函子.}
+
+由众所周知的一般结果,
+\footnote{编者注: 见 \([\mathrm{Gr}57,\,2.2.1]\) 和
+\([\mathrm{Gr}57,\,2.3]\). 下文也对原文作了扩充.}
+只需验证 \(\underline H^{\,n}(\mathbf G,-)\)
+(相应地, \(H^n(\mathbf G,-)\)) 构成一个在次数 \(>0\) 时可消去的
+上同调函子. 设
+\[
+  0\longrightarrow\mathbf F'
+   \longrightarrow\mathbf F
+   \longrightarrow\mathbf F''
+   \longrightarrow0
+\]
+为 \(\mathbf G\)-\(\mathbf O\)-模的正合列, 并设
+\(S\in\operatorname{Ob}(\mathscr C)\). 由假设, \(\mathbf G\) 由对象
+\(G\in\operatorname{Ob}(\mathscr C)\) 表出, 且 \(\mathscr C\) 中存在有限积;
+特别地, \(\mathscr C\) 有终对象 \(e\). 因此, 每个
+\(\mathbf G^n\times\mathbf h_S\) 都由 \(G^n\times S\) 表出
+(其中 \(G^0=e\)), 而序列
+\[
+  0\longrightarrow\mathbf F'(G^n\times S)
+   \longrightarrow\mathbf F(G^n\times S)
+   \longrightarrow\mathbf F''(G^n\times S)
+   \longrightarrow0
+\]
+正合. 这表明下列 \(\mathbf O\)-模序列
+\[
+  0\longrightarrow\underline C^{\,n}(\mathbf h_G,\mathbf F')
+   \longrightarrow\underline C^{\,n}(\mathbf h_G,\mathbf F)
+   \longrightarrow\underline C^{\,n}(\mathbf h_G,\mathbf F'')
+   \longrightarrow0
+\]
+正合. 从而, 将 \(\underline C^{\,*}(\mathbf G,-)\) 视为
+\((\mathbf G\text{-}\mathbf O\text{-Mod.})\) 上取值于
+\((\mathbf O\text{-Mod.})\) 的复形范畴的函子时, 它是正合的.
+所以函子 \(\underline H^{\,n}(\mathbf G,-)\) 构成上同调函子.
+
+% --- Authority page transition: component/printed p. 34 -> p. 35;
+% combined-reader p. 44 -> p. 45. ---
+由于 \(\Gamma\) 正合, 函子 \(H^n(\mathbf G,-)\) 也有同样的性质.
+现在只需证明下述引理.
+
+\medskip
+\noindent\SGAInlineRefTarget{sga3:i:lemma:5-2-2}\textbf{引理 5.2.2.}
+\textit{对每个 \(\mathbf P\in\operatorname{Ob}(\mathbf O\text{-Mod.})\), 有}
+\[
+  \underline H^{\,n}\bigl(
+    \mathbf G,\underline{\operatorname{Hom}}(\mathbf G,\mathbf P)
+  \bigr)=0,
+  \qquad
+  H^n\bigl(
+    \mathbf G,\underline{\operatorname{Hom}}(\mathbf G,\mathbf P)
+  \bigr)=0,
+  \qquad n>0.
+\]
+
+只需证明
+\(\underline C^{\,*}
+  (\mathbf G,\underline{\operatorname{Hom}}(\mathbf G,\mathbf P))\) 和
+\(C^*(\mathbf G,\underline{\operatorname{Hom}}(\mathbf G,\mathbf P))\)
+在次数 \(>0\) 时是同伦平凡的. 实际上, 只需对第二个复形证明这一点,
+因为第一个复形的相应结果可由基变换推出.
+\footnote{编者注: 下文对原文作了扩充.}
+对每个 \(n\geq0\), 如下定义态射
+\[
+  \sigma:
+  C^{n+1}\bigl(
+    \mathbf G,\underline{\operatorname{Hom}}(\mathbf G,\mathbf P)
+  \bigr)
+  \longrightarrow
+  C^n\bigl(
+    \mathbf G,\underline{\operatorname{Hom}}(\mathbf G,\mathbf P)
+  \bigr)
+\]
+设
+\(f\in C^{n+1}
+  (\mathbf G,\underline{\operatorname{Hom}}(\mathbf G,\mathbf P))\).
+对每个 \(S\in\operatorname{Ob}(\mathscr C)\) 及
+\(g_1,\ldots,g_n\in\mathbf G(S)\),
+\(\operatorname{Hom}_S(\mathbf G_S,\mathbf P_S)\) 的元素
+\(\sigma(f)(g_1,\ldots,g_n)\) 对每个
+\(S'\to S\) 和 \(x\in\mathbf G(S')\) 定义为
+\[
+  \sigma(f)(g_1,\ldots,g_n)(x)
+    =f(x,g_1,\ldots,g_n)(e)\in\mathbf P(S'),
+\]
+其中 \(e\) 表示 \(\mathbf G(S')\) 的单位元. 于是 \(\sigma\)
+是在次数 \(>0\) 时的同伦算子. 事实上, 对每个
+\(g_1,\ldots,g_{n+1}\in\mathbf G(S)\) 和 \(x\in\mathbf G(S')\), 一方面,
+\begin{align*}
+  \partial\sigma(f)(g_1,\ldots,g_{n+1})(x)
+    ={}&f(xg_1,g_2,\ldots,g_{n+1})(e)\\
+     &+\sum_{i=1}^{n}(-1)^i
+       f(x,g_1,\ldots,g_i g_{i+1},\ldots,g_{n+1})(e)\\
+     &+(-1)^{n+1}f(x,g_1,\ldots,g_n)(e),
+\end{align*}
+另一方面,
+\begin{align*}
+  \sigma(\partial f)(g_1,\ldots,g_{n+1})(x)
+    ={}&\bigl(xf(g_1,g_2,\ldots,g_{n+1})\bigr)(e)
+       -f(xg_1,g_2,\ldots,g_{n+1})(e)\\
+     &+\sum_{i=1}^{n}(-1)^{i+1}
+       f(x,g_1,\ldots,g_i g_{i+1},\ldots,g_{n+1})\\
+     &+(-1)^{n+2}f(x,g_1,\ldots,g_n)(e).
+\end{align*}
+因此,
+\[
+  \bigl(\partial\sigma(f)+\sigma(\partial f)\bigr)
+    (g_1,\ldots,g_{n+1})(x)
+  =f(g_1,\ldots,g_{n+1})(x);
+\]
+即对每个 \(n\geq0\), \(\partial\sigma+\sigma\partial\) 是
+\(C^{n+1}
+  (\mathbf G,\underline{\operatorname{Hom}}(\mathbf G,\mathbf P))\) 的恒等映射.
+
+\medskip
+\noindent\SGAInlineRefTarget{sga3:i:remark:5-2-3}\textbf{注 5.2.3.}
+假设 \(\mathscr C\) 为小范畴, 仅用于保证导出函子
+\(R^n\underline H^{\,0}\) 和 \(R^nH^0\) 的存在性.
+在任何情形下, 上述论证均表明函子
+\(\underline H^{\,n}(\mathbf G,-)\) (相应地,
+\(H^n(\mathbf G,-)\)) 构成一个在次数 \(>0\) 时可消去的上同调函子,
+因而是左正合函子 \(\underline H^{\,0}(\mathbf G,-)\) (相应地,
+\(H^0(\mathbf G,-)\)) 在 \([\mathrm{Gr}57,\,2.2]\) 意义下的 (右) 卫星函子.
+若 \((\mathbf G\text{-}\mathbf O\text{-Mod.})\) 有足够的内射对象
+(当 \(\mathscr C\) 为小范畴时确实如此), 则它们与导出函子一致
+(\emph{同上}, \SGARefLink{sga3:i:subsection:2-3}{2.3}).
+\footnote{编者注: 此注为新增内容.}
+
+% --- Authority page transition: component/printed p. 35 -> p. 36;
+% combined-reader p. 45 -> p. 46. ---
+\subsection*{\SGAInlineRefTarget{sga3:i:subsection:5-3}5.3. \(G\)-\(\mathscr O_S\)-模的上同调}
+
+设 \(S\) 为概形, \(G\) 为 \(S\)-群, \(\mathscr F\) 为
+拟凝聚 \(G\)-\(\mathscr O_S\)-模. \(G\) 的取值于 \(\mathscr F\) 的上同调群定义为
+\[
+  H^n(G,\mathscr F)
+    =H^n\bigl(\mathbf h_G,\mathbf W(\mathscr F)\bigr)
+\]
+(记号见\SGARefLink{sga3:i:subsection:4-6}{4.6}).
+
+假设 \(G\) 在 \(S\) 上仿射. 由\SGARefLink{sga3:i:proposition:4-6-4}{命题~4.6.4},
+可如下计算该上同调: \(H^n(G,\mathscr F)\) 是复形 \(C^*(G,\mathscr F)\)
+的第 \(n\) 个上同调群, 该复形的第 \(n\) 项为
+\[
+  C^n(G,\mathscr F)
+    =\Gamma\Bigl(
+       S,
+       \mathscr F\otimes
+       \underbrace{\mathscr A(G)\otimes\cdots\otimes\mathscr A(G)}_
+                   {n\text{ 次}}
+     \Bigr).
+\]
+若 \(f\) (相应地, \(a_i\)) 是 \(\mathscr F\)
+(相应地, \(\mathscr A(G)\)) 在 \(S\) 的某开子集上的截面, 则
+\begin{align*}
+  \partial(f\otimes a_1\otimes\cdots\otimes a_n)
+    ={}&\mu_{\mathscr F}(f)\otimes a_1\otimes a_2\otimes\cdots\otimes a_n\\
+     &+\sum_{i=1}^{n}(-1)^i
+       f\otimes a_1\otimes\cdots\otimes\Delta a_i\otimes\cdots\otimes a_n\\
+     &+(-1)^{n+1}
+       f\otimes a_1\otimes a_2\otimes\cdots\otimes a_n\otimes1,
+\end{align*}
+其中
+\[
+  \Delta:\mathscr A(G)\longrightarrow\mathscr A(G)\otimes\mathscr A(G),
+  \qquad
+  \mu_{\mathscr F}:\mathscr F\longrightarrow
+    \mathscr F\otimes\mathscr A(G)
+\]
+描述 \(\mathscr A(G)\) 的余代数结构和 \(\mathscr F\) 的余模结构.
+顺便指出, \(G\) 的取值于 \(\mathscr F\) 的上同调因而仅依赖于
+\(\mathscr F\) 的余模结构, 特别地, 仅依赖于 \(G\) 的
+\(S\)-幺半群结构.
+
+特别地,
+\[
+  H^0(G,\mathscr F)=\Gamma(S,\mathscr F^G),
+\]
+其中 \(\mathscr F^G\) 是 \emph{\(\mathscr F\) 的不变量层},
+其在 \(S\) 的开子集 \(U\) 上的截面, 为 \(\mathscr F\) 在 \(U\) 上的那些截面,
+这些截面在每个 \(U\) 上的 \(S'\) 中的逆像都在 \(G(S')\) 的作用下不变
+(见\SGARefLink{sga3:i:remark:4-7-1-2}{4.7.1.2}).
+
+\medskip
+\noindent\SGAInlineRefTarget{sga3:i:theorem:5-3-1}\textbf{定理 5.3.1.}
+\textit{设 \(S\) 为仿射概形, \(G\) 为在 \(S\) 上仿射且平坦的
+\(S\)-群. 函子 \(H^n(G,-)\) 是拟凝聚
+\(G\)-\(\mathscr O_S\)-模范畴上 \(H^0(G,-)\) 的导出函子.}
+
+\medskip
+\noindent\textit{证明.}
+由于 \(G\) 在 \(S\) 上仿射且平坦, \SGARefLink{sga3:i:corollary:4-7-2-1}{4.7.2.1} 表明范畴
+\((G\text{-}\mathscr O_S\text{-Mod.q.c.})\) 等价于
+\(\mathscr O_S\) 上的拟凝聚 \(\mathscr A(G)\)-余模范畴
+\((\mathscr A(G)\text{-Comod.q.c.})\), 因而是阿贝尔范畴.
+此外, 由于 \(\mathscr A(G)\) 是平坦 \(\mathscr O_S\)-模, 每个函子
+\[
+  \mathscr F\longmapsto
+    \mathscr F\otimes_{\mathscr O_S}\mathscr A(G)^{\otimes n}
+\]
+都正合; 由于 \(S\) 仿射, 从而 \(C^*(G,-)\) 是
+\((G\text{-}\mathscr O_S\text{-Mod.q.c.})\) 上的正合函子.
+\footnote{编者注: 对原文作了修改, 以说明范畴
+\((G\text{-}\mathscr O_S\text{-Mod.q.c.})\) 是阿贝尔范畴且有足够的内射对象.
+参照 \([\mathrm{Ja}03]\), 第 I 部分,
+3.3--3.4, 3.9, \SGARefLink{sga3:i:subsection:4-2}{4.2} 以及 4.14--4.16
+(注意其中的``\(k\)-群概形''是指``仿射 \(k\)-群概形'';
+见\emph{同上}, \SGARefLink{sga3:i:subsection:2-1}{2.1}).}
+
+用 \(\Delta\) (相应地, \(\eta\)) 表示 \(\mathscr A(G)\) 的余乘法
+(相应地, 增广). 对每个拟凝聚 \(\mathscr O_S\)-模 \(\mathscr P\), 令
+\[
+  \operatorname{Ind}(\mathscr P)
+    =\mathscr P\otimes_{\mathscr O_S}\mathscr A(G),
+\]
+并赋予它由下式定义的 \(\mathscr A(G)\)-余模结构:
+\[
+  \operatorname{id}_{\mathscr P}\otimes\Delta:
+  \mathscr P\otimes_{\mathscr O_S}\mathscr A(G)
+    \longrightarrow
+  \mathscr P\otimes_{\mathscr O_S}\mathscr A(G)
+    \otimes_{\mathscr O_S}\mathscr A(G).
+\]
+
+% --- Authority page transition: component/printed p. 36 -> p. 37;
+% combined-reader p. 46 -> p. 47. ---
+这就定义了函子
+\[
+  \operatorname{Ind}:(\mathscr O_S\text{-Mod.q.c.})
+    \longrightarrow(G\text{-}\mathscr O_S\text{-Mod.q.c.}).
+\]
+由\SGARefLink{sga3:i:corollary:4-6-4-1}{4.6.4.1},
+\SGARefLink{sga3:i:definition:5-2-0}{5.2.0} 和\SGARefLink{sga3:i:remark:5-2-0-1}{5.2.0.1},
+存在 \(\mathbf G\)-\(\mathbf O_S\)-模同构
+\[
+  \tag{*}\label{sga3:i:theorem:5-3-1:equation:star}
+  \mathbf W\bigl(\operatorname{Ind}(\mathscr P)\bigr)
+    \simeq E\bigl(\mathbf W(\mathscr P)\bigr)
+    =\underline{\operatorname{Hom}}
+       \bigl(\mathbf G,\mathbf W(\mathscr P)\bigr).
+\]
+在此等同下, 态射
+\(\varepsilon:E(\mathbf W(\mathscr P))\to\mathbf W(\mathscr P)\)
+对应于 \(\mathscr O_S\)-模态射
+\[
+  \operatorname{id}_{\mathscr P}\otimes\eta:
+    \operatorname{Ind}(\mathscr P)\longrightarrow\mathscr P.
+\]
+
+我们已经用过如下事实: 函子
+\[
+  \mathbf W:(\mathscr O_S\text{-Mod.})
+    \longrightarrow(\mathbf O_S\text{-Mod.})
+\]
+完全忠实. 由\SGARefLink{sga3:i:definition:4-7-1}{定义~4.7.1},
+它在 \((G\text{-}\mathscr O_S\text{-Mod.})\) 上的限制也有同样的性质:
+若 \(\mathscr M\) 和 \(\mathscr M'\) 为 \(G\)-\(\mathscr O_S\)-模,
+则存在具有函子性的同构
+\[
+  \operatorname{Hom}_{G\text{-}\mathscr O_S\text{-Mod.}}
+    (\mathscr M,\mathscr M')
+  \simeq
+  \operatorname{Hom}_{\mathbf G\text{-}\mathbf O_S\text{-Mod.}}
+    \bigl(\mathbf W(\mathscr M),\mathbf W(\mathscr M')\bigr).
+\]
+因此, 由\SGARefLink{sga3:i:lemma:5-2-0-2}{引理~5.2.0.2} 得到如下结果.
+
+\medskip
+\noindent\SGAInlineRefTarget{sga3:i:corollary:5-3-1-1}\textbf{推论 5.3.1.1.}
+\textit{\SGAInlineRefTarget{sga3:i:corollary:5-3-1-1:item:i}(i) 函子 \(\operatorname{Ind}\) 是如下遗忘函子的右伴随:}
+\[
+  (G\text{-}\mathscr O_S\text{-Mod.q.c.})
+    \longrightarrow(\mathscr O_S\text{-Mod.q.c.}).
+\]
+\textit{更确切地, 对每个 \((G\text{-}\mathscr O_S\text{-Mod.q.c.})\) 的对象
+\(\mathscr M\), 映射
+\(\operatorname{id}_{\mathscr P}\otimes\eta:
+  \operatorname{Ind}(\mathscr P)\to\mathscr P\)
+诱导双射}
+\[
+  \operatorname{Hom}_{G\text{-}\mathscr O_S\text{-Mod.}}
+    \bigl(\mathscr M,\operatorname{Ind}(\mathscr P)\bigr)
+  \xrightarrow{\ \sim\ }
+  \operatorname{Hom}_{\mathscr O_S}(\mathscr M,\mathscr P).
+\]
+
+\textit{\SGAInlineRefTarget{sga3:i:corollary:5-3-1-1:item:ii}(ii) 因此, 若 \(\mathscr I\) 是
+\((\mathscr O_S\text{-Mod.q.c.})\) 的内射对象, 则
+\(\operatorname{Ind}(\mathscr I)\) 是
+\((G\text{-}\mathscr O_S\text{-Mod.q.c.})\) 的内射对象.}
+
+设 \(\mathscr F\) 为 \(G\)-\(\mathscr O_S\)-模,
+\(\mu_{\mathscr F}:\mathscr F\to\operatorname{Ind}(\mathscr F)\) 为定义其
+\(\mathscr A(G)\)-余模结构的映射. 由\SGARefLink{sga3:i:definition:5-2-0-3}{5.2.0.3}
+(或直接由\SGARefLink{sga3:i:paragraph:4-7-2}{4.7.2} 的公理 (CM~1) 和 (CM~2)) 可知,
+\(\mu_{\mathscr F}\) 是 \(G\)-\(\mathscr O_S\)-模态射, 且
+\[
+  (\operatorname{id}_{\mathscr F}\otimes\eta)\circ\mu_{\mathscr F}
+    =\operatorname{id}_{\mathscr F}.
+\]
+所以, 作为 \(\mathscr O_S\)-模, \(\mathscr F\) 是
+\(\operatorname{Ind}(\mathscr F)\) 的直和因子; 特别地,
+\(\mu_{\mathscr F}\) 是单态射. 由 (*) 和\SGARefLink{sga3:i:lemma:5-2-2}{5.2.2},
+\[
+  H^n\bigl(\mathbf G,\mathbf W(\operatorname{Ind}(\mathscr F))\bigr)
+    \simeq
+  H^n\Bigl(
+    \mathbf G,
+    \underline{\operatorname{Hom}}_S
+      \bigl(\mathbf G,\mathbf W(\mathscr F)\bigr)
+  \Bigr)
+    =0
+  \qquad(n>0).
+\]
+因此, 当 \(n>0\) 时 \(H^n(G,-)\) 可消去.
+
+最后, 由于 \(S\) 仿射,
+\((\mathscr O_S\text{-Mod.q.c.})\) 有足够的内射对象. 设
+\(\mathscr F\hookrightarrow\mathscr I\) 为 \(\mathscr O_S\)-模的单态射,
+其中 \(\mathscr I\) 是 \((\mathscr O_S\text{-Mod.q.c.})\) 中的内射对象.
+由于 \(\mathscr A(G)\) 在 \(\mathscr O_S\) 上平坦,
+\(\operatorname{Ind}(\mathscr F)\) 是 \(\operatorname{Ind}(\mathscr I)\) 的
+\(G\)-\(\mathscr O_S\)-子模. 因此:
+
+\medskip
+\noindent\SGAInlineRefTarget{sga3:i:corollary:5-3-1-2}\textbf{推论 5.3.1.2.}
+\textit{阿贝尔范畴 \((G\text{-}\mathscr O_S\text{-Mod.q.c.})\)
+有足够的内射对象.}
+
+结合\SGARefLink{sga3:i:proposition:5-2-1}{5.2.1} 的证明中已用过的
+\([\mathrm{Gr}57,\,2.2.1\text{ 和 }2.3]\), 即完成了\SGARefLink{sga3:i:theorem:5-3-1}{定理~5.3.1} 的证明.
+
+\medskip
+\noindent\SGAInlineRefTarget{sga3:i:remark:5-3-1-3}\textbf{注 5.3.1.3.}
+\SGARefLink{sga3:i:corollary:5-3-1-1}{推论~5.3.1.1} 也可用如下计算证明.
+对每个 \(G\)-\(\mathscr O_S\)-模态射
+\[
+  \phi:\mathscr M\longrightarrow
+    \mathscr P\otimes_{\mathscr O_S}\mathscr A(G)
+\]
+关联 \(\mathscr O_S\)-态射
+\[
+  (\operatorname{id}_{\mathscr P}\otimes\eta)\circ\phi:
+    \mathscr M\longrightarrow\mathscr P.
+\]
+反之, 对每个 \(\mathscr O_S\)-态射
+\(f:\mathscr M\to\mathscr P\), 关联 \(G\)-\(\mathscr O_S\)-模态射
+\[
+  (f\otimes\operatorname{id}_{\mathscr A(G)})\circ\mu_{\mathscr M}:
+    \mathscr M\longrightarrow
+    \mathscr P\otimes_{\mathscr O_S}\mathscr A(G).
+\]
+立即可见
+\[
+  (\operatorname{id}_{\mathscr P}\otimes\eta)
+    \circ(f\otimes\operatorname{id}_{\mathscr A(G)})
+    \circ\mu_{\mathscr M}
+  =(f\otimes\operatorname{id}_{\mathscr O_S})
+    \circ(\operatorname{id}_{\mathscr P}\otimes\eta)
+    \circ\mu_{\mathscr M}
+  =f.
+\]
+
+% --- Authority page transition: component/printed p. 37 -> p. 38;
+% combined-reader p. 47 -> p. 48. ---
+另一方面, 对每个 \(\phi\), 下图交换.
+
+\begin{figure}[H]
+  \centering
+  \input{figures/exp1/diag_018_induction_adjunction_square}
+  \phantomsection\label{fig:sga3-exp1-p038-induction-adjunction-square}
+\end{figure}
+
+从而
+\begin{align*}
+ &\Bigl(
+    \bigl((\operatorname{id}_{\mathscr P}\otimes\eta)\circ\phi\bigr)
+      \otimes\operatorname{id}_{\mathscr A(G)}
+  \Bigr)\circ\mu_{\mathscr M}\\
+ &\qquad=
+  (\operatorname{id}_{\mathscr P}\otimes\eta
+     \otimes\operatorname{id}_{\mathscr A(G)})
+  \circ(\phi\otimes\operatorname{id}_{\mathscr A(G)})
+  \circ\mu_{\mathscr M}\\
+ &\qquad=
+  (\operatorname{id}_{\mathscr P}\otimes\eta
+     \otimes\operatorname{id}_{\mathscr A(G)})
+  \circ(\operatorname{id}_{\mathscr P}\otimes\Delta)
+  \circ\phi
+  =\phi.
+\end{align*}
+这就证明了\SGARefLink{sga3:i:corollary:5-3-1-1:item:i}{推论~5.3.1.1(i)},
+而\SGARefLink{sga3:i:corollary:5-3-1-1:item:ii}{(ii)} 随之成立.
+
+设 \(\mathscr F\) 为 \(G\)-\(\mathscr O_S\)-模. 上面已经看到,
+由\SGARefLink{sga3:i:proposition:4-7-2}{4.7.2} 的公理 (CM~2) 可知,
+作为 \(\mathscr O_S\)-模, \(\mathscr F\) 是 \(E(\mathscr F)\) 的直和因子.
+由此得到:
+
+\medskip
+\noindent\SGAInlineRefTarget{sga3:i:proposition:5-3-2}\textbf{命题 5.3.2.}
+\textit{设 \(S\) 为仿射概形, \(G\) 为仿射且平坦的 \(S\)-群.
+假设拟凝聚 \(G\)-\(\mathscr O_S\)-模的每个正合列
+\[
+  0\longrightarrow\mathscr F_1
+   \longrightarrow\mathscr F_2
+   \longrightarrow\mathscr F_3
+   \longrightarrow0
+\]
+只要作为 \(\mathscr O_S\)-模序列分裂, 就也作为
+\(G\)-\(\mathscr O_S\)-模序列分裂. 则当 \(n>0\) 时函子
+\(H^n(G,-)\) 消失 (或等价地, 函子 \(H^0(G,-)\) 正合).}
+
+事实上, 由假设, 下列 \(G\)-\(\mathscr O_S\)-模序列
+\[
+  0\longrightarrow\mathscr F
+   \longrightarrow E(\mathscr F)
+   \longrightarrow E(\mathscr F)/\mathscr F
+   \longrightarrow0
+\]
+分裂. 因此, 作为 \(G\)-\(\mathscr O_S\)-模,
+\(\mathscr F\) 是 \(E(\mathscr F)\) 的直和因子, 而后者的上同调消失.
+
+将此与\SGARefLink{sga3:i:proposition:4-7-4}{命题~4.7.4} 结合, 立即得到:
+
+\medskip
+\noindent\SGAInlineRefTarget{sga3:i:theorem:5-3-3}\textbf{定理 5.3.3.}
+\textit{设 \(S\) 为仿射概形, \(G\) 为可对角化 \(S\)-群.
+对每个拟凝聚 \(G\)-\(\mathscr O_S\)-模 \(\mathscr F\), 有}
+\[
+  H^n(G,\mathscr F)=0\qquad(n>0).
+\]
+
+\medskip
+\noindent\textbf{注.}
+当 \(G\) 在 \(S\) 上未必平坦时,
+\SGARefLink{sga3:i:proposition:5-3-2}{命题~5.3.2} 仍然成立; 此时证明使用相对上同调.
+\footnote{编者注: 编者未尝试展开此注.}
+
+% End of assigned component. Section 6 begins on Exp1
+% component-local/printed p. 39 (combined-reader p. 49), in the next unit.
+
+% Translation coverage: source component 775 lines, complete Section 5.
+% Formula audit: 405 math expressions; 30 SGARefLink keys, 22 SGAInlineRefTarget keys,
+% 2 labels and 10 footnotes retained. Only textual math annotations translated.

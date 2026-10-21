@@ -1,0 +1,349 @@
+% SGA 3, Expose III, Loop 1 English reconstruction.
+% Scope: opening through Remark 0.1.6, stopping before Reminders 0.1.7.
+% Authority: Polo--Gille Exp3-14oct24.pdf, component-local pages 1--5
+% (combined-reader pages 111--115). Force-OCR is a drafting locator; English
+% wording was compared with Jacob Reinhold's CC BY 4.0 Markdown lineage.
+% The PDF controls text, formulas, numbering, notes, and diagram images.
+
+\setcounter{footnote}{-1}
+\chapter*{第 III 篇\\无穷小扩张}
+\addcontentsline{toc}{chapter}{第 III 篇. 无穷小扩张}
+\markboth{第 III 篇. 无穷小扩张}%
+  {第 III 篇. 无穷小扩张}
+
+\begin{center}
+  \textit{M. Demazure 著}
+\end{center}
+
+% Source page: Exp3 component-local p. 1; combined-reader p. 111.
+本篇在以下一般情形下展开讨论. 给定概形 \(S\) 和凝聚幂零理想 \(\mathscr I\), 后者定义在 \(S\) 上. 对 \(n\geq 0\), 用 \(S_n\) 表示 \(S\) 中由理想
+\(\mathscr I^{\,n+1}\) 定义的闭子概形. 特别地, \(S_0\) 由
+\(\mathscr I\) 定义. 由于 \(\mathscr I\) 幂零, 当 \(n\) 充分大时,
+均有 \(S_n=S\), 且各 \(S_i\) 有相同的底拓扑空间.
+下面是一个典型例子: \(S\) 是局部 Artin 环 \(A\) 的谱,
+\(\mathscr I\) 是由 \(A\) 的根基定义的理想, 从而 \(S_0\)
+是 \(A\) 的剩余域的谱.\footnote{编者注: 2024 年 10 月 14 日版本.}
+
+在这种情形下, 给定 \(S_0\) 上的某些数据, 要寻找 \(S\) 上提升这些数据
+的数据, 也就是说, 这些数据从 \(S\) 到 \(S_0\) 作基变换后恢复为原先的数据.
+这通过各概形 \(S_n\) 逐步进行. 在每一步中, 我们将定义所出现的障碍,
+并在解存在时对得到的解进行分类.
+
+从 \(S_n\) 到 \(S_{n+1}\) 的过渡可作如下推广. 给定概形 \(S\)
+及两个理想 \(\mathscr I\supset\mathscr J\), 满足
+\(\mathscr I\mathscr J=0\). 在前面的情形中, \(S\),
+\(\mathscr I\), \(\mathscr J\) 分别为
+\[
+ S_{n+1},\qquad
+ \mathscr I/\mathscr I^{\,n+2},\qquad
+ \mathscr I^{\,n+1}/\mathscr I^{\,n+2}.
+\]
+我们用 \(S_0\), 分别地 \(S_{\mathscr J}\), 表示 \(S\) 中由
+\(\mathscr I\), 分别地 \(\mathscr J\), 定义的闭子概形,
+并提出将数据从 \(S_{\mathscr J}\) 扩张到 \(S\) 的问题.
+
+% Source page: Exp3 component-local p. 2; combined-reader p. 112.
+SGA~1 第 III 篇讨论了概形态射的扩张问题和概形的扩张问题.
+这里, 我们考虑群态射、群结构和子群的扩张问题.
+
+在 \S0 中, 我们汇集了 SGA~1 第 III 篇中将会用到的结果,
+将其表述为最适合本篇目的的形式, 使读者不必反复参阅那一篇.
+\footnote{编者注: 读者也可以先读 \S1, 它更容易, 并可为 \S0
+的结果提供动机和指引.}
+\SGARefLink{sga3:iii:section:1}{第~1~节}汇集了后文将用到的群上同调计算,
+这些计算与概形论无关. \SGARefLink{sga3:iii:section:2}{第~2~节}和第~3~节
+分别讨论群态射的扩张和群结构的扩张. 在 \S4 中, 我们简要回顾 TDTE~IV
+中陈述的一个关于子概形扩张的结果的证明, 并将其应用于子群的扩张问题.
+对于本讨论班的其余部分, 只有 \S2 中关于群态射扩张的结果是必不可少的.
+\footnote{编者注: 不过, \SGARefLink{sga3:iii:corollary:3-10}{3.10}
+用于 \SGARefLink{sga3:xxiv:1.13}{XXIV~1.13}. 此外,
+\SGARefLink{sga3:iii:corollary:4-37}{4.37} 用于
+\SGARefLink{sga3:ix:theorem:3:2}{IX~3.2}~bis 和
+\SGARefLink{sga3:iii:remark:3-6}{3.6}~bis 的证明,
+尽管这些结果也可由第 X 篇中不使用
+\SGARefLink{sga3:iii:corollary:4-37}{4.37} 的结果推出.}
+
+将无穷小扩张问题化归为群扩张中的通常上同调计算的想法, 是 J.~Giraud
+在口头报告期间提出的; 当时报告中的计算明显更复杂, 也更难理解.
+遗憾的是, 这一方法似乎仅对所研究的前两个问题有效,
+对于子群的扩张, 我们仍无法避免相当繁重的计算.
+
+为简化措辞, 我们将一个带有到函子 \(Y\) 的态射的函子、概形等,
+分别称为 \(Y\)-函子、\(Y\)-概形等. 这推广了第 I 篇中仅涉及可表
+\(Y\) 的定义.
+
+\section*{\SGAInlineRefTarget{sga3:iii:section:0}0. SGA 1 第 III 篇的回顾及其他注记}
+\addcontentsline{toc}{section}{0. SGA 1 第 III 篇的回顾}
+
+% Source page: Exp3 component-local p. 3; combined-reader p. 113.
+先给出一个一般定义.
+
+\medskip
+\SGARefTarget{sga3:iii:definition:0:1}\noindent\textbf{定义 0.1.}
+\textit{设 \(\mathscr C\) 是一个范畴, \(X\) 是
+\(\widehat{\mathscr C}\) 的一个对象, \(G\) 是作用在 \(X\) 上的
+\(\widehat{\mathscr C}\)-群. 若以下等价条件成立, 则称 \(X\)
+在 \(G\) 下是\emph{形式主齐性的 (formally principal homogeneous)}:
+\footnote{编者注: 这样的对象也称为\emph{伪挠子 (pseudo-torsor)};
+参见 EGA~IV\textsubscript{4}, 16.5.15. 不必为主齐性的更一般的
+形式齐性对象的概念, 定义于
+\SGARefLink{sga3:iv:definition:6:7:1}{第~IV~篇, 6.7.1}.}}
+\begin{enumerate}
+\item[(i)] \textit{对 \(\mathscr C\) 的每个对象 \(T\), 集合
+  \(X(T)\) 或者为空, 或者在 \(G(T)\) 下为主齐性集;}
+\item[(ii)] \textit{函子态射
+  \[
+    G\times X\longrightarrow X\times X,
+    \qquad (g,x)\longmapsto(gx,x),
+  \]
+  是同构.}
+\end{enumerate}
+
+现在将 SGA~1, III~\S5\footnote{编者注: 另见
+EGA~IV\textsubscript{4}, 16.5.14--18.} 的结果表述为这里最有用的形式.
+本节始终使用以下记号. 在概形 \(S\) 上给定两个拟凝聚理想
+\(\mathscr I\) 和 \(\mathscr J\), 满足
+\[
+ \mathscr I\supset\mathscr J,
+ \qquad
+ \mathscr I\mathscr J=0.
+\]
+特别地, \(\mathscr J^2=0\). 用 \(S_0\), 分别地
+\(S_{\mathscr J}\), 表示 \(S\) 中由 \(\mathscr I\), 分别地
+\(\mathscr J\), 定义的闭子概形. 对每个 \(S\)-函子 \(X\),
+统一用 \(X_0\) 和 \(X_{\mathscr J}\) 表示从 \(S\) 到 \(S_0\)
+及 \(S_{\mathscr J}\) 作基变换所得到的函子. 对态射也使用相同记号.
+
+% Source page: Exp3 component-local p. 4; combined-reader p. 114.
+\medskip
+\noindent\SGAInlineRefTarget{sga3:iii:definition:0-1-1}\textbf{定义 0.1.1.}
+\footnote{编者注: 添加了从 \SGARefLink{sga3:iii:definition:0-1-1}{0.1.1}
+至 \SGARefLink{sga3:iii:corollary:0-1-13}{0.1.13} 的编号,
+以便突出这里包含的定义和结果.}
+\textit{设 \(X\) 是一个 \(S\)-函子. 用下式定义 \(S\) 上的函子 \(X^+\):}
+\[
+ \operatorname{Hom}_S(Y,X^+)
+ =\operatorname{Hom}_{S_{\mathscr J}}
+    (Y_{\mathscr J},X_{\mathscr J})
+ =\operatorname{Hom}_S(Y_{\mathscr J},X)
+\]
+\textit{其中 \(Y\) 为变动的 \(S\)-概形.} 按照第 II 篇 \S1 的记号,
+\[
+ X^+\simeq\prod_{S_{\mathscr J}/S}X_{\mathscr J}.
+\]
+由构造可知, \(X_{\mathscr J}\) 的恒等态射定义了一个
+\(S\)-态射
+\[
+ p_X:X\longrightarrow X^+.
+\]
+具体地说,\footnote{编者注: 下面一句为新增内容, 后续两条注作了展开.}
+对每个 \(S\)-概形 \(Y\), 映射
+\[
+ p_X(Y):
+ \operatorname{Hom}_S(Y,X)\longrightarrow
+ \operatorname{Hom}_S(Y,X^+)
+ =\operatorname{Hom}_S(Y_{\mathscr J},X)
+\]
+由态射 \(Y_{\mathscr J}\to Y\) 诱导.
+
+\medskip
+\noindent\SGAInlineRefTarget{sga3:iii:remark:0-1-2}\textbf{注 0.1.2.}
+若 \(X\) 是 \(S\)-群函子, 则 \(X_{\mathscr J}\) 是
+\(S_{\mathscr J}\)-群函子. 因而 \(X^+\) 的定义公式赋予
+\(X^+\) 一个 \(S\)-群函子结构, 上述描述还表明
+\[
+ p_X:X\longrightarrow X^+
+\]
+是 \(S\)-群函子的态射.
+
+\medskip
+\noindent\SGAInlineRefTarget{sga3:iii:remark:0-1-3}\textbf{注 0.1.3.}
+对每个 \(S\)-群函子 \(Y\), 有
+\[
+ \operatorname{Hom}_{S\text{-}\mathrm{gr}}(Y,X^+)
+ =
+ \operatorname{Hom}_{S_{\mathscr J}\text{-}\mathrm{gr}}
+   (Y_{\mathscr J},X_{\mathscr J}).
+\]
+事实上, 设 \(f\in\operatorname{Hom}_S(Y,X^+)\) 对应于
+\(f_{\mathscr J}\in
+\operatorname{Hom}_{S_{\mathscr J}}
+(Y_{\mathscr J},X_{\mathscr J})\). \(f\) 为 \(S\)-群态射的条件是,
+对每个 \(T\to S\) 和每个 \(y,y'\in Y(T)\), 有
+\[
+ f(y\cdot y')=f(y)\cdot f(y'),
+\]
+这等价于
+\[
+ f_{\mathscr J}(y_{\mathscr J})
+ \cdot f_{\mathscr J}(y'_{\mathscr J})
+ =f_{\mathscr J}\bigl((y\cdot y')_{\mathscr J}\bigr).
+\]
+由于 \((y\cdot y')_{\mathscr J}
+=y_{\mathscr J}\cdot y'_{\mathscr J}\), 这正是
+\(f_{\mathscr J}\) 为群态射的条件. 将其应用于 \(Y=X\),
+再次得到: 与 \(\operatorname{id}_{X_{\mathscr J}}\) 对应的 \(p_X\)
+是 \(S\)-群函子的态射.
+
+现在回到一般情形, 假设 \(X\) 是 \(S\)-概形. 按照定义,
+从变动的 \(S\)-概形 \(Y\) 到 \(X^+\) 的 \(S\)-态射,
+就是一个 \(S_{\mathscr J}\)-态射
+\(g_{\mathscr J}:Y_{\mathscr J}\to X_{\mathscr J}\).
+我们如下定义取值于交换群的 \(X^+\)-函子 \(L_X\).
+
+\medskip
+\noindent\SGAInlineRefTarget{sga3:iii:scholium:0-1-4}\textbf{附论 0.1.4.}
+\footnote{编者注: 此附论为新增内容.}
+若 \(\pi:Y\to S\) 是概形态射, \(M\) 是 \(\mathscr O_S\)-模,
+则将逆像 \(\pi^*M\) 记为
+\[
+ M\otimes_{\mathscr O_S}\mathscr O_Y.
+\]
+若 \(\mathscr J\) 是 \(\mathscr O_S\) 的理想, 则用
+\(\mathscr J\mathscr O_Y\) 表示 \(\mathscr O_Y\) 中作为下述映射的像的理想:
+\[
+ \pi^*(\mathscr J)
+ =\mathscr J\otimes_{\mathscr O_S}\mathscr O_Y
+ \longrightarrow\mathscr O_Y.
+\]
+对每个 \(S\)-概形态射 \(f:Z\to Y\), 有一个
+\(\mathscr O_Z\)-模的满态射
+\begin{equation}
+ f^*(\mathscr J\mathscr O_Y)\longrightarrow
+ \mathscr J\mathscr O_Z.
+ \tag{0.1.4}\label{sga3:iii:scholium:0-1-4:equation:0-1-4}
+\end{equation}
+这可由下面的交换图得到.
+
+\SGAThreeNativeDiagram[0.70\textwidth]
+  {figures/exp3/diagram_001_exp3_p004_scholie014_tensor_diagram.tex}
+  {给出满态射 (\SGARefLink{sga3:iii:scholium:0-1-4:equation:0-1-4}{0.1.4}) 的张量积交换图.}
+  {fig:exp3-scholie-014-tensor}
+  {Polo--Gille Exp3-14oct24.pdf, 组件第 4 页; 合卷第 114 页}
+
+\medskip
+\noindent\SGAInlineRefTarget{sga3:iii:definition:0-1-5}\textbf{定义 0.1.5.}
+\footnote{编者注: 引入函子 \(L_X\), 就将 SGA~1, III, 命题~5.1
+推广为关于 \(Y\) 和 \(X\) 具有函子性的形式; 参见下面的
+\SGARefLink{sga3:iii:theorem:0-1-8}{0.1.8} 和
+\SGARefLink{sga3:iii:corollary:0-1-9}{0.1.9}, 以及
+\SGARefLink{sga3:iii:corollary:0-1-10}{0.1.10} 和
+\SGARefLink{sga3:iii:proposition:0-2}{0.2}. 此外, 当 \(X\)
+是 \(S\)-群函子时, 在某些假设下 \(L_X\) 产生一个 \(S\)-群函子
+\(L'_X\) 及一个正合列 \(1\to L'_X\to X\to X^+\);
+参见 \SGARefLink{sga3:iii:remark:0-4}{0.4},
+\SGARefLink{sga3:iii:corollary:0-9}{0.9} 和
+\SGARefLink{sga3:iii:proposition:0-11}{0.11}.
+这些在本篇中起着关键作用; 参见
+\SGARefLink{sga3:iii:theorem:2-1}{定理~2.1},
+\SGARefLink{sga3:iii:theorem:3-5}{3.5} 和
+\SGARefLink{sga3:iii:theorem:4-21}{4.21}.}
+设 \(X\) 是 \(S\)-概形. 对每个由态射
+\[
+ g_{\mathscr J}:Y_{\mathscr J}\longrightarrow X_{\mathscr J},
+\]
+给定的 \(X^+\)-概形 \(Y\), 令
+\[
+ \operatorname{Hom}_{X^+}(Y,L_X)
+ =
+ \operatorname{Hom}_{\mathscr O_{Y_0}}
+ \bigl(g_0^*(\Omega^1_{X_0/S_0}),\mathscr J\mathscr O_Y\bigr),
+\]
+其中 \(\Omega^1_{X_0/S_0}\) 是 \(X_0\) 在 \(S_0\) 上的相对微分模;
+由于 \(\mathscr J\mathscr O_Y\) 被 \(\mathscr I\) 零化,
+可将其视为 \(\mathscr O_{Y_0}\)-模.
+
+于是 \(L_X\) 是取值于交换群的 \(X^+\)-函子.
+\footnote{编者注: 以下为新增内容.} 事实上, 对每个
+\(X^+\)-态射 \(f:Z\to Y\), 函子 \(f_0^*\) 与
+(\SGARefLink{sga3:iii:scholium:0-1-4}{0.1.4}) 中的态射
+\[
+ f_0^*(\mathscr J\mathscr O_Y)\longrightarrow
+ \mathscr J\mathscr O_Z
+\]
+诱导一个自然同态 \(L_X(f)\):
+\[
+\begin{aligned}
+ &\operatorname{Hom}_{\mathscr O_{Y_0}}
+   \bigl(g_0^*(\Omega^1_{X_0/S_0}),\mathscr J\mathscr O_Y\bigr)\\
+ &\quad\longrightarrow
+ \operatorname{Hom}_{\mathscr O_{Z_0}}
+   \bigl(f_0^*g_0^*(\Omega^1_{X_0/S_0}),
+         f_0^*(\mathscr J\mathscr O_Y)\bigr)\\
+ &\quad\longrightarrow
+ \operatorname{Hom}_{\mathscr O_{Z_0}}
+   \bigl(f_0^*g_0^*(\Omega^1_{X_0/S_0}),
+         \mathscr J\mathscr O_Z\bigr).
+\end{aligned}
+\]
+
+最后, \(L_X(f)\) 有如下简单的局部描述. 概形 \(Y\) 与
+\(Y_{\mathscr J}\) 有相同的底拓扑空间; 对 \(Y\) 的每个开子集
+\(V\), \(V\) 与 \(V_{\mathscr J}\) 也如此. 设
+\[
+ U=\operatorname{Spec}(A),\qquad
+ V=\operatorname{Spec}(B),\qquad
+ W=\operatorname{Spec}(C)
+\]
+为仿射开集, 满足 \(U\) 在 \(\operatorname{Spec}(\Lambda)\subset S\) 上,
+\(g_{\mathscr J}(V_{\mathscr J})\subset U\), 且
+\(W\subset f^{-1}(V)\). 用 \(I,J\) 表示 \(\Lambda\) 中与
+\(\mathscr I,\mathscr J\) 对应的理想. 则 \(f\), 分别地
+\(g_{\mathscr J}\), 诱导一个 \(\Lambda\)-代数态射
+\[
+ \theta:B\longrightarrow C,
+ \qquad\text{分别地}\qquad
+ \varphi:A\longrightarrow B/JB,
+\]
+且显然有 \(\theta(JB)\subset JC\). 另一方面,
+\[
+ m\in
+ \operatorname{Hom}_{\mathscr O_{Y_0}}
+ \bigl(g_0^*(\Omega^1_{X/S}),\mathscr J\mathscr O_Y\bigr)
+\]
+诱导下列集合的一个元素 \(D\):
+\[
+\begin{aligned}
+ \operatorname{Hom}_{\mathscr O_{V_0}}
+ \bigl(g_0^*(\Omega^1_{U/S}),\mathscr J\mathscr O_V\bigr)
+ &=
+ \operatorname{Hom}_{B/IB}
+ \bigl(\Omega^1_{A/\Lambda}\otimes_A B/IB,JB\bigr)\\
+ &=\operatorname{Der}_{\Lambda}(A,JB),
+\end{aligned}
+\]
+而 \(L_X(f)(m)\) 在
+\[
+\begin{aligned}
+ \operatorname{Hom}_{\mathscr O_{W_0}}
+ \bigl(f_0^*g_0^*(\Omega^1_{U/S}),\mathscr J\mathscr O_Z\bigr)
+ &=
+ \operatorname{Hom}_{C/IC}
+ \bigl(\Omega^1_{A/\Lambda}\otimes_A C/IC,JC\bigr)\\
+ &=\operatorname{Der}_{\Lambda}(A,JC)
+\end{aligned}
+\]
+中的像就是 \(\theta\circ D\).
+
+% Source page: Exp3 component-local p. 5; combined-reader p. 115.
+\medskip
+\noindent\SGAInlineRefTarget{sga3:iii:remark:0-1-6}\textbf{注 0.1.6.}
+\footnote{编者注: 此注作了展开.}
+设 \(f:X\to W\) 是 \(S\)-态射. 它诱导一个 \(S\)-态射
+\[
+ f^+:X^+\longrightarrow W^+
+\]
+其定义如下. 若 \(g\in\operatorname{Hom}_S(Y,X^+)\) 对应于
+\(S\)-态射 \(g_{\mathscr J}:Y_{\mathscr J}\to X\), 则
+\(f^+(g)\) 是 \(\operatorname{Hom}_S(Y,W^+)\) 中的元素
+\(f\circ g_{\mathscr J}\). 下图交换.
+
+\SGAThreeNativeDiagram[0.44\textwidth]
+  {figures/exp3/diagram_002_exp3_p005_remark016_naturality_square.tex}
+  {态射 \(p_X\) 与 \(p_W\) 的自然性.}
+  {fig:exp3-remark-016-naturality}
+  {Polo--Gille Exp3-14oct24.pdf, 组件第 5 页; 合卷第 115 页}
+
+% Continue with Reminders 0.1.7.
+% Translation statistics: source_lines=365; output_lines=349; inline_math=182; display_math=23; equation_environments=1; footnotes=11.
+% Review: complete assigned component; pending_TODO=0; math-token multiset, equation blocks, targets, references and environments checked.

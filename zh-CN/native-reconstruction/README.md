@@ -27,3 +27,5 @@ FGA 由协调者负责；其余十个作者目录由父线程启动的任务独�
 - [FGA：前言及全八篇报告，124页中文初稿](fga/outputs/FGA-zh-working.pdf)，另有[单文件TeX](fga/outputs/FGA-zh-working-standalone.tex)和[原生源码ZIP](fga/outputs/FGA-zh-working-source.zip)。实际合卷编译及独立包重建状态见[FGA记录](fga/PROGRESS.json)；未完成全书独立数学通校。
 - 各SGA与FGA Explained检查点、固定提交、原本覆盖风险和独立审查状态统一见[_coord/REVIEW_QUEUE.json](_coord/REVIEW_QUEUE.json)与[来源风险](_coord/COVERAGE_RISKS.json)。已有全篇初稿不代表最终审定；有些检查点仍在作者分支，保留至复核整合，不改写历史。
 - SGA3-a早期检查点及SGA7-II的独立重建/源文发现，见[_coord/reviews/](_coord/reviews/)。这些报告明确限制了审查范围。
+
+暂停总表与恢复缺口见 [_coord/PAUSED.md](_coord/PAUSED.md)。不自动继续翻译或审校。

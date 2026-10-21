@@ -1,0 +1,151 @@
+% SGA 3, Expose V, Loop 1 English reconstruction.
+% Scope: conclusion of Theorem 4.1's fppf/base-change assertions and all of
+% Remark 5.1 on preservation of quasi-projectivity.
+% Authority: Polo--Gille Exp5-13oct24.pdf, component-local p. 19
+% (combined-reader p. 281), re-edited page header 269.
+% Jacob Reinhold's CC BY 4.0 Markdown is comparison/drafting material only.
+
+因此, 若用 \((M)\) 表示局部有限呈示的忠实平坦态射族,
+则 \(R\) 是 \((M)\)-有效的.
+由 \SGARefLink{sga3:iv:corollary:6:3:3}{第 IV 篇, 6.3.3},
+\((Y,p)\) 因而表示 fppf 拓扑下 \(X_0\) 关于 \(R\) 的商层,
+而关于基变换的断言由 \SGARefLink{sga3:iv:proposition:3:4:3:1}{第 IV 篇, 3.4.3.1} 得到.
+
+\medskip
+\phantomsection\label{rem:sga3-V-5.1}%
+\noindent\textbf{注 5.1.}---%
+\footnote{\label{note:sga3-V-30}编者注: 此段是新增的.}
+沿用\hyperref[thm:sga3-V-4.1]{定理~4.1} 的假设及记号,
+并再假设 \(S\) 局部 Noether, 且 \(\pi_0:X_0\to S\) 拟射影.
+我们将证明 \(\pi:Y\to S\) 拟射影.
+
+前述假设蕴含 \(Y\to S\) 有限型;
+见 \hyperref[lem:sga3-V-6.1-ii]{6.1(ii)} 的证明.
+设 \(\mathscr A\) 是一个对 \(\pi_0\) 丰沛的可逆
+\(\mathcal O_{X_0}\)-模. 由 EGA~II, 6.1.12,
+\(p_\ast\mathscr A\) 是可逆 \(p_\ast\mathcal O_{X_0}\)-模.
+因此 \(Y\) 有仿射开覆盖 \((V_i)_{i\in I}\),
+使得 \(\mathscr A\) 在每个饱和仿射开集
+\[
+  U_i=p^{-1}(V_i).
+\]
+上平凡.
+
+对每个 \(i\), 置
+\[
+  A_{i,0}=\mathcal O_{X_0}(U_i),
+\]
+并设 \(A_{i,1}\) 是 \(X_1\) 的仿射开集
+\(d_0^{-1}(U_i)=d_1^{-1}(U_i)\) 的环.
+设 \(\delta_{i,0}\) (分别地, \(\delta_{i,1}\))
+是由 \(d_0\) (分别地, \(d_1\)) 诱导的同态
+\(A_{i,0}\to A_{i,1}\), 并置
+\[
+  B_i=\mathcal O_Y(V_i)
+  =\{b\in A_{i,0}\mid\delta_{i,0}(b)=\delta_{i,1}(b)\}.
+\]
+
+依照 EGA~II, \S6.5, 考虑可逆 \(\mathcal O_{X_0}\)-模
+\[
+  N_{d_1}\!\left(d_0^\ast\mathscr A\right),
+\]
+它是可逆 \(\mathcal O_{X_1}\)-模 \(d_0^\ast\mathscr A\)
+相对于有限局部自由态射 \(d_1:X_1\to X_0\) 的范数.
+假设 \(\mathscr A\) 相对于覆盖 \((U_i)_{i\in I}\)
+由转移函数
+\[
+  c_{ij}\in\mathcal O_{X_0}(U_i\cap U_j)^\times.
+\]
+给出. 则 \(N_{d_1}(d_0^\ast\mathscr A)\) 由转移函数
+\[
+  N_{\delta_1}(\delta_0(c_{ij}))
+  \in\mathcal O_{X_0}(U_i\cap U_j)^\times.
+\]
+给出. 由 \hyperref[proof:sga3-V-4.1-a]{4(a)},
+这些元素属于 \(\mathcal O_Y(V_i\cap V_j)^\times\),
+因而定义一个可逆 \(\mathcal O_Y\)-模 \(\mathscr L\), 使得
+\[
+  p^\ast\mathscr L=N_{d_1}(d_0^\ast\mathscr A).
+\]
+此外, 对每个 \(n\in\mathbb N^\ast\),
+\[
+  p^\ast(\mathscr L^n)
+  =N_{d_1}\!\left(d_0^\ast(\mathscr A^n)\right);
+\]
+见\emph{同上}, (6.5.2.1).
+
+现在证明 \(\mathscr L\) 对 \(\pi:Y\to S\) 丰沛.
+将 \(S\) 改为一个仿射开集, 可假设 \(S\) 仿射.
+设 \(y\in Y\), 选取 \(x\in X_0\), 使 \(p(x)=y\),
+设 \(V\) 是 \(y\) 在 \(Y\) 中的仿射开邻域,
+并置 \(U=p^{-1}(V)\). 由于 \(\mathscr A\) 对 \(\pi_0\) 丰沛,
+存在 \(n\in\mathbb N^\ast\) 及一个截面
+\[
+  s\in\Gamma(X_0,\mathscr A^n)
+\]
+使得
+\[
+  x\in(X_0)_s\subseteq U.
+\]
+用前述记号, \(s\) 由截面
+\[
+  a_i\in A_{i,0}=\mathcal O_{X_0}(U_i),
+  \qquad a_i=c_{ij}a_j\ \text{ 于 }\ U_i\cap U_j,
+\]
+表示, 且 \((X_0)_s\) 是开集
+\[
+  U'_i=\{\mathfrak p\in\operatorname{Spec}(A_{i,0})
+    \mid a_i\notin\mathfrak p\}.
+\]
+的并.
+
+对每个 \(i\), 置
+\[
+  N(a_i)=N_{\delta_1}(\delta_0(a_i))\in B_i.
+\]
+\hyperref[thm:sga3-V-4.1-i]{定理~4.1(i)} 和
+引理~\hyperref[lem:sga3-V-4.1.1]{4.1.1} 给出
+\[
+  p(U'_i)
+  =p\,d_1d_0^{-1}(U'_i)
+  =p\,d_1\!\left(
+    \{\mathfrak q\in\operatorname{Spec}(A_{i,1})
+      \mid\delta_{i,0}(a_i)\notin\mathfrak q\}
+    \right),
+\]
+而
+\[
+  d_1\!\left(
+    \{\mathfrak q\in\operatorname{Spec}(A_{i,1})
+      \mid\delta_{i,0}(a_i)\notin\mathfrak q\}
+    \right)
+  =
+  \{\mathfrak p\in\operatorname{Spec}(A_{i,0})
+    \mid N_{\delta_1}(\delta_{i,0}(a_i))\notin\mathfrak p\}.
+\]
+可知
+\[
+  p(U'_i)
+  =
+  \{\mathfrak p\in\operatorname{Spec}(B_i)
+    \mid N(a_i)\notin\mathfrak p\}.
+\]
+因此,
+\[
+  p((X_0)_s)=Y_{N(s)},
+\]
+其中 \(N(s)\) 是由截面 \(N(a_i)\in\mathcal O_Y(V_i)\)
+定义的 \(\mathscr L^n\) 在 \(Y\) 上的截面. 于是
+\begin{equation}
+  y\in p((X_0)_s)=Y_{N(s)}\subseteq p(U)=V.
+  \tag{*}\label{eq:sga3-V-5.1-star}
+\end{equation}
+这证明了 \(\mathscr L\) 对 \(\pi:Y\to S\) 丰沛,
+从而完成了 \(\pi\) 拟射影的证明.
+
+% Translation coverage: entire assigned component; adjoining components retain the original statement/proof seams.
+% Source lines: 147; translated body lines before this audit comment: 144.
+% Math preserved: 62 inline formulas, 17 display blocks, 1 equation environments; mathematical prose translated where present.
+% Labels: 3/3; hyperrefs: 5/5; SGARefLinks: 2/2; inline targets: 0/0; footnotes: 1/1.
+% Figure arguments preserved; all rendered captions and natural-language source locators translated.
+% Unresolved TODOs: 0; compilation and visual inspection remain with the volume integrator.

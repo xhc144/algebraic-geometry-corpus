@@ -1,0 +1,538 @@
+% SGA 3, Expose VI_B, Loop 1 English reconstruction.
+% Scope: paragraph 11.4, Proposition 11.5, paragraph 11.6,
+% Remark 11.6.A, Proposition 11.6.1, Lemma 11.7, and
+% Remark 11.7.bis, including editor's notes 108--111.
+% Authority: Polo--Gille Exp6B-13oct24.pdf, component-local
+% pages 78--82 (combined-reader pages 419--423; re-edition
+% headers 408--412; original-margin printed pages 397--401).
+% Paragraph 11.4 begins on local page 78, still within printed page 397;
+% printed page 398 begins there only at Proposition 11.5. Definition
+% 11.8.0 begins on local page 82, still within printed page 401, and is
+% excluded. Printed page 402 begins on local page 85.
+% OCR and Reinhold English Markdown are comparison witnesses only.
+% Loop 2 replaces all seven source-bound commutative-diagram crops
+% with faithful native LaTeX reconstructions; all are closed.
+
+\medskip
+\phantomsection\label{par:sga3-VIB-11.4}%
+\noindent\textbf{11.4.---}%
+\footnote{\label{note:sga3-VIB-108}编者注: 在\SGARefLink{par:sga3-VIB-11.4}{11.4}--\SGARefLink{par:sga3-VIB-11.6}{11.6} 中,
+我们考虑的是
+\(\underline{\operatorname{Hom}}_{\mathcal O_S}
+  (\mathrm W(\mathcal E),\mathrm W(\mathcal F))\)
+而不是
+\(\underline{\operatorname{Hom}}_{\mathcal O_S}
+  (\mathrm V(\mathcal F),\mathrm V(\mathcal E))\)
+\textup{(参见 I, \SGARefLink{sga3:i:proposition:4-6-3}{4.6.3})},
+并利用增补的\hyperref[concl:sga3-VIB-11.0-b]{11.0}\textup{(b)} 简化了原版.}
+设 \(\mathcal E\) 和 \(\mathcal F\) 为两个拟凝聚 \(\mathcal O_S\)-模.
+考虑 \(S\)-函子
+\[
+  \underline{\operatorname{Hom}}_{\mathcal O_S}
+    \bigl(\mathrm W(\mathcal E),\mathrm W(\mathcal F)\bigr)
+\]
+\textup{(参见 I, \SGARefLink{sga3:i:definition:3-1-4}{3.1.4})},
+即对每个 \(S\)-概形 \(f:X\to S\),
+\phantomsection\label{form:sga3-VIB-11.4-HomX}%
+\[
+  \underline{\operatorname{Hom}}_{\mathcal O_S}
+    \bigl(\mathrm W(\mathcal E),\mathrm W(\mathcal F)\bigr)(X)
+  =
+  \operatorname{Hom}_{\mathcal O_X}
+    \bigl(\mathrm W(\mathcal E)_X,\mathrm W(\mathcal F)_X\bigr).
+\]
+此外, 由 I, \SGARefLink{sga3:i:proposition:4-6-2}{4.6.2}, 有
+\(\mathrm W(\mathcal E)_X=\mathrm W(f^*(\mathcal E))\)
+\textup{(对 \(\mathcal F\) 同样如此)}, 且
+\[
+  \operatorname{Hom}_{\mathcal O_X}
+    \bigl(\mathrm W(f^*(\mathcal E)),
+          \mathrm W(f^*(\mathcal F))\bigr)
+  =
+  \operatorname{Hom}_{\mathcal O_X}
+    \bigl(f^*(\mathcal E),f^*(\mathcal F)\bigr).
+\]
+因此得到 \textup{(最后一个等式使用伴随公式)}
+\phantomsection\label{form:sga3-VIB-11.4-adjunction}%
+\[
+  \tag{\(\dagger\)}
+  \underline{\operatorname{Hom}}_{\mathcal O_S}
+    \bigl(\mathrm W(\mathcal E),\mathrm W(\mathcal F)\bigr)(X)
+  =
+  \operatorname{Hom}_{\mathcal O_X}
+    \bigl(f^*(\mathcal E),f^*(\mathcal F)\bigr)
+  =
+  \operatorname{Hom}_{\mathcal O_S}
+    \bigl(\mathcal E,f_*f^*(\mathcal F)\bigr).
+\]
+
+\medskip
+\phantomsection\label{prop:sga3-VIB-11.5}%
+\noindent\textbf{命题 11.5.---}
+\emph{设 \(X\) 为在 \(S\) 上拟紧且拟分离的 \(S\)-概形,
+\(f:X\to S\) 为结构态射,
+\(\mathcal E\) 和 \(\mathcal E'\) 为两个拟凝聚 \(\mathcal O_S\)-模.
+假设下列两个条件之一成立:}
+\begin{enumerate}
+\item[\textup{a)}]\phantomsection\label{concl:sga3-VIB-11.5-a}
+  \emph{\(f\) 仿射;}
+
+\item[\textup{b)}]\phantomsection\label{concl:sga3-VIB-11.5-b}
+  \emph{\(\mathcal E\) 在 \(\mathcal O_S\) 上平坦.}
+\end{enumerate}
+\emph{则典范态射}
+\phantomsection\label{form:sga3-VIB-11.5-projection}%
+\[
+  \mathcal E\otimes_{\mathcal O_S}\mathcal A(X)
+    \longrightarrow f_*f^*(\mathcal E)
+\]
+\emph{为同构, 从而}
+\phantomsection\label{form:sga3-VIB-11.5-Hom}%
+\[
+  \underline{\operatorname{Hom}}_{\mathcal O_S}
+    \bigl(\mathrm W(\mathcal E'),\mathrm W(\mathcal E)\bigr)(X)
+  =
+  \operatorname{Hom}_{\mathcal O_S}
+    \bigl(\mathcal E',
+          \mathcal E\otimes_{\mathcal O_S}\mathcal A(X)\bigr).
+\]
+
+事实上, 第二个断言由\hyperref[par:sga3-VIB-11.4]{11.4} 和第一个断言得到;
+而第一个断言在情形~\hyperref[concl:sga3-VIB-11.5-a]{\textup{(a)}} 中
+由 EGA~II, 1.4.7 得到,
+在情形~\hyperref[concl:sga3-VIB-11.5-b]{\textup{(b)}} 中
+由\hyperref[concl:sga3-VIB-11.0-b]{11.0\textup{(b)}} 得到.% 
+\footnote{\label{note:sga3-VIB-109}编者注: 我们简化了原版的论证; 原版先使用同构
+\[
+  \underline{\operatorname{Hom}}_{\mathcal O_S}
+    \bigl(\mathrm W(\mathcal E'),\mathrm W(\mathcal E)\bigr)
+  \simeq
+  \underline{\operatorname{Hom}}_{\mathcal O_S}
+    \bigl(\mathrm V(\mathcal E),\mathrm V(\mathcal E')\bigr),
+\]
+再利用右端到下列对象的包含映射:
+\[
+  \underline{\operatorname{Hom}}_S
+    \bigl(\mathrm V(\mathcal E),\mathrm V(\mathcal E')\bigr)
+  =
+  \operatorname{Hom}_{\mathcal O_S}
+    \bigl(\mathcal E',
+          f_*f^*(\operatorname{Sym}(\mathcal E))\bigr),
+\]
+并对 \(\mathrm V(\mathcal E)=
+  \operatorname{Spec}(\operatorname{Sym}(\mathcal E))\)
+应用 EGA~III, 4.1.15, 从而推出
+\SGARefLink{par:sga3-VIB-11.0}{11.0}\textup{\SGARefLink{par:sga3-VIB-11.0:item:b}{(b)}}.}
+
+\medskip
+\phantomsection\label{par:sga3-VIB-11.6}%
+\noindent\textbf{11.6.---}%
+\footnote{\label{note:sga3-VIB-110}编者注: 扩充了\SGARefLink{par:sga3-VIB-11.6}{11.6},
+并将所得结果写成\hyperref[prop:sga3-VIB-11.6.1]{命题 11.6.1} 的形式.}
+设 \(G\) 为 \(S\)-群, \(\mathcal E\) 为拟凝聚 \(\mathcal O_S\)-模.
+给 \(\mathcal E\) 赋予 \(G\)-\(\mathcal O_S\)-模结构
+\textup{(即 \(G\) 在 \(\mathrm W(\mathcal E)\) 上的 \(\mathcal O_S\)-线性作用,
+参见 I, \SGARefLink{sga3:i:definition:4-7-1}{4.7.1})},
+等价于给定幺半群值 \(S\)-函子的态射
+\phantomsection\label{form:sga3-VIB-11.6-rho}%
+\[
+  \rho:G\longrightarrow
+  \underline{\operatorname{End}}_{\mathcal O_S}
+    \bigl(\mathrm W(\mathcal E)\bigr);
+\]
+事实上, 这样的 \(\rho\) 必将 \(G\) 映入
+\(\underline{\operatorname{Aut}}_{\mathcal O_S}
+  (\mathrm W(\mathcal E))\).
+
+由\hyperref[par:sga3-VIB-11.4]{11.4}, 给定 \(S\)-函子的态射
+\[
+  \rho:G\longrightarrow
+  \underline{\operatorname{End}}_{\mathcal O_S}
+    \bigl(\mathrm W(\mathcal E)\bigr)
+\]
+等价于给定下列集合的元素 \(\theta\):
+\[
+  \operatorname{Hom}_{\mathcal O_G}
+    \bigl(f^*(\mathcal E),f^*(\mathcal E)\bigr),
+\]
+由伴随性, 此元素对应于下列集合的元素 \(\delta\):
+\[
+  \operatorname{Hom}_{\mathcal O_S}
+    \bigl(\mathcal E,f_*f^*(\mathcal E)\bigr),
+\]
+其中 \(f\) 表示投影 \(G\to S\).
+
+设 \(m:G\times_SG\to G\) 为乘法, \(\delta_G\) 为态射
+\[
+  \mathcal O_G\longrightarrow
+  m_*(\mathcal O_{G\times_SG}),
+\]
+并设 \(\varphi:G\times_SG\to S\) 为投影
+\textup{(它等于 \(f\circ m\))}.
+为方便起见, 用 \(\boxtimes\) 表示``外''张量积. 这样得到态射
+\phantomsection\label{form:sga3-VIB-11.6-id-deltaG}%
+\[
+  \operatorname{id}_{\mathcal E}\boxtimes\delta_G:
+  f^*(\mathcal E)
+    =\mathcal E\boxtimes_{\mathcal O_S}\mathcal O_G
+  \longrightarrow
+  \mathcal E\boxtimes_{\mathcal O_S}
+    m_*(\mathcal O_{G\times_SG}).
+\]
+滥用记号, 仍用 \(\operatorname{id}_{\mathcal E}\boxtimes\delta_G\)
+表示此态射与典范态射
+\[
+  \mathcal E\boxtimes_{\mathcal O_S}
+    m_*(\mathcal O_{G\times_SG})
+  \longrightarrow
+  m_*m^*f^*(\mathcal E)
+  =m_*\varphi^*(\mathcal E).
+\]
+
+的复合. 另一方面, 用 \(h:G\to S\) 表示 \(f:G\to S\) 的第二个副本,
+并考虑下述交换图, 其中 \(p,q\) 表示两个投影:
+\begin{center}
+  \phantomsection\label{diag:sga3-VIB-11.6-projections}%
+  \begin{tikzcd}[row sep=large,column sep=large]
+    G\times_SG
+      \arrow[r,"q"]
+      \arrow[d,"p"']
+      \arrow[dr,"\varphi" description] &
+    G \arrow[d,"h"] \\
+    G \arrow[r,"f"'] &
+    S
+  \end{tikzcd}
+\end{center}
+仍用 \(\delta\) 表示态射 \(\mathcal E\to h_*h^*(\mathcal E)\), 得到态射
+\phantomsection\label{form:sga3-VIB-11.6-delta-id}%
+\[
+  \delta\boxtimes\operatorname{id}_{\mathcal O_G}:
+  f^*(\mathcal E)
+    =\mathcal E\boxtimes_{\mathcal O_S}\mathcal O_G
+  \longrightarrow
+  h_*h^*(\mathcal E)\boxtimes_{\mathcal O_S}\mathcal O_G
+    =f^*h_*h^*(\mathcal E).
+\]
+滥用记号, 仍用 \(\delta\boxtimes\operatorname{id}_{\mathcal O_G}\)
+表示此态射与典范态射
+\[
+  f^*h_*h^*(\mathcal E)\longrightarrow
+  p_*\varphi^*(\mathcal E).
+\]
+
+的复合. 于是 \(\rho\) 与乘法相容这一条件,
+等价于对 \(S\) 的每个开子集 \(U\), 下图交换:
+\begin{center}
+  \phantomsection\label{diag:sga3-VIB-11.6-1}%
+  \makebox[0pt][r]{\textup{(1)}\qquad}%
+  {\scriptsize
+  \begin{tikzcd}[row sep=large,column sep=large]
+    \Gamma(U,\mathcal E)
+      \arrow[r,"\delta"]
+      \arrow[d,"\delta"'] &
+    \Gamma\!\left(
+      U\times_SG,\,
+      \mathcal E\boxtimes_{\mathcal O_S}\mathcal O_G
+    \right)
+      \arrow[d,"{\operatorname{id}_{\mathcal E}\boxtimes\delta_G}"] \\
+    \Gamma\!\left(
+      U\times_SG,\,
+      \mathcal E\boxtimes_{\mathcal O_S}\mathcal O_G
+    \right)
+      \arrow[r,"{\delta\boxtimes\operatorname{id}_{\mathcal O_G}}"'] &
+    \Gamma\!\left(
+      U\times_SG\times_SG,\,
+      \mathcal E\boxtimes_{\mathcal O_S}\mathcal O_G
+        \boxtimes_{\mathcal O_S}\mathcal O_G
+    \right)
+  \end{tikzcd}}
+\end{center}
+此外, 单位截面 \(\varepsilon:S\to G\)
+诱导从 \(\mathcal O_G\) 到下列对象的态射 \(u\):
+\[
+  \varepsilon_*\varepsilon^*(\mathcal O_G)
+  =\varepsilon_*(\mathcal O_S),
+\]
+而 \(\rho\) 保持单位元这一条件等价于下图交换:
+\begin{center}
+  \phantomsection\label{diag:sga3-VIB-11.6-2}%
+  \makebox[0pt][r]{\textup{(2)}\qquad}%
+  {\small
+  \begin{tikzcd}[row sep=large,column sep=large]
+    \Gamma(U,\mathcal E)
+      \arrow[rr,"\delta"]
+      \arrow[dr,"\sim"'] &
+    {} &
+    \Gamma\!\left(
+      U\times_SG,\,
+      \mathcal E\boxtimes_{\mathcal O_S}\mathcal O_G
+    \right)
+      \arrow[dl,"{\operatorname{id}_{\mathcal E}\boxtimes u}"] \\
+    {} &
+    \Gamma\!\left(
+      U\times_SS,\,
+      \mathcal E\boxtimes_{\mathcal O_S}\mathcal O_S
+    \right)\mathpunct{.} &
+    {}
+  \end{tikzcd}}
+\end{center}
+
+因此, 给 \(\mathcal E\) 赋予 \(G\)-\(\mathcal O_S\)-模结构,
+等价于给定 \(\mathcal O_S\)-模态射
+\[
+  \delta:\mathcal E\longrightarrow f_*f^*(\mathcal E)
+\]
+满足上面的条件\hyperref[diag:sga3-VIB-11.6-1]{\textup{(1)}}
+和\hyperref[diag:sga3-VIB-11.6-2]{\textup{(2)}}. 此时由 \(\delta\)
+经伴随性得到的态射
+\[
+  \theta:f^*(\mathcal E)\longrightarrow f^*(\mathcal E)
+\]
+为同构, 因为它对应于下述同构:
+\[
+  G\times_S\mathrm W(\mathcal E)
+    \xrightarrow{\ \sim\ }
+  G\times_S\mathrm W(\mathcal E)
+\]
+此同构在集合意义下由 \((g,x)\longmapsto(g,gx)\) 定义;
+亦见 I, \SGARefLink{sga3:i:remark:6-5-4}{6.5.4}.
+
+现在假设 \(G\) 在 \(S\) 上平坦、拟紧且拟分离,
+并假设 \(\mathcal A(G)\) 为平坦 \(\mathcal O_S\)-模.
+则由\hyperref[concl:sga3-VIB-11.1-c]{11.1\textup{(c)}}, 典范态射
+\[
+  \mathcal A(G)\otimes_{\mathcal O_S}\mathcal A(G)
+    \longrightarrow
+  \mathcal A(G\times_SG)
+\]
+为同构, 用 \(\Delta\) 表示态射
+\[
+  \delta_G:\mathcal A(G)\longrightarrow
+  \mathcal A(G)\otimes_{\mathcal O_S}\mathcal A(G).
+\]
+
+此外, 若
+\[
+  \mathcal E\otimes_{\mathcal O_S}\mathcal A(G)
+    =f_*f^*(\mathcal E),
+\]
+如\hyperref[prop:sga3-VIB-11.5]{11.5} 所示,
+当 \(G\to S\) 仿射或 \(\mathcal E\) 在 \(\mathcal O_S\) 上平坦时即如此,
+则条件\hyperref[diag:sga3-VIB-11.6-1]{\textup{(1)}}
+和\hyperref[diag:sga3-VIB-11.6-2]{\textup{(2)}} 等价于下述条件,
+它们表示
+\[
+  \delta:\mathcal E\longrightarrow
+  \mathcal E\otimes_{\mathcal O_S}\mathcal A(G)
+\]
+将 \(\mathcal E\) 赋成右 \(\mathcal A(G)\)-余模
+\textup{(参见 I, \SGARefLink{sga3:i:proposition:4-7-2}{4.7.2})}:
+
+\smallskip
+\phantomsection\label{cond:sga3-VIB-11.6-CM1}%
+\noindent\textup{(CM 1)}
+令 \(\mathcal A=\mathcal A(G)\). 下图交换:
+\begin{center}
+  \phantomsection\label{diag:sga3-VIB-11.6-CM1}%
+  \begin{tikzcd}[row sep=large,column sep=large]
+    \mathcal E
+      \arrow[r,"\delta"]
+      \arrow[d,"\delta"'] &
+    \mathcal E\otimes\mathcal A
+      \arrow[d,"{\operatorname{id}_{\mathcal E}\otimes\Delta}"] \\
+    \mathcal E\otimes\mathcal A
+      \arrow[r,"{\delta\otimes\operatorname{id}_{\mathcal A}}"'] &
+    \mathcal E\otimes\mathcal A\otimes\mathcal A
+  \end{tikzcd}
+\end{center}
+
+\smallskip
+\phantomsection\label{cond:sga3-VIB-11.6-CM2}%
+\noindent\textup{(CM 2)}
+用 \(\eta:\mathcal A\to\mathcal O_S\) 表示态射
+\(\mathcal A(\varepsilon)\). 下图交换:
+\begin{center}
+  \phantomsection\label{diag:sga3-VIB-11.6-CM2}%
+  \begin{tikzcd}[row sep=large,column sep=large]
+    \mathcal E
+      \arrow[rr,"\delta"]
+      \arrow[dr,"\sim"'] &
+    {} &
+    \mathcal E\otimes\mathcal A
+      \arrow[dl,"{\operatorname{id}_{\mathcal E}\otimes\eta}"] \\
+    {} &
+    \mathcal E\otimes\mathcal O_S\mathpunct{.} &
+    {}
+  \end{tikzcd}
+\end{center}
+
+\medskip
+\phantomsection\label{rem:sga3-VIB-11.6.A}%
+\noindent\textbf{注 11.6.A.---}
+回顾, \(\mathrm V(\mathcal E)\) 表示表出函子
+\(\mathrm V(\mathcal E)\) 的 \(S\) 上的向量纤维化;
+即对每个 \(S'\to S\),
+\[
+  \mathrm V(\mathcal E)(S')
+  =
+  \operatorname{Hom}_{\mathcal O_{S'}}
+    \bigl(\mathcal E_{S'},\mathcal O_{S'}\bigr).
+\]
+由于 I, \SGARefLink{sga3:i:proposition:4-6-2}{4.6.2}
+给出幺半群值 \(S\)-函子的反同构
+\[
+  \underline{\operatorname{End}}_{\mathcal O_S}
+    \bigl(\mathrm W(\mathcal E)\bigr)
+  \simeq
+  \underline{\operatorname{End}}_{\mathcal O_S}
+    \bigl(\mathrm V(\mathcal E)\bigr),
+\]
+若 \(\mathcal E\) 为左 \(G\)-\(\mathcal O_S\)-模,
+则 \(G\) 在 \(\mathrm V(\mathcal E)\) 上有右作用
+\[
+  \mu:\mathrm V(\mathcal E)\times_SG
+    \longrightarrow\mathrm V(\mathcal E)
+\]
+在集合意义下定义为
+\[
+  (\phi g)(x)=\phi(gx)
+\]
+其中 \(g\in G(S')\), \(x\in\Gamma(S',\mathcal E_{S'})\),
+\(\phi\in
+  \operatorname{Hom}_{\mathcal O_{S'}}
+    (\mathcal E_{S'},\mathcal O_{S'})\) 任意.
+因此有下述交换图
+\begin{center}
+  \phantomsection\label{diag:sga3-VIB-11.6.A-actions}%
+  {\small
+  \begin{tabular}{c@{\qquad}c}
+    \begin{tikzcd}[row sep=large,column sep=large]
+      \mathrm V(\mathcal E)\times_SG\times_SG
+        \arrow[r,"{\mu\times\operatorname{id}_G}"]
+        \arrow[d,"{\operatorname{id}_{\mathrm V(\mathcal E)}\times m}"'] &
+      \mathrm V(\mathcal E)\times_SG
+        \arrow[d,"\mu"] \\
+      \mathrm V(\mathcal E)\times_SG
+        \arrow[r,"\mu"'] &
+      \mathrm V(\mathcal E)
+    \end{tikzcd}
+    &
+    \begin{tikzcd}[row sep=large,column sep=large]
+      \mathrm V(\mathcal E) &
+      \mathrm V(\mathcal E)\times_SG
+        \arrow[l,"\mu"'] \\
+      {} &
+      \mathrm V(\mathcal E)\times_SS\mathpunct{.}
+        \arrow[u,"{\operatorname{id}_{\mathrm V(\mathcal E)}\times\varepsilon}"]
+        \arrow[ul,"\sim"']
+    \end{tikzcd}
+  \end{tabular}}
+\end{center}
+当 \(G\) 在 \(S\) 上平坦、拟紧且拟分离,
+\(\mathcal A(G)\) 为平坦 \(\mathcal O_S\)-模,
+且满足\hyperref[prop:sga3-VIB-11.5]{11.5} 的条件之一时,
+同样可重新得到条件\hyperref[cond:sga3-VIB-11.6-CM1]{\textup{(CM 1)}}
+和\hyperref[cond:sga3-VIB-11.6-CM2]{\textup{(CM 2)}}.
+
+因此, 我们证明了:
+
+\medskip
+\phantomsection\label{prop:sga3-VIB-11.6.1}%
+\noindent\textbf{命题 11.6.1.---}
+\emph{设 \(G\) 为在 \(S\) 上平坦、拟紧且拟分离的 \(S\)-群,
+使 \(\mathcal A(G)\) 为平坦 \(\mathcal O_S\)-模,
+并设 \(\mathcal E\) 为拟凝聚 \(\mathcal O_S\)-模.}
+\begin{enumerate}
+\item[\textup{(i)}]\phantomsection\label{concl:sga3-VIB-11.6.1-i}
+  \emph{给定 \(\mathcal A(G)\)-余模结构}
+  \[
+    \delta:\mathcal E\longrightarrow
+      \mathcal E\otimes_{\mathcal O_S}\mathcal A(G)
+  \]
+  \emph{等价于给 \(\mathcal E\) 赋予 \(G_{\mathrm{af}}\)-\(\mathcal O_S\)-模结构
+\textup{(即 \(G_{\mathrm{af}}\) 在 \(\mathcal E\) 上的 \(\mathcal O_S\)-线性作用)}.
+与 \(S\)-群态射 \(G\to G_{\mathrm{af}}\) 复合,
+便在 \(\mathcal E\) 上定义了 \(G\)-\(\mathcal O_S\)-模结构.}
+
+\item[\textup{(ii)}]\phantomsection\label{concl:sga3-VIB-11.6.1-ii}
+  \emph{此外, 若 \(\mathcal E\) 平坦, 则 \(G\) 在 \(\mathcal E\) 上的每个
+\(\mathcal O_S\)-线性作用都经由 \(G_{\mathrm{af}}\) 分解,
+并对应于 \(\mathcal E\) 上唯一的 \(\mathcal A(G)\)-余模结构.}
+\end{enumerate}
+
+\medskip
+\phantomsection\label{lem:sga3-VIB-11.7}%
+\noindent\textbf{引理 11.7.---}
+\emph{设 \(G\) 为在 \(S\) 上平坦、拟紧且拟分离的 \(S\)-群,
+使 \(\mathcal A=\mathcal A(G)\) 为平坦 \(\mathcal O_S\)-模.
+设 \(\mathcal E\) 为拟凝聚 \(\mathcal O_S\)-模,}
+\[
+  \delta:\mathcal E\longrightarrow\mathcal E\otimes\mathcal A
+\]
+\emph{为 \(\mathcal A\)-余模结构, 且}
+\[
+  \rho:G\longrightarrow
+  \underline{\operatorname{Aut}}_{\mathcal O_S}
+    \bigl(\mathrm W(\mathcal E)\bigr)
+\]
+\emph{为关联的 \(G\) 在 \(\mathcal E\) 上的作用.
+设 \(\mathcal E_0\) 为 \(\mathcal E\) 的拟凝聚 \(\mathcal O_S\)-子模,
+使 \(\delta\) 在 \(\mathcal E_0\) 上的限制 \(\delta_0\)}%
+\begingroup
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}%
+\footnote[1]{\label{note:sga3-VIB-11.7-delta-source}
+英译者注: 法文底本在此处作``\(\mu\) 的限制 \(\delta_0\)''.
+根据前后的记号和所列方图, 此处应为 \(\delta\).}%
+\endgroup
+\emph{经由下述态射分解}
+\[
+  \mathcal E_0\longrightarrow\mathcal E_0\otimes\mathcal A;
+\]
+\emph{即假设下图交换:}
+\begin{center}
+  \phantomsection\label{diag:sga3-VIB-11.7-stability}%
+  \begin{tikzcd}[row sep=large,column sep=large]
+    \mathcal E_0
+      \arrow[r,hook]
+      \arrow[d,"\delta_0"'] &
+    \mathcal E
+      \arrow[d,"\delta"] \\
+    \mathcal E_0\otimes\mathcal A
+      \arrow[r,hook] &
+    \mathcal E\otimes\mathcal A\mathpunct{.}
+  \end{tikzcd}
+\end{center}
+\emph{\textup{(注意: 态射 \(\mathcal E_0\otimes\mathcal A
+  \to\mathcal E\otimes\mathcal A\)
+为单射, 因为 \(\mathcal A\) 在 \(\mathcal O_S\) 上平坦.)}
+则 \(\delta_0\) 将 \(\mathcal E_0\) 赋成 \(\mathcal A(G)\)-余模,
+从而定义 \(G\) 在 \(\mathcal E_0\) 上的作用 \(\rho_0\).
+称其为 \(\rho\) 在 \(\mathcal E_0\) 上诱导的作用,
+并称 \(\mathcal E_0\) 在 \(\rho\) 下稳定.}
+
+这由定义及\hyperref[par:sga3-VIB-11.6]{11.6} 立即得到.
+但须注意, 一般而言典范映射
+\[
+  \mathrm W(\mathcal E_0)\longrightarrow\mathrm W(\mathcal E)
+\]
+并非单态射.
+
+\medskip
+\phantomsection\label{rem:sga3-VIB-11.7.bis}%
+\noindent\textbf{注 11.7.bis.---}%
+\footnote{\label{note:sga3-VIB-111}编者注: 此注为新增内容, 推广了\SGARefLink{lem:sga3-VIB-11.7}{11.7},
+并将在\SGARefLink{prop:sga3-VIB-11.10.bis}{11.10.b}is 中用到.}
+设 \(G\) 为平坦 \(S\)-群, \(\mathcal E\) 为拟凝聚
+\(G\)-\(\mathcal O_S\)-模.
+用 \(f\) 表示态射 \(G\to S\), 用 \(\delta\) 表示态射
+\[
+  \mathcal E\longrightarrow f_*f^*(\mathcal E)
+\]
+它定义于\hyperref[par:sga3-VIB-11.6]{11.6}.
+设 \(\mathcal E_0\) 为 \(\mathcal E\) 的拟凝聚 \(\mathcal O_S\)-子模.
+由于 \(f\) 平坦, \(f_*f^*(\mathcal E_0)\) 是 \(f_*f^*(\mathcal E)\) 的
+\(\mathcal O_S\)-子模, 对 \(\varphi=f\times f\) 也有同样结论.
+因此, 若 \(\delta\) 在 \(\mathcal E_0\) 上的限制 \(\delta_0\)
+经由 \(f_*f^*(\mathcal E_0)\) 分解,
+则它将 \(\mathcal E_0\) 赋成 \(G\)-\(\mathcal O_S\)-模.
+此时称 \(\mathcal E_0\) 为 \(\mathcal E\) 的 \(G\)-稳定子模.

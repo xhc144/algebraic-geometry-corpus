@@ -1,0 +1,158 @@
+% SGA 3, 第 VI_B 篇, 第 1 轮英文重构.
+% 范围: 推论 5.5, 段落 5.6 开头及引理 5.6.0 全文, 含底本编者注 37 和 38.
+% 底本: Polo--Gille Exp6B-13oct24.pdf, 分篇第 27--28 页
+% (合订本第 368--369 页; 原版页边印刷页码 352--353, 重版本页眉 357--358).
+% 引理 5.6.1.0 始于分篇第 28 页 / 合订本第 369 页.
+% OCR 与 Reinhold 英文 Markdown 仅为比对材料.
+% 英文底本旧注: 两图均为第 1 轮所用的 180 dpi 底本精确裁切.
+% 本译稿保留下方已有的原生 TikZ 图码.
+
+\medskip
+\phantomsection\label{cor:sga3-VIB-5.5}%
+\noindent\textbf{推论 5.5.---}
+\emph{设 \(S\) 是概形, \(G\) 是局部有限呈示、纤维连通,
+且在 \(S\) 上普遍开的 \(S\)-群概形.
+则 \(G\) 在 \(S\) 上分离且有限呈示.}%
+\footnote{\label{note:sga3-VIB-37}编者注: 这里指出如下结果
+([Ray70a], VI, \SGARefLink{prop:sga3-VIB-2.5}{2.5}).
+若 \(S\) 正规, \(G\) 平滑且纤维连通,
+而 \(X\) 是一个在 \(S\) 上局部有限型的 \textup{(fppf)} 齐性 \(G\)-空间,
+即态射 \(X\to S\) 及 \(G\times_SX\to X\times_SX\)
+均为 \textup{(fppf)} 拓扑的覆盖, 则 \(X\) 在 \(S\) 上局部拟射影.
+特别地, \(G\) 在 \(S\) 上拟射影.
+亦见 VI\(_A\) 中的编者\hyperref[note:sga3-VIB-35]{注 35}.}
+
+事实上, 由 \SGARefLink{cor:sga3-VIB-3.6}{3.6} 和
+\SGARefLink{cor:sga3-VIB-5.4}{5.4}, \(G\) 在 \(S\) 上拟紧且分离.
+由于 \(G\) 在 \(S\) 上局部有限呈示, 故在 \(S\) 上有限呈示.
+
+\medskip
+\phantomsection\label{par:sga3-VIB-5.6}%
+\noindent\textbf{5.6.---}
+\emph{\hyperref[thm:sga3-VIB-5.3]{定理 5.3} 的证明.}
+在证明 \SGARefLink{thm:sga3-VIB-5.3}{5.3} 之前, 先建立几个引理.
+
+\medskip
+\phantomsection\label{lem:sga3-VIB-5.6.0}%
+\noindent\textbf{引理 5.6.0.---}%
+\footnote{\label{note:sga3-VIB-38}编者注: 此引理为我们新增,
+由 O.\ Gabber 告知. 它改进了 EGA~IV\(_3\), 14.4.1.2,
+并在不改变假设的情况下改正了\emph{同上}, 14.4.1.3 的证明
+\textup{(比较 EGA~IV\(_4\) 中的勘误 \textup{(ErrIV, 38)})}.}
+\begin{enumerate}
+\item[\textup{\SGAInlineRefTarget{lem:sga3-VIB-5.6.0:item:i}(i)}]
+  \emph{设 \(A\subset B\) 是整环, \(B\) 在 \(A\) 上整,
+  且 \(\mathfrak q\in\operatorname{Spec}(B)\) 使 \(A\)
+  在 \(\mathfrak p=\mathfrak q\cap A\) 处单分支. 则态射}
+  \[
+    \pi:\operatorname{Spec}(B)\longrightarrow\operatorname{Spec}(A)
+  \]
+  \emph{在 \(\mathfrak q\) 处开.}
+\item[\textup{\SGAInlineRefTarget{lem:sga3-VIB-5.6.0:item:ii}(ii)}]
+  \emph{设 \(X,Y\) 是不可约预概形, \(f:X\to Y\) 是支配态射,
+  \(x\in X\) 是使 \(f\) 拟有限的一点, 且 \(y=f(x)\)
+  是 \(Y\) 的单分支点. 则 \(f\) 在 \(x\) 处开. 特别地, 若}
+  \[
+    Y=\operatorname{Spec}(\mathcal O_{Y,y})
+  \]
+  \emph{是以 \(y\) 为闭点的局部预概形, 则对 \(x\) 的每个邻域 \(U\), 有 \(f(U)=Y\).}
+\end{enumerate}
+
+\textup{\SGARefLink{lem:sga3-VIB-5.6.0:item:i}{(i)}}
+设 \(K\) (分别地, \(L\)) 是 \(A\) (分别地, \(B\)) 的分式域,
+\(A'\) 是 \(A\) 的正规化, \(B'\) 是 \(L\) 中由 \(A'\) 和 \(B\)
+生成的子环. 则 \(B'\) 在 \(A'\) 上整. 置
+\[
+  Y=\operatorname{Spec}(A),\quad
+  X=\operatorname{Spec}(B),\quad
+  Y'=\operatorname{Spec}(A'),\quad
+  X'=\operatorname{Spec}(B').
+\]
+于是有交换图
+\begin{center}
+  \phantomsection\label{diag:sga3-VIB-5.6.0-integral-square}%
+  \begin{tikzcd}[row sep=large,column sep=large]
+    X' \arrow[r,"\pi'"] \arrow[d] &
+    Y' \arrow[d,"\phi"'] \\
+    X \arrow[r,"\pi"] &
+    Y
+  \end{tikzcd}
+\end{center}
+其中所有态射都整且满射.
+
+由于 \(A\) 在 \(\mathfrak p\) 处单分支,
+\(Y'\) 在 \(\mathfrak p\) 上有唯一的点 \(\mathfrak p'\).
+因此, 若 \(U\) 是 \(\mathfrak p'\) 在 \(Y'\) 中的开邻域, 则
+\[
+  \phi(Y'-U)
+\]
+是一个不含 \(\mathfrak p\) 的闭集,
+故其开补集包含在 \(\phi(U)\) 中.
+这说明 \(\phi:Y'\to Y\) 在 \(\mathfrak p'\) 处开.
+所以只须证明 \(\pi'\) 开, 即归结为 \(A=A'\) 正规的情形.
+
+设 \(N\) 是包含 \(L\) 的 \(K\) 的拟 Galois 扩张, 设
+\[
+  \widetilde X=\operatorname{Spec}(\widetilde B),
+\]
+其中 \(\widetilde B\) 是 \(B\) 在 \(N\) 中的整闭包,
+并设 \(G=\operatorname{Aut}(N/K)\).
+由于 \(\widetilde X\to X\) 满射, 只须证明
+\[
+  \widetilde\pi:\widetilde X\longrightarrow Y
+\]
+开. 设 \(U\) 是 \(\widetilde X\) 的开集, 并置
+\[
+  U'=\bigcup_{g\in G}gU.
+\]
+由于 \(G\) 在 \(\widetilde X\to Y\) 的纤维上传递作用
+(参见 [BAC], 第~V 章, \S2.3, 命题~6), 有
+\[
+  \widetilde\pi(U)=\widetilde\pi(U'),
+\]
+且后者是闭集
+\[
+  \widetilde\pi(\widetilde X-U').
+\]
+的开补集. 这就证明了 \textup{\SGARefLink{lem:sga3-VIB-5.6.0:item:i}{(i)}}.
+
+\textup{\SGARefLink{lem:sga3-VIB-5.6.0:item:ii}{(ii)}}
+可假设 \(Y\) 和 \(X\) 约化. 由 Zariski 主定理
+(参见 EGA~IV\(_3\), 8.12.9), 存在 \(x\) 和 \(y\)
+各自的仿射开邻域 \(U\) 和 \(V=\operatorname{Spec}(A)\),
+使 \(f(U)\subset V\), 并有分解
+\begin{center}
+  \phantomsection\label{diag:sga3-VIB-5.6.0-zariski-factorization}%
+  \begin{tikzcd}[row sep=large,column sep=large]
+    U
+      \arrow[r,hook,"j"]
+      \arrow[dr,"f"'] &
+    V' \arrow[d,"u"] \\
+    {} &
+    V
+  \end{tikzcd}\,,
+\end{center}
+其中 \(j\) 是开浸入, \(u\) 有限.
+将 \(V'\) 改为 \(j(U)\) 的闭包, 可假设 \(V'\) 不可约,
+因而 \(V'=\operatorname{Spec}(B)\), 其中 \(B\) 是在 \(A\) 上有限的整
+\(A\)-代数. 此外, 由于 \(f\) 支配, \(u\) 也支配,
+所以态射 \(A\to B\) 单射.
+
+由于 \(A\) 在 \(y\) 处单分支,
+由 \textup{\SGARefLink{lem:sga3-VIB-5.6.0:item:i}{(i)}} 可知
+\(u\) 在 \(j(x)\) 处开, 因而
+\[
+  f=u\circ j
+\]
+在 \(x\) 处开. 这就证明了
+\textup{\SGARefLink{lem:sga3-VIB-5.6.0:item:ii}{(ii)}} 的第一个断言.
+第二个断言成立, 因为若 \(Y\) 是以 \(y\) 为闭点的局部预概形,
+则每个包含 \(y\) 的开集都等于 \(Y\).
+在 \(Y=\operatorname{Spec}(\mathcal O_{Y,y})\) 的情形中,
+也可不用 EGA~IV\(_3\), 8.12.9,
+而用 Zariski 主定理的局部形式, 例如见 [Pes66] 或 [Ray70b], 第~IV 章, 定理~1.
+
+% 翻译覆盖：本组件全文；源文件 41_expose_VIB_cor55_through_lemma560_loop2_r1_en.tex。
+% 自检：行内数学 113，陈列数学 10，原生 tikzcd 2；全部数学及编号保留，公式内自然语言已译。
+% 引用键核对：label 7，hyperref 2，SGARefLink 9，行内目标 2；脚注 2，星号脚注正文 0，均与源文件一致。
+% 编译及渲染审查由主线程整合完成；此处未宣称编译或独立校对完成。

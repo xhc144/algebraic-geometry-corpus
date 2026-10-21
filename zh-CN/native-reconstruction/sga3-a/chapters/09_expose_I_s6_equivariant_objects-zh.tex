@@ -1,0 +1,856 @@
+% SGA 3, Expose I, Loop 1 English reconstruction.
+% Scope: Section 6, "G-equivariant objects and modules," through the
+% bibliography and end of Expose I.
+% Authority: Polo--Gille Exp1-13oct24.pdf, component-local pages 39--48
+% (combined-reader pages 49--58). Force-OCR and the English Markdown by
+% Jacob Reinhold are drafting and comparison witnesses only.
+
+% Source page: Exp1 component-local p. 39; combined-reader p. 49.
+\section*{\SGAInlineRefTarget{sga3:i:section:6}6. \(G\)-等变对象和模}
+\addcontentsline{toc}{section}{6. G-等变对象和模}
+
+设 \(\mathscr C\) 是一个具有终对象且存在纤维积的范畴.
+\footnote{编者注: 本节为新增内容.}
+设 \(G\) 是一个 \(\widehat{\mathscr C}\)-群,
+\(\pi:M\to X\) 是 \(\widehat{\mathscr C}\) 中的一个态射,
+\(\lambda=\lambda_X:G\times X\to X\) 是 \(G\) 在 \(X\) 上的一个作用.
+以下以 \(Y\times_f M\) 表示 \(\pi:M\to X\) 与 \(X\)-函子
+\(f:Y\to X\) 的纤维积.
+
+对每个 \(U\in\operatorname{Ob}(\mathscr C)\) 和 \(x\in X(U)\), 记
+\(M_x=U\times_x M\); 因而对每个 \(\phi:U'\to U\), 有
+\[
+  M_x(U')
+  =\{m\in M(U')\mid \pi(m)=x_{U'}=\phi^*(x)\}.
+\]
+最后, 若 \(g\in G(U)\), 我们也以 \(gx\) 表示 \(X(U)\) 的元素
+\(\lambda(g,x)\).
+
+\medskip
+\noindent\SGAInlineRefTarget{sga3:i:definition:6-1}\textbf{定义 6.1.}
+\textit{\SGAInlineRefTarget{sga3:i:definition:6-1:item:a}(a) 若给定了 \(G\) 在 \(M\) 上提升 \(\lambda\) 的作用
+\(\Lambda:G\times M\to M\), 就称 \(M\) 是一个 \(G\)-等变（equivariant）\(X\)-对象;
+也就是说, 下列方块交换.}
+
+\begin{figure}[H]
+  \centering
+  \input{figures/exp1/diag_019_equivariant_action_square}
+  \phantomsection\label{fig:sga3-exp1-p039-equivariant-action-square}
+\end{figure}
+
+\textit{等价地, 对每个态射 \((g,x):U\to G\times X\), 给定映射}
+\[
+  \Lambda_x^U(g):M_x(U)\longrightarrow M_{gx}(U),
+  \qquad m\longmapsto g\cdot m,
+\]
+\textit{满足 \(1\cdot m=m\) 和
+\(g\cdot(h\cdot m)=(gh)\cdot m\), 且关于 \((G\times X)\)-对象
+\(U\) 具有函子性. 另一种等价的说法是, 给定 \(U\)-对象的态射}
+\[
+  \Lambda_x(g):M_x\longrightarrow M_{gx}
+\]
+\textit{满足
+\(\Lambda_x(1)=\operatorname{id}\) 和
+\(\Lambda_{hx}(g)\circ\Lambda_x(h)=\Lambda_x(gh)\).}
+
+\textit{(b) 现设 \(\mathbf O\) 是一个
+\(\widehat{\mathscr C}\)-环, 并置
+\(\mathbf O_X=\mathbf O\times X\). 在~\SGARefLink{sga3:i:definition:6-1:item:a}{(a)} 的假设下,
+若 \(M\) 是一个 \(\mathbf O_X\)-模（参见\SGARefLink{sga3:i:paragraph:4-3-3-1}{定义~4.3.3.1},
+该定义对范畴 \(\mathscr C\) 上的任意环函子均适用）, 且作用 \(\Lambda\)
+与 \(M\) 上的 \(\mathbf O_X\)-模结构相容, 就称之为一个
+\(G\)-等变 \(\mathbf O_X\)-模. 因而, 对每个
+\((g,x)\in G(U)\times X(U)\),
+\(U\in\operatorname{Ob}(\mathscr C)\), 映射}
+\[
+  \Lambda_x(g):M_x\longrightarrow M_{gx},
+  \qquad m\longmapsto g\cdot m,
+\]
+\textit{都是 \(\mathbf O_U\)-模的态射.}
+
+\medskip
+\noindent\SGAInlineRefTarget{sga3:i:remark:6-2}\textbf{注 6.2.}
+(i) 在~\SGARefLink{sga3:i:definition:6-1:item:a}{(a)} 中, 条件
+\(\Lambda_x(1)=\operatorname{id}\) 和
+\(\Lambda_{hx}(g)\circ\Lambda_x(h)=\Lambda_x(gh)\) 显然蕴含每个
+\(\Lambda_x(g)\) 都是同构, 其逆为
+\(\Lambda_{gx}(g^{-1})\). 反之, 若每个 \(\Lambda_x(g)\) 都是同构,
+在第二个条件中取 \(h=1\), 就得到
+\(\Lambda_x(1)=\operatorname{id}\).
+
+(ii) 设 \(M\) 是一个 \(\mathbf O_X\)-模. 给定一个使\SGARefLink{sga3:i:definition:6-1}{定义~6.1}
+中的图交换的态射 \(\Lambda:G\times M\to M\), 并要求每个态射
+
+% Source page: Exp1 component-local p. 40; combined-reader p. 50.
+\[
+  \Lambda_x(g):M_x\longrightarrow M_{gx},
+  \qquad m\longmapsto g\cdot m,
+\]
+都是 \(\mathbf O_U\)-模的同构, 等价于给定一个
+\(\mathbf O_{G\times X}\)-模的同构
+\[
+  \theta:
+  G\times M=(G\times X)\times_{\mathrm{pr}_X}M
+  \xrightarrow{\ \sim\ }(G\times X)\times_\lambda M,
+  \qquad
+  (g,x,m)\longmapsto(g,x,g\cdot m).
+\]
+由于已假设每个 \(\Lambda_x(g)\) 都是同构, 在
+\(\Lambda_{hx}(g)\circ\Lambda_x(h)=\Lambda_x(gh)\) 中取 \(h=1\),
+就得到等式 \(\Lambda_x(1)=\operatorname{id}\).
+因此, \(\Lambda\) 是 \(G\) 在 \(M\) 上的作用, 即满足
+\(g\cdot(h\cdot m)=(gh)\cdot m\), 当且仅当下列
+\((G\times G\times X)\)-同构图交换. 这里 \(\mu\) 表示 \(G\) 的乘法,
+\(f^*(\theta)\) 是由 \(\theta\) 沿
+\(f:G\times G\times X\to G\times X\) 作基变换而得到的.
+
+\begin{figure}[H]
+  \centering
+  \input{figures/exp1/diag_020_equivariance_cocycle}
+  \phantomsection\label{fig:sga3-exp1-p040-equivariance-cocycle}
+\end{figure}
+
+所以, 在 \(M\) 上给定 \(G\)-等变 \(\mathbf O_X\)-模结构,
+等价于给定一个如上所述的 \(\mathbf O_{G\times X}\)-模同构
+\(\theta\), 并使此图交换.
+
+(iii) 以上各点都可推广到 \(G\) 仅为一个
+\(\widehat{\mathscr C}\)-幺半群的情形. 此时, 给定提升 \(\lambda\)
+的作用 \(\Lambda:G\times M\to M\), 并要求每个
+\(\Lambda_x(g):M_x\to M_{gx}\) 都是 \(\mathbf O_U\)-模的态射,
+等价于给定一个如~(ii) 中的 \(\mathbf O_{G\times X}\)-模态射
+\(\theta\), 使得将上图各箭头下的同构符号去掉后该图交换, 且满足
+\[
+  p_M\circ\theta\circ(\varepsilon_G\times\operatorname{id}_M)
+  =\operatorname{id}_M,
+\]
+其中 \(\varepsilon_G\) 是 \(G\) 的单位截面, \(p_M\) 是到 \(M\) 的投影.
+
+\subsection*{\SGAInlineRefTarget{sga3:i:subsection:6-3}6.3. \(G\)-等变态射}
+
+设 \(Y\) 是 \(\widehat{\mathscr C}\) 的另一个对象, 其上赋予了作用
+\(\lambda_Y:G\times Y\to Y\); 又设 \(N\) 是另一个
+\(G\)-等变 \(\mathbf O_X\)-模. \(\widehat{\mathscr C}\) 中的态射
+\(f:Y\to X\)（分别地, \(\mathbf O_X\)-模的态射 \(\phi:M\to N\)）
+若与 \(G\) 的作用交换, 就称为 \emph{\(G\)-等变的}.
+用集合论记号表示, 这就是说
+\[
+  f(g\cdot y)=g\cdot f(y)
+  \qquad
+  \bigl(\text{分别地, }\phi(g\cdot m)=g\cdot\phi(m)\bigr),
+\]
+或者等价地,
+\[
+  f\circ\lambda_Y=\lambda_X\circ(\operatorname{id}_G\times f),
+  \qquad
+  \phi\circ\Lambda_M=\Lambda_N\circ(\operatorname{id}_G\times\phi).
+\]
+下列引理是直接的.
+
+% Source page: Exp1 component-local p. 41; combined-reader p. 51.
+\medskip
+\noindent\SGAInlineRefTarget{sga3:i:lemma:6-3-1}\textbf{引理 6.3.1.}
+\textit{设 \(f:Y\to X\) 是一个 \(G\)-等变态射, \(M\) 是一个
+\(G\)-等变 \(\mathbf O_X\)-模. 则逆像
+\(f^*(M)=Y\times_fM\) 是一个 \(G\)-等变
+\(\mathbf O_Y\)-模.}
+
+另一方面, \(G\) 作用在
+\(\operatorname{Hom}_{\widehat{\mathscr C}}(Y,X)\) 上. 事实上, 设
+\(T\in\operatorname{Ob}(\mathscr C)\), \(g\in G(T)\), 且 \(\phi\)
+是一个 \(T\)-态射 \(Y_T\to X_T\). 则 \(g\) 给出 \(Y_T\) 和
+\(X_T\) 的自同构 \(\lambda_Y(g)\) 和 \(\lambda_X(g)\), 我们以
+\(g\cdot\phi\) 或 \(g\phi g^{-1}\) 表示态射
+\[
+  \lambda_X(g)\circ\phi\circ\lambda_Y(g^{-1}).
+\]
+这就给出了 \(G(T)\) 在
+\(\operatorname{Hom}_T(Y_T,X_T)\) 上的作用, 且关于 \(T\) 具有函子性.
+
+\medskip
+\noindent\SGAInlineRefTarget{sga3:i:definition:6-3-2}\textbf{定义 6.3.2.}
+\textit{因此, 对 \(\widehat{\mathscr C}\) 中任意态射 \(\phi:Y\to X\),
+可以考虑它的稳定子 \(\operatorname{Stab}_G(\phi)\)
+（参见 \SGARefLink{sga3:i:scholium:2-3-3-1}{2.3.3.1}）. 对每个
+\(T\in\operatorname{Ob}(\mathscr C)\),
+\(\operatorname{Stab}_G(\phi)(T)\) 是 \(G(T)\) 中所有满足
+\(g\circ\phi_T=\phi_T\circ g\) 的 \(g\) 所组成的子群,
+也就是说, 它们使下图交换.}
+
+\begin{figure}[H]
+  \centering
+  \input{figures/exp1/diag_021_stabilizer_square}
+  \phantomsection\label{fig:sga3-exp1-p041-stabilizer-square}
+\end{figure}
+
+\textit{于是 \(\phi:Y\to X\) 关于 \(\operatorname{Stab}_G(\phi)\) 等变.}
+
+\subsection*{\SGAInlineRefTarget{sga3:i:subsection:6-4}6.4. 整体截面}
+
+设 \(M\) 是一个 \(G\)-等变 \(\mathbf O_X\)-模.
+以 \(S_0\) 表示 \(\mathscr C\) 的终对象, 并以
+\(\prod_{X/S_0}M\) 表示\emph{\(M\) 在 \(X\) 上的截面函子}
+（参见\SGARefLink{sga3:ii:definition:1-1}{第~II 篇, 1.1}）:
+它将每个 \(T\in\operatorname{Ob}(\mathscr C)\) 映为
+\[
+  \operatorname{Hom}_X(X_T,M)
+  =\operatorname{Hom}_{X_T}(X_T,M_T)
+  =\Gamma(M_T/X_T).
+\]
+还要回顾, \(X\) 上的 \(\widehat{\mathscr C}\)-对象的每个态射
+\(g:Z\to Y\) 都诱导一个阿贝尔群态射
+\[
+  M(g):M(Y)\longrightarrow M(Z),
+\]
+它与环同态 \(g^*:\mathbf O(Y)\to\mathbf
+O(Z)\) 相容. 特别地, 当 \(Z=Y\), 即 \(g\) 是 \(Y\) 的一个
+\(X\)-自同态时, 就得到阿贝尔群态射
+\[
+  M(g):M(Y)\longrightarrow M(Y)
+\]
+它一般不是 \(\mathbf O(Y)\)-模的态射, 但对每个
+\(m\in M(Y)\) 和 \(\alpha\in\mathbf O(Y)\), 满足
+\[
+  M(g)(\alpha\cdot m)=g^*(\alpha)\cdot M(g)(m)
+\]
+. 以下简单地以 \(g^*\) 代替 \(M(g)\).
+
+设 \(T\in\operatorname{Ob}(\mathscr C)\), 置 \(X_T=X\times T\),
+并设 \(\mathrm{pr}_X:X_T\to X\) 是投影.
+对 \(\alpha\in\mathbf O(X_T)\) 和 \(g\in G(T)\), 置
+\[
+  g(\alpha)=(g^{-1})^*(\alpha).
+\]
+用集合论语言来说, \(\mathbf O(X_T)\) 的这个元素由如下等式定义:
+对每个 \(S\in\operatorname{Ob}(\mathscr C)\), \(x\in X(S)\) 和
+\(t\in T(S)\), 有
+\[
+  g(\alpha)(x,t)=\alpha(g^{-1}x,t).
+\]
+这给出了 \(G(T)\) 通过环自同构在 \(\mathbf O(X_T)\) 上的左作用,
+且关于 \(T\) 具有函子性; 当 \(\alpha\) 是 \(\mathbf O(T)\)
+中某个元素在 \(\mathbf O(X_T)\) 中的像时, 有 \(g(\alpha)=\alpha\).
+
+现设 \(\phi\) 为 \(X_T\) 的恒等态射（参见 \SGARefLink{sga3:i:subsection:6-3}{6.3}
+以及下面对态射 \(\phi:Y\to X\) 的推广）.
+根据分别是通过 \(\mathrm{pr}_X\circ\lambda(g^{-1})_T\) 还是通过
+\(\mathrm{pr}_X\) 将 \(X_T\) 视为 \(X\)-对象, 将
+\(\operatorname{Hom}_X(X_T,M)\) 分别记为 \(M(\phi g^{-1})\) 或 \(M(\phi)\).
+
+% Source page: Exp1 component-local p. 42; combined-reader p. 52.
+于是 \(\lambda(g^{-1})_T\) 是这两个 \(X\)-对象之间的 \(X\)-态射.
+因而有阿贝尔群态射
+\[
+  (g^{-1})^*:M(\phi)\longrightarrow M(\phi g^{-1}),
+  \qquad
+  m\longmapsto m\circ\lambda(g^{-1})_T,
+\]
+且对 \(m\in M(\phi)\) 和 \(\alpha\in\mathbf O(X_T)\), 有
+\[
+  (g^{-1})^*(\alpha\cdot m)
+  =(g\alpha)\cdot(g^{-1})^*(m)
+\]
+. 若 \(m\) 是 \(M_T\) 在 \(X_T\) 上的截面, 则
+\((g^{-1})^*(m)\) 是用集合论方式由
+\((x,t)\mapsto m(g^{-1}x,t)\) 定义的截面.
+特别地, \((g^{-1})^*\) 是 \(\mathbf O(T)\)-模的态射.
+
+\(\mathbf O(X_T)\)-模态射 \(\Lambda_x(g)\) 的函子性给出下列交换图.
+
+\begin{figure}[H]
+  \centering
+  \input{figures/exp1/diag_022_section_naturality_square}
+  \phantomsection\label{fig:sga3-exp1-p042-section-naturality-square}
+\end{figure}
+
+此外, 由于 \(\phi\) 是恒等态射, 有 \(g\phi g^{-1}=\phi\).
+记
+\[
+  A(g)=(g^{-1})^*\circ\Lambda_\phi(g),
+\]
+则得到阿贝尔群态射
+\[
+  A(g):M(\phi)\longrightarrow M(\phi)
+\]
+它与 \(G(T)\) 在 \(\mathbf O(X_T)\) 上的作用相容, 即
+\[
+  A(g)(\alpha\cdot m)=(g\alpha)\cdot A(g)(m).
+\]
+
+最后, 若 \(h\) 是 \(G(T)\) 的另一个元素, 则 \(M\) 及态射
+\(\Lambda_x(g)\) 的函子性给出下列交换图.
+
+\begin{figure}[H]
+  \centering
+  \input{figures/exp1/diag_023_section_action_composition}
+  \phantomsection\label{fig:sga3-exp1-p042-section-action-composition}
+\end{figure}
+
+由此得 \(A(h)\circ A(g)=A(hg)\), 因而有:
+
+\medskip
+\noindent\SGAInlineRefTarget{sga3:i:proposition:6-4-1}\textbf{命题 6.4.1.}
+\textit{对每个 \(T\), \(\mathbf O(X_T)\)-模
+\[
+  \left(\prod_{X/S_0}M\right)(T)=\Gamma(M_T/X_T)
+\]
+都赋有关于 \(T\) 具函子性的 \(G(T)\) 的作用, 它与 \(G(T)\) 在
+\(\mathbf O(X_T)\) 上的作用相容; 也就是说,}
+\[
+  A(g)(\alpha\cdot m)=g(\alpha)\cdot A(g)(m).
+\]
+
+由于对 \(\alpha\in\mathbf O(T)\) 有 \(g(\alpha)=\alpha\),
+特别地, \(\prod_{X/S_0}M\) 是一个
+\(G\)-\(\mathbf O_{S_0}\)-模.
+
+更一般地, 设 \(Y\) 是另一个 \(G\)-等变
+\(\widehat{\mathscr C}\)-对象, \(\phi:Y\to X\) 是
+\(\widehat{\mathscr C}\) 中的一个态射, 并如~\SGARefLink{sga3:i:subsection:6-3}{6.3}
+中那样置 \(H=\operatorname{Stab}_G(\phi)\). 则
+\[
+  M_\phi=Y\times_\phi M
+\]
+是一个 \(H\)-等变 \(\mathbf O_Y\)-模. 我们得到:
+
+% Source page: Exp1 component-local p. 43; combined-reader p. 53.
+\medskip
+\noindent\SGAInlineRefTarget{sga3:i:corollary:6-4-2}\textbf{推论 6.4.2.}
+\textit{函子 \(\prod_{Y/S_0}M_\phi\) 是一个
+\(\operatorname{Stab}_G(\phi)\)-\(\mathbf O_{S_0}\)-模.}
+
+\subsection*{\SGAInlineRefTarget{sga3:i:subsection:6-5}6.5. \(G\)-等变 \(\mathcal O_X\)-模}
+
+将前面的讨论用于下述情形. 设 \(S\) 是一个概形,
+\(G\) 是一个作用在 \(S\)-概形 \(X\) 上的 \(S\)-群概形,
+\(\mathcal F\) 是一个未必拟凝聚的 \(\mathcal O_X\)-模.
+
+\medskip
+\noindent\SGAInlineRefTarget{sga3:i:definition:6-5-1}\textbf{定义 6.5.1.}
+\textit{若 \(\mathbf O_X\)-模 \(M=W(\mathcal F)\) 是
+\(G\)-等变的, 就称 \(\mathcal F\) 是一个 \(G\)-等变
+\(\mathcal O_X\)-模. 因而, 对每个态射
+\((g,x):U\to G\times_S X\), 给定 \(\mathcal O_U\)-模的同构}
+\[
+  \Lambda_x(g):
+  W\bigl(x^*(\mathcal F)\bigr)
+  \xrightarrow{\ \sim\ }
+  W\bigl((gx)^*(\mathcal F)\bigr),
+\]
+\textit{它们关于 \(U\) 具有函子性, 且满足
+\(\Lambda_{hx}(g)\circ\Lambda_x(h)=\Lambda_x(gh)\).}
+由于 \(W\) 是全忠实的（参见 \SGARefLink{sga3:i:remark:4-6-1-1}{4.6.1.1}
+和 \SGARefLink{sga3:i:proposition:4-6-2}{4.6.2}）, 由此得到
+\(\mathcal O_U\)-模的同构
+\[
+  \Lambda_x(g):x^*(\mathcal F)
+  \xrightarrow{\ \sim\ }(gx)^*(\mathcal F),
+\]
+其中 \(gx\) 表示 \(\lambda\circ(g,x):U\to X\).
+将这一点用于 \(G\times_S X\) 的恒等态射, 就得到
+\(\mathcal O_{G\times_S X}\)-模的同构
+\[
+  (\star)\qquad
+  \theta:\mathrm{pr}_X^*(\mathcal F)
+  \xrightarrow{\ \sim\ }\lambda^*(\mathcal F)
+\]
+它使下列 \(G\times_SG\times_SX\) 上的层态射图 \((\star\star)\) 交换.
+
+\begin{figure}[H]
+  \centering
+  \input{figures/exp1/diag_024_sheaf_cocycle}
+  \phantomsection\label{fig:sga3-exp1-p043-sheaf-cocycle}
+\end{figure}
+
+若 \(\mathcal E\) 是另一个 \(G\)-等变 \(\mathcal O_X\)-模,
+则 \(\mathcal O_X\)-模的态射 \(\phi:\mathcal E\to\mathcal F\)
+若使 \(W(\phi):W(\mathcal E)\to W(\mathcal F)\) 为 \(G\)-等变的,
+就称为\emph{\(G\)-等变的}. 用上述记号表示, 这等价于
+\[
+  \theta_{\mathcal F}\circ\mathrm{pr}_X^*(\phi)
+  =\lambda^*(\phi)\circ\theta_{\mathcal E}.
+\]
+
+\medskip
+\noindent\SGAInlineRefTarget{sga3:i:remark:6-5-2}\textbf{注 6.5.2.}
+若 \(f:Y\to X\) 是 \(G\)-等变的, 则\SGARefLink{sga3:i:lemma:6-3-1}{引理~6.3.1}
+表明 \(f^*(\mathcal F)\) 是一个 \(G\)-等变
+\(\mathcal O_Y\)-模.
+
+\medskip
+\noindent\SGAInlineRefTarget{sga3:i:remark:6-5-3}\textbf{注 6.5.3.}
+再假设 \(\mathcal F\) 是拟凝聚的. 此时, 在
+\(M=W(\mathcal F)\) 上给定 \(G\)-等变 \(\mathcal O_X\)-模结构,
+等价于在 \(V(\mathcal F)\) 上给定这样的结构, 而这又等价于给定
+\(G\) 在向量纤维化 \(V(\mathcal F)\) 上的作用, 它与 \(X\) 上的作用相容,
+并在各纤维上是线性的.
+
+事实上, 设
+\[
+  \varphi:\lambda^*(\mathcal F)
+  \xrightarrow{\ \sim\ }\mathrm{pr}_X^*(\mathcal F)
+\]
+是 \(\theta\) 的逆. 对每个态射
+\((g,x):U\to G\times_S X\), 从 \((gx)^*(\mathcal F)\) 到
+\(x^*(\mathcal F)\) 的 \(\mathcal O_U\)-模同构
+\[
+  \varphi_x(g)
+  =\Lambda_x(g)^{-1}
+  =\Lambda_{gx}(g^{-1})
+\]
+诱导一个 \(\mathcal O_U\)-模同构
+\[
+  V\bigl((gx)^*(\mathcal F)\bigr)
+  \xrightarrow{\ \sim\ }V\bigl(x^*(\mathcal F)\bigr).
+\]
+
+% Source page: Exp1 component-local p. 44; combined-reader p. 54.
+将后者记为 \({}^{t}\!\varphi_x(g)\). 则
+\[
+  {}^{t}\!\varphi_{gx}(h)\circ{}^{t}\!\varphi_x(g)
+  =
+  {}^{t}\!\bigl(\Lambda_{gx}(h)\circ\varphi_x(g)\bigr)^{-1}
+  =
+  \Lambda_x(hg)^{-1}
+  =
+  {}^{t}\!\varphi_x(hg).
+\]
+对每个 \(X\)-概形 \(f:Y\to X\), 有
+\[
+  V(\mathcal F)\times_fY\simeq V\bigl(f^*(\mathcal F)\bigr)
+  \qquad\text{（参见 4.6.2）.}
+\]
+因此, 同构
+\[
+\begin{aligned}
+  {}^{t}\!\varphi:\quad
+  G\times_SV(\mathcal F)
+  &=(G\times_SX)\times_{\mathrm{pr}_X}V(\mathcal F)
+   =V\bigl(\mathrm{pr}_X^*(\mathcal F)\bigr)\\
+  &\xrightarrow{\ \sim\ }
+   V\bigl(\lambda^*(\mathcal F)\bigr)
+   =(G\times_SX)\times_\lambda V(\mathcal F)
+\end{aligned}
+\]
+赋予 \(V(\mathcal F)\) 一个 \(G\)-等变 \(\mathcal O_X\)-模结构.
+将每个函子 \(V(-)\) 与表示它的向量纤维化等同, 再将
+\({}^{t}\!\varphi\) 与到 \(V(\mathcal F)\) 的投影复合,
+就得到 \(G\) 在 \(V(\mathcal F)\) 上的作用, 它与 \(X\) 上的作用相容,
+且在各纤维上是线性的.
+
+这样就得到了 [GIT, 第~1 章, \SGARefLink{sga3:i:section:3}{第~3 节}]
+中的定义, 不同之处在于 Mumford 在那里考虑一个有限秩局部自由
+\(\mathcal O_X\)-模 \(\mathcal E\), 并定义了 \(G\) 在
+\(V(\mathcal E)=W(\mathcal E^\vee)\) 上的作用. 事实上, 将前图
+\((\star\star)\) 中的 \(\theta\) 换成 \(\varphi\), 并反转各箭头的方向,
+所得正是\emph{同上}定义~1.6 中的图; 上述同构
+\({}^{t}\!\varphi\) 与\emph{同上}第~31 页的同构 \(\Phi\) 一致.
+
+\medskip
+\noindent\SGAInlineRefTarget{sga3:i:remark:6-5-4}\textbf{注 6.5.4.}
+特别考虑 \(X=S\) 且 \(G\) 的作用平凡的情形.
+此时, 一个 \(G\)-等变 \(\mathcal O_S\)-模 \(\mathcal F\)
+就是一个 \(G\)-\(\mathcal O_S\)-模（参见 \SGARefLink{sga3:i:definition:4-7-1}{4.7.1}）.
+若以 \(f:G\to S\) 表示此时同时等于 \(\mathrm{pr}_X\) 和
+\(\lambda\) 的态射, 则同构
+\[
+  (\star)\qquad
+  \theta:f^*(\mathcal F)\xrightarrow{\ \sim\ }f^*(\mathcal F)
+\]
+是下述集合的一个元素:
+\[
+\begin{aligned}
+  \operatorname{Hom}_{\mathcal O_G}
+    \bigl(f^*(\mathcal F),f^*(\mathcal F)\bigr)
+  &=
+  \operatorname{Hom}_{\mathcal O_G}
+    \bigl(W(f^*(\mathcal F)),W(f^*(\mathcal F))\bigr)\\
+  &=
+  \operatorname{End}_{\mathcal O_S}\bigl(W(\mathcal F)\bigr)(G).
+\end{aligned}
+\]
+它正是定义 \(G\) 在 \(W(\mathcal F)\) 上的作用的态射
+\[
+  \rho:G\longrightarrow
+  \operatorname{End}_{\mathcal O_S}\bigl(W(\mathcal F)\bigr)
+\]
+. 此外, 由伴随关系, \(\theta\) 对应于 \(\mathcal O_S\)-模态射
+\[
+  f_*(\theta)\circ\tau:
+  \mathcal F\longrightarrow f_*f^*(\mathcal F),
+\]
+其中 \(\tau:\mathcal F\to f_*f^*(\mathcal F)\) 是伴随关系的单位态射.
+这一点将在第~VI\textsubscript{B} 篇的
+\SGARefLink{cor:sga3-VIB-11.10}{11.10}~bis 中用到.
+
+\subsection*{\SGAInlineRefTarget{sga3:i:subsection:6-6}6.6. 函子
+\(\prod_{X/S}W(\mathcal F)\) 和 \(W(p_*(\mathcal F))\)}
+
+设 \(S\) 是一个概形, \(G\) 是一个 \(S\)-群概形, 通过
+\[
+  \lambda:G\times_SX\to X,
+  \qquad
+  \mu:G\times_SY\to Y,
+\]
+作用在 \(S\)-概形 \(X\) 和 \(Y\) 上, 且 \(p:X\to Y\) 是一个
+\(G\)-等变态射. 假设 \(p:X\to Y\) 和 \(\nu_Y:Y\to S\)
+都是拟紧且拟分离的, 而 \(\pi:G\to S\) 是平坦的.
+
+于是投影 \(\mathrm{pr}_Y:G\times_SY\to Y\) 是平坦的,
+\(\mu\) 也是平坦的, 因为 \(\mu\) 是 \(\mathrm{pr}_Y\) 与自同构
+\((g,y)\mapsto(g,gy)\) 的复合. 对变动的 \(S\)-概形
+\(f:T\to S\), 以 \(p_T:X_T\to T\) 和 \(f_X:X_T\to X\)
+表示由 \(p\) 和 \(f\) 作基变换所得的态射.
+
+设 \(\mathcal F\) 是一个拟凝聚的 \(G\)-等变 \(\mathcal O_X\)-模,
+并设
+\[
+  \theta:\mathrm{pr}_X^*(\mathcal F)
+  \xrightarrow{\ \sim\ }\lambda^*(\mathcal F)
+\]
+是 \SGARefLink{sga3:i:definition:6-5-1}{6.5.1} \((\star)\) 中的同构.
+由于 \(p\) 是拟紧且拟分离的, \(p_*(\mathcal F)\) 是拟凝聚的
+（参见 EGA~I, 9.2.1）.
+
+% Source page: Exp1 component-local p. 45; combined-reader p. 55.
+\medskip
+\noindent\SGAInlineRefTarget{sga3:i:lemma:6-6-1}\textbf{引理 6.6.1.}
+\textit{拟凝聚 \(\mathcal O_Y\)-模 \(p_*(\mathcal F)\) 是 \(G\)-等变的.}
+
+事实上, 有下列两个笛卡尔方块.
+
+\begin{figure}[H]
+  \centering
+  \input{figures/exp1/diag_025_base_change_squares}
+  \phantomsection\label{fig:sga3-exp1-p045-base-change-squares}
+\end{figure}
+
+由于 \(p\) 是拟紧且拟分离的, 而 \(\mathrm{pr}_Y\) 和 \(\mu\)
+是平坦的, 由 EGA~III, 1.4.15 以及补充它的
+EGA~IV\textsubscript{1}, 1.7.21, 得
+\[
+  q_*\mathrm{pr}_X^*(\mathcal F)
+    =\mathrm{pr}_Y^*p_*(\mathcal F),
+  \qquad
+  q_*\lambda^*(\mathcal F)
+    =\mu^*p_*(\mathcal F).
+\]
+所以 \(\theta\) 诱导一个同构
+\[
+  \theta_Y:\mathrm{pr}_Y^*p_*(\mathcal F)
+  \xrightarrow{\ \sim\ }\mu^*p_*(\mathcal F).
+\]
+同样的论证表明, \(\theta_Y\) 满足余循环条件
+\SGARefLink{sga3:i:definition:6-5-1}{6.5.1} \((\star\star)\),
+因为所涉及的态射 \(G\times_SG\times_SY\to G\times_SY\) 都是平坦的.
+引理得证.
+
+特别地, 取 \(Y=S\), 其上 \(G\) 的作用为平凡作用.
+由\SGARefLink{sga3:i:remark:6-5-4}{注~6.5.4}, 此时
+\(p_*(\mathcal F)\) 是一个 \(G\)-\(\mathcal O_S\)-模.
+此外, 若 \(G\) 在 \(S\) 上仿射, 且
+\[
+  \mathscr A(G)=\pi_*(\mathcal O_G),
+\]
+则由~\SGARefLink{sga3:i:proposition:4-7-2}{4.7.2},
+\(p_*(\mathcal F)\) 是一个 \(\mathscr A(G)\)-余模.
+
+另一方面, 根据\SGARefLink{sga3:i:proposition:6-4-1}{命题~6.4.1},
+将每个 \(f:T\to S\) 映为
+\[
+  W\bigl(f_X^*(\mathcal F)\bigr)(X_T)
+  =\Gamma\bigl(X_T,f_X^*(\mathcal F)\bigr)
+  =\Gamma\bigl(T,p_{T*}f_X^*(\mathcal F)\bigr),
+\]
+的函子 \(\prod_{X/S}W(\mathcal F)\) 是一个
+\(G\)-\(\mathcal O_S\)-模. 此外还有一个典范态射
+\[
+  \tau:W\bigl(p_*(\mathcal F)\bigr)
+  \longrightarrow\prod_{X/S}W(\mathcal F),
+\]
+对每个 \(f:T\to S\), 它由典范态射
+\[
+  \Gamma\bigl(T,f^*p_*(\mathcal F)\bigr)
+  \longrightarrow
+  \Gamma\bigl(T,p_{T*}f_X^*(\mathcal F)\bigr).
+\]
+给出. 将其限制到由 \(S\) 上平坦的概形 \(T\) 组成的全子范畴,
+就得到同构; 而 \(\tau\) 显然是 \(G\)-\(\mathcal O_S\)-模的态射.
+于是我们证明了下列命题; 对于~(ii), 可比较 [GIT], 第~32 页.
+
+\medskip
+\noindent\SGAInlineRefTarget{sga3:i:proposition:6-6-2}\textbf{命题 6.6.2.}
+\textit{设 \(S\) 是一个概形, \(G\) 是作用在 \(S\)-概形 \(X\)
+上的一个 \(S\)-群概形, \(\mathcal F\) 是一个拟凝聚的 \(G\)-等变
+\(\mathcal O_X\)-模. 假设 \(\pi:G\to S\) 是平坦的,
+\(p:X\to S\) 是拟紧且拟分离的.}
+
+\textit{(i) 则 \(p_*(\mathcal F)\) 是一个拟凝聚的
+\(G\)-\(\mathcal O_S\)-模. 典范态射}
+\[
+  W\bigl(p_*(\mathcal F)\bigr)
+  \longrightarrow\prod_{X/S}W(\mathcal F)
+\]
+\textit{是 \(G\)-\(\mathcal O_S\)-模的态射, 且这两个函子在平坦
+\(S\)-概形范畴上相同.}
+
+\textit{(ii) 此外, 若 \(G\) 在 \(S\) 上仿射, 且
+\(\mathscr A(G)=\pi_*(\mathcal O_G)\), 则 \(p_*(\mathcal F)\)
+具有一个 \(\mathscr A(G)\)-余模结构.}\footnote{编者注:
+若 \(G\) 在 \(S\) 上平坦、拟紧且拟分离, 而 \(p_*(\mathcal F)\)
+是一个平坦 \(\mathcal O_S\)-模, 则同样成立;
+参见第~VI\textsubscript{B} 篇, \SGARefLink{concl:sga3-VIB-11.6.1-ii}{11.6.1(ii)}.}
+
+% Source page: Exp1 component-local p. 46; combined-reader p. 56.
+\subsection*{\SGAInlineRefTarget{sga3:i:subsection:6-7}6.7. 稳定子}
+
+设 \(S\) 是一个概形, \(G\) 是一个作用在 \(S\)-概形 \(X\)
+上的 \(S\)-群概形, \(\mathcal F\) 是一个拟凝聚的 \(G\)-等变
+\(\mathcal O_X\)-模. 设 \(Y\) 是另一个带有 \(G\) 的作用的
+\(S\)-概形, 该作用可以是平凡作用; 设 \(\phi:Y\to X\) 是一个
+未必 \(G\)-等变的 \(S\)-态射, 并设
+\(\operatorname{Stab}_G(\phi)\) 是 \(\phi\) 在 \(G\) 中的稳定子
+（参见 \SGARefLink{sga3:i:definition:6-3-2}{6.3.2}）.
+
+先指出（见第~VI\textsubscript{B} 篇,
+\SGARefLink{sec:sga3-VIB-6}{第~6 节}）, 若 \(X\) 在 \(S\) 上分离,
+且 \(Y\) 在 \(S\) 上本质自由, 则 \(\operatorname{Stab}_G(\phi)\)
+可由 \(G\) 的闭子群概形 \(H\) 表示
+（参见\emph{同上}, \SGARefLink{def:sga3-VIB-6.2.1}{定义~6.2.1}）.
+事实上, 考虑
+\[
+  r:G\times_SY\longrightarrow X\times_SX,
+  \qquad
+  r(g,y)=\bigl(\phi(y),g\phi(g^{-1}y)\bigr),
+\]
+置 \(P=G\times_SY\), 并设 \(P'\) 是对角线 \(\Delta_{X/S}\)
+在 \(r\) 下的逆像. 则（参见\emph{同上},
+\SGARefLink{ex:sga3-VIB-6.2.4-a}{6.2.4(a)}）
+\[
+  \operatorname{Stab}_G(\phi)=\prod_{P/G}P'.
+\]
+由此可知, 若 \(X\) 在 \(S\) 上分离, 且 \(Y\) 在 \(S\) 上本质自由,
+则 \(\operatorname{Stab}_G(\phi)\) 可由 \(G\) 的闭子群概形 \(H\) 表示.
+后一条件在 \(S\) 是一个域的谱或 \(Y=S\) 时自动成立.
+在这些假设下, \(\phi^*(\mathcal F)\) 是一个拟凝聚的
+\(H\)-等变 \(\mathcal O_Y\)-模
+（参见 \SGARefLink{sga3:i:remark:6-5-2}{6.5.2}）.
+
+此外, 若 \(\pi:G\to S\) 和 \(p:Y\to S\) 在 \(S\) 上拟紧且拟分离,
+且 \(\pi\) 平坦, 则由\SGARefLink{sga3:i:proposition:6-6-2}{命题~6.6.2},
+\(p_*\phi^*(\mathcal F)\) 是一个 \(H\)-\(\mathcal O_S\)-模.
+特别地:
+
+\medskip
+\noindent\SGAInlineRefTarget{sga3:i:corollary:6-7-1}\textbf{推论 6.7.1.}
+\textit{设 \(S\) 是一个概形, \(G\) 是一个作用在 \(S\)-概形 \(X\)
+上的 \(S\)-群概形, \(\mathcal F\) 是一个拟凝聚的 \(G\)-等变
+\(\mathcal O_X\)-模. 假设 \(\pi:G\to S\) 平坦,
+\(X\to S\) 拟紧且分离. 设 \(\tau:S\to X\) 是 \(X\) 在 \(S\) 上的一个截面.}
+
+\textit{(i) 稳定子 \(H=\operatorname{Stab}_G(\tau)\) 是 \(G\) 的闭子群概形,
+且 \(\tau^*(\mathcal F)\) 是一个拟凝聚的
+\(H\)-\(\mathcal O_S\)-模.}
+
+\textit{(ii) 若 \(H\) 还在 \(S\) 上仿射（例如 \(G\) 如此）, 且
+\(\mathscr A(H)=\pi_*(\mathcal O_H)\), 则
+\(\tau^*(\mathcal F)\) 是一个 \(\mathscr A(H)\)-余模.}
+
+\subsection*{\SGAInlineRefTarget{sga3:i:subsection:6-8}6.8. \(G\) 上的 \(G\)-等变层}
+
+最后给出两个结果 \SGARefLink{sga3:i:proposition:6-8-1}{6.8.1} 和
+\SGARefLink{sga3:i:proposition:6-8-6}{6.8.6}, 它们将在第~II 篇与第~III 篇中用到,
+特别是 III, \SGARefLink{sga3:iii:lemma:4-25}{4.25} 中.
+
+\medskip
+\noindent\SGAInlineRefTarget{sga3:i:proposition:6-8-1}\textbf{命题 6.8.1.}
+\textit{设 \(S\) 是一个概形, \(\pi:G\to S\) 是一个 \(S\)-群概形,
+\(\varepsilon:S\to G\) 是单位截面. 考虑 \(G\) 通过左平移在自身上的作用.
+函子}
+\[
+  \mathcal E\longmapsto\pi^*(\mathcal E),
+  \qquad
+  \mathcal F\longmapsto\varepsilon^*(\mathcal F)
+\]
+\textit{在拟凝聚 \(\mathcal O_S\)-模范畴与拟凝聚的 \(G\)-等变
+\(\mathcal O_G\)-模范畴之间诱导互为拟逆的等价.}
+
+\textit{证明.}
+以 \(\mu\) 表示 \(G\) 的乘法, 并设
+\(\mathrm{pr}_2:G\times_SG\to G\) 是第二投影.
+由于 \(\pi\circ\mu=\pi\circ\mathrm{pr}_2\), 对每个拟凝聚
+\(\mathcal O_S\)-模 \(\mathcal E\), 都有典范同构
+\[
+  \mu^*\pi^*(\mathcal E)
+  =\mathrm{pr}_2^*\pi^*(\mathcal E).
+\]
+此同构显然满足余循环条件
+\SGARefLink{sga3:i:definition:6-5-1}{6.5.1} \((\star\star)\),
+所以 \(\pi^*(\mathcal E)\) 是一个 \(G\)-等变 \(\mathcal O_G\)-模.
+由于 \(\varepsilon^*\pi^*(\mathcal E)=\mathcal E\),
+函子 \(\mathcal E\mapsto\pi^*(\mathcal E)\) 是
+
+% Source page: Exp1 component-local p. 47; combined-reader p. 57.
+全忠实的. 只须再证明, 对每个 \(G\)-等变 \(\mathcal O_G\)-模
+\(\mathcal F\), 有
+\[
+  \mathcal F\simeq\pi^*\varepsilon^*(\mathcal F).
+\]
+由假设, 存在同构
+\[
+  \theta:\mathrm{pr}_2^*(\mathcal F)
+  \xrightarrow{\ \sim\ }\mu^*(\mathcal F).
+\]
+将 \(\theta\) 沿态射
+\[
+  \tau:G\longrightarrow G\times_SG,
+  \qquad
+  \tau=(\operatorname{id}_G,\varepsilon\circ\pi),
+\]
+拉回, 就得到同构
+\(\mathcal F\xrightarrow{\sim}\pi^*\varepsilon^*(\mathcal F)\).
+
+\medskip
+\noindent\SGAInlineRefTarget{sga3:i:remark:6-8-2}\textbf{注 6.8.2.}
+\SGARefLink{sga3:i:definition:6-1:item:a}{(a)} 考虑由
+\[
+  (g_1,g_2)\cdot g=g_1gg_2^{-1}.
+\]
+定义的 \(G\times_SG\) 在 \(G\) 上的作用.
+单位截面 \(\varepsilon:S\to G\) 的稳定子是
+\(G\times_SG\) 的对角子群 \(H\).
+因此, 若 \(\mathcal F\) 是一个拟凝聚的
+\((G\times_SG)\)-等变 \(\mathcal O_G\)-模,
+则由~\SGARefLink{sga3:i:remark:6-5-2}{6.5.2},
+\(\mathcal E=\varepsilon^*(\mathcal F)\) 具有一个
+\(H\)-\(\mathcal O_S\)-模结构.
+
+(b) 可以证明, \(\mathcal F\mapsto\varepsilon^*(\mathcal F)\)
+是拟凝聚的 \((G\times_SG)\)-等变 \(\mathcal O_G\)-模范畴与
+拟凝聚的 \(H\)-\(\mathcal O_S\)-模范畴之间的一个等价.
+这是更一般的下降结果的一个特例（参见第~IV 篇, 第~2 节, 以及 SGA~1, VIII）;
+例如可见 [Th87], 1.2--1.3.
+
+\medskip
+\noindent\SGAInlineRefTarget{sga3:i:remark:6-8-3}\textbf{注 6.8.3.}
+沿用 \SGARefLink{sga3:i:proposition:6-8-1}{6.8.1} 的记号.
+对每个拟凝聚 \(\mathcal O_S\)-模 \(\mathcal E\),
+以 \(\pi_*^G\pi^*(\mathcal E)\) 表示 \(\pi_*\pi^*(\mathcal E)\)
+的 \(\mathcal O_S\)-子模, 它在 \(S\) 的开子集 \(V\) 上的截面
+是所有满足如下条件的元素
+\[
+  \gamma\in\Gamma\bigl(\pi^{-1}(V),\pi^*(\mathcal E)\bigr)
+\]
+: 对每个 \(S'\to V\) 和 \(g\in G(S')\), 有
+\(g\cdot\gamma_{S'}=\gamma_{S'}\). 则自然态射
+\[
+  \mathcal E\longrightarrow\pi_*^G\pi^*(\mathcal E)
+\]
+是同构. 若
+\[
+  \pi_*\pi^*(\mathcal E)
+  =\mathcal E\otimes_{\mathcal O_S}\pi_*(\mathcal O_G),
+\]
+则这一点是直接的; 例如 \(G\to S\) 仿射时, 或 \(G\to S\)
+拟紧且拟分离而 \(\mathcal E\) 平坦时就是如此.
+一般情形也不难验证.
+
+\medskip
+\noindent\SGAInlineRefTarget{sga3:i:remark:6-8-4}\textbf{注 6.8.4.}
+设 \(S\) 是一个概形, \(H\) 是作用在 \(S\)-概形 \(X\) 上的
+一个 \(S\)-群概形, \(\mathcal F\) 是一个 \(\mathcal O_X\)-模.
+假设 \(H\) 在 \(S\) 上平坦, 以 \(W_P(\mathcal F)\) 表示
+\(W(\mathcal F)\) 在平坦 \(S\)-概形全子范畴上的限制.
+由~\SGARefLink{sga3:i:definition:6-5-1}{6.5.1}, 赋予
+\(\mathcal F\) 一个 \(H\)-等变模结构, 等价于给定
+\(H\times_SX\) 上的一个满足余循环条件 \((\star\star)\) 的层同构
+\[
+  \theta:\mathrm{pr}_X^*(\mathcal F)\longrightarrow\lambda^*(\mathcal F)
+\]
+. 因此, 要赋予 \(\mathcal F\) 一个 \(H\)-等变模结构,
+只须赋予 \(W_P(\mathcal F)\) 一个这样的结构.
+
+\medskip
+\SGAInlineRefTarget{sga3:i:recollection:6-8-5}\noindent\textbf{回顾 \SGARefLink{sga3:i:recollection:6-8-5}{6.8.5}.}
+设 \(X\) 是一个 \(S\)-概形, \(Y\) 是 \(X\) 的一个闭
+\(S\)-子概形. 以 \(\mathcal N_{Y/X}\) 表示浸入
+\(i:Y\hookrightarrow X\) 的余法层（参见 EGA~IV\textsubscript{4},
+16.1.2）. 若 \(S'\to S\) 平坦, 且
+\(i':Y'\hookrightarrow X'\) 由 \(i\) 作基变换得到,
+则由\emph{同上}, 16.2.2(iii), 得
+\[
+  \mathcal N_{Y/X}\otimes_{\mathcal O_Y}\mathcal O_{Y'}
+  =\mathcal N_{Y'/X'}.
+\]
+
+\medskip
+\noindent\SGAInlineRefTarget{sga3:i:proposition:6-8-6}\textbf{命题 6.8.6.}
+\textit{设 \(S\) 是一个概形, \(X\) 是一个 \(S\)-群概形,
+\(Y\) 是 \(X\) 的一个 \(S\)-子群概形. 假设 \(Y\) 在 \(S\)
+上平坦. 则余法层 \(\mathcal N_{Y/X}\) 是一个
+\((Y\times_SY)\)-等变 \(\mathcal O_Y\)-模.}
+
+事实上, \(H=Y\times_SY\) 在 \(S\) 上平坦.
+因此, 根据\SGARefLink{sga3:i:remark:6-8-4}{注~6.8.4},
+只须赋予 \(W_P(\mathcal N_{Y/X})\) 一个 \(H\)-等变模结构.
+设 \(S'\) 是一个平坦 \(S\)-概形, \(Y'\hookrightarrow X'\)
+是作基变换得到的浸入, 并置
+\[
+  \mathcal N'
+  =\mathcal N_{Y/X}\otimes_{\mathcal O_Y}\mathcal O_{Y'}.
+\]
+根据~\SGARefLink{sga3:i:recollection:6-8-5}{6.8.5},
+\(\mathcal N'=\mathcal N_{Y'/X'}\).
+每个 \(h\in H(S')\) 都诱导 \(Y'\) 的一个自同构,
+从而对每个 \(y\in Y'(S')\), 诱导同构
+\[
+  \Gamma\bigl(S',y^*(\mathcal N')\bigr)
+  \xrightarrow{\ \sim\ }
+  \Gamma\bigl(S',y^*h^*(\mathcal N')\bigr)
+\]
+
+% Source page: Exp1 component-local p. 48; combined-reader p. 58.
+这些同构赋予 \(W_P(\mathcal N_{Y/X})\) 一个 \(H\)-等变模结构
+（参见 \SGARefLink{sga3:i:definition:6-1}{6.1}）.
+
+\section*{参考文献}
+\addcontentsline{toc}{section}{参考文献}
+\footnote{编者注: 这些是本篇所引用的补充参考文献.}
+
+\begin{description}
+\item[{[DG70]}] M. Demazure 和 P. Gabriel,
+  \emph{代数群〔Groupes Alg\'ebriques〕}, Masson \& North-Holland, 1970.
+\item[{[Gr57]}] A. Grothendieck,
+  "关于同调代数的若干问题〔Sur quelques points d'alg\`ebre homologique〕,"
+  \emph{T\^ohoku Math. J.} \textbf{9} (1957), 119--221.
+\item[{[Ja03]}] J. C. Jantzen,
+  \emph{代数群的表示〔Representations of Algebraic Groups〕}, Academic Press, 1987;
+  第 2 版, American Mathematical Society, 2003.
+\item[{[GIT]}] D. Mumford,
+  \emph{几何不变量理论〔Geometric Invariant Theory〕}, Springer-Verlag, 1965;
+  与 J. Fogarty 合著的第 2 版, 1982; 与 J. Fogarty
+  和 F. Kirwan 合著的第 3 版, 1994.
+\item[{[Ni02]}] N. Nitsure,
+  "一般线性群函子的可表性〔Representability of \(\mathrm{GL}_{\mathcal E}\)〕,"
+  \emph{Proc. Indian Acad. Sci.} \textbf{112} (2002), 第~4 期, 539--542.
+\item[{[Ni04]}] N. Nitsure,
+  "Hom 的可表性蕴含平坦性〔Representability of Hom implies flatness〕,"
+  \emph{Proc. Indian Acad. Sci.} \textbf{114} (2004), 第~1 期, 7--14.
+\item[{[Se68]}] J.-P. Serre,
+  "分裂约化群概形的 Grothendieck 群〔Groupes de Grothendieck des sch\'emas en groupes r\'eductifs
+  d\'eploy\'es〕,"
+  \emph{Publ. Math. I.H.\'E.S.} \textbf{34} (1968), 37--52.
+\item[{[Th87]}] R. W. Thomason,
+  "任意底概形上的等变消解、线性化与 Hilbert 第十四问题〔Equivariant resolution, linearization, and Hilbert's fourteenth
+  problem over arbitrary base schemes〕,"
+  \emph{Adv. Math.} \textbf{65} (1987), 16--34.
+\end{description}
+
+% End of Expose I and of the assigned component.
+
+% Translation checkpoint: source lines 881; translated lines 849 (excluding this statistics comment).
+% Math segments: 651 (source and translation); all math tokens preserved except two translated \text prose arguments.
+% Unresolved source-verification questions: 6.5.3 transpose equality; 6.6 general-base p_T target. Formulas retained verbatim.
+
+
+% 书目补译核对：8个著作／论文／论文集题名已附中文，原题完整保留于〔〕；人名、刊名、出版机构、卷期页码与引用键保留。

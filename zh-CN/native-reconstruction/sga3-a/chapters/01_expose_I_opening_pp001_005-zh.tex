@@ -1,0 +1,336 @@
+% SGA 3, Expose I. Source ZIP component 01, printed pages 1--5.
+% Authority locator retained from the English source: Exp1-13oct24.pdf.
+\setcounter{footnote}{0}
+\chapter*{第 I 篇\\代数结构. 群上同调}
+\addcontentsline{toc}{chapter}{第 I 篇. 代数结构. 群上同调}
+\markboth{第 I 篇. 代数结构. 群上同调}{第 I 篇. 代数结构. 群上同调}
+
+\begin{center}
+  \textit{M. Demazure 著}
+\end{center}
+
+本篇分为两部分: 第一部分汇集若干一般定义, 并确立后文经常使用的记号;
+第二部分讨论群上同调 (group cohomology), 最后得到关于可对角化群的上同调消没的
+\SGARefLink{sga3:i:theorem:5-3-3}{定理~5.3.3}.
+\footnote{编者注: 2024 年 10 月 13 日版本.}
+
+我们一次选定一个宇宙 (Universe).\footnote{编者注: 参见 SGA~4,
+第~I 篇, \S0 及附录; 另见 [DG70], 第~xxvi 页的讨论.}
+所有定义和构造均相对于这一宇宙进行. 我们将经常采用以下不严格的说法.
+在定义函子 (functor) \(f:\mathscr C\to\mathscr C'\) 时,
+只要对 \(\mathscr C\) 的箭头 \(h\), \(f(h)\) 的定义没有歧义,
+我们便只给出 \(\mathscr C\) 的每个对象 \(S\) 所对应的
+\(\mathscr C'\) 的对象 \(f(S)\).
+实际使用时, 我们会说: 设 \(f:\mathscr C\to\mathscr C'\) 为由
+\(f(S)=\cdots\) 定义的函子.
+
+\SGARefTarget{sga3:i:section:1}
+\section*{1. 一般性论述}
+\addcontentsline{toc}{section}{1. 一般性论述}
+
+\subsection*{\SGAInlineRefTarget{sga3:i:subsection:1-1}1.1.}
+
+设 \(\mathscr C\) 为一个范畴 (category). 用 \(\widehat{\mathscr C}\) 表示
+从 \(\mathscr C\) 到集合范畴 \(\mathbf{Set}\) 的反变函子所成的范畴
+\[
+  \operatorname{Hom}\bigl(\mathscr C^{\circ},\mathbf{Set}\bigr)
+\]
+\footnote{编者注: 这称为 \(\mathscr C\) 上的预层范畴 (category of presheaves);
+参见 IV, \SGARefLink{sga3:iv:definition:4:3:1}{4.3.1}.}
+有一个典范函子
+\[
+  \mathbf h:\mathscr C\longrightarrow\widehat{\mathscr C}
+\]
+它将每个 \(X\in\operatorname{Ob}(\mathscr C)\) 对应到满足
+\[
+  \mathbf h_X(S)=\operatorname{Hom}(S,X).
+\]
+的函子 \(\mathbf h_X\).
+对于每个函子 \(\mathbf F\in\operatorname{Ob}(\widehat{\mathscr C})\),
+都有一个双射 (例如参见 EGA~\(0_{\mathrm{III}}\), 8.1.4)
+\[
+  \operatorname{Hom}(\mathbf h_X,\mathbf F)
+    \xrightarrow{\ \sim\ } \mathbf F(X).
+\]
+\footnote{编者注: 这个结果通常称为 Yoneda 引理; 我们在其他编者注中采用这一名称.}
+
+特别地, 对 \(\mathscr C\) 的任意两个对象 \(X,Y\), 典范映射
+\[
+  \operatorname{Hom}_{\mathscr C}(X,Y)
+    \xrightarrow{\ \sim\ }
+  \operatorname{Hom}_{\widehat{\mathscr C}}
+    (\mathbf h_X,\mathbf h_Y)
+\]
+是双射; 即函子 \(\mathbf h\) 是全忠实的 (fully faithful).
+因此它给出 \(\mathscr C\) 到 \(\widehat{\mathscr C}\) 的一个满子范畴的同构,
+以及 \(\mathscr C\) 与 \(\widehat{\mathscr C}\) 中由可表函子 (representable functors)
+组成的满子范畴之间的等价 (所谓可表函子, 就是同构于某个形如 \(\mathbf h_X\) 的函子).
+后文常把 \(X\) 与 \(\mathbf h_X\) 等同. 以下各段旨在说明, 这样等同不会产生问题.
+
+\medskip
+\noindent\SGAInlineRefTarget{sga3:i:remark:1-1-1}\textbf{注 1.1.1.}\footnote{编者注: 此注为新增.}
+我们有时需要以下变式. 设 \(\mathscr D\) 为 \(\mathscr C\) 的一个满子范畴,
+且 \(X,Y\in\operatorname{Ob}(\mathscr D)\).
+用 \(\mathbf h'_X\) 和 \(\mathbf h'_Y\) 表示 \(\mathbf h_X\) 和 \(\mathbf h_Y\)
+在 \(\mathscr D\) 上的限制. 则
+\[
+  \operatorname{Hom}_{\mathscr C}(X,Y)
+  =\operatorname{Hom}_{\mathscr D}(X,Y)
+  =\operatorname{Hom}_{\widehat{\mathscr D}}
+      (\mathbf h'_X,\mathbf h'_Y).
+\]
+因此, 给定一个态射 (morphism) \(X\to Y\), 与对每个
+\(T\in\operatorname{Ob}(\mathscr D)\) 给定一个关于 \(T\) 函子性的映射
+\[
+  \phi(T):\operatorname{Hom}(T,X)\longrightarrow\operatorname{Hom}(T,Y)
+\]
+是“同一回事”.
+
+\subsection*{\SGAInlineRefTarget{sga3:i:subsection:1-2}1.2.}
+
+若对每个 \(S\), \(\mathbf F(S)\) 都是 \(\mathbf G(S)\) 的子集,
+就称 \(\mathbf F\) 为 \(\mathbf G\) 的\emph{子对象} (subobject, 或子函子).
+\footnote{编者注: 此处调整了顺序, 使纤维积在单态射之前引入; 参见编者注 (9).}
+
+在 \(\widehat{\mathscr C}\) 中, 任意逆极限都存在, 且可逐点计算:
+\[
+  \left(\varprojlim_i\mathbf F_i\right)(S)
+    =\varprojlim_i\mathbf F_i(S).
+\]
+\footnote{编者注: 同样, 任意正向极限都存在, 且可逐点计算:
+\(\bigl(\varinjlim_i\mathbf F_i\bigr)(S)=
+\varinjlim_i\mathbf F_i(S)\). 然而一般而言, 函子 \(\mathbf h\) 不与正向极限交换.}
+特别地, 纤维积 (fiber product) 定义为
+\[
+  (\mathbf F\mathbin{\times_{\mathbf G}}\mathbf F')(S)
+    =\mathbf F(S)\mathbin{\times_{\mathbf G(S)}}\mathbf F'(S).
+\]
+\footnote{编者注: 特别地, 一对态射
+\(u,v:\mathbf F\rightrightarrows\mathbf G\) 的等化子是 \(\mathbf F\) 的子函子
+\(\operatorname{Ker}(u,v)\), 定义为
+\(\operatorname{Ker}(u,v)(S)=
+\{x\in\mathbf F(S)\mid u(x)=v(x)\}\).}
+
+选取满足 \(\underline{\mathbf e}(S)=\{\varnothing\}\) 的函子
+\(\underline{\mathbf e}\) 作为 \(\widehat{\mathscr C}\) 的终对象 (final object).
+\footnote{编者注: \(\{\varnothing\}\) 是空集的幂集, 这是一个单元素集合.}
+每个 \(\mathbf F\in\operatorname{Ob}(\widehat{\mathscr C})\) 都有唯一的态射
+到 \(\underline{\mathbf e}\), 并置
+\[
+  \mathbf F\times\mathbf F'
+    =\mathbf F\mathbin{\times_{\underline{\mathbf e}}}\mathbf F'.
+\]
+
+函子 \(\mathbf h\) 与逆极限交换. 特别地, 对
+\(X,X'\in\operatorname{Ob}(\mathscr C)\),
+\(X\times X'\) 存在的充要条件是 \(\mathbf h_X\times\mathbf h_{X'}\) 可表;
+相应地, \(\mathscr C\) 有终对象 \(e\) 的充要条件是 \(\underline{\mathbf e}\) 可表;
+在这些情形下有
+\[
+  \mathbf h_X\times\mathbf h_{X'}\simeq\mathbf h_{X\times X'},
+  \qquad
+  \mathbf h_e\simeq\underline{\mathbf e}.
+\]
+
+\(\widehat{\mathscr C}\) 中的单态射 (monomorphism) 恰好是这样的态射
+\(\mathbf F\to\mathbf G\): 对每个 \(S\in\operatorname{Ob}(\mathscr C)\),
+相应的集合映射 \(\mathbf F(S)\to\mathbf G(S)\) 都是单射.
+\footnote{编者注: 若对每个 \(S\), \(\mathbf F(S)\to\mathbf G(S)\) 都是单射,
+则 \(\mathbf F\to\mathbf G\) 显然是单态射.
+反过来, 考虑
+\(\mathbf F\times_{\mathbf G}\mathbf F\rightrightarrows\mathbf F\to
+\mathbf G\) 即得结论. 因此, \(\mathbf F\to\mathbf G\) 是单态射的充要条件是
+对角态射 \(\mathbf F\to\mathbf F\times_{\mathbf G}\mathbf F\) 为同构
+(参见 EGA~I, 5.3.8). 同样, 逐点满射的态射是满态射; 考虑推出
+\(\mathbf G\amalg_{\mathbf F}\mathbf G\) 可知其逆命题也成立;
+参见第~IV 篇中\SGARefLink{sga3:i:paragraph:4-4-4}{引理~4.4.4} 的证明.}
+
+\medskip
+\noindent\textit{函子 \(\Gamma\).}
+对每个 \(\mathbf F\in\operatorname{Ob}(\widehat{\mathscr C})\), 置
+\[
+  \Gamma(\mathbf F)=\operatorname{Hom}
+    (\underline{\mathbf e},\mathbf F).
+\]
+因此 \(\Gamma(\mathbf F)\) 的一个元素是一个族
+\((\gamma_S)_{S\in\operatorname{Ob}(\mathscr C)}\), 其中
+\(\gamma_S\in\mathbf F(S)\), 并且对 \(\mathscr C\) 的每个箭头
+\(f:S'\to S''\) 都有
+\[
+  \mathbf F(f)(\gamma_{S''})=\gamma_{S'}.
+\]
+对 \(X\in\operatorname{Ob}(\mathscr C)\), 置
+\(\Gamma(X)=\Gamma(\mathbf h_X)\). 若 \(\mathscr C\) 有终对象 \(e\), 则
+\[
+  \Gamma(X)\simeq\operatorname{Hom}(e,X).
+\]
+
+\subsection*{\SGAInlineRefTarget{sga3:i:subsection:1-3}1.3.}
+
+设 \(S\in\operatorname{Ob}(\mathscr C)\).
+用 \(\mathscr C_{/S}\) 表示 \(\mathscr C\) 中在 \(S\) 上的对象所成的范畴:
+它的对象是 \(\mathscr C\) 的箭头 \(f:T\to S\),
+而 \(\operatorname{Hom}(f,f')\) 是 \(\operatorname{Hom}(T,T')\) 中由满足
+\(f=f'\circ u\) 的箭头 \(u\) 组成的子集.
+若 \(\mathscr C\) 有终对象 \(e\), 则 \(\mathscr C_{/e}\) 同构于 \(\mathscr C\).
+范畴 \(\mathscr C_{/S}\) 有终对象, 即恒等箭头 \(S\to S\).
+
+若 \(f:T\to S\) 是 \(\mathscr C_{/S}\) 的对象, 则可构造范畴
+\((\mathscr C_{/S})_{/f}\); 我们略不严格地将其记为
+\((\mathscr C_{/S})_{/T}\), 并且有典范同构
+\[
+  \mathscr C_{/T}\simeq(\mathscr C_{/S})_{/T}.
+\]
+这一构造同样适用于 \(\widehat{\mathscr C}\); 特别地得到范畴
+\(\widehat{\mathscr C}_{/\mathbf h_S}\).
+另一方面, 也可构造范畴 \(\widehat{\mathscr C_{/S}}\).
+
+若 \(f:T\to S\) 是 \(\mathscr C_{/S}\) 的对象, 则 \(\Gamma(f)\) 可等同于
+\(T\) 在 \(S\) 上的截面集合 \(\Gamma(T/S)\), 即由 \(f\) 的右逆箭头
+\(S\to T\) 组成的集合. 此外, \(\mathbf h_f:\mathbf h_T\to\mathbf h_S\)
+此时是 \(\widehat{\mathscr C}_{/\mathbf h_S}\) 的对象, 并且
+\[
+  \Gamma(\mathbf h_f)
+    \simeq\Gamma(\mathbf h_T/\mathbf h_S)
+    \simeq\Gamma(T/S)
+    \simeq\Gamma(f).
+\]
+
+\subsection*{\SGAInlineRefTarget{sga3:i:subsection:1-4}1.4.}
+
+现在定义范畴 \(\widehat{\mathscr C_{/S}}\) 与
+\(\widehat{\mathscr C}_{/\mathbf h_S}\) 之间的一个等价.
+换言之, 我们将证明, 在 \(\mathscr C\) 中在 \(S\) 上的对象所成的范畴上给定一个函子,
+与在 \(\mathscr C\) 上给定一个带有到 \(\mathbf h_S\) 的态射的函子, 是“同一回事”.
+
+\medskip
+\noindent\textbf{(i) 构造
+\(\alpha_S:\widehat{\mathscr C}_{/\mathbf h_S}
+\to\widehat{\mathscr C_{/S}}\).}
+
+首先设 \(H:\mathbf F\to\mathbf h_S\) 是
+\(\widehat{\mathscr C}_{/\mathbf h_S}\) 的对象.
+需要在 \(\mathscr C_{/S}\) 上定义函子 \(\alpha_S(H)\).
+对 \(\mathscr C_{/S}\) 的一个对象 \(f:T\to S\),
+定义 \(\alpha_S(H)(f)\) 为 \(f\in\mathbf h_S(T)\) 在映射
+\[
+  H(T):\mathbf F(T)\longrightarrow\mathbf h_S(T).
+\]
+下的逆像.
+\footnote{编者注: 例如, 若 \(\mathbf F=\mathbf h_X\),
+则 \(H\) 对应于一个态射 \(h:X\to S\), 且
+\(H(T):\operatorname{Hom}_{\mathscr C}(T,X)\to
+\operatorname{Hom}_{\mathscr C}(T,S)\) 是映射 \(g\mapsto h\circ g\).
+因此 \(\alpha_S(\mathbf h_X)=\operatorname{Hom}_{\mathscr C_{/S}}(-,X)\).}
+
+其次, 设 \(u:f\to f'\) 是 \(\mathscr C_{/S}\) 的一个箭头.
+则 \(\mathbf F(u):\mathbf F(T')\to\mathbf F(T)\) 诱导从
+\(\alpha_S(H)(f')\) 到 \(\alpha_S(H)(f)\) 的映射, 记为 \(\alpha_S(H)(u)\).
+立即可见, 对应
+\[
+  f\longmapsto\alpha_S(H)(f),
+  \qquad
+  u\longmapsto\alpha_S(H)(u)
+\]
+定义了 \(\mathscr C_{/S}\) 上的一个函子, 因而给出
+\(\widehat{\mathscr C_{/S}}\) 的对象 \(\alpha_S(H)\).
+
+最后, 设 \(H:\mathbf F\to\mathbf h_S\) 与
+\(H':\mathbf F'\to\mathbf h_S\) 是
+\(\widehat{\mathscr C}_{/\mathbf h_S}\) 的两个对象,
+且 \(U:H\to H'\) 是该范畴中的一个态射:
+
+% Authority: Exp1-13oct24.pdf p. 4; combined reader p. 14.
+\begin{center}
+  \input{figures/exp1/diag_001_alpha_morphism_triangle}
+\end{center}
+
+对每个 \(f:T\to S\), 映射 \(U(T):\mathbf F(T)\to\mathbf F'(T)\) 诱导映射
+\[
+  \alpha_S(U)(f):\alpha_S(H)(f)
+    \longrightarrow\alpha_S(H')(f),
+\]
+从而定义函子间的态射
+\[
+  \alpha_S(U):\alpha_S(H)\longrightarrow\alpha_S(H').
+\]
+容易验证, 对应
+\[
+  H\longmapsto\alpha_S(H),
+  \qquad
+  U\longmapsto\alpha_S(U)
+\]
+定义了函子
+\[
+  \alpha_S:\widehat{\mathscr C}_{/\mathbf h_S}
+    \longrightarrow\widehat{\mathscr C_{/S}}.
+\]
+
+\medskip
+\SGARefTarget{sga3:i:proposition:1:4:1}
+\noindent\textbf{(ii) \SGARefLink{sga3:i:proposition:1:4:1}{命题 1.4.1}.}
+\textit{函子
+\(\alpha_S:\widehat{\mathscr C}_{/\mathbf h_S}
+\to\widehat{\mathscr C_{/S}}\) 是范畴等价.}
+
+这里只说明构造一个拟逆函子
+\[
+  \beta_S:\widehat{\mathscr C_{/S}}
+    \longrightarrow\widehat{\mathscr C}_{/\mathbf h_S}.
+\]
+的原理.
+设 \(\mathbf G\) 是 \(\mathscr C_{/S}\) 上的函子.
+对 \(\mathscr C\) 的每个对象 \(T\), 置
+\[
+  \beta_S(\mathbf G)(T)
+    =\coprod_{f\in\operatorname{Hom}(T,S)}\mathbf G(f),
+  \qquad \operatorname{Hom}(T,S)=\mathbf h_S(T).
+\]
+这就在 \(\mathscr C\) 上定义了函子 \(\beta_S(\mathbf G)\),
+它带有显然的到 \(\mathbf h_S\) 的投影.
+
+\subsection*{\SGAInlineRefTarget{sga3:i:subsection:1-5}1.5.}
+
+等价 \(\alpha_S\) 与函子 \(\Gamma\) 交换.
+换言之, 若 \(H:\mathbf F\to\mathbf h_S\) 是
+\(\widehat{\mathscr C}_{/\mathbf h_S}\) 的对象,
+且 \(\alpha_S(H)\) 是 \(\widehat{\mathscr C_{/S}}\) 中的相应对象, 则
+\[
+  \Gamma(\alpha_S(H))
+    \simeq\Gamma(H)
+    \simeq\Gamma(\mathbf F/\mathbf h_S).
+\]
+等价 \(\alpha_S\) 也与函子 \(\mathbf h\) 交换.
+也就是说, 若 \(f:T\to S\) 是 \(\mathscr C_{/S}\) 的对象,
+则 \(\mathbf h_f:\mathbf h_T\to\mathbf h_S\) 是
+\(\widehat{\mathscr C}_{/\mathbf h_S}\) 的对象,
+而它在 \(\alpha_S\) 下的像恰为 \(\mathbf h_{\mathscr C_{/S}}(f)\), 其中
+\[
+  \mathbf h_{\mathscr C_{/S}}:
+    \mathscr C_{/S}\longrightarrow\widehat{\mathscr C_{/S}}
+\]
+是典范函子.\footnote{编者注: 参见编者注 (10).}
+因此:
+
+\medskip
+\noindent\SGAInlineRefTarget{sga3:i:proposition:1-5-1}\textbf{命题 1.5.1.}
+\textit{设 \(H:\mathbf F\to\mathbf h_S\) 是
+\(\widehat{\mathscr C}_{/\mathbf h_S}\) 的对象.
+函子
+\[
+  \alpha_S(H):(\mathscr C_{/S})^{\circ}\longrightarrow\mathbf{Set}
+\]
+可表的充要条件是 \(\mathbf F:\mathscr C^{\circ}\to\mathbf{Set}\) 可表.
+若 \(\mathbf F\simeq\mathbf h_T\), 则 \(\alpha_S(H)\) 由
+\(\mathscr C_{/S}\) 的对象 \(T\to S\) 表示.}
+
+等价 \(\alpha_S\) 对 \(S\) 具有传递性.
+若 \(f:T\to S\) 是 \(\mathscr C_{/S}\) 的对象, 则有由等价构成的交换图:
+
+% Authority: Exp1-13oct24.pdf p. 5; combined reader p. 15.
+\begin{center}
+  \input{figures/exp1/diag_002_alpha_transitivity}
+\end{center}
+
+这里 \(\alpha_{S/\mathbf h_T}\) 暂表示函子 \(\alpha_S\)
+在 \(\mathbf h_T\) 上的对象上的限制 (参见 \SGARefLink{sga3:i:subsection:1-6}{1.6}).

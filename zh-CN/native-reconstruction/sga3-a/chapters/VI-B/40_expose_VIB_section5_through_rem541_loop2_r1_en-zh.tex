@@ -1,0 +1,165 @@
+% SGA 3, 第 VI_B 篇, 第 1 轮英文重构.
+% 范围: 第 5 节标题至注 5.4.1, 含底本编者注 33--36 和脚注中的定理 5.3A.
+% 底本: Polo--Gille Exp6B-13oct24.pdf, 分篇第 25--26 页
+% (合订本第 366--367 页; 原版页边印刷页码 351--352, 重版本页眉 355--356).
+% 推论 5.5 始于分篇第 27 页 / 合订本第 368 页.
+% OCR 与 Reinhold 英文 Markdown 仅为比对材料.
+% 英文底本旧图注: 命题 5.1 图为底本 180 dpi 精确裁切:
+% 分篇第 25 页, 1488x2105 渲染中的 x=565,y=1080,w=365,h=180.
+% 本译稿保留下方已有的原生 TikZ 图码.
+
+\section*{5. 群与齐性空间的分离性}
+\phantomsection\label{sec:sga3-VIB-5}%
+\addcontentsline{toc}{section}{5. 群与齐性空间的分离性}
+
+\medskip
+\phantomsection\label{prop:sga3-VIB-5.1}%
+\noindent\textbf{命题 5.1.---}
+\emph{\(S\)-群 \(G\) 分离的充要条件是 \(G\) 的单位截面为闭浸入.}
+
+此条件是必要的 (EGA~I, 5.4.6); 由下列笛卡尔图可知它也是充分的
+(参见 VI\(_A\), 0.3):
+\begin{center}
+  \phantomsection\label{diag:sga3-VIB-5.1-cartesian}%
+  \begin{tikzcd}[row sep=large,column sep=huge]
+    G\times_S G
+      \arrow[r,"{\mu\circ(\operatorname{id}_G\times c)}"] &
+    G \\
+    G
+      \arrow[u,"\Delta_{G/S}"]
+      \arrow[r,"\pi"] &
+    S
+      \arrow[u,"\varepsilon"']
+  \end{tikzcd}\,.
+\end{center}
+
+\medskip
+\phantomsection\label{prop:sga3-VIB-5.2}%
+\noindent\textbf{命题 5.2.---}
+\emph{若 \(S\) 离散, 则每个 \(S\)-群都分离.}
+
+事实上,
+\[
+  S=\coprod_{s\in S}\operatorname{Spec}\mathcal O_{S,s},
+\]
+且由 EGA~I, 5.5.5, 只须证明对每个 \(s\in S\),
+\[
+  G\times_S\operatorname{Spec}\mathcal O_{S,s}
+\]
+分离. 这由 VI\(_A\), \SGARefLink{sga3:VIA:0.3}{0.3} 得到,
+因为 \(\mathcal O_{S,s}\) 是维数为 \(0\) 的局部环.%
+\footnote{\label{note:sga3-VIB-33}编者注: 我们将``Artin 环''改为
+``维数为 \(0\)'', 并在 VI\(_A\), \SGARefLink{sga3:VIA:0.3}{0.3} 中提及这一推广.}
+
+\medskip
+\phantomsection\label{thm:sga3-VIB-5.3}%
+\noindent\textbf{定理 5.3.---}
+\emph{设 \(S\) 是概形, \(G\) 是在 \(S\) 上局部有限呈示,
+且在单位截面的某邻域中对 \(S\) 普遍开的 \(S\)-群概形,
+\(X\) 是一个带有 \(G\) 作用的 \(S\)-概形, 使态射}
+\[
+  \Phi:G\times_S X\longrightarrow X\times_S X,
+  \qquad (g,x)\longmapsto(gx,x),
+\]
+\emph{满射. 再假设对每个 \(s\in S\):}
+\begin{enumerate}
+\item[\textup{(i)}] \emph{存在 \(X\) 的一个在 \(S\) 上分离的开子概形
+  \(U\), 使 \(U_s\) 在 \(X_s\) 中稠密;}
+\item[\textup{\SGAInlineRefTarget{thm:sga3-VIB-5.3:item:ii}(ii)}]
+  \emph{纤维 \(X_s\) 在 \(\kappa(s)\) 上局部有限型.}%
+\footnote{\label{note:sga3-VIB-34}编者注: 我们通过假设 \(G\)
+在单位截面的某邻域中对 \(S\) 普遍开, 并增加假设
+\textup{\SGARefLink{thm:sga3-VIB-5.3:item:ii}{(ii)}}, 改正了原文;
+见下文 O.\ Gabber 的例子, 它们表明没有附加假设时,
+原文的陈述 \hyperref[thm:sga3-VIB-5.3]{5.3} 和 \hyperref[cor:sga3-VIB-5.4]{5.4} 不成立.
+还指出, \hyperref[thm:sga3-VIB-5.3]{定理 5.3}
+是下面\hyperref[thm:sga3-VIB-5.3A]{定理 5.3A} 的改写版本,
+后者见于 SGAD 的 1965 年版, 归功于 M.\ Raynaud;
+比较 \SGARefLink{sga3:x:lemma:8-5}{第~X 篇, 8.5} 和 8.8 中的注 \((*)\).
+
+\smallskip
+\phantomsection\label{thm:sga3-VIB-5.3A}%
+\noindent\textbf{定理 5.3A (Raynaud).---}
+\emph{设 \(G\) 是局部有限呈示、在 \(S\) 上普遍开且纤维连通的 \(S\)-群.
+则 \(G\) 在 \(S\) 上分离. 更一般地, 每个在 \(S\) 上局部有限呈示,
+并带有 \(G\) 的作用, 使态射
+\(\Phi:G\times_SX\to X\times_SX\),
+\((g,x)\mapsto(gx,x)\), 满射的 \(S\)-概形 \(X\), 都在 \(S\) 上分离.}}
+\end{enumerate}
+\emph{则 \(X\) 在 \(S\) 上分离.}
+
+\medskip
+\phantomsection\label{cor:sga3-VIB-5.4}%
+\noindent\textbf{推论 5.4.---}
+\emph{设 \(S,G,X\) 如 \SGARefLink{thm:sga3-VIB-5.3}{5.3} 的预备假设中所述.
+再假设 \(X\) 的纤维局部有限型且连通. 则:}
+\begin{enumerate}
+\item[\textup{\SGAInlineRefTarget{cor:sga3-VIB-5.4:item:i}(i)}]
+  \emph{\(X\) 在 \(S\) 上分离.}
+\item[\textup{(ii)}] \emph{若 \(X\) 有一个在 \(S\) 上拟紧的开集
+  \(V\), 它与每个非空纤维 \(X_s\) 相交,}%
+\footnote{\label{note:sga3-VIB-35}编者注: 若没有此假设,
+则有 O.\ Gabber 指出的如下反例.
+设 \(G=S\) 是以 \(s\) 为闭点的局部概形,
+使 \(S^\ast=S-\{s\}\) 不拟紧,
+并设 \(X\) 是 \(\{s\}\) 与 \(S^\ast\) 的不交并.}
+\emph{则 \(X\) 在 \(S\) 上拟紧.}
+\end{enumerate}
+
+\emph{证明.}
+\textup{\SGARefLink{cor:sga3-VIB-5.4:item:i}{(i)}}
+设 \(s\in S\) 使 \(X_s\ne\varnothing\).
+由 \(\Phi\) 作基变换所得的态射
+\[
+  \Phi_s:
+  G_s\times_{\kappa(s)}X_s
+  \longrightarrow
+  X_s\times_{\kappa(s)}X_s
+\]
+满射. 由于 \(X_s\) 连通, 由 VI\(_A\),
+\SGARefLink{prop:sga3-VIA-2.5.4}{2.5.4}, 它不可约.
+因此, 若 \(U\) 是 \(X\) 的一个使 \(U_s\) 非空的仿射开集,
+则 \(U_s\) 在 \(X_s\) 中稠密, 定理即可应用.
+
+为证明 \textup{\SGARefLink{concl:sga3-VIA-2.5.4-ii}{(ii)}},
+可假设 \(S\) 仿射. 则 \(V\) 拟紧,
+且由 \hyperref[prop:sga3-VIB-3.5]{3.5},
+\(G\) 有一个包含 \(\underline{G^0}\) 的拟紧开集 \(U\).
+设 \(s\in S\) 使 \(X_s\ne\varnothing\).
+则 \(X_s\) 不可约 (VI\(_A\), \SGARefLink{prop:sga3-VIA-2.6.6}{2.6.6}),
+并且由于 \(U_s\) 包含 \(\underline{G_s^0}\), 态射
+\[
+  U_s\times_{\kappa(s)}V_s\longrightarrow X_s,
+  \qquad (g,x)\longmapsto gx,
+\]
+满射 (VI\(_A\), \SGARefLink{prop:sga3-VIA-2.6.4}{2.6.4}). 因而态射
+\[
+  U\times_SV\longrightarrow X
+\]
+满射. 由于 \(U\) 和 \(V\) 拟紧, \(X\) 也拟紧.
+由于已假设 \(S\) 仿射, 因而分离,
+可知 \(X\) 在 \(S\) 上拟紧 (参见 EGA~I, 6.6.4\textup{(v)}).
+
+\medskip
+\phantomsection\label{rem:sga3-VIB-5.4.1}%
+\noindent\textbf{注 5.4.1.---}%
+\footnote{\label{note:sga3-VIB-36}编者注: 此注为我们新增;
+比较编者\hyperref[note:sga3-VIB-34]{注 34}.}
+在证明过程中我们将看到, 只假设下述条件,
+\hyperref[thm:sga3-VIB-5.3]{定理 5.3} 的结论仍成立:
+
+\begin{quote}
+\textup{(i')} 存在 \(X\) 的一个在 \(S\) 上分离的开子概形 \(U\),
+使 \(U_s\) 在 \(X_s\) 的每个不可约分支中稠密.
+\end{quote}
+
+若 \(X_s\) 局部地只有有限个不可约分支,
+如假设 \textup{(ii)} 下的情形, 则这由
+\textup{\SGARefLink{cor:sga3-VIB-5.4:item:i}{(i)}} 得到.
+后面我们还将看到, 在每个纤维 \(X_s\) 都拟分离且连通的假设下,
+\SGARefLink{cor:sga3-VIB-5.4}{5.4} 仍成立.
+
+% 翻译覆盖：本组件全文；源文件 40_expose_VIB_section5_through_rem541_loop2_r1_en.tex。
+% 自检：行内数学 96，陈列数学 6，原生 tikzcd 1；全部数学及编号保留，公式内自然语言已译。
+% 引用键核对：label 12，hyperref 7，SGARefLink 12，行内目标 2；脚注 4，星号脚注正文 0，均与源文件一致。
+% 编译及渲染审查由主线程整合完成；此处未宣称编译或独立校对完成。

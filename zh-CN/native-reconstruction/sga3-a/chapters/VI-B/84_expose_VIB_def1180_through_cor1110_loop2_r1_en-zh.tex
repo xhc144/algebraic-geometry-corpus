@@ -1,0 +1,453 @@
+% SGA 3, Expose VI_B, Loop 1 English reconstruction.
+% Loop 2 R1: the source-bound coassociativity crop is replaced by
+% a faithful native tikz-cd diagram; prose, mathematics, and labels
+% otherwise remain identical to the reviewed Loop-1 component.
+% Scope: Definition 11.8.0 through Corollary 11.10, including
+% the transition sentence immediately following Corollary 11.10.
+% Authority: Polo--Gille Exp6B-13oct24.pdf, component-local
+% pages 82--86 (combined-reader pages 423--427; re-edition
+% headers 412--416). Proposition 11.10.bis begins on local
+% page 87 / combined page 428 / header 417 and is excluded.
+% Original-print margin markers do not advance one-for-one with
+% re-edition pages: the body enters under marker 401 inherited
+% from local page 81 and visibly crosses marker 402 on local 85.
+% OCR and Reinhold English Markdown are comparison witnesses only.
+% Loop 2 replaces the source-bound coassociativity crop with a
+% faithful native LaTeX reconstruction; the replacement is closed.
+
+\medskip
+\phantomsection\label{def:sga3-VIB-11.8.0}%
+\noindent\textbf{定义 11.8.0.---}%
+\footnote{\label{note:sga3-VIB-112}编者注：陈述 \SGARefLink{lem:sga3-VIB-11.8}{11.8} 和 \SGARefLink{prop:sga3-VIB-11.9}{11.9} 只涉及余代数上的余模这一概念。因此，我们引入了\hyperref[def:sga3-VIB-11.8.0]{定义 11.8.0}，并相应地重新表述了 \hyperref[lem:sga3-VIB-11.8]{11.8} 和 \hyperref[prop:sga3-VIB-11.9]{11.9}。}
+设 \(S\) 为概形。一个 \(\mathcal O_S\)-\emph{余代数}是一个 \(\mathcal O_S\)-模 \(\mathcal C\)，连同两个 \(\mathcal O_S\)-模态射
+\[
+  \Delta:\mathcal C\longrightarrow\mathcal C\otimes\mathcal C,
+  \qquad
+  \varepsilon:\mathcal C\longrightarrow\mathcal O_S,
+\]
+它们满足以下两条公理\textup{（参见第 I 篇，\SGARefLink{sga3:i:subsection:4-2}{4.2}）}：
+\begin{enumerate}
+\item[\textup{(CO 1)}]\phantomsection\label{ax:sga3-VIB-11.8.0-CO1}
+  \(\Delta\) 余结合：下图交换：
+  \begin{center}
+    \phantomsection\label{diag:sga3-VIB-11.8.0-coassociativity}%
+    \begin{tikzcd}[row sep=large,column sep=large]
+      & \mathcal C\otimes\mathcal C
+        \arrow[dr,"\mathrm{id}\otimes\Delta"] & \\
+      \mathcal C
+        \arrow[ur,"\Delta"]
+        \arrow[dr,"\Delta"'] & &
+      \mathcal C\otimes\mathcal C\otimes\mathcal C \\
+      & \mathcal C\otimes\mathcal C
+        \arrow[ur,"\Delta\otimes\mathrm{id}"'] &
+    \end{tikzcd}
+  \end{center}
+
+\item[\textup{(CO 2)}]\phantomsection\label{ax:sga3-VIB-11.8.0-CO2}
+  \(\varepsilon\) 是余单位；即下列两个复合都是恒等态射：
+  \phantomsection\label{form:sga3-VIB-11.8.0-counit-right}%
+  \[
+    \mathcal C\xrightarrow{\Delta}
+    \mathcal C\otimes\mathcal C
+    \xrightarrow{\mathrm{id}\otimes\varepsilon}
+    \mathcal C\otimes\mathcal O_S
+    \xrightarrow{\sim}\mathcal C,
+  \]
+  \phantomsection\label{form:sga3-VIB-11.8.0-counit-left}%
+  \[
+    \mathcal C\xrightarrow{\Delta}
+    \mathcal C\otimes\mathcal C
+    \xrightarrow{\varepsilon\otimes\mathrm{id}}
+    \mathcal O_S\otimes\mathcal C
+    \xrightarrow{\sim}\mathcal C.
+  \]
+\end{enumerate}
+
+一个\emph{（右）\(\mathcal C\)-余模}是一个 \(\mathcal O_S\)-模 \(\mathcal E\)，连同一个 \(\mathcal O_S\)-模态射
+\[
+  \mu:\mathcal E\longrightarrow\mathcal E\otimes\mathcal C
+\]
+它满足 \hyperref[par:sga3-VIB-11.6]{11.6} 的公理 \textup{(CM 1)} 和 \textup{(CM 2)}。
+
+如果 \(\mathcal C\)\textup{（相应地，\(\mathcal E\)）}是拟凝聚 \(\mathcal O_S\)-模，就称它为\emph{拟凝聚余代数}\textup{（相应地，\emph{拟凝聚余模}）}。
+
+设 \(A\) 为交换环，\(C\) 为一个 \(A\)-余代数。则
+\[
+  C^\vee=\operatorname{Hom}_A(C,A)
+\]
+是一个 \(A\)-代数。记
+\[
+  \operatorname{ev}:C\otimes_A C^\vee\longrightarrow A
+\]
+为自然的求值映射。
+
+\medskip
+\phantomsection\label{lem:sga3-VIB-11.8}%
+\noindent\textbf{引理 11.8.---}
+\emph{设 \(C\) 为一个 \(A\)-余代数，\(V\) 为一个 \(C\)-余模，\(M\) 为 \(V\) 的一个 \(A\)-子模。假设 \(C\) 是投射 \(A\)-模。}%
+\footnote{\label{note:sga3-VIB-113}编者注：原文假定 \(C\) 是自由 \(A\)-模。J.-P.\ Serre 指出的推广，即 \(C\) 为投射 \(A\)-模的情形，在\hyperref[rem:sga3-VIB-11.10.1]{注 11.10.1} 中有所提及。我们在此处和 \hyperref[prop:sga3-VIB-11.9]{11.9} 中纳入了这一推广，并相应地扩充了证明。}
+\emph{设 \(c(M)\) 为下列 \(A\)-模态射的像：}
+\phantomsection\label{form:sga3-VIB-11.8-theta}%
+\[
+  \theta:
+  M\otimes_A C^\vee
+  \xrightarrow{\ \mu\otimes\mathrm{id}\ }
+  V\otimes_A C\otimes_A C^\vee
+  \xrightarrow{\ \mathrm{id}\otimes\operatorname{ev}\ }
+  V.
+\]
+\emph{则 \(c(M)\) 是 \(V\) 中包含 \(M\) 的最小子余模，并且若 \(M\) 是有限生成 \(A\)-模，它也是有限生成的。我们称 \(c(M)\) 为\emph{由 \(M\) 生成的子余模}。}
+
+\emph{此外，对任意环同态 \(A\to A'\)，若 \(M'\) 表示 \(M\otimes_AA'\) 在 \(V'=V\otimes_AA'\) 中的像，则 \(c(M')\) 是 \(c(M)\otimes_AA'\) 在 \(V'\) 中的像。因此，\(c(M)\) 的形成与基变换可交换。}
+
+首先，由 \textup{(CM 2)} 有 \(M\subset c(M)\)。若 \(N\) 是 \(V\) 中包含 \(M\) 的子余模，则 \(\mu(M)\subset N\otimes C\)，从而 \(c(M)\subset N\)。
+
+由假设，\(C\) 是一个以 \((e_i)_{i\in I}\) 为基的自由 \(A\)-模 \(L\) 的直和项。记 \(\varphi_i\) 为线性形式 \(e_i^*\) 在 \(C\) 上的限制，其中
+\[
+  e_i^*(e_j)=\delta_{ij}.
+\]
+设 \(x\in M\)。可以写成
+\phantomsection\label{form:sga3-VIB-11.8-eq1}%
+\[
+  \tag{1}
+  \mu(x)=\sum_{i\in J}x_i\otimes e_i,
+\]
+其中 \(x_i\in V\)，\(J\) 是 \(I\) 的有限子集。于是
+\[
+  x_i=\theta(x\otimes\varphi_i)\in c(Ax),
+\]
+因而
+\[
+  c(Ax)=\sum_{i\in J}Ax_i.
+\]
+由于 \(C\) 是 \(L\) 的直和项，设 \(L=C\oplus R\)，于是
+\[
+  V\otimes L=(V\otimes C)\oplus(V\otimes R),
+\]
+得到
+\phantomsection\label{form:sga3-VIB-11.8-intersection}%
+\[
+  (c(Ax)\otimes L)\cap(V\otimes C)=c(Ax)\otimes C.
+\]
+因而，\(\mu(x)\) 也可以写成
+\phantomsection\label{form:sga3-VIB-11.8-eq2}%
+\[
+  \tag{2}
+  \mu(x)=\sum_{j\in J}x_j\otimes b_j,
+\]
+其中 \(b_j\in C\)。写成
+\[
+  \Delta(b_j)=\sum_{i\in I}b_{ij}\otimes e_i,
+  \qquad b_{ij}\in C.
+\]
+对\hyperref[form:sga3-VIB-11.8-eq1]{\textup{(1)}}施以 \(\mu\otimes\mathrm{id}\)，对\hyperref[form:sga3-VIB-11.8-eq2]{\textup{(2)}}施以 \(\mathrm{id}\otimes\Delta\)，并运用公理 \textup{(CM 1)}，可得对每个 \(i\in J\)，
+\phantomsection\label{form:sga3-VIB-11.8-coaction-generators}%
+\[
+  \mu(x_i)=\sum_{j\in J}x_j\otimes b_{ij}
+    \in c(Ax)\otimes C.
+\]
+这证明了 \(c(M)\) 是 \(V\) 的子余模，因而是 \(V\) 中包含 \(M\) 的最小子余模。
+
+显然，若 \(M\) 是有限生成 \(A\)-模，则 \(c(M)\) 也是：若
+\[
+  M=Ax_1+\cdots+Ax_n,
+  \qquad
+  \mu(x_k)=\sum_i x_{ik}\otimes e_i,
+\]
+则当 \(k=1,\ldots,n\)，\(i\) 遍历 \(I\) 的一个有限子集时，诸 \(x_{ik}\) 生成 \(c(M)\)。
+
+最后，设 \(A\to A'\) 为环同态，\(M'\) 为 \(M\otimes_AA'\) 在 \(V'=V\otimes_AA'\) 中的像。则 \(c(M')\) 以及 \(c(M)\otimes_AA'\) 在 \(V'\) 中的像，分别是下列态射 \(\theta'\) 以及复合 \(\theta'\circ\tau\) 的像：
+\phantomsection\label{form:sga3-VIB-11.8-base-change-theta}%
+\[
+  M\otimes_AA'\otimes_A C^\vee
+  \xrightarrow{\ \tau\ }
+  M\otimes_A\operatorname{Hom}_A(C,A')
+  \xrightarrow{\ \theta'\ }V'.
+\]
+这两个态射的像相同。事实上，设 \(\psi\in\operatorname{Hom}_A(C,A')\) 且 \(x\in M\)，并写成
+\[
+  \mu(x)=\sum_{i\in J}x_i\otimes e_i.
+\]
+% correction SGA-SRC-000656: project the basis elements of L to C before applying psi.
+于是
+\[
+  \theta'(x\otimes\psi)
+    =\sum_{i\in J}\psi(p(e_i))x_i
+\]
+是元素
+\[
+  \sum_{i\in J}x\otimes\psi(p(e_i))\otimes\varphi_i
+    \in M\otimes_AA'\otimes_A C^\vee.
+\]
+在 \(\theta'\circ\tau\) 下的像。引理得证。
+
+还有如下命题。
+
+\medskip
+\phantomsection\label{prop:sga3-VIB-11.8-bis}%
+\noindent\textbf{命题 11.8.bis.---}%
+\footnote{\label{note:sga3-VIB-114}编者注：本命题为新增，取自 \textup{[Se68]} 第 1.5 节命题 2。}
+\emph{设 \(A\) 为 Noether 环，\(C\) 为在 \(A\) 上平坦的 \(A\)-余代数，\(V\) 为一个 \(C\)-余模，\(M\) 为 \(V\) 的有限生成 \(A\)-子模。则存在 \(V\) 的一个子余模 \(W\)，它在 \(A\) 上有限生成并包含 \(M\)。}
+
+事实上，由于 \(M\) 有限生成，\(\Delta_V(M)\) 也有限生成。因此，存在 \(V\) 的一个有限生成 \(A\)-子模 \(M'\)，使得
+\[
+  \Delta_V(M)\subset M'\otimes_A C.
+\]
+设 \(\pi:V\to V/M'\) 为投影，令
+\[
+  \overline{\Delta}_V
+    =(\pi\otimes\mathrm{id}_C)\Delta_V,
+\]
+并置
+\phantomsection\label{form:sga3-VIB-11.8-bis-W}%
+\[
+  W=\{x\in V\mid\Delta_V(x)\in M'\otimes_A C\}
+    =\ker\overline{\Delta}_V.
+\]
+这是 \(V\) 的一个包含 \(M\) 且包含于 \(M'\) 的 \(A\)-子模，因为
+\[
+  x=(\mathrm{id}_V\otimes\varepsilon)\Delta_V(x).
+\]
+因此，它在 \(A\) 上有限生成。此外，
+\[
+  (\overline{\Delta}_V\otimes\mathrm{id}_C)\Delta_V
+    =(\pi\otimes\Delta_C)\Delta_V
+\]
+在 \(W\) 上为零；换言之，\(\Delta_V(W)\) 包含于 \(\overline{\Delta}_V\otimes\mathrm{id}_C\) 的核 \(K\) 中。由于 \(C\) 在 \(A\) 上平坦，有
+\[
+  K=W\otimes_A C.
+\]
+所以 \(W\) 是 \(V\) 的子余模。
+
+\medskip
+\phantomsection\label{lem:sga3-VIB-11.8.1}%
+\noindent\textbf{引理 11.8.1.---}%
+\footnote{\label{note:sga3-VIB-115}编者注：本引理为新增，用于 \SGARefLink{prop:sga3-VIB-11.9}{11.9} 的证明。}
+\emph{设 \(C\) 为一个 \(A\)-余代数，\(V\) 为一个 \(C\)-余模，\(M\) 为 \(V\) 的一个 \(A\)-子模，\(f:A\to A'\) 为忠实平坦环同态。假设 \(C'=C\otimes_AA'\) 是投射 \(A'\)-模。}
+\begin{enumerate}
+\item[\textup{(i)}]\phantomsection\label{concl:sga3-VIB-11.8.1-i}
+  \emph{存在 \(V\) 中包含 \(M\) 的最小子余模 \(t(M)\)，并且若 \(M\) 是有限生成 \(A\)-模，\(t(M)\) 也是。此外，\(t(M)\) 的形成与基变换可交换。}
+
+\item[\textup{(ii)}]\phantomsection\label{concl:sga3-VIB-11.8.1-ii}
+  \emph{更确切地说，\(C\) 是投射 \(A\)-模，且 \(t(M)=c(M)\)。}
+\end{enumerate}
+
+\emph{证明。}
+关于\hyperref[concl:sga3-VIB-11.8.1-ii]{\textup{(ii)}}，\textup{[RG71]}\textup{（见下文\hyperref[prop:sga3-VIB-11.8.2]{命题 11.8.2}）}表明 \(C\) 是投射 \(A\)-模。因此可以应用\hyperref[lem:sga3-VIB-11.8]{引理 11.8}：\(c(M)\) 是 \(V\) 中包含 \(M\) 的最小子余模；若 \(M\) 是有限生成 \(A\)-模，它也是；并且其形成与基变换可交换。
+
+为避免年代上的倒置\textup{（\([RG71]\) 晚于 SGA 3）}，我们概述\hyperref[concl:sga3-VIB-11.8.1-i]{\textup{(i)}}的一个直接证明。由于 \(A\to A'\) 平坦，
+\[
+  M'=M\otimes_AA'
+\]
+是 \(V'=V\otimes_AA'\) 的一个 \(A'\)-子模。由于 \(C'\) 是投射 \(A'\)-模，\(c(M')\) 是 \(V'\) 中包含 \(M'\) 的最小子余模。用 \(V'\otimes_AA'\) 和 \(A'\otimes_AV'\) 表示下列模上的两个 \(A'\otimes_AA'\)-余模结构：
+\[
+  V''=V'\otimes_{A'}(A'\otimes_AA')
+\]
+它们由下列两个基变换得到：
+\[
+  A'\rightrightarrows A'\otimes_AA',
+  \qquad
+  a'\longmapsto a'\otimes1,
+  \quad
+  a'\longmapsto1\otimes a'.
+\]
+\(A'\)-余模 \(V'\) 带有一个 \(A'\otimes_AA'\)-余模同构
+\phantomsection\label{form:sga3-VIB-11.8.1-descent-phi}%
+\[
+  \varphi:
+  V'\otimes_AA'\xrightarrow{\ \sim\ }A'\otimes_AV',
+  \qquad
+  (x\otimes a')\otimes b'
+    \longmapsto b'\otimes(x\otimes a'),
+\]
+它是一个下降数据，即
+\[
+  \varphi_{31}=\varphi_{32}\circ\varphi_{21}.
+\]
+
+由于 \(M'=M\otimes_AA'\)，同构 \(\varphi\) 将 \(M'\otimes_AA'\) 映到 \(A'\otimes_AM'\) 上，从而将 \(c(M'\otimes_AA')\) 映到 \(c(A'\otimes_AM')\) 上。由于 \(c(M')\) 的形成与基变换可交换，
+\[
+  c(M'\otimes_AA')=c(M')\otimes_AA',
+  \qquad
+  c(A'\otimes_AM')=A'\otimes_Ac(M').
+\]
+因此
+\phantomsection\label{form:sga3-VIB-11.8.1-descent-subcomodule}%
+\[
+  \varphi\bigl(c(M')\otimes_AA'\bigr)
+    =A'\otimes_Ac(M'),
+\]
+所以 \(\varphi\) 在 \(c(M')\) 上给出一个下降数据。由 fpqc 下降，存在 \(V\) 的唯一子余模 \(t(M)\)，使得
+\[
+  c(M')=t(M)\otimes_AA'.
+\]
+它包含 \(M\)，因为 \(t(M)\otimes_AA'\) 包含 \(M'\)。此外，若 \(N\) 是 \(V\) 中包含 \(M\) 的子余模，则 \(N\) 包含 \(t(M)\)，因为 \(N\otimes_AA'\) 包含
+\[
+  c(M')=t(M)\otimes_AA'.
+\]
+所以 \(t(M)\) 是 \(V\) 中包含 \(M\) 的最小子余模。
+
+最后，设 \(A\to B\) 为环同态。置
+\[
+  B'=B\otimes_AA',
+\]
+并设 \(M_B\)、\(M'_{B'}\) 分别为 \(M\otimes_AB\) 在 \(V_B=V\otimes_AB\) 中的像、\(M'\otimes_{A'}B'\) 在 \(V'\otimes_{A'}B'=V\otimes_AB'\) 中的像。于是
+\[
+  M_B\otimes_BB'=M'_{B'}.
+\]
+一方面，对 \(C_B\) 和 \(B\to B'\) 应用上述构造，得到
+\phantomsection\label{form:sga3-VIB-11.8.1-base-change-first}%
+\[
+  c(M_B\otimes_BB')
+    =t(M_B)\otimes_BB'
+    =t(M_B)\otimes_AA'.
+\]
+另一方面，由于 \(c(M')\) 的形成与基变换可交换，\(c(M'_{B'})\) 是
+\[
+  V'\otimes_{A'}B'=V\otimes_AB\otimes_AA'
+\]
+中下列模的像：
+\phantomsection\label{form:sga3-VIB-11.8.1-base-change-second}%
+\[
+  c(M')\otimes_{A'}B'
+    =t(M)\otimes_AB\otimes_AA'.
+\]
+由此可知，\(t(M_B)\) 是 \(t(M)\otimes_AB\) 在 \(V_B\) 中的像。
+
+\medskip
+\phantomsection\label{prop:sga3-VIB-11.8.2}%
+\noindent\textbf{命题 11.8.2 \textup{(Gruson--Raynaud)}.---}
+\emph{设 \(f:A\to A'\) 为忠实平坦同态。则沿 \(f\) ``投射性可以下降''：若 \(M\) 是一个 \(A\)-模，且 \(M\otimes_AA'\) 是投射 \(A'\)-模，则 \(M\) 是投射 \(A\)-模。}
+
+事实上，由 \textup{[RG71]}，II，\SGARefLink{lem:sga3-VIA-2.5.1}{2.5.1}，沿 \(f\) 可下降 Mittag--Leffler 条件，从而由\emph{同上}，II，3.1.3，沿 \(f\) 可下降投射性。%
+\footnote{\label{note:sga3-VIB-116}编者注：还应指出，\emph{同上}中比 II，\SGARefLink{lem:sga3-VIA-2.5.1}{2.5.1} 更一般的断言 II，\SGARefLink{prop:sga3-VIA-2.5.2}{2.5.2}，在 \textup{[Gr73]} 中有勘正；这不影响忠实平坦同态的情形。}
+
+\medskip
+\phantomsection\label{prop:sga3-VIB-11.9}%
+\noindent\textbf{命题 11.9.---}%
+\footnote{\label{note:sga3-VIB-117}编者注：如编者\hyperref[note:sga3-VIB-112]{注 112} 所述，我们将本陈述改写为关于一个 \(\mathcal O_S\)-余代数 \(\mathcal C\) 的陈述\textup{（原来是关于满足\hyperref[cor:sga3-VIB-11.10]{推论 11.10} 假设的 \(S\)-群 \(G\)）}。我们还扩充了证明\textup{（原文仅说：``\(\cdots\) 由\hyperref[lem:sga3-VIB-11.8]{引理 11.8} 即得本命题''）}。}
+\emph{设 \(\mathcal C\) 为一个 \(\mathcal O_S\)-余代数，\(\mathcal E\) 为一个 \(\mathcal C\)-余模，\(\mathcal F\) 为 \(\mathcal E\) 的一个 \(\mathcal O_S\)-子模，并且三者均拟凝聚。假设 \(S\) 被仿射开子集 \(U_\alpha=\operatorname{Spec}A_\alpha\) 覆盖，且对每个 \(\alpha\)，存在忠实平坦环同态 \(A_\alpha\to A'_\alpha\)，使得}
+\[
+  \Gamma(U_\alpha,\mathcal C)\otimes_{A_\alpha}A'_\alpha
+\]
+\emph{是投射 \(A'_\alpha\)-模。}%
+\textsuperscript{\textup{(*)}}
+\begingroup
+\renewcommand{\thefootnote}{*}%
+\footnotetext{例如，当 \(\mathcal C=\mathcal A(G)\)，其中 \(G\) 为约化 \(S\)-群时，这一条件成立，见\SGARefLink{sga3:xxii:cor:5.7.8}{第 XXII 篇，5.7.8}。}
+\endgroup
+
+\emph{则存在 \(\mathcal E\) 中包含 \(\mathcal F\) 的最小拟凝聚子余模 \(t(\mathcal F)\)，并且若 \(\mathcal F\) 是有限生成 \(\mathcal O_S\)-模，\(t(\mathcal F)\) 也是。此外，对任意基变换 \(S'\to S\)，若 \(\mathcal F'\) 表示 \(\mathcal F\otimes_{\mathcal O_S}\mathcal O_{S'}\) 在}
+\[
+  \mathcal E'
+    =\mathcal E\otimes_{\mathcal O_S}\mathcal O_{S'},
+\]
+\emph{中的像，则 \(t(\mathcal F')\) 是 \(t(\mathcal F)\otimes_{\mathcal O_S}\mathcal O_{S'}\) 在 \(\mathcal E'\) 中的像。换言之，\(t(\mathcal F)\) 的形成与基变换可交换。}
+
+\emph{证明。}
+对每个 \(\alpha\)，设 \(T_\alpha\) 为 \(A_\alpha\)-模
+\[
+  T_\alpha=t\bigl(\Gamma(U_\alpha,\mathcal F)\bigr).
+\]
+由 \hyperref[concl:sga3-VIB-11.8.1-i]{11.8.1}\textup{\SGARefLink{concl:sga3-VIB-11.8.1-i}{(i)}}，相应的 \(\mathcal O_{U_\alpha}\)-模 \(\widetilde T_\alpha\) 是 \(\mathcal E|_{U_\alpha}\) 中包含 \(\mathcal F|_{U_\alpha}\) 的最小拟凝聚子余模；且若 \(\mathcal F|_{U_\alpha}\) 是有限生成 \(\mathcal O_{U_\alpha}\)-模，它也是。
+
+对任意 \(\alpha,\beta\)，置
+\[
+  U_{\alpha\beta}=U_\alpha\cap U_\beta.
+\]
+由于 \(t(M)\) 的构造与基变换可交换，存在典范的 \(\mathcal O_{U_{\alpha\beta}}\)-模同构
+\phantomsection\label{form:sga3-VIB-11.9-gluing}%
+\[
+  \varphi_{\alpha\beta}:
+  \widetilde T_\beta
+    \otimes_{A_\beta}\mathcal O_{U_{\alpha\beta}}
+  \xrightarrow{\ \sim\ }
+  \widetilde T_\alpha
+    \otimes_{A_\alpha}\mathcal O_{U_{\alpha\beta}}.
+\]
+它们满足余循环条件
+\[
+  \varphi'_{\alpha\gamma}
+    =\varphi'_{\alpha\beta}\circ\varphi'_{\beta\gamma},
+\]
+其中 \(\varphi'_{\alpha\gamma}\) 表示 \(\varphi_{\alpha\gamma}\) 在 \(U_\alpha\cap U_\beta\cap U_\gamma\) 上的限制，其余映射的撇号也表示相应的限制。
+
+因此，诸 \(\widetilde T_\alpha\) 粘合为 \(\mathcal E\) 中包含 \(\mathcal F\) 的一个拟凝聚子余模 \(t(\mathcal F)\)。留给读者验证：\(t(\mathcal F)\) 是 \(\mathcal E\) 中包含 \(\mathcal F\) 的最小拟凝聚子余模，且其形成与基变换可交换。
+
+\medskip
+\phantomsection\label{def:sga3-VIB-11.9.1}%
+\noindent\textbf{定义 11.9.1.---}%
+\footnote{\label{note:sga3-VIB-118}编者注：本定义为新增，取自 \textup{[RG71]} 第 82 页下部。因此，\hyperref[prop:sga3-VIB-11.9]{命题 11.9} 的假设是余代数 \(\mathcal C\) 为局部投射 \(\mathcal O_S\)-模；我们在\hyperref[cor:sga3-VIB-11.10]{推论 11.10} 中采用了这一术语。}
+\emph{设 \(S\) 为概形，\(\mathcal P\) 为拟凝聚 \(\mathcal O_S\)-模。下列条件等价：}
+\begin{enumerate}
+\item[\textup{(i)}]\phantomsection\label{concl:sga3-VIB-11.9.1-i}
+  \emph{对 \(S\) 的每个仿射开子集 \(U\)，模 \(\Gamma(U,\mathcal P)\) 都是投射 \(\mathcal O_S(U)\)-模。}
+
+\item[\textup{(ii)}]\phantomsection\label{concl:sga3-VIB-11.9.1-ii}
+  \emph{存在 \(S\) 的一个仿射开覆盖 \((U_\alpha)\)，使每个 \(\Gamma(U_\alpha,\mathcal P)\) 都是投射 \(\mathcal O_S(U_\alpha)\)-模。}
+
+\item[\textup{\SGAInlineRefTarget{def:sga3-VIB-11.9.1:item:iii}(iii)}]\phantomsection\label{concl:sga3-VIB-11.9.1-iii}
+  \emph{存在 \(S\) 的一个仿射开覆盖 \((U_\alpha)\)，以及忠实平坦环同态}
+  \[
+    A_\alpha=\mathcal O_S(U_\alpha)\longrightarrow A'_\alpha,
+  \]
+  \emph{使对每个 \(\alpha\)，}
+  \[
+    \Gamma(U_\alpha,\mathcal P)
+      \otimes_{A_\alpha}A'_\alpha
+  \]
+  \emph{是投射 \(A'_\alpha\)-模。}
+\end{enumerate}
+
+显然
+\[
+  \textup{(i)}\Longrightarrow\textup{(ii)}
+  \Longrightarrow\textup{(iii)}.
+\]
+反之，若\textup{\SGARefLink{def:sga3-VIB-11.9.1:item:iii}{(iii)}}成立，则由 \hyperref[prop:sga3-VIB-11.8.2]{11.8.2}，每个 \(\Gamma(U_\alpha,\mathcal P)\) 都是投射 \(\mathcal O_S(U_\alpha)\)-模，从而\textup{(ii)}成立。
+
+最后，假设\textup{\SGARefLink{concl:sga3-VIB-11.9.1-ii}{(ii)}}成立，并设
+\[
+  V=\operatorname{Spec}A
+\]
+为任意仿射开子集。它被有限多个仿射开子集
+\[
+  V_1,\ldots,V_n,
+  \qquad
+  V_i=\operatorname{Spec}A_i,
+\]
+覆盖，其中每个都包含在至少一个 \(V\cap U_\alpha\) 中，因而 \(\Gamma(V_i,\mathcal P)\) 是投射 \(A_i\)-模。置
+\[
+  A'=A_1\times\cdots\times A_n.
+\]
+则 \(A\to A'\) 忠实平坦，且
+\[
+  \Gamma(V,\mathcal P)\otimes_AA'
+\]
+是投射 \(A'\)-模。因此，由 \SGARefLink{prop:sga3-VIB-11.8.2}{11.8.2} 可知，\(\Gamma(V,\mathcal P)\) 是投射 \(A\)-模。
+
+当这些等价条件成立时，称 \(\mathcal P\) 为\emph{局部投射} \(\mathcal O_S\)-模。
+
+\medskip
+\phantomsection\label{cor:sga3-VIB-11.10}%
+\noindent\textbf{推论 11.10.---}
+\emph{设 \(S\) 为拟紧且拟分离的概形，\(G\) 为一个 \(S\)-群，\(\rho\) 为 \(G\) 在一个拟凝聚 \(\mathcal O_S\)-模 \(\mathcal E\) 上的线性作用。假设：}
+\begin{enumerate}
+\item[\textup{(i)}]\phantomsection\label{hyp:sga3-VIB-11.10-i}
+  \emph{\(G\) 满足下列条件之一：}
+  \begin{enumerate}
+  \item[\textup{(a)}]\phantomsection\label{hyp:sga3-VIB-11.10-i-a}
+    \emph{\(G\) 在 \(S\) 上仿射且平坦；}
+
+  \item[\textup{(b)}]\phantomsection\label{hyp:sga3-VIB-11.10-i-b}
+    \emph{\(G\) 在 \(S\) 上平坦、拟紧且拟分离，并且 \(\mathcal E\) 平坦；}
+  \end{enumerate}
+
+\item[\textup{(ii)}]\phantomsection\label{hyp:sga3-VIB-11.10-ii}
+  \emph{\(\mathcal A(G)\) 是局部投射 \(\mathcal O_S\)-模。}
+\end{enumerate}
+\emph{则 \(\mathcal E\) 是 \(\mathcal E\) 的在 \(G\) 下稳定的有限生成拟凝聚 \(\mathcal O_S\)-子模所成的一个递增滤过族的归纳极限。}
+
+由假设\hyperref[hyp:sga3-VIB-11.10-i]{\textup{(i)}}和 \hyperref[prop:sga3-VIB-11.6.1]{11.6.1}，\(\mathcal E\) 带有一个 \(\mathcal A(G)\)-余模结构。另一方面，由于 \(S\) 拟紧且拟分离，\(\mathcal E\) 是其有限生成拟凝聚子模的归纳极限\textup{（EGA I，9.4.9 及 EGA IV\(_1\)，1.7.7）}。因此，对余代数 \(\mathcal A(G)\) 应用\hyperref[prop:sga3-VIB-11.9]{命题 11.9}，即得本推论。
+
+还有如下命题。

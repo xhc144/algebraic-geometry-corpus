@@ -1,0 +1,243 @@
+% SGA 3, 第 VI_B 篇, 第 1 轮英文重构底本的中译.
+% 范围: 第 9 节标题与开篇、定义 9.1, 以及命题 9.2 的 (i)--(xiii) 项和完整证明.
+% 权威底本: Polo--Gille Exp6B-13oct24.pdf, 组件第 65--67 页
+% (合卷第 406--408 页; 重版页眉第 395--397 页; 原版边栏页码第 380--383 页).
+% 引理 9.2.1 始于组件第 67 页, 不在本组件内.
+% OCR 与 Reinhold 英文 Markdown 仅为对照材料.
+% 第 2 轮已将两组原笛卡尔图裁图替换为忠实的原生 LaTeX 重构, 两处替换均已完成.
+
+\section*{9. 商层}
+\phantomsection\label{sec:sga3-VIB-9}%
+\addcontentsline{toc}{section}{9. 商层}
+
+本节主要限于在群的齐性空间这一特殊情形中,
+回顾关于模平坦等价关系取商的熟知的一般事实 (参见第 IV 篇).
+
+\medskip
+\phantomsection\label{def:sga3-VIB-9.1}%
+\noindent\textbf{定义 9.1.---}
+\emph{给定一个 \(S\)-群单态射 \(u:G'\to G\),
+以 \(G/G'\) \textup{(分别地, \(G'\backslash G\))}
+表示并称为\textup{\(G\) 模 \(G'\) 的右\textup{(分别地, 左)}商层},
+其含义为: \(G\) 关于下列单态射所定义的等价关系的
+\textup{(fpqc)} 拓扑商层:}
+\phantomsection\label{form:sga3-VIB-9.1-equivalence-relations}%
+\[
+\begin{aligned}
+  G\times_S G'
+    &\xrightarrow{\ \delta\circ(\operatorname{id}_G\times u)\ }
+      G\times_S G,\\[-1mm]
+  &\hspace{7em}\textup{\emph{\textup{(分别地,}}}\\[-1mm]
+  G'\times_S G
+    &\xrightarrow{\ \gamma\circ(u\times\operatorname{id}_G)\ }
+      G\times_S G\textup{\emph{\textup{),}}}
+\end{aligned}
+\]
+\emph{其中 \(\delta\) \textup{(分别地, \(\gamma\))}
+表示 \(G\times_SG\) 的如下自同构, 它对 \(g,h\in G(T)\) 定义为}
+\[
+  (g,h)\longmapsto(g,gh)
+  \qquad
+  \bigl(\textup{分别地, }(h,g)\longmapsto(hg,g)\bigr).
+\]
+
+\medskip
+\phantomsection\label{prop:sga3-VIB-9.2}%
+\noindent\textbf{命题 9.2.---}
+\emph{设 \(u:G'\to G\) 是一个 \(S\)-群单态射.
+假设 \(G/G'\) 由一个 \(S\)-概形 \(G''\) 表出. 则:}
+\begin{enumerate}
+\item[\textup{(i)}]\phantomsection\label{concl:sga3-VIB-9.2-i}
+  \emph{典范态射 \(p:G\to G''\) 是 \textup{(fpqc)} 拓扑的覆盖.}
+
+\item[\textup{(ii)}]\phantomsection\label{concl:sga3-VIB-9.2-ii}
+  \emph{若 \(\varepsilon''=p\circ\varepsilon\)
+  \textup{(称此态射为 \(G''\) 的单位截面)}, 则下列各图为笛卡尔图:}
+  \begin{center}
+    \phantomsection\label{diag:sga3-VIB-9.2-cartesian}%
+    \begin{tabular}{c@{\qquad}c}
+      \begin{tikzcd}[row sep=large,column sep=large]
+        G\times_SG'
+          \arrow[r,"{\mu\circ(\operatorname{id}_G\times u)}"]
+          \arrow[d,"\operatorname{pr}_1"'] &
+        G \arrow[d,"p"] \\
+        G \arrow[r,"p"'] &
+        G''
+      \end{tikzcd},
+      &
+      \begin{tikzcd}[row sep=large,column sep=large]
+        G' \arrow[r,"u"] \arrow[d,"\pi'"'] &
+        G \arrow[d,"p"] \\
+        S \arrow[r,"\varepsilon''"'] &
+        G''
+      \end{tikzcd}.
+    \end{tabular}
+  \end{center}
+  \emph{特别地, \(u\) 是浸入.}
+
+\item[\textup{(iii)}]\phantomsection\label{concl:sga3-VIB-9.2-iii}
+  \emph{\(G''\) 上存在唯一的以 \(G\) 为左算子群的 \(S\)-概形结构,
+  使得 \(p\) 是以 \(G\) 为算子群的 \(S\)-概形态射.}
+
+\item[\textup{(iv)}]\phantomsection\label{concl:sga3-VIB-9.2-iv}
+  \emph{若还假设 \(G'\) 在 \(G\) 中正规,
+  则 \(G''\) 上存在唯一的 \(S\)-群结构,
+  使得 \(p\) 是 \(S\)-群态射.}
+
+\item[\textup{(v)}]\phantomsection\label{concl:sga3-VIB-9.2-v}
+  \emph{设 \(S_0\) 是一个 \(S\)-概形,
+  并置 \(G_0=G\times_SS_0\) 及 \(G'_0=G'\times_SS_0\).
+  则 \(G_0/G'_0\) 由 \(G''_0=G''\times_SS_0\) 表出.}%
+  \footnote{\label{note:sga3-VIB-85}编者注: 即此商是普遍的;
+  参见第 IV 篇 \S3.}
+
+\item[\textup{(vi)}]\phantomsection\label{concl:sga3-VIB-9.2-vi}
+  \emph{设 \(\mathscr P\) 是 \(S\)-态射的一个性质.
+  假设 \(\mathscr P\) 在基变换下稳定.
+  若 \(p:G\to G''\) 有性质 \(\mathscr P\),
+  则结构态射 \(\pi':G'\to S\) 也有性质 \(\mathscr P\).}
+
+\item[\textup{(vii)}]\phantomsection\label{concl:sga3-VIB-9.2-vii}
+  \emph{设 \(\mathscr P\) 是 \(S\)-态射的一个性质.
+  假设 \(\mathscr P\) 对 \textup{(fpqc)} 拓扑是局部的
+  \textup{(参见 \hyperref[par:sga3-VIB-2.0]{2.0} 及
+  \hyperref[rem:sga3-VIB-2.1.2]{2.1.2})}.
+  则 \(p:G\to G''\) 有性质 \(\mathscr P\),
+  当且仅当 \(\pi':G'\to S\) 有性质 \(\mathscr P\).}%
+  \begingroup
+  \renewcommand{\thefootnote}{\fnsymbol{footnote}}%
+  \footnote[1]{\label{note:sga3-VIB-9.2-vii-base}
+  译者注: 法文原文在本项中将 \(\pi'\) 的终点印为 \(S'\).
+  此处没有定义 \(S'\), 而第
+  \textup{\SGARefLink{concl:sga3-VIB-9.2-vi}{(vi)}} 项
+  将 \(\pi'\) 确定为结构态射 \(G'\to S\); 此处采用此终点.}%
+  \endgroup
+
+\item[\textup{(viii)}]\phantomsection\label{concl:sga3-VIB-9.2-viii}
+  \emph{设 \(\mathscr P\) 是 \(S\)-态射的一个性质.
+  假设 \(\mathscr P\) 对 \textup{(fpqc)} 拓扑是局部的,
+  且在复合下稳定.
+  若结构态射 \(G''\to S\) 与 \(G'\to S\) 有性质 \(\mathscr P\),
+  则结构态射 \(G\to S\) 也有性质 \(\mathscr P\).}
+
+\item[\textup{(ix)}]\phantomsection\label{concl:sga3-VIB-9.2-ix}
+  \emph{若 \(G\) 约化, 则 \(G''\) 约化.}
+
+\item[\textup{(x)}]\phantomsection\label{concl:sga3-VIB-9.2-x}
+  \emph{\(G''\) 在 \(S\) 上分离的充要条件,
+  是 \(u\) \textup{(或等价地, \(\varepsilon''\))} 为闭浸入.}
+
+\item[\textup{(xi)}]\phantomsection\label{concl:sga3-VIB-9.2-xi}
+  \emph{\(G'\) 在 \(S\) 上平坦的充要条件,
+  是 \(p\) 平坦\textup{(或等价地, 忠实平坦)}.}
+
+  \emph{此时, \(G''\) 在 \(S\) 上平坦的充要条件,
+  是 \(G\) 在 \(S\) 上平坦.}
+
+\item[\textup{(xii)}]\phantomsection\label{concl:sga3-VIB-9.2-xii}
+  \emph{\(G'\) 在 \(S\) 上平坦且局部有限呈示的充要条件,
+  是 \(p:G\to G''\) 忠实平坦且局部有限呈示.}
+
+  \emph{此时, \(G''\) 在 \(S\) 上局部有限呈示
+  \textup{(分别地, 局部有限型、有限型、平滑、平展、非分歧、局部拟有限、拟有限)}
+  的充分条件, 是 \(G\) 在 \(S\) 上具有相同性质
+  \textup{(在前两种情形中, 此条件也是必要的; 参见 \textup{(viii)})}.}
+
+\item[\textup{(xiii)}]\phantomsection\label{concl:sga3-VIB-9.2-xiii}
+  \emph{假设 \(G'\) 在 \(S\) 上平坦且有限呈示.}
+  \begin{enumerate}
+  \item[\textup{a)}]\phantomsection\label{concl:sga3-VIB-9.2-xiii-a}
+    \emph{则 \(p\) 有限呈示且忠实平坦.}
+  \item[\textup{b)}]\phantomsection\label{concl:sga3-VIB-9.2-xiii-b}
+    \emph{此外, \(G\) 在 \(S\) 上有限呈示的充要条件,
+    是 \(G''\) 也如此.}
+  \end{enumerate}
+\end{enumerate}
+
+\emph{证明.}
+回顾所考虑的等价关系普遍有效 (IV, \SGARefLink{sga3:iv:proposition:4:4:9}{4.4.9}).
+断言 \textup{(i)}, \textup{(iii)}, \textup{(iv)}, \textup{(v)}
+及 \textup{(ii)} 的第一个断言,
+分别由 IV, \SGARefLink{sga3:iv:proposition:4:4:3}{4.4.3},
+5.2.2, 5.2.4, 3.4.5 及 \SGARefLink{thm:sga3-VIA-3.3.2}{3.3.2}\textup{(iii)} 得到.
+\textup{(ii)} 的第二个断言由第一个断言得到,
+如下列笛卡尔图所示, 因为
+\[
+  (G\times_SG')\times_GS
+\]
+同构于 \(G'\):
+\begin{center}
+  \phantomsection\label{diag:sga3-VIB-9.2-proof-cartesian}%
+  {\small
+  \begin{tikzcd}[row sep=large,column sep=large]
+    G'
+      \arrow[r,"{((\varepsilon\circ\pi'),\operatorname{id}_{G'})}"]
+      \arrow[d,"\pi'"'] &
+    G\times_SG'
+      \arrow[r,"{\mu\circ(\operatorname{id}_G\times u)}"]
+      \arrow[d,"\operatorname{pr}_1"] &
+    G \arrow[d,"p"] \\
+    S \arrow[r,"\varepsilon"'] &
+    G \arrow[r,"p"'] &
+    G''
+  \end{tikzcd}}
+\end{center}
+事实上, \(\varepsilon''\) 是 \(G''\) 的一个 \(S\)-截面,
+因而是浸入 (EGA~I, 5.3.13);
+由以上笛卡尔图, \(u\) 也如此, 这就完成了 \textup{(ii)} 的证明.
+此外, \textup{(vi)} 立即由 \textup{(ii)} 的第二个笛卡尔图得到.
+
+证明 \textup{\SGARefLink{concl:sga3-VIB-9.2-vii}{(vii)}}.
+由 \textup{\SGARefLink{concl:sga3-VIB-9.2-i}{(i)}},
+\(p\) 是 \textup{(fpqc)} 拓扑的覆盖.
+所以, 由 \textup{(ii)}, 要证明 \(p\) 有性质 \(\mathscr P\),
+只需证明第一投影
+\[
+  \operatorname{pr}_1:G\times_SG'\longrightarrow G
+\]
+有性质 \(\mathscr P\).
+这由 \(\mathscr P\) 在基变换下的稳定性得到,
+因为 \(\operatorname{pr}_1\) 由 \(\pi'\) 经基变换得到.
+
+显然, \textup{(viii)} 由 \textup{(vii)} 得到, 因为
+\[
+  \pi=\pi''\circ p,
+\]
+其中 \(\pi'':G''\to S\) 表示结构态射.
+
+证明 \textup{\SGARefLink{concl:sga3-VIB-9.2-ix}{(ix)}}.
+由 \textup{\SGARefLink{concl:sga3-VIB-9.2-i}{(i)}}, \(p\) 是满态射.
+由于 \(G\) 约化, \(p\) 通过浸入
+\[
+  G''_{\mathrm{red}}\longrightarrow G'',
+\]
+分解. 因而该浸入也是满态射, 从而是同构
+(IV, \SGARefLink{sga3:iv:lemma:4:4:4}{4.4.4}).
+
+证明 \textup{(x)}.
+若 \(G''\) 在 \(S\) 上分离,
+则由 EGA~I, 5.4.6, \(\varepsilon''\) 是闭浸入.
+另一方面, 在 \textup{(ii)} 中已知,
+\(\varepsilon''\) 是闭浸入当且仅当 \(u\) 是闭浸入.
+最后, 若 \(u\) 是闭浸入, 则
+\[
+  \delta\circ(\operatorname{id}_G\times u):
+    G\times_SG'\longrightarrow G\times_SG.
+\]
+也是闭浸入. 由\hyperref[lem:sga3-VIB-9.2.1]{下文引理 9.2.1},
+可知 \(G''\) 在 \(S\) 上分离.
+
+断言 \textup{(xi)} 由 \textup{(vii)} 及 EGA~IV\(_2\), 2.2.13 得到.
+
+断言 \textup{(xii)} 由 \textup{(vii)},
+EGA~IV\(_4\), 17.7.5 与 17.7.7,
+以及 \(p\) 普遍为开这一事实得到:
+对每个 \(s\in S\), 若 \(G_s\) 的底空间离散,
+则 \(G''_s\) 的底空间也离散.
+
+最后, 断言 \textup{(xiii)} 由 \textup{(vii)},
+\textup{(viii)} 及 EGA~IV\(_4\), 17.7.5 得到.
+
+% 中文翻译检查点：本组件全部正文、证明、脚注及源注已译；源260行。
+% 机械核对：行内数学122处、陈列数学7处及全部引用键守恒（数学中的自然语言已译）。
+% 状态：完成源文覆盖和逐段自校；尚未经独立合卷编译与页面审查。

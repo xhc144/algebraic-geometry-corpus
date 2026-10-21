@@ -1,0 +1,107 @@
+% SGA 3, 第 VI_B 篇, 第 1 轮英文重构底本的中译.
+% 范围: 注 7.6.1 及引理 7.7 和其完整证明.
+% 权威底本: Polo--Gille Exp6B-13oct24.pdf, 组件第 57--58 页
+% (合卷第 398--399 页; 重版页眉第 387--388 页; 原版边栏页码第 370--371 页).
+% 命题 7.8 始于组件第 58 页稍后位置, 不在本组件内.
+% OCR 与 Reinhold 英文 Markdown 仅为对照材料. 本组件无图.
+
+\medskip
+\phantomsection\label{rem:sga3-VIB-7.6.1}%
+\noindent\textbf{注 7.6.1.---}
+\hyperref[prop:sga3-VIB-7.6]{7.6} 的等价条件显然蕴含所考虑的层
+\(F\) 可表. 反之一般不成立:%
+\footnote{\label{note:sga3-VIB-78}编者注: 以下扩充了原文的论证.}
+例如, 若 \(k\) 的特征为 \(0\), 取 \(G=\mathbb G_{a,k}\),
+设
+\[
+  f:\operatorname{Spec}k\longrightarrow G
+\]
+是由 \(G(k)\) 的点 \(1\) 定义的态射.
+则 \(F\) 由常 \(k\)-群 \(\mathbb Z_k\) 表出,
+而 \(\Gamma_G(f)=G\); 所以单态射
+\[
+  \mathbb Z_k\hookrightarrow G
+\]
+不是满射.
+
+为简单起见, 现在假设 \hyperref[prop:sga3-VIB-7.6]{7.6}
+中特例的假设成立, 并假设 \(F\) 可表.
+由 EGA~IV\(_3\), 8.14.2, 层 \(F\) 在 \(k\) 上局部有限呈示.
+所以问题在于占优单态射
+\[
+  F\longrightarrow\Gamma_G(f)
+\]
+是否为同构, 或等价地, 是否为闭浸入.
+由 \hyperref[cor:sga3-VIB-1.4.2]{1.4.2}, 若 \(F\) 拟紧, 就是如此;
+由 \hyperref[sga3:VIA:0.5.1]{VI\(_A\), 0.5.1}, 若 \(F\) 连通, 也是如此.
+特别地, 由 \hyperref[cor:sga3-VIB-7.2.1]{7.2.1},
+当 \(X\) 连通且 \(f(X)\) 包含 \(G\) 的单位元时, 就是如此.
+
+\medskip
+\phantomsection\label{lem:sga3-VIB-7.7}%
+\noindent\textbf{引理 7.7.---}
+\emph{设 \(k\) 是代数闭域, \(G\) 是局部有限型的 \(k\)-群,
+\(X\) 是局部有限型的几何约化 \(k\)-概形,
+\(f:X\to G\) 是一个 \(k\)-态射,
+\(H\) 是 \(G\) 的一个满足 \(H\subset f(X)\) 的群子概形. 置}
+\phantomsection\label{form:sga3-VIB-7.7-Gamma-prime}%
+\[
+  \Gamma'=\bigcup_{n\geq1}f^n(X^n),
+  \qquad
+  \Gamma'_0=\Gamma'\cap G(k),
+  \qquad
+  H_0=H(k),
+\]
+\emph{并假设 \(H_0\) 在 \(\Gamma'_0\) 中的指数有限.
+则存在一个整数 \(m\), 使得}
+\[
+  f^m(X^m)=\Gamma_G(f)
+\]
+\emph{(参见 \hyperref[prop:sga3-VIB-7.6]{7.6}),
+且 \(\Gamma_G(f)\) 是 \(H\) 的有限多个平移的并.}
+
+对每个 \(n\geq1\), \(G\) 的子集 \(f^n(X^n)\)
+是归纳可构造的 (EGA~IV\(_1\), 1.9.5\textup{(viii)}).
+因此 \(\Gamma'\) 也如此.
+由于 \(G\) 是 Jacobson 概形, \(\Gamma'_0\) 在 \(\Gamma'\) 中稠密.
+由假设, 存在有限多个点
+\[
+  a_1,\ldots,a_r\in\Gamma'_0
+\]
+使得
+\[
+  \Gamma'_0=a_1H_0\cup\cdots\cup a_rH_0.
+\]
+所以,
+\phantomsection\label{form:sga3-VIB-7.7-closure-chain}%
+\[
+\begin{aligned}
+  \Gamma_G(f)
+    &=\overline{\Gamma'}
+     =\overline{\Gamma'_0}
+     =\overline{a_1H_0\cup\cdots\cup a_rH_0}\\
+    &=\overline{a_1H_0}\cup\cdots\cup\overline{a_rH_0}\\
+    &=a_1\overline{H_0}\cup\cdots\cup
+      a_r\overline{H_0},
+\end{aligned}
+\]
+其中最后一个等式成立, 是因为由每个 \(a_i\) 给出的平移
+都是 \(G\) 到自身的同胚. 因此
+\[
+  \Gamma_G(f)=a_1H\cup\cdots\cup a_rH.
+\]
+
+还显然存在一个整数 \(p\), 使得对 \(1\leq i\leq r\),
+每个 \(a_i\) 都属于 \(f^p(X^p)\).
+最后, 由于 \(H\subset f(X)\), 对每个 \(i\) 都有
+\[
+  a_iH\subset f^{p+1}(X^{p+1})
+\]
+所以
+\[
+  f^{p+1}(X^{p+1})=\Gamma_G(f).
+\]
+
+% 中文翻译检查点：本组件全部正文、证明、脚注及源注已译；源114行。
+% 机械核对：行内数学51处、陈列数学11处及全部引用键守恒（数学中的自然语言已译）。
+% 状态：完成源文覆盖和逐段自校；尚未经独立合卷编译与页面审查。
