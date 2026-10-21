@@ -1,0 +1,902 @@
+\sgaStableTarget{sga6.e00.chapter-ii-classes-of-coherent-algebraic-sheaves.occ2}\section*{第二章. 凝聚代数层的类与 Chern 类}
+
+\sgaStableTarget{sga6.e00.sec.1.occ3}\subsection*{1. Chow 理论}
+
+本章固定一个基域 $k$; 为简单起见, 假设它代数闭. 然而下文的很大一部分, 或许全部, 在没有此限制时仍然成立. 所考虑的代数空间及正则映射均在 $k$ 上定义.
+
+代数空间称为\emph{拟射影的（quasi-projective）}, 如果它同构于某个射影空间的局部闭子集.
+
+设 $X$ 为维数 $n$ 的非奇异连通拟射影簇. 用 $A(X)$ 表示 $X$ 上的闭链模有理等价的类所成的分次环, 称为 $X$ 的 \emph{Chow 环（Chow ring）}. 因而 $A^i(X)$ 由维数为 $n-i$ 的闭链的类构成. $A(X)$ 确实为分次环这一事实, 来自以下 Chow 定理.
+
+\sgaStableTarget{sga6.e00.thm.2-1}\textbf{定理 2.1.}\footnote{由于作者的一个误解, 此处陈述的定理超过了目前已知的结果. 实际上只使用 Chow 的“移动引理”, 即两个闭链可在其类中移动, 使它们的相交不过剩; 参见 Chevalley Seminar 1958, \emph{Anneau de Chow et applications}.} $X$ 上每个闭链均有理等价于一个非奇异闭链. 给定 $A^i(X)$ 与 $A^j(X)$ 的元素, 可找到这两个元素的非奇异代表, 记为 $Y^{n-i}$ 和 $Z^{n-j}$, 使它们处处横截相交.
+
+闭链称为非奇异的, 如果其各分支均为非奇异子簇. 两个闭链称为处处横截相交, 如果其中任一闭链的每个分支均与另一闭链的每个分支横截相交, 即两个相交的簇在其交点处均非奇异, 且它们在该处的切簇处于一般位置.
+
+设 $f$ 为从 $X$ 到 $Y$ 的态射, 即正则映射（其中 $X$ 与 $Y$ 均拟射影且非奇异）. 利用前述定理, $f$ 定义分次环同态
+\sgaStableTarget{sga6.e00.eq.2-1.occ2}\begin{equation}\tag{2.1}
+f^*:A(Y)\longrightarrow A(X),
+\end{equation}
+即闭链类的逆像. 因而 $A(X)$ 成为 $X$ 的反变函子.
+
+设 $f$ 为从 $X^n$ 到 $Y^m$ 的固有态射（即按 Weil 的术语, $f$ 的图在 $Y$ 上完备, 参见 [3]）. 则 $f$ 还定义可加同态
+\sgaStableTarget{sga6.e00.eq.2-2}\begin{equation}\tag{2.2}
+f_*:A(X^n)\longrightarrow A(Y^m),
+\end{equation}
+它保持闭链的维数, 因而使次数增加 $m-n$.
+
+
+
+
+因此, 对固有态射, 忽略乘法结构及分次后, $A(X)$ 是 $X$ 的协变函子. 记下经典公式
+\sgaStableTarget{sga6.e00.eq.2-3.occ2}\begin{equation}\tag{2.3}
+ f_*(x\cdot f^*(y))=f_*(x)\cdot y .
+\end{equation}
+
+我们还将使用 Chow 的 Chern 类理论. 它给每个向量丛 $E$（仍假设 $X$ 拟射影且非奇异）赋予 Chern 类
+\[
+ c^i(E)\in A^i(X)\qquad (i\geq 1),
+\]
+使它们满足以下条件. 置 $c^0(E)=1$ 以及
+\sgaStableTarget{sga6.e00.eq.2-4.occ2}\begin{equation}\tag{2.4}
+ \Ctil(E)=\left[\rank E,\sum_{i\geq 0}c^i(E)\right]\in \Atil(X)
+\end{equation}
+（$\Atil(X)$ 的定义见第一章第 3 节）. Chern 类理论须满足的条件表达如下:
+\sgaStableTarget{sga6.e00.eq.2-5.occ2}\begin{equation}\tag{2.5}
+ \Ctil(E)=\Ctil(E')+\Ctil(E'')
+\end{equation}
+当向量丛 $E$ 为 $E'$ 与 $E''$ 的扩张时, 有上式. 若置
+\[
+ C(E)=\sum_i c^i(E),
+\]
+则此条件表达为 $C(E)=C(E')C(E'')$. 公式 \hyperlink{sga6.e00.eq.2-5}{(2.5)} 允许将 $\Ctil$ 延拓为从 $K(\xi(X))$（参见第一章第 2 节, \hyperlink{sga6.e00.ex.2-2}{例 2)}）到 $\Atil(X)$ 的可加同态:
+\sgaStableTarget{sga6.e00.eq.2-6}\begin{equation}\tag{2.6}
+ \Ctil:K(\xi(X))\longrightarrow \Atil(X),
+\end{equation}
+并且要求 $\Ctil$ 为 $\lambda$-环的 $\lambda$-同态. 最后这个条件也可写成
+\sgaStableTarget{sga6.e00.eq.2-7}\begin{equation}\tag{2.7}
+ \Ctil(E\otimes F)=\Ctil(E)\Ctil(F),\qquad
+ \Ctil(\lambda^iE)=\lambda^i\Ctil(E),
+\end{equation}
+其中 $E$ 与 $F$ 为两个向量丛; 当然, $\Ctil$ 自动与增广相容. 设 $D$ 为 $X$ 上的除子, $L(D)$ 为它定义的向量丛. 要求
+\sgaStableTarget{sga6.e00.eq.2-8}\begin{equation}\tag{2.8}
+ c^1(L(D))=\ellc(D),\qquad c^i(L(D))=0\quad (i>1),
+\end{equation}
+其中对任意闭链 $Z$, $\ellc(Z)$ 表示它在 $A(X)$ 中的类. 最后要求 $c^i$ 具有函子性, 即若 $f$ 为从 $X$ 到 $Y$ 的态射, $E$ 为 $Y$ 上的向量丛, 则
+\sgaStableTarget{sga6.e00.eq.2-9}\begin{equation}\tag{2.9}
+ c^i(f^!(E))=f^*(c^i(E)),
+\end{equation}
+其中 $f^!(E)$ 为 $E$ 在 $X$ 上的逆像. 也可将 \hyperlink{sga6.e00.eq.2-9}{(2.9)} 写成以下形式: 向量丛的逆像概念定义增广 $\lambda$-环的 $\lambda$-同态
+\sgaStableTarget{sga6.e00.eq.2-10}\begin{equation}\tag{2.10}
+ f^!:K(Y)\longrightarrow K(X),\footnote{此处使用的记号 $f^!$ 与对偶理论中的记号相冲突（例如参见 R. Hartshorne, \emph{Residues and Duality}, Lecture Notes in Mathematics, no. 20, Springer, 1966）. 因此本讨论班将它替换为记号 $f^*$.}
+\end{equation}
+这里用 $K(X)$ 代替 $K(\xi(X))$, 而 \hyperlink{sga6.e00.eq.2-9}{(2.9)} 意味着图
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+K(Y) \arrow[r,"f^!"] \arrow[d,"\Ctil_Y"'] & K(X) \arrow[d,"\Ctil_X"]\\
+A(Y) \arrow[r,"f^*"'] & A(X).
+\end{tikzcd}
+\]
+交换. 这里以下标标明所考虑 $\Ctil$ 的空间.
+
+\sgaStableTarget{sga6.e00.thm.2-2}\textbf{定理 2.2.} 存在满足条件 \hyperlink{sga6.e00.eq.2-5.occ2}{(2.5)}, \hyperlink{sga6.e00.eq.2-7}{(2.7)}, \hyperlink{sga6.e00.eq.2-8}{(2.8)} 及 \hyperlink{sga6.e00.eq.2-9}{(2.9)} 的 Chern 类理论.
+
+我们还承认以下命题.
+
+\sgaStableTarget{sga6.e00.prop.2-3}\textbf{命题 2.3.} 设 $Y$ 为 $X$ 的闭子集, $U$ 为其补集. 若 $x$ 为 $A(X)$ 中在 $U$ 上限制为 $0$ 的元素, 则 $x$ 存在以 $Y$ 为支集的闭链代表.
+
+\sgaStableTarget{sga6.e00.cor.unnamed.occ2}\textbf{推论.} 设 $p=\dim X-\dim Y$. 则当 $i<p$ 时, 同态
+\[
+ A^i(X)\longrightarrow A^i(U)
+\]
+为双射. $A^p(X)\to A^p(U)$ 的核的每个元素都是 $Y$ 的维数为 $n-p$ 的分支的线性组合; 因而若 $Y$ 不可约, 它正比于 $\ellc(Y)$.
+
+\sgaStableTarget{sga6.e00.sec.2.occ3}\subsection*{2. 凝聚代数层的 Chern 类的定义}
+
+设 $\cC$ 为 Abel 范畴, $\cC_0$ 为 $\cC$ 的子类. 用 $K(\cC_0)$ 表示由 $\cC_0$ 的元素的同构类生成的自由群, 对由形如
+\[
+(E)-(E')-(E''),
+\]
+的元素生成的子群的商, 其中 $E$ 为 $E'$ 与 $E''$ 的扩张, 且 $E,E',E''\in\cC_0$. 必须假设 $\cC_0$ 的元素关于同构关系的各类构成集合. 用 $\gamma_{\cC_0}(E)$ 表示对象 $E\in\cC_0$ 在 $K(\cC_0)$ 中的类, 在不致混淆时省略下标 $\cC_0$. 群 $K(\cC_0)$ 解决了如下函数的泛问题:
+\[
+E\longmapsto f(E)
+\]
+它们定义于 $\cC_0$, 取值于任意 Abel 群 $A$, 且具有可加性, 即当 $E$ 为 $E'$ 与 $E''$ 的扩张时, 有 $f(E)=f(E')+f(E'')$.
+
+设 $F$ 为从 $\cC$ 到 $\cC'$ 的可加函子, $\cC'_0$ 为 $\cC'$ 中满足与 $\cC_0$ 相同条件的子类, 使对每个 $A\in\cC_0$, 各 $R^qF(A)$ 属于 $\cC'_0$, 且当 $q$ 足够大时为零. 假设 $\cC$ 中存在内射解消, 因而 $F$ 的导出函子 $R^qF$ 存在. 则 $F$ 由公式
+\sgaStableTarget{sga6.e00.eq.2-11}\begin{equation}\tag{2.11}
+ F(\gamma_{\cC_0}(E))=\sum_{i\geq 0}(-1)^i\gamma_{\cC'_0}(R^iF(E)).
+\end{equation}
+定义从 $K(\cC_0)$ 到 $K(\cC'_0)$ 的同态, 仍记为 $F$. 更一般地, 若有从 $\cC$ 到 $\cC'$ 的上同调函子 $(F^i)$, 使对每个 $E\in\cC_0$, 各 $F^i(E)$ 属于 $\cC'_0$, 且除有限多个 $i$ 以外均为零, 则得到从 $K(\cC_0)$ 到 $K(\cC'_0)$ 的同态. 这些讨论可推广到多函子; 此外, 经典谱序列给出传递性质, 此处不再明述.
+
+特别地, 若 $F$ 为正合函子, 则公式 \hyperlink{sga6.e00.eq.2-11}{(2.11)} 简化为
+\sgaStableTarget{sga6.e00.eq.2-11bis}\begin{equation}\tag{2.11 bis}
+ F(\gamma_{\cC_0}(E))=\gamma_{\cC'_0}(F(E)).
+\end{equation}
+特别地, 当 $\cC=\cC'$, $F$ 为恒等函子, 且 $\cC_0\subset \cC'_0$ 时适用; 此时有从 $K(\cC_0)$ 到 $K(\cC'_0)$ 的典范同态.
+
+\sgaStableTarget{sga6.e00.thm.2-3}\textbf{定理 2.3.} 设 $\cC$ 为 Abel 范畴, $\cC_0\subset \cC_1$ 为两个子类, 使 $\cC_1$ 的对象的同构类构成集合. 假设满足下列条件:
+
+\begin{enumerate}[label=(\roman*)]
+\item 对 $\cC$ 中每个满足 $A$ 和 $A''$ 属于 $\cC_0$（分别属于 $\cC_1$）的正合列 $0\to A'\to A\to A''\to 0$, 有 $A'\in\cC_0$（分别有 $A'\in\cC_1$）.
+\item 设 $u:A\to B$, $v:C\to B$, 其中 $A,B,C\in\cC_1$, 且 $u$ 为满射. 则存在 $L\in\cC_0$ 及同态 $u':L\to C$ 和 $v':L\to A$, 使 $u'$ 为满射且 $vu'=uv'$.
+\item 对每个 $A\in\cC_1$, 存在整数 $d=d(A)$, 使 $A$ 的每个由 $\cC_0$ 的对象构成的左解消 $L$ 均满足 $Z_d(L)\in\cC_0$, 其中 $Z_d$ 表示维数 $d$ 的闭链.
+\end{enumerate}
+在这些条件下, 从 $K(\cC_0)$ 到 $K(\cC_1)$ 的典范同态为同构.
+
+\emph{证明的思路.} 设 $A\in\cC_1$. 由 (ii) 和 (iii), 存在 $A$ 的由 $\cC_0$ 的对象构成的有限解消 $L$; 置
+\[
+ \ell(A)=\sum_{i\geq 0}(-1)^i\gamma_{\cC_0}(L_i).
+\]
+证明如此构造的 $K(\cC_0)$ 的元素与所选解消 $L$ 无关. 若有第二个解消 $L'$, 则以第三个解消 $L''$ 同时“盖住” $L$ 和 $L'$, 即有从 $L''$ 到 $L$ 及 $L'$ 的满同态; 由 (i) 和 (ii), 这是可能的. 于是归结为证明 $E_{\cC_0}(L)=E_{\cC_0}(L'')$. 两者之差为 $E_{\cC_0}(N)$, 其中 $N$ 为从 $L''$ 到 $L$ 的满同态之核; 由 (i), 此核属于 $\cC_0$. 由于 $N$ 在所有维数均为无上同调复形, $E_{\cC_0}(N)=0$, 从而得到结论. 这里对取值于 $\cC_0$ 的有限复形, $E_{\cC_0}(L)$ 表示 Euler--Poincar\'e 特征
+\[
+ \sum_i (-1)^i\gamma_{\cC_0}(L_i).
+\]
+类似可证, 如此构造的函数 $\ell:\cC_1\to K(\cC_0)$ 可加; 因而它定义从 $K(\cC_1)$ 到 $K(\cC_0)$ 的同态, 并且显然, 此同态为从 $K(\cC_0)$ 到 $K(\cC_1)$ 的典范同态之逆. 证毕.
+
+\sgaStableTarget{sga6.e00.rem.unnamed.occ3}\textbf{注.} 为验证 (ii), 只需验证 $\cC_0$ 包含于 $\cC$ 的一个子类 $\cC_2$, 且它满足两个条件
+\begin{enumerate}[label=(ii \alph*)]
+\item 每个 $A\in\cC_1$ 同构于某个 $L\in\cC_2$ 的商;
+\item 若 $u:A\to B$, 其中 $A,B\in\cC_2$, 则 $\Ker u\in\cC_1$.
+\end{enumerate}
+
+\sgaStableTarget{sga6.e00.cor.unnamed.occ3}\textbf{推论.} 设 $X$ 为拟射影代数空间. 设 $\cF(X)$ 为 $X$ 上的凝聚代数层范畴, $\xi(X)$ 为凝聚局部自由代数层范畴, 等价地即 $X$ 上的向量丛范畴, $\cF_0(X)$ 为满足对每个 $x\in X$, 茎 $F_x$ 是有限上同调维数的 $\cO_x$-模的凝聚代数层 $F$ 所成的范畴. 因而 $\xi(X)\subset\cF_0(X)\subset\cF(X)$. 则典范同态
+\sgaStableTarget{sga6.e00.eq.2-12}\begin{equation}\tag{2.12}
+ K(\xi(X))\longrightarrow K(\cF_0(X))
+\end{equation}
+为同构.
+
+验证\hyperlink{sga6.e00.thm.2-3}{定理 2.3} 的条件. 条件 (i) 和 (iii) 由上同调维数的定义, 以及 Noether 局部环 $\cO_x$ 上的有限型投射模为自由模这一事实得到. 为验证 (ii), 证明 $\cC=\cF(X)$ 满足注中的条件 (ii a) 和 (ii b). 第二个条件是平凡的; 因此只需证明以下结果.
+
+\sgaStableTarget{sga6.e00.prop.2-4}\textbf{命题 2.4（Serre）.} 设 $X$ 为拟射影代数空间. 则 $X$ 上每个凝聚代数层均同构于某个局部自由代数层的商.
+
+若 $X$ 为射影空间的闭子集, 此命题由 [2] 成立, 因为当 $n$ 足够大时, $F(n)$ 由其截面生成, 即 $F$ 为 $\cO(-n)^k$ 的商. 在一般情形, $X$ 为某个射影空间的闭子集的开子集, 只需使用以下结果, 它在一些特例下由 Cartier 和 Serre 得到.
+
+\sgaStableTarget{sga6.e00.prop.2-5}\textbf{命题 2.5.} 设 $F$ 为代数空间 $X$ 的开子集 $U$ 上的凝聚代数层. 则 $F$ 同构于 $X$ 上某个凝聚代数层的限制.
+
+对包含 $U$ 且可将 $F$ 延拓于其上的开集应用 Zorn 引理, 可归结到 $X$ 为仿射的情形. 设 $\overline F$ 为 $X$ 上的代数层, 它在开集 $V$ 上的截面为 $F$ 在 $U\cap V$ 上的截面. 容易检验 $\overline F$ 拟凝聚, 即在每个仿射开集 $V$ 上---因而这里在整个 $X$ 上---由该开集的坐标环上的一个模定义, 此模未必为有限型. 若 $U$ 本身仿射, 则此点立即可见, 因为在开集 $V$ 上, $\overline F$ 由视为 $\Gamma(V,\cO_X)$-模的 $\Gamma(U\cap V,F)$ 定义. 在一般情形, $U$ 为有限个仿射开集 $U_i$ 的并, 因而 $\overline F$ 为显然的拟凝聚层同态
+\[
+ \prod_i \overline F\big|_{U_i}\longrightarrow \prod_{i,j}\overline F\big|_{U_i\cap U_j},
+\]
+的核, 所以本身拟凝聚. 由于 $X$ 仿射, $\overline F$ 由其截面生成. 又因 $\overline F|_U=F$ 凝聚, 存在 $\overline F$ 的有限个截面, 在 $U$ 上生成 $F$. 这些截面生成 $\overline F$ 的一个凝聚子层, 其在 $U$ 上的限制同构于 $F$. 证毕.
+
+现在假设 $X$ 非奇异且拟射影. 由合冲定理, 沿用\hyperlink{sga6.e00.thm.2-3}{定理 2.3} 的推论中的记号, 有
+\[
+ \cF_0(X)=\cF(X).
+\]
+因此, 此时
+\sgaStableTarget{sga6.e00.eq.2-13}\begin{equation}\tag{2.13}
+ K(\xi(X))=K(\cF(X)).
+\end{equation}
+此同构可表达如下.
+
+\sgaStableTarget{sga6.e00.cor.2}\textbf{定理 2.3 的推论 2.} 设 $X$ 为非奇异拟射影簇. 对每个 Abel 群 $A$, $X$ 上向量丛的取值于 $A$ 的可加函数 $f$, 与 $X$ 上凝聚代数层的取值于 $A$ 的可加函数 $g$ 之间有一一对应. 对每个 $f$, 对应唯一的 $g$, 使得
+\sgaStableTarget{sga6.e00.eq.2-14}\begin{equation}\tag{2.14}
+ f(E)=g(\cO_X(E))
+\end{equation}
+对 $X$ 上每个向量丛 $E$ 均成立, 其中 $\cO_X(E)$ 表示 $E$ 在 $X$ 上的正则截面芽所成的层.
+
+为对任意凝聚代数层计算 $g(F)$, 考虑 $F$ 的由形如 $\cO_X(E_i)$ 的层构成的有限解消, 则有
+\sgaStableTarget{sga6.e00.eq.2-14bis}\begin{equation}\tag{2.14 bis}
+ g(F)=\sum_i (-1)^i f(E_i).
+\end{equation}
+
+特别地, 若 $X$ 连通, 第 1 节中考虑了向量丛 $E$ 的取值于群 $A=\Atil(X)$ 的可加函数 $\Ctil(E)$. 由它得到凝聚层的可加函数, 记为 $\Ctil(F)$, 再取各分量得到函数
+\[
+ F\longmapsto c^i(F)\in A^i(X).
+\]
+称 $c^i(F)$ 为\emph{凝聚层} $F$ 的 \emph{Chern 类}. 理论上可由向量丛的 Chern 类通过（\hyperlink{sga6.e00.eq.2-14}{2.14} bis）计算它们, 但须在右边改用乘法记号. 至于 $\Ctil(F)$ 在 $\Z$ 中的分量, 它为层 $F$ 的秩, 对应于整环上模的秩: 若 $X$ 仿射（总可归结到这种情形）, 则 $F$ 由 $X$ 的坐标环上的有限型模定义, 取此模的秩即可.
+
+\sgaStableTarget{sga6.e00.sec.3.occ3}\subsection*{3. $K(X)$ 的函子性的一般性质}
+
+若 $X$ 为代数空间, 为简便记
+\[
+ K(X)=K(\cF(X)).
+\]
+当 $X$ 非奇异且拟射影时, 由\hyperlink{sga6.e00.thm.2-3}{定理 2.3} 的\hyperlink{sga6.e00.cor.2}{推论 2}, 将此群与 $K(\xi(X))$ 等同. 由于 $K(\xi(X))$ 不仅为 Abel 群, 还是 $\lambda$-环, 经搬运结构可知 $K(X)$ 也为 $\lambda$-环, 因而具有乘法结构及运算 $\lambda^i$. 重要的是不经由向量丛而直接定义这些结构; 下面将完成此事.
+
+若 $E$ 为 $X$ 上的向量丛, 用 $\gamma(E)$ 表示它在 $K(X)$ 中的类. 若 $F$ 为 $X$ 上的凝聚代数层, 同样用 $\gamma(F)$ 表示它在 $K(X)$ 中的类. 若 $Y$ 为 $X$ 的不可约子簇, 置 $\gamma(Y)=\gamma(\cO_Y)$, 其中 $\cO_Y$ 表示 $Y$ 的局部环层, 视为 $X$ 上的凝聚代数层. 按线性性, 对 $X$ 上任意闭链 $Y$ 定义记号 $\gamma(Y)$. 可能混淆时, 将 $\gamma$ 写作 $\gamma_X$.
+
+设 $X$ 为任意代数空间. 在 $K(X)$ 上引入滤过, 用 $K(X)^i$ 表示由满足
+\[
+ \dim \Supp F\leq n-i,
+\]
+的 $\gamma(F)$ 在 $K(X)$ 中生成的子群, 其中 $n$ 为 $X$ 的维数. Serre 的逐层分解引理采用 [3] 中的形式, 给出以下结果.
+
+\sgaStableTarget{sga6.e00.prop.2-6}\textbf{命题 2.6.} 群 $K(X)^i$ 由各 $\gamma(Y)$ 生成, 其中 $Y$ 遍历 $X$ 的维数为 $n-i$ 的子簇. 若 $X$ 不可约, 则 $\Gr^0(K(X))=\Z$.
+
+后一个同构由借助凝聚代数层的秩所定义的从 $K(X)$ 到 $\Z$ 的同态给出.
+
+现在假设 $X$ 非奇异. 依照第 2 节开头的讨论, 通过令
+\sgaStableTarget{sga6.e00.eq.2-15}\begin{equation}\tag{2.15}
+ \gamma(F)\gamma(G)=\sum_{i\geq 0}(-1)^i\gamma(\Tor_i(F,G)),
+\end{equation}
+在 $K(X)$ 中定义乘法; 当然, 各 $\Tor_i$ 是相对于 $X$ 的局部环取的. $\Tor_i$ 的正合列表明, 公式 \hyperlink{sga6.e00.eq.2-15}{(2.15)} 确实定义从 $K(X)\times K(X)$ 到 $K(X)$ 的双可加映射; 结合性来自多重 Tor 的谱序列. 同样可验证, 多个因子的乘积可由公式
+\sgaStableTarget{sga6.e00.eq.2-16}\begin{equation}\tag{2.16}
+ \gamma(F_1)\cdots\gamma(F_n)=\sum_{i\geq 0}(-1)^i\gamma(\Tor_i(F_1,\ldots,F_n)),
+\end{equation}
+计算, 其中右边的 $\Tor_i$ 为同时 Tor, 通过对各变元 $F_i$ 同时作投射解消来计算.
+
+若在 \hyperlink{sga6.e00.eq.2-15}{(2.15)} 中假设 $G$ 局部自由, 则得到
+\sgaStableTarget{sga6.e00.eq.2-15bis}\begin{equation}\tag{2.15 bis}
+ \gamma(F)\gamma(G)=\gamma(F\otimes G),
+\end{equation}
+这特别表明 $\gamma(\cO_X)$ 为 $K(X)$ 的单位元, 且从 $K(\xi(X))$ 到 $K(X)$ 的典范同态为环同态.
+
+公式 \hyperlink{sga6.e00.eq.2-15}{(2.15)} 显然受相交理论中 Serre 的“Tor 公式”启发. 该公式证明以下命题的第二部分; 第一部分直接由 \hyperlink{sga6.e00.eq.2-15}{(2.15)} 及局部 Tor 计算得到.
+
+\sgaStableTarget{sga6.e00.prop.2-7}\textbf{命题 2.7.} 设 $X$ 为非奇异簇, $Y$ 与 $Z$ 为 $X$ 中两个闭链. 若 $Y$ 与 $Z$ 处处横截相交, 则
+\sgaStableTarget{sga6.e00.eq.2-17}\begin{equation}\tag{2.17}
+ \gamma(Y)\gamma(Z)=\gamma(Y\cdot Z).
+\end{equation}
+若 $Y$ 与 $Z$ 齐次, 维数分别为 $n-i$ 和 $n-j$, 且它们相交没有过剩分支, 则
+\sgaStableTarget{sga6.e00.eq.2-18}\begin{equation}\tag{2.18}
+ \gamma_X(Y)\gamma_X(Z)=\gamma_X(Y\cdot Z)\mod K(X)^{i+j+1}.
+\end{equation}
+必须注意: \hyperlink{sga6.e00.eq.2-18}{(2.18)} 中一般没有等号成立. 第 4 节将看到, 若 $X$ 非奇异且拟射影, 则 $K(X)$ 的环结构与其滤过相容, 且相伴分次环 $\Gr(K(X))$ 与 $A(X)$ 对某个挠子群的商等同; 此挠子群或许总为零.\footnote{并非如此: 反例见本讨论班 \hyperlink{sga6.e14.para.4-7}{XIV 4.7}.}
+
+除了域 $k$ 的特征为 $0$ 的情形以外, 我不知道如何直接用层来定义 $\lambda^i(F)$; 这正是阻止我们在 $k$ 的特征不为 $0$ 时证明 Riemann--Roch 定理的原因. 设 $F$ 为 $X$ 上的凝聚代数层, $p$ 个字母的置换群 $\mathfrak S_p$ 作用于其上. 用 $F^{\mathrm{alt}}$ 表示满足
+\[
+ s\cdot x=\varepsilon(s)x
+\]
+对每个 $s\in\mathfrak S_p$ 均成立的 $x\in F$ 的集合, 其中 $\varepsilon(s)$ 为 $s$ 的符号. 显然, 它为 $F$ 的凝聚代数子层. 于是有:
+
+\sgaStableTarget{sga6.e00.thm.2-8}\textbf{定理 2.8.} 设 $X$ 为特征 $0$ 的域 $k$ 上的非奇异拟射影簇. 设 $F$ 为 $X$ 上的凝聚代数层. 则
+\sgaStableTarget{sga6.e00.eq.2-19}\begin{equation}\tag{2.19}
+ \lambda^p(\gamma(F))=\sum_{i\geq 0}(-1)^i\gamma\left((\Tor_i(F,F,\ldots,F))^{\mathrm{alt}}\right).
+\end{equation}
+这里, 群 $\mathfrak S_p$ 显然作用于层 $\Tor_i(F,\ldots,F)$.
+
+\emph{证明的思路.} 考虑 $F$ 的由局部自由层 $L_i$ 构成的有限解消 $L$, 并使用以下一般引理.
+
+\sgaStableTarget{sga6.e00.lem.2-9}\textbf{引理 2.9.} 设 $L=(L_i)$ 为只有有限个非零分量的分次局部自由凝聚代数层. 在 $K(X)$ 中有公式
+\sgaStableTarget{sga6.e00.eq.2-20}\begin{equation}\tag{2.20}
+ E\left((\otimes^p L)^{\mathrm{alt}}\right)=\lambda^p(E(L)).
+\end{equation}
+此公式中, 将 $\otimes^pL$ 视为带有群 $\mathfrak S_p$ 作用的层, 并计入分次; 因而分次按通常方式引入符号, 参见 Cartan--Eilenberg. 此外, 若 $M$ 为 $X$ 上的分次凝聚代数层, 置
+\[
+ E(M)=\sum_i(-1)^i\gamma(M_i).
+\]
+
+为证明公式 \hyperlink{sga6.e00.eq.2-20}{(2.20)}, 归结为在 $K(G)$ 中证明类似公式, 其中 $G$ 为代数群, 例如若干群 $\operatorname{Gl}(n,k)$ 的积, $L$ 为 $k$ 上的有限维 $G$-模（$K(G)$ 的定义见第一章第 2 节, \hyperlink{sga6.e00.ex.2-2}{例 2}）. 此时, 在\hyperlink{sga6.e00.thm.1-4}{定理 1.4} 中已使用该公式, 以说明 \hyperlink{sga6.e00.eq.1-33}{(1.33)} 的右边满足与左边相同的函数方程; 验证是初等的. 证毕.
+
+设 $f$ 为从 $X$ 到 $Y$ 的态射, 其中 $Y$ 为代数空间. 向量丛的逆像概念定义 $\lambda$-环的同态
+\[
+ f^!:K(\xi(Y))\longrightarrow K(\xi(X))
+\]
+将向量丛与局部自由凝聚代数层等同后, 向量丛的逆像概念对应于 [3, no. 8] 中已用过的代数层逆像概念. 当 $Y$ 非奇异时, 更一般地用涉及 Tor 的交错和、受第 2 节开头讨论启发的公式, 定义群同态
+\sgaStableTarget{sga6.e00.eq.2-21}\begin{equation}\tag{2.21}
+ f^!:K(Y)\longrightarrow K(X)
+\end{equation}
+该公式由读者写出. 此时下图交换:
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+K(\xi(Y)) \arrow[r,"f^!"] \arrow[d] & K(\xi(X)) \arrow[d]\\
+K(Y) \arrow[r,"f^!"'] & K(X),
+\end{tikzcd}
+\]
+这特别表明, 当 $X$ 与 $Y$ 均非奇异且拟射影时, 在将 $K(X)$ 与 $K(\xi(X))$、$K(Y)$ 与 $K(\xi(Y))$ 等同后, $f^!$ 的两种定义一致.
+
+还有一种无须 $Y$ 非奇异而能定义同态 \hyperlink{sga6.e00.eq.2-21}{(2.21)} 的情形, 即从 $\cF(Y)$ 到 $\cF(X)$ 的函子 $F\mapsto f^!(F)$ 正合的情形; 这就是说, $X$ 的局部环作为 $Y$ 的局部环上的模是平坦的. 此时只需置
+\[
+ f^!(\gamma_Y(F))=\gamma_X(f^!(F)).
+\]
+特别地, 当 $X$ 为 $Y$ 上的局部平凡纤维空间时属于此种情形; 为说明此点, 归结到积 $X=Y\times T$ 的情形即可. 注意, 还可验证此时若 $Z$ 为 $Y$ 的不可约子簇, 则 $f^!(\cO_Z)=\cO_{f^{-1}(Z)}$, 从而
+\sgaStableTarget{sga6.e00.eq.2-22}\begin{equation}\tag{2.22}
+ f^!(\gamma_Y(Z))=\gamma_X(f^{-1}(Z))
+\end{equation}
+当 $X$ 在 $Y$ 上平坦时成立. 没有后一个条件, 公式 \hyperlink{sga6.e00.eq.2-22}{(2.22)} 一般就不成立, 但有以下\hyperlink{sga6.e00.prop.2-7}{命题 2.7} 的类似结果.
+
+\sgaStableTarget{sga6.e00.prop.2-8}\textbf{命题 2.8.} 设 $f:X\to Y$ 为非奇异簇之间的态射, $Z$ 为 $Y$ 上的闭链. 若 $Z$ 处处与 $f$ 横截, 则公式 \hyperlink{sga6.e00.eq.2-22}{(2.22)} 成立. 若 $Z$ 齐次、余维数为 $i$, 且 $f^{-1}(Z)$ 没有过剩分支, 则
+\sgaStableTarget{sga6.e00.eq.2-23}\begin{equation}\tag{2.23}
+ f^!(\gamma_Y(Z))=\gamma_X(f^{-1}(Z))\mod K(X)^{i+1}.
+\end{equation}
+证明与\hyperlink{sga6.e00.prop.2-7}{命题 2.7} 的证明类似.
+
+最后, 再设 $X$ 与 $Y$ 为任意代数空间, $f$ 为从 $X$ 到 $Y$ 的固有态射. 对 $X$ 上每个凝聚代数层 $F$, 正像层 $f_*(F)$ 为凝聚代数层, 更一般地, 层 $R^if_*(F)$ 也如此（参见 [3]）. 回顾一下, 按定义, $R^if_*(F)$ 为将开集 $U$ 对应到群 $H^i(f^{-1}(U),F)$ 的预层在 $Y$ 上的相伴层; 特别地
+\sgaStableTarget{sga6.e00.eq.2-24}\begin{equation}\tag{2.24}
+ R^0f_*(F)=f_*(F),\qquad R^qf_*(F)=0\quad(q>\dim X),
+\end{equation}
+此外
+\sgaStableTarget{sga6.e00.eq.2-25}\begin{equation}\tag{2.25}
+ \Gamma(U,R^qf_*(F))=H^q(f^{-1}(U),F)
+\end{equation}
+当开集 $U$ 仿射时成立. 根据第 2 节, 由公式
+\sgaStableTarget{sga6.e00.eq.2-26}\begin{equation}\tag{2.26}
+ f_*(\gamma(F))=\sum_{q=0}^{\infty}(-1)^q\gamma(R^qf_*(F)).
+\end{equation}
+定义从 $K(X)$ 到 $K(Y)$ 的同态, 仍记为 $f_*$. 因而 $K(X)$ 成为关于固有态射的 $X$ 的协变函子. 关系式 $(fg)_*=f_*g_*$, 与我们先前忘了提到的关系式 $(fg)^!=g^!f^!$ 一样, 都是第 2 节中提到的传递关系的特例; 它们来自复合函子的谱序列.
+
+记下以下公式, 它在 $Y$ 非奇异时成立; 若 $Y$ 还拟射影, 取 $y$ 为 $Y$ 上一个向量丛的类即可特别容易地验证它:
+\sgaStableTarget{sga6.e00.eq.2-27}\begin{equation}\tag{2.27}
+ f_*(x\cdot f^!(y))=f_*(x)\cdot y\qquad (x\in K(X),\ y\in K(Y)).
+\end{equation}
+特别地, 若 $f$ 对 $Y$ 中各点的逆像为有限集且包含于一个仿射开集中,\footnote{后一个条件显然是第一个条件的推论; 作者在 1957 年尚不知道这一点!} 可验证函子 $F\mapsto f_*(F)$ 正合, 且对 $q>0$, 有 $R^qf_*(F)=0$. 因此此时 $f_*(\gamma_X(F))=\gamma_Y(f_*(F))$. 特别地, 若 $X$ 为 $Y$ 的代数子空间, $i$ 为 $X$ 到 $Y$ 的典范单射, 则
+\sgaStableTarget{sga6.e00.eq.2-28}\begin{equation}\tag{2.28}
+ i_*(\gamma_X(F))=\gamma_Y(F),
+\end{equation}
+其中右边将 $F$ 视为 $Y$ 上在 $X$ 外为零的层.
+
+\sgaStableTarget{sga6.e00.sec.4.occ3}\subsection*{4. 若干技术性结果}
+
+设 $X$ 为代数空间. 第 3 节已看到, 从 $X\times k$ 到 $X$ 的投影 $p$ 定义同态
+\sgaStableTarget{sga6.e00.eq.2-29}\begin{equation}\tag{2.29}
+ p^!:K(X)\longrightarrow K(X\times k).
+\end{equation}
+
+\sgaStableTarget{sga6.e00.prop.2-9}\textbf{命题 2.9.} 同态 \hyperlink{sga6.e00.eq.2-29}{(2.29)} 为满射.
+
+对 $n=\dim X$ 归纳. 若 $n<0$, 断言平凡; 假设 $n\geq 0$. 由\hyperlink{sga6.e00.prop.2-6}{命题 2.6}, 只需验证, 对 $X\times k$ 的每个不可约闭子集 $Y$, $\gamma(Y)$ 属于 $p^!$ 的像. 继续论证时只需假设 $X$ 不可约. 若 $p(Y)$ 在 $X$ 中不稠密, 断言由归纳假设得到. 否则, 要么 $Y=X\times k$, 此时断言平凡, 要么 $Y$ 为 $X\times k$ 中的超曲面. 设 $U$ 为 $X$ 中由非奇异点构成的仿射开集. 若 $D$ 为 $Y$ 在 $U\times k$ 上诱导的除子, 则由交换代数可知, 它线性等价于形如 $D'\times k$ 的除子, 其中 $D'$ 为 $U$ 上的除子. 则
+\[
+ \gamma_{U\times k}(D)-\gamma_{U\times k}(D'\times k)
+\]
+由\hyperlink{sga6.e00.prop.2-10}{命题 2.10} 的推论, 上式属于 $K(U\times k)^2$, 且由已证明的部分, 此元素形如 $p^!(x')$, 其中 $x'\in K(U)$. 所以
+\[
+ \gamma_{U\times k}(D)=p^!(x'+\gamma_U(D')),
+\]
+但由\hyperlink{sga6.e00.prop.2-10}{命题 2.10}, $x'$ 为 $K(X)$ 中某元素 $y$ 的限制, 因而 $\gamma_{X\times k}(D)-p^!(y)$ 在 $U\times k$ 上的限制为零. 由\hyperlink{sga6.e00.prop.2-10}{命题 2.10}, $\gamma_{X\times k}(D)-p^!(y)$ 来自
+\[
+ K(X\times k-U\times k)=K(X'\times k),\qquad X'=X-U.
+\]
+中的元素. 再次应用归纳假设即完成证明. 证毕.
+
+\sgaStableTarget{sga6.e00.cor.unnamed.occ4}\textbf{推论.} 设 $X$ 为代数空间, $p$ 为从 $X\times k^n$ 到 $X$ 的投影. 则同态
+\[
+ p^!:K(X)\longrightarrow K(X\times k^n)
+\]
+为满射; 若 $X$ 非奇异, 它甚至为双射.
+
+第一个断言由对 $n$ 的归纳得到. 对于第二个断言, 置 $f(x)=(x,0)$, 从而 $pf=1$ 及 $f^!p^!=1$, 这证明 $p^!$ 为单射.
+
+\sgaStableTarget{sga6.e00.prop.2-10}\textbf{命题 2.10.} 设 $X$ 为代数空间, $U$ 为 $X$ 的开子集, $Y$ 为它在 $X$ 中的补集. 则自然同态序列
+\sgaStableTarget{sga6.e00.eq.2-30}\begin{equation}\tag{2.30}
+ K(Y)\longrightarrow K(X)\longrightarrow K(U)\longrightarrow 0
+\end{equation}
+正合.
+
+附记. 与\hyperlink{sga6.e00.prop.2-3}{命题 2.3} 比较.
+
+$K(X)\to K(U)$ 为满射这一事实, 立即由\hyperlink{sga6.e00.prop.2-5}{命题 2.5} 得到, 或亦可由\hyperlink{sga6.e00.prop.2-6}{命题 2.6} 得到. 还需证明, 若 $x\in K(X)$ 在 $K(U)$ 中的限制为零, 则它属于 $K(Y)$ 的像. 为此, 回到 $K(X)$ 与 $K(U)$ 的显式定义. $X$ 上存在两个凝聚代数层 $F$ 和 $G$, 使得
+\[
+ x=\gamma_X(F)-\gamma_X(G)
+\]
+且
+\[
+ \gamma_U(F)-\gamma_U(G)=0.
+\]
+后一个关系式意味着, 可以在 $U$ 上找到带有滤过的凝聚层 $P'$ 与 $Q'$, 其各因子在 $U$ 上两两同构, 并且在 $U$ 上有同构
+\[
+ P=F+Q'\longrightarrow Q=G+P'.
+\]
+由\hyperlink{sga6.e00.prop.2-5}{命题 2.5}, 层 $P'$ 与 $Q'$ 是 $X$ 上凝聚层在 $U$ 上的限制, 仍以同样字母表示这些层; 同样, 由下面的\hyperlink{sga6.e00.lem.2-11}{引理 2.11}, 它们的滤过来自 $X$ 上相应层的滤过. 于是有
+\[
+ \gamma_X(F)-\gamma_X(G)=(\gamma_X(P)-\gamma_X(Q))+\bigl(\gamma_X(P')-\gamma_X(Q')\bigr).
+\]
+引入 $P'$ 与 $Q'$ 在 $X$ 上的滤过的因子 $P_i$ 与 $Q_i$, 最后一项为若干 $\gamma_X(P_i)-\gamma_X(Q_i)$ 之和, 其中 $P_i|_U\simeq Q_i|_U$. 因而归结为证明以下特例: 若 $R$ 与 $S$ 为 $X$ 上满足 $R|_U\simeq S|_U$ 的凝聚层, 则 $\gamma_X(R)-\gamma_X(S)$ 属于 $K(Y)$ 的像. 设 $T$ 为给定的从 $R|_U$ 到 $S|_U$ 的同构的图; 它为 $(R\times S)|_U$ 的凝聚子层, 因而由\hyperlink{sga6.e00.lem.2-11}{引理 2.11}, 它是 $R\times S$ 的一个凝聚子层（仍记为 $T$）在 $U$ 上的限制. 则
+\[
+ \gamma_X(R)-\gamma_X(S)=(\gamma_X(R)-\gamma_X(T))-(\gamma_X(S)-\gamma_X(T)),
+\]
+只需证明, 例如, 右边第一项属于 $K(Y)$ 的像. 但投影 $u:T\to R$ 在 $U$ 上为同构, 所以
+\[
+ \gamma_X(R)-\gamma_X(T)=\gamma_X(\Coker u)-\gamma_X(\Ker u),
+\]
+且 $\Ker u$ 和 $\Coker u$ 的支集均包含于 $Y$.
+
+于是只需再证明以下引理.
+
+\sgaStableTarget{sga6.e00.lem.2-11}\textbf{引理 2.11.} 设 $X$ 为代数空间, $F$ 为 $X$ 上的凝聚代数层, $U$ 为 $X$ 的开子集, $G$ 为 $F|_U$ 的凝聚子层. 则 $G$ 为 $F$ 的某个凝聚子层在 $U$ 上的限制.
+
+设 $\overline G$ 为 $F$ 的子层, 它在 $X$ 的开集 $V$ 上的截面为 $F$ 在 $V$ 上限制到 $U\cap V$ 后成为 $G$ 的截面的那些截面. 问题归结为证明此层 $\overline G$ 凝聚. 为此, 可假设 $X$ 与 $U$ 仿射, 因为 $U$ 是仿射开集 $U_i$ 的并, 此时 $\overline G$ 为相应层 $\overline{G|U_i}$ 的交. 则 $U$ 的坐标环为 $X$ 的坐标环 $A$ 的分式环 $A_S$, 并且立即可验证, 若 $F$ 由 $A$-模 $M$ 定义, 则 $F|_U$ 由 $A_S$-模
+\[
+ M_S=A_S\otimes_A M.
+\]
+定义. $F|_U$ 的子层 $G$ 由 $M_S$ 的子模 $N'$ 定义, 而 $\overline G$ 正是由 $M$ 的子模 $N$ 定义的, 其中该子模是 $N'$ 在从 $M$ 到 $M_S$ 的典范同态下的逆像. 证毕.
+
+\sgaStableTarget{sga6.e00.cor.1}\textbf{命题 2.10 的推论 1.} 设 $x\in K(X)$. 则 $x\in K(X)^i$ 当且仅当存在 $X$ 的闭子集 $Y$, 维数 $\leq n-i$, 使 $x$ 在 $X-Y$ 上的限制为零.
+
+\sgaStableTarget{sga6.e00.cor.2.occ2}\textbf{推论 2.} 假设 $X$ 连通、维数为 $n$, 且在维数 $n-1$ 处无奇点. 若 $D$ 与 $D'$ 为 $X$ 上两个线性等价的除子, 则
+\[
+ \gamma(D)=\gamma(D')\mod K(X)^2.
+\]
+由\hyperlink{sga6.e00.cor.1}{推论 1}, 可假设 $X$ 非奇异. 此时推论来自一般公式
+\sgaStableTarget{sga6.e00.eq.2-31}\begin{equation}\tag{2.31}
+ \gamma(D)=1-\gamma(L(-D))\mod K(X)^2,
+\end{equation}
+其中 $L(-D)$ 表示除子 $-D$ 定义的秩一向量丛. 为验证 \hyperlink{sga6.e00.eq.2-31}{(2.31)}, 将它写成
+\sgaStableTarget{sga6.e00.eq.2-31bis}\begin{equation}\tag{2.31 bis}
+ \gamma(L(-D))=1-\gamma(D)\mod K(X)^2,
+\end{equation}
+并注意到, 两边都是从除子群到环 $K(X)/K(X)^2$ 的可逆元乘法群的同态. 这里 $K(X)^1/K(X)^2$ 的平方为零, 利用\hyperlink{sga6.e00.cor.1}{推论 1}, 很容易从显式公式 \hyperlink{sga6.e00.eq.2-15}{(2.15)} 验证此点. 因而归结到 $D$ 为不可约超曲面的情形. 更一般地, 若 $D$ 为各分支互不相交的超曲面, 则有等式
+\sgaStableTarget{sga6.e00.eq.2-32}\begin{equation}\tag{2.32}
+ \gamma(D)=1-\gamma(L(-D)),
+\end{equation}
+它由层的正合列
+\[
+0\longrightarrow \cO_X(L(-D))\longrightarrow \cO_X\longrightarrow \cO_D\longrightarrow 0.
+\]
+
+\sgaStableTarget{sga6.e00.thm.2-12}\textbf{定理 2.12.} 设 $X$ 为非奇异拟射影簇, $Z$ 与 $Z'$ 为 $X$ 上余维数为 $p$ 的两个线性等价的齐次闭链. 则
+\sgaStableTarget{sga6.e00.eq.2-33}\begin{equation}\tag{2.33}
+ \gamma_X(Z)=\gamma_X(Z')\mod K(X)^{p+1}.
+\end{equation}
+由假设, 可以在 $X\times k$ 上找到维数 $n-p+1$ 的闭链 $Y$（$n$ 为 $X$ 的维数）, 及两个点 $a,a'\in k$, 使得
+\[
+ Z=Y\cdot (X\times a),\qquad Z'=Y\cdot (X\times a').
+\]
+由公式 \hyperlink{sga6.e00.eq.2-23}{(2.23)}, 有
+\[
+ \gamma_X(Z)=i_a^!(\gamma_{X\times k}(Y))\mod K(X)^{p+1},
+\]
+对于 $\gamma_X(Z')$ 也有类似公式. 因而只需证明 $i_a^!=i_{a'}^!$, 这立即由\hyperlink{sga6.e00.prop.2-9}{命题 2.9} 得到. 证毕.
+
+\sgaStableTarget{sga6.e00.cor.1.occ2}\textbf{推论 1.} $K(X)$ 的滤过与其环结构相容, 即对所有整数 $i,j\geq 0$, 有
+\[
+ K(X)^iK(X)^j\subset K(X)^{i+j}
+\]
+上述关系. 此外, 有自然的满分次环同态
+\sgaStableTarget{sga6.e00.eq.2-34}\begin{equation}\tag{2.34}
+ \varphi:A(X)\longrightarrow \Gr(K(X)),
+\end{equation}
+其中右边表示赋以滤过 $(K(X)^i)_{i\geq 0}$ 的 $K(X)$ 的相伴分次环, 该同态由条件
+\[
+ \varphi(\ellc(Z^{n-p}))=\gamma(Z^{n-p})\mod K(X)^{p+1}.
+\]
+定义. 此推论立即由\hyperlink{sga6.e00.thm.2-12}{定理 2.12}、命题 \hyperlink{sga6.e00.prop.2-6}{2.6} 及 \hyperlink{sga6.e00.prop.2-7}{2.7}, 以及 Chow 的\hyperlink{sga6.e00.thm.2-1}{定理 2.1}, 通过对整数 $i+j$ 归纳得到.
+
+\sgaStableTarget{sga6.e00.cor.2.occ3}\textbf{推论 2.} 设 $X$ 与 $Y$ 为两个非奇异拟射影簇, $f$ 为从 $X$ 到 $Y$ 的态射. 则从 $K(Y)$ 到 $K(X)$ 的同态 $f^!$ 与滤过相容, 且有交换图
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+A(Y) \arrow[r,"\varphi_Y"] \arrow[d,"f^*"'] & \Gr(K(Y)) \arrow[d,"\Gr(f^!)"]\\
+A(X) \arrow[r,"\varphi_X"'] & \Gr(K(X)).
+\end{tikzcd}
+\]
+利用 $f$ 的图, 将 $f$ 分解为 $X$ 到 $X\times Y$ 的浸入与 $X\times Y$ 到 $Y$ 的投影的复合. 对后者, 推论平凡; 对浸入, 按\hyperlink{sga6.e00.cor.1}{推论 1} 的方式论证, 用\hyperlink{sga6.e00.prop.2-8}{命题 2.8} 代替\hyperlink{sga6.e00.prop.2-7}{命题 2.7}.
+
+\sgaStableTarget{sga6.e00.prop.2-13}\textbf{命题 2.13（“胞腔分解”）.} 设 $P$ 为代数空间, 可以不可约也可以可约, 并赋以闭子集的递增族
+\[
+P^0\subset P^1\subset\cdots\subset P^n=P
+\]
+使对每个满足 $0\leq i\leq n$ 的 $i$, $P^i-P^{i-1}$ 的连通分支为同构于 $k^i$ 的代数空间 $V_{i,\alpha}$; 置 $P^{-1}=\varnothing$. 则:
+\begin{enumerate}[label=\alph*)]
+\item 对每个代数空间 $X$, 由 $X$ 与 $P$ 上的层的张量积得到的从 $K(X)\otimes K(P)$ 到 $K(X\times P)$ 的自然映射为满射.
+\item 各 $\gamma_P(V_{i,\alpha})$ 构成群 $K(P)$ 的一组生成元.
+\end{enumerate}
+证明对 $n$ 归纳, 使用\hyperlink{sga6.e00.prop.2-9}{命题 2.9} 的推论及\hyperlink{sga6.e00.prop.2-10}{命题 2.10}. 附记. 遗憾的是, 我不知道各 $\gamma_P(V_{i,\alpha})$ 是否构成 $K(P)$ 的一组基, 或 a) 中的同态是否为双射. 下文不需要知道这些.
+
+\sgaStableTarget{sga6.e00.thm.2-14}\textbf{定理 2.14.} 设 $x_i$（$1\leq i\leq q$）和 $E_j$（$1\leq j\leq r$）为字母, $n_j$（$1\leq j\leq r$）为正整数. 将 $k\geq 1$ 时的符号 $\lambda^k(x_i)$ 及 $1\leq k\leq n_j$ 时的 $\lambda^k(E_j)$ 视为不定元, 设 $R$ 为这些不定元的整系数多项式. 假设对每个分次环 $A$, 在 $R$ 中用 $\Atil$ 的元素 $\xi_i$ 代替 $x_i$, 用元素
+\[
+ \eta_j=[n_j,1+\eta_j^{(1)}+\cdots+\eta_j^{(n_j)}]
+\]
+代替 $E_j$, 并要求 $\varepsilon(\xi_i)=0$ 及 $k>n_j$ 时 $\eta_j^{(k)}=0$, 则有
+\[
+ R\bigl((\lambda^k(\xi_i)),(\lambda^k(\eta_j))\bigr)\in \Atil^p.
+\]
+那么, 若 $X$ 为不可约非奇异拟射影簇, 则对 $K(X)^1$ 的任意元素 $x'_i$ 及 $X$ 上维数为 $n_j$ 的向量丛 $E'_j$（$1\leq i\leq q$, $1\leq j\leq r$）, 有
+\sgaStableTarget{sga6.e00.eq.unnamed}\begin{equation}\tag{*}
+ R\bigl((\lambda^k(x'_i)),(\lambda^k(\gamma(E'_j)))\bigr)\in K(X)^p.
+\end{equation}
+
+\emph{证明.} 由第 2 节, 各 $x'_i$ 本身为形如 $\gamma(E)$ 的元素之差, 其中 $E$ 为向量丛. 另一方面, 假设 $X$ 为射影空间 $P$ 的局部闭子集, 由第 2 节及\hyperlink{sga6.e00.prop.2-5}{命题 2.5} 得到, 对每个 $F\in\cF(X)$, 当 $n$ 足够大时, 层 $F(n)$ 由其截面生成. 若 $F$ 由向量丛 $E$ 定义, 这表明 $E(n)$ 是 Grassmann 簇 $G$ 上的典范向量丛在某个从 $X$ 到 $G$ 的态射下的逆像. 考虑相应的从 $X$ 到 $P\times G$ 的态射, 可见 $F$ 是 $P\times G$ 上某个向量丛的逆像. 将此应用于出现的所有向量丛, 并使用\hyperlink{sga6.e00.thm.2-12}{定理 2.12} 的\hyperlink{sga6.e00.cor.2}{推论 2}, 便归结到 $X$ 为若干 Grassmann 簇的积的情形. 此时结论来自以下引理.
+
+\sgaStableTarget{sga6.e00.lem.2-15}\textbf{引理 2.15.} 假设 $X$ 为若干 Grassmann 簇的积. 则可找到从 $K(X)$ 到形如 $\Atil$ 的无挠 $\lambda$-环的 $\lambda$-同态, 其中 $A$ 为分次环, 此同态与滤过相容, 且相应的同态 $\Gr(K(X))\to\Gr(A)$ 为单射.
+
+为证明引理, 使用 Chow 的 Chern 类理论. 若能直接证明引理或\hyperlink{sga6.e00.thm.2-14}{定理 2.14}, 就可导出纯粹“层论”的 Chern 类理论; 参见第 5 节.
+
+考虑从 $K(X)$ 到 $\Atil(X)$ 的同态 $\Ctil$, 并置 $A=A(X)$. 还需证明从 $\Gr(K(X))$ 到 $\Gr(A(X))\simeq A(X)$ 的同态 $\psi=\Gr(\Ctil)$ 为单射. $\Ctil$ 与滤过相容这一事实对每个非奇异拟射影簇均成立, 并且容易由\hyperlink{sga6.e00.prop.2-3}{命题 2.3} 的推论得到. 另一方面, 由于 $X$ 为 Grassmann 簇 $G_j$ 的积, $X$ 上存在向量丛 $E_j$, 它们为各因子上典范丛的逆像. 使用以下已知事实:
+\begin{enumerate}[label=\alph*)]
+\item 在 $X$ 上, 闭链的线性等价等同于数值等价, 且 $A(X)$ 为有限秩群.
+\item 各 $c^i(E_j)$ 生成环 $A(X)$.
+\end{enumerate}
+由 a) 及以下引理得到,
+\[
+ \varphi:A(X)\longrightarrow \Gr(K(X))
+\]
+为单射, 因而为双射.
+
+\sgaStableTarget{sga6.e00.lem.2-15.occ2}\textbf{引理 2.15.} 设 $X^n$ 为非奇异射影簇, $Z^{n-p}$ 为 $X$ 上满足 $\varphi(Z)\in\Gr^p(K(X))$ 为零的闭链. 则 $Z^{n-p}$ 数值等价于零.
+
+为证明此引理, 只需使用可加函数
+\[
+ \chi(F)=\sum_{i\geq 0}(-1)^i\dim H^i(X,F)
+\]
+以及对每个 $x\in X$, 当 $F=\cO_{(x)}$ 时此函数等于 $1$ 这一事实.
+
+因此, 在所考虑的情形, $A(X)$ 与 $\Gr(K(X))$ 在每个次数具有相同的有限秩, 且 $\Gr(K(X))$ 无挠, 因为 $A(X)$ 无挠. 由上述断言 b) 可形式地得到, 从 $K(X)$ 到 $\Atil(X)$ 的映射 $\Ctil$ 模去有限群后为满射. 因为 $\Gr(K(X))$ 与 $A(X)$ 在每个次数具有相同的有限秩, 容易由此得到, 从 $\Gr(K(X))$ 到 $\Gr(\Atil(X))$ 的同态 $\Gr(\Ctil)$ 在每个次数模去有限群后为双射; 此处对次数归纳. 由于 $\Gr(K(X))$ 无挠, 此同态 $\Gr(\Ctil)$ 因而为单射. 证毕.
+
+附记. 同态 $\Ctil$ 一般不是满射, 即使 $X$ 为维数 $2$ 的射影空间也是如此.
+
+\sgaStableTarget{sga6.e00.sec.5.occ2}\subsection*{5. Chern 类的层论定义. 对单射态射研究的应用}
+
+\sgaStableTarget{sga6.e00.thm.2-16}\textbf{定理 2.16.} 设 $X$ 为非奇异拟射影簇. 则对每个 $x\in K(X)$ 和每个整数 $i\geq 0$, 元素 $\gamma^i(x-\varepsilon(x))$ 的滤过次数 $\geq i$. 用 $c^i(x)\in\Gr^i(K(X))$ 表示此元素模 $K(X)^{i+1}$ 的类. 若置
+\[
+ \widetilde c(x)=\left[\varepsilon(x),1+\sum_{i\geq 0}c^i(x)\right]\in \widetilde{\Gr(K(X))},
+\]
+则 $\widetilde c$ 满足类似于\hyperlink{sga6.e00.thm.2-2}{定理 2.2} 的条件.
+
+第一个断言由\hyperlink{sga6.e00.thm.2-14}{定理 2.14} 得到, $x\mapsto\widetilde c(x)$ 为 $\lambda$-环同态这一事实也如此; 公式 \hyperlink{sga6.e00.eq.1-25}{(1.25)} 蕴含 $\gamma_t(x+y)=\gamma_t(x)\gamma_t(y)$, 这已表明 $\widetilde c$ 为可加同态. $\widetilde c$ 的函子性立即可以验证, 而 \hyperlink{sga6.e00.prop.2-8}{(2.8)} 由 \hyperlink{sga6.e00.eq.2-31}{(2.31)} 得到. 证毕.
+
+\sgaStableTarget{sga6.e00.cor.1.occ3}\textbf{推论 1.} 有
+\[
+ c^i(x)=\varphi(c^i(x)).
+\]
+这由 Chern 类的唯一性定理得到, 其证明如 Hirzebruch 那样通过到旗簇来完成. 只需说明, 若 $Y$ 为 $X$ 上某个向量丛对应的旗簇, 则 $\Gr(K(X))\to\Gr(K(Y))$ 为单射; 通过从 $K(X)$ 显式确定 $K(Y)$ 及其全部结构, 即可验证此点. 这里不给出细节.
+
+\sgaStableTarget{sga6.e00.cor.2.occ4}\textbf{推论 2.} 假设对每个元素 $Z\in A(X)$, 存在从 $X$ 到若干 Grassmann 簇的积 $X'$ 的态射 $f$, 使 $Z$ 属于 $f^*$ 的像. 则典范同态
+\[
+ \varphi:A(X)\longrightarrow \Gr(K(X)),\qquad
+ \psi:\Gr(K(X))\longrightarrow A(X)
+\]
+在维数 $i$ 满足关系式
+\sgaStableTarget{sga6.e00.eq.2-35}\begin{equation}\tag{2.35}
+ \psi\varphi=(-1)^{i-1}(i-1)!\,1,
+ \qquad
+ \varphi\psi=(-1)^{i-1}(i-1)!\,1.
+\end{equation}
+由于 $\varphi$ 为满射, 显然只需证明第一个公式, 为此可假设 $X$ 为若干 Grassmann 簇的积. 由于此时 $\varphi$ 为单射, 只需证明第二个公式 \hyperlink{sga6.e00.eq.2-35}{(2.35)}; 由\hyperlink{sga6.e00.cor.1}{推论 1}, 它写成
+\[
+ \gamma^i(x-\varepsilon(x))=(-1)^{i-1}(i-1)!\,x\mod K(X)^{i+1}
+\]
+对每个 $x\in K(X)^i$ 均成立. 因为 $\psi$ 为单射, 只需对 $\Ctil(x)\in A(X)^i$ 证明类似关系, 而这来自（\hyperlink{sga6.e00.eq.1-22}{1.22} bis）.
+
+\sgaStableTarget{sga6.e00.rem.unnamed.occ4}\textbf{注.} \hyperlink{sga6.e00.cor.2}{推论 2} 使人有理由相信 \hyperlink{sga6.e00.eq.2-35}{(2.35)} 在所有情形均成立; 应当存在它的直接证明. 无论如何, 容易证明第二个公式 \hyperlink{sga6.e00.eq.2-35}{(2.35)} 模去 $\Gr(K(X))$ 的挠子群后成立; 在特征 $0$ 时, 此公式也是 Riemann--Roch 定理的推论. \hyperlink{sga6.e00.eq.2-35}{(2.35)} 成立时, 其意义在于表明 $\varphi$ 模去挠群后为单射, 这些挠群或许总为零. 所以将 Chern 类定义为 $\Gr(K(X))$ 的元素并不会损失太多. 若与 $\Q$ 张量, 如后文 Riemann--Roch 定理中将要做的那样, 则 Chern 类的两种定义将相同.
+
+仍设 $X$ 非奇异且拟射影. 再设 $Y$ 为 $X$ 的非奇异子簇, $i$ 为 $Y$ 到 $X$ 的单射. 则对 $i_*$ 与 $i^!$ 有以下公式:
+\begin{enumerate}[label=(\roman*)]
+\item $i^!$ 为 $\lambda$-环同态.
+\item $i_*(x\cdot i^!(y))=i_*(x)\cdot y$, 从而特别地
+\[
+ i_*i^!(y)=\xi y,
+\qquad \text{其中 }\xi=i_*i^!(1)=\gamma_X(N).
+\]
+\item $i^!i_*(x)=x\cdot\lambda_{-1}(N)$, 从而特别地
+\[
+ i^!(\xi)=i^!i_*(1)=\lambda_{-1}(N).
+\]
+\item $i_*(x)i_*(x')=i_*(xx'\lambda_{-1}(N))$.
+\end{enumerate}
+这里, 按定义, $N$ 为 $Y$ 在 $X$ 中的余法丛在 $K(Y)$ 中的类. 公式 (i) 和 (ii) 对任意态射成立, 未必要求为单射; (iii) 和 (iv) 则由\hyperlink{sga6.e00.eq.2-15}{定义 (2.15)} 及逆像的类似公式验证, 取 $x$ 与 $x'$ 为向量丛的类, 并利用
+\sgaStableTarget{sga6.e00.eq.2-36}\begin{equation}\tag{2.36}
+ \Tor(\cO_Y,\cO_Y)=\Lambda(N).
+\end{equation}
+这一事实. 公式 (iv) 表明, 若在 $K(Y)$ 上由定义
+\[
+ x\cdot_N x'=xx'\lambda_{-1}(N)
+\]
+引入新的乘法结构, 则 $i_*$ 为环同态（参见第一章第 4 节）. 此外还有公式
+\begin{enumerate}[label=(\roman*)]
+\setcounter{enumi}{4}
+\item $i_*(\lambda^p(N,x))=\lambda^p(i_*(x))$, 其中 $p\geq 1$,
+\end{enumerate}
+它意味着 $i_*$ 定义从 $K(Y)_N$ 到 $K(X)$ 的 $\lambda$-同态. 公式 (v) 肯定在所有情形均成立, 但目前仅在特征 $0$ 时得到证明, 因为它由定理 \hyperlink{sga6.e00.thm.1-4}{1.4} 和 2.8 合起来得到.
+
+对 $i_*$ 和 $i^*$ 有类似公式:
+\begin{enumerate}[label=(\roman* bis)]
+\item $i^*$ 为分次环同态.
+\item $i_*(x\cdot i^*(y))=i_*(x)y$, 从而特别地
+\[
+ i_*i^*(y)=\xi' y,
+\qquad \text{其中 }\xi'=i_*(1).
+\]
+\item $i^*i_*(x)=x\cdot (-1)^qN^q$, 从而特别地
+\[
+ i^*(\xi')=(-1)^qN^q.
+\]
+\item $i_*(x)i_*(x')=i_*(xx'(-1)^qN^q)$.
+\item $i_*$ 使次数增加 $q$.
+\end{enumerate}
+在这些公式中, $q$ 为 $Y$ 在 $X$ 中的余维数, 并置 $N^i=c^i(N)$. 只有公式 (iii bis) 和 (iv bis) 需要证明. 我不知道它们是否广为人知, 甚至是否成立; 这里只指出, 若在 $\Gr(K(Y))$ 和 $\Gr(K(X))$ 中而不是在 $A(Y)$ 和 $A(X)$ 中工作, 则它们可由公式 (ii) 和 (iv) 约化得到. 此时使用 $i_*$ 和 $i^*$ 分别由 $i_*$ 和 $i^!$ 取商得到这一事实, 并注意 $i_*$ 将滤过平移 $q$.
+
+联系 $i_*$ 与 $i^!$（分别联系 $i_*$ 与 $i^*$）的一切泛公式, 均为上述公式的形式推论, 这一点不难确信.
+
+公式 (v) 给出
+\[
+ i_*(\gamma^p(N,x))=\gamma^p(i_*(x)).
+\]
+\hyperlink{sga6.e00.thm.2-14}{定理 2.14} 与\hyperlink{sga6.e00.prop.1-5}{命题 1.5} 合起来表明, 对 $p=q+j$, $\gamma^p(N,x)$ 的滤过次数 $\geq j$. 若以 $G_{q,j}(N,x)$ 表示其在 $\Gr^j(K(Y))$ 中的类, 则\hyperlink{sga6.e00.thm.2-16}{定理 2.16} 表明
+\[
+ i_*(G_{q,j}(N,x))=c^p(i_*(x)).
+\]
+最后, \hyperlink{sga6.e00.prop.1-5}{命题 1.5} 结合\hyperlink{sga6.e00.thm.2-14}{定理 2.14}, 允许将 $G_{q,j}(N,x)$ 表为 $c^i(N)$、$c^i(x)$ 及 $\varepsilon(x)$ 的整系数多项式. 由此得到以下定理.
+
+\sgaStableTarget{sga6.e00.thm.2-17}\textbf{定理 2.17.} 假设域 $k$ 的特征为 $0$, $i:Y\to X$ 为非奇异拟射影簇的单射态射. 则有公式 (i) 至 (v); 此外, 对每个整数 $j\geq 0$, 有公式
+\sgaStableTarget{sga6.e00.eq.2-37}\begin{equation}\tag{2.37}
+ c^{q+j}(i_*(x))=
+ i_*\left(\left(\frac{\widetilde c(x)*\lambda_{-1}(\widetilde c(N))}{(-1)^qN^q}\right)^{(j)}\right).
+\end{equation}
+公式 \hyperlink{sga6.e00.eq.2-37}{(2.37)} 的右边, 是\hyperlink{sga6.e00.prop.1-5}{命题 1.5} 中描述的关于 $\widetilde c(x)$ 和 $\widetilde c(N)$ 各分量的多项式的简写.
+
+\sgaStableTarget{sga6.e00.cor.unnamed.occ5}\textbf{推论.} 在上述条件下有
+\sgaStableTarget{sga6.e00.eq.2-38}\begin{equation}\tag{2.38}
+ \ch(\widetilde c(i_*(x)))=i_*\left(\ch(\widetilde c(x))\,\mathfrak C(\check N)^{-1}\right),
+\end{equation}
+其中 $\ch$ 为公式 \hyperlink{sga6.e00.eq.1-26}{(1.26)} 定义的 Chern 同态.
+
+只需使用写成以下形式的 \hyperlink{sga6.e00.eq.2-37}{(2.37)}:
+\sgaStableTarget{sga6.e00.eq.2-37bis}\begin{equation}\tag{2.37 bis}
+ \widetilde c(i_*(x))=1+i_*\left(\frac{\widetilde c(x)*\lambda_{-1}(\widetilde c(N))-1}{(-1)^qN^q}\right),
+\end{equation}
+再用显式公式 \hyperlink{sga6.e00.eq.1-29}{(1.29)}、公式 (iv bis), 最后用 \hyperlink{sga6.e00.eq.1-30}{(1.30)} 即可.
+
+可以将 \hyperlink{sga6.e00.eq.2-38}{(2.38)} 写成
+\sgaStableTarget{sga6.e00.eq.2-38bis}\begin{equation}\tag{2.38 bis}
+ \ch_X(F)=i_*\left(\ch_Y(F)\,\mathfrak C(T_{X/Y})^{-1}\right),
+\end{equation}
+其中 $F$ 为 $Y$ 上的凝聚代数层（左边将其视为 $X$ 上在 $Y$ 外为零的层）, $\ch_X$ 与 $\ch_Y$ 为分别在 $X$ 和 $Y$ 上取的 Chern 同态, $T_{X/Y}$ 为 $Y$ 在 $X$ 中的法丛.
+
+\sgaStableTarget{sga6.e00.rem.unnamed.occ5}\textbf{注.} 与 \hyperlink{sga6.e00.eq.2-38}{(2.38)} 不同, 公式 \hyperlink{sga6.e00.eq.2-37}{(2.37)} 是“无分母公式”. 即使在特征 $0$ 时, 它也仅在 $\Gr(K(X))$ 中而未在 $A(X)$ 中得到证明, 两者可能并非一回事. 它肯定在任意特征以及在 $A(X)$ 中成立. 注意, 立即可验证两边在 $i^*$ 下的像相同; 因而再应用 $i_*$, 它们之差与 $N^q$ 的乘积为零. 这提示完全不同的证明方法: 设法将 $Y$ 实现为某簇 $X'$ 中子簇 $Y'$ 的横截逆像, 且在维数 $\leq n=\dim X$ 中, $Y'$ 在 $A(X')$ 中的类不是 $0$ 的因子. 遗憾的是, 不能指望 $X'$ 为 Grassmann 簇或类似对象.
+
+注意, 若忽略挠元, 则公式 \hyperlink{sga6.e00.eq.2-38}{(2.38)} 等价于 \hyperlink{sga6.e00.eq.2-37}{(2.37)}.
+
+
+
+
+% 补充的宏定义
+\providecommand{\cS}{\mathcal S}
+\providecommand{\cD}{\mathcal D}
+\providecommand{\cE}{\mathscr E}
+\providecommand{\cG}{\mathscr G}
+\providecommand{\cL}{\mathscr L}
+\providecommand{\cM}{\mathscr M}
+\providecommand{\cP}{\mathscr P}
+\providecommand{\cK}{\mathcal K}
+\providecommand{\Db}{\mathrm D}
+\providecommand{\Kb}{\mathrm K}
+\providecommand{\Trc}{\operatorname{Tr}}
+\providecommand{\ob}{\operatorname{ob}}
+\providecommand{\Coh}{\operatorname{Coh}}
+\providecommand{\Cone}{\operatorname{Cone}}
+\providecommand{\im}{\operatorname{Im}}
+\providecommand{\Id}{\operatorname{Id}}
+\providecommand{\RR}{\mathrm{R.R.}}
+\providecommand{\RRR}{\mathrm{R.R.R.}}
+\providecommand{\GrR}{\mathrm{G}}
+\providecommand{\pr}{\operatorname{pr}}
+
+
+\sgaStableTarget{sga6.e00.sec.6.occ2}\section*{6. Riemann--Roch 定理}
+
+其陈述如下: 设 \(f\) 为从非奇异拟射影簇 \(Y\) 到同类簇 \(X\) 的固有态射. 则有
+\sgaStableTarget{sga6.e00.eq.2-39}\begin{equation}\tag{2.39}
+ f_*\bigl(\ch_Y(x)\,\mathfrak C(Y)\bigr)
+ =
+ \ch_X\bigl(f_!(x)\bigr)\,\mathfrak C(X).
+\end{equation}
+两边均属于 \(A(X)\otimes \mathbb Q\), 且 \(\mathfrak C(X)=\mathfrak C(T_X)\).
+
+此公式使我们可由 \(x\) 的 Chern 类、\(T_X\) 与 \(T_Y\) 的 Chern 类及同态 \(f_*\), 模去挠元后计算 \(f_!(x)\) 的 Chern 类. 或等价地, 当通过同态 \(\ch_Y\) 和 \(\ch_X\) 将群分别与 \(A(Y)\otimes \mathbb Q\) 及 \(A(X)\otimes \mathbb Q\) 等同时（前提是公式 \hyperlink{sga6.e00.eq.2-35}{(2.35)} 成立）, 它使我们能由 \(f_*\) 及 \(T_X\) 和 \(T_Y\) 的 Chern 类来确定同态
+\[
+  f_!:K(Y)\otimes \mathbb Q \longrightarrow K(X)\otimes \mathbb Q
+\]
+上述同态.
+
+我仅能在特征 \(0\) 下, 并作为 \(\GrR(K(X))\otimes\mathbb Q\) 中的等式, 证明公式 \hyperlink{sga6.e00.eq.2-39}{(2.39)}. 为此, 由于 \(Y\) 为射影空间 \(P\) 的局部闭子集, 将 \(f\) 分解为 \(Y\) 到 \(P\times X\) 的单射与从 \(P\times X\) 到 \(X\) 的投影态射的复合, 并对这两个态射分别证明 \hyperlink{sga6.e00.eq.2-39}{(2.39)}.
+
+对于单射态射, 立即可见公式 \hyperlink{sga6.e00.eq.2-38}{(2.38)} 和 \hyperlink{sga6.e00.eq.2-39}{(2.39)} 等价. 特征 \(0\) 的假设仅通过\hyperlink{sga6.e00.thm.2-8}{定理 2.8} 进入, 此定理允许将凝聚代数层 \(F\) 的类 \(\lambda^i(\gamma(F))\) 用 \(F\) 的局部上同调不变量表示.
+
+对于投影态射 \(f:P\times X\to X\), \hyperlink{sga6.e00.prop.2-13}{命题 2.13} 允许假设 \(x\) 形如 \(y\otimes z\), 其中 \(y\in K(P)\), \(z\in K(X)\). 此时 Künneth 公式给出
+\[
+  f_!(x)=\chi(y)\,z,
+\]
+其中对 \(P\) 上的凝聚代数层 \(F\), 置
+\[
+  \chi(F)=\sum_{i\geq 0}(-1)^i\dim H^i(P,F).
+\]
+因而立即归结为证明公式
+\sgaStableTarget{sga6.e00.eq.2-40}\begin{equation}\tag{2.40}
+  \chi(F)=\pi_r\bigl(\ch_p(F)\,\mathfrak C(P)\bigr),
+\end{equation}
+其中 \(\pi_r\) 表示次数为 \(r=\dim P\) 的分量. 由\hyperlink{sga6.e00.prop.2-13}{命题 2.13}, 可假设 \(F=\mathcal O_Q\), 其中 \(Q\) 为 \(P\) 的线性子簇. 则 \(\chi(F)=1\), 因为它是 \(Q\) 的算术亏格; 只需再说明 \hyperlink{sga6.e00.eq.2-40}{(2.40)} 的右边为 \(1\).
+
+事实上, 若 \(V\) 为 \(P\) 的超平面, 并置
+\[
+  \xi=\gamma_P(\mathcal O_V),\qquad L=\ell(V),
+\]
+则
+\[
+  1-\xi=\gamma_P(E(-L)),
+\]
+其中 \(E(-L)\) 为 \(-L\) 定义的向量丛. 所以
+\[
+  C_p(1-\xi)=[1,1-L],
+\]
+因此
+\[
+  \ch_p(1-\xi)=e^{-L},\qquad \ch_p(\xi)=1-e^{-L},
+\]
+从而
+\[
+  \ch_p(\xi^p)=(1-e^{-L})^p.
+\]
+若 \(p\) 为 \(Q\) 在 \(P\) 中的维数, 则有 \(\xi^p=\gamma_P(Q)\); 因而
+\[
+  \ch_p(F)\,\mathfrak C(P)
+  =
+  \bigl(L/(1-e^{-L})\bigr)^{r+1}(1-e^{-L})^p.
+\]
+只需再验证, 此关于 \(L\) 的形式级数中 \(L^r\) 的系数为 \(1\). 这来自形式级数 \(L/(1-e^{-L})\) 的特征性质, 即 \(\bigl(L/(1-e^{-L})\bigr)^{q+1}\) 中 \(L^q\) 的系数为 \(1\)（取 \(q=r+1-p\)）.
+
+\sgaStableTarget{sga6.e00.bibliographical-references}\subsection*{参考文献}
+\begin{enumerate}[label={[\arabic*]}]
+\item Hirzebruch: \emph{Neue topologische Methoden in der algebraischen Geometrie}.
+\item Serre: Faisceaux algébriques cohérents, \emph{Ann. of Math.}
+\item Grothendieck: Sur les faisceaux algébriques cohérents, in Séminaire Cartan 1956/57.
+\end{enumerate}
+
+\sgaStableTarget{sga6.e00.proof-of-the-riemann-roch-theorem}\section*{Riemann--Roch 定理的证明}
+\begin{center}
+（Grothendieck, 1957 年 11 月 1 日）
+\end{center}
+
+\sgaStableTarget{sga6.e00.reminder-of-notation}\subsection*{记号回顾}
+以下使用《Report on Riemann--Roch》的记号, 下文将该报告引作 \(\RRR\).
+
+所考虑的簇均非奇异且拟射影, 即同构于某个射影空间的局部闭子簇. 基域代数闭, 特征任意.
+
+若 \(X\) 为这样的簇, \(K(X)\) 表示由 \(X\) 上凝聚层的类生成, 模去将扩张等同于和的关系所得的 Abel 群; Tor 的交错和使 \(K(X)\) 成为环. 若 \(F\) 为层（分别若 \(E\) 为向量丛, 若 \(Y\) 为 \(X\) 的子簇）, 用 \(\gamma_X(F)\)（分别用 \(\gamma_X(E)\), \(\gamma_X(Y)\)）表示 \(K(X)\) 中对应于 \(F\)（分别对应于 \(E\), \(\mathcal O_Y\)）的元素. 实际上, 常简单地写作 \(F,E\), 而不写 \(\gamma_X(F)\).
+
+设 \(A(X)\) 为 \(X\) 上闭链模有理等价的类所成的分次环（参见 Chow）; \(A^i(X)\) 由余维数为 \(i\) 的闭链构成. 若 \(E\) 为向量丛, 则 \(C(E)=\sum C^i(E)\), 其中 \(C^i(E)\in A^i(X)\), 为它的 Chern 类（定义为 Schubert 闭链的逆像）. 通过线性性, 对所有 \(y\in K(X)\) 得到类 \(C^i(y)\). 若
+\[
+  C(y)=\prod (1+a_i),
+\]
+依照 Hirzebruch, 置
+\[
+  \ch(y)=\sum e^{a_i},\qquad
+  T(y)=\prod\frac{a_i}{1-e^{-a_i}}.
+\]
+它们为 \(A(X)\otimes\mathbb Q\) 的元素. 当 \(y\) 为 \(X\) 的切丛时, 将 \(T(y)\) 写作 \(T(X)\).
+
+若 \(G\) 为向量丛, \(\lambda^pG\) 表示其第 \(p\) 次外幂, 而
+\[
+  \lambda_{-1}(G)=\sum(-1)^p\lambda^p(G);
+\]
+为 \(K(X)\) 的元素.
+
+若 \(f\) 为从簇 \(Y\) 到簇 \(X\) 的固有正则映射, 定义同态
+\[
+  f^*:A(X)\longrightarrow A(Y),\qquad
+  f_*:A(Y)\longrightarrow A(X).
+\]
+第一个同态为次数 \(0\) 的齐次同态, 并具有乘法性. 第二个为次数 \(\dim X-\dim Y\) 的齐次同态. 还定义同态
+\[
+  f^*:K(X)\longrightarrow K(Y),\qquad
+  f_!:K(Y)\longrightarrow K(X).
+\]
+若 \(F\) 为 \(X\) 上的凝聚层, 则按定义, \(f^*(F)\) 为各 \(\Tor_p^{\mathcal O_X}(\mathcal O_Y,F)\) 的交错和. 对向量丛而言, 这就是逆像运算.
+
+若 \(G\) 为 \(Y\) 上的凝聚层, 则 \(f_*(G)\) 在 \(X\) 上凝聚. 若 \(R^pf_*\) 表示如此定义的函子 \(f_*\) 的第 \(p\) 个导出函子, 则按定义有
+\[
+  f_!(G)=\sum(-1)^p R^pf_*(G).
+\]
+
+\sgaStableTarget{sga6.e00.riemann-roch-theorem}\subsection*{Riemann--Roch 定理}
+设 \(f:Y\to X\) 为从非奇异拟射影簇 \(Y\) 到另一个此类簇 \(X\) 的固有态射（正则映射）, \(y\in K(Y)\). 则
+\sgaStableTarget{sga6.e00.eq.1}\begin{equation}\tag{1}
+  f_*\bigl(\ch(y)T(Y)\bigr)=\ch(f_!(y))T(X)
+  \quad\text{在 } A(X)\otimes\mathbb Q.
+\end{equation}
+
+\emph{证明}（节略）.
+
+\sgaStableTarget{sga6.e00.lem.1}\textbf{引理 1.} 考虑簇的固有态射
+\[
+  Z \xrightarrow{g} Y \xrightarrow{f} X.
+\]
+若定理 \(\RR\) 对 \(f\) 和 \(g\) 成立, 则它对 \(fg\) 成立. 若它对 \(fg\) 和 \(g\) 成立, 则它对 \(f\) 成立. 若 \(f_*\) 为单射, 且定理 \(\RR\) 对 \(fg\) 和 \(f\) 成立, 则它对 \(g\) 成立.
+
+这是平凡的. 实际上, 假设 \(\RR\) 对 \(fg\) 和 \(g\) 成立时, 还须假设 \(g_!\) 为满射, 才能断言 \(\RR\) 对 \(f\) 成立.
+
+由于固有态射为单射与投影 \(X\times P\to X\) 的复合, 其中 \(P\) 为射影空间, 所以归结为分别处理这两种情形. 如前所见, 第二种情形由 \(\RRR\) 的\hyperlink{sga6.e00.prop.2-13}{命题 2.13}（“胞腔分解”）归结为标准计算. 因此假设 \(Y\subset X\), 单射态射为 \(i\). 公式 (1) 成为
+\sgaStableTarget{sga6.e00.eq.2}\begin{equation}\tag{2}
+  \ch(i_!(y))=i_*\bigl(\ch(y)T(E)^{-1}\bigr),
+\end{equation}
+其中 \(E=T_{X/Y}\) 为 \(Y\) 在 \(X\) 中的法丛.
+
+\sgaStableTarget{sga6.e00.lem.2}\textbf{引理 2.} 假设 \(X\) 上存在秩为 \(p=\codim_XY\) 的向量丛 \(G\), 使得
+\begin{equation}\tag{\sgaStableTargetInline{sga6.e00.eq.3}3}
+  \gamma_X(Y)=i_*(1)=\lambda_{-1}(G),\qquad
+  i^*(G)=E,\qquad
+  (-1)^pC^p(G)=Y.
+\end{equation}
+若此时
+\sgaStableTarget{sga6.e00.eq.4}\begin{equation}\tag{4}
+  y=i^*(x),\qquad x\in K(X),
+\end{equation}
+则公式 (2) 成立.
+
+证明立即来自 \(\ch\) 为环同态这一事实及
+\sgaStableTarget{sga6.e00.eq.5}\begin{equation}\tag{5}
+  \ch(\lambda_{-1}(G))=(-1)^pC^p(G)\,T(G)^{-1}.
+\end{equation}
+
+\sgaStableTarget{sga6.e00.cor.unnamed.occ6}\textbf{推论.} 若 \(Y\) 为超曲面, 且 \(y\) 形如 \(i^*(x)\), 其中 \(x\in K(X)\), 则 \(\RR\) 成立.
+
+\sgaStableTarget{sga6.e00.lem.3}\textbf{引理 3.} 假设 \(X=Y\times P\), 其中 \(P\) 为射影空间, 且 \(i\) 为单射 \(u\mapsto (u,v_0)\), \(v_0\in P\). 则 \(i_*\) 为单射, 且 \(\RR\) 成立.
+
+这完全是标准计算.
+
+再设 \(X,Y,y\) 任意, 始终有 \(Y\subset X\). 设 \(X'\) 为沿 \(Y\) 吹起 \(X\) 所得的簇, \(Y'\) 为 \(Y\) 的逆像超曲面. 有映射图
+\[
+\begin{tikzcd}
+Y' \arrow[r,"j"] \arrow[d,"g"'] & X' \arrow[d,"f"]\\
+Y \arrow[r,"i"'] & X .
+\end{tikzcd}
+\]
+\(E\) 在 \(Y'\) 中的逆像具有一个秩 \(1\) 的子丛, 将其对偶记为 \(L\). 此外, \(L^{-1}\) 也是 \(X'\) 上由除子 \(Y'\) 定义的线丛 \(L(Y')\) 在 \(Y'\) 上的限制. 置 \(F=E/L^{-1}\). 初等计算给出以下引理.
+
+\sgaStableTarget{sga6.e00.lem.4}\textbf{引理 4.} 有以下公式, 其中 \(p=\codim_XY\):
+\sgaStableTarget{sga6.e00.eq.6}\sgaStableTarget{sga6.e00.eq.7}\sgaStableTarget{sga6.e00.eq.8}\sgaStableTarget{sga6.e00.eq.9}\begin{align}
+  f^*i_!(y)&=j_*\bigl(\lambda_{-1}(\check F)y\bigr), \tag{6}\\
+  \lambda_{-1}(\check F)&\equiv \gamma^{p-1}(E)\lambda^p(\check E)
+    \pmod{1-L}, \tag{7}\\
+  f_*(1)&=1,\quad\text{因而 }f_*f^*=1, \tag{8}\\
+  f^*i_*(\alpha)&\equiv j_*\bigl(\alpha C^{p-1}(F)\bigr)
+    \pmod{\Ker f_*}\quad\text{对所有 }\alpha\in A(Y). \tag{9}
+\end{align}
+为简化记号, 经同态 \(g^*\), 令 \(K(Y)\) 作用于 \(K(Y')\), \(A(Y)\) 作用于 \(A(Y')\). 在公式 (7) 中, \(\gamma^{p-1}(E)\) 似乎表示 \(\lambda^{p-1}(E-2)\), 即
+\[
+  \sum_{i+j=p-1}(\,\cdots\,)\lambda^i(E);
+\]
+同余式在 \(K(Y')\) 中成立.
+
+公式 (6) 来自等式
+\sgaStableTarget{sga6.e00.eq.6bis}\begin{equation}\tag{6 bis}
+  \Tor_i^{\mathcal O_X}\bigl(\mathcal O_Y(v),\mathcal O_Y(v')\bigr)
+  =
+  \lambda^i\check F(v')
+  \quad (v'\in Y',\ v=g(v')).
+\end{equation}
+公式 (7) 来自公式
+\sgaStableTarget{sga6.e00.eq.10}\begin{equation}\tag{10}
+  g_*(L^{-i})=0\quad\text{当 }0<i\leq p-1,\qquad g_*(1)=1,
+\end{equation}
+后者本身为 Künneth 公式及射影空间的上同调的推论.
+
+公式 (8) 是平凡的. 最后, (9) 来自 \(g_*(C^{p-1}(F))=1\), 此式例如由立即可得的公式
+\sgaStableTarget{sga6.e00.eq.10bis}\begin{equation}\tag{10 bis}
+  g_*(\xi^i)=0\quad\text{若 }0\leq i<p-1,\qquad
+  g_*(\xi^{p-1})=1,
+\end{equation}
+推出, 其中 \(\xi=C^1(L)\in A^1(Y')\). 实际上, (9) 很可能为恒等式而不仅是同余式. 不必要地复杂的公式 (7), 例如可用 \hyperlink{sga6.e07.lem.4-1}{VII 4.1} 代替.
+
+由公式 (7) 立即得出, 只要
+\sgaStableTarget{sga6.e00.eq.11}\begin{equation}\tag{11}
+  y\,\gamma^{p-1}(E)\lambda^p(\check E)\in i^*(K(X)).
+\end{equation}
+此条件 (11) 满足, 就有 \(\lambda_{-1}(\check F)\in j^*(K(X'))\). 假设它满足. 由\hyperlink{sga6.e00.lem.2}{引理 2} 的推论, \(\RR\) 对 \((Y',X',y\lambda_{-1}(\check F))\) 成立. 另一方面, 为证明 (2), 由公式 (8), 只需证明
+\sgaStableTarget{sga6.e00.eq.12}\begin{equation}\tag{12}
+  f^*\ch(i_!(y))
+  \equiv
+  f^*\bigl(i_*(\ch(y)T(E)^{-1})\bigr)
+  \pmod{\Ker f_*}.
+\end{equation}
+利用 (6)、(9)、对 \((Y',X',y\lambda_{-1}(\check F))\) 的 \(\RR\), 以及公式
+\sgaStableTarget{sga6.e00.eq.13}\begin{equation}\tag{13}
+  \ch(\lambda_{-1}(\check F))=C^{p-1}(F)T(F)^{-1}
+\end{equation}
+立即可验证此公式（参见公式 (5)）.
+
+这样, 只要 \(y\,\gamma^{p-1}(E)=0\), 就证明了 \(\RR\); 特别地, 当 \(p-1>\dim Y\) 时成立, 因为在按支集余维数滤过的 \(K(Y)\) 中, \(\gamma^{p-1}(E)\) 的滤过次数 \(\geq p-1\); 即只要
+\[
+  \dim Y < \frac{\dim X-1}{2}.
+\]
+即可. 结合\hyperlink{sga6.e00.lem.1}{引理 1} 与\hyperlink{sga6.e00.lem.3}{引理 3}, 取 \(P\) 为维数足够大的射影空间, 例如 \(r>\dim X+1\), 即可归结到此情形. 断言得证.
+
+\sgaStableTarget{sga6.e00.rem.unnamed.occ6}\textbf{注.} 我们使用了 \(\gamma^{p-1}(E)\) 的滤过次数为 \(\geq p-1\) 这一事实. 可以通过研究对应于 \(E\) 的射影丛, 直接证明这一事实, 而不必像 \(\RRR\) 2.16 中那样经由 Grassmann 簇. 此方法更一般地给出 \(\RRR\) 的\hyperlink{sga6.e00.thm.2-14}{定理 2.14}.
+
+\sgaStableTarget{sga6.e00.extract-from-a-letter-of-grothendieck}\subsection*{Grothendieck 的一封信的节选}
+从“实质”上说, 新方法建立在对以下两种情形的 \(K(X)\) 与 \(A(X)\) 的确定之上: \(X\) 是对应于向量丛的射影丛, 或者是沿非奇异子簇吹起得到的簇. 在第二种情形, 我尚未完全确定; 还缺少一个小等式. 沿用短札的记号, 必须证明公式 (9), 但作为等式:
+\sgaStableTarget{sga6.e00.eq.9.occ2}\begin{equation}\tag{9}
+  f^*(i_*(\alpha))=j_*(\alpha C^{p-1}(F)),\qquad \alpha\in A(Y).
+\end{equation}
+注意到两边在 \(f_*\) 下的像相同, 在 \(j^*\) 下的像也相同, 所以问题等价于
+\sgaStableTarget{sga6.e00.eq.9bis}\begin{equation}\tag{9 bis}
+  \Ker f_*\cap\Ker j^*=0.
+\end{equation}
+无论如何, 将 (9) 约化到 \(G(K(X'))\) 后它成立（至多损失少许挠元）, 因为此时它来自 (6); 所以它成立几乎没有疑问.
+
+还要指出, 等式 (9) 很容易由 (6) 得到, 无须经过麻烦的 (6 bis).
+
+\begin{flushleft}
+P.C.C.J-P.S.
+\end{flushleft}
+
+\newpage

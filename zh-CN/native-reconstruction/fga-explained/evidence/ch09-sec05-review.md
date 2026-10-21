@@ -27,3 +27,13 @@
 已纠正 OCR 误读：原印页 287 的 Deligne 定理为 R^q f_* Ω^p_{X/S}，不是 OCR 所示的 R^i f_* O；同页 X_0 是 X_T 的闭纤维。例 9.5.22 起始 P 为 P^3_k，非 OCR 所示 P^2。
 
 正文译出完成与数学独立审校、编译验证不同；独立审校尚未进行，编译状态下次更新。
+
+## 单节编译和视觉检查
+
+- 驱动：`/tmp/fga-ch09s05-build/driver.tex`，使用公共 `book-style.tex`，章号 9、节计数器预置为 4。
+- 环境：`TEXMFHOME=/tmp/fga-texmf XDG_CACHE_HOME=/tmp/fga-cache xelatex -no-shell-escape -interaction=nonstopmode -halt-on-error`。
+- 最终连续两遍 `pass2.txt` / `pass3.txt` 成功，生成 13 页 `/tmp/fga-ch09s05-build/driver.pdf`。
+- 修复了初次编译中数学模式 acute 在 Latin Modern Roman 7 下产生的 U+0013 缺字，现平展拓扑标记使用文本模式法文重音。最终日志没有 `Warning`、`Overfull`、`Missing character` 或 LaTeX 错误。
+- 两张全页联系表已打开覆盖全部 13 页；实际打开输出页 1、6、8、13 的 145 dpi 渲染，覆盖开头、两个原生交换方块、带原编号公式与结尾。无图像覆盖或数学图像；未发现裁切或标号遮盖。
+- 536 行、27 个原编号条目、10 个 proof、5 个带原编号 equation、2 个 TikZ-CD 图；环境配对闭合，源 PDF 页标覆盖 287–302，正文无 TODO/未译占位。
+- 全节正文译出及单独构建已完成；独立数学审校未进行，上述原书疑点尚待明确校订。全书交叉引用、全书术语统一、合卷 PDF 与 ZIP 继续由根代理负责。

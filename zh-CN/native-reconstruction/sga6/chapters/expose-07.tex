@@ -1,0 +1,1087 @@
+% 第 VII 讲中文译稿；底本与核对状态见 audits/expose-07.json。
+\sgaStableTarget{sga6.e07.expose}\section*{第 VII 讲. 正则浸入与爆破概形的 \texorpdfstring{$K^\bullet$}{K} 的计算}
+\begin{center}
+Pierre Berthelot
+\end{center}
+
+\sgaStableTarget{sga6.e07.sec.1}\section*{1. 正则浸入的一般性质}
+
+正则浸入的经典概念（EGA IV 16.9.2）在非诺特情形下不能满足需要。我们将定义一个较弱的概念，它具有所需的性质，并在诺特情形下与通常的定义等价。
+
+\sgaStableTarget{sga6.e07.def.1-1}\textbf{定义 1.1.} 设 \(A\) 是交换环，\(E\) 是有限型投射 \(A\)-模，\(u:E\to A\) 是 \(A\)-线性同态。若由 \(u\) 定义的 Koszul 复形 \(\Kosz(u)\) 在维数 \(>0\) 处无环，从而是 \(B=A/u(E)\) 的一个消解，就称 \(u\) 是\emph{正则的}。
+
+回顾一下，\(u\) 对应的 Koszul 复形是分次 \(A\)-模 \(\bigwedge(E)\)，其边界算子是把 \(u\) 看作对偶 \(\check E\) 的元素时与 \(u\) 的内乘。此边界算子是次数为 \(-1\) 的反导子，在 \(E\) 上等于 \(u\)。
+
+\sgaStableTarget{sga6.e07.lem.1-2}\textbf{引理 1.2.} 设 \(u:E\to A\) 正则。设 \(A'\) 是 \(A\)-代数，\(u':E'\to A'\) 由 \(u\) 经基变换得到；假设 \(u'\) 正则。令 \(J=u(E)\)，\(J'=JA'=u(E')\)。对每个 \(n\ge0\)，有
+\sgaStableTarget{sga6.e07.eq.1-2-1}\sgaStableTarget{sga6.e07.eq.1-2-2}\sgaStableTarget{sga6.e07.eq.1-2-3}\sgaStableTarget{sga6.e07.eq.1-2-4}\begin{align}
+ J^n/J^{n+1}\otimes_AA'&\xrightarrow{\sim}J'^n/J'^{n+1}, \tag{1.2.1}\\
+ \Tor_i^A(J^n/J^{n+1},A')&=0\quad(i\ge1), \tag{1.2.2}\\
+ J^n\otimes_AA'&\xrightarrow{\sim}J'^n, \tag{1.2.3}\\
+ \Tor_i^A(J^n,A')&=0\quad(i\ge1). \tag{1.2.4}
+\end{align}
+
+首先假设各模 \(J^n/J^{n+1}\) 在 \(B=A/J\) 上投射。由于 \(J\) 有限型，它们在 \(B\) 上有限型局部自由。这些断言可在 \(\Spec(A)\) 上逐点检验，故可假设 \(A\) 是局部环且 \(u(E)\subset\rad(A)\)。此时 \(J^n/J^{n+1}\) 在 \(B\) 上自由，\hyperlink{sga6.e07.eq.1-2-2}{(1.2.2)} 等价于对 \(i\ge1\) 有 \(\Tor_i^A(B,A')=0\)。这可用 Koszul 消解 \(\Kosz(u)\) 计算得到，因为与 \(A'\) 张量后，它成为正次数上无环的 \(\Kosz(u')\)。
+
+正合列
+\[
+0\to J^n/J^{n+1}\to A/J^{n+1}\to A/J^n\to0,
+\qquad
+0\to J^n\to A\to A/J^n\to0
+\]
+通过对 \(n\) 作归纳，给出 \hyperlink{sga6.e07.eq.1-2-1}{(1.2.1)}、\hyperlink{sga6.e07.eq.1-2-3}{(1.2.3)} 和 \hyperlink{sga6.e07.eq.1-2-4}{(1.2.4)}。还需知道 \(J^n/J^{n+1}\) 在 \(B\) 上投射。在局部可归结到 \(E=A^d\)、\(u\) 由 \(f_1,\ldots,f_d\) 给出的情形，再归结到普遍同态 \(\mathbb Z[T_1,\ldots,T_d]^d\to \mathbb Z[T_1,\ldots,T_d]\)。由于序列 \((T_1,\ldots,T_d)\) 正则，由基变换即得结论。
+
+\sgaStableTarget{sga6.e07.prop.1-3}\textbf{命题 1.3.} 设 \(A\) 是环，\(E\) 是有限型投射 \(A\)-模，\(u:E\to A\) 是正则同态，\(J=u(E)\)。则 \(J\) 拟正则：\(J\) 有限型，\(J/J^2\) 是有限型投射 \(A/J\)-模，且典范同态
+\sgaStableTarget{sga6.e07.eq.1-3-1}\begin{equation}\tag{1.3.1}
+ \Sym_{A/J}(J/J^2)\longrightarrow \gr_J(A)=\bigoplus_{n\ge0}J^n/J^{n+1}
+\end{equation}
+是同构。这也由上面的证明，通过归结到普遍多项式情形得到。
+
+\sgaStableTarget{sga6.e07.def.1-4}\textbf{定义 1.4.} 设 \((X,A)\) 是赋交换局部环景，\(E\) 是有限型局部自由 \(A\)-模，\(u:E\to A\) 是 \(A\)-线性的。若 \(\Kosz(u)\) 在次数 \(>0\) 处无环，就称 \(u\) 正则。若 \(J\) 是 \(A\) 的理想，则称 \(J\) 正则，是指在 \(X\) 上局部，\(J\) 是某个有限型自由 \(A\)-模到 \(J\) 的正则满同态的像。
+
+设 \(i:Y\to X\) 是预概形的浸入。若 \(U\) 是 \(X\) 的包含 \(i(Y)\) 的开子集，且 \(i\) 是到 \(U\) 的闭浸入，则称 \(i\) 正则，是指在 \(\cO_U\) 中定义 \(i(Y)\) 的理想正则。此条件与 \(U\) 的选择无关，且可在每个点的邻域中检验正则性。
+
+这里用此定义代替 EGA IV 16.9.2 的定义，在诺特情形下二者等价。局部由正则序列定义的闭浸入是正则的；而由\hyperlink{sga6.e07.prop.1-3}{命题 1.3}，正则浸入拟正则。理想 \(J\) 在一点处的极小生成系，是其像构成 \(J_x\otimes k(x)\) 的一组基的族；正则性等价于相应 Koszul 复形局部无环。若 \(J\) 有限型且 \(J/J^2\) 局部自由，这些生成系对应于 \(J/J^2\) 的局部基。
+
+\sgaStableTarget{sga6.e07.prop.1-5}\textbf{命题 1.5.} 若 \(i:Y\to X\) 正则，则在任意平坦基变换后仍然正则。反之，\(i\) 正则，当且仅当它对忠实平坦拟紧拓扑局部正则。
+
+\sgaStableTarget{sga6.e07.def.1-6}\textbf{定义 1.6.} 若 \(i:Y\to X\) 由理想 \(J\) 定义，则 \(\cO_Y\)-模 \(J/J^2\) 称为 \(Y\) 在 \(X\) 中的余法层，记为 \(N_{X/Y}\)。若 \(i\) 正则，它有限型局部自由，其秩称为余维数。对闭浸入 \(Z\xrightarrow{j}Y\xrightarrow{i}X\)，有余法层的正合列
+\sgaStableTarget{sga6.e07.eq.1-6-1}\begin{equation}\tag{1.6.1}
+ j^*N_{X/Y}\longrightarrow N_{X/Z}\longrightarrow N_{Y/Z}\longrightarrow0.
+\end{equation}
+
+\sgaStableTarget{sga6.e07.prop.1-7}\textbf{命题 1.7.} 设 \(i:Y\to X\) 和 \(j:Z\to Y\) 是浸入。若 \(i\) 和 \(j\) 正则，则 \(i\circ j\) 正则，且在余法层序列左端补上 \(0\) 后，该序列正合。若 \(i\circ j\) 和 \(i\) 正则，且此序列正合并局部分裂，则 \(j\) 正则。若 \(X\) 诺特且 \(i\circ j\) 和 \(j\) 正则，则 \(i\) 在 \(Z\) 的各点处正则。
+
+在局部，写成 \(X=\Spec(A)\)、\(Y=\Spec(B)\)、\(Z=\Spec(C)\)，其中 \(B=A/I\)，\(C=B/K\)。选择 \(I/I^2\) 的一组基的提升 \(f_1,\ldots,f_n\)，以及 \(K/K^2\) 的一组基的提升 \(g_1,\ldots,g_m\)，得到图
+\sgaStableTarget{sga6.e07.eq.1-7-1}\begin{equation}\tag{1.7.1}
+\begin{tikzcd}[column sep=large,row sep=small]
+A_0=\mathbb Z[T_1,\ldots,T_{n+m}] \arrow[r] \arrow[d] & A \arrow[d]\\
+B_0=\mathbb Z[T_1,\ldots,T_m] \arrow[r] \arrow[d] & B \arrow[d]\\
+C_0=\mathbb Z \arrow[r] & C,
+\end{tikzcd}
+\end{equation}
+因此：
+\sgaStableTarget{sga6.e07.eq.1-7-2}\begin{equation}\tag{1.7.2}
+\begin{aligned}
+ i\ \text{正则} &\Longleftrightarrow \forall i\ge1,\quad
+ \Tor_i^{A_0}(B_0,A)=0,\\
+ i\circ j\ \text{正则} &\Longleftrightarrow \forall i\ge1,\quad
+ \Tor_i^{A_0}(C_0,A)=0,\\
+ j\ \text{正则} &\Longleftrightarrow \forall i\ge1,\quad
+ \Tor_i^{B_0}(C_0,B)=0.
+\end{aligned}
+\end{equation}
+接着使用传递性谱序列
+\sgaStableTarget{sga6.e07.eq.1-7-3}\begin{equation}\tag{1.7.3}
+E^2_{pq}=\Tor_p^{B_0}\bigl(C_0,\Tor_q^{A_0}(B_0,A)\bigr)\Rightarrow\Tor_n^{A_0}(C_0,A).
+\end{equation}
+这给出前两个断言；诺特情形的断言是 EGA IV 19.1.5 的结论，此时两种正则性定义已经等同。
+
+\sgaStableTarget{sga6.e07.prop.1-8}\textbf{命题 1.8.} 设 \(X\) 是概形，\(E\) 是有限型局部自由 \(\cO_X\)-模，\(u:E\to\cO_X\) 是正则同态，\(J=u(E)\)。用 \(Y\) 表示由 \(J\) 定义的 \(X\) 的闭子概形，\(X'\) 表示沿 \(Y\) 爆破所得的概形，\(P=\bfP(E)\) 表示 \(E\) 对应的射影丛，\(p:P\to X\) 表示结构态射。在 \(P\) 上考虑典范正合列
+\sgaStableTarget{sga6.e07.eq.1-8-1}\begin{equation}\tag{1.8.1}
+0\to F\to p^*E\to\cO_P(1)\to0,
+\end{equation}
+以及复合态射
+\[
+  v:F\longrightarrow p^*E\xrightarrow{p^*(u)}\cO_P .
+\]
+则：
+\begin{enumerate}
+\item \(X'\) 的形成与每个使 \(f^*(u)\) 正则的基变换 \(f:T\to X\) 交换；
+\item 由次数 \(1\) 上的 \(u\) 所定义的满同态
+\[
+  \cS(E)\longrightarrow\bigoplus_{n\ge0}J^n
+\]
+给出的闭浸入 \(j:X'\to P\) 是正则浸入，其理想是正则态射 \(v\) 的像。特别地，若 \(\operatorname{codim}(i)\) 是常数，则 \(\operatorname{codim}(j)=\operatorname{codim}(i)-1\)；
+\item \(\cS(E)\)-模 \(\bigoplus_{n\ge0}J^n\) 作为分次 \(\cS(E)\)-模是完美的，即在局部存在一个由有限型局部自由分次 \(\cS(E)\)-模组成的有限分次消解。
+\end{enumerate}
+
+对 (i)，由于 \(X'=\Proj(\bigoplus_{n\ge0}J^n)\)，结果直接由关系式 (1.2.3) 及 EGA II 得到。
+
+对 (ii)，所述性质在 \(X\) 上是局部的，故可假设 \(X=\Spec(A)\)，并且 \(E\) 在 \(X\) 上自由。先在标准情形
+\[
+  A=\mathbb Z[T_1,\ldots,T_d],
+\]
+下证明断言，其中给 \(E\) 取基 \(e_1,\ldots,e_d\)，使 \(u(e_i)=T_i\)。此时
+\[
+  P=\Proj\bigl(\mathbb Z[T_1,\ldots,T_d,X_1,\ldots,X_d]\bigr),
+\]
+分次取为关于各 \(X_i\) 的分次。为了证明 \(v\) 是正则态射且其像为 \(j\) 的理想，只需在 \(P\) 上局部、从而在各开集 \(D_+(X_i)\) 上证明；例如在 \(D_+(X_1)\) 上进行。此时 \(p^*(E)\) 由模
+\[
+  \mathbb Z[T_1,\ldots,T_d,X_2/X_1,\ldots,X_d/X_1]\otimes E,
+\]
+定义，而 \(\cO_P(1)\) 由
+\[
+  \mathbb Z[T_1,\ldots,T_d,X_2/X_1,\ldots,X_d/X_1],
+\]
+定义，典范态射把每个 \(e_i\) 送到 \(X_i/X_1\)。因此，\(F\) 以元素
+\[
+  e_i-e_1X_i/X_1\qquad (i>1).
+\]
+为基。此时
+\[
+  v(e_i-e_1X_i/X_1)=T_i-T_1X_i/X_1;
+  \qquad T'_i=T_i-T_1X_i/X_1.
+\]
+由于各 \(T_i\) 在
+\[
+\mathbb Z[T_1,\ldots,T_d,X_2/X_1,\ldots,X_d/X_1],
+\]
+中构成正则序列，由可逆矩阵从它们得到的序列 \(T_1,T'_2,\ldots,T'_d\) 也正则，因此抽出的子序列 \(T'_2,\ldots,T'_d\) 也正则。
+
+还需证明各 \(T'_i\) 生成 \(j\) 的理想。在 \(\bigoplus_{n\ge0}J^n\) 中，对 \(m\le p\)，用 \(x^{(m)}\) 表示把 \(J^p\) 的元素 \(x\) 看作次数为 \(m\) 的元素。在 \(D_+(X_1)\) 上，
+\[
+  X'=\Spec\left(\left(\bigoplus_{n\ge0}J^n\right)_{(T_1^{(1)})}\right),
+\]
+而 \(j\) 由把 \(X_i\) 送到 \(T_i^{(1)}\) 的态射定义。在此态射下，\(T'_i\) 的像为
+\[
+T_i^{(0)}-T_1^{(0)}T_i^{(1)}/T_1^{(1)}
+=\bigl((T_iT_1)^{(1)}-(T_1T_i)^{(1)}\bigr)/T_1^{(1)}=0.
+\]
+所以各 \(T'_i\) 属于 \(j\) 的理想。由于
+\[
+\mathbb Z[T_1,\ldots,T_d,X_2/X_1,\ldots,X_d/X_1]
+\]
+的每个元素都可表示为关于 \(T_1,T'_2,\ldots,T'_d,X_2/X_1,\ldots,X_d/X_1\) 的多项式，为证明各 \(T'_i\) 生成 \(j\) 的理想，只需证明
+\[
+\mathbb Z[T_1,X_2/X_1,\ldots,X_d/X_1]
+\]
+的非零元素都不属于 \(j\) 的理想。这相当于证明同态
+\[
+\mathbb Z[T_1,X_1,\ldots,X_d]\longrightarrow\bigoplus_{n\ge0}J^n
+\]
+为单同态，因为 \(T_1^{(1)}\) 在 \(\bigoplus_{n\ge0}J^n\) 中不是零因子。给 \(\mathbb Z[T_1,X_1,\ldots,X_d]\) 中的 \(T_1\) 赋次数 \(0\)，各 \(X_i\) 赋次数 \(1\)，则该同态的核为分次理想。但它包含于复合同态
+\[
+\mathbb Z[T_1,X_1,\ldots,X_d]\longrightarrow
+\bigoplus_{n\ge0}J^n\longrightarrow A,
+\]
+的核，最后一个同态在次数 \(n\) 上由 \(J^n\) 到 \(A\) 的嵌入定义。复合同态的核是由 \(X_1-T_1\) 生成的主理想；由整性，此理想不含非零齐次元素。因此第一个同态为单同态，此情形的证明完成。
+
+回到 \(A\) 任意的一般情形，仍假设 \(E\) 在 \(X\) 上自由。给刚才处理的特殊情形加下标 \(0\)。由 (i)，所考察的情形由前一情形经基变换 \(A_0\to A\) 得到；此同态通过选择 \(E\) 的一组基，取其在 \(J\) 中的像 \(f_1,\ldots,f_d\)，并把 \(T_i\) 送到 \(f_i\) 来定义。令
+\[
+  B_0=\left(\bigoplus_{n\ge0}J_0^n\right)_{(T_1^{(1)})},\qquad
+  B=\left(\bigoplus_{n\ge0}J^n\right)_{(f_1^{(1)})}.
+\]
+则 \(B=B_0\otimes_{A_0}A\)，由 \(v:F\to\cO_P\) 定义的 Koszul 复形由 \(v_0\) 所定义的 Koszul 复形经基变换得到。后者在适当开集上是 \(B_0\) 的投射消解，因而 \(K_\bullet(v)\) 的同调群在此开集上就是
+\[
+\Tor_i^{A_0}(A,B_0).
+\]
+这些群是
+\[
+\Tor_i^{A_0}\left(A,\left(\bigoplus_{n\ge0}J_0^n\right)_{T_1^{(1)}}\right)
+=\left(\bigoplus_{n\ge0}\Tor_i^{A_0}(A,J_0^n)\right)_{T_1^{(1)}}.
+\]
+的 \(0\) 次分量。但由关系式 \hyperlink{sga6.e07.lem.1-2}{1.2}，当 \(i\ge1\) 时，各 \(\Tor_i^{A_0}(A,J_0^n)\) 消失；所以 \(K_\bullet(v)\) 是 \(B\) 的一个消解，这表明 \(j\) 正则。
+
+对 (iii)，此性质在 \(X\) 上是局部的，故仍可假设 \(X\) 仿射，\(E\) 有限型自由。沿用 (ii) 的记号。先考虑 (ii) 的标准情形。环 \(A_0\) 是诺特的，且上同调维数有限，代数 \(\cS(E_0)\) 也是如此。于是可逐步构造 \(\bigoplus_{n\ge0}J_0^n\) 的一个由有限型自由分次 \(\cS(E_0)\)-模组成的部分分次消解，使其长度大于 \(A_0\) 的上同调维数。最后的核是分次 \(\cS(E_0)\)-模，作为不分次的 \(\cS(E_0)\)-模有限型投射；由 \hyperlink{sga6.e06.lem.1-5-1}{VI 1.5.1}，它作为分次 \(\cS(E_0)\)-模在 \(\Spec(A_0)\) 上有限型局部自由。用相应的核代替部分消解的最后一项，就得到所述的有限消解。
+
+把这样构造的消解与 \(A\) 张量，得到一个由有限型局部自由分次 \(\cS(E)\)-模组成的分次复形；还需证明这是 \(\bigoplus_{n\ge0}J^n\) 的消解。但所得复形的第 \(i\) 个同调模是分次 \(\cS(E)\)-模，其第 \(n\) 个分量为 \(\Tor_i^{A_0}(A,J_0^n)\)，由 \hyperlink{sga6.e07.eq.1-2-4}{(1.2.4)}，当 \(i\ge1\) 时该分量为零。因此，由 \hyperlink{sga6.e07.eq.1-2-3}{(1.2.3)}，我们构造出了所需类型的消解。
+
+\sgaStableTarget{sga6.e07.prop.1-9}\textbf{命题 1.9.} 若 \(i:Y\to X\) 是正则闭浸入，\(X'\) 是沿 \(Y\) 的爆破，\(f:X'\to X\) 是结构态射，则 \(i\) 和 \(f\) 都是完美态射：\(\Kosz\) 给出由有限型局部自由 \(\cO_X\)-模组成的 \(\cO_Y\) 的消解，而 \(f\) 分解为到某射影丛的正则浸入与一个光滑态射的复合。
+
+\sgaStableTarget{sga6.e07.prop.1-10}\textbf{命题 1.10.} 若 \(X\) 和 \(Y\) 在 \(S\) 上光滑，则从 \(X\) 到 \(Y\) 的每个 \(S\)-浸入均正则。特别地，光滑态射的每个截面都是正则浸入。
+
+\sgaStableTarget{sga6.e07.sec.2}\section*{2. 正则浸入的计算}
+
+\sgaStableTarget{sga6.e07.para.2-1}\textbf{2.1--2.3.} 对两个 \(A\)-代数 \(B,C\)，选择一个投射消解 \(P_\bullet\to B\)，利用 Künneth 态射并延拓增广 \(B\otimes_A B\to B\)，就赋予分次模 \(\bigoplus_{i\ge0}\Tor_i^A(B,C)\) 一个自然的结合分次 \(B\otimes_A C\)-代数结构。若所取消解是交错微分分次代数，则所得 Tor 代数也交错。在全局，对两个 \(X\)-概形 \(X',X''\)，这给出
+\[
+\bigoplus_i\Tor_i^{\cO_X}(\cO_{X'},\cO_{X''}).
+\]
+上的分次代数结构。乘法由复形的交换方块
+\sgaStableTarget{sga6.e07.eq.2-2-1}\begin{equation}\tag{2.2.1}
+\begin{tikzcd}[column sep=large,row sep=large]
+P_i\otimes P_j \arrow[r] \arrow[d] & (P_{i-1}\otimes P_j)\oplus(P_i\otimes P_{j-1}) \arrow[d]\\
+P_{i+j} \arrow[r] & P_{i+j-1}.
+\end{tikzcd}
+\end{equation}
+表示。
+\sgaStableTarget{sga6.e07.lem.2-4}\textbf{引理 2.4.} 对两个 \(X\)-概形 \(X',X''\) 和平坦 \(\cO_{X'}\)-模 \(M\)，有典范同构
+\sgaStableTarget{sga6.e07.eq.2-4-1}\begin{equation}\tag{2.4.1}
+\Tor_i^{\cO_X}(M,\cO_{X''})\simeq
+M\otimes_{\cO_{X'}}\Tor_i^{\cO_X}(\cO_{X'},\cO_{X''}).
+\end{equation}
+利用投射消解即可在局部立即得到此同构，然后将其粘合。
+
+% SGA-SRC-001489 — reconstructed by mathematical inference; scan inconclusive
+\sgaStableTarget{sga6.e07.prop.2-5}\textbf{命题 2.5.} 设 \(X\) 是概形，\(Y,Z\) 是其闭子概形，\(T=Y\times_XZ\)。假设对每个 \(x\in T\)，存在 \(x\) 的一个开邻域 \(U\)，以及 \(\cO_U\) 的一列截面 \(f_1,\ldots,f_p,g_1,\ldots,g_r,h_1,\ldots,h_s\)，使与 \(f_1,\ldots,f_p,g_1,\ldots,g_r\) 相应的 Koszul 复形是 \(\cO_{Y\cap U}\) 的消解，与 \(f_1,\ldots,f_p,h_1,\ldots,h_s\) 相应的 Koszul 复形是 \(\cO_{Z\cap U}\) 的消解，与全部这些截面相应的 Koszul 复形是 \(\cO_{T\cap U}\) 的消解。特别地，在诺特情形，若全部截面构成正则序列，且 \(Y=V(f_1,\ldots,f_p,g_1,\ldots,g_r)\)、\(Z=V(f_1,\ldots,f_p,h_1,\ldots,h_s)\)，上述条件成立。设 \(I,J\) 分别为 \(Y,Z\) 的理想。则有同构
+\sgaStableTarget{sga6.e07.eq.2-5-1}\begin{equation}\tag{2.5.1}
+\Tor_i^{\cO_X}(\cO_Y,\cO_Z)\simeq \bigwedge^i\Tor_1^{\cO_X}(\cO_Y,\cO_Z),
+\end{equation}
+以及
+\sgaStableTarget{sga6.e07.eq.2-5-2}\begin{equation}\tag{2.5.2}
+\Tor_1^{\cO_X}(\cO_Y,\cO_Z)
+\simeq I\cap J/IJ
+\simeq \Ker\bigl(i^*N_{X/Y}\times j^*N_{X/Z}\to N_{X/T}\bigr).
+\end{equation}
+其中 \(i:T\to Y\)、\(j:T\to Z\) 是相应的浸入。特别地，对正则闭浸入 \(Y\to X\)，
+\sgaStableTarget{sga6.e07.eq.2-5-3}\begin{equation}\tag{2.5.3}
+\Tor_i^{\cO_X}(\cO_Y,\cO_Y)\simeq
+\bigwedge^i\Tor_1^{\cO_X}(\cO_Y,\cO_Y),
+\qquad
+\Tor_1^{\cO_X}(\cO_Y,\cO_Y)\simeq N_{X/Y}.
+\end{equation}
+\emph{证明.} i) 上述分次 Tor 代数交错，故存在唯一的代数同态 \(\bigwedge\Tor_1^{\cO_X}(\cO_Y,\cO_Z)\to\bigoplus_{i\geq0}\Tor_i^{\cO_X}(\cO_Y,\cO_Z)\)，在一次上延拓恒等映射。为证明它是同构，可在 \(T\) 的一点附近取命题中的截面。令 \(E=\cO_X^p\)、\(E'=\cO_X^r\)，\(u:E\to\cO_X\) 由各 \(f_i\) 定义，\(v:E'\to\cO_X\) 由各 \(g_j\) 定义。序列 \(f_1,\ldots,f_p,g_1,\ldots,g_r\) 的 Koszul 复形等于 \(\Kosz(u)\otimes\Kosz(v)\)。它是 \(\cO_Y\) 的有限自由消解，所以 Tor 层是 \(\Kosz(u)\otimes\Kosz(v)\otimes\cO_Z\) 的同调层。把它看成双复形，并使用第一指标对应 \(\Kosz(u)\)、第二指标对应 \(\Kosz(v)\otimes\cO_Z\) 的谱序列。后一个复形是 \(Z\) 上由各 \(g_j\) 的像给出的 Koszul 复形，由命题假设和 1.7 ii) 的证明，它是 \(\cO_T\) 的消解。由于 \(\bigwedge^pE\) 在 \(\cO_X\) 上自由，此谱序列退化为 \(\Kosz(u)\otimes\cO_T\) 的同调。各 \(f_i\) 消灭 \(\cO_T\)，故此复形的微分为零，从而 \(\Tor_i^{\cO_X}(\cO_Y,\cO_Z)\simeq\bigwedge^i(\cO_T^p)\)。特别地，\(\Tor_1^{\cO_X}(\cO_Y,\cO_Z)\simeq\cO_T^p\)，由此得到所述各外幂同构。依 2.2，这些局部同构与代数结构相容；由唯一性，它们恰为先前全局定义的同态的限制，故全局同态是同构。
+
+ii) 把正合列 \(0\to I\to\cO_X\to\cO_Y\to0\) 与 \(\cO_Z\) 张量，得 \(0\to\Tor_1^{\cO_X}(\cO_Y,\cO_Z)\to I\otimes\cO_Z\to\cO_Z\)。因此该 Tor 层是 \(I\otimes(\cO_X/J)\to\cO_X/J\) 的核，即 \((I\cap J)/IJ\)。为验证最后一个关系，构造正合列 \(0\to(I\cap J)/IJ\to i^*N_{X/Y}\times j^*N_{X/Z}\to N_{X/T}\to0\)。右端箭头取两个典范余法层同态之差；左端箭头由 \(I\cap J\to I/I^2\) 和 \(I\cap J\to J/J^2\) 诱导，它们消灭 \(IJ\)。在命题所取的截面中，\(N_{X/T}\) 的一组基由各 \(f_i,g_j,h_k\) 的像组成，而前两个余法层的基分别由 \(f_i,g_j\) 和 \(f_i,h_k\) 的像组成。右端箭头显然满，其核恰由各 \(f_i\) 的两份相同坐标组成；结合 i) 中 Tor 层的秩为 \(p\)，便得到左端的正合性。
+
+\sgaStableTarget{sga6.e07.para.2-6}\textbf{2.6--2.7.} 现在假设 \(X\) 有丰沛层，因而 \(K^\bullet\) 的两种定义相同。若 \(i:Y\to X\) 是正则闭浸入，则用正像的类定义
+\[
+i_*:K^\bullet(Y)\to K^\bullet(X)
+\]
+并且对每个 \(x\in K^\bullet(Y)\)，有
+\sgaStableTarget{sga6.e07.eq.2-7-1}\begin{equation}\tag{2.7.1}
+i^*i_*(x)=x\lambda_{-1}(N),
+\qquad
+\lambda_{-1}(N)=\sum_{r\ge0}(-1)^r\lambda^r(N),
+\end{equation}
+其中 \(N\) 是余法层。事实上，若 \(x\) 由有限型局部自由 \(\cO_Y\)-模 \(M\) 表示，则 \(i_*M\) 的导出逆像的同调层为 \(M\otimes\Tor_i^{\cO_X}(\cO_Y,\cO_Y)\)，\hyperlink{sga6.e07.prop.2-5}{命题 2.5} 就给出所列公式。
+
+\sgaStableTarget{sga6.e07.cor.2-8}\textbf{推论 2.8.} 在 \hyperlink{sga6.e07.para.2-6}{2.7} 的假设下，对 \(x,y\in K^\bullet(Y)\)，
+\sgaStableTarget{sga6.e07.eq.2-8-1}\begin{equation}\tag{2.8.1}
+i_*(xy\lambda_{-1}(N))=i_*(x)i_*(y).
+\end{equation}
+这由 \hyperlink{sga6.e07.eq.2-7-1}{(2.7.1)} 和投影公式得到。
+
+\sgaStableTarget{sga6.e07.cor.2-9}% 英文底本的“推论2.9”在法文原书第436页无对应条目，故不收入正文；保留空锚点以便审计。
+
+\sgaStableTarget{sga6.e07.sec.3}\section*{3. 爆破概形的 \texorpdfstring{$K^\bullet$}{K} 的计算}
+
+\sgaStableTarget{sga6.e07.para.3-1}\textbf{3.1.} 设 \(i:Y\to X\) 是正则闭浸入。设 \(X'\) 是沿 \(Y\) 的爆破，\(Y'=Y\times_X X'\)。由 EGA II 8.1.8，\(Y'\) 是 \(X'\) 的闭子概形，定义它的理想典范同构于 \(\cO_{X'}(1)\)。所以 \(j:Y'\to X'\) 是余维数为 \(1\) 的正则闭浸入。设 \(J\) 是 \(Y\) 在 \(X\) 中的理想，\(J'\) 是 \(Y'\) 在 \(X'\) 中的理想；则
+\[
+J'\simeq J\cO_{X'}\simeq\cO_{X'}(1).
+\]
+用 \(f:X'\to X\) 和 \(g:Y'\to Y\) 表示结构态射，有交换图
+\sgaStableTarget{sga6.e07.eq.3-1-1}\begin{equation}\tag{3.1.1}
+\begin{tikzcd}[column sep=large,row sep=large]
+Y' \arrow[r,"j"] \arrow[d,"g"'] & X' \arrow[d,"f"]\\
+Y \arrow[r,"i"'] & X.
+\end{tikzcd}
+\end{equation}
+此外，
+\[
+X'=\Proj(S),\qquad S=\bigoplus_{n\ge0}J^n,
+\]
+并且
+\[
+Y'=\Proj\bigl(i^*S\bigr)
+=\Proj\bigl(\bigoplus_{n\ge0}J^n/J^{n+1}\bigr).
+\]
+由于 \(i\) 正则，\(\bigoplus J^n/J^{n+1}\simeq\Sym_{\cO_Y}(J/J^2)\)。若 \(N=J/J^2\)，则 \(Y'=\bfP(N)\)。在 \(Y'\) 上有正合列
+\sgaStableTarget{sga6.e07.eq.3-1-2}\begin{equation}\tag{3.1.2}
+0\to F\to g^*N\to\cO_{Y'}(1)\to0.
+\end{equation}
+层 \(\cO_{Y'}(1)=j^*\cO_{X'}(1)=J'/J'^2\) 是 \(j\) 的余法层；记为 \(L\)。
+
+\sgaStableTarget{sga6.e07.lem.3-2}\textbf{引理 3.2.} 在 \hyperlink{sga6.e07.para.3-1}{3.1} 的假设和记号下，有
+\sgaStableTarget{sga6.e07.eq.3-2-i}\sgaStableTarget{sga6.e07.eq.3-2-ii}\begin{align}
+\Tor_i^{\cO_X}(\cO_{X'},\cO_Y)&\simeq
+\bigwedge^i\Tor_1^{\cO_X}(\cO_{X'},\cO_Y),\tag{3.2.i}\\
+\Tor_1^{\cO_X}(\cO_{X'},\cO_Y)&\simeq F.\tag{3.2.ii}
+\end{align}
+
+对 (i)，由于 \(\cO_Y\) 可在局部用 Koszul 复形消解，代数 \(\bigoplus_i\Tor_i^{\cO_X}(\cO_{X'},\cO_Y)\) 是交错的。因此，存在唯一的代数同态
+\sgaStableTarget{sga6.e07.eq.3-2-1}\begin{equation}\tag{3.2.1}
+\bigwedge \Tor_1^{\cO_X}(\cO_{X'},\cO_Y)
+\longrightarrow
+\bigoplus_{i\ge0}\Tor_i^{\cO_X}(\cO_{X'},\cO_Y)
+\end{equation}
+延拓一次部分的嵌入；只需局部验证它是同构。在一个仿射开集上，取定义 \(J\) 的正则同态 \(E\to A\)，各基向量的像为 \(f_1,\ldots,f_d\)。在 \(X'\) 中使 \(f_1^{(1)}\) 可逆的开集上，作基变换
+\[
+e'_1=e_1,
+\qquad
+e'_i=e_i-(f_i^{(1)}/f_1^{(1)})e_1\quad(i\ne1).
+\]
+此时，Koszul 微分给出局部同构
+\sgaStableTarget{sga6.e07.eq.3-2-2}\begin{equation}\tag{3.2.2}
+\Tor_i^{\cO_X}(\cO_{X'},\cO_Y)
+\simeq
+(\cO_{X'}/f_1^{(0)}\cO_{X'})\otimes_{\cO_{X'}}
+\bigwedge^i(\cO_{X'}^{d-1})
+\simeq
+\bigwedge^i(\cO_{Y'}^{d-1}).
+\end{equation}
+特别地，取 \(i=1\)，得 \(\Tor_1^{\cO_X}(\cO_{X'},\cO_Y)\simeq \cO_{Y'}^{d-1}\)，从而
+\sgaStableTarget{sga6.e07.eq.3-2-3}\begin{equation}\tag{3.2.3}
+\Tor_i^{\cO_X}(\cO_{X'},\cO_Y)
+\simeq
+\bigwedge^i\Tor_1^{\cO_X}(\cO_{X'},\cO_Y).
+\end{equation}
+对 (ii)，把正合列 \(0\to J\to\cO_X\to\cO_Y\to0\) 与 \(\cO_{X'}\) 张量。由于 \(J\otimes\cO_{X'}\to\cO_{X'}\) 的像为 \(J\cO_{X'}=\cO_{X'}(1)\)，再与 \(\cO_{Y'}\) 张量，得到
+\sgaStableTarget{sga6.e07.eq.3-2-4}\begin{equation}\tag{3.2.4}
+0\to \Tor_1^{\cO_X}(\cO_{X'},\cO_Y)\to g^*N\to\cO_{Y'}(1)\to0,
+\end{equation}
+这就把该 Tor 层与 \hyperlink{sga6.e07.eq.3-1-2}{(3.1.2)} 中的 \(F\) 等同。
+
+\sgaStableTarget{sga6.e07.para.3-3}\textbf{3.3.} 现在假设 \(X\) 有丰沛层。则射影于 \(X\) 的 \(X'\)，以及 \(Y,Y'\)，也都有丰沛层。此外，\(i,j\) 是完美态射；由于 \(Y'=\bfP(N)\)，\(g\) 光滑，因而完美；由 1.9，\(f\) 完美。这些态射均射影，所以有加法同态
+\[
+\begin{aligned}
+i_*&:K^\bullet(Y)\to K^\bullet(X), &
+j_*&:K^\bullet(Y')\to K^\bullet(X'),\\
+f_*&:K^\bullet(X')\to K^\bullet(X), &
+g_*&:K^\bullet(Y')\to K^\bullet(Y).
+\end{aligned}
+\]
+
+\sgaStableTarget{sga6.e07.prop.3-4}\textbf{命题 3.4.} 在 \hyperlink{sga6.e07.para.3-1}{3.1} 和 \hyperlink{sga6.e07.para.3-3}{3.3} 的假设和记号下，对每个 \(x\in K^\bullet(Y)\)，有
+\sgaStableTarget{sga6.e07.eq.3-4-1}\begin{equation}\tag{3.4.1}
+f^*(i_*(x))=j_*\bigl(g^*(x)\lambda_{-1}(F)\bigr).
+\end{equation}
+由可加性，可以假设 \(x\) 由有限型局部自由 \(\cO_Y\)-模 \(M\) 表示。\(f^*i_*(x)\) 的类由如下复形表示：取 \(i_*M\) 的投射消解，再应用 \(f^*\)。其同调层为 \(\Tor_i^{\cO_X}(M,\cO_{X'})\)。由 \hyperlink{sga6.e07.lem.2-4}{2.4} 和 \hyperlink{sga6.e07.lem.3-2}{3.2}，
+\[
+\Tor_i^{\cO_X}(M,\cO_{X'})
+\simeq M\otimes_{\cO_Y}\Tor_i^{\cO_X}(\cO_{X'},\cO_Y)
+\simeq M\otimes_{\cO_Y}\bigwedge^iF,
+\]
+而它们的类的交错和恰为 \hyperlink{sga6.e07.eq.3-4-1}{(3.4.1)} 的右端。
+
+\sgaStableTarget{sga6.e07.lem.3-5}\textbf{引理 3.5.} 在 \hyperlink{sga6.e07.para.3-1}{3.1} 的假设和记号下，有下述同构：
+\begin{enumerate}[label=\roman*)]
+\item 对一切 \(n\ge0\) 和 \(i\ge1\)，
+\[
+R^if_*\bigl(\cO_{X'}(n)\bigr)=0;
+\]
+\item 对一切 \(n\ge0\)，
+\[
+f_*\bigl(\cO_{X'}(n)\bigr)=J^n.
+\]
+\end{enumerate}
+可以假设 \(X\) 仿射，因而拟紧。对 (i)，使用如下引理：若 \(f:X'\to X\) 射影且完美，\(X\) 拟紧，\(L'\) 是 \(X'\) 上在次数 \(>0\) 处无环的完美复形，则存在 \(n_0\)，使得对 \(n\ge n_0\)，\(Rf_*(L'\otimes\cO_{X'}(n))\) 在次数 \(>0\) 处无环。将其用于 \(\cO_{X'}\)，得到充分大的 \(n\) 时的消失。利用正合列
+\[
+0\to \cO_{X'}(n+1)\to\cO_{X'}(n)\to\cO_{Y'}(n)\to0
+\]
+以及 \(Y'=\bfP(N)\) 这一事实，即可递降归纳至 \(n=0\)。
+
+对 (ii)，在局部证明典范分次同态
+\[
+\bigoplus_{n\ge0}J^n\longrightarrow\bigoplus_{n\ge0}f_*\bigl(\cO_{X'}(n)\bigr)
+\]
+是同构。写成 \(S=\bigoplus J^n\)，并使用由 \(J\) 的一组生成元给出的满分次同态 \(\cO_X[T_1,\ldots,T_d]\to S\)。这把 \(X'\) 实现为 \(\bfP_X^{d-1}\) 的正则闭子概形。取有限分次表现 \(L''\to L'\to S\to0\)，在 \(\bfP_X^{d-1}\) 上得到表现 \(M''\to M'\to\cO_{X'}\to0\)。对每个 \(n\)，有交换图
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+L''_n \arrow[r] \arrow[d,"\sim"'] & L'_n \arrow[r] \arrow[d,"\sim"'] & J^n \arrow[r] \arrow[d] & 0 \arrow[d]\\
+p_*M''(n) \arrow[r] & p_*M'(n) \arrow[r] & p_*\cO_{X'}(n) \arrow[r] & 0,
+\end{tikzcd}
+\]
+其中 \(p:\bfP_X^{d-1}\to X\)。当 \(n\) 足够大时，下行正合，因此中间的竖箭头对充分大的 \(n\) 是同构。利用
+\[
+0\to J^{n+1}\to J^n\to J^n/J^{n+1}\to0
+\]
+及相应的正像正合列作递降归纳，即完成证明。
+
+\sgaStableTarget{sga6.e07.prop.3-6}\textbf{命题 3.6.} 在 \hyperlink{sga6.e07.para.3-1}{3.1} 和 \hyperlink{sga6.e07.para.3-3}{3.3} 的假设和记号下，
+\sgaStableTarget{sga6.e07.eq.3-6-1}\begin{equation}\tag{3.6.1}
+f_*f^*=\Id_{K^\bullet(X)}.
+\end{equation}
+事实上，由投影公式，\(f_*f^*(x)=x f_*(1)\)，而\hyperlink{sga6.e07.lem.3-5}{引理 3.5} 表明，\(Rf_*\cO_{X'}\) 在次数 \(0\) 为 \(\cO_X\)，且没有高阶上同调。
+
+\sgaStableTarget{sga6.e07.thm.3-7}\textbf{定理 3.7.} 设 \(i:Y\to X\) 是正则闭浸入，\(X'\) 是沿 \(Y\) 的爆破，\(Y'=X'\times_XY\)，从而有
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+Y' \arrow[r,"j"] \arrow[d,"g"'] & X' \arrow[d,"f"]\\
+Y \arrow[r,"i"'] & X.
+\end{tikzcd}
+\]
+假设 \(X\) 拟紧且有丰沛层。则序列
+\sgaStableTarget{sga6.e07.eq.3-7-0}\begin{equation}\tag{3.7.0}
+0\to K^\bullet(Y)\xrightarrow{u}K^\bullet(Y')\times K^\bullet(X)\xrightarrow{v}K^\bullet(X')
+\end{equation}
+正合，其中
+\sgaStableTarget{sga6.e07.eq.3-7-u}\begin{equation}\tag{3.7.u}
+u(y)=\bigl(g^*(y)\lambda_{-1}(F),-i_*(y)\bigr),
+\end{equation}
+而对 \(y'\in K^\bullet(Y')\)、\(x\in K^\bullet(X)\)，
+\sgaStableTarget{sga6.e07.eq.3-7-v}\begin{equation}\tag{3.7.v}
+v(y',x)=j_*(y')+f^*(x).
+\end{equation}
+此外，\(u\) 有左逆 \(u'\)，定义为 \(u'(y',x)=g_*(y')\)。若进一步假设 \(X\) 诺特且 \(Y\) 正则，则 \(v\) 为满同态，且
+\sgaStableTarget{sga6.e07.eq.3-7-2}\begin{equation}\tag{3.7.2}
+0\to K^\bullet(Y)\xrightarrow{u}K^\bullet(Y')\times K^\bullet(X)\xrightarrow{v}K^\bullet(X')\to0
+\end{equation}
+正合。
+
+首先，\(u'\circ u=1\)，因为 \(g_*(g^*y\lambda_{-1}(F))=y\,g_*(\lambda_{-1}(F))=y\)。又由\hyperlink{sga6.e07.prop.3-4}{命题 3.4}，\(v\circ u=0\)。若 \((y',x)\) 属于 \(v\) 的核，则 \(j_*(y')+f^*(x)=0\)。需要找到 \(y\in K^\bullet(Y)\)，使得
+\begin{equation}\tag{\sgaStableTargetInline{sga6.e07.eq.3-7-1}3.7.1}
+x=-i_*(y),\qquad y'=g^*(y)\lambda_{-1}(F).
+\end{equation}
+必有 \(y=u'(y',x)=g_*(y')\)。对关系式 \(f^*(x)=-j_*(y')\) 应用 \(f_*\)，再利用\hyperlink{sga6.e07.prop.3-6}{命题 3.6}，得到 \(x=-i_*(y)\)。为了证明 \hyperlink{sga6.e07.eq.3-7-1}{(3.7.1)} 的第二个等式，令 \(z=y'-g^*(g_*y')\lambda_{-1}(F)\)。则 \(g_*z=0\)，且由前面的公式有 \(j_*z=0\)。由于 \(\Ker j_*\cap\Ker g_*=0\)，得到 \(z=0\)。这就证明了在中间项处的正合性。
+
+为证明最后的满射性断言，假设 \(X\) 诺特且 \(Y\) 正则。则 \(Y'\) 作为 \(Y\) 上的射影丛也是正则的；由于 \(Y'\) 由一个正则元截出，\(X'\) 沿 \(Y'\) 的局部环也正则。因此，\(X'\) 上支集包含于 \(Y'\) 的凝聚模都是完美的。若这样的模 \(E\) 在 \(K^\bullet(X')\) 中有类，以各 \(J'^nE\) 滤过即可看出其类属于 \(j_*\) 的像。对任意 \(x\in K^\bullet(X')\)，取代表 \(x\) 的完美复形 \(M'\)，并构造可区别三角形
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+& N' \arrow[dl] \arrow[dr] &\\
+M' \arrow[rr] && Lf^*Rf_*(M').
+\end{tikzcd}
+\]
+其中水平箭头是典范态射。在 \(Y'\) 之外它是同构，故 \(N'\) 的上同调层是支集包含于 \(Y'\) 的凝聚层。其类属于 \(\Imf(j_*)\)。所以
+\[
+x-f^*f_*(x)\in\Imf(j_*),
+\]
+从而 \(v\) 为满同态。
+
+
+
+% 第 VII 讲的续接宏
+\providecommand{\Q}{\mathbb Q}
+\providecommand{\bfP}{\mathbf P}
+\providecommand{\gr}{\operatorname{gr}}
+\providecommand{\Id}{\operatorname{Id}}
+\providecommand{\Fil}{\operatorname{Fil}}
+\providecommand{\Imf}{\operatorname{Im}}
+\providecommand{\rank}{\operatorname{rank}}
+\providecommand{\codim}{\operatorname{codim}}
+\providecommand{\cJ}{\mathcal J}
+\providecommand{\cI}{\mathcal I}
+\providecommand{\cN}{\mathcal N}
+\providecommand{\cE}{\mathcal E}
+\providecommand{\cO}{\mathcal O}
+
+
+\sgaStableTarget{sga6.e07.remark-3-8}\subsection*{注 3.8}
+
+当 \(X\) 诺特且 \(Y\) 正则时，\hyperlink{sga6.e07.thm.3-7}{3.7} 完全由 \(\lambda\)-环 \(K^\bullet(X)\)、\(K^\bullet(Y)\)，这两个环之间的映射 \(i_*,i^*\)，以及元素 \(N\in K^\bullet(Y)\) 确定阿贝尔群 \(K^\bullet(X')\)。事实上，由 \hyperlink{sga6.e06.thm.1-1}{VI 1.1}，可由 \(K^\bullet(Y)\) 和 \(N\) 算出 \(K^\bullet(Y')\)。下一节将看到，\(K^\bullet(X')\) 的乘法结构也由同样的资料决定；与 \(\mathbb Q\) 张量后，\(\lambda\)-结构亦然（此限制或许并非必要；参见 \hyperlink{sga6.e07.rem.4-5}{4.5}）。
+
+\sgaStableTarget{sga6.e07.sec.4}\section*{4. 正则浸入与 \(K^\bullet\) 的滤过}
+
+本节始终保持 3.1 的记号和假设。
+
+\sgaStableTarget{sga6.e07.lem.4-1}\textbf{引理 4.1.} 假设 \(Y\) 上存在一个有限型局部自由层 \(N'\)，使得用 \(N,N'\) 表示 \(N,N'\) 在 \(K^\bullet(Y)\) 中的类时，有 \(N=N'+2\)。则有同余式
+\[
+  \lambda_{-1}(F)\equiv 0 \pmod{1-L}.
+\]
+
+设 \(d\) 是 \(N\) 的秩，可以假设它为常数；此时 \(F\) 的秩为 \(d-1\)。由定义，
+\[
+\begin{aligned}
+\lambda_{-1}(F)
+ &= \sum_{i\ge0}(-1)^i\lambda^i(F)\\
+ &= (-1)^{d-1}\lambda^{d-1}(F-1)\\
+ &= (-1)^{d-1}\lambda^{d-1}(F+L-1-L)\\
+ &= (-1)^{d-1}\lambda^{d-1}(N-2+1-L).
+\end{aligned}
+\]
+而
+\[
+  \lambda_t(1-L)=\frac{\lambda_t(1)}{\lambda_t(L)}
+  =\frac{1+t}{1+Lt}.
+\]
+所以，对每个 \(i\ge1\)，\(\lambda^i(1-L)\) 可被 \(1-L\) 整除。因此
+\[
+\begin{aligned}
+\lambda_{-1}(F)
+  &\equiv (-1)^{d-1}\lambda^{d-1}(N-2) \pmod{1-L}\\
+  &=(-1)^{d-1}\lambda^{d-1}(N') \pmod{1-L}.
+\end{aligned}
+\]
+由于 \(N'\) 的秩为 \(d-2\)，\(\lambda^{d-1}(N')=0\)，结果得证。
+
+\sgaStableTarget{sga6.e07.sec.4.2}\subsection*{4.2}
+
+设 \(i:Y\to X\) 是正则浸入。取整数 \(r\ge1\)，设
+\[
+  s:X\longrightarrow \mathbf P_X^r
+\]
+是由同态 \((\mathcal O_X)^{r+1}\to\mathcal O_X\) 定义的截面，该同态通过对相应截面生成的子丛取商得到。若 \(\mathbf P_X^r\) 由分次 \(\mathcal O_X\)-代数 \(\mathcal O_X[T_0,\ldots,T_r]\) 定义，则定义截面 \(s\) 的理想 \(I\) 由截面 \(T_1,\ldots,T_r\) 生成。因此 \(I/I^2\) 同构于 \((\mathcal O_X[T_0])^r\)，故对应的 \(\mathcal O_{\mathbf P^r}\)-模为 \((\mathcal O_X)^r\)。
+
+截面 \(s\) 显然是正则浸入，故 \(s\circ i\) 也是正则浸入，可写出相应的余法层正合列 \hyperlink{sga6.e07.prop.1-7}{(1.7)}。因此，若 \(N\) 表示 \(i\) 的余法层，\(N_1\) 表示 \(s\circ i\) 的余法层，则得到等式
+\[
+  N_1=N+r.
+\]
+由此可见，把任意正则浸入 \(i\) 与截面 \(X\to\mathbf P_X^2\) 复合，或逐次与两个射影直线丛的截面复合后，可以使之满足\hyperlink{sga6.e07.lem.4-1}{引理 4.1} 的性质。
+
+\sgaStableTarget{sga6.e07.thm.4-3}\textbf{定理 4.3.} 设 \(i:Y\to X\) 是正则闭浸入，\(N\) 是 \(Y\) 在 \(X\) 中的余法层在 \(K^\bullet(Y)\) 中的类。假设 \(X\) 拟紧且有丰沛层。则在 \hyperlink{sga6.e07.para.3-3}{3.3} 的记号下，对每个 \(y\in K^\bullet(Y)\) 和每个 \(p\ge1\)，
+\sgaStableTarget{sga6.e07.eq.4-3-1}\begin{equation}\tag{4.3.1}
+ i_*\bigl(\lambda^p(N,y)\bigr)\equiv \lambda^p(i_*(y))
+  \pmod{\text{挠元}},
+\end{equation}
+其中 \(\lambda^p(N,y)\) 是 \hyperlink{sga6.e05.def.5-3}{V 5.3} 中定义的元素。
+
+先假设 \hyperlink{sga6.e07.lem.4-1}{4.1} 的假设成立；此时我们将证明
+\[
+  i_*\bigl(\lambda^p(N,y)\bigr)=\lambda^p(i_*(y)).
+\]
+由于 \(f_*f^*=\Id\)，此关系等价于
+\[
+  f^*\bigl(i_*(\lambda^p(N,y))\bigr)=
+  f^*\bigl(\lambda^p(i_*(y))\bigr).
+\]
+而有
+\sgaStableTarget{sga6.e07.eq.3-4}\[
+\begin{aligned}
+ f^*\bigl(\lambda^p(i_*(y))\bigr)
+ &=\lambda^p\bigl(f^*(i_*(y))\bigr)\\
+ &=\lambda^p\bigl(j_*(g^*(y)\lambda_{-1}(F))\bigr),
+\end{aligned}
+\tag{3.4}
+\]
+另一方面，由\hyperlink{sga6.e07.prop.3-4}{命题 3.4}，
+\sgaStableTarget{sga6.e07.eq.3-4.occ2}\[
+  f^*\bigl(i_*(\lambda^p(N,y))\bigr)
+  =
+  j_*\bigl(g^*(\lambda^p(N,y))\lambda_{-1}(F)\bigr)
+  \tag{3.4}
+\]
+由于 \(g^*(N)=F+L\)，公式 \hyperlink{sga6.e05.eq.5-4-2}{V 5.4.2} 给出
+\[
+  g^*(\lambda^p(N,y))\lambda_{-1}(F)
+  =
+  \lambda^p(g^*(N),g^*(y))\lambda_{-1}(F)
+  =
+  \lambda^p(L,g^*(y)\lambda_{-1}(F)).
+\]
+令 \(z=g^*(y)\lambda_{-1}(F)\)，便归结到证明
+\[
+  j_*\bigl(\lambda^p(L,z)\bigr)=\lambda^p(j_*(z)).
+\]
+这是浸入 \(j\) 与元素 \(z\) 的相应关系。由假设，\(\lambda_{-1}(F)\) 是 \(1-L\) 的倍数，所以可找到 \(z'\)，使 \(z=z'(1-L)\)。于是由 \hyperlink{sga6.e07.para.2-6}{(2.7)}，
+\[
+   z=j^*(u')\quad\text{其中 }u'=j_*(z')
+\]
+而由于 \(L=j^*(J')\)，只需验证
+\[
+  j_*\bigl(j^*(\lambda^p(J',u'))\bigr)=
+  \lambda^p\bigl(j_*j^*(u')\bigr).
+\]
+正合列
+\[
+  0\longrightarrow J'\longrightarrow \mathcal O_{X'}
+  \longrightarrow \mathcal O_{Y'}\longrightarrow 0
+\]
+给出
+\sgaStableTarget{sga6.e07.eq.4-3-2}\begin{equation}\tag{4.3.2}
+  j_*j^*(1)=1-J'.
+\end{equation}
+因此，应用投影公式后，所需的关系为
+\[
+  \lambda^p(J',u')(1-J')=\lambda^p(u'(1-J')).
+\]
+由于 \(1-J'=\lambda_{-1}(J')\)，这正是定义 \(\lambda^p(J',u')\) 的公式。
+
+现在转向一般情形。先把 \(i\) 与截面 \(X\to\mathbf P_X^1\) 复合，再与截面 \(\mathbf P_X^1\to\mathbf P_{\mathbf P_X^1}^1\) 复合，使所得浸入满足 \hyperlink{sga6.e07.lem.4-1}{4.1} 的条件（参见 \hyperlink{sga6.e07.sec.4.2}{4.2}）。于是\hyperlink{sga6.e07.thm.4-3}{命题 4.3} 对前面的浸入 \(s\circ i\) 成立；还需下降到 \(X\)。先下降到 \(\mathbf P_X^1\)，再下降到 \(X\)，所以只需两次应用下述由 J.-P. Jouanolou 给出的引理。
+
+\sgaStableTarget{sga6.e07.lem.unnamed}\textbf{引理.} 在 \hyperlink{sga6.e07.thm.4-3}{4.3} 的条件下，设 \(s:X\to\mathbf P_X^1\) 是 4.2 中定义的截面。若\hyperlink{sga6.e07.thm.4-3}{命题 4.3} 对 \(s\circ i\) 成立，则它对 \(i\) 也成立。
+
+假设 \hyperlink{sga6.e07.thm.4-3}{4.3} 对 \(s\circ i\) 成立。则对每个 \(p\ge1\) 和每个 \(y\in K^\bullet(Y)\)，
+\sgaStableTarget{sga6.e07.eq.4-3-3}\begin{equation}\tag{4.3.3}
+ (s\circ i)_*\bigl(\lambda^p(N+1,y)\bigr)
+ \equiv
+ \lambda^p\bigl((s\circ i)_*(y)\bigr)
+  \pmod{\text{挠元}}.
+\end{equation}
+截面 \(s\) 由同构于 \(\mathcal O_{\mathbf P}(-1)\) 的理想定义 \hyperlink{sga6.e07.sec.4.2}{(4.2)}。用 \(\xi\) 表示其在 \(K^\bullet(\mathbf P_X^1)\) 中的类。则对每个 \(x\in K^\bullet(X)\)，
+\[
+  s_*(x)=p^*(x)(1-\xi),
+\]
+其中 \(p\) 是结构态射 \(\mathbf P_X^1\to X\)。事实上，由于 \(p\circ s=\Id_X\)，有 \(x=s^*(p^*(x))\)，从而 \(s_*(x)=s_*(s^*p^*(x))=p^*(x)s_*(1)\)；而 \(s_*(1)=1-\xi\)。所以
+\[
+\begin{aligned}
+(s\circ i)_*\bigl(\lambda^p(N+1,y)\bigr)
+&\equiv \lambda^p\bigl(p^*(i_*(y))(1-\xi)\bigr)\pmod{\text{挠元}}\\
+&= \lambda^p(\xi,p^*(i_*(y)))(1-\xi)\pmod{\text{挠元}}.
+\end{aligned}
+\]
+此时 \(\lambda^p(\xi,p^*(i_*(y)))-\lambda^p(1,p^*(i_*(y)))\) 可被 \(1-\xi\) 整除。为说明这一点，可在用于定义 \(\lambda^p(\xi,x)\) 的普遍 \(\lambda\)-环中进行（V 5）。此时 \(\lambda^p(\xi,x)-\lambda^p(1,x)\) 是关于 \(\xi\) 的多项式，在 \(\xi=1\) 时消失，因而可被 \(\xi-1\) 整除。由 \(K^\bullet(X)\) 上 \(\xi\) 的关系式，有 \((1-\xi)^2=0\)（\hyperlink{sga6.e06.eq.1-13-1}{VI 1.13.1}）。所以
+\[
+\begin{aligned}
+(s\circ i)_*\bigl(\lambda^p(N+1,y)\bigr)
+&\equiv \lambda^p(1,p^*(i_*(y)))(1-\xi) \pmod{\text{挠元}}\\
+&=p^*(\lambda^p(1,i_*(y)))(1-\xi) \pmod{\text{挠元}}.
+\end{aligned}
+\]
+应用 \(p_*\)，得到
+\sgaStableTarget{sga6.e07.eq.4-3-4}\begin{equation}\tag{4.3.4}
+  i_*\bigl(\lambda^p(N+1,y)\bigr)
+   \equiv \lambda^p(1,i_*(y)) \pmod{\text{挠元}},
+\end{equation}
+因为 \(p_*(\xi)=0\)。
+
+把公式 \hyperlink{sga6.e05.para.5-6}{V 5.6} 用于 \(L=1\)，得 \(\lambda^p(N+1,y)\) 是级数
+\[
+  \frac{\sum_{k\ge1}k\lambda^k(N,y)t^k}
+       {1+\sum_{k\ge1}\lambda^k(N,y)\lambda_{-1}(N)t^k}.
+\]
+中 \(t^p\) 的系数。同样，把此公式用于 \(N=0\)、\(L=1\)，得 \(\lambda^p(1,y)\) 是
+\[
+  \frac{\sum_{k\ge1}k\lambda^k(y)t^k}
+       {\sum_{k\ge0}\lambda^k(y)t^k}.
+\]
+中 \(t^p\) 的系数。因此，同余式 \hyperlink{sga6.e07.eq.4-3-4}{(4.3.4)} 可以写成
+\[
+i_*\left(
+  \frac{\sum_{k\ge1}k\lambda^k(N,y)t^k}
+       {1+\sum_{k\ge1}\lambda^k(N,y)\lambda_{-1}(N)t^k}
+\right)
+=
+  \frac{\sum_{k\ge1}k\lambda^k(i_*(y))t^k}
+       {\sum_{k\ge0}\lambda^k(i_*(y))t^k}
+       \pmod{\text{挠元}}.
+\]
+应用公式 \hyperlink{sga6.e07.cor.2-8}{2.8}，得到
+\[
+  \frac{\sum_{k\ge0}k\,i_*(\lambda^k(N,y))t^k}
+       {1+\sum_{k\ge1} i_*(\lambda^k(N,y))t^k}
+  =
+  \frac{\sum_{k\ge0}k\lambda^k(i_*(y))t^k}
+       {\sum_{k\ge0}\lambda^k(i_*(y))t^k}
+       \pmod{\text{挠元}}.
+\]
+若令
+\[
+  u(t)=1+\sum_{k\ge1}i_*(\lambda^k(N,y))t^k,\qquad
+  v(t)=\sum_{k\ge0}\lambda^k(i_*(y))t^k,
+\]
+则最后的关系也可写成
+\[
+  \frac{d}{dt}\!\left(\frac{u(t)}{v(t)}\right)\equiv0
+  \pmod{\text{挠元}}.
+\]
+由于 \(u(t)/v(t)\) 的常数项为 \(1\)，而且同余均模挠元，可以积分，写出同余式 \(u(t)=v(t)\)。这给出了所述的各同余式。
+
+\sgaStableTarget{sga6.e07.cor.4-4}\textbf{推论 4.4.} 在 \hyperlink{sga6.e07.thm.4-3}{4.3} 的记号和假设下，对每个 \(p\ge1\) 和每个 \(y\in K^\bullet(Y)\)，有
+\[
+  i_*\bigl(\gamma^p(N,y)\bigr)\equiv \gamma^p(i_*(y))
+  \pmod{\text{挠元}}.
+\]
+利用各 \(\gamma^p\) 可表示为各 \(\lambda^p\) 的整数线性组合，由 \hyperlink{sga6.e07.thm.4-3}{4.3} 立即得到此结论。
+
+\sgaStableTarget{sga6.e07.rem.4-5}\textbf{注 4.5.} \hyperlink{sga6.e07.thm.4-3}{4.3} 的证明本身表明，\hyperlink{sga6.e07.eq.4-3-1}{(4.3.1)} 应当不仅模挠元成立，而且作为等式成立。在 \(\RRR\) 中，通过 \(\lambda^p(N,x)\) 的几何刻画，已经在特征 \(0\) 时证明了此等式。若知道如何在完美复形上定义外幂运算，或许可以把此方法推广到所有特征（参见 XIV）。
+
+\sgaStableTarget{sga6.e07.thm.4-6}\textbf{定理 4.6.} 设 \(X\) 是有丰沛层的拟紧概形，\(d>0\) 是整数，\(i:Y\to X\) 是余维数为 \(d\) 的正则浸入。则对每个 \(k\)，
+\[
+ i_*\bigl((\Fil^kK^\bullet(Y))\otimes\mathbb Q\bigr)
+ \subset
+ (\Fil^{k+d}K^\bullet(X))\otimes\mathbb Q.
+\]
+
+先注意到 \(i_*(K^\bullet(Y))\subset \Fil^1K^\bullet(X)\)。事实上，\(X-Y\) 在 \(X\) 中稠密；否则 \(Y\) 将包含一个仿射开集，在此开集上定义 \(Y\) 的理想 \(J\) 将为幂零元理想，因其有限型，便为局部幂零理想。这不可能，因为各 \(J^n/J^{n+1}\) 都是非零的局部自由模。\(i_*(K^\bullet(Y))\) 的元素在 \(K^\bullet(X)\) 中的增广，是 \(X\) 上局部常值的函数；它在 \(X-Y\) 上为零，故在整个 \(X\) 上为零。
+
+对每个阿贝尔群 \(A\)，记 \(A_{\mathbb Q}=A\otimes\mathbb Q\)。取 \(x\in\Fil^kK^\bullet(Y)_{\mathbb Q}\)。则 \(x\) 可写成
+\[
+  x=\sum a\,\gamma^{i_1}(x_1)\cdots\gamma^{i_n}(x_n),
+\]
+其中每个 \(i\) 都满足 \(\epsilon(x_i)=0\)，\(a\in\mathbb Q\)，且 \(i_1+\cdots+i_n\ge k\)。各 \(x_i\) 可表示为有限多个有限型局部自由 \(\mathcal O_Y\)-模 \(E_\alpha\) 的类 \(E_\alpha\) 的整数线性组合。令 \(R\) 是 \(K^\bullet(Y)_{\mathbb Q}\) 中由各 \(E_\alpha\) 及 \(N\) 生成的 \(\mathbb Q\)-\(\lambda\)-子代数。则 \(x\in\Fil^kR\)。
+
+\(\lambda\)-环 \(R\) 的滤过离散（\hyperlink{sga6.e06.prop.6-2}{VI 6.2}）；取 \(m\)，使 \(\Fil^mR=0\)。最后，把 \(X\) 分解成有限个不交开集，并在各开集上证明断言后，可假设各 \(E_\alpha\) 有常秩 \(r_\alpha\)。此时 \(R\) 的增广环为 \(\mathbb Q\)。
+
+我们将证明，对每个 \(i\)，
+\[
+  i_*(\Fil^iR)\subset \Fil^{i+d}K^\bullet(X)_{\mathbb Q}.
+\]
+这特别蕴涵
+\[
+  i_*(x)\in\Fil^{k+d}K^\bullet(X),
+\]
+从而证明定理。
+
+证明对 \(i\) 作递降归纳，\(i=m\) 时显然。设 \(y\in\Fil^iR\)，并对 \(j\) 令
+\[
+  a_j=(-1)^{j-1}(j-1)!.
+\]
+则由 \hyperlink{sga6.e05.prop.6-10}{V 6.10}，
+\[
+  \gamma^{d+i}(N,y)-a_{d+i}y\in\Fil^{i+1}R.
+\]
+因此可应用归纳假设，得到
+\[
+  i_*(\Fil^{i+1}R)\subset\Fil^{i+d+1}K^\bullet(X)_{\mathbb Q}.
+\]
+所以
+\[
+  i_*\bigl(\gamma^{d+i}(N,y)-a_{d+i}y\bigr)
+  \in\Fil^{i+d+1}K^\bullet(X)_{\mathbb Q}.
+\]
+由 \hyperlink{sga6.e07.cor.4-4}{4.4}，这蕴涵
+\[
+  \gamma^{d+i}\bigl(i_*(y)\bigr)-a_{d+i}i_*(y)
+  \in\Fil^{i+d+1}K^\bullet(X)_{\mathbb Q}.
+\]
+由于 \(i_*(y)\) 的增广为零，
+\[
+  \gamma^{d+i}\bigl(i_*(y)\bigr)\in\Fil^{i+d}K^\bullet(X).
+\]
+由于我们模去挠元计算，得到
+\[
+  i_*(y)\in\Fil^{i+d}K^\bullet(X)_{\mathbb Q}.
+\]
+
+\sgaStableTarget{sga6.e07.rem.4-6-1}\textbf{注 4.6.1.} 可以看到，即使 \hyperlink{sga6.e07.thm.4-3}{4.3} 不与 \(\mathbb Q\) 张量也成立，上述证明仍然只适用于模去挠元的情形。反例参见 \hyperlink{sga6.e14.para.4-6}{XIV 4.6}。
+
+\sgaStableTarget{sga6.e07.sec.4.7}\subsection*{4.7}
+
+回到 \hyperlink{sga6.e07.thm.3-7}{3.7} 的情形，其中有交换图
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+Y' \arrow[r,"j"] \arrow[d,"g"'] & X' \arrow[d,"f"]\\
+Y \arrow[r,"i"'] & X,
+\end{tikzcd}
+\]
+这里 \(i\) 是正则浸入，\(X'\) 是沿 \(Y\) 爆破所得的 \(X\)-概形，\(Y'=X'\times_XY\)。假设 \(X\) 诺特且有丰沛层，\(Y\) 正则。在 \hyperlink{sga6.e07.thm.3-7}{3.7} 中已经看到，此时有正合列
+\[
+0\longrightarrow K^\bullet(Y)\xrightarrow{u}
+K^\bullet(Y')\times K^\bullet(X)\xrightarrow{v}
+K^\bullet(X')\longrightarrow0.
+\]
+我们将证明，此正合列允许我们由 \(\lambda\)-环 \(K^\bullet(X)\)、\(K^\bullet(Y)\)，映射 \(i^*,i_*\)，以及元素 \(N\in K^\bullet(Y)\)，描述 \(X,Y,X',Y'\) 的 \(K^\bullet\) 所形成的整个结构，至少在模去挠元后并除去另外一点以外如此。
+
+设 \(K,K'\) 是两个 \(\lambda\)-环，\(i_*:K\to K'\) 是加法同态，\(i^*:K'\to K\) 是 \(\lambda\)-同态，\(d\) 是整数，\(N\in K\) 满足对 \(i>d\) 有 \(\lambda^i(N)=0\)，且 \(\lambda^d(N)\) 可逆。再假设有如下性质：
+\begin{enumerate}[label=\roman*)]
+\item \(i_*\) 是 \(K'\)-线性的（投影公式）；
+\item \(i^*i_*\) 是乘以 \(\lambda_{-1}(N)\) 的同态；
+\item 对所有 \(n\ge1\) 和所有 \(y\in K\)，
+\[
+ i_*\bigl(\lambda^n(N,y)\bigr)=\lambda^n(i_*(y))
+\]
+（关系式 \hyperlink{sga6.e07.eq.4-3-1}{(4.3.1)}）。
+\end{enumerate}
+
+先利用 \hyperlink{sga6.e06.thm.1-1}{VI 1.1}，构造一个起到 \(K^\bullet(Y')\) 作用的 \(K\)-\(\lambda\)-代数 \(K_1\)。设 \(L\) 是不定元，\(K[L]\) 是由 \(L\) 生成、满足关系 \(\lambda^i(L)=0\)（\(i\ge2\)）的 \(K\)-\(\lambda\)-代数（\hyperlink{sga6.e05.cor.4-9}{V 4.9}）。令
+\[
+  P(L)=\lambda^d(N-L)=\sum_{i=0}^{d}(-1)^i\lambda^{d-i}(N)L^i.
+\]
+由 \(P\) 生成的理想是 \(\lambda\)-理想。为说明这一点，先注意到关系 \(\lambda^i(N)=0\)（\(i>d\)）蕴涵：对 \(j\ge d\)，\(\lambda^j(N-L)\) 都是 \(\lambda^d(N-L)\) 的倍数。若在 \(1+K[(P)][[t]]\) 中计算，则 \(\lambda_t(N-L)\) 的像是次数 \(<d\) 的多项式；一个普遍论证表明其对 \(i\ge d\) 的 \(\lambda^i\) 都等于 \(1\)（参见 \hyperlink{sga6.e05.prop.4-8}{V 4.8}）。由于在
+\[
+1+K[[t]]^+[L]/(L^N)
+\]
+中有 \(\lambda_t(\lambda^d(N-L))=\lambda(\lambda_t(N-L))\)，故 \(\lambda^i(\lambda^d(N-L))\)（\(i\ge1\)）都是 \(P\) 的倍数。于是由关系式 \hyperlink{sga6.e05.eq.2-4-2}{V 2.4.2}，由 \(P\) 生成的理想是 \(\lambda\)-理想。
+
+令 \(K_1=K[L]/(P)\)。自然同态 \(K\to K_1\) 记为 \(g^*\)；它是 \(\lambda\)-同态。此外，\(K_1\) 是以
+\[
+  1,L,\ldots,L^{d-1}.
+\]
+为基的自由 \(K\)-模。事实上，由
+\[
+  \lambda^d(N)=\lambda^{d-1}(N-L)L
+\]
+以及 \(\lambda^d(N)\) 可逆的假设，得 \(L\) 可逆。因此，\(K_1\) 在 \(K\) 上也以 \(1,L^{-1},\ldots,L^{-d+1}\) 为基。定义 \(K\)-线性同态 \(g_*:K_1\to K\)，把
+\[
+y'=y_0+y_1L^{-1}+\cdots+y_{d-1}L^{-d+1}
+\]
+送到 \(K\) 的元素 \(y_0\)。显然，此映射可加且 \(K\)-线性，并满足 \(g_*g^*=\Id\)。
+
+现在通过下列公式，赋予 \(K_1\times K'\) 一个 \(\lambda\)-环结构：
+\sgaStableTarget{sga6.e07.eq.4-7-1}\sgaStableTarget{sga6.e07.eq.4-7-2}\begin{align}
+ (y'_1,x_1)*(y'_2,x_2)
+   &=(y'_1y'_2(1-L)+x_1y'_2+x_2y'_1,\; x_1x_2), \tag{4.7.1}\\
+ \lambda^n_*(y',x)
+   &=\left(\sum_{p=1}^{n}\lambda^{\,n-p}(x)\lambda^p(L,y'),\;\lambda^n(x)\right). \tag{4.7.2}
+\end{align}
+在这些公式中，通过同态
+\[
+  K'\xrightarrow{i^*}K\xrightarrow{g^*}K_1.
+\]
+把 \(K_1\) 看作 \(K'\)-代数。其次，对 \(y_1,y_2\in K\) 和 \(n\ge1\)，令
+\sgaStableTarget{sga6.e07.eq.4-7-3}\sgaStableTarget{sga6.e07.eq.4-7-4}\begin{align}
+ y_1*_y y_2&=-\,y_1y_2\lambda_{-1}(N), \tag{4.7.3}\\
+ \lambda^n_*(y_1)&=-\,\lambda^n(N,-y_1), \tag{4.7.4}
+\end{align}
+并定义同态
+\[
+  u:K\longrightarrow K_1\times K'
+\]
+如下：
+\[
+  u(y)=\bigl(g^*(y)\lambda_{-1}(F),-i_*(y)\bigr),
+  \qquad F=N-L.
+\]
+
+\sgaStableTarget{sga6.e07.prop.4-7-5}\textbf{命题 4.7.5.} 由 \hyperlink{sga6.e07.eq.4-7-1}{(4.7.1)} 和 \hyperlink{sga6.e07.eq.4-7-2}{(4.7.2)} 定义的运算，使 \(K_1\times K'\) 成为 \(\lambda\)-环；而 \(u\) 是单同态，把带有 \hyperlink{sga6.e07.eq.4-7-3}{(4.7.3)} 和 \hyperlink{sga6.e07.eq.4-7-4}{(4.7.4)} 所定义运算的 \(K\)，等同为 \(K_1\times K'\) 的一个 \(\lambda\)-理想。
+
+立即可验证 \(K_1\times K'\) 是 \(\lambda\)-环；例如可参见 \hyperlink{sga6.e05.para.5-5}{V 5.5} 中完全类似的构造。命题第二部分的验证也可直接由前面的关系、从假设立即得到的关系
+\[
+  i_*(y_1y_2\lambda_{-1}(N))=i_*(y_1)\,i_*(y_2),
+\]
+以及关系 \(g_*(\lambda_{-1}(F))=1\)（\hyperlink{sga6.e06.prop.5-9}{VI 5.9}）和 V 5 的各关系得到。
+
+令
+\[
+  K'_1=(K_1\times K')/K,
+\]
+并设 \(v:K_1\times K'\to K'_1\) 是典范同态。通过商结构，把 \(K'_1\) 看作 \(\lambda\)-环。定义加法同态
+\[
+\begin{array}{llll}
+j_*:K_1\to K'_1, & j^*:K'_1\to K_1, &
+f_*:K'_1\to K', & f^*:K'\to K'_1 .
+\end{array}
+\]
+同态 \(j_*\) 是复合 \(K_1\to K_1\times K'\to K'_1\)。同样，\(f^*\) 是复合 \(K'\to K_1\times K'\to K'_1\)。因此
+\[
+  v=j_*+f^*.
+\]
+其次，定义同态 \(K_1\times K'\to K_1\)，把 \((y',x)\) 送到元素
+\[
+  y'(1-L)+g^*i^*(x).
+\]
+此同态在 \(K\) 上为零，因而定义同态
+\[
+  j^*:K'_1\longrightarrow K_1.
+\]
+最后，定义同态 \(K_1\times K'\to K'\)，把 \((y',x)\) 送到元素
+\[
+  i_*g_*(y')+x.
+\]
+此同态在 \(K\) 上为零，因而定义同态
+\[
+  f_*:K'_1\longrightarrow K'.
+\]
+
+\sgaStableTarget{sga6.e07.prop.4-7-6}\textbf{命题 4.7.6.}
+\begin{enumerate}[label=\roman*)]
+\item \(j^*\) 和 \(f^*\) 是 \(\lambda\)-同态；
+\item \(j_*\) 是 \(K'_1\)-线性的，\(f_*\) 是 \(K'\)-线性的；
+\item \(j^*j_*\) 是乘以 \(1-L\) 的同态；
+\item 对每个 \(y'\in K_1\) 和每个 \(p\ge1\)，
+\[
+  j_*\bigl(\lambda^p(L,y')\bigr)=\lambda^p(j_*(y'));
+\]
+\item \(f_*f^*=\Id\).
+\end{enumerate}
+直接按上述运算验证即可。
+
+回到上面回顾的几何情形，可看到 \(K^\bullet(X')\) 是按前述方法，由 \(K^\bullet(Y)\)、\(K^\bullet(X)\)，映射 \(i^*,i_*\)，以及元素 \(N\in K^\bullet(Y)\) 构造得到的。不过，只要关系式 \hyperlink{sga6.e07.eq.4-3-1}{(4.3.1)} 仅在模去挠元后得到证明，\(K^\bullet(X')\) 上的 \(\lambda\)-运算也就只能在模去挠元后与上面在 \(K'_1\) 上定义的 \(\lambda\)-运算相同。
+
+\sgaStableTarget{sga6.e07.thm.4-8}\textbf{定理 4.8.} 设 \(i:Y\to X\) 是常余维数为 \(d\) 的正则闭浸入，\(X'\) 是沿 \(Y\) 爆破所得的概形，\(Y'=X'\times_XY\)，从而有交换图
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+Y' \arrow[r,"j"] \arrow[d,"g"'] & X' \arrow[d,"f"]\\
+Y \arrow[r,"i"'] & X.
+\end{tikzcd}
+\]
+假设 \(X\) 拟紧且有丰沛层。则对每个 \(k\)，有正合列
+\[
+0\longrightarrow
+\operatorname{Gr}^{k-d}K^\bullet(Y)_{\mathbb Q}
+\xrightarrow{u^{\gr}}
+\operatorname{Gr}^{k-1}K^\bullet(Y')_{\mathbb Q}
+\times
+\operatorname{Gr}^{k}K^\bullet(X)_{\mathbb Q}
+\xrightarrow{v^{\gr}}
+\operatorname{Gr}^{k}K^\bullet(X')_{\mathbb Q},
+\]
+其中，对 \(y\in \operatorname{Gr}^{k-d}K^\bullet(Y)_{\mathbb Q}\)，
+\[
+  u^{\gr}(y)=
+  \bigl(g^{\gr}(y)(-1)^{d-1}c^{d-1}(F),-\,i_{\gr}(y)\bigr),
+\]
+而对 \(y'\in \operatorname{Gr}^{k-1}K^\bullet(Y')_{\mathbb Q}\) 和 \(x\in \operatorname{Gr}^{k}K^\bullet(X)_{\mathbb Q}\)，
+\[
+  v^{\gr}(y',x)=j_{\gr}(y')+f^{\gr}(x).
+\]
+记号沿用 \hyperlink{sga6.e07.para.3-1}{3.1} 和 \hyperlink{sga6.e07.para.3-3}{3.3}，而 \(c^{d-1}(F)\) 表示 \(F\) 的第 \((d-1)\) 个 Chern 类（\hyperlink{sga6.e05.para.6-7}{V 6.7}）。此外，\(u^{\gr}\) 有一个左逆 \(u'^{\gr}\)，定义为
+\[
+  u'^{\gr}(y',x)=g_{\gr}(y').
+\]
+若进一步假设 \(X\) 诺特且 \(Y\) 正则，则有正合列
+\[
+0\longrightarrow
+\operatorname{Gr}^{k-d}K^\bullet(Y)_{\mathbb Q}
+\xrightarrow{u^{\gr}}
+\operatorname{Gr}^{k-1}K^\bullet(Y')_{\mathbb Q}
+\times
+\operatorname{Gr}^{k}K^\bullet(X)_{\mathbb Q}
+\xrightarrow{v^{\gr}}
+\operatorname{Gr}^{k}K^\bullet(X')_{\mathbb Q}
+\longrightarrow0.
+\]
+
+\emph{证明.} 注意，当 \(Y\) 正则时，可利用 \hyperlink{sga6.e07.sec.4.7}{4.7} 对此结构的描述，给出一个纯粹以 \(\lambda\)-环理论表述的代数证明。这里则由 3.7 的证明来计算。
+
+我们知道，逆像同态 \(f^*,g^*\) 是 \(\lambda\)-同态，与 \(\lambda\)-环的滤过相容，因而在相伴分次环上定义同态
+\[
+  f^{\gr}:\operatorname{Gr}^kK^\bullet(X)\to\operatorname{Gr}^kK^\bullet(X'),
+  \qquad
+  g^{\gr}:\operatorname{Gr}^{k-d}K^\bullet(Y)\to\operatorname{Gr}^{k-d}K^\bullet(Y'),
+\]
+与 \(\mathbb Q\) 张量后同样如此。此外，\hyperlink{sga6.e07.thm.4-6}{4.6} 表明，与 \(\mathbb Q\) 张量后，同态 \(i_*,j_*\) 可过渡到相伴分次，得到
+\[
+  i_{\gr}:\operatorname{Gr}^{k-d}K^\bullet(Y)_{\mathbb Q}
+  \to \operatorname{Gr}^{k}K^\bullet(X)_{\mathbb Q},
+  \qquad
+  j_{\gr}:\operatorname{Gr}^{k-1}K^\bullet(Y')_{\mathbb Q}
+  \to \operatorname{Gr}^{k}K^\bullet(X')_{\mathbb Q}.
+\]
+最后，由于
+\[
+  \lambda_{-1}(F)=(-1)^{d-1}\gamma^{d-1}(F),
+\]
+态射 \(u^{\gr},v^{\gr}\) 由 3.7 的态射 \(u,v\) 过渡到商得到。因此 \(v^{\gr}u^{\gr}=0\)。
+
+由 \hyperlink{sga6.e06.cor.5-8}{VI 5.8}，
+\[
+  g_*(\Fil^{k-1}K^\bullet(Y'))\subset \Fil^{k-d}K^\bullet(Y)
+\]
+对每个 \(k\) 成立，因为 \(Y'=\mathbf P(N)\)，而 \(N\) 的秩为 \(d\)。所以得到同态
+\[
+  g_{\gr}:\operatorname{Gr}^{k-1}K^\bullet(Y')
+  \to\operatorname{Gr}^{k-d}K^\bullet(Y),
+\]
+以及与 \(\mathbb Q\) 张量后的相应同态。同态 \(u'^{\gr}\) 由 \(u'\) \hyperlink{sga6.e07.thm.3-7}{(3.7)} 过渡到相伴分次得到。由于 \(u'\) 是 \(u\) 的左逆，\(u'^{\gr}\) 是 \(u^{\gr}\) 的左逆，这也证明了 \(u^{\gr}\) 的单射性。
+
+为了证明 \(\Ker(v^{\gr})=\Im(u^{\gr})\)，设
+\[
+y'\in\Fil^{k-1}K^\bullet(Y')_{\mathbb Q},\qquad
+x\in\Fil^kK^\bullet(X)_{\mathbb Q}
+\]
+满足
+\sgaStableTarget{sga6.e07.eq.4-6-1}\begin{equation}\tag{4.6.1}
+  j_*(y')+f^*(x)\in\Fil^{k+1}K^\bullet(X')_{\mathbb Q}.
+\end{equation}
+需要证明存在 \(y\in\Fil^{k-d}K^\bullet(Y)_{\mathbb Q}\)，使得
+\[
+\begin{aligned}
+\text{i)}\quad &x+i_*(y)\in\Fil^{k+1}K^\bullet(X)_{\mathbb Q},\\
+\text{ii)}\quad &y'-g^*(y)\lambda_{-1}(F)\in\Fil^{k}K^\bullet(Y')_{\mathbb Q}.
+\end{aligned}
+\]
+令
+\[
+  y=g_*(y').
+\]
+由 \hyperlink{sga6.e06.cor.5-8}{VI 5.8}，\(y\in\Fil^{k-d}K^\bullet(Y)\)。\(f_*\) 保持滤过（这里用\hyperlink{sga6.e08.expose}{第 VIII 讲}的结果并无循环，因为证明此事实并不使用 \hyperlink{sga6.e07.thm.4-8}{4.8}）：事实上，由 \hyperlink{sga6.e07.prop.1-8}{1.8} ii)，\(f\) 是虚相对维数为 \(0\) 的完全交态射（\hyperlink{sga6.e08.prop.4-2}{VIII 4.2}）。由于 \(f\) 射影，结果由 \hyperlink{sga6.e08.prop.3-2}{VIII 3.2} 得到。对 \hyperlink{sga6.e07.eq.4-6-1}{(4.6.1)} 应用 \(f_*\)，得到
+\[
+  f_*(j_*(y'))+f_*f^*(x)\in\Fil^{k+1}K^\bullet(X)_{\mathbb Q}.
+\]
+所以，由 \hyperlink{sga6.e07.prop.3-6}{3.6}，
+\[
+  i_*(y)+x\in\Fil^{k+1}K^\bullet(X)_{\mathbb Q}.
+\]
+
+为了证明 (ii)，需要证明
+\[
+  y'-g^*(g_*y')\lambda_{-1}(F)\in\Fil^kK^\bullet(Y')_{\mathbb Q}.
+\]
+令
+\[
+  z=y'-g^*(g_*y')\lambda_{-1}(F).
+\]
+则
+\[
+\begin{aligned}
+j_*(z)
+  &=j_*(y')-j_*\bigl(g^*(g_*y')\lambda_{-1}(F)\bigr)\\
+   &=j_*(y')-f^*(i_*g_*y')\qquad\text{由 3.4。}
+\end{aligned}
+\]
+但关系式 (i) 给出
+\[
+  f^*(i_*g_*y')+f^*(x)\in\Fil^{k+1}K^\bullet(X')_{\mathbb Q}.
+\]
+与 \hyperlink{sga6.e07.eq.4-6-1}{(4.6.1)} 结合，得到
+\[
+  j_*(z)\in\Fil^{k+1}K^\bullet(X')_{\mathbb Q}.
+\]
+因此
+\[
+  j^*(j_*(z))=z(1-L)\in\Fil^{k+1}K^\bullet(Y')_{\mathbb Q}.
+\]
+设 \(z'\) 是 \(z\) 在
+\(\operatorname{Gr}^{k-1}K^\bullet(Y')_{\mathbb Q}\) 中的像，用 \((1-L)\) 表示 \(1-L\) 在 \(\operatorname{Gr}^{1}K^\bullet(Y')_{\mathbb Q}\) 中的类。已知 \(z'(1-L)=0\)。于是可应用 \hyperlink{sga6.e06.prop.5-11}{VI 5.11}（其证明只用 \(K^\bullet(Y')\) 作为自由 \(K^\bullet(Y)\)-代数的结构，故与 \(\mathbb Q\) 张量后仍成立），找到 \(z''\in K^\bullet(Y)_{\mathbb Q}\)，使得
+\[
+  z-g^*(z'')\lambda_{-1}(F)\in\Fil^kK^\bullet(Y')_{\mathbb Q}.
+\]
+应用 \(g_*\)，由于 \(g_*(z)=0\)，得到
+\[
+  z''\in\Fil^{k+1-d}K^\bullet(Y)_{\mathbb Q},
+\]
+又由于 \(\lambda_{-1}(F)\in\Fil^{d-1}K^\bullet(Y')_{\mathbb Q}\)，所以
+\[
+  z\in\Fil^kK^\bullet(Y')_{\mathbb Q},
+\]
+证明完成。
+
+现在假设 \(X\) 诺特且 \(Y\) 正则。则 \(v\) 为满同态 \hyperlink{sga6.e07.thm.3-7}{(3.7)}。在 \hyperlink{sga6.e07.thm.3-7}{3.7} 的证明中已经看到，对每个 \(x'\in K^\bullet(X')\)，存在 \(y'\in K^\bullet(Y')\)，使得
+\[
+  x'=f^*(f_*x')+j_*(y').
+\]
+与 \(\mathbb Q\) 张量后此性质仍然成立。因此，若 \(x'\in\Fil^kK^\bullet(X')_{\mathbb Q}\)，则存在 \((y',x)\in K^\bullet(Y')_{\mathbb Q}\times K^\bullet(X)_{\mathbb Q}\)，使得
+\[
+  x'=v(y',x),\qquad x\in\Fil^kK^\bullet(X)_{\mathbb Q}.
+\]
+事实上，只需取 \(x=f_*(x')\)。
+
+仿照 \hyperlink{sga6.e07.sec.4.7}{4.7}，给 \(K^\bullet(Y')_{\mathbb Q}\times K^\bullet(X)_{\mathbb Q}\) 定义滤过，令
+\[
+  \Fil^k\bigl(K^\bullet(Y')_{\mathbb Q}\times K^\bullet(X)_{\mathbb Q}\bigr)
+  =
+  \Fil^{k-1}K^\bullet(Y')_{\mathbb Q}\times \Fil^kK^\bullet(X)_{\mathbb Q}.
+\]
+由 \hyperlink{sga6.e07.eq.4-7-1}{4.7.1} 立即可知这是环滤过。为了证明对每个 \(k\)，同态
+\[
+  \Fil^k\bigl(K^\bullet(Y')_{\mathbb Q}\times K^\bullet(X)_{\mathbb Q}\bigr)
+  \longrightarrow
+  \Fil^kK^\bullet(X')_{\mathbb Q}
+\]
+为满同态，只需证明：若 \(x'=\gamma^k(x'_1)\) 且 \(\epsilon(x'_1)=0\)，则存在 \((y',x)\in\Fil^k(K^\bullet(Y')_{\mathbb Q}\times K^\bullet(X)_{\mathbb Q})\)，使 \(x'=v(y',x)\)。
+
+由前面的论证，存在 \((y'_1,x_1)\in K^\bullet(Y')_{\mathbb Q}\times K^\bullet(X)_{\mathbb Q}\)，使 \(x'_1=v(y'_1,x_1)\)，且 \(x_1\in\Fil^1K^\bullet(X)_{\mathbb Q}\)。由 \hyperlink{sga6.e07.sec.4.7}{4.7}，
+\[
+  x'=v\bigl(\gamma^k_*(y'_1,x_1)\bigr).
+\]
+但是
+\[
+  \gamma^k_*(y'_1,x_1)
+  =
+  \left(\sum_{p=1}^{k}\gamma^{k-p}(x_1)\gamma^p(L,y'_1),\;\gamma^k(x_1)\right),
+\]
+这直接由 \hyperlink{sga6.e07.eq.4-7-2}{(4.7.2)} 得到。由于 \(x_1\) 的增广为零，\(\gamma^k(x_1)\in\Fil^kK^\bullet(X)_{\mathbb Q}\)，且由 \hyperlink{sga6.e05.prop.5-7}{V 5.7}，
+\[
+  \sum_{p=1}^{k}\gamma^{k-p}(x_1)\gamma^p(L,y'_1)
+  \in\Fil^{k-1}K^\bullet(Y')_{\mathbb Q}.
+\]
+这就证明了断言。
+
+\sgaStableTarget{sga6.e07.rem.4-9}\textbf{注 4.9.} 当 \(X\) 诺特且 \(Y\) 正则时，仿照 \hyperlink{sga6.e07.sec.4.7}{4.7}，可以用分次环 \(\operatorname{Gr}^*K^\bullet(X)_{\mathbb Q}\)、\(\operatorname{Gr}^*K^\bullet(Y)_{\mathbb Q}\)，由 \(i_*,i^*\) 诱导的加法同态 \(i_{\gr},i^{\gr}\)，以及元素 \(c(N)\in\operatorname{Gr}^*K^\bullet(Y)\)，描述 \(\operatorname{Gr}^*K^\bullet(X')_{\mathbb Q}\) 的分次环结构。同样，也可以由这些资料，描述 \(f^*,f_*,j^*,j_*\) 过渡到相伴分次所得的同态 \(f^{\gr},f_{\gr},j^{\gr},j_{\gr}\)。
+
+\sgaStableTarget{sga6.e07.sec.4.10}\subsection*{4.10}
+
+% SGA-SRC-001500
+设 \(X\) 是有丰沛层的正则概形。我们知道（\hyperlink{sga6.e04.para.2-12}{IV 2.12}），分别由有限型局部自由 \(\mathcal O_X\)-模及凝聚 \(\mathcal O_X\)-模形成的 Grothendieck 群同构。利用此事实，在 \(K^\bullet(X)\) 上定义一个“拓扑”滤过：令 \(\Fil_{\mathrm{top}}^iK^\bullet(X)\) 为由支集余维数至少为 \(i\) 的凝聚层的类生成的子群。容易证明，\(\Fil_{\mathrm{top}}^iK^\bullet(X)\) 由各层 \(\mathcal O_Z\) 的类生成，其中 \(Z\) 遍历 \(X\) 的余维数 \(\ge i\) 的整闭子概形。
+
+\sgaStableTarget{sga6.e07.prop.4-11}\textbf{命题 4.11.} 设 \(X\) 是有丰沛层的正则概形。则对每个 \(k\ge0\)，
+\[
+  \Fil_{\mathrm{top}}^kK^\bullet(X)_{\mathbb Q}
+  \subset
+  \Fil^kK^\bullet(X)_{\mathbb Q}.
+\]
+反向包含无需与 \(\mathbb Q\) 张量，将在第 X 讲中证明。
+
+由 \hyperlink{sga6.e07.sec.4.10}{4.10}，只需证明：若 \(Z\) 是 \(X\) 的余维数为 \(k\) 的整闭子概形，则
+\[
+  \operatorname{cl}(\mathcal O_Z)\in\Fil^kK^\bullet(X)_{\mathbb Q}.
+\]
+为此，对 \(X\) 的整闭子概形作诺特归纳。假设性质对 \(Z\) 的真整闭子概形已成立，来证明它对 \(Z\) 成立。设 \(J\) 是 \(\mathcal O_X\) 中定义 \(Z\) 的理想，\(z\) 是 \(Z\) 的一般点。由于 \(Z\) 整，\(J_z\) 是 \(\mathcal O_{X,z}\) 的极大理想；又因 \(X\) 正则，\(J_z\) 可由一个 \(\mathcal O_{X,z}\)-正则序列生成。因此在 \(z\) 的某个邻域中，可找到 \(J\) 的一列截面，构成 \(\mathcal O_X\)-正则序列。所以存在 \(z\) 的开邻域 \(U\)，使 \(Z'=X-U\) 包含于 \(Z\)，且 \(J\mathcal O_U\) 是 \(\mathcal O_U\) 的正则理想。浸入 \(Z\cap U\to U\) 此时为正则浸入，其余维数为
+\[
+  \dim(\mathcal O_{X,z})=\codim(Z,X)
+\]
+（EGA IV 5.1.2）。此外，有正合列（IV）
+\[
+  K^\bullet(Z')\xrightarrow{j_*}K^\bullet(X)
+  \xrightarrow{u^*}K^\bullet(U)\to0,
+\]
+其中 \(j\) 是浸入 \(Z'\to X\)，\(u\) 是浸入 \(U\to X\)。与 \(\mathbb Q\) 张量后，得到
+\[
+  \operatorname{cl}(\mathcal O_Z)
+  \equiv i_*(1_{\mathcal O_{Z\cap U}}),
+\]
+由 \hyperlink{sga6.e07.thm.4-6}{4.6}，\(\mathcal O_Z\) 的类在 \(u^*\) 下的像属于 \(\Fil^kK^\bullet(U)_{\mathbb Q}\)。由于 \(u^*\) 是满的 \(\lambda\)-同态，它诱导满同态
+\[
+  \Fil^kK^\bullet(X)\longrightarrow \Fil^kK^\bullet(U).
+\]
+所以 \(u^*(1_Z)=u^*(x)\)，其中 \(x\in\Fil^kK^\bullet(X)_{\mathbb Q}\)。因此存在
+\[
+  y\in j_*(K^\bullet(Z'))
+\]
+使得
+\[
+  \operatorname{cl}(\mathcal O_Z)-y\in\Fil^kK^\bullet(X)_{\mathbb Q}.
+\]
+但 \(Z'\subset Z\)，且 \(z\notin Z'\)，故 \(\codim(Z',X)>k\)。所以 \(y\) 可表示为若干层 \(\mathcal O_{Z''_\alpha}\) 的类的线性组合，其中 \(Z''_\alpha\) 是不同于 \(Z\) 的整闭子概形。由归纳假设，\(y\in\Fil^kK^\bullet(X)_{\mathbb Q}\)，证明完成。
+
+\sgaStableTarget{sga6.e07.bibliography}\subsection*{参考文献}
+\begin{enumerate}[label={[\arabic*]}]
+\item Cartan--Eilenberg, \emph{Homological Algebra}.
+\end{enumerate}
+
+
+
+\providecommand{\etale}{\'etale}
+\providecommand{\Ch}{\operatorname{Ch}}
+
+

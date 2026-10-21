@@ -1,0 +1,1065 @@
+% Source: 07_SGA6_EN_CURRENT_LAYERED_READER.tex, lines 17901--20167.
+% Exact completed and pending ranges: audits/expose-13.json.
+\sgaStableTarget{sga6.e13.expose}\section*{第 XIII 讲. Picard 函子的有限性定理}
+\begin{center}
+S. Kleiman 著
+\end{center}
+
+\sgaStableTarget{sga6.e13.sec.1}\subsection*{1. \texorpdfstring{\((b)\)}{(b)}-层}
+
+设 \(k\) 是代数闭域, \(X\) 是射影 \(k\)-概形, 配备丰沛可逆层 \(\mathcal O_X(1)\).
+
+\sgaStableTarget{sga6.e13.def.1-1}\textbf{定义 1.1 (Mumford).} 设 \(m\in\mathbb Z\). 若 \(X\) 上的凝聚层 \(F\) 满足: 在 \(F\) 的支集的每个点处, \(\mathcal O_X(1)\) 由其整体截面生成, 且对每个 \(q\geq1\),
+\[
+  H^q(F(m-q))=0,
+\]
+则称该层为 \emph{\(m\)-正则的}.
+
+\sgaStableTarget{sga6.e13.lem.1-2}\textbf{引理 1.2.} 设
+\[
+  0\longrightarrow F(-1)\longrightarrow F\longrightarrow G\longrightarrow0
+\]
+是 \(X\) 上凝聚层的正合列.\footnote{这里以及以下类似情形中, 都约定 \(F(-1)\to F\) 由与 \(\mathcal O_X(1)\) 的某个给定截面作张量积定义.} 若 \(F\) 为 \(m\)-正则, 则 \(G\) 也如此.
+
+事实上, 有相应的正合列
+\[
+  H^q(F(m-q))\longrightarrow H^q(G(m-q))
+  \longrightarrow H^{q+1}(F(m-q-1)).
+\]
+
+\sgaStableTarget{sga6.e13.prop.1-3}\textbf{命题 1.3.} 若 \(X\) 上的层 \(F\) 为 \(m\)-正则, 则对每个 \(n\geq m\),
+\begin{enumerate}[label=(\roman*)]
+\item \(F\) 为 \(n\)-正则.
+\item 映射
+\[
+  H^0(F(n))\otimes H^0(\mathcal O_X(1))
+  \longrightarrow H^0(F(n+1))
+\]
+满射.
+\item \(F(n)\) 由 \(H^0(F(n))\) 生成.
+\end{enumerate}
+
+证明对 \(F\) 的支集的维数 \(s\) 作归纳; 若 \(s=-1\), 断言平凡. 取截面 \(\sigma\in H^0(\mathcal O_X(1))\), 使其在有限集 \(\Ass(F)\) 的任意点处都不为零. 则 \(\sigma\) 定义正合列
+\[
+  0\longrightarrow F(-1)\longrightarrow F\longrightarrow G\longrightarrow0,
+\]
+而由\hyperlink{sga6.e13.lem.1-2}{1.2}, \(G\) 为 \(m\)-正则, 其支集的维数为 \(s-1\).
+
+考虑相应的正合列
+\[
+  H^q(F(n-q-1))\longrightarrow H^q(F(n-q))
+  \longrightarrow H^q(G(n-q)).
+\]
+由归纳假设, 当 \(n\geq m\) 时 \(H^q(G(n-q))=0\), 所以 \(H^q(F(n-q-1))\) 的消失蕴含 \(H^q(F(n-q))\) 的消失. 而 \(H^q(F(m-q))=0\), 这就证明了 (i).
+
+为证明 (ii), 对下列交换图作图追踪:
+\[
+\begin{tikzcd}[column sep=.45em,row sep=2.4em]
+  & & H^0(F(n))\otimes H^0(\mathcal O_X(1))
+      \arrow[rr] \arrow[d]
+  & & H^0(G(n))\otimes H^0(\mathcal O_X(1))
+      \arrow[r] \arrow[d]
+  & 0 \\
+  0 \arrow[r]
+  & H^0(F(n)) \arrow[ur] \arrow[r]
+  & H^0(F(n+1)) \arrow[rr]
+  & & H^0(G(n+1)) \arrow[d] \\
+  & & & & 0
+\end{tikzcd}
+\]
+这里斜箭头由 \(\varphi\mapsto\varphi\otimes\sigma\) 定义; 水平行正合, 第一行由 \(F\) 的 \(n\)-正则性和已证明的 (i) 得到, 而第二列由归纳假设正合.
+
+最后, (iii) 由交换图
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+H^0(F(n))_X\otimes H^0(\mathcal O_X(1))_X
+  \arrow[r,"\alpha_n"]
+  \arrow[d]
+& H^0(F(n)(1))_X
+  \arrow[d,"\beta_{n+1}"] \\
+{[H^0(F(n))_X](1)}
+  \arrow[r,"\beta_n\otimes\mathrm{id}"]
+& F(n)(1)
+\end{tikzcd}
+\]
+推出.
+
+这里若 \(M\) 是 \(k\) 上的向量空间, 用 \(M_X\) 表示 \(M\otimes_k\mathcal O_X\). 对 \(n\geq m\), 由 (ii), \(\alpha_n\) 满射; 因而若 \(\beta_{n+1}\) 满射, 则 \(\beta_n\) 也满射. 由 Serre 定理, 当 \(n\gg0\) 时 \(\beta_{n+1}\) 满射; 这就证明了 (iii).
+
+\sgaStableTarget{sga6.e13.prop.1-4}\textbf{命题 1.4.} 设
+\[
+  0\longrightarrow F(-1)\longrightarrow F\longrightarrow G\longrightarrow0
+\]
+是 \(X\) 上的正合列. 若 \(G\) 为 \(m\)-正则, 则:
+\begin{enumerate}[label=(\roman*)]
+\item 对 \(q\geq2\) 和 \(n\geq m-q\), 有 \(H^q(F(n))=0\).
+\item 对 \(n\geq m-1\), 有 \(h^1(F(n-1))\geq h^1(F(n))\).
+\item 对 \(n\geq(m-1)+h^1(F(m-1))\), 有 \(H^1(F(n))=0\).
+\end{enumerate}
+特别地, \(F\) 为 \([m+h^1(F(m-1))]\)-正则.
+
+事实上, 在正合列
+\[
+  H^{q-1}(G(n))\longrightarrow H^q(F(n-1))
+  \longrightarrow H^q(F(n))\longrightarrow H^q(G(n))
+\]
+中, 由\hyperlink{sga6.e13.prop.1-3}{1.3(i)}, 当 \(q\geq2\) 且 \(n\geq m-(q-1)\) 时, 两端的群为零. 因而
+\[
+  H^q(F(m-q))\xrightarrow{\sim}H^q(F(m-q+1))
+  \xrightarrow{\sim}H^q(F(m-q+2))\xrightarrow{\sim}\cdots;
+\]
+但由 Serre 定理, 当 \(n\gg0\) 时 \(H^q(F(n))=0\), 这证明了 (i).
+
+对 \(n\geq m-1\), 考虑正合列
+\[
+  0\to H^0(F(n-1))\to H^0(F(n))
+  \xrightarrow{\alpha_n}H^0(G(n))\to H^1(F(n-1))
+  \to H^1(F(n))\to0.
+\]
+它蕴含 (ii). 现在假设 \(\alpha_n\) 满射, 并考虑交换图
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+H^0(F(n))\otimes H^0(\mathcal O_X(1))
+  \arrow[r,"\alpha_n\otimes\mathrm{id}"]
+  \arrow[d]
+& H^0(G(n))\otimes H^0(\mathcal O_X(1))
+  \arrow[r]
+  \arrow[d,"\beta_n"]
+& 0 \\
+H^0(F(n+1))
+  \arrow[r,"\alpha_{n+1}"]
+& H^0(G(n+1)).
+\end{tikzcd}
+\]
+
+若 \(n\geq m\), 则由\hyperlink{sga6.e13.prop.1-3}{1.3(ii)}, \(\beta_n\) 满射, 从而 \(\alpha_{n+1}\) 满射. 因而
+\[
+  H^1(F(n-1))\xrightarrow{\sim}H^1(F(n))
+  \xrightarrow{\sim}\cdots\xrightarrow{\sim}0.
+\]
+另一方面, 若 \(\alpha_n\) 不满射, 则 \(h^1(F(n-1))>h^1(F(n))\). 因此函数 \(n\longmapsto h^1(F(n))\) 从 \(h^1(F(m-1))\) 开始\emph{严格}递减, 直至为零; 这就证明了 (iii).
+
+\sgaStableTarget{sga6.e13.def.1-5}\textbf{定义 1.5.} 设 \(F\) 是 \(X\) 上的凝聚层, \(r\geq\dim\Supp(F)\), \((b)=(b_0,\ldots,b_r)\) 是 \(r+1\) 个整数构成的序列. 若 \(F\) 满足下列两组等价条件中的任一组, 则称它为 \emph{\((b)\)-层}.
+
+\noindent\sgaStableTarget{sga6.e13.para.1-5-1}\textbf{(1.5.1)}
+\begin{enumerate}[label=(\roman*)]
+\item 在 \(F\) 的支集的每个点处, \(\mathcal O_X(1)\) 由 \(H^0(\mathcal O_X(1))\) 生成.
+\item \(h^0(F(-1))\leq b_0\).
+\item 若 \(r\geq1\), 则存在截面 \(\sigma\in H^0(\mathcal O_X(1))\) 定义正合列
+\[
+  0\longrightarrow F(-1)\longrightarrow F\longrightarrow G\longrightarrow0,
+\]
+其中 \(G\) 是 \((b_1,\ldots,b_r)\)-层.
+\end{enumerate}
+
+\noindent\sgaStableTarget{sga6.e13.para.1-5-2}\textbf{(1.5.2)} 存在由 \(r\) 个截面组成的 \(F\)-正则序列 \(\sigma_1,\ldots,\sigma_r\in H^0(\mathcal O_X(1))\), 使对 \(i=0,\ldots,r\), 若 \(F_i\) 表示 \(F\) 在 \(\sigma_1,\ldots,\sigma_i\) 的零点概形上的限制, 则
+\[
+  h^0(F_i(-1))\leq b_i.
+\]
+
+\sgaStableTarget{sga6.e13.prop.1-6}\textbf{命题 1.6.} 设 \(F\) 是 \(X\) 上的 \((b)\)-层. 则:
+\begin{enumerate}[label=(\roman*)]
+\item 对每个充分一般的 \(r\) 个截面 \(\sigma_1,\ldots,\sigma_r\in H^0(\mathcal O_X(1))\) 所成的序列 \(\sigma\), 若 \(F_{\sigma,i}\) 表示 \(F\) 在 \(\sigma_1,\ldots,\sigma_i\) 的零点概形上的限制, 则对 \(0\leq i\leq r\), 有 \(h^0(F_{\sigma,i}(-1))\leq b_i\).
+\item \(F\) 的每个子层 \(G\) 都是 \((b)\)-层.
+\end{enumerate}
+
+事实上, 设 \(S'=\mathbb A_k^N\) 是其 \(k\)-点对应于序列 \(\sigma\) 的仿射空间, \(T\) 是 \(S'\) 中对应于 \(F\)-正则序列的开子集. 对固定的 \(i\), 与 \(T\) 的 \(k\)-点对应的层 \(F_{\sigma,i}(-1)\) 包含在 \(T\) 上的一个平坦族中, 而由假设 \(T\) 非空. 因而 (i) 由函数
+\[
+  \sigma\longmapsto h^0(F_{\sigma,i}(-1))
+\]
+的上半连续性推出 (EGA III 7.7.5). 最后, 因每个充分一般的序列都是 \(G\)-正则, 且使 \(G_{\sigma,i}\) 对每个 \(i\) 都是 \(F_{\sigma,i}\) 的子层, 所以 (ii) 由 (i) 推出.
+
+\sgaStableTarget{sga6.e13.lem.1-7}\textbf{引理 1.7.} 设
+\[
+  0\longrightarrow F(-1)\longrightarrow F\longrightarrow G\longrightarrow0
+\]
+是 \(X\) 上的正合列. 若 \(F\) 的 Hilbert 多项式写为
+\[
+  \chi(F(n))=\sum_{i=0}^{r}a_i\binom{n+i}{i},
+\]
+则
+\[
+  \chi(G(n))=\sum_{i=0}^{r-1}a_{i+1}\binom{n+i}{i}.
+\]
+事实上,
+\[
+\begin{aligned}
+  \chi(G(n))
+  &=\chi(F(n))-\chi(F(n-1))\\
+  &=\sum_{i=0}^{r}a_i
+    \left[\binom{n+i}{i}-\binom{n-1+i}{i}\right]\\
+  &=\sum_{i=1}^{r}a_i\binom{n+i-1}{i-1},
+\end{aligned}
+\]
+这就证明了断言.
+
+\sgaStableTarget{sga6.e13.prop.1-8}\textbf{命题 1.8.} 设 \(F\) 是 \(X\) 上的 \((b)\)-层, \(s=\dim\Supp(F)\), 并设
+\[
+  \chi(F(n))=\sum_{i=0}^{s}a_i\binom{n+i}{i}
+\]
+是 \(F\) 的 Hilbert 多项式. 则:
+\begin{enumerate}[label=(\roman*)]
+\item 对 \(n\geq-1\),
+\[
+  h^0(F(n))\leq\sum_{i=0}^{s}b_i\binom{n+i}{i}.
+\]
+\item \(a_s\leq b_s\), 且 \(F\) 也是 \((b_0,\ldots,b_{s-1},a_s)\)-层.
+\end{enumerate}
+事实上, 对 \(s\) 作归纳. 若 \(s=0\), 断言显然, 因为 \(a_0=h^0(F)=h^0(F(-1))\leq b_0\). 若 \(s\geq1\), 有正合列
+\[
+  0\longrightarrow F(-1)\longrightarrow F\longrightarrow G\longrightarrow0,
+\]
+其中 \(G\) 是 \((b_1,\ldots,b_r)\)-层, 且 \(\dim\Supp(G)=s-1\). 则
+\[
+  h^0(F(n))-h^0(F(n-1))\leq h^0(G(n)),
+\]
+而由对 \(s\) 的归纳有
+\[
+  h^0(G(n))\leq
+  \sum_{i=0}^{s-1}b_{i+1}\binom{n+i}{i},
+\]
+且 \(h^0(F(-1))\leq b_0\). 对 \(n\geq-1\) 作归纳即得断言 (i). 最后, 由\hyperlink{sga6.e13.lem.1-7}{1.7} 和对 \(s\) 的归纳, 有 \(a_s\leq b_s\), 且 \(G\) 是 \((b_1,\ldots,b_{s-1},a_s)\)-层; 这证明了 (ii).
+
+\sgaStableTarget{sga6.e13.def.1-9}\textbf{定义 1.9.} 以下递归定义的具有非负有理系数的多项式称为 \emph{\((b)\)-多项式}:
+\[
+\begin{cases}
+P_{-1}=0,\\
+P_r(X_0,\ldots,X_r)=P_{r-1}(X_1,\ldots,X_r)
++\displaystyle\sum_{i=0}^{r}X_i
+\binom{P_{r-1}(X_1,\ldots,X_r)-1+i}{i}.
+\end{cases}
+\]
+
+\sgaStableTarget{sga6.e13.rem.1-10}\textbf{注 1.10.} 对 \((b)\)-多项式, 对 \(r\geq t\) 作归纳立即得到
+\[
+  P_r(X_0,\ldots,X_t,0,\ldots,0)=P_t(X_0,\ldots,X_t).
+\]
+
+\sgaStableTarget{sga6.e13.thm.1-11}\textbf{定理 1.11.} \emph{(关于 \((b)\)-层的主要定理.)} 设 \(F\) 是 \(X\) 上的 \((b)\)-层, 并设
+\[
+  \chi(F(n))=\sum_{i=0}^{r}a_i\binom{n+i}{i}
+\]
+是 \(F\) 的 Hilbert 多项式. 设 \((c)=(c_0,\ldots,c_r)\) 是满足 \((c)\geq(b)-(a)\) 的整数序列, \(m=P_r(c)\) 是第 \(r\) 个 \((b)\)-多项式\hyperlink{sga6.e13.def.1-9}{(1.9)} 给出的整数. 则 \(m\geq0\), 且 \(F\) 为 \(m\)-正则. 特别地, 若 \(s=\dim\Supp(F)\), 则 \(F\) 为
+\[
+  P_{s-1}(c_0,\ldots,c_{s-1})\text{-正则}.
+\]
+
+事实上, 对 \(r\) 作归纳. 若 \(r=0\), 断言显然, 因为 \(m=c_0\geq0\), 且 \(F\) 对每个 \(n\) 都为 \(n\)-正则. 若 \(r\geq1\), 存在正合列
+\[
+  0\longrightarrow F(-1)\longrightarrow F\longrightarrow G\longrightarrow0,
+\]
+其中 \(G\) 是 \((b_1,\ldots,b_r)\)-层. 由\hyperlink{sga6.e13.lem.1-7}{1.7} 和归纳假设, 若 \(n=P_{r-1}(c_1,\ldots,c_r)\), 则 \(n\geq0\) 且 \(G\) 为 \(n\)-正则. 因而由\hyperlink{sga6.e13.prop.1-4}{1.4}, \(F\) 为 \([n+h^1(F(n-1))]\)-正则, 且当 \(q\geq2\) 时 \(h^q(F(n-1))=0\). 因此
+\[
+  h^1(F(n-1))=h^0(F(n-1))-\chi(F(n-1)),
+\]
+由\hyperlink{sga6.e13.prop.1-8}{1.8(i)}, 它至多为
+\[
+  \sum_{i=0}^{r}(b_i-a_i)\binom{n-1+i}{i},
+\]
+因为 \(b_i\geq0\). 因 \(c_i\geq b_i-a_i\), 这一量至多为
+\[
+  \sum_{i=0}^{r}c_i\binom{n-1+i}{i}.
+\]
+最后由\hyperlink{sga6.e13.prop.1-3}{1.3(i)}, \(F\) 为
+\[
+  \left[n+\sum_{i=0}^{r}c_i\binom{n-1+i}{i}\right]\text{-正则}.
+\]
+这证明了第一个断言; 第二个断言由\hyperlink{sga6.e13.prop.1-8}{1.8(ii)} 和 1.10 推出.
+% SGA-SRC-001412,001413: inherited inference annotations are tracked in audit.
+
+\sgaStableTarget{sga6.e13.para.1-12}\textbf{1.12.} 设 \(S\) 是诺特概形, \(X\) 是有限型 \(S\)-概形. 设 \(\mathcal F\) 是 \(X/S\) 各纤维上的凝聚层的类族. 换言之, 对每个点 \(s\in S\) 和 \(k(s)\) 的每个扩张 \(K\), 在代数概形 \(X_K\) 上指定凝聚层 \(F_K\); 并规定, 若存在从 \(K\) 和 \(K'\) 到 \(k(s)\) 的某个共同扩张 \(K''\) 的 \(k(s)\)-同态, 使
+\[
+  F_{K''}=F_K\otimes_KK''
+  \quad\text{和}\quad
+  F'_{K''}=F'_{K'}\otimes_{K'}K''
+\]
+在 \(X_{K''}\) 上同构, 则 \(F_K\) 与 \(F'_{K'}\) 属于同一类. 若 \(\mathcal F\) 包含于层 \(F_{k(t)}\) (\(t\in T\)) 的类族中, 其中 \(F\) 是 \(X_T=X\times_ST\) 上的凝聚层, \(T\) 在 \(S\) 上有限型, 则称族 \(\mathcal F\) \emph{由该凝聚层界定}. 若存在这样的 \(T\) 和 \(F\), 则称族 \(\mathcal F\) \emph{有界}.
+
+若还假设 \(X/S\) 射影并配备 (相对) 丰沛可逆层 \(\mathcal O_X(1)\), 则对整数序列 \((b)=(b_0,\ldots,b_r)\), 若 \(\mathcal F\) 中每个类均可由某个代数闭的 \(K\) 上的 \((b)\)-层 \(F_K\) 表示, 就称 \(\mathcal F\) 为 \((b)\)-\emph{族}.
+
+\sgaStableTarget{sga6.e13.thm.1-13}\textbf{定理 1.13.} \emph{设 \(S\) 是诺特概形, \(X\) 是射影 \(S\)-概形, 配备丰沛层 \(\mathcal O_X(1)\), 使对 \(s\in S\), 诱导层 \(\mathcal O_{X_s}(1)\) 由其 \(H^0(\mathcal O_{X_s}(1))\) 生成. 设 \(\mathcal F\) 是 \(X/S\) 各纤维上的凝聚层的类族. 则下列条件等价:}
+\begin{enumerate}[label=(\roman*)]
+\item \emph{\(\mathcal F\) 有界. 此外, 若所有 \(F_K\in\mathcal F\) 都局部自由且秩为 \(p\), 则可假设 \(\mathcal F\) 由某个 \(X_T\) 上的层 \(F\) 界定, 其中 \(F\) 局部自由且秩为 \(p\).}
+\item \emph{Hilbert 多项式 \(\chi(F_K(n))\) (\(F_K\in\mathcal F\)) 所成集合有限, 且存在整数序列 \((b)\), 使 \(\mathcal F\) 是 \((b)\)-族.}
+\item \emph{Hilbert 多项式 \(\chi(F_K(n))\) (\(F_K\in\mathcal F\)) 所成集合有限, 且存在整数 \(m\), 使所有 \(F_K\in\mathcal F\) 都为 \(m\)-正则.}
+\item \emph{Hilbert 多项式 \(\chi(F_K(n))\) (\(F_K\in\mathcal F\)) 所成集合有限, 且 \(\mathcal F\) 包含于形如 \(E_K\) 的层的商层的类族中, 其中 \(E\) 是某个 \(X_T\) 上的凝聚层. 此外, 可假设 \(T=S\), 且 \(E\) 形如 \(\mathcal O_X(-m)^{\oplus M}\).}
+\item \emph{\(\mathcal F\) 包含于形如 \(E'_K\to E_K\) 的同态的余核的类族中, 其中 \(E'\) 和 \(E\) 是某个 \(X_T\) 上的凝聚层. 此外, 可假设 \(T=S\), 且 \(E'\) 和 \(E\) 分别形如 \(\mathcal O_X(-m')^{\oplus M'}\) 和 \(\mathcal O_X(-m)^{\oplus M}\).}
+\end{enumerate}
+
+事实上, 假设 \(\mathcal F\) 由某个 \(X_T\) 上的层 \(F\) 界定. 将 \(T\) 分成若干片, 并应用泛平坦性定理 (EGA IV 6.9.1), 可假设 \(F\) 在 \(T\) 上平坦. 则多项式 \(\chi(F_t(n))\) 的数目至多为 \(T\) 的连通分支数 (EGA III 7.9.5). 一个基本引理还表明, 若 \(t\in T\) 且 \(F_t\) 局部自由、秩为 \(p\), 则 \(F\) 在 \(T\) 中 \(t\) 的某个开邻域上局部自由、秩为 \(p\) (见 EGA IV 11.3.10, 取 \(X=Y\) 和 \(f=\mathrm{id}\)). 由假设和 EGA III 7.7.6, 进一步细分 \(T\) 后, 还可找到截面序列 \(\sigma\)
+\[
+\sigma_1,\ldots,\sigma_r\in H^0(\mathcal O_X(1)),
+\]
+使之 \(F\)-正则. 因此 (ii) 由函数
+\[
+t\longmapsto h^0(F_{t,i}(-1))
+\]
+的上半连续性推出, 其中对 \(t\in T\) 和 \(0\le i\le r\), \(F_{t,i}\) 表示 \(F_t\) 在 \(\sigma_1,\ldots,\sigma_i\) 的零点概形上的限制 (EGA III 7.7.5).
+
+蕴含 (ii) \(\Rightarrow\) (iii) 直接由 1.11 推出. 蕴含 (iii) \(\Rightarrow\) (iv) 由\hyperlink{sga6.e13.prop.1-3}{1.3 (iii)} 推出, 只须取
+\[
+M=\max\bigl(\chi(F_K(m))\bigr),
+\qquad E=\mathcal O_X(-m)^{\oplus M}.
+\]
+
+假设 \(\mathcal F\) 满足 (iv). 有正合列
+\[
+0\longrightarrow F'_K\longrightarrow E_K\longrightarrow F_K
+\longrightarrow0,
+\]
+且多项式 \(\chi(F_K(n))\) 所成集合有限. 由假设, \(E_K\) 的类族有界. 因而由已证明的蕴含 (i) \(\Rightarrow\) (ii), 多项式 \(\chi(E_K(n))\) 所成集合有限, 且存在整数序列 \((b)\), 使所有代数闭 \(K\) 上的 \(E_K\) 都是 \((b)\)-层. 于是多项式 \(\chi(F'_K(n))\) 所成集合有限, 并由\hyperlink{sga6.e13.prop.1-6}{1.6}, 所有 \(F'_K\) 都是 \((b)\)-层. 对 \(F'_K\) 的类族应用已证明的蕴含 (ii) \(\Rightarrow\) (iv), 得到 (v).
+
+最后, 假设 \(\mathcal F\) 满足 (v), 来证明 \(\mathcal F\) 有界. 可假设 \(E\) (分别地, \(E'\)) 形如 \(\mathcal O_X(-m)^{\oplus M}\). 事实上, 由 (i) \(\Rightarrow\) (iv), 取满射
+\[
+L=\mathcal O_{X_T}(-m)^{\oplus M}\longrightarrow E.
+\]
+将 \(T\) 分片使 \(E\) 在 \(T\) 上平坦后, 正合列
+\[
+0\longrightarrow I\xrightarrow{u}L\longrightarrow E\longrightarrow0
+\]
+的形成与取纤维交换. 由 (i) \(\Rightarrow\) (iii) 和 (i) \(\Rightarrow\) (iv), 取充分大的 \(m_1\), 使所有群
+\[
+\operatorname{Ext}^1\bigl(\mathcal O_{X_K}(-m_1),I_K\bigr)
+=H^1(I_K(m_1))
+\]
+消失, 且存在满射
+\[
+L_1=\mathcal O_{X_T}(-m_1)^{\oplus M_1}\longrightarrow E',
+\qquad
+\alpha:L_2=\mathcal O_{X_T}(-m_1)^{\oplus M_2}\longrightarrow I.
+\]
+于是映射
+\[
+\operatorname{Hom}(L_{1,K},L_K)\longrightarrow
+\operatorname{Hom}(L_{1,K},E_K)
+\]
+满射. 设 \(\beta:E'_K\to E_K\) 是同态, \(\gamma\) 是复合映射
+\[
+L_{1,K}\longrightarrow E'_K\xrightarrow{\beta}E_K.
+\]
+则 \(\gamma\) 来自同态 \(\delta:L_{1,K}\to L_K\), 且
+\[
+(\delta,u_K\alpha):L_{1,K}\oplus L_{2,K}\longrightarrow L_K
+\]
+与 \(\beta:E'_K\to E_K\) 有相同余核. 因而 \(\mathcal F\) 包含于形如
+\[
+\mathcal O_{X_K}(-m_1)^{\oplus(M_1+M_2)}
+\longrightarrow
+\mathcal O_{X_K}(-m)^{\oplus M}
+\]
+的同态的余核的类族中.
+
+仍将 \(T\) 分片, 还可假设 \(X_T\) (从而 \(\mathcal H\!om_{\mathcal O_{X_T}}(E',E)\)) 以及所有
+\[
+R^q(f_T)_*\mathcal H\!om_{\mathcal O_{X_T}}(E',E)
+\]
+都在 \(T\) 上平坦, 其中 \(f_T:X_T\to T\) 是结构态射, 从而
+\[
+G=(f_T)_*\mathcal H\!om_{\mathcal O_{X_T}}(E',E)
+\]
+的形成与任意基变换 \(T'\to T\) 交换 (EGA III 6.9.9.2). 设
+\[
+R=\mathbb V(G^*).
+\]
+则 \(X_R\) 典范地带有\emph{万有}正合列
+\[
+E'_R\longrightarrow E_R\longrightarrow F\longrightarrow0,
+\]
+且 \(F\) 界定 \(\mathcal F\).
+
+\sgaStableTarget{sga6.e13.sec.2}\subsection*{2. 几个技术引理}
+
+\sgaStableTarget{sga6.e13.para.2-1}\textbf{2.1.} 设 \(k\) 是域, \(X\) 是固有 \(k\)-概形. 设 \(L_1,\ldots,L_s\) 是 \(X\) 上的可逆层, \(c_1(L_i)\) 是 \(L_i\) 的 Chern 类, \(Y\) 是 \(X\) 的维数 \(\le s\) 的闭子概形. 回忆记号
+\[
+\bigl\langle c_1(L_1)\cdots c_1(L_s)\cdot Y\bigr\rangle
+\]
+表示相交数, 可计算为 Snapper 多项式
+\[
+\chi\!\left(
+L_1^{\otimes n_1}\otimes\cdots\otimes L_s^{\otimes n_s}
+\otimes\mathcal O_Y
+\right)
+\]
+中单项式 \(n_1\cdots n_s\) 的系数 (\hyperlink{sga6.e10.prop.4-3-1}{X 4.3.1}).
+
+\sgaStableTarget{sga6.e13.para.2-2}\textbf{2.2.} 从现在起, 假设 \(k\) 代数闭, \(X\) 射影并配备甚丰沛可逆层 \(H=\mathcal O_X(1)\), 且 \(X\) 整、维数为 \(r\).
+
+设 \(L\) 是 \(X\) 上的可逆层. 整数
+\[
+\bigl\langle c_1(L)\cdot c_1(H)^{r-1}\bigr\rangle
+\]
+称为 \(L\) (相对于 \(H\)) 的\emph{次数}, 记为 \(d(L)\).
+
+以下考虑可逆层 \(L\) 及 Hilbert 多项式
+\[
+\chi(L(n))=\sum_{i=0}^{r}a_i\binom{n+i}{i},
+\qquad
+\chi(\mathcal O_X(n))=\sum_{i=0}^{r}e_i\binom{n+i}{i}.
+\]
+
+\sgaStableTarget{sga6.e13.lem.2-3}\textbf{引理 2.3.} \emph{有:}
+\begin{enumerate}[label=(\roman*)]
+\item \emph{\(a_r=e_r=d(H)\).}
+\item \emph{若 \(r\ge1\), 则 \(a_{r-1}-e_{r-1}=d(L)\).}
+\end{enumerate}
+
+事实上, 在下列多项式中取 \(m=0,1\), 就立即得到 (i) 和 (ii):
+\[
+\chi\bigl(L^{\otimes m}\otimes H^{\otimes n}\bigr)
+=\sum_{i+j\le r}f_{ij}
+\binom{m+i}{i}\binom{n+j}{j}.
+\]
+
+\sgaStableTarget{sga6.e13.lem.2-4}\textbf{引理 2.4.} \emph{若 \(d(L)\le0\) 且 \(h^0(L)\ne0\), 则 \(L\simeq\mathcal O_X\); 从而 \(d(L)=0\) 且 \(h^0(L)=1\).}
+
+事实上, 因 \(X\) 整, 存在除子 \(Y\ge0\) 使 \(L\simeq\mathcal O_X(Y)\). 若 \(Y>0\), 就有
+\[
+0\ge
+\bigl\langle c_1(L)\cdot c_1(H)^{r-1}\bigr\rangle
+=\bigl\langle c_1(H)^{r-1}\cdot Y\bigr\rangle
+\ge1.
+\]
+
+\sgaStableTarget{sga6.e13.lem.2-5}\textbf{引理 2.5.} \emph{若 \(d(L)\le0\), 则 \(L\) 是 \((0,\ldots,0,a_r)\)-层 (有 \(r-1\) 个零).}
+
+事实上, 若 \(r=0\), 则 \(L\) 显然是 \(a_0\)-层. 若 \(r\ge1\), 由\hyperlink{sga6.e13.lem.2-4}{2.4} 有 \(h^0(L(-1))=0\), 因为 \(d(L(-1))<0\). 设 \(Y\) 是 \(X\) 的超平面截面, 并设
+\[
+0\longrightarrow L(-1)\longrightarrow L\longrightarrow L_Y
+\longrightarrow0
+\]
+是由 \(Y\) 定义的正合列. 若 \(r=1\), 由\hyperlink{sga6.e13.lem.1-7}{1.7} 有 \(h^0(L_Y(-1))=a_1\); 从而 \(L\) 是 \((0,a_1)\)-层. 若 \(r\ge2\), 由 Bertini 定理可取 \(Y\) 整, 从而可由归纳假设 \(L_Y\) 是 \((0,\ldots,0,a_r)\)-层; 断言随之成立.
+
+\sgaStableTarget{sga6.e13.lem.2-6}\textbf{引理 2.7.} \emph{假设 \(r=2\) 且 \(d(L)\le0\). 则:}
+\begin{enumerate}[label=(\roman*)]
+\item \emph{对每个 \(n\),
+\[
+h^1(L(n))\le a_1(a_1+1)a_2-a_0.
+\]}
+\item \emph{\(a_0\le a_1(a_1+1)\).}
+\end{enumerate}
+
+设 \(Y\) 是 \(X\) 的整超平面截面. 由\hyperlink{sga6.e13.lem.1-7}{1.7} 和 2.6, \(L_Y\) 是 \((0,a_2)\)-层, 其 Hilbert 多项式为
+\[
+\chi(L_Y(n))=a_1+a_2\binom{n+1}{1}.
+\]
+因此由\hyperlink{sga6.e13.thm.1-11}{1.11}, \(-a_1\ge0\), 且 \(L_Y\) 为 \([-a_1]\)-正则.
+
+考虑正合列:
+\[
+H^0(L_Y(n))\longrightarrow H^1(L(n-1))
+\longrightarrow H^1(L(n))\longrightarrow H^1(L_Y(n)).
+\]
+当 \(n\ge-a_1-1\) 时, 有 \(h^1(L(-a_1-2))\ge h^1(L(n))\), 因为由\hyperlink{sga6.e13.prop.1-3}{1.3 (i)} 有 \(h^1(L_Y(n))=0\). 当 \(n\le-1\) 时, 有 \(h^1(L(n-1))\le h^1(L(-1))\), 因为由 2.4 有 \(h^0(L_Y(n))=0\). 最后, 对每个 \(n\), 有 \(h^0(L_Y(n-1))\le h^0(L_Y(n))\), 因为存在单射 \(L_Y(n-1)\to L_Y(n)\), 而且
+\[
+h^0(L_Y(-a_1-1))=a_2\binom{-a_1}{1}+a_1,
+\]
+因为 \(h^1(L_Y(-a_1-1))=0\). 故当 \(n\le-a_1-2\) 时,
+\[
+h^1(L(n))-h^1(L(n+1))\le -a_2a_1+a_1.
+\]
+于是对每个 \(n\), 有
+\sgaStableTarget{sga6.e13.eq.2-6-1}\begin{equation}
+h^1(L(n))\le
+h^1(L(-a_1-2))+(-a_1-1)(-a_2a_1+a_1).
+\tag{2.7.1}
+\end{equation}
+
+因 \(L_Y\) 为 \([-a_1]\)-正则, 由\hyperlink{sga6.e13.prop.1-4}{1.4} 有 \(h^2(L(-a_1-2))=0\); 从而
+\[
+h^1(L(-a_1-2))
+=h^0(L(-a_1-2))-\chi(L(-a_1-2)).
+\]
+但由\hyperlink{sga6.e13.prop.1-8}{1.8 (i)},
+\[
+h^0(L(-a_1-2))\le a_2\binom{-a_1}{2},
+\]
+因为由 2.5, \(L\) 是 \((0,0,a_2)\)-层. 因此
+\sgaStableTarget{sga6.e13.eq.2-6-2}\begin{equation}
+0\le h^1(L(-a_1-2))\le -a_1(-a_1-1)-a_0.
+\tag{2.7.2}
+\end{equation}
+最后, \hyperlink{sga6.e13.eq.2-6-2}{2.7.2} 给出 (ii), 而\hyperlink{sga6.e13.eq.2-6-1}{2.7.1} 连同\hyperlink{sga6.e13.eq.2-6-2}{2.7.2} 给出 (i).
+
+\sgaStableTarget{sga6.e13.lem.2-8}\textbf{引理 2.8.} \emph{假设 \(r=2\) 且 \(d(L)\le0\). 置 \(\delta=d(L)\) 和 \(\beta=\delta(e_2-1)+e_1\). 则:}
+% SOURCE-SIC: printed plus sign retained, although the subsequent calculation appears to yield a minus; audit records verification.
+\[
+a_0\ge
+\bigl\langle c_1(L)^2\bigr\rangle+2e_0
++\sum_{i=1}^{2}(2e_i-a_i)\binom{\delta-1+i}{i}
++\beta(\beta+1).
+\]
+
+事实上, 写成
+\[
+\chi\bigl(L^{\otimes m}(\delta-1)\bigr)
+=\alpha_2m^2+\alpha_1m+\alpha_0.
+\]
+比较多项式得到
+\[
+2\alpha_2=\bigl\langle c_1(L)^2\bigr\rangle,
+\qquad
+\alpha_0=\sum_{i=0}^{2}e_i\binom{\delta-1+i}{i},
+\]
+以及
+\[
+\alpha_2+\alpha_1+\alpha_0
+=\sum_{i=0}^{2}a_i\binom{\delta-1+i}{i}.
+\]
+写成
+\[
+\chi\bigl(L^{-1}(\delta)(n)\bigr)
+=\sum_{i=0}^{2}\beta_i\binom{n+i}{i}.
+\]
+则 \(\beta_0=\alpha_2-\alpha_1+\alpha_0\), 且由\hyperlink{sga6.e13.lem.2-3}{2.3},
+\[
+\beta_1=d\bigl(L^{-1}(\delta)\bigr)+e_1=\beta.
+\]
+因此
+\[
+a_0=2\alpha_2+2\alpha_0
+-\sum_{i=1}^{2}a_i\binom{\delta-1+i}{i}-\beta_0.
+\]
+因 \(d(L^{-1}(\delta))\le0\), 由\hyperlink{sga6.e13.lem.2-6}{2.7 (ii)} 有 \(\beta_0\le\beta(\beta+1)\); 断言随之得证.
+
+\sgaStableTarget{sga6.e13.lem.2-9}\textbf{引理 2.9.} \emph{假设 \(r\ge2\)、\(d(L)\le0\), 且 \(X\) 正规. 则:}
+\begin{enumerate}[label=(\roman*)]
+\item \emph{当 \(n\ge2+h_2(a_{r-2},a_{r-1},a_r)\) 时, \(h^1(L(-n))=0\);}
+\item \emph{对每个 \(n\), \(h^1(L(n))\le h_r(a_{r-2},a_{r-1},a_r)\);}
+\item \emph{对 \(i=0,\ldots,r\), 有 \(|a_i|\le g_{r-i}(a_{r-2},a_{r-1},a_r)\), 其中 \(h_2(X_0,X_1,X_2),\allowbreak h_3(X_0,X_1,X_2),\allowbreak\ldots\) 和 \(g_0(X_0,X_1,X_2),\allowbreak g_1(X_0,X_1,X_2),\allowbreak\ldots\) 是系数属于 \(\mathbb Q\) 的万有多项式, 与 \(k\) 和 \(X\) 都无关.}
+\end{enumerate}
+
+事实上, 先考虑 \(r=2\) 的情形. 置
+\[
+g_i(X_0,X_1,X_2)=X_{2-i}^2\quad(i=0,1,2),
+\qquad
+h_2(X_0,X_1,X_2)=X_1(X_1+1)X_2-X_0.
+\]
+则 (iii) 显然, 而 (ii) 就是\hyperlink{sga6.e13.lem.2-6}{2.7 (i)}.
+
+设 \(X\subset P=\mathbb P_k^N\), 并置
+\[
+\omega=
+\mathcal E\!xt_{\mathcal O_P}^{N-2}
+\bigl(\mathcal O_X,\Omega^N_{P/k}\bigr).
+\]
+则
+\[
+h^1(L(-n))=h^1(\omega\otimes L^{-1}(n)),
+\]
+且 \(\omega\) 在 \(X\) 的奇异点所成有限集 \(Z\) 之外可逆 (见 FGA 149 \S~6). 设 \(Y\) 是 \(X\) 的不含 \(Z\) 的正规超平面截面. 则 \(\omega_Y(1)\simeq\Omega^1_{Y/k}\), 且有正合列
+\[
+0\longrightarrow\omega\otimes L^{-1}(-1)
+\longrightarrow\omega\otimes L^{-1}
+\longrightarrow\Omega^1_{Y/k}\otimes L_Y^{-1}(-1)
+\longrightarrow0.
+\]
+而对每个 \(n\),
+\[
+h^1\bigl(\Omega^1_{Y/k}\otimes L_Y^{-1}(n)\bigr)
+=h^0(L_Y(-n)),
+\]
+并且由 2.5, 当 \(n\ge1\) 时 \(h^0(L_Y(-n))=0\). 因此 \(\Omega^1_{Y/k}\otimes L_Y^{-1}(-1)\) 为 3-正则, 而由\hyperlink{sga6.e13.prop.1-4}{1.4}, \(\omega\otimes L^{-1}\) 为
+\[
+\bigl[3+h^1(\omega\otimes L^{-1}(2))\bigr]\text{-正则}.
+\]
+因而当 \(n\ge2+h^1(L(-2))\) 时, \(h^1(L(-n))=0\); 这证明了 (i).
+
+现在假设 \(r\ge3\), 并对 \(r\) 作归纳. 设 \(Y\) 是 \(X\) 的正规超平面截面, 考虑正合列
+\sgaStableTarget{sga6.e13.eq.2-9-1}\begin{equation}
+H^0(L_Y(-n))\longrightarrow H^1(L(-n-1))
+\longrightarrow H^1(L(-n))\longrightarrow H^1(L_Y(-n)).
+\tag{2.9.1}
+\end{equation}
+由\hyperlink{sga6.e13.lem.1-7}{1.7},
+\[
+\chi(L_Y(n))=
+\sum_{i=0}^{r-1}a_{i+1}\binom{n+i}{i}.
+\]
+因此当 \(n\ge2+h_2(a_{r-2},a_{r-1},a_r)\) 时, 归纳假设给出 \(h^1(L_Y(-n))=0\); 又因 \(r=2\) 时的 (ii) 表明 \(n\ge2\), \hyperlink{sga6.e13.lem.2-4}{2.4} 给出 \(h^0(L_Y(-n))=0\). 故
+\[
+h^1(L(-n-1))=h^1(L(-n)).
+\]
+但当 \(n\gg0\) 时, 有 \(h^1(L(-n))=0\) (见 FGA 149 \S~6); 从而得 (i).
+% SGA-SRC-001430: inherited inference flag tracked separately.
+
+作为归纳假设, 设多项式 \(g_i\) 和 \(h_i\) 已对 \(i\le r-1\) 定义. 对每个 \(n\), \hyperlink{sga6.e13.eq.2-9-1}{2.9.1} 给出
+\[
+h^1(L(n))\le h^1(L(n-1))
++h_{r-1}(a_{r-2},a_{r-1},a_r).
+\]
+因此由已证明的 (i), 对每个 \(m\ge-2\), 有
+\sgaStableTarget{sga6.e13.eq.2-9-2}\begin{equation}
+h^1(L(n))\le
+\bigl[2+h_2(a_{r-2},a_{r-1},a_r)+m\bigr]
+h_{r-1}(a_{r-2},a_{r-1},a_r)
+\tag{2.9.2}
+\end{equation}
+对每个 \(n\le m\) 成立.
+
+由\hyperlink{sga6.e13.lem.2-5}{2.5}, \(L_Y\) 是 \((0,\ldots,0,a_r)\)-层. 置
+\[
+c_i=g_{r-i}(a_{r-2},a_{r-1},a_r)
+\quad(i=1,\ldots,r),
+\qquad
+m=P_{r-2}(c_1,\ldots,c_{r-1}).
+\]
+由\hyperlink{sga6.e13.thm.1-11}{1.11}, \(m\ge0\), 且 \(L_Y\) 为 \(m\)-正则. 故由\hyperlink{sga6.e13.prop.1-4}{1.4 (ii)},
+\[
+h^1(L(m-2))\ge h^1(L(n))
+\qquad\text{对每个 }n\ge m-1.
+\]
+因此, 若定义多项式
+\[
+M=P_{r-2}(g_{r-1},\ldots,g_1),
+\qquad
+h_r=(h_2+M)h_{r-1},
+\]
+则 (ii) 由 2.9.2 推出.
+
+最后, 因 \(L_Y\) 为 \(m\)-正则, 由\hyperlink{sga6.e13.prop.1-4}{1.4 (i)}, 当 \(q\ge2\) 时有 \(h^q(L(m))=0\). 故
+\[
+\sum_{i=0}^{r}a_i\binom{m+i}{i}
+=h^0(L(m))-h^1(L(m)).
+\]
+但由\hyperlink{sga6.e13.prop.1-8}{1.8 (i)},
+\[
+h^0(L(m))\le a_r\binom{m+r}{r}.
+\]
+因此若定义
+\[
+g_r=
+\sum_{i=1}^{r}g_{r-i}\binom{M+i}{i}
++a_r\binom{M+r}{r}+h_r,
+\]
+就得到 (iii).
+
+\sgaStableTarget{sga6.e13.rem.2-10}\textbf{注 2.10.} 固定 \(m\), 考虑关于 \(n\) 的多项式恒等式:
+\[
+\sum_{i=0}^{r}a_{m,i}\binom{n+i}{i}
+=\sum_{j=0}^{r}a_j\binom{m+n+j}{j}.
+\]
+对 \(r\) 作归纳, 将 \(a_{m,i}\) 化归到 \(a_{m,0}\), 再令 \(n=-1\), 容易得到公式
+\[
+a_{m,i}=
+\sum_{j=0}^{r-i}a_{j+i}\binom{m-1+j}{j}.
+\]
+% SGA-SRC-001431: inherited inference flag tracked separately.
+
+同样地, 可找到有理系数多项式
+\[
+P_i^{(m,r)}(X_r,\ldots,X_i),
+\]
+它关于 \(X_i\) 递增, 使在恒等式
+\[
+\sum_{i=0}^{r}a_i^{(m)}\binom{n+i}{i}
+=\sum_{j=0}^{r}a_j\binom{mn+j}{j}
+\]
+中有
+\[
+a_i^{(m)}=P_i^{(m,r)}(a_r,\ldots,a_i).
+\]
+
+\sgaStableTarget{sga6.e13.lem.2-11}\textbf{引理 2.11.} \emph{设 \(S\) 是诺特概形, \(X\) 是射影 \(S\)-概形, 配备甚丰沛层 \(H=\mathcal O_X(1)\). 假设 \(X/S\) 的纤维几何整, 且维数都等于 \(r\). 设 \(\mathcal L\) 是 \(X/S\) 各纤维上可逆层 \(L_K\) 的类族. \(\mathcal L\) 有界的充要条件是 \(L_K\in\mathcal L\) 的 Hilbert 多项式}
+\[
+\chi(L_K(n))=\sum_{i=0}^{r}a_i\binom{n+i}{i}
+\]
+\emph{的所有系数 \(a_i\) 都保持有界. 此外, 若 \(X/S\) 的纤维还几何正规, 则只须三个系数 \(a_r,a_{r-1},a_{r-2}\) 保持有界.}
+
+事实上, 设
+\[
+\delta=\sup\{d(L_K)\}.
+\]
+若 \(\delta>0\), 由\hyperlink{sga6.e13.lem.2-3}{2.3} 和\hyperlink{sga6.e13.rem.2-10}{2.10}, 可用 \(L_K(-\delta)\) 的类族替换 \(\mathcal L\); 因而可假设 \(\delta\le0\). 则由\hyperlink{sga6.e13.lem.2-5}{2.5}, \(\mathcal L\) 是 \((b)\)-族, 从而由 1.13, 若所有系数 \(a_i\) 保持有界, 它就有界. 若 \(X/S\) 的纤维几何正规, 则由 2.9, 为此只须三个系数 \(a_r,a_{r-1},a_{r-2}\) 保持有界.
+
+\sgaStableTarget{sga6.e13.sec.3}\subsection*{3. 一般有限性定理}
+
+\sgaStableTarget{sga6.e13.lem.3-1}\textbf{引理 3.1.} \emph{设 \(S\) 是概形, \(X\) 是拟紧且拟分离的 \(S\)-概形. 设 \(\underline{\Pic}_{X/S}\) 是对 fppf 拓扑局部化的 Picard 函子.}\footnote{\(\underline{\Pic}_{X/S}\) 的定义参见 SGA 3 IV 6.3 和 FGA 第 232 号; 如此处所述, 应将其中 fpqc 拓扑换成 fppf 拓扑.} \emph{则对每个过渡态射仿射的拟紧且拟分离 \(S\)-概形的滤过逆系统 \((Z_\alpha)\), 典范映射}
+\sgaStableTarget{sga6.e13.eq.3-1-1}\begin{equation}
+\varinjlim_\alpha\underline{\Pic}_{X/S}(Z_\alpha)
+\longrightarrow
+\underline{\Pic}_{X/S}\!\left(\varprojlim_\alpha Z_\alpha\right)
+\tag{3.1.1}
+\end{equation}
+\emph{为双射.}
+
+\emph{因而} (EGA IV 8.14.2), \emph{若 Picard 函子可由 \(S\)-概形 \(\Pic_{X/S}\) 表示, 则 \(\Pic_{X/S}\) 局部有限表现.}
+
+事实上, \(\underline{\Pic}_{X/S}(Z_\alpha)\) 的元素 \(\lambda_\alpha\) 可由 \(X_{Z'_\alpha}\) 上的可逆层 \(L'_\alpha\) 表示, 其中 \(Z'_\alpha\to Z_\alpha\) 是 fppf 态射. 置
+\[
+Z=\varprojlim_\alpha Z_\alpha.
+\]
+\(\lambda_\alpha\) 在 \(\underline{\Pic}_{X/S}(Z)\) 中的像 \(\lambda\), 由 \(X_{Z'}\) 上通过从 \(L'_\alpha\) 取逆像得到的可逆层 \(L'\) 表示, 其中
+\[
+Z'=Z'_\alpha\times_{Z_\alpha}Z.
+\]
+
+若 \(\lambda\) 是 \(\underline{\Pic}_{X/S}(Z)\) 的单位元, 则存在 fppf 态射 \(Z''\to Z'\), 使 \(L'\) 在 \(X_{Z''}\) 上的逆像同构于 \(\mathcal O_{X_{Z''}}\). 由 EGA IV 8.8.2、8.10.5 (vi)、11.2.6 (ii)、8.5.2 (i) 和 8.5.2.4, 存在 \(\beta\ge\alpha\) 和 fppf 态射
+\[
+Z''_\beta\longrightarrow Z'_\beta,
+\qquad
+Z'_\beta=Z'_\alpha\times_{Z_\alpha}Z_\beta,
+\]
+使 \(L'_\alpha\) 在 \(X_{Z''_\beta}\) 上的逆像同构于 \(\mathcal O_{X_{Z''_\beta}}\). 因此 \(\lambda_\alpha\) 的像在 \(\underline{\Pic}_{X/S}(Z_\beta)\) 中已经是单位元. 故\hyperlink{sga6.e13.eq.3-1-1}{3.1.1} 是单射.
+
+\hyperlink{sga6.e13.eq.3-1-1}{3.1.1} 的满射性以类似方式证明.
+
+\sgaStableTarget{sga6.e13.prop.3-2}\textbf{命题 3.2.} \emph{设 \(S\) 是诺特概形, \(X\) 是固有 \(S\)-概形. 假设 Picard 函子可由 \(S\)-概形 \(\Pic_{X/S}\) 表示. 则:}
+\begin{enumerate}[label=(\roman*)]
+\item \emph{\(\Pic_{X/S}\) 在 \(S\) 上局部有限型.}
+\item \emph{\(\Pic_{X/S}\) 的子集 \(\Lambda\) 与 \(X/S\) 各纤维上可逆层的类族 \(\mathscr L\) 一一对应.}
+\item \emph{\(\Pic_{X/S}\) 的子集 \(\Lambda\) 拟紧, 当且仅当对应的族 \(\mathscr L\) 有界.}
+\end{enumerate}
+% SOURCE-NORMALIZATION inherited: print calls Lambda a family, but (ii) and proof treat it as a subset.
+
+事实上, (i) 由 3.1 推出. 断言 (ii) 来自如下事实: 若 \(s\) 是 \(S\) 的一点, \(K\) 是 \(k(s)\) 的代数闭扩张, 则 \(\Pic_{X/S}\) 的 \(K\)-点与 \(X_K\) 上可逆层的同构类一一对应.
+
+对 (iii), 假设 \(\Pic_{X/S}\) 的子集 \(\Lambda\) 拟紧. 则 \(\Lambda\) 包含在有限型开子概形 \(U\) 中, 而包含映射 \(U\to\Pic_{X/S}\) 对应于某个 \(X_T\) 上的可逆层 \(L\), 其中 \(T\to U\) 是满的有限型 (平坦) 态射. 最后 \(T\to S\) 有限型, 所以 \(L\) 界定 \(\mathscr L\).
+
+反过来, 假设 \(\mathscr L\) 由某个 \(X_T\) 上的凝聚层 \(L\) 界定, 其中 \(T\) 在 \(S\) 上有限型. 可假设 \(L\) 可逆\hyperlink{sga6.e13.thm.1-13}{(1.13 (i))}, 因而 \(L\) 定义态射
+\[
+f:T\longrightarrow\Pic_{X/S}.
+\]
+\(f\) 的像包含 \(\Lambda\) 且拟紧, 从而由 (i) 它是诺特的. 因此 \(\Lambda\) 拟紧, 证明了 (iii).
+
+由\hyperlink{sga6.e13.prop.3-2}{3.2}, 两个 Picard 概形间有限型态射的通常定义可推广如下.
+
+\sgaStableTarget{sga6.e13.def.3-3}\textbf{定义 3.3.} \emph{设 \(X\) 和 \(Y\) 在诺特概形 \(S\) 上固有. 若 \(X/S\) 各纤维上可逆层的类的每个有界族, 在 Picard 函子间的态射}
+\[
+\begin{tikzcd}
+\underline{\Pic}_{Y/S}\arrow[r]&\underline{\Pic}_{X/S}
+\end{tikzcd}
+\]
+\emph{下的逆像, 都是 \(Y/S\) 各纤维上可逆层的类的有界族, 则称这个态射为有限型.}
+
+\sgaStableTarget{sga6.e13.lem.3-4}\textbf{引理 3.4.} \emph{设 \(X,Y,X',Y'\) 在诺特概形 \(S\) 上固有, \(T\to S\) 满且有限型. 则:}
+\begin{enumerate}[label=(\roman*)]
+\item \emph{态射 \(\Phi:\underline{\Pic}_{Y/S}\to\underline{\Pic}_{X/S}\) 有限型, 当且仅当 \(\Phi_T:\underline{\Pic}_{Y_T/T}\to\underline{\Pic}_{X_T/T}\) 有限型.}
+\item \emph{在交换图}
+\[
+\begin{tikzcd}
+\underline{\Pic}_{Y'/S}\arrow[r,"\Phi'"]&
+\underline{\Pic}_{X'/S}\\
+\underline{\Pic}_{Y/S}\arrow[r,"\Phi"']\arrow[u,"\Phi_Y"]&
+\underline{\Pic}_{X/S}\arrow[u,"\Phi_X"']
+\end{tikzcd}
+\]
+\emph{中, 若 \(\Phi'\) 和 \(\Phi_Y\) 有限型, 则 \(\Phi\) 有限型.}
+\end{enumerate}
+
+假设 \(\Phi_T\) 有限型. 设 \(\mathscr L\) 是 \(X/S\) 各纤维上的一个族, 由某个 \(X_R\) 上的可逆层 \(L\) 界定. \(X_T/T\) 各纤维上的族 \(\mathscr L_T=\mathscr L\times_S T\) 由 \(L\) 在 \(X_{R\times_S T}\) 上的逆像界定. 若 \(\Phi_T^{-1}(\mathscr L_T)\) 由某个 \(Y_Q\) 上的可逆层 \(M\) 界定, 则 \(M\) 也界定 \(\Phi^{-1}(\mathscr L)\). (i) 的逆命题和断言 (ii) 同样证明.
+
+\sgaStableTarget{sga6.e13.thm.3-5}\textbf{定理 3.5.} \emph{设 \(S\) 是诺特概形, \(X\) 和 \(Y\) 是固有 \(S\)-概形, \(f:X\to Y\) 是态射. 若 \(f\) 满, 则诱导的 Picard 函子间态射}
+\[
+f^*:\underline{\Pic}_{Y/S}\longrightarrow\underline{\Pic}_{X/S}
+\]
+\emph{有限型.}
+
+由\hyperlink{sga6.e13.lem.3-4}{3.4 (i)}, 可假设 \(S\) 约化且不可约. 存在非空开子集 \(U\subset S\), 使 \(\underline{\Pic}_{Y/S}\) 和 \(\underline{\Pic}_{X/S}\) 可表, 且 \(f^*\) 的限制拟仿射 (\hyperlink{sga6.e12.thm.1-1}{XII 1.1}), 从而由\hyperlink{sga6.e13.prop.3-2}{3.2 (i)} 有限型. 在 \(T=S-U\) 上赋予诱导的约化结构. 由诺特归纳法, 可假设由 \(f^*\) 诱导的
+\[
+\underline{\Pic}_{Y_T/T}\longrightarrow\underline{\Pic}_{X_T/T}
+\]
+有限型. 对 \(U\amalg T\to S\) 应用\hyperlink{sga6.e13.lem.3-4}{3.4 (i)}, 就得到断言.
+
+\sgaStableTarget{sga6.e13.thm.3-6}\textbf{定理 3.6.} \emph{设 \(S\) 是诺特概形, \(X\) 是固有 \(S\)-概形, \(\underline{\Pic}_{X/S}\) 是其 Picard 函子. 对每个非零整数 \(n\), \(n\) 次幂同态}
+\[
+\Phi_n:\underline{\Pic}_{X/S}\longrightarrow\underline{\Pic}_{X/S}
+\]
+\emph{是有限型态射.}
+
+设 \(f:X'\to X\) 是 Chow 表示: \(X'\) 在 \(S\) 上射影, \(f\) 满. 若定理对 \(X'\) 已知, 则\hyperlink{sga6.e13.thm.3-5}{3.5} 和\hyperlink{sga6.e13.lem.3-4}{3.4 (ii)} 蕴含定理对 \(X\) 成立. 故可假设 \(X/S\) 射影.
+
+存在非空开子集 \(U\subset S\)、整概形 \(S'\) 和有限满态射 \(S'\to U\), 使 \(X_{S'}\) 的每个不可约分支 \(X'_i\) 配备诱导的约化结构后都在 \(S'\) 上整 (\hyperlink{sga6.e12.lem.1-3}{XII 1.3}). 在 \(T=S-U\) 上赋予诱导的约化结构. 由诺特归纳法, 可假设定理对 \(X_T/T\) 成立. 若假设定理对所有 \(X_i/S'\) 成立, 则由下列简单引理可得定理对 \(\coprod_iX_i/S'\) 成立, 再由\hyperlink{sga6.e13.thm.3-5}{3.5} 和\hyperlink{sga6.e13.lem.3-4}{3.4 (ii)} 得定理对 \(X_{S'}/S'\) 成立, 最后由\hyperlink{sga6.e13.lem.3-4}{3.4 (i)} 得定理对 \(X/S\) 成立.
+
+\sgaStableTarget{sga6.e13.lem.3-7}\textbf{引理 3.7.} \emph{设 \(X=\coprod_iX_i\) 在诺特概形 \(S\) 上有限型, \(\mathcal F\) 是 \(X/S\) 各纤维上的凝聚层的类族. 则 \(\mathcal F\) 有界, 当且仅当对每个 \(i\), 在 \(X_i/S\) 各纤维上诱导的族 \(\mathcal F_i\) 有界.}
+
+在\hyperlink{sga6.e13.thm.3-6}{3.6} 的证明中, 已化归到 \(X\) 射影且在 \(S\) 上整的情形; 在 \(X/S\) 上赋予甚丰沛层 \(\mathcal O_X(1)\). 设 \(\mathscr L\) 是 \(X/S\) 各纤维上的有界族, 由某个 \(X_T\) 上的 \(L\) 界定, 其中 \(T\) 在 \(S\) 上有限型. 将 \(T\) 分片后, 假设 \(L\) 在 \(T\) 上平坦; 再取连通分支, 假设 \(T\) 连通. 则
+\[
+P(q,m)=\chi\bigl(L_t^{\otimes q}(m)\bigr)
+\]
+与 \(t\in T\) 无关 (EGA III 7.9.4).
+
+置 \(\mathscr L_n=\Phi_n^{-1}(\mathscr L)\). 它由可逆层 \(M_K\) 的类组成, 这些类的 \(n\) 次幂属于 \(\mathscr L\). 写成
+\[
+\chi\bigl(M_K^{\otimes p}(m)\bigr)
+=\sum_{i=0}^{r}a_i(p)\binom{m+i}{i},
+\]
+其中 \(a_i(p)\) 关于 \(p\) 的次数至多为 \(r-i\). 因 \(\chi(M_K^{\otimes qn}(m))=P(q,m)\), 每个 \(a_i(qn)\), 从而每个多项式 \(a_i(p)\), 都与 \(M_K\) 无关. 因此 \(\mathscr L_n\) 只有一个 Hilbert 多项式 \(\chi(M_K(m))\), 并由 2.11 有界.
+
+\sgaStableTarget{sga6.e13.thm.3-8}\textbf{定理 3.8.} \emph{设 \(S\) 诺特, \(Y\) 是射影 \(S\)-概形, 配备相对丰沛可逆层 \(\mathcal O_Y(1)\); 设 \(X\) 是 \(\mathcal O_Y(1)\) 的一个截面 \(\varphi\) 的零点概形, \(f:X\to Y\) 是包含映射. 假设对每个 \(s\in S\) 和 \(Y_s\) 的每个不可约分支 \(Y_s^i\), \(X_s\cap Y_s^i=V(\varphi|_{Y_s^i})\) 的不可约分支的维数都至少为 \(2\) (当 \(Y\) 的纤维的不可约分支的维数都至少为 \(3\) 时即如此). 则}
+\[
+f^*:\underline{\Pic}_{Y/S}\longrightarrow\underline{\Pic}_{X/S}
+\]
+\emph{有限型. 此外, 若 \(S\) 整, 则存在非空开子集 \(U\subset S\), 使限制后的 Picard 函子可表, 且}
+\[
+\underline{\Pic}_{Y/S}|_U\longrightarrow\underline{\Pic}_{X/S}|_U
+\]
+\emph{拟仿射 (且有限型).}
+
+对第一个断言, 诺特归纳法允许以任意非空开子集替换 \(S\). 可以化归到 \(S\) 整且 \(Y\) 在 \(S\) 上整的情形; 当以 \(Y'\) 替换 \(Y\) 时, 以 \(X\times_Y Y'\) 替换 \(X\). 然后用下列引理替代\hyperlink{sga6.e12.lem.1-3}{XII 1.3}, 化归到 \(Y\) 在 \(S\) 上正规的情形.
+
+\sgaStableTarget{sga6.e13.lem.3-9}\textbf{引理 3.9.} \emph{设 \(S\) 是整的诺特概形, \(X\) 是在 \(S\) 上整的 \(S\)-概形. 存在非空开子集 \(U\subset S\)、在 \(U\) 上有限忠实平坦的整概形 \(S'\)、在 \(S'\) 上正规且整的 \(S'\)-概形 \(X'\), 以及有限满的 \(S'\)-态射 \(X'\to X_{S'}\).}
+
+设 \(\eta\) 是 \(S\) 的泛点, \(K\) 是 \(k(\eta)\) 的代数闭包. 概形 \(\operatorname{Spec}(K)\) 是整仿射概形的滤过逆系统 \((S_\alpha)\) 的极限, 其中每个概形都有有限忠实平坦态射 \(S_\alpha\to U_\alpha\), \(U_\alpha\) 为 \(S\) 的非空开子集. \(X_K\) 的正规化对某个 \(\alpha\) 下降为 \(S_\alpha\)-概形 \(X'\), 且有限满映射 \(X'_K\to X_K\) 下降为有限满的 \(S_\alpha\)-态射 \(X'\to X_{S_\alpha}\) (EGA IV 8.8.2, 8.10.5). 因 \(X'_K\) 正规且整, 存在开子集 \(S'\subset S_\alpha\), 使 \(X'_{S'}\) 在 \(S'\) 上正规且整 (EGA IV 9.9.5).
+% SOURCE-CORRECTION inherited: undefined printed S'_alpha normalized by English to the already defined S_alpha.
+
+\sgaStableTarget{sga6.e13.rem.3-10}\textbf{注 3.10.} 沿用\hyperlink{sga6.e13.lem.3-9}{3.9}, 并假设有消解态射 \(X'_K\to X_K\) (EGA IV 7.9.1); 由 Abhyankar, 当 \(\dim(X_K)\le2\) 时即如此. 类似的论证给出有限忠实平坦态射 \(S'\to U\)、在 \(S'\) 上光滑的概形 \(X'\), 以及固有、满且双有理的态射 \(X'\to X_{S'}\).
+
+在\hyperlink{sga6.e13.thm.3-8}{3.8} 的证明中, 已化归到 \(S\) 整, 且 \(Y\) 在 \(S\) 上正规且整的情形. 若 \(\varphi=0\), 则 \(X=Y\). 否则, 限制 \(S\) 后, 可假设对每个 \(s\in S\) 有 \(\varphi_s\ne0\). 因而 \(\varphi_s\) 是 \(\mathcal O_{Y_s}\)-正则的, 且 \(Y_s\) 的维数 \(r\) 至少为 \(3\).
+
+设 \(\mathscr L\) 是 \(X/S\) 各纤维上的有界族, \(M_K\) 在某个几何纤维 \(Y_K\) 上可逆, 并设
+\[
+\chi(M_K(n))=\sum_{i=0}^{r}a_i\binom{n+i}{i}.
+\]
+\(f^*M_K\) 的 Hilbert 多项式为
+\[
+\sum_{i=0}^{r-1}a_{i+1}\binom{n+i}{i}.
+\]
+当 \(M_K\) 的类遍历 \((f^*)^{-1}(\mathscr L)\), 即 \(f^*M_K\) 的类遍历 \(\mathscr L\) 时, 系数 \(a_r,a_{r-1},a_{r-2}\) 由 1.13 保持有界.
+
+设 \(H=\mathcal O_Y(m)\) 是 \(\mathcal O_Y(1)\) 的一个甚丰沛倍数. 在相对于 \(H\) 的 Hilbert 多项式
+\[
+\chi(M_K(mn))=\sum_{i=0}^{r}a_i^{(m)}\binom{n+i}{i}
+\]
+中, 系数 \(a_r^{(m)},a_{r-1}^{(m)},a_{r-2}^{(m)}\) 由 2.10 保持有界. 因而由\hyperlink{sga6.e13.lem.2-11}{2.11}, \((f^*)^{-1}(\mathscr L)\) 有界, 证明了 3.8 的第一部分.
+% SOURCE-CORRECTION inherited: print merely says mathscr L bounded; English correctly names its inverse image.
+
+对第二部分, Picard 函子的泛可表性和分离性已在\hyperlink{sga6.e12.cor.1-2}{XII 1.2} 中建立. 类似于 XII 2 的论证, 使用\hyperlink{sga6.e13.lem.3-9}{3.9} 和\hyperlink{sga6.e12.thm.1-1}{XII 1.1}, 可化归到 \(Y\) 在 \(S\) 上正规的情形. 只须 \(\underline{\Pic}_{Y/S}\to\underline{\Pic}_{X/S}\) 分离且拟有限 (EGA IV 8.12.8), 这可在几何纤维上检查, 并由下列引理推出:
+
+\sgaStableTarget{sga6.e13.lem.3-11}\textbf{引理 3.11.} \emph{设 \(k\) 代数闭, \(Y\) 正规且射影, 配备丰沛层 \(\mathcal O_Y(1)\), \(X\) 是某个截面 \(\varphi\) 的零点概形. 假设 \(\dim(Y)\ge3\) (分别地, \(\dim(Y)\ge2\)). 则}
+\[
+\Pic_{Y/k}\longrightarrow\Pic_{X/k}
+\quad
+\text{(分别地, }\Pic^\tau_{Y/k}\longrightarrow\Pic^\tau_{X/k}
+\text{; 见\hyperlink{sga6.e13.para.4-1}{4.1})}
+\]
+\emph{有限型, 且其核 \(N\) 有限, 一般不约化.}
+
+假设 \(\varphi\ne0\); 因 \(Y\) 整, 它正则. 该映射由\hyperlink{sga6.e13.thm.3-8}{3.8} (分别地, \hyperlink{sga6.e13.thm.4-7}{4.7 (iii)}) 有限型. 其核 \(N\) 是包含于 \(\Pic^\tau_{Y/k}\) 中的代数群, 因而在两种情形下相同. 因 \(Y\) 正规, \(\Pic^\tau_{Y/k}\) 固有 (FGA 第 236 号, 2.13), 且 \(N\) 闭 (SGA 3 VI\(_B\) 1.9.2), 所以只须证明 \(N\) 不含形如 \(\mu_\ell\;(=\mathbb Z/\ell\mathbb Z)\) 的子群, 其中 \((\ell,\operatorname{char}(k))=1\).
+
+考虑由 \(Y\) (分别地, \(X\)) 上的
+\[
+0\longrightarrow\mu_\ell\longrightarrow\mathbb G_m
+\xrightarrow{x\mapsto x^\ell}\mathbb G_m\longrightarrow0
+\]
+得到的 Kummer 理论:
+\[
+\begin{tikzcd}[column sep=1.6em,row sep=1.2em]
+&&H^1(Y,\mu_\ell)\arrow[r]\arrow[d]&
+H^1(Y,\mathbb G_m)\arrow[r,"\ell"]\arrow[d]&
+H^1(Y,\mathbb G_m)\arrow[d]\\
+H^0(X,\mathbb G_m)\arrow[r,"\ell"]&
+H^0(X,\mathbb G_m)\arrow[r]&
+H^1(X,\mu_\ell)\arrow[r]&
+H^1(X,\mathbb G_m)\arrow[r,"\ell"]&
+H^1(X,\mathbb G_m).
+\end{tikzcd}
+\]
+由 Hilbert 第 90 定理, \(H^1(Y,\mathbb G_m)=\Pic_{Y/k}(k)\) (分别地, \(H^1(X,\mathbb G_m)=\Pic_{X/k}(k)\)). 因 \(X\) 固有且整, \(H^0(X,\mathbb G_m)=k^*\), 所以 \(H^1(X,\mu_\ell)\to H^1(X,\mathbb G_m)\) 为单射.
+
+还须证明
+\[
+H^1(Y,\mathbb Z/\ell\mathbb Z)\longrightarrow
+H^1(X,\mathbb Z/\ell\mathbb Z)
+\]
+为单射. 这可由 \(\pi_1(X,\xi)\to\pi_1(Y,\xi)\) 满射推出; 等价地 (SGA 1 V 6.9), \(Y\) 的每个群为 \(\mathbb Z/\ell\mathbb Z\) 的连通平展覆盖 \(\widetilde Y\), 其限制 \(\widetilde X=X\times_Y\widetilde Y\) 都连通. 这是 Bertini 定理和 Zariski 连通性定理的推论 (SGA 1 X 2.10).
+
+\sgaStableTarget{sga6.e13.rem.3-12}\textbf{注 3.12.} 保持 3.11 的假设.
+\begin{enumerate}[label=(\roman*)]
+\item 核 \(N\) 是有限\emph{幺幂}群 (SGA 3 XVII 1.1), 因为它对任意 \(n\) 都不含乘法型子群 \(\mu_n\) (SGA 3 XVII 4.6.1 (vi)). 证明类似, 只须以 Grothendieck 的如下事实 (SGA 1 XI, 最后一页) 替代 Kummer 理论: 若 \(X\) 在 \(k\) 上固有, 且 \(H^0(X,\mathcal O_X)=k\), 则有 \(k\)-群概形的同构
+\[
+\underline{\operatorname{Hom}}_{\mathrm{grp}}
+(\mu_n,\underline{\Pic}_{X/k})
+\simeq \underline{H^1(X,\mathbb Z/n\mathbb Z)}.
+\]
+因而当 \(k\) 代数闭时, 取其 \(k\)-点得到
+\[
+\operatorname{Hom}_{\mathrm{grp}}(\mu_n,\underline{\Pic}_{X/k})
+\simeq H^1(X,\mathbb Z/n\mathbb Z).
+\]
+\item 若 \(k\) 的特征为零, 则 \(N=0\), 因为每个有限幺幂群都为零 (SGA 3 XVII 1.7). 这几乎恢复了 Mumford 形式的 Kodaira 消失定理 [2].
+\end{enumerate}
+
+\sgaStableTarget{sga6.e13.thm.3-13}\textbf{定理 3.13.} \emph{设 \(S\) 诺特, \(X\) 是射影 \(S\)-概形, 配备相对丰沛可逆层 \(H=\mathcal O_X(1)\). 假设 \(X/S\) 的几何纤维整、维数为 \(r\). 对各纤维上可逆层的类族 \(\mathscr L\), 下列条件等价:}
+\begin{enumerate}[label=(\roman*)]
+\item \emph{\(\mathscr L\) 有界.}
+\item \emph{在 \(\chi(L_K(n))=\sum_{i=0}^{r}a_i\binom{n+i}{i}\) 中, 系数 \(a_{r-1}\) 保持有界, 而 \(a_{r-2}\) 保持有下界.}
+\item \emph{次数
+\[
+d(L_K)=\langle c_1(L_K)c_1(H_K)^{r-1}\rangle
+\]
+保持有界, 且 \(\langle c_1(L_K)^2c_1(H_K)^{r-2}\rangle\) 保持有下界.}
+\item \emph{存在整数 \(N\) 使
+\[
+H^{-N}<\mathscr L<H^N;
+\]
+即对每个 \(L_K\in\mathscr L\), \(H_K^{\otimes N}\otimes L_K\) 和 \(H_K^{\otimes N}\otimes L_K^{-1}\) 都丰沛.}
+\end{enumerate}
+
+假设 \(\mathscr L\) 由某个 \(X_T\) 上的 \(L\) 界定. 则 (iv) 由 EGA II 4.6.12 成立. 取 \(L\) 在 \(T\) 上平坦, 则多项式 \(\chi(L_t^{\otimes m}(n))\) 只依赖于 \(T\) 的连通分支 (EGA III 7.9.4). 故 (ii) 成立, 而\hyperlink{sga6.e13.para.2-1}{2.1} 给出 (iii).
+
+\(H_K\) 和 \(\mathcal O_{X_K}\) 的类族有界, 因而分别满足 (iii) 和 (ii). 若 \(\mathscr L\) 满足 (iv), 则
+\[
+\langle[Nc_1(H_K)+c_1(L_K)]c_1(H_K)^{r-1}\rangle>0,
+\]
+故 \(-Nd(H_K)<d(L_K)<Nd(H_K)\). 此外,
+\[
+\langle[Nc_1(H_K)+c_1(L_K)]^2c_1(H_K)^{r-2}\rangle>0,
+\]
+从而
+\[
+\langle c_1(L_K)^2c_1(H_K)^{r-2}\rangle
+>-2Nd(L_K)-N^2d(H_K).
+\]
+因此 (iii) 成立.
+
+最后, 假设 (ii) 或分别地 (iii) 成立. 由\hyperlink{sga6.e13.rem.2-10}{2.10} 和\hyperlink{sga6.e13.lem.2-3}{2.3}, 用 \(H\) 的一个倍数替换它, 可假设它甚丰沛. 将 \(S\) 分片, 使 \(X\) 有一个在 \(S\) 上整、纤维为二维的线性截面 \(Y\). 由\hyperlink{sga6.e13.thm.3-8}{3.8}, 用 \(Y,\mathscr L|_Y\) 替换 \(X,\mathscr L\); \hyperlink{sga6.e13.lem.1-7}{1.7} 或分别地投影公式保证相应条件保持不变. 因而 \(r=2\). 置
+\[
+\delta=\sup\{d(L_K)\}.
+\]
+若 \(\delta>0\), 使用\hyperlink{sga6.e13.lem.2-3}{2.3} 和\hyperlink{sga6.e13.rem.2-10}{2.10}, 以 \(L_K(-\delta)\) 的类族替换 \(\mathscr L\), 使 \(\delta\le0\).
+
+若 \(\sum_{i=0}^{2}a_i\binom{n+i}{i}\) 中 \(a_1\) 保持有界而 \(a_0\) 保持有下界, 则由\hyperlink{sga6.e13.lem.2-3}{2.3} 和\hyperlink{sga6.e13.lem.2-6}{2.7}, 三个系数都保持有界. 因而由\hyperlink{sga6.e13.lem.2-11}{2.11}, \(\mathscr L\) 有界, 所以 (ii) 蕴含 (i). 另一方面, 由\hyperlink{sga6.e13.lem.2-3}{2.3} 和 2.8, (iii) 蕴含 (ii).
+% Numbering repair from French printed pp627--628: lemma2.7 and equations2.7.1--2.7.2 restored; inherited stable IDs kept for links.
+% The proof of lemma2.7 cites 2.6 in print, but no separate 2.6 statement appears between printed lemmas2.5 and2.7; no missing lemma invented.
+
+\sgaStableTarget{sga6.e13.sec.4}\subsection*{4. \(\Pic^\tau_{X/S}\) 的有限性定理}
+
+\sgaStableTarget{sga6.e13.para.4-1}\textbf{4.1.} 设 \(S\) 是概形, \(G\) 是 \(S\) 上的交换群函子. 用 \(G^0\) 和分别地 \(G^\tau\) 表示如下子群函子, 其 \(T\)-点 \(f:T\to G\) 满足: 对每个代数闭域 \(K\) 及 \(T\) 的每个 \(K\)-点 \(t\), 存在连通 \(K\)-概形 \(Z\)、两个 \(K\)-点 \(z,z_0\) 及 \(g:Z\to G\), 使在 \(G(K)\) 中有 \(g(z)=f(t)\) 且 \(g(z_0)=0\); 分别地, 存在非零的 \(n\), 使 \(nf(t)\in G^0(K)\).
+
+\(G^0\) 和分别地 \(G^\tau\) 的形成与基变换交换, 且 \(G\to G'\) 诱导 \(G^0\to G'^0\) 和分别地 \(G^\tau\to G'^\tau\). 若 \(S\) 是域, \(G\) 可由局部有限型群概形表示, 则 \(G^0\) 可由单位元的连通分支表示; 这是一个既开又闭、有限型且几何不可约的子概形 (SGA 3 VI\(_A\) 2.4).
+
+\sgaStableTarget{sga6.e13.lem.4-2}\textbf{引理 4.2.} \emph{设 \(\Phi:G\to G'\) 是 \(S\) 上交换群函子的态射. 假设对 \(S\) 上每个代数闭域 \(K\), \(G_K,G'_K\) 都可由局部有限型群概形表示, 且 \(\Phi_K\) 可由有限型 (等价地, 拟紧) 态射表示. 则}
+\[
+\Phi^{-1}(G'^\tau)=G^\tau.
+\]
+
+包含关系 \(\Phi^{-1}(G'^\tau)\supset G^\tau\) 已经指出. 反过来, \(g\in G(K)\) 属于 \(G^\tau(K)\), 当且仅当倍数 \(ng\) (\(n\in\mathbb N\)) 所成集合拟紧. 因 \(\Phi_K\) 拟紧, 只须集合 \(\Phi(ng)=n\Phi(g)\) 具有这一性质. 这就证明了引理.
+% WORKPASS-CORRECTION inherited: English follows printed inverse image, not ill-typed predecessor workpass Phi(G'^tau).
+
+\sgaStableTarget{sga6.e13.lem.4-3}\textbf{引理 4.3.} \emph{设 \(X,Y\) 在 \(S\) 上固有, \(f:X\to Y\) 满 (分别地, 为丰沛层 \(\mathcal O_Y(1)\) 的截面 \(\varphi\) 的零点概形的包含映射). 则}
+\[
+(f^*)^{-1}\underline{\Pic}^\tau_{X/S}
+=\underline{\Pic}^\tau_{Y/S}.
+\]
+这由\hyperlink{sga6.e13.lem.4-2}{4.2}、\hyperlink{sga6.e12.cor.1-2}{XII 1.2}、\hyperlink{sga6.e13.lem.3-1}{3.1} 和\hyperlink{sga6.e13.thm.3-5}{3.5} (分别地, \hyperlink{sga6.e13.thm.3-8}{3.8}) 形式地推出.
+
+\sgaStableTarget{sga6.e13.para.4-4}\textbf{4.4.} 设 \(k\) 代数闭, \(X\) 在 \(k\) 上固有, \(L\) 在 \(X\) 上可逆. 若存在连通有限型 \(k\)-概形 \(T\)、\(X_T=X\times_kT\) 上的可逆层 \(M\) 以及两个 \(k\)-点 \(t,t_0\), 使 \(L\simeq M_t\) 且 \(\mathcal O_X\simeq M_{t_0}\), 就称层 \(L\) \emph{代数等价}于零. 若 \(L\) 的某个非零张量幂代数等价于零, 就称它 \emph{\(\tau\)-等价}于零. 等价地, 与 \(L\) 对应的点 \(\lambda\) 属于 \(\underline{\Pic}^0_{X/k}(k)\), 或分别地属于 \(\underline{\Pic}^\tau_{X/k}(k)\).
+
+回忆, 若对每条闭整曲线 \(Y\subset X\) (见\hyperlink{sga6.e13.para.2-1}{2.1} 或\hyperlink{sga6.e10.sec.4.5}{X 4.5}) 有
+\[
+\langle c_1(L)\cdot Y\rangle=0,
+\]
+就称该层 \emph{数值等价}于零.
+
+\sgaStableTarget{sga6.e13.prop.4-5}\textbf{命题 4.5 (函子行为).} \emph{设 \(f:X'\to X\) 是固有 \(k\)-概形之间的态射, \(L\) 在 \(X\) 上可逆. 则:}
+\begin{enumerate}[label=(\roman*)]
+\item \emph{若 \(L\) \(\tau\)-等价于零 (分别地, 数值等价于零), 则 \(f^*L\) 也如此.}
+\item \emph{反过来, 若 \(f\) 满且 \(f^*L\) \(\tau\)-等价于零 (分别地, 数值等价于零), 则 \(L\) 也如此.}
+\end{enumerate}
+
+关于 \(\tau\)-等价的断言由\hyperlink{sga6.e13.para.4-1}{4.1} 和 4.3 推出. 设 \(Y'\) 是 \(X'\) 中的闭整曲线, \(Y=f(Y')\) 配备诱导的约化结构. 若 \(\dim(Y)=1\), 则投影公式 (\hyperlink{sga6.e10.eq.4-4-4}{X 4.4.4}) 给出
+\sgaStableTarget{sga6.e13.eq.4-5-1}\begin{equation}
+\langle c_1(f^*L)\cdot Y'\rangle
+=[k(Y'):k(Y)]\,\langle c_1(L)\cdot Y\rangle.
+\tag{4.5.1}
+\end{equation}
+若 \(\dim(Y)=0\), 则 \((f^*L)_{Y'}\simeq\mathcal O_{Y'}\). 这证明了数值等价的 (i).
+
+反过来, 对闭整曲线 \(Y\subset X\), 设 \(y\) 是其泛点, 取点 \(y'\in f^{-1}(y)\), 使之在函数域 \(k(y)\) 上代数, 并取其闭包 \(Y'\). 则 \(f(Y')=Y\), 而\hyperlink{sga6.e13.eq.4-5-1}{4.5.1} 证明了 (ii).
+
+\sgaStableTarget{sga6.e13.thm.4-6}\textbf{定理 4.6 (\(\Pic^\tau_{X/k}\) 的数值刻画).} \emph{设 \(k\) 代数闭, \(X\) 在 \(k\) 上固有, \(L\) 在 \(X\) 上可逆. 下列条件等价:}
+\begin{enumerate}[label=(\roman*)]
+\item \emph{\(L\) \(\tau\)-等价于零.}
+\item \emph{对 \(X\) 上每个凝聚层 \(F\),}
+\[
+\chi(F\otimes L)=\chi(F).
+\]
+\item \emph{\(L\) 数值等价于零.}
+\end{enumerate}
+\emph{若 \(X/k\) 射影并配备丰沛层 \(H=\mathcal O_X(1)\), 则这些条件还等价于:}
+\begin{enumerate}[label=(\roman*),start=4]
+\item \emph{对每个整数 \(m\), \(L^{\otimes m}(1)\) 丰沛.}
+\item \emph{若 \(X\) 不可约, 则对每个 \(m,n\),}
+\[
+\chi(L^{\otimes m}(n))=\chi(\mathcal O_X(n)).
+\]
+\item \emph{若 \(X\) 不可约、维数 \(r\ge2\), 则
+\[
+\langle c_1(L)c_1(H)^{r-1}\rangle=0,\qquad
+\langle c_1(L)^2c_1(H)^{r-2}\rangle=0.
+\]}
+\end{enumerate}
+
+对 (i) \(\Rightarrow\) (ii), 剥离法 (EGA III 3.1) 和\hyperlink{sga6.e13.prop.4-5}{4.5} 将问题化归到 \(X\) 整且 \(F=\mathcal O_X\) 的情形. 还须证明 \(\chi(L^{\otimes m})\) 为常数. 以 \(L\) 的一个非零张量幂替换它, 可假设它代数等价于零. 若 \(X\times_kT\) 上的 \(M\) 将 \(L\) 变形到 \(\mathcal O_X\), 其中 \(T\) 连通且有限型, 则 \(\chi(M_t^{\otimes m})\) 与 \(t\in T\) 无关 (EGA III 7.9.5).
+
+对闭整曲线 \(Y\), 在 (ii) 中取 \(F=\mathcal O_Y\). Riemann 公式
+\[
+\chi(L_Y)=\langle c_1(L)\cdot Y\rangle+\chi(\mathcal O_Y)
+\]
+表明 (ii) 蕴含 (iii).
+
+设 \(f:X'\to X\) 是 Chow 表示. 若对 \(X'\) 有 (iii) 蕴含 (i), 则\hyperlink{sga6.e13.prop.4-5}{4.5} 给出它对 \(X\) 也成立. 故假设 \(X\) 射影并配备丰沛层 \(H\). 通过有限满射 \(\coprod_iX_i\to X\), 其中 \(X_i\) 是约化的不可约分支, 可将 (iii) \(\Rightarrow\) (i)、(iv) 化归到 \(X\) 整的情形 (\hyperlink{sga6.e13.prop.4-5}{4.5}, EGA III 2.6.2).
+
+对不可约的 \(X\), (ii) 蕴含 (v), (iii) 蕴含 (vi), 而\hyperlink{sga6.e13.para.2-1}{2.1} 给出 (v) 蕴含 (vi); 条件 (vi) 在 \(X_{\mathrm{red}}\) 上保持不变. 还须对整的 \(X\) 证明 (vi) 蕴含 (i)、(iv), 及 (iv) 蕴含 (i). 在 (vi) 或分别地 (iv) 下, 类族 \(L^{\otimes m}\) (\(m\in\mathbb N\)) 满足\hyperlink{sga6.e13.thm.3-13}{3.13 (iii)} 或分别地 (iv), 因而有界. 故某个 \(X_T\) 上的可逆层 \(\mathcal M\) 界定此族, 其中 \(T\) 在 \(k\) 上有限型. 取不同的 \(p,q\), 使 \(L^{\otimes p}\) 和 \(L^{\otimes q}\) 对应于 \(T\) 的同一连通分支. 则 \(L^{\otimes(p-q)}\) 代数等价于零, 证明了 (i).
+% SOURCE-CORRECTION inherited: first exponent p follows context; print/workpass have r.
+
+条件 (vi) 还给出一个 \(N\), 使 \(L^{\otimes m}\otimes H^{\otimes N}\) 对每个 \(m\) 丰沛. 因而 \((L^{\otimes m}\otimes H)^{\otimes N}\) 丰沛, 所以 \(L^{\otimes m}\otimes H\) 丰沛. 故 (vi) 蕴含 (iv).
+
+\sgaStableTarget{sga6.e13.thm.4-7}\textbf{定理 4.7.} \emph{设 \(S\) 诺特, \(X\) 在 \(S\) 上固有. 则:}
+\begin{enumerate}[label=(\roman*)]
+\item \emph{\(\underline{\Pic}^{\tau}_{X/S}\to\underline{\Pic}_{X/S}\) 可由开浸入表示.}
+\item \emph{若 \(X\) 射影且在 \(S\) 上整, 则这一映射还可由闭浸入表示.}
+\item \emph{\(\underline{\Pic}^{\tau}_{X/S}\) 在 \(S\) 上有限型; 即各纤维上 \(\tau\)-等价于零的类族有界.}
+\end{enumerate}
+
+对 (i) 和分别地 (ii), 任取 \(T\to\underline{\Pic}_{X/S}\), 并证明 \(\underline{\Pic}^{\tau}_{X/S}\) 的逆像是 \(T\) 的开子概形, 或分别地既开又闭的子概形. 局部地, \(T=\operatorname{Spec}(B)\) 位于 \(\operatorname{Spec}(A)\subset S\) 之上; \(T\) 是 \(T_\alpha=\operatorname{Spec}(B_\alpha)\) 的极限, 其中 \(B_\alpha\subset B\) 遍历有限型 \(A\)-子代数. 由\hyperlink{sga6.e13.lem.3-1}{3.1}, 此态射下降到某个 \(T_\alpha\), 因而可假设 \(T\) 在 \(S\) 上有限型.
+
+此态射对应于 fppf 态射 \(R\to T\) 和 \(X_R\) 上的可逆层 \(L\). 由 fppf 下降, 用 \(R\) 替换 \(T\), 再沿 \(R\to S\) 作基变换. 与基变换的相容性\hyperlink{sga6.e13.para.4-1}{(4.1)} 将问题化归到由 \(X\) 上的 \(L\) 定义的截面 \(S\to\underline{\Pic}_{X/S}\).
+
+设 \(S_0\) 是使 \(L_s\) \(\tau\)-等价于零的 \(s\in S\) 所成集合. 须证它开, 且在 (ii) 下还闭. 因 \(S\) 诺特, 对 \(s\in S_0\), 只须有
+\begin{enumerate}[label=(\alph*)]
+\item \(s\) 的每个一般化都属于 \(S_0\);
+\item \(s\) 的每个充分邻近的特殊化都属于 \(S_0\);
+\item 在 (ii) 下, \(s\) 的每个特殊化都属于 \(S_0\).
+\end{enumerate}
+
+设 \(f:X'\to X\) 是 Chow 表示. 若对 \(X'\) 有 (a)、(b)、(c) 和 (iii), 则\hyperlink{sga6.e13.lem.4-3}{4.3} 和\hyperlink{sga6.e13.thm.3-5}{3.5} 给出它们对 \(X\) 也成立; 故假设 \(X\) 在 \(S\) 上射影.
+
+设 \(H\) 对 \(X/S\) 丰沛. 若 \((L^{\otimes m}\otimes H)_s\) 丰沛, 则它在 \(s\) 的每个一般化处仍丰沛 (EGA III 4.7.1). 等价关系\hyperlink{sga6.e13.thm.4-6}{4.6 (i)} \(\Longleftrightarrow\) (iv) 给出 (a).
+
+对 (b)、(c) 和 (iii), 化归到 \(S\) 整的情形, 并在 (b)、(c) 中取 \(s\) 为泛点; 对 (iii), 将\hyperlink{sga6.e13.lem.3-4}{3.4 (i)} 应用于 \(\coprod_iS_i\to S\), 其中 \(S_i\) 是约化的不可约分支.
+
+存在整概形 \(S'\) 及 fppf 态射 \(S'\to S\), 使 \(X_{S'}\) 的每个约化不可约分支 \(X'_i\) 在 \(S'\) 上整 (\hyperlink{sga6.e12.lem.1-3}{XII 1.3}). 由下降以及结合\hyperlink{sga6.e13.lem.3-4}{3.4 (i)} 的诺特归纳法, 只须对 \(X_{S'}/S'\) 证明 (b)、(iii). 满射 \(\coprod_iX'_i\to X_{S'}\) 连同\hyperlink{sga6.e13.lem.4-3}{4.3}、\hyperlink{sga6.e13.thm.3-5}{3.5} 和\hyperlink{sga6.e13.lem.3-7}{3.7}, 将 (b)、(iii) 化归为每个 \(X'_i/S'\) 的 (c)、(iii).
+
+因此已化归到在如下假设下证明 (c) 和 (iii): \(S\) 整、泛点为 \(s\), \(X\) 射影且在 \(S\) 上整. 对 \(X/S\) 的甚丰沛层 \(\mathcal O_X(1)\), 值 \(\chi(L_t^{\otimes m}(n))\) 和 \(\chi(\mathcal O_{X_t}(n))\) 对每个 \(m,n\) 都与 \(t\in S\) 无关 (EGA III 7.9.4). 因而 (c) 由\hyperlink{sga6.e13.thm.4-6}{4.6 (i)} \(\Longleftrightarrow\) (v) 推出; 这一等价关系还说明, \(X/S\) 各纤维上 \(\tau\)-等价于零的可逆层的类族只有一个 Hilbert 多项式. 从而 (iii) 由 2.11 推出.
+
+\sgaStableTarget{sga6.e13.rem.4-8}\textbf{注 4.8.} 设 \(X\) 在诺特概形 \(S\) 上固有且整. 去掉 \(X/S\) 的射影性假设后, 不知道 \(\underline{\Pic}^{\tau}_{X/S}\to\underline{\Pic}_{X/S}\) 是否仍为\emph{闭}浸入, 除非 \(X\) 在 \(S\) 上正规且 \(\underline{\Pic}_{X/S}\) \emph{可表} (FGA 236, 2.3).
+
+\sgaStableTarget{sga6.e13.sec.5}\subsection*{5. ``N\'eron--S\'everi'' 型有限性定理}
+
+\sgaStableTarget{sga6.e13.thm.5-1}\textbf{定理 5.1.} \emph{设 \(X\) 在诺特概形 \(S\) 上固有. 则 \(X/S\) 的几何纤维 \(X_K/K\) 的 N\'eron--S\'everi 群 \(\underline{\Pic}_{X_K/K}(K)/\underline{\Pic}^0_{X_K/K}(K)\) 有限生成, 且它们的秩和挠子群 \(\underline{\Pic}^\tau_{X_K/K}(K)/\underline{\Pic}^0_{X_K/K}(K)\) 的阶保持有界.}
+
+由诺特归纳法, 用 \(S_{\mathrm{red}}\) 的任意非空开子集替换 \(S\), 并假设 \(\underline{\Pic}^{\tau}_{X/S}\) 可由有限型 \(S\)-概形表示 (\hyperlink{sga6.e12.cor.1-2}{XII 1.2}, \hyperlink{sga6.e13.thm.4-7}{4.7 (iii)}). \(\underline{\Pic}^\tau_{X_K/K}(K)/\underline{\Pic}^0_{X_K/K}(K)\) 的阶是 \((\underline{\Pic}^{\tau}_{X/S})_K\) 的连通分支数, 它在 \(S\) 的某个非空开子集上为常数 (EGA IV 9.7.9).
+
+还须界定 \(\underline{\Pic}_{X_K/K}(K)/\underline{\Pic}^\tau_{X_K/K}(K)\) 的秩. 如\hyperlink{sga6.e13.thm.4-7}{4.7 (iii)} 中那样化归到 \(S\) 整, \(X\) 射影且整的情形. 设 \(r\) 是 \(X/S\) 的共同纤维维数. 当 \(r=0\) 和分别地 \(1\) 时, 秩为 \(0\) 和分别地 \(1\). 对 \(r\ge2\), 化归到 \(r=2\) 且 \(X\) 光滑的情形. 限制 \(S\) 后, 取 \(X\) 的一个线性截面 \(Y\), 使它仍在 \(S\) 上整, 且纤维为二维, 再用 4.3 将 \(X\) 替换为 \(Y\). 然后使用\hyperlink{sga6.e13.lem.4-3}{4.3} 和\hyperlink{sga6.e13.rem.3-10}{3.10}, 结合曲面奇点消解, 并以某个非空开子集的平坦覆盖替换 \(S\), 就可使 \(X\) 在 \(S\) 上光滑.
+
+由\hyperlink{sga6.e13.thm.4-6}{4.6 (i)} \(\Longleftrightarrow\) (iii), 以及平展上同调的有限性和特殊化定理 (SGA 4 XVI 2.2), 定理 5.1 由下列命题推出:
+
+\sgaStableTarget{sga6.e13.prop.5-2}\textbf{命题 5.2.} \emph{设 \(k\) 代数闭, \(X\) 在 \(k\) 上固有且光滑. 余维 \(p\) 的代数闭链模数值等价所成的群 \(C^p_{\mathrm{num}}(X)\) 是自由群, 秩至多为第 \(2p\) 个 Betti 数 \(b^{2p}\).}
+
+略去单位根的作用, 平展上同调 \(H^*(X,\mathbb Q_\ell)=_{\mathrm{dfn}}\allowbreak\left[\varprojlim_\nu H^*(X,\mathbb Z/\ell^\nu\mathbb Z)\right]\allowbreak\otimes_{\mathbb Z_\ell}\mathbb Q_\ell\), 其中 \((\ell,\operatorname{char}(k))=1\), 是 Weil 上同调: 它满足 Poincar\'e 对偶和 K\"unneth 公式, 并接收从代数闭链模有理等价环 \(C^*_{\mathrm{rat}}(X)\) 到它的函子性非零同态 (见\hyperlink{sga6.e10.sec.7.13}{X 7.13}).
+
+取 \(a_1,\ldots,a_m\in C^{r-p}_{\mathrm{rat}}(X)\), 其中 \(r=\dim X\), 使它们的像构成 \(H^{2(r-p)}(X,\mathbb Q_\ell)\) 中由代数闭链张成的 \(\mathbb Q_\ell\)-子空间的一组基. 定义
+\[
+\alpha:C^p_{\mathrm{rat}}(X)\longrightarrow\mathbb Z^m,
+\]
+其中 \(\alpha(b)=(\langle b\cdot a_1\rangle,\ldots,\langle b,a_m\rangle)\), 而 \(\langle\ \rangle\) 表示相交数. 它的像可与 \(C^p_{\mathrm{num}}(X)\) 等同.
+
+\sgaStableTarget{sga6.e13.rem.5-3}\textbf{注 5.3.} 若 \(X\) 是代数闭域 \(k\) 上的固有光滑曲面, 则其第二个 Betti 数为 \(b^2(X)=c_2(X)-2+2b^1(X)\), 其中 \(b^1(X)=2\dim\Pic^0_{X/k}\); 第二个 Chern 类 \(c_2(X)\) 是 Euler--Poincar\'e 示性数, 等价地是对角线在 \(X\times X\) 中的自相交数. 因此 \(b^2(X)\) 有不依赖上同调的解释. 在特征 \(>0\) 时, 此形式的不等式 \(\operatorname{rank}C^1_{\mathrm{num}}(X)\le b^2(X)\) 在平展上同调之前由 Igusa 得到, 他使用了从代数曲线上删去若干点后所得曲线的温和基本群的深刻结果.
+
+\sgaStableTarget{sga6.e13.thm.5-4}\textbf{定理 5.4.} \emph{设 \(k\) 代数闭, \(X\) 在 \(k\) 上固有. \(X\) 中存在有限条闭整曲线 \(Y_1,\ldots,Y_p\), 使 \(\Pic_{X/k}\) 的子集 \(\Lambda\) 拟紧, 当且仅当相交数 \(\langle\lambda\cdot Y_i\rangle\) (\(\lambda\in\Lambda\)) 保持有界. 此外, 可取 \(p\) 为 N\'eron--S\'everi 群 \(\Pic_{X/k}(k)/\Pic^0_{X/k}(k)\) 的秩.}
+
+事实上, \(\Pic^\tau_{X/k}\) 是 \(\Pic_{X/k}\) 的开拟紧子群\hyperlink{sga6.e13.thm.4-7}{(4.7)}. 因此 \(\Lambda\) 拟紧, 当且仅当在 \(\bigl[\Pic_{X/k}(k)/\Pic^\tau_{X/k}(k)\bigr]\otimes_{\mathbb Z}\mathbb Q\) 中对应的点集有限. 由\hyperlink{sga6.e13.thm.4-6}{4.6 (i)} \(\Longleftrightarrow\) (iii), \(\tau\)-等价就是数值等价. 选取曲线, 使其像组成对偶向量空间的一组基, 断言随之成立.
+
+% The independently translated continuation begins with XIII section 6.
+\input{chapters/expose-13-tail.tex}
