@@ -1,59 +1,51 @@
 # 代数几何原始文献合集 · EGA / SGA / FGA / FGA Explained / Stacks Project
 
-本仓库是「现代代数几何中文全集」编撰工程的**原文底本库**：按系列收录格罗滕迪克（Grothendieck）学派的经典文献原件 PDF，
-并附书目对照、文件校验清单与各卷次的定位说明，作为翻译、注释与教学整理的底本。
+「现代代数几何中文全集」编撰工程的底本库：格罗滕迪克学派的原始文献、官方与社区中文译本、
+英文工作版与 LaTeX 源码，按来源分层存放，附书目对照与逐文件校验。
 
-## 五套书的定位
+当前规模：1042 个文件，约 1540.6 MB。
+
+## 快速导航
+
+| 想要 | 去这里 |
+| --- | --- |
+| 法文原著 | EGA/、SGA/、FGA/ |
+| 官方中文版（周健译，高教社） | zh-CN/official/ |
+| 社区中文译本 | zh-CN/EGA/、zh-CN/Stacks/、extra/数译中译/、extra/译馆-PKU/ |
+| 英文译本与 LaTeX 源码 | en/、extra/SGA-English-Zenodo/ |
+| 增补与参考 | extra/ |
+| 逐文件校验 | MANIFEST.sha256 |
+
+## 五套书的分工
 
 | 简称 | 原文书名 | 中文书名 | 性质与角色 |
 | --- | --- | --- | --- |
 | EGA | Éléments de géométrie algébrique | 《代数几何学原理》 | 系统建立现代代数几何基础的专著，原计划未全部完成 |
 | SGA | Séminaire de Géométrie Algébrique du Bois-Marie | 《博瓦马里代数几何讨论班》 | 格罗滕迪克主持的研究讨论班文集，分多个专题 |
-| FGA | Fondements de la Géométrie Algébrique | 《代数几何基础》 | 格罗滕迪克关于代数几何基础问题的研究报告合集 |
-| FGA Explained | Fundamental Algebraic Geometry: Grothendieck's FGA Explained | 《基础代数几何：格罗滕迪克 FGA 详解》 | 后人对 FGA 相关理论的系统讲解与证明补充 |
-| Stacks Project | The Stacks Project | 《代数叠项目》（通常保留英文名） | 不断更新的现代代数几何大型参考书 |
+| FGA | Fondements de la Géométrie Algébrique | 《代数几何基础》 | 格罗滕迪克关于基础问题的研究报告合集 |
+| FGA Explained | Fundamental Algebraic Geometry | 《基础代数几何：FGA 详解》 | 后人的系统讲解与证明补充 |
+| Stacks Project | The Stacks Project | 《代数叠项目》 | 持续更新的现代参考书 |
 
-前三套是原著主体；FGA Explained 与 Stacks Project 主要用于补充、整理与扩展理论。
-
-## 中文译本现状（截至 2026-10）
-
-| 系列 | 官方出版中译本 | 非官方 / 社区译本 | 本库收录 |
-| --- | --- | --- | --- |
-| EGA | **有**：《代数几何学原理》，周健译，高等教育出版社，2018–2025 出版 I–IV 共 8 册 | 另有 I–III 的非官方 AI 译（Zenodo 22907053） | **是**：官方 7 册见 zh-CN/official/（缺 IV 第三部分）；非官方见 zh-CN/EGA/ |
-| SGA | 无 | 极少：SGA 1 有个人零散翻译（网络文章），其余无系统译本 | 否 |
-| FGA | 无 | 未见公开中译 | 否 |
-| FGA Explained | 无 | 未见公开中译（2019 年国内版为英文影印本，不是翻译） | 否 |
-| Stacks Project | 原版本身即开放英文版 | **有**：116 章简体中文全译（Zenodo 22865712，2026-09-21，GFDL-1.2-or-later，AI 翻译） | **是**：整包收录于 zh-CN/Stacks/；另有较早的单文件译本 Stacks-Project-zh-CN.pdf |
-
-**结论**：EGA 有高等教育出版社的正式中译本（周健译），这是目前唯一一套官方中文版；
-SGA、FGA、FGA Explained 至今没有正式中译本，只有零散社区译稿与 AI 译本。
-community 译本可作参考，但不能替代正式译本。
-
-## 版本说明：哪些是「最新版」
-
-| 系列 | 版本性质 | 本库所收版本 |
-| --- | --- | --- |
-| EGA | 历史定本（原著未按计划完成，无后续修订） | I：1971 年第 2 版（Grundlehren 166）；II–IV：IHES 原刊 1961–1967 |
-| SGA | 历史定本（各卷为独立讨论班记录） | Springer LNM 原版；SGA 4 采用 2008 年 Springer 重排版 |
-| FGA | 历史定本 | 1962 年汇辑本 |
-| FGA Explained | 2005 年定本 | AMS 2005（2019 年影印） |
-| Stacks Project | **持续更新**，官网随编译刷新 | Stacks-Project-2026-07-14.pdf（Version ed88ff78，7654 页）＝官网当前最新；另存 2023 年版作对照 |
-
-只有 Stacks Project 存在「最新版」概念，其余四套均已定型。Stacks 官网下载地址为
-stacks.math.columbia.edu/download/book.pdf，需要跟进更新时重新下载即可。
+前四套是编撰主体（EGA、SGA、FGA 为原著，FGA Explained 为补证），Stacks Project 负责扩展与查证。
 
 ## 目录结构
 
-```
-EGA/    Éléments de géométrie algébrique I–IV（法文原版）
-SGA/    Séminaire de Géométrie Algébrique du Bois-Marie 1 / 2 / 3 / 4（三卷）/ 4½ / 5 / 6 / 7（两卷）（法文原版）
-FGA/    Fondements de la géométrie algébrique 与 FGA Explained
-Stacks/ The Stacks Project（英文原版 + 中文译本）
-zh-CN/  中文译本：official/ 高教社周健译《代数几何学原理》；EGA/、Stacks/ 为社区译本原始发布包
-en/     英文译本与工作版：EGA、SGA、FGA 的英文 PDF、LaTeX 源码与可复现构建工程
-```
+~~~
+EGA/  SGA/  FGA/  Stacks/    原著：法文原版与英文原版 PDF
+zh-CN/
+  official/                   周健译《代数几何学原理》官方中文版 8 册
+  EGA/  Stacks/               社区中文译本的原始发布包（含 LaTeX 源码与 QA 文件）
+en/                           英文译本与可复现 LaTeX 工程
+extra/
+  SGA-archive/                SGA 原版扫描档案（wstein.org，12 卷）
+  SGA-English-Zenodo/         SGA 英文读者版（Zenodo）
+  jcreinhold-sga/             SGA 英译仓库源码
+  数译中译/                    数译站社区中译（SGA 1/2、Vakil、Milne、Hartshorne、Alper）
+  译馆-PKU/                    译馆（北大）经典文献中译
+  Conrad/  arXiv/             讲义与预印本
+~~~
 
-## 文件清单
+## 原著
 
 ### EGA — 《代数几何学原理》
 
@@ -99,79 +91,78 @@ en/     英文译本与工作版：EGA、SGA、FGA 的英文 PDF、LaTeX 源码�
 | Stacks Project（中文翻译） | The Stacks Project — Chinese translation | 代数叠项目（中文译本） | The Stacks Project Authors | — | 社区译本 | [Stacks-Project-zh-CN.pdf](Stacks/Stacks-Project-zh-CN.pdf) | 33.6 MB |
 | Stacks Project（官网最新） | The Stacks Project — official current build | 代数叠项目（官网最新编译版） | A. J. de Jong et al. | 2026-07-14（Version ed88ff78） | stacks.math.columbia.edu/download/book.pdf | [Stacks-Project-2026-07-14.pdf](Stacks/Stacks-Project-2026-07-14.pdf) | 36.6 MB |
 
-## 官方中文译本（高等教育出版社 · 周健译）
+## 中文译本
 
-这是目前唯一一套正式出版的中文译本：《代数几何学原理》，周健翻译，高等教育出版社出版，
-2018 年起陆续出齐 EGA I–IV 共 8 册，最新为 2025 年的 IV 第四部分。
+### 官方：高等教育出版社 · 周健译
+
+目前唯一一套正式出版的中文译本，2018–2025 年出齐 EGA I–IV 共 8 册。
 
 | 卷次 | 书名 | 出版年 | 页数 | 文件 |
 | --- | --- | --- | --- | --- |
 | EGA I | 概形语言 | 2018 | 261 | [EGA-I-概形语言-周健译.pdf](zh-CN/official/EGA-I-概形语言-周健译.pdf) |
 | EGA II | 几类态射的整体性质 | 2019 | 243 | [EGA-II-几类态射的整体性质-周健译.pdf](zh-CN/official/EGA-II-几类态射的整体性质-周健译.pdf) |
-| EGA IV 第一部分 | 概形与态射的局部性质（一） | 2022 | 291 | [EGA-IV-1-概形与态射的局部性质-周健译.pdf](zh-CN/official/EGA-IV-1-概形与态射的局部性质-周健译.pdf) |
-| EGA IV 第二部分 | 概形与态射的局部性质（二） | 2023 | 264 | [EGA-IV-2-概形与态射的局部性质-周健译.pdf](zh-CN/official/EGA-IV-2-概形与态射的局部性质-周健译.pdf) |
-| EGA IV 第四部分 | 概形与态射的局部性质（四） | 2025 | 386 | [EGA-IV-4-概形与态射的局部性质-周健译.pdf](zh-CN/official/EGA-IV-4-概形与态射的局部性质-周健译.pdf) |
+| EGA IV-1 | 概形与态射的局部性质（一） | 2022 | 291 | [EGA-IV-1-概形与态射的局部性质-周健译.pdf](zh-CN/official/EGA-IV-1-概形与态射的局部性质-周健译.pdf) |
+| EGA IV-2 | 概形与态射的局部性质（二） | 2023 | 264 | [EGA-IV-2-概形与态射的局部性质-周健译.pdf](zh-CN/official/EGA-IV-2-概形与态射的局部性质-周健译.pdf) |
+| EGA IV-4 | 概形与态射的局部性质（四） | 2025 | 386 | [EGA-IV-4-概形与态射的局部性质-周健译.pdf](zh-CN/official/EGA-IV-4-概形与态射的局部性质-周健译.pdf) |
 | SGA 1 | 平展覆盖与基本群（社区中译） | — | 255 | [SGA-1-平展覆盖与基本群-中译.pdf](zh-CN/official/SGA-1-平展覆盖与基本群-中译.pdf) |
 | EGA III | 凝聚层的上同调 | 2021 | 285 | [EGA-III-凝聚层的上同调-周健译.pdf](zh-CN/official/EGA-III-凝聚层的上同调-周健译.pdf) |
-| EGA IV 第三部分 | 概形与态射的局部性质（三） | 2024 | 286 | [EGA-IV-3-概形与态射的局部性质-周健译.pdf](zh-CN/official/EGA-IV-3-概形与态射的局部性质-周健译.pdf) |
+| EGA IV-3 | 概形与态射的局部性质（三） | 2024 | 286 | [EGA-IV-3-概形与态射的局部性质-周健译.pdf](zh-CN/official/EGA-IV-3-概形与态射的局部性质-周健译.pdf) |
 
-同目录下的《平展覆盖与基本群》是 SGA 1 的社区中译，非官方出版物，单独标注。
-至此 EGA I–IV 共 8 册官方中译**全部到齐**。
+### 社区译本
 
-## 英文译本与 LaTeX 工作版
+| 来源 | 内容 | 目录 |
+| --- | --- | --- |
+| Zenodo 22907053 / 22865712 | EGA I–III 非官方 AI 译（含 TeX 与源码包）；Stacks 116 章中文全译 | zh-CN/EGA/、zh-CN/Stacks/ |
+| 数译站 mathtranslations.org | SGA 1、SGA 2、Vakil《上升之海》、Milne 两种、Hartshorne、Alper | extra/数译中译/ |
+| 译馆（北大张锦楠） | Bourbaki 交换代数、Serre、Deligne、Raynaud、吴宝珠等经典文献中译 | extra/译馆-PKU/ |
 
-| 系列 | 来源仓库 | 内容 | 目录 |
-| --- | --- | --- | --- |
-| EGA | KokunoYumeto/ega-en | 连结版英文 EGA 0–IV（14.2 MB PDF）、各卷独立 PDF、完整 LaTeX 源码与 release 资产 | en/KokunoYumeto-ega-en/ |
-| EGA | ryankeleti/ega | 业余英译项目：book.pdf 与 ega0–4 分卷 PDF、LaTeX 源码 | en/ryankeleti-ega/ |
-| EGA | jcreinhold/ega | 另一套英译源码工程 | en/jcreinhold-ega/ |
-| SGA | KokunoYumeto/sga-en | 4211 页英文累积版：合并读者版 + 9 卷 PDF + .tex + 可复现源码 ZIP | en/KokunoYumeto-sga-en/ |
-| SGA | thosgood/sga | Tim Hosgood 英译项目源码（主要推进 SGA 1、SGA 6，尚未完成） | en/thosgood-sga/ |
-| FGA | thosgood/fga | Tim Hosgood FGA 英译完整初稿源码 | en/thosgood-fga/ |
+这些社区译本未经同行校订，作为编撰底本必须自行核校。
 
-这些英文版多为机器辅助或未定稿译本：SGA 6 的校对程度不一致，EGA 英文版亦未经独立数学审校，
-适合作为翻译底稿与对照，不宜作为权威版本引用。
+## 英文译本与 LaTeX 源码
 
-## 其他参考资料（extra/）
+| 来源 | 内容 | 目录 |
+| --- | --- | --- |
+| KokunoYumeto/ega-en | EGA 0–IV 英文连结版 + 各卷 PDF + 完整 LaTeX + release 资产 | en/KokunoYumeto-ega-en/ |
+| KokunoYumeto/sga-en | 4211 页 SGA 英文累积版 + 9 卷 PDF + TeX + 源码 ZIP | en/KokunoYumeto-sga-en/ |
+| ryankeleti/ega、jcreinhold/ega | 另外两套 EGA 英译（PDF 与源码） | en/ryankeleti-ega/、en/jcreinhold-ega/ |
+| thosgood/sga、thosgood/fga | Tim Hosgood 的 SGA、FGA 英译项目源码 | en/thosgood-sga/、en/thosgood-fga/ |
+| Zenodo 21749057 | SGA 1–7 英文读者版（8 个 PDF） | extra/SGA-English-Zenodo/ |
+| jcreinhold/sga | SGA 英译的可检索 HTML 工程 | extra/jcreinhold-sga/ |
 
-| 内容 | 来源 | 说明 | 目录 |
-| --- | --- | --- | --- |
-| SGA 原版扫描档案 | wstein.org/sga | SGA 1–7 与 4½ 的英文档案站点，逐卷 PDF，作为 Springer 版的对照 | extra/SGA-archive/ |
-| Conrad《SGA 3 讲义》 | Stanford，B. Conrad | 用现代方法重讲 SGA 3 的约化群概形理论 | extra/Conrad/ |
-| Vistoli：Grothendieck 拓扑、纤维范畴与下降 | arXiv:1207.3648 | FGA Explained 相关章节的免费预印本 | extra/arXiv/ |
-| Nitsure：Hilbert 与 Quot 概形的构造 | arXiv:math/0206203 | 同上，补充 FGA 中原未展开的构造 | extra/arXiv/ |
-| Kleiman：Picard 概形 | arXiv:math/0412512 | 同上 | extra/arXiv/ |
-| 数译站社区中译 7 种 | mathtranslations.org | SGA 1/2 中译、Vakil、Milne（两种）、Hartshorne、Alper | extra/数译中译/ |
+英文版多为机器辅助或未定稿译本（SGA 6 校对程度尤其不一致），宜作翻译底稿与对照，不宜当权威版本引用。
 
-这些是辅助性材料，不与原著、中译、英译三套正文混放。
+## 其他资料
 
-## 社区中文译本（本库完整收录）
+| 内容 | 来源 | 目录 |
+| --- | --- | --- |
+| SGA 原版扫描档案（12 卷） | wstein.org/sga | extra/SGA-archive/ |
+| Conrad《SGA 3 讲义》 | Stanford | extra/Conrad/ |
+| Vistoli / Nitsure / Kleiman 预印本 | arXiv | extra/arXiv/ |
 
-以下两个中译本按 Zenodo 发布**整包搬运**：PDF、LaTeX 源码（.tex）、可编辑源码包（zip），
-连同发布方附带的 QA 报告、术语表、清单与校验文件一并保存，未删减、未重新打包。
+## 版本说明
 
-| 译本 | Zenodo 记录 | 版本 / 日期 | 许可 | 文件数 | 体积 | 目录 |
-| --- | --- | --- | --- | --- | --- | --- |
-| 《代数几何学原理 I–III》简体中文版 | 22907053 | 2026-09-23 | 未标明（个人非官方译本） | 37 | 11.4 MB | zh-CN/EGA/ |
-| Stacks Project 简体中文版（116 章） | 22865712 | 2026-09-21 | GFDL-1.2-or-later | 15 | 132.9 MB | zh-CN/Stacks/ |
+| 系列 | 版本性质 | 本库所收 |
+| --- | --- | --- |
+| EGA | 历史定本 | I：1971 年第 2 版；II–IV：IHES 原刊 |
+| SGA | 历史定本 | Springer LNM 原版；SGA 4 用 2008 重排版 |
+| FGA | 历史定本 | 1962 年汇辑本 |
+| FGA Explained | 2005 年定本 | AMS 2005（2019 影印） |
+| Stacks Project | 持续更新 | 官网 2026-07-14 版（ed88ff78，7654 页）＋ 2023 版对照 |
 
-关键文件：
-
-- zh-CN/EGA/：01_ega1-zh-hans-cn.pdf、04_ega2-zh-hans-cn.pdf、07_ega3-1-zh-hans-cn.pdf、10_ega3-2-zh-hans-cn.pdf；
-  对应 .tex 与 source.zip；另有 TERMINOLOGY.jsonl（术语表）、QA.json（质量报告）、README_zh-Hans-CN.md。
-- zh-CN/Stacks/：00_0_..._2026-09-21.pdf（规范化最新版）、00_..._2026-08-30.pdf（前版）；各自 .tex 与 Editable_Source.zip；
-  另有 Brauer 译名选择记录与规范化校验证据。源码 zip 内为 121 个分章 .tex 与 BUILD.ps1 构建脚本。
-
-**注意**：两者均为非官方、AI 辅助译文，未获出版方授权或同行校订，作为编撰底本必须自行校核。
+只有 Stacks Project 有「最新版」概念；其余四套已定型。Stacks 官网：stacks.math.columbia.edu/download/book.pdf
 
 ## 完整性校验
 
-MANIFEST.sha256 收录每个文件的 SHA-256 与相对路径，可用 sha256sum -c MANIFEST.sha256 校验。
+MANIFEST.sha256 收录全部文件（原著、中文译本、英文源码、增补资料）的 SHA-256 与相对路径：
+
+~~~bash
+sha256sum -c MANIFEST.sha256
+~~~
 
 ## 版权与使用范围
 
-EGA、SGA、FGA 原文由 Springer、IHES、North-Holland 等出版方发行，FGA Explained 由 AMS 出版；
-Stacks Project 由 A. J. de Jong 等人以开放许可维护。**本仓库为私有仓库**，所收文件仅作个人研究、翻译与编撰参照，
-不再分发、不用于商业用途。引用请以各出版方的正式版本为准。
+EGA、SGA、FGA 由 Springer、IHES、North-Holland 等出版；FGA Explained 由 AMS 出版；
+官方中译版权属高等教育出版社；Stacks Project 以开放许可维护（中文译本为 GFDL-1.2-or-later）。
+**本仓库为私有仓库**，仅作个人研究、翻译与编撰参照，不再分发、不用于商业用途。
 
-_清单生成于 2026-10-21 03:59；共 913 个文件，合计 1498.9 MB。_
+_清单生成于 2026-10-21 04:06；共 1042 个文件，合计 1540.6 MB。_
