@@ -1,0 +1,23 @@
+% These five targets exist in the complete source but belong to exposés X--XIX.
+% Preserve all explicit citation text, without a broken local PDF link.
+% Once a real local label is available in an integrated edition, use hyperref.
+% No fake labels and no general suppression of undefined references.
+\makeatletter
+\@namedef{SGA@external@XVII.lem5.1.2}{}
+\@namedef{SGA@external@XII.eq4.2}{}
+\@namedef{SGA@external@XII.thm5.1}{}
+\@namedef{SGA@external@XVI.compl1.4}{}
+\@namedef{SGA@external@XVI.cor1.5}{}
+\let\SGA@originalhyperref\hyperref
+\protected\def\hyperref{\@ifnextchar[{\SGA@scopehyperref}{\SGA@originalhyperref}}
+\long\def\SGA@scopehyperref[#1]#2{%
+  \ifcsname r@#1\endcsname
+    \SGA@originalhyperref[#1]{#2}%
+  \else
+    \ifcsname SGA@external@#1\endcsname
+      #2%
+    \else
+      \SGA@originalhyperref[#1]{#2}%
+    \fi
+  \fi}
+\makeatother
