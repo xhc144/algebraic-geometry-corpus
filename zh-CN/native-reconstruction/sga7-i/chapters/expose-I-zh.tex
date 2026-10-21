@@ -1,0 +1,965 @@
+% BEGIN INCLUDED SGA7I_English_current_buildable_source_20260823/components/01_expose_I_opening_through_0_0.tex
+% SOURCE AUTHORITY:
+% expose_I_body.tex lines 1--54; scan indices 12--13; source folios 1--2.
+% Hard stop before source line 57, paragraph 0.1.
+
+%%%%%%%%%%  scan idx 12  |  folio 1  %%%%%%%%%%
+
+\SGARefAliasTarget{sga7.sga7i.ei.nroot}SGA 7
+
+\underline{报告 I}
+
+\underline{A. Grothendieck 最初几次讲课的概要}
+
+\underline{P. Deligne 整理}
+
+\underline{目录}
+
+0. 预备知识
+
+1. 单值定理的算术证明
+
+2. 消灭圈
+
+3. 单值定理的几何证明
+
+4. 消灭圈层的消没判据
+
+5. 单值作用在 $\pi_1$ 上的作用
+
+6. P. Deligne 的附录: 稳定约化定理的算术证明
+
+0. \underline{预备知识}
+
+\SGARefTarget{sga7.sga7i.ei.n0-0}{0.0}. \underline{术语}. 回顾下列定义:
+
+(\SGARefTarget{sga7.sga7i.ei.n0-0-1}{0.0.1}) \underline{性状 (trait)}: 离散赋值环的谱. 性状的一般点与闭点通常分别记为 $\eta$ 和 $s$.
+
+(\SGARefTarget{sga7.sga7i.ei.n0-0-2}{0.0.2}) \underline{严格局部 (strictly local)}: 对环而言, 指剩余域可分闭的 Hensel 局部环; 对概形而言, 指这种环的谱.
+
+(\SGARefTarget{sga7.sga7i.ei.n0-0-3}{0.0.3}) \underline{$S$ 的几何点 (geometric point)} (在本报告中): 指像为 $x\in S$ 的态射 $\bar{x}:\operatorname{Spec}(\bar{k})\longrightarrow S$, 其中 $k(\bar{x})\underset{\mathrm{dfn}}{=}\bar{k}$ 是 $k(x)$ 的一个可分闭包. 对 Hensel 性状 $S=\operatorname{Spec}(V)$, $S$ 的几何一般点 (即像为 $\eta$ 的几何点) 通常记为 $\bar{\eta}$. 令 $\bar{V}$ 为 $V$ 在 $k(\bar{\eta})$ 中的整闭包, 则该赋值环的剩余域是 $k(s)$ 的一个可分闭的代数扩张, 它确定了 $S$ 的一个以 $s$ 为中心的几何点 $\bar{s}$.
+
+%%%%%%%%%%  scan idx 13  |  folio 2  %%%%%%%%%%
+
+(\SGARefTarget{sga7.sga7i.ei.n0-0-4}{0.0.4}) \underline{$X$ 在几何点 $\bar{x}$ 处的严格局部化 (strict localization)}: SGA 4 VIII 4.4.
+
+(\SGARefTarget{sga7.sga7i.ei.n0-0-5}{0.0.5}) \underline{在 $S$ 上本质有限型 (essentially of finite type)}: 对局部 (分别地, Hensel 局部; 严格局部) $S$-概形而言, 指 $S$ 上某个有限型概形的一个局部环 (分别地, 某个局部环的 Hensel 化; 某个严格局部化) 的谱.
+
+(\SGARefTarget{sga7.sga7i.ei.n0-0-6}{0.0.6}) $F\longmapsto F(n)$: Tate 扭曲 (Tate twist).
+
+(\SGARefTarget{sga7.sga7i.ei.n0-0-7}{0.0.7}) 有限维向量空间的一个自同态 $T$ 称为\underline{拟幺幂的 (quasi-unipotent)}, 如果其特征值都是单位根, 即存在 $N\geqslant 1$ 和 $M\geqslant 1$, 使 $(T^N-1)^M=0$.
+
+% END INCLUDED SGA7I_English_current_buildable_source_20260823/components/01_expose_I_opening_through_0_0.tex
+
+% BEGIN INCLUDED SGA7I_English_current_buildable_source_20260823/components/02_expose_I_0_1_through_1_4.tex
+% SOURCE AUTHORITY:
+% expose_I_body.tex lines 57--246; scan indices 13--18; source folios 2--7.
+% Hard stop before source line 249, section 2.
+
+\SGARefTarget{sga7.sga7i.ei.n0-1}{0.1}. \underline{$\ell$ 进上同调回顾}
+
+设 $X$ 为特征指数为 $p$ 的代数闭域 $k$ 上的有限型概形, $\ell$ 为不同于 $p$ 的素数.
+
+$X$ 的 $\ell$ 进上同调群已在 SGA 4 与 SGA 5 中定义.
+
+a) $H^i(X,\mathbb{Z}/\ell^n)$ 是 $X$ 的平展景 (\`etale site) $X_{\mathrm{et}}$ 的以 $\mathbb{Z}/\ell^n$ 为系数的第 $i$ 个上同调群;
+
+b) 按定义,
+\[
+H^i(X,\mathbb{Z}_\ell)=\varprojlim_n H^i(X,\mathbb{Z}/\ell^n);
+\]
+
+c) 按定义,
+\[
+H^i(X,\mathbb{Q}_\ell)=H^i(X,\mathbb{Z}_\ell)\otimes_{\mathbb{Z}_\ell}\mathbb{Q}_\ell.
+\]
+
+$X$ 的具真支集的 $\ell$ 进上同调群, 由 SGA 4 XVII 中的群 $H^i_c(X,\mathbb{Z}/\ell^n)$ 以同样方式定义.
+
+在以下各种情形中, 已知可以证明这些群 $H^i(X)$ 具有合理的有限性性质:
+
+(\SGARefTarget{sga7.sga7i.ei.n0-1-1}{0.1.1}) 对具真支集的上同调;
+
+(\SGARefTarget{sga7.sga7i.ei.n0-1-2}{0.1.2}) 当 $X$ 在 $k$ 上为真时;
+
+(\SGARefTarget{sga7.sga7i.ei.n0-1-3}{0.1.3}) 当 $X$ 在 $k$ 上光滑时 (由 (\SGARefLink{sga7.sga7i.ei.n0-1-1}{0.1.1}) 以及 Poincar\'e 对偶性, SGA 4 XVIII);
+
+(\SGARefTarget{sga7.sga7i.ei.n0-1-4}{0.1.4}) 当 Hironaka 奇点消解可用于 $k$ 上维数不超过 $\dim(X)$ 的有限型概形时;
+
+(\SGARefTarget{sga7.sga7i.ei.n0-1-5}{0.1.5}) 当 $i=0,1$ 时.
+
+%%%%%%%%%%  scan idx 14  |  folio 3  %%%%%%%%%%
+
+在所有这些情形中, 群 $H^i(X,\mathbb{Z}/\ell^n)$ 是有限群, 群 $H^i(X,\mathbb{Z}_\ell)$ 是有限生成的, 群 $H^i(X,\mathbb{Q}_\ell)$ 是有限维的, 而且 (除可能的情形 (\SGARefLink{sga7.sga7i.ei.n0-1-5}{0.1.5}) 外) 存在分裂短正合列
+
+\begin{equation*}
+0 \longrightarrow H^i(X,\mathbb{Z}_\ell)\otimes \mathbb{Z}/\ell^n
+\longrightarrow H^i(X,\mathbb{Z}/\ell^n)
+\longrightarrow \Tor_1(H^{i+1}(X,\mathbb{Z}_\ell),\mathbb{Z}/\ell^n)
+\longrightarrow 0.
+\end{equation*}
+此外, 在每一种情形中, 有限性定理的证明还同时证明了一般可构造性定理: 如果 $k$ 是整的 Noether 概形 $S$ 的分式域, $X$ 是有限型态射 $f_1:X_1\longrightarrow S$ 的一般纤维, 则存在非空开子集 $U\subset S$, 使得在 $U$ 上层 $R^i f_*\mathbb{Z}/\ell^n$ 是局部常值的, 且其构成与任意基变换交换.
+
+\SGARefTarget{sga7.sga7i.ei.n0-2}{0.2}. 现在不再假定 $k$ 是代数闭的. 设 $\bar{k}$ 为 $k$ 的代数闭包 (或可分闭包, 在这里两者效果相同). 考虑「几何」上同调群 $H^i(X_{\bar{k}})$, 其中 $X_{\bar{k}}$ 由 $X$ 作从 $k$ 到 $\bar{k}$ 的标量扩张得到. 通过结构搬移, Galois 群 $\Gal(\bar{k}/k)$ 作用在这些群上. 对 $\mathbb{Q}_\ell$ 上同调, 在 (\SGARefLink{sga7.sga7i.ei.n0-1-1}{0.1.1})--(\SGARefLink{sga7.sga7i.ei.n0-1-5}{0.1.5}) 的任一种情形中, 由此得到 $\Gal(\bar{k}/k)$ 在线性群 $\mathrm{GL}(n,\mathbb{Q}_\ell)$ 中的连续表示.
+
+\SGARefTarget{sga7.sga7i.ei.n0-3}{0.3}. \underline{性状回顾} (\SGARefLink{sga7.sga7i.ei.n0-0-1}{0.0.1})
+
+证明参见 [4]. 设 $S$ 为 Hensel 性状, $\eta$, $s$, $V$, $\bar V$, $\bar\eta$ 和 $\bar s$ 如 (\SGARefLink{sga7.sga7i.ei.n0-0-1}{0.0.1}) 与 (\SGARefLink{sga7.sga7i.ei.n0-0-3}{0.0.3}) 中所定义. 以 $p$ 表示 $k(s)$ 的特征指数, 以 $\Gal(\bar\eta/\eta)$ (分别地, $\Gal(\bar s/s)$) 表示 Galois 群 $\Gal(k(\bar\eta)/k(\eta))$ (分别地, 关于 $\bar s/s$ 的相应群). 通过结构搬移, $\Gal(\bar\eta/\eta)$ 作用于 $k(\bar s)$; 因而有一个从 $\Gal(\bar\eta/\eta)$ 到 $\Gal(\bar s/s)$ 的满同态, 其核是\underline{惯性群 (inertia group)} $I$. $k(\bar\eta)$ 中被 $I$ 逐点固定的子域是 $k(\eta)$ 的一个极大非分歧扩张.
+
+投射有限群 $I$ 有一个最大的 pro-$p$ 子群 $P$. 商群 $I/P$ 是\underline{温和惯性群 (tame inertia group)}. 存在典范同构
+
+\begin{equation*}
+I/P\simeq \varprojlim_n\mu_n(k(\bar s))
+\underset{\mathrm{dfn}}{=}\widehat{\mathbb{Z}}(1)(k(\bar s)).
+\end{equation*}
+
+%%%%%%%%%%  scan idx 15  |  folio 4  %%%%%%%%%%
+
+若 $\phi_n$ 为从 $I/P$ 到 $\mu_n(\bar k)$ 的典范映射, $u$ 是 $\bar V$ 中赋值为 $1/n$ 的元素, 则对 $\sigma\in I$, 有
+
+\begin{equation*}
+\sigma(u)\equiv\phi_n(\sigma)\,u
+\qquad (\text{模掉赋值大于 }1/n).
+\end{equation*}
+% Printed source: \phi_n(u)u. The argument must be \sigma because \phi_n is
+% a character of I/P; the English text transparently corrects this source typo.
+综上,
+
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.ei.n0-3-1}{0.3.1}}
+\begin{aligned}
+\Gal(\bar\eta/\eta)&\supset I\supset P,\\
+\Gal(\bar\eta/\eta)/I&\simeq\Gal(\bar s/s),\\
+I/P&\simeq\widehat{\mathbb{Z}}(1)(k(\bar s)),\\
+P&:\ \text{一个 pro-$p$ 群}\quad(\{e\}\text{当 }p=1),
+\end{aligned}
+\end{equation}
+而 $\Gal(\bar\eta/\eta)/I$ 在 $I/P$ 上的作用 (由 $\Gal(\bar\eta/\eta)$ 中的内自同构给出) 与 $\Gal(\bar s/s)$ 在 $\widehat{\mathbb{Z}}(1)(k(\bar s))$ 上的自然作用相对应.
+
+\SGARefTarget{sga7.sga7i.ei.n0-4}{0.4}. 更一般地, 设 $S$ 严格局部且正则, $D$ 为 $S$ 中的一个正则除子, $p'$ 为 $D$ 的一般点的特征指数. 设 $\bar\eta$ 为 $S$ 的一个几何一般点, $\bar s$ 为由此得到的以闭点 $s$ 为中心的几何点. 由 Abhyankar 引理, 基本群 $\pi_1(S-D,\bar\eta)$ 有与 (\SGARefLink{sga7.sga7i.ei.n0-3-1}{0.3.1}) 类似的滤过:
+
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.ei.n0-4-1}{0.4.1}}
+\begin{aligned}
+\pi_1(S-D,\bar\eta)&\supset I\supset P,\\
+\pi_1(S-D,\bar\eta)/I&\simeq\Gal(\bar s/s),\\
+I/P&\simeq\widehat{\mathbb{Z}}(1)(k(\bar s)),\\
+P&:\ \text{没有阶与下述数互素的商群: }p'.
+\end{aligned}
+\end{equation}
+$\pi_1(S-D,\bar\eta)/I$ 在 $I/P$ 上通过内自同构给出的作用, 与 $\Gal(\bar s/s)$ 在 $\widehat{\mathbb{Z}}(1)(k(\bar s))$ 上的自然作用相对应.
+
+\SGARefTarget{sga7.sga7i.ei.n0-5}{0.5}. \underline{N\'eron 奇点消解}
+
+N\'eron 奇点消解法给出下列结果.
+
+\underline{引理} \SGARefTarget{sga7.sga7i.ei.n0-5-1}{0.5.1}. \underline{设 $S\longrightarrow S_o$ 为 Hensel 性状之间的态射, 其中 $S=\Spec(V)$, $S_o=\Spec(V_o)$, $\pi$ 为 $V_o$ 的一个一致化元. 假设 $\pi$ 也是 $V$ 的一致化元, 且扩张 $k(s)/k(s_o)$ 与 $k(\eta)/k(\eta_o)$ 都是可分的. 则 $V$ 是一族在 $V_o$ 上本质有限型的光滑 Hensel $V_o$-代数 $B_i$ 的滤过归纳极限.}
+
+%%%%%%%%%%  scan idx 16  |  folio 5  %%%%%%%%%%
+
+为构造所需的 $V_o$-代数, 取 $V_o\subset B\subset V$, 其中 $B$ 为有限型, 再用 N\'eron 的方法 ([1], \S~4) 对 $\Spec(B)$ 作奇点消解.
+
+设 $S=\Spec(V)$ 为 Hensel 性状.
+
+(\SGARefTarget{sga7.sga7i.ei.n0-5-2}{0.5.2}) 若 $S$ 等特征, 且 $\pi$ 为一致化元, 则可取 $S_o=\mathbf{F}_p[\pi]_{(\pi)}$ 并应用 (\SGARefLink{sga7.sga7i.ei.n0-5-1}{0.5.1}). 由于 $\mathbf{F}_p$ 完全, 扩张 $s/s_o$ 可分; 又由于 $\pi$ 是一致化元, 它不是 $p$ 次幂 (当 $p\neq1$ 时), 因而属于某个 $p$-基, 故扩张 $\eta/\eta_o$ 可分. 于是 $S$ 是一族本质有限型的光滑 Hensel $\mathbf{F}_p[\pi]_{(\pi)}$-代数的谱的极限.
+
+(\SGARefTarget{sga7.sga7i.ei.n0-5-3}{0.5.3}) 若 $S$ 完备、混合特征, 且剩余域 $k$ 完全, 则 $V$ 是 Witt 向量环 (即 Cohen 环) $W(k)$ 的 Eisenstein 扩张:
+
+\begin{equation*}
+V\simeq W(k)[\pi]/\left(\pi^n+\sum_{i=0}^{n-1}a_i\pi^i\right).
+\end{equation*}
+对 $a_i$ 作充分小的扰动, 所得扩张与原扩张同构. 因而可设 $a_i$ 属于 $W(k')$, 其中 $k'$ 在 $\mathbf{F}_p$ 上有限型. 令 $k_o$ 为 $k'$ 在 $k$ 中的完全闭包, 并置
+
+\begin{equation*}
+V_o=W(k_o)[\pi]/\left(\pi^n+\sum_{i=0}^{n-1}a_i\pi^i\right).
+\end{equation*}
+引理 \SGARefLink{sga7.sga7i.ei.n0-5-1}{0.5.1} 可用于 $V/V_o$, 且 $V_o$ 的剩余域是 $\mathbf{F}_p$ 上某个有限型域的纯不可分扩张.
+
+1. \underline{单值定理的算术证明}
+
+读者可在 [5] 的附录中找到 A. Grothendieck 的下列结果的证明.
+
+\underline{命题} \SGARefTarget{sga7.sga7i.ei.n1-1}{1.1}. \underline{设 $S$ 为 Hensel 性状, $\ell$ 为不同于 $k(s)$ 的特征指数 $p$ 的素数, $\rho$ 为 $\Gal(\bar\eta/\eta)$ 在 $\mathrm{GL}(n,\mathbb{Q}_\ell)$ 中的连续表示. 假设满足下列条件:}
+
+$(*_\ell)$ \quad \underline{$k(s)$ 的任何有限扩张都不包含所有阶为 $\ell$ 的幂的单位根.}
+
+%%%%%%%%%%  scan idx 17  |  folio 6  %%%%%%%%%%
+
+\underline{则惯性群 $I$ 中存在开子群 $I_1$, 使得对每个 $\sigma\in I_1$, $\rho(\sigma)$ 都是幺幂的.}
+
+当 $k(s)$ 在素域上有限型 (或是这种域的纯不可分扩张) 时, 条件 $(*_\ell)$ 自动成立.
+
+由 \SGARefLink{sga7.sga7i.ei.n1-1}{1.1} 立即得到下列定理.
+
+\underline{单值定理} \SGARefTarget{sga7.sga7i.ei.n1-2}{1.2}. \underline{沿用上述记号, 设 $X$ 为 $\eta$ 上的有限型概形, $H$ 为 $X_{\bar\eta}$ 的一个以 $\mathbb{Q}_\ell$ 为系数、属于类型 (\SGARefLink{sga7.sga7i.ei.n0-1-1}{0.1.1})--(\SGARefLink{sga7.sga7i.ei.n0-1-5}{0.1.5}) 之一的上同调空间. 若满足条件 $(*_\ell)$, 则 $I$ 的每个元素在 $H$ 上的作用都是拟幺幂的.}
+% Printed source refers to (1.1.1)--(1.1.5); these do not exist. The intended
+% reference is the list (0.1.1)--(0.1.5) immediately above.
+
+\SGARefLink{sga7.sga7i.ei.n0-5}{0.5} 中的极限论证可以去掉假设 $(*_\ell)$.
+
+\underline{变体} \SGARefTarget{sga7.sga7i.ei.n1-3}{1.3}. \underline{\SGARefLink{sga7.sga7i.ei.n1-2}{1.2} 中的条件 $(*_\ell)$ 是多余的.}
+
+设 $H'_o$ 为 $X_{\bar\eta}$ 的一个产生 $H$ 的 $\mathbb{Z}_\ell$ 上同调空间, 并置 $H_o=H'_o/\text{挠子模}$. 由假设,
+$H=H_o\otimes_{\mathbb{Z}_\ell}\mathbb{Q}_\ell$, 而 $\Gal(\bar\eta/\eta)$ 的作用由下述表示诱导:
+
+\begin{equation*}
+\rho:\Gal(\bar\eta/\eta)\longrightarrow\mathrm{GL}(H_o).
+\end{equation*}
+设 $I_{\ell'}$ 为 $I$ 中最大的素于 $\ell$ 的子群. 它在 $\mathrm{GL}(H_o)$ 中的像是一个阶素于 $\ell$ 的 $\ell$ 进 Lie 群, 因而是有限的.
+
+作性状扩张 $S'\longrightarrow S$. 这不改变 $H_o$ (SGA 4 XVI 6.6), 而 $\rho(I')$ 在 $\rho(I)$ 中指数有限, 因为根据以上所述, $I'/P'$ 在 $I/P$ 中指数有限. 因而只需在 $S'$ 上证明定理; 我们可以假设
+
+a) $\Gal(\bar\eta/\eta)$ 在 $H_o/\ell H_o$ 上作用平凡;
+
+b) 若 $S$ 为混合特征, 则 $S$ 完备且剩余域完全 (EGA $\mathrm{O}_{III}$ 10.3.1).
+
+置 $S=\Spec(V)$, 按 (\SGARefLink{sga7.sga7i.ei.n0-5-2}{0.5.2}) 和 (\SGARefLink{sga7.sga7i.ei.n0-5-3}{0.5.3}) 定义 $V_o$, 并应用 (\SGARefLink{sga7.sga7i.ei.n0-5-1}{0.5.1}). 有
+
+\begin{equation*}
+V=\varinjlim_i B_i.
+\end{equation*}
+
+%%%%%%%%%%  scan idx 18  |  folio 7  %%%%%%%%%%
+
+这里 $S_i=\Spec(B_i)$ 在 $V_o$ 上本质有限型且光滑. 令 $D_i\subset S_i$ 由方程 $\pi=0$ 定义. 对充分大的 $i$, $H_o$ 来自 $S_i-D_i$ 上的一个扭常值 $\mathbb{Z}_\ell$-层 $\mathcal H_i$ (由「一般可构造性」, (\SGARefLink{sga7.sga7i.ei.n0-1}{0.1})), 且 $\mathcal H_i/\ell\mathcal H_i$ 为常值层.
+
+滤过 (\SGARefLink{sga7.sga7i.ei.n0-3-1}{0.3.1}) 和 (\SGARefLink{sga7.sga7i.ei.n0-4-1}{0.4.1}) 给出交换图:
+
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.ei.n1-3-1}{1.3.1}}
+\begin{tikzcd}[column sep=small,row sep=large]
+\Gal(\bar\eta/\eta) \arrow[d] & \supset & I \arrow[d] & \supset & P \arrow[d] \\
+\pi_1(S_i-D_i,\bar\eta) & \supset & I_i & \supset & P_i
+\end{tikzcd}
+\qquad\text{及}\qquad
+\begin{tikzcd}[row sep=large]
+I/P \arrow[r,dash,"\sim"] \arrow[d] & \widehat{\mathbb Z}(1) \arrow[d,equal] \\
+I_i/P_i \arrow[r,dash,"\sim"] & \widehat{\mathbb Z}(1)
+\end{tikzcd}
+\end{equation}
+
+% The authority has two distinct commutative diagrams separated by the word
+% ``and.'' The horizontal isomorphisms in the right-hand diagram are rules
+% labelled \sim, not arrows; its right vertical connector is equality.
+$\Gal(\bar\eta/\eta)$ 在 $H_o$ 上的表示由 $\pi_1(S_i-D_i,\bar\eta)$ 在 $H_o$ 上的一个作用诱导, 此作用在 $H_o/\ell H_o$ 上平凡. 群
+\[
+\Ker\bigl(\mathrm{GL}(H_o)\longrightarrow\mathrm{GL}(H_o/\ell H_o)\bigr)
+\]
+是一个 pro-$\ell$ 群. 因而 $P_i$ 作用平凡, 我们应用 \SGARefLink{sga7.sga7i.ei.n1-1}{1.1} 的下列变体.
+% Printed source writes GL(H) -> GL(H/ell H), but the lattice being acted on
+% and reduced here is H_o. The English text makes this evident subscript repair.
+
+\underline{变体} \SGARefTarget{sga7.sga7i.ei.n1-4}{1.4}. \underline{沿用 \SGARefLink{sga7.sga7i.ei.n0-4}{0.4} 的记号, 设 $\rho$ 为 $\Gal(\bar\eta/\eta)$ 在 $\mathrm{GL}(n,\mathbb{Q}_\ell)$ 中的连续表示. 假设 $k(s)$ 满足 $(*_\ell)$, 且 $\rho(P)$ 有限. 则 $I$ 的作用是拟幺幂的.}
+% Printed source has Gal(n,Q_l), an unambiguous typographical error for GL.
+
+% END INCLUDED SGA7I_English_current_buildable_source_20260823/components/02_expose_I_0_1_through_1_4.tex
+
+% BEGIN INCLUDED SGA7I_English_current_buildable_source_20260823/components/03_expose_I_section_2.tex
+% SOURCE AUTHORITY:
+% expose_I_body.tex lines 249--366; scan indices 18--21; source folios 7--10.
+% Hard stop before source line 368, section 3.
+
+2. \underline{消灭圈}
+
+\SGARefTarget{sga7.sga7i.ei.n2-1}{2.1}. 设 $S$ 为严格局部性状, 沿用 \SGARefLink{sga7.sga7i.ei.n0-3}{0.3} 的记号. 因而按假设有 $s=\bar s$. 设 $f:X\longrightarrow S$ 为 $S$ 上的有限型概形. 消灭圈 (vanishing cycles) 形式体系利用 $f$ 的在 $X$ 上\underline{局部}的信息, 研究 $X_s$ 的上同调与 $X_{\bar\eta}$ 的上同调之间的关系, 以及惯性群在后者上的作用.
+
+这类结果中一个关键的结果是特殊化定理 (SGA 4 XVI 2.2): 当 $f$ 真且光滑时, $X_s$ 与 $X_{\bar\eta}$ 具有相同的上同调.
+
+在超越理论中, 若 $f:X\longrightarrow D$ 为解析空间 $X$ 到圆盘 $D$ 的真态射, 则消灭圈如下产生:
+
+a) 必要时缩小 $D$, 可以假设 $X$ 是穿孔圆盘 $D^*$ 上的拓扑纤维丛 (Thom 同痕定理). 特别地, 各纤维
+
+%%%%%%%%%%  scan idx 19  |  folio 8  %%%%%%%%%%
+
+$X_t$ $(t\in D^*)$ 都同构.
+
+b) 可以将特殊纤维 $X_s$ 设想为从「那个」一般纤维 $X_t$ 出发, 将 $X_t$ 中的多面体收缩而得到的空间; 此时应有映射 $\pi:X_t\longrightarrow X_s$. 消灭圈方法就是利用 $\pi$ 的 Leray 谱序列, 研究 $X_s$ 与 $X_t$ 的上同调之间的差别.
+
+下面所述的几何理论与这一超越理论十分接近: 只需将一般点 $t\in D$ 换成 $S$ 的几何一般点 $\bar\eta$. 反过来, 也可照几何理论来建立超越理论, 将 $t$ 或 $\bar\eta$ 换成 $D^*$ 的万有覆盖 $\widetilde D^*$, 并将 $X_t$ 或 $X_{\bar\eta}$ 换成 $X\times_D\widetilde D^*$. 这样做可以消去许多 $\varepsilon$ 与 $\eta$, 但有时也会丢失信息.
+
+\SGARefTarget{sga7.sga7i.ei.n2-2}{2.2}. 固定一个其中 $p$ 可逆的挠环 $\Lambda$ (例如 $\Lambda=\mathbb Z/\ell^n\mathbb Z$, 其中 $\ell$ 与 $p$ 互素). 考虑态射
+
+\begin{center}
+\begin{tikzcd}[column sep=large,row sep=huge]
+X_s \arrow[r,"i"] \arrow[d,"f_s"] & X \arrow[d,"f"] & & X_{\bar\eta} \arrow[ll,"\bar j"] \arrow[d,"f_{\bar\eta}"] \\
+s \arrow[r] & S & \eta \arrow[l] & \bar\eta \arrow[l]
+\end{tikzcd}
+\end{center}
+% Authority geometry: seven nodes and eight plain arrows. The top row is
+% X_s -> X <- X_{bar eta}; the bottom row is s -> S <- eta <- bar eta;
+% the three vertical arrows are f_s, f, and f_{bar eta}.
+$X_s$ 上的消灭圈层 $\psi^i$ 为
+
+\begin{equation*}\tag{\SGARefTarget{sga7.sga7i.ei.n2-2-1}{2.2.1}}
+\psi^i=i^*R^i\bar j_*\Lambda.
+\end{equation*}
+若 $f$ 为\underline{真态射}, 则 (SGA 4 XII 5.5)
+
+\begin{equation*}\tag{\SGARefTarget{sga7.sga7i.ei.n2-2-2}{2.2.2}}
+i^*:H^p(X,R^q\bar j_*\Lambda)\xrightarrow{\ \sim\ }
+H^p(X_s,i^*R^q\bar j_*\Lambda),
+\end{equation*}
+% The fresh French TeX drops the bar from j on the right of (2.2.2); the
+% printed authority has bar-j on both sides.
+而 $\bar j$ 的 Leray 谱序列成为
+
+\begin{equation*}\tag{\SGARefTarget{sga7.sga7i.ei.n2-2-3}{2.2.3}}
+H^p(X_s,\psi^q)\Longrightarrow H^{p+q}(X_{\bar\eta},\Lambda).
+\end{equation*}
+当无穷远处没有变化时, 有时不加真性假设也可以得到这一谱序列. 从平凡情形 $X_s=\varnothing$ 就能看出, 必须对无穷远处加某种假设.
+
+%%%%%%%%%%  scan idx 20  |  folio 9  %%%%%%%%%%
+
+由定义立即得到:
+
+\underline{命题} \SGARefTarget{sga7.sga7i.ei.n2-3}{2.3}. \underline{设 $\bar x$ 为 $X_s$ 的一个几何点 (例如一个闭点), $X_{(\bar x)}$ 为 $X$ 在 $\bar x$ 处的严格 Hensel 化, $X_{(\bar x)\bar\eta}$ 为投射 $X_{(\bar x)}\longrightarrow S$ 的几何一般纤维. 则}
+
+\begin{equation*}
+\psi^i_{\bar x}=H^i(X_{(\bar x)\bar\eta},\Lambda).
+\end{equation*}
+% The subscript bar-x is visible in the printed formula but absent from the
+% fresh French TeX; it is restored here.
+
+\underline{推论} \SGARefTarget{sga7.sga7i.ei.n2-4}{2.4}. \underline{在 $f$ 光滑的地方, 对 $i>0$ 有 $\psi^i=0$, 且 $\psi^0=\Lambda$.}
+
+这就是 SGA 4 XV 2.1.
+
+群 $\Gal(\bar\eta/\eta)$ (按假设它等于惯性群) 通过结构搬移作用于 $\psi^i$, 并且
+
+\underline{附论} \SGARefTarget{sga7.sga7i.ei.n2-5}{2.5}. \underline{谱序列 (\SGARefLink{sga7.sga7i.ei.n2-2-3}{2.2.3}) 是 $\Gal(\bar\eta/\eta)$-等变的.}
+
+\underline{变体} \SGARefTarget{sga7.sga7i.ei.n2-6}{2.6}. 置 $\bar S=\Spec(\bar V)$, $\bar X=X\times_S\bar S$. 概形 $X_{\bar\eta}$ 是 $X_s=X_{\bar s}$ 在 $\bar X$ 中的补. 置
+
+\begin{equation*}
+\phi^i=\underline{H}^{\,i+1}_{X_s}(\bar X,\Lambda)
+\end{equation*}
+(局部上同调层). 存在层的正合列
+
+\begin{equation*}
+0\longrightarrow\phi^{-1}\longrightarrow\Lambda\longrightarrow\psi^0
+\longrightarrow\phi^0\longrightarrow0,
+\end{equation*}
+且对 $i>0$ 存在同构 $\psi^i\xrightarrow{\ \sim\ }\phi^i$. 若 $f$ 光滑, 则各 $\phi^i$ 消没.
+
+置 $\phi^i_{\mathrm{gl}}=H^i_{X_s}(\bar X,\Lambda)$, 它是 $\phi^i$ 的整体对应物. 存在谱序列
+
+\begin{equation*}\tag{\SGARefTarget{sga7.sga7i.ei.n2-6-1}{2.6.1}}
+H^p(X_s,\phi^q)\Longrightarrow\phi^{p+q}_{\mathrm{gl}},
+\end{equation*}
+以及一个上同调长正合列, 当 $f$ 为真时, 此长正合列成为
+
+\begin{equation*}\tag{\SGARefTarget{sga7.sga7i.ei.n2-6-2}{2.6.2}}
+\cdots\longrightarrow H^i(X_s,\Lambda)\longrightarrow H^i(X_{\bar\eta},\Lambda)
+\longrightarrow\phi^i_{\mathrm{gl}}\longrightarrow\cdots.
+\end{equation*}
+
+\underline{变体} \SGARefTarget{sga7.sga7i.ei.n2-7}{2.7}. 设 $K_t$ 为 $K$ 在 $\bar K$ 中的极大温和分歧扩张. 置 $X_t=X\times_S\Spec(K_t)$, 并以 $\bar j_t$ 表示从 $X_t$ 到 $X$ 的投射. 定义 $\psi^i$ 的温和变体为
+
+%%%%%%%%%%  scan idx 21  |  folio 10  %%%%%%%%%%
+
+\begin{equation*}
+\psi^i_t=R^i\bar j_{t*}\Lambda.
+\end{equation*}
+由于 $P$ 为 pro-$p$ 群, 且 $p$ 在 $\Lambda$ 中可逆, 得到
+
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.ei.n2-7-1}{2.7.1}}
+H^*(X_t,\Lambda)=H^*(X_{\bar\eta},\Lambda)^P,
+\end{equation}
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.ei.n2-7-2}{2.7.2}}
+\psi^i_t=(\psi^i)^P.
+\end{equation}
+当 $f$ 为真时, 对 (\SGARefLink{sga7.sga7i.ei.n2-2-3}{2.2.3}) 取 $P$-不变量, 得到 $\bar j_t$ 的 Leray 谱序列:
+
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.ei.n2-7-3}{2.7.3}}
+H^p(X_s,\psi^q_t)\Longrightarrow H^{p+q}(X_t,\Lambda)
+=H^{p+q}(X_{\bar\eta},\Lambda)^P.
+\end{equation}
+
+% END INCLUDED SGA7I_English_current_buildable_source_20260823/components/03_expose_I_section_2.tex
+
+% BEGIN INCLUDED SGA7I_English_current_buildable_source_20260823/components/04_expose_I_section_3.tex
+% SOURCE AUTHORITY:
+% expose_I_body.tex lines 368--457; scan indices 21--24; source folios 10--13.
+% Hard stop before source line 459, section 4.
+
+3. \underline{单值定理的几何证明}
+
+设 $\Lambda$ 如 \SGARefLink{sga7.sga7i.ei.n2-2}{2.2} 中所定义.
+
+\underline{猜想} \SGARefTarget{sga7.sga7i.ei.n3-1}{3.1} (\underline{纯性}). \underline{设 $A$ 为一个优良、正则、严格局部环} (\SGARefLink{sga7.sga7i.ei.n0-0-2}{0.0.2}), \underline{$D$ 为 $\Spec(A)$ 中由参数 $x$ 定义的一个正则除子. 置 $U=\Spec(A)-D=\Spec(A[1/x])$. 则}
+% The French TeX/print has the unrelated cross-reference (0.2) and A[1/X].
+% The definition of "strictly local" is (0.0.2), and the named parameter is x.
+
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.ei.n3-1-1}{3.1.1}}
+H^{q}(U,\Lambda)=
+\begin{cases}
+\Lambda & \text{当 }q=0,\\[4pt]
+\Lambda(-1) & \text{当 }q=1\quad\text{(记号 (\SGARefLink{sga7.sga7i.ei.n0-0-6}{0.0.6})),}\\[4pt]
+0 & \text{当 }q>1.
+\end{cases}
+\end{equation}
+
+此猜想在以下某些情形中已知成立 (SGA 4 XIX): 对 $q=0$ 或 $1$; 当 $A$ 为特征 $0$ 时; 当 $A$ 为等特征 $p$, 且特征 $p$ 下维数 $\leqslant\dim(A)$ 的奇点消解可行时; 或当 $(\Spec(A),D)$ 为光滑对时 (相对纯性定理, SGA 4 XVI 3.7).
+
+当纯性成立, 且 $D=\sum_{i\in B}D_i$ 是 $\Spec(A)$ 中由正则参数系的一部分定义的正规交叉除子时, $U=\Spec(A)-D$ 的上同调由下式给出
+
+%%%%%%%%%%  scan idx 22  |  folio 11  %%%%%%%%%%
+
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.ei.n3-1-2}{3.1.2}}
+\begin{aligned}
+H^0(U,\Lambda)&=\Lambda,\\[4pt]
+H^1(U,\Lambda)&=\Lambda(-1)^B,\\[4pt]
+H^q(U,\Lambda)&=\bigwedge\nolimits^q H^1(U,\Lambda)
+  \qquad\text{(由杯积给出).}
+\end{aligned}
+\end{equation}
+这些公式与在 $\mathbf C$ 上计算 $D^{*B}\times D^k$ 的上同调的公式完全相同.
+
+\SGARefTarget{sga7.sga7i.ei.n3-2}{3.2}. 设 $S$ 为严格局部性状, 沿用 (\SGARefLink{sga7.sga7i.ei.n0-0-1}{0.0.1}) 和 (\SGARefLink{sga7.sga7i.ei.n0-0-3}{0.0.3}) 的记号. 设 $f:X\longrightarrow S$ 为有限型态射. 假设 $X$ 正则, $X_\eta$ 光滑, 且 $X_s$ 为 $X$ 中的正规交叉除子. 我们假设此除子在整体上, 而不仅仅在平展拓扑下局部地, 是一族正则除子的和:
+\[
+(X_s)_{\mathrm{red}}=\sum_{i\in B}D_i
+\]
+(一般情形可通过局部化得到). 以 $m_i$ 表示它们的重数, 于是 $X_s=\sum_{i\in B}m_iD_i$.
+
+设 $x$ 为 $X_s$ 的一点, $\bar x$ 为 $X$ 的一个位于 $x$ 上方的几何点 (例如 $x$ 可以是闭点, 且等于 $\bar x$), 置 $C=\{i\mid x\in D_i\}$, 并令 $K$ 为集中在次数 $0$ 与 $-1$ 的复形
+\begin{equation*}
+K:\mathbf Z^C\xrightarrow{\ d\ }\mathbf Z,
+\qquad d((n_j))=\sum_jm_jn_j.
+\end{equation*}
+
+\underline{定理} \SGARefTarget{sga7.sga7i.ei.n3-3}{3.3} (\underline{使用纯性}). \underline{温和消灭圈群 $\psi^i_{t\bar x}$ 如下:}
+
+(i) \underline{存在分次 $\Lambda$-代数的典范同构}
+\begin{equation*}
+\psi^*_{t\bar x}\simeq
+\bigwedge\nolimits^*\bigl(H_1(K)\otimes\Lambda(-1)\bigr)
+\otimes_\Lambda\psi^0_{t\bar x}.
+\end{equation*}
+
+(ii) $\psi^0_{t\bar x}$ \underline{是} $\Lambda$-\underline{代数} $\Lambda^E$, \underline{其中 $E$ 为温和惯性群} $I_t=I/P=\widehat{\mathbf Z}(1)(k(s))$ \underline{传递作用的一个集合, 其基数为 $\#H_0(K)$ 的最大素于 $p$ 的因子.}
+
+证明方法如下.
+
+a) 设 $X_{(\bar x)}$ 为 $X$ 在 $\bar x$ 处的严格局部化, 令 $U=X_{(\bar x)}-X_{(\bar x)s}$ (一个正规交叉除子的补), 以 $t_j$ 为 $D_j$ 的局部方程, 置
+\[
+X_n=X_{(\bar x)}\bigl[(t_j^{1/n})\bigr]
+\qquad ((n,p)=1),
+\]
+这是一个正则概形, 再令 $U_n$ 为 $U$ 在 $X_n$ 中的逆像. 由 (\SGARefLink{sga7.sga7i.ei.n3-1-2}{3.1.2}),
+\[
+H^q(U_n,\Lambda)=\bigwedge\nolimits^q\bigl(\Lambda(-1)^C\bigr).
+\]
+对 $m=nd$, 从 $H^q(U_n,\Lambda)$ 到 $H^q(U_m,\Lambda)$ 的拉回映射是乘以
+% The French TeX/print has m=xd. In this inverse system x is a point while
+% m,n,d are the indices; the pullback relation is necessarily m=nd.
+
+%%%%%%%%%%  scan idx 23  |  folio 12  %%%%%%%%%%
+
+$d^q$. 因而置 $\widetilde U=\varprojlim_{(n,p)=1}U_n$, 便有
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.ei.n3-3-1}{3.3.1}}
+\begin{cases}
+H^0(\widetilde U,\Lambda)=\Lambda,\\[6pt]
+H^q(\widetilde U,\Lambda)=\displaystyle\varinjlim_n
+  H^q(U_n,\Lambda)=0 & \text{当 }q\ne0.
+\end{cases}
+\end{equation}
+
+b) $\widetilde U$ 是 $U$ 的一个群为 $\widehat{\mathbf Z}(1)(k(s))^C$ 的投射覆盖. 按定义,
+\[
+\psi^*_{t\bar x}=H^*(U_{\eta_t},\Lambda).
+\]
+% The French working TeX misreads the printed Greek eta in U_{eta_t} as n.
+$\widetilde U$ 是 $U_{\eta_t}$ 的每个连通分支的一个群为 $H_1(K)\otimes\widehat{\mathbf Z}(1)(k(s))$ 的投射覆盖, 而这些连通分支被温和惯性群传递地置换. 公式 (\SGARefLink{sga7.sga7i.ei.n3-3-1}{3.3.1}) 与 Hochschild--Serre 谱序列现在就给出 \SGARefLink{sga7.sga7i.ei.n3-3}{3.3} 中的公式.
+
+形象地说, $U_{\bar\eta}$ 是一个态射 $\delta$ 的纤维, 此态射由 $U$ 所代表的上同调 $K(\widehat{\mathbf Z}(1)(k(s))^C,1)$ 映向 $\eta$ 所代表的上同调 $K(\widehat{\mathbf Z}(1)(k(s)),1)$; 态射 $\delta$ 诱导
+\[
+d:(n_j)\longmapsto\sum_jm_jn_j:
+\widehat{\mathbf Z}(1)(k(s))^C
+\longrightarrow\widehat{\mathbf Z}(1)(k(s)).
+\]
+
+\underline{推论} \SGARefTarget{sga7.sga7i.ei.n3-4}{3.4} (\underline{使用纯性}). \underline{假设 $f$ 为真. 设 $N$ 为各重数 $m_j$ $(j\in B)$ 的最小公倍数. 设 $q\geqslant0$, $q'$ 为 $q$ 与通过同一点的除子 $D_j$ 的最大个数二者的最小值. 对温和惯性群 $I_t=I/P$ 中的 $T$, 有}
+\begin{equation*}
+(T^N-1)^{q'+1}=0
+\quad\underline{\text{作用于}}\quad
+H^q(X_{\bar\eta},\Lambda)^P.
+\end{equation*}
+% The French print has exponent q'. For q=0 that asserts 1=0; the
+% filtration argument and the bound restated in 3.8 require q'+1.
+这由 \SGARefLink{sga7.sga7i.ei.n3-3}{3.3}、附论 \SGARefLink{sga7.sga7i.ei.n2-5}{2.5} 及变体 \SGARefLink{sga7.sga7i.ei.n2-7}{2.7} 立即得到.
+
+对于 $H^1$, 或在特征 $0$ 下, 或当 $S$ 在某个域上本质有限型时, 所需的纯性结果已知成立.
+
+\underline{定理} \SGARefTarget{sga7.sga7i.ei.n3-5}{3.5}. \underline{设 $C$ 为离散赋值环 $V$ 的分式域 $k(\eta)$ 上的光滑射影曲线. 惯性群 $I$ 以级数 $2$ 的拟幺幂自同构作用于 $H^1(C_{\bar\eta},\mathbf Q_\ell)$: 存在 $N$, 使得对 $T\in I$, 有}
+\begin{equation*}
+(T^N-1)^2=0
+\quad\text{作用于}\quad H^1(C_{\bar\eta},\mathbf Q_\ell).
+\end{equation*}
+归结到 $V$ 严格局部的情形. 所要证明的是, $I$ 存在一个开子群 $I_1$, 使得对 $T\in I_1$, 在 $H^1$ 上有 $(T-1)^2=0$.
+
+%%%%%%%%%%  scan idx 24  |  folio 13  %%%%%%%%%%
+
+可以把 $k(\eta)$ 的标量扩张到一个有限扩张, 并以 $V$ 在此扩张中的正规化代替它. 由于 pro-$p$ 群 $P$ 在 $\ell$ 进 Lie 群 $\mathrm{GL}(n,\mathbf Q_\ell)$ 中的像有限, 特别地, 可以假设 $P$ 作用平凡.
+
+设 $C_o$ 为 $C$ 在 $V$ 上的一个极小模型 (关于依赖于 Abhyankar 定理的 $C_o$ 的存在性, 参见 [3], \S~2, 第~87~页的讨论; 也可取其完备化, 再引用 SGA 4 XVI 1.6, 从而归结到 $V$ 优良的情形).
+
+设 $C_1$ 为 $C$ 的一个由 $C_o$ 经爆破得到的正则模型, 其特殊纤维为正规交叉除子. \SGARefLink{sga7.sga7i.ei.n3-3}{3.3} 与 \SGARefLink{sga7.sga7i.ei.n3-4}{3.4} 中的论证适用于 $C_1$, $\psi_t^0$, $\psi_t^1$ 以及
+\[
+H^1(C_{\bar\eta},\mathbb Z/\ell^n)^P
+=H^1(C_{\bar\eta},\mathbb Z/\ell^n),
+\]
+其中 $N$ 与 $n$ 无关; 定理 \SGARefLink{sga7.sga7i.ei.n3-5}{3.5} 随之得到.
+% The print uses a letter o in psi_t^o, but this is cohomological degree zero.
+
+\underline{注} \SGARefTarget{sga7.sga7i.ei.n3-6}{3.6}. 设 $A$ 为 $k(\eta)$ 上的 Abel 簇. 由于 $A$ 是某个 Jacobian 簇的商, 再次得到 $I$ 在 $H^1(A_{\bar\eta},\mathbb Q_\ell)$ 上, 或在 $T_\ell(A)$ 上的作用, 是级数 $2$ 的拟幺幂作用.
+% The print omits the geometric bar from the fibre in this sentence.
+
+\underline{注} \SGARefTarget{sga7.sga7i.ei.n3-7}{3.7}. 事实上, 对 $\eta$ 上的任意有限型概形 $X$, $I$ 在 $H^1(X_{\bar\eta},\mathbb Q_\ell)$ 上的作用都是级数 $2$ 的拟幺幂作用.
+% The print has Q here; the surrounding l-adic statement requires Q_ell.
+
+定理 \SGARefLink{sga7.sga7i.ei.n3-5}{3.5} (或注 \SGARefLink{sga7.sga7i.ei.n3-6}{3.6}) 是将在报告 IX, \S~3 中给出的 Abel 簇稳定约化定理的证明的基础.
+
+\SGARefTarget{sga7.sga7i.ei.n3-8}{3.8}. 显然, 只要纯性与奇点消解可用 (例如在特征 $0$ 下), 上述方法就能证明单值定理, 并给出幂零指数的上界. 因而在等特征 $0$ 下, 若 $X$ 在 $\eta$ 上真且光滑, 且 $T$ 属于 $I$ 的某个开子群 $I_1$, 则有
+\begin{equation*}
+(T-1)^{q+1}=0
+\quad\text{作用于}\quad H^q(X_{\bar\eta},\mathbb Z_\ell)
+\qquad(T\in I_1\subset I).
+\end{equation*}
+
+% END INCLUDED SGA7I_English_current_buildable_source_20260823/components/04_expose_I_section_3.tex
+
+% BEGIN INCLUDED SGA7I_English_current_buildable_source_20260823/components/05_expose_I_section_4.tex
+% SOURCE AUTHORITY:
+% expose_I_body.tex lines 459--589; scan indices 24--28; source folios 13--17.
+% Hard stop before source line 591, section 5.
+
+4. \underline{消灭圈层的消没判据}
+
+\SGARefTarget{sga7.sga7i.ei.n4-1}{4.1}. 设 $S$ 为严格局部性状, $f:X\longrightarrow S$ 为 $S$ 上的有限型概形. 置 $n=\dim(X_\eta)$.
+
+若 $X'$ 为 $X_\eta$ 在 $X$ 中的概形论闭包, 则:
+
+a) 在 $X_s-X'_s$ 上有 $\phi^{-1}=\Lambda$, 其余的 $\phi^i$ 消没;
+
+%%%%%%%%%%  scan idx 25  |  folio 14  %%%%%%%%%%
+
+b) 在 $X'_s$ 上, 关于 $X/S$ 或 $X'/S$ 的 $\phi^i$ 以及 $\psi^i$ 分别相同, 且 $\phi^{-1}=0$.
+
+由于 $X'$ 在 $S$ 上平坦, 这常常可以将问题归结到 $X$ 在 $S$ 上平坦的情形.
+
+\underline{定理} \SGARefTarget{sga7.sga7i.ei.n4-2}{4.2}.
+
+(i) \underline{对 $i>n$, 有 $\psi^i=0$.}
+
+(ii) \underline{更精确地, 设 $x$ 为 $X_s$ 的一点, 其闭包的维数为 $k$} ($k=\operatorname{trdeg}_{k(s)}k(x)$), \underline{$\bar x$ 为位于 $x$ 上方的一个几何点. 则}
+\begin{equation*}
+\psi^i_{\bar x}=0
+\quad\underline{\text{当}}\quad i>n-k,
+\qquad\text{即}\qquad
+d(\psi^i)\leqslant n-i
+\quad(\underline{\text{SGA 4 XIV 2.1 的记号}}).
+\end{equation*}
+事实上,
+\[
+\psi^i_{\bar x}=H^i(X_{(\bar x)\bar\eta},\Lambda),
+\]
+而 $X_{(\bar x)\bar\eta}$ 是 $k(\bar\eta)$ 上维数不超过 $n$ 的仿射概形的投射极限. 因此, 对仿射 Lefschetz 定理 (SGA 4 XIV 3.2) 取极限, 即得到断言 (i).
+
+为证明 (ii), 可以假设 $X$ 在 $S$ 上平坦 (\SGARefLink{sga7.sga7i.ei.n4-1}{4.1}), 且存在拟有限平坦 $S$-态射
+\[
+g:X\longrightarrow\mathbb A^k_S
+\]
+使 $g(x)$ 为 $\mathbb A^k_s$ 的一般点. 令 $S'$ 为 $\mathbb A^k_S$ 在 $\bar x$ 处的严格局部化. 则:
+
+a) $S'_{\bar\eta}$ 为一个域的谱, 且 $\Gal(\bar\eta'/s'_{\bar\eta})$ 为一个 $p$-群 $Q$;
+
+b) 将 (i) 用于 $g$, 得
+\[
+H^i(X_{(\bar x)\bar\eta'},\Lambda)=0
+\qquad\text{当 }i>n-k;
+\]
+
+c) 有
+\[
+H^i(X_{(\bar x)\bar\eta},\Lambda)
+=H^i(X_{(\bar x)\bar\eta'},\Lambda)^Q,
+\]
+这就证明了定理.
+
+\underline{推论} \SGARefTarget{sga7.sga7i.ei.n4-3}{4.3}. \underline{若 $f$ 为真且平坦, 且 $X_s$ 中 $f$ 的非光滑点集的维数不超过 $d$, 则特殊化态射}
+\[
+H^i(X_s)\longrightarrow H^i(X_{\bar\eta})
+\]
+\underline{当 $i>n+d+1$ 时为同构, 当 $i=n+d+1$ 时为满射.}
+
+\SGARefTarget{sga7.sga7i.ei.n4-4}{4.4}. 为在某些情形中证明 $\phi^i$ 对较小的 $i$ 消没, 我们将直接使用局部对偶性, 或通过 SGA 2 XIV 中的局部 Lefschetz 定理来使用它. 这一工具仅在特征 $0$ 下可用, 或在等特征 $p$ 下, 当所考虑维数中的 Hironaka 型奇点消解可用时可用.
+
+%%%%%%%%%%  scan idx 26  |  folio 15  %%%%%%%%%%
+
+\underline{定理} \SGARefTarget{sga7.sga7i.ei.n4-5}{4.5}. \underline{假设 $S$ 为特征 $0$. 设 $f:X\longrightarrow S$ 为有限型态射, $x$ 为 $X_s$ 的一个闭点. 假设:}
+
+(a) \underline{$x$ 是其纤维中的一个孤立非光滑点;}
+
+(b) \underline{$X$ 在 $x$ 处的相对几何深度至少为 $n$: 在 $x$ 的一个邻域内, 概形 $X$ 可看作某个在 $x$ 处相对维数为 $N$ 的光滑概形中由 $k$ 个方程定义的子概形, 其中 $n\leqslant N-k$.}
+
+\underline{则当 $i<n$ 时, $\phi^i_x=0$.}
+
+令 $X_x$ 为 $X$ 在 $x$ 处的严格局部化, 并置 $V=X_x-\{x\}$. 对 $S$ 上的每个有限性状 $S'$, 类似地置
+\[
+X'_x=X_x\times_S S',\qquad V'=V\times_S S'.
+\]
+令 $\bar S$ 为 $S$ 在 $\bar\eta$ 中的正规化, 并置
+\[
+\bar X_x=X_x\times_S\bar S,
+\qquad \bar V=V\times_S\bar S.
+\]
+有:
+
+(1) 若对 $i\leqslant m$, 在 $(X_x)_s$ 上 (即在 $x$ 的位于 $X_s$ 中的每一个一般化点处) 有 $\phi^i=0$, 则
+\begin{equation*}
+H^{i-1}_{\{x\}}(\bar X_x)
+=\widetilde H^{,i}(\bar V)
+\xrightarrow{\ \sim\ }
+\widetilde H^{,i}(\bar V_{\bar\eta})
+=\phi^i
+\qquad\text{当 }i\leqslant m.
+\end{equation*}
+事实上, $\phi^i$ 是 $\bar V$ 的以 $V_s$ 为支集的上同调层; 在 \SGARefLink{sga7.sga7i.ei.n4-5}{4.5} 的假设下, 由条件 (a) 可取 $m=\infty$ 来应用 (1) (SGA 4 XV 2.1).
+
+(2) \SGARefLink{sga7.sga7i.ei.n4-5}{4.5} 的假设 (b) 在基变换下稳定. 由 SGA 2 XIV 5.6, 它蕴涵
+\begin{equation*}
+\widetilde H^{,i}(V')
+=H^{i-1}_{\{x\}}(X'_x)=0
+\qquad\text{当 }i<n.
+\end{equation*}
+注意到 $\widetilde H^{,i}(\bar V)$ 是各 $\widetilde H^{,i}(V')$ 的滤过余极限, 即得结论.
+
+结合 \SGARefLink{sga7.sga7i.ei.n4-2}{4.2} 与 \SGARefLink{sga7.sga7i.ei.n4-5}{4.5}, 得到:
+
+\underline{推论} \SGARefTarget{sga7.sga7i.ei.n4-6}{4.6}. \underline{设 $S$ 为特征 $0$ 的 Hensel 性状, $X/S$ 为相对维数为 $n$ 的相对完全交, $x\in X_s$ 为其纤维中的一个孤立非光滑点. 则对 $i\ne n$, 有 $\phi^i_x=0$.}
+
+\underline{推论} \SGARefTarget{sga7.sga7i.ei.n4-7}{4.7}. \underline{在 \SGARefLink{sga7.sga7i.ei.n4-6}{4.6} 的假设下, $\phi^n_x$ 为平坦 $\Lambda$-模.}
+
+事实上, 若 $\Lambda'$ 为有限 $\Lambda$-代数, 则由一般的形式论证 (SGA 4 XVII 5.2.11), 对 $\phi^i_{\Lambda'}$ 有
+
+%%%%%%%%%%  scan idx 27  |  folio 16  %%%%%%%%%%
+
+\begin{equation*}
+\phi^{n-i}_{\Lambda'}
+=\Tor_i^\Lambda(\Lambda',\phi^n_\Lambda),
+\end{equation*}
+再将 \SGARefLink{sga7.sga7i.ei.n4-6}{4.6} 用于 $\Lambda'$ 即可.
+
+\underline{变体} \SGARefTarget{sga7.sga7i.ei.n4-8}{4.8}. 在 \SGARefLink{sga7.sga7i.ei.n4-5}{4.5} 中去掉条件 (a), 并设 $Z$ 为 $f$ 的非光滑点集. 仍可得到结论
+\begin{equation*}
+\phi^i_x=0\qquad\text{当 }i<n-\dim Z_s.
+\end{equation*}
+对 $\dim\overline{\{x\}}$ 作下降归纳. 由归纳假设, 可取 $m=n-\dim Z_s$ 来应用 \SGARefLink{sga7.sga7i.ei.n4-5}{4.5} (1), 随后如前完成证明.
+
+\SGARefTarget{sga7.sga7i.ei.n4-9}{4.9}. 可以仅用 $f$ 的几何纤维的信息得到一个消没判据. 然而对于完全交, 所得结果比 \SGARefLink{sga7.sga7i.ei.n4-5}{4.5} 弱一个次数.
+
+\underline{命题} \SGARefTarget{sga7.sga7i.ei.n4-10}{4.10}. \underline{在 \SGARefLink{sga7.sga7i.ei.n4-5}{4.5} 的一般假设下, 假设:}
+
+(a) \underline{$x$ 是其纤维中的一个孤立非光滑点;}
+
+(b) \underline{对 $X_{\bar\eta}$ 中每一个在 $X_{\bar\eta}$ 内的闭包维数为 $d(y)$、且是 $x$ 的一般化点的点 $y$, 其平展深度满足}
+\begin{equation*}
+\operatorname{depth}_{\mathrm{\acute{e}t},y}(X_{\bar\eta})
+\geqslant n-d(y),
+\quad\text{即}\quad
+H^i_{\{y\}}(X_{\bar\eta})=0
+\quad\underline{\text{当 }}i\leqslant n-d(y);
+\end{equation*}
+
+(c) \underline{$\operatorname{depth}_{\mathrm{\acute{e}t},x}(X_s)
+\geqslant n$.}
+
+\underline{则对 $i<n-1$, 有 $\phi^i_x=0$.}
+
+沿用 \SGARefLink{sga7.sga7i.ei.n4-5}{4.5} 的记号. 可取 $m=\infty$ 来应用 \SGARefLink{sga7.sga7i.ei.n4-5}{4.5} (1). 由局部 Lefschetz 定理 (SGA 2 XIV), 假设 (b) 给出
+\begin{center}
+\begin{tikzcd}[row sep=large, column sep=huge]
+H^i(V') \arrow[r, "\sim"] & H^i(V_s) & {(\ i<n\text{-}1\ )} \\
+H^i(V') \arrow[r, hook] & H^i(V_s) & {(\ i=n\text{-}1\ )}
+\end{tikzcd}
+\end{center}
+% Direct authority comparison: the first arrow is an isomorphism arrow
+% with the tilde above; the second is a rightward hook arrow, not a
+% leftward arrowhead. There are no vertical or diagonal arrows.
+继而由条件 (c) 得到
+\[
+H^i(\bar V)=\varinjlim H^i(V')=0
+\qquad\text{当 }i\leqslant n-1,
+\]
+这就证明了 \SGARefLink{sga7.sga7i.ei.n4-10}{4.10}.
+
+\SGARefTarget{sga7.sga7i.ei.n4-11}{4.11}. 如同 \SGARefLink{sga7.sga7i.ei.n4-8}{4.8}, 可以给出不假设 (a) 的 \SGARefLink{sga7.sga7i.ei.n4-10}{4.10} 的变体.
+
+%%%%%%%%%%  scan idx 28  |  folio 17  %%%%%%%%%%
+
+% END INCLUDED SGA7I_English_current_buildable_source_20260823/components/05_expose_I_section_4.tex
+
+% BEGIN INCLUDED SGA7I_English_current_buildable_source_20260823/components/06_expose_I_section_5.tex
+% SOURCE AUTHORITY:
+% expose_I_body.tex lines 591--688; scan indices 28--31; source folios 17--20.
+% Hard stop before source line 689, section 6.
+
+5. \underline{单值作用在 $\pi_1$ 上的作用}
+
+在本节 (Grothendieck 于 1968 年 11 月 19 日所作的报告) 中, 我们将使用曲线的半稳定约化定理. Artin 与 Winters [2] 给出了该定理的直接证明; 也可以由 Abel 簇的类似定理 (IX \S~3, 使用 \SGARefLink{sga7.sga7i.ei.n3-6}{3.6}) 推导出它 [3]. 我们还将使用 Schlessinger 的理论 (Rim 的报告 VI).
+
+\SGARefTarget{sga7.sga7i.ei.n5-1}{5.1}. 设 $k$ 为代数闭域, $C$ 为 $k$ 上的射影曲线, $x_1,\ldots,x_n$ 为 $C$ 的有限个闭点. 带点曲线
+\[
+X=(C;x_1,\ldots,x_n)
+\]
+称为\underline{稳定的 (stable)}, 如果:
+
+(a) $C$ 既约, 且其奇点仅为切线互异的二重点;
+
+(b) 各 $x_i$ 为 $C$ 的互异光滑点;
+
+(c) 若 $C_1$ 为 $C$ 的一个不可约分支, $E$ 为 $C_1$ 的正规化 $C'_1$ 中位于 $C$ 的奇点或某个 $x_i$ 上方的点所成的集合, 则当 $C'_1$ 的亏格为 $0$ (分别地, $1$) 时, 集合 $E$ 至少有 $3$ (分别地, $1$) 个元素.
+% The print says "a singular point of C_1". Stability requires all points
+% above the singular locus of the whole curve C, including intersections
+% with other irreducible components.
+
+条件 (c) 与以下各条件等价:
+
+(c') $X$ 没有非平凡的无穷小自同构.
+
+(c'') 若 $\omega$ 为可逆对偶化层, 则可逆层
+\[
+\omega'=\omega\Bigl(\sum_i x_i\Bigr)
+\]
+是丰沛的.
+
+一个配备截面 $x_1,\ldots,x_n$ 的 $S$-概形 $C$ 称为 $S$ 上的\underline{稳定曲线 (stable curve)}, 如果其几何纤维都是稳定曲线. [3], \S\S~1--2 只考虑了 $n=0$ 的情形. 将该处的结果推广到一般情形是直接的:
+
+(1) 若 $X/k$ 稳定, 则当 $n\geqslant2$ 时, $H^1(C,\omega'^{\otimes n})=0$, 而当 $n\geqslant3$ 时, $\omega'^{\otimes n}$ 为甚丰沛层 (参见 [3] 1.2).
+
+(2) $X$ 的形式模概形 $M$ 光滑, 且 $C$ 恰在 $M$ 的一个正规交叉除子上保持奇异.
+
+%%%%%%%%%%  scan idx 29  |  folio 18  %%%%%%%%%%
+
+(3) 若 $X$ 和 $Y$ 在 $S$ 上稳定, 则 $\Isom_S(X,Y)$ 在 $S$ 上有限且非分歧 (要求同构保持标记点).
+
+(4) 若 $X/k$ 稳定, 则映射
+\[
+\Aut_k(X)\longrightarrow\Aut_k\Pic^\circ(C)
+\]
+是单射.
+
+最后, 有:
+
+\underline{命题} \SGARefTarget{sga7.sga7i.ei.n5-1-1}{5.1.1}. \underline{设 $X_\eta=(C_\eta;x_1,\ldots,x_n)$ 在性状 $S$ 的一般点 $\eta$ 上稳定, 且 $C_\eta$ 光滑. 存在 $\eta$ 的一个有限可分扩张 $\eta'$, 以及 $S$ 在 $\eta'$ 中的正规化 $S'$ 上的一条稳定曲线 $X'$, 使得}
+\begin{equation*}
+X'\otimes_{S'}\eta'=X_\eta\otimes_\eta\eta'.
+\end{equation*}
+% The print omits the prime from the second occurrence of eta in the
+% phrase defining S'. The extension and the displayed base change make
+% eta' mathematically forced.
+
+这由通常的半稳定约化定理得到: 该定理允许选取 $\eta'$, 使 $C_{\eta'}$ 在 $S'$ 上的极小模型 $C''$ 的几何特殊纤维满足 (a). 然后在 $C''$ 的\underline{光滑}点作爆破, 必要时反复进行, 使 (b) 成立. 再将特殊纤维中不包含任何 $\bar x_i$、自交数为 $-2$ 的光滑有理分支链收缩; 所得曲线就是 $C'$ (参见 [3], 2.3 的证明, 第~88~页).
+% The print says "self intersection two"; the omitted minus sign is the
+% standard and mathematically necessary value for the contracted chains.
+
+如同该处一样, 可以验证, 只要 $C_\eta$ 的 Jacobian 簇有半稳定约化, $C'$ 就存在. 而且 $C_\eta$ 光滑这一假设也不是必需的.
+
+\SGARefTarget{sga7.sga7i.ei.n5-2}{5.2}. 设 $X_\eta$ 为严格局部性状 $S$ 的分式域上的一个几何连通有限型概形. 对 $X_{\bar\eta}$ 的一个几何点 $\xi$, 存在正合列
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.ei.n5-2-1}{5.2.1}}
+\begin{tikzcd}[column sep=large, row sep=tiny]
+0 \arrow[r] & \pi_1(X_{\bar\eta},\xi) \arrow[r]
+  & \pi_1(X,\xi) \arrow[r]
+  & \Gal(\bar\eta/\eta) \arrow[r] & 0 .
+\end{tikzcd}
+\end{equation}
+% The source typescript omits the arrowhead on the first exact-sequence
+% map. The English reader supplies the mathematically required arrow.
+它诱导一个从 $\Gal(\bar\eta/\eta)$ 到 $\pi_1(X_{\bar\eta})$ 的外自同构群的同态. 再取 $\pi_1(X_{\bar\eta})$ 的最大素于 $p$ 的商群 $\pi_1^{(p)}(X_{\bar\eta})$, 得到
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.ei.n5-2-2}{5.2.2}}
+\Gal(\bar\eta/\eta)
+\longrightarrow
+\Aut_{\mathrm{ext}}\bigl(\pi_1^{(p)}(X_{\bar\eta})\bigr).
+\end{equation}
+
+假设 $X_\eta$ 有一个有理点 $x$, 令 $\bar x$ 为几何点
+\[
+\bar\eta\longrightarrow\eta\xrightarrow{\ x\ }X_\eta.
+\]
+对 $\xi=\bar x$, 正合列 (\SGARefLink{sga7.sga7i.ei.n5-2-1}{5.2.1}) 典范地分裂, 得到
+
+%%%%%%%%%%  scan idx 30  |  folio 19  %%%%%%%%%%
+
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.ei.n5-2-3}{5.2.3}}
+[x]:\Gal(\bar\eta/\eta)
+\longrightarrow\Aut\bigl(\pi_1(X_{\bar\eta},\bar x)\bigr)
+\longrightarrow\Aut\bigl(\pi_1^{(p)}(X_{\bar\eta},\bar x)\bigr).
+\end{equation}
+% The print refers here to the "exact sequence (5.2.2)". The only exact
+% sequence is (5.2.1); (5.2.2) is the induced outer action.
+
+\underline{定理} \SGARefTarget{sga7.sga7i.ei.n5-3}{5.3}. \underline{$P$ 在 (\SGARefLink{sga7.sga7i.ei.n5-2-2}{5.2.2}) 下的像 (或在 (\SGARefLink{sga7.sga7i.ei.n5-2-3}{5.2.3}) 下的像, 这里两者等价) 是有限的.}
+
+\SGARefTarget{sga7.sga7i.ei.n5-3-1}{5.3.1}. \underline{归结到 $X_\eta$ 几何正规且几何整的情形.}
+
+令 $X'_\eta$ 为 $X_\eta$ 的正规化, $(X'_{i\eta})_i$ 为 $X'_\eta$ 的连通分支族, 置
+\[
+X''_\eta=X'_\eta\times_{X_\eta}X'_\eta,
+\]
+令 $(X''_{j\eta})_j$ 为 $X''_\eta$ 的连通分支族. 对 $k(\eta)$ 作有限扩张后, 可以假设各 $X'_{i\eta}$ 都几何正规且几何整, 并具有有理点 $x_i$, 而各 $X''_{j\eta}$ 都几何连通, 并具有有理点 $y_j$.
+
+对 $k=1$ 或 $2$, 每当 $p_k(y_j)\in X'_{i\eta}$ 时, 选取一个从 $\operatorname{pr}_k(\bar y_j)$ 到 $\bar x_i$ 的路径类 $\ell_{kij}$. 它是一个以 $\pi_1(X'_{i\bar\eta},\bar x_i)$ 为结构群的挠子的元素. 令 $\bar\ell_{kij}$ 为对应的素于 $p$ 的路径 (即同一路径模掉 $\Ker(\pi\longrightarrow\pi^{(p)})$). 可以选取 $\bar\ell_{kij}$ 使其在 $P$ 下不变: 素于 $p$ 的路径所成的集合, 是一族基数素于 $p$ 的有限集合的投射极限, 而 pro-$p$ 群 $P$ 作用于这些集合.
+
+因此, 若 $P$ 的一个有限指数子群 $P'$ 在群 $\pi_1^{(p)}(X'_{i\bar\eta},\bar x_i)$ 上作用平凡, 则 Van Kampen 公式, 或等价地, 正规化映射 $X'_{\bar\eta}\longrightarrow X_{\bar\eta}$ 对平展覆盖为有效下降这一事实, 表明 $P'$ 在 $\pi_1^{(p)}(X_{\bar\eta},\bar x)$ 上作用平凡.
+% The print carries a spurious component index on the target of the
+% normalization map; effective descent concerns X'_{bar eta} -> X_{bar eta}.
+
+\SGARefTarget{sga7.sga7i.ei.n5-3-2}{5.3.2}. 若 $X_{\bar\eta}$ 正规, $U$ 为开子集, 则 $\pi_1(U)$ 满射到 $\pi_1(X_{\bar\eta})$; 因而可设 $X_{\bar\eta}$ 光滑且仿射. 以\underline{一般}超平面截面逐次切割 (这将 $S$ 换成其在某个 $\mathbb A^n_S$ 的特殊纤维的一般点处的严格局部化), 并应用 Bertini 定理, 就归结到 $X_\eta$ \underline{光滑、几何连通且一维}的情形.
+
+对 $k(\eta)$ 作有限扩张后, 可以假设 $X_\eta$ 为光滑射影曲线 $\bar X_\eta$ 中有限个有理点 $x_i$ 的补, 且可以任意增加这些点的个数. 由半稳定约化定理 (\SGARefLink{sga7.sga7i.ei.n5-1-1}{5.1.1}), 归结到存在 $S$ 上的稳定曲线 $X=(C;x_1,\ldots,x_n)$ 使得
+\[
+X_\eta=C_\eta-\{x_1,\ldots,x_n\}.
+\]
+然后应用下列结果.
+
+%%%%%%%%%%  scan idx 31  |  folio 20  %%%%%%%%%%
+
+\underline{定理} \SGARefTarget{sga7.sga7i.ei.n5-4}{5.4}. \underline{设 $S$ 为严格局部概形, $f:\bar X\longrightarrow S$ 为真平坦态射, 其特殊纤维为一条仅以普通二重点为非光滑点的曲线; $Y$ 为 $\bar X$ 的一个子概形, 是有限个两两不交、包含于光滑点集内的截面的并. 设 $x$ 为 $X=\bar X-Y$ 的一个有理点. 令 $U$ 为 $S$ 中使 $X$ 在其上光滑的开子集, $\xi$ 为 $U$ 的一个几何点. 则 $\pi_1(U,\xi)$ 在 $\Aut(\pi_1^{(p)}(X_\xi,x\xi))$ 中的像是交换的且素于 $p$.}
+
+注意, $\pi_1(U,\xi)$ 之所以能作用于 $\pi_1^{(p)}(X_\xi,x\xi)$, 是因为群 $\pi_1^{(p)}$ 满足特殊化定理.
+
+先归结到 $S$ 完备的情形, 再归结到万有情形, 即 $S$ 是带有这些截面的特殊纤维的形式模概形. 这时 $S$ 是 Cohen 环上的形式幂级数环的谱:
+\[
+S=\Spec\bigl(W[[t_1,\ldots,t_n]]\bigr),
+\]
+而 $U$ 是方程为 $t_1\cdots t_m=0$ 的正规交叉除子的补. 在这一万有情形中, Abhyankar 引理表明 $\pi_1(U,\xi)$ 交换且素于 $p$, 从而证明了定理.
+
+\underline{注} \SGARefTarget{sga7.sga7i.ei.n5-5}{5.5}. 取一般的一维平面截面并应用 Bertini 定理, 可以在任意相对维数下证明与 \SGARefLink{sga7.sga7i.ei.n5-4}{5.4} 类似的结果.
+
+
+% END INCLUDED SGA7I_English_current_buildable_source_20260823/components/06_expose_I_section_5.tex
+
+% BEGIN INCLUDED SGA7I_English_current_buildable_source_20260823/components/07_expose_I_section_6.tex
+6. \underline{附录}: \underline{稳定约化定理的算术证明}
+
+(P. Deligne 作)
+
+设 $S$ 为性状, $A_\eta$ 为 $k(\eta)$ 上维数 $d\neq 0$ 的 Abel 簇. 对性状的局部态射 $S'\longrightarrow S$, 以 $A_{\eta'}$ 表示由 $A_\eta$ 作标量扩张得到的 $k(\eta')$ 上的 Abel 簇. 令 $\mathcal A_{S'}$ 为 $A_{\eta'}$ 在 $S'$ 上的 N\'eron 模型, $\mathcal A_{S',s'}$ 为其特殊纤维, $\mathcal A^\circ_{S',s'}$ 为 $\mathcal A_{S',s'}$ 的单位元连通分支. 稳定约化定理如下.
+
+%%%%%%%%%%  scan idx 32  |  folio 21  %%%%%%%%%%
+
+\underline{定理 \SGARefTarget{sga7.sga7i.ei.n6-1}{6.1}. 对适当的 $S'$, $A_{\eta'}$ 有稳定约化, 即 $\mathcal A^\circ_{S',s'}$ 是一个 Abel 簇被一个环面扩张所得的群.}
+
+由 \SGARefLink{sga7.sga7i.ei.n6-1}{6.1} 相当容易得到, 可以选取 $S'$, 使 $k(\eta')$ 为 $k(\eta)$ 的有限可分扩张. 先假设 $S$ 的剩余域在素域上有限型 (若 $k(s)$ 是这种域的纯不可分扩张, 同样的论证仍然适用).
+
+设 $\ell$ 为不同于剩余特征指数 $p$ 的素数, $T_\ell(A)$ 为 Tate 模, $V_\ell(A)=T_\ell(A)\otimes\mathbf Q_\ell$, 并令
+\[
+ \rho:\Gal(\bar\eta/\eta)\longrightarrow
+ \mathrm{GL}(T_\ell(A))
+\]
+为自然表示. 预先作一次标量扩张后, 就归结到惯性群 $I$ 幺幂作用的情形 (\SGARefLink{sga7.sga7i.ei.n1-2}{1.2}), 因而此作用通过其最大的 pro-$\ell$ 商群 $\mathbf Z_\ell(1)$ (\SGARefLink{sga7.sga7i.ei.n0-3}{0.3}). 令 $T$ 为 $\mathbf Z_\ell(1)$ 的一个生成元在 $\mathrm{GL}(T_\ell(A))$ 中的像, $r$ 为使 $(T-1)^r\neq 0$ 的最大整数 $\geq 0$. 有:
+
+\underline{引理 \SGARefTarget{sga7.sga7i.ei.n6-2}{6.2}. 映射}
+\[
+ (\sigma,v)\in I\times V_\ell(A)
+ \longmapsto (\rho(\sigma)-1)^r(v)
+\]
+\underline{诱导下列交换图中的态射与同构}
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.ei.n6-2-1}{6.2.1}}
+\begin{tikzcd}[column sep=huge, row sep=huge]
+V_\ell(A)_I\otimes\mathbf Q_\ell(r)
+  \arrow[r,"M"] \arrow[d]
+& V_\ell(A)^I \\
+\bigl(V_\ell(A)/\Ker(T-1)^r\bigr)\otimes\mathbf Q_\ell(r)
+  \arrow[r,"\sim"]
+& \operatorname{Im}(T-1)^r \arrow[u]
+\end{tikzcd}
+\end{equation}
+$V_\ell(A)_I$ \underline{与} $V_\ell(A)^I$ \underline{是 $\Gal(\bar s/s)$-模, 且 $M$ 为 Galois 等变的.}
+
+\SGARefTarget{sga7.sga7i.ei.n6-3}{6.3}. 一个 $\ell$ 进表示
+\[
+ \tau:\Gal(\bar s/s)\longrightarrow\mathrm{GL}(V)
+\]
+称为具有权 $n$ ($n\in\mathbf Z$), 如果它满足下列条件:
+
+(*) 对 $k(s)$ 的某个适当模型 $X$ (即素域上的有限型不可约簇, 满足 $k(s)=k(X)$), $\tau$ 通过 $\pi_1(X,\bar s)$ 分解, 且对 $X$ 的每个闭点 $x$, $\tau(F_x)$ 的特征值都是代数数, 其所有复共轭的绝对值均为 $|k(x)|^{n/2}$ (这里 $F_x$ 表示几何 Frobenius $\phi_x^{-1}$).
+
+%%%%%%%%%%  scan idx 33  |  folio 22  %%%%%%%%%%
+
+若 $V$ (分别地, $W$) 具有权 $n$ (分别地, $m$), 且 $n\neq m$, 则 $\Hom_{\Gal}(V,W)=0$.
+
+\SGARefTarget{sga7.sga7i.ei.n6-4}{6.4}. 由 N\'eron 模型的泛性质可得 $V_\ell(A)^I=V_\ell(\mathcal A^\circ_{S,s})$. 若 $a$ 为 $\mathcal A^\circ_{S,s}$ 的最大 Abel 商的维数, $m$ 为其乘法部分的维数, 则由 Weil 的结果, $V_\ell(A)^I$ 是一个维数为 $m$、权为 $-2$ 的表示扩张一个维数为 $2a$、权为 $-1$ 的表示所得到的表示.
+
+\SGARefTarget{sga7.sga7i.ei.n6-5}{6.5}. 设 $A^*$ 为 $A$ 的对偶 Abel 簇. 回顾 $V_\ell(A^*)$ 与 $V_\ell(A)$ (因而 $V_\ell(A^*)^I$ 与 $V_\ell(A)_I$) 有取值于 $\mathbf Q_\ell(1)$ 的对偶性. 若 $a^*$ 和 $m^*$ 对 $A^*$ 的定义如同 $a$ 和 $m$ 对 $A$ 的定义, 则由 \SGARefLink{sga7.sga7i.ei.n6-4}{6.4}, $V_\ell(A)_I$ 是一个维数为 $2a^*$、权为 $-1$ 的表示扩张一个维数为 $m^*$、权为 $0$ 的表示所得到的表示.
+
+\SGARefTarget{sga7.sga7i.ei.n6-6}{6.6}. Galois 模 $\mathbf Q_\ell(r)$ 具有权 $-2r$. 由于 $\operatorname{Im}(T-1)^r\neq 0$, 由 \SGARefLink{sga7.sga7i.ei.n6-4}{6.4}、\SGARefLink{sga7.sga7i.ei.n6-5}{6.5} 及 \SGARefLink{sga7.sga7i.ei.n6-2}{6.2} 中的同构可得 $r\leq 1$. 若 $r=0$, 则
+\[
+\left\{
+\begin{array}{l}
+a+m\leq d,\\[1ex]
+2a+m=2d,
+\end{array}
+\right.
+\]
+故 $m=0$, $a=d$, 且 $A_\eta$ 有好约化. 假设 $r=1$. 于是由 \SGARefLink{sga7.sga7i.ei.n6-2}{6.2} 可得 $\operatorname{Im}(T-1)$ 具有权 $-2$, 而 $V_\ell(A)/V_\ell(A)^I$ 具有权 $0$; 这两个空间有相同的维数 $m_1\leq m$.
+
+于是有
+\[
+ \dim V_\ell(A)^I=2d-m_1=2a+m,
+\]
+以及
+\[
+ 2\dim\mathcal A_{S,s}\geq 2(a+m)\geq
+ 2a+m+m_1=2d=2\dim\mathcal A_{S,s},
+\]
+故 $A_\eta$ 有稳定约化 ($\dim\mathcal A_{S,s}=a+m$). 同时还得到 $m_1=m$; 即
+\[
+ \operatorname{Im}(T-1)\subset V_\ell(A)^I\simeq
+ V_\ell(\mathcal A^\circ_{S,s})
+\]
+是 $\mathcal A^\circ_{S,s}$ 的乘法部分的 $V_\ell$.
+
+\SGARefTarget{sga7.sga7i.ei.n6-7}{6.7}. 为处理一般情形, 将使用 (\SGARefLink{sga7.sga7i.ei.n0-5}{0.5}) (参见 \SGARefLink{sga7.sga7i.ei.n1-3}{1.3}). 归结到以下情形:
+
+%%%%%%%%%%  scan idx 34  |  folio 23  %%%%%%%%%%
+
+(a) 满足 (\SGARefLink{sga7.sga7i.ei.n0-5-2}{0.5.2}) 或 (\SGARefLink{sga7.sga7i.ei.n0-5-3}{0.5.3}) 的条件;
+
+(b) $\Gal(\bar\eta/\eta)$ 在 $A_\ell$ 上作用平凡;
+
+(c) $I$ 在 $T_\ell(A)$ 上的作用为幺幂的.
+
+在这些假设下, 将证明 $A_\eta$ 有稳定约化. 假设 (a) 使我们可以应用 (\SGARefLink{sga7.sga7i.ei.n0-5-1}{0.5.1}), 并如 \SGARefLink{sga7.sga7i.ei.n1-3}{1.3} 那样写成 $S=\varprojlim S_i$; 沿用该处记号. 令 $s_i$ 为 $S_i$ 的闭点.
+
+对充分大的 $i$, N\'eron 模型 $\mathcal A_S$ 的单位元连通分支 $\mathcal A^\circ$ 下降为 $S_i$ 上一个具有连通纤维的光滑群概形 $\mathcal A_i$, 且 $(\mathcal A_i)_\ell$ 在 $S_i-D_i$ 上为常值. 群 $\pi_1(S_i-D_i,\bar\eta)$ 作用于 $T_\ell(A)$, 且在 $T_\ell(A)/\ell T_\ell(A)\simeq A_\ell$ 上作用平凡. 如同 \SGARefLink{sga7.sga7i.ei.n1-3}{1.3}, 可知 $P_i$ 作用平凡. 于是由 (\SGARefLink{sga7.sga7i.ei.n1-3-1}{1.3.1}), 有
+\[
+ T_\ell(A)_I=T_\ell(A)_{I_i},\qquad
+ T_\ell(\mathcal A_{i,s_i})=T_\ell(\mathcal A^\circ_s)
+ =T_\ell(A)^I=T_\ell(A)^{I_i},
+\]
+且 (\SGARefLink{sga7.sga7i.ei.n6-2-1}{6.2.1}) 是一个 $\Gal(\bar s_i/s_i)$-模的图, 可对它应用 \SGARefLink{sga7.sga7i.ei.n6-4}{6.4}--\SGARefLink{sga7.sga7i.ei.n6-6}{6.6} 的论证.
+
+%%%%%%%%%%  scan idx 35  |  folio 24  %%%%%%%%%%
+
+\begin{center}
+\underline{参考文献}
+\end{center}
+
+\begin{enumerate}[label={[\arabic*]},leftmargin=3em]
+\item M. Artin, ``Algebraic approximation of structures over complete
+local rings,'' \emph{Publ. Math. I.H.E.S.} \underline{36} (1969),
+第 23--58 页.
+
+\item M. Artin 与 G. Winters, ``Degenerate fibres and reduction of
+curves.''
+
+\item P. Deligne 与 D. Mumford, ``The irreducibility of the space of
+curves of a given genus,'' \emph{Publ. Math. I.H.E.S.} \underline{36}
+(1969), 第 75--110 页.
+
+\item J.-P. Serre, \emph{Corps locaux}, Publ. Math. Univ.
+Nancago--Hermann, 1962.
+
+\item J.-P. Serre 与 J. Tate, ``Good reduction of abelian varieties,''
+\emph{Ann. of Math.} \underline{88}, 第 3 期 (1968), 第 492--517 页.
+\end{enumerate}
+
+% END INCLUDED SGA7I_English_current_buildable_source_20260823/components/07_expose_I_section_6.tex

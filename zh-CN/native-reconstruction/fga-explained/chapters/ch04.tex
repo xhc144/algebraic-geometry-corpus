@@ -1,0 +1,1551 @@
+% FGA Explained, Chapter 4; source PDF pp.79--116, printed pp.67--104.
+% Native Simplified Chinese translation. Source anomalies are recorded separately.
+\chapter{叠}\label{ch04:chapter}
+\section{纤维范畴中对象的下降}\label{ch04:sec41}
+% Source PDF 79 = printed 67.
+\subsection{连续映射与拓扑空间的粘合}
+下面是下降的典型例子。令 $(\mathrm{Cont})$ 为连续映射的范畴（即例 3.15 中 $(\mathrm{Top})$ 的箭头范畴）；通过把每个连续映射送到其余域的函子
+$p_{(\mathrm{Cont})}\colon(\mathrm{Cont})\to(\mathrm{Top})$，这个范畴成为 $(\mathrm{Top})$ 上的纤维范畴。设 $f\colon X\to U$ 和 $g\colon Y\to U$ 是 $(\mathrm{Cont})$ 中映到 $(\mathrm{Top})$ 的同一对象 $U$ 的两个对象；我们希望构造一个 $U$ 上的连续映射 $\phi\colon X\to Y$，也就是 $(\mathrm{Cont})(U)=(\mathrm{Top}/U)$ 中的一个箭头。设给定 $U$ 的开覆盖 $\{U_i\}$，以及 $U_i$ 上的连续映射
+$\phi_i\colon f^{-1}U_i\to g^{-1}U_i$；再假设 $\phi_i$ 与 $\phi_j$ 限制到 $f^{-1}(U_i\cap U_j)\to g^{-1}(U_i\cap U_j)$ 后相同。那么存在唯一的 $U$ 上的连续映射 $\phi\colon X\to Y$，它在每个 $f^{-1}U_i$ 上的限制都等于 $f_i$。
+
+这可以表述如下。范畴 $(\mathrm{Cont})$ 是 $(\mathrm{Top})$ 上的纤维范畴；若 $f\colon V\to U$ 是连续映射，$X\to U$ 是 $(\mathrm{Cont})(U)=(\mathrm{Top}/U)$ 的对象，那么 $X\to U$ 到 $V$ 的一个拉回就是投影 $V\times_U X\to V$。函子
+$f^*\colon(\mathrm{Cont})(U)\to(\mathrm{Cont})(V)$ 把每个对象 $X\to U$ 送到 $V\times_U X\to V$，把 $(\mathrm{Top}/U)$ 中由 $U$ 上的连续映射 $\phi\colon X\to Y$ 给出的每个箭头送到连续映射
+$f^*\phi=\id_V\times_U f\colon V\times_U X\to V\times_U Y$。
+% Source p.67 prints f_i and id_V x_U f; retained, though the typed mapping requires phi_i and phi.
+
+设有两个拓扑空间 $X,Y$，以及连续映射 $X\to S$ 和 $Y\to S$。考虑第 3.7 节定义的、从 $S$ 上拓扑空间范畴出发的函子
+\[
+ \underline{\Hom}_S(X,Y)\colon(\mathrm{Top}/S)\longrightarrow(\mathrm{Set}).
+\]
+它把每个箭头 $U\to S$ 送到 $U$ 上连续映射的集合 $\Hom_U(U\times_S X,U\times_S Y)$。它在箭头上的作用如下：给定连续映射 $f\colon V\to U$，把每个连续映射 $\phi\colon U\times_S X\to U\times_S Y$ 送到映射
+\[
+ f^*\phi=\id_V\times\phi\colon
+ V\times_S X=V\times_U(U\times_S X)
+ \longrightarrow V\times_U(U\times_S Y)=V\times_S Y.
+\]
+于是，连续映射可以局部构造并粘合这一事实，可以表述为：函子
+\[
+ \underline{\Hom}_S(X,Y)\colon(\mathrm{Top}/S)^{\op}\longrightarrow(\mathrm{Set})
+\]
+是 $(\mathrm{Top})$ 的经典拓扑中的一个层。
+
+还不止于此：不仅连续映射可以局部构造，空间也可以如此，虽然其情形更为复杂。
+
+\begin{origstatement}{命题}{4.1}\label{ch04:prop41}
+设给定一个拓扑空间 $U$ 及其开覆盖 $\{U_i\}$；对每三个指标 $i,j,k$，选取纤维积 $U_{ij}=U_i\cap U_j$ 和 $U_{ijk}=U_i\cap U_j\cap U_k$。
+% Source PDF 80 = printed 68.
+假设对每个 $i$ 给定连续映射 $u_i\colon X_i\to U_i$，且对每一对指标 $i,j$ 给定 $U_{ij}$ 上的同胚 $\phi_{ij}\colon u_j^{-1}U_{ij}\simeq u_i^{-1}U_{ij}$，它们满足余循环条件
+\[
+ \phi_{ik}=\phi_{ij}\circ\phi_{jk}\colon
+ u_k^{-1}U_{ijk}\longrightarrow u_j^{-1}U_{ijk}\longrightarrow u_i^{-1}U_{ijk}.
+\]
+那么存在连续映射 $u\colon X\to U$，以及同构 $\phi_i\colon u^{-1}U_i\simeq X_i$，使得对一切 $i,j$ 都有
+\[
+ \phi_{ij}=\phi_i\circ\phi_j^{-1}\colon
+ u_j^{-1}U_{ij}\longrightarrow u^{-1}U_{ij}\longrightarrow u_i^{-1}U_{ij}.
+\]
+\end{origstatement}
+\begin{proof}
+考虑各个 $U_i$ 的不交并 $U'$；纤维积 $U'\times_U U'$ 是各个 $U_{ij}$ 的不交并。各个 $X_i$ 的不交并 $X'$ 映到 $U'$。考虑子集 $R\subseteq X'\times X'$，其中的元素是满足 $x_i=\phi_{ij}x_j$ 的点对 $(x_i,x_j)\in X_i\times X_j\subseteq X'\times X'$。我断言 $R$ 是 $X'$ 中的一个等价关系。注意，余循环条件 $\phi_{ii}=\phi_{ii}\circ\phi_{ii}$ 蕴含 $\phi_{ii}$ 是 $X_i$ 上的恒等映射，这表明该关系具有自反性。由 $\phi_{ii}=\phi_{ij}\circ\phi_{ji}$，从而 $\phi_{ji}=\phi_{ij}^{-1}$，可知它具有对称性；传递性则直接来自一般的余循环条件。定义 $X$ 为商空间 $X'/R$。
+
+若 $X'$ 的两点等价，则它们在 $U$ 中的像相同；因而诱导出连续映射 $u\colon X\to U$。投影 $X'\to X$ 在 $X_i\subseteq X'$ 上的限制给出连续映射 $\phi_i\colon X_i\to u^{-1}U_i$，容易验证它是同胚。也可看出 $\phi_{ij}=\phi_i\circ\phi_j^{-1}$，证明完毕。
+% The last two occurrences of phi_i have the opposite direction in the scan;
+% retained faithfully; see evidence/ch04-review.md for the source inconsistency.
+\end{proof}
+
+连续映射和拓扑空间可以粘合这一事实，说明 $(\mathrm{Cont})$ 是 $(\mathrm{Top})$ 上的一个叠（stack）。
+
+\subsection{下降数据的范畴}
+设 $\mathcal C$ 是一个景。我们已经看到，$\mathcal C$ 上的纤维范畴应当被看成从 $\mathcal C$ 到范畴所成范畴的函子，即 $\mathcal C$ 上的一个范畴预层。大致说来，叠就是 $\mathcal C$ 上的范畴层。
+
+设 $\mathcal F$ 是 $\mathcal C$ 上的纤维范畴。固定一个分裂选择（cleavage）；我们也将说明如何不借助分裂选择来给出这些定义。
+
+给定覆盖 $\{\sigma_i\colon U_i\to U\}$，对每三个指标 $i,j,k$，置 $U_{ij}=U_i\times_U U_j$ 及 $U_{ijk}=U_i\times_U U_j\times_U U_k$。
+
+\begin{origstatement}{定义}{4.2}\label{ch04:def42}
+设 $\mathcal U=\{\sigma_i\colon U_i\to U\}$ 是 $\mathcal C$ 中的一个覆盖。$\mathcal U$ 上的一个\emph{带下降数据的对象} $\bigl(\{\xi_i\},\{\phi_{ij}\}\bigr)$，是对象族 $\xi_i\in\mathcal F(U_i)$，连同 $\mathcal F(U_i\times_U U_j)$ 中的同构 $\phi_{ij}\colon\operatorname{pr}_2^*\xi_j\simeq\operatorname{pr}_1^*\xi_i$，使得下列余循环条件成立。
+
+对任意三个指标 $i,j,k$，都有等式
+\[
+ \operatorname{pr}_{13}^*\phi_{ik}
+ =\operatorname{pr}_{12}^*\phi_{ij}\circ\operatorname{pr}_{23}^*\phi_{jk}
+ \colon\operatorname{pr}_3^*\xi_k\longrightarrow\operatorname{pr}_1^*\xi_i,
+\]
+其中 $\operatorname{pr}_{ab}$ 和 $\operatorname{pr}_a$ 分别是到第 $a,b$ 个因子以及第 $a$ 个因子的投影。
+
+同构 $\phi_{ij}$ 称为这个带下降数据的对象的\emph{过渡同构}。
+
+带下降数据的对象之间的箭头
+\[
+ \{\alpha_i\}\colon
+ (\{\xi_i\},\{\phi_{ij}\})\longrightarrow(\{\eta_i\},\{\psi_{ij}\})
+\]
+% Source PDF 81 = printed 69.
+是 $\mathcal F(U_i)$ 中的箭头族 $\alpha_i\colon\xi_i\to\eta_i$，并且对每一对指标 $i,j$，下图交换：
+\[
+\begin{tikzcd}
+ \operatorname{pr}_2^*\xi_j\arrow[r,"{\operatorname{pr}_2^*\alpha_j}"]\arrow[d,"{\phi_{ij}}"'] & \operatorname{pr}_2^*\eta_j\arrow[d,"{\psi_{ij}}"]\\
+ \operatorname{pr}_1^*\xi_i\arrow[r,"{\operatorname{pr}_1^*\alpha_i}"'] & \operatorname{pr}_1^*\eta_i.
+\end{tikzcd}
+\]
+\end{origstatement}
+
+理解上述定义时，考察下面的立方图可能有所帮助：
+\begin{equation}\tag{4.1.1}\label{ch04:eq411}
+\begin{tikzcd}[row sep=1.1em,column sep=1.3em]
+ &U_{ijk}\arrow[rr,"{\operatorname{pr}_{23}}"]\arrow[dl,"{\operatorname{pr}_{12}}"']\arrow[dd,"{\operatorname{pr}_{13}}",near start]&&U_{jk}\arrow[dl]\arrow[dd]\\
+ U_{ij}\arrow[rr,crossing over]\arrow[dd]&&U_j\arrow[dd]\\
+ &U_{ik}\arrow[rr]\arrow[dl]&&U_k\arrow[dl]\\
+ U_i\arrow[rr]&&U.
+\end{tikzcd}
+\end{equation}
+其中所有箭头均为投影，每一个面都是笛卡儿方块。
+
+态射有一种显然的复合方式，从而带下降数据的对象构成一个范畴，记作 $\mathcal F(\mathcal U)=\mathcal F(\{U_i\to U\})$。
+
+\begin{origstatement}{注}{4.3}\label{ch04:rem43}
+这个范畴不依赖纤维积 $U_{ij}$ 和 $U_{ijk}$ 的选择，意思是不同选择所得的范畴彼此同构。
+\end{origstatement}
+
+对 $\mathcal F(U)$ 的每个对象 $\xi$，可以如下构造覆盖 $\{\sigma_i\colon U_i\to U\}$ 上的带下降数据的对象。其对象为拉回 $\sigma_i^*\xi$；同构
+$\phi_{ij}\colon\operatorname{pr}_2^*\sigma_j^*\xi\simeq\operatorname{pr}_1^*\sigma_i^*\xi$ 来自以下事实：$\operatorname{pr}_2^*\sigma_j^*\xi$ 与 $\operatorname{pr}_1^*\sigma_i^*\xi$ 都是 $\xi$ 到 $U_{ij}$ 的拉回。若按通常做法把 $\operatorname{pr}_2^*\sigma_j^*\xi$ 与 $\operatorname{pr}_1^*\sigma_i^*\xi$ 认同，那么 $\phi_{ij}$ 就是恒等映射。
+
+给定 $\mathcal F(U)$ 中的箭头 $\alpha\colon\xi\to\eta$，得到箭头 $\sigma_i^*\alpha\colon\sigma_i^*\xi\to\sigma_i^*\eta$，从而得到从与 $\xi$ 相伴的带下降数据的对象到与 $\eta$ 相伴的带下降数据的对象的箭头。这就定义了函子 $\mathcal F(U)\to\mathcal F(\{U_i\to U\})$。
+
+应当注意，这些构造在下述意义下不依赖分裂选择：给定另一个分裂选择，对每个覆盖 $\{U_i\to U\}$，所得的两个范畴 $\mathcal F(\{U_i\to U\})$ 之间有一个典范同构；函子 $\mathcal F(U)\to\mathcal F(\{U_i\to U\})$ 与这些等价相交换。
+
+下面给出一个不依赖分裂选择的下降数据范畴的定义。设 $\{U_i\to U\}_{i\in I}$ 是一个覆盖。我们把带下降数据的对象定义为三个集合
+\[
+ (\{\xi_i\}_{i\in I},\{\xi_{ij}\}_{i,j\in I},\{\xi_{ijk}\}_{i,j,k\in I}),
+\]
+% Source PDF 82 = printed 70.
+其中每个 $\xi_\alpha$ 是 $\mathcal F(U_\alpha)$ 的对象，且对每三个指标 $i,j,k$，还给定交换图
+\[
+\begin{tikzcd}[row sep=.9em,column sep=1.2em]
+ &\xi_{ijk}\arrow[rr]\arrow[dl]\arrow[dd]&&\xi_{jk}\arrow[dl]\arrow[dd]\\
+ \xi_{ij}\arrow[rr,crossing over]\arrow[dd]&&\xi_j\\
+ &\xi_{ik}\arrow[rr]\arrow[dl]&&\xi_k\\
+ \xi_i
+\end{tikzcd}
+\]
+其中每个箭头都是笛卡儿箭头，并且施以 $p_{\mathcal F}$ 后，每个箭头都映到图 \eqref{ch04:eq411} 中相应的投影。它们构成一个范畴 $\mathcal F_{\mathrm{desc}}(\{U_i\to U\})$ 的对象。
+
+一个箭头
+\[
+ \{\phi_i\}_{i\in I}\colon
+ (\{\xi_i\},\{\xi_{ij}\},\{\xi_{ijk}\})
+ \longrightarrow(\{\eta_i\},\{\eta_{ij}\},\{\eta_{ijk}\})
+\]
+是箭头族 $\phi_i\colon\xi_i\to\eta_i$（在 $\mathcal F(U_i)$ 中），使得对每一对指标 $i,j$ 都有
+\[
+ \operatorname{pr}_1^*\phi_i=\operatorname{pr}_2^*\phi_j\colon\xi_{ij}\longrightarrow\eta_{ij}.
+\]
+另一种或许更自然的方式，是把箭头定义为三元组
+$(\{\phi_i\}_{i\in I},\{\phi_{ij}\}_{i,j\in I},\{\phi_{ijk}\}_{i,j,k\in I})$，其中对 $I$、$I\times I$ 或 $I\times I\times I$ 中的每个 $\alpha$，$\phi_\alpha\colon\xi_\alpha\to\eta_\alpha$ 都是 $\mathcal F(U_\alpha)$ 中的箭头，并满足与对象定义中各个箭头的显然的相容条件。这两种箭头定义彼此等价，留给读者验证。
+
+一旦选定分裂选择，就有一个从 $\mathcal F_{\mathrm{desc}}(\{U_i\to U\})$ 到 $\mathcal F(\{U_i\to U\})$ 的函子。给定 $\mathcal F_{\mathrm{desc}}(\{U_i\to U\})$ 的对象 $(\{\xi_i\},\{\xi_{ij}\},\{\xi_{ijk}\})$，箭头 $\xi_{ij}\to\xi_i$ 和 $\xi_{ij}\to\xi_j$ 诱导同构 $\xi_{ij}\simeq\operatorname{pr}_1^*\xi_i$ 和 $\xi_{ij}\simeq\operatorname{pr}_2^*\xi_j$；容易看出，所得同构 $\operatorname{pr}_2^*\xi_j\simeq\operatorname{pr}_1^*\xi_i$ 满足余循环条件，因而定义了 $\mathcal F(\{U_i\to U\})$ 的一个对象。$\mathcal F_{\mathrm{desc}}(\{U_i\to U\})$ 中的箭头 $\{\phi_i\}$ 已经是 $\mathcal F(\{U_i\to U\})$ 中的箭头。
+
+不难验证，这个函子是范畴等价。
+
+不作分裂选择，就不能直接定义函子 $\mathcal F(U)\to\mathcal F_{\mathrm{desc}}(\{U_i\to U\})$。不过，可以定义另一个范畴
+\[
+ \mathcal F_{\mathrm{comp}}(\{U_i\to U\}),
+\]
+其对象为四元组 $(\xi,\{\xi_i\},\{\xi_{ij}\},\{\xi_{ijk}\})$，其中 $\xi$ 是 $\mathcal F(U)$ 的对象，每个 $\xi_\alpha$ 是 $\mathcal F(U_\alpha)$ 的对象，并且对每三个指标给定 $\mathcal F$ 中的交换立方图
+\[
+\begin{tikzcd}[row sep=.9em,column sep=1.2em]
+ &\xi_{ijk}\arrow[rr]\arrow[dl]\arrow[dd]&&\xi_{jk}\arrow[dl]\arrow[dd]\\
+ \xi_{ij}\arrow[rr,crossing over]\arrow[dd]&&\xi_j\arrow[dd]\\
+ &\xi_{ik}\arrow[rr]\arrow[dl]&&\xi_k\arrow[dl]\\
+ \xi_i\arrow[rr]&&\xi,
+\end{tikzcd}
+\]
+其中所有箭头均为笛卡儿箭头，且它在 $\mathcal C$ 中的像就是上面的立方图 \eqref{ch04:eq411}。从 $(\xi,\{\xi_i\},\{\xi_{ij}\},\{\xi_{ijk}\})$ 到 $(\eta,\{\eta_i\},\{\eta_{ij}\},\{\eta_{ijk}\})$ 的箭头，既可定义为 $\mathcal F(U)$ 中的一个箭头 $\phi\colon\xi\to\eta$，
+% Source PDF 83 = printed 71.
+也可定义为满足显然交换条件的箭头族 $\xi\to\eta$、$\xi_i\to\eta_i$、$\xi_{ij}\to\eta_{ij}$ 及 $\xi_{ijk}\to\eta_{ijk}$。
+
+有一个从 $\mathcal F_{\mathrm{comp}}(\{U_i\to U\})$ 到 $\mathcal F(U)$ 的函子，它把整个对象 $(\xi,\{\xi_i\},\{\xi_{ij}\},\{\xi_{ijk}\})$ 送到 $\xi$；容易看出，它是一个等价。还有一个从 $\mathcal F_{\mathrm{comp}}(\{U_i\to U\})$ 到 $\mathcal F_{\mathrm{desc}}(\{U_i\to U\})$ 的函子，它忘掉 $\mathcal F(U)$ 中的对象。这取代了利用分裂选择定义的从 $\mathcal F(U)$ 到 $\mathcal F(\{U_i\to U\})$ 的函子。
+
+\begin{origstatement}{注}{4.4}\label{ch04:rem44}
+当然，若真要保持一贯，就不应假设范畴 $\mathcal C$ 中有纤维积的典范选择，也不应假设 $U_{ij}$ 与 $U_{ijk}$ 预先给定，而应允许它们为任意的纤维积。
+\end{origstatement}
+
+带下降数据的对象最优美的定义使用筛子；它不需要作任何选择。设 $\mathcal U=\{U_i\to U\}$ 是 $\mathcal C$ 中的一个覆盖。筛子 $h_{\mathcal U}\colon\mathcal C^{\op}\to(\mathrm{Set})$ 是一个函子，其相伴的集合纤维范畴是 $(\mathcal C/U)$ 的满子范畴，对象为能通过某个 $U_i\to U$ 分解的箭头 $T\to U$。按照应当认同函子与集合纤维范畴的原则，用 $h_{\mathcal U}$ 表示这个范畴。同样，也用 $h_U$ 表示范畴 $(\mathcal C/U)$。
+
+如下定义一个函子 $\Hom_{\mathcal C}(h_{\mathcal U},\mathcal F)\to\mathcal F_{\mathrm{desc}}(\mathcal U)$。设给定态射 $F\colon h_{\mathcal U}\to(\mathrm{Set})$。对任意三个指标 $i,j,k$，$U_i\to U$、$U_{ij}\to U$ 和 $U_{ijk}\to U$ 都是 $h_{\mathcal U}$ 的对象，且 \eqref{ch04:eq411} 中不以 $U$ 为终点的各个投影都是 $h_{\mathcal U}$ 的箭头。因而施以 $F$，得到图
+% Source p.71 says F:h_Ucal -> (Set); retained, although the surrounding construction requires F as target.
+\[
+\begin{tikzcd}[row sep=.9em,column sep=1.2em]
+ &F(U_{ijk})\arrow[rr]\arrow[dl]\arrow[dd]&&F(U_{jk})\arrow[dl]\arrow[dd]\\
+ F(U_{ij})\arrow[rr,crossing over]\arrow[dd]&&F(U_j)\\
+ &F(U_{ik})\arrow[rr]\arrow[dl]&&F(U_k)\\
+ F(U_i),
+\end{tikzcd}
+\]
+这给出 $\mathcal F_{\mathrm{desc}}(\mathcal U)$ 的一个对象。它以显然的方式扩张为函子
+\[
+ \Hom(h_{\mathcal U},\mathcal F)\longrightarrow\mathcal F_{\mathrm{desc}}(\mathcal U).
+\]
+再考虑由嵌入 $h_{\mathcal U}\subseteq h_U$ 诱导的函子
+\[
+ \Hom_{\mathcal C}(h_U,\mathcal F)\longrightarrow\Hom_{\mathcal C}(h_{\mathcal U},\mathcal F).
+\]
+作出分裂选择后，容易验证，函子的复合
+\[
+ \Hom_{\mathcal C}(h_U,\mathcal F)\longrightarrow
+ \Hom_{\mathcal C}(h_{\mathcal U},\mathcal F)
+ \simeq\mathcal F_{\mathrm{desc}}(\mathcal U)\simeq\mathcal F(\mathcal U)
+\]
+同构于复合
+\[
+ \Hom_{\mathcal C}(h_U,\mathcal F)\simeq\mathcal F(U)\longrightarrow\mathcal F(\mathcal U),
+\]
+其中第一个函子是 2-Yoneda 引理给出的等价。
+
+下面的命题推广了命题 2.39。
+
+\begin{origstatement}{命题}{4.5}\label{ch04:prop45}
+函子 $\Hom(h_{\mathcal U},\mathcal F)\to\mathcal F_{\mathrm{desc}}(\mathcal U)$ 是一个等价。
+\end{origstatement}
+% Source PDF 84 = printed 72.
+\begin{proof}
+构造函子 $\mathcal F_{\mathrm{desc}}(\mathcal U)\to\Hom(h_{\mathcal U},\mathcal F)$。置 $\mathcal U=\{U_i\to U\}$，并对 $h_{\mathcal U}$ 中每个 $T\to U$ 选取分解 $T\to U_i\to U$。设给定 $\mathcal F_{\mathrm{desc}}(\mathcal U)$ 的对象 $(\{\xi_i\},\{\xi_{ij}\},\{\xi_{ijk}\})$；对范畴 $h_{\mathcal U}$ 中每个箭头 $T\to U$，沿选定的箭头 $T\to U_i$ 拉回 $\xi_i$，得到 $T$ 的对象 $\xi_T$。这定义了从 $h_{\mathcal U}$ 的对象集合到 $\mathcal F$ 的一个映射。
+
+给定 $h_{\mathcal U}$ 中的箭头 $T'\to T\to U$，为复合 $T'\to U$ 选取分解 $T'\to U_j\to U$。它与复合 $T'\to T\to U_i$ 一起给出箭头 $T'\to U_{ij}$，组成图
+\[
+\begin{tikzcd}
+ T'\arrow[r]\arrow[d]&U_{ij}\arrow[r]\arrow[d]&U_j\arrow[d]\\
+ T\arrow[r]&U_i\arrow[r]&U.
+\end{tikzcd}
+\]
+由于给定箭头 $\xi_{ij}\to\xi_j$ 是笛卡儿箭头，由定义给出的典范箭头 $\xi_{T'}\to\xi_j$（$\xi_{T'}$ 是 $\xi_j$ 的拉回）唯一分解为 $\xi_{T'}\to\xi_{ij}\to\xi_j$，使 $\xi_{T'}\to\xi_{ij}$ 映到 $T'\to U_{ij}$。复合 $\xi_{T'}\to\xi_{ij}\to\xi_i$ 又唯一分解为 $\xi_{T'}\to\xi_T\to\xi_i$，其中箭头 $\xi_{T'}\to\xi_T$ 映到 $\mathcal C$ 中给定的箭头 $T'\to T$。由命题 3.4(iii)，箭头 $\xi_{T'}\to\xi_T$ 是笛卡儿箭头。
+
+这两个分别作用于对象和箭头的映射定义了态射 $h_{\mathcal U}\to\mathcal F$。需要验证复合
+\[
+ \mathcal F_{\mathrm{desc}}(\mathcal U)\longrightarrow\Hom(h_{\mathcal U},\mathcal F)
+ \longrightarrow\mathcal F_{\mathrm{desc}}(\mathcal U)
+\]
+和
+\[
+ \Hom(h_{\mathcal U},\mathcal F)\longrightarrow\mathcal F_{\mathrm{desc}}(\mathcal U)
+ \longrightarrow\Hom(h_{\mathcal U},\mathcal F)
+\]
+均同构于恒等函子。这是直接的，留给读者验证。
+\end{proof}
+
+若作出分裂选择，函子的复合
+\[
+ \Hom_{\mathcal C}(h_U,\mathcal F)\longrightarrow\Hom_{\mathcal C}(h_{\mathcal U},\mathcal F)
+ \simeq\mathcal F_{\mathrm{desc}}(\mathcal U)\simeq\mathcal F(\mathcal U)
+\]
+同构于复合
+\[
+ \Hom_{\mathcal C}(h_U,\mathcal F)\simeq\mathcal F(U)\longrightarrow\mathcal F(\mathcal U),
+\]
+其中第一个函子是 2-Yoneda 引理给出的等价。
+
+\subsection{具有下降的纤维范畴}
+\begin{origstatement}{定义}{4.6}\label{ch04:def46}
+设 $\mathcal F\to\mathcal C$ 是景 $\mathcal C$ 上的纤维范畴。
+\begin{enumerate}
+ \item[(i)] 若对 $\mathcal C$ 中每个覆盖 $\{U_i\to U\}$，函子 $\mathcal F(U)\to\mathcal F(\{U_i\to U\})$ 都是全忠实的，则称 $\mathcal F$ 为 $\mathcal C$ 上的\emph{预叠}（prestack）。
+ \item[(ii)] 若对 $\mathcal C$ 中每个覆盖 $\{U_i\to U\}$，函子 $\mathcal F(U)\to\mathcal F(\{U_i\to U\})$ 都是范畴等价，则称 $\mathcal F$ 为 $\mathcal C$ 上的\emph{叠}。
+\end{enumerate}
+\end{origstatement}
+
+具体而言，$\mathcal F$ 为预叠的含义如下。设 $U$ 是 $\mathcal C$ 的对象，$\xi,\eta$ 是 $\mathcal F(U)$ 的对象，$\{U_i\to U\}$ 是覆盖，$\xi_i,\eta_i$ 分别是 $\xi,\eta$ 到 $U_i$ 的拉回，$\xi_{ij},\eta_{ij}$ 分别是它们到 $U_{ij}$ 的拉回。假设有 $\mathcal F(U_i)$ 中的箭头 $\alpha_i\colon\xi_i\to\eta_i$，使得对一切 $i,j$ 都有 $\operatorname{pr}_1^*\alpha_i=\operatorname{pr}_2^*\alpha_j\colon\xi_{ij}\to\eta_{ij}$。那么存在唯一的 $\mathcal F(U)$ 中的箭头 $\alpha\colon\xi\to\eta$，它到 $\xi_i\to\eta_i$ 的拉回对每个 $i$ 都是 $\alpha_i$。
+
+利用第 3.7 节的箭头函子及范畴 $(\mathcal C/S)$ 上的逗号拓扑（定义 2.58），可以重新表述这个条件。
+
+% Source PDF 85 = printed 73.
+\begin{origstatement}{命题}{4.7}\label{ch04:prop47}
+设 $\mathcal F$ 是景 $\mathcal C$ 上的纤维范畴。那么 $\mathcal F$ 是预叠，当且仅当对 $\mathcal C$ 的任意对象 $S$ 以及 $\mathcal F(S)$ 中任意两个对象 $\xi,\eta$，函子
+$\underline{\Hom}_S(\xi,\eta)\colon(\mathcal C/S)\to(\mathrm{Set})$ 都是逗号拓扑中的层。
+\end{origstatement}
+\begin{proof}
+先证明一个方向。假设对 $\mathcal C$ 的任意对象 $S$ 及 $\mathcal F(S)$ 中任意两个对象 $\xi,\eta$，函子 $\underline{\Hom}_S(\xi,\eta)\colon(\mathcal C/S)\to(\mathrm{Set})$ 都是层。取 $\mathcal C$ 的对象 $U$、覆盖 $\{U_i\to U\}$ 以及 $\mathcal F(U)$ 的两个对象 $\xi,\eta$。分别以 $(\{\xi_i\},\{\alpha_{ij}\})$ 和 $(\{\eta_i\},\{\beta_{ij}\})$ 表示与 $\xi,\eta$ 相伴的下降数据，则容易看出，$\mathcal F(\{U_i\to U\})$ 中的箭头是箭头族 $\{\phi_i\colon\xi_i\to\eta_i\}$，使得 $\phi_i$ 与 $\phi_j$ 限制到 $\xi,\eta$ 在 $U_{ij}$ 上的拉回后相同。$\underline{\Hom}_U(\xi,\eta)$ 是层这一事实保证，这样的箭头族来自 $\mathcal F(U)$ 中唯一的箭头 $\xi\to\eta$；而这恰好说明函子 $\mathcal F(U)\to\mathcal F(\{U_i\to U\})$ 是全忠实的。
+
+另一个方向的证明类似，留给读者。
+\end{proof}
+
+\begin{origstatement}{定义}{4.8}\label{ch04:def48}
+若 $\mathcal F(\{U_i\to U\})$ 中的带下降数据的对象 $(\{\xi_i\},\{\phi_{ij}\})$ 同构于 $\mathcal F(U)$ 某个对象的像，则称它是\emph{有效的}（effective）。
+\end{origstatement}
+
+这也可以表述如下：$\mathcal F(\{U_i\to U\})$ 中的带下降数据的对象 $(\{\xi_i\},\{\phi_{ij}\})$ 有效，当且仅当存在 $\mathcal F(U)$ 的对象 $\xi$，以及位于 $\sigma_i\colon U_i\to U$ 上的笛卡儿箭头 $\xi_i\to\xi$，使得对一切 $i,j$，下图交换：
+\[
+\begin{tikzcd}[column sep=1.4em]
+ \operatorname{pr}_2^*\xi_j\arrow[rr,"{\phi_{ij}}"]\arrow[d]&&\operatorname{pr}_1^*\xi_i\arrow[d]\\
+ \xi_j\arrow[dr]&&\xi_i\arrow[dl]\\
+ &\xi.
+\end{tikzcd}
+\]
+事实上，笛卡儿箭头 $\xi_i\to\xi$ 对应于 $\mathcal F(U_i)$ 中的同构 $\xi_i\simeq\sigma_i^*\xi$；容易看出，上图的交换性等价于余循环条件。
+
+显然，$\mathcal F$ 是叠，当且仅当它是预叠，且 $\mathcal F$ 中所有带下降数据的对象均有效。
+
+叠是层的正确推广，并给出“范畴层”的恰当概念。当然，我们应该证明下述陈述。
+
+\begin{origstatement}{命题}{4.9}\label{ch04:prop49}
+设 $\mathcal C$ 是景，$F\colon\mathcal C^{\op}\to(\mathrm{Set})$ 是函子；也把它看作集合纤维范畴 $F\to\mathcal C$。
+\begin{enumerate}
+ \item[(i)] $F$ 是预叠，当且仅当它是分离函子。
+ \item[(ii)] $F$ 是叠，当且仅当它是层。
+\end{enumerate}
+\end{origstatement}
+\begin{proof}
+考虑覆盖 $\{U_i\to U\}$。范畴 $F\to\mathcal C$ 在 $U$ 上的纤维恰好是集合 $F(U)$，而范畴 $F(\{U_i\to U\})$ 是满足下述条件的元素 $(\xi_i)\in\prod_i F(U_i)$ 所成的集合：$\xi_i$ 与 $\xi_j$ 分别沿第一、第二投影 $U_i\times_U U_j\to U_i$ 和 $U_i\times_U U_j\to U_j$ 拉回到 $F(U_i\times_U U_j)$ 后相同。函子 $F(U)\to F(\{U_i\to U\})$ 就是把每个元素 $\xi\in F(U)$ 送到限制族 $(\xi|_{U_i})$ 的映射。
+
+把一个集合映射看成离散范畴之间的函子时，全忠实等价于单射，范畴等价等价于双射。两个结论由此均得证。
+\end{proof}
+
+% Source PDF 86 = printed 74.
+\begin{origstatement}{注}{4.10}\label{ch04:rem410}
+这里由 Grothendieck 引入的术语稍显不妥。纤维范畴推广了函子；然而预层只不过是一个函子，因此类比而言，预叠应当只不过是一个纤维范畴。我们所称的预叠应当称为分离预叠。
+
+我决定沿用 Grothendieck 的术语，主要是因为代数叠理论中有“分离叠”的概念；若采用更合理的术语“分离预叠”，则“分离叠”中的“分离”就成了赘词。
+\end{origstatement}
+
+\begin{origstatement}{例}{4.11}\label{ch04:ex411}
+设 $\mathcal C$ 是景。我断言，例 3.20 中定义的纤维范畴 $(\mathrm{Sh}/\mathcal C)\to\mathcal C$ 是一个叠。
+
+下面给出证明的梗概。设 $F,G$ 是 $\mathcal C$ 的对象 $X$ 上的两个层；为了证明 $(\mathrm{Sh}/\mathcal C)$ 是预叠，需要证明 $\underline{\Hom}_X\colon(\mathcal C/X)^{\op}\to(\mathrm{Set})$ 是层。
+
+对每个箭头 $U\to X$，以 $F_U,G_U$ 表示 $F,G$ 到 $U$ 的限制。设 $\{U_i\to U\}$ 是覆盖，$\phi_i\colon F_{U_i}\to G_{U_i}$ 是 $(\mathcal C/U_i)$ 上的层态射，且 $\phi_i$ 与 $\phi_j$ 到 $(\mathcal C/U_{ij})$ 的限制相同。以 $\phi_{ij}\colon F_{U_{ij}}\to G_{U_{ij}}$ 表示这个限制。若 $T\to U$ 是箭头，置 $T_i=U_i\times_U T$，并考虑覆盖 $\{T_i\to T\}$。每个 $T_i\to U$ 都通过 $U_i$ 分解，因此 $\phi_i$ 定义了映射 $\phi_i\colon FT_i\to GT_i$，类似地，$\phi_{ij}$ 定义映射 $\phi_{ij}\colon FT_{ij}\to GT_{ij}$。有集合的交换图，其行均为等化子：
+\[
+\begin{tikzcd}[column sep=large]
+ FT\arrow[r]\arrow[d,dashed]&\prod_i FT_i\arrow[r,shift left=.5ex]\arrow[r,shift right=.5ex]\arrow[d,"{\prod_i\phi_i}"]&\prod_{ij}FT_{ij}\arrow[d,"{\prod_{ij}\phi_{ij}}"]\\
+ GT\arrow[r]&\prod_i GT_i\arrow[r,shift left=.5ex]\arrow[r,shift right=.5ex]&\prod_{ij}GT_{ij}.
+\end{tikzcd}
+\]
+存在唯一的映射 $\phi_T\colon FT\to GT$ 可以填入此图并使之保持交换。这证明了唯一性。此外，容易验证，$\phi_T$ 所成的族定义一个自然变换 $\phi_U\colon F_U\to G_U$，它的限制 $F_{U_i}\to G_{U_i}$ 就是 $\phi_i$。
+
+现在证明每个带下降数据的对象 $(\{F_i\},\{\phi_{ij}\})$ 都有效。这里 $F_i$ 是 $(\mathcal C/U_i)$ 上的层，$\phi_{ij}$ 是 $(\mathcal C/U_{ij})$ 上两个限制层之间的同构 $(F_j)_{U_{ij}}\simeq(F_i)_{U_{ij}}$。
+
+对 $(\mathcal C/U)$ 的每个对象 $T\to U$，仍置 $T_i=U_i\times_U T$，并定义 $FT$ 为 $\prod_i F_iT_i$ 的子集，由满足下述条件的元素 $(s_i)\in\prod_i F_iT_i$ 组成：$\phi_{ij}$ 把限制 $(s_j)_{T_{ij}}$ 送到 $(s_i)_{T_{ij}}$。换言之，$FT$ 是两个映射 $\prod_i F_iT_i\rightrightarrows\prod_{ij}F_iT_{ij}$ 的等化子，第一个映射把 $(s_i)$ 送到限制族 $((s_i)_{U_{ij}})$，第二个送到 $(\phi_{ij}(s_j)_{U_{ij}})$。
+
+对 $(\mathcal C/U)$ 中任意箭头 $T'\to T$，容易看出，限制映射的积 $\prod_i F_iT_i\to\prod_i F_iT'_i$ 把 $FT$ 映到 $FT'$；这使 $F$ 成为函子 $(\mathcal C/U)^{\op}\to(\mathrm{Set})$。$F$ 是层，留给读者验证。
+
+现在要证明，$F$ 在 $(\mathrm{Sh}/S)(\{U_i\to U\})$ 中的像同构于 $(\{F_i\},\{\phi_{ij}\})$。
+
+对每个指标 $k$，构造限制 $F_{U_k}$ 与 $F_k$ 之间作为 $(\mathcal C/U_k)$ 上的层的同构。设 $T\to U_k$ 是 $(\mathcal C/U_k)$ 的对象，$s\in F_kT$。每个 $T_i$ 均映到 $U_{ik}$，于是得到元素 $(\phi_{ik}(s_{T_i}))\in\prod_i F_iT_i$；余循环条件保证它属于 $FT$。这定义自然变换 $F_k\to F_{U_k}$。
+
+% Source PDF 87 = printed 75.
+反过来，设 $T\to U_k$ 是 $(\mathcal C/U_k)$ 的对象，$(s_i)\in FT\subseteq\prod_i F_iT_i$。把每个 $T_i\to U_i$ 通过投影 $U_{ki}\to U_i$ 分解。那么 $\phi_{ki}(s_i)$ 是 $F_kT_i$ 的元素，余循环条件蕴含 $\phi_{ki}(s_i)$ 与 $\phi_{kj}(s_j)$ 在 $F_kT_{ij}$ 中的限制相同。因此存在唯一的 $F_kT$ 的元素，它对每个 $i$ 都限制为 $\phi_{ki}(s_i)\in F_kT_i$。这个构造为每个 $T$ 定义映射 $FT\to F_kT$，容易看出它们给出自然变换 $F_{U_k}\to F_k$。
+
+这两个自然变换互逆，从而定义层同构 $F_{U_k}\simeq F_k$；这族同构在 $(\mathrm{Sh}/S)(\{U_i\to U\})$ 中构成与 $F$ 相伴的对象到给定对象 $(\{F_i\},\{\phi_{ij}\})$ 的同构。两点均留给读者验证。因而给定对象有效。
+\end{origstatement}
+
+\subsection{下降数据的函子性}
+下降数据有三种函子性：对于纤维范畴的态射具有函子性，对于对象具有函子性，以及在加细下具有函子性。
+
+设 $F\colon\mathcal F\to\mathcal G$ 是 $\mathcal C$ 上纤维范畴的态射。对任意覆盖 $\mathcal U=\{U_i\to U\}$，得到函子 $F_{\mathcal U}\colon\mathcal F(\mathcal U)\to\mathcal G(\mathcal U)$，它在对象上由显然的规则
+\[
+ F_{\mathcal U}(\{\xi_i\},\{\phi_{ij}\})=(\{F\xi_i\},\{F\phi_{ij}\})
+\]
+定义，在箭头上则由同样显然的规则
+\[
+ F_{\mathcal U}\{\alpha_i\}=\{F\alpha_i\}
+\]
+定义。此外，若 $\rho\colon F\to G$ 是态射之间保持基底的自然变换，就诱导出函子间的自然变换 $\rho_{\mathcal U}\colon F_{\mathcal U}\to G_{\mathcal U}$，定义为
+\[
+ (\rho_{\mathcal U})_{(\{\xi_i\},\{\phi_{ij}\})}=\{\rho_{\xi_i}\}.
+\]
+因此，若 $F$ 是纤维范畴的等价，则 $F_{\mathcal U}$ 也是等价。留给读者验证下图交换：
+\[
+\begin{tikzcd}
+ \mathcal F(U)\arrow[r]\arrow[d]&\mathcal F(\mathcal U)\arrow[d]\\
+ \mathcal G(U)\arrow[r]&\mathcal G(\mathcal U),
+\end{tikzcd}
+\]
+这里“交换”的意思是两个复合 $\mathcal F(U)\to\mathcal G(\mathcal U)$ 同构。由此得到下面有用的事实。
+
+\begin{origstatement}{命题}{4.12}\label{ch04:prop412}
+\begin{enumerate}
+ \item[(a)] 若 $F$ 是纤维范畴的等价，且 $\mathcal F(U)\to\mathcal F(\mathcal U)$ 是范畴等价，则 $\mathcal G(U)\to\mathcal G(\mathcal U)$ 也是范畴等价。
+ \item[(b)] 若景上的两个纤维范畴等价，且其中之一是叠或预叠，则另一个也分别是叠或预叠。
+\end{enumerate}
+\end{origstatement}
+
+这一切都可以用筛子更优美地重新表述。态射 $F\colon\mathcal F\to\mathcal G$ 诱导函子 $F_*\colon\Hom(h_{\mathcal U},\mathcal F)\to\Hom(h_{\mathcal U},\mathcal G)$，它在对象上就是与 $F$ 复合。此时上图变为
+\[
+\begin{tikzcd}
+ \Hom(h_U,\mathcal F)\arrow[r]\arrow[d]&\Hom(h_{\mathcal U},\mathcal F)\arrow[d]\\
+ \Hom(h_U,\mathcal G)\arrow[r]&\Hom(h_{\mathcal U},\mathcal G),
+\end{tikzcd}
+\]
+% Source PDF 88 = printed 76.
+这是严格交换的，即两个复合相等，而不只是同构。简单的细节留给读者。
+
+我们不需要下降数据对于对象的函子性，因此只概述其想法：若 $\{U_i\to U\}$ 是覆盖，$V\to U$ 是箭头，就有函子
+$\mathcal F(\{U_i\to U\})\to\mathcal F(\{V\times_U U_i\to V\})$。若 $(\{\xi_i\},\{\phi_{ij}\})$ 是 $\mathcal F(\{U_i\to U\})$ 的对象，它在 $\mathcal F(\{V\times_U U_i\to V\})$ 中的像由沿投影 $V\times_U U_i\to U_i$ 拉回 $\xi_i$ 和 $\phi_{ij}$ 得到。
+
+现设 $\mathcal F$ 是 $\mathcal C$ 上的纤维范畴，$\mathcal U=\{U_i\to U\}_{i\in I}$ 是覆盖，$\mathcal V=\{V_{i'}\to U\}_{i'\in I'}$ 是 $\mathcal U$ 的一个加细。对每个指标 $i'$，选取分解 $V_{i'}\xrightarrow{f_{i'}}U_{\mu(i')}\to U$，其中 $\mu(i')\in I$；这定义映射 $\mu\colon I'\to I$。
+
+它如下诱导函子 $\mathcal F\mathcal U\to\mathcal F\mathcal V$：把对象 $(\{\xi_i\},\{\phi_{ij}\})$ 送到
+$(\{f_{i'}^*\xi_{\mu(i')}\},\{f_{i'}^*\phi_{\mu(i')\mu(j')}\})$；这是带下降数据的对象，留给读者验证。箭头
+\[
+ \{\alpha_i\}\colon(\{\xi_i\},\{\phi_{ij}\})\longrightarrow(\{\eta_i\},\{\psi_{ij}\})
+\]
+是 $\mathcal F(U_i)$ 中的箭头族 $\alpha_i\colon\xi_i\to\eta_i$，可拉回为箭头
+$f_{i'}^*\alpha_{\mu(i')}\colon f_{i'}^*\xi_{\mu(i')}\to f_{i'}^*\eta_{\mu(i')}$。留给读者验证，箭头族 $\{f_{i'}^*\alpha_{\mu(i')}\}$ 给出箭头
+\[
+ (\{f_{i'}^*\xi_{\mu(i')}\},\{f_{i'}^*\phi_{\mu(i')\mu(j')}\})
+ \longrightarrow(\{f_{i'}^*\eta_{\mu(i')}\},\{f_{i'}^*\psi_{\mu(i')\mu(j')}\}),
+\]
+且这确实定义了函子。
+
+这个函子本质上不依赖映射 $\mu\colon I'\to I$，即改变该映射后，所得函子彼此同构。证明如下。设 $\nu\colon I'\to I$ 是另一个映射，并有分解 $V_{i'}\xrightarrow{g_{i'}}U_{\nu(i')}\to U$。两个箭头 $f_{i'},g_{i'}$ 诱导箭头 $(f_{i'},g_{i'})\colon V_{i'}\to U_{\mu(i')\nu(i')}$。把下图中的同构复合，定义同构 $f_{i'}^*\xi_{\mu(i')}\simeq g_{i'}^*\xi_{\nu(i')}$：
+\[
+\begin{tikzcd}[column sep=large]
+ f_{i'}^*\xi_{\mu(i')}\arrow[r,dashed]\arrow[d,"{\simeq}"'] &g_{i'}^*\xi_{\nu(i')}\\
+ (f_{i'},g_{i'})^*\operatorname{pr}_1^*\xi_{\mu(i')}
+ \arrow[r,"{(f_{i'},g_{i'})^*\phi_{ij}}"'] &(f_{i'},g_{i'})^*\operatorname{pr}_2^*\xi_{\nu(i')}\arrow[u,"{\simeq}"'].
+\end{tikzcd}
+\]
+余循环条件保证，这给出下降数据
+$(\{f_{i'}^*\xi_{\mu(i')}\},\{f_{i'}^*\phi_{\mu(i')\mu(j')}\})$ 与
+$(\{g_{i'}^*\xi_{\nu(i')}\},\{g_{i'}^*\phi_{\nu(i')\nu(j')}\})$ 之间的同构（细节留给读者）。容易验证，这给出函子的同构。
+
+此外，若 $\mathcal W=\{W_{i''}\to U\}_{i''\in I''}$ 是 $\mathcal V$ 的加细，它也是 $\mathcal U$ 的加细。选定映射 $\mu\colon I'\to I$、$\nu\colon I''\to I'$、$\rho\colon I''\to I$，以及分解
+\[
+ V_{i'}\xrightarrow{f_{i'}}U_{\mu(i')}\to U,\qquad
+ W_{i''}\xrightarrow{g_{i''}}V_{\nu(i'')}\to U,\qquad
+ W_{i''}\xrightarrow{h_{i''}}U_{\rho(i'')}\to U,
+\]
+便得到函子 $\mathcal F\mathcal U\to\mathcal F\mathcal V$、$\mathcal F\mathcal V\to\mathcal F\mathcal W$ 以及 $\mathcal F\mathcal U\to\mathcal F\mathcal W$。我断言，前两个函子的复合同构于第三个。
+
+为此，可以改变分解 $W_{i''}\xrightarrow{h_{i''}}U_{\rho(i'')}\to U$，因为如前所见，这不改变函子 $\mathcal F\mathcal U\to\mathcal F\mathcal W$ 的同构类；因此可假设 $\rho=\mu\circ\nu\colon I''\to I$，且 $h_{i''}\colon W_{i''}\to U_{\rho(i'')}$ 等于复合 $f_{\nu(i'')}\circ g_{i''}$。给定 $\mathcal F\mathcal U$ 的对象 $(\{\xi_i\},\{\phi_{ij}\})$，它在函子 $\mathcal F\mathcal U\to\mathcal F\mathcal W$ 下的像为 $\mathcal F\mathcal W$ 的对象
+\[
+ (\{(f_{\nu(i'')}g_{i''})^*\xi_{i''}\},
+ \{(f_{\nu(i'')}g_{i''})^*\phi_{\nu\mu(i'')\nu\mu(j'')}\}),
+\]
+% Source PDF 89 = printed 77.
+而它在复合 $\mathcal F\mathcal U\to\mathcal F\mathcal V\to\mathcal F\mathcal V\to\mathcal F\mathcal W$ 下的像为对象
+\[
+ (\{g_{i''}^*f_{\nu(i'')}^*\xi_{i''}\},
+ \{g_{i''}^*f_{\nu(i'')}^*\phi_{\nu\mu(i'')\nu\mu(j'')}\}).
+\]
+典范同构 $(f_{\nu(i'')}g_{i''})^*\xi_{i''}\simeq g_{i''}^*f_{\nu(i'')}^*\xi_{i''}$ 给出 $\mathcal F\mathcal W$ 中这两个对象的同构，从而定义所需的函子同构。
+% The scan's indices xi_{i''}, nu mu, and the repeated F V in the composite are retained.
+
+再一次，用筛子的语言，一切都简单得多：若 $\mathcal V$ 是 $\mathcal U$ 的加细，则 $h_{\mathcal V}$ 是 $h_{\mathcal U}$ 的子函子，嵌入 $h_{\mathcal V}\hookrightarrow h_{\mathcal U}$ 诱导函子
+\[
+ \Hom_{\mathcal C}(h_{\mathcal U},\mathcal F)\longrightarrow\Hom_{\mathcal C}(h_{\mathcal V},\mathcal F),
+\]
+无需作任何选择。而且，用这种语言，复合
+\[
+ \Hom_{\mathcal C}(h_{\mathcal U},\mathcal F)\longrightarrow
+ \Hom_{\mathcal C}(h_{\mathcal V},\mathcal F)\longrightarrow
+ \Hom_{\mathcal C}(h_{\mathcal W},\mathcal F)
+\]
+与函子 $\Hom_{\mathcal C}(h_{\mathcal U},\mathcal F)\to\Hom_{\mathcal C}(h_{\mathcal W},\mathcal F)$ 严格相等。
+
+\subsection{叠与筛子}
+利用命题 4.5 对带下降数据的对象范畴的描述，可给出下述十分优美的叠的刻画；它推广了推论 2.42 对层的刻画。
+
+\begin{origstatement}{推论}{4.13}\label{ch04:cor413}
+纤维范畴 $\mathcal F\to\mathcal C$ 是叠，当且仅当对 $\mathcal C$ 中任意覆盖 $\mathcal U$，由嵌入 $h_{\mathcal U}\subseteq h_U$ 诱导的函子
+\[
+ \Hom_{\mathcal C}(h_U,\mathcal F)\longrightarrow\Hom_{\mathcal C}(h_{\mathcal U},\mathcal F)
+\]
+是一个等价。
+\end{origstatement}
+
+如同命题 2.42，这可以进一步加强。
+
+\begin{origstatement}{命题}{4.14}\label{ch04:prop414}
+纤维范畴 $\mathcal F\to\mathcal C$ 是叠，当且仅当对 $\mathcal C$ 的任意对象 $U$ 及属于 $\mathcal T$ 的 $U$ 上的筛子 $S$，由嵌入 $h_U\subseteq S$ 诱导的函子
+\[
+ \Hom_{\mathcal C}(h_U,\mathcal F)\longrightarrow\Hom_{\mathcal C}(S,\mathcal F)
+\]
+是一个等价。
+% The source prints h_U subseteq S; the direction is recorded as a source issue.
+
+此外，$\mathcal F$ 是预叠，当且仅当上述函子对一切 $U,S$ 都是全忠实的。
+\end{origstatement}
+\begin{proof}
+若该函子是等价，则 $\mathcal F$ 是叠，这由推论 4.13 得出；因此只需证明逆向蕴含（第二个陈述亦然）。
+
+设 $S$ 是 $\mathcal C$ 的对象 $U$ 上属于 $\mathcal T$ 的筛子。选取 $U$ 的覆盖 $\mathcal U=\{U_i\to U\}$，使 $h_{\mathcal U}\subseteq S$；限制函子 $\Hom_{\mathcal C}(h_U,\mathcal F)\to\Hom_{\mathcal C}(h_{\mathcal U},\mathcal F)$ 是等价，且它分解为
+\[
+ \Hom_{\mathcal C}(h_U,\mathcal F)\longrightarrow\Hom_{\mathcal C}(S,\mathcal F)
+ \longrightarrow\Hom_{\mathcal C}(h_{\mathcal U},\mathcal F).
+\]
+再由推论 4.13，$\Hom_{\mathcal C}(h_U,\mathcal F)\to\Hom_{\mathcal C}(h_{\mathcal U},\mathcal F)$ 是全忠实的，并在 $\mathcal F$ 为叠时是等价；因此 $\Hom_{\mathcal C}(S,\mathcal F)\to\Hom_{\mathcal C}(h_{\mathcal U},\mathcal F)$ 是满的，并在 $\mathcal F$ 为叠时本质满射。所以只需下面的引理。
+\end{proof}
+% The source postpones the final QED until after Lemma 4.15.
+
+% Source PDF 90 = printed 78.
+\begin{origstatement}{引理}{4.15}\label{ch04:lem415}
+设 $\mathcal F$ 是景 $\mathcal C$ 上的预叠，$S,S'$ 是属于 $\mathcal C$ 的拓扑的筛子，且 $S'\subseteq S$。那么诱导的限制函子
+\[
+ \Hom_{\mathcal C}(S,\mathcal F)\longrightarrow\Hom_{\mathcal C}(S',\mathcal F)
+\]
+是忠实的。
+\end{origstatement}
+这推广了引理 2.43。
+\begin{proof}
+证明与引理 2.43 的证明十分相似。设 $F,G$ 是两个态射 $S\to\mathcal F$，$\phi,\psi$ 是两个保持基底的自然变换，它们从 $F$ 在 $h_{\mathcal U}$ 上的限制到 $G$ 的限制诱导相同的自然变换。设 $T\to U$ 是 $S$ 中的箭头；需要证明
+\[
+ \phi_{T\to U}=\psi_{T\to U}\colon F(T\to U)\longrightarrow G(T\to U).
+\]
+考虑纤维积 $T\times_U U_i$ 及其第一投影 $p_i\colon T\times_U U_i$。由于 $F,G$ 是态射，且 $S$ 是函子，从而 $S$ 中每个箭头都是笛卡儿箭头，故箭头
+\[
+ F(p_i)\colon F(T\times_U U_i\to U)\longrightarrow F(T\to U)
+\]
+和
+\[
+ G(p_i)\colon G(T\times_U U_i\to U)\longrightarrow G(T\to U)
+\]
+都是笛卡儿箭头。考虑覆盖 $\{T\times_U U_i\to T\}$：由于复合 $T\times_U U_i\to T\to U$ 属于 $h_{\mathcal U}T$，有
+\[
+ \phi_{T\times_U U_i\to U}=\psi_{T\times_U U_i\to U}
+ \colon F(T\times_U U_i\to U)\longrightarrow G(T\times_U U_i\to U).
+\]
+于是，下面各图的交换性
+\[
+\begin{tikzcd}[column sep=large]
+ F(T\times_U U_i\to U)\arrow[r,"{\phi_{T\times_U U_i\to U}}"]\arrow[d,"{F(p_i)}"']&G(T\times_U U_i\to U)\arrow[d,"{G(p_i)}"]\\
+ F(T\to U)\arrow[r,"{\phi_{T\to U}}"']&G(T\to U)
+\end{tikzcd}
+\]
+可以解释为：$\phi_{T\to U}$ 与 $\psi_{T\to U}$ 到 $T\times_U U_i$ 的拉回相同。由于 $\mathcal F$ 是预叠，其箭头函子为层，故这蕴含 $\phi_{T\to U}$ 与 $\psi_{T\to U}$ 相等，断言得证。
+\end{proof}
+
+命题 4.14 的证明至此完成。\hfill$\square$
+
+由于同一范畴上两个等价的拓扑具有相同的筛子，得到下面对命题 2.49 的推广。
+
+\begin{origstatement}{命题}{4.16}\label{ch04:prop416}
+设 $\mathcal C$ 是范畴，$\mathcal T,\mathcal T'$ 是 $\mathcal C$ 上的两个拓扑，$\mathcal F\to\mathcal C$ 是纤维范畴。假设 $\mathcal T'$ 从属于 $\mathcal T$。若 $\mathcal F$ 关于 $\mathcal T$ 是预叠或叠，则它关于 $\mathcal T'$ 也分别是预叠或叠。
+
+特别地，若 $\mathcal T$ 与 $\mathcal T'$ 等价，则 $\mathcal F$ 关于 $\mathcal T$ 是叠，当且仅当它关于 $\mathcal T'$ 是叠。
+\end{origstatement}
+为以后使用，记下引理 4.15 的如下推论。
+
+\begin{origstatement}{引理}{4.17}\label{ch04:lem417}
+若 $\mathcal F$ 是某景上的预叠，$\mathcal U,\mathcal V$ 是 $\mathcal C$ 的对象 $U$ 的两个覆盖，$\mathcal V$ 是 $\mathcal U$ 的加细，且 $\mathcal F(U)\to\mathcal F(\mathcal V)$ 是等价，则 $\mathcal F(U)\to\mathcal F(\mathcal U)$ 也是等价。
+\end{origstatement}
+
+% Source PDF 91 = printed 79.
+\subsection{子叠}
+\begin{origstatement}{定义}{4.18}\label{ch04:def418}
+设 $\mathcal C$ 是景，$\mathcal F\to\mathcal C$ 是叠。$\mathcal F$ 的\emph{子叠}（substack）是一个本身为叠的纤维子范畴。
+\end{origstatement}
+
+\begin{origstatement}{例}{4.19}\label{ch04:ex419}
+设 $\mathcal C$ 是景，$\mathcal F\to\mathcal C$ 是叠，$\mathcal G$ 是满足下述两个条件的 $\mathcal F$ 的满子范畴。
+\begin{enumerate}
+ \item[(i)] $\mathcal F$ 中任何终点属于 $\mathcal G$ 的笛卡儿箭头也属于 $\mathcal G$。
+ \item[(ii)] 设 $\{U_i\to U\}$ 是 $\mathcal C$ 中的覆盖，$\xi$ 是 $\mathcal F(U)$ 的对象，$\xi_i$ 是 $\xi$ 到 $U_i$ 的拉回。若对所有 $i$，$\xi_i$ 都属于 $\mathcal G$，则 $\xi$ 也属于 $\mathcal G$。
+\end{enumerate}
+那么 $\mathcal G$ 是一个子叠。
+
+上述情形有许多例子。例如，后面将看到（定理 4.23），纤维范畴 $(\mathrm{QCoh}/S)$ 是赋予 fpqc 拓扑的 $(\mathrm{Sch}/S)$ 上的叠。那么，由有限秩局部自由层组成的 $(\mathrm{QCoh}/S)$ 的满子范畴满足这两个条件，因而是一个子叠。
+\end{origstatement}
+
+\begin{origstatement}{命题}{4.20}\label{ch04:prop420}
+设 $\mathcal C$ 是景，$\mathcal F\to\mathcal C$ 是纤维范畴。回忆 $\mathcal F_{\mathrm{cart}}$ 是与之相伴的群胚纤维范畴（定义 3.31）。
+\begin{enumerate}
+ \item[(i)] 若 $\mathcal F$ 是叠，则 $\mathcal F_{\mathrm{cart}}$ 也是叠。
+ \item[(ii)] 若 $\mathcal F$ 是预叠且 $\mathcal F_{\mathrm{cart}}$ 是叠，则 $\mathcal F$ 也是叠。
+\end{enumerate}
+\end{origstatement}
+\begin{proof}
+$\mathcal F_{\mathrm{cart}}$ 中的同构都是笛卡儿箭头；因此给定 $\mathcal C$ 中的覆盖 $\{U_i\to U\}$，范畴 $\mathcal F(\{U_i\to U\})$ 和 $\mathcal F_{\mathrm{cart}}(\{U_i\to U\})$ 有相同的对象，而其中有效的带下降数据的对象也相同。所以只需证明：若 $\mathcal F$ 是预叠，则 $\mathcal F_{\mathrm{cart}}$ 是预叠。
+
+设 $\xi,\eta$ 是某个 $\mathcal F(U)$ 的两个对象。设 $\{U_i\to U\}$ 是覆盖，$\xi_i,\eta_i$ 是 $\xi,\eta$ 到 $U_i$ 的拉回，$\xi_{ij},\eta_{ij}$ 是到 $U_{ij}$ 的拉回，$\alpha_i\colon\xi_i\to\eta_i$ 是 $\mathcal F_{\mathrm{cart}}(U_i)$ 中的箭头，满足 $\operatorname{pr}_1^*\alpha_i=\operatorname{pr}_2^*\alpha_j\colon\xi_{ij}\to\eta_{ij}$。那么存在唯一的箭头 $\alpha\colon\xi\to\eta$，其对每个 $i$ 的限制均为 $\alpha_i$；只需证明 $\alpha$ 是笛卡儿箭头。然而，$\mathcal F(U)$ 及每个 $\mathcal F(U_i)$ 中的笛卡儿箭头就是同构；因此 $\alpha_i$ 都是同构，而箭头 $\alpha_i^{-1}\colon\eta_i\to\xi_i$ 来自唯一的箭头 $\beta\colon\eta\to\xi$。复合 $\beta\circ\alpha$ 与 $\alpha\circ\beta$ 拉回到每个 $\mathcal F(U_i)$ 中都是恒等映射，因而在 $\mathcal F(U)$ 中必为恒等映射。这说明 $\alpha$ 属于 $\mathcal F_{\mathrm{cart}}(U)$，证明完毕。
+\end{proof}
+
+\section{拟凝聚层的下降理论}\label{ch04:sec42}
+\subsection{交换环上模的下降}
+这里建立拟凝聚层下降理论的一个仿射版本。它只用于证明下面的定理 4.23，因此不妨先读下一小节关于拟凝聚层下降的内容，然后再读本小节。
+
+若 $A$ 是交换环，以 $\mathrm{Mod}_A$ 表示 $A$ 上模的范畴。
+
+考虑环同态 $f\colon A\to B$。若 $M$ 是 $A$-模，以 $\iota_M\colon M\otimes_A B\simeq B\otimes_A M$ 表示通常的 $A$-模同构，它由 $\iota_M(n\otimes b)=b\otimes n$ 定义。此外，以 $\alpha_M\colon M\to B\otimes_A M$ 表示由 $\alpha_M(m)=1\otimes m$ 定义的同态。
+
+对每个 $r\geq0$，置
+\[
+ B^{\otimes r}=\overbrace{B\otimes_A B\otimes_A\cdots\otimes_A B}^{r\text{ 次}}.
+\]
+
+% Source PDF 92 = printed 80.
+一个 $B$-模 $N$ 以两种不同方式成为 $B^{\otimes2}$ 上的模，即 $N\otimes_A B$ 和 $B\otimes_A N$；两种情况下的乘法都由公式
+$(b_1\otimes b_2)(x_1\otimes x_2)=b_1x_1\otimes b_2x_2$ 定义。类似地，$N$ 作为 $N\otimes_A B\otimes_A B$、$B\otimes_A N\otimes_A B$ 和 $B\otimes_A B\otimes_A N$ 成为 $B^{\otimes3}$ 上的模（更一般地，$N$ 以 $r$ 种不同方式成为 $B^{\otimes r}$ 上的模；但这里不需要这一点）。
+
+假设有 $B^{\otimes2}$-模同态 $\psi\colon N\otimes_A B\to B\otimes_A N$。分别在第一、第二和第三个位置插入恒等映射，得到三个相伴的 $B^{\otimes3}$-模同态
+\[
+\begin{aligned}
+ \psi_1&\colon B\otimes_A N\otimes_A B\longrightarrow B\otimes_A B\otimes_A N,\\
+ \psi_2&\colon N\otimes_A B\otimes_A B\longrightarrow B\otimes_A B\otimes_A N,\\
+ \psi_3&\colon N\otimes_A B\otimes_A B\longrightarrow B\otimes_A N\otimes_A B.
+\end{aligned}
+\]
+更明确地，$\psi_1=\id_B\otimes\psi$、$\psi_2=\psi\otimes\id_B$；若 $\psi(x_1\otimes x_3)=\sum_i y_i\otimes z_i\in B\otimes_A N$，则
+$\psi_2(x_1\otimes x_2\otimes x_3)=\sum_i y_i\otimes x_2\otimes z_i$。或者，$\psi_2=(\id_B\otimes\iota_N)\circ\psi\circ(\id_N\otimes\iota_B)$。
+% Source p.80 calls psi_2=psi tensor id_B, although its displayed domains make this psi_3.
+
+如下定义范畴 $\mathrm{Mod}_{A\to B}$。其对象为对 $(N,\psi)$，其中 $N$ 是 $B$-模，$\psi\colon N\otimes_A B\simeq B\otimes_A N$ 是 $B^{\otimes2}$-模同构，并满足
+\[
+ \psi_2=\psi_1\circ\psi_3\colon N\otimes_A B\otimes_A B\longrightarrow B\otimes_A B\otimes_A N.
+\]
+箭头 $\beta\colon(N,\psi)\to(N',\psi')$ 是使下图交换的 $B$-模同态 $\beta\colon N\to N'$：
+\[
+\begin{tikzcd}
+ N\otimes_A B\arrow[r,"{\psi}"]\arrow[d,"{\beta\otimes\id_B}"']&B\otimes_A N\arrow[d,"{\id_B\otimes\beta}"]\\
+ N'\otimes_A B\arrow[r,"{\psi'}"']&B\otimes_A N'.
+\end{tikzcd}
+\]
+有函子 $F\colon\mathrm{Mod}_A\to\mathrm{Mod}_{A\to B}$，它把 $A$-模 $M$ 送到对 $(B\otimes_A M,\psi_M)$，其中
+\[
+ \psi_M\colon(B\otimes_A M)\otimes_A B\longrightarrow B\otimes_A(B\otimes_A M)
+\]
+由规则
+\[
+ \psi_M(b\otimes m\otimes b')=b\otimes b'\otimes m
+\]
+定义。换言之，$\psi_M=\id_B\otimes\iota_M$。
+
+容易验证，$\psi_M$ 是 $B^{\otimes2}$-模同构，且 $(M\otimes_A B,\psi_M)$ 的确是 $\mathrm{Mod}_{A\to B}$ 的对象。
+
+若 $\alpha\colon M\to M'$ 是 $A$-模同态，立即可见 $\id_B\otimes\alpha\colon B\otimes_A M\to B\otimes_A M'$ 是 $\mathrm{Mod}_{A\to B}$ 中的箭头。这就定义了所需的函子 $F$。
+
+\begin{origstatement}{定理}{4.21}\label{ch04:thm421}
+若 $B$ 在 $A$ 上忠实平坦，则上面定义的函子
+\[
+ F\colon\mathrm{Mod}_A\longrightarrow\mathrm{Mod}_{A\to B}
+\]
+是范畴等价。
+\end{origstatement}
+\noindent\textit{证明.}
+定义函子 $G\colon\mathrm{Mod}_{A\to B}\to\mathrm{Mod}_A$。把对象 $(N,\psi)$ 送到由满足 $1\otimes n=\psi(n\otimes1)$ 的元素 $n\in N$ 组成的 $A$-子模 $GN\subseteq N$。
+
+给定 $\mathrm{Mod}_{A\to B}$ 中的箭头 $\beta\colon(N,\psi)\to(N',\psi')$，由箭头的定义可知，$\beta$ 把 $GN$ 映到 $GN'$；这就定义了函子 $G$。
+
+% Source PDF 93 = printed 81.
+需要验证复合 $GF$ 和 $FG$ 同构于恒等函子。为此，需要下面对引理 2.61 的推广。回忆我们曾定义两个 $A$-代数同态
+\[
+ e_1,e_2\colon B\longrightarrow B\otimes_A B,
+\]
+其中 $e_1(b)=b\otimes1$，$e_2(b)=1\otimes b$。
+
+\begin{origstatement}{引理}{4.22}\label{ch04:lem422}
+设 $M$ 是 $A$-模。那么序列
+\[
+ 0\longrightarrow M\xrightarrow{\alpha_M}B\otimes_A M
+ \xrightarrow{(e_1-e_2)\otimes\id_M}B^{\otimes2}\otimes M
+\]
+是正合的。
+\end{origstatement}
+其证明是引理 2.61 的证明的一个简单变式。
+
+现在注意，对一切 $m,b$，都有
+\[
+\begin{aligned}
+ ((e_1-e_2)\otimes\id_M)(b\otimes m)
+ &=b\otimes1\otimes m-1\otimes b\otimes m\\
+ &=\psi_M(b\otimes m\otimes1)-1\otimes b\otimes m;
+\end{aligned}
+\]
+这蕴含对一切 $x\in B\otimes_A M$，都有
+\[
+ ((e_1-e_2)\otimes\id_M)(x)=\psi_M(x\otimes1)-1\otimes x.
+\]
+因此，$G(B\otimes_A M,\psi_M)$ 是 $(e_1-e_2)\otimes\id_M$ 的核，而同态 $M\to B\otimes M$ 给出 $M$ 与 $G(M\otimes_A B)=GF(M)$ 之间的自然同构，说明 $GF$ 同构于恒等函子。
+
+再取 $\mathrm{Mod}_{A\to B}$ 的对象 $(N,\psi)$，置 $M=G(N,\psi)$。由于 $M$ 是 $B$-模 $N$ 的 $A$-子模，按通常的规则 $\theta(b\otimes m)=bm$ 得到 $B$-模同态 $\theta\colon B\otimes_A M\to N$。验证 $\theta$ 是 $\mathrm{Mod}_{A\to B}$ 中的箭头，即下图交换：
+\[
+\begin{tikzcd}[column sep=large]
+ B\otimes_A B\otimes_A M\arrow[r,"{\id_B\otimes\theta}"]\arrow[d,"{\id_B\otimes\iota_M}"']&B\otimes_A N\arrow[d,"{\psi}"]\\
+ B\otimes_A M\otimes_A B\arrow[r,"{\theta\otimes\id_B}"']&N\otimes_A B.
+\end{tikzcd}
+\]
+计算如下：
+\[
+\begin{aligned}
+ \psi(\id_B\otimes\theta)(b\otimes b'\otimes m)
+ &=\psi(b\otimes b'm)\\
+ &=\psi((b\otimes b')(1\otimes m))\\
+ &=(b\otimes b')\psi(1\otimes m)\\
+ &=(b\otimes b')(1\otimes m)\qquad(\text{因为 }m\in M)\\
+ &=(bm\otimes b')\\
+ &=(\theta\otimes\id_B)(b\otimes m\otimes b')\\
+ &=(\theta\otimes\id_B)(\id_B\otimes\iota_M)(b\otimes b'\otimes m).
+\end{aligned}
+\]
+因此，这个 $\theta$ 定义自然变换 $\id\to FG$。还需验证 $\theta$ 是同构。
+% The displayed arrow labelled psi and the direction id -> FG are as printed, despite the typing issue.
+
+考虑由 $\alpha(n)=1\otimes n$ 和 $\beta(n)=\psi(n\otimes1)$ 定义的同态 $\alpha,\beta\colon N\to B\otimes N$；由定义，$M$ 是 $\alpha-\beta$ 的核。有如下行正合的图：
+% Source PDF 94 = printed 82.
+\[
+\begin{tikzcd}[column sep=1.8em]
+ 0\arrow[r]&M\otimes B\arrow[r,"{i\otimes\id_B}"]\arrow[d,"{\theta\circ\iota_M}"']&N\otimes_A B\arrow[r,"{(\alpha-\beta)\otimes_A\id_B}"]\arrow[d,"{\psi}"]&B\otimes_A N\otimes_A B\arrow[d,"{\psi_1}"]\\
+ 0\arrow[r]&N\arrow[r,"{\alpha_M}"']&B\otimes_A N\arrow[r,"{(e_2-e_1)\otimes\id_N}"']&B\otimes_A B\otimes_A N,
+\end{tikzcd}
+\]
+其中 $i\colon M\hookrightarrow N$ 表示包含映射。证明此图交换。对第一个方块，有
+\[
+ \alpha_M\theta\iota_M(m\otimes b)=1\otimes bm,
+\]
+而
+\[
+\begin{aligned}
+ \psi(i\otimes\id_B)(m\otimes b)
+ &=\psi(m\otimes b)\\
+ &=\psi((1\otimes b)(m\otimes1))\\
+ &=(1\otimes b)\psi(m\otimes1)\\
+ &=(1\otimes b)(1\otimes m)\\
+ &=1\otimes bm.
+\end{aligned}
+\]
+对第二个方块，立即可验证
+$\psi_1\circ(\alpha\otimes\id_B)=(e_2\otimes\id_N)\circ\psi$。另一方面，
+\[
+\begin{aligned}
+ \psi_1(\beta\otimes\id_B)(n\otimes b)
+ &=\psi_1(\psi(n\otimes1)\otimes b)\\
+ &=\psi_1\psi_3(n\otimes1\otimes b)\\
+ &=\psi_2(n\otimes1\otimes b)\\
+ &=(e_1\otimes\id_N)\psi(n\otimes b).
+\end{aligned}
+\]
+$\psi$ 和 $\psi_1$ 均为同构；因此 $\theta\circ\iota_N$ 是同构，从而 $\theta$ 是同构，正如所求。
+
+定理 4.21 的证明完成。\hfill$\square$
+
+\subsection{拟凝聚层的下降}
+下面是拟凝聚层下降理论的主要结果。它指出，拟凝聚层关于 fpqc 拓扑满足下降；换言之，它们关于任一种拓扑构成叠。这相当引人注目，因为拟凝聚层是在远为粗糙的 Zariski 拓扑中的层，因而事先并不期待出现这样的情形。
+
+给定概形 $S$，回忆在 §3.2.1 中曾构造拟凝聚层的纤维范畴 $(\mathrm{QCoh}/S)$，它在 $S$ 上的概形 $U$ 处的纤维是 $U$ 上拟凝聚层的范畴 $\mathrm{QCoh}(U)$。
+
+\begin{origstatement}{定理}{4.23}\label{ch04:thm423}
+设 $S$ 是概形。$(\mathrm{Sch}/S)$ 上的纤维范畴 $(\mathrm{QCoh}/S)$ 关于 fpqc 拓扑是叠。
+\end{origstatement}
+
+\begin{origstatement}{注}{4.24}\label{ch04:rem424}
+在注 2.56 的“野”平坦拓扑中，此结论不成立：在该拓扑中，$(\mathrm{QCoh}/S)$ 甚至不是预叠。
+
+取那里定义的覆盖 $\{V_p\to U\}$，以及拟凝聚层 $\bigoplus_p\mathcal O_p$，即所有闭点的结构层的直和。由于拉回与直和可交换，且 $p\ne q$ 时每个 $\mathcal O_q$ 到 $V_p$ 的限制均为零，故 $\bigoplus_p\mathcal O_p$ 到每个 $V_p$ 的限制是该闭点的结构层 $\mathcal O_p$。
+% Source PDF 95 = printed 83.
+对每个 $p$，考虑投影 $\pi_p\colon\mathcal O_{V_p}\to\mathcal O_p$；容易看出
+\[
+ \operatorname{pr}_1^*\pi_p=\operatorname{pr}_2^*\pi_q
+ \colon\mathcal O_{V_p\times_U V_q}\longrightarrow f_{p,q}^*(\bigoplus_p\mathcal O_p),
+\]
+其中 $f_{p,q}\colon V_p\times_U V_q\to U$ 是显然的态射。
+
+另一方面，不存在同态 $\mathcal O_U\to\bigoplus_p\mathcal O_p$，使它对每个 $p$ 都拉回为 $\pi_p$。事实上，这样的同态对应于 $\bigoplus_p\mathcal O_p$ 的一个截面，它在每个闭点处为 $1$；由直和的定义，这样的截面不存在。
+\end{origstatement}
+
+为证明定理，使用下面的判别准则，它推广了引理 2.60 中的准则。
+
+\begin{origstatement}{引理}{4.25}\label{ch04:lem425}
+设 $S$ 是概形，$\mathcal F$ 是范畴 $(\mathrm{Sch}/S)$ 上的纤维范畴。假设下列条件成立。
+\begin{enumerate}
+ \item[(i)] $\mathcal F$ 关于 Zariski 拓扑是叠。
+ \item[(ii)] 只要 $V\to U$ 是仿射 $S$-概形之间的平坦满态射，函子
+\[
+ \mathcal F(U)\longrightarrow\mathcal F(V\to U)
+\]
+就是范畴等价。
+\end{enumerate}
+那么 $\mathcal F$ 关于 fpqc 拓扑是叠。
+\end{origstatement}
+\noindent\textit{证明.}
+这个证明较长且较复杂，为清楚起见，分成若干步骤。由定理 3.45 及命题 4.12，可假设 $\mathcal F$ 是分裂的；这一点只在最后两步中使用。
+
+\emph{步骤 1：$\mathcal F$ 是预叠。}给定 $S$-概形 $T\to S$ 及 $\mathcal F(T)$ 的两个对象 $\xi,\eta$，考虑函子
+\[
+ \underline{\Hom}_T(\xi,\eta)\colon(\mathrm{Sch}/T)^{\op}\longrightarrow(\mathrm{Set}).
+\]
+立即可见，引理 2.60 的两个条件成立，因而函子 $\underline{\Hom}_T(\xi,\eta)$ 是层，$\mathcal F$ 是 fpqc 拓扑中的预叠。
+
+现在还需验证，每个带下降数据的对象都有效。
+
+\emph{步骤 2：归结为单个态射的情形。}先分析 $\mathcal F$ 在空概形 $\varnothing$ 上的截面。
+
+\begin{origstatement}{引理}{4.26}\label{ch04:lem426}
+范畴 $\mathcal F(\varnothing)$ 等价于只有一个对象和一个态射的范畴。
+\end{origstatement}
+等价地，$\mathcal F(\varnothing)$ 的任意两个对象之间都恰有一个箭头。
+\begin{proof}
+概形 $\varnothing$ 有空的 Zariski 覆盖 $\mathcal U=\varnothing$。这里确实指空集，它根本不含任何态射，而不是由嵌入 $\varnothing\subseteq\varnothing$ 组成的集合。$\mathcal F(\mathcal U)$ 中只有一个带下降数据的对象 $(\varnothing,\varnothing)$，也只有一个从 $(\varnothing,\varnothing)$ 到自身的态射。因此 $\mathcal F(\mathcal U)$ 等价于只有一个对象和一个态射的范畴；而由于 $\mathcal F$ 是 Zariski 拓扑中的叠，$\mathcal F(\varnothing)$ 等价于 $\mathcal F(\mathcal U)$。
+\end{proof}
+
+\begin{origstatement}{引理}{4.27}\label{ch04:lem427}
+若概形 $U$ 是开子概形族 $\{U_i\}_{i\in I}$ 的不交并，则由各个限制函子 $\mathcal F(U)\to\mathcal F(U_i)$ 得到的函子
+$\mathcal F(U)\to\prod_{i\in I}\mathcal F(U_i)$ 是范畴等价。
+\end{origstatement}
+\begin{proof}
+设 $\xi,\eta$ 是 $\mathcal F(U)$ 的对象；以 $\xi_i,\eta_i$ 表示它们到 $U_i$ 的限制。由于 $\underline{\Hom}_U(\xi,\eta)\colon(\mathrm{Sch}/T)^{\op}\to(\mathrm{Set})$ 是层，映射
+\[
+ \Hom_{\mathcal F(U)}(\xi,\eta)\longrightarrow
+ \prod_i\Hom_{\mathcal F(U_i)}(\xi_i,\eta_i)
+\]
+% Source PDF 96 = printed 84.
+是双射；这恰好说明该函子是全忠实的。
+
+为验证其本质满射性，取 $\prod_{i\in I}\mathcal F(U_i)$ 的对象 $(\xi_i)$。$i\ne j$ 时 $U_{ij}=\varnothing$，$i=j$ 时 $U_{ij}=U_i$；可以定义过渡同构 $\phi_{ij}\colon\operatorname{pr}_2^*\xi_j\simeq\operatorname{pr}_1^*\xi_i$，当 $i=j$ 时为恒等映射，当 $i\ne j$ 时为 $\mathcal F(U_{ij})=\mathcal F(\varnothing)$ 中从 $\operatorname{pr}_2^*\xi_j$ 到 $\operatorname{pr}_1^*\xi_i$ 的唯一箭头。它们满足余循环条件；因此存在 $\mathcal F(U)$ 的对象 $\xi$，其到每个 $U_i$ 的限制同构于 $\xi_i$。那么 $\xi$ 在 $\prod_{i\in I}\mathcal F(U_i)$ 中的像同构于 $(\xi_i)$，该函子因而本质满射。
+\end{proof}
+
+给定任意覆盖 $\{U_i\to U\}$，置 $V=\coprod_i U_i$，以 $f\colon V\to U$ 表示诱导的态射。我断言，函子 $\mathcal F(U)\to\mathcal F(V\to U)$ 是等价，当且仅当 $\mathcal F(U)\to\mathcal F(\{U_i\to U\})$ 是等价。事实上，将证明有一个范畴等价
+\[
+ \mathcal F(V\to U)\longrightarrow\mathcal F(\{U_i\to U\}),
+\]
+使得复合
+\[
+ \mathcal F(U)\longrightarrow\mathcal F(V\to U)\longrightarrow\mathcal F(\{U_i\to U\})
+\]
+同构于函子
+\[
+ \mathcal F(U)\longrightarrow\mathcal F(\{U_i\to U\}).
+\]
+其构造如下。有 $U$-概形的自然同构
+\[
+ V\times_U V\simeq\coprod_{i,j}U_i\times_U U_j,
+\]
+因而由引理 4.27 得到范畴等价
+\begin{equation}\tag{4.2.1}\label{ch04:eq421}
+ \mathcal F(V)\longrightarrow\prod_i\mathcal F(U_i)
+\end{equation}
+及
+\begin{equation}\tag{4.2.2}\label{ch04:eq422}
+ \mathcal F(V\times_U V)\longrightarrow\prod_{i,j}\mathcal F(U_i\times_U U_j).
+\end{equation}
+$\mathcal F(V\to U)$ 的对象为对 $(\eta,\phi)$，其中 $\eta$ 是 $\mathcal F(V)$ 的对象，$\phi\colon\operatorname{pr}_2^*\eta\simeq\operatorname{pr}_1^*\eta$ 是 $\mathcal F(V\times_U V)$ 中满足余循环条件的同构。若对每个 $i$，以 $\eta_i$ 表示 $\eta$ 到 $U_i$ 的限制，以 $\phi_{ij}\colon\operatorname{pr}_2^*\eta\simeq\operatorname{pr}_1^*\eta$ 表示从 $\phi$ 拉回的箭头，那么 $\phi$ 在 $\prod_{i,j}\mathcal F(U_i\times_U U_j)$ 中的像恰好为族 $(\phi_{ij})$；立即可见，$(\phi_{ij})$ 满足余循环条件。
+
+由此，对 $\mathcal F(V\to U)$ 的每个对象 $(\eta,\phi)$，对应得到 $\mathcal F(\{U_i\to U\})$ 的对象 $(\{\eta_i\},\{\phi_{ij}\})$。箭头 $\alpha\colon(\eta,\phi)\to(\eta',\phi')$ 是 $\mathcal F(V)$ 中的箭头 $\alpha\colon\eta\to\eta'$，使得
+\[
+ \operatorname{pr}_1^*\alpha\circ\phi
+ =\phi\circ\operatorname{pr}_2^*\alpha\colon\operatorname{pr}_2^*\eta\longrightarrow\operatorname{pr}_1^*\eta';
+\]
+于是立即可验证，限制族 $\{\alpha_i\colon\eta_i\to\eta'_i\}$ 给出箭头
+$\{\alpha_i\}\colon(\{\eta_i\},\{\phi_{ij}\})\to(\{\eta'_i\},\{\phi'_{ij}\})$。
+
+反之，可利用函子 \eqref{ch04:eq421} 和 \eqref{ch04:eq422} 的逆，定义上述函子的逆，从而证明它是等价（细节留给读者）。这个等价具有所需的性质。
+
+这说明，为验证 $\mathcal F$ 中的下降数据有效，只需考虑由一个箭头组成的覆盖。
+
+% Source PDF 97 = printed 85.
+\emph{步骤 3：余域仿射的拟紧态射的情形。}考虑 $V\to U$ 为 $S$-概形的平坦满态射，$U$ 仿射而 $V$ 拟紧的情形。设 $\{V_i\}$ 是 $V$ 的有限仿射开子概形覆盖，$V'$ 是各个 $V_i$ 的不交并。由假设，$\mathcal F(U)\to\mathcal F(V'\to U)$ 是等价，因此由引理 4.17，$\mathcal F(U)\to\mathcal F(V\to U)$ 也是等价。
+
+\emph{步骤 4：余域仿射的态射的情形。}现设 $U$ 仿射，$V\to U$ 是任意 fpqc 态射。由假设，$V$ 有由拟紧开子概形组成的开覆盖 $\{V_i\}$，其中每个 $V_i$ 都满射到 $U$。将使用 $\mathcal F$ 具有分裂这一事实。需要证明 $\mathcal F(U)\to\mathcal F(V\to U)$ 本质满射。
+
+选取一个指标 $i$；$V_i\to U$ 也是 fpqc 覆盖，且 $V_i$ 拟紧。有函子的严格交换图
+\[
+\begin{tikzcd}[column sep=1.5em]
+ \mathcal F(U)\arrow[rr]\arrow[dr]&&\mathcal F(V\to U)\arrow[dl]\\
+ &\mathcal F(V_i\to U),
+\end{tikzcd}
+\]
+由上一步，其中 $\mathcal F(U)\to\mathcal F(V_i\to U)$ 是等价，且 $\mathcal F(U)\to\mathcal F(V\to U)$ 是全忠实的。由此可见，为证明 $\mathcal F(U)\to\mathcal F(V\to U)$ 本质满射，只需证明 $\mathcal F(V\to U)\to\mathcal F(V_i\to U)$ 全忠实。
+
+显然 $\mathcal F(V\to U)\to\mathcal F(V_i\to U)$ 是满的（因为 $\mathcal F(U)\to\mathcal F(V_i\to U)$ 是满的），因此只需证明其忠实性。设 $\alpha,\beta$ 是 $\mathcal F(V\to U)$ 中的两个箭头，在 $\mathcal F(V_i\to U)$ 中有相同的像。对任意其他指标 $j$，限制函子 $\mathcal F(V_i\cup V_j\to U)\to\mathcal F(V_i\to U)$ 是等价，因为严格交换图
+\[
+\begin{tikzcd}[column sep=1.5em]
+ \mathcal F(U)\arrow[rr]\arrow[dr]&&\mathcal F(V_i\cup V_j\to U)\arrow[dl]\\
+ &\mathcal F(V_i\to U)
+\end{tikzcd}
+\]
+中的上箭头和左箭头都是等价，所以 $\alpha,\beta$ 到 $V_i\cup V_j$ 的限制相同。因而 $\alpha,\beta$ 到每个 $V_j$ 的限制相同；由于 $\mathcal F$ 是预叠，得到 $\alpha=\beta$。
+
+\emph{步骤 5：一般情形。}现考虑一般的 fpqc 态射 $f\colon V\to U$，对 $U,V$ 不加限制。取 $U$ 的仿射开子概形覆盖 $\{U_i\}$，令 $V_i$ 为 $U_i$ 在 $V$ 中的逆像。需要证明，$\mathcal F(V\to U)$ 的任意对象 $(\eta,\phi)$ 均来自 $\mathcal F(U)$ 的某个对象。
+
+对每个开子集 $U'\subseteq U$，以 $\Phi_{U'}\colon\mathcal F(U')\to\mathcal F(f^{-1}U'\to U')$ 表示利用分裂定义的、把对象送到带下降数据的对象的函子。将用到下述显然事实：若 $U''$ 是 $U'$ 的开子集，下图严格交换，其中各行由限制给出：
+\[
+\begin{tikzcd}[column sep=large]
+ \mathcal F(f^{-1}U')\arrow[r]\arrow[d,"{\Phi_{U'}}"']&\mathcal F(f^{-1}U'')\arrow[d,"{\Phi_{U''}}"]\\
+ \mathcal F(f^{-1}U'\to U')\arrow[r]&\mathcal F(f^{-1}U''\to U'').
+\end{tikzcd}
+\]
+% The top row is printed as F(f^{-1}U') -> F(f^{-1}U''); it is retained.
+
+% Source PDF 98 = printed 86.
+对每个指标 $i$，令 $(\eta_i,\phi_i)$ 为 $(\eta,\phi)$ 到 $V_i$ 的限制。这是 $\mathcal F(V_i\to U_i)$ 的对象，因此由上一步，存在 $\mathcal F(U_i)$ 的对象 $\xi_i$，以及 $\mathcal F(\{V_i\to U_i\})$ 中的同构 $\alpha_i\colon\Phi_{U_i}\xi_i\simeq(\eta_i,\phi_i)$。现在希望把 $\xi_i$ 粘合成 $\mathcal F(U)$ 的整体对象 $\xi$；为此，需要 Zariski 下降数据 $\phi_{ij}\colon\xi_j|_{U_{ij}}\simeq\xi_i|_{U_{ij}}$。
+
+对每一对指标 $i,j$，置 $V_{ij}=V_i\cap V_j$，从而 $V_{ij}$ 是 $U_{ij}$ 在 $V$ 中的逆像。把同构 $\alpha_i\colon\Phi_{U_i}\xi_i\simeq(\eta_i,\phi_i)$ 限制到 $V_{ij}$，得到同构
+\[
+ \Phi_{U_{ij}}(\xi_i|_{U_{ij}})=(\Phi_{U_i}\xi_i)|_{V_{ij}}
+ \xrightarrow[\simeq]{\alpha_i|_{V_{ij}}}(\eta|_{V_{ij}},\phi|_{V_{ij}}),
+\]
+由此得到同构
+\[
+ \alpha_i^{-1}\alpha_j\colon\Phi_{U_{ij}}(\xi_j|_{U_{ij}})
+ \simeq\Phi_{U_{ij}}(\xi_i|_{U_{ij}}).
+\]
+由于 $\Phi_{U_{ij}}$ 是范畴等价，存在唯一的同构
+$\phi_{ij}\colon\xi_j|_{V_{ij}}\simeq\xi_i|_{V_{ij}}$，使 $\Phi_{U_{ij}}\phi_{ij}=\alpha_i^{-1}\alpha_j$。
+
+施以 $\Phi_{U_{ijk}}$ 后，容易看出余循环条件 $\phi_{ik}=\phi_{ij}\phi_{jk}$ 成立；因此存在 $\mathcal F(U)$ 的对象 $\xi$ 以及同构 $\xi|_{U_i}\simeq\xi_i$。若以 $f_i\colon V_i\to U$ 表示 $f\colon V\to U$ 的限制，就得到 $f_i^*\xi=f^*\xi|_{V_i}$ 与 $\xi_i$ 到 $V_i$ 的拉回之间的同构。沿 $V_i\to U_i$ 拉回 $\alpha_i$，还得到 $\xi_i$ 到 $V_i$ 的拉回与 $\eta_i$ 的同构。这些同构 $f^*\xi|_{V_i}\simeq\eta_i$ 拉回到 $V_{ij}$ 后相同，因而粘合成同构 $f^*\xi\simeq\eta$；这就是 $\Phi_U\xi$ 与 $(\eta,\phi)$ 之间所需的同构。
+
+引理 4.25 的证明完成。\hfill$\square$
+
+$(\mathrm{QCoh}/S)$ 是 Zariski 拓扑中的叠，这是标准事实；因此只需验证引理 4.25 的第二个条件成立。为此使用 §4.2.1 的理论。取平坦满态射 $V\to U$，对应于忠实平坦的环同态 $f\colon A\to B$。有标准的范畴等价 $\mathrm{QCoh}(U)\simeq\mathrm{Mod}_A$；我断言，还有范畴等价 $\mathrm{QCoh}(V\to U)\simeq\mathrm{Mod}_{A\to B}$。$U$ 上的拟凝聚层 $\mathcal M$ 对应于 $A$-模 $M$。在 $V\times_U B=\Spec B\otimes_A B$ 中，逆像 $\operatorname{pr}_1^*\mathcal M$ 和 $\operatorname{pr}_2^*\mathcal M$ 分别对应于模 $M\otimes_A B$ 和 $B\otimes_A M$；因此同构 $\phi\colon\operatorname{pr}_2^*\mathcal M\simeq\operatorname{pr}_1^*\mathcal M$ 对应于同构 $\psi\colon M\otimes_A B\simeq B\otimes_A M$。容易看出，$\phi$ 满足余循环条件，即 $(\mathcal M,\phi)$ 是 $\mathrm{QCoh}(V\to U)$ 的对象，当且仅当 $\psi$ 满足条件 $\psi_1\psi_3=\psi_2$；这给出等价 $\mathrm{QCoh}(V\to U)\simeq\mathrm{Mod}_{A\to B}$。函子 $\mathrm{QCoh}(U)\to\mathrm{QCoh}(V\to U)$ 对应于 §4.2.1 定义的函子 $\mathrm{Mod}_A\to\mathrm{Mod}_{A\to B}$，意思是复合
+\[
+ \mathrm{QCoh}(U)\longrightarrow\mathrm{QCoh}(V\to U)\simeq\mathrm{Mod}_{A\to B}
+\]
+和
+\[
+ \mathrm{QCoh}(U)\simeq\mathrm{Mod}_A\simeq\mathrm{Mod}_{A\to B}
+\]
+彼此同构。由于 $\mathrm{Mod}_A\to\mathrm{Mod}_{A\to B}$ 是等价，定理 4.23 得证。
+
+下面是一个有趣的问题。若函子 $\mathrm{QCoh}(U)\to\mathrm{QCoh}(V\to U)$ 是等价，就称概形态射 $V\to U$ 为\emph{下降态射}（descent morphism）。
+
+假设概形态射 $V\to U$ 在 fpqc 拓扑中有局部截面，即存在 fpqc 覆盖 $U_i\to U$ 及截面 $U_i\to V$。
+% Source PDF 99 = printed 87.
+这等价于说 $V\to U$ 是 fpqc 拓扑的饱和化中的覆盖，所以由定理 4.23 及命题 4.16，它是下降态射。
+
+\begin{origstatement}{未决问题}{4.28}\label{ch04:question428}
+每个下降态射在 fpqc 拓扑中都有局部截面吗？若没有，下降态射是否有某种有意义的刻画？
+\end{origstatement}
+
+\subsection{交换代数层的下降}
+定理 4.23 有许多变式。一般原则是：只要附加结构由层同态定义，且所满足的条件可以表述为某些图的交换性，则具有这种结构的拟凝聚层在 fpqc 拓扑中仍满足下降。
+
+下面是一个典型例子。若 $U$ 是概形，可以考虑 $U$ 上的拟凝聚交换代数层，即作为 $\mathcal O_U$-模层拟凝聚的交换 $\mathcal O_U$-代数层。概形 $U$ 上的拟凝聚交换代数层构成一个范畴，记作 $\mathrm{QCohComm}\,U$。
+
+把每个 $U\to S$ 送到范畴 $\mathrm{QCohComm}\,U$，便得到范畴 $(\mathrm{Sch}/S)$ 上的伪函子；以 $(\mathrm{QCohComm}/S)$ 表示 $(\mathrm{Sch}/S)$ 上所得的纤维范畴。
+
+\begin{origstatement}{定理}{4.29}\label{ch04:thm429}
+$(\mathrm{QCohComm}/S)$ 是 $(\mathrm{Sch}/S)$ 上的叠。
+\end{origstatement}
+关键在于下述事实。
+
+\begin{origstatement}{引理}{4.30}\label{ch04:lem430}
+设 $\{\sigma_i\colon U_i\to U\}$ 是概形的 fpqc 覆盖。
+\begin{enumerate}
+ \item[(i)] 若 $\mathcal A,\mathcal B$ 是 $U$ 上的拟凝聚代数层，$\phi\colon\mathcal A\to\mathcal B$ 是拟凝聚层同态，且每个拉回 $\sigma_i^*\phi\colon\sigma_i^*\mathcal A\to\sigma_i^*\mathcal B$ 都是代数同态，则 $\phi$ 是代数同态。
+ \item[(ii)] 设 $\mathcal A$ 是 $U$ 上的拟凝聚层。假设每个拉回 $\sigma_i^*\mathcal A$ 都有交换代数层的结构，且对每个 $i,j$，拟凝聚层的典范同构 $\operatorname{pr}_2^*\sigma_j^*\mathcal A\simeq\operatorname{pr}_1^*\sigma_i^*\mathcal A$ 都是代数层的同构。那么 $\mathcal A$ 上存在唯一的交换代数层结构，在每个 $\sigma_i^*\mathcal A$ 上诱导给定的结构。
+\end{enumerate}
+\end{origstatement}
+\begin{proof}
+对 (i)，需要验证两个复合
+\[
+ \mathcal A\otimes_{\mathcal O_U}\mathcal A\xrightarrow{\mu_{\mathcal A}}\mathcal A\longrightarrow\mathcal B
+\]
+和
+\[
+ \mathcal A\otimes_{\mathcal O_U}\mathcal A\xrightarrow{\phi\otimes\phi}
+ \mathcal B\otimes_{\mathcal O_U}\mathcal B\xrightarrow{\mu_{\mathcal B}}\mathcal B
+\]
+相同。然而，由于 $\sigma_i^*\phi$ 是代数层同态，复合
+\[
+ \sigma_i^*\mathcal A\otimes_{\mathcal O_{U_i}}\sigma_i^*\mathcal A
+ \simeq\sigma_i^*(\mathcal A\otimes_{\mathcal O_U}\mathcal A)
+ \xrightarrow{\sigma_i^*\mu_{\mathcal A}}\sigma_i^*\mathcal A
+ \xrightarrow{\sigma_i^*\phi}\sigma_i^*\mathcal B
+\]
+和
+\[
+ \sigma_i^*\mathcal A\otimes_{\mathcal O_{U_i}}\sigma_i^*\mathcal A
+ \simeq\sigma_i^*(\mathcal A\otimes_{\mathcal O_U}\mathcal A)
+ \xrightarrow{\sigma_i^*\phi\otimes\phi}\sigma_i^*(\mathcal B\otimes_{\mathcal O_U}\mathcal B)
+ \xrightarrow{\sigma_i^*\mu_{\mathcal B}}\sigma_i^*\mathcal B
+\]
+相同；又因为 $(\mathrm{QCoh}/S)$ 是 $(\mathrm{Sch}/S)$ 上的叠，概形上两个拟凝聚层同态若在 fpqc 拓扑中局部相同，就确实相同。
+
+证明 (ii)。由每个 $\sigma_i^*\mathcal A$ 上的代数结构，得到拟凝聚层同态
+\[
+ \mu_i\colon\sigma_i^*(\mathcal A\otimes_{\mathcal O_U}\mathcal A)
+ \simeq\sigma_i^*\mathcal A\otimes_{\mathcal O_{U_i}}\sigma_i^*\mathcal A
+ \longrightarrow\sigma_i^*\mathcal A.
+\]
+% Source PDF 100 = printed 88.
+需要证明，这些同态来自一个同态 $\mathcal A\otimes_{\mathcal O_U}\mathcal A\to\mathcal A$ 的拉回。以 $\sigma_{ij}\colon U_{ij}\to U$ 表示显然的态射；由于 $(\mathrm{QCoh}/S)$ 是叠，特别地箭头函子为层，这等价于证明，对一切 $i,j$，$\mu_i$ 与 $\mu_j$ 的拉回 $\sigma_{ij}^*(\mathcal A\otimes_{\mathcal O_U}\mathcal A)\to\mathcal A$ 相同。在截面层次上最容易验证这一点。
+
+类似地，对应于单位元的同态 $\mathcal O_{U_i}\to\mathcal A_i$ 来自一个同态 $\mathcal O_U\to\mathcal A$。
+
+还需要证明，所得同态 $\mathcal A\otimes_{\mathcal O_U}\mathcal A\to\mathcal A$ 使 $\mathcal A$ 具有交换代数层结构，即乘法满足结合律和交换律，且同态 $\mathcal O_U\to\mathcal A$ 给出单位元。同样，考察截面就容易做到，留给读者。
+\end{proof}
+
+由此容易推出定理 4.29。若 $\{\sigma_i\colon U_i\to U\}$ 是 fpqc 覆盖，$(\{\mathcal A_i\},\{\phi_{ij}\})$ 是 $(\mathrm{QCohComm}/S)(\{\sigma_i\colon U_i\to U\})$ 的对象，就可以忘掉 $\mathcal A_i$ 的代数结构，仅把它看作 $(\mathrm{QCoh}/S)(\{\sigma_i\colon U_i\to U\})$ 的对象；于是它来自 $U$ 上的一个拟凝聚层 $\mathcal A$。然而，每个 $\sigma_i^*\mathcal A$ 都同构于 $\mathcal A_i$，因而继承交换代数结构；由引理 4.30，这来自 $\mathcal A$ 上的交换代数层结构。定理 4.29 的证明完成。
+
+完全类似地，可定义（不必交换的）结合代数层、Lie 代数层等的纤维范畴，并证明这些结构都给出叠。
+
+\section{概形态射的下降}\label{ch04:sec43}
+考虑景 $\mathcal C$、稳定箭头类 $\mathcal P$，以及如例 3.17 中那样与之相伴的纤维范畴 $\mathcal P\to\mathcal C$。
+
+下述事实常常很有用。
+
+\begin{origstatement}{命题}{4.31}\label{ch04:prop431}
+设 $\mathcal C$ 是次典范景，$\mathcal P$ 是稳定箭头类。那么 $\mathcal P\to\mathcal C$ 是预叠。
+\end{origstatement}
+回忆（定义 2.57），若每个可表函子都是层，则景称为次典范的。赋予 fpqc 拓扑的景 $(\mathrm{Sch}/S)$ 是次典范的（定理 2.55）。
+\begin{proof}
+设 $\{U_i\to U\}$ 是覆盖，$X\to U$ 和 $Y\to U$ 是 $\mathcal P$ 中的两个箭头。$\mathcal P(U)$ 中的箭头是 $\mathcal C$ 中与到 $U$ 的投影可交换的箭头 $X\to Y$。置 $X_i=U_i\times_U X$ 和 $X_{ij}=U_{ij}\times_U X=X_i\times_X X_j$，并类似地定义 $Y_i,Y_{ij}$。假设有 $\mathcal P(U_i)$ 中的箭头 $f_i\colon X_i\to Y_i$，使得由 $f_i,f_j$ 诱导的箭头 $X_{ij}\to Y_{ij}$ 相同；需要证明，存在唯一的 $\mathcal P(U)$ 中的箭头 $f\colon X\to Y$，使其对每个 $i$ 的限制 $X_i\to Y_i$ 均为 $f_i$。
+
+复合 $X_i\xrightarrow{f_i}Y_i\to Y$ 给出截面 $g_i\in h_Y(X_i)$，且 $g_i,g_j$ 到 $X_{ij}$ 的拉回相同。由于 $h_Y$ 是层，$\{X_i\to X\}$ 是覆盖，并且对任意 $i,j$ 有 $X_{ij}=X_i\times_X X_j$，故存在唯一的 $\mathcal C$ 中的箭头 $f\colon X\to Y$，
+% Source PDF 101 = printed 89.
+使复合 $X_i\to X\xrightarrow{f}Y$ 等于 $g_i$，从而对一切 $i$，下图交换：
+\[
+\begin{tikzcd}
+ X_i\arrow[r,"{f_i}"]\arrow[d]&Y_i\arrow[d]\\
+ X\arrow[r,"{f}"']&Y.
+\end{tikzcd}
+\]
+箭头 $X\to U$ 和 $X\xrightarrow{f}Y\to U$ 也显然相同，因为它们与每个 $U_i\to U$ 复合后相同，且 $h_U$ 是层，特别地是分离函子。因此下图交换：
+\[
+\begin{tikzcd}
+ X\arrow[r,"{f}"]\arrow[d]&Y\arrow[d]\\
+ U\arrow[r,equal]&U,
+\end{tikzcd}
+\]
+且 $f$ 是 $\mathcal P(U)$ 中唯一的、到每个 $U_i$ 的限制等于 $f_i$ 的箭头。
+\end{proof}
+
+然而，一般而言，$\mathcal P$ 不是叠。容易看出，除非满足下述条件，否则 $\mathcal P$ 不可能是叠。
+
+\begin{origstatement}{定义}{4.32}\label{ch04:def432}
+若 $\mathcal C$ 中的箭头类 $\mathcal P$ 稳定（定义 3.16），且满足下述条件，就称它为\emph{局部的}（local）：给定 $\mathcal C$ 中的覆盖 $\{U_i\to U\}$ 及箭头 $X\to U$，若对一切 $i$，投影 $U_i\times_U X\to U_i$ 都属于 $\mathcal P$，则 $X\to U$ 也属于 $\mathcal P$。
+\end{origstatement}
+
+尽管如此，局部箭头类一般仍不构成叠；即使 $\mathcal P$ 为所有箭头之类，也不能保证下降数据有效。考虑下面的例子。取 $\mathcal C$ 为域 $k$ 上所有局部有限型且维数有界的概形之类，以 $k$ 上的概形态射为箭头。赋予它 Zariski 拓扑，并令 $\mathcal P$ 为所有箭头之类。令 $U=U_1\coprod U_2\coprod U_3\coprod U_4\coprod\cdots$ 是可数多个 $U_i=\Spec k$ 的并。包含映射族 $\{U_i\hookrightarrow U\}$ 构成覆盖。在每个 $U_i$ 上考虑概形 $\mathbb A_k^i$。显然，当 $i\ne j$ 时 $U_{ij}=\varnothing$，当 $i=j$ 时 $U_{ij}=\Spec k$；于是，以唯一可能的方式定义过渡同构：当 $i=j$ 时为恒等映射 $\phi_{ii}=\id_{\mathbb A_k^i}\colon\mathbb A_k^i\to\mathbb A_k^i$，当 $i\ne j$ 时为恒等映射 $\id_{\varnothing}\colon\varnothing\to\varnothing$。它们全是恒等映射，显然满足余循环条件。另一方面，不可能存在 $U$ 上维数有界的概形，使其到每个 $U_i$ 的拉回都是 $\mathbb A_k^i$。
+
+这个例子是人为的；显然，若想把无穷多个代数簇粘合起来，就不该要求维数有界。事实上，概形态射在 Zariski 拓扑中构成叠，因此局部箭头范畴也在 Zariski 拓扑中构成叠。
+
+另一方面，概形态射的大多数重要性质都是余域上的 fpqc 拓扑中的局部性质，例如平坦、有限表现、拟紧、固有、光滑、仿射等（命题 2.36）。对每一种性质，都得到 $(\mathrm{Sch}/S)$ 上概形态射的预叠，并可问它在 fpqc 拓扑中是否为叠。
+
+% Source PDF 102 = printed 90.
+不过，下降数据的有效性是一个相当微妙的问题。将给出一个例子，说明即使对固有光滑态射，在平展拓扑中有效性也可能失败（见 4.4.2）。本节证明一些肯定的结果。
+
+\subsection{仿射态射的下降}
+设 $\mathcal P$ 是 $(\mathrm{Sch}/S)$ 中仿射箭头之类，以 $(\mathrm{Aff}/S)\to(\mathrm{Sch}/S)$ 表示所得的纤维范畴。$(\mathrm{Aff}/S)$ 的对象为仿射态射 $X\to U$，其中 $U\to S$ 是 $S$-概形。
+
+\begin{origstatement}{定理}{4.33}\label{ch04:thm433}
+纤维范畴 $(\mathrm{Aff}/S)$ 是 fpqc 拓扑中 $(\mathrm{Sch}/S)$ 上的叠。
+\end{origstatement}
+首先，由命题 4.31，$(\mathrm{Aff}/S)$ 是预叠，因此唯一的问题是下降数据的有效性。由命题 4.20(ii)，只需验证 $(\mathrm{Aff}/S)_{\mathrm{cart}}$ 是叠。
+
+设 $\mathcal A$ 是概形 $U$ 上的拟凝聚代数层。以 $\Spec_X\mathcal A$ 表示 $\mathcal A$ 的相对谱；这是 $U$ 上的仿射概形，若 $V\subseteq U$ 是 $U$ 的仿射开子概形，则 $V$ 在 $\Spec_U\mathcal A$ 中的逆像就是环 $\mathcal A(V)$ 的谱。
+
+交换环层同态 $\mathcal A\to\mathcal B$ 诱导 $U$-概形的态射 $\Spec_U\mathcal B\to\Spec_U\mathcal A$；这是从 $\mathrm{QCohComm}\,U$ 到 $U$ 上仿射概形的范畴 $\mathrm{Aff}\,U$ 的反变函子，众所周知它是范畴等价 $(\mathrm{QCohComm}\,U)^{\op}\simeq\mathrm{Aff}\,U$。逆函子把仿射态射 $h\colon X\to U$ 送到拟凝聚交换代数层 $h_*\mathcal O_X$。
+
+有纤维范畴的态射
+\[
+ (\mathrm{QCohComm}/S)_{\mathrm{cart}}\longrightarrow(\mathrm{Aff}/S)_{\mathrm{cart}},
+\]
+它把 $\mathrm{QCohComm}\,U$ 的对象 $\mathcal A$ 送到仿射态射 $\Spec_U\mathcal A\to U$。设 $(f,\alpha)\colon(U,\mathcal A)\to(V,\mathcal B)$ 是 $(\mathrm{QCohComm}/S)_{\mathrm{cart}}$ 中的箭头；$f\colon U\to V$ 是 $S$-概形态射，$\alpha\colon\mathcal A\simeq f^*\mathcal B$ 是 $\mathcal O_U$-模层同构。那么 $\alpha^{-1}$ 给出 $U$ 上概形的同构
+$\Spec_U\mathcal A\simeq\Spec_U f^*\mathcal B=U\times_V\Spec_V\mathcal B$；将此同构与投影 $U\times_V\Spec_V\mathcal B\to\Spec_V\mathcal B$ 复合，就给出 $(\mathrm{Aff}/S)_{\mathrm{cart}}$ 中从 $\Spec_U\mathcal A\to U$ 到 $\Spec_V\mathcal B\to V$ 的箭头。
+
+把该态射限制到某个 $S$-概形 $U$，得到函子
+\[
+ (\mathrm{QCohComm}/S)_{\mathrm{cart}}(U)\longrightarrow(\mathrm{Aff}/S)_{\mathrm{cart}}(U),
+\]
+它是范畴等价；因而由命题 3.36，该态射是 $(\mathrm{Sch}/S)$ 上纤维范畴的等价。由定理 4.29 及命题 4.20(i)，$(\mathrm{QCoh}/S)_{\mathrm{cart}}$ 是叠，再由命题 4.12，$(\mathrm{Aff}/S)_{\mathrm{cart}}$ 也是叠。这完成了定理 4.33 的证明。
+
+下面的推论将在 §4.3.3 中使用。
+
+\begin{origstatement}{推论}{4.34}\label{ch04:cor434}
+设 $P\to U$ 是概形态射，$\{U_i\to U\}$ 是 fpqc 覆盖。对每个 $i$，置 $P_i\defeq U_i\times_U P$ 及 $P_{ij}\defeq U_{ij}\times_U P$。假设对每个 $i$ 给定 $P_i$ 的闭子概形 $X_i$，使得对每一对指标 $i,j$，$X_i$ 与 $X_j$ 分别通过第一、第二投影在 $P_{ij}$ 中的逆像相同。那么 $P$ 中存在唯一的闭子概形，其在 $P_i$ 中的逆像对每个 $i$ 都等于 $X_i$。
+\end{origstatement}
+
+% Source PDF 103 = printed 91.
+\begin{proof}
+$\{P_i\to P\}$ 是 fpqc 覆盖，且 $P_{ij}=P_i\times_P P_j$。到 $P_{ij}$ 的拉回 $\operatorname{pr}_2^*X_j$ 与 $\operatorname{pr}_1^*X_i$ 作为 $P_{ij}$ 的子概形相同，这给出典范同构 $\phi_{ij}\colon\operatorname{pr}_2^*X_j\simeq\operatorname{pr}_1^*X_i$。余循环条件自动成立，因为嵌入在 $P_{ijk}$ 中的 $P_{ijk}$-概形之间的任意两个态射都自动相同。因而存在仿射态射 $X\to P$，对每个 $i$ 都拉回为 $X_i\to P_i$；由命题 2.36，这个态射是闭浸入。
+
+唯一性显然成立，因为 $P$ 的两个闭子概形若作为 $P$-概形同构，便实际上相等。
+\end{proof}
+
+\subsection{基变换定理}
+为得到下一个结果，需要拟凝聚层的基变换定理的一个特殊情形。
+
+设有概形的交换图
+\begin{equation}\tag{4.3.1}\label{ch04:eq431}
+\begin{tikzcd}
+ X\arrow[r,"{f}"]\arrow[d,"{\xi}"']&Y\arrow[d,"{\eta}"]\\
+ U\arrow[r,"{\phi}"']&V
+\end{tikzcd}
+\end{equation}
+及 $\mathcal O_Y$-模层 $\mathcal L$。那么存在自然的 $\mathcal O_U$-模基变换同态
+\[
+ \beta_{f,\phi}(\mathcal L)\colon\phi^*\eta_*\mathcal L\longrightarrow\xi_*f^*\mathcal L,
+\]
+其定义如下。首先从自然伴随同态 $\mathcal L\to f_*f^*\mathcal L$ 出发（它是在自然伴随同构 $\Hom_Y(\mathcal L,f_*\phi^*\mathcal L)\simeq\Hom_X(f^*\mathcal L,f^*\mathcal L)$ 中对应于 $\id_{f^*\mathcal L}$ 的同态）。这给出 $\mathcal O_V$-模同态
+\[
+ \eta_*\mathcal L\longrightarrow\eta_*f_*f^*\mathcal L=\phi_*\xi_*f^*\mathcal L.
+\]
+于是，$\beta_{f,\phi}(\mathcal L)$ 就是在伴随同构
+\[
+ \Hom_U(\phi^*\eta_*\mathcal L,\xi_*f^*\mathcal L)
+ \simeq\Hom_V(\eta_*\mathcal L,\phi_*\xi_*f^*\mathcal L)
+\]
+之下与此同态对应的同态。
+
+同态 $\beta_{f,\phi}(\mathcal L)$ 在截面层次上有如下有用的刻画。若 $V_1$ 是 $V$ 的开子集，且 $s\in\mathcal L(\eta^{-1}V_1)=\eta_*\mathcal L(V_1)$，则有拉回截面 $\phi^*s\in\phi^*\eta_*\mathcal L(\phi^{-1}V_1)$。这类截面作为 $\mathcal O_U$-模生成 $\phi^*\eta_*\mathcal L$。截面
+\[
+ f^*s\in\mathcal L(f^{-1}\eta^{-1}V_1)=\mathcal L(\xi^{-1}\phi^{-1}s)
+\]
+可以看作 $\xi_*f^*\mathcal L(\phi^{-1}V_1)$ 的元素；于是 $\beta_{f,\phi}(\mathcal L)$ 刻画为唯一的 $\mathcal O_U$-线性层同态，使得对上述所有 $s$，有
+\[
+ \beta_{f,\phi}(\mathcal L)(\phi^*s)=f^*s\in\xi_*f^*\mathcal L(\phi^{-1}V_1).
+\]
+% Source p.91 prints phi^* in the adjunction formula and s in the inverse-image argument; retained.
+
+基变换同态对 $\mathcal L$ 具有函子性。也就是说，有两个从 $(\mathrm{QCoh}/Y)$ 到 $(\mathrm{QCoh}/U)$ 的函子 $\phi^*\eta_*$ 和 $\xi_*f^*$，而 $\beta_{f,\phi}$ 给出自然变换 $\phi^*\eta_*\to\xi_*f^*$。
+
+基变换同态还满足一个相容性条件。
+
+% Source PDF 104 = printed 92.
+\begin{origstatement}{命题}{4.35}\label{ch04:prop435}
+设
+\[
+\begin{tikzcd}
+ X\arrow[r,"{f}"]\arrow[d,"{\xi}"']&Y\arrow[r,"{g}"]\arrow[d,"{\eta}"]&Z\arrow[d,"{\zeta}"]\\
+ U\arrow[r,"{\phi}"']&V\arrow[r,"{\psi}"']&W
+\end{tikzcd}
+\]
+是概形的交换图，$\mathcal L$ 是 $\mathcal O_Z$-模层。那么 $\mathcal O_U$-模的下图交换：
+\[
+\begin{tikzcd}[column sep=1.5em,row sep=large]
+ \phi^*\psi^*\zeta_*\mathcal L\arrow[rr,"{\alpha_{\phi,\psi}(\zeta_*\mathcal L)}"]\arrow[d,"{\phi^*\beta_{g,\psi}(\mathcal L)}"']&& (\psi\phi)^*\zeta_*\mathcal L\arrow[d,"{\beta_{gf,\psi\phi}(\mathcal L)}"]\\
+ \phi^*\eta_*g^*\mathcal L\arrow[dr,"{\beta_{f,\phi}(g^*\mathcal L)}"']&&\xi_*(gf)^*\mathcal L\arrow[dl,"{\xi_*\alpha_{f,g}(\mathcal L)}"]\\
+ &\xi_*f^*g^*\mathcal L.
+\end{tikzcd}
+\]
+\end{origstatement}
+\begin{proof}
+取 $W$ 的一个开子集 $W_1$，以及截面 $s\in\zeta_*\mathcal L(W_1)=\mathcal L(\zeta^{-1}W_1)$，在上图中追踪 $\phi^*\psi^*s$，立即得到证明。
+\end{proof}
+
+由于命题 4.35 中的同态 $\alpha_{\phi,\psi}(\zeta_*\mathcal L)$ 和 $\xi_*\alpha_{f,g}(\mathcal L)$ 总是同构，得到下述推论。
+
+\begin{origstatement}{推论}{4.36}\label{ch04:cor436}
+在命题 4.35 的情形下，假设基变换同态 $\beta_{g,\psi}(\mathcal L)$ 是同构。那么 $\beta_{gf,\psi\phi}(\mathcal L)$ 是同构，当且仅当 $\beta_{f,\phi}(g^*\mathcal L)$ 是同构。
+\end{origstatement}
+
+下面以所需的形式给出基变换定理。在诺特情形下，这是完全标准的；证明利用同样标准的归约技巧，将一般情形归结为此情形。
+
+\begin{origstatement}{命题}{4.37}\label{ch04:prop437}
+假设图 \eqref{ch04:eq431} 是笛卡儿图，$\eta$ 固有且有限表现，$\mathcal L$ 是有限表现的拟凝聚层，且在 $V$ 上平坦。对任意点 $v\in V$，以 $Y_v$ 表示 $\eta$ 在 $v$ 上的纤维，以 $\mathcal L_v$ 表示 $\mathcal L$ 到 $Y_v$ 的限制。
+
+若对一切 $v\in V$ 都有 $H^1(Y_v,\mathcal L_v)=0$，则 $\eta_*\mathcal L$ 在 $V$ 上局部自由，且基变换同态 $\beta_{f,\phi}(\mathcal L)\colon\phi^*\eta_*\mathcal L\to\xi_*f^*\mathcal L$ 是同构。
+\end{origstatement}
+\begin{proof}
+若 $V$ 是诺特的，结果由 [EGAIII2, 7.7] 得出（另见 [Har77, III 12]）。
+
+一般情形下，容易看出基变换同态可以在 $U$ 的 Zariski 拓扑中局部化；因此可假设 $V$ 仿射。置 $V=\Spec A$。由 [EGAIV3, Proposition 8.9.1, Théorème 8.10.5 及 Théorème 11.2.6]，存在 $A$ 的子环 $A_0\subseteq A$，它在 $\mathbb Z$ 上有限型，因而诺特，存在 $\Spec A_0$ 上固有的概形 $Y'_0$，以及 $Y'_0$ 上在 $A_0$ 上平坦的凝聚层 $\mathcal L'_0$，并有 $(Y,\mathcal L)$ 与 $(Y'_0,\mathcal L'_0)$ 到 $\Spec A$ 的拉回之间的同构。
+
+由半连续性（[EGAIII2, Théorème 7.6.9]），使 $\mathcal L'_0$ 到 $Y'_0$ 在 $v_0$ 上的纤维的限制具有非零 $H^1$ 的点 $v_0\in\Spec A_0$ 所成的集合，是 $\Spec A_0$ 的闭子集；显然它不含 $\Spec A$ 的像。以 $V_0$
+% Source PDF 105 = printed 93.
+表示该闭子集之补所成的开子概形，以 $Y_0,\mathcal L_0$ 表示 $Y'_0,\mathcal L'_0$ 到 $V_0$ 的限制。那么 $\Spec A$ 映入 $V_0$，且 $(Y,\mathcal L)$ 同构于 $(Y_0,\mathcal L_0)$ 到 $\Spec A$ 的拉回；结果由推论 4.36 及诺特情形得出。
+\end{proof}
+
+\subsection{借助丰沛可逆层的下降}
+仿射态射的下降很有用，但其适用范围显然有限。人们更容易关心射影态射，而非仿射态射。只要为射影态射配备丰沛可逆层，并为这些可逆层也配备下降数据，下降在这一情形就成立。
+
+\begin{origstatement}{定理}{4.38}\label{ch04:thm438}
+设 $S$ 是概形，$\mathcal F$ 是 $(\mathrm{Sch}/S)$ 中有限表现的平坦固有态射之类，并且在 fpqc 拓扑中局部（定义 4.32）。假设对 $\mathcal F$ 的每个对象 $\xi\colon X\to U$，给定 $X$ 上的可逆层 $\mathcal L_\xi$，它相对于态射 $X\to U$ 丰沛；对每个笛卡儿图
+\[
+\begin{tikzcd}
+ X\arrow[r,"{f}"]\arrow[d,"{\xi}"']&Y\arrow[d,"{\eta}"]\\
+ U\arrow[r,"{\phi}"']&V
+\end{tikzcd}
+\]
+给定 $X$ 上可逆层的同构 $\rho_{f,\phi}\colon f^*\mathcal L_\eta\simeq\mathcal L_\xi$。要求这些同构满足下述条件：只要有概形的笛卡儿图
+\[
+\begin{tikzcd}
+ X\arrow[r,"{f}"]\arrow[d,"{\xi}"']&Y\arrow[r,"{g}"]\arrow[d,"{\eta}"]&Z\arrow[d,"{\zeta}"]\\
+ U\arrow[r,"{\phi}"']&V\arrow[r,"{\psi}"']&W,
+\end{tikzcd}
+\]
+且各列均属于 $\mathcal F$，则 $X$ 上拟凝聚层的图
+\[
+\begin{tikzcd}[column sep=large]
+ f^*g^*\mathcal L_\zeta\arrow[r,"{\alpha_{f,g}(\mathcal L_\zeta)}"]\arrow[d,"{f^*\rho_{g,\psi}}"']&(gf)^*\mathcal L_\zeta\arrow[d,"{\rho_{gf,\psi\phi}}"]\\
+ f^*\mathcal L_\eta\arrow[r,"{\rho_{f,\phi}}"']&\mathcal L_\xi
+\end{tikzcd}
+\]
+交换。这里 $\alpha_{f,g}(\mathcal L_\zeta)$ 是 §3.2.1 中的典范同构。
+
+那么 $\mathcal F$ 是 fpqc 拓扑中的叠。
+\end{origstatement}
+
+另一种较为简便的相容条件表述，使用纤维范畴的形式语言；在证明中将自由使用这一语言：由于 $(gf)^*\mathcal L_\zeta$ 是 $g^*\mathcal L_\zeta$ 到 $Y$ 的拉回，可考虑拉回 $f^*\rho_{g,\psi}\colon(gf)^*\mathcal L_\zeta\to f^*\mathcal L_\eta$，于是该条件就是等式
+\[
+ \rho_{gf,\psi\phi}=\rho_{f,\phi}\circ f^*\rho_{g,\psi}
+ \colon(gf)^*\mathcal L_\zeta\longrightarrow\mathcal L_\xi.
+\]
+
+\begin{origstatement}{例}{4.39}\label{ch04:ex439}
+对任意固定的基概形 $S$ 及任意非负整数 $g$，可以考虑几何纤维为亏格 $g$ 的连通曲线的固有光滑态射所成的类 $\mathcal F_{g,S}$。这些态射构成 $(\mathrm{Sch}/S)$ 中的局部类。
+
+若 $g\ne1$，上述定理适用。对 $g\geq2$，可取 $\mathcal L_{X\to U}$ 为相对余切层 $\Omega^1_{X/U}$ 或其某个幂；对 $g=0$，可取其
+% Source PDF 106 = printed 94.
+对偶。所以 $\mathcal F_{g,S}$ 是叠。叠 $(\mathcal F_{g,S})_{\mathrm{cart}}$（定义 3.31）通常记作 $\mathcal M_{g,S}$，在代数几何中有重要作用。
+
+亏格 $1$ 的曲线族上没有自然的丰沛层，因此这个定理不适用。事实上，这里定义的 $\mathcal F_{1,S}$ 不是叠：这来自 Raynaud 的反例 [Ray70, XIII 3.2]。
+
+进一步的讨论见注 4.48。
+\end{origstatement}
+
+\noindent\textit{定理 4.38 的证明.}
+$\mathcal F$ 在 fpqc 拓扑中为预叠，这由命题 4.31 得出。也容易验证，$\mathcal F$ 是 Zariski 拓扑中的叠。
+
+对 $\mathcal F$ 的每个对象 $\xi\colon X\to U$，在 $U$ 上定义有限表现的拟凝聚层 $\mathcal M_\xi\defeq\xi_*\mathcal L_X$。给定笛卡儿方块
+\[
+\begin{tikzcd}
+ X\arrow[r,"{f}"]\arrow[d,"{\xi}"']&Y\arrow[d,"{\eta}"]\\
+ U\arrow[r,"{\phi}"']&V,
+\end{tikzcd}
+\]
+把基变换同态
+\[
+ \beta_{f,\phi}\colon\phi^*\eta_*\mathcal L_\eta\longrightarrow\xi_*f^*\mathcal L_\eta
+\]
+与同构
+\[
+ \xi_*\rho_{f,\phi}\colon\xi_*f^*\mathcal L_\eta\simeq\xi_*\mathcal L_\xi
+\]
+复合，得到拟凝聚层同态
+\[
+ \sigma_{f,\phi}\colon\phi^*\mathcal M_\eta=\phi^*\eta_*\mathcal L_\eta
+ \longrightarrow\xi_*\mathcal L_X=\mathcal M_\xi.
+\]
+这个同态满足下述相容条件。
+
+\begin{origstatement}{命题}{4.40}\label{ch04:prop440}
+给定概形的笛卡儿图
+\[
+\begin{tikzcd}
+ X\arrow[r,"{f}"]\arrow[d,"{\xi}"']&Y\arrow[r,"{g}"]\arrow[d,"{\eta}"]&Z\arrow[d,"{\zeta}"]\\
+ U\arrow[r,"{\phi}"']&V\arrow[r,"{\psi}"']&W,
+\end{tikzcd}
+\]
+其中各列均属于 $\mathcal F$，则复合
+\[
+ (\psi\phi)^*\mathcal M_\zeta\xrightarrow{\phi^*\sigma_{g,\psi}}
+ \phi^*\mathcal M_\eta\xrightarrow{\sigma_{f,\phi}}\mathcal M_\xi
+\]
+等于 $\sigma_{gf,\psi\phi}$。
+\end{origstatement}
+\begin{proof}
+取 $W$ 的某个开子集上的 $\mathcal M_\zeta$ 的截面 $s$，验证
+\[
+ \sigma_{f,\phi}\circ\phi^*\sigma_{g,\psi}((\psi\phi)^*s)
+ =\sigma_{gf,\psi\phi}((\psi\phi)^*s).
+\]
+由于形如 $(gf)^*s$ 的截面作为 $\mathcal O_U$-模层生成 $(\psi\phi)^*\mathcal M_\zeta$，这就足够。截面 $s$ 是 $Z$ 的某个开子集上 $\mathcal L_\zeta$ 的截面，有
+\[
+\begin{aligned}
+ \phi^*\sigma_{g,\psi}((\psi\phi)^*s)
+ &=\phi^*(\eta_*\rho_{g,\psi}\circ\beta_{g,\psi})((\psi\phi)^*s)\\
+ &=\phi^*(\rho_{g,\psi}\circ\beta_{g,\psi}(\psi^*s))\\
+ &=\phi^*(\rho_{g,\psi}(g^*s));
+\end{aligned}
+\]
+% Source PDF 107 = printed 95.
+因此
+\[
+\begin{aligned}
+ \sigma_{f,\phi}\circ\phi^*\sigma_{g,\psi}((\psi\phi)^*s)
+ &=(\xi_*\rho_{f,\phi}\circ\beta_{f,\phi})\phi^*(\rho_{g,\psi}(g^*s))\\
+ &=\rho_{f,\phi}(f^*\rho_{g,\psi}(g^*s))\\
+ &=\phi_{gf,\psi\phi}((gf)^*s)\\
+ &=\xi_*\phi_{gf,\psi\phi}\circ\beta_{gf,\psi\phi}((\psi\phi)^*s)\\
+ &=\sigma_{gf,\psi\phi}((\psi\phi)^*s).
+\end{aligned}
+\]
+\end{proof}
+
+再次使用引理 4.25 的判别准则。考虑仿射 $S$-概形之间的平坦满态射 $V\to U$，以及 $\mathcal F(V)$ 的对象 $\eta\colon Y\to V$。注意，给定正整数 $N$，定理陈述中的同构 $\rho_{f,\phi}\colon f^*\mathcal L_\eta\simeq\mathcal L_\xi$ 诱导同构
+$\rho_{f,\phi}^{\otimes N}\colon f^*(\mathcal L_\eta^{\otimes N})\simeq\mathcal L_\xi^{\otimes N}$。它们也满足定理中的条件：只要有概形图
+\[
+\begin{tikzcd}
+ X\arrow[r,"{f}"]\arrow[d,"{\xi}"']&Y\arrow[r,"{g}"]\arrow[d,"{\eta}"]&Z\arrow[d,"{\zeta}"]\\
+ U\arrow[r,"{\phi}"']&V\arrow[r,"{\psi}"']&W,
+\end{tikzcd}
+\]
+且各列属于 $\mathcal F$，图
+\[
+\begin{tikzcd}[column sep=large]
+ f^*g^*\mathcal L_\zeta^{\otimes N}\arrow[r,"{\alpha_{f,g}(\mathcal L_\zeta^{\otimes N})}"]\arrow[d,"{f^*\rho_{g,\psi}^{\otimes N}}"']&(gf)^*\mathcal L_\zeta^{\otimes N}\arrow[d,"{\rho_{gf,\psi\phi}^{\otimes N}}"]\\
+ f^*\mathcal L_\eta\arrow[r,"{\rho_{f,\phi}^{\otimes N}}"']&\mathcal L_\xi^{\otimes N}
+\end{tikzcd}
+\]
+就交换（沿箭头追踪形如 $f^*g^*s^{\otimes N}$ 的截面即可容易验证，其中 $s$ 是 $W$ 的某个开子集上 $\mathcal L_\zeta$ 的截面；因为这些截面生成 $f^*g^*\mathcal L_\zeta^{\otimes N}$，所以两个复合 $f^*g^*\mathcal L_\zeta\to\mathcal L_\xi$ 若在它们上相同，就必定相等）。
+
+对充分大的整数 $N$，以 $\mathcal L_\eta^{\otimes N}$ 代替 $\mathcal L_\eta$，可假设 $\mathcal L_\eta$ 在 $Y$ 上很丰沛，且对每个点 $v\in V$，有 $H^1(Y_v,\mathcal L_\eta|_{Y_v})=0$，其中 $Y_v$ 是 $Y$ 在 $v$ 上的纤维。这样，后面讨论中所有出现的基变换同态都是同构。
+
+两个图
+\[
+\begin{tikzcd}[column sep=small]
+ Y\times_U V\arrow[r,"{\operatorname{pr}_1}"]\arrow[d,"{\eta\times\id_V}"']&Y\arrow[d,"{\eta}"]\\
+ V\times_U V\arrow[r,"{\operatorname{pr}_1}"']&V
+\end{tikzcd}
+\qquad\text{及}\qquad
+\begin{tikzcd}[column sep=small]
+ V\times_U Y\arrow[r,"{\operatorname{pr}_2}"]\arrow[d,"{\id_V\times\eta}"']&Y\arrow[d,"{\eta}"]\\
+ V\times_U V\arrow[r,"{\operatorname{pr}_2}"']&V
+\end{tikzcd}
+\]
+均为笛卡儿图；因此可取 $\eta\times\id_V\colon Y\times_U V\to V\times_U V$ 为拉回 $\operatorname{pr}_1^*\eta\in\mathcal F(V\times_U V)$；类似地，取 $\id_V\times f\colon V\times_U V\to V\times_U V$ 为 $\operatorname{pr}_2^*\eta\in\mathcal F(V\times_U V)$。
+
+% Source PDF 108 = printed 96.
+类似地，$f$ 沿三个投影 $V\times_U V\times_U V\to V$ 的拉回为
+\[
+\begin{aligned}
+ &\eta\times\id_V\times\id_V\colon Y\times_U V\times_U V\longrightarrow V\times_U V\times_U V,\\
+ &\id_V\times\eta\times\id_V\colon V\times_U Y\times_U V\longrightarrow V\times_U V\times_U V,\quad\text{及}\\
+ &\id_V\times\id_V\times\eta\colon V\times_U V\times_U Y\longrightarrow V\times_U V\times_U V.
+\end{aligned}
+\]
+假设给定 $\mathcal F(V)$ 的对象 $\eta\colon Y\to V$，带有下降数据 $\phi\colon V\times_U Y\simeq Y\times_U V$，即 $V\times_U V$ 上满足余循环条件的概形同构，也就是下图的交换性：
+\[
+\begin{tikzcd}[column sep=1em]
+ V\times_U V\times_U Y\arrow[rr,"{\operatorname{pr}_{23}^*\phi=\id_V\times\phi}"]\arrow[dr,"{\operatorname{pr}_{13}^*\phi}"']&&V\times_U Y\times_U V\arrow[dl,"{\operatorname{pr}_{12}^*\phi=\phi\times\id_V}"]\\
+ &Y\times_U V\times_U V.
+\end{tikzcd}
+\]
+将用 $\phi$ 为 $V$ 上有限表现的拟凝聚层 $\mathcal M_\eta$ 构造下降数据。由两个笛卡儿图
+\[
+\begin{tikzcd}[column sep=small]
+ V\times_U Y\arrow[r,"{\operatorname{pr}_2}"]\arrow[d,"{\id_V\times\eta}"']&Y\arrow[d,"{\eta}"]\\
+ V\times_U V\arrow[r,"{\operatorname{pr}_2}"']&V
+\end{tikzcd}
+\qquad\text{及}\qquad
+\begin{tikzcd}[column sep=small]
+ Y\times_U V\arrow[r,"{\operatorname{pr}_1}"]\arrow[d,"{\eta\times\id_V}"']&Y\arrow[d,"{\eta}"]\\
+ V\times_U V\arrow[r,"{\operatorname{pr}_1}"']&V
+\end{tikzcd}
+\]
+得到同构
+\[
+ \sigma_{\operatorname{pr}_2,\operatorname{pr}_2}\colon\operatorname{pr}_2^*\mathcal M_\eta\simeq\mathcal M_{\id_V\times\eta},
+ \qquad
+ \sigma_{\operatorname{pr}_1,\operatorname{pr}_1}\colon\operatorname{pr}_1^*\mathcal M_\eta\simeq\mathcal M_{\eta\times\id_V};
+\]
+由笛卡儿图
+\[
+\begin{tikzcd}
+ V\times_U Y\arrow[r,"{\phi}"]\arrow[d,"{\id_V\times\eta}"']&Y\times_U V\arrow[d,"{\eta\times\id_V}"]\\
+ V\times_U V\arrow[r,equal]&V\times_U V
+\end{tikzcd}
+\]
+得到另一个同构
+\[
+ \sigma_{\phi,\id_{V\times_U V}}\colon\mathcal M_{\eta\times\id_V}\simeq\mathcal M_{\id_V\times\eta}.
+\]
+由此定义 $V\times_U V$ 上拟凝聚层的同构
+\[
+ \psi\defeq\sigma_{\operatorname{pr}_1,\operatorname{pr}_1}^{-1}
+ \circ\sigma_{\phi,\id_{V\times_U V}}^{-1}
+ \circ\sigma_{\operatorname{pr}_2,\operatorname{pr}_2}
+ \colon\operatorname{pr}_2^*\mathcal M_\eta\simeq\operatorname{pr}_1^*\mathcal M_\eta.
+\]
+验证 $\psi$ 满足余循环条件。采用惯用记号 $\operatorname{pr}_1,\operatorname{pr}_2$，表示积 $X_1\times_Y X_2$ 到第一、第二因子的投影，而用 $p_1,p_2,p_3$ 表示三重积 $X_1\times_Y X_2\times_Y X_3$ 到第一、第二、第三因子的投影。（以前也曾用 $\operatorname{pr}_1,\operatorname{pr}_2,\operatorname{pr}_3$ 表示它们，但这里更容易引起混淆。）
+
+% Source PDF 109 = printed 97.
+考虑笛卡儿图
+\[
+\begin{tikzcd}[column sep=1.1em]
+ V\times_U Y\times_U V\arrow[r,"{\operatorname{pr}_{12}}"]\arrow[rr,bend left=22,"{p_2}"]\arrow[d,"{\id_V\times\eta\times\id_V}"']&V\times_U Y\arrow[r,"{\operatorname{pr}_2}"]\arrow[d,"{\id_V\times\eta}"]&Y\arrow[d,"{\eta}"]\\
+ V\times_U V\times_U V\arrow[r,"{\operatorname{pr}_{12}}"']\arrow[rr,bend right=22,"{p_2}"']&V\times_U V\arrow[r,"{\operatorname{pr}_2}"']&V;
+\end{tikzcd}
+\]
+由命题 4.40，$\sigma_{p_2,p_2}\colon p_2^*\mathcal M_\eta\to\mathcal M_{\id_V\times\eta\times\id_V}$ 是复合
+\[
+ p_2^*\mathcal M_\eta\xrightarrow{\operatorname{pr}_{12}^*\sigma_{\operatorname{pr}_2,\operatorname{pr}_2}}
+ \operatorname{pr}_{12}^*\mathcal M_{\id_V\times\eta}
+ \xrightarrow{\sigma_{\operatorname{pr}_{12},\operatorname{pr}_{12}}}\mathcal M_{\id_V\times\eta\times\id_V},
+\]
+所以有等式
+\[
+ \operatorname{pr}_{12}^*\sigma_{\operatorname{pr}_2,\operatorname{pr}_2}
+ =\sigma_{\operatorname{pr}_{12},\operatorname{pr}_{12}}^{-1}\circ\sigma_{p_2,p_2}
+ \colon p_2^*\mathcal M_\eta\longrightarrow\mathcal M_{\id_V\times\eta\times\id_V}.
+\]
+完全类似地，得到等式
+\[
+\begin{aligned}
+ \operatorname{pr}_{12}^*\sigma_{\operatorname{pr}_1,\operatorname{pr}_1}
+ &=\sigma_{\operatorname{pr}_{12},\operatorname{pr}_{12}}^{-1}\circ\sigma_{p_1,p_1},\\
+ \operatorname{pr}_{23}^*\sigma_{\operatorname{pr}_1,\operatorname{pr}_1}
+ &=\sigma_{\operatorname{pr}_{23},\operatorname{pr}_{23}}^{-1}\circ\sigma_{p_2,p_2},\\
+ \operatorname{pr}_{23}^*\sigma_{\operatorname{pr}_2,\operatorname{pr}_2}
+ &=\sigma_{\operatorname{pr}_{23},\operatorname{pr}_{23}}^{-1}\circ\sigma_{p_3,p_3},\\
+ \operatorname{pr}_{13}^*\sigma_{\operatorname{pr}_1,\operatorname{pr}_1}
+ &=\sigma_{\operatorname{pr}_{13},\operatorname{pr}_{13}}^{-1}\circ\sigma_{p_1,p_1},\quad\text{及}\\
+ \operatorname{pr}_{13}^*\sigma_{\operatorname{pr}_2,\operatorname{pr}_2}
+ &=\sigma_{\operatorname{pr}_{13},\operatorname{pr}_{13}}^{-1}\circ\sigma_{p_3,p_3}.
+\end{aligned}
+\]
+需要证明等式 $\operatorname{pr}_{12}^*\psi\circ\operatorname{pr}_{23}^*\psi=\operatorname{pr}_{13}^*\psi$。利用 $\psi$ 的定义及上述恒等式，稍作化简，读者可验证此式等价于等式
+\[
+\begin{aligned}
+ &(\sigma_{\operatorname{pr}_{12},\operatorname{pr}_{12}}
+ \circ\operatorname{pr}_{12}^*\sigma_\phi^{-1}\circ\sigma_{\operatorname{pr}_{12},\operatorname{pr}_{12}}^{-1})\\
+ &\qquad\circ(\sigma_{\operatorname{pr}_{23},\operatorname{pr}_{23}}
+ \circ\operatorname{pr}_{23}^*\sigma_\phi^{-1}\circ\sigma_{\operatorname{pr}_{23},\operatorname{pr}_{23}}^{-1})\\
+ &\quad=(\sigma_{\operatorname{pr}_{23},\operatorname{pr}_{23}}
+ \circ\operatorname{pr}_{23}^*\sigma_\phi^{-1}\circ\sigma_{\operatorname{pr}_{23},\operatorname{pr}_{23}}^{-1}),
+\end{aligned}
+\]
+下面证明这一等式。
+% The right hand side is printed with pr_23 throughout rather than pr_13; retained.
+
+由笛卡儿图
+\[
+\begin{tikzcd}[column sep=1.1em]
+ V\times_U Y\times_U V\arrow[r,"{\operatorname{pr}_{12}}"]\arrow[d,"{\id_V\times\eta\times\id_V}"']&V\times_U Y\arrow[r,"{\phi}"]\arrow[d,"{\id_V\times\eta}"]&Y\times_U V\arrow[d,"{\eta\times\id_V}"]\\
+ V\times_U V\times_U V\arrow[r,"{\operatorname{pr}_{12}}"']&V\times_U V\arrow[r,equal]&V\times_U V
+\end{tikzcd}
+\]
+得到等式
+\[
+ \operatorname{pr}_{12}^*\sigma_\phi^{-1}\circ\sigma_{\operatorname{pr}_{12},\operatorname{pr}_{12}}^{-1}
+ =\sigma_{\phi\circ\operatorname{pr}_{12},\operatorname{pr}_{12}}^{-1};
+\]
+由另一个笛卡儿图
+\[
+\begin{tikzcd}[column sep=1em]
+ V\times_U Y\times_U V\arrow[r,"{\phi\times\id_V}"]\arrow[rr,bend left=22,"{\phi\circ\operatorname{pr}_{12}}"]\arrow[d,"{\id_V\times\eta\times\id_V}"']&Y\times_U V\times_U V\arrow[r,"{\operatorname{pr}_{12}}"]\arrow[d,"{\eta\times\id_V\times\id_V}"]&Y\times_U V\arrow[d,"{\eta\times\id_V}"]\\
+ V\times_U V\times_U V\arrow[r,equal]&V\times_U V\times_U V\arrow[r,"{\operatorname{pr}_{12}}"']&V\times_U V
+\end{tikzcd}
+\]
+% Source PDF 110 = printed 98.
+得到
+\[
+ \sigma_{\operatorname{pr}_{12},\operatorname{pr}_{12}}
+ \circ\sigma_{\phi\circ\operatorname{pr}_{12},\operatorname{pr}_{12}}^{-1}
+ =\sigma_{\phi\times\id_V,\id_{V\times_U V\times_U V}}^{-1}
+ =\sigma_{\operatorname{pr}_{12}^*\phi,\id_{V\times_U V\times_U V}}^{-1}.
+\]
+用类似论证，得到等式
+\[
+ \sigma_{\operatorname{pr}_{23},\operatorname{pr}_{23}}
+ \circ\sigma_{\phi\circ\operatorname{pr}_{23},\operatorname{pr}_{23}}^{-1}
+ =\sigma_{\operatorname{pr}_{23}^*\phi,\id_{V\times_U V\times_U V}}^{-1}
+\]
+及
+\[
+ \sigma_{\operatorname{pr}_{13},\operatorname{pr}_{13}}
+ \circ\sigma_{\phi\circ\operatorname{pr}_{13},\operatorname{pr}_{13}}^{-1}
+ =\sigma_{\operatorname{pr}_{13}^*\phi,\id_{V\times_U V\times_U V}}^{-1}.
+\]
+由此可见，$\psi$ 的余循环条件等价于等式
+\[
+ \sigma_{\operatorname{pr}_{23}^*\phi,\id_{V\times_U V\times_U V}}
+ \circ\sigma_{\operatorname{pr}_{12}^*\phi,\id_{V\times_U V\times_U V}}
+ =\sigma_{\operatorname{pr}_{13}^*\phi,\id_{V\times_U V\times_U V}}.
+\]
+但再次利用命题 4.40，这立即由 $\phi$ 的余循环条件得出。
+
+所以 $(\mathcal M_\eta,\psi)$ 是带下降数据的拟凝聚层，因而来自 $U$ 上某个有限表现的拟凝聚层 $\mathcal M$。
+
+现在回到一般情形。给定 $\mathcal F$ 中的箭头 $\xi\colon X\to U$，有伴随同态
+\[
+ \tau_\xi\colon\xi^*\mathcal M_\xi=\xi^*\xi_*\mathcal L_\xi\longrightarrow\mathcal L_\xi,
+\]
+它在截面层次上由等式 $\tau_\xi(\xi^*s)=s$ 刻画，其中 $s$ 是 $U$ 的一个开子集的逆像上 $\mathcal L_\xi$ 的任意截面。
+
+\begin{origstatement}{命题}{4.41}\label{ch04:prop441}
+给定笛卡儿方块
+\[
+\begin{tikzcd}
+ X\arrow[r,"{f}"]\arrow[d,"{\xi}"']&Y\arrow[d,"{\eta}"]\\
+ U\arrow[r,"{\phi}"']&V,
+\end{tikzcd}
+\]
+则两个复合
+\[
+ (\phi\xi)^*\mathcal M_\eta=(\eta f)^*\mathcal M_\eta
+ \xrightarrow{f^*\tau_\eta}f^*\mathcal L_\eta\xrightarrow{\rho_{f,\phi}}\mathcal L_\xi
+\]
+及
+\[
+ (\phi\xi)^*\mathcal M_\eta\xrightarrow{\xi^*\sigma_{f,\phi}}
+ \xi^*\mathcal M_\xi\xrightarrow{\tau_\xi}\mathcal L_\xi
+\]
+相同。
+\end{origstatement}
+\begin{proof}
+设 $s$ 是 $V$ 的某个开子集上 $\mathcal M_\eta$ 的截面，也就是 $V$ 的一个开子集在 $Y$ 中的逆像上 $\mathcal L_\eta$ 的截面。那么两个复合都由下述性质刻画：把 $(\phi\xi)^*s=(\eta f)^*s$ 送到 $\rho_{f,\phi}(f^*s)$。
+\end{proof}
+
+在上述命题的情形下，假设 $\mathcal L_\eta$ 在 $Y$ 上相对于 $\eta$ 很丰沛，且基变换同态 $\beta_{f,\phi}\colon\phi^*\eta_*\mathcal L_\eta\to\xi_*f^*\mathcal L_\eta$ 是同构。那么 $\sigma_{f,\phi}\colon\phi^*\mathcal M_\eta\to\mathcal M_\xi$ 是同构，并诱导 $U$ 上概形的同构
+\[
+ U\times_V\mathbb P(\mathcal M_\eta)=\mathbb P(\phi^*\mathcal M_\eta)\simeq\mathbb P(\mathcal M_\xi),
+\]
+从而有笛卡儿方块
+\[
+\begin{tikzcd}
+ \mathbb P(\mathcal M_\xi)\arrow[r]\arrow[d]&U\arrow[d,"{\phi}"]\\
+ \mathbb P(\mathcal M_\eta)\arrow[r]&V.
+\end{tikzcd}
+\]
+
+% Source PDF 111 = printed 99.
+又由于 $\mathcal L_\xi$ 和 $\mathcal L_\eta$ 很丰沛，基变换同态 $\tau_\xi\colon\xi^*\mathcal M_\xi\to\mathcal L_\xi$ 和 $\tau_\eta\colon\eta^*\mathcal M_\eta\to\mathcal L_\eta$ 满射，所对应的概形态射 $X\to\mathbb P(\mathcal M_\xi)$ 和 $Y\to\mathbb P(\mathcal M_\eta)$ 是闭浸入。由命题 4.41，下图交换且为笛卡儿图：
+\[
+\begin{tikzcd}
+ X\arrow[r,hook]\arrow[d,"{f}"']&\mathbb P(\mathcal M_\xi)\arrow[r]\arrow[d]&U\arrow[d,"{\phi}"]\\
+ Y\arrow[r,hook]&\mathbb P(\mathcal M_\eta)\arrow[r]&V.
+\end{tikzcd}
+\]
+回到覆盖 $V\to U$，两个图
+\[
+\begin{tikzcd}
+ V\times_U Y\arrow[r,hook]\arrow[d,"{\operatorname{pr}_1}"']&\mathbb P(\mathcal M_{\id_V\times\eta})\arrow[r]\arrow[d]&V\times_U V\arrow[d,"{\operatorname{pr}_1}"]\\
+ Y\arrow[r,hook]&\mathbb P(\mathcal M_\eta)\arrow[r]&V
+\end{tikzcd}
+\]
+和
+\[
+\begin{tikzcd}
+ Y\times_U V\arrow[r,hook]\arrow[d,"{\operatorname{pr}_2}"']&\mathbb P(\mathcal M_{\eta\times\id_V})\arrow[r]\arrow[d]&V\times_U V\arrow[d,"{\operatorname{pr}_2}"]\\
+ Y\arrow[r,hook]&\mathbb P(\mathcal M_\eta)\arrow[r]&V
+\end{tikzcd}
+\]
+均为笛卡儿图；将它们与图
+\[
+\begin{tikzcd}
+ V\times_U Y\arrow[r,hook]\arrow[d,"{\phi}"']&\mathbb P(\mathcal M_{\id_V\times\eta})\arrow[r]\arrow[d]&V\times_U V\arrow[d,equal]\\
+ Y\times_U V\arrow[r,hook]&\mathbb P(\mathcal M_\eta\times\id_V)\arrow[r]&V\times_U V
+\end{tikzcd}
+\]
+以及 $\psi$ 的定义结合，说明 $Y\subseteq\mathbb P(\mathcal M_\eta)$ 在 $\mathbb P(\operatorname{pr}_1^*\mathcal M_\eta)$ 和 $\mathbb P(\operatorname{pr}_2^*\mathcal M_\eta)$ 中的两个逆像相同。另一方面，带下降数据的拟凝聚层 $(\mathcal M_\eta,\psi)$ 同构于拟凝聚层 $\mathcal M$ 的拉回。若 $f\colon V\to U$ 是给定态射，$F\colon V\times_U V\to U$ 是与投影 $V\times_U V\to V$ 的复合，这蕴含 $Y\subseteq\mathbb P(\mathcal M_\eta)\simeq\mathbb P(f^*\mathcal M)$ 的两个拉回相同。于是存在唯一的闭子概形 $X\subseteq\mathbb P(\mathcal M)$，其拉回为 $Y\subseteq\mathbb P(\mathcal M_\eta)$；由于 $\mathcal F$ 是 fpqc 拓扑中的局部类，态射 $X\to U$ 属于 $\mathcal F$。与 $X\to U$ 相伴的带下降数据的概形恰好为 $(Y\to V,\phi)$；定理 4.38 的证明完成。\hfill$\square$
+
+\section{沿挠子的下降}\label{ch04:sec44}
+下降的一个很有意思的例子，是拟凝聚层沿 fpqc 挠子（torsor）的下降。它可以看作熟知的实向量空间范畴与带反线性对合的复向量空间范畴之间的等价的广泛推广。挠子推广了拓扑中的主纤维丛；令我一直感到惊讶的是，挠子最简单的例子之一竟是 Galois 域扩张（见例 4.45）。
+
+这里仅引入陈述并证明主要定理所必需的最少内容。更充分的讨论见 [DG70]。
+
+% Source PDF 112 = printed 100.
+本节在具有纤维积的次典范景 $\mathcal C$ 以及 $\mathcal C$ 中的群对象 $G$ 中工作。假设 $\mathcal C$ 有终对象 $\mathrm{pt}$。
+
+所考虑的例子是：赋予整体经典拓扑的 $\mathcal C=(\mathrm{Top})$，其中 $G$ 是任意拓扑群；以及赋予 fpqc 拓扑的 $\mathcal C=(\mathrm{Sch}/S)$，其中 $G\to S$ 是群概形。
+
+\subsection{挠子}
+挠子就是其他数学领域中所称的\emph{主丛}（principal bundle）。设有 $\mathcal C$ 的对象 $X$，以及 $G$ 的左作用 $\alpha\colon G\times X\to X$。若对 $\mathcal C$ 的每个对象 $U$，诱导的映射 $X(U)\to Y(U)$ 关于 $G(U)$ 在 $X(U)$ 上的作用不变，就称箭头 $X\to Y$ \emph{不变}。这也可表述为：$X\to Y$ 与从 $G\times X$ 到 $X$ 的两个箭头 $\alpha$、$\operatorname{pr}_2$ 的复合相等（它与上述定义的等价性由 Yoneda 引理得出）。
+
+又一个等价定义是：当给 $Y$ 配备平凡 $G$-作用 $\operatorname{pr}_2\colon G\times Y\to Y$ 时，箭头 $f$ 是 $G$-等变的。
+
+若 $\pi\colon X\to Y$ 是不变箭头，$f\colon Y'\to Y$ 是箭头，则在 $Y'\times_Y X$ 上诱导 $G$-作用；这是唯一使第一投影 $\operatorname{pr}_1\colon Y'\times_Y X\to Y'$ 不变、第二投影 $\operatorname{pr}_2\colon Y'\times_Y X\to X$ 为 $G$-等变的作用。用函子语言说，若 $U$ 是 $\mathcal C$ 的对象，$g\in G(U)$，$x\in X(U)$ 和 $y'\in Y'(U)$ 在 $Y(U)$ 中有相同的像，则
+$g\cdot(y',x)=(y',g\cdot x)$。
+
+挠子的第一个例子是\emph{平凡挠子}。对 $\mathcal C$ 的每个对象 $Y$，考虑积 $G\times Y$。它有 $G$ 的作用，对 $\mathcal C$ 的所有对象 $U$、$G(U)$ 中所有 $g,h$ 及 $X(U)$ 中所有 $x$，由显然的公式
+\[
+ g\cdot(h,x)=(gh,x)
+\]
+定义。
+
+更一般地，一个\emph{平凡挠子}由 $\mathcal C$ 的对象 $X$、其上的 $G$ 左作用以及不变箭头 $f\colon X\to Y$ 组成，并要求存在 $G$-等变同构 $\phi\colon G\times Y\simeq X$，使下图交换：
+\[
+\begin{tikzcd}[column sep=1.2em]
+ G\times Y\arrow[rr,"{\phi}"]\arrow[dr,"{\operatorname{pr}_2}"']&&X\arrow[dl,"{f}"]\\
+ &Y.
+\end{tikzcd}
+\]
+（同构本身不是所给数据的一部分，只要求其存在。）
+
+一个 $G$-挠子就是 $\mathcal C$ 的对象 $X$，配备 $G$ 的作用及不变箭头 $\pi\colon X\to Y$，并且在 $Y$ 上局部为平凡挠子。精确定义如下。
+
+\begin{origstatement}{定义}{4.42}\label{ch04:def442}
+$\mathcal C$ 中的一个 $G$-挠子由带有 $G$ 作用的 $\mathcal C$ 的对象 $X$ 及不变箭头 $\pi\colon X\to Y$ 组成，使得存在 $Y$ 的覆盖 $\{Y_i\to Y\}$，对每个 $i$，箭头 $\operatorname{pr}_1\colon Y_i\times_Y X\to Y_i$ 都是平凡挠子。
+\end{origstatement}
+
+下面是挠子的一个重要刻画。注意，每当有 $G$ 在对象 $X$ 上的作用 $\alpha\colon G\times X\to X$ 以及不变箭头 $f\colon X\to Y$ 时，就得到箭头 $\delta_\alpha\colon G\times X\to X\times_Y X$，作为自然变换，它对 $\mathcal C$ 的任意对象 $U$ 及任意 $g\in G(U),x\in X(U)$ 由公式 $(g,x)\mapsto(gx,x)$ 定义。

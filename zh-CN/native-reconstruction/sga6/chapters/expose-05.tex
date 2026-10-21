@@ -1,0 +1,2223 @@
+\sgaStableTarget{sga6.e05.expose}\section*{第 V 讲. \(\lambda\)-环的一般性质}
+\begin{center}
+P. Berthelot
+\end{center}
+
+当使用诸如赋环景上的向量丛类环、群的表示环等环时, 外幂运算定义映射 \(\lambda^i\), 因而 \(\lambda\)-环理论就派上用场. 本讨论班后文将大量使用这一理论. 所以有必要先发展一般形式体系. 因此, 本讲完全独立于讨论班的其余部分, 对代数几何以外使用 \(\lambda\)-环的人也可能有用.
+
+第一节实质上给出 Hirzebruch 的“乘法多项式序列”理论（参见 [2]）. 这里采用的函子观点除了一般性以外, 还有大幅减少计算的优点. 以下各节将说明如何给每个增广 \(\lambda\)-环对应一个“Chern 环”, 借此发展 Chern 类理论. 正是这一理论使我们能够以\hyperlink{sga6.e08.expose}{第 VIII 讲}的一般形式陈述 Riemann--Roch 定理.
+
+\sgaStableTarget{sga6.e05.sec.1}\section*{1. 泛多项式}
+
+\sgaStableTarget{sga6.e05.para.1-1}\textbf{1.1.} 设 \(K\) 为带幺交换环, 本节中将它固定. 用 \(\mathcal C\) 表示滤过带幺交换 \(K\)-代数范畴, 其中滤过递减, 且零级滤过元素所成的群为整个代数. 在 \(\mathcal C\) 上如下定义一个取值于 Abel 群范畴的函子. 若 \(A\in\operatorname{Ob}(\mathcal C)\), 给 \(A\) 对应满足以下条件的形式级数 \(\psi\in A[[t]]\) 所成的集合: 若
+\[
+  \psi=a_0+a_1t+\cdots+a_nt^n+\cdots ,
+\]
+则
+\sgaStableTarget{sga6.e05.eq.1-1-1}\begin{equation}\tag{1.1.1}
+  a_0=1,\qquad \forall i\geq 1,\quad a_i\in \Fil^i A .
+\end{equation}
+将此集合记为 \(\Ghat_K(A)\), 在不致混淆时记为 \(\Ghat(A)\). 显然, 对形式级数的乘法, 它构成 Abel 群, 从而定义函子
+\[
+  \Ghat_K:K\text{-Alg.fil.}\longrightarrow \mathrm{Ab}.
+\]
+若 \(A\) 赋以粗滤过, 则 \(\Ghat(A)\) 为增广为 \(1\) 的形式级数所成的群, 也记为
+\[
+  1+A[[t]]^+.
+\]
+
+\sgaStableTarget{sga6.e05.lem.1-2}\textbf{引理 1.2.} 函子 \(\Ghat_K\) 可表.
+
+设 \((X_i)_{i\in\mathbb N,\ i\geq 1}\) 为一族不定元. 赋予 \(X_i\) 权 \(i\), 并按关于 \(X_i\) 的权对环 \(K[X_i]_{i\geq 1}\) 作滤过. 便得到双射
+\[
+  \Ghat_K(A)\xrightarrow{\sim}
+  \Hom_{K\text{-Alg.fil.}}\bigl(K[X_i]_{i\geq 1},A\bigr)
+\]
+其定义是将每个级数
+\[
+  \psi=1+a_1t+\cdots+a_nt^n+\cdots\in\Ghat_K(A)
+\]
+对应到由 \(f_\psi(X_i)=a_i\) 确定的态射 \(f_\psi\). 此同态与滤过相容, 因而得到函子的同构.
+
+置
+\[
+  \varphi=1+X_1t+\cdots+X_nt^n+\cdots .
+\]
+对每个滤过 \(K\)-代数 \(A\) 和每个级数 \(\psi\in\Ghat(A)\), 存在唯一的同态
+\[
+  f_\psi\in K[X_i]_{i\geq 1}\longrightarrow A
+\]
+使得
+\[
+  \Ghat(f_\psi)(\varphi)=\psi .
+\]
+
+\sgaStableTarget{sga6.e05.para.1-3}\textbf{1.3.} 对每个 \(A\in\operatorname{Ob}(\mathcal C)\), 在 \(\Ghat(A)\) 上如下定义滤过: 级数
+\[
+  \psi=1+a_1t+\cdots
+\]
+称为滤过次数 \(\geq k\) 的, 如果对 \(1\leq i<k\), 有 \(a_i=0\). 用 \(F^k\Ghat(A)\) 表示如此得到的子群. 它是 \(\mathcal C\) 上的函子; 以下通过此滤过将 \(\Ghat\) 视为取值于滤过 Abel 群范畴 \(\Abfil\) 的函子, 其中 \(F^0\Ghat=\Ghat\).
+
+设 \(H\) 为 \(\mathcal C\) 上取值于 \(\Abfil\) 的函子. 假设 \(H\) 满足以下两个条件:
+
+\[
+\begin{array}{ll}
+\text{i)} & \forall A\in\operatorname{Ob}(\mathcal C),\ H(A)\text{ 分离且完备},\\[0.3em]
+\text{ii)} & \text{若 }A\in\operatorname{Ob}(\mathcal C)\text{ 为分次 }K\text{-代数, 赋以其分次所对应的滤过,}\\
+&\text{且有限群 }G\text{ 通过分次态射作用于 }A\text{, 则}\\
+& H(A^G)\simeq H(A)^G .
+\end{array}
+\]
+这里 \(H(A)^G\) 表示 \(G\) 下的不变元.
+
+事实上, 我们只在 \(A\) 为多项式环且 \(G\) 为若干对称群的有限积、通过置换不定元作用时需要这些条件.
+
+\sgaStableTarget{sga6.e05.ex.unnamed}\textbf{例.}
+\[
+\begin{array}{ll}
+1)& H(A)=\Ghat(A),\\
+\sgaStableTarget{sga6.e05.ex.1-3-2}2)& H(A)=1+A[[t]]^+.
+\end{array}
+\]
+将后一个函子记为 \(\Gg\), 其中 \(g\) 代表 ``gross''（粗）. 最后,
+\[
+3)\quad H(A)=\Ga(A),
+\]
+其中 \(\Ga(A)\) 表示以下形式级数按加法构成的群:
+\[
+  a=a_0+a_1t+\cdots
+\]
+要求 \(a_0=0\), 且对 \(i\geq 1\), 有 \(a_i\in\Fil^i A\); 赋予它与 \(\Ghat\) 上类似的滤过.
+
+\sgaStableTarget{sga6.e05.para.1-4}\textbf{1.4.} 对每个 \(n\), 用 \(f_n\) 表示由下式定义的 \(K[X_1,\ldots,X_n]\) 的自同态:
+\[
+  f_n(X_i)=X_i\quad (i<n),\qquad f_n(X_n)=0.
+\]
+它经 \(K[X_1,\ldots,X_{n-1}]\) 到 \(K[X_1,\ldots,X_n]\) 的包含映射分解. 因而同态
+\[
+  H(K[X_1,\ldots,X_{n-1}])\longrightarrow H(K[X_1,\ldots,X_n])
+\]
+为单射. 由此可将第一个群等同于第二个群的子群; 同样, 将 \(H(K[X_1,\ldots,X_n])\) 视为包含于 \(H(K[X_i]_{i\geq 1})\) 中.
+
+注意, \(f_1\) 正是 \(K[X]\) 的增广.
+
+\sgaStableTarget{sga6.e05.para.1-5}\textbf{1.5.} 将 \(X_i\) 映到 \(T_j\) 的第 \(i\) 个初等对称函数, 借此把 \(K[X_1,\ldots,X_n]\) 嵌入 \(K[T_1,\ldots,T_n]\). 令对称群 \(\Sym_n\) 通过置换 \(T_j\) 作用. 由对称多项式定理及 (1.3.ii), 可见诱导同态
+\[
+  H(K[X_1,\ldots,X_n])\longrightarrow H(K[T_1,\ldots,T_n])
+\]
+为单射, 因而又可将前者等同于后者的子群:
+\[
+  H(K[X_1,\ldots,X_n])\simeq H(K[T_1,\ldots,T_n])^{\Sym_n}
+  \subset H(K[T_1,\ldots,T_n]).
+\]
+设
+\[
+  u_i^n:K[X]\longrightarrow K[T_1,\ldots,T_n]
+\]
+为由 \(u_i^n(X)=T_i\) 定义的同态, 并置
+\[
+  u_H^n=\sum_{i=1}^n H(u_i^n):H(K[X])\longrightarrow H(K[T_1,\ldots,T_n]).
+\]
+对称群置换各态射 \(H(u_i^n)\), 因而保持 \(u_H^n\) 不变; 所以由 (1.3.ii), \(u_H^n\) 取值于
+\[
+  H(K[T_1,\ldots,T_n])^{\Sym_n}
+   \simeq H(K[X_1,\ldots,X_n])
+\]
+上述群. 最后注意, 若 \(H=\Ghat\), 则
+\[
+  u_H^n(1+Xt)=\prod_{i=1}^n(1+T_it)=1+X_1t+\cdots+X_nt^n.
+\]
+
+\sgaStableTarget{sga6.e05.thm.1-6}\textbf{定理 1.6.} 将每个函子态射对应到它在 \(\Ghat(K[X])\) 的元素 \(1+Xt\) 上的值, 所得从 \(\Hom_{\Abfil}(\Ghat,H)\) 到 \(H(K[X])\) 的映射为单射. 其像是 \(H(K[X])\) 中由满足以下条件的元素 \(\theta\) 构成的子群; 其中 \(f_n\) 沿用 \hyperlink{sga6.e05.para.1-4}{1.4} 的记号:
+\[
+\begin{array}{ll}
+\text{i)}& H(f_1)(\theta)=0,\\[0.3em]
+\text{ii)}& \forall n>1,\quad
+ H(f_n)\bigl(u_H^n(\theta)\bigr)\equiv u_H^n(\theta)
+ \pmod{F^nH(K[X_1,\ldots,X_n])}.
+\end{array}
+\]
+
+先证明单射性. 由\hyperlink{sga6.e05.lem.1-2}{引理 1.2}, 只需证明在 \(1+Xt\) 上为零的函子态射 \(\xi\) 在
+\[
+  \varphi=1+X_1t+\cdots+X_nt^n+\cdots .
+\]
+上为零. 交换图
+\sgaStableTarget{sga6.e05.eq.1-6-1}\[
+\begin{tikzcd}
+\Ghat(K[X]) \arrow[r,"u^n_{\Ghat}"] \arrow[d,"\xi"'] &
+\Ghat(K[X_1,\ldots,X_n]) \arrow[d,"\xi"]\\
+H(K[X]) \arrow[r,"u_H^n"'] &
+H(K[X_1,\ldots,X_n])
+\end{tikzcd}
+\tag{1.6.1}
+\]
+表明, 对每个 \(n\), 有
+\[
+  \xi(1+X_1t+\cdots+X_nt^n)=0.
+\]
+但
+\[
+  \varphi\equiv 1+X_1t+\cdots+X_nt^n
+  \pmod{F^{n+1}\Ghat},
+\]
+所以
+\[
+  \xi(\varphi)\equiv \xi(1+X_1t+\cdots+X_nt^n)
+  \pmod{F^{n+1}H};
+\]
+从而对每个 \(n\), 有 \(\xi(\varphi)\equiv 0\pmod{F^{n+1}H}\). 因为 \(H(K[X_i]_{i\geq 1})\) 分离且完备, 故 \(\xi(\varphi)=0\).
+
+现在任取 \(\xi\in\Hom(\Ghat,H)\), 置
+\[
+  \theta=\xi(1+Xt).
+\]
+证明 \(\theta\) 满足条件 i) 和 ii). 首先,
+\[
+  H(f_1)(\theta)=H(f_1)\xi(1+Xt)
+  =\xi\,\Ghat(f_1)(1+Xt)=\xi(1)=0.
+\]
+其次,
+\[
+  u_H^n(\theta)=\xi(1+\cdots+X_nt^n)
+\]
+这是由 \hyperlink{sga6.e05.eq.1-6-1}{(1.6.1)} 得到的, 而
+\[
+  1+\cdots+X_nt^n\equiv 1+\cdots+X_{n-1}t^{\,n-1}
+  \pmod{F^n\Ghat},
+\]
+并且
+\[
+  1+\cdots+X_{n-1}t^{\,n-1}=\Ghat(f_n)(1+\cdots+X_nt^n).
+\]
+由于 \(H\circ \Ghat(f_n)=H(f_n)\circ \xi\), 且 \(\xi\) 是滤过函子的态射, 条件 ii) 随即得到.
+
+还需证明, 若 \(\theta\in H(K[X])\) 满足 i) 和 ii), 则存在 \(\xi\in\Hom(\Ghat,H)\), 使得
+\[
+  \theta=\xi(1+Xt).
+\]
+先确定 \(\xi\) 在 \(\Ghat(K[X_1,\ldots,X_n])\) 的元素 \(1+\cdots+X_nt^n\) 上的值. 根据 \hyperlink{sga6.e05.eq.1-6-1}{(1.6.1)}, 按定义必有
+\[
+  \xi(1+\cdots+X_nt^n)
+  =
+  \sum_{i=1}^n \xi(1+T_it),
+\]
+其中各 \(\xi(1+T_it)\) 由态射 \(u_i^n\) 的函子性已知.
+
+然后利用下列交换图, 将随 \(n\) 变化的各 \(\xi(1+\cdots+X_nt^n)\) 粘合:
+\sgaStableTarget{sga6.e05.eq.1-6-2}\[
+\begin{tikzcd}
+K[X_1,\ldots,X_n] \arrow[r,"f_n"] \arrow[d,"\sigma_n"'] &
+K[X_1,\ldots,X_n] \arrow[d,"\sigma'_n"]\\
+K[T_1,\ldots,T_n] \arrow[r,"f'_n"'] &
+K[T_1,\ldots,T_n],
+\end{tikzcd}
+\tag{1.6.2}
+\]
+其中 \(f'_n\) 由 \(i<n\) 时 \(f'_n(T_i)=T_i\) 及 \(f'_n(T_n)=0\) 确定; \(\sigma_n\) 将 \(X_i\) 映到 \(T_1,\ldots,T_n\) 的第 \(i\) 个初等对称函数; 当 \(i<n\) 时, \(\sigma'_n\) 将 \(X_i\) 映到 \(T_1,\ldots,T_{n-1}\) 的第 \(i\) 个初等对称函数, 并将 \(X_n\) 映到 \(0\).
+
+事实上, 由此并通过 1.4 中的等同, 在 \(H(K[T_1,\ldots,T_{n-1}])\) 内得到
+\[
+\begin{aligned}
+H(f_n)\bigl(\xi(1+\cdots+X_nt^n)\bigr)
+&=H(f'_n)\left(\sum_{i=1}^n \xi(1+T_it)\right)\\
+&=\sum_{i=1}^{n-1}\xi(1+T_it)
+   =\xi(1+\cdots+X_{n-1}t^{\,n-1}),
+\end{aligned}
+\]
+由 1.6.ii, 元素 \(\xi(1+\cdots+X_nt^n)\) 定义 \(H(K[X_i]_{i\geq 1})\) 的元素 \(\psi\), 因为后者为分离完备群. 置
+\[
+  \xi(\varphi)=\psi .
+\]
+
+最后, 若 \(A\in\operatorname{Ob}(\mathcal C)\) 且 \(x\in\Ghat(A)\), 定义
+\[
+  \xi_A(x)=H(f_x)(\psi),
+\]
+其中 \(f_x:K[X_i]_{i\geq 1}\to A\) 为 1.2 中定义的同态. 由于已经在元素 \(1+\cdots+X_nt^n=\varphi_n\) 上定义了 \(\xi\), 必须验证两种定义给出相同结果, 即
+\[
+  H(f_{\varphi_n})(\psi)=\xi(1+\cdots+X_nt^n).
+\]
+但对每个 \(p\), 有
+\[
+  \psi\equiv \xi(1+\cdots+X_pt^p)
+  \pmod{F^{p+1}H(K[X_i]_{i\geq 1})}.
+\]
+因此, 当 \(p\geq n\) 时,
+\[
+  H(f_{\varphi_n})(\psi)
+  \equiv
+  H(f_{\varphi_n})\bigl(\xi(1+\cdots+X_pt^p)\bigr)
+  \pmod{F^{p+1}H(K[X_i]_{i\geq 1})}.
+\]
+利用 \hyperlink{sga6.e05.para.1-4}{1.4} 中的等同及随 \(m\) 变化的 \(\xi(\varphi_m)\) 的粘合, 得到
+\[
+  H(f_{\varphi_n})(\xi(\varphi_p))=\xi(\varphi_n).
+\]
+故最后有
+\[
+  \forall p\geq n,\quad
+  H(f_{\varphi_n})(\psi)\equiv \xi(1+\cdots+X_nt^n)
+  \pmod{F^pH(K[X_1,\ldots,X_n])}.
+\]
+因为 \(H\) 分离, 所需等式成立.
+
+这样就定义了一族映射
+\[
+  \xi_A:\Ghat(A)\longrightarrow H(A).
+\]
+为验证它们构成取值于群的函子之间的态射, 首先须证明, 对每个态射 \(h:A\to A'\), 方块
+\[
+\begin{tikzcd}
+\Ghat(A) \arrow[r,"\Ghat(h)"] \arrow[d,"\xi_A"'] &
+\Ghat(A') \arrow[d,"\xi_{A'}"]\\
+H(A) \arrow[r,"H(h)"'] & H(A')
+\end{tikzcd}
+\]
+交换. 若 \(x\in\Ghat(A)\), 则 \(h\circ f_x=f_{\Ghat(h)(x)}\), 从而
+\[
+  H(h)(\xi_A(x))=H(h)H(f_x)(\psi)
+  =H(f_{\Ghat(h)(x)})(\psi)=\xi_{A'}(\Ghat(h)(x)).
+\]
+只需再证明, 如此构造的函子态射与滤过群结构相容.
+
+假设 \(x\in F^n\Ghat(A)\). 说 \(x\) 的滤过次数 \(>n\), 就是说
+\(f_x:K[X_i]_{i\geq 1}\to A\) 经由 \(K[X_i]_{i\geq 1}\) 的如下自同态 \(g_n\) 分解:
+\[
+  g_n(X_i)=0\quad (1\leq i\leq n-1),\qquad
+  g_n(X_i)=X_i\quad (i\geq n).
+\]
+为证明 \(\xi\) 与滤过相容, 只需证明
+\[
+  H(g_n)(\xi(\varphi))\in F^nH.
+\]
+但由构造,
+\[
+  \xi(\varphi)\equiv \xi(1+\cdots+X_{n-1}t^{\,n-1})
+  \pmod{F^nH}.
+\]
+因此
+\[
+  H(g_n)(\xi(\varphi))
+  =H(g_n)\bigl(\xi(1+\cdots+X_{n-1}t^{\,n-1})\bigr)
+  \equiv 0\pmod{F^nH}.
+\]
+
+为验证 \(\xi\) 的可加性, 只需对 \(\Ghat(A)\) 中有限次数的元素验证, 再取极限. 设 \(X_1,X_2\) 为 \(\Ghat(A)\) 中两个次数为 \(n\) 的元素, \(X\) 为它们的乘积. 考虑交换图
+\[
+\begin{tikzcd}[column sep=tiny]
+K[X_1,\ldots,X_{2n}] \arrow[rr,"f_X"] \arrow[d] && A\\
+\bigl(K[T_1,\ldots,T_{2n}]\bigr)^{\Sym_n\times\Sym_n}
+\arrow[urr,"f'_X"'] &&
+\end{tikzcd}
+\]
+其中 \(\Sym_n\times\Sym_n\) 的第一个因子置换 \(T_1,\ldots,T_n\), 第二个因子置换 \(T_{n+1},\ldots,T_{2n}\). 将 \(X_j\) 映到 \(T_i\) 的第 \(j\) 个初等对称函数, 就将环 \(K[X_1,\ldots,X_{2n}]\) 嵌入不变元环; \(f'\) 将 \(T_1,\ldots,T_n\)（分别将 \(T_{n+1},\ldots,T_{2n}\)）的第 \(i\) 个初等对称函数映到 \(X_1\)（分别映到 \(X_2\)）的第 \(i\) 个系数. 于是
+\[
+\begin{aligned}
+\xi(X)
+&=H(f'_X)\left(\xi\left(\prod_{i=1}^{2n}(1+T_it)\right)\right),\\
+\xi(X_1)
+&=H(f'_X)\left(\xi\left(\prod_{i=1}^{n}(1+T_it)\right)\right),
+\end{aligned}
+\]
+对 \(X_2\) 也类似, 使用 \(i=n+1,\ldots,2n\). 由于 \(H(f'_X)\) 为群同态, 归结为
+\[
+  X=\prod_{i=1}^{2n}(1+T_it),
+\]
+的情形; 此时, \(\xi\) 的可加性由各 \(\xi(1+X_1t+\cdots+X_k t^k)\) 的定义得到.
+
+\sgaStableTarget{sga6.e05.para.1-7}\textbf{1.7.} 上述讨论可推广到若干 \(\Ghat\) 函子的乘积. 函子 \((\Ghat)^k\) 由环
+\[
+  K[X_i^{(j)}]_{j=1,\ldots,k;\ i\geq 1},
+\]
+表示, 其中 \(X_i^{(j)}\) 的权为 \(i\). 用 \(\varphi^{(j)}\) 表示级数
+\[
+  1+X_1^{(j)}t+\cdots+X_n^{(j)}t^n+\cdots.
+\]
+群
+\[
+  \bigl(\Ghat(K[X_i^{(j)}])\bigr)^k
+\]
+中的元素 \((\varphi^{(j)})_j\) 具有类似于 \(\varphi\) 的泛性质（参见 \hyperlink{sga6.e05.lem.1-2}{1.2}）.
+
+对每族 \((X_i^{(j)})_{i\geq 1}\) 分别重复上述构造, 即可像前面那样引入态射 \(f_n^{(j)}\) 与 \(u_H^{n,(j)}\). 考虑从 \((\Ghat)^k\) 到 \(H\) 的函子态射, 要求它们为 \(\mathbb Z\)-多线性的, 且对 \(k\) 个变元中的每一个分别与滤过相容, 就得到类似于\hyperlink{sga6.e05.thm.1-6}{定理 1.6} 的结果. 它们由其在
+\[
+  (1+X^{(j)}t)_{j=1,\ldots,k}
+  \in \bigl(\Ghat(K[X^{(j)}]_j)\bigr)^k.
+\]
+上的值确定. 元素
+\[
+  \theta\in H(K[X^{(j)}]_j)
+\]
+确定这样的函子态射, 当且仅当它满足
+\[
+\begin{array}{ll}
+\text{i)} & \forall j,\quad H(f_1^{(j)})(\theta)=0,\\[0.3em]
+\text{ii)}& \forall n,j,\quad
+ H(f_n^{(j)})\bigl(u_H^{n,(j)}(\theta)\bigr)
+ \equiv u_H^{n,(j)}(\theta)\pmod{F^nH}.
+\end{array}
+\]
+读者不难看出, 除记号较繁以外, 照搬 1.6 的证明即可.
+
+\sgaStableTarget{sga6.e05.para.1-8}\textbf{1.8.} 设 \(\mathcal C_0\) 为 \(K\)-代数范畴, 设
+\[
+  i:\mathcal C_0\longrightarrow\mathcal C
+\]
+为将 \(K\)-代数 \(A\) 对应到赋以粗滤过的 \(K\)-代数 \(A\) 的函子. 设
+\[
+  g:\mathcal C\longrightarrow\mathcal C_0
+\]
+为遗忘滤过的遗忘函子. 这些函子满足以下关系:
+\[
+  g\circ i=\id_{\mathcal C_0},\qquad
+  \Ghat\circ i\circ g=\Gg,\qquad
+  \Gg\circ i\circ g=\Gg
+\]
+（参见 \hyperlink{sga6.e05.para.1-3}{1.3}, \hyperlink{sga6.e05.ex.1-3-2}{例 2)}）.
+
+\sgaStableTarget{sga6.e05.lem.1-9}\textbf{引理 1.9.} 设 \(H:\mathcal C_0\to\Abfil\) 为 \(\mathcal C_0\) 上的函子. 则典范同态
+\[
+  \Hom_{\Abfil}(\Ghat,H\circ g)
+  \longrightarrow
+  \Hom_{\Abfil}(\Ghat\circ i,H)
+\]
+为同构.
+
+为证其为单射, 使用典范同态序列
+\[
+ \Hom(\Ghat,H\circ g)\to
+ \Hom(\Ghat\circ i,H)\to
+ \Hom(\Gg,H\circ g)\to
+ \Hom(\Ghat,H\circ g),
+\]
+其中最后一个箭头来自 \(\Ghat\) 为 \(\Gg\) 的子函子这一事实. 为验证复合为恒等, 注意函子态射
+\[
+  \xi:\Ghat\longrightarrow H\circ g
+\]
+由它在 \(\mathcal C\) 中滤过为粗滤过的对象上的值确定. 事实上, 若 \(A\in\operatorname{Ob}(\mathcal C)\), 且 \(A_g\) 为赋以粗滤过的 \(A\), 则典范态射 \(A\to A_g\) 定义交换图
+\[
+\begin{tikzcd}
+\Ghat(A) \arrow[r,"\xi_A"] \arrow[d] &
+(H\circ g)(A) \arrow[d]\\
+\Ghat(A_g) \arrow[r,"\xi_{A_g}"'] &
+(H\circ g)(A_g),
+\end{tikzcd}
+\]
+它表明 \(\xi_A\) 为 \(\xi_{A_g}\) 在 \(\Ghat(A)\) 上的限制.
+
+再考虑复合同态
+\[
+  \Hom(\Ghat\circ i,H)\longrightarrow
+  \Hom(\Gg,H\circ g)\longrightarrow
+  \Hom(\Ghat,H\circ g)\longrightarrow
+  \Hom(\Ghat\circ i,H).
+\]
+显然它是恒等, 因而得到所断言的结果.
+
+\sgaStableTarget{sga6.e05.thm.1-10}\textbf{定理 1.10.} 设 \(H\) 为 \(K\)-代数范畴 \(\mathcal C_0\) 上取值于分离完备滤过 Abel 群范畴的函子, 且与有限群不变元的取法交换. 则从
+\[
+  \Hom_{\Abfil}(\Ghat\circ i,H)
+\]
+到 \(H(K[X])\) 的映射, 将每个函子态射对应到它在 \(\Ghat\circ i(K[X])\) 的元素 \(1+Xt\) 上的值, 是单射. 其像是 \(H(K[X])\) 中由满足以下条件的元素 \(\theta\) 构成的子群, 其中使用类似于 \hyperlink{sga6.e05.para.1-4}{1.4} 和 \hyperlink{sga6.e05.para.1-5}{1.5} 的记号:
+\[
+\begin{array}{ll}
+\text{i)}& H(f_1)(\theta)=0,\\[0.3em]
+\text{ii)}& \forall n>1,\quad
+ H(f_n)\bigl(u_H^n(\theta)\bigr)\equiv u_H^n(\theta)
+ \pmod{F^nH(K[X_1,\ldots,X_n])}.
+\end{array}
+\]
+因为 \(H\circ g(K[X])\) 不依赖于 \(K[X]\) 上所选的滤过, 所以此定理立即由\hyperlink{sga6.e05.thm.1-6}{定理 1.6} 和\hyperlink{sga6.e05.lem.1-9}{引理 1.9} 得到.
+
+将 \(\Ghat\) 换成 \((\Ghat)^k\) 所得的类似定理也成立（参见 \hyperlink{sga6.e05.para.1-7}{1.7}）.
+
+在不致混淆时, 将函子 \(\Ghat\circ i\) 简记为 \(\Ghat\). 因为 \(i\) 将 \(\mathcal C_0\) 等同于 \(\mathcal C\) 的一个子范畴, 这样做是合理的.
+
+\sgaStableTarget{sga6.e05.para.1-11}\textbf{1.11.} 用 \(\mathcal C_g\) 表示分次 \(K\)-代数范畴, 设
+\[
+  j:\mathcal C_g\longrightarrow\mathcal C
+\]
+为将分次 \(K\)-代数 \(B\) 对应到赋以其分次典范定义的滤过的 \(K\)-代数 \(B\) 的函子. 相伴分次函子
+\[
+  \operatorname{Gr}:\mathcal C\longrightarrow \mathcal C_g
+\]
+记为 \(\operatorname{Gr}\). 有函子同构
+\[
+  \varepsilon:\id_{\mathcal C_g}\xrightarrow{\sim}\operatorname{Gr}\circ j.
+\]
+
+若 \(B\in\operatorname{Ob}(\mathcal C_g)\), 用
+\[
+  1+\widehat{B}^{+}
+\]
+表示
+\[
+  \prod_{i=0}^{\infty}B^i
+\]
+中增广为 \(1\) 的元素构成的乘法群. 赋以与 \(\Ghat\) 上类似的滤过, 得到函子
+\[
+  \mathcal C_g\longrightarrow\Abfil.
+\]
+此外, 对每个 \(A\in\operatorname{Ob}(\mathcal C)\), 将级数 \(1+\cdots+a_nt^n+\cdots\) 映到级数 \(1+\cdots+\bar a_n+\cdots\), 其中 \(\bar a_n\) 为 \(a_n\) 在 \(\operatorname{Gr}^nA\) 中的类, 就定义滤过群同态
+\[
+  \Ghat(A)\longrightarrow 1+\widehat{\operatorname{Gr}A}^{+}
+\]
+其核为由满足
+\[
+  a_0=1,\qquad \forall i\geq 1,\quad a_i\in\Fil^{i+1}A.
+\]
+的形式级数构成的群 \(\Ghat'(A)\). 因而有关于 \(A\) 的函子性同构:
+\[
+  \Ghat(A)/\Ghat'(A)\xrightarrow{\sim} 1+\widehat{\operatorname{Gr}A}^{+}.
+\]
+
+\sgaStableTarget{sga6.e05.lem.1-12}\textbf{引理 1.12.} 设 \(H:\mathcal C_g\to\Abfil\) 为 \(\mathcal C_g\) 上的函子. 则典范同态
+\[
+  \rho:\Hom_{\Abfil}(1+\widehat{\,\cdot\,}^{+},H)
+  \longrightarrow
+  \Hom_{\Abfil}(\Ghat,H\circ\operatorname{Gr})
+\]
+为同构.
+
+同态 \(\rho\) 定义为复合
+\[
+ \Hom(1+\widehat{\,\cdot\,}^{+},H)
+ \longrightarrow
+ \Hom(1+\widehat{\operatorname{Gr}(\,\cdot\,)}^{+},H\circ\operatorname{Gr})
+ \longrightarrow
+ \Hom(\Ghat,H\circ\operatorname{Gr}),
+\]
+其中最后一个箭头由同态
+\[
+  \Ghat\longrightarrow 1+\widehat{\operatorname{Gr}(\,\cdot\,)}^{+}.
+\]
+定义. 构造一个逆态射
+\[
+  \rho':\Hom(\Ghat,H\circ\operatorname{Gr})
+  \longrightarrow
+  \Hom(1+\widehat{\,\cdot\,}^{+},H).
+\]
+为此, 证明从 \(\Ghat\) 到 \(H\circ\operatorname{Gr}\) 的每个函子态射都经由典范态射
+\[
+  \Ghat\longrightarrow 1+\widehat{\operatorname{Gr}(\,\cdot\,)}^{+}.
+\]
+分解. 等价地, 由 1.11, 只需证明它在 \(\Ghat'\) 上为零. 设 \(A\in\operatorname{Ob}(\mathcal C)\), \(x\in\Ghat'(A)\). 定义滤过 \(K\)-代数同态
+\[
+  K[X_i]_{i\geq 1}\longrightarrow A
+\]
+将 \(X_1\) 映到 \(0\), 当 \(i>1\) 时, 将 \(X_i\) 映到 \(x\) 的第 \((i-1)\) 个系数. 利用此同态, 只需验证所考虑的函子态射在元素
+\[
+  1+X_2t+\cdots+X_{n+1}t^n+\cdots .
+\]
+上为零. 使用 \(K[X_i]_{i\geq 1}\) 的自同态 \(f\), 其定义为
+\[
+  f(X_i)=X_{i+1}\quad\text{for all }i,
+\]
+以及交换图
+\[
+\begin{tikzcd}
+\Ghat(K[X_i]) \arrow[r] \arrow[d,"\Ghat(f)"'] &
+(H\circ\operatorname{Gr})(K[X_i]) \arrow[d,"H(\operatorname{Gr}(f))"]\\
+\Ghat(K[X_i]) \arrow[r] &
+(H\circ\operatorname{Gr})(K[X_i]).
+\end{tikzcd}
+\]
+现在 \(\operatorname{Gr}(f)=\operatorname{Gr}(f_1)\), 其中 \(f_1\) 为 \(K[X_i]_{i\geq 1}\) 的增广同态. 由于后者将 \(\varphi\) 映为零, 对 \(f_1\) 写出的类似交换图表明, \(H(\operatorname{Gr}(f))\) 将 \(\varphi\) 在 \(H\circ\operatorname{Gr}(K[X_i]_{i\geq 1})\) 中的像映为零, 因而得到结论.
+
+取商后, 给每个函子态射
+\[
+  \Ghat\longrightarrow H\circ\operatorname{Gr}
+\]
+对应一个函子态射
+\[
+  1+\widehat{\operatorname{Gr}}^{+}\longrightarrow H\circ\operatorname{Gr}.
+\]
+与 \(j\) 复合并使用同构 \(\varepsilon\), 得到态射
+\[
+  1+\widehat{\,\cdot\,}^{+}\longrightarrow H,
+\]
+它定义所需的同态 \(\rho'\). 立即可验证 \(\rho\) 与 \(\rho'\) 互逆.
+
+\sgaStableTarget{sga6.e05.thm.1-13}\textbf{定理 1.13.} 设 \(H\) 为 \(\mathcal C_g\) 上取值于分离完备滤过 Abel 群范畴的函子, 且与有限群不变元的取法交换. 则从
+\[
+  \Hom_{\Abfil}(1+\widehat{\,\cdot\,}^{+},H)
+\]
+到 \(H(K[X])\) 的映射, 将每个函子态射对应到它在 \(1+\widehat{K[X]}^{+}\) 的元素 \(1+X\) 上的值, 是单射. 其像是 \(H(K[X])\) 中由满足以下条件的元素 \(\theta\) 构成的子群, 其中使用 \hyperlink{sga6.e05.para.1-4}{1.4} 和 \hyperlink{sga6.e05.para.1-5}{1.5} 的记号:
+\[
+\begin{array}{ll}
+\text{i)}&H(f_1)(\theta)=0,\\[0.3em]
+\text{ii)}&\forall n>1,\quad
+H(f_n)\bigl(u_H^n(\theta)\bigr)\equiv u_H^n(\theta)
+ \pmod{F^nH(K[X_1,\ldots,X_n])}.
+\end{array}
+\]
+这立即由 \hyperlink{sga6.e05.thm.1-6}{1.6} 和 1.12 得到. 将 \(\Ghat\) 换成 \((\Ghat)^k\), 有相应的类似陈述.
+
+\sgaStableTarget{sga6.e05.rem.1-14}\textbf{注 1.14.} 若 \(H\) 为 \(\mathcal C_g\) 上取值于 Abel 群的函子, 与有限群不变元的取法交换, 并满足条件
+\[
+  \forall B\in\operatorname{Ob}(\mathcal C_g),\qquad
+  H(B)\simeq \varprojlim_n H(B/B^{\geq n}),
+  \qquad B^{\geq n}=\prod_{i\geq n}B^i,
+\]
+则在 \(H\) 上取由以下同态的核构成的滤过, 条件 \hyperlink{sga6.e05.thm.1-13}{1.13} ii) 总成立:
+\[
+  H(B)\longrightarrow H(B/B^{\geq n}),
+\]
+此滤过分离且完备. 事实上, 若 \(p_n\) 为典范同态
+\[
+  K[X_1,\ldots,X_n]\longrightarrow K[X_1,\ldots,X_n]/K[X_1,\ldots,X_n]^{\geq n},
+\]
+则
+\[
+  p_n\circ f_n=p_n,
+\]
+因此
+\[
+  H(p_n)\bigl[H(f_n)\circ u_H^n(\theta)-u_H^n(\theta)\bigr]=0.
+\]
+这正是说
+\[
+  H(f_n)\circ u_H^n(\theta)-u_H^n(\theta)
+  \in F^nH(K[X_1,\ldots,X_n]).
+\]
+所以, 为给出从 \(1+\widehat{\,\cdot\,}^{+}\) 到 \(H\) 的函子态射, 只需给出 \(H(K[X])\) 中仅满足 1.13 的条件 i) 的元素.
+
+\sgaStableTarget{sga6.e05.para.1-15}\textbf{1.15.} 设 \(H:\mathcal C\to\Abfil\)（分别为 \(\mathcal C_0\to\Abfil\), \(\mathcal C_g\to\Abfil\)）为满足 \hyperlink{sga6.e05.para.1-3}{1.3}（分别为 \hyperlink{sga6.e05.thm.1-10}{1.10}, \hyperlink{sga6.e05.thm.1-13}{1.13}）的条件的函子, 设
+\[
+  \xi:(\Ghat)^k\to H
+\]
+（分别为 \((\Ghat\circ i)^k\to H\), \((1+\widehat{\,\cdot\,}^{+})^k\to H\)）为函子态射. 在 \hyperlink{sga6.e05.para.1-7}{1.7} 中已看到, \(\xi\) 由其在
+\[
+  (\varphi^{(j)})_{j=1,\ldots,k}
+\]
+的元素
+\[
+  \bigl(\Ghat(K[X_i^{(j)}]_{j=1,\ldots,k;\ i\geq 1})\bigr)^k
+\]
+上的值确定（分别地同样处理）. 假设 \(H\) 为函子
+\[
+  \Ghat,\quad \Gg,\quad \Ga,\quad 1+\widehat{\operatorname{Gr}}^{+},\quad\text{etc.}
+\]
+之一. 则元素 \(\xi((\varphi^{(j)}))\) 是一个系数属于
+\[
+  K[X_i^{(j)}]_{i\geq 1,\ j=1,\ldots,k}.
+\]
+的形式级数. 称此级数的第 \(n\) 个系数为 \(\xi\) 的第 \(n\) 个泛多项式. 知道这些多项式就等价于知道 \(\xi\).
+
+根据 \hyperlink{sga6.e05.thm.1-6}{1.6} 的证明, 这些多项式本身又由元素
+\[
+  \xi(1+X^{(1)}t,\ldots,1+X^{(k)}t).
+\]
+确定. 计算按证明中的方法进行: 通过分解
+\[
+  \xi(1+X_1^{(1)}t+\cdots+X_n^{(1)}t^n,\ldots,
+        1+X_1^{(k)}t+\cdots+X_n^{(k)}t^n),
+\]
+并利用 \(\xi\) 的可加性, 计算元素
+\[
+  1+X_1^{(1)}t+\cdots+X_n^{(1)}t^n
+  =\prod_{j=1}^n(1+T_j^{(1)}t)
+\]
+所得多项式在固定 \(i\)、变动 \(j\) 时关于 \(T_j^{(i)}\) 对称, 因而可表达为 \(X_j^{(i)}\) 的函数. 通过 \(H\) 的滤过粘合, 这样便确定了 \(\xi\) 的泛多项式. 若
+\[
+  (\psi^{(1)},\ldots,\psi^{(k)})\in(\Ghat(A))^k,
+\]
+则在泛多项式中用 \(\psi^{(i)}\) 的系数代入 \(X_j^{(i)}\), 即可计算 \(\xi(\psi^{(1)},\ldots,\psi^{(k)})\).
+
+假设存在整数 \(m\), 使
+\[
+  \theta=\xi(1+X^{(1)}t,\ldots,1+X^{(k)}t)
+\]
+中 \(t^n\) 的系数为多项式, 其等权分量的权在 \(n\) 与 \(m\) 之间. 则 \(\xi\) 的第 \(k\) 个泛多项式的等权分量的权在 \(k\) 与 \(km\) 之间. 这立即由上述计算及对称函数定理得到.
+
+特别地, 若 \(H=\Ghat\), 则 \(\xi\) 的第 \(n\) 个泛多项式没有权 \(<n\) 的分量. 现在考虑典范态射
+\[
+  H\longrightarrow 1+\widehat{\operatorname{Gr}}^{+}.
+\]
+将它与 \(\xi\) 复合得到态射
+\[
+  (\Ghat)^k\longrightarrow 1+\widehat{\operatorname{Gr}}^{+},
+\]
+由 \hyperlink{sga6.e05.lem.1-12}{1.12} 的证明, 它经由
+\[
+  (1+\widehat{\operatorname{Gr}}^{+})^k
+\]
+分解, 并定义态射
+\[
+  \bar\xi:(1+\widehat{\,\cdot\,}^{+})^k\longrightarrow 1+\widehat{\,\cdot\,}^{+}.
+\]
+立即可见, \(\bar\xi\) 的第 \(n\) 个泛多项式与
+\[
+  (\Ghat)^k\longrightarrow 1+\widehat{\operatorname{Gr}}^{+},
+\]
+的第 \(n\) 个泛多项式相同, 即为 \(\xi\) 的第 \(n\) 个泛多项式的权 \(n\) 等权分量.
+
+同样的讨论适用于 \(H=\Ga\) 的情形. 此时可仿照 \hyperlink{sga6.e05.para.1-11}{1.11} 定义函子态射
+\[
+  H\longrightarrow \widehat{\operatorname{Gr}}^{+}
+\]
+对分次代数 \(B\), 置
+\[
+  \widehat B^{+}=\prod_{i\geq 1}B^i
+\]
+重复相同的推理, 得到前一段的结论.
+
+\sgaStableTarget{sga6.e05.para.1-16}\textbf{1.16.} 最后举一个例子. 假设 \(K=\mathbb Q\). 通过令
+\[
+  \Toddc(1+X)=\frac{X}{1-e^{-X}}.
+\]
+定义函子 \(1+\widehat{\,\cdot\,}^{+}\) 的自同态, 记为 \(\Toddc\), 称为 Todd 特征（Todd character）. \hyperlink{sga6.e05.thm.1-13}{定理 1.13} 的条件 i) 和 ii) 立即可以验证, 所以这确实定义了 \(1+\widehat{\,\cdot\,}^{+}\) 的自同态.
+
+\sgaStableTarget{sga6.e05.sec.2}\section*{2. \(\lambda\)-环的定义; 例子}
+
+本节除 2.9 外, 第 1 节的基环均取为 \(\mathbb Z\). 在 \hyperlink{sga6.e05.para.1-8}{1.8} 的范畴 \(\mathcal C_0\) 中进行讨论, 并如 1.10 中那样, 用 \(\Ghat\) 表示 \(\Ghat\) 在 \(\mathcal C_0\) 上的限制.
+
+\sgaStableTarget{sga6.e05.def.2-1}\textbf{定义 2.1.} \emph{预 \(\lambda\)-环（pre-\(\lambda\)-ring）}指一个带幺交换环 \(K\), 赋以 Abel 群同态
+\[
+  \lambda_t:K\longrightarrow 1+K[[t]]^+
+\]
+使得对每个 \(x\in K\), 有
+\[
+  \lambda_t(x)=1+xt+\cdots.
+\]
+记
+\[
+  \lambda_t(x)=\sum_{i\geq 0}\lambda^i(x)t^i.
+\]
+因此, 在环 \(K\) 上给定预 \(\lambda\)-环结构, 等价于给定一族映射
+\[
+  \lambda^i:K\longrightarrow K\qquad (i\in\mathbb N)
+\]
+使得
+\[
+\begin{array}{ll}
+\text{i)}&\forall x\in K,\quad \lambda^0(x)=1,\\[0.3em]
+\text{ii)}&\forall x\in K,\quad \lambda^1(x)=x,\\[0.3em]
+\text{iii)}&\forall x,y\in K,\ \forall n\in\mathbb N,\quad
+\lambda^n(x+y)=\displaystyle\sum_{p+q=n}\lambda^p(x)\lambda^q(y).
+\end{array}
+\]
+若 \(K,K'\) 为两个预 \(\lambda\)-环, \(f:K\to K'\) 为环同态, 则当图
+\[
+\begin{tikzcd}
+K \arrow[r,"\lambda_t"] \arrow[d,"f"'] &
+1+K[[t]]^+ \arrow[d,"\Ghat(f)"]\\
+K' \arrow[r,"\lambda_t"'] &
+1+K'[[t]]^+
+\end{tikzcd}
+\]
+交换时, 称 \(f\) 为预 \(\lambda\)-环同态, 或 \(\lambda\)-同态. 这等价于关系式
+\[
+  \forall x\in K,\ \forall i\in\mathbb N,\qquad
+  \lambda^i(f(x))=f(\lambda^i(x)).
+\]
+
+\sgaStableTarget{sga6.e05.ex.2-2}\textbf{例 2.2.}
+\begin{enumerate}[label=\alph*)]
+\item 可以给出 \(\mathbb Z\) 上的全部预 \(\lambda\)-环结构. 只需给出 \(\lambda_t(1)\), 它是整系数形式级数, 唯一要求是以 \(1+t\) 开头.
+
+\item 设 \((T,A)\) 为赋交换环拓扑斯, \(K\) 为局部同构于有限型自由 \(A\)-模的直和因子的 \(A\)-模所成的“Grothendieck 群”. 已知张量积赋予 \(K\) 环结构（\hyperlink{sga6.e04.expose}{第 IV 讲}）, 现在如下赋予它预 \(\lambda\)-环结构. 对每个局部为有限型自由模的直和因子的 \(A\)-模 \(E\), 用 \(\lambda^i(E)\) 表示 \(E\) 的第 \(i\) 次外幂在 \(K\) 中的类; 此外幂仍局部为有限型自由模的直和因子. 这就定义从这类 \(A\)-模的范畴到 Abel 群 \(1+K[[t]]^+\) 的函数. 只需再证明此函数可加, 便可知它经 \(K\) 分解, 从而给出所需结构.
+\end{enumerate}
+
+\sgaStableTarget{sga6.e05.lem.2-2-1}\textbf{引理 2.2.1.} 设
+\[
+  0\longrightarrow E' \xrightarrow{u} E \xrightarrow{v} E''\longrightarrow 0
+\]
+为局部分裂的 \(A\)-模正合列, 例如当 \(E''\) 局部为有限型自由模的直和因子时即是如此. 在 \(\Lambda^n(E)\) 上存在有限滤过及同构
+\[
+  \Lambda^{n-p}(E')\otimes_A\Lambda^p(E'')
+  \xrightarrow{\sim}
+  \operatorname{Gr}^p\Lambda^n(E).
+\]
+取 \(F^p\Lambda^n(E)\) 为典范态射
+\[
+  \Lambda^{n-p}(E')\otimes_A\Lambda^p(E)\longrightarrow \Lambda^n(E)
+  \quad (0\leq p\leq n).
+\]
+的像. 若 \(p>n\), 置 \(F^p\Lambda^n(E)=\Lambda^n(E)\); 若 \(p<0\), 置 \(F^p\Lambda^n(E)=0\). 这确实定义 \(\Lambda^n(E)\) 上的有限滤过.
+
+定义同态
+\[
+  f_p:\Lambda^{n-p}(E')\otimes_A\Lambda^p(E'')
+  \longrightarrow
+  F^p\Lambda^n(E)/F^{p-1}\Lambda^n(E)
+\]
+令
+\[
+  f_p(x'_1\wedge\cdots\wedge x'_{n-p}\otimes x''_1\wedge\cdots\wedge x''_p)
+  =
+  \operatorname{cl}\bigl(u(x'_1)\wedge\cdots\wedge u(x'_{n-p})\wedge
+  x_1\wedge\cdots\wedge x_p\bigr),
+\]
+其中 \(x_i\) 为 \(E''\) 中的 \(x''_i\) 在 \(E\) 中的提升. 显然, 这不依赖于 \(x_i\) 的选择. 若正合列局部分裂, 则 \(f_p\) 为同构, 因为局部有
+\[
+  \Lambda^n(E)\simeq\bigoplus_{p+q=n}
+  \Lambda^p(E')\otimes_A\Lambda^q(E'').
+\]
+
+当 \(E',E,E''\) 局部均为有限型自由模的直和因子时, 各 \(\operatorname{Gr}^p\Lambda^n(E)\) 局部也是有限型自由模的直和因子, 从而各 \(F^p\Lambda^n(E)\) 亦然. 因此, 在 \(K\) 中可写为
+\[
+  \lambda^n(E)=\sum_{p=0}^{n}\operatorname{cl}(\operatorname{Gr}^p\Lambda^n(E))
+  =
+  \sum_{p=0}^{n}\lambda^{n-p}(E')\lambda^p(E''),
+\]
+这就给出所需的可加性.
+
+设 \((T,A)\) 与 \((T',A')\) 为两个赋交换环拓扑斯, 设
+\[
+  f:(T,A)\longrightarrow (T',A')
+\]
+为赋环拓扑斯的态射. 已知（\hyperlink{sga6.e04.para.2-7}{第 IV 讲, 2.7)}）, \(f\) 在相应的 \(K\) 上定义环态射, 即
+\[
+  f^*:K^*_{\mathrm{naif}}(T',A')\longrightarrow K^*_{\mathrm{naif}}(T,A).
+\]
+由于逆像与外幂交换, 在刚才定义的结构下, 相应的 \(K\) 上的态射 \(f^*\) 为 \(\lambda\)-同态.
+
+指出两个特例:
+\begin{itemize}
+\item 若 \(X\) 为概形, 则由此赋予 \(K^*_{\mathrm{naif}}(X)\) 预 \(\lambda\)-环结构. 这是讨论班后文将使用的情形, 可将它视为一般 \(\lambda\)-环理论的原型.
+\item 若 \(A\) 为环, \(X=\operatorname{Spec}A\), \(G\) 为平凡地作用于 \(A\) 的群, 则取 \((T,A)\) 为 \(X\) 上带有 \(G\) 作用的集合层拓扑斯, 所得环 \(K\) 即为 \(G\) 在有限型投射 \(A\)-模中的表示环.
+\end{itemize}
+
+\sgaStableTarget{sga6.e05.para.2-3}\textbf{2.3.} 设 \(K\) 为带幺交换环. 我们要函子性地关于 \(K\), 在 Abel 群
+\[
+  \Ghat(K)=1+K[[t]]^+
+\]
+上赋予预 \(\lambda\)-环结构. 为此, 对函子 \(\Ghat\) 应用 \hyperlink{sga6.e05.thm.1-10}{1.10} 的结果.
+
+先通过 \(\Ghat(\mathbb Z[X,Y])\) 的元素 \(1+XYt\) 给出 \(\mathbb Z\)-双线性的函子态射
+\[
+  \Ghat\times\Ghat\longrightarrow\Ghat
+\]
+从而定义乘法. 此元素满足 1.7.i; 为说明它满足 1.7.ii, 须证明在
+\[
+  \prod_{i=1}^{n}(1+T_iYt),
+\]
+中, 用 \(T_i\) 的初等对称函数 \(X_j\) 表示后, 变量 \(X_n\) 不出现在 \(k<n\) 时 \(t^k\) 的系数中. 从次数的考察立即可见这一点.
+
+如此定义的运算法则记以符号 \(\circ\). 因而, 按定义,
+\sgaStableTarget{sga6.e05.eq.2-3-1}\begin{equation}\tag{2.3.1}
+  (1+Xt)\circ(1+Yt)=1+XYt .
+\end{equation}
+由构造, 它具有分配性; 由图
+\[
+\begin{tikzcd}[column sep=tiny]
+\Ghat\times\Ghat\times\Ghat \arrow[r] \arrow[d] &
+\Ghat\times\Ghat \arrow[d]\\
+\Ghat\times\Ghat \arrow[r] & \Ghat
+\end{tikzcd}
+\qquad
+\begin{tikzcd}[column sep=tiny]
+\Ghat\times\Ghat \arrow[r] \arrow[d] &
+\Ghat\times\Ghat \arrow[d]\\
+\Ghat \arrow[r,"\id"'] & \Ghat,
+\end{tikzcd}
+\]
+可知它具有结合性及交换性. 其中箭头的含义显然; 由 \hyperlink{sga6.e05.thm.1-10}{1.10}, 只需在 \(\Ghat(\mathbb Z[X,Y,Z])\)（分别在 \(\Ghat(\mathbb Z[X,Y])\)）的元素 \(1+Xt,1+Yt,1+Zt\)（分别为 \(1+Xt,1+Xt\)）上验证交换性, 这是立即可得的.
+
+由 \hyperlink{sga6.e05.para.1-8}{1.8}, 在此运算下两个级数的乘积, 可通过将其系数代入此运算的泛多项式来计算. 第 \(n\) 个泛多项式记为 \(P_n\). 它是变量
+\[
+  \mathbb Z[X_i,Y_j]_{1\leq i,j\leq n}
+\]
+的多项式, 关于两组变量中的每一组均为权 \(n\) 的等权多项式（见 \hyperlink{sga6.e05.para.1-15}{1.15}）, 且关于两组变量对称. 例如,
+\[
+  P_2(X_1,X_2;Y_1,Y_2)=X_2Y_1^2+Y_2X_1^2-2X_2Y_2 .
+\]
+还有以下关系式: 若 \(K\in\operatorname{Ob}(\mathcal C_0)\), \(\psi\in\Ghat(K)\) 且 \(a\in K\), 则
+\sgaStableTarget{sga6.e05.eq.2-3-2}\begin{equation}\tag{2.3.2}
+  \psi(t)\circ(1+at)=\psi(at).
+\end{equation}
+与通常一样, 用标准的函子性论证, 可将它归结为 \(K=\mathbb Z[X,Y]\), \(\psi=1+Xt\), \(a=Y\) 的情形; 此时它正是 \hyperlink{sga6.e05.eq.2-3-1}{(2.3.1)}.
+
+在 \(\Ghat(K)=1+K[[t]]^+\) 中取 \(a=1\), 应用 \hyperlink{sga6.e05.eq.2-3-2}{(2.3.2)}, 可见 \(1+t\) 为此乘法的单位元. 为避免混淆, 有时将它记为 \(1\), 或 \(1_{\circ}\).
+
+现在可将函子 \(\Ghat\) 视为从 \(\mathcal C_0\) 到带幺交换环范畴的函子, 因而可以与自身复合. 为避免混淆, 对 \(\Ghat\) 与自身的乘积中的两个因子选取不同的不定元; 必要时以右上标标明不定元:
+\[
+  \Ghat^t,\quad \Ghat^u,\quad\text{etc.}
+\]
+对 \(A\in\operatorname{Ob}(\mathcal C_0)\), 有
+\[
+  \Ghat^u\circ \Ghat^t(A)=1+\{1+A[[t]]^+\}[[u]]^+.
+\]
+为在 \(1+K[[t]]^+\) 上定义运算 \(\lambda^i\), 将给出函子态射
+\[
+  \Ghat\longrightarrow \Ghat^u\circ\Ghat^t.
+\]
+为此, 必须先定义函子 \(\Ghat^u\circ\Ghat^t\) 的滤过, 以便进行 1.6 的粘合.
+
+先注意, 对运算 \(\circ\) 而言, \(F^k\Ghat\) 为理想. 事实上, 对乘积
+\[
+  \left(1+\sum_{i\geq k}X_i t^i\right)\circ(1+Yt),
+\]
+利用函子性归结到 \(A=\mathbb Z[X_i,Y]_{i\geq 1}\) 的情形, 再用 \hyperlink{sga6.e05.eq.2-3-2}{(2.3.2)} 即可. 因而将 \(F^n(\Ghat^u\circ\Ghat^t)\) 定义为如下形式的级数所成的集合:
+\[
+  1+\psi_1u+\cdots+\psi_iu^i+\cdots,\qquad
+  \psi_i\in F^{[n/i]}\Ghat,
+\]
+其中 \([n/i]\) 表示 \(n/i\) 的整数部分.
+
+定义态射 \(\lambda_u\) 的元素为
+\[
+  1+\{1+Xt\}u.
+\]
+读者可作为习题验证 \hyperlink{sga6.e05.thm.1-6}{1.6} 的条件确实满足; 事实上, 此滤过就是为此特意选取的.
+
+同样, 运算 \(\lambda^i\) 可由
+\[
+  \lambda_u(1+\cdots+X_nt^n+\cdots),
+\]
+通过代入计算, 从而由泛多项式确定. 用
+\[
+  Q_{i,j}(X_1,\ldots,X_{ij})
+\]
+表示
+\[
+  \lambda^i(1+\cdots+X_nt^n+\cdots).
+\]
+中 \(t^j\) 的系数. 它是关于变量 \(X_1,\ldots,X_{ij}\) 的权为 \(ij\) 的等权多项式（验证与 \hyperlink{sga6.e05.para.1-15}{1.15} 类似）. 它可通过定义元素
+\sgaStableTarget{sga6.e05.eq.2-3-3}\begin{equation}\tag{2.3.3}
+  \lambda_u(1+Xt)=1+\{1+Xt\}u .
+\end{equation}
+用对称函数来计算. 例如,
+\[
+  Q_{2,2}(X_1,X_2,X_3,X_4)=X_1X_3-X_4.
+\]
+
+最后指出公式 \hyperlink{sga6.e05.eq.2-3-1}{(2.3.1)} 和 \hyperlink{sga6.e05.eq.2-3-3}{(2.3.3)} 的由来. 考虑运算 \(\lambda^i\) 由 \(A\)-模外幂定义的\hyperlink{sga6.e05.ex.2-2}{例 2.2}.b. 我们希望
+\[
+  \lambda_t:K\longrightarrow \Ghat(K)
+\]
+为 \(\lambda\)-同态. 因此必须在 \(\Ghat\) 上定义运算, 使对所有 \(A\)-模 \(E,F\), 有
+\[
+  \lambda_t(EF)=\lambda_t(E)\circ\lambda_t(F),\qquad
+  \lambda_u(\lambda_t(E))=\Ghat^u_{\lambda_t}\bigl(\lambda_t(\lambda_u(E))\bigr).
+\]
+关系式 \hyperlink{sga6.e05.eq.2-3-1}{(2.3.1)} 和 \hyperlink{sga6.e05.eq.2-3-3}{(2.3.3)} 正是将上述关系式应用于 \(E\) 和 \(F\) 为可逆模的情形.
+
+将在\hyperlink{sga6.e06.expose}{第 VI 讲}看到所需性质在何种程度上成立.
+
+\sgaStableTarget{sga6.e05.def.2-4}\textbf{定义 2.4.} 若 Abel 群同态
+\[
+  \lambda_t:K\longrightarrow 1+K[[t]]^+
+\]
+关于第二项上由 2.3 定义的预 \(\lambda\)-环结构为 \(\lambda\)-同态, 则称预 \(\lambda\)-环 \(K\) 为 \emph{\(\lambda\)-环}. 因此, 对所有 \(x,y\in K\), 下列关系式成立:
+\sgaStableTarget{sga6.e05.eq.2-4-1}\begin{align}
+  \lambda_t(1)&=1+t,&
+  \lambda_t(xy)&=\lambda_t(x)\circ\lambda_t(y),&
+  \lambda_u(\lambda_t(x))&=\Ghat(\lambda_t)\bigl(\lambda_u(x)\bigr).
+  \tag{2.4.1}
+\end{align}
+用映射 \(\lambda^i\) 表述, 后两个关系式等价于对 \(x,y\in K\) 及 \(i,j\in\mathbb N\), 有
+\sgaStableTarget{sga6.e05.eq.2-4-2}\sgaStableTarget{sga6.e05.eq.2-4-3}\begin{align}
+  \lambda^i(xy)
+  &=P_i(\lambda^1(x),\ldots,\lambda^i(x);
+       \lambda^1(y),\ldots,\lambda^i(y)), \tag{2.4.2}\\
+  \lambda^j(\lambda^i(x))
+  &=Q_{i,j}(\lambda^1(x),\ldots,\lambda^{ij}(x)). \tag{2.4.3}
+\end{align}
+
+注意, 这里偏离了通常的术语（参见 [1]）: 通常把我们所谓的预 \(\lambda\)-环称为 \(\lambda\)-环, 把我们的 \(\lambda\)-环称为“特殊”\(\lambda\)-环. 原因在于实践中只有“特殊”\(\lambda\)-环才有用.
+
+\sgaStableTarget{sga6.e05.ex.2-5}\textbf{例 2.5.}
+\begin{enumerate}[label=\alph*)]
+\item 已经确定了 \(\mathbb Z\) 上全部的预 \(\lambda\)-环结构. 由 \hyperlink{sga6.e05.eq.2-4-1}{(2.4.1)} 得到, 只有由
+\[
+  \lambda_t(1)=1+t
+\]
+定义的结构才可能是 \(\lambda\)-环结构. 此时有
+\[
+  \lambda_t(n)=(1+t)^n,
+\]
+所以
+\[
+  \forall n,n'\in\mathbb Z,\quad
+  \lambda_t(n)\circ\lambda_t(n')=(1+t)^n\circ(1+t)^{n'}
+  =(1+t)^{nn'}=\lambda_t(nn'),
+\]
+并且
+\[
+  \lambda_u((1+t)^n)
+  =
+  (\lambda_u(1+t))^n
+  =
+  (1+\{1+t\}u)^n
+  =
+  \Ghat(\lambda_t)((1+u)^n)
+  =
+  \Ghat(\lambda_t)(\lambda_u(n)).
+\]
+因此这确实为 \(\lambda\)-环结构. 若 \(\binom{X}{k}\) 表示有理系数多项式
+\[
+  \frac{1}{k!}X(X-1)\cdots(X-k+1),
+\]
+则
+\sgaStableTarget{sga6.e05.eq.2-5-1}\begin{equation}\tag{2.5.1}
+  \lambda^i(n)=\binom{n}{i}.
+\end{equation}
+
+\item 对每个环 \(K\), 预 \(\lambda\)-环 \(1+K[[t]]^+\) 为 \(\lambda\)-环. 首先,
+\[
+  \lambda_u(1)=\lambda_u(1+t)=1+\{1+t\}u=1+1\cdot u.
+\]
+其余关系由图
+\[
+\begin{tikzcd}[column sep=tiny]
+\Ghat^t\times\Ghat^t \arrow[r,"\lambda_u\times\lambda_u"] \arrow[d,"\circ"'] &
+(\Ghat^u\circ\Ghat^t)\times(\Ghat^u\circ\Ghat^t) \arrow[d,"\circ"]\\
+\Ghat^t \arrow[r,"\lambda_u"'] &
+\Ghat^u\circ\Ghat^t,
+\end{tikzcd}
+\qquad
+\begin{tikzcd}[column sep=tiny]
+\Ghat^t \arrow[r,"\lambda_v"] \arrow[d,"\lambda_u"'] &
+\Ghat^v\circ\Ghat^t \arrow[d,"\Ghat^v(\lambda_u)"]\\
+\Ghat^u\circ\Ghat^t \arrow[r,"\lambda_v"'] &
+\Ghat^v\circ\Ghat^u\circ\Ghat^t,
+\end{tikzcd}
+\]
+的交换性验证. 由 \hyperlink{sga6.e05.thm.1-10}{1.10}, 只需在元素 \(1+Xt\) 和 \(1+Yt\) 上检验这些交换图. 对于第一个图,
+\[
+\begin{aligned}
+\lambda_u(1+Xt)\circ\lambda_u(1+Yt)
+&=(1+\{Xt\}u)\circ(1+\{1+Yt\}u)\\
+&=1+\{(1+Xt)\circ(1+Yt)\}u\\
+&=1+\{1+XYt\}u\\
+&=\lambda_u((1+Xt)\circ(1+Yt)).
+\end{aligned}
+\]
+对于第二个图,
+\[
+  \lambda_v(\lambda_u(1+Xt))
+  =
+  1+\{1+\{1+Xt\}u\}v
+  =
+  \Ghat^v(\lambda_u)\lambda_v(1+Xt).
+\]
+
+\item \hyperlink{sga6.e05.ex.2-2}{2.2} 的几何例子留待后面处理.
+\end{enumerate}
+
+\sgaStableTarget{sga6.e05.para.2-6}\textbf{2.6.} \hyperlink{sga6.e05.ex.2-5}{例 2.5}.a 可作如下推广. 设 \(K\) 为满足下列条件的带幺交换环:
+\[
+\begin{array}{ll}
+\text{i)}& K\text{ 无挠},\\
+\text{ii)}& \forall x\in K,\ \forall n\in\mathbb N,\quad \binom{x}{n}\in K .
+\end{array}
+\]
+则对所有 \(x\in K\) 和所有 \(n\in\mathbb N\), 置
+\[
+  \lambda^n(x)=\binom{x}{n},
+\]
+即
+\sgaStableTarget{sga6.e05.eq.2-6-1}\begin{equation}\tag{2.6.1}
+  \lambda_t(x)=\sum_{n=0}^{\infty}\binom{x}{n}t^n
+  =(1+t)^x=\exp(x\Log(1+t)),
+\end{equation}
+其中最后一个等式在 \(K\otimes_{\mathbb Z}\mathbb Q[[t]]\) 中考察. 由指数函数的乘法性, 这就在 \(K\) 上定义预 \(\lambda\)-环结构.
+
+为说明它为 \(\lambda\)-环结构, 必须证明关系式 \hyperlink{sga6.e05.eq.2-4-2}{(2.4.2)}; 由 i), 只需在 \(K\otimes\mathbb Q\) 中证明. 再由函子性, 归结到 \(K=\mathbb Q[X,Y]\) 及元素 \(X,Y\) 的情形. 根据 \(\lambda^i\) 的定义, 等式 \hyperlink{sga6.e05.eq.2-4-2}{(2.4.2)} 两边均为 \(X,Y\) 的有理系数多项式. 因而, 为证明它们相等, 只需说明对 \(X,Y\) 的所有整数值, 两者取值相同. 但将 \(X,Y\) 代以整数值所得的关系式, 正是表达 2.5.a 的预 \(\lambda\)-环 \(\mathbb Z\) 为 \(\lambda\)-环的关系式. 所以它们成立.
+
+\sgaStableTarget{sga6.e05.def.2-7}\textbf{定义 2.7.} \emph{二项式环（binomial ring）}指满足条件 2.6.i 和 ii), 并赋以由 \hyperlink{sga6.e05.eq.2-6-1}{(2.6.1)} 定义的 \(\lambda\)-环结构的环.
+
+\sgaStableTarget{sga6.e05.ex.2-8}\textbf{例 2.8.} 设 \(X\) 为景, \(K\) 为二项式环, \(\mathcal K\) 为 \(X\) 上值为 \(K\) 的常值预层的相伴层. 则 \(H^0(X,\mathcal K)\) 为二项式环. 事实上, 条件 \hyperlink{sga6.e05.para.2-6}{2.6} 在取归纳极限时保持. 特别地, \(H^0(X,\mathbb Z)\) 为二项式环.
+
+\sgaStableTarget{sga6.e05.para.2-9}\textbf{2.9.} 设 \(K\) 为二项式环, \(A\) 为 \(K\)-代数. 对每个级数
+\[
+  \varphi\in\Ghat(A)
+\]
+及每个 \(a\in K\), 可按通常方法定义级数 \(\varphi^a\). 写成 \(\varphi=1+\psi\), 置
+\sgaStableTarget{sga6.e05.eq.2-9-1}\begin{equation}\tag{2.9.1}
+  \varphi^a=(1+\psi)^a
+  =
+  \sum_{n=0}^{\infty}\binom{a}{n}\psi^n
+  \left(=\exp(a\Log\varphi)\right),
+\end{equation}
+where the last equality can be written only modulo torsion. These formulas are obtained by substitution from the analogous formulas for \(\varphi=1+t\). Therefore the following relations, the classical properties of the exponential, remain valid for \(a,b\in K\) and \(\varphi,\psi\in\Ghat(A)\):
+\sgaStableTarget{sga6.e05.eq.2-9-2}\begin{equation}\tag{2.9.2}
+  \varphi^a\varphi^b=\varphi^{a+b},\qquad
+  \varphi^{ab}=(\varphi^a)^b,\qquad
+  \varphi^a\psi^a=(\varphi\psi)^a .
+\end{equation}
+
+
+
+% Exposé V continuation macros
+\providecommand{\Ghat}{\widehat G}
+\providecommand{\Gg}{\widehat G_g}
+\providecommand{\Gcirc}{\widehat G_{\circ}}
+\providecommand{\Gnabla}{\widehat G_{\nabla}}
+\providecommand{\Grhat}{\widehat{\operatorname{Gr}}}
+\providecommand{\Log}{\operatorname{Log}}
+\providecommand{\Fil}{\operatorname{Fil}}
+\providecommand{\eps}{\varepsilon}
+\providecommand{\id}{\operatorname{id}}
+\providecommand{\Sym}{\operatorname{Sym}}
+\providecommand{\Mon}{\operatorname{Mon}}
+
+
+\sgaStableTarget{sga6.e05.continuation-of-2-9}\subsection*{Continuation of 2.9}
+
+We still suppose that \(K\) is binomial. Multiplication, for the law \(\circ\), by \(\lambda_t(a)\), where \(a\in K\), defines a morphism of functors
+\[
+  \Ghat_K\longrightarrow \Ghat_K
+\]
+which is characterized by its value on the element \(1+Xt\) of \(G(K[X])\). Thus
+\[
+  \lambda_t(a)\circ(1+Xt)=\lambda_{Xt}(a),
+\]
+and hence
+\sgaStableTarget{sga6.e05.eq.2-9-3}\begin{equation}\tag{2.9.3}
+  \lambda_t(a)\circ(1+Xt)
+  =(1+Xt)^a
+  =\exp(a\Log(1+Xt))
+  =\sum_{n=0}^{\infty}\binom{a}{n}X^nt^n .
+\end{equation}
+It follows that
+\sgaStableTarget{sga6.e05.eq.2-9-4}\begin{equation}\tag{2.9.4}
+  \lambda_t(a)\circ\varphi=\varphi^a
+  \quad(=\exp(a\Log\varphi)).
+\end{equation}
+Indeed, the two members are additive functors which coincide on \(1+Xt\). From \hyperlink{sga6.e05.eq.2-9-3}{(2.9.3)} and \hyperlink{sga6.e05.para.1-15}{1.15} one obtains that the universal polynomial of degree \(n\) defining multiplication by \(\lambda_t(a)\) is isobaric of weight \(n\). We denote it by \(R_{n,a}\).
+
+Finally, if \(A\) is a \(K\)-\(\lambda\)-algebra and \(b\in A\), then
+\sgaStableTarget{sga6.e05.eq.2-9-5}\begin{equation}\tag{2.9.5}
+  \lambda_t(ab)=(\lambda_t(b))^a .
+\end{equation}
+This follows from \(\lambda_t(ab)=\lambda_t(a)\circ\lambda_t(b)\) and from \hyperlink{sga6.e05.eq.2-9-4}{(2.9.4)}.
+
+\sgaStableTarget{sga6.e05.sec.3}\section*{3. The operations \(\gamma\)}
+
+We still work over the category \(\mathscr C_0\).
+
+\sgaStableTarget{sga6.e05.para.3-1}\textbf{3.1.} Let \(K\) be a \(\lambda\)-ring. We shall define from the operations \(\lambda^i\) new operations denoted \(\gamma^i\). They are the operations which are adapted to Chern classes. If \(E\) is a vector bundle of rank \(d\), the top Chern class of \(E\) is represented, in \(K\)-theoretic language, by the alternating sum of the exterior powers. To obtain the \(n\)-th class, one first replaces \(E\) by \(E\oplus\mathbf1^{\,n-d}\), so that the same top-class recipe applies. This motivates the formula below.
+
+\sgaStableTarget{sga6.e05.prop.3-2}\textbf{Proposition 3.2.} Let \(K\) be a \(\lambda\)-ring.
+\begin{enumerate}[label=\roman*)]
+\item For every \(x\in K\) and every \(n\in\mathbb N\),
+\[
+  \lambda^n(x+n-1)=(-1)^n\sum_{i=0}^n(-1)^i\lambda^i(x+n).
+\]
+\item If
+\[
+  \gamma^n(x)=\lambda^n(x+n-1),\qquad
+  \gamma_t(x)=\sum_{n\ge0}\gamma^n(x)t^n,
+\]
+then
+\[
+  \gamma_t(x)=\lambda_{t/(1-t)}(x),
+  \qquad\text{hence}\qquad
+  \lambda_t(x)=\gamma_{t/(1+t)}(x).
+\]
+\end{enumerate}
+Thus knowledge of the operations \(\gamma\) is equivalent to knowledge of the operations \(\lambda\).
+
+\emph{Proof.} For i),
+\[
+  \lambda^n(x+n-1)=\sum_{i=0}^{n}\lambda^i(x+n)\lambda^{n-i}(-1).
+\]
+Since \(\lambda_t(1)=1+t\), one has \(\lambda_t(-1)=1/(1+t)\), and hence \(\lambda^k(-1)=(-1)^k\), giving the desired relation. For ii),
+\[
+  \lambda_{t/(1-t)}(x)=\sum_{n\ge0}\lambda^n(x)t^n(1-t)^{-n},
+\]
+and
+\[
+  t^n(1-t)^{-n}=\sum_{p\ge n}\binom{p-1}{p-n}t^p.
+\]
+The coefficient of \(t^p\) is therefore
+\[
+  \sum_{n=0}^{p}\lambda^n(x)\binom{p-1}{p-n}
+  =\sum_{n=0}^{p}\lambda^n(x)\lambda^{p-n}(p-1)
+  =\lambda^p(x+p-1).
+\]
+
+\sgaStableTarget{sga6.e05.para.3-3}\textbf{3.3.} If \(f:K\to K'\) is a homomorphism of \(\lambda\)-rings, then \(f\) is a \(\lambda\)-homomorphism if and only if, for every \(i\in\mathbb N\),
+\[
+  f(\gamma^i(x))=\gamma^i(f(x)),
+\]
+or equivalently
+\[
+  \gamma_t(f(x))=\Ghat(f)(\gamma_t(x)).
+\]
+
+\sgaStableTarget{sga6.e05.para.3-4}\textbf{3.4.} From \hyperlink{sga6.e05.prop.3-2}{3.2} one obtains
+\sgaStableTarget{sga6.e05.eq.3-4-1}\begin{equation}\tag{3.4.1}
+  \gamma^0(x)=1,
+  \qquad \gamma^1(x)=x,
+  \qquad \gamma^n(x+y)=\sum_{p+q=n}\gamma^p(x)\gamma^q(y).
+\end{equation}
+Thus \(\gamma_t\) defines a new pre-\(\lambda\)-ring structure. It is not, in general, a \(\lambda\)-ring structure. Let \(\rho_t\) denote the automorphism of the functor \(\Ghat\) induced by the change of variable
+\[
+  t\longmapsto \frac{t}{1-t}.
+\]
+Then \(\gamma_t=\rho_t\lambda_t\). Transporting the \(\lambda\)-ring functor structure of \(\Ghat\) by \(\rho_t\) gives a second structure on \(\Ghat\), for which \(\gamma_t:K\to\Ghat(K)\) is a \(\lambda\)-homomorphism whenever \(K\) is a \(\lambda\)-ring.
+
+\sgaStableTarget{sga6.e05.para.3-5}\textbf{3.5.} The multiplication in this transported structure is the composite
+\[
+  \Ghat\times\Ghat\xrightarrow{\rho_t^{-1}\times\rho_t^{-1}}
+  \Ghat\times\Ghat\xrightarrow{\circ}\Ghat\xrightarrow{\rho_t}\Ghat .
+\]
+It will be denoted \(\nabla\). It is determined by
+\sgaStableTarget{sga6.e05.eq.3-5-1}\begin{align}
+ (1+Xt)\nabla(1+Yt)
+ &=\rho_t\!\left(\rho_t^{-1}(1+Xt)\circ\rho_t^{-1}(1+Yt)\right) \notag\\
+ &=\rho_t\!\left(\frac{1+(X+1)t}{1+t}\circ
+                 \frac{1+(Y+1)t}{1+t}\right) \notag\\
+ &=\rho_t\!\left(\frac{(1+((X+1)(Y+1))t)(1+t)}
+                      {(1+(X+1)t)(1+(Y+1)t)}\right) \notag\\
+ &=\frac{1+(1+X+Y+XY)t}{(1+Xt)(1+Yt)} . \tag{3.5.1}
+\end{align}
+Thus, for \(x,y\in K\),
+\sgaStableTarget{sga6.e05.eq.3-5-2}\begin{equation}\tag{3.5.2}
+  \gamma_t(xy)=\gamma_t(x)\nabla\gamma_t(y).
+\end{equation}
+The universal polynomial of degree \(n\) for this law will be denoted \(P'_n\). Its isobaric components have weights between \(n\) and \(2n\) in each of the two groups of variables, and
+\sgaStableTarget{sga6.e05.eq.3-5-3}\begin{equation}\tag{3.5.3}
+  \gamma^n(xy)
+  =P'_n(\gamma^1(x),\ldots,\gamma^n(x),
+       \gamma^1(y),\ldots,\gamma^n(y)).
+\end{equation}
+The unit for \(\nabla\) is \(\gamma_t(1)=1/(1-t)\).
+
+\sgaStableTarget{sga6.e05.para.3-6}\textbf{3.6.} The operations \(\lambda'\) of the transported structure are defined by
+\sgaStableTarget{sga6.e05.eq.3-6-1}\[
+\begin{tikzcd}[column sep=tiny]
+\Ghat \\[-0.6em]
+1+K[[t]]^+ \arrow[r,"\lambda_u"] \arrow[d,"\rho_t"'] &
+1+\{1+K[[t]]^+\}[[u]]^+ \arrow[d,"\Ghat(\rho_t)"]\\
+1+K[[t]]^+ \arrow[r,"\lambda'_u"'] &
+1+\{1+K[[t]]^+\}[[u]]^+ .
+\end{tikzcd}
+\tag{3.6.1}
+\]
+If \(\gamma'\) denotes the \(\gamma\)-operations attached to these operations \(\lambda'\), then
+\sgaStableTarget{sga6.e05.eq.3-6-2}\begin{equation}\tag{3.6.2}
+  \gamma'_u(1+Xt)=\frac1{1-u}+\{1+Xt\}u .
+\end{equation}
+Let \(Q'_{i,j}\) be the coefficient of \(t^j\) in \(\gamma'^i(1+X_1t+X_2t^2+\cdots)\). It is a polynomial in \(\mathbb Z[X_1,\ldots,X_{ij}]\), whose isobaric components have weights from \(j\) to \(ij\). For a \(\lambda\)-ring \(K\) and \(x\in K\),
+\sgaStableTarget{sga6.e05.eq.3-6-3}\begin{equation}\tag{3.6.3}
+  \gamma_t(\lambda^i(x))=\lambda'^i(\gamma_t(x)),
+  \qquad
+  \gamma_t(\gamma^i(x))=\gamma'^i(\gamma_t(x)),
+\end{equation}
+and therefore
+\sgaStableTarget{sga6.e05.eq.3-6-4}\begin{equation}\tag{3.6.4}
+  \gamma^j(\gamma^i(x))
+  =Q'_{i,j}(\gamma^1(x),\ldots,\gamma^{ij}(x)).
+\end{equation}
+The transported pre-\(\lambda\)-ring structure on \(\Ghat\) is itself a \(\lambda\)-ring structure.
+
+\sgaStableTarget{sga6.e05.para.3-7}\textbf{3.7.} We denote by \(\Gcirc\) the functor \(\Ghat\) with the structure of §2, and by \(\Gnabla\) the same functor with the structure of §3. Giving a \(\lambda\)-ring structure on a ring \(A\) is equivalent either to giving a ring homomorphism \(A\to\Gcirc(A)\) satisfying the usual diagram for \(\lambda_t\), or to giving a ring homomorphism \(A\to\Gnabla(A)\) satisfying the corresponding diagram for \(\gamma_t\). Explicitly, the two diagrams are
+\sgaStableTarget{sga6.e05.eq.3-7-1}\[
+\begin{tikzcd}[column sep=tiny]
+A \arrow[r,"\lambda_u"] \arrow[d,"\lambda_t"'] & \Gcirc^u(A) \arrow[d,"\Gcirc^u(\lambda_t)"]\\
+\Gcirc^t(A) \arrow[r,"\lambda_u"'] & \Gcirc^u(\Gcirc^t(A))
+\end{tikzcd}
+\tag{3.7.1}
+\]
+and
+\sgaStableTarget{sga6.e05.eq.3-7-2}\[
+\begin{tikzcd}[column sep=tiny]
+A \arrow[r,"\gamma_u"] \arrow[d,"\gamma_t"'] & \Gnabla^u(A) \arrow[d,"\Gnabla^u(\gamma_t)"]\\
+\Gnabla^t(A) \arrow[r,"\gamma'_u"'] & \Gnabla^u(\Gnabla^t(A)).
+\end{tikzcd}
+\tag{3.7.2}
+\]
+
+\sgaStableTarget{sga6.e05.para.3-8}\textbf{3.8.} Let \(K\) be a binomial ring. From \hyperlink{sga6.e05.eq.2-6-1}{(2.6.1)}, for \(x\in K\),
+\sgaStableTarget{sga6.e05.eq.3-8-1}\begin{equation}\tag{3.8.1}
+  \gamma_t(x)=\left(\frac1{1-t}\right)^x
+  =\exp(-x\Log(1-t)).
+\end{equation}
+For \(a\in K\), multiplication by \(\gamma_t(a)\) for the law \(\nabla\) is characterized by its value on \(1+Xt\):
+\sgaStableTarget{sga6.e05.eq.3-8-2}\begin{equation}\tag{3.8.2}
+  \gamma_t(a)\nabla(1+Xt)
+  =(1+Xt)^a
+  =\exp(a\Log(1+Xt))
+  =\sum_{n=0}^{\infty}\binom{a}{n}X^nt^n .
+\end{equation}
+Thus the universal polynomial of degree \(n\) defining this multiplication is again \(R_{n,a}\).
+
+\sgaStableTarget{sga6.e05.def.3-9}\textbf{Definition 3.9.} Let \(K\) be a \(\lambda\)-ring. An \emph{augmented \(K\)-\(\lambda\)-algebra} is a \(K\)-\(\lambda\)-algebra \(A\), together with a \(\lambda\)-homomorphism of \(K\)-algebras
+\[
+  \epsilon:A\longrightarrow K.
+\]
+Morphisms are \(\lambda\)-homomorphisms compatible with the augmentations.
+
+\sgaStableTarget{sga6.e05.ex.3-9-1}\textbf{Example 3.9.1.} Let \((X,A)\) be a locally ringed topos. The Grothendieck group \(K^\circ(X)\) of locally free finite-type \(A\)-modules has a natural pre-\(\lambda\)-ring structure by exterior powers. There is a natural \(\lambda\)-homomorphism from \(H^0(X,\mathbb Z)\) to \(K^\circ(X)\): a section \(a\) of the constant sheaf \(\mathbb Z\) partitions the final object into opens \(U_n\) on which \(a=n\), and is sent to the class of the locally free module which is \(A^n\) on \(U_n\) for \(n\ge0\), minus the analogous class on the negative pieces. The rank map is the augmentation. This is the augmented structure used below.
+
+\sgaStableTarget{sga6.e05.para.3-10}\textbf{3.10.} Let \(A\) be an augmented \(K\)-\(\lambda\)-algebra. For \(n>0\), define \(\Fil^n A\) to be the ideal generated by products
+\sgaStableTarget{sga6.e05.eq.3-10-1}\begin{equation}\tag{3.10.1}
+  \gamma^{i_1}(x_1)\cdots\gamma^{i_k}(x_k),
+  \qquad i_1+\cdots+i_k\ge n,
+  \qquad \epsilon(x_i)=0.
+\end{equation}
+If \(A\) is generated as an abelian group by \((x_\alpha)\), then \(\Fil^nA\) is generated over \(K\) by
+\sgaStableTarget{sga6.e05.eq.3-10-2}\begin{equation}\tag{3.10.2}
+  \gamma^{i_1}(x_{\alpha_1}-\epsilon(x_{\alpha_1}))\cdots
+  \gamma^{i_k}(x_{\alpha_k}-\epsilon(x_{\alpha_k})),
+  \qquad i_1+\cdots+i_k\ge n.
+\end{equation}
+The filtration is decreasing and multiplicative, and
+\[
+  \Fil^0A=A,
+  \qquad \Fil^1A=\Ker\epsilon.
+\]
+It is functorial for homomorphisms of augmented \(K\)-\(\lambda\)-algebras.
+
+\sgaStableTarget{sga6.e05.prop.3-11}\textbf{Proposition 3.11.} Let \(A\) be a \(\lambda\)-ring and let \(y_1,\ldots,y_n\) be elements of \(A\) such that \(\gamma^j(y_i)=0\) for \(j\ge2\). Put \(x=\sum_i y_i\). Then \(\gamma^k(x-n)=0\) for \(k>n\), and, for \(1\le k\le n\), \(\gamma^k(x-n)\) is the \(k\)-th elementary symmetric function of the \(y_i-1\). This follows from
+\[
+  \gamma_t(x-n)=\prod_{i=1}^{n}\gamma_t(y_i-1).
+\]
+
+\sgaStableTarget{sga6.e05.sec.4}\section*{4. \(\lambda\)-rings generated by generators and relations}
+
+\sgaStableTarget{sga6.e05.para.4-1}\textbf{4.1.} Let \(K\) be a \(\lambda\)-ring and let \((X_i)_{i\in I}\) be indeterminates. Put
+\[
+  A=K[X_i,{}^nX_i]_{i\in I,\ n\ge2}.
+\]
+Define
+\sgaStableTarget{sga6.e05.eq.4-1-1}\begin{equation}\tag{4.1.1}
+  \lambda_t(X_i)=1+X_it+\sum_{n\ge2}{}^nX_i t^n,
+  \qquad
+  \lambda_t({}^nX_i)=\lambda^n(\lambda_t(X_i)).
+\end{equation}
+This gives a \(\lambda\)-ring structure on \(A\) extending that of \(K\).
+
+\sgaStableTarget{sga6.e05.prop.4-2}\textbf{Proposition 4.2.} For every \(K\)-\(\lambda\)-algebra \(B\) and every family \((b_i)_{i\in I}\) in \(B\), there exists a unique \(K\)-\(\lambda\)-homomorphism \(A\to B\) carrying \(X_i\) to \(b_i\). Necessarily it carries \({}^nX_i\) to \(\lambda^n(b_i)\), and this condition is sufficient.
+
+\sgaStableTarget{sga6.e05.para.4-3}\textbf{4.3.} The same construction may be made using \(\gamma\)'s. Let
+\[
+  A'=K[X_i,{}^\gamma_nX_i]_{i\in I,\ n\ge2},
+\]
+and define
+\sgaStableTarget{sga6.e05.eq.4-3-1}\begin{equation}\tag{4.3.1}
+  \gamma_t(X_i)=1+X_it+\sum_{n\ge2}{}^\gamma_nX_i t^n,
+  \qquad
+  \gamma_t({}^\gamma_nX_i)=\gamma'^n(\gamma_t(X_i)).
+\end{equation}
+This gives a \(\lambda\)-ring satisfying the same universal property, hence canonically isomorphic to \(A\).
+
+\sgaStableTarget{sga6.e05.def.4-4}\textbf{Definition 4.4.} The preceding \(\lambda\)-ring is the \emph{free \(\lambda\)-ring} over \(K\) generated by the family \((X_i)\).
+
+\sgaStableTarget{sga6.e05.def.4-5}\textbf{Definition 4.5.} An ideal \(J\) of a \(\lambda\)-ring \(A\) is a \emph{\(\lambda\)-ideal} if \(\lambda^n(x)\in J\) for every \(x\in J\) and \(n>1\). Kernels of \(\lambda\)-homomorphisms are \(\lambda\)-ideals; conversely, if \(J\) is a \(\lambda\)-ideal, \(A/J\) receives a unique \(\lambda\)-ring structure. The intersection of \(\lambda\)-ideals is a \(\lambda\)-ideal. Thus every family of elements has a smallest containing \(\lambda\)-ideal, generated by the elements and all their iterated \(\lambda^n\)'s.
+
+\sgaStableTarget{sga6.e05.def.4-6}\textbf{Definition 4.6.} The quotient of the free \(\lambda\)-ring by the \(\lambda\)-ideal generated by prescribed relations \((P_i)\) is called the \(\lambda\)-ring generated by the generators \((X_i)\) subject to the relations \((P_i)\). Equivalently, one may formulate the same construction in terms of \(\gamma\)-operations.
+
+\sgaStableTarget{sga6.e05.prop.4-7}\textbf{Proposition 4.7.} This quotient has the expected universal property: every family \((b_i)\) in a \(K\)-\(\lambda\)-algebra satisfying the relations \((P_i)\) determines a unique \(K\)-\(\lambda\)-homomorphism from the quotient to that algebra.
+
+\sgaStableTarget{sga6.e05.prop.4-8}\textbf{Proposition 4.8.} Let \(n\ge0\). In the free \(\lambda\)-ring over \(K\) on one generator \(X\), the ideal generated by the \(\lambda^kX\), \(k>n\), is a \(\lambda\)-ideal. Indeed, after quotienting, one has only to check that if \(\varphi\in\Ghat(C)\) has no terms of degree \(>n\), then \(\lambda^k(\varphi)=0\) for \(k>n\). By the splitting principle, it is enough to write
+\[
+  \varphi=\prod_{i=1}^{n}(1+T_it),
+\]
+and then
+\[
+  \lambda_u(\varphi)=\prod_{i=1}^{n}\bigl(1+\{1+T_it\}u\bigr),
+\]
+which has degree \(n\) in \(u\).
+
+\sgaStableTarget{sga6.e05.cor.4-9}\textbf{Corollary 4.9.} The \(\lambda\)-ring generated over \(K\) by one element \(X\), subject to \(\lambda^k(X)=0\) for \(k>n\), is
+\[
+  K[X,\lambda^2X,\ldots,\lambda^nX].
+\]
+More generally, for a family \((X_i)\) with bounds \((n_i)\), the quotient subject to \(\lambda^k(X_i)=0\) for \(k>n_i\) is the polynomial ring generated by \(X_i,\lambda^2X_i,\\ldots,\lambda^{n_i}X_i\).
+
+\sgaStableTarget{sga6.e05.para.4-10}\textbf{4.10.} Let \(K\) be binomial and let \(A\) be an augmented \(K\)-\(\lambda\)-algebra. Put
+\[
+  B=A[X,\gamma^2X,\gamma^3X,\ldots],
+\]
+the free \(A\)-\(\lambda\)-algebra on \(X\), written in \(\gamma\)-coordinates. Extend the augmentation by \(\epsilon(X)=0\), hence \(\epsilon(\gamma^iX)=0\) for \(i>0\). Let \(M_k\) be the set of monomials in the variables \(\gamma^jX\), counted with weight \(j\), of total weight \(k\), and set \(M_0=\{1\}\).
+
+\sgaStableTarget{sga6.e05.lem.4-11}\textbf{Lemma 4.11.} If \(x\in\Fil^pA\), then every coefficient of \(\gamma^n(x+X)\) which is homogeneous of weight \(k\) in the \(\gamma^jX\) belongs to \(\Fil^{p+n-k}A\).
+
+\sgaStableTarget{sga6.e05.prop.4-12}\textbf{Proposition 4.12.} For every \(k\ge0\),
+\sgaStableTarget{sga6.e05.eq.4-12-1}\begin{equation}\tag{4.12.1}
+  \Fil^kB=
+  \Fil^kA+\Fil^{k-1}A\,M_1+\cdots+\Fil^1A\,M_{k-1}
+  +\Fil^0A\,M_k+B\,M_{k+1}.
+\end{equation}
+The inclusion from right to left follows from \hyperlink{sga6.e05.lem.4-11}{Lemma 4.11}. The reverse inclusion is obtained by writing the generators of \(\Fil^kB\) as products of \(\gamma\)-operations and reducing, term by term, to the displayed weights.
+
+\sgaStableTarget{sga6.e05.rem.4-13}\textbf{Remarks 4.13.} The proof gives the same assertion for a free \(\lambda\)-algebra on any finite or infinite family of generators, with the evident multi-weight. It is also unchanged when one uses the \(\lambda\)-coordinates, since \(\lambda\) and \(\gamma\) coordinates differ by triangular universal formulas.
+
+\sgaStableTarget{sga6.e05.cor.4-14}\textbf{Corollary 4.14.} Passing to the associated graded ring, one has
+\sgaStableTarget{sga6.e05.eq.4-14-1}\begin{equation}\tag{4.14.1}
+  \Gr^kB\simeq
+  \Gr^kA\oplus \Gr^{k-1}A\,M_1\oplus\cdots\oplus\Gr^0A\,M_k.
+\end{equation}
+
+\sgaStableTarget{sga6.e05.cor.4-15}\textbf{Corollary 4.15.} If \(B'=K[X,\gamma^2X,\ldots,\gamma^nX]\) is the \(K\)-\(\lambda\)-algebra generated by one element satisfying \(\gamma^k(X)=0\) for \(k>n\), then the \(\lambda\)-ring filtration of \(B'\) is exactly the weight filtration in the variables \(\gamma^jX\).
+
+\sgaStableTarget{sga6.e05.sec.5}\section*{5. The elements \(\lambda^p(N,x)\)}
+
+This section will be used only in \hyperlink{sga6.e07.expose}{Exposé VII}, §4, in the study of regular immersions; it may be omitted on first reading.
+
+\sgaStableTarget{sga6.e05.para.5-1}\textbf{5.1.} Let \(d\ge1\). Let \(A\) be the \(\mathbb Z\)-\(\lambda\)-algebra generated by \(N\) and \(x\), subject to the relations \(\lambda^i(N)=0\) for \(i>d\). Thus
+\[
+  A=\mathbb Z[N,\ldots,\lambda^dN;
+       x,\ldots,\lambda^jx,\ldots].
+\]
+Put
+\sgaStableTarget{sga6.e05.eq.5-1-1}\begin{equation}\tag{5.1.1}
+  \lambda_{-1}(N)=\sum_{i=0}^{d}(-1)^i\lambda^i(N).
+\end{equation}
+
+\sgaStableTarget{sga6.e05.lem.5-2}\textbf{Lemma 5.2.} For every \(p\ge1\), the element \(\lambda^p(x\lambda_{-1}(N))\) is divisible by \(\lambda_{-1}(N)\).
+
+It is enough, by isobaricity, to prove this for \(\lambda^p(\lambda_{-1}(N))\). Let \(B\) be the \(\lambda\)-ring generated by \(N_1,\ldots,N_d\), with \(\lambda^i(N_j)=0\) for \(i\ge2\). The map \(N\mapsto\sum_iN_i\) identifies \(A\) with the symmetric polynomials in the \(N_i\), and
+\[
+  \lambda_{-1}(N)=\prod_{i=1}^{d}(1-N_i).
+\]
+If some \(N_i=1\), then \(\lambda_t(\lambda_{-1}(N))=\lambda_t(0)=1\), so every positive coefficient vanishes. Thus each \(\lambda^p(\lambda_{-1}(N))\) is divisible by every \(1-N_i\), hence by their product.
+
+\sgaStableTarget{sga6.e05.def.5-3}\textbf{Definition 5.3.} Since \(A\) is integral, define \(\lambda^p(N,x)\) by
+\sgaStableTarget{sga6.e05.eq.5-3-1}\begin{equation}\tag{5.3.1}
+  \lambda^p(N,x)\lambda_{-1}(N)=\lambda^p(x\lambda_{-1}(N)),
+  \qquad p\ge1.
+\end{equation}
+Thus \(\lambda^p(N,x)\) is a polynomial in the \(\lambda^i(x)\) and \(\lambda^j(N)\), isobaric of weight \(p\) in the \(\lambda^i(x)\). If a \(\lambda\)-ring \(B\) contains an element \(N'\) with \(\lambda^k(N')=0\) for \(k>d\), then \(\lambda^p(N',x')\) is defined by substitution; it is independent of the chosen bound \(d\).
+
+\sgaStableTarget{sga6.e05.para.5-4}\textbf{5.4.} In the \(\lambda\)-ring generated over \(\mathbb Z\) by \(N,x,y\), subject to \(\lambda^k(N)=0\) for \(k>d\), formula \hyperlink{sga6.e05.eq.5-3-1}{(5.3.1)} gives
+\begin{align*}
+ \lambda^p(N,x+y)\lambda_{-1}(N)
+ &=\lambda^p\bigl((x+y)\lambda_{-1}(N)\bigr)\\
+ &=\sum_{i+j=p}
+   \lambda^i\bigl(x\lambda_{-1}(N)\bigr)
+   \lambda^j\bigl(y\lambda_{-1}(N)\bigr)\\
+ &=\sum_{\substack{i+j=p\\ i,j\ne0}}
+   \lambda^i(N,x)\lambda^j(N,y)\bigl(\lambda_{-1}(N)\bigr)^2
+   +\bigl(\lambda^p(N,x)+\lambda^p(N,y)\bigr)\lambda_{-1}(N).
+\end{align*}
+Since the ring under consideration is an integral domain, this yields the relation, valid by substitution in every \(\lambda\)-ring,
+\sgaStableTarget{sga6.e05.eq.5-4-1}\begin{equation}\tag{5.4.1}
+ \lambda^p(N,x+y)
+ =\sum_{\substack{i+j=p\\ i,j\ne0}}
+   \lambda^i(N,x)\lambda^j(N,y)\lambda_{-1}(N)
+   +\lambda^p(N,x)+\lambda^p(N,y).
+\end{equation}
+Now consider the \(\lambda\)-ring generated over \(\mathbb Z\) by \(N,N',x\), subject to \(\lambda^k(N)=0\) for \(k>d\) and \(\lambda^k(N')=0\) for \(k>d'\). Then \(\lambda^k(N+N')=0\) for \(k>d+d'\), and
+\begin{align*}
+ \lambda^p(N+N',x)\lambda_{-1}(N)\lambda_{-1}(N')
+ &=\lambda^p\bigl(x\lambda_{-1}(N)\lambda_{-1}(N')\bigr)\\
+ &=\lambda^p\bigl(N',x\lambda_{-1}(N)\bigr)\lambda_{-1}(N').
+\end{align*}
+Here we used \(\lambda_{-1}(N+N')=\lambda_{-1}(N)\lambda_{-1}(N')\). Cancelling in the integral domain gives the relation, again valid by substitution,
+\sgaStableTarget{sga6.e05.eq.5-4-2}\begin{equation}\tag{5.4.2}
+  \lambda^p(N+N',x)\lambda_{-1}(N)
+  =\lambda^p\bigl(N',x\lambda_{-1}(N)\bigr).
+\end{equation}
+
+\sgaStableTarget{sga6.e05.para.5-5}\textbf{5.5.} Let \(A\) be a \(\lambda\)-ring and let \(N\in A\) satisfy \(\lambda^k(N)=0\) for \(k>d\). Define on the underlying abelian group of \(A\) a new multiplication by
+\[
+  x\cdot_N y=xy\lambda_{-1}(N).
+\]
+After adjoining a unit, one obtains a ring \(\mathbb Z\times A\) with
+\[
+  (n,x)(m,y)=(nm,ny+mx+x\cdot_N y).
+\]
+The formulas
+\sgaStableTarget{sga6.e05.eq.5-5-1}\begin{equation}\tag{5.5.1}
+  \lambda_t(n,x)=(1+t)^n\left(1+
+  \sum_{p\ge1}\lambda^p(N,x)t^p\right)
+\end{equation}
+define a pre-\(\lambda\)-ring structure. In fact, when \(A\) is a \(\lambda\)-ring, this is a \(\lambda\)-ring structure; it is the one transported from the original structure by multiplication by \(\lambda_{-1}(N)\). We denote this augmented \(\lambda\)-ring by \(\widehat A_N\). Its \(\gamma\)-operations satisfy
+\sgaStableTarget{sga6.e05.eq.5-5-2}\begin{equation}\tag{5.5.2}
+  \gamma^p(N,x)\lambda_{-1}(N)=\gamma^p(x\lambda_{-1}(N)).
+\end{equation}
+
+\sgaStableTarget{sga6.e05.para.5-6}\textbf{5.6.} Suppose that, in addition, \(L\) is an element such that \(\lambda^k(L)=0\) for \(k>1\). Then \(\lambda^p(N+L,x)\) is the coefficient of \(t^p\) in the series
+\sgaStableTarget{sga6.e05.eq.5-6-1}\begin{equation}\tag{5.6.1}
+  \frac{\displaystyle\sum_{k\ge1}\lambda^k(N,x)
+        (1+L+\cdots+L^{k-1})t^k}
+       {\displaystyle 1+\sum_{k\ge1}\lambda^k(N,x)
+        \lambda_{-1}(N)L^k t^k}.
+\end{equation}
+This is obtained by applying \hyperlink{sga6.e05.eq.5-4-2}{(5.4.2)} to \(N+L\) and using \(\lambda_{-1}(L)=1-L\).
+
+\sgaStableTarget{sga6.e05.prop.5-7}\textbf{Proposition 5.7.} Let \(K\) be a binomial ring, \(A\) an augmented \(K\)-\(\lambda\)-algebra, and \(N\in A\) such that \(\lambda^k(N)=0\) for \(k>d\). Then, for every \(x\in A\) and every \(p\ge1\),
+\sgaStableTarget{sga6.e05.eq.5-7-1}\begin{equation}\tag{5.7.1}
+  \gamma^p(N,x)\in\Fil^{p-d}A.
+\end{equation}
+Indeed, let \(A_0\) be the \(K\)-\(\lambda\)-algebra generated by \(N'_0,X'_0\), subject to \(\gamma^k(N'_0)=0\) for \(k>d\), and augmented by \(\epsilon(N'_0)=\epsilon(X'_0)=0\). This is a polynomial algebra over \(K\) in the variables \(\gamma^i(N'_0)\), \(1\le i\le d\), and \(\gamma^j(X'_0)\), \(j\ge1\), and its \(\lambda\)-filtration is the weight filtration, with weight \(i\) assigned to \(\gamma^i(N'_0)\) and \(\gamma^i(X'_0)\) (\hyperlink{sga6.e05.prop.4-12}{4.12} and \hyperlink{sga6.e05.cor.4-15}{4.15}). Put
+\[
+  N_0=N'_0+d,
+  \qquad X_0=X'_0+\epsilon(x).
+\]
+For \(N_0,X_0\), the assertion is equivalent to
+\[
+  \gamma^p(N_0,X_0)\gamma^d(N'_0)\in\Fil^pA_0.
+\]
+Since \(\gamma^d(N'_0)=(-1)^d\lambda_{-1}(N_0)\), this becomes
+\[
+  (-1)^d\gamma^p\bigl(X_0\gamma^d(N'_0)\bigr)\in\Fil^pA_0,
+\]
+by \hyperlink{sga6.e05.eq.5-5-2}{(5.5.4)}. This holds because \(\gamma^d(N'_0)\) has zero augmentation. By \hyperlink{sga6.e05.prop.4-7}{4.7} there is a \(K\)-\(\lambda\)-homomorphism \(A_0\to A\), compatible with augmentations and sending \(N'_0\) to \(N-d\) and \(X'_0\) to \(x-\epsilon(x)\), hence sending \(N_0\) to \(N\) and \(X_0\) to \(x\). Compatibility with the filtrations gives the result.
+
+\sgaStableTarget{sga6.e05.sec.6}\section*{6. Chern ring: opening}
+
+Throughout this section the base ring is a fixed binomial ring \(K\). We use the functor \(G\) of \hyperlink{sga6.e05.para.1-1}{1.1}, and return to the notation of §1: \(G\) denotes the functor there defined and \(G_i\) its restriction to \(\mathscr C_0\).
+
+\sgaStableTarget{sga6.e05.para.6-1}\textbf{6.1.} In \hyperlink{sga6.e05.para.3-5}{3.5} and \hyperlink{sga6.e05.para.3-6}{3.6} we defined morphisms of functors
+\[
+  G_i\times G_i\xrightarrow{\star}G_i,
+  \qquad
+  G_i^\circ\xrightarrow{\gamma'}G_i^\circ\circ G_S,
+  \qquad
+  G_i\xrightarrow{a}G_i,
+\]
+where the last map is multiplication, for the law \(\nabla\), by \(\gamma_t(a)\) with \(a\in K\). By \hyperlink{sga6.e05.lem.1-9}{1.9} these give morphisms
+\[
+  G\times G\xrightarrow{\star}G,
+  \qquad
+  G\xrightarrow{\gamma'}G\circ G_S,
+  \qquad
+  G\xrightarrow{a}G.
+\]
+The isobaricity of the universal polynomials involved implies that the first and third images lie in \(G\), while the second lies in the subgroup of formal series in \(u\) whose non-zero terms have the prescribed degrees.
+
+
+
+% Local macros for Exposé V, §§6--7
+\providecommand{\Ghat}{\widehat G}
+\providecommand{\Aqhat}{\widehat A_{\mathbb Q}}
+\providecommand{\Ch}{\operatorname{Ch}}
+\providecommand{\Log}{\operatorname{Log}}
+\providecommand{\id}{\operatorname{id}}
+\providecommand{\gr}{\operatorname{gr}}
+\providecommand{\Hom}{\operatorname{Hom}}
+\providecommand{\epsi}{\varepsilon}
+\providecommand{\clgr}{\operatorname{cl}}
+\providecommand{\Fil}{\operatorname{Fil}}
+\providecommand{\Gr}{\operatorname{Gr}}
+\providecommand{\Sym}{\operatorname{Sym}}
+
+
+\sgaStableTarget{sga6.e05.expose.occ2}\section*{Exposé V, 6. Chern ring: completion}
+
+\sgaStableTarget{sga6.e05.def.6-2}\textbf{Definition 6.2.} The functor defined in \hyperlink{sga6.e05.para.6-1}{6.1} on the category of graded \(K\)-algebras, with values in the category of \(K\)-\(\lambda\)-algebras, is called the \emph{Chern ring}; its value on \(A\in\operatorname{Ob}(\mathscr C)\) is denoted \(\Ch(A)\), or, if there is a risk of confusion, \(\Ch_K(A)\).
+
+From formulas \hyperlink{sga6.e05.para.6-1}{(6.1.1)}, \hyperlink{sga6.e05.para.6-1}{(6.1.2)}, \hyperlink{sga6.e05.para.6-1}{(6.1.4)}, and \hyperlink{sga6.e05.eq.3-6-2}{(3.6.2)}, one deduces the relations
+\sgaStableTarget{sga6.e05.eq.6-2-1}\begin{equation}\tag{6.2.1}
+ (1,1+X)(1,1+Y)=(1,1+X+Y),
+ \qquad
+ \lambda^i(1,1+X)=0\quad\text{for }i\ge2,
+\end{equation}
+the relations which served in [1] to define the Chern ring. Conversely, from these formulas one can recover the relations \hyperlink{sga6.e05.para.6-1}{(6.1.1)} and \hyperlink{sga6.e05.para.6-1}{(6.1.4)}.
+
+Let us indicate why the Chern ring is introduced. We place ourselves in the situation of \hyperlink{sga6.e05.ex.3-9-1}{Example 3.9}, and write \(A\) for the graded ring associated, by the filtration defined in \hyperlink{sga6.e05.para.3-10}{3.10}, with the \(K^\bullet\) of a commutatively locally ringed topos; for simplicity suppose that \(K^\bullet\) is a \(\lambda\)-ring. The augmentation ring is \(K\). We shall see below that for every element of an augmented \(\lambda\)-ring one can define Chern classes with values in the associated graded ring \hyperlink{sga6.e05.para.6-7}{(6.7)}. To every locally free sheaf of finite type one can therefore associate an element of \(\Ch(A)\), whose component on the factor \(K\) is the rank of the sheaf and whose component on the factor \(1+\widehat A^+\) is the sum of the Chern classes. Formulas \hyperlink{sga6.e05.eq.6-2-1}{(6.2.1)} are then the usual formulas giving the Chern classes and the rank of the tensor product of two invertible sheaves and of the exterior powers of an invertible sheaf; in other words, the map just defined from \(K^\bullet\) to \(\Ch(A)\) is a \(\lambda\)-homomorphism.
+
+\sgaStableTarget{sga6.e05.para.6-3}\textbf{6.3.} For every graded \(K\)-algebra \(A\), denote by \(A_{\mathbb Q}\) the \(K\)-algebra \(A\otimes\mathbb Q\), graded in the evident way. By \hyperlink{sga6.e05.thm.1-13}{1.13} one defines a functorial homomorphism
+\[
+  1+\widehat A^+\xrightarrow{\ \ch\ }\widehat A_{\mathbb Q}^{+}
+\]
+by giving its value on \(1+X\):
+\sgaStableTarget{sga6.e05.eq.6-3-1}\begin{equation}\tag{6.3.1}
+  \ch(1+X)=\exp(X)-1.
+\end{equation}
+This homomorphism is compatible with the multiplication defined in \hyperlink{sga6.e05.para.6-1}{6.1} on \(1+\widehat A^+\). By \hyperlink{sga6.e05.thm.1-13}{1.13} it is enough to show this for the elements \(1+X\), \(1+Y\) of the universal ring \(1+K[X,Y]^+\). One has
+\[
+\begin{aligned}
+ \ch\bigl((1+X)*(1+Y)\bigr)
+ &= \ch\!\left(\frac{1+X+Y}{(1+X)(1+Y)}\right)\\
+ &= \ch(1+X+Y)-\ch(1+X)-\ch(1+Y)\\
+ &= \exp(X+Y)-\exp(X)-\exp(Y)+1\\
+ &= \ch(1+X)\,\ch(1+Y).
+\end{aligned}
+\]
+
+Let \(\eta\) be the endomorphism of \(\widehat A_{\mathbb Q}^{+}\), functorial in \(A\), defined by
+\[
+ \eta\!\left(\sum_{k\ge1} a_k t^k\right)
+ =
+ \sum_{k\ge1}\frac{(-1)^{k-1}}{(k-1)!}\,a_k t^k.
+\]
+Then, for every \(\varphi\in1+\widehat A^+\),
+\sgaStableTarget{sga6.e05.eq.6-3-2}\begin{equation}\tag{6.3.2}
+  \ch(\varphi)=\eta(\Log\varphi).
+\end{equation}
+Indeed, \(\ch\) and \(\eta\circ\Log\) are two functorial homomorphisms of abelian groups, and it is enough for them to agree on \(1+X\), which is evident.
+
+It follows that \(\ch\) commutes with the operations of \(K\): again it is enough to show this for \(1+X\), and for \(a\in K\) one has
+\[
+\begin{aligned}
+ \ch((1+X)^a)
+ &=\ch(\exp(a\Log(1+X)))\\
+ &=\eta(a\Log(1+X))\\
+ &=a\,\eta(\Log(1+X))\\
+ &=a\,\ch(1+X).
+\end{aligned}
+\]
+Thus one can extend \(\ch\) in the evident way to a homomorphism of \(K\)-algebras
+\[
+  K\times(1+\widehat A^+)\longrightarrow K\oplus\widehat A_{\mathbb Q}^{+},
+\]
+namely
+\sgaStableTarget{sga6.e05.eq.6-3-3}\begin{equation}\tag{6.3.3}
+  \ch(a,\varphi)=a+\eta(\Log\varphi).
+\end{equation}
+
+\sgaStableTarget{sga6.e05.def.6-4}\textbf{Definition 6.4.} The homomorphism
+\[
+  \ch:\Ch A\longrightarrow K\oplus\widehat A_{\mathbb Q}^{+}
+\]
+just defined is called the \emph{Chern character}.
+
+If \(A\) is of characteristic zero, that is, is a \(\mathbb Q\)-algebra, the Chern character is an isomorphism. Indeed, if \(\psi\in K\oplus\widehat A^+\), one may write \(\psi=a+\psi_1\), where \(\psi_1\) is of positive degree, and then an inverse morphism is defined by
+\[
+  \psi\longmapsto (a,\exp(\eta^{-1}(\psi_1))).
+\]
+
+\sgaStableTarget{sga6.e05.prop.6-5}\textbf{Proposition 6.5.} Let \(A\) be a graded \(K\)-algebra. On \(\Ch(A)\) consider the filtration defined as follows, the degree filtration:
+\sgaStableTarget{sga6.e05.eq.6-5-1}\begin{equation}\tag{6.5.1}
+  (\Ch(A))_0=\Ch(A),\qquad
+  (\Ch(A))_n=0\times(1+\widehat A^{\ge n})\quad(n\ge1),
+\end{equation}
+where \(\widehat A^{\ge n}=\prod_{i\ge n}A^i\). The following congruences hold.
+
+\begin{enumerate}[label=\roman*)]
+\item If \(n\ge1\) and \(\varphi\in(\Ch A)_n\), writing \(\varphi=1+a_n+\cdots\), then
+\sgaStableTarget{sga6.e05.eq.6-5-2}\begin{equation}\tag{6.5.2}
+  \ch(\varphi)=\frac{(-1)^{n-1}}{(n-1)!}\,a_n+\cdots .
+\end{equation}
+
+\item If \(\varphi\in(\Ch A)_m\), \(\psi\in(\Ch A)_n\), and if
+\(\varphi=1+a_m+\cdots\), \(\psi=1+b_n+\cdots\), then
+\sgaStableTarget{sga6.e05.eq.6-5-3}\begin{equation}\tag{6.5.3}
+  \varphi*\psi
+  =
+  1-\frac{(m+n-1)!}{(m-1)!(n-1)!}\,a_m b_n+\cdots .
+\end{equation}
+Consequently the degree filtration is a ring filtration.
+\end{enumerate}
+
+For (i), the Chern character is by construction a morphism of filtered functors; from the congruence \(\varphi\equiv1+a_n\pmod{(\Ch A)_{n+1}}\) one obtains
+\[
+  \ch(\varphi)=\ch(1+a_n)\pmod{\widehat A^{\ge n+1}},
+\]
+and, since \(\ch(1+a_n)=\eta(\Log(1+a_n))\), this is
+\[
+  \frac{(-1)^{n-1}}{(n-1)!}a_n+\cdots .
+\]
+For (ii), by substitution it is enough to prove \hyperlink{sga6.e05.eq.6-5-3}{(6.5.3)} for the torsion-free universal polynomial algebra
+\[
+ A=K[X_i,Y_j]_{i,j\in\mathbb N}
+\]
+and for \(\varphi=1+\sum_{k\ge m}X_k\), \(\psi=1+\sum_{k\ge n}Y_k\). Since \(K\) is torsion-free in the universal case, one can embed this algebra in its tensor product with \(\mathbb Q\), so that \(\ch\) is injective. Put \(\varphi*\psi=1+Z_p+\cdots\), where \(Z_p\) is the first non-zero term different from \(1\). The multiplicativity of \(\ch\), together with \hyperlink{sga6.e05.eq.6-5-2}{(6.5.2)}, gives
+\[
+  1+\frac{(-1)^{p-1}}{(p-1)!}Z_p+\cdots
+  =
+  \left(1+\frac{(-1)^{m-1}}{(m-1)!}X_m+\cdots\right)
+  \left(1+\frac{(-1)^{n-1}}{(n-1)!}Y_n+\cdots\right),
+\]
+which gives the stated value of \(Z_p\) by comparing the terms of lowest degree.
+
+\sgaStableTarget{sga6.e05.para.6-6}\textbf{6.6.} The \(\lambda\)-ring \(\Ch A\) is augmented over \(K\): one defines a \(\lambda\)-homomorphism \(\Ch A\to K\) by \((a,\varphi)\mapsto a\). It is therefore equipped with the canonical filtration of an augmented \(\lambda\)-ring. We compare it with the filtration just defined.
+
+\sgaStableTarget{sga6.e05.prop.6-6-1}\textbf{Proposition 6.6.1.} Let \(x\in\Ch A\) be an element of the form \(x=(n,1+\cdots+a_n)\). Then:
+\[
+\begin{array}{ll}
+\text{i)}& \lambda^i(x)=0\quad\text{for }i>n,\\[0.3em]
+\text{ii)}& \lambda^n(x)=(1,1+a_1),\\[0.3em]
+\text{iii)}& \displaystyle\sum_{i=0}^n(-1)^i\lambda^i(x)
+       =(0,1-(n-1)!a_n+\cdots),
+\end{array}
+\]
+where the unwritten terms have degree \(>n\).
+
+By functoriality, it is enough to prove this in the case where
+\(A=K[X_1,\ldots,X_n]\), filtered by weight with respect to the \(X_i\), \(X_i\) having weight \(i\), and for the element \((n,1+X_1+\cdots+X_n)\). Embed \(A\) in \(A'=K[T_1,\ldots,T_n]\) by the symmetric functions. Then
+\[
+ (n,1+X_1+\cdots+X_n)
+ =
+ \left(n,\prod_{i=1}^n(1+T_i)\right)
+ =
+ \sum_{i=1}^n(1,1+T_i).
+\]
+Hence, by \hyperlink{sga6.e05.eq.6-2-1}{(6.2.1)},
+\[
+  \lambda_t(x)=\prod_{i=1}^n\bigl(1+(1,1+T_i)t\bigr),
+\]
+so that
+\[
+  \lambda^k(x)=0\quad(k>n),\qquad
+  \lambda^n(x)=\prod_{i=1}^n(1,1+T_i)
+   =\left(1,1+\sum_{i=1}^nT_i\right)=(1,1+X_1).
+\]
+Finally,
+\[
+  \sum_{i=1}^n(-1)^i\lambda^i(x)=\lambda_{-1}(x)
+  =\prod_{i=1}^n\bigl(1-(1,1+T_i)\bigr)
+  =(-1)^n\prod_{i=1}^n(0,1+T_i).
+\]
+By \hyperlink{sga6.e05.eq.6-5-3}{(6.5.3)},
+\[
+  \prod_{i=1}^n(0,1+T_i)
+  =
+  \left(0,1+(-1)^{n-1}(n-1)!\prod_{i=1}^nT_i+\cdots\right),
+\]
+hence
+\[
+  \lambda_{-1}(x)=(0,1-(n-1)!X_n+\cdots).
+\]
+
+\sgaStableTarget{sga6.e05.cor.6-6-2}\textbf{Corollary 6.6.2.} Relation \hyperlink{sga6.e05.prop.6-6-1}{6.6.1(iii)} is true for every element \(X\) of augmentation \(n\).
+
+For this we shall use the following lemma.
+
+\sgaStableTarget{sga6.e05.lem.6-6-3}\textbf{Lemma 6.6.3.} For every \(n\), \((\Ch A)_n\) is a \(\lambda\)-ideal of \(\Ch A\).
+
+We may suppose \(n>1\). Let \(x=(0,\varphi)\in(\Ch A)_n\), and write
+\[
+  \lambda^i(0,\varphi)=(0,1+Q^i_{i,1}+\cdots+Q^i_{i,j}+\cdots),
+\]
+where the \(Q^i_{i,j}\) are the isobaric components of weight \(j\) of the \(Q^i_i\) of \hyperlink{sga6.e05.para.3-6}{(3.6)}. For every \(j\), the polynomial \(Q^i_{i,j}\) is a polynomial in the first \(j\) coefficients of \(\varphi\). If \(j<n\), these coefficients are zero; hence the \(Q^i_{i,j}\) are zero, and so the \(\lambda^i(x)\) belong to \((\Ch A)_n\). Thus \((\Ch A)_n\) is a \(\lambda\)-ideal.
+
+Let \(x=(n,1+a_1+\cdots+a_n+\cdots)\) be an element of augmentation \(n\) in \(\Ch A\). Then
+\[
+  x\equiv (n,1+\cdots+a_n)\pmod{(\Ch A)_{n+1}},
+\]
+and therefore
+\[
+  \lambda_{-1}(x)\equiv \lambda_{-1}(n,1+\cdots+a_n)
+  =(0,1-(n-1)!a_n+\cdots),
+\]
+which proves the corollary.
+
+\sgaStableTarget{sga6.e05.cor.6-6-4}\textbf{Corollary 6.6.4.} Let \(\epsilon\) be the augmentation homomorphism of \(\Ch A\). Then, for every \(x\in\Ch A\), one has
+\[
+  \gamma^n(x-\epsilon(x))
+  =
+  (0,1+(-1)^{n-1}(n-1)!a_n+\cdots).
+\]
+By definition,
+\[
+  \gamma^n(x-\epsilon(x))
+  =
+  (-1)^n\sum_{i=0}^n(-1)^i\lambda^i(x+n-\epsilon(x)).
+\]
+Since \(x+n-\epsilon(x)\) has augmentation \(n\), \hyperlink{sga6.e05.cor.6-6-2}{Corollary 6.6.2} applies to it, giving the result.
+
+\sgaStableTarget{sga6.e05.cor.6-6-5}\textbf{Corollary 6.6.5.} With the notation of \hyperlink{sga6.e05.para.3-10}{3.10},
+\[
+  \Fil^n\Ch A\subset(\Ch A)_n.
+\]
+This follows from the preceding corollary, which gives \(\gamma^n(x-\epsilon(x))\in(\Ch A)_n\), and from the fact that the two filtrations are ring filtrations and that the elements \(\gamma^n(x-\epsilon(x))\), for \(n\) and \(x\) variable, generate the \(\lambda\)-ring filtration.
+
+\sgaStableTarget{sga6.e05.cor.6-6-7}\textbf{Corollary 6.6.7.} Let \(A\) be a graded \(K\)-algebra of characteristic zero, bounded by degree. Then the two filtrations defined on \(\Ch A\) are identical.
+
+Suppose that \(\Fil^p A=0\), and let \(x=(0,1+a_n+\cdots+a_p)\) be an element of \((\Ch A)_n\). Put
+\[
+  x'=\left(0,1+\frac{(-1)^{n-1}}{(n-1)!}a_n+a_{n+1}+\cdots+a_p\right).
+\]
+Then \(\gamma^n(x')=(0,1+a_n+\cdots+a'_p)\), since \(x'\) has zero augmentation. Hence \(x-\gamma^n(x')\in(\Ch A)_{n+1}\). Iterating the operation \(p-n\) times, one reaches \((\Ch A)_{p+1}=0\), and therefore \(x\) is written as an element of \(\Fil^n\Ch A\). In view of \hyperlink{sga6.e05.cor.6-6-5}{(6.6.5)}, the two filtrations are identical.
+
+\sgaStableTarget{sga6.e05.para.6-7}\textbf{6.7.} Now suppose that \(A\) is a \(\lambda\)-ring augmented over \(K\), and let \(\epsilon\) be the augmentation homomorphism. Then \(A\) is equipped with its canonical filtration of augmented \(\lambda\)-ring, and one can associate to \(\Gr A\) its Chern ring.
+
+If \(x\in A\), then \(\gamma_t(x-\epsilon(x))\in\Ghat(A)\) by definition of the filtration of an augmented \(\lambda\)-ring. We write \(c(x)\) for the image of \(\gamma_t(x-\epsilon(x))\) in
+\[
+  \Ghat(A)/\Ghat'(A)=1+\widehat{\Gr A}^{+}.
+\]
+It is called the \emph{total Chern class} of \(x\). We write \(c^i(x)\), and call it the \(i\)-th Chern class of \(x\), for the \(i\)-th coefficient of \(c(x)\). Thus
+\sgaStableTarget{sga6.e05.eq.6-7-1}\begin{equation}\tag{6.7.1}
+  c^i(x)=\cl_{\Gr^iA}\!\left(\gamma^i(x-\epsilon(x))\right),
+  \qquad
+  c(x)=1+c^1(x)+\cdots .
+\end{equation}
+Put
+\sgaStableTarget{sga6.e05.eq.6-7-2}\begin{equation}\tag{6.7.2}
+  \widetilde c(x)=(\epsilon(x),c(x)).
+\end{equation}
+This is called the \emph{completed Chern class} of \(x\).
+
+\sgaStableTarget{sga6.e05.prop.6-8}\textbf{Proposition 6.8.} The completed Chern class
+\[
+  \widetilde c:A\longrightarrow\Ch(\Gr A)
+\]
+is a \(K\)-\(\lambda\)-homomorphism of augmented \(K\)-\(\lambda\)-algebras.
+
+It is clear that the homomorphism so defined is additive. To verify that it is multiplicative, write
+\[
+\begin{aligned}
+\gamma_t(xy-\epsilon(xy))
+&=\gamma_t\bigl(\epsilon(y)(x-\epsilon(x))\bigr)
+  \gamma_t\bigl(\epsilon(x)(y-\epsilon(y))\bigr)
+  \gamma_t\bigl((x-\epsilon(x))(y-\epsilon(y))\bigr)\\
+&=\bigl(\gamma_t(x-\epsilon(x))\bigr)^{\epsilon(y)}
+  \bigl(\gamma_t(y-\epsilon(y))\bigr)^{\epsilon(x)}
+  \bigl(\gamma_t(x-\epsilon(x))\circ\gamma_t(y-\epsilon(y))\bigr),
+\end{aligned}
+\]
+which gives the result by \hyperlink{sga6.e05.para.6-1}{(6.1.2)} after passage to the quotient. If \(a\in K\), then \(\widetilde c(a)=(a,1)\), so \(\widetilde c\) is a homomorphism of \(K\)-algebras; moreover it is compatible with augmentations.
+
+It remains to see that it is a \(\lambda\)-homomorphism. One must prove the commutativity of the diagram
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+A \arrow[r,"\gamma_t"] \arrow[d,"\widetilde c"'] &
+\Ghat(A) \arrow[d,"\Ghat(\widetilde c)"]\\
+\Ch A \arrow[r,"\gamma_t"'] &
+\Ghat(\Ch A).
+\end{tikzcd}
+\]
+By additivity, it is enough to prove it for the elements of \(K\), where it is evident, and for the elements of zero augmentation in \(A\), where it follows, by the definition of \(c\) and \hyperlink{sga6.e05.para.6-1}{(6.1.4)}, from diagram \hyperlink{sga6.e05.eq.3-7-2}{(3.7.2)}.
+
+\sgaStableTarget{sga6.e05.prop.6-9}\textbf{Proposition 6.9.} Let \(A\) be an augmented \(K\)-\(\lambda\)-algebra and let \(z\in\Fil^mA\). Then
+\[
+  \gamma^m(z)=(-1)^{m-1}(m-1)!z\pmod{\Fil^{m+1}A},
+\]
+that is,
+\[
+  c^m(z)=\cl_{\Gr^mA}\!\left((-1)^{m-1}(m-1)!z\right).
+\]
+
+One must see that these two elements give the same image in \(\Gr^mA\), that is, that the \(m\)-th Chern class of \(z\) is the image of \((-1)^{m-1}(m-1)!z\).
+
+One may write \(z\) as a sum
+\[
+  \sum a\,\gamma^{i_1}(x_1)\cdots\gamma^{i_k}(x_k),
+\]
+with \(a\in A\), \(\epsilon(x_i)=0\) for all \(i\), and \(i_1+\cdots+i_k\ge m\). We then have
+\[
+  \widetilde c(z)=
+  \sum \widetilde c(a)\,
+        \widetilde c(\gamma^{i_1}(x_1))\cdots
+        \widetilde c(\gamma^{i_k}(x_k)).
+\]
+Since \(\widetilde c\) is a \(\lambda\)-homomorphism, one may write
+\[
+  \widetilde c(\gamma^i(x_j))=\gamma^i(\widetilde c(x_j)).
+\]
+Taking account of the definition of \(c\) and of \hyperlink{sga6.e05.cor.6-6-4}{(6.6.4)}, one obtains
+\[
+  \widetilde c(\gamma^{i_j}(x_j))
+  =
+  \left(0,1+(-1)^{i_j-1}(i_j-1)!\,\gamma^{i_j}(x_j)+\cdots\right).
+\]
+By \hyperlink{sga6.e05.eq.6-5-3}{(6.5.3)}, and since \(\widetilde c(a)=(a,1)\), one finally gets
+\[
+\begin{aligned}
+\widetilde c(z)
+&=\sum
+\left(0,\left(1+
+(-1)^{i_1+\cdots+i_k-1}
+(i_1+\cdots+i_k-1)!
+\,\gamma^{i_1}(x_1)\cdots\gamma^{i_k}(x_k)
++\cdots\right)^a\right)\\
+&=
+\left(0,1+
+\sum_{\substack{(x_1,\ldots,x_k)\\ i_1+\cdots+i_k=m}}
+(-1)^{m-1}(m-1)!a\,\gamma^{i_1}(x_1)\cdots\gamma^{i_k}(x_k)
++\cdots\right)\\
+&=
+(0,1+(-1)^{m-1}(m-1)!z+\cdots),
+\end{aligned}
+\]
+which proves the assertion.
+
+\sgaStableTarget{sga6.e05.prop.6-10}\textbf{Proposition 6.10.} Let \(K\) be a binomial ring, \(R\) an augmented \(K\)-\(\lambda\)-algebra, \(N\in R\) an element such that \(\lambda^k(N)=0\) for \(k>d\), and \(x\in\Fil^iR\). Then
+\[
+  \gamma^{d+i}(N,x)-(-1)^{d+i-1}(d+i-1)!x\in\Fil^{i+1}R.
+\]
+
+One can find elements \(z_{\alpha,j}\in R\) and \(a_\alpha\in K\) such that
+\[
+  x=\sum_\alpha a_\alpha\,
+       \gamma^{i_1}(x_{\alpha,1})\cdots
+       \gamma^{i_k}(x_{\alpha,k}),
+\]
+with \(i_1+\cdots+i_k\ge i\) and \(\epsilon(x_{\alpha,j})=0\) for every \(\alpha\) and every \(j\). Let \(R_0\) be the \(K\)-\(\lambda\)-algebra generated by \(N'_0\) and \(X_{\alpha,j}\), subject to the relations
+\[
+  \gamma^k(N'_0)=0\quad\text{for }k>d.
+\]
+Define an augmentation homomorphism \(R_0\to K\) by \(\epsilon(N'_0)=\epsilon(X_{\alpha,j})=0\). By \hyperlink{sga6.e05.cor.4-9}{(4.9.1)}, \(R_0\) is the ring of polynomials with coefficients in \(K\) in the indeterminates \(\gamma^k(N'_0)\), \(1\le k\le d\), and \(\gamma^p(X_{\alpha,j})\), \(p\ge1\); the \(\lambda\)-filtration of \(R_0\) is its weight filtration, where \(\gamma^k(N'_0)\) and \(\gamma^k(X_{\alpha,j})\) have weight \(k\) (\hyperlink{sga6.e05.prop.4-12}{4.12} and \hyperlink{sga6.e05.cor.4-15}{4.15}).
+
+Put
+\[
+  X_0=\sum_\alpha a_\alpha\,
+       \gamma^{i_1}(X_{\alpha,1})\cdots
+       \gamma^{i_k}(X_{\alpha,k}).
+\]
+We shall prove \hyperlink{sga6.e05.prop.6-10}{6.10} first for \(X_0\) and \(N'_0=N_0+d\), which do satisfy the hypotheses of 6.10. In view of the preceding remark about the filtration of \(R_0\), it is enough to show that
+\[
+  \gamma^{d+i}(N_0,X_0)\gamma^d(N'_0)
+  -
+  (-1)^{d+i-1}(d+i-1)!X_0\gamma^d(N'_0)
+  \in\Fil^{d+i+1}R_0 .
+\]
+But \(\lambda_{-1}(N_0)=(-1)^d\gamma^d(N'_0)\). Thus this relation becomes
+\[
+  (-1)^d\gamma^{d+i}(X_0,(-1)^d\gamma^d(N'_0))
+  -
+  (-1)^{d+i-1}(d+i-1)!X_0\gamma^d(N'_0)
+  \in\Fil^{d+i+1}R_0 .
+\]
+Putting \(z=(-1)^dX_0\gamma^d(N'_0)\), we have \(z\in\Fil^{d+i}R_0\), and the statement is reduced to
+\[
+  \gamma^{d+i}(z)-(-1)^{d+i-1}(d+i-1)!z\in\Fil^{d+i+1}R_0,
+\]
+which is just 6.9.
+
+To deduce \hyperlink{sga6.e05.prop.6-10}{6.10} from this particular case, consider the \(K\)-\(\lambda\)-homomorphism \(R_0\to R\) which sends \(N'_0\) to \(N-d\) and \(X_{\alpha,j}\) to \(x_{\alpha,j}\), for every \(\alpha\) and \(j\). This homomorphism is compatible with the \(\lambda\)-filtrations and sends \(N_0\) to \(N\) and \(X_0\) to \(x\). Hence the result follows.
+
+\sgaStableTarget{sga6.e05.prop.6-11}\textbf{Proposition 6.11.} Suppose that \(K\) is of characteristic zero, and let \(n\ge0\) be an integer. Then the functor \(\Ch\) is an equivalence from the category of graded \(K\)-algebras \(A\) such that \(A_0=K\) and \(A_k=0\) for \(k>n\), to the category of augmented \(K\)-\(\lambda\)-algebras \(\Lambda\) such that \(\Fil^{n+1}\Lambda=0\). A quasi-inverse functor is given by \(\Lambda\mapsto\Gr\Lambda\).
+
+Let \(A\) be a graded \(K\)-algebra such that \(A_k=0\) for \(k>n\), equipped with the filtration associated to its grading. Then \((\Ch A)_{n+1}=0\), and hence \(\Fil^{n+1}\Ch A=0\) by \hyperlink{sga6.e05.cor.6-6-5}{(6.6.5)}. Conversely, if \(\Lambda\) is an augmented \(K\)-\(\lambda\)-algebra such that \(\Fil^{n+1}\Lambda=0\), then \(\Gr^0\Lambda=K\) and \(\Gr^k\Lambda=0\) for \(k>n\).
+
+We shall define isomorphisms of functors
+\[
+  A\longrightarrow \Gr(\Ch A),
+  \qquad
+  \Lambda\longrightarrow\Ch(\Gr\Lambda).
+\]
+Since \(A\) is of finite grading, the associated gradeds of the \(\lambda\)-ring filtration on \(\Ch A\) and of the degree filtration are the same by \hyperlink{sga6.e05.cor.6-6-7}{(6.6.7)}. Define
+\[
+  u:A\longrightarrow \Gr_{\deg}(\Ch A)
+\]
+to be the identity on \(A_0\), and, for \(i\ge1\) and \(a_i\in A_i\),
+\[
+  u(a_i)=
+  \cl_{\Gr^i}\left(0,1+(-1)^{i-1}(i-1)!a_i\right),
+\]
+then extend by additivity. By relation \hyperlink{sga6.e05.eq.6-5-3}{(6.5.3)} this is a homomorphism of graded rings, and it is easy to see that it is compatible with the operations of \(K\). The inverse morphism \(u^{-1}\) may be defined as follows: for \(i\ge1\) and \(\bar\varphi\in\Gr^i(\Ch A)\), the \(i\)-th coefficient \(a_i\) of \(\varphi\) is independent of the lift of \(\bar\varphi\) in \((\Ch A)_i\), and one puts
+\[
+  u^{-1}(\bar\varphi)=\frac{(-1)^{i-1}}{(i-1)!}a_i.
+\]
+Thus \(u\) is an isomorphism.
+
+The isomorphism \(\Lambda\to\Ch(\Gr\Lambda)\) is defined by the completed Chern class \(\widetilde c\). To verify that it really defines an isomorphism, it is enough to verify that the homomorphism obtained by passing to associated graded rings is one, the filtrations being discrete. One gets
+\[
+  \Gr\Lambda
+   \xrightarrow{\Gr(\widetilde c)}
+  \Gr_{\lambda}(\Ch(\Gr\Lambda))
+   \simeq
+  \Gr_{\deg}(\Ch(\Gr\Lambda))
+   \xrightarrow{u^{-1}}
+  \Gr\Lambda .
+\]
+It remains to show that the composite is the identity. Since the homomorphisms are homomorphisms of graded \(K\)-algebras, it is enough, by the definition of the \(\lambda\)-ring filtration of \(\Lambda\), to show that it is the identity on the \(\gamma^i(x)\), where \(\epsilon(x)=0\). One then obtains
+\[
+  \Gr(\widetilde c)\bigl(\gamma^i(x)\bigr)
+  =
+  \cl_{\Gr^i}\bigl(\gamma^i(c(x))\bigr).
+\]
+But \(\gamma^i(\widetilde c(x))=(0,1+(-1)^{i-1}(i-1)!c^i(x)+\cdots)\), by \hyperlink{sga6.e05.cor.6-6-4}{(6.6.4)}. Therefore
+\[
+  \cl_{\Gr^i}\bigl(\gamma^i(\widetilde c(x))\bigr)=u(c^i(x)),
+\]
+which shows that \(u^{-1}\circ\Gr(\widetilde c)=\id\).
+
+\sgaStableTarget{sga6.e05.cor.6-12}\textbf{Corollary 6.12.} If \(K\) is of characteristic zero, and if \(\Lambda\) is a \(K\)-\(\lambda\)-algebra with discrete filtration, then the completed Chern class
+\[
+  \widetilde c:\Lambda\longrightarrow \Ch(\Gr\Lambda)
+\]
+is an isomorphism.
+
+The proof is contained in that of 6.11.
+
+\sgaStableTarget{sga6.e05.def.6-13}\textbf{Definition 6.13.} Let \(A\) be a graded \(K\)-algebra and \(\Lambda\) an augmented \(K\)-\(\lambda\)-algebra. A \emph{Chern theory for \(\Lambda\) with values in \(A\)} is a \(\lambda\)-homomorphism
+\[
+  \Lambda\longrightarrow \Ch(A)
+\]
+compatible with augmentations.
+
+Thus one defines a functor on the category of graded \(K\)-algebras, with values in the category of sets, by associating with a graded \(K\)-algebra \(A\) the set of Chern theories of \(\Lambda\) with values in \(A\), namely
+\[
+  \Hom_\lambda(\Lambda,\Ch(A)).
+\]
+
+\sgaStableTarget{sga6.e05.prop.6-14}\textbf{Proposition 6.14.} The functor defined in \hyperlink{sga6.e05.def.6-13}{6.13} is representable. If \(K\) is of characteristic zero and \(\Lambda\) has discrete filtration, it is represented by the graded ring associated with \(\Lambda\).
+
+First prove the first assertion. Consider the graded \(K\)-algebra generated by generators \(c^i(x)\), with \(i\ge1\), \(x\in\Fil^1\Lambda\), \(c^i(x)\) of degree \(i\), and take its quotient by the following relations:
+\[
+\begin{array}{ll}
+\text{i)}&
+ c^k(x+y)=\displaystyle\sum_{i+j=k}c^i(x)c^j(y),
+ \quad k\ge1,\ x,y\in\Fil^1\Lambda,\\[0.8em]
+\text{ii)}&
+ c^k(xy)=P''_k(c^i(x),c^j(y))
+ \quad(\text{cf. }\hyperlink{sga6.e05.para.6-1}{6.1}),
+ \quad k\ge1,\ x,y\in\Fil^1\Lambda,\\[0.4em]
+\text{iii)}&
+ c^k(ax)=R_{k,a}(c^i(x))
+ \quad(\text{cf. }\hyperlink{sga6.e05.para.6-1}{6.1}),
+ \quad k\ge1,\ a\in K,\ x\in\Fil^1\Lambda,\\[0.4em]
+\text{iv)}&
+ c^k(\gamma^j(x))=Q''_{j,k}(c^i(x))
+ \quad(\text{cf. }\hyperlink{sga6.e05.para.6-1}{6.1}),
+ \quad j,k\ge1,\ x\in\Fil^1\Lambda.
+\end{array}
+\]
+These relations are isobaric, so the quotient is a graded \(K\)-algebra \(\Omega\). Define a morphism
+\[
+  \widetilde c_0:\Lambda\longrightarrow \Ch(\Omega)
+\]
+by
+\[
+  x\longmapsto
+  \bigl(\epsilon(x),1+c^1(x-\epsilon(x))+\cdots\bigr).
+\]
+The imposed relations show that this is a Chern theory for \(\Lambda\) with values in \(\Omega\). Conversely, if \(f\) is a Chern theory with values in a graded \(K\)-algebra \(A\), then there is a unique homomorphism \(\Omega\to A\) through which \(f\) factors through \(\Ch(\Omega)\): it sends, for every \(i\ge1\) and every \(x\in\Fil^1\Lambda\), the element \(c^i(x)\) to the \(i\)-th coefficient of \(f(x)\). This is well defined because \(f\) is a \(\lambda\)-homomorphism.
+
+Now suppose that \(K\) is of characteristic zero and \(\Lambda\) has discrete filtration. Let \(n\) be such that \(\Fil^n\Lambda=0\). Then the graded algebra \(\Omega\) is zero in degrees \(>n\). To show this, it is enough to prove that, for
+\[
+  x_1,\ldots,x_p\in\Fil^1\Lambda
+  \quad\text{and}\quad
+  k_1+\cdots+k_p\ge n,
+\]
+one has
+\[
+  c^{k_1}(x_1)\cdots c^{k_p}(x_p)=0.
+\]
+By hypothesis,
+\[
+  \gamma^{k_1}(x_1)\cdots\gamma^{k_p}(x_p)=0.
+\]
+Applying the \(\lambda\)-homomorphism \(\widetilde c_0\), one gets
+\[
+  \gamma^{k_1}(\widetilde c_0(x_1))\cdots
+  \gamma^{k_p}(\widetilde c_0(x_p))=(0,1).
+\]
+By \hyperlink{sga6.e05.cor.6-6-4}{(6.6.4)} and \hyperlink{sga6.e05.eq.6-5-3}{(6.5.3)}, this implies
+\[
+  (k_1+\cdots+k_p)!\,
+  c^{k_1}(x_1)\cdots c^{k_p}(x_p)=0.
+\]
+Since \(K\) is of characteristic zero, the desired result follows.
+
+The universal property of \(\Omega\), applied to the canonical homomorphism \(\widetilde c\), gives a commutative diagram
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+\Lambda \arrow[r,"\widetilde c"] \arrow[d,"\widetilde c_0"'] &
+\Ch(\Gr\Lambda)\\
+\Ch(\Omega) \arrow[ur] &
+\end{tikzcd}
+\]
+By \hyperlink{sga6.e05.prop.6-11}{Proposition 6.11}, the homomorphism \(\Omega\to\Gr\Lambda\) is an isomorphism if and only if the homomorphism
+\[
+  \Ch(\Omega)\longrightarrow \Ch(\Gr\Lambda)
+\]
+is one. Since it is visibly surjective, the latter is also surjective; it remains to show that
+\(\Ch(\Omega)\to\Ch(\Gr\Lambda)\) is injective. By functoriality of \(\Ch\), one obtains the diagram
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+\Lambda \arrow[r,"\widetilde c_0"] \arrow[d,"\widetilde c"'] &
+\Ch(\Omega) \arrow[d,"\widetilde c"]\\
+\Ch(\Gr\Lambda) \arrow[r,"\Ch(\widetilde c_0)"'] &
+\Ch\bigl(\Gr_\Lambda(\Ch(\Omega))\bigr).
+\end{tikzcd}
+\]
+Since \(\Omega\) has bounded degrees, the right vertical arrow is an isomorphism by \hyperlink{sga6.e05.cor.6-12}{(6.12)}. Using \hyperlink{sga6.e05.prop.6-11}{6.11}, one therefore obtains a morphism
+\[
+  \Gr\Lambda\longrightarrow\Omega
+\]
+whose two composites with \(\Omega\to\Gr\Lambda\) are the identity, by the universal property of \(\Omega\).
+
+\sgaStableTarget{sga6.e05.sec.7}\section*{7. Appendix: the Adams operations \(\psi^k\)}
+
+We follow here a presentation due to J.-P. Serre.
+
+\sgaStableTarget{sga6.e05.para.7-1}\textbf{7.1.} Let \(K\) be a pre-\(\lambda\)-ring. For \(x\in K\), write
+\[
+  \frac{d}{dt}(\lambda_t(x))
+\]
+for the derivative with respect to \(t\) of \(\lambda_t(x)\). Define elements of \(K\), denoted \(\psi^k(x)\), by putting
+\sgaStableTarget{sga6.e05.eq.7-1-1}\begin{equation}\tag{7.1.1}
+  \frac{d}{dt}(\lambda_t(x))/\lambda_t(x)
+  =
+  \sum_{k=1}^{\infty}(-1)^{k-1}\psi^k(x)t^{k-1}.
+\end{equation}
+The maps \(\psi^k:K\to K\) are additive. Indeed,
+\[
+\begin{aligned}
+ \frac{d}{dt}(\lambda_t(x+y))/\lambda_t(x+y)
+ &=
+ \frac{d}{dt}(\lambda_t(x)\lambda_t(y))/\lambda_t(x)\lambda_t(y)\\
+ &=
+ \frac{d}{dt}(\lambda_t(x))/\lambda_t(x)
+ +\frac{d}{dt}(\lambda_t(y))/\lambda_t(y),
+\end{aligned}
+\]
+and therefore, for every \(k\),
+\[
+  \psi^k(x+y)=\psi^k(x)+\psi^k(y).
+\]
+By \hyperlink{sga6.e05.eq.7-1-1}{(7.1.1)}, the \(\psi^k\) are isobaric polynomials of weight \(k\) in the \(\lambda^i\), \(i=1,\ldots,k\). For example,
+\[
+  \psi^1(x)=\lambda^1(x)=x,
+  \qquad
+  \psi^2(x)=x^2-2\lambda^2(x).
+\]
+
+\sgaStableTarget{sga6.e05.para.7-2}\textbf{7.2.} Let \(K\) be a ring of characteristic zero. Suppose given additive maps \(\psi^k:K\to K\) such that \(\psi^1=\id_K\). Define a pre-\(\lambda\)-structure on \(K\) by
+\sgaStableTarget{sga6.e05.eq.7-2-1}\begin{equation}\tag{7.2.1}
+  \lambda_t(x)=
+  \exp\left(\sum_{k=1}^{\infty}(-1)^{k-1}\psi^k(x)t^k/k\right).
+\end{equation}
+Multiplicativity follows from the additivity of the \(\psi^k\). Thus there is an equivalence between giving a pre-\(\lambda\)-structure on \(K\) and giving the corresponding operations \(\psi^k\).
+
+\sgaStableTarget{sga6.e05.para.7-3}\textbf{7.3.} It is clear from formula \hyperlink{sga6.e05.eq.7-1-1}{(7.1.1)} that the \(\psi^k\) commute with \(\lambda\)-homomorphisms. If \(K,K'\) are pre-\(\lambda\)-rings of characteristic zero, it is necessary and sufficient for a homomorphism \(f:K\to K'\) to be a \(\lambda\)-homomorphism that it commute with the \(\psi^k\). This follows from \hyperlink{sga6.e05.para.7-2}{7.2}, since the \(\lambda^i\) are expressed as polynomials in the \(\psi^k\).
+
+\sgaStableTarget{sga6.e05.ex.7-4}\textbf{Examples 7.4.} i) For \(K=\mathbb Z\), with its \(\lambda\)-ring structure, one has
+\[
+  \frac{d}{dt}(\lambda_t(n))/\lambda_t(n)
+  =
+  n(1+t)^{n-1}/(1+t)^n
+  =
+  n\sum_{k=1}^{\infty}(-1)^{k-1}t^{k-1}.
+\]
+Consequently the \(\psi^k\) are all equal to the identity map of \(\mathbb Z\).
+
+ii) Work in the category \(\mathscr C_0\) of \(\mathbb Z\)-algebras \hyperlink{sga6.e05.para.1-8}{(1.8)}. By \hyperlink{sga6.e05.para.7-3}{7.3}, the operations \(\psi^k\) define additive endomorphisms of the functor \(G\) on \(\lambda\)-rings. By \hyperlink{sga6.e05.thm.1-10}{1.10} they are characterized by their value on \(1+Xt\). One has
+\[
+  \frac{d}{dt}(\lambda_u(1+Xt))/\lambda_u(1+Xt)
+  =
+  \frac{1+Xt}{1+\{1+Xt\}u}
+  =
+  \sum_{k=1}^{\infty}(-1)^{k-1}\{1+Xt\}^{\circ k}u^{k-1}.
+\]
+Thus
+\sgaStableTarget{sga6.e05.eq.7-4-1}\begin{equation}\tag{7.4.1}
+  \psi^k(1+Xt)=1+X^k t.
+\end{equation}
+
+\sgaStableTarget{sga6.e05.prop.7-5}\textbf{Proposition 7.5.} i) If \(K\) is a \(\lambda\)-ring, the operations \(\psi^k\) satisfy the identities
+\sgaStableTarget{sga6.e05.eq.7-5-1}\begin{equation}\tag{7.5.1}
+  \psi^k(1)=1,\qquad
+  \psi^k(xy)=\psi^k(x)\psi^k(y),\qquad
+  \psi^k\circ\psi^{k'}=\psi^{kk'}.
+\end{equation}
+ii) Conversely, if the \(\psi^k\) satisfy these identities and if \(K\) is of characteristic zero, then \(K\) is a \(\lambda\)-ring.
+
+For (i), if \(K\) is a \(\lambda\)-ring, \(\lambda_t(1)=1+t\), hence
+\[
+  \frac{d}{dt}(\lambda_t(1))/\lambda_t(1)
+  =
+  \frac1{1+t}
+  =
+  \sum_{k=1}^{\infty}(-1)^{k-1}t^{k-1},
+\]
+and therefore \(\psi^k(1)=1\).
+
+To prove the second relation of \hyperlink{sga6.e05.eq.7-5-1}{(7.5.1)}, consider the diagram
+\sgaStableTarget{sga6.e05.eq.7-5-2}\begin{equation}\tag{7.5.2}
+\begin{tikzcd}[column sep=large,row sep=large]
+K\times K \arrow[r,"\lambda_t\times\lambda_t"] \arrow[d] &
+\widehat G(K)\times\widehat G(K) \arrow[r,"g^k\times g^k"] \arrow[d,"\circ"] &
+K\times K \arrow[d]\\
+K \arrow[r,"\lambda_t"'] &
+\widehat G(K) \arrow[r,"g^k"'] &
+K ,
+\end{tikzcd}
+\end{equation}
+where the vertical arrows are defined by multiplication, and the maps \(g^k\) as follows: the logarithmic derivative is a group homomorphism from \(G(K)\) to \(K[[t]]\), and the map which to a series assigns its \((k-1)\)-st coefficient, multiplied by \((-1)^{k-1}\), is an additive homomorphism from \(K[[t]]\) to \(K\); \(g^k\) is their composite. Clearly \(g^k\circ\lambda_t=\psi^k\) by \hyperlink{sga6.e05.eq.7-1-1}{definition (7.1.1)}.
+
+The second of formulas \hyperlink{sga6.e05.eq.7-5-1}{(7.5.1)} therefore expresses the commutativity of the diagram just written. If \(K\) is a \(\lambda\)-ring, the left square is commutative, and it is enough to verify the commutativity of the right square. This is a diagram of functor homomorphisms on \(\mathscr C_0\), with source \(\widehat G\times\widehat G\). By \hyperlink{sga6.e05.thm.1-10}{1.10} it is enough to verify commutativity on \((1+Xt,1+Yt)\). Then
+\[
+  g^k(1+Xt)=X^k,\qquad
+  g^k(1+Yt)=Y^k,
+\]
+and
+\[
+  g^k\bigl((1+Xt)\circ(1+Yt)\bigr)
+  =
+  g^k(1+XYt)
+  =
+  (XY)^k
+  =
+  g^k(1+Xt)g^k(1+Yt),
+\]
+which gives the result.
+
+To prove the last relation, first observe that the diagram
+\sgaStableTarget{sga6.e05.eq.7-5-3}\begin{equation}\tag{7.5.3}
+\begin{tikzcd}[column sep=large,row sep=large]
+\widehat G_t(K) \arrow[r,"\lambda_u"] \arrow[d,"g^k"'] &
+\widehat G_u\widehat G_t(K) \arrow[d,"g^k_u"]\\
+K \arrow[r,"\lambda_u"'] &
+\widehat G^u(K)
+\end{tikzcd}
+\end{equation}
+is commutative. As above, it is enough to see this for \(1+Xt\), and one has
+\[
+  g^{k'}_u\lambda_u(1+Xt)
+  =
+  g^{k'}_u(1+\{1+Xt\}u)
+  =
+  (1+Xt)^{\circ k'}
+  =
+  1+X^{k'}t,
+\]
+and then
+\[
+  g^k(1+X^{k'}t)=X^{kk'}=g^k(1+Xt).
+\]
+Consequently
+\[
+  \psi^k\circ\psi^{k'}
+  =
+  g^k\circ g^{k'}_u\circ\lambda_u\circ\lambda_t
+  =
+  g^k\circ\lambda_t\circ\psi^{k'}.
+\]
+Moreover
+\[
+  \psi^k\circ\psi^{k'}
+  =
+  g^k\circ\lambda_t\circ\psi^{k'}
+  =
+  \psi^k\circ\lambda_t\circ\psi^{k'}.
+\]
+If \(K\) is a \(\lambda\)-ring, the diagram
+\sgaStableTarget{sga6.e05.eq.7-5-4}\begin{equation}\tag{7.5.4}
+\begin{tikzcd}[column sep=large,row sep=large]
+K \arrow[r,"\lambda_t"] \arrow[d,"\psi^{k'}"'] &
+\widehat G(K) \arrow[d,"\psi^{k'}"]\\
+K \arrow[r,"\lambda_t"'] &
+\widehat G(K)
+\end{tikzcd}
+\end{equation}
+is commutative by \hyperlink{sga6.e05.para.7-3}{7.3}, since \(\lambda_t\) is a \(\lambda\)-homomorphism. The desired relations follow at once.
+
+For (ii), if \(K\) is of characteristic zero, the logarithmic derivative is an isomorphism from \(\widehat G(K)\) onto \(K[[t]]\), since one can integrate. Therefore two elements of \(\widehat G(K)\) are equal if and only if, for every \(k\), they have the same image by \(g^k\).
+
+To show that \(\lambda_t\) is a ring homomorphism, it is enough to show that the left square in \hyperlink{sga6.e05.eq.7-5-2}{(7.5.2)} is commutative. By the preceding remark, it is enough to show that, for every \(k\), diagram \hyperlink{sga6.e05.eq.7-5-2}{(7.5.2)} is commutative; the right square always is. But this is exactly the relation
+\[
+  \psi^k(xy)=\psi^k(x)\psi^k(y).
+\]
+To show that \(\lambda_t\) is a \(\lambda\)-homomorphism, it is enough, by \hyperlink{sga6.e05.para.7-3}{7.3}, to show that diagram \hyperlink{sga6.e05.eq.7-5-4}{(7.5.4)} is commutative for every \(k'\). By the preceding remark, this is equivalent to showing, for all \(k,k'\), that
+\[
+  g^k\circ\psi^{k'}\circ\lambda_t
+  =
+  g^k\circ\lambda_t\circ\psi^{k'},
+\]
+that is, the relations \(\psi^{kk'}=\psi^k\circ\psi^{k'}\). Finally, the relation \(\lambda_t(1)=1+t\) is obtained by integration from the relations \(\psi^k(1)=1\).
+
+\sgaStableTarget{sga6.e05.bibliography}\subsection*{Bibliography}
+\begin{enumerate}[label={[\arabic*]}]
+\item A. Grothendieck, \emph{La théorie des classes de Chern}, Bull. Soc. math. France, 86, 1958, p. 137 à 154.
+\item F. Hirzebruch, \emph{Neue topologische Methoden in der algebraischen Geometrie}.
+\end{enumerate}
+
+
+
+\providecommand{\Sym}{\operatorname{Sym}}
+\providecommand{\Proj}{\operatorname{Proj}}
+\providecommand{\Projz}{\operatorname{Proj}_0}
+\providecommand{\Spec}{\operatorname{Spec}}
+\providecommand{\Comp}{\operatorname{Comp}}
+\providecommand{\Dplus}{D_{+}}
+\providecommand{\id}{\operatorname{id}}
+\providecommand{\cG}{\mathcal G}
+\providecommand{\cA}{\mathcal A}
+\providecommand{\cB}{\mathcal B}
+\providecommand{\cL}{\mathscr L}
+\providecommand{\cM}{\mathscr M}
+\providecommand{\cN}{\mathscr N}
+\providecommand{\cE}{\mathscr E}
+\providecommand{\cK}{\mathscr K}
+\providecommand{\cP}{\mathscr P}
+\providecommand{\cQ}{\mathscr Q}
+\providecommand{\OO}{\mathcal O}
+\providecommand{\rk}{\operatorname{rk}}
+\providecommand{\colim}{\operatorname*{colim}}
+
+

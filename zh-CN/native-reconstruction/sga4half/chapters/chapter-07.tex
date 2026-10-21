@@ -1,0 +1,707 @@
+% !TEX root = ../main.tex
+
+\chapter{\texorpdfstring{$\ell$}{l} 进上同调中的有限性定理}\label{VII}
+
+\section{定理的陈述}\label{VII:1}
+
+本讲始终设 $S$ 为 Noether 概形，$A$ 为左 Noether 挠环，且被某个在 $S$ 上可逆的整数零化。我们的主要结果如下。
+
+\begin{theorem_}\label{VII:1-1}
+设 $S$ 为维数为 $0$ 或 $1$ 的正则概形。设 $f:X\to Y$ 为有限型 $S$-概形之间的态射，$\sF$ 为 $X$ 上的可构造左 $A$-模层（constructible sheaf）。则各层 $\eR^i f_\ast \sF$ 均可构造。
+\end{theorem_}
+
+证明将在第 \ref{VII:2} 节和 \ref{VII:3-10} 中给出。
+
+\subsection{注}\label{VII:1-2}
+
+在特征 $0$ 的情形，这一结果不如 \cite[XIX paragraphe 5]{sga4} 一般；后者对特征 $0$ 的优秀概形之间任意有限型态射证明了本定理的结论。\cite[XIX]{sga4} 中的证明一方面使用奇点消解，另一方面使用这些概形为等特征的假设（以便从奇点消解推出“纯性定理”）。
+
+\subsection{注}\label{VII:1-3}
+
+若复形 $K\in\ob\eD(X,A)$ 的上同调层均可构造，我们就称它为\emph{可构造复形}，并用下标 $c$ 表示 $\eD(X,A)$（或 $\eD^+$、$\eD^-$、$\eD^b$）中由可构造复形组成的子范畴。用我们将自由使用的导出范畴语言来说，\ref{VII:1-1} 断言 $\eR f_\ast:\eD^+(X,A) \to \eD^+(Y,A)$ 将 $\eD_c^+$ 映入 $\eD_c^+$。更明确地说：
+\begin{enumerate}[\indent a)]
+  \item 当 $K$ 集中于次数 $0$ 上的层 $\sF$ 时，有 $\sH^i\eR f_\ast K = \eR^i f_\ast \sF$；因此导出形式的陈述蕴含该定理。
+  \item 反过来，使用谱序列
+    \[
+      E_1^{p q} = \eR^q f_\ast \sH^p(K) \Rightarrow \sH^{p+q} \eR f_\ast K \text{.}
+    \]
+\end{enumerate}
+
+使用导出范畴语言的好处，是能用简单的传递公式 $\eR(f g)_\ast = \eR f_\ast \eR g_\ast$ 代替 Leray 谱序列 $E_2^{p q} = \eR^p f_\ast \eR^q g_\ast \Rightarrow \eR^{p+q} (f g)_\ast$。
+
+在 \ref{VII:1-1} 的假设下，由 \cite{sga4} 可知 $\eR f_\ast$ 的上同调维数有限。因此，上文中的 $\eD^+$ 可以换成 $\eD$、$\eD^-$ 或 $\eD^b$。
+
+\subsection{证明的思路}\label{VII:1-4}
+\begin{enumerate}[\indent a)]
+  \item Poincaré 对偶性处理了 $X$ 光滑、$\sF$ 局部常值且 $Y=S$ 的情形。在计算 $S$ 上的 $\rHom$ 时，可以直接看出维数假设的作用。
+  \item 将 $f$ 分解为 $g j$，其中 $g$ 适当，$j$ 为开浸入。有 $\eR f_\ast = \eR g_\ast \eR j_\ast$，而适当态射的有限性定理控制了 $\eR g_\ast$。通过逐层约化（dévissage），可归结为 $X$ 光滑、$\sF$ 局部常值、$f$ 为开浸入且 $Y$ 在 $S$ 上适当的情形。
+  \item 直观地说，对 $\dim X$ 作归纳（同时改变 $S$），便可设定理在 $Y$ 的某个在 $S$ 上有限的部分以外成立。将结构态射记为 $a:X\to S$ 和 $b:Y\to S$，便可证明：若定理对 $\sF$ 和 $\eR f_\ast$ 不成立，则它对 $\sF$ 和 $\eR b_\ast \eR f_\ast = \eR a_\ast$ 也不成立，从而得到矛盾。
+\end{enumerate}
+
+\begin{corollary_}\label{VII:1-5}
+在本定理的假设下，$4$ 种运算 $\eR f_\ast$、$\eR f_!$、$f^\ast$、$\eR f^!$ 将范畴 $\eD_c(X,A)$ 与 $\eD_c(Y,A)$ 中的对象映入对方。
+\end{corollary_}
+
+$\eR f_\ast$ 的情形已在上文处理，$\eR f_!$ 的情形见 \cite[XVII 5.3]{sga4}，$f^\ast$ 的情形则显然。只须考虑 $\eR f^!$。问题是局部的，因此可设 $f$ 分解为 $X\xrightarrow i Z \xrightarrow g Y$（$i$ 为闭浸入，$g$ 光滑且纯相对维数为 $n$）。Poincaré 对偶性 $\eR g^! K \iso g^\ast K(n)[2 n]$ 和传递性 $\eR f^! = \eR i^! \eR g^!$ 将问题归结为对 $i$ 证明 \ref{VII:1-5}。对任意 $L\in \eD(Z,A)$，若 $j$ 为 $U=Z\setminus X$ 到 $Z$ 的包含态射，则 $i_\ast \eR i^! L$ 是 $L\to \eR j_\ast j^\ast L$ 的映射柱（mapping cylinder），而 $i$ 的 \ref{VII:1-5} 由 $j$ 的 \ref{VII:1-1} 推出。
+
+\begin{corollary_}\label{VII:1-6}
+设 $X$ 如本定理中所述，且 $A$ 交换。若 $\sF$ 和 $\sG$ 为 $X$ 上的可构造 $A$-模层，则各 $\Ext_A^i(\sF,\sG)$ 均可构造：$\rHom$ 将 $\eD_c^-(X,A)\times \eD_c^+(X,A)$ 映入 $\eD_c^+(X,A)$。
+\end{corollary_}
+
+对 $\sF$ 作逐层约化，可归结为 $\sF$ 具有 $j_!\sF_1$ 的形式（$j:Y\hookrightarrow X$ 为局部闭浸入，$\sF_1$ 在 $Y$ 上局部常值）。此时有
+\[
+  \rHom(j_! \sF_1,\sG) = \eR j_\ast \Hom(\sF_1,\eR j^! \sG) \text{:}
+\]
+由 \ref{VII:1-3}，可归结为 $\sF$ 局部常值的情形；由于问题是局部的，甚至可设它为常值层。对局部常值且可构造的 $\sF$，有 $\Hom(\sF,\sG)_x=\hom(\sF_x,\sG_x)$，$\rHom$ 也一样。因此，当 $\sF$ 为常值层时，可用其常值的有限型投射分解计算 $\Ext^i$；若 $\sG$ 可构造，则各 $\Ext^i$ 也可构造，推论得证。
+
+\subsection{注}\label{VII:1-7}
+
+由于 $\eR f_\ast$ 的上同调维数有限，它将有限 Tor 维数（tor-dimension）（分别地，$\leqslant d$）的复形映为有限 Tor 维数（分别地，$\leqslant d$）的复形 \cite[XVII 5.2.11]{sga4}。于是，\cite[XVII 5.2.10]{sga4} 以及 \ref{VII:1-5} 的证明表明，有限 Tor 维数这一性质在$4$ 种运算 $\eR f_\ast$、$\eR f_!$、$f^\ast$、$\eR f^!$ 下稳定。对 \ref{VII:1-6} 的论证稍作变动（沿着 $X$ 的一个分划对 $K$ 作逐层约化，使其上同调层变为局部常值，然后局部化，将 $K$ 换成由有限型局部自由层组成的有限复形），便知当 $A$ 交换时，$\rHom$ 诱导
+\[
+  \rHom:\eD_\text{ctf}^b(X,A)\times \eD_\text{tf}^b(X,A) \to \eD_\text{tf}^+(X,A)
+\]
+（t.f. 表示有限 Tor 维数）。
+
+\subsection{}\label{VII:1-8}
+
+在本定理的假设下，同一方法还能证明一个局部双对偶定理 $K\iso D D K$（第 \ref{VII:4} 节）。我们还将证明消没循环层（vanishing-cycle sheaves）的一个有限性定理。对于任意 $S$，仍有一个“一般位置”的定理：
+
+\begin{theorem_}\label{VII:1-9}
+设 $f:X\to Y$ 为有限型 $S$-概形之间的态射，$\sF$ 为 $X$ 上的可构造 $A$-模层。则存在 $S$ 的一个稠密开子集 $U$，使得
+\begin{enumerate}[\indent (i)]
+  \item 在 $U$ 上，各 $\eR^i f_\ast \sF$ 均可构造，且除有限多个外均为零。
+  \item 各 $\eR^i f_\ast \sF$ 的形成与任意基变换 $S' \to U\subset S$ 相容。
+\end{enumerate}
+\end{theorem_}
+
+当 $S$ 为域的谱时，有 $U=S$。
+
+若 $S$ 为域的谱，则通过取极限可知：对 $S$-概形之间任意拟紧拟分离态射及任意层 $\sF$，各 $\eR^i f_\ast$ 均与 $S$ 上的基变换相容。
+
+\begin{corollary_}\label{VII:1-10}
+设 $X$ 为可分闭域 $k$ 上的有限型概形，$\sF$ 为可构造 $A$-模层。则各 $\h^i(X,\sF)$ 均为有限型。
+\end{corollary_}
+
+这是 $S=\spec(k)$、$Y=S$ 的特殊情形。
+
+\begin{corollary_}\label{VII:1-11}
+设 $X$ 与 $Y$ 为可分闭域 $k$ 上的两个有限型概形，$K\in \ob\eD^-(X,A^\circ)$、$L\in \ob\eD^-(Y,A)$ 分别为右模层和左模层的复形。则 K\"unneth 箭头
+\[
+  \eR \Gamma(X,K) \lotimes \eR \Gamma(Y,L) \to \eR\Gamma(X\times Y,\pr_1^\ast K \lotimes \pr_2^\ast L)
+\]
+是同构。
+\end{corollary_}
+
+按 \cite[XVII 5.4.3]{sga4} 的方法进行：
+\[\xymatrix{
+  X\times Y \ar[r]^-{\text{pr}_1} \ar[d]^-{\text{pr}_2}
+    & X \ar[d]^-a \\
+  Y \ar[r]^-b
+    & \spec(k)
+}\]
+对 $b$ 作基变换表明 $\eR\pr_{2,\ast}{} \pr_1^\ast K$ 为 $b^\ast \eR\Gamma(X,K)$。于是有（参见 \cite[XVII 5.2.11]{sga4} 及其证明）
+\begin{align*}
+  \eR\Gamma(X\times Y,\pr_1^\ast K\lotimes \pr_2^\ast L)
+    &= \eR\Gamma(Y,\eR \pr_{2,\ast}(\pr_1^\ast K\lotimes \pr_2^\ast L)) \\
+    &= \eR\Gamma(Y,(\eR\pr_{2,\ast}\pr_1^\ast K)\lotimes L) \\
+    &= \eR\Gamma(Y,b^\ast \eR\Gamma(X,K)\lotimes L) \\
+    &= \eR\Gamma(X,K)\lotimes \eR\Gamma(Y,L)
+\end{align*}
+
+\subsection{}\label{VII:1-12}
+
+最后，作为 \ref{VII:1-9}(ii) 的局部对应，我们将证明一个一般位置局部无环性定理（\ref{VII:2-13}）。
+
+\section{一般位置定理}\label{VII:2}
+
+本节证明 \ref{VII:1-9} 及一般位置局部无环性定理 \ref{VII:2-13}。为证明 \ref{VII:1-9}，可立即归结为 $S$ 整的情形。记 $\eta$ 为其泛点。
+
+\subsection{}\label{VII:2-1}
+
+我们先在如下附加假设下证明 \ref{VII:1-9}：$X$ 在 $S$ 上光滑且纯相对维数为 $n$，$A=\dZ/m$，$\sF$ 局部常值，且 $Y=S$。令 $\sF'=\Hom(\sF,\dZ/m)$。我们将证明，若各 $\eR^i f_! \sF'$ 局部常值，则 \ref{VII:1-9} 的结论对 $U=S$ 成立。回顾一下，若 $\sL$ 为可构造局部常值层，则各 $\Ext^i(\sL,\sG)$ 可逐纤维计算，且当 $\sG$ 可构造时它们也可构造。还要回顾，$\dZ/m$ 是内射 $\dZ/m$-模，并且是对偶化模，故有 $\sF=\rHom(\sF',\dZ/m)$。于是，Poincaré 对偶性
+\[
+  \eR f_\ast \rHom(K,\eR f^! L) = \rHom(\eR f_! K,L) \text{,} 
+\]
+取 $K=\sF'$、$L=\dZ/m$、$\eR f^! L = \dZ/m[2n](n)$，给出
+\[
+  \eR^{2n-i} f_\ast \sF = \Hom(\eR^i f_! \sF',\dZ/m)(-n) \text{.} 
+\]
+
+右端的层局部常值，且其形成与任意基变换交换，故断言得证。
+
+\subsection{}\label{VII:2-2}
+
+现在在 $X$ 于 $S$ 上光滑、$\sF$ 局部常值且 $Y=S$ 的附加假设下证明 \ref{VII:1-9}。
+\begin{enumerate}[a)]
+  \item 将 $X$ 分解为连通分支，可归结为它在 $S$ 上纯相对维数为某个 $n$ 的情形。
+  \item 将 $A$ 分解为乘积，可归结为 $\ell^m A=0$ 的情形，其中 $\ell$ 为在 $S$ 上可逆的素数；再用各 $\ell^k \sF$ 过滤 $\sF$，并使用相应的谱序列，可归结为 $\ell\sF=0$ 的情形。此时可将 $A$ 换成 $A/\ell A$，并设 $\ell A=0$。
+  \item 将 $S$ 换成合适的 $U$ 后，可设存在 Galois 群为 $G$ 的有限平展 Galois 覆盖 $X_1/X$，使得 $\sF$ 在 $X_1$ 上的逆像 $\sF_1$ 为常值层，其常值记为 $F$。记 $f_1$ 为 $X_1$ 到 $S$ 的投影，便有
+    \[
+      \eR^i {f_1}_\ast \sF_1 = (\eR^i {f_1}_\ast \dZ/\ell)\otimes_{\dZ/\ell} F \text{.} 
+    \]
+    还有 Hochschild--Serre 谱序列（或覆盖 $X_1/X$ 的 Leray 谱序列）
+    \[
+      \underline\h^p(G,\eR^q {f_1}_\ast \sF_1) \Rightarrow \eR^{p+q} f_\ast \sF \text{.} 
+    \]
+    由 \ref{VII:2-1}，必要时缩小 $U$，可设各 $\eR^i {f_1}_\ast \dZ/\ell$ 局部常值，且其形成与任意基变换交换。于是各 $\eR^i f_\ast \sF$ 也具有同一性质。最后，若 $\bar\eta$ 为位于 $S$ 的泛点 $\eta$ 之上的几何点，则除有限多个外，各 $\eR^i f_\ast\sF$ 均为零，因为各 $(\eR^i f_\ast \sF)_{\bar\eta} = \h^i(X_{\bar \eta},\sF)$ 如此。
+\end{enumerate}
+
+\subsection{}\label{VII:2-3}
+
+我们对 $n$ 作归纳，证明
+\begin{equation*}\tag{$\ast_n$}\label{VII:eq:2-3-1}
+  \begin{array}{c}
+    \text{当 $\dim{X_\eta}\leqslant n$，且 $f$ 为稠密像开浸入时，} \\
+    \text{\ref{VII:1-9} 的结论成立。}
+  \end{array}
+\end{equation*}
+
+当 $n=0$ 时，必要时缩小 $S$，便有 $X=Y$，故 $(\ast_0)$ 显然。设 $(\ast_{n-1})$ 成立，来证明 \eqref{VII:eq:2-3-1}。在 ($\ast_{n-1}$) 中，“开浸入”可换成“浸入”，只须将后者分解为一个开浸入接一个闭浸入即可看出。
+
+\begin{lemma_}\label{VII:2-4}
+必要时缩小 $S$，则 \ref{VII:1-9} 的结论在 $Y'\subset Y$ 上成立，其中 $Y'$ 的补集 $Y_1$ 在 $S$ 上有限。
+\end{lemma_}
+
+断言在 $Y$ 上是局部的，故可设它为仿射的：$Y\subset \dA_S^n$。归纳假设 ($\ast_{n-1}$) 适用于
+\[\xymatrix{
+  X \ar[r]^-f \ar[dr] 
+    & Y \ar[d]^-{\pr_i} \\
+  & \dA_S^1 
+}\]
+因此，对每个 $i$，存在 $\dA_S^1$ 的稠密开子集 $U_i$，使 \ref{VII:1-9} 的结论在 $\pr_i^{-1}(U_i)$ 上成立；它们也就在各 $\pr_i^{-1}(U_i)$ 的并上成立，\ref{VII:2-4} 随之得证。
+
+\addtocounter{subsection}{1} % 原书跳过一节
+\subsection{}\label{VII:2-6}
+
+先在 $X$ 于 $S$ 上光滑且 $\sF$ 在 $X$ 上局部常值的情形证明 \eqref{VII:eq:2-3-1}。由于问题在 $Y$ 上是局部的，可先设 $Y$ 仿射，再设它射影（将 $Y$ 换成它在某个射影空间中的闭包）。设 $i:Y_1\hookrightarrow Y$ 和 $j:Y' \to Y$ 如 \ref{VII:2-4} 中所述。
+\[\xymatrix{
+  X \ar@{^{(}->}[r] \ar[dr]_-a 
+    & Y \ar[d]^-b 
+    & \ar[l]_-i \ar[dl]^-{b_1} Y_1 \\
+  & S 
+}\] 
+必要时缩小 $S$，我们知道 $j^\ast \eR f_\ast \sF$ 可构造，且其形成与 $S$ 中任意基变换交换；也知道 $\eR a_\ast \sF = \eR b_\ast \eR f_\ast \sF$ 可构造，且其形成与任意基变换交换。
+
+对正合列定义的三角形施以 $\eR b_\ast$：
+\begin{equation*}\tag{1}\label{VII:eq:2-6-1}
+\xymatrix{
+  0 \ar[r] 
+    & j_! j^\ast \eR f_\ast \sF \ar[r] 
+    & \eR f_\ast \sF \ar[r] 
+    & i_! i^\ast \eR f_\ast \sF \ar[r] 
+    & 0 \text{:} 
+}
+\end{equation*}
+便得到三角形
+\begin{equation*}\tag{2}\label{VII:eq:2-6-2}
+\xymatrix{
+  \ar[r] 
+    & \eR b_\ast j_! j^\ast \eR f_\ast \sF \ar[r] 
+    & \eR a_\ast \sF \ar[r] 
+    & {b_1}_\ast i^\ast \eR f_\ast \sF \ar[r] 
+    & 
+}
+\end{equation*}
+其中前两项可构造，且其形成与 $S$ 中任意基变换交换（对于第一项，这来自适当态射 $b$ 的有限性定理）。因此第三项也如此。由于 $b_1$ 有限，可知 $i^\ast \eR f_\ast \sF$ 可构造，且其形成与 $S$ 中任意基变换交换；再由 \eqref{VII:eq:2-6-1}，$\eR f_\ast \sF$ 也如此。
+
+\subsection{}\label{VII:2-7}
+
+现在在一般情形下证明 \eqref{VII:eq:2-3-1}。先归结为 $X$ 含有一个在 $S$ 上光滑的稠密开子集 $V$ 的情形。当 $S$ 为完美域的谱时，只须将 $X$ 换成 $X_\text{red}$（将 $Y$ 换成 $Y_\text{red}$）。一般情形下，则须缩小 $S$，作有限、根式且满射的基变换 $S' \to S$，并将 $X$ 和 $Y$ 换成 $X_\text{red}$ 和 $Y_\text{red}$。由于平展拓扑不受有限、根式且满射态射的影响，这样做没有妨碍。缩小 $V$ 后，可设 $\sF$ 在 $V$ 上局部常值。
+\[\xymatrix{
+  V \ar@{^{(}->}[r]^j 
+    & X \ar@{^{(}->}[r]^-f 
+    & Y \text{.} 
+}\]
+由三角形定义 $\Delta$：
+\begin{equation*}\tag{1}\label{VII:eq:2-7-1}
+\xymatrix{
+  \ar[r] 
+    & \sF \ar[r] 
+    & \eR j_\ast j^\ast \sF \ar[r] 
+    & \Delta \ar[r] 
+    & \text{.} 
+}
+\end{equation*}
+$\Delta$ 的上同调层支撑在 $X\setminus V$ 上，且 $\dim(X\setminus V)_\eta < n$。因此，归纳假设使我们可设 $\eR f_\ast \Delta$ 可构造。对三角形 \eqref{VII:eq:2-7-1} 施以 $\eR f_\ast$，得到三角形
+\[\xymatrix{
+  \ar[r] 
+    & \eR f_\ast \sF \ar[r] 
+    & \eR(f j)_\ast j^\ast \sF \ar[r] 
+    & \eR f_\ast \Delta \ar[r] 
+    & 
+}\]
+其中两个顶点可构造，且其形成与 $S$ 中任意基变换交换。因此第三个顶点也如此。
+
+\subsection{}\label{VII:2-8}
+
+来证明 \ref{VII:1-9}。问题在 $Y$ 上是局部的，可设它仿射。取 $X$ 的仿射覆盖，并使用 Leray 谱序列，可归结为 $X$ 也仿射的情形。这保证可以将 $f$ 分解为一个开浸入接一个适当态射：$f=g j$，因此 $\eR f_\ast = \eR g_\ast \eR j_\ast$。开浸入的情形由 \eqref{VII:eq:2-3-1} 处理，适当态射的情形则由有限性定理处理。
+
+下列推论的证明与\hyperref[VII:1]{第 1 节}相同。
+
+\begin{corollary_}\label{VII:2-9}
+在本定理的假设下，对分别属于 $\eD_c^b(X,A)$ 或 $\eD_c^b(Y,A)$ 的 $K$，存在 $S$ 的非空开子集 $U$，使得在其上，$\eR f_\ast K$、$\eR f_! K$、$f^\ast K$ 和 $\eR f^! K$ 属于 $\eD_c^b(Y,A)$ 或 $\eD_c^b(X,A)$，且其形成与任意基变换 $S' \to U\subset S$ 交换。
+\end{corollary_}
+
+\begin{corollary_}\label{VII:2-10}
+设 $X$ 如本定理中所述，且 $A$ 交换。若 $\sF$ 和 $\sG$ 为 $X$ 上的可构造 $A$-模层，则在 $S$ 的某个稠密开子集 $U$ 上，各 $\Ext_A^i(\sF,\sG)$ 仍可构造，且其形成与任意基变换 $S' \to U\subset S$ 交换。
+\end{corollary_}
+
+\subsection{}\label{VII:2-11}
+
+若 $x$ 为概形 $X$ 的几何点，记 $X_x$ 为 $X$ 在 $x$ 处的严格 Hensel 化。对 $f:X\to S$ 及 $S$ 的几何点 $t$，记 $X_t$ 为 $X$ 在 $t$ 处的几何纤维。最后，对 $X$ 的几何点 $x$ 和 $S_{f(x)}$ 的几何点 $t$，$(X_x)_t$ 为 $X_x \to S_{f(x)}$ 在 $t$ 处的纤维。
+
+\begin{definition_}\label{VII:2-12}
+设 $f:X\to S$，$K\in \ob\eD^+(X,A)$。若对 $S_{f(x)}$ 的任意几何点 $t$，均有 $K_x=\eR\Gamma(X_x,K)\iso \eR\Gamma(X_{x,t},K)$，则称 $f$ \emph{在 $x$ 处相对于 $K$ 局部无环}（locally acyclic）。若这对每个 $x$ 均成立，则称 $f$ \emph{相对于 $K$ 局部无环}；若经过任意基变换 $S' \to S$ 后仍成立，则称它\emph{相对于 $K$ 普遍局部无环}（universally locally acyclic）。
+\end{definition_}
+
+\begin{theorem_}\label{VII:2-13}
+设 $f:X\to S$ 为有限型态射，$\sF$ 在 $X$ 上可构造。则存在 $S$ 的稠密开子集 $U$，使 $f$ 在其上相对于 $\sF$ 普遍局部无环。
+\end{theorem_}
+
+我们将使用下列在附录中证明的结果。
+
+\begin{lemma_}\label{VII:2-14}
+设有 $X\xrightarrow f S_1 \xrightarrow g S_2$。若 $g$ 光滑，且 $f$ 相对于 $K$ 普遍局部无环，则 $g f$ 也如此。
+\end{lemma_}
+
+归结为 $S$ 整、泛点为 $\eta$ 的情形，并对 $\dim{X_\eta}$ 作归纳。先由归纳假设推出
+\begin{equation*}\tag{A}\label{VII:eq:2-14-1}
+  \begin{array}{c}
+    \text{缩小 $S$ 后，存在在 $S$ 上有限的 $T\subset X$，使 $f$} \\
+    \text{在 $T$ 以外普遍局部无环。} 
+  \end{array}
+\end{equation*}
+
+由于这个问题是局部的，在 $X$ 上局部化，并将 $f$ 分解为 $X\xrightarrow u \dA_S^1 \to S$。归纳假设适用于 $u$，再由 \ref{VII:2-14} 及通常的论证即可得出结论。
+
+为证明本定理，由于问题是局部的，可设 $X$ 适当。缩小 $S$，使各 $\eR^i f_\ast \sF$ 局部常值，且 \eqref{VII:eq:2-14-1} 适用，然后使用下列引理。
+
+\begin{lemma_}\label{VII:2-15}
+设 $f:X\to S$ 适当，$\sF$ 可构造。假设各 $\eR^i f_\ast \sF$ 局部常值，且在某个在 $S$ 上有限的 $T\subset X$ 以外，$f$ 相对于 $\sF$ 局部无环。则 $f$ 相对于 $\sF$ 局部无环。
+\end{lemma_}
+
+设 $s$ 为 $S$ 的几何点，$S_s$ 为 $S$ 在 $s$ 处的严格局部化，$t$ 为 $S_s$ 的几何点。设 $X_{(s)}$ 为 $X$ 在 $S_s$ 上的逆像，$\bar j:X_t \to X_{(s)}$，且 $i:X_s \hookrightarrow X_{(s)}$。仍用 $\sF$ 表示 $\sF$ 在 $X_{(s)}$ 或 $X_t$ 上的逆像；须证明 $i^\ast \sF \iso i^\ast \eR \bar j_\ast \sF$。设 $\Delta$ 为此映射的映射柱。其上同调层支撑在 $T_s$ 上。因此，为证明 $\Delta=0$，只须证明 $\eR\Gamma(X_s,\Delta)=0$。后者是
+$(\eR f_\ast \sF)_s = \eR\Gamma(X_s,\sF) \to \eR\Gamma(X_s,i^\ast \eR\bar j_\ast \sF) = \eR\Gamma(X_{(s)},\eR\bar j_\ast \sF) = \eR\Gamma(X_t,\sF) = (\eR f_\ast \sF)_t$
+的映射柱。依假设，此特化态射为同构，故 $\Delta=0$。
+
+\begin{corollary_}\label{VII:2-16}
+当 $S$ 为域的谱时，对任意 $K\in\ob\eD^+(X,A)$，每个 $S$-概形 $X$ 都相对于 $K$ 普遍局部无环。
+\end{corollary_}
+
+这由 \ref{VII:2-13} 通过取极限得出（之所以可取极限，是因为 \ref{VII:2-13} 中的 $U$ 总等于 $S$）。
+
+\section{\texorpdfstring{\ref{VII:1-1}}{1.1} 的证明与消没循环层的可构造性}\label{VII:3}
+
+\subsection{}\label{VII:3-1}
+
+设 $S$ 为严格局部性状（trait，即剩余域可分闭的 Hensel 离散赋值环的谱）。记其闭点和泛点为 $s$ 和 $\eta$，设 $\bar\eta$ 为位于 $\eta$ 之上的几何点（即 $k(\eta)$ 的一个可分闭包）。设 $X$ 为 $S$ 上的概形，$\sF$ 为 $X_\eta$ 上的层。回顾消没循环层 $\eR^i \Psi_\eta(\sF)$ 的定义（这些是 $X_s$ 上带有 $\gal(\bar\eta/\eta)$ 作用的层）。设 $i:X_s\hookrightarrow X$、$j:X_\eta \hookrightarrow X$，并设 $\bar j$ 为复合 $X_{\bar\eta}\to X_\eta \hookrightarrow X$；则
+\[
+  \eR^i \Psi_\eta(\sF) = i^\ast \eR^i \bar j_\ast (\bar j^\ast \sF) \text{.} 
+\]
+
+下面是本小节的主要定理，它加强了 \cite[XIII 2.3.1, 2.4.2]{sga7}。
+
+\begin{theorem_}\label{VII:3-2}
+设 $X$ 在 $S$ 上有限型，且 $\sF$ 可构造。则各消没循环层 $\eR^i \Psi_\eta(\sF)$ 均可构造。
+\end{theorem_}
+
+对 $X_\eta$ 的维数 $n$ 作归纳。此外，可以并且确实假定 $X_\eta$ 在 $X$ 中稠密（将 $X$ 换成 $\bar X_\eta$ 不会改变各 $\eR^i \Psi$，因为它们支撑在 $\bar X_\eta$ 上）。
+
+\begin{lemma_}\label{VII:3-3}
+% 原底本漏写 \dim；据法文原书印刷页 244（PDF 第 249 页）“en dimension de X_eta<n”补入。
+若 \ref{VII:3-2} 在 $\dim X_\eta<n$ 时成立，且 $\dim X_\eta=n$，则各 $\eR^i \Psi_\eta(\sF)$ 中存在可构造子层 $\sG_i$，使 $\eR^i\Psi_\eta(\sF)/\sG_i$ 的局部截面的支撑有限。
+\end{lemma_}
+
+设 $s'$ 为 $s$ 上仿射直线的一个几何泛点，$S'$ 为 $S$ 上仿射直线 $\dA_S^1$ 在 $s'$ 处的严格局部化。它仍为严格局部性状，且 $S$ 的一致化元仍是 $S'$ 上的一致化元。
+\[\xymatrix{
+  & \spec(k') \ar[rr] \ar[dd] \ar[dr] 
+    & & (S',\eta',s') \ar[dr] \ar[dd] \\
+  \bar\eta' \ar[ur] \ar[dr] 
+    & & \dA_{\bar S}^1 \ar[d]  
+    & & \dA_S^1 \ar[dl] \\
+  & \bar\eta\ar@{^{(}->}[r] 
+    & \bar S \ar[r] 
+    & (S,\eta,s) 
+}\]
+令 $k'=k(\bar\eta)\otimes_{k(\eta)}k(\eta')$。若 $\bar S$ 为 $S$ 在 $\bar\eta$ 中的正规化，则 $k'$ 为 $\dA_{\bar S}^1$ 在 $s'$ 处的严格局部化的分式域；因此它是域，且 $\gal(\bar\eta/\eta)=\gal(k'/\eta')$。设 $\bar\eta'$ 为 $k'$ 的某个代数闭包的谱。Galois 群 $P=\gal(\bar\eta'/k')$ 为 pro-$p$ 群，其中 $p$ 为 $k(s)$ 的特征指数。
+
+\begin{lemma_}\label{VII:3-4}
+对 $S'$ 上任意概形 $X'$ 及 $X_\eta'=X_{\eta'}'$ 上任意层 $\sF$，$X'/S'$ 与 $X'/S$ 的消没循环层由下式联系：
+$\eR^i \Psi_\eta(\sF) =\eR^i\Psi_{\eta'}(\sF)^P$。
+\end{lemma_}
+
+下图比较了 $X'/S'$ 与 $X'/S$ 的 $\eR\Psi$ 定义中使用的态射：
+\[\xymatrix{
+  X_{\bar\eta'} \ar[rr] \ar[d] 
+    & & X_{\eta'}' \ar@{=}[dd] \ar@{^{(}->}[dr] 
+    & & S' \\ 
+  X_{\eta'}\times_{\eta'}\spec(k') \ar@{=}[d] \ar[urr] 
+    & & & X \ar[ur] \ar[dr] \\
+  X_\eta' \ar[rr] 
+    & & X_\eta' \ar@{^{(}->}[ur] 
+    & & S
+}\]
+于是引理由 Hochschild--Serre 谱序列得出，因为 $P$ 为 pro-$p$ 群，且 $p$ 在 $A$ 中可逆。
+
+来证明 \ref{VII:3-3}。问题是局部的，故可设 $X$ 仿射，$X\subset \dA_S^n$。设 $f$ 为投影 $X\subset \dA_S^n\to \dA_S^1$ 中的一个。设 $X'$ 为 $X$ 的“局部化” $X_{\dA_S^1} S'$，$\sF'$ 为 $\sF$ 在 $X'$ 上的逆像。
+\[\xymatrix{
+  \sF'\text{ 在 }X' \ar[r] \ar[d]^-\lambda 
+    & S' \ar[d]^-\lambda \\
+  \sF \text{ 在 }X \ar[r]^-f 
+    & \dA_S^1 \ar[r] 
+    & S \text{.} 
+}\]
+在 $X_s'=X_{s'}'$ 上，有
+\[
+  \lambda^\ast \eR^i\Psi_\eta(\sF) = \eR^i \Psi_\eta(\sF') = \eR^i\Psi_{\eta'}(\sF')^P \text{:} 
+\]
+此层可构造，因为归纳假设适用于 $X'/S'$；再将下列引理应用于 $X_s\subset \dA_S^n$ 和这些消没循环层。
+
+\begin{lemma_}\label{VII:3-5}
+设 $\dA^n$ 为域 $k$ 上的 $n$ 维仿射空间，$X\subset \dA^n$，$\sF$ 为 $X$ 上的 $A$-模层，$\bar\eta$ 为 $\dA^1$ 的一个几何泛点。设 $X_{\bar\eta,i}$ 为 $X\subset \dA^n\xrightarrow{\pr_i} \dA^1$ 的几何泛纤维，$\sF_{\bar\eta,i}$ 为 $\sF$ 在 $X_{\bar\eta,i}$ 上的限制。若各 $\sF_{\bar\eta,i}$ 可构造，则存在可构造的 $\sF'\subset \sF$，使 $\sF/\sF'$ 的局部截面具有有限支撑。
+\end{lemma_}
+
+通过取极限，对每个 $i$ 有
+\begin{enumerate}[a)]
+  \item 存在 $\bar\eta$ 的一个平展邻域 $U$ 及 $X_{U,i} = X\times_{\dA^1,\pr_i} U$ 上的可构造层 $\sH$，它在 $X_{\bar\eta,i}$ 上的限制为给定的 $\sF_{\bar\eta,i}$。
+  \item 对合适的 $U$，同构 $\sH_{\bar\eta,i} \iso \sF_{\bar\eta,i}$ 来自 $u:\sH\to \sF_{U,i}$，其中 $\sF_{U,i}$ 为 $\sF$ 在 $X_{U,i}$ 上的逆像。令 $\varphi:X_{U,i} \to X$。态射 $u$ 定义了 $v_i:\varphi_! \sH \to \sF$，其像记为 $\sF_i'$。有 $(\sF/\sF_i')_{\bar\eta,i} = 0$，取各 $\sF_i'$ 的和作为 $\sF'$。
+\end{enumerate}
+
+\subsection{}\label{VII:3-6}
+
+来证明维数为 $n$ 时的 \ref{VII:3-2}。可设 $X$ 仿射（因为问题在 $X_s$ 上是局部的），进而设它在 $S$ 上射影（取 $X$ 在某个射影嵌入中的闭包）。此时有谱序列 \cite[I 2.2.3]{sga7}（这是 $\bar j$ 的 Leray 谱序列，并使用了适当态射 $X\to S$ 的基变换定理）。
+\begin{equation*}\tag{1}\label{VII:eq:3-6-1}
+  E_2^{p q} = \h^p(X_s,\eR^q\Psi_\eta(\sF)) \Rightarrow \h^{p+q}(X_{\bar\eta},\sF) \text{.} 
+\end{equation*}
+设 $\sG^q\subset \eR^q \Psi_\eta(\sF)$ 如 \ref{VII:3-3} 中所述，$\sH^q$ 为商层。当 $i\ne 0$ 时有 $\h^i(X_s,\sH^q)=0$；为了使 $\sH^q$，从而 $\eR^q\Psi_\eta(\sF)$ 可构造，只须 $\h^0(X_s,\sH^q)$ 为有限型。
+
+模掉有限型模来计算 \eqref{VII:eq:3-6-1}（即在 $A$-模范畴对有限型 $A$-模组成的厚子范畴所取的商范畴中计算）。由 $0 \to \sG^q \to \eR^q\Psi_\eta(\sF) \to \sH^q \to 0$ 推得的上同调长正合列，连同对 $\sG^q$ 应用 \ref{VII:1-10}，给出 $E_2^{p q} \sim \h^p(X_s,\sH^q)$。特别地，当 $p\ne 0$ 时 $E_2^{p q}\sim 0$，而 $E_2^{0 q}\sim \h^q(X_{\bar\eta},\sF) \sim 0$，证明完毕。
+
+类似的论证给出下列结果，它加强了 \cite[XIII 2.1.12, 2.4.2]{sga7}。
+
+\begin{proposition_}\label{VII:3-7}
+消没循环层的形成与性状的变换交换。
+\end{proposition_}
+
+设 $g:(S',\eta',s') \to (S,\eta,s)$ 为严格局部性状之间的（满射）态射，$X/S$，$\sF$ 为 $X_\eta$ 上的层，其挠阶与剩余特征互素，$(X',\sF')$ 为它们在 $S'$ 上的逆像。仍用 $g$ 表示与 $g$ 平行的态射，如 $X_{s'}' \to X_s$；须证明
+\begin{equation*}\tag{3.7.1}\label{VII:eq:3-7-1}
+\xymatrix{
+  g^\ast \eR\Psi_\eta(\sF) \ar[r]^-\sim 
+    & \eR\Psi_{\eta'}(\sF') \text{.} 
+}
+\end{equation*}
+此态射由下列交换图定义：
+\[\xymatrix{
+  X_{s'}' \ar@{^{(}->}[r]^-{i'} \ar[d]^-g 
+    & X' \ar[d]^-g 
+    & X_{\eta'}' \ar[l]_-{\bar j'} \ar[d]^-g \\
+  X_s \ar@{^{(}->}[r]^-i 
+    & X 
+    & \ar[l]_-{\bar j} X_{\bar\eta} 
+}\]
+
+通过取极限，可归结为 $X$ 在 $S$ 上有限型的情形，再对 $\dim{X_\eta}$ 作归纳。由于问题是局部的，可设 $X$ 仿射，进而设它射影。假设 \eqref{VII:eq:3-7-1} 在 $\dim{X_\eta}<n$ 时成立。当 $\dim{X_\eta}=n$ 时，它由下列两个断言推出，其中 $\Delta$ 为 \eqref{VII:eq:3-7-1} 的映射柱。
+\begin{enumerate}[(A)]
+  \item $\Delta$ 的上同调层的局部截面具有有限支撑。
+    \phantomsection\hypertarget{VII:3-A}{}
+  \item $\eR\Gamma(X_s,\Delta)=0$，从而由（\hyperlink{VII:3-A}{A}）知 $\Delta=0$。
+    \phantomsection\hypertarget{VII:3-B}{}
+\end{enumerate}
+
+\subsection{}\label{VII:3-8}
+
+（\hyperlink{VII:3-A}{A}）的证明与 \ref{VII:3-3} 的证明类似。在 $X$ 上局部化，并考虑映射 $X\to \dA_S^1$；记 $S(x)$ 为 $\dA_S^1$ 在特殊纤维的泛点处的严格 Hensel 化，将归纳假设应用于 $X_1/S(x)$（$X_1=X\times_{\dA^1} S(x)$）及 $S'(x)$。取一个 pro-$p$ 群的不变量，便知 $\Delta$ 在 $X_{s'} \to \dA_s^1$ 的几何泛纤维上为零。由于这在 $X$ 上局部地成立，且对每个投影均成立，便得到（\hyperlink{VII:3-A}{A}）。
+
+\subsection{}\label{VII:3-9}
+
+对（\hyperlink{VII:3-B}{B}），$X$ 在 $S$ 上的适当性保证
+\[
+  \eR\Gamma(X_{s'}',\eR\Psi_{\eta'}(\sF')) = \eR\Gamma(X_{\bar\eta}',\sF') 
+\]
+以及
+\[
+  \eR\Gamma(X_s,\eR\Psi_\eta(\sF)) = \eR\Gamma(X_{\bar\eta},\sF) \text{.} 
+\]
+有 $\eR\Gamma(X_s,\eR\Psi_\eta(\sF))\iso \eR\Gamma(X_{s'}',g^\ast\eR\Psi_\eta(\sF))$（更换可分闭基域的不变性）；因此 $\eR\Gamma(X_{s'}', \Delta)$ 是 $\eR\Gamma(X_{\bar\eta},\sF) \to \eR\Gamma(X_{\bar\eta}',\sF')$ 的映射柱，而后者由同一不变性定理知为同构。
+
+\subsection{}\label{VII:3-10}
+
+来证明 \ref{VII:1-1}。归结为 $S$ 连通，从而整的情形。若 $\dim S=0$（$S$ 为域的谱），应用 \ref{VII:1-9}、\ref{VII:1-10}。若 $S$ 的维数为 $1$，定理 \ref{VII:1-9} 保证各 $\eR^i f_\ast \sF$ 在 $S$ 的某个有限点集 $T$ 的补集上可构造。只须证明它们在各 $Y_t$（$t\in T$）上的限制可构造。在 $t$ 处局部化后验证即可，因此可设 $S$ 为严格局部性状。关键情形如下。
+
+\begin{lemma_}\label{VII:3-11}
+设 $X$ 在 $S$ 上有限型，$j:X_\eta\hookrightarrow X$，$i:X_s\hookrightarrow X$，$\sF$ 在 $X_\eta$ 上可构造。则 $i^\ast\eR j_\ast \sF$ 可构造。
+\end{lemma_}
+
+设 $I=\gal(\bar\eta/\eta)$ 为惯性群。已知它为 $\widehat\dZ_{p'}(1)$ 被某个 pro-$p$ 群 $P$ 的扩张（$p$ 为剩余域的特征指数）。Hochschild--Serre 谱序列给出
+\[
+  E_2^{p q} = \sH^p(I,\eR^q\Psi_\eta(\sF))\Rightarrow i^\ast \eR^{p+q}j_\ast\sF \text{.} 
+\]
+令 $R_t^q = \eR^q\Psi_\eta(\sF)^P$（$t$ 代表驯分歧 tame）。若 $\sigma$ 为 $\widehat\dZ_{p'}(1)$ 的一个生成元，则 $E_2^{0 q} = \ker(\sigma-1,R_t^q)$、$E_2^{1 q} = \operatorname{coker}(\sigma-1,R_t^q)$，且当 $p\ne 0,1$ 时 $E_2^{p q} = 0$。这些层可构造，因为消没循环层可构造，于是 \ref{VII:3-11} 得证。
+
+\subsection{}\label{VII:3-12}
+
+来处理一般情形，仍设 $S$ 为严格 Hensel 性状。若 $X=X_\eta$，则 $f$ 为复合 $X\to Y_\eta \to Y$，应用 \ref{VII:1-9} 和 \ref{VII:3-11} 即可。在一般情形，设 $j:X_\eta\hookrightarrow X$，$\Delta$ 为 $\sF \to \eR j_\ast j^\ast \sF$ 的映射柱。其上同调层支撑在 $X_s$ 上；对 $X_s \to Y_s$ 应用 \ref{VII:1-9}，因此 $\eR f_\ast \Delta$ 可构造。复形 $\eR f_\ast \eR j_\ast j^\ast \sF = \eR(f j)_\ast j^\ast \sF$ 也可构造，再由三角形
+\[\xymatrix{
+  \ar[r] 
+    & \eR f_\ast \sF \ar[r] 
+    & \eR f_\ast \eR j_\ast j^\ast \sF \ar[r] 
+    & \eR f_\ast \Delta \ar[r] 
+    & \text{.} 
+}\]
+得出结论。
+
+\section{局部双对偶性}\label{VII:4}
+
+\subsection{}\label{VII:4-1}
+
+设 $S$ 为维数为 $0$ 或 $1$ 的正则概形，令 $K_S=A$（常值为 $A$ 的层）。对 $K\in\ob\eD_\text{ctf}^b(S,A)$，令 $D K=\rHom(K,K_S)\in\ob\eD^+(S,A^\circ)$（一个右 $A$-模层复形）。仍有 $D K\in\ob\eD_\text{ctf}^b(S,A^\circ)$；由于 $S$ 的维数为 $1$，可以直接计算，从而得到 $K\iso D D K$（$A=\dZ/n$ 时，见\hyperref[V]{《对偶性》} \ref{V:1-4}）。
+
+\subsection{}\label{VII:4-2}
+
+我们假设 $A$ 交换；这个假设很可能不必要。对 $S$ 上的有限型态射 $a:X\to S$，令 $K_X=\eR a^! K_S$。对 $K\in\ob\eD_\text{ctf}^b(X,A)$，令 $D K=\rHom(K,K_X)\in\ob\eD_\text{ctf}^b(X,A)$。我们的主要结果如下。
+
+\begin{theorem_}\label{VII:4-3}
+有 $K\iso D D K$（$K\in \ob\eD_\textnormal{ctf}^b(X,A)$）。
+\end{theorem_}
+
+\begin{lemma_}\label{VII:4-4}
+若 $a$ 适当，则 $\eR a_\ast K \iso \eR a_\ast D D K$。
+\end{lemma_}
+
+Poincaré 对偶性
+\[
+  \eR a_! \rHom(K,\eR a^! K_S) = \rHom(\eR a_! K,K_S) 
+\]
+给出同构 $\eR a_\ast D = D \eR a_! = D \eR a_\ast$。引理由下图的交换性推出（\hyperref[V]{《对偶性》}，\ref{V:1-2}）：
+\[\xymatrix{
+  \eR a_\ast K \ar[r] \ar[d]^-\wr 
+    & \eR a_\ast D D K \ar[d]^-\wr \\
+  D D \eR a_\ast K \ar[r]^-\sim 
+    & D \eR a_\ast D K \text{.} 
+}\]
+
+\subsection{}\label{VII:4-5}
+
+通过局部化，只须处理 $S$ 为域的谱或性状的情形。当 $S$ 为域的谱时，对 $\dim X$ 作归纳。由于问题是局部的，可设 $X$ 适当。此外，由归纳假设及通常的论证，可知 $K\to D D K$ 的映射柱 $\Delta$ 的上同调层均为摩天层（skyscraper sheaves）。于是引理保证 $\eR a_\ast \Delta=0$，从而 $\Delta=0$。
+
+\subsection{}\label{VII:4-6}
+
+当 $S$ 为性状时，已经知道 \ref{VII:4-3} 在泛纤维上成立（\ref{VII:4-5}）。还可设 $X$ 在 $S$ 上适当，并在 $X$ 于 $S$ 上适当的情形对 $\dim{X_s}$ 作归纳。映射柱 $\Delta$ 在 $X_s$ 上的上同调层仍为摩天层，因而如上得出结论。
+
+\subsection{}\label{VII:4-7}
+
+设 $A=\dZ/m$。此时上述理论有一个变体，其中 $K$ 可以是 $\eD_c^b(X,A)$ 中任意复形。复形 $\eR a^! \dZ/m$ 的内射维数有限 \cite[XVIII 3.1.7]{sga4}，这保证 $D K$ 仍属于 $\eD_c^b(X,A)$。为证明 $S$ 上的局部双对偶性，使用 $\dZ/m$ 为对偶化 $\dZ/m$-模这一事实，再按上文进行。
+
+\section{附录，L.\ Illusie 著}\label{VII:5}
+
+本附录沿用已不复存在的 \cite[II]{sga5} 中的某些部分以及 P.\ Deligne 致作者的一封信，证明 \ref{VII:2-14}，以及特化定理 \cite[XVI 2.1]{sga4} 和（\hyperref[I]{《平展上同调》} \ref{I:5-1-7}）的各种推广与变体。
+
+所考虑的概形和态射均假定为拟紧、拟分离的。若 $X$ 为概形，$x$ 为 $X$ 的几何点，记 $X(x)$ 为 $X$ 在 $x$ 处的严格局部化。
+
+固定基概形 $S$ 及 $S$ 上的一个环层 $A$（不必交换，也不必为 Noether 的）。若 $X$ 为 $S$-概形，写 $\eD(X)$ 表示 $\eD(X,A_X)$。
+
+\subsection{上同调适当性}\label{VII:5-1}
+
+\begin{proposition}\label{VII:5-1-1}
+设 $f:X\to Y$ 为 $S$-态射，$E\in\ob \eD^+(X)$。下列条件等价：
+\begin{enumerate}[\indent (i)]
+  \item $\eR f_\ast E$ 的形成与任意有限基变换 $S'\to S$ 交换。
+  \item $\eR f_\ast E$ 的形成与任意拟有限基变换（或拟有限态射的逆极限）$S'\to S$ 交换。
+  \item 对几何点之间任意特化箭头 $i:t\to S(s)$（\hyperref[I]{《平展上同调》}，\ref{I:5-1-2}），设 $\bar S$ 为 $i(t)$ 在 $S(s)$ 中的闭包这一整概形在 $k(\bar t)$ 中的正规化（由 \cite[IV, 6.15.5, 18.6.11, 18.8.16]{ega}，$\bar S$ 因而是局部整概形，其闭点在 $s$ 上根式），$\bar f:\bar X\to \bar Y$ 为由 $f$ 经基变换 $\bar S\to S$ 所得的态射，$f_s:X_s\to Y_s$ 为 $f$ 在 $s$ 处的纤维，则基变换箭头
+    \[
+      (\eR \bar f_\ast (E|\bar X))|Y_s \to \eR {f_s}_\ast(E|X_s) 
+    \]
+    为同构。
+\end{enumerate}
+\end{proposition}
+
+(i) 与 (ii) 的等价性由 Zariski 主定理推出，而 (ii) 蕴含 (iii) 是显然的。来证明 (iii) 蕴含 (ii)。对每个拟有限态射逆极限 $S'\to S$ 以及 $S'$ 的每个几何点 $s$，记 $C(S',s)$ 为基变换箭头
+\[
+  (\eR f'_\ast(E|X'))|Y_s \to \eR{f_s}_\ast (E|X_s) \text{,} 
+\]
+的锥，其中 $f':X'\to Y'$ 由 $f$ 经基变换 $S'\to S$ 得到，$f_s:X_s\to Y_s$ 为 $f$ 在 $s$ 处的纤维。须证明对上述每对 $(S',s)$，$C(S',s)$ 均无环。我们对 $N$ 作归纳，证明当 $i\leqslant N$ 时 $\h^i C(S',s) = 0$。由主定理、取极限及消去根式态射，可设 $S$ 和 $S'$ 严格局部，$S'$ 为闭点为 $s$ 的整概形，且 $S'\to S$ 有限。设 $t$ 为 $S'$ 的一个几何泛点，$\bar S$ 为 $S'$ 在 $k(t)$ 中的正规化。设 $\bar S_\bullet$ 为 $\bar S\to S'$ 的余骨架这一单纯概形（$\bar S_0=\bar S$、\ldots $\bar S_n=(\bar S/S')^{n+1}$、\ldots），并设 $\bar X_\bullet=X'\times_{S'} \bar S_\bullet$。设 $g_\bullet:\bar X_\bullet \to X'$ 为典范投影。令 $E|X'=E'$。双复形 ${g_\bullet}_\ast g_\bullet^\ast E'$ 的各列为 ${g_n}_\ast g_n^\ast E'$，它是 $E'$ 的一个分解 \cite[VIII 8]{sga4}。因此，可以用一个各列与各 $C(\bar S_n,s)$ 相同的双复形表示 $C(S',s)$。由 (iii)，$C(\bar S_0,s)=C(\bar S,s)$ 无环。另一方面，对 $n>0$，归纳假设给出：当 $i\leqslant N$ 时，$\h^i C(\bar S_n,s)=0$。随之得到当 $i\leqslant N+1$ 时 $\h^i C(S',s)=0$，证明完毕。
+
+\subsubsection{注}\label{VII:5-1-2}
+
+设 $(f,E)$ 满足 \ref{VII:5-1-1} 的条件 (i)。
+\begin{enumerate}[a)]
+  \item 若 $E\in \ob \eD^b(X)$ 且 $f_\ast$ 的上同调维数有限，则对任意 $F\in \ob\eD^-(S,A^\circ)$，典范箭头
+    \begin{equation*}\tag{$*$}\label{VII:eq:5-1-1-1}
+      \eR f_\ast(E)\lotimes_A q^\ast F \to \eR f_\ast(E\lotimes_A p^\ast F) \text{,} 
+    \end{equation*}
+    为同构，其中 $p:X\to S$ 与 $q:Y\to S$ 为投影。对 $E\in\ob\eD^-(X)$ 也有同一结论。
+\end{enumerate} 
+
+事实上，通过逐层约化，只须对形如 $i_! A_{S'}$ 的 $F$ 验证断言，其中 $i:S'\to S$ 拟有限。由主定理，可归结为 $i$ 有限的情形；此时结论等价于 $\eR f_\ast(E)$ 与沿 $i$ 的基变换交换。
+\begin{enumerate}[a)]
+\setcounter{enumi}{1}
+  \item 设 $A$ 为 Noether 的且可构造。则对任意有限 Tor 维数的可构造 $F\in\ob\eD^b(S,A^\circ)$，上述箭头 \eqref{VII:eq:5-1-1-1} 均为同构。
+\end{enumerate}
+
+事实上，通过逐层约化，可归结为 $F$ 具有 $i_! M$ 的形式，其中 $i:S'\to S$ 局部闭，$A$ 在 $S'$ 上局部常值，$M$ 可构造、具有有限 Tor 维数，且在 $S'$ 上的上同调局部常值。由 $S$ 到 $S'$ 作基变换，因而可归结为 $F$ 为完美复形的情形 \cite[I]{sga6}；最后通过局部化和逐层约化，归结为 $F=A$ 的情形，此时结论显然。
+
+\subsubsection{}\label{VII:5-1-3}
+
+设 $f:X\to Y$ 为 $S$-态射，$E\in\ob\eD^+(X)$。若 $\eR f_\ast E$ 的形成与任意基变换 $S'\to S$ 交换，则称 $(f,E)$ 相对于 $S$ \emph{上同调适当}（cohomologically proper）。等价地，经过任意基变换 $S'\to S$ 后，$\eR f_\ast' E'$ 的形成（其中 $f'=f\times_S S'$，$E'=$ $E$ 在 $X\times_S S'$ 上的逆像）与任意有限基变换 $S'' \to S'$ 交换（参见 \cite[XII 6.1]{sga4}）。下面给出上同调适当性的一些例子（关于集合层或非交换群层的类似概念，读者可参阅 \cite[XIII]{sga1}）。
+\begin{enumerate} % 原编号为 1.3.1、1.3.2 等
+  \item 设 $A$ 为挠的，$f$ 适当。则对任意 $E\in\ob\eD^+(X)$，$(f,E)$ 均相对于 $S$ 上同调适当（适当基变换定理，\cite[XII 5.1]{sga4}）。
+  \item 设 $S$ 有限，$X$ 和 $Y$ 在 $S$ 上有限型，且 $A$ 被某个在 $S$ 上可逆的整数零化。则对任意 $E\in\ob\eD^+(X)$，$(f,E)$ 均相对于 $S$ 上同调适当（\ref{VII:1-9}）。
+  \item 设 $A$ 为常值的、Noether 的，且被某个在 $S$ 上可逆的整数 $n$ 零化；又设 $f:X=Y\setminus D\to Y$ 为 $Y$ 上的除子 $D$ 的补集的包含态射，其中此除子相对于 $S$ 为正规交叉 \cite[XIII 2.1]{sga1}。设 $E$ 为 $X$ 上满足下列条件之一的 $A$-模层：
+    \begin{enumerate}[(i)]
+      \item $E$ 可构造、局部常值，并且沿 $D$ 驯分歧；
+      \item 对 $Y$ 和 $S$ 上的平展拓扑局部地，$E$ 为 $S$ 上某个 $A$-模层的逆像。
+    \end{enumerate}
+    则 $(f,E)$ 相对于 $S$ 上同调适当，且 $\eR f_\ast E$ 可构造（比较 \cite[XIII 2.4]{sga1}）。
+\end{enumerate} 
+
+简述情形 (i) 的证明。问题在 $Y$ 的某个点 $y$ 附近是局部的。可设 $D$ 为光滑除子之和，$D=\sum_{i=1}^m D_i$。由相对 Abhyankar 引理 \cite[XIII 5.5]{sga1}，在 $y$ 附近，可以用形如 $\widetilde Y=Y[T_1,\dots,T_r]/(T_1^{n_1}-t_1,\dots,T_r^{n_r}-t_r)$ 的有限覆盖 $\widetilde Y\to Y$ 将 $E$ 平凡化，其中各 $t_i$ 为经过 $y$ 的光滑除子的局部方程，各 $n_i$ 为与 $k(y)$ 的特征互素的整数。$D$ 在 $\widetilde Y$ 中的逆像 $\widetilde D$ 相对于 $S$ 仍为正规交叉；若 $g:\widetilde X=\widetilde Y\setminus \widetilde D\to X$ 为投影，则 $g^\ast E$ 为常值的。由于 $E$ 嵌入 $g_\ast g^\ast E$，且商为驯分歧的，通过简单的逐层约化，可归结为 $E$ 为常值的情形。将投影记为 $p:X\to S$、$q:Y\to S$，且对 $1\leqslant i\leqslant m$，设 $f_i:Y\setminus D_i \to Y$ 为典范包含态射。由相对纯性定理 \cite[XVI 3.7]{sga4}，容易对 $m$ 作归纳推出：对 $S$ 上任意局部常值 $A$-模 $M$，典范箭头
+\begin{equation*}\tag{5.1.3.1}\label{VII:eq:5-1-3-3-1} % 原编号 1.3.3.1
+  \eR f_\ast (\dZ/n)\lotimes q^\ast M\to \eR f_\ast (p^\ast M) 
+\end{equation*}
+为同构；另一方面，有
+\begin{align*}\tag{5.1.3.2}\label{VII:eq:5-1-3-3-2}
+  {f_i}_\ast(\dZ/n) &= \dZ/n \text{,} \\
+  \eR^1 {f_i}_\ast (\dZ/n) &= (\dZ/n)(-1)_{D_i} \text{,} 
+\end{align*}
+其中基本类 $\cl(D_i)$ 给出一个典范同构（\hyperref[IV]{《闭链》} \ref{IV:2-1-4}），
+\begin{align*}
+  \eR^q {f_i}_\ast(\dZ/n) &= 0\text{，当 $q>1$ 时，} \\
+  \eR f_\ast (\dZ/n) &= \bigotimes_i^\eL \eR {f_i}_\ast (\dZ/n) \text{，即：} \\
+  \eR^1 f_\ast(\dZ/n) &= \bigoplus_{i=1}^m (\dZ/n)(-1)_{D_i} \text{,} \\
+  \textstyle\bigwedge^\bullet \eR^1 f_\ast(\dZ/n) &\iso \eR^\bullet f_\ast (\dZ/n) \text{.} 
+\end{align*}
+因此，情形 (i) 中例 3 的结论由 \eqref{VII:eq:5-1-3-3-1} 与 \eqref{VII:eq:5-1-3-3-2} 推出。在情形 (ii) 中，通过取极限，可归结为 $E=p^\ast M$、$M$ 可构造的情形；再通过逐层约化和基变换（使用 (i)），归结为已经处理过的 $M$ 为常值的情形。
+
+由上述证明可知，对任意 $M\in\ob\eD^+(S)$，\eqref{VII:eq:5-1-3-3-1} 都是同构。
+
+可以将公式 \eqref{VII:eq:5-1-3-3-2} 与 $S=\spec(\dC)$ 时整系数上同调中的类似公式相比较（例如见 \cite[3.1]{de71-2}）；后者源于如下事实：对经典拓扑局部地，$D$ 的补集具有环面的同伦型。
+
+通过取极限，由 \eqref{VII:eq:5-1-3-3-2} 可推出 $\ell$ 进上同调中的类似公式，即将 $\dZ/n$ 换成 $\dZ_\ell$（$\ell$ 为在 $S$ 上可逆的素数）。设 $q:Y\to S$ 适当且光滑。于是由 Weil 猜想 \cite{de74,de80} 可知，Leray 谱序列
+\[
+  E_2^{i j} = \eR^i q_\ast \eR^j f_\ast \dZ_\ell \Rightarrow \eR^\bullet p_\ast \dZ_\ell 
+\]
+模掉挠后在 $E_3$ 页退化 \cite[\S 6]{de71-1}。当 $S=\spec(\dC)$ 时，整系数上同调中也有同样的现象；见同上及 \cite[3.2.13]{de71-2}。
+
+\subsection{特化与余特化}\label{VII:5-2}
+
+设 $f:X\to S$，$E\in\ob\eD^+(X)$。
+
+\subsubsection{}\label{VII:5-2-1}
+
+设 $\eR f_\ast E$ 的形成与任意有限基变换交换。对 $S$ 的几何点之间任意特化 $u:t\to S(s)$，如下定义一个称为\emph{特化箭头}（specialization arrow）的箭头
+\begin{equation*}\tag{5.2.1.1}\label{VII:eq:5-2-1-1}
+  \spe(u):\eR\Gamma(X_s,E|X_s) \to \eR\Gamma(X_t,E|X_t) \text{,}
+\end{equation*}
+如同在 \ref{VII:5-1-1}(iii) 中，设 $\bar S$ 为 $u(t)$ 在 $S(s)$ 中的闭包在 $k(t)$ 中的正规化，$\bar f:\bar X\to \bar S$ 为由 $f$ 经基变换 $\bar S\to S$ 得到的态射。由 \ref{VII:5-1-1} 中显然的蕴含 (i)$\Rightarrow$(iii)，基变换箭头
+\begin{equation*}\tag{5.2.1.2}\label{VII:eq:5-2-1-2}
+  \eR\Gamma(\bar X,E|\bar X)=\eR\bar f_\ast (E|\bar X)_s \to \eR\Gamma(X_s,E|X_s) 
+\end{equation*}
+为同构。将 \eqref{VII:eq:5-2-1-1} 定义为 \eqref{VII:eq:5-2-1-2} 的逆与限制箭头
+\begin{equation*}\tag{5.2.1.3}\label{VII:eq:5-2-1-3}
+  \eR\Gamma(\bar X,E|\bar X) \to \eR\Gamma(X_t,E|X_t) \text{.}
+\end{equation*}
+的复合。
+
+\subsubsection{}\label{VII:5-2-2}
+
+设 $f$ 相对于 $E$ 局部无环（\ref{VII:2-12}）。对 $S$ 的几何点之间任意特化 $u:t\to S(s)$，如下定义一个称为\emph{余特化箭头}（cospecialization arrow）的箭头
+\begin{equation*}\tag{5.2.2.1}\label{VII:eq:5-2-2-1}
+  \cosp(u):\eR\Gamma(X_t,E|X_t) \to \eR\Gamma(X_s,E|X_s) \text{,} 
+\end{equation*}
+设 $g:X_t\to X$ 与 $g':\bar X\to X$ 为典范箭头。相对于这两个映射，典范箭头
+\begin{equation*}\tag{5.2.2.2}\label{VII:eq:5-2-2-2}
+  \eR g'_\ast(E|\bar X)\to \eR g_\ast(E|X_t) 
+\end{equation*}
+由局部无环性假设知为同构。事实上，可设 $S$ 严格局部且整，闭点为 $s$，而 $t$ 为一个几何泛点。计算 \eqref{VII:eq:5-2-2-2} 在 $X$ 的几何点 $x$ 处的纤维，该点在 $S$ 中的像记为 $y$。将 $S$ 换成 $S$ 在 $y$ 处的严格局部化后，可设 $y=s$。由于 $\bar S\to S$ 为有限态射的逆极限，且在 $s$ 处为根式的，便知 $\eR g'_\ast(E|\bar X)_x = E_x$，而 \eqref{VII:eq:5-2-2-2} 在 $x$ 处的纤维可等同于限制映射 $E_x=\eR\Gamma(X(x),E)\to \eR\Gamma(X(x)_t,E|X(x)_t)$，依假设它为同构。对 \eqref{VII:eq:5-2-2-2} 施以 $\eR\Gamma(X,-)$，便知限制箭头 \eqref{VII:eq:5-2-1-3} 为同构。将 \eqref{VII:eq:5-2-2-1} 定义为 \eqref{VII:eq:5-2-1-3} 的逆与基变换箭头 \eqref{VII:eq:5-2-1-2} 的复合。
+
+\subsubsection{}\label{VII:5-2-3}
+
+若 $s'' \xrightarrow{u'} s' \xrightarrow u s$ 为 $S$ 的几何点之间的特化箭头，则可验证，只要两端均有定义，便有
+\begin{align*}
+  \spe(u')\spe(u) &= \spe(u u') \text{,} \\
+  \cosp(u) \cosp(u') &= \cosp(u u') \text{,} 
+\end{align*}
+
+\subsubsection{}\label{VII:5-2-4}
+
+设 $\eR f_\ast E$ 的形成与任意有限基变换交换，且 $f$ 相对于 $E$ 局部无环。由定义可知，对 $S$ 的几何点之间任意特化 $u:t\to S(s)$，箭头 $\spe(u)$ 与 $\cosp(u)$ 均为同构，且互为逆。
+
+特别地，当 $A$ 为 Noether 的且被某个在 $S$ 上可逆的整数 $n$ 零化，$f$ 适当且光滑，而 $E$ 的上同调局部常值时，上述假设成立（适当态射的上同调适当性（\ref{VII:5-1-3}），以及光滑态射的局部无环性 \cite[XV]{sga4}）。这样便重新得到了“特化定理”\cite[XVI 2.1]{sga4}。
+
+另一方面，\ref{VII:5-1-1} 有下列推论：
+
+\begin{proposition}\label{VII:5-2-5}
+设 $f$ 相对于 $E$ 局部无环，且对每个特化 $u:t\to S(s)$，余特化箭头 $\cosp(u)$ 均为同构。则 $\eR f_\ast E$ 的形成与任意有限基变换交换。
+\end{proposition}
+
+由 \ref{VII:5-2-4} 可见，\ref{VII:5-2-5} 推广了（\hyperref[I]{《平展上同调》} \ref{I:5-1-7}）。
+
+\begin{corollary}\label{VII:5-2-6}
+设 $f$ 相对于 $E$ 局部无环。设 $x$ 为 $X$ 的几何点，$s$ 为它在 $S$ 中的像，记 $f_{(x)}:X(x)\to S(s)$ 为 $f$ 诱导的态射。则 $\eR {f_{(x)}}_\ast(E|X(x))$ 的形成与任意有限基变换 $S'\to S(s)$ 交换。
+\end{corollary}
+
+由 \ref{VII:5-2-5}，只须验证 $(f_{(x)},E|X(x))$ 的各余特化箭头均为同构。由余特化箭头的传递性（\ref{VII:5-2-3}），只须证明若 $u:t\to S(s)$ 为特化，则 $\cosp(u):\eR\Gamma(X(x)_t,E|X(x)_t)\to \eR\Gamma(X(x)_s,E|X(x)_s)$ 为同构。但由于 $s$ 在 $S(s)$ 中闭，$X(x)_s$ 严格局部且闭点为 $x$，有 $\eR\Gamma(X(x)_s,E|X(x)_s)=E_x$；而 $\cosp(u)$ 为同构，是限制同构 $E_x\to \eR\Gamma(X(x)_t,E|X(x)_t)$ 的逆。
+
+\begin{corollary}\label{VII:5-2-7}
+设 $f:X\to Y$ 为 $S$-态射，$p:X\to S$、$q:Y\to S$ 为投影，$E\in\ob\eD^+(X)$。假设 $A$ 局部常值，$f$ 相对于 $E$ 局部无环，且对 $Y$ 的任意几何点 $y$ 及在 $y$ 的某个邻域上局部常值的任意层，$q$ 在该点处相对于此层局部无环。则 $p$ 相对于 $E$ 局部无环。
+\end{corollary}
+
+设 $x$ 为 $X$ 的几何点，它在 $Y$ 与 $S$ 中的像分别为 $y$ 与 $s$，$t\to S(s)$ 为一个特化，$f_{(x)}:X(x)\to Y(y)$ 为 $f$ 诱导的态射。须证明限制映射
+\begin{equation*}\tag{$*$}\label{VII:eq:5-2-7-1}
+  E_x \to \eR\Gamma(X(x)_t,E|X(x)_t) 
+\end{equation*}
+为同构。可设 $A$ 为常值的。由 \ref{VII:5-2-4} 和 \ref{VII:5-2-5}，对每个特化 $z\to Y(y)$，特化箭头
+\[
+  E_x = \eR {f_{(x)}}_\ast (E|X(x))_y \to (\eR {f_{(x)}}_\ast (E|X(x)))_z = \eR\Gamma(X(x)_z,E|X(x)_z) 
+\]
+均为同构；换言之，$\eR{f_{(x)}}_\ast(E|X(x))$ 为常值为 $E_x$ 的复形。因此，$q$ 的无环性假设起到关键作用，保证限制映射
+\[
+  E_x \to \eR\Gamma(Y(y)_t,(E_x)|Y(y)_t) = \eR\Gamma\left(Y(y)_t,\eR {f_{(x)}}_\ast (E|X(x))|Y(y)_t\right)
+\]
+为同构。但此箭头可等同于 \eqref{VII:eq:5-2-7-1}，断言得证。
+
+特别地，当 $q$ 光滑，且 $A$ 被某个在 $S$ 上可逆的整数 $n$ 零化时，\ref{VII:5-2-7} 对 $q$ 的假设成立 \cite[XV]{sga4}。另一方面，若 \ref{VII:5-2-7} 的假设经过任意基变换 $S'\to S$ 后仍成立，则 $p$ 相对于 $E$ 普遍局部无环。这些说明特别蕴含 \ref{VII:2-14} 的陈述。
+
+\begin{corollary}\label{VII:5-2-8}
+设 $f:X\to S$，$E\in \ob\eD^+(X)$。假设 $f$ 相对于 $E$ 普遍局部无环，$\eR f_\ast E$ 的形成与任意有限基变换交换；并且对每个态射 $s'\to s$，其中 $s$ 为 $S$ 的几何点而 $s'$ 为可分闭域的谱，基变换箭头 $\eR\Gamma(X_s,E|X_s)\to \eR\Gamma(X_{s'},E|X_{s'})$ 均为同构。则 $(f,E)$ 上同调适当（\ref{VII:5-1-3}）。
+\end{corollary}
+
+设 $f':X'\to S'$ 为由 $f$ 经基变换 $S'\to S$ 得到的态射；须证明 $\eR f'_\ast(E|X')$ 的形成与任意有限基变换交换。由 \ref{VII:5-2-5}，只须证明对每个特化 $u':t'\to S'(s')$，余特化箭头 $\cosp(u')$：$\eR\Gamma(X_{t'}',E|X_{t'}') \to \eR\Gamma(X_{s'}',E|X_{s'}')$ 为同构。设 $s$（分别地，$t$）为 $s'$（分别地，$t'$）在 $S$ 中的像这一几何点，$u:t\to S(s)$ 为 $u'$ 定义的特化。容易看出存在交换方块
+\[\xymatrix{
+  \eR\Gamma(X_t,E|X_t) \ar[r]^-{\cosp(u)} \ar[d] 
+    & \eR\Gamma(X_s,E|X_s) \ar[d] \\
+  \eR\Gamma(X_{t'}',E|X_{t'}') \ar[r]^-{\cosp(u')} 
+    & \eR\Gamma(X_{s'}',E|X_{s'}') 
+}\]
+其中竖直箭头为基变换箭头。依假设，它们为同构。另一方面，$\cosp(u)$ 为同构（\ref{VII:5-2-4}），因此 $\cosp(u')$ 为同构，证明完毕。
+
+下面给出 \ref{VII:5-2-8} 的一个应用例子。设 $A$ 被某个在 $S$ 上可逆的整数 $n$ 零化，且 $f$ 为局部有限型并普遍局部无环的态射。设 $x$ 为 $X$ 的几何点，$s$ 为它在 $S$ 中的像，$f_{(x)}:X(x)\to S(s)$ 为 $f$ 诱导的态射。由 \ref{VII:5-2-6} 与 \ref{VII:1-9}（通过取极限）可知，$(f_{(x)},E|X(x))$ 满足 \ref{VII:5-2-8} 的假设，因此它上同调适当。
+
+\subsubsection{}\label{VII:5-2-9}
+
+设 $A$ 为常值的。设 $f:X\to S$，$E\in\ob\eD^+(X)$ 为有限 Tor 维数的复形。若对 $X$ 的任意几何点 $x$，其在 $S$ 中的像 $s$，任意特化 $t\to S(s)$，以及任意 $A^\circ$-模 $M$，限制箭头
+\[
+  E_x\lotimes_A M \to \eR\Gamma(X(x)_t,(E|X(x)_t)\lotimes_A M) 
+\]
+均为同构，则称 $f$ 相对于 $E$ \emph{强局部无环}（strongly locally acyclic）。我不知道“局部无环”是否蕴含“强局部无环”。
+
+\begin{proposition}\label{VII:5-2-10}
+在 \ref{VII:5-2-9} 的假设下，设 $A$ 为 Noether 挠环，$S$ 为 Noether 概形，且 $f$ 相对于 $E$ 强局部无环。则对每个方块均为 Cartesian 方块的图
+\[\xymatrix{
+  X \ar[d]^-f 
+    & \ar[l]_-j X' \ar[d]^-{f'} 
+    & \ar[l]_-{j'} X'' \ar[d]^-{f''} \\
+  S 
+    & \ar[l]_-i S' 
+    & \ar[l]_-{i'} S'' \text{,} 
+}\]
+其中 $i$ 拟有限，$i'$ 为开浸入，以及每个 $F\in\ob\eD^+(S'',A^\circ)$，典范箭头
+\begin{equation*}\tag{$*$}\label{VII:eq:5-2-10-1}
+  j^\ast E \lotimes {f'}^\ast \eR i'_\ast F \to \eR j'_\ast ((j j')^\ast E\lotimes {f''}^\ast F) 
+\end{equation*}
+均为同构。
+\end{proposition}
+
+将此陈述与 \cite[XV 1.17]{sga4} 比较。
+
+来证明 \ref{VII:5-2-10}。容易归结为 $S=S'$ 严格局部、$F$ 可构造且集中于次数 $0$ 的情形。然后用形如 $u_\ast M$ 的层的有限直和在右侧分解 $F$，其中 $u:t\to S$ 为几何点，$M$ 为 $A^\circ$-模。相对于此分解，假设蕴含当 $F=u_\ast M$ 时 \eqref{VII:eq:5-2-10-1} 为同构，结果随之得证。

@@ -1,0 +1,1172 @@
+% FGA Explained, Chapter 3; source printed pp.41--66, PDF pp.53--78.
+% Native reconstruction from the actual scan; names and original numbering retained.
+\chapter{纤维范畴}
+\label{ch03:chapter}
+\begingroup
+\def\C{\mathcal C}\def\F{\mathcal F}\def\G{\mathcal G}
+\def\pF{\mathrm p_{\F}}\def\pG{\mathrm p_{\G}}
+\def\Cat{(\mathrm{Cat})}
+
+% Source PDF 53 / printed 41.
+\section{纤维范畴}
+\label{ch03:sec31}
+\subsection{定义与初步性质}
+本节固定一个范畴 $\C$; 拓扑在这里不起作用. 我们将研究 $\C$ 上的范畴, 即配有函子 $\pF:\F\to\C$ 的范畴 $\F$.
+
+我们将画出若干涉及 $\C$ 与 $\F$ 中对象的交换图; 从 $\F$ 的对象 $\xi$ 指向 $\C$ 的对象 $U$ 的箭头采用“$\xi\mapsto U$”的形式, 表示 $\pF\xi=U$. 此外, 图
+\[
+\begin{tikzcd}
+\xi\arrow[r,"{\phi}"]\arrow[d,mapsto]&\eta\arrow[d,mapsto]\\
+U\arrow[r,"{f}"]&V
+\end{tikzcd}
+\]
+交换, 就表示 $\pF\phi=f$.
+
+\begin{origstatement}{定义}{3.1}\label{ch03:def31}
+设 $\F$ 是 $\C$ 上的范畴. 称 $\F$ 中的箭头 $\phi:\xi\to\eta$ 为\emph{笛卡尔箭头} (cartesian arrow), 如果对于 $\F$ 中任意箭头 $\psi:\zeta\to\eta$ 和 $\C$ 中任意满足 $\pF\phi\circ h=\pF\psi$ 的箭头 $h:\pF\zeta\to\pF\xi$, 都存在唯一的箭头 $\theta:\zeta\to\xi$, 使得 $\pF\theta=h$ 且 $\phi\circ\theta=\psi$, 如下交换图所示:
+\[
+\begin{tikzcd}[column sep=small,row sep=large]
+\zeta\arrow[rr,bend left,"{\psi}"]\arrow[dr,dashed,"{\theta}"]\arrow[dd,mapsto]&&\eta\arrow[dd,mapsto]\\
+&\xi\arrow[ur,"{\phi}"']\arrow[dd,mapsto]&\\
+\pF\zeta\arrow[rr,bend left]\arrow[dr,"{h}"']&&\pF\eta\\
+&\pF\xi\arrow[ur]&
+\end{tikzcd}
+\]
+\end{origstatement}
+
+如果 $\xi\to\eta$ 是 $\F$ 中映到 $\C$ 中箭头 $U\to V$ 的笛卡尔箭头, 我们也称 $\xi$ 是 $\eta$ 到 $U$ 的\emph{拉回} (pullback).
+
+\begin{origstatement}{注}{3.2}\label{ch03:rem32}
+这里给出的笛卡尔箭头定义比 [SGA1] 中的定义更强; 我们的笛卡尔箭头在 [Gra66] 中称为\emph{强笛卡尔箭头}. 不过, 由此得到的纤维范畴概念是相同的.
+\end{origstatement}
+
+% Source PDF 54 / printed 42.
+\begin{origstatement}{注}{3.3}\label{ch03:rem33}
+给定 $\eta$ 到 $U$ 的两个拉回 $\phi:\xi\to\eta$ 与 $\widetilde\phi:\widetilde\xi\to\eta$, 使下图交换的唯一箭头 $\theta:\widetilde\xi\to\xi$
+\[
+\begin{tikzcd}[column sep=small,row sep=large]
+\widetilde\xi\arrow[rr,bend left,"{\widetilde\phi}"]\arrow[dr,dashed,"{\theta}"]\arrow[dd,mapsto]&&\eta\arrow[dd,mapsto]\\
+&\xi\arrow[ur,"{\phi}"']\arrow[dd,mapsto]&\\
+U\arrow[rr,bend left]\arrow[dr,equal]&&V\\
+&U\arrow[ur]&
+\end{tikzcd}
+\]
+是一个同构; 交换上图中的 $\xi$ 与 $\widetilde\xi$ 所得到的箭头 $\xi\to\widetilde\xi$ 就是其逆.
+
+换言之, 拉回在唯一同构的意义下唯一.
+\end{origstatement}
+
+下面的事实容易证明, 留给读者.
+
+\begin{origstatement}{命题}{3.4}\label{ch03:prop34}
+\begin{enumerate}
+\item[(i)] 如果 $\F$ 是 $\C$ 上的范畴, 则 $\F$ 中笛卡尔箭头的复合仍是笛卡尔箭头.
+\item[(ii)] $\F$ 中一个在 $\C$ 中的像为同构的箭头是笛卡尔箭头, 当且仅当它本身是同构.
+\item[(iii)] 如果 $\xi\to\eta$ 和 $\eta\to\zeta$ 是 $\F$ 中的箭头, 且 $\eta\to\zeta$ 是笛卡尔箭头, 则 $\xi\to\eta$ 是笛卡尔箭头当且仅当复合 $\xi\to\zeta$ 是笛卡尔箭头.
+\item[(iv)] 设 $\pG:\G\to\C$ 与 $F:\F\to\G$ 是函子, $\phi:\xi\to\eta$ 是 $\F$ 中的箭头. 如果 $\phi$ 在其于 $\G$ 中的像 $F\phi:F\xi\to F\eta$ 之上是笛卡尔的, 而 $F\phi$ 在其于 $\C$ 中的像 $\pG F\phi:\pG F\xi\to\pG F\eta$ 之上是笛卡尔的, 则 $\phi$ 在其于 $\C$ 中的像 $\pG F\phi$ 之上是笛卡尔的.
+\end{enumerate}
+\end{origstatement}
+
+\begin{origstatement}{定义}{3.5}\label{ch03:def35}
+$\C$ 上的\emph{纤维范畴} (fibered category) 是一个 $\C$ 上的范畴 $\F$, 满足: 给定 $\C$ 中的箭头 $f:U\to V$ 和 $\F$ 中映到 $V$ 的对象 $\eta$, 存在笛卡尔箭头 $\phi:\xi\to\eta$, 使 $\pF\phi=f$.
+\end{origstatement}
+
+换言之, 在纤维范畴 $\F\to\C$ 中, 可以沿 $\C$ 的任意箭头拉回 $\F$ 的对象.
+
+\begin{origstatement}{定义}{3.6}\label{ch03:def36}
+如果 $\F$ 和 $\G$ 是 $\C$ 上的纤维范畴, 则一个\emph{纤维范畴态射} $F:\F\to\G$ 是满足下列条件的函子:
+\begin{enumerate}
+\item[(i)] $F$ 保持底对象, 即 $\pG\circ F=\pF$;
+\item[(ii)] $F$ 将笛卡尔箭头映为笛卡尔箭头.
+\end{enumerate}
+\end{origstatement}
+
+注意, 上述定义中的等式 $\pG\circ F=\pF$ 必须理解为真正的相等. 换言之, 仅仅存在函子 $\pG\circ F$ 与 $\pF$ 之间的同构是不够的.
+
+\begin{origstatement}{命题}{3.7}\label{ch03:prop37}
+给定两个函子 $\F\to\G$ 与 $\G\to\C$. 如果 $\F$ 纤维于 $\G$ 之上, 且 $\G$ 纤维于 $\C$ 之上, 则 $\F$ 纤维于 $\C$ 之上.
+\end{origstatement}
+\begin{proof}
+这由命题 3.4(iv) 得到.
+\end{proof}
+
+\subsection{作为伪函子的纤维范畴}
+\begin{origstatement}{定义}{3.8}\label{ch03:def38}
+设 $\F$ 是 $\C$ 上的纤维范畴. 给定 $\C$ 的对象 $U$, $\F$ 在 $U$ 上的\emph{纤维} $\F(U)$ 是 $\F$ 的如下子范畴: 其对象是满足 $\pF\xi=U$ 的 $\F$ 中的对象 $\xi$, 其箭头是满足 $\pF\phi=\id_U$ 的 $\F$ 中的箭头 $\phi$.
+\end{origstatement}
+
+% Source PDF 55 / printed 43.
+由定义, 如果 $F:\F\to\G$ 是 $\C$ 上的纤维范畴态射, 而 $U$ 是 $\C$ 的对象, 那么函子 $F$ 将 $\F(U)$ 映入 $\G(U)$, 因而得到限制函子 $F_U:\F(U)\to\G(U)$.
+
+注意, 形式上我们可以对任意函子 $\pF:\F\to\C$ 给出同样的纤维定义, 而不假设 $\F$ 纤维于 $\C$ 之上. 但这样得到的概念没有用处. 例如, 完全可能出现 $\C$ 的两个对象 $U,V$ 彼此同构, 但 $\F(U)$ 为空而 $\F(V)$ 不为空的情形. 纤维范畴不会出现这种病态, 原因如下.
+
+设 $\F$ 是纤维于 $\C$ 之上的范畴, $f:U\to V$ 是 $\C$ 中的箭头. 对 $V$ 上的每个对象 $\eta$, 选择 $\eta$ 到 $U$ 的一个拉回 $\phi_\eta:f^*\eta\to\eta$. 定义函子 $f^*:\F(V)\to\F(U)$, 将 $\F(V)$ 的每个对象 $\eta$ 映到 $f^*\eta$, 并将 $\F(V)$ 中的每个箭头 $\beta:\eta\to\eta'$ 映到使图
+\[
+\begin{tikzcd}
+f^*\eta\arrow[r]\arrow[d,dashed,"{f^*\beta}"']&\eta\arrow[d,"{\beta}"]\\
+f^*\eta'\arrow[r]&\eta'
+\end{tikzcd}
+\]
+交换的唯一箭头 $f^*\beta:f^*\eta\to f^*\eta'$; 该箭头属于 $\F(U)$.
+
+\begin{origstatement}{定义}{3.9}\label{ch03:def39}
+纤维范畴 $\F\to\C$ 的一个\emph{分裂选择} (cleavage) 是 $\F$ 中笛卡尔箭头所成的一个类 $K$, 使得对 $\C$ 中每个箭头 $f:U\to V$ 和 $\F(V)$ 中每个对象 $\eta$, 都存在唯一一个属于 $K$、终点为 $\eta$、在 $\C$ 中映到 $f$ 的箭头.
+\end{origstatement}
+
+由选择公理, 每个纤维范畴都有分裂选择. 给定带有分裂选择的纤维范畴 $\F\to\C$, 我们对 $\C$ 的每个对象 $U$ 配以范畴 $\F(U)$, 对每个箭头 $f:U\to V$ 配以上面构造的函子 $f^*:\F(V)\to\F(U)$. 人们很容易以为这样就定义了从 $\C$ 到范畴所成范畴的一个函子; 但这并不完全正确. 首先, 拉回 $\id_U^*:\F(U)\to\F(U)$ 不一定是恒等函子. 当然, 我们可以把沿恒等箭头的所有拉回都选成纤维范畴上的恒等函子: 这样确实行得通, 但并不十分自然, 因为往往存在自然定义的拉回, 它们并不满足这一点 (例如例 3.15 及其他许多例子). 一般地, 当 $U$ 是 $\C$ 的对象, $\xi$ 是 $\F(U)$ 的对象时, 拉回 $\epsilon_U(\xi):\id_U^*\xi\to\xi$ 由命题 3.4(ii) 是一个同构, 从而定义了函子同构 $\epsilon_U:\id_U^*\simeq\id_{\F(U)}$.
+
+还有一个更严重的问题. 假设 $\C$ 中有两个箭头 $f:U\to V$ 和 $g:V\to W$, 且 $\zeta$ 是 $\F$ 中位于 $W$ 之上的对象. 那么 $f^*g^*\zeta$ 是 $\zeta$ 到 $U$ 的拉回; 但拉回并不唯一, 因此没有理由要求 $f^*g^*\zeta$ 与 $(gf)^*\zeta$ 相等. 不过, 由于二者都是拉回, 在 $\F(U)$ 中存在典范同构 $\alpha_{f,g}(\zeta):f^*g^*\zeta\simeq(gf)^*\zeta$; 它给出函子 $\F(W)\to\F(U)$ 的同构 $\alpha_{f,g}:f^*g^*\simeq(gf)^*$.
+
+因此, 选择了分裂选择以后, 纤维范畴几乎给出了从 $\C$ 到范畴所成范畴的一个函子, 但还不完全是. 关键在于, 范畴所成的范畴并非仅仅是一个范畴, 而是一个所谓的 $2$-范畴; 也就是说, 它的箭头是函子, 而同样两个范畴之间的函子又构成一个范畴, 其箭头是函子的自然变换. 因此, 对象 (范畴) 之间有 $1$-箭头 (函子), 而 $1$-箭头之间还有 $2$-箭头 (自然变换).
+
+% Source PDF 56 / printed 44.
+我们得到的并非一个函子, 而是所谓的\emph{伪函子} (pseudo-functor), 或者用较现代的术语说, 是一个\emph{松 $2$-函子} (lax $2$-functor).
+
+\begin{origstatement}{定义}{3.10}\label{ch03:def310}
+$\C$ 上的一个伪函子 $\Phi$ 由下列数据组成.
+\begin{enumerate}
+\item[(i)] 对 $\C$ 的每个对象 $U$, 给定一个范畴 $\Phi U$.
+\item[(ii)] 对每个箭头 $f:U\to V$, 给定一个函子 $f^*:\Phi V\to\Phi U$.
+\item[(iii)] 对 $\C$ 的每个对象 $U$, 给定函子 $\Phi U\to\Phi U$ 的一个同构 $\epsilon_U:\id_U^*\simeq\id_{\Phi U}$.
+\item[(iv)] 对每一对箭头 $U\xrightarrow f V\xrightarrow g W$, 给定函子 $\Phi W\to\Phi U$ 的一个同构
+\[
+\alpha_{f,g}:f^*g^*\simeq(gf)^*:\Phi W\longrightarrow\Phi U.
+\]
+\end{enumerate}
+要求这些数据满足下列条件.
+\begin{enumerate}
+\item[(a)] 如果 $f:U\to V$ 是 $\C$ 中的箭头, 而 $\eta$ 是 $\Phi V$ 的对象, 则有
+\[
+\alpha_{\id_U,f}(\eta)=\epsilon_U(f^*\eta):\id_U^*f^*\eta\longrightarrow f^*\eta
+\]
+以及
+\[
+\alpha_{f,\id_V}(\eta)=f^*\epsilon_V(\eta):f^*\id_V^*\eta\longrightarrow f^*\eta.
+\]
+\item[(b)] 每当有箭头 $U\xrightarrow f V\xrightarrow g W\xrightarrow h T$ 和 $\F(T)$ 的对象 $\theta$ 时, 图
+% Source has F(T), rather than Phi T; retained, recorded in ch03-review.md.
+\[
+\begin{tikzcd}[column sep=large]
+f^*g^*h^*\theta\arrow[r,"{\alpha_{f,g}(h^*\theta)}"]\arrow[d,"{f^*\alpha_{g,h}(\theta)}"']&(gf)^*h^*\theta\arrow[d,"{\alpha_{gf,h}(\theta)}"]\\
+f^*(hg)^*\theta\arrow[r,"{\alpha_{f,hg}(\theta)}"']&(hgf)^*\theta
+\end{tikzcd}
+\]
+交换.
+\end{enumerate}
+\end{origstatement}
+
+在这个定义中, 我们只考虑取值于范畴所成范畴的 (反变) 伪函子. 当然, 还有一般得多的、取值于 $2$-范畴的伪函子概念, 但我们完全用不到.
+
+从 $\mathcal S$ 到范畴所成范畴的函子 $\Phi$ 可以看作一个伪函子, 其中每个 $\epsilon_U$ 都是 $\Phi U$ 上的恒等, 每个 $\alpha_{f,g}$ 都是 $f^*g^*=(gf)^*$ 上的恒等.
+% Source prints S here; retained.
+
+我们已经说明, 如何从带有分裂选择的 $\C$ 上的纤维范畴得到伪函子所需的数据; 还须检验定义中的两个条件确实成立.
+
+\begin{origstatement}{命题}{3.11}\label{ch03:prop311}
+带有分裂选择的 $\C$ 上的纤维范畴定义了 $\C$ 上的一个伪函子.
+\end{origstatement}
+\begin{proof}
+我们必须检验这两个条件成立. 下面检验条件 (b) (条件 (a) 的论证十分相似). 关键在于, $f^*g^*h^*\zeta$ 与 $(hgf)^*\zeta$ 都是 $\zeta$ 的拉回, 因而由笛卡尔箭头的定义, 存在唯一一个位于 $U$ 的恒等箭头之上的箭头 $f^*g^*h^*\zeta\to(hgf)^*\zeta$, 使图
+\[
+\begin{tikzcd}
+f^*g^*h^*\zeta\arrow[rr]\arrow[dr]&&(hgf)^*\zeta\arrow[dl]\\
+&\zeta&
+\end{tikzcd}
+\]
+% Source PDF 57 / printed 45.
+交换. 但立即可见, $\alpha_{gh,f}(\zeta)\circ\alpha_{f,g}(h^*\zeta)$ 与 $\alpha_{f,hg}(\zeta)\circ f^*\alpha_{g,h}(\zeta)$ 都满足这个条件.
+% Source first subscript gh,f retained pending source errata review.
+\end{proof}
+
+从 $\C$ 到范畴所成范畴的函子 $\Phi:\C^{\mathrm{op}}\to\Cat$ 可给出 $\C$ 上的伪函子: 只需将所有 $\epsilon_U$ 和所有 $\alpha_{f,g}$ 都定义为恒等即可.
+
+不难看出, 一个分裂选择何时定义了从 $\C$ 到范畴所成范畴的函子.
+
+\begin{origstatement}{定义}{3.12}\label{ch03:def312}
+纤维范畴上的一个分裂选择, 如果包含所有恒等箭头且对复合封闭, 就称为一个\emph{分裂} (splitting).
+
+配有一个分裂的纤维范畴称为\emph{分裂纤维范畴} (split fibered category).
+\end{origstatement}
+
+\begin{origstatement}{命题}{3.13}\label{ch03:prop313}
+与一个分裂选择相关联的伪函子是函子, 当且仅当该分裂选择是一个分裂.
+\end{origstatement}
+
+证明是直接的.
+
+一般地, 一个纤维范畴未必容许分裂.
+
+\begin{origstatement}{例}{3.14}\label{ch03:ex314}
+每个群 $G$ 都可以看作只有一个对象的范畴, 其箭头集就是 $G$, 复合由 $G$ 中的运算给出. 群同态 $G\to H$ 可看作一个函子. $G$ 中的箭头 (即 $G$ 的一个元素) 总是笛卡尔的; 因此, $G$ 纤维于 $H$ 之上当且仅当 $G\to H$ 是满射.
+
+给定满同态 $G\to H$, 一个分裂选择 $K$ 就是 $G$ 中双射地映到 $H$ 的子集; 而一个分裂选择是分裂, 当且仅当 $K$ 是 $G$ 的子群. 因此, 这里的分裂就是通常意义下同态 $G\to H$ 的分裂 $H\to G$: 即一个使复合 $H\to G\to H$ 为 $H$ 上恒等的群同态. 当然, 这样的分裂并不总是存在.
+\end{origstatement}
+
+尽管如此, 每个纤维范畴都等价于一个分裂纤维范畴 (定理 3.45).
+
+\subsection{与伪函子相关联的纤维范畴}
+因此, 每个带有分裂选择的纤维范畴都定义了一个伪函子. 反过来, 从 $\C$ 上的伪函子也能得到带有分裂选择的 $\C$ 上的纤维范畴. 首先分析这样的情形: 伪函子本身就是一个函子 $\Phi:\C^{\mathrm{op}}\to\Cat$, 其中将范畴所成的范畴视为 $1$-范畴. 这意味着, 对 $\C$ 的每个对象 $U$ 配以范畴 $\Phi U$, 对每个箭头 $f:U\to V$ 配以函子 $\Phi f:\Phi V\to\Phi U$, 使得 $\Phi\id_U:\Phi U\to\Phi U$ 是恒等函子, 且每当 $f,g$ 是 $\C$ 中可复合的两个箭头时, 都有 $\Phi(g\circ f)=\Phi f\circ\Phi g$.
+
+对这个 $\Phi$, 我们可以配以一个纤维范畴 $\F\to\C$, 使得对 $\C$ 的任意对象 $U$, 纤维 $\F(U)$ 典范地等价于范畴 $\Phi U$. $\F$ 的对象是二元组 $(\xi,U)$, 其中 $U$ 是 $\C$ 的对象, $\xi$ 是 $\F(U)$ 的对象. $\F$ 中的箭头 $(a,f):(\xi,U)\to(\eta,V)$ 由 $\C$ 中的箭头 $f:U\to V$ 以及 $\Phi U$ 中的箭头 $a:\xi\to\Phi f(\eta)$ 组成.
+% Source has F(U) in the object definition; retained in evidence.
+
+复合定义如下: 如果
+\[
+(a,f):(\xi,U)\longrightarrow(\eta,V),\qquad
+(b,g):(\eta,V)\longrightarrow(\zeta,W)
+\]
+是两个箭头, 则
+\[
+(b,g)\circ(a,f)=(\Phi b\circ a,g\circ f):(\xi,U)\longrightarrow(\zeta,W).
+\]
+% Source prints Phi b (without f); retained.
+
+有一个显然的函子 $\F\to\C$, 将对象 $(\xi,U)$ 映到 $U$, 将箭头 $(a,f)$ 映到 $f$; 我断言, 这个函子使 $\F$ 成为 $\C$ 上的纤维范畴.
+% Source PDF 58 / printed 46.
+事实上, 给定 $\C$ 中的箭头 $f:U\to V$ 和 $\F(V)$ 中的对象 $(\eta,V)$, 则 $(\Phi f(\eta),U)$ 是 $\F(U)$ 的对象; 容易检验, 二元组 $(\id_{\Phi f(\eta)},f)$ 给出了笛卡尔箭头 $(\Phi f(\eta),U)\to(\eta,V)$.
+
+$\F$ 的纤维与范畴 $\Phi U$ 典范同构: 同构 $\F(U)\to\Phi U$ 在对象上将 $(\xi,U)$ 映到 $\xi$, 在箭头上将 $(a,\id_U)$ 映到 $a$. 所有形如 $(\id_{\Phi f(\eta)},f)$ 的箭头组成一个分裂.
+
+一般情形类似, 只是更为繁杂. 考虑 $\C$ 上的一个伪函子 $\Phi$. 与前面一样, 定义 $\F$ 的对象为二元组 $(\xi,U)$, 其中 $U$ 是 $\C$ 的对象, $\xi$ 是 $\F(U)$ 的对象. 同样, $\F$ 中的箭头 $(a,f):(\xi,U)\to(\eta,V)$ 由 $\C$ 中的箭头 $f:U\to V$ 以及 $\Phi U$ 中的箭头 $a:\xi\to f^*(\eta)$ 组成.
+
+给定两个箭头 $(a,f):(\xi,U)\to(\eta,V)$ 和 $(b,g):(\eta,V)\to(\zeta,W)$, 定义复合 $(b,g)\circ(a,f)$ 为二元组 $(b\cdot a,gf)$, 其中 $b\cdot a=\alpha_{f,g}(\zeta)\circ f^*b\circ a$ 是 $\Phi U$ 中的复合
+\[
+\xi\xrightarrow{a}f^*\zeta\xrightarrow{f^*b}f^*g^*\zeta
+\xrightarrow{\alpha_{f,g}(\zeta)}(gf)^*\zeta.
+\]
+% Source first intermediate object f* zeta retained; expected f* eta.
+
+检验复合满足结合律. 给定三个箭头
+\[
+(\xi,U)\xrightarrow{(a,f)}(\eta,V)\xrightarrow{(b,g)}(\zeta,W)
+\xrightarrow{(c,h)}(\theta,T),
+\]
+我们必须证明
+\[
+(c,h)\circ\bigl((b,g)\circ(a,f)\bigr)\mathrel{\mathop=^{\mathrm{def}}}
+\bigl(c\cdot(b\cdot a),hgf\bigr)
+\]
+等于
+\[
+\bigl((c,h)\circ(b,g)\bigr)\circ(a,f)\mathrel{\mathop=^{\mathrm{def}}}
+\bigl((c\cdot b)\cdot a,hgf\bigr).
+\]
+由复合的定义, 有
+\[
+\begin{aligned}
+c\cdot(b\cdot a)
+&=\alpha_{gf,h}(\theta)\circ(gf)^*c\circ(b\cdot a)\\
+&=\alpha_{gf,h}(\theta)\circ(gf)^*c\circ\alpha_{f,g}(\zeta)\circ f^*b\circ a,
+\end{aligned}
+\]
+而
+\[
+\begin{aligned}
+(c\cdot b)\cdot a
+&=\alpha_{f,hg}(\theta)\circ f^*(c\cdot b)\circ a\\
+&=\alpha_{f,hg}(\zeta)\circ f^*\alpha_{g,h}(\theta)\circ f^*g^*c\circ f^*b\circ a;
+\end{aligned}
+\]
+所以只需证明图
+\[
+\begin{tikzcd}[column sep=large]
+f^*g^*\zeta\arrow[r,"{f^*g^*c}"]\arrow[d,"{\alpha_{f,g}(\zeta)}"']&f^*g^*h^*\theta\arrow[r,"{f^*\alpha_{g,h}(\theta)}"]\arrow[d,"{\alpha_{gf,h}(\theta)}"']&f^*(hg)^*\theta\arrow[d,"{\alpha_{f,hg}(\theta)}"]\\
+(gf)^*\zeta\arrow[r,"{(gf)^*c}"']&(gf)^*h^*\theta\arrow[r,"{\alpha_{gf,h}(\theta)}"']&(hgf)^*\theta
+\end{tikzcd}
+\]
+交换. 但第一个方块的交换性来自 $\alpha_{f,g}$ 是函子的自然变换这一事实; 第二个方块的交换性就是定义 3.10 中的条件 (b).
+% Source has zeta in second equality and alpha_gf,h on middle vertical; retained.
+
+给定 $\F$ 的对象 $(\xi,U)$, 我们有同构 $\epsilon_U(\xi):\id_U^*\xi\to\xi$; 定义恒等箭头 $\id_{(\xi,U)}:(\xi,U)\to(\xi,U)$ 为 $\id_{(\xi,U)}=(\epsilon_U(\xi)^{-1},\id_U)$. 为了检验它对于复合是中性的, 取箭头 $(a,f):(\xi,U)\to(\eta,V)$; 有
+\[
+(a,f)\circ(\epsilon_U(\xi)^{-1},\id_U)
+=(a\cdot\epsilon_U(\xi)^{-1},f),
+\]
+% Source PDF 59 / printed 47.
+并且
+\[
+a\cdot\epsilon_U(\xi)^{-1}
+=\alpha_{\id_U,f}(f^*\eta)\circ\id_U^*a\circ\epsilon_U(\xi)^{-1}.
+\]
+但定义 3.10 的条件 (a) 说明, $\alpha_{\id_U,f}(f^*\eta)$ 等于 $\epsilon_U(f^*\eta)$; 而图
+\[
+\begin{tikzcd}[column sep=large]
+\id_U^*\xi\arrow[r,"{\epsilon_U(\xi)}"]\arrow[d,"{\id_U^*a}"']&\xi\arrow[d,"{a}"]\\
+\id_U^*f^*\xi\arrow[r,"{\epsilon_U(f^*\eta)}"']&f^*\eta
+\end{tikzcd}
+\]
+交换, 因为 $\epsilon_U$ 是自然变换. 因此 $a\cdot\epsilon_U(\xi)^{-1}=a$, 从而 $(a,f)\circ(\epsilon_U(\xi)^{-1},\id_U)=(a,f)$.
+% Source has alpha_idU,f(f*eta) and lower-left idU*f*xi; retained.
+
+类似的论证表明, $(\epsilon_U(\xi)^{-1},\id_U)$ 也是左恒等箭头.
+
+因此 $\F$ 是一个范畴. 有一个显然的函子 $\pF:\F\to\C$, 将对象 $(\xi,U)$ 映到 $U$, 将箭头 $(a,f)$ 映到 $f$. 我断言, 它使 $\F$ 成为纤维于 $\C$ 之上的范畴.
+
+取 $\C$ 中的箭头 $f:U\to V$, 以及 $\F$ 中位于 $V$ 之上的对象 $(\eta,V)$. 我断言, 箭头
+\[
+(\id_{f^*\eta},f):(f^*\eta,U)\longrightarrow(\eta,V)
+\]
+是笛卡尔的. 为证明这一点, 假设给定图
+\[
+\begin{tikzcd}[column sep=small,row sep=large]
+(\zeta,W)\arrow[rr,bend left,"{(b,g)}"]\arrow[dr,dashed,"{(c,h)}"]\arrow[dd,mapsto]&&(\eta,V)\arrow[dd,mapsto]\\
+&(f^*\eta,U)\arrow[ur,"{(\id_{f^*\eta},f)}"']\arrow[dd,mapsto]&\\
+W\arrow[rr,bend left,"{g}"]\arrow[dr,"{h}"']&&V\\
+&U\arrow[ur,"{f}"']&
+\end{tikzcd}
+\]
+(不含虚线箭头); 我们须证明, 存在唯一一个箭头 $(c,h)$ 可填入图中. 但容易证明
+\[
+(\id_{f^*\eta},f)\circ(c,h)
+=(\alpha_{h,f}(\eta)\circ c,hg),
+\]
+这就说明, 能填入图中的唯一箭头是 $(\alpha_{h,f}(\eta)^{-1}\circ b,h)$.
+% Source prints hg (not fh) in this pair; retained.
+
+这证明 $\F$ 纤维于 $\C$ 之上, 同时也给出了一个分裂选择.
+
+最后注意到, 对 $\C$ 的所有对象 $U$, 都有函子 $\F(U)\to\Phi U$, 将对象 $(\xi,U)$ 映到 $\xi$, 将箭头 $(a,f)$ 映到 $a$. 这是范畴的一个同构.
+
+对每个箭头 $f:U\to V$, 上面构造的分裂选择给出函子 $f^*:\F(V)\to\F(U)$. 如果利用上述同构将各 $\F(U)$ 与 $\Phi U$ 等同, 则这些函子对应于 $f^*:\Phi V\to\Phi U$. 因此, 如果从一个伪函子出发, 构造相关联的带分裂选择的纤维范畴, 然后再取相关联的伪函子, 所得到的伪函子与原来的伪函子同构 (在显然的意义下).
+
+反过来, 容易看出, 如果从带分裂选择的纤维范畴出发, 构造相关联的伪函子, 再取相关联的带分裂选择的纤维范畴, 所得到的东西与原来的带分裂选择的纤维范畴同构 (同样是在显然的意义下).
+% Source PDF 60 / printed 48, first two paragraphs.
+因此, 给定伪函子实际上等同于给定带有分裂选择的纤维范畴.
+
+另一方面, 笛卡尔拉回在唯一同构的意义下唯一 (注 3.2), 所以分裂选择也在唯一同构的意义下唯一. 这意味着, 在一种可以精确表述的意义下, 纤维范畴理论等价于伪函子理论. 不过, 正如 [SGA1, Remarque, pp.~193--194] 已指出的, 选择一个分裂选择往往弊大于利.
+% Source cross-reference 3.2 retained; actual uniqueness statement is Remark3.3.
+
+% Source PDF60 / printed48, from section3.2.
+\section{纤维范畴的例子}
+\label{ch03:sec32}
+\begin{origstatement}{例}{3.15}\label{ch03:ex315}
+假设 $\C$ 有纤维积. 设 $\operatorname{Arr}\C$ 是 $\C$ 的箭头范畴; 其对象是 $\C$ 中的箭头, 而从 $f:X\to U$ 到 $g:Y\to V$ 的箭头是交换图
+\[
+\begin{tikzcd}
+X\arrow[r]\arrow[d,"{f}"']&Y\arrow[d,"{g}"]\\
+U\arrow[r]&V.
+\end{tikzcd}
+\]
+函子 $\mathrm p_{\operatorname{Arr}\C}:\operatorname{Arr}\C\to\C$ 将每个箭头 $S\to U$ 映到其终域 $U$, 将每个交换图映到其底行.
+
+我断言, $\operatorname{Arr}\C$ 是 $\C$ 上的纤维范畴. 事实上, 容易检验, 笛卡尔图恰好就是笛卡尔方块, 因而结论由 $\C$ 有纤维积这一事实得到.
+\end{origstatement}
+
+\begin{origstatement}{定义}{3.16}\label{ch03:def316}
+范畴 $\C$ 中的一个箭头类 $\mathcal P$ 称为\emph{稳定的} (stable), 如果满足下列两个条件.
+\begin{enumerate}
+\item[(a)] 如果 $f:X\to U$ 属于 $\mathcal P$, 且 $\phi:X'\simeq X$, $\psi:U\simeq U'$ 是同构, 则复合
+\[
+\psi\circ f\circ\phi:X'\longrightarrow U'
+\]
+属于 $\mathcal P$.
+\item[(b)] 给定属于 $\mathcal P$ 的箭头 $Y\to V$ 和任意另一个箭头 $U\to V$, 纤维积 $U\times_VY$ 存在, 且投影 $U\times_VY\to U$ 属于 $\mathcal P$.
+\end{enumerate}
+\end{origstatement}
+
+\begin{origstatement}{例}{3.17}\label{ch03:ex317}
+作为上例的变体, 设 $\mathcal P$ 是稳定的箭头类. $\mathcal P$ 中的箭头是某个范畴的对象, 仍以 $\mathcal P$ 表示这个范畴; 其中从 $X\to U$ 到 $Y\to V$ 的箭头是交换图
+\[
+\begin{tikzcd}
+X\arrow[r]\arrow[d]&Y\arrow[d]\\
+U\arrow[r]&V.
+\end{tikzcd}
+\]
+容易看出, 这是 $\C$ 上的纤维范畴; 笛卡尔箭头恰好是笛卡尔图.
+\end{origstatement}
+
+\begin{origstatement}{例}{3.18}\label{ch03:ex318}
+设 $G$ 是拓扑群. $G$ 的\emph{分类叠} (classifying stack) 是拓扑空间范畴上的纤维范畴 $\mathrm BG\to(\mathrm{Top})$, 其对象
+% Source PDF61 / printed49.
+是主 $G$-丛 $P\to U$, 而从 $P\to U$ 到 $Q\to V$ 的箭头 $(\phi,f)$ 是交换图
+\[
+\begin{tikzcd}
+P\arrow[r,"{\phi}"]\arrow[d]&Q\arrow[d]\\
+U\arrow[r,"{f}"']&V,
+\end{tikzcd}
+\]
+其中映射 $\phi$ 是 $G$-等变的. 函子 $\mathrm BG\to(\mathrm{Top})$ 将主丛 $P\to U$ 映到拓扑空间 $U$, 将箭头 $(\phi,f)$ 映到 $f$.
+
+这个纤维范畴 $\mathrm BG\to(\mathrm{Top})$ 具有如下性质: 其中每个箭头都是笛卡尔的.
+\end{origstatement}
+
+\begin{origstatement}{例}{3.19}\label{ch03:ex319}
+下面是暑期学校的一位参加者提出的有趣例子. 考虑遗忘函子 $F:(\mathrm{Top})\to(\mathrm{Set})$, 它将每个拓扑空间 $X$ 配以其底集合 $FX$, 将每个连续映射配以该映射本身.
+
+我断言, 它使 $(\mathrm{Top})$ 纤维于 $(\mathrm{Set})$ 之上. 假设给定拓扑空间 $Y$、集合 $U$ 和映射 $f:U\to FY$. 以 $X$ 表示赋予\emph{始拓扑} (initial topology) 的集合 $U$: 其中的开集是 $Y$ 的开子集的逆像; 这是使 $f$ 连续的最粗拓扑. 如果 $T$ 是拓扑空间, 则映射 $T\to X$ 连续当且仅当复合 $T\to X\to Y$ 连续; 这意味着, $f:X\to Y$ 是给定箭头 $f:U\to FY$ 之上的笛卡尔箭头.
+
+$(\mathrm{Top})$ 在集合 $U$ 上的纤维, 就是按通常方式看作范畴的 $U$ 上拓扑所成的偏序集.
+
+注意, 在这个例子中, 范畴 $(\mathrm{Top})$ 在 $(\mathrm{Set})$ 之上有一个典范分裂.
+\end{origstatement}
+
+我们关心的是层的范畴. 最简单的例子是一个景的对象上的层所成的纤维范畴, 定义如下.
+
+\begin{origstatement}{例}{3.20}\label{ch03:ex320}
+设 $\C$ 是一个景, $\mathcal T$ 是其拓扑. 我们把赋予逗号拓扑 (定义 2.58) 的范畴 $(\C/X)$ 上的层称为\emph{$X$ 上的层}, 将 $X$ 上层的范畴记为 $\operatorname{Sh}X$.
+
+如果 $f:X\to Y$ 是 $\C$ 中的箭头, 则有相应的限制函子 $f^*:\operatorname{Sh}Y\to\operatorname{Sh}X$, 定义如下.
+
+如果 $G$ 是 $Y$ 上的层, $U\to X$ 是 $(\C/X)$ 的对象, 定义 $f^*G(U\to Y)=G(U\to Y)$, 其中 $U\to Y$ 是 $U\to X$ 与 $f$ 的复合.
+% SOURCE ISSUE: source writes U->Y also in argument of f*G; retained.
+
+如果 $U\to X$ 与 $V\to X$ 是 $(\C/X)$ 的对象, $\phi:U\to V$ 是 $(\C/X)$ 中的箭头, 则 $\phi$ 也是从 $U\to Y$ 到 $V\to Y$ 的箭头, 因而诱导映射
+\[
+\phi^*:F^*(V\to X)=F(U\to Y)\longrightarrow F(V\to Y)=f^*F(V\to X).
+\]
+这赋予 $f^*F$ 函子 $(\C/X)^{\mathrm{op}}\to(\mathrm{Set})$ 的结构. 容易看出, $f^*F$ 是 $(\C/X)$ 上的层.
+% SOURCE ISSUE: F* and reversed U,V in displayed map are printed source notation.
+
+如果 $\phi:F\to G$ 是 $(\C/Y)$ 上层的自然变换, 则有显然定义的、$(\C/X)$ 上层的诱导自然变换 $f^*\phi:f^*F\to f^*G$. 这就定义了函子 $f^*:\operatorname{Sh}Y\to\operatorname{Sh}X$.
+
+可立即检验, 如果 $f:X\to Y$ 和 $g:Y\to Z$ 是 $\C$ 中的箭头, 则有函子的相等式 $(gf)^*=f^*g^*:(\C/Z)\to(\C/X)$. 此外, $\id_X^*:\operatorname{Sh}X\to\operatorname{Sh}X$ 是恒等函子. 这意味着, 我们定义了一个从 $\C$ 到范畴所成范畴的函子, 它将对象 $X$ 映到范畴所成的范畴.
+% SOURCE ISSUE: domains/codomains and last phrase retained as printed.
+% Source PDF62 / printed50.
+根据 \S3.1.3 的结果, 这给出范畴 $(\operatorname{Sh}/\C)\to\C$, 其在 $X$ 上的纤维是 $\operatorname{Sh}X$.
+\end{origstatement}
+
+考虑阿贝尔群层、环层等等, 就能得到这个例子的许多变体.
+
+这个例子格外简单, 因为它由一个函子定义. 在我们关心的大多数情形中, 给定对象上的层所定义于的景, 并非从底范畴 $\C$ 继承的景; 这带来了一些困难, 使人不得不使用繁琐的伪函子机制. 另一方面, 底范畴的拓扑与定义层所用拓扑之间的这种差异, 也正是使拟凝聚层的下降理论远远超出形式演练的原因.
+
+下面直接考虑我们关心的例子, 即拟凝聚层的纤维范畴.
+
+\subsection{拟凝聚层的纤维范畴}
+\def\M{\mathcal M}\def\N{\mathcal N}\def\PP{\mathcal P}
+\def\QCoh{\operatorname{QCoh}}
+这里 $\C$ 是固定底概形 $S$ 上的概形范畴 $(\mathrm{Sch}/S)$. 对每个概形 $U$, 定义 $\QCoh(U)$ 为 $U$ 上拟凝聚层的范畴. 给定态射 $f:U\to V$, 有函子 $f^*:\QCoh(V)\to\QCoh(U)$. 遗憾的是, 给定两个态射 $U\xrightarrow f V\xrightarrow g W$, 拉回 $(gf)^*:\QCoh(W)\to\QCoh(U)$ 与复合 $f^*g^*:\QCoh(W)\to\QCoh(U)$ 并不相等, 而只是典范同构. 这可能使人猜想我们遇到了一个伪函子; 事实也确实如此.
+
+证明这一点最简洁的方法, 大概是利用如下事实: 推前 $f_*:\QCoh(U)\to\QCoh(V)$ 具有函子性, 即 $(gf)_*$ 与 $g_*f_*$ 严格相等, 而 $f^*$ 是 $f_*$ 的左伴随. 这意味着, 给定 $U$ 上的拟凝聚层 $\N$ 与 $V$ 上的拟凝聚层 $\M$, 有关于 $\M$ 与 $\N$ 自然的群的典范同构
+\[
+\Theta_f(\N,\M):
+\Hom_{\mathcal O_V}(\N,f_*\M)\simeq\Hom_{\mathcal O_U}(f^*\N,\M).
+\]
+% SOURCE ISSUE: prose puts N on U, M on V, opposite to the formula; retained.
+更明确地说, 有两个函子
+\[
+\QCoh(U)^{\mathrm{op}}\times\QCoh(V)\longrightarrow(\mathrm{Grp}),
+\]
+分别定义为
+\[
+(\M,\N)\longmapsto\Hom_{\mathcal O_V}(G,f_*\M)
+\]
+与
+\[
+(\M,\N)\longmapsto\Hom_{\mathcal O_U}(f^*\N,\M);
+\]
+于是 $\Theta_f$ 定义了从第一个函子到第二个函子的自然同构.
+% SOURCE ISSUE: product ordering, variance and G in first formula as printed.
+
+等价地, 如果 $\alpha:\M\to\M'$ 与 $\beta:\N\to\N'$ 分别是 $U$ 与 $V$ 上拟凝聚层的同态, 则图
+\[
+\begin{tikzcd}[column sep=large]
+\Hom_{\mathcal O_V}(\N,f_*\M)\arrow[r,"{\Theta_f(\N,\M)}"]\arrow[d,"{f_*\alpha\circ-}"']&\Hom_{\mathcal O_U}(f^*\N,\M)\arrow[d,"{\alpha\circ-}"]\\
+\Hom_{\mathcal O_V}(\N,f_*\M')\arrow[r,"{\Theta_f(\N',\M)}"']&\Hom_{\mathcal O_U}(f^*\N,\M')
+\end{tikzcd}
+\]
+% SOURCE ISSUE: bottom label Theta_f(N',M) retained.
+% Source PDF63 / printed51.
+与
+\[
+\begin{tikzcd}[column sep=large]
+\Hom_{\mathcal O_V}(\N',f_*\M)\arrow[r,"{\Theta_f(\N,\M')}"]\arrow[d,"{-\circ\beta}"']&\Hom_{\mathcal O_U}(f^*\N',\M)\arrow[d,"{-\circ f^*\beta}"]\\
+\Hom_{\mathcal O_V}(\N,f_*\M)\arrow[r,"{\Theta_f(\N,\M)}"']&\Hom_{\mathcal O_U}(f^*\N,\M)
+\end{tikzcd}
+\]
+交换.
+% SOURCE ISSUE: top label Theta_f(N,M') retained.
+
+如果 $U$ 是 $S$ 上的概形, $\N$ 是 $U$ 上的拟凝聚层, 则推前函子 $(\id_U)_*:\QCoh(U)\to\QCoh(U)$ 是恒等函子 (这必须按字面理解, 我并非仅仅断言 $(\id_U)_*$ 与 $\QCoh(U)$ 上恒等函子之间存在典范同构). 现在, 如果 $\M$ 是 $U$ 上的拟凝聚层, 则有从 $\QCoh(U)$ 到 $(\mathrm{Set})$ 的函子的典范伴随同构
+\[
+\begin{aligned}
+\Theta_{\id_U}(\M,-):
+\Hom_{\mathcal O_U}(\M,(\id_U)_*-)
+&=\Hom_{\mathcal O_U}(\M,-)\\
+&\simeq\Hom_{\mathcal O_U}(\id_U^*\M,-).
+\end{aligned}
+\]
+由 Yoneda 引理的对偶形式 (注 2.10), 它对应于一个同构 $\epsilon_U(\M):\id_U^*\M\simeq\M$. 容易看出它具有函子性, 因而定义了从 $\QCoh(U)$ 到自身的函子的同构
+\[
+\epsilon_U:\id_U^*\simeq\id_{\QCoh(U)}.
+\]
+这个同构就是通常的同构: 对某个开子集 $A\subseteq U$, 截面 $s\in\M(A)$ 给出截面 $\id_U^*s\in\M(\id_U^{-1}A)=\M(A)$, 而 $\epsilon_U(\M)$ 将 $\id_U^*s$ 映到 $s$. 这是我们需要的第一项数据.
+
+为得到第二项数据, 考虑两个态射 $U\xrightarrow f V\xrightarrow g W$ 以及 $W$ 上的拟凝聚层 $\PP$. 有如下函子 $\QCoh(U)\to(\mathrm{Grp})$ 的同构链:
+\[
+\begin{aligned}
+\Hom_{\mathcal O_U}((gf)^*\PP,-)
+&\simeq\Hom_{\mathcal O_W}(\PP,(gf)_*-)
+&&\bigl(\text{这是 }\Theta_{gf}(\PP,-)^{-1}\bigr)\\
+&=\Hom_{\mathcal O_W}(\PP,g_*f_*-),\\
+&\simeq\Hom_{\mathcal O_V}(g^*\PP,f_*-)
+&&\bigl(\text{这是 }\Theta_g(\PP,f_*-)\bigr)\\
+&\simeq\Hom_{\mathcal O_U}(g^*f^*\PP,-)
+&&\bigl(\text{这是 }\Theta_f(g^*\PP,-)\bigr);
+\end{aligned}
+\]
+复合
+\[
+\begin{gathered}
+\Theta_f(g^*\PP,-)\circ\Theta_g(\PP,f_*-)\circ\Theta_{gf}(\PP,-)^{-1}:\\
+\Hom_{\mathcal O_U}((gf)^*\PP,-)\simeq\Hom_{\mathcal O_U}(g^*f^*\PP,-)
+\end{gathered}
+\]
+同样由协变 Yoneda 引理对应于一个同构 $\alpha_{f,g}(\PP):f^*g^*\PP\simeq(gf)^*\PP$. 它们给出函子 $\QCoh(W)\to\QCoh(U)$ 的同构 $\alpha_{f,g}:f^*g^*\simeq(gf)^*$. 这也就是通常的同构: 给定某个开子集 $A\subseteq W$ 上的截面 $s\in\PP(A)$, 有两个截面
+\[
+(gf)^*s\in(gf)^*\PP((gf)^{-1}A)=(gf)^*\PP(f^{-1}g^{-1}A)
+\]
+与
+\[
+f^*g^*s\in f^*g^*\PP(f^{-1}g^{-1}A);
+\]
+同构 $\alpha_{f,g}(\PP)$ 将 $f^*g^*s$ 映到 $(gf)^*s$. 因为形如 $(gf)^*s$ 的截面生成作为 $\mathcal O_U$-模层的 $(gf)^*\PP$, 这就唯一刻画了 $\alpha_{f,g}(\PP)$.
+% SOURCE ISSUE: chain and composite have g*f*P, whereas subsequent iso uses f*g*P; retained.
+
+我们还须检验, $\epsilon_U$ 与 $\alpha_{f,g}$ 满足定义 3.10 的条件. 这可以直接在截面上验证, 也可以利用这两个同构通过协变 Yoneda 引理给出的定义; 我们采用后一条途径.
+
+% Source PDF64 / printed52.
+取概形态射 $f:U\to V$. 我们须证明, 对 $V$ 上的任意拟凝聚层 $\N$, 有等式
+\[
+\alpha_{\id_U,f}(\N)=\epsilon_U(f^*\N):\id_U^*f^*\N\longrightarrow f^*\N.
+\]
+这是直接的: 由协变 Yoneda 引理, 只需证明 $\alpha_{\id_U,f}(\N)$ 与 $\epsilon_U(f^*\N)$ 诱导相同的自然变换
+\[
+\Hom_{\mathcal O_U}(f^*\N,-)\longrightarrow\Hom_{\mathcal O_U}(\id_U^*f^*\N,-).
+\]
+但由定义, $\epsilon_U(f^*\N)$ 诱导的自然变换是
+\[
+\Theta_{\id_U}(f^*\N,-),
+\]
+而 $\alpha_{\id_U,f}(\N)$ 诱导的自然变换是
+\[
+\Theta_{\id_U}(f^*\N,-)\circ\Theta_f(\N,(\id_U)_*-)\circ\Theta_f(\N,-)^{-1}
+=\Theta_{\id_U}(f^*\N,-).
+\]
+第一条件的第二部分以及第二个条件, 都可以用类似的论证验证.
+
+与这个伪函子相关联的 $(\mathrm{Sch}/S)$ 上的纤维范畴, 就是\emph{拟凝聚层的纤维范畴}, 记为 $(\QCoh/S)\to(\mathrm{Sch}/S)$.
+
+这个例子有许多变体. 例如, 完全类似地, 可以在赋环拓扑空间范畴之上定义 $\mathcal O$-模层的纤维范畴.
+
+\section{群胚纤维范畴}
+\label{ch03:sec33}
+\begin{origstatement}{定义}{3.21}\label{ch03:def321}
+$\C$ 上的\emph{群胚纤维范畴} (category fibered in groupoids) 是一个纤维于 $\C$ 之上的范畴 $\F$, 使得对 $\C$ 的任意对象 $U$, 范畴 $\F(U)$ 都是群胚.
+\end{origstatement}
+
+文献中经常能见到群胚纤维范畴的另一种定义.
+
+\begin{origstatement}{命题}{3.22}\label{ch03:prop322}
+设 $\F$ 是 $\C$ 上的范畴. 则 $\F$ 是 $\C$ 上的群胚纤维范畴, 当且仅当下列两个条件成立.
+\begin{enumerate}
+\item[(i)] $\F$ 中每个箭头都是笛卡尔的.
+\item[(ii)] 给定 $\F$ 的对象 $\eta$ 和 $\C$ 中的箭头 $f:U\to\pF\eta$, 存在 $\F$ 中的箭头 $\phi:\xi\to\eta$, 使得 $\pF\phi=f$.
+\end{enumerate}
+\end{origstatement}
+\begin{proof}
+假设这两个条件成立: 那么显然 $\F$ 纤维于 $\C$ 之上. 此外, 如果 $\phi:\xi\to\eta$ 是某个 $\C$ 的对象 $U$ 所对应的 $\F(U)$ 中的箭头, 则由条件 3.22(i), 可见存在箭头 $\psi:\eta\to\xi$, 使得 $\pF\psi=\id_U$ 且 $\phi\psi=\id_\eta$; 即 $\F(U)$ 中每个箭头都有右逆. 但这个右逆 $\psi$ 本身也必有右逆, 而 $\psi$ 的右逆必为 $\phi$. 这证明 $\F(U)$ 中每个箭头都可逆.
+
+反过来, 假设 $\F$ 纤维于 $\C$ 之上, 且每个 $\F(U)$ 都是群胚. 条件 (ii) 显然满足. 为检验条件 (i), 设 $\phi:\xi\to\eta$ 是 $\C$ 中映到 $\C$ 中 $f:U\to V$ 的箭头. 选择 $\eta$ 到 $U$ 的一个拉回 $\phi':\xi'\to\eta$; 由定义, 在 $\F(U)$ 中存在箭头 $\alpha:\xi\to\xi'$, 使得 $\phi'\alpha=\phi$. 因为 $\F(U)$ 是群胚, $\alpha$ 是同构, 这就意味着 $\phi$ 是笛卡尔的.
+% SOURCE ISSUE: source says arrow in C (rather than F) here; retained.
+\end{proof}
+
+\begin{origstatement}{推论}{3.23}\label{ch03:cor323}
+从纤维范畴到群胚纤维范畴的任意保持底对象的函子, 都是态射.
+\end{origstatement}
+% Source PDF65 / printed53, opening proof and paragraph.
+\begin{proof}
+这是显然的, 因为群胚纤维范畴中的每个箭头都是笛卡尔的.
+\end{proof}
+
+在 \S3.1 的例子中, 3.15 与 3.17 一般不是群胚纤维范畴; 而 3.18 中引入的拓扑群的分类叠总是群胚纤维范畴.
+% SOURCE ISSUE: section reference 3.1 (rather than3.2) retained.
+
+% Source PDF65 / printed53, from section3.4.
+\section{函子与集合纤维范畴}
+\label{ch03:sec34}
+范畴概念推广了集合概念: 一个集合可以看作每个箭头都是恒等的范畴. 此外, 集合之间的函子就是映射.
+
+类似地, 纤维范畴是函子的推广.
+
+\begin{origstatement}{定义}{3.24}\label{ch03:def324}
+$\C$ 上的\emph{集合纤维范畴} (category fibered in sets) 是一个纤维于 $\C$ 之上的范畴 $\F$, 使得对 $\C$ 的任意对象 $U$, 范畴 $\F(U)$ 都是一个集合.
+\end{origstatement}
+
+下面给出集合纤维范畴的一个有用的刻画.
+
+\begin{origstatement}{命题}{3.25}\label{ch03:prop325}
+设 $\F$ 是 $\C$ 上的范畴. 则 $\F$ 是集合纤维范畴, 当且仅当对于 $\F$ 的任意对象 $\eta$ 与 $\C$ 中的任意箭头 $f:U\to\pF\eta$, 都存在唯一的 $\F$ 中的箭头 $\phi:\xi\to\eta$, 使得 $\pF\phi=f$.
+\end{origstatement}
+\begin{proof}
+假设 $\F$ 是集合纤维范畴. 给定上述 $\eta$ 与 $f:U\to\pF\eta$, 选取位于 $f$ 之上的笛卡尔箭头 $\xi\to\eta$. 如果 $\xi'\to\eta$ 是 $f$ 之上的任意另一个箭头, 由定义, 在 $\F(U)$ 中存在箭头 $\xi'\to\xi$, 使图
+\[
+\begin{tikzcd}
+\xi'\arrow[rr,dashed]\arrow[dr]&&\xi\arrow[dl]\\
+&\eta&
+\end{tikzcd}
+\]
+交换. 因为 $\F(U)$ 是集合, 箭头 $\xi'\to\xi$ 必为恒等箭头, 所以 $\xi\to\eta$ 与 $\xi'\to\eta$ 这两个箭头相等.
+
+反过来, 假设条件成立. 给定图
+\[
+\begin{tikzcd}[column sep=small,row sep=large]
+\zeta\arrow[rr,bend left,"{\psi}"]\arrow[dr,dashed,"{\theta}"]\arrow[dd,mapsto]&&\eta\arrow[dd,mapsto]\\
+&\xi\arrow[ur,"{\phi}"']\arrow[dd,mapsto]&\\
+\pF\zeta\arrow[rr,bend left]\arrow[dr,"{h}"']&&\pF\eta\\
+&\pF\xi\arrow[ur]&
+\end{tikzcd}
+\]
+该条件说明, $h$ 之上的唯一箭头 $\theta:\zeta\to\xi$ 使图交换; 因而范畴 $\F$ 是纤维范畴.
+
+显然, 该条件还意味着对所有 $U$, $\F(U)$ 都是集合.
+\end{proof}
+
+因此, 对集合纤维范畴而言, 沿 $\C$ 中的箭头拉回 $\F$ 的对象是严格唯一的. 于是, 当 $\F$ 是 $\C$ 上的集合纤维范畴, $f:U\to V$ 是 $\C$ 中的箭头时, 拉回映射 $f^*:\F(V)\to\F(U)$ 唯一确定, 并且满足复合规则 $f^*g^*=(gf)^*$. 此外, 对 $\C$ 的任意对象 $U$, $\id_U^*:\F(U)\to\F(U)$ 是恒等映射. 这意味着, 我们定义了一个函子 $\Phi_{\F}:\C^{\mathrm{op}}\to(\mathrm{Set})$, 它将 $\C$ 的每个对象 $U$ 映到 $\F(U)$, 将 $\C$ 中的每个箭头 $f:U\to V$ 映到映射 $f^*:\F(V)\to\F(U)$.
+
+此外, 如果 $F:\F\to\G$ 是集合纤维范畴的态射, 则由于条件 $\pG\circ F=\pF$, 某个 $\C$ 的对象 $U$ 所对应的 $\F(U)$ 中的每个箭头,
+% Source PDF66 / printed54.
+都映到 $\F(U)$ 自身. 因而得到映射 $F_U:\F(U)\to\G(U)$. 可立即检验, 它给出自然变换 $\phi_F:\Phi_{\F}\to\Phi_{\G}$.
+% SOURCE ISSUE: source says arrows sent to F(U) itself; retained.
+
+$\C$ 上的集合纤维范畴构成一个范畴, 其中的箭头是纤维范畴的态射; 上述构造给出了从这个范畴到函子 $\C^{\mathrm{op}}\to(\mathrm{Set})$ 所成范畴的一个函子.
+
+\begin{origstatement}{命题}{3.26}\label{ch03:prop326}
+这是 $\C$ 上的集合纤维范畴所成的范畴与函子 $\C^{\mathrm{op}}\to(\mathrm{Set})$ 所成的范畴之间的一个等价.
+\end{origstatement}
+\begin{proof}
+逆函子由 \S3.1.3 的构造得到. 如果 $\Phi:\C^{\mathrm{op}}\to(\mathrm{Set})$ 是函子, 如下构造集合纤维范畴 $\F_\Phi$. $\F_\Phi$ 的对象是二元组 $(U,\xi)$, 其中 $U$ 是 $\C$ 的对象, $\xi\in\Phi U$. 从 $(U,\xi)$ 到 $(V,\eta)$ 的箭头是 $\C$ 中满足 $\Phi f\eta=\xi$ 的箭头 $f:U\to V$. 由命题 3.25, $\F_\Phi$ 是 $\C$ 上的集合纤维范畴.
+
+对函子的每个自然变换 $\phi:\Phi\to\Phi'$, 配以态射 $F_\phi:\F_\Phi\to\F_{\Phi'}$. $\F_\Phi$ 的对象 $(U,\xi)$ 映到 $(U,\phi_U\xi)$. 如果 $f:(U,\xi)\to(V,\eta)$ 是 $\F_\Phi$ 中的箭头, 那么 $f$ 就是 $\C$ 中满足 $\Phi f(\eta)=\xi$ 的箭头 $f:U\to V$. 这意味着 $\Phi'(f)\phi_V(\eta)=\phi_U\Phi(f)(\eta)=\phi_V\xi$, 所以同一个 $f$ 给出箭头 $f:(U,\phi_U\xi)\to(V,\phi_V\eta)$.
+% SOURCE ISSUE: final equality phi_V xi (rather than phi_U xi) retained.
+
+我们将以下检验留给读者: 这定义了一个从函子范畴到集合纤维范畴所成范畴的函子.
+\end{proof}
+
+因此, 任意函子 $\C^{\mathrm{op}}\to(\mathrm{Set})$ 都给出了 $\C$ 上纤维范畴的一个例子.
+
+\begin{origstatement}{注}{3.27}\label{ch03:rem327}
+有趣的是, 如果 $F:\C^{\mathrm{op}}\to(\mathrm{Set})$ 是函子, $\F\to\C$ 是相关联的集合纤维范畴, 则 $\F$ 的对象 $(X,\xi)$ 是函子 $F$ 的泛偶, 当且仅当它是 $\F$ 的终对象. 因而 $F$ 可表当且仅当 $\F$ 有终对象.
+\end{origstatement}
+
+特别地, 给定 $\C$ 的对象 $X$, 有可表函子
+\[
+\mathrm h_X:\C^{\mathrm{op}}\longrightarrow(\mathrm{Set}),
+\]
+其在对象上的定义规则为 $\mathrm h_XU=\Hom_{\C}(U,X)$. 与此函子相关联的 $\C$ 上的集合纤维范畴是逗号范畴 $(\C/X)$, 而函子 $(\C/X)\to\C$ 是遗忘指向 $X$ 的箭头的函子.
+
+因此, 情形如下. 由 Yoneda 引理可见, 范畴 $\C$ 嵌入函子 $\C^{\mathrm{op}}\to(\mathrm{Set})$ 所成的范畴, 而函子所成的范畴又嵌入纤维范畴所成的范畴.
+
+从现在开始, 我们将函子 $F:\C^{\mathrm{op}}\to(\mathrm{Set})$ 与相应的 $\C$ 上的集合纤维范畴等同, 并且 (并不一致地) 将集合纤维范畴简称为“函子”.
+
+\subsection{对象之上的纤维范畴}
+\begin{origstatement}{命题}{3.28}\label{ch03:prop328}
+设 $\G$ 是 $\C$ 上的集合纤维范畴, $\F$ 是另一个范畴, $F:\F\to\G$ 是函子. 则 $\F$ 纤维于 $\G$ 之上, 当且仅当它经复合 $\pG\circ F:\F\to\C$ 纤维于 $\C$ 之上.
+
+此外, $\F$ 是 $\G$ 上的群胚纤维范畴当且仅当它是 $\C$ 上的群胚纤维范畴; $\F$ 是 $\G$ 上的集合纤维范畴当且仅当它是 $\C$ 上的集合纤维范畴.
+\end{origstatement}
+% Source PDF67 / printed55.
+\begin{proof}
+立即可见, $\G$ 的一个箭头在其于 $\F$ 中的像之上是笛卡尔的, 当且仅当它在其于 $\C$ 中的像之上是笛卡尔的; 第一个断言由此得到.
+% SOURCE ISSUE: source reverses F/G in this sentence; retained.
+
+此外, 可以看出, $\F$ 在 $\C$ 的对象 $U$ 上的纤维, 是 $\F$ 在 $\G$ 中所有位于 $U$ 之上的对象上的纤维作为范畴的不交并; 这些纤维都是群胚或都是集合, 当且仅当它们的不交并如此.
+\end{proof}
+
+可以如下应用这个结果. 设 $S$ 是 $\C$ 的对象, 考虑与可表函子 $\mathrm h_S:\C^{\mathrm{op}}\to(\mathrm{Set})$ 对应的集合纤维范畴 $(\C/S)\to\C$. 由命题 3.28, 给定纤维范畴 $\F\to(\C/S)$ 等同于给定纤维范畴 $\F\to\C$ 以及 $\C$ 上纤维范畴的一个态射 $\F\to(\C/S)$.
+
+特别地, 集合纤维范畴对应于函子; 因而得到: 给定函子 $(\C/S)^{\mathrm{op}}\to(\mathrm{Set})$, 等价于给定函子 $\C^{\mathrm{op}}\to(\mathrm{Set})$ 以及自然变换 $F\to\mathrm h_S$. 对函子描述这个过程, 似乎不如对一般纤维范畴描述那么自然.
+
+给定函子 $F:(\C/S)^{\mathrm{op}}\to(\mathrm{Set})$, 它对应于集合纤维范畴 $\F\to(\C/S)$; 与遗忘函子 $(\C/S)\to\C$ 复合, 得到集合纤维范畴 $\F\to\C$, 后者又对应于函子 $F':\C^{\mathrm{op}}\to(\mathrm{Set})$. 这个函子是什么? 略加思考便会相信, 它可以如下描述: $F'(U)$ 是对 $\C$ 中所有箭头 $U\to S$ 取 $F(U\to S)$ 所得的不交并. $F'$ 在箭头上的作用是显然的.
+
+\subsection{纤维子范畴}
+\begin{origstatement}{定义}{3.29}\label{ch03:def329}
+设 $\F\to\C$ 是纤维范畴. $\F$ 的一个\emph{纤维子范畴} (fibered subcategory) $\G$, 是 $\F$ 的子范畴, 使得复合 $\G\hookrightarrow\F\to\C$ 使 $\G$ 成为 $\C$ 上的纤维范畴, 并且 $\G$ 中任意笛卡尔箭头在 $\F$ 中也是笛卡尔的.
+\end{origstatement}
+
+最后一个条件等价于要求包含函子 $\G\hookrightarrow\F$ 是纤维范畴的态射.
+
+\begin{origstatement}{例}{3.30}\label{ch03:ex330}
+设 $\F\to\C$ 是纤维范畴, $\G$ 是 $\F$ 的满子范畴, 并具有下列性质: 如果 $\eta$ 是 $\G$ 的对象, 而 $\xi\to\eta$ 是 $\F$ 中的笛卡尔箭头, 则 $\xi$ 也属于 $\G$. 那么 $\G$ 是 $\F$ 的纤维子范畴; $\G$ 中的笛卡尔箭头就是 $\F$ 中终点属于 $\G$ 的笛卡尔箭头.
+\end{origstatement}
+
+因此, 例如, 局部自由层所成的范畴就是 $(\mathrm{Sch}/S)$ 上纤维范畴 $(\QCoh/S)$ 的一个纤维子范畴.
+
+下面是一个有趣的例子.
+
+\begin{origstatement}{定义}{3.31}\label{ch03:def331}
+设 $\F\to\C$ 是纤维范畴. \emph{与 $\F$ 相关联的群胚纤维范畴} 是 $\F$ 的子范畴 $\F_{\mathrm{cart}}$, 其对象是 $\F$ 的所有对象, 其箭头是 $\F$ 的笛卡尔箭头.
+\end{origstatement}
+
+\begin{origstatement}{命题}{3.32}\label{ch03:prop332}
+如果 $\F\to\C$ 是纤维范畴, 则 $\F_{\mathrm{cart}}\to\C$ 是群胚纤维范畴.
+
+此外, 如果 $\G\to\F$ 是纤维范畴的态射, 而 $\G$ 是群胚纤维范畴, 则 $F$ 的像包含于 $\F_{\mathrm{cart}}$.
+% SOURCE ISSUE: source uses unnamed functor then F; retained.
+\end{origstatement}
+
+由命题 3.22 和命题 3.4(iii), 证明是直接的.
+
+% Source PDF68 / printed56.
+\section{纤维范畴的等价}
+\label{ch03:sec35}
+\subsection{函子的自然变换}
+纤维范畴是范畴而非函子这一事实有着深刻影响, 也确实带来了困难. 一如既往, 主要问题在于范畴之间的函子可以同构而不相等; 换言之, 两个固定范畴之间的函子构成一个范畴, 其箭头由自然变换给出.
+
+\begin{origstatement}{定义}{3.33}\label{ch03:def333}
+设 $\F,\G$ 是纤维于 $\C$ 之上的两个范畴, $F,G:\F\to\G$ 是两个态射. 一个\emph{保持底对象的自然变换} $\alpha:F\to G$ 是这样的自然变换: 对 $\F$ 的任意对象 $\xi$, 箭头 $\alpha_\xi:F\xi\to G\xi$ 属于 $\G(U)$, 其中 $U\mathrel{\mathop=^{\mathrm{def}}}\pF\xi=\pG(F\xi)=\pG(G\xi)$.
+
+$F$ 与 $G$ 的一个\emph{同构}, 就是一个保持底对象且为函子同构的自然变换 $F\to G$.
+\end{origstatement}
+
+可立即检验, 保持底对象的同构的逆也保持底对象.
+
+存在一个范畴, 其对象是从 $\F$ 到 $\G$ 的态射, 其箭头是保持底对象的自然变换; 记为 $\Hom_{\C}(\F,\G)$.
+
+\subsection{等价}
+\begin{origstatement}{定义}{3.34}\label{ch03:def334}
+设 $\F,\G$ 是 $\C$ 上的两个纤维范畴. $\F$ 与 $\G$ 的一个\emph{等价} 是态射 $F:\F\to\G$, 使得存在另一个态射 $G:\G\to\F$, 以及 $G\circ F$ 与 $\id_{\F}$ 的同构和 $F\circ G$ 与 $\id_{\G}$ 的同构.
+
+我们将 $G$ 简称为 $F$ 的一个\emph{逆}.
+\end{origstatement}
+
+\begin{origstatement}{命题}{3.35}\label{ch03:prop335}
+假设 $\F,\F',\G,\G'$ 是纤维于 $\C$ 之上的范畴, $F:\F'\to\F$ 和 $G:\G\to\G'$ 是等价. 则存在范畴的等价
+\[
+\Hom_{\C}(\F,\G)\longrightarrow\Hom_{\C}(\F',\G'),
+\]
+将每个 $\Phi:\F\to\G$ 映到复合
+\[
+G\circ\Phi\circ F:\F'\longrightarrow\G'.
+\]
+\end{origstatement}
+
+证明作为练习留给读者.
+
+下面是检验纤维范畴的态射是否为等价的基本准则.
+
+\begin{origstatement}{命题}{3.36}\label{ch03:prop336}
+设 $F:\F\to\G$ 是纤维范畴的态射. 则 $F$ 是等价, 当且仅当对于 $\C$ 的任意对象 $U$, 限制 $F_U:\F(U)\to\G(U)$ 是范畴的等价.
+\end{origstatement}
+\begin{proof}
+假设 $G:\G\to\F$ 是 $F$ 的一个逆; 两个同构 $F\circ G\simeq\id_{\G}$ 与 $G\circ F\simeq\id_{\F}$ 限制为同构 $F_U\circ G_U\simeq\id_{\G(U)}$ 与 $G_U\circ F_U\simeq\id_{\F(U)}$, 所以 $G_U$ 是 $F_U$ 的一个逆.
+
+反过来, 假设对 $\C$ 的任意对象 $U$, $F_U:\F(U)\to\G(U)$ 都是范畴等价, 我们来构造逆 $G:\G\to\F$. 下面是所需的主要事实.
+
+\begin{origstatement}{引理}{3.37}\label{ch03:lem337}
+设 $F:\F\to\G$ 是纤维范畴的态射, 使得每个限制 $F_U:\F(U)\to\G(U)$ 都是全忠实的. 则函子 $F$ 是全忠实的.
+\end{origstatement}
+% Source PDF69 / printed57.
+\begin{proof}
+我们须证明, 给定 $\F$ 的两个对象 $\xi',\eta'$ 和 $\G$ 中的箭头 $\phi:F\xi'\to F\eta'$, 存在唯一的 $\F$ 中的箭头 $\phi':\xi'\to\eta'$, 使得 $F\phi'=\phi$. 置 $\xi=F\xi'$, $\eta=F\eta'$. 设 $\eta_1'\to\eta'$ 是 $\eta'$ 到 $U$ 的拉回, $\eta_1=F\eta_1'$. 那么 $\eta_1'\to\eta'$ 的像 $\eta_1\to\eta$ 是笛卡尔的, 所以每个态射 $\xi\to\eta$ 都唯一分解为 $\xi\to\eta_1\to\eta$, 其中箭头 $\xi\to\xi_1$ 属于 $\G(U)$. 类似地, 所有箭头 $\xi'\to\eta'$ 都唯一地经过 $\eta_1$ 分解; 因为 $\G(U)$ 中每个箭头 $\xi\to\eta_1$ 都唯一提升为 $\F(U)$ 中的箭头 $\xi'\to\eta_1'$, 引理得证.
+% SOURCE ISSUE: U not defined, xi_1 and factor via eta_1 instead of eta_1' retained.
+\end{proof}
+
+对 $\G$ 的任意对象 $\xi$, 选择 $\F(U)$ 的一个对象 $G\xi$, 其中 $U=\pG\xi$, 以及 $\G(U)$ 中的同构 $\alpha_\xi:\xi\simeq F(G\xi)$; 这样的 $G\xi$ 与 $\alpha_\xi$ 存在, 因为 $F_U:\F(U)\to\G(U)$ 是范畴等价.
+
+现在, 如果 $\phi:\xi\to\eta$ 是 $\G$ 中的箭头, 由引理, 存在唯一的箭头 $G\phi:G\xi\to G\eta$, 使得 $F(G\phi)=\alpha_\eta\circ\phi\circ\alpha_\xi^{-1}$, 即使图
+\[
+\begin{tikzcd}
+\xi\arrow[r,"{\phi}"]\arrow[d,"{\alpha_\xi}"']&\eta\arrow[d,"{\alpha_\eta}"]\\
+F(G\xi)\arrow[r,"{F(G\phi)}"']&F(G\eta)
+\end{tikzcd}
+\]
+交换.
+
+这些运算定义了函子 $G:\G\to\F$. 可立即检验, 将每个对象 $\xi$ 映到同构 $\alpha_\xi:\xi\simeq F(G\xi)$, 就定义了函子同构 $\id_{\G}\simeq F\circ G:\G\to\G$.
+
+现在只剩下检验 $G\circ F:\F\to\F$ 同构于恒等函子 $\id_{\F}$.
+
+固定 $\F$ 中位于 $\C$ 的对象 $U$ 之上的对象 $\xi'$; 在 $\G(U)$ 中有典范同构 $\alpha_{F\xi'}:F\xi'\simeq F(G(F\xi'))$. 由于 $F_U$ 全忠实, 在 $\F(U)$ 中存在唯一的同构 $\beta_{\xi'}:\xi'\simeq G(F\xi')$, 使得 $F\beta_{\xi'}=\alpha_{F\xi'}$; 容易检验, 这定义了函子的同构 $\beta:G\circ F\simeq\id_{\G}$.
+% SOURCE ISSUE: final identity printed id_G (instead of id_F), direction reversed; retained.
+\end{proof}
+
+\subsection{等价关系纤维范畴}
+如 \S3.4 所述, 范畴概念推广了集合概念.
+
+还可以刻画哪些范畴等价于集合: 它们就是等价关系.
+
+假设 $R\subseteq X\times X$ 是集合 $X$ 上的等价关系. 我们可以构造一个范畴 $(X,R)$, 其中 $X$ 是对象集, $R$ 是箭头集, 起点与终点映射 $R\to X$ 分别由第一、第二投影给出. 因而, 给定 $X$ 中的 $x,y$, 如果 $x,y$ 属于同一个等价类, 就恰有一个箭头 $(x,y)$; 否则没有箭头. 传递性保证箭头可以复合; 自反性说明, 对每个对象 $x\in X$ 有唯一的箭头 $(x,x)$, 这就是恒等箭头. 最后, 对称性说明每个箭头 $(x,y)$ 都有逆 $(y,x)$. 因此, $(X,R)$ 是一个群胚, 其中从一个给定对象到另一个对象至多有一个箭头.
+
+反过来, 给定一个从任意给定对象到另一个对象至多有一个箭头的群胚, 如果以 $X$ 表示对象集, 以 $R$ 表示箭头集, 则起点与终点映射诱导单射 $R\to X\times X$, 从而给出 $X$ 上的等价关系.
+
+所以, 一个等价关系可以看作一个从任意给定对象到另一个对象至多有一个箭头的群胚. 等价地, 等价关系是这样的群胚: 从一个对象到自身的唯一箭头是恒等箭头.
+
+% Source PDF70 / printed58.
+\begin{origstatement}{命题}{3.38}\label{ch03:prop338}
+一个范畴等价于一个集合, 当且仅当它是等价关系.
+\end{origstatement}
+\begin{proof}
+如果一个范畴等价于一个集合, 立即可见它是等价关系. 如果 $(X,R)$ 是等价关系, 而 $X/R$ 是对象的同构类所成的集合, 即等价类集, 则容易检验, 映射 $X\to X/R$ 给出一个全忠实且本质满的函子, 因而是等价.
+\end{proof}
+
+纤维范畴也有类似的结果.
+
+\begin{origstatement}{定义}{3.39}\label{ch03:def339}
+$\C$ 上的范畴 $\F$ 称为一个\emph{拟函子} (quasi-functor), 或称它是\emph{等价关系纤维范畴}, 如果它是纤维范畴, 而且每个纤维 $\F(U)$ 都是等价关系.
+\end{origstatement}
+
+拟函子有如下刻画.
+
+\begin{origstatement}{命题}{3.40}\label{ch03:prop340}
+$\C$ 上的范畴 $\F$ 是拟函子, 当且仅当下列两个条件成立.
+\begin{enumerate}
+\item[(i)] 给定 $\F$ 的对象 $\eta$ 与 $\C$ 中的箭头 $f:U\to\pF\eta$, 存在 $\F$ 中的箭头 $\phi:\xi\to\eta$, 使得 $\pF\phi=f$.
+\item[(ii)] 给定 $\F$ 的两个对象 $\xi,\eta$ 与 $\C$ 中的箭头 $f:\pF\xi\to\pF\eta$, 在 $f$ 之上至多有一个箭头 $\xi\to\eta$.
+\end{enumerate}
+\end{origstatement}
+
+容易的证明留给读者.
+
+\begin{origstatement}{命题}{3.41}\label{ch03:prop341}
+$\C$ 上的一个纤维范畴是拟函子, 当且仅当它等价于一个函子.
+\end{origstatement}
+\begin{proof}
+这是命题 3.36 的一个应用.
+
+假设纤维范畴 $\F$ 等价于函子 $\Phi$; 则每个范畴 $\F(U)$ 都等价于集合 $\Phi U$, 所以由命题 3.38, $\F$ 是 $\C$ 上的等价关系纤维范畴.
+
+反过来, 假设 $\F$ 是等价关系纤维范畴. 特别地, 它是群胚纤维范畴, 所以由命题 3.22, $\F$ 中每个箭头都是笛卡尔的. 对 $\C$ 的每个对象 $U$, 以 $\Phi U$ 表示 $\F(U)$ 中元素的同构类集. 给定 $\C$ 中的箭头 $f:U\to V$, $\F(V)$ 中两个彼此同构的对象 $\eta,\eta'$, 以及 $\eta,\eta'$ 到 $\F(U)$ 的两个拉回 $\xi,\xi'$, 则 $\xi$ 与 $\xi'$ 在 $\F(U)$ 中同构; 这给出良定义的映射 $f^*:\Phi V\to\Phi U$, 将 $\F(V)$ 中的同构类 $[\eta]$ 映到 $\eta$ 的拉回的同构类. 容易看出, 这赋予 $\Phi$ 函子 $\C^{\mathrm{op}}\to(\mathrm{Set})$ 的结构. 将 $\Phi$ 视为集合纤维范畴, 由构造便得到态射 $\F\to\Phi$. 对 $\C$ 的每个对象 $U$, 它的限制 $\F(U)\to\Phi U$ 是等价, 所以由命题 3.36, 态射 $\F\to\Phi$ 是等价.
+\end{proof}
+
+下面给出几个有用的事实.
+
+\begin{origstatement}{命题}{3.42}\label{ch03:prop342}
+\begin{enumerate}
+\item[(i)] 如果 $\G$ 是群胚纤维范畴, 则 $\Hom_{\C}(\F,\G)$ 是群胚.
+\item[(ii)] 如果 $\G$ 是拟函子, 则 $\Hom_{\C}(\F,\G)$ 是等价关系.
+\item[(iii)] 如果 $\G$ 是函子, 则 $\Hom_{\C}(\F,\G)$ 是集合.
+\end{enumerate}
+\end{origstatement}
+
+容易的证明留给读者.
+
+用 $2$-范畴的术语说, 第 (iii) 项说明集合纤维范畴所成的 $2$-范畴实际上只是一个 $1$-范畴; 第 (ii) 项说明拟函子所成的 $2$-范畴等价于一个 $1$-范畴.
+
+% Source PDF71 / printed59.
+\section{作为纤维范畴的对象与 $2$-Yoneda 引理}
+\label{ch03:sec36}
+\subsection{可表纤维范畴}
+在 \S2.1 中, 我们已经看到如何将范畴 $\C$ 嵌入函子范畴 $\Hom(\C^{\mathrm{op}},(\mathrm{Set}))$; 在 \S3.4 中, 又看到如何将范畴 $\Hom(\C^{\mathrm{op}},(\mathrm{Set}))$ 嵌入 $\C$ 上纤维范畴所成的 $2$-范畴. 将这两个嵌入复合, 就把 $\C$ 嵌入纤维范畴所成的 $2$-范畴: $\C$ 的对象 $X$ 映到纤维范畴 $(\C/X)\to\C$. 此外, 箭头 $f:X\to Y$ 映到纤维范畴的态射 $(\C/f):(\C/X)\to(\C/Y)$, 它将 $(\C/X)$ 的对象 $U\to X$ 映到复合 $U\to X\xrightarrow f Y$. 函子 $(\C/f)$ 将 $(\C/X)$ 中的箭头
+\[
+\begin{tikzcd}
+U\arrow[rr]\arrow[dr]&&V\arrow[dl]\\
+&X&
+\end{tikzcd}
+\]
+映到将两边都与 $f:X\to Y$ 复合所得到的交换图.
+
+这就是弱 Yoneda 引理的 $2$-范畴版本.
+
+\begin{origstatement}{弱 $2$-Yoneda 引理}{}\label{ch03:weak2yoneda}
+将每个箭头 $f:X\to Y$ 映到函子 $(\C/f):(\C/X)\to(\C/Y)$ 的映射是双射.
+\end{origstatement}
+
+\begin{origstatement}{定义}{3.43}\label{ch03:def343}
+$\C$ 上的纤维范畴称为\emph{可表的} (representable), 如果它等价于形如 $(\C/X)$ 的范畴.
+\end{origstatement}
+
+因此, 由命题 3.41, 可表范畴必为拟函子. 但须小心: 如果 $\F,\G$ 是纤维范畴, 分别等价于 $\C$ 的两个对象 $X,Y$ 所对应的 $(\C/X),(\C/Y)$, 则
+\[
+\Hom(X,Y)=\Hom((\C/X),(\C/Y)),
+\]
+而根据命题 3.35, 有范畴的等价
+\[
+\Hom((\C/X),(\C/Y))\simeq\Hom_{\C}(\F,\G);
+\]
+但 $\Hom_{\C}(\F,\G)$ 未必是集合, 它完全可能是一个等价关系.
+
+\subsection{$2$-范畴的 Yoneda 引理}
+与函子的情形一样, 我们有更强的 $2$-范畴 Yoneda 引理. 假设 $\F$ 是纤维于 $\C$ 之上的范畴, $X$ 是 $\C$ 的对象. 给定态射 $F:(\C/X)\to\F$, 可将它配以对象 $F(\id_X)\in\F(X)$. 此外, 对函子 $F,G:(\C/X)\to\F$ 的每个保持底对象的自然变换 $\alpha:F\to G$, 配以箭头 $\alpha_{\id_X}:F(\id_X)\to G(\id_X)$. 这定义了函子
+\[
+\Hom_{\C}((\C/X),\F)\longrightarrow\F(X).
+\]
+
+反过来, 给定对象 $\xi\in\F(X)$, 如下得到函子 $F_\xi:(\C/X)\to\F$. 对 $(\C/X)$ 的对象 $\phi:U\to X$, 定义 $F_\xi(\phi)=\phi^*\xi\in\F(U)$; 对 $(\C/X)$ 中的箭头
+\[
+\begin{tikzcd}
+U\arrow[rr,"{f}"]\arrow[dr,"{\phi}"']&&V\arrow[dl,"{\psi}"]\\
+&X&
+\end{tikzcd}
+\]
+% Source PDF72 / printed60.
+配以使图
+\[
+\begin{tikzcd}[column sep=small,row sep=large]
+\phi^*\xi\arrow[rr,bend left]\arrow[dr,dashed,"{\theta}"]\arrow[dd,mapsto]&&\xi\arrow[dd,mapsto]\\
+&\psi^*\xi_S\arrow[ur]\arrow[dd,mapsto]&\\
+U\arrow[rr,bend left,"{\phi}"]\arrow[dr,"{h}"']&&X\\
+&V\arrow[ur,"{\psi}"']&
+\end{tikzcd}
+\]
+交换的 $\F(U)$ 中的唯一箭头 $\theta:\phi^*\xi\to\psi^*\xi$. 我们将检验 $F_\xi$ 确为函子的工作留给读者.
+% SOURCE ISSUE: F(U), xi_S and bottom h rather than f retained as printed.
+
+\begin{origstatement}{$2$-Yoneda 引理}{}\label{ch03:2yoneda}
+上述两个函子定义了范畴的等价
+\[
+\Hom_{\C}((\C/X),\F)\simeq\F(X).
+\]
+\end{origstatement}
+\begin{proof}
+为了检验复合
+\[
+\F(X)\longrightarrow\Hom_{\C}((\C/X),\F)\longrightarrow\F(X)
+\]
+同构于恒等函子, 注意对任意对象 $\xi\in\F(X)$, 将该复合用于 $\xi$ 得到 $F_\xi(\xi)=\id_X^*\xi$, 它典范同构于 $\xi$. 容易看出, 这定义了函子的同构.
+% SOURCE ISSUE: F_xi(xi) instead of F_xi(id_X) retained.
+
+对复合
+\[
+\Hom_{\C}((\C/X),\F)\longrightarrow\F(X)\longrightarrow\Hom_{\C}((\C/X),\F),
+\]
+取态射 $F:(\C/X)\to\F$, 并置 $\xi=F(\id_X)$. 我们须构造 $F$ 与 $F_\xi$ 之间保持底对象的函子同构. 恒等箭头 $\id_X$ 是范畴 $(\C/X)$ 的终对象, 所以对任意对象 $\phi:U\to X$, 存在唯一的箭头 $\phi\to\id_X$, 它显然是笛卡尔的. 由于 $F$ 是函子, 应用 $F$ 后它仍然是笛卡尔的: 这意味着, $F(\phi)$ 是 $\xi=F(\id_X)$ 沿 $\phi:U\to X$ 的拉回, 因而在 $\F(U)$ 中存在典范同构 $F_\xi(\phi)=\phi^*\xi\simeq F(\phi)$. 容易检验, 这定义了保持底对象的函子同构, 证明完毕.
+\end{proof}
+
+我们已经将对象 $X$ 与它表示的函子 $\mathrm h_X:\C^{\mathrm{op}}\to(\mathrm{Set})$ 等同, 又将函子 $\mathrm h_X$ 与相应的范畴 $(\C/X)$ 等同; 因此, 为保持一致, 必须将 $X$ 与 $(\C/X)$ 等同. 于是, 我们将用 $X$ 表示 $(\C/X)$.
+
+与函子的情形一样, $2$-Yoneda 引理的强形式可用来重新表述可表性条件. 态射 $(\C/X)\to\F$ 对应于一个对象 $\xi\in\F(X)$, 后者又定义了上面描述的函子 $F':(\C/X)\to\F$; 它与原来的函子 $F$ 同构. 那么, $F'$ 是等价当且仅当对 $\C$ 的每个对象 $U$, 限制
+\[
+F'_U:\Hom_{\C}(U,X)=(\C/X)(U)\longrightarrow\F(U),
+\]
+即将每个 $f:U\to X$ 映到拉回 $f^*\xi\in\F(U)$ 的函子, 是范畴等价. 因为 $\Hom_{\C}(U,X)$ 是集合, 这等价于说 $\F(U)$ 是群胚, 而且 $\F(U)$ 的每个对象都通过唯一的同构, 同构于 $\Hom_{\C}(U,X)$ 中唯一一个元素的像. 由于 $U$ 中的同构 $\rho\simeq f^*\xi$ 对应于笛卡尔箭头 $\rho\to\xi$, 并且在群胚中所有箭头都是笛卡尔的, 这意味着 $\F$ 是群胚纤维范畴, 且对每个 $\rho\in\F(U)$, 存在唯一箭头 $\rho\to\xi$. 我们证明了如下结论.
+
+% Source PDF73 / printed61.
+\begin{origstatement}{命题}{3.44}\label{ch03:prop344}
+$\C$ 上的纤维范畴 $\F$ 可表, 当且仅当 $\F$ 是群胚纤维范畴, 且存在 $\C$ 的一个对象 $U$ 和 $\F(U)$ 的一个对象 $\xi$, 使得对 $\F$ 的任意对象 $\rho$, 在 $\F$ 中都存在唯一箭头 $\rho\to\xi$.
+\end{origstatement}
+
+\subsection{纤维范畴的分裂}
+如例 3.14 所示, 纤维范畴未必容许分裂. 不过, 纤维范畴总是等价于一个分裂纤维范畴.
+
+\begin{origstatement}{定理}{3.45}\label{ch03:thm345}
+设 $\F\to\C$ 是纤维范畴. 则存在典范定义的分裂纤维范畴 $\widetilde\F\to\C$ 以及 $\widetilde\F$ 与 $\F$ 之间的纤维范畴等价.
+\end{origstatement}
+\begin{proof}
+在本证明中, 如果 $U$ 是 $\C$ 的对象, 就将函子 $\mathrm h_U$ 与逗号范畴 $(\C/U)$ 等同. 有从范畴 $\C^{\mathrm{op}}$ 到全体范畴所成范畴的函子 $\Hom(-,\F):\C^{\mathrm{op}}\to\Cat$. 如果 $U$ 是 $\C$ 的对象, 这个函子将 $U$ 映到保持底对象的自然变换所成的范畴 $\Hom_{\C}(\mathrm h_U,\F)$. 箭头 $U\to V$ 对应于自然变换 $\mathrm h_U\to\mathrm h_V$, 后者诱导函子 $\Hom_{\C}(\mathrm h_V,\F)\to\Hom_{\C}(\mathrm h_U,\F)$.
+% SOURCE ISSUE: Hom_C objects called natural transformations rather than morphisms; retained.
+
+以 $\widetilde\F$ 表示与这个函子相关联的纤维范畴: 按定义, $\widetilde\F$ 配有一个分裂. 有显然的态射 $\widetilde\F\to\F$, 将对象 $\phi:\mathrm h_U\to\F$ 映到 $\phi(\id_U)\in\F(U)$. 根据 $2$-Yoneda 引理与命题 3.36 的准则, 这是一个等价.
+\end{proof}
+
+在例 3.14 所述满群同态 $G\to H$ 的情形, 算出这个构造给出了什么, 是一个有趣的练习.
+
+\section{纤维范畴的箭头函子}
+\label{ch03:sec37}
+假设 $\F\to\C$ 是纤维范畴; 如果 $U$ 是 $\C$ 的对象, $\xi,\eta$ 是 $\F(U)$ 的对象, 我们以 $\Hom_U(\xi,\eta)$ 表示 $\F(U)$ 中从 $\xi$ 到 $\eta$ 的箭头所成的集合.
+
+设 $\xi,\eta$ 是 $\F$ 中位于 $\C$ 的同一个对象 $S$ 之上的两个对象. 设 $u_1:U_1\to S$, $u_2:U_2\to S$ 是 $\C$ 中的箭头; 它们是逗号范畴 $(\C/S)$ 的对象. 假设 $\xi_i\to\xi$ 和 $\eta_i\to\eta$ 是沿 $u_i:U_i\to S$ 的拉回, $i=1,2$. 对 $(\C/S)$ 中的每个箭头 $f:U_1\to U_2$, 由拉回的定义, 有两个各自唯一的箭头 $\alpha_f:\xi_1\to\xi_2$ 与 $\beta_f:\eta_1\to\eta_2$, 使得两个图
+\[
+\begin{tikzcd}
+\xi_1\arrow[rr,"{\alpha_f}"]\arrow[dr]&&\xi_2\arrow[dl]\\
+&\xi&
+\end{tikzcd}
+\qquad\text{与}\qquad
+\begin{tikzcd}
+\eta_1\arrow[rr,"{\beta_f}"]\arrow[dr]&&\eta_2\arrow[dl]\\
+&\xi&
+\end{tikzcd}
+\]
+交换. 由命题 3.4(iii), 箭头 $\alpha_f,\beta_f$ 都是笛卡尔的; 定义拉回映射
+\[
+f^*:\Hom_{U_2}(\xi_2,\eta_2)\longrightarrow\Hom_{U_1}(\xi_1,\eta_1),
+\]
+其中 $f^*\phi$ 定义为 $\F(U_1)$ 中使图
+\[
+\begin{tikzcd}
+\xi_1\arrow[r,"{f^*\phi}"]\arrow[d,"{\alpha_f}"']&\eta_1\arrow[d,"{\beta_f}"]\\
+\xi_2\arrow[r,"{\phi}"']&\eta_2
+\end{tikzcd}
+\]
+% Source PDF74 / printed62.
+交换的唯一箭头 $f^*\phi:\xi_1\to\eta_1$. 如果还给定 $(\C/S)$ 中的第三个箭头 $g:U_2\to U_3$, 以及拉回 $\xi_3\to\xi$, $\eta_3\to\eta$, 则有箭头 $\alpha_g:\xi_2\to\xi_3$ 和 $\beta_g:\eta_2\to\eta_3$; 可立即检验
+\[
+\alpha_{gf}=\alpha_g\circ\alpha_f:\xi_1\longrightarrow\xi_3,
+\qquad
+\beta_{gf}=\beta_g\circ\beta_f:\eta_1\longrightarrow\eta_3,
+\]
+从而
+\[
+(gf)^*=f^*g^*:\Hom_{U_3}(\xi_3,\eta_3)\longrightarrow\Hom_{U_1}(\xi_1,\eta_1).
+\]
+% SOURCE ISSUE: second triangle's bottom object xi (rather than eta) retained.
+
+在为 $\F$ 选择分裂选择后, 可以定义函子
+\[
+\underline{\Hom}_S(\xi,\eta):(\C/S)^{\mathrm{op}}\longrightarrow(\mathrm{Set}),
+\]
+将每个对象 $u:U\to S$ 映到范畴 $\F(U)$ 中的箭头所成的集合 $\Hom_U(u^*\xi,u^*\eta)$. 从 $u_1:U_1\to S$ 到 $u_2:U_2\to S$ 的箭头 $f:U_1\to U_2$ 给出映射
+\[
+f^*:\Hom_{U_2}(u_2^*\xi,u_2^*\eta)\longrightarrow\Hom_{U_1}(u_1^*\xi,u_1^*\eta);
+\]
+这定义了 $\underline{\Hom}_S(\xi,\eta)$ 在箭头上的作用.
+
+容易检验, 函子 $\underline{\Hom}_S(\xi,\eta)$ 不依赖于分裂选择, 意思是不同分裂选择给出典范同构的函子. 假设对每个 $f:U\to V$ 和 $\F(V)$ 中的每个对象 $\zeta$, 选了另一个拉回 $f^{\scriptscriptstyle\vee}\zeta\to\zeta$; 那么对每个箭头 $u:U\to S$, 在 $\F(U)$ 中都有典范同构 $u^*\eta\simeq u^{\scriptscriptstyle\vee}\eta$, 从而给出双射对应
+\[
+\Hom_U(u^*\xi,u^*\eta)\simeq\Hom_S(u^{\scriptscriptstyle\vee}\xi,u^{\scriptscriptstyle\vee}\eta),
+\]
+得到由这两种拉回定义的箭头函子的同构.
+% SOURCE ISSUE: right-hand Hom subscript S instead of U retained.
+
+实际上, $\underline{\Hom}_S(\xi,\eta)$ 可以更自然地定义为一个拟函子
+\[
+\mathcal H\!om_S(\xi,\eta)\longrightarrow(\C/S);
+\]
+这不需要选择任何分裂选择.
+
+从这个角度看, $\mathcal H\!om_S(\xi,\eta)$ 中位于 $(\C/S)$ 的某个对象 $u:U\to S$ 之上的对象, 是三元组
+\[
+(\xi_1\longrightarrow\xi,\eta_1\longrightarrow\eta,\phi),
+\]
+其中 $\xi_1\to\xi$ 与 $\eta_1\to\eta$ 是 $\F$ 中位于 $u$ 之上的笛卡尔箭头, 而 $\phi:\xi_1\to\eta_1$ 是 $\F(U)$ 中的箭头. 从位于 $u_1:U_1\to S$ 之上的 $(\xi_1\to\xi,\eta_1\to\eta,\phi_1)$ 到位于 $u_2:U_2\to S$ 之上的 $(\xi_2\to\xi,\eta_2\to\eta,\phi_2)$ 的箭头, 是 $(\C/S)$ 中满足 $f^*\phi_2=\phi_1$ 的箭头 $f:U_1\to U_2$.
+
+由命题 3.40 可见, $\mathcal H\!om_S(\xi,\eta)$ 是 $\C$ 上的拟函子, 因而由命题 3.41 等价于一个函子: 当然, 这就是前一个构造得到的函子 $\underline{\Hom}_S(\xi,\eta)$.
+% SOURCE ISSUE: source says over C rather than over (C/S); retained.
+
+可以如下证明这一点: 把 $\underline{\Hom}_S(\xi,\eta)$ 看作 $(\C/S)$ 上的集合纤维范畴, 其对象是二元组 $(\phi,u:U\to S)$, 其中 $u:U\to S$ 是 $(\C/S)$ 的对象, $\phi:u^*\xi\to u^*\eta$ 是 $\F(U)$ 中的箭头; 它也给出 $\mathcal H\!om_S(\xi,\eta)$ 中位于 $U$ 之上的对象 $(u^*\xi\to\xi,u^*\eta\to\eta,\phi)$. $\underline{\Hom}_S(\xi,\eta)$ 的对象之间的箭头, 恰好就是 $\mathcal H\!om_S(\xi,\eta)$ 中对应对象之间的箭头, 因此得到 $\underline{\Hom}_S(\xi,\eta)$ 到 $\mathcal H\!om_S(\xi,\eta)$ 的嵌入. 但 $\mathcal H\!om_S(\xi,\eta)$ 的每个对象都同构于 $\underline{\Hom}_S(\xi,\eta)$ 的一个对象, 所以这两个纤维范畴等价.
+
+% Source PDF75 / printed63.
+\section{纤维范畴中的等变对象}
+\label{ch03:sec38}
+带群概形作用的概形上的等变模层, 按照 [MFK94, Chapter~1, \S3] 或 [Tho87] 中的定义, 其概念颇为繁复, 而且不甚直观. 直观想法是: 给定群概形 $G$ 在概形 $X$ 上的作用, 等变层应当是一个层 $\mathcal F$, 并且配有 $G$ 在二元组 $(X,\mathcal F)$ 上的作用, 与 $G$ 在 $X$ 上的作用相容. 由于二元组 $(X,\mathcal F)$ 是模层的纤维范畴中的对象, 纤维范畴的语言十分适合表达这个概念.
+
+设 $G:\C\to(\mathrm{Grp})$ 是函子, $\F\to\C$ 是纤维范畴, $X$ 是 $\C$ 中带有 $G$ 作用的对象 (见 \S2.2.1).
+% SOURCE ISSUE: G printed covariant here; later text uses contravariance.
+
+\begin{origstatement}{定义}{3.46}\label{ch03:def346}
+$\F(X)$ 中的一个 \emph{$G$-等变对象} (equivariant object), 是 $\F(X)$ 的对象 $\rho$, 并且对任意 $\xi\in\F(U)$ 都配以 $G(U)$ 在集合 $\Hom_{\F}(\xi,\rho)$ 上的作用, 使得下列两个条件成立.
+\begin{enumerate}
+\item[(i)] 对 $\F$ 中任意映到箭头 $f:U\to V$ 的箭头 $\phi:\xi\to\eta$, 诱导映射 $\phi^*:\Hom_{\F}(\eta,\rho)\to\Hom_{\F}(\xi,\rho)$ 关于群同态 $f^*:G(V)\to G(U)$ 是等变的.
+\item[(ii)] 由 $\pF$ 诱导的映射 $\Hom_{\F}(\xi,\rho)\to\Hom_{\C}(U,X)$ 是 $G(U)$-等变的.
+\end{enumerate}
+$\F(X)$ 中的箭头 $u:\rho\to\sigma$ 称为 \emph{$G$-等变的}, 如果对所有 $U$ 和所有 $\xi\in\F(U)$, 诱导映射 $\Hom_{\F}(\xi,\sigma)\to\Hom_{\F}(\xi,\rho)$ 都是 $G(U)$-等变的.
+% SOURCE ISSUE: last induced Hom map points opposite to postcomposition with u; retained.
+\end{origstatement}
+
+第一个条件可以表述为: 这些数据定义了 $G\circ\pF:\F^{\mathrm{op}}\to(\mathrm{Grp})$ 在 $\F$ 的对象 $\rho$ 上的作用. 换言之, 对 $\F$ 的任意对象 $\xi$, 该作用定义集合意义下的作用
+\[
+(G\circ\pF)(\xi)\times\mathrm h_\rho(\xi)\longrightarrow\mathrm h_\rho(\xi),
+\]
+并要求这个作用给出函子 $\F\to(\mathrm{Set})$ 的自然变换
+\[
+(G\circ\pF)\times\mathrm h_\rho\longrightarrow\mathrm h_\rho.
+\]
+% SOURCE ISSUE: displayed functor domain printed F rather than F^op.
+
+第二个条件可以理解为: $G$ 在 $\xi$ 上的作用与 $G$ 在 $X$ 上的作用相容.
+% SOURCE ISSUE: xi instead of rho in source prose.
+
+$X$ 上的 $G$-等变对象构成范畴 $\F^G(X)$ 的对象, 其中的箭头是 $\F(X)$ 中的等变箭头.
+
+不难在 $\C$ 的 $G$-等变对象所成的范畴之上, 定义 $\F$ 的 $G$-等变对象所成的纤维范畴, 但我们不这样做.
+
+现在假设 $G$ 是 $\C$ 中的群对象, 作用于 $\C$ 的对象 $X$, 对应于箭头 $\alpha:G\times X\to X$, 如命题 2.16 所述. 取纤维范畴 $\F\to\C$: $X$ 上的等变对象范畴 $\F^G(X)$ 还有另一种描述. 为 $\F$ 选择一个分裂选择.
+
+设 $\rho$ 是 $\F^G(X)$ 的对象. 考虑拉回 $\operatorname{pr}_2^*\rho\in\F(G\times X)$ 以及它表示的函子 $\mathrm h_{\operatorname{pr}_2^*\rho}:\F\to(\mathrm{Set})$. 如果 $\phi:\xi\to\operatorname{pr}_2^*\rho$ 是 $\F$ 中的箭头, 将 $\phi$ 与给定的笛卡尔箭头 $\operatorname{pr}_2^*\rho\to\rho$ 复合得到箭头 $\xi\to\rho$; 将 $\pF\phi:\pF\xi\to G\times X$ 与投影 $G\times X\to G$ 复合, 则得到箭头 $\pF\xi\to G$. 这定义自然变换 $\mathrm h_{\operatorname{pr}_2^*\rho}\to(G\circ\pF)\times\mathrm h_\rho$.
+
+典范箭头 $p:\operatorname{pr}_2^*\rho\to\rho$ 是笛卡尔的, 这意味着由 $\F$ 中的箭头 $\xi\to\rho$ 与 $\C$ 中的箭头 $\pF\xi\to G$ 组成的每一对, 都来自唯一的箭头 $\xi\to\operatorname{pr}_2^*\rho$. 这说明上述自然变换实际上是函子 $\F^{\mathrm{op}}\to(\mathrm{Set})$ 的同构 $\mathrm h_{\operatorname{pr}_2^*\rho}\simeq(G\circ\pF)\times\mathrm h_\xi$. 因而, 由 Yoneda 引理, 态射 $(G\circ\pF)\times\mathrm h_\rho\to\mathrm h_\rho$ 对应于箭头
+% SOURCE ISSUE: h_xi (rather than h_rho) in isomorphism retained.
+% Source PDF76 / printed64.
+$\beta:\operatorname{pr}_2^*\rho\to\rho$. 定义 3.46 的条件 (ii) 可以表述为 $\pF\beta=\alpha$.
+
+定义一个作用有两个条件. 首先考虑自然变换 $\mathrm h_\rho\to(G\circ\pF)\times\mathrm h_\rho$, 它将对象 $u\in\mathrm h_\rho(\xi)$ 映到二元组 $(1,u)\in G(\pF\xi)\times\mathrm h_\rho(\xi)$; 它对应于箭头 $\epsilon_\rho:\rho\to\operatorname{pr}_2^*\rho$, 其与 $p:\operatorname{pr}_2^*\rho\to\rho$ 的复合是恒等 $\id_\rho$, 而其在 $\C$ 中的像是由 $e_G:\mathrm{pt}\to G$ 诱导的箭头 $\epsilon_X:X=\mathrm{pt}\times X\to G\times X$. 由于 $p$ 是笛卡尔的, 这两个条件唯一刻画了 $\epsilon_\rho$.
+
+定义 $(G\circ\pF)$ 在 $\rho$ 上作用的第一个条件 (见命题 2.16), 是复合 $\mathrm h_\rho\to(G\circ\pF)\times\mathrm h_\rho\to\mathrm h_\rho$ 为恒等; 这等价于说, 复合 $\beta\circ\epsilon_\rho:\rho\to\rho$ 为恒等 $\id_\rho$.
+
+第二个条件可以类似地表述. 函子
+\[
+(G\circ\pF)\times(G\circ\pF)\times\mathrm h_\rho:\F\longrightarrow(\mathrm{Grp})
+\]
+由 $\rho$ 沿第三投影 $\operatorname{pr}_3:G\times G\times X\to X$ 的拉回 $\operatorname{pr}_3^*\rho$ 表示. 现在, 给定任意箭头 $f:G\times G\times X\to G\times X$, 其与 $\operatorname{pr}_2:F\times X\to X$ 的复合等于 $\operatorname{pr}_2:G\times G\times X\to X$, 则存在唯一的箭头 $\widetilde f:\operatorname{pr}_3^*\rho\to\operatorname{pr}_2^*\rho$ 映到 $f$, 使得复合 $p\circ\widetilde f:\operatorname{pr}_3^*\rho\to\rho$ 等于典范箭头 $q:\operatorname{pr}_3^*\rho\to\rho$. 容易相信, 定义作用的第二个条件等价于图
+% SOURCE ISSUE: Grp, F x X, and pr_2 for third projection retained.
+\begin{equation}
+\tag{3.8.1}\label{ch03:eq381}
+\begin{tikzcd}[column sep=large]
+\operatorname{pr}_3^*\rho\arrow[r,"{\widetilde{\mathrm m_G\times\id_X}}"]\arrow[d,"{\widetilde{\id_G\times\alpha}}"']&\operatorname{pr}_2^*\rho\arrow[d,"{\beta}"]\\
+\operatorname{pr}_2^*\rho\arrow[r,"{\beta}"']&\rho
+\end{tikzcd}
+\end{equation}
+交换.
+
+这基本上证明了下列事实 (容易的细节留给读者).
+
+\begin{origstatement}{命题}{3.47}\label{ch03:prop347}
+设 $\rho$ 是 $\F(X)$ 的对象. 给 $\rho$ 赋予 $G$-等变对象结构, 等同于给定一个满足 $\pF\beta=\alpha$ 的箭头 $\beta:\operatorname{pr}_2^*\rho\to\rho$, 并满足下列两个条件.
+\begin{enumerate}
+\item[(i)] $\beta\circ\epsilon_\rho=\id_\rho$.
+\item[(ii)] 图 (3.8.1) 交换.
+\end{enumerate}
+此外, 如果 $\rho,\rho'$ 是 $G$-等变对象, 并以 $\beta:\operatorname{pr}_2^*\rho\to\rho$ 与 $\beta':\operatorname{pr}_2^*\rho'\to\rho'$ 表示相应的箭头, 则 $u:\rho\to\rho'$ 是 $G$-等变的, 当且仅当图
+\[
+\begin{tikzcd}
+\operatorname{pr}_2^*\rho\arrow[r,"{\beta}"]\arrow[d,"{\operatorname{pr}_2^*u}"']&\rho\arrow[d,"{u}"]\\
+\operatorname{pr}_2^*\rho'\arrow[r,"{\beta'}"']&\rho'
+\end{tikzcd}
+\]
+交换.
+\end{origstatement}
+
+还可以进一步重新表述, 使它更接近等变层的经典定义. 首先注意, 如果箭头 $\beta:\operatorname{pr}_2^*\rho\to\rho$ 对应于 $\rho$ 上的 $G$-等变结构, 则它是笛卡尔的. 证明如下.
+
+% Source PDF77 / printed65.
+有一个 $G\times X$ 的自同构 $i$, 用函子语言由等式 $i(g,x)=(g^{-1},gx)$ 定义, 其中 $U$ 是 $\C$ 的对象, $g\in G(U)$, $x\in X(U)$; 它满足
+\[
+\operatorname{pr}_2\circ i=\alpha:G\times X\longrightarrow X.
+\]
+类似地, 可以利用 $(G\circ\pF)$ 在 $\rho$ 上的作用, 定义 $(G\circ\pF)\times\mathrm h_\rho$ 的自同构 $I$, 因而定义 $\operatorname{pr}_2^*\rho$ 的自同构, 其与典范箭头 $p:\operatorname{pr}_2^*\rho\to\rho$ 的复合等于 $\beta$. 由于 $I$ 是同构, 从而是笛卡尔的, 典范箭头 $p$ 也是笛卡尔的, 而笛卡尔箭头的复合仍是笛卡尔的, 所以 $\beta$ 是笛卡尔的.
+
+现在从满足 $\pF\beta=\alpha$ 的笛卡尔箭头 $\beta:\operatorname{pr}_2^*\rho\to\rho$ 出发. 假设图 (3.8.1) 交换. 我断言, 在这种情形下也有 $\beta\circ\epsilon_\rho=\id_\rho$. 这可以用几种方式检验; 下面给出其中一种.
+
+箭头 $\beta$ 对应于自然变换 $(G\circ\pF)\times\mathrm h_\rho\to\mathrm h_\rho$. 图 (3.8.1) 的交换性表达了如下事实: 对 $\F$ 的任意对象 $\xi$, 任意 $g_1,g_2\in G(\pF\xi)$ 与 $x\in\mathrm h_\rho\xi$, 有 $(g_1g_2)x=g_1(g_2x)$. 箭头 $\beta\circ\epsilon_\rho:\rho\to\rho$ 对应于由单位元的乘法给出的自然变换 $\mathrm h_\rho\to\mathrm h_\rho$; 由前一个恒等式, 它是 $\mathrm h_\rho$ 的幂等自同态. 因而 $\beta\circ\epsilon_\rho$ 是 $\Hom_{\F}(\rho,\rho)$ 中的幂等箭头.
+
+另一方面, 命题 3.4(iii) 说明 $\epsilon_\rho$ 是笛卡尔箭头, 所以 $\beta\circ\epsilon_\rho$ 也是笛卡尔的. 但 $\beta\circ\epsilon_\rho$ 在 $\C$ 中映到 $\id_X$, 因而是同构; 而唯一的幂等同构就是恒等.
+
+于是可以把条件重新表述如下.
+
+\begin{origstatement}{命题}{3.48}\label{ch03:prop348}
+设 $\rho$ 是 $\F(X)$ 的对象. 给 $\rho$ 赋予 $G$-等变对象结构, 等同于给定满足 $\pF\beta=\alpha$ 的笛卡尔箭头 $\beta:\operatorname{pr}_2^*\rho\to\rho$, 使得图 (3.8.1) 交换.
+
+此外, 设 $\rho,\rho'$ 是 $G$-等变对象, 并以 $\beta:\operatorname{pr}_2^*\rho\to\rho$ 与 $\beta':\operatorname{pr}_2^*\rho'\to\rho'$ 表示相应箭头. 则 $u:\rho\to\rho'$ 是 $G$-等变的, 当且仅当图
+\[
+\begin{tikzcd}
+\operatorname{pr}_2^*\rho\arrow[r,"{\beta}"]\arrow[d,"{\operatorname{pr}_2^*u}"']&\rho\arrow[d,"{u}"]\\
+\operatorname{pr}_2^*\rho'\arrow[r,"{\beta'}"']&\rho'
+\end{tikzcd}
+\]
+交换.
+\end{origstatement}
+
+最后一种表述可以借助分裂选择, 用伪函子的语言得到. 回忆, 在 $\C$ 中映到 $\alpha$ 的箭头 $\operatorname{pr}_2^*\rho\to\rho$, 对应于 $\F(G\times X)$ 中的箭头 $\phi:\operatorname{pr}_2^*\rho\to\alpha^*\rho$, 并且 $\beta$ 是笛卡尔的当且仅当 $\phi$ 是同构.
+
+我们还有等式
+\[
+\operatorname{pr}_3=\operatorname{pr}_2\circ(\mathrm m_G\times\id_X)
+=\operatorname{pr}_2\circ\operatorname{pr}_{23}:G\times G\times X\longrightarrow X,
+\]
+\[
+A\mathrel{\mathop=^{\mathrm{def}}}\alpha\circ(\mathrm m_G\times\id_X)
+=\alpha\circ(\id_G\times\alpha):G\times G\times X\longrightarrow X,
+\]
+以及
+\[
+B\mathrel{\mathop=^{\mathrm{def}}}\operatorname{pr}_2\circ(\id_G\times\alpha)
+=\alpha\circ\operatorname{pr}_{23}:G\times G\times X\longrightarrow X.
+\]
+展开各种定义, 并检验下一个陈述与前面的陈述等价, 留给读者.
+
+% Source PDF78 / printed66.
+\begin{origstatement}{命题}{3.49}\label{ch03:prop349}
+设 $\rho$ 是 $\F(X)$ 的对象. 给 $\rho$ 赋予 $G$-等变对象结构, 等同于给定 $\F(G\times X)$ 中的同构 $\phi:\operatorname{pr}_2^*\rho\simeq\alpha^*\rho$, 使得图
+\[
+\begin{tikzcd}[column sep=large]
+\operatorname{pr}_3^*\rho\arrow[rr,"{(\mathrm m_G\times\id_X)^*}"]\arrow[dr,"{\operatorname{pr}_{23}^*\phi}"']&&A^*\rho\\
+&B^*\rho\arrow[ur,"{(\id_G\times\alpha)^*\phi}"']&
+\end{tikzcd}
+\]
+交换.
+% SOURCE ISSUE: top arrow label lacks phi in printed source; retained.
+\end{origstatement}
+
+将其用于某种层 (例如拟凝聚层) 的纤维范畴, 就恰好得到等变层的通常定义.
+
+% End of full Chapter3: source PDF53--78 / printed41--66, §§3.1--3.8.
+\endgroup

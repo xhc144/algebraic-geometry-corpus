@@ -1,0 +1,635 @@
+% Source: 07_SGA6_EN_CURRENT_LAYERED_READER.tex, lines 16873--17899.
+% Translation checkpoint. Coverage and source alignment are recorded in audits/expose-12.json.
+\sgaStableTarget{sga6.e12.expose}\section*{第 XII 讲. Picard 函子的一个相对可表定理}
+\begin{center}
+M. Raynaud 著 (S. Kleiman 整理)
+\end{center}
+
+\sgaStableTarget{sga6.e12.warning}\subsection*{说明}
+
+\hyperlink{sga6.e12.expose}{第 XII 讲}与第 XIII 讲的目的是证明 A. Grothendieck 在其 \emph{Fondements de la G\'eom\'etrie Alg\'ebrique} (简称 FGA) 的评注 (第 C 07--C 11 页) 中陈述的关于 Picard 函子的九个有限性定理. 第一讲以如下形式证明第一个有限性定理, 这一形式比 FGA 中的陈述更精确. 设 $X$ 和 $Y$ 是整的诺特基概形 $S$ 上的固有概形, $f:X\to Y$ 是满的 $S$-态射. 则 $S$ 有一个非空开子集 $V$, 在其上诱导态射 $f^*:\Pic_{Y/S}\to\Pic_{X/S}$ 可由有限表现的拟仿射态射表示. 第二讲证明其余断言.
+
+这两讲的证明方法有显著差异. 第一讲实质性地使用 Oort 的剥离法 (d\'evissage)、非平坦下降和非分歧函子的可表性. 第二讲先把问题化归到所考虑的概形 $X/S$ 射影、平坦且具有几何整纤维的情形, 或在需要时化归到正规或光滑的情形; 其办法总是把第一个有限性定理应用于适当的态射 $X'\to X$. 然后使用 $(b)$-层这一工具; 它由 I. Castelnuovo 创造, 又由 T. Matsusaka、D. Mumford、Y. Nakai 和 S. Kleiman 加以完善和运用. 特别地, 借助这一工具, 可以不用 Grothendieck 原证明中的 Chow 坐标、Frobenius 态射和 Lefschetz 定理.
+
+本\hyperlink{sga6.e12.expose}{第 XII 讲}由 M. Raynaud 依照 Grothendieck 的工作作口头报告; 整理者感谢他提供私人笔记.
+
+% Current rescribe index 609; printed volume page 596; source-PDF page 599.
+\sgaStableTarget{sga6.e12.sec.1}\section*{1. 主要定理的陈述及应用}
+
+\sgaStableTarget{sga6.e12.thm.1-1}\textbf{定理 1.1.} 设 $S$ 是诺特概形, $X$ 和 $Y$ 是两个固有 $S$-概形, $f:X\to Y$ 是态射. 假设 $S$ 整且 $f$ 满. 则 $S$ 有一个非空开子集 $V$, 使 Picard 函子 (对 fppf 拓扑局部化) 之间的态射
+\[
+  f^*:\Pic_{Y/S}|_V\longrightarrow\Pic_{X/S}|_V
+\]
+可由有限表现的拟仿射态射表示.
+
+\sgaStableTarget{sga6.e12.cor.1-2}\textbf{推论 1.2.} 设 $X$ 是诺特概形 $S$ 上的固有概形, 并假设 $S$ 整. 则 $S$ 有一个非空开子集 $V$, 使 Picard 函子 $\Pic_{X/S}|_V$ 可由一个 $V$-群概形表示, 后者是有限型拟射影开子概形的和, 因而尤其在 $V$ 上分离.
+
+事实上, 回忆如下事实 (FGA 第 232 号). 设 $S$ 是概形, $X$ 是有限表现且在 $S$ 上整的射影 $S$-概形 (即平坦且具有几何整纤维). 则 Picard 函子可由一个 $S$-群概形 $\Pic_{X/S}$ 表示, 后者是有限表现的拟射影开子概形的递增并. 考虑 ``Hilbert 多项式'', 可将这里的 $\Pic_{X/S}$ 分解为开子概形 $\Pic^q_{X/S}$ 的和, 其中 $q\in\mathbb Q[t]$. 下一讲将在 $S$ 为诺特概形的附加假设下, 证明 $\Pic^q_{X/S}$ 在 $S$ 上有限型. 因此, 当 $X$ 还射影且在 $S$ 上整时, \hyperlink{sga6.e12.cor.1-2}{1.2} 已知; 一般情形将用下列引理推出.
+
+\sgaStableTarget{sga6.e12.lem.1-3}\textbf{引理 1.3.} 设 $X$ 在整的诺特概形 $S$ 上有限型. 则存在 $S$ 的非空开子集 $V$、整概形 $S'$ 以及有限平坦态射 $S'\to V$, 使 $X_{S'}$ 的每个不可约分支 $X'_i$ 配备诱导的约化结构后都在 $S'$ 上整.
+
+事实上, 函数域 $k(S)$ 有一个有限扩张 $L$, 使 $(X_L)_{\red}$ 的每个不可约分支都几何整 (EGA IV 4.6.8). 取整的 $S$-概形 $S_1$, 使 $k(S_1)=L$, 且存在 $S$ 的非空开子集 $V_1$ 和有限平坦态射 $h:S_1\to V_1$. $S_1$ 有一个非空开子集 $S_2$, 使 $X_{S_2}$ 的每个不可约分支配备诱导的约化结构后都在 $S_2$ 上整 (EGA IV 9.7.7). 置
+\[
+  V=V_1\setminus h(S_1\setminus S_2),\qquad S'=h^{-1}(V).
+\]
+
+现在证明 1.2. 设 $h:S'\to V_1$ 和 $X'_i$ 如 1.3 中所取. 对每个 $i$, 取 Chow 表示 $f_i:Z_i\to X'_i$, 其中 $Z_i$ 整且 $f_i$ 双有理. 缩小 $V$ 和 $S'$ 后, 可假设 $Z_i$ 在 $S'$ 上整 (EGA IV 9.7.7). 设
+\[
+  f:Z=\coprod_i Z_i\longrightarrow X'=X_{S'}
+\]
+是典范态射. 则 $\Pic_{Z/S'}=\prod_i\Pic_{Z_i/S'}$ 可由一个群概形表示, 它是有限型拟射影开子概形的和. 最后, \hyperlink{sga6.e12.thm.1-1}{1.1} 表明, 缩小 $V$ 和 $S'$ 后, 态射
+\[
+  f^*:\Pic_{X'/S'}\longrightarrow\Pic_{Z/S'}
+\]
+可由拟仿射态射表示. 因而 $\Pic_{X'/S'}$ 可由有限型拟射影开子概形之和所成的群概形表示; 由有限平坦下降 (SGA 1 VIII 7.6 和 EGA II 6.6.1), $\Pic_{X/S}|_V$ 也有同样性质.
+
+\sgaStableTarget{sga6.e12.lem.1-4}\textbf{引理 1.4.} 设 $k$ 是域, $P$ 和 $Q$ 是局部有限型的 $k$-群概形, $f:P\to Q$ 是拟仿射态射. 则 $f$ 是仿射态射.
+
+事实上, 设 $R=\Ker(f)$. 则 $R$ 是有限型拟仿射 $k$-群概形; 由 SGA 3 $\mathrm{VI}_{\mathrm B}$ 11.11, $R$ 仿射. 因此, 使 $P$ 成为 $P/R$ 上的 $R$-挠子的态射 $P\to P/R$ 是仿射的. 又由 SGA 3 I 4.2, $P/R\to Q$ 是闭浸入, 因而仿射; 故复合态射 $P\to P/R\to Q$ 仿射.
+
+\sgaStableTarget{sga6.e12.cor.1-5}\textbf{推论 1.5.} 设 $k$ 是域.
+\begin{enumerate}[label=\alph*)]
+\item 若 $X$ 是固有 $k$-概形, 则 $\Pic_{X/k}$ 可表 (J. P. Murre).
+\item 若 $f:X\to Y$ 是两个固有 $k$-概形之间的满态射, 则诱导态射
+  \[
+    f^*:\Pic_{Y/k}\longrightarrow\Pic_{X/k}
+  \]
+  仿射.
+\end{enumerate}
+
+\sgaStableTarget{sga6.e12.cor.1-6}\textbf{推论 1.6.} 设 $S$ 是整的诺特概形, $f:X\to Y$ 是两个固有 $S$-概形之间的满 $S$-态射.
+\begin{enumerate}[label=\alph*)]
+\item 若 $Y$ 在 $S$ 上正规 (即平坦且具有几何正规纤维), 则缩小 $S$ 后, $f^*:\Pic_{Y/S}\to\Pic_{X/S}$ 拟有限.
+\item 若 $\Pic_{Y/S}$ 在 $S$ 上本质固有 (即满足固有性的赋值判别法; 例如 $Y$ 在 $S$ 上光滑时即如此), 则缩小 $S$ 后, $f^*:\Pic_{Y/S}\to\Pic_{X/S}$ 有限 (特别地, 仿射).
+\end{enumerate}
+事实上, 在 (a) 中, 对每个 $s\in S$, $R_s=\Ker(f_s^*)$ 是仿射代数群; 它的单位连通分支是 $k(s)$ 上的固有代数群 (FGA 236, 定理 2.1 (iii)), 所以 $R_s$ 有限. 在 (b) 中, $f^*$ 既固有又拟仿射, 因而有限.
+
+\sgaStableTarget{sga6.e12.rem.1-7}\textbf{注 1.7.} \hyperlink{sga6.e12.cor.1-5}{1.5} 和 \hyperlink{sga6.e12.cor.1-6}{1.6} 似乎提示可把 ``拟仿射'' 换成 ``仿射'', 但尚不知道这样替换后\hyperlink{sga6.e12.thm.1-1}{1.1} 是否仍成立.
+
+% Current rescribe index 612; printed volume page 599; source-PDF page 602.
+\sgaStableTarget{sga6.e12.sec.2}\section*{2. 最初的化归}
+
+\sgaStableTarget{sga6.e12.para.2-1}\textbf{2.1.} 对 $X/S$ 和 $Y/S$ 应用\hyperlink{sga6.e12.lem.1-3}{1.3}. 得到 $S$ 的非空开子集 $V$、整概形 $S'$ 和有限平坦态射 $S'\to V$, 使 $X_{S'}$ 的每个不可约分支 $X'_i$ 和 $Y_{S'}$ 的每个不可约分支 $Y'_j$ 配备诱导的约化结构后都在 $S'$ 上整. 由 fpqc 下降 (EGA IV 2.7.1 (xiv) 和 SGA 1 VIII 7.9), 可用 $S'$ 替换 $S$. 于是, 从交换图
+\[
+\begin{tikzcd}
+X_{\red} \arrow[r,"f_{\red}"] \arrow[d,"i"'] & Y_{\red} \arrow[d,"j"]\\
+X \arrow[r,"f"'] & Y
+\end{tikzcd}
+\]
+所蕴含的交换图
+\[
+\begin{tikzcd}
+\Pic_{X_{\red}/S} & \Pic_{Y_{\red}/S} \arrow[l]\\
+\Pic_{X/S} \arrow[u] & \Pic_{Y/S} \arrow[l] \arrow[u]
+\end{tikzcd}
+\]
+以及关于可由拟仿射态射表示的函子态射的基本性质 (EGA II 5.1.10 (ii), (v)), 可知只须证明下列两个断言:
+\begin{enumerate}[label=\Roman*.]
+\item 当 $f$ 是浸入 (必为幂零浸入) 时的定理 1.1.
+\item 当 $X$ 和 $Y$ 约化, 且 $X$ 的每个不可约分支 $X_i$ 和 $Y$ 的每个不可约分支 $Y_i$ 配备诱导的约化结构后都在 $S$ 上整时的定理 1.1.
+\end{enumerate}
+
+\sgaStableTarget{sga6.e12.para.2-2}\textbf{2.2.} 考虑断言 II. 对每个 $i$, 取指标 $j=\varphi(i)$ 使 $f(X_i)\subset Y_j$, 并置 $\Sigma_j=\coprod_{\varphi(i)=j}X_i$. 于是有两个图
+\[
+\begin{tikzcd}
+Y & \coprod_jY_j \arrow[l]\\
+X \arrow[u] & \coprod_j\Sigma_j \arrow[l] \arrow[u]
+\end{tikzcd}
+\]
+和
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+\Pic_{Y/S} \arrow[r,"\sgacircled{1}"] \arrow[d,"\sgacircled{2}"'] &
+\Pic_{\coprod_jY_j/S}=\prod_j\Pic_{Y_j/S}
+  \arrow[d,"\sgacircled{4}"]\\
+\Pic_{X/S} \arrow[r,"\sgacircled{3}"'] &
+\Pic_{\coprod_j\Sigma_j/S}=\prod_j\Pic_{\Sigma_j/S}.
+\end{tikzcd}
+\]
+要证明 II, 只须说明缩小 $S$ 后, $\sgacircled{1}$、$\sgacircled{3}$ 和 $\sgacircled{4}$ 都拟仿射.
+
+先考虑 $\sgacircled{4}$. 用 $Y_j$ 替换 $Y$, 用 $\Sigma_j$ 替换 $X$, 就化归到 $Y$ 在 $S$ 上整的情形. 因 $f$ 满, 某个 $X_i$, 记作 $X_0$, 支配 $Y$, 且有两个序列
+\[
+  X_0\hookrightarrow\coprod_iX_i\longrightarrow Y
+\]
+和
+\[
+  \Pic_{X_0/S}\longleftarrow\Pic_{\coprod_iX_i/S}
+  \longleftarrow\Pic_{Y/S}.
+\]
+因此, 若已知 $\Pic_{X_i/S}$ 从而 $\Pic_{\coprod_iX_i/S}$ 可表, 且复合态射拟仿射, 则 $\sgacircled{4}$ 拟仿射. 由\hyperlink{sga6.e12.cor.1-2}{1.2} 的证明可知, 证明 $\sgacircled{4}$ 就化归为证明下列断言:
+
+\medskip
+\noindent
+$\mathrm{II}'$. 当 $X$ 和 $Y$ 在 $S$ 上整时的\hyperlink{sga6.e12.thm.1-1}{定理 1.1}.
+\medskip
+
+对于 $\sgacircled{1}$ 和 $\sgacircled{3}$, 必须处理态射 $\coprod_iX_i\to X$ 的情形, 其中 $X$ 约化, $X_i$ 是 $X$ 的不可约分支且在 $S$ 上整. 可假设 $X$ 的纤维连通. 事实上, 设 $\eta$ 是 $S$ 的几何泛点. 则 $X_\eta$ 的不可约分支是 $(X_i)_\eta$, 而缩小 $S$ 后, 可假设 $X_i\cap X_j=\varnothing$ 当且仅当 $(X_i)_\eta\cap(X_j)_\eta=\varnothing$. 设 $Y_k=\bigcup_{i\in I(k)}X_i$ 是 $X$ 的连通分支. 则 $f$ 分解为
+\[
+  f=\coprod_k f_k:
+  \coprod_k\left(\coprod_{i\in I(k)}X_i\right)
+  \longrightarrow\coprod_kY_k,
+\]
+断言随之成立. 最后, 一个直接的归纳把问题化归到态射 $X_1\amalg X_2\to X$ 的情形. 缩小 $S$ 后, $\sgacircled{1}$ 和 $\sgacircled{3}$ 就由 EGA III 7.8.6 和下列命题推出.
+
+\sgaStableTarget{sga6.e12.prop.2-3}\textbf{命题 2.3.} 设 $S$ 是概形, $g:Y\to S$ 是固有态射, $Y_1,Y_2$ 是由理想 $I_1,I_2$ 定义的两个闭子概形. 假设:
+\begin{enumerate}[label=\alph*)]
+\item $Y,Y_1,Y_2,Y_1\cap Y_2$ 在 $S$ 上忠实平坦且有限表现;
+\item $g_*\mathcal O_Y=\mathcal O_S$ 且 $(g_i)_*\mathcal O_{Y_i}=\mathcal O_S$ 普遍成立, 其中 $g_i=g|_{Y_i}$, $i=1,2$;
+\item $I_1\cap I_2=0$.
+\end{enumerate}
+则
+\[
+  \Pic_{Y/S}\longrightarrow\Pic_{(Y_1\amalg Y_2)/S}
+\]
+可由有限表现的仿射态射表示.
+
+先注意, 这些假设在任意基变换下稳定. 对 (c), 这可从两个正合列
+\[
+  0\longrightarrow I_1+I_2\longrightarrow\mathcal O_Y
+  \longrightarrow\mathcal O_{Y_1\cap Y_2}\longrightarrow0
+\]
+和
+\[
+  0\longrightarrow I_1\cap I_2\longrightarrow I_1\oplus I_2
+  \longrightarrow I_1+I_2\longrightarrow0
+\]
+看出. 第一个表明 $I_1+I_2$ 在 $S$ 上平坦, 然后第二个表明 $I_1\cap I_2$ 在基变换下稳定.
+
+这个断言对 fppf 拓扑是局部的. 因此, 作基变换 $Y_1\cap Y_2\to S$ 后, 可假设 $Y_1\cap Y_2$ 有截面 $\alpha$, 它定义 $Y_i$ 的截面 $\alpha_i$ 和 $Y$ 的截面 $\beta$. 作适当基变换后, 问题化归为证明: 每个点 $\mu:S\to\Pic_{(Y_1\amalg Y_2)/S}$ 的逆像是 $\Pic_{Y/S}$ 的可由 $S$ 上仿射概形表示的子函子. 而 $\mu$ 由 $Y_i$ 上带有刚性化
+\[
+  u_i:\alpha_i^*L_i\xrightarrow{\sim}\mathcal O_S,
+  \qquad i=1,2
+\]
+的可逆层 $L_i$ 定义. 同样, 点 $\lambda:S\to\Pic_{Y/S}$ 对应于 $Y$ 上带有刚性化 $u:\beta^*L\xrightarrow{\sim}\mathcal O_S$ 的可逆层 $L$. $\lambda$ 在 $\Pic_{(Y_1\amalg Y_2)/S}$ 中的像是 $\mu$, 当且仅当对 $i=1,2$ 存在刚性化层的同构 $f_i^*L\simeq L_i$, 其中 $f_i:Y_i\hookrightarrow Y$ 是包含映射. 这些同构定义同构
+\[
+  \varphi:L_1|_{Y_1\cap Y_2}\xrightarrow{\sim}
+  L_2|_{Y_1\cap Y_2},
+\]
+使 $u_1=u_2\circ\varphi$.
+
+反过来, 若 $\varphi$ 是这样的同构, 则沿 $\varphi$ 粘合可得 $Y$ 上一个刚性化可逆层 $L$. 具体地, 若 $f_{12}:Y_1\cap Y_2\hookrightarrow Y$ 表示 $f_1$ 和 $f_2$ 的共同限制, 则 $L$ 是由 $\varphi$ 定义的典范同态
+\[
+  (f_1)_*L_1\oplus(f_2)_*L_2
+  \longrightarrow
+  (f_{12})_*\bigl(L_2|_{Y_1\cap Y_2}\bigr)
+\]
+的核. 这个 $L$ 就对应于 $\Pic_{Y/S}$ 中映到 $\mu$ 的一个点 $\lambda$.
+
+最后, 设 $I$ 是如下函子: 它给每个 $S$-概形 $T$ 配以满足 $(u_1)_T=(u_2)_T\circ\varphi$ 的同构
+\[
+  \varphi:(L_1)_T|_{(Y_1\cap Y_2)_T}\xrightarrow{\sim}
+  (L_2)_T|_{(Y_1\cap Y_2)_T}
+\]
+所成的集合. 刚才已建立 $\mu$ 在 $\Pic_{Y/S}$ 中的逆像与函子 $I$ 之间的同构. 因此只须应用下列引理 (取 $X=Y_1\cap Y_2$).
+
+\sgaStableTarget{sga6.e12.lem.2-4}\textbf{引理 2.4.} 设 $X$ 是 $S$ 上平坦、固有且有限表现的概形. 设 $L,M$ 是 $X$ 上的两个可逆层, $\Isom(L,M)$ 是同构 $L_T\to M_T$ (其中 $T/S$) 的函子. 则:
+\begin{enumerate}[label=\roman*)]
+\item $\Isom(L,M)$ 可由有限表现的仿射 $S$-概形表示.
+\item 若 $L$ 和 $M$ 还带有刚性化 (相对于 $X$ 的一个给定截面), 则与这些刚性化相容的同构所成的 $\Isom(L,M)$ 的子函子, 可由 $\Isom(L,M)$ 的闭子概形表示.
+\end{enumerate}
+
+事实上, (ii) 显然. 对于 (i), 回忆函子 $T\mapsto\operatorname{Hom}(L_T,M_T)$ 和 $T\mapsto\operatorname{Hom}(M_T,L_T)$ 可由向量丛 $\mathbb V(E)$ 和 $\mathbb V(F)$ 表示 (EGA III 7.7.8). 因此, 若 $u\in\operatorname{Hom}(L_T,M_T)$ 且 $v\in\operatorname{Hom}(M_T,L_T)$, 则条件 $u\circ v=1$ 和 $v\circ u=1$ 定义 $\mathbb V(E)\times_S\mathbb V(F)$ 的一个闭子概形 $Z$, 并且显然 $Z\simeq\Isom(L,M)$.
+
+\sgaStableTarget{sga6.e12.para.2-5}\textbf{2.5.} 最后, 把断言 $\mathrm{II}'$ 化归为下列断言:
+
+\medskip
+\noindent
+$\mathrm{II}^*$. 当 $X$ 和 $Y$ 在 $S$ 上整, 且序列
+\sgaStableTarget{sga6.e12.eq.unnamed}\begin{equation}\tag{*}
+  \mathcal O_Y\longrightarrow f_*\mathcal O_X
+  \rightrightarrows g_*\mathcal O_{X\times_YX}
+\end{equation}
+(其中 $g:X\times_YX\to Y$ 是结构态射) 正合时的\hyperlink{sga6.e12.thm.1-1}{定理 1.1}.
+\medskip
+
+为此, 只须证明 $f$ 有分解
+\[
+  X\xrightarrow{f_0}Y_0\xrightarrow{f_1}Y_1
+  \longrightarrow\cdots\xrightarrow{f_n}Y_n=Y,
+\]
+其中每个 $f_i$ 满足 (*), 且必要时限制 $S$ 后, 每个 $Y_i$ 在 $S$ 上整.
+
+为此, 置 $Y_0=\operatorname{Spec}(f_*\mathcal O_X)$, 其中 $f_0$ 来自 $f$ 的 Stein 分解 (EGA III 4.3.3), 使 $f_{0*}\mathcal O_X\xleftarrow{\sim}\mathcal O_{Y_0}$; 因而 $f_0$ 确实满足 (*). 要以同样方式分解 $Y_0\to Y$, 使用下列引理.
+
+\sgaStableTarget{sga6.e12.lem.2-6}\textbf{引理 2.6.} 设 $Y$ 是诺特概形, $f:X\to Y$ 是有限满同态 (即 $\mathcal O_Y\to f_*\mathcal O_X$ 是单射). 则 $f$ 可分解为有限个有限态射的序列
+\[
+  X\xrightarrow{\sim}Y_0\xrightarrow{f_1}Y_1
+  \longrightarrow\cdots\longrightarrow Y_n=Y,
+\]
+这些态射都是有效满同态 (即对每个 $i$, 序列
+\[
+  \mathcal O_{Y_i}\longrightarrow(f_i)_*\mathcal O_{Y_{i-1}}
+  \rightrightarrows
+  (g_i)_*\bigl(
+    \mathcal O_{Y_{i-1}}\otimes_{\mathcal O_{Y_i}}
+    \mathcal O_{Y_{i-1}}
+  \bigr)
+\]
+正合).
+
+置 $A=\mathcal O_Y$, $B_0=f_*\mathcal O_X$, 并递归定义
+\[
+  B_i=\Ker\bigl(
+    B_{i-1}\rightrightarrows B_{i-1}\otimes_A B_{i-1}
+  \bigr).
+\]
+立即可验证
+\[
+  B_{i-1}\otimes_A B_{i-1}
+  \xrightarrow{\sim}
+  B_{i-1}\otimes_{B_i}B_{i-1}.
+\]
+还须证明当 $i$ 充分大时 $B_i=A$. 事实上,
+% SGA-SRC-001365: inherited reconstruction by mathematical inference; French verification recorded separately.
+考虑递减的 $A$-模序列 $M_i=B_i/A$, 并置 $S_i=\operatorname{Supp}(M_i)$. $Y$ 的闭子集的递减序列 $S_i$ 稳定; 设其稳定值为 $S_\infty$. 下面证明 $S_\infty=\varnothing$. 否则, 设 $s$ 是 $S_\infty$ 的极大点. 用 $\operatorname{Spec}\mathcal O_{Y,s}$ 替换 $Y$ 后, 可假设 $Y$ 局部且闭点为 $s$. 由 $s$ 的选取, 当 $i$ 充分大时 $M_i$ 为阿廷模, 因而序列 $(M_i)$ 稳定. 因此对某个 $i$ 有 $B_i=B_{i+1}$. 由此推出 $\operatorname{Spec}(B_i)\to Y$ 是单同态, 从而是闭浸入 (Nakayama). 因 $A\subset B_i$, 有 $A=B_i$, 这与 $s\in S_\infty$ 矛盾.
+
+\sgaStableTarget{sga6.e12.sec.3}\section*{3. I 的证明: Oort 的剥离法}
+
+\sgaStableTarget{sga6.e12.prop.3-1}\textbf{命题 3.1.} (Oort, \emph{Bull. soc. math. France}, 第 90 卷 (1962)). 设 $S$ 是局部诺特概形, $f:X\to S$ 是固有态射, $X'\subset X$ 是闭子概形. 假设:
+\begin{enumerate}[label=\roman*)]
+\item $X'$ 由包含在 $X$ 的幂零根 $N$ 中的理想 $I$ 定义, 且 $NI=0$.
+\item $X'$ 在 $S$ 上平坦, 且在维数 $0$ 上上同调平坦 (EGA III 7.8.1).
+\item $I$ 在 $S$ 上平坦, 且在维数 $0$ 和 $1$ 上上同调平坦, 因而 (由 EGA III 7.4.6) 存在凝聚 $\mathcal O_S$-模 $Q$, 以及关于凝聚 $\mathcal O_S$-模 $M$ 函子性的同构
+\[
+  R^2f_*\bigl(I\otimes f^*M\bigr)
+  \simeq\operatorname{Hom}_{\mathcal O_S}(Q,M).
+\]
+\item $f_*\mathcal O_{X'}\to R^1f_*(I)$ 的余核 $E$ 是局部自由 $\mathcal O_S$-模.
+\item 同态
+  \[
+    (f_*\mathcal O_X)_{\red}
+    \longrightarrow(f_*\mathcal O_{X'})_{\red}
+  \]
+  满射.
+\end{enumerate}
+则典范态射
+\[
+  \Pic_{X/S}\longrightarrow\Pic_{X'/S}
+\]
+可由有限表现的仿射态射表示. 更精确地, 有典范的 fppf 层正合列
+\[
+  0\longrightarrow\mathbb V(E^\vee)\longrightarrow\Pic_{X/S}
+  \longrightarrow\Pic_{X'/S}\xrightarrow{u}\mathbb V(Q),
+\]
+而若 $P=\Ker(u)$, 则单同态 $P\hookrightarrow\Pic_{X'/S}$ 可由闭浸入表示, $\Pic_{X/S}$ 是 $P$ 上以群 $\mathbb V(E^\vee)$ 为结构群的挠子 (即 fppf 层序列
+\[
+  0\longrightarrow\mathbb V(E^\vee)\longrightarrow\Pic_{X/S}
+  \longrightarrow P\longrightarrow0
+\]
+正合).
+
+对一个 $S$-概形 $T$, 考虑以下两个行正合的图:
+\[
+\begin{tikzcd}
+% Verified correction: French printed p605 / PDF p619 has no star in the top-right sheaf.
+0 \arrow[r] & I_T \arrow[r] & \mathcal O_{X_T} \arrow[r] &
+  \mathcal O_{X'_T} \arrow[r] & 0\\
+0 \arrow[r] & I_T \arrow[r,"\alpha"] \arrow[u,equal] &
+  \mathcal O_{X_T}^{*} \arrow[r] \arrow[u] &
+  \mathcal O_{X'_T}^{*} \arrow[r] \arrow[u] & 0,
+\end{tikzcd}
+\qquad \alpha(i)=1+i,
+\]
+和
+\[
+\begin{tikzcd}[column sep=tiny]
+(f_T)_*\mathcal O_{X'_T} \arrow[r,"\delta_T"] &
+  R^1(f_T)_*I_T \arrow[d,equal]\\
+(f_T)_*\mathcal O_{X'_T}^{*} \arrow[r,"\delta_T^*"'] \arrow[u] &
+  R^1(f_T)_*I_T \arrow[r] &
+  R^1(f_T)_*\mathcal O_{X_T}^{*} \arrow[r] &
+  R^1(f_T)_*\mathcal O_{X'_T}^{*} \arrow[r] &
+  R^2(f_T)_*I_T.
+\end{tikzcd}
+\]
+须注意, 这个图左边的方块\emph{未必交换}. 但仍有
+\[
+  \sgaStableTarget{sga6.e12.para.3-2}\textbf{3.2.}\qquad \operatorname{im}\delta_T^*
+  =\operatorname{im}\delta_T.
+\]
+
+事实上, 显然可假设 $S$ 和 $T$ 仿射. 取 $X_T$ 的仿射覆盖 $\{V_i\}$. 把 $\mathcal O_{X'_T}$ 看作它沿闭浸入 $X'_T\hookrightarrow X_T$ 的正像. 设 $g\in\Gamma(X_T,\mathcal O_{X'_T}^{*})$, 并取 $g|_{V_i}$ 在 $\Gamma(V_i,\mathcal O_{X_T}^{*})$ 中的一个提升 $g_i$. 则 $\delta_T^*(g)$ 是 $1$-上闭链
+\[
+  \delta_{ij}^*=g_i g_j^{-1}-1
+\]
+的类, 而 $\delta_T(g)$ 是
+\[
+  \delta_{ij}=g_i-g_j=g_j\delta_{ij}^*=g\delta_{ij}^*
+\]
+的类. 因而, 考虑 $\Gamma(X_T,\mathcal O_{X'_T})$ 在 $I_T$ 上从而在 $H^1(X_T,I_T)$ 上的作用, 得到
+\[
+  \delta_T(g)=g\,\delta_T^*(g).
+\]
+
+由 (ii),
+\[
+  \Gamma(X_T,\mathcal O_{X'_T})
+  =\Gamma(X,\mathcal O_{X'})\otimes_S\Gamma(T,\mathcal O_T),
+\]
+因而 $g=\sum g_\beta\otimes t_\beta$, 其中 $g_\beta\in\Gamma(X,\mathcal O_{X'})$, $t_\beta\in\Gamma(T,\mathcal O_T)$. 由 (v), 映射
+\[
+  (f_*\mathcal O_X)_{\red}\longrightarrow
+  (f_*\mathcal O_{X'})_{\red}
+\]
+满射. 因此 $g_\beta=v(h_\beta)+n_\beta$, 其中 $h_\beta\in\Gamma(X,\mathcal O_X)$, $v:\Gamma(X,\mathcal O_X)\to\Gamma(X,\mathcal O_{X'})$, 且 $n_\beta\in\operatorname{nilrad}\bigl(\Gamma(X,\mathcal O_{X'})\bigr)$.
+
+由 (i), $(n_\beta\otimes t_\beta)I_T=0$. 因此 $\delta_T(g)=h\,\delta_T^*(g)$, 其中
+\[
+  h=\sum h_\beta\otimes t_\beta
+  \in\Gamma(X_T,\mathcal O_{X_T}).
+\]
+由此有
+\[
+  \delta_T^*(g)=h^{-1}\delta_T(g)=\delta_T(h^{-1}g),
+\]
+故 $\operatorname{im}\delta_T^*\subset\operatorname{im}\delta_T$.
+
+最后, 设 $g=\sum g_\beta\otimes t_\beta\in\Gamma(X_T,\mathcal O_{X'_T})$. 写成 $g_\beta=v(h_\beta)+n_\beta$, 其中 $n_\beta\in\operatorname{nilrad}\bigl(\Gamma(X,\mathcal O_{X'})\bigr)$. 则
+\[
+\begin{split}
+  \delta_T(g)
+  &=\delta_T\Bigl(\sum n_\beta\otimes t_\beta\Bigr)\\
+  &=\delta_T\Bigl(1+\sum n_\beta\otimes t_\beta\Bigr)\\
+  &=\delta_T^*\Bigl(1+\sum n_\beta\otimes t_\beta\Bigr),
+\end{split}
+\]
+故 $\operatorname{im}\delta_T\subset\operatorname{im}\delta_T^*$.
+
+由\hyperlink{sga6.e12.para.3-2}{3.2}、(iii) 和 (iv), 有关于 $T$ 函子性的正合列
+\[
+  0\longrightarrow\mathbb V(E^\vee)(T)
+  \longrightarrow R^1(f_T)_*\mathcal O_{X_T}^{*}
+  \longrightarrow R^1(f_T)_*\mathcal O_{X'_T}^{*}
+  \longrightarrow\mathbb V(Q)(T),
+\]
+取相伴 fppf 层, 得到正合列
+\[
+  0\longrightarrow\mathbb V(E^\vee)\longrightarrow\Pic_{X/S}
+  \longrightarrow\Pic_{X'/S}\xrightarrow{u}\mathbb V(Q).
+\]
+若 $P=\Ker(u)$, 则单同态 $P\hookrightarrow\Pic_{X'/S}$ 由单位截面 $S\hookrightarrow\mathbb V(Q)$ 作基变换得到. 因 $\mathbb V(Q)$ 可表且分离, 可知 $P\hookrightarrow\Pic_{X'/S}$ 可由闭浸入表示.
+
+最后,
+\[
+  0\longrightarrow\mathbb V(E^\vee)\longrightarrow\Pic_{X/S}
+  \xrightarrow{w}P\longrightarrow0
+\]
+是 fppf 拓扑下的挠子. 由挠子的一个 ``分裂'' 作 fpqc 下降, 更可知 $w$ 可由忠实平坦、有限表现的仿射态射表示 (见 Oort, \emph{Commutative group schemes}, 命题 17.4).
+
+\sgaStableTarget{sga6.e12.cor.3-3}\textbf{推论 3.3.} 在\hyperlink{sga6.e12.prop.3-1}{3.1} 的假设下:
+\begin{enumerate}[label=\roman*)]
+\item 若
+  \[
+    \Pic_{(\mathrm{zar})(X'/S)}\longrightarrow
+    \Pic_{(\mathrm{fppf})(X'/S)}
+  \]
+  是同构, 则
+  \[
+    \Pic_{(\mathrm{zar})(X/S)}\longrightarrow
+    \Pic_{(\mathrm{fppf})(X/S)}
+  \]
+  是同构.
+\item 若 $S$-概形 $T$ 仿射, 且
+  \[
+    \Pic(X'_T)\longrightarrow\Pic_{(\mathrm{zar})(X'/S)}^{(T)}
+  \]
+  满射, 则
+  \[
+    \Pic(X_T)\longrightarrow\Pic_{(\mathrm{zar})(X/S)}^{(T)}
+  \]
+  满射.
+\end{enumerate}
+
+事实上, 对下列 Zariski 拓扑下的层图应用五引理即得 (i):
+\[
+\begin{tikzcd}[column sep=small]
+0 \arrow[r] \arrow[d,"S"] &
+  \mathbb V(E^\vee) \arrow[r] \arrow[d,"S"] &
+  \Pic_{(\mathrm{zar})(X/S)} \arrow[r] \arrow[d] &
+  \Pic_{(\mathrm{zar})(X'/S)} \arrow[r] \arrow[d,"S"] &
+  \mathbb V(Q) \arrow[d,"S"]\\
+0 \arrow[r] & \mathbb V(E^\vee) \arrow[r] &
+  \Pic_{(\mathrm{fppf})(X/S)} \arrow[r] &
+  \Pic_{(\mathrm{fppf})(X'/S)} \arrow[r] & \mathbb V(Q).
+\end{tikzcd}
+\]
+
+断言 (ii) 由下列行正合的图推出:
+\[
+\begin{tikzcd}[column sep=small]
+H^1(X_T,I_T) \arrow[r] \arrow[d] &
+  H^1(X_T,\mathcal O_{X_T}^{*}) \arrow[r] \arrow[d] &
+  H^1(X_T,\mathcal O_{X'_T}^{*}) \arrow[r] \arrow[d] &
+  H^2(X_T,I_T) \arrow[d]\\
+H^0(T,R^1(f_T)_*I_T) \arrow[r] &
+  H^0(T,R^1(f_T)_*\mathcal O_{X_T}^{*}) \arrow[r] &
+  H^0(T,R^1(f_T)_*\mathcal O_{X'_T}^{*}) \arrow[r] &
+  H^0(T,R^2(f_T)_*I_T),
+\end{tikzcd}
+\]
+因为当 $T$ 仿射时, 两端的竖直箭头都是同构.
+
+\sgaStableTarget{sga6.e12.cor.3-4}\textbf{推论 3.4.} 设 $k$ 是域, $X$ 是固有 $k$-概形. 假设 $\Pic_{X_{\red}/k}$ 有万有可逆层. (例如, 下降理论表明, 若 $X_{\red}$ 的每个连通分支 $X'_i$ 都有有理点, 就有这一性质; 特别地, 当 $k$ 代数闭, 或更一般地, 当每个 $X'_i$ 上 $0$-闭链次数的最大公因数为 $1$ 时, 即如此.) 则在 $\Pic_{X/k}$ 的每个仿射开子集 $V$ 上, $X\times_kV$ 上都有万有可逆层.
+
+最后, 以下列更精确的形式证明断言 I.
+
+\sgaStableTarget{sga6.e12.prop.3-5}\textbf{命题 3.5.} 设 $S$ 是整的诺特概形, $f:X\hookrightarrow Y$ 是固有 $S$-概形的幂零浸入. 则 $S$ 有一个非空开子集 $V$, 使态射
+\[
+  f^*:\Pic_{Y/S}|_V\longrightarrow\Pic_{X/S}|_V
+\]
+可由有限表现的仿射态射表示. 事实上, $N=\Ker(f^*)$ 是具有幺幂纤维的仿射群概形 (取 SGA 3 XVII 的意义).
+
+事实上, $X$ 由一个幂零理想 $I$ 定义. 理想 $I$ 有理想滤子
+\[
+  I_0=I\supset I_1\supset\cdots\supset I_n=0,
+\]
+使对 $1\leq i\leq n$ 有 $NI_{i-1}\subset I_i$, 其中 $N$ 是 $\mathcal O_Y$ 的幂零根 (例如可取 $I_i=N^iI$). 设 $X_i$ 是 $Y$ 中由 $I_i$ 定义的闭子概形. 由归纳法, 只须研究浸入 $X_{i-1}\hookrightarrow X_i$. 因此可假设 $NI=0$; 这正是\hyperlink{sga6.e12.prop.3-1}{3.1} 的条件 (i), 最后问题化归到其余条件 (ii)--(v) 也满足的情形. 在\hyperlink{sga6.e12.prop.3-1}{3.1} 的记号下, 对 $\mathcal O_{X'}$、$R^if_*(I)$ 和 $E$ 应用泛平坦性定理 (EGA IV 6.9.1), 并考虑 EGA III 6.9.9 的 K\"unneth 关系, 限制 $S$ 后可假设条件 (ii)、(iii) 和 (iv) 成立.
+% SGA-SRC-001315: inherited reconstruction by mathematical inference; source check recorded in audit.
+
+$k(S)$ 有一个有限扩张 $K$, 使 $(f_K)_*\mathcal O_{X'_K}$ 的所有剩余域扩张都平凡. 若 $S'$ 是在 $S$ 的某个开子集 $V$ 上有限平坦的整概形, 函数域为 $k(S')=K$, 则 $S'$ 有一个开子集 $V'$, 使在 $V'$ 上
+\[
+  \bigl[(f_{S'})_*\mathcal O_{X'_{S'}}\bigr]_{\red}
+  \simeq
+  \bigl[(f_{S'})_*\mathcal O_{X_{S'}}\bigr]_{\red}.
+\]
+进一步限制 $S$ 和 $S'$ 后, 可假设 $S=V$ 和 $S'=V'$. 因待证断言对 fpqc 拓扑是局部的, 可用 $S'$ 替换 $S$. 最后应用 3.1.
+
+\sgaStableTarget{sga6.e12.rem.3-6}\textbf{注 3.6.} 同样地, 考虑正合列
+\[
+  \Pic_{X_i/S}\longrightarrow\Pic_{X_{i-1}/S}
+  \longrightarrow\mathbb V(Q_i),
+\]
+可知对每个 $s\in S$,
+\[
+  \operatorname{coker}\bigl(
+    \Pic^0_{Y_s/s}\longrightarrow\Pic^0_{X_s/s}
+  \bigr)
+\]
+是幺幂群.
+
+\sgaStableTarget{sga6.e12.sec.4}\section*{$4$. $\mathrm{II}^*$ 的证明: 证明中最细致的部分}
+
+回忆断言 $\mathrm{II}^*$: 当 $X$ 和 $Y$ 在 $S$ 上整, 且序列
+\[
+  \mathcal O_Y\longrightarrow f_*\mathcal O_X
+  \rightrightarrows g_*\mathcal O_{X\times_YX}
+\]
+正合时的\hyperlink{sga6.e12.thm.1-1}{定理 1.1}. 应用泛平坦性定理 EGA IV 6.9.1 和 EGA III 7.8.8, 问题化归为证明下列命题.
+
+\sgaStableTarget{sga6.e12.prop.4-1}\textbf{命题 4.1.} 设 $S$ 是整的诺特概形, $\lambda:X\to S$ 和 $\mu:Y\to S$ 是有限表现的固有态射, $f:X\to Y$ 是满 $S$-态射, $g:X\times_YX\to Y$ 是典范态射. 假设:
+\begin{enumerate}[label=\arabic*)]
+\item $X$、$Y$ 和 $X\times_YX$ 在 $S$ 上平坦.
+\item $\lambda_*\mathcal O_X=\mathcal O_S$ 和 $\mu_*\mathcal O_Y=\mathcal O_S$ 普遍成立.
+\item 对所有 $i,j\geq0$, 模 $R^if_*\mathcal O_X$ 和 $R^jg_*\mathcal O_{X\times_YX}$ 在 $S$ 上平坦.
+\item 序列
+  \sgaStableTarget{sga6.e12.eq.unnamed.occ2}\begin{equation}\tag{*}
+    \mathcal O_Y\longrightarrow f_*\mathcal O_X
+    \mathrel{\substack{\xrightarrow{\pi_1}\\[-0.7ex]
+                       \xrightarrow[\pi_2]{}}}
+    g_*\mathcal O_{X\times_YX}
+  \end{equation}
+  正合, 且 $\operatorname{coker}(\pi_1-\pi_2)$ 是在 $S$ 上平坦的 $\mathcal O_Y$-模.
+\end{enumerate}
+则
+\[
+  f^*:\Pic_{Y/S}\longrightarrow\Pic_{X/S}
+\]
+可由有限表现的拟仿射态射表示.
+
+先注意, (1)--(4) 在任意基变换 $T\to S$ 下稳定. 只有 (3) 和 (4) 的稳定性并不显然. 由 K\"unneth 公式 (EGA III 6.9.9), (1) 和 (3) 蕴含 $R^if_*\mathcal O_X$ 和 $R^ig_*\mathcal O_{X\times_YX}$ 的形成与基变换 $T\to S$ 交换; 这立即蕴含条件 (3) 的稳定性. 此外,
+\[
+  \pi_1-\pi_2:f_*\mathcal O_X
+  \longrightarrow g_*\mathcal O_{X\times_YX}
+\]
+的余核的形成也与基变换交换. 因由 (4) 它在 $S$ 上平坦, $\operatorname{im}(\pi_1-\pi_2)$ 在 $S$ 上平坦且与基变换交换. 故 $\Ker(\pi_1-\pi_2)$ 与基变换 $T\to S$ 交换, 因而普遍等于 $\mathcal O_Y$.
+
+假设的稳定性给出两件事:
+\begin{enumerate}[label=\alph*.]
+\item 因待证断言对 fppf 拓扑是局部的, 由下降可假设 $X$ 有截面 $\alpha$; 则 $Y$ 有截面 $\beta=f\circ\alpha$.
+\item 要证明这个断言, 只须考虑 $\Pic_{X/S}$ 的一个 $S$-点, 即由 (a) 和 (2), 考虑 $X$ 上相对于 $\alpha$ 带有刚性化 $u$ 的可逆层 $L$, 并证明这个点在 $\Pic_{Y/S}$ 中的逆像这一 fppf 层 $Z$ 可由有限表现的拟仿射 $S$-概形表示.
+\end{enumerate}
+
+\sgaStableTarget{sga6.e12.lem.4-2}\textbf{引理 4.2.} 在\hyperlink{sga6.e12.prop.4-1}{4.1} 的假设下, $f$ 是局部自由层范畴的下降态射; 即对 $Y$ 上任意一对局部自由层 $L,M$, 图
+\[
+\begin{tikzcd}[column sep=tiny]
+\operatorname{Hom}_Y(L,M) \arrow[r] &
+  \operatorname{Hom}_X(f^*L,f^*M)
+    \arrow[r,shift left=.7ex] \arrow[r,shift right=.7ex] &
+  \operatorname{Hom}_{X\times_YX}(g^*L,g^*M)
+\end{tikzcd}
+\]
+正合.
+
+事实上, 若 $N=\operatorname{Hom}_{\mathcal O_Y}(L,M)$, 则须证明序列
+\[
+  \Gamma(Y,N)\longrightarrow\Gamma(X,f^*N)
+  \rightrightarrows\Gamma(X\times_YX,g^*N)
+\]
+正合, 或等价地 (由 EGA $0_{\mathrm I}$ 5.4.10.1), 证明序列
+\[
+  \Gamma(Y,N)
+  \longrightarrow
+  \Gamma\bigl(Y,f_*\mathcal O_X\otimes_{\mathcal O_Y}N\bigr)
+  \rightrightarrows
+  \Gamma\bigl(Y,g_*\mathcal O_{X\times_YX}
+    \otimes_{\mathcal O_Y}N\bigr)
+\]
+正合. 但序列 (*)
+\[
+  \mathcal O_Y\longrightarrow f_*\mathcal O_X
+  \rightrightarrows g_*\mathcal O_{X\times_YX}
+\]
+由假设正合. 因 $N$ 在 $Y$ 上平坦, 应用左正合函子 $\Gamma(N\otimes -)$ 即得引理.
+
+设 $L$ 是 $X$ 上相对于 $\alpha$ 带有刚性化 $u$ 的可逆层. 由\hyperlink{sga6.e12.lem.4-2}{4.2}, 范畴 $C$ 与范畴 $\mathrm{Deff}(S)$ 等价: 前者由二元组 $(M,\varphi)$ 组成, 其中 $M$ 是 $Y$ 上的可逆层, $\varphi:f^*M\xrightarrow{\sim}L$ 是同构; 后者是 $L$ 关于 $f$ 的有效下降数据的范畴. 若 $f^*M\simeq L$, 则由于 $L$ 相对于 $\alpha$ 刚性化, $M$ 典范地带有相对于 $\beta$ 的刚性化. 因而 $C$ 等价于如下集合定义的离散范畴: $Y$ 上满足
+\[
+  f^*(M,v)\simeq(L,u)
+\]
+的 $\beta$-刚性化可逆层 $(M,v)$ 的类所成的集合. 而这正是 $(L,u)$ 定义的 $\Pic_{X/S}$ 的 $S$-点在 $\Pic_{Y/S}$ 中的逆像的 $S$-点集 $Z(S)$. 此外, 对 $Z(S)$ 的这一描述关于 $S$ 是函子性的. 故 $Z$ 可与 $\mathrm{Deff}$ 等同, 从现在起可不再考虑刚性化.
+
+从 \(\mathrm{Deff}\) 到 \(L\) 的粘合数据函子 \(\mathrm{Rec}\) 有一个典范单同态. 按定义, \(\mathrm{Rec}\) 是函子 \(\Isom(p_1^*L,p_2^*L)\), 其中 \(p_i:X\times_YX\to X\) 是投影; 由\hyperlink{sga6.e12.lem.2-4}{2.4}, 此函子可由 $S$ 上有限表现的仿射概形 \(I\) 表示. 因此还须将单同态
+\[
+  i:\mathrm{Deff}\hookrightarrow \Isom(p_1^*L,p_2^*L)
+\]
+表示为有限表现态射, 它必为拟仿射态射 (由 EGA IV 8.11.2).
+
+顺便指出, 如有需要, 可施加上闭链条件来限制 \(\Isom(p_1^*L,p_2^*L)\), 但以下不需要这样做.
+
+作基变换 \(I\to S\) 后, 问题因此化归为: 若 \(L\) 是 \(X\) 上带有粘合数据
+\[
+  \varphi:p_1^*L\xrightarrow{\sim}p_2^*L
+\]
+的可逆层, 表示出使这一数据变为有效的 \(S\) 的子函子. 有下列引理.
+
+\sgaStableTarget{sga6.e12.lem.4-3}\textbf{引理 4.3.} 在\hyperlink{sga6.e12.prop.4-1}{4.1} 的假设下, 设 \(L\) 是 \(X\) 上带有粘合数据
+\[
+  \varphi:p_1^*L\xrightarrow{\sim}p_2^*L
+\]
+的可逆层. 这一数据有效, 当且仅当下列五个条件成立.
+\begin{enumerate}[label=\arabic*)]
+\item 对每个 \(i\geq0\), \(R^if_*(L)\) 在 \(S\) 上平坦.
+\item 对每个 \(j\geq0\), \(R^jg_*(p_1^*L)\) 在 \(S\) 上平坦.
+\item
+\[
+  \pi_1-\pi_2:f_*(L)\longrightarrow
+  g_*(p_1^*L)\simeq g_*(p_2^*L)
+\]
+的余核在 \(S\) 上平坦, 其中后一个同构是 \(g_*(\varphi)\).
+\item \(\pi_1-\pi_2:f_*(L)\to g_*(p_1^*L)\) 的核 \(N\) 在 \(Y\) 上可逆.
+\item 复合态射
+\[
+  f^*N\longrightarrow f^*f_*L\longrightarrow L
+\]
+是同构.
+\end{enumerate}
+
+事实上, 这些条件是充分的, 因为仅 (4) 和 (5) 就蕴含有效性. 反过来, 设 \(M\) 在 \(Y\) 上可逆, 并假设有与粘合数据相容的同构 \(f^*M\simeq L\). 可用开子集 \(V\) 覆盖 \(Y\), 使在其上 \(M\) 同构于 \(\mathcal O_Y\). 因此 \(L\) 上的下降数据限制到 \(f^{-1}(V)\) 后, 同构于 \(\mathcal O_X|_{f^{-1}(V)}\) 上的平凡下降数据. 最后, 条件 (1)--(5) 在 \(Y\) 上是局部的, 而\hyperlink{sga6.e12.prop.4-1}{4.1} 的假设表明它们对 \(L=\mathcal O_X\) 成立; 故也对 \(L\) 成立.
+
+还须依次以有限表现单同态表示条件 (1)--(5). 对于 (1) 和 (2), 应用下列引理.
+
+\sgaStableTarget{sga6.e12.lem.4-4}\textbf{引理 4.4.} 设 \(S\) 是概形, \(\lambda:X\to S\) 和 \(\mu:Y\to S\) 是有限表现的固有态射, \(f:X\to Y\) 是 \(S\)-态射. 设 \(F\) 是 \(X\) 上有限表现且在 \(S\) 上平坦的层. 对一个整数 \(n\), 设 \(S_n\) 是使每个 \(i\geq n\) 的 \(R^if_*(F)\) 都在 \(S\) 上平坦的 \(S\) 的子函子; 更精确地, 对态射 \(\phi:T\to S\),
+\[
+  S_n(T)=
+  \begin{cases}
+    \{\phi\},&\text{若对每个 \(i\geq n\), \(R^i(f_T)_*(F_T)\) 都平坦,}\\
+    \varnothing,&\text{否则.}
+  \end{cases}
+\]
+则 \(S_n\hookrightarrow S\) 可由有限表现的满单同态表示; 此外, 对 \(i\geq n\), \(R^i(f_{S_n})_*(F_{S_n})\) 的形成与基变换 \(T\to S_n\) 交换. 另外, \(S_n\) 等于如下函子 \(S'_n\): 在其上, 对 \(S\) 的每个仿射开子集 \(V\), 函子
+\[
+  M\longmapsto
+  R^i(f_V)_*\bigl(F_V\otimes\lambda_V^*M\bigr),
+  \qquad i\geq n,
+\]
+都是正合的, 其中 \(M\) 遍历拟凝聚 \(\mathcal O_V\)-模.
+
+事实上, 断言在 \(S\) 上是局部的, 因此可假设 \(S\) 拟紧. 则 \(X/Y\) 的相对维数有界, 设界为 \(r\); 当 \(n>r\) 时,
+\[
+  R^nf_*(F_V\otimes\lambda_V^*M)=0.
+\]
+因此当 \(n>r\) 时断言成立.
+
+作递降归纳, 假设断言对 \(n+1\) 已知. 用 \(S_{n+1}=S'_{n+1}\) 替换 \(S\) 后, 可假设当 \(i\geq n+1\) 时 \(R^if_*(F)\) 在 \(S\) 上平坦. 因 \(F\) 在 \(S\) 上平坦, EGA III 6.9.8 表明 \(R^nf_*(F)\) 的形成与任意基变换交换. 因而 \(S_n\) 的可表性由下列引理推出 (见 J. P. Murre, \emph{Representation of unramified functors}, S\'eminaire Bourbaki, 1965 年 5 月, 第 294-11 页, 定理 2).
+
+\sgaStableTarget{sga6.e12.lem.4-5}\textbf{引理 4.5.} 设 \(X\to S\) 是有限表现的固有态射, \(F\) 是 \(X\) 上的有限表现层. 则使 \(F\) 在 \(S\) 上平坦的 \(S\) 的子函子 \(S_F\), 可由有限表现的满单同态表示 (它一般当然不是浸入).
+
+要表示\hyperlink{sga6.e12.lem.4-3}{4.3} 的条件 (3), 注意由 (1) 和 (2), \(f_*(L)\) 和 \(g_*(p_1^*L)\) 的形成与基变换 \(I\to S\) 交换; 因而 \(\Coker(\pi_1-\pi_2)\) 的形成也如此. 然后应用 4.5.
+
+要表示 (4), 注意由 (3), 且由于 \(f_*(L)\) 和 \(g_*(p_1^*L)\) 平坦并与基变换交换,
+\[
+  N=\Ker(\pi_1-\pi_2)
+\]
+也与基变换交换. 然后应用下列引理.
+
+\sgaStableTarget{sga6.e12.lem.4-6}\textbf{引理 4.6.} 设 \(\lambda:X\to S\) 是有限表现的固有态射, \(u:F\to G\) 是有限表现 \(\mathcal O_X\)-模的同态, 其中 \(G\) 在 \(S\) 上平坦. 则使 \(u\) 为同构的 \(S\) 的子函子 \(S_1\), 可由 \(S\) 的一个有限表现开子概形表示.
+
+照常使用 EGA IV 8 和 11.2.6, 化归到 \(S\) 诺特的情形; 这样就无须再考虑有限表现问题. 先表示使 \(u\) 为满同态, 即使 \(\Coker u\) 为零的函子. 因 \(\Coker u\) 的形成与基变换交换, 此函子可由 \(S\) 的开子集
+\[
+  S-\lambda\bigl(\Supp(\Coker u)\bigr)
+\]
+表示. 因而可假设 \(u\) 已是满同态. 再使用 \(G\) 在 \(S\) 上平坦的假设, 可知 \(\Ker u\) 的形成与基变换交换; 因而所考虑的函子可由 \(S\) 的开子集
+\[
+  S-\lambda\bigl(\Supp(\Ker u)\bigr)
+\]
+表示.

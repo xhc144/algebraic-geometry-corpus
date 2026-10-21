@@ -1,0 +1,72 @@
+% Chinese adaptation of the source book's centered title and underlined hierarchy.
+\documentclass[11pt,letterpaper,leqno]{article}
+\PassOptionsToPackage{no-math}{fontspec}
+\usepackage[UTF8,scheme=plain,fontset=none]{ctex}
+\setCJKmainfont{Noto Serif CJK SC}
+\setCJKsansfont{Noto Sans CJK SC}
+\setCJKmonofont{Noto Sans Mono CJK SC}
+\setmainfont{Latin Modern Mono}[BoldFont=lmmonolt10-bold.otf,BoldItalicFont=lmmonolt10-boldoblique.otf]
+\usepackage{amsmath,amssymb,amsfonts,mathrsfs,mathtools}
+\usepackage{tikz}
+\usetikzlibrary{cd,arrows.meta}
+\usepackage{geometry}
+\geometry{left=2.6cm,right=2.6cm,top=2.5cm,bottom=2.5cm,headheight=14pt}
+\usepackage{enumitem}
+\usepackage[normalem]{ulem}
+\usepackage{xeCJKfntef}
+\usepackage{fancyhdr}
+\usepackage[unicode,hidelinks,hypertexnames=false]{hyperref}
+\hypersetup{pdftitle={SGA 7 I：代数几何中的单值群——中文译稿},pdfauthor={A. Grothendieck; M. Raynaud; D. S. Rim; P. Deligne},pdfsubject={六篇已发表报告的中文原生 LaTeX 重建；覆盖及审阅状态见交付记录}}
+\let\mathunderline\underline
+\renewcommand{\underline}[1]{\ifmmode\mathunderline{#1}\else\CJKunderline{#1}\fi}
+\emergencystretch=3em
+\setlength{\parindent}{2em}
+\setlength{\parskip}{0.4em}
+\newcommand{\CurrentExpose}{}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{\thepage}
+\fancyhead[R]{\CurrentExpose}
+\renewcommand{\headrulewidth}{0pt}
+\newcommand{\StartExpose}[1]{\clearpage\renewcommand{\CurrentExpose}{#1}\phantomsection\addcontentsline{toc}{section}{报告 #1}}
+\DeclareRobustCommand{\SGARefTarget}[2]{\mbox{\hypertarget{#1}{#2}}}
+\DeclareRobustCommand{\SGARefAliasTarget}[1]{\mbox{\hypertarget{#1}{}}}
+% Partial or external references keep the printed citation but never acquire a
+% fabricated destination. qa/cross-references.json inventories missing targets.
+\newcommand{\SGARefLink}[2]{\ifcsname SGAavailable@#1\endcsname\hyperlink{#1}{#2}\else#2\fi}
+\newcommand{\SGAExternalRef}[3]{#2}
+\IfFileExists{available-targets.tex}{\input{available-targets.tex}}{}
+\providecommand{\Zl}{\mathbb{Z}_{\ell}}
+\providecommand{\Ql}{\mathbb{Q}_{\ell}}
+\providecommand{\Gal}{\operatorname{Gal}}
+\providecommand{\Spec}{\operatorname{Spec}}
+\providecommand{\Isom}{\operatorname{Isom}}
+\providecommand{\Aut}{\operatorname{Aut}}
+\providecommand{\Hom}{\operatorname{Hom}}
+\providecommand{\Ext}{\operatorname{Ext}}
+\providecommand{\Biext}{\operatorname{Biext}}
+\providecommand{\Pic}{\operatorname{Pic}}
+\providecommand{\Coker}{\operatorname{Coker}}
+\providecommand{\Ker}{\operatorname{Ker}}
+\providecommand{\Im}{\operatorname{Im}}
+\providecommand{\Tor}{\operatorname{Tor}}
+\providecommand{\prof}{\operatorname{prof}}
+\providecommand{\codim}{\operatorname{codim}}
+\providecommand{\pr}{\operatorname{pr}}
+\providecommand{\id}{\mathrm{id}}
+\providecommand{\sym}{\mathrm{sym}}
+\providecommand{\Corr}{\operatorname{Corr}}
+\providecommand{\Proj}{\operatorname{Proj}}
+\providecommand{\Comp}{\operatorname{Comp}}
+\providecommand{\cC}{\mathcal{C}}
+\providecommand{\cY}{\mathcal{Y}}
+\providecommand{\cT}{\mathcal{T}}
+\providecommand{\cPsi}{\Psi}
+\providecommand{\Dcat}{D}
+\providecommand{\La}{\Lambda}
+\providecommand{\Ghat}{\widehat{G}}
+\providecommand{\uHom}{\underline{\operatorname{Hom}}}
+\providecommand{\uExt}{\underline{\operatorname{Ext}}}
+\providecommand{\uTor}{\underline{\operatorname{Tor}}}
+\providecommand{\cl}{\operatorname{c\ell}}
+\providecommand{\e}{\mathrm{e}}

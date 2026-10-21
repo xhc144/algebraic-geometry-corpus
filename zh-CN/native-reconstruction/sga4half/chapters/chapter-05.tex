@@ -1,0 +1,600 @@
+% !TEX root = ../main.tex
+
+\chapter{对偶性}\label{V}
+
+本讲包含若干定理与相容性结果, 都与 Poincaré 对偶性 (duality) 有关.
+第 \ref{V:1} 节给出维数 $1$ 时的局部双对偶定理 \cite[I.5.1]{sga5}, 以及一些对偶的计算.
+第 \ref{V:2} 节给出 M.\ Artin 教给我的一个十分简洁的曲线 Poincaré 对偶性的证明.
+第 \ref{V:3} 节证明一种相容性, 它联系了产生曲线 Poincaré 对偶性的配对的两种定义:
+一种用杯积, 另一种用 Jacobian 的自对偶性.
+最后, 第 \ref{V:4} 节证明其标题所述的相容性.
+
+本讲中所有概形均为 Noether 分离概形, $n$ 为在每个所考虑概形上都可逆的整数.
+
+\section{维数 \texorpdfstring{$1$}{1} 时的局部双对偶性}\label{V:1}
+
+\subsection{}\label{V:1-1}
+
+设 $S$ 为纯维数 $1$ 的正则概形.
+我们将证明, 集中在次数 $0$、值为 $\dZ/n$ 的复形是对偶化复形;
+即对 $\sK\in \ob\eD_c^b(S,\dZ/n)$ (其中 $(-)_c$ 表示可构造),
+若置 $D\sK=\rHom(\sK,\dZ/n)$, 则 $D\sK$ 仍可构造且上同调有界,
+由 $\sK$ 到 $D D\sK$ 的典范态射 $\alpha$ 为同构.
+
+对 $\eD^-$ 中的 $\sK$ 及任意 $\sL$, 有
+\[
+  \hom(\sK\lotimes \sL,\dZ/n) = \hom(\sL,\Hom(\sK,\dZ/n)) \text{.}
+\]
+当 $D\sK$ 在 $\eD^-$ 中时, 从 $\sK$ 到 $DD\sK$ 的态射有定义:
+若 $\beta:D\sK\lotimes\sK\to \dZ/n$ 是典范配对,
+则它是由配对 $\sK\lotimes D\sK=D\sK\lotimes \sK \xrightarrow\beta \dZ/n$ 定义的态射.
+
+\subsection{}\label{V:1-2}
+
+设 $f:X\to S$ 为有限型分离态射. 置 $\sK_X=\eR f^!\dZ/n$.
+对 $\sK\in \ob\eD^-(X,\dZ/n)$, 置 $D\sK = \rHom(\sK,\sK_X)$.
+$\eR f_!$ 与 $\eR f^!$ 之间的伴随给出
+\[\xymatrix{
+  \eR f_\ast \sK\lotimes \eR f_\ast D\sK \ar[r]
+    & \eR f_! (\sK\lotimes D\sK) \ar[r]
+    & \eR f_! \eR f^! \dZ/n \ar[r]
+    & \dZ/n \text{.}
+}\]
+这一描述的对称性表明, 当 $f$ 适当时, 图
+\begin{equation*}\tag{1.2.1}\label{V:eq:1-2-1}
+\xymatrix{
+  \eR f_\ast \sK \ar[r] \ar[d]
+    & D D \eR f_\ast \sK \ar[d]^-\wr \\
+  \eR f_\ast D D \sK \ar[r]^\sim
+    & D\eR f_\ast D\sK
+}
+\end{equation*}
+交换.
+
+若 $f$ 为闭点的包含, 已知 $\eR f^!\dZ/n=\dZ/n(-1)[-2]$,
+即差一个扭转和移位后为 $\dZ/n$.
+在域的谱上, 此复形是对偶化复形 ($\dZ/n$-模的 Pontryagin 对偶性).
+因此由 \eqref{V:eq:1-2-1}, 对形如 $\eR f_!\sL$ 的 $\sK$ 有 $\sK\iso D D\sK$,
+从而只要 $\underline\h^\bullet(\sK)$ 的支集有限就有此结论.
+
+\begin{theorem_}\label{V:1-3}
+设 $j:U\hookrightarrow S$ 为 $S$ 的稠密开子概形,
+$\sF$ 为 $U$ 上局部常值可构造的 $\dZ/n$-模层.
+则 $\eD j_\ast \sF = j_\ast D \sF$; 即
+$\Hom(j_\ast \sF,\dZ/n) = j_\ast\Hom(\sF,\dZ/n)$,
+且对 $i>0$ 有 $\Ext^i(j_\ast\sF,\dZ/n) = 0$.
+\end{theorem_}
+
+在 $U$ 上, 对 $i>0$ 有 $\Ext^i(j_\ast\sF,\dZ/n)=0$,
+因为 $\sF$ 局部常值 (且 $\dZ/n$ 是内射 $\dZ/n$-模);
+而在 $i=0$ 时, 它是 $\sF$ 的对偶 $\sF^\vee$.
+可验证 $\hom(j_\ast\sF,\dZ/n)=j_\ast\sF^\vee$,
+尚需验证 $\Ext^i$ 在 $i>0$ 时于 $S\setminus U$ 各点处消失.
+问题在这些点处是局部的, 因而可假定 $S$ 为严格局部的离散赋值概形 (trait),
+且 $U$ 只由其一般点 $\eta$ 组成.
+设 $I=\gal(\bar\eta/\eta)$. 层 $\sF$ 等同于 Galois 模 $\sF_{\bar\eta}$,
+而 $j_\ast \sF$ 的特殊纤维等同于 $\sF_{\bar\eta}^I$.
+
+设 $i$ 为闭点 $s$ 的包含, 将 $D$ 施加于正合列
+\[\xymatrix{
+  0 \ar[r]
+    & j_! \sF \ar[r]
+    & j_\ast \sF \ar[r]
+    & i_\ast \sF_{\bar\eta}^I \ar[r]
+    & 0 \\
+  0 \ar[r]
+    & j_! \sF_{\bar\eta}^I \ar[r] \ar[u]
+    & \sF_{\bar\eta}^I \ar[r] \ar[u]
+    & i_\ast \sF_{\bar\eta}^I \ar[r] \ar[u]
+    & 0 \text{.}
+}\]
+
+得到三角形的态射
+\[\xymatrix{
+  i_\ast\left(\sF_{\bar\eta}^I\right)^\vee (-1)[-2] \ar[r] \ar@{=}[d]
+    & D j_\ast\sF \ar[r] \ar[d]
+    & \eR j_\ast \sF^\vee \ar[d] \\
+  i_\ast\left(\sF_{\bar\eta}^I\right)^\vee(-1)[-2] \ar[r]
+    & \left(\sF_{\bar\eta}^I\right)^\vee \ar[r]
+    & \eR j_\ast \sF_{\bar\eta}^I \text{.}
+}\]
+第一行产生的长正合列给出 $\Ext^i$ 在 $i>2$ 时消失;
+取 $s$ 处的纤维, 得到
+\[\xymatrix@=0.7cm{
+  0 \ar[r]
+    & \left(\underline\h^1(D j_\ast\sF)\right)_s \ar[r]
+    & \h^1\left(I,\sF_{\bar\eta}^\vee\right) \ar[r]^-\partial \ar[d]
+    & \left(\sF_{\bar\eta}^I\right)^\vee(-1) \ar[r] \ar@{=}[d]
+    & \left(\underline\h^2 D j_\ast\sF\right)_s \ar[r]
+    & 0 \\
+  & 0 \ar[r]
+    & \h^1\left(I,(\sF_{\bar\eta}^I)^\vee\right) \ar[r]^-\partial
+    & \left(\sF_{\bar\eta}^I\right)^\vee(-1) \ar[r]
+    & 0 \text{.}
+}\]
+由于 $\left(\sF_{\bar\eta}^I\right)^\vee = \left(\sF_{\bar\eta}^\vee\right)_I$,
+置 $M=\sF_{\bar\eta}^\vee$, 则只需验证
+\[\xymatrix{
+  \h^1(I,M) \ar[r]^-\sim
+    & \h^1(I,M_I) \text{.}
+}\]
+若 $p$ 为剩余特征指数, 则 $I$ 是一个与
+$\widehat\dZ_{p'} = \varprojlim_{(m,p)=1} \dZ/m$ 同构的群被 $p$-群 $P$ 的扩张.
+由于 $P$ 的阶与 $M$ 的阶互素, 对 $i>0$ 有 $\h^i(P,M)=0$,
+且 $(M_I)^P=(M^P)_I$. 于是可将 $M$ 换为 $M^P$, $I$ 换为 $I/P$.
+最后有函子性同构
+$\h^1(\widehat\dZ_{p'},M)\sim ($ $\widehat\dZ_{p'}$ 在 $M)$ 中的余不变量,
+定理由此得证.
+
+\begin{theorem_}\label{V:1-4}
+对 $\sK\in \ob\eD_c^b(S,\dZ/n)$, 有 $\sK\iso D D \sK$.
+\end{theorem_}
+
+通过分解论证, 可归结到 $\sK$ 为集中于次数 $0$ 的可构造层 $\sF$,
+且 $\sF$ 或者具有有限支集 (\ref{V:1-2}), 或者具有 \ref{V:1-3} 中的形式 $j_\ast\sF_1$ 的情形.
+在第二种情形, \ref{V:1-3} 将我们归结到 $U$ 上局部常值的 $\sF$ 的局部双对偶性.
+
+\section{曲线的 Poincaré 对偶性, 据 M.\ Artin}\label{V:2}
+
+\subsection{}\label{V:2-1}
+
+设 $X$ 为代数闭域 $k$ 上的光滑射影曲线.
+置 $\sK_X=\dZ/n(1)[2]$, 并对 $\sK\in\ob \eD_c^b(X,\dZ/n)$,
+置 $D\sK=\rHom(\sK,\sK_X)$.
+对 $\dZ/n$-模 $M$, 也置 $D M = \hom(M,\dZ/n)$; 模的复形同理.
+迹态射 $\h^0(X,\sK_X) \to \dZ/n$, 或 $\eR\Gamma(X,\sK_X)\to \dZ/n$,
+定义配对 $\eR\Gamma(X,\sK)\lotimes\eR\Gamma(X,D\sK) \to \dZ/n$.
+曲线 $X$ 的开子概形 $j:U\hookrightarrow X$ 的上同调与紧支集上同调之间的 Poincaré 对偶性是说,
+对 $\sK=j_!\dZ/n$, 这个配对使每个因子与另一个因子的对偶等同.
+
+下面给出 M.\ Artin 告诉我的一个证明, 说明对 $\sK\in\ob\eD_c^b(X,\dZ/n)$,
+此配对总是完美的; 即它定义同构
+\begin{equation*}\tag{2.1.1}\label{V:eq:2-1-1}
+\xymatrix{
+  \eR\Gamma(X,\sK) \ar[r]^-\sim
+    & D \eR\Gamma(X,D\sK) \text{.}
+}
+\end{equation*}
+
+对每个可构造层 $\sF$, 置
+\[
+  '\h^i(X,\sF) = \text{$\dZ/n$-模 $\h^{-i}(X,D\sF)$ 的对偶.}
+\]
+\eqref{V:eq:2-1-1} 为同构的断言等价于下述定理.
+
+\begin{theorem_}\label{V:2-2}
+对可构造 $\dZ/n$-模层 $\sF$, 有
+\begin{equation*}\tag{2.2.1}\label{V:eq:2-2-1}
+\xymatrix{
+  \h^i(X,\sF) \ar[r]^-\sim
+    & '\h^i(X,\sF) \text{.}
+}
+\end{equation*}
+\end{theorem_}
+
+\begin{lemma_}\label{V:2-3}
+设 $f:X\to Y$ 为 $k$ 上光滑曲线之间的一般平展态射.
+则 $\sK_X=f^\ast\sK_Y=\eR f^!\sK_Y$,
+且 $\tr_f$ 为伴随态射 $\eR f_!\eR f^!\sK_Y\to \sK_Y$.
+\end{lemma_}
+
+% 核对记录: 英文源指出此处原记作 \rhom, 已采用 \rHom; 译文沿用所选底本.
+只需验证, 当 $f$ 有限时,
+$f_\ast \eR f^!\sK_Y = \rHom(f_\ast\dZ/n,\sK_Y)$ 是 $f_\ast\dZ/n$,
+且 $\tr_f$ 为伴随态射.
+由 \ref{V:1-3} 得到 $\Ext^i$ 在 $i>0$ 时消失, 断言随之成立.
+
+更明确地, $\eR f^!$ 是函子 $f^!:f^!\sF(U)=\hom(f_!\dZ_U,\sF)$ 的导出函子,
+而 \ref{V:1-3} 蕴涵 $\eR^i f^!\dZ/n$ 在 $i>0$ 时消失.
+
+\begin{corollary_}\label{V:2-4}
+设 $f:X'\to X$ 为 $k$ 上光滑射影曲线的一般平展态射.
+则 $'\h^i(X,f_\ast \sF)='\h^i(X',\sF)$; 此同构具有函子性, 且图
+\[\xymatrix{
+  \h^i(X,f_\ast\sF) \ar[r] \ar@{=}[d]
+    & '\h^i(X,f_\ast\sF) \ar@{=}[d] \\
+  \h^i(X',\sF) \ar[r]
+    & '\h^i(X',\sF)
+}\]
+交换.
+\end{corollary_}
+
+该同构由 \ref{V:1-2} 给出: $D f_\ast\sF=f_\ast D\sF$.
+
+\subsection{}\label{V:2-5}
+
+我们证明 \ref{V:2-2}. 若 $\sF$ 是一点上的 $\dZ/n$ 延零所得的层,
+则 $\h^\bullet(D\sF) = \ext^\bullet(\sF,\sK_X)=\dZ/n$ 集中于次数 $0$,
+且在配对 $\h^\bullet(\sF)\otimes\h^\bullet(D\sF) \to \dZ/n$ 中,
+有 $1\otimes 1\mapsto 1$ (\hyperref[IV]{闭链}, \ref{IV:2-1-5}): 对偶是完美的.
+$\sF$ 具有有限支集的情形同样处理.
+
+对任意可构造 $\sF$, 设 $\sA$ 为其中由有限支集截面组成的子层, 并设 $\sG=\sF/\sA$.
+正合列
+\begin{equation*}\label{V:eq:2-5-1}\tag{2.5.1}
+\xymatrix{
+  0 \ar[r]
+    & \sA \ar[r]
+    & \sF \ar[r]
+    & \sG \ar[r]
+    & 0
+}
+\end{equation*}
+给出图
+\begin{equation*}\tag{2.5.2}\label{V:eq:2-5-2}
+\xymatrix@=.5cm{
+  & & 0 \ar[r]
+    & \h^0(X,\sA) \ar[r] \ar[d]^-\wr
+    & \h^0(X,\sF) \ar[r] \ar[d]
+    & \h^0(X,\sG) \ar[r] \ar[d]
+    & 0 \\
+  0 \ar[r]
+  & '\h^{-1}(X,\sF) \ar[r]
+  & '\h^{-1}(X,\sG) \ar[r]
+  & '\h^0(X,\sA) \ar[r]
+  & '\h^0(X,\sF) \ar[r]
+  & '\h^0(X,\sG) \ar[r]
+  & 0
+}
+\end{equation*}
+以及在 $i\ne 0,-1$ 时的相容同构 $\h^i(X,\sF)\iso \h^i(X,\sG)$,
+$'\h^i(X,\sF) \iso '\h^i(X,\sG)$.
+若 $j:U\to X$ 是 $\sF$ 在其上局部常值的开子概形, 则有正合列
+\begin{equation*}\tag{2.5.3}\label{V:eq:2-5-3}
+\xymatrix{
+  0 \ar[r]
+    & \sG \ar[r]
+    & j_\ast j^\ast \sF \ar[r]
+    & \sB \ar[r]
+    & 0
+}
+\end{equation*}
+其中 $\sB$ 的支集有限.
+由 \ref{V:1-3}, 有
+$'\h^i(X,j_\ast j^\ast\sF) = D \h^{2-i} (X,j_\ast(j^\ast\sF)^\vee(1))$,
+所以当 $i<0$ 时有 $'\h^i=0$;
+再由 \eqref{V:eq:2-5-2} 及 \eqref{V:eq:2-5-3} 所定义的长正合列,
+可知在 $i<0$ 时 $'\h^i$ 总消失.
+
+若 $\sF=\dZ/n$, 则定理在 $i=0$ 和 $2$ 时成立.
+这表达了当 $X$ 连通时, 迹态射 $\h^2(X,\dmu_n) \iso \dZ/n$ 为同构这一事实.
+由 \ref{V:2-4}, 当 $i=0$ 且 $\sF=f_\ast\dZ/n$ 时, 定理仍成立.
+
+再对任意 $\sF$, 并取上述 $\sG$, 存在如 \ref{V:2-4} 中的 $f:X'\to X$,
+使得 $\sG$ 嵌入 $f_\ast\dZ/n$:
+\[\xymatrix{
+  0 \ar[r]
+    & \sG \ar[r]
+    & f_\ast\dZ/n \ar[r]
+    & \sQ \ar[r]
+    & 0 \text{.}
+}\]
+将 $X'$ 换为某个 $X''/X'$ 后, 可假定
+$\h^i(X,\sF) \to \h^i(X,f_\ast\dZ/n) = \h^i(X',\dZ/n)$ 在 $i>0$ 时为零.
+于是考虑
+\small
+\[\xymatrix@=.3cm{
+  0 \ar[r]
+    & \h^0(X,\sG) \ar[r] \ar[d]
+    & \h^0(X',\dZ/n) \ar[r] \ar[d]^-\wr
+    & \h^0(X,\sQ) \ar[r] \ar[d]
+    & \h^1(X,\sG) \ar[r]^-0 \ar[d]
+    & \h^1(X',\dZ/n) \ar[r] \ar[d]
+    & \h^1(X,\sQ) \ar[r] \ar[d]
+    & \cdots \\
+  0 \ar[r]
+    & '\h^0(X,\sG) \ar[r]
+    & '\h^0(X',\dZ/n) \ar[r]
+    & '\h^0(X,\sQ) \ar[r]
+    & '\h^1(X,\sG) \ar[r]
+    & '\h^1(X',\dZ/n) \ar[r]
+    & '\h^1(X,\sQ) \ar[r]
+    & \cdots
+}\]
+\normalsize
+
+$\h^0(X')$ 处的同构给出 $\h^0(X,\sG)\hookrightarrow '\h^0(X,\sG)$,
+再由 \eqref{V:eq:2-5-2} 得到对 $\sF$ 的相同单射性.
+将其用于 $\sQ$, 得到 $\h^1(X,\sG)\hookrightarrow '\h^1(X,\sG)$.
+再将此用于 $\h^1(X',\dZ/n)$.
+此群与 $'\h^1(X',\dZ/n)=D(\h^1(X',\dZ/n)(1))$ 的阶相同,
+因而得到同构, 并有 $\h^1(X,\sG) \iso '\h^1(X,\sG)$. 对 $\sF$ 也一样.
+当 $i=2$ 时, 已知 $\h^2(X',\dZ/n) \iso '\h^2(X',\dZ/n)$,
+同样继续进行, 随后因再无需要处理的对象而结束.
+
+\section{曲线的 Poincaré 对偶性}\label{V:3}
+
+本节证明相容性 (\hyperref[I]{Arcata} \ref{I:eq:6-2-3-3}).
+
+\subsection{}\label{V:3-1}
+
+采用 (\hyperref[I]{Arcata} \ref{I:6-2-3}) 的记号:
+$\bar X$ 是代数闭域 $k$ 上光滑连通的射影曲线,
+$D$ 为 $\bar X$ 上的约化除子, $0$ 为 $X=\bar X\setminus D$ 的一点,
+\[\xymatrix{
+  X \ar@{^{(}->}[r]^-j
+    & \bar X
+    & \ar[l]_-i D \text{,}
+}\]
+并且 $\pic_D(\bar X)=\h^1(\bar X,_D\dG_m)$,
+其中 $_D\dG_m$ 是 $\dG_m$ 中模 $D$ 同余于 $1\mod D$ 的截面所成的层.
+回顾 $\h_c^1(X,\dmu_n) = \pic_D^0(\bar X)_n$,
+且 $x\to \sO(x)$ 定义典范映射 $f:X\to \pic_D(\bar X)$.
+置 $f_0(x)=f(x)-f(0):X\to \pic_D^0(\bar X)$.
+
+仍以 $j$ 表示 $X\times X$ 到 $X\times \bar X$ 的包含.
+$X\times X$ 的对角 $\Delta$ 在 $X\times \bar X$ 中闭;
+它在 $\h_\Delta^2(X\times X,\dmu_n)=\h_\Delta^2(X\times \bar X,j_!\dmu_n)$ 中定义一个类.
+以 $c$ 表示其在 $\h^2(X\times \bar X,j_!\dmu_n)$ 中的像.
+
+K\"unneth 公式给出
+\[
+  \h^\bullet(X\times \bar X,j_!\dmu_n) = \h^\bullet(X,\dZ/n)\otimes \h^\bullet(\bar X,j_!\dmu_n) = \h^\bullet(X,\dZ/n)\otimes \h_c^\bullet(X,\dmu_n) \text{.}
+\]
+我们将计算 $c$ 的 $(1,1)$-分量,
+\[
+  c^{1,1} \in \h^1(X,\dZ/n)\otimes \h_c^1(X,\dmu_n) = \h^1(X,\h_c^1(X,\dmu_n)) = \h^1\left(X,\pic_D^0(\bar X)_n\right) \text{.}
+\]
+
+考虑正合列
+\[\xymatrix{
+  0 \ar[r]
+    & \pic_D^0(\bar X)_n \ar[r]
+    & \pic_D^0(\bar X) \ar[r]^n
+    & \pic_D^0(\bar X) \ar[r]
+    & 0
+}\]
+这使 $\pic_D^0(\bar X)$ 成为 $\pic_D^0(\bar X)$ 上的一个 $\pic_D^0(\bar X)_n$-挠子.
+设 $u$ 为其在 $f_0$ 下的逆像在
+$\h^1(X,\h_c^1(X,\dmu_n))=\h^1(X,\pic_D^0(\bar X)_n)$ 中的类.
+
+\begin{proposition_}\label{V:3-2}
+采用上述记号, 有 $c^{1,1}=-u$.
+\end{proposition_}
+
+设 $e$ 为 $\Delta$ 与 $X\times\{0\}$ 的上同调类在
+$\h^2(X\times \bar X,j_!\dmu_n)$ 中的像之差.
+由于后者的 K\"unneth 类型为 $(0,2)$, 有 $c^{1,1}=e^{1,1}$.
+考虑 $\pr_1:X\times \bar X\to X$ 与层 $j_!\dmu_n$ 的 Leray 谱序列:
+\[
+  E_2^{pq} = \h^p(X,\eR^q {\pr_1}_\ast j_!\dmu_n) = \h^p(X,\h_c^q(X,\dmu_n)) \Rightarrow \h^{p+q}(X\times \bar X,j_!\dmu_n) \text{.}
+\]
+它退化: 它是 $\h^\bullet(X)$ 与 $\bar X\to \spec(k)$ 及层 $j_!\dmu_n$ 的 (平凡) Leray 谱序列的张量积.
+逐纤维看, 除子 $\Delta-X\times\{0\}$ 的次数为 $0$,
+因此 $e$ 在 $E^{02}$ 中的像为零.
+于是可以谈论它在 $E^{1,1}$ 中的像 $\bar e$, 且须证明 $\bar e = -u$.
+
+设 $X\times\bar X$ 上的 $\sG$ 为 $\dG_m$ 的子层,
+由限制到闭子概形 $X\times D$ 后为 $1$ 的局部截面组成. 又有正合列
+\begin{equation*}\tag{3.2.1}\label{V:eq:3-2-1}
+\xymatrix{
+  0 \ar[r]
+    & j_!\dmu_n \ar[r]
+    & \sG \ar[r]
+    & \sG \ar[r]
+    & 0
+}
+\end{equation*}
+而 $e$ 是在 $X\times D$ 上由 $1$ 平凡化的可逆层 $\sO(\Delta-X\times\{0\})$
+的类 $e_1\in \h^1(X\times\bar X,\sG)$ 经 $\partial$ 所得的像.
+
+将 $\eR\pr_{1\ast}$ 施加于 \eqref{V:eq:3-2-1} 所定义的区分三角形, 得到区分三角形
+\begin{equation*}\tag{3.2.2}\label{V:eq:3-2-2}
+\xymatrix{
+  & \ar[r]^-\partial
+    & \eR \pr_{1\ast} j_!\dmu_n \ar[r]
+    & \eR \pr_{1\ast}\sG \ar[r]
+    & \eR \pr_{1\ast}\sG \ar[r]^-\partial
+    &
+}
+\end{equation*}
+且图
+\[\xymatrix{
+  \h^1(X\times \bar X,\sG) \ar[r]^-\partial \ar@{=}[d]^-{(1)}
+    & \h^2(X\times \bar X,j_!\dmu_n) \ar@{=}[d] \\
+  \h^1(X,\eR\pr_{1\ast} \sG) \ar[r]^-\partial
+    & \h^2(X,\eR\pr_{1\ast} j_!\dmu_n)
+}\]
+交换. 我们的问题于是成为确定以下元素在
+$E^{11}=\h^1(X,\h_c^1(X,\dmu_n))$ 中的像 (在 $E^{02}$ 中的像为零):
+经 (1) 与 $e_1$ 对应且仍记为 $e_1$ 的类, 在
+$\partial_{\text{\eqref{V:eq:3-2-2}}}:\h^1(X,\eR\pr_{1\ast}\sG) \to \h^2(X,\eR\pr_{1\ast} j_!\dmu_n)$ 下的像.
+
+层 $\eR^1\pr_{1\ast}\sG$ 由将 $\spec(k)$ 上的代数群 $\pic_D(\bar X)$
+拉回所得的 $X$ 上群概形定义, 且 $e_1$ 在
+$\h^0(X,\eR^1\pr_{1\ast}\sG) = \hom(X,\pic_D(\bar X))$ 中的像是 $f_0$.
+
+以层复形的短正合列表示三角形 \eqref{V:eq:3-2-2}:
+\[\xymatrix{
+  0 \ar[r]
+    & \sA \ar[r]
+    & \sB \ar[r]
+    & \sC \ar[r]
+    & 0 \text{.}
+}\]
+设 $\sB'$ 为
+\[
+  \tau_{\leqslant 1} \sB : \cdots \sB^0 \to \ker(d) \to 0 \cdots
+\]
+的子层, 由如下方式得到: 将次数一的项 $\ker(d)$ 换为
+$X$ 上的 $\pic_D^0(\bar X)$ 在 $X$ 上映射
+$\ker(d)\to \underline\h^1(\sB) = \pic_D(\bar X)$ 下的逆像.
+设 $\sA'=\sA\cap \sB'$, $\sC'$ 为 $\sB'$ 的像.
+有 $\sA'=\tau_{\leqslant 1}(\sA)$,
+而 $\sC'$ 由 $\sC$ 得到的方式与 $\sB'$ 由 $\sB$ 得到的方式相同.
+因此有短正合列的交换图
+\begin{equation*}\tag{3.2.3}\label{V:eq:3-2-3}
+\xymatrix{
+  0 \ar[r]
+    & \sA \ar[r]
+    & \sB \ar[r]
+    & \sC \ar[r]
+    & 0 \\
+  0 \ar[r]
+    & \tau_{\leqslant 1} \sA \ar[r] \ar[u] \ar[d]
+    & \sB' \ar[r] \ar[u] \ar[d]
+    & \sC' \ar[r] \ar[u] \ar[d]
+    & 0 \\
+  0 \ar[r]
+    & \h_c^1(X,\dmu_n)[-1] \ar[r]
+    & \pic_D^0(\bar X)[-1] \ar[r]
+    & \pic_D^0(\bar X)[-1] \ar[r]
+    & 0
+}
+\end{equation*}
+其中最后一行视为 $X$ 上集中在次数 $1$ 的层复形的正合列.
+\begin{enumerate}[a)]
+  \item $e\in \hh^2(X,\sA)$ 来自
+    $\widetilde e\in \hh^2(X,\tau_{\leqslant 1}\sA)$
+    (因为其在 $E^{02}$ 中的像为零).
+    我们要求 $\widetilde e$ 在
+    $\hh^2(X,\h_c^1(X,\dmu_n)[-1]) = \h^1(X,\h_c^1(X,\dmu_n))$ 中的像 $\bar e$.
+  \item $e_1\in \hh^1(X,\sC)$ 来自 $\widetilde e_1\in \hh^1(X,\sC')$,
+    因为其在 $\h^0(X,\pic_D(\bar X))$ 中的像 $f_0$ 属于 $\h^0(X,\pic_D^0(\bar X))$.
+    可取 $\widetilde e=\partial \widetilde e_1$.
+  \item 因而 $\bar e = \partial f_0$, 其中 $\partial$ 由 \eqref{V:eq:3-2-2} 定义,
+    并使用通常的同构 $\hh^2(X,\sF[-1]) = \h^1(X,\sF)$.
+    这些同构与 $\partial$ 反交换,
+    因而当 $\partial$ 由正合列
+    \[\xymatrix{
+      0 \ar[r]
+        & \h_c^1(X,\dmu_n) \ar[r]
+        & \pic_D^0(\bar X) \ar[r]
+        & \pic_D^0(\bar X) \ar[r]
+        & 0
+    }\]
+    定义时, 有 $\bar e=-\partial f_0$.
+    结论由 (\hyperref[IV]{闭链}, \ref{IV:1-1-1}) 得到.
+\end{enumerate}
+
+\subsection{}\label{V:3-3}
+
+对每个同态 $\varphi:\h_c^1(X,\dmu_n)\to \dZ/n$,
+以 $\varphi(u)\in \h^1(X,\dZ/n)$ 表示 $u$ 在
+$\varphi:\h^1(X,\h_c^1(X,\dmu_n)) \to \h^1(X,\dZ/n)$ 下的像.
+若 $x\in \h_c^1(X,\dmu_n)$,
+则杯积 $\varphi(u)\smallsmile x$ 属于 $\h_c^2(X,\dmu_n)$. 我们将证明如下命题.
+
+\begin{proposition_}\label{V:3-4}
+$\tr(\varphi(u)\smallsmile x) = \varphi(x)$.
+\end{proposition_}
+
+对下式施加 $\varphi$, 就得到此等式:
+\begin{equation*}\tag{3.4.1}\label{V:eq:3-4-1}
+  \tr(u\smallsmile x) = x
+\end{equation*}
+其中 $\tr$ 现在表示映射
+\[\xymatrix{
+  \tr:\h_c^2(X,\h_c^1(X,\dmu_n)\otimes\dmu_n) \ar[r]
+    & \h_c^1(X,\dmu_n) \text{,}
+}\]
+因此 $x\mapsto \tr(u\smallsmile x)$ 为复合
+\small
+\begin{equation*}\tag{3.4.2}\label{V:eq:3-4-2}
+\begin{aligned}
+&\xymatrix{
+  \h_c^1(X,\dmu_n) \ar[r]^-{u\otimes x}
+    & \h^1(X,\h_c^1(X,\dmu_n)) \otimes \h_c^1(X,\dmu_n)
+    & \ar[l]_-\sim \h^1(X,\dZ/n)\otimes \h_c^1(X,\dmu_n) \otimes \h_c^1(X,\dmu_n)} \\ &\xymatrix{
+    \ar[r]^-{(1)}
+      & \h_c^2(X,\dmu_n) \otimes \h_c^1(X,\dmu_n) \ar[r]^-{\tr\otimes\operatorname{id}}
+      & \h_c^1(X,\dmu_n)
+}
+\end{aligned}
+\end{equation*}
+\normalsize
+其中 (1) 由 $a\otimes b\otimes c\mapsto (a\smallsmile c)\otimes b$ 给出.
+
+我们用相对于第二投影的迹态射
+$\tr:\h_c^3(X\times X,\dmu_n^{\otimes 2}) \to \h_c^2(X,\dmu_n)$ 来表示此态射.
+对 $x\in \h_c^3$, $\tr(x)$ 如下计算:
+在其 K\"unneth 分量中只保留类型为 $(2,1)$ 的分量,
+然后施加 $\tr:\h_c^2(X,\dmu_n) \to \dZ/n$.
+
+设 $u'$ 为 $u$ 在映射
+\begin{align*}
+&\xymatrix{
+  \h^1(X,\h_c^1(X,\dmu_n))
+    & \ar[l]_-\sim \h^1(X,\dZ/n) \otimes \h_c^1(X,\dmu_n) = \h^1(X,\dZ/n)\otimes \h^1(\bar X,j_!\dmu_n)
+} \\
+&\xymatrix{
+  \ar[r]
+    & \h^2(X\times \bar X,\dZ/n\boxtimes j_!\dmu_n) \text{.}
+}
+\end{align*}
+下的像. 由 K\"unneth 公式与杯积的关系, 有
+\[
+  \tr(u\smallsmile x) = -\tr(u'\smallsmile \pr_1^\ast x) \text{.}
+\]
+第二个杯积是 (\hyperref[IV]{闭链} \ref{IV:1-2-4}) 中的杯积:
+\[\xymatrix{
+  \h^2(X\times \bar X,\dZ/n\boxtimes j_!\dmu_n) \otimes \h^1(\bar X\times \bar X,j_!\dmu_n\boxtimes \dZ/n) \ar[r]
+    & \h^3(\bar X\times \bar X,j_!\dmu_n \boxtimes j_!\dmu_n) \text{.}
+}\]
+负号来自 (1) 中两个次数为 $1$ 的符号的交换.
+由于 $c\smallsmile\pr_1^\ast x$ 与 $c^{1,1}\smallsmile \pr_1^\ast x$
+在 K\"unneth 分解中有相同的 $(2,1)$-分量, 且 $u'=-c^{1,1}$, 有
+\[
+  \tr(u\smallsmile x) = \tr(c\smallsmile \pr_1^\ast x) \text{.}
+\]
+右侧的杯积现在可解释为
+$\cl(\Delta)\in \h_\Delta^2(X\times X,\dmu_n)$
+与 $\pr_1^\ast x\in \h_c^1(\Delta,\dmu_n)$ 的杯积
+(\hyperref[IV]{闭链} \ref{IV:1-2-5}).
+在 $\Delta$ 上有 $\pr_1=\pr_2$, 从而
+\[
+  \tr(c\smallsmile \pr_1^\ast x) = \tr(\cl(\Delta)\smallsmile \pr_1^\ast x) = \tr(\cl(\Delta)\smallsmile \pr_2^\ast x) = \tr(\cl(\Delta))\smallsmile x = x \text{.}
+\]
+
+\section{与 SGA 4 XVIII 3.1.10.3 的相容性}\label{V:4}
+
+在 \cite[XVIII]{sga4} 中, 我因灰心而没有验证本节标题所述的相容性.
+虽然结果表明这不过是虚惊一场, 我仍觉得有必要在这里补上这个遗漏.
+对于有限型分离态射 $f:X\to S$, 所需验证的是伴随态射
+$\eR f_!\eR f^!\sL\to \sL$ 与每个平展局部化 $k:V\to S$ 相容.
+如下图, 用 $k$ 和 $f$ 表示几个箭头, 必须验证交换性:
+\[\xymatrix{
+  X_V \ar[r]^-k \ar[d]^-f
+    & X \ar[d]^-f \\
+  V \ar[r]^-k
+    & S
+} \qquad
+\xymatrix{
+  k^\ast \eR f_! \eR f^!\sL \ar[r]^-{k^\ast(\text{伴随})} \ar[d]^-\sim
+    & k^\ast \sL \ar@{=}[d] \\
+  \eR f_! \eR f^! k^\ast \sL \ar[r]^-{\text{伴随}}
+    & k^\ast \sL \text{.}
+}\]
+在复形层次上, 所求交换性写为 (见同上)
+\[\xymatrix{
+  k^\ast f_!^\bullet f^!_\bullet \sL \ar[r] \ar[d]^-{(1)}
+    & k^\ast \sL \ar@{=}[d] \\
+  f_!^\bullet f^!_\bullet k^\ast \sL \ar[r]
+    & k^\ast \sL \text{.}
+}\]
+逐项验证, 就将问题归结为 $\sL$ 是层、且对每对伴随函子 $(f_i^!,f_!^i)$ 的相容性;
+将这些函子简记为 $f^!$ 与 $f_!$.
+箭头 (1) 由同构 $(2):k^\ast f_!=f_! k^\ast$ 及由它得到的态射
+$(3):k^\ast f^! \to f^! k^\ast$ 定义.
+在上述文献中, 先引入态射 $(4):k_! f_!\to f_! k_!$,
+它由 $(2)$ 经 $k^\ast=k^!$ 与
+$k_!:k_! f_!\to k_! f_! k^\ast k_!\to k_! k^\ast f_! k_! \to f_! k_!$
+的伴随得到, 然后再通过伴随由 $(4)$ 得到 $(3)$.
+等价地, 也可以经 $f_!$ 与
+$f^!:k^\ast \to f^! f_! k^\ast f^!\to f^! k^\ast f_! f^! \to f^! k^\ast$
+的伴随, 由 $(2)$ 得到 $(3)$.
+
+以 $k$ 表示 $k^\ast$ 并省略 $\sL$, 所求的交换性就是下图外边界的交换性:
+\[\xymatrix@=.5cm{
+  k f_! f^! \ar[r] \ar@{=}[d]
+    & f_! k f^! \ar[r]
+    & f_! f^! f_! k f^! \ar[r]
+    & f_! f^! k f_! f^! \ar@{=}[d] \\
+  k f_! f^! \ar[d]
+    & & & \ar[lll] f_! f^! k f_! f^! \ar[d] \\
+  k
+    & & & \ar[lll] f_! f^! k \text{.}
+}\]
+第一行中有同态 $k f_! f^! \to f_! f^! k f_! f^!$,
+它有定义, 因为 $k f_! f^!$ 形如 $f_! X$ (其中 $X=k f^!$).
+它以第二行的伴随态射为回缩; 而下方方块的交换性就是此伴随态射的函子性.
