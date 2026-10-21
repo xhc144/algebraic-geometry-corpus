@@ -1,0 +1,966 @@
+\section{整体对偶定理}\etiquette[3]{XVIII.sec3}\pageoriginale
+
+\subsection{函子 $Rf^{!}$}\etiquette[3.1]{XVIII.sec3.1}
+
+我们需要典范松软消解的一个变体.
+
+\begin{enonce*}{引理 3.1.1}\etiquette[3.1.1]{XVIII.lem3.1.1}
+设 $X$ 为凝聚概形 (\ie 拟紧且拟分离). 函子 $\varinjlim$ 在可构造集合层 (\resp 群层, \resp 阿贝尔群层) 范畴的 Ind-对象范畴与集合层 (\resp Ind-有限群层, \resp 挠阿贝尔群层) 范畴之间诱导一个等价.
+\end{enonce*}
+
+这来自 \hyperrefext[IX][IX.cor2.7.2]{2.7.2} 及 \hyperrefext[IX][IX.cor2.7.3]{2.7.3}.
+
+\setcounter{subsubsection}{1}
+\subsubsection{}\etiquette[3.1.2]{XVIII.subsubsec3.1.2}
+设 $\Ff$ 为概形 $X$ 上的挠阿贝尔层, 它是可构造层 $(\Ff_{i})_{i\in I}$ 的滤过归纳极限, 并设 $X_{0}$ 为 $X$ 的一个保守点集. $\mathcal{F}$ 的\emph{修正典范松软消解}（modified canonical flasque resolution）由公式
+$$
+C^{\ast}_{\ell}(\Ff)=\varinjlim_{i}C^{\ast}(\Ff_{i}){\quoi},
+$$ 定义, 其中 $C^{\ast}(\Ff_{i})$ 为 \hyperrefext[XVII][XVII.def4.2.2]{4.2.2} 的典范松软消解. 由 \hyperref[XVIII.lem3.1.1]{3.1.1}, 当 $X$ 凝聚时, 这一定义与 $\Ff_{i}$ 的选取无关. 它还与局部化可交换; 因而当 $\Ff$ 为任意概形 $X$ (未必凝聚) 上的挠层时, 可通过整体化定义 $C^{\ast}_{\ell}(\Ff)$.
+
+\emph{复形 $C^{\ast}_{\ell}(\Ff)$ 是 $\Ff$ 的一个消解, 关于 $\Ff$ 具有函子性, 其构造与局部化及滤过归纳极限可交换; 函子 $C^{n}_{\ell}$ 正合.}
+
+由此, 对 $X$ 上的环层 $\mathcal{A}$, 函子 $C^{n}_{\ell}$ 将 $\mathcal{A}$-模映为 $\mathcal{A}$-模; 它们也将挠层映为挠层. 众所周知,
+
+\begin{enonce*}{引理 3.1.3}\etiquette[3.1.3]{XVIII.lem3.1.3}
+设\pageoriginale $\mathcal{A}$ 为阿贝尔 $\sheaf{\mathcal{U}}$-范畴, 具有一个小生成集, 并且由小滤过有序集索引的归纳极限在 $\mathcal{A}$ 中可表且正合. 从 $\mathcal{A}^{\circ}$ 到 $(\Ens)$ 的函子 $F$ 可表, 当且仅当它将 (任意) 小归纳极限映为投射极限.
+\end{enonce*}
+
+\Cf 例如 \SGA 4 I \hyperref[I.prop8.12.5]{8.12.5}, 其中既不假设 $\mathcal{A}$ 阿贝尔, 也不假设滤过的 $\varinjlim$ 正合.
+
+我们将此引理应用于赋环景 $(X,\mathcal{A})$ 上的模层范畴 $\Mod(X,\mathcal{A})$. 在这一特例中, 若函子 $F$ 由层 $ℱ$ 表示, 则
+\begin{equation*}
+ℱ(U)=F(\mathcal{A}_{U}){\quoi}.\tag{3.1.3.1}
+\end{equation*}\etiquette[3.1.3.1]{XVIII.eq3.1.3.1}
+
+对 $ℱ$ 的这一描述直接验证了当前情形中的 \hyperref[XVIII.lem3.1.3]{3.1.3}.
+
+回顾, 若 $f:X\rightarrow S$ 为可紧化态射 (\hyperrefext[XVII][XVII.subsec3.2]{3.2}.), 则 $S$ 拟紧且拟分离 (原文如此), 并且 $f$ 的纤维维数有界.
+
+\begin{enonce*}{定理 3.1.4}\etiquette[3.1.4]{XVIII.thm3.1.4}
+设 $f:X\rightarrow S$ 为可紧化态射, $\mathcal{A}$ 为 $S$ 上的挠环层. 则函子
+\begin{equation*}
+Rf_{!}:D(X,f^{\ast}\mathcal{A})\longrightarrow D(S,\mathcal{A})\tag{3.1.4.1}
+\end{equation*}\etiquette[3.1.4.1]{XVIII.eq3.1.4.1}%
+容许部分右伴随
+\begin{equation*}
+Rf^{!}:D^{+}(S,\mathcal{A})\longrightarrow D^{+}(X,f^{\ast}\mathcal{A}):\tag{3.1.4.2}
+\end{equation*}\etiquette[3.1.4.2]{XVIII.eq3.1.4.2}%
+对 $K\in \Ob D(X,f^{\ast}\mathcal{A})$ 及 $L\in \Ob
+D^{+}(S,\mathcal{A})$, 有函子性同构
+\begin{equation*}
+\Hom(Rf_{!}K,L)\simeq \Hom(K,Rf^{!}L){\quoi}.\tag{3.1.4.3}
+\end{equation*}\etiquette[3.1.4.3]{XVIII.eq3.1.4.3}%
+赋予使图
+\begin{equation*}
+\vcenter{
+\xymatrix{
+  \Hom(Rf_!(K[1]),L)
+  \ar@{<->}[d]_{\text{\rotatebox{90}{$\backsim$}}}\ar@{<->}[r]^-{\sim}&
+  \Hom(K[1],Rf^{!}L)\ar@{-}[r]^-\sim&
+\Hom(K,(Rf^{!}L)[-1])\ar@{<->}[d]^{\text{\rotatebox{90}{$\backsim$}}}\\
+\Hom((Rf_!K)[1],L)\ar@{-}[r]^-\sim & \Hom(Rf_!K,L[-1])
+\ar@{<->}[r]^-{\sim}_-{\txt{\rm 伴随}} & \Hom(K,Rf^{!}(L[-1])),
+}}\tag{3.1.4.4}
+\end{equation*}\etiquette[3.1.4.4]{XVIII.eq3.1.4.4}%
+交换的平移态射后,\pageoriginale 这一函子 $Rf^{!}$ 为三角函子.
+\end{enonce*}
+
+注意. 记号 $Rf^{!}$ 有滥用之处, 因为 $Rf^{!}$ 一般不是某个函子 $f^{!}$ 的导出函子.
+
+\noindent
+\emph{证明}. 取整数 $d$, 使 $f$ 的每个纤维维数均为 $<d$, 并选择紧化
+$$
+\xymatrix@R=1.25cm@C=1.5cm{
+X \ar@{^{(}->}[r]^{j} \ar[d]_{f}& \bar{X}\ar[ld]^{\bar{f}}\\
+S.
+}
+$$
+
+若 $K$ 为 $X$ 上的 $f^{\ast}\mathcal{A}$-模复形, 则
+$$
+Rf_{!}K\simeq R\bar{f}_{\ast}(j_{!}K){\quoi}.
+$$
+
+对 $X$ 上的每个层 $F$, 复形 $\tau_{\leq 2d}C^\ast_{\ell}j_{!}F$ 的各分量 $F^{i}$ 满足
+\begin{equation*}
+R^{k}\bar{f}_{\ast}F^{i}=0\quad \text{\rm 当}\quad k>0{\quoi}.\tag{3.1.4.5}
+\end{equation*}\etiquette[3.1.4.5]{XVIII.eq3.1.4.5}%
+事实上, 当 $i\neq 2d$ 时, $F^{i}$ 为松软层的归纳极限, 而当 $i=2d$ 且 $k>0$ 时, 有 (\hyperrefext[XVII][XVII.cor5.2.8.1]{5.2.8.1})
+$$
+R^{k}\bar{f}_{\ast}F^{2d}=R^{k+2d}f_{!}F=0{\quoi}.
+$$
+
+$K$ 的截断修正典范松软消解双复形所伴随的单复形, 是 $K$ 的一个消解. 因而由 \eqhyperref[XVIII.eq3.1.4.5]{3.1.4.5}, 有 (记号见 \hyperrefext[XVII][XVII.subsubsec1.1.15]{1.1.15})
+\begin{equation*}
+R\bar{f}_{\ast}(j_{!}K)\xleftarrow{\sim} \bar{f}_{\ast}\tau''_{\leq
+2d} C^{\ast}_{\ell}j_{!}K{\quoi}.\tag{3.1.4.6}
+\end{equation*}\etiquette[3.1.4.6]{XVIII.eq3.1.4.6}
+
+以 $f^{\bigdot}_{!}$ 表示由下式定义的从 $X$ 上的模层到 $S$ 上的层复形的\pageoriginale 函子:
+\begin{equation*}
+f^{\bigdot}_{!}(F)=\bar{f}_{\ast}\tau_{\leq
+2d}C^{\ast}_{\ell}j_{!}F{\quoi}.\tag{3.1.4.7}
+\end{equation*}\etiquette[3.1.4.7]{XVIII.eq3.1.4.7}
+
+\begin{enonce*}{引理 3.1.4.8}\etiquette[3.1.4.8]{XVIII.lem3.1.4.8}
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item 函子 $f^{i}_{!}$ 正合且与滤过归纳极限可交换; 当 $i\not\in[0,2d]$ 时有 $f^{i}_{!}=0$.
+
+\item 由于函子 $f^{\bigdot}_{!}$ 有界且各分量正合, 其导出函子\emph{(\hyperrefext[XVII][XVII.prop1.2.10]{1.2.10})} 平凡地得到, 记为 $Rf^{\bigdot}_{!}$, 或简记为 $f^{\bigdot}_{!}:D(X,f^{\ast}\mathcal{A})\rightarrow
+D(S,\mathcal{A})$. 箭头 \eqhyperref[XVIII.eq3.1.4.6]{3.1.4.6} 为函子的同构
+$$
+Rf^{\bigdot}_{!}\xrightarrow{\sim} Rf_{!}{\quoi}.
+$$
+\end{enumerate}
+\end{enonce*}
+
+函子 $C^{i}_{\ell}$ 正合且与滤过归纳极限可交换 (\hyperref[XVIII.subsubsec3.1.2]{3.1.2}). 它们将每个层映为无上同调层. 函子 $\bar{f}_{\ast}$ 与 $j_{!}$ 同滤过归纳极限可交换. 从而
+\begin{enumerate}
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 函子 $\bar{f}_{\ast}C^{i}_{\ell}j_{!}$, 从而函子 $f^{i}_{!}$, 都与滤过归纳极限可交换;
+
+\item 当 $i<2d$ 时, 函子 $f^{i}_{!}=\bar{f}_{\ast}C^{i}_{\ell}j_{!}$ 正合. 当 $i=2d$ 时, 由 \eqhyperref[XVIII.eq3.1.4.5]{3.1.4.5} 可验证 $f^{i}_{!}$ 正合.
+\end{enumerate}
+
+\hyperref[XVIII.lem3.1.4.8]{3.1.4.8} 的其余断言是平凡的.
+
+\hypertarget{sga4.exp.XVIII.remark.3.1.4.9}{}\begin{enonce*}[remark]{注 3.1.4.9}\etiquette[3.1.4.9]{XVIII.rem3.1.4.9}
+$f^{\bigdot}_{!}$ 的定义与环层 $\mathcal{A}$ 无关, 并且对任意阿贝尔层仍有意义. 断言 \hyperref[XVIII.lem3.1.4.8]{3.1.4.8} (i) 在 $X$ 与 $S$ 上的挠阿贝尔层范畴中仍然成立.
+\end{enonce*}
+
+由 \hyperref[XVIII.lem3.1.4.8]{3.1.4.8} 及 \hyperref[XVIII.lem3.1.3]{3.1.3}, 函子
+$$
+f^{i}_{!}:\Mod(X,f^{\ast}\mathcal{A})\longrightarrow
+\Mod(S,\mathcal{A})
+$$
+有右伴随 $f^{!}_{i}$; 由于 $f^{i}_{!}$ 正合, $f^{!}_{i}$ 将内射对象映为内射对象.
+
+采用 (\hyperrefext[XVII][XVII.subsubsec1.1.12]{1.1.12}) 的符号约定, 函子 $f^{!}_{i}$ 构成左正合函子的一个复形, 在上同调次数 $n\not\in [-2d,0]$ 处为零:
+\begin{equation*}
+f^{!}_{\bigdot}:\Mod(S,\mathcal{A})\longrightarrow
+C^{b}(X,f^{\ast}\mathcal{A}){\quoi}.\tag{3.1.4.10}
+\end{equation*}\etiquette[3.1.4.10]{XVIII.eq3.1.4.10}
+
+函子\pageoriginale $f^{!}_{\bigdot}$ 导出 (\hyperrefext[XVII][XVII.prop1.2.10]{1.2.10}) 为一个三角函子
+\begin{equation*}
+Rf^{!}:D^{+}(S,\mathcal{A})\longrightarrow
+D^{+}(X,f^{\ast}\mathcal{A}){\quoi},\tag{3.1.4.11}
+\end{equation*}\etiquette[3.1.4.11]{XVIII.eq3.1.4.11}%
+它右伴随于函子 $Rf_{!}$ $(=Rf^{\bigdot}_{!}=Lf^{\bigdot}_{!})$ (“平凡对偶公式”). 更准确地, 若 $I\in \Ob C^{+}(S,\mathcal{A})$ 为内射 $\mathcal{A}$-模层的复形, 则 $\mathcal{A}$-模 $f^{!}_{i} I^{n}$ 内射, 并有三重复形的同构 (\hyperrefext[XVII][XVII.subsubsec1.1.12]{1.1.12})
+\begin{equation*}
+\Hom^{\bigdot}(f^{\bigdot}_{!}K, I)\xrightarrow{\sim}
+\Hom^{\bigdot}(K,f^{!}_{\bigdot}I){\quoi}.\tag{3.1.4.12}
+\end{equation*}\etiquette[3.1.4.12]{XVIII.eq3.1.4.12}%
+过渡到伴随的单复形 (用乘积计算) 的 $H^{0}$, 即得伴随性陈述. 相容性 \eqhyperref[XVIII.eq3.1.4.4]{3.1.4.4} 的验证留给读者.
+
+\hypertarget{sga4.exp.XVIII.remark.3.1.5}{}\begin{enonce*}[remark]{注 3.1.5}\etiquette[3.1.5]{XVIII.rem3.1.5}
+假设函子 $Rf^{!}$ 有有限上同调振幅. 由 \hyperrefext[XVII][XVII.prop1.2.10]{1.2.10}, 函子 $f^{!}_{\bigdot}$ 于是容许导出函子
+\begin{equation*}
+Rf^{!}:D(S,\mathcal{A})\longrightarrow D(X,f^{\ast}\mathcal{A}){\quoi}.\tag{3.1.5.1}
+\end{equation*}\etiquette[3.1.5.1]{XVIII.eq3.1.5.1}%
+这一导出函子仍右伴随于函子 $Rf_{!}$ \eqhyperref[XVIII.eq3.1.4.1]{3.1.4.1}. 事实上, 有
+\begin{align*}
+& \Hom_{D(S)}(Rf_{!}K,L)\simeq
+\varinjlim_{L\xrightarrow{\sim}L'}\Hom_{K(S)}(f^{\bigdot}_{!}K,L')\simeq
+\varinjlim_{\substack{K'\xrightarrow{\sim}K\\ L\xrightarrow{\sim}
+L'}}\Hom_{K(S)} (f^{\bigdot}_{!}K', L')\\
+& \Hom_{D(X)}(K,Rf^{!}L)\simeq
+\varinjlim_{K'\xrightarrow{\sim}K}\Hom_{K(X)}(K',Rf^{!}L)\simeq
+\varinjlim_{\substack{K'\xrightarrow{\sim}K\\
+L\xrightarrow{\sim}L'}}\Hom_{K(X)}(K', f^{!}_{\bigdot}L')
+\end{align*}
+并且由伴随性,
+% SGA-SRC-001156
+$$
+\begin{gathered}
+\Hom_{K(S)}(f^{\bigdot}_{!}K',L')=H^{0}\Hom(f^{\bigdot}_{!}K',L')\\
+\simeq H^{0}\Hom(K',f^{!}_{\bigdot}L')=\Hom_{K(X)}(K',f^{!}_{\bigdot}L'){\quoi}.
+\end{gathered}
+$$
+\end{enonce*}
+
+\hypertarget{sga4.exp.XVIII.definition.3.1.6}{}\begin{enonce*}{定义 3.1.6}\etiquette[3.1.6]{XVIII.def3.1.6}
+右伴随于函子 $Rf_{!}$ \eqhyperref[XVIII.eq3.1.4.1]{3.1.4.1} 的三角函子
+$$
+Rf^{!}:D^{+}(S,\mathcal{A})\longrightarrow
+D^{+}(X,f^{\ast}\mathcal{A})
+$$
+(或,\pageoriginale 在 \hyperref[XVIII.rem3.1.5]{3.1.5} 的假设下,
+$$
+Rf^{!}:D(S,\mathcal{A})\longrightarrow
+D(X,f^{\ast}\mathcal{A})){\quoi},
+$$
+称为\emph{例外逆像函子}（exceptional inverse-image functor）.
+\end{enonce*}
+
+\hypertarget{sga4.exp.XVIII.proposition.3.1.7}{}\begin{enonce*}{命题 3.1.7}\etiquette[3.1.7]{XVIII.prop3.1.7}
+假设可紧化态射 $f:X\rightarrow S$ 的相对维数为 $\leq d$.
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item 若 $L\in \Ob D^{+}(S,\mathcal{A})$ 在 $i\leq k$ 时满足 $H^{i}(L)=0$, 则在 $i\leq k-2d$ 时有 $H^{i}Rf^{!}L=0$.
+
+\item 对 $L\in \Ob D^{b}(S,\mathcal{A})$, 有
+$$
+\dim \inj (Rf^{!}L)\leq \dim \inj (L){\quoi}.
+$$
+\end{enumerate}
+\end{enonce*}
+
+函子 $Rf^{!}$ 是 $f^{!}_{\bigdot}:\Mod(S,\mathcal{A})\rightarrow
+C^{b}\Mod(X,f^{\ast}\mathcal{A})$ 的右导出函子. 断言 (i) 来自当 $i<-2d$ 时 $(f^{!}_{\bigdot})^{i}=0$ 这一事实; 断言 (ii) 则来自当 $i>0$ 时 $(f^{!}_{\bigdot})^{i}=0$, 以及函子 $f^{!}_{i}$ 将内射对象映为内射对象.
+
+\hypertarget{sga4.exp.XVIII.proposition.3.1.8}{}\begin{enonce*}{命题 3.1.8}\etiquette[3.1.8]{XVIII.prop3.1.8}
+设 $f:X\rightarrow S$ 为拟有限可紧化态射.
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item 函子 $f_{!}:\Mod(X,f^{\ast}\mathcal{A})\rightarrow
+\Mod(S,\mathcal{A})$ 容许右伴随 $f^{!}:\Mod(S,\mathcal{A})\rightarrow \Mod(X,f^{\ast}\mathcal{A})$, 且 $Rf^{!}$ 为 $f^{!}$ 的导出函子.
+
+\item 若 $f$ 为闭浸入, 则 $f^{!}$ 是“支集在 $X$ 中的截面”函子.
+
+\item 若 $f$ 平展, 则 $f^{!}$ 等同于函子 $f^{\ast}$, 并以
+$$
+\Tr_{f}:f_{!}f^{\ast}F\longrightarrow F
+$$
+为伴随态射.
+\end{enumerate}
+\end{enonce*}
+
+断言 (i) 直接来自 \hyperref[XVIII.thm3.1.4]{3.1.4} 证明中 $d=0$ 的特例: 有 $f^{\bigdot}_{!}=f_{!}$ 及 $f^{!}_{\bigdot}=f^{!}$. 等价地, 伴随函子 $f^{!}$ 的存在性来自 \hyperref[XVIII.lem3.1.3]{3.1.3}, 以及 $f_{!}$ 正合\pageoriginale 且与滤过归纳极限可交换这一事实; 伴随性 $(f_{!},Rf^{!})$ 是一个“平凡对偶公式”.
+
+断言 (ii) 显然, (iii) 即为 \hyperrefext[XVII][XVII.prop6.2.11]{6.2.11}.
+
+\setcounter{subsubsection}{8}
+\subsubsection{}\etiquette[3.1.9]{XVIII.subsubsec3.1.9}
+设 $f:X\rightarrow S$ 为可紧化态射, $\mathcal{A}$ 为 $S$ 上的挠环层, 并以 $\mathcal{A}$ 的逆像环层给 $X$ 赋环. 设 $K\in \Ob
+D^{-}(X,f^{\ast}\mathcal{A})$, $L\in \Ob D^{+}(X,f^{\ast}\mathcal{A})$, 并以一个下有界内射层复形表示 $L$, 从而
+$$
+R\Hhom(K,L)\simeq \Hhom(K,L){\quoi}.
+$$
+复形 $\Hhom(K,L)$ 的各分量松软, 因而
+\begin{equation*}
+Rf_{\ast}R\Hhom(K,L)\simeq f_{\ast}\Hhom(K,L){\quoi}.\tag{3.1.9.1}
+\end{equation*}\etiquette[3.1.9.1]{XVIII.eq3.1.9.1}%
+如 \hyperref[XVIII.thm3.1.4]{3.1.4} 的证明中那样, 选取 $f$ 的紧化及整数 $d$, 得到函子 $f^{\bigdot}_{!}$ \eqhyperref[XVIII.eq3.1.4.7]{3.1.4.7}.
+\begin{equation*}
+\vcenter{
+\xymatrix@C=1.5cm@R=.5cm{
+X_V \ar[rr]^{k_X} \ar@{^{(}->}[rd]_{j_V} \ar[ddd]^{f_V}&      & X\ar[ddd]^{f} \ar@{^{(}->}[rd]^{j}         \\
+    & \bar{X}_V \ar[ldd]^{\bar{f}_V} \ar[rr]_(.3){k_{\bar{X}}}   &   & \bar{X} \ar[ldd]_{\bar{f}}\\
+    &         &        &\\
+V  \ar[rr]^{k} &      & S.
+}}\tag{3.1.9.2}
+\end{equation*}\etiquette[3.1.9.2]{XVIII.eq3.1.9.2}
+
+对每个 $V\in \Ob S_{\text{\rm et}}$, 都有同构\nde{这一态射由 \hyperrefext[XVII][XVII.rem4.2.6]{4.2.6} 的构造给出, 但除非先在所考察的拓扑斯上相容地选取点, 否则没有理由认为它是同构. 为使这一条件成立, \hyperrefext[XVII][XVII.rem4.2.6]{4.2.6} 中出现的方块须在某种意义下为笛卡儿方块. 更准确地, 此处应固定拓扑斯 $S_{\text{\rm et}}$ 的一族点 $(p)_{p\in P}$, 并对每个 $V\in \Ob S_{\text{\rm et}}$, 采用由 \hyperrefext[IV][IV.subsec6.7]{6.7} 的对应与满足 $p\in P$ 且 $\xi\in V_p$ 的对 $(p,\xi)$ 相联系的点族, 构造修正典范松软消解.}
+\begin{equation*}
+k^{\ast}f^{\bigdot}_{!}\xrightarrow{\sim}
+f^{\bigdot}_{V!}k^{\ast}_{X}{\quoi},\tag{3.1.9.3}
+\end{equation*}\etiquette[3.1.9.3]{XVIII.eq3.1.9.3}%
+从而
+\begin{equation*}
+\Hhom^{\bigdot}(f^{\bigdot}_{!}K,f^{\bigdot}_{!}L)(V)\simeq
+\Hhom^{\bigdot}(f^{\bigdot}_{V!}(k^{\ast}_{X}K),f^{\bigdot}_{V!}(k^{\ast}_{X}L)){\quoi}.
+\end{equation*}%
+由 $f^{\bigdot}_{V!}$ 的函子性, 得到
+$$
+\Hhom^{\bigdot}(K,L)(X_{V})=\Hom^{\bigdot}(k^{\ast}_{X}K,k^{\ast}_{X}L)\longrightarrow
+\Hom^{\bigdot}(f^{\bigdot}_{V!}(k^{\ast}_{X}K),f^{\bigdot}_{V!}(k^{\ast}_{X}L)){\quoi},
+$$
+从而在复形层面得到箭头
+\begin{equation*}
+f_{\ast}\Hhom^{\bigdot}(K,L)\longrightarrow
+\Hhom^{\bigdot}(f^{\bigdot}_{!}K,f^{\bigdot}_{!}L){\quoi}.\tag{3.1.9.4}
+\end{equation*}\etiquette[3.1.9.4]{XVIII.eq3.1.9.4}
+
+由\pageoriginale \eqhyperref[XVIII.eq3.1.9.1]{3.1.9.1}, 这一箭头导出为
+\begin{equation*}
+Rf_{\ast}R\Hhom(K,L)\longrightarrow
+R\Hhom(Rf_{!}K,Rf_{!}L){\quoi}.\tag{3.1.9.5}
+\end{equation*}\etiquette[3.1.9.5]{XVIII.eq3.1.9.5}
+
+现设 $K\in \Ob D^{-}(X,\mathcal{A})$ 且 $L\in \Ob
+D^{+}(S,\mathcal{A})$. 从 $Rf_{!}Rf^{!}L$ 到 $L$ 的伴随箭头, 连同 \eqhyperref[XVIII.eq3.1.9.4]{3.1.9.4}, 给出复合箭头
+$$
+Rf_{\ast}R\Hhom(K,Rf^{!}L)\longrightarrow R\Hhom(Rf_{!}K,
+Rf_{!}Rf^{!}L)\longrightarrow R\Hhom(Rf_{!}K,L){\quoi},
+$$
+它是伴随同构在 $S$ 上的局部形式:
+\begin{equation*}
+Rf_{\ast}R\Hhom(K,Rf^{!}L)\longrightarrow
+R\Hhom(Rf_{!}K,L){\quoi}.\tag{3.1.9.6}
+\end{equation*}\etiquette[3.1.9.6]{XVIII.eq3.1.9.6}
+
+\hypertarget{sga4.exp.XVIII.proposition.3.1.10}{}\begin{enonce*}{命题 3.1.10}\etiquette[3.1.10]{XVIII.prop3.1.10}
+箭头 \hyperref[XVIII.eq3.1.9.6]{3.1.9.6} 为同构.
+\end{enonce*}
+
+设 $V\in \Ob S_{\text{\rm et}}$, 并沿用 \eqhyperref[XVIII.eq3.1.9.2]{3.1.9.2} 的记号. (“传递性”) 同构
+$$
+k_{!}Rf_{V!}\simeq Rf_{!}k_{X!}{\quoi},
+$$
+的存在性是函子 $Rf_{!}$ 理论的基础; 它转置为\emph{局部化同构} (\hyperref[XVIII.prop3.1.8]{3.1.8}. (iii))
+\begin{equation*}
+k^{\ast}_{X}Rf^{!}\simeq Rf^{!}_{V}k^{\ast}{\quoi},\tag{3.1.10.1}
+\end{equation*}\etiquette[3.1.10.1]{XVIII.eq3.1.10.1}%
+在复形层面由态射
+$$
+k^{\ast}_{X}f^{!}_{\bigdot}\longrightarrow f^{!}_{V\bigdot}k^{\ast}{\quoi}.
+$$
+表示.
+
+要验证 \eqhyperref[XVIII.eq3.1.9.6]{3.1.9.6} 为同构, 只须验证对每个 $V\in \Ob S_{\text{\rm et}}$, \eqhyperref[XVIII.eq3.1.9.6]{3.1.9.6} 都诱导同构
+\begin{align*}
+\Hom &(k^{\ast}_{X}K,k^{\ast}_{X}Rf^{!}L)\simeq
+ H^{0}(V,Rf_{\ast}R\Hhom (K,Rf^{!}L))\tag{3.1.10.2}\\
+& \longrightarrow H^{0}(V,R\Hom(Rf_{!}K,L))\simeq
+ \Hhom(k^{\ast}Rf_{!}K,k^{\ast}L)
+\end{align*}\etiquette[3.1.10.2]{XVIII.eq3.1.10.2}
+
+当 $V=S$ 时, 这恰是 \eqhyperref[XVIII.eq3.1.4.3]{3.1.4.3}. 一般情形来自下述相容性, \emph{编者尚未验证这一相容性}:
+
+\hypertarget{sga4.exp.XVIII.lemma.3.1.10.3}{}\begin{enonce*}{引理 3.1.10.3}\etiquette[3.1.10.3]{XVIII.lem3.1.10.3}
+图\pageoriginale
+% SGA-SRC-001158
+$$
+\xymatrix@C=2.5cm@R=1.5cm{
+\Hom(k^{\ast}_XK, k^{\ast}_XRf^{!}L)
+\ar[r]^{\scriptstyle{\hyperref[XVIII.eq3.1.10.2]{(3.1.10.2)}}} \ar[d]^{\scriptstyle{\hyperref[XVIII.eq3.1.10.1]{(3.1.10.1)}}}_{\text{\rotatebox{90}{$\backsim$}}}&
+\Hom(k^{\ast}Rf_!K,k^{\ast}L) \ar[d]^{\txt{\rm （局部化）}}_{\text{\rotatebox{90}{$\backsim$}}}\\
+\Hom(k^{\ast}_XK,Rf^{!}_Vk^{\ast}L)
+\ar@{<->}[r]^{\scriptstyle{\rm{\hyperref[XVIII.eq3.1.4.3]{(3.1.4.3\;\text{在}\; V)}}}}_{\sim}& \Hom(Rf_{V!}k^{\ast}_XK,k^{\ast}L)
+}
+$$
+交换.
+\end{enonce*}
+
+\setcounter{subsubsection}{10}
+\subsubsection{}\etiquette[3.1.11]{XVIII.subsubsec3.1.11}
+考虑笛卡儿方块
+\begin{equation*}
+\vcenter{
+\xymatrix@C=2cm@R=1.5cm{
+X' \ar[r]^{g'}\ar[d]^{f'}& X\ar[d]^{f}\\
+S' \ar[r]^{g} & S,
+}}\tag{3.1.11.1}
+\end{equation*}\etiquette[3.1.11.1]{XVIII.eq3.1.11.1}%
+其中 $f$ 可紧化, $\mathcal{A}$ 为 $S$ 上的挠环层, $\mathcal{B}$ 为 $S'$ 上的挠环层, $M$ 为 $(g^{\ast}\mathcal{A},\mathcal{B})$-双模的上有界复形.
+% SGA-SRC-001159
+在复形层面, 于是有关于 $K$ $(K\in \Ob
+C(X,f^{\ast}\mathcal{A}))$ 具有函子性的态射
+\begin{equation*}
+M\otimes_{\mathcal{A}}g^{\ast}f^{\bigdot}_{!}K\longrightarrow
+f'_{!}{}^{\bigdot}
+({f'}^{\ast}M\otimes_{\mathcal{A}}{g'}^{\ast}K){\quoi},\tag{3.1.11.2}
+\end{equation*}\etiquette[3.1.11.2]{XVIII.eq3.1.11.2}%
+其转置为关于 $L$ $(L\in \Ob
+C(S',\mathcal{B}))$ 具有函子性的态射
+\begin{equation*}
+g'_{\ast}\Hhom_{\mathcal{B}}({f'}^{\ast}M,f'_{\bigdot}{}^{!}L)\longrightarrow
+f^{!}_{\bigdot}g_\ast\Hhom_{\mathcal{B}}(M,L){\quoi}.\tag{3.1.11.3}
+\end{equation*}\etiquette[3.1.11.3]{XVIII.eq3.1.11.3}
+
+过渡到导出函子, 得到一个关于 $L$ 具有函子性的从 $D^{+}$ $(S',\mathcal{B})$ 到 $D^{+}(X,f^{\ast}\mathcal{A})$ 的态射:
+\begin{equation*}
+Rg'_{\ast}R\Hhom_{\mathcal{B}}({f'}^{\ast}M,Rf'{}^{!}L)\longrightarrow
+Rf^{!}Rg_{\ast}R\Hom_{\mathcal{B}}(M,L){\quoi},\tag{3.1.11.4}
+\end{equation*}\etiquette[3.1.11.4]{XVIII.eq3.1.11.4}%
+使下图交换, 其中 $K\in \Ob
+D^{-}(X,f^{\ast}\mathcal{A})$ 且 $L\in \Ob D^{+}(S',\mathcal{B})$:
+$$
+\xymatrix{
+\scriptscriptstyle{\Hom(K,Rg'_{\ast} R\Hhom_{\Bb}(f'^{\ast}M,Rf'^{!}L))}
+\ar@{<->}[d] \ar[r]^{\text{\ding{172}}} &
+\scriptscriptstyle{\Hom(K,Rf^{!}Rg_{\ast}R\Hhom_{\Bb}(M,L))}
+\ar@{<->}[r]_{{\scriptscriptstyle{\text{伴随}}}}& \scriptscriptstyle{\Hom(Rf_!K, Rg_{\ast}
+R\Hhom_{\Bb}(M,L))}\ar@{<->}[d]\\
+\scriptscriptstyle{\Hom(g'^{\ast}K,R\Hhom_{\Bb}(f'^{\ast} M, Rf'^{!}L))}\ar@{<->}[d]
+& &  \scriptscriptstyle{\Hom(g^{\ast}Rf_! K, R\Hhom_{\Bb} (M,L))} \ar@{<->}[d]\\
+\scriptscriptstyle{\Hom(f'^{\ast}M\otimes_{\Aa}g'^{\ast}K,
+Rf'^{!}L)} \ar@{<->}[r]_{\scriptscriptstyle{\text{伴随}}}& \scriptscriptstyle{\Hom(Rf'^{\cdot}_!(f'^{\ast}M\otimes^{L}_\Aa
+g'^{\ast}K),L)}
+\ar[r]^{\text{\ding{173}}} &
+\scriptscriptstyle{\Hom_{\Bb}(M\mathop{\otimes}^{\LL}_\Aa g^{\ast}Rf_!K, L)}.
+}
+$$
+
+在\pageoriginale 这一图中, \ding{173} (由箭头 \hyperrefext[XVII][XVII.eq5.2.2.1]{5.2.2.1} 导出) 为同构 (\hyperrefext[XVII][XVII.thm5.2.6]{5.2.6}). 因而箭头 \ding{172} 对每个 $K$ 都是同构, 由此得出 \eqhyperref[XVIII.eq3.1.11.4]{3.1.11.4} 为同构.
+
+固有基变换定理于是转置为下述结论.
+
+\hypertarget{sga4.exp.XVIII.proposition.3.1.12}{}\begin{enonce*}{命题 3.1.12}\etiquette[3.1.12]{XVIII.prop3.1.12}
+箭头 \eqhyperref[XVIII.eq3.1.11.4]{3.1.11.4} 为同构.
+\end{enonce*}
+
+这一同构称为\emph{诱导同构}（induction isomorphism）.
+
+有如下三个特例.
+
+\hypertarget{sga4.exp.XVIII.corollary.3.1.12.1}{}\begin{enonce*}{推论 3.1.12.1}\etiquette[3.1.12.1]{XVIII.cor3.1.12.1}
+设 $f:X\rightarrow S$ 为可紧化态射, $\mathcal{A}$ 与 $\mathcal{B}$ 为 $S$ 上的两个挠环层, 并设 $\varphi:\mathcal{A}\rightarrow \mathcal{B}$ 为同态. 以 $\rho$ 表示从 $\mathcal{B}$ 到 $\mathcal{A}$ 的标量限制函子. 则对 $K\in \Ob
+D^{+}(S,\mathcal{B})$, 有
+$$
+\rho Rf^{!}K\xrightarrow{\sim} Rf^{!}(\rho K){\quoi}.
+$$
+\end{enonce*}
+
+只须在 \eqhyperref[XVIII.eq3.1.11.3]{3.1.11.3} 中取 $S=S'$, $X=X'$, $\mathcal{A}=\mathcal{A}$, $\mathcal{B}=\mathcal{B}$, $M=\mathcal{B}$.
+
+因而环层在 $Rf^{!}$ 的构造中不起本质作用.
+
+\hypertarget{sga4.exp.XVIII.corollary.3.1.12.2}{}\begin{enonce*}{推论 3.1.12.2}\etiquette[3.1.12.2]{XVIII.cor3.1.12.2}
+设 $f:X\rightarrow S$ 为可紧化态射, $\mathcal{A}$ 为 $S$ 上的挠环层, 并设 $K\in \Ob D^{-}$ $(S,\mathcal{A})$, $L\in \Ob D^{+}(S,\mathcal{A})$. 有\emph{诱导公式}
+\begin{gather*}
+R\Hhom(f^{\ast}K,Rf^{!}L)\xrightarrow{\sim} Rf^{!}R\Hhom(K,L)\\
+(\text{\rm 取 } S=S', X=X'){\quoi}.
+\end{gather*}
+\end{enonce*}
+
+\hypertarget{sga4.exp.XVIII.corollary.3.1.12.3}{}\begin{enonce*}{推论 3.1.12.3}\etiquette[3.1.12.3]{XVIII.cor3.1.12.3}
+% SGA-SRC-001161
+对每个方块 \hyperref[XVIII.subsubsec3.1.11]{3.1.11} 以及每个 $L\in \Ob D^{+}(S',\mathcal{B})$, 有
+\begin{gather*}
+Rg'_{\ast}R{f'}^{!}L\xrightarrow{\sim} Rf^{!}Rg_{\ast}L\\
+(\text{\rm 取 } \mathcal{B}=g^{\ast}\mathcal{A}=M){\quoi}.
+\end{gather*}
+\end{enonce*}
+
+\setcounter{subsubsection}{12}
+\subsubsection{}\etiquette[3.1.13]{XVIII.subsubsec3.1.13}
+对\pageoriginale $S$-可紧化态射的复合 $gh$
+$$
+X\xrightarrow{h}Y\xrightarrow{g}Z
+$$
+
+复合同构
+$$
+c_{g,h}:Rg_{!}Rh_{!}\xrightarrow{\sim} R(gh)_{!}
+$$
+转置为复合态射\nde{转置态射实际上沿另一方向, 但由于它是同构, 这不造成问题.}
+\begin{equation*}
+c^{!}_{g,h}:Rh^{!}Rg^{!}\xrightarrow{\sim} R(gh)^{!}\tag{3.1.13.1}
+\end{equation*}\etiquette[3.1.13.1]{XVIII.eq3.1.13.1}%
+对三重复合满足通常的上循环条件. 换言之, \emph{范畴 $D^{+}$ $(X,f^{\ast}\mathcal{A})$ 构成在以 $S$-概形} $f:X\rightarrow S$ \emph{为对象、以 $S$-可紧化态射为箭头的范畴上的一个纤维且余纤维范畴的各纤维, 正像} (\resp \emph{逆像}) \emph{函子为函子} $Rf_{!}$ (\resp $Rf^{!}$). 因而对可紧化态射的每个交换方块,
+$$
+\xymatrix@=1.75cm{
+X' \ar[r]_{g} \ar[d]^{f'}& X \ar[d]^{f}\\
+S' \ar[r]_{g'}& S,
+}
+$$
+都有余基变换态射 (\hyperrefext[XVII][XVII.prop2.1.3]{2.1.3})
+\begin{equation*}
+ch^{!}:Rf'_{!}Rg^{!}\longrightarrow Rg^{!} Rf_{!}{\quoi}.\tag{3.1.13.2}
+\end{equation*}\etiquette[3.1.13.2]{XVIII.eq3.1.13.2}
+
+\subsubsection{}\etiquette[3.1.14]{XVIII.subsubsec3.1.14}
+考虑笛卡儿方块
+$$
+\xymatrix@=1.75cm{
+X' \ar[r]^{g'} \ar[d]^{f'}& X \ar[d]^{f}\\
+S' \ar[r]^{g}& S,
+}
+$$
+其中 $f$ 可紧化, 并设 $\mathcal{A}$ 为 $S$ 上的挠环层. 以 $\mathcal{A}$ 的逆像作为环层给 $S'$, $X$ 及 $X'$ 赋环, 滥用记号仍\pageoriginale 将这些环层记为 $\mathcal{A}$. 基变换同构
+\begin{equation*}
+g^{\ast}Rf_{!}\xrightarrow{\sim} Rf'_{!}{g'}^{\ast}\tag{3.1.14.1}
+\end{equation*}\etiquette[3.1.14.1]{XVIII.eq3.1.14.1}%
+使我们可以将范畴 $D(S,\mathcal{A})$, $D(X,\mathcal{A})$, $D(S',\mathcal{A})$ 及 $D(X',\mathcal{A})$ 看成以交换图
+$$
+\xymatrix@C=2cm@R=1cm{
+X' \ar[d]& X\ar[l]\ar[d]\\
+S' & S\ar[l],
+}
+$$
+定义的范畴上的一个余纤维范畴的纤维, 正像函子为函子 $Rf_{!}$, $Rf'_{!}$, $g^{\ast}$ 及 ${g'}^{\ast}$ (原文如此). 若限于范畴 $D^{+}$, 甚至得到这一图上的一个纤维且余纤维范畴, 正像函子为函子 $Rf^{!}$, $R{f'}^{!}$, $Rg_{\ast}$ 及 $Rg'_{\ast}$ (原文如此). 由此得到
+\begin{enumerate}
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item “逆像”函子的一个“传递性同构” $(\sic)$
+% SGA-SRC-001163
+$$
+Rg'_{\ast} R{f'}^{!}\xrightarrow{\sim} Rf^{!}Rg_{\ast}
+$$
+它已在 \hyperref[XVIII.cor3.1.12.3]{3.1.12.3} 中得到 (同样通过转置 \eqhyperref[XVIII.eq3.1.14.1]{3.1.14.1} 来定义).
+
+\item 一个“基变换态射” (\hyperrefext[XVII][XVII.prop2.1.3]{2.1.3})
+\begin{equation*}
+{g'}^{\ast}Rf^{!}\longrightarrow R{f'}^{!}g^{\ast}\tag{3.1.14.2}
+\end{equation*}\etiquette[3.1.14.2]{XVIII.eq3.1.14.2}%
+由 \loccit, 可用下述两种方式描述它:
+\end{enumerate}
+
+\begin{enumerate}
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 由伴随性, 给出态射 \eqhyperref[XVIII.eq3.1.14.2]{3.1.14.2} 相当于给出态射
+$$
+Rf'_{!}{g'}^{\ast}Rf^{!}\longrightarrow g^{\ast}{\quoi}.
+$$
+基变换定理将这一态射给为复合态射
+$$
+Rf'_{!}{g'}^{\ast}Rf^{!}\xleftarrow{\sim}
+g^{\ast}Rf_{!}Rf^{!}\xrightarrow{g^{\ast}\ast \text{伴随}} g^{\ast}{\quoi}.
+$$
+
+\item 由\pageoriginale 伴随性, 给出态射 \eqhyperref[XVIII.eq3.1.14.2]{3.1.14.2} 相当于给出态射
+$$
+Rf^{!}\longrightarrow Rg'_{\ast}R{f'}^{!}g^{\ast}{\quoi}.
+$$
+同构 (\hyperref[XVIII.cor3.1.12.3]{3.1.12.3}) 将这一态射给为复合态射
+$$
+Rf^{!}\xrightarrow[Rf^{!}\ast \text{伴随}]{} Rf^{!}Rg_{\ast}
+g^{\ast}\xleftarrow{\sim} Rg'_{\ast}R{f'}^{!}g^{\ast}{\quoi}.
+$$
+\end{enumerate}
+
+由它们在纤维且余纤维范畴中的解释, 显然, \emph{当 $f$ 或 $g$ 为两个态射的复合时, 态射} (\hyperref[XVIII.cor3.1.12.3]{3.1.12.3}), \eqhyperref[XVIII.eq3.1.13.2]{3.1.13.2} \emph{及} \eqhyperref[XVIII.eq3.1.14.2]{3.1.14.2} \emph{各自满足 \hyperrefext[XII][XII.prop4.4]{4.4} 类型的两项相容性\nde{这些构造也可在交换结构与交叉函子的背景下解释, \cf \cite{sga4.exp.XVIII.bib.0}.}.}
+
+以下一般拓扑的结果将在下一小节使用.
+
+\subsubsection{}\etiquette[3.1.15]{XVIII.subsubsec3.1.15}
+设 $f:X\rightarrow S$ 为景态射. 以 $\Gamma(f)$ 表示下述景:
+\begin{enumerate}
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 范畴 $\Gamma(f)$ 为三元组 $(U,V,\varphi)$ 的范畴, 其中
+$$
+U\in \Ob (X), V\in \Ob S,\quad \varphi\in \Hom
+(U,f^{\ast}V){\quoi}.
+$$
+
+\item 一族态射 $(u_{i},v_{i}):(U_{i},V_{i},\varphi_{i})\rightarrow (U,V,\varphi)$ 为覆盖族, 当且仅当在 $X$ 中, 态射 $u_{i}:U_{i}\rightarrow U$ 覆盖 $U$.
+\end{enumerate}
+
+于是有:
+
+\paragraph{}\etiquette[3.1.15.1]{XVIII.par3.1.15.1}
+由
+$$
+(U,V,\varphi)\longmapsto U
+$$
+给出的从 $\Gamma(f)$ 到 $X$ 的函子为景的等价 $\gamma:X\rightarrow \Gamma(f)$.
+
+\paragraph{}\etiquette[3.1.15.2]{XVIII.par3.1.15.2}
+从 $S$ 到 $\Gamma(f)$ 的函子 $f^{\ast}_{\Gamma}$
+$$
+V\longmapsto (f^{\ast}V,V,\Id_{f^{\ast}V})
+$$
+是一个景态射, 记为 $f_{\Gamma}:\Gamma(f)\rightarrow S$, 或滥用记号简记 $f$. 它满足 $f_{\Gamma}\gamma\simeq f$. 函子 $f^{\ast}_{\Gamma}$ 有左伴随 $f_{\Gamma\bigdot}$:
+$$
+f_{\Gamma\bigdot}:(U,V,\varphi)\longmapsto V{\quoi}.
+$$
+因而函子\pageoriginale $f_{\Gamma\bigdot}$ 为从 $\Gamma(f)$ 到 $S$ 的景余态射（comorphism of sites）\nde{由于这一术语并不常见, 此处应说明, 所指的是 \hyperrefext[III][III.sec2]{2} 及 \hyperrefext[IV][IV.subsec4.7]{4.7} 中出现的概念 (应记住, 原版中第二个引用之处的排印错误, 曾使人无法理解箭头究竟沿哪个方向).}, 并与景态射 $f_{\Gamma}$ 定义相同的拓扑斯态射.
+\begin{equation*}
+\vcenter{
+\xymatrix@R=2.2cm@C=1.75cm{
+X &         &\Gamma(f) \ar[ll]^{\approx}
+\ar@<4pt>[ld]^{f_{\Gamma}}& \\
+  &    S \ar[lu]^{f^{\ast}}  \ar@<4pt>[ru]^{f^{\ast}_{\Gamma}} & .
+}}\tag{3.1.15.3}
+\end{equation*}\etiquette[3.1.15.3]{XVIII.eq3.1.15.3}
+
+由此得到计算层的逆像的如下规则\nde{此处使用了 \hyperrefext[III][III.prop2.3]{2.3} 或 \hyperrefext[IV][IV.eq4.7.3]{4.7.3}.}
+
+\setcounter{paragraph}{3}
+\paragraph{}\etiquette[3.1.15.4]{XVIII.par3.1.15.4}
+设 $\Ff$ 为 $S$ 上的层, $f^{\bigdot}_{\Gamma}\Ff$ 为 $\Gamma(f)$ 上由
+$$
+f^{\bigdot}_{\Gamma}\Ff(U,V,\varphi)=\Ff(V){\quoi},
+$$
+给出的预层, $af^{\bigdot}_{\Gamma}\Ff$ 为其伴随层. 则
+$$
+f^{\ast}\Ff(U)\simeq
+af^{\bigdot}_{\Gamma}\Ff(U,V,\varphi){\quoi}.
+$$
+
+\subsubsection{}\etiquette[3.1.16]{XVIII.subsubsec3.1.16}
+设 $f:X\rightarrow S$ 为景态射, $\mathcal{A}$ 为 $S$ 上的环层, $\mathcal{B}$ 为 $X$ 上的环层, $d$ 为整数. 设 $K$ 为下述类型的对象:
+
+\paragraph{}\etiquette[3.1.16.1]{XVIII.par3.1.16.1}
+$K$ 将 $X$ 的每个对象 $U$ 映为 $S$ 上的一个 $(\mathcal{A},f_{|U\ast}(\mathcal{B}|U))$-模复形 $K(U)$, 在次数 $>d$ 处为零, 且 $K(U)$ 为 $U$ 的\emph{协变}函子.
+
+对 $S$ 上的每个 $\mathcal{A}$-模层 $ℱ$, 以 $K^{!}ℱ$ 表示 $X$ 上由 $\mathcal{B}$-模预层的复形
+$$
+U\longmapsto \Hom_{\mathcal{A}}(K(U),ℱ){\quoi}.
+$$
+生成的层复形.
+
+以 $RK^{!}$ 表示 $K^{!}$ 的导出函子
+$$
+RK^{!}:D^{+}(S,\mathcal{A})\longrightarrow
+D^{+}(X,\mathcal{B}){\quoi}.
+$$
+若 $U:K_{1}\rightarrow K_{2}$ 为 \hyperref[XVIII.par3.1.16.1]{3.1.16.1} 的对象之间的态射, 则 $U$ 诱导\pageoriginale 函子态射
+$$
+{}^{t}u:K^{!}_{2}\longrightarrow K^!_{1}\quaet RK^{!}_{2}\longrightarrow
+RK^{!}_{1}{\quoi}.
+$$
+
+在上述假设下, 有:
+
+\begin{enonce*}{命题 3.1.17}\etiquette[3.1.17]{XVIII.prop3.1.17}
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item 对 $X$ 的每个点 $x$ 以及每个 $L\in
+\Ob D^{+}(S,\mathcal{A})$, 以 $V(x)$ 表示 $x$ 的邻域范畴, 则有
+\begin{equation*}
+ℋ^{n}(RK^{!}L)_{x}\simeq \varinjlim_{U\in \Ob V(x)}
+\Ext^{n}(K(U),L){\quoi}.\tag{3.1.17.1}
+\end{equation*}\etiquette[3.1.17.1]{XVIII.eq3.1.17.1}
+
+\item 因而有谱序列
+\begin{equation*}
+% SGA-SRC-001166
+E^{pq}_{2}=\varinjlim_{U\in \Ob V(x)}
+\Ext^{p}(ℋ^{-q}(K(U)),L)\Longrightarrow
+ℋ^{p+q}(RK^{!}L)_{x}{\quoi}.\tag{3.1.17.2}
+\end{equation*}\etiquette[3.1.17.2]{XVIII.eq3.1.17.2}
+
+\item 若 $X^{0}$ 为 $X$ 的一个保守点集, 且 $u:K_{1}\rightarrow K_{2}$ 为对象 \eqhyperref[XVIII.eq3.1.11.1]{3.1.11.1} 的一个态射, 则要使
+$$
+{}^{t}u:RK^{!}_{2}\longrightarrow RK^{!}_{1}
+$$
+为同构, 充分必要条件是, 对每个 $n$ 以及每个 $x\in X^{0}$, $\Mod(S,\mathcal{A})$ 中的 pro-对象态射
+\begin{equation*}
+u_{x}:\mathop{``\varprojlim\mbox{''}}_{U\in \Ob V(x)}
+ℋ^{n}K_{1}(U)\longrightarrow \mathop{``\varprojlim\mbox{''}}_{U\in
+\Ob V(x)} ℋ^{n}K_{2}(U)\tag{3.1.17.3}
+\end{equation*}\etiquette[3.1.17.3]{XVIII.eq3.1.17.3}%
+为同构.
+\end{enumerate}
+\end{enonce*}
+
+为证明 (i), 取 $L$ 为内射复形, 则 \eqhyperref[XVIII.eq3.1.17.1]{3.1.17.1} 是直接的; 显然 (i) $\Rightarrow$ (ii).
+
+(iii) 中条件 \eqhyperref[XVIII.eq3.1.17.3]{3.1.17.3} 的充分性直接来自 \eqhyperref[XVIII.eq3.1.17.2]{3.1.17.2}. 我们不需要其必要性. 若 ${}^{t}u$ 为同构, 则由 (\hyperref[XVIII.par3.1.16.1]{3.1.16.1}), 对 $(S,\mathcal{A})$ 上的每个内射层 $I$, 有
+$$
+\Hom(\mathop{``\varprojlim\mbox{''}}_{V(x)}ℋ^{n}K_{2}(U),I)\xrightarrow{\sim}\Hom(\mathop{``\varprojlim\mbox{''}}_{V(x)}
+ℋ^{n}K_{1}(U),I){\quoi}, 
+$$
+最后注意, 在每个具有足够多内射对象的阿贝尔范畴 (这里为 $\Mod(S,\mathcal{A})$) 中, 当 $I$ 为内射 $\mathcal{A}$-模时, 函子 $\Hom(\ast,I)$ 构成 $\Pro(\mathcal{A})$ 上的一个保守函子族, 即得结论.
+
+\begin{enonce*}[remark]{例 3.1.18}\etiquette[3.1.18]{XVIII.exem3.1.18}
+设\pageoriginale $f:X\rightarrow S$ 为可紧化概形态射, $\mathcal{A}$ 为 $S$ 上的挠环层. 以 $f^{\ast}\mathcal{A}$ 为环层给 $X$ 赋环. 选择一个整数 $d$, 作为 $f$ 的纤维维数的上界, 以及 $f$ 的一个紧化, 并令 (\eqhyperref[XVIII.eq3.1.4.7]{3.1.4.7})
+\begin{equation*}
+K(U)=f^{\bigdot}_{!}((f^{\ast}\mathcal{A})_{U}){\quoi}.\tag{3.1.18.1}
+\end{equation*}\etiquette[3.1.18.1]{XVIII.eq3.1.18.1}
+\end{enonce*}
+
+由 $f^{\bigdot}_{!}$ 的伴随的公式 \eqhyperref[XVIII.eq3.1.3.1]{3.1.3.1}, 有同构
+\begin{equation*}
+f^{!}_{\bigdot}\simeq K^{!}:\Mod(S,\mathcal{A})\longrightarrow C^{b}\Mod(X,f^{\ast}\mathcal{A}){\quoi}.\tag{3.1.18.2}
+\end{equation*}\etiquette[3.1.18.2]{XVIII.eq3.1.18.2}%
+因而
+\begin{equation*}
+Rf^{!}=RK^{!}:D^{+}(S,\mathcal{A})\longrightarrow
+D^{+}(X,f^{\ast}\mathcal{A}){\quoi}.\tag{3.1.18.3}
+\end{equation*}\etiquette[3.1.18.3]{XVIII.eq3.1.18.3}
+
+\begin{enonce*}[remark]{例 3.1.19}\etiquette[3.1.19]{XVIII.exem3.1.19}
+设 $f:X\rightarrow S$, $\mathcal{A}$, $\mathcal{B}$ 及 $d$ 如 \hyperref[XVIII.subsubsec3.1.16]{3.1.16}. 设 $K$ 为\sisi{下述}{下述}类型的对象.
+\end{enonce*}
+
+\setcounter{subsubsection}{19}
+\setcounter{paragraph}{0}
+\paragraph{}\etiquette[3.1.19.1]{XVIII.par3.1.19.1}
+对每个 $W=(U,V,\varphi)\in \Ob \Gamma(f)$ (\hyperref[XVIII.subsubsec3.1.15]{3.1.15})\nde{按定义, $\varphi$ 是一个 $X$-态射 $U\to V\times_S X$. 要正确理解这一例子, 必须采用等价的观点, 将 $\varphi$ 解释为一个 $S$-态射 $\varphi\colon U\to V$.}, $K(W)$ 为 $V$ 上的 $(\mathcal{A}_{V},\varphi_{\ast}\mathcal{B}_{|U})$-模复形, 关于 $W$ 具有函子性: 对每个态射 $(u,v):
+W_{1}=(U_{1},V_{1},\varphi_{1})\to W_{2}=(U_{2},V_{2},\varphi_{2})$, 由
+\begin{align*}
+K(u,v) &: K(W_{1})\longrightarrow v^{\ast}K(W_{2}),\quad\mbox{\ie}\\
+K(u,v) &: v_{!}K(W_{1})\longrightarrow K(W_{2}){\quoi}.
+\end{align*}
+给出.
+
+与每个 (\hyperref[XVIII.par3.1.19.1]{3.1.19.1}) 类型的对象 $K$ 相伴, 有一个关于 $f_{\Gamma}:\Gamma(f)\rightarrow S$ 的 (\hyperref[XVIII.par3.1.16.1]{3.1.16.1}) 类型的对象 $K'$, 由
+\begin{equation*}
+K'(U,V,\varphi)=j_{!}K(U,V,\varphi)\tag{3.1.19.2}
+\end{equation*}\etiquette[3.1.19.2]{XVIII.eq3.1.19.2}%
+给出, 其中 $j$ 为 $V$ 到 $S$ 的“包含态射”. 令
+$$
+K^{!}\mathop{=}_{\defn} {K'}^{!}\quaet RK^{!}\mathop{=}_{\defn}
+R{K'}^{!}{\quoi}.
+$$
+
+\begin{enonce*}[remark]{例 3.1.20}\etiquette[3.1.20]{XVIII.exem3.1.20}
+用 \hyperref[XVIII.exem3.1.19]{3.1.19} 的记号, 取 $\mathcal{B}=f^{\ast}\mathcal{A}$, 并令
+\begin{equation*}
+K(U,V,\varphi)=\mathcal{A}_{V}\quad\text{\rm(置于次数 0)}\tag{3.1.20.1}
+\end{equation*}\etiquette[3.1.20.1]{XVIII.eq3.1.20.1}
+\end{enonce*}
+
+由\pageoriginale \hyperref[XVIII.par3.1.15.4]{3.1.15.4}, 有函子的同构
+\begin{gather*}
+K^{!}\simeq f^{\ast}\tag{3.1.20.2}\\
+RK^{!}\simeq f^{\ast}{\quoi}.\tag{3.1.20.3}
+\end{gather*}\etiquette[3.1.20.2]{XVIII.eq3.1.20.2}
+\etiquette[3.1.20.3]{XVIII.eq3.1.20.3}
+
+\subsection{Poincaré 对偶}\etiquette[3.2]{XVIII.subsec3.2}
+
+\subsubsection{}\etiquette[3.2.1]{XVIII.subsubsec3.2.1}
+设 $f$ 为可紧化的平坦态射, 纯相对维数为 $d$ (或更一般地, 满足 \hyperref[XVIII.thm2.9]{2.9} 的条件 $(\ast)_{d}$):
+$$
+\xymatrix@C=2cm@R=1.5cm@M=.2cm{
+X \ar@{^{(}->}[r]^{j} \ar[d]_{f}& \bar{X}\ar[ld]_{\bar{f}} &\\
+S &.
+}
+$$
+设 $n$ 为在 $S$ 上可逆的整数 $\geq 1$, 并假设 $S$ 以环层 $\mathcal{A}$ 赋环, 使得 $n\mathcal{A}=0$. 由 \hyperref[XVIII.exem3.1.18]{3.1.18}, 函子 $Rf^{!}:D^{+}(S,\mathcal{A})\rightarrow D^{+}(X,f^{\ast}\mathcal{A})$ 可用 \hyperref[XVIII.subsubsec3.1.16]{3.1.16} 的方法计算, 其中 $K$ 由 \eqhyperref[XVIII.eq3.1.18.1]{3.1.18.1} 给出.
+
+设 $K'$ 为 (\hyperref[XVIII.par3.1.19.1]{3.1.19.1}) 类型的函子, 它将 $(U,V,\varphi)\in \Ob \Gamma(f)$ 映为 $V$ 上的层复形 $\ZZ/n(-d)[-2d]$, 由 $\ZZ/n(-d)$ 放在次数 $2d$ 处组成; 并设 $K''$ 为由 \eqhyperref[XVIII.eq3.1.19.2]{3.1.19.2} 对应的关于 $f:\Gamma(f)\rightarrow S$ 的 (\hyperref[XVIII.par3.1.16.1]{3.1.16.1}) 类型的对象.
+
+可以将 $K$ 与 $K''$ 视为关于 $\Gamma(f)\rightarrow S$ 的 \hyperref[XVIII.par3.1.16.1]{3.1.16.1} 的对象. 此外, 对每个 $(U,V,\varphi)\in \Ob
+\Gamma(f)$, 迹态射 \hyperref[XVIII.thm2.9]{2.9} 定义 $V$ 上的层态射
+$$
+\Tr:R^{2d}\varphi_{!}\ZZ/n\longrightarrow
+\ZZ/n(-d){\quoi},
+$$
+从而以 $j$ 表示从 $V$ 到 $S$ 的态射, 得到函子态射
+\begin{gather*}
+K(U)=\bar{f}_{\ast}\tau_{\leq
+2d}C^{\ast}_{\ell}\ZZ/n_{U}\longrightarrow
+ℋ^{2d}(K(U))[-2d]\simeq\tag{3.2.1.1}\\
+R^{2d}f_{!}(\ZZ/n)_{U}\simeq j_{!}R^{2d}\varphi_{!} \ZZ/n
+\xrightarrow{\Tr_{\varphi}} j_{!}
+\ZZ/n(-d)=K''(U,V,\varphi){\quoi}.
+\end{gather*}\etiquette[3.2.1.1]{XVIII.eq3.2.1.1}
+
+\hyperref[XVIII.exem3.1.20]{3.1.20} 的\pageoriginale 一个扭转形式表明
+$$
+{RK''}^{!}=Rf^{\ast}(d)[2d]{\quoi}.
+$$
+因而由 \hyperref[XVIII.subsubsec3.1.16]{3.1.16}, 有复合态射
+\begin{equation*}
+t_{f}:Rf^{\ast}(d)[2d]\simeq {RK''}^{!}\longrightarrow RK^{!}\simeq
+Rf^{!}{\quoi}.\tag{3.2.1.2}
+\end{equation*}\etiquette[3.2.1.2]{XVIII.eq3.2.1.2}
+
+\begin{enonce*}[remark]{注 3.2.2}\etiquette[3.2.2]{XVIII.rem3.2.2}
+若函子 $Rf^{!}$ 有有限上同调维数, 则 $t_f$ 仍有定义, 为从 $D(S,\mathcal{A})$ 到 $D(X,f^{\ast}\mathcal{A})$ 的函子之间的态射 (定义见 \hyperref[XVIII.rem3.1.5]{3.1.5}).
+\end{enonce*}
+
+还有另一种构造箭头 \eqhyperref[XVIII.eq3.2.1.2]{3.2.1.2} 的方法, 即由 \eqhyperref[XVIII.eq2.13.2]{2.13.2} 通过伴随性得到
+$$
+\Tr:Rf_{!}(f^{\ast}L(d)[2d])\longrightarrow L{\quoi}.
+$$
+这两条箭头一致:
+
+\begin{enonce*}{引理 3.2.3}\etiquette[3.2.3]{XVIII.lem3.2.3}
+对 $L\in \Ob D^{+}(S,\mathcal{A})$ (\resp $D(S,\mathcal{A})$, \emph{若函子 $Rf^{!}$ 有有限上同调维数}), 图
+$$
+\xymatrix@C=2.5cm@R=1.75cm{
+Rf_!(f^{\ast}L(d)[2d]) \ar[d]^{\Tr_f} \ar[r]^{Rf_!(t_f)}  & Rf_!
+Rf^{!}L \ar[d]^{\txt{\rm 伴随}}\\
+L                              \ar@{=}[r] & L
+}
+$$
+交换.
+\end{enonce*}
+
+先用函子 $f^!_\bigdot$ \eqhyperref[XVIII.eq3.1.4.10]{3.1.4.10} 给出 $t_f$ 定义的一个变体. 设 $U\in \Ob X_{\text{\rm et}}$, $V\in \Ob S_{\text{\rm et}}$ 且 $\varphi\in \Hom_{f}(U,V)$. 按定义,
+$$
+f^{!}_{\bigdot}(L)(U)=\Hom(f^{\bigdot}_{!}\mathcal{A}_{U},L){\quoi}\;;
+$$
+迹态射定义一个态射
+$$
+\Tr_{f}:f^{\bigdot}_{!}\mathcal{A}_{U}\longrightarrow
+\mathcal{A}_{V}(-d)[-2d]
+$$
+其转置为
+$$
+t_{\varphi}:f^{!}_{\bigdot}(L)(U)\longleftarrow L(d)[2d](V){\quoi}.
+$$
+态射\pageoriginale $t_{\varphi}$ 定义一个态射
+$$
+t_{f}:f^{\ast}L(d)[2d]\longrightarrow f^{!}_{\bigdot}L
+$$
+将验证它在导出范畴中与 \eqhyperref[XVIII.eq3.2.1.2]{3.2.1.2} 一致的工作留给读者. 这一描述表明, 对模复形 $L$, 下图在复形层面交换:
+$$
+\xymatrix@R=1.25cm{
+\Hom^{\bigdot}(\Aa_V,L) \ar[r] \ar[d]^{\Tr_f}& \Hom^{\bigdot}(f^{\ast}\Aa_V(d) [2d], f^{\ast}
+L(d) [2d])\ar[d]^{t_f}\\
+\Hom(f^{\bigdot}_!f^{\ast}\Aa_V(d)[2d],L) \ar@{-}[r]^{\sim}& \Hom^{\bigdot}(f^{\ast}\Aa_V(d)[2d], f^{!}_{\bigdot}L).
+}
+$$
+由这一图中的箭头关于 $\mathcal{A}_{V}$ 的函子性, 可得对每个层或层复形 $K$, 下图交换:
+$$
+\xymatrix{
+\Hom^{\bigdot}(K,L) \ar[r] \ar[d]^{\Tr_f}& \Hom^{\bigdot}(f^{\ast}K(d)[2d],
+f^{\ast}L(d)[2d]) \ar[d]\\
+\Hom^{\bigdot}(f^{\bigdot}_!f^{\ast}K(d)[2d],L) \ar@{<->}[r]^{\sim} &\Hom^{\bigdot}(f^{\ast}K(d)[2d], f^{!}_{\bigdot}L).
+}
+$$
+取 $K=L$ 及 $\Id:L\rightarrow L$, 就在复形层面得到 \hyperref[XVIII.lem3.2.3]{3.2.3}.
+
+若有人理解了这一证明并愿向我解释, 我将不胜感激.
+
+\setcounter{subsubsection}{3}
+\subsubsection{}\etiquette[3.2.4]{XVIII.subsubsec3.2.4}
+由此引理以及通过伴随性定义的复合同构 (\hyperref[XVIII.subsubsec3.1.13]{3.1.13}), 立即可得: 若 $f$ 为两个平坦、有限表示、可紧化态射的复合, 它们的纯相对维数分别为 $d_{1}$ 与 $d_{2}:f=gh$, 且 $d=d_{1}+d_{2}$, 则图
+$$
+\xymatrix{
+h^{\ast}(g^{\ast}L(d_2)[2d_2])(d_1)[2d_1]
+\ar@{-}[r]^(.6){\sim}
+\ar[d]^{t_h\ast t_g}&(gh)^{\ast}L(d)[2d] \ar[d]^{t_{gh}}\\
+Rh^{!} \; Rg^{!} \; L  \ar@{-}[r]^{\sim}&  R(gh)^{!}L
+}
+$$
+\pageoriginale 交换.
+
+\begin{enonce*}{定理 3.2.5}[Poincaré 对偶]%
+\etiquette[3.2.5]{XVIII.thm3.2.5}
+设 $f:X\rightarrow S$ 为可紧化光滑态射\emph{(从而 $S$ 拟紧且拟分离 (原文如此))}, 设 $d$ 为 $X$ 上的局部常值函数“$f$ 的相对维数”, $n\geq 1$ 为在 $S$ 上可逆的整数, $\mathcal{A}$ 为 $S$ 上满足 $n\mathcal{A}=0$ 的环层. 则函子
+$$
+Rf_{!}:D(X,f^{\ast}\mathcal{A})\longrightarrow D(S,\mathcal{A})
+$$
+容许如下从 $D(S,\mathcal{A})$ 到 $D(X,f^{\ast}\mathcal{A})$ 的函子为右伴随:
+$$
+K\longmapsto f^{\ast}K(d)[2d]
+$$
+并以态射 \eqhyperref[XVIII.eq2.13.2]{2.13.2}
+$$
+\Tr_{f}:Rf_{!}f^{\ast}K(d)[2d]\longrightarrow K
+$$
+为伴随箭头:
+\hypertarget{sga4.exp.XVIII.equation.3.2.5.1}{}$$
+\Hom(K,f^{\ast}L(d)[2d])\xrightarrow{\sim} \Hom(Rf_{!}K,L){\quoi}.
+$$
+\end{enonce*}
+
+\noindent
+\emph{证明}. 化为 $d$ 常值的情形. 由箭头 $t_{f}$ \eqhyperref[XVIII.eq3.2.1.2]{3.2.1.2} 的描述 \hyperref[XVIII.subsubsec3.2.1]{3.2.1}, 定理 \hyperref[XVIII.thm2.14]{2.14} 连同判据 \hyperref[XVIII.prop3.1.17]{3.1.17} (iii), 蕴含箭头 $t_{f}$ 为同构 (对 $L\in D^{+}(S,\mathcal{A})$):
+$$
+t_{f}:f^{\ast}L(d)[2d]\xrightarrow{\sim} Rf^{!}L{\quoi}.
+$$
+
+特别地, 函子 $Rf^{!}$ 有有限上同调维数, 因而在无界导出范畴上有定义. 对 $L\in D(S,\mathcal{A})$, 态射 $t_{f}$ 仍为同构\nde{更准确地, $Rf^!$ 有有限上同调维数这一事实, 使我们可以证明能够在无界导出范畴上定义函子 $Rf^!$, 使得对内射层复形 $I^\bigdot$, $Rf^!I^\bigdot$ 为双复形 $f^!_\bigdot I^\bigdot$ 所伴随的全复形. 于是, 对每个 $n\in\ZZ$, $t_f$ 在 $I^\bigdot$ 处取值后在第 $n$ 个上同调层上诱导的态射, 与对于足够小的 $k$ 所取的愚蠢截断 $I^{\geq k}$ 的同一态射等同, 从而证明断言.}.
+
+按\pageoriginale 定义, $Rf^{!}$ 为函子 $Rf_{!}$ 的右伴随; 由 \hyperref[XVIII.lem3.2.3]{3.2.3}, 从 $Rf_{!}Rf^{!}K$ 到 $K$ 的伴随箭头, 经 $t_{f}$ 等同于 $\Tr_{f}$, 这就完成了 \hyperref[XVIII.thm3.2.5]{3.2.5} 的证明.
+
+从现在起, 利用 $t_{f}$ 将函子 $f^{\ast}L(d)[2d]$ 与 $Rf^{!}L$ 等同.
+
+\setcounter{subsubsection}{5}
+\subsubsection{}\etiquette[3.2.6]{XVIII.subsubsec3.2.6}
+设 $S$ 为代数闭域 $k$ 的谱, $X$ 为可紧化概形, 在 $k$ 上光滑且纯相对维数为 $d$; 设 $n$ 为 $k$ 中可逆的整数, $F$ 为局部常值可构造 $\ZZ/n$-模层, \ie 被 $n$ 零化的“系数系统”. 以 ${}^\vee$ 表示 $\ZZ/n$-对偶, 有
+$$
+R\Hhom(F,\ZZ/n)=F^{\vee}\quad\text{\rm (置于次数 0)}{\quoi}.
+$$
+这一公式来自 $\ZZ/n$ 为内射 $\ZZ/n$-模这一事实.
+% SGA-SRC-001173
+因而 \hyperref[XVIII.thm3.2.5]{3.2.5} 的伴随同构, 或更准确地, 从中导出的同构
+$$
+R\Gamma\;R\Hhom(F,\ZZ/n(d)[2d])\xrightarrow{\sim}
+R\Hom(R\Gamma_{c}(F),\ZZ/n){\quoi},
+$$
+在此写成
+\begin{equation*}
+R\Gamma (F^{\vee}(d)[2d])\xrightarrow{\sim} R\Hom
+(R\Gamma_{c}(F),\ZZ/n){\quoi}.\tag{3.2.6.1}
+\end{equation*}\etiquette[3.2.6.1]{XVIII.eq3.2.6.1}%
+过渡到上同调群, 再次利用 $\ZZ/n$ 为内射 $\ZZ/n$-模这一事实, 得到
+\begin{equation*}
+H^{2d-i}(X,F^{\vee}(d))\xrightarrow{\sim}H^{i}_{c}(X,F)^{\vee}{\quoi},\tag{3.2.6.2}
+\end{equation*}\etiquette[3.2.6.2]{XVIII.eq3.2.6.2}%
+这就是 Poincaré 对偶的通常形式.
+
+\begin{thebibliography}{99}\pageoriginale%
+
+\sisi{}{%
+\bibitem{sga4.exp.XVIII.bib.0} J. \textsc{Ayoub}, Les six opérations de Grothendieck et le
+formalisme des cycles évanescents dans le monde motivique. I,
+Astérisque 314 (2007).
+
+\bibitem{sga4.exp.XVIII.bib.0bis} B. \textsc{Conrad}, A modern proof of Chevalley's theorem on
+algebraic groups, Journal of the Ramanujan Mathematical Society 17 (2002),
+p.~1--18.
+
+\bibitem{sga4.exp.XVIII.bib.0ter} D. \textsc{Ferrand}, On the non additivity of the trace
+in derived categories, \url{http://arxiv.org/abs/math/0506589}
+
+}
+
+\bibitem{sga4.exp.XVIII.bib.1} J. \textsc{Giraud}, Cohomologie non abélienne. Columbia
+  University.
+
+\bibitem{sga4.exp.XVIII.bib.2} A. \textsc{Grothendieck}, Le groupe de Brauer
+  III. In: Dix exposés sur
+la cohomologie des schémas. North Holl. Publ. Co.
+
+\sisi{}%
+{\bibitem{sga4.exp.XVIII.bib.2bis} A. \textsc{Grothendieck}, Technique de descente et théorème
+d'existence en géométrie algébrique. VI. Les schémas de Picard : propriétés
+générales, Séminaire Bourbaki 1961-1962, exposé nᵒ 236,
+pages 221-243.}
+
+\sisi{\bibitem{sga4.exp.XVIII.bib.3} L. \textsc{Illusie}, Thèse}%
+{\bibitem{sga4.exp.XVIII.bib.3} L. \textsc{Illusie}, Complexe cotangent et déformations II.
+Lecture Notes in Math. 283. Springer Verlag.}
+
+\sisi{}{%
+\bibitem{sga4.exp.XVIII.bib.3bis} F. \textsc{Knudsen}, D. \textsc{Mumford}, The
+projectivity of the moduli space of stable curves. I : Preliminaries on
+``det'' and ``Div'', Mathematica Scandinavica 39 (1976), p.~19--55.
+
+\bibitem{sga4.exp.XVIII.bib.3ter} U. \textsc{Köpf},
+Über eigentliche Familien algebraischer Varietäten
+über affinoiden Räumen, Schriftenreihe des Mathematischen Instituts
+der Universität Münster. 2. Serie, Heft 7 (1974).}
+
+\bibitem{sga4.exp.XVIII.bib.4} D. \textsc{Mumford}, Geometric invariant
+  theory. Springer-Verlag 1965.
+
+\sisi{}{%
+\bibitem{sga4.exp.XVIII.bib.4bis} F. \textsc{Orgogozo}, Isomotifs de dimension inférieure ou
+égale à un, Manuscripta Mathematica 115 (2004), p.~339--360.}
+
+\bibitem{sga4.exp.XVIII.bib.5} M. \textsc{Raynaud}, Faisceaux amples sur les schémas
+  en groupes et les espaces homogènes. Lecture Notes in Math. 119. Springer Verlag.
+
+\sisi{}{%
+\bibitem{sga4.exp.XVIII.bib.5bis} M. \textsc{Raynaud}, Géométrie analytique rigide d'après
+Tate, Kiehl. Mémoires de la Société Mathématique de France, tome 39--40
+(1974), p.~319--327.}
+
+\bibitem{sga4.exp.XVIII.bib.6} J.P. \textsc{Serre}, Groupes algébriques et corps de
+classe. Publ. Inst. Math. Nancago. Hermann 1959.
+
+\bibitem{sga4.exp.XVIII.bib.7} J.L. \textsc{Verdier}, Dualité dans la cohomologie des espaces
+localement compacts. Sém. Bourbaki 300. Nov. 1965.
+
+\bibitem{sga4.exp.XVIII.bib.8} J.L. \textsc{Verdier}, A duality theorem in the etale
+  cohomology of schemes. Woods-hole seminar on alg. geometry. July 1964.
+
+\bibitem{sga4.exp.XVIII.bib.9} Catégories dérivées, J.L. \textsc{Verdier}. IHÉS 油印讲义.
+
+\end{thebibliography}
+
+%2.17  - 106
+%IX 3.1 - 138
+%XVII  6.3.18.2 - 345
+%1.2.0 - 855
+%1.2.7.3 - 865
+%1.2.2.11 - 892
+%1.2.12 - 920
+%6.3.3.1 - 1026
+%1.3.12.4 - 1631, 1636, 1704
+%1.3.2.7 - 1669
+%1.2.9.7 - 1778
+%1.2.16.2 - 1784
+%2.12.3 - 4257
+%3.1.9.10 -  5337
+%3.2.5.1 - 5461
+
+\ifx\danslelivre\undefined
+\let\SGAXVIIIenddocument\enddocument
+\else
+\let\SGAXVIIIenddocument\relax
+\fi
+\SGAXVIIIenddocument
+
+

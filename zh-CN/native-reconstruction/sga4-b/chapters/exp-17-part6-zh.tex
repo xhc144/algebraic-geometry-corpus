@@ -1,0 +1,731 @@
+\section{附录}\etiquette[7]{XVII.sec7}\pageoriginale
+
+\setcounter{subsection}{-1}
+\subsection{预备知识}\etiquette[7.0]{XVII.subsec7.0}
+
+本附录使用 \sisi{${\rm VI_{B}}$}{VBIS} 的结果，并沿用其中的记号。
+
+\subsubsection{}\etiquette[7.0.1]{XVII.subsubsec7.0.1}
+设 $\Sch_{!}$ 为以拟紧拟分离概形为对象、以有限型分离态射为态射的范畴。以 $\Ee$ 表示由概形上的平展层定义的、$\Sch_{!}$ 上的双纤维化范畴，其纤维范畴为拓扑斯的反范畴 \sisi{${\rm VI_{B}}$ (4.3.0)}{（\hyperrefext[Vbis][Vbis.subsubsec4.3.0]{4.3.0}）}。固定 $\Sch_{!}$ 的一个对象 $R$，以 $\Ee_{R}$ 表示由 $\Ee$ 导出的、$\Sch_{!R}$ 上的双纤维化范畴。最后，设 $\mathcal{A}$ 是拓扑斯 $\sheafGamma(\Ee^{\circ}_{R})$ 中的环，满足以下条件：
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item $\mathcal{A}$ 是 $\Ee^{\circ}_{R}$ 在 $\Sch^{\circ}_{!R}$ 上的\emph{余笛卡儿}（cocartesian）截面。
+
+\item 对 $\Sch_{!R}$ 中的每个概形 $X$，$\mathcal{A}_{X}$ 是\emph{挠}层。
+\end{enumerate}
+
+在这一约定下，我们在范畴 $\sheaf{\Mod}(\sisi{}{\sheafGamma(}\Ee^{\circ}_{R}\sisi{}{)},\mathcal{A})$ 中工作（\refvb[VI B ]{Vbis.subsubsec1.3.5}）。
+
+目标是对 $\Sch_{!R}$ 中的每个态射 $f:X\rightarrow Y$，定义函子 $Rf_{!}:D(X,\mathcal{A}_X)\rightarrow
+D(Y,\mathcal{A}_{Y})$，使它在 $f$ 可紧化时与前面定义的函子一致，并使随 $X$ 变动的范畴 $D(X,\mathcal{A}_{X})$ 构成 $\Sch_{!R}$ 上的余纤维化范畴。\nde{\MakeLinkTarget*{sga4.exp.XVII.editor-note.7.0.1.compactification}\label{XVII.ndeapp}由 Nagata 紧化定理，$\Sch_{!}$ 中的每个态射都可紧化（见 \nderef{XVII.ndeConrad}）。本附录说明，在定义 $Rf_!$ 时，如何依靠 Chow 引理（\hyperref[XVII.lem7.0.6]{7.0.6}）来避免使用紧化定理。}
+
+\subsubsection{}\etiquette[7.0.2]{XVII.subsubsec7.0.2}
+本附录的全部结果虽然在 \hyperref[XVII.subsubsec7.0.1]{7.0.1} 指定的框架下陈述，但作显然的修改后，也可移到以下框架：取 $\sheafGamma(\Ee^{\circ}_{R})$ 中以常值层 $\ZZ$ 为值的常值截面，并且对于每个概形 $X$，限制到导出范畴 $D^{\ast}_{\tors}(X)$，它由上同调层为挠层的阿贝尔群层复形定义（\refvb[VI B ]{Vbis.subsubsec4.3.1}）。
+
+\begin{enonce*}{引理 7.0.3}\etiquette[7.0.3]{XVII.lem7.0.3}
+设\pageoriginale 给定概形的交换图
+$$\vcenter{\etiquette[7.0.3.1]{XVII.eq7.0.3.1}
+\xymatrix{
+X' \ar[rr]^{j'} \ar[d]_{f'}& & X \ar[d]^{f}\\
+Y' \ar[rr]_{j}& & Y.
+}}\leqno{(7.0.3.1)}
+$$
+其中 $f$ 和 $f'$ 固有，$j$ 和 $j'$ 为浸入。那么，对于 $D^{+}_{\tors}(X')$ 中的每个复形 $K^{\bigdot}$，典范箭头\nde{经过一个简单的逐步分解，此箭头的定义与 \eqhyperref[XVII.eq5.1.5.2]{5.1.5.2} 中的定义类似。}
+$$
+j_{!}\circ R^{+}f'\sisi{}{_*}(K^{\bigdot})\longrightarrow R^{+}f\sisi{}{_*}\circ
+j_{!}(K^{\bigdot})
+$$
+是同构。
+\end{enonce*}
+
+由“远端有界函子（way-out functor）引理”（\cite{sga4.exp.XVII.bib.RD} I \sisi{(}{}7.1），只需证明，对于每个整数 $i$ 和每个挠层 $F$，箭头
+$$\etiquette[7.0.3.2]{XVII.eq7.0.3.2}
+j_{!}\circ R^{i}f'\sisi{}{_*}(F)\longrightarrow R^{i}f\sisi{}{_*}\circ j_{!}(F)\leqno(7.0.3.2)
+$$
+是同构。
+
+用 $j$ 和 $j'$ 的闭像代替它们，可归结为 $j$ 和 $j'$ 为像处处稠密的开浸入的情形。于是 $f$ 和 $f'$ 的固有性蕴含图 \eqhyperref[XVII.eq7.0.3.1]{7.0.3.1} 为笛卡儿图。在这些条件下，由固有基变换定理的 \hyperrefext[XII][XII.cor5.2]{5.2} 形式，对于 $Y$ 的每个几何点 $\xi$，箭头 $(j_{!}\circ R^{i}f'\sisi{}{_*}(F))_{\xi}\rightarrow (R^{i}f\sisi{}{_*}\circ
+j_{!}(F))_{\xi}$ 是同构。
+
+\begin{enonce*}{构造 7.0.4}\etiquette[7.0.4]{XVII.const7.0.4}
+\emph{设 $D$ 为范畴，$X$ 和 $Y$ 为 $\Sch_{!R}$ 中的两个 $D$-对象，并且对 $D$ 中的每个箭头 $\alpha\rightarrow \beta$，态射 $X_{\beta}\rightarrow X_{\alpha}$ 和 $Y_{\beta}\rightarrow Y_{\alpha}$ 都固有。设 $j:X\rightarrow
+Y$ 为态射，并且对 $D$ 的每个对象 $\alpha$，$j_{\alpha}:X_{\alpha}\rightarrow Y_{\alpha}$ 为浸入。对于 $i=0$ 的同构 \eqhyperref[XVII.eq7.0.3.2]{7.0.3.2} 满足通常的相容性条件，由此可以构造一个\emph{正合}函子：}
+\[
+j_{!}:\Mod(\sheafGamma(\bar{X}),\mathcal{A})\longrightarrow
+\Mod(\sheafGamma(\bar{Y}),\mathcal{A})
+\]
+\emph{（记号见 \sisi{(}{}\refvb{Vbis.subsubsec1.2.5}）\sisi{。}{}它\pageoriginale 诱导一个仍记为 $j_{!}$ 的三角函子：}
+\[
+j_{!}:D(\sheafGamma(\bar{X}),\mathcal{A})\longrightarrow
+D(\sheafGamma(\bar{Y},\mathcal{A}))
+\]
+
+\emph{于是，对于 $D$ 的每个对象 $\alpha$，有交换图，其中 $j_{\alpha !}$ 表示通常的“$0$ 延拓”函子：}
+\[
+\xymatrix{
+D(\sheafGamma(\bar{X}), \sisi{}{\Aa}) \ar[rr]^{j_!} \ar[d]_{R e^{\sisi{+}{*}}_{\alpha}}&
+&D(\sheafGamma(\bar{Y}),\Aa) \ar[d]^{R e^{\sisi{+}{*}}_{\alpha}}\\
+D(X_{\alpha}, \Aa_{X_{\alpha}})  \ar[rr]_{j_{\alpha !}} & &
+  D(Y_{\alpha},\Aa_{Y_\alpha}).
+}
+\]
+\end{enonce*}
+
+\begin{enonce*}{构造 7.0.5}\etiquette[7.0.5]{XVII.constru7.0.5}
+设给定 $\Sch_{!R}$ 中的交换图
+$$\vcenter{\etiquette[7.0.5.1]{XVII.eq7.0.5.1}
+\xymatrix{
+X'   \ar[rr]^{i'} \ar[d]_{f'}&    & X \ar[d]^{f}\\
+Y'   \ar[rr]^{i} &    & Y
+}}\leqno{(7.0.5.1)}
+$$
+其中 $i$ 和 $i'$ 为浸入，$f$ 是固有态射，$f'$ 是固有\emph{满射}态射。它定义 $\Sch_{!R}$ 中单纯对象的交换图
+$$\vcenter{\etiquette[7.0.5.2]{XVII.eq7.0.5.2}
+\xymatrix{
+[X'|Y']      \ar[d]_{u_{f'}}  \ar[r]^{j} & [X|Y] \ar[d]^{u_f}\\
+C^{\Delta}_{Y'}  \ar[r]_{i} & C^{\Delta}_{Y}
+}}\leqno{(7.0.5.2)}
+$$
+，其中对每个 $n$，$j_{n}:[X'|Y']_{n}\rightarrow [X|Y]_{n}$ 为浸入。沿用此记号，有典范同构
+\[
+i_{!}\isomto  R^{+}\bar{u}_{f\sisi{+}{*}}\circ j_{!}\circ
+L^{+}\bar{u}_{f'}\sisi{}{^*}{\quoi}.
+\]
+\end{enonce*}
+
+用 $i$ 和 $i'$ 的闭像代替它们，可设 $i$ 和 $i'$ 为像处处稠密的开浸入。于是图 \eqhyperref[XVII.eq7.0.5.1]{7.0.5.1} 是笛卡儿图，且 $f$ 是\emph{满射}。此外，对于每个整数 $n$，$j_{n}$ 是开浸入\pageoriginale，而图
+\[
+\xymatrix{
+[X'|Y']_n        \ar[r]^{j_n} \ar[d]& [X|Y]_n \ar[d]\\
+Y'  \ar[r]_{i} & Y
+}
+\]
+是笛卡儿图。
+
+因此，$L^{+}\bar{u}_{f}^{\sisi{+}{*}}\circ i_{!}$ 同构于 $j_{!}\circ
+L^{+}\bar{u}_{f'}^{\ast}$。利用 $u_{f}$ 是上同调下降增广这一事实（\sisi{${\rm VI_{B}}$ (\refnoexpose{Vbis.prop4.3.2})}{\refvb{Vbis.prop4.3.2}}），得到一串同构
+\[
+i_{!}\isomto R^{+}\bar{u}_{f\sisi{+}{*}}\circ
+L^{+}(\bar{u}^{\sisi{+}{*}}_{f})\circ i_{!}\isomto
+R^{+}\bar{u}_{f\ast}\circ j_{!}\circ L^{+}\bar{u}_{f'}^{\ast}
+\]
+，其复合即为所求同构。\nde{更直接地，不假设 $f'$ 满射，仍有一串典范箭头
+\[i_!\to i_! R^+\bar{u}_{f'*}L^+\bar{u}^*_{f'}\isomto  R^+\bar{u}_{f*} j_! L^+u^*_{f'},\]
+，其中第二个箭头是同构（\hyperref[XVII.lem7.0.3]{7.0.3}）。当 $f'$ 满射时，由上同调下降，第一个箭头也是同构，而复合与正文中构造的同构一致。
+}
+
+最后，要用到 Chow 引理的以下变式，其证明将出现于 \EGA II 第 2\sisi{版}{版}\nde{见 \nderef{XVII.ndeConrad} 中引用的 [C, 2.6]。}，它改进了（\sisi{\hyperref[XVII.subsec7.1]{7.1}}{\hyperrefext[XII][XII.lem7.1]{7.1}}）：
+
+\begin{enonce*}{引理 7.0.6}\etiquette[7.0.6]{XVII.lem7.0.6}
+设 $S$ 为拟紧拟分离概形，$f:X\rightarrow S$ 为有限型分离态射。那么存在一个满足以下条件的交换图
+\[
+\xymatrix{
+X' \ar[rr]^{p} \ar[d]_{f'}& & X \ar[lld]^{f}\\
+S                         & &
+}
+\]
+：
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item $p$ 固有且\emph{满射}；
+
+\item $X$ 有一个稠密开子集 $U$，使 $p$ 从 $p^{-1}(U)$ 到 $U$ 诱导同构；
+
+\item $f'$ 拟射影。
+\end{enumerate}
+\end{enonce*}
+
+\subsection{$R^{+}f_{!}$ 的定义}\etiquette[7.1]{XVII.subsec7.1}\pageoriginale
+
+\begin{enonce*}{定义 7.1.1}\etiquette[7.1.1]{XVII.def7.1.1}
+设 $f:X\rightarrow S$ 是概形的态射。$f$ 的一个\emph{伪紧化}（pseudo-compactification）是指一个交换图
+$$\vcenter{
+\xymatrix{
+X_1 \ar[r]^{\sisi{}{j_1}} \ar[d]_{p_1}& T_1\ar[ldd]^{f_1}\\
+X   \ar[d]_{f}& \\
+S   &
+}}\leqno{(7.1.1.0)}
+$$\etiquette[7.1.1.0]{XVII.eq7.1.1.0}
+，其中 $p_{1}$ 固有且满射，$j_{1}$ 为浸入，$f_{1}$ 固有。
+\end{enonce*}
+
+\setcounter{subsubsection}{1}
+\subsubsection{}\etiquette[7.1.2]{XVII.subsubsec7.1.2}
+设 $f:X\rightarrow S$ 是 $\Sch_{!R}$ 中的态射。由 Chow 引理（\hyperref[XVII.lem7.0.6]{7.0.6}），$f$ 有一个伪紧化 $(p_{1},j_{1},f_{1})$。图 \eqhyperref[XVII.eq7.1.1.0]{7.1.1.0} 定义态射
+\[
+[X_{1}|X]\xrightarrow{j_{1}}[T_{1}|S]
+\]
+，仍记为 $j_{1}$，使得对每个 $n$，$j_{1n}$ 为浸入。令 $R^{+(1)}f_{!}=\sisi{L^{+}\bar{u}_{p_{1}}\cdot
+j_{1!}\circ R^{+}\bar{u}_{f_{1}}}{R^+\bar{u}_{f_1*}\circ j_{1!} \circ L^+\bar{u}_{p_1}^*}$，便得到从 $D^{+}(X,\mathcal{A}_{X})$ 到 $D^{+}(S,\mathcal{A}_{S})$ 的\emph{三角}函子。
+
+\begin{enonce*}{构造 7.1.3}\etiquette[7.1.3]{XVII.constru7.1.3}
+对于 $f$ 的每对伪紧化 $((p_{1},j_{1},f_{1}),(p_{2},j_{2},f_{2}))$，存在同构 $\alpha_{12}:R^{+(1)}f_{!}\rightarrow R^{+(2)}f_{!}$，使得对于任意另一个伪紧化 $(p_{3}, j_{3},f_{3})$，有 $\alpha_{23}\circ \alpha_{12}=\alpha_{13}$。
+\end{enonce*}
+
+\begin{enumerate}
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 令
+\[
+[[X_{1},X_{2}|X]]_{[n]\times [m]}=[X_{1}|X]_{n}\times
+[X_{2}|X]_{n}
+\]
+以定义双单纯系统 $[[X_{1},X_{2}|X]]$。类似地，令
+\[
+[[X_{1}|X]]_{[n]\times[m]}=[X_{1}|S]_{n}{\quoi},
+\]
+，其中由态射 $[m']\rightarrow [m]$ 诱导的所有态射 $[[X_{1}|X]]_{[n]\times [m]}\rightarrow
+[[X_{1}|X]]_{[n]\times [m']}$ 均为恒等态射。以相同方式定义双单纯系统 $[[T_{1},T_{2}|S]]$ 和 $[[T_{1}|S]]$，由此有交换图
+\[
+\xymatrix@C=1em{
+  & & [[T_1,T_2|S]] \ar[rrrr]\ar'[dr][rrrddd]_(.2){u_{f_1f_2}}|(.38)\hole& &   & &  [[T_1|S]]\ar[lddd]^{u_{f_1}}\\
+  [[X_1,X_2|X]]
+  \ar[rrrr]\ar[rru]^{j_{12}}\ar[rrrddd]_{u_{p_1 p_2}} & &  & & [[X_1|X]]\ar[rru]_{j_1}\ar[lddd]_(.75){u_{p_1}}  \\
+  & & & & &   &\\
+  & & & & & C^{\Delta\times\Delta}_S\\
+  &&& C^{\Delta\times\Delta}_X \ar[rru]
+}
+\]
+，其中\pageoriginale $j_{12}$ 是逐次的浸入。\sisi{VI b (\refnoexpose{Vbis.subsec2.3})}{\hyperrefext[Vbis][Vbis.subsec2.3]{2.3}} 中描述的计算过程使我们可以构造态射
+\[
+R^{+(1)} f_{!}\xrightarrow{\alpha_{1}}R^{+}\bar{u_{f_{1}f_{2}}}\sisi{}{_*}\circ
+j_{12!} \circ L^{+}\bar{u_{p_{1}p_{2}}}^{\sisi{+}{\ast}}=R^{{+}(1,2)}f_{!}
+\]
+，它由 $S$ 上层的三重复形的一个态射得到。
+
+\item $\alpha_{1}$ \emph{是同构}：
+
+为证明这一点，可在前述三重复形的态射中，固定来自 $\bigl[[T_{1},T_{2}]\bigr]_{[n]\times[m]}$ 的第一个指标 $n$，并考虑所得双复形的态射。可验证，这个态射恰为引理 \hyperref[XVII.constru7.0.5]{7.0.5} 对图
+\[
+\xymatrix{
+**[r][X_1|X]_n \times X_2  \ar[r] \ar[d] & **[r][T_1|S]_n \times
+T_2 \ar[d]\\
+**[r][X_1|X]_n             \ar[r] & **[r][T_1|S]_n
+}
+\]
+定义的同构。
+
+\item 以相同方式构造同构
+\[
+R^{+(2)}f_{!}\xrightarrow{\alpha_{2}}R^{+}\bar{u_{f_{1}f_{2}}}_{\sisi{+}{*}}\circ
+j_{12!} \circ L^{+}\bar{u_{p_{1}p_{2}}}\sisi{}{^*}
+\]
+，并令 $\alpha_{12}=\alpha^{-1}_{2}\circ \alpha_{1}$。
+\end{enumerate}
+
+为验证关系 $\alpha_{23}\circ \alpha_{12}=\alpha_{13}$，使用一个三重单纯对象。所得图的交换性留给读者验证：\pageoriginale
+$$
+\xymatrix{
+  R^{+(2,3)}{f_!} \ar[rd]& R^{+(2)}f_! \ar[r] \ar[l]& R^{+(1,2)}f_! \ar[ld]\\
+                &         R^{+(1,2,3)}f_!  &                  \\
+R^{+(\sisi{2}{3})}f_! \ar[uu]\sisi{}{\ar[rd]}     &                         &  R^{+(1)}f_! \ar[uu]\sisi{}{\ar[ld]}\\
+                &    R^{+(1,3)}f_! \ar[uu]        &
+}
+$$
+
+\begin{enonce*}{构造 7.1.4}\etiquette[7.1.4]{XVII.constru7.1.4}
+设 $Z\xrightarrow{g}Y$ 和 $Y\xrightarrow{f}X$ 是 $\Sch_{!R}$ 中的两个态射。对于每个三元组 $((p_{1},j_{1},f_{1}),
+(p_{2},j_{2}g_{2}), (p_{3},j_{3},(fg)_{3}))$，其中 $(p_{1},j_{1},f_{1})$ 是 $f$ 的伪紧化，$(p_{2},j_{2},g_{2})$ 是 $g$ 的伪紧化，$(p_{3},j_{3},(fg)_{3})$ 是 $fg$ 的伪紧化，存在一个与前面定义的同构 $\alpha_{ij}$ 相容的同构 $\sisi{R^{+(3)}fg_{!}\isomfrom  R^{+(2)}g_{!}\circ
+R^{+(1)}f_{!}}{R^{+(1)}f_!\circ R^{+(2)}g_!\isomto R^{+(3)}(fg)_!}$。
+\end{enonce*}
+
+分几个步骤进行。
+
+\setcounter{subsubsection}{4}
+\paragraph{}\etiquette[7.1.4.1]{XVII.par7.1.4.1}
+设 $(p_{1},j_{1},f_{1})$（\resp $(p_{2},j_{2},f_{2})$）是 $f:Y\rightarrow X$（\resp $g:Z\rightarrow Y$）的一个伪紧化：
+$$\vcenter{\etiquette[7.1.4.1.1]{XVII.eq7.1.4.1.1}
+\xymatrix{
+  &     & Z\ar[d]^{g}  & Z_2\ar[l]_{p_2}\ar@{^{(}->}[r]^{j_2}  & T_2 \ar[lld]^{g_2}\\
+T_1  \ar[rrd]_{f_1}& Y_1 \ar[r]^{p_1} \ar@{_{(}->}[l]_{j_1}& Y \ar[d]^{f} &      &    \\
+    &     & X        &      &
+}}\leqno{(7.1.4.1.1)}
+$$
+
+由 $g$ 经基变换得到的态射 $Z'=\fprod{Z}{Y_{1}}{Y}\rightarrow Y_{1}$ 赋有伪紧化：
+$$\vcenter{\etiquette[7.1.4.1.2]{XVII.eq7.1.4.1.2}
+\xymatrix{
+  T'_2 = \fprod{T_2}{Y_1}{Y}   \ar[rdd]_{g'_2}& \fprod{Z_2}{Y_1}{Y} =Z'_2 \ar[d]^{p'_2}
+\ar@{_{(}->}[l]_{j'_2}\\
+&  \fprod{Z}{Y_1}{Y} = Z' \ar[d]^{g'}\\
+&    Y_1
+}}\leqno{(7.1.4.1.2)}
+$$
+
+现在\pageoriginale 选择一个\sisi{}{伪}紧化，其对象为
+\sisi{$j_{1}\cdot g'_{2}$。
+$$\etiquette[7.1.4.1.3]{XVII.eq7.1.4.1.3}
+\vcenter{
+\xymatrix{
+T_{12}        \ar[d]_{g''_2} & \fprod{T_2}{Y_1}{Y}=T'_2
+\ar@{_{(}->}[l]_(.6){j'_1} \ar[d]^{g'_2}\\
+T_1            &   Y_1 \ar@{_{(}->}[l]
+}}\leqno(7.1.4.1.3)
+$$%
+}{$j_1\circ g'_2$\nde{原文选择了一个紧化，借助紧化定理这是可以做到的。由于附录的目的是避免这一定理（\cf \nderef{XVII.ndeapp}），编辑冒昧地将其换为伪紧化，并对 \hyperref[XVII.par7.1.4.2]{7.1.4.2} 作了略微修改。另一种解决方法是只考虑使 $f_1$ 为\emph{射影}态射的伪紧化 $(p_1,j_1,f_1)$。}
+$$\etiquette[7.1.4.1.3]{XVII.eq7.1.4.1.3}
+\vcenter{
+\xymatrix{
+T_{12}        \ar[dd]_{g''_2} &T_2''\ar[d]\ar[d]^p\ar@{_{(}->}[l]_{j'_1}\\
+& \fprod{T_2}{Y_1}{Y}=T'_2\ar[d]^{g'_2}\\
+T_1            &   Y_1 \ar@{_{(}->}[l]_{j_1}
+}}\leqno(7.1.4.1.3)
+$$}%
+由此定义复合 $fg$ 的一个伪紧化；相应的函子记为 $R^{+(12)}\sisi{\int g}{(fg)}_{!}$。
+
+\paragraph{}\etiquette[7.1.4.2]{XVII.par7.1.4.2}
+\emph{前面的资料使我们可以定义同构} $R^{+(12)}\sisi{\int g}{(fg)}_{!}\isomfrom  R^{+(1)}f_{!}\sisi{\cdot}{\circ} R^{+(2)}g_{!}$：
+
+存在一个交换图，其中 $Z_2''=\fprod{T''_2}{Z'_2}{T'_2}$，而所有箭头都自然地由 \eqhyperref[XVII.eq7.1.4.1.1]{7.1.4.1.1}、\eqhyperref[XVII.eq7.1.4.1.2]{7.1.4.1.2} 和 \eqhyperref[XVII.eq7.1.4.1.3]{7.1.4.1.3} 导出。
+$$\etiquette[7.1.4.2.1]{XVII.eq7.1.4.2.1}
+\vcenter{
+\xymatrix{
+[T_{12}|X] \ar[rd]_{g''_2} &   &[T\sisi{'}{''}_2|Y] \ar[rd]_{g'_2\sisi{}{p}} \ar[ll]_{j'_1}&
+[Z\sisi{'}{''}_{2}|Z] \ar[r]^{r}\ar[l]_{j\sisi{'}{''}_2} \ar[d]_{l}&
+C^{\Delta}_Z \ar[d]^{g}\\
+            &    [T_1|X] \ar[rrrd]_{u_{f_1}} &  & [Y_1|Y]\ar[r]_{u_{p_1}}\ar[ll]_{j_1} & C_Y^{\Delta} \ar[d]^{f}\\
+            &       &  &   &  C_X^{\Delta}
+}}\leqno(7.1.4.2.1)
+$$
+
+我们\pageoriginale 将定义一个自然箭头：
+\[
+\beta:R^{+(1)}f_{!}\circ R^{+(2)}g_{!}\longrightarrow R^{+(12)}\sisi{fg}{(fg)}_{!}
+\]
+，并将证明它是同构。
+
+为此使用两个引理：
+
+\begin{enonce*}{引理 7.1.4.2.2}\etiquette[7.1.4.2.2]{XVII.lem7.1.4.2.2}
+设给定交换图：
+\[
+\xymatrix{
+X_1    \ar[d]_{p_1}     \ar[r]^{j_1} & T_1 \ar[d]^{h'}\\
+X    \ar[d]_{f}       \ar[r]_{j}           & T \ar[ld]^{h}\\
+    S       &
+}
+\]
+其中 $h$ 和 $h'$ 固有，$p_{1}$ 固有且满射，$j$ 和 $j_{1}$ 为浸入。那么典范箭头
+\[
+R^{+}h\sisi{}{_*}\circ j_{!}\longrightarrow R^{+(1)}\sisi{(hh')}{f}_{!}
+\]
+是同构。
+\end{enonce*}
+
+事实上，由（\hyperref[XVII.constru7.0.5]{7.0.5}），箭头
+\[
+j_{!}\longrightarrow R^{+}\bar{u}_{h'\sisi{}{*}}\circ j_{1!}\circ
+L^{+}\bar{u}_{p_{1}}\sisi{}{^*}
+\]
+是同构。应用 $R^{+}h\sisi{}{_*}$ 即得结论。
+
+\begin{enonce*}{引理 7.1.4.2.3}\etiquette[7.1.4.2.3]{XVII.lem7.1.4.2.3}
+沿用图\emph{\eqhyperref[XVII.eq7.1.4.2.1]{7.1.4.2.1}} 的记号，典范箭头
+\begin{gather*}
+R^{+(1)}f_{!}\circ R^{+}\bar{u}_{p_{1}\sisi{}{*}}\longrightarrow
+R^{+}\bar{u}_{f_{1}\sisi{}{*}}\circ j_{1!}\\
+R^{+(2)}g_{!}\circ R^{+}\bar{r}\sisi{}{_*}\longrightarrow
+R^{+}\bar{u}_{p_{1}\sisi{}{*}}\circ R^{+}\sisi{g'_{2}}{(g_2'p)_*}\circ j\sisi{'}{''}_{2!}
+\end{gather*}
+都是同构。
+\end{enonce*}
+
+只证明第一个同构，第二个的推导\pageoriginale 留给读者。
+
+采用显然的记号\sisi{，令 $C=\fprod{[Y_{1}|Y]}{X_{1}}{X}$ 和 $\bar{C}=\fprod{[T_{1}|S]}{T_{1}}{S}$，于是有交换图：
+\[
+\xymatrix{
+                                & \bar{C} \ar[rdd]|\hole \ar[rr]  & & T_1 \ar[ldd]^{f_1}\\
+C                 \ar[rr]  \ar[ru]^{i}  \ar[d]^{q}    &    &  Y_1  \ar[ru]_{j_1} \ar[d]^{p_1}&      \\
+[Y_1|Y] \ar[rr]_{u_{p_1}}&  &      Y         &
+}
+\]
+其中 $i$ 为浸入，$q$ 固有且满射。接着构造图
+\[
+\xymatrix{
+\bigl[\bigl[C \underset{q}{\bigm|}[Y_1|Y]\bigr]\bigr] \ar[r]^{i} \ar[d]^{u_q}&
+[[\bar{C}|C^{\Delta}_Y]] \ar[ldd]^{k}\\
+|X_1 | X |                             \ar[d]         &\\
+Y                       &                        &
+}
+\]
+，由（\hyperref[XVII.lem7.1.4.2.2]{7.1.4.2.2}），函子 $R\bar{u}j_{1}\circ
+j_{1}$ 等同于函子 $R^{+}\bar{k}\circ i_{!}\circ
+L^{+}\bar{u}_{q}$；再由（\hyperref[XVII.lem7.0.3]{7.0.3}）及基变换定理，后一个函子等同于 $R^{+(1)}f_{!}\circ
+R^{+}\bar{u}_{p_{1}}$。}{并沿用 \hyperref[XVII.constru7.1.3]{7.1.3} a) 的记号，存在交换图
+\[\xymatrix{&[Y_1|Y]\ar[rr]^{j_1}\ar[dd]^(.7){\bar{u}_{p_1}}|\hole &&[T_1|X]\ar[dd]^{\bar{u}_{f_1}}\\
+[[Y_1,Y_1|Y]]\ar[ur]^{k}\ar[dd]_{q}\ar[rr]^(.7)i && [[T_1,T_1|X]]\ar[dd]\ar[ur]\\
+&Y\ar[rr]^(.3){f}|\hole && X\\
+[Y_1|Y]\ar[ur]^{\bar{u}_{p_1}}\ar[rr]^{j_1} &&[T_1|X]\ar[ur]_{\bar{u}_{f_1}} }\]
+其中 $q$ 和 $k$ 是从 $[[Y_1,Y_1|Y]]$ 到 $[Y_1|Y]$ 的两个投影。由上同调下降，$R^+\bar{u}_{f_1 *} \circ j_{1!}$ 等同于 $R^+\bar{u}_{f_1 *} \circ j_{1!} \circ R^+ q_* L^+ q^*$；对上述立方体的前面和顶面应用 \hyperref[XVII.lem7.0.3]{7.0.3}，后者等同于 $R^+\bar{u}_{f_1*}\circ j_{1!}\circ R^+k_* \circ L^+q^*$。由基变换定理，这最后一个函子等同于 $R^+\bar{u}_{f_1 *} \circ j_{1!} \circ L^+\bar{u}_{p_1*} \circ R^+\bar{u}_{p_1 *}$，按定义即为 $R^{+(1)}f_{!}\circ
+R^{+}\bar{u}_{p_{1}*}$。\nde{原文中的证明略有不同，%and not very clear
+并使用 \hyperref[XVII.lem7.1.4.2.2]{7.1.4.2.2}。}
+
+}%
+引理（\hyperref[XVII.lem7.1.4.2.3]{7.1.4.2.3}）已经证明，因此有一串同构
+\begin{align*}
+R^{+(\sisi{3}{12})} \sisi{fg}{(fg)}_{!} &= R^{+}\bar{u}_{f_{1}\sisi{}{*}}\circ R^{+}g''_{2}\circ
+j'_{1!}\circ j\sisi{'}{''}_{2!}\circ L^{+}\bar{r}^{\sisi{+}{*}}\\
+&\isomfrom  R^{+}\bar{u}_{f_{1}\sisi{+}{*}}\circ j_{1!}\circ R^{+}
+\sisi{g'_{2}}{(g'_2p)_*}\circ j'_{2!}\circ L^{+}\bar{r}^{\sisi{+}{*}}\\
+&\isomfrom  R^{+(1)}f_{!}\circ R^{+}\bar{u}_{p_{1}\sisi{+}{*}}\circ
+R^{+}\sisi{g'_{2+}}{(g'_2p)_*}\circ j'_{2!}\circ L^{+}\bar{r}\sisi{}{^*}\\
+&\isomfrom  R^{+(1)}f_{!}\circ R^{+(2)}g_{!}\circ
+R^{+}\bar{r}\sisi{}{_*}\circ L^{+}\bar{r}^{\sisi{+}{*}}\\
+&\isomfrom  R^{+(1)}f_{!}\circ R^{+(2)}g_{!}
+\end{align*}
+，其\pageoriginale 复合给出 $\beta$。
+
+\paragraph{}\etiquette[7.1.4.3]{XVII.par7.1.4.3}
+若 $(p_{3},j_{3},(fg)_{3})$ 是 $fg$ 的伪紧化，则将 $\alpha_{(12)3}$ 与 $\beta$ 复合，便定义同构
+\[
+R^{+(1)}f_{!}\circ
+R^{+(2)}g_{!}\xrightarrow{\gamma_{123}}R^{+(3)}fg_{!}
+\]
+。
+
+\paragraph{}\etiquette[7.1.4.4]{XVII.par7.1.4.4}
+现在设 $(p_{1'},j_{1'},f_{1'})$ 和 $(p_{2'},j_{2'},g_{2'})$ 是 $f$ 和 $g$ 的另外两个伪紧化，并配有图 \sisi{(\hyperref[XVII.par7.1.4.3]{7.1.4.3})}{\eqhyperref[XVII.eq7.1.4.1.3]{7.1.4.1.3}}；考虑一个 \sisi{(\hyperref[XVII.par7.1.4.4]{7.1.4.4})}{\eqhyperref[XVII.eq7.1.4.2.1]{7.1.4.2.1}} 型的图，将其中的单纯对象换为双单纯对象，就可以验证下图交换：
+\[
+\xymatrix{
+R^{+(12)}\sisi{fg}{(fg)}_1 \ar[d]_{\alpha_{(12)(1'2')}} & R^{+(1)}f_1 \circ
+R^{+(2)}g_! \ar[d]^{\alpha_{11'}\ast \alpha_{22'}} \ar[l]_(.6){\beta}\\
+R^{+(1'2')}\sisi{fg}{(fg)}_!  & R^{+(1')}f_! \circ R^{+(2')}g_! \ar[l]^(.6){\beta'}
+}
+\]
+
+由此，对于 $fg$ 的每个伪紧化 $(p_{3'},j_{3'},(fg)_{3'})$，下图交换：
+\[
+\xymatrix{
+R^{+(3)}\sisi{fg}{(fg)}_! \ar[d]_{\alpha_{33'}}& R^{+(1)}f_! \circ R^{+(2)}g_!
+\ar[l]_(.6){\gamma_{123}} \ar[d]^{\alpha_{11'}\ast
+  \alpha_{22'}}\\
+R^{+(3')}\sisi{fg}{(fg)}_!  & R^{+(1')}f_! \circ R^{+(2')}g_! \ar[l]_(.6){\gamma_{1'2'3'}}
+}
+\]
+这就完成了 \hyperref[XVII.constru7.1.4]{7.1.4} 的证明。
+
+\subsubsection{}\etiquette[7.1.5]{XVII.subsubsec7.1.5}
+对 $\Sch_{!R}$ 中的每个态射 $f$ 选择一个伪紧化，并使恒等态射对应平凡的伪紧化，由此对每个态射 $f:X\rightarrow Y$ 定义三角函子
+\[
+R^{+}f_{!}:D^{+}(X,\mathcal{A}_{X})\longrightarrow
+D^{+}(Y,\mathcal{A}_{Y})
+\]
+，并且\pageoriginale 对每对态射 $(f,g)$ 定义同构
+\[
+R^{+}fg_{!}\xrightarrow{\substack{c_{fg}\\\sim}}
+R^{+}f_{!}\circ R^{+}g_{!}
+\]
+此外，若 $f$ 为恒等态射，则 $R^{+}f_{!}$ 为恒等函子，$c_{fg}$ 为恒等态射。
+
+\begin{enonce*}{命题 7.1.6}\etiquette[7.1.6]{XVII.prop7.1.6}
+对应 $f\rightarrow R^{+}f_{!}$ 定义从 $\Sch_{!R}$ 到范畴的 $2$-范畴的正规化伪函子。换言之，令 $X$ 遍历 $\Sch_{!R}$ 的对象，范畴 $D^{+}(X,\mathcal{A}_{X})$ 可以组织为 $\Sch_{!R}$ 上的余纤维化范畴：对于 $\Sch_{!R}$ 中的每个态射 $f:X\rightarrow Y$，令
+\[
+\Hom_{f}(K,L)=\Hom(R^{+}f_{!}K,L)
+\]
+，其中 $K\in D^{+}(X,\mathcal{A}_{X})$，$L\in D^{+}(Y,\mathcal{A}_{Y})$。
+\end{enonce*}
+
+还须说明等同 $R^{+}fg_{!}\xrightarrow{\substack{c_{fg}\\\sim}}
+R^{+}f_{!}\circ R^{+}g_{!}$ 与三重复合相容。设 $h:T\rightarrow Z$、$g:Z\rightarrow Y$ 和 $f:Y\rightarrow X$ 为 $\Sch_{!R}$ 中的三个态射；由前面的论证，为验证这一相容性，只需在任意选定 $h$、$g$ 和 $f$ 的伪紧化后验证。
+
+有图：
+$$\vcenter{\etiquette[7.1.6.1]{XVII.eq7.1.6.1}
+  \xymatrix{
+ T_5 \ar[rd]& T_4 \ar[rd] \ar@{_{(}->}[l]& T_3 \ar[rd]\ar@{_{(}->}[l]
+ & T'\ar@{_{(}->}[l] \ar[r]^{p_3} \ar[d]& T \ar[d]^{h} \\
+        & T_3 \ar[rd]  & T_2 \ar@{_{(}->}[l] \ar[rd]  & Z'\ar[r]^{p_2}\ar@{_{(}->}[l] \ar[d]& Z
+  \ar[d]^{g}\\
+        &    & T_1 \ar[rrd]& Y_1\ar@{_{(}->}[l] \ar[r]^{p_1}& Y \ar[d]^{f}\\
+        &    &     &     & X
+}}\leqno{(7.1.6.1)}
+$$
+其中所有斜箭头都固有，而 $p_{1}$、$p_{2}$ 和 $p_{3}$ 固有且满射。
+
+由 \eqhyperref[XVII.eq7.1.6.1]{7.1.6.1} 构造一个（\hyperref[XVII.par7.1.4.4]{7.1.4.4}）型的图，即得结论。
+
+\begin{enonce*}{命题 7.1.7}\etiquette[7.1.7]{XVII.prop7.1.7}
+若\pageoriginale $f:X\rightarrow S$ 为可紧化态射，则函子 $Rf_{!}$ 与第\emph{XVII}讲中定义的函子一致。
+\end{enonce*}
+
+事实上，存在一个交换图：
+\[
+\xymatrix{
+X_1         \ar[r]^{j_1} \ar[d]_{p_1}& T_1 \ar[d]^{h'}\\
+X           \ar[r]_{j}  \ar[d]_{f} & T \ar[ld]^{h}\\
+S
+}
+\]
+，对它应用（\hyperref[XVII.lem7.1.4.2.2]{7.1.4.2.2}）即可。
+
+\begin{enonce*}{定义 7.1.8}\etiquette[7.1.8]{XVII.def7.1.8}
+若 $f:X\rightarrow Y$ 是 $\Sch_{!}$ 中的态射，则刚定义的函子 $R^{+}f_{!}$ 称为\emph{具有固有支集的正像函子}（导出范畴意义下）。函子 $H^{q}\circ R^{+}f_{!}$，记为 $R^{q}f_{!}$，称为第 $q$ 阶\emph{具有固有支集的正像函子}。
+\end{enonce*}
+
+沿用此记号，下面的构造留给读者验证。
+
+\begin{enonce*}{构造 7.1.9}\etiquette[7.1.9]{XVII.constru7.1.9}
+设 $(\pi_{1}, j_{1}, f_{1})$ 为 $f:X\rightarrow Y$ 的伪紧化，以 $\pi^{n}_{1}$ 表示典范态射 $[X_{1}|X]_{n}\rightarrow X$。那么对于 $D^{+}(X,\mathcal{A}_{X})$ 中的每个复形 $K^{\bigdot}$，有两个双正则谱序列：
+\begin{align*}
+E^{pq}_{1} &= R^{q}f_{!}(K^{p})\Longrightarrow R^{p+q}
+f_{!}(K^{\bigdot})\tag{7.1.9.1}\\
+E^{pq}_{1} &= R^{q}(f\circ
+\pi^{p}_{1})_{!}(\pi^{p\sisi{+}{*}}_{1}(K^{\bigdot}))\Longrightarrow
+R^{p+q}f_{!}(K^{\bigdot})\tag{7.1.9.2}
+\end{align*}\etiquette[7.1.9.1]{XVII.eq7.1.9.1}
+\etiquette[7.1.9.2]{XVII.eq7.1.9.2}%The vertical space following this paragraph is too large.
+\end{enonce*}
+
+（例如，取 $j_{1!}\circ
+L^{+}\bar{u}_{p_{1}}^{\sisi{+}{*}}(K^{\bigdot})$ 的典范松弛消解（\cf XVII （\hyperref[XVII.subsec4.2]{4.2}）），再取其在 $u_{f_{1}}$ 下的正像。）
+
+\subsection[$R^{+}f_{!}$ 的若干性质]{\mathversion{bold}$R^{+}f_{!}$ 的若干性质}\etiquette[7.2]{XVII.subsec7.2}
+\pageoriginale
+
+\begin{enonce*}{命题 7.2.1}\etiquette[7.2.1]{XVII.prop7.2.1}
+设 $f:X\rightarrow Y$ 是 $\Sch_{!R}$ 中相对维数 $\leq d$ 的态射。那么函子 $R^{+}f_{!}$ 的上同调维数 $\leq 2d$。
+\end{enonce*}
+
+只需证明，对于 $X$ 上的每个 $\mathcal{A}_{X}$-模层 $F$，当 $i>2d$ 时，有 $R^{i}f_{!}(F)=0$。（于是由标准论证可得：对于 $D^{+}(X,\mathcal{A}_{X})$ 中任意复形 $K^{\bigdot}$，若当 $i>k$ 时 $H^{i}(K^{\bigdot})=0$，则当 $i>k+2d$ 时 $R^{i}f_{!}(K^{\bigdot})=0$。）
+
+设 $\mathcal{U}=(U_{i})_{i\in I}$ 是 $X$ 的一个由仿射开子集组成的有限覆盖。令
+\[
+K^{n}_{\mathcal{U}}=\bigoplus_{|P|=\sisi{}{-}n+1} j_{P!}j^{*}_{P}(F)
+\]
+即定义（\hyperref[XVII.prop6.2.9]{6.2.9}）$F$ 的一个左消解 $K^{\bigdot}_{\mathcal{U}}\rightarrow F$，其中对于 $I$ 的每个子集 $P$，$j_{P}$ 为 $\cup_{i\in P} U_{i}$ 到 $X$ 的包含态射。
+
+由 \eqhyperref[XVII.eq7.1.9.1]{7.1.9.1} 得到谱序列
+\[
+E^{pq}_{1}=\bigoplus_{\substack{|P|=\sisi{}{-}p+1\\ P\sisi{\in}{\subset} I\sisi{}{\text{ 非空}}}} R^{p}(fj_{P})_{!}
+j^{\ast}_{P}(F)\Longrightarrow R^{p+q}f_{!}(F)
+\]
+，而 $fj_{P}$ 可紧化这一事实（第 XVII 讲已处理的情形）表明，当 $p>0$ 且 $q>2d$ 时，$E^{pq}_{1}=0$；由此，当 $n>2d$ 时 $R^{n}f_{!}(F)=0$，这正是所要证明的。
+
+\begin{enonce*}{命题 7.2.2}\etiquette[7.2.2]{XVII.prop7.2.2}
+设 $f:X\rightarrow Y$ 为 $\Sch_{!R}$ 中的态射，$K^{\bigdot}$ 为 $D^{b}(X,\mathcal{A}_{X})$ 中有限 \tTor-维数的对象。那么 $R^{+}f_{!}(K^{\bigdot})$ 具有有限 \tTor-维数。
+\end{enonce*}
+
+如上，设 $\mathcal{U}=(U_{i})_{i\in I}$ 是 $X$ 的一个由仿射开子集组成的有限覆盖。由于有限 \tTor-维数可以逐点验证（\hyperref[XVII.def4.1.9]{4.1.9}），$K^{n}_{\mathcal{U}}$ 的函子性使得可以用有限 \tTor-维数的复形构造 $K^{\bigdot}$ 的有界左消解。以 $K^{\bigdot\bigdot}_{\mathcal{U}}$ 表示所得双复形，其中\emph{第二个}指标是与 $K^{\bigdot}$ 对应的指标。按照（\sisi{VI b.(\refnoexpose{Vbis.subsubsec2.3.2})}{\hyperrefext[Vbis][Vbis.subsubsec2.3.2]{2.3.2}}）的约定，对每个整数 $n$，有以下正合列，其中运算 $\sigma_{\leq n}$ 在 $C^{+}(C^{+}(\Mod(X,\mathcal{A}_{X}))$ 中进行：
+\[
+\sisi{0\longrightarrow (\sigma_{\leq
+n}(K^{\bigdot\bigdot}_{\mathcal{U}}))_{s}\longrightarrow (\sigma_{\leq
+n+1}(K^{\bigdot\bigdot}_{\mathcal{U}}))_{s}\longrightarrow (-1)^{n+1}
+K^{n+1,\bigdot}_{\mathcal{U}}\longrightarrow 0}{0\to (-1)^{n+1}K^{n+1,\bigdot}_{\mathcal{U}}\to(\sigma_{\leq
+n+1}(K^{\bigdot\bigdot}_{\mathcal{U}}))_{s}\to(\sigma_{\leq
+n}(K^{\bigdot\bigdot}_{\mathcal{U}}))_{s}\to 0}
+\]
+因而\pageoriginale 在 $D^{+}(X,\mathcal{A}_{X})$ 中有特殊三角：
+\[
+\xymatrix@C=1em{
+  & K^{n+1,\bigdot}_{\Uu} \sisi{\ar[ld]}{\ar[rd]}&    \\
+  (\sigma_{\leq n}(K^{\bigdot\bigdot}_{\Uu}))_s \sisi{\ar[rr]}{\ar[ur]}&  &(\sigma_{\leq
+  n+1}(K^{\bigdot\bigdot}_{\Uu}))_s \sisi{\ar[lu]}{\ar[ll]}\\
+}
+\]
+
+利用对每个 $n$，$R^{+}f_{!}(K^{n+1,\bigdot}_{\mathcal{U}})$ 具有有限 \tTor-维数这一事实（\hyperref[XVII.thm5.2.10]{5.2.10}），便得到 $R^{+}f_{!}((\sigma_{\leq
+0}(K^{\bigdot\bigdot}_{\mathcal{U}}))_{s})=R^{+}f_{!}(K^{\bigdot})$ 具有有限 \tTor-维数。
+
+\begin{enonce*}[remark]{注 7.2.3}\etiquette[7.2.3]{XVII.rem7.2.3}
+前面的论证并不能表明，只要 $K^{\bigdot}$ 的 \tTor-维数 $\leq k$，$R^{+}f_{!}(K^{\bigdot})$ 的 \tTor-维数就 $\leq k$（\cf \sisi{(3.7)}{\hyperref[XVII.subsubsec7.3.7]{7.3.7}}）。
+\end{enonce*}
+
+\begin{enonce*}{命题 7.2.4}\etiquette[7.2.4]{XVII.prop7.2.4}
+设给定 $\Sch_{!R}$ 中的笛卡儿图：
+\[
+\xymatrix{
+X'   \ar[r]^{g'}\ar[d]_{f'}& X \ar[d]^{f}\\
+S'  \ar[r]_{g} & S
+}
+\]
+那么对于 $D^{+}(X,\mathcal{A}_{X})$ 中的每个复形 $K^{\bigdot}$，典范态射
+\[
+g^{\ast}\circ
+R^{+}f_{!}(K^{\bigdot})\xrightarrow{\mathrm{ch}_{K^{\bigdot}}}R^{+}f_{!}\sisi{}{'}\circ
+{g'}^{\ast}(K^{\bigdot})
+\]
+是同构。
+\end{enonce*}
+
+设 $(\pi_{1}, j_{1}, f_{1})$ 为 $f$ 的伪紧化；经基变换，它给出 $f'$ 的伪紧化 $(\pi'_{1}, j'_{1}, f'_{1})$ 以及交换图：
+\[
+\xymatrix@R=2ex{
+                 && T'_1 \ar'[ldddd]^(.8){f'_1}|(.55)\hole [lldddddddd]|(.25)\hole \ar[rrrr] &&&& T_1 \ar[lldddddddd]^{f_1}\\
+                 &\\
+X'_1 \ar[rruu]^{j'_1}\ar[ddd]_{\pi'_1} \ar[rrrr] &&&& X_1 \ar[rruu]_{j_1} \ar[ddd]^{\pi_1}&\\
+                     & & &\\
+                     & *{} & &\\
+X'   \ar[rrrr]_{g'} \ar[ddd]_{f'} &&&& X  \ar[ddd]_{f}  &\\
+                     & & &\\
+                     & & &\\
+S'   \ar[rrrr]_{g} &&&&  S         &
+}
+\]
+，由此\pageoriginale 可以定义箭头 $\mathrm{ch}_{K}$。
+
+由 \eqhyperref[XVII.eq7.1.9.2]{7.1.9.2}，得到双正则谱序列的一个态射：
+\[
+\xymatrix{
+g^{\ast}\circ R^{q} (f \circ \pi^{p}_1)_! (\pi^{p\sisi{+}{\ast}}_1
+(K^{\bigdot})) \ar[d]^{u^{pq}_1} \ar[r]&  g^{\ast} \circ R^{p+q}f_{!}(K^{\bigdot}) \ar[d]^{\mathrm{ch}_K}\\
+R^{q}(f'\circ \pi'^{p}_1)_! (\pi'^{p\ast}_1 (g'^{\ast}(K^{\bigdot})))  \ar[r] &
+  R^{+}f'_! \circ g'^{\ast}(K\sisi{}{^{\bigdot}})
+}
+\]
+而 $\mathrm{ch}_{K^{\bigdot}}$ 为同构，因为由（\hyperref[XVII.thm5.2.6]{5.2.6}），所有 $u^{pq}_{1}$ 都是同构。
+
+\subsection{$Rf_{!}$ 的定义}\etiquette[7.3]{XVII.subsec7.3}
+
+现在拟对 $\Sch_{!R}$ 中的每个态射 $f$，把函子 $R^{+}f_{!}$“以合理的方式”延伸为函子 $Rf_{!}:D(X,\mathcal{A}_{X})\rightarrow D(Y,\mathcal{A}_{Y})$。
+
+\subsubsection{}\etiquette[7.3.1]{XVII.subsubsec7.3.1}
+设 $(p_{1}, j_{1}, f_{1})$ 为 $f$ 的伪紧化，$F$ 为 $\mathcal{A}_{X}$-模。取 $j_{1!}\circ L\bar{u}_{p_{1}}^{\ast}(F)$ 的典范松弛消解（\cf \hyperref[XVII.subsec4.2]{4.2}），再取其在 $f_{1}$ 下的正像，最后取所得双复形的伴随单复形，就得到 $\mathcal{A}_{Y}$-模的复形：
+$$\etiquette[7.3.1.1]{XVII.eq7.3.1.1}
+0\longrightarrow
+\Xx^{0}(F)\xrightarrow{S^{1}(F)}\Xx^{1}(F)\ldots
+\Xx^{n}(F)\xrightarrow{S^{n}(F)}
+\Xx^{n+1}(F)\ldots.\leqno(7.3.1.1)
+$$
+，它关于 $F$ 是函子性的\pageoriginale，并在 $D^{+}(Y,\mathcal{A}_{Y})$ 中同构于 $R^{+}f_{!}(F)$。
+
+由 \hyperref[XVII.prop7.2.1]{7.2.1}，当 $i>2d$ 时 $H^{i}(\Xx^{\bigdot}(F))=0$，其中 $d$ 为使 $f$ 的相对维数 $\leq d$ 的整数；因此，复形
+$$\etiquette[7.3.1.2]{XVII.eq7.3.1.2}
+0\to \Xx^{0}(F)\to
+\Xx^{1}(F)\to \ldots \sisi{}{\to}
+\Xx^{2d-1}(F)\to \Ker S^{2d}(F)\to
+0\leqno(7.3.1.2)
+$$
+在 $D^{+}(Y,\mathcal{A}_{Y})$ 中典范同构于复形 \eqhyperref[XVII.eq7.3.1.1]{7.3.1.1}。此外：
+
+\begin{enonce*}{引理 7.3.2}\etiquette[7.3.2]{XVII.lem7.3.2}
+函子 $\Xx^{0}$、$\Xx^{1},\ldots,\Xx^{2d-1}$ 和 $\Ker S^{2d}$ 关于 $F$ 正合。
+\end{enonce*}
+
+函子 $\Xx^{n}$ 的正合性由典范松弛消解的正合性，以及松弛层短正合列在态射下的正像仍为短正合列这一事实得出。
+
+为证明 $\Ker S^{2d}$ 的正合性，对于 $X$ 上层的短正合列 $0\rightarrow F'\rightarrow F\rightarrow F''\rightarrow 0$，考虑图
+\[
+\xymatrix{
+\Ker S^{2d}(F')  \ar[r] \ar[d]& \Xx^{2d+1}(F') \ar[r] \ar[d]&
+\Xx^{2d+2}(F') \ar[d] \ldots\\
+\ker S^{2d}(F)   \ar[r] \ar[d]& \Xx^{2d+1}{(F)} \ar[r] \ar[d]&
+\Xx^{2d+2}(F)\ar[d] \ldots \\
+\ker S^{2d}(F'')   \ar[r] & \Xx^{2d+1}{(F'')} \ar[r] &
+\Xx^{2d+2}{(F'')} \ldots \\
+}
+\]
+，并利用正合列
+\[
+0\longrightarrow \sigma_{\geq 2d+1}
+(\Xx^{\bigdot}(F'))\longrightarrow \sigma_{\geq 2d+1}
+(\Xx^{\bigdot}(F))\longrightarrow \sigma_{\geq
+2d+1}(\Xx^{\bigdot}(F''))\to0.
+\]
+相伴的同调正合列，即得结论。
+
+现在有以下一般引理：
+
+\begin{enonce*}{引理 7.3.3}\etiquette[7.3.3]{XVII.lem7.3.3}
+设 $A$ 和 $B$ 为两个阿贝尔范畴，$\mathrm{Je}^{\bigdot}$ 为 $C^{b}(\Ffex(A,B))$ 的一个对象，其中 $\Ffex(A,B)$ 表示从 $A$ 到 $B$ 的正合函子范畴。将 $C(A)$ 中的每个复形 $K^{\bigdot}$ 对应到双复形 $\mathrm{Je}^{\bigdot}(K^{\bigdot})$ 的伴随单复形，便得到一个保持拟同构的三角函子 $K(A)\rightarrow K(B)$。
+\end{enonce*}
+
+该函子可写成\pageoriginale 复合
+\[
+C(A)\longrightarrow C^{b}(C(B))\xrightarrow{(\quad)_{s}}C(B),
+\]
+，其中 $(\quad)_{s}$ 为取伴随单复形的函子；应用（\sisi{VI b (\refnoexpose{Vbis.lem2.3.2.2})}{\hyperrefext[Vbis][Vbis.lem2.3.2.2]{2.3.2.2}} 的注）即可；细节留给读者。
+
+\begin{enonce*}[remark]{习题 7.3.4}\etiquette[7.3.4]{XVII.exer7.3.4}
+证明，对于 $D^{+}(X,\mathcal{A}_{X})$ 中的每个复形 $K^{\bigdot}$，典范箭头
+\[
+\tau_{\leq 2d} \Xx^{\bigdot}(K^{\bigdot})\longrightarrow
+\Xx^{\bigdot}(K^{\bigdot})
+\]
+在相伴的单复形上诱导拟同构。
+\end{enonce*}
+
+为此，先注意典范箭头
+\[
+\varinjlim_{k\geq 2d} (\tau_{\leq k}
+\Xx^{\bigdot}(K^{\bigdot}))_{s}\longrightarrow
+(\Xx^{\bigdot}(K^{\bigdot}))_{s}
+\]
+是同构，再注意复形的上同调层与滤过正向极限交换。
+
+\setcounter{subsubsection}{4}
+\subsubsection{}\etiquette[7.3.5]{XVII.subsubsec7.3.5}
+设 $R^{(1)}f_{!}:D(X,\mathcal{A}_{X})\rightarrow
+D(Y,\mathcal{A}_{Y})$ 为利用 \sisi{\hyperref[XVII.rem7.2.3]{7.2.3}}{\hyperref[XVII.lem7.3.3]{7.3.3}} 由 \eqhyperref[XVII.eq7.3.1.2]{7.3.1.2} 定义的函子。鉴于 \sisi{\hyperref[XVII.prop7.2.4]{7.2.4}}{\hyperref[XVII.exer7.3.4]{7.3.4}}，它可直接由 \eqhyperref[XVII.eq7.3.1.1]{7.3.1.1} 计算，且可验证它“不依赖”所选的伪紧化。接着还应去掉上标 $+$，验证陈述 \hyperref[XVII.constru7.1.3]{7.1.3}、\hyperref[XVII.constru7.1.4]{7.1.4} 和 \hyperref[XVII.prop7.1.6]{7.1.6}，但撰稿人没有勇气这样做。
+
+\begin{enonce*}{定义 7.3.6}\etiquette[7.3.6]{XVII.def7.3.6}
+在 \hyperref[XVII.subsubsec7.3.5]{7.3.5} 中构造的函子 $Rf_{!}:D(X,\mathcal{A}_{X})\rightarrow
+D(Y,\mathcal{A}_{Y})$ 仍称为\emph{具有固有支集的正像函子}。
+\end{enonce*}
+
+\setcounter{subsubsection}{6}
+\subsubsection{}\etiquette[7.3.7]{XVII.subsubsec7.3.7}
+于是可证明函子 $Rf_{!}$ 与基变换交换，并且陈述（\hyperref[XVII.prop5.2.9]{5.2.9}）和（\hyperref[XVII.thm5.2.10]{5.2.10}）对 $\Sch_{!R}$ 中的每个态射仍然成立，从而说明刚才的构造是合理的。
+
+\begin{thebibliography}{\sisi{TF}{99}}
+\sisi{\bibitem[1]{sga4.exp.XVII.bib.DP}}{\bibitem{sga4.exp.XVII.bib.DP}} A. Dold\pageoriginale 和 D. Puppe. Homologie nicht\sisi{ }{-}additiver
+Funktoren. Anwendungen. Ann. Inst. Fourier \sisi{XI 1961}{\textbf{11} (1961), 201--312}.
+
+\sisi{\bibitem[1]{sga4.exp.XVII.bib.GZ}}{\bibitem{sga4.exp.XVII.bib.GZ}} Gabriel-Zisman. Calculus of Fractions and Homotopy
+Theory, Ergebnisse, Bd 35, Springer 1967.
+
+\sisi{\bibitem[1]{sga4.exp.XVII.bib.Gi}}{\bibitem{sga4.exp.XVII.bib.Gi}} J. Giraud. Méthode de la descente, Mémoire nᵒ 2 de la Société Mathématique de France (1964).
+
+\sisi{\bibitem[TF]{sga4.exp.XVII.bib.TF}}{\bibitem{sga4.exp.XVII.bib.TF}} R. Godement. Théorie des faisceaux, Hermann,
+1958. Act. Scient. Ind. nᵒ 1252, (Paris)\sisi{（引作 [TF]）}{}.
+
+\sisi{\bibitem[1]{sga4.exp.XVII.bib.Gr}}{\bibitem{sga4.exp.XVII.bib.Gr}} A. Grothendieck. TDTE IV: les schémas de
+Hilbert. Séminaire Bourbaki 221. 1961 年 5 月。重印于 FGA。
+
+\sisi{\bibitem[RD]{sga4.exp.XVII.bib.RD}}{\bibitem{sga4.exp.XVII.bib.RD}} R. Hartshorne. Residues and Duality. Lecture Notes
+in Mathematics nᵒ 20. Springer 1966.
+
+\sisi{\bibitem[1]{sga4.exp.XVII.bib.La}}{\bibitem{sga4.exp.XVII.bib.La}} D. Lazard. 学位论文 --- Paris 1968.
+
+\sisi{}{\bibitem{sga4.exp.XVII.bib.Mu} D. Mumford, \emph{Geometric Invariant Theory}, Ergebnisse der Mathematik und ihrer Grenzgebiete 34, Springer-Verlag, 1965.}
+
+\sisi{}{\bibitem{sga4.exp.XVII.bib.Na} M. Nagata, ``A generalization of the imbedding problem of an abstract variety in a complete variety'', \emph{J. Math. Kyoto Univ.} \textbf{3} (1963), 89--102}
+
+\sisi{\bibitem[1]{sga4.exp.XVII.bib.Ro}}{\bibitem{sga4.exp.XVII.bib.Ro}} N. Roby. Lois polynômes et lois formelles en théorie
+des modules. Ann. E.N.S. \textbf{80} \sisi{1963, p.}{(1963), }231--\sisi{2}{3}48.
+
+\sisi{\bibitem[CD]{sga4.exp.XVII.bib.CD}}{\bibitem{sga4.exp.XVII.bib.CD}} J.L. Verdier. Catégories dérivées (état 0),
+由 I.H.E.S. 油印。
+
+\sisi{\bibitem[2]{sga4.exp.XVII.bib.V2}}{\bibitem{sga4.exp.XVII.bib.V2}} J.L. Verdier. Catégories dérivées（将刊于
+Grundlehren der Math. Wiss, Springer）。
+
+\sisi{\bibitem[3]{sga4.exp.XVII.bib.V3}}{\bibitem{sga4.exp.XVII.bib.V3}} J.L. Verdier. Dualité dans la cohomologie des
+espaces localement compacts. Séminaire Bourbaki 300. 1965 年 11 月。
+\end{thebibliography}
+
+
+%0.2 no ref. 1957, 1329, 5575, 5594, 5821
+%2.1.2.2 no ref. 1386
+%2.1.2.3 no ref  1412
+%2.1.12.1 no ref 1641
+%3.2.4.3 no ref  2680
+%5.1.8.2 no ref 3925
+%XII 4.1 no ref 4690, 6830
+%6.3.4.3 no ref 7561, 7876, 8060,8409
+%6.3.11 no ref 7736, 7833
+%6.2.17 no ref 8042
+%6.3.17.1 no ref 8078
+%6.3.2.3 no ref 8271
+%4.3.0 no ref 8569
+%3.7 no ref 9229
+
+
+\ifx\danslelivre\undefined
+\let\SGAXVIIenddocument\enddocument
+\else
+\let\SGAXVIIenddocument\relax
+\fi
+\SGAXVIIenddocument
+

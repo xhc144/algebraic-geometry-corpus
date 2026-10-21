@@ -1,0 +1,495 @@
+\chapter{固有态射的基变换定理：证明的完成}
+%\addtocontents{toc}{M. Artin}
+\begin{center}
+M. Artin
+\end{center}
+\phantomsection\MakeLinkTarget*{sga4.exp.XIII}\label{sga4.exp.XIII}
+
+\setcounter{pageoriginal}{131}
+
+\section{射影且平坦的情形}\etiquette[1]{XIII.sec1}\pageoriginale
+
+回顾 \hyperrefext[XII][XII.thm5.9]{5.9 bis} 在此处所考虑情形下的陈述：
+
+\begin{enonce*}{命题 1.1}\etiquette[1.1]{XIII.prop1.1}
+设 $S$ 为 Noether Hensel 环（henselian ring）的谱，
+$f:X\rightarrow S$ 为射影且平坦的态射（projective and flat morphism）。设 $X_{\circ}$ 为
+$X/S$ 的闭纤维。限制函子
+$$
+\Et(X)\longrightarrow \Et(X_{\circ})
+$$
+是范畴等价。
+\end{enonce*}
+
+如前所述，由 \hyperrefext[XII][XII.prop6.5]{6.5} (i) 可知该函子完全忠实。
+还须证明，$X_{\circ}$ 的每个平展覆盖（étale covering）$Y_{\circ}$ 都由
+$X$ 的某个平展覆盖 $Y$ 诱导。
+
+\begin{enonce*}{引理 1.2}\etiquette[1.2]{XIII.lem1.2}
+设 $S$ 局部 Noether，$f:X\rightarrow S$ 为射影且平坦的态射，
+$Y\subset X$ 为子概形。终函子的子函子
+$\epsilon=\prod_{X/S}Y/X$ 
+“表示条件 $Y=X$”，即对 $S'\rightarrow S$ 有
+$$
+\epsilon(S')=
+\begin{cases}
+\phi & \mbox{若 }\quad Y'\neq X',\\
+\{\phi\} &\mbox{若 }\quad Y'=X',
+\end{cases}
+$$
+（其中\pageoriginale 撇号表示基变换（base change）
+$S'\rightarrow S$ 的结果），可由 $S$ 的一个子概形 $Z$ 表示。若
+$Y$ 是开的（\resp 闭的），则 $Z$ 亦然。
+\end{enonce*}
+
+\noindent
+\emph{证明}。设 $Y$ 为 $X$ 的某个开子集 $U$ 中的闭子概形，
+$C$ 为 $U$ 的闭补集。由于 $f$ 固有（proper），
+$C$ 在 $S$ 中的像为闭子集 $D$，且显然条件
+$U=X$ 由 $S$ 的开子集 $S-D$ 表示。因此可假设
+已有 $U=X$，即 $Y$ 是闭子概形。
+考虑 $\Oo_X$-模的满射态射
+$\Oo_X\xrightarrow{\alpha}\Oo_Y$；条件 $Y=X$
+等价于存在态射
+$\Oo_Y\xrightarrow{\beta}\Oo_X$，使复合 $\beta\alpha$ 为
+恒等态射，即存在 $\Hhom(\Oo_Y,\Oo_X)$ 的一个截面，
+提升 $\Hhom(\Oo_X,\Oo_X)$ 的恒等截面。
+由 \EGA III 7.7.8 可知，将 $S'/S$ 对应到
+$\Hhom(\Oo_Y,\Oo_X)$（\resp $\Hhom(\Oo_X,\Oo_X)$）的
+截面集的函子，可由 $S$ 上的向量丛（vector bundle）$V_1$（\resp $V_2$）表示。
+设 $\varphi:V_1\rightarrow V_2$ 为由 $\Oo_X\rightarrow\Oo_Y$ 诱导的态射
+$u\mapsto u\alpha$，$s:S\rightarrow V_2$ 为
+对应于恒等态射 $\Oo_X\rightarrow\Oo_X$ 的截面。
+截面 $s$ 在 $\varphi$ 下的逆像可与 $S$ 的一个闭子概形
+$Z$ 等同，且显然 $Z$ 表示函子 $\epsilon$，
+引理得证。
+
+\begin{enonce*}{引理 1.3}\etiquette[1.3]{XIII.lem1.3}
+设 $S$ 为局部 Noether 概形，$f:X\rightarrow S$ 为
+射影且平坦的态射，$E$ 为 $X$ 上的局部自由层（locally free sheaf）。
+设
+$$
+QE:(\Sch)/S\longrightarrow(\Ens)
+$$
+为如下函子：它将 $S'/S$ 对应到 $E'=E\otimes_{\Oo_S}\Oo_{S'}$ 的
+赋有平展 $\Oo_{X'}$-代数结构的商层 $A'$ 所成的集合 $QE(S')$。
+此函子可由 $S$ 上的局部有限型概形表示。
+\end{enonce*}
+
+\noindent
+\emph{证明}。\pageoriginale 函子 $\sheaf{\Quot}(E)$ 可由一个局部有限型概形
+（TDTE IV，第~221 讲）表示，记为 $Z/S$；其中
+$\sheaf{\Quot}(E)(S')$ 是 $E'$ 的在 $S'$ 上平坦的商所成的集合。
+设 $M_u$ 为 $X_Z$ 上 $E\otimes_{\Oo_S}\Oo_Z$ 的“泛”商。
+$\sheaf{\Quot}(E)$ 中由在 $X'$ \emph{上}平坦的商所成的子函子，
+由 $Z$ 的一个开子集 $U$ 表示。事实上，
+设 $M'$ 为 $E'$ 的一个商，由某个 $S$-态射 $S'\rightarrow Z$ 给定。
+由于 $M'$ 在 $S'$ 上平坦，它在 $X'$ 上平坦等价于：
+对每个点 $s'\in S'$，模 $M'_{s'}$ 在纤维 $X'_{s'}$ 上平坦
+（\EGA IV 5.9）。这又等价于
+$M_u|_{X_z}$ 在纤维 $X_z$ 上平坦，其中 $z$ 为
+$s'$ 的像。然而，由 \EGA IV 11.1.5，使
+$M_u|_{X_z}$ 在 $X_z$ 上平坦的点 $z\in Z$ 所成的集合 $U$，
+也就是使 $M_u$ 在 $X_z$ 的每一点处均在 $X_Z$ 上平坦的点集，
+在 $Z$ 中是开的，故断言成立。
+
+现在只须表示相对函子 $QE/U[f]$。于是将
+$S$ 换为 $U$，$X$ 换为 $\fprod{X}{U}{S}$ 后，
+问题就归结为以下引理：
+
+\begin{enonce*}{引理 1.4}\etiquette[1.4]{XIII.lem1.4}
+设 $S$ 为局部 Noether 概形，$f:X\rightarrow S$ 为
+射影且平坦的态射，$M$ 为局部自由
+$\Oo_X$-模。函子
+$\Alget:(\Sch)/S\rightarrow(\Ens)$ 将 $S'/S$ 对应到
+$M'$ 上的在 $\Oo_{X'}$ 上平展的代数结构所成的集合
+$\Alget(S')$；此函子可由 $S$ 上的有限型概形表示。
+\end{enonce*}
+
+\noindent
+\emph{证明}。为简便起见，以下说“可表示”时，
+均理解为“可由一个\emph{有限型}相对概形表示”。
+下文出现的所有向量丛均由\emph{凝聚}层定义，
+因而都是有限型的。$M'$ 上的一个双线性合成律，
+由局部自由层 $\Hhom(M'\otimes M',M')$ 的一个截面给定。
+由于 $\Hhom(M'\otimes M',M')$ 在 $S$ 上平坦，
+由\pageoriginale \EGA III 7.7.6 可知，“双线性合成律”函子
+由 $S$ 上的一个向量丛 $Z$ 表示。还须验证，
+合成律满足结合律、交换律及具有单位截面的附加条件，
+可由 $Z$ 的一个子概形表示。考虑相对函子，
+即可将 $S$ 换为 $Z$，因而可假设已给定
+$M$ 上的一个合成律，只须证明表示上述条件的
+$S$ 的子函子可由 $S$ 的子概形表示。
+
+对结合律而言，条件是
+$\Hhom(M\otimes M\otimes M,M)$ 的两个截面在基变换
+$S'\rightarrow S$ 后相等。设 $Y$ 为这两个截面在对应于
+$\Hhom(M\otimes M\otimes M,M)$ 的向量丛上的纤维积。
+概形 $Y$ 可与 $X$ 的一个闭子概形等同，而在
+$S'\rightarrow S$ 后成立的结合律表示为条件 $Y'=X'$。
+因此，由 \hyperref[XIII.lem1.2]{1.2}，它定义了一个
+可由 $S$ 的闭子概形表示的 $S$ 的子函子。
+对交换律而言，条件是 $\Hhom(M\otimes M,M)$ 的两个截面相等，
+由 \hyperref[XIII.lem1.2]{1.2}，这同样定义一个可由闭子概形表示的
+$S$ 的子函子。最后，如今可假设合成律
+已经满足结合律及交换律，并考虑单位截面存在的条件；
+此时这样的截面必定唯一。将 $S'/S$ 对应到
+$M'$ 的截面集的函子，由 \EGA III 7.7.6 可由一个向量丛表示，
+于是只须表示此向量丛的对应于\emph{单位截面}的子函子
+（这里利用刚才指出的唯一性）。如常转到相对情形，
+即可假设已经给定 $M$ 的一个截面 $\epsilon$，
+并证明表示它变为\pageoriginale 单位截面这一条件的
+$S$ 的子函子可表示。然而，$\epsilon$ 为单位的条件，
+正是显然的态射的复合
+$M'\rightarrow M'\otimes M'\rightarrow M'$ 为恒等态射，
+即 $\Hom(M,M)$ 的两个指定截面相等。
+再次由 \hyperref[XIII.lem1.2]{1.2} 即得结论。
+
+最后，假设局部自由模 $M$ 已赋有一个含幺交换代数结构。
+它平展的点所成的集合在 $X$ 中是开的（\SGA I 4.5），
+因此可在 $S$ 上由一个（开）子概形表示。
+这就证明了 \hyperref[XIII.lem1.4]{1.4}，
+从而也证明了 \hyperref[XIII.lem1.3]{1.3}。
+
+\setcounter{subsection}{4}
+\subsection{}\etiquette[1.5]{XIII.subsec1.5}
+现设 $Z/S$ 为表示 \hyperref[XIII.lem1.3]{1.3} 中所考虑函子的对象，
+并考虑 $Z$ 在某点 $z$ 处在 $S$ 上光滑的条件。
+将 \SGA I III 3.1 译为函子 $QE$ 的语言，
+即得到如下条件：
+
+设 $B$ 为 Artin 局部环，$\Mm=\rad B$，$J$ 为
+$B$ 的满足 $J\Mm=0$ 的理想，置 $S'=\Spec B$，$S''=\Spec B/J$，
+并设给定态射 $S'\rightarrow S$。对于基变换
+$S'\rightarrow S$ 及 $S''\rightarrow S$ 的结果，采用显然的记号。
+
+\begin{itemize}
+\item[$(\ast)$] 对 $E''$ 的每个赋有平展
+$\Oo_{X''}$-代数结构、且对应于像为 $z$ 的
+$S$-态射 $S''\rightarrow Z$ 的商 $A''$，都存在
+$E'$ 的一个赋有平展 $\Oo_{X'}$-代数结构的商
+$A'$，使其诱导出所给的商。
+\end{itemize}
+
+由于 $X'$ 和 $X''$ 的底空间相同，诱导
+$A''$ 的代数 $A'$ 已在唯一同构意义下确定
+（\SGA I 8.3）。\pageoriginale 因此，可将条件
+$({\ast}{\ast})$ 表述如下：
+
+\begin{itemize}
+\item[$({\ast}{\ast})$] 设 $A'$ 为 $\Oo_{X'}$ 上的平展代数，
+$A''$ 为 $A'$ 在 $X''$ 上诱导的代数。每个
+满同态
+$$
+E''\xrightarrow{\varphi''}A''
+$$
+若对应于像为 $z$ 的态射 $S''\rightarrow Z$，则均可提升为同态
+（由 Nakayama 引理，该同态必定为满同态）
+$$
+E'\xrightarrow{\varphi'}A'{\quoi}.
+$$
+\end{itemize}
+
+由正合列
+$$
+0\longrightarrow J\longrightarrow B\longrightarrow B/J\longrightarrow
+0
+$$
+得到 $X'$ 上的层的正合列：
+$$
+0\longrightarrow J\otimes\Hhom(E',A')\longrightarrow
+\Hhom(E',A')\longrightarrow\Hhom(E'',A'')\longrightarrow
+0{\quoi}.
+$$
+提升 $\varphi''$ 的障碍位于
+$H^1(X',J\otimes\Hhom(E',A'))$ 中。设
+$S_{\circ}=\Spec B/\Mm$。由于 $J\Mm=0$，有
+$$
+J\otimes\Hhom(E',A')\simeq
+J\otimes\Hhom(E_{\circ},A_{\circ}){\quoi},
+$$
+且显然
+$$
+H^1(X',J\otimes\Hhom(E_{\circ},A_{\circ}))\simeq
+J\otimes H^1(X_{\circ},\Hhom(E_{\circ},A_{\circ})){\quoi}.
+$$
+考虑到上同调与基域扩张可交换，得到：
+
+\begin{enonce*}{推论 1.6}\etiquette[1.6]{XIII.cor1.6}
+设 $Z/S$ 为表示 \hyperref[XIII.lem1.3]{1.3} 中函子的概形，
+置 $X_Z=\fprod{X}{Z}{S}$，并设 $A_Z$ 为
+$E_Z$ 的（“一般”）平展商代数。则在每个满足
+$$
+H^1(X_{\circ},\Hhom(E_{\circ},A_{\circ}))=0{\quoi},
+$$
+的点 $z_{\circ}$ 处，$Z/S$ 都是光滑的；其中\pageoriginale 下标零
+表示限制到 $X_Z/Z$ 在点 $z_{\circ}$ 处的纤维
+$X_{\circ}$。
+\end{enonce*}
+
+现在可以完成 \hyperref[XIII.prop1.1]{1.1} 的证明了。采用该命题的记号，
+设 $Y_{\circ}/X_{\circ}$ 为一个平展覆盖，
+由 $\Oo_{X_{\circ}}$ 上平展的代数层 $A_{\circ}$ 给定。
+当 $n$ 充分大时，$A_{\circ}(n)$ 由其截面生成
+（\EGA III 2.2.1）。于是有满射
+$$
+\Oo^N_{X_{\circ}}\longrightarrow A_{\circ}(n)\longrightarrow
+0{\quoi},
+$$
+因而有满射
+$$
+\Oo^N_{X_{\circ}}(-n)=E_{\circ}\longrightarrow
+A_{\circ}\longrightarrow 0{\quoi}.
+$$
+取 $n$ 充分大，使另有
+\begin{equation*}
+H^1(X_{\circ},\Hhom(E_{\circ},A_{\circ}))=0{\quoi},\tag{$+$}
+\end{equation*}
+由 \EGA III 2.2.1，这样的选取是可能的，因为
+$$
+\Hhom(E_{\circ},A_{\circ})
+=[\Hhom(\Oo^N_{X_{\circ}},A_{\circ})](n)
+=[A_{\circ}(n)]^N{\quoi}.
+$$
+置 $E=\Oo^N_X(-n)$，设 $Z/S$ 为表示
+\hyperref[XIII.lem1.3]{1.3} 中所考虑函子的概形。
+$E_{\circ}$ 的商 $A_{\circ}$ 对应于 $Z/S$ 的闭纤维中的
+一个点 $z_{\circ}\in Z$，它是 $k(s)$ 上的有理点；
+由 \hyperref[XIII.subsec1.5]{1.5} 及 $(+)$，
+$Z/S$ 在 $z_{\circ}$ 处光滑。由于 $S$ 为\emph{Hensel} 环的谱，
+$Z/S$ 有一个经过 $z_{\circ}$ 的截面；例如，
+这可直接由光滑性的原始定义（\SGA II 1.1）得到。
+因而，$A_{\circ}$ 由 $X$ 上平展的某个代数 $A$
+（它是 $E$ 的商）诱导，这就完成了
+\hyperref[XIII.prop1.1]{1.1} 的证明。
+
+
+\section{相对维数至多为一的情形}\etiquette[2]{XIII.sec2}\pageoriginale
+
+断言如下。
+
+\begin{enonce*}{命题 2.1}\etiquette[2.1]{XIII.prop2.1}
+采用 \textup{\hyperrefext[XII][XII.thm5.9]{5.9 bis}} 的记号，若
+$S$ 为 Noether 严格局部概形，且 $f$ 为相对维数
+$\leq1$ 的射影态射，则函子
+$\Et(X)\rightarrow\Et(X_{\circ})$ 是范畴等价。
+
+由 \textup{\hyperrefext[XII][XII.lem8.5]{8.5}}，这将完成
+\textup{\hyperrefext[XII][XII.thm5.1]{5.1} (ii)} 的证明；
+后者同时推广了 \hyperref[XIII.prop1.1]{1.1} 及
+\hyperref[XIII.prop2.1]{2.1}。
+\end{enonce*}
+
+\begin{enonce*}{引理 2.2}\etiquette[2.2]{XIII.lem2.2}
+设 $S$ 为 Noether 局部环 $A$ 的谱，$X/S$ 为
+相对维数 $\leq n$ 的射影概形。则存在相对维数
+$\leq n$ 的射影且平坦的 $S$-概形 $Z/S$，以及
+$S$ 上的闭浸入 $X\hookrightarrow Z$。
+\end{enonce*}
+
+\noindent
+\emph{证明。}设 $X\rightarrow\PP^N_S$ 为 $S$ 上的一个射影嵌入，
+$J\subset A[x_{\circ},\ldots,x_N]$ 为定义 $X$ 的
+齐次理想。置 $k=A/\mathfrak m_A$，$S_{\circ}=\Spec k$，
+$X_{\circ}=X\otimes_Sk$。则 $X_{\circ}$ 由齐次理想
+$J_{\circ}=\Iim(J\rightarrow k[x_{\circ},\ldots,x_N])$ 定义。
+由于 $\dim X_{\circ}\leq n$，众所周知，存在
+$J_{\circ}$ 中的元素 $f^{\circ}_1,\ldots,f^{\circ}_{N-n}$，
+定义 $\PP^N_k$ 的一个维数为 $n$ 的子概形 $Z_{\circ}$。
+设 $f_i$ $(1\leq i\leq N-n)$ 为 $J$ 中提升
+$f^{\circ}_i$ 的元素，$Z$ 为由
+$f_1,\ldots,f_{N-n}$ 定义的 $\PP^N_S$ 的子概形。
+由 \EGA IV 11.3，$Z$ 在 $S$ 上平坦；由
+\EGA IV 13.1.5，其相对维数为
+$\dim Z_{\circ}=n$。\hyperref[XIII.lem2.2]{2.2} 得证。
+
+\noindent
+\emph{\hyperref[XIII.prop2.1]{2.1} 的证明。}设 $X/S$ 为相对维数
+$\leq1$ 的射影概形，$S$ 为 Noether 严格局部概形。
+可假设 $X$（从而 $X_{\circ}$）连通。设
+$X\rightarrow Z$ 为 $S$ 上的一个闭浸入，其中 $Z$ 射影、
+平坦，且相对维数 $\leq1$；见
+\hyperref[XIII.lem2.2]{2.2}。设 $s_{\circ}$ 为
+$S$ 的闭点。有相应的\pageoriginale 范畴图式
+$$
+\xymatrix@C=2.5cm@R=1.25cm{
+\Et(Z)\ar[r]\ar[d]^{a}&\Et(X)\ar[d]^{b}\\
+\Et(Z_{\circ})\ar[r]^{c}&\Et(X_{\circ}).
+}
+$$
+要证明 $b$ 为等价。由 \hyperrefext[XII][XII.lem5.8]{5.8}，
+$b$ 完全忠实，因此只须证明它本质满射。
+由 \hyperref[XIII.prop1.1]{1.1}，函子 $a$ 是等价；
+因而只须证明 $c$ 本质满射。略去下标
+${}_{\circ}$，问题就归结为以下命题。
+
+\begin{enonce*}{命题 2.3}\etiquette[2.3]{XIII.prop2.3}
+设 $k$ 为可分闭域，$Z$ 为维数
+$\leq1$ 的局部有限型 $k$-概形，$X\hookrightarrow Z$
+为连通闭子概形。则 $X$ 的每个平展覆盖都由
+$Z$ 的某个平展覆盖诱导。
+\end{enonce*}
+
+\noindent
+\emph{证明。}可假设 $Z$ 和 $X$ 的维数均为 $1$，
+因为当 $X$ 为零维时，结论由 $k$ 的假设立即得到。
+此时 $Z=X\cup Y$，其中 $Y$ 是取 $Z-X$ 的闭包所得的
+闭子概形。置 $V=X\cap Y$；这是一个离散的，
+即局部 Artin 的概形。态射
+$X\amalg Y\rightarrow Z$ 有限且满射，故为平展覆盖范畴的
+严格下降态射（strict descent morphism）
+（\SGA \hyperrefext[IX][IX.cor4.7]{4.7}）。显然
+\begin{equation*}
+\fprod{(X\amalg Y)}{(X\amalg Y)}{Z}
+=X\amalg Y\amalg V^{(1)}\amalg V^{(2)}
+\quad(V^{(i)}=V){\quoi},\tag{$\ast$}
+\end{equation*}
+其中 $\pr_i$ 将 $V^{(i)}$ 映到 $X\amalg Y$ 的分支 $X$，
+而当 $j\neq i$ 时，将 $V^{(j)}$ 映到分支 $Y$。
+
+设 $X'/X$ 为次数 $n$ 的平展覆盖，$Y''/Y$ 为
+次数 $n$ 的一个覆盖（例如次数 $n$ 的平凡覆盖），
+于是 $X'\amalg Y''$ 是\pageoriginale $X\amalg Y$ 的
+次数 $n$ 的覆盖。只须找出此覆盖相对于
+$X\amalg Y\rightarrow Z$ 的下降资料。考察
+$(\ast)$ 可知，这样的下降资料恰好等价于一个同构
+$$
+\fprod{X'}{V}{X}=V'\xrightarrow{\sim}
+V''=\fprod{Y''}{V}{Y}{\quoi}.
+$$
+由于 $k$ 可分闭，$V$ 各点的剩余域亦然；
+所以 $V$ 的每个平展覆盖都完全分裂。
+因此 $V'\simeq V''$，结论得证。
+
+\begin{enonce*}[remark]{注 2.4}\etiquette[2.4]{XIII.rem2.4}
+可以用一个直接论证，避开 \SGA IX 中的精细结果及下降理论：
+只须证明，$Z$ 的平展覆盖范畴等价于三元组
+$(X',Y',\theta)$ 所成的范畴，其中
+$X'$（分别 $Y'$）为 $X$（分别 $Y$）的平展覆盖，
+而 $\theta$ 为一个 $V$-同构
+$\fprod{X'}{V}{X}\simeq\fprod{Y'}{V}{Y}$。
+对任意可表为两个闭子概形 $X$ 与 $Y$ 之并的
+概形 $Z$，这一结果都成立；它可直接由
+$Z$ 上拟凝聚模的类似描述证明
+（此时 $X=V(\mathfrak J)$，$Y=V(\mathfrak K)$，且
+$\mathfrak J\cap\mathfrak K=0$）。
+\end{enonce*}
+
+\footnotetext[1]{这一结果也以稍一般的形式出现在 \EGA IV 21.9.11 及 21.9.12 中；
+特别地，在 \hyperref[XIII.cor3.2]{3.2} 中，只须要求
+$f$ \emph{分离}，不必要求它固有。}
+\section{关于 Picard 群的一个辅助结果 ${}^{(*)}$}\etiquette[3]{XIII.sec3}
+
+\begin{enonce*}{命题 3.1}\etiquette[3.1]{XIII.prop3.1}
+设 $X$ 为 Noether 概形，$X_{\circ}$ 为 $X$ 的一个闭子概形，
+满足 \textup{(a)} $\dim X_{\circ}\leq1$，以及
+\textup{(b)} 对 $X$ 的每个非空连通闭子集 $Y$，
+$Y_{\circ}=Y\cap X_{\circ}$ 非空且连通。
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item 设 $Z_{\circ}$ 为所有仅含一个点的集合
+$\overline{\{x\}}\cap X_{\circ}$ 的并，其中 $x\in\Ass\Oo_X$。
+对 $X_{\circ}$ 上的每个满足 $\supp(D_{\circ})$ 不与
+$Z_{\circ}$ 相交的 Cartier 除子 $D_{\circ}$，
+存在 $X$ 上的一个 Cartier 除子 $D$ 诱导出 $D_{\circ}$
+（且当 $D_{\circ}\geq0$ 时，可取 $D\geq0$）。
+
+\item 假设 $X_{\circ}$ 有一个包含有限集
+$\Ass\Oo_{X_{\circ}}\cup Z_{\circ}$ 的仿射开子集 $U_{\circ}$
+（若 $X_{\circ}$ 有丰沛可逆层，此条件自动满足）。
+则 $\Pic(X)\rightarrow\Pic(X_{\circ})$ 为满射。
+\end{enumerate}
+\end{enonce*}
+
+\noindent
+\emph{证明。}
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item 由于 $\dim X_{\circ}\leq1$，$X_{\circ}$ 上的每个
+Cartier 除子 $D_{\circ}$ 显然具有离散支集，
+因而可写成两个有效 Cartier 除子之差，且它们的支集均包含在
+$D_{\circ}$ 的支集中。因此，(i) 归结为
+$D_{\circ}$ 有效的情形。对每个
+$x\in\Supp D_{\circ}$，它在 $x$ 处由一个非零因子
+$f_x\in\rad(\Oo_{X_{\circ},x})$ 定义。元素 $f_x$
+由 $\Oo_X$ 在 $x$ 的某个开邻域 $U_x$ 上的一个截面
+$g_x$ 诱导。断言：缩小 $U_x$ 后，可使截面
+$g_x$ 成为 $\Oo_{U_x}$ 中的非零因子，即
+$V(g_x)\cap\Ass\Oo_{U_x}=\varnothing$。
+
+事实上，由条件 (a) 及 (b)，对每个
+$z\in\Ass\Oo_X$，集合 $\overline{\{z\}}\cap X_{\circ}$
+为 $X_{\circ}$ 的连通闭子集，故或者仅含一个闭点，
+或者是 $X_{\circ}$ 的若干一维不可约分支的连通并。
+由于 $x\notin Z_{\circ}$，在前一种情形下有
+$x\notin\overline{\{z\}}$。在后一种情形下，
+不可能同时有 $x\in\overline{\{z\}}$ 和 $z\in V(g_x)$，
+否则 $g_x$，从而 $f_x$，将在
+$\overline{\{z\}}\cap X_{\circ}$ 的某个不可约分支上恒为零，
+而该分支也是 $X_{\circ}$ 的不可约分支；
+这与 $f_x$ 为 $\Oo_{X_{\circ},x}$ 中的非零因子矛盾。
+因此缩小 $U_x$ 后，可\pageoriginale 假设
+$V(g_x)\cap\Ass\Oo_{U_x}=\varnothing$，故 $g_x$ 为非零因子。
+
+设 $Y_x$ 为 $V(g_x)$ 在 $X$ 中的闭包。点 $x$ 在
+$Y_x\cap X_{\circ}\cap U_x$ 中孤立，因而在
+$Y_x\cap X_{\circ}$ 中也孤立。由条件 (b)，$Y_x$
+有一个连通分支 $Y'_x$，满足 $Y'_x\cap X_{\circ}=\{x\}$。
+而且 $Y'_x\subset U_x$：事实上，
+$T_x=Y'_x-(Y'_x\cap U_x)$ 在 $X$ 中闭，且满足
+$T_x\cap X_{\circ}=\varnothing$，于是由条件 (b) 得
+$T_x=\varnothing$。设 $D'_x$ 为 $X$ 上的 Cartier 除子，
+它在 $U_x$ 上由 $Y'_x$ 诱导，在 $X-Y'_x$ 上由零除子诱导。
+则 $D=\sum_xD'_x$ 为 $X$ 上的有效 Cartier 除子，
+在 $X_{\circ}$ 上诱导出 $D_{\circ}$。
+
+\item 结论由 (i) 及如下事实得到：$X_{\circ}$ 上的每个
+可逆模 $\LL_{\circ}$ 都同构于某个支集不与
+$Z_{\circ}$ 相交的 Cartier 除子 $D_{\circ}$ 所定义的模。
+后一断言意味着，$\LL_{\circ}$ 在某个包含
+$\Ass\Oo_{X_{\circ}}\cup Z_{\circ}$ 的开集 $V_{\circ}$ 上
+有一个截面，且该截面在此集合的每一点均不为零。
+只须将 $X_{\circ}$ 换为仿射开集 $U_{\circ}$ 后证明这一点；
+在此情形下，它由熟知的事实得到：半局部概形上的可逆模
+与结构层同构。最后，若 $X_{\circ}$ 有丰沛可逆层，
+则 $X_{\circ}$ 的每个有限子集都包含在某个仿射开子集中。
+这就证明了 (ii)。
+\end{enumerate}
+
+有如下推论，它推广了 \hyperrefext[XII][XII.prop8.6]{8.6}，
+并完成了 \hyperrefext[XII][XII.thm5.1]{5.1} (iii) 的证明。
+
+\begin{enonce*}{推论 3.2}\etiquette[3.2]{XIII.cor3.2}
+设 $S$ 为 Noether Hensel 环的谱，
+$f:X\rightarrow S$ 为相对维数 $\leq1$ 的固有态射。
+对 $X$ 的每个底空间与 $X/S$ 的闭纤维\pageoriginale
+$X_{\circ}$ 相同的闭子概形 $X'_{\circ}$，典范映射
+$\Pic(X)\rightarrow\Pic(X'_{\circ})$ 均为满射。
+\end{enonce*}
+
+事实上，将命题应用于 $(X,X'_{\circ})$。
+条件 (a) 由假设成立，条件 (b) 由
+\hyperrefext[XII][XII.cor5.7]{5.7} 得到。还须验证
+(ii) 所要求的 $U_{\circ}$ 存在；这是因为
+$X'_{\circ}$ 必为射影的，正如域上的每条固有曲线都是射影的一样。
+
+\begin{enonce*}[remark]{注}
+若读者不愿假定或重建域上的固有曲线均为射影这一事实，
+可以只在 $f$ 为射影态射这一附加假设下使用此推论；
+这对于此处所需的应用已经足够。反之，
+若承认域上的固有代数曲线的射影性，则可得出：
+在 \hyperref[XIII.cor3.2]{3.2} 的假设下，$X$
+必在 $S$ 上射影。事实上，取一个丰沛元素
+$\xi_{\circ}\in\Pic(X_{\circ})$，将它提升为某个
+$\xi\in\Pic(X)$，再应用 \EGA III 4.7.1 即可。
+\end{enonce*}
+
+\begin{thebibliography}{99}
+\bibitem{sga4.exp.XIII.bib.TDTE} Grothendieck A., Technique de descente et
+théorèmes d'existence en Géométrie Algébrique, in Fondements de la
+Géométrie Algébrique (Extraits du Sém. Bourbaki 1957--62), Secrétariat
+mathématique, 11, rue Pierre Curie.
+\end{thebibliography}
+
