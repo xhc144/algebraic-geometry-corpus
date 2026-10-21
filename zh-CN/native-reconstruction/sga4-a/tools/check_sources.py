@@ -38,7 +38,7 @@ def math(s):
     # Delimited math only. Xy-pic macros and undelimited math remain separate
     # checks; all changed spans are review candidates, never auto-certified.
     s = uncomment(s)
-    p = r'(?s)(?<!\\)\$\$.*?(?<!\\)\$\$|(?<!\\)\$(?!\$).*?(?<!\\)\$|\\\[.*?\\\]|\\\(.*?\\\)'
+    p = r'(?s)(?<!\\)\$\$.*?(?<!\\)\$\$|(?<!\\)\$(?!\$).*?(?<!\\)\$|(?<!\\)\\\[.*?(?<!\\)\\\]|(?<!\\)\\\(.*?(?<!\\)\\\)'
     return [re.sub(r'\s+', '', x) for x in re.findall(p, s)]
 
 def compare(source, target):
