@@ -1,0 +1,17 @@
+{
+  "command": "git diff --check -- zh-CN/native-reconstruction/sga3-b",
+  "exit_code": 2,
+  "findings": [
+    {
+      "file": "chapters/XXI-zh.tex",
+      "line": 1695,
+      "content": "mid (x,alpha)=0 followed by TeX control-space"
+    },
+    {
+      "file": "chapters/XXVI-zh.tex",
+      "line": 3192,
+      "content": "middle delimiter followed by TeX control-space"
+    }
+  ],
+  "assessment": "Both trailing spaces form intentional TeX backslash-space tokens inherited from source, inside mathematics. Kept rather than deleting mathematical spacing; no other whitespace findings. This is a whitespace-linter exception, not a compiler failure."
+}

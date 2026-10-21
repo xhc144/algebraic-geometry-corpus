@@ -1,0 +1,1423 @@
+% 来源: 冻结原生源 XVIII.tex 第 1--226 行; 当前仅导言与§1完整.
+\markboth{第 XVIII 讲. Weil 定理}{第 XVIII 讲. Weil 定理}
+\setcounter{footnote}{0}
+\SGARefTarget{sga3:xviii:chapter:xviii}\chapter*{第 XVIII 讲\\由有理律构造群的 Weil 定理}
+\addcontentsline{toc}{chapter}{第 XVIII 讲. 由有理律构造群的 Weil 定理}
+\markboth{第 XVIII 讲. Weil 定理}{第 XVIII 讲. Weil 定理}
+\begin{center}
+  \textit{Michael Artin}
+\end{center}
+\begingroup
+\renewcommand{\thefootnote}{0}
+\footnotetext{2009 年 5 月 8 日的版本.}
+\endgroup
+
+\SGARefTarget{sga3:xviii:section:0}\section*{0. 导言}
+\addcontentsline{toc}{section}{0. 导言}
+
+本讲讨论熟知的 Weil 定理 [1], 它从一个双有理律构造群簇.
+将此结果推广到基底为离散赋值环的谱的情形, 似乎早已为一些人所知; 例如参见 [2].
+这里将对任意基预概形 \(S\) 上的有限表现平坦群证明这一定理.
+由于假设的表述必须稍加小心, 陈述并非 Weil 所给的形式;
+但当 \(S\) 为域的谱时, 可见这里给出的形式与 Weil 的形式本质上等价.
+采用 Grothendieck 的如下建议:
+给定预概形 \(S\) 上的一个“群芽” \(X\), 应将群构造为 \(X\times_S X\)
+对一个适当等价关系的商.
+
+\SGARefTarget{sga3:xviii:section:1}\section*{1. 关于有理映射的“回顾”}
+\addcontentsline{toc}{section}{1. 关于有理映射的“回顾”}
+
+设 \(X/S\) 为相对预概形, \(U\subseteq X\) 为开子集.
+若对每个基变换 \(S'\to S\), 开子集 \(U\times_S S'\)
+都在 \(X\times_S S'\) 中概形稠密,
+则称 \(U\) \emph{在 \(X\) 中相对于 \(S\) 概形稠密},
+或称 \(U\hookrightarrow X\) \emph{相对概形稠密}.
+关于此概念的定义与性质, 参见第 IX 讲, \S4.\begingroup
+\renewcommand{\thefootnote}{*}\footnote{也参见 EGA IV\textsubscript{3}, 11.9, 11.10
+(特别是 11.10.8), 其中使用术语“相对于 \(S\) 普遍概形稠密”.}
+\addtocounter{footnote}{-1}
+\endgroup
+
+\SGARefTarget{sga3:xviii:prop:1.1}\paragraph{\SGARefLink{sga3:xviii:prop:1.1}{命题 1.1}.}
+\textit{(i) 相对于 \(S\) 概形稠密的开子集的有限交,
+以及这样的开子集的非空族的并, 都相对于 \(S\) 概形稠密.}
+
+\textit{(ii) 若 \(U\subseteq X\) 相对于 \(S\) 概形稠密,
+且 \(S\to T\) 为态射, 则 \(U_T\subseteq X_T\) 相对于 \(T\) 概形稠密.}
+
+\textit{(iii) 设 \(U\subseteq V\subseteq X\) 为开浸入.
+\(U\) 在 \(X\) 中相对于 \(S\) 概形稠密的充要条件是:
+它在 \(V\) 中如此, 且 \(V\) 在 \(X\) 中如此.}
+
+\textit{\SGAInlineRefTarget{sga3:xviii:prop:1.1:item:iv}(iv)
+若 \(U\subseteq X\) 和 \(V\subseteq Y\) 相对概形稠密,
+则 \(U\times_S V\) 在 \(X\times_S Y\) 中相对于 \(S\) 概形稠密.}
+
+在第 IX 讲中有如下判别准则:
+
+\SGARefTarget{sga3:xviii:prop:1.2}\paragraph{\SGARefLink{sga3:xviii:prop:1.2}{命题 1.2}.}
+\textit{设 \(X/S\) 局部有限表现且平坦, \(U\) 为 \(X\) 的一个开子集.
+若对每个 \(s\in S\), 纤维 \(U_s\) 在 \(X_s\) 中概形稠密,
+则 \(U\) 在 \(X\) 中相对于 \(S\) 概形稠密.}
+
+特别地:
+
+\SGARefTarget{sga3:xviii:cor:1.3}\paragraph{\SGARefLink{sga3:xviii:cor:1.3}{推论 1.3}.}
+\textit{设 \(X/S\) 局部有限表现且平坦, 且每个纤维 \(X_s\) “无嵌入分支”.
+则 \(U\) 在 \(X\) 中相对于 \(S\) 概形稠密当且仅当对每个 \(s\in S\),
+\(U_s\) 在 \(X_s\) 中在拓扑意义下稠密.}
+
+从定义容易推出下列命题.
+
+\SGARefTarget{sga3:xviii:prop:1.4}\paragraph{\SGARefLink{sga3:xviii:prop:1.4}{命题 1.4}.}
+\textit{设 \(U\subseteq X\) 相对于 \(S\) 概形稠密,
+\(f,g:X\to Y\) 为 \(S\) 上的两个函子态射, 其中 \(Y\) 满足下列条件之一:}
+
+\begin{enumerate}
+\item[\SGAInlineRefTarget{sga3:xviii:prop:1.4:item:i}(i)] \textit{\(Y\) 为 \(S\) 上的预概形,
+且每个纤维 \(Y_s\) 都分离.}
+\item[\SGAInlineRefTarget{sga3:xviii:prop:1.4:item:ii}(ii)] \textit{\(Y\) 为 \(S\) 上的预层\footnote{编者注:
+需明确针对哪一种拓扑; 先验而言应为 fpqc 拓扑.},
+使对角态射 \(Y\to Y\times_S Y\) 可由一个闭浸入表示.
+\footnote{编者注: 此处回顾闭浸入的定义.
+\(S\)-函子的态射 \(F\to G\) 称为\emph{相对可表示的},
+若对每个 \(S\)-态射 \(T\to G\), 其中 \(T\) 为 \(S\)-预概形,
+\(T\)-函子 \(F_T=F\times_G T\) 都可由一个 \(T\)-预概形表示.
+法文源此处印作 \(F\times_S T\); 由前面的态射 \(T\to G\) 可知应取在 \(G\) 上的纤维积.
+\(S\)-函子的态射 \(F\to G\) 称为开浸入 (分别地, 闭浸入),
+若它相对可表示, 且对每个 \(S\)-态射 \(T\to G\), 其中 \(T\) 为 \(S\)-预概形,
+\(T\)-态射 \(F_T\to T\) 都为开浸入 (分别地, 闭浸入).}}
+\end{enumerate}
+
+\textit{则若在 \(U\) 上 \(f=g\), 就有 \(f=g\).}
+
+\textit{证明.}
+在情形\SGARefLink{sga3:xviii:prop:1.4:item:i}{(i)} 中,
+第 IX 讲, \SGARefLink{sga3:ix:definition:4:1}{4.1} 之后的标准论证表明,
+\(f\) 与 \(g\) 在每个纤维上相等;
+故 \(X\) 的子预概形 \(\operatorname{Ker}(f,g)\) 与 \(X\) 在集合意义下相等, 因而为闭的.
+由于它包含 \(U\), 故等于 \(X\), 即 \(f=g\).
+情形\SGARefLink{sga3:xviii:prop:1.4:item:ii}{(ii)} 的证明同\textit{所引文献}.
+\footnote{编者注: 此处需给出细节\ldots}
+
+\SGARefTarget{sga3:xviii:def:1.5}\paragraph{\SGARefLink{sga3:xviii:def:1.5}{定义 1.5}.}
+\begingroup
+\renewcommand{\thefootnote}{*}
+\footnote{参见 EGA IV\textsubscript{4}, 20.5,
+其中为避免与 EGA I, 7.12 冲突, 使用术语“从 \(X\) 到 \(Y\) 相对于 \(S\) 的伪态射”.}
+\addtocounter{footnote}{-1}
+\endgroup
+\textit{设 \(X\) 为 \(S\) 上的预概形, \(Y\) 为 \(S\) 上的预层.
+\(S\) 上的\emph{有理映射} (rational map) \(f:X\dashrightarrow Y\)
+是 \(S\) 上态射 \(f:U\to Y\) 的等价类,
+其中 \(U\) 为 \(X\) 中相对于 \(S\) 概形稠密的开子集.
+规定
+\[
+  (f:U\to Y)\sim(f':U'\to Y)
+\]
+当且仅当存在开子集 \(U''\subseteq U'\cap U\),
+它相对于 \(S\) 概形稠密, 且在 \(U''\) 上有 \(f=f'\).}
+
+此定义使得对每个基变换 \(S'\to S\),
+有理映射 \(f\times_S S'\) 都能以显然的方式定义.
+
+若 \(U\) 为 \(X\) 的开子集, 则当存在一个代表 \(f\) 的态射,
+其定义集合包含 \(U\) 时, 称有理映射 \(f\) \emph{在 \(U\) 上有定义}.
+
+\SGARefTarget{sga3:xviii:def:1.5.1}\paragraph{\SGARefLink{sga3:xviii:def:1.5.1}{定义 1.5.1}.}
+\footnote{编者注: 已增补编号\SGARefLink{sga3:xviii:def:1.5.1}{1.5.1}.}
+\textit{若 \(Y\) 满足\SGARefLink{sga3:xviii:prop:1.4}{1.4} 的条件\SGARefLink{sga3:xviii:prop:1.4:item:i}{(i)},
+\SGARefLink{sga3:xviii:prop:1.4:item:ii}{(ii)} 之一,
+则显然存在 \(X\) 的一个最大的开子集 \(U\), 使 \(f\) 在其上有定义,
+且此 \(U\) 相对于 \(S\) 概形稠密.
+称它为 \emph{\(f\) 在 \(S\) 上的定义域}, 记为 \(\Dom(f)\).}
+
+此概念一般不与基变换交换, 但有:
+
+\SGARefTarget{sga3:xviii:prop:1.6}\paragraph{\SGARefLink{sga3:xviii:prop:1.6}{命题 1.6}.}
+\textit{设 \(X\) 为 \(S\)-预概形, \(Y\) 为满足\SGARefLink{sga3:xviii:prop:1.4}{1.4}
+的假设\SGARefLink{sga3:xviii:prop:1.4:item:i}{(i)}, \SGARefLink{sga3:xviii:prop:1.4:item:ii}{(ii)}
+之一的 \(S\)-函子.
+设 \(f:X\dashrightarrow Y\) 为 \(S\) 上的有理映射,
+\(S'\to S\) 为局部有限表现的平坦态射, 并置 \(f'=f\times_S S'\). 则}
+\[
+  \Dom(f')=\Dom(f)\times_S S'.
+\]
+
+\textit{证明.}
+置 \(U=\Dom(f)\). 显然 \(V'=\Dom(f')\) 包含 \(U\times_S S'\).
+设 \(V\) 为 \(V'\) 的像; 它为 \(X\) 的开子集, 因为 \(X'\to X\) 为开映射.
+须证明 \(V=U\), 即须找到代表 \(f\) 的一个态射 \(V\to Y\).
+置 \(S''=S'\times_S S'\), 以及
+\[
+  X''=X\times_S S'',\qquad
+  U''=U\times_S S'',\qquad
+  V''=V'\times_V V'.
+\]
+则 \(U''\) 在 \(X''\) 中相对于 \(S''\) 概形稠密;
+又因 \(U''\subseteq V''\subseteq X''\), \(U''\) 在 \(V''\) 中相对于 \(S''\) 概形稠密.
+\(f':V'\to Y'\) 在 \(U'\) 上的限制由 \(f:U\to Y\) 基变换而得.
+由 \(f'\) 通过两个投影得到的两个态射 \(V''\to Y\)
+在 \(U''\) 上相等, 因而相等.\begingroup
+\renewcommand{\thefootnote}{\ensuremath{\dagger}}\footnote{法文源在前面的稠密性断言中印作 \(S\),
+而非 \(S''\); 在此下降断言中印作未定义的符号 \(g\), 而非 \(f'\).
+基变换的构造确定了这里所采用的读法.}
+\addtocounter{footnote}{-1}
+\endgroup
+由于 \(V'\to V\) 平坦且局部有限表现, 它为 fppf 覆盖
+(\SGARefLink{sga3:iv:subsection:6:3}{第 IV 讲, 6.3}), 而态射 \(V\to Y\) 由下降得到.
+
+将经常用到下述平凡事实:
+
+\SGARefTarget{sga3:xviii:prop:1.7}\paragraph{\SGARefLink{sga3:xviii:prop:1.7}{命题 1.7}.}
+\textit{设 \(X/S\) 忠实平坦且局部有限表现,
+\(U\subseteq X\) 为相对概形稠密的开子集.
+则存在一个 fppf 覆盖基变换 \(S'\to S\),
+以及包含在 \(U(S')\) 中的一个截面 \(x\in X(S')\).}
+
+事实上, \(U/S\) 为 fppf 覆盖.
+取 \(S'=U\), 并以包含 \(U\hookrightarrow X\) 的 \(S\)-图作为截面.
+
+% 来源: XVIII.tex 第 227--517 行.
+\SGARefTarget{sga3:xviii:section:2}\section*{2. 群同态的局部确定}
+\addcontentsline{toc}{section}{2. 群同态的局部确定}
+
+设 \(G\) 与 \(H\) 为群, \(U\subseteq G\) 为子集, 满足 \(U\cdot U=G\).
+若 \(f\) 与 \(g\) 为从 \(G\) 到 \(H\) 的同态, 且在 \(U\) 上 \(f=g\), 则 \(f=g\).
+同样:
+
+\SGARefTarget{sga3:xviii:prop:2.1}\paragraph{\SGARefLink{sga3:xviii:prop:2.1}{命题 2.1}.}
+\textit{设 \(S\) 为景 (参见第 IV 讲\footnote{编者注: 即赋有拓扑的范畴;
+参见第 IV 讲, \S4.2.}), \(G\) 为 \(S\) 上的群层,
+\(U\subseteq G\) 为一个集合子层, 使乘法诱导的态射 \(U\times U\to G\) 为满态射.
+若 \(f\) 与 \(g\) 为从 \(G\) 到群层 \(H\) 的同态,
+且它们在 \(U\) 上相等, 则 \(f=g\).}
+
+\SGARefTarget{sga3:xviii:cor:2.2}\paragraph{\SGARefLink{sga3:xviii:cor:2.2}{推论 2.2}.}
+\textit{设 \(G\) 为局部有限表现且平坦的 \(S\)-群预概形,
+\(U\subseteq G\) 为相对概形稠密的开子集,
+\(H\) 为 \(S\) 上 fppf 拓扑下的群层.
+则每个同态 \(f:G\to H\) 都由它在 \(U\) 上的限制确定.}
+
+事实上, 由于 \(G\) 在 \(S\) 上平坦,
+\(G\) 上的合成律为平坦态射
+(第 VI\textsubscript{B} 讲, \SGARefLink{concl:sga3-VIB-9.2-xi}{9.2(xi)});
+因此 \(U\times_S U\to G\) 忠实平坦且局部有限表现,
+故为 fppf 覆盖, 从而为满态射.
+
+\SGARefTarget{sga3:xviii:prop:2.3}\paragraph{\SGARefLink{sga3:xviii:prop:2.3}{命题 2.3}.}
+\textit{设 \(G\) 为 \(S\) 上局部有限表现且平坦的群预概形,
+\(U\subseteq G\) 为相对概形稠密的开子集,
+\(H\) 为 fppf 拓扑下的群层.
+以 \(m_G\) 表示 \(G\) 的乘法, \(m_H\) 表示 \(H\) 的乘法.}
+
+\textit{设 \(\bar f:U\to H\) 为 \(S\)-态射,
+并设 \(m_G^{-1}(U)\cap(U\times_S U)\) 中存在相对概形稠密的开子集 \(V\),
+使下图交换:}
+\begin{center}
+\begin{tikzcd}[column sep=large,row sep=large]
+  V \arrow[r,"{(\bar f\times\bar f)|_V}"] \arrow[d,"m_G"] &
+  H\times_S H \arrow[d,"m_H"]\\
+  U \arrow[r,"\bar f"] & H
+\end{tikzcd}
+\end{center}
+
+\textit{则在以下每一种情形中, 都存在一个延拓 \(\bar f\) 的 \(S\)-群态射
+\(f:G\to H\), 而且它必然唯一:}
+\begin{enumerate}
+\item[\SGAInlineRefTarget{sga3:xviii:prop:2.3:item:i}(i)] \textit{\(H\) 可表示.}
+\item[\SGAInlineRefTarget{sga3:xviii:prop:2.3:item:ii}(ii)] \textit{对角态射
+\(H\to H\times_S H\) 可由一个闭浸入表示.
+\footnote{编者注: 参见\SGARefLink{sga3:xviii:prop:1.4}{1.4} 的注.}}
+\item[\SGAInlineRefTarget{sga3:xviii:prop:2.3:item:iii}(iii)] \textit{对每个截面 \(a\in U(S)\),
+开子集 \(\operatorname{pr}_2((a\times_S U)\cap V)\)
+在 \(U\) 中相对概形稠密\begingroup
+\renewcommand{\thefootnote}{*}\footnote{或者在 \(G\) 中如此,
+由\SGARefLink{sga3:xviii:prop:1.1:item:iv}{1.1(iv)}, 两者等价.}
+\addtocounter{footnote}{-1}
+\endgroup, 且此断言在每个基变换 \(S'\to S\) 后仍成立.}
+\end{enumerate}
+
+\begin{proof}
+先注意 \(V\) 在 \(G\times_S G\) 中相对概形稠密.
+事实上, \(V\) 在
+\[
+  m_G^{-1}(U)\cap(U\times_S G)\cap(G\times_S U)
+\]
+中相对概形稠密, 而这三个因子分别由 \(U\subseteq G\)
+通过显然的基变换 \(G\times_S G\to G\) 得到.
+所以断言由\SGARefLink{sga3:xviii:prop:1.1}{1.1} 得到.
+
+要构造 \(f:G\to H\), 由于 \(U\times_S U\to G\) 为 fppf 覆盖,
+只须构造一个态射 \(U\times_S U\to H\), 使它到
+\[
+  (U\times_S U)\times_G(U\times_S U)
+\]
+的两个拉回相等. 取态射
+\[
+  m_H\circ(\bar f\times\bar f):U\times_S U\longrightarrow H.
+\]
+对满足 \(ab=cd\) 的截面 \(a,b,c,d\in U(S')\), 其中 \(S'\to S\) 任意, 须证明
+\[
+  \bar f(a)\bar f(b)=\bar f(c)\bar f(d).
+\]
+若 \((a,b)\) 与 \((c,d)\) 属于 \(V(S')\)\begingroup
+\renewcommand{\thefootnote}{\ensuremath{\ddagger}}\footnote{法文源印作 \((a,d)\) 与 \((c,d)\).
+由所列等式以及对 \(V\) 的相容性假设可知, 第一对必须为 \((a,b)\).}
+\addtocounter{footnote}{-1}
+\endgroup, 所需等式立即得到.
+所以它在 \((V\times_G V)(S')\) 上成立.
+
+断言 \(V\times_G V\) 是
+\[
+  (U\times_S U)\times_G(U\times_S U)
+\]
+的一个相对概形稠密的开子集.
+由\SGARefLink{sga3:xviii:prop:1.4}{1.4}, 这将完成情形
+\textup{\SGARefLink{sga3:xviii:prop:2.3:item:i}{(i)}} 与
+\textup{\SGARefLink{sga3:xviii:prop:2.3:item:ii}{(ii)}} 的证明,
+因为如此构造的态射 \(f\) 延拓了 \(\bar f\),
+而它是同态也再次由\SGARefLink{sga3:xviii:prop:1.4}{1.4} 显然可知.
+现有
+\[
+  V\times_G V
+  =
+  \bigl(V\times_G(G\times_S G)\bigr)
+  \cap
+  \bigl((G\times_S G)\times_G V\bigr).
+\]
+由对称性及\SGARefLink{sga3:xviii:prop:1.1}{1.1},
+只须验证 \(V\times_G(G\times_S G)\)
+在 \((G\times_S G)\times_G(G\times_S G)\) 中相对概形稠密.
+后一个预概形在 \(S\) 上同构于 \(G\times_S G\times_S G\), 同构由
+\[
+  (a,b,c,d)\longmapsto(a,b,c)
+\]
+给出. 所以只须证明 \(V\times_S G\) 在 \(G\times_S G\times_S G\)
+中相对概形稠密, 而这由 \(V\) 在 \(G\times_S G\) 中的相对概形稠密性得到.
+
+只须再处理情形\textup{\SGARefLink{sga3:xviii:prop:2.3:item:iii}{(iii)}}.
+要证明 \(\bar f(a)\bar f(b)=\bar f(c)\bar f(d)\), 可以作 fppf 覆盖基变换.
+设在这样的基变换 \(S'\to S\) 后, 存在截面 \(x\in G(S')\), 使
+\[
+  (b,x),\quad(a,bx),\quad(d,x),\quad(c,dx)
+\]
+均属于 \(V\). 则
+\[
+\begin{aligned}
+  \bar f(a)\bar f(b)\bar f(x)
+    &=\bar f(a)\bar f(bx)
+     =\bar f(abx)
+     =\bar f(cdx)\\
+    &=\bar f(c)\bar f(dx)
+     =\bar f(c)\bar f(d)\bar f(x),
+\end{aligned}
+\]
+从而得到所需等式.
+
+为找到这样的 \(x\)\footnote{编者注: 下句的开头已增补.},
+对每个 \(z\in U(S')\), 置
+\[
+  V_z=
+  \operatorname{pr}_{2/S'}
+  \bigl((z\times_{S'}U_{S'})\cap V_{S'}\bigr).
+\]
+对 \(x\) 所加的条件恰好意味着 \(x\in W\), 其中
+\[
+  W=
+  V_b(S')\cap V_d(S')\cap
+  b^{-1}V_a(S')\cap d^{-1}V_c(S').
+\]
+由假设\textup{\SGARefLink{sga3:xviii:prop:2.3:item:iii}{(iii)}},
+\(W\) 在 \(G\) 中相对概形稠密.
+因此\SGARefLink{sga3:xviii:prop:1.7}{命题 1.7} 在 fppf 覆盖基变换后给出这样的截面 \(x\).
+
+验证如此构造的态射保持乘法.
+设 \(a,b\in G(S')\), 其中 \(S'\to S\) 任意;
+在此基变换后, 将 \(S'\) 重新记为 \(S\).
+选取 fppf 覆盖基扩张 \(S'\to S\) 及截面 \(x\in G(S')\), 使
+\[
+  x\in U(S')
+  \qquad\text{且}\qquad
+  ax^{-1}\in U(S'),
+\]
+即 \(x\in(a^{-1}U)^{-1}(S')\).
+再选取另一个 fppf 覆盖扩张 \(S''\to S'\) 及截面 \(y\in G(S'')\), 使
+\[
+  y,\quad by^{-1},\quad aby^{-1}\in U(S''),
+\]
+且
+\[
+  by^{-1}\in V_x,
+  \qquad
+  xby^{-1}\in V_{ax^{-1}}.
+\]
+则由 \(f\) 的定义, 在 \(S''\) 上有
+\[
+  f(a)=\bar f(ax^{-1})\bar f(x),\qquad
+  f(b)=\bar f(by^{-1})\bar f(y),\qquad
+  f(ab)=\bar f(aby^{-1})\bar f(y).
+\]
+此外,
+\[
+\begin{aligned}
+  f(a)f(b)
+    &=\bar f(ax^{-1})\bar f(x)\bar f(by^{-1})\bar f(y)\\
+    &=\bar f(ax^{-1})\bar f(xby^{-1})\bar f(y)\\
+    &=\bar f(aby^{-1})\bar f(y)
+     =f(ab),
+\end{aligned}
+\]
+这就证明了乘法相容性.
+
+现在容易看出 \(f\) 延拓 \(\bar f\).
+设 \(a\in U(S')\); 基变换后将 \(S'\) 重新记为 \(S\),
+并选取 fppf 覆盖 \(S'\to S\) 及截面 \(x,y\in G(S')\), 使
+\[
+  (x,y),\qquad (ax,y),\qquad (a,xy)
+\]
+属于 \(V(S')\). 则
+\[
+  f(xy)=\bar f(x)\bar f(y)=\bar f(xy),
+  \qquad
+  f(axy)=\bar f(ax)\bar f(y)=\bar f(axy).
+\]
+所以
+\[
+\begin{aligned}
+  f(a)
+    &=f(axy)f\bigl((xy)^{-1}\bigr)
+     =f(axy)f(xy)^{-1}\\
+    &=\bar f(axy)\bar f(xy)^{-1}
+     =\bar f(a).
+\end{aligned}
+\]
+\end{proof}
+
+\SGARefTarget{sga3:xviii:remark:2.3.1}\paragraph{\SGARefLink{sga3:xviii:remark:2.3.1}{注 2.3.1}.}
+在许多情形中, 假设\textup{\SGARefLink{sga3:xviii:prop:2.3:item:iii}{(iii)}} 成立,
+因为若将 \(U\) 替换为一个更小的开子集 \(U'\),
+它仍在 \(G\) 中相对概形稠密, 则此假设仍成立. 例如:
+
+\SGARefTarget{sga3:xviii:prop:2.4}\paragraph{\SGARefLink{sga3:xviii:prop:2.4}{命题 2.4}.}
+\textit{在\SGARefLink{sga3:xviii:prop:2.3}{2.3} 的情形中,
+设 \(G/S\) 的每个几何纤维都不可约. 置
+\[
+  U'=\operatorname{pr}_1V
+  \qquad\text{且}\qquad
+  V'=V\cap m_G^{-1}(U')\cap(U'\times_S U').
+\]
+则 \(U'\subseteq U\) 为一个在 \(G\) 中相对概形稠密的开子集,
+而 \(U'\), \(\bar f|_{U'}\) 与 \(V'\)
+满足假设\textup{\SGARefLink{sga3:xviii:prop:2.3:item:iii}{(iii)}}.}
+
+\begin{proof}
+由于 \(G\times_S G\to G\) 平坦且局部有限表现, 子集 \(U'\) 为开集.
+除假设\textup{\SGARefLink{sga3:xviii:prop:2.3:item:iii}{(iii)}} 外,
+其他验证都立即可得.
+
+设 \(a\in U(S')\); 基变换后将 \(S'\) 重新记为 \(S\).
+为验证
+\[
+  \operatorname{pr}_2\bigl((a\times_S U')\cap V'\bigr)
+\]
+在 \(U'\) 中相对概形稠密,
+由\SGARefLink{sga3:xviii:cor:1.3}{推论 1.3}, 只须逐纤维验证.
+所以只须考虑 \(S\) 为域的谱的情形,
+且在此情形中, 只须证明 \(U'\) 非空,
+因为 \(G\) 不可约且无嵌入分支 (参见第 VI\textsubscript{A} 讲, \SGARefLink{prop:sga3-VIA-1.1.1}{1.1.1}).
+现有
+\[
+\begin{aligned}
+  \operatorname{pr}_2\bigl((a\times_S U')\cap V'\bigr)
+  &=
+  \operatorname{pr}_2\bigl((a\times_S U')\cap V\bigr)\\
+  &\quad{}\cap
+  \operatorname{pr}_2\bigl((a\times_S U')\cap m_G^{-1}(U')\bigr).
+\end{aligned}
+\]
+右边的第二个因子在 \(G\) 中稠密.
+所以只须证明
+\[
+  \operatorname{pr}_2\bigl((a\times_S U')\cap V\bigr)
+\]
+在 \(G\) 中稠密, 即非空; 而这显然成立, 因为 \(a\in U'=\operatorname{pr}_1V\).
+\end{proof}
+
+% 来源: XVIII.tex 第 518--775 行.
+\SGARefTarget{sga3:xviii:section:3}\section*{3. 由有理律构造群}
+\addcontentsline{toc}{section}{3. 由有理律构造群}
+
+\SGARefTarget{sga3:xviii:paragraph:3.0}\paragraph{\SGARefLink{sga3:xviii:paragraph:3.0}{3.0}.}
+设给定 \(S\)-预概形 \(X/S\) 及 \(S\) 上的有理映射
+\[
+  X\times_S X\dashrightarrow X.
+\]
+寻求一个 \(S\)-群 \(G/S\) 及相对于 \(S\) 的双有理映射\footnote{编者注:
+应明确 (相对于 \(S\) 的) 双有理映射的概念, 或可在 1.5.2 的补充中说明.}
+\[
+  X\dashrightarrow G,
+\]
+使它与合成律相容. 仅处理 \(X/S\) 满足下列假设的情形:
+\[
+\tag{\(\diamond\)}\label{sga3:xviii:section:3:equation:diamond}
+\begin{gathered}
+  X/S\text{ 忠实平坦且有限表现,}\\
+  \text{其纤维分离且无嵌入分支.}
+\end{gathered}
+\]
+(后两个条件对群预概形成立.\footnote{编者注: 参见第 VI\textsubscript{A} 讲;
+具体引用有待补充.})
+
+在纤维积中经常省略符号 \(S\).
+
+设 \(X/S\) 为具有上述性质 \(\textup{(\(\diamond\))}\) 的预概形,
+\(W\) 为 \(X\times X\times X\) 的一个有限表现子预概形, 具有下述性质:
+\[
+\tag{*}\label{sga3:xviii:section:3:equation:star}
+\begin{gathered}
+  \text{由从 \(X^3\) 到 \(X^2\) 的投影所诱导的三个态射 \(W\to X\times X\)}\\
+  \text{都是在 \(S\) 上相对概形稠密的开浸入.}
+\end{gathered}
+\]
+
+\paragraph{记号.}
+采用下列术语. 给定截面 \(a,b,c\in X(S')\), 其中 \(S'\to S\) 任意,
+且 \((a,b,c)\in W(S')\), 则记
+\[
+  c=ab,\qquad b=a^{-1}c,\qquad a=cb^{-1}.
+\]
+
+\SGARefTarget{sga3:xviii:def:3.0.1}\paragraph{\SGARefLink{sga3:xviii:def:3.0.1}{定义 3.0.1}.}
+\footnote{编者注: 编号\SGARefLink{sga3:xviii:def:3.0.1}{3.0.1}
+及\SGARefLink{sga3:xviii:remark:3.0.2}{3.0.2} 为新增.}
+给定截面 \((a,b)\in X^2(S')\), 称 \(ab\) \emph{有定义},
+当且仅当存在截面 \(c\in X(S')\), 使 \((a,b,c)\in W(S')\);
+等价地, 当且仅当 \((a,b)\in\operatorname{pr}_{12}W(S')\).
+类似地, \(a^{-1}b\) 或 \(ab^{-1}\) 有定义也有相应含义,
+并将此术语推广到有多个因子的乘积.
+
+\SGARefTarget{sga3:xviii:remark:3.0.2}\paragraph{\SGARefLink{sga3:xviii:remark:3.0.2}{注 3.0.2}.}
+立即指出下述事实. 由\textup{(*)}, \(W\) 定义 \(S\) 上的有理映射 \(X^2\dashrightarrow X\),
+即由 \((a,b)\mapsto ab\) 给出的有理映射.
+此有理映射的定义域很可能大于 \(\operatorname{pr}_{12}W\).
+尽管如此, 仅在 \((a,b)\in\operatorname{pr}_{12}W(S')\) 时才称 \(ab\) 有定义.
+
+\SGARefTarget{sga3:xviii:def:3.1}\paragraph{\SGARefLink{sga3:xviii:def:3.1}{定义 3.1}.}
+\emph{群芽} (group germ) 是一个具有上述性质 \(\textup{(\(\diamond\))}\)
+的 \(S\)-预概形 \(X/S\), 连同 \(X\times X\times X\) 的一个有限表现子预概形 \(W\),
+满足下列性质:
+\begin{enumerate}
+\item[\SGAInlineRefTarget{sga3:xviii:def:3.1:item:i}(i)] \(W\) 满足上述性质\textup{(*)}.
+
+\item[\SGAInlineRefTarget{sga3:xviii:def:3.1:item:ii}(ii)] 对每个截面 \(a\in X(S)\), 集合
+\[
+\begin{array}{ll}
+  \operatorname{pr}_i\bigl((a\times X\times X)\cap W\bigr),
+    & i=2,3,\\
+  \operatorname{pr}_i\bigl((X\times a\times X)\cap W\bigr),
+    & i=3,1,\\
+  \operatorname{pr}_i\bigl((X\times X\times a)\cap W\bigr),
+    & i=1,2,
+\end{array}
+\]
+在 \(X\) 中相对于 \(S\) 概形稠密,
+且此断言在每个基变换 \(S'\to S\) 后仍成立.
+(条件\SGARefLink{sga3:xviii:def:3.1:item:i}{(i)} 蕴含这些集合在 \(X\) 中为开集.)
+直观上, 这意味着对足够一般的 \(x\), \(ax\) 有定义;
+对其他乘积也有类似解释.
+
+\item[\SGAInlineRefTarget{sga3:xviii:def:3.1:item:iii}(iii)] 此律满足结合律:
+若 \((a,b,c)\in X^3(S')\), 其中 \(S'\to S\) 任意,
+且 \((ab)c\) 与 \(a(bc)\) 都有定义, 则
+\[
+  (ab)c=a(bc).
+\]
+\end{enumerate}
+
+\paragraph{注记.}
+\textup{(a)} 在\SGARefLink{sga3:xviii:def:3.1:item:i}{(i)} 中,
+\(W\) 在 \(X^2\) 中相对于 \(S\) 概形稠密这一条件,
+可替换为: 对每个 \(s\in S\), 纤维 \(W_s\) 在 \(X_s^2\) 中拓扑稠密;
+这是由对 \(X\) 的假设及\SGARefLink{sga3:xviii:prop:1.2}{1.2} 得到的.
+
+\textup{(b)} 条件\SGARefLink{sga3:xviii:def:3.1:item:iii}{(iii)} 等价于下述条件.
+设 \(V_1\) (分别地, \(V_2\)) 为 \(X^3\) 的开子集,
+有理映射
+\[
+  (a,b,c)\longmapsto a(bc)
+  \qquad
+  \bigl(\text{分别地, }(a,b,c)\longmapsto (ab)c\bigr)
+\]
+在其上有定义\begingroup
+\renewcommand{\thefootnote}{*}\footnote{此处按\SGARefLink{sga3:xviii:def:3.0.1}{3.0.1}
+中解释的意义理解; 也可将这些开子集替换为所考虑的有理映射的定义域
+(参见\SGARefLink{sga3:xviii:def:1.5}{1.5}).}
+\addtocounter{footnote}{-1}
+\endgroup.
+则存在一个在 \(X^3\) 中相对于 \(S\) 概形稠密的开子集 \(V\subseteq V_1\cap V_2\),
+使两个映射在其上相等.
+这由\SGARefLink{sga3:xviii:prop:1.4}{1.4} 得到,
+因为 \(V_1\) 与 \(V_2\) 都在 \(X^3\) 中相对于 \(S\) 概形稠密.
+
+\textup{(c)} 下文将用假设\SGARefLink{sga3:xviii:prop:1.4:item:ii}{(ii)}
+保证 \(X\) 为它所定义的群预概形的一个子对象.
+在许多情形中, 只要将 \(X\) 替换为一个相对概形稠密的开子集 \(X'\),
+并将 \(W\) 替换为 \(W\cap {X'}^3\) 的一个相对概形稠密的开子集,
+便可从\SGARefLink{sga3:xviii:def:3.1:item:i}{(i)} 推出\SGARefLink{sga3:xviii:def:3.1:item:ii}{(ii)}.
+更确切地说:
+
+\SGARefTarget{sga3:xviii:prop:3.2}\paragraph{\SGARefLink{sga3:xviii:prop:3.2}{命题 3.2}.}
+\textit{设 \(X/S\) 的每个几何纤维都不可约,
+\(W\) 为 \(X^3\) 的一个满足\SGARefLink{sga3:xviii:def:3.1}{3.1}
+的条件\SGARefLink{sga3:xviii:def:3.1:item:i}{(i)} 的子预概形.
+则存在一个相对概形稠密的开子集 \(X'\subseteq X\),
+以及一个相对概形稠密的开子集 \(W'\subseteq W\cap {X'}^3\)\begingroup
+\renewcommand{\thefootnote}{\ensuremath{\dagger}}\footnote{法文源在此陈述中印作 \(W\cap(X'\times X')\).
+而证明立即定义 \(W'=W\cap {X'}^3\), 此处采用这一维数相容的读法.}
+\addtocounter{footnote}{-1}
+\endgroup, 使对 \((X',W')\) 满足条件\SGARefLink{sga3:xviii:def:3.1:item:i}{(i)}
+及\SGARefLink{sga3:xviii:def:3.1:item:ii}{(ii)}.
+若\SGARefLink{sga3:xviii:def:3.1:item:iii}{(iii)} 对 \((X,W)\) 成立,
+则它对 \((X',W')\) 也成立.}
+
+\begin{proof}
+置
+\[
+  X'=\bigcap_{i=1}^{3}\operatorname{pr}_i W.
+\]
+每个 \(\operatorname{pr}_iW\) 都在 \(X\) 中开,
+因为 \(W\to X^2\) 是开浸入, 而投影 \(X^2\to X\) 平坦且有限表现.
+此外, \(\operatorname{pr}_iW\) 在 \(X\) 中相对于 \(S\) 概形稠密,
+因为 \(W\) 在 \(X^2\) 中如此, 且投影 \(X^2\to X\) 满射;
+此处只须验证拓扑稠密性. 置
+\[
+  W'=W\cap {X'}^3.
+\]
+
+为验证\SGARefLink{sga3:xviii:def:3.1:item:i}{(i)}, 注意
+\[
+\begin{aligned}
+  W'={}&
+  \bigl(W\cap(X'\times X'\times X)\bigr)
+  \cap\bigl(W\cap(X\times X'\times X')\bigr)\\
+  &\cap\bigl(W\cap(X'\times X\times X')\bigr).
+\end{aligned}
+\]
+现有
+\[
+  W\cap(X'\times X'\times X)
+  \simeq \operatorname{pr}_{12}W\cap(X'\times X'),
+\]
+所以此项在 \(W\) 中相对于 \(S\) 概形稠密.
+右边另外两项也在 \(W\) 中概形稠密, 因而 \(W'\) 在 \(W\) 中概形稠密.
+所以 \(\operatorname{pr}_{ij}W'\) 在 \(\operatorname{pr}_{ij}W\) 中概形稠密,
+从而在 \(X\times X\), 因而也在 \(X'\times X'\) 中概形稠密.
+
+为验证\SGARefLink{sga3:xviii:def:3.1:item:ii}{(ii)}, 设 \(a\in X'(S')\).
+在此基变换后, 将 \(S'\) 重新记为 \(S\).
+例如须说明
+\[
+  \operatorname{pr}_2\bigl((a\times X'\times X')\cap W'\bigr)
+\]
+在 \(X'\) 中相对于 \(S\) 概形稠密.
+由\SGARefLink{sga3:xviii:cor:1.3}{1.3}, 只须逐纤维验证.
+所以只须处理 \(S\) 为域的谱的情形,
+且此时只须说明这个开子集非空,
+因为 \(X/S\) 的纤维不可约且无嵌入分支.
+由于 \(a\) 为 \(X'\) 的截面,
+\[
+  \operatorname{pr}_2\bigl((a\times X\times X)\cap W\bigr)
+\]
+非空, 所以此开子集在 \(X\) 中稠密. 有
+\[
+  \operatorname{pr}_2\bigl((a\times X\times X)\cap W\bigr)
+  =
+  \operatorname{pr}_2\bigl((a\times X)
+    \cap\operatorname{pr}_{12}W\bigr).
+\]
+因此
+\[
+\begin{aligned}
+  &\operatorname{pr}_2\bigl((a\times X)
+    \cap\operatorname{pr}_{12}W\bigr)\cap X'\\
+  &\qquad =
+  \operatorname{pr}_2\bigl((a\times X')
+    \cap\operatorname{pr}_{12}W\bigr)
+  =
+  \operatorname{pr}_2\bigl((a\times X'\times X)\cap W\bigr)
+\end{aligned}
+\]
+在 \(X\) 中稠密, 从而在 \(X'\) 中稠密.
+
+类似地, \(\operatorname{pr}_3((a\times X\times X')\cap W)\)
+在 \(X\) 中稠密,
+故在 \(\operatorname{pr}_3((a\times X\times X)\cap W)\) 中稠密.
+等价地, \((a\times X\times X')\cap W\)
+在 \((a\times X\times X)\cap W\) 中稠密, 因此
+\[
+  \operatorname{pr}_2\bigl((a\times X\times X')\cap W\bigr)
+\]
+在 \(\operatorname{pr}_2((a\times X\times X)\cap W)\) 中稠密,
+从而在 \(X\), 因而在 \(X'\) 中稠密.
+
+最后,
+\[
+\begin{aligned}
+  \operatorname{pr}_2\bigl((a\times X'\times X')\cap W'\bigr)
+  &=
+  \operatorname{pr}_2\bigl((a\times X'\times X')\cap W\bigr)\\
+  &=
+  \operatorname{pr}_2\bigl((a\times X'\times X)\cap W\bigr)
+  \cap
+  \operatorname{pr}_2\bigl((a\times X\times X')\cap W\bigr),
+\end{aligned}
+\]
+确实在 \(X'\) 中稠密. 这就是所需结论.
+\SGARefLink{sga3:xviii:def:3.1:item:ii}{(ii)} 中的其他断言由对称性得到,
+而条件\SGARefLink{sga3:xviii:def:3.1:item:iii}{(iii)} 的保持是显然的.
+\footnote{编者注: 下句为新增.}
+这就证明了\SGARefLink{sga3:xviii:prop:3.2}{命题 3.2}.
+\end{proof}
+
+% 来源: XVIII.tex 第 776--1054 行.
+\SGARefTarget{sga3:xviii:paragraph:3.2.1}\paragraph{\SGARefLink{sga3:xviii:paragraph:3.2.1}{3.2.1}.}
+\footnote{编者注: 编号\SGARefLink{sga3:xviii:paragraph:3.2.1}{3.2.1}
+及\SGARefLink{sga3:xviii:paragraph:3.2.2}{3.2.2} 为新增.}
+固定 \(S\) 上的一个群芽 \((X,W)\).
+先对此情形作一些预备观察, 汇集为以下规则.
+下文经常使用这些规则, 而不明确提及.
+
+设 \(a\in X(S')\), 并在基变换后将 \(S'\) 重新记为 \(S\).
+于是存在一个 \(S\) 上从 \(X\) 到自身的双有理映射 \(\varphi\),
+它将截面 \(x\) 送到 \(ax\), 只要后者有定义.
+由\SGARefLink{sga3:xviii:def:3.1:item:ii}{3.1(ii)},
+\(\varphi\) 的定义域包含相对概形稠密的开子集
+\[
+  \operatorname{pr}_2\bigl((a\times X\times X)\cap W\bigr),
+\]
+且 \(\varphi\) 定义此开子集到开子集
+\[
+  \operatorname{pr}_3\bigl((a\times X\times X)\cap W\bigr)
+\]
+的一个同构, 在后一个开子集上 \(a^{-1}x\) 有定义.
+这一观察以显然方式推广为下面的规则 1.
+
+\SGARefTarget{sga3:xviii:rule:1}\paragraph{规则 1.}
+设 \(P=P(x,t_1,\ldots,t_n)\) 为符号 \(x,t_1,\ldots,t_n\) 的一个“乘积”,
+以如下递归方式得到: \(P_0=x\), 而 \(P_{i+1}\) 是表达式
+\[
+  P_i t,\qquad tP_i,\qquad P_i^{-1}t,\qquad
+  tP_i^{-1},\qquad P_i t^{-1},\qquad t^{-1}P_i
+\]
+之一, 其中 \(t\) 为某个 \(t_j\); 且 \(P_r=P\).
+设 \(a_1,\ldots,a_n\in X(S')\).
+则 \(X_{S'}\) 有一个相对概形稠密的开子集 \(U\),
+使对截面 \(x\in X(S'')\), 乘积 \(P(x,a_1,\ldots,a_n)\)
+在\SGARefLink{sga3:xviii:remark:3.0.2}{注 3.0.2} 的意义下有定义当且仅当 \(x\in U(S'')\),
+且映射
+\[
+  x\longmapsto P(x,(a))
+\]
+给出从 \(U\) 到 \(X_{S'}\) 的另一个相对概形稠密的开子集的同构,
+将此开子集记为 \(P(U,(a))\).
+
+\SGARefTarget{sga3:xviii:rule:2}\paragraph{规则 2.}
+设 \(a,b\in X(S')\). 则:
+\begin{align*}
+  &\text{若 \(ab\) 有定义, 则 \(a^{-1}(ab)\) 也有定义, 且 }
+    a^{-1}(ab)=b;\\
+  &\text{若 \(a^{-1}b\) 有定义, 则 \(a(a^{-1}b)\) 也有定义, 且 }
+    a(a^{-1}b)=b;\\
+  &\text{若 \(ba^{-1}\) 有定义, 则 \((ba^{-1})a\) 也有定义, 且 }
+    (ba^{-1})a=b.
+\end{align*}
+
+\SGARefTarget{sga3:xviii:rule:3}\paragraph{规则 3.}
+设 \(a,b,b'\in X(S')\). 若
+\[
+  ab=ab',\qquad ba=b'a,\qquad a^{-1}b=a^{-1}b',
+  \qquad\text{或}\qquad ba^{-1}=b'a^{-1},
+\]
+则 \(b=b'\). 此处默认, 一个等式意味着其两边都有定义.
+
+\SGARefTarget{sga3:xviii:rule:4}\paragraph{规则 4.}
+设 \(a,b,c\in X(S')\). 只要两边都有定义, 就有
+\[
+  a\bigl((ba)^{-1}c\bigr)=b^{-1}c.
+\]
+类似地,
+\[
+  \bigl(c(ab)^{-1}\bigr)a=cb^{-1},\qquad
+  a^{-1}\bigl((ab^{-1})c\bigr)=b^{-1}c,\qquad
+  \bigl(c(b^{-1}a)\bigr)a^{-1}=cb^{-1}.
+\]
+
+\SGARefTarget{sga3:xviii:rule:5}\paragraph{规则 5.}
+下列所有结合律, 只要两边都有定义, 就都成立:
+\[
+\begin{aligned}
+  (a^{-1}b)c&=a^{-1}(bc),&
+  (ab^{-1})c&=a(b^{-1}c),&
+  (ab)c^{-1}&=a(bc^{-1}),\\
+  (ab)^{-1}c&=b^{-1}(a^{-1}c),&
+  (a^{-1}b)c^{-1}&=a^{-1}(bc^{-1}),&
+  (ab^{-1})c^{-1}&=a(cb)^{-1}.
+\end{aligned}
+\]
+
+\SGARefTarget{sga3:xviii:paragraph:3.2.2}\paragraph{\SGARefLink{sga3:xviii:paragraph:3.2.2}{3.2.2}.
+规则的验证.}
+\textup{\SGARefLink{sga3:xviii:section:1}{(1)}} 对 \(P\) 的长度 \(r\)
+作显然的归纳即可得到; \(r=1\) 的情形直接由\SGARefLink{sga3:xviii:def:3.1:item:ii}{3.1(ii)} 得到.
+
+\textup{\SGARefLink{sga3:xviii:section:2}{(2)}} 直接由定义得到.
+
+\textup{\SGARefLink{sga3:xviii:section:3}{(3)}} 事实上, 例如在第一种情形中,
+由规则 2,
+\[
+  b=a^{-1}(ab)=a^{-1}(ab')=b'.
+\]
+
+\textup{(4)} 例如验证第一个关系.
+在右边, 左乘 \(b\) 有定义, 且由规则 2 得到 \(c\).
+设在左边此乘法也有定义. 则
+\[
+  b\bigl(a((ba)^{-1}c)\bigr)
+  =(ba)\bigl((ba)^{-1}c\bigr)
+  =c.
+\]
+事实上, 由假设 \(ba\) 有定义, 因为它出现在表达式中.
+所以中间项由规则 2 有定义且等于 \(c\),
+并由结合律 (参见\SGARefLink{sga3:xviii:def:3.1:item:iii}{3.1(iii)}) 等于左边一项.
+规则 3 因而蕴含: 只要此左乘 \(b\) 有定义, 所需等式就成立.
+
+现在固定 \(a\) 与 \(b\).
+规则 1 蕴含: 当 \(c\) “属于” \(X\) 的一个相对概形稠密的开子集 \(U\) 时,
+\(b(a((ba)^{-1}c))\) 有定义.
+故在此相对概形稠密的开子集上, 两个有理映射
+\[
+  c\longmapsto b^{-1}c
+  \qquad\text{与}\qquad
+  c\longmapsto a((ba)^{-1}c)
+\]
+相等. 由\SGARefLink{sga3:xviii:prop:1.4}{1.4},
+它们在任意共同定义域上相等, 这就证明了所需结论.
+
+\textup{(5)} 论证与前面同类. 例如验证
+\[
+  (ab^{-1})c^{-1}=a(cb)^{-1}.
+\]
+若在右边右乘 \(c\) 有定义, 则等式由规则 4 得到.
+由于只须在一个相对概形稠密的开子集上验证这样的公式,
+便归结到此乘法有定义的情形.
+
+\SGARefTarget{sga3:xviii:paragraph:3.2.3}\paragraph{\SGARefLink{sga3:xviii:paragraph:3.2.3}{3.2.3}.}
+考虑 \(X\times X\) 上如下定义的关系 \(R\).
+对 \(a,b,a',b'\in X(S')\), 规定
+\[
+  (a,b)\sim(a',b')\pmod{R(S')}
+\]
+当且仅当存在一个 fppf 覆盖 \(S''\to S'\)
+及一个截面 \(x\in X(S'')\), 使 \((xa)b\) 与 \((xa')b'\) 有定义且相等.
+则 \(R\) 为等价关系.
+
+事实上, 此关系显然对称.
+由规则 1, 当 \(x\) “属于”一个适当的相对概形稠密的开子集时, 乘积 \((xa)b\) 有定义.
+所以\SGARefLink{sga3:xviii:prop:1.7}{1.7} 保证存在一个 fppf 覆盖 \(S''\to S'\)
+及一个 \(x\in X(S'')\), 使 \((xa)b\) 有定义.
+因此关系是自反的. 它的传递性由下列引理得到.
+
+\SGARefTarget{sga3:xviii:lemma:3.3}\paragraph{\SGARefLink{sga3:xviii:lemma:3.3}{引理 3.3}.}
+\textit{设 \(x,y,a,b,a',b'\) 为 \(X(S')\) 的截面,
+使 \((xa)b\), \((xa')b'\), \((ya)b\) 及 \((ya')b'\) 都有定义. 若
+\[
+  (xa)b=(xa')b',
+\]
+则
+\[
+  (ya)b=(ya')b'.
+\]}
+
+事实上, 此引理表明: 可以用使两个乘积都有定义的任意 \(x\in X(S')\)
+来检验 \((a,b)\sim(a',b')\), 其中 \(S'\to S\) 为 fppf 覆盖.
+给定
+\[
+  a,b,a',b',a'',b''\in X(S),
+\]
+规则 1, \SGARefLink{sga3:xviii:prop:1.1}{1.1}
+及\SGARefLink{sga3:xviii:prop:1.7}{1.7}
+使我们能够找到一个 fppf 覆盖 \(S'\to S\) 及截面 \(x\in X(S')\),
+使所考虑的三个乘积都有定义; 传递性随之得到.
+
+\begin{proof}[\SGARefLink{sga3:xviii:lemma:3.3}{引理 3.3} 的证明]
+先形式地写出
+\[
+\begin{aligned}
+  (za)b
+  &=\bigl(((zx^{-1})x)a\bigr)b
+   =\bigl((zx^{-1})(xa)\bigr)b
+   =(zx^{-1})\bigl((xa)b\bigr),\\
+  (za')b'
+  &=\bigl(((zx^{-1})x)a'\bigr)b'
+   =\bigl((zx^{-1})(xa')\bigr)b'
+   =(zx^{-1})\bigl((xa')b'\bigr).
+\end{aligned}
+\]
+相应规则表明: 只要各项有定义, 这些等式确实成立.
+\footnote{编者注: 此处有待明确\ldots}
+因此, 只要所有这些表达式有定义, 就有
+\[
+  (za)b=(za')b'.
+\]
+此外, 由规则 1 及已作的假设,
+当 \(z\in X(S'')\) 属于 \(V(S'')\) 时, 这些表达式都有定义,
+其中 \(V\) 为 \(X\) 的某个相对概形稠密的开子集
+(此处已取 \(S'=S\)).
+所以 \(X\) 的两个有理自映射
+\[
+  z\longmapsto(za)b
+  \qquad\text{与}\qquad
+  z\longmapsto(za')b'
+\]
+相等, 因而
+\[
+  (ya)b=(ya')b'.
+\]
+\end{proof}
+
+\SGARefTarget{sga3:xviii:lemma:3.4}\paragraph{\SGARefLink{sga3:xviii:lemma:3.4}{引理 3.4}.}
+\textit{考虑 \(S\) 上的有理映射
+\[
+  \varphi\colon X^3\dashrightarrow X,
+\]
+由下式定义:
+\[
+  (a,b,c)\longmapsto c^{-1}(ab).
+\]
+设 \(U\) 为 \(\varphi\) 的定义域,
+\(\Gamma\) 为由 \(\varphi\) 诱导的态射 \(f\colon U\to X\) 的图,
+将它视为 \(X^4\) 的子预概形.
+则截面 \((a,b,c,d)\in X^4(S)\) 属于 \(\Gamma(S)\) 当且仅当
+\[
+  (a,b)\sim(c,d).
+\]}
+
+\begin{proof}
+先注意, 对任意截面 \(x\in X(S)\), 有理映射 \(\varphi\) 也由公式
+\[
+  (a,b,c)\longmapsto(xc)^{-1}\bigl((xa)b\bigr)
+\]
+给出. 等价地, 只要两边都有定义, 就有
+\[
+  c^{-1}(ab)=(xc)^{-1}\bigl((xa)b\bigr).
+\]
+将验证留给读者.
+
+现在说明: \(\varphi\) 在截面 \((a,b,c)\in X^3(S)\) 处有定义,
+当且仅当存在一个 \(d\), 使 \((a,b)\sim(c,d)\), 且此时
+\[
+  d=\varphi(a,b,c).
+\]
+先设 \((a,b)\sim(c,d)\).
+为验证 \(\varphi\) 有定义, 可以作 fppf 覆盖基变换
+(\SGARefLink{sga3:xviii:prop:1.6}{命题 1.6}),
+从而可设存在截面 \(x\in X(S')\), 使 \((xa)b\) 与 \((xc)d\) 有定义且相等.
+由规则 2 可知
+\[
+  (xc)^{-1}\bigl((xa)b\bigr)
+\]
+有定义且等于 \(d\).
+
+反之, 设 \(\varphi\) 在 \((a,b,c)\) 处有定义,
+并置 \(d=\varphi(a,b,c)\).
+选取一个 fppf 覆盖 \(S'\to S\) 及一个截面 \(x\in X(S')\),
+使 \((xa)b\) 与 \((xc)d\) 有定义.
+欲说明它们相等. 只须说明 \(S\) 上 \(X\) 的两个有理自映射
+\[
+  b\longmapsto(xa)b
+  \qquad\text{与}\qquad
+  b\longmapsto(xc)\varphi(a,b,c)
+\]
+相等; 这由第一段中的观察得到.
+\end{proof}
+
+% 来源: XVIII.tex 第 1055--1314 行.
+\SGARefTarget{sga3:xviii:prop:3.5}\paragraph{\SGARefLink{sga3:xviii:prop:3.5}{命题 3.5}.}
+\textit{等价关系
+\[
+  R\rightrightarrows X^2
+\]
+可表示, 且为有限表现的平坦关系;
+即 \(R\) 到 \(X^2\) 的各个投影都是有限表现的平坦态射.}
+
+\begin{proof}
+可设 \(S\) 仿射. 由于 \((X,W)\) 在 \(S\) 上有限表现,
+可将整个情形下降到一个在 \(\operatorname{Spec}\mathbb Z\) 上有限型的 \(S\),
+从而下降到一个 Noether 的 \(S\).
+因此可设 \(S\) 为 Noether 概形.
+于是立即可知, \SGARefLink{sga3:xviii:lemma:3.4}{3.4} 的图 \(\Gamma\) 在 \(X^2\) 上有限表现.
+投影 \(\left.\operatorname{pr}_{12}\right|_\Gamma\) 平坦, 因为
+\[
+  \Gamma\xrightarrow{\sim}\operatorname{pr}_{123}\Gamma,
+\]
+右边为 \(X^3\) 的一个开子集, 且投影
+\[
+  \operatorname{pr}_{12}\colon X^3\longrightarrow X^2
+\]
+因 \(X\) 在 \(S\) 上平坦而平坦.
+
+断言 \(\Gamma\) 表示 \(R\).
+此处确有需要证明之处, 因为有理映射的定义域一般不与基变换交换.
+设 \(S''\to S\).
+在 \(S''\) 上应用\SGARefLink{sga3:xviii:lemma:3.4}{3.4}, 显然有
+\[
+  R(S'')\supseteq\Gamma(S''),
+\]
+因为 \(\varphi\times_S S''\) 必在 \(U\times_S S''\) 上有定义.
+现设
+\[
+  (a,b,c,d)\in R(S'').
+\]
+须证明 \((a,b,c,d)\in\Gamma(S'')\).
+这可以局部地验证, 例如对于平展拓扑局部地验证.
+因此可设 \(S''\) 严格局部, 即它是一个剩余域可分闭的 Hensel 环的谱.
+此外, 应用\SGARefLink{sga3:xviii:prop:1.6}{1.6} 以及通常的过渡到极限的论证,
+可归结到 \(S\) 严格局部且 \(S''\to S\) 为局部态射的情形.
+
+设存在截面 \(x\in X(S)\), 使在 \(S''\) 上乘积 \((xa)b\) 和 \((xc)d\) 有定义.
+这蕴含
+\[
+  (xc)^{-1}\bigl((xa)b\bigr)
+\]
+有定义且等于 \(d\).
+现有 \(X^3\) 的一个相对概形稠密的开子集 \(V\),
+使 \((xc)^{-1}((xa)b)\) 有定义当且仅当 \((a,b,c)\in V(S'')\), 且 \(V\subseteq U\).
+所以, 若存在这样的 \(x\), 则 \((a,b,c,d)\in\Gamma(S'')\).
+由\SGARefLink{sga3:xviii:prop:1.6}{1.6},
+为找到这样的 \(x\), 可以作 fppf 覆盖基变换 \(S'\to S\).
+由于 \(S\) 严格局部, 可以找到\begingroup
+\renewcommand{\thefootnote}{*}\footnote{结合第 VI\textsubscript{A} 讲, 1.1.1
+与 EGA IV\textsubscript{4}, 17.16.2.}
+\addtocounter{footnote}{-1}
+\endgroup{} 一个忠实平坦的有限局部态射 \(S'\to S\),
+以及一个经过 \(X/S\) 的闭纤维上任意指定闭点的截面 \(x\in X(S')\).
+\((xa)b\) 与 \((xc)d\) 有定义意味着:
+在 \(S''\) 上, \(x\) 落在某个相对概形稠密的开子集中;
+这可以在 \(X_{S''}\) 的闭纤维上验证. 因此所需截面存在.
+\end{proof}
+
+现在令 \(G\) 为 \(X^2\) 对 \(R\) 的商, 将它视为 fppf 拓扑下的层.
+在 \(G\) 上如下定义合成律. 设
+\[
+  (g,g')\in G(S')
+\]
+由截面
+\[
+  ((a,b),(c,d))\in (X^2\times_S X^2)(S'')
+\]
+表示, 其中 \(S''\to S'\) 为 fppf 覆盖.
+再设存在截面 \(x\in X(S'')\), 使 \(a(b(cx))\) 及 \(x^{-1}d\) 有定义;
+规则 1 及\SGARefLink{sga3:xviii:prop:1.7}{1.7} 保证可以如此选取.
+定义 \(gg'\) 为 \(G(S')\) 中由截面
+\[
+  \bigl(a(b(cx)),x^{-1}d\bigr)\in X^2(S'')
+\]
+表示的类.
+
+验证 \(gg'\) 与截面 \(x\) 及代表元 \(((a,b),(c,d))\) 的选取无关.
+设
+\[
+  (a',b')\sim(a,b),\qquad (c',d')\sim(c,d),
+\]
+并设 \(x'\) 使 \(a'(b'(c'x'))\) 与 \({x'}^{-1}d'\) 有定义.
+可设这些都是 \(S''\) 上的截面. 须证明
+\[
+  \bigl(a(b(cx)),x^{-1}d\bigr)
+  \sim
+  \bigl(a'(b'(c'x')),{x'}^{-1}d'\bigr);
+\]
+即对一个适当的 fppf 覆盖 \(S'''\to S''\)
+及适当的截面 \(z\in X(S''')\), 必须有
+\[
+ \bigl(z(a(b(cx)))\bigr)(x^{-1}d)
+ =
+ \bigl(z(a'(b'(c'x')))\bigr)({x'}^{-1}d').
+\]
+只要涉及的所有乘积都有定义, 就有
+\[
+\begin{aligned}
+ \bigl(z(a(b(cx)))\bigr)(x^{-1}d)
+ &=\bigl((za)(b(cx))\bigr)(x^{-1}d)\\
+ &=\bigl(((za)b)(cx)\bigr)(x^{-1}d)\\
+ &=\bigl((((za)b)c)x\bigr)(x^{-1}d)\\
+ &=\bigl(((za)b)c\bigr)\bigl(x(x^{-1}d)\bigr)\\
+ &=\bigl(((za)b)c\bigr)d,
+\end{aligned}
+\]
+加上撇号后也有同样的等式.
+由规则 1 及\SGARefLink{sga3:xviii:prop:1.7}{1.7}, 这样的 \(z\) 存在.
+所以只须证明
+\[
+  \bigl(((za)b)c\bigr)d
+  =
+  \bigl(((za')b')c'\bigr)d'.
+\]
+但由\SGARefLink{sga3:xviii:lemma:3.3}{3.3},
+因 \((a,b)\sim(a',b')\), 有 \((za)b=(za')b'\);
+所需等式于是由 \((c,d)\sim(c',d')\) 得到.
+
+考虑自然态射
+\[
+  i\colon X\longrightarrow G,
+\]
+如下定义它: 对 \(a\in X(S')\), 选取一个 fppf 覆盖 \(S''\to S'\)
+及一个截面 \(b\in X(S'')\), 使 \(ab^{-1}\) 有定义, 并置
+\[
+  i(a)=\text{\(G\) 中 }\bigl(ab^{-1},b\bigr)\text{ 的类}.
+\]
+容易验证, 此类虽然先验地属于 \(G(S'')\),
+却与 \(b\) 的选取无关, 从而定义 \(G(S')\) 中一个完全确定的元素.
+
+读者可以自行验证下列命题.
+
+\SGARefTarget{sga3:xviii:prop:3.6}\paragraph{\SGARefLink{sga3:xviii:prop:3.6}{命题 3.6}.}
+\textit{态射 \(i\) 与 \(X\) 及 \(G\) 上的合成律相容.
+换言之, 若 \(a,b\in X(S')\) 为使 \(ab\) 有定义的截面, 则
+\[
+  i(a)i(b)=i(ab).
+\]}
+
+本节的目标是下列定理.
+
+\SGARefTarget{sga3:xviii:thm:3.7}\paragraph{\SGARefLink{sga3:xviii:thm:3.7}{定理 3.7}.}
+\footnote{编者注: 若 \(X\) 在 \(S\) 上光滑且分离,
+在 \(S\) 上忠实平坦且有限表现,
+则 \(G/S\) 可由一个在 \(S\) 上有限型的光滑 \(S\)-群概形表示.
+这是 Bosch--Lütkebohmert--Raynaud, \emph{Néron Models}, Springer (1990) 的定理 6.6.1.}
+\textit{设 \((X,W)\) 为 \(S\) 上的群芽,
+\(X/S\) 忠实平坦且有限表现, 其纤维分离且无嵌入分支.
+沿用上述记号:}
+\begin{enumerate}
+\item[\SGAInlineRefTarget{sga3:xviii:thm:3.7:item:i}(i)] \textit{\(G\) 为群层.}
+\item[(ii)] \textit{\(i\colon X\to G\) 可由一个开浸入表示.}
+\item[\SGAInlineRefTarget{sga3:xviii:theorem:3-7:item:iii}\SGAInlineRefTarget{sga3:xviii:thm:3.7:item:iii}(iii)]
+\textit{\(G\) 在 \(S\) 上 fppf 局部可表示.}
+\item[\SGAInlineRefTarget{sga3:xviii:thm:3.7:item:iv}(iv)] \textit{若 \(G/S\) 可表示,
+则它是有限表现的平坦群, 且 \(i\colon X\to G\) 相对于 \(S\) 概形稠密.}
+\end{enumerate}
+
+注意, \(G\) 显然由性质\textup{\SGARefLink{sga3:xviii:thm:3.7:item:i}{(i)}}--\textup{\SGARefLink{sga3:xviii:thm:3.7:item:iv}{(iv)}}
+刻画; 因而可以不再考虑它的具体构造.
+
+证明分为若干阶段.
+
+\SGARefTarget{sga3:xviii:lemma:3.8}\paragraph{\SGARefLink{sga3:xviii:lemma:3.8}{引理 3.8}.}
+\begin{enumerate}
+\item[\SGAInlineRefTarget{sga3:xviii:lemma:3.8:item:i}(i)] \textit{设 \(c\) 为 \(X(S)\) 的截面.
+则从与 \(X\) 在 \(S\) 上同构的预概形 \(c\times X\) 到 \(G\) 的态射
+\[
+  c\times X\lhook\joinrel\longrightarrow X\times X
+  \longrightarrow G
+\]
+为单态射.}
+
+\item[\SGAInlineRefTarget{sga3:xviii:lemma:3.8:item:ii}(ii)] \textit{设 \(\{c_i\}_{i\in I}\)
+为 \(X(S)\) 的截面, 置
+\[
+  Z=\coprod_i c_i\times X,
+\]
+以 \(R'\rightrightarrows Z\) 表示由显然态射 \(Z\to X^2\) 在 \(Z\) 上诱导的等价关系.
+则 \(R'\) 是各个 \(c_i\times X\simeq X\) 的一个“粘合”.}
+\end{enumerate}
+
+\begin{proof}
+\textup{\SGARefLink{sga3:xviii:lemma:3.8:item:i}{(i)}}
+要使 \((c,a)\) 与 \((c,a')\) 这两个 \((c\times X)(S')\) 的截面
+在 \(G\) 中有相同的像,
+必须有 \((c,a)\sim(c,a')\);
+即对一个适当的截面 \(x\in X(S'')\), 其中 \(S''\to S'\) 为 fppf 覆盖, 有
+\[
+  (xc)a=(xc)a'
+\]
+\begingroup
+\renewcommand{\thefootnote}{\ensuremath{\dagger}}\footnote{法文源在这两个 \(X\) 的截面之间印作 \(\sim\).
+相等才是定义关系的条件, 也是下文应用规则 3 所要求的.}
+\addtocounter{footnote}{-1}
+\endgroup.
+由规则 3 可得 \(a=a'\).
+
+\textup{\SGARefLink{sga3:xviii:lemma:3.8:item:ii}{(ii)}}
+设 \(c_i,c_j\) 为两个截面, 考虑 \(S\) 上 \(X\) 的双有理自映射 \(\psi_{ji}\), 由
+\[
+  x\longmapsto c_j^{-1}(c_i x)
+\]
+给出.
+\begingroup
+\renewcommand{\thefootnote}{\ensuremath{\ddagger}}\footnote{法文源引入此映射时记为 \(\psi_{ji}\),
+其后却称为 \(\varphi_{ji}\). 此处统一使用 \(\psi_{ji}\).}
+\addtocounter{footnote}{-1}
+\endgroup
+对 \(y\in X(S)\), 容易看出这与映射
+\[
+  x\longmapsto (yc_j)^{-1}\bigl((yc_i)x\bigr)
+\]
+相同.
+此外, \(\psi_{ji}\) 在截面 \(b\in X(S')\) 处有定义,
+当且仅当存在截面 \(b'\), 使
+\[
+  (c_i,b)\sim(c_j,b'),
+\]
+且此时 \(b'=\psi_{ji}(b)\).
+设 \(U_{ji}\) 为 \(\psi_{ji}\) 在 \(S\) 上的定义域.
+只须证明此定义域是普遍的:
+若 \(b\in X(S'')\), 其中 \(S''\to S\) 任意,
+且 \(\psi_{ji}\) 在 \(b\) 处有定义, 则 \(b\in U_{ji}(S'')\).
+等价地, 须证明若 \(b,b'\in X(S'')\) 满足
+\[
+  (c_i,b)\sim(c_j,b'),
+\]
+则 \(b\in U_{ji}(S'')\).
+此事实的验证与\SGARefLink{sga3:xviii:prop:3.5}{3.5} 类似, 留给读者.
+\end{proof}
+
+% 来源: XVIII.tex 第 1315--1589 行.
+\SGARefTarget{sga3:xviii:lemma:3.9}\paragraph{\SGARefLink{sga3:xviii:lemma:3.9}{引理 3.9}.}
+\textit{设 \(\{c_i\}_{i\in I}\) 为 \(X(S)\) 的截面, 使
+\[
+  \coprod_i c_i\times X\longrightarrow G
+\]
+作为层态射为满射.
+则 \(G\) 可表示, 且在 \(S\) 上平坦并有限表现, 而结构态射
+\[
+  X^2\longrightarrow G
+\]
+平坦且有限表现.}
+
+\begin{proof}
+\(G\) 的可表示性直接由\SGARefLink{sga3:xviii:lemma:3.8}{引理 3.8} 得到,
+并且可知
+\[
+  \coprod_i c_i\times X\longrightarrow G
+\]
+为开覆盖. 要证明 \(X^2\to G\) 平坦, 只须局部地证明,
+因而只须证明有理映射
+\[
+  X^2\dashrightarrow c_i\times X
+\]
+在其定义域上诱导平坦态射. 此有理映射由
+\[
+  (a,b)\longmapsto
+  \bigl(c_i,\bigl((xc_i)^{-1}(xa)\bigr)b\bigr)
+\]
+给出, 其中 \(x\) 为任意截面.
+若它在 \((a,b)\in X^2(S')\) 处有定义,
+则可找到一个 fppf 覆盖 \(S''\to S'\) 及截面 \(x\in X(S'')\),
+使 \(\bigl((xc_i)^{-1}(xa)\bigr)b\) 有定义.
+这时容易看出此态射平坦. 同样论证表明它局部有限表现, 因而为 fppf 覆盖.
+
+由构造, 关系 \(R\) 是有效的.
+因此\SGARefLink{sga3:xviii:prop:3.5}{命题 3.5} 表明,
+\(X^2\to G\) 在 fppf 覆盖基变换 \(G\leftarrow X^2\) 后成为有限表现态射.
+所以 \(X^2\to G\) 有限表现.
+
+证明 \(G\to S\) 平坦且有限表现.
+它平坦且局部有限表现, 因为各个 \(c_i\times X\simeq X\) 覆盖 \(G\).
+此外, \(X^2/S\) 拟紧, 且 \(X^2\to G\) 满射, 所以 \(G/S\) 拟紧.
+为证明 \(G\to S\) 拟分离, 注意下列笛卡儿图:
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+  R \arrow[r,"\alpha"] \arrow[d,"\gamma"'] &
+  X^2\times_S X^2 \arrow[d,"\beta"]\\
+  G \arrow[r,"\Delta"] & G\times_S G.
+\end{tikzcd}
+\]
+此处 \(\gamma\) 满射, 且 \(\alpha,\beta\) 拟紧.
+故 \(\beta\alpha\) 拟紧, 从而 \(\Delta\) 也拟紧.
+\footnote{编者注: 此处也可由忠实平坦下降
+\textup{(EGA IV\textsubscript{2}, 2.7.1)} 得到结论, 因为 \(\beta\) 为 fppf 覆盖.}
+\end{proof}
+
+\SGARefTarget{sga3:xviii:lemma:3.10}\paragraph{\SGARefLink{sga3:xviii:lemma:3.10}{引理 3.10}.}
+\textit{设 \(\{c_i\}_{i\in I}\) 为 \(X(S)\) 的截面.
+要使
+\[
+  \coprod_i c_i\times X\longrightarrow G
+\]
+作为 fppf 层态射为满射, 只须下述条件成立:
+对每个 \(S'\to S\) 及每个 \((a,b)\in X^2(S')\),
+存在 \(S'\) 的一个开覆盖 \(\{S'_\nu\}_{\nu\in N}\) 及一个函数
+\[
+  N\longrightarrow I,\qquad \nu\longmapsto i(\nu),
+\]
+使 \(\bigl(c_{i(\nu)}^{-1}a\bigr)b\) 在 \(S'_\nu\) 上有定义.}
+
+\begin{proof}
+设 \(S''\to S\) 任意, \(g\in G(S'')\).
+选取一个 fppf 覆盖 \(S'\to S''\) 及一个表示 \(g\) 的截面 \((a,b)\in X^2(S')\).
+取假设提供的开覆盖 \(\{S'_\nu\}\). 在每个 \(S'_\nu\) 上都有
+\[
+  (a,b)\sim
+  \bigl(c_{i(\nu)},\bigl(c_{i(\nu)}^{-1}a\bigr)b\bigr).
+\]
+所以, 在 \(S'_\nu\) 上局部地, 元素 \(g\) 由 \(c_{i(\nu)}\times X\) 的一个截面表示.
+由于族 \(\{S'_\nu\to S''\}\) 为 fppf 覆盖, 所需满射性随之得到.
+\end{proof}
+
+\SGARefTarget{sga3:xviii:lemma:3.11}\paragraph{\SGARefLink{sga3:xviii:lemma:3.11}{引理 3.11}.}
+\textit{设 \(Y/S\) 为有限表现的预概形, \(\{a_i\}_{i\in I}\) 为 \(Y(S)\) 的截面.
+设 \(s_0,s_1\) 为 \(S\) 的点, 且 \(s_0\) 为 \(s_1\) 的特殊化,
+\(Y_j\) 为 \(Y/S\) 在 \(s_j\) 上的纤维.
+设 \(C_j\) 为点集 \(\{a_i(s_j)\}_{i\in I}\) 在 \(Y_j\) 中的闭包. 则
+\[
+  \dim C_1\geq \dim C_0.
+\]}
+
+\begin{proof}
+只须在一个基变换 \(S'\to S\) 后,
+连同选定的点 \(s'_0,s'_1\), 使 \(s'_j\mapsto s_j\)
+且 \(s'_0\) 为 \(s'_1\) 的特殊化, 验证断言.
+由 EGA II, 7.1.4, 因而归结到如下情形:
+\(S\) 为赋值环 \(A\) 的谱, \(s_0\) 为其闭点, \(s_1\) 为其一般点.
+
+设 \(V\) 为 \(C_1\) 在 \(Y\) 中的闭包. 显然 \(C_0\subseteq V\).
+因此引理是下述“熟知”事实的特例:
+有限表现的预概形 \(Y/S\) 的一个不可约闭子预概形 \(V\) 满足
+\[
+  \dim(V\times_S s_1)\geq \dim(V\times_S s_0),
+\]
+只要 \(S\) 为赋值环的谱, 且 \(V\times_S s_1\neq\varnothing\)
+(EGA IV, 13.1.6).
+\end{proof}
+
+\SGARefTarget{sga3:xviii:lemma:3.12}\paragraph{\SGARefLink{sga3:xviii:lemma:3.12}{引理 3.12}.}
+\textit{设 \(S\) 为局部环的谱, 其闭点为 \(s_0\),
+\(\{c_i\}_{i\in I}\) 为一些截面,
+使集合 \(\{c_i(s_0)\}_{i\in I}\) 在闭纤维 \(X_0\) 中的闭包 \(C_0\) 的维数满足
+\[
+  \dim C_0=\dim X_0=n.
+\]
+则\SGARefLink{sga3:xviii:lemma:3.9}{引理 3.9} 的条件成立.}
+
+\begin{proof}
+先注意 \(X/S\) 的所有纤维具有相同的维数.
+这由 EGA IV, 12.1.1(i), 及 \(X\) 有一个有理合成律这一事实得到.
+因此引理 3.11 蕴含: 对每个态射 \(S_1\to S\), 其中 \(S_1\) 为域的谱,
+\(\{c_i\times_S S_1\}_{i\in I}\) 在 \(X_{S_1}\) 中的闭包的维数为 \(n\).
+
+验证\SGARefLink{sga3:xviii:lemma:3.10}{引理 3.10} 的条件.
+设 \((a,b)\in X^2(S')\).
+\((c_i^{-1}a)b\) 有定义的充要条件是:
+\(c_i\) 落在某个相对于 \(S'\) 概形稠密的开子集 \(U\subseteq X_{S'}\) 中 (规则 1).
+须说明, 在 \(S'\) 上局部地, 这对适当的 \(i\) 成立.
+因此只须处理 \(S'\) 为局部环的谱的情形;
+这时 \(c_i\) 属于 \(U(S')\) 可在闭纤维上验证.
+于是归结到 \(S'=\operatorname{Spec}k\), 其中 \(k\) 为域的情形.
+
+沿用上述记号, 取 \(S'=S_1\). 则
+\[
+  \dim C_1=\dim X_{S_1},
+\]
+且 \(U\) 在 \(X_{S_1}\) 中相对概形稠密.
+故 \(U\cap C_1\neq\varnothing\), 所以
+\[
+  U\cap\{c_i\times_S S_1\}_{i\in I}\neq\varnothing.
+\]
+这就证明了断言.
+\end{proof}
+
+\noindent\textit{\SGARefLink{sga3:xviii:thm:3.7}{定理 3.7} 的证明.}
+证明现在容易完成.
+先注意\SGARefLink{sga3:xviii:lemma:3.9}{引理 3.9} 中有限性断言的下述推论.
+设 \(\{A_i\}\) 为 \(S\) 上环的有向系, 置
+\[
+  \widetilde A=\varinjlim_i A_i,
+\]
+并设\SGARefLink{sga3:xviii:lemma:3.9}{引理 3.9} 的假设在 \(S=\operatorname{Spec}\widetilde A\)
+上成立. 则表示
+\[
+  R\rightrightarrows X^2
+\]
+的商 \(G\) 的对象, 连同引理 3.9 中所述的有限性及平坦性性质,
+一起下降到某个 \(S_i=\operatorname{Spec}A_i\).
+这是通常的过渡到极限 (EGA IV, 8 及 11).
+
+因此, 在证明\SGARefLink{sga3:xviii:theorem:3-7:item:iii}{定理 3.7(iii)}
+及\SGARefLink{sga3:xviii:thm:3.7:item:iv}{(iv)} 时, 可以只考虑
+\[
+  S=\operatorname{Spec}A
+\]
+的情形, 其中 \(A\) 为严格局部环.
+设 \(x_0\) 为 \(X/S\) 的闭纤维 \(X_0\) 的一个闭点.
+存在\begingroup
+\renewcommand{\thefootnote}{\ensuremath{\ast}}\footnote{参见第 VII 讲第 15 页的脚注.}
+\addtocounter{footnote}{-1}
+\endgroup{} \(A\) 的一个局部有限自由扩张 \(A'\), 以及
+\[
+  X'=X\times_S S'
+\]
+的一个截面, 经过 \(X'\) 中位于 \(x_0\) 之上的唯一点 \(x'_0\).
+注意, \(X'_0\to X_0\) 根式, 因为 \(S\) 严格局部,
+从而 \(A\) 的剩余域可分闭.
+
+因此存在局部环的一个有向系 \(\{A_i\}\), 各环在 \(A\) 上平坦且有限,
+使得置
+\[
+  \widetilde A=\varinjlim_i A_i,\qquad
+  \widetilde X=X\times_S\operatorname{Spec}\widetilde A
+\]
+后, 预概形 \(\widetilde X\) 有一组截面,
+它们在其闭纤维 \(\widetilde X_0\) 上诱导一个稠密集.
+事实上, 对 \(X_0\) 的每个闭点 \(x_0\),
+选取一个扩张 \(A(x_0)\), 使 \(X\) 的相应基变换有一个“经过 \(x_0\)”的截面,
+并以各 \(A(x_0)\) 的有限张量积作为所需有向系.
+注意, \(\widetilde A\) 为局部环, 因为它是局部环的正向极限.
+所以\SGARefLink{sga3:xviii:lemma:3.12}{引理 3.12}
+及\SGARefLink{sga3:xviii:lemma:3.10}{3.10}
+给出 \(\operatorname{Spec}\widetilde A\) 上的商 \(G\),
+从而由上述说明得到某个 \(\operatorname{Spec}A_i\) 上的商, 因而得到 fppf 局部的商.
+
+事实上, 由这些构造可知, 在 fppf 局部能够找到有限个截面
+\(\{c_i\}\), \(i=1,\ldots,r\), 使 \(G\) 被各个 \(c_i\times X\) 覆盖.
+断言\SGARefLink{sga3:xviii:lemma:3.8:item:ii}{(ii)}
+及\SGARefLink{sga3:xviii:thm:3.7:item:iv}{(iv)}
+容易由此事实得到, 而\SGARefLink{sga3:xviii:lemma:3.8:item:i}{(i)} 的验证留给读者.
+
+\SGARefTarget{sga3:xviii:corollary:3.13}\paragraph{\SGARefLink{sga3:xviii:corollary:3.13}{推论 3.13}.}
+\textit{由 \(S\) 上的群芽 \((X,W)\) 所确定的群层 \(G\)
+在下列每一种情形中都可表示:}
+\begingroup
+\renewcommand{\labelenumi}{\textup{(\roman{enumi})}}
+\begin{enumerate}
+\item \textit{\(S\) 为 Artin 概形.}
+\item \textit{对 \(S\) 的闭点 \(s\) 上的每个局部概形 \(S'\to S\),
+概形 \(X_{S'}\) 有一组截面,
+它们在闭纤维上的限制所成的集合的闭包具有维数 \(\dim X_s\).}
+\item\SGAInlineRefTarget{sga3:xviii:corollary:3-13:item:iii}
+\textit{\(S\) 严格局部且 \(X/S\) 光滑.}
+\item \textit{存在 fppf 覆盖 \(S'\to S\),
+使 \(G_{S'}\) 可表示且在 \(S\) 上仿射.}
+\end{enumerate}
+\endgroup
+
+事实上, \SGARefLink{sga3:xviii:lemma:3.8:item:ii}{(ii)}
+由\SGARefLink{sga3:xviii:lemma:3.10}{引理 3.10} 及\SGARefLink{sga3:xviii:lemma:3.12}{3.12} 得到;
+\SGARefLink{sga3:xviii:thm:3.7:item:iii}{(iii)}
+直接由\SGARefLink{sga3:xviii:lemma:3.8:item:ii}{(ii)} 及 Hensel 引理得到;
+\SGARefLink{sga3:xviii:thm:3.7:item:iv}{(iv)} 由仿射概形的下降得到;
+而\SGARefLink{sga3:xviii:lemma:3.8:item:i}{(i)} 由群概形的下降得到,
+此处能够下降, 因为已知域上群中的任意有限子集都包含在一个仿射开子集中 (第 VI 讲).
+
+\SGARefTarget{sga3:xviii:bibliography}
+\begin{thebibliography}{9}
+\bibitem{Weil1948}
+A.~Weil,
+\emph{Variétés abéliennes et courbes algébriques},
+Hermann, Paris, 1948.
+
+\bibitem{Yanagihara1963}
+H.~Yanagihara,
+\emph{Reduction of group varieties and transformation spaces},
+Journ. Sci. Hiroshima Univ., Ser. A-I, vol.~27, no.~1,
+1963 年 6 月.
+\end{thebibliography}
