@@ -1,5 +1,11 @@
-# FGA checkpoint — 2026-10-21
+# FGA 全八篇初稿检查点
 
-Executor availability was confirmed by successful filesystem/Git checks after the transient notification. Source commit: e76d5fc9c6f38bfa611da5d1b684b622f60e379c. Main already contains coordinator map commit aedf376fdc26845487c936b0a733ece7f4e3c640.
+本检查点将原先前言与报告1 §§1–2的七页种子扩展为八篇报告完整中文工作稿。既有内容保留并按已记录法文证据订正；历史七页版本仍在Git记录中。
 
-Recovered all nine missing native English body inputs, from upstream build e54d0e175da6537d24305835fc2e300a813d0725 tied to main 9976dd5f8e2ddcb388f0a07f3aa334f120d1019f; all 127 vendored .tree blobs match. English baseline compiles to 148 pages after isolated bibliography repairs. Chinese draft includes full Foreword, Report 1 introduction and §§1–2, with original statements/proof and equations through (2.7). Multi-pass Chinese build produced seven pages, zero unresolved refs/missing glyphs/font substitutions. Final build warnings: expected BibTeX backend notice and a 0.16762 pt bibliography overfull box; no header-height warnings remain. The standalone source also compiled and its extracted text matches the modular PDF byte-for-byte. No independent mathematical review yet. Remaining Report 1 §§3–8 and Reports 2/3.I–VI are untranslated. No source book or pre-existing Chinese translation changed.
+全部正文为原生可编辑LaTeX，无源PDF页图、扫描覆盖、摘要替代正文或英文整章占位。59个原英文正文proof环境及原标签保留。源文的略证、延后证明也如实保留，未补造。结构保全不等于数学认证。
+
+来源固定提交/散列见SOURCE_LOCK.json，实际叶子冻结散列见source/reviews/translated-leaf-freeze.json。报告1经过有明确范围的独立法文审查，其余各篇有作者源文核对与隔离编译记录；全书独立数学通校尚未完成。来源本身疑点、未定位脚注和校改均保留记录。
+
+PDF、单文件TeX、源码ZIP及实际检查状态以PROGRESS.json为准，不构成最终审定声明。
+
+项目已按用户指令暂停。不新增内容或审校，不自动续写；恢复须另有明确指令。

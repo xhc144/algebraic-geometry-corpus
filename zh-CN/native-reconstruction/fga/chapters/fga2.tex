@@ -1,0 +1,328 @@
+\part{形式几何与代数几何}\label{fga2}\thispagestyle{fancy}
+\begin{original}{}\label{fga2-original-citation}\skipsinglepar
+\par{}A. Grothendieck。"Géométrie formelle et géométrie algébrique"。\emph{Séminaire Bourbaki} \textbf{11}（1958–59），第 182 次报告，1959 年 5 月。\url{http://www.numdam.org/book-part/SB_1958-1960__5__193_0/}\end{original}
+\par{}\cref{fga2-1}至\cref{fga2-5}的主要内容已收入 [\hyperref[GD1960]{GD1960}, III] 的已出版部分；\cref{fga2-6}与\cref{fga2-7}的内容见 [\hyperref[Gro1960b]{Gro1960b}, III]。关于基本群的研究，见 [\hyperref[Gro1960b]{Gro1960b}, V, IX, X, XI]；关于 Lefschetz 型定理以及许多尚未解决的问题，另见 [\emph{SGA 1962}, X, XII, XIII]。只有温和分歧覆盖理论（参见\hyperref[fga2-theorem-14]{定理~\ref*{fga2-theorem-14}}）尚未有正式成文的论述。\hyperref[fga2-theorem-14-corollary-1]{定理 14 的推论}完全确定了代数闭域上代数曲线的、次数与特征互素的 Galois 覆盖，已有三项工作实质性地使用了这一推论：
+\begin{enumerate}\item{}Igusa 对任意特征下非奇异射影曲面的 Picard 不等式的证明；
+
+    \item{}Ogg 与 Šafarevič 各自独立进行的研究：在任意特征下，对一变元函数域上定义的 Abel 簇，研究其主齐性丛所成的群；以及
+
+    \item{}Artin 最近对代数簇的“Weil 上同调”的若干关键定理所作的证明。\end{enumerate}
+\chapter{概形}\thispagestyle{fancy}\label{fga2-1}
+\par{}我们知道，域 \(k\) 上定义的仿射代数空间本质上由它的仿射代数 \(A\)（定义在 \(k\) 上的正则函数所成的环）决定，而代数空间的态射 \(X\to  Y\) 与 \(k\)-代数同态 \(A(Y)\to  A(X)\) 一一对应。与代数空间对应的仿射代数是有限型 \(k\)-代数，并且在“经典”观点下不含幂零元；反过来，每个这样的代数都可实现为 \(k\) 上某个代数空间的仿射代数。因此，已有一套熟悉的对应，可以把仿射代数空间的问题解释为交换代数的问题。人们早已注意到，这样所得的陈述更为一般，因为通常不必要求所考虑的环具有刚才所述的形式，大多数情况下只需 Noether 条件。尤其是，无论是否给定了基域，都不必排除环中含有幂零元的情形。可是，直到现在，几何学家仍不愿接受这一信息，坚持只考虑不含幂零元的仿射代数，也就是结构层中不含幂零元的代数空间，甚至大多数时候只考虑“绝对不可约”的代数空间。报告人认为，这种态度严重阻碍了代数几何中真正自然的方法的发展。
+\par{}设 \(A\) 为交换环。众所周知，\(A\) 的素理想集合 \(X=\operatorname {Spec}(A)\) 带有一个自然的拓扑，即“\emph{Zariski 拓扑}”，也称谱拓扑。此外，\(X\) 上有交换环层 \(\mathcal {O}_X\)，其在 \(\mathfrak {p}\in  X\) 处的茎为局部化环 \(A_\mathfrak {p}\)，其截面环可与 \(A\) 等同。这样，\(X\) 就成为\emph{赋环空间}，称为 \(A\) 的\emph{素谱}。环同态 \(f\colon  A\to  B\) 定义一个赋环空间的态射 \(f'\colon \operatorname {Spec}(B)\to \operatorname {Spec}(A)\)，其底层集合映射恰为 \(\mathfrak {p}\mapsto  f^{-1}(\mathfrak {p})\)。这样得到的赋环空间态射 \(\operatorname {Spec}(B)\to \operatorname {Spec}(A)\)，恰好是那些使同态 \(\mathcal {O}_x\to \mathcal {O}_y\)（其中 \(x=f'(y)\)）为局部同态的态射，也就是说，极大理想的原像是极大理想。
+\par{}我们把同构于某个 \(\operatorname {Spec}(A)\) 的赋环空间称为\emph{仿射概形}；把局部仿射的赋环空间称为\emph{预概形}，也就是说，每一点都有一个开邻域，在诱导的结构下是仿射概形。预概形的\emph{态射}可按显然的方式定义；在局部，它们对应于环同态。
+\par{}固定一个预概形 \(S\)，并考虑预概形态射 \(X\to  S\) 时，\(S\) 起着基域或基环的作用，或者更恰当地说，起着纤维化中的底空间的作用。此时称 \(X\) 为\emph{\(S\)-预概形}；若 \(S=\operatorname {Spec}(A)\)，则还意味着 \(\mathcal {O}_X\) 是一个\emph{\(A\)-代数}层。因此，每个预概形都可唯一地视为 \(\mathbb {Z}\)-预概形。当然，\(S\)-预概形组成一个范畴；还可证明，在这个范畴中，任意两个对象 \(X\) 与 \(Y\) 的积总是存在，记为 \(X\times _S Y\)。这一积的概念使我们能够对态射 \(S'\to  S\) 定义 \(S\)-预概形的\emph{基变换}，因为 \(X\times _S S'\) 可视为 \(S'\)-预概形。
+\par{}若 \(X\times _S X\) 的对角线是闭的，就称 \(X\) 在 \(S\) 上是\emph{分离}的。我们把在 \(\mathbb {Z}\) 上分离的预概形称为\emph{概形}；此时，它在任意底上都分离。为简便起见，以下只谈概形，并进一步假定它们是\emph{Noether}的，也就是说，可写成有限个仿射开集的并，而这些仿射开集是 Noether 环的谱。如果对 \(S\) 的每个仿射开子集 \(U\)，它在 \(X\) 中的原像都是有限个仿射开集的并，且各自的环是 \(U\) 的环上的有限型代数，就称 \(X\) 在 \(S\) 上\emph{为有限型}。正是这样的 \(S\)-概形适于作真正的几何研究。特别地，对每个 \(s\in  S\)，\(X\) 在 \(s\) 上的纤维 \(f^{-1}(s)\) 是局部环 \(\mathcal {O}_s\)（即 \(S\) 中点 \(s\) 的局部环）的剩余域 \(k(s)\) 上的代数概形。因此，在一定程度上，可把 \(X\) 看成一族“代数空间”\(f^{-1}(s)\)，其参数 \(s\) 遍历 \(S\)，也就是在局部观点下遍历某个给定环的素理想集合。当然，各个 \(k(s)\) 可以具有不同的特征。若 \(S=\operatorname {Spec}(k)\)，其中 \(k\) 为域，就基本恢复了通常的“代数空间”概念，唯一的区别是现在允许结构层含有幂零元。
+\par{}受熟知的思想启发，我们可以定义\emph{射影态射}，并进一步定义\emph{固有态射}。这样的态射是有限型的，把闭子集映为闭子集，并且在任意基变换后仍保持这一性质。
+\par{}设 \(X\) 为概形（仍一律假定为 Noether 概形），则层 \(\mathcal {O}_X\) 是 \hyperref[Gro1960]{[Gro1960]} 意义下的\emph{凝聚环层}。因此，\(X\) 上的凝聚模层也恰好是那些局部同构于某个态射 \(\mathcal {O}_X^m\to \mathcal {O}_X^n\) 的余核的层。
+\chapter{形式概形}\thispagestyle{fancy}\label{fga2-2}
+\par{}设 \(X\) 为概形，\(X'\) 为 \(X\) 的闭子集。则存在 \(\mathcal {O}_X\) 的凝聚子层 \(\mathscr {J}\)，使得 \(X'=\operatorname {supp}\mathcal {O}_X/\mathscr {J}\)，甚至存在最大的这种子层。给 \(X'\) 配备层 \(\mathcal {O}_X/\mathscr {J}\)，便使 \(X'\) 成为一个概形，记为 \(X_0\)；这样的概形称为\emph{\(X\) 的闭子概形}。此外，对任意 \(n\)，可考虑配备了 \(\mathcal {O}_X/\mathscr {J}^{n+1}\) 的 \(X'\)，记为 \(X_n\)。这是 \(X\) 的闭子预概形，其底层集合仍为 \(X'\)，但结构层不同，为 \(\mathcal {O}_{X_n}=\mathcal {O}_X/\mathscr {J}^{n+1}\)。显然，各个 \(\mathcal {O}_{X_n}\) 构成 \(X\) 上环层的射影系，其射影极限 \(\overline {\mathcal {O}_X}\) 称为\emph{\(\mathcal {O}_X\) 沿 \(X'\) 的形式完备化}。赋予这一环层后，\(X'\) 称为\emph{\(X\) 沿 \(X'\) 的形式完备化}；它因而是赋环空间，但通常不是概形。对 \(X\) 上任意凝聚层 \(\mathscr {F}\)，同样可考虑 \(\mathscr {F}\) 沿 \(X'\) 的形式完备化 \(\overline {\mathscr {F}}=\varprojlim _n\mathscr {F}_n\)（其中 \(\mathscr {F}_n=\mathscr {F}\otimes _{\mathcal {O}_X}\mathcal {O}_X/\mathscr {J}^{n+1}\)）；这是 \(\overline {X}\) 上的模层。它的截面称为\emph{\(\mathscr {F}\) 沿 \(X'\) 的形式截面}，可与 \(\varprojlim _n\Gamma (X',\mathscr {F}_n)\) 的元素等同。取 \(\mathscr {F}=\mathcal {O}_X\) 时，便得到 Zariski 所谓 \(X\) 沿 \(X'\) 的“全纯函数”；由于这一用语与经典术语相混，我们不沿用它。
+\par{}所谓\emph{形式概形}（默认满足 Noether 条件），是指一个拓扑空间 \(\mathfrak {X}\)，配备拓扑环层 \(\mathcal {O}_{\mathfrak {X}}\)，并满足下述条件：有拓扑环层的同构 \(\mathcal {O}_{\mathfrak {X}}=\varprojlim _n\mathcal {O}_n\)，其中各个 \(\mathcal {O}_n\) 构成 \(\mathfrak {X}\) 上环层的射影系，每一个都使 \(\mathfrak {X}\) 成为概形 \(\mathfrak {X}_n\)；对 \(m\geqslant  n\)，同态 \(\mathcal {O}_m\to \mathcal {O}_n\) 是满射，核为 \(\mathscr {J}_m^{n+1}\)，这里 \(\mathscr {J}_m\) 是 \(\mathcal {O}_m\to \mathcal {O}_0\) 的核。我们将证明，\(\mathcal {O}_{\mathfrak {X}}\) 是\emph{Noether 局部环}的\emph{凝聚}层。
+\par{}依定义，上述形式完备化 \(\overline {X}\) 是形式概形；反之，每个形式概形都\emph{局部地}具有这种形式。事实上，给定一个\emph{仿射}形式概形（即 \(\mathfrak {X}_0\) 为仿射概形，从而各个 \(\mathfrak {X}_n\) 都仿射），等价于给定一个分离、完备的 \(\mathscr {J}\)-进 Noether 拓扑环。
+\par{}普通概形的通常定义，如态射、有限型态射、固有态射等，都可以毫无困难地推广到形式概形。
+\chapter{三个基本定理}\thispagestyle{fancy}\label{fga2-3}
+\par{}设 \(f\colon  X\to  Y\) 为概形之间的固有态射（仍一律假定为 Noether 概形），\(Y'\) 为 \(Y\) 的闭子集，\(X'\) 为它在 \(X\) 中的原像。考虑相应的形式完备化 \(\overline {Y}\) 和 \(\overline {X}\)。则 \(f\) 诱导形式概形的态射 \(\overline {f}\colon \overline {X}\to \overline {Y}\)，它也是固有的。设 \(\mathscr {F}\) 为 \(X\) 上的凝聚层，则 \(\overline {\mathscr {F}}\) 为 \(\overline {X}\) 上的凝聚层。在\hyperref[fga2-theorem-1]{定理~\ref*{fga2-theorem-1}}中，我们忘掉 \(X\)、\(Y\) 和 \(\mathscr {F}\)，只考虑形式概形之间的固有态射 \(\overline {f}\)，以及 \(\overline {X}\) 上的凝聚层 \(\overline {\mathscr {F}}\)。（不过，报告人只在从某些 \(X\)、\(Y\)、\(f\) 和 \(F\) 出发的情形下写出了完整证明。）
+\begin{theorem}[{有限性定理}]{1}\setnumber{1}\label{fga2-theorem-1}\skipsinglepar
+\begin{enumerate}
+    
+ \item[i.]各个 \(\operatorname {R}^q\overline {f}_*(\overline {\mathscr {F}})\) 都是 \(\overline {Y}\) 上的凝聚层。
+
+
+    
+ \item[ii.]自然同态 \[         \operatorname {R}^q\overline {f}_*(\overline {\mathscr {F}})         \to  \varprojlim _n\operatorname {R}^q (f_n)_*(\mathscr {F}_n)       \] 都是同构。
+
+  \end{enumerate}\end{theorem}
+\par{}在\hyperref[fga2-theorem-1]{定理~\ref*{fga2-theorem-1}}的陈述中，假定已经给定 \(\mathcal {O}_Y\) 的凝聚子层 \(\mathscr {J}\)，它定义 \(Y'\)；再取原像，便得到定义 \(X'\) 的 \(\mathcal {O}_X\) 的凝聚子层。由此，按定义得到 \(\mathscr {F}_n\)、\(X_n\)、\(Y_n\) 和 \(f_n\colon  X_n\to  Y_n\)，如\cref{fga2-2}所述。如果从两个形式概形之间任意的固有态射出发，上述说明中需要对记号作哪些小改动是显然的。
+\par{}\hyperref[fga2-theorem-1]{定理~\ref*{fga2-theorem-1}}仅涉及“形式上同调”；下面的定理把它与“代数上同调”联系起来，类似于 Serre 关于代数上同调与解析上同调比较的著名定理 \hyperref[Ser1956]{[Ser1956]}。
+\begin{theorem}[{第一比较定理}]{2}\setnumber{2}\label{fga2-theorem-2}\skipsinglepar
+\par{}各个 \(\operatorname {R}^q f_*(\mathscr {F})\) 都是 \(Y\) 上的凝聚层（这是\hyperref[fga2-theorem-1]{定理~\ref*{fga2-theorem-1}}的特例），且自然同态 \[       \overline {\operatorname {R}^q f_*(\mathscr {F})}       \to  \varprojlim _n \operatorname {R}^q (f_n)_*(\mathscr {F}_n)     \] 都是同构。\end{theorem}
+\begin{corollary}{1}\setnumber{1}\label{fga2-theorem-2-corollary-1}\skipsinglepar
+\par{}有典范同构 \(\overline {\operatorname {R}^q f_*(\mathscr {F})} = \operatorname {R}^q\overline {f}_*(\overline {\mathscr {F}})\)。\end{corollary}
+\par{}当 \(q=0\) 时，这一推论推广了 Zariski 的“全纯函数基本定理”，我们将由此导出 Zariski 的“连通性定理”的推广。还应注意，\hyperref[fga2-theorem-1]{定理~\ref*{fga2-theorem-1}}中的 (ii) 在 \(q=0\) 时显然成立，但\hyperref[fga2-theorem-2]{定理~\ref*{fga2-theorem-2}}及其等价表述（\hyperref[fga2-theorem-2-corollary-1]{推论~\ref*{fga2-theorem-2-corollary-1}}）在此情形下却绝非显然。事实上，证明对 \(q\) 作下降归纳：当 \(q\) 充分大时，等式两边均为零，结论显然；因此，\(q=0\) 的情形恰是最后一步归纳，也就可以称为“最困难”的情形。
+\begin{corollary}{2}\setnumber{2}\label{fga2-theorem-2-corollary-2}\skipsinglepar
+\par{}设 \(Y=\operatorname {Spec}(A)\)，且 \(Y'\) 由 \(A\) 的理想 \(\mathscr {J}\) 定义。则对 \(X\) 上任意凝聚层 \(\mathscr {F}\)，各个 \(\operatorname {H}^q(X,\mathscr {F})\) 都是有限型 \(A\)-模，其 \(\mathscr {J}\)-进完备化为 \(\operatorname {H}^q(\overline {X},\overline {\mathscr {F}})\)。\end{corollary}
+\par{}最后，把这一推论应用于 \(H=\mathscr {H}\kern  -2.5pt\mathit {om}_{\mathcal {O}_X}(\mathscr {F},\mathscr {G})\)，得到：
+\begin{corollary}{3}\setnumber{3}\label{fga2-theorem-2-corollary-3}\skipsinglepar
+\par{}设 \(Y=\operatorname {Spec}(A)\)，且 \(Y'\) 由 \(A\) 的理想 \(\mathscr {J}\) 定义。设 \(\mathscr {F}\) 和 \(\mathscr {G}\) 为 \(X\) 上的凝聚层。则 \(\operatorname {Hom}(\mathscr {F},\mathscr {G})\) 是有限型 \(A\)-模，其 \(\mathscr {J}\)-进完备化可与 \(\operatorname {Hom}(\overline {\mathscr {F}},\overline {\mathscr {G}})\) 等同。\end{corollary}
+\par{}当然，自然映射 \(\operatorname {Hom}(\mathscr {F},\mathscr {G})\to \operatorname {Hom}(\overline {\mathscr {F}},\overline {\mathscr {G}})\) 把同态 \(u\colon \mathscr {F}\to \mathscr {G}\) 送到其“按连续性”的延拓 \(\overline {u}\colon \overline {\mathscr {F}}\to \overline {\mathscr {G}}\)；因此，\(\overline {\mathscr {F}}\) 成为关于 \(\mathscr {F}\) 的函子。
+\par{}现在假定 \(A\) 关于其 \(\mathscr {J}\)-进拓扑分离且完备。则上述\hyperref[fga2-theorem-2-corollary-2]{推论~\ref*{fga2-theorem-2-corollary-2}}和\hyperref[fga2-theorem-2-corollary-3]{推论~\ref*{fga2-theorem-2-corollary-3}}给出：\[     \begin {aligned}       \operatorname {H}^q(X,\mathscr {F}) &= \operatorname {H}^q(\overline {X},\overline {\mathscr {F}}),     \\\operatorname {Hom}(\mathscr {F},\mathscr {G}) &= \operatorname {Hom}(\overline {\mathscr {F}},\overline {\mathscr {G}}).     \end {aligned}   \] 后一个恒等式说明，\(X\) 上凝聚层的范畴可与 \(\overline {X}\) 上凝聚层范畴的一个\emph{子范畴}等同，其中态射取为诱导的态射。事实上，甚至有：
+\begin{theorem}{3}\setnumber{3}\label{fga2-theorem-3}\skipsinglepar
+\par{}\(\overline {X}\) 上的模层凝聚，当且仅当它同构于形如 \(\overline {\mathscr {F}}\) 的层，其中 \(\mathscr {F}\) 为 \(X\) 上的凝聚层；由上述\hyperref[fga2-theorem-2-corollary-3]{推论~\ref*{fga2-theorem-2-corollary-3}}，这个凝聚层在典范同构的意义下唯一确定。（回顾一下，此时 \(Y=\operatorname {Spec}(A)\)，其中 \(A\) 为分离、完备的 \(\mathscr {J}\)-进 Noether 拓扑环。）\end{theorem}
+\begin{corollary}{1}\setnumber{1}\label{fga2-theorem-3-corollary-1}\skipsinglepar
+\par{}\(X\) 的闭子概形与 \(\overline {X}\) 的闭形式子概形一一对应。\end{corollary}
+\par{}事实上，两者分别对应于 \(\mathcal {O}_X\) 与 \(\mathcal {O}_{\overline {X}}\) 的凝聚子层。把态射的图像视为闭子概形，则上述\hyperref[fga2-theorem-3-corollary-1]{推论~\ref*{fga2-theorem-3-corollary-1}}给出：
+\begin{corollary}{2}\setnumber{2}\label{fga2-theorem-3-corollary-2}\skipsinglepar
+\par{}设 \(X\) 和 \(Z\) 为 \(A\) 上的固有概形，其中后者为分离、完备的 \(\mathscr {J}\)-进 Noether 环。则映射 \(g\mapsto \overline {g}\) 在从 \(X\) 到 \(Z\) 的 \(Y\)-态射与从 \(\overline {X}\) 到 \(\overline {Z}\) 的 \(\overline {Y}\)-态射之间给出一一对应。\end{corollary}
+\par{}换言之，\(A\) 上的固有代数概形在 \(\overline {Y}\) 上固有形式概形的范畴中给出一个子范畴，其中态射取诱导的态射。然而应注意，\emph{存在不能“代数化”的 \(\overline {Y}\) 上固有形式概形}，也就是说，它们并不同构于某个 \(\overline {X}\)，其中 \(X\) 在 \(A\) 上固有；正如存在并不来自复数域上代数簇的紧复解析簇一样。这样的形式概形自然出现于“模空间理论”中。不过，下面有一个值得注意的情形，其形式概形可以代数化：
+\begin{theorem}{4}\setnumber{4}\label{fga2-theorem-4}\skipsinglepar
+\par{}设 \(A\) 为完备 Noether 局部环，剩余域为 \(k\)；设 \(\mathfrak {X}\) 为 \(A\) 上的固有形式概形，其中底环带有其 \(\mathfrak {r}(A)\)-进拓扑。假定 
+\begin{enumerate}
+      
+ \item[i.]\(\mathcal {O}_{\mathfrak {X}}\) 的各局部环都是\emph{平坦} \(A\)-模；等价地，用 \(A\) 的极大理想的幂给 \(\mathcal {O}_{\mathfrak {X}}\) 和 \(A\) 赋予滤过，则相伴分次代数满足 \[           \operatorname {gr}(\mathcal {O}_{\mathfrak {X}})           \simeq  \operatorname {gr}^0(\mathcal {O}_{\mathfrak {X}})\otimes _k\operatorname {gr}(A);         \]
+
+
+      
+ \item[ii.]\(\operatorname {H}^2(\mathfrak {X}_0,\mathcal {O}_{\mathfrak {X}_0})=0\)，这里将 \(\mathfrak {X}_0=\mathfrak {X}\otimes _Ak\) 视为 \(k\) 上的代数概形；
+
+
+      
+ \item[iii.]\(\mathfrak {X}_0\) 是射影的。
+
+    \end{enumerate} 则在这些条件下，\(\mathfrak {X}\) 可以代数化；更确切地，它同构于 \(\overline {X}\)，其中 \(X\) 为某个射影 \(A\)-概形。\end{theorem}
+\par{}特别地，若 \(\mathfrak {X}_0\) 为 \(k\) 上的\emph{光滑曲线}，则\hyperref[fga2-theorem-4]{定理~\ref*{fga2-theorem-4}}中的条件 (ii)、(iii) 成立；因此，\hyperref[fga2-theorem-4]{定理~\ref*{fga2-theorem-4}} 尤其可应用于给定亏格曲线的“模空间理论”……这里略述\hyperref[fga2-theorem-4]{定理~\ref*{fga2-theorem-4}}的证明方法：可以证明（参见下面的\hyperref[fga2-proposition-3]{命题~\ref*{fga2-proposition-3}}），(i)、(ii) 蕴含，\(\mathfrak {X}_0\) 上每个局部同构于结构层的凝聚层，都可由 \(\mathfrak {X}\) 上同类的层约化得到。因此，从 \(\mathfrak {X}_0\) 上一个“丰沛”层出发（由 (iii)，这样的层存在），把它提升为 \(\mathfrak {X}\) 上的可逆层；再利用\hyperref[fga2-theorem-1]{定理~\ref*{fga2-theorem-1}}，证明这一可逆层的某个倍数定义了 \(X\) 到概形 \(\mathbb {P}_A^r\) 的形式完备化中的一个浸入，后者是 \(A\) 上维数为 \(r\) 的“标准射影空间”。
+\par{}\hyperref[fga2-theorem-1]{定理~\ref*{fga2-theorem-1}}、\hyperref[fga2-theorem-2]{定理~\ref*{fga2-theorem-2}}和\hyperref[fga2-theorem-3]{定理~\ref*{fga2-theorem-3}}的证明，参见 [\hyperref[GD1960]{GD1960}, I]。
+\chapter{对 Zariski 连通性定理与“主定理”的应用}\thispagestyle{fancy}\label{fga2-4}
+\par{}设 \(f\colon  X\to  Y\) 为概形间的固有态射。由有限性定理（\hyperref[fga2-theorem-1]{定理~\ref*{fga2-theorem-1}}），\(f_*(\mathcal {O}_X)=\underline {A}\) 是 \(Y\) 上的凝聚层，且为交换代数层，因此对应于一个 \(Y\)-概形 \(g\colon  Y'\to  Y\)，它在 \(Y\) 上有限；其定义条件是在 \(Y\) 上仿射，即仿射开集的原像仿射，并且 \(g_*(\mathcal {O}_{Y'})=\underline {A}\)。显然，此时 \(f\) 可典范地分解为 \(f=gf'\)，其中 \(f'\colon  X\to  Y'\) 为从 \(X\) 到 \(Y\) 的态射，现在满足 \(f'_*(\mathcal {O}_X)=\mathcal {O}_{Y'}\)。\(f\) 的这一分解称为 \(f\) 的\emph{Stein 分解}。把第一比较定理（\hyperref[fga2-theorem-2]{定理~\ref*{fga2-theorem-2}}）及其\hyperref[fga2-theorem-2-corollary-1]{推论 1}应用于 \(f'\) 与只含一个点 \(y'\) 的子集 \(Y'\)，便得到 \((f')^{-1}(y')=X'\) 连通：否则，\(X\) 沿 \(X'\) 的形式截面不会构成局部环，然而完备化 \(f'_*(\mathcal {O}_X)_{y'}=\mathcal {O}_{y'}\) 却是局部环！我们证明了：
+\begin{theorem}[{Zariski 的“连通性定理”}]{5}\setnumber{5}\label{fga2-theorem-5}\skipsinglepar
+\par{}设 \(f\colon  X\to  Y\) 为固有态射。则 \(f\) 唯一地（在同构意义下）分解为 \(f=gf'\)，其中 \(g\colon  Y'\to  Y\) 有限，而 \(f'\colon  X\to  Y'\) 满足 \(f'_*(\mathcal {O}_X)=\mathcal {O}_{Y'}\)，从而 \(g_*(\mathcal {O}_{Y'})=f_*(\mathcal {O}_X)\)。此外，\(f'\) 的各纤维连通；也就是说，\(f\) 的纤维 \(f^{-1}(y)\) 的连通分支集合，与 \(Y'\) 中位于 \(y\) 上方的点的集合，亦即 \(f_*(\mathcal {O}_X)_y\) 中极大理想的集合，一一对应。\end{theorem}
+\par{}由此立即得到连通性定理的通常变体。这里只提出下面的推论：
+\begin{corollary}{1}\setnumber{1}\label{fga2-theorem-5-corollary-1}\skipsinglepar
+\par{}\(X\) 的点 \(x\) 在其纤维 \(f^{-1}(y)\) 中孤立，当且仅当纤维 \((f')^{-1}(y')\)（其中 \(y'=f'(x)\)）只含点 \(x\)，也等价于 \(f'\) 诱导 \(x\) 的某个邻域到 \(y'\) 的某个邻域的同构。这些点组成开子集 \(U\)，且 \(f'\) 诱导 \(U\) 到 \(Y'\) 的某个开子集的同构。\end{corollary}
+\par{}为证明 \(f'\) 在 \(x\) 处为局部同构，注意由 \(f'_*(\mathcal {O}_X)=\mathcal {O}_{Y'}\) 可知，\(f'\) 诱导\emph{同构} \(\mathcal {O}_{y'}\to \mathcal {O}_x\)；又注意，当 \(V\) 遍历 \(y'\) 的一个基本邻域系时，各个 \((f')^{-1}(V)\) 构成 \(x\) 的一个基本邻域系，因为 \(f'\) 为闭映射，其在 \(y'\) 处的纤维仅含点 \(x\)。这样立即得到下面的结论；在“几何”情形下，它由 Chevalley 给出：
+\begin{corollary}{2}\setnumber{2}\label{fga2-theorem-5-corollary-2}\skipsinglepar
+\par{}\(f\) 为有限态射，当且仅当它固有且各纤维有限。\end{corollary}
+\par{}事实上，在\hyperref[fga2-theorem-5-corollary-2]{推论~\ref*{fga2-theorem-5-corollary-2}}的假设下，由上述讨论可知 \(f'\) 为同构。
+\par{}设 \(f\colon  X\to  Y\) 为未必固有的态射，但假定 \(X\) 可作为开子集包含于某个固有 \(Y\)-概形 \(\overline {f}\colon \overline {X}\to  Y\) 中；特别地，当 \(\overline {f}\) 为拟射影态射时就是如此。应用\hyperref[fga2-theorem-5-corollary-1]{推论 1}可知，\(\overline {f'}\) 诱导一个同构，把 \(X\) 中在各自纤维内孤立的点所成的集合 \(U\) 映到 \(Y'\) 的一个开子集，并且 \(U\) 确为开子集。于是得到 Zariski“主定理”的下述整体形式：
+\begin{theorem}{6}\setnumber{6}\label{fga2-theorem-6}\skipsinglepar
+\par{}设 \(f\colon  X\to  Y\) 为有限型态射。则 \(X\) 中在各自纤维内孤立的点所成的集合 \(U\) 是开集；若 \(f\) 为拟射影态射，（\emph{[补注]} 此假设可换成较弱的假设“\(f\) 分离”，依据是以下结果，见 [\hyperref[Gro1960b]{Gro1960b}, VIII, 6.2]：每个拟有限且分离的态射 \(f\colon  X\to  Y\) 都是拟射影态射。）则 \(U\) 在 \(Y\) 上同构于某个概形 \(Y'\) 的开子集，而该概形在 \(Y\) 上有限。\end{theorem}
+\par{}由于有限型态射局部仿射，\emph{因而更是}局部拟射影，故立即从\hyperref[fga2-theorem-6]{定理~\ref*{fga2-theorem-6}}得到主定理的通常局部形式。
+\chapter{对固有平坦态射的上同调研究的应用}\thispagestyle{fancy}\label{fga2-5}
+\par{}设 \(f\colon  X\to  Y\) 为固有态射，\(\mathscr {F}\) 为 \(X\) 上的凝聚层，并假定 \(\mathscr {F}\) 是 \(Y\)-平坦的，即各个 \(\mathscr {F}_x\) 都是环 \(\mathcal {O}_y\) 上的平坦模，其中 \(y=f(x)\)。这也意味着：对任意 \(y\in  Y\)，若沿纤维 \(f^{-1}(y)\) 用 \(\mathfrak {m}_y^n\mathscr {F}\) 给 \(\mathscr {F}\) 赋予滤过，其中 \(\mathfrak {m}_y\) 为 \(\mathcal {O}_y\) 的极大理想，则相伴分次对象同构于 \((\mathscr {F}/\mathfrak {m}_y\mathscr {F})\otimes _{k(y)}\operatorname {gr}(\mathcal {O}_y)\)；换言之，对任意整数 \(n\)，有 \[     \mathfrak {m}_y^n\mathscr {F}/\mathfrak {m}_y^{n+1}\mathscr {F}     = \mathscr {F}_y\otimes _{k(y)}(\mathfrak {m}_y^n/\mathfrak {m}_y^{n+1})   \]。这里 \(\mathscr {F}_y\) 表示 \(\mathscr {F}\) 在 \(X_y\) 上诱导的层 \(\mathscr {F}/\mathfrak {m}_y\mathscr {F}\)，其中 \(X_y\) 表示视为 \(y\) 的剩余域 \(k(y)\) 上固有概形的纤维 \(f^{-1}(y)\)。利用这一同构以及\hyperref[fga2-theorem-2]{定理~\ref*{fga2-theorem-2}}，由 \(X_y\) 以 \(\mathscr {F}_y\) 为系数的上同调，可以得到 \(\operatorname {R}^q f_*(\mathscr {F})\) 在 \(y\) 邻域中的估计，有时还能进行计算。这里，\hyperref[fga2-theorem-2]{定理~\ref*{fga2-theorem-2}}具有形式 \[     \overline {\operatorname {R}^q f_*(\mathscr {F})}     = \varprojlim _n \operatorname {H}^q(\mathscr {F}_y,\mathscr {F}/\mathfrak {m}_y^n\mathscr {F}).   \] 我们只指出下面的推论：
+\begin{proposition}{1}\setnumber{1}\label{fga2-proposition-1}\skipsinglepar
+\par{}设 \(f\colon  X\to  Y\) 为固有态射，\(\mathscr {F}\) 为 \(X\) 上的凝聚 \(Y\)-平坦层。设 \(y\in  Y\)，\(q\) 为整数，并假定 \(\operatorname {H}^q(X_y,\mathscr {F}_y)=0\)。则 \(\operatorname {R}^q f_*(\mathscr {F})\) 在 \(y\) 的某个邻域上为零，并且对任意 \(n\)，自然同态 \[       \operatorname {R}^{q-1}f_*(\mathscr {F})_y       \to  \operatorname {H}^{q-1}(X_y,\mathscr {F}_y/\mathfrak {m}_y^n\mathscr {F}_y)     \] 为满射。\end{proposition}
+\par{}特别地，若 \(f\) 为平坦态射，即 \(\mathcal {O}_X\) 是 \(Y\)-平坦的，则 \(X\) 上每个局部自由凝聚层 \(\mathscr {F}\) 都是 \(Y\)-平坦的。设 \(\mathscr {F}\) 和 \(\mathscr {G}\) 为两个这样的层，把\hyperref[fga2-proposition-1]{命题~\ref*{fga2-proposition-1}}应用于 \(\mathscr {H}\kern  -2.5pt\mathit {om}_{\mathcal {O}_X}(\mathscr {F},\mathscr {G})\) 和 \(q=1\)，得到：
+\begin{theorem}{7}\setnumber{7}\label{fga2-theorem-7}\skipsinglepar
+\par{}设 \(f\) 为固有平坦态射，\(\mathscr {F}\)、\(\mathscr {G}\) 为 \(X\) 上的局部自由凝聚层，且 \(y\in  Y\)；假定 \[\operatorname {H}^1(X_y,\mathscr {H}\kern  -2.5pt\mathit {om}_{\mathcal {O}_X}(\mathscr {F}_y,\mathscr {G}_y))=0\]则每个同态 \(u_0\colon \mathscr {F}_y\to \mathscr {G}_y\) 都由同态 \(u\colon \mathscr {F}|V\to \mathscr {G}|V\) 诱导，其中 \(V=f^{-1}(U)\) 为 \(y\) 的某个邻域 \(U\) 的原像。\end{theorem}
+\begin{corollary}{1}\setnumber{1}\label{fga2-theorem-7-corollary-1}\skipsinglepar
+\par{}若 \(u_0\) 为同构（分别为单态射、满态射），则当 \(U\) 充分小时，\(u\) 也为同构（分别为单态射、满态射）。\end{corollary}
+\par{}特别地：
+\begin{corollary}{2}\setnumber{2}\label{fga2-theorem-7-corollary-2}\skipsinglepar
+\par{}设 \(E_0\) 为 \(X_y\) 上的局部自由凝聚层，且 \(\operatorname {H}^1(X_y;\mathscr {H}\kern  -2.5pt\mathit {om}_{\mathcal {O}_X}(E_0,E_0))=0\)。则任意两个局部自由层，只要它们在 \(X_y\) 上的限制都同构于 \(E_0\)，便在 \(X_y\) 的某个邻域上彼此同构。\end{corollary}
+\par{}因此：
+\begin{corollary}{3}\setnumber{3}\label{fga2-theorem-7-corollary-3}\skipsinglepar
+\par{}假定 \(\operatorname {H}^1(X_y,\mathcal {O}_{X_y})=0\)。则 \(X\) 上任意两个可逆层，即局部同构于 \(\mathcal {O}_X\) 的层，只要它们在 \(X_y\) 上的限制同构，它们自身便彼此同构。\footnote{译注：法文原文此处也省略了“在该纤维的某个邻域上”的限制；由上面的推论 2 只能直接得到邻域内的同构。这里保留原文陈述，不将其作为整体同构的断言使用。}\end{corollary}
+\par{}由此得到：
+\begin{proposition}{2}\setnumber{2}\label{fga2-proposition-2}\skipsinglepar
+\par{}设 \(Y\) 为连通概形，\(E\) 为 \(Y\) 上的局部自由凝聚层。考虑与 \(E\) 关联的射影空间丛 \(X=\mathbb {P}(E)\)，并赋予它通常的可逆层 \(\mathcal {O}_X(1)\)。则 \(X\) 上每个可逆层 \(\mathscr {L}\) 都同构于形如 \(f^*(\mathscr {L}')\otimes \mathcal {O}_X(n)\) 的层，其中 \(\mathscr {L}'\) 为 \(Y\) 上的可逆层，\(n\) 为整数。此外，\(n\) 唯一确定，\(\mathscr {L}'\) 在同构意义下确定。
+\begin{proof}
+\par{}上述\hyperref[fga2-theorem-7-corollary-3]{推论~\ref*{fga2-theorem-7-corollary-3}}证明，在每条纤维的某个邻域上，\(\mathscr {L}\) 同构于一个 \(\mathcal {O}_X(n)\)-模。其余部分大体上是形式的。\end{proof}\end{proposition}
+\par{}\hyperref[fga2-proposition-2]{命题~\ref*{fga2-proposition-2}}使我们能够确定从 \(X=\mathbb {P}(E)\) 到另一个射影丛的 \(Y\)-态射。特别地，可得：
+\begin{corollary}{1}\setnumber{1}\label{fga2-proposition-2-corollary-1}\skipsinglepar
+\par{}设 \(u\) 为 \(X=\mathbb {P}(E)\) 的自同构。则存在 \(Y\) 上的可逆层 \(\mathscr {L}'\)，以及从 \(E\) 到 \(E\otimes \mathscr {L}'\) 的同构 \(v\)，使得 \(u\) 为与 \(\mathbb {P}(E)\xrightarrow {\sim }\mathbb {P}(E\otimes \mathscr {L}')=\mathbb {P}(E)\) 相应的同构；二元组 \((v,\mathscr {L}')\) 在同构意义下确定。\end{corollary}
+\par{}设 \(\Gamma \) 为 \(Y\) 上满足 \(E\otimes \mathscr {L}'\) 同构于 \(E\) 的可逆丛 \(\mathscr {L}'\) 的同构类集合。其元素都是挠元，因为若 \(n\) 为 \(E\) 的秩，则取 \(n\) 次外幂可知，必有 \((\mathscr {L}')^{\otimes  n}\xrightarrow {\sim }\mathcal {O}_Y\)。因此，上述推论可表述为以下群的正合列：\[     e \to  \operatorname {Aut}(E)/\Gamma (Y,\mathcal {O}_Y^*) \to  \operatorname {Aut}_Y(X) \to  \Gamma  \to  e   \] （这也可由如下群\emph{层}的正合列所诱导的上同调正合列推出：\[     e \to  \mathcal {O}_X^\times  \to  \mathscr {A}\kern  -1.75pt\mathit {ut}(E) \to  \mathscr {A}\kern  -1.75pt\mathit {ut}_Y(X) \to  e,   \] 其中 \(\mathcal {O}_X^\times \) 为 \(\mathcal {O}_X\) 的“单位元”层，并与 \(\mathscr {A}\kern  -1.75pt\mathit {ut}(E)\) 的中心等同。）
+\chapter{对完备 \(\mathscr {J}\)-进环上层与概形的存在和唯一性定理的应用}\thispagestyle{fancy}\label{fga2-6}
+\par{}\hyperref[fga2-theorem-7]{定理~\ref*{fga2-theorem-7}}利用\hyperref[fga2-theorem-1]{定理~\ref*{fga2-theorem-1}}和\hyperref[fga2-theorem-2]{定理~\ref*{fga2-theorem-2}}，给出了局部自由凝聚层的唯一性结果。现在利用\hyperref[fga2-theorem-3]{定理~\ref*{fga2-theorem-3}}，可得到层、概形态射以及概形的\emph{存在性}定理。以下，\(A\) 表示一个分离且\emph{完备}的 Noether 局部环。一般的方法仍然是作\emph{形式}构造；这实质上是在作\emph{Artin 环上的代数几何}，然后利用三个基本定理，从中导出“代数”性质的结论。
+\begin{proposition}{3}\setnumber{3}\label{fga2-proposition-3}\skipsinglepar
+\par{}设 \(\mathfrak {X}\) 为 \(A\) 上固有且平坦的形式概形，\(\mathscr {F}_0\) 为 \(X_0\) 上的局部自由层，满足 \[\operatorname {H}^2(X_0,\mathscr {H}\kern  -2.5pt\mathit {om}_{\mathcal {O}_{X_0}}(\mathscr {F}_0,\mathscr {F}_0))=0\]则存在 \(\mathfrak {X}\) 上的局部自由层 \(\mathscr {F}\)，其在 \(X_0\) 上诱导的层同构于 \(\mathscr {F}_0\)。（若 \(\operatorname {H}^1(X_0,\mathscr {H}\kern  -2.5pt\mathit {om}_{\mathcal {O}_{X_0}}(\mathscr {F}_0,\mathscr {F}_0))=0\)，则这个 \(\mathscr {F}\) 在同构意义下还唯一。）\end{proposition}
+\par{}逐步在各个 \(X_n\) 上构造彼此相容的局部自由层 \(\mathscr {F}_n\)。构造 \(\mathscr {F}_n\) 时会遇到位于 \[\operatorname {H}^2(X_0,\mathscr {H}\kern  -2.5pt\mathit {om}_{\mathcal {O}_{X_0}}(\mathscr {F}_0,\mathscr {F}_0))\otimes _{A/\mathscr {J}}(\mathscr {J}^n/\mathscr {J}^{n+1})\] 中的障碍，但依假设，该群为零。现在利用\hyperref[fga2-theorem-3]{定理~\ref*{fga2-theorem-3}}，得到：
+\begin{corollary}{1}\setnumber{1}\label{fga2-proposition-3-corollary-1}\skipsinglepar
+\par{}设 \(X\) 为 \(A\) 上固有且平坦的概形，\(\mathscr {F}_0\) 如上。则存在 \(X\) 上的局部自由层 \(\mathscr {F}\)，其在 \(X_0\) 上诱导的层同构于 \(\mathscr {F}_0\)。若 \(\operatorname {H}^1(X_0,\mathscr {H}\kern  -2.5pt\mathit {om}_{\mathcal {O}_{X_0}}(\mathscr {F}_0,\mathscr {F}_0))=0\)，则这个 \(\mathscr {F}\) 在同构意义下还唯一。\end{corollary}
+\par{}设 \(X_0\) 为域 \(k\) 上的有限型概形，并假定 \(X_0\) 在 \(k\) 上\emph{光滑}，这里指\emph{绝对}光滑，但不必在 \(k\) 上固有。设 \(A\) 为剩余域为 \(k\) 的 Artin 局部环。我们要寻找 \(A\) 上平坦且满足 \(X\otimes _A k=X_0\) 的概形 \(X\)；这是“\emph{模空间理论}”，或 \(X_0\) 的“结构变形”研究的出发点。给定这样的 \(X\)，等价于在拓扑空间 \(X_0\) 上给定层 \(\mathcal {O}_X\)，并配备下述结构：
+\begin{enumerate}
+    
+ \item[i.]\(\mathcal {O}_X\) 是 \(A\)-代数层；
+
+    
+ \item[ii.]\(\mathcal {O}_X\) 配备一个与 \(A\)-代数结构相容的增广同态 \(\mathcal {O}_X\to \mathcal {O}_{X_0}\)；
+
+  \end{enumerate} 同时要求这些数据满足以下条件：增广诱导同构 \(\mathcal {O}_X\otimes _A k\xrightarrow {\sim }\mathcal {O}_{X_0}\)；\(\mathcal {O}_X\) 在 \(A\) 上平坦，也就是说，用 \(A\) 的极大理想 \(\mathfrak {m}\) 的各次幂给 \(\mathcal {O}_X\) 赋予滤过，则相伴分次代数同构于 \(\operatorname {gr}^0(\mathcal {O}_X)\otimes _k\operatorname {gr}(A)\)，即有同构 \(\mathfrak {m}^n\mathcal {O}_X/\mathfrak {m}^{n+1}\mathcal {O}_X = \mathcal {O}_{X_0}\otimes _k(\mathfrak {m}^n/\mathfrak {m}^{n+1})\)。基本事实如下：
+\begin{theorem}{8}\setnumber{8}\label{fga2-theorem-8}\skipsinglepar
+\par{}设 \(X_0\) 为域 \(k\) 上的光滑有限型概形，并假定 \(X_0\) 仿射。设 \(A\) 为剩余域为 \(k\) 的 Artin 局部环。则存在 \(A\)-概形 \(X\)，它在 \(A\) 上平坦，且满足 \(X\otimes _A k=X_0\)。此外，任意两个这样的概形必同构。\end{theorem}
+\par{}注意，这里的同构不是典范的，因为一般而言，\(X\) 有非平凡的 \(A\)-自同构，在 \(X_0\) 上诱导恒等态射。此外，通常也无法“典范地”选择满足这些条件的 \(X\)；例外是 \(A\) 为 \(k\)-代数的情形，即\emph{等特征}的情形，此时可取 \(X=X_0\otimes _k A\)，也就是 \(\mathcal {O}_X=\mathcal {O}_{X_0}\otimes _k A\)；事实上，这不要求 \(X_0\) 仿射。在不等特征的情形，若 \(X_0\) 不仿射，我一般不知道是否能把 \(X_0\)“提升”为一个定义在 \(A\) 上的 \(X\)。不过，对任意整数 \(n>0\)，置 \(A_{n-1}=A/\mathfrak {m}^n\)，并假定已经把 \(X_0\) 提升为平坦的 \(A_{n-1}\)-概形 \(X_{n-1}\)；我们打算将 \(X_{n-1}\) 提升为平坦的 \(A_n\)-概形 \(X_n\)。由\hyperref[fga2-theorem-8]{定理~\ref*{fga2-theorem-8}}已知，这在局部是可能的；也容易验证，若 \(U_n\) 提升 \(X_{n-1}\) 的开子集 \(U_{n-1}\)，则 \(U_n\) 的、在 \(U_{n-1}\) 上诱导恒等态射的自同构所成的群层，典范同构于 \(\mathfrak {G}_{X_0/k}\otimes _k\mathfrak {m}^n/\mathfrak {m}^{n+1}\) 在 \(U_{n-1}\) 上的限制，因而特别是交换的；这里 \(\mathfrak {G}_{X_0/k}\) 表示 \(X_0\) 上 \(k\)-导子的芽所成的层。由此容易得出，构造提升 \(X_{n-1}\) 的 \(X_n\) 时有一个障碍，位于 \(\operatorname {H}^2(X_0,\mathfrak {G}_{X_0/k})\otimes \mathfrak {m}^n/\mathfrak {m}^{n+1}\) 中。因此：
+\begin{corollary}{1}\setnumber{1}\label{fga2-theorem-8-corollary-1}\skipsinglepar
+\par{}设 \(X_0\) 为 \(k\) 上的光滑有限型概形，并假定 \[       \operatorname {H}^2(X_0,\mathfrak {G}_{X_0/k})       = 0.     \] 则对每个剩余域为 \(k\) 的 Artin 局部环 \(A\)，都存在平坦的 \(A\)-概形 \(X\)，使得 \(X\otimes _A k=X_0\)。\end{corollary}
+\par{}此外，若能找到\emph{一个}在 \(A\) 上平坦且提升 \(X_0\) 的 \(X\)，则由\hyperref[fga2-theorem-8]{定理~\ref*{fga2-theorem-8}}可知，提升 \(X_0\) 的平坦 \(A\)-概形的同构类集合可与 \(\operatorname {H}^1(X_0,\mathscr {A}\kern  -1.75pt\mathit {ut}(X))\) 等同，其中 \(\mathscr {A}\kern  -1.75pt\mathit {ut}(X)\) 表示 \(A\)-代数层 \(\mathscr {O_X}\) 的\emph{与增广相容}的自同构的芽所成的层。\(\mathcal {O}_X\) 的滤过定义 \(\mathscr {A}\kern  -1.75pt\mathit {ut}(X)\) 的一个滤过，用此层除以滤过的第 \(n\) 个子群，所得商为 \(\mathscr {A}\kern  -1.75pt\mathit {ut}(X_n)\)；相伴分次对象是交换的，可与 \(\mathfrak {G}_{X_0/k}\otimes _k\operatorname {gr}(A)\) 等同。特别地，若 \(\mathfrak {m}^{n+1}\) 是 \(\mathfrak {m}\) 的第一个为零的幂，则 \(F^n(\mathscr {A}\kern  -1.75pt\mathit {ut}(X))\)，也就是滤过的最后一级，包含在 \(\mathscr {A}\kern  -1.75pt\mathit {ut}(X)\) 的中心内，并同构于 \(\mathfrak {G}_{X_0/k}\otimes _k\mathfrak {m}^n\)；它也是 \(X\) 的、在 \(X_{n-1}=X\otimes _A A/\mathfrak {m}^n\) 上诱导恒等态射的自同构的芽所成的层。利用这些结果，立即得到下述陈述：
+\begin{corollary}{2}\setnumber{2}\label{fga2-theorem-8-corollary-2}\skipsinglepar
+\par{}设 \(X_0\) 为 \(k\) 上的光滑有限型概形，\(A\) 为 Artin 局部环，剩余域为 \(k\)，极大理想为 \(\mathfrak {m}\)。假定 \(\mathfrak {m}^{n+1}=0\)。置 \(A_{n-1}=A/\mathfrak {m}^n\)，并设 \(X_{n-1}\) 为满足 \(X_{n-1}\otimes _Ak=X_0\) 的平坦 \(A_{n-1}\)-概形。则满足 \(X\otimes _AA_{n-1}=X_{n-1}\) 的平坦 \(A\)-概形 \(X_n\)，模去在 \(X_{n-1}\) 上诱导恒等态射的同构后，其类的集合或者为空，或者是 \(\operatorname {H}^1(X_0,\mathfrak {G}_{X_0/k})\otimes _k\mathfrak {m}^n\) 下的主齐性空间。\end{corollary}
+\par{}（注意，一般而言，后一个主齐性空间并无优先选定的原点，因为没有优先选定的、将 \(X_{n-1}\) 提升到 \(X_n\) 的方法。）
+\begin{corollary}{3}\setnumber{3}\label{fga2-theorem-8-corollary-3}\skipsinglepar
+\par{}设 \(X_0\) 为 \(k\) 上的光滑有限型概形，并假定 \(\operatorname {H}^1(X_0,\mathfrak {G}_{X_0/k})=0\)。则对每个剩余域为 \(k\) 的 Artin 局部环 \(A\)，在同构意义下，满足 \(X\otimes _Ak=X_0\) 的\emph{平坦 \(A\)-概形 \(X\) 至多存在一个}。\end{corollary}
+\par{}\hyperref[fga2-theorem-8]{定理~\ref*{fga2-theorem-8}}的\hyperref[fga2-theorem-8-corollary-1]{推论~\ref*{fga2-theorem-8-corollary-1}}与\hyperref[fga2-theorem-8-corollary-3]{推论~\ref*{fga2-theorem-8-corollary-3}}立即蕴含一些表面上更一般的陈述：只需假定 \(A\) 为\emph{剩余域为 \(k\) 的完备 Noether 局部环}，同时把 \(X\) 理解为 \(A\) 上的形式概形：
+\begin{theorem}{9}\setnumber{9}\label{fga2-theorem-9}\skipsinglepar
+\par{}设 \(k\) 为域，\(X_0\) 为 \(k\) 上的\emph{光滑}有限型概形。对每个剩余域为 \(k\) 的完备 Noether 局部环 \(A\)，以 \(F(A)\) 表示 \(A\) 上有限型、在 \(A\) 上平坦并满足 \(X\otimes _Ak=X_0\) 的形式概形 \(\mathfrak {X}\) 的类所成的集合，其中模去的是在 \(X_0\) 上诱导恒等态射的同构。采用这些记号，对所有 \(A\)，有：
+\begin{enumerate}
+      
+ \item[i.]若 \(\operatorname {H}^1(X_0,\mathfrak {G}_{X_0/k})=0\)，则 \(F(A)\) 至多有一个元素；
+
+      
+ \item[ii.]若 \(\operatorname {H}^2(X_0,\mathfrak {G}_{X_0/k})=0\)，则 \(F(A)\) 至少有一个元素。
+
+    \end{enumerate}\end{theorem}
+\begin{corollary}{1}\setnumber{1}\label{fga2-theorem-9-corollary-1}\skipsinglepar
+\par{}假定 \(X_0\) 在 \(k\) 上固有。在\hyperref[fga2-theorem-9]{定理~\ref*{fga2-theorem-9}}的条件 (i) 下，对所有 \(A\)，在模去于 \(X_0\) 上诱导恒等态射的同构后，至多存在一个在 \(A\) 上固有、平坦且满足 \(X\otimes _Ak=X_0\) 的概形 \(X\)。\end{corollary}
+\par{}可利用\hyperref[fga2-theorem-3-corollary-2]{定理 3 的推论 2}。例如：
+\begin{corollary}{2}\setnumber{2}\label{fga2-theorem-9-corollary-2}\skipsinglepar
+\par{}若 \(X\) 为固有平坦的 \(A\)-概形，且 \(X\otimes _A k\) 同构于 \(k\) 上维数为 \(r\) 的标准射影概形 \(\mathfrak {P}_k^r\)，则 \(X\) 同构于 \(\mathfrak {P}_A^r\)。\end{corollary}
+\par{}（此结果也可由\hyperref[fga2-proposition-3-corollary-1]{命题 3 的推论 1}推出。）
+\begin{corollary}{3}\setnumber{3}\label{fga2-theorem-9-corollary-3}\skipsinglepar
+\par{}设 \(X_0\) 为 \(k\) 上的光滑射影概形，并假定 \[       H^2(X_0,\mathcal {O}_{X_0})       = H^2(X_0,\mathfrak {G}_{X_0/k})       = 0.     \] 则对所有 \(A\)，都存在平坦射影的 \(A\)-概形，使得 \(X\otimes _Ak=X_0\)。\end{corollary}
+\par{}将\hyperref[fga2-theorem-9]{定理~\ref*{fga2-theorem-9}}的 (ii) 与\hyperref[fga2-theorem-4]{定理~\ref*{fga2-theorem-4}}结合即可。特别地：
+\begin{corollary}{4}\setnumber{4}\label{fga2-theorem-9-corollary-4}\skipsinglepar
+\par{}设 \(X_0\) 为 \(k\) 上一条完备光滑代数曲线的概形。则对每个剩余域为 \(k\) 的完备 Noether 局部环 \(A\)，都存在 \(A\) 上的“光滑曲线概形”\(X\)，使得 \(X\otimes _Ak=X_0\)。\end{corollary}
+\begin{remarks}{}\label{fga2-6-remarks}\skipsinglepar
+\begin{enumerate}\item{}\hyperref[fga2-theorem-9-corollary-3]{推论~\ref*{fga2-theorem-9-corollary-3}}与\hyperref[fga2-theorem-9-corollary-4]{推论~\ref*{fga2-theorem-9-corollary-4}}在 \(k\) 的特征为 \(p\neq 0\) 时尤其有意义：可取 \(A\) 为剩余域为 \(k\)、\emph{特征为 \(0\)}的离散赋值环，例如“尽可能小的 \(A\)”，即 \(p\) 生成极大理想的情形。（事实上，由 Cohen 的定理，只需对这样的环 \(A\) 知道\hyperref[fga2-theorem-9-corollary-3]{推论~\ref*{fga2-theorem-9-corollary-3}}和\hyperref[fga2-theorem-9-corollary-4]{推论~\ref*{fga2-theorem-9-corollary-4}}即可。）关于这一点，据专家们说，目前尚不知是否存在域 \(k\) 上的概形，不能由这样的环 \(A\) 上定义的平坦概形\(\mod  p\) 约化得到。至少，本节的结果给出了系统研究这一问题的途径。首先应考察我们在 \(H^2(X_0,\mathfrak {G}_{X_0/k})\) 中遇到的第一个障碍是否必然为零。
+
+    \item{}注意，\hyperref[fga2-theorem-3]{定理~\ref*{fga2-theorem-3}}及其相应的方法只适用于\emph{完备}的底环；为明确起见，还可假定底环为局部环。要从关于局部环的完备化的已知结果过渡到该局部环本身的相应结果，还需要第四个“基本定理”，而它的准确陈述尚待确定。
+
+    \item{}应将本节，尤其是上述\hyperref[fga2-theorem-9-corollary-1]{推论~\ref*{fga2-theorem-9-corollary-1}}、\hyperref[fga2-theorem-9-corollary-2]{推论~\ref*{fga2-theorem-9-corollary-2}}，以及下一节的结果，与 Kodaira–Spencer 关于复结构变形的结果相比较。利用刚才提及的猜想性定理，我们应能在\hyperref[fga2-theorem-9-corollary-1]{推论~\ref*{fga2-theorem-9-corollary-1}}的条件下，但不再假定 \(A\) 完备时，推出存在包含 \(A\) 的环 \(A'\)，它在 \(A\) 上有限且无分歧，使得 \(X\otimes _AA'\) 与 \(X'\otimes _AA'\) 在 \(A'\) 上同构；这里 \(X\)、\(X'\) 是给定的固有平坦 \(A\)-概形，满足 \(X\otimes _Ak=X'\otimes _Ak=X_0\)。至少，当 \(X_0=\mathfrak {P}_k^r\) 时，可利用\hyperref[fga2-proposition-2-corollary-1]{命题 2 的推论 1}证明这一点。无论如何，若 \(H^1(X_0,\mathfrak {G}_{X_0/k})=0\)，就可证明 \(X\) 和 \(X'\) 在 \(Y=\operatorname {Spec}(A)\) 的任意点 \(y\) 上的纤维同构，至少在转到剩余域 \(k(y)\) 的代数闭包后如此。（不必假定 \(A\) 为局部环时，还有一个表面上更强的局部结果。）关于射影空间的“结构变形”，再提出以下问题，它来自 Kodaira–Spencer 的一个相应问题。设 \(X\) 为局部整环 \(A\) 上的固有平坦概形，后者的分式域为 \(K\)，剩余域为 \(k\)；假定 \(X\otimes _AK\) 同构于 \(\mathfrak {P}_K^r\)。那么，\(X\otimes _Ak=X_0\) 是否同构于 \(\mathfrak {P}_k^R\)，至少在 \(k\) 的代数闭包上如此？在此问题中，可假定 \(A\) 为完备离散赋值环。当 \(X_0\) 为 Abel 簇时，也有类似的问题。\end{enumerate}\end{remarks}
+\begin{remark}{}\label{fga2-6-remark-i}\skipsinglepar
+\par{}\emph{[补注]} \emph{（关于上面的注 1。）} J.-P. Serre 已在 \hyperref[Ser1961]{[Ser1961]} 中构造了一个特征为 \(p>0\) 的代数闭域 \(k\) 上维数为 \(3\) 的非奇异射影簇；它不能由剩余域为 \(k\)、分式域特征为 \(0\) 的局部整环上的固有概形约化得到。据说 Mumford 对非奇异射影\emph{曲面}也得到了类似结果。\end{remark}
+\begin{remark}{}\label{fga2-6-remark-ii}\skipsinglepar
+\par{}\emph{[补注]} \emph{（关于上面的注 2 和注 3。）} 对这里猜测的结果，我现在已不如以前乐观。不过，上面注 3 末尾提出的射影空间结构变形问题，已由 Hironaka 肯定地解决；Abel 簇的类似问题也已由 Koizumi 解决。\end{remark}
+\chapter{对“模空间理论”的应用}\thispagestyle{fancy}\label{fga2-7}
+\par{}报告人自己接触这一理论也为时不久，因此只能限于作一些简略的说明。为简便起见，我们在\emph{域} \(k\) 上工作，也就是说，处于\emph{等特征}的情形；尽管看来借助\hyperref[fga2-theorem-8]{定理~\ref*{fga2-theorem-8}}，无需作本质性的改动，也能讨论更一般的情形。目前我们尚未越过“形式”阶段，但报告人仍希望由此在某些情形下构造出真正的模概形，尤其希望对每个整数 \(g\)，构造一个整数上的概形，起到亏格为 \(g\) 的光滑曲线的泛模概形的作用。
+\begin{remark}{}\label{fga2-7-remark}\skipsinglepar
+\par{}\emph{[补注]} Mumford 最近已经构造了亏格为 \(g\) 的曲线的模概形，参见 \emph{Mumford–Tate seminar}，Harvard University，1961–62。\hyperref[fga2-theorem-10]{定理~\ref*{fga2-theorem-10}}还证明，模空间理论中的“层级为 \(n\) 的 Jacobi 概形”是非奇异的，甚至在 \(\underline {\mathbb {Z}}\) 上光滑。\end{remark}
+\par{}继续采用\hyperref[fga2-theorem-9]{定理~\ref*{fga2-theorem-9}}的框架和记号，并假定 \(A\) 是 \(k\) 上有限秩的局部代数；为简便起见，假定该域代数闭。此时，\(F(A)\) 可视为关于 \(A\) 的、取值于集合范畴的协变函子：\(k\)-代数同态 \(A\to  B\) 定义映射 \(F(A)\to  F(B)\)，因为每个满足 \(X\otimes _Ak=X_0\) 的平坦 \(A\)-概形 \(X\) 都给出具有相同性质的 \(B\)-概形 \(X\otimes _AB\)。\emph{假定}我们能找到一个完备 Noether 局部 \(k\)-代数 \(\mathcal {O}\)，以及一个函子性同构 \[     \operatorname {Hom}(\mathcal {O},A) \xrightarrow {\sim } F(A)     \tag{*}   \]，其中左边表示 \(k\)-代数同态。容易看出，这样的 \(\mathcal {O}\) 在典范同构意义下确定。因此，把 \(\mathcal {O}\) 的形式谱 \(\mathfrak {Y}\)，即只含一个点、且其拓扑环层恰为 \(\mathcal {O}\) 的拓扑空间，称为\emph{\(X_0\) 的形式模概形}。（注意，它未必存在。）设 \(\mathfrak {r}\) 为 \(\mathcal {O}\) 的极大理想，并对所有 \(n\) 置 \(\mathcal {O}_n=\mathcal {O} /\mathfrak {r}^{n+1}\)，从而 \(\mathcal {O}_0=k\)。则典范同态 \(\mathcal {O}\to \mathcal {O}_n\) 是 \(\operatorname {Hom}(\mathcal {O},\mathcal {O}_n)\) 的一个元素，因而定义 \(F(\mathcal {O}_n)\) 的一个元素，也就是一个平坦 \(\mathcal {O}_n\)-概形 \(X_n\)，其模 \(\mod \mathfrak {r}\) 的限制为 \(X_0\)。这些 \(X_n\) 经由标量扩张，在这里即约化，彼此诱导；因此它们来自一个形式概形 \(\mathfrak {X}\)，后者由形式模概形 \(\mathfrak {Y}\) 唯一确定；此外，\(\mathfrak {X}\) 在 \(\mathfrak {Y}\) 上平坦，且 \(\mathfrak {X}_0=X_0\)。立即可见，同构 \((*)\) 可作如下描述：把每个 \(k\)-代数同态 \(\mathcal {O}\to  A\) 对应到 \(A\)-概形 \(\mathfrak {X}\otimes _{\mathcal {O}} A\) 的类；也就是说，对每个 \(k\)-概形态射 \(\mathfrak {Y}'=\operatorname {Spec}(A)\to \mathfrak {Y}\)，对应由基变换给出的 \(\mathfrak {Y}'\)-概形 \(\mathfrak {X}\otimes _{\mathfrak {Y}}\mathfrak {Y}'\)。进一步可见，即使只假定 \(A\) 为完备 Noether 局部 \(k\)-代数而不必为 Artin 代数，同构 \((*)\) 及其上述描述仍然成立。当然，和以往一样，\(\mathcal {O}\) \emph{先验地}完全可以含有幂零元；而且很可能存在这样的情形：\(\mathcal {O}\) 本身为 Artin 环，却不等于 \(k\)。这说明 Kodaira–Spencer 的观点，即仅考虑为\emph{正则}环的 \(A\)，在一般情形下\emph{先验地}就不充分。
+\par{}还须给出 \(X_0\) 的形式模概形存在的充分条件，这里假定它在 \(k\) 上固有。一般而言，容易对函子 \(A\to  F(A)\)，即从有限秩局部 \(k\)-代数到集合的函子，给出简单的充要条件，使它具有 \(\operatorname {Hom}(\mathcal {O},A)\) 的形式，其中 \(\mathcal {O}\) 为适当的环。这里不作详述。只指出，在我们研究的情形中，这些条件对 \(X_0\) 施加了非平凡的上同调条件；尽管报告人尚未构造出反例，但这些条件似乎不大可能总是满足。不过，条件 \(H^0(X,\mathfrak {G}_{X_0/k})=0\) 很可能是保证形式模概形存在的\emph{充分}条件，尽管它远非必要条件。这里只陈述一个处理特别简单情形的定理；它在解析空间理论中的对应结果是熟知的，参见 Kodaira–Spencer。利用上一节的结果，容易证明它：
+\begin{theorem}{10}\setnumber{10}\label{fga2-theorem-10}\skipsinglepar
+\par{}设 \(X_0\) 为域 \(k\) 上的光滑固有概形，且满足 \[       H^0(X_0,\mathfrak {G}_{X_0/k})       = H^2(X_0,\mathfrak {G}_{X_0/k})       = 0.     \] 则 \(X_0\) 的形式模概形存在，对应于一个正则局部环 \(\mathcal {O}\)，也就是 \(k\) 上的形式幂级数代数。\end{theorem}
+\par{}如前所述，\(\mathcal {O}\) 上的形式概形 \(\mathfrak {X}\) 一般未必能够代数化；不过，已知当 \(X_0\) 射影且 \(H^2(X_0,\mathcal {O}_{X_0})=0\) 时，这一点成立（\hyperref[fga2-theorem-4]{定理~\ref*{fga2-theorem-4}}），例如 \(X_0\) 的维数为 \(1\) 时就是如此。这使我们有希望在整数上构造给定亏格曲线的模概形……
+\par{}还应指出，本节所述的这些方法既可用于 Picard 簇的构造与研究，也可用于许多其他构造。不久我们将再讨论这一点。
+\chapter{对基本群的应用}\thispagestyle{fancy}\label{fga2-8}
+\par{}以上方法使我们能够仿照拓扑理论，着手系统地研究基本群。本节陈述的前两个定理推广了 Lang–Serre 最近一篇工作的结果。
+\par{}设 \(X\) 为概形。满足以下条件的 \(X\)-概形 \(X'\)，称为\emph{\(X\) 的无分歧覆盖}：
+\begin{enumerate}
+    
+ \item[i.]\(X'\) 在 \(X\) 上有限，即由 \(X\) 上的凝聚代数层 \(\mathscr {A}=\mathscr {A}(X')\) 定义；
+
+    
+ \item[ii.]\(\mathscr {A}\) 是 \(X\) 上的局部自由层；
+
+    
+ \item[iii.]对所有 \(x\in  X\)，商 \(\mathscr {A}_x/\mathfrak {m}_x\mathscr {A}_x = \mathscr {A}_x\otimes _{\mathcal {O}_X}k(x)\) 是 \(k(x)\) 上的可分代数。
+
+  \end{enumerate} 这一无分歧覆盖的概念，由 Serre 和报告人提出，具有一切合理预期的初等性质，这里不一一列举。只指出，它导出了一套\emph{Galois 理论}，仿照经典 Galois 理论及拓扑覆盖的 Galois 理论而建立，并包含经典 Galois 理论；总体而言，这里的证明反而比通常的经典证明更简单。更确切地说，概形 \(X\) 的一个\emph{几何点}，是指从代数闭域 \(\Omega \) 的谱 \(\xi \) 到 \(X\) 的态射 \(a\)；也就是给定 \(X\) 的某个点 \(x=|a|\) 的剩余域 \(k(x)\) 的一个代数闭扩域，该点称为几何点 \(a\) 的\emph{所在地}。若 \(X'\) 为 \(X\) 的无分歧覆盖，可给它配上“位于 \(a\) 上方的 \(X'\) 的几何点”的集合 \(E_a(X')\)；这就是由位于 \(x\) 上方的点 \(x'\in  X'\)，以及一个到 \(\Omega \) 的 \(k(x)\)-同态组成的二元组的集合。于是，对固定的 \((X,a)\)，得到一个函子 \(F(X,a)\)，从 \(X\) 的无分歧覆盖 \(X'\) 所成的范畴 \(R(X)\) 到有限集合的范畴。如果 \(X\) 连通，则由 \(R(X)\) 和 \(F(X,a)\) 组成的二元组具有所有必要的形式性质，可与某个适当的全不连通紧拓扑群 \(\pi \)，即有限群的射影极限，所定义的类似二元组同构：取 \(\pi \) 连续作用的有限集合所成的范畴 \(\mathcal {C}(\pi )\)，以及从此范畴到有限集合范畴的恒等函子 \(F(\pi )(E)=E\)。要求 \((\mathcal {C}(\pi ),F(\pi ))\) 同构于给定的二元组，也就在典范同构意义下确定了群 \(\pi \)。具体而言，称 \(\pi \) 为\emph{连通概形 \(X\) 在几何点 \(a\) 处的基本群}，记为 \(\pi _1(X,a)\)。若 \(X\) 不连通，可将其换成包含 \(x=|a|\) 的连通分支。若 \(X\) 连通，则对 \(X\) 的任意两个几何点 \(a'\)、\(a''\)，群 \(\pi _1(X,a')\) 与 \(\pi _1(X,a'')\) 同构，且同构模内自同构而确定。因此，照通常做法，可为我们的目的选择最合适的 \(a\)，例如在假定 \(X\) 不可约时选其泛点。当然，\(\pi _1(X,a)\) 是\emph{关于带基点概形 \((X,a)\) 的协变函子}。于是，按照熟悉的对应，关于不可分覆盖分类的每个陈述\footnote{译注：法文原文为“revêtements inséparables”，英文亦照录为“inseparable coverings”。本段的范畴与基本群实际围绕无分歧覆盖构造。此处保留原文用词，并标出这一疑误。}都可翻译成群论的语言，只须注意这里涉及\emph{拓扑群}。
+\par{}我们的目标是对固有态射 \(f\colon  X\to  Y\) 建立纤维丛同伦正合列的对应物。显然，由于我们还不知道高阶同伦群应当是什么，所得结果必然不完整。为了能应用\cref{fga2-3}中的基本定理，必须先说明关于 Artin 环或域上概形的几个初等引理；这仍遵循一般的处理步骤！
+\begin{lemma}{1}\setnumber{1}\label{fga2-lemma-1}\skipsinglepar
+\par{}设 \((X',a')\) 为与 \(\pi _1(X,a)\) 在带标记点 \(e\) 的有限集合 \(E\) 中的带基点表示相应的带基点无分歧覆盖。则典范态射 \(\pi _1(X',a')\to \pi _1(X,a)\) 把定义域与 \(\pi _1(X,a)\) 中点 \(e\) 的稳定子等同，因而为单射。\end{lemma}
+\begin{lemma}{2}\setnumber{2}\label{fga2-lemma-2}\skipsinglepar
+\par{}设 \(X\) 为域 \(k\) 上的代数概形，\(k'\) 为 \(k\) 的纯不可分扩张。则 \(X\otimes _kk'\) 的每个无分歧覆盖，都是 \(X\) 的某个无分歧覆盖的原像，即标量扩张；后者在同构意义下确定。\end{lemma}
+\par{}特别地，由这两个引理可得：对 \(k\) 的\emph{任意}代数扩张 \(K\)，以及 \(X'=X\otimes _kK\) 的每个投影到 \(X\) 的几何点 \(a\) 的几何点 \(a'\)，函子性同态 \(\pi _1(X',a')\to \pi _1(X,a)\) 都是单射。
+\begin{lemma}{3}\setnumber{3}\label{fga2-lemma-3}\skipsinglepar
+\par{}设 \(X\) 为 Artin 局部环 \(A\) 上的完备概形，满足 \(H^0(X,\mathcal {O}_X)=A\)。设 \(X'\) 为 \(X\) 的无分歧覆盖，并置 \(A'=H^0(X',\mathcal {O}_{X'})\)；因而它是 \(A\) 上的有限环扩张，但先验地可能在 \(A\) 上分歧。设 \(X_0\) 与 \(X'_0\) 分别为 \(X\) 与 \(X'\) 对应的约化子概形，即分别对 \(\mathcal {O}_X\) 与 \(\mathcal {O}_{X'}\) 中的幂零元层取商而得。设 \(k\) 为 \(A/\mathfrak {r}(A)\) 的子域，且 \(A/\mathfrak {r}(A)\) 在它上面有限；于是 \(X_0\) 是 \(k\) 上的完备代数概形，\(X'_0\) 是其无分歧覆盖。最后，设 \(\Omega \) 为 \(k\) 的代数闭扩域，考虑 \(X_0\otimes _k\Omega \) 的无分歧覆盖 \(X'_0\otimes _k\Omega \)。则以下两个条件等价：
+\begin{enumerate}
+      
+ \item[i.]\(X'_0\otimes _k\Omega \) 在 \(X_0\otimes _k\Omega \) 上完全分解；
+
+      
+ \item[ii.]自然态射 \(X'\to  X\otimes _AA'\) 是同构。
+
+    \end{enumerate} 在这些条件下，\(A'\) 是 \(A\) 的\emph{无分歧}扩张。最后，若 \(X'\) 连通，则条件 (i) 等价于下面这个表面上较弱的条件：
+\begin{enumerate}
+      
+ \item[i bis.]\(X'_0\otimes _k\Omega \) 在 \(X_0\otimes _k\Omega \) 上有正则截面。
+
+    \end{enumerate}\end{lemma}
+\par{}满足\hyperref[fga2-lemma-3]{引理~\ref*{fga2-lemma-3}}的条件 (ii) 时，称 \(X\) 的无分歧覆盖 \(X'\) 为\emph{几何平凡}的。
+\begin{lemma}{4}\setnumber{4}\label{fga2-lemma-4}\skipsinglepar
+\par{}设 \(f\colon  X\to  Y\) 为满足 \(f_*(\mathcal {O}_X)=\mathcal {O}_Y\) 的固有态射。设 \(a\) 为 \(X\) 的几何点，\(b\) 为它在 \(Y\) 上的投影。则 \(\pi _1(X,a)\to \pi _1(Y,b)\) 为\emph{满射}。\end{lemma}
+\par{}实际上，只须证明：若 \(Y\) 的一个无分歧覆盖 \(Y'\)，对应于局部自由代数层 \(\mathscr {A}\)，使 \(X\otimes _YY'\) 不连通，则 \(Y'\) 也不连通。事实上，此时 \(f^*(\mathscr {A})\) 为两个非零环层的直和，从而其直接像亦然，而该直接像恰为 \(\mathscr {A}\otimes  f_*(\mathcal {O}_X)=\mathscr {A}\)。
+\begin{lemma}{5}\setnumber{5}\label{fga2-lemma-5}\skipsinglepar
+\par{}设 \(X\) 为域 \(k\) 上的完备概形，并假定 \(H^0(X,\mathcal {O}_X)\) 是局部环 \(A\)，且 \(A/\mathfrak {r}(A)\) 在 \(k\) 上纯不可分。设 \(\Omega \) 为 \(k\) 的代数闭包，置 \(\overline {X}=X\otimes _k\Omega \)，它是连通的。选取 \(\overline {X}\) 的几何点 \(\overline {a}\)，其投影为 \(X\) 的几何点 \(a\)。则有正合列 \[       e       \to  \pi _1(\overline {X},\overline {a})       \to  \pi _1(X,a)       \to  \pi _1(k,b)       \to  e     \] 其中 \(\pi _1(k,b)\) 为 \(\Omega \) 在 \(k\) 上的 Galois 群。
+\begin{proof}
+\par{}第一个同态的单射性已由\hyperref[fga2-lemma-1]{引理~\ref*{fga2-lemma-1}}与\hyperref[fga2-lemma-2]{引理~\ref*{fga2-lemma-2}}证明；中间的正合性由\hyperref[fga2-lemma-3]{引理~\ref*{fga2-lemma-3}}得到；最后一个同态的满射性由\hyperref[fga2-lemma-4]{引理~\ref*{fga2-lemma-4}}得到，只有这一步用到了 \(A/\mathfrak {r}(A)\) 为纯不可分扩张。\end{proof}\end{lemma}
+\begin{proposition}{4}\setnumber{4}\label{fga2-proposition-4}\skipsinglepar
+\par{}设 \(f\colon  X\to  Y\) 为固有平坦态射，且对所有 \(y\in  Y\)，代数 \(H^0(f^{-1}(y),\mathcal {O}_{f^{-1}(y)})\) 在剩余域 \(k(y)\) 上可分；例如，若 \(f^{-1}(y)\) 是 \(k(y)\) 上的\emph{可分概形}，即约化且其各不可约分支对应的域都是 \(k(y)\) 的可分扩张，便满足此条件。则与 \(f_*(\mathcal {O}_X)\) 关联的 \(Y\) 的覆盖 \(Y'\) 无分歧。
+\begin{proof}
+\par{}借助\hyperref[fga2-theorem-2]{定理~\ref*{fga2-theorem-2}}，证明很容易。\end{proof}\end{proposition}
+\par{}把\hyperref[fga2-proposition-4]{命题~\ref*{fga2-proposition-4}}与\hyperref[fga2-lemma-1]{引理~\ref*{fga2-lemma-1}}结合，实际上可把固有平坦态射（具有可分纤维）的同伦研究归结为 \(f_*(\mathcal {O}_X)=\mathcal {O}_Y\) 的情形，因为利用 Stein 分解，可将 \(Y\) 换成 \(Y'\)。
+\begin{remark}{}\label{fga2-8-remark}\skipsinglepar
+\par{}纤维为可分概形（分别为光滑概形）的有限型平坦态射，称为\emph{可分}态射（分别为\emph{光滑}态射）。可以证明，若 \(f\) 平坦且 \(f^{-1}(y)\) 可分（分别为光滑），则存在 \(f^{-1}(y)\) 的一个邻域，使 \(f\) 在其上可分（分别为光滑）。对“绝对正规”也有相同结果，这就是\emph{Bertini 定理}。\end{remark}
+\par{}设 \(f\colon  X\to  Y\) 为满足 
+\begin{enumerate}
+    
+ \item[i.]
+      \(f_*(\mathcal {O}_X) = \mathcal {O}_Y\)
+    
+
+  \end{enumerate} 的固有态射，并设 \(X'\) 为 \(X\) 上的有限概形。设 \(Y'\) 为与 \(X'\to  Y\) 的 Stein 分解相应的 \(Y\) 的覆盖，参见\hyperref[fga2-theorem-5]{定理~\ref*{fga2-theorem-5}}。设 \(y\in  Y\)，则 \(X'\) 在 \(y\) 上的纤维 \(F'\) 的连通分支集合，可与位于 \(y\) 上方的点 \(y'\in  Y'\) 的集合等同（\hyperref[fga2-theorem-5]{定理~\ref*{fga2-theorem-5}}）。考虑显然的态射 
+\begin{eqn}{*}\setnumber{*}\label{fga2-equation-star}\skipsinglepar\[       X'\to  X\times _Y Y'     \tag{*}     \]\end{eqn}，它由自然态射 \(X'\to  X\) 与 \(X\to  Y'\) 诱导。如果 \(X'\) 具有 \(X\times _Y Y''\) 的形式，其中 \(Y''\) 是 \(Y\) 的无分歧覆盖，则此态射为同构；此时 \(Y'\) 恰为 \(Y''\)，且\hyperref[fga2-equation-star]{式~\ref*{fga2-equation-star}}为恒等态射。我们正要给出条件，使 \(X'\) 具有刚才所述的形式，也就是说，使 \(Y'\) 无分歧且\hyperref[fga2-equation-star]{式~\ref*{fga2-equation-star}}为同构。为此，引入 \(X\) 在 \(y\) 处的纤维 \(F\)，这是 \(k(y)\) 上的固有概形，\(F'\) 是它的覆盖；若 \(X\) 无分歧，此覆盖亦无分歧。设 \(F'_1\) 为 \(F'\) 的一个连通分支，对应于 \(Y'\) 中位于 \(y\) 上方的点 \(y'_1\)。再假定：
+\begin{enumerate}
+    
+ \item[ii.]\(X'\) 在 \(F'_1\) 的各点处相对于 \(X\) 无分歧，因而 \(F'_1\) 是 \(F\) 的无分歧覆盖；并且
+
+    
+ \item[iii.]\(F'_1\) 是 \(F\) 的几何平凡覆盖，参见\hyperref[fga2-lemma-3]{引理~\ref*{fga2-lemma-3}}。
+
+  \end{enumerate}
+\begin{theorem}{11}\setnumber{11}\label{fga2-theorem-11}\skipsinglepar
+\par{}在上述条件下，存在 \(Y'\) 中 \(y'_1\) 的一个开邻域 \(U'\)，使\hyperref[fga2-equation-star]{式~\ref*{fga2-equation-star}}在 \(U'\) 上为同构。此外，\(Y'\) 在 \(y'_1\) 处相对于 \(Y\) 无分歧，但在 \(Y'\) 中位于 \(y\) 上方的其他点 \(y'\) 处可能分歧。
+\begin{proof}
+\par{}当然，条件 (ii)、(iii) 对定理的结论也是必要的。借助\hyperref[fga2-lemma-3]{引理~\ref*{fga2-lemma-3}}和\hyperref[fga2-theorem-2]{定理~\ref*{fga2-theorem-2}}，定理的证明很容易。\end{proof}\end{theorem}
+\begin{corollary}{1}\setnumber{1}\label{fga2-theorem-11-corollary-1}\skipsinglepar
+\par{}仍假定上述 (i) 成立。\(X\) 上的一个无分歧覆盖同构于 \(Y\) 的某个无分歧覆盖 \(Y'\) 的原像，当且仅当 \(X'\) 在每条纤维 \(f^{-1}(y)\) 上诱导的覆盖几何平凡。
+\begin{proof}
+\par{}由\hyperref[fga2-theorem-11]{定理~\ref*{fga2-theorem-11}}，\(Y\) 中满足此条件的点组成开集，故只需在闭点 \(y\) 处验证即可……\end{proof}\end{corollary}
+\par{}注意，下面的陈述与\hyperref[fga2-theorem-11-corollary-1]{推论~\ref*{fga2-theorem-11-corollary-1}}等价：
+\par{}\emph{同态 \(\pi _1(X)\to \pi _1(Y)\) 的核，是各个 \(\pi _1(f^{-1}(y))\) 在 \(\pi _1(X)\) 中的像所生成的闭正规子群；由\hyperref[fga2-lemma-4]{引理~\ref*{fga2-lemma-4}}，该同态为满射。这里 \(f^{-1}(y)\) 表示概形 \(f^{-1}(y)\otimes _{k(y)}\overline {k(y)}\)，其中 \(\overline {k(y)}\) 为 \(k(y)\) 的一个代数闭包。}
+\par{}注意，因为无法为所有纤维\emph{选择}同一个基点，所以在为 \(X\)，从而为 \(Y\) 选定基点后，同态 \(\pi _1(f^{-1}(y))\to \pi _1(X)\) 仍只在模去与 \(\pi _1(X)\) 的内自同构复合的意义下确定。
+\begin{corollary}{2}\setnumber{2}\label{fga2-theorem-11-corollary-2}\skipsinglepar
+\par{}在\hyperref[fga2-theorem-11]{定理~\ref*{fga2-theorem-11}}的一般条件下，进一步假定 \(Y\)、\(X\)、\(X'\) 都整，并分别以 \(K\)、\(L\)、\(L'\) 表示其函数域。则存在 \(L'\) 中 \(K\) 的可分子扩张 \(K'\)，它与 \(L\) 线性无交，且 \(L'=LK'\)，从而 \(L'=L\otimes _KK'\)。
+\begin{proof}
+\par{}（把\hyperref[fga2-lemma-3]{引理~\ref*{fga2-lemma-3}}的最后一部分应用于 \(X\) 的泛纤维。）\end{proof}\end{corollary}
+\par{}\hyperref[fga2-theorem-11]{定理~\ref*{fga2-theorem-11}}最有意义的应用情形是 \(f\) 为\emph{可分}态射时。此时，\(X'\) 在 \(Y\) 上也可分，故由\hyperref[fga2-proposition-4]{命题~\ref*{fga2-proposition-4}}，\(Y'\) 在 \(Y\) 上无分歧，从而\hyperref[fga2-equation-star]{式~\ref*{fga2-equation-star}}的右端 \(X\times _YY'\) 在 \(X\) 上无分歧。由此容易得到：
+\begin{corollary}{3}\setnumber{3}\label{fga2-theorem-11-corollary-3}\skipsinglepar
+\par{}除 (i) 外，再假定 \(f\) 可分。设 \(X'\) 为 \(X\) 的连通无分歧覆盖。\(X\) 是 \(Y\) 的某个无分歧覆盖 \(Y'\) 的原像\footnote{译注：法文原文与英译此处均写作 \(X\)，但本推论讨论的对象是覆盖 \(X'\)。正文保留原记号，此处标出疑误。}，当且仅当在某条几何纤维 \(\overline {F}=\overline {f^{-1}(y)}\) 上诱导的覆盖 \(\overline {F}'\) 有一个正则截面。\end{corollary}
+\par{}注意，不必假定 \(\overline {F}'\) 在 \(\overline {F}\) 上\emph{几何}平凡；尽管这一条件\emph{先验地}强得多，但它\emph{事后}仍将成立。\hyperref[fga2-theorem-11-corollary-3]{推论~\ref*{fga2-theorem-11-corollary-3}}实际上等价于下面的陈述：
+\begin{corollary}{4}\setnumber{4}\label{fga2-theorem-11-corollary-4}\skipsinglepar
+\par{}设 \(f\colon  X\to  Y\) 为满足 \(f_*(\mathcal {O}_X)=\mathcal {O}_Y\) 的固有可分态射。设 \(\overline {F}\) 为点 \(y\in  Y\) 的几何纤维，在 \(\overline {F}\) 中选一个几何点，经态射 \(\overline {F}\to  X\to  Y\)，得到 \(X\)、\(Y\) 中的几何点；分别用这三个点作 \(\overline {F}\)、\(X\)、\(Y\) 的基本群的基点。在这些条件下，有正合列 \[       \boxed {\pi _1(\overline {F}) \to  \pi _1(X) \to  \pi _1(Y) \to  0.}     \]\end{corollary}
+\par{}由此容易得到下面两个 Serre–Lang 的陈述，这里去掉了所有正规性假设：
+\begin{corollary}{5}\setnumber{5}\label{fga2-theorem-11-corollary-5}\skipsinglepar
+\par{}设 \(X\)、\(Y\) 为域 \(k\) 上的连通概形，\(X\) 或 \(Y\) 在 \(k\) 上固有，并假定约化概形 \(X_\mathrm {red}\) 在 \(k\) 上可分且完备；当 \(k\) 为完美域时，可分性自动成立。在 \(X\)（分别在 \(Y\)）中选一个几何点 \(a\)（分别为 \(b\)），从而得到 \(X\times _kY\) 中的几何点 \(c=(a,b)\) 及自然态射 \[       \pi _1(X\times _kY,c) \to  \pi _1(X,a)\times \pi _1(Y,b)     \]，它由从 \(\pi _1(X\times  Y,c)\) 到 \(\pi _1(X,a)\) 与 \(\pi _1(Y,b)\) 的函子性态射诱导。此态射为单射；若 \(k\) 代数闭，则还是双射。\end{corollary}
+\par{}（\hyperref[fga2-theorem-11-corollary-5]{推论~\ref*{fga2-theorem-11-corollary-5}}中的满射性几乎显然。）于是与 Serre–Lang 一样，可得：
+\begin{corollary}{6}\setnumber{6}\label{fga2-theorem-11-corollary-6}\skipsinglepar
+\par{}设 \(X\) 为代数闭域 \(k\) 上的连通代数概形，\(K\) 为 \(k\) 的代数闭扩域。则 \(X\) 与 \(X\times _kK\) 的基本群相同；也就是说，后一个概形的每个无分歧覆盖，都由 \(X\) 的某个无分歧覆盖经标量扩张得到，后者在同构意义下唯一。\footnote{译注：法文原文此推论也未重述上文的完备性条件。此处按原文保留，不据此宣称任意非固有概形在任意特征下均具有这种基本群不变性。}\end{corollary}
+\begin{remarks}{}\label{fga2-8-remarks-i}\skipsinglepar
+\begin{enumerate}\item{}利用\hyperref[fga2-proposition-4]{命题~\ref*{fga2-proposition-4}}可见，\hyperref[fga2-theorem-11-corollary-4]{推论~\ref*{fga2-theorem-11-corollary-4}}中的假设 \(f_*(\mathcal {O}_X)=\mathcal {O}_Y\) 并非必要。在一般情形，应当在 \(\pi _1(Y)\) 之后用 \(\pi _0(\overline {F})\to \pi _0(X)\to \pi _0(Y)\to  e\) 继续，而不是接上平凡群 \(e\)，与代数拓扑中的情形相同。
+
+    \item{}一般而言，目前还无法说明 \(\pi _1(\overline {F})\to \pi _1(X)\) 的核，尽管它理应涉及某个 \(\pi _2(Y)\)。不过，似乎应能借助下面的\hyperref[fga2-theorem-12]{定理~\ref*{fga2-theorem-12}}，证明当 \(Y\) 为局部环 \(A\) 的谱时，\(\pi _1(\overline {F})\to \pi _1(X)\) 为\emph{单射}；该定理说明，当 \(A\) \emph{完备}时确是如此。\end{enumerate}\end{remarks}
+\par{}\hyperref[fga2-theorem-11]{定理~\ref*{fga2-theorem-11}}只用了\hyperref[fga2-theorem-1]{定理~\ref*{fga2-theorem-1}}与\hyperref[fga2-theorem-2]{定理~\ref*{fga2-theorem-2}}；现在我们将应用\hyperref[fga2-theorem-3]{定理~\ref*{fga2-theorem-3}}，并借助下面这个初等引理：
+\begin{lemma}{6}\setnumber{6}\label{fga2-lemma-6}\skipsinglepar
+\par{}设 \(X\) 为概形，\(X_0\) 为对应的约化概形，即将幂零元全部消去后得到的概形。则 \(X_0\) 的每个无分歧覆盖 \(X'_0\)，都由 \(X\) 的某个无分歧覆盖 \(X'\) 诱导，后者在典范同构意义下确定。\end{lemma}
+\par{}这个纯粹局部性质的引理，在这里起的作用，与\hyperref[fga2-theorem-8]{定理~\ref*{fga2-theorem-8}}在模空间理论中的作用类似。把它与存在性定理，即\hyperref[fga2-theorem-3]{定理~\ref*{fga2-theorem-3}}结合，得到：
+\begin{theorem}{12}\setnumber{12}\label{fga2-theorem-12}\skipsinglepar
+\par{}设 \(A\) 为剩余域为 \(k\) 的完备 Noether 局部环，\(X\) 为 \(A\) 上的固有概形。则 \(X_0=X\otimes _Ak\) 的每个无分歧覆盖 \(X'_0\) 都由 \(X\) 的某个无分歧覆盖 \(X'\) 诱导，后者在同构意义下唯一。\end{theorem}
+\par{}换言之：
+\begin{corollary}{1}\setnumber{1}\label{fga2-theorem-12-corollary-1}\skipsinglepar
+\par{}在 \(X_0\) 中选一个几何点，作为 \(X_0\) 与 \(X\) 的基本群的基点。则典范同态 \(\pi _1(X_0)\to \pi _1(X)\) 是\emph{同构}。\end{corollary}
+\par{}现在把\hyperref[fga2-lemma-5]{引理~\ref*{fga2-lemma-5}}应用于 \(X_0\)，为简便起见，假定 \(H^0(X_0,\mathcal {O}_{X_0})=k\)；注意，由于 \(A\) 完备，\(A\) 的无分歧扩张与其剩余域的无分歧扩张对应，即 \(\pi _1(Y)=\pi _1(k)\)，其中 \(Y=\operatorname {Spec}(A)\)。得到正合列：\[     e \to  \pi _1(\overline {X_0}) \to  \pi _1(X) \to  \pi _1(Y) \to  e.   \]
+\begin{corollary}{2}\setnumber{2}\label{fga2-theorem-12-corollary-2}\skipsinglepar
+\par{}设 \(f\colon  X\to  Y\) 为固有平坦态射，\(y_1\) 为 \(Y\) 的一点，\(y_0\) 为 \(y_1\) 的一个特化。考虑相应的“几何”纤维 \(\overline {X_1}\) 与 \(\overline {X_0}\)，并假定 \(\overline {X_0}\) 可分且连通，这也蕴含 \(\overline {X_1}\) 满足相同条件。则可找到一个群同态 \(\pi _1(X_1)\to \pi _1(X_0)\)，模内自同构而确定。此外，此同态为\emph{满射}。\end{corollary}
+\par{}我们或许希望\hyperref[fga2-theorem-12-corollary-2]{推论~\ref*{fga2-theorem-12-corollary-2}}中的同态总是\emph{双射}。可惜，若 \(k(y_0)\) 的特征 \(>0\)，一般并非如此。不过，下面将得到此同态的核的一个上界，至少在 \(\overline {X_0}\) 光滑时如此；由此可知，若 \(k(y_0)\) 的特征为 \(0\)，则上述同态为双射，这也可通过超越方法证明。至少，无论如何，我们已经可以用泛纤维的基本群，给出特殊纤维的 \(\pi _1\) 的上界。例如，利用特征 \(p\) 的代数曲线可以提升为特征 \(0\) 的曲线这一事实（\hyperref[fga2-theorem-9-corollary-4]{定理 9 的推论 4}），通过超越方法便得到：
+\begin{corollary}{3}\setnumber{3}\label{fga2-theorem-12-corollary-3}\skipsinglepar
+\par{}设 \(X_0\) 为任意特征的代数闭域上一条完备光滑曲线的概形，\(g\) 为 \(X_0\) 的亏格。则 \(\pi _1(X_0)\) 有 \(2g\) 个拓扑生成元，满足熟知的关系。\end{corollary}
+\par{}利用熟知的超平面截面方法，由此得到：
+\begin{corollary}{4}\setnumber{4}\label{fga2-theorem-12-corollary-4}\skipsinglepar
+\par{}设 \(X\) 为任意特征的代数闭域上的光滑射影概形。则 \(\pi _1(X)\) 有有限个拓扑生成元。\end{corollary}
+\par{}我们来描述同态 \(\pi _1(\overline {X_1})\to \pi _1(\overline {X_0})\) 的核。为此，可假定 \(Y\) 为完备离散赋值环 \(V=\mathcal {O}_y\) 的谱，其中 \(y=y_0\)。问题等价于：给定 \(\overline {X_1}\) 的一个无分歧覆盖 \(\overline {X'_1}\)，必要时可假定它为 Galois 覆盖，在什么条件下，它来自 \(X_0\) 的一个无分歧覆盖？先验地，给定的覆盖由 \(X_1\otimes _KK'\) 的某个无分歧覆盖 \(X'_1\) 经标量扩张得到，其中 \(K'\) 是 \(V\) 的分式域 \(K\) 的代数闭包 \(\overline {K}\) 中的一个有限子扩张；若 \(X'_1\) 为群 \(G\) 的 Galois 覆盖，则也可选 \(X'_1\) 为群 \(G\) 的 Galois 覆盖。因此：\emph{\(X'_1\otimes _{K'}\overline {K}=\overline {X'_1}\) 来自 \(X_0\) 的一个无分歧覆盖，当且仅当在 \(\overline {K}\) 中存在 \(K'\) 的有限扩张 \(K''\)，使 \(X''_1=X'_1\otimes _{K'}K''\) 具有 \(X''\otimes _{V''}K''\) 的形式，其中 \(V''\) 为 \(V\) 在 \(K''\) 中的整闭包，\(X''\) 为 \(X\otimes _V V''\) 的一个无分歧覆盖}。例如，假定 \(X_0\) 绝对正规，则 \(X\otimes _V V''\) 正规，因为它在 \(V''\) 上平坦，且特殊纤维正规；其函数域即为 \(K''(X_1)\)，也就是下列概形的函数域：\[     X_1\otimes _K K''     = (X\otimes _VK)\otimes _KK''     = X\otimes _VK''     = (X\otimes _VV'')\otimes _{V''}K''.   \] 设 \(L''=K''(X'_1)\) 为 \(X'_1\otimes _{K'}K''\) 的函数域，这是 \(K''(X_1)\) 的有限可分扩张，上述条件也意味着\emph{\(L''\) 是 \(X\otimes _VV''\) 的函数域的无分歧扩张}；即 \(X\otimes _V V''\) 在 \(L''\) 中的正规化，在 \(X\otimes _VV''\) 上无分歧。只须验证 \(L''\) 在 \(X\otimes _VV''\) 的特殊纤维各点处无分歧，因为它在泛纤维 \(X_1\otimes _KK''\) 上已无分歧。现在若 \(X_0\) \emph{光滑}，则由 Nagata–Zariski 的“\emph{纯性定理}”，甚至只须验证 \(L''\) 在 \(X\otimes _VV''\) 的特殊纤维的泛点的局部环 \(\mathcal {O}''\) 上无分歧；这是一个离散赋值环，等于 \(X\) 的特殊纤维的泛点的局部环 \(\mathcal {O}\subset  K(X_1)\) 在 \(K''(X_1)\) 中的正规化。于是得到：
+\begin{corollary}{5}\setnumber{5}\label{fga2-theorem-12-corollary-5}\skipsinglepar
+\par{}在上述条件与记号下，\(\overline {X_1}=X_1\otimes _K\overline {K}\) 的无分歧覆盖 \(X'_1\otimes _{K'}\overline {K}\) 来自 \(\overline {X_0}\) 的无分歧覆盖，当且仅当存在 \(\overline {K}/K'\) 的有限子扩张 \(K''\)，使 \(K''(X'_1)\) 在离散赋值环 \(\mathcal {O}''\subset  K''(X_1)\) 上无分歧。\end{corollary}
+\par{}现在注意，\(\mathcal {O}''\) 是离散赋值环 \(\mathcal {O}'\subset  K'(X_1)\) 在 \(K''(X_1)\) 中的正规化，而该环是 \(\mathcal {O}\) 在 \(K'(X_1)\) 中的正规化；此外，\(\mathcal {O}'\) 包含 \(V\) 在 \(K'\) 中的正规化 \(V'\)，\(V'\) 的一致化参数 \(u\) 也是 \(\mathcal {O}'\) 的一致化参数。现在假定 \(X'_1\) 为 Galois 覆盖，其 Galois 群 \(G\) \emph{的阶为 \(n\)，且与 \(k(y_0)\) 的特征 \(p\) 互素}；这里的特征也是 \(\mathcal {O}'\) 的剩余域的特征。则 \(K'(X_1')\) 在 \(\mathcal {O}'\) 上“温和分歧”。由“\emph{Abhyankar 引理}”容易推出，若添入 \(\mathcal {O}'\) 的一个一致化参数的 \(n\) 次方根 \(v\)，那么它在 \(\mathcal {O}'\) 于 \(K'(X_1)(v)\) 中的正规化上便无分歧。可是，\(v\) 可以取为 \(V'\) 的一个一致化参数的 \(n\) 次方根，这表明\hyperref[fga2-theorem-12-corollary-5]{推论~\ref*{fga2-theorem-12-corollary-5}}的条件成立。（利用 Abhyankar 引理与纯性定理的这个想法，是 Serre 告诉我的。）为表述由此所得的结果，对每个全不连通紧群 \(\pi \)，引入商群 \(\overline {\pi }\)：它是 \(\pi \) 模去其各 Sylow \(p\)-子群生成的闭子群所得的商，也就是 \(\pi \) 的所有阶与 \(p\) 互素的离散商群的射影极限。采用此记号，可得：
+\begin{theorem}{13}\setnumber{13}\label{fga2-theorem-13}\skipsinglepar
+\par{}设 \(f\colon  X\to  Y\) 为固有平坦态射，\(y_1\) 为 \(Y\) 的一点，\(y_0\) 为 \(y_1\) 的特化。假定 \(\overline {X_0}\) 连通且光滑。则由\hyperref[fga2-theorem-12-corollary-2]{定理 12 的推论 2}中的满同态诱导的同态 \(\overline {\pi _1}(\overline {X_1})\to \overline {\pi _1}(\overline {X_0})\) 是\emph{同构}。\end{theorem}
+\par{}换言之：
+\begin{corollary}{1}\setnumber{1}\label{fga2-theorem-13-corollary-1}\skipsinglepar
+\par{}Galois 群的阶与 \(k(y_0)\) 的特征 \(p\) 互素的无分歧 Galois 覆盖，在 \(\overline {X_0}\) 与 \(\overline {X_1}\) 上具有相同的分类。\end{corollary}
+\par{}特别地，若 \(k(y_0)\) 的特征为 \(0\)，则可用代数方法看出，\(\pi _1(\overline {X_1})\to \pi _1(\overline {X_0})\) 是双射。
+\par{}最后指出，以上方法还给出下面这个比\hyperref[fga2-theorem-13]{定理~\ref*{fga2-theorem-13}}更一般的结果：
+\begin{theorem}{14}\setnumber{14}\label{fga2-theorem-14}\skipsinglepar
+\par{}设 \(f\colon  X\to  Y\) 为固有光滑态射，\(D\) 为 \(X\) 的闭子概形，它在 \(Y\) 上光滑，且在每一点处的余维均为 \(1\)。给定 \(f\) 的一条纤维 \(Z=f^{-1}(z)\)，置 \(Z'=Z\setminus  Z\cap  D\)，并以 \(\pi _1^\mathrm {t}(\overline {Z'})\) 表示基本群 \(\pi _1(Z')\) 的商群，它分类 \(\overline {Z'}\) 的那些在 \(\overline {Z\cap  D}\) 处“温和分歧”的无分歧覆盖。设 \(y_0\)、\(y_1\) 如\hyperref[fga2-theorem-13]{定理~\ref*{fga2-theorem-13}}中所述。则存在\emph{满}同态 \(\pi _1^\mathrm {t}(\overline {X'_1})\to \pi _1^\mathrm {t}(\overline {X'_0})\)，模内自同构而确定，且相应的同态 \(\overline {\pi _1^\mathrm {t}}(\overline {X'_1})\to \overline {\pi _1^\mathrm {t}}(\overline {X'_0})\) 是同构。\end{theorem}
+\par{}由此得到\hyperref[fga2-theorem-13]{定理~\ref*{fga2-theorem-13}}的各推论及\hyperref[fga2-theorem-12-corollary-4]{定理 12 的推论 4}的相应变体。同样，利用\hyperref[fga2-theorem-9-corollary-3]{定理 9 的推论 3}，通过超越方法得到：
+\begin{corollary}{1}\setnumber{1}\label{fga2-theorem-14-corollary-1}\skipsinglepar
+\par{}设 \(X_0\) 为任意特征的代数闭域上一条完备光滑曲线的概形，\(S=(s_i)_{1\leqslant  i\leqslant  n}\) 为 \(X_0\) 中含有 \(n\) 个元素的有限子集。则 \(\pi _1^\mathrm {t}(X_0\setminus  S)\) 有 \(2g+n\) 个拓扑生成元 \(x_i,y_i,\sigma _j\)，其中 \(1\leqslant  i\leqslant  g\) 且 \(1\leqslant  j\leqslant  n\)，满足关系 \[       \left (\prod _i x_iy_ix_i^{-1}y_i^{-1}\right )\sigma _1\ldots \sigma _n = 1,     \]，这里的 \(\sigma _j\) 是各点 \(s_j\) 对应的惯性群的生成元。对任意\emph{阶与特征互素}的有限群 \(G\)，若它由满足上述关系的元素 \(\overline {x_i},\overline {y_i},\overline {\sigma _j}\) 生成，则存在 \(X_0\setminus  S\) 的一个群为 \(G\) 的无分歧 Galois 覆盖，其在各点 \(s_j\) 的惯性群由 \(\overline {\sigma _j}\) 生成。\end{corollary}
+\par{}若 \(X_0\) 的亏格为 \(0\) 且 \(n=3\)，就得到了“\emph{三点问题}”的解，至少对次数与特征互素的 Galois 覆盖如此。（这里，\hyperref[fga2-theorem-9]{定理~\ref*{fga2-theorem-9}}实际上用不上；看来可从三点问题所涉及的特例推出上述推论。）
+\begin{remarks}{}\label{fga2-8-remarks-ii}\skipsinglepar
+\begin{enumerate}\item{}更完整的研究，很可能涉及 \(X\)、\(X_0\)、\(X_1\) 的广义 Galois 覆盖，其 Galois 群最终可能是无穷小的，应能使我们确定\hyperref[fga2-theorem-12-corollary-2]{定理 12 的推论 2}中的核。不过，对允许非“温和”分歧的覆盖作研究，似乎困难得多。
+
+    \item{}把\hyperref[fga2-lemma-6]{引理~\ref*{fga2-lemma-6}}与 Grauert 关于非奇异射影概形沿超平面截面的形式完备化的结果结合，或者与\hyperref[fga2-theorem-11]{定理~\ref*{fga2-theorem-11}}后注 2 中提到而尚未证明的定理结合，也能在“抽象”代数几何中证明关于基本群的经典\emph{Lefschetz 定理}。\end{enumerate}\end{remarks}
+
+\section*{原报告参考文献}
+% Restored from the original French report, printed 182-28, physical PDF page 67.
+% Numbered bibliography is distinct from the coordinator-owned consolidated bibliography.
+\begin{enumerate}
+\item[{[1]}] DIEUDONNÉ (J.) 与 GROTHENDIECK (A.). \emph{Eléments de géométrie algébrique}. Publications mathématiques de l'Institut des Hautes Etudes Scientifiques（待出版）。
+\item[{[2]}] GROTHENDIECK (Alexander). \emph{The cohomology theory of abstract algebraic varieties}. International Congress of Mathematicians [1958. Edinburgh]（待出版）。
+\item[{[3]}] SERRE (Jean-Pierre). \emph{Faisceaux algébriques cohérents}. Annals of Math., 第 2 辑，第 61 卷，1955，197--278 页。
+\item[{[4]}] SERRE (Jean-Pierre). \emph{Géométrie algébrique et géométrie analytique}. Ann. Institut Fourier Grenoble, 第 6 卷，1955--1956，1--42 页。
+\end{enumerate}

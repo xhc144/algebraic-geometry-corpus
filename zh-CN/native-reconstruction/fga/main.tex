@@ -17,7 +17,7 @@
 \special{pdf:mapfile Baskervaldx.map}
 \special{pdf:mapfile ESSTIX.map}
 \addbibresource{fga-bibliography.bib}
-\title{代数几何基础\\[0.5em]\large Fondements de la Géométrie Algébrique\\[1em]\normalsize 中文工作稿：前言与报告 I 第 1--2 节}
+\title{代数几何基础\\[0.5em]\large Fondements de la Géométrie Algébrique\\[1em]\normalsize 中文原生工作稿：八篇报告全稿，待审校}
 \author{Alexander Grothendieck}
 \date{1956--1962}
 \begin{document}
@@ -25,7 +25,14 @@
 \pagestyle{plain}
 \maketitle
 \begin{abstract}
-本稿据 Tim Hosgood 的英文原生稿翻译，并在发现疑误处核对法文原本。本次仅含前言、第一篇报告的引言及第 1--2 节；其他七篇报告和第一篇其余各节尚未译入。原书作者、报告编号、公式与引用均予保留。英文稿与法文之间的差异及校核状态另见源码包中的 SOURCE\_NOTES.json。本稿尚未完成独立数学审校。
+本稿以 Tim Hosgood 的英文原生稿为主要译源，并逐项核对已发现的法文差异。现已译入前言及全部八篇报告；原报告日期、局部书目、补记及勘误另据法文恢复。它是待审校的完整初稿，尚未通过全书逐行独立数学审校。原作者姓名、报告与陈述编号、公式和证明予以保留；已证实的英文误录、原本自身的疑误及尚未解决的覆盖问题，详见 SOURCE\_NOTES.json、source/reviews/ 与 PROGRESS.json。原本重号保留，内部引用标签作必要区分。
+\end{abstract}
+\begin{abstract}
+以下保留英译本说明的内容：这是 Alexander Grothendieck 的《Fondements de la Géométrie Algébrique》的英译本。法文原笔记已由 Grothendieck Circle 扫描上传；各篇报告及勘误也可在 \url{https://www.numdam.org/actas/SB/} 找到。
+
+英译者 Tim Hosgood（\url{https://thosgood.com}）对英译中引入的错误负全部责任，并不主张其中数学内容的任何权利。英译者的注释以斜体排印，并冠以“[Trans.]”。
+
+英译本的全部源码可在 \url{https://github.com/thosgood/fga/} 查看、参与修改或提交订正。欢迎订正及意见。英译者诚挚感谢 Steve Hnizdur 发现了许多笔误和错误。
 \end{abstract}
 \setcounter{tocdepth}{1}
 \tableofcontents
@@ -33,12 +40,52 @@
 \pagestyle{fancy}
 \setcounter{part}{-1}
 \renewcommand\thepart{}
+\renewcommand\fgaAnchorPrefix{fga-foreword}
 \input{chapters/fga-foreword}
 \clearpage
 \renewcommand\thepart{\arabic{part}}
+\renewcommand\fgaAnchorPrefix{fga1}
 \input{chapters/fga1}
+\clearpage
+\setcounter{chapter}{0}
+\renewcommand\fgaAnchorPrefix{fga2}
+\input{chapters/fga2}
+\clearpage
+\renewcommand\fgaAnchorPrefix{fga3}
+\part{下降技术与代数几何中的存在定理}
+\setcounter{part}{0}
+\renewcommand\thepart{3.\Roman{part}}
+\setcounter{chapter}{0}
+\renewcommand\thechapter{\Alph{chapter}}
+\renewcommand\thesubsection{\thesection.\alph{subsection}}
+\renewcommand\fgaAnchorPrefix{fga3.i}
+\input{chapters/fga3.i}
+\clearpage
+\setcounter{chapter}{0}
+\renewcommand\fgaAnchorPrefix{fga3.ii}
+\input{chapters/fga3.ii}
+\clearpage
+\setcounter{chapter}{-1}
+\renewcommand\thechapter{\arabic{chapter}}
+\renewcommand\fgaAnchorPrefix{fga3.iii}
+\input{chapters/fga3.iii}
+\clearpage
+\setcounter{chapter}{-1}
+\renewcommand\fgaAnchorPrefix{fga3.iv}
+\input{chapters/fga3.iv}
+\clearpage
+\setcounter{chapter}{0}
+\renewcommand\fgaAnchorPrefix{fga3.v}
+\input{chapters/fga3.v}
+\clearpage
+\setcounter{chapter}{-1}
+\renewcommand\fgaAnchorPrefix{fga3.vi}
+\input{chapters/fga3.vi}
 \backmatter
 \pagestyle{plain}
-\nocite{Car1957,Gro1957,Ser1955}
+\nocite{*}
+\begingroup
+\emergencystretch=1em
 \printbibliography[heading=bibintoc,title=参考文献]
+\endgroup
 \end{document}

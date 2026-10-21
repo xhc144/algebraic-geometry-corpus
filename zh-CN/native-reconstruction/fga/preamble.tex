@@ -53,7 +53,7 @@
 \usepackage[nameinlink,capitalize]{cleveref}
 \crefname{section}{§}{§§}
 \crefname{subsection}{§}{§§}
-\labelformat{subsection}{\thesection.#1}
+\labelformat{subsection}{#1}
 
 
 
@@ -76,7 +76,7 @@
 \titlespacing{\section}{0pt}{*8}{*2}
 
 
-\titleformat{\subsection}[hang]{}{\large\thesection.\thesubsection.}{8pt}{\large}
+\titleformat{\subsection}[hang]{}{\large\thesubsection.}{8pt}{\large}
 \titlespacing{\subsection}{0pt}{*8}{*2}
 
 
@@ -98,7 +98,7 @@
 
 %% Numbering for \ref
 \makeatletter
-\newcommand{\setnumber}[1]{\def\@currentlabel{#1}}
+\newcommand{\setnumber}[1]{\phantomsection\def\@currentlabel{#1}}
 \makeatother
 
 
@@ -174,6 +174,26 @@
 
 % Keep the upstream book's layout and labels; localize only reader-facing names.
 \renewcommand{\proofname}{证明}
-\AtEveryBibitem{\label{\thefield{entrykey}}}
+\AtEveryBibitem{\phantomsection\label{\thefield{entrykey}}}
 
 \renewcommand{\contentsname}{目录}
+
+\crefname{chapter}{§}{§§}
+\crefname{part}{报告}{报告}
+
+% Stable subsection labels; never prepend the current section when reading a stored label.
+\renewcommand\thesubsection{\thesection.\alph{subsection}}
+\pdfstringdefDisableCommands{%
+  \def\({}\def\){}%
+  \def\underline#1{#1}%
+  \def\mathcal#1{#1}\def\mathscr#1{#1}%
+  \def\mathrm#1{#1}\def\mathit#1{#1}\def\operatorname#1{#1}%
+}
+
+% Report counters repeat in the original; PDF destinations must remain unique.
+\newcommand\fgaAnchorPrefix{front}
+\renewcommand\theHpart{\fgaAnchorPrefix.\arabic{part}}
+\renewcommand\theHchapter{\fgaAnchorPrefix.\arabic{chapter}}
+\renewcommand\theHsection{\theHchapter.\arabic{section}}
+\renewcommand\theHsubsection{\theHsection.\arabic{subsection}}
+\renewcommand\theHequation{\fgaAnchorPrefix.\arabic{chapter}.\arabic{equation}}

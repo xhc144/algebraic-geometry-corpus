@@ -27,4 +27,4 @@ for error in ["There were undefined references", "Missing character:", "LaTeX Er
         raise SystemExit(f"Review required: {error}")
 (ROOT / "outputs").mkdir(exist_ok=True)
 shutil.copyfile(BUILD / "main.pdf", ROOT / "outputs/FGA-zh-working.pdf")
-print("Built outputs/FGA-zh-working.pdf; coverage remains a partial draft.")
+print("Built outputs/FGA-zh-working.pdf; eight-report Chinese draft, review status in PROGRESS.json.")
