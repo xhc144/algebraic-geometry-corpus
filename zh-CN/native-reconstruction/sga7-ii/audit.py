@@ -9,7 +9,10 @@ import re,json,hashlib
 ROOT=Path(__file__).resolve().parent
 REPO=ROOT.parents[2]
 lock=json.loads((ROOT/'SOURCE_LOCK.json').read_text())
-source=(REPO/lock['chosen_source']).read_text()
+source_bytes=(REPO/lock['chosen_source']).read_bytes()
+chosen_check=next(x for x in lock['source_checks'] if x['path']==lock['chosen_source'])
+assert hashlib.sha256(source_bytes).hexdigest()==chosen_check['sha256'],'Chosen source changed since frozen audit'
+source=source_bytes.decode()
 parts={m[1]:m[3] for m in re.finditer(r'% Original input: (.*?)\n\\begin\{filecontents\*\}\[overwrite,noheader\]\{(.*?)\}\n(.*?)\\end\{filecontents\*\}',source,re.S)}
 pat=re.compile(r'\\begin\{(equation\*?|align\*?|gather\*?|multline\*?|tikzcd|tikzpicture)\}.*?\\end\{\1\}|\\\[.*?\\\]|\\\(.*?\\\)|(?<!\\)\$(?:\\.|[^$])*?(?<!\\)\$',re.S)
 def textless(s):
@@ -18,7 +21,7 @@ def textless(s):
         nested_math.extend(re.findall(r'(?<!\\)\$(?:\\.|[^$])*?(?<!\\)\$',m[2]))
         return m[1]+m[3]
     s=re.sub(r'(\\begin\{minipage\}\{[^}]*\})(.*?)(\\end\{minipage\})',minipage,s,flags=re.S)
-    while (m:=re.search(r'\\(?:text|textrm|textnormal|textup|mbox)\s*\{',s)):
+    while (m:=re.search(r'\\(?:text|textrm|textnormal|textup|mbox|hbox)\s*\{',s)):
         depth=1;j=m.end()
         while j<len(s) and depth:
             if s[j]=='{' and s[j-1]!='\\':depth+=1
@@ -29,8 +32,6 @@ def textless(s):
         nested_math.extend(re.findall(r'(?<!\\)\$(?:\\.|[^$])*?(?<!\\)\$',inner))
         s=s[:m.start()]+s[j:]
     s=re.sub(r'\\mathrm\{(?:proximate|to|on)\}','',s)
-    # This original first-draft transcription correction has explicit French evidence.
-    s=s.replace('q^{,i-\\dim X}','q^{i-\\dim X}')
     return re.sub(r'\s+','',s)+';TEXTMATH:'+repr(sorted(re.sub(r'\s+','',x) for x in nested_math))
 def strip_editorials(s):
     notes=[]
@@ -66,6 +67,7 @@ def main():
     rows=[];failed=[]
     for c in lock['components']:
         src=parts[c['source_component']];p=ROOT/c['translation'];num=p.name[:3]
+        assert hashlib.sha256(src.encode()).hexdigest()==c['sha256'],c['source_component']+' frozen source hash mismatch'
         row={'component':c['source_component'],'number':num,'translation':c['translation'],'exists':p.exists(),'source_lines':len(src.splitlines())}
         if not p.exists():rows.append(row);failed.append(num);continue
         dst=p.read_text();body,notes=strip_editorials(dst);changes,counts=difference(src,body)

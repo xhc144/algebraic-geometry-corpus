@@ -9,6 +9,8 @@ for package in dependencies/*.tar.xz; do
 done
 export TEXMFHOME="$PWD/build/texmf"
 export XDG_CACHE_HOME="${XDG_CACHE_HOME:-/tmp/sga7ii-cache}"
+python3 build_inputs.py before
 xelatex -interaction=nonstopmode -halt-on-error -no-shell-escape -output-directory=build main.tex >build/pass1.txt 2>&1
 xelatex -interaction=nonstopmode -halt-on-error -no-shell-escape -output-directory=build main.tex >build/pass2.txt 2>&1
+python3 build_inputs.py after
 cp build/main.pdf SGA7-II-zh-CN.pdf
