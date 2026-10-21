@@ -1,0 +1,81 @@
+% SGA 3, Expose V, Loop 1 English reconstruction.
+% Scope: affine/ring setup for Theorem 4.1 and part a) of its proof,
+% stopping immediately before part b).
+% Authority: Polo--Gille Exp5-13oct24.pdf, component-local p. 12
+% (combined-reader p. 274). This re-edited page bears printed header 262
+% and internal original-page markers 264--265.
+% Jacob Reinhold's CC BY 4.0 Markdown is comparison/drafting material only.
+
+在当前考虑的情形中, \(X_0,X_1,X_2\) 都仿射. 因而可假设
+\[
+  X_i=\operatorname{Spec}A_i,\qquad
+  d_j=\operatorname{Spec}\delta_j,\qquad
+  d'_k=\operatorname{Spec}\delta'_k,
+\]
+其中各 \(A_i\) 为交换环, \(\delta_j,\delta'_k\) 为环同态.
+图 \hyperref[sga3:v:lemma:1-2:equation:0-1-2]{(0,1,2)}
+可替换为以下对偶图:
+
+% Native Loop-2 reconstruction; local p. 12 / combined p. 274.
+\begin{equation*}
+  \resizebox{0.57\textwidth}{!}{%
+    \SGAThreeNativeInput{figures/exp5/p262_dual_cocartesian_012star.png}}
+  \phantomsection\label{fig:sga3-exp5-dual-012star}
+\end{equation*}
+此图左侧的两个方形为余 Cartesian 方形.
+
+设 \(B\) 是 \(A_0\) 中由满足 \(\delta_0(a)=\delta_1(a)\)
+的元素 \(a\in A_0\) 组成的子环.
+
+\medskip
+\phantomsection\label{proof:sga3-V-4.1-a}
+\noindent\textbf{a)} 先证明 \(A_0\) 在 \(B\) 上整.
+对 \(a\in A_0\), 令
+\begin{equation}
+  P_{\delta_1}(T,\delta_0(a))
+  =T^n-\sigma_1T^{n-1}+\cdots+(-1)^n\sigma_n
+  \label{eq:sga3-V-4.1-characteristic-polynomial}
+\end{equation}
+为 \(\delta_0(a)\) 的特征多项式,
+其中通过 \(\delta_1\) 将 \(A_1\) 视为 \(A_0\)-代数;
+参见 Bourbaki, \emph{Alg\`ebre}, VIII, \S12,
+以及 \emph{Alg\`ebre commutative}, II, \S5, 习题~9.
+由于图 \hyperref[fig:sga3-exp5-dual-012star]{\((0,1,2)^\ast\)}
+左侧的两个方形为余 Cartesian 方形, 有
+\begin{align}
+ \delta_0\!\left(P_{\delta_1}(T,\delta_0(a))\right)
+   &=P_{\delta'_2}(T,\delta'_0\delta_0(a)), \\
+ \delta_1\!\left(P_{\delta_1}(T,\delta_0(a))\right)
+   &=P_{\delta'_2}(T,\delta'_1\delta_0(a)).
+\end{align}
+因为 \(\delta'_0\delta_0=\delta'_1\delta_0\), 可得
+\[
+ \delta_0\!\left(P_{\delta_1}(T,\delta_0(a))\right)
+ =
+ \delta_1\!\left(P_{\delta_1}(T,\delta_0(a))\right);
+\]
+等价地,
+\[
+  \delta_0(\sigma_i)=\delta_1(\sigma_i)
+  \qquad\text{对每个 }i.
+\]
+
+另一方面, Cayley--Hamilton 定理给出
+\[
+ \delta_0(a)^n-\delta_1(\sigma_1)\delta_0(a)^{n-1}
+ +\cdots+(-1)^n\delta_1(\sigma_n)=0.
+\]
+由于 \(\delta_1(\sigma_i)=\delta_0(\sigma_i)\), 也有
+\[
+ \delta_0(a)^n-\delta_0(\sigma_1)\delta_0(a)^{n-1}
+ +\cdots+(-1)^n\delta_0(\sigma_n)=0.
+\]
+因而
+\[
+  a^n-\sigma_1a^{n-1}+\cdots+(-1)^n\sigma_n=0,
+\]
+因为存在同态 \(\tau:A_1\to A_0\) 满足
+\(\tau\delta_0=\operatorname{id}_{A_0}\), 从而 \(\delta_0\) 为单射.
+可见 \(A_0\) 在 \(B\) 上整.
+% Translation statistics: source_lines=83; output_lines=81; inline_math=22; display_math=6; equation=1; equation_star=1; align=1; footnotes=0.
+% Review: complete assigned component; pending_TODO=0; all math symbols, labels, references, diagram paths and environments checked; formula prose translated.

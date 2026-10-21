@@ -1,8 +1,8 @@
 # 续译检查点
 
-本交付是明确的部分成果，不能标记 assigned scope complete。分配的14篇中，已完整译出导言及 I、II、III、IV；V、VI-A、VI-B、VII-A、VII-B、VIII、IX、X、XI、XII，以及第一卷索引尚未翻译。本轮保存可编译 TeX、原生图、PDF、源码 ZIP 和逐组件审计；后续应从 V 的第00组件继续。
+本交付是明确的部分成果，不能标记 assigned scope complete。分配的14篇中，已完整整合导言及 I、II、III、IV、V；VI-A、VI-B、VII-A、VII-B、VIII、IX、X、XI、XII，以及第一卷索引尚未翻译。本轮保存可编译 TeX、原生图、PDF、源码 ZIP 和逐组件审计；VI-A 26组件及索引条目现已完整译出，后续应整合VI-A并继续正在分组翻译的VI-B。
 
-续译已恢复：V 00–23、VI-A 00–25 正在分组翻译；未整合、未标记完成的组件不计入已交付 PDF。16b2b930 检查点保持可用。
+V 00–23 已整合，独立文字审查正在进行；VI-A 00–25与第一卷索引译稿已齐，未整合稿件尚未计入交付PDF。VI-B 26–89 分6组正在翻译（见IN_FLIGHT.json）。16b2b930 检查点保持可用。
 
 底本固定为仓库 `en/KokunoYumeto-sga-en/release/00_SGA_EN_CUMULATIVE_SOURCE_PROJECTS.zip` 内 `native/SGA3/SGA3_English_current_buildable_source_20260823/source/`。外部哈希、全部1868条外清单、SGA3的919条内部清单均已核验；散装 TeX 的发布清单哈希缺陷仍明确记录，不以本次翻译掩盖或改写源文件。
 
