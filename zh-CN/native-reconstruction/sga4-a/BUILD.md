@@ -4,7 +4,7 @@
 
 底本为仓库内通过发布清单 SHA-256 验证的 `00_SGA_EN_CUMULATIVE_SOURCE_PROJECTS.zip` 内 SGA 4 原生源工程及整合稿。松散 TeX 与 ZIP 内稿的唯一差别是 554 处 CRLF 被改为 LF；正文逐字相同。原文件未改动。精确哈希、闭包和篇目见 `audit/SOURCE_AUDIT.json`。
 
-排版沿用底本 `amsbook.cls`、`smfthm.sty`、罗马篇号、原有语义标签、页边原页码、Xy-pic 原生交换图。封面依照法文第一卷的两条横线与书名层次重建，中文采用 Noto 宋体；没有原 PDF 页面、图像公式或页面叠加。Linux Libertine O 与 XITS Math 在此环境缺失，西文改用 Nimbus Roman，数学改用 Latin Modern Math；这是已明示的字体适配，并非原字体复刻。第三方 class/style 未修改。
+排版沿用底本 `amsbook.cls`、`smfthm.sty`、罗马篇号、原有语义标签、页边原页码、Xy-pic 原生交换图。封面依照原始法文扫描本第一页的居中标题层次重建，中文采用 Noto 宋体；没有原 PDF 页面、图像公式或页面叠加。Linux Libertine O 与 XITS Math 在此环境缺失，西文改用 Nimbus Roman，数学改用 Latin Modern Math；这是已明示的字体适配，并非原字体复刻。第三方 class/style 未修改。
 
 在本目录运行：
 
