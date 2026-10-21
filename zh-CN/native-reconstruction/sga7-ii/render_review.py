@@ -2,6 +2,13 @@ from pathlib import Path
 from PIL import Image,ImageDraw
 import fitz,json
 root=Path(__file__).resolve().parent
+# Discard obsolete generated page images so stale repagination cannot be mistaken for current evidence.
+import re
+for folder in ['build/render','build/contact']:
+ (root/folder).mkdir(parents=True,exist_ok=True)
+for old in (root/'build/render').glob('*.png'):
+ if re.fullmatch(r'(?:high-)?\d{3}\.png',old.name):old.unlink()
+for old in (root/'build/contact').glob('sheet-*.jpg'):old.unlink()
 doc=fitz.open(root/'SGA7-II-zh-CN.pdf')
 print('page count',len(doc),'page labels',doc.get_page_labels())
 print('chapter bookmarks', [x for x in doc.get_toc() if x[1].startswith('第 ')])

@@ -1,6 +1,6 @@
 % !TEX root = ../main.tex
 
-\chapter{对偶性}\label{V}
+\chapter[{对偶性 [Dualit\'e]}]{对偶性}\label{V}
 
 本讲包含若干定理与相容性结果, 都与 Poincaré 对偶性 (duality) 有关.
 第 \ref{V:1} 节给出维数 $1$ 时的局部双对偶定理 \cite[I.5.1]{sga5}, 以及一些对偶的计算.
@@ -25,6 +25,7 @@
 \[
   \hom(\sK\lotimes \sL,\dZ/n) = \hom(\sL,\Hom(\sK,\dZ/n)) \text{.}
 \]
+\footnote{译注: 原书印页155的右侧内 Hom 未印 $\eR$. 在此导出范畴的伴随公式中, 应理解为 $\rHom(\sK,\dZ/n)=D\sK$; 一般不能用未导出的层 Hom 替代.}
 当 $D\sK$ 在 $\eD^-$ 中时, 从 $\sK$ 到 $DD\sK$ 的态射有定义:
 若 $\beta:D\sK\lotimes\sK\to \dZ/n$ 是典范配对,
 则它是由配对 $\sK\lotimes D\sK=D\sK\lotimes \sK \xrightarrow\beta \dZ/n$ 定义的态射.
@@ -106,6 +107,7 @@ $\Hom(j_\ast \sF,\dZ/n) = j_\ast\Hom(\sF,\dZ/n)$,
     & \left(\sF_{\bar\eta}^I\right)^\vee \ar[r]
     & \eR j_\ast \sF_{\bar\eta}^I \text{.}
 }\]
+\footnote{译注: 原书印页156下行末项漏去对偶, 应读作 $\eR j_\ast(\sF_{\bar\eta}^I)^\vee$. 这是对第二个短正合列施加反变函子 $D$ 的结果, 也与下一图的 $\h^1(I,(\sF_{\bar\eta}^I)^\vee)$ 一致. 此处保留原式.}
 第一行产生的长正合列给出 $\Ext^i$ 在 $i>2$ 时消失;
 取 $s$ 处的纤维, 得到
 \[\xymatrix@=0.7cm{
@@ -189,9 +191,9 @@ $\h^1(\widehat\dZ_{p'},M)\sim ($ $\widehat\dZ_{p'}$ 在 $M)$ 中的余不变量,
 且 $\tr_f$ 为伴随态射 $\eR f_!\eR f^!\sK_Y\to \sK_Y$.
 \end{lemma_}
 
-% 核对记录: 英文源指出此处原记作 \rhom, 已采用 \rHom; 译文沿用所选底本.
+% 法文印页158 (PDF163) 的 Hom 有下划线, 表示层内 Hom; 此处为导出层内 Hom.
 只需验证, 当 $f$ 有限时,
-$f_\ast \eR f^!\sK_Y = \rHom(f_\ast\dZ/n,\sK_Y)$ 是 $f_\ast\dZ/n$,
+$f_\ast \eR f^!\sK_Y = \rHom(f_\ast\dZ/n,\sK_Y)$ 是 $f_\ast\dZ/n$,\footnote{译注: 原书印页158的末项漏去 $(1)[2]$. 因 $\sK_Y=\dZ/n(1)[2]$, 应为 $f_\ast\dZ/n(1)[2]$; 或者先将等式中的 $\sK_Y$ 换成 $\dZ/n$ 来验证未扭转、未移位的断言. 这里的 $\rHom$ 是导出层内 Hom, 其值为 $Y$ 上的复形, 不是全局导出 Hom.}
 且 $\tr_f$ 为伴随态射.
 由 \ref{V:1-3} 得到 $\Ext^i$ 在 $i>0$ 时消失, 断言随之成立.
 
@@ -280,8 +282,9 @@ $'\h^i(X,j_\ast j^\ast\sF) = D \h^{2-i} (X,j_\ast(j^\ast\sF)^\vee(1))$,
     & \sQ \ar[r]
     & 0 \text{.}
 }\]
+% 据法文印页160 (PDF165): 此处系数为 G, 英文转录误作 F.
 将 $X'$ 换为某个 $X''/X'$ 后, 可假定
-$\h^i(X,\sF) \to \h^i(X,f_\ast\dZ/n) = \h^i(X',\dZ/n)$ 在 $i>0$ 时为零.
+$\h^i(X,\sG) \to \h^i(X,f_\ast\dZ/n) = \h^i(X',\dZ/n)$ 在 $i>0$ 时为零.
 于是考虑
 \small
 \[\xymatrix@R=.3cm@C=.17cm{
@@ -306,7 +309,10 @@ $\h^i(X,\sF) \to \h^i(X,f_\ast\dZ/n) = \h^i(X',\dZ/n)$ 在 $i>0$ 时为零.
 
 $\h^0(X')$ 处的同构给出 $\h^0(X,\sG)\hookrightarrow '\h^0(X,\sG)$,
 再由 \eqref{V:eq:2-5-2} 得到对 $\sF$ 的相同单射性.
-将其用于 $\sQ$, 得到 $\h^1(X,\sG)\hookrightarrow '\h^1(X,\sG)$.
+% 据法文印页160 (PDF165) 补回英文遗漏的 H^0 同构步骤.
+将此单射性用于 $\sQ$, 得到 $\h^0(X,\sG)\iso '\h^0(X,\sG)$.
+对 $\sF$ 也一样 (\eqref{V:eq:2-5-2}).
+再将其用于 $\sQ$, 得到 $\h^1(X,\sG)\hookrightarrow '\h^1(X,\sG)$.
 再将此用于 $\h^1(X',\dZ/n)$.
 此群与 $'\h^1(X',\dZ/n)=D(\h^1(X',\dZ/n)(1))$ 的阶相同,
 因而得到同构, 并有 $\h^1(X,\sG) \iso '\h^1(X,\sG)$. 对 $\sF$ 也一样.
@@ -520,7 +526,8 @@ $\tr(\varphi(u)\smallsmile x) = \varphi(x)$.
 其中 (1) 由 $a\otimes b\otimes c\mapsto (a\smallsmile c)\otimes b$ 给出.
 
 我们用相对于第二投影的迹态射
-$\tr:\h_c^3(X\times X,\dmu_n^{\otimes 2}) \to \h_c^2(X,\dmu_n)$ 来表示此态射.
+% 据法文印页164 (PDF169): 沿曲线投影的迹将次数 3 降至 1, 英文误作 2.
+$\tr:\h_c^3(X\times X,\dmu_n^{\otimes 2}) \to \h_c^1(X,\dmu_n)$ 来表示此态射.
 对 $x\in \h_c^3$, $\tr(x)$ 如下计算:
 在其 K\"unneth 分量中只保留类型为 $(2,1)$ 的分量,
 然后施加 $\tr:\h_c^2(X,\dmu_n) \to \dZ/n$.
@@ -595,7 +602,8 @@ $(3):k^\ast f^! \to f^! k^\ast$ 定义.
 $k_!:k_! f_!\to k_! f_! k^\ast k_!\to k_! k^\ast f_! k_! \to f_! k_!$
 的伴随得到, 然后再通过伴随由 $(4)$ 得到 $(3)$.
 等价地, 也可以经 $f_!$ 与
-$f^!:k^\ast \to f^! f_! k^\ast f^!\to f^! k^\ast f_! f^! \to f^! k^\ast$
+% 据法文印页166 (PDF171) 补回起始项 k^*f^! 中英文漏失的 f^!.
+$f^!:k^\ast f^! \to f^! f_! k^\ast f^!\to f^! k^\ast f_! f^! \to f^! k^\ast$
 的伴随, 由 $(2)$ 得到 $(3)$.
 
 以 $k$ 表示 $k^\ast$ 并省略 $\sL$, 所求的交换性就是下图外边界的交换性:
