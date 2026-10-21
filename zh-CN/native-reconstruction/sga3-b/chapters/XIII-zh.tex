@@ -1,0 +1,1574 @@
+% Mechanically extracted after \mainmatter from the frozen standalone master.
+
+\markboth{第 XIII 讲. 正则元素}{第 XIII 讲. 正则元素}
+% BEGIN inputs/XIII/source/tex/components/01_expose_XIII_opening.tex
+% Authority: Expo13.pdf, local pp. 1--3 / combined pp. 805--807.
+% Stops before: “Nous supposons par la suite que S est le spectre...”
+
+\chapter*{第 XIII 讲\\代数群与 Lie 代数的正则元素}
+\addcontentsline{toc}{chapter}{第 XIII 讲. 代数群与 Lie 代数的正则元素}
+\SGARefTarget{sga3:xiii:expose}
+
+\begin{center}
+\textit{A. Grothendieck}
+\end{center}
+
+\section{关于带算子簇的一个辅助引理}
+\SGARefTarget{sga3:xiii:section:1}
+
+设 \(S\) 为预概形（prescheme）, \(G\) 为从左作用于 \(S\)-预概形 \(V\) 的 \(S\)-群预概形, \(W\) 为 \(V\) 的闭 \(S\)-子预概形, \(N\) 为它在 \(G\) 中的稳定子（stabilizer）.
+因此, \(N\) 是 \(G\) 的子群, 对 \(S\) 上的任意 \(S'\), 它的 \(S'\)-值点是满足下式的元素 \(g\in G(S')\):
+\[
+  g\cdot W_{S'}=W_{S'}.
+\]
+在 \((\mathrm{Sch}/S)\) 上取忠实平坦拟紧拓扑, 并将 \(G\)、\(V\) 和 \(W\) 与相应的层等同.\footnote{法文底本在此列出的是 \(M\); 根据上下文和随后各处的用法, 此处应为 \(W\).}
+因此, 以下论证在 \((\mathrm{Sch}/S)\) 上的层范畴中进行; 在\SGARefLink{sga3:xiii:section:1}{本节}中, “局部”均指 \((\mathrm{Sch}/S)\) 上刚刚指定的拓扑.
+
+由于 \(N\) 是层, 可以考虑商层 \(G/N\). 容易看出, 它同构于如下函子: 对 \(S\) 上的每个 \(S'\), 指派 \(V_{S'}\) 中在 \(G\) 的作用下局部与 \(W_{S'}\) 共轭的子层 \(W'\) 所成的集合.
+令 \(X\) 为 \(G/N\times_S V\) 的子层, 它在 \(S\) 上的 \(S'\) 处的值为二元组 \((W',v)\) 的集合, 其中 \(W'\) 如上, 而 \(v\) 是 \(W'\) 在 \(S'\) 上的截面（因而也是 \(V_{S'}\) 在 \(S'\) 上的截面）. 令 \(Z\) 为 \(X\) 在 \(G\times_S V\) 中的逆像. 于是有\SGARefLink{sga3:xiii:equation:x}{笛卡儿图}
+\SGARefTarget{sga3:xiii:diagram:x}
+\[
+\tag{x}\label{sga3:xiii:equation:x}
+\begin{tikzcd}[column sep=large,row sep=large]
+Z \arrow[r] \arrow[d,hook] & X \arrow[d,hook,"i"] \\
+G\times_S V \arrow[r] & G/N\times_S V ,
+\end{tikzcd}
+\]
+其中 \(i\) 为典范浸入, 下方的水平箭头由典范态射 \(G\to G/N\) 诱导.
+
+该态射将 \(g\in G(S')\) 映至 \(V_{S'}\) 的子层 \(g\cdot W_{S'}\). 因此, \(Z(S')\) 是满足 \(v\in (g\cdot W_{S'})(S')\) 的二元组 \((g,v)\in G(S')\times V(S')\) 所成的集合. 从而 \(Z\) 通过下述同构与层 \(G\times_S W\) 同构:
+\[
+  G\times_S W \xrightarrow{\sim} Z,\qquad
+  (g,w)\longmapsto(g,g\cdot w).
+\]
+因此, \SGARefLink{sga3:xiii:equation:x}{上面的笛卡儿图}给出\SGARefLink{sga3:xiii:equation:xx}{笛卡儿图}
+\SGARefTarget{sga3:xiii:diagram:xx}
+\[
+\tag{xx}\label{sga3:xiii:equation:xx}
+\begin{tikzcd}[column sep=large,row sep=large]
+G\times_S W \arrow[r,"q"] \arrow[d,"\lambda"'] &
+  X \arrow[d,"i"] \\
+G\times_S V \arrow[r] & G/N\times_S V
+\end{tikzcd}
+\]
+其中
+\[
+  \lambda(g,w)=(g,g\cdot w),\qquad
+  q(g,w)=(\bar g,g\cdot w),
+\]
+其中 \(\bar g\) 表示 \(g\) 在典范映射 \(G(S')\to(G/N)(S')\) 下的像.
+
+图 \(\SGARefLink{sga3:xiii:equation:x}{\mathrm{(x)}}\) 还表明, \(Z\to X\) 使 \(Z\) 成为 \(X\) 上的主丛（principal bundle）, \(N\) 的右作用为
+\[
+  (g,v)\cdot n=(gn,v).
+\]
+相应地, 在图 \(\SGARefLink{sga3:xiii:equation:xx}{\mathrm{(xx)}}\) 中, 态射 \(q:G\times_S W\to X\) 使 \(G\times_S W\) 成为 \(X\) 上的主丛, 其右 \(N\)-作用为
+\[
+  (g,w)\cdot n=(gn,n^{-1}\cdot w).
+\]
+
+刚才引入的主要态射汇集于下图:
+\SGARefTarget{sga3:xiii:diagram:d}
+\[
+\tag{D}\label{sga3:xiii:equation:d}
+\begin{tikzcd}[column sep=large,row sep=large]
+& G\times_S W \arrow[d,"q"] \arrow[dr,"\varphi"] & \\
+G/N &
+X \arrow[l,"p"] \arrow[r,"\psi"] \arrow[d,hook,"i"] &
+V \\
+& G/N\times_S V
+  \arrow[ul,dashed,"\operatorname{pr}_1"]
+  \arrow[ur,dashed,"\operatorname{pr}_2"'] &
+\end{tikzcd}
+\]
+其中
+\[
+  \psi=\operatorname{pr}_2\circ i,\qquad
+  \varphi=\psi\circ q,\qquad
+  \varphi(g,w)=g\cdot w.
+\]
+
+若 \(v\) 为 \(V\) 在 \(S\) 上的截面, 令 \(X_v\) 为它在 \(\psi\) 下于 \(X\) 中的逆像. 对 \(S\) 上的每个 \(S'\), \(X_v(S')\) 是 \(V_{S'}\) 中在 \(G\) 的作用下局部与 \(W_{S'}\) 共轭且包含 \(V_{S'}\) 的截面 \(v_{S'}\) 的子层 \(W'\) 所成的集合. \(v\) 在 \(\varphi\) 下于 \(G\times_S W\) 中的逆像同构于 \(G\) 的子层 \(M_v\), 后者定义为
+\[
+  M_v(S')=
+  \bigl\{g\in G(S')\mid v_{S'}\in(g\cdot W_{S'})(S')\bigr\}
+  =
+  \bigl\{g\in G(S')\mid g^{-1}v_{S'}\in W(S')\bigr\}.
+\]
+如果 \(v\) 是 \(W\) 的截面, 而不仅是 \(V\) 的截面, 则显然 \(M_v\) 包含 \(N\).
+
+上述显式描述没有使用 \(G\)、\(V\) 或 \(W\) 的可表性（甚至没有使用所考虑的景是由预概形定义的这一事实）. 现在进一步假定 \(N\) 可表, 在 \(S\) 上忠实平坦且拟紧, 并且 \(G/N\) 可表. 当 \(S\) 为一个域的谱且 \(G\) 在该域上为有限型时, 这一假设必然满足（VIII~6 和 VI\textsubscript{B}.11.18）. 利用笛卡儿图 \(\SGARefLink{sga3:xiii:equation:xx}{\mathrm{(xx)}}\)、忠实平坦拟紧下降以及 \(Z\to G\times_S V\) 为闭浸入这一事实, 可见 \(X\) 可表: 它由 \(G\times_S V\) 的闭子预概形 \(Z\) 沿忠实平坦拟紧态射
+\[
+  G\times_S V\longrightarrow G/N\times_S V.
+\]
+下降而得. 因此, 图 \(\SGARefLink{sga3:xiii:equation:d}{\mathrm{(D)}}\) 是 \(S\) 上预概形态射构成的图.
+
+% END inputs/XIII/source/tex/components/01_expose_XIII_opening.tex
+
+% BEGIN inputs/XIII/source/tex/components/02_expose_XIII_section1_remainder_and_section2.tex
+% Authority: Expo13.pdf, from “Nous supposons par la suite que S est le
+% spectre d’un corps k...” through the end of §2, immediately before §3.
+% PDF local pp. 3--14 (requested boundary: local p. 3 / combined p. 807
+% through local p. 14); printed pp. 251--269.
+
+以下假定 \(S\) 是域 \(k\) 的谱, 而 \(G\)、\(V\) 和 \(W\) 在 \(k\) 上均为有限型. 设 \(\mathfrak n\) 为 \(N\) 的 Lie 代数. 则 \(\dim N\leq\operatorname{rank}_k\mathfrak n\), 且等号成立当且仅当 \(N\) 在 \(k\) 上光滑（第 VI 讲\footnote{法文底本编者注: 由于无法确定此引用所指, 可参见 M.~Demazure 和 P.~Gabriel, \emph{Groupes algébriques I}, Masson (1970), 定理 II.5.2.1.}）. 取 \(a\in W(k)\), 考虑前面定义的 \(G\) 的子概形 \(M_a\); 它包含 \(N\), 并同构于 \(\varphi^{-1}(a)\). 以 \(\mathfrak m_a\) 表示它在 \(N\) 的单位元 \(e\) 处的 Zariski 切空间. 因而\footnote{法文底本在 \SGARefLink{sga3:xiii:equation:1}{(1)} 中 \(\mathfrak m_a\) 之前漏印了 \(\operatorname{rank}_k\); 此处按照上下文和\SGARefLink{sga3:xiii:lemma:1:1}{引理 1.1} 补回.}
+\SGARefTarget{sga3:xiii:equation:1}
+\[
+\tag{1}
+  \mathfrak n\subset\mathfrak m_a,\qquad
+  \dim N\leq\operatorname{rank}_k\mathfrak n
+  \leq\operatorname{rank}_k\mathfrak m_a.
+\]
+
+\medskip
+\noindent\SGARefTarget{sga3:xiii:lemma:1:1}\textbf{引理 1.1.} ---
+\textit{沿用上述记号:}
+
+\begin{enumerate}
+\item[\textit{a)}] \SGARefTarget{sga3:xiii:lemma:1:1:item:a} 考虑下列条件:
+  \begin{enumerate}
+  \item[(i)] \SGARefTarget{sga3:xiii:lemma:1:1:item:i}
+    \(\mathfrak n=\mathfrak m_a\), 且 \(N\) 在 \(k\) 上光滑.
+  \item[(i bis)] \SGARefTarget{sga3:xiii:lemma:1:1:item:i-bis}
+    \(\dim N=\operatorname{rank}_k\mathfrak m_a\).
+  \item[(ii)] \SGARefTarget{sga3:xiii:lemma:1:1:item:ii}
+    态射 \(\psi:X\to V\) 在 \((\bar e,a)\) 处非分歧.
+  \item[(iii)] \SGARefTarget{sga3:xiii:lemma:1:1:item:iii}
+    \(M_a\) 与 \(N\) 在 \(e\) 的一个邻域中相同.
+  \end{enumerate}
+  则
+  \[
+    \SGARefLink{sga3:xiii:lemma:1:1:item:i}{\mathrm{(i)}}\Longleftrightarrow\SGARefLink{sga3:xiii:lemma:1:1:item:i-bis}{\mathrm{(i\ bis)}}
+    \Longrightarrow\SGARefLink{sga3:xiii:lemma:1:1:item:ii}{\mathrm{(ii)}}
+    \Longleftrightarrow\SGARefLink{sga3:xiii:lemma:1:1:item:iii}{\mathrm{(iii)}}.
+  \]
+\item[\textit{b)}] \SGARefTarget{sga3:xiii:lemma:1:1:item:b}
+  设 \(\varphi:G\times_S W\to V\) 在 \((e,a)\) 处光滑. 则 \(M_a\) 在 \(e\) 处在 \(k\) 上光滑, 且 \(\psi\) 在 \((\bar e,a)\) 处光滑.
+\end{enumerate}
+
+\noindent\textit{证明.}
+\SGARefTarget{sga3:xiii:lemma:1:1:proof:item:a}
+\textit{a)} \SGARefLink{sga3:xiii:lemma:1:1:item:i}{(i)} 与 \SGARefLink{sga3:xiii:lemma:1:1:item:i-bis}{(i bis)} 的等价性由 \SGARefLink{sga3:xiii:equation:1}{(1)} 以及前面指出的事实立即得到: \(N\) 在 \(k\) 上光滑当且仅当 \(\dim N=\operatorname{rank}_k\mathfrak n\). 考虑包含态射 \(N\to M_a\). 众所周知,\footnote{法文底本编者注: 例如参见 EGA IV\textsubscript{4}, 定理 17.11.1(d).} 若 \(N\) 在 \(e\) 处在 \(k\) 上光滑, 且 \(e\) 处的切映射为满射, 则 \(N\to M_a\) 在 \(e\) 处光滑; 又因它是浸入, 所以在 \(e\) 处为同构. 这证明了 \SGARefLink{sga3:xiii:lemma:1:1:item:i}{(i)} 蕴含 \SGARefLink{sga3:xiii:lemma:1:1:item:iii}{(iii)}.
+
+为证明 \SGARefLink{sga3:xiii:lemma:1:1:item:ii}{(ii)} 与 \SGARefLink{sga3:xiii:lemma:1:1:item:iii}{(iii)} 的等价性, 如上令 \(X_a=\psi^{-1}(a)\). 由同构
+\[
+  M_a\simeq\varphi^{-1}(a)\simeq q^{-1}(X_a)
+\]
+得到态射 \(p_a:M_a\to X_a\), 它使 \(M_a\) 成为以 \(N_{X_a}\) 为群的主齐性丛. 考虑\SGARefLink{sga3:xiii:lemma:1:1:diagram:01}{下图}
+\SGARefTarget{sga3:xiii:lemma:1:1:diagram:01}
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+M_a \arrow[d,"p_a"'] &
+N \arrow[l,"j_a"'] \arrow[d] \\
+X_a \arrow[r,"j'_a"] &
+S=\operatorname{Spec}(k).
+\end{tikzcd}
+\]
+这里 \(\operatorname{Spec}(k)\to X_a\)\footnote{\SGARefLink{sga3:xiii:lemma:1:1:diagram:01}{印出的图}中 \(j'_a:X_a\to S\) 的方向与紧随其后的文字不符: 文字将点态射 \(S\to X_a\) 记为 \(j'_a\). 此处保留\SGARefLink{sga3:xiii:lemma:1:1:diagram:01}{印图的箭头方向}和文字定义. 底本此处还将 \(X_a\) 印为 \(X_n\), 并在下方两个局部环中将 \(X_{a,\bar a}\) 印为 \(X_{a,b}\). 此处根据纤维记号及点 \(\bar a\) 将它们改正为 \(X_a\) 与 \(X_{a,\bar a}\).} 由 \(X\) 的点 \(\bar a=(\bar e,a)\) 定义, 而 \(j_a:N\to M_a\) 为典范浸入. 说 \(\psi\) 在 \((\bar e,a)\) 处非分歧, 就是说 \(j'_a\) 是开浸入, 等价地, 它诱导同构
+\SGARefTarget{sga3:xiii:lemma:1:1:display:residue-field-map}
+\[
+  S\xrightarrow{\sim}\operatorname{Spec}
+  \bigl(\mathcal O_{X_a,\bar a}\bigr).
+\]
+由于 \(p_a\) 平坦, 这等价于说, \SGARefLink{sga3:xiii:lemma:1:1:display:residue-field-map}{上述态射}经基变换
+\[
+  \operatorname{Spec}\bigl(\mathcal O_{M_a,e}\bigr)
+  \longrightarrow
+  \operatorname{Spec}\bigl(\mathcal O_{X_a,\bar a}\bigr)
+\]
+所得到的态射为同构. 得到的态射恰好是
+\[
+  \operatorname{Spec}\bigl(\mathcal O_{N,e}\bigr)
+  \longrightarrow
+  \operatorname{Spec}\bigl(\mathcal O_{M_a,e}\bigr),
+\]
+这就证明了 \SGARefLink{sga3:xiii:lemma:1:1:item:ii}{(ii)} 与 \SGARefLink{sga3:xiii:lemma:1:1:item:iii}{(iii)} 的等价性.
+
+还应注意, 上述证明表明 \SGARefLink{sga3:xiii:lemma:1:1:item:ii}{(ii)} 和 \SGARefLink{sga3:xiii:lemma:1:1:item:iii}{(iii)} 蕴含\SGARefLink{sga3:xiii:lemma:1:1:item:iii-bis}{下列条件}, 它表面上比 \SGARefLink{sga3:xiii:lemma:1:1:item:iii}{(iii)} 更强:
+\begin{enumerate}
+\item[(iii bis)] \SGARefTarget{sga3:xiii:lemma:1:1:item:iii-bis}
+  \(N\) 是 \(M_a\) 的开闭子概形.
+\end{enumerate}
+
+\SGARefTarget{sga3:xiii:lemma:1:1:proof:item:b}
+\textit{b)} 第一个断言来自同构 \(M_a\simeq\varphi^{-1}(a)\); 第二个断言来自 \(q\) 平坦以及 \(q(e,a)=(\bar e,a)\) 这两个事实.
+
+\section{稠密性定理与 \(G\) 的正则点理论}
+\SGARefTarget{sga3:xiii:section:2}
+
+在下述情形中应用\SGARefLink{sga3:xiii:section:1}{上一节}的构造和记号. 设 \(G\) 是 \(k\) 上光滑连通的代数群; 取 \(V=G\), 令 \(G\) 以内自同构作用于 \(V\); 并取 \(W=H\), 其中 \(H\) 是 \(G\) 的光滑连通代数子群. 以 \(\mathfrak g\)、\(\mathfrak h\) 分别表示 \(G\)、\(H\) 的 Lie 代数, 以 \(N\) 表示 \(H\) 在 \(G\) 中的正规化子, 以 \(\mathfrak n\) 表示其 Lie 代数. 对于 \(a\in G(k)\), 与\SGARefLink{sga3:xiii:section:1}{第 1 节}一样, 仍以 \(M_a\) 表示将 \(a\) 搬入 \(H\) 的搬运子的逆. 因此, 若 \(a\in H(k)\), 则 \(N\subset M_a\); 此时 \(\mathfrak m_a\) 表示 \(M_a\) 在 \(G\) 的单位元 \(e\) 处的 Zariski 切空间. 注意
+\[
+  \mathfrak h\subset\mathfrak n\subset\mathfrak m_a
+  \subset\mathfrak g
+  \qquad\text{其中 }a\in H(k).
+\]
+下面将用到\SGARefLink{sga3:xiii:lemma:2:0}{下述引理}.
+
+\medskip
+\noindent\SGARefTarget{sga3:xiii:lemma:2:0}\textbf{引理 2.0.} ---
+\textit{等式 \(H=N^0\) 成立当且仅当}
+\SGARefTarget{sga3:xiii:lemma:2:0:display:invariants-zero}
+\[
+  (\mathfrak g/\mathfrak h)^H=0,
+\]
+\textit{其中左端表示伴随表示诱导的 \(H\) 的作用的不变子空间. 当\SGARefLink{sga3:xiii:lemma:2:0:display:invariants-zero}{此条件}成立时, \(N\) 光滑且 \(\dim X=\dim G\). 在所有情形中均有 \(\dim X\leq\dim G\), 等号成立当且仅当 \(H\) 在 \(N\) 中的指数有限.}
+
+事实上, 由 \SGARefLink{sga3:ii:theorem:5-2-3:item:i}{II~5.2.3(i)}, \(\mathfrak n\) 是 \((\mathfrak g/\mathfrak h)^H\) 在 \(\mathfrak g\to\mathfrak g/\mathfrak h\) 下的逆像. 所以 \((\mathfrak g/\mathfrak h)^H=0\) 等价于 \(\mathfrak h=\mathfrak n\), 又等价于 \(H=N^0\), 因为 \(H\) 是代数群 \(N\) 的光滑连通代数子群（参见 VI.2）. 这也表明 \(N\) 光滑. 此外,
+\[
+  \dim X=(\dim G-\dim N)+\dim H
+        =\dim G-(\dim N-\dim H),
+\]
+因此
+\[
+  \dim X\leq\dim G,
+\]
+等号成立当且仅当 \(\dim H=\dim N\), 也就是 \(H\) 在 \(N\) 中的指数有限. 特别地, 当 \(H=N^0\) 时这成立, 引理得证.
+
+\medskip
+\noindent\SGARefTarget{sga3:xiii:theorem:2:1}\textbf{定理 2.1.} ---
+\textit{设 \(G\) 是代数闭域 \(k\) 上光滑连通的代数群, \(H\) 是光滑连通代数子群, \(N\) 是其正规化子. 以 \(\mathfrak g,\mathfrak h,\mathfrak n\) 表示它们的 Lie 代数, 令 \(X=G\times^N H\) 为\SGARefLink{sga3:xiii:section:1}{第 1 节}引入的概形（以 \(G/N\) 为底、以 \(H\) 为典型纤维）, 令 \(\psi:X\to G\) 为典范态射. 它的像也就是 \(\varphi:G\times H\to G\) 的像, 其中}
+\[
+  \varphi(g,h)=\operatorname{int}(g)h=ghg^{-1}.
+\]
+\textit{下列条件等价:}
+
+\begin{enumerate}
+\item[(i)] \SGARefTarget{sga3:xiii:theorem:2:1:item:i}
+  \(H\) 包含 \(G\) 的一个 Cartan 子群 \(C\)（XII~1）.
+\item[(i bis)] \SGARefTarget{sga3:xiii:theorem:2:1:item:i-bis}
+  \(H\) 与 \(G\) 的约化秩及幂零秩（XII~1）相同.
+\item[(ii)] \SGARefTarget{sga3:xiii:theorem:2:1:item:ii}
+  \(H\) 包含 \(G\) 的一个极大环面 \(T\), 且 \((\mathfrak g/\mathfrak h)^T=0\).
+\item[(iii)] \SGARefTarget{sga3:xiii:theorem:2:1:item:iii}
+  包含一个给定极大环面的 \(H\) 的共轭子群所成的集合有限且非空, 并且 \(H\) 在其正规化子中的指数有限.
+\item[(iv)] \SGARefTarget{sga3:xiii:theorem:2:1:item:iv}
+  存在 \(a\in H(k)\), 它只属于有限个 \(H\) 的共轭子群（或只要求 \(\psi^{-1}(a)\) 有一个孤立点）, 并且 \(H\) 在其正规化子中的指数有限.
+\item[(iv bis)] \SGARefTarget{sga3:xiii:theorem:2:1:item:iv-bis}
+  态射 \(\psi:X\to G\) 一般拟有限（即 \(X\) 中存在一个稠密开子集, \(\psi\) 在其上拟有限）, 并且 \(H\) 在其正规化子中的指数有限.
+\item[(v)] \SGARefTarget{sga3:xiii:theorem:2:1:item:v}
+  \(G\) 中存在稠密开子集 \(U\), 使得对每个 \(x\in U(k)\), 包含 \(x\) 的 \(H\) 的共轭子群所成的集合有限且非空; 等价地, \(\psi:X\to G\) 占优且一般拟有限.
+\item[(vi)] \SGARefTarget{sga3:xiii:theorem:2:1:item:vi}
+  \(G\) 中存在稠密开子集 \(U\), 使得每个 \(x\in U(k)\) 都包含在 \(H\) 的某个共轭子群中; 等价地, \(\psi:X\to G\) 占优.
+\item[(vii)] \SGARefTarget{sga3:xiii:theorem:2:1:item:vii}
+  存在 \(a\in H(k)\), 使得 \(\mathfrak g/\mathfrak h\) 在 \(\operatorname{ad}_{\mathfrak g/\mathfrak h}(a)\) 下的不动子空间为零.
+\end{enumerate}
+
+\textit{此外, 这些条件蕴含 \(H\) 就是它自身的连通正规化子: \(N\) 光滑且 \(\dim H=\dim N\). 它们还蕴含 \(\psi:X\to G\) 一般平展.}
+
+\noindent\textit{证明.}
+由 \SGARefLink{sga3:xiii:lemma:2:0}{2.0}, \(\dim X\leq\dim G\), 等号成立当且仅当 \(\dim H=\dim N\), 等价地, 当且仅当 \(H\) 在 \(N\) 中的指数有限. 不等式 \(\dim X\leq\dim G\) 表明, \(\psi\) 占优当且仅当它占优且一般拟有限, 也当且仅当它一般拟有限且 \(\dim X=\dim G\). 由 \SGARefLink{sga3:xiii:lemma:2:0}{2.0}, 后一等式等价于 \(H\) 在 \(N\) 中的指数有限, 所以条件 \SGARefLink{sga3:xiii:theorem:2:1:item:vi}{(vi)}、\SGARefLink{sga3:xiii:theorem:2:1:item:v}{(v)} 和 \SGARefLink{sga3:xiii:theorem:2:1:item:iv-bis}{(iv bis)} 等价. \SGARefLink{sga3:xiii:theorem:2:1:item:iv}{(iv)} 与 \SGARefLink{sga3:xiii:theorem:2:1:item:iv-bis}{(iv bis)} 的等价性是直接的.
+
+\SGARefLink{sga3:xiii:theorem:2:1:item:i}{(i)} 与 \SGARefLink{sga3:xiii:theorem:2:1:item:i-bis}{(i bis)} 的等价性直接来自定义, 留给读者. 若 \(H\) 包含 \(G\) 的 Cartan 子群 \(C\), 则它包含 \(C\) 的极大环面 \(T\), 而 \(T\) 也是 \(G\) 的极大环面. 由于 \(C\) 是 \(T\) 的中心化子, 其 Lie 代数 \(\mathfrak c\) 为
+\[
+  \mathfrak c=\mathfrak g^T
+\]
+（\SGARefLink{sga3:ii:theorem:5-2-3:item:ii}{II~5.2.3(ii)}）. 因此 \(\mathfrak g^T=\mathfrak c\subset\mathfrak h\), 而 \SGARefLink{sga3:i:proposition:4-7-3}{I~4.7.3} 给出关系\footnote{法文底本此句中有两处明显的排印错误: 将 \(\mathfrak c\) 印为 \(\mathfrak n\), 并将涉及 \(\mathfrak h\) 与 \(\mathfrak g^T\) 的包含关系颠倒. 此处恢复数学上所需的关系.}
+\SGARefTarget{sga3:xiii:theorem:2:1:equation:x}
+\[
+\tag{x}
+  (\mathfrak g/\mathfrak h)^T=0.
+\]
+反过来, 假设 \(H\) 包含极大环面 \(T\), 且 \SGARefLink{sga3:xiii:theorem:2:1:equation:x}{(x)} 成立, 因而 \(\mathfrak h\supset\mathfrak c\). 我们断言 \(H\) 包含 \(T\) 的中心化子 \(C\), 这就证明了 \SGARefLink{sga3:xiii:theorem:2:1:item:i}{(i)} 与 \SGARefLink{sga3:xiii:theorem:2:1:item:ii}{(ii)} 的等价性. 此断言来自\SGARefLink{sga3:xiii:lemma:2:1:1}{下述引理}.
+
+\medskip
+\noindent\SGARefTarget{sga3:xiii:lemma:2:1:1}\textbf{引理 2.1.1.} ---
+\textit{设 \(G\) 是域 \(k\) 上的光滑代数群, \(T\) 是 \(G\) 的乘法型子群, \(C\) 是它的连通中心化子（由 \SGARefLink{sga3:xii:6.6:item:b}{XII~6.6(b)}, 当 \(G\) 连通且 \(T\) 是环面时, 它等于 \(T\) 的中心化子）, \(H\) 是 \(G\) 的一个包含 \(T\) 的光滑子群. 则 \(H\) 包含 \(C\) 当且仅当其 Lie 代数 \(\mathfrak h\) 包含 \(C\) 的 Lie 代数 \(\mathfrak c\).}
+
+事实上, 由 \SGARefLink{sga3:xi:corollary:2:4}{XI~2.4}, \(\operatorname{Centr}_G(T)\) 在 \(k\) 上光滑, 因而 \(C\) 在 \(k\) 上光滑. 同样, \(\operatorname{Centr}_H(T)\) 光滑, 而
+\[
+  \operatorname{Centr}_H(T)=\operatorname{Centr}_G(T)\cap H
+\]
+的 Lie 代数为 \(\mathfrak h\cap\mathfrak c\). 所以假设蕴含这个光滑子群与光滑群 \(\operatorname{Centr}_G(T)\) 的 Lie 代数相同, 故它包含后者的连通分支 \(C\). 因此 \(H\) 包含 \(C\).
+\hfill\(\square\)
+
+现在证明 \SGARefLink{sga3:xiii:theorem:2:1:item:i}{(i)} 与 \SGARefLink{sga3:xiii:theorem:2:1:item:iii}{(iii)} 的等价性. 若 \(H\) 包含 \(G\) 的极大环面 \(T\), 须证明 \(H\supset C\)（等价地, \SGARefLink{sga3:xiii:theorem:2:1:equation:x}{(x)} 成立）当且仅当 \(H\) 在其正规化子中的指数有限, 且包含 \(T\) 的 \(H\) 的共轭子群所成的集合有限. 若 \(H\supset C\), 则由 \SGARefLink{sga3:xiii:theorem:2:1:equation:x}{(x)} 更有
+\SGARefTarget{sga3:xiii:theorem:2:1:equation:xx}
+\[
+\tag{xx}
+  (\mathfrak g/\mathfrak h)^H=0.
+\]
+Lie 代数 \(\mathfrak n\) 是左端在典范同态 \(\mathfrak g\to\mathfrak g/\mathfrak h\) 下的逆像（II~5.2.3(i)）. 因此, 根据 \SGARefLink{sga3:xiii:lemma:2:0}{2.0}, \SGARefLink{sga3:xiii:theorem:2:1:equation:xx}{(xx)} 就是说 \(H=N^0\); 特别地, \(H\) 在其正规化子中的指数有限. 考虑\SGARefLink{sga3:xiii:theorem:2:1:diagram:01}{下述子群图}
+\SGARefTarget{sga3:xiii:theorem:2:1:diagram:01}
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+T \arrow[r] &
+N(T)\cap H \arrow[r] \arrow[d] &
+H \arrow[d] \\
+{} &
+N(T)\cap N(H) \arrow[r] \arrow[d] &
+N(H) \\
+{} &
+N(T). &
+\end{tikzcd}
+\]
+由 \(H\) 中极大环面的共轭定理（\SGARefLink{sga3:xii:6.6:item:a}{XII~6.6(a)}）, 每个包含 \(T\) 的 \(H\) 的共轭子群, 都是将 \(H\) 以 \(N(T)(k)\) 中某个元素共轭所得. 因而这些共轭子群所成的集合与
+\[
+  \bigl(N(T)/(N(T)\cap N(H))\bigr)(k).
+\]
+双射. 由于 \(H\supset C\), 有 \(N(T)\cap H\supset C\), 所以前面的集合是有限集 \((N(T)/C)(k)\) 的一个商集. 这就证明了 \SGARefLink{sga3:xiii:theorem:2:1:item:i}{(i)} \(\Rightarrow\) \SGARefLink{sga3:xiii:theorem:2:1:item:iii}{(iii)}.
+
+反过来, 假设 \SGARefLink{sga3:xiii:theorem:2:1:item:iii}{(iii)} 成立, 因而 \(N(T)/(N(T)\cap N(H))\) 与 \(N(H)/H\) 均有限. \(H\) 中的共轭定理表明, 由\SGARefLink{sga3:xiii:theorem:2:1:diagram:01}{上图}诱导的同态
+\[
+  (N(T)\cap N(H))/(N(T)\cap H)\longrightarrow N(H)/H
+\]
+在 \(k\)-值点上为双射（事实上是同构）. 因后一个商有限, 前一个商亦有限. 因此 \(N(T)\cap H\) 在 \(N(T)\) 中的指数有限, 从而包含 \(C=N(T)^0\). 故 \(H\supset C\), 于是 \SGARefLink{sga3:xiii:theorem:2:1:item:i}{(i)}、\SGARefLink{sga3:xiii:theorem:2:1:item:i-bis}{(i bis)}、\SGARefLink{sga3:xiii:theorem:2:1:item:ii}{(ii)} 和 \SGARefLink{sga3:xiii:theorem:2:1:item:iii}{(iii)} 等价.
+
+下面证明 \SGARefLink{sga3:xiii:theorem:2:1:item:ii}{(ii)} \(\Rightarrow\) \SGARefLink{sga3:xiii:theorem:2:1:item:vii}{(vii)}. 两个条件在 \(k\to k'\) 的扩张下均不变, 其中 \(k'\) 代数闭. 所以可假定 \(k\) 在其素子域上的超越次数为无限. 此时存在 \(a\in T(k)\), 使得由 \(a\) 生成的 \(T(k)\) 的子群在 \(T\) 中 Zariski 稠密. 从而
+\[
+  (\mathfrak g/\mathfrak h)^T
+  =(\mathfrak g/\mathfrak h)^{\operatorname{ad}(a)}.
+\]
+由假设, 左端为零, 于是 \SGARefLink{sga3:xiii:theorem:2:1:item:vii}{(vii)} 得证.
+
+蕴含关系 \SGARefLink{sga3:xiii:theorem:2:1:item:vii}{(vii)} \(\Rightarrow\) \SGARefLink{sga3:xiii:theorem:2:1:item:vi}{(vi)} 包含于\SGARefLink{sga3:xiii:corollary:2:2}{下述结果}之中, 后者加强了 \SGARefLink{sga3:xiii:theorem:2:1}{2.1}.
+
+\medskip
+\noindent\SGARefTarget{sga3:xiii:corollary:2:2}\textbf{推论 2.2.} ---
+\textit{设 \(G\) 是域 \(k\) 上的光滑代数群, \(H\) 是光滑代数子群, \(N\) 是它在 \(G\) 中的正规化子, 并令}
+\[
+  \varphi:G\times H\longrightarrow G,\qquad
+  \varphi(g,h)=\operatorname{ad}(g)h=ghg^{-1}.
+\]
+\textit{设 \(\psi:X=G\times^N H\to G\) 是由 \(\varphi\) 取商得到的态射（参见\SGARefLink{sga3:xiii:section:1}{第 1 节}）, \(a\in H(k)\). 下列条件等价:}
+
+\begin{enumerate}
+\item[(i)] \SGARefTarget{sga3:xiii:corollary:2:2:item:i}
+  \(\varphi\) 在 \((e,a)\) 处光滑.
+\item[(ii)] \SGARefTarget{sga3:xiii:corollary:2:2:item:ii}
+  \(\psi\) 在 \((\bar e,a)\) 处平展, 且 \(N\) 在 \(k\) 上光滑.
+\item[(iii)] \SGARefTarget{sga3:xiii:corollary:2:2:item:iii}
+  \((\mathfrak g/\mathfrak h)^{\operatorname{ad}(a)}=0\), 其中 \(\mathfrak g\)、\(\mathfrak h\) 分别是 \(G\)、\(H\) 的 Lie 代数.
+\end{enumerate}
+
+\textit{这些条件蕴含 \(H^0=N^0\).}
+
+光滑 \(k\)-预概形之间的态射 \(\varphi\) 在一个 \(k\)-有理点处光滑, 等价于该点处的切映射为满射. 按通常方式将 \(G\) 与 \(H\) 的切空间等同于其 Lie 代数, 直接计算得到
+\SGARefTarget{sga3:xiii:corollary:2:2:display:tangent-map}
+\[
+  d\varphi(\xi,\eta)
+  =\bigl(\operatorname{id}-\operatorname{ad}(a)\bigr)\xi+\eta,
+\]
+它是 \(\mathfrak g\times\mathfrak h\) 到 \(\mathfrak g\) 的映射. 因此, 其满射性等价于 \(\operatorname{id}-\operatorname{ad}(a)\) 在 \(\mathfrak g/\mathfrak h\) 上为满射, 这恰好就是 \SGARefLink{sga3:xiii:corollary:2:2:item:iii}{(iii)}.
+
+条件 \SGARefLink{sga3:xiii:corollary:2:2:item:iii}{(iii)} 更蕴含 \((\mathfrak g/\mathfrak h)^H=0\), 从而由 \SGARefLink{sga3:xiii:lemma:2:0}{2.0} 得 \(H^0=N^0\)（节首所作的连通性假设在那里并非必需）. 因此 \(N\) 光滑, 且 \(\dim H=\dim N\), 从而 \(\dim X=\dim G\). 由于 \(q:G\times H\to X\) 平坦, 且 \(\psi\circ q=\varphi\)\footnote{底本将此复合次序颠倒, 印作 \(\psi=\varphi\circ q\). 所显示的态射及 \(\varphi\) 的定义要求 \(\varphi=\psi\circ q\).} 在 \((e,a)\) 处光滑, 态射 \(\psi\) 在 \(q(e,a)=(\bar e,a)\) 处光滑, 故由维数可知它在该处平展. 我们已证明 \(\SGARefLink{sga3:xiii:corollary:2:2:item:i}{\mathrm{(i)}}\Longleftrightarrow\SGARefLink{sga3:xiii:corollary:2:2:item:iii}{\mathrm{(iii)}}\Longrightarrow\SGARefLink{sga3:xiii:corollary:2:2:item:ii}{\mathrm{(ii)}}\). 反过来, \SGARefLink{sga3:xiii:corollary:2:2:item:ii}{(ii)} 蕴含 \SGARefLink{sga3:xiii:corollary:2:2:item:i}{(i)}, 因为 \(N\) 的光滑性蕴含 \(q\) 的光滑性.
+\hfill\(\square\)
+
+特别地, 在 \SGARefLink{sga3:xiii:theorem:2:1}{2.1} 的条件 \SGARefLink{sga3:xiii:theorem:2:1:item:vii}{(vii)} 下, 态射 \(\varphi\) 在 \((e,a)\) 处光滑, 所以其像包含 \(G\) 的非空开子集. 因而 \(\psi\) 占优, 这就证明了 \SGARefLink{sga3:xiii:theorem:2:1:item:vii}{(vii)} \(\Rightarrow\) \SGARefLink{sga3:xiii:theorem:2:1:item:vi}{(vi)}.
+
+只须再证 \SGARefLink{sga3:xiii:theorem:2:1:item:vi}{(vi)} \(\Rightarrow\) \SGARefLink{sga3:xiii:theorem:2:1:item:i}{(i)}. 先假定 \(G\) 仿射. 设 \(U\) 是 \(G\) 的非空开子集, 使得每个 \(x\in U(k)\) 都包含在 \(H\) 的某个共轭子群中; 设 \(C\) 是 \(G\) 的 Cartan 子群. 将已经证明的蕴含关系 \SGARefLink{sga3:xiii:theorem:2:1:item:i}{(i)} \(\Rightarrow\) \SGARefLink{sga3:xiii:theorem:2:1:item:iv}{(iv)} 应用于 \(C\) 以代替 \(H\)（Borel 的“稠密性定理”）, 得到一个与 \(U\) 相交的 \(C\) 的共轭子群. 因而可假定 \(U\cap C\neq\varnothing\); 等价地, \(C\) 中存在非空开子集 \(V\), 使得每个 \(x\in V(k)\) 都属于 \(H\) 的某个共轭子群.
+
+写成
+\SGARefTarget{sga3:xiii:theorem:2:1:display:cartan-decomposition}
+\[
+  C=T\cdot C_u,
+\]
+其中 \(T\) 是 \(C\) 的极大环面, 因而也是 \(G\) 的极大环面, \(C_u\) 是 \(C\) 的幺幂部分; \(T\) 位于 \(C\) 的中心（\emph{BIBLE} 6, 定理 2）. 仍可假定 \(k\) 在其素子域上的超越次数为无限. 在 \(V\) 于 \(T\) 中的投影内选取 \(t\in T(k)\); 这一投影是 \(T\) 的非空开子集, 因而 \(tC_u\cap V\neq\varnothing\); 并且选取 \(t\) 使它生成 \(T\) 的一个 Zariski 稠密子群. \(G\) 的每个包含乘积 \(tu\)（其中 \(t\in T(k)\)、\(u\in C_u(k)\)）的代数子群均包含这两个因子（\emph{BIBLE} 4, 定理 3）. 取 \(tu\in V(k)\), 可知 \(H\) 的某个共轭子群包含 \(t\), 从而包含 \(T\). 以此共轭子群代替 \(H\), 可假定
+\[
+  T\subset H.
+\]
+
+令 \(W\) 为 \(V\) 在 \(u\mapsto tu\) 下于 \(C_u\) 中的逆像. 对每个 \(x\in(T\cdot W)(k)\), 都有 \(H\) 的一个共轭子群同时包含 \(T\) 和 \(x\). 如上所述, 每个这样的共轭子群均可写为 \(\operatorname{int}(g)H\), 其中 \(g\in N(T)(k)\). 考虑
+\SGARefTarget{sga3:xiii:theorem:2:1:display:f}
+\[
+  f:N(T)\times H\longrightarrow G,\qquad
+  f(g,h)=\operatorname{int}(g)h=ghg^{-1}.
+\]
+\(f\) 的像包含 \(TW\). 因为 \(C\) 在 \(N(T)\) 中的指数有限, 后者是有限个陪集 \(Cg_i\) 的并, 其中 \(g_i\in N(T)(k)\). 所以 \(C=T C_u\) 的某个稠密开子集 \(V'\) 包含在 \((Cg_i)\times H\) 在 \(f\) 下的像中. 以 \(\operatorname{int}(g_i)H\) 代替 \(H\), 可假定 \(g_i=e\), 因而
+\[
+  f(C\times H)\supset V'.
+\]
+因此, 对每个 \(u\in V'(k)\), 都存在 \(v\in C(k)\) 与 \(h\in H(k)\), 使得
+\[
+  v^{-1}hv=u,\qquad\text{从而}\qquad vuv^{-1}\in H(k).
+\]
+置
+\[
+  C'=C\cap H=\operatorname{Centr}_H(T).
+\]
+由于 \(vuv^{-1}\) 也属于 \(C\), 它属于 \(C'\), 从而 \(u\in\operatorname{int}(v^{-1})C'\). 因此, \(C'\) 在 \(C\) 中经 \(C(k)\) 的元素共轭所得各子群的并是稠密的. 将前面对 \((G,H)\) 的论证应用于 \((C,C')\), 同样可知 \(C'\) 在其于 \(C\) 中的正规化子中的指数有限. 由 \emph{BIBLE} 7, \SGARefLink{sga3:xiii:section:1}{第 1 节}的引理, 得到 \(C'=C\), 因而 \(C\subset H\).\footnote{底本印为 \(C=H\); 所能推出且实际用到的只是包含关系 \(C\subset H\).} 这就证明了当 \(G\) 仿射时 \SGARefLink{sga3:xiii:theorem:2:1:item:vi}{(vi)} \(\Rightarrow\) \SGARefLink{sga3:xiii:theorem:2:1:item:i}{(i)}.
+
+一般情形对 \(n=\dim G\) 归纳, 当 \(n=0\) 时断言显然成立. 设 \(Z\) 为 \(G\) 的中心. 分两种情形.
+
+\begin{enumerate}
+\item[\(1^\circ\)] \SGARefTarget{sga3:xiii:theorem:2:1:proof:case:1} 若 \(\dim(Z\cap H)>0\), 置 \(G'=G/(Z\cap H)\). 则 \(\dim G'<n\), 并且 \(H\) 的条件 \SGARefLink{sga3:xiii:theorem:2:1:item:vi}{(vi)} 蕴含它在 \(G'\) 中的像 \(H'\) 满足\SGARefLink{sga3:xiii:theorem:2:1:item:vi}{同一条件}. 由归纳假设, \(H'\) 包含 \(G'\) 的一个 Cartan 子群 \(C'\). 因而 \(H\) 包含 \(C'\) 的逆像 \(C\); 由 \SGARefLink{sga3:xii:theorem:6-6:item:e}{XII~6.6(e)}, 它是 Cartan 子群.
+
+\item[\(2^\circ\)] \SGARefTarget{sga3:xiii:theorem:2:1:proof:case:2} 若 \(\dim(Z\cap H)=0\), 则典范态射 \(H\to G/Z\) 有限. 由 \SGARefLink{sga3:xii:6.1}{XII~6.1}, \(G/Z\) 仿射, 所以 \(H\) 仿射. 因此, 从 \(H\) 到阿贝尔簇的每个同态均为零（事实上, 从 \(H\) 到阿贝尔簇的每个预概形态射均为常态射）. 这可以由代数闭域上的光滑连通仿射代数群是有理簇这一事实推出, 也可以仅由它是其各 Borel 子群的并这一事实推出（\emph{BIBLE} 6, 定理 5(b)）; 结构定理 \emph{BIBLE} 6.2 和 6.3 容易表明, 光滑连通可解仿射群为有理簇.
+
+  对 \(G\) 应用 Chevalley 结构定理: 群 \(G\) 是阿贝尔簇 \(A\) 由光滑仿射群的扩张. 因为 \(H\) 仿射, 它在 \(A\) 中的像为零. 另一方面, 该像在 \(A\) 中各共轭子群的并稠密, 所以该像必须为整个 \(A\). 因此 \(A=0\), 从而 \(G\) 仿射, 这就归结到已证情形.
+\end{enumerate}
+
+至此完成了 \SGARefLink{sga3:xiii:theorem:2:1}{2.1} 的证明.
+
+\medskip
+\noindent\SGARefTarget{sga3:xiii:corollary:2:3}\textbf{推论 2.3.} ---
+\textit{假定 \SGARefLink{sga3:xiii:theorem:2:1}{2.1} 中的等价条件成立.}
+
+\begin{enumerate}
+\item[\textit{a)}] \SGARefTarget{sga3:xiii:corollary:2:3:item:a}
+  设 \(k(X)\)、\(k(G)\) 分别是 \(X\)、\(G\) 的有理函数域. 则 \(k(X)\) 是 \(k(G)\) 的有限可分扩张. 以 \(d\) 表示其次数.
+
+\item[\textit{b)}] \SGARefTarget{sga3:xiii:corollary:2:3:item:b}
+  设 \(T\) 是包含在 \(H\) 中的 \(G\) 的极大环面, 它由 \SGARefLink{sga3:xiii:theorem:2:1:item:ii}{2.1(ii)} 存在; 设 \(C\) 是 \(G\) 中相应的 Cartan 子群. 则 \(C\subset H\). 此外, \(\operatorname{Norm}_G(T)\) 是 \(G\) 的光滑子群, 而
+  \[
+    \operatorname{Norm}_G(T)\cap\operatorname{Norm}_G(H)
+    =
+    \operatorname{Norm}_{\operatorname{Norm}_G(H)}(T)
+  \]
+  是它的光滑子群, 其指数有限, 等于 \SGARefLink{sga3:xiii:corollary:2:3:item:a}{(a)} 中定义的次数 \(d\). 包含一个给定极大环面或一个给定 Cartan 子群的 \(H\) 的共轭子群的个数为 \(d\).
+
+\item[\textit{c)}] \SGARefTarget{sga3:xiii:corollary:2:3:item:c}
+  设 \(U\) 为 \(G\) 的最大开子集, 使得 \(\psi:X\to G\) 诱导有限平展态射
+  \[
+    \psi^{-1}(U)\longrightarrow U.
+  \]
+  则 \(U\) 稠密. 对于 \(g\in G(k)\), 下列条件等价:
+  \begin{enumerate}
+  \item \SGARefTarget{sga3:xiii:corollary:2:3:item:c:condition:i} \(g\in U(k)\);
+  \item \SGARefTarget{sga3:xiii:corollary:2:3:item:c:condition:ii} 恰有 \(d\) 个 \(H\) 的共轭子群包含 \(g\);
+  \item \SGARefTarget{sga3:xiii:corollary:2:3:item:c:condition:iii} 至少有 \(d\) 个两两不同的 \(H\) 的共轭子群 \(H_i\) 包含 \(g\), 且对每个 \(i\),
+    \[
+      (\mathfrak g/\mathfrak h_i)^{\operatorname{ad}(g)}=0,
+      \qquad \mathfrak h_i=\operatorname{Lie}(H_i).
+    \]
+  \end{enumerate}
+\end{enumerate}
+
+断言 \SGARefLink{sga3:xiii:corollary:2:3:item:a}{(a)} 来自 \SGARefLink{sga3:xiii:theorem:2:1}{2.1} 末尾陈述的 \(\psi\) 的一般平展性. 这也表明 \SGARefLink{sga3:xiii:corollary:2:3:item:c}{(c)} 中的开集 \(U\) 非空, 因而稠密, 并给出所述的关于其 \(k\)-点的两种刻画: 这里用到 \(\psi\) 分离、\(X\) 整、\(G\) 整且正规（SGA 1, I~10.11）, 以及 \((\mathfrak g/\mathfrak h_i)^{\operatorname{ad}(g)}=0\) 就是说 \(\psi\) 在对应于 \(H_i\) 的点 \(x_i\in\psi^{-1}(g)\) 处平展.
+
+若 \(H\) 包含 \(G\) 的极大环面 \(T\), 则 \(T\) 在 \(H\) 和 \(G\) 中的中心化子维数相同, 并且光滑连通（\SGARefLink{sga3:xii:theorem:6-6:item:b}{XII~6.6(b)}）, 因而相等, 于是 \(C\subset H\).\footnote{底本印为恒真的 \(C\subset G\); 两个中心化子相等给出的是 \(C\subset H\).} 在任意包含 \(T\) 的光滑群中, \(T\) 的正规化子均光滑（\SGARefLink{sga3:xi:corollary:2:4:bis}{XI~2.4 bis}）, 所以 \(\operatorname{Norm}_G(T)\) 和 \(\operatorname{Norm}_{\operatorname{Norm}_G(H)}(T)\) 均光滑. 还应记住, 根据 \SGARefLink{sga3:xiii:theorem:2:1}{2.1} 的最后一个断言, \(N=\operatorname{Norm}_G(H)\) 光滑. 此外, \(\operatorname{Norm}_N(T)\) 包含 \(C\), 后者在 \(\operatorname{Norm}_G(T)\) 中的指数有限; 因而 \(\operatorname{Norm}_N(T)\) 本身在 \(\operatorname{Norm}_G(T)\) 中的指数有限.
+
+\(H\) 中极大环面的共轭定理表明, 这个指数是包含 \(T\) 的 \(H\) 的共轭子群的个数, 等价地, 是包含 \(C\) 的此类共轭子群的个数. 将 \SGARefLink{sga3:xiii:theorem:2:1:item:i}{2.1(i)} \(\Rightarrow\) \SGARefLink{sga3:xiii:theorem:2:1:item:vi}{(vi)} 应用于 \(C\) 以代替 \(H\), 可知 \(C\) 在 \(G\) 中各共轭子群的并稠密, 而 \(U\) 在内自同构下稳定. 因此 \(C\cap U\neq\varnothing\). 仿照 \SGARefLink{sga3:xiii:theorem:2:1:item:vi}{2.1(vi)} \(\Rightarrow\) \SGARefLink{sga3:xiii:theorem:2:1:item:ii}{(ii)} 的证明, 必要时作无妨碍的基域扩张, 可找到 \(g\in(C\cap U)(k)\), 使得每个包含 \(g\) 的 \(H\) 的共轭子群都包含 \(T\), 从而包含 \(C\). 因此, 包含 \(C\) 的 \(H\) 的共轭子群恰好就是包含 \(g\) 的那些; 因为 \(g\in U(k)\), 它们的个数为 \(d\). 这就证明了 \SGARefLink{sga3:xiii:corollary:2:3:item:b}{(b)}.
+
+事实上, 这一论证表明, 包含 \(T\) 的 \(H\) 的共轭子群所成的集合在下述群的有理点群的作用下为齐性集:
+\[
+  W_G(T)=
+  \operatorname{Norm}_G(T)/\operatorname{Centr}_G(T).
+\]
+特别地,
+\[
+  d\leq\text{\(G\) 的 Weyl 群的阶}.
+\]
+
+\medskip
+\noindent\SGARefTarget{sga3:xiii:corollary:2:4}\textbf{推论 2.4.} ---
+\textit{沿用 \SGARefLink{sga3:xiii:theorem:2:1}{2.1} 的记号, 下列条件等价:}
+
+\begin{enumerate}
+\item[(i)] \SGARefTarget{sga3:xiii:corollary:2:4:item:i}
+  \(\psi:X\to G\) 双有理.
+\item[(ii)] \SGARefTarget{sga3:xiii:corollary:2:4:item:ii}
+  恰有一个 \(H\) 的共轭子群包含 \(G\) 的一个给定 Cartan 子群.
+\item[(iii)] \SGARefTarget{sga3:xiii:corollary:2:4:item:iii}
+  \(H\) 包含 \(G\) 的一个 Cartan 子群 \(C\), 且 \(\operatorname{Norm}_G(H)\supset\operatorname{Norm}_G(C)\).
+\item[(iv)] \SGARefTarget{sga3:xiii:corollary:2:4:item:iv}
+  \(G\) 中存在一个非空开子集 \(V\), 使得每个 \(g\in V(k)\) 恰好属于 \(H\) 的一个共轭子群.
+\end{enumerate}
+
+这由 \SGARefLink{sga3:xiii:theorem:2:1}{2.1} 和 \SGARefLink{sga3:xiii:corollary:2:3}{2.3} 立即得到.
+
+\medskip
+\noindent\SGARefTarget{sga3:xiii:corollary:2:5}\textbf{推论 2.5.} ---
+\textit{假定 \SGARefLink{sga3:xiii:corollary:2:4}{2.4} 中的条件成立, 设 \(g\in G(k)\). 下列条件等价:}
+
+\begin{enumerate}
+\item[(i)] \SGARefTarget{sga3:xiii:corollary:2:5:item:i}
+  \(g\in U(k)\), 其中 \(U\) 定义于 \SGARefLink{sga3:xiii:corollary:2:3:item:c}{2.3(c)}; 即 \(g\) 恰好包含在 \(H\) 的一个共轭子群中.
+\item[(ii)] \SGARefTarget{sga3:xiii:corollary:2:5:item:ii}
+  包含 \(g\) 的 \(H\) 的共轭子群所成的集合有限且非空.
+\item[(iii)] \SGARefTarget{sga3:xiii:corollary:2:5:item:iii}
+  概形 \(\psi^{-1}(g)\), 即“包含 \(g\) 的 \(H\) 的共轭子群概形”, 有一个孤立点.
+\item[(iv)] \SGARefTarget{sga3:xiii:corollary:2:5:item:iv}
+  存在一个包含 \(g\) 的 \(H\) 的共轭子群 \(H'\), 使得
+  \[
+    (\mathfrak g/\mathfrak h')^{\operatorname{ad}(g)}=0,
+    \qquad \mathfrak h'=\operatorname{Lie}(H').
+  \]
+\end{enumerate}
+
+\textit{最后, \(U\) 也是 \(G\) 的使 \(\psi\) 诱导下述同构的最大开子集:}
+\[
+  \psi^{-1}(U)\xrightarrow{\sim}U.
+\]
+
+\SGARefLink{sga3:xiii:corollary:2:5:item:i}{(i)}、\SGARefLink{sga3:xiii:corollary:2:5:item:ii}{(ii)} 与 \SGARefLink{sga3:xiii:corollary:2:5:item:iii}{(iii)} 的等价性以及最后的断言, 来自对双有理态射 \(\psi:X\to G\) 应用“主定理”\footnote{法文底本编者注: Zariski 主定理.}, 因为 \(G\) 正规. 它们与 \SGARefLink{sga3:xiii:corollary:2:5:item:iv}{(iv)} 的等价性由\SGARefLink{sga3:xiii:corollary:2:2}{推论~2.2} 立即得到, 后者刻画了 \(X\) 中 \(\psi\) 在其处平展的点.\footnote{底本此处引用 \SGARefLink{sga3:xiii:theorem:2:1}{2.1} 的最后一个断言; 逐点的平展性判据是\SGARefLink{sga3:xiii:corollary:2:2}{推论 2.2}.}
+
+\medskip
+\noindent\SGARefTarget{sga3:xiii:theorem:2:6}\textbf{定理 2.6.} ---
+\textit{设 \(G\) 是代数闭域 \(k\) 上光滑连通的代数群, \(C\) 是与极大环面 \(T\) 相对应的 Cartan 子群, 并置}
+\[
+  N=\operatorname{Norm}_G(C)=\operatorname{Norm}_G(T)
+  \qquad\text{（参见 XII~8.4）.}
+\]
+\textit{设 \(X=G\times^N C\), 其中 \(N\) 在左因子 \(G\) 上以右平移作用, 在右因子 \(C\) 上以内自同构作用; 设 \(\psi:X\to G\) 为典范态射.}
+
+\begin{enumerate}
+\item[\textit{a)}] \SGARefTarget{sga3:xiii:theorem:2:6:item:a}
+  \(\psi\) 双有理.
+
+\item[\textit{b)}] \SGARefTarget{sga3:xiii:theorem:2:6:item:b}
+  设 \(U\) 为 \(G\) 的最大开子集, 使得 \(\psi\) 诱导同构
+  \[
+    \psi^{-1}(U)\xrightarrow{\sim}U
+  \]
+  （参见 \SGARefLink{sga3:xiii:corollary:2:5}{2.5}）, 设
+  \SGARefTarget{sga3:xiii:theorem:2:6:display:rho}
+  \[
+    \rho=\rho_\nu(G)=\dim C
+  \]
+  为 \(G\) 的幂零秩. 对每个 \(g\in G(k)\), \(\operatorname{ad}(g)\) 在 \(\mathfrak g\) 上的作用中特征值 \(1\) 的重数至少为 \(\rho\); 此重数等于 \(\rho\) 当且仅当 \(g\in U(k)\).
+\end{enumerate}
+
+\noindent\textit{证明.}
+\SGARefLink{sga3:xiii:theorem:2:1:item:i}{条件 2.1(i)} 成立, 所以 \SGARefLink{sga3:xiii:corollary:2:4:item:iii}{2.4(iii)} \(\Rightarrow\) \SGARefLink{sga3:xiii:corollary:2:4:item:i}{(i)} 证明了 \SGARefLink{sga3:xiii:theorem:2:6:item:a}{(a)}. 在 \emph{BIBLE} 7 中, 当 \(G\) 仿射时, \(U(k)\) 的点称为 \(G(k)\) 的\emph{正则点（regular points）}. 我们沿用这一术语, 并称 \(U\) 为 \(G\) 的\emph{正则点开子集}. 应注意, \emph{BIBLE} 中关于这个集合本身为开的证明有误; \SGARefLink{sga3:xiii:expose}{本讲}在更一般的假设下建立其开性.
+
+为证明 \SGARefLink{sga3:xiii:theorem:2:6:item:b}{(b)}, 对每个 \(g\in G(k)\) 引入\SGARefLink{sga3:xiii:theorem:2:6:display:characteristic-polynomial}{特征多项式}
+\SGARefTarget{sga3:xiii:theorem:2:6:display:characteristic-polynomial}
+\[
+  P(\operatorname{ad}(g),t)
+  =t^n+c_1(g)t^{n-1}+\cdots+c_n(g).
+\]
+将 \(k\) 替换为任意 \(k\)-代数, 立即可见函数 \(c_i(g)\) 来自唯一确定的截面
+\[
+  c_i\in\Gamma(G,\mathcal O_G).
+\]
+
+假定 \(g\in G(k)\) 属于某个 Cartan 子群, 可取该子群为 \(C\); 这包含正则元素的情形. 根据 \SGARefLink{sga3:xiii:corollary:2:5:item:iv}{2.5(iv)},
+\[
+  (\mathfrak g/\mathfrak c)^{\operatorname{ad}(g)}=0
+\]
+当且仅当 \(g\) 正则, 其中 \(\mathfrak c=\operatorname{Lie}(C)\). 由于 \(C\) 幂零, \(\operatorname{ad}_{\mathfrak c}(g)\) 只有特征值 \(1\). 从而 \(\operatorname{ad}_{\mathfrak g}(g)\) 中特征值 \(1\) 的重数至少为 \(\rho\), 并且恰好等于 \(\dim C=\rho\) 当且仅当 \(g\) 正则.
+
+特别地, \SGARefLink{sga3:xiii:theorem:2:6:display:characteristic-polynomial}{上面的特征多项式}可被 \((t-1)^\rho\) 整除. 被 \((t-1)^\rho\) 整除可以用多项式各系数之间的一组整系数线性关系表达. 这些关系对 \(g\in U(k)\) 成立, 而 \(U\) 稠密; 又因 \(G\) 约化, 所以它们处处成立. 因而\footnote{法文底本在 \SGARefLink{sga3:xiii:theorem:2:6:equation:dagger}{\((\dagger)\)} 左端将所遗漏的末尾 \(+\cdots+c_n\) 印成了 \(c_0\). \SGARefLink{sga3:xiii:theorem:2:6:display:characteristic-polynomial}{紧邻上方所列的特征多项式}确定了此处的改正.}
+\SGARefTarget{sga3:xiii:theorem:2:6:equation:dagger}
+\[
+\tag{\(\dagger\)}
+  t^n+c_1t^{n-1}+\cdots+c_n
+  =(t-1)^\rho
+    \bigl(t^{n-\rho}+b_1t^{n-\rho-1}+\cdots+b_{n-\rho}\bigr)
+\]
+在 \(\Gamma(G,\mathcal O_G)\) 上的多项式环中成立. 特别地, 对每个域扩张 \(K/k\) 和每个 \(g\in G(K)\), \(\operatorname{ad}(g)\) 的特征值 \(1\) 的重数至少为 \(\rho\).
+
+已经看到, 当 \(g\) 正则时等号成立; 现在证明其逆命题. 先假定 \(G\) 仿射, 将
+\[
+  g=g_sg_u
+\]
+写成其半单部分与幺幂部分的乘积（\emph{BIBLE} 4, 第 4 节）. 则
+\[
+  \operatorname{ad}(g)
+  =\operatorname{ad}(g_s)\operatorname{ad}(g_u)
+\]
+是 \(\operatorname{ad}(g)\) 的相应分解（同处, 定理 3 的推论）. 因此 \(\operatorname{ad}(g)\) 与 \(\operatorname{ad}(g_s)\) 的特征值连同重数均相同; 特别地, 特征值 \(1\) 在二者中的重数相同.
+
+由 \emph{BIBLE} 7, 定理 2, 推论 1, 元素 \(g\) 正则当且仅当 \(g_s\) 正则. 因而可假定 \(g=g_s\) 半单. 此时由 \emph{BIBLE} 6, 定理 5(c), 它包含在一个极大环面中, 从而包含在一个 Cartan 子群中, 这是已处理的情形. 这就证明了当 \(G\) 仿射时 \SGARefLink{sga3:xiii:theorem:2:6:item:b}{(b)} 成立.
+
+一般地, 令 \(Z=\operatorname{Centr}(G)_{\mathrm{red}}\). 由 \SGARefLink{sga3:xii:6.6:item:e}{XII~6.6(e)}, \(G\) 的 Cartan 子群是 \(G'=G/Z\) 的 Cartan 子群的逆像. 因此, \(g\) 在 \(G\) 中正则当且仅当它的像 \(g'\) 在 \(G'\) 中正则. 由于 \(Z\) 光滑, \(G'\) 的 Lie 代数为 \(\mathfrak g'=\mathfrak g/\mathfrak z\), 其中 \(\mathfrak z=\operatorname{Lie}(Z)\), 而 \(\operatorname{ad}(g')\) 是 \(\operatorname{ad}(g)\) 在 \(\mathfrak g/\mathfrak z\) 上诱导的自同态. 所以, \(\operatorname{ad}(g)\) 中特征值 \(1\) 的重数为
+\[
+  d=\dim Z
+\]
+与 \(\operatorname{ad}(g')\) 中该特征值的重数之和. 所以前者等于 \(G\) 的幂零秩当且仅当后者等于 \(G'\) 的幂零秩. 这就归结到 \(G'\), 由 \SGARefLink{sga3:xii:6.1}{XII~6.1}, 它仿射, 这一情形已经证明. 至此完成了 \SGARefLink{sga3:xiii:theorem:2:6}{2.6} 的证明.
+
+\medskip
+\noindent\SGARefTarget{sga3:xiii:corollary:2:7}\textbf{推论 2.7.} ---
+\textit{沿用前一证明的记号,\footnote{法文底本编者注: 参见上面的 \SGARefLink{sga3:xiii:theorem:2:6:equation:dagger}{\((\dagger)\)}.} 令}
+\[
+  b=1+b_1+\cdots+b_{n-\rho}\in\Gamma(G,\mathcal O_G).
+\]
+\textit{则 \(G\) 的正则点开子集为}
+\[
+  U=G_b,
+\]
+\textit{即 \(G\) 中 \(b\) 在其处可逆的点的集合. 特别地, 当 \(G\) 仿射时, \(U\) 为仿射开子集.}
+
+\medskip
+\noindent\SGARefTarget{sga3:xiii:corollary:2:8}\textbf{推论 2.8.} ---
+\textit{设 \(H\) 是 \(G\) 的一个包含 \(G\) 的 Cartan 子群的光滑连通代数子群.}
+
+\begin{enumerate}
+\item[\textit{a)}] \SGARefTarget{sga3:xiii:corollary:2:8:item:a}
+  设 \(C\) 是 \(H\) 的代数子群. 则 \(C\) 是 \(H\) 的 Cartan 子群当且仅当它是 \(G\) 的 Cartan 子群.
+
+\item[\textit{b)}] \SGARefTarget{sga3:xiii:corollary:2:8:item:b}
+  设 \(g\in G(k)\), 以 \(d\) 表示 \SGARefLink{sga3:xiii:corollary:2:3}{2.3} 中引入的整数. 则 \(g\) 是 \(G\) 的正则点当且仅当恰有 \(d\) 个 \(H\) 的共轭子群 \(H_i\) 包含 \(g\), 且 \(g\) 是每个 \(H_i\) 的正则元素. 等价地, 包含 \(g\) 的 \(H\) 的共轭子群至多有 \(d\) 个, 且 \(g\) 在其中一个中正则. 当这些条件成立时, 若 \(C\) 是 \(G\) 的包含 \(g\) 的唯一 Cartan 子群, 则包含 \(g\) 的 \(H\) 的共轭子群恰好是包含 \(C\) 的那些.
+
+\item[\textit{c)}] \SGARefTarget{sga3:xiii:corollary:2:8:item:c}
+  设 \(g\in H(k)\). 则 \(g\) 在 \(G\) 中正则当且仅当它在 \(H\) 中正则且
+  \[
+    (\mathfrak g/\mathfrak h)^{\operatorname{ad}(g)}=0.
+  \]
+\end{enumerate}
+
+\noindent\textit{证明.}
+\SGARefTarget{sga3:xiii:corollary:2:8:proof:item:a}
+\textit{a)} 无论 \(C\) 满足两种假设中的哪一种, 它的唯一极大环面 \(T\) 均为 \(H\) 和 \(G\) 的极大环面, 因为 \(H\) 的约化秩与 \(G\) 相同. 光滑连通群 \(\operatorname{Centr}_H(T)\subset\operatorname{Centr}_G(T)\) 的维数相同, 因而相等. 所以, \(C\) 等于这两个中心化子之一当且仅当它等于另一个, \SGARefLink{sga3:xiii:corollary:2:8:item:a}{(a)} 得证.
+
+\SGARefTarget{sga3:xiii:corollary:2:8:proof:item:b}
+\textit{b)} 先设 \(g\) 在 \(G\) 中正则, 令 \(C\) 为 \(G\) 中包含 \(g\) 的唯一 Cartan 子群. 由 \SGARefLink{sga3:xiii:corollary:2:3:item:b}{2.3(b)}, 恰有 \(d\) 个 \(H\) 的共轭子群 \(H_i\) 包含 \(C\). 因为
+\[
+  (\mathfrak g/\mathfrak c)^{\operatorname{ad}(g)}=0,
+\]
+自同态 \(\operatorname{ad}(g)\) 在 \(\mathfrak g/\mathfrak c\) 上没有特征值 \(1\), 从而更有
+\[
+  (\mathfrak g/\mathfrak h_i)^{\operatorname{ad}(g)}=0.
+\]
+由 \SGARefLink{sga3:xiii:corollary:2:3:item:c}{2.3(c)}, 恰有 \(d\) 个 \(H\) 的共轭子群包含 \(g\), 它们就是 \(H_i\). 根据 \SGARefLink{sga3:xiii:corollary:2:8:item:a}{(a)}, 这样的 \(H_i\) 的任意包含 \(g\) 的 Cartan 子群也是 \(G\) 的 Cartan 子群, 因而就是 \(C\). 所以 \(g\) 在每个 \(H_i\) 中正则.
+
+反过来, 假定包含 \(g\) 的 \(H\) 的共轭子群 \(H_i\) 至多有 \(d\) 个, 并且 \(g\) 在其中一个中正则, 可取该子群为 \(H\). 由于 \(g\) 在 \(H\) 中正则, 它属于 \(H\) 的唯一 Cartan 子群 \(C\); 根据 \SGARefLink{sga3:xiii:corollary:2:8:item:a}{(a)}, \(C\) 是 \(G\) 的 Cartan 子群. 设 \(C'\) 是 \(G\) 的任意包含 \(g\) 的 Cartan 子群. 由 \SGARefLink{sga3:xiii:corollary:2:3:item:b}{2.3(b)}, 恰有 \(d\) 个 \(H\) 的共轭子群包含 \(C'\). 它们均包含 \(g\), 因而恰好就是 \(H_i\); 特别地, \(H\) 包含 \(C'\). 所以 \(C\) 与 \(C'\) 是 \(H\) 的两个包含 \(H\) 的同一个正则元素 \(g\) 的 Cartan 子群, 因而 \(C=C'\). 因此 \(g\) 在 \(G\) 中正则.\footnote{底本在此结论处印为“在 \(C\) 中正则”; 此论证证明的是在 \(G\) 中正则.}
+\hfill\(\square\)
+
+\SGARefTarget{sga3:xiii:corollary:2:8:proof:item:c}
+\textit{c)} 对有限维向量空间的自同态 \(u\), 令 \(\nu(u)\) 表示 \(\operatorname{id}-u\) 的零度.\footnote{法文底本编者注: 即 \(\operatorname{id}-u\) 的幂零空间的维数（广义零空间的维数）.} 则
+\SGARefTarget{sga3:xiii:corollary:2:8:display:nullity}
+\[
+  \nu\bigl(\operatorname{ad}(g)_{\mathfrak g}\bigr)
+  =
+  \nu\bigl(\operatorname{ad}(g)_{\mathfrak h}\bigr)
+  +
+  \nu\bigl(\operatorname{ad}(g)_{\mathfrak g/\mathfrak h}\bigr).
+\]
+右端两项分别至少为 \(H\) 的幂零秩（根据 \SGARefLink{sga3:xiii:corollary:2:8:item:a}{(a)}, 它等于 \(G\) 的幂零秩 \(\rho\)）及 \(0\). 因此 \(\nu(\operatorname{ad}(g)_{\mathfrak g})=\rho\) 当且仅当
+\[
+  \nu\bigl(\operatorname{ad}(g)_{\mathfrak h}\bigr)=\rho,
+  \qquad
+  \nu\bigl(\operatorname{ad}(g)_{\mathfrak g/\mathfrak h}\bigr)=0.
+\]
+这恰好就是说: \(g\) 在 \(G\) 中正则当且仅当它在 \(H\) 中正则, 且 \(\operatorname{ad}(g)_{\mathfrak g/\mathfrak h}\) 没有非零不变量. \hfill\(\square\)
+
+\medskip
+\noindent\SGARefTarget{sga3:xiii:remark:2:9}\textbf{注 2.9.} ---
+在 \SGARefLink{sga3:xiii:theorem:2:1}{2.1} 的陈述中, 不能将条件 \SGARefLink{sga3:xiii:theorem:2:1:item:iii}{(iii)} 减弱为仅假定 \(H\) 包含一个极大环面且在其正规化子中的指数有限; 即使还要求正规化子光滑, 亦即 \(H=N^0\), 甚至 \(G\) 仿射且可解, 仍然如此. 例如, 取 \(G\) 为形如下式的矩阵构成的群
+\SGARefTarget{sga3:xiii:remark:2:9:display:matrix}
+\[
+  g=
+  \begin{pmatrix}
+    t & a & c\\
+    0 & 1 & b\\
+    0 & 0 & 1
+  \end{pmatrix},
+\]
+并取 \(H\) 为\SGARefLink{sga3:xiii:remark:2:9:display:matrix}{上述矩阵}中满足 \(b=c=0\) 者构成的子群. 这里 \(G\) 的 Cartan 子群由满足 \(a=c=0\) 的矩阵 \(g\) 构成.
+
+\medskip
+\noindent\SGARefTarget{sga3:xiii:remark:2:10}\textbf{注 2.10.} ---
+设 \(G\) 是 \(k\) 上的光滑代数群, \(H\) 是光滑代数子群; 不再假定 \(G\) 与 \(H\) 连通. 假定 \(H^0\) 包含 \(G^0\) 的一个 Cartan 子群. 则
+\[
+  (\mathfrak g/\mathfrak h)^H
+  \subset(\mathfrak g/\mathfrak h)^{H^0}=0,
+\]
+所以 \(H^0=N^0\), 其中 \(N\) 是 \(H\) 的正规化子; 特别地, \(N\) 光滑.
+
+然而, 即使 \(G\) 连通, 也容易构造出例子, 使得 \(H\) 有一个连通分支 \(H_i\), 满足
+\[
+  (\mathfrak g/\mathfrak h)^{\operatorname{ad}(h)}\neq0
+  \qquad\text{对每个 }h\in H_i(k).
+\]
+等价地, 态射
+\[
+  G\times H_i\longrightarrow G,\qquad
+  (g,h)\longmapsto\operatorname{ad}(g)\cdot h
+\]
+处处都不平展, 甚至不拟有限. 例如, 可以取 \(H\) 为 \(\operatorname{SL}(2)_k\) 中一个极大环面的正规化子.
+
+同样, 即使 \(H\) 在有限群 \(G''=G/G^0\) 中的像 \(H''\) 是整个 \(G''\), \(H\) 在 \(G\) 中各共轭子群的并也未必稠密. 例如, 取 \(G\) 为 \(\mathbb Z/2\mathbb Z\) 与 \(G^0=\operatorname{SL}(2)_k\) 的半直积, 前者以“对称”作用于后者; 并取 \(H\) 为半直积 \(\mathbb Z/2\mathbb Z\cdot T\), 其中 \(T\) 为 \(G^0\) 的极大环面.
+
+另一方面, 若不预先假定 \(H^0\) 包含 \(G^0\) 的 Cartan 子群, 而假定 \(H\) 在 \(G\) 中各共轭子群的并稠密, 则 \(H^0\) 必定包含 \(G^0\) 的一个 Cartan 子群. 为证明这一点, 显然可假定 \(G\) 连通, 再重复 \SGARefLink{sga3:xiii:theorem:2:1:item:vi}{2.1(vi)} \(\Rightarrow\) \SGARefLink{sga3:xiii:theorem:2:1:item:i}{(i)} 的证明, 因为该证明不要求 \(H\) 连通.
+
+% END inputs/XIII/source/tex/components/02_expose_XIII_section1_remainder_and_section2.tex
+
+% BEGIN inputs/XIII/source/tex/components/03_expose_XIII_sections3_4.tex
+% Authority: Expo13.pdf, local pp. 14--22 / combined pp. 818--826
+% (printed pp. 180--188), from the heading of section 3 through the
+% end of Proposition 4.8, stopping immediately before the heading of section 5.
+% Authority SHA-256:
+% 24735CAFA57291A71C603712C0588358977856D5971503E6E73F3F2E40A70798
+
+\makeatletter
+\@ifundefined{remarks}{%
+  \theoremstyle{remark}
+  \newtheorem{remarks}[theorem]{注}%
+}{}
+\makeatother
+
+\section{任意底预概形的情形}
+\SGARefTarget{sga3:xiii:section:3}
+
+先假定底是一个未必代数闭的域 \(k\). 由于条件 \SGARefLink{sga3:xiii:theorem:2:1}{2.1} \SGARefLink{sga3:xiii:theorem:2:1:item:i-bis}{(i bis)}、\SGARefLink{sga3:xiii:theorem:2:1:item:iv-bis}{(iv bis)}、\SGARefLink{sga3:xiii:theorem:2:1:item:v}{(v)} 和 \SGARefLink{sga3:xiii:theorem:2:1:item:vi}{(vi)} 在基域扩张下不变, 过渡到 \(k\) 的代数闭包 \(\overline{k}\), 可见它们互相等价, 并且等价于 \(H_{\overline{k}}\) 包含 \(G_{\overline{k}}\) 的一个 Cartan 子群. 当\SGARefLink{sga3:xiii:theorem:2:1:item:i}{此条件}满足时, 仍有（沿用 \SGARefLink{sga3:xiii:corollary:2:3}{2.3} 的记号）\(k(X)\) 为 \(k(G)\) 的有限可分扩张, 其次数 \(d\) 不因任何底扩张而改变. 若 \(U\) 为 \(G\) 的使 \(\psi\) 诱导有限平展态射
+\[
+  \psi^{-1}(U)\longrightarrow U,
+\]
+的最大开子集, 则 \(U\) 的形成与基域扩张可交换. 若 \(\psi\) 双有理, 则 \(U\) 也是 \(G\) 的使 \(\psi\) 诱导同构
+\[
+  \psi^{-1}(U)\xrightarrow{\sim}U;
+\]
+的最大开子集; 并且, 若 \(g\in U(k)\), 则 \(G\) 中存在唯一子群 \(H'\), 它在 \(\overline{k}\) 上与 \(H\) 共轭且满足 \(H'\ni g\).
+
+若点 \(g\in G(k)\) 作为下述群的元素是正则的, 就称它\emph{正则}:
+\[
+  G(\overline{k})=G_{\overline{k}}(\overline{k}).
+\]
+更一般地, \SGARefLink{sga3:xiii:corollary:2:7}{2.7} 的构造给出 \(G\) 的一个开子集, 其形成与每个基域扩张可交换, 称为 \(G\) 的\emph{正则点开子集}. 它也可用如下性质刻画: 对 \(k\) 的每个代数闭扩张 \(K\) 和每个 \(g\in G(K)\), 点 \(g\) 在 \(G_K\) 中正则当且仅当 \(g\in U(K)\). 若 \(g\in U(k)\)\footnote{编者注: 已将 \(G(k)\) 改正为 \(U(k)\).}, 则 \(g\) 包含在 \(G\) 的唯一一个 Cartan 子群中, 我们将在下面于更一般的假设下证明这一点.
+
+设 \(G\) 是预概形 \(S\) 上光滑、分离、有限型且具有连通纤维的群预概形, 考虑函子
+\SGARefTarget{sga3:xiii:section:3:display:cartan-functor}
+\[
+  \mathcal C:(\mathrm{Sch})^\circ_{/S}\longrightarrow(\mathrm{Ens})
+\]
+定义为
+\[
+  \mathcal C(S')
+  =
+  \left\{
+    \begin{array}{c}
+      \text{\(G_{S'}\) 的 Cartan 子群（XII~3.1）}
+    \end{array}
+  \right\}.
+\]
+假定\SGARefLink{sga3:xiii:section:3:display:cartan-functor}{此函子}可由一个在 \(S\) 上光滑的预概形表示. 在第 XV 讲中, 我们将给出这一点成立的充分必要条件, 但我们已经知道: 若 \(G\) 在 \(S\) 上仿射且约化秩局部常值（\SGARefLink{sga3:xii:3.3}{XII~3.3}）, 或更一般地, 若 \(G\) 对 fpqc 拓扑局部容许极大环面（\SGARefLink{sga3:xii:7.1}{XII~7.1} a)）, 则该假设满足; 例如, 当 \(S\) 是域的谱时即如此.
+
+令 \(X\) 为 \(\mathcal C\)-群预概形 \(G_{\mathcal C}\) 的 Cartan 子群, 即 \(G\) 的“泛 Cartan 子群”. 因此, 作为 \(S\) 上的预概形, \(X\) 表示函子
+\[
+  X(S')
+  =
+  \left\{
+    \begin{array}{c}
+      (C,g)\ \bigm|\ C\text{ 是 }G_{S'}\text{ 的 Cartan 子群},\\
+      g\text{ 是 }C\text{ 在 }S'\text{ 上的截面}
+    \end{array}
+  \right\}.
+\]
+考虑典范投影态射 \((C,g)\mapsto g\),
+\[
+  \psi:X\longrightarrow G.
+\]
+于是有\SGARefLink{sga3:xiii:theorem:3:1}{下述定理}.
+
+\begin{theorem}
+\SGARefTarget{sga3:xiii:theorem:3:1}
+在前述关于 \(G\) 的假设下, 沿用上述记号, 令 \(U\) 为满足 \(g\) 是其所在纤维 \(G_s\) 的正则元素的点 \(g\in G\) 的集合. 则 \(U\) 为开集, 并且也是 \(G\) 的使 \(\psi\) 诱导下述同构的最大开子集 \(U\):
+\[
+  \psi^{-1}(U)\xrightarrow{\sim}U.
+\]
+\end{theorem}
+
+先证明 \(U\) 为开集. 由于 \(\mathcal C\) 可由 \(S\) 上的光滑预概形表示, 且其结构态射显然为满射, 立即可知 \(G\) 对平展拓扑局部容许 Cartan 子群, 并且 \(G\) 各纤维的幂零秩局部常值. \(G\) 各纤维的维数亦然. 因此, 在 \(S\) 上局部化后, 可假定这两个整数为常数, 分别记为 \(\rho\) 与 \(n\). 考虑 Killing 多项式
+\[
+  P_G(t)=t^n+c_1t^{n-1}+\cdots+c_n\in A[t],
+  \qquad A=\Gamma(G,\mathcal O_G).
+\]
+此多项式在 \(G\) 的各纤维 \(G_s\) 上, 特别是在 \(S\) 的各极大点处的纤维上的限制, 可被 \((t-1)^\rho\) 整除. 这就是说, \(c_i\) 的某些整系数线性组合在各纤维 \(G_s\) 上为零. 当 \(S\) 约化时（为证明 \(U\) 为开集, 可以这样假定）, 这些线性组合本身为零. 所以 Killing 多项式本身可被 \((t-1)^\rho\) 整除, 写成\footnote{底本将指数印为未定义的 \(n-r-1\). 根据第二个因子的次数 \(n-\rho\), 此处改正为 \(n-\rho-1\).}
+\[
+  P_G(t)
+  =
+  (t-1)^\rho
+  \bigl(t^{n-\rho}+b_1t^{n-\rho-1}+\cdots+b_{n-\rho}\bigr).
+\]
+令 \(b\) 为第二个因子的系数 \(b_0=1,b_1,\ldots,b_{n-\rho}\) 之和. 将 \SGARefLink{sga3:xiii:corollary:2:7}{2.7} 应用于 \(G\) 的各纤维, 得
+\[
+  U=G_b,
+\]
+这就证明了 \(U\) 为开集.
+
+为证明 \(\psi^{-1}(U)\to U\) 是同构, 根据 SGA~1, I~5.7, 只须逐纤维检验. 这就归结到以域为底的情形, 并可假定该域代数闭. 此时 \(G\) 有 Cartan 子群 \(C\). 若 \(N\) 是其正规化子, 则共轭定理 \SGARefLink{sga3:xii:7.1}{XII~7.1} a) 和 b) 将 \(\mathcal C\) 与 \(G/N\) 等同, 此处考虑的态射 \(\psi:X\to G\) 恰好是\SGARefLink{sga3:xiii:section:2}{第~2 节}所定义者. 结论来自 \SGARefLink{sga3:xiii:theorem:2:6:item:b}{2.6 b)}. 同一论证还表明, \(U\) 是 \(G\) 的使 \(\psi\) 诱导同构 \(\psi^{-1}(U)\to U\) 的最大开子集.
+
+\begin{corollary}
+\SGARefTarget{sga3:xiii:corollary:3:2}
+在 \SGARefLink{sga3:xiii:theorem:3:1}{3.1} 的假设下, 设 \(g\) 是 \(G\) 的正则截面, 即对每个 \(s\in S\), \(g(s)\) 都是 \(G_s\) 的正则点. 则 \(G\) 中存在唯一 Cartan 子群 \(C\), 使得 \(g\) 是 \(C\) 的截面.
+\end{corollary}
+
+事实上, 关于 \(g\) 的假设就是说 \(g\) 是 \(U\) 的截面, 而结论就是说它可以唯一提升为 \(X\) 的截面. 这只不过是说 \(\psi^{-1}(U)\to U\) 是同构的另一种表达.
+
+现在注意, \(G_{\mathcal C}\) 的 Cartan 子群 \(X\) 的开子集 \(\psi^{-1}(U)\), 恰好是 \(X\) 中在 \(G_{\mathcal C}\) 中正则的点构成的开子集, 这里正则意指在各自纤维中正则. 由此得到 \(G\) 的正则点稠密开子集 \(U\) 在预概形 \(\mathcal C\) 上的自然“纤维化”; 其纤维是 \(G_{\mathcal C}\) 的各纤维的 Cartan 子群的稠密开子集, 即这些子群中在 \(G\) 中正则的点构成的开子集. 例如得到\SGARefLink{sga3:xiii:corollary:3:3}{下述结果}, 下一讲将大大加强这一结果.
+
+\begin{corollary}
+\SGARefTarget{sga3:xiii:corollary:3:3}
+设 \(G\) 是域 \(k\) 上光滑连通的代数群, \(\mathcal T\) 是 \(G\) 的极大环面概形, 它同构于 \(G\) 的 Cartan 子群概形. 则 \(G\) 的函数域 \(k(G)\) 同构于 \(\mathcal T\) 的函数域 \(k(\mathcal T)\) 上的某个光滑连通仿射幂零代数群 \(C\) 的函数域, 其中
+\[
+  C=\text{“\(G\) 的一般 Cartan 子群”}.
+\]
+若 \(G\) 仿射且幺幂秩为零, 即 \(G_{\overline k}\)\footnote{底本将基域印为未定义的 \(\overline K\); 此处改正为 \(\overline k\).} 的 Cartan 子群均为环面, 则 \(k(G)\) 是 \(k(\mathcal T)\) 的单有理扩张.
+\end{corollary}
+
+当然, 所谓 \(G\) 的一般 Cartan 子群, 是略微滥用术语, 指 \(G_{k(\mathcal T)}\) 的那个作为 \(X\) 在 \(\mathcal T\) 上的一般纤维的 Cartan 子群. 只须证明 \SGARefLink{sga3:xiii:corollary:3:3}{3.3} 的最后一个断言, 它包含在 Chevalley 的\SGARefLink{sga3:xiii:lemma:3:4}{下述熟知结果}之中.
+
+\begin{lemma}
+\SGARefTarget{sga3:xiii:lemma:3:4}
+设 \(k\) 是域, \(T\) 是 \(k\) 上的环面, \(k(T)\) 是 \(T\) 的有理函数域. 则 \(k(T)\) 是 \(k\) 的单有理扩张, 即它包含在 \(k\) 的一个纯超越扩张中.
+\end{lemma}
+
+事实上, 令 \(k'\) 为 \(k\) 的一个使 \(T\) 分裂的\footnote{编者注: “使……分裂”（?）, 或者说“\(T\) 在其上分裂”.} 有限可分扩张（\SGARefLink{sga3:x:proposition:1:4}{X~1.4}）. 则 \(T\otimes_k k'\) 是有理簇: 它包含一个稠密开子集, 同构于仿射 \(n\) 维空间 \(\mathbb A^n_{k'}\) 的稠密开子集. 从而
+\[
+  T'
+  =
+  \prod_{\operatorname{Spec}(k')/\operatorname{Spec}(k)}
+  T_{k'}/\operatorname{Spec}(k')
+\]
+是有理簇, 因为它有一个稠密开子集同构于下式的稠密开子集:
+\[
+  \prod_{\operatorname{Spec}(k')/\operatorname{Spec}(k)}
+  \mathbb A^n_{k'},
+\]
+后者同构于 \(k\) 上的仿射 \(mn\) 维空间, 其中 \(m=[k':k]\). 考虑从 \(T'\) 到 \(T\) 的范数同态, 只要 \(T\) 是 \(k\) 上的交换群概形, 这个同态就有定义. 复合
+\[
+  T\longrightarrow T'\longrightarrow T
+\]
+是 \(T\) 上的 \(m\) 次幂映射, 因而占优. 所以 \(T'\to T\) 占优, 这就证明了 \(T\) 单有理.
+
+回到 \SGARefLink{sga3:xiii:theorem:3:1}{3.1} 的假设, 但另假定 \(G\) 对 fpqc 拓扑局部容许极大环面（\SGARefLink{sga3:xii:7.1}{XII~7.1}）. 令 \(Y\) 为 \(G_{\mathcal C}\) 的 Cartan 子群 \(X\) 的极大环面. 态射 \(\psi:X\to G\) 诱导一个态射 \(Y\to G\), 它的集合意义的像由 \(G\) 各纤维的半单元素组成（XII~8）. 最后, \SGARefLink{sga3:xiii:theorem:3:1}{3.1} 表明, \(\psi\) 在 \(Y\) 的正则点开子集 \(Y^{\mathrm{reg}}\) 上的限制诱导闭浸入
+\[
+  Y^{\mathrm{reg}}\longrightarrow U=G^{\mathrm{reg}}.
+\]
+将 \(Z=Y^{\mathrm{reg}}\) 的函子意义明确写出, 就得到\SGARefLink{sga3:xiii:corollary:3:5}{下述结果}.
+
+\begin{corollary}
+\SGARefTarget{sga3:xiii:corollary:3:5}
+设 \(G\) 是预概形 \(S\) 上光滑、分离、有限型且具有连通纤维的 \(S\)-群预概形, 并假定 \(G\) 对 fpqc 拓扑局部容许极大环面. 令
+\[
+  Z:(\mathrm{Sch})^\circ_{/S}\longrightarrow(\mathrm{Ens})
+\]
+为下述定义的函子:
+\[
+  Z(S')
+  =
+  \left\{
+    \begin{array}{c}
+      \text{\(G_{S'}\) 在 \(S'\) 上的正则截面, 且}\\
+      \text{包含在 \(G_{S'}\) 的某个极大环面中}
+    \end{array}
+  \right\}.
+\]
+则 \(Z\) 可由 \SGARefLink{sga3:xiii:theorem:3:1}{3.1} 中引入的 \(G\) 的开子集 \(U=G^{\mathrm{reg}}\) 的一个在 \(S\) 上光滑的闭子预概形表示.
+\end{corollary}
+
+最后记下\SGARefLink{sga3:xiii:corollary:3:6}{下述结果}, 它加强了稠密性定理 \SGARefLink{sga3:xiii:theorem:2:1}{2.1} \SGARefLink{sga3:xiii:theorem:2:1:item:i}{(i)} \(\Rightarrow\) \SGARefLink{sga3:xiii:theorem:2:1:item:vi}{(vi)}.
+
+\begin{corollary}
+\SGARefTarget{sga3:xiii:corollary:3:6}
+在 \SGARefLink{sga3:xiii:corollary:3:5}{3.5} 的假设下, 设 \(C\) 是 \(G\) 的一个 Cartan 子群, 考虑态射
+\[
+  \varphi:Z\times C\longrightarrow G
+\]
+定义为
+\[
+  \varphi(g,h)=\operatorname{ad}(g)h=ghg^{-1}.
+\]
+则 \(\varphi\) 占优.
+\end{corollary}
+
+显然只须逐纤维证明该断言, 于是归结到 \(S\) 是代数闭域 \(k\) 的谱的情形. 设 \(T\) 是 \(C\) 的极大环面, 取 \(t_0\in T(k)\) 在 \(G\) 中正则, 并取 \(c_0\in C(k)\) 在 \(G\) 中正则. 考虑 \(\varphi^{-1}(\varphi(t_0,c_0))\). 它的 \(k\)-有理点为满足下式的二元组 \((t,c)\), 其中 \(t\in Z(k)\)、\(c\in C(k)\):
+\[
+  \operatorname{ad}(t)c=\operatorname{ad}(t_0)c_0,
+  \qquad\text{即}\qquad
+  c=\operatorname{ad}(t^{-1}t_0)c_0.
+\]
+因此, 它们与满足 \(\operatorname{ad}(t^{-1}t_0)c_0\in C\) 的 \(t\in Z(k)\) 双射, 等价地, 因为 \(c_0\) 正则, 与满足 \(t^{-1}t_0\in N\) 的 \(t\in Z(k)\) 双射, 其中 \(N\) 是 \(C\) 的正规化子; 换言之, 即 \(t\in N\). 限制到那些属于 \(C(k)\) 的 \(t\in Z(k)\), 就得到此纤维的一个开闭部分. 因而, 我们找到了 \(\varphi^{-1}(\varphi(t_0,c_0))\) 的一个同构于 \(T\) 的连通分支. 前述集合意义的论证实际上给出概形同构: 只须将 \(k\)-值点换成任意 \(k\)-预概形中的值点即可.
+
+从而 \(\varphi\) 的一般纤维的维数至多为 \(\dim T\), 因此
+\[
+  \dim\operatorname{Im}(\varphi)
+  \geq
+  \dim(Z\times C)-\dim T
+  =
+  \dim Z+\dim C-\dim T.
+\]
+而
+\[
+  \dim Z
+  =
+  \dim Y
+  =
+  \dim\mathcal C+\dim T
+  =
+  \dim G-\dim C+\dim T.
+\]
+所以 \(\dim\operatorname{Im}(\varphi)\geq\dim G\), \(\varphi\) 占优.
+\par\hfill\textsc{q.e.d.}
+
+\begin{remarks}
+\SGARefTarget{sga3:xiii:remark:3:7}
+这一论证还表明, 纤维 \(\varphi^{-1}(\varphi(t_0,c_0))\) 在 \((t_0,c_0)\) 处的连通分支同构于 \(T\). 特别地, 它在 \(k\) 上光滑, 并且其维数与一般纤维相同. 从而 \(\varphi\) 实际上在 \((t_0,c_0)\) 处光滑, 这一点也应当能够通过计算切映射验证. 因此, 在 \SGARefLink{sga3:xiii:corollary:3:6}{3.6} 的假设下, 所诱导的态射
+\[
+  Z\times_S C^{\mathrm{reg}}\longrightarrow G^{\mathrm{reg}},
+  \qquad C^{\mathrm{reg}}=C\cap G^{\mathrm{reg}},
+\]
+光滑. 同样, 类似的态射
+\[
+  Z\times T^{\mathrm{reg}}\longrightarrow Z,
+\]
+也光滑, 其中 \(T\) 是 \(G\) 的极大环面. 更一般地, 对 \(C\) 的每个光滑连通正规代数子群 \(H\), 若它包含一个在 \(G\) 中正则的元素 \(c_0\in G(k)\), 则 \(Z\times H\to G\) 的像在 \(G\times H\to G\) 的像中稠密.
+\end{remarks}
+
+\section{域上的 Lie 代数: 秩、正则元素、Cartan 子代数}
+\SGARefTarget{sga3:xiii:section:4}
+
+在\SGARefLink{sga3:xiii:expose}{本讲}的余下部分, 我们研究 Chevalley 在其著作 \emph{Théorie des Groupes de Lie III}（Act.\ Sc.\ Ind.\ 1226, Paris 1955）中发展的理论; 概形方法使我们能够去掉特征为零的假设. 首先在\SGARefLink{sga3:xiii:section:4}{本节}回顾若干熟知的概念与结果.
+
+设 \(\mathfrak g\) 是环 \(k\) 上的 Lie 代数. 对每个 \(a\in\mathfrak g\), 以 \(\operatorname{ad}(a)\) 表示 \(\mathfrak g\) 的自同态
+\[
+  \operatorname{ad}(a)\cdot x=[a,x]
+\]
+它是 Lie 代数 \(\mathfrak g\) 的一个导子. 对 \(\mathfrak g\) 的每个导子 \(D\), \(D\) 的幂零空间（nil-space）, 即 \(D\) 的各次迭代的核之并, 是 \(\mathfrak g\) 的 Lie 子代数, 这由 Leibniz 公式推出:
+\[
+  D^m([x,y])
+  =
+  \sum_{0\leq p\leq m}
+  \binom{m}{p}[D^p x,D^{m-p}y].
+\]
+置
+\[
+  \operatorname{Nil}(a,\mathfrak g)
+  =
+  \operatorname{ad}(a)\text{ 的幂零空间}
+  =
+  \bigcup_{m\geq0}\operatorname{Ker}\operatorname{ad}(a)^m.
+\]
+不致混淆时, 简记为 \(\operatorname{Nil}(a)\), 称为 \emph{\(a\) 在 \(\mathfrak g\) 中的幂零空间}.
+
+\begin{proposition}
+\SGARefTarget{sga3:xiii:proposition:4:1}
+对每个 \(a\in\mathfrak g\), 它的幂零空间 \(\operatorname{Nil}(a,\mathfrak g)\) 是 \(\mathfrak g\) 的 Lie 子代数, 且等于其自身的正规化子.
+\end{proposition}
+
+只须证明它等于自身的正规化子. 换言之, \(\mathfrak g/\operatorname{Nil}(a,\mathfrak g)\) 中的每个被 \(\operatorname{Nil}(a,\mathfrak g)\) 在此商上的伴随表示所零化的元素必为零. 这是直接的, 因为此商的每个被 \(\operatorname{ad}(a)\)\footnote{底本印为 \(\operatorname{Ad}(a)\); 由于 \(a\in\mathfrak g\), 此处的自同态为 \(\operatorname{ad}(a)\).} 零化的元素均为零.
+
+在\SGARefLink{sga3:xiii:section:4}{本节}的余下部分, 假定 \(k\) 为域, \(\mathfrak g\) 在 \(k\) 上有限维. 以 \(W(\mathfrak g)\) 表示由 \(\mathfrak g\) 定义的 \(k\)-概形; 它在一个 \(k\)-代数 \(A\) 中的值点是 \(\mathfrak g\otimes_k A\) 的元素. 若 \(a\in\mathfrak g\), 则 \(\operatorname{ad}(a)\) 的特征多项式也称为 \(a\) 在 \(\mathfrak g\) 中的\emph{特征多项式}或 \emph{Killing 多项式}:
+\[
+  P_{\mathfrak g}(a,t)
+  =
+  t^n+c_1(a)t^{n-1}+\cdots+c_n(a),
+\]
+其中 \(n=\operatorname{rank}_k\mathfrak g\), \(c_i(a)\in k\). 对任意 \(k\)-代数 \(A\) 中的 \(a\in\mathfrak g\otimes_k A\)\footnote{编者注: 已将 \(W\otimes_k A\) 改正为 \(\mathfrak g\otimes_k A\).} 考虑同一多项式, 可见 \(c_i(a)\) 来自 \(W(\mathfrak g)\) 的结构层的唯一确定的截面 \(c_i\), 即来自对称代数
+\[
+  A=\operatorname{Sym}_k(\mathfrak g^\vee),
+\]
+的元素, 其中 \(\mathfrak g^\vee\) 是 \(k\)-模 \(\mathfrak g\) 的对偶. 当 \(k\) 无限时, \(c_i\) 由相应的多项式函数 \(\mathfrak g\to k\) 确定, 但 \(k\) 有限时不再如此.
+
+令 \(r\) 为使 Killing 多项式
+\[
+  P_{\mathfrak g}(t)
+  =
+  t^n+c_1t^{n-1}+\cdots+c_n
+  \in A[t]
+\]
+可被 \(t^r\) 整除的最大整数; 于是
+\[
+  P_{\mathfrak g}(t)
+  =
+  t^n+c_1t^{n-1}+\cdots+c_{n-r}t^r,
+  \qquad c_{n-r}\neq0.
+\]
+整数 \(r\) 称为 Lie 代数 \(\mathfrak g\) 的\emph{幂零秩}. 它在基域扩张下不变.
+
+\begin{proposition}
+\SGARefTarget{sga3:xiii:proposition:4:2}
+设 \(r\) 为 \(\mathfrak g\) 的幂零秩, \(a\in\mathfrak g\). 则
+\[
+  \operatorname{rank}_k\operatorname{Nil}(a,\mathfrak g)\geq r,
+\]
+等号成立当且仅当
+\[
+  c_{n-r}(a)\neq0.
+\]
+此时 \(\operatorname{Nil}(a,\mathfrak g)\) 为幂零 Lie 代数. 当 \(\mathfrak g\) 是 \(k\) 上光滑代数群 \(G\) 的 Lie 代数时, 我们将在 \SGARefLink{sga3:xiii:corollary:5:7:part:b}{5.7 b)} 中证明逆命题.
+\end{proposition}
+
+第一个断言是直接的, 因为根据定义
+\[
+  \operatorname{rank}_k\operatorname{Nil}(a,\mathfrak g)
+  =
+  P_{\mathfrak g}(a,t)\text{ 中零根的重数}.
+\]
+现在假定 \(c_{n-r}(a)\neq0\). 证明 \(\operatorname{Nil}(a)\) 幂零, 等价地, 对每个 \(x\in\operatorname{Nil}(a)\), \(\operatorname{ad}_{\operatorname{Nil}(a)}(x)\) 均为幂零自同态. 可假定 \(k\) 代数闭. 由于
+\[
+  \operatorname{ad}(a)_{\mathfrak g/\operatorname{Nil}(a)}
+\]
+为单射, 存在非空开子集 \(U\subset W(\operatorname{Nil}(a))\), 使得对每个 \(x\in U(k)\), 自同态 \(\operatorname{ad}(x)_{\mathfrak g/\operatorname{Nil}(a)}\) 均为单射, 从而 \(\operatorname{Nil}(x)\subset\operatorname{Nil}(a)\). 还可假定 \(U\) 包含在 \(c_{n-r}\) 不为零的开子集中; 该开子集非空, 因为 \(c_{n-r}(a)\neq0\). 于是 \(\operatorname{Nil}(x)\) 与 \(\operatorname{Nil}(a)\) 维数相同, 所以
+\[
+  \operatorname{Nil}(x)=\operatorname{Nil}(a).
+\]
+从而对每个 \(x\in U(k)\), \(\operatorname{ad}(x)_{\operatorname{Nil}(a)}\) 均幂零. 由代数恒等式延拓原理, 对每个 \(x\in\operatorname{Nil}(a)\) 仍然如此, 所以 \(\operatorname{Nil}(a)\) 幂零.
+
+若元素 \(a\in\mathfrak g\) 满足 \(c_{n-r}(a)\neq0\), 即
+\[
+  \operatorname{rank}_k\operatorname{Nil}(a,\mathfrak g)=r.
+\]
+则称它\emph{正则}. 当 \(k\) 无限时, 这也就是说, 当 \(a\) 遍历 \(\mathfrak g\) 时 \(\operatorname{rank}_k\operatorname{Nil}(a,\mathfrak g)\) 达到最小可能值. 无论何种情形, \(\mathfrak g\) 的正则元素这一概念在基域扩张下不变. \(W(\mathfrak g)\) 的正则点, 即来自取值于 \(k\) 的某个适当扩张中的正则点的那些点, 构成开集, 因为它就是
+\[
+  W(\mathfrak g)_{c_{n-r}},
+\]
+即 \(c_{n-r}\) 在其处可逆的点集.
+
+\begin{corollary}
+\SGARefTarget{sga3:xiii:corollary:4:3}
+设 \(a\) 为 \(\mathfrak g\) 的正则元素, \(\mathfrak h\) 为 \(\mathfrak g\) 的一个包含 \(a\) 的 Lie 子代数. 则 \(\mathfrak h\) 幂零当且仅当
+\[
+  \mathfrak h\subset\operatorname{Nil}(a,\mathfrak g).
+\]
+特别地, \(\operatorname{Nil}(a,\mathfrak g)\) 是 \(\mathfrak g\) 的极大幂零子代数.
+\end{corollary}
+
+由于 \(\operatorname{Nil}(a)\) 幂零, 包含关系 \(\mathfrak h\subset\operatorname{Nil}(a)\) 蕴含 \(\mathfrak h\) 幂零. 反过来, 若 \(\mathfrak h\) 幂零, 则它包含在其元素 \(a\) 的幂零空间中; 即 \(\mathfrak h\subset\operatorname{Nil}(a)\).
+
+\begin{proposition}
+\SGARefTarget{sga3:xiii:proposition:4:4}
+假定 \(k\) 无限. 设 \(\mathfrak d\) 为 \(\mathfrak g\) 的一个 Lie 子代数. 考虑下列条件:
+\begin{enumerate}
+\item[(i)]\SGARefTarget{sga3:xiii:proposition:4:4:item:i}
+\(\mathfrak d\) 极大幂零且包含 \(\mathfrak g\) 的一个正则元素.
+\item[(i bis)]\SGARefTarget{sga3:xiii:proposition:4:4:item:i-bis}
+对 \(\mathfrak g\) 的某个正则元素 \(a\), 有 \(\mathfrak d=\operatorname{Nil}(a,\mathfrak g)\).
+\item[(ii)]\SGARefTarget{sga3:xiii:proposition:4:4:item:ii}
+\(\mathfrak d\) 幂零, 且对某个 \(a\in\mathfrak g\), 有 \(\mathfrak d=\operatorname{Nil}(a,\mathfrak g)\).
+\item[(ii bis)]\SGARefTarget{sga3:xiii:proposition:4:4:item:ii-bis}
+\(\mathfrak d\) 幂零, 且存在 \(a\in\mathfrak d\), 使得 \(\operatorname{ad}(a)_{\mathfrak g/\mathfrak d}\) 为单射.
+\item[(iii)]\SGARefTarget{sga3:xiii:proposition:4:4:item:iii}
+\(\mathfrak d\) 幂零且等于自身的正规化子.
+\end{enumerate}
+则
+\[
+  \SGARefLink{sga3:xiii:proposition:4:4:item:i}{\text{\rm(i)}}
+  \Longleftrightarrow
+  \text{\rm\SGARefLink{sga3:xiii:proposition:4:4:item:i-bis}{(i bis)}}
+  \Longrightarrow
+  \SGARefLink{sga3:xiii:proposition:4:4:item:ii}{\text{\rm(ii)}}
+  \Longleftrightarrow
+  \text{\rm\SGARefLink{sga3:xiii:proposition:4:4:item:ii-bis}{(ii bis)}}
+  \Longleftrightarrow
+  \SGARefLink{sga3:xiii:proposition:4:4:item:iii}{\text{\rm(iii)}}.
+\]
+我们将在 \SGARefLink{sga3:xiii:corollary:5:7:part:a}{5.7 a)} 中看到, 若 \(\mathfrak g\) 是光滑代数群的 Lie 代数, 则上述所有条件等价.
+\end{proposition}
+
+\SGARefLink{sga3:xiii:proposition:4:4:item:i}{(i)} 与 \SGARefLink{sga3:xiii:proposition:4:4:item:i-bis}{(i bis)} 的等价性由 \SGARefLink{sga3:xiii:corollary:4:3}{4.3} 立即得到, 而这些条件显然蕴含 \SGARefLink{sga3:xiii:proposition:4:4:item:ii}{(ii)}. \SGARefLink{sga3:xiii:proposition:4:4:item:ii}{(ii)} 与 \SGARefLink{sga3:xiii:proposition:4:4:item:ii-bis}{(ii bis)} 的等价性也是直接的, \SGARefLink{sga3:xiii:proposition:4:4:item:ii-bis}{(ii bis)} \(\Rightarrow\) \SGARefLink{sga3:xiii:proposition:4:4:item:iii}{(iii)} 亦然（参见 \SGARefLink{sga3:xiii:proposition:4:1}{4.1}）. 只须证明 \SGARefLink{sga3:xiii:proposition:4:4:item:iii}{(iii)} \(\Rightarrow\) \SGARefLink{sga3:xiii:proposition:4:4:item:ii-bis}{(ii bis)}. 这是唯一用到 \(k\) 无限性的蕴含关系, 它由\SGARefLink{sga3:xiii:lemma:4:5}{下述引理}立即推出.
+
+\begin{lemma}
+\SGARefTarget{sga3:xiii:lemma:4:5}
+设 \(\mathfrak d\) 为无限域 \(k\) 上的幂零 Lie 代数, 作用于有限维向量空间 \(V\). 假定对每个 \(x\in\mathfrak d\), 自同态 \(u(x)\) 均非单射. 则存在被 \(\mathfrak d\) 零化的非零元素 \(v\in V\).
+\end{lemma}
+
+可假定 \(k\) 代数闭且 \(\mathfrak d\) 有限维. 此时已知 \(V\) 是有限个非零稳定向量子空间 \(V_i\)（\(1\leq i\leq n\)）的直和, 使得对每个 \(i\) 和每个 \(x\in\mathfrak d\), 限制 \(u(x)|_{V_i}\) 只有一个特征值 \(\lambda_i(x)\)（参见 Bourbaki, \emph{Groupes et Algèbres de Lie}, 第~I 章, \(\S\)4, 习题~22）. 令 \(c_i(x)\) 为 \(u(x)|_{V_i}\) 的特征多项式的常数项, 则
+\[
+  \lambda_i(x)=0\quad\Longleftrightarrow\quad c_i(x)=0.
+\]
+每个 \(c_i\) 均为 \(\mathfrak d\) 上的多项式函数, 而假设就是说 \(\mathfrak d\) 是它们的零点集之并. 因此某个 \(c_i\) 恒为零. 以 \(V_i\) 代替 \(V\), 就归结到所有 \(u(x)\)（\(x\in\mathfrak d\)）均幂零的情形. 此时 Engel 定理（Bourbaki, 同处, 定理~1）蕴含, \(V\) 中某个非零元素 \(v\) 被 \(\mathfrak d\) 零化.
+\par\hfill\textsc{q.e.d.}
+
+仍假定 \(k\) 无限, 容易看出 \SGARefLink{sga3:xiii:proposition:4:4}{4.4} 的条件 \SGARefLink{sga3:xiii:proposition:4:4:item:i}{(i)} 与 \SGARefLink{sga3:xiii:proposition:4:4:item:i-bis}{(i bis)} 在每个基域扩张下不变. 当它们成立时, 称 \(\mathfrak d\) 为 \(\mathfrak g\) 的 \emph{Cartan 子代数}. 一般地, 当 \(k\) 未必无限时, 若 \(\mathfrak d\) 在某个（从而每个）\(k\to k'\) 的扩张后成为 Cartan 子代数, 其中 \(k'\) 无限, 就称它为 \(\mathfrak g\) 的 Cartan 子代数. 特别地, \(\mathfrak d\) 幂零且等于自身的正规化子.
+
+\begin{proposition}
+\SGARefTarget{sga3:xiii:proposition:4:6}
+\SGARefTarget{sga3:xiii:proposition:4:6:item:a}
+\textup{a)} 设 \(a\in\mathfrak g\). 若 \(a\) 正则, 则它包含在 \(\mathfrak g\) 的唯一一个 Cartan 子代数中. 当 \(k\) 代数闭且 \(\mathfrak g\) 是光滑代数群的 Lie 代数时, 我们将在 \SGARefLink{sga3:xiii:theorem:6:1:part:d}{6.1 d)} 中证明逆命题.
+
+\SGARefTarget{sga3:xiii:proposition:4:6:item:b}
+\textup{b)} 设 \(\mathfrak d\) 为 \(\mathfrak g\) 的 Cartan 子代数, \(a\in\mathfrak d\). 则 \(a\) 在 \(\mathfrak g\) 中正则当且仅当 \(\operatorname{ad}(a)_{\mathfrak g/\mathfrak d}\) 为单射.
+\end{proposition}
+
+对于 \SGARefLink{sga3:xiii:proposition:4:6:item:a}{a)}, 若 \(a\) 正则, 则 \(\operatorname{Nil}(a,\mathfrak g)\) 为 \(\mathfrak g\) 的 Cartan 子代数, 因为在 \(k\) 的一个无限扩张 \(k'\) 后这一点成立. 由 \SGARefLink{sga3:xiii:corollary:4:3}{4.3} 立即可知, \(\mathfrak g\) 的每个包含 \(a\) 的 Cartan 子代数均与此子代数相等. 对于 \SGARefLink{sga3:xiii:proposition:4:6:item:b}{b)}, 注意 \(\operatorname{ad}(a)_{\mathfrak g}\) 的零度\footnote{编者注: 即幂零空间的维数.} 为 \(\operatorname{ad}(a)_{\mathfrak d}\) 与 \(\operatorname{ad}(a)_{\mathfrak g/\mathfrak d}\) 的零度之和. 因为第一个为 \(r\), 它们的和为 \(r\) 当且仅当 \(\operatorname{ad}(a)_{\mathfrak g/\mathfrak d}\) 为单射.
+\par\hfill\textsc{q.e.d.}
+
+\begin{corollary}
+\SGARefTarget{sga3:xiii:corollary:4:7}
+设 \(a\) 为 \(\mathfrak g\) 的正则元素, \(\mathfrak d\) 为 \(\mathfrak g\) 的一个包含 \(a\) 的 Cartan 子代数, \(A\) 为 \(k\)-代数, \(\mathfrak g_A\) 与 \(\mathfrak d_A\subset\mathfrak g_A\) 为分别由 \(\mathfrak g\) 与 \(\mathfrak d\) 经基变换得到的 \(A\)-Lie 代数; 以 \(a_A\) 表示 \(a\) 在 \(\mathfrak g_A\) 中的像. 设 \(u\) 为 \(\mathfrak g_A\) 的自同构. 则
+\[
+  u(\mathfrak d_A)=\mathfrak d_A
+\]
+当且仅当
+\[
+  u(a_A)\in\mathfrak d_A.
+\]
+\end{corollary}
+
+此条件显然必要; 下面证明它充分. 假定它成立, 则
+\[
+  \mathfrak d'=u^{-1}(\mathfrak d_A)
+\]
+是包含 \(a_A\) 的 Lie 子代数, 而每个 \(b\in\mathfrak d'\) 都满足 \(\operatorname{ad}(b)_{\mathfrak d'}\) 幂零.\footnote{底本印为 \(\mathfrak d'=u(\mathfrak d_A)\) 及 \(\operatorname{ad}(b)_{\mathfrak d}\). 在假设 \(u(a_A)\in\mathfrak d_A\) 下, 逆像 \(u^{-1}(\mathfrak d_A)\) 才是包含 \(a_A\) 的子代数, 而幂零性断言涉及它的限制 \(\operatorname{ad}(b)_{\mathfrak d'}\).}
+事实上, \(\mathfrak d'\) 同构于 \(\mathfrak d_A\), 而后者具有此性质, 这由 Bourbaki, \emph{Groupes et Algèbres de Lie}, 第~I 章, \(\S\)4, 定义~1 中“幂零”的定义立即得到. 取 \(b=a_A\), 可知 \(\operatorname{Nil}(b,\mathfrak g_A)\) 包含 \(\mathfrak d'\). 另一方面,
+\[
+  \operatorname{Nil}(b,\mathfrak g_A)=\mathfrak d_A.
+\]
+此外, \(\mathfrak d'\) 局部为 \(\mathfrak g_A\) 的直和项, 因为 \(\mathfrak d\) 有此性质, 因而它局部为 \(\mathfrak d_A\) 的直和项. 它是与 \(\mathfrak d_A\) 同秩 \(r\) 的投射模, 因而等于 \(\mathfrak d_A\).
+\par\hfill\textsc{q.e.d.}
+
+\begin{proposition}
+\SGARefTarget{sga3:xiii:proposition:4:8}
+设 \(\mathfrak h\) 为 \(\mathfrak g\) 的 Lie 子代数.
+
+\SGARefTarget{sga3:xiii:proposition:4:8:item:a}
+\textup{a)} 若 \(k\) 无限, 则下列条件等价:
+\begin{enumerate}
+\item[(i)]\SGARefTarget{sga3:xiii:proposition:4:8:item:a:i}
+\(\mathfrak h\) 包含 \(\mathfrak g\) 的一个 Cartan 子代数 \(\mathfrak d\).
+\item[(ii)]\SGARefTarget{sga3:xiii:proposition:4:8:item:a:ii}
+\(\mathfrak h\) 包含 \(\mathfrak g\) 的一个正则元素 \(a\), 并包含某个元素 \(b\), 使得 \(\operatorname{ad}(b)_{\mathfrak g/\mathfrak h}\) 为单射.
+\item[(iii)]\SGARefTarget{sga3:xiii:proposition:4:8:item:a:iii}
+\(\mathfrak h\) 的幂零秩与 \(\mathfrak g\) 相同, 并包含 \(\mathfrak g\) 的一个正则元素.
+\end{enumerate}
+这些条件在基域 \(k\) 的扩张下不变.
+
+\SGARefTarget{sga3:xiii:proposition:4:8:item:b}
+\textup{b)} 假定这些条件在 \(k\) 的一个适当的无限扩张 \(k'\) 后成立. 对 \(a\in\mathfrak h\), 元素 \(a\) 在 \(\mathfrak g\) 中正则当且仅当它在 \(\mathfrak h\) 中正则且 \(\operatorname{ad}(a)_{\mathfrak g/\mathfrak h}\) 为单射; 等价地, 当且仅当
+\[
+  \operatorname{Nil}(a,\mathfrak h)
+  =
+  \operatorname{Nil}(a,\mathfrak g)
+\]
+且这个共同的 Lie 代数是 \(\mathfrak h\) 的 Cartan 子代数.
+
+\SGARefTarget{sga3:xiii:proposition:4:8:item:c}
+\textup{c)} 在 \SGARefLink{sga3:xiii:proposition:4:8:item:b}{b)} 的假设下, 设 \(\mathfrak d\) 为 \(\mathfrak h\) 的 Lie 子代数. 要使 \(\mathfrak d\) 为 \(\mathfrak h\) 的 Cartan 子代数, 一个充分条件是它为 \(\mathfrak g\) 的 Cartan 子代数. 当 \(\mathfrak g\) 为光滑代数群 \(G\) 的 Lie 代数, 且 \(\mathfrak h\) 为 \(G\) 的光滑代数子群 \(H\) 的 Lie 代数时, 我们将在 \SGARefLink{sga3:xiii:corollary:5:8}{5.8} 中看到\SGARefLink{sga3:xiii:proposition:4:8:item:c}{此条件}也是必要的.
+\end{proposition}
+
+\SGARefLink{sga3:xiii:proposition:4:8:item:a}{a)} 中的条件 \SGARefLink{sga3:xiii:proposition:4:8:item:a:ii}{(ii)} 与 \SGARefLink{sga3:xiii:proposition:4:8:item:a:iii}{(iii)} 显然在无限基域 \(k\) 的扩张下不变. 在 \SGARefLink{sga3:xiii:proposition:4:8:item:b}{b)} 与 \SGARefLink{sga3:xiii:proposition:4:8:item:c}{c)} 中, 可假定 \(k\) 无限, 以下即如此. 若 \(\mathfrak h\) 包含 Cartan 子代数
+\[
+  \mathfrak d=\operatorname{Nil}(a,\mathfrak g),
+\]
+则 \(a\) 是 \(\mathfrak g\) 的一个满足 \(\operatorname{ad}(a)_{\mathfrak g/\mathfrak h}\) 为单射的正则元素. 因而 \SGARefLink{sga3:xiii:proposition:4:8:item:a:i}{(i)} \(\Rightarrow\) \SGARefLink{sga3:xiii:proposition:4:8:item:a:ii}{(ii)}. 反过来, 若 \SGARefLink{sga3:xiii:proposition:4:8:item:a:ii}{(ii)} 成立, 则 \(\mathfrak h\) 中的一个“充分一般”的元素 \(a\) 同时满足 \SGARefLink{sga3:xiii:proposition:4:8:item:a:ii}{(ii)} 中的两个条件. 因而 \(\operatorname{Nil}(a,\mathfrak g)\) 是 \(\mathfrak g\) 的一个包含在 \(\mathfrak h\) 中的 Cartan 子代数, 故 \SGARefLink{sga3:xiii:proposition:4:8:item:a:i}{(i)} 得证. 所以条件 \SGARefLink{sga3:xiii:proposition:4:8:item:a:i}{(i)} 与 \SGARefLink{sga3:xiii:proposition:4:8:item:a:ii}{(ii)} 等价.
+
+假定这些条件成立, 并令 \(a\) 遍历 \(\mathfrak h\). 则
+\SGARefTarget{sga3:xiii:equation:4:8:x}
+\[
+\tag{x}
+  \operatorname{rank}_k\operatorname{Nil}(a,\mathfrak g)
+  =
+  \operatorname{rank}_k\operatorname{Nil}(a,\mathfrak h)
+  +
+  \operatorname{rank}_k
+  \operatorname{Nil}\bigl(
+    \operatorname{ad}(a)_{\mathfrak g/\mathfrak h}
+  \bigr).
+\]
+右端两项分别至少为 \(\mathfrak h\) 的幂零秩 \(r'\) 以及 \(0\); 此外, 对 \(\mathfrak h\) 的一个充分一般的元素, 两个等号均可达到.\footnote{编者注: 已将“等号”改为复数形式“两个等号”.} 还有
+\[
+  \operatorname{rank}_k\operatorname{Nil}(a,\mathfrak g)\geq r,
+\]
+其中 \(r\) 为 \(\mathfrak g\) 的幂零秩. 对 \(\mathfrak h\) 的一个充分一般的元素, 等号可达到; 等号成立当且仅当 \(a\) 在 \(\mathfrak g\) 中正则.
+
+从而 \(r=r'\), 且 \(a\) 正则当且仅当 \(\SGARefLink{sga3:xiii:equation:4:8:x}{\mathrm{(x)}}\) 右端两项分别为 \(r'\) 和 \(0\); 即当且仅当 \(a\) 在 \(\mathfrak h\) 中正则且 \(\operatorname{ad}(a)_{\mathfrak g/\mathfrak h}\) 为单射. 这就证明了 \SGARefLink{sga3:xiii:proposition:4:8:item:b}{b)}, 而只须取在 \(\mathfrak g\) 中正则的元素 \(a\in\mathfrak d\), 使得 \(\operatorname{Nil}(a,\mathfrak g)=\mathfrak d\), 便立即得到 \SGARefLink{sga3:xiii:proposition:4:8:item:c}{c)}.
+
+\SGARefLink{sga3:xiii:proposition:4:8:item:b}{上述结果}还证明了 \SGARefLink{sga3:xiii:proposition:4:8:item:a:i}{(i)} \(\Rightarrow\) \SGARefLink{sga3:xiii:proposition:4:8:item:a:iii}{(iii)}. 最后证明 \SGARefLink{sga3:xiii:proposition:4:8:item:a:iii}{(iii)} \(\Rightarrow\) \SGARefLink{sga3:xiii:proposition:4:8:item:a:i}{(i)}: 在 \SGARefLink{sga3:xiii:proposition:4:8:item:a:iii}{(iii)} 下, 一个充分一般的 \(a\in\mathfrak h\) 同时在 \(\mathfrak h\) 与 \(\mathfrak g\) 中正则. 因而
+\[
+  \operatorname{Nil}(a,\mathfrak h)
+  \subset
+  \operatorname{Nil}(a,\mathfrak g)
+\]
+分别是 \(\mathfrak h\) 与 \(\mathfrak g\) 的 Cartan 子代数. 因为它们在 \(k\) 上同秩, 所以相等, \SGARefLink{sga3:xiii:proposition:4:8:item:a:i}{(i)} 得证. 这就完成了 \SGARefLink{sga3:xiii:proposition:4:8}{4.8} 的证明.
+
+% END inputs/XIII/source/tex/components/03_expose_XIII_sections3_4.tex
+
+% BEGIN inputs/XIII/source/tex/components/04_expose_XIII_sections5_6.tex
+% Authority: Expo13.pdf, local pp. 22--29 / combined pp. 826--833.
+% SHA-256: 24735CAFA57291A71C603712C0588358977856D5971503E6E73F3F2E40A70798.
+% The blank local p. 30 / combined p. 834 is excluded; Exposé XIV begins
+% on combined p. 835.
+
+\section{光滑代数群的 Lie 代数的情形: 稠密性定理}
+\SGARefTarget{sga3:xiii:section:5}
+
+设 \(G\) 是域 \(k\) 上的光滑代数群, \(\mathfrak g\) 是它的 Lie 代数. 设 \(\mathfrak h\) 是 \(\mathfrak g\) 的 Lie 子代数. 令 \(G\) 通过伴随表示作用于 \(W(\mathfrak g)\), 并考虑子概形 \(W(\mathfrak h)\). 按照\SGARefLink{sga3:xiii:section:1}{第~1 节}的构造, 引入
+\[
+  N=\operatorname{Norm}_G(\mathfrak h)
+   =\operatorname{Norm}_G\bigl(W(\mathfrak h)\bigr),
+\]
+它是 \(G\) 的一个代数子群（未必光滑）, 以及
+\[
+  \mathfrak n=\operatorname{Lie}(N),
+\]
+并引入概形
+\[
+  X=G\times^N W(\mathfrak h),
+\]
+它是 \(\widetilde X=G\times W(\mathfrak h)\) 关于 \(N\) 的下述右作用的商:
+\[
+  (g,x)\cdot n=\bigl(gn,\operatorname{Ad}(n^{-1})x\bigr).
+\]
+考虑典范态射
+\SGARefTarget{sga3:xiii:section:5:diagram:canonical-morphisms}
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+G\times W(\mathfrak h)
+  \arrow[d,"q"']
+  \arrow[dr,"\varphi"] & \\
+X \arrow[r,"\psi"] & W(\mathfrak g).
+\end{tikzcd}
+\]
+
+\begin{theorem}
+\SGARefTarget{sga3:xiii:theorem:5:1}
+沿用上述记号, 假定 \(k\) 无限. 考虑下列条件:
+\begin{enumerate}
+  \item[(i)]\SGARefTarget{sga3:xiii:theorem:5:1:condition:i}
+  \(\mathfrak h\) 包含 \(\mathfrak g\) 的一个 Cartan 子代数 \(\mathfrak d\).
+
+  \item[(ii)]\SGARefTarget{sga3:xiii:theorem:5:1:condition:ii}
+  存在 \(a\in\mathfrak h\), 使得 \(\operatorname{ad}(a)_{\mathfrak g/\mathfrak h}\) 为单射.
+
+  \item[(iii)]\SGARefTarget{sga3:xiii:theorem:5:1:condition:iii}
+  态射 \(\varphi:G\times W(\mathfrak h)\to W(\mathfrak g)\) 一般光滑.
+
+  \item[(iv)]\SGARefTarget{sga3:xiii:theorem:5:1:condition:iv}
+  \SGARefLink{sga3:xiii:theorem:5:1:condition:iii}{上述态射} \(\varphi\)（等价地, \(\psi:X\to W(\mathfrak g)\)）占优, 且 \(\mathfrak h\) 的幂零秩与 \(\mathfrak g\) 相同.
+
+  \item[(v)]\SGARefTarget{sga3:xiii:theorem:5:1:condition:v}
+  态射 \(\psi:X\to W(\mathfrak g)\) 一般光滑, 且 \(\mathfrak h=\mathfrak n\).
+
+  \item[(vi)]\SGARefTarget{sga3:xiii:theorem:5:1:condition:vi}
+  态射 \(\psi:X\to W(\mathfrak g)\) 占优, 且 \(\mathfrak h=\mathfrak n\).
+
+  \item[(vii)]\SGARefTarget{sga3:xiii:theorem:5:1:condition:vii}
+  态射 \(\psi:X\to W(\mathfrak g)\) 占优.
+
+  \item[(viii)]\SGARefTarget{sga3:xiii:theorem:5:1:condition:viii}
+  态射 \(\psi:X\to W(\mathfrak g)\) 占优, 且 \(N\) 光滑.
+
+  \item[(ix)]\SGARefTarget{sga3:xiii:theorem:5:1:condition:ix}
+  态射 \(\psi:X\to W(\mathfrak g)\) 占优, \(\mathfrak h=\mathfrak n\), 且 \(\mathfrak h\) 是 \(G\) 的某个光滑代数子群 \(H\) 的 Lie 代数.
+
+  \item[(x)]\SGARefTarget{sga3:xiii:theorem:5:1:condition:x}
+  态射 \(\psi:X\to W(\mathfrak g)\) 一般拟有限, 且 \(\mathfrak n=\mathfrak h\).
+
+  \item[(xi)]\SGARefTarget{sga3:xiii:theorem:5:1:condition:xi}
+  态射 \(\psi:X\to W(\mathfrak g)\) 一般平展, 且 \(\mathfrak n=\mathfrak h\).
+
+  \item[(xii)]\SGARefTarget{sga3:xiii:theorem:5:1:condition:xii}
+  存在 \(G\) 的光滑代数子群 \(H\), 其 Lie 代数为 \(\mathfrak h\), 并且 \(\mathfrak h\) 包含 \(\mathfrak g\) 的一个 Cartan 子代数 \(\mathfrak d\).
+
+  \item[(xiii)]\SGARefTarget{sga3:xiii:theorem:5:1:condition:xiii}
+  存在 \(a\in\mathfrak h\), 使得 \(N\) 与将 \(a\) 搬入 \(\mathfrak h\) 的搬运子 \(M_a\)（参见\SGARefLink{sga3:xiii:section:1}{第~1 节}）在 \(e\) 的某个邻域中相同, 且 \(\mathfrak n=\mathfrak h\).
+\end{enumerate}
+于是有\SGARefLink{sga3:xiii:theorem:5:1:diagram:implications}{下述蕴含关系图}:
+\SGARefTarget{sga3:xiii:theorem:5:1:diagram:implications}
+\[
+\begin{tikzcd}[column sep=1.45em,row sep=3.2em]
+\SGARefLink{sga3:xiii:theorem:5:1:condition:xi}{(\mathrm{xi})}
+  \arrow[rr,Leftrightarrow] &&
+\SGARefLink{sga3:xiii:theorem:5:1:condition:xii}{(\mathrm{xii})}
+  \arrow[r,Leftrightarrow] &
+\SGARefLink{sga3:xiii:theorem:5:1:condition:xiii}{(\mathrm{xiii})}
+  \arrow[r,Rightarrow] &
+\SGARefLink{sga3:xiii:theorem:5:1:condition:viii}{(\mathrm{viii})}
+  \arrow[r,Leftrightarrow] &
+\SGARefLink{sga3:xiii:theorem:5:1:condition:ix}{(\mathrm{ix})}
+  \arrow[r,Leftrightarrow] &
+\SGARefLink{sga3:xiii:theorem:5:1:condition:x}{(\mathrm{x})} \\
+\SGARefLink{sga3:xiii:theorem:5:1:condition:i}{(\mathrm{i})}
+  \arrow[r,Leftrightarrow] &
+\SGARefLink{sga3:xiii:theorem:5:1:condition:ii}{(\mathrm{ii})}
+  \arrow[r,Leftrightarrow] &
+\SGARefLink{sga3:xiii:theorem:5:1:condition:iii}{(\mathrm{iii})}
+  \arrow[u,Leftarrow]
+  \arrow[r,Leftrightarrow] &
+\SGARefLink{sga3:xiii:theorem:5:1:condition:iv}{(\mathrm{iv})}
+  \arrow[r,Rightarrow] &
+\SGARefLink{sga3:xiii:theorem:5:1:condition:v}{(\mathrm{v})}
+  \arrow[r,Rightarrow] &
+\SGARefLink{sga3:xiii:theorem:5:1:condition:vi}{(\mathrm{vi})}
+  \arrow[u,Leftarrow]
+  \arrow[r,Rightarrow] &
+\SGARefLink{sga3:xiii:theorem:5:1:condition:vii}{(\mathrm{vii})}.
+\end{tikzcd}
+\]
+当 \(k\) 的特征为零时, 所考虑的全部条件均等价. 最后,
+\[
+  \SGARefLink{sga3:xiii:theorem:5:1:condition:xi}{(\mathrm{xi})}
+  \Longleftrightarrow
+  [\SGARefLink{sga3:xiii:theorem:5:1:condition:i}{(\mathrm{i})}\ \text{且}\ \SGARefLink{sga3:xiii:theorem:5:1:condition:viii}{(\mathrm{viii})}]
+  \Longleftrightarrow
+  [\SGARefLink{sga3:xiii:theorem:5:1:condition:v}{(\mathrm{v})}\ \text{且}\ \SGARefLink{sga3:xiii:theorem:5:1:condition:viii}{(\mathrm{viii})}].
+\]
+\end{theorem}
+
+先记下显然的蕴含关系
+\[
+  \SGARefLink{sga3:xiii:theorem:5:1:condition:v}{(\mathrm{v})}\Rightarrow\SGARefLink{sga3:xiii:theorem:5:1:condition:vi}{(\mathrm{vi})}\Rightarrow\SGARefLink{sga3:xiii:theorem:5:1:condition:vii}{(\mathrm{vii})},
+  \qquad
+  \SGARefLink{sga3:xiii:theorem:5:1:condition:ix}{(\mathrm{ix})}\Rightarrow\SGARefLink{sga3:xiii:theorem:5:1:condition:vi}{(\mathrm{vi})},
+  \qquad
+  \SGARefLink{sga3:xiii:theorem:5:1:condition:xi}{(\mathrm{xi})}
+  \Longleftrightarrow
+  [\SGARefLink{sga3:xiii:theorem:5:1:condition:x}{(\mathrm{x})}\ \text{且}\ \SGARefLink{sga3:xiii:theorem:5:1:condition:v}{(\mathrm{v})}].
+\]
+
+证明条件 \SGARefLink{sga3:xiii:theorem:5:1:condition:i}{(i)} 至 \SGARefLink{sga3:xiii:theorem:5:1:condition:iv}{(iv)} 的等价性, 并证明它们蕴含 \SGARefLink{sga3:xiii:theorem:5:1:condition:v}{(v)}. 蕴含关系 \SGARefLink{sga3:xiii:theorem:5:1:condition:i}{(i)}\(\Rightarrow\)\SGARefLink{sga3:xiii:theorem:5:1:condition:ii}{(ii)} 是直接的. 另一方面, 当 \(k\) 代数闭时, 条件 \SGARefLink{sga3:xiii:theorem:5:1:condition:iii}{(iii)} 就是说 \(G\times W(\mathfrak h)\) 有一个 \(k\)-有理点, \(\varphi\) 在该点的切映射为满射. 显然, 以 \(G(k)\) 的适当元素平移后, 可使该点具有 \((e,a)\) 的形式, 其中 \(a\in\mathfrak h\). 从而当 \(k\) 无限而未必代数闭时, \SGARefLink{sga3:xiii:theorem:5:1:condition:iii}{此条件}——它显然足以保证一般光滑性——也是必要的.
+
+切映射容易计算. 将 \(W(\mathfrak h)\) 在 \(a\) 处的切空间与 \(\mathfrak h\) 等同, 它是从 \(\mathfrak g\times\mathfrak h\) 到 \(\mathfrak g\) 的映射
+\[
+  (\xi,x)\longmapsto[\xi,a]+x
+\]
+其满射性等价于 \(\operatorname{ad}(a)_{\mathfrak g/\mathfrak h}\) 的满射性, 也等价于其单射性. 这就证明了 \SGARefLink{sga3:xiii:theorem:5:1:condition:ii}{(ii)} 与 \SGARefLink{sga3:xiii:theorem:5:1:condition:iii}{(iii)} 等价. 此外, \SGARefLink{sga3:xiii:theorem:5:1:condition:ii}{(ii)} 显然蕴含 \(\mathfrak h=\mathfrak n\), 而 \SGARefLink{sga3:xiii:theorem:5:1:condition:iii}{(iii)} 蕴含 \(\psi\) 一般光滑: 若 \(\varphi\) 在点 \(u\) 处光滑, 则由 \(q\) 平坦, \(\psi\) 在 \(q(u)\) 处光滑. 因此, \SGARefLink{sga3:xiii:theorem:5:1:condition:ii}{(ii)} 和 \SGARefLink{sga3:xiii:theorem:5:1:condition:iii}{(iii)} 蕴含 \SGARefLink{sga3:xiii:theorem:5:1:condition:v}{(v)}.
+
+现在证明它们蕴含 \SGARefLink{sga3:xiii:theorem:5:1:condition:i}{(i)}. 因为 \(\psi\) 占优且 \(\mathfrak g\) 的正则点集为稠密开集, \(\mathfrak h\) 包含 \(\mathfrak g\) 的正则元素. 所以 \(\mathfrak h\) 中的一个充分一般的元素 \(b\) 在 \(\mathfrak g\) 中正则, 并使得 \(\operatorname{ad}(b)_{\mathfrak g/\mathfrak h}\) 为单射. 因此 \(\operatorname{Nil}(b,\mathfrak g)\subset\mathfrak h\), 从而 \(\mathfrak h\) 包含 Cartan 子代数 \(\mathfrak d=\operatorname{Nil}(b,\mathfrak g)\). 所以条件 \SGARefLink{sga3:xiii:theorem:5:1:condition:i}{(i)}、\SGARefLink{sga3:xiii:theorem:5:1:condition:ii}{(ii)} 和 \SGARefLink{sga3:xiii:theorem:5:1:condition:iii}{(iii)} 等价. 最后证明 \SGARefLink{sga3:xiii:theorem:5:1:condition:i}{(i)}\(\Longleftrightarrow\)\SGARefLink{sga3:xiii:theorem:5:1:condition:iv}{(iv)}: 已经注意到, 若 \(\mathfrak h\) 包含 Cartan 子代数, 则它与 \(\mathfrak g\) 的幂零秩相同（\SGARefLink{sga3:xiii:proposition:4:6}{4.6}）, 所以 \SGARefLink{sga3:xiii:theorem:5:1:condition:i}{(i)} 蕴含 \SGARefLink{sga3:xiii:theorem:5:1:condition:iv}{(iv)}. 反过来, 若 \SGARefLink{sga3:xiii:theorem:5:1:condition:iv}{(iv)} 成立, 则 \(\mathfrak h\) 包含 \(\mathfrak g\) 的正则元素, 并且因它与 \(\mathfrak g\) 同秩, 由 \SGARefLink{sga3:xiii:proposition:4:6}{4.6}, 它包含 Cartan 子代数.
+
+下面证明条件 \SGARefLink{sga3:xiii:theorem:5:1:condition:viii}{(viii)} 至 \SGARefLink{sga3:xiii:theorem:5:1:condition:x}{(x)} 的等价性. 先指出\SGARefLink{sga3:xiii:lemma:5:2}{下述事实}.
+
+\begin{lemma}
+\SGARefTarget{sga3:xiii:lemma:5:2}
+\begin{enumerate}
+  \item[a)]\SGARefTarget{sga3:xiii:lemma:5:2:part:a}
+  若 \(N\) 光滑, 则
+  \[
+    \dim X\leq\dim G,
+  \]
+  等号成立当且仅当 \(\mathfrak h=\mathfrak n\).
+
+  \item[b)]\SGARefTarget{sga3:xiii:lemma:5:2:part:b}
+  若 \(\mathfrak h=\mathfrak n\), 则
+  \[
+    \dim X\geq\dim G,
+  \]
+  等号成立当且仅当 \(N\) 光滑.
+\end{enumerate}
+\end{lemma}
+
+这些断言由\SGARefLink{sga3:xiii:lemma:5:2:display:dimension-formula}{公式}
+\SGARefTarget{sga3:xiii:lemma:5:2:display:dimension-formula}
+\[
+  \dim X=\dim G-\dim N+\dim_k\mathfrak h
+\]
+以及 \(\dim N=\dim_k\mathfrak n\) 等价于 \(N\) 光滑这一事实立即得到.
+
+现在 \SGARefLink{sga3:xiii:theorem:5:1:condition:viii}{(viii)} 蕴含 \SGARefLink{sga3:xiii:theorem:5:1:condition:x}{(x)}: 由占优性, \SGARefLink{sga3:xiii:theorem:5:1:condition:viii}{(viii)} 给出 \(\dim X\geq\dim G\), 所以\SGARefLink{sga3:xiii:lemma:5:2:part:a}{引理~5.2(a)} 给出等号及 \(\mathfrak h=\mathfrak n\), 故有 \SGARefLink{sga3:xiii:theorem:5:1:condition:x}{(x)}. 逆用同一论证, 并利用\SGARefLink{sga3:xiii:lemma:5:2:part:b}{引理~5.2(b)}, 可知 \SGARefLink{sga3:xiii:theorem:5:1:condition:x}{(x)} 蕴含 \SGARefLink{sga3:xiii:theorem:5:1:condition:viii}{(viii)}. 此外, \SGARefLink{sga3:xiii:theorem:5:1:condition:viii}{(viii)} 蕴含 \SGARefLink{sga3:xiii:theorem:5:1:condition:ix}{(ix)}, 因为它蕴含 \(\mathfrak h=\mathfrak n\), 所以 \(\mathfrak h\) 是 \(G\) 的光滑代数子群 \(N\) 的 Lie 代数. 反过来, \SGARefLink{sga3:xiii:theorem:5:1:condition:ix}{(ix)} 蕴含 \SGARefLink{sga3:xiii:theorem:5:1:condition:viii}{(viii)}: 由于 \(H\) 正规化其 Lie 代数 \(\mathfrak h\), 它包含在 \(N\) 中; 又因 \(H\) 光滑且与 \(N\) 的 Lie 代数相同, 可知 \(N\) 光滑.
+
+最后证明 \SGARefLink{sga3:xiii:theorem:5:1:condition:xi}{(xi)}、\SGARefLink{sga3:xiii:theorem:5:1:condition:xii}{(xii)} 与 \SGARefLink{sga3:xiii:theorem:5:1:condition:xiii}{(xiii)} 等价, 并证明它们蕴含 \SGARefLink{sga3:xiii:theorem:5:1:condition:iii}{(iii)}; 这就完成\SGARefLink{sga3:xiii:theorem:5:1:diagram:implications}{蕴含关系图}. 有 \SGARefLink{sga3:xiii:theorem:5:1:condition:xi}{(xi)}\(\Longleftrightarrow\)\SGARefLink{sga3:xiii:theorem:5:1:condition:xiii}{(xiii)}. 事实上, 若 \(\mathfrak n=\mathfrak h\), 则\SGARefLink{sga3:xiii:lemma:5:2:part:b}{引理~5.2(b)} 给出 \(\dim X\geq\dim G\). 由于 \(W(\mathfrak g)\) 正规, 条件 \SGARefLink{sga3:xiii:theorem:5:1:condition:xi}{(xi)} 等价于 \(\psi\) 一般非分歧, 后者根据 \SGARefLink{sga3:xiii:lemma:1:1}{1.1}, \SGARefLink{sga3:xiii:theorem:5:1:condition:ii}{(ii)}\(\Longleftrightarrow\)\SGARefLink{sga3:xiii:theorem:5:1:condition:iii}{(iii)}, 又等价于 \SGARefLink{sga3:xiii:theorem:5:1:condition:xiii}{(xiii)}, 论证与前面证明 \SGARefLink{sga3:xiii:theorem:5:1:condition:ii}{(ii)}\(\Longleftrightarrow\)\SGARefLink{sga3:xiii:theorem:5:1:condition:iii}{(iii)} 时相同.
+
+由于 \SGARefLink{sga3:xiii:theorem:5:1:condition:xi}{(xi)}\(\Rightarrow\)\SGARefLink{sga3:xiii:theorem:5:1:condition:x}{(x)}\(\Rightarrow\)\SGARefLink{sga3:xiii:theorem:5:1:condition:viii}{(viii)}, 已证结果表明 \SGARefLink{sga3:xiii:theorem:5:1:condition:xi}{(xi)} 蕴含 \(N\) 光滑. 因此 \(q:G\times W(\mathfrak h)\to X\) 光滑, 复合 \(\varphi=\psi\circ q\) 一般光滑; 这就是 \SGARefLink{sga3:xiii:theorem:5:1:condition:iii}{(iii)}. 由于 \SGARefLink{sga3:xiii:theorem:5:1:condition:iii}{(iii)} 蕴含 \SGARefLink{sga3:xiii:theorem:5:1:condition:i}{(i)}, 还得到 \SGARefLink{sga3:xiii:theorem:5:1:condition:xi}{(xi)}\(\Rightarrow\)\SGARefLink{sga3:xiii:theorem:5:1:condition:xii}{(xii)}.\footnote{编者注: 因为取 \(H=N\) 即可.} 最后, \SGARefLink{sga3:xiii:theorem:5:1:condition:xii}{(xii)} 蕴含 \SGARefLink{sga3:xiii:theorem:5:1:condition:xi}{(xi)}. 事实上, \SGARefLink{sga3:xiii:theorem:5:1:condition:xii}{(xii)} 显然蕴含 \SGARefLink{sga3:xiii:theorem:5:1:condition:i}{(i)}, 而我们已证 \SGARefLink{sga3:xiii:theorem:5:1:condition:i}{(i)}\(\Rightarrow\)\SGARefLink{sga3:xiii:theorem:5:1:condition:iii}{(iii)}\(\Rightarrow\)\SGARefLink{sga3:xiii:theorem:5:1:condition:v}{(v)}; 所以 \SGARefLink{sga3:xiii:theorem:5:1:condition:xii}{(xii)} 蕴含 \SGARefLink{sga3:xiii:theorem:5:1:condition:v}{(v)}. 它还蕴含 \SGARefLink{sga3:xiii:theorem:5:1:condition:ix}{(ix)}, 而 \SGARefLink{sga3:xiii:theorem:5:1:condition:ix}{(ix)} 蕴含 \SGARefLink{sga3:xiii:theorem:5:1:condition:x}{(x)}. 因此 \SGARefLink{sga3:xiii:theorem:5:1:condition:xii}{(xii)} 同时蕴含 \SGARefLink{sga3:xiii:theorem:5:1:condition:v}{(v)} 和 \SGARefLink{sga3:xiii:theorem:5:1:condition:x}{(x)}, 从而蕴含 \SGARefLink{sga3:xiii:theorem:5:1:condition:xi}{(xi)}, 因为
+\[
+  \text{一般平展}
+  =
+  \text{一般光滑}
+  +
+  \text{一般拟有限}.
+\]
+
+若 \(k\) 的特征为零, 则 \SGARefLink{sga3:xiii:theorem:5:1:condition:vii}{(vii)} 蕴含 \SGARefLink{sga3:xiii:theorem:5:1:condition:viii}{(viii)}, 因为 Cartier 定理保证 \(N\) 自动光滑（VI\textsubscript{B}~1.6.1）. 此外, [\SGARefLink{sga3:xiii:theorem:5:1:condition:viii}{(viii)} 且 \SGARefLink{sga3:xiii:theorem:5:1:condition:x}{(x)}] 蕴含 \SGARefLink{sga3:xiii:theorem:5:1:condition:xi}{(xi)}, 因为在特征零时, 对整预概形之间的态射, 有
+\[
+  \text{一般平展}
+  =
+  \text{占优且一般拟有限}.
+\]
+所以在此情形中, 条件 \SGARefLink{sga3:xiii:theorem:5:1:condition:i}{(i)} 至 \SGARefLink{sga3:xiii:theorem:5:1:condition:xiii}{(xiii)} 全部等价.
+
+\begin{corollary}
+\SGARefTarget{sga3:xiii:corollary:5:3}
+在等价条件 \SGARefLink{sga3:xiii:theorem:5:1:condition:viii}{(viii)} 至 \SGARefLink{sga3:xiii:theorem:5:1:condition:x}{(x)} 下, \(G\) 有唯一一个 Lie 代数为 \(\mathfrak h\) 的光滑连通代数子群 \(H\), 并且
+\[
+  \operatorname{Norm}_G(H)
+  =\operatorname{Norm}_G(\mathfrak h)
+  =N,
+  \qquad
+  H=N^0.
+\]
+\end{corollary}
+
+事实上, \(H=N^0\) 具有所需性质. 反过来, 若 \(H\) 具有这些性质, 则 \(H\subset N\), 因为 \(H\) 正规化其 Lie 代数 \(\mathfrak h\). 这是 Lie 代数相同的光滑群之间的包含关系, 且 \(H\) 连通, 所以 \(H=N^0\). 为证明 \(\operatorname{Norm}_G(H)=\operatorname{Norm}_G(\mathfrak h)\), 可假定 \(k\) 代数闭. 刚才所证立即表明, 这两个群具有相同的 \(k\)-点. 另一方面, 包含关系
+\[
+  H\subset\operatorname{Norm}_G(H)\subset N
+\]
+表明 \(\operatorname{Norm}_G(H)\) 和 \(N\) 的 Lie 代数相同; 因而它们相等.
+
+\begin{corollary}
+\SGARefTarget{sga3:xiii:corollary:5:4}
+在等价条件 \SGARefLink{sga3:xiii:theorem:5:1:condition:i}{(i)} 至 \SGARefLink{sga3:xiii:theorem:5:1:condition:iv}{(iv)} 下, 设 \(a\in\mathfrak h\). 则下列条件等价, 并且只要 \(a\) 在 \(\mathfrak g\) 中正则, 它们就成立:
+\begin{enumerate}
+  \item[(i)]\SGARefTarget{sga3:xiii:corollary:5:4:condition:i}
+  \(\varphi\) 在 \((e,a)\) 处光滑.
+
+  \item[(ii)]\SGARefTarget{sga3:xiii:corollary:5:4:condition:ii}
+  \(M_a=\operatorname{Transp}_G(a,\mathfrak h)\) 在 \(e\) 处光滑, 且 \(\dim_e(M_a)=\operatorname{rank}_k\mathfrak h\).
+
+  \item[(iii)]\SGARefTarget{sga3:xiii:corollary:5:4:condition:iii}
+  \(\operatorname{ad}(a)_{\mathfrak g/\mathfrak h}\) 为单射（等价地, 双射）.
+\end{enumerate}
+在等价条件 \SGARefLink{sga3:xiii:theorem:5:1:condition:xi}{(xi)} 至 \SGARefLink{sga3:xiii:theorem:5:1:condition:xiii}{(xiii)} 下, 设 \(H\) 为\SGARefLink{sga3:xiii:corollary:5:3}{推论~5.3} 中所考虑的 \(G\) 的代数子群. 上述条件还等价于:
+\begin{enumerate}
+  \item[(iv)]\SGARefTarget{sga3:xiii:corollary:5:4:condition:iv}
+  \(\psi\) 在 \((\overline e,a)\) 处平展.
+
+  \item[(v)]\SGARefTarget{sga3:xiii:corollary:5:4:condition:v}
+  以 \(M_a^0\) 表示将 \(a\) 搬入 \(\mathfrak h\) 的搬运子 \(M_a\) 中包含 \(e\) 的连通分支, 赋予由 \(M_a\) 诱导的结构, 则
+  \[
+    H=M_a^0.
+  \]
+\end{enumerate}
+\end{corollary}
+
+显然 \SGARefLink{sga3:xiii:corollary:5:4:condition:i}{(i)} 蕴含 \SGARefLink{sga3:xiii:corollary:5:4:condition:ii}{(ii)}, 因为 \(M_a\) 同构于纤维 \(\varphi^{-1}(a)\), 且 \(e\) 对应于 \((e,a)\). 反过来, \SGARefLink{sga3:xiii:corollary:5:4:condition:ii}{(ii)} 蕴含 \SGARefLink{sga3:xiii:corollary:5:4:condition:i}{(i)}: 条件 \SGARefLink{sga3:xiii:corollary:5:4:condition:ii}{(ii)} 就是说 \(\varphi\) 在 \((e,a)\) 处“等维”, 其含义是通过此点的纤维的维数等于一般纤维的维数. 由于 \(G\times W(\mathfrak h)\) 和 \(W(\mathfrak g)\) 正则, 这蕴含 \(\varphi\) 在 \((e,a)\) 处平坦, 又因它的纤维在该点光滑, 所以它在该处光滑. \SGARefLink{sga3:xiii:corollary:5:4:condition:i}{(i)} 与 \SGARefLink{sga3:xiii:corollary:5:4:condition:iii}{(iii)} 的等价性已在\SGARefLink{sga3:xiii:theorem:5:1}{定理~5.1} 的证明中由切映射的初等计算得到. 我们还在 \SGARefLink{sga3:xiii:proposition:4:8:item:b}{4.8(b)} 中看到, \(a\) 在 \(\mathfrak g\) 中正则蕴含 \SGARefLink{sga3:xiii:corollary:5:4:condition:iii}{(iii)}.
+
+在条件 \SGARefLink{sga3:xiii:theorem:5:1:condition:xi}{(xi)} 至 \SGARefLink{sga3:xiii:theorem:5:1:condition:xiii}{(xiii)} 下, 态射 \(q:G\times W(\mathfrak h)\to X\) 光滑, 因为 \(N\) 光滑. 所以 \SGARefLink{sga3:xiii:corollary:5:4:condition:i}{(i)} 等价于 \(\psi\) 在 \((\overline e,a)\) 处光滑; 而由于 \(\psi\) 一般平展, 这等价于 \SGARefLink{sga3:xiii:corollary:5:4:condition:iv}{(iv)}. 最后, 如 \SGARefLink{sga3:xiii:lemma:1:1}{1.1} 的证明末尾所指出, 条件 \SGARefLink{sga3:xiii:corollary:5:4:condition:iv}{(iv)} 蕴含 \(N\) 是 \(M_a\) 的一个开闭子集上由 \(M_a\) 诱导的预概形, 这给出 \SGARefLink{sga3:xiii:corollary:5:4:condition:v}{(v)}. 反过来, \SGARefLink{sga3:xiii:corollary:5:4:condition:v}{(v)} 显然蕴含 \SGARefLink{sga3:xiii:corollary:5:4:condition:ii}{(ii)}. 也可以根据 \SGARefLink{sga3:xiii:lemma:1:1}{1.1} 得到 \SGARefLink{sga3:xiii:corollary:5:4:condition:v}{(v)} 蕴含 \SGARefLink{sga3:xiii:corollary:5:4:condition:iv}{(iv)}, 因为 \(\psi\) 占优且 \(W(\mathfrak g)\) 正规, 此处“非分歧”等价于“平展”. 这就完成了\SGARefLink{sga3:xiii:corollary:5:4}{推论~5.4} 的证明.
+
+\begin{corollary}
+\SGARefTarget{sga3:xiii:corollary:5:5}
+设 \(G\) 是域 \(k\) 上的光滑代数群, \(H\) 是光滑代数子群, 其 Lie 代数 \(\mathfrak h\) 至少在 \(k\) 的某个适当扩张后包含 \(G\) 的 Lie 代数 \(\mathfrak g\) 的一个 Cartan 子代数. 设 \(K\) 是 \(G\) 的连通代数子群, 未必光滑, 其 Lie 代数为 \(\mathfrak k\); 假定 \(\mathfrak k\) 包含 \(\mathfrak g\) 的一个正则元素 \(a\), 同样只要求在 \(k\) 的某个适当扩张后如此. 则 \(H\) 包含 \(K\) 当且仅当 \(\mathfrak h\) 包含 \(\mathfrak k\).
+\end{corollary}
+
+事实上, 将\SGARefLink{sga3:xiii:corollary:5:4}{推论~5.4}, \SGARefLink{sga3:xiii:corollary:5:4:condition:iii}{(iii)}\(\Rightarrow\)\SGARefLink{sga3:xiii:corollary:5:4:condition:v}{(v)} 应用于\SGARefLink{sga3:xiii:corollary:5:3}{推论~5.3} 给出的连通子群, 得到 \(H^0=M_a^0\).\footnote{法文底本此处印为 \(H=M_a^0\). 在所述的一般情形中, 此论证给出 \(H^0=M_a^0\), 这已足够.} 这个等式在基域扩张下不变, 因而不假定基域无限时仍然成立. 此外, \(\mathfrak k\subset\mathfrak h\) 显然蕴含 \(K\subset M_a\). 由于 \(K\) 连通, \(K\subset M_a^0\subset H\). \hfill\(\square\)
+
+\begin{corollary}
+\SGARefTarget{sga3:xiii:corollary:5:6}
+设 \(G\) 与 \(H\) 如\SGARefLink{sga3:xiii:corollary:5:5}{推论~5.5}, \(K\) 为 \(G\) 的代数子群. 假定 \(H\) 连通且 \(K\) 光滑. 则 \(K\) 包含 \(H\) 当且仅当 \(\mathfrak k\) 包含 \(\mathfrak h\).
+\end{corollary}
+
+事实上, 若 \(\mathfrak k\supset\mathfrak h\), 则相对于 \(H\), \(K\) 满足\SGARefLink{sga3:xiii:corollary:5:5}{推论~5.5} 中对 \(H\) 所作的假设. 同时, 相对于 \(K\), \(H\) 显然满足那里对 \(K\) 所作的条件. 结论由\SGARefLink{sga3:xiii:corollary:5:5}{推论~5.5} 得到.
+
+\begin{corollary}
+\SGARefTarget{sga3:xiii:corollary:5:7}
+设 \(\mathfrak g\) 是域 \(k\) 上光滑代数群 \(G\) 的 Lie 代数. 则:
+\begin{enumerate}
+  \item[a)]\SGARefTarget{sga3:xiii:corollary:5:7:part:a}
+  \(\mathfrak g\) 的 Lie 子代数 \(\mathfrak d\) 为 Cartan 子代数当且仅当它幂零且等于自身的正规化子.
+
+  \item[b)]\SGARefTarget{sga3:xiii:corollary:5:7:part:b}
+  元素 \(a\in\mathfrak g\) 正则当且仅当 \(\operatorname{Nil}(a,\mathfrak g)\) 幂零.
+\end{enumerate}
+\end{corollary}
+
+扩张基域后, 可假定 \(k\) 无限. 根据 \SGARefLink{sga3:xiii:proposition:4:4}{4.4}, 为证明 \SGARefLink{sga3:xiii:corollary:5:7:part:a}{(a)}, 只须表明, 若 \(\mathfrak d\) 幂零且包含一个使 \(\operatorname{ad}(a)_{\mathfrak g/\mathfrak d}\) 为单射的元素 \(a\), 则 \(\mathfrak d\) 为 Cartan 子代数. 由\SGARefLink{sga3:xiii:theorem:5:1}{定理~5.1}, \SGARefLink{sga3:xiii:theorem:5:1:condition:ii}{(ii)}\(\Rightarrow\)\SGARefLink{sga3:xiii:theorem:5:1:condition:i}{(i)}, \(\mathfrak d\) 包含 Cartan 子代数
+\[
+  \mathfrak d'=\operatorname{Nil}(a,\mathfrak g).
+\]
+由于 \(\mathfrak d\) 幂零, 此时 \SGARefLink{sga3:xiii:corollary:4:3}{4.3} 给出 \(\mathfrak d=\mathfrak d'\). 对于 \SGARefLink{sga3:xiii:corollary:5:7:part:b}{(b)}, 注意根据 \SGARefLink{sga3:xiii:corollary:5:7:part:a}{(a)}, \(\operatorname{Nil}(a,\mathfrak g)\) 是 \(\mathfrak g\) 的 Cartan 子代数, 因而 \(a\) 正则.
+
+\begin{corollary}
+\SGARefTarget{sga3:xiii:corollary:5:8}
+设 \(G\) 是域 \(k\) 上的光滑代数群, \(H\) 是光滑代数子群, 其 Lie 代数分别为 \(\mathfrak g\) 和 \(\mathfrak h\). 假定在某个适当的基域扩张后, \(\mathfrak h\) 包含 \(\mathfrak g\) 的一个 Cartan 子代数. 设 \(\mathfrak d\) 为 \(\mathfrak h\) 的 Lie 子代数. 则 \(\mathfrak d\) 为 \(\mathfrak h\) 的 Cartan 子代数当且仅当它为 \(\mathfrak g\) 的 Cartan 子代数.
+\end{corollary}
+
+根据 \SGARefLink{sga3:xiii:proposition:4:8:item:c}{4.8(c)}, 只须证明, 若 \(\mathfrak d\) 为 \(\mathfrak h\) 的 Cartan 子代数, 则它也是 \(\mathfrak g\) 的 Cartan 子代数. 只要证明 \(\mathfrak d\) 包含一个在 \(\mathfrak g\) 中正则的元素 \(a\) 即可, 并且可假定 \(k\) 代数闭. 但 \(\mathfrak h\) 有一个由在 \(\mathfrak g\) 中正则的点构成的稠密开子集, 所以将\SGARefLink{sga3:xiii:theorem:5:1}{定理~5.1}, \SGARefLink{sga3:xiii:theorem:5:1:condition:i}{(i)}\(\Rightarrow\)\SGARefLink{sga3:xiii:theorem:5:1:condition:vii}{(vii)} 应用于 \((\mathfrak h,\mathfrak d)\), 即得该断言.
+
+\section{与光滑代数群相联系的 Cartan 子代数及 \texorpdfstring{\((C)\)}{(C)} 型子群}
+\SGARefTarget{sga3:xiii:section:6}
+
+为简便起见, 在\SGARefLink{sga3:xiii:theorem:6:1}{下述定理}中只考虑代数闭基域; 任意底预概形的情形将在下一讲处理.
+
+\begin{theorem}
+\SGARefTarget{sga3:xiii:theorem:6:1}
+设 \(G\) 是代数闭域 \(k\) 上的光滑代数群, \(\mathfrak g\) 是它的 Lie 代数. 则:
+\begin{enumerate}
+  \item[a)]\SGARefTarget{sga3:xiii:theorem:6:1:part:a}
+  \(\mathfrak g\) 的 Cartan 子代数彼此共轭.
+
+  \item[b)]\SGARefTarget{sga3:xiii:theorem:6:1:part:b}
+  设 \(\mathfrak d\) 为 \(\mathfrak g\) 的 Cartan 子代数. 它在 \(G\) 中的正规化子 \(N\) 光滑, 且 \(D=N^0\) 是 \(G\) 中唯一一个 Lie 代数为 \(\mathfrak d\) 的光滑连通子群. 有
+  \[
+    \operatorname{Norm}_G(\mathfrak d)
+    =\operatorname{Norm}_G(D)
+    =N,
+    \qquad\text{从而}\qquad
+    D=\operatorname{Norm}_G(D)^0.
+  \]
+
+  \item[c)]\SGARefTarget{sga3:xiii:theorem:6:1:part:c}
+  取 \SGARefLink{sga3:xiii:theorem:6:1:part:b}{(b)} 中的 \(\mathfrak d\), 如\SGARefLink{sga3:xiii:section:5}{第~5 节}那样置
+  \[
+    X=G\times^N W(\mathfrak d),
+  \]
+  并考虑典范态射
+  \[
+    \psi:X\longrightarrow W(\mathfrak g).
+  \]
+  它在 \(a\in\mathfrak g\) 上的纤维的 \(k\)-值点构成的集合, 就是 \(\mathfrak g\) 中包含 \(a\) 的 Cartan 子代数所成的集合. 则 \(\psi\) 双有理.
+
+  \item[d)]\SGARefTarget{sga3:xiii:theorem:6:1:part:d}
+  沿用 \SGARefLink{sga3:xiii:theorem:6:1:part:c}{(c)} 的记号, 令 \(U\) 为 \(W(\mathfrak g)\) 的使 \(\psi\) 诱导下述同构的最大开子集:
+  \[
+    \psi^{-1}(U)\xrightarrow{\sim}U.
+  \]
+  则对 \(a\in\mathfrak g\), 下列条件等价:
+  \begin{enumerate}
+    \item[(i)]\SGARefTarget{sga3:xiii:theorem:6:1:part:d:condition:i}
+    \(a\in U(k)\).
+
+    \item[(ii)]\SGARefTarget{sga3:xiii:theorem:6:1:part:d:condition:ii}
+    元素 \(a\) 属于 \(\mathfrak g\) 的唯一一个 Cartan 子代数.
+
+    \item[(iii)]\SGARefTarget{sga3:xiii:theorem:6:1:part:d:condition:iii}
+    \(\mathfrak g\) 中包含 \(a\) 的 Cartan 子代数所成的集合有限且非空.
+
+    \item[(iv)]\SGARefTarget{sga3:xiii:theorem:6:1:part:d:condition:iv}
+    纤维 \(\psi^{-1}(a)\) 有一个孤立点.
+
+    \item[(v)]\SGARefTarget{sga3:xiii:theorem:6:1:part:d:condition:v}
+    若 \(a\in\mathfrak d\), 则态射 \(\psi\) 在点 \((\overline e,a)\) 处平展——或只要求拟有限.
+
+    \item[(vi)]\SGARefTarget{sga3:xiii:theorem:6:1:part:d:condition:vi}
+    元素 \(a\) 在 \(\mathfrak g\) 中正则.
+
+    \item[(vii)]\SGARefTarget{sga3:xiii:theorem:6:1:part:d:condition:vii}
+    沿用\SGARefLink{sga3:xiii:corollary:5:4:condition:iii}{推论~5.4(iii)} 的记号, 有 \(N=M_a\).
+  \end{enumerate}
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+将\SGARefLink{sga3:xiii:theorem:5:1}{定理~5.1} 应用于 \(\mathfrak g\) 的 Cartan 子代数 \(\mathfrak d\) 以代替 \(\mathfrak h\). 证明最强的条件 \SGARefLink{sga3:xiii:theorem:5:1:condition:xi}{(xi)} 至 \SGARefLink{sga3:xiii:theorem:5:1:condition:xiii}{(xiii)} 成立. 由 \SGARefLink{sga3:xiii:corollary:4:7}{4.7}, 以 \SGARefLink{sga3:xiii:theorem:5:1:condition:xiii}{(xiii)} 的形式来看这是清楚的——\SGARefLink{sga3:xiii:corollary:4:7}{4.7} 说明, 若正则元素 \(a\in\mathfrak g\) 位于 \(\mathfrak d\) 中, 则 \(N=M_a\); 或者也可取如下形式:
+\[
+  \SGARefLink{sga3:xiii:theorem:5:1:condition:xi}{(\mathrm{xi})}=\SGARefLink{sga3:xiii:theorem:5:1:condition:x}{(\mathrm{x})}+\SGARefLink{sga3:xiii:theorem:5:1:condition:i}{(\mathrm{i})}.
+\]
+事实上, \SGARefLink{sga3:xiii:theorem:5:1:condition:i}{(i)} 自动成立, 而 \SGARefLink{sga3:xiii:theorem:5:1:condition:x}{(x)} 来自如下事实: \(\mathfrak g\) 的正则点属于 \(\mathfrak g\) 的唯一一个 Cartan 子代数（\SGARefLink{sga3:xiii:proposition:4:6:item:a}{4.6(a)}）, 因而更属于 \(\mathfrak d\) 的唯一一个共轭子代数.
+
+部分 \SGARefLink{sga3:xiii:theorem:6:1:part:b}{(b)} 现由\SGARefLink{sga3:xiii:corollary:5:3}{推论~5.3} 得到. 部分 \SGARefLink{sga3:xiii:theorem:6:1:part:c}{(c)} 则来自 \(\psi\) 的一般平展性, 以及 \(\mathfrak g\) 的充分一般的点——更准确地说, 正则点——属于 \(\mathfrak g\) 的唯一一个 Cartan 子代数. 在这些条件下, 由于 \(W(\mathfrak g)\) 正规且 \(X\) 整, 将 Zariski 主定理应用于分离双有理态射 \(\psi\), 即得关于 \(a\) 的条件 \SGARefLink{sga3:xiii:theorem:6:1:part:d:condition:i}{(i)} 至 \SGARefLink{sga3:xiii:theorem:6:1:part:d:condition:v}{(v)} 的等价性. \SGARefLink{sga3:xiii:theorem:6:1:part:d:condition:v}{(v)} 与 \SGARefLink{sga3:xiii:theorem:6:1:part:d:condition:vi}{(vi)} 的等价性是\SGARefLink{sga3:xiii:corollary:5:4}{推论~5.4}, \SGARefLink{sga3:xiii:theorem:6:1:part:d:condition:iii}{(iii)}\(\Longleftrightarrow\)\SGARefLink{sga3:xiii:theorem:6:1:part:d:condition:iv}{(iv)} 的特例, 只须根据 \SGARefLink{sga3:xiii:proposition:4:6:item:b}{4.6(b)}, 以某个适当元素 \(g\in G(k)\) 将 \(a\) 搬入 \(\mathfrak d\). 此外, \SGARefLink{sga3:xiii:corollary:5:4}{推论~5.4} 表明 \SGARefLink{sga3:xiii:theorem:6:1:part:d:condition:v}{(v)} 与 \SGARefLink{sga3:xiii:theorem:6:1:part:d:condition:vi}{(vi)} 还等价于
+\[
+  N\supset M_a^0.
+\]
+由 \SGARefLink{sga3:xiii:corollary:4:7}{4.7}, 这甚至蕴含 \(N=M_a\).\footnote{法文底本此处印为 \(N=M\); 条件 \SGARefLink{sga3:xiii:theorem:6:1:part:d:condition:vii}{(vii)} 和上下文的记号要求 \(N=M_a\).} 这就证明了 \SGARefLink{sga3:xiii:theorem:6:1:part:d}{(d)}.
+
+当然, \SGARefLink{sga3:xiii:theorem:6:1:part:b}{(b)}、\SGARefLink{sga3:xiii:theorem:6:1:part:c}{(c)}, 以及 \SGARefLink{sga3:xiii:theorem:6:1:part:d:condition:i}{(i)}、\SGARefLink{sga3:xiii:theorem:6:1:part:d:condition:iv}{(iv)}、\SGARefLink{sga3:xiii:theorem:6:1:part:d:condition:v}{(v)}、\SGARefLink{sga3:xiii:theorem:6:1:part:d:condition:vi}{(vi)} 和 \SGARefLink{sga3:xiii:theorem:6:1:part:d:condition:vii}{(vii)} 的等价性, 对任意基域仍然成立. 现在利用 \(k\) 代数闭的假设证明 \SGARefLink{sga3:xiii:theorem:6:1:part:a}{(a)}. 由\SGARefLink{sga3:xiii:theorem:5:1}{定理~5.1}, \SGARefLink{sga3:xiii:theorem:5:1:condition:i}{(i)}\(\Rightarrow\)\SGARefLink{sga3:xiii:theorem:5:1:condition:vii}{(vii)}, 态射 \(\psi:X\to W(\mathfrak g)\) 占优. 所以 \(W(\mathfrak g)\) 有一个稠密开子集 \(V\), 使得每个 \(a\in V(k)\) 都是 \(X(k)\) 中某点的像, 等价地, 属于 \(\mathfrak d\) 的某个共轭子代数. 将\SGARefLink{sga3:xiii:theorem:5:1:diagram:implications}{同一结果}应用于 \(\mathfrak g\) 的另一个 Cartan 子代数 \(\mathfrak d'\). 可选取 \(V\), 使得 \(V(k)\) 的每个元素既与 \(\mathfrak d\) 的某个元素共轭, 又与 \(\mathfrak d'\) 的某个元素共轭. 在 \(V(k)\) 中选一个正则元素. 于是 \(\mathfrak d'\) 的某个共轭子代数 \(\mathfrak d''\) 包含 \(\mathfrak d\) 中的一个在 \(\mathfrak g\) 中正则的元素, 而 \SGARefLink{sga3:xiii:proposition:4:6:item:a}{4.6(a)} 给出 \(\mathfrak d''=\mathfrak d\). 这就证明了 \SGARefLink{sga3:xiii:theorem:6:1:part:a}{(a)}, 从而完成证明.
+\end{proof}
+
+\begin{definition}
+\SGARefTarget{sga3:xiii:definition:6:2}
+设 \(G\) 是域 \(k\) 上的光滑代数群. \(G\) 的 \emph{\((C)\) 型子群}是 Lie 代数为 \(\mathfrak g\) 的 Cartan 子代数的光滑连通代数子群. \(G\) 的\emph{无穷小秩}是其 Lie 代数 \(\mathfrak g\) 的幂零秩; 它等于 \(G\) 的每个 \((C)\) 型子群的维数.
+\end{definition}
+
+由\SGARefLink{sga3:xiii:theorem:6:1:part:b}{定理~6.1(b)} 立即得到:
+
+\begin{corollary}
+\SGARefTarget{sga3:xiii:corollary:6:3}
+在\SGARefLink{sga3:xiii:definition:6:2}{定义~6.2} 的假设下, 映射
+\[
+  D\longmapsto\mathfrak d=\operatorname{Lie}(D)
+\]
+在 \(G\) 的 \((C)\) 型子群与 \(\mathfrak g\) 的 Cartan 子代数 \(\mathfrak d\) 之间建立双射. 若 \(D\) 是 \(G\) 的 \((C)\) 型子群, 则 \(D\) 等于自身的连通正规化子:
+\[
+  D=\operatorname{Norm}_G(D)^0.
+\]
+\end{corollary}
+
+结合\SGARefLink{sga3:xiii:theorem:6:1:part:a}{定理~6.1(a)} 与\SGARefLink{sga3:xiii:corollary:6:3}{推论~6.3}, 得到:
+
+\begin{corollary}
+\SGARefTarget{sga3:xiii:corollary:6:4}
+若 \(k\) 代数闭, 则 \(G\) 的 \((C)\) 型子群彼此共轭.
+\end{corollary}
+
+\begin{corollary}
+\SGARefTarget{sga3:xiii:corollary:6:5}
+设 \(G\) 是代数闭域 \(k\) 上的光滑代数群, \(H\) 是 \(G\) 的光滑代数子群, 其 Lie 代数分别为 \(\mathfrak g\) 与 \(\mathfrak h\). 则 \(\mathfrak h\) 包含 \(\mathfrak g\) 的一个 Cartan 子代数当且仅当 \(H\) 包含 \(G\) 的一个 \((C)\) 型子群 \(D\).
+\end{corollary}
+
+此条件显然充分. 它也是必要的, 因为根据\SGARefLink{sga3:xiii:corollary:5:5}{推论~5.5},
+\[
+  H\supset D
+  \quad\Longleftrightarrow\quad
+  \mathfrak h\supset\mathfrak d.
+\]
+
+\refstepcounter{theorem}
+\par\medskip
+\noindent\SGARefTarget{sga3:xiii:remarks:6:6}%
+\textbf{注 \thetheorem.}
+\begin{enumerate}
+  \item[a)]\SGARefTarget{sga3:xiii:remarks:6:6:part:a}
+  \SGARefLink{sga3:xiii:corollary:6:5}{推论~6.5} 中所描述的 \(G\) 的连通子群 \(H\), 与满足\SGARefLink{sga3:xiii:theorem:5:1}{定理~5.1} 中最强条件 \SGARefLink{sga3:xiii:theorem:5:1:condition:xii}{(xii)} 的 \(\mathfrak g\) 的 Lie 子代数 \(\mathfrak h\) 一一对应. 由\SGARefLink{sga3:xiii:corollary:5:5}{推论~5.5}, 这类子群之间的包含关系已经可以从它们的 Lie 代数中读出.
+
+  \item[b)]\SGARefTarget{sga3:xiii:remarks:6:6:part:b}
+  继续假定 \(k\) 代数闭, 设 \(D\) 为 \(G\) 的一个 \((C)\) 型子群. 容易证明 \(D\) 包含 \(G\) 的一个 Cartan 子群 \(C\). 事实上, 置 \(V=\mathfrak g/\mathfrak d\). 对 \(\mathfrak d\) 的一个一般元素 \(a\), \(V\) 的自同态 \(\operatorname{ad}(a)\) 为单射; 只须取 \(a\) 在 \(\mathfrak g\) 中正则即可. 由此容易推出, 对一般的 \(g\in D(k)\), \(\operatorname{Ad}(g)\) 在 \(V\) 上的作用没有非零不变向量. 因而可以应用 \SGARefLink{sga3:xiii:theorem:2:1}{2.1}, \SGARefLink{sga3:xiii:theorem:2:1:item:vii}{(vii)}\(\Rightarrow\)\SGARefLink{sga3:xiii:theorem:2:1:item:i}{(i)}. 事实上, 下一讲将证明更精确的结果: \(G\) 的每个 Cartan 子群 \(C\) 均包含在 \(G\) 的唯一一个 \((C)\) 型子群中.
+
+  \item[c)]\SGARefTarget{sga3:xiii:remarks:6:6:part:c}
+  一般而言, 不应混淆 Cartan 子群与 \((C)\) 型子群. \(G\) 的 \((C)\) 型子群为 Cartan 子群当且仅当它们幂零, 因为 Cartan 子群是极大幂零子群. 可能发生 \(\mathfrak g\) 幂零而 \(G\) 不幂零的情形; 例如当 \(k\) 的特征为 \(2\) 时的 \(\operatorname{SL}(2)_k\). 此时 \(\mathfrak g\) 的 Cartan 子代数都等于 \(\mathfrak g\). 因此, 若 \(G\) 连通, 则 \(G\) 是自身的一个 \((C)\) 型子群, 却不是自身的 Cartan 子群.
+
+  另一方面, 我们将在第~XIV 讲看到, 若 \(G\) 是伴随型半单群, 则它的 \((C)\) 型子群恰好就是它的 Cartan 子群. 在特征零时, 对 \(k\) 上任意光滑代数群 \(G\), 同一结论也成立. 这由特征零时连通代数群幂零当且仅当其 Lie 代数幂零这一事实立即得到. 后一事实又来自如下事实: 在特征零时, 连通代数群 \(G\) 的中心 \(Z\) 的 Lie 代数等于 \(\mathfrak g\) 的中心. 事实上, 首先得到的是 \(\mathfrak g\) 在 \(G\) 的伴随表示下的不变子空间. 由于 \(G\) 连通且 \(k\) 的特征为零, 这些不变量也就是 \(\mathfrak g\) 的伴随表示的无穷小不变量, 即 \(\mathfrak g\) 的中心. 最后, Cartier 定理（参见 VI\textsubscript{B}~1.6.1）表明 \(Z\) 光滑.
+\end{enumerate}
+
+% END inputs/XIII/source/tex/components/04_expose_XIII_sections5_6.tex
+
+

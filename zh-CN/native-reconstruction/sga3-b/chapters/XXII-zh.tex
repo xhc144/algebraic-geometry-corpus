@@ -1,0 +1,1287 @@
+% 译自已校验的原生源 ZIP；XXII.tex 源行 1--1896。
+\markboth{第二十二讲. 约化群}{第二十二讲. 约化群}
+\setcounter{footnote}{0}
+\SGARefTarget{sga3:xxii:chapter:xxii}\chapter*{第二十二讲\\约化群：分裂结构、子群与商群}
+\addcontentsline{toc}{chapter}{第二十二讲. 约化群：分裂结构、子群与商群}
+\markboth{第二十二讲. 约化群}{第二十二讲. 约化群}
+\begin{center}
+  \textit{Michel Demazure}
+\end{center}
+
+\begingroup
+\renewcommand{\thefootnote}{0}
+\footnote{编者注：2024 年 10 月 13 日版本。}
+\addtocounter{footnote}{-1}
+\endgroup
+本讲分为两部分。第一部分（第 1 节至 \SGARefLink{sga3:xxii:subsection:5-5}{5.5}）汇集唯一性定理和存在性定理的证明所需的技术性结果。第二部分（5.6 至本讲末尾）不用于该证明；第 5 节末尾的结果特别用于研究抛物子群的第二十六讲；第 6 节则在概形的框架下建立关于约化群的导出群的经典结果。
+
+\SGARefTarget{sga3:xxii:section:1}\section*{1. 根与余根. 分裂群与根数据}
+\addcontentsline{toc}{section}{1. 根与余根. 分裂群与根数据}
+
+\SGARefTarget{sga3:xxii:thm:1.1}\paragraph{\SGARefLink{sga3:xxii:thm:1.1}{定理 1.1}.}
+\textit{设 \(S\) 为概形，\(G\) 为约化 \(S\)-群，\(T\) 为 \(G\) 的极大环面，\(\alpha\) 为 \(G\) 关于 \(T\) 的一个根。}
+\begin{enumerate}
+\item[\SGAInlineRefTarget{sga3:xxii:thm:1.1:item:i}(i)] \textit{存在唯一的 \(T\)-等变群概形同态}
+\[
+  \exp_{\alpha}:W(\mathfrak g^{\alpha})\longrightarrow G
+\]
+\textit{在 Lie 代数上诱导典范态射 \(\mathfrak g^{\alpha}\to\mathfrak g\)。该同态是闭浸入。相应的同态}
+\[
+  T\mathbin{\cdot_{\alpha}}W(\mathfrak g^{\alpha})
+  \longrightarrow G
+\]
+\textit{也为闭浸入。}
+
+\textit{若 \(p_{\alpha}:\mathbb G_{a,S}\to G\) 为被 \(T\) 正规化、乘子为 \(\alpha\) 的单态射，则存在唯一的
+\(X_{\alpha}\in\Gamma(S,\mathfrak g^{\alpha})^{\times}\)\footnote{编者注：集合 \(\Gamma(S,\mathfrak g^{\alpha})^{\times}\) 定义于\SGARefLink{sga3:xix:definition:4-4-1}{第十九讲 4.4.1}。}，使得
+\(p_{\alpha}(x)=\exp_{\alpha}(xX_{\alpha})\)；此时
+\(\Lie(p_{\alpha})(1)=X_{\alpha}\)，上述两个公式在
+\(\Gamma(S,\mathfrak g^{\alpha})^{\times}\) 与被 \(T\) 正规化、乘子为 \(\alpha\) 的单态射 \(\mathbb G_{a,S}\to G\) 全体之间建立双射。}
+
+\item[(ii)] \textit{存在唯一的对偶，记为 \((X,Y)\longmapsto XY\)，}
+\[
+  \mathfrak g^{\alpha}\otimes_{\mathcal O_S}\mathfrak g^{-\alpha}
+  \xrightarrow{\;\sim\;}\mathcal O_S,
+\]
+\textit{以及唯一的群概形同态}
+\[
+  \alpha^*:\mathbb G_{m,S}\longrightarrow T,
+\]
+\textit{使\SGARefLink{sga3:xx:2.1}{第二十讲 2.1} 的公式 \textup{(F)} 成立。此时}
+\[
+  \alpha\circ\alpha^*=2,
+  \qquad
+  (-\alpha)^*=-\alpha^*,
+\]
+\textit{且 \(\alpha^*\) 由\SGARefLink{sga3:xx:2.7}{第二十讲 2.7} 的公式给出。}
+\end{enumerate}
+
+事实上，被 \(T\) 正规化、乘子为 \(\alpha\) 的同态必经由 \(G\) 的闭子群
+\[
+  Z_\alpha=\underline{\operatorname{Centr}}_G(T_\alpha)
+\]
+分解（参见\SGARefLink{sga3:xix:paragraph:3-9}{第十九讲 3.9}）。而 \((Z_\alpha,T,\alpha)\) 是一个初等 \(S\)-系（\SGARefLink{sga3:xx:1.4}{第二十讲 1.4}），故归结为第二十讲的结果（\SGARefLink{sga3:xxii:def:1.5}{1.5}、\SGARefLink{sga3:xxii:prop:2.1}{2.1} 和 \SGARefLink{sga3:xxii:section:5.9}{5.9}）。
+
+\SGARefTarget{sga3:xxii:rem:1.2}\paragraph{\SGARefLink{sga3:xxii:rem:1.2}{注 1.2}.}
+若只假设 \(\alpha\) 是 \(T\) 的一个特征，在每个纤维上均非平凡，则\SGARefLink{sga3:xxii:thm:1.1}{定理 1.1} 的 \SGARefLink{sga3:xxii:thm:1.1:item:i}{(i)} 仍然成立。事实上，此时存在分解
+\[
+  S=S'\amalg S'',
+\]
+使 \(\alpha|_{S'}\) 为 \(G_{S'}\) 关于 \(T_{S'}\) 的根，且
+\(\mathfrak g^\alpha|_{S''}=0\)。若 \(S=S'\)，则归结为 \SGARefLink{sga3:xxii:thm:1.1}{1.1}；若 \(S=S''\)，则结论平凡；一般情形随即得出。
+
+\SGARefTarget{sga3:xxii:not:1.3}\paragraph{\SGARefLink{sga3:xxii:not:1.3}{记号 1.3}.}
+与第二十讲一样，以 \(U_\alpha\) 表示 \(W(\mathfrak g^\alpha)\) 的像；它是 \(G\) 的闭子群，典范地带有向量群结构。我们称其为\emph{根 \(\alpha\) 所对应的向量群}，称 \(\alpha^*\) 为\emph{根 \(\alpha\) 所对应的余根}。截面
+\[
+  X_\alpha\in\Gamma(S,\mathfrak g^\alpha)
+  \quad\text{与}\quad
+  X_{-\alpha}\in\Gamma(S,\mathfrak g^{-\alpha})
+\]
+若满足 \(X_\alpha X_{-\alpha}=1\)，则称其\emph{配对}。此时
+\(X_\alpha\in\Gamma(S,\mathfrak g^\alpha)^\times\)，\(X_{-\alpha}\) 亦然。相应同态 \(p_\alpha\) 与 \(p_{-\alpha}\) 在\SGARefLink{sga3:xx:1.5}{第二十讲 1.5} 的意义下互为反变\footnote{编者注：即若 \(\langle\, ,\,\rangle\) 表示 \(\mathfrak g^\alpha\) 与 \(\mathfrak g^{-\alpha}\) 间的对偶，并通过 \(p_\alpha(x)=\exp(xX_\alpha)\) 把 \(\mathfrak g^\alpha\) 与 \(U_\alpha\) 等同，对 \(-\alpha\) 亦作同样等同，则
+\(\langle p_\alpha(x),p_{-\alpha}(y)\rangle=xy\)。}，且有
+\[
+  p_\alpha(x)p_{-\alpha}(y)
+  =
+  p_{-\alpha}\left(\frac{y}{1+xy}\right)
+  \alpha^*(1+xy)
+  p_\alpha\left(\frac{x}{1+xy}\right).
+\]
+
+\SGARefTarget{sga3:xxii:prop:1.4}\paragraph{\SGARefLink{sga3:xxii:prop:1.4}{命题 1.4}.}
+\textit{在 \SGARefLink{sga3:xxii:thm:1.1}{1.1} 的假设下，设
+\(w\in\underline{\operatorname{Norm}}_G(T)(S)\)。则}
+\[
+  \beta=\alpha\circ\operatorname{int}(w)^{-1}
+  :T\longrightarrow\mathbb G_{m,S}
+\]
+\textit{是 \(G\) 关于 \(T\) 的根，相应余根为
+\(\beta^*=\operatorname{int}(w)\circ\alpha^*\)，且下图交换：}
+\begin{center}
+\begin{tikzcd}[column sep=5.2em,row sep=3.2em]
+  W(\mathfrak g^\alpha)
+    \arrow[r,"\exp_\alpha"]
+    \arrow[d,"\operatorname{Ad}(w)"']
+  &
+  G
+    \arrow[d,"\operatorname{int}(w)"]
+  \\
+  W(\mathfrak g^\beta)
+    \arrow[r,"\exp_\beta"]
+  &
+  G.
+\end{tikzcd}
+\end{center}
+
+这是显然的，只需作结构搬移。
+
+\SGARefTarget{sga3:xxii:def:1.5}\paragraph{\SGARefLink{sga3:xxii:def:1.5}{定义 1.5}.}
+\textup{(a)} 在 \SGARefLink{sga3:xxii:thm:1.1}{1.1} 的假设下，以 \(s_\alpha\) 表示 \(T\) 的如下自同构：
+\[
+  s_\alpha(t)=t\mathbin{\cdot}\alpha^*(\alpha(t))^{-1}.
+\]
+以 \((\, ,\,)\) 表示典范配对
+\[
+  \underline{\operatorname{Hom}}_{S\text{-gr}}
+    (\mathbb G_{m,S},T)
+  \times
+  \underline{\operatorname{Hom}}_{S\text{-gr}}
+    (T,\mathbb G_{m,S})
+  \longrightarrow
+  \underline{\operatorname{Hom}}_{S\text{-gr}}
+    (\mathbb G_{m,S},\mathbb G_{m,S})
+  =\mathbb Z_S.
+\]
+则 \(s_\alpha\) 分别以下述公式作用于
+\(\underline{\operatorname{Hom}}_{S\text{-gr}}(T,\mathbb G_{m,S})\) 和
+\(\underline{\operatorname{Hom}}_{S\text{-gr}}(\mathbb G_{m,S},T)\)，其中 \(\chi\) 和 \(u\) 分别表示相应概形的任意截面：
+\[
+  s_\alpha(\chi)=\chi-(\alpha^*,\chi)\alpha,
+  \qquad
+  s_\alpha(u)=u-(u,\alpha)\alpha^*.
+\]
+有
+\[
+  s_\alpha\circ s_\alpha=\operatorname{id},
+  \qquad
+  s_{-\alpha}=s_\alpha.
+\]
+
+\textup{\SGAInlineRefTarget{sga3:xxii:def:1.5:item:b}(b)} 若
+\(X\in\Gamma(S,\mathfrak g^\alpha)^\times\)，则由
+\[
+  w_\alpha(X)
+  =
+  \exp_\alpha(X)\exp_{-\alpha}(-X^{-1})\exp_\alpha(X)
+\]
+定义的 \(T\) 的内自同构 \(w_\alpha(X)\)（参见\SGARefLink{sga3:xx:3.1}{第二十讲 3.1}）等于 \(s_\alpha\)（同上）。因此\SGARefLink{sga3:xxii:prop:1.4}{命题 1.4} 给出如下结论。
+
+\SGARefTarget{sga3:xxii:cor:1.6}\paragraph{\SGARefLink{sga3:xxii:cor:1.6}{推论 1.6}.}
+\textit{设 \(S\) 为概形，\(G\) 为约化 \(S\)-群，\(T\) 为 \(G\) 的极大环面，\(\alpha,\beta\) 为 \(G\) 关于 \(T\) 的两个根。则}
+\[
+  s_\alpha(\beta)=\beta-(\alpha^*,\beta)\alpha
+\]
+\textit{为 \(G\) 关于 \(T\) 的根，其相应余根为}
+\[
+  s_\alpha(\beta)^*
+  =
+  s_\alpha(\beta^*)
+  =
+  \beta^*-(\beta^*,\alpha)\alpha^*.
+\]
+
+\SGARefTarget{sga3:xxii:cor:1.7}\paragraph{\SGARefLink{sga3:xxii:cor:1.7}{推论 1.7}.}
+\textit{在上述条件下，\(\alpha^*=\beta^*\) 蕴含 \(\alpha=\beta\)。}
+
+事实上，若 \(\alpha^*=\beta^*\)，则有（参见\SGARefLink{sga3:xx:1.4}{第二十一讲 1.4}）
+\[
+  s_\beta(\alpha)=\alpha-2\beta,
+  \qquad
+  s_\alpha(\beta)=\beta-2\alpha,
+\]
+立即得到
+\[
+  (s_\beta s_\alpha)^n(\alpha)
+  =
+  \alpha+2n(\beta-\alpha).
+\]
+若 \(\beta\ne\alpha\)，则存在 \(s\in S\)，使 \(\alpha_s\ne\beta_s\)。上式便给出 \(G_{\bar s}\) 关于 \(T_{\bar s}\) 的无穷多个互异根，这是不可能的。
+
+\SGARefTarget{sga3:xxii:def:1.8.0}\paragraph{\SGARefLink{sga3:xxii:def:1.8.0}{定义 1.8.0}.}
+\footnote{编者注：我们添加编号 \SGARefLink{sga3:xxii:def:1.8.0}{1.8.0}，以突出这些定义。}
+若群同态 \(u:\mathbb G_{m,S}\to T\) 满足：存在 \(G\) 关于 \(T\) 的根 \(\alpha\)，使 \(\alpha^*=u\)，则称 \(u\) 为 \(G\) 关于 \(T\) 的\emph{余根}。考虑 \(G\) 关于 \(T\) 的余根函子 \(\mathcal R^*\)，定义为
+\[
+  \mathcal R^*(S')
+  =
+  \{\text{\(G_{S'}\) 关于 \(T_{S'}\) 的余根}\}.
+\]
+若 \(\mathcal R\) 为 \(G\) 关于 \(T\) 的根函子（\SGARefLink{sga3:xix:proposition:3:8}{第十九讲 3.8}），则有典范态射 \(\mathcal R\to\mathcal R^*\)。由 \SGARefLink{sga3:xxii:cor:1.7}{1.7} 和\SGARefLink{sga3:xix:proposition:3-8}{第十九讲 3.8}，有：
+
+\SGARefTarget{sga3:xxii:cor:1.8}\paragraph{\SGARefLink{sga3:xxii:cor:1.8}{推论 1.8}.}
+\textit{典范态射 \(\mathcal R\to\mathcal R^*\) 是同构。特别地，\(\mathcal R^*\) 可由一个扭曲有限常值 \(S\)-概形表示，该概形为}
+\[
+  \underline{\operatorname{Hom}}_{S\text{-gr}}
+    (\mathbb G_{m,S},T)
+\]
+\textit{的既开又闭子概形。}
+
+由此得到如下定义。
+
+\SGARefTarget{sga3:xxii:def:1.9}\paragraph{\SGARefLink{sga3:xxii:def:1.9}{定义 1.9}.}
+\textit{设 \(S\) 为概形，\(T\) 为 \(S\)-环面。\(T\) 中的一个\emph{扭曲根数据}由下列资料组成：}
+\begin{enumerate}
+\item[(i)] \textit{下式的一个有限子概形 \(\mathcal R\)：}
+  \[
+    \underline{\operatorname{Hom}}_{S\text{-gr}}
+      (T,\mathbb G_{m,S});
+  \]
+\item[(ii)] \textit{下式的一个有限子概形 \(\mathcal R^*\)：}
+  \[
+    \underline{\operatorname{Hom}}_{S\text{-gr}}
+      (\mathbb G_{m,S},T);
+  \]
+\item[\SGAInlineRefTarget{sga3:xxii:def:1.9:item:iii}(iii)] \textit{一个同构
+  \(\mathcal R\xrightarrow{\sim}\mathcal R^*\)，记为 \(\alpha\mapsto\alpha^*\)，}
+\end{enumerate}
+\textit{并满足下列条件：}
+\begin{description}
+\item[\textup{(DR 1)}]
+  \textit{对每个 \(S'\to S\) 及每个 \(\alpha\in\mathcal R(S')\)，都有 \(\alpha\circ\alpha^*=2\)。}
+\item[\textup{(DR 2)}]
+  \textit{对每个 \(S'\to S\) 及所有 \(\alpha,\beta\in\mathcal R(S')\)，都有}
+  \[
+    \alpha-(\beta^*,\alpha)\beta\in\mathcal R(S'),
+    \qquad
+    \alpha^*-(\alpha^*,\beta)\beta^*\in\mathcal R^*(S').
+  \]
+\end{description}
+\textit{此外，若对每个非空的 \(S'\to S\) 及每个 \(\alpha\in\mathcal R(S')\)，都有 \(2\alpha\notin\mathcal R(S')\)，则称该扭曲根数据是\emph{约化的}。}
+
+\SGARefTarget{sga3:xxii:prop:1.10}\paragraph{\SGARefLink{sga3:xxii:prop:1.10}{命题 1.10}.}
+\textit{设 \(S\) 为概形，\(G\) 为约化 \(S\)-群，\(T\) 为 \(G\) 的极大环面，\(\mathcal R\) 和 \(\mathcal R^*\) 分别为 \(G\) 关于 \(T\) 的根概形和余根概形。则 \((\mathcal R,\mathcal R^*)\) 是 \(T\) 中的约化扭曲根数据。}
+
+只须验证此扭曲根数据是约化的。这已在\SGARefLink{sga3:xix:paragraph:3:10}{第十九讲 3.10} 中完成。
+
+\SGARefTarget{sga3:xxii:par:1.11}\paragraph{\SGARefLink{sga3:xxii:par:1.11}{1.11}.}
+设 \(T=\mathrm D_S(M)\) 为一个\emph{带平凡化的}环面。若以 \(M^*\) 表示 \(M\) 的对偶阿贝尔群，则有典范同构（参见\SGARefLink{sga3:viii:corollary:1:5}{第八讲 1.5}）
+\[
+  \underline{\operatorname{Hom}}_{S\text{-gr}}
+    (T,\mathbb G_{m,S})
+  \xrightarrow{\sim} M_S,
+  \qquad
+  \underline{\operatorname{Hom}}_{S\text{-gr}}
+    (\mathbb G_{m,S},T)
+  \xrightarrow{\sim} M^*_S,
+\]
+因而有群同构
+\[
+  \operatorname{Hom}_{S\text{-gr}}(T,\mathbb G_{m,S})
+  \xrightarrow{\sim}
+  \operatorname{Hom}_{\mathrm{loc.const.}}(S,M),
+\]
+\[
+  \operatorname{Hom}_{S\text{-gr}}(\mathbb G_{m,S},T)
+  \xrightarrow{\sim}
+  \operatorname{Hom}_{\mathrm{loc.const.}}(S,M^*).
+\]
+若上述同构把 \(T\) 的特征（或群同态 \(\mathbb G_{m,S}\to T\)）映到 \(S\) 至 \(M\)（或 \(M^*\)）的常值映射，则称它关于所给平凡化是\emph{常值的}。
+
+\SGARefTarget{sga3:xxii:par:1.12}\paragraph{\SGARefLink{sga3:xxii:par:1.12}{1.12}.}
+沿用相同记号，设 \((M,M^*,R,R^*)\) 是一个根数据（第二十一讲）。则 \((R_S,R^*_S)\) 为 \(T\) 中的扭曲根数据。反之，若 \((\mathcal R,\mathcal R^*)\) 是环面 \(T\) 中的扭曲根数据，则该根数据的一个\emph{分裂结构}是指一个通常的根数据 \((M,M^*,R,R^*)\) 及一个同构
+\[
+  T\simeq\mathrm D_S(M)
+\]
+将 \((\mathcal R,\mathcal R^*)\) 映至 \((R_S,R^*_S)\)。
+
+\SGARefTarget{sga3:xxii:def:1.13}\paragraph{\SGARefLink{sga3:xxii:def:1.13}{定义 1.13}.}
+\textit{设 \(S\) 为概形，\(G\) 为约化 \(S\)-群，\(T\) 为 \(G\) 的极大环面。\(G\) \emph{关于 \(T\) 的一个分裂结构}由下列资料组成：}
+\begin{enumerate}
+\item[\SGAInlineRefTarget{sga3:xxii:def:1.13:item:i}(i)] \textit{一个阿贝尔群 \(M\) 及同构 \(T\simeq\mathrm D_S(M)\)；}
+\item[\SGAInlineRefTarget{sga3:xxii:def:1.13:item:ii}(ii)] \textit{\(G\) 关于 \(T\) 的一个根系 \(R\) \textup{（\SGARefLink{sga3:xix:definition:3-6}{第十九讲 3.6}），}}
+\end{enumerate}
+\textit{并满足下列两个条件：}
+\begin{description}
+\item[\textup{(D 1)}]
+  \textit{\(S\) 非空，且根 \(\alpha\in R\) \textup{（以及相应余根）}等同于 \(S\) 至 \(M\) \textup{（以及至 \(M^*\)）}的常值函数。}
+\item[\textup{(D 2)}]
+  \textit{\(\mathfrak g^\alpha\)，\(\alpha\in R\)，均为自由 \(\mathcal O_S\)-模。}
+\end{description}
+
+若存在 \(G\) 关于 \(T\) 的分裂结构，则称 \(G\) \emph{关于 \(T\) 可分裂}。\(G\) 的一个\emph{分裂结构}是指 \(G\) 的一个极大环面 \(T\)，连同 \(G\) 关于 \(T\) 的一个分裂结构。若 \(G\) 有分裂结构，则称其\emph{可分裂}。一个\emph{分裂 \(S\)-群}是指一个带有分裂结构的约化 \(S\)-群；我们用形如 \((G,T,M,R)\) 的记号表示它；不致混淆时，也简记为 \(G\)。
+
+条件 \textup{(D 1)} 将 \(R\) 和 \(R^*\) 分别典范地等同于 \(M\) 和 \(M^*\) 的子集。
+
+\SGARefTarget{sga3:xxii:prop:1.14}\paragraph{\SGARefLink{sga3:xxii:prop:1.14}{命题 1.14}.}
+\textit{设 \(S\) 为非空概形，\((G,T,M,R)\) 为分裂 \(S\)-群。则}
+\[
+  \mathcal R(G,T,M,R)=(M,M^*,R,R^*)
+\]
+\textit{是约化根数据 \textup{（\SGARefLink{sga3:xxi:subsection:1-1}{第二十一讲 1.1} 和 \SGARefLink{sga3:XXI:2.1.3}{2.1.3}）}；它是 \SGARefLink{sga3:xxii:prop:1.10}{1.10} 中扭曲根数据的一个分裂结构。}
+
+这由 \SGARefLink{sga3:xxii:prop:1.10}{1.10} 和\SGARefLink{sga3:xix:lemma:3:7}{第十九讲 3.7} 立即得出。
+
+为简便起见，我们有时写作 \(\mathcal R(G,T,M,R)=\mathcal R(G)\)。我们将系统地采用第二十一讲中的记号 \(V\)、\(V(\mathcal R)\)、\(W,\ldots\)。
+
+\SGARefTarget{sga3:xxii:rem:1.15}\paragraph{\SGARefLink{sga3:xxii:rem:1.15}{注 1.15}.}
+\textup{(a)} 若 \(S\) 非空且连通，则条件 \textup{(D 1)} 自动满足；若 \(\operatorname{Pic}(S)=0\)，则条件 \textup{(D 2)} 自动满足。
+
+\SGAInlineRefTarget{sga3:xxii:rem:1.15:item:b}\textup{\SGARefLink{sga3:xxii:def:1.5:item:b}{(b)}} 若 \((G,T,M,R)\) 为分裂 \(S\)-群，则对每个非空的 \(S'\to S\)，\((G_{S'},T_{S'},M,R)\) 为分裂 \(S'\)-群，且
+\[
+  \mathcal R(G,T,M,R)
+  =
+  \mathcal R(G_{S'},T_{S'},M,R).
+\]
+
+\SGARefTarget{sga3:xxii:par:1.16}\paragraph{\SGARefLink{sga3:xxii:par:1.16}{1.16}.}
+设 \(T=\mathrm D_S(M)\) 为带平凡化的环面。\(T\) 的 Lie 代数 \(\mathfrak t\) 典范地等同于 \textup{（\SGARefLink{sga3:ii:corollary:5-1-1}{第二讲 5.1.1}）}
+\[
+  \mathfrak t\simeq M^*\otimes\mathcal O_S.
+\]
+对每个群同态 \(u:T\to\mathbb G_{m,S}\)，\(\Lie(u)\) 为线性形式
+\[
+  \Lie(u):
+  \mathfrak t\longrightarrow
+  \mathcal O_S=\Lie(\mathbb G_{m,S}/S).
+\]
+特别地，若 \(u\) 由元素 \(\alpha\in M\) 定义，则 \(\Lie(u)\) 是 \(M^*\otimes\mathcal O_S\) 上如下定义的线性形式 \(\bar\alpha\)：
+\[
+  \bar\alpha(m\otimes x)=(m,\alpha)x.
+\]
+
+对称地，对每个群同态 \(h:\mathbb G_{m,S}\to T\)，\(\Lie(h)\) 是一个 \(\mathcal O_S\)-线性态射
+\[
+  \mathcal O_S=\Lie(\mathbb G_{m,S}/S)
+  \longrightarrow\mathfrak t,
+\]
+由截面
+\[
+  H=\Lie(h)(1)\in\Gamma(S,\mathfrak t)
+\]
+典范地确定。特别地，若 \(h\) 由元素 \(m\in M^*\) 定义，则
+\[
+  H=\Lie(h)(1)=m\otimes 1.
+\]
+比较这两个定义，特别得到
+\[
+  \bar\alpha(H)=(h,\alpha)\cdot 1
+  \in\Gamma(S,\mathcal O_S).
+\]
+
+\SGARefTarget{sga3:xxii:par:1.17}\paragraph{\SGARefLink{sga3:xxii:par:1.17}{1.17}.}
+这些定义特别适用于 \(T\) 为分裂群的极大环面的情形。每个根 \(\alpha\in R\) 定义一个\emph{无穷小根}
+\[
+  \bar\alpha\in
+  \operatorname{Hom}_{\mathcal O_S}(\mathfrak t,\mathcal O_S),
+  \qquad
+  \bar\alpha(m\otimes x)=(m,\alpha)x.
+\]
+每个余根 \(\alpha^*\)，\(\alpha\in R\)，定义一个\emph{无穷小余根}
+\[
+  H_\alpha\in\Gamma(S,\mathfrak t),
+  \qquad
+  H_\alpha=\alpha^*\otimes 1.
+\]
+对 \(\alpha,\beta\in R\)，有
+\[
+  \bar\alpha(H_\beta)=(\beta^*,\alpha)\cdot 1,
+\]
+特别地，
+\[
+  \bar\alpha(H_\alpha)=2.
+\]
+因此，若 \(2\) 在 \(S\) 上可逆，则 \(\bar\alpha\) 与 \(H_\alpha\) 在每个纤维上均非零。
+
+\SGARefTarget{sga3:xxii:section:2}\section*{2. 分裂结构的存在性. 约化群的型}
+\addcontentsline{toc}{section}{2. 分裂结构的存在性. 约化群的型}
+
+\SGARefTarget{sga3:xxii:prop:2.1}\paragraph{\SGARefLink{sga3:xxii:prop:2.1}{命题 2.1}.}
+\textit{设 \(S\) 为概形，\(G\) 为约化 \(S\)-群，\(T\) 为 \(G\) 的极大环面。假设 \(T\) 分裂。则 \(G\) 关于 \(T\) 局部可分裂：对每个 \(s_0\in S\)，存在 \(s_0\) 的开邻域 \(U\)，使 \(U\)-群 \(G_U\) 关于 \(T_U\) 可分裂。}
+
+事实上，写作 \(T\simeq\mathrm D_S(M)\) 及
+\[
+  \mathfrak g=\coprod_{m\in M}\mathfrak g^m.
+\]
+令
+\[
+  R=\{m\in M\mid m\ne0,\ \mathfrak g^m(s_0)\ne0\}.
+\]
+将 \(S\) 限制到 \(s_0\) 的一个开邻域后，可以假设 \(\mathfrak g^\alpha\)，\(\alpha\in R\)，均为自由模，且对 \(m\ne0\)、\(m\notin R\)，\(\mathfrak g^m\) 均为零。于是有
+\[
+  \mathfrak g
+  =
+  \mathfrak t\oplus
+  \coprod_{\alpha\in R}\mathfrak g^\alpha,
+\]
+其中 \(\mathfrak g^\alpha\) 是秩为 \(1\) 的自由模。这说明 \(R\) 是 \(G\) 关于 \(T\) 的一个根系 \textup{（\SGARefLink{sga3:xix:definition:3-6}{第十九讲 3.6}）}。\(\alpha\in R\) 对应的余根 \(\alpha^*\) 于是等同于 \(S\) 上取值于 \(M^*\) 的局部常值函数。再一次缩小 \(S\)，可以假设它们为常值，证明即告完成。
+
+注意，上述证明立即给出：
+
+\SGARefTarget{sga3:xxii:prop:2.2}\paragraph{\SGARefLink{sga3:xxii:prop:2.2}{命题 2.2}.}
+\textit{设 \(S\) 为非空连通概形，且 \(\operatorname{Pic}(S)=0\)，例如 \(\operatorname{Spec}(\mathbb Z)\) 或局部概形 \textup{（特别是域的谱）}。若 \(G\) 是带有分裂极大环面 \(T\) 的约化 \(S\)-群，则 \(G\) 关于 \(T\) 可分裂。}
+
+由 \SGARefLink{sga3:xxii:prop:2.1}{2.1} 及约化群在平展拓扑下局部具有极大环面这一事实 \textup{（\SGARefLink{sga3:xix:theorem:2:5}{第十九讲 2.5}）}，立即得到：
+
+\SGARefTarget{sga3:xxii:cor:2.3}\paragraph{\SGARefLink{sga3:xxii:cor:2.3}{推论 2.3}.}
+\textit{设 \(S\) 为概形，\(G\) 为约化 \(S\)-群 \textup{（或者还设 \(T\) 为 \(G\) 的极大环面）}。则 \(G\) 关于 \(S\) 的平展拓扑局部可分裂 \textup{（或者关于 \(T\) 局部可分裂）}。}
+
+\SGARefTarget{sga3:xxii:cor:2.4}\paragraph{\SGARefLink{sga3:xxii:cor:2.4}{推论 2.4}.}
+\textit{设 \(k\) 为域，\(G\) 为约化 \(k\)-群。存在有限可分扩张 \(K/k\)，使 \(G_K\) 可分裂。}
+
+\SGARefTarget{sga3:xxii:rem:2.5}\paragraph{\SGARefLink{sga3:xxii:rem:2.5}{注 2.5}.}
+利用 \SGARefLink{sga3:xxii:prop:2.1}{2.1} 和\SGARefLink{sga3:xix:remark:2:9}{第十九讲注 2.9}，立即证明如下结果：设 \(G=(G,T,M,R)\) 为分裂 \(S\)-群。存在 \(S\) 的一个开覆盖 \((U_i)\)，使每个分裂群 \(G_{U_i}\) 都由某个 Noether 环 \textup{（事实上可取有限生成的 \(\mathbb Z\)-代数）}上的分裂群经基变换得到。此外，我们还将证明，每个 \(S\) 上的分裂群都已可由一个分裂 \(\mathbb Z\)-群得到 \textup{（第二十五讲）}。
+
+\SGARefTarget{sga3:xxii:par:2.6}\paragraph{\SGARefLink{sga3:xxii:par:2.6}{2.6}.}
+设 \(k\) 为代数闭域，\(G\) 为约化 \(k\)-群。我们知道 \textup{（例如由 \SGARefLink{sga3:xxii:cor:2.4}{2.4}）} \(G\) 存在分裂结构。设 \((G,T,M,R)\) 和 \((G,T',M',R')\) 为 \(G\) 的两个分裂结构。则根数据
+\[
+  \mathcal R(G,T,M,R)
+  \qquad\text{与}\qquad
+  \mathcal R(G,T',M',R')
+\]
+同构。
+
+事实上，首先只须归结为 \(T=T'\) 的情形：存在 \(g\in G(k)\)，使 \(T'=\operatorname{int}(g)T\)，而且容易验证，用 \(G\) 的自同构搬移分裂结构，所产生的根数据与原来的根数据同构。由于 \(S=\operatorname{Spec}(k)\) 连通，同构
+\[
+  \mathrm D_k(M)\xrightarrow{\sim}T
+  \xrightarrow{\sim}\mathrm D_k(M')
+\]
+来自唯一的同构 \(M\simeq M'\)。同理，\(G\) 关于 \(T\) 至多有一个根系。
+
+\SGARefTarget{sga3:xxii:def:2.6.1}\paragraph{\SGARefLink{sga3:xxii:def:2.6.1}{定义 2.6.1}.}
+\footnote{编者注：为便于后文引用，添加了编号 \SGARefLink{sga3:xxii:def:2.6.1}{2.6.1}。}
+若 \(G\) 是代数闭域 \(k\) 上的约化 \(k\)-群，则 \(G\) 的\emph{型}是指 \(G\) 的任一分裂结构所定义的根数据的同构类。若 \(G\) 是\SGARefLink{sga3:ix:definition:1:4}{第九讲 1.4} 意义下型为 \(M\) 的环面，则 \(G\) 作为约化群的型由平凡根数据
+\[
+  (M,M^*,\varnothing,\varnothing)
+\]
+给出。
+
+由 \SGARefLink{sga3:xxii:rem:1.15:item:b}{1.15(b)}\footnote{编者注：我们修正了原文，其引用的是 \SGARefLink{sga3:xxii:par:1.17}{1.17}。}，型在基域的 \textup{（代数闭）}扩张下不变。
+
+\SGARefTarget{sga3:xxii:def:2.7}\paragraph{\SGARefLink{sga3:xxii:def:2.7}{定义 2.7}.}
+若 \(G\) 为约化 \(S\)-群，\(s\in S\)，则 \(G\) \emph{在 \(s\) 处的型}是指约化 \(\bar s\)-群 \(G_{\bar s}\) 的型。
+
+对每个 \(S'\to S\) 以及映至 \(s\in S\) 的每个 \(s'\in S'\)，\(G_{S'}\) 在 \(s'\) 处的型等于 \(G\) 在 \(s\) 处的型。
+
+若 \(G\) 可分裂，且 \((G,T,M,R)\) 是 \(G\) 的一个分裂结构，则由 \SGARefLink{sga3:xxii:rem:1.15:item:b}{1.15(b)}\footnotemark[5]，\(G\) 在 \(s\) 处的型是 \(\mathcal R(G,T,M,R)\) 的同构类。由 \SGARefLink{sga3:xxii:cor:2.3}{2.3} 立即得出：
+
+\SGARefTarget{sga3:xxii:prop:2.8}\paragraph{\SGARefLink{sga3:xxii:prop:2.8}{命题 2.8}.}
+\textit{设 \(G\) 为约化 \(S\)-群，其中 \(S\ne\varnothing\)。函数}
+\[
+  s\longmapsto\text{\textit{\(G\) 在 \(s\) 处的型}}
+\]
+\textit{在 \(S\) 上局部常值。特别地，\(S\) 可分拆为非空开子概形，使 \(G\) 在每个子概形上均具有常值的型。更确切地说，设 \(E\) 为 \(G\) 的纤维的型所成的集合，对每个 \(t\in E\)，令 \(S_t\) 为 \(G\) 的型是 \(t\) 的点 \(s\in S\) 全体。则 \((S_t)_{t\in E}\) 是 \(S\) 的一个分拆，且每个 \(S_t\) 都既开又闭 \textup{（且非空）}。}
+
+\SGARefTarget{sga3:xxii:section:3}\section*{3. Weyl 群}
+\addcontentsline{toc}{section}{3. Weyl 群}
+
+\SGARefTarget{sga3:xxii:par:3.1}\paragraph{\SGARefLink{sga3:xxii:par:3.1}{3.1}.}
+设 \(S\) 为概形，\(G\) 为约化 \(S\)-群，\(T\) 为 \(G\) 的极大环面。则
+\[
+  W_G(T)=\underline{\operatorname{Norm}}_G(T)/T
+\]
+是有限平展 \(S\)-群 \textup{（\SGARefLink{sga3:xix:theorem:2-5}{第十九讲 2.5}）}。态射 \(n\mapsto\operatorname{int}(n)\) 通过取商诱导一个典范单态射 \textup{（它还是开浸入）}
+\[
+  W_G(T)\longrightarrow
+  \underline{\operatorname{Aut}}_{S\text{-gr.}}(T).
+\]
+
+\SGARefTarget{sga3:xxii:par:3.2}\paragraph{\SGARefLink{sga3:xxii:par:3.2}{3.2}.}
+现在假设 \(G\) 关于 \(T\) 可分裂。选定一个分裂结构，记为 \((G,T,M,R)\)。则有典范同构 \textup{（\SGARefLink{sga3:viii:corollary:1:5}{第八讲 1.5}）}
+\[
+  \underline{\operatorname{Aut}}_{S\text{-gr.}}(T)
+  \simeq
+  \bigl(\operatorname{Aut}_{\mathrm{gr.}}(M)\bigr)_S.
+\]
+特别地，若 \(W\) 为根数据 \(\mathcal R(G)\) 的 Weyl 群 \textup{（\SGARefLink{sga3:XXI:1.1.8}{第二十一讲 1.1.8}）}，则有单态射
+\[
+  W_S\longrightarrow
+  \underline{\operatorname{Aut}}_{S\text{-gr.}}(T).
+\]
+
+\SGARefTarget{sga3:xxii:par:3.3}\paragraph{\SGARefLink{sga3:xxii:par:3.3}{3.3}.}
+对每个根 \(\alpha\in R\)，反射 \(s_\alpha\in W\) 在 \(M\) 上的作用为
+\[
+  s_\alpha(x)=x-(\alpha^*,x)\alpha,
+\]
+从而通过上述态射在 \(T\) 上的作用为
+\[
+  s_\alpha(t)=t\cdot\alpha^*\bigl(\alpha(t)\bigr)^{-1}.
+\]
+另一方面，由于假设 \(\mathfrak g^\alpha\) 自由，存在
+\[
+  X\in\Gamma(S,\mathfrak g^\alpha)^\times.
+\]
+考虑
+\[
+  w_\alpha(X)\in
+  \underline{\operatorname{Norm}}_G(T)(S)
+  \qquad\textup{（第二十讲 3.1）}.
+\]
+有 \textup{（同上）}
+\[
+  \operatorname{int}\bigl(w_\alpha(X)\bigr)(t)=s_\alpha(t).
+\]
+由于 \(W\) 由 \(s_\alpha\)，\(\alpha\in R\)，生成，结合上述讨论可知，若将 \(W\) 及 \(\underline{\operatorname{Norm}}_G(T)(S)/T(S)\) 视为 \(T\) 的自同构群，则
+\[
+  W
+  \subset
+  \underline{\operatorname{Norm}}_G(T)(S)/T(S)
+  \subset
+  W_G(T)(S).
+\]
+
+由与 \(W\) 相联系的常值群 \(W_S\) 的定义 \textup{（参见\SGARefLink{sga3:i:subsection:1:8}{第一讲 1.8}）}，得到交换图：
+\begin{center}
+\begin{tikzcd}[column sep=5.0em,row sep=3.0em]
+  W_S
+    \arrow[rr]
+    \arrow[dr]
+  &&
+  W_G(T)
+    \arrow[dl]
+  \\
+  &
+  \underline{\operatorname{Aut}}_{S\text{-gr.}}(T).
+  &
+\end{tikzcd}
+\end{center}
+
+\SGARefTarget{sga3:xxii:prop:3.4}\paragraph{\SGARefLink{sga3:xxii:prop:3.4}{命题 3.4}.}
+\textit{设 \(S\) 为概形，\((G,T,M,R)\) 为分裂 \(S\)-群，\(W\) 为根数据 \(\mathcal R(G)\) 的 Weyl 群。则典范单态射}
+\[
+  W_S\longrightarrow
+  W_G(T)=\underline{\operatorname{Norm}}_G(T)/T
+\]
+\textit{是同构。}
+
+事实上，这是 \(S\) 上的平展群，故只须对每个 \(s\in S\) 验证态射
+\[
+  W_S(\bar s)\longrightarrow W_G(T)(\bar s)
+\]
+是同构。\footnote{编者注：事实上，因 \(W_S\) 及 \(W_G(T)=\underline{\operatorname{Norm}}_G(T)/T\) 在 \(S\) 上平展，态射 \(f:W_S\to W_G(T)=\underline{\operatorname{Norm}}_G(T)/T\) 平展 \textup{（EGA IV\textsubscript{4}，17.3.4）}。若每个 \(f_s\) 还都是同构，则由 \textup{同上} 17.9.1，\(f\) 是满射的开浸入，故为同构。}后一个断言例如由 \emph{Bible}，\S11.3，定理 2 得出。
+
+\SGARefTarget{sga3:xxii:rem:3.5}\paragraph{\SGARefLink{sga3:xxii:rem:3.5}{注 3.5}.}
+利用 \SGARefLink{sga3:xxii:cor:2.3}{2.3}，上述命题给出如下事实的一个新证明：约化 \(S\)-群 \(G\) 的极大环面的 Weyl 群在 \(S\) 上有限 \textup{（第十九讲 2.5(ii)）}。
+\footnote{编者注：事实上，设 \(T\) 为 \(G\) 的极大环面。\(W_G(T)\) 在 \(S\) 上有限是 fpqc 拓扑下的局部性质 \textup{（EGA IV\textsubscript{2}，2.7.1）}，因而当然也是平展拓扑下的局部性质。由 2.3，可假设 \(G\) 关于 \(T\) 分裂，此时断言由 \SGARefLink{sga3:xxii:prop:3.4}{3.4} 得出。}
+
+\SGARefTarget{sga3:xxii:par:3.6}\paragraph{\SGARefLink{sga3:xxii:par:3.6}{3.6}.}
+在 \SGARefLink{sga3:xxii:par:3.1}{3.1} 的假设下，对每个 \(w\in W_G(T)(S)\)，以 \(N_w\)\footnote{编者注：我们将 \(Q_w\) 改为 \(N_w\)，正如在\SGARefLink{sga3:xx:3.0}{第二十讲 3.0} 中将 \(Q\) 改为 \(N^\times\) 一样。}表示下图中的纤维积：
+\begin{center}
+\begin{tikzcd}[column sep=5.2em,row sep=3.2em]
+  N_w
+    \arrow[r]
+    \arrow[d]
+  &
+  \underline{\operatorname{Norm}}_G(T)
+    \arrow[d]
+  \\
+  S
+    \arrow[r,"w"]
+  &
+  W_G(T).
+\end{tikzcd}
+\end{center}
+
+它是 \(\underline{\operatorname{Norm}}_G(T)\) 的既开又闭子概形，并且对于运算
+\[
+  (t,q)\longmapsto tq
+  \qquad
+  \textup{（或者 \((q,t)\longmapsto qt\)）}.
+\]
+是一个左 \textup{（或者右）}\(T\)-主齐性丛。若 \(n\in N_w(S)\)，则
+\[
+  N_{ww'}=n\mathbin{\cdot}N_{w'},
+  \qquad
+  N_{w'w}=N_{w'}\mathbin{\cdot}n.
+\]
+
+\SGARefTarget{sga3:xxii:par:3.7}\paragraph{\SGARefLink{sga3:xxii:par:3.7}{3.7}.}
+特别地，若 \(\alpha\) 为 \(G\) 关于 \(T\) 的根，则 \(N_{s_\alpha}\) 正是\SGARefLink{sga3:xx:3.0}{第二十讲 3.0} 中记为 \(N^\times\) 的对象。因此，若 \(\mathfrak g^\alpha\) 在 \(S\) 上自由，便有
+\[
+  N_{s_\alpha}(S)\ne\varnothing.
+\]
+由 \SGARefLink{sga3:xxii:prop:3.4}{3.4} 及分裂结构的条件 \textup{(D\,2)}，得到：
+
+\SGARefTarget{sga3:xxii:cor:3.8}\paragraph{\SGARefLink{sga3:xxii:cor:3.8}{推论 3.8}.}
+\textit{在 \SGARefLink{sga3:xxii:prop:3.4}{3.4} 的假设下，态射}
+\[
+  \underline{\operatorname{Norm}}_G(T)(S)
+  \longrightarrow
+  W_G(T)(S)
+  =
+  \operatorname{Hom}_{\mathrm{loc.const.}}(S,W)
+\]
+\textit{为满射。特别地，对每个 \(w\in W\)，存在 \(n_w\in\underline{\operatorname{Norm}}_G(T)(S)\)，使}
+\[
+  \operatorname{int}(n_w)|_T=w.
+\]
+
+\SGARefTarget{sga3:xxii:section:4}
+\section*{4. 分裂群的同态}
+\addcontentsline{toc}{section}{4. 分裂群的同态}
+
+\SGARefTarget{sga3:xxii:subsection:4.1}
+\subsection*{4.1. 大胞腔}
+\addcontentsline{toc}{subsection}{\SGARefLink{sga3:xxii:subsection:4.1}{4.1}. 大胞腔}
+
+\SGARefTarget{sga3:xxii:par:4.1.1}\paragraph{\SGARefLink{sga3:xxii:par:4.1.1}{4.1.1}.}
+设 \((G,T,M,R)\) 为分裂约化 \(S\)-群。选取根数据 \(\mathcal R(G)\) 的一个正根系 \(R_+\) \textup{（\SGARefLink{sga3:XXI:3.2.1}{第二十一讲 3.2.1}）}。令 \(R_-=-R_+\)。
+
+在 \(R_+\) \textup{（以及 \(R_-\)）} 上选取一个全序，并考虑 \(G\) 中乘法所诱导的态射
+\[
+  u:
+  \left(\prod_{\alpha\in R_-}U_\alpha\right)
+  \times_S T
+  \times_S
+  \left(\prod_{\alpha\in R_+}U_\alpha\right)
+  \longrightarrow G.
+\]
+这是一个开浸入。事实上，由于两边在 \(S\) 上均平坦且有限表现，只须在每个几何纤维上验证此事 \textup{（SGA 1，I，5.7 及 VIII，5.4）}。于是归结到 \(S\) 为代数闭域的谱的情形。由 \emph{Bible}，\S13.4，定理 3 的推论 2，\(u\) 为根式且支配的态射。由于 \(u\) 在原点的切映射为同构 \textup{（由根系的定义）}，\(u\) 为双有理态射。因 \(G\) 正规，可以应用 Zariski 主定理 \textup{（EGA III\textsubscript{1}，4.4.9）}，得到 \(u\) 为开浸入。
+
+现在证明此开浸入的像 \(\Omega\) 与在 \(R_+\) \textup{（以及 \(R_-\)）} 上选取的序无关。这是在比较 \(G\) 的开子集，因此只须证明它们具有相同的几何点，故又可假设 \(S\) 为代数闭域的谱。此时断言正是 \emph{Bible}，\S13，命题 1(c) 和定理 1(a)。
+
+因此，我们证明了：
+
+\SGARefTarget{sga3:xxii:prop:4.1.2}\paragraph{\SGARefLink{sga3:xxii:prop:4.1.2}{命题 4.1.2}.}
+\textit{设 \((G,T,M,R)\) 为分裂 \(S\)-群，\(R_+\) 为 \(R\) 的一个正根系。存在 \(G\) 的开子集 \(\Omega_{R_+}\)，使得对 \(R_+\) \textup{（以及 \(R_-\)）} 的任意全序，\(G\) 中乘法所诱导的态射}
+\[
+  \left(\prod_{\alpha\in R_-}U_\alpha\right)
+  \times_S T
+  \times_S
+  \left(\prod_{\alpha\in R_+}U_\alpha\right)
+  \longrightarrow G
+\]
+\textit{是像为 \(\Omega_{R_+}\) 的开浸入。}
+
+\SGARefTarget{sga3:xxii:rem:4.1.3}\paragraph{\SGARefLink{sga3:xxii:rem:4.1.3}{注 4.1.3}.}
+\SGARefLink{sga3:xxii:prop:4.1.2}{命题 4.1.2} 可以重述如下：对每个 \(\alpha\in R\)，选取向量群同构
+\[
+  p_\alpha:\mathbb G_{a,S}\xrightarrow{\;\sim\;}U_\alpha
+  \qquad\textup{（参见 1.19）}.
+\]
+则态射 \textup{（其中 \(N=\operatorname{Card}(R_+)=\operatorname{Card}(R_-)\)）}
+\[
+  \mathbb G_{a,S}^{N}
+  \times_S T
+  \times_S
+  \mathbb G_{a,S}^{N}
+  \longrightarrow G
+\]
+在点上的定义为
+\[
+  \bigl((x_\alpha)_{\alpha\in R_-},t,
+        (x_\alpha)_{\alpha\in R_+}\bigr)
+  \longmapsto
+  \prod_{\alpha\in R_-}p_\alpha(x_\alpha)\mathbin{\cdot}t
+  \mathbin{\cdot}\prod_{\alpha\in R_+}p_\alpha(x_\alpha).
+\]
+它是开浸入，其像只依赖于 \(R_+\)，与 \(p_\alpha\) 以及 \(R_+\)、\(R_-\) 上的序的选择无关。
+
+\SGARefTarget{sga3:xxii:notation:4.1.4}\paragraph{\SGARefLink{sga3:xxii:notation:4.1.4}{记号 4.1.4}.}
+我们记\footnote{编者注：这称为与 \(R_+\) 对应的“大胞腔”。}
+\[
+  \Omega_{R_+}
+  =
+  \prod_{\alpha\in R_-}U_\alpha
+  \mathbin{\cdot}T\mathbin{\cdot}
+  \prod_{\alpha\in R_+}U_\alpha.
+\]
+
+\SGARefTarget{sga3:xxii:prop:4.1.5}\paragraph{\SGARefLink{sga3:xxii:prop:4.1.5}{命题 4.1.5}.}
+\textit{概形 \(\Omega_{R_+}\) 在 \(S\) 上有限表现 \textup{（因而在 \(G\) 中拟紧致）}，且相对于 \(S\) 在 \(G\) 中普遍概形稠密 \textup{（参见\SGARefLink{sga3:xviii:section:1}{第十八讲 1}）}。}
+
+第一个断言显然成立。因此，\footnote{编者注：以下我们展开了原文的论述。}\(\Omega_{R_+}\) 在 \(S\) 上平坦且有限表现，并含有单位截面；故它与 \(G\) 的每个纤维相交于非空、因而稠密的开子集。于是第二个断言由第十八讲 1.3 得出。\footnote{编者注：亦见 EGA IV\textsubscript{3}，11.10.10。}
+
+\SGARefTarget{sga3:xxii:cor:4.1.6}\paragraph{\SGARefLink{sga3:xxii:cor:4.1.6}{推论 4.1.6}.}
+\textit{设 \((G,T,M,R)\) 为分裂约化 \(S\)-群。则}
+\[
+  \underline{\operatorname{Centr}}(G)
+  =
+  \bigcap_{\alpha\in R}\operatorname{Ker}(\alpha).
+\]
+\textit{因此，\(\underline{\operatorname{Centr}}(G)\) 可由 \(G\) 的一个闭可对角化子群表示。}
+\footnote{编者注：我们添加了前一句。}
+
+第二个断言由第一个立即得出。证明第一个断言时，可以引用\SGARefLink{sga3:xii:4.8}{第十二讲 4.8} 和 \SGARefLink{sga3:xii:4.11}{4.11}；也可以如下直接论证。\footnote{编者注：以下我们展开了原文的论述。}设 \(S'\to S\)。若 \(t\in T(S')\)，且对每个 \(\alpha\in R\) 均有 \(\alpha(t)=1\)，则 \(\operatorname{int}(t)\) 在 \(T_{S'}\) 及每个 \((U_\alpha)_{S'}\)，\(\alpha\in R\)，上诱导恒等映射，因此也在 \((\Omega_{R_+})_{S'}\) 上诱导恒等映射。由概形稠密性，它在 \(G_{S'}\) 上诱导恒等映射，从而
+\[
+  t\in\underline{\operatorname{Centr}}(G)(S').
+\]
+反之，由于
+\[
+  \underline{\operatorname{Centr}}_{G_{S'}}(T_{S'})
+  =
+  T_{S'}
+  \qquad\textup{（参见第十九讲 2.8）},
+\]
+若 \(g\in G(S')\) 中心化 \(T_{S'}\) 和各个 \((U_\alpha)_{S'}\)，则 \(g\) 是 \(T_{S'}\) 的截面，且每个 \(\alpha\in R\) 在此截面上均为零。
+
+\SGARefTarget{sga3:xxii:cor:4.1.7}\paragraph{\SGARefLink{sga3:xxii:cor:4.1.7}{推论 4.1.7}.}
+\textit{设 \(S\) 为概形，\(G\) 为约化 \(S\)-群。则 \(G\) 的中心可由 \(G\) 的一个乘法型闭子群表示。在如下意义下，它也是“\(G\) 的极大环面的交”：对每个 \(S'\to S\)，\(\underline{\operatorname{Centr}}(G)(S')\) 是所有满足下列条件的 \(g\in G(S')\) 所成的集合：对每个 \(S''\to S'\)，\(g\) 在 \(G(S'')\) 中的逆像属于 \(G_{S''}\) 的每个极大环面 \(T\) 的 \(T(S'')\)。}
+
+由 \SGARefLink{sga3:xxii:cor:2.3}{2.3}，第一个断言通过下降由 \SGARefLink{sga3:xxii:cor:4.1.6}{4.1.6} 得出。\footnote{编者注：事实上，中心可由 \(G\) 的闭子概形表示，是 fpqc 拓扑下的局部性质 \textup{（SGA 1，VIII，5.2 和 5.4）}，因而当然也是平展拓扑下的局部性质；乘法型性质也是如此。}现在证明第二个断言。以 \(H\) 表示上述意义下“\(G\) 的极大环面的交”。显然，\footnote{编者注：以下我们展开了原文的论述。}
+\[
+  \underline{\operatorname{Centr}}(G)\subset H.
+\]
+由下降，只须在 \(G\) 分裂时证明 \(\underline{\operatorname{Centr}}(G)=H\)。由于 \(H\) 包含在通常意义下 \(G\) 的极大环面的交之中，结论由如下事实得出：若 \((G,T,M,R)\) 是一个分裂结构，\(\alpha\in R\)，且 \(X\in\Gamma(S,\mathfrak g^\alpha)^\times\)，则
+\[
+  \operatorname{int}\bigl(\exp_\alpha(X)\bigr)(T)\cap T
+  =
+  \operatorname{Ker}(\alpha),
+\]
+这由一个简单计算即可验证。更一般的陈述亦见\SGARefLink{sga3:xii:8.6}{第十二讲 8.6} 和 \SGARefLink{sga3:xii:8.8}{8.8}。
+
+\SGARefTarget{sga3:xxii:rem:4.1.8}\paragraph{\SGARefLink{sga3:xxii:rem:4.1.8}{注 4.1.8}.}
+以下在分裂情形，我们始终将 \(T\) 与 \(D_S(M)\) 等同。于是
+\[
+  \underline{\operatorname{Centr}}(G)
+  =
+  D_S\bigl(M/\Gamma_0(R)\bigr),
+\]
+其中 \(\Gamma_0(R)\) 为 \(M\) 中由 \(R\) 生成的子群 \textup{（参见\SGARefLink{sga3:XXI:1.1.6}{第二十一讲 1.1.6}）}。
+\par\noindent
+若 \(\{\alpha_1,\alpha_2,\ldots,\alpha_n\}\) 为 \(R\) 的一个单根系，则立即有 \textup{（参见\SGARefLink{sga3:xx:1.19}{第二十讲 1.19}）}
+\[
+  \underline{\operatorname{Centr}}(G)
+  =
+  \bigcap_i\operatorname{Ker}(\alpha_i)
+  =
+  \bigcap_i\underline{\operatorname{Centr}}(Z_{\alpha_i}).
+\]
+
+\SGARefTarget{sga3:xxii:prop:4.1.9}\paragraph{\SGARefLink{sga3:xxii:prop:4.1.9}{命题 4.1.9}.}
+\textit{设 \(S\) 为概形，\((G,T,M,R)\) 为分裂 \(S\)-群，\(Q\) 为 \(S\)-环面，\(\alpha_0\) 为 \(Q\) 的一个特征，\(\mathcal L\) 为可逆 \(\mathcal O_S\)-模，且群同态}
+\[
+  f:Q\longrightarrow T,
+  \qquad
+  p:W(\mathcal L)\longrightarrow G
+\]
+\textit{对每个 \(q\in Q(S')\)、\(x\in W(\mathcal L)(S')\) 及 \(S'\to S\)，满足如下集合意义下的关系：}
+\[
+  p\bigl(\alpha_0(q)x\bigr)
+  =
+  \operatorname{int}\bigl(f(q)\bigr)\mathbin{\cdot}p(x)
+\]
+\textit{假设 \(f\) 在如下意义下分离 \(R\) 的元素：若 \(\alpha,\alpha'\in R\)，\(m,m'\in\mathbb Z\)，则}\footnote{编者注：这等价于如下假设：若 \(\alpha,\alpha'\in R\)，\(m,m'\in\mathbb Z\)，且对 \(S\) 的每个几何点 \(\bar s\) 均有
+\[
+  (m\alpha\circ f)_{\bar s}
+  =
+  (m'\alpha'\circ f)_{\bar s}
+\]
+则 \(m\alpha=m'\alpha'\)。特别地，这一分离假设在基变换下保持。}
+\[
+  m\alpha\circ f=m'\alpha'\circ f
+  \quad\Longrightarrow\quad
+  m\alpha=m'\alpha'.
+\]
+\textit{最后，设 \(s\in S\) 满足 \((\alpha_0)_{\bar s}\ne e\) 及 \(p_{\bar s}\ne e\)。}
+
+\textit{则存在 \(S\) 中含 \(s\) 的开子集 \(U\)、正整数 \(q>0\)（使 \(x\mapsto x^q\) 是 \(\mathbb G_{a,U}\) 的自同态）、根 \(\alpha\in R\)，以及 \(\mathcal O_U\)-模同构}
+\[
+  h:(\mathcal L|_U)^{\otimes q}
+  \xrightarrow{\;\sim\;}
+  \mathfrak g^\alpha|_U
+\]
+\textit{使得}
+\[
+  \textup{(i)}\quad
+  (\alpha\circ f)|_U=(q\alpha_0)|_U,
+\]
+\[
+  \textup{(ii)}\quad
+  p(X)=\exp_\alpha\bigl(h(X^q)\bigr)
+  \quad\textup{对每个 \(X\in W(\mathcal L)(S')\)、\(S'\to U\)。}
+\]
+\textit{此外，\(U\) 一经选定，\(q\)、\(\alpha\) 和 \(h\) 就唯一确定。}
+
+缩小 \(S\) 后，可假设 \(\alpha_0\) 在 \(S\) 的每个纤维上非零。选取 \(R\) 的一个正根系 \(R_+\)，并令
+\[
+  V=p^{-1}(\Omega_{R_+}).
+\]
+它是 \(W(\mathcal L)\) 的一个开子集，含有零截面，并在乘以每个 \(\alpha_0(q)\) 的运算下稳定，其中 \(q\in Q(S')\)，\(S'\to S\)。因 \(\alpha_0\) 在每个纤维上非平凡，立即得到 \(V=W(\mathcal L)\)，故 \(p\) 经由 \(\Omega_{R_+}\) 分解。任意选取 \(R_+\) 和 \(R_-\) 的序；以下每个乘积均按所选的序来取。于是存在唯一的态射
+\[
+  a_\alpha:W(\mathcal L)\longrightarrow U_\alpha,
+  \qquad \alpha\in R,
+  \qquad
+  b:W(\mathcal L)\longrightarrow T
+\]
+使得
+\[
+  p(x)
+  =
+  \prod_{\alpha\in R_-}a_\alpha(x)\mathbin{\cdot}b(x)
+  \mathbin{\cdot}\prod_{\alpha\in R_+}a_\alpha(x).
+\]
+将关于 \(Q\) 的协变条件写出，立即得到
+\[
+  a_\alpha\bigl(\alpha_0(q)x\bigr)
+  =
+  \alpha\bigl(f(q)\bigr)a_\alpha(x),
+  \qquad \alpha\in R,
+\]
+\[
+  b\bigl(\alpha_0(q)x\bigr)=b(x)
+\]
+对每个 \(x\in W(\mathcal L)(S')\)、\(q\in Q(S')\) 及 \(S'\to S\) 成立。第二个条件立即给出 \(b=e\)。
+
+现取一个满足 \((a_\alpha)_{\bar s}\ne e\) 的 \(\alpha\in R\)；这样的 \(\alpha\) 存在，因为已假设 \(p_{\bar s}\ne e\)。应用\SGARefLink{sga3:xix:proposition:4:12:item:a}{第十九讲 4.12(a)}，得到正整数 \(n>0\)，使
+\[
+  (\alpha\circ f)_{\bar s}=(n\alpha_0)_{\bar s}.
+\]
+缩小 \(S\) 后，可假设 \(\alpha\circ f=n\alpha_0\)（\SGARefLink{sga3:ix:corollary:5:3}{第九讲 5.3}）。但由关于 \(f\) 的假设及与 \(\alpha\) 成比例的根只有 \(\alpha\) 与 \(-\alpha\) 这一事实，对每个 \(\alpha'\in R\)、\(\alpha'\ne\alpha\)，有
+\[
+  (\alpha'\circ f)_{\bar s}\ne m\alpha_0
+  \qquad\textup{对每个整数 \(m>0\)，}
+\]
+现在将\SGARefLink{sga3:xix:proposition:4:12:item:a}{第十九讲 4.12(a)} 应用于 \(a_{\alpha'}\)，得 \(a_{\alpha'}\) 在 \(s\) 的一个邻域内为零。
+% 法文底本此处印作大写 S；上下文及随后缩小邻域的论证要求这里为点 s。
+由于 \(R\) 有限，再次缩小 \(S\) 后，可以假设对每个 \(\alpha'\in R\)、\(\alpha'\ne\alpha\)，均有 \(a_{\alpha'}=0\)。于是 \(p=a_\alpha\)，可先应用\SGARefLink{sga3:xix:proposition:4-12:item:b}{第十九讲 4.12(b)}，再应用 \SGARefLink{sga3:xix:proposition:4:12:item:c}{4.12(c)}，即得所述结果。各唯一性断言显然成立。
+
+\SGARefTarget{sga3:xxii:rem:4.1.10}\paragraph{\SGARefLink{sga3:xxii:rem:4.1.10}{注 4.1.10}.}
+当 \(f\) 为满射 \textup{（即忠实平坦）} 时，\SGARefLink{sga3:xxii:prop:4.1.9}{4.1.9} 中对 \(f\) 所加的条件特别成立。
+
+\SGARefTarget{sga3:xxii:prop:4.1.11}\paragraph{\SGARefLink{sga3:xxii:prop:4.1.11}{命题 4.1.11}.}
+\textit{设 \((G,T,M,R)\) 为分裂 \(S\)-群，\(R_+\) 为 \(R\) 的正根系，\(\Omega_{R_+}\) 为相应的大胞腔。}
+
+\textit{\textup{\SGARefLink{sga3:xxii:def:1.13:item:i}{(i)}} 设 \(H\) 为关于 fppf 拓扑分离的群值 \(S\)-函子\footnote{编者注：回忆 \textup{（参见\SGARefLink{sga3:iv:corollary:4:3:5}{第四讲 4.3.5}）}，\(S\)-预层 \(H\) 关于拓扑 \(\mathcal T\) 分离，是指对每个 \(S'\to S\) 及每个关于 \(\mathcal T\) 的覆盖 \(S\)-态射族 \((S_i'\to S')_{i\in I}\)，映射
+\[
+  H(S')\longrightarrow\prod_i H(S_i')
+\]
+是单射。}。若 \(f,g:G\rightrightarrows H\) 为在 \(\Omega_{R_+}\) 上相等的两个群同态，则 \(f=g\)。}
+
+\SGAInlineRefTarget{sga3:xxii:prop:4.1.11:item:ii}\textit{\textup{\SGARefLink{sga3:xxii:def:1.13:item:ii}{(ii)}} 设 \(H\) 为 fppf 拓扑下的 \(S\)-群层，\(f:\Omega_{R_+}\to H\) 为满足下述性质的 \(S\)-态射：对每个 \(S'\to S\) 及满足 \(xy\in\Omega_{R_+}(S')\) 的任意 \(x,y\in\Omega_{R_+}(S')\)，有 \(f(xy)=f(x)f(y)\)。则存在群同态 \(\bar f:G\to H\) 延拓 \(f\)，且由 \textup{\SGARefLink{sga3:xxii:def:1.13:item:i}{(i)}}，该延拓唯一。}
+
+事实上，由 \SGARefLink{sga3:xxii:prop:4.1.5}{4.1.5}，\textup{\SGARefLink{sga3:xxii:def:1.13:item:i}{(i)}} \textup{（以及 \textup{\SGARefLink{sga3:xxii:def:1.13:item:ii}{(ii)}}）} 立即由\SGARefLink{sga3:xviii:cor:2.2}{第十八讲 2.2} \textup{（以及 \SGARefLink{sga3:xxii:cor:2.3}{2.3} 和 \SGARefLink{sga3:xxii:cor:2.4}{2.4}）} 得出。
+
+\SGARefTarget{sga3:xxii:rem:4.1.12}\paragraph{\SGARefLink{sga3:xxii:rem:4.1.12}{注 4.1.12}.}
+若 \(\alpha\in R_+\)，则
+\[
+  \tag{\(\dagger\)}\label{sga3:xxii:subsection:4-1:equation:dagger}
+  \Omega_{R_+}\cap Z_\alpha
+  =
+  U_{-\alpha}\mathbin{\cdot}T\mathbin{\cdot}U_\alpha.
+\]
+事实上，\footnote{编者注：以下我们展开了原文的论述。}对每个 \(S'\to S\)，若
+\[
+  g=
+  \prod_{\beta\in R_-}p_\beta(x_\beta)
+  \mathbin{\cdot}t\mathbin{\cdot}
+  \prod_{\beta\in R_+}p_\beta(x_\beta)
+\]
+是 \(\Omega_{R_+}(S')\) 的一个元素，且 \(t'\in T_\alpha(S')\)，则
+\[
+  t'gt'^{-1}
+  =
+  \prod_{\beta\in R_-}p_\beta\bigl(\beta(t')x_\beta\bigr)
+  \mathbin{\cdot}t\mathbin{\cdot}
+  \prod_{\beta\in R_+}p_\beta\bigl(\beta(t')x_\beta\bigr).
+\]
+% 法文底本将 t' 的底概形印作 S''，但 g 及所显示的共轭运算均在 S' 上；英文底本已作修正。
+由于 \(R\) 中限制到 \(T_\alpha\) 上等于 \(1\) 的元素只有 \(\alpha\) 和 \(-\alpha\)，\(g\) 属于 \(Z_\alpha=\operatorname{Centr}(T_\alpha)\) 当且仅当对 \(\beta\ne\pm\alpha\) 均有 \(x_\beta=0\)。
+
+由 \((\dagger)\) 和\SGARefLink{sga3:xx:2.1}{第二十讲 2.1}，可得：若 \(X\in\Gamma(S,\mathfrak g^\alpha)\)，\(Y\in\Gamma(S,\mathfrak g^{-\alpha})\)，则
+\[
+  \exp_\alpha(X)\exp_{-\alpha}(Y)\in\Omega_{R_+}(S)
+  \quad\Longleftrightarrow\quad
+  1+XY\ \text{可逆}.
+\]
+% 法文底本印作 Gamma(X,g^alpha)；截面的底概形应为 S。
+
+\SGARefTarget{sga3:xxii:section:4.2}
+\subsection*{\SGAInlineRefTarget{sga3:xxii:subsection:4-2}4.2. 分裂群的态射}
+\addcontentsline{toc}{subsection}{\SGARefLink{sga3:xxii:subsection:4-2}{4.2}. 分裂群的态射}
+
+\SGARefTarget{sga3:xxii:def:4.2.1}\paragraph{\SGARefLink{sga3:xxii:def:4.2.1}{定义 4.2.1}.}
+设 \(S\) 为非空概形，\((G,T,M,R)\) 和 \((G',T',M',R')\) 为两个分裂 \(S\)-群。若 \(S\)-群同态 \(f:G\to G'\) 在 \(T\) 上的限制可分解为形如 \(f_T=D_S(h)\) 的态射 \(f_T:T\to T'\)，其中群同态 \(h:M'\to M\) 满足下述条件，则称 \(f\) \emph{与分裂结构相容}，或称其定义了一个\emph{分裂群的态射}：存在双射 \(d:R\xrightarrow{\sim}R'\)\footnote{编者注：我们将记号 \(u:R\to R'\) 改为 \(d:R\to R'\)。}，且对每个 \(\alpha\in R\)，存在整数 \(q(\alpha)>0\)，使 \(x\mapsto x^{q(\alpha)}\) 为 \(\mathbb G_{a,S}\) 的自同态，且
+\[
+  h\bigl(d(\alpha)\bigr)=q(\alpha)\alpha,
+  \qquad
+  {}^t h(\alpha^*)=q(\alpha)d(\alpha)^*.
+\]
+
+\SGARefTarget{sga3:xxii:rem:4.2.2}\paragraph{\SGARefLink{sga3:xxii:rem:4.2.2}{注 4.2.2}.}
+显然，\(h\)、\(d\) 及各个 \(q(\alpha)\)，\(\alpha\in R\)，由 \(f\) 唯一确定。我们记 \(h=\mathscr R(f)\)。\(q(\alpha)\) 称为 \(f\) \textup{（或 \(h\)）} 的根式指数。
+
+若存在一个在 \(S\) 上为零的素数，以 \(p\) 表示它；若不存在这样的素数，则令 \(p=1\)。于是 \(\mathscr R(f)\) 是\SGARefLink{sga3:XXI:6.8}{第二十一讲 6.8} 意义下的约化根数据的 \(p\)-态射。这样，我们定义了从分裂 \(S\)-群范畴到约化根数据范畴 \textup{（以 \(p\)-态射为态射）} 的函子 \(\mathscr R\)。
+
+\SGARefTarget{sga3:xxii:prop:4.2.3}\paragraph{\SGARefLink{sga3:xxii:prop:4.2.3}{命题 4.2.3}.}
+\textit{在 \SGARefLink{sga3:xxii:def:4.2.1}{4.2.1} 的假设下，有如下性质：}
+
+\textit{\textup{\SGARefLink{sga3:xxii:def:1.13:item:i}{(i)}} 对每个 \(\alpha\in R\)，存在唯一的 \(\mathcal O_S\)-模同构}
+\[
+  f_\alpha:
+  (\mathfrak g^\alpha)^{\otimes q(\alpha)}
+  \xrightarrow{\;\sim\;}
+  \mathfrak g'^{\,d(\alpha)}
+\]
+\textit{使得}
+\[
+  f\bigl(\exp_\alpha(X)\bigr)
+  =
+  \exp_{d(\alpha)}
+  \bigl(f_\alpha(X^{q(\alpha)})\bigr)
+\]
+\textit{对每个 \(X\in W(\mathfrak g^\alpha)(S')\) 及每个 \(S'\to S\) 成立。}
+
+\textit{\textup{\SGARefLink{sga3:xxii:def:1.13:item:ii}{(ii)}} 对每个 \(\alpha\in R\)，有 \(q(-\alpha)=q(\alpha)\)，且 \(f_\alpha\) 与 \(f_{-\alpha}\) 互为反变。}
+
+\textit{\textup{\SGARefLink{sga3:xxii:def:1.9:item:iii}{(iii)}} 对每个 \(\alpha\in R\)、每个 \(Z\in W(\mathfrak g^\alpha)^*(S')\) 及每个 \(S'\to S\)，有}
+\[
+  f\bigl(w_\alpha(Z)\bigr)
+  =
+  w_{d(\alpha)}\bigl(Z^{q(\alpha)}\bigr).
+\]
+
+由假设，下图交换：
+\SGARefTarget{sga3:xxii:diagram:4.2.3}
+\begin{center}
+\begin{tikzcd}[column sep=4.6em,row sep=3.2em]
+  \mathbb G_{m,S}
+    \arrow[r,"\alpha^*"]
+    \arrow[d,"q(\alpha)"']
+  &
+  T
+    \arrow[r,"\alpha"]
+    \arrow[d,"f_T"']
+  &
+  \mathbb G_{m,S}
+    \arrow[d,"q(\alpha)"]
+  \\
+  \mathbb G_{m,S}
+    \arrow[r,"d(\alpha)^*"]
+  &
+  T'
+    \arrow[r,"d(\alpha)"]
+  &
+  \mathbb G_{m,S}
+\end{tikzcd}
+\end{center}
+
+由此可知，\(f\) 将 \(\operatorname{Ker}(\alpha)\) 映入 \(\operatorname{Ker}(d(\alpha))\)，从而将 \(T_\alpha\) 映入 \(T'_{d(\alpha)}\)，再从而将 \(Z_\alpha\) 映入 \(Z'_{d(\alpha)}\)。现在只须对群 \(Z_\alpha\) 和 \(Z'_{d(\alpha)}\) 应用\SGARefLink{sga3:xx:3.10}{第二十讲 3.10} 和 \SGARefLink{sga3:xx:3.11}{3.11}。
+
+\begingroup
+\emergencystretch=2em
+\SGARefTarget{sga3:xxii:prop:4.2.4}\paragraph{\SGARefLink{sga3:xxii:prop:4.2.4}{命题 4.2.4}.}
+\textit{态射 \(f\) 诱导一个从 \(\underline{\operatorname{Norm}}_G(T)\) 到 \(\underline{\operatorname{Norm}}_{G'}(T')\) 的态射 \(f_N\)，从而诱导从 \(W_G(T)\) 到 \(W_{G'}(T')\) 的态射 \(f_W\)；后者是同构。更确切地说，设}
+\[
+  \bar d:W\bigl(\mathscr R(G)\bigr)=W
+  \longrightarrow
+  W'=W\bigl(\mathscr R(G')\bigr)
+\]
+\textit{是延拓 \(s_\alpha\mapsto s_{d(\alpha)}\) 的同构 \textup{（\SGARefLink{sga3:XXI:6.8.4}{第二十一讲 6.8.4}）}。则有如下由同构组成的交换图：}
+\endgroup
+
+\SGARefTarget{sga3:xxii:diagram:4.2.4}
+\begin{center}
+% 法文底本右上角印作 W_G(T')；由命题及构造，此处应为 W_{G'}(T')。
+\begin{tikzcd}[column sep=5.2em,row sep=3.2em]
+  W_G(T)
+    \arrow[r,"f_W","\sim"']
+  &
+  W_{G'}(T')
+  \\
+  W_S
+    \arrow[u,"\sim"']
+    \arrow[r,"\bar d_S","\sim"']
+  &
+  W'_S.
+    \arrow[u,"\sim"']
+\end{tikzcd}
+\end{center}
+
+这立即由 \SGARefLink{sga3:xxii:prop:3.4}{3.4}、\SGARefLink{sga3:XXI:6.8.4}{第二十一讲 6.8.4} 及上述 \textup{\SGARefLink{sga3:xxii:def:1.9:item:iii}{(iii)}} 得出。
+
+\SGARefTarget{sga3:xxii:rem:4.2.5}\paragraph{\SGARefLink{sga3:xxii:rem:4.2.5}{注 4.2.5}.}
+采用 \SGARefLink{sga3:xxii:prop:4.2.3}{4.2.3} 的记号，对正根系 \(R_+\)，\(f\) 在 \(\Omega_{R_+}\) 上的限制可显式写出：它将 \(\Omega_{R_+}\) 映入 \(\Omega'_{d(R_+)}\) \textup{（由\SGARefLink{sga3:XXI:6.8.7}{第二十一讲 6.8.7}，\(d(R_+)\) 是 \(R'\) 的正根系）}，并由如下集合意义下的公式给出：
+\[
+\begin{aligned}
+  f\Biggl(
+    \prod_{\alpha\in R_-}\exp_\alpha(X_\alpha)
+    \mathbin{\cdot}t\mathbin{\cdot}
+    \prod_{\alpha\in R_+}\exp_\alpha(X_\alpha)
+  \Biggr)
+  &=
+  \prod_{\alpha\in R_-}
+    \exp_{d(\alpha)}
+    \Bigl(f_\alpha(X_\alpha^{q(\alpha)})\Bigr)
+  \mathbin{\cdot}f_T(t)\mathbin{\cdot}\\
+  &\qquad
+  \prod_{\alpha\in R_+}
+    \exp_{d(\alpha)}
+    \Bigl(f_\alpha(X_\alpha^{q(\alpha)})\Bigr).
+\end{aligned}
+\]
+
+\SGARefTarget{sga3:xxii:prop:4.2.6}\paragraph{\SGARefLink{sga3:xxii:prop:4.2.6}{命题 4.2.6}.}
+\textit{\textup{\SGARefLink{sga3:xxii:def:1.13:item:i}{(i)}} 态射 \(f\) 为满射 \textup{（在此情形下即为忠实平坦；参见第 \(\mathrm{VI_B}\) 讲 3.11）}，当且仅当 \(f_T\) 为满射。}
+
+\textit{\textup{\SGAInlineRefTarget{sga3:xxii:prop:4.2.6:item:ii}(ii)} 有 \(\operatorname{Ker}(f)\subset\Omega_{R_+}\)。}
+
+证明 \textup{\SGARefLink{sga3:xxii:def:1.13:item:i}{(i)}}。若 \(f\) 为满射，则 \(f_T(T)=f(T)\) 是 \(G'\) 的极大环面。事实上，\(f(T)\) 是极大环面 \(T'\) 的子环面 \textup{（\SGARefLink{sga3:ix:theorem:6:8}{第九讲 6.8}）}；为验证 \(f(T)=T'\)，归结到代数闭域的情形，此时结论见 \emph{Bible}，\S7.3，定理 3\textup{(a)}。
+
+若 \(f_T\) 为满射，则上述公式表明 \(f\) 诱导一个从 \(\Omega=\Omega_{R_+}\) 到 \(\Omega'=\Omega'_{d(R_+)}\) 的满射。\footnote{编者注：以下我们给出了第六讲中引用的详细位置。}由于 \(G'\) 的纤维连通，可得 \textup{（参见第 \(\mathrm{VI_A}\) 讲 0.5）} \(f\) 为满射。
+
+证明 \textup{\SGARefLink{sga3:xxii:prop:4.2.6:item:ii}{(ii)}}，为此先承认一个将在后文证明的结果 \textup{（\SGARefLink{sga3:xxii:thm:5.7.4}{5.7.4}）}。对每个 \(w\in W\)，选取一个代表它的 \(n_w\in\underline{\operatorname{Norm}}_G(T)(S)\)。则开子概形 \(n_w\Omega\)，\(w\in W\)，覆盖 \(G\)。因此只须证明
+\[
+  \operatorname{Ker}(f)\cap n_w\Omega\ne\varnothing
+  \quad\Longrightarrow\quad w=1.
+\]
+若 \(x\in\Omega(S')\)，其中 \(S'\to S\)，且 \(f(n_wx)=1\)，则 \(f(x)=f(n_w)^{-1}\)。但 \(f(x)\in\Omega'(S')\)，而
+\[
+  f(n_w)^{-1}\in
+  \underline{\operatorname{Norm}}_{G'}(T')(S').
+\]
+由 \SGARefLink{sga3:xxii:prop:4.2.4}{4.2.4}，只须证明下面的引理。
+
+\SGARefTarget{sga3:xxii:lem:4.2.7}\paragraph{\SGARefLink{sga3:xxii:lem:4.2.7}{引理 4.2.7}.}
+\textit{在 \SGARefLink{sga3:xxii:prop:4.1.2}{4.1.2} 的假设下，有}
+\[
+  \Omega\cap\underline{\operatorname{Norm}}_G(T)=T.
+\]
+
+设
+\[
+  x=
+  \prod_{\alpha\in R_-}p_\alpha(x_\alpha)
+  \mathbin{\cdot}t\mathbin{\cdot}
+  \prod_{\alpha\in R_+}p_\alpha(x_\alpha)
+  =
+  vtu
+  \in\Omega(S').
+\]
+若 \(x\) 正规化 \(T_{S'}\)，则对每个 \(t'\in T(S')\)，有
+\[
+  xt'x^{-1}=t''\in T(S'),
+\]
+即 \(xt'=t''x\)，可写成
+\[
+  v(tt')(t'^{-1}ut')
+  =
+  (t''vt''^{-1})(t''t)u.
+\]
+这给出 \(t'^{-1}ut'=u\)，从而
+\[
+  u\in\operatorname{Centr}_G(T)(S')=T(S'),
+\]
+因此 \(u=1\)。同理，\(v=1\)。
+
+\SGARefTarget{sga3:xxii:cor:4.2.8}\paragraph{\SGARefLink{sga3:xxii:cor:4.2.8}{推论 4.2.8}.}
+\textit{有}
+\[
+  \operatorname{Ker}(f)
+  =
+  \prod_{\alpha\in R_-}K_\alpha
+  \mathbin{\cdot}\operatorname{Ker}(f_T)\mathbin{\cdot}
+  \prod_{\alpha\in R_+}K_\alpha,
+\]
+\textit{其中，对每个 \(\alpha\in R\)，\(K_\alpha\) 表示有限 \(S\)-群}
+\[
+  K_\alpha
+  =
+  \operatorname{Ker}\!\left(
+    U_\alpha\longrightarrow U_\alpha^{\otimes q(\alpha)}
+  \right)
+  \simeq
+  \boldsymbol{\alpha}_{q(\alpha),S}.
+\]
+
+为应用此推论，作如下定义。
+
+\SGARefTarget{sga3:xxii:def:4.2.9}\paragraph{\SGARefLink{sga3:xxii:def:4.2.9}{定义 4.2.9}.}
+设 \(S\) 为概形，\(G\) 与 \(G'\) 为两个约化 \(S\)-群。忠实平坦且有限的 \(S\)-群态射 \(f:G\to G'\) \textup{（即为满射且核在 \(S\) 上有限）}称为一个\emph{同源}。若此外 \(\operatorname{Ker}(f)\) 是 \(G\) 的中心子群，则称 \(f\) 为\emph{中心同源}。
+
+\SGARefTarget{sga3:xxii:prop:4.2.10}\paragraph{\SGARefLink{sga3:xxii:prop:4.2.10}{命题 4.2.10}.}
+\textit{设 \(f:G\to G'\) 为分裂群的态射。\(f\) 为同源 \textup{（或中心同源）}的充要条件是 \(f_T\) 为同源，即 \(\mathscr R(f)\) 单射且余核有限 \textup{（并且对每个 \(\alpha\in R\) 均有 \(q(\alpha)=1\)）}。}
+
+事实上，由 \SGARefLink{sga3:xxii:cor:4.2.8}{4.2.8}，\(\operatorname{Ker}(f)\) 在 \(S\) 上有限当且仅当 \(\operatorname{Ker}(f_T)\) 在 \(S\) 上有限，且 \(\operatorname{Ker}(f)\subset T\) 当且仅当每个 \(q(\alpha)\) 均等于 \(1\)。此时 \(\operatorname{Ker}(f)\) 为中心子群，因为它是乘法型且不变的；参见\SGARefLink{sga3:ix:corollary:5:5}{第九讲 5.5}。
+
+\SGARefTarget{sga3:xxii:rem:4.2.11}\paragraph{\SGARefLink{sga3:xxii:rem:4.2.11}{注 4.2.11}.}
+\textup{(a)} 因此，\(f:G\to G'\) 为中心同源，当且仅当
+\[
+  \mathscr R(f):\mathscr R(G')\longrightarrow\mathscr R(G)
+\]
+是\SGARefLink{sga3:XXI:6.2}{第二十一讲 6.2} 意义下的同源。此外，此时采用\emph{同上}的记号，有
+\[
+  \operatorname{Ker}(f)
+  =
+  D_S\!\left(K\bigl(\mathscr R(f)\bigr)\right),
+  \qquad
+  K\bigl(\mathscr R(f)\bigr)
+  =
+  \operatorname{Coker}\bigl(\mathscr R(f)\bigr).
+\]
+
+\textup{\SGARefLink{sga3:xxii:def:1.5:item:b}{(b)}} 若 \(G\) 与 \(G'\) 半单，则每个分裂群态射 \(f:G\to G'\) 都是同源。\footnote{编者注：事实上，因 \(G\) 与 \(G'\) 半单，\(f_T\) 为满射且核有限；故由 \SGARefLink{sga3:xxii:prop:4.2.6}{4.2.6}\textup{(i)} 和 \SGARefLink{sga3:xxii:cor:4.2.8}{4.2.8}，\(f\) 忠实平坦且核有限。}
+
+\textup{(c)} 若 \(f:G\to G'\) 忠实平坦且有限，而 \(G\) 约化 \textup{（或半单）}，则 \(G'\) 也约化 \textup{（或半单）}。事实上，\(G'\) 在 \(S\) 上有限表现 \textup{（第五讲 9.1）}、仿射 \textup{（EGA II，6.7.1）}、光滑 \textup{（第六讲 9.2）}，且由\SGARefLink{sga3:xix:paragraph:1-7}{第十九讲 1.7}，几何纤维是连通约化 \textup{（或半单）}群。
+
+\SGARefLink{sga3:xxii:def:4.2.1}{定义 4.2.1} 或许显得任意。下面的命题说明它的合理性；为简便起见，我们将对半单群陈述它。
+
+若约化 \(S\)-群的态射 \(f:G\to G'\) 与 \(G\)、\(G'\) 的某些分裂结构相容，则称其\emph{可分裂}。于是有如下结果。
+
+\SGARefTarget{sga3:xxii:prop:4.2.12}\paragraph{\SGARefLink{sga3:xxii:prop:4.2.12}{命题 4.2.12}.}
+\textit{设 \(S\) 为概形，\(G\) 与 \(G'\) 为两个半单 \(S\)-群，\(f:G\to G'\) 为群态射。取 \(s\in S\)。下述条件等价：}
+\begin{enumerate}
+\item[\textup{\SGAInlineRefTarget{sga3:xxii:prop:4.2.12:item:i}(i)}]
+\(\operatorname{Ker}(f_{\bar s})\) 有限 \textup{（\(\Longleftrightarrow e\) 在 \(\operatorname{Ker}(f)(\bar s)\) 中孤立）}，且 \(f_{\bar s}\) 为满射，即 \(f_{\bar s}\) 为同源。
+
+\item[\textup{\SGAInlineRefTarget{sga3:xxii:prop:4.2.12:item:ii}(ii)}]
+\(f_{\bar s}\) 可分裂。
+
+\item[\textup{\SGAInlineRefTarget{sga3:xxii:prop:4.2.12:item:iii}(iii)}]
+存在覆盖 \(s\) 的平展态射 \(S'\to S\)，使 \(f_{S'}:G_{S'}\to G'_{S'}\) 可分裂。
+\end{enumerate}
+
+显然，\textup{\SGARefLink{sga3:xxii:prop:4.2.12:item:iii}{(iii)}} 等价于 \textup{\SGARefLink{sga3:xxii:prop:4.2.12:item:ii}{(ii)}}，且由 \SGARefLink{sga3:xxii:rem:4.2.11}{4.2.11}\textup{\SGARefLink{sga3:xxii:def:1.5:item:b}{(b)}}，\textup{\SGARefLink{sga3:xxii:prop:4.2.12:item:ii}{(ii)}} 蕴含 \textup{\SGARefLink{sga3:xxii:prop:4.2.12:item:i}{(i)}}。这里用到了 \(G\)、\(G'\) 半单这一假设；其余蕴含关系对约化群仍然有效。
+
+现在证明 \textup{\SGARefLink{sga3:xxii:prop:4.2.12:item:i}{(i)}} 蕴含 \textup{\SGARefLink{sga3:xxii:prop:4.2.12:item:iii}{(iii)}}。可以假设 \(G\) 和 \(G'\) 都已分裂，且分裂结构使 \(f\) 诱导态射
+\[
+  f_T:T\longrightarrow T'
+\]
+\textup{（\SGARefLink{sga3:xxii:cor:2.3}{2.3} 和\SGARefLink{sga3:xix:paragraph:2:8}{第十九讲 2.8}）}。限制 \(S\) 后，可以假设 \(f_T=D_S(h)\)，其中 \(h:M'\to M\) 为群态射。取 \(\alpha\in R\)，考虑复合态射
+\[
+  p:
+  W(\mathfrak g^\alpha)
+  \xrightarrow{\ \exp_\alpha\ }
+  G
+  \xrightarrow{\ f\ }
+  G'.
+\]
+由于 \(\operatorname{Ker}(p_{\bar s})\) 有限，\(p_{\bar s}\ne e\)。另一方面，\(f_{T_{\bar s}}\) 为满射。因此可以应用 \SGARefLink{sga3:xxii:prop:4.1.9}{4.1.9}：存在 \(S\) 中含 \(s\) 的开子集 \(V_\alpha\)、根 \(\alpha'\in R'\)、整数 \(q(\alpha)\)（使 \(x\mapsto x^{q(\alpha)}\) 为 \(\mathbb G_{a,V_\alpha}\) 的自同态），以及 \(\mathcal O_{V_\alpha}\)-模同构
+\[
+  f_\alpha:
+  \left.(\mathfrak g^\alpha)^{\otimes q(\alpha)}
+  \right|_{V_\alpha}
+  \xrightarrow{\ \sim\ }
+  \left.\mathfrak g'^{\alpha'}\right|_{V_\alpha},
+\]
+使得
+\[
+  f\bigl(\exp_\alpha(X_\alpha)\bigr)
+  =
+  \exp_{d(\alpha)}
+  \bigl(f_\alpha(X_\alpha^{q(\alpha)})\bigr)
+\]
+以及
+\[
+  \alpha'\circ f_T=h(\alpha')=q(\alpha)\alpha.
+\]
+可将 \(S\) 换成各 \(V_\alpha\)，\(\alpha\in R\)，的交。令 \(\alpha'=d(\alpha)\)。由于 \(h\) 的核有限 \textup{（\(f_{T_{\bar s}}\) 为满射）}，显然
+\[
+  d:R\longrightarrow R'
+\]
+为双射。只须再证明
+\[
+  f_T\circ\alpha^*=q(\alpha)\alpha'^*,
+\]
+而这由\SGARefLink{sga3:xx:3.11}{第二十讲 3.11} 所用的论证稍作变动即可得到。
+
+无论如何，正如证明过程中已见，\textup{\SGARefLink{sga3:xxii:prop:4.2.12:item:i}{(i)}} 蕴含 \textup{\SGARefLink{sga3:xxii:prop:4.2.12:item:iii}{(iii)}}。因此，我们证明了下面的结论。
+
+\SGARefTarget{sga3:xxii:cor:4.2.13}\paragraph{\SGARefLink{sga3:xxii:cor:4.2.13}{推论 4.2.13}.}
+\textit{设 \(S\) 为概形，\(f:G\to G'\) 为约化群的同源。则 \(f\) 关于平展拓扑局部可分裂。}
+
+\SGARefTarget{sga3:xxii:section:4.3}\section*{4.3. 约化群的中心商}
+\addcontentsline{toc}{section}{\SGARefLink{sga3:xxii:section:4.3}{4.3}. 约化群的中心商}
+
+先考虑一个特殊情形。
+
+\SGARefTarget{sga3:xxii:prop:4.3.1}\paragraph{\SGARefLink{sga3:xxii:prop:4.3.1}{命题 4.3.1}.}
+\textit{设 \(S\) 为概形，\((G,T,M,R)\) 为分裂 \(S\)-群，\(N\) 为 \(M\) 中含有 \(R\) 的子群，并令}
+\[
+  Q=D_S(M/N)\subset\operatorname{Centr}(G).
+\]
+\textit{则：}
+\begin{enumerate}
+\item[\textup{(i)}]
+\textit{\(G'=G/Q\) 是约化 \(S\)-群，且 \(T'=T/Q\) 是 \(G'\) 的极大环面；}
+
+\item[\textup{\SGAInlineRefTarget{sga3:xxii:prop:4.3.1:item:ii}(ii)}]
+\textit{若将 \(T'\) 与 \(D_S(N)\) 等同，则 \(R\subset N\) 为 \(G'\) 关于 \(T'\) 的一个根系，\((G',T',N,R)\) 是 \(G'\) 的一个分裂结构，且 \(\mathscr R(G')\) 典范地等同于诱导根数据 \textup{（\SGARefLink{sga3:XXI:6.5}{第二十一讲 6.5}）} \(\mathscr R(G)_N\)；}
+% Polo--Gille 底本此处印作“un déploiement de G”；此组资料以 G' 开头且描述商群，故应为 G'，英文底本已修正此明显排印错误。
+
+\item[\textup{(iii)}]
+\textit{典范态射 \(G\to G'\) 与分裂结构相容，各根指数均为 \(1\)，并通过函子性诱导典范态射 \textup{（同上）}}
+\[
+  \mathscr R(G)_N\longrightarrow\mathscr R(G).
+\]
+\end{enumerate}
+
+已知 \(G'=G/Q\) 可由 \(S\) 上的仿射群概形表示 \textup{（\SGARefLink{sga3:viii:corollary:5:7}{第八讲 5.7}）}，在 \(S\) 上光滑 \textup{（第 VI\textsubscript{B} 讲 \SGARefLink{prop:sga3-VIB-9.2}{9.2}）}，且几何纤维为连通约化群 \textup{（作为约化群的商；参见\SGARefLink{sga3:xix:paragraph:1-7}{第十九讲 1.7}）}。因此 \(G'\) 为约化 \(S\)-群。
+
+显然，
+\[
+  T'=T/Q\simeq D_S(N)
+\]
+是 \(G'\) 的极大环面。再选取 \(R\) 的正根系 \(R_+\)。\SGARefLink{sga3:xxii:subsection:4-2}{4.2} 中的开子集 \(\Omega_{R_+}\) 在 \(Q\) 下稳定，且有典范同构
+\[
+  \Omega_{R_+}/Q
+  \simeq
+  \left(\prod_{\alpha\in R_-}U_\alpha\right)
+  \mathop{\times}_S(T/Q)
+  \mathop{\times}_S
+  \left(\prod_{\alpha\in R_+}U_\alpha\right).
+\]
+此外，\(\Omega_{R_+}/Q\) 是 \(G'\) 中含有单位截面的开子集 \textup{（参见\SGARefLink{sga3:iv:proposition:4:7:2}{第四讲 4.7.2} 和 \SGARefLink{sga3:iv:lemma:6:4:1}{6.4.1}）}。
+
+因此，若 \(\mathfrak g'\) 表示 \(G'\) 的 Lie 代数，\(\bar\alpha\) 表示由 \(\alpha\) 诱导的 \(T/Q\) 的特征 \textup{（等价地，在等同 \(T/Q=D_S(N)\) 下，由 \(\alpha\in N\) 定义的特征）}，则典范态射 \(\mathfrak g\to\mathfrak g'\) 对每个 \(\alpha\in R\) 诱导同构
+\[
+  \mathfrak g^\alpha
+  \xrightarrow{\ \sim\ }
+  \mathfrak g'^{\bar\alpha}.
+\]
+
+这样便证明 \(R\) 为 \(G'\) 关于 \(T'\) 的根系，余下的证明不难完成。
+
+\SGARefTarget{sga3:xxii:cor:4.3.2}\paragraph{\SGARefLink{sga3:xxii:cor:4.3.2}{推论 4.3.2}.}
+\textit{设 \(S\) 为概形，\(G\) 为约化 \(S\)-群，\(Q\) 为 \(G\) 的乘法型正规子群。则 \(Q\) 包含在 \(G\) 的中心内，商 \(G/Q\) 可由约化 \(S\)-群表示，且典范态射 \(G\to G/Q\) 关于平展拓扑局部可分裂 \textup{（各根指数等于 \(1\)）}。}
+
+第一个断言由\SGARefLink{sga3:ix:corollary:5:5}{第九讲 5.5} 得出；其余断言是平展拓扑下的局部性质，归结为 \SGARefLink{sga3:xxii:prop:4.3.1}{4.3.1}。
+
+\SGARefTarget{sga3:xxii:def:4.3.3}\paragraph{\SGARefLink{sga3:xxii:def:4.3.3}{定义 4.3.3}.}
+设 \(G\) 为约化 \(S\)-群。若对每个 \(s\in S\)，\(G\) 在 \(s\) 处的型由伴随 \textup{（或单连通）} 根数据给出，则称 \(G\) 为\emph{伴随的} \textup{（或\emph{单连通的}）}；即 \textup{（\SGARefLink{sga3:XXI:6.2.6}{第二十一讲 6.2.6}）} \(M\) 由 \(R\) 生成 \textup{（或 \(M^*\) 由 \(R^*\) 生成）}。
+
+\SGARefTarget{sga3:xxii:prop:4.3.4}\paragraph{\SGARefLink{sga3:xxii:prop:4.3.4}{命题 4.3.4}.}
+\textit{\textup{\SGAInlineRefTarget{sga3:xxii:prop:4.3.4:item:i}(i)} 伴随 \textup{（或单连通）} 约化群是半单的。}
+
+\textit{\textup{\SGARefLink{sga3:xxii:prop:4.3.1:item:ii}{(ii)}} 若 \(T\) 为伴随 \textup{（或单连通）} 约化群 \(G\) 的极大环面，\(\alpha\) 为 \(G\) 关于 \(T\) 的根，则无穷小根 \(\bar\alpha\) 在每个纤维上非零 \textup{（或 \(\alpha^*\) 为单态射且无穷小余根 \(H_\alpha\) 在每个纤维上非零）}。}
+
+事实上，\textup{\SGARefLink{sga3:xxii:prop:4.3.4:item:i}{(i)}} 显然成立；\textup{\SGARefLink{sga3:xxii:prop:4.3.1:item:ii}{(ii)}} 可在几何纤维上检验，立即由\SGARefLink{sga3:XXI:6.2.8}{第二十一讲 6.2.8} 得出。
+
+\SGARefTarget{sga3:xxii:prop:4.3.5}\paragraph{\SGARefLink{sga3:xxii:prop:4.3.5}{命题 4.3.5}.}
+\textit{\textup{\SGARefLink{sga3:xxii:prop:4.3.4:item:i}{(i)}} 约化群 \(G\) 为伴随群，当且仅当}
+\[
+  \operatorname{Centr}(G)=\{e\}_S.
+\]
+
+\textit{\textup{\SGARefLink{sga3:xxii:prop:4.3.1:item:ii}{(ii)}} 对每个约化群 \(G\)，商群 \(G/\operatorname{Centr}(G)\) 是伴随约化群。}
+
+事实上，可以假设 \(G\) 分裂。此时 \textup{\SGARefLink{sga3:xxii:prop:4.3.4:item:i}{(i)}} 是直接的，因为
+\[
+  \operatorname{Centr}(G)=D_S\bigl(M/\Gamma_0(R)\bigr),
+\]
+而 \textup{\SGARefLink{sga3:xxii:prop:4.3.1:item:ii}{(ii)}} 由 \SGARefLink{sga3:xxii:prop:4.3.1}{4.3.1} 得出。
+
+\SGARefTarget{sga3:xxii:def:4.3.6}\paragraph{\SGARefLink{sga3:xxii:def:4.3.6}{定义 4.3.6}.}
+设 \(G\) 为约化 \(S\)-群。\(G\) 的\emph{伴随群}是指群 \(G/\operatorname{Centr}(G)\)，记为 \(\operatorname{ad}(G)\)。\(G\) 的\emph{根基}是指 \(\operatorname{Centr}(G)\) 的极大环面 \textup{（由\SGARefLink{sga3:xii:1.12}{第十二讲 1.12}，它是唯一的）}，记为 \(\operatorname{rad}(G)\)。\emph{与 \(G\) 相联系的半单群}是指商群 \(G/\operatorname{rad}(G)\)。
+
+上述定义与基变换相容。若 \(s\in S\)，则 \(\operatorname{rad}(G)_{\bar s}\) 确实是通常意义下 \(G_{\bar s}\) 的根基 \textup{（\SGARefLink{sga3:xii:1.6}{第十九讲 1.6}）}。
+
+\SGARefTarget{sga3:xxii:par:4.3.7}\paragraph{\SGARefLink{sga3:xxii:par:4.3.7}{4.3.7}.}
+若 \((G,T,M,R)\) 为分裂群，则
+\[
+  \operatorname{rad}(G)=D_S(M/N),
+  \qquad
+  N=M\cap V(R).
+\]
+因此，与 \(G\) 相联系的半单群 \textup{（以及 \(G\) 的伴随群）} 具有典范分裂结构 \textup{（\SGARefLink{sga3:xxii:prop:4.3.1}{4.3.1}）}，且有分裂群的图表
+\[
+  G\longrightarrow \operatorname{ss}(G)
+   \longrightarrow \operatorname{ad}(G)
+\]
+对应于根数据的典范图表 \textup{（\SGARefLink{sga3:XXI:6.5.5}{第二十一讲 6.5.5}）}
+\[
+  \operatorname{ad}\bigl(\mathscr R(G)\bigr)
+  \longrightarrow
+  \operatorname{ss}\bigl(\mathscr R(G)\bigr)
+  \longrightarrow
+  \mathscr R(G).
+\]
+
+\SGARefTarget{sga3:xxii:rem:4.3.8}\paragraph{\SGARefLink{sga3:xxii:rem:4.3.8}{注 4.3.8}.}
+\textit{设 \((G,T,M,R)\) 为分裂伴随 \textup{（或单连通）} \(S\)-群，\(\Delta\) 为 \(R\) 的一个单根系。则族 \(\{\alpha\}_{\alpha\in\Delta}\) 或 \(\{\alpha^*\}_{\alpha\in\Delta}\) 诱导同构}
+\[
+  T\xrightarrow{\ \sim\ }(\mathbb G_{m,S})^\Delta,
+  \qquad\textit{或}\qquad
+  (\mathbb G_{m,S})^\Delta\xrightarrow{\ \sim\ }T.
+\]
+
+事实上，
+\[
+  M=\Gamma_0(R)
+  \qquad
+  \textup{（或 \(M^*=\Gamma_0(R^*)\)）},
+\]
+且 \(\Delta\) \textup{（或 \(\{\alpha^*\}_{\alpha\in\Delta}\)）} 是自由阿贝尔群 \(\Gamma_0(R)\) \textup{（或 \(\Gamma_0(R^*)\)）} 的一组基；参见\SGARefLink{sga3:XXI:3.1.8}{第二十一讲 3.1.8}。
+% 法文将单连通的对应陈述缩写为“(resp. ...)”；英文底本展开了形式上对偶的陈述。
+
+\SGARefTarget{sga3:xxii:rem:4.3.9}\paragraph{\SGARefLink{sga3:xxii:rem:4.3.9}{注 4.3.9}.}
+由定义，约化群的根基为\emph{特征}子群 \textup{（即在 \(\underline{\operatorname{Aut}}_{S\text{-gr.}}(G)\) 下稳定）}。

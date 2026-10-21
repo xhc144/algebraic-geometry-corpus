@@ -1,0 +1,1714 @@
+% 翻译检查点：源 /tmp/sga3-audit/units/XXIV.tex；保留原编号与引用键。
+\markboth{第 XXIV 讲. 约化群的自同构}{第 XXIV 讲. 约化群的自同构}
+\setcounter{footnote}{0}
+\SGARefTarget{sga3:xxiv:chapter:xxiv}\chapter*{第 XXIV 讲\\约化群的自同构}
+\addcontentsline{toc}{chapter}{第 XXIV 讲. 约化群的自同构}
+\markboth{第 XXIV 讲. 约化群的自同构}{第 XXIV 讲. 约化群的自同构}
+\begin{center}
+  \textit{Michel Demazure 著}
+\end{center}
+\begingroup
+\renewcommand{\thefootnote}{0}
+\footnote{编者注：2024 年 10 月 13 日版本。}
+\addtocounter{footnote}{-1}
+\endgroup
+本讲的第一部分（第 1 至 5 节）直接由约化群（reductive group）有“足够多的外自同构”这一事实推出；这一事实本身又是钉扎群（pinned group）同构定理的最弱形式的推论。第二部分（第 6、7 节）阐述上一讲中更精确结果的两个应用；特别地，第 7 节使用了生成元与关系定理的显式形式。最后，我们在附录（第 8 节）中收入正文用到的“Galois”上同调结果。
+
+先说明上同调记号。若 \(S\) 是概形，\(G\) 是 \(S\)-群概形，则以 \(H^1(S,G)\) 表示按 \textup{(fpqc)} 拓扑计算的 \(S\) 以 \(G\) 为系数的第一上同调集；它也就是 \(G\) 下主齐性 \textup{(fpqc)} 层的同构类集合。以 \(H^1_{\mathrm{\acute et}}(S,G)\) 表示平展拓扑下的相应集合；因此它是 \(H^1(S,G)\) 中由 \(G\) 下拟等平凡的齐性层（即平展拓扑下局部平凡的齐性层）的类组成的部分。以 \(\Fib(S,G)\) 表示 \(H^1(S,G)\) 中由可表层（主齐性丛）的类组成的部分。于是有包含关系
+\[
+  H^1_{\mathrm{\acute et}}(S,G)\subset H^1(S,G),
+  \qquad
+  \Fib(S,G)\subset H^1(S,G).
+\]
+
+若 \(G\) 下的每个主齐性层都可表（例如 \(G\) 在 \(S\) 上拟仿射时；参见 SGA~1，VIII，\SGARefLink{sga3:viii:proposition:7:9}{7.9}），则
+\[
+  \Fib(S,G)=H^1(S,G).
+\]
+
+若 \(S'\to S\) 是 \textup{(fpqc)} 拓扑的覆盖态射，则以 \(H^1(S'/S,G)\) 表示典范映射
+\[
+  H^1(S,G)\longrightarrow H^1(S',G_{S'}).
+\]
+的核。已知 \(H^1(S'/S,G)\) 可以用单纯方法计算（TDTE~I，\S A.4）；这意味着，当 \(S'\to S\) 是平展拓扑的覆盖时，\(H^1(S'/S,G)\) 也是映射
+\[
+  H^1_{\mathrm{\acute et}}(S,G)
+  \longrightarrow
+  H^1_{\mathrm{\acute et}}(S',G_{S'}).
+\]
+的核。
+
+最后，按照\SGARefLink{sga3:viii:corollary:4:5}{第 VIII 讲 4.5}，把以下断言称为“\SGARefLink{sga3:viii:corollary:4:5}{定理 90}”：“\(G_{m,S}\) 下的每个主齐性层都可表且局部平凡。”这一断言等价于
+\[
+  H^1(S,G_{m,S})=\operatorname{Pic}(S),
+\]
+也等价于：当 \(S\) 局部（或更一般地，半局部）时，
+\[
+  H^1(S,G_{m,S})=0
+\]
+
+\SGARefTarget{sga3:xxiv:section:1}
+\section*{1. 约化群的自同构概形}
+\addcontentsline{toc}{section}{1. 约化群的自同构概形}
+\SGARefTarget{sga3:xxiv:1.0}
+\subsection*{1.0.}
+首先须使上一讲中的某些定义精确化。设 \(S\) 是非空概形，\(G\) 是约化 \(S\)-群，并设
+\[
+  \mathscr R=(M,M^*,R,R^*,\Delta)
+\]
+是钉扎既约根数据（\SGARefLink{sga3:XXIII:1.5}{第 XXIII 讲 1.5}）。\emph{\(G\) 的类型为 \(\mathscr R\) 的钉扎}，或称 \emph{\(G\) 的 \(\mathscr R\)-钉扎}，由以下资料组成：
+\begin{enumerate}
+\item[(i)] 从 \(D_S(M)\) 到 \(G\) 的一个极大环面 \(T\) 的同构（等价地，一个单态射 \(D_S(M)\to G\)，其像为 \(G\) 的极大环面 \(T\)），它将 \(R\) 等同于 \(G\) 关于 \(T\) 的根系（\SGARefLink{sga3:xix:definition:3-6}{第 XIX 讲 3.6}），将 \(R^*\) 等同于相应的余根集；
+\item[(ii)] 对每个 \(\alpha\in\Delta\)，一个元素
+  \[
+    X_\alpha\in\Gamma(S,\mathfrak g^\alpha)^\times.
+  \]
+\end{enumerate}
+群 \(G\) 有一个 \(\mathscr R\)-钉扎，当且仅当它分裂且类型为 \(\mathscr R\)（\SGARefLink{sga3:xxii:def:2.7}{第 XXII 讲 2.7}）。
+
+若 \(u:G\to G'\) 是约化 \(S\)-群的同构，则 \(G\) 的每个 \(\mathscr R\)-钉扎 \(\mathcal E\) 都通过“结构转移”确定 \(G'\) 的一个 \(\mathscr R\)-钉扎 \(u(\mathcal E)\)。若 \(v:\mathscr R'\to\mathscr R\) 是钉扎根数据的同构，则 \(G'\) 的每个 \(\mathscr R'\)-钉扎 \(\mathcal E'\) 都通过结构转移确定 \(G\) 的一个 \(\mathscr R\)-钉扎 \(v(\mathcal E')\)。
+
+称三元组 \((G,\mathscr R,\mathcal E)\) 为\emph{钉扎群}，其中 \(G\) 是约化 \(S\)-群，\(\mathscr R\) 是钉扎既约根数据，\(\mathcal E\) 是 \(G\) 的类型为 \(\mathscr R\) 的钉扎。从钉扎群 \((G,\mathscr R,\mathcal E)\) 到钉扎群 \((G',\mathscr R',\mathcal E')\) 的同构是一个有序对 \((u,v)\)，其中 \(u:G\to G'\) 是同构，\(v:\mathscr R'\to\mathscr R\) 是钉扎根数据的同构，并且
+\[
+  u(\mathcal E)=v(\mathcal E').
+\]
+\footnote{编者注：因此，对每个 \(\alpha\in R'\)，有 \(\Lie(u)(X_{v(\alpha)})=X'_\alpha\)。}
+
+\textit{注意。} 若 \(S\) 非空，则 \(v\) 由 \(u\) 唯一确定；因而也把 \(u\) 称为钉扎群的同构，这是术语上的滥用。特别地，若 \((G,\mathscr R,\mathcal E)\) 是钉扎群，则 \((G,\mathscr R,\mathcal E)\) 的自同构就是 \(G\) 的自同构 \(u\)，使得存在 \(\mathscr R\) 的自同构 \(v\)，满足 \(u(\mathcal E)=v(\mathcal E)\)。因此它是 \(G\) 的如下自同构：正规化 \(T\)，在 \(T\) 上诱导形如 \(D_S(h)\) 的自同构，其中 \(h\) 是 \(M\) 的自同构，并置换元素 \(X_\alpha\)，\(\alpha\in\Delta\)。（容易看出，上述条件实际上刻画了 \((G,\mathscr R,\mathcal E)\) 的自同构。）
+
+显然有一个反变函子
+\[
+  \Phi:\quad
+  (G,\mathscr R,\mathcal E)\longmapsto\mathscr R,
+  \qquad
+  (u,v)\longmapsto v,
+\]
+而上一讲的主要结果（\SGARefLink{sga3:xxiii:theorem:4-1}{第 XXIII 讲 4.1}）表明，这个函子完全忠实（而且我们将在下一讲看到，它是范畴等价）。特别地，钉扎群 \((G,\mathscr R,\mathcal E)\) 的自同构群典范同构于钉扎根数据 \(\mathscr R\) 的自同构群（参见\SGARefLink{sga3:XXIII:5.5}{第 XXIII 讲 5.5}）。
+
+\SGARefTarget{sga3:xxiv:1.1}
+\subsection*{1.1.}
+设 \(S\) 是概形；赋予 \((\mathbf{Sch})/S\) 以 \textup{(fpqc)} 拓扑，并考虑 \(S\)-群层 \(\underline{\Aut}_{S\text{-}\mathrm{gr.}}(G)\)，其中 \(G\) 是 \(S\)-群概形。有一个 \(S\)-群层的正合序列
+\[
+  1\longrightarrow \underline{\Centr}(G)
+  \longrightarrow G
+  \xrightarrow{\mathrm{int}}
+  \underline{\Aut}_{S\text{-}\mathrm{gr.}}(G),
+\]
+它定义一个单态射
+\[
+  j:G/\underline{\Centr}(G)
+  \longrightarrow \underline{\Aut}_{S\text{-}\mathrm{gr.}}(G).
+\]
+\(j\) 的像层就是 \(G\) 的内自同构层。\(G\) 的自同构 \(u\) 是内自同构，当且仅当存在覆盖族 \(\{S_i\to S\}\)，并对每个 \(i\) 存在元素 \(g_i\in G(S_i)\)，使得
+\[
+  \operatorname{int}(g_i)=u_{S_i}.
+\]
+此时，若 \(v\) 是 \(G\) 的另一个自同构，则立即可见
+\[
+  \operatorname{int}(v)u=vuv^{-1}
+\]
+是由族 \(g'_i=v(g_i)\) 定义的内自同构。因此 \(j\) 的像在 \(\underline{\Aut}_{S\text{-}\mathrm{gr.}}(G)\) 中正规。记商群层为 \(\underline{\Autext}(G)\)，称为 \(G\) 的外自同构层。于是有正合序列
+\[
+  1\longrightarrow G/\underline{\Centr}(G)
+  \longrightarrow \underline{\Aut}_{S\text{-}\mathrm{gr.}}(G)
+  \longrightarrow \underline{\Autext}(G)
+  \longrightarrow 1.
+\]
+上述定义均与基变换相容。当然，它们在任意景中都成立。
+
+\SGARefTarget{sga3:xxiv:1.2}
+\subsection*{1.2.}
+设 \(S\) 是概形，\((G,\mathscr R,\mathcal E)\) 是钉扎约化 \(S\)-群。设 \(E\) 为钉扎根数据 \(\mathscr R\) 的（抽象）自同构群，即 \(\mathscr R\) 的正规化 \(\Delta\) 的自同构组成的群。由\SGARefLink{sga3:XXIII:5.5}{第 XXIII 讲 5.5}，有典范单态射
+\[
+  E\longrightarrow \underline{\Aut}_{S\text{-}\mathrm{gr.}}(G)
+\]
+它把 \(h\in E\) 对应到钉扎群 \(G\) 的唯一自同构 \(u\)，使得 \(\Phi(u)=h\)。这个单态射典范地定义层的单态射
+\[
+  \tag{*}\label{sga3:xxiv:subsection:1-2:equation:star}
+  a:E_S\longrightarrow \underline{\Aut}_{S\text{-}\mathrm{gr.}}(G).
+\]
+\(G\) 的自同构 \(u\) 是 \(a\) 的像层的截面，当且仅当下列条件成立：
+\begin{enumerate}
+\item[(i)] \(u\) 正规化 \(T\)。此时已知 \(u\) 置换 \(G\) 关于 \(T\) 的根。若 \(\alpha\in R\)，则
+  \[
+    u(\alpha):t\longmapsto\alpha\bigl(u^{-1}(t)\bigr)
+  \]
+  在 \(S\) 上局部地具有形式 \(t\longmapsto\beta(t)\)，其中 \(\beta\in R\)。第二个条件于是可写成：
+\item[(ii)] 若 \(\alpha\in\Delta\)，\(U\) 是 \(S\) 的开子集，并且 \(u(\alpha)_U\in R\)，则 \(u(\alpha)_U\in\Delta\)，且
+  \[
+    \Lie(u_U)(X_\alpha)_U=(X_{u(\alpha)})_U.
+  \]
+\end{enumerate}
+由定义立即得知，\(a(E_S)\) 的截面正规化由钉扎确定的 \(G\) 的子群
+\[
+  T,\quad B,\quad B^{-},\quad U,\quad U^{-}.
+\]
+
+作好这些定义后，有如下结果。
+
+% 已译源行 1--261。
+\SGARefTarget{sga3:xxiv:1.3}
+\paragraph{\SGARefLink{sga3:xxiv:1.3}{定理 1.3}.}
+\emph{设 \(S\) 是概形，\(G\) 是约化 \(S\)-群。考虑 \(S\)-群层的典范正合序列}
+\footnote{编者注：回忆 \(\operatorname{ad}(G)=G/\underline{\Centr}(G)\) 表示 \(G\) 的伴随群；参见\SGARefLink{sga3:xxii:def:4.3.6}{第 XXII 讲 4.3.6}。}
+\[
+  1\longrightarrow \operatorname{ad}(G)
+  \longrightarrow \underline{\Aut}_{S\text{-}\mathrm{gr.}}(G)
+  \xrightarrow{p}\underline{\Autext}(G)
+  \longrightarrow 1.
+\]
+\emph{则：}
+\begin{enumerate}
+\item[\SGAInlineRefTarget{sga3:xxiv:1.3:item:i}(i)] \(\underline{\Aut}_{S\text{-}\mathrm{gr.}}(G)\) 可由一个光滑分离的 \(S\)-概形表示；
+\item[\SGAInlineRefTarget{sga3:xxiv:1.3:item:ii}(ii)] \(\underline{\Autext}(G)\) 可由一个有限生成的扭常 \(S\)-概形表示（\SGARefLink{sga3:x:definition:5-1}{第 X 讲 5.1}）；
+\item[\SGAInlineRefTarget{sga3:xxiv:1.3:item:iii}(iii)] 若 \(G\) 分裂，则上述正合序列分裂。更精确地，对 \(G\) 的每个钉扎，态射（参见 \SGARefLink{sga3:xxiv:1.2}{1.2}~\((*)\)）
+  \[
+    p\circ a:E_S\longrightarrow\underline{\Autext}(G)
+  \]
+  是同构。
+\end{enumerate}
+
+先说明如何由以下引理推出定理。
+\SGARefTarget{sga3:xxiv:1.4}
+\paragraph{\SGARefLink{sga3:xxiv:1.4}{引理 1.4}.}
+\emph{在 \textup{\SGARefLink{sga3:xxiv:1.3:item:iii}{(iii)}} 的假设下，\(\underline{\Aut}_{S\text{-}\mathrm{gr.}}(G)\) 是半直积}
+\[
+  a(E_S)\cdot\operatorname{ad}(G).
+\]
+\footnote{编者注：这里及下文中，用记号 \(\operatorname{ad}(G)\) 代替 \(\operatorname{int}(G)\)。}
+
+当 \(G\) 分裂时，引理立即推出定理。由于 \(G\) 在平展拓扑下局部分裂（\SGARefLink{sga3:xxii:cor:2.3}{第 XXII 讲 2.3}），因此在 \textup{(fppf)} 拓扑下也局部分裂，而后者对于扭常态射的纤维范畴是“有效下降的”（\SGARefLink{sga3:x:corollary:5-5}{第 X 讲 5.5}），故一般情形的断言 \textup{\SGARefLink{sga3:xxiv:1.3:item:ii}{(ii)}} 得证（参见\SGARefLink{sga3:iv:proposition:4:6:8}{第 IV 讲 4.6.8}）。为推出 \textup{\SGARefLink{sga3:xxiv:1.3:item:i}{(i)}}，注意到 \(\operatorname{ad}(G)\) 在 \(S\) 上仿射；因此只要 \(\underline{\Aut}_{S\text{-}\mathrm{gr.}}(G)\) 可表，\(p\) 就是仿射的，结果遂由仿射概形的下降得到。\footnote{编者注：参见 SGA~1，VIII，\SGARefLink{sga3:viii:proposition:2:1}{2.1}。}
+
+只须证明 \SGARefLink{sga3:xxiv:1.4}{1.4}。为此，只须证明：
+\SGARefTarget{sga3:xxiv:1.5}
+\paragraph{\SGARefLink{sga3:xxiv:1.5}{引理 1.5}.}
+\emph{若 \((\mathscr R,\mathcal E)\) 和 \((\mathscr R',\mathcal E')\) 是约化 \(S\)-群 \(G\) 的两个钉扎，则存在唯一的 \(G\) 在 \(S\) 上的内自同构 \(u\)，将一个钉扎变为另一个；即存在同构
+\[
+  v:\mathscr R'\xrightarrow{\sim}\mathscr R
+\]
+使得 \(u(\mathcal E)=v(\mathcal E')\)；参见 \SGARefLink{sga3:xxiv:1.0}{1.0}。}
+
+\SGARefTarget{sga3:xxiv:1.5.1}
+\subsubsection*{1.5.1. 唯一性。}
+只须证明，若 \(G\) 是钉扎 \(S\)-群，\(\operatorname{int}(g)\) 是钉扎群的自同构（\(g\in G(S)\)），则 \(\operatorname{int}(g)=\operatorname{id}\)。首先，
+\[
+  \operatorname{int}(g)T=T,\qquad
+  \operatorname{int}(g)B=B,
+\]
+因而
+\[
+  g\in
+  \underline{\operatorname{Norm}}_G(T)(S)
+  \cap\underline{\operatorname{Norm}}_G(B)(S)
+  =T(S)
+\]
+（例如参见\SGARefLink{sga3:xxii:prop:5.6.1}{第 XXII 讲 5.6.1}）。因此 \(\operatorname{int}(g)\) 正规化每个 \(U_\alpha\)，并且对每个 \(\alpha\in\Delta\)，有
+\[
+  \Lie(\operatorname{int}(g))X_\alpha
+  =\operatorname{Ad}(g)X_\alpha
+  =\alpha(g)X_\alpha
+\]
+于是对 \(\alpha\in\Delta\) 有 \(\alpha(g)=1\)，所以
+\[
+  g\in
+  \bigcap_{\alpha\in\Delta}(\ker\alpha)(S)
+  =\underline{\Centr}(G)(S)
+\]
+（\SGARefLink{sga3:xxii:rem:4.1.8}{第 XXII 讲 4.1.8}）。\qed
+% 已译源行 263--368。
+
+\SGARefTarget{sga3:xxiv:1.5.2}
+\subsubsection*{1.5.2. 存在性。}
+只须在 \textup{(fpqc)} 拓扑下局部地证明存在性。设两个钉扎为
+\[
+  (T,M,R,\Delta,(X_\alpha)_{\alpha\in\Delta})
+  \quad\text{和}\quad
+  (T',M',R',\Delta',(X'_{\alpha'})_{\alpha'\in\Delta'})
+\]
+由极大环面的共轭性，可设 \(T=T'\)。将 \(S\) 限制到适当部分后，可设同构
+\[
+  D_S(M)\simeq D_S(M')
+\]
+来自一个将 \(R\) 映到 \(R'\) 的同构 \(M\simeq M'\)；从而归结到如下情形：
+\[
+  T=T',\qquad M=M',\qquad R=R'.
+\]
+由于单根系在 Weyl 群的作用下共轭（\SGARefLink{sga3:XXI:3.3.7}{第 XXI 讲 3.3.7}），也可设 \(\Delta=\Delta'\)。于是，对每个 \(\alpha\in\Delta\)，有标量 \(z_\alpha\in\mathbb G_m(S)\)，使得
+\[
+  X'_\alpha=z_\alpha X_\alpha,
+\]
+并且只须在 \textup{(fpqc)} 拓扑下局部地构造 \(T\) 的截面 \(t\)，使得对每个 \(\alpha\in\Delta\) 都有 \(\alpha(t)=z_\alpha\)。但以 \(\alpha\)，\(\alpha\in\Delta\)，为分量的态射
+\[
+  T\longrightarrow(\mathbb G_{m,S})^\Delta
+\]
+对偶于单射 \(\mathbb Z^\Delta\to M\)，因而忠实平坦。这就证明了 \SGARefLink{sga3:xxiv:1.5.2}{1.5.2}，从而也证明了 \SGARefLink{sga3:xxiv:1.3}{1.3}。
+
+\SGARefTarget{sga3:xxiv:1.6}
+\paragraph{\SGARefLink{sga3:xxiv:1.6}{推论 1.6}.}
+\emph{设 \(S\) 是概形，\(G\) 是约化 \(S\)-群。下列条件等价：}
+\begin{enumerate}
+\item[\SGAInlineRefTarget{sga3:xxiv:1.6:item:i}(i)] \(\underline{\Aut}_{S\text{-}\mathrm{gr.}}(G)\) 在 \(S\) 上仿射\emph{（分别为有限型、有限呈示、拟紧）}；
+\item[\SGAInlineRefTarget{sga3:xxiv:1.6:item:ii}(ii)] \(\underline{\Autext}(G)\) 在 \(S\) 上有限；
+\item[\SGAInlineRefTarget{sga3:xxiv:1.6:item:iii}(iii)] 对每个 \(s\in S\)，
+  \[
+    \operatorname{rg}_{\mathrm{red}}(G_s)
+    -\operatorname{rg}_{\mathrm{ss}}(G_s)\leq 1.
+  \]
+\end{enumerate}
+
+事实上，由于 \(\operatorname{ad}(G)\) 在 \(S\) 上仿射、平坦且有限呈示，态射
+\[
+  p:\underline{\Aut}_{S\text{-}\mathrm{gr.}}(G)
+  \longrightarrow\underline{\Autext}(G)
+\]
+仿射、忠实平坦且有限呈示。
+
+若 \(\underline{\Autext}(G)\) 在 \(S\) 上有限，则它在 \(S\) 上仿射，因而 \(\underline{\Aut}_{S\text{-}\mathrm{gr.}}(G)\) 也是如此；这证明了 \textup{\SGARefLink{sga3:xxiv:1.6:item:ii}{(ii)}}\(\Rightarrow\)\textup{\SGARefLink{sga3:xxiv:1.6:item:i}{(i)}}。若 \(\underline{\Aut}_{S\text{-}\mathrm{gr.}}(G)\) 在 \(S\) 上拟紧，则它在 \(S\) 上有限呈示，因为它总是在 \(S\) 上局部有限呈示且分离。由\SGARefLink{sga3:v:proposition:9:1}{第 V 讲 9.1}，\(\underline{\Autext}(G)\) 也在 \(S\) 上有限呈示，因而有限；这证明了 \textup{\SGARefLink{sga3:xxiv:1.6:item:i}{(i)}}\(\Rightarrow\)\textup{\SGARefLink{sga3:xxiv:1.6:item:ii}{(ii)}}。最后，为证明 \textup{\SGARefLink{sga3:xxiv:1.6:item:ii}{(ii)}} 与 \textup{\SGARefLink{sga3:xxiv:1.6:item:iii}{(iii)}} 等价，可以假设 \(G\) 分裂，此时断言归结为\SGARefLink{sga3:XXI:6.7.8}{第 XXI 讲 6.7.8}。
+
+\SGARefTarget{sga3:xxiv:1.7}
+\paragraph{\SGARefLink{sga3:xxiv:1.7}{推论 1.7}.}
+\emph{设 \(S\) 是概形，\(G\) 是约化 \(S\)-群。则}
+\[
+  \underline{\Aut}_{S\text{-}\mathrm{gr.}}(G)^0
+  \simeq\operatorname{ad}(G).
+\]
+
+\SGARefTarget{sga3:xxiv:1.8}
+\paragraph{\SGARefLink{sga3:xxiv:1.8}{推论 1.8}.}
+\emph{设 \(S\) 是概形，\(G\) 是约化 \(S\)-群，\(H\) 是在 \(S\) 上光滑、仿射且纤维连通的 \(S\)-群概形。则 \(S\)-函子}
+\[
+  \underline{\operatorname{Isom}}_{S\text{-}\mathrm{gr.}}(G,H)
+\]
+\emph{可由一个光滑分离的 \(S\)-概形表示；当 \(G\) 半单时，该概形在 \(S\) 上仿射。}
+
+事实上，设 \(U\) 为使 \(H_s\) 约化的点 \(s\in S\) 的集合；这是开子集（\SGARefLink{sga3:xix:corollary:2:6}{第 XIX 讲 2.6}）。若 \(S'\) 是 \(S\)-概形，则 \(H_{S'}\) 约化，当且仅当 \(S'\to S\) 经 \(U\) 分解。因此典范态射
+\[
+  \underline{\operatorname{Isom}}_{S\text{-}\mathrm{gr.}}(G,H)
+  \longrightarrow S
+\]
+经 \(U\) 分解。于是可设 \(S=U\)，从而归结到下面的推论。
+% 已译源行 370--479。
+
+\SGARefTarget{sga3:xxiv:1.9}
+\paragraph{\SGARefLink{sga3:xxiv:1.9}{推论 1.9}.}
+\emph{设 \(S\) 是概形，\(G\) 与 \(G'\) 是两个约化 \(S\)-群。则}
+\[
+  F=\underline{\operatorname{Isom}}_{S\text{-}\mathrm{gr.}}(G,G')
+\]
+\emph{可由一个光滑分离的 \(S\)-概形表示；当 \(G\) 或 \(G'\) 半单时，它是仿射的。此外，\(S\) 是两个开子概形 \(S_1\)、\(S_2\) 的不交并，使得 \(F_{S_1}=\varnothing\)，而 \(F_{S_2}\) 是 \(\underline{\Aut}_{S_2\text{-}\mathrm{gr.}}(G'_{S_2})\)（分别为 \(\underline{\Aut}_{S_2\text{-}\mathrm{gr.}}(G_{S_2})\)）下的左（分别为右）主齐性丛。}
+
+事实上，设 \(S_2\) 是 \(S\) 中使 \(G\) 与 \(G'\) 类型相同的点的集合，\(S_1\) 是它的补集。由于约化群的类型是局部常值函数，\(S_1\) 与 \(S_2\) 都开。显然 \(F_{S_1}=\varnothing\)，并且可设 \(S=S_2\)。由\SGARefLink{sga3:XXIII:5.6}{第 XXIII 讲 5.6}，\(F\) 是 \(\underline{\Aut}_{S\text{-}\mathrm{gr.}}(G)\) 下的主齐性层，在平展拓扑下局部平凡。因此
+\[
+  F_0=F/\operatorname{ad}(G)
+\]
+是 \(\underline{\Autext}(G)\) 下的主齐性层，在平展拓扑下局部平凡，因而可表（\SGARefLink{sga3:x:corollary:5-5}{第 X 讲 5.5}）。由于 \(\operatorname{ad}(G)\) 仿射，故 \(F\) 也可表。
+
+注意，这个证明还给出以下结果。
+\SGARefTarget{sga3:xxiv:1.10}
+\paragraph{\SGARefLink{sga3:xxiv:1.10}{推论 1.10}.}
+\emph{设 \(S\) 是概形，\(G\) 与 \(G'\) 是两个约化 \(S\)-群，它们在每个 \(s\in S\) 处具有相同的类型。则 \(\operatorname{ad}(G)\) 在 \(\underline{\operatorname{Isom}}_{S\text{-}\mathrm{gr.}}(G,G')\) 上自由右作用。商层}
+\[
+  \underline{\operatorname{Isomext}}(G,G')
+  =
+  \underline{\operatorname{Isom}}_{S\text{-}\mathrm{gr.}}(G,G')
+  /\operatorname{ad}(G)
+\]
+\emph{可由一个扭常 \(S\)-概形表示；它是 \(\underline{\Autext}(G)\) 下的主齐性丛，故当 \(G\) 半单时在 \(S\) 上有限。此外，同构}
+\[
+  \underline{\operatorname{Isom}}_{S\text{-}\mathrm{gr.}}(G,G')
+  \simeq
+  \underline{\operatorname{Isom}}_{S\text{-}\mathrm{gr.}}(G',G),
+  \qquad u\longmapsto u^{-1},
+\]
+\emph{诱导一个同构}
+\[
+  \underline{\operatorname{Isomext}}(G,G')
+  \simeq
+  \underline{\operatorname{Isomext}}(G',G).
+\]
+
+\SGARefTarget{sga3:xxiv:1.11}
+\paragraph{\SGARefLink{sga3:xxiv:1.11}{注 1.11}.}
+若 \(\underline{\operatorname{Isomext}}(G,G')(S)\neq\varnothing\)，则称 \(G\) 为 \(G'\) 的\emph{内扭形式}（inner twisted form）。此时 \(G'\) 也是 \(G\) 的内扭形式，并且 \(\underline{\operatorname{Isom}}_{S\text{-}\mathrm{gr.}}(G,G')\) 的结构群可约化到 \(\operatorname{ad}(G)\)。更精确地，设
+\[
+  u\in\underline{\operatorname{Isomext}}(G,G')(S)
+\]
+并将 \(u\) 视为截面 \(u:S\to\underline{\operatorname{Isomext}}(G,G')\)。以
+\[
+  \underline{\operatorname{Isomint}}_u(G,G')
+\]
+表示 \(\underline{\operatorname{Isomext}}(G,G')\) 中作为 \(u\) 的像的闭子概形在典范态射
+\[
+  \underline{\operatorname{Isom}}_{S\text{-}\mathrm{gr.}}(G,G')
+  \longrightarrow
+  \underline{\operatorname{Isomext}}(G,G'),
+\]
+下的逆像。\(\operatorname{ad}(G)\) 在 \(\underline{\operatorname{Isomint}}_u(G,G')\) 上的自然作用使这个概形成为主齐性丛。沿
+\[
+  \operatorname{ad}(G)\longrightarrow\underline{\Aut}(G),
+\]
+扩张结构群，\footnote{底本的编者注将 \(\operatorname{ad}(G)\to\underline{\Autext}(G)\) 改为 \(\operatorname{ad}(G)\to\underline{\Aut}(G)\)。}就从 \(\underline{\operatorname{Isomint}}_u(G,G')\) 恢复了 \(\underline{\operatorname{Isom}}_{S\text{-}\mathrm{gr.}}(G,G')\)。
+
+由 Hensel 引理（\SGARefLink{sga3:xi:corollary:1:11}{第 XI 讲 1.11}），\SGARefLink{sga3:xxiv:1.8}{推论 1.8} 立即给出：
+% 已译源行 481--589。
+
+\SGARefTarget{sga3:xxiv:1.12}
+\paragraph{\SGARefLink{sga3:xxiv:1.12}{推论 1.12}.}
+\emph{设 \(S\) 是 Hensel 局部概形，\(G\) 是约化 \(S\)-群，\(G'\) 是具有连通纤维的光滑仿射 \(S\)-群，\(s\) 是 \(S\) 的闭点。若 \(G_s\) 与 \(G'_s\) 是 \(\kappa(s)\) 上同构的代数群，则 \(G\) 与 \(G'\) 同构。更精确地，每个 \(\kappa(s)\)-同构}
+\[
+  G_s\simeq G'_s
+\]
+\emph{都来自一个 \(S\)-同构 \(G\simeq G'\)。}
+
+将\SGARefLink{sga3:xxiv:1.7}{推论 1.7}（分别为\SGARefLink{sga3:xxiv:1.12}{推论 1.12}）用于域上的对偶数概形，由\SGARefLink{sga3:iii:remark:2-10}{第 III 讲 2.10}（分别为 \SGARefLink{sga3:xxiv:3.10}{3.10}），即得下一推论的 \textup{(i)}（分别为 \textup{(ii)}）。
+
+\SGARefTarget{sga3:xxiv:1.13}
+\paragraph{\SGARefLink{sga3:xxiv:1.13}{推论 1.13}.}
+\emph{设 \(k\) 是域，\(G\) 是约化 \(k\)-群。}
+\begin{enumerate}
+\item[\SGAInlineRefTarget{sga3:xxiv:1.13:item:i}(i)] \emph{若 \(G\) 是伴随的，则}
+\[
+  H^1(G,\Lie(G/k))=0.
+\]
+\footnote{底本的编者注修正了原文；原文在未假定 \(G\) 为伴随群的情况下陈述了 \textup{\SGARefLink{sga3:xxiv:1.13:item:i}{(i)}}。由 \(H^i(G,-)\) 作为 \(\operatorname{Hom}_G(k,-)\) 的导出函子的描述（\SGARefLink{sga3:i:theorem:5-3-1}{第 I 讲 5.3.1}；另见 [Ja87]，I，4.16），对每个 \(G\)-模 \(V\) 有 \(H^i(G,V)=\operatorname{Ext}^i_G(k,V)\)。若 \(\operatorname{char}(k)=p>0\) 且 \(G=\operatorname{SL}_{p,k}\)，则 \(\Lie(\operatorname{GL}_p/k)\) 是 \(k\) 被 \(\mathfrak g=\Lie(\operatorname{SL}_p/k)\) 的非平凡扩张，故 \(H^1(G,\mathfrak g)\neq0\)。另见下文增补 \SGARefLink{sga3:xxiv:1.15.1}{1.15.1}。}
+\item[\SGAInlineRefTarget{sga3:xxiv:1.13:item:ii}(ii)] \emph{有}
+\[
+  H^2(G,\Lie(G/k))=0.
+\]
+\end{enumerate}
+
+\SGARefTarget{sga3:xxiv:1.14}
+\paragraph{\SGARefLink{sga3:xxiv:1.14}{注 1.14}.}
+\begin{enumerate}
+\item[(i)] 关于 \(H^1\) 的断言是 Chevalley 已知的；关于 \(H^2\) 的断言，Chevalley 已在分类中的大多数情形下证明。
+\item[(ii)] 事实上，\SGARefLink{sga3:xxiv:1.13}{推论 1.13} 与代数闭域上的唯一性定理结合，实质上等价于唯一性定理。因此，\SGARefLink{sga3:xxiv:1.13}{推论 1.13} 的直接证明将给出一种途径，由 Chevalley 的域上唯一性定理推出一般的唯一性定理。
+\end{enumerate}
+
+每个概形上都存在任意类型的约化群（第 XXV 讲），这表明，将约化 \(k\)-群 \(G\) 提升到剩余域为 \(k\) 的 Artin 环上的障碍均为零；根据\SGARefLink{sga3:iii:corollary:3-8}{第 III 讲 3.8}，这些障碍属于
+\[
+  H^3(G,\Lie(G/k)\otimes V)
+  \simeq H^3(G,\Lie(G/k))\otimes V,
+\]
+其中 \(V\) 是赋予 \(G\) 的平凡作用的某个 \(k\)-向量空间。这提示
+\[
+  H^3(G,\Lie(G/k))=0.
+\]
+若此断言为真，则其直接证明无疑同样会给出一种途径，由域上的存在性定理（Chevalley 的 Tôhoku 论文）推出一般的存在性定理。
+
+\SGARefTarget{sga3:xxiv:1.15}
+\paragraph{\SGARefLink{sga3:xxiv:1.15}{推论 1.15}.}
+\emph{设 \(k\) 是域，\footnote{底本的编者注将“概形”改为“域”。}\(G\) 是约化 \(k\)-群。将 \(k\) 视为平凡 \(G\)-模。则}
+\[
+  H^1(G,k)=H^2(G,k)=0.
+\]
+\footnote{鉴于 \SGARefLink{sga3:xxiv:1.13}{1.13} 中所作的修正，底本编者另给出 \(H^1\) 的证明。此外，G.~Kempf 的一个定理给出：对每个 \(i>0\)，都有 \(H^i(G,k)=0\)；参见 [Ja87]，II，\SGARefLink{sga3:ii:proposition:4-5}{4.5} 与 4.11。}
+由于
+\[
+  H^i(G_{\bar k},\bar k)=H^i(G,k)\otimes_k\bar k,
+\]
+可设 \(k\) 代数闭。\(H^1(G,k)\) 的一个元素无非是 \(k\)-群态射
+\[
+  \varphi:G\longrightarrow\mathbb G_{a,k}.
+\]
+于是
+\[
+  \varphi(G)=G/\ker(\varphi)
+\]
+是 \(\mathbb G_{a,k}\) 的光滑连通约化子群（参见 XIX，\SGARefLink{sga3:xix:paragraph:1-7}{1.7}），因而平凡。所以 \(H^1(G,k)=0\)。
+% 已译源行 591--697。
+
+现在考虑约化 \(k\)-群
+\[
+  H=G\times_k\mathbb G_{m,k}.
+\]
+有一个 \(H\)-稳定的分解
+\[
+  \Lie(H/k)=\Lie(G/k)\oplus k.
+\]
+对每个 \(H\)-模 \(V\)，
+\[
+  H^i(H,V)=H^i\bigl(G,H^0(\mathbb G_{m,k},V)\bigr).
+\]
+事实上，\(H^i(H,-)\) 是
+\[
+  H^0(H,-)
+  =H^0\bigl(G,H^0(\mathbb G_{m,k},-)\bigr),
+\]
+的导出函子，而函子 \(H^0(\mathbb G_{m,k},-)\) 正合（参见\SGARefLink{sga3:i:theorem:5-3-1}{第 I 讲 5.3.1} 和 \SGARefLink{sga3:i:theorem:5-3-3}{5.3.3}）。特别地，对每个 \(i\)，
+\[
+  H^i(H,\Lie(H/k))
+  =
+  H^i(G,\Lie(G/k))\oplus H^i(G,k).
+\]
+将 \SGARefLink{sga3:xxiv:1.13:item:ii}{1.13(ii)} 用于约化群 \(H\)，即得 \(H^2(G,k)=0\)。
+
+\SGARefTarget{sga3:xxiv:1.15.1}
+\medskip\noindent\textbf{推论 1.15.1.} ---
+\footnote{编者注：根据 O.~Gabber 的评论增补这一推论，以精确化 \SGARefLink{sga3:xxiv:1.13:item:i}{1.13(i)}。}
+{\itshape 设 \(k\) 是域，\(G\) 是约化 \(k\)-群，\(Z\) 是它的中心，\(\mathscr R=(M,M^*,R,R^*)\) 是 \(G\) 的类型。则
+\[
+  H^1(G,\Lie(G/k))
+  \simeq
+  \operatorname{Ext}^1_{\mathbb Z}(M/\Gamma_0(R),k).
+\]
+特别地，\(H^1(G,\Lie(G/k))=0\)，当且仅当 \(Z\) 在 \(k\) 上光滑。}
+
+设 \(\mathfrak g\)、\(\mathfrak z\)、\(\mathfrak g_{\mathrm{ad}}\) 分别是 \(G\)、\(Z\)、\(G_{\mathrm{ad}}=G/Z\) 的 Lie 代数。由 \SGARefLink{sga3:xxiv:1.15}{1.15} 及其证明，得到
+\[
+  H^1(G,\mathfrak g)
+  =
+  H^1(G_{\mathrm{ad}},\mathfrak g)
+  \simeq
+  H^1(G_{\mathrm{ad}},\mathfrak g/\mathfrak z).
+\]
+置 \(C=\operatorname{Coker}(\mathfrak g\to\mathfrak g_{\mathrm{ad}})\)。有正合序列
+\[
+  0\longrightarrow\mathfrak g/\mathfrak z
+  \longrightarrow\mathfrak g_{\mathrm{ad}}
+  \longrightarrow C\longrightarrow0.
+\]
+由 \SGARefLink{sga3:xxiv:1.13}{1.13}，有 \(H^1(G_{\mathrm{ad}},\mathfrak g_{\mathrm{ad}})=0\)，又有
+\[
+  H^0(G_{\mathrm{ad}},\mathfrak g_{\mathrm{ad}})=0
+\]
+（参见\SGARefLink{sga3:ii:theorem:5-2-3}{第 II 讲 5.2.3}），故得到
+\[
+  H^1(G_{\mathrm{ad}},\mathfrak g/\mathfrak z)
+  \simeq H^0(G_{\mathrm{ad}},C).
+\]
+为计算右端，可设 \(k\) 代数闭。设 \((G,T,M,R)\) 是 \(G\) 的一个分裂结构。则
+\[
+  Z=D_k(M/\Gamma_0(R))
+\]
+并且 \(C\) 等同于
+\[
+  \operatorname{Coker}\!\left(
+    \operatorname{Hom}_{\mathbb Z}(M,k)
+    \longrightarrow
+    \operatorname{Hom}_{\mathbb Z}(\Gamma_0(R),k)
+  \right)
+  \simeq
+  \operatorname{Ext}^1_{\mathbb Z}(M/\Gamma_0(R),k),
+\]
+其上的 \(G_{\mathrm{ad}}\)-作用平凡。推论随之得到，因为 \(Z\) 在 \(k\) 上不光滑，当且仅当 \(\operatorname{char}(k)=p>0\) 且 \(M/\Gamma_0(R)\) 有 \(p\)-挠元（\SGARefLink{sga3:ix:proposition:2:1}{第 IX 讲 2.1}）。
+
+\SGARefTarget{sga3:xxiv:1.16}
+\medskip\noindent\textbf{定义 1.16.} ---
+{\itshape 设 \(S\) 是概形，\(G\) 是约化 \(S\)-群。\emph{\(G\) 在 \(S\) 上的形式}是一个 \(S\)-群概形 \(G'\)，它在 \textup{(fpqc)} 拓扑下局部同构于 \(G\)。等价地，也可要求 \(G'\) 在平展拓扑下局部同构于 \(G\)（参见\SGARefLink{sga3:XXIII:5.6}{第 XXIII 讲 5.6}），或要求 \(G'\) 为约化 \(S\)-群，且在 \(S\) 的每一点处与 \(G\) 具有相同类型。}
+
+\SGARefTarget{sga3:xxiv:1.17}
+\medskip\noindent\textbf{推论 1.17.} ---
+{\itshape 设 \(S\) 是概形，\(G\) 是约化 \(S\)-群。
+\begin{enumerate}
+\item[(i)] 函子
+\[
+  G'\longmapsto
+  \underline{\operatorname{Isom}}_{S\text{-}\mathrm{gr}}(G,G')
+\]
+给出 \(G\) 在 \(S\) 上的形式所成范畴与 \(\underline{\Aut}_{S\text{-}\mathrm{gr}}(G)\) 下主齐性丛所成范畴之间的等价。
+\item[(ii)] 若 \(S'\to S\) 是覆盖态射，则由 \(S'\) 平凡化的 \(G\) 的形式对应于由 \(S'\) 平凡化的丛。
+\item[\SGAInlineRefTarget{sga3:xxiv:1.17:item:iii}(iii)] \(\underline{\Aut}_{S\text{-}\mathrm{gr}}(G)\) 下的每个主齐性层都可表且拟等平凡，即在平展拓扑下局部平凡。
+\end{enumerate}}
+
+第一个断言在层范畴中是形式的，例如可取 \textup{(fpqc)} 拓扑。每个在 \textup{(fpqc)} 拓扑下局部同构于 \(G\) 的层都可表，因为 \(G\) 在 \(S\) 上仿射；而且它在平展拓扑下局部同构于 \(G\)。最后，对 \(G\) 的每个形式 \(G'\)，\(S\)-层 \(\underline{\operatorname{Isom}}_{S\text{-}\mathrm{gr}}(G,G')\) 由 \SGARefLink{sga3:xxiv:1.8}{1.8} 可表。推论即得。
+
+\SGARefTarget{sga3:xxiv:1.18}
+\medskip\noindent\textbf{推论 1.18.} ---
+{\itshape 约化群 \(G\) 在 \(S\) 上的形式的同构类集合，同构于
+\[
+  H^1\!\left(S,\underline{\Aut}_{S\text{-}\mathrm{gr}}(G)\right)
+  =
+  H^1_{\mathrm{\acute et}}\!
+    \left(S,\underline{\Aut}_{S\text{-}\mathrm{gr}}(G)\right)
+  =
+  \Fib\!\left(S,\underline{\Aut}_{S\text{-}\mathrm{gr}}(G)\right).
+\]
+若 \(S'\to S\) 是覆盖态射，则由 \(S'\) 平凡化的形式所成的子集同构于
+\[
+  H^1\!\left(S'/S,\underline{\Aut}_{S\text{-}\mathrm{gr}}(G)\right).
+\]}
+
+\SGARefTarget{sga3:xxiv:1.19}
+\medskip\noindent\textbf{推论 1.19.} ---
+{\itshape 设 \(S\) 是概形，\(\mathscr R\) 是钉扎既约根数据，使得 \(\operatorname{\acute{E}p}_S(\mathscr R)\) 存在；\footnote{编者注：参见 XXIII，\SGARefLink{sga3:XXIII:5.11}{定义 5.11}。}由第 XXV 讲，这一条件总是满足。置
+\[
+  A_S(\mathscr R)
+  =
+  \underline{\Aut}_{S\text{-}\mathrm{gr}}
+    (\operatorname{\acute{E}p}_S(\mathscr R))
+  =
+  \operatorname{ad}(\operatorname{\acute{E}p}_S(\mathscr R))
+  \cdot E(\mathscr R)_S.
+\]
+\begin{enumerate}
+\item[\SGAInlineRefTarget{sga3:xxiv:1.19:item:i}(i)] 类型为 \(\mathscr R\) 的约化 \(S\)-群（\SGARefLink{sga3:xxii:def:2.7}{第 XXII 讲 2.7}）的同构类集合，由\SGARefLink{sga3:XXIII:5.12}{第 XXIII 讲 5.12}，同构于
+\[
+  H^1(S,A_S(\mathscr R))
+  =
+  H^1_{\mathrm{\acute et}}(S,A_S(\mathscr R))
+  =
+  \Fib(S,A_S(\mathscr R)).
+\]
+\item[\SGAInlineRefTarget{sga3:xxiv:1.19:item:ii}(ii)] 若 \(S'\to S\) 是覆盖态射，则由在 \(S'\) 上可分裂的群的类组成的子集，同构于 \(H^1(S'/S,A_S(\mathscr R))\)。
+\end{enumerate}}
+
+\SGARefTarget{sga3:xxiv:1.20}
+\medskip\noindent\textbf{注 1.20.} ---
+沿用上述记号，每个类型为 \(\mathscr R\) 的约化 \(S\)-群 \(G\) 都典范地伴有一个 \(A_S(\mathscr R)\) 下的右主齐性丛：
+\[
+  \underline{\operatorname{Isom}}_{S\text{-}\mathrm{gr}}
+    (\operatorname{\acute{E}p}_S(\mathscr R),G)=P.
+\]
+概形 \(P\) 可以解释为“\(G\) 的类型为 \(\mathscr R\) 的钉扎概形”（参见 \SGARefLink{sga3:xxiv:1.0}{1.0}）。它也是 \(\underline{\Aut}_{S\text{-}\mathrm{gr}}(G)\) 下的左主齐性丛；从上述描述立即可见这一结构。
+
+\SGARefTarget{sga3:xxiv:1.21}
+\medskip\noindent\textbf{命题 1.21.} ---
+{\itshape 设 \(S\) 是 Hensel 局部概形，\(s\) 是它的闭点。函子
+\[
+  G\longmapsto G_s
+\]
+从约化 \(S\)-群的同构类集合到约化 \(\kappa(s)\)-群的同构类集合诱导双射。特别地，对每个约化 \(S\)-群 \(G\)，存在有限平展满射态射 \(S'\to S\)，使得 \(G_{S'}\) 可分裂。}
+
+利用 \(\operatorname{\acute{E}p}_S(\mathscr R)\) 的存在性（第 XXV 讲），只须取 \(H=A_S(\mathscr R)\)，证明典范映射
+\[
+  \Fib(S,H)\longrightarrow\Fib(\kappa(s),H_s)
+\]
+为双射，并且 \(\Fib(S,H)\) 的每个元素都有上述性质。\(H\) 的每个有限子集都包含于一个仿射开子概形：对常群这是显然的，而 \(H\) 在一个常群上仿射。因此可应用附录中证明的结果 \SGARefLink{sga3:xxiv:proposition:8-1}{8.1}。
+
+\SGARefTarget{sga3:xxiv:section:2}
+\section*{2. 自同构与子群}
+
+引入以下记号。若
+\[
+  \mathcal H=\underline{\Aut}_{S\text{-}\mathrm{gr}}(G)
+\]
+且 \(X\) 是 \(G\) 的子函子，则置
+\[
+  \underline{\Aut}_{S\text{-}\mathrm{gr}}(G,X)
+  =\operatorname{Norm}_{\mathcal H}(X),
+  \qquad
+  \underline{\Aut}_{S\text{-}\mathrm{gr}}(G,\operatorname{id}_X)
+  =\underline{\Centr}_{\mathcal H}(X).
+\]
+若 \(Y\) 是 \(G\) 的另一个子函子，则定义
+\[
+  \underline{\Aut}_{S\text{-}\mathrm{gr}}(G,X,Y)
+  =
+  \underline{\Aut}_{S\text{-}\mathrm{gr}}(G,X)
+  \cap
+  \underline{\Aut}_{S\text{-}\mathrm{gr}}(G,Y).
+\]
+若 \(G'\) 是另一个 \(S\)-群，\(X'\) 是 \(G'\) 的子函子，\footnote{英译者注：法文此处印为 \(G\)；由定义中各对象的类型可知，应为 \(G'\)。}则以
+\[
+  \underline{\operatorname{Isom}}_{S\text{-}\mathrm{gr}}
+    (G,X;G',X')
+\]
+表示 \(\underline{\operatorname{Isom}}_{S\text{-}\mathrm{gr}}(G,G')\) 的如下子函子：对每个 \(S'\to S\)，它由
+\[
+  \left\{
+    u\in
+    \underline{\operatorname{Isom}}_{S\text{-}\mathrm{gr}}(G,G')(S')
+    \,\middle|\,
+    u(X_{S'})=X'_{S'}
+  \right\}.
+\]
+定义。同样定义记号 \(\underline{\operatorname{Isom}}_{S\text{-}\mathrm{gr}}(G,X,Y;G',X',Y')\) 等。\footnote{编者注：上述定义已予写明。原文仅说以类似方式定义 \(\underline{\Aut}_{S\text{-}\mathrm{gr}}(G,X,Y),\ldots\) 与 \(\underline{\operatorname{Isom}}_{S\text{-}\mathrm{gr}}(G,X;G',X'),\ldots\)。}
+
+\SGARefTarget{sga3:xxiv:2.1}
+\medskip\noindent\textbf{命题 2.1.} ---
+{\itshape 设 \(S\) 是概形，\(G\) 是约化 \(S\)-群，\(T\) 是 \(G\) 的极大环面（分别地，\(B\) 是 \(G\) 的 Borel 子群，或 \(B\supset T\) 是 \(G\) 的 Killing 偶）。以 \(T_{\mathrm{ad}}\)（分别为 \(B_{\mathrm{ad}}\)）表示 \(\operatorname{ad}(G)\) 中相应的极大环面（分别为 Borel 子群）：
+\[
+  B_{\mathrm{ad}}
+  \simeq B/\underline{\Centr}(G)
+  =B/\underline{\Centr}(B),
+  \qquad
+  T_{\mathrm{ad}}\simeq T/\underline{\Centr}(G).
+\]
+则 \(\underline{\Aut}_{S\text{-}\mathrm{gr}}(G,T)\)（分别为 \(\underline{\Aut}_{S\text{-}\mathrm{gr}}(G,B)\)，或 \(\underline{\Aut}_{S\text{-}\mathrm{gr}}(G,B,T)\)）由 \(\underline{\Aut}_{S\text{-}\mathrm{gr}}(G)\) 的闭子概形表示，它在 \(S\) 上光滑，而且\SGARefLink{sga3:xxiv:1.3}{定理 1.3} 的正合序列诱导以下正合序列：
+\[
+  1\longrightarrow
+  \operatorname{Norm}_{\operatorname{ad}(G)}(T_{\mathrm{ad}})
+  \longrightarrow
+  \underline{\Aut}_{S\text{-}\mathrm{gr}}(G,T)
+  \longrightarrow
+  \underline{\Autext}(G)
+  \longrightarrow1,
+\]
+\[
+  1\longrightarrow B_{\mathrm{ad}}
+  \longrightarrow
+  \underline{\Aut}_{S\text{-}\mathrm{gr}}(G,B)
+  \longrightarrow
+  \underline{\Autext}(G)
+  \longrightarrow1,
+\]
+\[
+  1\longrightarrow T_{\mathrm{ad}}
+  \longrightarrow
+  \underline{\Aut}_{S\text{-}\mathrm{gr}}(G,B,T)
+  \longrightarrow
+  \underline{\Autext}(G)
+  \longrightarrow1.
+\]}
+
+由闭子概形的下降，\footnote{编者注：参见 SGA~1，VIII，1.9。}立即归结到如下情形：\(G\) 已钉扎，\(B\supset T\) 是它的典范 Killing 偶（参见\SGARefLink{sga3:xxii:cor:5.5.5:item:iv}{第 XXII 讲 5.5.5(iv)}）。由于 \SGARefLink{sga3:xxiv:1.2}{1.2} 中的群 \(E\) 正规化 \(B\) 和 \(T\)，结果立即由 \(\operatorname{ad}(G)\) 中的正规化定理（\SGARefLink{sga3:xxii:cor:5.3.12}{第 XXII 讲 5.3.12} 和 5.6.1）推出。
+
+现在使用共轭定理（参见\SGARefLink{sga3:XXIII:5.12}{第 XXIII 讲 5.12}），并仿照第 1 节论证，得到：
+
+\SGARefTarget{sga3:xxiv:2.2}
+\medskip\noindent\textbf{推论 2.2.} ---
+{\itshape 设 \(S\) 是概形，\(G\)、\(G'\) 是在每一点处类型相同的两个约化 \(S\)-群，\(B\supset T\)（分别为 \(B'\supset T'\)）是 \(G\)（分别为 \(G'\)）的 Killing 偶。
+
+\textup{\SGARefLink{sga3:xxiv:1.19:item:i}{(i)}} \(S\)-函子
+\[
+  \underline{\operatorname{Isom}}_{S\text{-}\mathrm{gr}}
+    (G,T;G',T')
+\]
+由 \(\underline{\operatorname{Isom}}_{S\text{-}\mathrm{gr}}(G,G')\) 的一个光滑闭子概形表示，它是 \(\underline{\Aut}_{S\text{-}\mathrm{gr}}(G,T)\) 下的主齐性空间。此外，\(\operatorname{Norm}_{\operatorname{ad}(G)}(T_{\mathrm{ad}})\) 在这个概形上自由作用，并有典范同构
+\[
+  \underline{\operatorname{Isom}}_{S\text{-}\mathrm{gr}}
+    (G,T;G',T')
+  \big/
+  \operatorname{Norm}_{\operatorname{ad}(G)}(T_{\mathrm{ad}})
+  \simeq
+  \underline{\operatorname{Isomext}}(G,G').
+\]
+
+\textup{\SGARefLink{sga3:xxiv:1.19:item:ii}{(ii)}} \(S\)-函子
+\[
+  \underline{\operatorname{Isom}}_{S\text{-}\mathrm{gr}}
+    (G,B;G',B')
+\]
+由 \(\underline{\operatorname{Isom}}_{S\text{-}\mathrm{gr}}(G,G')\) 的一个光滑闭子概形表示，它是 \(\underline{\Aut}_{S\text{-}\mathrm{gr}}(G,B)\) 下的主齐性空间。此外，\(B_{\mathrm{ad}}\) 在这个概形上自由作用，并有典范同构
+\[
+  \underline{\operatorname{Isom}}_{S\text{-}\mathrm{gr}}
+    (G,B;G',B')
+  \big/B_{\mathrm{ad}}
+  \simeq
+  \underline{\operatorname{Isomext}}(G,G').
+\]
+
+\textup{\SGARefLink{sga3:xxiv:1.17:item:iii}{(iii)}} \(S\)-函子
+\[
+  \underline{\operatorname{Isom}}_{S\text{-}\mathrm{gr}}
+    (G,B,T;G',B',T')
+\]
+由 \(\underline{\operatorname{Isom}}_{S\text{-}\mathrm{gr}}(G,G')\) 的一个光滑闭子概形表示，它是 \(\underline{\Aut}_{S\text{-}\mathrm{gr}}(G,B,T)\) 下的主齐性空间。此外，\(T_{\mathrm{ad}}\) 在这个概形上自由作用，并有典范同构
+\[
+  \underline{\operatorname{Isom}}_{S\text{-}\mathrm{gr}}
+    (G,B,T;G',B',T')
+  \big/T_{\mathrm{ad}}
+  \simeq
+  \underline{\operatorname{Isomext}}(G,G').
+\]}
+
+再一次仿照第 1 节论证，得到：
+\SGARefTarget{sga3:xxiv:2.3}
+\medskip\noindent\textbf{推论 2.3.} ---
+{\itshape 设 \(S\) 是概形，\(G\) 是约化 \(S\)-群，\(B\supset T\) 是 \(G\) 的 Killing 偶。函子}
+\[
+  (G',T')
+  \longmapsto
+  \underline{\operatorname{Isom}}_{S\text{-}\mathrm{gr}}
+    (G,T;G',T'),
+\]
+{\itshape 分别地}
+\[
+  (G',B')
+  \longmapsto
+  \underline{\operatorname{Isom}}_{S\text{-}\mathrm{gr}}
+    (G,B;G',B'),
+\]
+{\itshape 分别地}
+\[
+  (G',B',T')
+  \longmapsto
+  \underline{\operatorname{Isom}}_{S\text{-}\mathrm{gr}}
+    (G,B,T;G',B',T'),
+\]
+{\itshape 给出以下两个范畴之间的等价：一方是有序对 \((G',T')\)（分别为有序对 \((G',B')\)、三元组 \((G',B',T')\)）所成范畴，其中 \(G'\) 是 \(G\) 的形式，\(T'\) 是 \(G'\) 的极大环面（分别地，\(B'\) 是 \(G'\) 的 Borel 子群；\(B'\supset T'\) 是 \(G'\) 的 Killing 偶）；另一方是 \(S\)-群 \(H\) 下主齐性丛所成范畴，其中 \(H=\underline{\Aut}_{S\text{-}\mathrm{gr}}(G,T)\)（分别为 \(H=\underline{\Aut}_{S\text{-}\mathrm{gr}}(G,B)\)、\(H=\underline{\Aut}_{S\text{-}\mathrm{gr}}(G,B,T)\)）。此外，\(H\) 下每个主齐性层都可表且拟等平凡，因此}
+\[
+  H^1(S,H)=H^1_{\mathrm{\acute et}}(S,H)=\Fib(S,H).
+\]
+
+\SGARefTarget{sga3:xxiv:2.4}
+\medskip\noindent\textbf{注 2.4.} ---
+在 \SGARefLink{sga3:xxiv:2.2}{2.2} 的假设下，在集合层面记作 \(u\mapsto u(T)\)（分别为 \(u\mapsto u(B)\)、\(u\mapsto(u(B),u(T))\)）的态射诱导同构
+\[
+  \underline{\operatorname{Isom}}_{S\text{-}\mathrm{gr}}(G,G')
+  \big/
+  \underline{\Aut}_{S\text{-}\mathrm{gr}}(G,T)
+  \simeq \operatorname{Tor}(G'),
+\]
+分别地，
+\[
+  \underline{\operatorname{Isom}}_{S\text{-}\mathrm{gr}}(G,G')
+  \big/
+  \underline{\Aut}_{S\text{-}\mathrm{gr}}(G,B)
+  \simeq \operatorname{Bor}(G'),
+\]
+分别地，
+\[
+  \underline{\operatorname{Isom}}_{S\text{-}\mathrm{gr}}(G,G')
+  \big/
+  \underline{\Aut}_{S\text{-}\mathrm{gr}}(G,B,T)
+  \simeq \operatorname{Kil}(G').
+\]
+证明是直接的：只须在 \textup{(fpqc)} 下局部地证明，故可设 \(G\simeq G'\)，此时结果归结为\SGARefLink{sga3:xxii:cor:5.8.3:item:iii}{第 XXII 讲 5.8.3(iii)}。
+
+\SGARefTarget{sga3:xxiv:2.5}
+\medskip\noindent\textbf{注 2.5.} ---
+上述结果立即可用结构群的约化来解释。若 \(G'\) 是 \(G\) 的形式，对应于主丛 \(\underline{\operatorname{Isom}}_{S\text{-}\mathrm{gr}}(G,G')\)，则给定这个丛的结构群到 \(\underline{\Aut}_{S\text{-}\mathrm{gr}}(G,T)\) 的约化，就等于给定 \(G'\) 的一个极大环面 \(T'\)。这里的双射，一方为 \SGARefLink{sga3:xxiv:2.4}{2.4} 中的双射，另一方为映射
+\[
+  T'\longmapsto
+  \underline{\operatorname{Isom}}_{S\text{-}\mathrm{gr}}
+    (G,T;G',T').
+\]
+Borel 子群与 Killing 偶的情形也相同。
+
+\SGARefTarget{sga3:xxiv:2.6}
+\medskip\noindent\textbf{命题 2.6.} ---
+{\itshape 设 \(S\) 是概形，\(G\)、\(G'\) 是在每一点处类型相同的两个约化 \(S\)-群，\(T\)（分别为 \(T'\)）是 \(G\)（分别为 \(G'\)）的极大环面。则 \(T_{\mathrm{ad}}\) 在 \(\underline{\operatorname{Isom}}_{S\text{-}\mathrm{gr}}(G,T;G',T')\) 上自由作用，商}
+\[
+  P=
+  \underline{\operatorname{Isom}}_{S\text{-}\mathrm{gr}}
+    (G,T;G',T')
+  \big/T_{\mathrm{ad}}
+\]
+{\itshape 可表；它是}
+\[
+  A=
+  \underline{\Aut}_{S\text{-}\mathrm{gr}}(G,T)
+  \big/T_{\mathrm{ad}},
+\]
+{\itshape 下的主齐性丛，其中 \(A\) 由扭常 \(S\)-概形表示，并且是 \(\underline{\Autext}(G)\) 被}
+\[
+  W_{\operatorname{ad}(G)}(T_{\mathrm{ad}})
+  =
+  \operatorname{Norm}_{\operatorname{ad}(G)}(T_{\mathrm{ad}})
+  \big/T_{\mathrm{ad}}.
+\]
+{\itshape 的扩张。此外，若让 \(A\) 以显然的方式作用于 \(T\)，则与 \(P\) 相伴的丛恰为 \(T'\)。}\footnote{编者注：因此，若 \(P\) 有截面，则 \(T\) 与 \(T'\) 同构；特别地，\(T_P\) 与 \(T'_P\) 同构。参见增补 \SGARefLink{sga3:xxiv:proposition:4-5-1}{4.5.1}，那里在 \(G=\operatorname{\acute{E}p}_S(\mathscr R)\) 的情形下进一步讨论了这一观察。}
+
+命题的第一部分立即由前述结果推出。为证明第二部分，注意有显然的态射
+\[
+  P\times_S T\longrightarrow T',
+  \qquad (u,t)\longmapsto u(t).
+\]
+为证明取 \(A\) 的商后它诱导同构，可再设 \((G,T)\simeq(G',T')\)，此时断言直接成立。
+
+完全类似地，有：
+\SGARefTarget{sga3:xxiv:2.7}
+\medskip\noindent\textbf{命题 2.7.} ---
+{\itshape 设 \(S\) 是概形，\(G\)、\(G'\) 是在每一点处类型相同的两个约化 \(S\)-群，\(B\supset T\)（分别为 \(B'\supset T'\)）是 \(G\)（分别为 \(G'\)）的 Killing 偶。若让
+\[
+  \underline{\Aut}_{S\text{-}\mathrm{gr}}(G,B,T)
+  \big/T_{\mathrm{ad}}
+  \simeq \underline{\Autext}(G)
+\]
+以显然的方式作用于 \(T\)，则与 \(\underline{\operatorname{Isomext}}(G,G')\) 相伴的丛恰为 \(T'\)。}
+
+\SGARefTarget{sga3:xxiv:2.8}
+\medskip\noindent\textbf{推论 2.8.} ---
+{\itshape 设 \(G\)、\(G'\) 是互为内扭形式的两个约化 \(S\)-群，\(B\supset T\)（分别为 \(B'\supset T'\)）是 \(G\)（分别为 \(G'\)）的 Killing 偶。则 \(T\) 与 \(T'\) 同构。}\footnote{编者注：这由 \SGARefLink{sga3:xxiv:2.7}{2.7} 推出，因为 \(\underline{\operatorname{Isomext}}(G,G')\) 有截面（参见前一编者注）。}
+% 已译源行 699--1262。
+
+\SGARefTarget{sga3:xxiv:2.9}
+\medskip\noindent\textbf{注 2.9.} ---
+一般并不能断言 \(B\) 与 \(B'\) 同构；不过，它们互为内扭形式（参见第 5 节）。
+
+可以建立上述结果的“\(\operatorname{Isomint}\)”版本。\footnote{编者注：回忆 \(\underline{\operatorname{Isomint}}_u(G,G')\) 定义于 \SGARefLink{sga3:xxiv:1.11}{1.11}。}这里举出一个：
+
+\SGARefTarget{sga3:xxiv:2.10}
+\medskip\noindent\textbf{命题 2.10.} ---
+{\itshape 设 \(S\) 是概形，\(G\)、\(G'\) 是在每一点处类型相同的两个约化 \(S\)-群，\(B\supset T\)（分别为 \(B'\supset T'\)）是 \(G\)（分别为 \(G'\)）的 Killing 偶，并设 \(u\in\underline{\operatorname{Isomext}}(G,G')(S)\)。考虑}
+\[
+\begin{aligned}
+  &\underline{\operatorname{Isomint}}_u
+     (G,B,T;G',B',T')\\
+  &\qquad =
+  \underline{\operatorname{Isom}}_{S\text{-}\mathrm{gr}}
+     (G,B,T;G',B',T')
+  \cap
+  \underline{\operatorname{Isomint}}_u(G,G').
+\end{aligned}
+\]
+{\itshape 它是一个光滑仿射 \(S\)-概形，而且是 \(T_{\mathrm{ad}}\) 下的主齐性丛。特别地，}
+\[
+  \underline{\operatorname{Isomint}}_u
+    (G,B,T;G',B',T')(S)\ne\varnothing
+\]
+{\itshape 当且仅当 \(H^1(S,T_{\mathrm{ad}})\) 中相应的元素为零。}
+
+在本节末尾，我们证明以后要用到的两个结果。
+\SGARefTarget{sga3:xxiv:2.11}
+\medskip\noindent\textbf{命题 2.11.} ---
+{\itshape 设 \(S\) 是概形，\(G\) 是约化 \(S\)-群，\(T\) 是 \(G\) 的极大环面。显然的态射}
+\[
+  T_{\mathrm{ad}}
+  \xrightarrow{\ \sim\ }
+  \underline{\Aut}_{S\text{-}\mathrm{gr}}(G,\operatorname{id}_T)
+\]
+{\itshape 是同构。}
+
+这由前述断言推出。在 \SGARefLink{sga3:xxiv:1.5.2}{1.5.2} 的证明过程中也已给出了一个直接证明。
+
+\SGARefTarget{sga3:xxiv:2.12}
+\medskip\noindent\textbf{推论 2.12.} ---
+{\itshape 在上述假设下，有序对 \((G',f)\) 所成范畴与 \(T_{\mathrm{ad}}\) 下主齐性丛所成范畴之间有等价，其中 \(G'\) 是 \(G\) 的形式，\(f\) 是从 \(T\) 到 \(G'\) 的一个极大环面的同构。}
+
+\SGARefTarget{sga3:xxiv:2.13}
+\medskip\noindent\textbf{推论 2.13.} ---
+{\itshape 若 \(H^1(S,T_{\mathrm{ad}})=0\)，而 \(G'\) 是 \(G\) 的一个形式，且有与 \(T\) 同构的极大环面，则 \(G'\) 与 \(G\) 同构。}
+
+\SGARefTarget{sga3:xxiv:2.14}
+\medskip\noindent\textbf{推论 2.14.} ---
+{\itshape 设 \(S\) 是满足 \(\operatorname{Pic}(S)=0\) 的概形，\(G\) 是类型恒定的约化 \(S\)-群。则 \(G\) 可分裂，当且仅当 \(G\) 有分裂极大环面。}
+
+设 \(G\) 是约化群，\(\operatorname{rad}(G)\) 是它的根基（\SGARefLink{sga3:xxii:rem:4.3.9}{第 XXII 讲 4.3.9}）。由于 \(\operatorname{rad}(G)\) 在 \(G\) 中是中心的特征子群，有典范态射
+\[
+  q:\underline{\Autext}(G)
+  \longrightarrow
+  \underline{\Aut}_{S\text{-}\mathrm{gr}}
+    \bigl(\operatorname{rad}(G)\bigr).
+\]
+
+\SGARefTarget{sga3:xxiv:2.15}
+\medskip\noindent\textbf{命题 2.15.} ---
+{\itshape 设 \(G\) 是约化 \(S\)-群。以下序列正合：}
+\[
+  1\longrightarrow
+  \operatorname{ad}(G)
+  \longrightarrow
+  \underline{\Aut}_{S\text{-}\mathrm{gr}}
+    \bigl(G,\operatorname{id}_{\operatorname{rad}(G)}\bigr)
+  \xrightarrow{p}
+  \underline{\Autext}(G)
+  \xrightarrow{q}
+  \underline{\Aut}_{S\text{-}\mathrm{gr}}
+    \bigl(\operatorname{rad}(G)\bigr),
+\]
+{\itshape 并且 \(\ker(q)=\operatorname{im}(p)\) 是 \(\underline{\Autext}(G)\) 的一个既开又闭的子概形，在 \(S\) 上有限。}
+
+可设 \(G\) 分裂。第一个断言是直接的，第二个断言由\SGARefLink{sga3:XXI:6.7.5}{第 XXI 讲 6.7.5} 与 6.7.7 推出。
+
+记
+\[
+  H=
+  \underline{\Aut}_{S\text{-}\mathrm{gr}}
+    \bigl(G,\operatorname{id}_{\operatorname{rad}(G)}\bigr),
+\]
+得到：
+\SGARefTarget{sga3:xxiv:2.16}
+\medskip\noindent\textbf{推论 2.16.} ---
+{\itshape 有序对 \((G',f)\) 所成范畴与某个 \(S\)-群概形 \(H\) 下主丛所成范畴之间有等价，其中 \(G'\) 是 \(G\) 的形式，\(f\) 是从 \(\operatorname{rad}(G)\) 到 \(G'\) 的根基的同构，而 \(H\) 满足存在正合序列}
+\[
+  1\longrightarrow \operatorname{ad}(G)
+  \longrightarrow H
+  \longrightarrow F
+  \longrightarrow 1,
+\]
+{\itshape 其中 \(S\)-群 \(F\) 在 \(S\) 上平展且有限。}
+
+\SGARefTarget{sga3:xxiv:section:3}
+\section*{3. 约化群的 Dynkin 概形. 拟分裂群}
+
+\SGARefTarget{sga3:xxiv:3.1}
+\medskip\noindent\textbf{3.1.} ---
+回忆（\SGARefLink{sga3:XXI:7.4.1}{第 XXI 讲 7.4.1}），Dynkin 图是一个有限集合，其结构由不同元素的若干有序对（键）以及到 \(\{1,2,3\}\) 的映射（长度）定义。每个钉扎既约根数据 \(\mathscr R\) 都伴有一个 Dynkin 图 \(\Delta(\mathscr R)\)，其底集是单根集。
+
+\SGARefTarget{sga3:xxiv:3.2}
+\medskip\noindent\textbf{3.2.} ---
+设 \(S\) 是概形。Dynkin \(S\)-概形是一个有限扭常 \(S\)-概形 \(\Delta\)，赋予由 \(\Delta\times_S\Delta\) 的一个与对角线交为空的子概形 \(L\)，以及态射
+\[
+  \Delta\longrightarrow\{1,2,3\}_S
+\]
+所定义的结构。若 \(S'\) 是连通 \(S\)-概形，\footnote{编者注：补入了 \(S'\) 连通这一假设。}则 \(\Delta(S')\) 自然带有 Dynkin 图结构。
+
+立刻可定义以下概念：两个 Dynkin 概形的同构、Dynkin 概形的基扩张，以及与一个 Dynkin 图相伴的常 Dynkin 概形。
+
+Dynkin 概形上的每个平展下降资料都是有效的。
+
+\SGARefTarget{sga3:xxiv:3.3}
+\medskip\noindent\textbf{3.3.} ---
+我们将为每个约化 \(S\)-群 \(G\) 构造一个相伴的 Dynkin \(S\)-概形。先设 \(G\) 在 \(S\) 上可分裂。对 \(G\) 的每个钉扎 \(E\)，设 \(\Delta(E)\) 是与 \(E\) 所定义的钉扎根数据相伴的常 Dynkin 概形。若 \(E\)、\(E'\) 是 \(G\) 的两个钉扎，则由 \SGARefLink{sga3:xxiv:1.5}{1.5}，存在唯一的 \(G\) 在 \(S\) 上的内自同构，将 \(E\) 变为 \(E'\)。\(G\) 的这个自同构定义一个同构
+\[
+  a_{EE'}:\Delta(E)\xrightarrow{\ \sim\ }\Delta(E').
+\]
+这些 \(a_{EE'}\) 显然组成传递系统，因而可将各 \(\Delta(E)\) 等同（即取它们的归纳极限）；所得是一个常 Dynkin 概形，记为 \(\operatorname{Dyn}(G)\)。现在若 \(G\) 是任意约化 \(S\)-群，则存在平展覆盖族 \(\{S_i\to S\}\)，使得 \(G_{S_i}\) 可分裂。仿照上述论证，便得到各 \(\operatorname{Dyn}(G_{S_i})\) 上的典范下降资料；由下降便构造出 Dynkin \(S\)-概形 \(\operatorname{Dyn}(G)\)。
+
+\SGARefTarget{sga3:xxiv:3.4}
+\medskip\noindent\textbf{3.4.} ---
+这个构造有以下性质（而且这些性质实质上刻画了它）：
+\begin{enumerate}
+\item[\SGAInlineRefTarget{sga3:xxiv:3.4:item:i}(i)] 每个约化 \(S\)-群 \(G\) 都伴有 Dynkin 概形 \(\operatorname{Dyn}(G)\)；每个同构
+\[
+  u:G\xrightarrow{\ \sim\ }G'
+\]
+都函子性地伴有同构
+\[
+  \operatorname{Dyn}(u):
+  \operatorname{Dyn}(G)\xrightarrow{\ \sim\ }\operatorname{Dyn}(G').
+\]
+\item[\SGAInlineRefTarget{sga3:xxiv:3.4:item:ii}(ii)] 若 \(S'\) 是 \(S\)-概形，\(G\) 是约化 \(S\)-群，则
+\[
+  \operatorname{Dyn}(G\times_S S')
+  \simeq
+  \operatorname{Dyn}(G)\times_S S'.
+\]
+\item[(iii)] 若 \(E\) 是 \(G\) 的钉扎，定义了 Dynkin 图为 \(\Delta\) 的钉扎根数据，则
+\[
+  \operatorname{Dyn}(G)\simeq\Delta_S.
+\]
+\item[\SGAInlineRefTarget{sga3:xxiv:3.4:item:iv}(iv)] 若 \(u\) 是 \(G\) 的内自同构，则 \(\operatorname{Dyn}(u)\) 是 \(\operatorname{Dyn}(G)\) 的恒等自同构。
+\end{enumerate}
+
+\SGARefTarget{sga3:xxiv:3.5}
+\medskip\noindent\textbf{3.5.} ---
+设 \(S\) 是概形，\(G\) 是约化 \(S\)-群。显然，\(\operatorname{Dyn}(G)\) 作为 Dynkin 概形的自同构函子
+\[
+  \underline{\Aut}_{\mathrm{Dyn}}
+    \bigl(\operatorname{Dyn}(G)\bigr)
+\]
+由一个有限扭常 \(S\)-概形表示。由 \SGARefLink{sga3:xxiv:3.4:item:i}{3.4(i)} 与 \SGARefLink{sga3:xxiv:3.4:item:ii}{(ii)}，有典范态射
+\[
+  \underline{\Aut}_{S\text{-}\mathrm{gr}}(G)
+  \longrightarrow
+  \underline{\Aut}_{\mathrm{Dyn}}
+    \bigl(\operatorname{Dyn}(G)\bigr),
+\]
+而由 \SGARefLink{sga3:xxiv:3.4:item:iv}{(iv)}，它经由态射
+\[
+  \underline{\Autext}(G)
+  \longrightarrow
+  \underline{\Aut}_{\mathrm{Dyn}}
+    \bigl(\operatorname{Dyn}(G)\bigr)
+\]
+分解。更一般地，若 \(G\)、\(G'\) 是两个约化 \(S\)-群，则有典范态射
+\[
+  \underline{\operatorname{Isomext}}(G,G')
+  \longrightarrow
+  \underline{\operatorname{Isom}}_{\mathrm{Dyn}}
+    \bigl(\operatorname{Dyn}(G),\operatorname{Dyn}(G')\bigr).
+\]
+特别地，若 \(G'\) 是 \(G\) 的内扭形式（\SGARefLink{sga3:xxiv:1.11}{1.11}），则 Dynkin 概形 \(\operatorname{Dyn}(G)\) 与 \(\operatorname{Dyn}(G')\) 同构。
+
+\SGARefTarget{sga3:xxiv:3.6}
+\medskip\noindent\textbf{3.6.} ---
+若 \(G\) 半单（分别为伴随或单连通），则态射
+\[
+  \underline{\Autext}(G)
+  \longrightarrow
+  \underline{\Aut}_{\mathrm{Dyn}}
+    \bigl(\operatorname{Dyn}(G)\bigr)
+\]
+是单态射（分别为同构）。事实上，可设 \(G\) 已钉扎，此时断言归结为钉扎既约根数据的相应结果（参见\SGARefLink{sga3:XXI:7.4.5}{第 XXI 讲 7.4.5}）。
+
+对 \(\operatorname{Isom}\) 函子也有类似结果。特别地，两个半单伴随（分别为单连通）\(S\)-群互为内扭形式，当且仅当它们的 Dynkin 概形同构。
+
+\SGARefTarget{sga3:xxiv:3.7}
+\medskip\noindent\textbf{3.7.} ---
+还可以用另一种方式构造约化群所伴的 Dynkin 概形。设 \(\mathscr R\) 是钉扎既约根数据，\(G\) 是类型为 \(\mathscr R\) 的约化 \(S\)-群，并以 \(\Delta(\mathscr R)\) 表示由 \(\mathscr R\) 定义的 Dynkin 图。由 \SGARefLink{sga3:xxiv:3.5}{3.5}，有典范态射
+\[
+  A_S(\mathscr R)
+  =
+  \underline{\Aut}_{S\text{-}\mathrm{gr}}
+    \bigl(\operatorname{\acute{E}p}_S(\mathscr R)\bigr)
+  \longrightarrow
+  \underline{\Aut}_{\mathrm{Dyn}}
+    \bigl(\Delta(\mathscr R)_S\bigr).
+\]
+约化 \(S\)-群 \(G\) 对应于一个 \(A_S(\mathscr R)\) 下的主齐性丛（\SGARefLink{sga3:xxiv:1.17}{1.17}）
+\[
+  \underline{\operatorname{Isom}}_{S\text{-}\mathrm{gr}}
+    \bigl(\operatorname{\acute{E}p}_S(\mathscr R),G\bigr),
+\]
+其相伴的 \(\underline{\Aut}_{\mathrm{Dyn}}(\Delta(\mathscr R)_S)\) 下的丛，对应于 \(\Delta(\mathscr R)_S\) 在 \(S\) 上的一个形式；这就是 \(\operatorname{Dyn}(G)\)。换言之，这个相伴丛正是
+\[
+  \underline{\operatorname{Isom}}_{\mathrm{Dyn}}
+    \bigl(\Delta(\mathscr R)_S,\operatorname{Dyn}(G)\bigr).
+\]
+以这种形式表述后，证明是直接的。
+
+\SGARefTarget{sga3:xxiv:3.8}
+\medskip\noindent\textbf{3.8. Dynkin 概形与 Killing 偶。} ---
+设 \(S\) 是概形，\(G\) 是约化 \(S\)-群，\(B\supset T\) 是 \(G\) 的 Killing 偶。有典范态射
+\[
+  i:\operatorname{Dyn}(G)
+  \longrightarrow
+  \underline{\operatorname{Hom}}_{S\text{-}\mathrm{gr}}
+    (T,\mathbb G_{m,S})
+\]
+它将 \(\operatorname{Dyn}(G)\) 等同于“\(B\) 关于 \(T\) 的单根概形”。这个态射直接由钉扎情形下降而定义。还应注意，给定 \(T\) 与 \(i\)，就能恢复 \(B\)（“单根系与正根系之间的一一对应”）。
+
+由上述 \(D=\operatorname{Dyn}(G)\) 的描述，可知 \(B_D\) 有一个关于 \(T_D\) 的典范根：这个根 \(\alpha_D\) 是 \(D\) 的恒等态射在 \(i(D)\) 下的像。由此得到一个典范的可逆 \(\mathcal O_D\)-模 \(\mathfrak g_D\)：
+\[
+  \mathfrak g_D
+  =
+  \bigl(\mathfrak g\otimes_{\mathcal O_S}\mathcal O_D\bigr)^{\alpha_D}.
+\]
+在钉扎情形，
+\[
+  D=\coprod_{\alpha\in\Delta}S_\alpha,
+\]
+其中每个 \(S_\alpha\) 都是 \(S\) 的副本，而 \(\mathfrak g_D\) 就是在每个 \(S_\alpha\) 上诱导 \(\mathfrak g_\alpha\) 的 \(\mathcal O_D\)-模，\(\alpha\in\Delta\)。
+
+\SGARefTarget{sga3:xxiv:3.9}
+\medskip\noindent\textbf{3.9. 拟钉扎. 拟钉扎群。} ---
+若 \(G\) 是约化 \(S\)-群，\(G\) 的一个\emph{拟钉扎}是以下资料：
+\begin{enumerate}
+\item[(i)] \(G\) 的一个 Killing 偶 \(B\supset T\)；
+\item[(ii)] 一个截面
+\[
+  X\in\Gamma\bigl(\operatorname{Dyn}(G),\mathfrak g_D\bigr)^\times.
+\]
+\end{enumerate}
+若约化 \(S\)-群有拟钉扎，则称它\emph{可拟分裂}。\emph{拟钉扎群}是赋予拟钉扎的约化群。
+
+设 \(B\supset T\) 是约化 \(S\)-群 \(G\) 的 Killing 偶。则 \(G\) 关于这个 Killing 偶可拟钉扎，当且仅当 \(\mathfrak g_D\) 有一个在每一点都非零的截面，即 \(\mathfrak g_D\) 所定义的 \(\operatorname{Pic}(\operatorname{Dyn}(G))\) 的元素为零。特别地，设 \(S\) 半局部。则 \(\operatorname{Dyn}(G)\) 也半局部，故 \(\operatorname{Pic}(\operatorname{Dyn}(G))=0\)。于是：
+
+\SGARefTarget{sga3:xxiv:3.9.1}
+\medskip\noindent\textbf{命题 3.9.1.} ---
+{\itshape 设 \(S\) 是半局部概形，\(G\) 是约化 \(S\)-群。则 \(G\) 可拟分裂，当且仅当它有 Borel 子群。}
+% 已译源行 1264--1654。
+
+\footnote{编者注：已详细补写对第 XXII 讲 5.9.7 的引用。}
+事实上，\(S\) 仿射，所以由\SGARefLink{sga3:xxii:cor:5.9.7}{第 XXII 讲 5.9.7} 的第一个断言，若 \(G\) 有 Borel 子群 \(B\)，则它也有 Killing 偶 \(B\supset T\)。此时，由于 \(\operatorname{Pic}(D)=0\)，模 \(\mathfrak g_D\) 有一个处处非零的截面 \(X\)。
+
+仍设 \(A\) 是半局部环，\(S=\operatorname{Spec}(A)\)。对每个约化 \(S\)-群 \(G\)，态射
+\[
+  \operatorname{Bor}(G)\longrightarrow S
+\]
+是满的（因为对每个 \(s\in S\)，\(G_s\) 都有 Borel 子群）、光滑的、射影的（\SGARefLink{sga3:xxii:cor:5.8.3}{第 XXII 讲 5.8.3}）。因此，在作一次有限、满、平展的基扩张后，它便有截面。\footnote{编者注：原文引用了未出版的 EGA~IV 第 24 节。要点在于使用“Bertini 定理”。这里给出 O.~Gabber 向我们指出的论证的细节。设 \(X\to S\) 是满的光滑射影态射。将 \(S\) 换成一个连通分支后，可设 \(X/S\) 在每一点处的相对维数都是 \(d\)（参见 EGA~IV\textsubscript{4}，17.10.2）。还可设 \(X\) 是某个射影空间 \(\mathbb P^n_S=\mathbb P(E)\) 的闭子概形，其中 \(E\) 是秩为 \(n+1\) 的自由 \(A\)-模（参见 EGA~II，5.3.3）。设 \(s_1,\ldots,s_r\) 是 \(S\) 的闭点。由 Bertini 定理（例如参见 \textup{[Jou83]}，I，6.10），
+\[
+  P=\mathbb P(E^\ast)^d
+\]
+有一个纤维非空的开子集 \(U\)，使得对 \(U_{s_i}\) 的每个点 \(u=(f_1,\ldots,f_d)\)，\(X_{\kappa(u)}\) 与由 \(u\) 定义的 \(\mathbb P^n_{\kappa(u)}\) 中的 \(d\) 个超平面的交，在 \(\kappa(u)\) 上平展。缩小 \(U\) 后，可设 \(U\) 是仿射空间 \(\mathbb A^{nd}_S\) 中某个次数为 \(m>0\) 的多项式 \(Q\) 的零点集 \(V(Q)\) 的补集。对变量数作简单归纳便知，若 \(\lvert\kappa(s_i)\rvert>m\)，则 \(V(Q)\) 不可能包含 \(\mathbb A^{nd}_{\kappa(s_i)}\) 的全部有理点。由于态射
+\[
+  A\longrightarrow\prod_i\kappa(s_i)
+\]
+是满射，可找到一个次数为 \(m\) 的首一多项式 \(R\in A[X]\)，使其在 \(\kappa(s_i)[X]\) 中的像在 \(\kappa(s_i)\) 有限时不可约，而在 \(\kappa(s_i)\) 无限时有 \(m\) 个不同的根。置
+\[
+  A'=A[X]/(R),
+  \qquad
+  S'=\operatorname{Spec}(A').
+\]
+于是 \(S'\to S\) 平展、有限且满，并且每个闭点 \(s'_1,\ldots,s'_t\) 处剩余域的基数至少为 \(2m\)。因此，在 \(S'\) 的每个闭点上方，\(U\) 都有一个有理点 \(u_i\)，而由于
+\[
+  A'\longrightarrow\prod_i\kappa(s'_i)
+\]
+是满射\emph{（英译者注：法文印为 \(\kappa(s_i)\)；此处所指的 \(S'\) 的闭点应为 \(s'_i\)）}，这些点可提升为 \(P_{S'}\) 的一个截面 \(u\)。设 \(Z\) 是 \(X_{S'}\) 与由 \(u\) 定义的 \(\mathbb P^n_{S'}\) 中 \(d\) 个超平面的交，\(V\) 是 \(Z\) 在 \(S'\) 上平展的那些点组成的开子集。由 EGA~IV\textsubscript{3}，11.3.8，\(V\) 包含每个纤维 \(Z_{s'_i}\)。由于 \(\pi:Z\to S'\) 固有，闭集 \(\pi(Z-V)\) 为空，故 \(V=Z\)。所以 \(Z\to S'\) 满、平展且固有，因而有限；复合态射 \(Z\to S\) 也如此。这就给出 \(X\to S\) 所需的截面。}
+由此得到：
+
+\SGARefTarget{sga3:xxiv:3.9.2}
+\medskip\noindent\textbf{推论 3.9.2.} ---
+{\itshape 设 \(S\) 是半局部概形，\(G\) 是约化 \(S\)-群。存在平展、有限、满的态射 \(S'\to S\)，使得 \(G_{S'}\) 可拟分裂。}
+
+\SGARefTarget{sga3:xxiv:3.9.3}
+\medskip\noindent\textbf{注 3.9.3.} ---
+在上述假设下，设 \(T\) 是 \(G\) 的极大环面（参见\SGARefLink{sga3:xiv:3.20}{第 XIV 讲 3.20}）。还可要求 \(G_{S'}\) 关于 \(T_{S'}\) 可拟分裂：只须将上述论证用于“包含 \(T\) 的 Borel 子群的概形”，它在 \(S\) 上有限且平展（\SGARefLink{sga3:xxii:corollary:5-5-5:item:ii}{第 XXII 讲 5.5.5(ii)}）。
+
+\SGARefTarget{sga3:xxiv:3.10}
+\medskip\noindent\textbf{3.10.} ---
+设 \(E\)、\(E'\) 是约化 \(S\)-群 \(G\) 的两个拟钉扎。存在唯一的 \(G\) 的内自同构，将 \(E\) 变为 \(E'\)。事实上，立即可归结到分裂情形，而此时断言已经证明（\SGARefLink{sga3:xxiv:1.5}{1.5}；只须注意，对 \(G\) 的内自同构而言，保持一个钉扎等价于保持其底下的拟钉扎）。仿照第 1 节，得到约化 \(S\)-群 \(G\) 的一个拟钉扎定义了以下正合序列的一个分裂 \(h\)：
+\[
+\begin{tikzcd}[column sep=small]
+1 \arrow[r]
+&
+\underline{\operatorname{ad}}(G) \arrow[r]
+&
+\underline{\Aut}_{S\text{-}\mathrm{gr.}}(G)
+  \arrow[r,shift right=.7ex,"p"']
+&
+\underline{\Autext}(G)
+  \arrow[l,shift right=.7ex,dotted,"h"']
+  \arrow[r]
+&
+1
+\end{tikzcd}
+\]
+其中 \(h\) 的像是 \(\underline{\Aut}_{S\text{-}\mathrm{gr}}(G)\) 中保持该拟钉扎的子群。
+
+同样，若 \(G\)、\(G'\) 是两个拟钉扎 \(S\)-群，则自然定义了 \(\underline{\operatorname{Isom}}_{S\text{-}\mathrm{gr}}(G,G')\) 的子函子
+\[
+  \underline{\operatorname{Isom}}_{S\text{-}\mathrm{gr},\,q\text{-}\acute{e}p}
+    (G,G').
+\]
+从 \(\underline{\operatorname{Isom}}_{S\text{-}\mathrm{gr}}(G,G')\) 到 \(\underline{\operatorname{Isomext}}(G,G')\) 的投影诱导同构
+\[
+  (*)\qquad
+  \underline{\operatorname{Isom}}_{S\text{-}\mathrm{gr},\,q\text{-}\acute{e}p}
+    (G,G')
+  \xrightarrow{\ \sim\ }
+  \underline{\operatorname{Isomext}}(G,G').
+\]
+
+\SGARefTarget{sga3:xxiv:3.11}
+\medskip\noindent\textbf{定理 3.11.} ---
+{\itshape 设 \(S\) 是概形，\(\mathscr R\) 是钉扎既约根数据，使得 \(\operatorname{\acute{E}p}_S(\mathscr R)\) 存在（参见第 XXV 讲），\(E\) 是它的自同构群。考虑以下三个范畴：
+\begin{enumerate}
+\item[\SGAInlineRefTarget{sga3:xxiv:3.11:item:i}(i)] \(S\) 的以 \(E\) 为群的主 Galois 覆盖所成范畴 \(\mathsf{Rev}\)（态射为 \(E\)-丛的同构）；
+\item[\SGAInlineRefTarget{sga3:xxiv:3.11:item:ii}(ii)] 范畴 \(\mathsf{Redext}\)，其对象是类型为 \(\mathscr R\) 的约化 \(S\)-群（\SGARefLink{sga3:xxii:def:2.7}{第 XXII 讲 2.7}），从 \(G\) 到 \(G'\) 的态射为 \(\underline{\operatorname{Isomext}}(G,G')(S)\) 中的元素；
+\item[(iii)] 类型为 \(\mathscr R\) 的拟钉扎约化 \(S\)-群所成范畴 \(\mathsf{Q\acute{e}p}\)（态射为保持拟钉扎的同构）。
+\end{enumerate}
+这三个范畴彼此等价。更精确地，有如下函子图，它在相差函子性同构的意义下交换：}
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+\mathsf{Rev}
+  \arrow[rr,"q\acute{e}p"]
+&&
+\mathsf{Q\acute{e}p}
+  \arrow[dl,"i"]
+\\
+&
+\mathsf{Redext}
+  \arrow[ul,"\operatorname{rev}"]
+&
+\end{tikzcd}
+\]
+
+下面描述这三个函子，将该图交换性的验证留给读者。\footnote{编者注：在 \SGARefLink{sga3:xxiv:3.11.4}{3.11.4} 中，已简述如何验证函子 \(i\)、\(\operatorname{rev}\)、\(q\acute{e}p\) 完全忠实，以及复合 \(\operatorname{rev}\circ i\circ q\acute{e}p\) 同构于 \(\mathsf{Rev}\) 的恒等函子。}
+
+\SGARefTarget{sga3:xxiv:3.11.1}
+\medskip\noindent\textbf{3.11.1. 函子 \(i\)。} ---
+这是显然的函子：
+\[
+  i(G)=G,
+  \qquad
+  i(f)=\text{\(f\) 在同构 3.10 \((*)\) 下的像}.
+\]
+
+\SGARefTarget{sga3:xxiv:3.11.2}
+\medskip\noindent\textbf{3.11.2. 函子 \(q\acute{e}p\)。} ---
+设 \(S'\) 是 \(S\) 的以 \(E\) 为群的主 Galois 覆盖。设
+\[
+  \bigl(G,T,M,\mathscr R,\Delta,
+    (X_\alpha)_{\alpha\in\Delta}\bigr)
+\]
+是 \(G=\operatorname{\acute{E}p}_S(\mathscr R)\) 的钉扎，\((X'_\alpha)_{\alpha\in\Delta}\) 是
+\[
+  G'=G_{S'}=\operatorname{\acute{E}p}_{S'}(\mathscr R)
+\]
+的相应钉扎。由\SGARefLink{sga3:XXIII:5.5bis}{第 XXIII 讲 5.5 bis}，有唯一的群同态
+\[
+  \theta:E
+  \longrightarrow
+  \underline{\Aut}_{S\text{-}\mathrm{gr}}
+    \bigl(\operatorname{\acute{E}p}_S(\mathscr R)\bigr)
+  =A(\mathscr R)(S),
+\]
+使得对每个 \(h\in E\)，自同构 \(\theta(h)\) 在 \(T\) 上诱导 \(D_S(h)\)，而且
+\[
+  \Lie(\theta(h))(X_\alpha)=X_{h(\alpha)}
+  \qquad(\alpha\in\Delta).
+\]
+结合 \(E\) 在 \(S'\) 上的作用，便得到 \(E\) 在 \(G'\) 上的一个作用，它与 \(E\) 在 \(S'\) 上的作用相容，并保持 \(G'\) 的典范拟钉扎。\footnote{编者注：上述讨论扩充了原文，以说明 \(E\) 在 \(G'\) 上的作用是将 \(E\) 在 \(\operatorname{\acute{E}p}_{S'}(\mathscr R)\) 上的自然作用与给定的 \(S'\) 上的作用结合而得到的。这个作用保持 \(G'\) 的典范 Killing 偶，也保持由
+\[
+  \Gamma\!\left(
+    \Delta_{S'},
+    \Lie(G'/S')_{\Delta_{S'}}
+  \right),
+\]
+中元素 \(\widetilde X'\) 给出的拟钉扎；该元素在以 \(\alpha\) 为指标的 \(S'\) 副本上等于 \(X'_\alpha\)。事实上，\(E\) 在 \(\Delta_{S'}\) 上通过置换 \(S'\) 的各副本而作用，故对每个 \(h\in E\)，有 \(h(\widetilde X')=\widetilde X'\)。}
+由于 \(S'\to S\) 是 \textup{(fpqc)} 拓扑的覆盖，它对于仿射态射的纤维范畴是有效下降态射。以
+\[
+  q\acute{e}p(S')
+  =
+  Q\text{-}\operatorname{\acute{E}p}_{S'/S}(\mathscr R)
+\]
+表示经 Galois 下降得到的拟钉扎 \(S\)-群。\footnote{编者注：例如参见 TDTE~I，第 22 页，\SGARefLink{sga3:xxiv:section:1}{例 1}。还可将 \(q\acute{e}p(S')\) 描述为 \(G=\operatorname{\acute{E}p}_S(\mathscr R)\) 由 \(E\)-主齐性丛 \(S'/S\) 的扭转，即 \(S'\times_SG\) 对 \(E\) 的右作用
+\[
+  (s',g)\cdot h=(s'h,h^{-1}(g))
+\]
+所取的 \textup{(fpqc)} 层商。由于 \(G\) 在 \(S\) 上仿射，且 \(E\) 通过群自同构作用于 \(G\)，这个层由一个 \(S\)-群 \(G^\sharp\) 表示；\(G^\sharp\) 是 \(G\) 的“扭”形式，\(D^\sharp=\operatorname{Dyn}(G^\sharp)\) 是常 Dynkin 概形 \(\Delta_S\) 由主齐性丛 \(S'/S\) 的扭转。由于 \(E\) 正规化 \(B\) 与 \(T\)，同样得到 \(G^\sharp\) 的一个 Killing 偶 \((B^\sharp,T^\sharp)\)。另一方面，置 \(\mathfrak g=\Lie(G/S)\) 及 \(\mathfrak g^\sharp=\Lie(G^\sharp/S)\)。对每个 \(U\to S\)，\(\mathfrak g^\sharp\) 在 \(U\) 上的截面就是 \(E\)-等变的 \(S\)-态射
+\[
+  U\times_SS'\longrightarrow W(\mathfrak g).
+\]
+由于 \(D^\sharp\times_SS'\) 与赋予作用
+\[
+  (\alpha,s')\cdot h=(h^{-1}(\alpha),s'h),
+\]
+的 \(\Delta\times S'\) 是 \(E\)-同构的，态射 \((\alpha,s')\mapsto X_\alpha\) 就给出 \(\mathfrak g^\sharp\) 在 \(D^\sharp\) 上的一个截面，它是一个拟钉扎，即
+\[
+  \bigl(
+    \mathfrak g^\sharp\otimes_{\mathcal O_S}\mathcal O_{D^\sharp}
+  \bigr)^{D^\sharp}
+\]
+的处处非零截面（参见 \SGARefLink{sga3:xxiv:3.8}{3.8}）。}
+
+\SGARefTarget{sga3:xxiv:3.11.3}
+\medskip\noindent\textbf{3.11.3. 函子 \(\operatorname{rev}\)。} ---
+设 \(G\) 是类型为 \(\mathscr R\) 的约化 \(S\)-群。记
+\[
+  \operatorname{rev}(G)
+  =
+  \underline{\operatorname{Isomext}}
+    \bigl(\operatorname{\acute{E}p}_S(\mathscr R),G\bigr).
+\]
+这是 \(E_S\) 下的主齐性丛（参见 \SGARefLink{sga3:xxiv:1.10}{1.10} 及 \SGARefLink{sga3:xxiv:1.19}{1.19}），即 \(\mathsf{Rev}\) 的一个对象。
+
+\SGARefTarget{sga3:xxiv:3.11.4}
+\medskip\noindent\textbf{3.11.4.} ---
+\footnote{编者注：这一小节号是补入的。}
+由同构 \SGARefLink{sga3:xxiv:3.10}{3.10} \((*)\)，显然函子 \(i\) 完全忠实。另一方面，若 \(G_0,G,G'\) 是约化 \(S\)-群，则自然态射
+\[
+  \underline{\operatorname{Isom}}(G_0,G)
+  \times_S
+  \underline{\operatorname{Isom}}(G,G')
+  \longrightarrow
+  \underline{\operatorname{Isom}}(G_0,G')
+\]
+诱导态射
+\[
+  (\star)\qquad
+  \underline{\operatorname{Isomext}}(G_0,G)
+  \times_S
+  \underline{\operatorname{Isomext}}(G,G')
+  \longrightarrow
+  \underline{\operatorname{Isomext}}(G_0,G'),
+\]
+因为对每个 \(S'\to S\)，若
+\[
+  g_0\in G_0(S'),\quad g\in G(S'),\quad
+  u\in\underline{\operatorname{Isom}}(G_0,G)(S'),\quad
+  v\in\underline{\operatorname{Isom}}(G,G')(S'),
+\]
+则有
+\[
+  v\circ\operatorname{int}(g)\circ u\circ\operatorname{int}(g_0)
+  =
+  v\circ u\circ
+  \operatorname{int}\bigl(u^{-1}(g)g_0\bigr).
+\]
+取 \(G_0=\operatorname{\acute{E}p}_S(\mathscr R)\)，得到映射
+\[
+\begin{aligned}
+  \underline{\operatorname{Isomext}}(G,G')(S)
+  \longrightarrow
+  \operatorname{Hom}_{\mathsf{Rev}}\bigl(
+  &\underline{\operatorname{Isomext}}
+    (\operatorname{\acute{E}p}_S(\mathscr R),G),\\
+  &\underline{\operatorname{Isomext}}
+    (\operatorname{\acute{E}p}_S(\mathscr R),G')
+  \bigr),
+\end{aligned}
+\]
+为证明这个映射是双射，利用 \textup{(fpqc)} 下降可设 \(G\) 与 \(G'\) 已钉扎；此时结论显然。
+
+同样，若 \(S_1,S_2\) 是 \(\mathsf{Rev}\) 的两个对象，并以
+\[
+  S_i\times^E\operatorname{\acute{E}p}_S(\mathscr R)
+\]
+表示通过 \(E\)-主齐性丛 \(S_i\) 扭转 \(\operatorname{\acute{E}p}_S(\mathscr R)\) 而得到的 \(S\)-群 \(q\acute{e}p(S_i)\)（参见编者注 (21)），则有自然映射
+\[
+\begin{aligned}
+  \operatorname{Hom}_{\mathsf{Rev}}(S_1,S_2)
+  \longrightarrow
+  \operatorname{Hom}_{\mathsf{Q\acute{e}p}}\bigl(
+    &S_1\times^E\operatorname{\acute{E}p}_S(\mathscr R),\\
+    &S_2\times^E\operatorname{\acute{E}p}_S(\mathscr R)
+  \bigr).
+\end{aligned}
+\]
+为证明它是双射，利用 \textup{(fpqc)} 下降可设 \(S_1\)、\(S_2\) 是平凡 \(E\)-丛；此时断言显然。
+
+因此图中的三个函子都完全忠实。此外，对 \(\mathsf{Rev}\) 的每个对象 \(S'\)，有自然态射
+\[
+  S'
+  \longrightarrow
+  \underline{\operatorname{Isomext}}\!\left(
+    \operatorname{\acute{E}p}_S(\mathscr R),
+    S'\times^E\operatorname{\acute{E}p}_S(\mathscr R)
+  \right),
+\]
+为证明它是同构，利用 \textup{(fpqc)} 下降可设 \(S'\) 是平凡 \(E\)-丛；此时断言显然。
+
+于是有函子的同构
+\[
+  \operatorname{Id}_{\mathsf{Rev}}
+  \longrightarrow
+  \operatorname{rev}\circ i\circ q\acute{e}p.
+\]
+由于 \(\operatorname{rev}\) 完全忠实，对每个约化 \(S\)-群 \(H\)（不必拟分裂），得到关于 \(H\) 函子性的双射
+\[
+  \underline{\operatorname{Isomext}}\!\left(
+    Q\text{-}\operatorname{\acute{E}p}_{\operatorname{rev}(H)/S}
+      (\mathscr R),
+    H
+  \right)(S)
+  \simeq
+  \operatorname{Aut}_{\mathsf{Rev}}\bigl(\operatorname{rev}(H)\bigr),
+\]
+特别地，\(\operatorname{rev}(H)\) 的恒等态射对应于一个“典范”元素
+\[
+  u_0\in
+  \underline{\operatorname{Isomext}}\!\left(
+    Q\text{-}\operatorname{\acute{E}p}_{\operatorname{rev}(H)/S}
+      (\mathscr R),
+    H
+  \right)(S).
+\]
+此外，这个集合的每个元素 \(u\) 对应于 \(\operatorname{rev}(H)\) 的一个自同构 \(\varphi_u\)，而 \(q\acute{e}p(\varphi_u)\) 是钉扎 \(S\)-群
+\[
+  Q\text{-}\operatorname{\acute{E}p}_{\operatorname{rev}(H)/S}
+    (\mathscr R)
+\]
+的唯一自同构，使得
+\[
+  u_0\circ q\acute{e}p(\varphi_u)=u.
+\]
+这就证明了\SGARefLink{sga3:xxiv:3.11}{定理 3.11}。
+
+我们展开讨论 \SGARefLink{sga3:xxiv:3.11}{3.11} 的一个推论。
+\SGARefTarget{sga3:xxiv:3.12}
+\medskip\noindent\textbf{推论 3.12.} ---
+{\itshape 对每个约化 \(S\)-群 \(G\)，存在一个拟钉扎 \(S\)-群 \(G_{q\text{-}\acute{e}p}\) 和一个“外同构”}
+\[
+  u\in
+  \underline{\operatorname{Isomext}}
+    (G_{q\text{-}\acute{e}p},G)(S).
+\]
+{\itshape 有序对 \((G_{q\text{-}\acute{e}p},u)\) 在相差唯一同构的意义下唯一。}
+
+事实上，可设 \(G\) 的类型恒为 \(\mathscr R\)，并取
+\[
+  G_{q\text{-}\acute{e}p}
+  =
+  Q\text{-}\operatorname{\acute{E}p}_{\operatorname{rev}(G)/S}
+    (\mathscr R).
+\]
+
+\SGARefTarget{sga3:xxiv:3.12.1}
+\medskip\noindent\textbf{3.12.1.} ---
+注意，有序对 \((G_{q\text{-}\acute{e}p},u)\) 典范地定义了 \(S\)-概形（参见 \SGARefLink{sga3:xxiv:1.11}{1.11}）
+\[
+  Q=
+  \underline{\operatorname{Isomint}}
+    (G_{q\text{-}\acute{e}p},G),\footnote{编者注：由于有序对 \((G_{q\text{-}\acute{e}p},u)\) 在相差唯一同构的意义下唯一，我们写 \(\underline{\operatorname{Isomint}}(G_{q\text{-}\acute{e}p},G)\) 而不写 \(\underline{\operatorname{Isomint}}_u(G_{q\text{-}\acute{e}p},G)\)（参见 1.11）。}
+\]
+它是 \(\operatorname{ad}(G_{q\text{-}\acute{e}p})\) 下的主齐性丛，而给定它与给定 \(G_{q\text{-}\acute{e}p}\) 的内扭形式 \(G\) 是“等价”的。此外，\(Q\) 恰是“\(G\) 的拟钉扎概形”；这个定义解释了它作为 \(\operatorname{ad}(G)\) 下的（左）主齐性丛的结构（\SGARefLink{sga3:xxiv:3.10}{3.10}）；比较 \SGARefLink{sga3:xxiv:1.20}{1.20}。
+% 已译源行 1655--2166。
+
+\textbf{\SGAInlineRefTarget{sga3:xxiv:proposition:3-13}命题 3.13.} \emph{设 \(S\) 是概形，\(G\) 是半单伴随（分别为单连通）\(S\)-群，\(B \supset T\) 是 \(G\) 的 Killing 偶，\(\operatorname{Dyn}(G)\) 是 \(G\) 的 Dynkin \(S\)-概形。存在 \(S\)-群概形的典范同构}
+\[
+  T\xrightarrow{\sim}
+  \prod_{\operatorname{Dyn}(G)/S}
+  \mathbb G_{m,\operatorname{Dyn}(G)}.
+\]
+\emph{（回忆，参见第 II 讲第 1 节，右端按定义是将 \(S' \to S\) 对应到 \(G_{m}(\operatorname{Dyn}(G) \times_{S} S')\)，或等价地对应到 \(G_{m}(Dyn(G_{S'}))\) 的 \(S\)-函子。）}
+
+\emph{第一个证明。} 为简便起见，考察伴随情形。考虑复合态射
+\[
+  T\longrightarrow\prod_{D/S}T_D
+  \longrightarrow\prod_{D/S}\mathbb G_{m,D}.
+\]
+其中第一个态射是典范态射，第二个是 \(\prod_{D/S} \alpha_{D}\)（这里记 \(D = \operatorname{Dyn}(G)\)）。为验证这个态射是同构，可设 \(G\) 分裂；此时它无非是以 \(\alpha\)，\(\alpha \in \Delta\)，为分量的态射 \(T \to (G_{m, S})^{\Delta}\)，而后者是同构（\SGARefLink{sga3:xxii:rem:4.3.8}{第 XXII 讲 4.3.8}）。
+
+\emph{第二个证明。} 由 \SGARefLink{sga3:xxiv:2.8}{2.8}、\SGARefLink{sga3:xxiv:3.5}{3.5} 和 \SGARefLink{sga3:xxiv:3.11}{3.11}，可设 \(G = Q-\acute{E}p_{S'/S}(R)\)，\(T\) 是典范极大环面。在 \(S'\) 上，由\SGARefLink{sga3:xxii:rem:4.3.8}{第 XXII 讲 4.3.8}，有由单根（分别为单余根）定义的同构 \(T_{S'} \xrightarrow{\sim} (G_{m, S'})^{\Delta}\)。群 \(E\) 通过置换 \(\Delta\) 作用于右端。但 \(S'/S\) 经 \(E \to \operatorname{Aut}(\Delta)\) 相伴的丛为 \(\operatorname{Dyn}(G)\)（\SGARefLink{sga3:xxiv:3.7}{3.7}），故立即得到结论。
+
+利用附录的命题 \SGARefLink{sga3:xxiv:proposition:8-4}{8.4}，推出：
+\textbf{\SGAInlineRefTarget{sga3:xxiv:corollary:3-14}推论 3.14.} \emph{在上述条件下，有}
+\[
+  H^1(S,T)\xrightarrow{\sim}
+  H^1\bigl(\operatorname{Dyn}(G),\mathbb G_m\bigr)
+  \xrightarrow{\sim}\operatorname{Pic}\bigl(\operatorname{Dyn}(G)\bigr).
+\]
+\emph{特别地，当 \(S\) 半局部时，\(H^{1}(S, T) = 0\)。}
+
+\textbf{\SGAInlineRefTarget{sga3:xxiv:remark:3-15}注 3.15.} 设 \(S\) 是概形，\(G\)（分别为 \(G'\)）是约化 \(S\)-群，\(B \supset T\)（分别为 \(B' \supset T'\)）是 \(G\)（分别为 \(G'\)）的 Killing 偶，\(u \in Isomext(G, G')(S)\)。置（参见 \SGARefLink{sga3:xxiv:2.10}{2.10}）
+\[
+  P=\underline{\operatorname{Isomint}}_u(G,B,T;G',B',T').
+\]
+它是 \(T_{ad}\) 下的主齐性丛（作用为 \((f, t) \mapsto f \circ int(t)\)）。
+
+另一方面，设 \(D = \operatorname{Dyn}(G) = \operatorname{Dyn}(G')\)（经由 \(u\) 等同，\SGARefLink{sga3:xxiv:3.5}{3.5}），并设 \(L = Isom_{D}(g_{D}, g'_{D})\) 是由可逆 \(\mathcal O_D\)-模
+\[
+  \operatorname{Hom}_{\mathcal O_D}(\mathfrak g_D,\mathfrak g'_D)
+  =\mathfrak g'_D\otimes(\mathfrak g_D)^\vee .
+\]
+定义的 \(G_{m,D}\) 下的主齐性丛。
+
+每个 \(f \in P(S')\) 都定义从 \(g_{D} \otimes_{O_{S}} O_{S'}\) 到 \(g'_{D} \otimes_{O_{S}} O_{S'}\) 的同构，因而有典范态射
+\[ P \to \prod_{D/S} L. \]
+这个态射是同构，并且与上述作用群的同构
+\[
+  T_{\mathrm{ad}}\xrightarrow{\sim}
+  \prod_{D/S}\mathbb G_{m,D}.
+\]
+相容。事实上，只须在两个群都已钉扎的情形下验证，此时很容易。
+
+特别地，在 \SGARefLink{sga3:xxiv:corollary:3-14}{3.14} 的同构
+\[ H^{1}(S, T_{ad}) \xrightarrow{\sim} \operatorname{Pic}(\operatorname{Dyn}(G)) \]
+下，丛 \(P\) 的类变为 \(c\ell(g'^{D}) - c\ell(g_{D})\)。因此丛 \(P\) 平凡，当且仅当 \(g'^{D}\) 与 \(g_{D}\) 同构。
+
+若 \((G, B, T)\) 可拟分裂，例如取 \(G\) 为赋予典范 Killing 偶的群 \(G'_{q-\acute{e}p.}\)，则 \(P\) 的类的像无非是 \SGARefLink{sga3:xxiv:3.9}{3.9} 中定义的 \(G'\) 的拟分裂障碍。
+
+\subsection*{\SGAInlineRefTarget{sga3:xxiv:subsection:3-16}3.16. 对称}
+\SGAInlineRefTarget{sga3:xxiv:subsubsection:3-16-1}\subsubsection*{3.16.1.}
+设 \(S\) 是概形，\(G\) 是约化 \(S\)-群，\(B \supset T\) 是 \(G\) 的 Killing 偶。记 \(D = \operatorname{Dyn}(G)\)。回忆（\SGARefLink{sga3:xxii:prop:5.9.2}{第 XXII 讲 5.9.2}），存在唯一的 \(G\) 的 Borel 子群 \(B^{-}\)，使得 \(B \cap B^{-} = T\)。若 \(X \in \Gamma(D,g_{D})^{\times}\) 定义了 \(G\) 关于 \((B, T)\) 的拟钉扎（\SGARefLink{sga3:xxiv:3.9}{3.9}），则 \(Y = -X^{-1} \in \Gamma(D,(g_{D})^{\vee})^{\times}\) 定义了 \(G\) 关于 \((B^{-}, T)\) 的拟钉扎；称它为\emph{相反拟钉扎}。
+
+若 \(R\) 是钉扎既约根数据，\(E\) 是约化 \(S\)-群 \(G\) 的一个 \(R\)-钉扎，则按如下方式定义一个称为\emph{与 \(E\) 相反}的 \(R\)-钉扎 \(E^{-}\)：保留同一个极大环面 \(T\)，将同构 \(D_{S}(M) \xrightarrow{\sim} T\) 换成其相反，并用 \(Y_{\alpha} = -X^{-1}_{\alpha} \in\Gamma(S, g^{-\alpha})^{\times}\)，\(\alpha \in \Delta\)，来“钉扎”。\(E^{-}\) 的底层拟钉扎，正是与 \(E\) 的底层拟钉扎相反的拟钉扎。
+
+\textbf{注。} 沿用\SGARefLink{sga3:xx:3.1}{第 XX 讲 3.1} 的记号，若置
+\[
+  w_\alpha(X_\alpha)
+  =\exp(X_\alpha)\exp(-X_\alpha^{-1})\exp(X_\alpha).
+\]
+则有 \(w_{\alpha}(X_{\alpha}) = w_{-\alpha}(Y_{\alpha})\)（同上，3.1 (vi)）。
+
+\textbf{\SGAInlineRefTarget{sga3:xxiv:proposition:3-16-2}命题 3.16.2.} \emph{设 \(S\) 是概形，\(G\) 是约化 \(S\)-群。}
+\emph{\SGAInlineRefTarget{sga3:xxiv:proposition:3-16-2:item:i}(i) 设 \(T\) 是 \(G\) 的极大环面；存在唯一的}
+\[
+  i_T\in
+  \left(
+    \underline{\operatorname{Aut}}_{S\text{-}\mathrm{gr.}}(G,T)/T_{\mathrm{ad}}
+  \right)(S)
+  \subset
+  \underline{\operatorname{Aut}}_{S\text{-}\mathrm{gr.}}(T).
+\]
+\emph{使得对 \(T\) 的每个截面 \(t\)，都有 \(i_{T}(t) = t^{-1}\)。}
+
+\emph{\SGAInlineRefTarget{sga3:xxiv:proposition:3-16-2:item:ii}(ii) 设 \((B, T)\) 是 \(G\) 的 Killing 偶；存在唯一的截面}
+\[
+  w_{B,T}\in
+  \bigl(\operatorname{Norm}_G(T)/T\bigr)(S)=W_G(T)(S).
+\]
+\emph{使得 \(int(w_{B, T})(B) = B^{-}\)（这里有显然的术语滥用）。}
+
+\emph{\SGAInlineRefTarget{sga3:xxiv:proposition:3-16-2:item:iii}(iii) 设 \(Q = (B, T, X)\) 是 \(G\) 的拟钉扎，\(Q^{-} = (B^{-}, T, Y)\) 是相反拟钉扎；存在唯一的 \(G\) 的内自同构}
+\[ n_{Q} \in Norm_{ad(G)}(T_{ad})(S) \subset \underline{\operatorname{Aut}}_{S\text{-}\mathrm{gr.}}(G) \]
+\emph{使得 \(n_{Q}(Q) = Q^{-}\)，即 \(n_{Q}(T) = T\)、\(n_{Q}(B) = B^{-}\)、\(n_{Q}(X) = Y\)。}
+
+\emph{\SGAInlineRefTarget{sga3:xxiv:proposition:3-16-2:item:iv}(iv) 设 \((R, E)\) 是 \(G\) 的钉扎，\((R, E^{-})\) 是相反钉扎；存在唯一的 \(G\) 的自同构}
+\[
+  u_E\in
+  \underline{\operatorname{Aut}}_{S\text{-}\mathrm{gr.}}(G,T)
+  \subset
+  \underline{\operatorname{Aut}}_{S\text{-}\mathrm{gr.}}(G).
+\]
+\emph{使得 \(u_{E}(E) = E^{-}\)，即对 \(T\) 的每个截面 \(t\) 有 \(u_{E}(t) = t^{-1}\)，而对每个 \(\alpha \in \Delta\) 有 \(Ad(u_{E}) X_{\alpha} =Y_{\alpha}\)。}
+
+\emph{证明。} \SGARefLink{sga3:xxiv:proposition:3-16-2:item:ii}{(ii)} 由\SGARefLink{sga3:xxii:corollary:5-5-5:item:ii}{第 XXII 讲 5.5.5(ii)} 推出；再由 \SGARefLink{sga3:xxiv:3.10}{3.10} 得 \SGARefLink{sga3:xxiv:proposition:3-16-2:item:iii}{(iii)}，由\SGARefLink{sga3:xxiii:theorem:4-1}{第 XXIII 讲 4.1} 得 \SGARefLink{sga3:xxiv:proposition:3-16-2:item:iv}{(iv)}。最后，为证明 \SGARefLink{sga3:xxiv:proposition:3-16-2:item:i}{(i)}，可设 \(G\) 已钉扎。存在性例如由 \SGARefLink{sga3:xxiv:proposition:3-16-2:item:iv}{(iv)} 推出；唯一性则来自如下事实：\(G\) 的一个在 \(T\) 上诱导恒等的自同构，由 \(T_{ad}\) 的一个截面给出（\SGARefLink{sga3:xxiv:2.11}{2.11}）。
+
+\textbf{\SGAInlineRefTarget{sga3:xxiv:corollary:3-16-3}推论 3.16.3.} \emph{有}
+\[
+  i_T^2=w_{B,T}^2=n_Q^2=u_E^2=e.
+\]
+\emph{此外，若 \(G \neq e\)，则 \(i_{T}\)（分别为 \(u_{E}\)）\(\neq e\)；若 \(G\) 不是环面，则 \(w_{B, T}\)（分别为 \(n_{Q}\)）\(\neq e\)。}
+
+\textbf{\SGAInlineRefTarget{sga3:xxiv:corollary:3-16-4}推论 3.16.4.} \emph{在 \SGARefLink{sga3:xxiv:proposition:3-16-2:item:iii}{(iii)}（分别为 \SGARefLink{sga3:xxiv:proposition:3-16-2:item:iv}{(iv)}）的情形下，\(n_{Q}\)（分别为 \(u_{E}\)）经由典范态射}
+\[ Norm_{ad(G)}(T_{ad}) \to W_{ad(G)}(T_{ad}) \simeq W_{G}(T), \]
+\emph{分别地}
+\[
+  \underline{\operatorname{Aut}}_{S\text{-}\mathrm{gr.}}(G,T)
+  \longrightarrow
+  \underline{\operatorname{Aut}}_{S\text{-}\mathrm{gr.}}(G,T)/T_{\mathrm{ad}}.
+\]
+\emph{投影到 \(w_{B, T}\)（分别为 \(i_{T}\)）。}
+
+\textbf{\SGAInlineRefTarget{sga3:xxiv:corollary:3-16-5}推论 3.16.5.} \emph{上述定义与基变换相容，并且对于同构具有函子性（其意义是显然的）。}
+
+\textbf{\SGAInlineRefTarget{sga3:xxiv:proposition:3-16-6}命题 3.16.6.} \emph{\SGAInlineRefTarget{sga3:xxiv:proposition:3-16-6:item:i}(i) 对概形 \(S\) 上的每个约化群 \(G\)，可以唯一地定义一个元素}
+\[ s_{G} \in Autext(G)(S) \]
+\emph{使得这一构造对于 \(G\) 的同构具有函子性，与基变换相容，并且只要 \(T\) 是约化 \(S\)-群 \(G\) 的极大环面，\(s_{G}\) 就是 \(i_{T}\) 在典范态射}
+\[
+  \underline{\operatorname{Aut}}_{S\text{-}\mathrm{gr.}}(G,T)/T_{\mathrm{ad}}
+  \longrightarrow\underline{\underline{\operatorname{Autext}}}(G).
+\]
+\emph{下的像。}
+
+\emph{\SGAInlineRefTarget{sga3:xxiv:proposition:3-16-6:item:ii}(ii) 有 \(s^{2}_{G} = e\)，并且 \(s_{G}\) 是 \(Autext(G)\) 的中心元素。}
+
+\emph{\SGAInlineRefTarget{sga3:xxiv:proposition:3-16-6:item:iii}(iii) 在 \SGARefLink{sga3:xxiv:proposition:3-16-2:item:ii}{3.16.2(ii)} 的条件下，若将 \(\underline{\operatorname{Aut}}_{S\text{-}\mathrm{gr.}}(G, B, T) / T_{ad}\) 等同于 \(Autext(G)\)（\SGARefLink{sga3:xxiv:2.2}{2.2}），则有}
+\[
+  w_{B,T}i_T=i_Tw_{B,T}=s_G.
+\]
+
+\emph{\SGAInlineRefTarget{sga3:xxiv:proposition:3-16-6:item:iv}(iv) 在 \SGARefLink{sga3:xxiv:proposition:3-16-2:item:iv}{3.16.2(iv)} 的条件下，若将 \(\operatorname{Aut}_{S-gr.-\acute{e}p}(G, R, E)\) 等同于 \(Autext(G)\)（\SGARefLink{sga3:xxiv:1.3:item:iii}{1.3(iii)}），则有}
+\[
+  n_Eu_E=u_En_E=s_G.
+\]
+
+\emph{证明。} \SGARefLink{sga3:xxiv:proposition:3-16-6:item:i}{(i)} 用下降很容易证明。另一方面，由于 \(i_{T}\) 显然是 \(\underline{\operatorname{Aut}}_{S\text{-}\mathrm{gr.}}(T)\) 中平方为 \(e\) 的中心截面，\SGARefLink{sga3:xxiv:proposition:3-16-6:item:ii}{(ii)} 立即推出；\SGARefLink{sga3:xxiv:proposition:3-16-6:item:iii}{(iii)} 经由下降是 \SGARefLink{sga3:xxiv:proposition:3-16-6:item:iv}{(iv)} 的推论。最后，在 \SGARefLink{sga3:xxiv:proposition:3-16-6:item:iv}{(iv)} 的条件下，显然 \(n_{E} u_{E} = u_{E} n_{E}\)，且 \(G\) 的这个自同构保持钉扎；在所作的等同下，它因此等于自己在 \(Autext(G)\) 中的像；但 \(n_{E}\) 是内自同构，而 \(u_{E}\) 投影到 \(s_{G}\)。
+
+\textbf{\SGAInlineRefTarget{sga3:xxiv:remark:3-16-7}注 3.16.7.} \SGARefLink{sga3:xxiv:proposition:3-16-6:item:i}{(i)} 由 \SGARefLink{sga3:xxiv:proposition:3-16-6:item:iii}{(iii)}，可在分类中的每种情形下显式确定 \(s_{G}\)：对每个不可约钉扎根数据，只须将关于原点的对称与 Weyl 群中的对称复合（即 Weyl 群中使 \(w_{0}(\Delta) = -\Delta\) 的元素 \(w_{0}\)）。得到如下结果：除 \(A_{n}\)（\(n \geqslant 2\)）、\(D_{n}\)（\(n\) 为奇数）和 \(E_6\) 外，均有 \(s_{G} = e\)；在这三种情形中，\(s_{G}\) 是唯一非平凡的“外自同构”。
+\begin{enumerate}
+\def\labelenumi{(\roman{enumi})}
+\setcounter{enumi}{1}
+\item 自同构 \(u_{E}\) 就是半单 Lie 代数理论中用来构造“紧实形式”的自同构。
+\end{enumerate}
+
+\textbf{\SGAInlineRefTarget{sga3:xxiv:remark:3-16-8}注 3.16.8.} 在 \SGARefLink{sga3:xxiv:subsubsection:3-16-1}{3.16.1} 中，我们在 \(G\) 的拟钉扎所成的 \(S\)-概形
+\[
+Q = Isomint(G_{q-\acute{e}p.}, G)
+\]
+上定义了一个对合（参见 \SGARefLink{sga3:xxiv:3.12.1}{3.12.1}）；通过从 \(G_{q-\acute{e}p.}\) 到 \(G\) 的结构转移，立即可见这一对合由 \(ad(G_{q-\acute{e}p.})(S)\) 中一个元素的作用给出：这个元素就是由 \(G_{q-\acute{e}p.}\) 的典范拟钉扎所定义（\SGARefLink{sga3:xxiv:proposition:3-16-2:item:iii}{3.16.2(iii)}）的元素 \(n_{0}\)。
+
+同样，在 \(G\) 的 \(R\)-钉扎所成的 \(S\)-概形
+\[ P = Isom_{S-gr.}(\acute{E}p_{S}(R), G) \]
+上定义了一个对合（参见 \SGARefLink{sga3:xxiv:1.20}{1.20}）。仿照前述论证，可见这一对合由 \(\acute{E}p_{S}(R)\) 的自同构 \(u_{0}\) 的作用给出；\(u_{0}\) 由 \(\acute{E}p_{S}(R)\) 的典范钉扎定义（\SGARefLink{sga3:xxiv:proposition:3-16-2:item:iv}{3.16.2(iv)}）。
+% 已译源行 2167--2418。
+
+\section*{\SGAInlineRefTarget{sga3:xxiv:section:4}4. 约化群及约化群下主丛的等平凡性}
+\subsection*{\SGAInlineRefTarget{sga3:xxiv:subsection:4-1}4.1. 定义. 等平凡性定理}
+
+\textbf{\SGAInlineRefTarget{sga3:xxiv:definition:4-1-1}定义 4.1.1.} \emph{设 \(S\) 是概形，\(G\) 是 \(S\)-群概形，\(P\) 是 \(G\) 下的主齐性丛。称 \(P\)}局部等平凡\emph{（分别为}半局部等平凡\emph{）}，如果对每个点 \(s \in S\)（分别为包含于仿射开集中的 \(S\) 的每个有限点集 \(F\)），都存在包含 \(s\)（分别为 \(F\)）的 \(S\) 的开集 \(U\)，以及有限满平展态射 \(S' \to U\)，使得 \(P_{S'}\) 平凡。
+
+\textbf{\SGAInlineRefTarget{sga3:xxiv:definition:4-1-2}定义 4.1.2.} \emph{设 \(S\) 是概形，\(G\) 是约化 \(S\)-群。称 \(G\)}局部等平凡\emph{（分别为}半局部等平凡\emph{）}，如果对每个点 \(s \in S\)（分别为包含于仿射开集中的 \(S\) 的每个有限点集 \(F\)），都存在包含 \(s\)（分别为 \(F\)）的 \(S\) 的开集 \(U\)，以及有限满平展态射 \(S' \to U\)，使得 \(G_{S'}\) 可分裂。*
+
+\textbf{\SGAInlineRefTarget{sga3:xxiv:remark:4-1-3}注 4.1.3.} (i) 按定义，\SGARefLink{sga3:xxiv:1.17}{1.17} 的范畴等价 \SGARefLink{sga3:xxiv:definition:4-1-1}{4.1.1} 保持局部（分别为半局部）等平凡性。
+\begin{enumerate}
+\def\labelenumi{(\roman{enumi})}
+\setcounter{enumi}{1}
+\item 在 \SGARefLink{sga3:xxiv:definition:4-1-1}{4.1.1} 的条件中补入：\(G\) 在 \(S\) 上局部有限呈示。则主丛 \(P\)（或约化群 \(G\)）局部等平凡（分别为半局部等平凡），当且仅当对每个局部（分别为半局部）的 \(S' \to S\)，\(P_{S'}\) 等平凡（或 \(G_{S'}\) 等平凡），即存在有限满平展态射 \(S'' \to S'\)，使得 \(P_{S''}\) 平凡（或 \(G_{S''}\) 分裂）。
+\item 对环面，\SGARefLink{sga3:xxiv:definition:4-1-2}{定义 4.1.2} 与\SGARefLink{sga3:ix:definition:1:1}{第 IX 讲 1.1} 的定义一致。
+\end{enumerate}
+
+\subsubsection*{4.1.4.}
+回忆（\SGARefLink{sga3:xxii:section:4.3}{第 XXII 讲 4.3} 和 \SGARefLink{sga3:xxiv:lemma:6-2}{6.2}），对每个约化群 \(G\)，已引入群 \(rad(G)\)、\(corad(G)\) 及 \(d\acute{e}r(G)\)。群 \(rad(G)\)、\(corad(G)\) 都是环面，当 \(G\) 分裂时它们也分裂；此外，存在同源 \(rad(G) \to corad(G)\)。\(S\)-群 \(d\acute{e}r(G)\) 半单，有 \(G / d\acute{e}r(G) =corad(G)\)；因此对 \(G\) 下的每个主齐性丛 \(P\)，\(P / d\acute{e}r(G)\) 是 \(corad(G)\) 下的主齐性丛。于是有：
+
+\textbf{\SGAInlineRefTarget{sga3:xxiv:theorem:4-1-5}定理 4.1.5.} \emph{设 \(S\) 是概形，\(G\) 是类型恒定的约化 \(S\)-群。}
+\emph{\SGAInlineRefTarget{sga3:xxiv:theorem:4-1-5:item:i}(i) 下列条件等价：}
+\emph{\SGAInlineRefTarget{sga3:xxiv:theorem:4-1-5:item:a}(a) \(G\) 局部（分别为半局部）等平凡。}
+\emph{\SGAInlineRefTarget{sga3:xxiv:theorem:4-1-5:item:b}(b) 环面 \(rad(G)\) 如此。}
+\emph{(b') 环面 \(corad(G)\) 如此。}
+\emph{\SGAInlineRefTarget{sga3:xxiv:theorem:4-1-5:item:c}(c) 与 \(G\) 相伴的 \(S\) 的 Galois 覆盖（\SGARefLink{sga3:xxiv:3.11}{3.11}）如此。}
+\emph{若 \(T\) 是 \(G\) 的极大环面，则这些条件还等价于}
+\emph{\SGAInlineRefTarget{sga3:xxiv:theorem:4-1-5:item:d}(d) 环面 \(T\) 局部（分别为半局部）等平凡。}
+\emph{\SGAInlineRefTarget{sga3:xxiv:theorem:4-1-5:item:ii}(ii) 设 \(P\) 是 \(G\) 下的主齐性丛；\(P\) 局部（分别为半局部）等平凡的充要条件，是 \(corad(G)\)-主丛 \(P / d\acute{e}r(G)\) 如此。}
+
+\textbf{\SGAInlineRefTarget{sga3:xxiv:corollary:4-1-6}推论 4.1.6.} \emph{当 \(G\) 半单，或 \(S\) 局部 Noether 且正规（或更一般地，几何单枝）时，\SGARefLink{sga3:xxiv:theorem:4-1-5:item:i}{(i)} 的条件成立。当 \(G\) 局部（分别为半局部）等平凡时，\SGARefLink{sga3:xxiv:theorem:4-1-5:item:ii}{(ii)} 的条件成立。}
+
+对 \SGARefLink{sga3:xxiv:theorem:4-1-5:item:i}{(i)}，第一个断言由 \SGARefLink{sga3:xxiv:theorem:4-1-5:item:b}{(b)} 显然成立，第二个断言由 \SGARefLink{sga3:xxiv:theorem:4-1-5:item:c}{(c)} 及\SGARefLink{sga3:x:corollary:5-14}{第 X 讲 5.14} 和 5.15 推出。对 \SGARefLink{sga3:xxiv:theorem:4-1-5:item:ii}{(ii)}，只须注意，由\SGARefLink{sga3:viii:corollary:4:5}{定理 90}，分裂环面下的主丛半局部等平凡。
+
+\subsection*{\SGAInlineRefTarget{sga3:xxiv:subsection:4-2}4.2. 证明：半单情形}
+为便于以后引用，先证明：
+\textbf{\SGAInlineRefTarget{sga3:xxiv:proposition:4-2-1}命题 4.2.1.} \emph{设 \(S\) 是概形，\(G\) 是约化 \(S\)-群，\(T\) 是 \(G\) 的极大环面（分别地，\(B\) 是 Borel 子群，\(B \supset T\) 是 \(G\) 的 Killing 偶），\(P\) 是 \(G\) 下的主齐性丛，\(G'\) 是与 \(P\) 相伴的 \(G\) 的扭形式（经由态射 \(int : G \to \operatorname{Aut}_{S-gr.}(G)\)）。有典范同构}
+\[
+  P/\operatorname{Norm}_G(T)\xrightarrow{\sim}\operatorname{Tor}(G'),
+  \qquad
+  P/B\xrightarrow{\sim}\operatorname{Bor}(G'),
+  \qquad
+  P/T\xrightarrow{\sim}\operatorname{Kil}(G').
+\]
+
+按构造，\(G'\) 是 \(P \times_{S} G\) 对 \(G\) 的某个作用（\(((p, g')) g = (pg, g^{-1} g'g)\)）的商；因此有态射 \(P \times_{S} G \to G'\)，即一个态射
+\[ P \to \operatorname{Hom}_{S}(G, G'), \]
+立即可见它经由态射
+\[
+  f:P\longrightarrow\operatorname{Isom}_{S\text{-}\mathrm{gr.}}(G,G').
+\]
+分解（为验证此断言，可设 \(G = P\)，此时有 \(G' = G\)、\(f = int\)）。集合映射 \(p\mapsto f(p)(T)\) 定义一个态射
+\[ P \to Tor(G'). \]
+为验证这个态射确实诱导所述同构 \(P / Norm_{G}(T) \xrightarrow{\sim} Tor(G')\)，可再设 \(P = G\)，此时归结为\SGARefLink{sga3:xxii:cor:5.8.3:item:iii}{第 XXII 讲 5.8.3(iii)}。（实际上，应将该处陈述换成上述陈述。）对 \(\operatorname{Bor}\)、\(\operatorname{Kil}\) 作类似论证。
+
+\textbf{\SGAInlineRefTarget{sga3:xxiv:proposition:4-2-2}命题 4.2.2.} \emph{设 \(S\) 是半局部概形，\(G\) 是类型恒定的半单 \(S\)-群。}
+\emph{\SGAInlineRefTarget{sga3:xxiv:proposition:4-2-2:item:i}(i) \(G\) 等平凡。}
+\emph{(ii) \(G\) 下的每个主丛都等平凡。}
+
+先证 \SGARefLink{sga3:xxiv:proposition:4-2-2:item:i}{(i)}。作有限满平展基扩张后，由 \SGARefLink{sga3:xxiv:3.9.2}{3.9.2}，可设 \(G\) 拟分裂。但此时 \(G\) 按构造等平凡（\SGARefLink{sga3:xxiv:3.11}{3.11}，群 \(E\) 有限）。为证明 \SGARefLink{sga3:xxiv:3.11:item:ii}{(ii)}，由 \SGARefLink{sga3:xxiv:3.11:item:i}{(i)} 可设 \(G\) 分裂；于是归结为：
+
+\textbf{\SGAInlineRefTarget{sga3:xxiv:lemma:4-2-3}引理 4.2.3.} \emph{设 \(S\) 是半局部概形。分裂约化群下的每个主丛都等平凡。}
+
+事实上，沿用 \SGARefLink{sga3:xxiv:proposition:4-2-1}{4.2.1} 的记号，其中 \(B \supset T\) 表示分裂群 \(G\) 的典范 Killing 偶，由 \SGARefLink{sga3:xxiv:3.9.2}{3.9.2}，在作有限满平展基扩张后，\(S\)-概形 \(Kil(G')\) 有截面。因此可将 \(G\) 的结构群约化到 \(T\)；但 \(T\) 分裂，故 \(H^{1}(S, T) = 0\)（定理 90）。
+
+\textbf{\SGAInlineRefTarget{sga3:xxiv:corollary:4-2-4}推论 4.2.4.} \emph{设 \(S\) 是概形，}
+\[ 1 \to G \to G' \to G'' \to 1 \]
+\emph{是 \(S\)-群概形的正合序列（对于 (fpqc)），其中 \(G\) 半单且类型恒定。设 \(P\) 是 \(G'\) 下的主齐性丛，假设相伴的层\footnote{编者注：我们将“丛”换成“层”，并将 \(G'\) 换成 \(G''\)。}\(P / G\) 可表（例如 \(G''\) 在 \(S\) 上仿射）。\(P\) 局部等平凡（分别为半局部等平凡）的充要条件，是 \(P / G\) 如此（作为 \(G''\) 下的丛）。}
+
+若 \(P\) 平凡，则 \(P / G\) 也平凡，说明此条件必要。反之，设 \(S\) 局部（分别为半局部），\(P / G\) 等平凡，从而由 \(S\) 的一个有限满平展扩张 \(S'\) 平凡化。将基扩张到 \(S'\) 后，可把 \(P_{S'}\) 的结构群约化到 \(G_{S'}\)。但 \(S'\) 仍半局部，\(G_{S'}\) 半单且类型恒定，所以所得的丛等平凡（\SGARefLink{sga3:xxiv:proposition:4-2-2}{4.2.2}）。
+
+\subsection*{\SGAInlineRefTarget{sga3:xxiv:subsection:4-3}4.3. 证明：一般情形}
+首先注意，将 \SGARefLink{sga3:xxiv:corollary:4-2-4}{4.2.4} 用于正合序列
+\[ 1 \to d\acute{e}r(G) \to G \to corad(G) \to 1. \]
+立即得到 \SGARefLink{sga3:xxiv:theorem:4-1-5:item:ii}{4.1.5(ii)}。
+
+因此来证明 \SGARefLink{sga3:xxiv:proposition:4-2-2:item:i}{(i)}。若 \(G\) 分裂，则 \(rad(G)\)、\(corad(G)\) 分裂，\(rev(G)\) 也是如此；所以 \SGARefLink{sga3:xxiv:theorem:4-1-5:item:a}{(a)} 蕴含 \SGARefLink{sga3:xxiv:theorem:4-1-5:item:b}{(b)}、(b') 和 \SGARefLink{sga3:xxiv:theorem:4-1-5:item:c}{(c)}。
+
+\subsubsection*{4.3.1.}
+有 \SGARefLink{sga3:xxiv:theorem:4-1-5:item:c}{(c)} \(\Rightarrow\) \SGARefLink{sga3:xxiv:theorem:4-1-5:item:a}{(a)}。设 \(R\) 是 \(G\) 的类型；有正合序列
+\[ 1 \to ad(\acute{E}p_{S}(R)) \to A_{S}(R) \to E_{S} \to 1. \]
+将 \SGARefLink{sga3:xxiv:corollary:4-2-4}{4.2.4} 用于丛 \(P = Isom_{S-gr.}(\acute{E}p_{S}(R), G)\) 及其相伴丛 \(rev(G) = P /ad(\acute{E}p_{S}(R))\)，即得 \SGARefLink{sga3:xxiv:theorem:4-1-5:item:c}{(c)} \(\Rightarrow\) \SGARefLink{sga3:xxiv:theorem:4-1-5:item:a}{(a)}。
+
+\subsubsection*{4.3.2.}
+有 \SGARefLink{sga3:xxiv:theorem:4-1-5:item:b}{(b)} \(\Rightarrow\) \SGARefLink{sga3:xxiv:theorem:4-1-5:item:a}{(a)}。只须证明，若 \(rad(G)\) 分裂，则 \(G\) 半局部等平凡。现设 \(G_{0} =\acute{E}p_{S}(R)\)；考虑有序对 \((G',f)\) 的范畴，其中 \(G'\) 是 \(G_0\) 的形式，\(f\) 是从 \(rad(G_{0})\) 到 \(rad(G)\) 的同构。
+
+已知（\SGARefLink{sga3:xxiv:2.16}{2.16}）这一范畴等价于某个 \(S\)-群 \(H\) 下主齐性丛所成范畴，其中 \(H\) 是有限扭常群被半单群的扩张。只须证明 \(H\) 下的每个主丛都半局部等平凡；这立即由 \SGARefLink{sga3:xxiv:corollary:4-2-4}{4.2.4} 推出。
+
+\subsubsection*{4.3.3.}
+有 (b') \(\Rightarrow\) \SGARefLink{sga3:xxiv:theorem:4-1-5:item:a}{(a)}。可以像上面那样论证（而且出现的还是同一个群 \(H\)）。也可看到 \SGARefLink{sga3:xxiv:theorem:4-1-5:item:b}{(b)} 与 (b') 等价：与一个局部分裂环面同源 的环面也局部分裂（参见\SGARefLink{sga3:ix:proposition:2:11:item:iii:01}{第 IX 讲 2.11(iii)}）。
+
+\subsubsection*{4.3.4.}
+有 \SGARefLink{sga3:xxiv:theorem:4-1-5:item:d}{(d)} \(\Rightarrow\) \SGARefLink{sga3:xxiv:theorem:4-1-5:item:a}{(a)}。只须证明，一个有分裂极大环面的类型恒定的群半局部等平凡；这立即由 \SGARefLink{sga3:xxiv:2.14}{2.14} 推出。
+
+\subsubsection*{4.3.5.}
+有 \SGARefLink{sga3:xxiv:theorem:4-1-5:item:a}{(a)} \(\Rightarrow\) \SGARefLink{sga3:xxiv:theorem:4-1-5:item:d}{(d)}。只须证明分裂群的极大环面半局部等平凡。更精确地，有：
+
+\textbf{\SGAInlineRefTarget{sga3:xxiv:lemma:4-3-6}引理 4.3.6.} \emph{设 \(S\) 是半局部概形，\(G\) 是约化 \(S\)-群，\(T_0\) 是 \(G\) 的分裂极大环面，\(W_{0}= Norm_{G}(T_{0}) / T_{0}\)（这是局部常 \(S\)-群；若 \(G\) 类型恒定，则由 \SGARefLink{sga3:xxiv:2.14}{2.14} 它是常群），\(T\) 是 \(G\) 的极大环面。}
+\emph{存在态射 \(S' \to S\)，它是 \(W_0\) 下的主齐性丛（因而平展、有限且满；若 \(G\) 类型恒定，甚至是主 Galois 覆盖），使得 \(T_{S'}\) 通过 \(G(S')\) 的某个元素与 \((T_{0})_{S'}\) 共轭（因而特别地是分裂的）。}
+
+事实上，已知 \(Transp_{G}(T_{0}, T)\) 是 \(Norm_{G}(T_{0})\) 下的主齐性丛（例如参见\SGARefLink{sga3:xi:corollary:5:4:bis}{第 XI 讲 5.4 bis}）。置 \(S' = Transp_{G}(T_{0}, T) / T_{0}\)；它是 \(W_0\) 下的主齐性丛。将基从 \(S\) 扩张到 \(S'\)，便可把 \(Transp_{G}(T_{0}, T)\) 的结构群约化到 \(T_0\)。现在 \(S'\) 半局部，\(T_0\) 分裂，所以 \(Transp_{G}(T_{0}, T)\) 在 \(S'\) 上有截面。\footnote{编者注：由“定理 90”。}\qed
+
+\subsection*{\SGAInlineRefTarget{sga3:xxiv:subsection:4-4}4.4. 极大环面存在性的应用}
+利用 Grothendieck 的极大环面存在性定理（\SGARefLink{sga3:xiv:3.20}{第 XIV 讲 3.20}），可以大大加强上述结果。先作如下陈述：
+
+\textbf{\SGAInlineRefTarget{sga3:xxiv:theorem:4-4-1}定理 4.4.1.} \emph{设 \(S\) 是半局部概形，\(R\) 是钉扎既约根数据，\(W\) 是它的 Weyl 群，\(E\) 是它的自同构群。（回忆，\(E\) 自然作用于 \(W\)，而半直积 \(A = W \cdot E\) 等同于不带钉扎的 \(R\) 的自同构群，参见\SGARefLink{sga3:XXI:6.7.2}{第 XXI 讲 6.7.2}。）}
+\emph{(i) \(\acute{E}p_{S}(R)\) 下的每个主齐性丛都由一个群为 \(W\) 的主 Galois 覆盖 \(S' \toS\) 平凡化。}
+\emph{(ii) 设 \(G\) 是类型为 \(R\) 的约化 \(S\)-群；设 \(rev(G) = Isomext(\acute{E}p_{S}(R), G)\) 是相伴的群为 \(E\) 的 \(S\) 的 Galois 覆盖。设 \(W_0\) 是与 \(rev(G)\) 相伴的 \(W_S\) 的形式。存在态射 \(S' \to S\)，它是 \(W_0\) 下的主齐性丛，使得 \(G_{S'}\) 可拟分裂（即有 Borel 子群）。}
+\emph{\SGAInlineRefTarget{sga3:xxiv:theorem:4-4-1:item:iii}(iii) 每个类型为 \(R\) 的约化 \(S\)-群都由一个群为 \(A\) 的主 Galois 覆盖 \(\tilde{S} \to S\) 分裂。}
+
+先陈述：
+\textbf{\SGAInlineRefTarget{sga3:xxiv:proposition:4-4-2}命题 4.4.2.} \emph{设 \(S\) 是概形，\(G\) 是约化 \(S\)-群，\(T\) 是 \(G\) 的极大环面，\(P\) 是 \(G\) 下的主齐性丛，\(G'\) 是与 \(P\) 相伴的 \(G\) 的扭形式（于是，参见 \SGARefLink{sga3:xxiv:proposition:4-2-1}{4.2.1}，有典范同构 \(P / Norm_{G}(T) \xrightarrow{\sim} Tor(G')\)）。设 \(T'\) 是 \(G'\) 的极大环面，定义复合态射}
+\[
+  S\longrightarrow\operatorname{Tor}(G')
+  \xrightarrow{\sim}P/\operatorname{Norm}_G(T).
+\]
+\emph{考虑典范态射}
+\[
+  P\longrightarrow P/T\longrightarrow P/\operatorname{Norm}_G(T).
+\]
+\emph{并取它们沿上述态射的逆像：}
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+P \arrow[r]
+&
+P/T \arrow[r]
+&
+P/\operatorname{Norm}_G(T)
+\\
+H \arrow[u] \arrow[r]
+&
+S' \arrow[u] \arrow[r]
+&
+S \arrow[u]
+\end{tikzcd}
+\]
+\emph{则 \(S'\)（分别为 \(H\)）是 \(S\)（分别为 \(S'\)）上 \(W_{G}(T)\)（分别为 \(T_{S'}\)）下的主齐性丛。此外，若让 \(W_{G}(T)\) 以显然的方式作用于 \(T\)，则与 \(S'\) 相伴的丛同构于 \(T'\)。}
+
+前两个断言显然，最后一个断言的证明与 \SGARefLink{sga3:xxiv:2.6}{2.6} 中相应断言的证明相同。
+
+\textbf{\SGAInlineRefTarget{sga3:xxiv:corollary:4-4-3}推论 4.4.3.} \emph{设 \(S\) 是半局部概形，\(G\) 是约化 \(S\)-群，\(T\) 是 \(G\) 的极大环面。假设下列两个条件之一满足：}
+\emph{\SGAInlineRefTarget{sga3:xxiv:corollary:4-4-3:item:i}(i) \(T\) 分裂。}
+\emph{\SGAInlineRefTarget{sga3:xxiv:corollary:4-4-3:item:ii}(ii) \(T\) 包含在 \(G\) 的一个 Borel 子群中，并且 \(G\) 为伴随或单连通。}
+\emph{再设 \(P\) 是 \(G\) 下的主齐性丛。存在一个 \(S\)-概形 \(S'\)，它是 \(W_{G}(T)\) 下的主齐性丛，使得 \(P_{S'}\) 平凡。}
+
+事实上，若 \(G'\) 是与 \(P\) 相伴的 \(G\) 的形式，则 \(G'\) 有极大环面 \(T'\)（\SGARefLink{sga3:xiv:3.20}{第 XIV 讲 3.20}）。沿用前一命题的记号，可见 \(H^{1}(S', T_{S'}) = 0\)（对 \SGARefLink{sga3:xxiv:corollary:4-4-3:item:i}{(i)} 用定理 90，对 \SGARefLink{sga3:xxiv:corollary:4-4-3:item:ii}{(ii)} 用 \SGARefLink{sga3:xxiv:corollary:3-14}{3.14}）。态射 \(H \to S'\) 有截面，故 \(P_{S'}\) 在 \(S'\) 上也有截面。\qed
+
+现在证明定理。断言 \SGARefLink{sga3:xxiv:corollary:4-4-3:item:i}{(i)} 是前一推论的特例（取 \(G =\acute{E}p_{S}(R)\)，赋予其典范分裂环面）。来证 \SGARefLink{sga3:xxiv:corollary:4-4-3:item:ii}{(ii)}。已知（\SGARefLink{sga3:xxiv:3.12}{3.12}）\(G\) 是
+\[ G_{0} = Q-\acute{E}p_{rev(G)/S}(R). \]
+的内扭形式。
+
+若 \(T_0\) 是 \(G_0\) 的典范极大环面，则 \(W_{G_{0}}(T_{0})\) 就是陈述中的群 \(W_0\)。\(G_0\) 的形式 \(G\) 对应于 \(ad(G_{0})\) 下的主齐性丛 \(P\)（\(P = Isomint(G_{0}, G)\)）。群 \(W_{ad(G_{0})}(T^{ad}_{0})\) 典范同构于 \(W_0\)，而将 \SGARefLink{sga3:xxiv:corollary:4-4-3}{4.4.3} 用于 \((ad(G_{0}), T^{ad}_{0}, P)\)，即得所求结果；\SGARefLink{sga3:xxiv:corollary:4-4-3}{4.4.3} 的假设 \SGARefLink{sga3:xxiv:corollary:4-4-3:item:ii}{(ii)} 确实满足。最后来证 \SGARefLink{sga3:xxiv:theorem:4-4-1:item:iii}{(iii)}。沿用 \SGARefLink{sga3:xxiv:corollary:4-4-3:item:ii}{(ii)} 的记号，有图
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+&
+\operatorname{rev}(G) \arrow[d,"E_S"']
+\\
+S'
+  \arrow[r,"W_0"']
+&
+S
+\end{tikzcd}
+\]
+已知 \(G_{S'}\) 同构于 \((G_{0})_{S'}\)，而 \((G_{0})_{rev(G)}\) 可分裂。若置 \(\tilde{S} = S' \times_{S} rev(G)\)，则 \(G_{\tilde{S}}\) 可分裂，只须验证 \(\tilde{S}\) 确为 \(S\) 的群为 \(A\) 的主 Galois 覆盖；这由下述更一般的引理推出（它自然适用于任意景）：
+% 已译源行 2419--2723。
