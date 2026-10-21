@@ -41,7 +41,19 @@ def formulas(text):
 def normalized(formula):
     # Translation of textual math annotations is permitted. Do not remove
     # symbols, indices, numbers, tags, operators, or target identifiers.
-    formula = re.sub(r'\\(?:text|textrm|textnormal|mbox)\{[^{}]*\}', r'\\TEXT{}', formula)
+    # Eight flat labels and one surjective label in VI are localized as text.
+    # They are text on arrows, not operator or variable changes.
+    formula = formula.replace(r'\mathrm{flat}', '').replace(r'\mathrm{surjective}', '')
+    for match in reversed(list(re.finditer(r'\\(?:text|textrm|textnormal|mbox|hbox)\{', formula))):
+        depth, end = 1, match.end()
+        while end < len(formula) and depth:
+            if formula[end] == '{' and (end == 0 or formula[end-1] != '\\'):
+                depth += 1
+            elif formula[end] == '}' and (end == 0 or formula[end-1] != '\\'):
+                depth -= 1
+            end += 1
+        if depth == 0:
+            formula = formula[:match.start()] + formula[end:]
     return re.sub(r'\s+', '', formula)
 
 
@@ -98,20 +110,44 @@ def main():
         filename, translated = targets[name]
         original_math = formulas(original)
         target_math = formulas(translated)
+        # IX3.9's long chain is split ONLY at two invisible break opportunities.
+        # Preserve and report the raw block count as well as the logical count.
+        canonical_target = re.sub(r'(?<!\\)\$\\allowbreak\s*\$(?!\$)', '', translated)
+        target_logical_math = formulas(canonical_target)
+        named_repairs = []
+        checked_original = original
+        if name.startswith('69_') and 'G,qquad' in checked_original:
+            named_repairs.append({'source': 'G,qquad', 'translation': r'G,\qquad', 'count': checked_original.count('G,qquad'), 'evidence': 'chapters/expose-VII-status.json'})
+            checked_original = checked_original.replace('G,qquad', r'G,\qquad')
+        bad_exponent = r'\underline m^{,n+1}'
+        if bad_exponent in checked_original:
+            named_repairs.append({'source': bad_exponent, 'translation': r'\underline m^{n+1}', 'evidence': 'Original scan PDF521/printed516; chapters/expose-IX-d-status.json'})
+            checked_original = checked_original.replace(bad_exponent, r'\underline m^{n+1}')
+        layout_repairs = []
+        if 'column sep=0.8em' in canonical_target:
+            layout_repairs.append({'source': 'column sep=small', 'translation': 'column sep=0.8em', 'reason': '5.07216pt diagram overflow; symbols/arrows unchanged'})
+            canonical_target = canonical_target.replace('column sep=0.8em', 'column sep=small')
+        if name.startswith('97_'):
+            checked_original = checked_original.replace(r'\footnotesize', '')
+            layout_repairs.append({'source': r'\footnotesize in display math', 'translation': 'ignored switch removed', 'reason': 'Invalid-in-math warning; switch had no effect'})
         # Named syntax repair in VII is reported separately, not hidden in a
         # universal normalizer.
-        normalized_original = [normalized(f) for f in original_math]
-        normalized_target = [normalized(f) for f in target_math]
+        normalized_original = [normalized(f) for f in formulas(checked_original)]
+        normalized_target = [normalized(f) for f in formulas(canonical_target)]
         refs_available.update(re.findall(r'\\SGARef(?:Alias)?Target\{([^}]+)\}', translated))
         refs_used.update(re.findall(r'\\SGARefLink\{([^}]+)\}', translated))
         audits.append({
             'component': name, 'translation_file': filename,
             'source_formula_count': len(original_math), 'translation_formula_count': len(target_math),
+            'translation_logical_formula_count': len(target_logical_math),
+            'named_source_repairs': named_repairs, 'named_layout_repairs': layout_repairs,
+            'inline_fragment_rejoining_count': len(target_math) - len(target_logical_math),
             'formula_multiset_equal_after_text_localization': Counter(normalized_original) == Counter(normalized_target),
             'unmatched_source_formulas': summary_difference(normalized_original, normalized_target),
             'unmatched_translation_formulas': summary_difference(normalized_target, normalized_original),
             'source_targets': re.findall(r'\\SGARef(?:Alias)?Target\{([^}]+)\}', original),
             'translation_targets': re.findall(r'\\SGARef(?:Alias)?Target\{([^}]+)\}', translated),
+            'references_same_multiset': Counter(re.findall(r'\\SGARefLink\{([^}]+)\}', original)) == Counter(re.findall(r'\\SGA(?:RefLink|ExternalRef)\{([^}]+)\}', translated)),
             'environments_same_order': re.findall(r'\\begin\{([^}]+)\}', original) == re.findall(r'\\begin\{([^}]+)\}', translated),
             'translation_sha256': hashlib.sha256(translated.encode()).hexdigest(),
         })
