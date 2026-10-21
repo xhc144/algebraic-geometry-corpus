@@ -57,7 +57,7 @@ i''=j\circ(j')^{-1},
 \[
 \begin{tikzcd}[column sep=large,row sep=large]
 & A[T_1,\ldots,T_n] \arrow[d,"v"]\\
-A \arrow[r] \arrow[ur,"u"] & B,
+A \arrow[r,"u"'] \arrow[ur] & B,
 \end{tikzcd}
 \]
 其中态射 $u,v$ 都满。取元素 $t_i\in A$，$1\leq i\leq n$，使对每个 $i$ 都有 $u(t_i)=v(T_i)$。定义同态
@@ -125,7 +125,7 @@ U \arrow[r,"i"] \arrow[dr,"f"'] & V \arrow[d,"g"]\\
 \]
 其中 $k(y)$ 是 $\mathcal O_{Y,y}$ 的剩余域。由于 $f$ 平坦，这些群为零，故 $i_y$ 在 $x$ 处正则。由于 $g$ 光滑，$V_y$ 在 $x$ 处的局部环正则。因此，$U_y$ 在 $x$ 处的局部环是正则环除以正则理想所得的商，故为完全交环（EGA IV 19.3.2）。由此，$f$ 在 $x$ 处是 EGA IV 19.3.6 意义下的完全交。
 
-反之，假设 $f$ 是 EGA IV 19.3.6 意义下的完全交态射，设 $x\in X$。取 $x$ 的仿射邻域 $U$，使它位于 $y=f(x)$ 的某个仿射邻域 $U'$ 上方。于是可找到光滑 $U'$-概形 $V$ 和闭浸入 $U\to V$（例如取 $V$ 为 $U'$ 上的向量丛）。我们将证明 $i$ 正则。由 EGA IV 19.3.7，$i$ 在 $x$ 处横截正则，因为 $V$ 在 $Y$ 上光滑，从而 $V_y$ 在 $x$ 处正则，且 $U$ 在 $Y$ 上平坦。由 EGA IV 19.2.4, a)3c)，$i$ 在 $x$ 处正则。因此 $f$ 是 1.1 意义下的完全交态射。
+反之，假设 $f$ 是 EGA IV 19.3.6 意义下的完全交态射，设 $x\in X$。取 $x$ 的仿射邻域 $U$，使它位于 $y=f(x)$ 的某个仿射邻域 $U'$ 上方。于是可找到光滑 $U'$-概形 $V$ 和闭浸入 $U\to V$（例如取 $V$ 为 $U'$ 上的向量丛）。我们将证明 $i$ 正则。由 EGA IV 19.3.7，$i$ 在 $x$ 处横截正则，因为 $V$ 在 $Y$ 上光滑，从而 $V_y$ 在 $x$ 处正则，且 $U$ 在 $Y$ 上平坦。由 EGA IV 19.2.4, a)$\Rightarrow$c)，$i$ 在 $x$ 处正则。因此 $f$ 是 1.1 意义下的完全交态射。
 
 \sgaStableTarget{sga6.e08.prop.1-5}\textbf{命题 1.5.} 设 $f:X\to Y$ 和 $g:Y\to Z$ 是两个局部完全交态射。则 $gf$ 为局部完全交。
 
@@ -150,7 +150,7 @@ V \arrow[r,"j"'] & Z[T'_1,\ldots,T'_m],
 \]
 其中 $j'$ 由 $j$ 经基变换得到。此基变换平坦，故 $j'$ 是正则浸入，从而 $j'i$ 是 $U$ 到某个在 $W$ 上光滑的概形的正则浸入，其中 $W$ 是 $Z$ 的相应开集。断言得证。
 
-% SGA-SRC-001509
+% 基变换命题及证明已核对法文原书第472页。
 \sgaStableTarget{sga6.e08.prop.1-6}\textbf{命题 1.6.} 设 $f:X\to Y$ 是态射，$g:Y'\to Y$ 是平坦基变换。若 $f$ 为完全交，则由 $f$ 导出的态射
 \[
 f':X\times_Y Y'\longrightarrow Y'
@@ -305,8 +305,8 @@ X' \arrow[r,"i'"] \arrow[d,"p'"'] & V' \arrow[d,"p"]\\
 X \arrow[r,"i"'] \arrow[ur,"j"] & V .
 \end{tikzcd}
 \]
-% SGA-SRC-001513
-设 $I,J,K$ 是分别定义 $i,j,j'$ 的理想。则 $j=i'j'$，浸入 $j'$ 正则；又因 $p$ 平坦，$i'$ 由理想 $p^*(I)$ 定义，其余法层因而为
+% 法文原书第477页在此包含下述正则性断言，正文照录并加译校注。
+设 $I,J,K$ 是分别定义 $i,j,j'$ 的理想。则 $j=i'j'$，浸入 $i',j,j'$ 都正则\footnote{译校注：法文原书第 477 页在一般可光滑化态射的假设下同时断言这三个浸入正则。这里仅 $j'$ 作为光滑态射的截面显然正则；对 $i',j$ 的断言需要另外假设。正文照录，相关论证另待数学审校。}；又因 $p$ 平坦，$i'$ 由理想 $p^*(I)$ 定义，其余法层因而为
 \[
 i'^*(p^*(I))=p'^*(I/I^2).
 \]
@@ -318,14 +318,14 @@ i'^*(p^*(I))=p'^*(I/I^2).
 \[
 K/K^2\longrightarrow j^*(\Omega^1_{V'/V})
 \]
-是同构。这将蕴涵 $\theta$ 的映射锥无环，从而 $\theta$ 是拟同构，因而在导出范畴中定义同构。
+是同构。这将蕴涵 $\theta$ 的映射柱\footnote{译校注：法文原书第 477 页用语为 mapping cylinder；此处用于推出拟同构的无环对象应为映射锥。}无环，从而 $\theta$ 是拟同构，因而在导出范畴中定义同构。
 
 性质 (a)、(b) 在 $X$ 上是局部的。所以可假设 $X,Y,V,V'$ 仿射。令 $Y=\Spec(A)$，$V=\Spec(B)$，$V'=\Spec(B')$，$X=\Spec(C)$，对相应的同态和理想保持同样的字母。有图
 \[
 \begin{tikzcd}[column sep=large,row sep=large]
-B\otimes_A B \arrow[r,"p\otimes p"] \arrow[d,"\Delta"'] & B'\otimes_A B' \arrow[d,"\Delta"] & B'\otimes_B B' \arrow[l] \arrow[d]\\
-B \arrow[r,"p"] \arrow[dr,"i"'] & B' \arrow[d,"j"] & B'\otimes_B C = B'/IB' \arrow[dl,"p'" ]\\
-{} & C & {}
+B\otimes_A B \arrow[r,"p\otimes p"] \arrow[d,"\Delta"'] & B'\otimes_A B' \arrow[d,"\Delta"] & {}\\
+B \arrow[r,"p"] \arrow[dr,"i"'] & B' \arrow[d,"j"] \arrow[dr,"i'"] & B'\otimes_B B' \arrow[l,"\Delta"'] \arrow[d]\\
+{} & C \arrow[r,"p'"',shift right=1ex] & B'\otimes_B C=B'/IB' \arrow[l,"j'"',shift right=1ex].
 \end{tikzcd}
 \]
 其中所显示的左、右两个方块分别记为 (1)、(2)。
@@ -370,7 +370,7 @@ T_f=\operatorname{cl}(L^{X/Y}_\bullet)
 
 \sgaStableTarget{sga6.e08.prop.2-6}\textbf{命题 2.6.} 设 $f:X\to Y$ 和 $g:Y\to Z$ 是两个可光滑化的完全交态射，并进一步假设满足下述条件：
 
-(G) 存在给出 $f$ 的分解的光滑 $Y$-概形 $V$，使对每个到光滑 $Z$-概形的闭浸入 $Y\to V'$，都可找到光滑 $V'$-概形 $V''$，使
+(G) 存在给出 $f$ 的分解的光滑 $Y$-概形 $V$，使对每个闭浸入 $Y\to V'$，都可找到光滑 $V'$-概形 $V''$，使
 \[
 V \simeq V''\times_{V'}Y.
 \]
@@ -397,7 +397,7 @@ X \arrow[r,"i"] \arrow[dr,"f"'] & V \arrow[r,"j'"] \arrow[d,"p"] & V'' \arrow[d,
 \[
 0\longrightarrow i^*(J'/J'^2)\longrightarrow K/K^2\longrightarrow I/I^2\longrightarrow0,
 \]
-其中 $I,J,J',K$ 分别表示定义浸入 $i,j,j',j'i$ 的层。由于 $p''$ 平坦，$J'=p''^*(J)$，此序列可写成
+其中 $I,J,J',K$ 分别表示定义浸入 $i,j,j',j'i$ 的理想层。由于 $p''$ 平坦，$J'=p''^*(J)$，此序列可写成
 \sgaStableTarget{sga6.e08.eq.2-6-1}\begin{equation}\tag{2.6.1}
 0\longrightarrow f^*(J/J^2)\longrightarrow K/K^2\longrightarrow I/I^2\longrightarrow0.
 \end{equation}
@@ -407,7 +407,7 @@ X \arrow[r,"i"] \arrow[dr,"f"'] & V \arrow[r,"j'"] \arrow[d,"p"] & V'' \arrow[d,
 \]
 应用 $(j'i)^*$，得到正合列
 \[
-0\longrightarrow (p''ji)^*(\Omega^1_{V'/Z})\longrightarrow (j'i)^*(\Omega^1_{V''/Z})\longrightarrow (j'i)^*(\Omega^1_{V''/V'})\longrightarrow0.
+0\longrightarrow (p''j'i)^*(\Omega^1_{V'/Z})\longrightarrow (j'i)^*(\Omega^1_{V''/Z})\longrightarrow (j'i)^*(\Omega^1_{V''/V'})\longrightarrow0.
 \]
 由假设 (G)，
 \[
@@ -631,7 +631,7 @@ g^{\mathrm{gr}}_*\!\left(
  =
  \Todd(\check T_{g\circ f}).
 \]
-Thus finally
+因此，最终得到
 \[
  \ch(g_*(f_*(x)))=
  g^{\mathrm{gr}}_* f^{\mathrm{gr}}_*\bigl(\ch(x)\Todd(\check T_{g\circ f})\bigr),
@@ -692,11 +692,11 @@ Y \arrow[r,"i"'] & X ,
 
 \sgaStableTarget{sga6.e08.prop.4-3}\textbf{命题 4.3.} 对每个 \(y\in K^{\bullet}(Y)_{\mathbb Q}\)，有关系
 \[
- f^{\mathrm{gr}}_* i^{\mathrm{gr}}_*(y)
+ f^{\mathrm{gr}} i^{\mathrm{gr}}_*(y)
  =
  j^{\mathrm{gr}}_*\bigl(g^{\mathrm{gr}}(y)\,c^{d-1}(\check F)\bigr),
 \]
-其中 \(c^{d-1}\) 表示第 \((d-1)\) 个 Chern 类。
+其中 \(c^{d-1}\) 表示第 \((d-1)\) 个 Chern 类。\footnote{译校注：法文原书第 489 页将 \(y\) 的所属群印作 \(K^\bullet(Y)_{\mathbb Q}\)，但此式中使用的是相伴分次上的同态，故应在相应的 \(\Gr K^\bullet(Y)_{\mathbb Q}\) 中解读。正文保留原印所属群。}
 
 此关系包含在 \hyperlink{sga6.e07.thm.4-8}{VII 4.8} 中，因为它就是
 \[
@@ -724,11 +724,11 @@ Y \arrow[r,"i"'] & X ,
 \]
 所以此关系成立。
 
-\sgaStableTarget{sga6.e08.rem.4-4-1}\textbf{注 4.4.1.} 也可以由一个相应的纯代数命题推出 \hyperlink{sga6.e08.prop.4-4}{4.4}；参见 \(\RRR\)，\hyperlink{sga6.e01.sec.1.3}{I 1.3}。
+\sgaStableTarget{sga6.e08.rem.4-4-1}\textbf{注 4.4.1.} 也可以由一个相应的纯代数命题推出 \hyperlink{sga6.e08.prop.4-4}{4.4}；参见 \(\RRR\)，I 1.3。
 
 \sgaStableTarget{sga6.e08.para.4-5}\textbf{4.5.} 现在说明，为了证明本节所考虑情形下的 Riemann--Roch 定理，可以归结到 \(Y\) 是 \(X\) 的除子、且应用公式的元素是 \(K^{\bullet}(X)\) 中某个元素的逆像的情形。
 
-由 \hyperlink{sga6.e08.prop.3-2}{3.2}，待证公式
+由 \hyperlink{sga6.e08.prop.3-2}{3.2}\footnote{译校注：法文原书第 490 页印作 3.2；这里用于等价变换的分次逆像单射性由命题 4.2 给出。}，待证公式
 \[
  \ch(i_*(x))=
  i^{\mathrm{gr}}_*\bigl(\ch(x)\Todd(\check T_i)\bigr),
@@ -750,12 +750,12 @@ Y \arrow[r,"i"'] & X ,
  \ch\bigl(j_*(g^*(x)\lambda_{-1}(F))\bigr)
  =
  j^{\mathrm{gr}}_*\bigl(\ch(g^*(y))\Todd(g^*(\check T_i))\,c^{d-1}(\check F)\bigr).
-\]
+\]\noindent\textit{译校注：}法文原书第 490 页本行右边印作 \(g^*(y)\)，而前后均使用元素 \(x\)，故此处 \(y\) 应为 \(x\)。正文保留原印式。
 
 由定义，
 \[
- T_i=-c^1(J/J^2)=-N,\qquad
- T_j=-c^1(J'/J'^2)=-L.
+ T_i=-\cl(J/J^2)=-N,\qquad
+ T_j=-\cl(J'/J'^2)=-L.
 \]
 此外，正合列
 \[
@@ -765,7 +765,7 @@ Y \arrow[r,"i"'] & X ,
 \[
  g^*(T_i)=-(F+L),
 \]
-hence
+从而
 \[
  \Todd(g^*(\check T_i))=\Todd(\check T_j)\Todd(\check F)^{-1}.
 \]
@@ -805,7 +805,7 @@ z=g^*(x)\lambda_{-1}(F),
 \[
  i_*(1)=1-J.
 \]
-Thus
+于是
 \[
  \ch(i_*(i^*(y)))=\ch(y)\,\ch(1-J).
 \]
@@ -824,11 +824,11 @@ Thus
  =
  \ch(y)\,i^{\mathrm{gr}}_*(\Todd(\check T_i)).
 \]
-Now
+现在
 \[
-T_i=-c^1(J/J^2)=-i^*(J).
+T_i=-\cl(J/J^2)=-i^*(J).
 \]
-Hence
+因此
 \[
  i^{\mathrm{gr}}_*(\Todd(\check T_i))
  =
@@ -838,11 +838,11 @@ Hence
 \]
 由于 \(i_*(1)=1-J\)，\(i^{\mathrm{gr}}_*(1)\) 是 \(1-J\) 在 \(\Gr^1K^{\bullet}(X)\) 中的像，所以等于 \(-c^1(J)\)。此外，
 \[
- \Todd(-\check J)=\Todd(J)^{-1}
+ \Todd(-\check J)=\Todd(\check J)^{-1}
  =
  \frac{1-\exp(c^1(J))}{-c^1(J)}.
 \]
-Thus finally
+因此，最终得到
 \[
  i^{\mathrm{gr}}_*\bigl(\ch(i^*(y))\Todd(\check T_i)\bigr)
  =
@@ -858,7 +858,7 @@ f:\mathbb P^r_Y\longrightarrow Y,
 \]
 证明它，其中 \(Y\) 是有丰沛层的拟紧概形。令
 \[
-P=\mathbb P^r_Y,\qquad \xi=c^1(\mathcal O_P(1)),\qquad E=(\mathcal O_Y)^{r+1}.
+P=\mathbb P^r_Y,\qquad \xi=\cl(\mathcal O_P(1)),\qquad E=(\mathcal O_Y)^{r+1}.
 \]
 
 \sgaStableTarget{sga6.e08.prop.5-2}\textbf{命题 5.2.} 在 \(P\) 上有正合列
@@ -902,6 +902,7 @@ S(E) \arrow[rr] && \displaystyle\bigoplus_{n\in\mathbb Z}S(E)(n)\simeq S(E)[T,T^
 & \mathcal O_X \arrow[ul] \arrow[ur] &
 \end{tikzcd}
 \]
+\noindent\textit{译校注：}法文原书第 493 页此图底点印作 \(\mathcal O_X\)；本节基概形记作 \(Y\)，此处的底层代数应为 \(\mathcal O_Y\)。图中保留原印记号。\par
 其中各箭头是代数同态，与 \(S(E)[T,T^{-1}]\) 的分次相容（分次由不定元 \(T\) 的次数给出），另外两个代数均视为集中于 \(0\) 次。
 
 微分模 \(\Omega^1_{B/\mathcal O_P}\) 同构于
@@ -938,7 +939,7 @@ S(E)\otimes_{\mathcal O_Y}E
 
 \sgaStableTarget{sga6.e08.para.5-3}\textbf{5.3.} 由 \hyperlink{sga6.e08.prop.5-2}{5.2}，
 \[
- T_f=c_1(\Omega^1_{P/Y})=f^*(E)\xi^{-1}-1.
+ T_f=\cl(\Omega^1_{P/Y})=f^*(E)\xi^{-1}-1.
 \]
 因此
 \[
@@ -950,9 +951,9 @@ S(E)\otimes_{\mathcal O_Y}E
 \]
 令
 \[
- x=c^1_{\Gr^1K^{\bullet}(P)}(\xi-1)
+ x=\cl_{\Gr^1K^{\bullet}(P)}(\xi-1)
  =
- c^1_{\Gr^1K^{\bullet}(P)}(1-\xi^{-1})
+ \cl_{\Gr^1K^{\bullet}(P)}(1-\xi^{-1})
  =
  c^1(\xi).
 \]
@@ -1063,7 +1064,7 @@ Riemann--Roch 公式的第二端为
 
 \sgaStableTarget{sga6.e08.bibliography}\subsection*{参考文献}
 \begin{enumerate}[label={[\arabic*]}]
-\item A. Borel and J.-P. Serre, \emph{Le théorème de Riemann--Roch}, Bull. Soc. Math. de France, t. 86, 1958.
+\item A. Borel 与 J.-P. Serre, \emph{Le théorème de Riemann--Roch}, Bull. Soc. Math. de France, t. 86, 1958.
 \item A. Grothendieck, \emph{Techniques de construction et théorèmes d'existence en Géométrie Algébrique}, Sém. Bourbaki, 1960--61.
 \end{enumerate}
 
