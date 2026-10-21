@@ -14,6 +14,7 @@
 | 社区中文译本 | zh-CN/EGA/、zh-CN/Stacks/、extra/数译中译/、extra/译馆-PKU/ |
 | 英文译本与 LaTeX 源码 | en/、extra/SGA-English-Zenodo/ |
 | 增补与参考 | extra/ |
+| **中文译本对照表（单文件）** | [译本对照表.md](译本对照表.md) |
 | 逐文件校验 | MANIFEST.sha256 |
 
 ## 中文译本对照总表
