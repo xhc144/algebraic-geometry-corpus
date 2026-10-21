@@ -141,6 +141,7 @@ en/     英文译本与工作版：EGA、SGA、FGA 的英文 PDF、LaTeX 源码�
 | Vistoli：Grothendieck 拓扑、纤维范畴与下降 | arXiv:1207.3648 | FGA Explained 相关章节的免费预印本 | extra/arXiv/ |
 | Nitsure：Hilbert 与 Quot 概形的构造 | arXiv:math/0206203 | 同上，补充 FGA 中原未展开的构造 | extra/arXiv/ |
 | Kleiman：Picard 概形 | arXiv:math/0412512 | 同上 | extra/arXiv/ |
+| 数译站社区中译 7 种 | mathtranslations.org | SGA 1/2 中译、Vakil、Milne（两种）、Hartshorne、Alper | extra/数译中译/ |
 
 这些是辅助性材料，不与原著、中译、英译三套正文混放。
 
@@ -173,4 +174,4 @@ EGA、SGA、FGA 原文由 Springer、IHES、North-Holland 等出版方发行，F
 Stacks Project 由 A. J. de Jong 等人以开放许可维护。**本仓库为私有仓库**，所收文件仅作个人研究、翻译与编撰参照，
 不再分发、不用于商业用途。引用请以各出版方的正式版本为准。
 
-_清单生成于 2026-10-21 03:30；共 906 个文件，合计 1445.9 MB。_
+_清单生成于 2026-10-21 03:59；共 913 个文件，合计 1498.9 MB。_
