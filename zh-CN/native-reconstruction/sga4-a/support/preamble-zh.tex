@@ -17,25 +17,34 @@
 \usepackage[usenames,dvipsnames]{xcolor}
 \usepackage{graphicx}
 \usepackage[all]{xy}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,decorations.pathreplacing}
 \usepackage[unicode,hypertexnames=false,colorlinks=true,linkcolor=blue,citecolor=Sepia,urlcolor=magenta]{hyperref}
 \usepackage{xr-hyper}
 \usepackage{support/smfthm}
 \usepackage{xspace}
 \usepackage{pifont}
+\usepackage{longtable}
+% Retain the native master's archive-only visibility policy. The translated
+% archive annotations remain present in the editable chapter sources.
+\providecommand{\SGAArchiveOnly}[1]{}
 \input{support/numerotation-zh}
 \input{support/macros-zh}
 % The source contains U+2009 thin spaces. Nimbus Roman lacks that glyph;
 % retain the source bytes and typeset the intended thin space natively.
 \catcode"2009=\active
 \protected\def {\ifmmode\mskip\thinmuskip\else\thinspace\fi}
+\catcode"1D52=\active
+\protected\defᵒ{\ifmmode{}^{\mathrm{o}}\else\textsuperscript{o}\fi}
 \emergencystretch=2em
-\def\cf{参见\kern.3em}
-\def\Cf{参见\kern.3em}
-\def\ie{即\kern.3em}
-\def\iev{即\kern.3em}
-\def\resp{分别\kern.3em}
-\def\etcn{等等\xspace}
-\def\etco{等等\xspace}
+\newcommand{\sgaChineseWord}[1]{\ifmmode\text{#1}\else#1\fi}
+\def\cf{\sgaChineseWord{参见}\kern.3em}
+\def\Cf{\sgaChineseWord{参见}\kern.3em}
+\def\ie{\sgaChineseWord{即}\kern.3em}
+\def\iev{\sgaChineseWord{即}\kern.3em}
+\def\resp{\sgaChineseWord{分别}\kern.3em}
+\def\etcn{\sgaChineseWord{等等}\xspace}
+\def\etco{\sgaChineseWord{等等}\xspace}
 \def\quaet{\quad\text{且}\quad}
 \def\pagehyperref[#1]#2{(第~\hyperref[#1]{#2}~页)}
 \renewcommand{\contentsname}{目录}

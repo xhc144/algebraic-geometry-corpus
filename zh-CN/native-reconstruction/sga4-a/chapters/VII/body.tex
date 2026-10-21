@@ -1,0 +1,532 @@
+% BEGIN INCLUDED SGA4_English_current_buildable_source_20260906/source/07/drafts/SGA4_VII_LINES_43_396_English.texfrag
+\setcounter{pageoriginal}{341}
+
+在\pageoriginale 本篇和下一篇中, 我们讨论平展拓扑与平展上同调的最基本性质。本篇所讨论的一些性质大多也适用于其他很不相同的拓扑, 例如“fppf 拓扑”。下一篇将讨论平展拓扑所特有的一些性质, 它们来自平展态射极为特殊的本性。
+
+这里部分地遵循 J.E. \textsc{Roos} 的三次口头报告 (他未能将其写成文稿), 特别是在 \hyperrefext[VIII][VIII.thm6.3]{6.3} 的证明中。
+
+除非明确另作说明, 本篇及以后各篇中所考虑的概形均理解为固定宇宙 $𝒰$ 的元素。
+
+\section{平展拓扑}\etiquette[1]{VII.sec1}
+
+\subsection{}\etiquette[1.1]{VII.subsec1.1}
+
+以 $(\Sch)$ 表示概形 (固定宇宙 $𝒰$ 的元素) 所成的范畴。回顾, $(\Sch)$ 中的态射 $f:X\to Y$ 称为\pageoriginale \emph{平展的}, 如果它局部有限表现且平坦, 并且对每个 $y\in Y$, 纤维 $X_y$ 离散, 其局部环是 $k(y)$ 的有限\emph{可分}扩张。等价地, $f$ 局部有限表现, 且对每个仿射的 (在绝对意义下) $Y$-概形 $Y'$ 以及每个由幂零理想定义的子概形 $Y'_0$, 映射
+$$
+\Hom_Y (Y', X) \to \Hom_Y (Y'_{0}, X)
+$$
+都是\emph{双射}。关于此概念最重要的性质, 参见 \EGA IV \S\S 17 和 18; 在该文出版之前, 可参见 \SGA 1 I 和 IV。
+
+\subsection{}\etiquette[1.2]{VII.subsec1.2}
+
+$(\Sch)$ 上的\emph{平展拓扑}是如下预拓扑所生成的拓扑: 对每个 $X\in(\Sch)$, 集合 $\Cov X$ 由满足各 $u_i$ 平展且 $X=\bigcup_i u_i(X_i)$ (在集合论意义下) 的族 $(X_i\xrightarrow{u_i}X)_{i\in I}$ (以某个 $I\in U$ 为指标) 组成。
+
+对每个 $X$, 引入 $(\Sch)_{/X}$ 中由平展箭头 $X'\to X$ 组成的子范畴 $\Et_{/X}$ 是方便的。给它配备从 $(\Sch)$ 的平展拓扑“诱导的拓扑” (III) (也称“$X$ 上的平展拓扑”), 并将所得的景记为 $X_{\text{ét}}$ ($X$ 的“平展景”)
+\footnote{不过, 应当指出, 最好用 $X_{\text{ét}}$ 表示由 $X$ 的平展景所定义的拓扑斯 $\widetilde{X_{\text{ét}}}$。出于实用的理由, 本讨论班仍沿用此处引入的记号 (即原讨论班的记号)。}。
+注意, $\Et_{/X}$ 的每个态射都平展 (\SGA 1 I 4.8), 因而 $X_{\text{ét}}$ 中的族 $(X'_i\xrightarrow{u_i}X')_{i\in I}$ 是覆盖族当且仅当它是\emph{满射的}, 即 $\bigcup_i u_i(X'_i)=X'$。立即可见 (参见 \hyperref[VII.prop3.1]{3.1}), $X_{\text{ét}}$ 是 $\Uu$-景, 因此第 I 至 VI 篇的结果都适用。$X_{\text{ét}}$ 上 $𝒰$-层所成的拓扑斯 $\widetilde{X_{\text{ét}}}$ 是 $X$ 的\emph{平展拓扑斯}。
+
+\subsection{}\etiquette[1.3]{VII.subsec1.3}
+
+以下\pageoriginale 除非明确另作说明, 在 $\Et_{/X}$ 或 $(\Sch)$ 中考虑的一切拓扑概念均针对平展拓扑而言。此外, 在表述和记号中常用 $X$ 代替 $X_{\text{ét}}$ 或 $Et_{/X}$。因此, “$X$ 上的层” (理解为针对平展拓扑) 是指景 $X_{\text{ét}}$ 上的层。用 $\widetilde{X_{\text{ét}}}$ 表示这些层所成的范畴, 它是一个 $\Uu$-拓扑斯。若 $F$ 是 $X$ 上的阿贝尔层, 将其上同调群记作 $H^i(X,F)$; 在第 V 篇中它们应记作 $H^i(X_{\text{ét}},F)$。
+
+\subsection{}\etiquette[1.4]{VII.subsec1.4}
+
+设 $f:X\to Y$ 是概形态射。逆像函子
+$$
+f^{\ast} : Y' \mapsto \fprod{Y'}{X}{Y}
+$$
+诱导一个函子
+\begin{equation*}
+f^{\ast}_{\text{ét}} : \Et_{/Y} \to \Et_{/X}\tag{$\ast$}
+\end{equation*}
+它与有限 $\varprojlim$ 可交换, 且将覆盖族映为覆盖族; 因此它是一个景态射
+$$
+f^{\ast}_{\text{ét}} : X_{\text{ét}} \to Y_{\text{ét}}{\quoi},
+$$
+从而在层范畴上诱导函子
+$$
+f^{\text{ét}}_{\ast} : \widetilde{X_{\text{ét}}} \to \widetilde{Y_{\text{ét}}}
+$$
+其定义为
+$$
+f^{\text{ét}}_{\ast}  (F) = F \circ f^{\ast}_{\text{ét}}{\quoi}.
+$$
+此外, $f^{\text{ét}}_{\ast}$ 具有左伴随
+$$
+f^{\ast}_{\text{ét}} : \widetilde{Y_{\text{ét}}} \to
+\widetilde{X_{\text{ét}}}
+$$
+它延拓\pageoriginale $(\ast)$ 中所考虑的函子, 并与任意 $\varinjlim$ 和有限 $\varprojlim$ 可交换, 即 $f^{\ast}_{\text{ét}}$ 定义了一个\emph{拓扑斯态射}
+$$
+f_{\text{ét}} : \widetilde{X_{\text{ét}}} \to \widetilde{Y_{\text{ét}}}{\quoi}.
+$$
+
+显然, 对两个概形态射的复合
+$$
+X \xrightarrow{f} Y \xrightarrow{g} Z
+$$
+有典范同构
+\begin{equation*}
+\begin{cases}
+(gf)^{\text{ét}}_{\ast} \simeq g_{\ast}^{\text{ét}}
+  f_{\ast}^{\text{ét}} &\quav \mbox{ 因而}\\
+(gf)^{\ast}_{\text{ét}} \simeq f^{\ast}_{\text{ét}}
+  g^{\ast}_{\text{ét}} &\quav \mbox{ 即有同构}\\
+(gf)_{\text{ét}} \simeq g_{\text{ét}} f_{\text{ét}}&\quav
+\end{cases}
+\end{equation*}
+(因而得到一个从范畴 $(\Sch)$ 到由拓扑斯 $\in𝒰'$ 所成范畴 $(\Top)$ 的“伪函子” (\SGA 1 VI 8), 其中 $𝒰'$ 是满足 $𝒰\in𝒰'$ 的最小宇宙; 比较 IV)。
+
+\subsection{记号}\etiquette[1.5]{VII.subsec1.5}
+
+以下常用 $f^{\ast}$ 和 $f_{\ast}$ 代替 $f^{\ast}_{\text{ét}}$ 和 $f^{\text{ét}}_{\ast}$。若 $f:X\to Y$ 是概形态射, 函子 $R^if_{\ast}^{\text{ét}}$ 因而简记为 $R^if_{\ast}$。用此记号, 回顾与 $f$ 及 $X$ 上阿贝尔层 $F$ 相伴的 Leray 谱序列 (\hyperrefext[V][V.sec5]{5}):
+$$
+H^{\ast} (X, F) \Longleftarrow E^{p. q}_2 = H^{p}(Y, R^q f_\ast (F)){\quoi}.
+$$
+同样, 若有两个态射 $f:X\to Y$ 与 $g:Y\to Z$, 则有 Leray 谱序列 (复合函子的谱序列)
+$$
+R^{\ast} (gf)_{\ast} (F) \Longleftarrow E^{p. q}_2 = R^{p} g_{\ast} (R^q
+f_\ast (F)){\quoi}.
+$$
+
+\subsection{}\etiquette[1.6]{VII.subsec1.6}
+
+当\pageoriginale $f:X\to Y$ 本身平展时, 可将 $X$ 看作 $Y_{\text{ét}}$ 的一个对象, 并有典范的\emph{景同构}
+$$
+X_{\text{ét}} \xrightarrow{\sim} (Y_{\text{ét}})_{/X}{\quoi}.
+$$
+在此同构下, $(\ast)$ 中的函子 $f^{\ast}_{\text{ét}}:Y'\mapsto\fprod{Y'}{X}{Y}$ 等同于范畴 $\Et_{/Y}$ 内部的基变换函子。因此, 函子
+$$
+f^{\ast} : \widetilde{Y_{\text{ét}}} \to \widetilde{X_{\text{ét}}}
+$$
+此时同构于“\emph{限制}到 $Y$”的函子
+$$
+f^{\ast} (F) \simeq F \circ i_{X/Y}{\quoi},
+$$
+其中 $F$ 是 $Y_{\text{ét}}$ 上的层, $i_{X/Y}=X_{\text{ét}}\to Y_{\text{ét}}$ 是显然的函子 (通过 $fu:X'\to Y$, 将 $X$ 上的平展概形 $u:X'\to X$ 看作 $Y$ 上的平展概形)。
+
+\subsection{宇宙问题}\etiquette[1.7]{VII.subsec1.7}
+
+注意, 如果 $X\neq∅$, 则 $X_{\text{ét}}$ \emph{不是}所选宇宙 $𝒰$ 的元素。不过, 如已指出的那样, 易见 (\hyperref[VII.prop3.1]{3.1}) 能在 $X_{\text{ét}}$ 中找到一个全子范畴 $C$, 它\emph{是} $𝒰$ \emph{的元素}, 且满足“比较引理” (III) 的条件, 因而限制函子诱导等价 $\widetilde{C}\to\widetilde{X_{\text{ét}}}$。所以\emph{平展拓扑斯}等价于由某个景 $C\in𝒰$ 定义的拓扑斯。换言之, $X_{\text{ét}}$ 是 $U$-景, 因此由上述引文, 第 I 至 VI 篇的结果适用于此景。
+
+\section{层的例子}\etiquette[2]{VII.sec2}\pageoriginale
+
+\begin{enumerate}
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 设 $F\in\Ob(\Sch)_{/X}$ 是 $X$ 上的概形, 并对 $X$ 上的每个 $X'$ 令
+$$
+F(X') = \Hom_X (X', F){\quoi}.
+$$
+如此定义的函子 $(\Sch)^{\circ}_{/X}\to(\Ens)$ 是平展拓扑的层 (甚至是 \SGA 3 IV 中所研究的更细的 fpqc 拓扑的层)。换言之, $(\Sch)$ 上的平展拓扑比典范拓扑粗。这本质上是 \SGA 1 VIII 5.1 的内容 (另参见 \SGA 3 IV 6.3.1)。从而, 此层在 $X_{\text{ét}}$ 上的限制也是层。在没有混淆危险时, 仍将其记为 $F$\footnote{\etiquette[6]{page6}不过须注意, 若 $X\neq∅$, 将 $F\in\Ob(\Sch)_{/X}$ 映到相应的层 $\varphi(F)$ 的函子 $\varphi$ \emph{不是}全忠实的, 甚至不是忠实的, 且不能由 $\varphi(F)$ 重构 $F$ (达到同构)。例如, 若 $S=\Spec k$, 其中 $k$ 是代数闭域, 则知道 $\varphi(F)$ 仅相当于知道 $F$ 的底集合 (由 \hyperrefext[VIII][VIII.cor2.4]{2.4})。比较 IV}。还要注意, 如此得到的函子
+\begin{equation*}
+(\Sch)_{/X} \to \widetilde{X_{\text{ét}}}\tag{$\ast$}
+\end{equation*}
+与有限 $\varprojlim$ 可交换 (这是直接的)。例如由此可知, 当 $F$ 是 $X$ 上的群概形 (或分别为其他结构的概形) 时, 它所定义的层是群层 (或分别带有其他结构的层)。注意, 由 (*) 诱导的函子 $\Et_{/X}\to\widetilde{X_{\text{ét}}}$ 就是将每个 $X'\in\Ob X_{\text{ét}}$ 映到它在 $X_{\text{ét}}$ 上所代表的函子的典范函子。因此, 它是范畴 $\Et_{/X}$ 到平展拓扑斯 $\widetilde{X_{\text{ét}}}$ 的某个全子范畴的同构, 我们通常借此将 $X\in\Ob X_{\text{ét}}$ 与相应的层等同, 后者记作 $\widetilde{X}$ 或简记为 $X$。
+
+显然, $H^{\circ}(X,F)=\Hom_{(\Sch)_{/X}}(X,F)$。
+
+当 $F$ 是 $X$ 上的群预概形时 (也可设为交换的, 以使 $H^1(X,F)$ 的定义属于第 V 篇的范围;\pageoriginale 一般情形可参阅 J. Giraud 的学位论文\footnote{\etiquette[7]{page7}}), 还可给出 $H^1(X,F)$ 的一种解释。熟知的论证 (此处不再重复) 表明, $H^1(X,F)$ 典范同构于\emph{$X_{\text{ét}}$ 上在 $F$ 作用下的主齐性集合层\footnote{即上述引文术语中的 $F$-挠子。}}的同构类所成的群。当 $F$ 在 $X$ 上\emph{仿射}时, \SGA 1 VIII 2.1 表明 (仍由标准论证, 参见 J. \textsc{Giraud} 的学位论文), $H^1(X,F)$ 也是 $X$ 上满足下述条件的\emph{概形} $P$ 的同构类所成的群: $F$ 在其上右作用, 且它们是“对于平展拓扑的 $X$ 上的主齐性丛”, 即对于平展拓扑局部平凡\footnote{即现今通行术语中的可表 $F$-\emph{挠子}。}。
+\end{enumerate}
+
+\begin{enonce*}[remark]{注 2.1}\etiquette[2.1]{VII.rem2.1}
+须注意, 若对 $X$ 上的每个概形 $Z$, 都将 $X_{\text{ét}}$ 上的相应层记作 $\varphi_X(Z)$, 且 $f:Y\to X$ 是概形态射, 则有显然的同态 (关于 $Z$ 函子性)
+\begin{equation*}
+f^{\ast} (\varphi_X (Z)) \to \varphi_Y (Z_Y),\quad Z_Y =
+\fprod{Z}{Y}{X}{\quoi},\tag{$\ast$}
+\end{equation*}
+即有显然的同态
+$$
+\varphi_X (Z) \to f_{\ast} (\varphi_Y (Z_Y)){\quoi},
+$$
+也就是关于 $X'\in\Ob X_{\text{ét}}$ 函子性的同态
+$$
+\Hom_X (X', Z) \to \Hom_Y (X'_{Y}, Z_{Y}){\quoi}.
+$$
+但应注意, \emph{一般而言 $(\ast)$ 不是同构, 即与相对概形相伴的平展层的构造不与逆像函子可交换}。不过, 在 $Z$ 在 $X$ 上平展这一特殊情形下, $(\ast)$ 是同构。同样, 当 $X\neq∅$ 时, 函子\pageoriginale
+$$
+\varphi_{X} : \Sch_{/X} \to \widetilde{X_{\text{ét}}}
+$$
+\emph{不是忠实的}\footnote{参见\pagehyperref[page6]{6}的脚注。}; 不过, 它在 $X_{\text{ét}}$ 上的限制就是典范函子 $X_{\text{ét}}\to\widetilde{X_{\text{ét}}}$, 是\emph{全忠实的}, 因为由 a), $X_{\text{ét}}$ 的拓扑比其典范拓扑粗。
+
+\begin{enumerate}
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\setcounter{enumi}{1}
+\item 注意, $(\ast)$ 也与以 $I\in𝒰$ 为指标的直和可交换, 这很容易验证。特别地, 对每个集合 $I$, 若以 $I_X$ 表示由 $I$ 定义的常值 $X$-概形 (\SGA 3 I 1.8), 即 $I$ 个 $X$ 的直和, 则其相伴的层就是常值层 $I_{X_{\text{ét}}}$ ($X_{\text{ét}}$ 上终层的 $I$ 个副本的直和)。由于函子 $I\mapsto I_X$ 还与有限 $\varprojlim$ 可交换, 它将群映为群, 将交换群映为交换群, 等等。如果 $G$ 是通常的交换群, 则用 $H^i(X,G)$ 简记 $H^i(X,G_X)$。例如假定 $G$ 是有限群。则 $G_X$ 有限, 从而在 $X$ 上仿射; 因此, 利用 a) 最后的注, 可将 $H^1(X,G)$ 解释为\emph{群为 $G$ 的主 Galois 覆盖的同构类}所成的集合 (\SGA 1 V 2.7)。当 $X$ 连通且配备几何点 $a$ 时, “基本群” $\pi_1(X,a)$ (\SGA 1 V 7) 给出典范同构
+\begin{equation*}
+H^1(X, G) \simeq \Hom(\pi_1(X, a), G){\quoi},\tag{${\ast}{\ast}$}
+\end{equation*}
+(其中已假定 $G$ 交换)。
+
+可以说, 从 Zariski 上同调转到平展拓扑时, “我们做了该做的”, 从而对有限常系数群 $G$ 得到了“正确的” $H^1$ (它出现在 $({\ast}{\ast})$ 的右端\pageoriginale)。\emph{一个值得注意的事实是, 这也足以使每个挠系数群都具有“正确的” $H^i(X,G)$ (至少当 $G$ 与 $X$ 的剩余特征互素时)}。这一点将在本讨论班余下各篇中证明。
+
+\item 设 $F$ 是 $X$ 上关于 Zariski 拓扑的 $\Oo_X$-模。则 (采用 \SGA 3 I 4.6 的记号) 定义函子
+$$
+W(F) : (\Sch)_{/X}^\circ \to (\Ens)
+$$
+为
+$$
+W(F)(X') = \Gamma (X', F \otimes_{\Oo_{X}} \Oo_{X'}){\quoi}.
+$$
+此函子仍是平展拓扑的层 (甚至是 fpqc 拓扑的层), 这仍然由 \SGA 1 VIII 1.6 和 \SGA 3 IV 6.3.1 得到。从而, $W(F)$ 在 $X_{\text{ét}}$ 上的限制仍是层, 也将其记为 $W(F)$。于是按定义有 $H^{\circ}(X,W(F))=\Gamma(F)=H^{\circ}(X,F)$。不过, 若 $F$ 拟凝聚, 则有更强的结果; 参见 \hyperref[VII.prop4.3]{4.3}。
+\end{enumerate}
+\end{enonce*}
+
+% END INCLUDED SGA4_English_current_buildable_source_20260906/source/07/drafts/SGA4_VII_LINES_43_396_English.texfrag
+
+% BEGIN INCLUDED SGA4_English_current_buildable_source_20260906/source/07/drafts/SGA4_VII_LINES_397_665_English.texfrag
+\section{平展拓扑斯的生成元. 层的 $\protect\varinjlim$ 的上同调}\etiquette[3]{VII.sec3}
+
+\begin{enonce*}{命题 3.1}\etiquette[3.1]{VII.prop3.1}
+设 $X$ 是概形, $C$ 是 $X_{\text{\rm ét}}$ 的全子范畴, 使对每个在 $X$ 上平展的仿射概形 $X'$, $C$ 包含一个与 $X'$ 同构的对象。那么 $C$ 是景 $X_{\text{\rm ét}}$ 的一个“拓扑生成族”, 从而是拓扑斯 $\widetilde{X_{\text{\rm ét}}}$ 的生成族。限制函子 $\widetilde{X_{\text{\rm ét}}}\to\widetilde{C}$ 是范畴等价 (其中给 $C$ 配备由 $X_{\text{\rm ét}}$ 的拓扑诱导的拓扑)。
+\end{enonce*}
+
+由“比较引理”立即得到。\pageoriginale
+
+\begin{enonce*}{推论 3.2}\etiquette[3.2]{VII.cor3.2}
+假定 $X$ 拟分离。将由 $X$ 上的平展且在 $X$ 上有限表现的概形组成的 $X_{\text{\rm ét}}$ 的全子范畴 $C$, 配备由 $X_{\text{\rm ét}}$ 诱导的拓扑, 称为 $X$ 的限制平展景。那么:
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item $C$ 对纤维积稳定, 且当 $X$ 拟紧时是有限型景。
+
+\item 限制函子 $\widetilde{X_{\text{\rm ét}}}\to\widetilde{C}$ 是范畴等价。
+\end{enumerate}
+\end{enonce*}
+
+断言 (i) 是直接的, 而 (ii) 由 \hyperref[VII.prop3.1]{3.1} 得到, 因为由 $X$ 的拟分离性, $C$ 满足 \hyperref[VII.prop3.1]{3.1} 的条件。事实上, 由此可知, 若 $X'$ 拟紧, 例如仿射, 则它\emph{在} $X$ \emph{上}拟紧 (\EGA IV 1.2.4, 取 $Z=\Spec\ZZ$), 因此若 $X'$ 在 $X$ 上局部有限型, 它在 $X$ 上就是有限表现的。
+
+\begin{enonce*}{命题 3.3}\etiquette[3.3]{VII.prop3.3}
+假定 $X$ 拟紧且拟分离。则 $X_{\text{\rm ét}}$ 上阿贝尔层范畴上的函子 $H^q(X_{\text{\rm ét}},F)$ 与 $\varinjlim$ 可交换。
+\end{enonce*}
+
+事实上, 由 \hyperref[VII.cor3.2]{3.2} (ii), 可将 $X_{\text{ét}}$ 替换为 $C$。由于 $X$ 拟紧, 有 $X\in\Ob C$, 因此结论由 \hyperref[VII.cor3.2]{3.2} (i) 和 \hyperrefext[VI][VI.subsubsec6.1.2]{6.1.2} (3) 得到。
+
+\section{与其他拓扑的比较}\etiquette[4]{VII.sec4}
+
+\setcounter{subsection}{-1}
+\subsection{}\etiquette[4.0]{VII.subsec4.0}
+
+先指出, ${\rm n^{\circ}}$~2 中所考虑的 $X_{\text{ét}}$ 上层的例子, 实际上自然地是定义于配备平展拓扑 (甚至 fpqc 拓扑) 的 $(\Sch)_{/X}$ 上的层\pageoriginale 的\emph{限制}。更一般地, 设
+$$
+u^{\ast} : X_{\text{ét}} \to (\Sch)_{/X}
+$$
+为包含函子。它连续 (III), 并与有限 $\varprojlim$ 可交换, 因而定义一个\emph{景态射}
+$$
+u : (\Sch)_{/X} \to X_{\text{ét}}{\quoi},
+$$
+从而在相伴的层范畴上得到函子
+$$
+u_{\ast} : \widetilde{(\Sch)_{/X}} \to \widetilde{X_{\text{ét}}}
+$$
+其定义为
+$$
+u_{\ast}(F)=F\circ u{\quoi},
+$$
+以及后者的左伴随\footnote{严格说来, 由于 $(\Sch)_{/X}$ 是 $\Uu$-范畴, 但\emph{不是} $\Uu$-景, 不能引用 III 来保证 $u^{\ast}$ 的存在。不过, 容易通过
+$$
+u^{\ast} (F) (X') = (p_{X'})^{\ast}_{\text{ét}} (F) (X')\quad (X'\in \Ob \Sch_{/X}){\quoi},
+$$
+构造 $u^{\ast}$, 其中 $p_{X'}$ 表示结构态射 $X'\to X$。此外, 为使 \hyperref[VII.prop4.1]{4.1} (ii) 有意义并证明 \hyperref[VII.prop4.1]{4.1} 所指出的证明成立, 必须引入满足 $\Uu\in\Vv$ 的宇宙 $\Vv$, 并将 \hyperref[VII.prop4.1]{4.1} (i) 公式中出现的层视作取值于 $\Vv\text{-}(\Ens)$ 的层。或者, 若只希望使用 $\Uu$-景, 则可将 $(\Sch)_{/X}$ 替换成 $(\Sch)_{/X}$ 的一个对有限 $\varprojlim$ 稳定、包含 \hyperref[VII.prop3.1]{3.1} 中各 $C$ 且为 $\Uu$-小的全子范畴。}:
+$$
+u^{\ast} : \widetilde{X_{\text{ét}}} \to \widetilde{\Sch_{/X}}.
+$$
+有了这些说明, 则有:
+
+\begin{enonce*}{命题 4.1}\etiquette[4.1]{VII.prop4.1}
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item 函子 $u^{\ast}$ 全忠实; 因而对 $X_{\text{\rm ét}}$ 上的每个层 $G$, 典范同态 $G\to u_{\ast}u^{\ast}(G)$ 是同构。
+
+\item 设 $G$ (分别为 $F$) 是 $X_{\text{\rm ét}}$ (分别为 $(\Sch)_{/X}$) 上的阿贝尔层。则下列典范同态 (例如, 将其定义为相应 Leray 谱序列的边缘同态) 都是同构:\pageoriginale
+\begin{gather*}
+H^{\ast} (X_{\text{\rm ét}}, F \circ u) \xrightarrow{\sim} H^{\ast}((\Sch)_{/X}, F)\\
+H^{\ast} (X_{\text{\rm ét}}, G) \xrightarrow{\sim} H^{\ast}((\Sch)_{/X}, u^{\ast}G){\quoi}.
+\end{gather*}
+\end{enumerate}
+
+\end{enonce*}
+
+事实上, 函子 $u$ 是余态射, 因而可应用 (III)。
+
+因此 (i) 表明, 就层的上同调的研究而言, 在“小”平展景 $X_{\text{ét}}$ 或“大”平展景 $(\Sch)_{/X}$ 上工作本质上是等价的。
+
+\setcounter{subsection}{1}
+\subsection{}\etiquette[4.2]{VII.subsec4.2}
+
+还应在 $(\Sch)$ (从而在各 $(\Sch)_{/X}$) 上引入平展拓扑之外的各种拓扑, 其中最有用的那些定义于 \SGA 3 IV 6.3。其中最粗的是 \emph{Zariski 拓扑} $(\Zar)$, 它由以满射的开浸入族为覆盖族的预拓扑定义; 它比平展拓扑粗。这些拓扑中最细的是\emph{“忠实平坦拟紧”拓扑}, 简记为 (fpqc), 它是使 Zariski 意义的覆盖族以及忠实平坦拟紧态射都是覆盖的最粗拓扑; fpqc 拓扑比平展拓扑细。如已指出的那样, ${\rm n^{\circ}}$~2 中所考虑的 $(\Sch)_{/X}$ 上层的各种例子实际上已经是 fpqc 拓扑的层。
+
+\subsubsection{}\etiquette[4.2.1]{VII.subsubsec4.2.1}
+
+不过须牢记, 对 $(\Sch)_{/X}$ 上关于 fpqc 拓扑 (或 \SGA 3 中所考虑的 fppf 等拓扑) 的阿贝尔层 $F$, $F$ 关于 fpqc 拓扑 (或分别关于其他拓扑) 的上同调群并不总与关于\pageoriginale 平展拓扑的上同调群同构。即使 $X$ 是某个域 $k$ 的谱, $F$ 可由 $k$ 上的代数群表示, 甚至对 $H^1$ 也如此。一般地, 可以证明, 当系数群是 $X$ 上\emph{平展}或更一般地\emph{光滑}的群概形时, 平展拓扑给出“正确的”上同调群\footnote{参见 A. Grothendieck, Le groupe de Brauer III, Th.~11.7, 载于 “Dix exposés sur la topologie des schémas,” North-Holland Publishing Co.}; 但对于例如 $S$ 上\emph{根性}群这样的群概形, 就不再如此, 此时必须用 fpqc 或 fppf 拓扑代替仍然过粗的平展拓扑。
+
+\subsubsection{}\etiquette[4.2.2]{VII.subsubsec4.2.2}
+
+作为不同拓扑的上同调之间关系的一个例子, 考虑 Zariski 拓扑和平展拓扑。以 $X_{\Zar}$ 表示 $X$ 的 Zariski 开集所成的景, 则有典范包含函子
+$$
+u^{\ast} : X_{\Zar} \to X_{\text{ét}}
+$$
+它定义一个景态射
+$$
+f : X_{\text{ét}} \to X_{\Zar}{\quoi},
+$$
+从而有相应的互为伴随的直像函子
+$$
+f_{\ast} : \widetilde{X_{\text{ét}}} \to \widetilde{X_{\Zar}}\quad
+(f_{\ast} (F) = F \circ u){\quoi},
+$$
+及逆像函子
+$$
+f^{\ast} : \widetilde{X_{\Zar}} \to \widetilde{X_{\text{ét}}}{\quoi},
+$$
+从几何上, 应将函子对 $(f_{\ast},f^{\ast})$ 解释为拓扑斯态射
+$$
+f : \widetilde{X_{\text{ét}}} \to \widetilde{X_{\Zar}}{\quoi}.
+$$
+由此得到上同调函子的同态
+$$
+H^{\ast} (X_{\Zar}, f_{\ast} (F)) \to H^{\ast} (X_{\text{ét}}, F)
+$$
+以及\pageoriginale Leray 谱序列
+$$
+H^{\ast} (X_{\text{ét}}, F) \Longleftarrow H^{p} (X_{\Zar}, R^q
+f_{\ast} (F)){\quoi},
+$$
+其中 $F$ 是 $X_{\text{ét}}$ 上的阿贝尔层。此谱序列概括了平展上同调与 Zariski 上同调之间的一般关系。当然, 对于常系数层等系数层 $F$, 此谱序列一般远非平凡, 即一般有 $R^qf_{\ast}(F)\neq0$ (特别地, 可取 $X$ 为域的谱)。不过:
+
+\begin{enonce*}{命题 4.3}\etiquette[4.3]{VII.prop4.3}
+设 $F$ 是概形 $X$ 上的模层 (关于 Zariski 拓扑的层), 从而有 $X_{\text{\rm ét}}$ 上的层 $F_{\text{\rm ét}}$ (参见 2, c) 以及上同调函子的同态
+$$
+H^{\ast} (X, F) \to H^{\ast} (X_{\text{\rm ét}}, F_{\text{\rm ét}}){\quoi}.
+$$
+当 $F$ 拟凝聚时, 上述同态是同构。
+\end{enonce*}
+
+事实上, 左端恰为 $H^{\ast}(X_{\Zar},f_{\ast}(F_{\text{ét}}))$, 沿用上述记号, 只需证明
+$$
+R^q f_{\ast} (F_{\text{ét}}) = 0\quad \mbox{for}\quad q > 0{\quoi}.
+$$
+由 $R^qf_{\ast}$ 的计算方法及仿射开集构成 $X$ 的拓扑的一组基这一事实, 这立即由下述推论得到:
+
+\begin{enonce*}{推论 4.4}\etiquette[4.4]{VII.cor4.4}
+若 $X$ 仿射, 则
+$$
+H^{q} (X_{\text{\rm ét}}, F_{\text{\rm ét}}) = 0\quad \mbox{for}\quad q > 0{\quoi}.
+$$
+\end{enonce*}
+
+为证明此点, 设 $C=X_{\text{ét}}$, 并设 $C'$ 为由\emph{仿射的} $X'$ 组成的全子范畴。则由 \hyperref[VII.prop3.1]{3.1} 有
+$$
+H^{q} (C, F_{\text{ét}}) \simeq H^{q} (C', F | C'){\quoi}.
+$$
+
+因此\pageoriginale 只需证明 $F|C'$ 是 $C'$-无环的 (\hyperrefext[V][V.def4.1]{4.1}), 等价地, 证明它满足 \hyperrefext[V][V.prop4.3]{4.3} 的条件, 即对每个 $X'\in\Ob C'$ 及 $C'$ 中的每个覆盖族 $ℛ=(X'_i\to X')_i$, 当 $q>0$ 时有 $H^q(ℛ,F)=0$。可假定族 $(X'_i)_i$ 有限, 然后将各 $X'_i$ 替换为它们的余积, 从而假定覆盖族只含一个覆盖态射 $X'_i\to X'$, 即一个 (平展且) 满射的态射。于是归结为证明: 若 $f:X\to Y$ 是仿射概形之间的满射平展态射, $F$ 是 $Y$ 上的拟凝聚模, 则
+\begin{equation*}
+H^q (X /Y, F) = 0\quad \mbox{for}\quad q > 0{\quoi}.\tag{$\ast$}
+\end{equation*}
+这已在 TDTE I, B, \hyperref[VII.subsec1.1]{1.1} 中证明 (收入 FGA, 参见 IX 的参考文献 [4])。
+
+\begin{enonce*}[remark]{注 4.5}\etiquette[4.5]{VII.rem4.5}
+事实上, 根据上述引文, 要使 $(\ast)$ 成立, 只需 $X\to Y$ 是满射且平坦的 (不必平展)。于是上述证明表明, 将平展景 $X_{\text{ét}}$ 替换为配备 \SGA 3 IV 6.3 中所考虑的任一比 Zariski 拓扑更细的拓扑 (例如 fpqc 拓扑) 的 $(\Sch)_{/X}$ 后, 仍有类似于 \hyperref[VII.prop4.3]{4.3} 的同构。
+\end{enonce*}
+
+% END INCLUDED SGA4_English_current_buildable_source_20260906/source/07/drafts/SGA4_VII_LINES_397_665_English.texfrag
+
+% BEGIN INCLUDED SGA4_English_current_buildable_source_20260906/source/07/drafts/SGA4_VII_LINES_666_1032_English.texfrag
+\section{概形的投射极限的上同调}\etiquette[5]{VII.sec5}
+
+\subsection{}\etiquette[5.1]{VII.subsec5.1}
+
+设 $I$ 是递增滤过预序集,
+$$
+\mathfrak{X} = (X_i)_{i \in I}
+$$
+是概形投射系, 且各转移态射 $u_{ji} :
+X_i \to X_j$ $(i \geq j)$ 均\emph{仿射}。回顾 (\EGA IV 8\ldots), 在这些条件下,\pageoriginale 投射极限
+$$
+X  = \varprojlim X_i
+$$
+在概形范畴中 (甚至在局部赋环空间范畴中) 存在, 且可如下构造: 选取 $i_{0} \in I$, 则对 $i \geq i_0$ 有 $X_{i_0}$-同构 (\EGA II 1.2 和 1.3)
+$$
+X_i = \Spec 𝒜_{i}{\quoi},
+$$
+其中 $𝒜_i$ 是 $X_{i_0}$ 上的拟凝聚代数, 各 $𝒜_i$ $(i \geq i_0)$ 因而组成这类代数的归纳系。令
+$$
+𝒜 = \varinjlim_{i} 𝒜_i{\quoi},
+$$
+则可取
+$$
+X = \Spec 𝒜{\quoi}.
+$$
+此外, 用 esp $S$ 表示概形 $S$ 的底拓扑空间, 可以证明 (\EGA IV 8\ldots), 典范映射
+$$
+\esp X \to \varprojlim \esp (X_i)
+$$
+是\emph{同胚}, 且典范环层同态
+$$
+\varinjlim_{i} \gamma^{-1}_{i} (\Oo_{X_i}) \to \Oo_X
+$$
+是双射, 其中 $\gamma_i : X \to X_i$ 是典范连续映射。
+
+\subsection{}\etiquette[5.2]{VII.subsec5.2}
+
+粗略地说, \EGA IV 8、9 的内容可以概括为: \emph{当 $X_{i_0}$ 拟紧且拟分离时}, “$X$ 上在 $X$ 上有限表现的每项概形性资料”, 都等价于某个 $X_i$ 上的同类资料, “其中 $i$ 充分大”\pageoriginale。例如可证明 (\EGA IV 8 $\ldots$):
+
+\begin{enumerate}
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item 若 $i_1 \in I$, 且 $X'_{i_1}$、$X''_{i_1}$ 是 $X_{i_1}$ 上有限表现的两个概形, 则对每个 $i \geq i_1$ 令
+$$
+X'_{i} = \fprod{X'_{i_1}}{X_i}{X_{i_1}},\quad X' = \fprod{X'_{i_1}}{X}{X_{i_1}}{\quoi},
+$$
+并类似地定义 $X''_i$、$X''$ 后, 典范映射
+$$
+\varinjlim_{i \geq i_1} \Hom_{X_i} (X'_i, X''_i) \to
+\Hom_X (X', X'')
+$$
+是双射。
+
+\item 对每个在 $X$ 上有限表现的概形 $X'$, 存在指标 $i_1 \in I$、$X_{i_1}$ 上有限表现的概形 $X'_{i_1}$ 以及 $X$-同构
+$$
+X'\simeq \fprod{X'_{i_1}}{X}{X_{i_1}}{\quoi}.
+$$
+\end{enumerate}
+
+\subsection{}\etiquette[5.3]{VII.subsec5.3}
+
+上述结果以及 EGA IV 8 中包含的类似结果, 可以用第 VI 篇中引入的纤维范畴的 $\varinjlim$ 的语言来表述。为此, 考虑由概形的有限表现态射 $f : T \to S$ 组成的范畴 $\Ff$ 及“靶函子”
+$$
+\pi : \Ff \to (\Sch){\quoi},
+$$
+它显然是\emph{纤维函子}, 且其纤维范畴还等价于 $\Uu$-小范畴。考虑纤维范畴 $\Ff/(\Sch)$ 沿函子
+$$
+i \mapsto X_i : \cat (I) \to (\Sch)
+$$
+的逆像 (其中\pageoriginale $\cat(I)$ 是与 $I$ 相伴的范畴, 当且仅当 $i \geq j$ 时有 $\Hom(i, j) \neq ∅$), 得到纤维范畴
+$$
+\pi_{\mathfrak{X}} : \Ff_{\mathfrak{X}} \to \cat(I){\quoi},
+$$
+它在每个 $i \in I$ 处的纤维典范同构于 $(\Sch)_{/X_i}$ 中由 $X_i$ 上有限表现的概形组成的全子范畴 $\Ff_{X_i}$, 而与 $j \geq i$ 相应的基变换态射 $\Ff_i \to \Ff_{j}$ 正是 $X'_i \mapsto X'_j = \fprod{X'_i}{X_j}{X_i}$。此时, 对 $X_i$ 上的每个有限表现的 $X'_i$, 配以它在 $X$ 上的逆像
+$$
+\varphi(X'_i) = \fprod{X'_i}{X}{X_i}{\quoi},
+$$
+便得到自然函子
+$$
+\varphi : \Ff_{\mathfrak{X}} \to \Ff_{X}{\quoi},
+$$
+它显然将 $\Ff_{\mathfrak{X}}$ 的每个笛卡尔态射映为同构, 因而按定义唯一分解为一个典范函子
+\begin{equation*}
+\psi : \varinjlim_{\Ff_X /\Cat I}
+\Ff_{\mathfrak{X}} \to \Ff_{X}{\quoi}.\tag{$\ast$}
+\end{equation*}
+考虑到左端的描述, 上文回顾的 \EGA IV 8 的结果就可表述为 $(\ast)$ 是\emph{范畴等价}。
+
+\subsection{}\etiquette[5.4]{VII.subsec5.4}
+
+可以通过引入对基变换稳定的某类概形态射 $(\Mm)$, 以各种方式细化上述 \hyperref[VII.subsec5.2]{5.2} 中的陈述 a): 对给定的 $X_{i_1}$-态射\pageoriginale $u_{i_1} : X'_{i_1} \to X''_{i_1}$, 相应态射 $u': X'\to X''$ 属于 $\Ee (\Mm)$ 当且仅当存在 $i\geq i_{1}$, 使 $X_{i}$-态射 $u_{i}:X'_{i}\to X''_{i}$ 属于 $\Ee (\Mm)$。例如, 当 $(\Mm)$ 是下列箭头类之一时, 如此得到的陈述成立: 固有态射 (分别为射影、拟射影、仿射、拟仿射、有限、拟有限、根性、满射、平坦、光滑、平展、非分歧态射)。读者可在 \EGA IV 的 §8 (前九种)、§11 (平坦情形) 及 §17 (最后三种) 中找到相应陈述。
+
+\subsection{}\etiquette[5.5]{VII.subsec5.5}
+
+现在将 $\Ff \to (\Sch)$ 替换为由有限表现的\emph{平展态射}组成的纤维子范畴 $\Gg$, 它对每个概形 $S$ 的纤维范畴 $\Gg_{S}$ 正是由 $S$ 上平展且有限表现的概形组成的范畴; 并类似地在 $\cat(I)$ 上构造纤维范畴 $\Gg_{\mathfrak{X}}$, 它在每个 $i \in I$ 处的纤维范畴为 $\Gg_{X_i}$。由 \hyperref[VII.cor3.2]{3.2} (ii), 平展拓扑斯 $\widetilde{X_{i_{\text{ét}}}}$、$\widetilde{X_{\text{ét}}}$ 还分别典范等价于 $\widetilde{\Gg_{X_{i}}}$、$\widetilde{\Gg_{X}}$ (其中给每个 $\Gg_S$ 配备由 $S_{\text{ét}}$ 诱导的拓扑)。此外, 由 \hyperref[VII.cor3.2]{3.2} (i), 每个 $\Gg_{X_i}$ 都是有限型景, 而且等价于一个 $\Uu$-小景。考虑各 $\Gg_{X_i}$ 上的拓扑, $\Gg$ 就成为 $\cat(I)$ 上的\emph{纤维景}。于是可陈述如下引理。
+
+\begin{enonce*}{引理 5.6}\etiquette[5.6]{VII.lem5.6}
+典范函子
+$$
+\varinjlim_{\Gg_{\mathfrak{X}}/\cat(I)}
+\Gg_{\mathfrak{X}} \to \Gg_X
+$$
+在各 $X_i$ 的限制平展景 (\hyperref[VII.cor3.2]{3.2}) 所成的 $\varinjlim$ 景与 $X = \varprojlim_i X_i$ 的限制平展景之间定义\pageoriginale 一个保持拓扑的等价。
+\end{enonce*}
+
+得到范畴等价这一事实, 正是 \hyperref[VII.subsec5.4]{5.4} 中所回顾的陈述之一 (其中取 $(\Mm)$ 为 $(\Sch)$ 中的平展态射类)。关于拓扑的断言同样通过取 $(\Mm)=$ 为 $(\Sch)$ 中的满射态射类得到。
+
+上述结果使我们可将 VI 的结果用于当前情形。特别地, 得到:
+
+\begin{enonce*}{定理 5.7}\etiquette[5.7]{VII.thm5.7}
+设 $\mathfrak{X} = (X_i)_{i \in I}$ 是概形的投射系, 其中 $I$ 是递增滤过预序集。假定各转移态射 $u_{ij} : X_j \to X_i$ 仿射 (因而概形 $X = \varprojlim X_i$ 有定义 (\hyperref[VII.subsec5.1]{5.1})), 且各 $X_i$ 拟紧且拟分离。考虑 \hyperref[VII.subsec5.5]{5.5} 中所描述的 $\cat(I)$ 上的纤维景 $\Gg$, 它在 $i \in I$ 处的纤维 $\Gg_i$ 典范同构于 $X_i$ 的“限制平展景” (由 $X_i$ 上平展且有限表现的概形组成)。设 $F$ 是 $\Gg$ 上的阿贝尔层 (即 $(3)$ 为函子 $\Gg^{0} \to (\Ab)$, 其在每个 $\Gg_i$ 上的限制 $F_i$ 是层, 即 $X_i$ 上的层)。设 $F_{\infty} =
+\varinjlim_{i} u^{\ast}_i (F_i)$ 是 $X$ 上的诱导层, 其中 $u_i : X \to X_i$ 为典范态射。则典范同态
+$$
+\varinjlim_i H^n (X_i, F_i) \to H^n (X, F_{\infty})
+$$
+都是同构。
+\end{enonce*}
+
+考虑到\pageoriginale \hyperref[VII.lem5.6]{5.6}, 将 \hyperrefext[VI][VI.thm8.7.3]{8.7.3} 与 \hyperrefext[VI][VI.prop8.5.2]{8.5.2} 结合即得。我们主要在下列特殊情形下使用 \hyperref[VII.thm5.7]{5.7}, 将其明确写为下述推论。
+
+\begin{enonce*}{推论 5.8}\etiquette[5.8]{VII.cor5.8}
+对 $(X_i)_{i \in I}$、$X$、$u_{ij}$、$u_i$ 沿用上述假设和记号, 设 $i_0 \in I$, $F_{i_0}$ 是 $X_{i_0}$ 上的阿贝尔层。对每个 $i \geq i_0$, 令 $F_i = u_{i_0 i} {}^{\ast}(F_{i_0})$, 并令 $F_{\infty} = u^{\ast}_{i_0} (F_{i_0})$。在这些条件下, 典范同态
+$$
+\varinjlim_i H^n (X_i, F_i) \to H^n (X, F_{\infty})
+$$
+都是同构。
+\end{enonce*}
+
+不过, 下列有时有用的情形由 \hyperref[VII.thm5.7]{5.7} 得到, 而不能由 \hyperref[VII.cor5.8]{5.8} 得到:
+
+\begin{enonce*}{推论 5.9}\etiquette[5.9]{VII.cor5.9}
+对 $(X_i)_{i \in I}$、$X$、$u_{ij}$、$u_i$ 沿用 \hyperref[VII.thm5.7]{5.7} 的假设和记号, 设 $G_{i_0}$ 是 $X_{i_0}$ 上局部有限表现的交换群概形 (其中 $i_0 \in I$ 是给定的)。对每个 $i \geq i_0$, 令 $G_i = \fprod{G_{i_0}}{X_i}{X_{i_0}}$, 并类似地令 $G_{\infty} = \fprod{G_{i_0}}{X}{X_{i_0}}$。则典范同态
+$$
+\varinjlim_i H^n (X_i, G_i) \to H^n (X, G_{\infty})
+$$
+都是同构。
+\end{enonce*}
+
+事实上, 我们知道 $G_{i_0}$ 定义了 $(\Sch)_{/X_{i_0}}$ 上的层 (参见 2 (a)); 假定 $i_0$ 为 $I$ 的始对象 (可以如此假定), 从而得到典范函子 $\Gg \to (\Sch)_{/X_{i_0}}$, 则通过复合得到 $\Gg$ 上的反变函子 $F$, 其在 $\Gg_i$ 上的限制\pageoriginale 典范同构于由 $G_i$ 定义的 $X_i$ 上的层。特别地, $F$ 是 $\Gg$ 上的层, 可以对它应用 \hyperref[VII.thm5.7]{5.7}。$G_{i_0}$ 在 $X_{i_0}$ 上局部有限表现的假设, 用于保证 \hyperref[VII.thm5.7]{5.7} 的层 $F_{\infty}$ 通过自然同态 $F_{\infty} \to \faisc(G_{\infty})$ 同构于由 $G_{\infty}$ 定义的层 $\faisc(G_{\infty})$ (在 $X$ 的限制平展景的对象上考察所讨论的各层的值, 并应用 \hyperref[VII.lem5.6]{5.6} 后, 这直接由 \EGA IV 8.8.2 (i) 得到)。\hyperref[VII.cor5.9]{5.9} 得证。
+
+\begin{enonce*}{推论 5.10}\etiquette[5.10]{VII.cor5.10}
+对 $(X_i)_{i \in I}$、$X$、$u_{ij}$、$u_i$ 沿用 \hyperref[VII.thm5.7]{5.7} 的假设和记号, 设 $F$ 是 $X$ 上的交换群层; 则典范同态
+$$
+\varinjlim_{i} H^n (X_i, u_{i\ast} (F)) \to H^n (X, F)
+$$
+都是同构。
+\end{enonce*}
+
+由 \hyperrefext[VI][VI.cor8.7.9]{8.7.9}, 陈述 \hyperref[VII.thm5.7]{5.7} 至 \hyperref[VII.cor5.10]{5.10} 可推广为关于模层的 $\Ext^i$ 的相应陈述; 在当前特殊情形下不再重述。另一方面, 为供以后引用, 我们明确写出 \hyperref[VII.cor5.8]{5.8} 和 \hyperref[VII.cor5.9]{5.9} 关于函子 $R^n f_{\ast}$ 的变形。
+
+\begin{enonce*}{推论 5.11}\etiquette[5.11]{VII.cor5.11}
+设 $I$ 是递增滤过预序集, $(X_i)_{i \in I}$ 和 $(Y_i)_{i \in I}$ 是转移态射均仿射的两个概形投射系, $X = \varprojlim_{i} X_i$、$Y = \varprojlim_{i} Y_i$, $(f_i)_{i \in I}$ 是由拟紧且拟分离的态射 $f_i : X_i \to Y_i$ 组成的投射系, $i_0 \in I$, $F_{i_0}$ 是 $X_{i_0}$ 上的层。对每个 $i \geq i_0$, 设 $F_i$ 是 $X_i$ 上的层\pageoriginale, 由 $F_{i_0}$ 的逆像给出。类似地, 设 $f : X \to Y$ 由 $(f_i)$ 得到, $F$ 是 $F_{i_0}$ 在 $X$ 上的逆像层。在这些条件下, 典范同态
+$$
+\varinjlim_{i} v^{\ast}_i (R^n f_{i\ast} (F_i)) \to R^n
+f_{\ast} (F)
+$$
+是同构 (其中 $v_i : Y \to Y_i$ 是典范态射)。
+\end{enonce*}
+
+可假定 $i_0$ 为 $I$ 的始对象, 并且由于问题在 $Y_{i_0}$ 上是局部的, 可假定 $Y_{i_0}$ 仿射, 从而各 $Y_i$ 和 $X_i$ 都拟紧且拟分离。于是满足应用 \hyperrefext[VI][VI.thm8.7.3]{8.7.3} 的假设 (其中考虑到 $R^{n} f_{\ast}$ 可作为与预层相伴的层来计算, 归结到 \hyperref[VII.cor5.8]{5.8})。同样可证明:
+
+\begin{enonce*}{推论 5.12}\etiquette[5.12]{VII.cor5.12}
+陈述与 \hyperref[VII.cor5.11]{5.11} 相同, 但此时 $F_{i_0}$ 表示 $X_{i_0}$ 上局部有限表现的交换群概形, $F_i$、$F$ 表示其逆像 (在概形基变换的意义下)。
+\end{enonce*}
+
+注意, \hyperref[VII.cor5.9]{5.9} (分别为 \hyperref[VII.cor5.12]{5.12}) 不是 \hyperref[VII.cor5.8]{5.8} (分别为 \hyperref[VII.cor5.11]{5.11}) 的特殊情形; 参见 \hyperref[VII.sec2]{2} a) 中的注 \hyperref[VII.rem2.1]{2.1}。
+
+\begin{enonce*}{推论 5.13}\etiquette[5.13]{VII.cor5.13}
+沿用 \hyperref[VII.cor5.11]{5.11} 的记号, 设 $F$ 是 $X$ 上的阿贝尔群层。则典范同态
+$$
+\varinjlim_i v_i^{\ast} (R^n f_{i\ast} (u_{i\ast} (F))) \to
+R^n f_{\ast} (F)
+$$
+都是同构 (其中 $u_i : X \to X_i$ 和 $v_i : Y \to Y_i$ 为典范同态)。
+\end{enonce*}
+
+证明与前面本质上相同。
+
+\begin{enonce*}[remark]{注 5.14}\etiquette[5.14]{VII.rem5.14}
+\begin{enumerate}
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 上述\pageoriginale 取极限的结果, 对于\emph{集合}层 (代替阿贝尔层) 的 $H^{0}$ (分别为 $f_{\ast}$), 以及对于群层 (不必交换) 的 $H^{1}$ (分别为 $R^1 f_{\ast}$) 仍成立, 其中非交换的 $H^1$ 与 $R^1 f_{\ast}$ 如通常那样由挠子 (或主齐性丛) 定义 (参见 Giraud 的学位论文\footnote{引于\pagehyperref[page7]{7}脚注 $(\ast)$。})。这可在 VI 的一般背景下直接验证。对于 Giraud 所研究的“带 (lien)”的非交换 $H^2$, 也一定可以 (并且无疑有用) 给出一个变形。
+
+\item VI 中所讨论的纤维景取极限的结果, 只假定底范畴是滤过范畴, 不必假定它来自滤过预序集。任意滤过指标范畴的情形, 也是本 ${\rm n^{\circ}}$ 所讨论的陈述的自然背景。我们之所以在过于受限的背景下工作, 是为了能准确引用 \EGA IV, 该文在讨论取极限的问题时 (从 §8 起) 遗憾地假定指标范畴由滤过预序集定义。不过, 今后我们假定, 从 \EGA IV 中所使用的所有结果都对任意滤过指标范畴成立 (上述引文所给的证明在此更一般的情形下本质上无须改动仍然有效)。因此, 我们也将在把 $I$ 替换为任意滤过指标范畴的情形下使用本 ${\rm n^{\circ}}$ 的结果, 不再另作说明。
+\end{enumerate}
+\end{enonce*}
+
+\ifx\danslelivre\undefined
+\end{document}
+\fi
+
+% END INCLUDED SGA4_English_current_buildable_source_20260906/source/07/drafts/SGA4_VII_LINES_666_1032_English.texfrag
+
+
