@@ -1,0 +1,4106 @@
+% 来源: 冻结原生源 XVII.tex 第 1--415 行; 逐段翻译检查点.
+\markboth{第 XVII 讲. 幺幂代数群}{第 XVII 讲. 幺幂代数群}
+\chapter*{第 XVII 讲\\[0.4em]
+幺幂代数群. 幺幂群与乘法型群之间的扩张}
+\addcontentsline{toc}{chapter}{第 XVII 讲. 幺幂代数群. 扩张}
+\begin{center}
+\textit{M. Raynaud}%
+\begingroup
+\renewcommand{\thefootnote}{*}%
+\footnote{参见第 XV 讲第 1 页的注.}%
+\endgroup
+\end{center}
+\section*{0.\ 若干记号%
+\begingroup
+\renewcommand{\thefootnote}{0}%
+\footnote{2008 年 11 月 18 日的 x.y 版本.}%
+\endgroup}
+\addcontentsline{toc}{section}{0.\ 若干记号}
+\SGARefTarget{sga3:xvii:section:0}
+
+本讲主要讨论定义在域 \(k\) 上的代数群. 数 \(p\geq 0\) 始终表示 \(k\) 的特征;
+当 \(p>0\) 时, \(\mathbf F_p\) 表示有 \(p\) 个元素的素域;
+\(\bar{k}\) 表示 \(k\) 的一个代数闭扩域; \(q\) 表示异于 \(p\) 的素数.
+
+对每个预概形 \(S\), \((\mathbb G_a)_S\) (分别地, \((\mathbb G_m)_S\))
+表示 \(S\) 上的加法群 (分别地, 乘法群)
+(参见\SGARefLink{sga3:i:subsection:4-3}{第 I 讲, 4.3}). 对每个整数 \(n>0\),
+\((\boldsymbol\mu_n)_S\) (分别地, \((\mathbb Z/n\mathbb Z)_S\))
+表示 \(n\) 次单位根群 (\SGARefLink{sga3:i:paragraph:4-4-4}{第 I 讲, 4.4.4})
+(分别地, 与抽象群 \(\mathbb Z/n\mathbb Z\) 相联系的 \(S\) 上的常值群
+(\SGARefLink{sga3:i:subsection:4-1}{第 I 讲, 4.1})). 群 \((\mathbb Z/n\mathbb Z)_S\)
+在 \(S\) 上有限且平展; 群 \((\boldsymbol\mu_n)_S\) 在 \(S\) 上平坦且有限,
+并且它在 \(S\) 上平展当且仅当 \(n\) 在 \(S\) 上可逆
+(\SGARefLink{sga3:viii:proposition:2:1}{第 VIII 讲, 2.1}).
+
+设 \(S\) 为特征 \(p>0\) 的预概形. 对每个整数 \(n>0\) 和每个 \(S\)-群预概形 \(G\),
+以 \(F^n(G)\) 表示 \(G\) 的相对 Frobenius 态射的第 \(n\) 次迭代的核,
+它是 \(G\) 的一个根式 \(S\)-子群预概形 (第 VII\textsubscript{A} 讲).
+特别地, 若 \(G=(\mathbb G_a)_S\), 则置
+\[
+  F^n(G)=(\boldsymbol\alpha_{p^n})_S .
+\]
+这是一个在 \(S\) 上平坦且有限的根式 \(S\)-群, 表示如下函子:
+对每个 \(S\)-预概形 \(S'\), \((\boldsymbol\alpha_{p^n})_S(S')\)
+为所有满足 \(x'^{p^n}=0\) 的 \(x'\in\Gamma(S',\mathcal O_{S'})\) 组成的集合.
+
+已经定义的群 \((\boldsymbol\mu_{p^n})_S\) 典范同构于 \(F^n((\mathbb G_m)_S)\).
+
+在基概形 \(S\) 不致引起歧义时, 简记 \(\mathbb G_a\), \(\mathbb G_m\),
+\(\boldsymbol\alpha_{p^n}\) 等, 以代替 \((\mathbb G_a)_S\), \((\mathbb G_m)_S\),
+\((\boldsymbol\alpha_{p^n})_S\) 等.
+
+若 \(G\) 为交换 \(S\)-群预概形, 则对每个整数 \(n>0\),
+\({}_nG\) 表示 \(G\) 的子群预概形, 它等于 \(G\) 中 \(n\) 次幂映射的核.
+
+为方便读者, 附录汇集了第 VI 讲和第 VII 讲中已证明的代数群的若干性质,
+以及本讲将用到的 Hochschild 上同调的初等性质.
+
+\SGASection{1}{幺幂代数群的定义}
+\SGARefTarget{sga3:xvii:section:1}
+\SGAStatement{定义 1.1}{%
+定义在代数闭域 \(k\) 上的代数群 \(G\) 称为\emph{幺幂的} (unipotent),
+如果 \(G\) 有一个合成列, 其相继商同构于 \((\mathbb G_a)_k\) 的代数子群.}
+\SGARefTarget{sga3:xvii:definition:1:1}
+
+\SGAStatement{命题 1.2}{%
+设 \(k\) 为代数闭域, \(K\) 为 \(k\) 的代数闭扩域, \(G\) 为定义在 \(k\) 上的代数群.
+则 \(G\) 幺幂当且仅当 \(G_K\) 幺幂.}
+\SGARefTarget{sga3:xvii:proposition:1:2}
+
+必要性显然, 因为一个合成列在扩张基底之后仍为合成列.
+
+充分性的证明是标准的. 域 \(K\) 是其有限生成 \(k\)-子代数的滤过正向极限.
+由第 VI\textsubscript{B} 讲, \S10, 可找到 \(K\) 的一个有限生成 \(k\)-子代数 \(A\),
+\(G_S\) 的一个合成列 \(G_i\), 其中 \(S=\operatorname{Spec}A\), 以及浸入
+\[
+  u_i:H_i=G_i/G_{i+1}\longrightarrow(\mathbb G_a)_S .
+\]
+因此, 要证明 \(G\) 幺幂, 只须作一个取值于 \(k\) 的基变换 \(A\to k\).
+这是可能的, 因为 \(\operatorname{Hom}_{k\text{-alg}}(A,k)\) 非空:
+\(A\) 是代数闭域 \(k\) 上的非零有限生成代数.
+
+\SGAStatement{定义 1.3}{%
+设 \(G\) 为定义在域 \(k\) 上的代数群. 如果存在 \(k\) 的一个代数闭扩域 \(\bar{k}\),
+使 \(G_{\bar{k}}\) 在\SGARefLink{sga3:xvii:definition:1:1}{定义 1.1} 的意义下为幺幂群,
+则称 \(G\) 为\emph{幺幂的}.}
+\SGARefTarget{sga3:xvii:definition:1:3}
+
+由\SGARefLink{sga3:xvii:proposition:1:2}{命题 1.2}, 此性质与所取的代数闭扩域 \(\bar{k}\) 无关.
+
+\SGAStatement{定义 1.4}{%
+设 \(G\) 为定义在域 \(k\) 上的代数群, \(H\) 为定义在 \(k\) 的扩域 \(k'\) 上的代数群.
+如果代数群 \(G_{\bar{k}'}\) 和 \(H_{\bar{k}'}\) 在 \(k'\) 的一个代数闭包 \(\bar{k}'\)
+上同构, 则称 \(H\) 为 \(G\) 在 \(k'\) 上的一个\emph{型} (form).
+同上, 这一性质与 \(\bar{k}'\) 的选取无关. 也称 \(H\) 为 \(G\) 的一个\emph{扭型} (twisted form).}
+\SGARefTarget{sga3:xvii:definition:1:4}
+
+现在可以描述 \(\mathbb G_a\) 的代数子群.
+
+\SGAStatement{命题 1.5}{%
+设 \(k\) 为特征 \(p\geq0\) 的域. \((\mathbb G_a)_k\) 的代数子群 \(H\) 属于下列类型之一:
+\begin{enumerate}
+\item[\rm(i)] \(H=0\);
+\item[\rm(ii)] \(H=\mathbb G_a\);
+\item[\rm(iii)]\SGAInlineRefTarget{sga3:xvii:proposition:1:5:item:iii} 若 \(p>0\),
+则 \(H\) 是扭常值群 \((\mathbb Z/p\mathbb Z)^r\) 被根式群
+\(\boldsymbol\alpha_{p^n}\) 的扩张, 其中 \(r,n\geq0\) 且 \(r+n>0\).
+若再假设 \(k\) 为完美域, 则这一扩张必为平凡的.
+\end{enumerate}}
+\SGARefTarget{sga3:xvii:proposition:1:5}
+
+\SGAProof{证明}
+若 \(\dim H=1\), 则显然 \(H=\mathbb G_a\). 否则 \(H\) 的维数为零,
+所以它是一个平展群 \(H''\) 被其单位元连通分支 \(H'\) 的扩张\footnote{编者注:
+此处是否应引第 VII\textsubscript{A} 讲?}, 而后者是根式群.
+为描述 \(H''_{\bar{k}}\), 只须知道抽象群 \(H''(\bar{k})\), 它同构于 \(H(\bar{k})\).
+
+后者是 \(\mathbb G_a(\bar{k})\) 的有限子群. 因此当 \(p=0\) 时它为零,
+否则形如 \((\mathbb Z/p\mathbb Z)^r\), 因为它被 \(p\) 零化.
+群 \(H'\) 在 \(\mathbb G_a\) 中闭, 且由单个方程定义
+(\(\mathbb G_a\) 的坐标环 \(\bar{k}[T]\) 是主理想环).
+这一方程在 \(\bar{k}\) 上以 \(0\) 为唯一的根, 故形如 \(T^n=0\).
+与群律相容意味着 \((T+T')^n\) 属于 \(\bar{k}[T,T']\) 中由 \(T^n\) 和 \(T'^n\)
+生成的理想. 因而, 若 \(p=0\), 则 \(n=1\), \(H'\) 为平凡群;
+若 \(p>0\), 则 \(n=p^m\), \(H'=\boldsymbol\alpha_{p^m}\).
+
+\SGARefLink{sga3:xvii:proposition:1:5}{命题 1.5} 的最后一个断言更一般地由下列引理得到.
+
+\SGAStatement{引理 1.6}{%
+若 \(k\) 为完美域, 则平展代数群 \(H''\) 被根式群 \(H'\) 的每个扩张 \(H\) 都是平凡的.
+而且, \(H''\) 在 \(H\) 中有唯一的提升, 即 \(H_{\mathrm{red}}\).}
+\SGARefTarget{sga3:xvii:lemma:1:6}
+
+事实上, 由于 \(k\) 完美, 约化 \(k\)-概形 \(H_{\mathrm{red}}\) 是 \(H\) 的一个代数子群
+(第 VI\textsubscript{A} 讲, \SGARefLink{sga3:VIA:0.2}{0.2}), 它几何约化,
+因而在 \(k\) 上光滑 (第 VI\textsubscript{A} 讲, \SGARefLink{prop:sga3-VIA-1.3.1}{1.3.1}),
+且因为 \(H\) 的维数为零, 它平展. 要说明典范投影 \(H_{\mathrm{red}}\to H''\)
+是同构, 只须在基域扩张 \(k\to\bar{k}\) 后验证; 这时只须验证它在取值于 \(\bar{k}\)
+的点上诱导一个同构, 而这显然成立. 最后一个断言成立, 因为 \(H''\) 在 \(H\) 中的每个提升
+都在 \(k\) 上平展, 从而约化, 所以必包含在 \(H_{\mathrm{red}}\) 中.
+
+注意, \(\boldsymbol\alpha_{p^n}\) 是同构于 \(\boldsymbol\alpha_p\) 的群的迭代扩张.
+因此\SGARefLink{sga3:xvii:proposition:1:5}{命题 1.5} 给出下列推论.
+
+\SGAStatement{推论 1.7}{%
+设 \(G\) 为定义在代数闭域 \(k\) 上的代数群. 则 \(G\) 幺幂当且仅当它有一个合成列,
+其相继商在 \(p=0\) 时同构于 \(\mathbb G_a\), 在 \(p>0\) 时同构于
+\(\mathbb G_a,\mathbb Z/p\mathbb Z,\boldsymbol\alpha_p\) 之一.
+称这些群为\emph{初等幺幂群} (elementary unipotent groups).}
+\SGARefTarget{sga3:xvii:corollary:1:7}
+
+\SGASection{2}{幺幂群的初步性质}
+\SGARefTarget{sga3:xvii:section:2}
+
+\SGAStatement{命题 2.1}{%
+定义在域 \(k\) 上的幺幂代数群在 \(k\) 上仿射.}
+\SGARefTarget{sga3:xvii:proposition:2:1}
+
+由仿射态射的 fpqc 下降, 只须在 \(k\) 代数闭时证明这一断言.
+这时由定义, \(G\) 是仿射代数群的迭代扩张, 因此将第 VI\textsubscript{B} 讲,
+\SGARefLink{concl:sga3-VIB-9.2-viii}{9.2 (viii)} 应用于仿射态射, 可知它仿射.
+\footnote{编者注: 此引用有待核对.}
+
+\SGAStatement{命题 2.2}{%
+\begin{enumerate}
+\item[\rm\SGAInlineRefTarget{sga3:xvii:proposition:2:1:item:i}(i)] 代数群的幺幂性在扩张基域下不变.
+\item[\rm\SGAInlineRefTarget{sga3:xvii:proposition:2:1:item:ii}(ii)] 幺幂群的每个代数子群都幺幂.
+\item[\rm\SGAInlineRefTarget{sga3:xvii:proposition:2:1:item:iii}(iii)] 幺幂群的每个代数商群都幺幂.
+\item[\rm\SGAInlineRefTarget{sga3:xvii:proposition:2:1:item:iv}(iv)] 幺幂代数群被幺幂代数群的每个扩张也幺幂.
+\end{enumerate}}
+\SGARefTarget{sga3:xvii:proposition:2:2}
+
+\SGAProof{证明}
+断言\SGARefLink{sga3:xvii:proposition:2:1:item:i}{(i)} 直接由\SGARefLink{sga3:xvii:definition:1:3}{定义 1.3}
+及\SGARefLink{sga3:xvii:proposition:1:2}{命题 1.2} 得到.
+为证明其余断言, 可设 \(k\) 代数闭.
+这时断言\SGARefLink{sga3:xvii:proposition:2:1:item:iv}{(iv)} 直接由定义得到.
+
+设 \(G\) 为幺幂代数群, \(G'\) 为 \(G\) 的代数子群, \(G''\) 为 \(G\) 的代数商群,
+并设 \(G_i\), \(1\leq i\leq n\), 为 \(G\) 的一个合成列, 使得
+\[
+  H_i=G_i/G_{i+1}
+\]
+是初等幺幂群 (\SGARefLink{sga3:xvii:corollary:1:7}{推论 1.7}).
+
+对于\SGARefLink{sga3:xvii:proposition:2:1:item:ii}{(ii)}, 考虑 \(G\) 的合成列在 \(G'\)
+上诱导的合成列: \(G'_i=G_i\cap G'\). 群 \(G'_i/G'_{i+1}\) 可与 \(H_i\) 的一个代数子群等同,
+故同构于 \(\mathbb G_a\) 的一个子群. 所以 \(G'\) 幺幂.
+
+对于\SGARefLink{sga3:xvii:proposition:2:1:item:iii}{(iii)}, 考虑 \(G\) 的合成列在 \(G''\)
+中的像所得的合成列: 以 \(G''_i\) 表示 \(G_i\) 在 \(G''\) 中的像.
+则 \(G''_i/G''_{i+1}\) 是 \(H_i\) 的商, 所以只须证明下列引理.
+
+\SGAStatement{引理 2.3}{%
+设 \(H\) 为定义在域 \(k\) 上的初等幺幂群 (\SGARefLink{sga3:xvii:corollary:1:7}{推论 1.7}).
+\(H\) 的每个代数商群 \(H''\) 或为零, 或在 \(k\) 上同构于 \(H\).}
+\SGARefTarget{sga3:xvii:lemma:2:3}
+
+\SGAProof{证明}
+若 \(H=\mathbb G_a\) 且特征为零, 或 \(H=\boldsymbol\alpha_p\) 或 \(\mathbb Z/p\mathbb Z\)
+且特征 \(p>0\), 则由\SGARefLink{sga3:xvii:proposition:1:5}{命题 1.5},
+只须注意到 \(H\) 除 \(0\) 与 \(H\) 外没有其他代数子群.
+事实上, 由\SGARefLink{sga3:xvii:proposition:1:5:item:iii}{命题 1.5(iii)},
+\(\boldsymbol\alpha_p\) 的一个非零代数子群由一个在 \(k\) 上的秩至少为 \(p\)
+的 \(k\)-代数定义, 因此就是 \(\boldsymbol\alpha_p\).
+
+现在设 \(H=\mathbb G_a\) 且特征 \(p>0\), 有正合列
+\[
+  0\longrightarrow N\longrightarrow\mathbb G_a
+    \longrightarrow H''\longrightarrow0.
+\]
+若 \(N=\mathbb G_a\), 则 \(H''=0\). 否则对 \(N\) 的一个合成列的长度作归纳,
+可设 \(N=\boldsymbol\alpha_p\), 或 \(N\) 是 \((\mathbb Z/p\mathbb Z)^r\) 的一个型.
+
+\begin{enumerate}
+\item[\rm(a)] 若 \(N\simeq\boldsymbol\alpha_p\), 则命题 1.5(iii) 的证明表明,
+\(N\) 必为 \(\mathbb G_a\) 的 Frobenius 态射 \(F\) 的核, 断言由正合列
+  \[
+    0\longrightarrow\boldsymbol\alpha_p\longrightarrow\mathbb G_a
+      \xrightarrow{F}\mathbb G_a\longrightarrow0
+  \]
+得到.
+\item[\rm(b)] 若 \(N\simeq\mathbb Z/p\mathbb Z\), 显然存在 \(a\in k^\times\),
+使 \(N\) 为 \(\mathbb G_a=\operatorname{Spec}k[X]\) 中由 \(X^p-aX=0\) 定义的闭子概形.
+这时断言由正合列
+  \[
+    0\longrightarrow N\longrightarrow\mathbb G_a
+      \xrightarrow{P}\mathbb G_a\longrightarrow0,
+  \]
+得到, 其中 \(P\) 为 Artin--Schreier 态射 \(x\mapsto x^p-ax\).
+\item[\rm(c)] 若 \(N\) 为 \((\mathbb Z/p\mathbb Z)^r\) 的一个型,
+则存在平凡化 \(N\) 的有限 Galois 扩张 \(k'/k\).
+由\SGARefLink{sga3:xvii:section:b}{(b)} 及对 \(r\) 的显然的归纳,
+商 \(\mathbb G_a/N\) 是被 \(k'\) 平凡化的 \(\mathbb G_a\) 的一个型.
+只须再应用下列引理.
+\end{enumerate}
+
+\SGAStatement{引理 2.3 bis}{%
+设 \(k\) 为域, \(G\) 为 \(\mathbb G_a\) 的一个型这一 \(k\)-代数群,
+并且它被一个有限可分扩张 \(k'/k\) 平凡化. 则 \(G\) 同构于 \(\mathbb G_a\).}
+\SGARefTarget{sga3:xvii:lemma:2:3:bis}
+
+\SGAProof{\SGARefLink{sga3:xvii:lemma:2:3:bis}{引理 2.3 bis} 的证明}
+事实上, 代数群 \((\mathbb G_a)_{k'}\) 的 \(k'\)-自同构群是非零位似组成的群
+\((k')^\times\) (\textit{Bible}, 第 9 讲, \SGARefLink{sga3:xvii:lemma:3:1}{引理 1}),
+而由 Hilbert 第 90 定理, Galois 上同调群 \(H^1(k'/k,\mathbb G_m)\) 为零
+(可设 \(k'\) 为 \(k\) 的 Galois 扩张).
+\SGARefLink{sga3:xvii:lemma:2:3:bis}{引理 2.3 bis} 于是由代数群的 \(k\)-型的分类得到
+(参见 J.-P. Serre, \textit{Cohomologie galoisienne}, 第 III 章,
+\SGARefLink{sga3:iii:subsection:1-3}{1.3}).
+
+\SGARefLink{sga3:xvii:proposition:2:2}{2.2} 的证明至此完成.
+
+\SGAStatement{命题 2.4}{设 \(k\) 为域, \(M\) 为有限型的 \(k\)-乘法型群
+(第 VIII 讲), \(U\) 为幺幂 \(k\)-代数群. 则:
+\begin{enumerate}
+\item[\SGAInlineRefTarget{sga3:xvii:proposition:2-4:item:i}(i)]\SGAInlineRefTarget{sga3:xvii:proposition:2:4:item:i} \(\underline{\operatorname{Hom}}_{k\text{-gr}}(M,U)
+  =\underline e\)
+  (更有 \(\operatorname{Hom}_{k\text{-gr}}(M,U)=e\));
+\item[(ii)] \(\operatorname{Hom}_{k\text{-gr}}(U,M)=e\).
+\end{enumerate}}
+\SGARefTarget{sga3:xvii:proposition:2:4}
+
+要证明 (i), 必须对 \(k\) 上的每个预概形 \(S\) 证明
+\[
+  \operatorname{Hom}_{S\text{-gr}}(M_S,U_S)=e.
+\]
+这由下列引理得到.
+
+\SGAStatement{引理 2.5}{设 \(S\) 为预概形, \(M\) 为 \(S\) 上有限型的 \(S\)-乘法型群,
+\(U\) 为 \(S\) 上有限表现的 \(S\)-群预概形, 且其纤维幺幂.
+则 \(\operatorname{Hom}_{S\text{-gr}}(M,U)=e\).}
+\SGARefTarget{sga3:xvii:lemma:2:5}
+
+\SGAProof{证明}
+在这些假设下, 要使 \(S\)-群态射 \(u:M\to U\) 为单位同态,
+只须 \(u\) 在 \(M\) 于 \(S\) 各点上的纤维上的限制都是零态射
+(\SGARefLink{sga3:ix:corollary:5:2}{第 IX 讲, 5.2}).
+因此可归结到 \(S\) 为域的谱的情形, 且还可设此域代数闭.
+由\SGARefLink{sga3:xvii:definition:1:1}{定义 1.1}, 只须取 \(U=\mathbb G_a\),
+此时断言已经证明 (\SGARefLink{sga3:xii:4.4.1}{第 XII 讲, 4.4.1}).
+
+现在证明命题 2.4(ii). 设 \(u:U\to M\) 为 \(k\)-群态射.
+像 \(u(U)\) 由 \(M\) 的一个代数子群 \(U''\) 表示
+(第 VI\textsubscript{B} 讲, \SGARefLink{cor:sga3-VIB-5.4}{5.4}).\footnote{编者注: 此引用有待核对.}
+群 \(U''\) 作为幺幂群的商是幺幂的 (2.2(iii)), 作为乘法型群的子群又是乘法型的
+(参见 \textit{Bible}, 第 4 讲, 定理 2, \SGARefLink{sga3:xvii:corollary:C:5:1}{推论 1},
+或\SGARefLink{sga3:ix:theorem:6:8}{第 IX 讲, 6.8}).
+所以由\SGARefLink{sga3:xvii:proposition:2-4:item:i}{命题 2.4(i)}, \(U''\) 为单位群.
+
+\SGAStatement{\SGAInlineRefTarget{sga3:xvii:remark:2-6}注 2.6}{沿用\SGARefLink{sga3:xvii:proposition:2:4}{命题 2.4}
+的记号, 一般而言, 函子 \(\underline{\operatorname{Hom}}_{k\text{-gr}}(U,M)\)
+不再等于 \(\underline e\). 事实上, 设 \(S\) 为一个预概形,
+使 \(\Gamma(S,\mathcal O_S)\) 含有非零元素 \(\varepsilon\), 满足 \(\varepsilon^2=0\)
+(例如环 \(A\) 上的对偶数代数的谱). 对 \(S\) 上的每个 \(S'\), 映射
+\[
+  u\longmapsto 1+\varepsilon_{S'}u
+\]
+关于 \(S'\) 函子地定义从加法群 \(\Gamma(S',\mathcal O_{S'})\) 到乘法群
+\(\Gamma(S',\mathcal O_{S'}^\times)\) 的同态. 因而它定义一个 \(S\)-群态射
+\[
+  (\mathbb G_a)_S\longrightarrow(\mathbb G_m)_S,
+\]
+且因 \(\varepsilon\ne0\), 这一态射不为零.}
+\SGARefTarget{sga3:xvii:remark:2:6}
+
+回顾 (第 VII\textsubscript{A} 讲, \(\S3\)), 若 \(G\) 为交换 \(S\)-群预概形,
+且在 \(S\) 上有限平坦, 则存在 Cartier 对偶性, 而且 \(G\) 在第 VIII 讲, \(\S1\)
+的意义下是自反的. 更确切地说, 函子
+\[
+  G\longmapsto
+  \underline{\operatorname{Hom}}_{S\text{-gr}}(G,\mathbb G_m)
+\]
+由一个在 \(S\) 上有限平坦的交换 \(S\)-群预概形 \(D(G)\) 表示, 且典范态射
+\[
+  G\longrightarrow D(D(G))
+\]
+是同构. 特别地:
+\begin{enumerate}
+\item[(i)] \(D(\boldsymbol\mu_n)\simeq\mathbb Z/n\mathbb Z\), 从而
+\(D(\mathbb Z/n\mathbb Z)\simeq\boldsymbol\mu_n\);
+\item[(ii)] 若 \(S\) 的特征 \(p>0\), 则
+\(D(\boldsymbol\alpha_p)\simeq\boldsymbol\alpha_p\).
+\end{enumerate}
+
+% 来源: XVII.tex 第 416--967 行.
+\SGASection{3}{作用在向量空间上的幺幂群}
+\SGARefTarget{sga3:xvii:section:3}
+
+回顾 (\SGARefLink{sga3:i:definition:4-6-1}{第 I 讲, 4.6.1}), 若 \(S\) 为预概形,
+\(M\) 为 \(\mathcal O_S\)-模层, 则 \(\mathbf W(M)\) 表示如下 \(S\)-函子
+\[
+  (\operatorname{Sch}/S)^\circ\longrightarrow(\operatorname{Ens}),
+\]
+它在每个 \(S\)-预概形 \(S'\) 上的值定义为
+\[
+  \mathbf W(M)(S')
+  =\Gamma\!\left(S',M\otimes_{\mathcal O_S}\mathcal O_{S'}\right).
+\]
+
+又回顾, 若 \(S\)-群 \(G\) 作用在 \(S\)-函子 \(V\) 上,
+则 \(V\) 在 \(G\) 作用下的不变量 \(S\)-函子 \(V^G\) 是 \(V\) 的如下子函子:
+对 \(S\) 上的 \(S'\), 其取值于 \(S'\) 的点是满足如下条件的 \(x\in V(S')\):
+对 \(S'\) 上的每个 \(S''\), \(x_{S''}\) 被 \(G(S'')\) 固定.
+
+有下列引理.
+
+\SGAStatement{\SGAInlineRefTarget{sga3:xvii:lemma:3-1}引理 3.1}{设 \(S\) 为预概形,
+\(G\) 为 \(S\) 上仿射的 \(S\)-群预概形, 由拟凝聚 \(\mathcal O_S\)-代数 \(A\) 定义.
+设 \(G\) 作用在拟凝聚 \(\mathcal O_S\)-模层 \(M\) 上. 设
+\[
+  \mu:M\longrightarrow A\otimes_{\mathcal O_S}M
+\]
+为定义 \(G\) 在 \(M\) 上的作用的余态射 (\SGARefLink{sga3:i:proposition:4-7-2}{第 I 讲, 4.7.2}),
+并设
+\[
+  \nu:M\longrightarrow A\otimes_{\mathcal O_S}M
+\]
+为态射 \(x\mapsto\mu(x)-1\otimes x\). 则:
+\begin{enumerate}
+\item[\SGAInlineRefTarget{sga3:xvii:lemma:3-1:item:i}(i)] \(\underline M^{\,G}(S)=\Gamma\operatorname{Ker}(\nu)\);
+\item[\SGAInlineRefTarget{sga3:xvii:lemma:3-1:item:ii}(ii)] 若 \(S\) 为域 \(k\) 的谱,
+则 \(\underline M^{\,G}\) 形如 \(\mathbf W(N)\), 其中 \(N\) 为 \(M\) 的一个向量子空间;
+\item[\SGAInlineRefTarget{sga3:xvii:lemma:3-1:item:iii}(iii)] 若 \(S\) 为域 \(k\) 的谱,
+则 \(M\) 的每个元素 \(x\) 都包含在 \(M\) 的某个有限维 \(k\)-向量子空间中,
+且此子空间在 \(G\) 的作用下稳定.
+\end{enumerate}}
+\SGARefTarget{sga3:xvii:lemma:3:1}
+
+\SGAProof{证明}
+此处为便于引用而重述的断言\SGARefLink{sga3:xvii:lemma:3-1:item:iii}{(iii)},
+已在第 VI\textsubscript{B} 讲, \SGARefLink{cor:sga3-VIB-11.2}{11.2} 中证明.
+
+对于\SGARefLink{sga3:xvii:lemma:3-1:item:i}{(i)}, 显然 \(\underline M^{\,G}(S)\)
+包含 \(\Gamma\operatorname{Ker}(\nu)\). 为证明反向包含, 可设 \(S\) 仿射, 其环为 \(B\).
+设 \(m\in\underline M^{\,G}(S)\). 对每个 \(B\)-代数 \(B'\) 及每个
+\[
+  u\in\operatorname{Hom}_{B\text{-alg}}(A,B')
+\]
+(其中 \(u\) 对应 \(G(\operatorname{Spec}B')\) 的一个元素), 有
+\[
+  (u\otimes1_M)\nu(m)=0
+  \qquad\text{于 }B'\otimes_BM.
+\]
+取 \(B'=A\), 并取 \(u\) 为 \(A\) 的恒等映射, 得 \(\nu(m)=0\).
+
+对于 (ii), 设 \(N\) 为 \(\nu\) 的核,
+由\SGARefLink{sga3:xvii:lemma:3-1:item:i}{(i)}, 它等于 \(\underline M^{\,G}(k)\).
+每个 \(k\)-预概形 \(S\) 都在 \(k\) 上平坦; 故
+\[
+  \underline M^{\,G}(S)
+  =\Gamma\operatorname{Ker}(\nu\otimes_k S)
+  =\Gamma(N\otimes_k S).
+\]
+所以 \(\underline M^{\,G}\) 同构于函子 \(\mathbf W(N)\).
+
+\SGAStatement{命题 3.2}{设 \(G\) 为定义在域 \(k\) 上的幺幂代数群,
+作用在 \(k\)-向量空间 \(V\) 上. 若 \(V\ne0\), 则 \(V^G\ne0\).}
+\SGARefTarget{sga3:xvii:proposition:3:2}
+
+由\SGARefLink{sga3:xvii:lemma:3-1:item:ii}{3.1(ii)} 及 (iii),
+可设 \(k\) 代数闭, 且 \(V\) 在 \(k\) 上有限维.
+
+设
+\[
+  0\longrightarrow G'\longrightarrow G\longrightarrow G''
+    \longrightarrow0
+\]
+为代数群的正合列, 并设 \(G\) 作用在一个 (fpqc 拓扑下的) 层 \(V\) 上.
+当然有 \(V^G\subset V^{G'}\), 且商预层 \(G/G'\) 自然地作用在 \(V^{G'}\) 上.
+但 \(V^{G'}\) 是层, 因为它是熟知的一对态射
+\[
+  V\rightrightarrows\underline{\operatorname{Hom}}(G',V)
+\]
+的核. 因此 \(G/G'\) 的相伴层, 即 \(G''\), 作用在 \(V^{G'}\) 上, 且立即可得
+\[
+  \left(V^{G'}\right)^{G''}
+  =V^G
+  =\left(V^{G'}\right)^{G/G'}.
+\]
+
+这一观察将\SGARefLink{sga3:xvii:proposition:3:2}{3.2} 的证明归结到 \(G\)
+为初等幺幂群 (\SGARefLink{sga3:xvii:corollary:1:7}{1.7}) 的情形.
+
+\SGARefTarget{sga3:xvii:proposition:3:2:case:a}
+\textit{\SGARefLink{sga3:xvii:appendix:A}{(a)} \(G=\mathbb G_a\), \(p=0\).}
+由 (BIBLE 第 4 讲, 命题 4), 从 \(\mathbb G_a\) 到线性群 \(\operatorname{GL}(V)\)
+的态射由指数映射
+\[
+  T\longmapsto\sum_{q=0}^{\infty}T^q\,\frac{n^q}{q!}
+\]
+给出, 其中 \(n\) 为 \(V\) 的幂零自同态. 此时 \(V\ne0\) 蕴含
+\(\operatorname{Ker}n\ne0\), 而且显然 \(V\) 中被 \(n\) 零化的每个向量都被 \(G\) 固定.
+
+现在设 \(p>0\).
+
+\SGARefTarget{sga3:xvii:proposition:3:2:case:b}
+\textit{\SGARefLink{sga3:xvii:section:b}{(b)} \(G=\boldsymbol\alpha_p\).}
+由于 \(\boldsymbol\alpha_p\) 是高度为 \(1\) 的根式群
+(第 VII\textsubscript{A} 讲, \S7), 给定 \(\boldsymbol\alpha_p\) 在 \(V\) 中的一个表示,
+等价于给定 \(p\)-Lie 代数 \(\boldsymbol\alpha_p\) 在 \(\mathfrak{gl}(V)\)
+中的一个表示 (附录 II, \SGARefLink{sga3:ii:subsection:2-2}{2.2}),
+即在此情形下给定一个满足 \(X^p=0\) 的元素 \(X\in\operatorname{End}(V)\)
+(附录 II, \SGARefLink{sga3:xvii:proposition:2:1}{2.1}). 但此时
+\[
+  V\ne0\quad\Longrightarrow\quad
+  W=\operatorname{Ker}(X)\ne0,
+\]
+且再由附录 II, \SGARefLink{sga3:ii:subsection:2-2}{2.2}, 有
+\(W=V^{\boldsymbol\alpha_p}\).
+
+\SGARefTarget{sga3:xvii:proposition:3:2:case:c}
+\textit{\SGARefLink{sga3:xvii:appendix:C}{(c)} \(G=\mathbb Z/p\mathbb Z\).}
+\(G\) 在 \(V\) 中的一个表示等价于选取一个满足 \(x^p=1\), 即 \((1-x)^p=0\)
+的元素 \(x\in\operatorname{Aut}(V)\). 因而 \(x\) 形如 \(1+n\), 其中 \(n\) 幂零,
+且 \(W=\operatorname{Ker}n\) 被 \(x\) 固定.
+
+\SGARefTarget{sga3:xvii:proposition:3:2:case:d}
+\textit{(d) \(G=\mathbb G_a\).}
+设 \(G_i\), \(i\in I\), 为 \(\mathbb G_a\) 的平展代数子群所构成的递增滤过族,
+所以这些群同构于 \((\mathbb Z/p\mathbb Z)^{r_i}\)
+(\SGARefLink{sga3:xvii:proposition:1:5}{命题 1.5}), 并置 \(V_i=V^{G_i}\).
+由于 \(V\) 有限维且非零, 而每个 \(V_i\) 由\SGARefLink{sga3:xvii:appendix:C}{(c)} 非零,
+\(V_i\) 所成的递减滤过族终于稳定, 且
+\[
+  W=\bigcap_{i\in I}V_i\ne0.
+\]
+将用到下列引理.
+
+\SGAStatement{引理 3.3}{设 \(S\) 为特征 \(p>0\) 的预概形,
+则 \((\mathbb G_a)_S\) 的平展子群族在 \(G\) 中概形稠密
+(\SGARefLink{sga3:ix:definition:4:1}{第 IX 讲, 4.1}).}
+\SGARefTarget{sga3:xvii:lemma:3:3}
+
+由\SGARefLink{sga3:ix:lemma:4:4}{第 IX 讲, 4.4}, 只须在 \(S\)
+为素域 \(\mathbb F_p\) 的谱时证明本引理. 此时只须考虑由
+\[
+  X^{p^n}-X=0
+\]
+定义的平展子群族 \(G_n\), \(n\geq1\).
+此族在 \((\mathbb G_a)_{\mathbb F_p}\) 中概形稠密, 因为它包含每个闭点.
+
+据此回到\SGARefLink{sga3:xvii:proposition:3:2:case:d}{3.2(d)} 的证明.
+若 \(w\in W\), 则它在 \(G\) 中的稳定化子是 \(\mathbb G_a\) 的一个代数子群,
+且对每个 \(i\in I\) 都包含 \(G_i\); 由\SGARefLink{sga3:xvii:lemma:3:3}{3.3},
+它因而等于 \(\mathbb G_a\). 所以 \(W=V^G\).
+
+\SGARefLink{sga3:xvii:proposition:3:2}{命题 3.2} 立即给出以下结论.
+
+\SGAStatement{推论 3.4}{设 \(k\) 为域, \(G\) 为幺幂 \(k\)-代数群,
+作用在有限维 \(k\)-向量空间 \(V\) 上. 则 \(V\) 有一列定义在 \(k\) 上且在 \(G\) 下稳定的向量子空间 \(V_i\),
+\[
+  0=V_0\subset V_1\subset\cdots\subset V_n=V,
+\]
+使 \(G\) 在 \(V_{i+1}/V_i\) 上的作用平凡.
+而且可以选取 \(V_i\), 使 \(V_{i+1}/V_i\) 的维数为 \(1\).}
+\SGARefTarget{sga3:xvii:corollary:3:4}
+
+现在将已经证明的幺幂群的性质汇集于下列定理, 并加以补充.
+
+\SGAStatement{\SGAInlineRefTarget{sga3:xvii:theorem:3-5}定理 3.5}{设 \(G\)
+为定义在域 \(k\) 上的代数群. 下列性质等价:
+\begin{enumerate}
+\item[(i)] \SGARefTarget{sga3:xvii:theorem:3:5:item:i}
+\(G\) 幺幂.
+\item[(ii)] \SGARefTarget{sga3:xvii:theorem:3:5:item:ii}
+\(G\) 有一个定义在 \(k\) 上的合成列, 其相继商在 \(p=0\) 时同构于 \(\mathbb G_a\),
+在 \(p>0\) 时分别同构于 \(\boldsymbol\alpha_p\), \(\mathbb G_a\),
+或 \((\mathbb Z/p\mathbb Z)^r\) 的一个扭型 (\SGARefLink{sga3:xvii:definition:1:4}{1.4}).
+\item[(iii)] \SGARefTarget{sga3:xvii:theorem:3:5:item:iii}
+同 (ii), 再要求此合成列为中心列.
+\item[(iv)] \SGARefTarget{sga3:xvii:theorem:3:5:item:iv}
+\(G\) 有一个定义在 \(k\) 上的特征合成列 (第 VI\textsubscript{B} 讲),
+其相继商在 \(p=0\) 时同构于 \((\mathbb G_a)^r\), 在 \(p>0\) 时则依次分别同构于
+\((\boldsymbol\alpha_p)^r\), \((\mathbb G_a)^s\) 的一个扭型,
+或 \((\mathbb Z/p\mathbb Z)^t\) 的一个扭型.
+\item[(v)] \SGARefTarget{sga3:xvii:theorem:3:5:item:v}
+对某个适当的整数 \(n\geq0\), \(G\) 同构于线性群 \(\operatorname{GL}(n)_k\)
+中严格上三角矩阵群 \(\operatorname{Trigstr}(n)_k\) 的一个代数子群.
+\item[(vi)] \SGARefTarget{sga3:xvii:theorem:3:5:item:vi}
+\(G\) 仿射, 而且对 \(G\) 在非零有限维 \(k\)-向量空间 \(V\) 上的每个线性表示,
+都有 \(V^G\ne0\).
+\end{enumerate}}
+\SGARefTarget{sga3:xvii:theorem:3:5}
+
+\SGAProof{证明}
+蕴含\SGARefLink{sga3:xvii:theorem:3:5:item:i}{(i)}\(\Rightarrow\)\SGARefLink{sga3:xvii:theorem:3:5:item:vi}{(vi)}
+由\SGARefLink{sga3:xvii:proposition:2:1}{2.1} 及\SGARefLink{sga3:xvii:proposition:3:2}{3.2} 得到.
+
+对于\SGARefLink{sga3:xvii:theorem:3:5:item:vi}{(vi)}\(\Rightarrow\)\SGARefLink{sga3:xvii:theorem:3:5:item:v}{(v)},
+由于代数群 \(G\) 仿射, 它是某个适当的线性群 \(\operatorname{GL}(V)\) 的代数子群
+(第 VI\textsubscript{B} 讲, \SGARefLink{def:sga3-VIB-11.3}{11.3}).
+对由此嵌入所定义的 \(G\) 在 \(V\) 上的表示应用\SGARefLink{sga3:xvii:corollary:3:4}{3.4},
+即得\SGARefLink{sga3:xvii:theorem:3:5:item:v}{(v)}.
+
+对于\SGARefLink{sga3:xvii:theorem:3:5:item:v}{(v)}\(\Rightarrow\)\SGARefLink{sga3:xvii:theorem:3:5:item:iii}{(iii)},
+已知代数群 \(\operatorname{Trigstr}(n)\) 有一个中心合成列, 其相继商同构于 \(\mathbb G_a\).
+由\SGARefLink{sga3:xvii:proposition:1:5}{1.5}, 它在 \(G\) 上诱导的合成列给出性质\SGARefLink{sga3:xvii:theorem:3:5:item:iii}{(iii)}.
+
+蕴含
+\[
+  \text{(iii)}\Rightarrow\text{(ii)}\Rightarrow\text{(i)}
+  \qquad\text{且}\qquad
+  \text{(iv)}\Rightarrow\text{(i)}
+\]
+是显然的.
+
+稍后将证明\SGARefLink{sga3:xvii:theorem:3:5:item:i}{(i)}\(\Rightarrow\)\SGARefLink{sga3:xvii:theorem:3:5:item:iv}{(iv)},
+先指出已经证明的结论的若干推论.
+
+\SGAStatement{定义 3.6}{设 \(p>0\). 一个 \(p\)-Lie 代数 \(\mathfrak g\)
+(参见第 VII\textsubscript{A} 讲, \S5) 称为\emph{幺幂的}, 如果映射
+\[
+  x\longmapsto x^{(p)}
+\]
+幂零; 即对每个 \(x\in\mathfrak g\), 存在整数 \(n>0\), 使 \(x^{(p^n)}=0\).}
+\SGARefTarget{sga3:xvii:definition:3:6}
+
+\SGAStatement{推论 3.7}{幺幂代数群 \(G\) 幂零 (第 VI\textsubscript{B} 讲, \S8);
+其 Lie 代数 \(\mathfrak g\) 幂零 (Bourbaki, \emph{Groupes et algèbres de Lie}, 第 I 章, \S4),
+并且同构于有限维向量空间上的一个由幂零自同态组成的 Lie 代数.
+在特征 \(p>0\) 时, \(\mathfrak g\) 是一个幺幂 \(p\)-Lie 代数
+(\SGARefLink{sga3:xvii:definition:3:6}{3.6}).}
+\SGARefTarget{sga3:xvii:corollary:3:7}
+
+由于\SGARefLink{sga3:xvii:theorem:3:5:item:i}{(i)} 蕴含 (v),
+只须在 \(G=\operatorname{Trigstr}(n)\) 时证明\SGARefLink{sga3:xvii:corollary:3:7}{3.7}.
+已经用过 \(\operatorname{Trigstr}(n)\) 是幂零代数群这一事实.
+此外, \(\operatorname{Trigstr}(n)\) 的 Lie 代数 \(\mathfrak h\) 由 \(V\)
+的主对角线为零的上三角自同态组成. 因而这些自同态幂零, 从而 \(\mathfrak h\) 幂零
+(Bourbaki, \emph{loc.\ cit.}, 第 I 章, \S4, 推论 3).
+若 \(p>0\), 则 \(p\)-Lie 代数 \(\mathfrak{gl}(V)=\operatorname{End}(V)\)
+中的 \(p\) 次幂与 \(V\) 的自同态的 \(p\) 次幂相同
+(第 VII\textsubscript{A} 讲, \SGARefLink{sga3:VIIA:6.4.4}{6.4.4}); 故 \(\mathfrak h\) 幺幂.
+
+\SGAStatement{推论 3.8}{设 \(k\) 为代数闭域, \(G\) 为 \(k\) 上的光滑仿射代数群.
+则下列性质等价:
+\begin{enumerate}
+\item[(i)] \SGARefTarget{sga3:xvii:corollary:3:8:item:i}
+\(G\) 幺幂.
+\item[(ii)] \SGARefTarget{sga3:xvii:corollary:3:8:item:ii}
+\(G(k)\) 由幺幂元素组成 (BIBLE 第 4 讲, 命题 4, 推论 1);
+即 \(G\) 在 BIBLE 的意义下幺幂.
+\end{enumerate}}
+\SGARefTarget{sga3:xvii:corollary:3:8}
+
+蕴含\SGARefLink{sga3:xvii:corollary:3:8:item:i}{(i)}\(\Rightarrow\)\SGARefLink{sga3:xvii:corollary:3:8:item:ii}{(ii)}
+由以下事实得到: 根据\SGARefLink{sga3:xvii:proposition:3:2}{3.2},
+\SGARefLink{sga3:xvii:corollary:3:8:item:i}{(i)}\(\Rightarrow\)(v),
+\(G\) 同构于某个群 \(\operatorname{Trigstr}(n)\) 的一个代数子群.
+
+对于\SGARefLink{sga3:xvii:corollary:3:8:item:ii}{(ii)}\(\Rightarrow\)\SGARefLink{sga3:xvii:corollary:3:8:item:i}{(i)},
+设 \(G\) 为 BIBLE 意义下的幺幂代数群, 以 \(G^0\) 表示其单位元连通分支.
+\(G^0\) 的极大环面由幺幂元素组成, 因而平凡; 所以 \(G^0\) 等于它的每个 Cartan 子群.
+由此可知 \(G^0\) 可解 (BIBLE 第 6 讲, 定理 6), 因而可三角化 (BIBLE 第 6 讲, 定理 1).
+因此 \(G^0\) 是某个 \(\operatorname{Trigstr}(n)\) 群的代数子群,
+从而在本讲的意义下幺幂.
+
+群 \((G/G^0)(k)\) 是由幺幂元素组成的有限群.
+因此, 若 \(p=0\), 它平凡; 若 \(p>0\), 它是有限 \(p\)-群 (BIBLE 第 4 讲, 命题 4).
+这时 \(G/G^0\) 在本讲的意义下幺幂, 因为它是同构于 \(\mathbb Z/p\mathbb Z\) 的群的迭代扩张.
+这就证明了 \(G\) 幺幂.
+
+\SGAProof{\SGARefLink{sga3:xvii:theorem:3-5}{3.5} 的证明的完成}
+只须证明\SGARefLink{sga3:xvii:theorem:3:5:item:i}{(i)}\(\Rightarrow\)\SGARefLink{sga3:xvii:theorem:3:5:item:iv}{(iv)}.
+
+\smallskip
+\noindent\textit{\SGARefLink{sga3:xvii:appendix:A}{(a)} \(p>0\).}\quad
+考虑 \(G\) 的代数子群的递增列
+\[
+  \{e\}\subset F(G)\subset F^2(G)\subset\cdots\subset
+  F^n(G)\subset G^0\subset G.
+\]
+这给出 \(G\) 的一个特征合成列 (附录 II, 1),
+而且当 \(n\) 充分大时, \(G/F^n(G)\) 光滑
+(附录 II, \SGARefLink{sga3:xvii:lemma:3-1}{3.1}).
+因此其相继商依次为:
+\begin{enumerate}
+\item[(1)] 高度为 \(1\) 的根式群;
+\item[(2)] 一个光滑连通群;
+\item[(3)] 一个平展群.
+\end{enumerate}
+所以要证明\SGARefLink{sga3:xvii:lemma:3-1:item:i}{(i)}\(\Rightarrow\)(iv), 只须证明下列引理.
+
+\SGAStatement{\SGAInlineRefTarget{sga3:xvii:lemma:3-9}引理 3.9}{设 \(G\)
+为定义在特征 \(p>0\) 的域 \(k\) 上的幺幂代数群.
+则 \(G\) 有一个定义在 \(k\) 上的特征合成列, 其相继商同构于:
+\begin{enumerate}
+\item[(i)] \SGARefTarget{sga3:xvii:lemma:3:9:item:i}
+若 \(G\) 根式, 则为 \((\boldsymbol\alpha_p)^r\);
+\item[(ii)] \SGARefTarget{sga3:xvii:lemma:3:9:item:ii}
+若 \(G\) 光滑连通, 则为 \((\mathbb G_a)^r\) 的一个扭型;
+\item[(iii)] \SGARefTarget{sga3:xvii:lemma:3:9:item:iii}
+若 \(G\) 平展, 则为 \((\mathbb Z/p\mathbb Z)^r\) 的一个扭型.
+\end{enumerate}}
+\SGARefTarget{sga3:xvii:lemma:3:9}
+
+\SGAProof{\SGARefLink{sga3:xvii:lemma:3:9:item:i}{3.9(i)} 的证明}
+群 \(G\) 是根式的. 用 \(F^n(G)\) 滤过 \(G\), 即可归结到 \(G\) 的高度为 \(1\)
+的根式情形. 由于 \(G\) 幂零
+(\SGARefLink{sga3:xvii:theorem:3-5}{3.5},
+\SGARefLink{sga3:xvii:theorem:3:5:item:i}{(i)}\(\Rightarrow\)\SGARefLink{sga3:xvii:theorem:3:5:item:iii}{(iii)}),
+且代数群的中心可表示 (\SGARefLink{sga3:viii:examples:6:5:item:e:01}{第 VIII 讲, 6.5(e)}),
+可以考虑 \(G\) 的上升中心列. 此列显然为 \(G\) 的特征列,
+并将问题归结到 \(G\) 还为交换群的情形.
+
+置 \(\mathfrak g=\operatorname{Lie}(G)\). 这时 \(p\) 次幂态射 \(\pi\)
+在 \(\mathfrak g\) 上可加 (第 VII\textsubscript{A} 讲); 下面将归结到它为零的情形.
+对 \(k\) 上的每个预概形 \(S\), 置
+\[
+  \mathfrak g_S=\mathfrak g\otimes_k\mathcal O_S,
+\]
+以 \(\mathfrak h_S\) 表示 \(\mathfrak g_S\) 在 \(\pi_S\) 下的像,
+这是 \(\mathfrak g_S\) 的一个阿贝尔群子层.
+最后, 以 \(\overline{\mathfrak h}_S\) 表示 \(\mathfrak h_S\)
+生成的 \(\mathfrak g_S\) 的 \(\mathcal O_S\)-子模层. 显然有
+\[
+  \overline{\mathfrak h}_S
+  =\overline{\mathfrak h}_k\otimes_k\mathcal O_S,
+\]
+且 \(\overline{\mathfrak h}_S\)\footnote[4]{编者注:
+已将 \(\mathfrak h\) 改为 \(\overline{\mathfrak h}\).}
+为 \(\mathfrak g_S\) 的一个特征 \(p\)-Lie 子代数;
+即它在 \(S\)-函子 \(\operatorname{Aut}_{p\text{-}\mathrm{Lie}}(\mathfrak g)\) 下稳定.
+由附录 II, \SGARefLink{sga3:ii:subsection:2-2}{2.2},
+\(\overline{\mathfrak h}_k\) 是 \(G\) 的一个代数子群 \(H\) 的 Lie 代数, 且此子群在 \(G\) 中为特征子群.
+
+此外, 由\SGARefLink{sga3:xvii:corollary:3:7}{3.7} 和下述\SGARefLink{sga3:xvii:lemma:3:9:bis}{引理 3.9 bis},
+若 \(G\ne\{e\}\), 则因 \(\overline{\mathfrak h}_k\ne\mathfrak g\), 有 \(H\ne G\).
+另一方面, 若 \(G/H=G''\), 则
+\[
+  \operatorname{Lie}G''
+  =\mathfrak g/\overline{\mathfrak h}_k
+  \qquad\text{(附录~II, 2.2),}
+\]
+所以在 \(\operatorname{Lie}G''\) 中 \(p\) 次幂为零.
+因而对 \(\dim\operatorname{Lie}G\) 作归纳, 可归结到 \(\operatorname{Lie}G\)
+为 \(p\) 次幂为零的 \(p\)-Lie 代数的情形.
+但这时, 对某个适当的整数 \(r\geq0\), \(\operatorname{Lie}G''\)
+同构于 \(\operatorname{Lie}((\boldsymbol\alpha_p)^r)\)
+(附录 II, \SGARefLink{sga3:xvii:proposition:2:1}{2.1}),
+故 \(G''\) 同构于 \((\boldsymbol\alpha_p)^r\)
+(附录 II, \SGARefLink{sga3:ii:subsection:2-2}{2.2}). 只须证明下列引理.
+
+\SGAStatement{引理 3.9 bis}{设 \(k\) 为特征 \(p>0\) 的域,
+\(\mathfrak g\) 为在 \(k\) 上有限维的交换幺幂 \(p\)-Lie 代数
+(\SGARefLink{sga3:xvii:definition:3:6}{3.6}),
+\(\mathfrak h\) 为 \(\mathfrak g\) 中 \(p\) 次幂的像生成的 \(\mathfrak g\) 的 \(p\)-Lie 子代数.
+若 \(\mathfrak g\ne0\), 则 \(\mathfrak h\ne\mathfrak g\).}
+\SGARefTarget{sga3:xvii:lemma:3:9:bis}
+
+事实上, 由于 \(\mathfrak g\) 交换, \(\mathfrak h\) 恰为所有 \(X^{(p)}\),
+\(X\in\mathfrak g\), 生成的 \(\mathfrak g\) 的 \(k\)-向量子空间.
+若 \(\mathfrak g\ne0\) 且幺幂, 则存在 \(X\in\mathfrak g\), \(X\ne0\), 使 \(X^{(p)}=0\).
+设 \(X_1,\ldots,X_n\) 为直线 \(kX\) 在 \(\mathfrak g\) 中的一个补空间的一组基.
+则 Lie 代数 \(\mathfrak h\) 为
+\[
+  X_1^{(p)},\ldots,X_n^{(p)}
+\]
+生成的 \(\mathfrak g\) 的 \(k\)-向量子空间,
+所以它的维数至多为 \(n=\dim\mathfrak g-1\).
+
+\SGAProof{\SGARefLink{sga3:xvii:lemma:3:9:item:ii}{3.9(ii)} 的证明}
+群 \(G\) 光滑连通. 此时 \(G\) 的下降中心列由光滑、连通的特征代数子群 \(G_i\) 表示
+(第 VI\textsubscript{B} 讲, \SGARefLink{prop:sga3-VIB-8.3}{8.3} 及\SGARefLink{prop:sga3-VIB-7.4}{7.4}),
+且因 \(G\) 幂零
+(\SGARefLink{sga3:xvii:theorem:3-5}{3.5},
+\SGARefLink{sga3:xvii:theorem:3:5:item:i}{(i)}\(\Rightarrow\)\SGARefLink{sga3:xvii:theorem:3:5:item:iii}{(iii)}),
+当 \(i\) 充分大时有 \(G_i=0\).
+只须对各群 \(G_i/G_{i+1}\) 证明\SGARefLink{sga3:xvii:lemma:3-9}{3.9},
+便将问题归结到 \(G\) 还为交换群的情形.
+
+对每个整数 \(n>0\), 以 \(G_n\) 表示 \(G\) 在 \(p^n\) 次幂态射下的像这一 \(G\) 的代数子群.
+因此 \(G_n\) 光滑、连通且为特征子群; 由幺幂群的\SGARefLink{sga3:xvii:definition:1:1}{定义 1.1},
+当 \(n\) 充分大时有 \(G_n=0\). 以 \(G_n/G_{n+1}\) 代替 \(G\),
+还可设 \(G\) 被 \(p\) 次幂映射零化.
+但这时, 由 J.-P. Serre, \emph{Groupes algébriques et corps de classes}, 第 VII 章, 命题 11,
+对某个适当整数 \(r\), \(G\) 是 \((\mathbb G_a)^r\) 的一个型.
+
+\SGAProof{\SGARefLink{sga3:xvii:lemma:3:9:item:iii}{3.9(iii)} 的证明}
+群 \(G\) 平展. 与 (ii) 中一样, 先归结到 \(G\) 交换的情形,
+再归结到 \(G\) 被 \(p\) 零化的情形. 这时
+\[
+  G_{\overline{k}}\simeq(\mathbb Z/p\mathbb Z)^r.
+\]
+
+\SGAProof{在\SGARefLink{sga3:xvii:section:b}{(b)}, \(p=0\) 情形下,
+\SGARefLink{sga3:xvii:theorem:3-5}{3.5} 中
+\SGARefLink{sga3:xvii:theorem:3:5:item:i}{(i)}\(\Rightarrow\)\SGARefLink{sga3:xvii:theorem:3:5:item:iv}{(iv)} 的证明}
+此时 \(G\) 光滑连通; 与\SGARefLink{sga3:xvii:lemma:3:9:item:ii}{3.9(ii)} 中一样,
+可归结到 \(G\) 还为交换群的情形. 这时有如下更精确的结果.
+
+\SGAStatement{引理 3.9 ter}{设 \(k\) 为特征 \(0\) 的域,
+\(G\) 为交换幺幂 \(k\)-代数群, 并置 \(\mathfrak g=\operatorname{Lie}G\).
+存在一个典范同构
+\[
+  \exp:\mathbf W(\mathfrak g)\xrightarrow{\ \sim\ }G.
+\]
+态射 \(\exp\) 是在 Lie 代数上诱导恒等映射的唯一同态 \(\mathbf W(\mathfrak g)\to G\).}
+\SGARefTarget{sga3:xvii:lemma:3:9:ter}
+
+由于 \(G\) 幺幂, 可将它实现为 \(\operatorname{Trigstr}(n)\) 的代数子群,
+其中 \(n\) 为适当整数
+(\SGARefLink{sga3:xvii:theorem:3-5}{3.5},
+\SGARefLink{sga3:xvii:theorem:3:5:item:i}{(i)}\(\Rightarrow\)\SGARefLink{sga3:xvii:theorem:3:5:item:v}{(v)}).
+选取这样的一个嵌入, 即可将 \(\mathfrak g\) 与 \(\mathfrak{gl}(n)\)
+中由幂零自同态组成的一个 Lie 子代数等同. 由此得到一个 \(k\)-态射
+\[
+  \begin{aligned}
+  \exp:\mathbf W(\mathfrak g)&\longrightarrow
+    \operatorname{GL}(n),\\
+  T&\longmapsto\sum_{i\geq0}\frac{T^i}{i!}.
+  \end{aligned}
+\]
+
+由于 \(G\) 交换, 态射 \(\exp\) 为同态.
+设 \(G'\) 为 \(\mathbf W(\mathfrak g)\) 在 \(\exp\) 下的像这一代数群.
+在典范等同 \(\operatorname{Lie}\mathbf W(\mathfrak g)=\mathfrak g\) 下,
+\(\exp\) 的切线性映射就是包含 \(\mathfrak g\hookrightarrow\mathfrak{gl}(n)\). 故
+\[
+  \operatorname{Lie}(G\cap G')
+  =\mathfrak g\cap\mathfrak g=\mathfrak g.
+\]
+由于 \(G\cap G'\) 光滑 (第 VI\textsubscript{B} 讲, \SGARefLink{cor:sga3-VIB-1.6.1}{1.6.1}),
+且 \(G\) 作为 \(\mathbb G_a\) 群的迭代扩张而连通
+(\SGARefLink{sga3:xvii:theorem:3-5}{3.5},
+\SGARefLink{sga3:xvii:theorem:3:5:item:i}{(i)}\(\Rightarrow\)\SGARefLink{sga3:xvii:theorem:3:5:item:ii}{(ii)}),
+必有 \(G=G'\). 核 \(\ker(\exp)\) 是一个平展幺幂群, 故为平凡群.
+所以 \(\exp\) 是从 \(\mathbf W(\mathfrak g)\) 到 \(G\) 的同构.
+
+若 \(h:\mathbf W(\mathfrak g)\to G\) 为另一个同态,
+使 \(\operatorname{Lie}(h)\) 为 \(\mathfrak g\) 的恒等映射,
+则因 \(G\) 交换, \(h-\exp\) 是同态, 且其切线性映射为零.
+因 \(k\) 的特征为 \(0\) 且 \(\mathbf W(\mathfrak g)\) 连通,
+Cartier 定理再次表明 \(h=\exp\).
+
+% 来源: XVII.tex 第 968--1392 行.
+\SGAStatement{\SGAInlineRefTarget{sga3:xvii:proposition:3-10}命题 3.10}{设 \(G\)
+为定义在代数闭域 \(k\) 上的代数群. 下列性质等价:
+\begin{enumerate}
+\item[(i)] \SGARefTarget{sga3:xvii:proposition:3:10:item:i}
+从乘法型群 \(M\) 到 \(G\) 的每个同态都平凡.
+\item[(i bis)] \SGARefTarget{sga3:xvii:proposition:3:10:item:i:bis}
+\(G\) 没有非平凡乘法型子群.
+\item[(ii)] \SGARefTarget{sga3:xvii:proposition:3:10:item:ii}
+  \begin{enumerate}
+  \item[(a)] \SGARefTarget{sga3:xvii:proposition:3:10:item:ii:a}
+若 \(p=0\), 则 \(G(k)\) 除 \(e\) 外没有有限阶点.
+  \item[(b)] \SGARefTarget{sga3:xvii:proposition:3:10:item:ii:b}
+若 \(p\ne0\), 则:
+    \begin{itemize}
+    \item 对每个素数 \(q\ne p\), 若 \(x\in G(k)\) 且 \(x^q=e\), 则 \(x=e\);
+    \item \SGARefTarget{sga3:xvii:proposition:3:10:item:ii:b:lie}
+对每个满足 \(X^{(p)}=X\) 的 \(X\in\mathfrak g=\operatorname{Lie}G\), 都有 \(X=0\).
+    \end{itemize}
+  \end{enumerate}
+\item[(ii bis)] \SGARefTarget{sga3:xvii:proposition:3:10:item:ii:bis}
+  \begin{enumerate}
+  \item[(a)] \SGARefTarget{sga3:xvii:proposition:3:10:item:ii:bis:a}
+若 \(p=0\), 条件同\SGARefLink{sga3:xvii:proposition:3:10:item:ii}{(ii)}\SGARefLink{sga3:xvii:appendix:A}{(a)}.
+  \item[(b)] \SGARefTarget{sga3:xvii:proposition:3:10:item:ii:bis:b}
+若 \(p\ne0\), 则:
+    \begin{itemize}
+    \item \(G(k)\) 的每个有限子群都是 \(p\)-群;
+    \item \SGARefTarget{sga3:xvii:proposition:3:10:item:ii:bis:b:lie}
+对每个满足 \(X^{(p)}=X\) 的 \(X\in\mathfrak g=\operatorname{Lie}G\), 都有 \(X=0\).
+    \end{itemize}
+  \end{enumerate}
+\end{enumerate}}
+\SGARefTarget{sga3:xvii:proposition:3:10}
+
+\SGAProof{证明}
+等价关系\SGARefLink{sga3:xvii:proposition:3:10:item:i}{(i)}\(\Leftrightarrow\)(i bis)
+由乘法型群的像仍为乘法型群这一事实得到 (\SGARefLink{sga3:ix:proposition:2:7}{第 IX 讲, 2.7}).
+
+等价关系\SGARefLink{sga3:ix:proposition:2:7:item:ii:01}{(ii)}\(\Leftrightarrow\)(ii bis)
+由下述观察得到. 若一个通常的有限群 \(H\) 的阶不是 \(p\) 的幂,
+则存在素数 \(q\ne p\) 及异于 \(e\) 的元素 \(x\in H\), 满足 \(x^q=e\)
+(Sylow 定理; 参见 J.-P. Serre, \emph{Corps locaux}, 第 IX 章, \S2).
+
+蕴含\SGARefLink{sga3:xvii:proposition:3:10:item:i}{(i)}\(\Rightarrow\)\SGARefLink{sga3:xvii:proposition:3:10:item:ii}{(ii)}
+由下列引理得到.
+
+\SGAStatement{\SGAInlineRefTarget{sga3:xvii:lemma:3-11}引理 3.11}{设 \(G\)
+为定义在域 \(k\) 上的代数群.
+\begin{enumerate}
+\item[(a)] \SGARefTarget{sga3:xvii:lemma:3:11:item:a}
+若 \(k\) 含有 \(n\) 次单位根, 其中 \(n\) 与 \(p\) 互素, 则
+  \[
+    \operatorname{Hom}_{k\text{-}\mathrm{gr}}(\mu_n,G)
+      \simeq
+    \operatorname{Hom}_{k\text{-}\mathrm{gr}}
+      (\mathbb Z/n\mathbb Z,G)
+      \simeq {}_nG(k),
+  \]
+其中 \({}_nG(k)\) 表示 \(G(k)\) 中的 \(n\) 阶点.
+\item[(b)] \SGARefTarget{sga3:xvii:lemma:3:11:item:b}
+若 \(p>0\), 则
+  \[
+    \operatorname{Hom}_{k\text{-}\mathrm{gr}}(\mu_p,G)
+      \simeq
+    \{X\in\mathfrak g=\operatorname{Lie}G\mid X^{(p)}=X\}.
+  \]
+\end{enumerate}}
+\SGARefTarget{sga3:xvii:lemma:3:11}
+
+事实上, 对于\SGARefLink{sga3:xvii:appendix:A}{(a)}, 注意到此时 \(\mu_n\)
+在 \(k\) 上同构于 \(\mathbb Z/n\mathbb Z\);
+断言\SGARefLink{sga3:xvii:section:b}{(b)} 由附录 II, \SGARefLink{sga3:xvii:proposition:2:1}{2.1} 得到.
+
+对于\SGARefLink{sga3:xvii:proposition:2:1:item:ii}{(ii)}\(\Rightarrow\)(i bis),
+\SGARefLink{sga3:xvii:lemma:3-11}{引理 3.11} 表明,
+\SGARefLink{sga3:xvii:proposition:2:1:item:ii}{(ii)} 等价于如下断言:
+对每个素数 \(r\), 群 \(G\) 都不含子群 \(\mu_r\). 所需蕴含于是由下述结论得到:
+
+\SGAStatement{引理 3.12}{设 \(G\) 为在 \(S\) 上有限型的可对角化 \(S\)-群,
+且异于平凡群. 则存在素数 \(r\) 及 \(G\) 的一个子群, 同构于 \((\mu_r)_S\).}
+\SGARefTarget{sga3:xvii:lemma:3:12}
+
+写成 \(G=D_S(M)\), 其中 \(M\) 为有限生成阿贝尔群,
+故为自由群 \(M''\) 被有限群 \(M'\) 的扩张.
+若 \(M''\ne0\), 显然 \(M\) 对每个整数 \(r\) 都有同构于 \(\mathbb Z/r\mathbb Z\) 的商.
+若 \(M''=0\), 则对整除 \(M\) 的阶的每个素数 \(r\),
+\(M'\) 都有同构于 \(\mathbb Z/r\mathbb Z\) 的商. 引理由对偶性得到.
+
+在\SGARefLink{sga3:xvii:proposition:2:4}{命题 2.4} 中已看到,
+幺幂群满足\SGARefLink{sga3:xvii:proposition:3-10}{3.10} 的各个等价条件.
+下一节的目的是证明其逆命题.
+
+\SGASection{4}{幺幂群的一个刻画}
+\SGARefTarget{sga3:xvii:section:4}
+
+如前所述, 下面将证明: 定义在代数闭域 \(k\) 上、不含非平凡乘法型子群的代数群 \(G\)
+是幺幂的. 事实上, 只须 \(G\) 不含某些特殊的“初等”乘法型子群,
+它们取决于对 \(G\) 所加的假设. 在陈述一般定理之前, 先详细研究一些特殊情形.
+
+\SGASubsection{4.1}{光滑、连通的仿射代数群}
+\SGARefTarget{sga3:xvii:subsection:4:1}
+
+\SGAStatement{\SGAInlineRefTarget{sga3:xvii:proposition:4-1-1}命题 4.1.1}{设 \(k\) 为域,
+\(G\) 为光滑、连通的仿射 \(k\)-代数群, 并置 \(\mathfrak g=\operatorname{Lie}G\).
+下列性质等价:
+\begin{enumerate}
+\item[(i)] \SGARefTarget{sga3:xvii:proposition:4:1:1:item:i}
+\(G\) 幺幂.
+\item[(ii)] \SGARefTarget{sga3:xvii:proposition:4:1:1:item:ii}
+\(G\) 有一个中心合成列, 其相继商是 \(\mathbb G_a\) 的型.
+\item[(iii)] \SGARefTarget{sga3:xvii:proposition:4:1:1:item:iii}
+\(G\) 有一个中心的特征合成列, 其相继商是 \((\mathbb G_a)^r\) 的型.
+\item[(iv)] \SGARefTarget{sga3:xvii:proposition:4:1:1:item:iv}
+存在整数 \(n>1\), 使 \(G_{\overline{k}}\) 不含同构于 \(\mu_n\) 的子群.
+\item[(v)] \SGARefTarget{sga3:xvii:proposition:4:1:1:item:v}
+\(G\) 的每个极大环面都是平凡群.
+\end{enumerate}
+再设 \(G\) 为线性群 \(\operatorname{GL}(n)\) 的代数子群. 则上述条件还等价于:
+\begin{enumerate}
+\item[(vi)] \SGARefTarget{sga3:xvii:proposition:4:1:1:item:vi}
+\(\mathfrak g\subset\mathfrak{gl}(n)\) 由幂零自同态组成.
+\item[(vii)] \SGARefTarget{sga3:xvii:proposition:4:1:1:item:vii}
+\(\mathfrak g\) 幂零, 且其中心不含非零半单自同态.
+\end{enumerate}}
+\SGARefTarget{sga3:xvii:proposition:4:1:1}
+
+\SGAProof{证明}
+蕴含\SGARefLink{sga3:xvii:proposition:4:1:1:item:ii}{(ii)}\(\Rightarrow\)\SGARefLink{sga3:xvii:proposition:4:1:1:item:i}{(i)}
+是显然的, 而\SGARefLink{sga3:xvii:proposition:4:1:1:item:i}{(i)}\(\Rightarrow\)\SGARefLink{sga3:xvii:proposition:4:1:1:item:iii}{(iii)}
+已在\SGARefLink{sga3:xvii:lemma:3-9}{3.9} 中证明.
+蕴含\SGARefLink{sga3:xvii:lemma:3:9:item:iii}{(iii)}\(\Rightarrow\)\SGARefLink{sga3:xvii:lemma:3:9:item:ii}{(ii)}
+将由下列引理得到.
+
+\SGAStatement{引理 4.1.2}{设 \(k\) 为域, \(G\) 为 \((\mathbb G_a)^r\) 的一个型这一 \(k\)-代数群.
+则:
+\begin{enumerate}
+\item[(a)] \SGARefTarget{sga3:xvii:lemma:4:1:2:item:a}
+对某个适当的整数 \(n\), 可将 \(G\) 实现为 \((\mathbb G_a)^n\) 的代数子群.
+\item[(b)] \SGARefTarget{sga3:xvii:lemma:4:1:2:item:b}
+\(G\) 有一个合成列, 其相继商是 \(\mathbb G_a\) 的型.
+\end{enumerate}}
+\SGARefTarget{sga3:xvii:lemma:4:1:2}
+
+事实上, 由假设存在 \(k\) 的扩域 \(k'\), 使 \(G_{k'}\) 同构于 \((\mathbb G_{a,k'})^r\).
+由有限扩张原理 (EGA IV, 9.1.1), 可设 \(k'/k\) 有限.
+对于 (a), 这时只须考虑典范闭浸入 (EGA V\footnote[5]{编者注: 此处需另给一个引用\ldots})
+\[
+  G\longrightarrow
+  \prod_{k'/k}(G_{k'})_{/k'}
+  \xrightarrow{\ \sim\ }(\mathbb G_{a,k})^n,
+  \qquad n=r\deg(k'/k).
+\]
+
+要证明\SGARefLink{sga3:xvii:lemma:4:1:2:item:b}{(b)},
+由\SGARefLink{sga3:xvii:lemma:4:1:2:item:a}{(a)}, 可设 \(G\)
+为 \(G'=(\mathbb G_a)^n\) 的闭子群.
+若 \(G\ne0\), 则在 \(\mathfrak g'=\operatorname{Lie}G'\) 中存在一个不含 \(\mathfrak g\)
+的超平面 \(\mathfrak h\). 设 \(H\) 为 \(\mathbf W(\mathfrak g')=G'\)
+的向量子群 \(\mathbf W(\mathfrak h)\).
+由于 \(H\) 在 \(G'\) 中由一个方程定义, 交 \(G\cap H\) 在 \(G\) 中也由一个方程定义, 且
+\[
+\begin{aligned}
+  \dim G-1
+  &\leq \dim(G\cap H)\\
+  &\leq \dim\operatorname{Lie}(G\cap H)
+   =\dim_k(\mathfrak g\cap\mathfrak h)\\
+  &=\dim_k\mathfrak g-1
+   =\dim G-1.
+\end{aligned}
+\]
+所以 \(\dim(G\cap H)=\dim\operatorname{Lie}(G\cap H)\),
+因而 \(G\cap H\) 光滑. 群
+\[
+  G_1=(G\cap H)^0
+\]
+为 \(G\) 的一个光滑连通代数子群, 使 \(G/G_1\) 光滑、连通且一维,
+故为 \(\mathbb G_a\) 的一个型
+(\SGARefLink{sga3:xvii:subsection:4:1}{4.1},
+\SGARefLink{sga3:xvii:proposition:4:1:1:item:i}{(i)}\(\Rightarrow\)\SGARefLink{sga3:xvii:proposition:4:1:1:item:iii}{(iii)}).
+对 \(G\) 的维数作归纳便完成证明.
+
+在继续\SGARefLink{sga3:xvii:subsection:4:1}{4.1} 的证明之前,
+注意等价关系 (i)\(\Leftrightarrow\)(ii) 与\SGARefLink{sga3:xvii:lemma:2:3:bis}{2.3 bis}
+一起给出下列推论.
+
+\SGAStatement{推论 4.1.3}{若 \(k\) 为完美域,
+则一个光滑连通 \(k\)-代数群幺幂当且仅当它有一个相继商均同构于 \(\mathbb G_a\) 的合成列.}
+\SGARefTarget{sga3:xvii:corollary:4:1:3}
+
+\SGAProof{\SGARefLink{sga3:xvii:subsection:4:1}{4.1} 的证明的继续}
+蕴含 (i)\(\Rightarrow\)(iv) 由\SGARefLink{sga3:xiv:2.4:item:i}{2.4(i)} 得到.
+
+对于 (iv)\(\Rightarrow\)(v), 由\SGARefLink{sga3:xiv:4.1}{第 XIV 讲, 4.1},
+群 \(G\) 有一个定义在 \(k\) 上的极大环面 \(T\). 若 \(r=\dim T\), 则
+\[
+  ({}_nT)_{\overline{k}}\simeq(\mu_n)^r.
+\]
+所以 \(r=0\).
+
+蕴含 (v)\(\Rightarrow\)(i) 由\SGARefLink{sga3:xvii:corollary:3:8}{3.8} 的证明中的观察得到.
+
+对于 (i)\(\Rightarrow\)(vi), 由\SGARefLink{sga3:xvii:corollary:3:4}{3.4},
+群 \(G\) 实际包含在 \(\operatorname{GL}(n)\) 的一个同构于 \(\operatorname{Trigstr}(n)\)
+的代数子群中. 因此 \(\mathfrak g\) 由幂零自同态组成.
+
+对于 (vi)\(\Rightarrow\)(vii), 由 Engel 定理
+(Bourbaki, \emph{Groupes et algèbres de Lie}, 第 I 章, \S4, 推论 3), Lie 代数 \(\mathfrak g\) 幂零.
+
+对于 (vii)\(\Rightarrow\)(v), 设 \(T\) 为 \(G\) 的一个极大子环面
+(\SGARefLink{sga3:xiv:1.1}{第 XIV 讲, 1.1}), \(\mathfrak t\) 为其 Lie 代数.
+\(G\) 到 \(\operatorname{GL}(n)\) 中的嵌入定义 \(T\) 的一个表示,
+它必为半单的; 这可在转到 \(k\) 的一个代数闭包 \(\overline{k}\) 后,
+应用\SGARefLink{sga3:i:proposition:4-7-3}{第 I 讲, 4.7.3} 得到.
+所以, 若 \(X\in\mathfrak t\), 则 \(X\) 为 \(\mathfrak{gl}(n)\) 中的半单自同态.
+立即可知
+\[
+  \operatorname{ad}X:\ Y\longmapsto[X,Y]
+\]
+是 \(\mathfrak{gl}(n)\), 因而也是 \(\mathfrak g\) 的半单自同态.
+此自同态又因 \(\mathfrak g\) 幂零而幂零.
+所以 \(\operatorname{ad}X=0\), 从而 \(X\) 中心.
+因此 \(\mathfrak t\) 是中心的, 并由半单自同态组成; 由假设它为零.
+更有 \(T\) 为平凡群.
+
+\SGAStatement{注 4.1.4}{%
+\begin{enumerate}
+\item[(a)] \SGARefTarget{sga3:xvii:remark:4:1:4:item:a}
+下文 (\SGARefLink{sga3:xvii:proposition:4-3-1}{4.3.1}) 将给出特征 \(p>0\)
+时幺幂群的一个与嵌入到 \(\operatorname{GL}(n)\) 中无关的无穷小刻画.
+\item[(b)] \SGARefTarget{sga3:xvii:remark:4:1:4:item:b}
+当 \(k\) 完美时, \SGARefLink{sga3:xvii:proposition:4-1-1}{4.1.1} 的条件 (ii) 与 (iii)
+由下列引理得以简化.
+\end{enumerate}}
+\SGARefTarget{sga3:xvii:remark:4:1:4}
+
+\SGAStatement{引理 4.1.5}{若 \(k\) 为完美域,
+则作为 \((\mathbb G_a)^r\) 的一个型的每个 \(k\)-代数群 \(G\)
+都同构于 \((\mathbb G_a)^r\).}
+\SGARefTarget{sga3:xvii:lemma:4:1:5}
+
+当 \(k\) 的特征 \(p\) 为零时, 引理由\SGARefLink{sga3:xvii:lemma:3:9:ter}{3.9 ter} 得到;
+当 \(r=1\) 时, 引理由\SGARefLink{sga3:xvii:lemma:2:3:bis}{2.3 bis} 得到.
+在一般情形 \((p>0)\) 下,
+对某个适当的整数 \(n\), 将 \(G\) 实现为 \((\mathbb G_a)^n\) 的代数子群
+(\SGARefLink{sga3:xvii:lemma:4:1:2}{4.1.2}), 并对 \(n-r\) 作归纳.
+若 \(r=n\), 确有 \(G=(\mathbb G_a)^r\).
+否则, 商 \((\mathbb G_a)^n/G\) 为非零的光滑连通幺幂群.
+由\SGARefLink{sga3:xvii:proposition:4-1-1}{4.1.1},
+\SGARefLink{sga3:xvii:proposition:4:1:1:item:i}{(i)}\(\Rightarrow\)\SGARefLink{sga3:xvii:proposition:4:1:1:item:ii}{(ii)},
+及\SGARefLink{sga3:xvii:lemma:2:3:bis}{2.3 bis},
+它有一个相继商同构于 \(\mathbb G_a\) 的合成列.
+由此可知 \((\mathbb G_a)^n\) 中存在一个包含 \(G\) 的光滑连通代数子群 \(G_1\), 使
+\[
+  (\mathbb G_a)^n/G_1=\mathbb G_a.
+\]
+由归纳, 只须证明 \(G_1\) 同构于 \((\mathbb G_a)^{n-1}\).
+
+立即可知一个同态
+\[
+  \operatorname{Spec}k[X_1,\ldots,X_n]=(\mathbb G_a)^n
+  \longrightarrow
+  \mathbb G_a=\operatorname{Spec}k[T]
+\]
+由形如下式的可加多项式定义:
+\[
+  \sum_{i,j}a_{i,j}X_i^{p^j}.
+\]
+由于 \(G_1\) 光滑, 此多项式的线性部分非零.
+对坐标 \(X_i\) 作线性变换后, 可设 \(G_1\) 为 \((\mathbb G_a)^n\)
+中由方程
+\[
+  \tag{\(*\)}
+  P(X)=-X_1+\sum_{j=1}^{q}a_jX_1^{p^j}
+    +Q(X_2,\ldots,X_n)=0
+\]
+\SGARefTarget{sga3:xvii:lemma:4:1:5:eq:star}
+定义的代数子群, 其中
+\[
+  Q(X_2,\ldots,X_n)
+    =\sum_{\substack{i>1\\j>0}}b_{i,j}X_i^{p^j}.
+\]
+
+现在对 \(P\) 的次数作归纳. 若 \(\deg P=1\), 显然
+\[
+  G_1\xrightarrow{\ \sim\ }(\mathbb G_a)^{n-1}.
+\]
+否则, 由于 \(k\) 完美, 有 \(Q(X)=Q_1(X)^p\),
+可定义 \((\mathbb G_a)^n\) 的自同态 \(v\) 如下:
+\[
+\begin{aligned}
+  X_i&\longmapsto X_i &&\text{当 \(i>1\) 时},\\
+  X_1&\longmapsto
+    \sum_{j=1}^{q}a_j^{1/p}X_1^{p^{j-1}}+Q_1(X).
+\end{aligned}
+\]
+\SGARefTarget{sga3:xvii:lemma:4:1:5:map:v}
+显然, \(v\) 在 \(G_1\) 上诱导一个同构, 而 \(v(G_1)\) 在 \((\mathbb G_a)^n\)
+中由方程
+\[
+  \tag{\(*\)\(_1\)}
+  P_1(X)=-X_1+\sum_{j=1}^{q}a_j^{1/p}X_1^{p^j}
+    +Q_1(X_2,\ldots,X_n)=0
+\]
+\SGARefTarget{sga3:xvii:lemma:4:1:5:eq:star:1}
+定义.
+
+分为两种情形.
+
+\medskip\noindent\textit{第一种情形.}\quad
+\(\deg Q=\deg P>p^q\). 此时 \(\deg P_1<\deg P\), 可应用归纳假设.
+
+\medskip\noindent\textit{第二种情形.}\quad
+\(\deg P=p^q\), 且 \(a_q\ne0\). 此时
+\[
+  \deg P_1=\deg P=p^q
+  \qquad\text{且}\qquad
+  \deg Q_1<p^q.
+\]
+不可能有 \(Q=0\), 否则 \(G_1\) 将不连通.
+若多项式 \(Q_1\) 没有线性部分, 则可重复上述变换.
+如此继续, 最终得到形如下式的方程:
+\[
+  \tag{\(*\)\(_s\)}\label{sga3:xvii:lemma:4-1-5:equation:star-s}
+  P_s(X)=-X_1+\sum_{j=1}^{q}a_j^{1/p^s}X_1^{p^j}+Q_s(X),
+\]
+\SGARefTarget{sga3:xvii:lemma:4:1:5:eq:star:s}
+其中
+\[
+  Q_s(X)=Q(X_2,\ldots,X_n)^{1/p^s}
+\]
+为线性部分非零的可加多项式, 且 \(\deg Q_s<p^q\).
+例如设 \(Q_s\) 中 \(X_2\) 的系数非零, 并设 \(-L\) 为 \(P_s(X)\) 的线性部分.
+作线性坐标变换后, \(G_1\) 的方程变为
+\[
+  P'(X)=-L+\sum_{j=1}^{q}a_j^{1/p^s}X_1^{p^j}
+    +Q'(L,X_3,\ldots,X_n),
+\]
+其中 \(Q'\) 为没有线性部分的可加多项式, 且 \(\deg Q'<p^q\).
+于是归结到第一种情形.\footnote[6]{编者注: 将 \(X_1\) 替换为 \(L\).}
+
+% 来源: XVII.tex 第 1393--1826 行.
+\SGASubsection{4.2}{根式群}
+\SGARefTarget{sga3:xvii:subsection:4:2}
+
+\SGAStatement{\SGAInlineRefTarget{sga3:xvii:proposition:4-2-1}命题 4.2.1}{设 \(G\)
+为定义在特征 \(p>0\) 的域 \(k\) 上的根式代数群. 下列条件等价:
+\begin{enumerate}
+\item[(i)] \SGARefTarget{sga3:xvii:proposition:4:2:1:item:i}
+\(G\) 幺幂.
+\item[(ii)] \SGARefTarget{sga3:xvii:proposition:4:2:1:item:ii}
+\(G\) 有一个中心合成列, 其相继商同构于 \(\boldsymbol\alpha_p\).
+\item[(iii)] \SGARefTarget{sga3:xvii:proposition:4:2:1:item:iii}
+\(G\) 有一个中心的特征合成列, 其相继商同构于 \((\boldsymbol\alpha_p)^r\).
+\item[(iv)] \SGARefTarget{sga3:xvii:proposition:4:2:1:item:iv}
+\(G_{\overline{k}}\) 不含同构于 \(\boldsymbol\mu_p\) 的子群.
+\item[(v)] \SGARefTarget{sga3:xvii:proposition:4:2:1:item:v}
+\(\mathfrak g=\operatorname{Lie}G\) 是幺幂 \(p\)-Lie 代数
+(\SGARefLink{sga3:xvii:definition:3:6}{3.6}).
+\end{enumerate}}
+\SGARefTarget{sga3:xvii:proposition:4:2:1}
+
+\SGAProof{证明}
+蕴含\SGARefLink{sga3:xvii:proposition:4:2:1:item:iii}{(iii)}\(\Rightarrow\)\SGARefLink{sga3:xvii:proposition:4:2:1:item:ii}{(ii)}\(\Rightarrow\)\SGARefLink{sga3:xvii:proposition:4:2:1:item:i}{(i)}
+是显然的; \SGARefLink{sga3:xvii:proposition:4:2:1:item:i}{(i)}\(\Rightarrow\)\SGARefLink{sga3:xvii:proposition:4:2:1:item:iii}{(iii)}
+就是\SGARefLink{sga3:xvii:lemma:3:9:item:i}{3.9(i)},
+而\SGARefLink{sga3:xvii:proposition:4:2:1:item:i}{(i)}\(\Rightarrow\)\SGARefLink{sga3:xvii:proposition:4:2:1:item:iv}{(iv)}
+由\SGARefLink{sga3:xvii:proposition:2:4:item:i}{2.4(i)} 得到.
+
+需要下列关于阿贝尔 \(p\)-Lie 代数的引理.
+
+\SGAStatement{\SGAInlineRefTarget{sga3:xvii:lemma:4-2-2}引理 4.2.2}{设 \(\mathfrak g\)
+为完美域 \(k\) 上的有限维阿贝尔 \(p\)-Lie 代数. 则 \(\mathfrak g\) 可唯一地写成直和
+\[
+  \mathfrak g=\mathfrak r\oplus\mathfrak u,
+\]
+其中 \(\mathfrak r\) 是其上 \(p\) 次幂为双射的 \(p\)-Lie 子代数,
+而 \(\mathfrak u\) 是幺幂 \(p\)-Lie 子代数 (\SGARefLink{sga3:xvii:definition:3:6}{3.6}).
+称代数 \(\mathfrak r\) 为 \(\mathfrak g\) 的\emph{约化部分} (reductive part),
+\(\mathfrak u\) 为其\emph{幺幂部分} (unipotent part).
+\(\mathfrak r\) 及 \(\mathfrak u\) 的形成与域 \(k\) 的扩张相容.
+若再假设 \(k\) 代数闭, 则 \(\mathfrak r\) 有一组基 \(e_i\), 满足
+\[
+  e_i^{(p)}=e_i.
+\]}
+\SGARefTarget{sga3:xvii:lemma:4:2:2}
+
+本引理的证明容易, 留给读者; 参见 Bourbaki, \emph{Groupes et algèbres de Lie},
+第 I 章, \S1, 习题 23. 这里只指出, \(\mathfrak u\) 是映射 \(X\mapsto X^{(p)}\)
+的某个适当迭代的核, 而 \(\mathfrak r\) 是同一迭代的像.
+
+现在证明\SGARefLink{sga3:xvii:proposition:4:2:1:item:iv}{(iv)}\(\Rightarrow\)\SGARefLink{sga3:xvii:proposition:4:2:1:item:v}{(v)}.
+必要时扩张基域, 可设 \(k\) 代数闭.
+设 \(X\in\mathfrak g\), \(\mathfrak h\) 为 \(X\) 生成的 \(\mathfrak g\) 的 \(p\)-Lie 子代数.
+代数 \(\mathfrak h\) 显然交换, 且其约化部分
+(\SGARefLink{sga3:xvii:lemma:4-2-2}{4.2.2}) 为零.
+否则, 由所引结论, \(\mathfrak h\) 将含有满足 \(Y^{(p)}=Y\) 的元素 \(Y\ne0\),
+从而由附录 II, \SGARefLink{sga3:xvii:proposition:2:1}{2.1} 和\SGARefLink{sga3:xvii:proposition:2:2}{2.2},
+\(G\) 将含有同构于 \(\boldsymbol\mu_p\) 的子群, 与假设矛盾.
+所以 \(\mathfrak h\), 从而 \(\mathfrak g\), 都是幺幂 \(p\)-Lie 代数.
+
+只须证明\SGARefLink{sga3:xvii:proposition:4:2:1:item:v}{(v)}\(\Rightarrow\)\SGARefLink{sga3:xvii:proposition:4:2:1:item:i}{(i)},
+这是\SGARefLink{sga3:xvii:proposition:4-2-1}{4.2.1} 中最不直接的蕴含.
+
+\medskip\noindent\textit{(a) \(G\) 的高度为 \(1\) 的情形}
+(第 VII\textsubscript{A} 讲, \SGARefLink{sga3:VIIA:4.1.3}{4.1.3}).
+由于 \(G\) 根式, 它仿射, 从而同构于某个线性群 \(\operatorname{GL}(V)\) 的代数子群
+(第 VI\textsubscript{B} 讲, \S11). 此嵌入将 \(\mathfrak g\) 与
+\(\operatorname{End}(V)\) 的一个 \(p\)-Lie 子代数等同,
+且 \(X\) 在 \(\mathfrak g\) 中的 \(p\) 次幂与自同态 \(X\) 的 \(p\) 次幂相同
+(第 VII\textsubscript{A} 讲, \SGARefLink{sga3:VIIA:6.4.4}{6.4.4}).
+由假设 \(\mathfrak g\) 幺幂, 因而它是 \(V\) 的一个由幂零自同态组成的代数.
+由 Engel 定理 (Bourbaki, \emph{Groupes et algèbres de Lie}, 第 I 章, \S4, 定理 1),
+相对于 \(V\) 的一组适当的基, 它是严格上三角矩阵群 \(\operatorname{Trigstr}(n)\)
+的 Lie 代数 \(\mathfrak h\) 的一个 Lie 子代数.
+由于 \(G\) 的高度为 \(1\), 附录 II, \SGARefLink{sga3:ii:subsection:2-2}{2.2}
+于是表明 \(G\) 本身是 \(\operatorname{Trigstr}(n)\) 的代数子群,
+因而由\SGARefLink{sga3:xvii:theorem:3:5:item:v}{3.5(v)}\(\Rightarrow\)\SGARefLink{sga3:xvii:proposition:4:2:1:item:i}{(i)},
+它幺幂.
+
+\medskip\noindent\textit{\SGARefLink{sga3:xvii:section:b}{(b)} 一般情形.}\quad
+对 \(G\) 的高度 \(h\) 作归纳.{\renewcommand{\thefootnote}{*}\footnote{即使得
+\(F^h=\operatorname{id}_G\) 的最小整数 \(h\); 参见附录 II, 1.}}
+\(h=1\) 的情形刚已处理. 设 \(h>1\), 并置
+\[
+  G'={}_{F}G,
+  \qquad
+  G''=G/G'.
+\]
+群 \(G'\) 的高度为 \(1\), 且 \(\operatorname{Lie}G'=\operatorname{Lie}G\) 幺幂.
+所以由\SGARefLink{sga3:xvii:appendix:A}{(a)}, \(G'\) 幺幂.
+故要证明 \(G\) 幺幂, 只须说明 \(G''\) 幺幂
+(\SGARefLink{sga3:xvii:proposition:2:2}{2.2}).
+但 \(G''\) 的高度为 \(h-1\), 所以由归纳假设, 只须证明 \(\operatorname{Lie}G''\) 幺幂.
+
+由 (iv)\(\Rightarrow\)(v), 只须证明 \(G''_{\overline{k}}\)
+不含同构于 \(\boldsymbol\mu_p\) 的子群.
+于是设给定了这样的子群, 以 \(H\) 表示它在 \(G_{\overline{k}}\) 中的逆像.
+由于 \(G'\) 幺幂, 将在 \S5 中证明扩张
+\[
+  e\longrightarrow G'_{\overline{k}}
+   \longrightarrow H
+   \longrightarrow\boldsymbol\mu_p
+   \longrightarrow e
+\]
+必然平凡; 该事实的证明独立于本节的结论.
+所以 \(\boldsymbol\mu_p\) 提升到 \(H\) 中. 由于它的高度为 \(1\), 它于是必包含在
+\[
+  G'_{\overline{k}}={}_{F}(G_{\overline{k}})
+\]
+中, 而因 \(G'\) 幺幂, 这是不可能的.
+
+\SGASubsection{4.3}{特征 \(p>0\) 时的连通仿射群}
+\SGARefTarget{sga3:xvii:subsection:4:3}
+
+\SGAStatement{\SGAInlineRefTarget{sga3:xvii:proposition:4-3-1}命题 4.3.1}{设 \(G\)
+为特征 \(p>0\) 的域 \(k\) 上的连通仿射代数群. 下列条件等价:
+\begin{enumerate}
+\item[(i)] \SGARefTarget{sga3:xvii:proposition:4:3:1:item:i}
+\(G\) 幺幂.
+\item[(ii)] \SGARefTarget{sga3:xvii:proposition:4:3:1:item:ii}
+\(G\) 有一个合成列, 其相继商依次同构于 \(\boldsymbol\alpha_p\) 和 \(\mathbb G_a\).
+\item[(iii)] \SGARefTarget{sga3:xvii:proposition:4:3:1:item:iii}
+\(G\) 有一个特征合成列, 其相继商依次同构于 \((\boldsymbol\alpha_p)^r\)
+和 \((\mathbb G_a)^s\).
+\item[(iv)] \SGARefTarget{sga3:xvii:proposition:4:3:1:item:iv}
+\(G_{\overline{k}}\) 不含同构于 \(\boldsymbol\mu_p\) 的子群.
+\item[(v)] \SGARefTarget{sga3:xvii:proposition:4:3:1:item:v}
+\(\mathfrak g=\operatorname{Lie}G\) 幺幂 (\SGARefLink{sga3:xvii:definition:3:6}{3.6}).
+\item[(vi)] \SGARefTarget{sga3:xvii:proposition:4:3:1:item:vi}
+\(\mathfrak g\) 幂零, 且 \(\mathfrak g\) 的中心的约化部分
+(\SGARefLink{sga3:xvii:lemma:4-2-2}{4.2.2}) 平凡.
+\item[(vi bis)]
+  \SGARefTarget{sga3:xvii:proposition:4:3:1:item:vi-bis}
+\(\mathfrak g\) 幂零, 且 \(G\) 的中心的单位元连通分支的每个乘法型子群都平凡.
+\item[(vi ter)]
+  \SGARefTarget{sga3:xvii:proposition:4:3:1:item:vi-ter}
+\(G\) 幂零, 且 \(G\) 的中心的单位元连通分支中的每个乘法型子群都平凡.
+\end{enumerate}}
+\SGARefTarget{sga3:xvii:proposition:4:3:1}
+
+\SGAProof{证明}
+蕴含\SGARefLink{sga3:xvii:proposition:4:3:1:item:iii}{(iii)}\(\Rightarrow\)\SGARefLink{sga3:xvii:proposition:4:3:1:item:ii}{(ii)}\(\Rightarrow\)\SGARefLink{sga3:xvii:proposition:4:3:1:item:i}{(i)}
+是显然的. 为证明\SGARefLink{sga3:xvii:proposition:4:3:1:item:i}{(i)}\(\Rightarrow\)\SGARefLink{sga3:xvii:proposition:4:3:1:item:iii}{(iii)},
+需要下列引理.
+
+\SGAStatement{\SGAInlineRefTarget{sga3:xvii:lemma:4-3-2}引理 4.3.2}{设 \(k\)
+为特征 \(p>0\) 的域, \(n\in\mathbb N\), \(k'\) 为 \(k\) 的根式扩张,
+且 \((k')^{p^n}\) 包含在 \(k\) 中.
+对每个 \(k\)-预概形 \(X\) (分别地, 每个 \(k'\)-预概形 \(X'\)),
+以 \(X^{(p^n)}\) (分别地, \((X')^\phi\)) 表示由 \(X\) (分别地, \(X'\))
+经基变换
+\[
+  F^n:k\longrightarrow k,\qquad x\longmapsto x^{p^n},
+  \qquad
+  \bigl(\text{分别地, }\;
+  \phi:k'\longrightarrow k,\qquad x'\longmapsto(x')^{p^n}\bigr)
+\]
+所得的 \(k\)-预概形. 则对每个 \(k\)-预概形 \(X\), 存在一个函子性同构
+\[
+  (X_{k'})^\phi\xrightarrow{\sim}X^{(p^n)}.
+\]
+因此, 若 \(X\) 与 \(Y\) 为两个 \(k\)-预概形, 且存在 \(k'\)-同构
+\[
+  u':X_{k'}\xrightarrow{\sim}Y_{k'},
+\]
+则存在 \(k\)-同构
+\[
+  v:X^{(p^n)}\xrightarrow{\sim}Y^{(p^n)}.
+\]
+若再假设 \(X\) 与 \(Y\) 具有 \(k\)-群预概形结构, 且 \(u'\)
+为 \(k'\)-同态, 则 \(v\) 为 \(k\)-同态.}
+\SGARefTarget{sga3:xvii:lemma:4:3:2}
+
+引理直接由基变换的传递性以及复合
+\[
+  k\longrightarrow k'\xrightarrow{\phi}k
+\]
+为 \(F^n\) 这一事实得到.
+
+\medskip\noindent\textit{\SGARefLink{sga3:xvii:proposition:4-3-1}{4.3.1} 的证明的继续.}
+
+\medskip\noindent
+\textit{(i)\(\Rightarrow\)\SGARefLink{sga3:xvii:proposition:4:3:1:item:iii}{(iii)}.}\quad
+对 \(\dim G\) 作归纳.
+若 \(\dim G=0\), 则因 \(G\) 连通, 它根式, 可应用\SGARefLink{sga3:xvii:lemma:3:9:item:i}{3.9(i)}.
+若 \(\dim G>0\), 则存在整数 \(m\geq0\), 使商 \(G/F_mG\) 光滑
+(附录 II, \SGARefLink{sga3:xvii:lemma:3-1}{3.1}), 并且显然连通且非零.
+对此商应用\SGARefLink{sga3:xvii:proposition:4:1:1:item:i}{4.1.1(i)}\(\Rightarrow\)\SGARefLink{sga3:xvii:lemma:3-1:item:iii}{(iii)},
+可知 \(G\) 有一个特征且连通的代数子群 \(G'\), 其商
+\[
+  G''=G/G'
+\]
+为 \((\mathbb G_a)^r\) 的一个型, 其中 \(r>0\).
+由\SGARefLink{sga3:xvii:lemma:4:1:5}{4.1.5}, 若 \(K\) 为 \(k\) 的一个完美闭包, 则
+\[
+  G''_K\xrightarrow{\sim}(\mathbb G_{a,K})^r.
+\]
+由于 \(G''\) 在 \(k\) 上有限型, 存在 \(k\) 的有限根式扩张 \(k'\), 使
+\[
+  G''_{k'}\xrightarrow{\sim}(\mathbb G_{a,k'})^r
+\]
+(第 VI\textsubscript{B} 讲, \S10).
+选取 \(n>0\), 使 \((k')^{p^n}\subset k\).
+沿用\SGARefLink{sga3:xvii:lemma:4-3-2}{4.3.2} 的记号, 可得代数群的 \(k\)-同构
+\[
+  (\mathbb G_{a,k})^r
+   =\bigl((\mathbb G_{a,k'})^r\bigr)^\phi
+   \xrightarrow{\sim}(G'')^{(p^n)}.
+\]
+现在考虑 \(G''\) 的相对 Frobenius 同态 (第 VII\textsubscript{A} 讲, \S4):
+\[
+  F^n:G''\longrightarrow(G'')^{(p^n)}.
+\]
+由于 \(G''\), 从而 \((G'')^{(p^n)}\), 都在 \(k\) 上光滑,
+而 \(F^n\) 根式, \(F^n\) 是 fpqc 拓扑下的满态射.
+所以 \((G'')^{(p^n)}\) 可与 \(G''/F_n(G'')\) 等同, 并已证明代数群之间有
+\[
+  G''/F_n(G'')\xrightarrow{\sim}(\mathbb G_a)^r.
+\]
+\(F_n(G'')\) 在 \(G\) 中的逆像 \(G'_n\) 是 \(G\) 的一个连通特征子群,
+其维数严格小于 \(G\) 的维数; 因此可对 \(G'_n\) 应用归纳假设.
+
+\medskip\noindent
+\textit{(i)\(\Rightarrow\)(iv).}\quad
+由\SGARefLink{sga3:VIIA:2.4:item:i}{2.4(i)} 得到.
+
+\medskip\noindent
+\textit{(iv)\(\Rightarrow\)(i).}\quad
+将 \(G\) 看作光滑连通群 \(G''\) 被根式群 \(G'\) 的扩张
+(附录 II, \SGARefLink{sga3:xvii:lemma:3-1}{3.1}).
+由\SGARefLink{sga3:xvii:proposition:4:2:1:item:iv}{4.2.1(iv)}\(\Leftrightarrow\)\SGARefLink{sga3:xvii:lemma:3-1:item:i}{(i)},
+群 \(G'\) 幺幂.
+所以只须证明 \(G''\) 幺幂; 由\SGARefLink{sga3:xvii:proposition:4:1:1:item:i}{4.1.1(i)}\(\Leftrightarrow\)(iv),
+为此只须说明 \(G''_{\overline{k}}\) 不含同构于 \(\boldsymbol\mu_p\) 的子群.
+若 \(G''_{\overline{k}}\) 含有这样的子群,
+则由上文已经用过、其证明将在 \S5 中给出的结论\SGARefLink{sga3:xvii:subsection:5:1}{5.1},
+此子群将提升到 \(G_{\overline{k}}\) 中. 这与 (iv) 矛盾.
+
+\medskip\noindent\textit{\SGARefLink{sga3:xvii:proposition:4-3-1}{4.3.1} 的证明的继续.}
+
+\medskip\noindent
+\textit{(i)\(\Rightarrow\)\SGARefLink{sga3:xvii:proposition:4:3:1:item:v}{(v)}.}\quad
+由\SGARefLink{sga3:xvii:corollary:3:7}{3.7} 得到.
+
+\medskip\noindent
+\textit{(v)\(\Rightarrow\)\SGARefLink{sga3:xvii:proposition:4:3:1:item:vi}{(vi)}.}\quad
+事实上, 由于
+\[
+  (\operatorname{ad}X)^{p^r}
+    =\operatorname{ad}\bigl(X^{(p^r)}\bigr)
+  \qquad\text{(第 VII\textsubscript{A} 讲, 5.2),}
+\]
+当 \(\mathfrak g\) 幺幂时, \(\operatorname{ad}X\) 幂零;
+所以由 Engel 定理, \(\mathfrak g\) 幂零.
+此外, 若 \(\mathfrak g\) 幺幂, 则其中心显然也幺幂,
+从而该中心的约化部分平凡 (\SGARefLink{sga3:xvii:lemma:4-2-2}{4.2.2}).
+
+\medskip\noindent
+\textit{(vi)\(\Rightarrow\)(iv).}\quad
+事实上, 若 \(G_{\overline{k}}\) 含有同构于 \(\boldsymbol\mu_p\) 的子群,
+则其 Lie 代数将含有非零元素 \(X\), 使
+\[
+  X^{(p)}=X
+  \qquad\text{(附录 II, 2.1),}
+\]
+从而对每个 \(r>0\), 有 \(X^{(p^r)}=X\).
+由于 \(\mathfrak g\) 幂零, \(\operatorname{ad}X\) 幂零, 而且
+\[
+  (\operatorname{ad}X)^{p^r}
+    =\operatorname{ad}\bigl(X^{(p^r)}\bigr),
+\]
+必有 \(\operatorname{ad}X=0\). 所以 \(X\) 属于 \(\mathfrak g_{\overline{k}}\)
+的中心的约化部分, 与 (vi) 矛盾.
+
+\medskip\noindent
+\textit{(i)\(\Rightarrow\)(vi ter).}\quad
+由\SGARefLink{sga3:VIIA:2.4:item:i}{2.4(i)} 及\SGARefLink{sga3:xvii:theorem:3:5:item:i}{3.5(i)}\(\Rightarrow\)(iii) 得到.
+
+\medskip\noindent
+\textit{(vi ter)\(\Rightarrow\)(vi bis).}\quad
+事实上, 若 \(G\) 幂零, 则其子群 \({}_{F}G\) 也幂零.
+附录 II, \SGARefLink{sga3:ii:subsection:2-2}{2.2} 表明, \({}_{F}G\) 幂零当且仅当
+\[
+  \operatorname{Lie}({}_{F}G)=\operatorname{Lie}G
+  \qquad\text{(第 VII\textsubscript{A} 讲)}
+\]
+幂零.
+
+\medskip\noindent
+\textit{(vi bis)\(\Rightarrow\)(vi).}\quad
+设 \(Z\) 为 \(G\) 的中心的单位元连通分支,
+\(\mathfrak r\) 为 \(\mathfrak g\) 的中心的约化部分.
+须证明 \(\mathfrak r=0\). 立即可知 \(\mathfrak r\) 是
+\[
+  \mathfrak g=\operatorname{Lie}({}_{F}G)
+\]
+的一个特征 \(p\)-Lie 子代数; 即它在函子 \(\operatorname{Aut}_{p\text{-Lie}}(\mathfrak g)\)
+下稳定. 因而 \(\mathfrak r\) 是 \({}_{F}G\) 的一个特征根式子群 \(R\) 的 Lie 代数
+(附录 II, \SGARefLink{sga3:ii:subsection:2-2}{2.2}).
+\SGARefLink{sga3:xvii:lemma:4-2-2}{4.2.2} 的最后一个断言与附录 II,
+\SGARefLink{sga3:xvii:proposition:2:1}{2.1} 还表明, \(R\) 是 \((\boldsymbol\mu_p)^r\) 的一个型.
+由于 \(R\) 在 \({}_{F}G\) 中为特征子群, 而后者本身又在 \(G\) 中为特征子群
+(附录 II, 1), 它在 \(G\) 中为不变子群,
+且因 \(G\) 连通而为中心子群 (\SGARefLink{sga3:ix:corollary:5:5}{第 IX 讲, 5.5}).
+由 (vi bis), \(R=0\), 所以 \(\mathfrak r=0\).
+
+\SGASubsection{4.4}{平展群}
+\SGARefTarget{sga3:xvii:subsection:4:4}
+
+下列命题由 Sylow 定理及有限 \(q\)-群的结构容易得到
+(参见 J.-P. Serre, \emph{Corps locaux}, 第 IX 章, \S1).
+
+\SGAStatement{命题 4.4.1}{设 \(G\) 为代数闭域上的有限平展代数群.
+则 \(G\) 幺幂当且仅当对每个异于域的特征 \(p\) 的素数 \(q\),
+\(G\) 都不含同构于 \(\boldsymbol\mu_q\) 的子群.}
+\SGARefTarget{sga3:xvii:proposition:4:4:1}
+
+\SGASubsection{4.5}{阿贝尔簇}
+\SGARefTarget{sga3:xvii:subsection:4:5}
+
+设 \(G\) 为代数闭域 \(k\) 上的阿贝尔簇. 下列条件等价:
+\begin{enumerate}
+\item[(i)] \SGARefTarget{sga3:xvii:subsection:4:5:item:i}
+\(G\) 幺幂.
+\item[(ii)] \SGARefTarget{sga3:xvii:subsection:4:5:item:ii}
+\(G=0\).
+\item[(iii)] \SGARefTarget{sga3:xvii:subsection:4:5:item:iii}
+存在整数 \(n\), 与 \(k\) 的特征 \(p\) 互素,
+使 \(G\) 不含同构于 \(\boldsymbol\mu_n\) 的子群.
+\end{enumerate}
+
+事实上, 若 \(G\) 为维数 \(d\) 的阿贝尔簇, 则已知
+(参见 S. Lang, \emph{Abelian Varieties}, 第 IV 章, \S3,
+\SGARefLink{sga3:xvii:section:6:site:da2ef89f51}{定理 6}),
+当 \(n\) 与 \(p\) 互素时, 群 \({}_nG(k)\) 同构于
+\[
+  (\mathbb Z/n\mathbb Z)^{2d},
+\]
+从而同构于 \((\boldsymbol\mu_n)^{2d}\).
+所以 (iii)\(\Rightarrow\)(ii), 而 (ii)\(\Rightarrow\)(i)\(\Rightarrow\)(iii) 是显然的.
+
+% 来源: XVII.tex 第 1827--2030 行.
+\SGASubsection{4.6}{一般情形}
+\SGARefTarget{sga3:xvii:subsection:4:6}
+
+若 \(G\) 与 \(H\) 为定义在代数闭域 \(k\) 上的两个代数群, 以 \(P(G,H)\) 表示性质
+\[
+  \text{“不存在同构于 \(H\) 的 \(G\) 的代数子群.”}
+\]
+于是得到幺幂群的下列刻画.
+
+\SGAStatement{\SGAInlineRefTarget{sga3:xvii:theorem:4-6-1}定理 4.6.1}{设 \(G\)
+为定义在特征 \(p\) 的代数闭域 \(k\) 上的代数群. 则:
+\begin{enumerate}
+\item[(i)] \SGARefTarget{sga3:xvii:theorem:4:6:1:item:i}
+若 \(G\) 光滑、仿射且连通, 则
+  \[
+    \begin{split}
+    G\text{ 幺幂}
+      &\Longleftrightarrow
+        \text{存在 \(n>1\), 使 \(P(G,\boldsymbol\mu_n)\) 成立}\\
+      &\Longleftrightarrow P(G,\mathbb G_m)\text{ 成立}.
+    \end{split}
+  \]
+\item[(ii)] \SGARefTarget{sga3:xvii:theorem:4:6:1:item:ii}
+若 \(G\) 光滑连通, 则
+  \[
+    G\text{ 幺幂}
+      \Longleftrightarrow
+    \text{存在与 \(p\) 互素的 \(n\), 使
+      \(P(G,\boldsymbol\mu_n)\) 成立}.
+  \]
+\item[(iii)] \SGARefTarget{sga3:xvii:theorem:4:6:1:item:iii}
+若 \(G\) 光滑, 则
+  \[
+    G\text{ 幺幂}
+      \Longleftrightarrow
+    P(G,\boldsymbol\mu_n)\text{ 对每个素数 \(n\ne p\) 都成立}.
+  \]
+\item[(iv)] \SGARefTarget{sga3:xvii:theorem:4:6:1:item:iv}
+若 \(G\) 仿射连通且 \(p>0\), 则
+  \[
+    G\text{ 幺幂}
+      \Longleftrightarrow P(G,\boldsymbol\mu_p)\text{ 成立}.
+  \]
+\item[(v)] \SGARefTarget{sga3:xvii:theorem:4:6:1:item:v}
+若 \(G\) 连通且 \(p>0\), 则
+  \[
+    \begin{split}
+    G\text{ 幺幂}
+      \Longleftrightarrow{}&
+      \text{存在与 \(p\) 互素的 \(n\), 使}\\[-2pt]
+      &P(G,\boldsymbol\mu_n)\text{ 与 }
+        P(G,\boldsymbol\mu_p)\text{ 均成立}.
+    \end{split}
+  \]
+\item[(vi)] \SGARefTarget{sga3:xvii:theorem:4:6:1:item:vi}
+对任意代数群 \(G\),
+  \[
+    G\text{ 幺幂}
+      \Longleftrightarrow
+    P(G,\boldsymbol\mu_n)\text{ 对每个素数 \(n\) 都成立}.
+  \]
+\end{enumerate}}
+\SGARefTarget{sga3:xvii:theorem:4:6:1}
+
+\SGAProof{证明}
+断言 (i) 由\SGARefLink{sga3:xvii:proposition:4-1-1}{4.1.1} 得到,
+(iv) 由\SGARefLink{sga3:xvii:proposition:4-3-1}{4.3.1} 得到.
+下面证明 (vi); 断言 (ii), (iii) 及 (v) 的证明相同, 留给读者.
+
+设 \(G\) 为代数群. 若 \(G\) 幺幂, 则由 2.4(i), 对每个 \(n>1\),
+\(P(G,\boldsymbol\mu_n)\) 成立.
+反之, 设对每个素数 \(n\), \(P(G,\boldsymbol\mu_n)\) 成立, 来证明 \(G\) 幺幂.
+以 \(G^0\) 表示 \(G\) 的单位元连通分支.
+若 \(G^0\) 光滑, 则 Chevalley 的一个经典定理\begingroup\renewcommand{\thefootnote}{*}\footnote[0]{%
+\emph{Séminaire Bourbaki}, 第 145 讲, 1956/57.}\endgroup
+表明, \(G^0\) 为阿贝尔簇 \(A\) 被光滑连通仿射群 \(L\) 的扩张.
+若 \(G\) 不光滑, 这意味着 \(p>0\)
+(第 VI\textsubscript{B} 讲, \SGARefLink{cor:sga3-VIB-1.6.1}{1.6.1}),
+则存在整数 \(n>0\), 使
+\[
+  G''=G^0/{}_{F^n}(G)
+\]
+光滑 (附录 II, \SGARefLink{sga3:xvii:lemma:3-1}{3.1}).
+所以 \(G''\) 为阿贝尔簇 \(A\) 被光滑连通线性群 \(L''\) 的扩张.
+设 \(L\) 为 \(L''\) 在 \(G^0\) 中的逆像.
+它仍仿射连通, 因为 \({}_{F^n}(G)\) 根式.
+因此在所有情形下, \(G\) 都有一个合成列
+\[
+  0\subset L\subset G^0\subset G,
+\]
+使 \(L\) 仿射连通, \(G^0/L=A\) 为阿贝尔簇, 而 \(G/G^0\) 为平展群.
+
+若 \(P(G,\boldsymbol\mu_n)\) 成立, 则更有 \(P(L,\boldsymbol\mu_n)\) 成立,
+故 \(L\) 幺幂 (\SGARefLink{sga3:xvii:proposition:4-1-1}{4.1.1}
+及\SGARefLink{sga3:xvii:proposition:4-3-1}{4.3.1}).
+若 \(A\ne0\), 则存在素数 \(n\) 及 \(A\) 的一个同构于 \(\boldsymbol\mu_n\) 的子群
+(\SGARefLink{sga3:xvii:subsection:4:5}{4.5}).
+由下文\SGARefLink{sga3:xvii:subsection:5:1}{5.1}, 此子群提升到 \(G\) 中,
+与 \(P(G,\boldsymbol\mu_n)\) 矛盾. 因此 \(A=0\).
+最后, 若 \(G/G^0\) 不幺幂, 则存在整数 \(q\) 及 \(G/G^0\)
+的一个同构于 \(\boldsymbol\mu_q\) 的子群 (\SGARefLink{sga3:xvii:proposition:4:4:1}{4.4.1}).
+同上, 可知 \(P(G,\boldsymbol\mu_q)\) 不成立.
+所以 \(G/G^0\) 幺幂, 从而 \(G\) 也幺幂.
+
+\SGASection{5}{乘法型群被幺幂群的扩张}
+\SGARefTarget{sga3:xvii:section:5}
+\SGASubsection{5.1}{定理的陈述}
+\SGARefTarget{sga3:xvii:subsection:5:1}
+
+\SGAStatement{\SGAInlineRefTarget{sga3:xvii:definition:5-1-0}定义 5.1.0}{设 \(k\)
+为域, \(G\) 为代数 \(k\)-群.
+依照 Rosenlicht 引入的术语 (\emph{Questions of rationality for solvable algebraic groups over non perfect fields},
+Annali di Matematica 61 (1963)), 若 \(G\) 满足下列等价条件, 则称它为\emph{\(k\)-可解的}:
+\begin{enumerate}
+\item[(i)] \SGARefTarget{sga3:xvii:definition:5:1:0:item:i}
+\(G\) 有一个合成列, 其相继商同构于 \(\mathbb G_a\).
+\item[(ii)] \SGARefTarget{sga3:xvii:definition:5:1:0:item:ii}
+\(G\) 有一个特征合成列 \((G_i)\), 使其相继商 \(G_i/G_{i+1}\) 交换,
+且这些商自身有相继商同构于 \(\mathbb G_a\) 的合成列.
+\end{enumerate}}
+\SGARefTarget{sga3:xvii:definition:5:1:0}
+
+蕴含\SGARefLink{sga3:xvii:definition:5:1:0:item:i}{(i)}\(\Rightarrow\)\SGARefLink{sga3:xvii:definition:5:1:0:item:ii}{(ii)}
+在\emph{所引文献}中证明.
+事实上, 合成列 \((G_i)\) 可取为\SGARefLink{sga3:xvii:lemma:3:9:item:ii}{3.9(ii)} 的证明中引入的列.
+
+\SGAStatement{\SGAInlineRefTarget{sga3:xvii:theorem:5-1-1}定理 5.1.1}{设 \(k\) 为域,
+\(U\) 为幺幂代数 \(k\)-群, \(H\) 为 \(k\)-乘法型群,
+\(E\) 为 \(H\) 被 \(U\) 的扩张这一代数 \(k\)-群, 即有正合列
+\[
+  1\longrightarrow U\longrightarrow E\longrightarrow H
+    \longrightarrow1.
+\]
+则:
+\begin{enumerate}
+\item[(i)] \SGARefTarget{sga3:xvii:theorem:5:1:1:item:i}
+在下列各个情形中, 扩张 \(E\) 都平凡:
+  \begin{enumerate}
+  \item[(a)] \SGARefTarget{sga3:xvii:theorem:5:1:1:item:i:a}
+\(k\) 代数闭;
+  \item[(b)] \SGARefTarget{sga3:xvii:theorem:5:1:1:item:i:b}
+\(k\) 完美, 且 \(U\) 或 \(H\) 中有一个群连通;
+  \item[(c)] \SGARefTarget{sga3:xvii:theorem:5:1:1:item:i:c}
+\(U\) 为 \(k\)-可解群;
+  \item[(d)] \SGARefTarget{sga3:xvii:theorem:5:1:1:item:i:d}
+\(U\) 光滑且 \(H\) 连通.
+  \end{enumerate}
+\item[(ii)] \SGARefTarget{sga3:xvii:theorem:5:1:1:item:ii}
+若 \(H'\) 与 \(H''\) 为 \(H\) 在 \(E\) 中的两个提升,
+则在下列各个情形中, 它们由 \(U(k)\) 的一个元素共轭:
+  \begin{enumerate}
+  \item[(a)] \SGARefTarget{sga3:xvii:theorem:5:1:1:item:ii:a}
+\(k\) 代数闭且 \(H\) 光滑;
+  \item[(b)] \SGARefTarget{sga3:xvii:theorem:5:1:1:item:ii:b}
+\(k\) 代数闭且 \(U\) 光滑.
+  \end{enumerate}
+\end{enumerate}
+(在证明过程中, 将指出无需假设 \(k\) 代数闭而\SGARefLink{sga3:xvii:theorem:5:1:1:item:ii}{(ii)}
+的结论仍成立的其他情形.)}
+\SGARefTarget{sga3:xvii:theorem:5:1:1}
+
+若 \(U\) 为定义在域 \(k\) 上的代数群 (分别地, 交换代数群),
+以 \(H^1(k,U)\) (分别地, \(H^i(k,U)\), \(i\geq0\)) 表示
+\(k\) 以 \(U\) 为系数的 Galois 上同调的带点集合 (分别地, 第 \(i\) 个群);
+参见 J.-P. Serre, \emph{Cohomologie galoisienne}, Lecture Notes in Mathematics 第 5 卷, Springer.
+
+若 \(S\) 为预概形, \(H\) 为交换 \(S\)-群预概形,
+\(G\) 为作用在 \(H\) 上的 \(S\)-群预概形,
+则以 \(H^i(G,H)\)\footnote{编者注: 为与附录 I 和第 I 讲的记号一致,
+已将 \(H_0^i\) 改为 \(H^i\).}
+表示 \(G\) 以 \(H\) 为系数的第 \(i\) 个 Hochschild 上同调群 (附录 I, 1).
+
+为证明\SGARefLink{sga3:xvii:theorem:5-1-1}{5.1.1}, 将分为若干步骤.
+
+% 来源: XVII.tex 第 2031--2273 行.
+\SGASubsection{5.2}{\texorpdfstring{在 \(U\) 光滑且 \(H\) 平展时,
+\SGARefLink{sga3:xvii:theorem:5:1:1:item:i}{5.1.1(i)} 与\SGARefLink{sga3:xvii:theorem:5:1:1:item:ii}{(ii)} 的证明}
+{在 U 光滑且 H 平展时, \SGARefLink{sga3:xvii:theorem:5:1:1:item:i}{5.1.1(i)} 与\SGARefLink{sga3:xvii:theorem:5:1:1:item:ii}{(ii)} 的证明}}
+\SGARefTarget{sga3:xvii:subsection:5:2}
+
+\SGAStatement{引理 5.2.1}{沿用\SGARefLink{sga3:xvii:theorem:5-1-1}{5.1.1} 的记号, 设 \(H\) 平展.
+在下列各个情形中, 典范态射 \(E\to H\) 有一个定义在 \(k\) 上的截面 \(s:H\to E\):
+\begin{enumerate}
+\item[(a)] \SGARefTarget{sga3:xvii:lemma:5:2:1:item:a}
+\(k\) 代数闭;
+\item[(b)] \SGARefTarget{sga3:xvii:lemma:5:2:1:item:b}
+\(k\) 完美且 \(U\) 光滑连通;
+\item[(c)] \SGARefTarget{sga3:xvii:lemma:5:2:1:item:c}
+\(U\) 为 \(k\)-可解群.
+\end{enumerate}}
+\SGARefTarget{sga3:xvii:lemma:5:2:1}
+
+断言\SGARefLink{sga3:xvii:appendix:A}{(a)} 直接由 \(E(k)\to H(k)\) 的满射性得到.
+由\SGARefLink{sga3:xvii:lemma:4:1:2:item:b}{4.1.2(b)} 及\SGARefLink{sga3:xvii:lemma:2:3:bis}{2.3 bis},
+有\SGARefLink{sga3:xvii:section:b}{(b)}\(\Rightarrow\)\SGARefLink{sga3:xvii:appendix:C}{(c)},
+故只须处理\SGARefLink{sga3:xvii:appendix:C}{(c)} 的情形.
+设 \(x\) 为 \(H\) 的一个点. 它是 \(H\) 的开闭子集,
+其诱导子概形同构于 \(\operatorname{Spec}K\), 其中 \(K\) 为 \(k\) 的有限可分扩张.
+设 \(X\) 为概形 \(x\) 在 \(E\) 中的逆像.
+\(K\)-概形 \(X\) 是 \(U_K\) 下的一个主齐性 \(K\)-空间.
+但 \(U_K\) 有一个相继商同构于 \((\mathbb G_a)_K\) 的合成列; 故
+\[
+  H^1(K,U_K)=0
+\]
+(J.-P. Serre, \emph{Cohomologie galoisienne}, 第 III 章,
+\SGARefLink{sga3:xvii:section:6}{命题 6}).
+所以 \(X\) 平凡, 并有一个 \(K\)-有理点.
+这样, 在 \(H\) 的每个点 \(x\) 上, 都得到 \(E\to H\) 的一个 \(k\)-截面,
+它们给出一个截面 \(H\to E\).
+
+\SGAStatement{\SGAInlineRefTarget{sga3:xvii:lemma:5-2-3}引理 5.2.3}{\footnote{编者注:
+不存在编号 5.2.2.}沿用\SGARefLink{sga3:xvii:theorem:5-1-1}{5.1.1} 的记号, 设 \(H\) 平展. 则:
+\begin{enumerate}
+\item[(i)] \SGARefTarget{sga3:xvii:lemma:5:2:3:item:i}
+在下列各个情形中, 扩张 \(E\) 都平凡:
+  \begin{enumerate}
+  \item[(a)] \SGARefTarget{sga3:xvii:lemma:5:2:3:item:i:a}
+\(U\) 交换且 \(E\to H\) 有一个截面;
+  \item[(b)] \SGARefTarget{sga3:xvii:lemma:5:2:3:item:i:b}
+\(k\) 代数闭;
+  \item[(c)] \SGARefTarget{sga3:xvii:lemma:5:2:3:item:i:c}
+\(k\) 完美且 \(U\) 连通;
+  \item[(d)] \SGARefTarget{sga3:xvii:lemma:5:2:3:item:i:d}
+\(U\) 为 \(k\)-可解群.
+  \end{enumerate}
+而且, 在上述各个情形中, \(H\) 在 \(E\) 中的两个提升 \(H'\) 与 \(H''\)
+由 \(U(k)\) 的一个元素共轭.
+\item[(ii)] \SGARefTarget{sga3:xvii:lemma:5:2:3:item:ii}
+设 \(R\) 为如下 \(k\)-函子
+  \[
+    (\operatorname{Sch}/k)^\circ\longrightarrow\operatorname{Ens},
+  \]
+它在每个 \(k\)-预概形 \(S\) 上的值 \(R(S)\) 是 \(H_S\) 在 \(E_S\) 中的提升组成的集合.
+若 \(U\) 交换, 则 \(R\) 由一个非空仿射 \(k\)-概形表示.
+群 \(U\) 通过内自同构作用在 \(R\) 上,
+且此作用使 \(R\) 成为 fpqc 拓扑下的 \(U\)-齐性空间 (参见第 IV 讲).
+\end{enumerate}}
+\SGARefTarget{sga3:xvii:lemma:5:2:3}
+
+\SGAProof{\SGARefLink{sga3:xvii:lemma:5:2:3:item:i}{(i)} 的证明}
+将把\SGARefLink{sga3:xvii:section:b}{(b)}, \SGARefLink{sga3:xvii:appendix:C}{(c)}
+及\SGARefLink{sga3:xvii:lemma:5:2:3:item:i:d}{(d)} 的情形归结到\SGARefLink{sga3:xvii:appendix:A}{(a)}.
+
+\medskip\noindent\textit{情形\SGARefLink{sga3:xvii:section:b}{(b)}.}\quad
+由于 \(U\) 有一个相继商交换的特征合成列
+(\SGARefLink{sga3:xvii:theorem:3-5}{3.5},
+\SGARefLink{sga3:xvii:theorem:3:5:item:i}{(i)}\(\Leftrightarrow\)\SGARefLink{sga3:xvii:theorem:3:5:item:iv}{(iv)}),
+立即归结到 \(U\) 交换的情形.
+又由\SGARefLink{sga3:xvii:lemma:5:2:1:item:a}{5.2.1(a)}, \(E\to H\) 有一个截面,
+故归结到\SGARefLink{sga3:xvii:appendix:A}{(a)}.
+
+\medskip\noindent\textit{情形\SGARefLink{sga3:xvii:lemma:5:2:3:item:i:d}{(d)}.}\quad
+应用\SGARefLink{sga3:xvii:definition:5:1:0:item:ii}{5.1.0(ii)}
+和\SGARefLink{sga3:xvii:lemma:5:2:1:item:c}{5.2.1(c)}, 同样论证即可.
+
+\medskip\noindent\textit{情形\SGARefLink{sga3:xvii:appendix:C}{(c)}.}\quad
+设 \(E_{\mathrm{red}}\) 为 \(E\) 的相伴约化子群.
+由于 \(H\) 光滑, \(E_{\mathrm{red}}\) 为 \(H\) 被
+\[
+  U_0=U\cap E_{\mathrm{red}}
+\]
+的扩张, 故可将 \(E\) 替换为 \(E_{\mathrm{red}}\).
+群 \(U\), 从而 \(U_0\), 都连通,
+且 \(U_0\) 显然是 \(E_{\mathrm{red}}\) 的单位元连通分支; 特别地, 它光滑.
+所以 \(U_0\) 光滑连通, 又因 \(k\) 完美,
+由\SGARefLink{sga3:xvii:remark:4:1:4:item:b}{4.1.4(b)}, \(U_0\) 为 \(k\)-可解群,
+于是归结到\SGARefLink{sga3:xvii:lemma:5:2:3:item:i:d}{(d)} 的情形.
+
+上述归结表明, 在\SGARefLink{sga3:xvii:section:b}{(b)}, \SGARefLink{sga3:xvii:appendix:C}{(c)}
+及\SGARefLink{sga3:xvii:lemma:5:2:3:item:i:d}{(d)} 的情形中,
+可设 \(U\) 有一个特征合成列 \((U_i)\),
+使 \(U_i/U_{i+1}\) 交换, 且映射
+\[
+  U_i(k)\longrightarrow (U_i/U_{i+1})(k)
+\]
+为满射. (在\SGARefLink{sga3:xvii:appendix:C}{(c)}
+与\SGARefLink{sga3:xvii:lemma:5:2:3:item:i:d}{(d)} 中, 后一断言由 \(H^1(k,\mathbb G_a)=0\) 得到.)
+于是一个直接的分解论证表明, 只须在 \(U\) 交换时,
+证明 \(E\) 中的两个提升 \(H'\) 与 \(H''\) 共轭.
+所以只须证明\SGARefLink{sga3:xvii:lemma:5:2:3:item:i}{(i)}\SGARefLink{sga3:xvii:lemma:5:2:4:item:a}{(a)}.
+在此情形中, 若 \(H^2(H,U)=0\), 则扩张 \(E\) 平凡
+(附录 I, \SGARefLink{sga3:i:definition:3-1}{3.1}),
+而若 \(H^1(H,U)=0\), 则 \(H'\) 与 \(H''\) 共轭.
+现在应用下列引理.
+
+\SGAStatement{引理 5.2.4}{设 \(S\) 为预概形, \(U\) 为交换 \(S\)-群预概形,
+\(H\) 为秩为 \(n\) 的有限平展 \(S\)-群预概形, 作用在 \(U\) 上.
+则在下列各个情形中, 群 \(H^i(H,U)\) 在 \(i>0\) 时被 \(n\) 零化:
+\begin{enumerate}
+\item[(a)] \SGARefTarget{sga3:xvii:lemma:5:2:4:item:a}
+\(H\) 是常值 \(S\)-群 (\SGARefLink{sga3:i:subsection:4-1}{第 I 讲, 4.1});
+\item[(b)] \SGARefTarget{sga3:xvii:lemma:5:2:4:item:b}
+\(S\) 为域的谱.
+\end{enumerate}}
+\SGARefTarget{sga3:xvii:lemma:5:2:4}
+
+\SGAProof{\SGARefLink{sga3:xvii:appendix:A}{(a)} 的证明}
+由假设, \(H\) 为与阶为 \(n\) 的通常群 \(\{H\}\) 相联系的常值群.
+显然\footnote{编者注: 这是 M. Demazure 和 P. Gabriel,
+\emph{Groupes algébriques I}, Masson \& North-Holland (1970) 的命题 III.6.4.2.},
+\(H^i(H,U)\) 同构于群 \(\{H\}\) 以通常群 \(U(S)\) 为系数的第 \(i\) 个上同调群
+\[
+  H^i(\{H\},U(S)).
+\]
+这些群被 \(n\) 零化是经典结论
+(J.-P. Serre, \emph{Corps locaux}, 第 VIII 章, \SGARefLink{sga3:viii:section:4}{命题 4}, 推论 1).
+
+\SGAProof{\SGARefLink{sga3:xvii:section:b}{(b)} 的证明}
+设 \(x\in H^i(H,U)\), 其中 \(i>0\), 将它表示为一个 \(i\)-余圈
+\[
+  f:H^{(i)}\longrightarrow U,
+\]
+其中 \(H^{(i)}\) 表示 \(i\) 个 \(H\) 在 \(k\) 上的乘积.
+若 \(K\) 为使 \(H\) 分裂的 \(k\) 的有限 Galois 扩张,
+断言\SGARefLink{sga3:xvii:lemma:5:2:4:item:a}{(a)} 表明 \(nf_K\) 为余边缘.
+更确切地说, 直接计算可知, 若将 \(K\)-态射
+\[
+  F_K:H_K^{(i-1)}\longrightarrow U_K
+\]
+定义为
+\[
+  F_K(h_1,\ldots,h_{i-1})
+    =\sum_{h\in H(K)}
+      f_K(h_1,\ldots,h_{i-1},h),
+\]
+则在相差一个符号的意义下, 有
+\[
+  d(F_K)=nf_K,
+  \qquad d\text{ 表示余边缘算子}.
+\]
+一个直接的 Galois 论证表明, \(F_K\) 下降为 \(k\)-态射 \(F:H^{(i-1)}\to U\), 所以
+\[
+  d(F)=nf.
+\]
+
+\SGAStatement{推论 5.2.4 bis}{沿用\SGARefLink{sga3:xvii:lemma:5:2:4}{5.2.4} 的记号,
+再设 \(U\) 在 \(S\) 上平坦且有限表现, 其纤维幺幂,
+并且 \(n\) 与 \(S\) 的各剩余特征互素. 则在上述 (a), (b) 的情形中,
+\[
+  H^i(H,U)=0\qquad(i>0).
+\]}
+\SGARefTarget{sga3:xvii:corollary:5:2:4:bis}
+
+\SGAProof{证明}
+只须说明 \(U\) 上的 \(n\) 次幂映射是同构,
+因为由此可知, \(H^i(H,U)\) 上的乘 \(n\) 映射既是同构又是零态射,
+所以 \(H^i(H,U)=0\).
+在对 \(U\) 所作的假设下, 只须验证 \(n\) 次幂映射在 \(U\) 的各纤维上为同构
+(EGA IV, 17.9.5). 于是归结到 \(S\) 为特征 \(p\) 的域 \(k\) 的谱的情形.
+由于 \((n,p)=1\), \(U\) 上的 \(n\) 次幂映射平展 (第 VII 讲);
+它也是单态射 (2.4(i)), 因而为开浸入 (EGA IV, 17.9.1).
+这已表明其在单位元连通分支 \(U^0\) 上的限制为同构.
+由于 \(U/U^0\) 是有限 \(p\)-群, 证明完成.
+
+这就完成了\SGARefLink{sga3:xvii:lemma:5:2:3:item:i}{5.2.3(i)}\SGARefLink{sga3:xvii:appendix:A}{(a)}
+的证明, 因为平展乘法型群 \(H\) 的阶与 \(p\) 互素.
+
+\SGAProof{\SGARefLink{sga3:xvii:lemma:5:2:3:item:ii}{5.2.3(ii)} 的证明}
+显然 \(R\) 为 fpqc 拓扑下的层.
+而且, 由仿射概形的下降, \SGARefLink{sga3:xvii:lemma:5:2:3:item:ii}{5.2.3(ii)}
+的各个断言在 fpqc 拓扑下是局部的. 因此可设 \(k\) 代数闭.
+于是群 \(H\) 分裂, 且由 (i)\SGARefLink{sga3:xvii:section:b}{(b)}, 扩张 \(E\) 平凡;
+设 \(H'\) 为 \(H\) 在 \(E\) 中的一个提升.
+对每个 \(k\)-预概形 \(S\), 以及 \(H_S\) 在 \(E_S\) 中的每个提升 \(H''\),
+群 \(H'_S\) 与 \(H''\) 都由 \(U(S)\) 的一个元素共轭, 因为由\SGARefLink{sga3:xvii:corollary:5:2:4:bis}{5.2.4 bis},
+有
+\[
+  H^1(H_S,U_S)=0.
+\]
+
+设 \(U^{H'}\) 为 \(U\) 在 \(H'\) 下的不变量层.
+它由 \(U\) 的一个代数子群表示 (\SGARefLink{sga3:viii:examples:6:5:item:d:01}{第 VIII 讲, 6.5(d)}).
+以上观察表明, \(k\)-态射
+\[
+  U\longrightarrow R,
+  \qquad
+  u\longmapsto \operatorname{int}(u)H'
+  \quad (u\in U(S))
+\]
+诱导一个 \(k\)-同构
+\[
+  U/U^{H'}\xrightarrow{\ \sim\ }R.
+\]
+这证明 \(R\) 可表示且仿射 (\SGARefLink{sga3:xvii:proposition:2:1}{2.1}).
+
+\SGAStatement{注 5.2.5}{当 \(U\) 不交换时, 也可以证明\SGARefLink{sga3:xvii:lemma:5:2:3:item:ii}{5.2.3(ii)}
+的各个断言, 但在证明\SGARefLink{sga3:xvii:theorem:5-1-1}{5.1.1} 时不需要这一点.}
+\SGARefTarget{sga3:xvii:remark:5:2:5}
+
+% 来源: XVII.tex 第 2274--2481 行.
+\SGASubsection{5.3}{\texorpdfstring{\(H\) 光滑的情形}{H 光滑的情形}}
+\SGARefTarget{sga3:xvii:subsection:5:3}
+
+\SGAStatement{命题 5.3.1}{将假设“\(H\) 平展”替换为“\(H\) 光滑”时,
+\SGARefLink{sga3:xvii:lemma:5:2:3:item:i}{5.2.3(i)} 的各个断言仍成立.}
+\SGARefTarget{sga3:xvii:proposition:5:3:1}
+
+如\SGARefLink{sga3:xvii:lemma:5:2:3:item:i}{5.2.3(i)} 的证明一样,
+归结到 \(U\) 还为交换群的情形.
+
+设 \(N'\) 为与 \(p\) 互素的正整数所成的集合, 以整除关系排序.
+对每个 \(n\in N'\), 群 \({}_nH\) 平展,
+而且由于 \(H\) 光滑, 群族 \({}_nH\), \(n\in N'\),
+在 \(H\) 中概形稠密 (\SGARefLink{sga3:ix:remark:4:10}{第 IX 讲, 4.10}).
+设 \(E_n\) 为 \({}_nH\) 在 \(E\) 中的逆像, 所以 \(E_n\) 为 \({}_nH\) 被 \(U\) 的扩张,
+以 \(R_n\) 表示 \({}_nH\) 在 \(E_n\) 中的提升所成的 \(k\)-函子
+(参见\SGARefLink{sga3:xvii:lemma:5:2:3:item:ii}{5.2.3(ii)}).
+若 \(n\) 整除 \(m\), 显然存在自然的 \(k\)-态射
+\[
+  R_m\longrightarrow R_n,
+\]
+故 \(R_n\) 构成 \(k\)-函子的一个逆系.
+
+由\SGARefLink{sga3:xvii:lemma:5:2:3:item:ii}{5.2.3(ii)},
+\(R_n\) 由一个非空仿射 \(k\)-概形表示.
+由于非零环的滤过正向极限非零, 函子
+\[
+  R=\varprojlim_n R_n
+\]
+由一个非空仿射 \(k\)-概形表示 (EGA IV, 8 及 1.9.1).
+因此存在 \(k\) 的一个扩域 \(K\) 及一个点 \(u\in R(K)\).
+\(u\) 在 \(R_n(K)\) 中的像 \(u_n\) 对应 \(({}_nH)_K\)
+在 \((E_n)_K\) 中的一个提升 \(H'_n\). 由构造,
+\[
+  H'_n={}_n(H'_m)\qquad\text{若 \(n\) 整除 \(m\)}.
+\]
+置
+\[
+  U_n=(U_K)^{H'_n}.
+\]
+选取 \(H'_n\) 即可将 \((R_n)_K\) 与 \(U_K/U_n\) 等同.
+群族 \(H'_n\) 滤过递增, 因而群族 \(U_n\) 滤过递减.
+由于 \(U_K\) 为 Noether 概形, 此族在 \(n\) 充分大时终于稳定.
+所以 \((R_n)_K\) 族终于稳定, 从而 \(R_n\) 族也终于稳定.
+即当 \(n\) 充分大时,
+\[
+  R_n=R.
+\]
+
+在现有假设下, \SGARefLink{sga3:xvii:lemma:5:2:3:item:i}{5.2.3(i)} 表明 \(R_n(k)\) 非空.
+因此可对 \(n\in N'\) 找到 \({}_nH\) 的一个相容的提升系 \(H'_n\).
+设 \(H'\) 为 \(E\) 中包含每个 \(n\) 对应的 \(H'_n\) 的最小闭子概形
+(第 VI\textsubscript{B} 讲, \S7).
+\SGARefLink{sga3:xv:lemma:4:6}{第 XV 讲, 4.6} 的论证表明,
+\(H'\) 为光滑交换代数群, 其形成与基域的扩张交换.
+因此要证明 \(H'\) 为 \(H\) 在 \(E\) 中的一个提升, 可设 \(k\) 代数闭.
+由 BIBLE 第 4 讲, 定理 4, 这时 \(H'\) 是光滑乘法型群 \(M\) 与幺幂群 \(V\) 的直积.
+由\SGARefLink{sga3:xvii:proposition:2:4}{2.4}, 各群 \(H'_n\) 必包含在 \(M\) 中;
+\(H'\) 的定义于是给出 \(H'=M\). 所以 \(H'\) 为乘法型群, 故
+\[
+  H'\cap U=0.
+\]
+于是态射 \(H'\to H\) 为单态射,
+而\SGARefLink{sga3:ix:remark:4:10}{第 IX 讲, 4.10} 的稠密性定理表明它为满态射.
+因此它是同构.
+
+现在设 \(H'\) 与 \(H''\) 为 \(H\) 在 \(E\) 中的两个提升.
+对每个 \(n\in N'\), 设
+\[
+  T_n=\operatorname{Transp}({}_nH',{}_nH'')
+\]
+为 \({}_nH'\) 到 \({}_nH''\) 的输运子.
+它由 \(U\) 的一个闭子概形表示
+(\SGARefLink{sga3:viii:examples:6:5:item:e:01}{第 VIII 讲, 6.5(e)}).
+各 \(T_n\) 构成 \(U\) 的闭子概形的滤过递减族,
+且由\SGARefLink{sga3:xvii:lemma:5:2:3:item:i}{5.2.3(i)}\SGARefLink{sga3:xvii:appendix:A}{(a)}, 它们非空.
+设 \(T\) 为它们的稳定值. 在\SGARefLink{sga3:xvii:lemma:5:2:3:item:i}{5.2.3(i)} 的假设下,
+\(T_n(k)\) 非空. 所以存在元素 \(u\in U(k)\), 使
+\[
+  {}_nH''=\operatorname{int}(u)({}_nH')
+  \qquad\text{对每个 \(n\in N'\)}.
+\]
+由\SGARefLink{sga3:ix:corollary:4:8:item:b}{第 IX 讲, 4.8(b)}, 得
+\[
+  H''=\operatorname{int}(u)H'.
+\]
+
+\SGASubsection{5.4}{\texorpdfstring{\(U\) 根式的情形}{U 根式的情形}}
+\SGARefTarget{sga3:xvii:subsection:5:4}
+
+\SGAStatement{命题 5.4.1}{若 \(k\) 为特征 \(p>0\) 的完美域, 且 \(U\) 根式,
+则\SGARefLink{sga3:xvii:theorem:5-1-1}{5.1.1} 的扩张 \(E\) 平凡.}
+\SGARefTarget{sga3:xvii:proposition:5:4:1}
+
+使用 \(U\) 的一个特征合成列, 由\SGARefLink{sga3:xvii:lemma:3-9}{3.9}, 可限制到
+\[
+  U=(\boldsymbol\alpha_p)^r
+\]
+的情形.
+
+由附录 II, \SGARefLink{sga3:ii:subsection:2-2}{2.2} 及\SGARefLink{sga3:xvii:proposition:2:1}{2.1},
+有 \(k\)-函子之间的同构
+\[
+  \operatorname{Aut}_{k\text{-}\mathrm{gr}}
+    \bigl((\boldsymbol\alpha_p)^r\bigr)
+  \xrightarrow{\ \sim\ }
+  \operatorname{Aut}_{p\text{-}\mathrm{Lie}}
+    \bigl(\operatorname{Lie}((\boldsymbol\alpha_p)^r)\bigr)
+  \xrightarrow{\ \sim\ }
+  \operatorname{GL}
+    \bigl(\operatorname{Lie}((\boldsymbol\alpha_p)^r)\bigr).
+\]
+设 \(V\) 为秩为 \(r\) 的 \(k\)-向量空间,
+\(\mathbf W(V)\) 为相应的向量 \(k\)-群 (\SGARefLink{sga3:i:subsection:4-6}{第 I 讲, 4.6}),
+并将 \((\boldsymbol\alpha_p)^r\) 与 \({}_F V\) 等同.
+上述观察表明, 扩张 \(E\) 所定义的 \(H\) 在 \({}_F V\) 上的作用,
+来自 \(H\) 在 \(V\) 上的一个线性表示 \(v\).
+考虑正合列
+\[
+  \tag{*}\label{sga3:xvii:proposition:5-4-1:equation:star}
+  0\longrightarrow {}_F V\longrightarrow V
+    \xrightarrow{F}V^{(p)}\longrightarrow0,
+\]
+其中 \(F\) 为 Frobenius 态射.
+
+只要令 \(H\) 通过线性表示
+\[
+  H\xrightarrow{v}\operatorname{GL}(V)
+    \xrightarrow{F}\operatorname{GL}(V^{(p)})
+\]
+作用在 \(V^{(p)}\) 上, 列 \((*)\) 就是一个 \(H\)-群的正合列.
+由于 \(k\) 完美, 态射 \(F:V\to V^{(p)}\) 诱导满射
+\[
+  V(k)\longrightarrow V^{(p)}(k).
+\]
+由附录 I, \SGARefLink{sga3:i:subsection:2-1}{2.1}, 正合列 \((*)\) 定义一个正合列
+\[
+  \tag{**}\label{sga3:xvii:proposition:5-4-1:equation:double-star}
+  H^1(H,V^{(p)})\longrightarrow
+  \operatorname{Ext}_{\mathrm{alg}}(H,{}_F V)
+  \longrightarrow
+  \operatorname{Ext}_{\mathrm{alg}}(H,V).
+\]
+
+下面证明
+\[
+  \operatorname{Ext}_{\mathrm{alg}}(H,V)=0.
+\]
+设 \(E'\) 为 \(H\) 被 \(V\) 的扩张这一代数群:
+\[
+  1\longrightarrow V\longrightarrow E'
+    \xrightarrow{h}H\longrightarrow1.
+\]
+概形 \(E'\) 是 \(H\) 上的 \(\mathbb G_a^r\)-主齐性丛, 因而定义凝聚层上同调
+\[
+  H^1(H,\mathcal O_H^r)
+\]
+的一个元素. 由于 \(H\) 仿射, 由 EGA III, \S1, 有
+\[
+  H^1(H,\mathcal O_H^r)=0.
+\]
+所以 \(E'\to H\) 有一个截面.
+于是由附录 I, \SGARefLink{sga3:i:definition:3-1}{3.1},
+\(\operatorname{Ext}_{\mathrm{alg}}(H,V)\) 同构于 \(H^2(H,V)\). 但由\SGARefLink{sga3:ix:theorem:3:1}{第 IX 讲, 3.1},
+有
+\[
+  H^i(H,V)=H^i(H,\mathbf W(V))=0\qquad(i>0).
+\]
+正合列 \((**)\) 于是给出
+\[
+  \operatorname{Ext}_{\mathrm{alg}}(H,{}_F V)=0,
+\]
+故 \(E\) 为平凡扩张.
+
+% 来源: XVII.tex 第 2482--2694 行.
+\SGASubsection{5.5}{\SGARefLink{sga3:xvii:theorem:5:1:1:item:i}{5.1.1(i)} 的证明}
+\SGARefTarget{sga3:xvii:subsection:5:5}
+
+若 \(k\) 的特征为 \(0\), 则由\SGARefLink{sga3:xvii:corollary:4:1:3}{4.1.3},
+\(U\) 为 \(k\)-可解群, 而 \(H\) 光滑.
+由\SGARefLink{sga3:xvii:proposition:5:3:1}{5.3.1} 与\SGARefLink{sga3:xvii:lemma:5:2:3:item:i:d}{5.2.3(d)},
+\(E\) 为平凡扩张. 同样的论证表明, \(H\) 在 \(E\) 中的两个提升由 \(U(k)\) 的一个元素共轭.
+
+此后设 \(k\) 为特征 \(p>0\) 的域.
+
+\SGAProof{\SGARefLink{sga3:xvii:lemma:5:5:1:item:i}{(i)}\SGARefLink{sga3:xvii:section:b}{(b)} 的证明:
+\(k\) 完美且 \(U\) 连通的情形}
+下面归结到 \(U\) 根式的情形.
+由于 \(k\) 完美, \(H_{\mathrm{red}}\) 光滑; 设 \(E'\) 为它在 \(E\) 中的逆像.
+由\SGARefLink{sga3:xvii:proposition:5:3:1}{5.3.1}
+及\SGARefLink{sga3:xvii:lemma:5:2:3:item:i}{5.2.3(i)}\SGARefLink{sga3:xvii:appendix:C}{(c)}, 扩张
+\[
+  1\longrightarrow U\longrightarrow E'
+    \longrightarrow H_{\mathrm{red}}\longrightarrow1
+\]
+平凡. 设 \(H_1\) 为 \(H_{\mathrm{red}}\) 在 \(E\) 中的一个提升.
+由附录 II, \SGARefLink{sga3:xvii:lemma:3-1}{3.1}, 存在整数 \(n>0\), 使
+\[
+  E^{(n)}=E/{}_{F^n}(E)
+\]
+光滑. 设 \(E''\) 为 \(H_1\) 和 \({}_{F^n}(E)\) 所生成的 \(E\) 的代数子群;
+等价地, \(E''\) 为 \(H_1\) 在 \(E^{(n)}\) 中的像在 \(E\) 中的逆像.
+设 \(H''\) 为 \(E''\) 在 \(H\) 中的像. 断言 \(H''=H\).
+
+事实上, 设 \(R\) 为 \({}_{F^n}(E)\) 在 \(H\) 中的像,
+则 \(H''\) 由 \(R\) 和 \(H_{\mathrm{red}}\) 生成.
+群 \(H/R\) 是 \(E^{(n)}\) 的商, 因而光滑.
+所以典范态射
+\[
+  H_{\mathrm{red}}\longrightarrow H/R
+\]
+为满态射. 因此 \(H\) 由 \(R\) 和 \(H_{\mathrm{red}}\) 生成,
+故等于 \(H''\). 得到了正合列
+\[
+  \tag{\(\dagger\)}\label{sga3:xvii:subsection:5-5:equation:dagger}
+  1\longrightarrow U''=U\cap E''
+    \longrightarrow E''\longrightarrow H\longrightarrow1.
+\]
+但 \(E''\) 与 \(H_1\) 有相同的底空间, 所以 \(U''\) 根式.
+显然只须证明扩张 \((\dagger)\) 平凡, 而这由\SGARefLink{sga3:xvii:proposition:5:4:1}{5.4.1} 得到.
+
+\SGAProof{\SGARefLink{sga3:xvii:lemma:5:5:1:item:i}{(i)}\SGARefLink{sga3:xvii:section:b}{(b)} 的证明:
+\(k\) 完美且 \(H\) 连通的情形}
+群 \(U\) 为一个平展群被其单位元连通分支 \(U^0\) 的扩张.
+\(U\) 连通的情形刚已处理, 所以只须考虑 \(U\) 平展的情形.
+将用到下列更精确的引理.
+
+\SGAStatement{引理 5.5.1}{沿用\SGARefLink{sga3:xvii:theorem:5-1-1}{5.1.1} 的记号, 再设 \(U\) 平展. 则:
+\begin{enumerate}
+\item[(i)] \SGARefTarget{sga3:xvii:lemma:5:5:1:item:i}
+若 \(H\) 连通, 则它在 \(E\) 中有唯一提升, 即 \(E\) 的单位元连通分支 \(E^0\).
+\item[(ii)] \SGARefTarget{sga3:xvii:lemma:5:5:1:item:ii}
+若 \(k\) 代数闭, 则 \(E\) 平凡,
+而且 \(H\) 在 \(E\) 中的任意两个提升由 \(U(k)\) 的一个元素共轭.
+\end{enumerate}}
+\SGARefTarget{sga3:xvii:lemma:5:5:1}
+
+\SGAProof{\SGARefLink{sga3:xvii:lemma:5:5:1:item:i}{(i)} 的证明}
+由于单位元连通分支的形成与基域扩张交换, 只须考虑 \(k\) 代数闭的情形.
+若 \(H\) 为环面, 则由\SGARefLink{sga3:xvii:proposition:5:3:1}{5.3.1}
+和\SGARefLink{sga3:xvii:lemma:5:2:3:item:i}{5.2.3(i)}\SGARefLink{sga3:xvii:section:b}{(b)},
+\(E\) 平凡, 且 \(E^0\) 显然是 \(H\) 的唯一提升.
+这已经证明, 在一般情形中 \(E^0\cap U\) 根式.
+由于 \(U\) 平展, 它也平展, 所以为零. 因而态射
+\[
+  E^0\longrightarrow H
+\]
+为单态射; 由于 \(E^0\) 在 \(E\) 中开, 它平坦,
+又由于 \(H\) 连通, 它满射. 所以它为同构.
+若 \(H'\) 为 \(H\) 的任意另一个提升, 则 \(H'\) 连通,
+故包含于 \(E^0\), 从而等于 \(E^0\).
+
+\SGAProof{\SGARefLink{sga3:xvii:lemma:5:5:1:item:ii}{(ii)} 的证明}
+设 \(H^0\) 为 \(H\) 的单位元连通分支.
+由\SGARefLink{sga3:xvii:lemma:5:5:1:item:i}{(i)}, \(E^0\) 为 \(H^0\) 在 \(E\) 中的唯一提升.
+置
+\[
+  E'=E/E^0,\qquad H'=H/H^0.
+\]
+于是有扩张
+\[
+  1\longrightarrow U\longrightarrow E'
+    \longrightarrow H'\longrightarrow1.
+\]
+由于 \(H'\) 平展, 由\SGARefLink{sga3:xvii:lemma:5:2:3:item:i}{5.2.3(i)}\SGARefLink{sga3:xvii:section:b}{(b)},
+此扩张平凡. 若 \(H'_1\) 为 \(H'\) 在 \(E'\) 中的一个提升,
+\(H_1\) 为它在 \(E\) 中的逆像, 则显然 \(H_1\) 提升 \(E\) 中的 \(H\).
+若 \(H_2\) 为 \(H\) 在 \(E\) 中的第二个提升, 则它包含 \(E^0\).
+由\SGARefLink{sga3:xvii:lemma:5:2:3:item:i}{5.2.3(i)}\SGARefLink{sga3:xvii:section:b}{(b)},
+\(H_2\) 在 \(E'\) 中的像由元素 \(u\in U(k)\) 与 \(H'_1\) 共轭, 从而
+\[
+  H_2=\operatorname{int}(u)H_1.
+\]
+
+\SGAStatement{注 5.5.2}{在\SGARefLink{sga3:xvii:lemma:5:5:1:item:i}{5.5.1(i)} 的假设下,
+群 \(E^0\) 中心化 \(U\).}
+\SGARefTarget{sga3:xvii:remark:5:5:2}
+
+\SGAProof{\SGARefLink{sga3:xvii:theorem:5:1:1:item:i}{5.1.1(i)}\SGARefLink{sga3:xvii:appendix:A}{(a)} 的证明}
+使用合成列
+\[
+  1\longrightarrow U^0\longrightarrow U
+    \longrightarrow U/U^0\longrightarrow1,
+\]
+将\SGARefLink{sga3:xvii:lemma:5:5:1:item:i}{(i)}\SGARefLink{sga3:xvii:section:b}{(b)}
+与\SGARefLink{sga3:xvii:lemma:5:5:1:item:ii}{5.5.1(ii)} 结合,
+即得断言\SGARefLink{sga3:xvii:lemma:5:5:1:item:i}{(i)}\SGARefLink{sga3:xvii:appendix:A}{(a)}.
+
+在证明\SGARefLink{sga3:xvii:theorem:5:1:1:item:i}{5.1.1(i)}\SGARefLink{sga3:xvii:appendix:C}{(c)}
+及 (d) 之前, 先证明\SGARefLink{sga3:xvii:theorem:5:1:1:item:ii}{5.1.1(ii)}.
+
+\SGAProof{\SGARefLink{sga3:xvii:theorem:5:1:1:item:ii}{5.1.1(ii)}\SGARefLink{sga3:xvii:appendix:A}{(a)} 的证明}
+由于缺少一个令人满意的一般陈述,
+下面列出 \(H\) 光滑时 \(H\) 在 \(E\) 中的两个提升共轭的若干情形.
+
+\SGAStatement{\SGAInlineRefTarget{sga3:xvii:proposition:5-6-1}命题 5.6.1}{沿用\SGARefLink{sga3:xvii:theorem:5-1-1}{5.1.1} 的记号,
+再设 \(H\) 光滑, 并设 \(H'\) 与 \(H''\) 为 \(H\) 在 \(E\) 中的两个提升.
+则在下列各个情形中, \(H'\) 与 \(H''\) 都由 \(U(k)\) 的一个元素共轭:
+\begin{enumerate}
+\item[(a)] \SGARefTarget{sga3:xvii:proposition:5:6:1:item:a}
+\(k\) 代数闭.
+\item[(b)] \SGARefTarget{sga3:xvii:proposition:5:6:1:item:b}
+\(U\) 交换.
+\item[(c)] \SGARefTarget{sga3:xvii:proposition:5:6:1:item:c}
+\(k\) 完美且 \(U\) 连通.
+\item[(d)] \SGARefTarget{sga3:xvii:proposition:5:6:1:item:d}
+\(U\) 为 \(k\)-可解群.
+\item[(e)] \SGARefTarget{sga3:xvii:proposition:5:6:1:item:e}
+\(H'\) 在 \(U\) 中的中心化子为 \(k\)-可解群.
+\item[(f)] \SGARefTarget{sga3:xvii:proposition:5:6:1:item:f}
+乘法型群 \(H\) 被一个次数与 \(p\) 互素的有限 Galois 扩张 \(K/k\) 分裂.
+\end{enumerate}}
+\SGARefTarget{sga3:xvii:proposition:5:6:1}
+
+\SGAProof{证明}
+\SGARefLink{sga3:xvii:appendix:A}{(a)}, \SGARefLink{sga3:xvii:section:b}{(b)},
+\SGARefLink{sga3:xvii:appendix:C}{(c)} 及 (d) 各部分由\SGARefLink{sga3:xvii:proposition:5:3:1}{5.3.1} 得到.
+
+\smallskip
+\noindent
+(e) 设 \(Z\) 为 \(H'\) 在 \(U\) 中的中心化子,
+\(T\) 为 \(H'\) 到 \(H''\) 的输运子.
+由\SGARefLink{sga3:xvii:appendix:A}{(a)}, \(T\) 非空;
+所以 \(T\) 为 \(Z\) 下的一个主齐性空间.
+对 \(Z\) 的假设于是蕴含 \(T\) 平凡.
+
+\smallskip
+\noindent
+(f) 与\SGARefLink{sga3:xvii:proposition:5:3:1}{5.3.1} 中一样,
+只须考虑 \(H\) 平展的情形.
+先设 \(H\) 可对角化, 由一个阶 \(m\) 与 \(p\) 互素的抽象群 \(M\) 定义.
+两个提升 \(H'\) 与 \(H''\) 决定 \(M\) 以 \(U(k)\) 为系数的一个一维余圈, 即映射
+\[
+  h:M\longrightarrow U(k),
+\]
+对 \(M\) 的每对元素 \(m,n\) 都满足
+\[
+  h(mn)=h(m)\,{}^{m}\!h(n).
+\]
+群 \(H'\) 与 \(H''\) 由 \(U(k)\) 的一个元素共轭当且仅当存在 \(a\in U(k)\), 使
+\[
+  h(m)=a^{-1}({}^{m}\!a).
+\]
+而抽象群 \(U(k)\) 有一个相继商交换且被 \(p\) 的某个幂零化的合成列
+(由\SGARefLink{sga3:xvii:proposition:5:6:1:item:c}{5.6.1(c)}, 可设 \(p>0\)).
+立即可知, 在这种情形中 \(h\) 为余边缘.
+
+现在考虑一般情形. 仍以 \(Z\) 表示 \(H'\) 在 \(U\) 中的中心化子,
+\(T\) 表示 \(H'\) 到 \(H''\) 的输运子; 所以 \(T\) 为 \(Z\) 下的一个主齐性丛.
+由假设存在一个使 \(H\) 分裂的有限 Galois 扩张 \(K/k\),
+其 Galois 群 \(G\) 的阶与 \(p\) 互素.
+由前一情形, \(H'_K\) 与 \(H''_K\) 由 \(U(K)\) 的一个元素共轭,
+故 \(T_K\) 平凡. 因而 \(T\) 由
+\[
+  H^1(G,Z)
+\]
+的一个元素定义. 由与上面相同的理由, 对 \(G\) 的假设蕴含
+\[
+  H^1(G,Z)=e;
+\]
+故 \(T\) 平凡.
+
+% 来源: XVII.tex 第 2695--2985 行.
+\SGASubsection{5.7}{\SGARefLink{sga3:xvii:theorem:5:1:1:item:ii}{5.1.1(ii)}\SGARefLink{sga3:xvii:section:b}{(b)} 的证明}
+\SGARefTarget{sga3:xvii:subsection:5:7}
+
+\SGAStatement{引理 5.7.1}{设 \(S\) 为预概形, \(G\) 为在 \(S\) 上分离且光滑的 \(S\)-群预概形,
+\(H\) 为作用在 \(G\) 上的 \(S\)-乘法型群.
+则 \(G\) 在 \(H\) 下的不变量 \(S\)-函子
+\[
+  Z=G^H
+\]
+由 \(G\) 的一个闭且光滑的 \(S\)-子群预概形表示.}
+\SGARefTarget{sga3:xvii:lemma:5:7:1}
+
+\(G^H\) 可由 \(G\) 的一个闭子群预概形表示,
+这是\SGARefLink{sga3:viii:examples:6:5:item:d:01}{第 VIII 讲, 6.5(d)} 的结论.
+考虑半直积
+\[
+  K=G\rtimes_S H.
+\]
+这时 \(H\) 在 \(K\) 中的中心化子为 \(Z\times_S H\).
+要证明 \(Z\) 光滑, 须验证如下事实.
+设 \(S\) 仿射, \(S_0\) 为 \(S\) 中由平方零理想定义的闭子概形,
+并设 \(u_0\in Z(S_0)\). 须将 \(u_0\) 提升为 \(Z(S)\) 的一个元素.
+
+由于 \(G\) 在 \(S\) 上光滑, 存在提升 \(u_0\) 的元素 \(u\in G(S)\).
+设 \(i\) 为 \(H\) 到 \(K\) 中的典范浸入, 考虑两个 \(S\)-群态射
+\[
+  H\rightrightarrows K,\qquad i
+  \quad\hbox{与}\quad
+  j=\operatorname{int}(u)i.
+\]
+由于 \(u_0\in Z(S_0)\), 有 \(i_{S_0}=j_{S_0}\).
+由\SGARefLink{sga3:ix:theorem:3:2}{第 IX 讲, 3.2},
+存在提升 \(K(S_0)\) 中的单位截面的 \(v\in K(S)\), 使
+\[
+  i=\operatorname{int}(v)j
+   =\operatorname{int}(vu)i.
+\]
+所以
+\[
+  vu=(u',v')\in (Z\times_S H)(S).
+\]
+由此得 \(u'\in Z(S)\), 且 \(u'\) 提升 \(u_0\).
+
+\SGAStatement{引理 5.7.2}{设 \(k\) 为域, \(H\) 为 \(k\)-代数群,
+以 \(P(H)\) 表示下述性质:
+\begin{quote}
+对每个光滑幺幂 \(k\)-群 \(U\), 以及 \(H\) 被 \(U\) 的每个扩张 \(E\),
+\(H\) 在 \(E\) 中的任意两个提升都由 \(U(k)\) 的一个元素共轭.
+\end{quote}
+设 \(H\) 是一个乘法型群 \(H''\) 被乘法型群 \(H'\) 的扩张这一代数群.
+若 \(P(H')\) 和 \(P(H'')\) 成立, 则 \(P(H)\) 成立.}
+\SGARefTarget{sga3:xvii:lemma:5:7:2}
+
+事实上, 设 \(U\) 为光滑幺幂 \(k\)-群, \(E\) 为 \(H\) 被 \(U\) 的扩张,
+\(H_1,H_2\) 为 \(H\) 在 \(E\) 中的两个提升.
+设 \(H'_1,H'_2\) 为 \(H'\) 的相应提升.
+由于 \(P(H')\) 成立, 存在 \(u\in U(k)\), 使
+\[
+  H'_2=\operatorname{int}(u)H'_1.
+\]
+以 \(\operatorname{int}(u)H_1\) 替换 \(H_1\) 后, 可设 \(H'_1=H'_2\);
+将此公共群简记为 \(H'\). 置
+\[
+  E'=\operatorname{Centr}_E(H')
+     =U^{H'}H_1
+     =U^{H'}H_2.
+\]
+由\SGARefLink{sga3:xvii:lemma:5:7:1}{5.7.1}, \(U^{H'}=U'\) 光滑. 于是有扩张
+\[
+  1\longrightarrow U'\longrightarrow E'
+    \longrightarrow H\longrightarrow1.
+\]
+由构造, \(H'\) 在 \(E'\) 中为中心子群, 因而为不变子群.
+取商得到正合列
+\[
+  1\longrightarrow U'\longrightarrow E''
+    \longrightarrow H''\longrightarrow1.
+\]
+由于 \(U'\) 光滑且 \(P(H'')\) 成立,
+\(H_1\) 与 \(H_2\) 在 \(E''\) 中的像由元素 \(u\in U'(k)\) 共轭. 因而
+\[
+  H_1=\operatorname{int}(u)H_2.
+\]
+
+要证明\SGARefLink{sga3:xvii:theorem:5:1:1:item:ii}{5.1.1(ii)}\SGARefLink{sga3:xvii:section:b}{(b)},
+注意到由于 \(k\) 代数闭, \(H\) 有一个合成列, 其相继商光滑,
+或者在 \(p>0\) 时同构于 \(\boldsymbol\mu_p\).
+反复应用\SGARefLink{sga3:xvii:lemma:5:7:2}{5.7.2}, 可归结到 \(H\) 光滑或 \(H=\boldsymbol\mu_p\) 的情形.
+第一种情形只须应用\SGARefLink{sga3:xvii:theorem:5:1:1:item:ii}{5.1.1(ii)}(a).
+只须再考虑 \(H=\boldsymbol\mu_p\).
+由于 \(U\) 光滑, 由\SGARefLink{sga3:xvii:lemma:3-9}{3.9},
+\(U\) 有一个特征合成列, 其相继商平展或同构于 \(\mathbb G_a^r\).
+若 \(U\) 平展, 则应用\SGARefLink{sga3:xvii:lemma:5:5:1}{5.5.1}.
+最终归结到
+\[
+  H=\boldsymbol\mu_p,\qquad U=\mathbb G_a^r.
+\]
+
+须证明
+\[
+  H^1(\boldsymbol\mu_p,U)=0.
+\]
+\SGARefLink{sga3:xvii:proposition:5:4:1}{5.4.1} 中所用的方法不再适用,
+因为 \(\boldsymbol\mu_p\) 一般不线性地作用于 \(\mathbb G_a^r\).
+固定如下记号: \(H'\) 表示 \(H\) 在 \(E\) 中的一个提升, 并置
+\[
+  \mathfrak e=\operatorname{Lie}E,\qquad
+  \mathfrak u=\operatorname{Lie}U,\qquad
+  \mathfrak h=\operatorname{Lie}H,\qquad
+  \mathfrak h'=\operatorname{Lie}H'.
+\]
+设 \(X\) 为 \(\mathfrak h\) 的一个非零元素, 满足
+\[
+  X^{(p)}=X
+\]
+(附录 II, \SGARefLink{sga3:xvii:lemma:3-1}{3.1}),
+并设 \(X'\) 为它在 \(\mathfrak h'\) 中的提升.
+
+由于 \(\boldsymbol\mu_p\) 是高度为 \(1\) 的根式群,
+\(H\) 在 \(E\) 中的提升所成的集合与满足
+\[
+  Y^{(p)}=Y
+\]
+且像为 \(X\) 的元素 \(Y\in\mathfrak e\) 所成的集合 \(A\) 一一对应
+(附录 II, \SGARefLink{sga3:ii:subsection:2-2}{2.2}).
+同样, 若 \(Y\in A\) 对应 \(H\) 在 \(E\) 中的一个提升 \(H''\), 且 \(u\in U(k)\), 则
+\[
+  \operatorname{int}(u)H'=H''
+  \quad\Longleftrightarrow\quad
+  \operatorname{Ad}(u)X'=Y.
+\]
+设 \(B\) 为 \(\mathfrak e\) 中所有形如 \(\operatorname{Ad}(u)X'\),
+\(u\in U(k)\), 的元素所成的子集.
+显然 \(B\subset A\), 而只须在 \(k\) 代数闭时证明 \(A=B\).
+
+\smallskip
+\noindent
+(a) \emph{\(A\) 的研究.}
+由于 \(\mathfrak u\) 交换且被 \(\mathfrak h'\) 正规化,
+由 Jacobson 公式 (第 VII\textsubscript{A} 讲, \SGARefLink{sga3:VIIB:5.2:theorem}{5.2}),
+对 \(u\in\mathfrak u\), 有
+\[
+  (X'+u)^{(p)}
+   =X'{}^{(p)}+u^{(p)}
+      +(\operatorname{ad}X')^{p-1}(u)
+   =X'+(\operatorname{ad}X')^{p-1}(u).
+\]
+因此,
+\[
+  X'+u\in A
+  \quad\Longleftrightarrow\quad
+  u=(\operatorname{ad}X')^{p-1}(u).
+\]
+设
+\[
+  \mathfrak u
+   =\bigoplus_{n\in\mathbb Z/p\mathbb Z}\mathfrak u_n
+   =\mathfrak u_0\oplus
+      \bigoplus_{n\in(\mathbb Z/p\mathbb Z)^\times}\mathfrak u_n
+\]
+为 \(\mathfrak u\) 在 \(H'\) 作用下的典范分解.
+若 \(u\in\mathfrak u_0\), 则 \(\operatorname{ad}X'(u)=0\).
+若 \(u\in\mathfrak u_n\), 且 \(n\in(\mathbb Z/p\mathbb Z)^\times\), 则
+\[
+  (\operatorname{ad}X')^{p-1}(u)=u.
+\]
+所以 \(Y=X'+u\) 属于 \(A\) 当且仅当
+\[
+  u\in
+  \bigoplus_{n\in(\mathbb Z/p\mathbb Z)^\times}\mathfrak u_n.
+\]
+特别地, \(A\) 是 \(\mathbf W(\mathfrak e)\) 的一个不可约子概形的 \(k\)-有理点集,
+此子概形的维数为
+\[
+  \operatorname{rk}\mathfrak u-\operatorname{rk}\mathfrak u_0
+  =
+  \operatorname{rk}\mathfrak u
+  -\operatorname{rk}\operatorname{Centr}_{\mathfrak u}(X').
+\]
+
+\smallskip
+\noindent
+(b) \emph{\(B\) 的研究.}
+需要下列引理.
+
+\SGAStatement{引理 5.7.3 (Rosenlicht)}{设 \(U\) 为域 \(k\) 上的幺幂代数群,
+作用在拟仿射 \(k\)-概形 \(X\) 上.
+则每个点 \(x\in X(k)\) 的轨道都在 \(X\) 中闭.
+此处 \(x\) 的轨道指 \(\operatorname{ens}(X)\) 中的子集,
+它是 \(U\) 在态射 \(g\mapsto g\cdot x\) 下的像.}
+\SGARefTarget{sga3:xvii:lemma:5:7:3}
+
+由函子性, \(U\) 作用在 \(X\) 的仿射包络
+\[
+  \operatorname{Spec}\Gamma(X,\mathcal O_X)
+\]
+上, 因而可设 \(X\) 仿射.
+于是还可设 \(k\) 代数闭, \(X\) 约化, 且 \(U\) 光滑
+(注意, 当 \(k\) 完美时, \(U_{\mathrm{red}}\) 作用在 \(X_{\mathrm{red}}\) 上).
+设 \(Y\) 为 \(U\) 在态射 \(g\mapsto g\cdot x\) 下的概形像 (EGA I, 9.5.1).
+它是 \(X\) 的一个约化闭子概形, \(U\) 作用于其上.
+由 EGA IV, 1.8.6 容易得到, \(x\) 的轨道是 \(Y\) 中的一个开子集 \(Z\), 且在 \(Y\) 中稠密.
+须证明
+\[
+  Z=\operatorname{ens}(Y).
+\]
+设 \(F\) 为 \(Y\) 的一个约化闭子概形, 其底空间为 \(Y\setminus Z\).
+于是 \(F=V(J)\), 其中 \(J\) 为 \(\Gamma(Y,\mathcal O_Y)\) 的一个非零理想.
+由于 \(U\) 光滑, \(U\) 作用在 \(F\) 上, 从而作用在 \(J\) 上,
+所以由\SGARefLink{sga3:xvii:proposition:3:2}{3.2}, 有
+\[
+  J^U\ne0.
+\]
+若 \(a\) 为 \(J^U\) 的非零元素, 则 \(a\) 在轨道 \(Z\) 上为常数,
+因 \(Z\) 在 \(Y\) 中稠密, 它在 \(Y\) 上也为常数.
+因此理想 \(J\) 包含 \(k\), 且 \(F=\varnothing\).
+
+将上述引理应用于通过伴随表示作用在仿射空间 \(\mathbf W(\mathfrak e)\) 上的群 \(U\).
+\(X'\) 的轨道是 \(\mathbf W(\mathfrak e)\) 的一个闭子概形的底集合.
+此外, \(X'\) 的稳定化子 \(Z\) 是它在 \(U\) 中的中心化子, 且存在闭浸入
+\[
+  U/Z\longrightarrow\mathbf W(\mathfrak e).
+\]
+所以 \(X'\) 的轨道是 \(\mathbf W(\mathfrak e)\) 的一个维数为
+\[
+  \dim U-\dim Z
+\]
+的闭子概形的底空间.
+
+\smallskip
+\noindent
+\SGARefLink{sga3:xvii:appendix:C}{(c)} \emph{\SGARefLink{sga3:xvii:theorem:5:1:1:item:ii}{5.1.1(ii)}\SGARefLink{sga3:xvii:section:b}{(b)} 的证明的结束.}
+当 \(k\) 代数闭时, 典范映射
+\[
+  U(k)\longrightarrow(U/Z)(k)
+\]
+为满射. 所以由\SGARefLink{sga3:xvii:section:b}{(b)},
+\(B\) 为 \(\mathbf W(\mathfrak e)\) 的一个维数为 \(\dim U-\dim Z\)
+的闭子概形的 \(k\)-有理点集.
+由\SGARefLink{sga3:xvii:appendix:A}{(a)}, 要证明 \(A=B\), 只须说明
+\[
+  \operatorname{rk}\mathfrak u
+  -\operatorname{rk}\operatorname{Centr}_{\mathfrak u}(X')
+  \leq
+  \dim U-\dim\operatorname{Centr}_U(X').
+\]
+由于 \(U\) 光滑,
+\[
+  \dim U=\operatorname{rk}\mathfrak u.
+\]
+另一方面, \SGARefLink{sga3:ii:paragraph:5-3-3}{第 II 讲, 5.3.3} 给出
+\[
+  \dim\operatorname{Centr}_U(X')
+  \leq
+  \operatorname{rk}\operatorname{Centr}_{\mathfrak u}(X'),
+\]
+所以断言成立. 事实上注意到
+\[
+  \dim\operatorname{Centr}_U(X')
+  =
+  \operatorname{rk}\operatorname{Centr}_{\mathfrak u}(X');
+\]
+与\SGARefLink{sga3:xvii:lemma:5:7:1}{5.7.1} 中一样, 这又一次证明 \(Z\) 光滑.
+
+% 来源: XVII.tex 第 2986--3176 行.
+\SGASubsection{5.8}{\SGARefLink{sga3:xvii:theorem:5:1:1:item:i}{5.1.1(i)} 的证明的结束}
+\SGARefTarget{sga3:xvii:subsection:5:8}
+
+只须证明 (i)\SGARefLink{sga3:xvii:appendix:C}{(c)} 及 (i)(d).
+
+\SGAProof{\SGARefLink{sga3:xvii:theorem:5:1:1:item:i}{5.1.1(i)}(d) 的证明:
+\(U\) 光滑且 \(H\) 连通}
+需要下列引理.
+
+\SGAStatement{引理 5.8.1}{沿用\SGARefLink{sga3:xvii:theorem:5-1-1}{5.1.1} 的记号,
+设 \(U\) 光滑且 \(H\) 根式, 并设 \(H_1\) 为 \(H\) 的一个代数子群,
+它在 \(E\) 中有一个提升 \(H'_1\).
+则 \(H\) 在 \(E\) 中有一个包含 \(H'_1\) 的提升 \(H'\).}
+\SGARefTarget{sga3:xvii:lemma:5:8:1}
+
+\SGAProof{证明}
+对 \(H/H_1\) 的高度作归纳, 可设 \(H/H_1\) 的高度为 \(1\). 置
+\[
+  C'=\operatorname{Centr}_E(H'_1).
+\]
+断言典范态射 \(C'\longrightarrow H\) 为满态射.
+为证明这一点, 可设 \(k\) 代数闭.
+由\SGARefLink{sga3:xvii:theorem:5:1:1:item:i}{5.1.1(i)}\SGARefLink{sga3:xvii:appendix:A}{(a)},
+扩张 \(E\) 于是平凡.
+设 \(H''\) 为 \(H\) 在 \(E\) 中的一个提升,
+\(H''_1\) 为 \(H_1\) 在 \(H''\) 中的逆像.
+群 \(H'_1\) 与 \(H''_1\) 为 \(H_1\) 在 \(E\) 中的两个提升;
+因 \(k\) 代数闭且 \(U\) 光滑,
+由\SGARefLink{sga3:xvii:theorem:5:1:1:item:ii}{5.1.1(ii)}\SGARefLink{sga3:xvii:section:b}{(b)},
+它们由 \(U(k)\) 的一个元素共轭.
+因此要证明关于 \(C'\) 的断言, 只须对
+\[
+  C''=\operatorname{Centr}_E(H''_1)
+\]
+证明它. 但 \(C''\) 包含 \(H''\), 所以断言显然成立.
+
+由\SGARefLink{sga3:xvii:lemma:5:7:1}{5.7.1}, 还可知 \(C'\cap U\) 光滑.
+因而可将 \(E\) 替换为 \(C'\), 从而设 \(H'_1\) 中心.
+再对 \(H'_1\) 取商, 可设 \(H_1=0\) 且 \(H\) 的高度为 \(1\).
+
+由于 \(U\) 光滑, 有如下 \(p\)-Lie 代数的正合列
+(附录 II, \SGARefLink{sga3:xvii:proposition:3:2}{3.2}):
+\[
+  (*)\qquad
+  0\longrightarrow\operatorname{Lie}U
+   \longrightarrow\operatorname{Lie}E
+   \longrightarrow\operatorname{Lie}H
+   \longrightarrow0.
+\]
+由附录 II, \SGARefLink{sga3:ii:subsection:2-2}{2.2},
+\(E\) 平凡等价于 \((*)\) 是 \(p\)-Lie 代数的平凡扩张.
+设 \(H\ne0\), 从而 \(\operatorname{Lie}H\ne0\).
+还设已经找到一个非零 \(p\)-Lie 子代数
+\[
+  \mathfrak h_1\subset\mathfrak h=\operatorname{Lie}H,
+\]
+它提升为一个 \(p\)-Lie 子代数 \(\mathfrak h'_1\subset\operatorname{Lie}E\).
+由所引结论, 存在 \(H\) 的一个子群 \(H_1\), 满足
+\(\operatorname{Lie}H_1=\mathfrak h_1\),
+以及 \(H_1\) 在 \(E\) 中的一个提升 \(H'_1\), 满足
+\(\operatorname{Lie}H'_1=\mathfrak h'_1\).
+再次应用刚才的归结, 便回到同一问题, 但以 \(H/H_1\) 替换了 \(H\).
+由于 \(H\) 的高度为 \(1\), 有
+\[
+  \operatorname{Lie}(H/H_1)
+   =\operatorname{Lie}H/\operatorname{Lie}H_1
+\]
+(所引文献), 因而
+\[
+  \operatorname{rk}\operatorname{Lie}(H/H_1)
+  \leq \operatorname{rk}\operatorname{Lie}H-1.
+\]
+所以对 \(\operatorname{Lie}H\) 的秩作归纳,
+只须在 \(\mathfrak h\ne0\) 时, 找到一个能提升到 \(\operatorname{Lie}E\)
+的 \(\operatorname{Lie}H\) 的非零 Lie 子代数. 这由下列引理得到.
+
+\SGAStatement{\SGAInlineRefTarget{sga3:xvii:lemma:5-8-2}引理 5.8.2}{设 \(k\) 为特征 \(p>0\) 的域,
+\[
+  \varphi:\mathfrak g\longrightarrow\mathfrak h
+\]
+为 \(k\) 上有限秩 \(p\)-Lie 代数的满态射. 则:
+\begin{enumerate}
+\item[\SGAInlineRefTarget{sga3:xvii:lemma:5-8-2:item:i}(i)] 若 \(\mathfrak h_{\overline{k}}\)
+约化 (\SGARefLink{sga3:xvii:lemma:4-2-2}{4.2.2}) 且非零,
+则 \(\mathfrak g\) 中存在一个在 \(\mathfrak h\) 中的像非零的约化 Lie 子代数 \(\mathfrak h_1\).
+\item[\SGAInlineRefTarget{sga3:xvii:lemma:5-8-2:item:ii}(ii)] 若 \(k\) 完美,
+且 \(u\) 是 \(\mathfrak h\) 的幺幂元素, 即对某个 \(n\) 有 \(u^{(p^n)}=0\),
+则 \(u\) 提升为 \(\mathfrak g\) 的一个幺幂元素.
+\end{enumerate}}
+\SGARefTarget{sga3:xvii:lemma:5:8:2}
+
+\SGAProof{证明}
+在情形\SGARefLink{sga3:xvii:lemma:5-8-2:item:i}{(i)} 中,
+设 \(X\) 为 \(\mathfrak h\) 的一个非零元素;
+在情形\SGARefLink{sga3:xvii:lemma:5-8-2:item:ii}{(ii)} 中, 设 \(X=u\).
+选取 \(X\) 在 \(\mathfrak g\) 中的一个提升 \(X'\).
+\(X'\) 生成的 \(\mathfrak g\) 的 \(p\)-Lie 子代数 \(\mathfrak h'\) 是阿贝尔的 (第 VII 讲).
+
+\smallskip
+\noindent
+\emph{情形\SGARefLink{sga3:xvii:lemma:5-8-2:item:i}{(i)}.}
+\SGARefLink{sga3:xvii:lemma:4-2-2}{4.2.2} 中的描述表明,
+\(\mathfrak h'_{\overline{k}}\) 的约化部分 (所引文献) 已定义在 \(k\) 上;
+以 \(\mathfrak r'\) 表示它. 断言 \(\mathfrak r'\) 在 \(\mathfrak h\) 中的像非零.
+可设 \(k\) 代数闭, 从而
+\[
+  \mathfrak h'=\mathfrak r'\oplus\mathfrak u',
+\]
+其中 \(\mathfrak u'\) 为 \(\mathfrak h'\) 的幺幂部分.
+若 \(\mathfrak r'\) 在 \(\mathfrak h\) 中的像为零,
+则 \(\mathfrak h'\) 在 \(\mathfrak h\) 中的像幺幂,
+且因 \(\mathfrak h\) 约化而为零 (\SGARefLink{sga3:VIIA:2.4:item:ii}{2.4(ii)});
+但由构造, 该像包含 \(X\), 矛盾.
+
+\smallskip
+\noindent
+\emph{情形\SGARefLink{sga3:xvii:lemma:5-8-2:item:ii}{(ii)}.}
+同样的论证适用, 只须交换 \(\mathfrak r'\) 与 \(\mathfrak u'\) 的角色.
+
+\smallskip
+\noindent
+\emph{\SGARefLink{sga3:xvii:lemma:5:8:1}{5.8.1} 的证明的结束.}
+设 \(H\ne0\). 由\SGARefLink{sga3:xvii:lemma:5-8-2}{5.8.2},
+存在一个非零约化 \(p\)-Lie 子代数 \(\mathfrak h'_1\subset\operatorname{Lie}E\).
+由\SGARefLink{sga3:xvii:proposition:4:3:1:item:i}{4.3(i)}, \(\operatorname{Lie}U\) 幺幂, 故必有
+\[
+  (\operatorname{Lie}U)\cap\mathfrak h'_1=0.
+\]
+所以 \(\mathfrak h'_1\) 为 \(\operatorname{Lie}H\) 的一个 \(p\)-Lie 子代数的提升.
+
+\smallskip
+\noindent
+\emph{\SGARefLink{sga3:xvii:theorem:5:1:1:item:i}{5.1.1(i)}(d) 的证明的结束.}
+由\SGARefLink{sga3:xvii:lemma:5:8:1}{5.8.1}, 存在 \(E\) 的一族代数子群 \(H'_n\)
+(\(n\in\mathbb N\)), 使 \(H'_{n+1}\) 包含 \(H'_n\), 且 \(H'_n\) 提升 \({}_{F^n}H\).
+子群的下降列
+\[
+  \operatorname{Centr}_E(H'_n)
+\]
+终于稳定; 以 \(C\) 表示其稳定值.
+\(C\) 的中心 \(Z\) 包含每个 \(n\) 对应的 \(H'_n\).
+所以 \(Z\) 在 \(H\) 中的像包含每个 \(n\) 对应的 \({}_{F^n}(H)\),
+从而是 \(H\) 的一个开子群 (第 VII\textsubscript{A} 讲, \S 4).
+由于 \(H\) 连通, 此像因而等于 \(H\).
+故要证明 \(E\) 平凡, 可将 \(E\) 替换为 \(Z\), 从而设 \(E\) 交换.
+在\SGARefLink{sga3:xvii:theorem:7:2:1}{7.2.1} 中将看到,
+这时 \(E\) 含有一个极大乘法型子群 \(M\), 其形成与基域的扩张交换.
+由于 \(E_{\overline{k}}\) 由\SGARefLink{sga3:xvii:theorem:5:1:1:item:i}{5.1.1(i)}\SGARefLink{sga3:xvii:appendix:A}{(a)}
+为平凡扩张, 且 \(U\) 幺幂, 显然 \(M\) 为 \(H\) 在 \(E\) 中的唯一提升.
+
+\SGAProof{\SGARefLink{sga3:xvii:theorem:5:1:1:item:i}{5.1.1(i)}\SGARefLink{sga3:xvii:appendix:C}{(c)} 的证明:
+\(U\) 为 \(k\)-可解群}
+由于 \((H/H^0)(\overline{k})\) 的阶与 \(p\) 互素,
+对偶性立即表明存在整数 \(n\), 使 \({}_nH\) 为平展子群, 且典范态射
+\[
+  {}_nH\longrightarrow H/H^0
+\]
+为满态射. 所以 \(H/{}_nH\) 连通.
+由\SGARefLink{sga3:xvii:lemma:5:2:3:item:i:d}{5.2.3(d)},
+存在 \({}_nH\) 在 \(E\) 中的一个提升 \(H'\).
+如\SGARefLink{sga3:xvii:lemma:5:8:1}{5.8.1} 的证明开头一样, 可知
+\[
+  C=\operatorname{Centr}_E(H')
+\]
+为 \(E\) 的一个子群, 使 \(C\longrightarrow H\) 为满态射, 且 \(C\cap U\) 光滑.
+以 \(C\) 替换 \(E\), 再对 \(H'\) 取商,
+便归结到 \(U\) 光滑且 \(H\) 连通的情形, 即情形\SGARefLink{sga3:xvii:lemma:5-8-2:item:i}{(i)}(d).
+
+\SGARefLink{sga3:xvii:theorem:5-1-1}{5.1.1} 的证明至此完成.
+
+% 来源: XVII.tex 第 3177--3410 行.
+\SGASubsection{5.9}{反例}
+\SGARefTarget{sga3:xvii:subsection:5:9}
+
+先指出一种构造 \(k\)-乘法型群 \(H\) 被幺幂 \(k\)-群 \(U\) 的非平凡扩张的方法.
+设已给定 \(H\) 在 \(U\) 上的一个作用, 并设
+\[
+  E=U\rtimes H
+\]
+为半直积. 又设 \(\mathrm H^1(k,U)\) 中的一个类由一个 \(1\)-余圈 \(a\) 表示.
+群 \(U\) 通过内自同构作用在 \(E\) 上,
+故 \(a\) 定义 \(E\) 的一个 \(k\)-型, 记为 \(E_a\).
+再设 \(U\) 交换. 于是 \(U\) 在 \(U\) 及商 \(E/U=H\) 上的作用平凡,
+所以 \(E_a\) 仍为 \(H\) 被 \(U\) 的扩张.
+
+为简单起见, 设 \(H\) 为平展可对角化群,
+所以 Galois 群 \(\mathscr G=\operatorname{Gal}(\overline{k}/k)\)
+在 \(H(\overline{k})\) 上的作用平凡.
+这时它在 \(E_a(\overline{k})\) 上的作用由下式给出:
+\[
+  {}^g(u,h)
+  =\bigl({}^g u+a(g)-{}^h a(g),h\bigr)
+  \qquad
+  \bigl(g\in\mathscr G,\ u\in U(\overline{k}),\
+        h\in H(\overline{k})\bigr).
+\]
+若 \(h\in H(k)\), \(X\) 为它在 \(E_a\) 中的逆像,
+则 \(X\) 为 \(U\) 下的一个主齐性丛,
+由 \(\mathscr G\) 以 \(U\) 为系数的 \(1\)-余圈
+\[
+  g\longmapsto a(g)-{}^h a(g)
+\]
+的类定义. 因此, 若存在一点 \(h\in H(k)\), 使此余圈非平凡,
+则扩张 \(E_a\) 非平凡. 将此构造应用于以下两种特殊情形.
+
+\smallskip
+\noindent
+\emph{\SGARefLink{sga3:xvii:appendix:A}{(a)} 平展可对角化群 \(H\) 被 \(\mathbb Z/p\mathbb Z\) 的一个非平凡扩张.}
+取
+\[
+  H=(\mathbb Z/p\mathbb Z)^\times,
+  \qquad U=\mathbb Z/p\mathbb Z,
+\]
+令 \(H\) 通过乘法作用在 \(U\) 上.
+设 \(k\) 为特征 \(p\) 的域, \(K/k\) 为 Galois 扩张,
+其 Galois 群 \(\mathscr G\) 同构于 \(\mathbb Z/p\mathbb Z\), 并取一个非零元素
+\[
+  a\in\mathrm H^1(\mathscr G,U)
+   =\operatorname{Hom}(\mathscr G,U).
+\]
+则 \(E_a\) 就是所求的例子.
+
+\smallskip
+\noindent
+\emph{\SGARefLink{sga3:xvii:section:b}{(b)} 平展可对角化群 \(H\)
+被光滑连通幺幂群 \(U\) 的一个非平凡扩张.}
+选取一个非完美域 \(k\), 它具有 \(\mathbb G_a\) 的一个 \(k\)-型 \(U\),
+满足 \(\mathrm H^1(k,U)\ne0\).
+例如 (参见 J.-P. Serre, \emph{Cohomologie Galoisienne}),
+可取 \(k\) 为一个等特征 \(p>0\) 的离散赋值环的分式域,
+取 \(U\) 为 \(\mathbb G_a\times_k\mathbb G_a\) 中由方程
+\[
+  X^p+X+tY^p=0
+\]
+定义的代数子群, 其中 \(t\) 为 \(k\) 的一个素元.
+事实上, 为简单起见设 \(k\) 含有 \((p-1)\) 次单位根.
+则有代数群的正合列
+\[
+  0\longrightarrow\mathbb Z/p\mathbb Z
+   \longrightarrow U
+   \longrightarrow\mathbb G_a
+   \longrightarrow0,
+  \qquad
+  (x,y)\longmapsto y,
+\]
+从而有上同调正合列
+\[
+  \mathbb G_a(k)\xrightarrow{\,d\,}
+  \mathrm H^1(k,\mathbb Z/p\mathbb Z)
+  \longrightarrow\mathrm H^1(k,U)
+  \longrightarrow0,
+\]
+其中 \(d\) 将 \(x\) 对应于由方程
+\[
+  X^p+X+tx^p=0
+\]
+定义的 \(\mathbb Z/p\mathbb Z\) 下的齐性空间. 此外,
+\[
+  \mathrm H^1(k,\mathbb Z/p\mathbb Z)\simeq k/P(k),
+  \qquad P(x)=x^p+x,
+\]
+所以
+\[
+  \mathrm H^1(k,U)\simeq k/\bigl(P(k)+tk^p\bigr).
+\]
+若再有 \(p\ne2\), 则 \(t^2\) 不属于 \(P(k)+tk^p\);
+因此 \(\mathrm H^1(k,U)\ne0\).
+
+群 \(\boldsymbol\mu_{p-1}\) 通过
+\[
+  (h,x,y)\longmapsto(hx,hy)
+\]
+作用在 \(U\) 上. 设 \(\mathscr G\) 为由方程
+\[
+  X^p+X+t^2=0
+\]
+定义的扩张 \(K/k\) 的 Galois 群,
+\(a\in\mathrm H^1(\mathscr G,U)\) 为上述非零类.
+立即可得, \(E_a\) 为 \(\boldsymbol\mu_{p-1}\) 被 \(U\) 的非平凡扩张.
+
+\smallskip
+\noindent
+\emph{\SGAInlineRefTarget{sga3:xvii:subsection:5-9:item:c}\SGARefLink{sga3:xvii:appendix:C}{(c)}
+\(\mathbb G_m\) 被 \(\boldsymbol\alpha_p\) 的一个非平凡扩张.}
+由\SGARefLink{sga3:xvii:theorem:5:1:1:item:i}{5.1.1(i)}\SGARefLink{sga3:xvii:section:b}{(b)},
+这样的扩张只可能存在于非完美域上.
+因此设 \(k\) 非完美, \(G\) 为 \(U=\mathbb G_a\) 与 \(H=\mathbb G_m\)
+的半直积, 其中 \(\mathbb G_m\) 通过位似作用在 \(\mathbb G_a\) 上.
+由于 \(U\) 在 \(G\) 中为不变子群, \({}_{F}U\) 也是如此. 置
+\[
+  G'=G/{}_{F}U.
+\]
+群 \(G'\) 同构于 \(\mathbb G_a\rtimes\mathbb G_m\),
+其中 \(\mathbb G_m\) 在 \(\mathbb G_a\) 上的作用为
+\[
+  (h,u)\longmapsto h^p u.
+\]
+\(G\) (分别地, \(G'\)) 的子环面函子 \(\mathscr T_G\)
+(分别地, \(\mathscr T_{G'}\)) (参见第 XV 讲) 同构于 \(\mathbb G_a\),
+且由 \(G\longrightarrow G'\) 诱导的态射
+\[
+  \mathscr T_G\longrightarrow\mathscr T_{G'}
+\]
+可与
+\[
+  u\longmapsto u^p
+\]
+等同. 因此, 若 \(T'\) 为 \(G'\) 的一个子环面,
+对应一点 \(x\in k\simeq\mathbb G_a(k)\), 满足 \(x^{1/p}\notin k\),
+则它在 \(G\) 中的逆像 \(E\) 是环面 \(T'\) 被 \({}_{F}U=\boldsymbol\alpha_p\) 的扩张.
+它没有定义在 \(k\) 上的极大环面, 所以非平凡.
+作为
+\[
+  G=\operatorname{Spec}k[U,T,T^{-1}]
+\]
+的子群, 群 \(E\) 由下式定义:
+\[
+  U^p=x-xT^p.
+\]
+
+\SGAStatement{注 5.9.1}{最后这个例子表明, 定义在非完美域上的非光滑代数群未必有极大环面,
+从而回答了\SGARefLink{sga3:xiv:remark:1-5:item:b}{第 XIV 讲, 1.5(b)} 中提出的问题.}
+\SGARefTarget{sga3:xvii:remark:5:9:1}
+
+\smallskip
+\noindent
+\emph{(d) 提升不共轭的平凡扩张.}
+现在给出乘法型群 \(H\) 被幺幂群 \(U\) 的一个平凡扩张 \(E\),
+及 \(H\) 的两个提升 \(H'\) 与 \(H''\), 它们不由 \(U(k)\) 的元素共轭.
+
+取 \(E\) 为 \(U=\mathbb G_a\) 与
+\[
+  \boldsymbol\mu_p
+  =\operatorname{Spec}k[T]/(T^p-1)
+\]
+的半直积, 其中 \(\boldsymbol\mu_p\) 在 \(\mathbb G_a=\operatorname{Spec}k[U]\)
+上的作用由余态射
+\[
+  U\longmapsto(U+U^p)T-U^p
+\]
+定义. 这时 \(\boldsymbol\mu_p\) 在 \(U\) 中的中心化子是由
+\[
+  U+U^p=0
+\]
+定义的平展群 \(Z\). 所以若 \(k\) 不代数闭, 典范映射
+\[
+  U(k)\longrightarrow(U/Z)(k)
+\]
+一般不满射.
+由\SGARefLink{sga3:xvii:theorem:5:1:1:item:ii}{5.1.1(ii)}\SGARefLink{sga3:xvii:section:b}{(b)},
+\(\boldsymbol\mu_p\) 在 \(E\) 中的两个提升因而未必由 \(U(k)\) 的元素共轭.
+
+另一个例子如下, 其中 \(k\) 代数闭, 特征 \(p>0\).
+设 \(G\) 为 \(\boldsymbol\mu_p\) 通过位似作用于 \(\boldsymbol\alpha_p\)
+所成的根式半直积. 有带 \(\boldsymbol\mu_p\)-算子的代数群正合列
+\[
+  0\longrightarrow\boldsymbol\alpha_p
+   \longrightarrow\mathbb G_a
+   \xrightarrow{\,x\longmapsto x^p\,}\mathbb G_a
+   \longrightarrow0,
+\]
+其中 \(\boldsymbol\mu_p\) 在第一个 \(\mathbb G_a\) 上通过位似作用, 在第二个上作用平凡.
+上同调正合列 (附录 I, \SGARefLink{sga3:xvii:proposition:a-1-1}{命题 11}) 给出
+\[
+  0\longrightarrow\mathbb G_a(k)
+   \longrightarrow\mathrm H^1(\boldsymbol\mu_p,\boldsymbol\alpha_p)
+   \longrightarrow\mathrm H^1(\boldsymbol\mu_p,\mathbb G_a).
+\]
+由于最后一项由第 I 讲, \SGARefLink{sga3:i:theorem:5-3-3}{5.3.3} 为零,
+群 \(\mathrm H^1(\boldsymbol\mu_p,\boldsymbol\alpha_p)\) 非零.
+所以 \(\boldsymbol\mu_p\) 在 \(G\) 中的两个提升未必共轭.
+
+% 来源: XVII.tex 第 3411--3812 行.
+\SGAInlineRefTarget{sga3:xvii:section:6:site:da2ef89f51}\SGASection{6}{幺幂群被乘法型群的扩张}
+\SGARefTarget{sga3:xvii:section:6}
+\SGASubsection{6.1}{定理的陈述}
+\SGARefTarget{sga3:xvii:subsection:6:1}
+
+\SGAStatement{\SGAInlineRefTarget{sga3:xvii:theorem:6-1-1}定理 6.1.1}{设 \(k\) 为域,
+\(U\) 为幺幂代数 \(k\)-群, \(H\) 为 \(k\)-乘法型群,
+\(E\) 为 \(U\) 被 \(H\) 的扩张这一代数 \(k\)-群, 即有正合列
+\[
+  1\longrightarrow H\longrightarrow E\longrightarrow U
+    \longrightarrow1.
+\]
+则在下列各个情形中, 扩张 \(E\) 平凡,
+而且 \(U\) 在 \(E\) 中存在唯一提升:
+\begin{enumerate}
+\item[(A)] \SGARefTarget{sga3:xvii:theorem:6:1:1:item:A}
+群 \(U\) 光滑, 且下列条件之一成立:
+  \begin{enumerate}
+  \item[(i)] \SGARefTarget{sga3:xvii:theorem:6:1:1:item:A:i}
+\(U\) 连通, 且典范态射 \(E\longrightarrow U\) 有一个截面.
+  \item[(ii)] \SGARefTarget{sga3:xvii:theorem:6:1:1:item:A:ii}
+\(U\) 有一个合成列, 其相继商同构于 \(\mathbb G_a\).
+  \item[(iii)] \SGARefTarget{sga3:xvii:theorem:6:1:1:item:A:iii}
+\(H\) 平展.
+  \item[(iv)] \SGARefTarget{sga3:xvii:theorem:6:1:1:item:A:iv}
+\(k\) 完美.
+  \end{enumerate}
+\item[(B)] \SGARefTarget{sga3:xvii:theorem:6:1:1:item:B}
+\(U=\boldsymbol\alpha_p\), 且 \(k\) 完美.
+\item[(C)] \SGARefTarget{sga3:xvii:theorem:6:1:1:item:C}
+\(E\) 交换, 且 \(k\) 完美.
+\end{enumerate}}
+\SGARefTarget{sga3:xvii:theorem:6:1:1}
+
+\SGASubsection{6.2}{\SGARefLink{sga3:xvii:theorem:6:1:1:item:A}{6.1.1(A)} 的证明}
+\SGARefTarget{sga3:xvii:subsection:6:2}
+
+先证明三个引理.
+
+\SGAStatement{引理 6.2.1}{设 \(S\) 为预概形,
+\(E\) 为具有连通纤维的 \(S\)-群预概形 \(U\)
+被有限型 \(S\)-乘法型群 \(H\) 的扩张这一 \(S\)-群预概形
+(即 \(U\) 为 fpqc 拓扑下 \(E\) 对 \(H\) 的商).
+则 \(E\) 为中心扩张.}
+\SGARefTarget{sga3:xvii:lemma:6:2:1}
+
+\SGAProof{证明}
+由于 \(H\) 交换, \(U\) 通过内自同构作用在 \(H\) 上,
+这一作用通过一个群的 \(S\)-态射
+\[
+  u:U\longrightarrow\operatorname{Aut}_{S\text{-}\mathrm{gr}}(H)
+\]
+给出. 函子 \(\operatorname{Aut}_{S\text{-}\mathrm{gr}}(H)\)
+由一个平展 \(S\)-概形表示 (\SGARefLink{sga3:x:corollary:5-10}{第 X 讲, 5.10}),
+所以它的单位截面既为开浸入, 又为闭浸入.
+由于 \(U\) 的纤维连通, 可知 \(u\) 为单位态射.
+
+\SGAStatement{引理 6.2.2}{沿用\SGARefLink{sga3:xvii:theorem:6-1-1}{6.1.1} 的记号,
+若 \(E\) 平凡, 则 \(U\) 在 \(E\) 中存在唯一提升.}
+\SGARefTarget{sga3:xvii:lemma:6:2:2}
+
+\SGAProof{证明}
+设 \(U'\) 与 \(U''\) 为 \(U\) 在 \(E\) 中的两个提升.
+要证明 \(U'=U''\), 可设 \(k\) 代数闭, 且只须证明 \(\mathrm H^1(U,H)=0\).
+若 \(U\) 连通, 则由\SGARefLink{sga3:xvii:lemma:6:2:1}{6.2.1},
+\(U\) 中心化 \(H\), 故由 2.4(ii),
+\[
+  \mathrm H^1(U,H)
+    =\operatorname{Hom}_{k\text{-}\mathrm{gr}}(U,H)=0.
+\]
+
+在一般情形中, 以 \(U_1'\) 表示 \(U\) 的单位元连通分支 \(U^0\) 在 \(E\) 中的唯一提升, 并置
+\[
+  N=\operatorname{Norm}_{E}(U_1').
+\]
+若 \(g\in E(k)\), 则 \(\operatorname{int}(g)U_1'\) 是 \(U^0\) 的一个提升,
+因此等于 \(U_1'\); 所以 \(N(k)\supset E(k)\).
+而且, 由\SGARefLink{sga3:xvii:lemma:6:2:1}{6.2.1}, \(N\) 包含 \(H\),
+它也包含 \(U_1'\), 立即可得 \(N=E\).
+对 \(U_1'\) 取商, 便归结到 \(U\) 平展的情形.
+由于 \(k\) 代数闭, 在此情形中 \(\mathrm H^1(U,H)\)
+可与通常的上同调群\footnote{编者注: 例如参见 M. Demazure 和 P. Gabriel,
+\emph{Groupes algébriques I}, Masson \& North-Holland (1970) 的命题 III.6.4.2.}
+\[
+  \mathrm H^1\bigl(U(k),H(k)\bigr)
+\]
+等同, 因而为零, 因为 \(U(k)\) 是有限 \(p\)-群, 而 \(H(k)\) 是唯一 \(p\)-可除的.
+
+\SGAStatement{推论 6.2.3}{要证明 \(E\) 平凡,
+只须证明它在基域的一个有限可分扩张后变为平凡.
+特别地, 可以假设 \(H\) 可对角化.}
+\SGARefTarget{sga3:xvii:corollary:6:2:3}
+
+\SGAStatement{引理 6.2.4}{要使 \(U\) 被一个可对角化 \(k\)-群 \(H\)
+的每个中心扩张 \(E\) 都平凡, 只须 \(U\) 被 \(\mathbb G_m\) 的每个中心扩张都平凡.}
+\SGARefTarget{sga3:xvii:lemma:6:2:4}
+
+\SGAProof{证明}
+先对 \(r\) 作归纳, 可知假设蕴含 \(H=\mathbb G_m^r\) 时 \(E\) 平凡.
+一般情形中, 对某个适当的整数 \(r\), \(H\) 嵌入 \(\mathbb G_m^r\)
+(由对偶性立即可得); 置
+\[
+  H''=\mathbb G_m^r/H.
+\]
+得到正合列 (附录 I, \SGARefLink{sga3:i:subsection:2-1}{2.1})
+\[
+  \mathrm Z^1(U,H'')
+    \longrightarrow\operatorname{Ext}_{\mathrm{alg}}(U,H)
+    \longrightarrow
+      \operatorname{Ext}_{\mathrm{alg}}(U,\mathbb G_m^r)=0,
+\]
+其中 \(U\) 在 \(H\), \(H''\) 和 \(\mathbb G_m^r\) 上的作用平凡.
+但由 2.4(ii),
+\[
+  \mathrm Z^1(U,H'')
+    =\operatorname{Hom}_{k\text{-}\mathrm{gr}}(U,H'')=0,
+\]
+故 \(\operatorname{Ext}_{\mathrm{alg}}(U,H)=0\).
+
+\SGAProof{\SGARefLink{sga3:xvii:theorem:6:1:1:item:A}{6.1.1(A)}\SGARefLink{sga3:xvii:theorem:6:1:1:item:A:i}{(i)} 的证明}
+由于 \(E\longrightarrow U\) 有一个截面,
+\(E\) 定义 \(\mathrm H^2(U,H)\) 的一个元素 \(f\)
+(附录 I, \SGARefLink{sga3:i:definition:3-1}{3.1}). 须证明 \(f\) 为零.
+为此, 只须证明一个 \(2\)-余圈
+\[
+  f:U\times_kU\longrightarrow H
+\]
+是常值态射, 而这由下列引理得到.
+
+\SGAStatement{引理 6.2.5}{设 \(U\) 为光滑连通幺幂代数 \(k\)-群,
+\(H\) 为 \(k\)-乘法型群. 则预概形的每个 \(k\)-态射
+\[
+  f:U\longrightarrow H
+\]
+都是常值态射.}
+\SGARefTarget{sga3:xvii:lemma:6:2:5}
+
+\SGAProof{证明}
+可设 \(k\) 代数闭. 对 \(\dim U\) 作归纳.
+若 \(\dim U>0\), 则 \(U\) 有一个合成列 (参见\SGARefLink{sga3:xvii:lemma:3-9}{3.9})
+\[
+  1\longrightarrow U'\longrightarrow U
+    \xrightarrow{\ \pi\ }U''\longrightarrow1,
+  \qquad
+  U'\simeq\mathbb G_a,\quad \dim U''<\dim U.
+\]
+只须说明 \(f\) 经 \(U''\) 分解.
+由于 \(\pi\) 所定义的等价关系的图在 \(k\) 上光滑, 因而约化,
+只须说明: 若 \(x,y\in U(k)\) 在 \(U''(k)\) 中有相同的像 \(z\),
+则 \(f(x)=f(y)\).
+而 \(\pi^{-1}(z)\) 同构于 \(\mathbb G_a\),
+所以 \(f\) 在 \(\pi^{-1}(z)\) 上的限制经 \(H\) 的一个约化不可约分支分解,
+从而经一个同构于 \(\mathbb G_m^r\) 的 \(k\)-概形分解.
+只须再注意, 从 \(\mathbb G_a\) 到 \(\mathbb G_m^r\) 的每个态射都为常值态射,
+因为 \(\mathbb G_a\) 上的每个可逆正则函数都为常数.
+
+\SGAProof{\SGARefLink{sga3:xvii:theorem:6:1:1:item:A}{6.1.1(A)}\SGARefLink{sga3:xvii:theorem:6:1:1:item:A:ii}{(ii)} 的证明}
+由\SGARefLink{sga3:xvii:lemma:6:2:1}{6.2.1}, \SGARefLink{sga3:xvii:corollary:6:2:3}{6.2.3}
+和\SGARefLink{sga3:xvii:lemma:6:2:4}{6.2.4}, 可设 \(H=\mathbb G_m\).
+由假设, \(U\) 有一个合成列
+\[
+  U\supset U_1\supset\cdots,
+\]
+使 \(U_i/U_{i+1}\) 同构于 \(\mathbb G_a\).
+设 \(E_1\) 为 \(U_1\) 在 \(E\) 中的逆像.
+对 \(\dim U\) 作归纳, 可设扩张 \(E_1\) 平凡;
+设 \(U_1'\) 为 \(U_1\) 的唯一提升.
+与\SGARefLink{sga3:xvii:lemma:6:2:2}{6.2.2} 中的正规化子论证一样,
+可知 \(U_1'\) 在 \(E\) 中为不变子群.
+对 \(U_1'\) 取商后, 归结到 \(U=\mathbb G_a\) 的情形.
+这时 \(S\)-概形 \(E\), 其中 \(S=U\), 是 \(S\)-群 \(\mathbb G_m\times_kS\) 下的主齐性丛,
+故有一个截面, 因为 \(\operatorname{Pic}(S)=0\)
+(\SGARefLink{sga3:viii:corollary:4:3}{第 VIII 讲, 4.3}).
+扩张 \(E\) 于是由 (A)\SGARefLink{sga3:xvii:theorem:6:1:1:item:A:i}{(i)} 平凡.
+
+\SGAProof{\SGARefLink{sga3:xvii:theorem:6:1:1:item:A}{6.1.1(A)}\SGARefLink{sga3:xvii:theorem:6:1:1:item:A:iii}{(iii)} 的证明
+(\(U\) 光滑, \(H\) 平展)}
+先设 \(U\) 连通.
+则群 \(U_{\overline{k}}\) 有一个相继商同构于 \(\mathbb G_a\) 的合成列,
+所以 \(E_{\overline{k}}\) 由 (A)\SGARefLink{sga3:xvii:theorem:6:1:1:item:A:ii}{(ii)} 平凡.
+由于 \(H\) 平展, \(U_{\overline{k}}\) 在 \(E_{\overline{k}}\) 中的唯一提升
+显然是 \(E_{\overline{k}}\) 的单位元连通分支;
+因此此提升已经定义在 \(k\) 上.
+一般情形中, 对 \(E\) 的单位元连通分支取商后,
+归结到 \(E\) 平展的情形, 再归结到 \(E\) 完全分裂的情形
+(\SGARefLink{sga3:xvii:corollary:6:2:3}{6.2.3}).
+由于 \(U(k)\) 为 \(p\)-群, 而 \(H(k)\) 的阶与 \(p\) 互素,
+可取 \(E(k)\) 的一个 Sylow \(p\)-子群作为 \(U(k)\) 的提升.
+
+\SGAProof{\SGARefLink{sga3:xvii:theorem:6:1:1:item:A}{6.1.1(A)}\SGARefLink{sga3:xvii:theorem:6:1:1:item:A:iv}{(iv)} 的证明
+(\(U\) 光滑, \(k\) 完美)}
+若 \(U\) 连通, 则它有一个相继商同构于 \(\mathbb G_a\) 的合成列
+(\SGARefLink{sga3:xvii:lemma:4:1:2:item:b}{4.1.2(b)}), 应用 (A)\SGARefLink{sga3:xvii:theorem:6:1:1:item:A:ii}{(ii)} 即可.
+一般情形中, 上述论证将问题归结到 \(U\) 平展的情形,
+再归结到 \(U\) 完全分裂且 \(H\) 可对角化的情形
+(\SGARefLink{sga3:xvii:corollary:6:2:3}{6.2.3}).
+使用 \(H\) 的一个特征合成列
+\[
+  H\supset H^0\supset{}_{F^n}(H)\supset0,
+\]
+便归结到 \(H\) 为下列三种类型之一的情形:
+\begin{enumerate}
+\item[(a)] \(H\) 平展;
+\item[(b)] \(H=\mathbb G_m^r\);
+\item[(c)] \(H\) 根式.
+\end{enumerate}
+在情形\SGARefLink{sga3:xvii:appendix:A}{(a)} 中应用 (A)\SGARefLink{sga3:xvii:theorem:6:1:1:item:A:iii}{(iii)},
+在情形\SGARefLink{sga3:xvii:appendix:C}{(c)} 中应用\SGARefLink{sga3:xvii:lemma:1:6}{1.6}.
+最后, 在情形\SGARefLink{sga3:xvii:section:b}{(b)} 中,
+Hilbert \SGARefLink{sga3:viii:corollary:4:5}{第 90 定理} 表明 \(E\longrightarrow U\) 有一个截面,
+所以只须说明
+\[
+  \mathrm H^2(U,\mathbb G_m^r)
+    =\mathrm H^2\bigl(U(k),\mathbb G_m^r(k)\bigr)=0.
+\]
+但 \(U(k)\) 是有限 \(p\)-群, 而 \(\mathbb G_m^r(k)\)
+因 \(k\) 完美而是唯一 \(p\)-可除的.
+
+\SGASubsection{6.3}{\SGARefLink{sga3:xvii:theorem:6:1:1:item:B}{6.1.1(B)} 及 (C) 的证明}
+\SGARefTarget{sga3:xvii:subsection:6:3}
+
+由\SGARefLink{sga3:xvii:lemma:6:2:1}{6.2.1}, \SGARefLink{sga3:xvii:corollary:6:2:3}{6.2.3}
+及\SGARefLink{sga3:xvii:lemma:6:2:4}{6.2.4}, 只须在 \(H=\mathbb G_m\) 时证明 (B).
+于是有正合列
+\[
+  1\longrightarrow\mathbb G_m\longrightarrow E
+    \longrightarrow\boldsymbol\alpha_p\longrightarrow1.
+\]
+由于 \(\mathbb G_m\) 光滑, 它给出限制 Lie 代数的正合列
+(附录 II, \SGARefLink{sga3:xvii:proposition:3:2}{3.2})
+\begin{equation}
+  0\longrightarrow\operatorname{Lie}\mathbb G_m
+    \longrightarrow\operatorname{Lie}E
+    \longrightarrow\operatorname{Lie}\boldsymbol\alpha_p
+    \longrightarrow0.
+  \tag{*}\label{sga3:xvii:subsection:6-3:equation:star}
+\end{equation}
+群 \(\boldsymbol\alpha_p\) 的高度为 \(1\),
+所以扩张 \(E\) 平凡当且仅当限制 Lie 代数的正合列 \((*)\) 分裂
+(附录 II, \SGARefLink{sga3:ii:subsection:2-2}{2.2}).
+代数 \(\operatorname{Lie}\boldsymbol\alpha_p\) 由一个满足 \(X^{(p)}=0\)
+的元素 \(X\ne0\) 生成 (附录 II, \SGARefLink{sga3:xvii:proposition:2:1}{2.1}).
+因此只须说明, \(X\) 可提升为 \(\operatorname{Lie}E\) 的一个元素 \(Z\),
+满足 \(Z^{(p)}=0\).
+由\SGARefLink{sga3:xvii:lemma:5-8-2:item:ii}{5.8.2(ii)},
+存在 \(\operatorname{Lie}E\) 的一个幺幂元素 \(Z\), 提升 \(X\).
+由于 \(\operatorname{Lie}E\) 的幺幂部分的维数显然至多为 \(1\),
+必有 \(Z^{(p)}=0\).
+
+\SGAProof{\SGARefLink{sga3:xvii:theorem:6:1:1:item:C}{6.1.1(C)} 的证明}
+若 \(U_1'\) 为 \(U\) 的一个代数子群 \(U_1\) 在 \(E\) 中的提升,
+则因已假设 \(E\) 交换, \(U_1'\) 在 \(E\) 中为不变子群,
+所以可对 \(U_1'\) 取商.
+使用 \(U\) 的一个合成列 (\SGARefLink{sga3:xvii:theorem:3:5:item:ii}{3.5(ii)}),
+上述观察便归结到 \(U\) 光滑或等于 \(\boldsymbol\alpha_p\) 的情形.
+但这时 \(E\) 由 (A)(iv) 和 (B) 平凡.
+
+\SGASubsection{6.4}{幺幂群 \(U\) 被乘法型群 \(H\) 的非平凡扩张的例子}
+\SGARefTarget{sga3:xvii:subsection:6:4}
+
+由\SGARefLink{sga3:xvii:theorem:6:1:1:item:A}{6.1.1(A)}(iv),
+问题只在特征 \(p>0\) 时才出现.
+
+\begin{enumerate}
+\item[(a)] \SGARefTarget{sga3:xvii:subsection:6:4:item:a}
+\(H=\mathbb G_m\), 而 \(U\) 为 \(\mathbb G_a\) 的非平凡型 (参见附录 III, \S5).
+
+设 \(k\) 为特征 \(2\) 的非完美域, \(u\in k\) 满足 \(u^{1/2}\notin k\).
+考虑坐标环为
+  \[
+    k\bigl[X,Y,(X^2+uY^2)^{-1}\bigr]
+  \]
+的仿射群 \(E\), 其乘法由余态射
+  \[
+    (X,Y)\longmapsto
+      \bigl(XX'+uYY',\,XY'+YX'\bigr)
+  \]
+给出. 群 \(E\) 光滑、连通、交换, 且维数为 \(2\);
+子概形 \(Y=0\) 定义一个子群 \(H\simeq\mathbb G_m\).
+\(E\) 上平方映射的核 \(K\) 的方程为
+  \[
+    X^2+uY^2=1,
+  \]
+故维数为 \(1\).
+群 \(K\) 包含定义在 \(\bar k\) 上的 \(E\) 的幺幂根,
+也包含来自 \(H\) 的部分, 后者同构于 \(\boldsymbol\mu_2\).
+由于 \(K\) 在 \(k\) 上约化,\TranslationNote{英文底本此处写作“在 \(\bar k\) 上约化”. 经核对法文合卷 PDF 第 1002 页, 原文为“Comme K est réduit sur k”, 此处据法文订正.}\(E\) 的幺幂根未定义在 \(k\) 上,
+而且 \(U=E/H\) 不提升到 \(E\) 中.
+
+立即可验证, \(U\) 是坐标环为
+  \[
+    k[V,W]/(V+uV^2+W^2)
+  \]
+的 \(\mathbb G_a\) 的一个型, 态射 \(E\longrightarrow U\) 对应于余态射
+  \[
+    V\longmapsto\frac{Y^2}{X^2+uY^2},
+    \qquad
+    W\longmapsto\frac{XY}{X^2+uY^2}.
+  \]
+
+\item[(b)] \SGARefTarget{sga3:xvii:subsection:6:4:item:b}
+\(H=\mathbb G_m\), \(U=\mathbb Z/2\mathbb Z\),
+而 \(k\) 为特征 \(2\) 的非完美域.
+
+与\SGARefLink{sga3:xvii:appendix:A}{(a)} 中一样选取 \(k\) 和 \(u\),
+考虑 \(\mathrm{GL}_2\) 中由元素
+  \[
+    X=
+    \begin{pmatrix}0&1\\u&0\end{pmatrix}
+    =
+    \begin{pmatrix}u^{1/2}&0\\0&u^{1/2}\end{pmatrix}
+    \begin{pmatrix}0&u^{-1/2}\\u^{1/2}&0\end{pmatrix}
+  \]
+生成的子群 \(E\).
+群 \(E\) 为 \(\mathbb Z/2\mathbb Z\) 被 \(\mathbb G_m\) 的扩张,
+但此扩张非平凡, 因为 \(X\) 的幺幂部分未定义在 \(k\) 上.
+
+\item[(c)] \SGARefTarget{sga3:xvii:subsection:6:4:item:c}
+\(H=\boldsymbol\mu_p\), \(U=\boldsymbol\alpha_p\), 且 \(k\) 非完美.
+
+设 \(\mathfrak e\) 为两个元素 \(X\) 与 \(Y\) 生成的交换限制 Lie 代数, 满足
+  \[
+    X^{(p)}=X,\qquad Y^{(p)}=aX.
+  \]
+由附录 II, \SGARefLink{sga3:ii:subsection:2-2}{2.2},
+\(\mathfrak e\) 是一个代数群 \(E\) 的限制 Lie 代数,
+它为 \(\boldsymbol\alpha_p\) 被 \(\boldsymbol\mu_p\) 的扩张.
+此扩张平凡当且仅当存在 \(b\in k\), 满足 \(b^p=a\), 因为这时
+  \[
+    (Y-bX)^{(p)}=0.
+  \]
+
+\item[(d)] \SGARefTarget{sga3:xvii:subsection:6:4:item:d}
+\(H=\boldsymbol\mu_2\), \(U=\boldsymbol\alpha_2\times\boldsymbol\alpha_2\),
+\(E\) 非交换, 且 \(k\) 为特征 \(2\) 的域.
+
+考虑特殊线性群 \(\mathrm{SL}_{2,k}\), 并置 \(E=F(\mathrm{SL}_{2,k})\).
+群 \(E\) 为高度 \(1\) 的根式群, 其 Lie 代数由三个元素 \(X,Y,Z\) 生成, 满足
+  \[
+    [X,Y]=Z,\qquad [X,Z]=[Y,Z]=0,
+  \]
+  \[
+    X^{(p)}=Y^{(p)}=0,\qquad Z^{(p)}=Z.
+  \]
+\end{enumerate}
+
+所以 \(E\) 为 \(U\simeq\boldsymbol\alpha_2\times\boldsymbol\alpha_2\)
+被 \(\boldsymbol\mu_2\) 的中心扩张.
+\(U\) 的每个因子 \(\boldsymbol\alpha_2\) 都在 \(E\) 中有唯一提升,
+但 \(U\) 本身不提升到 \(E\) 中, 因为 \([X,Y]\ne0\).
+
+% 来源: XVII.tex 第 3813--4136 行.
+\SGASection{7}{幂零仿射代数群}
+\SGARefTarget{sga3:xvii:section:7}
+\SGASubsection{7.1}{乘法型群的扩张}
+\SGARefTarget{sga3:xvii:subsection:7:1}
+
+\SGAStatement{命题 7.1.1}{设 \(S\) 为预概形,
+\(H\) 与 \(K\) 为两个有限型的乘法型 \(S\)-群预概形,
+\(E\) 为 \(K\) 被 \(H\) 的扩张这一 \(S\)-群预概形
+(即 \(K\) 为 fpqc 拓扑下 \(E\) 对 \(H\) 的商).
+则在以下两种情形之一中, \(E\) 为乘法型群:
+\begin{enumerate}
+\item[(a)] \SGARefTarget{sga3:xvii:proposition:7:1:1:item:a}
+\(E\) 交换.
+\item[(b)] \SGARefTarget{sga3:xvii:proposition:7:1:1:item:b}
+\(K\) 的纤维连通.
+\end{enumerate}}
+\SGARefTarget{sga3:xvii:proposition:7:1:1}
+
+\SGAProof{证明}
+\begin{enumerate}
+\item[\SGAInlineRefTarget{sga3:xvii:proposition:7:1:1:item:i}(i)] 先设 \(S\) 为域 \(k\) 的谱.
+断言在 fpqc 拓扑下是局部的, 所以可设 \(k\) 代数闭,
+从而 \(H\) 与 \(K\) 可对角化.
+注意 \(K\) 在 \(H\) 上通过内自同构的作用平凡:
+在情形\SGARefLink{sga3:xvii:appendix:A}{(a)} 中这显然成立,
+在情形\SGARefLink{sga3:xvii:section:b}{(b)} 中由\SGARefLink{sga3:xvii:lemma:6:2:1}{6.2.1} 得到.
+对 \(K\) 的一个适当合成列的长度作归纳,
+归结到 \(K\) 属于以下三种类型之一的情形:
+  \[
+    \text{(a) }K=\mathbb G_m,\qquad
+    \text{(b) }K=\boldsymbol\mu_p,\qquad
+    \text{(c) }K=\boldsymbol\mu_q,\quad(q,p)=1,
+  \]
+且在情形\SGARefLink{sga3:xvii:proposition:7:1:1:item:c}{(c)} 中, \(E\) 交换.
+现在将 \(H\) 嵌入 \(\mathbb G_m^r\).
+于是 \(E\) 嵌入一个 \(K\) 被 \(\mathbb G_m^r\) 的扩张中,
+因此可设 \(H=\mathbb G_m^r\).
+
+  \begin{enumerate}
+  \item[(a)] 若 \(K=\mathbb G_m\), 则 \(E\) 是幺幂秩为零的光滑连通仿射代数群
+(第 VI\textsubscript{B} 讲, \SGARefLink{prop:sga3-VIB-9.2}{9.2}), 因而为环面.
+
+  \item[(b)] 设 \(K=\boldsymbol\mu_p\). 这时 \(E\) 是平凡扩张.
+事实上, 由于 \(H\) 光滑, 典范态射
+    \[
+      \operatorname{Lie}E\longrightarrow
+      \operatorname{Lie}\boldsymbol\mu_p
+    \]
+为满射 (附录 II, \SGARefLink{sga3:xvii:proposition:3:2}{3.2}),
+由\SGARefLink{sga3:xvii:lemma:5-8-2:item:i}{5.8.2(i)}
+及附录 II, \SGARefLink{sga3:ii:subsection:2-2}{2.2}, 即得断言.
+
+  \item[\SGAInlineRefTarget{sga3:xvii:proposition:7:1:1:item:c}(c)] 设 \(K=\boldsymbol\mu_q\),
+其中 \((q,p)=1\), 并设 \(E\) 交换. 扩张 \(E\) 再次是平凡的.
+事实上, 设 \(x\in E(\bar k)\) 提升 \(\boldsymbol\mu_q(\bar k)\) 的一个生成元 \(\bar x\).
+元素 \(x^q\) 属于 \(H(\bar k)\), 故形如 \(y^q\), 其中 \(y\in H(\bar k)\)
+(注意 \(\mathbb G_m^r(\bar k)\) 是 \(q\)-可除的).
+由于 \(E\) 交换, \(y^{-1}x\) 是 \(\bar x\) 的一个阶为 \(q\) 的提升.
+  \end{enumerate}
+
+\item[(ii)] 现在考虑一般情形.
+群 \(H\) 与 \(K\) 在 \(S\) 上平坦、仿射且有限表现
+(\SGARefLink{sga3:ix:proposition:2:1}{第 IX 讲, 2.1}),
+所以 \(E\) 也是如此 (第 VI\textsubscript{B} 讲, \SGARefLink{prop:sga3-VIB-9.2}{9.2}).
+利用第 VI\textsubscript{B} 讲, \S10 的一般技术, 可归结到 \(S\) 为 Noether 概形的情形.
+此时要证明 \(E\) 为乘法型群, 只须证明 \(E\) 交换,
+且对每个 \(n\), \({}_nE\) 都在 \(S\) 上有限 (第 X 讲, 4.8(b)).
+
+  \begin{enumerate}
+  \item[(a)] \(E\) 交换. 须验证态射
+    \[
+      E\times_S E\longrightarrow E,\qquad
+      (x,y)\longmapsto[x,y]=xyx^{-1}y^{-1}
+    \]
+经 \(E\) 的单位截面分解,
+而只须在 \(S\) 为 Artin 局部环的谱时验证这一点.
+但此时由\SGARefLink{sga3:xvii:proposition:7:1:1:item:i}{(i)}
+及\SGARefLink{sga3:x:corollary:2:3}{第 X 讲, 2.3}, \(E\) 为乘法型群.
+
+  \item[(b)] \SGARefTarget{sga3:xvii:proposition:7:1:1:proof:ii:item:b}
+群 \({}_nE\) 在 \(S\) 上有限. 事实上, 有正合列
+    \[
+      0\longrightarrow{}_nH\longrightarrow{}_nE
+      \longrightarrow{}_nK\xrightarrow{u}H_n,
+    \]
+其中 \(H_n\) 为 \(H\) 上 \(n\) 次幂映射的余核.
+已知 \(H_n\) 为乘法型群 (\SGARefLink{sga3:ix:proposition:2:7}{第 IX 讲, 2.7}),
+因而分离, 而 \({}_nH\) 与 \({}_nK\) 在 \(S\) 上有限.
+群 \(\ker u\) 是 \({}_nK\) 的闭子群, 故在 \(S\) 上有限;
+所以 \({}_nE\) 作为有限群被有限群的扩张, 也在 \(S\) 上有限
+(第 VI\textsubscript{B} 讲, \SGARefLink{prop:sga3-VIB-9.2}{9.2}).
+  \end{enumerate}
+\end{enumerate}
+
+\SGASubsection{7.2}{交换仿射代数群的结构}
+\SGARefTarget{sga3:xvii:subsection:7:2}
+
+\SGAStatement{定理 7.2.1}{设 \(k\) 为域, \(G\) 为交换仿射代数 \(k\)-群. 则:
+\begin{enumerate}
+\item[(a)] \SGARefTarget{sga3:xvii:theorem:7:2:1:item:a}
+\(G\) 含有一个最大的乘法型子群 \(M\).
+群 \(M\) 在 \(G\) 中为特征子群, 商 \(G/M\) 幺幂,
+且 \(M\) 的形成与基域 \(k\) 的扩张交换.
+\item[(b)] \SGARefTarget{sga3:xvii:theorem:7:2:1:item:b}
+若 \(k\) 完美, 则 \(G\) 是 \(M\) 与一个幺幂代数子群 \(U\) 的直积, 且这种分解唯一.
+\end{enumerate}}
+\SGARefTarget{sga3:xvii:theorem:7:2:1}
+
+\SGAProof{证明}
+\begin{enumerate}
+\item[(i)] 设 \(k\) 代数闭.
+当 \(G\) 光滑时, \SGARefLink{sga3:xvii:theorem:7:2:1:item:b}{7.2.1(b)} 是熟知结论
+(BIBLE 第 4 讲, 定理 4).
+若 \(G\) 是高度 \(1\) 的根式群,
+则\SGARefLink{sga3:xvii:lemma:4-2-2}{4.2.2} 中描述的 \(\operatorname{Lie}G\) 的分解,
+由\SGARefLink{sga3:xvii:proposition:4:3:1:item:v}{4.3.1(v)}
+及附录 II, \SGARefLink{sga3:ii:subsection:2-2}{2.2},
+对应于 \(G\) 的一个\SGARefLink{sga3:xvii:theorem:7:2:1:item:b}{7.2.1(b)} 中所述类型的分解.
+一般情形中, \(G\) 有一个合成列, 其相继商光滑或为高度 \(1\) 的根式群
+(附录 II, \SGARefLink{sga3:xvii:lemma:3-1}{3.1}).
+所以要证明\SGARefLink{sga3:xvii:theorem:7:2:1:item:b}{7.2.1(b)}, 只须注意下述事实.
+设有交换代数群的正合列
+  \[
+    0\longrightarrow G'\longrightarrow G\longrightarrow
+    G''\longrightarrow0,
+  \]
+其中 \(G'\), 分别地 \(G''\), 为乘法型群与幺幂群的乘积,
+  \[
+    G'=M'\cdot U',\qquad G''=M''\cdot U''.
+  \]
+则 \(G\) 也是如此. 事实上, 考虑正合列
+  \[
+    0\longrightarrow G'/U'\longrightarrow G/U'
+      \longrightarrow G''\longrightarrow0.
+  \]
+由\SGARefLink{sga3:xvii:proposition:7:1:1:item:a}{7.1.1(a)},
+\(M''\) 在 \(G/U'\) 中的逆像是一个乘法型子群 \(M_1\).
+由\SGARefLink{sga3:xvii:theorem:5:1:1:item:i}{5.1.1(i)}\SGARefLink{sga3:xvii:appendix:A}{(a)},
+群 \(M_1\) 提升为 \(G\) 的一个子群 \(M\).
+同样, 改用\SGARefLink{sga3:xvii:theorem:6:1:1:item:C}{6.1.1(C)},
+可证明存在 \(G\) 的一个幺幂子群 \(U\), 它是 \(U''\) 被 \(U'\) 的扩张.
+显然 \(G=M\cdot U\).
+
+\item[(ii)] 现在令 \(k\) 任意.
+由\SGARefLink{sga3:xvii:subsection:6:4:item:i}{(i)},
+\(G_{\bar k}\) 为乘法型群 \(M_{\bar k}\) 与幺幂群 \(U_{\bar k}\) 的直积. 置
+  \[
+    S=\bar k\times_k\bar k,
+  \]
+设 \(M_1\) 与 \(M_2\) 为 \(M_{\bar k}\) 在两个投影
+\(S\rightrightarrows\bar k\) 下的两个逆像. 群
+  \[
+    G_S/M_2=(G/M_{\bar k})_S
+  \]
+具有幺幂纤维; 故由\SGARefLink{sga3:xvii:proposition:2:4:item:i}{2.4(i)},
+\(M_1\) 在 \(G_S/M_2\) 中的像平凡, 且 \(M_1\subset M_2\).
+反向包含同理成立, 所以 \(M_1=M_2\).
+由 fpqc 下降, \(M_{\bar k}\) 因而下降为 \(G\) 的一个代数子群 \(M\).
+显然 \(M\) 为乘法型群, \(G/M\) 幺幂, 且 \(M\) 的形成与 \(k\) 的每个扩张相容.
+对每个 \(k\)-预概形 \(S\), \(G_S\) 中的每个乘法型子群 \(H\) 都包含在 \(M_S\) 中.
+事实上, 它在具有幺幂纤维的群
+  \[
+    (G/M)_S=G_S/M_S
+  \]
+中的像由\SGARefLink{sga3:xvii:lemma:2:5}{2.5} 平凡.
+
+特别地, 取 \(H\) 为 \(M_S\) 在 \(G_S\) 的一个自同构下的像,
+可知 \(M\) 在 \(G\) 中为特征子群.
+
+最后, 若 \(k\) 完美, 则由\SGARefLink{sga3:xvii:theorem:6:1:1:item:C}{6.1.1(C)},
+\(G/M\) 在 \(G\) 中唯一地提升为一个幺幂群.
+\end{enumerate}
+
+\SGAStatement{注 7.2.2}{%
+\begin{enumerate}
+\item[\SGAInlineRefTarget{sga3:xvii:subsection:6:4:item:i}(i)] \SGARefTarget{sga3:xvii:remark:7:2:2:item:i}
+若 \(k\) 不完美, 则 \(G_{\bar k}\) 的幺幂分量未必定义在 \(k\) 上,
+如\SGARefLink{sga3:xvii:subsection:6:4:item:a}{例 6.4(a)} 所示.
+
+\item[(ii)] \SGARefTarget{sga3:xvii:remark:7:2:2:item:ii}
+与乘法型分量 \(M\) 不同, 无论 \(k\) 的特征为何,
+幺幂分量 \(U\) 一般不是 \(G\) 的特征子群.
+当然, \SGARefLink{sga3:xvii:theorem:7:2:1:item:b}{7.2.1(b)} 中分解的唯一性蕴含,
+\(U\) 在 \(G\) 的每个 \(k\)-自同构下不变.
+但若 \(U\) 与 \(M\) 使得存在一个 \(k\)-预概形 \(S\) 和一个非零 \(S\)-同态
+  \[
+    h:U_S\longrightarrow M_S
+  \]
+(参见\SGARefLink{sga3:xvii:remark:2-6}{2.6}), 则得到 \(G_S\) 的一个 \(S\)-自同构
+  \[
+    (u,m)\longmapsto\bigl(u,h(u)+m\bigr),
+  \]
+它不使 \(U_S\) 保持不变.
+
+\item[(iii)] \SGARefTarget{sga3:xvii:remark:7:2:2:item:iii}
+若 \(G\) 在 \(k\) 上有限, 则在 Cartier 对偶性
+(\SGARefLink{sga3:xvii:remark:2-6}{2.6}) 下,
+商 \(G/M\) 对应于 \(G\) 的对偶 \(D(G)\) 的单位元连通分支.
+\end{enumerate}}
+\SGARefTarget{sga3:xvii:remark:7:2:2}
+
+\SGASubsection{7.3}{幂零仿射代数群的结构}
+\SGARefTarget{sga3:xvii:subsection:7:3}
+
+\SGAStatement{定理 7.3.1}{设 \(k\) 为域, \(G\) 为一个幂零
+(第 VI\textsubscript{B} 讲, \S8)、仿射且连通的代数 \(k\)-群.
+则 \(G\) 有一个最大的乘法型子群 \(M\).
+群 \(M\) 是中心特征子群, 而 \(G/M\) 是幺幂代数群.}
+\SGARefTarget{sga3:xvii:theorem:7:3:1}
+
+设 \(Z\) 为 \(G\) 的中心,
+\(M\) 为\SGARefLink{sga3:xvii:theorem:7:2:1}{7.2.1} 给出的 \(Z\) 中最大的乘法型子群.
+由于 \(Z\) 在 \(G\) 中为特征子群, \(M\) 又在 \(Z\) 中为特征子群,
+群 \(M\) 在 \(G\) 中为特征子群.
+只须说明 \(G/M\) 幺幂. 对 \(G\) 的上升中心列的长度作归纳,
+这由下列更一般的引理得到.
+
+\SGAStatement{引理 7.3.2 (Rosenlicht)}{设 \(G\) 为连通代数 \(k\)-群,
+\(Z\) 为其中心. 则 \(G'=G/Z\) 的中心 \(Z'\) 幺幂.}
+\SGARefTarget{sga3:xvii:lemma:7:3:2}
+
+\SGAProof{证明}
+可设 \(k\) 代数闭. 由\SGARefLink{sga3:xvii:theorem:4:6:1:item:vi}{4.6.1(vi)},
+只须说明, 对任意素数 \(\ell\), \(Z'\) 都不含同构于 \(\boldsymbol\mu_\ell\) 的子群.
+设 \(\boldsymbol\mu_\ell\) 为 \(Z'\) 的一个这样的子群,
+\(N\) 为它在 \(G\) 中的逆像.
+由于 \(\boldsymbol\mu_\ell\) 在 \(G'\) 中为中心子群,
+群 \(N\) 在 \(G\) 中为不变子群.
+
+\begin{enumerate}
+\item[(i)] \SGARefTarget{sga3:xvii:lemma:7:3:2:proof:item:i}
+设 \((\ell,p)=1\). 可找到一个元素 \(x\in N(k)\) 和一个整数 \(n\), 具有下列性质:
+  \begin{enumerate}
+  \item[(a)] \SGARefTarget{sga3:xvii:lemma:7:3:2:proof:item:i:a}
+\(x\) 提升 \(\boldsymbol\mu_\ell\) 的一个生成元 \(\bar x\);
+  \item[(b)] \SGARefTarget{sga3:xvii:lemma:7:3:2:proof:item:i:b}
+\(x^{\ell^n}\in Z^0(k)\).
+  \end{enumerate}
+事实上, 只须选取 \(\bar x\) 的一个提升,
+使其在 \((N/Z^0)(k)\) 中的像属于 \(\ell\)-Sylow 子群.
+交换群 \(Z^0\) 中的 \(\ell\) 次幂映射平展, 所以 \(Z^0(k)\) 是 \(\ell\)-可除的.
+因此将 \(x\) 乘以 \(Z^0(k)\) 的一个元素后, 可设 \(x^{\ell^n}=0\).
+
+于是群 \(N\) 由两个相互交换的交换群生成, 即 \(Z\) 和由 \(x\) 生成的群,
+因而交换. 群 \({}_{\ell^n}N\) 为乘法型群,
+且在 \(N\) 中为特征子群; 因而在 \(G\) 中为不变子群,
+又因 \(G\) 连通而为中心子群 (\SGARefLink{sga3:ix:corollary:5:5}{第 IX 讲, 5.5}).
+所以 \({}_{\ell^n}N\) 包含在 \(Z\) 中,
+这与其在 \(G'\) 中的像包含 \(\boldsymbol\mu_\ell\) 矛盾.
+
+\item[(ii)] \SGARefTarget{sga3:xvii:lemma:7:3:2:proof:item:ii}
+设 \(\ell=p\). 此时存在整数 \(n\), 使 \(F_nN\) 在 \(G'\) 中的像包含 \(\boldsymbol\mu_p\),
+从而有正合列
+  \[
+    1\longrightarrow K\longrightarrow F_nN
+      \longrightarrow\boldsymbol\mu_p\longrightarrow1. \tag{*}\label{sga3:xvii:lemma:7-3-2:equation:star}
+  \]
+群 \(K\) 包含在 \(Z\) 中, 故交换.
+由\SGARefLink{sga3:xvii:theorem:7:2:1}{7.2.1},
+\SGARefLink{sga3:xvii:proposition:7:1:1:proof:ii:item:b}{7.1.1(b)}
+及\SGARefLink{sga3:xvii:lemma:5:5:1}{5.5.1},
+\(F_nN\) 中存在一个乘法型子群, 其在对 \(K\) 的商中的像为 \(\boldsymbol\mu_p\).
+如\SGARefLink{sga3:xvii:subsection:6:4:item:i}{(i)} 中一样, 可得 \(F_nN\) 交换.
+其乘法型分量 (\SGARefLink{sga3:xvii:theorem:7:2:1}{7.2.1}) 在 \(F_nN\) 中为特征子群,
+故在 \(G\) 中为不变子群, 从而为中心子群
+(\SGARefLink{sga3:ix:corollary:5:5}{第 IX 讲, 5.5}).
+由于它在 \(G'\) 中的像包含 \(\boldsymbol\mu_p\), 产生矛盾.
+\end{enumerate}
+
+% 来源: XVII.tex 第 4137--4596 行.
+\SGASection{A}{附录 I. Hochschild 上同调与代数群的扩张}
+\SGARefTarget{sga3:xvii:appendix:A}
+\SGANextSectionTarget{sga3:xvii:subsection:a-1}\SGASubsection{A.1}{上同调群的定义}
+\SGARefTarget{sga3:xvii:appendix:A:subsection:1}
+
+设 \(k\) 为域, \(G\) 为代数 \(k\)-群,
+\((\mathrm{Ab})_G\) 为带有 \(G\) 作用的交换代数 \(k\)-群所成的阿贝尔范畴.
+若 \(A\in\operatorname{Ob}(\mathrm{Ab})_G\), 则由 \(A\) 典范定义的函子
+\[
+  h_A:(\operatorname{Sch}/k)^\circ\longrightarrow
+      \operatorname{Ens}
+\]
+是\SGARefLink{sga3:i:definition:3-2}{第 I 讲, 3.2} 意义下的 \(G\)-\(\mathbb Z\)-模.
+因此可以考虑 \(G\) 以 \(A\) 为系数的代数余链的标准复形 \(C^\bullet(G,A)\)
+(\SGARefLink{sga3:i:subsection:5-1}{第 I 讲, 5.1}),
+以及 \(i\)-余圈群 \(Z^i(G,A)\), \(i\)-余边缘群 \(B^i(G,A)\)
+和第 \(i\) 个上同调群 \(H^i(G,A)\).
+如通常一样, 将 \(H^0(G,A)\) 与群 \(A^G(k)\) 等同,
+其中 \(A^G\) 为 \(A\) 在 \(G\) 下的不变量 \(k\)-函子.
+群 \(H^1(G,A)\) 分类带有 \(G\) 作用的 \(A\) 下的平凡主齐性空间.
+
+一般而言, 从 \((\mathrm{Ab})_G\) 到 \(\mathrm{Ab}\) 的函子
+\[
+  A\longmapsto H^\bullet(G,A)
+\]
+不是上同调函子. 尽管如此, 仍有下列命题.
+
+\SGAStatement{\SGAInlineRefTarget{sga3:xvii:proposition:a-1-1}命题 A.1.1}{设
+\[
+  0\longrightarrow A'\xrightarrow{u}A\xrightarrow{v}A''
+    \longrightarrow0
+\]
+为 \((\mathrm{Ab})_G\) 中的正合列. 则:
+\begin{enumerate}
+\item[(a)] \SGARefTarget{sga3:xvii:proposition:A:1:1:item:a}
+若 \(v\) 有一个截面, 即存在预概形的 \(k\)-态射 \(s:A''\to A\),
+使 \(v s=1_{A''}\), 则存在通常的上同调正合列
+  \[
+    \cdots\longrightarrow H^i(G,A)\longrightarrow H^i(G,A'')
+      \xrightarrow{d}H^{i+1}(G,A')\longrightarrow\cdots;
+  \]
+\item[(b)] \SGARefTarget{sga3:xvii:proposition:A:1:1:item:b}
+若 \(A(k)\to A''(k)\) 为满射, 则列
+  \[
+    \begin{aligned}
+    0&\longrightarrow A'^G(k)\longrightarrow A^G(k)
+      \longrightarrow A''^G(k)\xrightarrow{d}H^1(G,A')\\
+     &\longrightarrow H^1(G,A)\longrightarrow H^1(G,A'')
+    \end{aligned}
+    \tag{1}\label{sga3:xvii:proposition:a-1-1:equation:1}
+  \]
+正合.
+\end{enumerate}}
+\SGARefTarget{sga3:xvii:proposition:A:1:1}
+
+\SGAProof{证明}
+对于\SGARefLink{sga3:xvii:appendix:A}{(a)}, 注意截面的存在蕴含复形列
+\[
+  0\longrightarrow C^\bullet(G,A')\longrightarrow C^\bullet(G,A)
+    \longrightarrow C^\bullet(G,A'')\longrightarrow0
+\]
+正合.
+
+对于 (b), 若 \(x''\in A''{}^G(k)\),
+则它在 \(A\) 中的逆像是一个带 \(G\) 作用的 \(A'\) 下的平凡主齐性空间
+(因为已假设 \(A(k)\to A''(k)\) 为满射),
+所以定义一个元素 \(d(x'')\in H^1(G,A')\). 列 (1) 的正合性于是立即得到.
+
+\SGANextSectionTarget{sga3:xvii:subsection:a-2}\SGASubsection{A.2}{群
+\texorpdfstring{\(\operatorname{Ext}_{\mathrm{alg}}(G,A)\)}{Ext alg (G,A)}}
+\SGARefTarget{sga3:xvii:appendix:A:subsection:2}
+
+设 \(A\) 与 \(G\) 为两个代数 \(k\)-群,
+\(E\) 与 \(E'\) 为两个代数 \(k\)-群, 且都是 \(G\) 被 \(A\) 的扩张.
+若存在群的 \(k\)-态射 \(u:E\to E'\), 使下图交换, 则称这两个扩张\emph{同构}:
+\SGARefTarget{sga3:xvii:appendix:A:diagram:A:2:isomorphic-extensions}
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+  {} & E \arrow[dr] \arrow[d,"u"] & {} \\
+  A \arrow[ur] \arrow[dr] & {} & G \\
+  {} & E' \arrow[ur] & {}
+\end{tikzcd}
+\qquad .
+\]
+
+群 \(E\) 通过内自同构作用在 \(A\) 上.
+若 \(A\) 交换, 则此作用经 \(G\) 分解, 从而 \(G\) 作用在 \(A\) 上.
+反之, 若 \(A\in\operatorname{Ob}(\mathrm{Ab})_G\),
+以 \(\operatorname{Ext}_{\mathrm{alg}}(G,A)\) 表示 \(G\) 被 \(A\) 的代数扩张 \(E\)
+的类所成的集合, 其中 \(E\) 所定义的 \(G\) 在 \(A\) 上的作用,
+与 \(A\) 作为 \((\mathrm{Ab})_G\) 的对象的结构所给出的作用相同.
+
+集合 \(\operatorname{Ext}_{\mathrm{alg}}(G,A)\) 自然地是一个双函子,
+关于 \(A\) 协变, 关于 \(G\) 反变. 更确切地说:
+\begin{enumerate}
+\item[(a)] \SGARefTarget{sga3:xvii:appendix:A:subsection:2:item:a}
+若 \(f:A\to B\) 为 \((\mathrm{Ab})_G\) 中的态射,
+\(E\) 表示 \(\operatorname{Ext}_{\mathrm{alg}}(G,A)\) 的一个元素,
+则 \(f_*(E)\in\operatorname{Ext}_{\mathrm{alg}}(G,B)\) 定义为如下 \(G\) 被 \(B\)
+的扩张的类: 取半直积 \(B\mathbin{\cdot}E\)
+(其中 \(E\) 通过 \(G\) 作用在 \(B\) 上),
+再对 \(A\) 在态射 \((f,i)\) 下的像这一代数子群取商.
+由第 VI\textsubscript{A} 讲, \S5, 此商可表示, 故有交换图
+  \SGARefTarget{sga3:xvii:appendix:A:diagram:A:2:pushout}
+  \[
+  \begin{tikzcd}[column sep=large,row sep=large]
+    1 \arrow[r] &
+    A \arrow[r,"i"] \arrow[d,"f"'] &
+    E \arrow[r] \arrow[d] &
+    G \arrow[r] \arrow[d,"1_G"] &
+    1 \\
+    1 \arrow[r] &
+    B \arrow[r] &
+    f_*(E) \arrow[r] &
+    G \arrow[r] &
+    1
+  \end{tikzcd}
+  \qquad .
+  \]
+
+\item[(b)] \SGARefTarget{sga3:xvii:appendix:A:subsection:2:item:b}
+若 \(g:H\to G\) 为代数 \(k\)-群的 \(k\)-态射,
+\(E\) 为 \(G\) 被 \(A\) 的扩张,
+则纤维积 \(E\times_G H\) 自然地是 \(H\) 被 \(A\) 的扩张, 记为 \(g^*(E)\).
+所以有交换图
+  \SGARefTarget{sga3:xvii:appendix:A:diagram:A:2:pullback}
+  \[
+  \begin{tikzcd}[column sep=large,row sep=large]
+    1 \arrow[r] &
+    A \arrow[r] \arrow[d,"1_A"'] &
+    g^*(E) \arrow[r] \arrow[d] &
+    H \arrow[r] \arrow[d,"g"] &
+    1 \\
+    1 \arrow[r] &
+    A \arrow[r] &
+    E \arrow[r] &
+    G \arrow[r] &
+    1
+  \end{tikzcd}
+  \qquad .
+  \]
+\end{enumerate}
+
+适当改写 J.-P. Serre, \emph{Groupes algébriques et corps de classe}, 第 VII 章中的证明,
+便可赋予 \(\operatorname{Ext}_{\mathrm{alg}}(G,A)\)
+一个关于 \(A\) 和 \(G\) 具有函子性的自然阿贝尔群结构.
+
+\SGAStatement{\SGAInlineRefTarget{sga3:xvii:proposition:a-2-1}命题 A.2.1}{设
+\[
+  0\longrightarrow A'\longrightarrow A\longrightarrow A''
+    \longrightarrow0
+\]
+为 \((\mathrm{Ab})_G\) 中的正合列. 则:
+\begin{enumerate}
+\item[(a)] \SGARefTarget{sga3:xvii:proposition:A:2:1:item:a}
+存在阿贝尔群的典范正合列
+  \[
+    \begin{aligned}
+    Z^1(G,A)&\longrightarrow Z^1(G,A'')
+      \xrightarrow{d}\operatorname{Ext}_{\mathrm{alg}}(G,A')\\
+     &\longrightarrow\operatorname{Ext}_{\mathrm{alg}}(G,A)
+      \longrightarrow\operatorname{Ext}_{\mathrm{alg}}(G,A'')
+    \end{aligned};
+  \]
+\item[(b)] \SGARefTarget{sga3:xvii:proposition:A:2:1:item:b}
+若 \(A(k)\to A''(k)\) 为满射, 则由\SGARefLink{sga3:xvii:appendix:A}{(a)} 得到正合列
+  \[
+  \tag{2}\label{sga3:xvii:proposition:a-2-1:equation:2}
+    \begin{aligned}
+    H^1(G,A)&\longrightarrow H^1(G,A'')
+      \xrightarrow{d}\operatorname{Ext}_{\mathrm{alg}}(G,A')\\
+     &\longrightarrow\operatorname{Ext}_{\mathrm{alg}}(G,A)
+      \longrightarrow\operatorname{Ext}_{\mathrm{alg}}(G,A'')
+    \end{aligned}.
+  \]
+\end{enumerate}}
+\SGARefTarget{sga3:xvii:proposition:A:2:1}
+
+\SGARefLink{sga3:xvii:appendix:A}{(a)} 中的正合列推广了对交换扩张成立的通常的
+\(\operatorname{Hom}(\,\cdot\,,\,\cdot\,)\) 正合列 (所引文献), 其证明也相同.
+此处只回顾余边缘映射
+\[
+  d:Z^1(G,A'')\longrightarrow
+    \operatorname{Ext}_{\mathrm{alg}}(G,A')
+\]
+的定义. 为此考虑以显然方式从正合列 \(0\to A'\to A\to A''\to0\) 得到的扩张
+\[
+  1\longrightarrow A'\longrightarrow A\mathbin{\cdot}G
+    \longrightarrow A''\mathbin{\cdot}G\longrightarrow1.
+\]
+若 \(u\in Z^1(G,A'')\), 则 \(u\) 以通常的方式定义一个截面同态
+\[
+  u:G\longrightarrow A''\mathbin{\cdot}G.
+\]
+于是有
+\[
+  d(u)=u^*(A\mathbin{\cdot}G).
+\]
+
+\SGANextSectionTarget{sga3:xvii:subsection:a-3}\SGASubsection{A.3}{
+\texorpdfstring{\(H^2(G,A)\) 与 \(\operatorname{Ext}_{\mathrm{alg}}(G,A)\)}
+{H2(G,A) 与 Ext alg(G,A)} 的比较}
+\SGARefTarget{sga3:xvii:appendix:A:subsection:3}
+
+熟知对抽象群, 阿贝尔群 \(H^2(G,A)\) 与 \(\operatorname{Ext}(G,A)\)
+之间存在函子性同构.
+在此处的情形中也一样: 若 \(A\) 为 \((\mathrm{Ab})_G\) 的对象,
+则对每个 \(2\)-余圈 \(u\in Z^2(G,A)\),
+可以在预概形 \(A\times_kG\) 上赋予一个代数群结构,
+使它成为 \(\operatorname{Ext}_{\mathrm{alg}}(G,A)\) 的元素.
+而且, 此扩张平凡当且仅当 \(u\in B^2(G,A)\)
+(参见\SGARefLink{sga3:iii:lemma:1-2-2}{第 III 讲, 1.2.2}).
+回顾, \(A\times G\) 上的合成律由下式定义:
+\[
+  (a,g)(a',g')=a+{}^g a'+u(g,g').
+\]
+
+显然, 如此得到的 \(G\) 被 \(A\) 的扩张并非任意扩张, 因为它们有一个截面.
+反之, 若 \(E\in\operatorname{Ext}_{\mathrm{alg}}(G,A)\) 有一个截面 \(s\),
+则 \(E\) 同构于与如下 \(2\)-余圈 \(u\) 相联系的 \(G\) 被 \(A\) 的扩张:
+\[
+  u(g,g')=s(g)s(g')s(gg')^{-1}.
+\]
+于是得到下列命题.
+
+\SGAStatement{\SGAInlineRefTarget{sga3:xvii:proposition:a-3-1}命题 A.3.1}{取值于阿贝尔群的双函子
+\[
+  (G,A)\longmapsto H^2(G,A)
+  \qquad\text{且}\qquad
+  (G,A)\longmapsto\operatorname{Ext}_s(G,A)
+\]
+之间存在函子性同构,
+其中 \(\operatorname{Ext}_s(G,A)\) 表示 \(\operatorname{Ext}_{\mathrm{alg}}(G,A)\) 中
+由 \(G\) 被 \(A\) 的有截面的扩张的类组成的子群.}
+\SGARefTarget{sga3:xvii:proposition:A:3:1}
+
+\SGANextSectionTarget{sga3:xvii:section:b}\SGASection{B}{附录 II. 根式群的回顾与补充}
+\SGARefTarget{sga3:xvii:appendix:B}
+
+设 \(p>1\) 为素数, \(S\) 为一个 \(\mathbb F_p\)-预概形.
+
+\SGASubsection{B.1}{Frobenius 态射}
+\SGARefTarget{sga3:xvii:appendix:B:subsection:1}
+
+对每个 \(S\)-预概形 \(X\) 和每个整数 \(n>0\), 以
+\[
+  P^n:X\longrightarrow X
+\]
+表示对应于将 \(\mathcal O_X\) 的截面取 \(p^n\) 次幂的 \(\mathbb F_p\)-自同态,
+并以 \(X^{(n)}\) 表示由 \(X\) 沿 \(P^n:S\to S\) 基变换所得的 \(S\)-预概形.
+于是存在唯一的 \(S\)-态射
+\[
+  F^n:X\longrightarrow X^{(n)}
+\]
+使下图交换:
+\[
+\begin{tikzcd}[column sep=3.7em,row sep=3.0em]
+  {} & {} & X
+    \arrow[dll,"P^n"']
+    \arrow[dl,"F^n"]
+    \arrow[ddl] \\
+  X \arrow[d] &
+  X^{(n)} \arrow[l] \arrow[d] &
+  {} \\
+  S &
+  S \arrow[l,"P^n"] &
+  {}
+\end{tikzcd}
+\]
+
+显然, \(F^n\) 可与 \(F^1=F\) 的“第 \(n\) 次迭代”等同,
+后者称为 \(X/S\) 的 Frobenius 态射.
+
+若 \(G\) 为 \(S\)-群预概形, 则 \(G^{(n)}\) 为 \(S\)-群预概形, 且
+\[
+  F^n:G\longrightarrow G^{(n)}
+\]
+为 \(S\)-群态射.
+其核 \({}_{F^n}(G)\) 为 \(G\) 的一个特征子群预概形
+(即在函子 \(\operatorname{Aut}_{S\text{-}\mathrm{gr}}(G)\) 下稳定),
+并在 \(S\) 上根式.
+若 \(G\) 为根式 \(S\)-群预概形, 则在 \({}_{F^h}(G)=G\) 时,
+称 \(G\) 的高度至多为 \(h\).
+
+\SGASubsection{B.2}{群与限制 \texorpdfstring{\(p\)-Lie 代数}{p-Lie 代数}}
+\SGARefTarget{sga3:xvii:appendix:B:subsection:2}
+
+若 \(G\) 为 \(S\)-群预概形,
+则 \(\operatorname{Lie}(G)\) (第 II 讲) 自然地是一个限制 \(p\)-Lie 代数
+(第 VII\textsubscript{A} 讲, §§5, 6).
+特别地, 有如下结论 (参见第 VII\textsubscript{A} 讲).
+
+\SGAStatement{\SGAInlineRefTarget{sga3:xvii:proposition:b-2-1}命题 B.2.1}{%
+\begin{enumerate}
+\item[(i)] \(\operatorname{Lie}(\boldsymbol\alpha_p)_S
+=\operatorname{Lie}(\mathbb G_a)_S\)\footnote{编者注:
+\(\boldsymbol\alpha_p\) 的定义已在本讲开头给出, 因而此处略去.}
+是一个 \(\mathcal O_S\)-模层, 它在 \(\mathcal O_S\) 上自由且秩为 \(1\),
+由一个满足 \(X^{(p)}=0\) 的元素 \(X\) 生成.
+\item[(ii)] \(\operatorname{Lie}(\boldsymbol\mu_p)_S
+  =\operatorname{Lie}(\mathbb G_m)_S\) 是一个 \(\mathcal O_S\)-模层,
+它在 \(\mathcal O_S\) 上自由且秩为 \(1\),
+具有一个满足 \(X^{(p)}=X\) 的典范基 \(X\).
+\end{enumerate}}
+\SGARefTarget{sga3:xvii:proposition:B:2:1}
+
+现在回顾第 VII\textsubscript{A} 讲, §7 中证明的基本结论.
+
+\SGAStatement{\SGAInlineRefTarget{sga3:xvii:theorem:b-2-2}定理 B.2.2}{设 \(S\) 仿射, 其环为 \(A\).
+则函子
+\[
+  G\longmapsto\operatorname{Lie}G
+\]
+定义如下两个范畴之间的等价:
+一边是在 \(S\) 上有限表现且平坦、高度为 \(1\)、
+其 Lie 代数在 \(\mathcal O_S\) 上局部自由的 \(S\)-群预概形 \(G\) 所成的范畴;
+另一边是有限秩局部自由限制 \(p\)-\(A\)-Lie 代数所成的范畴.
+
+而且, 若 \(G\) 如上, \(H\) 为任意有限表现的 \(S\)-群预概形, 则典范态射
+\[
+  \operatorname{Hom}_{S\text{-}\mathrm{gr}}(G,H)
+  \longrightarrow
+  \operatorname{Hom}_{p\text{-}A\text{-}\mathrm{Lie}}
+    \bigl(\operatorname{Lie}G(S),\operatorname{Lie}H(S)\bigr)
+\]
+为同构.}
+\SGARefTarget{sga3:xvii:theorem:B:2:2}
+
+\SGANextSectionTarget{sga3:xvii:subsection:b-3}\SGASubsection{B.3}{根式群与光滑群}
+\SGARefTarget{sga3:xvii:appendix:B:subsection:3}
+
+现在设 \(S\) 为特征 \(p\) 的域 \(k\) 的谱.
+回顾, 第 VI\textsubscript{A} 讲, §5 证明:
+若 \(G\) 为代数 \(k\)-群, \(H\) 为 \(G\) 的代数子群,
+则层 \(G/H\) (对于 fpqc 拓扑) 可表示.
+又回顾 (第 VII\textsubscript{A} 讲, \SGARefLink{sga3:VIIA:8.3}{8.3}):
+
+\SGAStatement{\SGAInlineRefTarget{sga3:xvii:proposition:b-3-1}命题 B.3.1}{设 \(G\) 为代数 \(k\)-群.
+存在整数 \(m\), 使对每个 \(n\geq m\), 代数群
+\[
+  G/{}_{F^n}(G)
+\]
+在 \(k\) 上光滑.}
+\SGARefTarget{sga3:xvii:proposition:B:3:1}
+
+\SGAStatement{命题 B.3.2}{考虑代数 \(k\)-群的正合列
+\[
+  1\longrightarrow G'\longrightarrow G
+    \xrightarrow{u}G''\longrightarrow1
+\]
+及下列断言:
+\begin{enumerate}
+\item[(i)] \SGARefTarget{sga3:xvii:proposition:B:3:2:item:i}
+态射 \(u\) 光滑;
+\item[(ii)] \SGARefTarget{sga3:xvii:proposition:B:3:2:item:ii}
+\(G'\) 在 \(k\) 上光滑;
+\item[(iii)] \SGARefTarget{sga3:xvii:proposition:B:3:2:item:iii}
+对每个整数 \(n>0\), 列
+  \[
+    1\longrightarrow{}_{F^n}(G')
+      \longrightarrow{}_{F^n}(G)
+      \longrightarrow{}_{F^n}(G'')
+      \longrightarrow1
+  \]
+正合;
+\item[(iv)] \SGARefTarget{sga3:xvii:proposition:B:3:2:item:iv}
+态射 \({}_FG\to{}_FG''\) 为满态射;
+\item[(v)] \SGARefTarget{sga3:xvii:proposition:B:3:2:item:v}
+态射
+  \[
+    \bigl(\operatorname{Lie}G\bigr)(k)
+      \longrightarrow\bigl(\operatorname{Lie}G''\bigr)(k)
+  \]
+为满射.
+\end{enumerate}
+则
+\[
+  \text{\rm(i)}\Longleftrightarrow\text{\rm(ii)}
+  \Longrightarrow\text{\rm(iii)}
+  \Longrightarrow\text{\rm(iv)}
+  \Longleftrightarrow\text{\rm(v)}.
+\]
+而且, 若 \(G\) 光滑, 则五个断言全部等价.}
+\SGARefTarget{sga3:xvii:proposition:B:3:2}
+
+等价关系\SGARefLink{sga3:xvii:proposition:B:3:2:item:i}{(i)}\(\Longleftrightarrow\)\SGARefLink{sga3:xvii:proposition:B:3:2:item:ii}{(ii)}
+由第 VI\textsubscript{B} 讲, \SGARefLink{concl:sga3-VIB-9.2-vii}{9.2(vii)} 得到.
+
+对于\SGARefLink{sga3:xvii:proposition:B:3:2:item:ii}{(ii)}\(\Longrightarrow\)\SGARefLink{sga3:xvii:proposition:B:3:2:item:iii}{(iii)},
+若 \(G'\) 光滑, 则
+\[
+  F^n:G'\longrightarrow G'^{(n)}
+\]
+为满态射, 而\SGARefLink{sga3:xvii:proposition:B:3:2:item:iii}{(iii)} 由蛇形图得到.
+蕴含\SGARefLink{sga3:xvii:proposition:B:3:2:item:iii}{(iii)}\(\Longrightarrow\)\SGARefLink{sga3:xvii:proposition:B:3:2:item:iv}{(iv)}
+是显然的, 而\SGARefLink{sga3:xvii:proposition:B:3:2:item:iv}{(iv)}\(\Longleftrightarrow\)\SGARefLink{sga3:xvii:proposition:B:3:2:item:v}{(v)}
+由\SGARefLink{sga3:xvii:theorem:b-2-2}{定理 B.2.2} 得到.
+最后, 设 \(G\) 光滑且\SGARefLink{sga3:xvii:proposition:B:3:2:item:v}{(v)} 成立.
+则 \(G''\) 光滑, 而\SGARefLink{sga3:xvii:proposition:B:3:2:item:v}{(v)} 蕴含
+\[
+  \dim G'=\dim_k\bigl(\operatorname{Lie}G'\bigr)(k),
+\]
+所以 \(G'\) 光滑.
+
+% 来源: XVII.tex 第 4597--4860 行.
+\SGASection{C}{附录 III. 关于第 XV, XVI, XVII 讲的注记与补充}
+\SGARefTarget{sga3:xvii:appendix:C}
+\SGANextSectionTarget{sga3:xvii:subsection:c-1}\SGASubsection{C.1}{}
+\SGARefTarget{sga3:xvii:appendix:C:subsection:1}
+
+如果去掉 \(H_0\) 在 \(S_0\) 上光滑这一假设,
+第 XV 讲的\SGARefLink{sga3:xvii:proposition:1:2}{命题 1.2}
+与\SGARefLink{sga3:xv:proposition:1-2-bis}{1.2 bis} 可能仍然成立.
+特别地, 当 \(G\) 有限、平坦且交换时确实如此.
+
+\SGASubsection{C.2}{对\SGARefLink{sga3:xv:remark:4:8}{第 XV 讲, 4.8} 的补充}
+\SGARefTarget{sga3:xvii:appendix:C:subsection:2}
+
+下列命题及下面的\SGARefLink{sga3:xvii:theorem:c-3-1}{定理 C.3.1}
+和\SGARefLink{sga3:xvii:theorem:c-4-1}{C.4.1},
+将出现在 M. Raynaud 一篇即将发表的关于离散赋值环上的群概形的文章中.
+\footnote{编者注: 此处需补充说明, 包括对第 VI\textsubscript{B} 讲的引用等\ldots}
+
+\SGAStatement{\SGAInlineRefTarget{sga3:xvii:proposition:c-2-1}命题 C.2.1}{设 \(S\)
+为离散赋值环的谱, \(t\) 为其一般点, \(G\) 为有限型的平坦 \(S\)-群预概形, 并置
+\[
+  \widetilde G=\operatorname{Spec}\Gamma(G,\mathcal O_G).
+\]
+设 \(u:G\to\widetilde G\) 为典范态射. 则:
+\begin{enumerate}
+\item[(1)] \SGARefTarget{sga3:xvii:proposition:C:2:1:item:1}
+\(\widetilde G\) 自然地是一个 \(S\)-群概形, 且 \(u\) 为同态.
+\item[(2)] \SGARefTarget{sga3:xvii:proposition:C:2:1:item:2}
+\(\ker(u)\) 在 \(S\) 上平坦,
+且 \((\widetilde G,u)\) 为 \(G\) 对 \(\ker(u)\) 的 fpqc 商.
+所以 \(\widetilde G\) 为 \(G\) 的最大仿射商.
+\item[(3)] \SGARefTarget{sga3:xvii:proposition:C:2:1:item:3}
+若 \(G_t\) 仿射, 则 \(\ker(u)\) 为 \(S\) 上的平展群,
+且它为平凡群当且仅当 \(G\) 在 \(S\) 上分离.
+特别地, 一般纤维仿射的有限型平坦分离 \(S\)-群概形是仿射的.
+\end{enumerate}}
+\SGARefTarget{sga3:xvii:proposition:C:2:1}
+
+\SGANextSectionTarget{sga3:xvii:subsection:c-3}\SGASubsection{C.3}{}
+\SGARefTarget{sga3:xvii:appendix:C:subsection:3}
+
+在\SGARefLink{sga3:xv:lemma:6:6}{第 XV 讲, 6.6} 的陈述中,
+要使 \(S\) 的点 \(s\) 中满足 \(H_s\) 为 \(G_s\) 的抛物子群的点所成的集合为开集,
+无需假设 \(H\) 等于它的连通正规化子.
+事实上, 重复\SGARefLink{sga3:xv:lemma:6:9}{引理 6.9} 前的 c) 段中的证明,
+并以 \(N\) 表示 \(N_t\) 在 \(G\) 中的概形论闭包.
+则 \(N\) 是 \(G\) 的一个在 \(S\) 上平坦的闭子群概形,
+它包含 \(H\) 且包含于 \(\mathcal N\).
+下面的定理表明 \(G/N\) 可表示.
+由于 \(G_s/N_s\) 固有且连通, 证明如\emph{所引文献}中一样结束.
+
+\SGAStatement{\SGAInlineRefTarget{sga3:xvii:theorem:c-3-1}定理 C.3.1\footnote{编者注:
+参见 S. Anantharaman, “Schémas en groupes, espaces homogènes et espaces algébriques sur une base de dimension 1,”
+\emph{Bull. Soc. Math. France, Mém.} 33 (1976), 5--79 中的\SGARefLink{sga3:xvii:appendix:C:subsection:4}{定理 4}C.}}{
+设 \(S\) 为 Hensel 离散赋值环的谱, \(G\) 为局部有限型的 \(S\)-群预概形,
+\(H\) 为 \(G\) 的一个在 \(S\) 上平坦的闭子群预概形. 则 \(G/H\) 可表示.}
+\SGARefTarget{sga3:xvii:theorem:C:3:1}
+
+\SGANextSectionTarget{sga3:xvii:subsection:c-4}\SGASubsection{C.4}{对\SGARefLink{sga3:xvi:subsection:1:1}{第 XVI 讲, 1.1} 的补充}
+\SGARefTarget{sga3:xvii:appendix:C:subsection:4}
+
+下列定理细化了\SGARefLink{sga3:viii:proposition:7:9}{第 VIII 讲, 7.9}.
+
+\SGAStatement{\SGAInlineRefTarget{sga3:xvii:theorem:c-4-1}定理 C.4.1}{设 \(S\)
+为剩余特征 \(p>0\) 的离散赋值环的谱,
+\(G\) 为有限型的交换、光滑、分离 \(S\)-群概形.
+则下列条件等价:
+\begin{enumerate}
+\item[(i)] \SGARefTarget{sga3:xvii:theorem:C:4:1:item:i}
+\({}_pG\) 在 \(S\) 上有限.
+\item[(ii)] \SGARefTarget{sga3:xvii:theorem:C:4:1:item:ii}
+对每个 \(S\)-预概形 \(S'\), 每个 \(S'\) 上有限表现的分离 \(S'\)-群预概形 \(H'\),
+以及每个 \(S'\)-单态射
+  \[
+    u:G_{S'}\longrightarrow H',
+  \]
+态射 \(u\) 都为浸入.
+\end{enumerate}}
+\SGARefTarget{sga3:xvii:theorem:C:4:1}
+
+\SGANextSectionTarget{sga3:xvii:subsection:c-5}\SGASubsection{C.5}{}
+\SGARefTarget{sga3:xvii:appendix:C:subsection:5}
+
+例 XVII, \SGARefLink{sga3:xvii:subsection:6:4:item:a}{6.4(a)}
+给出了域 \(k\) 上一个幺幂根未定义在 \(k\) 上的光滑群.
+下列命题给出构造这类群的一般方法.
+
+\SGAStatement{\SGAInlineRefTarget{sga3:xvii:proposition:c-5-1}命题 C.5.1}{设 \(k\) 为域,
+\(K\) 为 \(k\) 的次数大于 \(1\) 的有限根式扩张,
+\(H\) 为维数 \(r\) 的光滑连通 \(K\)-代数群. 置
+\[
+  G=\prod_{K/k}H/K,
+\]
+它是维数为 \(r[K:k]\) 的光滑连通 \(k\)-代数群. 设
+\[
+  u:G_K\longrightarrow H
+\]
+为典范同态, 并置 \(R=\ker(u)\). 则:
+\begin{enumerate}
+\item[(i)] \SGARefTarget{sga3:xvii:proposition:C:5:1:item:i}
+\(u\) 为满态射, 而 \(R\) 为光滑、连通的幺幂代数群.
+\item[(ii)] \SGARefTarget{sga3:xvii:proposition:C:5:1:item:ii}
+若 \(U\) 为 \(G\) 的一个光滑代数子群, 使 \(U_K\) 包含 \(R\), 则 \(U=G\).
+\end{enumerate}}
+\SGARefTarget{sga3:xvii:proposition:C:5:1}
+
+\SGAStatement{推论}{沿用前一命题的记号.
+\begin{enumerate}
+\item[(a)] \SGARefTarget{sga3:xvii:corollary:C:5:1:item:a}
+若 \(H\) 不幺幂, 则 \(G_{\bar k}\) 的幺幂根未定义在 \(k\) 上.
+\item[(b)] \SGARefTarget{sga3:xvii:corollary:C:5:1:item:b}
+若 \(H\) 为非零阿贝尔簇, 则 \(G\) 不是阿贝尔簇被光滑线性群的扩张.
+\item[(c)] \SGARefTarget{sga3:xvii:corollary:C:5:1:item:c}
+若 \(H\) 不可解, 则 \(G_{\bar k}\) 的可解根未定义在 \(k\) 上,
+且 \(G\) 没有定义在 \(k\) 上的 Borel 子群.
+\end{enumerate}}
+\SGARefTarget{sga3:xvii:corollary:C:5:1}
+
+先说明如何从命题推出推论.
+
+\smallskip
+\noindent\textit{\SGARefLink{sga3:xvii:appendix:A}{(a)}} 设 \(U\) 为 \(G\) 的一个幺幂根.
+则 \(U_K\) 为 \(G_K\) 的幺幂根,
+从而包含 \(R\), 因为由\SGARefLink{sga3:xvii:corollary:C:5:1:item:i}{(i)},
+\(R\) 光滑、连通且幺幂.
+所以由\SGARefLink{sga3:xvii:corollary:C:5:1:item:ii}{(ii)}, \(U=G\).
+但 \(G_K\) 以 \(H\) 为商, 而 \(H\) 由假设不幺幂.
+因此 \(G\) 不幺幂, 矛盾.
+
+\smallskip
+\noindent\textit{\SGARefLink{sga3:xvii:section:b}{(b)}} 设 \(G\) 为阿贝尔簇被在 \(k\)
+上光滑的线性群 \(L\) 的扩张.
+则 \(L_K\) 必包含 \(R\), 所以 \(L=G\).
+但 \(G\) 不可能是线性群, 因为 \(G_K\) 有一个非零阿贝尔簇作为商.
+
+\smallskip
+\noindent\textit{(c)} 设 \(S\) 为 \(G\) 的一个可解根,
+\(B\) 为 \(G\) 的一个 Borel 子群.
+则 \(S_K\) 与 \(B_K\) 包含 \(R\), 所以 \(S=G\) 且 \(B=G\).
+但这时 \(G\) 可解, 与 \(G_K\) 有一个不可解的商矛盾.
+
+\SGAProof{\SGARefLink{sga3:xvii:proposition:c-5-1}{命题 C.5.1} 的证明}
+\textit{\SGAInlineRefTarget{sga3:xvii:corollary:C:5:1:item:i}(i)} 先描述态射 \(u\).
+一个 \(K\)-概形
+\[
+  f:S\longrightarrow\operatorname{Spec}(K)
+\]
+给出下图
+\[
+\begin{tikzcd}[column sep=6.0em,row sep=4.0em]
+  \operatorname{Spec}(K)
+    \arrow[d,"j"'] &
+  T
+    \arrow[l,"h"']
+    \arrow[d,bend right=28,"j_T"'] \\
+  \operatorname{Spec}(k) &
+  S
+    \arrow[l,"g"]
+    \arrow[ul,"f"]
+    \arrow[u,bend right=28,"s"']
+\end{tikzcd}
+\]
+其中
+\[
+  g=j\circ f,\qquad
+  T=\operatorname{Spec}(K)\times_{\operatorname{Spec}(k)}S,
+\]
+\(h\) 与 \(j_T\) 为两个投影, \(s\) 为 \(T\) 在 \(S\) 上的截面,
+使 \(h\circ s=f\). 映射
+\[
+  u(S):G_K(S)\longrightarrow H(S)
+\]
+就是如下复合
+\[
+  G_K(S)\xrightarrow{\sim}H(T)\longrightarrow H(S),
+\]
+其中最后一个箭头由截面 \(s\) 定义.
+
+特别地, 取 \(S\) 为 \(k\) 的一个代数闭包 \(\bar k\) 的谱,
+令 \(f\) 为由 \(K\to\bar k\) 诱导的唯一 \(k\)-态射,
+于是 \(T\) 为一个 Artin 局部概形.
+要证明\SGARefLink{sga3:xvii:corollary:C:5:1:item:i}{(i)},
+只须在将基域从 \(K\) 扩张到 \(\bar k\) 后证明.
+显然
+\[
+  G_S=\prod_{T/S}H_T/T
+\]
+表示 \(H_T\) 相对于 \(S\) 的 Greenberg 函子
+(M. J. Greenberg, “Schemata over local rings,” \emph{Ann. of Math.} 73 (1961), 624--648).
+在此等同下, 上面的描述表明 \(u_S\) 为典范的转移态射
+\[
+  \operatorname{Green}(H_T)\longrightarrow
+  H_S=H_T\times_T S.
+\]
+断言\SGARefLink{sga3:xvii:corollary:C:5:1:item:i}{(i)}
+现在由 \(H\) 在 \(K\) 上的光滑性以及
+M. J. Greenberg, “Schemata over local rings II,” \emph{Ann. of Math.} 78 (1963), 256--266 得到.
+
+\smallskip
+\noindent\textit{\SGAInlineRefTarget{sga3:xvii:corollary:C:5:1:item:ii}(ii)}
+要证明\SGARefLink{sga3:xvii:corollary:C:5:1:item:ii}{(ii)}, 可设 \(k\) 可分闭.
+设 \(U\) 为 \(G\) 的光滑代数子群, 使 \(U_K\supset R\), 来证明 \(U=G\).
+由于 \(G\) 连通, 可设 \(U\) 连通.
+设 \(V=u(U_K)\), 它是 \(H\) 的光滑连通代数子群, 并置
+\[
+  V'=\prod_{K/k}V/K,
+\]
+它是 \(G\) 的光滑连通代数子群.
+群 \(V'_K\) 是 \(G_K\) 的代数子群,
+且典范态射 \(V'_K\to V\) 是 \(u\) 在 \(V'_K\) 上的限制.
+由假设, \(U_K\) 包含 \(R\), 因而更包含 \(\ker(V'_K\to V)\);
+此外由构造, \(U_K\) 在 \(H\) 中的像为 \(V\).
+所以 \(U_K\) 包含 \(V'_K\), 从而 \(U\) 包含 \(V'\).
+
+另一方面, 典范同构
+\[
+  G(k)\lhook\joinrel\longrightarrow G(K)
+    \xrightarrow{u(K)}H(K)
+\]
+显然将 \(U(k)\) 映入 \(V(K)=V'(k)\). 所以 \(U(k)\subset V'(k)\).
+由于 \(U\) 光滑且 \(k\) 可分闭, 可得 \(U\subset V'\), 从而 \(U=V'\).
+于是有
+\[
+  ([K:k]-1)\dim V
+  =\dim\ker(V'_K\to V)
+  =\dim R
+  =([K:k]-1)\dim H.
+\]
+由于 \(K\ne k\), 可得 \(\dim V=\dim H\), 从而 \(V=H\), 最终 \(U=V'=G\).
