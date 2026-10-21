@@ -1,0 +1,179 @@
+\section*{4. 与线束相伴的爆破的上同调}
+
+\subsection*{4.1.}
+我们回到 3.1 的情形, 它可用交换图概括如下 (见 2.1.6.3):
+\begin{equation}\tag{4.1.1}
+\resizebox{\textwidth}{!}{%
+\begin{tikzcd}[ampersand replacement=\&,row sep=huge,column sep=huge]
+X\times\mathbb P^1
+  \& \widetilde X
+      \arrow[l,hook',"f\times\rho"]
+      \arrow[d,"f"]
+      \arrow[dl,"\rho"']
+  \& \widetilde\Delta
+      \arrow[l,hook',"i"]
+      \arrow[d,"g"]
+      \arrow[r,"{(g,\rho_i)}","\sim"']
+  \& \Delta\times\mathbb P^1 \\
+\mathbb P^1 \& X \& \Delta\arrow[l,hook',"j"] \& {}
+\end{tikzcd}}
+\end{equation}
+我们先在此情形下将 (2.2.2) 写得更明确.
+
+\subsection*{命题 4.2.}
+\underline{在 3.1 的假设下:}
+
+\smallskip
+\noindent
+\textup{(4.2.1)} \underline{$\mathbb Z_\ell$-模的同态}
+\[
+\begin{tikzcd}[column sep=huge]
+H^\bullet(\widetilde X,\mathbb Z_\ell)
+  \arrow[r,shift left=.7ex,"f_*\oplus(1-f^*f_*)"]
+& H^\bullet(X,\mathbb Z_\ell)\oplus
+   \operatorname{Ker}\!\left(f_*:H^\bullet(\widetilde X,\mathbb Z_\ell)
+       \to H^\bullet(X,\mathbb Z_\ell)\right)
+  \arrow[l,shift left=.7ex,"f^*+\operatorname{incl}"']
+\end{tikzcd}
+\]
+\underline{为互逆的同构.}
+
+\smallskip
+\noindent
+\textup{(4.2.2)} \underline{$\mathbb Z_\ell$-模的同态}
+\[
+\begin{tikzcd}[column sep=huge]
+H^\bullet(\widetilde X,\mathbb Z_\ell)
+  \arrow[r,shift left=.7ex,"f_*\oplus(-g_*i^*)"]
+& H^\bullet(X,\mathbb Z_\ell)\oplus
+   H^{\bullet-2}(\Delta,\mathbb Z_\ell(-1))
+  \arrow[l,shift left=.7ex,"f^*+i_*g^*"']
+\end{tikzcd}
+\]
+\underline{为互逆的同构.}\footnote{印本在 (4.2.2)、(4.2.6)、(4.2.9) 和 (4.2.10) 中略去了 $g_*i^*$ 前的负号. 但引理 4.3 给出 $g_*i^*i_*g^*=-\mathrm{id}$, 而印本中的乘积计算本身也用了 $-g_*i^*$. 因此统一恢复此符号.}
+
+\smallskip
+\noindent
+\textup{(4.2.3)} \underline{在下式上的代数结构}
+\[
+H^\bullet(X,\mathbb Z_\ell)\oplus
+H^{\bullet-2}(\Delta,\mathbb Z_\ell(-1)),
+\]
+\underline{由 (4.2.2) 从下式上的杯积传递而来:}
+$H^\bullet(\widetilde X,\mathbb Z_\ell)$,
+\underline{对}
+\[
+a,b\in H^\bullet(X,\mathbb Z_\ell),
+\qquad
+x,y\in H^{\bullet-2}(\Delta,\mathbb Z_\ell(-1)),
+\]
+\underline{由下列公式表示}
+\begin{equation}\tag{4.2.3.1}
+(0\oplus x)\wedge(0\oplus y)
+=-j_*(xy)\oplus2xy\,c_1(\underline{\mathcal O}_\Delta(1)),
+\end{equation}
+\begin{equation}\tag{4.2.3.2}
+(a\oplus0)\wedge(b\oplus0)=ab\oplus0,
+\end{equation}
+\begin{equation}\tag{4.2.3.3}
+(a\oplus0)\wedge(0\oplus y)=0\oplus j^*(a)y,
+\end{equation}
+\begin{equation}\tag{4.2.3.4}
+(0\oplus x)\wedge(b\oplus0)=0\oplus xj^*(b).
+\end{equation}
+\underline{特别地, 若}
+\[
+a\oplus x\in H^\bullet(X,\mathbb Z_\ell)
+  \oplus H^{\bullet-2}(\Delta,\mathbb Z_\ell(-1))
+\]
+以及
+\[
+b\oplus y\in H^{2n-\bullet}(X,\mathbb Z_\ell)
+  \oplus H^{2n-2-\bullet}(\Delta,\mathbb Z_\ell(-1)),
+\]
+\underline{则}
+\begin{equation}\tag{4.2.3.5}
+(a\oplus x)\wedge(b\oplus y)=ab-j_*(xy).
+\end{equation}
+换言之, $H^\bullet(\widetilde X,\mathbb Z_\ell)$ 的总相交矩阵为
+\[
+\left(
+\begin{array}{c|c}
+\begin{array}{c}
+\text{总相交}\\[-1pt]
+\text{矩阵 ($X$ 上)}
+\end{array} & 0\\ \hline
+0 &
+-\begin{array}{c}
+\text{总相交}\\[-1pt]
+\text{矩阵 ($\Delta$ 上)}
+\end{array}
+\end{array}
+\right).
+\]
+
+\underline{证明.}
+我们已经证明了 (4.2.1); 见 (2.2.22). 对于 (4.2.2), 首先注意, 由于 $g:\widetilde\Delta\to\Delta$ 为射影直线丛, 由 (1.2.2), 序列
+\begin{equation}\tag{4.2.4}
+0\longrightarrow H^\bullet(\Delta,\mathbb Z_\ell)
+\xrightarrow{g^*}H^\bullet(\widetilde\Delta,\mathbb Z_\ell)
+\xrightarrow{g_*}H^{\bullet-2}(\Delta,\mathbb Z_\ell(-1))
+\longrightarrow0
+\end{equation}
+正合. 结合 (2.2.26), 得到如下正合列的交换图
+\begin{equation}\tag{4.2.5}
+\resizebox{\textwidth}{!}{%
+\begin{tikzcd}[ampersand replacement=\&,column sep=large,row sep=huge]
+0\arrow[r]
+  \&H^\bullet(X,\mathbb Z_\ell)
+       \arrow[r,"f^*"]\arrow[d,"j^*" right]
+  \&H^\bullet(\widetilde X,\mathbb Z_\ell)
+       \arrow[r,"g_*i^*"]\arrow[d,"i^*" right]
+  \&H^{\bullet-2}(\Delta,\mathbb Z_\ell(-1))
+       \arrow[r]\arrow[d,equal]
+  \&0\\
+0\arrow[r]
+  \&H^\bullet(\Delta,\mathbb Z_\ell)
+       \arrow[r,"g^*"]
+  \&H^\bullet(\widetilde\Delta,\mathbb Z_\ell)
+       \arrow[r,"g_*"]
+  \&H^{\bullet-2}(\Delta,\mathbb Z_\ell(-1))
+       \arrow[r]
+  \&0.
+\end{tikzcd}}
+\end{equation}
+由分裂 (4.2.1), 得同构
+\begin{equation}\tag{4.2.6}
+f_*\oplus(-g_*i^*):
+H^\bullet(\widetilde X,\mathbb Z_\ell)
+\xrightarrow{\sim}
+H^\bullet(X,\mathbb Z_\ell)\oplus
+H^{\bullet-2}(\Delta,\mathbb Z_\ell(-1)).
+\end{equation}
+将 (4.2.5) 转置, 并反转次数 $\bullet\mapsto2n-\bullet$, 得到正合列的交换图
+\begin{equation}\tag{4.2.7}
+\resizebox{\textwidth}{!}{%
+\begin{tikzcd}[ampersand replacement=\&,column sep=large,row sep=large]
+0
+  \&H^\bullet(X,\mathbb Z_\ell)\arrow[l]
+  \&H^\bullet(\widetilde X,\mathbb Z_\ell)\arrow[l,"f_*"']
+  \&H^{\bullet-2}(\Delta,\mathbb Z_\ell(-1))
+       \arrow[l,"i_*g^*"']
+  \&0\arrow[l]\\
+0
+  \&H^{\bullet-2}(\Delta,\mathbb Z_\ell(-2))
+       \arrow[l]\arrow[u,"j_*"']
+  \&H^{\bullet-2}(\widetilde\Delta,\mathbb Z_\ell(-1))
+       \arrow[l,"g_*"']\arrow[u,"i_*"']
+  \&H^{\bullet-2}(\Delta,\mathbb Z_\ell(-1))
+       \arrow[l,"g_*"']\arrow[u,equal]
+  \&0\arrow[l]
+\end{tikzcd}}
+\end{equation}
+从而得到同构
+\begin{equation}\tag{4.2.8}
+H^\bullet(X,\mathbb Z_\ell)\oplus
+H^{\bullet-2}(\Delta,\mathbb Z_\ell(-1))
+\xrightarrow[\sim]{\ f^*+i_*g^*\ }
+H^\bullet(\widetilde X,\mathbb Z_\ell).
+\end{equation}

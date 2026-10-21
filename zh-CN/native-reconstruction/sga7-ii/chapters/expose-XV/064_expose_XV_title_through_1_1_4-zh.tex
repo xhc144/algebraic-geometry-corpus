@@ -1,0 +1,92 @@
+\clearpage
+\begin{center}
+{\large SGA 7 --- 第 XV 讲}\par
+\vspace{2em}
+{\Large\underline{Picard--Lefschetz 公式}}\par
+\vspace{1.5em}
+{\large P. Deligne}
+\end{center}
+
+\medskip
+\noindent\textbf{原书目录}
+\begin{center}
+\begin{tabular}{@{}llr@{}}
+\S1. & 普通二次奇点(正规形) & 2\\
+1.1 & 回顾 & 2\\
+1.2 & 普通二次奇点 & 4\\
+1.3 & 二次奇点的模 & 10\\
+\S2. & 标准普通二次情形的消灭圈计算 & 13\\
+2.1 & 预备: 锥的上同调 & 13\\
+2.2 & 消灭圈 & 17\\
+\S3. & Picard--Lefschetz 公式 & 23\\
+3.1 & 预备结果 & 23\\
+3.2 & 偶相对维数 & 24\\
+3.3 & 奇相对维数 & 26\\
+3.4 & 汇总 & 31
+\end{tabular}
+\end{center}
+
+\section*{1. 普通二次奇点(正规形)}
+
+本节重新讨论 VI 6 的结果, 采用“Hensel”观点而非“形式”观点. 我们给出普通二次奇点(ordinary quadratic singularities)及其形变的正规形; 在平展拓扑下局部可以将它们化为这些正规形.
+
+这些结果容易由 VI 6、隐函数定理(Tougeron 的形式)以及 R. Elkik 关于孤立奇点的万有 Hensel 模的定理推出. 在讨论班口头报告时, 后一定理尚未问世; 当时已证明一个仅适用于完全交的较弱定理(这已足够我们使用), 该定理将不予发表.
+
+\subsection*{1.1. 回顾}
+
+\subsubsection*{1.1.1.}
+设 $f:X\longrightarrow S$ 为态射, $X$ 局部可由 $S$ 上相对维数为 $n+p$ 的仿射空间 $\mathbb A_S^{n+p}$ 中的 $p$ 个方程描述. Jacobian 理想 $J^n(X/S)$ 已在 VI 5 中定义. 若 $X$ 是由方程 $f_i=0$ $(1\leq i\leq p)$ 定义的 $\mathbb A_S^{n+p}$ 的闭子概形, 则它是由 Jacobian 矩阵 $(\partial f_i/\partial x_j)$ 的 $p\times p$ 子式生成的理想层. 以下定理是众所周知的. 其形式版本的一个特例见 Bourbaki, \emph{Alg\`ebre commutative}, III, \S4, no.~6, 定理 2 的推论 3; $C^\infty$ 版本见 Tougeron, \emph{Id\'eaux de fonctions diff\'erentiables}(学位论文, Rennes, 1967 年 5 月); 此处所考虑的情形见 Artin, \emph{Algebraic approximation of structures over complete local rings}, Publ. Math. IHES \underline{36}(Zariski 专卷), 引理 5.10.
+
+\subsubsection*{定理 1.1.2 (Tougeron--Artin).}
+\underline{设 $S$ 为 Hensel 局部环 $A$ 的谱, $f:X\to S$ 为 1.1.1 中的态射, $a$ 和 $I$ 为 $A$ 的两个真理想, $\delta'$ 为 $X$ 上包含于 $J^n(X/S)$ 的理想层. 假设 $I$ 为有限型. 设 $s$ 为 $f$ 在 $S/I$ 上的截面, 即 $s\in X(A/I)$. 以 $s^*\delta'^2$ 表示 $A/I$ 的理想 $s^*\delta'^2$ 在 $A$ 中的逆像理想.}
+
+\underline{若 $(s^*\delta'^2)\,a\supset I$, 则存在 $f$ 的截面 $s_1\in X(A)$, 它模 $(s^*\delta')\,a$ 与 $s$ 同余.}
+
+\subsubsection*{1.1.3.}
+设 $S$ 为 Hensel 局部环的谱, 闭点为 $s$. 设 $X'_0$ 为 $k(s)$ 上的有限型概形, 在某一闭点 $x_0$ 之外光滑, 并设 $X_0$ 为 $X'_0$ 在 $x_0$ 处的 Hensel 化. 我们考虑下列类型的系统
+\begin{center}
+\begin{tikzcd}[column sep=large,row sep=large]
+X_0 \arrow[r,hook] \arrow[d]
+  & X \arrow[d]
+  & {} \\
+s \arrow[r,hook]
+  & T \arrow[r]
+  & S
+\end{tikzcd}
+\end{center}
+其条件如下:
+\begin{enumerate}[label=(\alph*),leftmargin=2.6em]
+\item $T$ 为 Hensel 局部概形, 且在 $S$ 上本质有限表现(I 0.0.5); 态射 $T\to S$ 为局部态射, 并诱导剩余域的同构;
+
+\item $X$ 为 Hensel 局部概形, 且在 $T$ 上平坦而本质有限表现;
+
+\item $X/T$ 的特殊纤维带有一个到 $X_0$ 的 $k(s)$-同构.
+\end{enumerate}
+这些系统称为 $X_0$ 的 \underline{Hensel $S$-形变}. 从 $(X,T)$ 到 $(X',T')$ 的一个\underline{态射}是一个 $S$-概形的交换图
+\begin{center}
+\begin{tikzcd}[column sep=large,row sep=large]
+X \arrow[r] \arrow[d] & X' \arrow[d] \\
+T \arrow[r] & T'
+\end{tikzcd}
+\end{center}
+它在取特殊纤维后诱导 $X_0$ 的恒等态射. 一个形变 $X/T$ 称为\underline{万有的}(versal, 极小万有的), 如果:
+\begin{enumerate}[label=(\alph*),leftmargin=2.6em]
+\item 对每个使 $T''\to T'$ 为闭浸入的态射 $X''/T''\longrightarrow X'/T'$, 映射
+\[
+\operatorname{Hom}(X'/T',X/T)
+\longrightarrow\operatorname{Hom}(X''/T'',X/T)
+\]
+为满射. 特别地, 取 $X''/T''=X_0/s$, 有 $\operatorname{Hom}(X'/T',X/T)\ne\varnothing$;
+
+\item 对 $T'=\operatorname{Spec}(k(s)[\varepsilon]/(\varepsilon^2))$, “逆像”映射
+\[
+\operatorname{Hom}(T',T)\longrightarrow
+\{\text{$X_0$ 在 $T'$ 上的形变的同构类}\}
+\]
+为双射.
+\end{enumerate}
+
+\subsubsection*{定理 1.1.4 (R. Elkik).}
+\underline{存在 $X_0$ 的一个万有 Hensel $S$-形变(且在非唯一同构的意义下唯一). 若 $S$ 为 Noether 概形, 则形变 $X/T$ 是这样的形变, 当且仅当 $X$ 在 $T$ 的完备化 $\widehat T$ 上诱导 $X_0$ 的一个万有形式 $S$-形变(极小形式万有形变; VI 1.9 及 VI 4).}
+
+这个精细定理的证明参见 R. Elkik(ENS 讨论班, 1971/72).

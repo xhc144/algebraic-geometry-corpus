@@ -1,0 +1,99 @@
+\clearpage
+\begin{center}
+{\large SGA 7 --- 第 XIV 讲}\par
+\vspace{2em}
+{\Large\underline{与超越理论的比较}}\par
+\vspace{1.5em}
+{\large P. Deligne 著}
+\end{center}
+
+\medskip
+\noindent\textbf{原书目录}
+\begin{center}
+\begin{tabular}{@{}llr@{}}
+引言 && 1\\
+\S1. & 消灭圈的超越形式体系 & 1\\
+1.1 & 穿孔圆盘的基本群：符号约定 & 2\\
+1.2 & 集合层 & 5\\
+1.3 & 函子 $R\Psi$ & 10\\
+1.4 & 一个特殊情形 & 12\\
+\S2. & 比较定理 & 16\\
+\S3. & 孤立奇点 & 20\\
+3.1 & 消灭圈簇 & 20\\
+3.2 & Picard--Lefschetz 公式（超越情形） & 31\\
+\S4. & de Rham 上同调 & 38
+\end{tabular}
+\end{center}
+
+\medskip
+\underline{引言}
+
+为将第 XIII 讲中的消灭圈理论与其在 $\mathbb C$ 上的超越对应理论相比较，我们分两步进行。
+
+\begin{enumerate}[label=(\alph*),leftmargin=2.6em]
+\item 我们仿照第 XIII 讲建立一个超越形式体系，并用通常的方法证明比较定理（这些方法已用于证明 XIII, 2.3 中的有限性定理）。
+
+\item 在孤立奇点的情形，我们更具体地说明这里引入的超越形式体系的含义。
+\end{enumerate}
+
+除比较定理外，本讲还包含超越情形下 Picard--Lefschetz 公式的一个证明。
+
+在 \S4 中，我们给出消灭圈的 Hodge 理论的一项预备结果。本讨论班后续不会用到这一节。
+
+\section*{1. 消灭圈的超越形式体系}
+
+\subsection*{1.1. 穿孔圆盘的基本群：符号约定}
+
+我们将考虑穿孔圆盘 $D^*$ 及其基本群 $\mathbb Z$。由于此群是交换群，可能出现符号歧义。我们通过忘掉它的交换性来消除这些歧义。
+
+\subsubsection*{1.1.1.}
+设 $X$ 是一个性质良好的连通拓扑空间，$x\in X$。
+基本群的元素是以 $x$ 为基点的闭路的同伦类。
+若 $\alpha,\beta\in\pi_1(X,x)$ 分别由闭路 $a,b$ 表示，则 $\alpha\beta$ 由先走 $b$ 再走 $a$ 所得的闭路表示。
+
+\subsubsection*{1.1.2.}
+设 $F$ 是 $X$ 上的局部常值层。对每条道路 $a:[0,1]\longrightarrow X$，$[0,1]$ 上的逆像 $a^*F$ 局部常值，因而是常值层，所以给出双射
+\[
+a:F_{a(0)}
+\xleftarrow{\ \sim\ }H^0([0,1],a^*F)
+\xrightarrow{\ \sim\ }F_{a(1)}.
+\]
+此双射只依赖于 $a$ 的同伦类。通过这一构造，$\pi_1(X,x)$ 在 $F_x$ 上左作用。函子 $F\longmapsto F_x$ 是从 $X$ 上局部常值层的范畴到带有 $\pi_1(X,x)$ 作用的集合的范畴的等价。
+
+\subsubsection*{1.1.3.}
+当 $x$ 变化时，群 $\pi_1(X,x)$ 是某个局部常值群层 $\Pi_1(X)$ 的纤维，此群层作用于每个局部常值层 $F$。若 $\pi_1(X,x)$ 是交换群，则 $\Pi_1(X)$ 是常值层；其值记为 $\pi_1(X)$。
+
+\subsubsection*{1.1.4.}
+群 $\pi_1(X,x)$ 作用于万有覆盖
+\[
+p:(\widetilde X,\widetilde x)\longrightarrow(X,x).
+\]
+将此覆盖视为 $X$ 上的平展空间，从而视为一个层（其局部截面层），则在 1.1.2 的对应下，它对应于带有特出元素 $e$ 的集合 $\pi_1(X,x)$，$\pi_1(X,x)$ 通过左平移作用于此集合。此群还通过 $\pi_1$-集合的自同构作用于这个 $\pi_1$-集合：元素 $\sigma\in\pi_1(X,x)$ 的作用是
+\[
+g\longmapsto g\sigma^{-1}.
+\]
+这一构造给出等同
+\[
+\pi_1(X,x)=\operatorname{Aut}_X(\widetilde X).
+\]
+
+若 $F$ 在 $X$ 上局部常值，则双射
+\begin{equation}\tag{1.1.4.1}
+H^0(\widetilde X,p^*F)
+\longrightarrow(p^*F)_{\widetilde x}=F_x
+\end{equation}
+与 $\pi_1(X,x)$ 的作用交换：左端的作用是通过其在 $\widetilde X$ 上的作用搬运结构而得，右端则是 1.1.2 的作用。因此，1.1.2 的等价可以重新表述为：
+\[
+F\longmapsto
+\bigl(\widetilde X\longmapsto
+H^0(\widetilde X,p^*F)\bigr)
+\]
+是从 $X$ 上局部常值层的范畴到下述函子范畴的等价：
+\[
+(\text{万有覆盖，底空间为 }X)\longrightarrow(\mathrm{Sets}).
+\]
+
+\subsubsection*{1.1.5.}
+若 $\pi_1(X,x)$ 是交换群，从而不依赖于 $x$，则 1.1.4 中 $\pi_1(X)$ 在 $\widetilde X$ 上的作用不依赖于基点：$\pi_1(X)$ 作用于 $X$ 的每个万有覆盖 $\widetilde X$。
+
+必须记住，这个作用（也是我们将使用的唯一作用）对应于 1.1.3 中作用的逆。

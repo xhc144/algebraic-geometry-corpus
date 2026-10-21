@@ -1,0 +1,116 @@
+\subsubsection*{3.2.10.}
+来计算变差
+\[
+\operatorname{Var}:\widetilde H^n(V)
+\longrightarrow H_c^n(V^\circ).
+\]
+先使用定向 $\varepsilon'$ 并假设 $n\ne0$。设 $\alpha$ 是 $S^n$ 的切丛的一个定向，并设 $\delta\in H_c^n(V^\circ)$ 由 $S^n\subset V^\circ$ 及其法丛的定向 $\alpha$ 定义。满足 $(\delta',\delta)=1$ 的上闭链 $\delta'\in H^n(V)$ 由 $V^\circ$ 到 $S^n$ 的纤维化的一个纤维表示。此纤维的法丛为以 $S^n$ 上一点处的切空间为值的常值丛，并赋予定向 $\alpha$。
+
+此断言不依赖于定义映射
+\[
+(\text{子流形 + 其法丛的定向})
+\longrightarrow\text{上同调}.
+\]
+时所选的符号约定。事实上，改变约定会将 $\delta$ 换为 $-\delta$，同时将 $\delta'$ 换为 $-\delta'$。当
+\[
+\operatorname{Tr}:H_c^{2n}(V,\mathbb R)\longrightarrow\mathbb R
+\]
+定义如下时，断言成立：
+\begin{description}[leftmargin=2.8em,labelsep=.5em]
+\item[\textup{($\alpha$)}] 由于 $\Omega_V^*$ 是 $\underline{\mathbb R}$ 的软消解，$\Gamma_c(\Omega_V^*)$ 表示 $R\Gamma_c(V,\mathbb R)$，从而有同构
+\[
+  H^i\bigl(\Gamma_c(V,\Omega_V^*)\bigr)
+  \simeq H_c^i(V,\mathbb R)
+  \]
+（不使用迭代上边缘）；
+\item[\textup{($\beta$)}] $\operatorname{Tr}$ 为积分。
+\end{description}
+
+类 $T(\delta')$ 在 $\partial V$ 的一个邻域上与 $\delta'$ 一致，因此
+\(
+\operatorname{Var}(\delta')=T(\delta')-\delta'
+\)
+在 $V^\circ$ 中有紧支集。有
+\[
+T(\delta')-\delta'\sim-\delta,
+\qquad\text{因而}
+\]
+\[
+\operatorname{Var}(\delta')
+=-(\delta',\delta)\,\delta.
+\]
+
+以下是 $n=1$ 的图示。画出 $S^1$ 的切丛，使沿 $S^1$ 所选逆时针定向的向量朝外。
+
+\begin{center}
+\begin{tikzpicture}[>=Latex,line width=.45pt,scale=.92]
+  \begin{scope}[shift={(-2.8,0)}]
+    \draw (0,0) circle (2.15);
+    \draw (0,0) circle (1.20);
+    \draw (0,0) circle (.43);
+    \draw (0,.43)--(0,2.15);
+    \draw[->] (-.02,1.88)--(-.48,1.88);
+    \draw[->] (-.02,1.13)--(-.48,1.13);
+    \node[right] at (.10,1.10) {$\delta'$};
+    \draw[->] (-.85,.85)--(-1.16,1.16);
+    \draw[->] (-.85,-.85)--(-1.17,-1.17);
+    \node[above left] at (-1.02,-.98) {$\delta$};
+    \draw[->] (.85,-.85)--(1.17,-1.17);
+    \draw[->] (1.43,1.12)--(1.43,1.72)
+      node[right] {$2$};
+    \draw[->] (1.43,1.12)--(.83,1.12)
+      node[below] {$1$};
+    \node at (1.03,1.63) {$\varepsilon$};
+    \node[below=5pt] at (0,-2.15)
+      {$\delta,\ \delta'\ \text{且}\ \varepsilon$};
+  \end{scope}
+  \begin{scope}[shift={(2.8,0)}]
+    \draw (0,0) circle (2.15);
+    \draw (0,0) circle (.43);
+    \draw (0,.43)--(0,2.15);
+    \draw
+      (0,2.15)
+      .. controls (.02,1.68) and (1.18,1.42) .. (1.28,.30)
+      .. controls (1.40,-.72) and (.62,-1.35) .. (-.12,-1.31)
+      .. controls (-1.05,-1.27) and (-1.42,-.42) .. (-1.10,.48)
+      .. controls (-.83,1.10) and (-.34,1.25) .. (0,1.02);
+    \draw[->] (1.08,.78)--(.74,.48);
+    \node[below=5pt] at (0,-2.15)
+      {$\operatorname{Var}(\delta')$};
+  \end{scope}
+\end{tikzpicture}
+\end{center}
+
+因此，对定向 $\varepsilon$，有
+\[
+\operatorname{Var}(x)
+=-\frac{\varepsilon}{\varepsilon'}(x,\delta)\,\delta.
+\]
+
+\subsubsection*{定理 3.2.11.}
+\underline{群 $\widetilde H_c^n(V^\circ)$ 同构于 $\mathbb Z$，由消灭圈 $\delta$ 生成。群 $\widetilde H^n(V)$ 也同构于 $\mathbb Z$，且与前一群对偶。其余各群 $\widetilde H_c^i(V^\circ)$ 与 $\widetilde H^i(V)$ 均为零。}
+
+\medskip
+\noindent\underline{变差由下式给出}
+\[
+\operatorname{Var}(x)
+=-(-1)^{\frac{n(n-1)}2}(x,\delta)\,\delta,
+\qquad\underline{\text{且}}
+\]
+\[
+(\delta,\delta)
+=(-1)^{\frac{n(n-1)}2}\bigl(1+(-1)^n\bigr).
+\]
+根据 $n$ 模 $4$ 的同余类，有下表：
+\[
+\begin{array}{lcccc}
+n\bmod4&0&1&2&3\\[2pt]
+(\delta,\delta)&2&0&-2&0\\[2pt]
+\operatorname{Var}(x)=\pm(x,\delta)\delta&-&-&+&+\\[2pt]
+T(\delta)=(-1)^{n+1}\delta&-\delta&\delta&-\delta&\delta
+\end{array}
+\]
+作为核验，确实有
+\[
+T(\delta)=\delta+\operatorname{Var}(\delta).
+\]

@@ -1,0 +1,153 @@
+\section*{5.8. Griffiths 同态}
+
+\subsection*{5.8.1.}
+设 $f:T\to S$ 为概形的态射. Leray 谱序列在群 $H^\bullet(T,\mathbb Q_\ell(j))$ 上定义滤过 $(F^i)$. 定义
+\begin{equation}\tag{5.8.1.1}
+\operatorname{Prim}^\bullet(T/S,\mathbb Q_\ell(j))
+=F^1H^\bullet(T,\mathbb Q_\ell(j)).
+\end{equation}
+由于 Leray 谱序列位于第一象限, 有
+\begin{equation}\tag{5.8.1.2}
+E_\infty^{0,\bullet}\lhook\joinrel\longrightarrow E_2^{0,\bullet},
+\end{equation}
+从而
+\begin{equation}\tag{5.8.1.3}
+\operatorname{Prim}^\bullet(T/S,\mathbb Q_\ell(j))
+=\ker\!\left(
+H^\bullet(T,\mathbb Q_\ell(j))
+\longrightarrow H^0(S,R^\bullet f_*\mathbb Q_\ell(j))
+\right).
+\end{equation}
+出于同样的理由,
+\begin{equation}\tag{5.8.1.4}
+E_\infty^{1,\bullet}\lhook\joinrel\longrightarrow E_2^{1,\bullet}.
+\end{equation}
+复合
+\begin{equation}\tag{5.8.1.5}
+\begin{tikzcd}[column sep=large,row sep=large]
+\operatorname{Prim}^i(T/S,\mathbb Q_\ell(j))
+=F^1H^i(T,\mathbb Q_\ell(j))
+  \arrow[r]
+&
+\operatorname{gr}^1H^i(T,\mathbb Q_\ell(j))
+=E_\infty^{1,i-1}
+  \arrow[d,hook]
+\\
+{}
+&
+H^1(S,R^{i-1}f_*\mathbb Q_\ell(j))
+=E_2^{1,i-1}
+\end{tikzcd}
+\end{equation}
+记为
+\footnote{印本在 (5.8.1.6) 中用基线上的圆点代替次数指标. (5.8.1.5) 的源和靶要求 $R^{i-1}f_*$.}
+\begin{equation}\tag{5.8.1.6}
+U^i:\operatorname{Prim}^i(T/S,\mathbb Q_\ell(j))
+\longrightarrow H^1(S,R^{i-1}f_*\mathbb Q_\ell(j)).
+\end{equation}
+
+\subsection*{5.8.2.}
+现在设 $X$ 为不可约光滑射影概形, $D=\{H_\tau\}$ 为超平面线束, 其一般成员及轴与 $X$ 横截相交. 设 $U\xrightarrow{\nu}\mathbb P^1$ 为非空开子集, 使投影 $\rho:\widetilde X\to\mathbb P^1$ 在其上光滑, 并置 $\widetilde X|_U=\widetilde X\times_{\mathbb P^1}U$. 有交换图
+\begin{equation}\tag{5.8.2.1}
+\begin{tikzcd}[column sep=large,row sep=large]
+{}
+&
+\widetilde X
+  \arrow[dl,"f"']
+  \arrow[d,"\rho"]
+&
+\widetilde X|_U
+  \arrow[l,"\alpha"']
+  \arrow[d,"\rho|_U"]
+\\
+X
+&
+\mathbb P^1
+&
+U\arrow[l,"\nu"'].
+\end{tikzcd}
+\end{equation}
+由于 $\rho|_U:\widetilde X|_U\to U$ 固有且光滑, 上同调的特化定理 (SGA 4 XVI 2.2) 给出
+\begin{equation}\tag{5.8.2.2}
+\operatorname{Prim}^\bullet(\widetilde X|_U/U,\mathbb Q_\ell(j))
+=\ker\!\left(
+H^\bullet(\widetilde X|_U,\mathbb Q_\ell(j))
+\longrightarrow H^\bullet(X_{\bar\eta},\mathbb Q_\ell(j))
+\right).
+\end{equation}
+因此, 由 (5.2.3.1), 有:
+
+\subsection*{命题 5.8.2.3.}
+\underline{在 5.8.2 的假设下, 对 $x\in H^n(X,\mathbb Q_\ell(j))$, 以下条件等价:}
+\begin{equation}\tag{5.8.2.4}
+x\in\operatorname{Prim}^n(X,\mathbb Q_\ell(j))
+\quad\Longleftrightarrow\quad
+\alpha^*f^*(x)\in
+\operatorname{Prim}^n(\widetilde X|_U/U,\mathbb Q_\ell(j)).
+\end{equation}
+\underline{若再假设 $\rho$ 满足 5.3 中的假设 (A), 则}
+\begin{equation}\tag{5.8.2.5}
+x\in\operatorname{Prim}^n(X,\mathbb Q_\ell(j))
+\quad\Longleftrightarrow\quad
+f^*(x)\in
+\operatorname{Prim}^n(\widetilde X/\mathbb P^1,\mathbb Q_\ell(j)).
+\end{equation}
+
+\underline{证明.}
+公式 (5.8.2.4) 已经证明. 对于 (5.8.2.5), 假设 (A) 蕴涵
+\[
+H^0(\mathbb P^1,R^n\rho_*\mathbb Q_\ell(j))
+\xrightarrow[\nu^*]{\sim}
+H^0(U,\nu^*R^n\rho_*\mathbb Q_\ell(j)).
+\]
+因而 $f^*(x)$ 相对于 $\mathbb P^1$ 本原, 当且仅当 $\alpha^*f^*(x)$ 相对于 $U$ 本原.
+\footnote{印本的最后一个蕴涵在 $\mathbb P^1$ 后多出一个 $\alpha$, 并将 $\alpha^*f^*(x)$ 中的类 $x$ 换成了 $\alpha$. 所列的等价关系以及前面的限制同构决定了改正后的句子.}
+
+\subsection*{定义 5.8.3.}
+\underline{在 5.8.2 的情形下, 复合同态}
+\footnote{扫描件中竖直箭头旁的墨迹本身无法辨认. 但此映射仍被唯一确定: (5.8.1.6) 刚刚定义了具有完全相同的源和靶的 $U^i$, 所以次数 $n$ 的标记为 $U^n$.}
+\begin{equation}\tag{5.8.3.1}
+\begin{tikzcd}[column sep=huge,row sep=huge]
+\operatorname{Prim}^n(X,\mathbb Q_\ell(j))
+  \arrow[r,"\alpha^*f^*"]
+  \arrow[dr,"\operatorname{Grif}"']
+&
+\operatorname{Prim}^n(\widetilde X|_U/U,\mathbb Q_\ell(j))
+  \arrow[d,"U^n"]
+\\
+{}
+&
+H^1(U,\nu^*R^{n-1}\rho_*\mathbb Q_\ell(j))
+\end{tikzcd}
+\end{equation}
+\underline{称为 ($X$ 相对于给定线束 $D$ 的) Griffiths 同态.}
+
+在图 (5.8.2.1) 中加入 $U$ 上以 $X$ 为纤维的常族:
+\begin{equation}\tag{5.8.3.2}
+\begin{tikzcd}[row sep=large,column sep=large]
+{}
+&
+\widetilde X
+  \arrow[dl,"f"']
+  \arrow[dd]
+&
+\widetilde X|_U
+  \arrow[l,"\alpha"']
+  \arrow[r,"f\times\rho|_U"]
+  \arrow[dd,"\rho|_U"]
+&
+X\times U
+  \arrow[ddl,"\operatorname{pr}_2"]
+\\
+X&{}&{}&{}
+\\
+{}
+&
+\mathbb P^1
+&
+U\arrow[l,"\nu"']
+&
+.
+\end{tikzcd}
+\end{equation}
+

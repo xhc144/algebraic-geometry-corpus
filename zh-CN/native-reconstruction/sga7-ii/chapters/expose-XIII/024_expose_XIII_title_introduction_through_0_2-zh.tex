@@ -1,0 +1,155 @@
+\clearpage
+\begin{center}
+{\large SGA 7 --- 第 XIII 讲}\par
+\vspace{2em}
+{\Large\underline{消灭圈的形式体系}}\par
+\vspace{1.5em}
+{\large P. Deligne 著}
+\end{center}
+
+\medskip
+\noindent\textbf{原书目录}
+\begin{center}
+\begin{tabular}{@{}llr@{}}
+引言 && 2\\
+\S1. & 集合层 & 6\\
+1.1 & Galois 层 & 6\\
+1.2 & 拓扑斯 $Y\times_s S$ & 8\\
+1.3 & 函子 $\Psi$ & 13\\
+1.4 & 变差 & 16\\
+\S2. & 消灭圈 & 17\\
+2.1 & 函子 $R\Psi$ & 17\\
+2.2 & 一种相容性（迹态射） & 26\\
+2.3 & 有限性定理（等特征零） & 29\\
+2.4 & 孤立奇点 & 30
+\end{tabular}
+\end{center}
+
+%%%%%%%%%% source scan idx 90 | folio 83 %%%%%%%%%%
+
+\medskip
+\underline{引言}
+
+本讲重新讨论 Grothendieck 第 I 讲第~2 节引入的形式体系. 唯一的新内容是引入经典理论中\underline{变差}（variation）的代数对应物.
+
+我所考虑的拓扑图景如下. 设 $X$ 为解析空间, $D\subset\mathbb C$ 为以 $0$ 为中心的圆盘, 置 $D^*=D-\{0\}$, 并设 $f:X\longrightarrow D$ 为固有态射（非固有情形稍后讨论）. 将 $D$ 换成以 $0$ 为中心的充分小的圆盘, 将 $X$ 换成这个小圆盘的逆像, 仍将所得态射记为 $f:X\longrightarrow D$. 由 Thom 同痕定理的复解析变体, $f^{-1}(D^*)$ 是 $D^*$ 上的拓扑纤维丛. 我不知道是否总能构造出下述类型的对 $(\Gamma,r)$, 但看来很有可能.
+
+\begin{enumerate}[label=(\alph*),leftmargin=2.6em]
+\item $\Gamma$ 是 $D^*$ 上纤维丛 $f^{-1}(D^*)$ 的一个局部相容的局部平凡化系统. 换言之, $\Gamma$ 给出了 $X$ 在 $D^*$ 的万有覆盖 $\widetilde D^*$ 上的逆像的一个 $\pi_1(D^*)$-等变平凡化.
+
+\item $r$ 是 $X$ 到特殊纤维 $X_0=f^{-1}(0)$ 的收缩, 且与 $\Gamma$ 相容: 如果在 $D^*$ 的一个连通开子集 $U$ 上, $\Gamma$ 将 $X_U=f^{-1}(U)$ 与 $X_1\times U$ 等同, 则 $r=r(x_1,u)$ 与 $u$ 无关.
+\end{enumerate}
+
+给定 $(X,f,\Gamma,r)$. 设 $t\in D$, 以 $X_t=f^{-1}(t)$ 为“一般纤维”. 从 $X/D$ 沿
+\begin{equation*}
+\varphi:[0,1]\longrightarrow D^*,
+\qquad x\longmapsto \exp(2\pi i x)\,t,
+\end{equation*}
+拉回所得的纤维丛 $\varphi^*X$ 由 $\Gamma$ 平凡化. \underline{单值变换}（monodromy）$T:X_t\longrightarrow X_t$ 是同胚
+\begin{equation*}
+X_t=(\varphi^*X)_0\xrightarrow[\Gamma]{\sim}
+(\varphi^*X)_1=X_t.
+\end{equation*}
+设 $r_t:X_t\longrightarrow X_0$ 为 $r$ 在 $X_t$ 上的限制. 则 $r_tT=r_t$. 由 $(X_t,X_0,T,r_t)$ 可如下重构 $(X,f)$:
+\begin{enumerate}[label=(\alph*),leftmargin=2.6em]
+\item 用 $T$ 将 $X_t\times[0,1]$ 的两端 $X_t\times\{0\}$ 与 $X_t\times\{1\}$ 等同, 得到 $f':X'\longrightarrow S^1$;
+\item $r_t$ 定义了 $r':X'\longrightarrow X_0$, 而 $(X,f)$ 等同于下述映射锥之间的映射
+\begin{equation*}
+\operatorname{cone}(f'):
+\operatorname{cone}(r':X'\longrightarrow X_0)
+\longrightarrow D=\operatorname{cone}(S^1\longrightarrow\mathrm{pt}).
+\end{equation*}
+\end{enumerate}
+
+%%%%%%%%%% source scan idx 91 | folio 84 %%%%%%%%%%
+
+置 $\Psi=(r,f):X\longrightarrow X_0\times D$. 高阶 Leray 正像 $R^i\Psi_*\mathbb Z$ 满足下述条件:
+
+\begin{quote}
+(*) 空间 $D^*$ 可由开子集 $U$ 覆盖, 使层 $F$ 在 $X_0\times U$ 上的限制是由 $X_0$ 上的一个层拉回所得的.
+\end{quote}
+
+\underline{构造} 0.1. \underline{$X_0\times D$ 上满足 (*) 的层 $F$ 等同于如下系统 $(F_0,F_t,T,\alpha)$:}
+\begin{enumerate}[label=\alph*),leftmargin=2.5em]
+\item \underline{$F_0$ 是 $X_0$ 上的层};
+\item \underline{$F_t$ 是 $X_0$ 上的层, 带有 $\pi_1(D^*,t)$ 的生成元 $T$ 的作用};
+\item \underline{$\alpha$ 是从 $F_0$ 到 $F_t$ 的 $T$-不变部分所成之层的态射}.
+\end{enumerate}
+
+设 $G$ 是 $X_0\times D^*$ 上满足 (*) 的层, 并设 $\widetilde D^*$ 为 $D^*$ 的万有覆盖, 基点为 $t$. $G$ 在 $X_0\times\widetilde D^*$ 上的拉回唯一地来自 $X_0$ 上的某个层 $G_t$ 的拉回. 层 $G_t$ 带有 $\pi_1(D^*,t)$ 的作用, 而 $G$ 是将 $X_0\times\widetilde D^*$ 上的 $\operatorname{pr}_1^*G_t$ 对 $\pi_1(D^*,t)$ 取商所得的.
+
+$X_0\times D$ 上的层 $F$ 由下列资料确定:
+\begin{enumerate}[label=\arabic*),leftmargin=2.5em]
+\item 它在 $X_0$ 上的限制 $F_0$;
+\item 它在 $X_0\times D^*$ 上的限制 $G$;
+\item 一个态射 $\alpha:F_0\longrightarrow i^*j_*G$, 其中 $i:X_0\hookrightarrow X_0\times D$, $j:X_0\times D^*\hookrightarrow X_0\times D$.
+\end{enumerate}
+若 $F$ 满足 (*), 则 $G$ 由 $X_0$ 上的 $(G_t,T)$ 描述, 从而得到所声称的 $F$ 的描述.
+
+对于层 $R^i\Psi_*\mathbb Z$, 有
+\begin{equation*}
+(R^i\Psi_*\mathbb Z)_0=
+\begin{cases}
+\mathbb Z, & i=0,\\
+0, & i>0,
+\end{cases}
+\end{equation*}
+而当 $i>0$ 时, $(R^i\Psi_*\mathbb Z)_t$ 确实应当称为\underline{消灭圈层}（sheaves of vanishing cycles）（参见第 I 讲第 2 节开头的讨论）.
+
+%%%%%%%%%% source scan idx 92 | folio 85 %%%%%%%%%%
+
+只有转入导出范畴来细化上述讨论, 它才有用: $R^i\Psi_*\mathbb Z$ 来自 $D^+(X_0\times D)$ 的一个对象; 更准确地说, 来自 $X_0\times D$ 上满足 (*) 的阿贝尔层所成范畴的导出范畴中的一个对象 $R\Psi_*\mathbb Z$. 这个对象不仅确定消灭圈层及其单值变换, 还确定经典的“变差”态射（参见 1.4 及 XIV, 3.1）.
+
+我们将定义它在代数几何中的对应物. 若 $S$ 是严格 Hensel 离散赋值环谱, 且 $f:X\longrightarrow S$ 是概形态射, 我们将定义乘积拓扑斯 $(X_0)_{\mathrm{et}}\times S_{\mathrm{et}}$ 上阿贝尔层所成范畴的导出范畴中的对象 $R\Psi(\mathbb Z/\ell^n)$. 此拓扑斯上的层可解释为如下系统 $(F_0,F_t,T,\alpha)$:
+\begin{enumerate}[label=\alph*),leftmargin=2.5em]
+\item[$\alpha$)] $F_0$ 是 $X_0$ 上的层;
+\item[$\beta$)] $F_t$ 是 $X_0$ 上的层, 带有惯性群 $I$ 的连续作用 $T$;
+\item[$\gamma$)] $\alpha$ 是从 $F_0$ 到 $F_t$ 的 $I$-不变部分所成之层的态射.
+\end{enumerate}
+
+我们必须在比上述框架稍一般的框架中工作:
+\begin{enumerate}[label=\alph*),leftmargin=2.5em]
+\item $R\Psi(\mathbb Z/\ell^n)$ 的构造不要求 $f$ 固有. 为给出拓扑解释, 应将 $X$ 换成特殊纤维 $X_0$ 的一个邻域, 然后重复上述构造.
+
+\item 为构造 $R\Psi(\mathbb Z/\ell^n)$ 并证明其性质, 不仅必须考虑常值层 $\mathbb Z/\ell^n$, 还须考虑一般的层, 乃至层的复形.
+
+\item 若不假设 Hensel 离散赋值环谱 $S$ 的剩余域 $k$ 可分闭, 就必须将乘积拓扑斯 $(X_0)_{\mathrm{et}}\times S_{\mathrm{et}}$ 换成纤维积拓扑斯
+\begin{equation*}
+(X_0)_{\mathrm{et}}
+\times_{\Spec(k)_{\mathrm{et}}}S_{\mathrm{et}}.
+\end{equation*}
+不喜欢拓扑斯的 $2$-纤维积的读者, 可将 1.2.4 中对该拓扑斯的 Galois 描述作为其定义.
+\end{enumerate}
+
+%%%%%%%%%% source scan idx 93 | folio 86 %%%%%%%%%%
+
+0.2. \underline{记号与术语}.
+
+\begin{description}
+\item[(0.2.1) \underline{离散赋值环谱（trait）}:]
+离散赋值环的谱.
+
+\item[(0.2.2) \underline{Hensel}:]
+对于概形, 指 Hensel 局部环的谱.
+
+\item[(0.2.3) \underline{严格 Hensel}:]
+对于环, 指剩余域可分闭的 Hensel 环; 对于概形, 指这种环的谱.
+
+\item[(0.2.4) $S$ 的\underline{几何点}:]
+指像为 $x\in S$ 的态射 $\bar x:\Spec(\bar k)\longrightarrow S$, 其中 $k(\bar x)=_{\mathrm{def}}\bar k$ 是 $\kappa(x)$ 的可分闭包. 我们称 $\bar x$ 位于 $x$ 上. 有时也稍微滥用术语, 在 $\bar k$ 是 $\kappa(x)$ 的可分闭扩域时, 将态射 $\bar x:\Spec(\bar k)\longrightarrow S$ 称为几何点; 这样的态射唯一地通过一个严格意义下的 $S$ 的几何点分解.
+
+\item[(0.2.5) $s,\eta,\bar s,\bar\eta,\bar S$:]
+若 $S=\Spec(V)$ 为 Hensel 离散赋值环谱, 通常以 $s$ 表示 $S$ 的闭点, 以 $\eta$ 表示其一般点, 以 $\bar\eta$ 表示 $S$ 的一个一般几何点（位于 $\eta$ 上）, 以 $\bar s$ 表示对应的位于 $s$ 上的几何点（I, 0.0.3）. 以 $\bar S$ 表示 $V$ 在 $k(\bar\eta)$ 中的整闭包的谱; 其剩余域是 $k(\bar s)$ 的一个不可分扩张. 以 $\operatorname{Gal}(\bar\eta/\eta)$ 表示 $k(\bar\eta)$ 在 $k(\eta)$ 上的 Galois 群, 对 $s$ 也采用类似记号. 有正合列
+\begin{equation*}
+0\longrightarrow I\longrightarrow
+\operatorname{Gal}(\bar\eta/\eta)\longrightarrow
+\operatorname{Gal}(\bar s/s)\longrightarrow0,
+\end{equation*}
+其中 $I$ 为惯性群.
+
+\item[(0.2.6) \underline{层}:]
+概形 $X$ 上的层总指 $X$ 的平展景 $X_{\mathrm{et}}$ 上的层.
+
+\item[(0.2.7) \underline{与……互素}:]
+概形 $S$ 上的挠层 $F$（或挠阿贝尔群 $F$）称为与 $S$ 的剩余特征互素, 如果对每个 $s\in S$, 乘以 $k(s)$ 的特征指数给出 $F$ 的自同构.
+\end{description}
