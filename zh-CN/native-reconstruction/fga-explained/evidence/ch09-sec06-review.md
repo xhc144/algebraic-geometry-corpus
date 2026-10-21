@@ -18,3 +18,15 @@
   - p.299例9.6.23中两条不相交直线的Euler多项式常数项印为`+1`（通常应为`+2`），保留原式。
   - p.300推论9.6.27证明末尾印为`varphi(n):=theta(1,q)`，本稿保留变量不一致的印本记号。
 - 下一步独立临时驱动编译和页面检查；完整覆盖不等于独立数学专家复核。
+
+## 实际编译与视觉检查（最终分配范围检查点）
+
+- 临时驱动：`/tmp/fga-ch09s6-build/check.tex`，输入共享`book-style.tex`及本节，设置`chapter=9, section=5`。
+- 首次编译发现两处`ét`重音缺字（原数学重音命令生成了控制字符字形请求）。已将这两处拓扑缩写改为`\text{ét}`，数学对象与记号内容不变。
+- 修改后实际连续XeLaTeX两遍成功（run2/run3，退出0）；`-no-shell-escape -interaction=nonstopmode -halt-on-error`，`TEXMFHOME=/tmp/fga-texmf XDG_CACHE_HOME=/tmp/fga-cache`。
+- 最新日志无Warning、无Missing character、无未定义引用、无Overfull/Underfull。外部引用保留原书数字/书目键，“无未定义引用”不代替实际内容校验。
+- 输出`/tmp/fga-ch09s6-build/check.pdf`共9页。全部9页已渲染并查看接触表，另外详细查看第3、7、9页，未见裁切或碰撞。
+- 源码统计：339行、26247个Unicode字符、28个原编号陈述环境（9.6.1–9.6.28）、10个闭合proof环境、3个equation环境与27个`\[...\]`显示块。计数是本稿机械统计，不是原书公式数自动对照验收。
+- 源码SHA256：`a03e8648bf2e0dd47d570042cb930c6972b1c32bbc541b213ed939882f1e50ad`。
+- 临时PDF SHA256：`6b598cb9a43f5b797c367e64d1585ea48117c9c719db183c436a3887b53fdb4d`。
+- 状态：分配范围正文完整，未遗漏或概括。尚无独立数学专家逐段校对；原书疑点已保留并明确列出。总工程整合、术语统一后须再编译。

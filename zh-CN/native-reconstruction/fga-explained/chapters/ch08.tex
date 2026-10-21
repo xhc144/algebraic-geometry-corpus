@@ -5,6 +5,7 @@
 % Source PDF 193 / printed p.181.
 \chapter{形式几何中的 Grothendieck 存在定理}\label{ch08:chapter}
 \section*{引言}
+\addcontentsline{toc}{section}{引言}
 本讲义的主题是 Grothendieck 在 Séminaire Bourbaki 上所作的第 182 号报告 [Gro95a]. 该文中的大部分材料已在 [EGAIII1]、[EGAIII2] 和 [SGA1] 中得到详尽处理. 我们的目的是给出一个导论, 解释关键定理的证明, 讨论典型应用, 并在必要时补入较新的进展. 核心结果是固有态射的形式上同调与代数上同调之间的比较定理, 以及形式层的存在定理. 我们先在 §8.1 中回顾形式概形的若干基本术语 (始终限于局部 Noether 的情形, 这对我们的目的已经足够), 然后在 §8.2 和 §8.4 中给出证明的要点. §8.3 重新讨论 [EGAIII2, 7] 中的若干问题: 基变换公式与上同调平坦性. 我们认为, 导出范畴, 特别是完美复形的使用, 能使叙述简化. 不过, 后文并不依赖这一节. §8.5 把前几节的 Grothendieck 定理与形变理论的基本结果相结合, 主要在光滑情形下讨论形式提升或代数提升的存在性的一些应用. 最后, §8.6 讨论 Serre 在 [Ser61] 中给出的例子: 特征 $p>0$ 上不能提升到特征零的射影光滑概形.
 
 我十分感谢 Serre 就他在 [Ser61] 中的例子与我交谈, 寄给我 Mumford 致他的未发表信件 [Mum] 的副本, 并允许我在此收入他写给我的一封信, 其中解决了 [Ser61] 中遗留的一个问题. Esnault、Messing、Raynaud 和 Serre 阅读了本讲义的初稿, 提出了多处订正与修改意见. 我衷心感谢他们, 也感谢暑期学校的学生提出的大量问题和意见.
@@ -99,9 +100,9 @@ $\mathcal X$ 的一个\emph{定义理想}是 $\mathcal O_{\mathcal X}$ 的一个
 \tag{8.1.5.3}\label{ch08:eq8153}\end{equation}
 容易验证 [EGAI, 10.6.8], $f\mapsto f_\bullet$ 给出了从满足 $f^*(\mathcal J)\mathcal O_{\mathcal X}\subset\mathcal I$ 的 $\mathcal X$ 到 $\mathcal Y$ 的态射集合, 到形如 (8.1.5.1) 的归纳系态射集合的双射.
 
-一般说来, $f^*(\mathcal J)\mathcal O_{\mathcal X}$ 并不是 $\mathcal X$ 的定义理想. 若它是定义理想, 则称 $f$ 为\emph{进态射 (adic morphism)} (并称 $\mathcal X$ 为 $\mathcal Y$ \emph{进形式概形}). 此时可取 $\mathcal I=f^*(\mathcal J)\mathcal O_{\mathcal X}$, 而方块 (8.1.5.2) 均为笛卡尔方块. 反过来, 任何使方块 (8.1.5.2) 为笛卡尔方块的归纳系态射 (8.1.5.1), 都定义一个从 $\mathcal X$ 到 $\mathcal Y$ 的进态射.
+一般说来, $f^*(\mathcal J)\mathcal O_{\mathcal X}$ 并不是 $\mathcal X$ 的定义理想. 若它是定义理想, 则称 $f$ 为\emph{进制态射 (adic morphism)} (并称 $\mathcal X$ 为 $\mathcal Y$ \emph{进制形式概形}). 此时可取 $\mathcal I=f^*(\mathcal J)\mathcal O_{\mathcal X}$, 而方块 (8.1.5.2) 均为笛卡尔方块. 反过来, 任何使方块 (8.1.5.2) 为笛卡尔方块的归纳系态射 (8.1.5.1), 都定义一个从 $\mathcal X$ 到 $\mathcal Y$ 的进制态射.
 
-设 $f:\mathcal X\to\mathcal Y$ 为进态射, $E$ 是 $\mathcal X$ 上的凝聚层. 则下列条件等价:
+设 $f:\mathcal X\to\mathcal Y$ 为进制态射, $E$ 是 $\mathcal X$ 上的凝聚层. 则下列条件等价:
 \begin{enumerate}
 \item[(i)] $E$ 在 $\mathcal Y$ 上\emph{平坦} (或称 $\mathcal Y$ \emph{平坦}); 即对 $\mathcal X$ 的每一点 $x$, 茎 $E_x$ 在 $\mathcal O_{\mathcal Y,f(x)}$ 上平坦;
 \item[(ii)] 用 (8.1.5.3) 中的记号, 对所有 $n\geq0$, $E_n=u_n^*E$ 都是 $Y_n$ 平坦的;
@@ -139,7 +140,7 @@ $\mathcal X$ 的一个\emph{定义理想}是 $\mathcal O_{\mathcal X}$ 的一个
 中, 其中水平映射为典范态射 (8.1.6.2). 当 $X'=f^{-1}(Y')$ 时, 可取 $J=f^*(K)\mathcal O_X$, 所有方块
 \[\begin{tikzcd}X_n\arrow[r]\arrow[d,"f_n"']&X\arrow[d,"f"]\\Y_n\arrow[r]&Y\end{tikzcd}\]
 % Source PDF 199 / printed p.187, first paragraph completes §8.1.
-都是笛卡尔方块, 因而方块 (8.1.5.2) 也一样, 所以 $\widehat f$ 是进态射.
+都是笛卡尔方块, 因而方块 (8.1.5.2) 也一样, 所以 $\widehat f$ 是进制态射.
 
 \section{比较定理}\label{ch08:sec82}
 \paragraph{8.2.1.}
@@ -771,7 +772,7 @@ G\otimes_Y^LRf_*F&\xrightarrow\sim G\otimes g^*f_*\check C(\mathcal U,F)\\
 
 (a) \emph{闭形式子概形.} 设 $\mathcal X$ 是局部 Noether 形式概形. 若 $\mathcal A$ 是 $\mathcal O_{\mathcal X}$ 的凝聚理想, 则由 $\mathcal O_{\mathcal X}/\mathcal A$ 的支集 $\mathcal Y$ (它是 $\mathcal X$ 的闭子集) 以及限制到 $\mathcal Y$ 的环层 $\mathcal O_{\mathcal X}/\mathcal A$ 组成的带拓扑赋环空间 $\mathcal Y$, 是一个在 $\mathcal X$ 上进的局部 Noether 形式概形 (8.1.5), 称为 $\mathcal A$ 定义的 $\mathcal X$ 的\emph{闭形式子概形}. 若 $\mathcal I$ 是 $\mathcal X$ 的一个定义理想 (8.1.3), $X_n=(\mathcal X,\mathcal O_{\mathcal X}/\mathcal I^{n+1})$, 于是 $\mathcal X=\operatorname{colim}_nX_n$, 则 $\mathcal Y=\operatorname{colim}_nY_n$, 其中 $Y_n$ 是 $X_n$ 的闭子概形, 满足 $\mathcal O_{Y_n}=\mathcal O_{X_n}\otimes_{\mathcal O_{\mathcal X}}\mathcal O_{\mathcal Y}$. 反过来, 任意归纳系态射 $Y_\bullet\to X_\bullet$, 若 $Y_n\to X_n$ 为闭子概形且 $Y_n=X_n\times_{X_{n+1}}Y_{n+1}$ (参见 8.1.5), 则定义 $\mathcal X$ 的一个闭形式子概形 $\mathcal Y=\operatorname{colim}_nY_n$, 满足 $X_n\times_{\mathcal X}\mathcal Y=Y_n$. 若 $\mathcal X$ 仿射, $\mathcal X=\operatorname{Spf}A$, 则对 $A$ 的一个理想 $\mathfrak a$, 有 $\mathcal A=\mathfrak a^\triangle$, $\mathcal Y=\operatorname{Spf}(A/\mathfrak a)$. 最后, 若 $X$ 是局部 Noether 概形, $\widehat X$ 是其沿一个闭子概形 $X_0$ 的完备化, 而 $Y$ 是 $X$ 的闭子概形, $\widehat Y$ 是其沿 $Y_0=X_0\times_XY$ 的完备化, 则 $\widehat Y$ 为 $\widehat X$ 的闭形式子概形.
 
-(b) \emph{有限态射.} 设 $\mathcal X=\operatorname{colim}X_n$ 是如 (a) 中所述的局部 Noether 形式概形. 若局部 Noether 形式概形态射 $f:\mathcal Z\to\mathcal X$ 为进态射 (8.1.5), 且 $f_0:Z_0\to X_0$ 有限, 则称 $f$ \emph{有限} [EGAIII1, 4.8.2]. 由标准交换代数 [Bou61, III §8.2, 11] (或 [EGAI, Ch.~0, 7.2.9]), 这等价于局部地 $f$ 形如 $\operatorname{Spf}(B)\to\operatorname{Spf}(A)$, 其中 $B$ 在 $A$ 上有限且为 $IB$ 进的, $I$ 是 $A$ 的定义理想; 也等价于 $f$ 为进态射且每个 $f_n:Z_n=X_n\times_{\mathcal X}\mathcal Z\to X_n$ 都有限. 若 $f$ 有限, 则 $f_*\mathcal O_{\mathcal Z}$ 是一个有限 $\mathcal O_{\mathcal X}$ 代数 $\mathcal B$, 使对所有 $n$, $\mathcal O_{X_n}\otimes_{\mathcal O_{\mathcal X}}\mathcal B=f_*\mathcal O_{X_n}$. 若 $\mathcal X=\widehat X$, $X$ 如 (a) 中所述, $Z$ 是 $X$ 上的有限概形, 则 $Z$ 沿 $Z_0=X_0\times_XZ$ 的完备化 $\widehat Z$ 在 $\widehat X$ 上有限.
+(b) \emph{有限态射.} 设 $\mathcal X=\operatorname{colim}X_n$ 是如 (a) 中所述的局部 Noether 形式概形. 若局部 Noether 形式概形态射 $f:\mathcal Z\to\mathcal X$ 为进制态射 (8.1.5), 且 $f_0:Z_0\to X_0$ 有限, 则称 $f$ \emph{有限} [EGAIII1, 4.8.2]. 由标准交换代数 [Bou61, III §8.2, 11] (或 [EGAI, Ch.~0, 7.2.9]), 这等价于局部地 $f$ 形如 $\operatorname{Spf}(B)\to\operatorname{Spf}(A)$, 其中 $B$ 在 $A$ 上有限且为 $IB$ 进的, $I$ 是 $A$ 的定义理想; 也等价于 $f$ 为进制态射且每个 $f_n:Z_n=X_n\times_{\mathcal X}\mathcal Z\to X_n$ 都有限. 若 $f$ 有限, 则 $f_*\mathcal O_{\mathcal Z}$ 是一个有限 $\mathcal O_{\mathcal X}$ 代数 $\mathcal B$, 使对所有 $n$, $\mathcal O_{X_n}\otimes_{\mathcal O_{\mathcal X}}\mathcal B=f_*\mathcal O_{X_n}$. 若 $\mathcal X=\widehat X$, $X$ 如 (a) 中所述, $Z$ 是 $X$ 上的有限概形, 则 $Z$ 沿 $Z_0=X_0\times_XZ$ 的完备化 $\widehat Z$ 在 $\widehat X$ 上有限.
 % Original prints f_*O_{X_n}; retained for review (expected Z_n).
 
 % Source PDF 219 / printed p.207.
@@ -926,7 +927,7 @@ H^q(X_1,I\otimes_{\mathcal O_{X_1}}\mathcal Hom(E_1,F_1))
 \[T_{X/Y}=\mathcal Hom(\Omega^1_{X/Y},\mathcal O_X)\]
 也是如此. 它们在 $X$ 的一点 $x$ 处的共同秩 $r(x)$, 等于纤维 $X_{f(x)}$ 在 $x$ 处的维数, 即 $X$ 在 $x$ 处的\emph{相对维数}. 它是 $x$ 的局部常值函数. 若态射 $f:X\to Y$ 光滑且在每一点相对维数为零, 则称 $f$ \emph{平展}; 换言之, $f$ 光滑且 $\Omega^1_{X/Y}=0$, 或等价地, $f$ 平坦、局部有限呈示且 $\Omega^1_{X/Y}=0$. 光滑性 (相应地, 平展性) 对复合与基变换稳定.
 
-我们还需要形式概形背景下的光滑性定义. 设 $\mathcal Y=\operatorname{colim}Y_n$ 是局部 Noether 形式概形, 使用 8.1.5 的记号. 若进态射 $f:\mathcal X\to\mathcal Y$ 平坦 (8.1.5), 且每个 $X_n$ 都在 $Y_n$ 上光滑 (或等价地, 由 8.5.8 (i), $X_0$ 在 $Y_0$ 上光滑), 则称 $f$ \emph{光滑}. 我们将称 $\mathcal X$ 为\emph{提升 $X_0$ 的 $\mathcal Y$ 上光滑形式概形}.
+我们还需要形式概形背景下的光滑性定义. 设 $\mathcal Y=\operatorname{colim}Y_n$ 是局部 Noether 形式概形, 使用 8.1.5 的记号. 若进制态射 $f:\mathcal X\to\mathcal Y$ 平坦 (8.1.5), 且每个 $X_n$ 都在 $Y_n$ 上光滑 (或等价地, 由 8.5.8 (i), $X_0$ 在 $Y_0$ 上光滑), 则称 $f$ \emph{光滑}. 我们将称 $\mathcal X$ 为\emph{提升 $X_0$ 的 $\mathcal Y$ 上光滑形式概形}.
 
 关于光滑概形形变的主要结果概括于下述定理中.
 
@@ -1362,7 +1363,7 @@ $E=N_{Y/X}L$.
 最小的例子由 $r=2$, $n=3$, $s=4$, $p=5$ 得到. (在 [Ser61] 中, 最小的例子对应于 $r=3$, $n=4$, $s=5$, $p=7$.)
 
 \begin{origstatement}{注}{8.6.8}\label{ch08:rem868}
-设 $X_0$ 为 8.6.7 考虑的概形. 设 $A$ 为剩余域为 $k$ 的完备局部 Noether 环, 它是 $X_0$ 的一个形式万有形变 $\mathcal X$ 的底 [Sch68]. 这样的环 $A$ 是一个形式有限型的 $W$ 代数, 其中 $W=W(k)$ 为 $k$ 上的 Witt 向量环. 令 $K_0=W[1/p]$ 为 $W$ 的分式域. 由 8.6.7 可知 $A\otimes_WK_0=0$; 换言之, 存在整数 $n_0\geq1$, 使 $p^{n_0}A=0$. 否则, 可找到 $\Spec A$ 的一个整闭子概形 $T=\Spec B$, 其一般点特征为零. 将 $\mathcal X$ 拉回到 $\operatorname{Spf}B$, 就会得到矛盾.
+设 $X_0$ 为 8.6.7 考虑的概形. 设 $A$ 为剩余域为 $k$ 的完备局部 Noether 环, 它是 $X_0$ 的一个形式万有形变 $\mathcal X$ 的底 [Sch68]. 这样的环 $A$ 是一个形式有限型的 $W$ 代数, 其中 $W=W(k)$ 为 $k$ 上的 Witt 向量环. 令 $K_0=W[1/p]$ 为 $W$ 的分式域. 由 8.6.7 可知 $A\otimes_WK_0=0$; 换言之, 存在整数 $n_0\geq1$, 使 $p^{n_0}A=0$. 否则, 可找到 $\Spec A$ 的一个整的闭子概形 $T=\Spec B$, 其一般点特征为零. 将 $\mathcal X$ 拉回到 $\operatorname{Spf}B$, 就会得到矛盾.
 \end{origstatement}
 
 \section{Serre 的一封信}\label{ch08:sec87}
