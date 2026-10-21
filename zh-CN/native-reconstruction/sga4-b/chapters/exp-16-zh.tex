@@ -1,0 +1,795 @@
+\chapter{光滑基变换定理及其应用}
+%\addtocontents{toc}{M. Artin}
+\begin{center}
+M. Artin
+\end{center}
+\phantomsection\MakeLinkTarget*{sga4.exp.XVI}\label{sga4.exp.XVI}
+
+\setcounter{pageoriginal}{206}
+
+\section{光滑基变换定理}\etiquette[1]{XVI.sec1}\pageoriginale
+
+\begin{enonce*}{定理 1.1}\etiquette[1.1]{XVI.thm1.1}
+设 $\LL\subset \PP$, $n\in \NN$, 且
+$$\vcenter{
+\xymatrix@C=1.5cm@R=1cm{
+X   \ar[d]^{f}& X' \ar[l]_{g'} \ar[d]^{f'}\\
+Y     & \ar[l]_{g} Y'
+}}\leqno{(*)}
+$$
+是 Cartesian 图, 其中 $f$ 拟紧且拟分离\nde{即原文术语中的凝聚态射.}, $g$ 普遍局部 $0$-无上同调 (universally locally 0-acyclic) (\resp 对 $\LL$ 普遍局部 $1$-非球面, \resp 对 $\LL$ \sisi{普遍局部}{普遍局部} $n$-无上同调) \emph{(\hyperrefext[XV][XV.def1.11]{1.11}).} 则对于 $X$ 上任意集合层 $F$ (\resp \emph{ind}-$\LL$-群层, \resp $\LL$-挠阿贝尔层), 基变换态射
+\emph{(XII \hyperref[XII.eq4.2]{4.1.2})}
+$$
+\varphi^{q}:g^{\ast}(R^{q}f_{\ast})F\longrightarrow
+(R^{q}f'_{\ast}){g'}^{\ast}F
+$$
+在 $q=0$ (\resp $q\leq 1$, \resp $q\leq n$) 时是双射.
+\end{enonce*}
+
+特别地, 应用 \hyperrefext[XV][XV.thm2.1]{2.1}, 得到下述结果.
+
+\begin{enonce*}{推论 1.2}\etiquette[1.2]{XVI.cor1.2}
+(光滑基变换定理). 假设 $(\ast)$ 中的态射 $g$ 光滑, $f$ 拟紧且拟分离, $\LL\subset \PP$ 是 $Y$ 的剩余特征集合的补集. 则对于 $X$ 上任意集合层 $F$ (\resp \emph{ind}-$\LL$-群层, \resp $\LL$-挠阿贝尔层), 上述基变换\pageoriginale 态射 $\varphi^{q}$ 在 $q=0$ (\resp $q=0$, $1$, \resp 任意 $q$) 时是双射.
+\end{enonce*}
+
+\noindent
+\emph{\hyperref[XVI.thm1.1]{1.1} 的证明}. 先处理 $f:X\rightarrow Y$ 拟射影的情形: 这只需结合固有基变换定理 \hyperrefext[XII][XII.thm5.1]{5.1} 和定义 \hyperrefext[XV][XV.prop1.9]{1.9}. 事实上, 有交换图
+$$
+\xymatrix@=1.25cm{
+ X \ar[rr]^{i} \ar[rd]_{f}&        & \bar{X}\ar[ld]^{\bar{f}}\\
+                         &   Y    &
+}
+$$
+其中 $\bar{f}$ 射影, 从而固有, $i$ 是开浸入. 由 \hyperrefext[XII][XII.thm5.1]{5.1} 知, 无论态射 $g:Y'\rightarrow Y$ 如何, 基变换定理对 $\bar{f}$ 都成立. 由于 $\fprod{g}{\bar{X}}{Y}:\fprod{Y'}{\bar{X}}{Y}\rightarrow \bar{X}$ 仍是普遍 $0$-无上同调的 (\resp\ldots), 由 (\hyperrefext[XII][XII.prop4.4]{4.4} (ii)) 立即可知, 只须对态射 $i$ 证明本定理; 即归结为 $f$ 是开浸入的情形. 此时定理由定义 \hyperrefext[XV][XV.prop1.10]{1.10} (ii) 得出.
+
+现在处理一般情形. 断言在 $Y$ 上是局部的, 因而可假设 $Y$ 仿射.
+
+\begin{enonce*}{引理 1.3}\etiquette[1.3]{XVI.lem1.3}
+还可假设 $X$ 仿射.
+\end{enonce*}
+
+\noindent
+\emph{证明}. 仿照 \hyperrefext[XII][XII.lem6.1]{6.1} 的论证, 为了对给定的 $f$ 证明 \hyperref[XVI.thm1.1]{1.1}, 只须考虑由 $g$ 诱导的 $Y'$ 和 $Y$ 的严格局部化之间的局部态射 $\widetilde{g}:\widetilde{Y}'\rightarrow \widetilde{Y}$, 对给定情形作基变换 $\widetilde{Y}\rightarrow Y$, $\widetilde{Y}'\rightarrow Y'$ 所得\pageoriginale 的情形, 并证明同态
+\begin{equation*}
+H^{q}(\widetilde{X},F)\longrightarrow H^{q}(\widetilde{X}',F')\quad
+(\mbox{\rm 其中 } F'={g'}^{\ast}(F))\tag{$\ast$}
+\end{equation*}
+在 $q\leq n$ 时是双射, 这里 $\widetilde{X}=\fprod{X}{\widetilde{Y}}{Y}$, $\widetilde{X}'=\fprod{X'}{\widetilde{Y}'}{Y'}$. 因而归结为 $Y$, $Y'$ 和 $g$ 均严格局部的情形, 且只须在已对仿射 $f$ 证明 \hyperref[XVI.thm1.1]{1.1} 的假设下证明上述映射的双射性. 取 $X$ 的有限开覆盖 $(X_i)$, 其中各 $X_i$ 为仿射开子概形, 令 $Z$ 为诸 $X_i$ 的不交并; 因而它仿射, 并带有满射态射 $h:Z\rightarrow X$, 从而有态射 $h':Z'\rightarrow X'$. 注意 $h$ 分离, 且当 $f$ 分离时它仿射. 应用下降引理 \hyperrefext[XII][XII.prop6.8]{6.8}, 可知为了证明对 $q\leq n$ 和任意 $F$, 映射 $(\ast)$ 都是双射, 只须证明相应映射 $H^{q}(Z,h^{\ast}(F))\rightarrow H^{q}(Z',{h'}^{\ast}(F'))$ 是双射, 条件是 $Z\rightarrow X$ 对基变换 $X'\rightarrow X$ 的基变换同态在维数 $\leq n$ 时为同构. 若 $f$ 分离, 则 $h$ 仿射, 根据假设确有此性质; 这就证明了 $f$ 分离时的 \hyperref[XVI.thm1.1]{1.1}. 一般情形下, 可将上述结果应用于总是分离的 $h$, 再次得到 \hyperref[XVI.thm1.1]{1.1} 对 $f$ 成立, 从而证明 \hyperref[XVI.lem1.3]{1.3}.
+
+\begin{enonce*}[remark]{注}
+也可使用 $X$ 的开覆盖 $(X_i)$ 的 Leray 谱序列及其非交换变形\pageoriginale, 但此法与使用 \hyperrefext[XII][XII.prop6.8]{6.8} 本质上并无区别, 缺点是迫使我们再次区分通常的三种情形, 而这项工作已在\loccit 完成.
+\end{enonce*}
+
+为在一般情形下完成定理的证明, 只须归结为 $f:X\rightarrow Y$ 仿射且有限型, 从而拟射影的情形. 由 \hyperref[XVI.lem1.3]{1.3}, 可假设 $X$ 仿射. 写成 $X=\varprojlim X_{\alpha}$, 其中态射 $f_{\alpha}:X_{\alpha}\rightarrow Y$ 仿射且有限型. 通常的极限论证 (\hyperrefext[VII][VII.sec5]{5}) 即完成证明.
+
+\begin{enonce*}[remark]{补充 1.4}\etiquette[1.4]{XVI.compl1.4}
+\begin{enumerate}
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 请读者核实, 当假设 $g$ 普遍局部 $(-1)$-无上同调时 (\hyperrefext[XV][XV.rems1.14]{1.14}), 同一证明仍可给出一个结论: 此时对 $X$ 上任意集合层 $F$, 基变换同态
+$$
+\phi^{0}:g^{\ast}(f_{\ast}(F))\longrightarrow f'_{\ast}({g'}^{\ast}(F))
+$$
+是\emph{单射}. 另一方面, 仍设 $n\geq 0$. 可对 \hyperref[XVI.thm1.1]{1.1} 补充下述单射性断言, 它也包含在上述证明中: 若 $g$ 普遍局部 $0$-无上同调, 则对于 $X$ 上任意群层 $F$, \hyperref[XVI.thm1.1]{1.1} 中的基变换同态 $\phi^{1}$ 是单态射; 若 $g$ 对 $\LL$ 普遍局部 $n$-无上同调, 则对于 $X$ 上任意 $\LL$-挠阿贝尔层 $F$, \hyperref[XVI.thm1.1]{1.1} 中的同态 $\phi^{n+1}$ 是单态射.
+
+\item 很可能还可以通过引入 \textsc{Giraud} 学位论文中的非阿贝尔 $2$-上同调不变量, 从 $g$ 对 $\LL$ 局部 $1$-非球面的假设得到类似的单射性结论\pageoriginale; 比较 \hyperrefext[XII][XII.subsec5.11]{5.11}\footnote[1]{J. Giraud 的书中确实证明了这一点.}; 对下文的 (\hyperref[XVI.cor1.6]{1.6}) 和 (\hyperref[XVI.cor2.3]{2.3}) 也有同样的问题.
+\end{enumerate}
+\end{enonce*}
+
+%raghu
+\begin{enonce*}{推论 1.5}\etiquette[1.5]{XVI.cor1.5}
+设 $K/k$ 为域扩张, $\LL=\PP-\{p\}$, 其中 $p= \car k$. 则 $\Spec(K)\rightarrow \Spec(k)$ 对 $\LL$ 普遍局部无上同调, 且对 $\LL$ 普遍局部 $1$-非球面; 若 $k$ 和 $K$ 可分闭, 则上述态射还对 $\LL$ 普遍无上同调, 且对 $\LL$ 普遍 $1$-非球面.
+\end{enonce*}
+
+立即记下 (\hyperref[XVI.cor1.5]{1.5}) 的如下推论.
+
+\begin{enonce*}{推论 1.6}\etiquette[1.6]{XVI.cor1.6}
+设 $K/k$ 为可分闭域的扩张, $X$ 为概形, $F$ 为 $X$ 上的\sisi{集合}{集合}层 (\resp ind-$\LL$-群层, \resp $\LL$-挠阿贝尔群层), 其中 $\LL=\PP-\{p\}$, $p=\car k$. 则映射
+$$
+H^{q}(X,F)\longrightarrow H^{q}(X_{K},F_{K})
+$$
+在 $q=0$ (\resp $q\leq 1$, \resp 任意 $q$) 时是双射.
+\end{enonce*}
+
+事实上, 这立即由 $\Spec(K)\rightarrow \Spec(k)$ 对 $\LL$ 普遍无上同调且对 $\LL$ 普遍 $1$-非球面这一事实及定义得出.\sisi{---~}{~}注意由 \hyperrefext[VIII][VIII.cor2.4]{2.4}, 上述 $H^{q}$ 之间的同态也可解释为与基变换同态
+$$
+g^{\ast}(R^{q}f_{\ast}(F))\longrightarrow
+R^{q}{f'}_{\ast}({g'}^{\ast}(F)){\quoi},
+$$
+相同, 这里\pageoriginale $f:X\rightarrow \Spec(k)$, $f':X_K\rightarrow \Spec(K)$, $g:\Spec(K)\rightarrow \Spec(k)$ 和 $g':X_K\rightarrow X$ 是显然的态射. 因此, 当 $X$ 拟紧且拟分离时, 由 \hyperref[XVI.thm1.1]{1.1}, 这些同态的双射性也可看作 $\Spec(K)\rightarrow \Spec(k)$ 对 $\LL$ 普遍\emph{局部}无上同调且对 $\LL$ 普遍局部 $1$-非球面这一事实的推论. 因而后一事实已蕴涵拟紧且拟分离的 $X$ 所满足的 \hyperref[XVI.cor1.6]{1.6}, 而这显然足以推出 $\Spec(K)\rightarrow \Spec(k)$ 对 $\LL$ 普遍无上同调且对 $\LL$ 普遍 $1$-非球面 (\hyperrefext[XV][XV.def1.7]{1.7}, \hyperrefext[XV][XV.prop1.6]{1.6} (i)).
+
+这说明, 为证明 \hyperref[XVI.cor1.5]{1.5}, 只须证明 \hyperref[XVI.cor1.5]{1.5} 的第一个断言. 由 \hyperrefext[VIII][VIII.thm1.1]{1.1}, 可以换成 $k$ 的完美闭包, 因而可假设 $k$ \emph{完美}. $k$ 的任意扩张 $K$ 都是其有限生成 $k$-子代数 $A$ 的滤过正向极限; 由于 $k$ 完美, 对这样的 $A$ 作局部化后, 可假设它光滑, 从而 $K$ 表示为光滑子代数的滤过正向极限. 由 \hyperrefext[XV][XV.thm2.1]{2.1}, 后者对 $\LL$ 普遍局部无上同调且对 $\LL$ 普遍局部 $1$-非球面, 故结论由 \hyperrefext[XV][XV.prop1.13]{1.13} (ii) 得出, \cqfd
+
+\begin{enonce*}[remark]{注 1.7}\etiquette[1.7]{XVI.rem1.7}
+应将不变性定理 \hyperref[XVI.cor1.5]{1.5} 与 \hyperrefext[XII][XII.cor5.4]{5.4} 比较: 后者不必假设所考虑的挠层与剩余特征互素, 但另一方面, 必须假设 $X$ 在 $k$ 上\emph{固有}. 即使只考虑 $H^{1}$ $(X,\ZZ/p\ZZ)$, 其中 $X$\pageoriginale 是特征 $p>0$ 的代数闭域 $k$ 上的仿射代数曲线 (例如仿射直线), 上述断言的类比也不成立, 原因在于无穷远处的“野分歧\nde{即“野的”.}”现象; 这些现象意味着在这种情形下, 群为 $\ZZ/p\ZZ$ 的主平展覆盖的分类本质上是“连续的”.
+\end{enonce*}
+
+\section{上同调群的特殊化定理}\etiquette[2]{XVI.sec2}
+
+\begin{enonce*}{定理 2.1}\etiquette[2.1]{XVI.thm2.1}
+设 $\LL\subset \PP$, $n\in \NN$, $f:X\rightarrow Y$ 为有限表示的固有态射\footnote[1]{关于比固有性更弱而能得到相同结论的假设, \cf \SGA 5 II 3 和 \SGA 1 XIII.}, 且它局部 $0$-无上同调 (\resp 对 $\LL$ 局部 $1$-非球面, \resp 对 $\LL$ 局部 $n$-无上同调). 设 $F$ 为 $X$ 上可构造且局部常值的集合层 (\resp \emph{ind}-$\LL$-群层, \resp $\LL$-挠阿贝尔层). 则在 $q=0$ (\resp $q=0$, $1$, \resp $q\leq n$) 时, $R^{q}f_{\ast}F$ 可构造且\emph{局部常值}, 并且对 $Y$ 的任意几何点 $\bar{y}$, 有
+$$
+(R^{q}f_{\ast}F)_{\bar{y}}\simeq
+H^{q}(X_{\bar{y}},F_{\bar{y}}){\quoi},
+$$
+其中 $q$ 取上述相同的值.
+\end{enonce*}
+
+\begin{enonce*}[remark]{注}
+注意最后一个断言正是固有基变换定理 \hyperrefext[XII][XII.cor5.2]{5.2}.
+\end{enonce*}
+
+由 \hyperrefext[XV][XV.thm2.1]{2.1}, 立即得到如下推论:\pageoriginale
+
+\begin{enonce*}{推论 2.2}\etiquette[2.2]{XVI.cor2.2}
+(上同调群的特殊化定理). 设 $f:X\rightarrow Y$ 为固有光滑态射, $\LL\subset \PP$ 为 $Y$ 的剩余特征集合的补集. 设 $F$ 为 $X$ 上可构造的集合层 (\resp ind-$\LL$-群层, \resp $\LL$-挠阿贝尔层). 则在 $q=0$ (\resp $q=0$, $1$, \resp 任意 $q$) 时, $R^{q}f_{\ast}(F)$ 可构造且\emph{局部常值}, 并且对 $Y$ 的任意几何点 $\bar{y}$, 有
+$$
+R^{q}f_{\ast}(F)_{\bar{y}}\simeq H^{q}(X_{\bar{y}},F_{\bar{y}})
+$$
+其中 $q$ 取上述相同的值.
+\end{enonce*}
+
+\begin{enonce*}[remark]{注}
+取 $n=1$ 并翻译为基本群的语言, 就得到 (\SGA 1 X 3.8), 它比较固有光滑态射的各纤维的基本群.
+\end{enonce*}
+
+\noindent
+\emph{\hyperref[XVI.thm2.1]{2.1} 的证明}. 已知 $R^{q}f_{\ast}(F)$ 可构造 \hyperrefext[XIV][XIV.thm1.1]{1.1}, 因而由 \hyperrefext[IX][IX.prop2.11]{2.11}, 只须证明对 $Y$ 的几何点的任意特殊化态射 $\bar{y}_1\rightarrow \bar{y}_{0}$, 相应的特殊化态射 (\hyperrefext[VIII][VIII.subsec7.7]{7.7})
+\begin{equation*}
+R^{q}f_{\ast}(F)_{\bar{y}_{0}}\longrightarrow
+R^{q}f_{\ast}(F)_{\bar{y}_1}\tag{$\ast$}
+\end{equation*}
+对所考虑的 $q$ 值是双射. 为此, 我们有下述稍一般的结果 (其中不必假设\pageoriginale $f$ 有限表示或 $F$ 可构造):
+
+\begin{enonce*}{推论 2.3}\etiquette[2.3]{XVI.cor2.3}
+设 $\LL\subset \PP$, $n\in \NN$, $f:X\rightarrow Y$ 为局部 $0$-无上同调 (\resp 对 $\LL$ 局部 $1$-非球面, \resp 对 $\LL$ 局部 $n$-无上同调) 的固有态射, $F$ 为 $X$ 上局部常值的集合层 (\resp ind-$\LL$-群层, \resp $\LL$-挠阿贝尔层). 则对 $Y$ 的几何点的任意特殊化态射 $\bar{y}_1\rightarrow \bar{y}_0$, 上述相应特殊化同态 $(\ast)$ 在 $q=0$ (\resp $q=0$, $1$, \resp $q\leq n$) 时是双射. 此外, 当 $n=0$, 即 $f$ 局部 $0$-无上同调时, 对 $X$ 上任意局部常值群层 $F$, 同态 $R^{1}f_{\ast}(F)_{\bar{y}_0}\rightarrow R^{1}f_{\ast}(F)_{\bar{y}_1}$ 是单射; 对任意 $n$ 和 $X$ 上任意局部常值的 $\LL$-挠阿贝尔层 $F$, 特殊化同态 $(\ast)$ 在 $q=n+1$ 时是单射.
+\end{enonce*}
+
+存在整的严格局部概形 $Y'$ 及态射 $g:Y'\rightarrow Y$, 它将闭点 $y'_0$ 映到 $y_{0}$, 将一般点 $y'_1$ 映到 $y_1$: 例如先取 $Y$ 在 $\bar{y}_0$ 处的严格局部化, 再取它的一个位于 $y_1$ 之上的点所定义的整闭子概形即可. 此外, 将 $Y'$ 换成它在函数域的一个代数闭包中的正规化后, 可假设 $Y'$ 正规且 $k(y'_1)$ 代数闭, 于是 $y'_0$ 和 $y'_1$ 都是 $Y'$ 的几何点. 对 $(f,F,g)$ 使用基变换定理 (\hyperrefext[XII][XII.thm5.1]{5.1}), 并将\pageoriginale $Y$, $\bar{y}_0$, $\bar{y}_1$ 换成 $Y'$, $y'_0$, $y'_1$, 就将 \hyperref[XVI.cor2.3]{2.3} 的证明归结为证明 \hyperref[XVI.cor2.3]{2.3} 在 $Y$ 正规且严格局部, $\bar{y}_0$ 和 $\bar{y}_1$ 分别为其闭点 $y_0$ 和一般点 $y_1$ 的情形. 又由 \hyperrefext[XII][XII.sec4]{4}, 特殊化同态 $(\ast)$ 此时等同于同态
+$$
+H^{q}(X,F)\longrightarrow H^{q}(X_1,g^{\ast}_1(F)){\quoi},
+$$
+这里 $X_1=X_{y_1}$, 而 $g:y_1\rightarrow Y$ 和 $g_1:X_1\rightarrow X$ 是典范态射. 我们的断言现由下述引理得出 (其中不再假设 $f$ 固有):
+
+\begin{enonce*}{引理 2.4}\etiquette[2.4]{XVI.lem2.4}
+沿用 $\hyperref[XVI.cor2.3]{2.3}$ 开头的记号, 去掉 $f$ 固有的假设, 改为假设 $Y$ 正规且整, 其一般点 $y_1$ 满足 $k(y_1)$ 可分闭, 并令 $X_1=X_{y_1}$, $g_1:X_1\rightarrow X$ 为典范态射. 则同态
+\begin{equation*}
+H^{q}(X,F)\longrightarrow H^{q}(X_1,g^{\ast}_1(F))\tag{${\ast}{\ast}$}
+\end{equation*}
+在 $q=0$ 时为双射 (\resp 在 $q=0$, $1$ 时为双射, \resp 在 $q\leq n$ 时为双射且在 $q=n+1$ 时为单射). 此外, 当 $n=0$, 即 $f$ 局部 $0$-无上同调时, 对 $X$ 上任意群层 $F$, 同态 $({\ast}{\ast})$ 在 $q=1$ 时为单射.
+\end{enonce*}
+
+直接的论证 (\hyperrefext[XV][XV.prop1.6]{1.6} (i) $\Rightarrow$ (ii)) 表明, 只须证明关系
+$$
+F\xrightarrow{\sim} g_{1\ast}g_1{}^{\ast}(F){\quoi},
+$$
+以及\pageoriginale 在 $n\geq 1$ 时的附加关系
+$$
+R^{q}g_{1\ast}g_1{}^{\ast}(F)=0\quad\mbox{\rm 对于}\quad 1\leq
+q\leq n{\quoi}.
+$$
+这些关系对 $X$ 的平展拓扑是局部的, $F$ 又对平展拓扑局部常值, 因而可假设 $F$ 常值, 从而具有形式 $G_X$, 其中 $G$ 为集合 (\resp ind-$\LL$-群, \resp $\LL$-挠阿贝尔群). 还应注意 $Y$ 正规的假设蕴涵 $g_{\ast}(G_{y_1})\xleftarrow{\sim}G_Y$ (\hyperrefext[IX][IX.lem2.14.1]{2.14.1}), $k(y_1)$ 可分闭的假设蕴涵 $R^{q}g_{\ast}(G_{y_1})$ 在 $q\geq 1$ 时为零. 另一方面, $f$ 局部 $0$-无上同调 (\resp\ldots) 的假设蕴涵: 在 $q\leq n$ 时, $R^{q}g_{\ast}(G_{y_1})$ 的形成与基变换 $f:X\rightarrow Y$ 交换. 这里用到如下事实: 可假设 $Y$ 仿射, 此时 $y_1$ 是其在 $Y$ 中拟紧的仿射开邻域的逆向极限, 因而可应用定义 \hyperrefext[XV][XV.def1.11]{1.11} 和过渡到极限的理论 \hyperrefext[VII][VII.sec5]{5}. 于是确有
+$$
+G_X\xrightarrow{\sim} g_{1\ast}(G_{X_1})\quav
+R^{q}g_{1\ast}(G_{X_{1}})=0\quad\mbox{\rm 对于}\quad 1\leq q\leq
+n{\quoi},
+$$
+这就完成了 \hyperref[XVI.lem2.4]{2.4} 的证明, 从而也完成了 \hyperref[XVI.thm2.1]{2.1} 的证明.
+
+\begin{enonce*}[remark]{注}
+上述通过 \hyperref[XVI.lem2.4]{2.4} 的证明比我们原来的证明更简单, 它归功于 M. Lubkin.
+\end{enonce*}
+
+\begin{enonce*}{推论 2.5}\etiquette[2.5]{XVI.cor2.5}
+在 $\hyperref[XVI.thm2.1]{2.1}$ 的假设下, 设 $Y$ 连通, $q\leq n$. 则当 $\bar{y}$ 遍历 $Y$ 的几何点\pageoriginale 时, 所有群 $H^{q}(X_{\bar{y}},F)$ 都彼此同构.
+\end{enonce*}
+
+\section{相对上同调纯性定理}\etiquette[3]{XVI.sec3}
+
+\begin{enonce*}{定义 3.1}\etiquette[3.1]{XVI.def3.1}
+设 $S$ 为概形. 所谓\emph{光滑 $S$-对} (smooth S-pair) $(Y,X)$, 是指光滑 $S$-预概形之间的闭 $S$-浸入 $i:Y\rightarrow X$, 即如下预概形交换图
+$$
+\xymatrix@=1.25cm{
+Y \ar[rr]^{i} \ar[rd]_{h}&     &X\ar[ld]^{f}\\
+  & S   &
+}
+$$
+其中 $f$ 和 $h$ 光滑, $i$ 是闭浸入. 记 $U=X-Y$, 用 $j:U\rightarrow X$ 表示开浸入, $g:U\rightarrow S$ 表示结构态射. $(Y,X)$ 在点 $y\in Y$ 处的\emph{余维数}是纤维 $Y_s$ 在 $X_s$ 中于 $y$ 处的余维数, 其中 $s=h(y)$.
+\end{enonce*}
+
+因而余维数是 $Y$ 上的局部常值函数. 当此函数实际上为常值\sisi{,}{,} 值为 $c$ 时, 就说“$(Y,X)$ 的余维数为 $c$”.
+
+设 $(Y,X)$ 是光滑 $S$-对, $y\in Y$. 回顾 (\SGA II 4.10), 存在整数 $m$ 和 $n$, $y$ 在 $X$ 中的邻域 $X'$, 以及平展态射
+$$
+\phi:X'\longrightarrow \EE^n_S=\Spec \Oo_S[t_1,\ldots,t_n]
+$$
+使得\pageoriginale $Y'=Y\cap X'$ 是由方程
+$$
+t_{m+1}=\ldots=t_n=0{\quoi}.
+$$
+定义的闭子概形 $\EE^m_S$ 的逆像. 此结果可表述为:\emph{对平展拓扑局部地, 任意光滑 $S$-对 $(Y,X)$ 都同构于某个适当 $m$ 和 $n$ 对应的标准对 $(\EE^m_S, \EE^n_S)$,} 其中
+$$
+\EE^r_S=\Spec \Oo_S[t_1,\ldots,t_r]{\quoi}.
+$$
+
+本节拟计算光滑 $S$-对 $(Y,X)$ 的局部上同调层 $\HH^q_Y(X,F)=(R^{q}i^{!})F$ (\sisi{\hyperrefext[V][V.sec4]{4}}{\hyperrefext[V][V.sec6]{6}} 和 \hyperrefext[VIII][VIII.subsec6.6]{6.6}), 系数为与剩余特征互素的局部常值阿贝尔挠层 $F$. 先作若干预备讨论:
+
+\begin{enonce*}{命题 3.2}\etiquette[3.2]{XVI.prop3.2}
+设
+$$
+\xymatrix@=1.25cm{
+U \ar[rr]^{j} \ar[rd]_{g}&     &X\ar[ld]^{f}\\
+  & S   &
+}
+$$
+是交换图, 其中 $f$ 光滑, $j$ 为开浸入, 且对任意 $s\in S$, 纤维 $U_s$ 在 $X_s$ 中稠密. 设 $F$ 为 $S$ 上的集合层. 则典范态射
+$$
+f^{\ast}F\longrightarrow j_{\ast}g^{\ast}F=j_{\ast}j^{\ast}f^{\ast}F
+$$
+是双射.
+\end{enonce*}
+
+\noindent
+\emph{证明}.\pageoriginale 容易归结为 $U$ 在 $X$ 中拟紧的情形. 设 $\bar{s}$ 为 $S$ 的几何点, $\bar{x}$ 为位于 $\bar{s}$ 之上的 $X$ 的几何点, $\widetilde{f}:\widetilde{X}\rightarrow \widetilde{S}$ 为 $X$ 和 $S$ 在相应几何点处的严格局部化之间的态射, 并令 $\widetilde{U}=\fprod{U}{\widetilde{X}}{X}$. 采用显然的记号, 有
+$$
+(f^{\ast}F)_{\bar{x}}=H^{0}(\widetilde{X},\widetilde{f}^{\ast}\widetilde{F})\simeq
+H^{0}(\widetilde{S},\widetilde{F}){\quoi}.
+$$
+因此, 只须证明 $\widetilde{g}:\widetilde{U}\rightarrow \widetilde{S}$ 是 $0$-无上同调的, 这将蕴涵
+$$
+(j_{\ast}g^{\ast}F)_{\bar{x}}\simeq
+H^{0}(\widetilde{U},\widetilde{g}^{\ast}\widetilde{F})\simeq
+H^{0}(\widetilde{S},\widetilde{F}){\quoi}.
+$$
+由于 $\widetilde{g}$ 是光滑态射的极限, 它局部 $0$-无上同调 (\hyperrefext[XV][XV.thm2.1]{2.1}, \hyperrefext[XV][XV.def1.11]{1.11}); 由 \hyperrefext[XV][XV.cor1.12]{1.12}, 只须证明 $\widetilde{U}/\widetilde{S}$ 的几何纤维 $0$-无上同调, 即连通且非空. 设 $\bar{s}'$ 为 $\widetilde{S}$ 的几何点. 则纤维 $\widetilde{X}_{\bar{s}'}$ 正则、连通且非空; 假设蕴涵 $\widetilde{U}_{\bar{s}'}$ 是 $\widetilde{X}_{\bar{s}'}$ 的稠密开子集, 从而连通且非空, 这就证明了结果.
+
+\begin{enonce*}{推论 3.2.1}\etiquette[3.2.1]{XVI.cor3.2.1}
+在 \hyperref[XVI.prop3.2]{3.2} 的假设下, 从 $X$ 的平展覆盖范畴到 $U$ 的平展覆盖范畴的函子 $X'\mapsto X'|U$ 是全忠实的. 特别地, 对任意有限群 $G$, 限制映射
+$$
+H^{1}(X,G)\longrightarrow H^{1}(U,G)
+$$
+是单射.
+\end{enonce*}
+
+这\pageoriginale 由 \hyperref[XVI.prop3.2]{3.2} 通过一个标准论证得出; 为便于引用, 将该论证列为下述引理.
+
+\begin{enonce*}{引理 3.2.2}\etiquette[3.2.2]{XVI.lem3.2.2}
+设 $f:X\rightarrow Y$ 为概形态射, $f^{\ast}:\Et(Y)\rightarrow \Et(X)$ 为从 $Y$ 的平展覆盖范畴 $\Et(Y)$ 到 $\Et(X)$ 的逆像函子 $Y'\mapsto \fprod{Y'}{X}{Y}$. 以下条件等价:
+\begin{itemize}
+\item[(i)] $f^{\ast}$ 忠实 (\resp 全忠实).
+
+\item[(ii)] 对 $Y$ 的任意平展覆盖 $Y'$, 用 $f':X'\rightarrow Y'$ 表示由 $f$ 经基变换 $Y'\rightarrow Y$ 得到的态射, 则从 $Y'$ 的开闭子集集合到 $X'$ 的开闭子集集合的映射 $U\mapsto {f'}^{-1}(U)$ 是单射 (\resp 双射).
+
+\item[(ii bis)] 采用 {\rm(ii)} 的记号, 对 $Y'$ 上任意常值集合层 $C$, 典范映射
+$$
+H^{0}(Y',C)\longrightarrow H^{0}(X',{f'}^{\ast}C)
+$$
+是单射 (\resp 双射).
+
+\item[(iii)] 采用 {\rm(ii)} 的记号, 典范映射
+$$
+\Gamma(Y'/Y)\longrightarrow \Gamma(X'/X)
+$$
+是单射 (\resp 双射).
+\end{itemize}
+\end{enonce*}
+
+证明留给读者 (\cf \SGA 2, IX 3.1 和 3.2).
+
+\begin{enonce*}[remark]{注 3.2.3}\etiquette[3.2.3]{XVI.rems3.2.3}
+命题 \hyperref[XVI.prop3.2]{3.2} 可以大幅推广\pageoriginale: 对集合层, 可削弱对 $f$ 的假设; 对群层, 则可得到关于 $R^{q}g_{\ast}(f^{\ast}F)$ 的结论 (\cf \SGA 2 XIV 1 和 \SGA 1 XIII). 类似的注也适用于 \hyperref[XVI.cor3.4]{3.4} 至 \hyperref[XVI.cor3.6]{3.6}.
+\end{enonce*}
+
+再“回顾” Zariski--Nagata 纯性定理的相对形式:
+
+\begin{enonce*}{定理 3.3}\etiquette[3.3]{XVI.thm3.3}
+(相对纯性定理). 设
+$$
+\xymatrix@=1.25cm{
+U \ar[rr]^{j} \ar[rd]_{g}&     &X\ar[ld]^{f}\\
+  & S   &
+}
+$$
+是交换图, 其中 $f$ 光滑, $j$ 为开浸入, 且对任意 $s\in S$, $X_s-U_s$ 在 $X_s$ 中处处余维数 $\geq 2$. 则从 $X$ 的平展覆盖范畴到 $U$ 的平展覆盖范畴的函子 $X'\mapsto X'|U$ 是\emph{范畴等价.}
+\end{enonce*}
+
+\noindent
+\emph{证明}. 已在 \hyperref[XVI.cor3.2.1]{3.2.1} 中看到此函子全忠实. 其\sisi{本质}{本质}满性将由经典定理得出. 给定 $U$ 的平展覆盖 $U'$, 必须证明它可延拓为 $X$ 的平展覆盖 $X'$. 可直接且容易地先归结为 $U$ 在 $X$ 中拟紧的情形, 再归结为 $S$ 在 $\Spec \ZZ$ 上仿射且有限型、$X$ 连通且 $f$ 有限型的情形.
+
+对 $n=\dim S$ 作归纳\pageoriginale; 当 $n=0$ 时, 断言是经典定理 (\SGA 2 X 3.4) 的推论. 由于已有唯一性, 可将 \sisi{\SGA IX 4.7}{\SGA 1 IX 4.7} 的下降技巧应用于正规化 $S\leftarrow \bar{S}$, 从而归结为 $S$ (因而 $X$) 正规的情形 ($\bar{S}\rightarrow S$ 有限 (\EGA IV 7.8.3 (iii) (vi)). 又可扩大 $U$, 假设 $U$ 是 $U'$ 可在其上延拓的开子集中的极大者, 于是必须证明 $U=X$. 若不然, 取 $X-U$ 的极大点 $x$, 置 $s=f(x)$. 只须证明 $U'$ 可在 $x$ 的一个邻域上延拓. 可假设 $\dim \Oo_{S,s}=n\geq 1$, 且定理已在维数 $<n$ 时得证. 置 $B=\Oo_{X,x}$, 令 $B'$ 为 $B$ 在 $U$ 的覆盖 $U'$ 上的有理函数环中的正规化; 于是 $B'$ 是有限 $B$-代数 (\loccit). 显然只须证明 $B'$ 是平展 $B$-代数.
+
+令 $A=\Oo_{S,s}$, $0\neq t\in \max A$, $A_{0}=A/tA$, $B_{0}=B/tB$. 由归纳假设, 此覆盖在 $U_{0}=U\otimes_A A_{0}$ 上的限制可延拓为 $\Spec B_{0}$ 的平展覆盖, 记为 $\Spec B^{\ast}_{0}$. 将 $X$ 换成 $x$ 的一个邻域的适当平展覆盖 (这是允许的) 后, 可假设 $\Spec B^{\ast}_{0}$ 在 $\Spec B_{0}$ 上完全分裂. 于是归结为 $B_{0}$-代数 $B'_{0}$ 在 $\Spec B_{0}$ 的闭点以外完全分裂的情形. 此时满足 \hyperrefext[XV][XV.lem3.3]{3.3} 的假设, 因而结果得证.
+
+\begin{enonce*}{推论 3.4}\etiquette[3.4]{XVI.cor3.4}
+在与 \hyperref[XVI.thm3.3]{3.3} 相同的假设下, 对 $S$ 上任意 ind-有限群层 $F$, 有 $(R^{1}j_{\ast})g^{\ast}F=0$.
+\end{enonce*}
+
+照常归结为\pageoriginale $S$ 为 Noether 概形、$f$ 有限型且 $F$ 可构造的情形. 设 $0\rightarrow F\rightarrow G$ 为 $S$ 上 ind-有限群层的单射, 置 $C=G/F$. 由 \hyperref[XVI.prop3.2]{3.2} 得函子 $j_{\ast}g^{\ast}$ 正合, 从而 $j_{\ast}g^{\ast}G\rightarrow j_{\ast}g^{\ast}C$ 为满射, 因而 (\hyperrefext[XII][XII.prop3.1]{3.1}) $(R^{1}j_{\ast})g^{\ast}F\rightarrow (R^{1}j_{\ast})g^{\ast}G$ 为单射. 所以可以将 $F$ 换成 $G$, 从而由 \hyperrefext[IX][IX.prop2.14]{2.14} 和 \hyperrefext[VIII][VIII.prop5.5]{5.5}, 归结为 $F=G$ 为常值层, 其值为通常的有限群 $G$ 的情形.
+%% 源注: 非阿贝尔情形中此归约不完全清楚; 需给出 R^1 j_* p_*G = p_* R^1 j_*G 的参考文献.
+设 $\bar{x}$ 为 $X$ 的几何点, $\widetilde{X}$ 为 $X$ 在 $\bar{x}$ 处的严格局部化, 并令 $\widetilde{U}=\fprod{\widetilde{X}}{U}{X}$. 由 \hyperref[XVI.thm3.3]{3.3} 得
+$$
+(R^{q}j_{\ast}g^{\ast}F)_{\bar{x}}=H^{q}(\widetilde{U},G_{\widetilde{U}})\simeq
+H^{q}(\widetilde{X},G_{\widetilde{X}}){\quoi},
+$$
+而后者为零, 结果得证.
+
+\begin{enonce*}{引理 3.5}\etiquette[3.5]{XVI.lem3.5}
+(相对 Abhyankar 引理). 设 $(Y,X)$ 是余维数为 $1$ 的光滑 $S$-对, $Y$ 在 $X$ 中由方程 $t=0$ 定义. 设 $U=X-Y$, $V/U$ 是阶数 $n$ 与 $Y$ 的剩余特征互素的主 Galois 覆盖. 置 $X'=\Spec \Oo_X[z]/(z^n-t)$, $U'=\fprod{U}{X'}{X}$, $V'=\fprod{V}{X'}{X}$. 则覆盖 $V'$ 唯一地延拓为 $X'$ 的平展覆盖.
+\end{enonce*}
+
+\noindent
+\emph{证明}. 立即归结为 $S$, $X$, $Y$ 均在 $\Spec \ZZ$ 上仿射且有限型的情形. 唯一性是 \hyperref[XVI.cor3.2.1]{3.2.1} 的特例. 将从 \hyperrefext[XV][XV.cor1.12]{1.12} 推出存在性: 设 $\bar{s}$ 为 $S$ 的几何点, $\bar{x}$ 为位于 $\bar{s}$ 之上的 $Y$ 的几何点. 设 $\widetilde{f}:\widetilde{X}\rightarrow \widetilde{S}$ 为 $f$ 诱导的相应严格局部化\pageoriginale 之间的态射, 并令 $\widetilde{U}=\fprod{U}{\widetilde{X}}{X}$, 等等\ldots 由唯一性和下降, 显然只须证明 $\widetilde{V}'$ 可延拓为 $\widetilde{X}'$ 的平展覆盖, 即 (因为 $\widetilde{X}'$ 没有非平凡覆盖) $\widetilde{V}'$ 是 $\widetilde{U}'$ 的平凡覆盖.
+
+设
+
+$\bar{U}=\varprojlim_m\widetilde{U}_{m}=\Spec \Oo_{\widetilde{U}}[t^{1/m}]$,
+其中 $m$ 遍历与 $\widetilde{X}$ 的剩余特征互素的整数集合. 则 $\bar{U}/\widetilde{U}$ 是群为阿贝尔群 $G=\varprojlim_m \ZZ/m\ZZ$ 的“无限 Galois 覆盖”; 立即可知, 只须证明 $\bar{U}$ 对 $\widetilde{X}$ 的剩余特征的补集 $\LL\subset \PP$ 是 $1$-非球面的.
+
+考虑态射 $\bar{f}:\bar{U}\rightarrow \widetilde{S}$. 它是光滑态射的极限, 因而对 $\LL$ 局部 $1$-非球面 (\hyperrefext[XV][XV.thm2.1]{2.1}, \hyperrefext[XV][XV.def1.11]{1.11} (ii)). 由 \hyperrefext[XV][XV.cor1.12]{1.12}, 只须证明 $\bar{U}/\widetilde{S}$ 的几何纤维对 $\LL$ 是 $1$-非球面的. 设 $\bar{s}$ 为 $\widetilde{S}$ 的几何点. 几何纤维 $\bar{U}_{\bar{s}}$ 是纤维 $(\widetilde{U}_m)_{\bar{s}}$ 的极限. 因而只须证明某个 $(\widetilde{U}_m)_{\bar{s}}$ 的任意阶数与\sisi{剩余特征}{剩余特征}互素的主 Galois 覆盖, 都在 $\bar{U}_{\bar{s}}$ 上诱导平凡覆盖. 将 $\widetilde{X}$ 换成 $\widetilde{X}_m=\Spec \Oo_{\widetilde{X}}[t^{1/m}]$ (它在 $\widetilde{S}$ 上仍光滑), 就归结为 $m=1$, 即 $\widetilde{U}_m=\widetilde{U}$ 的情形. 设 $V$ 为 $\widetilde{U}_{\bar{s}}$ 的这样一个覆盖. 这时 $\widetilde{X}_{\bar{s}}=Z$ 为正则严格局部概形, $W=\widetilde{U}_{\bar{s}}$ 是余维数为 $1$ 的正则子集的开补集. 因而可应用 Abhyankar 引理的通常形式 (\SGA 1 X 3.6), 得到: 对某个适当的 $m$, $V$ 诱导 $W_m$ 的覆盖\pageoriginale $V_m$, 它可延拓为 $Z_m$ 的平展覆盖. 但因 $Z$, 从而 $Z_m$, 严格局部, 此覆盖平凡; 所以 $V_m$ 是 $W_m$ 的平凡覆盖, \cqfd
+
+\begin{enonce*}[remark]{注 3.5.1}\etiquette[3.5.1]{XVI.rem3.5.1}
+若不假设 $G$ 的阶数 $n$ 与 $X$ 的剩余特征互素, 仍能证明如下结果: 设 $m$ 为整除 $G$ 的阶数且与 $Y$ 的剩余特征互素的最大整数, 并假设对任意点 $s\in S$, $U_s=X_s-Y_s$ 的覆盖 $V_s$ 在 $Y_s$ 的极大点处的惯性群的阶数与 $Y$ 的剩余特征互素. 则取 $X'=\Spec \Oo_X[z]/(z^m-t)$ 时, \hyperref[XVI.lem3.5]{3.5} 的结论仍成立. 更一般地, 也可以取 $m$ 为刚才考虑的惯性群的阶数的任意公倍数, 条件是这些阶数与相应的剩余特征互素.
+\end{enonce*}
+
+\begin{enonce*}{推论 3.6}\etiquette[3.6]{XVI.cor3.6}
+(维数 $1$ 的上同调纯性). 设 $(Y,X)$ 为余维数 $1$ 的光滑 $S$-对, $F$ 为 $X$ 上可构造的局部常值群层, 其阶数与 $X$ 的剩余特征互素. 则采用 $\hyperref[XVI.def3.1]{3.1}$ 的记号, $(R^{1}j_{\ast})j^{\ast}F$ 作为带基点集合层局部同构于 $i_{\ast}(F_Y/\cint(F_Y))$, 其中 $F_Y=F|Y$, 而 $F_Y/\cint(F_Y)$ 表示 $F_Y$ 对自身的内自同构作用的商.
+\end{enonce*}
+
+\begin{enonce*}[remark]{注}
+推论 \hyperref[XVI.cor3.6]{3.6} 的同构并非典范的.
+\end{enonce*}
+
+\noindent
+\emph{证明}.\pageoriginale 立即归结为 $X$ 为 Noether 概形且连通的情形. 断言对 $X$ 的平展拓扑是局部的, 因而可假设 $F$ 为常值层, 其值为通常的有限群 $G$, 阶数 $m$ 与 $X$ 的剩余特征互素; 还可假设 $𝛍_{mX}\simeq (\ZZ/m\ZZ)_X$. 设 $U=X-Y$, $U'=\Spec \Oo_U[t^{1/m}]$; 因为 $𝛍_{mX}\simeq (\ZZ/m\ZZ)_X$, 这是 $U$ 的一个群为 $\ZZ/m\ZZ$ 的“本质”主 Galois 覆盖. 在 $U'$ 上平凡化的群为 $G$ 的 $U$ 的主覆盖, 在 $Y$ 上局部地由 $H=\Hom(\ZZ/m\ZZ,G)$ 模 $\cint(G)$ 分类, 后者是同构于 $G/\cint(G)$ 的底集合的带基点集合. 这给出 $Y$ 上常值层 $H_Y$ 到 $(R^{1}j_{\ast})G_U$ 的态射, 而只须证明此态射为双射, 这立即由 \hyperref[XVI.lem3.5]{3.5} 得出.
+
+\begin{enonce*}{定理 3.7}\etiquette[3.7]{XVI.thm3.7}
+\emph{(上同调纯性)}. 设 $(Y,X)$ 为余维数 $c>0$ 的光滑 $S$-对. 设 $F$ 为 $X$ 上的阿贝尔层, 对平展拓扑局部同构于形如 $f^{\ast}(G)$ 的层, 其中 $G$ 为 $S$ 上与剩余特征互素的挠层 (例如, $F$ 可以是 $X$ 上阶数与剩余特征互素的有限群的局部常值层). 则采用 $\hyperref[XVI.def3.1]{3.1}$ 的记号, 有
+\begin{align*}
+&\HH^{q}_Y(X,F)=(R^{q}i^{!})F=0\qquad\mbox{若}\quad q\neq 2c,\\
+&\begin{cases}
+ F\xrightarrow{\sim} j_{\ast}j^{\ast}F\quad\text{且} &\tag{\ie}\\
+(R^{q}j_{\ast})j^{\ast}F=0 &\hspace{1.3cm} \mbox{若}\quad q\neq 0,\quad 2c-1,
+\end{cases}
+\end{align*}
+且\pageoriginale
+$$
+\HH^{2c}_Y(X,F)=i^{\ast}[(R^{2c-1}j_{\ast})j^{\ast}F]
+$$
+是局部同构于 $i^{\ast}(F)$ 的层.
+\end{enonce*}
+
+\noindent
+\emph{证明}. 断言对 $X$ 的平展拓扑是局部的; 因而可\footnote[1]{至少当假设 $F$ 局部常值时如此. 读者将确信, 下述证明本质上也适用于一般情形.}假设 $F$ 常值, 从而若愿意还可设 $F\simeq f^{\ast}(\ZZ/n\ZZ)_S$, 其中 $(\ZZ/n\ZZ)_S$ 为 $S$ 上的常值层.
+
+先处理 $c=1$ 的情形. (至少在 $F$ 局部常值时, 关于 $(R^{1}j_{\ast})j^{\ast}F$ 的断言立即由 \hyperref[XVI.cor3.6]{3.6} 得出, 但我们将重新推导它.) 回顾 $(Y,X)$ 局部同构于对 $(\EE^{n-1}_S,\EE^n_S)$, 将 $S$ 换成 $\EE^{n-1}_S$, 就归结为 $X=\EE^{1}_S=\Spec \Oo_S[t]$ 且 $Y$ 为 $X/S$ 的截面 $t=0$ 的情形. 这种情形局部同构于射影直线 $\PP^{1}_S$ 中无穷远截面的包含. 因而可取 $X=\PP^{1}_S$, $Y$ 为无穷远截面, 并置 $U=\EE^{1}_S=X-Y$.
+
+考虑 Leray 谱序列
+$$
+(R^{p}f_{\ast})(R^{q}j_{\ast})(\ZZ/n)\Longrightarrow
+(R^{p+q}g_{\ast})(\ZZ/n){\quoi}.
+$$
+由 \hyperrefext[XV][XV.cor2.2]{2.2}, 其收敛项在 $p+q>0$ 时为零. 又当 $q>0$ 时, $R^{q}j_{\ast}$ 支撑于 $Y$ 上, 而 $f$ 将 $Y$ 同构地映到 $S$; 另一方面, 由 \hyperref[XVI.prop3.2]{3.2}, 有 $j_{\ast}(F|U)\xleftarrow{\sim}F$. 因而当 $p,q>0$ 时 $(R^{p}f_{\ast})(R^{q}j_{\ast})=0$, 当 $q>0$ 时 $f_{\ast}(R^{q}j_{\ast})$ 决定层 $(R^{q}j_{\ast})$, 最后还有 $\sisi{\RR}{R}^{p}f_{\ast}j_{\ast}(F|U)=\sisi{\RR}{R}^{p}f_{\ast}(F)$. 所以谱序列归结为同构\pageoriginale
+$$
+f_{\ast}(R^{q}j_{\ast})(F|U)\xrightarrow{\sim}
+(R^{q+1}f_{\ast})(F)\quad\mbox{\rm 若}\quad q>0{\quoi}.
+$$
+但 $(R^{q}f_{\ast})(F)$ 可逐纤维计算 (\hyperrefext[XII][XII.cor5.2]{5.2}); 因而除 $q=0,2$ 外均为零, 并且当 $q=2$ 时是局部同构于 $G$ 的层, 这容易从 \hyperrefext[XII][XII.cor5.2]{5.2} 和 \hyperrefext[IX][IX.cor4.7]{4.7} 得出. 因此当 $q\neq 1$ 时 $(R^{q}j_{\ast})(F|U)=0$, 当 $q=1$ 时它是局部同构于 $i^{\ast}(F)$ 的层.
+
+现在通过归纳很容易处理 $c>1$ 的情形: 设 $(Y,X)$ 为余维数 $c>1$ 的光滑 $S$-对. 显然在 $X$ 上局部地可以找到 $X$ 的余维数为 $1$、包含 $Y$ 且在 $S$ 上光滑的子概形 $Z$, 从而有交换图
+$$
+\xymatrix@=1.25cm{
+Y       \ar[rr]^{u} \ar[rd]_{i}&    & Z\ar[ld]^v            \\
+                  & X &,
+}
+$$
+其中每个对都是光滑 $S$-对 (应称 $(Y,Z,X)$ 为光滑 $S$-三元组), $(Z,X)$ 的余维数为 $1$, $(Y,Z)$ 的余维数为 $c-1$.
+
+有复合函子的谱序列
+$$
+(R^{p}u^{!})(R^{q}v^{!})F\Longrightarrow (R^{p+q}i^{!})F{\quoi}.
+$$
+由已经证明的情形, 当 $q\neq 2$ 时 $(R^{q}v^{!})F=0$, 当 $q=2$ 时它局部同构于 $v^{\ast}(F)$. 将归纳假设应用于 $(R^{q}v^{!})F$, 则当 $(p,q)\neq(2c-2,2)$ 时\pageoriginale $(R^{p}u^{!})(R^{q}v^{!})F$ 为零, 当 $(p,q)=(2c-2,2)$ 时它局部同构于 $u^{\ast}v^{\ast}(F)$. 关于 $(R^{p+q}i^{!})F$ 的结果立即得出, \cqfd
+
+\begin{enonce*}{推论 3.8}\etiquette[3.8]{XVI.cor3.8}
+设 $(Y,X)$ 为余维数 $c$ 的光滑 $S$-对, $n$ 为与 $X$ 的剩余特征互素的自然数, 并置
+$$
+T_{Y/X}=\HH^{2c}_Y(\ZZ/n\ZZ){\quoi},
+$$
+由 $\hyperref[XVI.thm3.7]{(3.7)}$, 这是 $Y$ 上对平展拓扑局部同构于层 $(\ZZ/n\ZZ)_Y$ 的层. 设 $F$ 为 $X$ 上被 $n$ 零化且满足 $\hyperref[XVI.thm3.7]{3.7}$ 中条件的阿贝尔层. 则 (为完整起见记下) 当 $i\neq 2c$ 时 $\HH^{i}_Y(F)=0$, 且有典范同构
+$$
+\HH^{2c}_Y(F)\simeq i^{\ast}(F)\otimes T_{Y/X}{\quoi}.
+$$
+\end{enonce*}
+
+\noindent
+\emph{证明}. 利用典范同态 $F\rightarrow\sheaf{\Hom}(\ZZ/n\ZZ,F)$, 容易定义典范同态
+$$
+\varphi:i^{\ast}(F)\otimes T_{Y/X}\longrightarrow \HH^{2c}_Y(F)
+$$
+即同态
+$$
+i^{\ast}(F)\longrightarrow
+\sheaf{\Hom}(\HH^{2c}_Y(\ZZ/n\ZZ),\HH^{2c}_Y(F)){\quoi},
+$$
+. 只须证明 $\varphi$ 是同构, 沿用 \hyperref[XVI.thm3.7]{3.7} 的证明很容易核实这一点.
+
+\begin{enonce*}{推论 3.8.1}\etiquette[3.8.1]{XVI.cor3.8.1}
+在 \hyperref[XVI.cor3.8]{3.8} 的条件下, $\HH^{i}_Y(F)$ 的形成\pageoriginale 与任意基变换 $S'\rightarrow S$ 交换.
+\end{enonce*}
+
+这是显然的.
+
+\begin{enonce*}{推论 3.9}\etiquette[3.9]{XVI.cor3.9}
+(绝对上同调纯性定理). 设 $X$ 为正则概形, $Y$ 为处处余维数为 $c$ 的正则闭子预概形. 又假设 $X$ 在一个完美域 $k$ 上局部有限型. 则当 $n$ 与 $X$ 的剩余特征互素时, 有
+$$
+\HH^{i}_Y(\ZZ/n\ZZ)=0\mbox{ 若 } i\neq 2c{\quoi},
+$$
+且 $\HH^{2c}_Y(\ZZ/n\ZZ)$ 是 $Y$ 上对平展拓扑局部同构于常值层 $\ZZ/n\ZZ$ 的层.
+\end{enonce*}
+
+这为 \hyperref[XVI.thm3.7]{3.7} 的特例, 因为假设蕴涵 $X$ 和 $Y$ 在 $k$ 上光滑.
+
+\begin{enonce*}[remark]{注 3.10}\etiquette[3.10]{XVI.rems3.10}
+\begin{enumerate}
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 在 \hyperref[XVI.cor3.8]{3.8} 中可以明确描述层 $T_{Y/X}$ 的结构: 它典范同构于层 $(𝛍_n)_Y^{\otimes -c}$, 这里 $𝛍_n$ 表示 $n$ 次单位根层 (局部同构于常值层 $\ZZ/n\ZZ$). 此同构以 $Y$ 在 $X$ 中的局部\emph{基本类} (fundamental class) 的名义, 在讨论对偶性的第 XVIII 讲中, 于稍一般的相对完全交情形下研究.
+
+\item 即使不假设存在基域 $k$, \hyperref[XVI.cor3.9]{3.9} 和 \hyperref[XVI.rems3.10]{3.10} a) 的结论也很可能\pageoriginale 仍成立, 至少在 $X$ 为“优”预概形时如此\SGAArchiveOnly{\nde{冻结底稿将这一后续进展归于 Gabber 的工作, 但未提供书目目标.}}. 当 $X$ 的特征为零时, 无论如何都会在第 XIX 讲中利用 Hironaka 的奇点解消证明这一点. 正如在 \SGA 5 中将看到的, 尤其需要“绝对纯性定理” (以及奇点解消) 来建立“局部对偶公式”, 后者本身又是 \textsc{Lefschetz--Verdier} 公式的主要组成部分之一.
+\end{enumerate}
+\end{enonce*}
+
+\section{$\CC$ 上代数概形的上同调比较定理.}\etiquette[4]{XVI.sec4}
+
+设 $X$ 为 $\Spec \CC$ 上的代数概形. 我们将比较 $X$ 的平展景和经典景, 并沿用 \hyperrefext[XI][XI.sec4]{4} 的记号. 比较定理的一般形式为 \hyperrefext[XI][XI.thm4.4]{4.4}, 其内容如下:
+
+\begin{enonce*}{定理 4.1}\etiquette[4.1]{XVI.thm4.1}
+设 $f:X\rightarrow S$ 为 $\Spec \CC$ 上局部有限型概形之间的有限型态射, 从而有如下景态射交换图
+$$
+\xymatrix@C=2cm@R=1.5cm{
+X_{\et}  \ar[d]_{f_{\et}}                   &   X_{\cl}
+\ar[l]_{\varepsilon} \ar[d]^{f_{\cl}} \\
+S_{\et}                    &   S_{\cl}\ar[l]_{\varepsilon}
+}
+$$
+设\pageoriginale $F$ 为集合层 (\resp ind-有限群层, \resp 阿贝尔挠层), 并假设满足下述情形之一:
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item $f$ 固有,
+
+\item $F$ 可构造.
+\end{enumerate}
+则基变换态射 \sisi{\emph{XII 4.1.2}}{\hyperrefext[XII][XII.eq4.2]{4.2}}
+\footnote[1]{实际上, 我们使用基变换同态的条件比第 XII 讲中更一般; 在那里只考虑了\emph{预概形}态射的 \emph{Cartesian} 方形. 读者容易核实, 此定义可逐字推广到\emph{景}态射的\emph{本质交换}方形. 关于这一点的进一步发展, 见下一讲.}
+$$
+\varphi:\epsilon^{\ast}(R^{q}f_{\et\ast})F\longrightarrow
+(R^{q}f_{\cl\ast})\epsilon {}^{\ast}F
+$$
+在 $q=0$ (\resp $q=0$, $1$, \resp $q\geq 0$) 时是双射.
+\end{enonce*}
+
+注意, 在 \hyperrefext[XI][XI.thm4.4]{4.4} 的证明中所用的 Grauert--Remmert 定理 (\hyperrefext[XI][XI.thm4.3]{4.3} (iii)) 是 \hyperref[XVI.thm4.1]{4.1} 的特例.
+
+证明\pageoriginale 时先处理 $f$ 固有的情形. 此时可通过一个本可放在第 XIV 讲中的初等论证, 从 GAGA 和固有基变换定理得到结果. 为处理一般情形, 还将使用奇点解消 [1] 和 \hyperref[XVI.thm3.7]{3.7}.
+
+显然可假设 $S$, 从而 $X$, 在 $\CC$ 上有限型.
+
+\emph{$f$ 固有的情形.} 回顾下述初等事实:
+\begin{enumerate}
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item 拓扑空间 $X_{\cl}$ 局部紧.
+
+\item 若 $f:X\rightarrow S$ 固有, 则 $f_{\cl}:X_{\cl}\rightarrow S_{\cl}$ 是拓扑空间的\emph{固有}映射.
+\end{enumerate}
+
+事实上, (a) 是平凡的, 因为局部地 $X_{\cl}$ 是某个 $\CC^n$ 的闭子集. 对于 (b), Chow 引理将问题归结为 $f$ 射影的情形, 而此时结论平凡.
+
+设 $F$ 为 $X_{\et}$ 上的集合层 (\resp\ldots). 对两个态射 $f_{\et}$ 和 $f_{\cl}$, $R^{q}$ 的形成均与纤维的形成交换 (\hyperrefext[XII][XII.cor5.2]{5.2} 和 \cite{sga4.exp.XVI.bib.2}, 4.11.1). 因而只须在 $S_{\et}$ 的闭点处逐纤维核实定理.
+
+在下述引理中, 不假设 $g$ 固有:
+
+\begin{enonce*}{引理 4.2}\etiquette[4.2]{XVI.lem4.2}
+设\pageoriginale
+$$
+\xymatrix@=1.5cm{
+X  \ar[rd]_{g}& &\bar{X} \ar[ll]_{h}\ar[ld]^{\bar{g}}\\
+& S &
+}
+$$
+为交换图, $h$ 固有, $U$ 为 $X$ 的开子集, 且 $h$ 诱导 $\bar{X}$ 的开子集 $\bar{U}=\fprod{U}{\bar{X}}{X}$ 到 $U$ 的同构. 设 $j:U\rightarrow X$, $\bar{j}:\bar{U}\rightarrow \bar{X}$ 为包含映射, $F$ 为 $U$ 上的集合层 (\resp\ldots), $\bar{F}$ 为 $\bar{U}$ 上的诱导层. 若定理 $\hyperref[XVI.thm4.1]{4.1}$ 对 $(\bar{g},\bar{j}_{!}\bar{F})$ 成立, 则它对 $(g,j_{!}F)$ 也成立.
+\end{enonce*}
+
+\noindent
+\emph{证明}. 定理对 $(h,\bar{j}_{!}\bar{F})$ 成立, 因为可以逐纤维核实, 此时分为两种情形: 层在纤维上的限制为零, 或态射 $h$ 为同构. 在两种情形下, 结果都平凡. 得到
+$$
+\epsilon^{\ast}j_{!}F\simeq
+\epsilon^{\ast}h_{\text{\rm et\,}\ast}(\bar{j}_{!}\bar{F})\simeq
+h_{\cl\ast}\epsilon^{\ast}(\bar{j}_{!}\bar{F})
+$$
+以及对所考虑的 $q$ 值, 有
+$$
+(R^{q}h_{\text{\rm et\,}\ast})\bar{j}_{!}\bar{F}
+=(R^{q}h_{\cl\ast})\epsilon^{\ast}(\bar{j}_{!}\bar{F})=0
+\text{ 若 }q>0
+$$
+从而
+$$
+(R^{q}g_{\text{\rm et\,}\ast})j_{!}F\simeq
+(R^{q}\bar{g}_{\text{\rm et\,}\ast})\bar{j}_{!}\bar{F}
+$$
+以及
+$$
+(R^{q}g_{\cl \ast})j_{!}F\simeq (R^{q}\bar{g}_{\cl
+\ast})\bar{j}_{!}\bar{F}{\quoi},
+$$
+这就证明了\hyperref[XVI.lem4.2]{引理 4.2}.\pageoriginale
+
+\begin{enonce*}{引理 4.3}\etiquette[4.3]{XVI.lem4.3}
+为对所有 $f$ 固有的资料 $(f,F)$ 核实 \hyperref[XVI.thm4.1]{4.1}, 只须在另外还满足 $f$ 的相对维数 $\leq 1$ 且 $S=\Spec \CC$ 为一点时核实.
+\end{enonce*}
+
+\noindent
+\emph{证明}. 对相对维数作归纳. 设 $n>1$, 且已知结果在相对维数 $<n$ 时成立. 如前所述, 可逐纤维核实; 即可假设 $S=\Spec \CC$ 为一点, 从而 $X$ 的维数 $\leq n$. 又可假设 $X$ 约化. 设 $\varphi$ 为 $X$ 上的有理函数, 它在 $X$ 的\sisi{每个不可约分支}{每个不可约分支}上非常值; 取 $X$ 的稠密开子集 $U$, 使 $\varphi$ 在其上有定义; 令 $\bar{X}\subset X\times \PP^{1}$ 为态射 $\varphi:U\rightarrow \EE^{1}$ 的图的闭包. 有交换图
+$$
+\xymatrix@R=1.5cm@C=1.5cm{
+&\bar{X}\ar[ld]_{h} \ar[rd]^{a} \ar[dd]^{\bar{g}}   &\\
+X  \ar[rd]_{g}  &                                  &\PP^1 \ar[ld]_{b}\\
+            & **[r]Y              =\Spec \CC&
+}
+$$
+其中 $a$ 和 $b$ 的相对维数均 $<n$. 由归纳假设, 定理对 $(a,.)$ 和 $(b,.)$ 成立, 从而对 $(\bar{g},.)$ 也成立. 事实上, 当 $q=0$ 时这是平凡的; 若 $F$ 为 $\bar{X}$ 上的阿贝尔挠层, 则由下述 Leray 谱序列的态射\pageoriginale 得出:
+$$
+\xymatrix{
+\varepsilon^{\ast}(R^{p}b_{\text{et}\ast})(R^{q}a_{\text{et}\ast})F \ar@{=>}[r] \ar[d]&
+\varepsilon^{\ast}(R^{p+q}\bar{g}_{\text{et}\ast})F  \ar[d]\\
+(R^{p}b_{\text{cl}\ast}(R^{q}{a_{\text{cl}\ast}}))
+\varepsilon^{\ast}F  \ar@{=>}[r] & (R^{p+q}\bar{g}_{\text{cl}\ast})\varepsilon^{\ast}F;
+}
+$$
+最后, 若 $F$ 为 $\bar{X}$ 上的 ind-有限群层, 注意 $\epsilon^{\ast}(R^{1}\bar{g}_{\text{\rm et\,}\ast})$ 是可抹去函子, 故鉴于 $q=0$ 的结果, 只须证明 $(R^{1}\bar{g}_{\cl\ast})\epsilon^{\ast}$ 也可抹去 (\cf \hyperrefext[XII][XII.cor8.2]{8.2}). 这由正合列
+$$
+0\longrightarrow (R^{1}b_{\cl\ast})a_{\cl
+\ast}\epsilon^{\ast}F\longrightarrow (R^{1}\bar{g}_{\cl
+\ast})\epsilon^{\ast}F\longrightarrow b_{\cl \ast}(R^{1}a_{\cl
+\ast})\epsilon^{\ast}F{\quoi},
+$$
+以及根据归纳假设 $(R^{1}b_{\cl\ast})\epsilon^{\ast}$ 和 $(R^{1}a_{\cl\ast})\epsilon^{\ast}$ 可抹去这一事实得出.
+
+现在设 $F$ 为 $X$ 上的集合层. 有 $F\hookrightarrow h_{\text{\rm et\,}\ast}h_{\et}{}^{\ast}F=G$. 正合列
+\begin{equation*}
+F\rightarrow G\rightrightarrows G\amalg_F G{\quoi},\tag{4.3.1}
+\end{equation*}\etiquette[4.3.1]{XVI.eq4.3.1}
+将问题归结为 (对于 $q=0$) 对 $G$ 证明 \hyperref[XVI.thm4.1]{4.1}, 从而归结为形如 $h_{\text{\rm et\,}\ast}\bar{F}$ 的层. 但对这种层, 结果从对 $(\bar{g},.)$ 和 $(h,.)$ 的定理得出; 而 $h$ 的相对维数 $<n$, 这是直接可见的.
+
+设 $F$ 为 $X$ 上的阿贝尔挠层. 有正合列
+\begin{equation*}
+0\longrightarrow j_{!}j^{\ast}F\longrightarrow F\longrightarrow
+i_{\ast}i^{\ast}F\longrightarrow 0{\quoi}.\tag{$\ast$}
+\end{equation*}
+由于 $U$ 在 $X$ 中稠密, 有 $\dim Y<n$, 故 \hyperref[XVI.thm4.1]{4.1} 对 $(g|Y,i^{\ast}F)$ 成立\pageoriginale, 从而对 $(g,i_{\ast}i^{\ast}F)$ 成立. 因而由五引理, 只须对 $(g,j_{!}j^{\ast}F)$ 核实 \hyperref[XVI.thm4.1]{4.1}, 而这由对 $\bar{g}$ 的定理 (\hyperref[XVI.lem4.2]{4.2}) 得出.
+
+设 $F$ 为 $X$ 上的 ind-有限群层. 只须证明函子 $(R^{1}g_{\cl\ast})\epsilon^{\ast}$ 对层 $F$ 可抹去. 这由 ($\ast$) 及对 $j_{!}j^{\ast}F$ 和 $i_{\ast}i^{\ast}F$ 的可抹去性得出, 即由对 $(g,j_{!}j^{\ast}F)$ 的定理 (\hyperref[XVI.lem4.2]{4.2}) 和对 $(g,i_{\ast}i^{\ast}F)$ 的定理 (归纳假设) 得出, \cqfd
+
+\begin{enonce*}{引理 4.4}\etiquette[4.4]{XVI.lem4.4}
+为在 $f$ 固有时证明 $\hyperref[XVI.thm4.1]{(4.1)}$, 只须证明如下断言: 设 $X$ 为 $\Spec \CC$ 上的完备正则曲线, $F$ 为 $X$ 上的常值可构造集合层 (\resp\ldots). 则态射
+$$
+H^{q}(X_{\et},F)\longrightarrow H^{q}(X_{\cl},F)
+$$
+对所考虑的 $q$ 值是双射.
+\end{enonce*}
+
+\noindent
+\emph{证明}. 由于只须逐纤维核实定理, \hyperref[XVI.lem4.3]{4.3} 将问题归结为 $X$ 固有且维数 $\leq 1$ 的情形. 维数 $0$ 的情形平凡, 从而定理对有限态射成立. 由于 $f$ 固有, $X_{\et}$ 和 $X_{\cl}$ 的上同调与滤过正向极限交换 (\hyperrefext[VII][VII.prop3.3]{3.3} 和 [2], 4.12.1), 因而可归结为 $F$ 可构造的情形 (\hyperrefext[IX][IX.prop2.9]{2.9} (iii)).
+
+应用 \hyperrefext[IX][IX.prop2.14]{2.14}. 对集合层, 正合列 \eqhyperref[XVI.eq4.3.1]{4.3.1} 和 \hyperrefext[IX][IX.prop2.14]{2.14} 表明可取 $F=\pi{}_{\ast}C$, 其中\pageoriginale $\pi:X'\rightarrow X$ 有限, $X'$ 正规从而正则, $C$ 为 $X'$ 上的常值层. 对阿贝尔挠层, 取 $F$ 的一个形如 $\pi_{\ast}C$ 的层的有限乘积组成的消解, 并应用消解的谱序列, 再次归结为 $F=\pi_{\ast}C$ 的情形. 对 ind-有限群层, 回顾只须证明 $(R^{1}g_{\cl\ast})\epsilon^{\ast}$ 对层 $F$ 可抹去, 从而对某个 $F$ 可嵌入其中的层 $G$ 可抹去; 因此又归结为 $F=\pi_{\ast}C$ 的情形. 由 (\hyperrefext[VIII][VIII.prop5.5]{5.5} 和 \hyperrefext[VIII][VIII.rem5.8]{5.8}) 现已明显可以将 $X$ 换成 $X'$, 引理得证.
+
+为处理最后这种情形, 鉴于上同调维数的结果 (\sisi{IX 7.7}{\hyperrefext[IX][IX.cor5.7]{5.7}}) 和 \cite{sga4.exp.XVI.bib.2}, 4.14.1, 显然只须对完备正则曲线证明:
+\begin{itemize}
+\item[$(q=0)$:] $X$ 连通且非空当且仅当 $X_{\cl}$ 连通且非空.
+
+\item[$(q=1)$:] 基变换态射诱导 $X$ 的平展覆盖范畴与 $X_{\cl}$ 的有限解析平展覆盖范畴之间的等价.
+
+\item[$(q=2)$:] 有同构 $\epsilon:H^2(X_{\et},\mu_n)\xrightarrow{\sim}H^2(X_{\cl},\mu_n)$.
+\end{itemize}
+
+前两个断言立即由 GAGA 得出. 对最后一个, 注意 $H^2(X_{\et},\GG_m)=0$ (\hyperrefext[IX][IX.eq4.5]{4.5}). 同样, 若 $\Oo^*$ 表示 $X_{\cl}$ 上的可逆全纯函数层, 则 $H^2(X_{\cl},\Oo^*)=0$. 这由正合列
+$$
+0\longrightarrow\ZZ\longrightarrow\Oo\xrightarrow{\exp}
+\Oo^*\longrightarrow0
+$$
+及\pageoriginale 根据 GAGA 有 $H^2(X_{\cl},\Oo)=H^2(X_{\et},\Oo_X)=0$ 这一事实得出. 因此, Kummer 正合列 \hyperrefext[IX][IX.Thr3.2]{3.2} (相应地, $X_{\cl}$ 上的正合列
+$$
+0\rightarrow\mu_n\rightarrow
+\Oo^*\xrightarrow{n}\Oo^*\rightarrow0)
+$$
+给出
+\begin{align*}
+&H^1(X_{\et},\GG_m)/n\xrightarrow{\sim}
+H^2(X_{\et},\mu_n)\\
+(\resp\quad &H^1(X_{\cl},\Oo^*)/n\xrightarrow{\sim}
+H^2(X_{\cl},\mu_n)){\quoi}.
+\end{align*}
+由 GAGA, 典范态射
+$$
+H^1(X_{\et},\GG_m)=\Pic X\longrightarrow
+\Pic X_{\cl}=H^1(X_{\cl},\Oo^*)
+$$
+是双射. 结果得证, 从而证明了 $f$ 固有时的 \hyperref[XVI.thm4.1]{4.1}.
+
+\medskip
+\noindent
+\emph{$F$ 可构造的情形}. 对 $\dim X$ 作归纳. 设已知结果在维数 $<n$ 时成立, 来证明它在 $\dim X\leq n$ 时成立.
+
+\begin{enonce*}{引理 4.5}\etiquette[4.5]{XVI.lem4.5}
+可假设 $f:X\rightarrow S$ 是稠密开浸入, 且 $F$ 常值.
+\end{enonce*}
+
+\noindent
+\emph{证明}. 仿照 \hyperref[XVI.lem1.3]{1.3} 的证明, 可假设 $X$ 和 $S$ 仿射, 从而 $f$ 拟射影. 再用 \hyperref[XVI.lem4.4]{4.4} 的论证归结为 $F=\pi_*C$, 其中 $\pi:X'\rightarrow X$ 有限且 $C$ 常值. 将 $X$ 换成 $X'$, 因而归结为\pageoriginale $F$ 常值的情形. 可将 $X$ 换成 $X_{\red}$. 取交换图
+$$
+\xymatrix@=1.25cm{
+  X  \ar[rr]^{h}\ar[rd]_{f} &      &\bar{X} \ar[ld]^{\bar{f}}\\
+             &     S  &
+}
+$$
+其中 $\bar X$ 约化, $\bar f$ 射影, $h$ 为稠密开浸入. 只须对两个态射 $h$ 和 $\bar f$ 核实定理 (比较 \hyperref[XVI.lem4.3]{4.3} 的证明); 因为 $\bar f$ 固有, 只须对 $h$ 核实即可. 因而归结为稠密开浸入.
+
+\begin{enonce*}{引理 4.6}\etiquette[4.6]{XVI.lem4.6}
+还可假设 $S$ 正则.
+\end{enonce*}
+
+\noindent
+\emph{证明}. 设 $S'\xrightarrow{h}S$ 为“$S$ 的奇点解消”, 即满射、固有、双有理态射, 且 $S'$ 正则, 并设
+$$
+\xymatrix@C=2cm@R=1.25cm{
+X'     \ar[r]^{f'} \ar[d]^{h'}&     S'\ar[d]^{h}\\
+X   \ar[r]^{f}  & S
+}
+$$
+为由 $h$ 得到的 Cartesian 图.
+
+设 $F$ 为 $X$ 上的常值集合层. 有 $F\hookrightarrow G=h'_*{h'}^*F$, 从而当 $q=0$ 时, 只须对 $G$ 核实 \hyperref[XVI.thm4.1]{4.1} (比较 \eqhyperref[XVI.eq4.3.1]{4.3.1}), 即对形如 ${h'}_*F'$ 的层核实, 其中 $F'$ 在 $X'$ 上常值. 有交换\pageoriginale 图 (其中省去符号“ét”)
+$$
+\xymatrix@C=2cm@R=1.5cm{
+\varepsilon^*f_* (h'_*F') = \varepsilon^*h_*f'_*F'  \ar[d]^{d}\ar[r]^(.6){a} & h_{\cl *}
+	    \varepsilon^*f'_*F' \ar[d]^{b}\\
+	    f_{\cl *}\varepsilon^*(h'_*F')  \ar[r]^(.4){c} &
+	    f_{\cl *} h'_{\cl *}\varepsilon^*F' = h_{\cl *}f'_{\cl *}
+	    \varepsilon^*F',
+}
+$$
+根据固有态射的结果, $a$ 和 $c$ 为双射. 为证明 $d$ 为双射, 只须证明 $b$ 为双射, 即
+$$
+\epsilon^*f'_*F'\xrightarrow{\sim}
+f'_{\cl *}\epsilon^*F'.
+$$
+因而归结为 $S=S'$ 且 $S$ 正则.
+
+\noindent
+(注: \sisi{我们}{我们}用到了固有态射的有限性定理 \hyperrefext[XIV][XIV.thm1.1]{1.1}, 而未明确提及.)
+
+设 $F$ 为 $X$ 上的常值阿贝尔挠层. 只须处理 $F=(\ZZ/n)_X$. 态射 $h'$ 在一个稠密开子集 $j:U\rightarrow X$ 上为同构; 设 $j':U'\rightarrow X'$ 为开子集 ${h'}^{-1}(U)\xrightarrow{\sim}U$, 置 $Y=X-U$. 因为 $U$ 稠密, 有 $\dim Y<n$, 故定理对 $(f,(\ZZ/n)_Y)$ 成立. 正合列
+$$
+0\longrightarrow j_!(\ZZ/n)_U\longrightarrow
+(\ZZ/n)_X\longrightarrow(\ZZ/n)_Y\longrightarrow0
+$$
+和五引理将问题归结为对 $j_!(\ZZ/n)_U$ 和 $f$ 证明定理, 再由 \hyperref[XVI.lem4.2]{4.2} 归结为对 $(hf',{j'_!}(\ZZ/n)_{U'})$ 证明定理. 有正合列
+$$
+0\longrightarrow {j'_!}(\ZZ/n)_{U'}\longrightarrow
+(\ZZ/n)_{X'}\longrightarrow(\ZZ/n)_{Y'}\longrightarrow0{\quoi},
+$$
+且\pageoriginale 由归纳假设, 定理对 $(hf',(\ZZ/n)_{Y'})$ 成立. 因而只须对 $(hf',(\ZZ/n)_{X'})$ 证明. 但固有情形给出对 $(h,\cdot)$ 的定理, 而态射对 $h,f'$ 的 Leray 谱序列表明只须对 $(f',\ZZ/n)$ 证明即可. 这证明了阿贝尔情形的引理.
+
+最后, 假设 $F$ 为常值有限群层. 回顾只须证明函子 $(R^1f_{\cl *})\epsilon^*(\mathord\cdot)$ 对 $F$ 可抹去, 从而对某个 $F$ 可嵌入其中的层 $G$ 可抹去; 因此对 $G={h'}_*{h'}^*F$, 即形如 ${h'}_*F'$ 的层可抹去即可, 其中 $F'$ 在 $X'$ 上常值. 有
+$$
+\epsilon^*({h'}_*F')\xrightarrow{\sim}
+h'_{\cl *}(\epsilon^*F')
+$$
+及
+$$
+0\longrightarrow
+(R^1f_{\cl *})h'_{\cl *}\epsilon^*(\mathord\cdot)\longrightarrow
+(R^1(f_{\cl}h'_{\cl})_*)\epsilon^*(\mathord\cdot)
+=(R^1(h_{\cl}f'_{\cl})_*)\epsilon^*(\mathord\cdot){\quoi}.
+$$
+因而只须证明最后的函子对常值层可抹去. 但正合列
+$$
+0\longrightarrow (R^1h_{\cl *})f'_{\cl *}
+\epsilon^*(\mathord\cdot)\longrightarrow
+(R^1(h_{\cl}f'_{\cl})_*)\epsilon^*(\mathord\cdot)\longrightarrow
+h_{\cl *}(R^1f'_{\cl *})\epsilon^*(\mathord\cdot){\quoi}
+$$
+表明第一项可抹去, 例如可由 Godement 消解抹去 (\hyperrefext[XII][XII.prop3.3]{3.3}), 因为 $h$ 固有. 因而只须证明右端项可由 Godement 消解抹去, 从而只须 $(R^1f'_{\cl *})\epsilon^*(\mathord\cdot)$ 可如此抹去, 即定理对 $(f',F')$ 成立, 其中 $F'$ 常值. 引理得证.
+
+\noindent
+\emph{证明的结束}.\pageoriginale 现在设 $F$ 为常值层, $f:X\rightarrow S$ 为稠密开浸入, 且 $S$ 正则. 集合层的断言立即由 \hyperref[XVI.prop3.2]{3.2} 及经典拓扑的类似的平凡引理得出\sisi{---事实上}{. 事实上}, 它们表明 $\epsilon^*f_*F$ 和 $f_{\cl *}\epsilon^*F$ 为取同一值的常值层, 从而在 $\varphi$ 下同构.
+
+对 $q>0$, 先进一步归结为 $X=S-Y$ 且 $Y$ 正则的情形, 即 $(Y,S)$ 为光滑 $\Spec\CC$-对的情形. 事实上, 写成 $X=S-C_1$, 其中 $C_1$ 赋予诱导的约化结构, 并递归定义
+
+$Y_\nu=$ $C_\nu$ 的正则点组成的稠密开子集,
+
+$C_{\nu+1}=C_\nu-Y_\nu$, 赋予诱导的约化结构.
+
+\noindent
+因 $Y_\nu$ 在 $C_\nu$ 中稠密, 有 $\dim C_{\nu+1}<\dim C_\nu$, 从而得到序列
+$$
+X=X_1\subset X_2=S-C_2\subset X_3=S-C_3\subset\cdots\subset X_r=S{\quoi},
+$$
+其中包含映射 $i_\nu:X_\nu\rightarrow X_{\nu+1}$ 是开浸入, 且
+$$
+X_\nu=X_{\nu+1}-Y_\nu,\qquad
+Y_\nu\ \mbox{在 $X_{\nu+1}$ 中闭且正则}{\quoi}.
+$$
+$X$ 上常值层的正像 $i_{\nu *}F$ 常值 (\hyperref[XVI.prop3.2]{3.2}), 且对所考虑的 $q$ 值, $R^qi_{\nu *}F$ 可构造, 集中于 $Y$ 的维数至多 $n-1$ 的子簇上 (\hyperref[XVI.cor3.4]{3.4}, \hyperref[XVI.cor3.6]{3.6}, \hyperref[XVI.thm3.7]{3.7}). 因而归纳假设和 Leray 谱序列 (相应地, 正合列 \hyperrefext[XII][XII.prop3.2]{3.2}) 将问题归结为\pageoriginale $i_\nu$ 的情形, 这就证明了所述归约.
+
+但对光滑对 $(Y,S)$, $(R^qf_*)F$ 的值已就平展拓扑明确算出 (\hyperref[XVI.cor3.4]{3.4}, \hyperref[XVI.cor3.6]{3.6}, \hyperref[XVI.thm3.7]{3.7}); 对经典拓扑作类似的简单计算可得相应结果, 留给读者. 直接比较就证明了对 $f$ 的定理.
+
+\section{特征零代数概形的有限性定理}\etiquette[5]{XVI.sec5}
+
+\begin{enonce*}{定理 5.1}\etiquette[5.1]{XVI.thm5.1}
+设 $k$ 为特征零域, $f:X\rightarrow S$ 为 $k$ 上局部有限型概形之间的有限型态射. 设 $F$ 为 $X$ 上可构造的集合层 (\resp 有限群层, \resp 阿贝尔挠层). 则在 $q=0$ (\resp $q=0,1$, \resp 任意 $q$) 时, $R^qf_*F$ 可构造.
+\end{enonce*}
+
+要求 $k$ 的特征为零, 是因为将用到奇点解消定理 \cite{sga4.exp.XVI.bib.1}. 在特征 $p>0$ 时, 若假定奇点解消成立, 该证明也有效, \emph{条件是 $F$ 的阶数与 $p$ 互素}. 因而应用 Abhyankar 的结果 \cite{sga4.exp.XVI.bib.3}, 可以在非零特征、$\dim X\leq2$ 时得到一个结果. 除了始终用到的\pageoriginale 固有基变换定理外, 证明的另一个要素是“绝对上同调纯性定理” \hyperref[XVI.cor3.9]{3.9}\SGAArchiveOnly{\nde{冻结底稿将这一后续进展归于 Deligne 和 Gabber 的工作, 但未提供书目目标.}}.
+
+回顾, 对固有态射和任意 $S$, 定理已经证明 (\hyperrefext[XIV][XIV.thm1.1]{1.1}). 此外, 第 XIX 讲中还将 (仍在特征零时) 在弱得多的假设, 即 $S$ 为\emph{优}概形且 $f$ 有限型下得到有限性定理; 方法是对这类概形证明 \hyperref[XVI.rems3.10]{3.10} 所述形式的绝对纯性定理.
+
+在非零特征、维数至少为 $3$ 时, 目前只有下面这个 \hyperrefext[XI][XI.prop3.3]{3.3} 的简单推论:
+
+\begin{enonce*}{定理 5.2}\etiquette[5.2]{XVI.thm5.2}
+设 $X$ 为 $\Spec k$ 上的光滑代数概形, 其中 $k$ 为可分闭域, $F$ 为局部常值有限阿贝尔群层 (\resp 有限群层), 阶数与 $k$ 的特征互素. 则对任意 $q$ (\resp $q=0,1$), $H^q(X,F)$ 是有限群 (\resp 有限带基点集合).
+\end{enonce*}
+
+\noindent
+\emph{\hyperref[XVI.thm5.2]{5.2} 的证明}. 可假设 $k$ 代数闭 (\hyperrefext[VIII][VIII.thm1.1]{1.1}). 对 $n=\dim X$ 作归纳. 由 \hyperrefext[XI][XI.prop3.3]{3.3}, $X$ 有一个由“良好邻域”开子集组成的超覆盖. 超覆盖的谱序列立即将问题归结为 $X$ 为良好邻域的情形, 因而它具有初等纤维化 (\hyperrefext[XI][XI.def3.1]{3.1})
+$$
+\xymatrix@=1.5cm{
+X \ar[rr]^{j} \ar[rd]_{f}&         &
+\bar{X}\ar[ld]^{\bar{f}} \\
+             &      S  & .
+}
+$$
+由\pageoriginale \hyperref[XVI.prop3.2]{3.2}, \hyperref[XVI.cor3.6]{3.6} 和 \hyperref[XVI.thm3.7]{3.7}, 层 $j_*F$ 在 $\bar X$ 上局部常值, $(R^1j_*)F$ 在 $Y=\bar X-X$ 上局部常值, 且当 $q>1$ 时 $(R^qj_*)F=0$. 由 \hyperref[XVI.thm2.1]{2.1}, 对所考虑的 $q$ 值, $(R^p\bar f_*)(R^qj_*)F$ 是 $S$ 上的局部常值层. 结果由归纳假设和 Leray 谱序列 (\resp 正合列 \hyperrefext[XII][XII.prop3.2]{3.2}) 得出.
+
+\hyperref[XVI.thm5.1]{5.1} 的证明与可构造情形下 \hyperref[XVI.thm4.1]{4.1} 的证明非常接近. 只指出主要步骤. 对 $\dim X=n$ 作归纳. 先应用 \hyperref[XVI.lem1.3]{1.3} 证明中所用的方法, 归结为 $X$ 和 $S$ 仿射, 从而 $f$ 拟射影的情形. 再应用 \sisi{IX 2.15}{\hyperrefext[IX][IX.prop2.14]{2.14}} 和 \hyperrefext[VIII][VIII.prop5.5]{5.5}, \hyperrefext[VIII][VIII.rem5.8]{5.8}, 归结为 $F$ 常值的情形. 有交换图
+$$
+\xymatrix@=1.5cm{
+X \ar[rr]^{h} \ar[rd]_{f}&         & \bar{X}\ar[ld]^{\bar{f}}\\
+             &      S  & ,
+}
+$$
+其中 $h$ 为稠密开浸入, $\bar f$ 固有, 故定理对 $\bar f$ 成立 (\hyperrefext[XIV][XIV.thm1.1]{1.1}). 因而只须对 $(h,F)$ 证明定理, 即考虑稠密开浸入\pageoriginale 和常值层. 设 $h:S'\rightarrow S$ 为 $S$ 的奇点解消, 并设
+$$
+\xymatrix@C=1.75cm@R=1cm{
+X  \ar[d]^{f} & X' \ar[l]_{h'} \ar[d]^{f'}\\
+S          & S' \ar[l]_{h}
+}
+$$
+为由 $h$ 得到的 Cartesian 图. 可归结为对 $f'$ 证明定理, 从而归结为 $S=S'$ 正则的情形. 在 \hyperref[XVI.thm4.1]{4.1} 证明末尾使用的归纳法, 将问题归结为 $Y=S-X$ 非奇异, 即 $(Y,S)$ 为光滑对的情形. 应用 \hyperref[XVI.prop3.2]{3.2}, \hyperref[XVI.cor3.4]{3.4}, \hyperref[XVI.cor3.6]{3.6} 和 \hyperref[XVI.thm3.7]{3.7} 即完成证明.
+
+\begin{enonce*}[remark]{注 5.3}\etiquette[5.3]{XVI.rem5.3}
+刚才概述的 \hyperref[XVI.thm5.1]{5.1} 的证明也适用于如下情形: 给定被整数 $n>0$ 零化的左 Noether 环 $A$ (若不假设特征为零, 必须假设该整数与特征互素; 比较 \hyperref[XVI.thm5.1]{5.1} 后的注), 考虑可构造的左 $A$-模层.
+\end{enonce*}
+
+\begin{thebibliography}{99}
+\bibitem{sga4.exp.XVI.bib.1} Hironaka, H. Resolution of singularities of an
+algebraic variety over a field of characteristic zero, Annals of
+Math., vol. 79 (1964), p. 109.
+
+\bibitem{sga4.exp.XVI.bib.2} Godement,\pageoriginale P. Théorie des
+\sisi{Faisceaux}{faisceaux}, Paris, 1958\sisi{}{.}
+
+\bibitem{sga4.exp.XVI.bib.3} Abhyankar, S. Local uniformization on algebraic
+surfaces over ground fields of characteristic $p\neq0$, Ann. of
+Math., vol. 63 (1956), p. 491.
+
+\bibitem{sga4.exp.XVI.bib.4} J.-P. Serre, \sisi{Géométrie Algébrique et Géométrie
+Analytique}{Géométrie algébrique et géométrie analytique},
+Annales Inst. Fourier 1956, pp. 1--42 (\sisi{引作}{引作} GAGA).
+\end{thebibliography}
+
+% 源注: XII 4.1 无引用编号, 原行78; XII 4.1.2 无引用编号, 原行992.
+% 源注: 4.11.1 无引用编号, 原行1040; XI 7.7 无引用编号, 原行1210.
+% 源注: IX 4.5 为公式引用; IX 2.15 无引用编号, 原行1504.

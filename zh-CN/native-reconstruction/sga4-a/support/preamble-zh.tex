@@ -1,0 +1,69 @@
+% SGA 4 native amsbook/SMF hierarchy, with Chinese font support.
+% Dependency origins and adaptations are recorded in audit/SOURCE_AUDIT.json.
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\IfFileExists{/usr/share/fonts/opentype/urw-base35/NimbusRoman-Regular.otf}{%
+  \setmainfont{NimbusRoman-Regular.otf}[
+    Path=/usr/share/fonts/opentype/urw-base35/,
+    BoldFont=NimbusRoman-Bold.otf,
+    ItalicFont=NimbusRoman-Italic.otf,
+    BoldItalicFont=NimbusRoman-BoldItalic.otf,
+    SmallCapsFont=NimbusRoman-Regular.otf]
+}{%
+  \setmainfont{lmroman10-regular.otf}[
+    BoldFont=lmroman10-bold.otf,
+    ItalicFont=lmroman10-italic.otf,
+    BoldItalicFont=lmroman10-bolditalic.otf,
+    SmallCapsFont=lmroman10-regular.otf]
+}
+\setCJKmainfont{Noto Serif CJK SC}[AutoFakeSlant=0.18,SmallCapsFont=Noto Serif CJK SC]
+\setCJKsansfont{Noto Sans CJK SC}
+\setCJKmonofont{Noto Sans Mono CJK SC}
+\usepackage[math-style=ISO,bold-style=upright,sans-style=upright]{unicode-math}
+\setmathfont{latinmodern-math.otf}
+\usepackage{amsmath}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{graphicx}
+\usepackage[all]{xy}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,decorations.pathreplacing}
+\usepackage[unicode,hypertexnames=false,colorlinks=true,linkcolor=blue,citecolor=Sepia,urlcolor=magenta]{hyperref}
+\usepackage{xr-hyper}
+\input{support/external-references}
+\usepackage{support/smfthm}
+\usepackage{xspace}
+\usepackage{pifont}
+\usepackage{longtable}
+% Retain the native master's archive-only visibility policy. The translated
+% archive annotations remain present in the editable chapter sources.
+\providecommand{\SGAArchiveOnly}[1]{}
+\input{support/numerotation-zh}
+\input{support/macros-zh}
+% The source contains U+2009 thin spaces. Nimbus Roman lacks that glyph;
+% retain the source bytes and typeset the intended thin space natively.
+\catcode"2009=\active
+\protected\def {\ifmmode\mskip\thinmuskip\else\thinspace\fi}
+\catcode"1D52=\active
+\protected\defᵒ{\ifmmode{}^{\mathrm{o}}\else\textsuperscript{o}\fi}
+\emergencystretch=2em
+\newcommand{\sgaChineseWord}[1]{\ifmmode\text{#1}\else#1\fi}
+\def\cf{\sgaChineseWord{参见}\kern.3em}
+\def\Cf{\sgaChineseWord{参见}\kern.3em}
+\def\ie{\sgaChineseWord{即}\kern.3em}
+\def\iev{\sgaChineseWord{即}\kern.3em}
+\def\resp{\sgaChineseWord{分别}\kern.3em}
+\def\etcn{\sgaChineseWord{等等}\xspace}
+\def\etco{\sgaChineseWord{等等}\xspace}
+\def\quaet{\quad\text{且}\quad}
+\def\pagehyperref[#1]#2{(第~\hyperref[#1]{#2}~页)}
+\renewcommand{\contentsname}{目录}
+\renewcommand{\bibname}{参考文献}
+\renewcommand{\proofname}{证明}
+\def\qedsymbol{\textup{证毕}}
+\hypersetup{pdftitle={SGA 4：拓扑斯理论与概形的平展上同调——简体中文工作稿},
+ pdfauthor={M. Artin; A. Grothendieck; J.-L. Verdier},
+ pdfsubject={SGA 4 原生 LaTeX 中文翻译，覆盖范围见随附进度记录}}
+\def\labelenumi{(\theenumi)}
+\def\labelenumii{(\theenumii)}
+\def\labelenumiii{(\theenumiii)}
+\def\labelenumiv{(\theenumiv)}

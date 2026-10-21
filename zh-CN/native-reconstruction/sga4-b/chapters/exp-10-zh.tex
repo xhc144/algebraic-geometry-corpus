@@ -1,0 +1,755 @@
+\chapter{上同调维数：初步结果}
+%\addtocontents{toc}{M. Artin}
+\begin{center}
+M. Artin
+\end{center}
+\phantomsection\MakeLinkTarget*{sga4.exp.X}\label{sga4.exp.X}
+
+\setcounter{pageoriginal}{42}
+
+\section{引言}\etiquette[1]{X.sec1}\pageoriginale
+
+本讲中，除非另有明确说明，“层”（sheaf）均指“阿贝尔层”（abelian sheaf）。
+
+设 $X$ 是概形（scheme），$\ell\in \PP$。“回顾”一下，$X$ 的
+\emph{$\ell$-上同调维数}（cohomological dimension）是满足下述条件的最大整数
+$\cd_{\ell}X=n$（若不存在这样的数则为 $=\infty$）：$X$ 上至少有一个
+$\ell$-挠层（torsion sheaf）$F$ 使 $H^n(X,F)\neq 0$。
+若 $X=\Spec A$，则记 $\cd_{\ell} A=\cd_{\ell}\Spec A$。考虑到术语对照（VIII 2），%% label
+当 $A=k$ 是域时，这就给出 [CG] 中的“经典”概念。由于显然有公式
+$$
+\cd_{\ell}(\coprod_i X_i)=\displaystyle{\mathop{\sup}_i} \cd_{\ell}X_i
+$$
+经典理论显然可以推广到任意 Artin 环。\pageoriginale 这一理论见于 Serre 的
+$(CG)=$ “\sisi{Galois cohomology}{Galois cohomology}”。%% Galois?
+我们将在第 ${\rm n^{\circ}}$ \hyperref[X.sec2]{2} 节补充若干更精细的结果。
+
+例如，考虑可分闭域（separably closed field）$k$ 上维数为 $n$ 的不可约代数簇
+$X$，并固定 $\ell\neq \car k$。第 ${\rm n^{\circ}}$ \hyperref[X.sec4]{4} 节的一个定理
+给出其上同调维数的上界 $2n$；这是 $X$ 的“真正”维数（当 $k=\CC$ 时的拓扑类比提示了这一点）。
+一旦知道域的理论，这个结果便相当初等；事实上，除 $X$ 完备的情形外，上界 $2n$
+还可以改进：另有上界 $2n-1$，只要 $X$“至少缺少一个点”，它就成立。
+后者是正确的“稳定上界”，意思是每个维数为 $n$ 的 $X$ 都含有一个上同调维数为
+$2n-1$ 的开子集。对仿射簇还可得到第三个上界，此时所得的上同调维数为 $n$。
+这是关于超平面截面的 Lefschetz 定理之一的推广。后面这两个断言较深，将留待以后（XIV）证明。
+
+注意，上同调维数不是一个局部概念（这与仿紧空间的情形不同）。例如，剩余域可分闭的
+Hensel 环的上同调维数为零，但删去闭点之后，可以得到任意大的数；在最重要的情形下，
+若 $n=\dim A$，这个数为 $2n-1$。这也符合由 $U-\{x\}$ 的上同调提供的拓扑类比，
+其中 $U$ 是复解析空间中一个点 $x$ 的小开邻域。
+
+\section{域上的辅助结果}\etiquette[2]{X.sec2}\pageoriginale
+
+我们有如下结果。
+
+\begin{enonce*}{定理 2.1}\etiquette[2.1]{X.thm2.1}
+设 $k'/k$ 是域 $k$ 的有限型扩张，$\ell\in \PP$。则
+$$
+\cd_{\ell}k'\leqq \cd_{\ell}k+\deg.\tr.(k'/k){\quoi},
+$$
+若此不等式严格，且 $\ell\neq \car k$，则 $\ell=2$，$k$ 可序，而 $k'$ 不可序
+（\ie $-1$ 在 $k'$ 中是平方和）。
+\end{enonce*}
+
+回顾，当 $\ell=\car k$ 时，有 $\cd_{\ell}k'\leqq 1$（CG II
+\hyperref[X.thm2.2]{2.2}），因而 \hyperref[X.thm2.1]{2.1} 中的等号问题几乎不会出现。
+此外，若 $k$ 可序，则 $\cd_2k=\infty$。事实上，$k$ 的代数闭包 $\bar{k}$ 含有一个子扩张
+$\widetilde{k}$（$\bar{k}$ 的极大有序子域），使
+$[\bar{k}:\widetilde{k}]=2$。显然，$\cd_2\widetilde{k}=\infty$，
+而由（CG I 命题~14）有 $\cd_2\widetilde{k}\leqq \cd_2 k$。
+
+证明。这里的内容几乎全是熟知的。上述不等式\sisi{}{，}以及当
+$\cd_{\ell}k<\infty$ 时等号成立，都是 Tate 的结果（CG II 4.1.2）。
+尚须证明，$\cd_{\ell}k'<\infty$ 和 $\cd_{\ell}k=\infty$
+\sisi{蕴含}{蕴含} $k$ 可序且 $\ell=2$；只须处理以下两种情形：
+\begin{itemize}
+\item[a)] $[k':k]<\infty$，
+
+\item[b)] $k'=k(x)$，其中 $x$ 在 $k$ 上超越。
+\end{itemize}
+在情形 a) 中，可以假设 $k'/k$ 可分。于是 Galois 群 $H=G(\bar{k}/k')$
+是 $G=G(\bar{k}/k)$ 的开子群；由 Serre 的一个结果 [5]，除非 $G$ 含有阶为
+$\ell$ 的元素，否则 $\cd_{\ell}H=\cd_{\ell}G$。代数闭域 $\bar{k}$
+不可能含有有限指数的子域 $\widetilde{k}$，除非 $\ell=2$ 且
+$\widetilde{k}$ 可序 [7]，因此得到所需结果。
+
+考虑\pageoriginale 情形 b)。设 $R$ 是 $\Spec k[x]$ 在点 $x=0$ 处的 Hensel 化，
+它是一个离散赋值环（discrete valuation ring），再设 $K$ 是 $R$ 的分式域。
+于是 $\cd_{\ell}k(x)<\infty$ 蕴含 $\cd_{\ell}K<\infty$。
+所以只须证明 $\cd_{\ell}K<\infty$ 蕴含 $\cd_{\ell}k<\infty$，
+这可由下面的定理推出：
+
+\begin{enonce*}{定理 2.2}\etiquette[2.2]{X.thm2.2}
+\footnote{这个定理最近由 $Ax$ [1] 证明。}。
+设 $R$ 是 Hensel 离散赋值环，分式域为 $K$，剩余域为 $k$。
+设 $\ell\in \PP$。在下列两种情形中，有
+$$
+\cd_{\ell}K=\cd_{\ell}k+1
+$$
+成立：
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item $\ell\neq \car k$。
+
+\item $\ell \neq \car K$，$k$ 完美，且 $\cd_{\ell}k<\infty$。
+\end{enumerate}
+\end{enonce*}
+
+\begin{enonce*}[remark]{注}
+自然，若 $\ell=\car K$，则在所有情形下都有 $\cd_{\ell}K\leq 1$
+（CG II \hyperref[X.thm2.2]{2.2}）。因此，在 $\car k=\ell$ 且 $k$ 不完美的
+不等特征情形中，尚须研究 $\cd_{\ell}K$ 与绝对微分模 $\Omega^1_k$
+（\EGA IV 20.4.3）之间可能存在的关系。
+\SGAArchiveOnly{\nde{冻结底本要求在此引用 Kato 的工作，但没有给出具体书目。}}
+\end{enonce*}
+
+定理的证明。与定理（\hyperref[X.thm2.1]{2.1}）一样，其大部分内容归功于 Tate。
+当 $R$ 完备时，（CG II 命题~12）已明确处理情形 (ii)；利用下述引理便可归结到这一情形：
+
+\begin{enonce*}{引理 2.2.1}\etiquette[2.2.1]{X.lem2.2.1}
+设 $R$ 是分式域为 $K$ 的 Hensel 离散赋值环，$\widehat{K}$ 是 $R$ 的完备化
+$\widehat{R}$ 的分式域。则
+$$
+G(\bar{\widehat{K}}/\widehat{K})\simeq G(\bar{K}/K){\quoi}.
+$$
+\end{enonce*}
+
+证明。这就是说，从\pageoriginale 平展 $K$-代数范畴到平展 $\widehat{K}$-代数范畴的函子
+$L\mapsto \widehat{L}=L\otimes_K \widehat{K}$ 是等价。
+现在，$\widehat{K}$ 上每个平展代数 $\widehat{K}'$ 都由 $K$ 上某个适当的平展代数
+$K'$ 诱导。事实上，若 $\widehat{K}'=\widehat{K}[\alpha]$，其中 $\alpha$
+满足系数属于 $\widehat{R}$ 的可分不可约方程 $f(T)=0$，则只须取
+$K'$ 为代数 $K[\alpha_0]$，其中 $\alpha_0$ 是系数属于 $R$ 的方程 $f_0(T)=0$ 的根，
+且 $f_0\equiv f(\widehat{m}^N)$，这里 $N$ 足够大，$\widehat{m}$ 是
+$\widehat{R}$ 的极大理想。这是通常的“Newton 方法”的一个应用（Bourbaki，
+Alg.~Comm.~III 4.5）。尚须证明此函子全忠实（忠实性显然），这归结为证明：
+若 $K'$ 是\emph{域}，则 $\widehat{K}'$ 也是域。设 $R'$ 是 $R$ 在 $K'$ 中的正规化；
+由于 $K'/K$ 可分，$R'$ 在 $R$ 上有限。环 $R'$ 是离散赋值环，其完备化为
+$\widehat{R}'=R'\otimes_R \widehat{R}$。因此 $\widehat{R}'$ 是离散赋值环，
+% TODO(核对底本): 此处底本写 K' 是其全分式环，疑应为完备化的分式域；暂保留原文。
+而 $K'$ 是它的全分式环，所以确实是域。
+
+考虑 \sisi{\eqhyperref[X.eq3.1]{3.1}}{\hyperref[X.thm2.2]{2.2}} 的断言 (i)。
+若 $\cd_{\ell}k<\infty$，由 \hyperref[X.lem2.2.1]{2.2.1} 又可归结到
+（CG II 命题~12）（该命题陈述中 $k$ 完美的假设，仅在剩余特征为 $\ell$ 的情形中
+才被\sisi{用于}{用于}证明）。因此，尚须证明 $\cd_{\ell}K<\infty$ 蕴含
+$\cd_{\ell}k<\infty$。
+
+设 $\bar{G}=G(\bar{k}/k)=G(\widetilde{K}/K)$，其中 $\widetilde{K}$ 是 $K$ 的
+极大非分歧扩张（\ie 剩余域可分闭的离散赋值环 $\widetilde{R}$ 的分式域，
+该环是 $R$ 的严格 Hensel 化）；又设 $G=G(\bar{K}/K)$，
+$H=G(\bar{K}/\widetilde{K})$，于是 $\bar{G}=G/H$。
+设 $\bar{G}'\subset \bar{G}$ 是一个 $\ell$-Sylow 子群，$k'/k$、$K'/K$
+是对应于 $\bar{G}'$ 的扩张。由（CG I 命题~14），$\cd_{\ell}k<\infty$
+当且仅当 $\cd_{\ell}k'<\infty$；因而以它在 $K'$ 中的正规化代替 $R$，
+便归结到 $\bar{G}$ 是 $\ell$-群的情形。此时只须证明：若 $\cd_{\ell}G<\infty$，
+则对充分大的 $N$ 有 $H^N(\bar{G},\ZZ/\ell)=0$（CG I 命题~20）。
+
+将已证明的 i) 的部分应用于 $\widetilde{R}$，\pageoriginale 得
+$\cd_{\ell}H=1$。此外，有
+\begin{equation*}
+H^1(H, 𝛍_{\ell})=H^1(\Spec \widetilde{K},
+𝛍_{\ell})=\widetilde{K}^{\ast}/\widetilde{K}^{\ast\ell}=\ZZ/\ell{\quoi}.\tag{2.2.2}
+\end{equation*}\etiquette[2.2.2]{X.eq2.2.2}
+事实上，由 Kummer 理论 \hyperrefext[IX][IX.Thr3.2]{3.2}，有
+$H^1(\Spec \widetilde{K},𝛍_{\ell})=\widetilde{K}^{\ast}/\widetilde{K}^{\ast\ell}$。
+我们有正合列
+$$
+0\longrightarrow \widetilde{R}^{\ast}\longrightarrow
+\widetilde{K}^{\ast}\longrightarrow
+\ZZ\longrightarrow 0{\quoi},
+$$
+而 $\widetilde{R}^{\ast}$ 是 $\ell$-可除的，因为 $\widetilde{R}$ 严格局部且
+$\ell$ 在 $\widetilde{R}$ 中可逆，故得到
+\sisi{\hyperref[X.lem2.2.1]{2.2.1}}{\eqhyperref[X.eq2.2.2]{2.2.2}}。
+
+考虑 Hochschild--Serre 谱序列
+$$
+E^{pq}_2=H^p(\bar{G}, H^q(H,
+𝛍_{\ell}))\Longrightarrow
+H^{p+q}(G,𝛍_\ell){\quoi}.
+$$
+当 $q>1$ 时，有 $E^{pq}_2=0$。若还有 $\cd_{\ell}G<\infty$，则对于充分大的 $n$，
+“边界”态射
+$$
+H^{n-1}(\bar{G}, H^1(H,𝛍_{\ell}))\longrightarrow
+H^{n+1}(\sisi{\bar{G}}{G}, 𝛍_{\ell})
+$$
+必为双射，因而须证明，此时有
+$$
+H^{n-1}
+(\bar{G},H^1(H,𝛍_{\ell}))=H^{n-1}(\bar{G},\ZZ/\ell)=0{\quoi}.
+$$
+
+令 $R'=R[x']$，其中 ${x'}^{\ell}=x$，$x$ 是 $R$ 的局部参数，
+再令 $K'$ 是 $R'$ 的分式域，$G'=G(\bar{K}/\sisi{k}{K}')$，\etcn
+环 $R'$ 的剩余域是 $k$，因为我们已经假设 $\bar{G}$ 是 $\ell$-群，
+因而 $\ell$\sisi{次}{次}单位根属于 $K$。我们有图
+$$
+\xymatrix@M=.25cm@C=1.5cm{
+H' \ar[r] \ar@{^{(}->}[d]& G' \ar[r] \ar@{^{(}->}[d]&\bar{G}\\
+H  \ar[r]& G \ar[r] & \bar{G},
+}
+$$
+从而\pageoriginale 得到 Hochschild--Serre 谱序列之间的态射，它给出交换图
+$$
+\xymatrix{
+H^{n-1}(\bar{G},H^{1}(H',𝛍_l)) \ar[rd]& &\\
+                                              &
+H^{n+1}(\sisi{\bar{G}}{G},𝛍_l) &\\
+H^{n-1}(\bar{G},H^{1}(H,𝛍_l))\ar[uu]^{\varepsilon}
+\ar[ru] & &.
+}
+$$
+由于 $\cd_{\ell}G<\infty$ 蕴含 $\cd_{\ell}G'<\infty$，当 $n$ 足够大时，
+此图中所有态射都是同构。但诱导箭头 $\epsilon$ 的态射
+$$
+% TODO(核对底本): 此处源公式的 r 未定义，疑为 ell；暂保留原式。
+\ZZ/r=H^1(H,𝛍_{\ell})\longrightarrow
+H^1(H',𝛍_{\ell})=\ZZ/\ell
+$$
+显然为零，所以 $H^{n-1}(\bar{G},\ZZ/\ell)=0$，\cqfd
+
+\begin{enonce*}{定理 2.3}\etiquette[2.3]{X.thm2.3}
+设 $A$ 是维数为 $1$ 的 Noether Hensel 环，$\ell\in \PP$ 在 $A$ 中可逆。
+设 $k$ 是 $A$ 的剩余域，$R(A)$ 是 $\Spec A$ 上的有理函数环。
+%% say that this is the total ring of fractions? [with an EGA reference]?
+则有
+$$
+\cd_{\ell}R(A)\leq \cd_{\ell}k+1{\quoi},
+$$
+且当 $\ell\neq 2$ 或 $k$ 不可序时，等号成立。
+\end{enonce*}
+
+证明。以 $A/P$ 代替 $A$，其中 $P$ 是 $A$ 的一个极小素理想，并应用 VIII 1，%% missing reference \XXX
+可知能够假设 $A$ 整。设 $K$ 是它的分式域，$R$ 是它的正规化；后者是局部 Hensel 环，
+所以是离散赋值环（由 Krull--Akizuki 定理，它是 Noether 环
+（Bourbaki，Alg. Comm. 第~7 章，\S 2，命题~5））。又设 $k'$ 是 $R$ 的剩余域。
+已知 $[k':k]<\infty$（\loccit）。现在 $K$ 是 $R$ 的分式域，因而由\pageoriginale
+\hyperref[X.thm2.2]{2.2} 有
+$$
+\cd_{\ell}K=\cd_{\ell}k'+1\leq \cd_{\ell}k+1
+$$
+而根据 \hyperref[X.thm2.1]{2.1}，在 \hyperref[X.thm2.3]{2.3} 的最后一个假设下等号成立。
+
+\begin{enonce*}[remark]{例}
+当 $\ell=2$，且 $A$ 是 $\RR[x,y]/(x^2+y^2)$ 在原点处的 Hensel 化时，等号不成立。
+\end{enonce*}
+
+\begin{enonce*}{推论 2.4}\etiquette[2.4]{X.cor2.4}
+设 $A$ 是剩余域为 $k$ 的 Noether 局部环，$\ell\in \PP$ 在 $A$ 中可逆。
+假设 $\ell\neq 2$ \sisi{或}{或} $\Spec A$ 的任何剩余域都不可序。则
+$$
+\cd_{\ell}R(A)\geq \cd_{\ell}k+\dim A{\quoi},
+$$
+其中 $R(A)$ 是 $\Spec A$ 上的有理函数环。
+\end{enonce*}
+
+证明。可以假设 $A$ 整，\sisi{其}{其}分式域为 $R(A)=K$。
+取 $x\in 𝔪_A$\sisi{ 为非零因子}{}。
+%% harmonize maximal/prime ideals \XXX
+则 $\dim A/(x)=\dim A-1$。对 $\dim A$ 归纳，有
+$$
+\cd_{\ell}R(A/(x))\geq \cd_{\ell}k+\dim A-1{\quoi}.
+$$
+设 $k'$ 是 $R(A/(x))$ 的一个剩余域，满足
+$\cd_{\ell}k'=\cd_{\ell}R(A/(x))$（\cf VIII 1），并设 $P$ %% 𝔭
+是 $A\rightarrow k'$ 的核这一素理想。环 $A_P$ 的维数为 $1$。
+因而只须对局部环 $A_P$ 证明此推论，也就是说，归结到 $\dim A=1$ 的情形。
+设 $\widetilde{A}$ 是 $A$ 的 Hensel 化。$R(\widetilde{A})$ 的每个剩余域
+% TODO(核对底本): 下式前的 R(tilde A)=K 疑应为 R(A)=K；暂保留原式。
+都可以等同于 $R(\widetilde{A})=K$ 的一个可分扩张，所以
+$$
+\cd_{\ell}R(A)=\cd_{\ell}K\geq \cd_{\ell}R(\widetilde{A}){\quoi}.
+$$
+这样就归结到 $A$ 为维数 1 的 Hensel 环的情形，此时结论由 \hyperref[X.thm2.3]{2.3} 得到。
+
+\begin{enonce*}{推论 2.5}\etiquette[2.5]{X.cor2.5}
+设\pageoriginale $X$ 是 Noether 概形，$\ell\in \PP$ 在 $X$ 上可逆。则
+$$
+\cd_{\ell}R(X)\geq \dim X{\quoi}.
+$$
+\end{enonce*}
+
+事实上，取点 $x\in X$ 使 $\dim X=\dim \Oo_{X,x}$（若 $\dim X=\infty$，
+则使 $\dim \Oo_{X,x}$ 很大）。设 $A$ 是 $\Oo_{X,x}$ 的严格 Hensel 化。
+根据通常的论证，有 $\cd_{\ell}R(X)\geq \cd_{\ell}R(\Oo_{X,x})\geq \cd_{\ell}R(A)$。
+此外，$\dim A=\dim X$（\resp 很大）。若 $\ell=2$，且 $\ell$ 在 $X$ 上可逆，
+则方程 $T^2+1=0$ 在 $A$ 上可分；因为 $A$ 严格局部，$-1$ 在 $A$ 中是平方，
+所以 $A$ 的剩余域都不可序。因此，在所有情形下，$A$ 都满足
+\hyperref[X.cor2.4]{2.4} 的假设，且 $\cd_{\ell}R(A)\geq \dim A$，由此得出结果。
+
+
+\section{严格局部环的分式域}\etiquette[3]{X.sec3}
+
+\setcounter{subsection}{-1}
+\subsection{}\etiquette[3.0]{X.subsec3.0}
+在以下各节中，我们将迫切需要知道 $\cd_{\ell}R(A)$，这里 $A$ 是严格局部环
+（strictly local ring），即剩余域可分闭的 Hensel 环。遗憾的是，一般还不知道
+$\cd_{\ell}R(A)$，例如当 $A=\widehat{\ZZ}_p[[x]](p\neq \ell)$ 时。
+
+不过，人们猜想\SGAArchiveOnly{\nde{冻结底本指出 O.~Gabber 已证明此事，但未提供具体书目。}}
+若 $A$ 是 Noether 环，且 $\ell$ 在 $A$ 中可逆，则\sisi{将有}{有}
+\begin{equation*}
+\cd_{\ell}R(A)=\dim A\quad (\ell\mbox{ 在 } A\mbox{ 中可逆}){\quoi},\tag{3.1}
+\end{equation*}\etiquette[3.1]{X.eq3.1}
+至少在最重要的情形中如此，例如当 $A$ 是\emph{优环}（excellent ring）时
+（\EGA IV 7.8.2）。
+
+注意，若 $\dim A=1$，则由 \hyperref[X.thm2.3]{2.3}，
+\eqhyperref[X.eq3.1]{3.1} 成立。此外，由 \hyperref[X.cor2.5]{2.5}，
+不等式 $\geq$ 在所有情形中都成立。我们以后（XIX）将利用奇点解消
+\cite{sga4.exp.X.bib.3}，证明若 $A$ 为优环且剩余\pageoriginale 特征为零，
+则 \eqhyperref[X.eq3.1]{3.1} 也成立。这里，我们只在下面
+\hyperref[X.prop3.2]{3.2} 的简单情形中证明 \eqhyperref[X.eq3.1]{3.1}。
+
+自然，若 $A$ 的特征为 $\ell$，则有 $\cd_{\ell}R(A)\leq 1$，所以这种情形平凡。
+此外，尚须分析剩余特征为 $\ell$ 的不等特征情形；我们并不预期
+\eqhyperref[X.eq3.1]{3.1} 在这种\sisi{情形中}{情形中}成立。
+当然必须考虑模 $\Omega^1_k$ 的秩（$k$ 为剩余域），\ie 次数 $[k:k^{\ell}]$。
+\SGAArchiveOnly{\nde{冻结底本在此提及 Gabber 和 Orgogozo 的工作，但未提供具体书目。}}
+
+\begin{enonce*}{命题 3.2}\etiquette[3.2]{X.prop3.2}
+设 $X$ 是域 $k$ 的谱上或离散赋值环 $R$ 的谱上的有限型预概形（prescheme），
+设 $\ell\in \PP$ 在 $k$（\resp~$R$）中可逆。则对 $X$ 的每个严格局部化环 $A$，
+$\hyperref[X.eq3.1]{3.1}$ 都成立。
+\end{enonce*}
+
+\emph{证明}。取 $X$ 整（像通常一样，可归结到这种情形），并令 $n=\dim X$。
+
+假设 $X$ 定义在\emph{可分闭}域 $k$ 上。那么，对 $X$ 在一个\emph{闭}点处的每个
+严格局部化环 $A$，有 $\dim A=n$。由于 $R(A)$ 的每个剩余域 $K$ 都可以等同于
+$R(X)$ 的一个代数扩张，且
+$$
+\deg.\tr.(R(X)/k)=\dim X=n{\quoi},
+$$
+%% \tr. etc. ugly: there is one space too many (tr .) \XXX
+由 \hyperref[X.thm2.1]{2.1} 有 $\cd_{\ell}K\leq n$，故
+$\cd_{\ell}R(A)\leq n$。反向不等式由 \hyperref[X.cor2.5]{2.5} 得到。
+
+现在假设 $X$ 在 $\Spec R$ 上有限型，其中 $R$ 是离散赋值环，并设 $A$ 是
+$X$ 在点 $x$ 处的严格局部化。若 $x$ 不位于 $\Spec R$ 的闭点上方，
+则立即可归结到 $X$ 在域上有限型的情形（将 $R$ 局部化）。
+出于同样的理由，还可以假设态射 $X\rightarrow \Spec R$ 为支配态射。
+
+暂且\pageoriginale 再假设 $R$ 是\emph{严格局部}离散赋值环，且 $x$ 是
+$X$ 的\emph{闭}点。于是 $\dim A=\dim X=n$（\EGA IV 5.6.5）。
+因为 $R(A)$ 的每个剩余域 $K$ 都可以等同于 $R(X)$ 的一个可分扩张，由
+\hyperref[X.thm2.1]{2.1} 和 \hyperref[X.thm2.2]{2.2} 有
+$$
+\cd_{\ell}R(A)\leq \cd_{\ell}R(X)\leq
+\cd_{\ell}L+\deg.\tr.(R(X)/L)=1+(n-1)=n
+$$
+其中 $L$ 是 $R$ 的分式域；结合 \hyperref[X.cor2.5]{2.5}，便在此情形中得到结论。
+
+利用下面的引理，就可以由这些特殊情形推出一般情形：
+
+\begin{enonce*}{引理 3.3}\etiquette[3.3]{X.lem3.3}
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item 设 $X$ 在域 $k$ 的谱上有限型，$A$ 是 $X$ 在点 $x$ 处的严格局部化环。
+  则存在可分闭域 $k'$、$\Spec k'$ 上的有限型概形 $X'$ 及 $X'$ 中的闭点 $x'$，
+  使得 $A$ 同构于 $X'$ 在 $x'$ 处的一个严格局部化环。
+
+\item 设 $X$ 在 $\Spec R$ 上有限型，其中 $R$ 是离散赋值环；设 $x$ 是
+  $X$ 中位于 $\Spec R$ 的闭点上方的一个点，$A$ 是 $X$ 在 $x$ 处的严格局部化。
+  则存在严格局部离散赋值环 $R'$、$\Spec R'$ 上的有限型概形 $X'$ 及 $X'$ 的闭点
+  $x'$，它位于 $\Spec R'$ 的闭点上方，使 $A$ 同构于 $X'$ 在 $x'$ 处的一个严格局部化。
+\end{enumerate}
+\end{enonce*}
+
+证明。
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item 可以取 $X$ 为仿射的。
+
+设 $Y$ 是 $x$ 在 $X$ 中的闭包，赋予诱导的约化结构，并令 $d=\dim Y$。
+由正规化引理（\cite{sga4.exp.X.bib.2} 第 V 章 \S 3 第 ${\rm n^{\circ}}$ 1 节），存在态射
+$$
+X\longrightarrow \Spec k[y_1,\ldots, y_d]=T
+$$
+诱导\pageoriginale 一个\emph{有限}态射 $Y\rightarrow T$。
+因此，$\Oo_{X,x}$ 的严格局部化环同构于 $\Oo_{X',x'}$ 的严格局部化，
+其中 $X'=\fprod{X}{\Spec\bar{R(T)}}{T}$，而 $x'$ 是 $X'$ 的一个闭点。
+
+\item 这种情形的处理类似。可以假设 $X$ 仿射，其环为 $A$。
+设 $Y$ 是 $x$ 在 $X$ 中的闭包，赋予诱导的约化结构；它是 $X$ 在 $\Spec R$ 上的
+闭纤维 $X_0$ 的一个闭子概形，并令 $d=\dim Y$。
+将 (i) 中考虑的 $A\otimes_R k$ 的元素 $y_1,\ldots,y_d$ 提升为 $A$ 的元素，便得到态射
+$$
+X\longrightarrow \Spec R[y_1,\ldots,y_d]=T
+$$
+诱导一个\emph{有限}态射 $Y\rightarrow T_0$。设 $R'$ 是
+$R[y_1,\ldots,y_d]=B$ 在素理想 $𝔪B$ 处的严格局部化。
+%% specify that 𝔪 is the maximal ideal of R? \XXX
+则 $R'$ 是严格局部离散赋值环，可以取 $X'=\fprod{X}{\Spec R'}{T}$，
+并取 $x'$ 为 $X'$ 中位于 $x$ 上方的一个闭点。
+\end{enumerate}
+
+\section{上同调维数：$ℓ$ 在 $𝒪_X$ 中可逆的情形}\etiquette[4]{X.sec4}
+
+\begin{enonce*}{定理 4.1}\etiquette[4.1]{X.thm4.1}
+设 $X$ 是 Noether 概形，$\ell\in \PP$，$\varphi$ 是 $X$ 上取值于 $\NN$ 的函数，
+满足下述条件：
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item 对每个 $x\in X$，有 $\cd_{\ell}k(x)\leq \varphi (x)$。
+
+\item 设 $x\in X$，$y\in Y=$ $x$ 的闭包，且 $y\neq x$。
+设 $K$ 是 $Y$ 在 $y$ 上方某个严格局部化的有理函数环。
+有 $\cd_{\ell}K<\varphi(x)-\varphi(y)$。
+\end{enumerate}
+则对 $X$ 上每个 $\ell$-挠层 $F$，有
+\begin{gather*}
+H^q(X,F)=0\\
+q>\varphi(F)\mathop{=}_{\text{\rm def}}\Sup\{\varphi(x)\mid x\in X,
+F_{\bar{x}}\neq 0\}{\quoi}.\tag*{若}
+\end{gather*}
+\end{enonce*}
+
+证明。\pageoriginale
+将 $\varphi$\sisi{，}{}限制在 $X$ 的任意子预概形上，假设仍然满足，
+因而由 Noether 归纳法，可以假设定理对于 $X$ 的每个不等于 $X$ 的闭子预概形都成立。
+给定 $F$，写成 $F=\varinjlim F_i$，其中 $F_i$ 是 $F$ 的可构造子层
+（\hyperrefext[IX][IX.prop2.9]{2.9} (iii)）。
+
+对每个 $F_i$，满足 $F_x\neq 0$ 的点 $x\in X$ 所成的集合是 $X$ 中的可构造集，
+因此可对支集不稠密的每个 $F_i$ 应用归纳假设。由此可知，归纳假设实际上蕴含：
+对至少在 $X$ 的一个极大点处为零的每个 $F$，定理成立。
+以下便假设 $F$ 不满足这个条件。
+
+现在设 $i:\Spec R(X)\rightarrow X$ 为包含映射，其中 $R(X)$ 是 $X$ 的有理函数环，
+并考虑下列正合列，其中 $K$ 和 $C$ 分别定义为核与余核：
+$$
+0\longrightarrow K\longrightarrow F\longrightarrow i_{\ast}
+i^{\ast}F\longrightarrow C\longrightarrow 0{\quoi}.
+$$
+这里，$K$ 和 $C$ 在 $X$ 的每个极大点处都为零，所以由 (ii)，
+$\varphi(K)$（\resp $\varphi(C)$）严格小于 $n=\varphi(F)$，
+故当 $q\geq n$ 时，$H^q(X,K)=H^q(X,C)=0$。因此，\sisi{}{，}
+由上同调正合列，要证明对 $q>n$ 有 $H^q(X,F)=0$，只须证明
+$H^q(X,i_{\ast}i^{\ast}F)=0$；所以可以假设 $F$ 形如 $i_{\ast}G$，
+其中 $G$ 是 $\Spec R(X)$ 上适当的 $\ell$-层。
+
+考虑 Leray 谱序列\sisi{。}{}
+$$
+E^{p,q}_2=H^p(X,R^qi_{\ast}G)\Longrightarrow H^{p+q}(\Spec
+R(X),G){\quoi}.
+$$
+现在，$R(X)_{\text{\rm réd}}$ 是 $X$ 的各极大点 $x$ 的域 $k(x)$ 的乘积，
+因而由 (i) 有 $\cd_{\ell}R(X)\leq n$；故此谱序列的极限在
+\sisi{$\dim > n$}{严格大于~$n$ 的维数}处为零。
+我们\pageoriginale 要证明，当 $p>n$ 时，$E^{p0}_2=0$。
+考察谱序列可知，只须证明当 $q>0$ 且 $p>n-q-1$ 时 $E^{pq}_2=0$。
+因而根据归纳假设，只须证明当 $q>0$ 时 $\varphi(R^qi_{\ast}G)<n-q$。
+但由 VIII \hyperref[VIII.thm5.2]{5.2}，$R^qi_{\ast}G$ 在位于点 $y\in X$
+上方的几何点 $\bar{y}$ 处的纤维恰为 $H^q(\Spec K, G_K)$，
+其中 $K$ 是 $X$ 在 $\bar{y}$ 处的严格局部化的有理函数环，$G_K$ 是
+$\Spec K$ 上的诱导层。由 (ii)，有 $\cd_{\ell}K<n-\varphi(y)$，
+故当 $q\geq n-\varphi(y)$ 时 $(R^qi_{\ast}G)_{\bar{y}}=0$，这就得到所需结果。
+
+\begin{enonce*}{推论 4.2}\etiquette[4.2]{X.cor4.2}
+设 $X$ 是 Noether 概形，$\ell\in \PP$，$n\in \NN$，并假设满足以下条件：
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item 对 $X$ 的每个余维为 $c$ 的点 $y$，有 $\cd_{\ell}k(y)\leq n-2c$。
+
+\item 对 $X$ 的不可约闭子概形 $Y$ 的每个严格局部化环 $A$，有
+  $\cd_{\ell}R(A)\leq \dim A$。
+
+则
+$$
+\cd_{\ell}X\leq n{\quoi}.
+$$
+更确切地，若 $F$ 是在余维 $<s$ 的每个点 $y$ 处为零的 $\ell$-层，则有
+$$
+H^q(X,F)=0\mbox{ 若 } q>n-2s{\quoi}.
+$$
+\end{enumerate}
+\end{enonce*}
+
+事实上，可以取 $\varphi(y)=n-2\codim y$ 并应用 \hyperref[X.thm4.1]{4.1}。
+它的条件 (i)（\resp (ii)）由（\hyperref[X.cor4.2]{4.2}）中相应的条件 (i)
+（\resp (ii)）推出；其中对 (ii) 要考虑不等式
+$\dim \Oo_{Y,y}+\dim \Oo_{X,x}\leq \dim \Oo_{X,y}$。
+
+\begin{enonce*}{推论 4.3}\etiquette[4.3]{X.cor4.3}
+设 $X$ 是域 $k$ 上的有限型概形，维数为 $n$，且 $\ell\neq \car k$。
+则 $\cd_{\ell}X\leq 2n+\cd_{\ell}k$。
+\end{enonce*}
+
+将前一推论\pageoriginale 中的 $n$ 换成 $2n+cd_{\ell}k$，并应用该推论。
+利用 \hyperref[X.thm2.1]{2.1} 和 \hyperref[X.prop3.2]{3.2} 来验证
+\hyperref[X.cor4.2]{4.2} 的条件 (i) 和 (ii)；其中对 (i) 要考虑不等式
+$$
+\deg.\tr.K(y)/k+\dim \Oo_{X,y}\leq \dim X{\quoi}.
+$$
+
+\begin{enonce*}{推论 4.4}\etiquette[4.4]{X.cor4.4}
+设 $X$ 是 Noether 概形，$\ell\in \PP$ 在 $X$ 上可逆。
+假设 $\hyperref[X.cor4.2]{4.2}$ 的条件 {\rm (ii)} 满足，并且
+$\ell\neq 2$ \sisi{或}{或} $X$ 的任何剩余域都不可序。则有
+$$
+\cd_{\ell}X\leq \cd_{\ell}R(X)+\dim X\leq 2\cd_{\ell}R(X){\quoi}.
+$$
+\end{enonce*}
+
+在 \hyperref[X.cor4.2]{4.2} 中令 $n=\cd_{\ell}R(X)+\dim X$，并应用
+\hyperref[X.cor2.4]{2.4}。它蕴含 \hyperref[X.cor4.2]{4.2} 的条件 (i)，因为
+\[\cd_{\ell}k(y)\leq \cd_{\ell}R(\Oo_{X,y})-\dim \Oo_{X,y}\leq
+\cd_{\ell}R(X)-\dim\Oo_{X,y}\leq n-2\dim \Oo_{X,y}.
+\]
+\hyperref[X.cor4.4]{4.4} 中的第二个不等式由 \hyperref[X.cor2.5]{2.5} 得到。
+
+\begin{enonce*}[remark]{例 4.5}\etiquette[4.5]{X.exem4.5}
+\hyperref[X.cor4.4]{4.4} 中对剩余域所作的那个不大雅致的假设是必要的。
+例如，取 $X=\Spec \RR[x,y,z]/(x^2+y^2+z^2)$，其余所有条件都满足，
+且 $\dim X=\cd_{\ell}R(X)=\ell=2$；但集中在点 $(0,0,0)$ 上的层 $\ZZ/2$
+在每个次数都有非零上同调，所以 $\cd_{\ell}X=+\infty$。
+\end{enonce*}
+
+\setcounter{subsection}{5}
+\subsection{}\etiquette[4.6]{X.subsec4.6}
+人们还会想尝试在 \hyperref[X.cor4.2]{4.2} 中仅对 $X$ 的闭点施加假设，但这是不可能的。
+例如，存在剩余域代数闭、而函数域的上同调维数任意大的离散赋值环\footnote[1]{
+  为看出这一点，只须注意：若 $X$ 是域 $k$ 上的光滑代数概形，且有一点 $x\in X(k)$，
+  则可找到经过 $x$ 的“形式曲线弧”，其“代数包络”为 $X$。
+  因而它的函数域含有 $X$ 的函数域 $K$，并在其上诱导剩余域为 $k$ 的离散赋值。}。
+这样的环的谱同样具有很大的上同调维数。
+%% to do (for the note): i -> (i) \XXX
+
+
+\section{上同调维数：$ℓ=p$ 的情形}\etiquette[5]{X.sec5}\pageoriginale
+
+\setcounter{subsection}{-1}
+\subsection{}\etiquette[5.0]{X.subsec5.0}
+利用 Artin\sisi{ - }{-}Schreier 理论（\hyperrefext[IX][IX.Thr3.5]{3.5}），
+对于特征为~$p$ 的概形 $X$ 的 $p$-上同调维数，可以得到比 \hyperref[X.cor4.3]{4.3}
+更好的上界。设 $\cdqc X$ 是最大的数 $n$，使 $X$ 上至少存在一个
+\emph{拟凝聚}（quasi-coherent）模层 $F$（按 Zariski 意义），满足 $H^n(X,F)\neq 0$。
+我们有如下结果。
+
+\begin{enonce*}{定理 5.1}\etiquette[5.1]{X.thm5.1}
+设 $X$ 是特征 $p>0$ 的 Noether 概形。则
+$$
+\cd_pX\leq \cdqc X+1{\quoi}.
+$$
+特别地，特征 $p>0$ 的 Noether 仿射概形 $X$ 的 $p$-上同调维数至多为 $1$。
+\end{enonce*}
+
+证明。应用 \hyperrefext[IX][IX.prop5.5]{5.5}：
+
+考虑到当 $f$ 是有限态射且 $F$ 是阿贝尔层（VIII \hyperref[VIII.prop5.5]{5.5}）
+%% reference \XXX
+（\resp 拟凝聚层 $F$）时，$R^q f_{\ast}F$ 对 $q>0$ 为零，
+% TODO(核对底本): 所求消失范围疑应为 q>cdqc X+1，底本为 q>cdqc X；暂保留原式。
+只须证明：若 $i:U\rightarrow X$ 是开浸入且 $q>\cdqc X$，
+则 $H^q(X,\sisi{i_1}{i_!}(\ZZ/p)_U)=0$。
+
+设 $Y$ 是 $X$ 中支集为 $X-U$ 的闭子概形，$J$ 是定义 $Y$ 的凝聚理想层。
+态射 $p:f\mapsto f^p-f$（\hyperrefext[IX][IX.Thr3.5]{3.5}）诱导一个态射
+$J\rightarrow J$。考察正合列 \hyperrefext[IX][IX.Thr3.5]{3.5} 以及正合列
+$$
+0\longrightarrow i_{!}(\ZZ/p)_U\longrightarrow
+(\ZZ/p)_X\longrightarrow
+(\ZZ/p)_Y\longrightarrow 0{\quoi},
+$$
+可知实际上存在正合列
+\begin{equation*}
+0\longrightarrow i_{!}(\ZZ/p)_U\longrightarrow
+J\longrightarrow J\longrightarrow 0{\quoi}.\tag{$\ast$}
+\end{equation*}
+因为 $J$ 凝聚，当 $q>\cdqc X$ 时，有 $H^q(X,J)=0$，
+于是由上同调长正合列得到\pageoriginale 结论。
+
+对于可分闭域 $k$ 上的拟射影概形，这个上界在某些情形中还可以\sisi{减去}{减去}~$1$。
+事实上，有
+
+\begin{enonce*}{推论 5.2}\etiquette[5.2]{X.cor5.2}
+设 $X$ 是特征 $p>0$ 的域 $k$ 上的有限型概形。有
+$$
+\cd_pX\leq \dim X+1{\quoi},
+$$
+而若 $k$ 可分闭且 $X$ 拟射影\footnote[1]{利用 Chow 引理，容易将条件
+  “$X$ 拟射影”替换为“$X$ 分离”。}，则有
+$$
+\cd_pX\leq \dim X{\quoi}.
+$$
+\end{enonce*}
+
+事实上，第一个断言显然，因为 $\cdqc X\leq \dim X$
+（\cite{sga4.exp.X.bib.6} 4.15.2）。下面处理第二个断言。
+对这样的 $X$，对于凝聚层 $F$，上同调群 $H^n(X,F)$ $(n=\dim X)$
+是 $k$ 上的有限维向量空间。令 $V=H^n(X,J)$，其中 $J$ 是正合列 $(\ast)$
+中出现的理想层。由 $(\ast)$ 得到的态射 $\varphi:V\rightarrow V$
+显然形如 $\varphi=\epsilon-\id$，\sisi{或}{其中} $\epsilon$ 对
+$r\in k$ 和 $v\in V$ 满足 $\epsilon(rv)=r^p\epsilon(V)$。
+因此，由 $\Phi$ 得到的仿射概形的映射 $\Phi$ 的 Jacobian 矩阵为 $-I$，
+\sisi{$I$}{这里~$I$ 是}单位矩阵。所以 $\Phi$ 平展，且因其可加而为满射；
+又因 $k$ 可分闭，便推出 $\Phi$ 为满射，结论立即得到。
+
+\section{$\mathrm{Spec} ℤ$ 上有限型预概形的上同调维数}\etiquette[6]{X.sec6}\pageoriginale
+
+\begin{enonce*}{命题 6.1}\etiquette[6.1]{X.prop6.1}
+设 $X$ 在 $\Spec \ZZ$ 上拟有限。假设 $\ell\neq 2$ \sisi{或}{或}
+$X$ 的每个特征零剩余域都完全虚。则 $\cd_{\ell}X\leq 3$。
+\end{enonce*}
+
+这是\sisi{由}{由}\sisi{定理}{定理} \hyperref[X.thm2.2]{2.2} (ii)、
+\sisi{推论}{推论} \hyperref[X.cor4.2]{4.2} 以及下述事实推出的：
+数域（若 $\ell =2$，则须完全虚）的 $\ell$-上同调维数 $\leq 2$（CG II 4.4）。
+
+\sisi{事实上由类域论可知}{类域论的一个推论是}，若态射
+$X\rightarrow \Spec \ZZ$ 固有且满射，则等号成立。
+
+遗憾的是，若仅假设 $X$ 在 $\Spec \ZZ$ 上有限型，第 ${\rm n^{\circ}}$ 4 节的结果
+便不能直接应用，因为（\hyperref[X.cor4.2]{4.2}）的假设 (ii) 对
+\emph{剩余特征}为 $\ell$ 的局部环一般并不满足。
+因此，必须利用结果（\hyperref[X.thm5.1]{5.1}）才能获得正确的上界；
+现在就来利用定理（\hyperref[X.thm5.1]{5.1}）。
+
+\begin{enonce*}{定理 6.2}\etiquette[6.2]{X.thm6.2}
+设 $X$ 在 $\Spec \ZZ$ 上有限型，$\ell\in \PP$。若 $\ell=2$，
+假设 $X$ 的任何剩余域都不可序。则
+$$
+\cd_{\ell}X\leq 2\dim X+1{\quoi}.
+$$
+更确切地，设 $F$ 是 $\ell$-挠层，对 $X$ 中满足 $F_{\bar{x}}\neq 0$ 的每个点 $x$，都有
+$$
+\dim\{\bar{x}\}\leq
+\begin{cases}
+(N-1)/2 &\mbox{若\quad } \ell\neq \car k(x)\\
+N-1     &\mbox{若\quad } \ell=\car k(x)
+\end{cases}
+$$
+（$\{\bar{x}\}$ 是 $\{x\}$ 的闭包）；则
+$$
+H^p(X,F)=0\mbox{ 若 } p>N{\quoi}.
+$$
+\end{enonce*}
+
+证明。\pageoriginale 对 $X$ 归纳，可以假设定理对每个不等于 $X$ 的闭子概形都成立。
+若 $F$ 如陈述所述，并写成 $F=\varinjlim F_i$，其中 $F_i$ 是 $F$ 的可构造子层
+（\hyperrefext[IX][IX.prop2.9]{2.9} (iii)），则每个 $F_i$ 也满足相同的假设。
+因此，只须在 $F$ 可构造时证明定理。
+
+此时，满足 $F_{\bar{x}}\neq 0$ 的点 $x\in X$ 所成的集合 $E$ 是可构造子集；
+归纳假设蕴含：对于 $E$ 不稠密的每个 $F$，定理成立。
+此外，对于集中在 $X$ 位于 $\Spec \ZZ$ 的点 $(\ell)$ 上方的纤维上的层，
+定理是 \hyperref[X.thm5.1]{5.1} 的推论；而对于集中在点 $(p)$ 上方纤维上的层，
+其中 $p\neq \ell$，定理是 \hyperref[X.cor4.3]{4.3} 的推论，
+这里要考虑 $\cd_{\ell}\ZZ/p \ZZ=1$（CG II 2.2）。
+
+取 $X$ 约化，并令 $X=X_{0}\cup X_1$，其中 $X_1$ 是 $X$ 的特征为 $\ell$ 的
+不可约分支之并这一闭子集，$X_{0}$ 是其余不可约分支之并；给 $X_{0}$ 和 $X_1$
+赋予诱导的约化结构。设 $j_{\nu}:X_{\nu}\rightarrow X$ 为包含映射，
+令 $d_{\nu}=\dim X_{\nu}$，$N=\sup \{2d_{0}+1, d_1+1\}$。
+对于 $X$ 上每个可构造层 $F$，都有正合列\sisi{。}{}
+\begin{equation*}
+0\longrightarrow F\longrightarrow
+{j_{0}}_{\ast} j_{0}{}^{\ast}F\oplus {j_1}_{\ast} j_1
+{}^{\ast}F\longrightarrow C\longrightarrow 0{\quoi},\tag{$\ast$}
+\end{equation*}
+其中 $C$ 集中在 $X_{0}\cap X_1$ 上，后者的特征为 $\ell$，维数 $\leq d_1-1$。
+于是
+$$
+H^q(X,C)=0\mbox{ 若 } q>N-1{\quoi},
+$$
+因为由 \hyperref[X.thm5.1]{5.1} 有
+$\cd_{\ell}(X_{0}\cap X_1)\leq \dim
+\sisi{}{(}X_{0}\cap X_1\sisi{}{)}+1\leq d_1\leq N-1$。
+考察 $(\ast)$ 相应的上同调长正合列，便归结到 $X=X_{0}$ \sisi{或}{或} $X=X_1$ 的情形；
+正如已经指出的，后一情形是 \hyperref[X.thm5.1]{5.1} 的推论。
+
+因此，\pageoriginale 假设 $X$ 的每个极大点的特征均不同于 $\ell$，
+并设 $i_{\nu}:x_{\nu}\rightarrow X$ 为各极大点的包含映射。
+考察正合列
+$$
+0\longrightarrow K\longrightarrow F\longrightarrow \bigoplus_{\nu}
+i_{\nu\ast}i_{\nu}{}^{\ast}F\longrightarrow C\longrightarrow 0
+$$
+由归纳法便归结到 $F=i_{\nu\ast}i_{\nu}{}^{\ast}F$ 的情形，也就是
+$F$ 形如 $i_{\ast}G$，其中 $G$ 是 $\Spec k(x)$ 上的适当层，$x$ 是 $X$ 的一个点。
+因此，可以假设 $X$ 不可约且约化，其一般点为 $x$，并由 \hyperref[X.cor4.3]{4.3}
+假设 $k(x)$ 的特征为零。
+
+考虑谱序列
+\begin{equation*}
+H^p(X,R^qi_{\ast}G)\Longrightarrow H^{p+q}(\Spec k(x),
+G){\quoi}.\tag{${\ast}{\ast}$}
+\end{equation*}
+令 $s=\dim X$。我们须证明
+\begin{equation*}
+E^{p0}_2=0\mbox{ 对于 } p> 2s+1{\quoi}.\tag{$+$}
+\end{equation*}
+现在 $k(x)[i]$ 在 $\QQ[i]$ 上的超越次数为 $s-1$，
+%% say that i = √(-1)? \XXX
+而后者是上同调维数为~$2$ 的域。因为当 $\ell=2$ 时 $k(x)$ 不可序，
+由 \hyperref[X.thm2.1]{2.1} 得 $\cd_{\ell}k(x)=s+1$。
+这蕴含谱序列的目标当 $n>s+1$ 时为零。因此，为证明 $(+)$，只须证明
+在 $({\ast}{\ast})$ 中有
+\begin{equation*}
+E^{pq}_2=0\mbox{ 若 } p>2s-q\mbox{ 且 } q>0{\quoi}.\tag{${+}{+}$}
+\end{equation*}
+
+设 $y$ 是 $X$ 的一个点，$K$ 是 $X$ 在位于 $y$ 上方的一个几何点 $\widetilde{y}$
+处的严格局部化的分式环。则 $K$ 是若干域的直积，其中每个域在 $\ZZ$ 的一个
+严格局部化上的超越次数为 $s-1$；故由 \hyperref[X.thm2.1]{2.1} 和
+\hyperref[X.thm2.2]{2.2}，有 $\cd_{\ell}K\leq s$。
+此外，若 $y$ 的剩余特征不为 $\ell$，可以应用 \hyperref[X.prop3.2]{3.2}。于是有
+\begin{equation*}
+(R^qi_{\ast}G)_{\widetilde{y}}=0
+\begin{cases}
+\mbox{ 若 $q>\codim y$，\ie $\dim \bar{y}>s-q$，且 $\ell\neq \car
+k(y)$，}\\
+\mbox{或在所有情形中，若 $q>s$。}
+\end{cases}
+\tag{$''$}
+\end{equation*}
+特别地，\pageoriginale 当 $q>s$ 时，有 $E^{pq}_2=0$。
+为在 $0<q\leq s$ 的情形中验证 $({+}{+})$，对层 $R^qi_{\ast}(G)$ 应用归纳假设。
+
+根据陈述和 $('')$，必须令 $N'=2s-q$，并验证以下两个不等式
+\begin{align*}
+& s-q\leq (N'-1)_{/2}\\
+& s-1=\dim X_{\ell}\leq N'-1{\quoi},
+\end{align*}
+其中 $X_{\ell}$ 是 $X$ 在 $\Spec \ZZ$ 的\sisi{点}{点} $(\ell)$ 上方的
+\sisi{纤维空间}{纤维}。当 $0<q\leq s$ 时，它们确实成立\sisi{，}{。} \cqfd
+
+\begin{thebibliography}{99}
+\bibitem{sga4.exp.X.bib.1}
+Ax, J.  Proof of some conjectures of Serre on
+cohomological dimension, Proc. Amer. Math. Society 16 (1965)
+1214-1221.
+
+\bibitem{sga4.exp.X.bib.2} Bourbaki, N. Algèbre \sisi{Commutative}{commutative}, Paris (1960)
+
+\bibitem{sga4.exp.X.bib.3}
+Hironaka, H.  Resolution of singularities of an algebraic surface
+over a field of characteristic zero, Annals of Math. Vol. 79, No. 1, 2
+(1964)
+
+
+\bibitem{sga4.exp.X.bib.4} Nagata, M. Local Rings, New York (1962)
+
+\bibitem{sga4.exp.X.bib.5}
+Serre, J-P.  Sur la dimension cohomologique \sisi{de}{des} groupes profinis,
+Topology Vol. 3, p. 413 (1965)
+
+
+\bibitem{sga4.exp.X.bib.6} Godement, R. \sisi{Théorie des Faisceaux}{Topologie algébrique et théorie des faisceaux}, Paris (1958).
+
+\bibitem{sga4.exp.X.bib.7}
+E. Artin et A.  Schreier - Eine Kennzeichnung der \sisi{reel}{reell}
+abgeschlossenen Körper, Hamb. Abh. 5 (1927) pp. 225-231.
+
+
+\bibitem{sga4.exp.X.bib.8} Serre, J.P. Cohomologie \sisi{Galoisienne}{galoisienne}, Lecture Notes
+${\rm n^{\circ}}$ 5 (Springer).
+\end{thebibliography}

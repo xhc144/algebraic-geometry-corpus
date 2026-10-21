@@ -1,0 +1,1734 @@
+\section{纤维范畴的归纳极限与投射极限}\etiquette[6]{VI.sec6}
+
+\setcounter{subsection}{-1}
+\subsection{}\etiquette[6.0]{VI.subsec6.0}
+
+假定读者熟悉纤维范畴理论\cite{sga4.exp.VI.bib.5}.
+本节的主要目的是固定有关纤维范畴的术语和记号.
+除非另有说明, 本节所考虑的所有范畴均属于一个固定的宇宙 $\Uu$.
+
+设 $\Ff$, $\Gg$ 及 $\Ee$ 为三个范畴,
+$\pi:\Ff\to\Ee$ 和 ${\pi}':\Gg\to\Ee$ 为两个函子.
+用 $\Hhom_{\Ee}(\Ff,\Gg)$ 表示如下范畴:
+其对象为使图
+\[
+\xymatrix@=1.75cm{
+\Ff \ar@{-}[rr]^{u} \ar[rd]_{\pi}&             &\Gg \ar[ld]^{\pi'}\\
+           & \Ee &
+}\]
+交换的函子 $u:\Ff\to\Gg$,
+其态射为函子的 $\Ee$-态射,
+\ie 被 $\pi'$ 映为恒等态射的函子态射.
+
+设 $\xi$ 为 $\Ee$ 的对象.
+满足 $\pi(X)=\xi$ 的 $\Ff$ 的对象 $X$,
+称为\emph{位于 $\xi$ 上方的 $\Ff$ 的对象}.
+设 $f:\xi\to\eta$ 为 $\Ee$ 的态射.
+满足 $\pi(m)=f$ 的 $\Ff$ 的态射 $m$,
+称为\emph{位于}\pageoriginale $f$ \emph{上方的} $\Ff$ 的态射.
+设 $f:\xi\to\eta$ 为 $\Ee$ 的态射,
+$X$ 为 $\Ff$ 中位于 $\xi$ 上方的对象,
+$Y$ 为 $\Ff$ 中位于 $\eta$ 上方的对象;
+用 $\Hom_f(X,Y)$ 表示位于 $f$ 上方的从 $X$ 到 $Y$ 的态射的集合.
+
+\begin{enonce*}{定义 6.1}\etiquette[6.1]{VI.def6.1}
+\begin{enumerate}
+\renewcommand{\labelenumi}{\theenumi)}
+\item $\Ff$ 的态射 $m:X\to Y$ 称为\emph{笛卡儿}的,
+若对位于 $\pi(m)$ 上方的每个态射 $p:Z\to Y$,
+存在唯一的位于 $\pi(X)$ 的恒等态射上方的态射 $q:Z\to X$,
+使得 $mq=p$.
+
+\item 称范畴 $\Ff$ 经 $\pi$ 在 $\Ee$ 上\emph{预纤维},
+若对 $\Ee$ 的每个态射 $f:\xi\to\eta$,
+位于 $\eta$ 上方的 $\Ff$ 的每个对象,
+都是位于 $f$ 上方的一个笛卡儿态射的终点.
+
+\item 称范畴 $\Ff$ 经 $\pi$ 在 $\Ee$ 上\emph{纤维},
+若它预纤维, 且 $\Ff$ 中任意两个可复合的笛卡儿态射的复合仍为笛卡儿态射.
+\end{enumerate}
+\end{enonce*}
+
+\setcounter{subsection}{1}
+\subsubsection{}\etiquette[6.1.1]{VI.subsubsec6.1.1}
+
+设 $\xi$ 为 $\Ee$ 的一个对象.
+$\Ff$ 在 $\xi$ 处的\emph{纤维范畴}记为 $\Ff_{\xi}$,
+它是 $\Ff$ 的一个子范畴:
+对象为 $\Ff$ 中位于 $\xi$ 上方的对象,
+态射为 $\Ff$ 中位于 $\id_{\xi}$ 上方的态射.
+对 $\Ff_{\xi}$ 的两个对象 $X$ 和 $Y$,
+用 $\Hom_{\xi}(X,Y)$ 表示 $\Ff_{\xi}$ 中从 $X$ 到 $Y$ 的态射的集合.
+
+\subsubsection{}\etiquette[6.1.2]{VI.subsubsec6.1.2}
+
+设 $f:\xi\to\eta$ 为 $\Ee$ 的态射.
+位于 $\eta$ 上方的对象 $Y$ 是位于 $f$ 上方的一个笛卡儿态射的终点,
+当且仅当纤维 $\Ff_{\xi}$ 上的集合值函子
+$$
+Z \mapsto \Hom_f(Z, Y)\quad Z \in \ob (\Ff_{\xi}){\quoi},
+$$
+可表. 当范畴 $\Ff$ 预纤维时, 函子
+$$
+Y \mapsto \Hom_f(., Y)\quad Y \in \ob (\Ff_{\eta}){\quoi},
+$$
+取值于 $\Ff_{\xi}$ 上集合预层的范畴,
+实际上取值于 $\Ff_{\xi}$ 上可表函子的范畴,
+所以在唯一同构意义下定义了函子 $f^{\ast}:\Ff_{\eta}\to\Ff_{\xi}$,
+称为\emph{$f$ 的逆像\pageoriginale 函子}.
+假定 $\Ff$ 预纤维, 并对 $\Ee$ 的每个态射 $f$ 选定一个基变换函子 $f^{\ast}$.
+则范畴 $\Ff$ 在 $\Ee$ 上纤维,
+当且仅当对 $\Ee$ 的每对可复合态射 $f,g$,
+复合函子 $f^{\ast}g^{\ast}$ 是逆像函子.
+令
+\begin{equation*}
+C_{f, g} : f^{\ast} g^{\ast} \to (gf)^{\ast}\tag{6.1.2.1}
+\end{equation*}\etiquette[6.1.2.1]{VI.eq6.1.2.1}
+为典范同构.
+各同构 $C_{f,g}$ 满足由 $\Ee$ 中态射复合的结合性得到的上闭链条件:
+\begin{equation*}
+C_{f, hg}(f^{\ast} \circ C_{g, h}) = C_{gh, f}(C_{f, g} \circ h^{\ast})\tag{6.1.2.2}
+\end{equation*}\etiquette[6.1.2.2]{VI.eq6.1.2.2}
+
+\subsubsection{}\etiquette[6.1.3]{VI.subsubsec6.1.3}
+
+反之, 设对 $\Ee$ 的每个对象 $\xi$ 给定范畴 $\Ff_{\xi}$,
+对每个态射 $f:\xi\to\eta$ 给定函子 $f^{\ast}:\Ff_\eta\to\Ff_{\xi}$,
+并对 $\Ee$ 的每对态射 $(f,g)$ 给定函子同构
+$C_{f,g}:f^{\ast}g^{\ast}\to(fg)^{\ast}$,
+使各 $C_{f,g}$ 满足条件\eqhyperref[VI.eq6.1.2.2]{6.1.2.2}.
+则能以本质唯一的方式构造 $\Ee$ 上的一个纤维范畴 $\Ff$,
+其纤维“是”各范畴 $\Ff_{\xi}$,
+且基变换函子可选为与事先给定的函子“相等”\cite{sga4.exp.VI.bib.5}.
+
+\subsubsection{}\etiquette[6.1.4]{VI.subsubsec6.1.4}
+设 $\Ff$ 和 $\Gg$ 为 $\Ee$ 上的两个范畴.
+用
+$$
+\Hhom_{\cart/\Ee}(\Ff, \Gg)
+$$
+表示 $\Hhom_{\Ee}(\Ff,\Gg)$ 的如下全子范畴:
+它由将 $\Ff$ 的笛卡儿态射映为 $\Gg$ 的笛卡儿态射的函子定义.
+\\
+$\Hhom_{\cart/\Ee}(\Ff,\Gg)$ 的对象称为\emph{笛卡儿函子}.
+
+设 $C$ 和 $C'$ 为两个范畴, $S$ 为范畴 $C$ 的态射的一个集合.
+用 $\Hom_{S^{-1}}(C,C')$ 表示从 $C$ 到 $C'$ 的、将 $S$ 的态射映为同构的函子的集合.
+
+令 $(\Cat)$ 表示如下范畴:
+对象为属于所选宇宙的范畴, 态射为这些范畴之间的函子
+(范畴 $(\Cat)$ 不属于该宇宙).
+
+设 $\Ff$ 为 $\Ee$ 上的范畴, $S$ 为 $\Ff$ 的笛卡儿态射的集合.
+范畴 $\Ff$ 定义 $(\Cat)$ 上的两个函子,
+取值于属于所选宇宙的集合\pageoriginale 的范畴:
+$$
+C \mapsto \Hom_{S^{-1}}(\Ff,C)\quad C \in \ob (\Cat)
+$$
+
+$C \mapsto \Hom_{\Cart /\Ee}(\Ff,C\times\Ee) =$ \{从 $\Ff$ 到 $C\times\Ee$ 的笛卡儿函子\}
+
+(范畴 $C\times\Ee$ 经第二投射函子看作 $\Ee$ 上的范畴).
+
+\begin{enonce*}{命题 6.2}\etiquette[6.2]{VI.prop6.2}
+函子 $(\Cat)\to(\Ens):$
+\begin{align*}
+C &\mapsto \Hom_{S^{-1}} (\Ff, C)\\
+C &\mapsto \Hom_{\Cart/\Ee} (\Ff, C \times \Ee)
+\end{align*}
+典范同构. 它们可表.
+\end{enonce*}
+
+\begin{enonce*}[remark]{证明}
+要证明第一个断言, 只须注意到 $C\times\Ee$ 的笛卡儿态射为形如 $m\times f$ 的态射,
+其中 $m$ 为 $C$ 的同构.
+要证明第二个断言, 只须证明函子 $\Hom_{S^{-1}}(\Ff,.)$ 可表.
+这由\cite{sga4.exp.VI.bib.1} 得到. 这里只指出证明思路.
+形式地给 $\Ff$ 的态射添加 $S$ 的态射的逆.
+考虑由 $\Ff$ 的对象、$\Ff$ 的态射及 $S$ 的态射的形式逆生成的自由范畴
+(道路范畴).
+然后对来自 $\Ff$ 的态射之间的关系以及形如
+$$
+s^{-1}s=\id\quav \text{s}s^{-1}=\id\quad s\in S{\quoi}.
+$$
+的关系取商.
+所得范畴记为 $\Ff(S^{-1})$;
+配上典范函子 $Q:\Ff\to\Ff(S^{-1})$, 它表示函子 $\Hom_{S^{-1}}(\Ff,.)$.
+\end{enonce*}
+
+\begin{enonce*}{定义 6.3}\etiquette[6.3]{VI.def6.3}
+当 $\Ff$ 在 $\Ee$ 上纤维时,
+函子 $\Hom_{S^{-1}}(\Ff,.)$ 记为 $\varinjlim_{\mathcal{E}^{\circ}}\Ff$,
+称为 $\Ff$ 在 $\mathcal{E}^{\circ}$ 上的归纳极限函子.
+表示它的范畴同样记为 $\varinjlim_{\mathcal{E}^{\circ}}\Ff$,
+称为 $\Ff$ 在 $\Ee^{\circ}$ 上的归纳极限范畴.
+\end{enonce*}
+
+\setcounter{subsection}{4}
+\setcounter{subsubsection}{-1}
+\subsubsection{}\etiquette[6.4.0]{VI.subsubsec6.4.0}
+
+假定 $\Ff$ 在 $\Ee$ 上纤维.
+对 $\Ee$ 的每个态射 $f$, 选取位于 $f$ 上方的基变换函子,
+令
+$$
+Q :\Ff \to \varinjlim_{\mathcal{E}^{\circ}} \Ff
+$$
+为\pageoriginale 典范函子.
+将 $\Ff$ 的各纤维到 $\Ff$ 的包含函子与 $Q$ 复合,
+对 $\Ee$ 的每个对象 $\xi$ 得到函子
+$$
+u_{\xi} : \Ff_{\xi} \to \varinjlim_{\mathcal{E}} \Ff
+$$
+并且对 $\Ee$ 的每个态射 $f:\xi\to\eta$,
+得到一个在典范同构意义下交换的图:
+\[
+\xymatrix@R=1cm@C=3cm{
+\Ff_{\eta} \ar[rd]^{u_{\eta}} \ar[dd]_{f^\ast}&\\
+                   &\displaystyle\mathop{\varinjlim}_{\Ee^{0}}\Ff\\
+\Ff_{\xi} \ar[ru]_{u_{\xi}} &
+}
+\]
+于是范畴 $\varinjlim_{\mathcal{E}^{\circ}}\Ff$
+表现为伪函子 $\Ee^{\circ}\to\Cat$ 的\emph{伪函子意义下}的归纳极限\cite{sga4.exp.VI.bib.5};
+该伪函子给每个 $\xi\in\ob$ 对应 $\Ff_{\xi}$,
+给每个 $f:\xi\to\eta$ 对应函子 $f^{\ast}:\Ff_{\eta}\to\Ff_{\xi}$.
+但应注意到, 即使 $\xi\mapsto\Ff_{\xi}$ 是真正的函子,
+范畴 $\varinjlim_{\mathcal{E}^{\circ}}\Ff$
+一般也不是函子 $\xi\mapsto\Ff_{\xi}$ 在 I 2 意义下的归纳极限
+(\cf \hyperref[VI.exe6.8]{6.8}).
+
+\begin{enonce*}{命题 6.4}\etiquette[6.4]{VI.prop6.4}
+设 $\Ff$ 为 $\Ee$ 上的纤维范畴.
+假定范畴 $\Ee$ 有下列性质:
+\begin{itemize}
+\item[L1)] 每个图
+\[
+\xymatrix@C=1.5cm@R=.65cm{
+\bigdot \ar[rd]& \\
+        & \bigdot\\
+\bigdot \ar[ru]&
+}
+\]
+均可嵌入一个交换图
+\[
+\xymatrix@C=1.25cm@R=1cm{
+        & \bigdot \ar[rd]&\\
+\bigdot \ar[ru]\ar[rd]&         & \bigdot\\
+        & \bigdot \ar[ru]&
+}
+\]
+
+\item[L2)] 对\pageoriginale 每对态射 $u,v:\cdot\rightrightarrows\cdot$,
+若存在态射 $t$ 满足 $tu=tv$, 则存在态射 $w$ 满足 $uw=vw$.
+
+(注意若范畴 $\Ee^{\circ}$ 伪滤过 \emph{(I \hyperref[I.def2.7]{2.7})},
+则它有性质 \emph{L1)} 和 \emph{L2)}.)
+于是 $\Ff$ 的笛卡儿态射的集合 $S$ 有下列性质:
+
+\item[Fr1)] 集合 $S$ 对复合稳定. 同构属于 $S$.
+
+\item[Fr2)] 每个图
+\[
+\xymatrix@C=1.5cm@R=.65cm{
+\bigdot \ar[rd]& \\
+        & \bigdot\\
+\bigdot \ar[ru]^{s}&,
+}
+\]
+其中 $s$ 属于 $S$, 均可补为一个交换图
+\[
+\xymatrix@C=1.25cm@R=1cm{
+        & \bigdot \ar[rd]&\\
+\bigdot \ar[ru]^{t}\ar[rd]&         & \bigdot\\
+        & \bigdot \ar[ru]^{s}&
+}
+\]
+其中 $t$ 属于 $S$.
+
+\item[Fr3)] 对每对态射 $u,v:\cdot\rightrightarrows\cdot$,
+若存在态射 $s\in S$ 满足 $su=sv$,
+则存在态射 $t\in S$ 使得 $ut=vt$.
+\end{itemize}
+\end{enonce*}
+
+\begin{enonce*}[remark]{证明}
+留给读者作为习题.
+\end{enonce*}
+
+\begin{enonce*}{命题 6.5}\etiquette[6.5]{VI.prop6.5}
+设 $\Ff$\pageoriginale 为范畴,
+$S$ 为 $\Ff$ 的一个态射集合, 有性质 \emph{Fr1)、Fr2) 和 Fr3)
+(\hyperref[VI.prop6.4]{6.4})}.
+对 $\Ff$ 的每个对象 $X$, 用 $S(X)$ 表示 $S$ 中终点为 $X$ 的态射的范畴.
+范畴 $S(X)$ 余滤过 \emph{(I \hyperref[I.def2.7]{2.7})}.
+于是, 范畴 $\Ff(S^{-1})$ (它表示函子 $\Hom_{S^{-1}}(\Ff,\cdot)$)
+可如下描述:
+\begin{enumerate}
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item $\Ff(S^{-1})$ 的对象就是 $\Ff$ 的对象.
+
+\item 设 $X$ 和 $Y$ 为 $\Ff(S^{-1})$ 的两个对象. 有
+$$
+\Hom_{\Ff(S^{-1})} (X, Y)= \varinjlim_{S(X)}
+\Hom_{\Ff} (., Y){\quoi}.
+$$
+
+\item 设 $f:X\to Y$ 和 $g:Y\to Z$ 为 $\Ff(S^{-1})$ 的两个态射.
+设
+\[
+\xymatrix{
+\bigdot  \ar[d]_{t} \ar[rrd]^{f'}&\\
+X        & &Y & & t\in S
+}
+\]
+(分别地,
+\[
+\xymatrix{
+\bigdot \ar[d]_{t'} \ar[rrd]^{g'}&\\
+Y                          & & Z & & t'\in S)
+}
+\]
+为 $\Ff$ 中像为 $f$ (\resp $g$) 的图.
+取一个交换图
+\[
+\xymatrix@C=2.5cm@R=1cm{
+\bigdot \ar[rd]^{f''} \ar[d]_{t''}& \\
+\bigdot \ar[rd]^{f'}        & \bigdot \ar[d]^{t'}\\
+                            & Y      & t''\in S
+}
+\]
+它的存在性由 Fr2) 保证.
+图
+\[
+\xymatrix@C=2cm{
+\bigdot \ar[d]_{tt''} \ar[rd]^{g'f''}& \\
+X       & Z
+}
+\]
+在 $\Hom_{\Ff(S^{-1})}(X,Z)$ 中的像为复合态射 $gf$.
+
+令\pageoriginale
+$$
+Q : \Ff \to \Ff (S^{-1})
+$$
+为典范函子.
+
+\item 函子 $Q^{\ast}:\Ff(S^{-1})^{\widehat{\phantom{,}}}\to
+  \Ff^{\widehat{\phantom{,}}}$ ($F\mapsto F\circ Q$ \emph{I \hyperref[I.sec5.0]{5.0}})
+全忠实且在对象上单射.
+
+\item 函子 $Q_{!}:\Ff^{\widehat{\phantom{,}}}\to
+  \Ff(S^{-1})^{\widehat{\phantom{,}}}$
+(函子 $Q^{\ast}$ 的左伴随 \emph{(I \hyperref[I.prop5.1]{5.1})}) 左正合.
+(所以, 当 $\Ff$ 中有限投射极限可表时, $Q$ 也如此.)
+\end{enumerate}
+\end{enonce*}
+
+\begin{enonce*}[remark]{证明}
+证明参见 [1].
+\end{enonce*}
+
+\begin{enonce*}[remark]{习题 6.6}\etiquette[6.6]{VI.exe6.6}
+设 $\Ff$ 为范畴, $S$ 为 $\Ff$ 的一个态射集合,
+有性质 Fr1)、Fr2) 和 Fr3).
+对 $\Ff$ 的每个对象 $X$, 用 $S(X)$ 表示终点为 $X$ 的态射的范畴.
+\begin{enumerate}
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 范畴 $S(X)$ 余滤过 (I 2).
+
+\item 对 $\Ff$ 的每个对象 $X$,
+用 $J_S(X)$ 表示 $X$ 的如下筛的集合:
+它们包含由 $S$ 的一个态射生成的筛.
+各 $J_S(X)$ 在 $\Ff$ 上定义拓扑 $T$.
+
+\item 对拓扑 $T$, $S$ 的态射是双覆盖的
+(II \hyperref[VI.cor5.2]{5.2}).
+
+\item 对 $\Ff$ 的每个对象 $X$,
+用 $𝒥^2(X)$ 表示终点为 $X$ 的双覆盖态射的范畴.
+范畴 $S(X)$ 在 $𝒥^2(X)$ 中共尾 (I 8).
+
+\item 设 $G$ 为 $\Ff$ 上的集合预层,
+$\sheaf{a}$ 为拓扑 $T$ 的相伴层函子.
+对 $\Ff$ 的每个对象 $X$, 有典范同构
+$$
+\sheaf{a} G(X) \xrightarrow{\sim} \frac{\lim}{S(X)} G( \cdot ){\quoi}.
+$$
+一个预层是层, 当且仅当它将 $S$ 的每个态射映为同构.
+
+\item 选取相伴层函子, 使它在 $\Ff$ 上的限制在对象上单射.
+用 $\underrightarrow{\Ff}$ 表示 $\Ff$ 上集合层范畴的如下全子范畴:
+它由可表预层的相伴层定义.
+\pageoriginale 范畴 $\underrightarrow{\Ff}$ 同构于\hyperref[VI.prop6.5]{6.5}
+中描述的范畴 $\Ff(S^{-1})$.
+$\underrightarrow{\Ff}$ 的对象组成 $\Ff$ 上集合层的拓扑斯 $\Ff^{\sim}$ 的一个生成族.
+由 $\Ff^{\sim}$ 的典范拓扑在 $\underrightarrow{\Ff}$ 上诱导的拓扑为粗拓扑
+(II \hyperref[II.subsubsec1.1.4]{1.1.4}).
+
+\item 设 $Q:\Ff\to\underrightarrow{\Ff}$ 为典范函子.
+函子 $Q$ 是从景 $\underrightarrow{\Ff}$ (带粗拓扑)
+到景 $\Ff$ (带 b) 中的拓扑 $T$) 的态射
+(IV \hyperref[IV.exer5.9]{5.9}), 并在相应拓扑斯上诱导同构.
+
+\item 设 $u:\Ff\to C$ 为函子.
+函子 $u$ 连续, 当且仅当它将 $S$ 的态射映为同构 (III \hyperref[III.def1.1]{1.1}).
+
+\item 设 $u:\Ff\to C$ 为将 $S$ 的态射映为同构的函子.
+函子 $u$ 唯一地分解为
+\[
+\xymatrix@=1.5cm{
+  \Ff\ar[rr]^{u} \ar[rd]_{Q}&  & C\\
+            & \underrightarrow{\Ff}{} \ar[ru]_{v}&
+}
+\]
+(使用 III \hyperref[III.rem1.4]{1.4}.)
+
+\item 设 $\Pro_S\Ff$ 为 $\Pro\Ff$ (I 8) 的如下全子范畴:
+它由转移态射属于 $S$ 的 pro-对象定义.
+证明函子 $Q$ 分解为
+\[
+\xymatrix@M=.25cm@C=2cm{
+\Ff\ar@{^{(}->}[r]^{i}& \Pro_S\Ff\ar[r]^{j}&
+\Ff_{S^{-1}}
+}
+\]
+其中 $j$ 是 $\Pro Q$ 在 $\Pro_S\Ff$ 上的限制.
+证明函子 $j$ 有全忠实左伴随
+$$
+A : \Ff_{S^{-1}} \to \Pro_S \Ff{\quoi}.
+$$
+证明对 $\Ff$ 的每个对象 $X$, $AQ(X)$ 是 pro-对象
+$$
+Y \to X \in S(X) \mapsto Y{\quoi}.
+$$
+\end{enumerate}
+\end{enonce*}
+
+
+% END INCLUDED SGA4_English_current_buildable_source_20260906/source/06/drafts/SGA4_VI_LINES_3414_3872_English.texfrag
+
+
+% BEGIN INCLUDED SGA4_English_current_buildable_source_20260906/source/06/drafts/SGA4_VI_LINES_3873_4230_English.texfrag
+\begin{enonce*}{命题 6.7}\etiquette[6.7]{VI.prop6.7}
+设\pageoriginale $\Ee$ 为余滤过范畴 (I \hyperref[I.sec8.7]{8.7}),
+$\Ff\to\Ee$ 为纤维范畴 \emph{(\hyperref[VI.subsubsec6.1.3]{6.1.3})}.
+\begin{enumerate}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 设 $\xi$ 为 $\Ee$ 的对象,
+$\Ff/\xi$ 为经基变换 $\Ee/\xi\to\Ee$ 得到的 $\Ee/\xi$ 上的纤维范畴.
+典范函子 $\varinjlim_{\Ee/\xi}\Ff/\xi\to\varinjlim_{\Ee}\Ff$ 是范畴等价.
+
+\item 更一般地, 设 $\Ee'\to\Ee$ 为共尾函子 \emph{(I 8)}.
+设 $\Ff'\to\Ee'$ 为由 $\Ff\to\Ee$ 经基变换 $\Ee'\hookrightarrow\Ee$ 得到的纤维范畴.
+典范函子
+$$
+\varinjlim_{\Ee'} \Ff' \to \varinjlim_{\Ee} \Ff
+$$
+为范畴等价.
+\end{enumerate}
+\end{enonce*}
+
+\begin{enonce*}[remark]{证明}
+习题.
+\end{enonce*}
+
+\begin{enonce*}[remark]{习题 6.8}\etiquette[6.8]{VI.exe6.8}
+\begin{enumerate}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 设 $g:{\Ee}^{\circ}\to\Cat$ 为函子,
+$\Gg\to\Ee$ 为相应的纤维范畴\cite{sga4.exp.VI.bib.5}.
+证明存在典范函子
+$\varinjlim_{\Ee^{\circ}}\Gg\to\varinjlim_{\Ee^{\circ}}g$.
+证明这一函子未必是范畴等价.
+(可以取 $g$ 为值为 Cat 的终对象的常值函子,
+取 $\Ee$ 为一个群所对应的范畴.)
+
+\item 假定范畴 $\Ee^{\circ}$ 伪滤过.
+证明此时典范函子
+$\varinjlim_{\Ee^{\circ}}\Gg\to\varinjlim_{\Ee^{\circ}}g$ 为范畴等价.
+\end{enumerate}
+\end{enonce*}
+
+\begin{enonce*}{命题 6.9}\etiquette[6.9]{VI.prop6.9}
+设 $\Ff\to\Ee$ 为纤维范畴 (\hyperref[VI.def6.1]{6.1}).
+函子 $(\Cat)\to(\Ens)$
+$$
+C \mapsto \Hom_{\Cart/\Ee} (C \times \Ee, \Ff)
+$$
+由范畴 $\Hhom_{\Cart/\Ee}(\Ee,\Ff)$ 表示.
+\end{enonce*}
+
+设 $C$ 为范畴, $F:C\times\Ee\to\Ff$ 为笛卡儿 $\Ee$-函子
+(\hyperref[VI.subsubsec6.1.4]{6.1.4}), $X$ 为 $C$ 的一个对象.
+函子 $\xi\mapsto F((X,\xi))$ 是从 $\Ee$ 到 $\Ff$ 的笛卡儿函子,
+记为 $F'(X)$, 它以函子方式依赖于 $X$.
+因此存在一个关于 $C$ 具有函子性的映射 $F\mapsto F'$,
+从 $\Hom_{\Cart/\Ee}(C\Ee,\Ff)$
+到 $\Hom(C,\Hhom_{\Cart/\Ee}(\Ee,\Ff))$,
+立即验证它是双射.
+
+\setcounter{subsection}{9}
+\subsection{}\etiquette[6.10]{VI.subsec6.10}
+
+范畴\pageoriginale $\Hhom_{\Cart/}(\Ee,\Ff)$
+称为纤维范畴 $\Ff$ 的\emph{笛卡儿截面}范畴.
+有时也称它为 $\Ff$ 在 $\Ee^{\circ}$ 上的\emph{投射极限}范畴,
+此时记为 $\varprojlim_{\Ee^{\circ}}\Ff$\cite{sga4.exp.VI.bib.2}.
+
+\subsection{}\etiquette[6.11]{VI.subsec6.11}
+
+选取纤维范畴 $\Ff\to\Ee$ 的一个分裂,
+\ie 对 $\Ee$ 的每个箭头 $f:\xi\to\eta$,
+选取基变换函子 $f^{\ast}:\Ff_{\eta}\to\Ff_{\xi}$.
+对 $\Ee$ 的每个对象 $\xi$, 用
+$$
+v_{\xi} : \varprojlim_{\Ee^{\circ}} \Ff \to \Ff_{\xi}
+$$
+表示在 $\xi$ 处取值的函子.
+对每个态射 $f:\xi\to\eta$, 有在典范同构意义下交换的函子图:
+\[
+\xymatrix@C=2.25cm@R=1.25cm{
+\displaystyle\mathop{\varprojlim}_{\Ee^{\circ}} \Ff
+\ar@{-}[r]^{v_{\xi}} \ar[rd]^{v_\eta}& \Ff_{\xi} \ar[d]^{f^\ast}\\
+                                 & \Ff_\eta.
+}
+\]
+因而范畴 $\varprojlim_{\Ee^{\circ}}\Ff$
+表现为 $\xi\mapsto\Ff_{\xi}$ 的\emph{伪函子意义下}的投射极限.
+即使 $\xi\mapsto\Ff_{\xi}$ 为真正的函子
+(\ie 即使所选的分裂为一个劈裂\cite{sga4.exp.VI.bib.5}),
+范畴 $\varprojlim_{\Ee^{\circ}}\Ff$ (\hyperref[VI.subsec6.10]{6.10})
+与 $\varprojlim_{\Ee^{\circ}}\Ff_{\xi}$ (I 2) 一般也不等价.
+
+% CHECKPOINT: VI section 6 complete; section 7 follows. Section 8 onward belongs to another translator.
+\section{纤维化拓扑斯与纤维化景}\etiquette[7]{VI.sec7}
+
+\subsection{纤维化拓扑斯}\etiquette[7.1]{VI.subsec7.1}
+
+\begin{enonce*}{定义 7.1.1}\etiquette[7.1.1]{VI.def7.1.1}
+设 $𝒰$ 为宇宙.
+范畴 $I$ 上的纤维化 $𝒰$-拓扑斯是一个 $I$ 上的纤维范畴
+(\hyperref[VI.def6.1]{6.1})
+$$
+p : F \to I
+$$
+其纤维为 $𝒰$-拓扑斯,
+且相对于 $I$ 的态射 $f:i\to j$ 的逆像函子
+\footnote{对纤维结构而言 (\hyperref[VI.subsubsec6.1.2]{6.1.2}).}
+为函子 $f^{\ast}:F_j\to F_i$,
+它们是拓扑斯态射 $f\bigdot:F_i\to F_j$ 的逆像函子
+\emph{(IV \hyperref[IV.subsubsec3.1.2]{3.1.2})}.
+\end{enonce*}
+
+\setcounter{subsubsection}{1}
+\subsubsection{}\etiquette[7.1.2]{VI.subsubsec7.1.2}
+
+等价地, 范畴 $I$ 上的纤维化 $𝒰$-拓扑斯是一个纤维范畴 $p:F\to I$,
+其纤维为 $𝒰$-拓扑斯, 逆像函子\pageoriginale 正合且与归纳极限可交换
+(IV \hyperref[IV.cor1.6]{1.6}).
+
+
+\subsubsection{}\etiquette[7.1.3]{VI.subsubsec7.1.3}
+
+对 $I$ 的每个态射 $f:i\to j$, 选取逆像函子 $f^{\ast}:F_j\to F_i$.
+则对 $I$ 的每对可复合态射 $i\xrightarrow{f}j\xrightarrow{g}k$,
+有典范同构 $c_{f,g}:f^{\ast}g^{\ast}\to(gf)^{\ast}$
+\eqhyperref[VI.eq6.1.2.1]{6.1.2.1},
+各 $c_{f,g}$ 有上闭链性质\eqhyperref[VI.eq6.1.2.2]{6.1.2.2}.
+此外, 对每个 $f:i\to j$, 为函子 $f^{\ast}:F_j\to F_i$
+选取右伴随 $f_{\ast}:F_i\to F_j$.
+函子 $f_{\ast}:F_i\to F_j$ 由它是 $f^{\ast}$ 的右伴随这一性质决定到典范同构.
+伴随函子的一般结果便给出典范同构
+\begin{equation*}
+{c'}_{g, f} : g_{\ast} f_{\ast} \to (gf)_{\ast}\tag{7.1.3.1}{\quoi}.
+\end{equation*}\etiquette[7.1.3.1]{VI.eq7.1.3.1}
+它们有类似于性质\hyperref[VI.eq6.1.2.2]{6.2.2.2} 的上闭链性质,
+其明确写法留给读者.
+应用\hyperref[VI.subsubsec6.1.3]{6.1.3} 的结果,
+便得到 $I^{\circ}$ 上的纤维范畴:
+\begin{equation*}
+p': F'\to I^{\circ}{\quoi}.\tag{7.1.3.2}
+\end{equation*}\etiquette[7.1.3.2]{VI.eq7.1.3.2}
+容易验证, 在唯一 $I^{\circ}$-同构意义下,
+纤维范畴 $p':F'\to I^{\circ}$ 不依赖构造时所用的各种选择
+\footnote{\etiquette[112]{page112}撰写者对于这一构造的非内蕴性向读者致歉.}.
+纤维范畴 $p':F'\to I^{\circ}$ 在 $I^{\circ}$ 的每个对象 $i$ 处的纤维,
+典范同构于 $𝒰$-拓扑斯 $F_i$, 并与之等同.
+纤维范畴 $p':F'\to I^{\circ}$ 的逆像函子是拓扑斯态射的\emph{正像}函子.
+
+\subsubsection{}\etiquette[7.1.4]{VI.subsubsec7.1.4}
+
+设 $p:F\to I$ 为纤维化 $𝒰$-拓扑斯.
+对每个 $f:i\to j$, 选取拓扑斯态射
+(IV \hyperref[IV.subsubsec3.1.2]{3.1.2}) $f\bigdot:F_i\to F_j$,
+使 (在 $f\bigdot$ 下的) 逆像函子 $f^{\ast}$ 为纤维结构的逆像函子
+(\hyperref[VI.def6.1]{6.1}).
+于是得到联系这些拓扑斯态射的上闭链 $c_{f,g}$
+\eqhyperref[VI.eq7.1.3.1]{7.1.3.1} 及\eqhyperref[VI.eq7.1.3.2]{7.1.3.2}.
+态射 $f.$, $f\in\text{Fl}(I)$ 及上闭链 $c_{f,g}$ 的全体,
+称为纤维化拓扑斯 $F\to I$ 的一个\emph{双分裂}.
+选取双分裂后, 可以给纤维化拓扑斯 $F\to I$ 对应一个从范畴 $I$
+到 $𝒰$-拓扑斯的 2-范畴\pageoriginale 的伪函子 $i\mapsto F_i$.
+反之, 可以以本质唯一的方式 (\cf \cite{sga4.exp.VI.bib.5})
+给它对应一个带有双分裂的纤维化 $𝒰$-拓扑斯 $F\to I$,
+使相应伪函子典范同构于 $i\mapsto F_i$.
+实际中, 纤维化 $𝒰$-拓扑斯 $F\to I$ 通常记为 $(F_i)_{i\in I}$,
+其中隐含已选定一个双分裂.
+但应注意, 在纤维化拓扑斯上作的构造
+(例如相伴的全拓扑斯 (\hyperref[VI.subsec7.4]{7.4})
+及投射极限 (\hyperref[VI.subsec8.1]{8.1}))
+只依赖纤维化拓扑斯本身, 不依赖可能已选定的双分裂.
+
+\begin{enonce*}{定义 7.1.5}\etiquette[7.1.5]{VI.def7.1.5}
+设 $p:F\to I$ 和 $q:G\to I$ 为 $I$ 上的两个纤维化 $𝒰$-拓扑斯.
+从 $(F,p)$ 到 $(G,q)$ 的纤维化拓扑斯态射 $m$,
+由一个 $I$-函子 $m^{\ast}:G\to F$
+\emph{(\hyperref[VI.subsubsec6.1.4]{6.1.4})} 的数据,
+以及对 $I$ 的每个对象 $i$ 给定函子 $m^{\ast}_i:G_i\to F_i$
+的右伴随 $m_{i\ast}:F_i\to G_i$ 的数据组成;
+其中这一函子由将 $m^{\ast}$ 限制在 $i$ 处的纤维而得到.
+这些数据还须满足下列条件:
+对 $I$ 的每个对象 $i$, 伴随函子对 $(m^{\ast}_i,m_{i\ast})$
+是从拓扑斯 $F_i$ 到拓扑斯 $G_i$ 的态射.
+\end{enonce*}
+
+\setcounter{subsubsection}{5}
+\subsubsection{}\etiquette[7.1.6]{VI.subsubsec7.1.6}
+
+设 $m:(F,p)\to(G,q)$ 为 $I$ 上纤维化 $𝒰$-拓扑斯的态射,
+$p':F'\to I^{\circ}$ 和 $q':G'\to I^{\circ}$
+为通过\hyperref[VI.subsubsec7.1.3]{7.1.3} 的构造,
+分别与纤维化拓扑斯 $(F,p)$ 和 $(G,q)$ 相伴的纤维范畴.
+选取 $F$ 和 $G$ 的双分裂 (\hyperref[VI.subsubsec7.1.4]{7.1.4}),
+两者都记为 $(f:i\to j)\mapsto f.:(f^{\ast},f_{\ast})$,
+分别从 $F_i$ 到 $F_j$ 以及从 $G_i$ 到 $G_j$.
+因为 $f^{\ast}:G\to F$ 为 $I$-函子,
+对每个态射 $f:i\to j$ 有一个函子态射 (转移态射)
+\begin{equation*}
+b_f : f^{\ast}m^{\ast}_j \to m^{\ast}_i f^{\ast}\tag{7.1.6.1}{\quoi},
+\end{equation*}\etiquette[7.1.6.1]{VI.eq7.1.6.1}
+且对每对可复合态射 $i\xrightarrow{f}j\xrightarrow{g}k$, 有
+\begin{equation*}
+m^{\ast}_i (c_{f, g}) b^{\ast}_f f^{\ast} (b_g) = b_{gf} c_{f, g}\tag{7.1.6.2}{\quoi}.
+\end{equation*}\etiquette[7.1.6.2]{VI.eq7.1.6.2}
+转到伴随函子得到态射
+\begin{equation*}
+b'_f : f_{\ast}m_{i \ast} \to m_{j\ast} f_{\ast}\tag{7.1.6.3}
+\end{equation*}\etiquette[7.1.6.3]{VI.eq7.1.6.3}
+它们满足类似于\eqhyperref[VI.eq7.1.6.2]{7.1.6.2} 的关系.
+由于各函子 $f_{\ast}$ 是\pageoriginale 纤维范畴 $(F',p')$ 和 $(G',q')$
+的逆像函子 (\hyperref[VI.subsubsec7.1.3]{7.1.3}),
+可以构造 $I^{\circ}$-函子
+\begin{equation*}
+m_{\ast} : F'\to G'\tag{7.1.6.4}{\quoi},
+\end{equation*}\etiquette[7.1.6.4]{VI.eq7.1.6.4}
+它在各纤维上的限制为函子 $m_{i\ast}$, 转移同构为各 $b'_f$.
+稍加耐心即可验证, 如此构造的函子 $m_{\ast}$
+不依赖拓扑斯态射 $f$ 的选择.\footnote{见第\pagehyperref[page112]{112} 页底部的注.}
+
+\subsubsection{}\etiquette[7.1.7]{VI.subsubsec7.1.7}
+
+用 $\Homtop_I(F,G)$ 表示纤维化拓扑斯 $(F,p)$
+与纤维化拓扑斯 $(G,q)$ 之间的纤维化拓扑斯态射的集合.
+集合 $\Homtop_I(F,G)$ 是一个记为 $\Hhomtop_I(F,G)$ 的范畴的对象集合:
+若 $m$ 和 $n$ 为两个纤维化拓扑斯态射,
+从 $m$ 到 $n$ 的态射是从 $n^{\ast}$ 到 $m^{\ast}$ 的函子的 $I$-态射.
+由伴随, 也得到从函子 $m_{\ast}$ 到函子 $n_{\ast}$ 的 $I^{\circ}$-态射
+(\hyperref[VI.subsubsec7.1.6]{7.1.6}).
+所以最终有两个函子
+\hypertarget{sga4.exp.VI.equation.7.1.7.1}{}\begin{align*}
+\Hhomtop_I (F, G) & \to \Hhom_I (G, F)^{\circ}\tag{7.1.7.1}\\
+\Hhomtop_I (F, G) &\to \Hhom_{I^{\circ}} (F', G')\tag{7.1.7.2}
+\end{align*}\hypertarget{sga4.exp.VI.equation.7.1.7.2}{}
+它们给每个态射 $(m^{\ast},(m_{i\ast})_{i\in\Ob I})$,
+一方面对应函子 $m^{\ast}\in\Hom_I(G,F)$,
+另一方面对应按 (\hyperref[VI.subsubsec7.1.6]{7.1.6}) 将各 $m_{i\ast}$ 粘合而得到的函子
+$m_{\ast}\in\Hom_{I^\circ}(F',G')$.
+函子 $m^{\ast}:G\to F$ \hyperlink{sga4.exp.VI.equation.7.1.7.1}{(7.1.7.1)}
+称为纤维化拓扑斯态射 $m:F\to G$ 下的\emph{逆像函子};
+函子 $m_{\ast}:F'\to G'$ \hyperlink{sga4.exp.VI.equation.7.1.7.2}{(7.1.7.2)}
+称为纤维化拓扑斯态射 $m:F\to G$ 下的\emph{正像函子}.
+由定义立即得知, 函子 $m\mapsto m^{\ast}$ 和 $m\mapsto m_{\ast}$ \emph{全忠实},
+其本质像一方面为从 $G$ 到 $F$ 的、逐个纤维正合且与归纳极限可交换的 $I$-函子的集合,
+另一方面为从 $F'$ 到 $G'$ 的、逐个纤维正合且与归纳极限可交换的 $I^0$-函子的集合,
+另一方面为从 $F'$ 到 $G'$ 的、逐个纤维具有正合左伴随的 $I^0$-函子的集合.
+这说明通过正像或逆像来定义纤维化拓扑斯态射的语言滥用是合理的.
+实际上, 这样一个纤维化\pageoriginale 拓扑斯态射只被定义到唯一同构.
+
+用 $\Hhomtop_{\Cart/I}(F,G)$ 表示 $\Hhomtop_I(F,G)$ 的如下全子范畴:
+它由使 $m_{\ast}$ (或等价地, $m^{\ast}$) 为笛卡儿函子的态射 $m$
+生成 (\hyperref[VI.subsubsec6.1.4]{6.1.4}).
+这样的态射称为\emph{笛卡儿态射}.
+于是由\hyperlink{sga4.exp.VI.equation.7.1.7.1}{(7.1.7.1)} 和
+\hyperlink{sga4.exp.VI.equation.7.1.7.2}{(7.1.7.2)} 诱导全忠实函子:
+\hypertarget{sga4.exp.VI.equation.7.1.7.3}{}\begin{align*}
+\Hhomtop_{\Cart/I} (F, G) & \to \Hhom_{\cart /I} (G,
+  F)^{\circ}{\quoi},\tag{7.1.7.3}\\
+\Hhomtop_{\Cart/I} (F, G) &\to \Hhom_{\cart /I^{\circ}} (F',
+  G'){\quoi}.\tag{7.1.7.4}
+\end{align*}\hypertarget{sga4.exp.VI.equation.7.1.7.4}{}
+
+\subsubsection{}\etiquette[7.1.8]{VI.subsubsec7.1.8}
+
+设 $p:F\to I$, $q:G\to I$ 和 $r:H\to I$ 为 $I$ 上三个纤维化 $𝒰$-拓扑斯,
+$m:F\to G$ 及 $n:G\to H$ 为两个纤维化 $𝒰$-拓扑斯态射.
+如在 IV \hyperlink{sga4.exp.IV.subsection.3.3}{3.3} 中那样,
+定义态射 $m$ 和 $n$ 的复合, 记为 $nm:F\to H$;
+若 $𝒱$ 为满足 $𝒰\in 𝒱$ 的宇宙,
+则定义范畴 ($𝒱$-$𝒰$-$\Top_{/I}$),
+其对象为纤维范畴是 $𝒱$ 的元素的 $I$ 上纤维化 $𝒰$-拓扑斯,
+其态射为 $I$ 上纤维化 $𝒰$-拓扑斯的态射.
+此外, 如在 IV \hyperref[IV.subsubsec3.3.2]{3.3.2} 中那样, 复合映射
+$$
+\Homtop_{/I} (F, G) \times \Homtop_{/I} (G, F) \to \Homtop_{/I} (F, H)
+$$
+是由一个“态射复合函子”在对象上诱导的映射:
+$$
+\Hhomtop_{/I} (F, G) \Hhomtop_{/I} (G, H) \to \Hhomtop_{/I} (F, H)
+$$
+而 IV \hyperlink{sga4.exp.IV.subsection.3.3}{3.3}
+及 IV \hyperref[IV.subsec3.4]{3.4} 的讨论不加改变地推广到纤维化 $U$-拓扑斯的情形.
+此外, 读者会注意到, 当 $I$ 是单点范畴 (一个对象和一个恒等态射) 时,
+$I$ 上纤维化 $𝒰$-拓扑斯“无非就是”一个 $𝒰$-拓扑斯,
+而纤维化 $𝒰$-拓扑斯态射“无非就是”一个 $𝒰$-拓扑斯态射;
+此时上述构造归结到 IV 3 的构造.
+
+\subsubsection{}\etiquette[7.1.9]{VI.subsubsec7.1.9}
+
+设 $p:F\to I$ 为纤维化 $𝒰$-拓扑斯, $\phi:J\to I$ 为函子.
+由 $(F,p)$ 经基变换 $\phi:J\to I$ 得到的纤维范畴 $p_J:F_J\to J$,
+是 $J$ 上的纤维化 $𝒰$-拓扑斯.
+设 $p':F'\to I^{\circ}$ 和 $(p_J)':(F_J)'\to J^{\circ}$
+分别为由 $(F,p)$ 和 $(F_J,p_J)$
+通过\hyperref[VI.subsubsec7.1.3]{7.1.3} 的构造得到的纤维范畴.
+立即验证, 范畴 $((F_J)',(p_J)')$ 典范同构于由 $p':F'\to I^{\circ}$
+经\pageoriginale 基变换 $\phi:J^{\circ}\to I^{\circ}$
+得到的范畴 $(p')_J:(F')_J\to J^{\circ}$.
+今后将这两个 $J^{\circ}$ 上的纤维范畴等同, 记为 $p'_j:F'_j\to J^{\circ}$.
+基变换运算关于其变元具有函子性, 甚至 2-函子性:
+对每对 $I$ 上的纤维化 $𝒰$-拓扑斯 $p:F\to I$ 和 $G\to I$,
+有两个范畴与函子的交换图:
+\[\vcenter{
+\xymatrix{
+\Hhomtop_I(F,G) \ar[r] \ar[d]& \Hhom_I(G,F)^{\circ} \ar[d]\\
+\Hhomtop_J(F_J,G_J) \ar[r]& \Hhom_J(G_J,F_J)^{\circ},
+}}\leqno(7.1.9.1)
+\]\etiquette[7.1.9.1]{VI.eq7.1.9.1}
+\[\vcenter{
+\xymatrix{
+\Hhomtop_I(F,G) \ar[r] \ar[d]& \Hhom_{I^{\circ}}(F',G') \ar[d]\\
+\Hhomtop_J(F_J,G_J) \ar[r]&
+\Hhom_{J^{\circ}}(F'_{J^{\circ}},G_{J^{\circ}}),
+}}\leqno{(7.1.9.2)}
+\]\etiquette[7.1.9.2]{VI.eq7.1.9.2}
+其中纵向函子为基变换函子,
+\eqhyperref[VI.eq7.1.9.1]{7.1.9.1} 中的横向函子分别为
+“态射 $\mapsto$ 逆像”函子\hyperlink{sga4.exp.VI.equation.7.1.7.1}{(7.1.7.1)},
+而\eqhyperref[VI.eq7.1.9.2]{7.1.9.2} 中的横向函子为
+“态射 $\to$ 正像”函子\hyperlink{sga4.exp.VI.equation.7.1.7.2}{(7.1.7.2)}.
+
+
+% END INCLUDED SGA4_English_current_buildable_source_20260906/source/06/drafts/SGA4_VI_LINES_3873_4230_English.texfrag
+
+
+% BEGIN INCLUDED SGA4_English_current_buildable_source_20260906/source/06/drafts/SGA4_VI_LINES_4231_4582_English.texfrag
+\subsection{纤维化景}\etiquette[7.2]{VI.subsec7.2}
+
+\subsubsection{}\etiquette[7.2.1]{VI.subsubsec7.2.1}
+
+范畴 $I$ 上的\emph{纤维化 $𝒰$-景} $C$ 是一个纤维范畴 $p : C \to I$,
+其各纤维赋有使它们成为 $𝒰$-景的拓扑 (IV \hyperref[II.def3.0.2]{3.0.2}),
+并且对 $I$ 的每个态射 $f : i \to j$,
+逆像函子 $f^{\ast} : C_j \to C_{i}$ 是从景 $C_i$ 到景 $C_j$ 的态射
+(IV \hyperref[IV.subsubsec4.9.1]{4.9.1}).
+
+\subsubsection{}\etiquette[7.2.2]{VI.subsubsec7.2.2}
+
+设 $p : C \to I$ 和 $q : D \to I$ 为 $I$ 上的两个纤维化 $𝒰$-景.
+\emph{从 $C$ 到 $D$ 的纤维化 $𝒰$-景态射},
+是一个 $I$-函子 (\hyperref[VI.subsec6.0]{6.0}) $m : D \to C$,
+使得对 $I$ 的每个对象 $i$,
+函子 $m_i : D_i \to C_i$ 是从景 $C_i$ 到景 $D_i$ 的态射.
+用 $\Morsite_I(C, D)$ 表示从 $C$ 到 $D$ 的纤维化景态射的集合.
+\emph{从纤维化景 $D$ 到纤维化景 $C$ 的连续函子},
+是一个从 $D$ 到 $C$ 的 $I$-函子, 它在各纤维上诱导连续函子 (III 1).
+用 $\Cont_{I}(D, C)$ 表示从纤维化景 $D$\pageoriginale 到纤维化景 $C$ 的连续函子的集合.
+用 $\Mmorsite_I (C, D)$ 表示 $\Hhom_I (D, C)^{\circ}$ 的如下全子范畴,
+它由对象集合 $\Morsite_I (C, D) \subset \Hom_I (D, C)$ 定义.
+类似地, 用 $\Ccont_I(D, C)$ 表示 $\Hhom_I (D, C)$ 的如下全子范畴,
+它由对象子集 $\Ccont_I (D, C) \subset \Hom_I (D, C)$ 定义.
+于是有两个在对象上单射的全忠实函子
+\begin{equation*}
+\Mmorsite_I (C, D) \hookrightarrow \Ccont_I (D, C)^{\circ} \hookrightarrow
+\Hhom_I (D, C)^{\circ}{\quoi}.\tag{7.2.2.1}
+\end{equation*}\etiquette[7.2.2.1]{VI.eq7.2.2.1}
+如在\hyperref[VI.subsubsec7.1.7]{7.1.7} 中那样,
+定义从纤维化景 $C$ 到纤维化景 $D$ 的\emph{笛卡儿}态射.
+有全子范畴的图
+\[\vcenter{
+\xymatrix@M=.2cm{
+\Mmorsite_{\Cart/I}(C,D)\ar@{^{(}->}[r] \ar@{_{(}->}[d]&
+\Hhom_{\Cart/I}(D,C)^{\circ} \ar@{_{(}->}[d]\\
+\Mmorsite_I(C,D)\ar@{^{(}->}[r]& \Hhom_I(D,C)^{\circ}.
+}}\leqno{(7.2.2.2)}
+\]\etiquette[7.2.2.2]{VI.eq7.2.2.2}
+
+\subsubsection{}\etiquette[7.2.3]{VI.subsubsec7.2.3}
+
+纤维化 $𝒰$-景的态射可以复合.
+由此可以定义范畴 ($𝒱$-$𝒰$-Site/$I$),
+其对象为各纤维属于一个宇宙 $𝒱$ (其中 $𝒰$ 为其一个元素) 的 $𝒰$-景.
+范畴 $𝒱$-$𝒰$-site 还具有 2-范畴结构;
+特别地, 纤维化 $𝒰$-景的态射的复合, 对于态射之间的态射具有函子性.
+对每个函子 $\phi : J \to I$ 及每个纤维化景 $p : C \to I$,
+由 $(C, p)$ 经基变换 $\phi : J \to I$ 得到的范畴 $p_J : C_J \to J$,
+典范地带有 $J$ 上纤维化 $𝒰$-景的结构.
+基变换运算具有 2-函子性.
+
+\subsubsection{}\etiquette[7.2.4]{VI.subsubsec7.2.4}
+
+设 $p : C \to I$ 为纤维范畴,
+其各纤维赋有使它们成为 $𝒰$-景的拓扑.
+假定各纤维范畴中投射极限可表.
+要使 $p : C \to I$ 为纤维化 $𝒰$-景, 必须各逆像函子左正合且将覆盖族映为覆盖族;
+当各纤维的拓扑比典范拓扑粗时, 这一条件也充分
+(IV \hyperref[IV.subsubsec4.9.2]{4.9.2}).
+本研讨班中所用的所有纤维化景都将是上述类型.
+类似地, 设 $p : C \to I$ 和 $q : D \to I$ 为两个纤维化景,
+使得各纤维范畴中有限投射极限可表.
+\pageoriginale 一个笛卡儿函子 $m : D \to C$,
+若在各纤维范畴上诱导左正合函子,
+并将纤维范畴的覆盖族映为覆盖族,
+则是从 $C$ 到 $D$ 的纤维化景态射;
+若 $C$ 的各纤维拓扑比典范拓扑粗, 则反之也成立
+(IV \hyperref[IV.subsubsec4.9.2]{4.9.2}).
+本研讨班中所用的所有纤维化景态射都将是上述类型.
+
+\subsubsection{}\etiquette[7.2.5]{VI.subsubsec7.2.5}
+
+当各纤维赋有典范拓扑时, 纤维化 $𝒰$-拓扑斯 $p : F \to I$ 为纤维化 $𝒰$-景;
+今后总这样赋予拓扑.
+设 $m: F \to G$ 为纤维化 $𝒰$-拓扑斯的态射.
+逆像函子 $m^{\ast} : G \to F$ (\hyperref[VI.subsubsec7.1.7]{7.1.7})
+为从纤维化 $𝒰$-景 $F$ 到纤维化 $𝒰$-景 $G$ 的态射.
+因此有函子
+$(𝒱\text{-}𝒰\text{-}\Top_{/I}) \to
+(𝒱\text{-}𝒰\text{-}\Site_{/I})$,
+它一般不忠实.
+但这个函子自然延拓为一个 2-函子,
+对 $I$ 上两个纤维化 $𝒰$-拓扑斯 $F$ 和 $G$, 它诱导函子
+\begin{equation*}
+\Hhomtop_{I}(F, G) \to \Mmorsite_I (F, G)\tag{7.2.5.1}
+\end{equation*}\etiquette[7.2.5.1]{VI.eq7.2.5.1}
+\begingroup\tolerance=9999\emergencystretch=4em
+由定义立即得知它是\emph{范畴等价}.
+此外, 将函子\eqhyperref[VI.eq7.2.5.1]{7.2.5.1}
+与典范包含 $\Mmorsite_I (F, G) \hookrightarrow
+\Hhom_{I}(G, F)^{\circ}$ 复合,
+恰得给纤维化拓扑斯态射对应其逆像的函子\hyperlink{sga4.exp.VI.equation.7.1.7.1}{(7.1.7.1)}.\par\endgroup
+
+\subsubsection{}\etiquette[7.2.6]{VI.subsubsec7.2.6}
+
+设 $p : C \to I$ 为纤维化 $𝒰$-景.
+对 $I$ 的每个态射 $f : i \to j$, 选取基变换函子 $f^{\ast} : C_j \to C_i$.
+转到 $\sheaf{\Uu}$-层范畴后,
+函子 $f^{\ast}$ 延拓为函子 $\Top(f)^{\ast} : C^{\sim}_{j} \to C^{\sim}_{i}$,
+其中 $\Top(f) : C^{\sim}_{i} \to C^{\sim}_{j}$ 为拓扑斯态射
+(IV \hyperref[IV.eq4.9.1.1]{4.9.1.1}),
+使下图在同构意义下交换:
+\[\vcenter{
+\xymatrix@C=2.5cm@R=1cm{
+C_j \ar[r]^{f^{\ast}} \ar[d]_{\varepsilon_j}& C_i\ar[d]^{\varepsilon_i}\\
+C^{\widetilde{\phantom{a}}}_j \ar[r]^{\Top(f)^{\ast}}&
+C^{\widetilde{\phantom{a}}}_i
+}}\leqno{(7.2.6.1)}
+\]\etiquette[7.2.6.1]{VI.eq7.2.6.1}
+令
+\begin{equation}
+c_{f, g} : f^{\ast} g^{\ast} \to (gf)^{\ast}\tag{7.2.6.2}
+\end{equation}\etiquette[7.2.6.2]{VI.eq7.2.6.2}
+为\pageoriginale 典范同构\eqhyperref[VI.eq6.1.2.1]{6.1.2.1},
+令
+\begin{equation*}
+b_f : \Top(f)^{\ast} \epsilon_j \to \epsilon_i f^{\ast}\tag{7.2.6.3}
+\end{equation*}\etiquette[7.2.6.3]{VI.eq7.2.6.3}
+为“使”图\eqhyperref[VI.eq7.2.6.1]{7.2.6.1} 交换的同构.
+利用函子 $\Top(f)^{\ast}$ 与归纳极限可交换,
+立即验证, 对每对可复合态射 $i \xrightarrow{f} j \xrightarrow{g} k$,
+存在唯一同构
+\begin{equation*}
+\Top(c_{f, g}) : \Top(f)^{\ast} \Top(g)^{\ast} \to \Top(gf)^{\ast}\tag{7.2.6.4}
+\end{equation*}\etiquette[7.2.6.4]{VI.eq7.2.6.4}
+使得
+\begin{equation*}
+\epsilon_i (c_{f, g})b_f \Top(f)^{\ast}(b_g) = b_{gf} \Top(c_{f,g})\tag{7.2.6.5}{\quoi}.
+\end{equation*}\etiquette[7.2.6.5]{VI.eq7.2.6.5}
+而且, 各同构\eqhyperref[VI.eq7.2.6.4]{7.2.6.4}
+自动满足\hyperref[VI.eq6.1.2.2]{6.2.2.2} 的上闭链条件.
+因此可以构造纤维范畴
+\begin{equation*}
+p^{\sim} : C^{\sim / I} \to I\tag{7.2.6.6}
+\end{equation*}\etiquette[7.2.6.6]{VI.eq7.2.6.6}
+其各纤维典范同构于各 $𝒰$-拓扑斯 $C^{\sim}_i$
+(\hyperref[VI.subsubsec6.1.3]{6.1.3}),
+并构造笛卡儿函子
+\begin{equation*}
+\epsilon_{C/I} : C \to C^{\sim /I}\tag{7.2.6.7}
+\end{equation*}\etiquette[7.2.6.7]{VI.eq7.2.6.7}
+它在各纤维上诱导函子 $\epsilon_i : C_{i} \to C^{\sim}_i$.
+由定义立即得知, $p^{\sim} : C^{\sim/I} \to I$ 为 $I$ 上的纤维化 $𝒰$-拓扑斯,
+$\epsilon_{C/I}$ 为从 $C^{\sim/I}$ 到 $C$ 的纤维化 $𝒰$-景的笛卡儿态射,
+且在典范同构意义下, 纤维化 $𝒰$-拓扑斯 $C^{\sim /I} \to I$
+及笛卡儿函子 $\epsilon_{C/I}$
+不依赖构造时所用的各种选择
+(基变换函子 $f^{\ast}$ 及延拓 $\Top(f)^{\ast}$ 的选择).
+纤维化 $𝒰$-拓扑斯 $C^{\sim/I}$
+称为该纤维化 $𝒰$-景的\emph{相伴纤维化 $𝒰$-拓扑斯}.
+
+\setcounter{paragraph}{7}
+\paragraph{}\etiquette[7.2.6.8]{VI.par7.2.6.8}
+
+可以验证, 与一个纤维化景相伴的纤维化 $𝒰$-拓扑斯的形成,
+与底范畴变换运算“可交换”.
+
+\begin{enonce*}{命题 7.2.7}\etiquette[7.2.7]{VI.prop7.2.7}
+设\pageoriginale $E$ 为 $I$ 上的纤维化 $𝒰$-拓扑斯,
+$C$ 为 $I$ 上的纤维化 $𝒰$-景.
+函子 $m \mapsto m^{\ast} \epsilon_{C/I}$,
+给每个纤维化拓扑斯态射 $m : E \to C^{\sim /I}$
+对应相伴逆像函子 $m^{\ast} : C^{\sim / I} \to E$ 与 $\epsilon_{C/I}$ 的复合,
+它诱导保持笛卡儿对象的范畴等价
+$$
+\Hhomtop_I (E, C^{\sim / I}) \xrightarrow{\approx} \Mmorsite_I(E,
+C){\quoi}.
+$$
+当 $C$ 的各纤维范畴中有限投射极限可表时,
+相应的全忠实函子
+$$
+\Hhomtop_{I} (E, C^{\sim/ I}) \to \Hhom_{I} (C, E)^{\circ}
+$$
+的本质像是如下 $I$-函子 $g : C \to E$ 的集合:
+它们逐个纤维左正合, 并将纤维范畴的覆盖族映为相应纤维范畴的满态射族.
+\end{enonce*}
+
+这个命题只是将\hyperref[IV.prop4.9.4]{命题 IV 4.9.4} 推广到纤维情形,
+而 IV \hyperref[IV.prop4.9.4]{4.9.4} 中给出的证明可立即推广.
+
+\subsection{例}\etiquette[7.3]{VI.subsec7.3}
+
+\begin{enonce*}[remark]{例 7.3.1}\etiquette[7.3.1]{VI.exem7.3.1}
+(\emph{一个拓扑斯的箭头纤维化拓扑斯})
+
+设 $E$ 为 $𝒰$-拓扑斯, $\text{Fl}(E)$ 为 $E$ 的箭头范畴,
+$p : \text{Fl} (E) \to E$ 为给箭头对应其终点的函子.
+范畴 $(\text{Fl} (E), p)$ 是 $E$ 上的纤维化 $𝒰$-拓扑斯
+(\hyperref[VI.def7.1.1]{7.1.1} 及 IV \hyperref[VI.thm5.1]{5.1}).
+在 $E$ 的每个对象 $X$ 上方的纤维为拓扑斯 $E_{/X}$.
+态射 $f : X \to Y$ 的逆像函子 $f^{\ast} : E_{/Y} \to E_{/X}$ 为纤维积函子.
+因此, 给每个函子 $\phi : I \to E$ 可以对应 $I$ 上的纤维化 $𝒰$-拓扑斯
+\begin{equation*}
+p_I : \text{Fl}(E)_I \to I{\quoi},\tag{7.3.1.1}
+\end{equation*}\etiquette[7.3.1.1]{VI.eq7.3.1.1}
+它经基变换 $\phi : I \to E$ 得到,
+在 $I$ 的每个对象 $i$ 上方的纤维为 $E_{/\phi (i)}$
+(\hyperref[VI.subsubsec7.1.9]{7.1.9}).
+若 $𝒱$ 为以 $E$ 为元素的宇宙,
+则使用\hyperref[VI.subsubsec7.1.8]{7.1.8} 的记号, 有映射
+\begin{equation*}
+\Hom(I, E) \to \ob (𝒱\text{-}𝒰\text{-}\text{\rm top}_{/I}){\quoi},\tag{7.3.1.2}
+\end{equation*}\etiquette[7.3.1.2]{VI.eq7.3.1.2}
+它给每个函子 $\phi \in \Hom (I, E)$
+对应由 $(\text{Fl}(E), p)$ 经\pageoriginale 基变换 $\phi : I \to E$
+得到的 $I$ 上纤维化 $𝒰$-拓扑斯.
+设 $\phi_1$ 和 $\phi_2$ 为从 $I$ 到 $E$ 的两个函子,
+$m : \phi_1 \to \phi_2$ 为函子态射.
+用 $p_1 : \text{Fl}(E)_1 \to I$ 和 $p_2 : \text{Fl} (E)_2 \to I$
+表示由 $p : \text{Fl}(E) \to E$
+分别经基变换 $\phi_1 : I \to E$ 和 $\phi_2 : I \to E$
+得到的 $I$ 上的纤维化 $𝒰$-拓扑斯.
+对 $I$ 的每个对象 $i$, 选取拓扑斯态射 (IV \hyperref[IV.eq5.5.2]{5.5.2})
+\begin{equation*}
+\loc(m(i)) : E_{/{\phi}_{1}(i)} \to E_{/{\phi}_{2}(i)}{\quoi}.\tag{7.3.1.3}
+\end{equation*}\etiquette[7.3.1.3]{VI.eq7.3.1.3}
+容易验证, 存在唯一的\footnote{唯一性来自如下要求:
+使用 (IV \hyperref[IV.eq5.5.3]{5.5.3}) 的记号, 有公式 $(gf)_! = g_! f_!$.}
+$I$ 上的笛卡儿纤维化拓扑斯态射,
+\begin{equation*}
+\loc(m) : \text{Fl}(E)_1 \to \text{Fl} (E)_2{\quoi},\tag{7.3.1.4}
+\end{equation*}\etiquette[7.3.1.4]{VI.eq7.3.1.4}
+它在各纤维上的拓扑斯上诱导态射 $\loc(m(i))$.
+态射 $\loc(m) : \text{Fl}(E)_1 \to \text{Fl} (E)_2$
+由函子态射 $m : \phi_1 \to \phi_2$ 决定到典范同构.
+若 $n : \phi_2 \to \phi_3$ 为函子态射, 则有同构
+\begin{equation*}
+c(m, n) : \loc (n) \loc(m) \simeq \loc(nm){\quoi},\tag{7.3.1.5}
+\end{equation*}\etiquette[7.3.1.5]{VI.eq7.3.1.5}
+且态射 $c(m, n)$ 满足类似于\eqhyperref[VI.eq6.1.2.2]{6.1.2.2} 的上闭链性质.
+\end{enonce*}
+
+\begin{enonce*}[remark]{例 7.3.2}\etiquette[7.3.2]{VI.exem7.3.2}
+(一个景的箭头纤维化景).
+
+设 $C$ 为\emph{纤维积可表}的 $𝒰$-景,
+$\text{Fl}(C)$ 为 $C$ 的箭头范畴,
+$p : \text{Fl}(C) \to C$ 为给箭头对应其终点的函子.
+当各纤维范畴赋有诱导拓扑 (II \hyperref[VI.cor5.2]{5.2}) 时,
+纤维范畴 $(\text{Fl}(C), p)$ 为 $C$ 上的纤维化 $𝒰$-景.
+设 $\epsilon_{C} : C \to C^{\sim}$
+为从 $C$ 到 $C$ 上 $𝒰$-层范畴的典范函子.
+用 $\text{Fl}(\epsilon_C)$ 表示后一个函子到箭头范畴的自然延拓,
+有范畴与函子的交换图:
+\[\vcenter{
+\xymatrix@C=2cm{
+\text{Fl}(C) \ar[r]^{\text{Fl}(\varepsilon_C)}\ar[d]_{p}& \text{Fl}(C^{\widetilde{\phantom{a}}}) \ar[d]^{p}\\
+C       \ar[r]^{\varepsilon_C} & C^{\widetilde{\phantom{a}}}
+}}\leqno{(7.3.2.1)}
+\]\etiquette[7.3.2.1]{VI.eq7.3.2.1}
+从而有一个\pageoriginale $C$ 上纤维范畴之间的笛卡儿函子:
+\[\vcenter{
+\xymatrix{
+\text{Fl}(C) \ar[rr] \ar[rd]_{p}&     &
+\text{Fl}(C^{\widetilde{\phantom{a}}})_C \ar[ld]^{p_{/C}}\\
+                   & C     &\\
+}}\leqno{(7.3.2.2)}
+\]\etiquette[7.3.2.2]{VI.eq7.3.2.2}
+其中 $p_{/C} : \text{Fl}(C^{\sim})_{C} \to C$
+由 $\text{Fl}(C^{\sim}) \to C^{\sim}$
+经基变换 $\epsilon_C : C \to C^{\sim}$ 得到.
+\eqhyperref[VI.eq7.3.2.2]{7.3.2.2} 中的函子
+$\text{Fl}(C) \to \text{Fl}(C^{\sim})_{C}$
+是从纤维化景 $\text{Fl}(C^{\sim})_{C}$ 到纤维化景 $\text{Fl}(C)$ 的态射
+(\hyperref[VI.subsubsec7.2.2]{7.2.2});
+所以由\hyperref[VI.prop7.2.7]{7.2.7}, 有 $C$ 上的纤维化拓扑斯态射
+\begin{equation*}
+\can : \text{Fl}(C^{\sim})_{C} \to \text{Fl} (C)^{\sim/C}{\quoi},\tag{7.3.2.3}
+\end{equation*}\etiquette[7.3.2.3]{VI.eq7.3.2.3}
+其中 $\text{Fl}(C)^{\sim/C}$ 是与纤维化景 $\text{Fl}(C) \to C$
+相伴的 $C$ 上纤维化拓扑斯 (\hyperref[VI.subsubsec7.2.6]{7.2.6}).
+由相伴纤维化拓扑斯的定义 (\hyperref[VI.subsubsec7.2.6]{7.2.6})
+及 II \hyperref[VI.cor5.5]{5.5} 得知,
+\eqhyperref[VI.eq7.3.2.3]{7.3.2.3} 中的态射 can
+为 $C$ 上纤维化 $𝒰$-拓扑斯的一个 $C$-等价,
+\ie 存在 $C$ 上纤维化 $𝒰$-拓扑斯的态射
+$\Theta : \text{Fl}(C)^{\sim/C} \to \text{Fl} (C^{\sim})_C$,
+使复合 $\Theta \circ \can$ 和 $\can \circ \Theta$ 都 $C$-同构于恒等态射.
+
+设 $\phi : I \to C$ 为函子.
+经基变换得到 $I$ 上的纤维化景,
+\begin{equation*}
+p_I : \text{Fl} (C)_I \to I\tag{7.3.2.4}
+\end{equation*}\etiquette[7.3.2.4]{VI.eq7.3.2.4}
+由于相伴纤维化拓扑斯的形成与基变换可交换
+(\hyperref[VI.subsubsec7.2.6]{7.2.6}),
+有纤维化 $𝒰$-拓扑斯的 $I$-等价
+\begin{equation*}
+\can_I : \text{Fl} (C^{\sim})_{I} \to \text{Fl}(C)^{\sim/I}_{I}\tag{7.3.2.5}
+\end{equation*}\etiquette[7.3.2.5]{VI.eq7.3.2.5}
+其中 $\text{Fl}(C^{\sim})_{I} \to I$
+为经基变换 $\epsilon_C \circ \phi : I \to C^{\sim}$ 得到的纤维化 $𝒰$-拓扑斯.
+
+最后, 设 $\phi_1 : I \to C$ 和 $\phi_2 : I \to C$ 为两个函子,
+$m : \phi_1 \to \phi_2$ 为函子态射.
+用 $\text{Fl}(C)_1$ 和 $\text{Fl}(C)_2$
+表示由 $p : \text{Fl}(C) \to C$ 分别经基变换 $\phi_1$ 和 $\phi_2$
+得到的 $I$ 上的纤维化景.
+如在\hyperref[VI.exem7.3.1]{7.3.1} 中那样, 构造 $I$ 上的纤维化景态射
+\begin{equation*}
+\loc(m) : \text{Fl} (C)_1 \to \text{Fl}(C)_2{\quoi}.\tag{7.3.2.6}
+\end{equation*}\etiquette[7.3.2.6]{VI.eq7.3.2.6}
+用\pageoriginale $\text{Fl}(C^{\sim})_1 \to I$ 和 $\text{Fl}(C^{\sim})_2 \to I$
+表示分别经基变换 $\epsilon_C \circ \phi_1$ 和 $\epsilon_C \circ \phi_2$
+得到的 $I$ 上纤维化 $𝒰$-拓扑斯.
+有一个在同构意义下交换的 $I$ 上的态射图:
+\[\vcenter{
+\xymatrix@C=2.5cm{
+\text{Fl}(C^{\sim})_1 \ar[d]\ar[r]^{\loc(\varepsilon_C\ast m)}&
+\text{Fl}(C^{\sim})_2 \ar[d]_{\bigdot}\\
+\text{Fl}(C)_1       \ar[r]^{\loc(m)} & \text{Fl}(C)_2
+}}\leqno{(7.3.2.7)}
+\]\etiquette[7.3.2.7]{VI.eq7.3.2.7}
+其中纵向态射由\eqhyperref[VI.eq7.3.2.2]{7.3.2.2} 的态射经基变换得到.
+\end{enonce*}
+
+\begin{enonce*}[remark]{习题 7.3.3}\etiquette[7.3.3]{VI.exe7.3.3}
+(\emph{小纤维化景与大纤维化景}).
+
+本习题接续习题 IV \hyperref[IV.exer4.10.6]{4.10.6}, 沿用其中的假设和记号.
+用 $\MM$ 表示 $\text{Fl}(S)$ 中由 $ℳ$ 的态射定义的全子范畴,
+令 $p : \MM \to S$ 为给态射对应其终点的函子.
+
+$6^{\circ}$) 证明 $(\MM, p)$ 为 $S$ 上的纤维化景,
+且当 $S$ 中纤维积可表时,
+包含函子 $\MM \to \text{Fl}(S)$
+为从纤维化景 $\text{Fl} (S) \to S$ 到纤维化景 $\MM \to S$ 的笛卡儿态射.
+
+$7^{\circ}$) 设 $\MM^{\sim/S} \to S$ 为与 $\MM \to S$ 相伴的纤维化拓扑斯.
+证明使用\hyperref[VI.exem7.3.2]{7.3.2} 的记号,
+存在 $S$ 上纤维化拓扑斯的典范态射
+$g : \text{Fl} (S^{\sim})_{/S} \to \MM^{\sim/S}$,
+它在每个 $X \in \ob (S)$ 上方的纤维上诱导态射
+$(\Prol_{X}, \Res_X)$ (IV \hyperref[IV.exer4.10.6]{4.10.6} $4^{\circ})$).
+证明, 尽管对每个 $X \in \ob (S)$,
+态射 $g_X : S^{\sim}_{/X} \to S(X)^{\sim}$ 都有一个截面 (\loccit),
+态射 $g$ 一般却没有截面.
+\end{enonce*}
+
+% END INCLUDED SGA4_English_current_buildable_source_20260906/source/06/drafts/SGA4_VI_LINES_4231_4582_English.texfrag
+
+
+% BEGIN INCLUDED SGA4_English_current_buildable_source_20260906/source/06/drafts/SGA4_VI_LINES_4583_4929_English.texfrag
+\subsection{纤维化拓扑斯或纤维化景的全拓扑}\etiquette[7.4]{VI.subsec7.4}
+
+\begin{enonce*}{定义 7.4.1}\etiquette[7.4.1]{VI.def7.4.1}
+设 $p:C\to I$ 为纤维化 $𝒰$-景,
+对每个 $i\in\ob(I)$, 用 $\alpha_{i!}:C_i\to C$
+表示纤维范畴 $C_i$ 到 $C$ 的包含函子.
+$C$ 上的\emph{全拓扑}是 $C$ 上使各函子 $\alpha_{i!}$, $i\in\ob(I)$,
+连续的最粗拓扑 \emph{(III \hyperref[III.prop3.6]{3.6})}.
+配上全拓扑的范畴 $C$ 称为\emph{全景}.
+\end{enonce*}
+
+\begin{enonce*}{命题 7.4.2}\etiquette[7.4.2]{VI.prop7.4.2}
+设\pageoriginale $p:C\to I$ 为纤维化 $𝒰$-景,
+$T$ 为 $C$ 上的全拓扑, 对每个 $i\in\ob(I)$,
+$T_i$ 为纤维 $C_i$ 的拓扑.
+\begin{enumerate}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 设 $X$ 为 $C$ 中位于 $I$ 的对象 $i$ 上方的对象.
+族 $(X_\beta\to X)_{\beta\in B}$ 对 $T$ 覆盖,
+当且仅当它能由 $C_i$ 中对 $T_i$ 覆盖的族
+$(Y_{\gamma}\to X)_{\gamma\in\Gamma}$ 加细.
+
+\item 拓扑 $T$ 在每个范畴 $C_i$ 上诱导拓扑 $T_i$.
+
+\item 对每个 $i\in\ob(I)$, 函子 $\alpha_{i!}:C_i\to C$ 余连续.
+\end{enumerate}
+\end{enonce*}
+
+\setcounter{subsubsection}{2}
+\setcounter{paragraph}{0}
+\paragraph{}\etiquette[7.4.2.1]{VI.par7.4.2.1}
+
+性质 3) 由 1) 及 III \hyperref[III.def2.1]{2.1} 得到.
+来证明 1).
+对 $C$ 的每个对象 $X$, 令 $J(X)$ 为 1) 中描述的 $C/X$ 的筛的集合.
+可以验证各 $J(X)$ 有 II \hyperref[II.def1.1]{1.1} 的性质 $T$ 1)、$T$ 2)、$T$ 3),
+因而在 $C$ 上定义拓扑 $T'$.
+拓扑 $T'$ 是 $C$ 上使各拓扑 $T_i$ 的覆盖族成为覆盖族的最粗拓扑.
+因此 $T'$ 比 $T$ 粗 (III \hyperref[III.prop1.6]{1.6}).
+要证明 $T'=T$, 因此只须表明: 对 $I$ 的每个对象 $i$,
+当 $C$ 赋有拓扑 $T'$ 时, 函子 $\alpha_{i!}:C_i\to C$ 连续;
+等价地, 只须表明由 $T'$ 在范畴 $C_i$ 上诱导的拓扑为 $T_i$,
+这也将同时证明性质 2).
+令 $T'_i$ 为由 $T'$ 在 $C_i$ 上诱导的拓扑,
+设 $u:R\hookrightarrow X$ 为对 $T'_i$ 覆盖的筛.
+由 III \hyperref[III.prop3.2]{3.2},
+态射 $\alpha_{i!}(u):\alpha_{i!}(R)\to\alpha_{i!}(X)$ 双覆盖, 特别地覆盖.
+由 $T'$ 的定义, 这意味着筛 $R\hookrightarrow X$ 对 $T_i$ 覆盖.
+因此 $T'_i$ 比 $T_i$ 粗.
+要证明 $T'_i$ 比 $T_i$ 细, 由诱导拓扑的定义 (III \hyperref[III.subsec3.1]{3.1}),
+只须证明当 $C_i$ 和 $C$ 分别赋有 $T_i$ 与 $T'$ 时,
+函子 $\alpha_{i!}:C_i\to C$ 连续.
+总之, 由 III \hyperref[III.prop1.2]{1.2} 和\hyperref[III.prop1.5]{1.5},
+要证明性质 1) 和 2), 只须证明下列引理:
+
+\begin{enonce*}{引理 7.4.2.2}\etiquette[7.4.2.2]{VI.lem7.4.2.2}
+在\hyperref[VI.prop7.4.2]{7.4.2} 和\hyperref[VI.par7.4.2.1]{7.4.2.1}
+的假设及记号下, 设 $X$ 为 $C$ 中位于 $i$ 上方的对象,
+$R\xrightarrow{u}X$ 为 $C^{\widehat{\phantom{,}}}_i$ 的态射.
+下列性质等价:
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 态射\pageoriginale $R\to X$ 对 $T_i$ 双覆盖.
+
+\item 态射 $\alpha_{i!}(u):\alpha_{i!}(R)\to\alpha_{i!}(X)$ 对 $T'$ 双覆盖.
+\end{enumerate}
+\end{enonce*}
+
+i) $\Rightarrow$ ii): 显然, 若 $R\to X$ 对 $T_i$ 双覆盖,
+则态射 $\alpha_{i!}(u)$ 对 $T'$ 覆盖.
+还须证明它双覆盖 (II \hyperref[VI.cor5.2]{5.2}).
+设 $Y$ 为 $C$ 中位于 $I$ 的对象 $j$ 上方的对象,
+$m,n:Y\rightrightarrows\alpha_{i!}(R)$ 为 $C^{\widehat{\phantom{,}}}$ 的两个态射,
+使得 $\alpha_{i!}(u)m=\alpha_{i!}(u)n$,
+置 $f=p(\alpha_{i!}(u)m)$.
+由于函子 $\alpha_{i!}$ 与归纳极限可交换
+(I \hyperlink{sga4.exp.I.proposition.5.4.item.3}{5.4.3}),
+有 (I \hyperref[I.prop3.4]{3.4}):
+$$
+\Hom_{C^{\widehat{\phantom{,}}}} (Y, \alpha_{i!} (R)) \simeq
+\varinjlim_{C_{i}/R} \Hom_C (Y, \alpha_{i!} (.)){\quoi}.
+$$
+对 $C_i$ 的每个对象 $Z$, 使用\hyperref[VI.subsubsec6.1.1]{6.1.1} 的记号, 有
+$$
+\Hom_{C} (Y, Z) \simeq \coprod_{w \in \Hom(j, i)} \Hom_w (Y,
+Z){\quoi},
+$$
+因而
+$$
+\varinjlim_{C_{i}/R} \Hom (Y, \alpha_{i!} (.)) \simeq
+\coprod_{w \in \Hom(j, i)} \varinjlim_{C_{i}/R}
+\Hom_{w} (Y, \alpha_{i!} (.)){\quoi}.
+$$
+而对每个 $w\in\Hom(j,i)$, 有逆像函子 $w^{\ast}:C_i\to C_j$,
+且 $\Hom_w(Y,\alpha_{i!}(.))\simeq\Hom_{C_j}(Y,w^{\ast}(.))$.
+于是, 仍用 $w^{\ast}:C^{\widehat{\phantom{,}}}_i\to
+C^{\widehat{\phantom{,}}}_j$
+表示 $w^{\ast}$ 到预层的延拓
+(按 I \hyperref[VI.lem5.4]{5.4}, 本应记为 $(w^{\ast})_{!}$),
+并注意到函子 $w^{\ast}:C^{\widehat{\phantom{,}}}_i\to
+C^{\widehat{\phantom{,}}}_j$
+与归纳极限可交换 (I \hyperlink{sga4.exp.I.proposition.5.4.item.3}{5.4.3}),
+得到同构
+$$
+\Hom_{C^{\widehat{\phantom{,}}}} (Y, \alpha_{i!} (R)) =
+\coprod_{w \in \Hom(j, i)}
+\Hom_{C^{\widehat{\phantom{,}}}_{j}}(Y,w^{\ast}(R)){\quoi}.
+$$
+在这一同构下, 态射 $m,n:Y\rightrightarrows\alpha_{i!}(R)$
+对应于两个满足 $f^{\ast}(u)m'=f^{\ast}(u)n'$ 的态射 $m',n':Y\rightrightarrows f^{\ast}R$.
+由于逆像函子是拓扑斯态射, 特别地连续,
+所以 $f^{\ast}(u)$ 双覆盖 (III \hyperref[III.prop3.2]{3.2}).
+因此 $C_j$ 中存在覆盖族 $(Y_{\delta}\xrightarrow{v_{\delta}}Y)_{\delta}$,
+使得对每个 $\delta$ 都有 $m'v_{\delta}=n'v_{\delta}$.
+于是对每个 $\delta$ 有 $mv_{\delta}=nv_{\delta}$,
+从而 $\alpha_{i!}(u)$ 对 $T'$ 双覆盖.
+
+ii) $\Rightarrow$ i):\pageoriginale 假定
+$\alpha_{i!}(R)\xrightarrow{\alpha_{i!}(u)}\alpha_{i!}(X)$ 双覆盖.
+函子 $\alpha_{i!}:C_i\to C$ 余连续 (III \hyperref[III.def2.1]{2.1}).
+因此 $\alpha^{\ast}_{i}\alpha_{i!}(u)$ 双覆盖
+(III \hyperref[III.eq2.3.2]{2.3.2} 及 II \hyperref[VI.cor5.3]{5.3} ii)).
+函子 $\alpha_{i!}:C_i\to C$ 有 I \hyperref[I.prop5.14]{5.14} 的性质 (PPF).
+因此在 $C^{\widehat{\phantom{,}}}_i$ 中有笛卡儿图
+(I \hyperref[I.prop5.14]{5.14} 3)):
+\[
+\xymatrix@C=2.25cm@R=1.25cm{
+R  \ar[r] \ar[d]_{u}& \alpha_i^{\ast}\alpha_{i!}(R) \ar[d]^{\alpha_i^{\ast}\alpha_{i!}(u)}\\
+X     \ar[r]          & \alpha_i^{\ast}\alpha_{i!}(X).
+}
+\]
+从而 $u$ 双覆盖 (II \hyperref[VI.cor5.2]{5.2}).
+
+\begin{enonce*}[remark]{注 7.4.3}\etiquette[7.4.3]{VI.rem7.4.3}
+\begin{enumerate}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 命题\hyperref[VI.prop7.4.2]{7.4.2}
+可以在比纤维化景略为一般的框架中陈述和证明, 但看来没有有用的应用:
+不是考虑纤维化景 $p:C\to I$,
+而是考虑各纤维带有拓扑、各逆像函子对这些拓扑连续的纤维范畴 $p:C\to I$
+(在纤维化景的情形, 还要求这些逆像函子是景态射
+(IV \hyperref[IV.subsec4.9]{4.9})).
+
+\item 可以证明, 纤维化景的全拓扑是使函子 $\alpha_{i!}:C_i\to C$ 余连续的最细拓扑
+(III 2).
+
+\hypertarget{sga4.exp.VI.remark.7.4.3.item.3}{}\item 设 $p:C\to I$ 为一个纤维化 $𝒰$-景,
+其底范畴等价于 $𝒰$-小范畴.
+则全景 $C$ 为 $𝒰$-景 (II \hyperref[II.def3.0.2]{3.0.2}).
+事实上, 若对 $I$ 的每个对象 $i$,
+$(X_{\beta})_{\beta\in B_i}$ 为 $C_i$ 的一个小拓扑生成族,
+则族 $(X_{\beta})_{\beta\in\amalg_iB_i}$ 是 $C$ 的拓扑生成族, 且为 $𝒰$-小的.
+全景上的层的拓扑斯称为\emph{全拓扑斯}, 记为 $\Top(C)$.
+
+\hypertarget{sga4.exp.VI.remark.7.4.3.item.4}{}\item 设 $p:C\to I$ 为小范畴上的纤维化 $𝒰$-景.
+由于函子 $\alpha_{i!}:C_i\to C$ 余连续,
+它给出从 $C^{\sim}_i$ 到 $\Top(C)$ 的拓扑斯态射
+$\alpha_i=(\alpha^{\ast}_i,\alpha^{i\ast})$ (IV \hyperref[IV.subsec4.7]{4.7}).
+此外, 由于函子 $\alpha_{i!}:C_i\to C$ 连续,
+函子 $\alpha^{\ast}_i:\Top(C)\to C^{\sim}_i$ 有左伴随,
+仍记为\pageoriginale $\alpha_{i!}:C^{\sim}_i\to\Top(C)$,
+它延拓函子 $\alpha_{i!}:C_i\to C$ (III \hyperref[III.prop1.2]{1.2} iv)).
+\end{enumerate}
+\end{enonce*}
+
+\begin{enonce*}{命题 7.4.4}\etiquette[7.4.4]{VI.prop7.4.4}
+设 $p:C\to I$ 为小范畴 $I$ 上的纤维化 $𝒰$-景.
+\begin{enumerate}
+\renewcommand{\labelenumi}{\theenumi)}
+\item $C$ 上的预层 $F$ 是全拓扑的层,
+当且仅当对 $I$ 的每个对象 $i$,
+预层 $F\circ\alpha_{i!}=F|C_i$ 是 $C_i$ 上的层.
+
+\item 从 $C$ 到景 $D$ 的函子 $m$ 是从全景 $C$ 到景 $D$ 的连续函子,
+当且仅当对 $I$ 的每个对象 $i$,
+函子 $m|C_i=m\circ\alpha_{i!}:C_i\to D$ 连续.
+\end{enumerate}
+\end{enonce*}
+
+若 $F$ 是全拓扑的层, 因为 $\alpha_{i!}:C_i\to C$ 连续,
+预层 $F\circ\alpha_{i!}$ 为 $C_i$ 上的层.
+反之, 假定对每个 $i$, $F\circ\alpha_{i!}$ 为 $C_i$ 上的层.
+设 $X$ 为 $C$ 中位于 $I$ 的对象 $i$ 上方的对象.
+对 $C_i/X$ 的每个覆盖筛 $R$, 有 $F(X)\simeq F\circ\alpha_{i!}(R)$,
+从而 $F(X)\simeq F(\alpha_{i!}(R))$.
+令 $R'\hookrightarrow X$ 为 $C/X$ 中的筛,
+它是典范预层态射 $\alpha_{i!}(R)\to X$ 的像.
+态射 $\alpha_{i!}(R)\to R'$ 是预层的满态射,
+所以 $F(R')\to F(\alpha_{i!}(R))$ 单射.
+由于 $F(R')\to F(\alpha_{i!}(R))$ 也满射, 它为双射,
+从而 $F(X)\to F(R')$ 为双射.
+由于 $X$ 的覆盖筛由\eqhyperref[VI.par7.4.2.1]{7.4.2.1} 描述,
+预层 $F$ 是层:
+回到相伴层的构造 (II 3), 可见 $F$ 同构于其相伴层
+(II \hyperref[II.rem3.3]{3.3}).
+第二个断言立即由第一个断言及连续性的定义 (III \hyperref[III.def1.1]{1.1}) 得到.
+
+\setcounter{subsubsection}{4}
+\subsubsection{}\etiquette[7.4.5]{VI.subsubsec7.4.5}
+
+设 $p:C\to I$ 为等价于小范畴的范畴 $I$ 上的纤维化 $𝒰$-景;
+设
+$$
+f : i \to j
+$$
+为指标范畴 $I$ 的箭头.
+仍用 $f:C^{\sim}_i\to C^{\sim}_j$ 表示由纤维化景结构决定的拓扑斯态射,
+则有 (使用\hyperlink{sga4.exp.VI.remark.7.4.3.item.4}{7.4.3.4} 的记号)
+$𝒰$-拓扑斯态射的图
+\[\vcenter{
+\xymatrix@C=2.25cm@R=1.25cm{
+C^{\sim}_i \ar[d]_{f} \ar[r]^{\alpha_i} & \Top(C)\\
+C^{\sim}_j  \ar[ru]_{\alpha_j}&
+}}\leqno{(7.4.5.1)}
+\]\etiquette[7.4.5.1]{VI.eq7.4.5.1}
+其中 $\Top(C)$\pageoriginale 为全拓扑斯\hyperlink{sga4.exp.VI.remark.7.4.3.item.3}{(7.4.3.3)}.
+图\eqhyperref[VI.eq7.4.5.1]{7.4.5.1} \emph{一般并不交换}.
+我们将定义一个拓扑斯态射的典范态射:
+\begin{equation*}
+\rho_f : \alpha_i \to \alpha_j \circ f{\quoi}.\tag{7.4.5.2}
+\end{equation*}\etiquette[7.4.5.2]{VI.eq7.4.5.2}
+只须在逆像层次上定义这样的态射,
+\ie 定义函子态射
+\begin{equation*}
+\beta_f^{\ast} : f^{\ast}\circ \alpha_j^{\ast} \to
+\alpha_i^{\ast}{\quoi}, \tag{7.4.5.3}
+\end{equation*}\etiquette[7.4.5.3]{VI.eq7.4.5.3}
+或等价地, 使用 $f^{\ast}$ 与 $f_{\ast}$ 之间的伴随,
+只须定义函子态射
+\begin{equation*}
+\gamma_f : \alpha^{\ast}_j \to f_{\ast} \alpha^{\ast}_i{\quoi}.\tag{7.4.5.4}
+\end{equation*}\etiquette[7.4.5.4]{VI.eq7.4.5.4}
+设 $Y$ 为 $C_j$ 的对象, $F$ 为全景 $C$ 上的层.
+按定义, $\alpha^{\ast}_jF(Y)=F(\alpha_{j!}(Y))$
+且 $f_{\ast}\alpha^{\ast}_iF(Y)=F(\alpha_{i!}f^{\ast}(Y))$,
+其中后式中的 $f^{\ast}:C_j\to C_i$ 表示纤维结构的逆像函子.
+而由这一逆像函子的定义, 有典范笛卡儿态射
+\begin{equation*}
+m_Y : \alpha_{i!} f^{\ast} \to \alpha_{j!}{\quoi};\tag{7.4.5.5}
+\end{equation*}\etiquette[7.4.5.5]{VI.eq7.4.5.5}
+所以应用函子 $F$, 有关于 $Y$ 具有函子性的映射:
+\begin{equation*}
+\gamma_f (F) (Y) = F(m_Y) : \alpha_{j}^{\ast} F(Y) \to f_{\ast}
+\alpha^{\ast}_i F(Y){\quoi},\tag{7.4.5.6}
+\end{equation*}\etiquette[7.4.5.6]{VI.eq7.4.5.6}
+它定义 $C_j$ 上的层态射:
+\begin{equation*}
+\gamma_f (F) : \alpha_{j}^{\ast} F \to f_{\ast} \alpha^{\ast}_i
+F{\quoi};\tag{7.4.5.7}
+\end{equation*}\etiquette[7.4.5.7]{VI.eq7.4.5.7}
+由此得到\eqhyperref[VI.eq7.4.5.4]{7.4.5.4} 的函子态射 $\gamma_f$.
+
+现设\pageoriginale $f:i\to j$ 与 $g:j\to k$ 为 $I$ 的两个可复合态射.
+有典范同构
+$$
+c'_{g, f} : g_{\ast} f_{\ast} \to (gf)_{\ast}
+$$
+并且立即验证相容性公式
+\begin{equation*}
+c'_{g, f} \circ g_{\ast} (\gamma_f) \circ \gamma_g =
+\gamma_{gf}{\quoi}.\tag{7.4.5.8}
+\end{equation*}\etiquette[7.4.5.8]{VI.eq7.4.5.8}
+
+\subsubsection{}\etiquette[7.4.6]{VI.subsubsec7.4.6}
+
+引入与 $p:C\to I$ 相伴的纤维化 $𝒰$-拓扑斯 $p^{\sim/I}:C^{\sim/I}\to I$
+(\hyperref[VI.subsubsec7.2.6]{7.2.6})
+及相应的 $I^{\circ}$ 上的纤维范畴
+$(p^{\sim/I})':(C^{\sim/I})'\to I^{\circ}$
+\eqhyperref[VI.eq7.1.3.2]{7.1.3.2}.
+上述讨论给 $\Top(C)$ 的每个对象 $F$
+对应一族 $C^{\sim}_i$ 的对象 $F_i=(\alpha^{\ast}_iF)_{i\in\ob(I)}$,
+以及满足\eqhyperref[VI.eq7.4.5.8]{7.4.5.8} 的相容性条件的态射族
+$$
+\gamma_f F : F_j \to f_{\ast} F_i,\quad f\in F1(I),\quad f : i \to j{\quoi},
+$$
+\begingroup\tolerance=9999\emergencystretch=4em
+因此给 $F$ 对应了一个从范畴 $I^{\circ}$ 到范畴 $(C^{\sim/I})'$ 的 $I^{\circ}$-函子,
+\ie 范畴 $\Hhom_{I^{\circ}}(I^{\circ},(C^{\sim/I})')$ 的对象 $\Theta_C(F)$.
+由于这一构造关于 $F$ 具有函子性, 得到函子\par\endgroup
+\begin{equation*}
+\Theta_C : \Top(C) \to \Hhom_{I^{\circ}} (I^{\circ},
+(C^{\sim/I})'){\quoi}.\tag{7.4.6.1}
+\end{equation*}\etiquette[7.4.6.1]{VI.eq7.4.6.1}
+
+\begin{enonce*}{命题 7.4.7}\etiquette[7.4.7]{VI.prop7.4.7}
+设 $C\to I$ 为纤维化 $\mathcal{U}$-景, $I$ 等价于小范畴.
+函子 $\Theta_C$ \eqhyperref[VI.eq7.4.6.1]{7.4.6.1} 为范畴等价.
+\end{enonce*}
+
+这里只描述 $\Theta_C$ 的一个拟逆.
+设 \\
+$\sigma\in\Hom_{I^{\circ}}(I^{\circ},(C^{\sim/I})')$,
+\ie 从 $I^{\circ}$ 到 $(C^{\sim/I})'$ 的 $I^{\circ}$-函子 $i\mapsto\sigma(i)$.
+对 $C$ 中位于 $p(X)=i\in\ob(I)$ 上方的每个对象 $X$,
+有层 $\sigma(p(X))\in\ob C^{\sim}_i$,
+从而有集合 $\sigma(p(X))(X)$.
+设 $m:X\to Y$ 为 $C$ 中位于 $I$ 的态射 $f:i\to j$ 上方的态射.
+态射 $m$ 唯一地分解为 $C_i$ 的一个态射 $m':X\to f^{\ast}Y$,
+后接典范笛卡儿态射 $f^{\ast}Y\to Y$.
+类似地, 态射 $\sigma(f)$ 唯一地分解为态射
+$\gamma_f(\sigma):\sigma(p(Y))\to f_{\ast}\sigma(p(X))$,
+后接典范 $I^{\circ}$-笛卡儿态射 $f_{\ast}\sigma(p(X))\to\sigma(p(X))$.
+因此, 将映射
+$$
+\sigma(p(Y))(Y) \xrightarrow{\gamma_f(\sigma)(Y)}
+f_{\ast}\sigma(p(X))(Y) =
+\sigma(p(X))(f^{\ast}Y) \xrightarrow{\sigma(p(X))(m')}
+\sigma(p(X))(X){\quoi}.
+$$
+复合, 便得到从 $\sigma(p(Y))(Y)$ 到 $\sigma(p(X))(X)$ 的映射\pageoriginale.
+这样, 我们给 $C$ 的每个对象 $X$ 对应了集合 $\sigma(p(X))(X)$,
+给每个态射 $m:X\to Y$ 对应了映射 $\sigma(p(Y))(Y)\to\sigma(p(X))(X)$.
+可以验证, 这确实定义 $C$ 上的预层,
+且这一预层不依赖其构造中所选的逆像函子.
+由\hyperref[VI.prop7.4.4]{7.4.4} 得知,
+预层 $X\mapsto\sigma(p(X))(X)$ 是全景 $C$ 上的层;
+显然这一层以函子方式依赖于 $\Hhom_{I^{\circ}}(I^{\circ},(C^{\sim/I})')$ 的对象 $\sigma$.
+回到 $\Theta_C$ 的定义, 也显然可见,
+刚刚构造的从 $\Hhom_{I^{\circ}}(I^{\circ},(C^{\sim/I})')$ 到 $\Top(C)$ 的函子
+是 $\Theta_C$ 的拟逆.
+
+\begin{enonce*}[remark]{注 7.4.8}\etiquette[7.4.8]{VI.rem7.4.8}
+由\hyperref[VI.prop7.4.7]{7.4.7} 特别得到,
+范畴 $\Hhom_{I^{\circ}}(I^{\circ},(C^{\sim/I})')$ 是 $𝒰$-拓扑斯.
+这一事实也可直接看出.
+使用 I \hyperref[I.lem9.21.10]{9.21.10},
+立即可见 IV \hyperref[IV.subsubsec1.1.2]{1.1.2} 的条件 a)、b)、c) 满足,
+小生成范畴的存在性由 I \hyperref[I.cor9.25]{9.25} 得到.
+\end{enonce*}
+
+\setcounter{subsubsection}{8}
+
+% END INCLUDED SGA4_English_current_buildable_source_20260906/source/06/drafts/SGA4_VI_LINES_4583_4929_English.texfrag
+
+
+% BEGIN INCLUDED SGA4_English_current_buildable_source_20260906/source/06/drafts/SGA4_VI_LINES_4930_5251_English.texfrag
+\subsubsection{}\etiquette[7.4.9]{VI.subsubsec7.4.9}
+
+设 $p:C\to I$ 和 $q:D\to I$ 是小范畴上的两个纤维化 $𝒰$-景,
+$m$ 是从纤维化景 $C$ 到纤维化景 $D$ 的态射
+(\hyperref[VI.subsubsec7.2.2]{7.2.2}).
+以 $m^{\sim/I}:C^{\sim/I}\to D^{\sim/I}$ 表示相应的伴随纤维化 $𝒰$-拓扑斯之间的态射.
+纤维化拓扑斯态射 $m^{\sim/I}$ 在典范同构意义下确定
+(\hyperref[VI.prop7.2.7]{7.2.7}).
+它有相应的正像函子 $m^{\sim/I}_{\ast}:(C^{\sim/I})'\to(D^{\sim/I})'$
+(\hyperref[VI.subsubsec7.1.7]{7.1.7}); 取 $I^{\circ}$ 上的截面便得到函子
+\begin{equation*}
+\Hom_{I^{\circ}} (I^{\circ}, m^{\sim/I}_{\ast}) : \Hhom_{I^{\circ}}
+(I^{\circ}, (C^{\sim/I})') \to \Hhom_{I^{\circ}} (I^{\circ},
+(D^{\sim/I})'){\quoi}.\tag{7.4.9.1}
+\end{equation*}\etiquette[7.4.9.1]{VI.eq7.4.9.1}
+
+此外, 函子 $m$ 是全景之间的连续函子 (\hyperref[VI.prop7.4.4]{7.4.4}),
+因而由复合给出函子 $m_{\ast}:\Top(C)\to\Top(F)$.
+
+总之, 有函子图
+\[\vcenter{
+\xymatrix@C=2.75cm@R=1.5cm{
+\Top(C) \ar[r]^{\theta_C} \ar[d]_{m_{\ast}}& \Hhom_I^{\circ}(I^{\circ},(C^{\sim/I})') \ar[d]_{\Hom_{I^\circ}(I^{\circ},m_{\ast}^{\sim/I})}\\
+\Top(D)  \ar[r]^{\theta_D} & \Hhom_I^{\circ}(I^{\circ},(D^{\sim/I})')
+}}\leqno{(7.4.9.2)}
+\]\etiquette[7.4.9.2]{VI.eq7.4.9.2}
+
+\begin{enonce*}{命题 7.4.10}\etiquette[7.4.10]{VI.prop7.4.10}
+图\pageoriginale \eqhyperref[VI.eq7.4.9.2]{7.4.9.2} 在同构意义下交换.
+当 $m$ 是笛卡儿函子时, $m$ 是从全景 $C$ 到全景 $D$ 的态射.
+\end{enonce*}
+
+图 \eqhyperref[VI.eq7.4.9.2]{7.4.9.2} 在同构意义下交换的验证留给读者.
+由\hyperref[VI.prop7.4.7]{7.4.7},
+要证明 $m$ 是全景之间的态射,
+只须证明 $\Hom_{I^{\circ}}(I^{\circ},m^{\sim/I}_{\ast})$ 的左伴随函子左正合.
+先描述态射 $m^{\sim/I}$ 的逆像函子 (\hyperref[VI.prop7.2.7]{7.2.7});
+对 $I$ 的每个对象 $i$, 以 $m^{\ast}_i:D^{\sim}_i\to C^{\sim}_i$
+表示 $(m^{\sim/i})^{\ast}$ 在 $i$ 处的纤维上诱导的函子.
+对 $I$ 的每个态射 $f:i\to j$, 选择拓扑斯态射
+$(f^{\ast},f_{\ast}):C^{\sim}_i\to C^{\sim}_j$ 和
+$(f^{\ast},f_{\ast}):D^{\sim}_i\to D^{\sim}_j$, 两者使用同样的记号.
+由于 $(m^{\sim/I})^{\ast}$ 是笛卡儿 $I^{\circ}$-函子,
+对每个 $f:i\to j$ 有典范同构
+\begin{equation*}
+m^{\ast}_i f_{\ast} \to f^{\ast} m^{\ast}_j{\quoi},\tag{7.4.10.1}
+\end{equation*}\etiquette[7.4.10.1]{VI.eq7.4.10.1}
+又因函子 $f^{\ast}$ 与 $f_{\ast}$ 互为伴随, 有典范态射（伴随态射）
+\begin{align*}
+& \phi : \id \to f_{\ast} f^{\ast}\\
+& \psi : f^{\ast} f_{\ast} \to \id{\quoi}. \tag{7.4.10.2}
+\end{align*}\etiquette[7.4.10.2]{VI.eq7.4.10.2}
+现在考虑如下函子态射序列:
+\begin{equation*}
+m^{\ast}_j f^{\ast} \xrightarrow{(1)} f_{\ast} f^{\ast} m^{\ast}_j
+f_{\ast} \xrightarrow{(2)} f_{\ast} m^{\ast}_i f^{\ast} f_{\ast}
+\xrightarrow{(3)} f_{\ast} m^{\ast}_i{\quoi},\tag{7.4.10.3}
+\end{equation*}\etiquette[7.4.10.3]{VI.eq7.4.10.3}
+其中态射 (1) 由 $\phi$ 得到, 态射 (2) 由同构
+\eqhyperref[VI.eq7.4.10.1]{7.4.10.1} 得到, 态射 (3) 由 $\psi$ 得到.
+将序列\pageoriginale \eqhyperref[VI.eq7.4.10.3]{7.4.10.3} 中各态射复合,
+得到函子态射
+\begin{equation*}
+\can_f : m^{\ast}_j f_{\ast} \to f_{\ast} m^{\ast}_i{\quoi}.\tag{7.4.10.4}
+\end{equation*}\etiquette[7.4.10.4]{VI.eq7.4.10.4}
+现设 $\tau$ 是 $\Hhom_{I^{\circ}}(I^{\circ}(D^{\sim/I})')$ 的对象.
+于是, 对 $I$ 的每个对象 $i$, 有 $D^{\sim}_i$ 的对象 $\tau(i)$;
+对每个态射 $f:i\to j$, 有态射
+\begin{equation*}
+\gamma_{f} (\tau) : \tau(j) \to f_{\ast} \tau(i){\quoi},\tag{7.4.10.5}
+\end{equation*}\etiquette[7.4.10.5]{VI.eq7.4.10.5}
+且族 $\gamma_f(\tau)$ 具有类似于\eqhyperref[VI.eq7.4.5.8]{7.4.5.8} 的相容性质.
+令 $\sigma(i=m^{\ast}_i(\tau(i))$, 并以
+\begin{equation*}
+\gamma_{f} (\sigma) : \sigma(j) \to f_{\ast} \sigma(i)\tag{7.4.10.6}
+\end{equation*}\etiquette[7.4.10.6]{VI.eq7.4.10.6}
+表示复合态射
+$m^{\ast}_j\tau(j)\xrightarrow{m_j^{\ast}\gamma_f(\tau)}
+m_j^{\ast}f_{\ast}\tau(i)\xrightarrow{\can_f(\tau(i))}
+f_{\ast}m^{\ast}_i\tau(i)$.
+可以验证, $\gamma_f(\sigma)$ 具有\eqhyperref[VI.eq7.4.5.8]{7.4.5.8} 的相容性质,
+从而这样便定义了 $\Hhom_{I^{\circ}}(I^{\circ},(C^{\sim/I})')$ 的一个对象.
+再作“伴随函子追踪”, 可知刚刚构造的从
+$\Hhom_{I^{\circ}}(I^{\circ},(D^{\sim/I})')$ 到
+$\Hhom_{I^{\circ}}(I^{\circ},(C^{\sim/I})')$ 的函子
+是函子 $\Hom_{I^{\circ}}(I^{\circ},m^{\sim/I}_{\ast})$ 的左伴随.
+尚须证明这一左伴随与有限投射极限可交换.
+这立即由下述事实得到: 截面范畴中的投射极限按各纤维逐一计算,
+且构造这一左伴随时所用的所有函子都与有限投射极限可交换.
+
+\begin{enonce*}{推论 7.4.11}\etiquette[7.4.11]{VI.cor7.4.11}
+设 $p:C\to I$ 是小范畴上的纤维化 $𝒰$-景,
+$p^{\sim/I}:C^{\sim/I}\to I$ 是伴随的纤维化 $𝒰$-拓扑斯
+(\hyperref[VI.subsubsec7.2.6]{7.2.6}),
+$\epsilon_I:C\to C^{\sim/I}$ 是从纤维化 $𝒰$-景 $C^{\sim/I}$
+到纤维化 $𝒰$-景 $C$ 的典范态射.
+态射 $\epsilon_I$ 在相应全拓扑斯之间诱导等价
+$\Top(\epsilon_I):\Top(C)\to\Top(C^{\sim/I})$.
+\end{enonce*}
+
+这是图\eqhyperref[VI.eq7.4.9.2]{7.4.9.2} 的交换性,
+以及态射 $\epsilon_I$ 在伴随的纤维化 $𝒰$-拓扑斯之间给出等价的结果.
+
+\begin{enonce*}[remark]{注 7.4.11.1}\etiquette[7.4.11.1]{VI.rem7.4.11.1}
+由\hyperref[VI.cor7.4.11]{7.4.11} 得知,
+在涉及全拓扑斯的问题中, 可以将纤维化景换成相应的纤维化拓扑斯.
+\end{enonce*}
+
+\begin{enonce*}{引理 7.4.12}\etiquette[7.4.12]{VI.lem7.4.12}
+设\pageoriginale $p:C\to I$ 是小范畴 $I$ 上的纤维化景,
+$i$ 是 $I$ 的终对象 \emph{(I 10)}.
+函子 $\alpha_{i!}:C^{\sim}_i\to\Top(C)$
+\hyperlink{sga4.exp.VI.remark.7.4.3.item.4}{(7.4.3.4)} 正合且全忠实.
+函子对 $\beta_i=(\alpha_{i!},\alpha^{\ast}_i):\Top(C)\to C^{\sim}_i$ 和
+$\alpha_i=(\alpha_i^{\ast},\alpha_{i\ast}):C^{\sim}_i\to\Top(C)$ 是拓扑斯态射.
+复合态射 $\beta_i\alpha_i:C^{\sim}_i\to C^{\sim}_i$ 同构于恒等态射.
+\end{enonce*}
+
+对 $I$ 的每个对象 $j$, 以 $f_j:j\to i$ 表示从 $j$ 到 $i$ 的唯一态射.
+使用等价
+$\Theta_C:\Top(C)\xrightarrow{\sim}\Hhom_{I^{\circ}}(I^{\circ},
+(C^{\sim/I})')$ (\hyperref[VI.prop7.4.7]{7.4.7}),
+可知对 $C_i$ 的每个对象 $X$, $\alpha_{i!(X)}$ 是截面
+$j\to f^{\ast}_i(X)$, 而对每个截面
+$j\mapsto\sigma(j)\in\Hom_{I^{\circ}}(I^{\circ},(C^{\sim/I})')$,
+$\alpha^{\ast}_i(j\mapsto\sigma(j))$ 是对象 $\sigma(i)$.
+因而 $\alpha_i^{\ast}\alpha_{i!}$ 同构于恒等函子,
+所以 $\alpha_{i!}$ 全忠实.
+由于函子 $f_j^{\ast}$ 左正合, 函子 $\alpha_{i!}$ 左正合.
+故 $\beta_i$ 是拓扑斯态射,
+且因 $\alpha_i^{\ast}\alpha_{i!}$ 同构于恒等函子,
+态射 $\beta_i\alpha_i$ 同构于恒等态射.
+
+\begin{enonce*}{定理 7.4.13.1}\etiquette[7.4.13.1]{VI.thm7.4.13.1}
+设 $p:C\to I$ 和 $q:D\to I$ 是小范畴 $I$ 上的两个纤维化 $𝒰$-景,
+$m:D\to C$ 是 $I$-函子.
+要使 $m$ 是从纤维化景 $C$ 到纤维化景 $D$ 的态射
+\emph{(\hyperref[VI.subsubsec7.2.2]{7.2.2})},
+只须 $m$ 是从全景 $C$ 到全景 $D$ 的态射.
+\end{enonce*}
+
+\setcounter{subsubsection}{13}
+\setcounter{paragraph}{1}
+\paragraph{}\etiquette[7.4.13.2]{VI.par7.4.13.2}
+
+须证明: 若 $I$-函子 $m:D\to C$ 是从全景 $C$ 到全景 $D$ 的态射,
+则 $m$ 是从纤维化景 $C$ 到纤维化景 $D$ 的态射,
+\ie 对 $I$ 的每个对象 $i$,
+$m$ 在 $i$ 处的纤维上诱导的函子 $m_i:D_i\to C_i$
+是从景 $C_i$ 到景 $D_i$ 的态射.
+这一断言的证明占据\hyperref[VI.par7.4.13.3]{7.4.13.3}
+至\hyperref[VI.par7.4.13.7]{7.4.13.7} 各段.
+
+\paragraph{}\etiquette[7.4.13.3]{VI.par7.4.13.3}
+先证明: 对 $I$ 的每个对象 $i$, 函子 $m_i:D_i\to C_i$ 连续.
+事实上, 有交换图:\etiquette[133]{page133}
+\[
+\xymatrix@C=2cm@R=1.5cm{
+D_i \ar[r]^{m_i} \ar[d]_{\alpha_{i!}}& C_i \ar[d]^{\alpha_{i!}}\\
+D   \ar[r]^{m}& C
+}
+\]
+且\pageoriginale 只须证明: 对 $C_i/X$ 的每个覆盖筛 $R\hookrightarrow X$,
+态射 $m_{i!}(R)\to m_i(X)$ 双覆盖
+(III \hyperref[III.prop1.2]{1.2} 及\hyperref[III.prop1.5]{1.5}).
+但由第\pagehyperref[page133]{133} 页图的交换性,
+以及函子 $\alpha_{i!}$ 与 $m$ 的连续性,
+态射 $\alpha_{i!}m_{i!}(R)\to\alpha_{i!}m_i(X)$ 双覆盖.
+故所述断言由\hyperref[VI.lem7.4.2.2]{7.4.2.2} 得到.
+
+\paragraph{}\etiquette[7.4.13.4]{VI.par7.4.13.4}
+\emph{归约到 $C$ 和 $D$ 是纤维化 $𝒰$-拓扑斯的情形.}
+由于函子 $m_i$ 连续, 它们可自然扩张到层范畴;
+以 $m_i^{\ast}:D_i^{\sim}\to C_i^{\sim}$ 表示这些扩张
+(III \hyperref[III.prop1.2]{1.2} iv)).
+设 $D^{\sim/I}$ 和 $C^{\sim/I}$ 分别是纤维化景 $D$ 和 $C$
+所伴随的纤维化 $𝒰$-拓扑斯.
+对 $I$ 的每个态射 $f$, 以 $f^{\ast}$ 表示四个纤维范畴
+$C$, $D$, $C^{\sim/I}$, $D^{\sim/I}$ 的逆像函子.
+由于函子 $m$ 是 $I$-函子, 对每个 $f:i\to j$ 有典范态射
+$$
+f^{\ast} mj \leftarrow m_i f^{\ast}{\quoi}.
+$$
+由于函子 $f^{\ast}$、$m_i$、$m_j$ 连续,
+转到层范畴后得到典范同构
+$$
+f^{\ast} m_j^{\ast} \longleftarrow m_i^{\ast} f^{\ast}{\quoi}.
+$$
+这些同构具有相容性质, 由此可构造笛卡儿函子
+$m^{\ast}:D^{\sim/I}\to C^{\sim/I}$,
+它在各纤维上的拓扑斯上诱导函子 $m_i^{\ast}$.
+此外, 图
+\[
+\xymatrix@C=2.5cm@R=1.5cm{
+D \ar[r]^{m} \ar[d]_{\varepsilon_I}& C \ar[d]^{\varepsilon_I}\\
+D^{\sim/I}   \ar[r]^{m^{\ast}}& C^{\sim/I}
+}
+\]
+在同构意义下交换.
+由于函子 $\epsilon_I$ 在全拓扑斯上诱导等价
+(\hyperref[VI.cor7.4.11]{7.4.11}),
+而 $m$ 是全景之间的态射,
+函子 $m^{\ast}:D^{\sim/I}\to C^{\sim/I}$ 也是全景之间的态射.
+因此, 我们归约到 $D$ 和 $C$ 是纤维化 $𝒰$-拓扑斯时证明
+\hyperref[VI.par7.4.13.2]{7.4.13.2} 的断言; 以下即作此假设.
+
+\paragraph{}\etiquette[7.4.13.5]{VI.par7.4.13.5}
+\emph{对 $I$ 的每个\pageoriginale 对象 $i$,
+函子 $m_i:D_i\to C_i$ 把 $D_i$ 的终对象映到 $C_i$ 的终对象.}
+以 $m:D^{\sim}\to C^{\sim}$ 表示 $m$ 到全拓扑斯的自然扩张
+(III \hyperref[III.prop1.2]{1.2}).
+使用等价 $\Theta_D:D^{\sim}\to\Hhom_{I^{\circ}}(I^{\circ},D')$
+(\hyperref[VI.prop7.4.7]{7.4.7}), 可立即验证:
+$m$ 把每个截面 $\sigma\in\Hom_{I^{\circ}}({I^{\circ}},D')$
+对应到截面 $(i\mapsto m_i\sigma(i))\in\Hom_{I^{\circ}}({I^{\circ}},C')$.
+由于 $m$ 是景态射, 函子 $m$ 左正合,
+特别把 $\Hhom_{I^{\circ}}({I^{\circ}},D)$ 的终对象
+映到 $\Hhom_{I^{\circ}}({I^{\circ}},C')$ 的终对象.
+对 $I$ 的每个对象 $i$, 以 $e_i$ 表示 $D_i$ 的终对象.
+$\Hhom_{I^{\circ}}({I^{\circ}},D')$ 的一个终对象是截面 $i\mapsto e_i$.
+于是截面 $i\mapsto m_i(e_i)$ 是
+$\Hhom_{I^{\circ}}({I^{\circ}},C')$ 的终对象,
+从而对 $I$ 的每个对象 $i$, $m_i(e_i)$ 是 $C_i$ 的终对象.
+
+\paragraph{}\etiquette[7.4.13.6]{VI.par7.4.13.6}
+\emph{归约到 $i$ 是 $I$ 的终对象的情形.}
+设 $i$ 是 $I$ 的对象.
+函子 $\alpha_{i!}:D_i\to D$ 分解为
+$$
+D_i \xrightarrow{\bar{\alpha}_{i!}} D_{/e_i} \xrightarrow{\loc(e_i)} D{\quoi},
+$$
+其中 $\bar{\alpha}_i$ 是显然的函子, $\loc(e_i)$ 是遗忘函子.
+以 $m/i:D_{/e_i}\to D_{m(e_i)}$ 表示下述函子:
+它把 $D_{/e_i}$ 的每个对象 $u:X\to e_i$
+对应到 $C_{/m(e_i)}$ 的对象 $m(u):m(X)\to m(e_i)$.
+有交换图
+\[
+\xymatrix@C=2.25cm@R=1.5cm{
+D_i \ar[r]^{m_i} \ar[d]_{\bar{\alpha}_{i!}}& C_i\ar[d]^{\bar{\alpha}_{i!}}\\
+D_{/e_i}  \ar[r]^{m/i} & C_{/m(e_i)}
+}
+\]
+由于 $e_i$ 和 $m(e_i)$ 分别是 $D_i$ 和 $C_i$ 的终对象
+(\hyperref[VI.par7.4.13.5]{7.4.13.5}),
+范畴 $D_{/e_i}$ 和 $C_{/m(e_i)}$ 是 $I_{/i}$ 上的纤维化 $𝒰$-拓扑斯,
+而函子 $m_{/i}$ 是 $I_{/i}$-函子.
+由于函子为景态射这一性质是局部的
+(IV \hyperref[IV.subsec4.9]{4.9}),
+函子 $m_{/i}$ 是从全景 $C_{/m(e_i)}$ 到全景 $D_{/(e_i)}$ 的态射.
+于是归约到 $i$ 是 $I$ 的终对象时证明 $m_i$ 是拓扑斯态射;
+以下即作此假设.\pageoriginale
+
+\paragraph{}\etiquette[7.4.13.7]{VI.par7.4.13.7}
+\emph{证明的结束.}
+以 $\alpha_{i!}:D_i\to D^{\sim}$、$m^{\sim}:D^{\sim}\to C^{\sim}$
+和 $\alpha_{i!}:C_i\to C^{\sim}$
+表示函子 $\alpha_{i!}$ 与 $m$ 到层范畴的自然扩张.
+有在同构意义下交换的图:
+\[
+\xymatrix@C=2.5cm@R=1.5cm{
+D_i \ar[r]^{m_i} \ar[d]_{\alpha_{i!}}& C_i\ar[d]^{\alpha_{i!}}\\
+D^{\sim}  \ar[r]^{m^{\sim}} & C .
+}
+\]
+由于 $i$ 是终对象, 函子 $\alpha_i^{\ast}\alpha_{i!}:C_i\to C_i$
+同构于恒等函子 (\hyperref[VI.lem7.4.12]{7.4.12}),
+从而 $m_i$ 同构于 $\alpha_i^{\ast}m^{\sim}\alpha_{i!}$.
+此外, 函子 $\alpha_i^{\ast}$、$m^{\sim}$ 和 $\alpha_i^{\ast}$ 左正合
+(\hyperref[VI.lem7.4.12]{7.4.12}).
+因此 $m_i$ 左正合, 故为从景 $C_i$ 到景 $D_i$ 的态射.
+
+\begin{enonce*}[remark]{习题 7.4.14}\etiquette[7.4.14]{VI.exe7.4.14}
+设 $X=(X_i)_{i\in I}$ 是 $I$ 上的纤维化拓扑斯, $T$ 是拓扑斯.
+证明范畴 $\Hhomtop(X_i,T)$ 是某个纤维范畴的纤维,
+将此纤维范畴记为 $\Hhomtop_I(X,T\times I)$.
+证明 $\Hhomtop_I(X,T\times I)$ 在 $I$ 上的截面范畴
+典范等价于 $\Hhomtop_I(\Top(X),T)$,
+其中 $\Top(X)$ 是 $X$ 的全拓扑斯.
+\end{enonce*}
+
+\begin{enonce*}[remark]{习题 7.4.15}\etiquette[7.4.15]{VI.exe7.4.15}
+设 $X=(X_i)_{i\in I}$ 是 $I$ 上的纤维化拓扑斯.
+定义从 $X$ 到以 $(\Ens)$ 为纤维的常纤维化拓扑斯的笛卡儿态射 $m$.
+证明以 $(\Ens)$ 为纤维的常纤维化拓扑斯的全拓扑斯
+典范等价于 $I^{\widehat{\phantom{,}}}$.
+由此推出拓扑斯态射
+$$
+\Top(m) :\Top(X) \to I^{\widehat{\phantom{,}}}{\quoi}.
+$$
+设 $F=(F_i)_{i\in I}$（其中 $F_i=F|X_i$）是 $\Top(X)$ 的对象
+(\hyperref[VI.prop7.4.7]{7.4.7}). 证明
+$$
+\Top(m)(F) = (i \mapsto \Gamma (X_i, F_i)){\quoi}.
+$$
+由\hyperref[VI.lem7.4.12]{7.4.12} 推出:
+若 $F$ 是内射阿贝尔对象, 则对每个 $i\in\ob I$, $F_i$ 是内射阿贝尔对象.
+由此推出
+$$
+R^q \Top(m)(F) = (i \mapsto H^{q} (X_i, F_i)){\quoi}.
+$$
+证明\pageoriginale 态射 $m$ 的 Cartan--Leray 谱序列
+(\hyperrefext[V][V.sec5]{5}) 为
+$$
+H^{p+q} (\Top(X), F) \Leftarrow {\varprojlim_{I}}^{(p)} H^{q}
+(X_i, F|X_i){\quoi}.
+$$
+\end{enonce*}
+
+
+% END INCLUDED SGA4_English_current_buildable_source_20260906/source/06/drafts/SGA4_VI_LINES_4930_5251_English.texfrag
+
+
+% BEGIN INCLUDED SGA4_English_current_buildable_source_20260906/source/06/drafts/SGA4_VI_LINES_5252_5495_English.texfrag
+% CHECKPOINT: VI sections 6--7 completely translated through 7.4.15; section 8 onward belongs to another translator.
