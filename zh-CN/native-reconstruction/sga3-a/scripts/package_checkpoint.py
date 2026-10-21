@@ -2,7 +2,7 @@
 """Freeze the currently buildable translated dependency closure into a source ZIP."""
 from pathlib import Path
 import argparse,hashlib,json,re,shutil,subprocess,zipfile
-p=argparse.ArgumentParser();p.add_argument('--completed',nargs='+',required=True);p.add_argument('--visual',required=True);a=p.parse_args()
+p=argparse.ArgumentParser();p.add_argument('--completed',nargs='+',required=True);p.add_argument('--visual',required=True);p.add_argument('--extra-source',nargs='*',default=[]);a=p.parse_args()
 r=Path(__file__).resolve().parents[1]
 log=(r/'build/main.log').read_text()
 if 'Output written on' not in log or '\n! ' in log:raise SystemExit('Successful current build required')
@@ -24,11 +24,12 @@ def visit(path):
   if q.is_file():visit(q)
 visit(r/'main.tex')
 chapters=sorted(str(x.relative_to(r)) for x in seen if 'chapters' in x.parts)
-d=json.loads((r/'PROGRESS.json').read_text());d.update({'state':'partial_translation_checkpoint','completed_exposes':a.completed,'unfinished_exposes':[x for x in d['assigned_exposes'] if x not in a.completed],'translated_components':[Path(x).stem.removesuffix('-zh') for x in chapters],'compile_status':'successful XeLaTeX/latexmk, '+str(pages)+' pages','scope_complete':len(a.completed)==len(d['assigned_exposes']) and not d.get('unfinished_ancillary_material'),'proofreading_complete':False,'pdf':'sga3-a-zh.pdf','source_zip':'sga3-a-source.zip','source_zip_frozen_components':chapters,'last_durable_checkpoint':'Full translated text of exposés '+', '.join(a.completed)+' with native diagrams and bibliography; remaining assigned units unfinished.'})
+for extra in a.extra_source:visit(r/extra)
+d=json.loads((r/'PROGRESS.json').read_text());d.update({'state':'paused_partial_translation' if d.get('paused') else 'partial_translation_checkpoint','completed_exposes':a.completed,'unfinished_exposes':[x for x in d['assigned_exposes'] if x not in a.completed],'translated_components':[Path(x).stem.removesuffix('-zh') for x in chapters],'compile_status':'successful XeLaTeX/latexmk, '+str(pages)+' pages','scope_complete':len(a.completed)==len(d['assigned_exposes']) and not d.get('unfinished_ancillary_material'),'proofreading_complete':False,'pdf':'sga3-a-zh.pdf','source_zip':'sga3-a-source.zip','source_zip_frozen_components':chapters,'source_zip_unassembled_extra_files':a.extra_source,'last_durable_checkpoint':'Full translated text of exposés '+', '.join(a.completed)+' with native diagrams and bibliography; remaining assigned units unfinished.'})
 (r/'PROGRESS.json').write_text(json.dumps(d,ensure_ascii=False,indent=2)+'\n')
 shutil.copyfile(r/'build/main.pdf',r/'sga3-a-zh.pdf')
 warnings=re.findall(r'LaTeX Warning: ((?:(?!\n\n).)*)',log,re.S)
-undefined=[w.replace('\n',' ') for w in warnings if 'undefined' in w and 'reference' in w.lower()]
+undefined=[w.replace('\n',' ') for w in warnings if 'undefined' in w and w.startswith(('Reference ','Hyper reference '))]
 qa={'compiled_exposes':a.completed,'command':'latexmk -xelatex -interaction=nonstopmode -halt-on-error -outdir=build main.tex','result':'success','pages':pages,'missing_character_messages':log.count('Missing character:'),'overfull_boxes':log.count('Overfull'),'underfull_boxes':log.count('Underfull'),'undefined_reference_warning_count':len(undefined),'undefined_reference_warnings':undefined,'font_warnings':re.findall(r'LaTeX Font Warning: ([^\n]+)',log),'visual_status':a.visual,'reference_status':'See COMPONENT_CHECKS.json: source SGARefLink fallback suppresses absent-target warnings; zero warning is not a resolution certificate.','mathematical_review':'Known source issues and review limits remain in SOURCE_ISSUES.md; no final mathematical certification.','pdf_sha256':hashlib.sha256((r/'sga3-a-zh.pdf').read_bytes()).hexdigest()}
 (r/'audit/BUILD-CURRENT.json').write_text(json.dumps(qa,ensure_ascii=False,indent=2)+'\n')
 for n in ['README.md','BUILD.md','PROGRESS.json','.gitignore','terminology.csv']:

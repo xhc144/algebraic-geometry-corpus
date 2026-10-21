@@ -1,0 +1,590 @@
+% SGA 3, Expose VI_B, Loop 1 English reconstruction.
+% Loop 2 R1: the two source-bound crops are replaced by faithful
+% native tikz-cd diagrams; prose, mathematics, labels, and the prior
+% integration-path normalization otherwise remain unchanged.
+% R2 integration successor: source-reviewed prose, mathematics, labels,
+% and locators are unchanged; only the two diagram paths are rebound to
+% the cumulative reader's shared figures directory.
+% Scope: Section 13 in full and the complete VI_B bibliography,
+% including editor's notes 139--140.
+% Authority: Polo--Gille Exp6B-13oct24.pdf, component-local
+% pages 105--111 (combined-reader pages 446--452; re-edition
+% headers 435--441; original-print margin markers 420--426).
+% Component-local page 112 is the terminal blank and is excluded.
+% OCR is locator-only. Reinhold e7a259f English Markdown is a
+% credited comparison witness, not source authority.
+% The projective system in Example 13.3 and cartesian square in
+% Proposition 13.7 are exact source-bound Loop-1 PNG crops.
+
+
+\section*{13. 维数至多为 \(2\) 的正则底上的平坦仿射群}
+\phantomsection\label{sec:sga3-VIB-13}%
+\addcontentsline{toc}{section}{13. 维数至多为 2 的正则底上的平坦仿射群}
+
+首先指出\footnote{\label{note:sga3-VIB-139}%
+编者注：本节为增补内容。}，证明域 \(k\) 上每个仿射代数群都是线性群的熟知论证，以及\hyperref[lem:sga3-VIB-11.12]{引理 11.12}，都可推广到在维数至多为 \(2\) 的 Noether 正则底概形 \(S\) 上仿射、平坦且有限型的群概形 \(G\)。当 \(S\) 的维数至多为 \(1\) 时，这就证明了\hyperref[concl:sga3-VIB-11.11.1-b]{注 11.11.1(b)}。推广到 \(\dim S=2\) 依靠 O.~Gabber 提供的下述引理。
+
+\medskip
+\phantomsection\label{lem:sga3-VIB-13.1}%
+\noindent\textbf{引理 13.1.---}
+\emph{设 \(S\) 为正规 Noether 概形，\(\mathcal A\) 为平坦拟凝聚 \(\mathcal O_S\)-模，\(\mathcal F\) 为 \(\mathcal A\) 的有限型 \(\mathcal O_S\)-子模，\(\mathcal F^{**}\) 为其双对偶，\(U\) 为 \(\mathcal F\) 的平坦性轨迹，即使 \(\mathcal F_s\) 为平坦 \(\mathcal O_{S,s}\)-模的点 \(s\in S\) 所成的集合。}
+\begin{enumerate}
+\item[\textup{(i)}]\phantomsection\label{concl:sga3-VIB-13.1-i}
+  \emph{\(U\) 在 \(S\) 中开，且}
+\[
+    \mathcal F^{**}=j_*j^*(\mathcal F),
+  \]
+  \emph{其中 \(j:U\hookrightarrow S\) 表示包含映射。}%
+  \begingroup
+  \renewcommand{\thefootnote}{\fnsymbol{footnote}}%
+  \footnote[1]{\label{note:sga3-VIB-13.1-i-U-ambient}
+  源文读法注：法文重版本在陈述中印作 \(j:U\hookrightarrow X\)。整个引理中的环境概形为 \(S\)，且其证明明确地定义 \(j:U\hookrightarrow S\)；这里采用后一读法。Reinhold 对照版本保留了所印的 \(X\)。}%
+  \endgroup
+
+\item[\textup{(ii)}]\phantomsection\label{concl:sga3-VIB-13.1-ii}
+  \emph{对每个拟凝聚 \(\mathcal O_U\)-模 \(\mathcal E\)，典范态射}
+  \phantomsection\label{form:sga3-VIB-13.1-projection}%
+\[
+    j_*(\mathcal E)\otimes_{\mathcal O_S}\mathcal A
+      \longrightarrow
+    j_*\bigl(\mathcal E\otimes_{\mathcal O_U}j^*(\mathcal A)\bigr)
+  \]
+  \emph{为同构。}
+
+\item[\textup{(iii)}]\phantomsection\label{concl:sga3-VIB-13.1-iii}
+  \emph{特别地，}
+\[
+    \mathcal V=j_*j^*(\mathcal F)
+      \subset \mathcal A=j_*j^*(\mathcal A),
+  \]
+  \emph{且典范态射}
+  \phantomsection\label{form:sga3-VIB-13.1-tensor}%
+\[
+    \mathcal V\otimes_{\mathcal O_S}\mathcal A
+      \longrightarrow
+    j_*j^*\bigl(\mathcal F\otimes_{\mathcal O_S}\mathcal A\bigr)
+  \]
+  \emph{为同构。}
+\end{enumerate}
+
+\emph{证明。}
+以一个连通分支替代 \(S\)，可假设 \(S\) 整。由 EGA~IV\(_2\)，2.1.12，\(\mathcal F\) 的平坦性轨迹，即使 \(\mathcal F_s\) 为平坦 \(\mathcal O_{S,s}\)-模的点 \(s\in S\) 所成的集合，是 \(S\) 的一个开子集 \(U\)；用 \(j:U\hookrightarrow S\) 表示其包含映射。由于 \(\mathcal A_s\) 平坦，因而无挠，\(\mathcal F_s\) 也如此。所以 \(U\) 包含每个余维至多为 \(1\) 的点。因此，由 \hyperref[bib:sga3-VIB-BAC]{\textup{[BAC]}}，VII，\S~4.2，定理~1 的推论，
+\[
+  \mathcal F^{**}=j_*j^*(\mathcal F),
+\]
+从而存在单态射
+\[
+  \mathcal F^{**}\longrightarrow j_*j^*(\mathcal A).
+\]
+\hyperref[concl:sga3-VIB-13.1-ii]{\textup{(ii)}} 的证明与 EGA~III，1.4.15 的证明类似，后者在 \hyperref[par:sga3-VIB-11.0]{11.0} 中已回顾。由于 \(S\) 正规，态射
+\[
+  \mathcal O_S\longrightarrow j_*j^*(\mathcal O_S)
+\]
+为同构\textup{（参见 EGA~IV\(_2\)，5.8.6 和 5.10.5）}。因此将 \hyperref[concl:sga3-VIB-13.1-ii]{\textup{(ii)}} 应用于 \(\mathcal E=\mathcal O_U\)，得到
+\[
+  \mathcal A=j_*j^*(\mathcal A).
+\]
+最后，由于
+\[
+  j^*(\mathcal F\otimes_{\mathcal O_S}\mathcal A)
+  =
+  j^*(\mathcal F)\otimes_{\mathcal O_U}j^*(\mathcal A),
+\]
+将 \hyperref[concl:sga3-VIB-13.1-ii]{\textup{(ii)}} 应用于 \(\mathcal E=j^*(\mathcal F)\)，便得到 \hyperref[concl:sga3-VIB-13.1-iii]{\textup{(iii)}} 的最后一个断言。引理得证。
+
+还回顾，若从有限生成 \(R\)-模 \(M\) 到其双对偶 \(M^{**}\) 的典范态射为同构，则称 \(M\) 为\emph{自反模}。若 \(R\) 为维数至多为 \(2\) 的 Noether 正则环，这蕴含 \(M\) 投射。事实上，对每个有限生成 \(R\)-模 \(N\)，选取分解
+\[
+  L_1\longrightarrow L_0\longrightarrow N\longrightarrow0,
+\]
+其中 \(L_0\) 和 \(L_1\) 为有限自由 \(R\)-模。此时存在正合列
+\phantomsection\label{seq:sga3-VIB-13.1-dual-resolution}%
+\[
+  0\longrightarrow N^*
+    \longrightarrow L_0^*
+    \longrightarrow L_1^*
+    \longrightarrow Q
+    \longrightarrow0,
+\]
+其中 \(Q\) 为 \(L_0^*\to L_1^*\) 的余核。由于 \(R\) 的同调维数至多为 \(2\)\textup{（\hyperref[bib:sga3-VIB-BAC]{[BAC]}，X，\S~\SGARefLink{prop:sga3-VIB-4.2}{4.2}，定理~1 的推论~1）}，可知 \(N^*\) 投射。
+
+\medskip
+\phantomsection\label{prop:sga3-VIB-13.2}%
+\noindent\textbf{命题 13.2.---}
+\emph{设 \(S\) 为维数至多为 \(2\) 的 Noether 正则概形，\(G\) 为仿射平坦 \(S\)-群，\(\mathcal A(G)\) 为其仿射代数。}
+\begin{enumerate}
+\item[\textup{(i)}]\phantomsection\label{concl:sga3-VIB-13.2-i}
+  \emph{若 \(G\) 在 \(S\) 上有限型，则它同构于}
+\[
+    H=\operatorname{Aut}_{\mathcal O_S}(\mathcal V)
+  \]
+  \emph{的一个闭子群，其中 \(\mathcal V\) 为某个有限秩局部自由 \(\mathcal O_S\)-模。若此外 \(S\) 仿射，则对某个 \(d\) 可取 \(\mathcal V=\mathcal O_S^{\oplus d}\)，于是 \(H=\operatorname{GL}_{d,S}\)。}
+
+\item[\textup{(ii)}]\phantomsection\label{concl:sga3-VIB-13.2-ii}
+  \emph{\(\mathcal A(G)\) 为平坦有限型 \(\mathcal O_S\)-Hopf 子代数的滤过归纳极限。}
+\end{enumerate}
+
+\emph{证明。}
+设 \(\mathcal B\) 为 \(\mathcal A(G)\) 的一个有限型 \(\mathcal O_S\)-子代数。由于 \(S\) 的开子集上的每个凝聚模都可延拓为 \(S\) 上的凝聚模\textup{（EGA~I，9.4.5）}，存在 \(\mathcal B\) 的一个凝聚 \(\mathcal O_S\)-子模 \(\mathcal M\)，它作为 \(\mathcal O_S\)-代数生成 \(\mathcal B\)\textup{（\emph{同上}，9.6.5）}。由 \hyperref[prop:sga3-VIB-11.10.bis]{11.10.bis}，\(\mathcal M\) 包含在一个凝聚且 \(G\)-稳定的 \(\mathcal O_S\)-子模 \(\mathcal F\) 中。\textup{（注意：由于 \(G\) 在 \(S\) 上仿射，\emph{该处}的证明在这里更简单：可将 \(f_*f^*(\mathcal E)\) 换成 \(\mathcal E\otimes_{\mathcal O_S}\mathcal A(G)\)，等等。）}
+
+设 \(j:U\hookrightarrow S\) 为包含映射，其中 \(U\) 为 \(\mathcal F\) 的平坦性轨迹。由\hyperref[lem:sga3-VIB-13.1]{引理 13.1} 及前述说明，
+\[
+  \mathcal V=j_*j^*(\mathcal F)
+\]
+是 \(\mathcal A(G)\) 的局部自由 \(\mathcal O_S\)-子模，且典范态射
+\phantomsection\label{form:sga3-VIB-13.2-V-stability}%
+\[
+  \mathcal V\otimes_{\mathcal O_S}\mathcal A(G)
+    \longrightarrow
+  j_*j^*\bigl(\mathcal F\otimes_{\mathcal O_S}\mathcal A(G)\bigr)
+\]
+为同构。因此 \(\mathcal V\) 是 \(\mathcal A(G)\) 的 \(G\)-子模。\(G\) 在 \(\mathcal V\) 上的作用诱导仿射 \(S\)-群态射
+\[
+  \rho_{\mathcal V}:
+  G\longrightarrow
+  H=\operatorname{Aut}_{\mathcal O_S}(\mathcal V)
+\]
+从而诱导 \(\mathcal O_S\)-Hopf 代数态射
+\[
+  \varphi_{\mathcal V}:\mathcal A(H)\longrightarrow\mathcal A(G).
+\]
+用 \(\mathcal A_{\mathcal V}\) 表示 \(\varphi_{\mathcal V}\) 的像。它是 \(H\) 的一个闭子群 \(G_{\mathcal V}\) 的仿射代数，该子群就是 \(\rho_{\mathcal V}\) 的闭像。我们将证明 \(\mathcal A_{\mathcal V}\) 包含 \(\mathcal B\)。
+
+问题在 \(S\) 上是局部的，故可假设 \(S=\operatorname{Spec}(R)\)，且
+\[
+  V=\Gamma(S,\mathcal V)
+\]
+是具有基 \(v_1,\ldots,v_n\) 的自由 \(R\)-模。此时 \(H\simeq\operatorname{GL}_{n,R}\)，且 \(\mathcal A(H)\) 作为 \(R\)-代数由“矩阵系数” \(c_{ij}\) 及 \(d^{-1}\) 生成，其中 \(d\) 表示行列式。用 \(\Delta\)\textup{（分别地，\(\varepsilon\)）}表示 \(A=\Gamma(S,\mathcal A(G))\) 的余乘法\textup{（分别地，增广）}。对 \(j=1,\ldots,n\)，写成
+\phantomsection\label{form:sga3-VIB-13.2-matrix-coefficients}%
+\[
+  \Delta(v_j)=\sum_{i=1}^{n}v_i\otimes a_{ij}.
+\]
+则 \(a_{ij}=\varphi(c_{ij})\) 属于 \(\operatorname{Im}(\varphi)\)。由于 \(V\) 是 \(A\) 的 \(R\)-子模，恒等式
+\[
+  (\varepsilon\otimes\mathrm{id}_A)\circ\Delta
+    =\mathrm{id}_A
+\]
+给出
+\[
+  v_j=\sum_i\varepsilon(v_i)a_{ij}
+    \in\operatorname{Im}(\varphi).
+\]
+由于 \(V\) 包含 \(B=\Gamma(S,\mathcal B)\) 的一组生成元，可知
+\[
+  B\subset\operatorname{Im}(\varphi).
+\]
+若 \(G\) 在 \(S\) 上有限型，取 \(\mathcal B=\mathcal A(G)\)。则 \(\varphi\) 满射，故态射
+\[
+  G\longrightarrow
+  H=\operatorname{Aut}_{\mathcal O_S}(\mathcal V)
+\]
+为闭浸入。
+
+若 \(S\) 还仿射，则存在一个有限秩局部自由 \(\mathcal O_S\)-模 \(\mathcal V'\)，使得
+\[
+  \mathcal V\oplus\mathcal V'
+    =\mathcal O_S^{\oplus d}.
+\]
+将 \(\mathcal V'\) 看成平凡 \(G\)-模，并将 \(\mathcal V\) 换成 \(\mathcal O_S^{\oplus d}\)。这就将 \(G\) 实现为 \(\operatorname{GL}_{d,S}\) 的闭子群。
+
+最后，回到任意仿射平坦 \(S\)-群 \(G\)。由 EGA~I，9.4.9，\(\mathcal A(G)\) 是其凝聚 \(\mathcal O_S\)-子模 \(\mathcal M\) 的并，因而也是上述所构造的 \(\mathcal O_S\)-Hopf 子代数 \(\mathcal A_{\mathcal V}\) 的并。这就证明了 \hyperref[concl:sga3-VIB-13.2-ii]{\textup{(ii)}}。
+
+\medskip
+\phantomsection\label{ex:sga3-VIB-13.3}%
+\noindent\textbf{例 13.3.---}
+\emph{设 \(R\) 为离散赋值环，\(\pi\) 为素元，\(K\) 为分式域。考虑 \(R\)-群的滤过射影系统}
+\begin{center}
+  \phantomsection\label{diag:sga3-VIB-13.3-projective-system}%
+  \begin{tikzcd}[column sep=large]
+    \cdots \arrow[r] &
+    \mathbb G_{a,R} \arrow[r,"\times\pi"] &
+    \mathbb G_{a,R} \arrow[r,"\times\pi"] &
+    \mathbb G_{a,R}
+  \end{tikzcd}
+\end{center}
+\emph{它对应于归纳系统}
+\[
+  R[X_0]\longrightarrow R[X_1]\longrightarrow R[X_2]
+    \longrightarrow\cdots,
+\]
+\emph{其过渡态射由 \(X_n=\pi X_{n+1}\) 给出。它的射影极限 \(G\) 为非有限型的平坦仿射 \(R\)-群概形，其特殊纤维平凡，泛纤维为 \(\mathbb G_{a,K}\)。仿射 \(R\)-代数 \(\mathcal A(G)\) 为 \(K[X]\) 的由常数项属于 \(R\) 的多项式组成的子环。\textup{（注意：在\hyperref[rem:sga3-VIB-11.10.1]{注 11.10.1} 中已遇到这一例子。）}此外，\(G\) 表示如下函子：给每个 \(R\)-代数 \(B\) 配以由 \(B\) 中元素组成且满足}
+\[
+  x_n=\pi x_{n+1}\qquad\text{对每个 \(n\)}.
+\]
+\emph{的序列 \((x_n)_{n\in\mathbb N}\) 的集合。\textup{（特别地，每个 \(x_n\) 均可无限次地被 \(\pi\) 整除。）}}
+
+现在设 \(S\) 为一个 Noether 概形，使每个凝聚 \(\mathcal O_S\)-模都是有限型局部自由 \(\mathcal O_S\)-模的商。例如，当 \(S\) 为分离 Noether 正则概形时，这一性质成立；见 SGA~6，第 II 篇，2.1.1 和 2.2.7。\textup{（可以证明，每个维数至多为 \(1\) 的 Noether 正则概形也具有这一性质。然而，当 \(S\) 为域 \(k\) 上原点加倍的仿射平面时，此性质不成立；见\emph{同上}，2.2.7.2。）}
+
+\medskip
+\phantomsection\label{def:sga3-VIB-13.4}%
+\noindent\textbf{定义 13.4.---}
+\emph{设 \(G\) 为仿射平坦 \(S\)-群。依照 R.~W.~Thomason\textup{（\hyperref[bib:sga3-VIB-Th87]{[Th87]}，\SGARefLink{prop:sga3-VIB-2.1}{2.1}）}，若对每个凝聚 \(G\)-\(\mathcal O_S\)-模 \(\mathcal F\)，都存在有限秩局部自由 \(G\)-\(\mathcal O_S\)-模 \(\mathcal E\) 及 \(G\)-等变满态射}
+\[
+  \mathcal E\longrightarrow\mathcal F.
+\]
+\emph{则称二元组 \((G,S)\) 具有\emph{等变分解性质}，或满足 \textup{(RE)}。}
+
+Thomason 在\emph{该文}的\SGARefLink{def:sga3-VIB-3.1}{定理~3.1} 中，在 \(G\) 于 \(S\) 上本质自由的假设下\textup{（见下面的注）}证明了下述结果。Gabber 向我们指出了这里给出的更简单的证明，它不使用该假设。
+
+\medskip
+\phantomsection\label{prop:sga3-VIB-13.5}%
+\noindent\textbf{命题 13.5.---}
+\emph{设 \(S\) 为 Noether 概形，\(G\) 为平坦且有限型的仿射 \(S\)-群，其仿射代数为 \(\mathcal A(G)\)。假设 \((G,S)\) 满足 \textup{(RE)}。则：}
+\begin{enumerate}
+\item[\textup{(i)}]\phantomsection\label{concl:sga3-VIB-13.5-i}
+  \emph{\(G\) 同构于}
+\[
+    H=\operatorname{Aut}_{\mathcal O_S}(\mathcal V)
+  \]
+  \emph{的一个闭子群，其中 \(\mathcal V\) 为某个有限秩局部自由 \(\mathcal O_S\)-模。}
+
+\item[\textup{(ii)}]\phantomsection\label{concl:sga3-VIB-13.5-ii}
+  \emph{若此外 \(S\) 仿射，则对某个 \(d\) 可取 \(\mathcal V=\mathcal O_S^{\oplus d}\)，于是 \(H=\operatorname{GL}_{d,S}\)。}%
+  \begingroup
+  \renewcommand{\thefootnote}{\fnsymbol{footnote}}%
+  \footnote[2]{\label{note:sga3-VIB-13.5-ii-rank-letter}
+  源文读法注：法文陈述在 \(\mathcal O_S^{\oplus d}\) 后印作“对某个 \(n\)”，但其结论为 \(H=\operatorname{GL}_{d,S}\)。这里以 \(d\) 表示同一秩。Reinhold 对照版本也使用 \(d\)。}%
+  \endgroup
+\end{enumerate}
+
+证明与 \hyperref[prop:sga3-VIB-13.2]{13.2} 类似。如该处一样，存在一个凝聚且 \(G\)-稳定的 \(\mathcal O_S\)-子模 \(\mathcal F\)，它作为 \(\mathcal O_S\)-代数生成 \(\mathcal A=\mathcal A(G)\)。以一个连通分支替代 \(S\)，可假设 \(S\) 连通。由 \textup{(RE)}，存在一个秩为 \(n\) 的局部自由 \(G\)-\(\mathcal O_S\)-模 \(\mathcal E\)，以及 \(\mathcal A\)-余模的满态射
+\[
+  \pi:\mathcal E\longrightarrow\mathcal F.
+\]
+置 \(H=\operatorname{Aut}_{\mathcal O_S}(\mathcal E)\)。这是一个局部同构于 \(\operatorname{GL}_{n,S}\) 的 \(S\)-群概形。\(G\) 在 \(\mathcal E\) 上的作用诱导仿射 \(S\)-群态射
+\[
+  \rho:G\longrightarrow H,
+\]
+它对应于一个 \(\mathcal O_S\)-Hopf 代数态射
+\[
+  \varphi:\mathcal A(H)\longrightarrow\mathcal A(G).
+\]
+我们将证明 \(\rho\) 为闭浸入。
+
+问题在 \(S\) 上是局部的，故假设 \(S=\operatorname{Spec}(R)\)，且
+\[
+  V=\Gamma(S,\mathcal E)
+\]
+是具有基 \(v_1,\ldots,v_n\) 的自由 \(R\)-模。此时 \(H\simeq\operatorname{GL}_{n,R}\)，而
+\[
+  B=\Gamma(S,\mathcal A(H))
+\]
+作为 \(R\)-代数由矩阵系数 \(c_{ij}\) 及 \(d^{-1}\) 生成，其中 \(d\) 表示行列式。用 \(\Delta\)\textup{（分别地，\(\varepsilon\)）}表示
+\[
+  A=\Gamma(S,\mathcal A(G)),
+\]
+的余乘法\textup{（分别地，增广）}；设
+\[
+  \mu:V\longrightarrow V\otimes_R A
+\]
+为 \(V\) 上的 \(A\)-余模结构，并置
+\[
+  F=\Gamma(S,\mathcal F).
+\]
+对 \(j=1,\ldots,n\)，写成
+\phantomsection\label{form:sga3-VIB-13.5-mu-matrix}%
+\[
+  \mu(v_j)=\sum_{i=1}^{n}v_i\otimes a_{ij}.
+\]
+则 \(\varphi(c_{ij})=a_{ij}\)。由于 \(\pi:V\to F\) 为 \(A\)-余模态射，有
+\phantomsection\label{form:sga3-VIB-13.5-comodule-map}%
+\[
+  \sum_{i=1}^{n}\pi(v_i)\otimes a_{ij}
+    =
+  (\pi\otimes_R\mathrm{id}_A)(\mu(v_j))
+    =
+  \Delta(\pi(v_j)),
+\]
+从而
+\phantomsection\label{form:sga3-VIB-13.5-coefficient-recovery}%
+\[
+  \begin{aligned}
+  \pi(v_j)
+    &=(\varepsilon\otimes_R\mathrm{id}_A)\Delta(\pi(v_j))\\
+    &=\sum_{i=1}^{n}\varepsilon(\pi(v_i))a_{ij}\\
+    &=\varphi\left(
+        \sum_{i=1}^{n}\varepsilon(\pi(v_i))c_{ij}
+      \right).
+  \end{aligned}
+\]
+所以 \(\varphi(B)\) 包含 \(\pi(V)=F\)，后者作为 \(R\)-代数生成 \(A\)。故 \(\varphi\) 满射，且 \(\rho\) 为闭浸入。这就证明了 \hyperref[concl:sga3-VIB-13.5-i]{\textup{(i)}}。
+
+若 \(S\) 仿射，则存在有限秩局部自由 \(\mathcal O_S\)-模 \(\mathcal V'\)，使得
+\[
+  \mathcal V\oplus\mathcal V'
+    =\mathcal O_S^{\oplus d}.
+\]
+将 \(\mathcal V'\) 看成平凡 \(G\)-模，并将 \(\mathcal V\) 换成 \(\mathcal O_S^{\oplus d}\)。这就将 \(G\) 实现为 \(\operatorname{GL}_{d,S}\) 的闭子群，证明完毕。
+
+\medskip
+\phantomsection\label{rem:sga3-VIB-13.6}%
+\noindent\textbf{注 13.6.---}
+\begin{enumerate}
+\item[\textup{(a)}]\phantomsection\label{rem:sga3-VIB-13.6-a}
+  为完整起见，沿用前述记号，简述 Thomason 的论证\textup{（\hyperref[bib:sga3-VIB-Th87]{[Th87]}，\SGARefLink{def:sga3-VIB-3.1}{定理~3.1}）}。\(G\)-等变满态射
+\[
+    \pi:\mathcal E\longrightarrow\mathcal F
+  \]
+  诱导一个闭浸入
+\[
+    \tau:G\longrightarrow V(\mathcal E)
+  \]
+  使得
+\[
+    \tau(g'g)=\tau(g')\cdot g.
+  \]
+  \textup{（注意：\(G\) 右作用于 \(V(\mathcal E)\)。）}
+  存在一个同构
+\[
+    H\simeq
+    \operatorname{Aut}_{\mathcal O_S}
+      \bigl(V(\mathcal E)\bigr)^{\mathrm{op}}
+  \]
+  它与 \(G\) 在 \(\mathcal E\) 上的左作用及在 \(V(\mathcal E)\) 上的右作用相容。设
+\[
+    N=\operatorname{Transp}^{\mathrm{str}}_H
+      \bigl(\tau(G),\tau(G)\bigr)
+  \]
+  为严格传送子。若 \(G\) 在 \(S\) 上本质自由，则由 \hyperref[ex:sga3-VIB-6.2.4-e]{6.2.4(e)}，\(N\) 是 \(H\) 的闭子群概形，因而在 \(S\) 上仿射。此外，\(\rho\) 经由 \(S\)-群态射
+\[
+    \rho':G\longrightarrow N.
+  \]
+  分解。对每个 \(S'\to S\) 及 \(h\in N(S')\)，置
+\[
+    \pi(h)=\tau(1)\cdot h,
+  \]
+  其中 \(1\) 为 \(G(S')\) 的单位元。这定义一个 \(S\)-概形态射
+\[
+    \pi:N\longrightarrow\tau(G)
+  \]
+  将 \(G\) 等同于 \(\tau(G)\) 后，它就是 \(\rho'\) 的收缩。由于 \(N\) 在 \(S\) 上分离，可知 \(\rho'\) 为闭浸入。
+
+\item[\textup{(b)}]\phantomsection\label{rem:sga3-VIB-13.6-b}
+  \hyperref[bib:sga3-VIB-Th87]{[Th87]} 的\SGARefLink{def:sga3-VIB-3.1}{定理~3.1} 的证明似乎需要 \(G\) 在 \(S\) 上本质自由的假设，尽管那里没有写出这一假设\textup{（作者转而使用了 \(H\) 本质自由这一事实）}。不过，当 \(G\) 约化时此假设满足\textup{（参见 \SGARefLink{sga3:xxii:cor:5.7.8}{第 XXII 篇，5.7.8}）}，从而\emph{该文}\SGARefLink{rem:sga3-VIB-3.2}{推论~3.2} 所考虑的所有情形都满足此假设。特别地，Thomason 在\emph{该文} \SGARefLink{prop:sga3-VIB-2.5}{2.5} 中证明：若 \(S\) 分离、Noether、正则且维数至多为 \(2\)，若 \(G\) 仿射且有限呈示，且 \(\mathcal A(G)\) 是局部投射 \(\mathcal O_S\)-模，则 \((G,S)\) 满足 \textup{(RE)}。由 \hyperref[prop:sga3-VIB-13.5]{13.5}，这就在稍强一些的假设下给出 \hyperref[prop:sga3-VIB-13.2]{13.2}。
+\end{enumerate}
+
+最后指出，\hyperref[bib:sga3-VIB-Th87]{[Th87]}，\SGARefLink{prop:sga3-VIB-2.5}{2.5} 的证明可以如下稍作简化。\textup{（为简洁起见，考虑仿射情形 \(S=\operatorname{Spec}(R)\)。）}
+
+\medskip
+\phantomsection\label{prop:sga3-VIB-13.7}%
+\noindent\textbf{命题 13.7.---}
+\emph{设 \(R\) 为维数至多为 \(2\) 的 Noether 正则环，\(C\) 为作为 \(R\)-模投射的 \(R\)-余代数，\(F\) 为在 \(R\) 上有限型的 \(C\)-余模。则 \(F\) 是一个在 \(R\) 上投射且有限型的 \(C\)-余模 \(V\) 的商。}
+
+\emph{证明。}
+以 \(\operatorname{Spec}(R)\) 的一个连通分支替代它，可假设 \(R\) 整，其分式域为 \(K\)。用 \(\Delta\)\textup{（分别地，\(\varepsilon\)）}表示 \(C\) 的余乘法\textup{（分别地，增广）}，并设
+\[
+  \rho:F\longrightarrow F\otimes C
+\]
+为 \(F\) 上的余模结构。设
+\[
+  \pi:W\longrightarrow F
+\]
+为满射态射，其中 \(W\) 为有限自由 \(R\)-模。赋予 \(W\otimes C\) 由 \(\mathrm{id}_W\otimes\Delta\) 定义的余模结构，并对 \(F\otimes C\) 作同样处理。于是 \(\rho:F\to F\otimes C\) 为 \(C\)-余模态射，且有收缩 \(\mathrm{id}_F\otimes\varepsilon\)。
+
+设 \(W'\) 为由下列笛卡尔方块定义的 \(C\)-余模：
+\begin{center}
+  \phantomsection\label{diag:sga3-VIB-13.7-cartesian-square}%
+  \begin{tikzcd}[row sep=large,column sep=large]
+    W' \arrow[r] \arrow[d] &
+    F \arrow[d,"\rho"] \\
+    W\otimes C \arrow[r,"\pi\otimes\mathrm{id}_C"] &
+    F\otimes C
+  \end{tikzcd}
+\end{center}
+于是 \(W'\) 等同于态射
+\[
+  W\otimes C\longrightarrow(F\otimes C)/\rho(F),
+\]
+的核，且投影
+\[
+  \pi':W'\longrightarrow F,
+  \qquad
+  x\longmapsto(\pi\otimes\varepsilon)(x),
+\]
+满射。由于 \(F\) 为有限生成 \(R\)-模，存在 \(W'\) 的一个在 \(R\) 上有限生成的 \(C\)-子余模 \(V'\)，使得
+\[
+  \pi'(V')=F.
+\]
+由于 \(W\otimes C\) 作为 \(R\)-模无挠，\(V'\) 也如此。因此，用 \(V'\) 替代 \(F\)，可以一开始就假设 \(F\) 无挠。
+
+对这个新的 \(F\) 作前述构造，得到上述 \(V'\)。考虑作为态射
+\phantomsection\label{form:sga3-VIB-13.7-E-quotient}%
+\[
+  W\otimes C\longrightarrow
+  E=\frac{W\otimes C\otimes K}{V'\otimes K}.
+\]
+之核的子余模 \(V\)。则 \(V\) 包含 \(V'\)，且
+\[
+  Q=(W\otimes C)/V
+\]
+是 \(K\)-向量空间 \(E\) 的 \(R\)-子模。置
+\[
+  Q'=E/Q.
+\]
+由于 \(W\otimes C\) 和 \(E\) 均为平坦 \(R\)-模，对每个 \(R\)-模 \(N\)，得到
+\phantomsection\label{form:sga3-VIB-13.7-Tor}%
+\[
+  \operatorname{Tor}_1^R(V,N)
+    \simeq
+  \operatorname{Tor}_2^R(Q,N)
+    \simeq
+  \operatorname{Tor}_3^R(Q',N).
+\]
+由于 \(R\) 正则且维数至多为 \(2\)，右端为零。故 \(V\) 为平坦 \(R\)-模。
+
+还须证明 \(V\) 有限生成。置
+\[
+  M=W\otimes C.
+\]
+由构造，
+\[
+  V/V'\simeq(M/V')_{\mathrm{tors}},
+\]
+即 \(M/V'\) 的 \(R\)-挠子模。由于 \(M\) 为投射 \(R\)-模，存在投射 \(R\)-模 \(P\)，使得
+\[
+  M\oplus P=L
+\]
+自由。于是
+\[
+  (M/V')_{\mathrm{tors}}
+    \simeq
+  (L/V')_{\mathrm{tors}}.
+\]
+由于 \(V'\) 有限生成，存在 \(L\) 的一个包含 \(V'\) 的直和项
+\[
+  L'\simeq R^n
+\]
+因此
+\[
+  (L/V')_{\mathrm{tors}}
+    \simeq
+  (L'/V')_{\mathrm{tors}},
+\]
+且后者有限生成，因为 \(L'/V'\) 有限生成。所以 \(V\) 为有限生成平坦 \(R\)-模，而 \(R\) 为 Noether 环，故它是有限生成投射 \(R\)-模。\hyperref[prop:sga3-VIB-13.7]{命题~13.7} 得证。
+
+\section*{参考文献}
+\phantomsection\label{bib:sga3-VIB}%
+\addcontentsline{toc}{section}{参考文献}
+\footnote{\label{note:sga3-VIB-140}编者注：本篇引用的补充文献。}
+
+\begin{description}
+\item[{[An73]}]\phantomsection\label{bib:sga3-VIB-An73}%
+  S.~Anantharaman,
+  \emph{维数为 1 的底上的群概形、齐性空间与代数空间}〔Sch\'emas en groupes, espaces homog\`enes et espaces
+  alg\'ebriques sur une base de dimension 1〕,
+  M\'em. Soc. Math. France \textbf{33} (1973), 5--79.
+\item[{[Ba55]}]\phantomsection\label{bib:sga3-VIB-Ba55}%
+  I.~Barsotti,
+  \emph{群簇的一个结构定理}〔Un teorema di struttura per le variet\`a gruppali〕,
+  Atti Acad. Naz. Lincei Rend. Cl. Sci. Fis. Mat. Nat.
+  \textbf{18} (1955), 43--50.
+\item[{[BLR]}]\phantomsection\label{bib:sga3-VIB-BLR}%
+  S.~Bosch, W.~L\"utkebohmert, 与 M.~Raynaud,
+  \emph{Néron 模型}〔N\'eron Models〕, Springer-Verlag, 1990.
+\item[{[BAC]}]\phantomsection\label{bib:sga3-VIB-BAC}%
+  N.~Bourbaki,
+  \emph{交换代数}〔Alg\`ebre commutative〕, 第 I--IV、V--VII 及 X 章， Masson, 1985 和 1998.
+\item[{[BTop]}]\phantomsection\label{bib:sga3-VIB-BTop}%
+  N.~Bourbaki,
+  \emph{一般拓扑学}〔Topologie g\'en\'erale〕, 第 I--IV 章，Hermann,
+  1971.
+\item[{[Br09]}]\phantomsection\label{bib:sga3-VIB-Br09}%
+  M.~Brion,
+  \emph{反仿射代数群}〔Anti-affine algebraic groups〕,
+  J. Algebra \textbf{321} (2009), 第~3 期， 934--952.
+\item[{[Ch60]}]\phantomsection\label{bib:sga3-VIB-Ch60}%
+  C.~Chevalley,
+  \emph{关于代数群的一个定理的证明}〔Une d\'emonstration d'un th\'eor\`eme sur les groupes
+  alg\'ebriques〕,
+  J. Maths. Pure Appl. \textbf{39} (1960), 307--317.
+\item[{[Co02]}]\phantomsection\label{bib:sga3-VIB-Co02}%
+  B.~Conrad,
+  \emph{Chevalley 代数群定理的一个现代证明}〔A modern proof of Chevalley's theorem on algebraic
+  groups〕,
+  J. Ramanujan Math. Soc. \textbf{17} (2002), 1--18.
+\item[{[DG70]}]\phantomsection\label{bib:sga3-VIB-DG70}%
+  M.~Demazure 与 P.~Gabriel,
+  \emph{代数群}〔Groupes alg\'ebriques〕, Masson \& North-Holland,
+  1970.
+\item[{[Gr73]}]\phantomsection\label{bib:sga3-VIB-Gr73}%
+  L.~Gruson,
+  \emph{Noether 环上平坦模的同调维数}〔Dimension homologique des modules plats sur un anneau
+  noeth\'erien〕,
+  Symposia Mathematica \textbf{XI} (1973), 243--254.
+\item[{[Kn71]}]\phantomsection\label{bib:sga3-VIB-Kn71}%
+  D.~Knutson,
+  \emph{代数空间}〔Algebraic spaces〕,
+  Lecture Notes in Mathematics \textbf{203},
+  Springer-Verlag, 1971.
+\item[{[Ma07]}]\phantomsection\label{bib:sga3-VIB-Ma07}%
+  B.~Margaux,
+  \emph{非阿贝尔 Čech 上同调的极限过渡}〔Passage to the Limit in Non-Abelian \v{C}ech
+  Cohomology〕,
+  J. Lie Theory \textbf{17} (2007), 591--596.
+\item[{[MW94]}]\phantomsection\label{bib:sga3-VIB-MW94}%
+  A.~Masuoka 与 D.~Wigner,
+  \emph{Hopf 代数的忠实平坦性}〔Faithful flatness of Hopf algebras〕,
+  J. Algebra \textbf{170} (1994), 156--184.
+\item[{[Per76]}]\phantomsection\label{bib:sga3-VIB-Per76}%
+  D.~Perrin,
+  \emph{域上拟紧群概形的逼近}〔Approximation des sch\'emas en groupes,
+  quasi-compacts sur un corps〕,
+  Bull. Soc. Math. France \textbf{104} (1976), 323--335.
+\item[{[Pes66]}]\phantomsection\label{bib:sga3-VIB-Pes66}%
+  C.~Peskine,
+  \emph{Zariski 主定理的一个推广}〔Une g\'en\'eralisation du ``Main Theorem'' de Zariski〕,
+  Bull. Sci. Math. \textbf{90} (1966), 119--127.
+\item[{[PY06]}]\phantomsection\label{bib:sga3-VIB-PY06}%
+  G.~Prasad 与 J.-K.~Yu,
+  \emph{关于拟约化群概形}〔On quasi-reductive group schemes〕,
+  J. Algebraic Geom. \textbf{15} (2006), 507--549.
+\item[{[Ray70a]}]\phantomsection\label{bib:sga3-VIB-Ray70a}%
+  M.~Raynaud,
+  \emph{群概形与齐性空间上的丰沛层}〔Faisceaux amples sur les sch\'emas en groupes et les
+  espaces homog\`enes〕,
+  Lecture Notes in Mathematics \textbf{119},
+  Springer-Verlag, 1970.
+\item[{[Ray70b]}]\phantomsection\label{bib:sga3-VIB-Ray70b}%
+  M.~Raynaud,
+  \emph{Hensel 局部环}〔Anneaux locaux hens\'eliens〕,
+  Lecture Notes in Mathematics \textbf{169},
+  Springer-Verlag, 1970.
+\item[{[RG71]}]\phantomsection\label{bib:sga3-VIB-RG71}%
+  M.~Raynaud 与 L.~Gruson,
+  \emph{平坦性与投射性的判别法}〔Crit\`eres de platitude et de projectivit\'e〕,
+  Invent. Math. \textbf{13} (1971), 1--89.
+\item[{[Ro56]}]\phantomsection\label{bib:sga3-VIB-Ro56}%
+  M.~Rosenlicht,
+  \emph{代数群的一些基本定理}〔Some basic theorems on algebraic groups〕,
+  Amer. J. Math. \textbf{78} (1956), 401--443.
+\item[{[SS09]}]\phantomsection\label{bib:sga3-VIB-SS09}%
+  C.~Sancho de Salas 与 F.~Sancho de Salas,
+  \emph{主丛、拟阿贝尔簇与代数群的结构}〔Principal bundles, quasi-abelian varieties and
+  structure of algebraic groups〕,
+  J. Algebra \textbf{322} (2009), 第~8 期， 2751--2772.
+\item[{[Se68]}]\phantomsection\label{bib:sga3-VIB-Se68}%
+  J.-P.~Serre,
+  \emph{分裂约化群概形的 Grothendieck 群}〔Groupes de Grothendieck des sch\'emas en groupes
+  r\'eductifs d\'eploy\'es〕,
+  Publ. Math. I.H.\'E.S. \textbf{34} (1968), 37--52.
+\item[{[Se99]}]\phantomsection\label{bib:sga3-VIB-Se99}%
+  C.~S.~Seshadri,
+  \emph{Chevalley：若干回忆}〔Chevalley: some reminiscences〕,
+  Transform. Groups \textbf{4} (1999), 第~2--3 期， 119--125.
+\item[{[Ta72]}]\phantomsection\label{bib:sga3-VIB-Ta72}%
+  M.~Takeuchi,
+  \emph{Hopf 理想与 Hopf 子代数之间的一个对应}〔A correspondence between Hopf ideals and sub-Hopf
+  algebras〕,
+  Manuscripta Math. \textbf{7} (1972), 251--270.
+\item[{[Ta79]}]\phantomsection\label{bib:sga3-VIB-Ta79}%
+  M.~Takeuchi,
+  \emph{相对 Hopf 模——等价与自由性判别法}〔Relative Hopf modules---Equivalences and freeness
+  criteria〕,
+  J. Algebra \textbf{60} (1979), 452--471.
+\item[{[Th87]}]\phantomsection\label{bib:sga3-VIB-Th87}%
+  R.~W.~Thomason,
+  \emph{任意底概形上的等变分解、线性化与 Hilbert 第十四问题}〔Equivariant resolution, linearization, and Hilbert's
+  fourteenth problem over arbitrary base schemes〕,
+  Adv. Math. \textbf{65} (1987), 16--34.
+\end{description}
+
+% End of Expose VI_B. Component-local page 112 is a terminal blank.

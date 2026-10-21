@@ -1,0 +1,158 @@
+% 暂停检查点（2026-10-21）：VII-B70–95范围仅部分有稿；本组件实际译至§4.3.2 全文；末句为 lambda=mu=0，得证。
+% 状态：初译暂存，尚未开展公式/引用/术语自检、编译或独立审校；不得据此标记审定或全篇完成。
+% SGA 3, Expose VII_B. Source component 71, Section 4.3.2 in full.
+% Authority: Exp7B-13oct24.pdf, local pp.78--79, combined pp.591--592.
+\subsubsection*{4.3.2}
+\phantomsection
+\label{sga3:VIIB:4.3.2}
+
+“在特征 \(p>0\) 时不存在 Campbell--Hausdorff 公式。”说明如下。\SGARefLink{sga3:VIIA:4.3.1}{4.3.1} 的函子性同构依赖于基
+\(({}^C x_i)_{i\in I}\) 的选择。与特征 \(0\) 时 \SGARefLink{sga3:VIIB:3.2:prop}{3.2} 中的情形不同，一般不存在“双重地关于 \(C\) 和 \(\mathbf L\) 函子性”的双射
+\[
+  \mathbf L(C)\otimes_C\sqrt[p]{0_C}
+  \longrightarrow
+  \mathscr G_p(\mathbf L)(C)
+\]
+。例如，下面的论证表明，当 \(k\) 是一个包含所有
+\((p^2-1)\) 次单位根的域时，不存在这样的同构。
+
+选取 \(\mathbf L\)，使得对每个
+\(C\in\operatorname{Alf}/k\)，代数 \(\mathbf L(C)\) 为由一个元素 \(x\) 生成、满足关系
+\[
+  x^{(p^2)}=0.
+\]
+的交换 \(C\) 上 \(p\)-Lie代数。因而
+\[
+  \mathbf L(C)
+  =
+  Cx\oplus Cx^{(p)},
+  \qquad
+  U_p\bigl(\mathbf L(C)\bigr)
+  \simeq
+  C[x]/(x^{p^2}).
+\]
+\phantomsection
+\label{sga3:VIIB:4.3.2:source-notation-note}
+\noindent\textit{底本说明。}\enspace
+法文原文在上式中印作 \(k[x]/(x^{p^2})\)，但这里的包络代数是在 \(C\) 上构造的。稍后原文又将由群状元素组成的 \(\mathscr G_p(\mathbf L)(C)\) 与
+\(\operatorname{Prim}U_p(\mathbf L(C))\) 等同。本底本使用系数环 \(C\)，并保留 \SGARefLink{sga3:VIIA:4.2.1}{4.2.1} 中定义的群状元素集合；本原元素则在 4.2.2 中描述它的 Lie代数。
+
+我们将证明，与 \(\mathbf L\) 的自同态相容、并将
+\(\mathbf L(C)\otimes_C\sqrt[p]{0_C}\) 映入
+\(\mathscr G_p(\mathbf L)(C)\) 的唯一函子性态射
+\[
+  \chi_C:
+  \mathbf L(C)\otimes_C\sqrt[p]{0_C}
+  \longrightarrow
+  U_p\bigl(\mathbf L(C)\bigr)
+\]
+是取值为 \(1\) 的常值态射。
+
+设
+\[
+  \psi_C:
+  \mathbf L(C)\otimes_C\sqrt[p]{0_C}
+  \xrightarrow{\ \sim\ }
+  \mathscr G_p(\mathbf L)(C)
+\]
+为 \SGARefLink{sga3:VIIA:4.3.1}{4.3.1} 的双射，即
+\[
+  x\otimes a+x^{(p)}\otimes b
+  \longmapsto
+  \sum_{0\leq i,j<p}
+  a^i b^j x^{\,i+pj}.
+\]
+将 \(\chi_C\) 与 \(\psi_C^{-1}\) 复合，得到关于 \(C\) 函子性的态射
+\[
+\begin{aligned}
+  \theta_C:
+  \mathbf L(C)\otimes_C\sqrt[p]{0_C}
+  &\longrightarrow
+  \mathbf L(C)\otimes_C\sqrt[p]{0_C},
+  \\
+  x\otimes a+x^{(p)}\otimes b
+  &\longmapsto
+  x\otimes P(a,b)+x^{(p)}\otimes Q(a,b).
+\end{aligned}
+\]
+关于 \(C\) 的函子性蕴含 \(P(a,b)\) 与 \(Q(a,b)\) 是两个多项式
+\[
+  P,Q\in k[X,Y]
+\]
+在 \((a,b)\) 处的值，并可假定这两个多项式关于 \(X\) 和 \(Y\) 中每一个的次数都小于 \(p\)。\footnote{\label{sga3:VIIB:nde:138}编者扩充了原文接下来的论证。}
+
+设 \(\alpha\in k\)，令 \(\ell_\alpha\) 为 \(p\)-Lie代数 \(\mathbf L\) 的如下自同态：
+\[
+  x\longmapsto\alpha x,
+  \qquad
+  x^{(p)}\longmapsto\alpha^p x^{(p)}.
+\]
+则 \(U_p(\ell_\alpha)\) 将 \(x\) 送至 \(\alpha x\)，因而对 \(i<p^2\)，将 \(x^i\) 送至 \(\alpha^i x^i\)。下列方图交换：
+\begin{center}
+  \phantomsection
+  \label{sga3:VIIB:4.3.2:naturality-endomorphism-square}
+  % SGA3-VII-DIAG-123
+  \input{figures/exp7/viib_15_95/diag_123}
+\end{center}
+因此，假设
+\[
+  \chi_C\circ(\ell_\alpha(C)\otimes\operatorname{id})
+  =
+  U_p(\ell_\alpha)(C)\circ\chi_C
+\]
+给出
+\[
+  P(\alpha a,\alpha^p b)=\alpha P(a,b),
+  \qquad
+  Q(\alpha a,\alpha^p b)=\alpha^p Q(a,b).
+\]
+
+写成
+\[
+  P=\sum_{i,j<p}\lambda_{ij}X^iY^j,
+  \qquad
+  Q=\sum_{i,j<p}\mu_{ij}X^iY^j,
+\]
+并取
+\[
+  C=k[X,Y]/(X^p,Y^p).
+\]
+若 \(\lambda_{ij}\ne0\)，则
+\[
+  \alpha^{\,i-1+pj}=1;
+\]
+若 \(\mu_{ij}\ne0\)，则
+\[
+  \alpha^{\,i+p(j-1)}=1.
+\]
+取 \(\alpha\) 为一个 \(p^2-1\) 阶本原单位根，就得到
+\[
+  P=\lambda X,
+  \qquad
+  Q=\mu Y
+\]
+其中 \(\lambda,\mu\in k\)。因此，
+\[
+  \chi_C(x\otimes a+x^{(p)}\otimes b)
+  =
+  \sum_{0\leq i,j<p}
+  (\lambda a)^i(\mu b)^j x^{\,i+pj}.
+\]
+
+最后，考虑 \(\mathbf L\) 的如下自同态 \(f\)：
+\[
+  x\longmapsto x+x^{(p)}.
+\]
+取 \(C=k[a]/(a^3)\)，比较
+\[
+  (\chi_C\circ f(C))(x\otimes a)
+  \qquad\text{和}\qquad
+  \bigl(U_p(f)(C)\circ\chi_C\bigr)(x\otimes a).
+\]
+中 \(x^p\) 与 \(x^{p+1}\) 的系数。这给出
+\[
+  \lambda=\mu,
+  \qquad
+  \lambda^2a^2=0,
+\]
+从而 \(\lambda=\mu=0\)，得证。

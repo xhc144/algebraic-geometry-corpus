@@ -48,7 +48,28 @@ elif unit=='TOMEI_INDEX':
 \interlinepenalty=10000
 '''
 elif unit in ['VIII','IX','X','XI','XII']:
- if unit=='VIII':pre+='\\newgeometry{margin=30mm}\n\\SGATagsLeft\n'
+ if unit=='VIII':
+  pre+=r'''\clearpage
+\thispagestyle{empty}
+\begin{flushright}
+{\Large\bfseries\itshape M. Demazure -- A. Grothendieck}\\[.7em]
+{\small 合作者}\\[.4em]
+{\large\bfseries\itshape M. Artin -- J. E. Bertin -- P. Gabriel -- J. P. Serre}
+\end{flushright}
+\vspace{30mm}
+\begin{center}
+{\fontsize{38}{48}\selectfont\bfseries 群概形}\\[1em]
+{\Large\scshape Sch\'emas en Groupes}\\[.7em]
+{\Huge II}\\[1.7em]
+\vfill
+{\huge\bfseries S.G.A. 3}\\[.7em]
+{\large\itshape S\'eminaire de G\'eom\'etrie Alg\'ebrique du Bois-Marie}\\[.5em]
+{\Large 1962/64}
+\end{center}
+\clearpage
+\newgeometry{margin=30mm}
+\SGATagsLeft
+'''
  pre+='\\SGAStartExpose{'+unit+'}\n'
  if unit=='X':pre+='\\markboth{第 X 篇. 乘法型群}{第 X 篇. 乘法型群}\n'
  if unit=='XII':
