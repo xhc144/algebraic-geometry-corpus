@@ -1,0 +1,774 @@
+% SGA 3, Expose IV, English reconstruction.
+% Scope: all of Section 3, stopping immediately before the Section 4 heading.
+% Authority: Polo--Gille Exp4-13oct24.pdf, component-local pages 10--20
+% (combined-reader pages 198--208; printed pages 186--196).
+% Jacob Reinhold's CC BY 4.0 Markdown lineage was used only as a phrasing
+% comparison. The Polo--Gille PDF controls prose, formulas, numbering, and notes.
+
+\setcounter{footnote}{9}
+
+% Source page: Exp4 component-local p. 10; combined-reader p. 198; printed p. 186.
+\SGARefTarget{sga3:iv:section:3}\section*{3. 普遍有效等价关系}
+\addcontentsline{toc}{section}{3. 普遍有效等价关系}
+
+\SGARefTarget{sga3:iv:subsection:3:1}\subsection*{3.1. 等价关系: 定义}
+\addcontentsline{toc}{subsection}{\SGARefLink{sga3:iv:subsection:3:1}{3.1}. 等价关系: 定义}
+
+\noindent\SGARefTarget{sga3:iv:definition:3:1:1}\textbf{定义 3.1.1.}
+\textit{对象 \(X\in\operatorname{Ob}\mathscr C\) 中的一个
+\(\mathscr C\)-等价关系, 是指函子 \(X\times X\) 的一个可表子函子
+\(R\), 使得对每个 \(S\in\operatorname{Ob}\mathscr C\),
+\(R(S)\) 是 \(X(S)\) 上某个等价关系的图像.}
+
+\SGARefLink{sga3:iv:definition:3:1:1}{这一定义}特别适用于范畴
+\(\widehat{\mathscr C}\). 若将 \(X\) 视为 \(\widehat{\mathscr C}\)
+的对象, 则 \(X\) 中的一个 \(\widehat{\mathscr C}\)-等价关系,
+就是 \(X\times X\) 的一个子函子 \(R\), 满足对
+\(\mathscr C\) 的每个对象 \(S\), \(R(S)\) 都是 \(X(S)\)
+上某个等价关系的图像.
+\footnote{编者注: 这一条件显然是必要的. 反之, 若对每个
+\(S\in\operatorname{Ob}\mathscr C\), \(R(S)\) 都是某个等价关系的图像,
+则这一等价关系扩张为对每个 \(F\in\operatorname{Ob}\widehat{\mathscr C}\)
+定义的 \(R(F)\): 规定两个态射 \(\varphi,\psi:F\to R\) 等价,
+是指对每个 \(S\in\operatorname{Ob}\mathscr C\) 和每个 \(x\in F(S)\),
+元素 \(\varphi(x)\) 与 \(\psi(x)\) 在 \(X(S)\) 中等价.}
+
+若 \(R\) 是 \(X\) 中的一个 \(\mathscr C\)-等价关系,
+用 \(p_i\) 表示投影 \(\operatorname{pr}_i:X\times X\to X\)
+诱导的从 \(R\) 到 \(X\) 的态射. 于是有图
+\[
+  p_1,p_2:R\rightrightarrows X.
+\]
+
+\medskip
+\noindent\SGARefTarget{sga3:iv:definition:3:1:2}\textbf{定义 3.1.2.}
+\textit{若 \(up_1=up_2\), 则称态射 \(u:X\to Z\)
+\emph{与 \(R\) 相容}. \(\mathscr C\) 中作为箭头对 \((p_1,p_2)\)
+的余核的对象, 也称为 \(X\) 对 \(R\) 的\emph{商对象},
+记为 \(X/R\).}
+
+因而有正合图
+\[
+  R\overset{p_1}{\underset{p_2}{\rightrightarrows}}
+  X\xrightarrow{p}X/R,
+\]
+且 \(X/R\) 表示以下协变函子
+\[
+  \operatorname{Hom}_{\mathscr C}(X/R,Z)
+  =\{\text{从 \(X\) 到 \(Z\) 且与 \(R\) 相容的态射}\}.
+\]
+由于商对象在 \(\mathscr C\) 中取, 商 \(X/R\) 只要存在就是唯一的.
+
+这些定义立即推广到 \(X\) 中的 \(\widehat{\mathscr C}\)-等价关系.
+但应当注意, 将 \(\mathscr C\) 的对象等同于其在
+\(\widehat{\mathscr C}\) 中的像, 与商的构造并不交换:
+在 \(\mathscr C\) 中 \(X\) 对 \(R\) 的商 \(X/R\),
+并\emph{不能预先认为}是在 \(\widehat{\mathscr C}\) 中
+\(X\) 对 \(R\) 的商. 因此, 在涉及取商的问题中,
+必须避免不加分辨地将 \(\mathscr C\) 等同于其在
+\(\widehat{\mathscr C}\) 中的像.
+\footnote{编者注: 以下例子也预示了本篇的后续内容.
+设 \(G\) 为 \(\mathscr C\)-群, \(H\) 为一个
+\(\mathscr C\)-子群, \(R\) 为 \(G\) 中由
+\(G\times H\to G\times G\), \((g,h)\mapsto(g,gh)\)
+定义的等价关系 (参见 \SGARefLink{sga3:iv:subsection:3:2}{3.2}).
+由 \(Q(S)=G(S)/H(S)\) 定义的函子 \(Q\) 是
+\(\widehat{\mathscr C}\) 中的商
+(将 \SGARefLink{sga3:iv:proposition:4:4:9}{4.4.9} 应用于最粗拓扑;
+参见 \SGARefLink{sga3:iv:scholium:4:4:2}{4.4.2}),
+但一般不是所希望得到的商. 例如, 当 \(\mathscr C=\mathbf{Sch}\) 时,
+有仿射群概形的正合列
+\[
+  1\longrightarrow\mu_2\longrightarrow\mathbf G_m
+  \xrightarrow{p}\mathbf G_m\longrightarrow1
+\]
+将 \(\mathbf G_m\) 等同于商 \(\mathbf G_m/\mu_2\).
+此外, 由于 \(p\) 是有限且局部自由的, 在 fppf 拓扑的层构成的
+更大范畴中, \(\mathbf G_m\) 是 \(\mathbf G_m\) 对 \(\mu_2\)
+的层商; 参见 \SGARefLink{sga3:iv:theorem:4:6:6:item:ii:01}{4.6.6(ii)}
+和 \SGARefLink{sga3:iv:corollary:6:3:2}{6.3.2}.
+而 \(\widehat{\mathscr C}\) 中的商 \(Q\) 不同构于 \(\mathbf G_m\),
+因为例如 \(Q(\mathbf Z)=\{1\}\), 而
+\(\mathbf G_m(\mathbf Z)=\{\pm1\}\). 因此 \(Q\) 不是 fppf 层,
+\emph{更不可能}可表.}
+
+% Source page: Exp4 component-local p. 11; combined-reader p. 199; printed p. 187.
+在下文中, 简称\emph{等价关系}时, 指的是
+\(\widehat{\mathscr C}\)-等价关系; 必要时, 将明确说明所指的是
+\(\mathscr C\)-等价关系.
+\footnote{编者注: 即使是 \(X\) 中的 \(\widehat{\mathscr C}\)-等价关系,
+我们关心的问题也是 \(\mathscr C\) 中的商是否存在.}
+
+\medskip
+\noindent\SGARefTarget{sga3:iv:definition:3:1:3}\textbf{定义 3.1.3.}
+\textit{若 \(X\) 是 \(\mathscr C\) 中 \(S\) 上的对象,
+则 \emph{\(S\) 上 \(X\) 中的等价关系} 是指 \(X\) 中的一个等价关系
+\(R\), 使结构态射 \(X\to S\) 与 \(R\) 相容.}
+
+此时, 典范单态射 \(R\to X\times X\) 经过单态射
+\[
+  X\times_S X\longrightarrow X\times X
+\]
+分解, 并定义 \(\mathscr C_{/S}\) 的对象 \(X\to S\) 中的一个等价关系.
+商 \(X/R\) 只要存在, 就带有到 \(S\) 的典范态射,
+而 \(\mathscr C_{/S}\) 中的相应对象, 就是
+\(X\in\operatorname{Ob}\mathscr C_{/S}\) 对上述等价关系的商.
+反之, 若 \(S\) 是 \(\mathscr C\) 的可平方对象,
+且 \(Y\to S\) 是 \(\mathscr C_{/S}\) 中 \(X\) 对此等价关系的商,
+则 \(Y\) 是 \(\mathscr C\) 中 \(X\) 对 \(R\) 的商.
+无论如何, 我们不必考虑那些在 \(\mathscr C_{/S}\) 中是商,
+却尚不是 \(\mathscr C\) 中的商的情形.
+
+\medskip
+\noindent\SGARefTarget{sga3:iv:definition:3:1:4}\textbf{定义 3.1.4.}
+\textit{设 \(X\) (分别地, \(X'\)) 是 \(\mathscr C\) 中带有等价关系
+\(R\) (分别地, \(R'\)) 的对象. 若以下等价条件成立,
+则称态射
+\[
+  u:X\longrightarrow X'
+\]
+\emph{与 \(R\) 和 \(R'\) 相容}:}
+\begin{enumerate}
+  \item[(i)]\SGARefTarget{sga3:iv:definition:3:1:4:item:i:01}
+  \textit{对每个 \(S\in\operatorname{Ob}\mathscr C\),
+  \(X(S)\) 中模 \(R(S)\) 同余的两点, 被 \(u\) 映到
+  \(X'(S)\) 中模 \(R'(S)\) 同余的两点;}
+  \item[(ii)]\SGARefTarget{sga3:iv:definition:3:1:4:item:ii:01}
+  \textit{存在一个必然唯一的态射 \(R\to R'\), 使图}
+  \[
+    \begin{array}{ccc}
+      R & \longrightarrow & R'\\
+      \big\downarrow && \big\downarrow\\
+      X\times X & \xrightarrow{u\times u} & X'\times X'
+    \end{array}
+  \]
+  \textit{交换.}
+\end{enumerate}
+
+% Source page: Exp4 component-local p. 12; combined-reader p. 200; printed p. 188.
+由 \(X/R\) 的泛性质, 只要 \(X/R\) 和 \(X'/R'\) 存在,
+就有唯一的态射 \(v\) 使图
+\[
+  \begin{array}{ccc}
+    X & \xrightarrow{p} & X/R\\
+    {\scriptstyle u}\big\downarrow && \big\downarrow{\scriptstyle v}\\
+    X' & \xrightarrow{p'} & X'/R'
+  \end{array}
+\]
+交换.
+
+\medskip
+\noindent\SGARefTarget{sga3:iv:definition:3:1:5}\textbf{定义 3.1.5.}
+\textit{若以下等价条件成立, 则称 \(X\) 的子对象
+(即一个可表子函子) \(Y\) \emph{在等价关系 \(R\) 下稳定}:}
+\begin{enumerate}
+  \item[(i)]\SGARefTarget{sga3:iv:definition:3:1:5:item:i:01}
+  \textit{对每个 \(S\in\operatorname{Ob}\mathscr C\),
+  \(X(S)\) 的子集 \(Y(S)\) 在 \(R(S)\) 下稳定;}
+  \item[(ii)]\SGARefTarget{sga3:iv:definition:3:1:5:item:ii:01}
+  \textit{\(Y\) 在 \(p_1\) 和 \(p_2\) 下的逆像这两个
+  \(R\) 的子对象相同.}
+\end{enumerate}
+
+\(X\) 的稳定子对象的一个重要特例如下: 商 \(X/R\) 存在,
+且 \(Y\) 是 \(X/R\) 的某个子对象在 \(X\) 中的逆像.
+
+\medskip
+\noindent\SGARefTarget{sga3:iv:definition:3:1:6}\textbf{定义 3.1.6.}
+\textit{设 \(R\) 是 \(X\) 中的等价关系, \(X'\to X\) 是态射.
+从 Cartesian 图
+\[
+  \begin{array}{ccc}
+    R' & \longrightarrow & R\\
+    \big\downarrow && \big\downarrow\\
+    X'\times X' & \longrightarrow & X\times X
+  \end{array}
+\]
+得到的 \(X'\) 中的等价关系 \(R'\), 称为 \(X\) 中的等价关系
+\(R\) 在 \(X'\) 中的\emph{逆像}等价关系.
+特别地, 若 \(X'\) 是 \(X\) 的子对象, 则称之为 \(R\) 在
+\(X'\) 上\emph{诱导}的等价关系, 并记为 \(R_{X'}\).}
+
+态射 \(X'\to X\) 与 \(R'\) 和 \(R\) 相容; 因而, 当商存在时,
+它诱导态射 \(X'/R'\to X/R\)
+(\SGARefLink{sga3:iv:definition:3:1:4}{3.1.4}).
+若 \(X'\) 是 \(X\) 的子对象, 后文将会看到,
+在某些情形下可以证明 \(X'/R'\to X/R\) 为单态射,
+因而将 \(X'/R'\) 等同于 \(X/R\) 的一个子对象.
+在这种情形下, 此子对象在 \(X\) 中的逆像是一个包含 \(X'\)
+且在 \(R\) 下稳定的子对象: 这就是 \(X'\) 关于等价关系
+\(R\) 的\emph{饱和化 (saturation)}.
+
+\medskip
+\noindent\SGARefTarget{sga3:iv:proposition:3:1:7}\textbf{命题 3.1.7.}
+\textit{若 \(X\) 的子对象 \(Y\) 在 \(R\) 下稳定,
+则对 \(i=1,2\), 以下两个方形都是 Cartesian 方形:}
+\[
+  \begin{array}{ccc}
+    R_Y & \longrightarrow & R\\
+    {\scriptstyle p_i}\big\downarrow && \big\downarrow{\scriptstyle p_i}\\
+    Y & \longrightarrow & X.
+  \end{array}
+\]
+
+证明是直接的.
+
+% Source page: Exp4 component-local p. 13; combined-reader p. 201; printed p. 189.
+\SGARefTarget{sga3:iv:subsection:3:2}\subsection*{3.2. 群的自由作用定义的等价关系}
+\addcontentsline{toc}{subsection}{\SGARefLink{sga3:iv:subsection:3:2}{3.2}. 群的自由作用定义的等价关系}
+
+\noindent\SGARefTarget{sga3:iv:definition:3:2:1}\textbf{定义 3.2.1.}
+\textit{设 \(X\) 是 \(\mathscr C\) 的对象, \(H\) 是作用在 \(X\) 上的
+\(\mathscr C\)-群, 即带有一个 \(\widehat{\mathscr C}\)-群态射}
+\[
+  H\longrightarrow\operatorname{Aut}(X).
+\]
+\textit{若以下等价条件成立, 则称群 \(H\) 在 \(X\) 上\emph{自由}作用:}
+\begin{enumerate}
+  \item[(i)]\SGARefTarget{sga3:iv:definition:3:2:1:item:i:01}
+  \textit{对每个 \(S\in\operatorname{Ob}\mathscr C\),
+  群 \(H(S)\) 在 \(X(S)\) 上自由作用;}
+  \item[(ii)]\SGARefTarget{sga3:iv:definition:3:2:1:item:ii:01}
+  \textit{在集合上由 \((h,x)\mapsto(hx,x)\) 定义的函子态射}
+  \[
+    H\times X\longrightarrow X\times X
+  \]
+  \textit{是单态射.}
+\end{enumerate}
+
+在 \SGARefLink{sga3:iv:definition:3:2:1}{前一定义} 中,
+假设群 \(H\) 在 \(X\) 上左作用. 当然, 对群右作用的情形也有类似概念,
+即给定从反群 \(H^{\circ}\) 到 \(\operatorname{Aut}(X)\) 的群态射.
+
+若 \(H\) 在 \(X\) 上自由作用, 则 \(H\times X\) 在
+\SGARefLink{sga3:iv:definition:3:2:1:item:ii:01}{(ii)} 中的态射下的像,
+是 \(X\) 中的一个等价关系, 称为\emph{由 \(H\) 在 \(X\) 上的作用
+定义的等价关系}. 当 \(X\) 对此等价关系的商存在时,
+记为 \(H\backslash X\) (若 \(H\) 右作用, 则记为 \(X/H\)).
+它表示以下协变函子: 对 \(\mathscr C\) 的每个对象 \(Z\),
+\[
+  \operatorname{Hom}(H\backslash X,Z)
+  =\{\text{从 \(X\) 到 \(Z\) 且在 \(H\) 下不变的态射}\},
+\]
+其中, 称态射 \(f:X\to Z\) 在 \(H\) 下不变, 是指对每个
+\(S\in\operatorname{Ob}\mathscr C\), 相应的态射
+\(X(S)\to Z(S)\) 在群 \(H(S)\) 下不变.
+
+\medskip
+\noindent\SGARefTarget{sga3:iv:lemma:3:2:2}\textbf{引理 3.2.2.}
+\textit{在 \SGARefLink{sga3:iv:definition:3:2:1}{3.2.1} 的假设下,
+设 \(Y\) 是 \(X\) 的子对象. 以下条件等价:}
+\begin{enumerate}
+  \item[(i)]\SGARefTarget{sga3:iv:lemma:3:2:2:item:i:01}
+  \textit{\(Y\) 在 \(H\) 定义的等价关系下稳定
+  (\SGARefLink{sga3:iv:definition:3:1:5}{3.1.5});}
+  \item[(ii)]\SGARefTarget{sga3:iv:lemma:3:2:2:item:ii:01}
+  \textit{对每个 \(S\in\operatorname{Ob}\mathscr C\),
+  \(X(S)\) 的子集 \(Y(S)\) 在 \(H(S)\) 下稳定;}
+  \item[(iii)]\SGARefTarget{sga3:iv:lemma:3:2:2:item:iii:01}
+  \textit{存在一个必然唯一的态射 \(f\), 使图}
+  \[
+    \begin{array}{ccc}
+      H\times Y & \xrightarrow{f} & Y\\
+      \big\downarrow && \big\downarrow\\
+      H\times X & \longrightarrow & X
+    \end{array}
+  \]
+  \textit{交换.}
+\end{enumerate}
+\textit{在这些条件下, \(f\) 定义一个 \(\widehat{\mathscr C}\)-群态射}
+\[
+  H\longrightarrow\operatorname{Aut}(Y),
+\]
+\textit{并且, \(H\) 的这一作用在 \(Y\) 中定义的等价关系,
+恰好是 \(H\) 的作用在 \(X\) 中定义的等价关系在 \(Y\) 上诱导的等价关系.}
+
+% Source page: Exp4 component-local p. 14; combined-reader p. 202; printed p. 190.
+证明是直接的. 对右作用当然也有类似陈述.
+上面定义的 \(H\) 在 \(Y\) 上的作用, 称为给定的 \(H\) 在 \(X\)
+上的作用在 \(Y\) 上诱导的作用.
+
+现考虑两个 \(\mathscr C\)-群 \(H\) 和 \(G\), 以及群态射
+\[
+  u:H\longrightarrow G.
+\]
+则 \(H\) 以平移的方式作用在 \(G\) 上 (在集合上,
+\(hg=u(h)g\)), 且这一作用自由当且仅当 \(u\) 为单态射.
+当 \(G\) 对 \(H\) 的这一作用的商存在时, 记为 \(H\backslash G\).
+类似地可定义 \(H\) 在 \(G\) 上的右作用和商 \(G/H\).
+这些商关于所涉及的群具有函子性. 更确切地说,
+对右商有以下 \SGARefLink{sga3:iv:lemma:3:2:3}{引理}.
+
+\medskip
+\noindent\SGARefTarget{sga3:iv:lemma:3:2:3}\textbf{引理 3.2.3.}
+\textit{设 \(u:H\to G\) 和 \(u':H'\to G'\) 是
+\(\mathscr C\)-群的单态射, 并假设给定 \(\mathscr C\)-群态射
+\[
+  f:G\longrightarrow G'
+\]
+则以下条件等价:}
+\begin{enumerate}
+  \item[(i)]\SGARefTarget{sga3:iv:lemma:3:2:3:item:i:01}
+  \textit{\(f\) 与 \(H\) 和 \(H'\) 在 \(G\) 和 \(G'\)
+  中定义的等价关系相容;}
+  \item[(ii)]\SGARefTarget{sga3:iv:lemma:3:2:3:item:ii:01}
+  \textit{对每个 \(S\in\operatorname{Ob}\mathscr C\), 有
+  \(fu(H(S))\subseteq u'(H'(S))\);}
+  \item[(iii)]\SGARefTarget{sga3:iv:lemma:3:2:3:item:iii:01}
+  \textit{存在一个必然唯一的保乘法态射 \(g:H\to H'\), 使图}
+  \[
+    \begin{array}{ccc}
+      H & \xrightarrow{g} & H'\\
+      {\scriptstyle u}\big\downarrow && \big\downarrow{\scriptstyle u'}\\
+      G & \xrightarrow{f} & G'
+    \end{array}
+  \]
+  \textit{交换.}
+\end{enumerate}
+\textit{在这些条件下, 若商 \(G/H\) 和 \(G'/H'\) 存在,
+则有唯一态射 \(\overline f\) 使图}
+\[
+  \begin{array}{ccc}
+    G & \xrightarrow{f} & G'\\
+    {\scriptstyle p}\big\downarrow && \big\downarrow{\scriptstyle p'}\\
+    G/H & \xrightarrow{\overline f} & G'/H'
+  \end{array}
+\]
+\textit{交换.}
+
+第一个断言可化归到集合的情形来证明. 第二个立即由
+\SGARefLink{sga3:iv:lemma:3:2:3:item:i:01}{(i)} 得到.
+
+前面对于一般等价关系引入的概念, 都可以改述为当前情形中的概念.
+这里只记下 \SGARefLink{sga3:iv:lemma:3:2:4}{如下引理},
+其证明化归到集合的情形后是直接的.
+
+% Source page: Exp4 component-local p. 15; combined-reader p. 203; printed p. 191.
+\medskip
+\noindent\SGARefTarget{sga3:iv:lemma:3:2:4}\textbf{引理 3.2.4.}
+\textit{设 \(u:H\to G\) 是 \(\mathscr C\)-群的单态射,
+\(G'\) 是 \(G\) 的 \(\mathscr C\)-子群.
+\(G\) 的子对象 \(G'\) 在 \(H\) 定义的等价关系下稳定,
+当且仅当 \(u\) 经过典范单态射 \(G'\to G\) 分解.
+在 \SGARefLink{sga3:iv:lemma:3:2:4}{此条件} 下,
+由 \(u\) 定义的 \(G\) 上的作用在 \(G'\) 上诱导的 \(H\) 的作用,
+恰好是 \(u\) 所经过的单态射 \(H\to G'\) 产生的作用.}
+
+\SGARefTarget{sga3:iv:subsection:3:3}\subsection*{3.3. 普遍有效等价关系}
+\addcontentsline{toc}{subsection}{\SGARefLink{sga3:iv:subsection:3:3}{3.3}. 普遍有效等价关系}
+
+\noindent\SGARefTarget{sga3:iv:definition:3:3:1}\textbf{定义 3.3.1.}
+\textit{设 \(f:X\to Y\) 是态射. \emph{\(f\) 在 \(X\) 中定义的等价关系},
+记为 \(\mathscr R(f)\), 是 \(X\) 中作为典范单态射}
+\[
+  X\times_Y X\longrightarrow X\times X.
+\]
+\textit{的像的 \(\widehat{\mathscr C}\)-等价关系.}
+
+\medskip
+\noindent\SGARefTarget{sga3:iv:definition:3:3:2}\textbf{定义 3.3.2.}
+\textit{若下列条件成立, 则称 \(X\) 中的等价关系 \(R\) 为\emph{有效的}:}
+\begin{enumerate}
+  \item[(i)]\SGARefTarget{sga3:iv:definition:3:3:2:item:i:01}
+  \textit{\(R\) 可表, 即它是一个 \(\mathscr C\)-等价关系;}
+  \item[(ii)]\SGARefTarget{sga3:iv:definition:3:3:2:item:ii:01}
+  \textit{商 \(Y=X/R\) 在 \(\mathscr C\) 中存在;}
+  \footnote{编者注: ``在 \(\mathscr C\) 中''这几个字为新增内容.}
+  \item[(iii)]\SGARefTarget{sga3:iv:definition:3:3:2:item:iii:01}
+  \textit{图}
+  \[
+    R\overset{p_1}{\underset{p_2}{\rightrightarrows}}
+    X\xrightarrow{p}Y
+  \]
+  \textit{使 \(R\) 成为 \(X\) 在 \(Y\) 上的纤维平方,
+  即 \(R\) 是 \(p\) 定义的等价关系.}
+\end{enumerate}
+
+\medskip
+\noindent\SGARefTarget{sga3:iv:scholium:3:3:2:1}\textbf{附论 3.3.2.1.}
+\footnote{编者注: 为便于后文引用, 添加了编号
+\SGARefLink{sga3:iv:scholium:3:3:2:1}{3.3.2.1}
+(分别地, \SGARefLink{sga3:iv:scholium:3:3:3:1}{3.3.3.1});
+注 \SGARefLink{sga3:iv:remark:3:3:3:2}{3.3.3.2} 也是新增的.}
+\textit{若 \(R\) 是 \(X\) 中的有效等价关系, 则 \(p\) 是有效满态射
+(\SGARefLink{sga3:iv:definition:1:3}{1.3}). 若 \(f:X\to Y\)
+是有效满态射, 则 \(\mathscr R(f)\) 是 \(X\) 中的有效等价关系,
+其一个商为 \(Y\). 因此, \(X\) 中的有效等价关系与 \(X\) 的有效商,
+即以 \(X\) 为源的有效满态射的等价类之间, 有一个一一对应的``Galois''对应.}
+
+\medskip
+\noindent\SGARefTarget{sga3:iv:definition:3:3:3}\textbf{定义 3.3.3.}
+\textit{\(X\) 中的等价关系 \(R\) 称为\emph{普遍有效的},
+是指商 \(Y=X/R\) 存在, 且对每个 \(Y'\to Y\),
+纤维积 \(X'=X\times_Y Y'\) 与 \(R'=R\times_Y Y'\) 都存在,
+并且 \(R'\) 是 \(X'\) 在 \(Y'\) 上的纤维平方.
+等价地, \(R\) 有效且 \(p:X\to X/R\) 为普遍有效满态射.}
+
+\medskip
+\noindent\SGARefTarget{sga3:iv:scholium:3:3:3:1}\textbf{附论 3.3.3.1.}\footnotemark[14]
+\textit{与上面相同, \(X\) 中的普遍有效等价关系与
+\(X\) 的普遍有效商之间存在一一对应.}
+
+% Source page: Exp4 component-local p. 16; combined-reader p. 204; printed p. 192.
+\medskip
+\noindent\SGARefTarget{sga3:iv:remark:3:3:3:2}\textbf{注 3.3.3.2.}\footnotemark[14]
+假设 \(\mathscr C\) 为 \(S\)-概形范畴, 并用 \(\mathbf A^1_S\)
+表示 \(S\) 上的仿射直线. 设 \(R\subset X\times_S X\)
+是普遍有效等价关系, \(p:X\to Y\) 为其商.
+则对 \(Y\) 的每个开子集 \(U\),
+\[
+  \mathcal O(U)=\operatorname{Hom}_S(U,\mathbf A^1_S)
+\]
+是下列集合中满足 \(\varphi\circ\operatorname{pr}_1
+=\varphi\circ\operatorname{pr}_2\) 的元素 \(\varphi\) 组成的集合:
+\[
+  \mathcal O(p^{-1}(U))
+  =\operatorname{Hom}_S(p^{-1}(U),\mathbf A^1_S)
+\]
+特别地, 若 \(R\) 由群 \(H\) 在 \(X\) 上的自由右作用定义
+(参见 \SGARefLink{sga3:iv:definition:3:2:1}{3.2.1}),
+则 \(\mathcal O(U)\) 是所有满足下述条件的
+\(\varphi\in\mathcal O(p^{-1}(U))\) 组成的集合:
+\[
+  \varphi(xh)=\varphi(x)
+\]
+对每个 \(S'\to S\), \(x\in X(S')\) 和 \(h\in H(S')\) 都成立.
+
+\medskip
+\noindent\SGARefTarget{sga3:iv:proposition:3:3:4}\textbf{命题 3.3.4.}
+\textit{设 \(R\) 是 \(X\) 中的普遍有效等价关系.
+设 \(f:X\to Z\) 是与 \(R\) 相容的态射,
+因而经过某态射 \(g:X/R\to Z\) 分解. 以下条件等价:}
+\begin{enumerate}
+  \item[(i)]\SGARefTarget{sga3:iv:proposition:3:3:4:item:i:01}
+  \textit{\(g\) 是单态射;}
+  \item[(ii)]\SGARefTarget{sga3:iv:proposition:3:3:4:item:ii:01}
+  \textit{\(R\) 是 \(f\) 定义的等价关系.}
+\end{enumerate}
+
+事实上, \SGARefLink{sga3:iv:proposition:3:3:4:item:i:01}{(i)}
+显然蕴含 \SGARefLink{sga3:iv:proposition:3:3:4:item:ii:01}{(ii)},
+逆命题则恰好是 \SGARefLink{sga3:iv:corollary:2:5}{2.5}.
+
+\medskip
+\noindent\SGARefTarget{sga3:iv:definition:3:3:5}\textbf{定义 3.3.5.}
+\textit{设 \(H\) 是在 \(X\) 上自由作用的 \(\mathscr C\)-群.
+若 \(H\) 的作用在 \(X\) 中定义的等价关系是有效的
+(分别地, 普遍有效的), 则称 \(H\) \emph{有效地}作用,
+或称 \(H\) 在 \(X\) 上的作用是\emph{有效的}
+(分别地, \emph{普遍有效的}).}
+
+\SGARefTarget{sga3:iv:subsection:3:4}\subsection*{3.4. \((M)\)-有效性}
+\addcontentsline{toc}{subsection}{\SGARefLink{sga3:iv:subsection:3:4}{3.4}. (M)-有效性}
+
+在实际应用中, 普遍有效满态射往往难以刻画.
+然而, 我们经常已经掌握一些这种态射;
+例如在概形论中, 忠实平坦拟紧态射就具有这一性质.
+这就引出下面的讨论.
+
+\medskip
+\noindent\SGARefTarget{sga3:iv:para:3:4:1}\textbf{3.4.1.}
+先对 \(\mathscr C\) 的一个态射族 \((M)\) 列出若干条件:
+\begin{enumerate}
+  \item[(a)]\SGARefTarget{sga3:iv:para:3:4:1:item:a:01}
+  \((M)\) 在基变换下稳定: 属于 \((M)\) 的每个 \(u:T\to S\)
+  都可平方 (参见 \SGARefLink{sga3:iv:definition:1:4:0}{1.4.0}),
+  且对每个 \(S'\to S\), 基变换
+  \[
+    u':T\times_S S'\longrightarrow S'
+  \]
+  属于 \((M)\);
+  \item[(b)]\SGARefTarget{sga3:iv:para:3:4:1:item:b:01}
+  \((M)\) 的两个元素的复合属于 \((M)\);
+  \item[(c)]\SGARefTarget{sga3:iv:para:3:4:1:item:c:01}
+  每个同构都属于 \((M)\);
+  \item[(d)]\SGARefTarget{sga3:iv:para:3:4:1:item:d:01}
+  \((M)\) 的每个元素都是有效满态射.
+\end{enumerate}
+
+条件 \SGARefLink{sga3:iv:para:3:4:1:item:a:01}{(a)} 和
+\SGARefLink{sga3:iv:para:3:4:1:item:b:01}{(b)} 蕴含:
+\begin{enumerate}
+  \item[(a$'$)]\SGARefTarget{sga3:iv:para:3:4:1:item:a:prime:01}
+  \((M)\) 的两个元素的 Cartesian 积属于 \((M)\).
+  更确切地说, 设 \(u:X\to Y\) 和 \(u':X'\to Y'\)
+  是两个属于 \((M)\) 的 \(S\)-态射. 若 \(Y\times_S Y'\) 存在,
+  则 \(X\times_S X'\) 存在且 \(u\times_Su'\) 属于 \((M)\).
+\end{enumerate}
+
+% Source page: Exp4 component-local p. 17; combined-reader p. 205; printed p. 193.
+这可由下图得到
+\[
+\begin{array}{ccccc}
+  &&Y'&\xleftarrow{u'}&X'\\
+  &&\big\uparrow&&\big\uparrow\\[-2pt]
+  X&\longleftarrow&X\times_S Y'&\longleftarrow&X\times_S X'\\
+  {\scriptstyle u}\big\downarrow&&\big\downarrow&&
+    \underset{\scriptstyle u\times_Su'}{\swarrow}\\[-2pt]
+  Y&\longleftarrow&Y\times_S Y'&&
+\end{array}
+\]
+类似地, \SGARefLink{sga3:iv:para:3:4:1:item:a:01}{(a)} 和
+\SGARefLink{sga3:iv:para:3:4:1:item:d:01}{(d)} 蕴含:
+\begin{enumerate}
+  \item[(d$'$)]\SGARefTarget{sga3:iv:para:3:4:1:item:d:prime:01}
+  \((M)\) 的每个元素都是普遍有效满态射.
+\end{enumerate}
+
+\medskip
+\noindent\SGARefTarget{sga3:iv:para:3:4:2}\textbf{3.4.2.}
+普遍有效满态射组成的族 \((M_0)\) 满足
+\SGARefLink{sga3:iv:para:3:4:1}{3.4.1} 的条件
+\SGARefLink{sga3:iv:para:3:4:1:item:a:01}{(a)}--\SGARefLink{sga3:iv:para:3:4:1:item:d:01}{(d)}.
+事实上, \SGARefLink{sga3:iv:para:3:4:1:item:a:01}{(a)},
+\SGARefLink{sga3:iv:para:3:4:1:item:c:01}{(c)} 和
+\SGARefLink{sga3:iv:para:3:4:1:item:d:01}{(d)} 由定义成立,
+\SGARefLink{sga3:iv:para:3:4:1:item:b:01}{(b)} 则由
+\SGARefLink{sga3:iv:proposition:1:8}{1.8} 得到.
+以下假设给定 \(\mathscr C\) 的一个满足这些条件的态射族 \((M)\);
+所得结果特别适用于族 \((M_0)\).
+
+\medskip
+\noindent\SGARefTarget{sga3:iv:definition:3:4:3}\textbf{定义 3.4.3.}
+\(X\) 中的等价关系 \(R\) 称为 \emph{\((M)\) 型的},
+是指它可表且 \(p_1\in(M)\); 此时条件
+\SGARefLink{sga3:iv:para:3:4:1:item:b:01}{(b)} 和
+\SGARefLink{sga3:iv:para:3:4:1:item:c:01}{(c)} 蕴含 \(p_2\in(M)\).
+
+关系 \(R\) 称为 \emph{\((M)\)-有效的}, 是指它有效,
+且典范态射 \(X\to X/R\) 属于 \((M)\).
+
+\(X\) 的商 \(Y\) 称为 \emph{\((M)\)-有效的},
+是指典范态射 \(X\to Y\) 属于 \((M)\).
+
+以下结果立即由 \SGARefLink{sga3:iv:definition:3:4:3}{定义} 得到.
+\footnote{编者注: 为便于后文引用, 添加了编号
+\SGARefLink{sga3:iv:proposition:3:4:3:1}{3.4.3.1},
+并展开了 \SGARefLink{sga3:iv:proposition:3:4:3:1:item:i:01}{(i)} 的证明.}
+
+\medskip
+\noindent\SGARefTarget{sga3:iv:proposition:3:4:3:1}\textbf{命题 3.4.3.1.}
+\begin{enumerate}
+  \item[(i)]\SGARefTarget{sga3:iv:proposition:3:4:3:1:item:i:01}
+  \textit{\((M)\)-有效等价关系是 \((M)\) 型的, 并且普遍有效.}
+  \item[(ii)]\SGARefTarget{sga3:iv:proposition:3:4:3:1:item:ii:01}
+  \textit{\((M)\)-有效商是普遍有效的
+  (参见 \SGARefLink{sga3:iv:definition:3:3:3}{3.3.3}).}
+  \item[(iii)]\SGARefTarget{sga3:iv:proposition:3:4:3:1:item:iii:01}
+  \textit{映射 \(R\mapsto X/R\) 和 \(p\mapsto\mathscr R(p)\)
+  在 \(X\) 中的 \((M)\)-有效等价关系与 \(X\) 的
+  \((M)\)-有效商之间建立了一一对应.}
+  \item[(iv)]\SGARefTarget{sga3:iv:proposition:3:4:3:1:item:iv:01}
+  \textit{\((M_0)\)-有效等价于普遍有效.}
+\end{enumerate}
+
+证明 \SGARefLink{sga3:iv:proposition:3:4:3:1:item:i:01}{(i)}.
+由于 \(R\) 是 \((M)\)-有效的, 有 Cartesian 方形
+\[
+  \begin{array}{ccc}
+    R & \xrightarrow{p_2} & X\\
+    {\scriptstyle p_1}\big\downarrow && \big\downarrow{\scriptstyle p}\\
+    X & \xrightarrow{p} & X/R,
+  \end{array}
+\]
+且 \(p\in(M)\). 由 \SGARefLink{sga3:iv:para:3:4:1:item:a:01}{3.4.1(a)},
+\(p_1\) 和 \(p_2\) 属于 \((M)\), 故 \(R\) 是 \((M)\) 型的.
+
+% Source page: Exp4 component-local p. 18; combined-reader p. 206; printed p. 194.
+令 \(Y=X/R\), 设 \(Y'\to Y\) 为任意态射.
+由 \SGARefLink{sga3:iv:para:3:4:1:item:a:01}{3.4.1(a)},
+纤维积 \(X'=X\times_Y Y'\) 和 \(R'=R\times_Y Y'\) 存在,
+且态射 \(X'\to Y'\) 和 \(p_i':R'\to X'\) 属于 \((M)\).
+最后, 由于 \(R=X\times_Y X\), 由纤维积的结合性得到
+\[
+  R'=X\times_Y X\times_Y Y'=X'\times_{Y'}X'.
+\]
+这表明 \(R'\) 是 \((M)\)-有效的; 特别地, \(R\) 普遍有效.
+这就证明了 \SGARefLink{sga3:iv:proposition:3:4:3:1:item:i:01}{(i)},
+也证明了 \SGARefLink{sga3:iv:proposition:3:4:3:1:item:iv:01}{(iv)}.
+结合定义 \SGARefLink{sga3:iv:definition:3:3:2}{3.3.2},
+即可得到 \SGARefLink{sga3:iv:proposition:3:4:3:1:item:ii:01}{(ii)} 和
+\SGARefLink{sga3:iv:proposition:3:4:3:1:item:iii:01}{(iii)}.
+
+\medskip
+\noindent\SGARefTarget{sga3:iv:para:3:4:4}\textbf{3.4.4.}
+设 \(H\) 是结构态射属于 \((M)\) 的 \(S\)-群.
+若 \(H\) 在 \(S\)-对象 \(X\) 上自由作用,
+则它在 \(X\) 中定义一个 \((M)\) 型等价关系.
+事实上, 由 \SGARefLink{sga3:iv:para:3:4:1:item:a:01}{(a)},
+纤维积 \(H\times_S X\) 存在, 且
+\(\operatorname{pr}_2:H\times_S X\to X\) 属于 \((M)\).
+若 \(H\) 的作用在 \(X\) 中定义的等价关系是 \((M)\)-有效的,
+则称这一作用为 \emph{\((M)\)-有效的}.
+
+\medskip
+\noindent\SGARefTarget{sga3:iv:proposition:3:4:5}\textbf{命题 3.4.5 (\((M)\)-有效性与基变换).}
+\textit{设 \(R\) 是 \(S\) 上 \(X\) 中的一个 \((M)\)-有效等价关系,
+并令 \(Y=X/R\). 设 \(S'\to S\) 为使 \(Y'=Y\times_S S'\)
+存在的基变换. 则 \(X'=X\times_S S'\) 存在,
+\(R'=R\times_S S'\) 是 \(S'\) 上 \(X'\) 中的
+\((M)\)-有效等价关系, 并且}
+\[
+  X'/R'\simeq (X/R)'.
+\]
+
+事实上, 典范态射 \(X\to Y\) 和 \(R\to Y\) 属于 \((M)\);
+因此由 \SGARefLink{sga3:iv:para:3:4:1:item:a:prime:01}{(a$'$)},
+\(X'\) 和 \(R'\) 可表. 由纤维积的结合性, \(R'\) 是
+\(X'\) 中由典范态射 \(X'\to Y'\) 定义的等价关系,
+而该态射属于 \((M)\). 这就证明了
+\SGARefLink{sga3:iv:proposition:3:4:5}{所述断言}.
+
+\medskip
+\noindent\SGARefTarget{sga3:iv:proposition:3:4:6}\textbf{命题 3.4.6 (\((M)\)-有效性与 Cartesian 积).}
+\textit{设 \(R\) (分别地, \(R'\)) 是 \(S\) 上的
+\(X\) (分别地, \(X'\)) 中的 \((M)\)-有效等价关系.
+若 \((X/R)\times_S(X'/R')\) 存在, 则 \(X\times_SX'\) 存在,
+\(R\times_SR'\) 是 \(S\) 上 \(X\times_SX'\) 中的
+\((M)\)-有效等价关系, 并且}
+\[
+  (X\times_SX')/(R\times_SR')
+  \simeq (X/R)\times_S(X'/R').
+\]
+
+令 \(Y=X/R\) 及 \(Y'=X'/R'\).
+由 \SGARefLink{sga3:iv:para:3:4:1:item:a:prime:01}{(a$'$)},
+纤维积 \(X\times_SX'\) 存在, 且典范态射
+\[
+  q:X\times_SX'\longrightarrow Y\times_SY'
+\]
+属于 \((M)\). 公式
+\[
+  (X\times_SX')\times_{(Y\times_SY')}(X\times_SX')
+  \simeq (X\times_YX)\times_S(X'\times_{Y'}X')
+\]
+(所有未注明基底的纤维积均在 \(S\) 上取)
+表明 \(R\times_SR'\) 是 \(X\times_SX'\) 中由 \(q\) 定义的等价关系,
+证明完毕.
+
+% Source page: Exp4 component-local p. 19; combined-reader p. 207; printed p. 195.
+\medskip
+\noindent\SGARefTarget{sga3:iv:para:3:4:7}\textbf{3.4.7.}
+\footnote{编者注: \SGARefLink{sga3:iv:para:3:4:7}{本段} 为新增内容.}
+假设 \(\mathscr C\) 有终对象 \(e\), \(f:G\to G'\)
+是一个属于 \((M)\) 的 \(\mathscr C\)-群态射.
+由 \SGARefLink{sga3:iv:para:3:4:1:item:a:01}{3.4.1(a)},
+核 \(\operatorname{Ker}(f)\) 由 \(e\times_{G'}G\) 表示,
+且态射 \(\operatorname{Ker}(f)\to e\) 属于 \((M)\).
+
+另一方面, \(f\) 定义的等价关系, 与 \(\operatorname{Ker}(f)\)
+在 \(G\) 上的作用 (比如右作用) 定义的等价关系相同:
+它是由集合映射 \((g,h)\mapsto(g,gh)\) 定义的态射
+\[
+  G\times\operatorname{Ker}(f)\longrightarrow G\times G
+\]
+的像. 因此, 由附论 \SGARefLink{sga3:iv:scholium:3:3:2:1}{3.3.2.1}
+得到 \SGARefLink{sga3:iv:corollary:3:4:7:1}{如下推论}.
+
+\medskip
+\noindent\SGARefTarget{sga3:iv:corollary:3:4:7:1}\textbf{推论 3.4.7.1.}
+\textit{假设 \(\mathscr C\) 有终对象 \(e\), \(f:G\to G'\)
+是一个属于 \((M)\) 的 \(\mathscr C\)-群态射.
+则 \(\operatorname{Ker}(f)\) 在 \(G\) 上的作用是
+\((M)\)-有效的, 且 \(G'\) 为商 \(G/\operatorname{Ker}(f)\).}
+
+\SGARefTarget{sga3:iv:subsection:3:5}\subsection*{3.5. 用下降构造商}
+\addcontentsline{toc}{subsection}{\SGARefLink{sga3:iv:subsection:3:5}{3.5}. 用下降构造商}
+
+经常遇到的情形是, 不能直接构造商, 但作适当的基变换后就可以.
+本小节给出适用于这一情形的有用判别法.
+
+在 \SGARefLink{sga3:iv:definition:2:1}{2.1} 中,
+我们定义了 \(S'\) 上的对象 \(X'\) 上相对于态射 \(S'\to S\) 的下降数据.
+
+\medskip
+\noindent\SGARefTarget{sga3:iv:definition:3:5:1}\textbf{定义 3.5.1.}
+\textit{\(X'\) 上相对于 \(S'\to S\) 的下降数据称为\emph{有效的},
+是指带有此下降数据的 \(X'\) 同构于 \(S\) 上的某个对象 \(X\)
+在 \(S'\) 上的逆像, 后者带有其典范下降数据.}
+
+若 \(S'\to S\) 为下降态射 (\SGARefLink{sga3:iv:definition:2:2}{2.2}),
+则 \SGARefLink{sga3:iv:definition:3:5:1}{定义} 中的对象 \(X\)
+在唯一同构的意义下唯一.
+称 \(S'\to S\) 为有效下降态射 (\SGARefLink{sga3:iv:definition:2:2}{2.2}),
+就是指它为下降态射, 且相对于它的每个下降数据都是有效的.
+
+现在考虑 \(S\) 上的对象 \(X\) 中的等价关系 \(R\).
+设 \(X'\), \(X''\), \(X'''\) 分别为 \(X\) 在
+\[
+  S',\qquad S''=S'\times_SS',\qquad
+  S'''=S'\times_SS'\times_SS',
+\]
+上的逆像, \(R'\), \(R''\), \(R'''\) 为由 \(R\) 取逆像得到的等价关系.
+假设 \(X'\) 中的 \(R'\) 是 \((M)\)-有效的,
+并考虑作为 \(S'\) 上的对象的商 \(Y'=X'/R'\).
+由 \SGARefLink{sga3:iv:proposition:3:4:5}{3.4.5},
+它在 \(S''\) 上的两个逆像都同构于 \(X''/R''\).
+因此, \(S'\)-对象 \(Y'\) 带有典范粘合数据.
+同样应用 \(X'''/R'''\) 的唯一性, 可知这实际上是下降数据.
+(此论证隐含假设所列的纤维积都存在. 特别地,
+若 \(S'\to S\) 可平方, 例如它是下降态射, 则此条件成立.)
+
+\medskip
+\noindent\SGARefTarget{sga3:iv:proposition:3:5:2}\textbf{命题 3.5.2.}
+\textit{设 \(R\) 是 \(S\) 上的对象 \(X\) 中的等价关系,
+\(S'\to S\) 是普遍有效满态射. 假设每个在 \(S'\) 上的逆像属于
+\((M)\) 的 \(S\)-态射本身也属于 \((M)\). 以下条件等价:}
+\begin{enumerate}
+  \item[(i)]\SGARefTarget{sga3:iv:proposition:3:5:2:item:i:01}
+  \textit{\(R\) 在 \(X\) 中是 \((M)\)-有效的;}
+  % Source page: Exp4 component-local p. 20; combined-reader p. 208; printed p. 196.
+  \item[(ii)]\SGARefTarget{sga3:iv:proposition:3:5:2:item:ii:01}
+  \textit{\(R'\) 在 \(X'\) 中是 \((M)\)-有效的,
+  且 \(X'/R'\) 上的典范下降数据有效.}
+\end{enumerate}
+\textit{当这些条件成立时, 由 \(X'/R'\) 下降得到的对象典范同构于 \(X/R\).}
+
+蕴含 \SGARefLink{sga3:iv:proposition:3:5:2:item:i:01}{(i)}\(\Rightarrow\)\SGARefLink{sga3:iv:proposition:3:5:2:item:ii:01}{(ii)}
+仅是将 \SGARefLink{sga3:iv:para:3:4:4}{3.4.4} 改述为下降语言.
+逆命题证明后, 由普遍有效满态射为下降态射这一事实
+(\SGARefLink{sga3:iv:proposition:2:3}{2.3}),
+下降得到的对象在唯一同构的意义下唯一,
+从而得到 \SGARefLink{sga3:iv:proposition:3:5:2}{本命题} 的最后一个断言.
+
+证明 \SGARefLink{sga3:iv:proposition:3:5:2:item:ii:01}{(ii)}\(\Rightarrow\)\SGARefLink{sga3:iv:proposition:3:5:2:item:i:01}{(i)}.
+令 \(Y'=X'/R'\), 设 \(Y\) 为下降得到的对象.
+典范态射 \(p':X'\to X'/R'=Y'\) 按构造与下降数据相容:
+它在 \(S''\) 上的两个逆像都与典范态射 \(X''\to X''/R''\) 相同.
+因此, 它是某个 \(S\)-态射 \(p:X\to Y\) 在 \(S'\) 上的逆像.
+由于 \(p'\) 属于 \((M)\), 关于 \(S'\to S\) 的假设蕴含
+\(p\) 也属于 \((M)\). 此外, 由于 \(p'\) 与等价关系 \(R'\) 相容,
+再次利用普遍有效满态射为下降态射这一事实, 可知态射 \(p\) 与 \(R\) 相容.
+因而有态射
+\[
+  R\longrightarrow X\times_YX.
+\]
+为证明 \(R\) 是 \((M)\)-有效的且 \(Y\) 同构于 \(X/R\),
+只须证明此态射为同构. 从 \(S\) 到 \(S'\) 作基变换后,
+由于 \(R'\) 有效, 它成为同构;
+因而由与 \SGARefLink{sga3:iv:proposition:2:4}{2.4} 相同的理由,
+它本身就是同构.
+
+注意, 若 \((M)\) 是普遍有效满态射组成的族 \((M_0)\),
+且 \(\mathscr C\) 有纤维积, 则
+\SGARefLink{sga3:iv:proposition:3:5:2}{本命题} 的假设成立
+(\SGARefLink{sga3:iv:corollary:1:10}{1.10}). 我们得到如下推论.
+
+\medskip
+\noindent\SGARefTarget{sga3:iv:corollary:3:5:3}\textbf{推论 3.5.3.}
+\textit{假设 \(\mathscr C\) 有纤维积 (只须 \(S\) 上的纤维积存在即可).
+设 \(R\) 是 \(S\) 上 \(X\) 中的等价关系,
+\(S'\to S\) 是普遍有效满态射. 以下条件等价:}
+\begin{enumerate}
+  \item[(i)]\SGARefTarget{sga3:iv:corollary:3:5:3:item:i:01}
+  \textit{\(R\) 在 \(X\) 中普遍有效;}
+  \item[(ii)]\SGARefTarget{sga3:iv:corollary:3:5:3:item:ii:01}
+  \textit{\(R'\) 在 \(X'\) 中普遍有效,
+  且 \(X'/R'\) 上的典范下降数据有效.}
+\end{enumerate}
+\textit{当这些条件成立时, 由 \(X'/R'\) 下降得到的对象典范同构于 \(X/R\).}
+
+% End of assigned scope. The Section 4 heading begins immediately here in
+% the authority, on Exp4 component-local p. 20 (combined-reader p. 208).
+% Translation statistics: source_lines=756; output_lines=774; inline_math=603; display_math=35; footnotes=7; pending_TODO=0.
+% Review: complete assigned component; mathematical symbols, targets, references, tags, environments and footnotes checked; formula prose translated.

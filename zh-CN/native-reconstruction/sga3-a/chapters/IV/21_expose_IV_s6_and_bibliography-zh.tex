@@ -1,0 +1,908 @@
+% SGA 3, Expose IV, English reconstruction.
+% Scope: section 6 in full, followed by the bibliography; stops at the end
+% of Expose IV and contains no material from Expose V.
+% Authority: Polo--Gille Exp4-13oct24.pdf, component-local pages 61--73
+% (combined-reader pages 249--261; printed pages 239--250).
+% Jacob Reinhold's CC BY 4.0 Markdown lineage was used only as a phrasing
+% and structure comparison. The Polo--Gille PDF controls all prose,
+% numbering, editorial notes, formulas, diagrams, and references.
+
+% Source page: Exp4 component-local p. 61; combined-reader p. 249.
+\SGARefTarget{sga3:iv:section:6}\section*{6. 概形范畴中的拓扑}
+\addcontentsline{toc}{section}{6. 概形范畴中的拓扑}
+
+\SGARefTarget{sga3:iv:subsection:6:1}\subsection*{6.1. Zariski 拓扑}
+\addcontentsline{toc}{subsection}{\SGARefLink{sga3:iv:subsection:6:1}{6.1}. Zariski 拓扑}
+
+这是由如下预拓扑生成的拓扑: 态射族 \(\{S_i\to S\}\) 是覆盖族,
+若每个态射都是开浸入, 且各 \(S_i\) 的像之并为整个 \(S\).
+这一拓扑记为 \((\mathrm{Zar})\).
+
+\medskip
+\noindent\SGARefTarget{sga3:iv:definition:6:1:1}\textbf{定义 6.1.1.}
+\textit{Zariski 拓扑下的层也称为\emph{局部性函子 (functor of local nature)}:
+它是从 \(\mathbf{Sch}\) 到 \(\mathbf{Set}\) 的反变函子,
+使得对每个概形 \(S\) 及 \(S\) 的每个由开子概形 \(S_i\) 组成的覆盖, 图}
+\[
+  F(S)\longrightarrow\prod_iF(S_i)
+  \rightrightarrows\prod_{i,j}F(S_i\cap S_j)
+\]
+\textit{都是正合的.}
+
+特别地, 局部性函子将直和变为积.
+由于每个可表函子都是层, Zariski 拓扑比典范拓扑粗.
+
+在术语方面, 凡是不加其他限定地使用“局部”或“局部地”, 都是指 Zariski 拓扑,
+因而就是这些词的通常含义.
+
+% Source page: Exp4 component-local p. 62; combined-reader p. 250.
+\SGARefTarget{sga3:iv:subsection:6:2}\subsection*{6.2. 一种构造拓扑的方法}
+\addcontentsline{toc}{subsection}{\SGARefLink{sga3:iv:subsection:6:2}{6.2}. 一种构造拓扑的方法}
+
+\medskip
+\noindent\SGARefTarget{sga3:iv:proposition:6:2:1}\textbf{命题 6.2.1.}
+\textit{设 \(\mathscr C\) 是范畴, \(\mathscr C'\) 是其满子范畴,
+\(P\) 是 \(\mathscr C\) 中具有共同终点的态射族所成的一个集合,
+它对基变换和复合稳定 (即满足 \SGARefLink{sga3:iv:definition:4:2:5}{4.2.5} 的公理
+\SGARefLink{sga3:iv:definition:4:2:5:item:p:1:01}{(P~1)} 与
+\SGARefLink{sga3:iv:definition:4:2:5:item:p:2:01}{(P~2)}).
+设 \(P'\) 是 \(\mathscr C'\) 中态射族所成的一个集合,
+它包含每个由恒等同构组成的单元素族.
+在 \(\mathscr C\) 上配备由 \(P\) 与 \(P'\) 生成的拓扑
+(参见 \SGARefLink{sga3:iv:definition:4:2:5:0}{4.2.5.0}), 并假设满足以下三个条件:}
+
+\begin{enumerate}
+  \item[(a)]\SGARefTarget{sga3:iv:proposition:6:2:1:item:a:01} \textit{若 \(\{S_i\to S\}\in P'\),
+    因而 \(S_i,S\in\operatorname{Ob}\mathscr C'\),
+    且 \(T\to S\) 是 \(\mathscr C'\) 中的态射,
+    则在 \(\mathscr C\) 中构成的纤维积 \(S_i\times_ST\) 存在,
+    且族 \(\{S_i\times_ST\to T\}\) 属于 \(P'\);
+    特别地, \(S_i\times_ST\in\operatorname{Ob}\mathscr C'\).}
+
+    \textit{\SGARefLink{sga3:iv:proposition:6:2:1:item:a:01}{这一条件}蕴含
+    \(P'\) 对 \(\mathscr C'\) 中的基变换稳定, 但与这一断言并不等价:
+    它还要求包含函子 \(\mathscr C'\hookrightarrow\mathscr C\)
+    与某些纤维积可交换.}
+
+  \item[(b)]\SGARefTarget{sga3:iv:proposition:6:2:1:item:b:01} \textit{对每个
+    \(S\in\operatorname{Ob}\mathscr C\), 存在族 \(\{S_i\to S\}\in P\),
+    使得每个 \(i\) 都有 \(S_i\in\operatorname{Ob}\mathscr C'\).}
+
+  \item[(c)]\SGARefTarget{sga3:iv:proposition:6:2:1:item:c:01} \textit{在下述情形中}
+    \[
+    \begin{array}{ccccc}
+      & & S_{ijk} & &\\
+      & & \scriptstyle(P')\,\Big\downarrow & &\\[-0.25em]
+      S_i & \xleftarrow{\ (P)\ } & S_{ij} & &\\
+      \scriptstyle(P')\,\Big\downarrow & & & &\\[-0.25em]
+      S & & & &
+    \end{array}
+    \tag{6.2.1.c}\label{sga3:iv:proposition:6:2:1:eq:6:2:1:c:01}
+    \]
+    \textit{其中 \(S,S_i,S_{ij},S_{ijk}\) 是 \(\mathscr C'\) 的对象,
+    \(\{S_i\to S\}\in P'\), 对每个 \(i\) 有 \(\{S_{ij}\to S_i\}\in P\),
+    对每对 \(ij\) 有 \(\{S_{ijk}\to S_{ij}\}\in P'\),
+    则存在族 \(\{T_n\to S\}\in P'\), 且对每个 \(n\)
+    存在一个多重指标 \((ijk)\), 使得有交换图}
+    \[
+    \begin{array}{ccccc}
+      S_{ijk} & \longleftarrow & T_n\\
+      & \searrow & \Big\downarrow\\[-0.25em]
+      & & S .
+    \end{array}
+    \tag{6.2.1.d}\label{sga3:iv:proposition:6:2:1:eq:6:2:1:d:01}
+    \]
+\end{enumerate}
+
+\textit{在这些假设下, 对象 \(S\in\operatorname{Ob}\mathscr C\) 的筛 \(R\)
+是覆盖筛, 当且仅当存在复合族}
+\[
+\begin{array}{ccccc}
+  R & \dashleftarrow & S_{ij}\\
+  \Big\downarrow & & \scriptstyle(P')\,\Big\downarrow\\[-0.25em]
+  S & \xleftarrow{\ (P)\ } & S_i
+\end{array}
+\tag{6.2.1.e}\label{sga3:iv:proposition:6:2:1:eq:6:2:1:e:01}
+\]
+\textit{其中 \(S_i,S_{ij}\in\operatorname{Ob}\mathscr C'\),
+\(\{S_i\to S\}\in P\), 对每个 \(i\) 有 \(\{S_{ij}\to S_i\}\in P'\),
+使得所得的态射 \(S_{ij}\to S\) 都经过 \(R\) 分解.
+等价地, 此复合族生成的筛包含于 \(R\).}
+
+\smallskip
+\noindent\textit{证明.}
+属于 \(P\) 和 \(P'\) 的族都是覆盖族, 因而由
+\SGARefLink{sga3:iv:definition:4:2:3:item:c:2:01}{(C~2)},
+这些族的复合仍是覆盖族. 所示形式的筛包含一个覆盖筛, 因而也是覆盖筛.
+
+% Source page: Exp4 component-local p. 63; combined-reader p. 251.
+反过来, 只需证明这种形式的筛构成一个拓扑,
+也就是验证 \SGARefLink{sga3:iv:definition:4:2:1}{4.2.1} 的公理
+\SGARefLink{sga3:iv:definition:4:2:1:item:t:1:01}{(T~1)}--\SGARefLink{sga3:iv:definition:4:2:1:item:t:4:01}{(T~4)}.
+
+\smallskip
+\noindent\textit{公理 \SGARefLink{sga3:iv:definition:4:2:1:item:t:4:01}{(T~4)}.}
+设 \(S\in\operatorname{Ob}\mathscr C\).
+由 \SGARefLink{sga3:iv:proposition:6:2:1:item:b:01}{(b)},
+存在族 \(\{S_i\to S\}\in P\), 使得 \(S_i\in\operatorname{Ob}\mathscr C'\).
+由假设, 单元素族 \(\{S_i\xrightarrow{\operatorname{id}_{S_i}}S_i\}\)
+属于 \(P'\). 因而 \(S\) 的极大筛 \(S\) 具有所要求的形式:
+\[
+\begin{array}{ccc}
+  S_i & \longrightarrow & S\\
+  \scriptstyle(P')\,\Big\downarrow\rlap{\(\scriptstyle\operatorname{id}\)}
+      & & \Big\downarrow\rlap{\(\scriptstyle\operatorname{id}_S\)}\\[-0.25em]
+  S_i & \xrightarrow{\ (P)\ } & S .
+\end{array}
+\tag{6.2.1.T4}\label{sga3:iv:proposition:6:2:1:eq:6:2:1:t4:01}
+\]
+
+\smallskip
+\noindent\textit{公理 \SGARefLink{sga3:iv:definition:4:2:1:item:t:3:01}{(T~3)}.}
+这是显然的.
+
+\smallskip
+\noindent\textit{公理 \SGARefLink{sga3:iv:definition:4:2:1:item:t:2:01}{(T~2)}.}
+设 \(R\) 是 \(S\) 的一个具有所要求形式的筛,
+并设 \(C\) 是 \(S\) 的筛\footnote{编者注: 此处已更正原文.},
+使得对每个 \(T\in\operatorname{Ob}\mathscr C\)
+及每个经过 \(R\) 分解的态射 \(T\to S\),
+\(T\) 的筛 \(C\times_ST\) 都具有所要求的形式.
+由于 \(S_{ij}\to S\) 经过 \(R\) 分解, \(S_{ij}\) 的筛
+\[
+  C_{ij}=C\times_SS_{ij}
+\]
+具有所要求的形式; 它可示意为
+\[
+\begin{array}{ccccc}
+    & & S_{ij} & \longleftarrow & C_{ij}\\
+    & \swarrow & \scriptstyle(P')\,\Big\downarrow & &\\[-0.25em]
+    & & S_i & & \Bigg\downarrow\\[-0.25em]
+    & & \scriptstyle(P)\,\Big\downarrow & &\\[-0.25em]
+  R & \longrightarrow & S & \longleftarrow & C .
+\end{array}
+\tag{6.2.1.T2a}\label{sga3:iv:proposition:6:2:1:eq:6:2:1:t2a:01}
+\]
+因此, 对每对 \(ij\), 存在形如下述的图
+\[
+\begin{array}{ccccc}
+  S_{ijkl} & & & &\\
+  \scriptstyle(P')\,\Big\downarrow & \searrow & & &\\[-0.25em]
+  S_{ijk} & & & &\\
+  \scriptstyle(P)\,\Big\downarrow & & & &\\[-0.25em]
+  S_{ij} & \longleftarrow & C_{ij}. & &
+\end{array}
+\tag{6.2.1.T2b}\label{sga3:iv:proposition:6:2:1:eq:6:2:1:t2b:01}
+\]
+于是得到一个复合族
+\[
+  S_{ijkl}\xrightarrow{\ (P')\ }S_{ijk}
+  \xrightarrow{\ (P)\ }S_{ij}
+  \xrightarrow{\ (P')\ }S_i
+  \xrightarrow{\ (P)\ }S
+\tag{6.2.1.T2c}\label{sga3:iv:proposition:6:2:1:eq:6:2:1:t2c:01}
+\]
+它属于 \(P\circ P'\circ P\circ P'\), 经过 \(C\) 分解,
+且除 \(S\) 之外的所有对象都在 \(\mathscr C'\) 中.
+
+% Source page: Exp4 component-local p. 64; combined-reader p. 252.
+对每个族 \(\{S_{ijkl}\to S_i\}\) 应用条件
+\SGARefLink{sga3:iv:proposition:6:2:1:item:c:01}{(c)}.
+对每个 \(i\) 得到族 \(\{T_{in}\to S_i\}\in P'\),
+使得 \(T_{in}\to S\) 经过某个 \(S_{ijkl}\) 分解, 从而经过 \(C\) 分解:
+\[
+\begin{array}{ccccc}
+  T_{in} & \longrightarrow & S_{ijkl}\\
+  \scriptstyle(P')\,\Big\downarrow & & \Big\downarrow\\[-0.25em]
+  S_i & & C\\
+  \scriptstyle(P)\,\Big\downarrow & \swarrow &\\[-0.25em]
+  S & &
+\end{array}
+\tag{6.2.1.T2d}\label{sga3:iv:proposition:6:2:1:eq:6:2:1:t2d:01}
+\]
+因此 \(S\) 的筛 \(C\) 具有所要求的形式,
+这就完成了对 \SGARefLink{sga3:iv:definition:4:2:1:item:t:2:01}{(T~2)} 的验证.
+
+\smallskip
+\noindent\textit{公理 \SGARefLink{sga3:iv:definition:4:2:1:item:t:1:01}{(T~1)}.}
+设 \(R\) 是 \(S\) 的一个具有所述形式的筛,
+\(T\to S\) 是 \(\mathscr C\) 中的态射.
+我们来证明 \(T\) 的筛 \(R\times_ST\) 仍具有所述形式. 考虑交换图
+\[
+\begin{array}{ccccccc}
+  & & S_{ij} & \multicolumn{3}{c}{\xleftarrow{\hspace{6em}}} & U_{ikj}\\
+  & \swarrow & \scriptstyle(P')\,\Big\downarrow & & & &
+    \scriptstyle(P')\,\Big\downarrow\\[-0.25em]
+  & & S_i & \longleftarrow & T_i & \xleftarrow{\ (P)\ } & U_{ik}\\
+  & & \scriptstyle(P)\,\Big\downarrow & &
+    \scriptstyle(P)\,\Big\downarrow & \swarrow_{\scriptstyle(P)} &\\[-0.25em]
+  R & \longrightarrow & S & \longleftarrow & T & & .
+\end{array}
+\tag{6.2.1.T1a}\label{sga3:iv:proposition:6:2:1:eq:6:2:1:t1a:01}
+\]
+置 \(T_i=S_i\times_ST\). 由 \SGARefLink{sga3:iv:definition:4:2:5:item:p:1:01}{(P~1)},
+族 \(\{T_i\to T\}\) 属于 \(P\).
+由 \SGARefLink{sga3:iv:proposition:6:2:1:item:b:01}{(b)},
+选择族 \(\{U_{ik}\to T_i\}\in P\), 使得 \(U_{ik}\in\operatorname{Ob}\mathscr C'\).
+由 \SGARefLink{sga3:iv:definition:4:2:5:item:p:2:01}{(P~2)},
+有 \(\{U_{ik}\to T\}\in P\).
+条件 \SGARefLink{sga3:iv:proposition:6:2:1:item:a:01}{(a)} 表明,
+\[
+  U_{ik}\times_{S_i}S_{ij}=U_{ikj}
+\]
+是 \(\mathscr C'\) 的对象, 且对每个 \(ik\),
+\(\{U_{ikj}\to U_{ik}\}\in P'\). 交换图
+\[
+\begin{array}{ccccc}
+  R & \longleftarrow & U_{ikj}\\
+  \Big\downarrow & & \scriptstyle(P')\,\Big\downarrow\\[-0.25em]
+  S & \longleftarrow & T & \xleftarrow{\ (P)\ } U_{ik}
+\end{array}
+\tag{6.2.1.T1b}\label{sga3:iv:proposition:6:2:1:eq:6:2:1:t1b:01}
+\]
+表明态射 \(U_{ikj}\to T\) 经过 \(T\) 的筛 \(T\times_SR\) 分解.
+因此这个筛具有所要求的形式, 证明完毕.
+
+\medskip
+\noindent\SGARefTarget{sga3:iv:corollary:6:2:2}\textbf{推论 6.2.2.}
+\textit{设 \(S\in\operatorname{Ob}\mathscr C'\), \(R\) 是 \(S\) 的一个筛.
+则 \(R\) 是覆盖筛, 当且仅当存在族 \(\{T_i\to S\}\in P'\) 经过 \(R\) 分解.}
+
+这样的筛显然是覆盖筛. 反过来, 取族 \(\{S_i\to S\}\) 为仅由 \(S\) 的恒等同构
+组成的族, 应用条件 \SGARefLink{sga3:iv:proposition:6:2:1:item:c:01}{(c)};
+则\SGARefLink{sga3:iv:proposition:6:2:1}{上述命题}表明每个覆盖筛都具有所述形式.
+
+% Source page: Exp4 component-local p. 65; combined-reader p. 253.
+\medskip
+\noindent\SGARefTarget{sga3:iv:corollary:6:2:3}\textbf{推论 6.2.3.}
+\textit{\(\mathscr C\) 上的预层 \(F\) 是分离的 (相应地, 是层),
+当且仅当在下述两种情形中, 映射}
+\[
+  F(S)\longrightarrow\prod_iF(S_i)
+\]
+\textit{均为单射 (相应地, 图}
+\[
+  F(S)\longrightarrow\prod_iF(S_i)
+  \rightrightarrows\prod_{i,j}F(S_i\times_SS_j)
+\]
+\textit{均为正合图):}
+\begin{enumerate}
+  \item[(i)]\SGARefTarget{sga3:iv:corollary:6:2:3:item:i:01} \textit{\(\{S_i\to S\}\in P\);}
+  \item[(ii)]\SGARefTarget{sga3:iv:corollary:6:2:3:item:ii:01} \textit{\(S,S_i\in\operatorname{Ob}\mathscr C'\),
+    且 \(\{S_i\to S\}\in P'\).}
+\end{enumerate}
+
+由于所讨论的族都是覆盖族, 这些条件是必要的.
+设 \(C\) 是 \(S\) 的筛, 它是复合族
+\[
+  \{S_{ij}\xrightarrow{\ (P')\ }S_i\xrightarrow{\ (P)\ }S\}.
+\]
+的像. 简单的图追踪表明, \SGARefLink{sga3:iv:corollary:6:2:3}{本推论}的条件蕴含
+\[
+  \operatorname{Hom}(S,F)
+  \xrightarrow{\ g\ }\operatorname{Hom}(C,F)
+\]
+为单射, 相应地为双射. \(S\) 的每个覆盖筛 \(R\)
+都包含一个这种形式的筛 \(C\), 且有交换图
+\[
+\begin{array}{ccccc}
+  \operatorname{Hom}(S,F) & \xrightarrow{\ f\ } &
+    \operatorname{Hom}(R,F)\\
+  & \searrow_{\scriptstyle g} & \Big\downarrow\rlap{\(\scriptstyle h\)}\\[-0.25em]
+  & & \operatorname{Hom}(C,F).
+\end{array}
+\tag{6.2.3.1}\label{sga3:iv:corollary:6:2:3:eq:6:2:3:1:01}
+\]
+由于 \(g\) 为单射, \(f\) 也为单射, 从而 \(F\) 分离.
+此外, \(R\) 加细 \(C\), 所以 \(h\) 也为单射.
+若 \(g\) 为双射, 则 \(f\) 也为双射, 从而 \(F\) 为层.
+
+\medskip
+\noindent\SGARefTarget{sga3:iv:remark:6:2:4}\textbf{注 6.2.4.}
+\textit{\SGARefLink{sga3:iv:corollary:6:2:3}{前一推论}不能由
+\SGARefLink{sga3:iv:corollary:4:3:5}{4.3.5} 推出,
+因为 \(P'\) 对基扩张并不稳定.}
+
+\medskip
+\noindent\SGARefTarget{sga3:iv:remark:6:2:5}\textbf{注 6.2.5.}
+\textit{特别地, 当下述条件成立时, 条件
+\SGARefLink{sga3:iv:proposition:6:2:1:item:c:01}{(c)} 成立:}
+\begin{enumerate}
+  \item[(i)]\SGARefTarget{sga3:iv:remark:6:2:5:item:i:01} \textit{\(P'\) 对复合稳定;}
+  \item[(ii)]\SGARefTarget{sga3:iv:remark:6:2:5:item:ii:01} \textit{每当
+    \(\{S_j\to S\}\) 是 \(\mathscr C'\) 中属于 \(P\) 的态射族时,
+    它都包含一个属于 \(P'\) 的子族.}
+\end{enumerate}
+
+\SGARefTarget{sga3:iv:subsection:6:3}\subsection*{6.3. 在概形范畴中的应用}
+\addcontentsline{toc}{subsection}{\SGARefLink{sga3:iv:subsection:6:3}{6.3}. 在概形范畴中的应用}
+
+取 \(\mathscr C\) 为概形范畴, \(\mathscr C'\) 为仿射概形构成的满子范畴,
+\(P\) 为由开浸入的满射族组成的集合. 我们将考虑下列集合 \(P'_i\):
+\begin{align*}
+ P'_1 &: \text{平坦态射的有限满射族};\\
+ P'_2 &: \text{平坦、有限呈示、拟有限态射的有限满射族};\\
+ P'_3 &: \text{平展态射的有限满射族};\\
+ P'_4 &: \text{有限平展态射的有限满射族}.
+\end{align*}
+关于 \(P'_2\) 的描述, 附有如下说明.
+\footnote{编者注: 设 \(P''_2\) 是 \(\mathscr C'\) 中平坦且有限呈示的态射的
+有限满射族所成的集合. 由下面的命题~\SGARefLink{sga3:iv:proposition:6:3:1}{6.3.1},
+由 \(P\) 和 \(P'_2\) 生成的拓扑 \(T_2\), 与由 \(P\) 和 \(P''_2\)
+生成的拓扑相同. 这由 EGA~IV\textsubscript{4}, \S17.16 关于拟截面的结果得到;
+见 \SGARefLink{sga3:iv:proposition:6:3:1}{6.3.1} 的证明.
+回顾 EGA~IV\textsubscript{4}, 17.16.2 的如下特殊情形.
+设 \(S\) 仿射, \(f:X\to S\) 是满射的、平坦且局部有限呈示的态射.
+则存在一个忠实平坦、有限呈示且拟有限的态射 \(S'\to S\),
+其中 \(S'\) 仿射, 并存在一个 \(S\)-态射 \(S'\to X\).}
+
+% Source page: Exp4 component-local p. 66; combined-reader p. 254.
+除 \(P'_4\) 外, 每个 \(P'_i\) 都满足命题~\SGARefLink{sga3:iv:proposition:6:2:1}{6.2.1}
+的条件. 条件 \SGARefLink{sga3:iv:proposition:6:2:1:item:c:01}{(c)} 由
+\SGARefLink{sga3:iv:remark:6:2:5}{6.2.5} 得到:
+由于仿射概形拟紧, \(\mathscr C'\) 中每个属于 \(P\) 的态射族都包含一个仍属于
+\(P\) 的有限子族, 因而当 \(i=1,2,3\) 时, 该有限子族属于 \(P'_i\).
+由 \(P\) 和 \(P'_i\) 生成的拓扑 \(T_i\) 采用如下记号及名称:
+\footnotemark[\value{footnote}]
+\[
+\begin{array}{ccl}
+ T_1&=(\mathrm{fpqc})&
+   \text{忠实平坦拟紧拓扑},\\
+ T_2&=(\mathrm{fppf})&
+   \text{忠实平坦拓扑 (局部有限呈示)},\\
+ T_3&=(\mathrm{\acute et})&
+   \text{平展拓扑},\\
+ T_4&=(\mathrm{\acute etf})&
+   \text{有限平展拓扑}.
+\end{array}
+\]
+由于 \(P'_1\supset P'_2\supset P'_3\supset P'_4\), 有
+\[
+  (\mathrm{fpqc})\geq(\mathrm{fppf})\geq(\mathrm{\acute et})
+  \geq(\mathrm{\acute etf})\geq(\mathrm{Zar}).
+\]
+
+\medskip
+\noindent\SGARefTarget{sga3:iv:proposition:6:3:1}\textbf{命题 6.3.1.}
+\begin{enumerate}
+  \item[(i)]\SGARefTarget{sga3:iv:proposition:6:3:1:item:i:01} \textit{\(S\) 的筛 \(R\)
+    对 \(T_i\), \(1\leq i\leq3\), 是覆盖筛, 当且仅当存在 \(S\)
+    的一个由仿射开子概形组成的覆盖 \((S_p)\), 且对每个 \(p\),
+    存在族 \(\{S_{pq}\to S_p\}\in P'_i\), 其中各 \(S_{pq}\) 均仿射,
+    使得每个态射 \(S_{pq}\to S\) 都经过 \(R\) 分解.}
+    \footnote{编者注: 每个族 \(\{S_{pq}\to S_p\}\in P'_i\) 均为有限族.
+    因此 \(S'_p=\coprod_qS_{pq}\) 仿射,
+    可以将这个族替换为态射 \(S'_p\to S_p\), 它仍属于 \(P'_i\).}
+
+  \item[(ii)]\SGARefTarget{sga3:iv:proposition:6:3:1:item:ii:01} \textit{\(\mathbf{Sch}\)
+    上的预层 \(F\) 是 \((\mathrm{fpqc})\)
+    (相应地, \((\mathrm{fppf})\), \((\mathrm{\acute et})\),
+    或 \((\mathrm{\acute etf})\)) 拓扑下的层, 当且仅当:}
+    \begin{enumerate}
+      \item[(a)]\SGARefTarget{sga3:iv:proposition:6:3:1:item:a:01} \textit{\(F\)
+        是 \((\mathrm{Zar})\) 拓扑下的层, 即局部性函子;}
+      \item[(b)]\SGARefTarget{sga3:iv:proposition:6:3:1:item:b:01} \textit{对每个
+        忠实平坦 (相应地, 忠实平坦、有限呈示且拟有限; 满射平展; 或满射有限平展)
+        态射 \(T\to S\), 其中 \(T\) 和 \(S\) 均仿射, 图}
+        \[
+          F(S)\longrightarrow F(T)\rightrightarrows F(T\times_ST)
+        \]
+        \textit{均正合.}
+    \end{enumerate}
+
+  \item[(iii)]\SGARefTarget{sga3:iv:proposition:6:3:1:item:iii:01} \textit{对于 \(i=1,2,3,4\),
+    拓扑 \(T_i\) 均比典范拓扑粗.}
+
+  \item[(iv)]\SGARefTarget{sga3:iv:proposition:6:3:1:item:iv:01} \textit{平坦开态射
+    (相应地, 平坦且局部有限呈示态射; 平展态射; 或有限平展态射) 的每个满射族,
+    对于 \((\mathrm{fpqc})\) (相应地, \((\mathrm{fppf})\),
+    \((\mathrm{\acute et})\), 或 \((\mathrm{\acute etf})\)) 都是覆盖族.}
+
+  \item[(v)]\SGARefTarget{sga3:iv:proposition:6:3:1:item:v:01} \textit{平坦拟紧态射的
+    每个有限满射族都是 \((\mathrm{fpqc})\) 覆盖族.
+    特别地, 每个忠实平坦拟紧态射都是 \((\mathrm{fpqc})\) 覆盖态射.}
+\end{enumerate}
+
+\smallskip
+\noindent\textit{证明.}
+由 \SGARefLink{sga3:iv:proposition:6:2:1}{6.2.1} 得到
+\SGARefLink{sga3:iv:proposition:6:3:1:item:i:01}{(i)};
+由 \SGARefLink{sga3:iv:corollary:6:2:3}{6.2.3}, 并注意到 Zariski 拓扑下的层
+将直和变为积, 得到 \SGARefLink{sga3:iv:proposition:6:3:1:item:ii:01}{(ii)}.
+每个可表函子都是 \((\mathrm{Zar})\) 拓扑下的层, 且由
+\SGARefLink{sga3:iv:bib:sga:1}{SGA~1}, VIII, 5.3,
+满足条件 \SGARefLink{sga3:iv:proposition:6:3:1:item:ii:01}{(ii)}\SGARefLink{sga3:iv:proposition:6:3:1:item:b:01}{(b)}.
+因此 \(T_1\) 比典范拓扑粗, 这就证明了
+\SGARefLink{sga3:iv:proposition:6:3:1:item:iii:01}{(iii)}.
+
+% Source page: Exp4 component-local p. 67; combined-reader p. 255.
+来证明 \SGARefLink{sga3:iv:proposition:6:3:1:item:iv:01}{(iv)}.
+设 \(\{S_i\to S\}\) 是陈述中的态射族.
+用仿射开子概形覆盖 \(S\), 立即化归到 \(S\) 仿射的情形.
+\footnote{编者注: 利用现在已假设 \(S\) 仿射这一点, 简化了下面的论证.}
+
+先设态射 \(S_i\to S\) 平坦且为开态射 (相应地, 平展).
+用仿射开子概形 \(S_{ij}\) 覆盖每个 \(S_i\).
+由于这些态射是开态射, 各 \(S_{ij}\) 的像 \(T_{ij}\) 构成 \(S\) 的开覆盖.
+仿射概形 \(S\) 拟紧, 所以存在有限个 \(T_{ij}\) 覆盖它,
+以有限集 \(E\) 为指标集. 于是
+\[
+  S'=\coprod_{(i,j)\in E}S_{ij}
+\]
+仿射, 且 \(S'\to S\) 属于 \(P'_1\), 相应地属于 \(P'_3\),
+因而是覆盖态射. 由于它经过给定的族分解, 该族也是覆盖族.
+
+在 \((\mathrm{\acute etf})\) 情形中, 每个 \(S_i\) 都在 \(S\) 上有限,
+因而仿射. 在前面的论证中, 可以取 \(S_i\) 的单元素覆盖 \(\{S_i\}\),
+这给出 \(S'\to S\in P'_4\).
+
+现设态射 \(f_i:S_i\to S\) 平坦且局部有限呈示.
+对每个 \(s\in S\), EGA~IV\textsubscript{4}, 17.16.2 的证明给出某个 \(S_i\)
+的一个仿射子概形 \(X(s)\), 满足 \(s\in f_i(X(s))\), 使得限制态射
+\[
+  g_i:X(s)\longrightarrow S
+\]
+平坦、有限呈示且拟有限. 由 EGA~IV\textsubscript{2}, 2.4.6,
+它的像 \(g_i(X(s))\) 是 \(s\) 的一个开邻域 \(U(s)\).
+由于 \(S\) 仿射, 存在有限个这样的开集 \(U(s_j)\), \(j=1,\ldots,n\),
+覆盖 \(S\). 因此,
+\[
+  X'=\coprod_{j=1}^{n}X(s_j)
+\]
+仿射, 且 \(X'\to S\) 满射、平坦、有限呈示且拟有限, 所以它属于 \(P'_2\).
+\footnote{编者注: 这表明, 若 \(P''_2\) 表示 \(\mathscr C'\) 中平坦、有限呈示态射的
+有限满射族所成的集合, 则由 \(P\) 和 \(P''_2\) 生成的拓扑等于 \(T_2\).
+此外, 沿用 \SGARefLink{sga3:iv:proposition:6:3:1:item:iv:01}{(iv)} 证明开头的记号,
+若每个 \(S_i\) 均由在 \(S\) 上有限呈示的仿射开集覆盖,
+则所得态射 \(S'\to S\) 属于 \(P''_2\).}
+这就完成了 \SGARefLink{sga3:iv:proposition:6:3:1:item:iv:01}{(iv)} 的证明.
+
+来证明 \SGARefLink{sga3:iv:proposition:6:3:1:item:v:01}{(v)}.
+设 \(\{S_i\to S\}\) 是平坦拟紧态射的有限满射族,
+用仿射开子概形 \(T_j\) 覆盖 \(S\). 概形
+\[
+  S_{ij}=T_j\times_SS_i
+\]
+拟紧, 因而具有有限的仿射开覆盖 \(T_{ijk}\).
+每个 \(T_{ijk}\to T_j\) 都平坦, 且族 \(\{T_{ijk}\to T_j\}\)
+有限且满射, 因而是 \(T_1\) 的覆盖族.
+由复合性, \(\{T_{ijk}\to S\}\) 也是覆盖族.
+它经过给定的族分解, 因而给定的族也是覆盖族:
+\[
+\begin{array}{ccccc}
+  S_i & \longleftarrow & S_{ij} & \longleftarrow & T_{ijk}\\
+  \Big\downarrow & & \Big\downarrow & \swarrow &\\[-0.25em]
+  S & \longleftarrow & T_j & &
+\end{array}
+\tag{6.3.1.v}\label{sga3:iv:proposition:6:3:1:eq:6:3:1:v:01}
+\]
+
+% Source page: Exp4 component-local p. 68; combined-reader p. 256.
+\medskip
+\noindent\SGARefTarget{sga3:iv:corollary:6:3:2}\textbf{推论 6.3.2.}
+\textit{设 \((M_i)\) 为下列态射类:}
+\begin{align*}
+ (M_1)&:\ \text{忠实平坦拟紧态射};\\
+ (M_2)&:\ \text{忠实平坦且局部有限呈示的态射};\\
+ (M_3)&:\ \text{满射平展态射};\\
+ (M_4)&:\ \text{满射有限平展态射}.
+\end{align*}
+\textit{态射类 \((M_i)\) 满足 \SGARefLink{sga3:iv:para:4:6:3}{4.6.3} 的公理
+\SGARefLink{sga3:iv:para:4:6:3:item:a:01}{(a)},
+\SGARefLink{sga3:iv:para:4:6:3:item:b:01}{(b)},
+\SGARefLink{sga3:iv:para:4:6:3:item:c:01}{(c)},
+\SGARefLink{sga3:iv:para:4:6:3:item:d:mathcal:t:01}{\((d_{T_i})\)} 和
+\SGARefLink{sga3:iv:para:4:6:3:item:e:mathcal:t:01}{\((e_{T_i})\)}.}
+\footnote{编者注: 为更正原文, 对 \((M_3)\) 和 \((M_4)\) 增添了满射性要求;
+另外两种情形自动满足满射性.}
+
+条件 \SGARefLink{sga3:iv:para:4:6:3:item:a:01}{(a)},
+\SGARefLink{sga3:iv:para:4:6:3:item:b:01}{(b)} 与
+\SGARefLink{sga3:iv:para:4:6:3:item:c:01}{(c)} 是经典结果
+(见 EGA 和 \SGARefLink{sga3:iv:bib:sga:1}{SGA~1} 的有关各处).
+\footnote{编者注: 关于“拟紧”, 见 EGA~I, 6.6.4;
+关于“有限”, 见 EGA~II, 6.1.5;
+关于“局部有限呈示”, 见 EGA~IV\textsubscript{1}, 1.6.2;
+关于“忠实平坦”, 见 EGA~IV\textsubscript{2}, 2.2.13;
+关于“平展”, 见 EGA~IV\textsubscript{4}, 17.3.3.}
+由 \SGARefLink{sga3:iv:proposition:6:3:1:item:iv:01}{6.3.1(iv)},\SGARefLink{sga3:iv:proposition:6:3:1:item:v:01}{(v)},
+\((M_i)\) 满足 \SGARefLink{sga3:iv:para:4:6:3:item:d:mathcal:t:01}{\((d_{T_i})\)}.
+还需验证 \SGARefLink{sga3:iv:para:4:6:3:item:e:mathcal:t:01}{\((e_{T_i})\)}.
+只需验证 \SGARefLink{sga3:iv:para:4:6:3:item:e:mathcal:t:01}{\((e_{T_1})\)},
+它蕴含其他所有条件; 这由 \SGARefLink{sga3:iv:bib:sga:1}{SGA~1}, VIII, \S\S4--5 得到.
+
+\medskip
+\noindent\SGARefTarget{sga3:iv:corollary:6:3:3}\textbf{推论 6.3.3.}
+\textit{设 \(X\) 是概形, \(R\) 是 \(X\) 中的一个 \((M_i)\) 型等价关系.
+则 \(R\) 是 \((M_i)\)-有效的, 当且仅当 \(X\) 对 \(R\) 的
+\(T_i\) 拓扑下的商层可表; 在这种情形中, 它由商 \(X/R\) 代表.}
+
+这就是 \SGARefLink{sga3:iv:lemma:4:6:5}{4.6.5}.
+
+\SGARefTarget{sga3:iv:subsection:6:4}\subsection*{6.4. 有效性条件}
+\addcontentsline{toc}{subsection}{\SGARefLink{sga3:iv:subsection:6:4}{6.4}. 有效性条件}
+
+现在寻找满足 \SGARefLink{sga3:iv:subsection:4:7}{4.7} 的公理
+\SGARefLink{sga3:iv:subsection:4:7:item:f:mathcal:t:01}{\((f_T)\)} 的态射类 \((N)\).
+先注意到 \SGARefLink{sga3:iv:subsection:4:7:item:f:mathcal:t:01}{\((f_{T_1})\)}
+蕴含 \SGARefLink{sga3:iv:subsection:4:7:item:f:mathcal:t:01}{\((f_{T_i})\)},
+所以只需考虑 \((\mathrm{fpqc})\) 拓扑.
+
+\medskip
+\noindent\SGARefTarget{sga3:iv:lemma:6:4:1}\textbf{引理 6.4.1.}
+\textit{下列态射类满足 \SGARefLink{sga3:iv:subsection:4:7}{4.7} 的公理
+\SGARefLink{sga3:iv:subsection:4:7:item:f:mathcal:t:01}{\((f_{T_1})\)},
+即它们“可作 \((\mathrm{fpqc})\) 下降”:}
+\begin{align*}
+ (N)&:\ \text{开浸入};\\
+ (N')&:\ \text{闭浸入};\\
+ (N'')&:\ \text{拟紧浸入}.
+\end{align*}
+
+由 \SGARefLink{sga3:iv:proposition:6:3:1:item:ii:01}{6.3.1(ii)},
+只需验证这些态射类可对 Zariski 拓扑以及沿忠实平坦拟紧态射下降.
+第一个断言显然成立. 对 \((N)\), 第二个断言就是
+\SGARefLink{sga3:iv:bib:sga:1}{SGA~1}, VIII, 4.4;
+对 \((N')\), 就是该处的 1.9;
+对 \((N'')\), 利用前两个结果, 按照该处 5.5 的方法论证.
+
+% Source page: Exp4 component-local p. 69; combined-reader p. 257.
+\medskip
+\noindent\SGARefTarget{sga3:iv:corollary:6:4:2}\textbf{推论 6.4.2.}
+\textit{\SGARefLink{sga3:iv:lemma:6:4:1}{同一结果}也适用于拟紧开浸入.}
+
+这些结果使 \SGARefLink{sga3:iv:proposition:4:7:1}{4.7.1},
+\SGARefLink{sga3:iv:proposition:4:7:2}{4.7.2},
+\SGARefLink{sga3:iv:proposition:5:1:8}{5.1.8},
+\SGARefLink{sga3:iv:proposition:5:3:1}{5.3.1} 等一般结果适用于当前情形.
+我们以其中第一个结果为例, 将其陈述如下.
+
+\medskip
+\noindent\SGARefTarget{sga3:iv:corollary:6:4:3}\textbf{推论 6.4.3.}
+\textit{\((=\SGARefLink{sga3:iv:proposition:4:7:1}{4.7.1}+\SGARefLink{sga3:iv:corollary:4:6:10}{4.6.10})\).
+设 \(X\) 是概形, \(R\) 是 \(X\) 中的等价关系.
+假设 \(R\to X\) 忠实平坦且拟紧,
+\(R\to X\times X\) 是闭浸入 (相应地, 开浸入、拟紧浸入或拟紧开浸入).
+则 \((\mathrm{fpqc})\) 拓扑与典范拓扑下的商层 \(X/R\) 相同.
+对每个概形 \(S\),}
+\[
+(X/R)(S)=
+\left\{
+\begin{array}{l}
+\text{\(X_S\) 的闭 (相应地, 开、内拟紧或开且内拟紧)}
+\\
+\text{子概形 \(Z\), 它对 \(R\times S\) 稳定, 且满足:}
+\\
+\text{\(Z\to S\) 忠实平坦且拟紧, 并且}
+\\
+\text{\(R_Z\rightrightarrows Z\to S\) 正合}
+\end{array}
+\right\}.
+\tag{6.4.3.1}\label{sga3:iv:corollary:6:4:3:eq:6:4:3:1:01}
+\]
+\footnote{编者注: 回顾, 概形 \(T\) 的子概形 \(Z\)
+称为\emph{内拟紧的 (retrocompact)}, 若浸入 \(Z\hookrightarrow T\)
+拟紧; 见 EGA~0\textsubscript{III}, 9.1.1.}
+
+\SGARefTarget{sga3:iv:subsection:6:5}\subsection*{6.5. 主齐性丛}
+\addcontentsline{toc}{subsection}{6.5. 主齐性丛}
+
+这里只记录术语:
+\[
+\begin{array}{c|l}
+ \text{拓扑}&\text{主齐性丛}\\ \hline
+ (\mathrm{fpqc})&\text{主齐性丛 (不加限定词)}
+ \\
+ (\mathrm{\acute et})&\text{拟等平凡主齐性丛}
+ \\
+ (\mathrm{\acute etf})&\text{局部等平凡主齐性丛}
+ \\
+ (\mathrm{Zar})&\text{局部平凡主齐性丛}.
+\end{array}
+\tag{6.5.1}\label{sga3:iv:subsection:6:5:eq:6:5:1:01}
+\]
+
+\SGARefTarget{sga3:iv:subsection:6:6}\subsection*{6.6. 其他拓扑}
+\addcontentsline{toc}{subsection}{\SGARefLink{sga3:iv:subsection:6:6}{6.6}. 其他拓扑}
+
+概形范畴上的其他拓扑有时也很有用. 其中一种是\emph{全局有限平展拓扑}
+\((\mathrm{\acute etfg})\), 它由如下预拓扑生成:
+覆盖族是有限平展态射的满射族. 它并不比 Zariski 拓扑细.
+相应的主齐性丛称为\emph{等平凡的 (isotrivial)}.
+
+% Source page: Exp4 component-local p. 70; combined-reader p. 258.
+这一拓扑以及混沌拓扑在拓扑格中的位置如下:
+\[
+\begin{array}{ccccc}
+  & & (\text{典范}) & &\\
+  & & \Big\downarrow & &\\[-0.25em]
+  & & (\mathrm{fpqc}) & &\\
+  & & \Big\downarrow & &\\[-0.25em]
+  & & (\mathrm{fppf}) & &\\
+  & & \Big\downarrow & &\\[-0.25em]
+  & & (\mathrm{\acute et}) & &\\
+  & & \Big\downarrow & &\\[-0.25em]
+  & & (\mathrm{\acute etf}) & &\\
+  & \swarrow & & \searrow &\\[-0.25em]
+  (\mathrm{Zar}) & & & & (\mathrm{\acute etfg})\\
+  & \searrow & & \swarrow &\\[-0.25em]
+  & & (\text{混沌}) & &
+\end{array}
+\tag{6.6.1}\label{sga3:iv:subsection:6:6:eq:6:6:1:01}
+\]
+\footnote{编者注: 回顾 (参见 \SGARefLink{sga3:iv:scholium:4:4:2}{4.4.2}),
+混沌拓扑是最粗的拓扑, 其定义为对每个 \(S\in\operatorname{Ob}\mathscr C\),
+都有 \(J(S)=\{S\}\).}
+
+\SGARefTarget{sga3:iv:subsection:6:7}\subsection*{6.7. 齐性空间}
+\addcontentsline{toc}{subsection}{\SGARefLink{sga3:iv:subsection:6:7}{6.7}. 齐性空间}
+
+设\footnote{编者注: 下文的编号为增补内容.}
+\(G\) 是 \(S\)-群概形, \(X\) 是带有 \(G\) 左作用的 \(S\)-概形,
+并设
+\[
+  \Phi:G\times_SX\longrightarrow X\times_SX
+\]
+为在点上由
+\[
+  (g,x)\longmapsto(gx,x).
+\]
+定义的 \(S\)-概形态射.
+回顾 (参见 \SGARefLink{sga3:iv:definition:5:1:0}{5.1.0} 与
+III.\SGARefLink{sga3:iii:definition:0:1}{0.1}), 若下述等价条件成立,
+则称 \(X\) 是 \(G\) 下的一个\emph{形式主齐性空间}:
+\begin{enumerate}
+  \item[(i)]\SGARefTarget{sga3:iv:subsection:6:7:item:i:01} 对每个 \(T\to S\),
+    集合 \(X(T)\) 或者为空, 或者是 \(G(T)\) 下的主齐性空间;
+  \item[(ii)]\SGARefTarget{sga3:iv:subsection:6:7:item:ii:01} \(\Phi\) 是 \(S\)-函子同构;
+  \item[(iii)]\SGARefTarget{sga3:iv:subsection:6:7:item:iii:01} \(\Phi\) 是 \(S\)-概形同构.
+\end{enumerate}
+等价关系 \SGARefLink{sga3:iv:subsection:6:7:item:i:01}{(i)}\(\Longleftrightarrow\)\SGARefLink{sga3:iv:subsection:6:7:item:ii:01}{(ii)}
+是显然的; 而 \SGARefLink{sga3:iv:subsection:6:7:item:ii:01}{(ii)}\(\Longleftrightarrow\)\SGARefLink{sga3:iv:subsection:6:7:item:iii:01}{(iii)}
+成立, 是因为 \(\mathscr C=(\mathbf{Sch}/S)\)
+是 \(\widehat{\mathscr C}\) 的满子范畴.
+
+不一定为主齐性的\emph{形式齐性空间}的概念, 则要求 \(\Phi\)
+在适当拓扑 \(\mathcal T\) 下的层范畴中为满态射.
+事实上, 要求 \(\Phi\) 为 \(S\)-函子的满态射,
+等价于要求对每个 \(T\to S\), 集合 \(X(T)\) 或者为空,
+或者在 \(G(T)\) 下齐性 (不一定为主齐性).
+这要求过于苛刻, 下面这个简单例子就说明了这一点.
+
+设
+\[
+  S=\operatorname{Spec}R,\qquad G=\mathbf G_{m,R},\qquad
+  X=\mathbf G_{m,R},
+\]
+并让 \(G\) 通过 \(t\cdot x=t^2x\) 作用于 \(X\).
+则 \(\Phi\) 满射、有限且平展, 因而是 \((\mathrm{\acute etf})\)
+拓扑下的层范畴中的满态射 (\textit{从而当然也是} \(S\)-概形的满态射).
+另一方面, \(X(R)\) 的点 \(1\) 和 \(-1\) 不能由 \(G(R)\) 的任何元素共轭.
+因此
+\[
+  G(R)\times X(R)\longrightarrow X(R)\times X(R)
+\]
+并非满射.\footnote{编者注: 这一困难显然来自如下事实.
+设 \(\mathscr C'\) 是 \(\widehat{\mathscr C}\) 的一个包含 \(\mathscr C\) 的满子范畴,
+例如对于一个比典范拓扑粗的拓扑 \(\mathcal T\),
+取 \(\mathscr C\) 上的层所成的范畴
+\(\widetilde{\mathscr C}_{\mathcal T}\).
+若 \(f:X\to Y\) 是 \(\mathscr C\) 中的态射, 则蕴含关系
+\[
+ \text{\(f\) 在 \(\widehat{\mathscr C}\) 中为满态射}
+ \Longrightarrow
+ \text{\(f\) 在 \(\mathscr C'\) 中为满态射}
+ \Longrightarrow
+ \text{\(f\) 在 \(\mathscr C\) 中为满态射}
+\]
+一般都是严格的.}
+因此引出\SGARefLink{sga3:iv:definition:6:7:1}{下述定义}.
+
+% Source page: Exp4 component-local p. 71; combined-reader p. 259.
+\medskip
+\noindent\SGARefTarget{sga3:iv:definition:6:7:1}\textbf{定义 6.7.1.}
+\textit{设 \(G\) 是 \(S\)-群, \(X\) 是带有 \(G\) 作用的 \(S\)-概形,
+\(\mathcal T\) 是 \((\mathbf{Sch}/S)\) 上的一个比典范拓扑粗的拓扑.
+若下述等价条件成立, 则称概形 \(X\) 为相对于 \(\mathcal T\) 的
+\emph{\(G\) 下的形式齐性空间}:}
+\begin{enumerate}
+  \item[(i)]\SGARefTarget{sga3:iv:definition:6:7:1:item:i:01} \textit{态射
+    \(\Phi:G\times_SX\to X\times_SX\) 在 \(\mathcal T\) 的层范畴中为满态射;}
+  \item[(ii)]\SGARefTarget{sga3:iv:definition:6:7:1:item:ii:01} \textit{对每个 \(T\to S\)
+    及每个 \(x,y\in X(T)\), 存在 \(\mathcal T\)-覆盖态射 \(T'\to T\)
+    和一个元素 \(g\in G(T')\), 使得 \(y_{T'}=g\cdot x_{T'}\).}
+\end{enumerate}
+
+\medskip
+\noindent\SGARefTarget{sga3:iv:remark:6:7:2}\textbf{注 6.7.2.}
+\textit{特别地, 由 \SGARefLink{sga3:iv:proposition:4:4:3}{4.4.3},
+条件 \SGARefLink{sga3:iv:definition:6:7:1:item:i:01}{(i)} 蕴含
+\(\Phi\) 是 \((\mathbf{Sch}/S)\) 中的普遍有效满态射.
+容易看出, 这又蕴含 \(\Phi\) 为满射;
+参见 \SGARefLink{sga3:iv:definition:1:3}{1.3}, 编者注 (3).}
+
+\medskip
+\noindent\SGARefTarget{sga3:iv:propdef:6:7:3}\textbf{命题与定义 6.7.3.}
+\footnote{编者注: 参见 \SGARefLink{sga3:iv:bib:ray70}{[Ray70]}, 定义 VI.1.1.}
+\textit{设 \(G\) 是 \(S\)-群, \(X\) 是带有 \(G\) 作用的 \(S\)-概形,
+\(\mathcal T\) 是 \((\mathbf{Sch}/S)\) 上的一个比典范拓扑粗的拓扑.
+下述条件等价:}
+\begin{enumerate}
+  \item[(i)]\SGARefTarget{sga3:iv:propdef:6:7:3:item:i:01} \textit{\(X\) 同时满足以下两个条件:}
+    \begin{enumerate}
+      \item[(1)]\SGARefTarget{sga3:iv:propdef:6:7:3:item:1:01} \textit{态射
+        \(\Phi:G\times_SX\to X\times_SX\) 是覆盖态射,
+        即 \(X\) 是形式齐性 \(G\)-空间;}
+      \item[(2)]\SGARefTarget{sga3:iv:propdef:6:7:3:item:2:01} \textit{结构态射
+        \(X\to S\) 也是覆盖态射, 即它关于 \(\mathcal T\) 局部地具有截面
+        % The PDF has an unresolved typesetting token here,
+        % ``RefIV.4.4.8bis.bis''; 4.4.8 bis, (b) is the intended reference.
+        (参见 \SGARefLink{sga3:iv:remark:4:4:8:bis}{4.4.8 bis},
+        \SGARefLink{sga3:iv:remark:4:4:8:bis:item:b:01}{(b)}).}
+    \end{enumerate}
+
+  \item[(ii)]\SGARefTarget{sga3:iv:propdef:6:7:3:item:ii:01} \textit{对于拓扑 \(\mathcal T\),
+    在 \(S\) 上局部地, 带有 \(G\) 作用的概形 \(X\)
+    同构于 \(G\) 对某个子群概形 \(H\) 的 \(\mathcal T\) 商层.
+    换言之, 存在覆盖族 \(\{S_i\to S\}\),
+    使得每个 \(X\times_SS_i\) 都代表 \(G\times_SS_i\) 对某个子群概形 \(H_i\)
+    的商层.}
+\end{enumerate}
+\textit{在这些条件下, 称 \(X\) 是相对于 \(\mathcal T\) 的\emph{\(G\)-齐性空间}.}
+
+\smallskip
+\noindent\textit{证明.}
+假设 \SGARefLink{sga3:iv:propdef:6:7:3:item:ii:01}{(ii)} 成立. 置
+\[
+  G_i=G\times_SS_i,\qquad X_i=X\times_SS_i.
+\]
+概形 \(X_i\) 在 \(S_i\) 上具有截面,
+即单位截面 \(\varepsilon_i:S_i\to G_i\)
+与投影 \(\pi_i:G_i\to X_i=G_i/H_i\) 的复合.
+因此 \(X\to S\) 是覆盖态射.
+
+% Source page: Exp4 component-local p. 72; combined-reader p. 260.
+此外, \(\pi_i\) 是覆盖态射, 因而由
+\SGARefLink{sga3:iv:definition:4:2:3}{4.2.3}
+\SGARefLink{sga3:iv:definition:4:2:3:item:c:1:01}{(C~1)},\SGARefLink{sga3:iv:definition:4:2:3:item:c:2:01}{(C~2)},
+\(\pi_i\times\pi_i\) 也是覆盖态射.
+有交换图\footnote{编者注: Polo--Gille 重版本右上角印为 \(G_i\times_{S_i}X_i\).
+这里写成 \(X_i\times_{S_i}X_i\), 因为作为
+\(\Phi:G\times_SX\to X\times_SX\) 的基变换的 \(\Phi_i\),
+以及 \(\pi_i\times\pi_i\), 均以它为终点.}
+\[
+\begin{array}{ccccc}
+  G_i\times_{S_i}X_i & \xrightarrow{\ \Phi_i\ } &
+    X_i\times_{S_i}X_i\\
+  \scriptstyle\operatorname{id}\times\pi_i\,\Big\uparrow
+    & & \scriptstyle\pi_i\times\pi_i\,\Big\uparrow\\[-0.25em]
+  G_i\times_{S_i}G_i & \xrightarrow[\sim]{\ \Psi_i\ } &
+    G_i\times_{S_i}G_i ,
+\end{array}
+\tag{6.7.3.1}\label{sga3:iv:propdef:6:7:3:eq:6:7:3:1:01}
+\]
+其中 \(\Phi_i\) 由 \(\Phi\) 经基变换 \(S_i\to S\) 得到,
+\(\Psi_i\) 是在点上由
+\[
+  (g,g')\longmapsto(gg',g).
+\]
+定义的同构.
+复合态射 \((\pi_i\times\pi_i)\circ\Psi_i\) 是覆盖态射;
+因而由 \SGARefLink{sga3:iv:definition:4:2:3}{4.2.3}
+\SGARefLink{sga3:iv:definition:4:2:3:item:c:3:01}{(C~3)},
+\(\Phi_i\) 也是覆盖态射.
+所以 \(\Phi\) 局部地是覆盖态射,
+因而由 \SGARefLink{sga3:iv:definition:4:2:3}{4.2.3}
+\SGARefLink{sga3:iv:definition:4:2:3:item:c:5:01}{(C~5)}, 它就是覆盖态射.
+这就证明了 \SGARefLink{sga3:iv:propdef:6:7:3:item:ii:01}{(ii)}\(\Longrightarrow\)\SGARefLink{sga3:iv:propdef:6:7:3:item:i:01}{(i)}.
+
+反过来, 假设 \SGARefLink{sga3:iv:propdef:6:7:3:item:i:01}{(i)} 成立,
+并且先额外假设结构态射 \(X\to S\) 具有截面 \(\sigma\).
+由 EGA~I, 5.3.13, \(\sigma\) 是浸入.
+以下述两个方块均为笛卡尔方块的\SGARefLink{sga3:iv:propdef:6:7:3:eq:6:7:3:2:01}{图}
+定义 \(H=G\times_XS\):
+\[
+\begin{array}{ccccc}
+  H & \longrightarrow & G
+    & \xrightarrow{\ \operatorname{id}_G\boxtimes\sigma\ } & G\times_SX\\
+  \Big\downarrow & & \scriptstyle\pi\,\Big\downarrow
+    & & \scriptstyle\Phi\,\Big\downarrow\\[-0.25em]
+  S & \xrightarrow{\ \sigma\ } & X
+    & \xrightarrow{\ \operatorname{id}_X\boxtimes\sigma\ } & X\times_SX .
+\end{array}
+\tag{6.7.3.2}\label{sga3:iv:propdef:6:7:3:eq:6:7:3:2:01}
+\]
+这里, \(\pi\), \(\operatorname{id}_G\boxtimes\sigma\) 和
+\(\operatorname{id}_X\boxtimes\sigma\) 是在点上对 \(T\to S\),
+\(g\in G(T)\) 及 \(x\in X(T)\) 由下式定义的态射:
+\[
+ \pi(g)=g\cdot\sigma_T,\qquad
+ (\operatorname{id}_G\boxtimes\sigma)(g)=(g,\sigma_T),\qquad
+ (\operatorname{id}_X\boxtimes\sigma)(x)=(x,\sigma_T).
+\]
+此时 \(\pi\) 是覆盖态射, \(H\) 是 \(G\) 的子群概形,
+它代表 \(\sigma\) 的稳定子 \(\operatorname{Stab}_G(\sigma)\)
+(参见 I, \SGARefLink{sga3:i:definition:2:3:3}{2.3.3}).
+因此, 对每个 \(T\to S\),
+\[
+  H(T)=\{g\in G(T)\mid g\cdot\sigma_T=\sigma_T\}.
+\]
+
+以 \(G/H\) 表示预层
+\[
+  T\longmapsto G(T)/H(T),
+\]
+并设 \(a(G/H)\) 为它关于 \(\mathcal T\) 的伴随层.
+前面的构造给出带有 \(G\) 作用的预层的交换图:
+\[
+\begin{array}{ccccc}
+  G & \xrightarrow{\ \pi\ } & X\\
+  \Big\downarrow & \nearrow_{\scriptstyle\bar\pi} &\\[-0.25em]
+  G/H & &
+\end{array}
+\tag{6.7.3.3}\label{sga3:iv:propdef:6:7:3:eq:6:7:3:3:01}
+\]
+其中 \(\bar\pi\) 为单态射. 由于 \(\pi\) 是覆盖态射,
+\(\bar\pi\) 也是覆盖态射.
+因此由 \SGARefLink{sga3:iv:corollary:4:3:12}{4.3.12},
+\(\bar\pi\) 诱导同构
+\[
+  a(G/H)\xrightarrow{\sim}X.
+\]
+我们已经证明: 若 \(X\) 是一个 \(G\)-齐性空间,
+且 \(X\to S\) 具有截面 \(\sigma\), 则 \(X\) 代表商层 \(G/H\),
+其中 \(H=G\times_XS\) 是 \(\sigma\) 的稳定子.
+
+一般情形下, 由假设存在一个覆盖族 \(\{S_i\to S\}\), 使得每个态射
+\[
+  X_i=X\times_SS_i\longrightarrow S_i
+\]
+都具有截面 \(\sigma_i\). 置 \(G_i=G\times_SS_i\).
+由 \(\Phi\) 经基变换 \(S_i\to S\) 得到的态射
+\[
+  \Phi_i:G_i\times_{S_i}X_i\longrightarrow X_i\times_{S_i}X_i
+\]
+仍是覆盖态射.
+
+% Source page: Exp4 component-local p. 73; combined-reader p. 261.
+前面的论证给出
+\[
+  X_i\simeq G_i/H_i,
+\]
+其中 \(H_i\) 是 \(\sigma_i\) 在 \(G_i\) 中的稳定子.
+这就完成了 \SGARefLink{sga3:iv:propdef:6:7:3:item:i:01}{(i)}\(\Longrightarrow\)\SGARefLink{sga3:iv:propdef:6:7:3:item:ii:01}{(ii)} 的证明.
+
+\SGARefTarget{sga3:iv:section:bibliography}\section*{参考文献}
+\addcontentsline{toc}{section}{参考文献}
+
+\begin{description}
+  \item[{[AS]}]\SGARefTarget{sga3:iv:bib:as} J.~Giraud, \emph{Analysis Situs}, S\'eminaire Bourbaki,
+    第 256 篇, 1963 年 5 月.
+
+  \item[{[D]}]\SGARefTarget{sga3:iv:bib:d} J.~Giraud, \emph{M\'ethode de la descente}, M\'emoires de la
+    Soci\'et\'e Math\'ematique de France, 第~2~卷 (1964), 第~iii--viii 页及
+    第~1--150 页.
+
+  \item[{[MA]}]\SGARefTarget{sga3:iv:bib:ma} M.~Artin, \emph{Grothendieck Topologies}, 油印讲义,
+    Harvard, 1962.
+
+  \item[{[SGA 1]}]\SGARefTarget{sga3:iv:bib:sga:1} \emph{S\'eminaire de G\'eom\'etrie Alg\'ebrique du
+    Bois-Marie 1960--61: Rev\^etements \'etales et groupe fondamental},
+    Lecture Notes in Mathematics 224 (1971); 重排注释版,
+    Documents Math\'ematiques 3, Soci\'et\'e Math\'ematique de
+    France, 2003.
+
+  \item[{[SGA 4]}]\SGARefTarget{sga3:iv:bib:sga:4} \emph{S\'eminaire de G\'eom\'etrie Alg\'ebrique du
+    Bois-Marie 1963--1964: Th\'eorie des topos et cohomologie \'etale des
+    sch\'emas}, 第~I--III~卷, Lecture Notes in Mathematics 269, 270 (1972)
+    及 305 (1973).
+
+  \item[{[TDTE I]}]\SGARefTarget{sga3:iv:bib:tdte:i} A.~Grothendieck, \emph{Techniques de descente et
+    th\'eor\`emes d'existence en g\'eom\'etrie alg\'ebrique I.
+    G\'en\'eralit\'es. Descente par morphismes fid\`element plats},
+    S\'eminaire Bourbaki, 第 190 篇, 1959 年 12 月.
+
+  \item[{[Ray70]}]\SGARefTarget{sga3:iv:bib:ray70} M.~Raynaud, \emph{Faisceaux amples sur les sch\'emas en
+    groupes et les espaces homog\`enes}, Lecture Notes in Mathematics 119,
+    Springer-Verlag, 1970.\footnote{编者注: 此条参考文献为增补内容.}
+\end{description}

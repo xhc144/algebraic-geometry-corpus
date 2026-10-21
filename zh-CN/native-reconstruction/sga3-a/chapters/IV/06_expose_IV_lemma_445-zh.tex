@@ -1,0 +1,186 @@
+% SGA 3, Expose IV, English reconstruction.
+% Scope: editor's note 32 and Lemma 4.4.5 with its complete proof, stopping
+% immediately before Lemma 4.4.6.
+% Authority: Polo--Gille Exp4-13oct24.pdf, component-local pages 37--39
+% (pp. 37 and 39 partial; combined-reader pages 225--227).
+% The external English Markdown was used only as a comparison. The PDF controls
+% prose, formulas, numbering, and editorial notes.
+
+\setcounter{footnote}{31}
+
+用 \(R_{\varnothing}\) 表示将每个 \(S\in\operatorname{Ob}\mathscr C\)
+映到空集的预层; 它是 \(\widehat{\mathscr C}\) 的始对象.
+\footnote{编者注: 引理 \SGARefLink{sga3:iv:lemma:4:4:5}{4.4.5}
+的 \SGARefLink{sga3:iv:lemma:4:4:5:item:i:01}{(i)} 项已改正,
+并详细给出了全部三项的证明.}
+
+\medskip
+\noindent\SGARefTarget{sga3:iv:lemma:4:4:5}\textbf{引理 4.4.5.}
+\begin{enumerate}
+  \item[(i)]\SGARefTarget{sga3:iv:lemma:4:4:5:item:i:01}
+    \textit{假设对每个 \(S\in\operatorname{Ob}\mathscr C\), 有
+    \(R_{\varnothing}\notin J(S)\). 若 \((X_i)\) 是一族分离预层,
+    则余积预层 \(\coprod_i X_i\) 分离.}
+    \footnote{编者注: 一般而言, 两个层 \(F,G\) 的余积不是层.
+    事实上, 设 \(S_1,S_2\in\operatorname{Ob}\mathscr C\).
+    假定余积 \(S=S_1\coprod S_2\) 在 \(\mathscr C\) 中存在,
+    且纤维积 \(S_1\times_S S_2\) 是 \(\mathscr C\) 的始对象
+    \(\varnothing\) (参见 I, \SGARefLink{sga3:i:subsection:1:8}{1.8}).
+    设 \(R\) 是 \(S\) 的以 \(\{S_1,S_2\}\) 为基的筛.
+    则 \((F\coprod G)(R)\) 是 \(F(S)\coprod G(S)\)
+    与各集合 \(F(S_i)\times G(S_j)\) (\(i\ne j\)) 的不交并;
+    因此 \(F\coprod G\) 一般不是层. 另一方面, 设 \(\mathscr C\)
+    是只有一个对象 \(S\), 并且只有态射 \(\operatorname{id}_S\) 的范畴,
+    赋予由 \(J(S)=\{R_{\varnothing},S\}\) 定义的拓扑.
+    则仅有的分离预层为 \(R_{\varnothing}\) 和 \(X=\mathbf h_S\)
+    (后者是层), 而 \(X\coprod X\) 不分离.}
+
+  \item[(ii)]\SGARefTarget{sga3:iv:lemma:4:4:5:item:ii:01}
+    \textit{考虑预层范畴中的一个等价关系}
+    \[
+      X\overset{u}{\underset{v}{\rightrightarrows}}Y,
+    \]
+    \textit{并设 \(w:Y\to Z\) 是其商. 若 \(X\) 是层而
+    \(Y\) 分离, 则 \(Z\) 分离.}
+
+  \item[(iii)]\SGARefTarget{sga3:iv:lemma:4:4:5:item:iii:01}
+    \textit{考虑预层范畴中的一个融合和, 其中 \(u\) 和 \(u'\) 为单态射:}
+    \[
+    \begin{array}{ccc}
+      X & \xrightarrow{\ u\ } & Y\\
+      {\scriptstyle u'}\big\downarrow && \big\downarrow\\
+      Y' & \longrightarrow & V.
+    \end{array}
+    \]
+    \textit{若 \(Y\) 和 \(Y'\) 分离, 而 \(X\) 是层,
+    则 \(V\) 分离.}
+\end{enumerate}
+
+\noindent\textit{证明.}
+对 \SGARefLink{sga3:iv:lemma:4:4:5:item:i:01}{(i)}, 置 \(X=\coprod_i X_i\).
+设 \(S\in\operatorname{Ob}\mathscr C\),
+\(\tau:R\hookrightarrow S\) 是 \(S\) 的加细,
+且 \(x_1,x_2\in X(S)\) 满足 \(x_1\circ\tau=x_2\circ\tau\).
+有指标 \(i,j\), 使得 \(x_1\in X_i(S)\) 和 \(x_2\in X_j(S)\).
+由于 \(R\ne R_{\varnothing}\), 存在态射 \(\phi:T\to R\),
+其中 \(T\in\operatorname{Ob}\mathscr C\). 则
+\[
+  x_1\circ\tau\circ\phi=x_2\circ\tau\circ\phi.
+\]
+由于 \(X(T)\) 是各 \(X_k(T)\) 的不交并, 可知 \(i=j\).
+由于 \(X_i\) 分离且为 \(X\) 的子对象, 映射
+\[
+  X_i(S)\longrightarrow X_i(R)\longrightarrow X(R)
+\]
+是单射. 所以 \(x_1=x_2\), 这就证明了 \(X\) 分离.
+
+接着证明 \SGARefLink{sga3:iv:lemma:4:4:5:item:iii:01}{(iii)}.
+设 \(i:Y\to V\) 和 \(j:Y'\to V\) 为典范态射,
+并设 \(K\) 是态射对
+\[
+  Y\times Y'
+  \overset{p}{\underset{q}{\rightrightarrows}}V,
+  \qquad
+  p=i\circ\operatorname{pr}_1,\quad
+  q=j\circ\operatorname{pr}_2.
+\]
+的核. 对 \(S\in\operatorname{Ob}\mathscr C\),
+利用单态射 \(u,u'\), 可将 \(X(S)\) 与其在 \(Y(S)\),
+分别地, 在 \(Y'(S)\) 中的像等同.
+用 \(Z(S)\), 分别地, \(Z'(S)\) 表示补集.
+则 \(V(S)\) 与 \(Z(S)\), \(Z'(S)\) 和 \(X(S)\) 的不交并等同.
+立即可知
+\[
+  i(S):Y(S)\longrightarrow V(S),
+  \qquad
+  j(S):Y'(S)\longrightarrow V(S)
+\]
+是单射, 且
+\[
+  (u\times u')(S):X(S)\longrightarrow K(S)
+\]
+是双射. 因此 \(i\) 和 \(j\) 是单态射,
+而 \(u\times u':X\to K\) 是同构.
+
+置 \(U=Y\coprod Y'\). 对加细
+\(\tau:R\hookrightarrow S\), 有交换图
+\[
+\begin{array}{ccc}
+  U(S)&\xrightarrow{\ U(\tau)\ }&U(R)\\
+  \big\downarrow&&\big\downarrow\\
+  V(S)&\xrightarrow{\ V(\tau)\ }&V(R).
+\end{array}
+\]
+设 \(v_1,v_2\in V(S)\) 在 \(V(R)\) 中的像相同.
+由 \(V\) 的定义, 它们可提升为元素 \(y_1,y_2\in U(S)\);
+用 \(z_1,z_2\) 表示它们在 \(U(R)\) 中的像.
+则 \(z_1,z_2\) 在 \(V(R)\) 中的像相同.
+
+由于 \(i:Y\to V\) 和 \(j:Y'\to V\) 是单态射,
+映射 \(Y(R)\to V(R)\) 和 \(Y'(R)\to V(R)\) 是单射.
+于是, 由于 \(Y\) 和 \(Y'\) 分离,
+若 \(y_1,y_2\) 都属于 \(Y(S)\), 或都属于 \(Y'(S)\),
+则 \(y_1=y_2\). 否则可假设
+\(y_1\in Y(S)\) 和 \(y_2\in Y'(S)\),
+从而 \(z_1\in Y(R)\) 且 \(z_2\in Y'(R)\).
+由于 \(i\circ z_1=j\circ z_2\), 态射
+\[
+  z_1\boxtimes z_2:R\longrightarrow Y\times Y'
+\]
+经过 \(K=X\) 分解. 此外, 由于 \(X\) 是层,
+限制映射将 \(X(S)\) 与 \(X(R)\) 等同.
+因此存在 \(x\in X(S)\), 使得
+\[
+  u(x)\circ\tau=z_1=y_1\circ\tau,
+  \qquad
+  u'(x)\circ\tau=z_2=y_2\circ\tau.
+\]
+由于 \(Y\) 和 \(Y'\) 分离, 有 \(u(x)=y_1\) 和 \(u'(x)=y_2\),
+因而 \(v_1=v_2\). 这就证明了 \(V\) 分离.
+
+最后证明 \SGARefLink{sga3:iv:lemma:4:4:5:item:ii:01}{(ii)}.
+先注意, 预层态射
+\[
+  X\xrightarrow{\,u\boxtimes v\,}K,
+\]
+是同构, 其中 \(K\) 是态射对
+\[
+  w\circ\operatorname{pr}_i:Y\times Y\rightrightarrows Z,
+\]
+的核. 事实上, 对每个 \(T\in\operatorname{Ob}\mathscr C\),
+\(X(T)\) 是 \(Y(T)\) 上的等价关系, 因而图
+\[
+  X(T)\xrightarrow{\,u\boxtimes v\,}Y(T)\times Y(T)
+  \overset{w\circ\operatorname{pr}_1}
+    {\underset{w\circ\operatorname{pr}_2}{\rightrightarrows}}
+  Z(T)
+\]
+在集合范畴中正合.
+
+现设 \(S\in\operatorname{Ob}\mathscr C\),
+\(g_1,g_2:S\to Z\) 是两个在加细
+\(\tau:R\hookrightarrow S\) 上相同的态射.
+由 \(Z\) 的构造,
+\[
+  Z(S)=Y(S)/X(S),
+\]
+故有态射 \(f_1,f_2:S\to Y\), 使 \(wf_i=g_i\).
+有 \(wf_1\tau=wf_2\tau\); 由前面的观察, 存在态射
+\(\phi:R\to X\), 使得
+\[
+  u\phi=f_1\tau,\qquad v\phi=f_2\tau.
+\]
+由于 \(X\) 是层, 存在态射 \(\psi:S\to X\),
+使 \(\phi=\psi\tau\). 因此在 \(Y(R)\) 中,
+\[
+  u\psi\tau=f_1\tau,\qquad v\psi\tau=f_2\tau.
+\]
+由于 \(Y\) 分离, \(Y(S)\to Y(R)\) 是单射,
+可知 \(u\psi=f_1\) 且 \(v\psi=f_2\), 从而 \(g_1=g_2\).
+因此 \(Z\) 分离.
+
+% Translation coverage: entire assigned source component.
+% Source lines: 175; translated body lines before this audit comment: 180.
+% Math preserved: 133 inline formulas, 16 display blocks.
+% Reference targets: 4/4; links: 6/6; labels: 0/0; footnotes: 2/2.
+% Unresolved TODOs: 0; compile and visual review delegated to the volume integrator.
