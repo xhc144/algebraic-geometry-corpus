@@ -8,7 +8,8 @@ for c in lock['components']:
  if not p.exists(): missing.append(c['source_component']); continue
  if c['expose']!=prev:
   prev=c['expose']
-  lines += [r'\clearpage',r'\renewcommand{\CurrentExpose}{第 '+prev+r' 讲}',r'\phantomsection\addcontentsline{toc}{section}{第 '+prev+r' 讲}',r'\begin{center}\underline{第 '+prev+r' 讲}\end{center}']
+  lines += [r'\clearpage',r'\renewcommand{\CurrentExpose}{第 '+prev+r' 讲}']
+  if prev=='X': lines += [r'\ExposeTOC',r'\begin{center}\underline{第 X 讲}\end{center}']
  lines.append(r'\input{'+c['translation']+'}')
  present.append(c['source_component'])
 if missing: raise SystemExit('Untranslated or absent source components: '+repr(missing))
