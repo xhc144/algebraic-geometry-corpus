@@ -2,6 +2,8 @@
 
 本交付是明确的部分成果，不能标记 assigned scope complete。分配的14篇中，已完整译出导言及 I、II、III、IV；V、VI-A、VI-B、VII-A、VII-B、VIII、IX、X、XI、XII，以及第一卷索引尚未翻译。本轮保存可编译 TeX、原生图、PDF、源码 ZIP 和逐组件审计；后续应从 V 的第00组件继续。
 
+续译已恢复：V 00–23、VI-A 00–25 正在分组翻译；未整合、未标记完成的组件不计入已交付 PDF。16b2b930 检查点保持可用。
+
 底本固定为仓库 `en/KokunoYumeto-sga-en/release/00_SGA_EN_CUMULATIVE_SOURCE_PROJECTS.zip` 内 `native/SGA3/SGA3_English_current_buildable_source_20260823/source/`。外部哈希、全部1868条外清单、SGA3的919条内部清单均已核验；散装 TeX 的发布清单哈希缺陷仍明确记录，不以本次翻译掩盖或改写源文件。
 
 下一篇原生输入为 `inputs/V/tex/components/00_expose_V_pp251_252_en.tex` 至 `23_expose_V_theorem1041_proof_through_bibliography_en.tex`。源 `inputs/V/body.tex` 充满旧 IfFileExists 的 pending 回退；实际24个组件都存在，不应把这些历史回退标题译作正文或计作完成。逐组件完整翻译到新 `chapters/V/`，保留源图及编号；不要把 V 的路径规则套在 I–IV 图上。V 的主文件原来重定义 SGAThreeNativeInput 来解析图路径，整合时须读原生 master 相应段。完成 V 后才接 VI 的 A/B 两篇；本项目不得触及另一作者的 XIII–XXVI。
