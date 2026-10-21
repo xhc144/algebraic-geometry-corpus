@@ -1,0 +1,1097 @@
+% SGA 3, Expose II, Loop 1 English reconstruction.
+% Scope: Section 4.1 through the end of Example 4.4.2, stopping immediately
+% before Proposition 4.5.
+% Authority: Polo--Gille Exp2-14oct24.pdf, component-local pages 22--34
+% (combined-reader pages 80--92; printed pages 70--82). Force-OCR is a
+% drafting locator; English wording was compared with Jacob Reinhold's
+% CC BY 4.0 Markdown lineage.
+
+\setcounter{footnote}{48}
+
+% Source page: Exp2 component-local p. 22; combined-reader p. 80; printed p. 70.
+\section*{\SGAInlineRefTarget{sga3:ii:section:4}4. 群的切空间---Lie 代数}
+\addcontentsline{toc}{section}{4. 群的切空间---Lie 代数}
+
+\subsection*{\SGAInlineRefTarget{sga3:ii:subsection:4-1}4.1.}
+设 \(G\) 是 \(S\) 上的群函子. 由 \SGARefLink{sga3:ii:corollary:3-9-0-2}{3.9.0.2},
+\(T_{G/S}(\mathcal M)\) 与
+\(\underline{\operatorname{Lie}}(G/S,\mathcal M)\) 均带有 \(S\) 上的群结构,
+且有群态射
+
+\SGAThreeNativeDiagram[0.52\textwidth]
+  {figures/exp2/exp2_p022_split_tangent_sequence.tex}
+  {群函子 \(G\) 的分裂切序列.}
+  {fig:exp2-split-tangent-sequence}
+  {Polo--Gille Exp2-14oct24.pdf, 组件内第 22 页; 合卷第 80 页; 印刷页码 70}
+
+由定义, \(i\) 将 \(\underline{\operatorname{Lie}}(G/S,\mathcal M)\) 等同于
+\(p\) 的核, 而 \(s\) 是 \(p\) 的截面.
+由 \SGARefLink{sga3:i:proposition:2-3-7}{I~2.3.7} 可知, 这一序列将
+\(T_{G/S}(\mathcal M)\) 等同于
+\(\underline{\operatorname{Lie}}(G/S,\mathcal M)\) 与 \(G\) 的半直积.
+
+\SGAInlineRefTarget{sga3:ii:definition:4-1-a}\subsection*{\SGARefLink{sga3:ii:definition:4-1-a}{定义 4.1.A}.}
+相应的 \(G\) 在 \(\underline{\operatorname{Lie}}(G/S,\mathcal M)\) 上的作用记为
+\[
+  \operatorname{Ad}:G\longrightarrow
+  \underline{\operatorname{Aut}}_{S\text{-gr.}}
+    \bigl(\underline{\operatorname{Lie}}(G/S,\mathcal M)\bigr)
+\]
+并称为 \(G\) 相对于 \(\mathcal M\) 的\emph{伴随表示 (adjoint representation)}.
+于是, 由定义, 对 \(x\in G(S')\) 和
+\(X\in\underline{\operatorname{Lie}}(G/S,\mathcal M)(S')\), 有
+\[
+  \operatorname{Ad}(x)X
+  =i^{-1}\bigl(s(x)i(X)s(x)^{-1}\bigr).
+\]
+若 \(G\) 交换, 则 \(T_{G/S}(\mathcal M)\) 也交换, 且
+\(\operatorname{Ad}(x)X=X\).
+\footnote{编者注: 增添了编号 \SGARefLink{sga3:ii:definition:4-1-a}{4.1.A}
+和 \SGARefLink{sga3:ii:definition:4-1-b}{4.1.B}, 以突出这两个定义.}
+
+\SGAInlineRefTarget{sga3:ii:definition:4-1-b}\subsection*{\SGARefLink{sga3:ii:definition:4-1-b}{定义 4.1.B}.}
+设 \(G,H\) 是 \(S\) 上的群函子, \(f:G\to H\) 是群态射.
+函子性给出一个与典范截面相容的正合序列态射.
+
+\SGAThreeNativeDiagram[0.66\textwidth]
+  {figures/exp2/exp2_p022_derived_exact_sequences.tex}
+  {分裂切序列的函子性.}
+  {fig:exp2-derived-exact-sequences}
+  {Polo--Gille Exp2-14oct24.pdf, 组件内第 22 页; 合卷第 80 页; 印刷页码 70}
+
+态射 \(L(f)\), 也记为 \(\underline{\operatorname{Lie}}(f)\),
+称为 \(f\) 的\emph{导出态射 (derived morphism)}.
+\footnote{编者注: 若 \(f\) 为单态射, 则 \(L(f)\) 和 \(T(f)\) 也为单态射;
+参见 \SGARefLink{sga3:ii:proposition:3-7}{3.7}.}
+
+\SGAInlineRefTarget{sga3:ii:remark:4-1-c}\subsection*{\SGARefLink{sga3:ii:remark:4-1-c}{注 4.1.C}.}
+若 \(G/S\) 和 \(H/S\) 满足条件 \(E\), 则 \(L(f)\) 保持由
+“关于 \(\mathcal M\) 的函子性”得到的 \(\mathcal O_S\)-模结构
+(参见 \SGARefLink{sga3:ii:proposition:3-6}{3.6}).
+\footnote{编者注: 此注为增补内容.}
+
+\SGAInlineRefTarget{sga3:ii:proposition:4-1-1}\subsection*{\SGARefLink{sga3:ii:proposition:4-1-1}{命题 4.1.1}.}
+设 \(g\in G(S)\). 则
+\[
+  \operatorname{Ad}(g):
+  \underline{\operatorname{Lie}}(G/S,\mathcal M)
+  \longrightarrow
+  \underline{\operatorname{Lie}}(G/S,\mathcal M)
+\]
+是 \(\operatorname{Int}(g):G\to G\) 的导出态射.
+
+事实上, \(\operatorname{Ad}(g)X=i^{-1}(\operatorname{Int}(g)i(X))\),
+根据导出态射的定义, 这正是 \(L(\operatorname{Int}(g))(X)\).
+
+设 \(G/S\) 满足 \(E\). 由\SGARefLink{sga3:ii:proposition:3-9}{命题~3.9},
+刚刚在 \(\underline{\operatorname{Lie}}(G/S,\mathcal M)\) 上定义的群结构,
+恰好是由其 \(\mathcal O_S\)-模结构 (由 (E) 定义) 诱导的群结构.
+因此, \SGARefLink{sga3:ii:proposition:4-1-1}{命题~4.1.1} 与
+\(\mathcal O_S\)-作用的函子性 (参见 \SGARefLink{sga3:ii:proposition:3-6}{3.6})
+给出下述推论.
+
+% Source page: Exp2 component-local p. 23; combined-reader p. 81; printed p. 71.
+\SGAInlineRefTarget{sga3:ii:corollary:4-1-1-1}\subsection*{\SGARefLink{sga3:ii:corollary:4-1-1-1}{推论 4.1.1.1}.}
+设 \(G/S\) 满足 \(E\). 则 \(\operatorname{Ad}\) 将 \(G\) 映入子群
+\[
+  \underline{\operatorname{Aut}}_{\mathcal O_S\text{-mod.}}
+    \bigl(\underline{\operatorname{Lie}}(G/S,\mathcal M)\bigr)
+\]
+它是 \(\underline{\operatorname{Aut}}_{S\text{-gr.}}
+(\underline{\operatorname{Lie}}(G/S,\mathcal M))\) 的子群. 换言之, 对每个 \(g\in G(S')\), 自同构 \(\operatorname{Ad}(g)\) 保持
+\(\underline{\operatorname{Lie}}(G'/S',\mathcal M)\) 上的
+\(\mathcal O_{S'}\)-模结构, 其中 \(G'=G\times_SS'\).
+因此, \(\operatorname{Ad}\) 是 \(G\) 在 \(\mathcal O_S\)-模
+\(\underline{\operatorname{Lie}}(G/S,\mathcal M)\) 上的一个
+\emph{线性表示} (参见 \SGARefLink{sga3:i:definition:3-2}{I~3.2}).
+
+\SGAInlineRefTarget{sga3:ii:remark:4-1-1-2}\subsection*{\SGARefLink{sga3:ii:remark:4-1-1-2}{注 4.1.1.2}.}
+\textit{a)} 函子 \(G/S\) 满足 \(E\), 当且仅当对于每一对有限自由
+\(\mathcal O_S\)-模 \((\mathcal M,\mathcal N)\), 下图是笛卡尔图;
+该图是将 \(\underline{\operatorname{Lie}}(G/S,-)\) 用于
+\SGARefLink{sga3:ii:definition:2-1}{2.1} 的图 \((*)\) 得到的.
+
+\SGAThreeNativeDiagram[0.45\textwidth]
+  {figures/exp2/exp2_p023_condition_e_cartesian.tex}
+  {条件 \(E\) 的笛卡尔判据.}
+  {fig:exp2-condition-e-cartesian}
+  {Polo--Gille Exp2-14oct24.pdf, 组件内第 23 页; 合卷第 81 页; 印刷页码 71}
+
+\textit{b)} 设 \(G/S\) 满足 \(E\). 群律 \(\pi:G\times_SG\to G\) 的导出态射,
+就是 \(\underline{\operatorname{Lie}}(G/S,\mathcal M)\) 上的加法律.
+注意, \(\pi\) 并非群态射, 但 \(\pi(e,e)=e\); 因而导出态射 \(L(\pi)\) 将
+\[
+  T^{(e,e)}_{(G\times_SG)/S}(\mathcal M)
+  =\underline{\operatorname{Lie}}(G/S,\mathcal M)
+   \times_S\underline{\operatorname{Lie}}(G/S,\mathcal M)
+\]
+映入 \(\underline{\operatorname{Lie}}(G/S,\mathcal M)\);
+参见 \SGARefLink{sga3:ii:proposition:3-7}{3.7} 和
+\SGARefLink{sga3:ii:proposition:3-8}{3.8}. 同样, 对 \(n\in\mathbb Z\),
+以 \(n_G:G\to G\) 表示 \(S\)-函子态射 \(g\mapsto g^n\).
+则 \(L(n_G)\) 是 \(\underline{\operatorname{Lie}}(G/S)\) 上的乘以 \(n\) 的映射;
+参见 \SGARefLink{sga3:ii:corollary:3-9-4}{3.9.4}.
+
+\subsection*{\SGAInlineRefTarget{sga3:ii:subsection:4-1-2-0}4.1.2.0.}
+考虑 \(S\)-函子
+\(
+  \underline{\operatorname{Hom}}_{G/S}
+    (G,T_{G/S}(\mathcal M)).
+\)\footnote{编者注: 下文对原文作了扩充, 以明确展示 \(G\) 在函子
+\(\underline{\operatorname{Hom}}_{G/S}(G,T_{G/S}(\mathcal M))\) 及
+\(\underline{\operatorname{Hom}}_S
+(G,\underline{\operatorname{Lie}}(G/S,\mathcal M))\) 上的作用.}
+对每个 \(S'\to S\), 有
+\(T_{G/S}(\mathcal M)_{S'}\simeq T_{G_{S'}/S'}(\mathcal M)\)
+(参见 \SGARefLink{sga3:ii:proposition:3-4}{3.4}), 因而
+\[
+\begin{aligned}
+ &\underline{\operatorname{Hom}}_{G/S}
+   (G,T_{G/S}(\mathcal M))(S')\\
+ &\qquad\simeq
+ \operatorname{Hom}_{G_{S'}}
+   \bigl(G_{S'},T_{G_{S'}/S'}(\mathcal M)\bigr)
+ =\Gamma\bigl(T_{G_{S'}/S'}(\mathcal M)/G_{S'}\bigr).
+\end{aligned}
+\]
+先注意以下关于 \(S'\) 函子性的同构:
+\begin{equation}
+ \operatorname{Hom}_{S'}
+  \bigl(G_{S'},\underline{\operatorname{Lie}}(G_{S'}/S',\mathcal M)\bigr)
+ \xrightarrow{\sim}
+ \Gamma\bigl(T_{G_{S'}/S'}(\mathcal M)/G_{S'}\bigr),
+ \tag{*}\label{sga3:ii:subsection:4-1-2-0:equation:star}
+\end{equation}
+它把 \(f:G_{S'}\to
+\underline{\operatorname{Lie}}(G_{S'}/S',\mathcal M)\) 对应到截面
+\(s_f:G_{S'}\to T_{G_{S'}/S'}(\mathcal M)\), 后者对每个
+\(S''\to S'\) 和 \(g\in G(S'')\) 由下式定义:
+\[
+  s_f(g)=i(f(g))s(g).
+\]
+
+% Source page: Exp2 component-local p. 24; combined-reader p. 82; printed p. 72.
+设 \(h\) 是 \(S'\) 上函子 \(G_{S'}\) 的一个自同构, 不要求它保持群结构.
+对 \(T_{G_{S'}/S'}(\mathcal M)\) 的每个截面 \(\tau\), 通过结构转移得到一个截面
+\(h(\tau)\): 它是使下图交换的唯一截面.
+
+\SGAThreeNativeDiagram[0.43\textwidth]
+  {figures/exp2/exp2_p024_transport_square.tex}
+  {自同构 \(h\) 对切截面的转移.}
+  {fig:exp2-transport-square}
+  {Polo--Gille Exp2-14oct24.pdf, 组件内第 24 页; 合卷第 82 页; 印刷页码 72}
+
+特别地, 取 \(h=t_x\) 为元素 \(x\in G(S')\) 给出的右平移;
+于是对所有 \(g\in G(S'')\), \(S''\to S'\), 有 \(h(g)=t_x(g)=g\cdot x\).
+此时有
+\[
+  t_x(s_f)=s_{t_x(f)},
+\]
+其中 \(t_x(f):G_{S'}\to
+\underline{\operatorname{Lie}}(G_{S'}/S',\mathcal M)\) 由下式给出:
+\[
+  t_x(f)(g)=f(g\cdot x^{-1}).
+\]
+
+让 \(G\) 通过右平移按如下方式作用于
+\[
+ \underline{\operatorname{Hom}}_{G/S}(G,T_{G/S}(\mathcal M))
+ \quad\text{和}\quad
+ \underline{\operatorname{Hom}}_S
+   (G,\underline{\operatorname{Lie}}(G/S,\mathcal M))
+\]
+对 \(S'\to S\) 及 \(x\in G(S')\), 设
+\[
+\begin{aligned}
+ \sigma&\in\Gamma(T_{G_{S'}/S'}(\mathcal M)/G_{S'}),\\
+ f&\in\operatorname{Hom}_{S'}
+ (G_{S'},\underline{\operatorname{Lie}}(G_{S'}/S',\mathcal M)).
+\end{aligned}
+\]
+对每个 \(g\in G(S'')\), \(S''\to S'\), 置
+\[
+ (\sigma\cdot x)(g)=\sigma(g\cdot x^{-1})\cdot s(x),
+ \qquad
+ (f\cdot x)(g)=f(g\cdot x^{-1})
+\]
+同构 \((*)\) 保持这些 \(G\)-作用.
+
+因此, 在这一同构下,
+\[
+ \underline{\operatorname{Hom}}_{G/S}
+   (G,T_{G/S}(\mathcal M))^G(S')
+\]
+的元素对应于从 \(G_{S'}\) 到
+\(\underline{\operatorname{Lie}}(G_{S'}/S',\mathcal M)\) 的常态射,
+即经过 \(G_{S'}\to S'\) 分解的态射; 等价地,
+它们对应于 \(\underline{\operatorname{Lie}}(G/S,\mathcal M)(S')\) 的元素.
+
+\paragraph{术语.}
+\(\underline{\operatorname{Hom}}_{G/S}
+(G,T_{G/S}(\mathcal M))^G(S')\) 的元素称为
+\(T_{G_{S'}/S'}(\mathcal M)\) 的右平移不变截面.
+
+\SGAInlineRefTarget{sga3:ii:proposition:4-1-2}\subsection*{\SGARefLink{sga3:ii:proposition:4-1-2}{命题 4.1.2}.}
+映射
+\[
+ \underline{\operatorname{Lie}}(G/S,\mathcal M)(S)
+ \longrightarrow \Gamma(T_{G/S}(\mathcal M)/G),
+ \qquad X\longmapsto (x\mapsto X\cdot x),
+\]
+是到右平移不变截面集合的双射.
+\footnote{只要注意到 \(G\) 的右平移不变自同构就是左平移,
+便可更简单地得到陈述 4.1.2, 4.1.3 和 4.1.4.
+编者注: 例如参见 \textup{[DG70]}, \S II.4 中命题 4.6 与 2.5 的证明.}
+
+% Source page: Exp2 component-local p. 25; combined-reader p. 83; printed p. 73.
+同样, 让 \(G\) 按下式在
+\(\underline{\operatorname{End}}_{I_S(\mathcal M)/S}
+(G_{I_S(\mathcal M)})\) 上右作用:
+\[
+ (u\cdot x)(g)=u(g\cdot x^{-1})\cdot x,
+\]
+其中 \(S'\to S\), \(x\in G(S')\),
+\(u\in\operatorname{End}_{I_{S'}(\mathcal M)}
+(G_{I_{S'}(\mathcal M)})\), 且 \(g\in G(S'')\),
+\(S''\to I_{S'}(\mathcal M)\). 3.12.1 中的态射
+\[
+ \underline{\operatorname{Hom}}_{G/S}(G,T_{G/S}(\mathcal M))
+ \longrightarrow
+ \underline{\operatorname{End}}_{I_S(\mathcal M)/S}
+   (G_{I_S(\mathcal M)})
+\]
+保持 \(G\)-作用. 因此, 对每个 \(S'\to S\), 它在
+\(\Gamma(T_{G_{S'}/S'}(\mathcal M)/G_{S'})\) 与下述自同态的集合之间诱导出一个双射:
+\(G_{I_{S'}(\mathcal M)}\) 的 \(I_{S'}(\mathcal M)\)-自同态 \(u\),
+它在 \(G\) 上诱导恒等映射, 且“与右平移可交换”, 其含义是对每个 \(S''\to S'\)
+及 \(x\in G(S'')\), 有 \(u_{S''}\cdot x=u_{S''}\).
+
+\SGAInlineRefTarget{sga3:ii:proposition:4-1-3}\subsection*{\SGARefLink{sga3:ii:proposition:4-1-3}{命题 4.1.3}.}
+在 \(\underline{\operatorname{Lie}}(G/S,\mathcal M)(S)\) 与下述自同态的集合之间,
+存在一个关于 \(G\) 函子性的双射:
+\(G_{I_S(\mathcal M)}\) 的 \(I_S(\mathcal M)\)-自同态,
+它在 \(G\) 上诱导恒等映射, 并在刚才说明的意义下与 \(G\) 的右平移可交换.
+
+结合 \SGARefLink{sga3:ii:proposition:3-13}{3.13}, 得到下述定理.
+
+\SGAInlineRefTarget{sga3:ii:theorem:4-1-4}\subsection*{\SGARefLink{sga3:ii:theorem:4-1-4}{定理 4.1.4}.}
+设 \(G\) 是取值于群的 \(S\)-函子, 且 \(G/S\) 满足 \(E\).
+则 \(\underline{\operatorname{Lie}}(G/S,\mathcal M)(S)\)
+与下述自同构组成的群关于 \(G\) 函子性地等同:
+\(G_{I_S(\mathcal M)}\) 的 \(I_S(\mathcal M)\)-自同构,
+它在 \(G\) 上诱导恒等映射, 并与 \(G\) 的右平移可交换.
+
+当 \(\mathcal M=\mathcal O_S\) 时, 这就得到群的 Lie 代数的一个经典定义.
+
+\subsection*{\SGAInlineRefTarget{sga3:ii:subsection:4-2-0}4.2.0.}
+在继续讨论之前, 先证明 \SGARefLink{sga3:ii:proposition:3-11}{3.11} 的另外一些推论.
+\footnote{编者注: \SGARefLink{sga3:ii:subsection:4-2-0}{4.2.0 段}是增补内容;
+其结果在原文的 \SGARefLink{sga3:ii:subsection:4-2}{4.2} 和
+\SGARefLink{sga3:ii:theorem:4-7}{4.7} 中被隐含地使用.}
+如\SGARefLink{sga3:ii:section:1}{第~1~节}, 设 \(X,Y\) 在 \(Z\) 上,
+而 \(Z\) 在 \(S\) 上. 正如 \SGARefLink{sga3:ii:proposition:3-11}{3.11} 所说明的,
+同构 \SGARefLink{fig:exp2-hom-adjunction-triangle}{1.1(4)}
+
+\SGAThreeNativeDiagram[0.78\textwidth]
+  {figures/exp2/exp2_p025_hom_adjunction_triangle.tex}
+  {\SGARefLink{fig:exp2-hom-adjunction-triangle}{1.1(4)} 中的伴随同构.}
+  {fig:exp2-hom-adjunction-p25}
+  {Polo--Gille Exp2-14oct24.pdf, 组件内第 25 页; 合卷第 83 页; 印刷页码 73}
+
+诱导下述同构 \(\theta\).
+
+\SGAThreeNativeDiagram[0.78\textwidth]
+  {figures/exp2/exp2_p025_tangent_adjunction_triangle.tex}
+  {所诱导的切空间同构 \(\theta\).}
+  {fig:exp2-tangent-adjunction-p25}
+  {Polo--Gille Exp2-14oct24.pdf, 组件内第 25 页; 合卷第 83 页; 印刷页码 73}
+
+% Source page: Exp2 component-local p. 26; combined-reader p. 84; printed p. 74.
+由 \SGARefLink{sga3:ii:remark:1-3}{1.3}, 若 \(Y\) 是 \(Z\)-群,
+则对每个 \(V\to Z\), \(\underline{\operatorname{Hom}}_Z(V,Y)\) 也是 \(Z\)-群;
+特别地, 可以取 \(V=I_Z(\mathcal M)\). 明确地说, 若 \(Z''\to Z'\to Z\)
+且 \(\varphi,\psi\in\operatorname{Hom}_Z(V_{Z'},Y)(Z')\), 则它们的积由下式定义:
+\[
+  (\varphi\cdot\psi)(v)=\varphi(v)\psi(v)
+  \qquad (v\in V_{Z'}(Z'')).
+\]
+
+现设 \(X\) 和 \(Y\) 都是 \(Z\)-群.
+
+\SGAInlineRefTarget{sga3:ii:definition:4-2-0-1}\subsection*{\SGARefLink{sga3:ii:definition:4-2-0-1}{定义 4.2.0.1}.}
+以 \(\underline{\operatorname{Hom}}_{(Z/S)\text{-gr.}}(X,Y)\) 表示
+\(\underline{\operatorname{Hom}}_{Z/S}(X,Y)\) 的下述子函子:
+对每个 \(S'\to S\),
+\begin{equation}
+ \underline{\operatorname{Hom}}_{(Z/S)\text{-gr.}}(X,Y)(S')
+ =\operatorname{Hom}_{Z_{S'}\text{-gr.}}(X_{S'},Y_{S'}).
+ \tag{3}\label{sga3:ii:subsection:4-2-0:equation:3}
+\end{equation}
+将 \(Y\) 换成 \(Z\)-群 \(T_{Y/Z}(\mathcal M)\) 时, 也采用同一定义.
+
+在上面的同构 (2) 下,
+\(T_{\underline{\operatorname{Hom}}_{(Z/S)\text{-gr.}}(X,Y)/S}
+(\mathcal M)(S')\) 对应于关于 \(X\) 为乘法性的 \(Z_{S'}\)-态射
+\[
+ \varphi:X_{S'}\times_{S'}I_{S'}(\mathcal M)\longrightarrow Y_{S'}
+\]
+即
+\[
+ \varphi(x_1x_2,m)=\varphi(x_1,m)\varphi(x_2,m).
+\]
+这些态射又对应于 \(Z_{S'}\)-群态射
+\(X_{S'}\to T_{Y/Z}(\mathcal M)_{S'}\). 因此:
+
+\SGAInlineRefTarget{sga3:ii:proposition:4-2-0-2}\subsection*{\SGARefLink{sga3:ii:proposition:4-2-0-2}{命题 4.2.0.2}.}
+设 \(X,Y\) 是 \(Z\)-群, 其中 \(Z\) 在 \(S\) 上.
+存在关于 \(\mathcal M\) 函子性的 \(S\)-函子同构
+\[
+ T_{\underline{\operatorname{Hom}}_{(Z/S)\text{-gr.}}(X,Y)/S}
+   (\mathcal M)
+ \xrightarrow{\sim}
+ \underline{\operatorname{Hom}}_{(Z/S)\text{-gr.}}
+   (X,T_{Y/Z}(\mathcal M)).
+\]
+
+取 \(Z=S\), 得到如下推论. 若 \(Y\) 是交换 \(S\)-群,
+则 \(T_{Y/S}(\mathcal M)\) 也如此, 因而
+\(H=\underline{\operatorname{Hom}}_{S\text{-gr.}}(X,Y)\),
+\(\underline{\operatorname{Hom}}_{S\text{-gr.}}
+(X,T_{Y/S}(\mathcal M))\) 及 \(T_{H/S}(\mathcal M)\) 也都如此.
+
+\SGAInlineRefTarget{sga3:ii:corollary:4-2-0-3}\subsection*{\SGARefLink{sga3:ii:corollary:4-2-0-3}{推论 4.2.0.3}.}
+设 \(X,Y\) 是 \(S\)-群. 存在关于 \(\mathcal M\) 函子性的 \(S\)-函子同构
+\[
+ T_{\underline{\operatorname{Hom}}_{S\text{-gr.}}(X,Y)/S}
+   (\mathcal M)
+ \xrightarrow{\sim}
+ \underline{\operatorname{Hom}}_{S\text{-gr.}}
+   (X,T_{Y/S}(\mathcal M)).
+\]
+若 \(Y\) 交换, 则它们还是交换 \(S\)-群的同构.
+
+\SGAInlineRefTarget{sga3:ii:definition:4-2-0-4}\subsection*{\SGARefLink{sga3:ii:definition:4-2-0-4}{定义 4.2.0.4}.}
+若 \(Y\) 是 \(\mathcal O_S\)-模, 则函子 \(T_{Y/S}(\mathcal M)\),
+相应地 \(\underline{\operatorname{Lie}}(Y/S,\mathcal M)\),
+带有一个由 \(Y\) 的结构诱导的 \(\mathcal O_S\)-模结构.
+配备这一结构后, 将它记为 \(T'_{Y/S}(\mathcal M)\),
+相应地记为 \(\underline{\operatorname{Lie}}'(Y/S,\mathcal M)\).
+\footnote{编者注: 撇号用来区分由 \(Y\) 的结构诱导的 \(\mathcal O_S\)-模结构,
+与将要从条件 \(E\) 得到的模结构.}
+
+因此, 若 \(X,Y\) 是 \(\mathcal O_S\)-模, 则
+\(T'_{Y/S}(\mathcal M)=
+\underline{\operatorname{Hom}}_S(I_S(\mathcal M),Y)\).
+若 \(H=\underline{\operatorname{Hom}}_{\mathcal O_S\text{-mod.}}(X,Y)\), 则
+\(\underline{\operatorname{Hom}}_{\mathcal O_S\text{-mod.}}
+(X,T'_{Y/S}(\mathcal M))\) 和 \(T'_{H/S}(\mathcal M)\)
+也带有 \(\mathcal O_S\)-模结构.
+
+% Source page: Exp2 component-local p. 27; combined-reader p. 85; printed p. 75.
+\SGAInlineRefTarget{sga3:ii:corollary:4-2-0-5}\subsection*{\SGARefLink{sga3:ii:corollary:4-2-0-5}{推论 4.2.0.5}.}
+若 \(X,Y\) 是 \(\mathcal O_S\)-模, 则存在关于 \(\mathcal M\) 函子性的
+\(\mathcal O_S\)-模同构
+\[
+ T'_{\underline{\operatorname{Hom}}_{\mathcal O_S\text{-mod.}}(X,Y)/S}
+   (\mathcal M)
+ \xrightarrow{\sim}
+ \underline{\operatorname{Hom}}_{\mathcal O_S\text{-mod.}}
+   (X,T'_{Y/S}(\mathcal M)).
+\]
+
+\SGAInlineRefTarget{sga3:ii:definition:4-2-a}\subsection*{\SGARefLink{sga3:ii:definition:4-2-a}{定义 4.2.A}.}
+设 \(X,L\) 是 \(S\)-群, \(X\) 通过群自同构作用于 \(L\)
+(参见 \SGARefLink{sga3:i:definition:2-3-5}{I~2.3.5}).
+以下式定义 \(\underline{\operatorname{Hom}}_S(X,L)\) 的子函子
+\(\underline Z^1_S(X,L)\):
+\[
+\begin{aligned}
+ \underline Z^1_S(X,L)(S')
+ =\{\,\varphi\in\operatorname{Hom}_{S'}(X_{S'},L_{S'})\mid{}
+ &\varphi(x_1x_2)
+   =\varphi(x_1)\bigl(x_1\cdot\varphi(x_2)\bigr),\\[-2pt]
+ &x_1,x_2\in X(S''),\ S''\to S'\,\}.
+\end{aligned}
+\]
+它称为从 \(X\) 到 \(L\) 的\emph{交叉同态函子 (functor of crossed homomorphisms)}.
+\footnote{编者注: 下文对原文作了扩充; 特别是增添了定义 4.2.A 与注 4.2.B.}
+
+\SGAInlineRefTarget{sga3:ii:remark:4-2-b}\subsection*{\SGARefLink{sga3:ii:remark:4-2-b}{注 4.2.B}.}
+\textit{a)} 若 \(L'\) 是另一个 \(S\)-群, 且 \(X\) 也通过群自同构作用于它,
+则
+\[
+ \underline Z^1_S(X,L\times_SL')
+ \simeq \underline Z^1_S(X,L)\times_S\underline Z^1_S(X,L').
+\]
+
+\textit{b)} 若 \(L\) 是 \(X\)-\(\mathcal O_S\)-模,
+则 \(\underline Z^1_S(X,L)\) 是 \SGARefLink{sga3:i:subsection:5-1}{I~5.1} 中定义的微分
+\[
+ \partial:\underline{\operatorname{Hom}}_S(X,L)
+ \longrightarrow\underline{\operatorname{Hom}}_S(X^2,L)
+\]
+的核. 特别地, 此时 \(\underline Z^1_S(X,L)\) 是 \(\mathcal O_S\)-模.
+
+\subsection*{\SGAInlineRefTarget{sga3:ii:subsection:4-2}4.2.}
+设 \(u:X\to Y\) 是 \(S\)-群态射. 我们要描述
+\(L^u_{\underline{\operatorname{Hom}}_{S\text{-gr.}}(X,Y)/S}
+(\mathcal M)\). 首先, \SGARefLink{sga3:ii:corollary:3-11-3}{3.11.3}
+给出关于 \(\mathcal M\) 函子性的 \(S\)-函子同构
+\begin{equation}
+ L^u_{\underline{\operatorname{Hom}}_S(X,Y)/S}(\mathcal M)
+ \xrightarrow{\sim}
+ \underline{\operatorname{Hom}}_{Y/S}(X,T_{Y/S}(\mathcal M)).
+ \tag{\(\dagger\)}\label{sga3:ii:subsection:4-2:equation:dagger}
+\end{equation}
+由于 \(Y\) 是 \(S\)-群,
+\[
+ T_{Y/S}(\mathcal M)
+ =\underline{\operatorname{Lie}}(Y/S,\mathcal M)\cdot Y
+ =\underline{\operatorname{Lie}}(Y/S,\mathcal M)_Y,
+\]
+因而得到关于 \(\mathcal M\) 函子性的同构
+\[
+ L^u_{\underline{\operatorname{Hom}}_S(X,Y)/S}(\mathcal M)
+ \xrightarrow{\sim}
+ \underline{\operatorname{Hom}}_S
+   (X,\underline{\operatorname{Lie}}(Y/S,\mathcal M)).
+\]
+
+对 \(S'\to S\), 以 \(u':X'\to Y'\) 表示 \(u\) 的基变换.
+\(S\)-函子\footnote{编者注: 这是取 \(Z=Y\), 对 \(Y\)-群
+\(u:X\to Y\) 和 \(T_{Y/S}(\mathcal M)\to Y\)
+应用\SGARefLink{sga3:ii:definition:4-2-0-1}{定义 4.2.0.1}.}
+\[
+ \underline{\operatorname{Hom}}_{(Y/S)\text{-gr.}}
+   \bigl(X,\underline{\operatorname{Lie}}(Y/S,\mathcal M)\cdot Y\bigr)
+\]
+由下式定义:
+\[
+\begin{aligned}
+ &\underline{\operatorname{Hom}}_{(Y/S)\text{-gr.}}
+ \bigl(X,\underline{\operatorname{Lie}}(Y/S,\mathcal M)\cdot Y\bigr)(S')\\
+ &\quad=
+ \operatorname{Hom}_{Y'\text{-gr.}}
+ \bigl(X',(\underline{\operatorname{Lie}}(Y/S,\mathcal M)\cdot Y)_{S'}\bigr)\\
+ &\quad=
+ \operatorname{Hom}_{Y'\text{-gr.}}
+ \bigl(X',\underline{\operatorname{Lie}}(Y'/S',\mathcal M)\cdot Y'\bigr).
+\end{aligned}
+\]
+所以 \((\dagger)\) 诱导同构
+\begin{equation}
+ L^u_{\underline{\operatorname{Hom}}_{S\text{-gr.}}(X,Y)/S}
+   (\mathcal M)
+ \xrightarrow{\sim}
+ \underline{\operatorname{Hom}}_{(Y/S)\text{-gr.}}
+ \bigl(X,\underline{\operatorname{Lie}}(Y/S,\mathcal M)\cdot Y\bigr).
+ \tag{\(\dagger'\)}\label{sga3:ii:subsection:4-2:equation:dagger-prime}
+\end{equation}
+
+另一方面, 复合态射
+
+\SGAThreeNativeDiagram[0.50\textwidth]
+  {figures/exp2/exp2_p027_adjoint_action_chain.tex}
+  {\(X\) 在 \(\underline{\operatorname{Lie}}(Y/S,\mathcal M)\) 上的作用.}
+  {fig:exp2-adjoint-action-chain}
+  {Polo--Gille Exp2-14oct24.pdf, 组件内第 27 页; 合卷第 85 页; 印刷页码 75}
+
+定义了 \(X\) 在 \(L=\underline{\operatorname{Lie}}(Y/S,\mathcal M)\) 上
+通过群自同构给出的作用.
+
+% Source page: Exp2 component-local p. 28; combined-reader p. 86; printed p. 76.
+设 \(\Phi\in\underline{\operatorname{Hom}}_{Y/S}
+(X,\underline{\operatorname{Lie}}(Y/S,\mathcal M)\cdot Y)\).
+对 \(S''\to S'\to S\) 及 \(x\in X(S'')\), 存在唯一的表达式
+\[
+ \Phi(S')(x)=\varphi(S')(x)\cdot u'(x),
+ \qquad
+ \varphi(S')(x)\in
+ \underline{\operatorname{Lie}}(Y'/S',\mathcal M)(S'').
+\]
+这确定了一个元素 \(\varphi\in\underline{\operatorname{Hom}}_S
+(X,\underline{\operatorname{Lie}}(Y/S,\mathcal M))\).
+映射 \(\Phi(S')\) 为群态射, 当且仅当对所有 \(x_1,x_2\in X(S'')\), 有
+\[
+\begin{aligned}
+ \varphi(S')(x_1x_2)
+ &=\varphi(S')(x_1)
+   \bigl(u(x_1)\varphi(S')(x_2)u(x_1)^{-1}\bigr)\\
+ &=\varphi(S')(x_1)
+   \bigl(x_1\cdot\varphi(S')(x_2)\bigr),
+\end{aligned}
+\]
+也就是说, 恰在 \(\varphi\in\underline Z^1_S
+(X,\underline{\operatorname{Lie}}(Y/S,\mathcal M))\) 时成立.
+
+\subsection*{命题 4.2.}
+设 \(u:X\to Y\) 是 \(S\)-群态射. 存在关于 \(\mathcal M\) 函子性的
+\(S\)-函子同构
+\[
+ L^u_{\underline{\operatorname{Hom}}_{S\text{-gr.}}(X,Y)/S}
+   (\mathcal M)
+ \xrightarrow{\sim}
+ \underline Z^1_S
+   \bigl(X,\underline{\operatorname{Lie}}(Y/S,\mathcal M)\bigr).
+\]
+
+再设 \(Y/S\) 满足 \(E\). 由 \SGARefLink{sga3:ii:corollary:4-2-0-3}{4.2.0.3},
+与 \SGARefLink{sga3:ii:corollary:3-11-1}{3.11.1} 的证明一样, 可得
+\(\underline{\operatorname{Hom}}_{S\text{-gr.}}(X,Y)/S\) 满足 \(E\).
+因此 (参见 \SGARefLink{sga3:ii:subsection:3-5-1}{3.5.1}),
+\[
+\begin{aligned}
+ L^u_{\underline{\operatorname{Hom}}_{S\text{-gr.}}(X,Y)/S}
+ (\mathcal M\oplus\mathcal N)
+ \simeq{}&
+ L^u_{\underline{\operatorname{Hom}}_{S\text{-gr.}}(X,Y)/S}
+ (\mathcal M)\\
+ &\times_S
+ L^u_{\underline{\operatorname{Hom}}_{S\text{-gr.}}(X,Y)/S}
+ (\mathcal N).
+\end{aligned}
+\]
+这也直接由\SGARefLink{sga3:ii:subsection:4-2}{命题~4.2} 及
+\SGARefLink{sga3:ii:remark:4-2-b}{注~4.2.B}\(a\) 得到.
+因此, \SGARefLink{sga3:ii:subsection:4-2}{命题~4.2} 中同构的两端都带有
+由关于 \(\mathcal M\) 的函子性得到的 \(\mathcal O_S\)-模结构,
+且该同构保持这些结构.
+
+\SGAInlineRefTarget{sga3:ii:proposition:4-2-bis}\subsection*{\SGARefLink{sga3:ii:proposition:4-2-bis}{命题 4.2 bis}.}
+设 \(u:X\to Y\) 是 \(S\)-群态射, 且 \(Y/S\) 满足 \(E\).
+存在关于 \(\mathcal M\) 函子性的 \(\mathcal O_S\)-模同构
+\[
+ L^u_{\underline{\operatorname{Hom}}_{S\text{-gr.}}(X,Y)/S}
+   (\mathcal M)
+ \xrightarrow{\sim}
+ \underline Z^1_S
+   \bigl(X,\underline{\operatorname{Lie}}(Y/S,\mathcal M)\bigr).
+\]
+\footnote{编者注: 从此处起对原文作了扩充; 特别是增添了命题 4.2 bis.}
+
+当 \(Y/S\) 满足 \(E\) 时, \SGARefLink{sga3:ii:corollary:3-13-1}{3.13.1}
+也给出如下同构, 正如 \SGARefLink{sga3:ii:corollary:3-13-2}{3.13.2} 的证明中那样:
+对每个 \(u\in\underline{\operatorname{Isom}}_{S\text{-gr.}}(X,Y)\),
+存在关于 \(\mathcal M\) 函子性的同构
+\begin{equation}
+ L^u_{\underline{\operatorname{Isom}}_{S\text{-gr.}}(X,Y)/S}
+   (\mathcal M)
+ \xrightarrow{\sim}
+ L^u_{\underline{\operatorname{Hom}}_{S\text{-gr.}}(X,Y)/S}
+   (\mathcal M).
+ \tag{*}\label{sga3:ii:subsection:4-2:equation:star}
+\end{equation}
+由此得到以下两个推论.
+
+\SGAInlineRefTarget{sga3:ii:corollary:4-2-1}\subsection*{\SGARefLink{sga3:ii:corollary:4-2-1}{推论 4.2.1}.}
+设 \(u:X\to Y\) 是 \(S\)-群态射. 若 \(Y/S\) 满足 \(E\),
+则存在关于 \(\mathcal M\) 函子性的 \(\mathcal O_S\)-模同构
+\[
+ L^u_{\underline{\operatorname{Isom}}_{S\text{-gr.}}(X,Y)/S}
+   (\mathcal M)
+ \xrightarrow{\sim}
+ \underline Z^1_S
+   \bigl(X,\underline{\operatorname{Lie}}(Y/S,\mathcal M)\bigr).
+\]
+
+% Source page: Exp2 component-local p. 29; combined-reader p. 87; printed p. 77.
+\SGAInlineRefTarget{sga3:ii:corollary:4-2-2}\subsection*{\SGARefLink{sga3:ii:corollary:4-2-2}{推论 4.2.2}.}
+设 \(X\) 是 \(S\)-群. 若 \(X/S\) 满足 \(E\), 则存在关于 \(\mathcal M\)
+函子性的 \(\mathcal O_S\)-模同构
+\[
+ \underline{\operatorname{Lie}}
+   \bigl(\underline{\operatorname{Aut}}_{S\text{-gr.}}(X)/S,
+         \mathcal M\bigr)
+ \xrightarrow{\sim}
+ \underline Z^1_S
+   \bigl(X,\underline{\operatorname{Lie}}(X/S,\mathcal M)\bigr).
+\]
+
+若 \(Y\) 交换, 则其在 \(L=\underline{\operatorname{Lie}}(Y/S,\mathcal M)\)
+上的伴随作用是平凡的, 所以
+\(\underline Z^1_S(X,L)=
+\underline{\operatorname{Hom}}_{S\text{-gr.}}(X,L)\).
+\footnote{编者注: 以下这句话为增补内容.}
+
+\SGAInlineRefTarget{sga3:ii:corollary:4-2-3}\subsection*{\SGARefLink{sga3:ii:corollary:4-2-3}{推论 4.2.3}.}
+设 \(Y\) 是交换 \(S\)-群. 存在关于 \(\mathcal M\) 函子性的
+\(S\)-函子同构
+\[
+ L^u_{\underline{\operatorname{Hom}}_{S\text{-gr.}}(X,Y)/S}
+   (\mathcal M)
+ \xrightarrow{\sim}
+ \underline{\operatorname{Hom}}_{S\text{-gr.}}
+   \bigl(X,\underline{\operatorname{Lie}}(Y/S,\mathcal M)\bigr).
+\]
+
+\subsection*{\SGAInlineRefTarget{sga3:ii:subsection:4-3}4.3.}
+现在考虑 \(X\) 与 \(Y\) 是 \(\mathcal O_S\)-模的情形.
+回顾 (参见 \SGARefLink{sga3:ii:definition:4-2-0-4}{4.2.0.4}),
+\(T'_{Y/S}(\mathcal M)\), 相应地 \(\underline{\operatorname{Lie}}'(Y/S,\mathcal M)\),
+表示函子 \(T_{Y/S}(\mathcal M)\), 相应地
+\(\underline{\operatorname{Lie}}(Y/S,\mathcal M)\),
+并在其上配备由 \(Y\) 的模结构诱导的 \(\mathcal O_S\)-模结构.
+
+当 \(Y/S\) 满足 \(E\) 时, 我们总用
+\(\underline{\operatorname{Lie}}(Y/S,\mathcal M)\) 表示该函子,
+而给它配备的是对每个满足 \(E\) 的函子都已定义的 \(\mathcal O_S\)-模结构.
+由 \SGARefLink{sga3:ii:proposition:3-9}{3.9},
+\(\underline{\operatorname{Lie}}(Y/S,\mathcal M)\) 与
+\(\underline{\operatorname{Lie}}'(Y/S,\mathcal M)\) 的底交换群结构相同,
+但其模结构未必相同 (见 \SGARefLink{sga3:ii:subsection:6-3}{6.3} 的反例).
+对 \(S'\to S\), \(a\in\mathcal O(S')\) 和
+\(m\in\underline{\operatorname{Lie}}(Y/S,\mathcal M)(S')\),
+用 \(a\mathbin{\cdot'}m\), 相应地 \(a\cdot m\),
+表示来自 \(Y\) 的作用, 相应地表示由条件 \(E\) 得到的作用.
+对 \(T_{Y/S}(\mathcal M)\) 上的这两种作用, 也采用同一约定.
+
+存在 \(\mathcal O_S\)-模同构
+\[
+ T'_{Y/S}(\mathcal M)
+ \simeq \underline{\operatorname{Lie}}'(Y/S,\mathcal M)\oplus Y.
+\]
+因此, 与\SGARefLink{sga3:ii:subsection:4-2}{命题~4.2} 和
+\SGARefLink{sga3:ii:proposition:4-2-bis}{4.2 bis} 完全一样, 得到:
+
+\subsection*{命题 4.3.}
+设 \(u:X\to Y\) 是 \(\mathcal O_S\)-模态射.
+存在关于 \(\mathcal M\) 函子性的 \(S\)-函子同构
+\begin{equation}
+ L^u_{\underline{\operatorname{Hom}}_{\mathcal O_S\text{-mod.}}(X,Y)/S}
+   (\mathcal M)
+ \xrightarrow{\sim}
+ \underline{\operatorname{Hom}}_{\mathcal O_S\text{-mod.}}
+   \bigl(X,\underline{\operatorname{Lie}}'(Y/S,\mathcal M)\bigr).
+ \tag{*}\label{sga3:ii:subsection:4-3:equation:hom-lie-isomorphism-star}
+\end{equation}
+若 \(Y/S\) 满足 \(E\), 则
+\(\underline{\operatorname{Hom}}_{\mathcal O_S\text{-mod.}}(X,Y)/S\) 满足 \(E\),
+而当两端配备由关于 \(\mathcal M\) 的函子性得到的结构时,
+\((*)\) 是 \(\mathcal O_S\)-模同构.
+\footnote{编者注: 以下这句话为增补内容.}
+\footnote{编者注: 右端的标量作用为 \((a\varphi)(x)=a\varphi(x)\),
+其中 \(a\varphi(x)\) 表示 \(a\) 在
+\(\varphi(x)\in
+\underline{\operatorname{Lie}}(Y/S,\mathcal M)\) 上的作用.
+这不同于作用 \((a\mathbin{\cdot'}\varphi)(x)
+=a\mathbin{\cdot'}\varphi(x)=\varphi(ax)\),
+但当 \(\underline{\operatorname{Lie}}(Y/S,\mathcal M)
+=\underline{\operatorname{Lie}}'(Y/S,\mathcal M)\) 时, 两者相同.}
+
+\SGAInlineRefTarget{sga3:ii:remark:4-3-bis}\subsection*{\SGARefLink{sga3:ii:remark:4-3-bis}{注 4.3 bis}.}
+设 \(u:X\to Y\) 是 \(\mathcal O_S\)-模态射.
+\footnote{编者注: 此注为增补内容; 它将在 \SGARefLink{sga3:ii:scholium:4-5-1}{4.5.1} 中用到.}
+以 \(\tau_u\) 表示将每个 \(\mathcal O_S\)-线性态射
+\(\varphi:X\to\underline{\operatorname{Lie}}'(Y/S,\mathcal M)\) 对应到
+\[
+ u\oplus\varphi:X\longrightarrow
+ T'_{Y/S}(\mathcal M)
+ =Y\oplus\underline{\operatorname{Lie}}'(Y/S,\mathcal M).
+ \]
+的映射.
+
+% Source page: Exp2 component-local p. 30; combined-reader p. 88; printed p. 78.
+\SGARefLink{sga3:ii:subsection:4-3}{4.3} 的同构包含在以下关于 \(\mathcal M\)
+函子性的交换图中.
+
+\SGAThreeNativeDiagram[0.70\textwidth]
+  {figures/exp2/exp2_p030_tau_u_square.tex}
+  {\SGARefLink{sga3:ii:subsection:4-3}{4.3} 的同构与 \(\tau_u\) 的相容性.}
+  {fig:exp2-tau-u-square}
+  {Polo--Gille Exp2-14oct24.pdf, 组件内第 30 页; 合卷第 88 页; 印刷页码 78}
+
+此外, 当 \(Y/S\) 满足 \(E\) 时, 与
+\SGARefLink{sga3:ii:corollary:3-13-2}{3.13.2} 的证明一样,
+\SGARefLink{sga3:ii:corollary:3-13-1}{3.13.1} 给出:
+对每个 \(u\in\underline{\operatorname{Isom}}_{\mathcal O_S\text{-mod.}}(X,Y)\), 有
+\begin{equation}
+ L^u_{\underline{\operatorname{Isom}}_{\mathcal O_S\text{-mod.}}(X,Y)/S}
+   (\mathcal M)
+ =
+ L^u_{\underline{\operatorname{Hom}}_{\mathcal O_S\text{-mod.}}(X,Y)/S}
+   (\mathcal M).
+ \tag{*}\label{sga3:ii:subsection:4-3:equation:isom-hom-lie-equality-star}
+\end{equation}
+
+\SGAInlineRefTarget{sga3:ii:corollary:4-3-1}\subsection*{\SGARefLink{sga3:ii:corollary:4-3-1}{推论 4.3.1}.}
+设 \(X\) 是 \(S\) 上满足 \(E\) 的 \(\mathcal O_S\)-模.
+存在关于 \(\mathcal M\) 函子性的同构
+\[
+ \underline{\operatorname{Lie}}
+  \bigl(\underline{\operatorname{Aut}}_{\mathcal O_S\text{-mod.}}(X)/S,
+        \mathcal M\bigr)
+ \xrightarrow{\sim}
+ \underline{\operatorname{Hom}}_{\mathcal O_S\text{-mod.}}
+  \bigl(X,\underline{\operatorname{Lie}}'(X/S,\mathcal M)\bigr),
+\]
+且这一同构保持由关于 \(\mathcal M\) 的函子性得到的 \(\mathcal O_S\)-模结构.
+特别地, \(\underline{\operatorname{Aut}}_{\mathcal O_S\text{-mod.}}(X)/S\)
+满足 \(E\).
+\footnote{编者注: 比较编者注 (61). 最后一句话及其证明也是增补内容.}
+
+\paragraph{证明.}
+第一个断言由 \((*)\) 和 \SGARefLink{sga3:ii:subsection:4-3}{4.3} 得到.
+对于第二个断言, 由于 \(X/S\) 满足 \(E\), 存在 \(\mathcal O_S\)-模同构
+\[
+ \underline{\operatorname{Lie}}'(X/S,\mathcal M\oplus\mathcal N)
+ \simeq
+ \underline{\operatorname{Lie}}'(X/S,\mathcal M)
+ \times_S
+ \underline{\operatorname{Lie}}'(X/S,\mathcal N).
+\]
+因此,
+\[
+\begin{aligned}
+ &\underline{\operatorname{Lie}}
+  \bigl(\underline{\operatorname{Aut}}_{\mathcal O_S\text{-mod.}}(X)/S,
+  \mathcal M\oplus\mathcal N\bigr)\\
+ &\quad\simeq
+ \underline{\operatorname{Lie}}
+  \bigl(\underline{\operatorname{Aut}}_{\mathcal O_S\text{-mod.}}(X)/S,
+  \mathcal M\bigr)
+ \times_S
+ \underline{\operatorname{Lie}}
+  \bigl(\underline{\operatorname{Aut}}_{\mathcal O_S\text{-mod.}}(X)/S,
+  \mathcal N\bigr).
+\end{aligned}
+\]
+现在由\SGARefLink{sga3:ii:remark:4-1-1-2}{注~4.1.1.2}\(a\) 即得断言.
+
+\subsection*{\SGAInlineRefTarget{sga3:ii:subsection:4-3-2}4.3.2.}
+沿这一方向继续讨论之前, 先更仔细地考察 \(Y\),
+\(\underline{\operatorname{Lie}}(Y/S)\) 和
+\(\underline{\operatorname{Lie}}'(Y/S)\) 之间的关系. 首先,
+\begin{equation}
+ \underline{\operatorname{Lie}}(\mathcal O_S/S,\mathcal M)
+ =\underline{\operatorname{Lie}}'(\mathcal O_S/S,\mathcal M)
+ =\mathbf W(\mathcal M),
+ \tag{1}\label{sga3:ii:subsection:4-3-2:equation:1}
+\end{equation}
+其中 \(\mathbf W(\mathcal M)\) 的定义见 \SGARefLink{sga3:i:subsection:4-6}{I~4.6}.
+因此有典范同构
+\begin{equation}
+ d:\mathcal O_S\xrightarrow{\sim}
+ \underline{\operatorname{Lie}}(\mathcal O_S/S).
+ \tag{2}\label{sga3:ii:subsection:4-3-2:equation:2}
+\end{equation}
+
+设 \(F\) 是 \(\mathcal O_S\)-模. 对每个 \(S_2\to S_1\to S\), 有一个双同态
+\begin{equation}
+ \left\{
+ \begin{aligned}
+   F(S_1)&\longrightarrow F(S_2),\\
+   \mathcal O(S_1)&\longrightarrow\mathcal O(S_2),
+ \end{aligned}
+ \right.
+ \tag{3}\label{sga3:ii:subsection:4-3-2:equation:3}
+\end{equation}
+因而有 \(\mathcal O(S_2)\)-模态射
+\[
+ F(S_1)\otimes_{\mathcal O(S_1)}\mathcal O(S_2)
+ \longrightarrow F(S_2).
+\]
+\footnote{编者注: 这里将 \(S'\to S\) 换成 \(S_2\to S_1\to S\),
+因为下文需要同时改变 \(S_2\) 和 \(S_1\). 下文还对原文作了扩充.}
+
+% Source page: Exp2 component-local p. 31; combined-reader p. 89; printed p. 79.
+特别地, 取 \(S_1=S'\) 与 \(S_2=I_{S'}(\mathcal M)\).
+得到关于 \(\mathcal M\) 函子性的 \(\mathcal O(S')\)-模态射
+\[
+ F(S')\otimes_{\mathcal O(S')}
+ T_{\mathcal O_S/S}(\mathcal M)(S')
+ \longrightarrow T'_{F/S}(\mathcal M)(S').
+\]
+令 \(S'\) 改变, 这些态射给出 \(\mathcal O_S\)-模态射
+\begin{equation}
+ F\otimes_{\mathcal O_S}T_{\mathcal O_S/S}(\mathcal M)
+ \longrightarrow T'_{F/S}(\mathcal M),
+ \tag{4}\label{sga3:ii:subsection:4-3-2:equation:4}
+\end{equation}
+它们关于 \(\mathcal M\) 是函子性的. 由与切丛到底的投影的相容性, 继而得到态射
+\begin{equation}
+ F\otimes_{\mathcal O_S}
+ \underline{\operatorname{Lie}}(\mathcal O_S/S,\mathcal M)
+ \longrightarrow
+ \underline{\operatorname{Lie}}'(F/S,\mathcal M),
+ \tag{5}\label{sga3:ii:subsection:4-3-2:equation:5}
+\end{equation}
+且下图交换.
+
+\SGAThreeNativeDiagram[0.78\textwidth]
+  {figures/exp2/exp2_p031_tangent_exact_rows.tex}
+  {分裂切序列中的态射 (4) 与 (5).}
+  {fig:exp2-tangent-exact-rows}
+  {Polo--Gille Exp2-14oct24.pdf, 组件内第 31 页; 合卷第 89 页; 印刷页码 79}
+
+态射 (5) 可视为交换 \(S\)-群态射
+\begin{equation}
+ F\otimes_{\mathcal O_S}
+ \underline{\operatorname{Lie}}(\mathcal O_S/S,\mathcal M)
+ \longrightarrow
+ \underline{\operatorname{Lie}}(F/S,\mathcal M).
+ \tag{6}\label{sga3:ii:subsection:4-3-2:equation:6}
+\end{equation}
+将 \(F\) 与同构 \(d:\mathcal O_S\xrightarrow{\sim}
+\underline{\operatorname{Lie}}(\mathcal O_S/S)\) 作张量积,
+当 \(\mathcal M=\mathcal O_S\) 时, 得到交换 \(S\)-群态射
+\begin{equation}
+ F\xrightarrow{\sim}
+ F\otimes_{\mathcal O_S}
+ \underline{\operatorname{Lie}}(\mathcal O_S/S)
+ \longrightarrow \underline{\operatorname{Lie}}(F/S),
+ \tag{7}\label{sga3:ii:subsection:4-3-2:equation:7}
+\end{equation}
+也记为 \(d:F\to\underline{\operatorname{Lie}}(F/S)\).
+
+\SGAInlineRefTarget{sga3:ii:remark:4-3-3}\subsection*{\SGARefLink{sga3:ii:remark:4-3-3}{注 4.3.3}.}
+当 \(F/S\) 满足 \(E\) 时, 如果两端均配备由条件 \(E\) 从 \(\mathcal M\)
+得到的模结构, 则态射 \SGARefLink{sga3:ii:section:6}{(6)} 和 (7)
+未必是 \(\mathcal O_S\)-线性的.
+
+例如, 设 \(k\) 是特征为 \(p>0\) 的域, \(S=\operatorname{Spec}(k)\),
+并设 \(F\) 是如下 \(\mathcal O_S\)-模: 它把每个 \(S\)-概形 \(T\)
+对应到集合 \(F(T)=\Gamma(T,\mathcal O_T)\), 标量通过 \(p\) 次幂作用:
+\[
+ r\cdot f=r^pf
+ \qquad(r\in\mathcal O(T),\ f\in F(T)).
+\]
+作为取值于群的 \(S\)-函子, \(F\simeq\mathbf G_{a,S}\).
+因此 \(F\) 满足 \(E\), 且
+\(\underline{\operatorname{Lie}}(F/S)\simeq
+\underline{\operatorname{Lie}}(\mathbf G_{a,S}/S)\simeq\mathcal O_S\).
+对每个 \(T\to S\), 典范态射 \(d:F(T)\to\mathcal O(T)\) 是恒等映射:
+它保持交换群结构, 但不保持 \(\mathcal O_S\)-模结构.
+\footnote{编者注: 原文断言, 当 \(F/S\) 满足 \(E\) 时,
+(6) 以及由此得到的 (7) 都是 \(\mathcal O_S\)-模态射.
+\SGARefLink{sga3:ii:subsection:6-3}{6.3} 中的反例与此矛盾.
+因此删去了这一断言, 插入了前面的例子, 并相应修改了定义 4.4.
+这不影响后续内容.}
+
+% Source page: Exp2 component-local p. 32; combined-reader p. 90; printed p. 80.
+\SGAInlineRefTarget{sga3:ii:remark:4-3-4}\subsection*{\SGARefLink{sga3:ii:remark:4-3-4}{注 4.3.4}.}
+态射 (4) 与 (5) 可明确写成如下形式. 态射
+\[
+ \Theta:F\otimes_{\mathcal O_S}T_{\mathcal O_S/S}(\mathcal M)
+ \longrightarrow T'_{F/S}(\mathcal M)
+ =\underline{\operatorname{Hom}}_S(I_S(\mathcal M),F)
+\]
+对 \(S'\to S\), \(\alpha\in\mathcal O(I_{S'}(\mathcal M))\)
+和 \(f:S'\to F\), 由下式定义:
+\[
+ \Theta(f\otimes\alpha)
+ =\alpha\cdot(\tau_0\circ f)
+ =\alpha\cdot(f\circ\rho),
+\]
+其中 \(\tau_0:F\to T'_{F/S}(\mathcal M)\) 是零截面,
+\(\rho:I_{S'}(\mathcal M)\to S'\) 是结构态射.
+
+态射 \(\Theta\) 诱导
+\[
+ \theta:F\otimes_{\mathcal O_S}
+ \underline{\operatorname{Lie}}(\mathcal O_S/S,\mathcal M)
+ \longrightarrow
+ \underline{\operatorname{Lie}}'(F/S,\mathcal M).
+\]
+这由 (4) 之后指出的关于 \(\mathcal M\) 的函子性得出, 也可以直接看出. 事实上,
+\[
+ \underline{\operatorname{Lie}}'(F/S,\mathcal M)(S')
+ =\{\,\varphi\in\operatorname{Hom}_S(I_{S'}(\mathcal M),F)
+       \mid \varphi\circ\varepsilon_{\mathcal M}=e\,\},
+\]
+其中 \(e:S'\to F\) 是单位截面. 另一方面,
+\(\underline{\operatorname{Lie}}(\mathcal O_S/S,\mathcal M)(S')\)
+等于 \(\Gamma(S',\mathcal M)\), 后者是增广映射
+\[
+ \eta:\mathcal O(I_{S'}(\mathcal M))\longrightarrow\mathcal O(S').
+\]
+的核. 还需说明, 若 \(f\in F(S')\) 且 \(\alpha\in\Gamma(S',\mathcal M)\),
+则 \(\alpha\cdot(f\circ\rho)\circ\varepsilon_{\mathcal M}=e\).
+
+对 \(S\)-态射 \(\varepsilon_{\mathcal M}:S'\to I_{S'}(\mathcal M)\)
+应用双同态 (3), 下图交换.
+
+\SGAThreeNativeDiagram[0.43\textwidth]
+  {figures/exp2/exp2_p032_epsilon_action_square.tex}
+  {标量作用与 \(F(\varepsilon_{\mathcal M})\) 的相容性.}
+  {fig:exp2-epsilon-action-square}
+  {Polo--Gille Exp2-14oct24.pdf, 组件内第 32 页; 合卷第 90 页; 印刷页码 80}
+
+于是, 对每个 \(\varphi:I_{S'}(\mathcal M)\to F\),
+\[
+ (\alpha\cdot\varphi)\circ\varepsilon_{\mathcal M}
+ =\eta(\alpha)\cdot(\varphi\circ\varepsilon_{\mathcal M}),
+\]
+因此当 \(\eta(\alpha)=0\) 时,
+\((\alpha\cdot\varphi)\circ\varepsilon_{\mathcal M}=e\).
+
+特别地, 取 \(\mathcal M=t\mathcal O_S\), 有
+\(\underline{\operatorname{Lie}}(\mathcal O_S/S)=t\mathcal O_S\),
+而态射 \(F\to\underline{\operatorname{Lie}}'(F/S)\) 为
+\(f\mapsto t\cdot(f\circ\rho)\).
+
+\footnote{编者注: 此注为增补内容; 它将在 \SGARefLink{sga3:ii:lemma:4-6-2}{4.6.2} 中用到.}
+
+\SGAInlineRefTarget{sga3:ii:remark:4-3-5}\subsection*{\SGARefLink{sga3:ii:remark:4-3-5}{注 4.3.5}.}
+设 \(F\) 是 \(\mathcal O_S\)-模, 置
+\[
+ E=\underline{\operatorname{End}}_{\mathcal O_S\text{-mod.}}(F),
+\]
+并以 \(d_F\) 和 \(d_E\) 表示
+\SGARefLink{sga3:ii:subsection:4-3-2:equation:5}{4.3.2(5)} 给出的
+\(\mathcal O_S\)-线性态射:
+\[
+\begin{aligned}
+ d_F:
+ F\otimes_{\mathcal O_S}
+ \underline{\operatorname{Lie}}(\mathcal O_S/S,\mathcal M)
+ &\longrightarrow
+ \underline{\operatorname{Lie}}'(F/S,\mathcal M),\\
+ d_E:
+ E\otimes_{\mathcal O_S}
+ \underline{\operatorname{Lie}}(\mathcal O_S/S,\mathcal M)
+ &\longrightarrow
+ \underline{\operatorname{Lie}}'(E/S,\mathcal M).
+\end{aligned}
+\]
+\SGARefLink{sga3:ii:remark:4-3-4}{注~4.3.4} 给出下列由
+\(\mathcal O_S\)-线性态射组成的交换图.
+
+\SGAThreeNativeDiagram[0.76\textwidth]
+  {figures/exp2/exp2_p032_differentials_square.tex}
+  {\(d_E\) 与 \(d_F\) 的相容性.}
+  {fig:exp2-differentials-square}
+  {Polo--Gille Exp2-14oct24.pdf, 组件内第 32 页; 合卷第 90 页; 印刷页码 80}
+
+右边的竖直箭头是 \SGARefLink{sga3:ii:subsection:4-3}{4.3} 的同构 \((*)\).
+因此, 由该结果可知, 若 \(F/S\) 满足 \(E\), 则 \(E/S\) 满足 \(E\),
+而当右端各项配备由 \(E\) 得到的模结构时, \((*)\) 也是 \(\mathcal O_S\)-模同构.
+\footnote{编者注: 此注为增补内容; 它将在 \SGARefLink{sga3:ii:proposition:4-5}{4.5}
+和 \SGARefLink{sga3:ii:theorem:4-7}{4.7} 中用到.}
+
+% Source page: Exp2 component-local p. 33; combined-reader p. 91; printed p. 81.
+\SGAInlineRefTarget{sga3:ii:remark:4-4-0}\subsection*{\SGARefLink{sga3:ii:remark:4-4-0}{注 4.4.0}.}
+在 \SGARefLink{sga3:ii:subsection:4-3-2}{4.3.2} 中,
+态射 (4) 为同构当且仅当态射 \SGARefLink{sga3:ii:section:5}{(5)} 为同构.
+若这些等价条件成立, 则 \(F/S\) 满足 \(E\). 事实上, 只需验证
+\[
+ \underline{\operatorname{Lie}}'(F/S,\mathcal M\oplus\mathcal N)
+ \simeq
+ \underline{\operatorname{Lie}}'(F/S,\mathcal M)
+ \times_S
+ \underline{\operatorname{Lie}}'(F/S,\mathcal N).
+\]
+在假设下, 以下交换图中的水平箭头都是同构.
+
+\SGAThreeNativeDiagram[0.84\textwidth]
+  {figures/exp2/exp2_p033_good_module_square.tex}
+  {用于验证条件 \(E\) 的直和比较.}
+  {fig:exp2-good-module-square}
+  {Polo--Gille Exp2-14oct24.pdf, 组件内第 33 页; 合卷第 91 页; 印刷页码 81}
+
+所以第二个竖直箭头也是同构, 这恰好就是 \(F/S\) 的条件 \(E\).
+\footnote{编者注: 鉴于定义 4.4 所作的修改 (参见编者注 (65)),
+此处插入了这条注; 它原先出现在 \SGARefLink{sga3:ii:corollary:4-4-1}{4.4.1} 的证明中.}
+
+\SGAInlineRefTarget{sga3:ii:definition:4-4}\subsection*{\SGARefLink{sga3:ii:definition:4-4}{定义 4.4}.}
+若态射
+\[
+ F\otimes_{\mathcal O_S}T_{\mathcal O_S/S}(\mathcal M)
+ \longrightarrow T_{F/S}(\mathcal M),
+\]
+或等价地, 态射
+\[
+ F\otimes_{\mathcal O_S}
+ \underline{\operatorname{Lie}}(\mathcal O_S/S,\mathcal M)
+ \longrightarrow
+ \underline{\operatorname{Lie}}(F/S,\mathcal M),
+\]
+是交换 \(S\)-群的同构 (从而 \(F/S\) 满足 (E)), 且它们还保持由条件 \(E\)
+得到的 \(\mathcal O_S\)-模结构, 则称 \(\mathcal O_S\)-模 \(F\)
+为\emph{良模 (good module)}.
+
+\SGAInlineRefTarget{sga3:ii:corollary:4-4-1}\subsection*{\SGARefLink{sga3:ii:corollary:4-4-1}{推论 4.4.1}.}
+设 \(F\) 是 \(\mathcal O_S\)-模, 考虑以下条件:
+\footnote{编者注: 原文证明了 (i) 推出 (ii) 和 (iii);
+此处增添了 (ii) 推出 (i) 的证明.}
+\begin{enumerate}
+  \item[(i)] \(F\) 是良 \(\mathcal O_S\)-模;
+  \item[(ii)] \(F/S\) 满足 \(E\), 且
+    \(d:F\to\underline{\operatorname{Lie}}(F/S)\) 是 \(\mathcal O_S\)-模同构;
+  \item[(iii)]
+    \(\underline{\operatorname{Lie}}(F/S,\mathcal M)
+      =\underline{\operatorname{Lie}}'(F/S,\mathcal M)\).
+\end{enumerate}
+则
+\[
+  \textup{(i)}\Longleftrightarrow\textup{(ii)}
+  \Longrightarrow\textup{(iii)}.
+\]
+
+\paragraph{证明.}
+蕴含关系 \(\textup{(i)}\Rightarrow\textup{(ii)}\) 由定义得到.
+为证明 \(\textup{(ii)}\Rightarrow\textup{(i)}\), 还需说明关于 \(\mathcal M\)
+函子性的交换 \(S\)-群态射
+\[
+ F\otimes_{\mathcal O_S}
+ \underline{\operatorname{Lie}}(\mathcal O_S/S,\mathcal M)
+ \xrightarrow{\sim}
+ \underline{\operatorname{Lie}}(F/S,\mathcal M)
+\]
+是 \(\mathcal O_S\)-模同构. 由于 \(F/S\) 满足 \(E\),
+两端都将 \(\mathcal O_S\) 的有限个副本的直和变成交换 \(S\)-群的有限积.
+因此, 归结到 \(\mathcal M=\mathcal O_S\) 的情形, 而这恰好就是假设.
+
+最后, \(\textup{(i)}\Rightarrow\textup{(iii)}\) 由定义以及
+\SGARefLink{sga3:ii:subsection:4-3-2:equation:5}{4.3.2(5)} 的同构
+\[
+ F\otimes_{\mathcal O_S}
+ \underline{\operatorname{Lie}}(\mathcal O_S/S,\mathcal M)
+ \xrightarrow{\sim}
+ \underline{\operatorname{Lie}}'(F/S,\mathcal M)
+\]
+为 \(\mathcal O_S\)-线性这一事实得出.
+
+\SGAInlineRefTarget{sga3:ii:examples:4-4-2}\SGAInlineRefTarget{sga3:ii:example:4-4-2}\subsection*{\SGARefLink{sga3:ii:example:4-4-2}{例 4.4.2}.}
+对每个拟凝聚 \(\mathcal O_S\)-模 \(\mathcal E\),
+\SGARefLink{sga3:i:subsection:4-6}{I~4.6} 中定义的 \(\mathcal O_S\)-模
+\(\mathbf V(\mathcal E)\) 和 \(\mathbf W(\mathcal E)\) 都是良模.
+
+% Source page: Exp2 component-local p. 34; combined-reader p. 92; printed p. 82.
+事实上, 对每个 \(f:S'\to S\), 态射
+\[
+\begin{aligned}
+ \mathbf V(\mathcal E)(S')\otimes_{\mathcal O(S')}
+   \mathcal O(I_{S'}(\mathcal M))
+ &\longrightarrow T_{\mathbf V(\mathcal E)/S}(\mathcal M)(S'),\\
+ \mathbf W(\mathcal E)(S')\otimes_{\mathcal O(S')}
+   \mathcal O(I_{S'}(\mathcal M))
+ &\longrightarrow T_{\mathbf W(\mathcal E)/S}(\mathcal M)(S')
+\end{aligned}
+\]
+分别对应于
+\[
+\begin{aligned}
+ &\operatorname{Hom}_{\mathcal O_{S'}\text{-mod.}}
+   \bigl(f^*(\mathcal E),\mathcal O_{S'}\bigr)
+ \otimes_{\mathcal O(S')}
+ \Gamma\bigl(S',D_{\mathcal O_{S'}}(\mathcal M)\bigr)\\
+ &\hspace{5em}\longrightarrow
+ \operatorname{Hom}_{\mathcal O_{S'}\text{-mod.}}
+   \bigl(f^*(\mathcal E),D_{\mathcal O_{S'}}(\mathcal M)\bigr)
+ \qquad\textup{(V)}
+\\[-2pt]
+ &\Gamma(S',f^*(\mathcal E))
+ \otimes_{\mathcal O(S')}
+ \Gamma\bigl(S',D_{\mathcal O_{S'}}(\mathcal M)\bigr)\\
+ &\hspace{5em}\longrightarrow
+ \Gamma\bigl(S',f^*(\mathcal E)
+   \otimes_{\mathcal O_{S'}}D_{\mathcal O_{S'}}(\mathcal M)\bigr)
+ \qquad\textup{(W)}.
+\end{aligned}
+\]
+它们是同构, 因为作为 \(\mathcal O_{S'}\)-模,
+\(D_{\mathcal O_{S'}}(\mathcal M)\) 同构于 \(\mathcal O_{S'}\) 的有限个副本的直和.
+\footnote{编者注: 前面的证明是增补内容.}
+
+% End of the assigned scope. Proposition 4.5 begins immediately here in
+% Exp2-14oct24.pdf, component-local p. 34 (combined-reader p. 92).

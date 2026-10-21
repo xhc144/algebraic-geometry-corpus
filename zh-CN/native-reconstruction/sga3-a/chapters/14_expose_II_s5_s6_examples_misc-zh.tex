@@ -1,0 +1,850 @@
+% SGA 3, Expose II, Loop 1 English reconstruction.
+% Scope: Sections 5 and 6 through the bibliography/end, beginning after
+% Corollary 4.11.8 and stopping at the end of the Expose.
+% Authority: Polo--Gille Exp2-14oct24.pdf, component-local pages 43--52
+% (combined-reader pages 101--110). Force-OCR is a drafting locator; English
+% wording was compared with Jacob Reinhold's CC BY 4.0 Markdown lineage.
+% The PDF controls text, formulas, numbering, notes, and all diagram images.
+
+% Source page: Exp2 分篇第 43; 合订读本第 101.
+\section*{\SGAInlineRefTarget{sga3:ii:section:5}5. 若干 Lie 代数的计算}
+\addcontentsline{toc}{section}{5. 若干 Lie 代数的计算}
+
+\subsection*{\SGAInlineRefTarget{sga3:ii:subsection:5-1}5.1. Lie 代数的例子: 可对角化群}
+
+设 \(G=D_S(M)\) 为 \(S\) 上的可对角化群 (\SGARefLink{sga3:i:subsection:4-4}{I~4.4}).
+由于 \(\underline{\operatorname{Lie}}(G/S)\) 的形成与基扩张可交换,
+只需对 \(G=D(M)\) 作此构造. 此时有
+\[
+ G(I_S)=\operatorname{Hom}_{\mathrm{gr}}
+   \bigl(M,\Gamma(I_S,\mathscr O_{I_S})^\times\bigr)
+ =\operatorname{Hom}_{\mathrm{gr}}
+   \bigl(M,\Gamma(S,\mathscr D_{\mathscr O_S})^\times\bigr).
+\]
+有分裂正合列
+\[
+ 1\longrightarrow\Gamma(S,\mathscr O_S)
+  \longrightarrow\Gamma(S,\mathscr D_{\mathscr O_S})^\times
+  \longrightarrow\Gamma(S,\mathscr O_S)^\times
+  \longrightarrow1,
+\]
+由此可见 \(\underline{\operatorname{Lie}}(G)(S)\) 可与
+\(\operatorname{Hom}_{\mathrm{gr}}(M,\mathscr O(S))\) 等同,
+后者赋予显然的 \(\mathscr O(S)\)-模结构. 因此, 经基变换得到:
+
+\medskip
+\noindent\SGAInlineRefTarget{sga3:ii:proposition:5-1}\textbf{命题 5.1.}
+\textit{有同构}
+\[
+ \underline{\operatorname{Hom}}_{S\text{-}\mathrm{gr}}
+      (M_S,\mathbf O_S)
+ \xrightarrow{\sim}
+ \underline{\operatorname{Lie}}(D_S(M)/S)
+\]
+\textit{以及}
+\[
+ \mathscr Hom_{\mathrm{gr}}(\widetilde M_S,\mathscr O_S)
+ \xrightarrow{\sim}
+ \mathscr Lie(D_S(M)/S),
+\]
+\textit{其中在第二个同构中, \(\widetilde M_S\) 表示由 \(M\) 定义的
+\(S\) 上的常群层, 而 \(\mathscr Hom_{\mathrm{gr}}\) 表示群层的同态层.}
+
+\medskip
+\noindent\SGAInlineRefTarget{sga3:ii:corollary:5-1-1}\textbf{推论 5.1.1.}
+\textit{若 \(M\) 是有限型自由群, 或用后文的术语说,
+若 \(D_S(M)\) 是分裂环面, 则采用\SGARefLink{sga3:i:proposition:4-6-5}{I~4.6.5} 中的记号 \(W\), 有}
+\[
+ W\bigl(\mathscr Lie(D_S(M)/S)\bigr)
+   \xrightarrow{\sim}\underline{\operatorname{Lie}}(D_S(M)/S),
+ \qquad
+ M^\vee\otimes_{\mathbb Z}\mathscr O_S
+   \xrightarrow{\sim}\mathscr Lie(D_S(M)/S).
+\]
+\textit{这里 \(M^\vee\) 表示交换群 \(M\) 的对偶. 特别地,}
+\[
+ \mathbf O_S\xrightarrow{\sim}
+   \underline{\operatorname{Lie}}(\mathbb G_{m,S}/S),
+ \qquad
+ \mathscr O_S\xrightarrow{\sim}
+   \mathscr Lie(\mathbb G_{m,S}/S).
+\]
+
+\subsection*{\SGAInlineRefTarget{sga3:ii:subsection:5-2}5.2. 正规化子与中心化子}
+
+先证明几个引理. 回顾 (\SGARefLink{sga3:i:lemma:3-1-1}{I~3.1.1}),
+\(\mathbf O_S\)-模序列
+\[
+ 0\longrightarrow F'\longrightarrow F\longrightarrow F''\longrightarrow0
+\]
+称为\emph{正合的}, 若对每个
+\(S'\to S\), 如下 \(\mathbf O(S')\)-模序列
+\[
+ 0\longrightarrow F'(S')\longrightarrow F(S')
+  \longrightarrow F''(S')\longrightarrow0
+\]
+正合. 同样, \(S\)-群序列
+\(1\to G'\to G\to G''\to1\) 称为正合的, 若对每个
+\(S'\to S\), 它在 \(S'\)-点上对应的群序列都正合.
+
+\medskip
+\noindent\SGAInlineRefTarget{sga3:ii:lemma:5-2-1}\textbf{引理 5.2.1.}
+\textit{设 \(1\to G'\to G\to G''\to1\) 为
+\(S\)-群的正合列.}
+\footnote{编者注: 此引理的陈述与证明作了扩充;
+这将在\SGARefLink{sga3:ii:theorem:5-3-1}{5.3.1} 中用到.}
+\begin{enumerate}
+\renewcommand{\labelenumi}{(\roman{enumi})}
+\item \textit{序列}
+\[
+ 1\longrightarrow T_{G'/S}(\mathscr M)
+ \longrightarrow T_{G/S}(\mathscr M)
+ \longrightarrow T_{G''/S}(\mathscr M)\longrightarrow1
+\]
+\textit{以及}
+\[
+ 1\longrightarrow\underline{\operatorname{Lie}}(G'/S,\mathscr M)
+ \longrightarrow\underline{\operatorname{Lie}}(G/S,\mathscr M)
+ \longrightarrow\underline{\operatorname{Lie}}(G''/S,\mathscr M)
+ \longrightarrow1
+\]
+\textit{正合.}
+\item \textit{设 \(1\to H'\to H\to H''\to1\) 为另一个群序列.
+它正合当且仅当}
+\[
+ 1\longrightarrow G'\times_S H'
+ \longrightarrow G\times_S H
+ \longrightarrow G''\times_S H''\longrightarrow1
+\]
+\textit{正合.}
+\item\SGAInlineRefTarget{sga3:ii:lemma:5-2-1:item:iii} \textit{若 \(G',G,G''\) 中的两个满足条件 (E), 则第三个也满足条件 (E).}
+\item\SGAInlineRefTarget{sga3:ii:lemma:5-2-1:item:iv} \textit{若 \(0\to F'\to F\to F''\to0\) 正合, 且
+\(\mathbf O_S\)-模 \(F',F,F''\) 中的两个是良模, 则第三个也是良模.}
+\item \textit{若 \(S\)-群 \(G',G,G''\) 中的两个是良好群, 则第三个也是良好群.}
+\end{enumerate}
+
+(i) 的第一部分显然成立, 第二部分由第一部分推出.
+同样, (ii) 显然成立. 下面证明 (iii). 为简便起见, 记
+\(L(\mathscr M)=\underline{\operatorname{Lie}}(G,\mathscr M)\),
+\(L'(\mathscr M)=\underline{\operatorname{Lie}}(G',\mathscr M)\),
+并以类似方式定义 \(L''\). 有如下交换图.
+\footnote{编者注: (iii) 和 (v) 的证明为新增内容.}
+
+\SGAThreeNativeDiagram[0.93\textwidth]
+  {figures/exp2/exp2_p044_lemma521_conditionE_diagram.tex}
+  {用于证明\SGARefLink{sga3:ii:lemma:5-2-1:item:iii}{引理~5.2.1(iii)} 的正合列图.}
+  {fig:sga3-exp2-p044-lemma521-conditionE}
+  {Polo--Gille Exp2-14oct24.pdf, 分篇第 44 页;
+   合订读本第 102 页}
+
+由 (i), 上行正合; 由 (i) 和 (ii), 下行正合. 由此得到断言 (iii).
+
+下面证明 (iv). 有交换图
+
+\SGAThreeNativeDiagram[0.96\textwidth]
+  {figures/exp2/exp2_p044_lemma521_good_modules_diagram.tex}
+  {用于证明\SGARefLink{sga3:ii:lemma:5-2-1:item:iv}{引理~5.2.1(iv)} 的正合列图.}
+  {fig:sga3-exp2-p044-lemma521-good-modules}
+  {Polo--Gille Exp2-14oct24.pdf, 分篇第 44 页;
+   合订读本第 102 页}
+
+其中各行正合: 第一行正合是因为
+\(T_{\mathbf O_S/S}(\mathscr M)\) 是自由的, 因而是平坦的
+\(\mathbf O_S\)-模; 第二行正合则由 (i) 得到.
+所以, 若 \(F',F,F''\) 中的两个是良模, 则第三个也是良模.
+最后, (v) 由 (iii) 和 (iv) 推出.
+
+\medskip
+\noindent\SGAInlineRefTarget{sga3:ii:lemma:5-2-2}\textbf{引理 5.2.2.}
+\textit{设 \(G\) 为 \(S\)-群, \(E,H\) 为两个 \(G\)-对象,
+\(F\) 为 \(G\)-\(\mathbf O_S\)-模.}
+\begin{enumerate}
+\renewcommand{\labelenumi}{(\roman{enumi})}
+\item\SGAInlineRefTarget{sga3:ii:lemma:5-2-2:item:i} \textit{典范同态
+\(E^G\times_S H^G\to(E\times_S H)^G\) 是同构.}
+\item\SGAInlineRefTarget{sga3:ii:lemma:5-2-2:item:ii} \textit{若 \(F\) 是良 \(\mathbf O_S\)-模, 则
+\(F^G\) 也是良模.}
+\end{enumerate}
+
+第一个断言显然成立; 下面证明第二个断言. 对每个
+\(S'\to S\), 有交换图
+
+\SGAThreeNativeDiagram[0.72\textwidth]
+  {figures/exp2/exp2_p045_lemma522_invariants_square.tex}
+  {\SGARefLink{sga3:ii:lemma:5-2-2}{引理~5.2.2} 证明中不变量与基变换构成的方图.}
+  {fig:sga3-exp2-p045-lemma522-invariants}
+  {Polo--Gille Exp2-14oct24.pdf, 分篇第 45 页;
+   合订读本第 103 页}
+
+须证明 \(\phi\) 为双射. 它显然是单射.
+为证明满射性, 设 \((t_0,\ldots,t_n)\) 为自由
+\(\mathbf O(S')\)-模 \(\mathbf O(I_{S'}(\mathscr M))\) 的一组基, 并设
+\[
+ u=\sum_{i=0}^{n}f_i\otimes t_i
+\]
+为 \(F(S')\otimes_{\mathbf O(S')}\mathbf O(I_{S'}(\mathscr M))\) 的元素,
+使得 \(\phi_1(u)\) 属于 \(F^G(I_{S'}(\mathscr M))\).
+下面证明每个 \(f_i\) 都属于 \(F^G(S')\).
+
+设 \(S''\to S'\). 通过零截面 \(\varepsilon_{\mathscr M}\),
+可以将 \(S''\) 视为 \(I_{S'}(\mathscr M)\) 上的对象. 于是, 对每个
+\(g\in G(S'')\),
+\[
+ u_{S''}=g\cdot u_{S''}
+   =\sum_{i=0}^{n}g\cdot(f_i)_{S''}\otimes(t_i)_{S''}.
+\]
+由于 \((t_i)_{S''}\) 构成
+\[
+ \mathbf O(I_{S''}(\mathscr M))
+ \simeq \mathbf O(I_{S'}(\mathscr M))
+        \otimes_{\mathbf O(S')}\mathbf O(S'')
+\]
+作为 \(\mathbf O(S'')\)-模的一组基, 从而有
+\(g\cdot(f_i)_{S''}=(f_i)_{S''}\), 故对所有 \(i\) 均有
+\(f_i\in F^G(S')\).
+
+\medskip
+\noindent\textbf{记号.}
+若 \(E\) 为 \(S\)-群, \(F\) 为其子 \(S\)-群, 用 \(E/F\)
+表示将 \(S'\to S\) 映到由陪集 \(\bar x=xF(S')\) 组成的集合
+\(E(S')/F(S')\) 的 \(S\)-函子. 若 \(E\) 交换,
+则 \(E/F\) 是交换 \(S\)-群.
+\footnote{编者注: 此处的记号说明作了扩充.}
+
+现在设 \(G\) 为 \(S\)-群, \(K\) 为其子 \(S\)-群, 并令
+\(E=\underline{\operatorname{Lie}}(G/S,\mathscr M)\) 及
+\(F=\underline{\operatorname{Lie}}(K/S,\mathscr M)\).
+\(K\) 在 \(E\) 上的伴随作用保持 \(F\), 因而在 \(E/F\) 上诱导作用.
+对每个 \(S'\to S\),
+\[
+\begin{split}
+ (E/F)^K(S')=\{\bar x\in E(S')/F(S')\mid{}&
+  \text{对每个 }f:S''\to S'\text{ 及 }k\in K(S''),\\[-2pt]
+ &f^*(\bar x^{-1})\operatorname{Ad}(k)(f^*(\bar x))\in F(S'')\},
+\end{split}
+\]
+其中 \(f^*(\bar x)\) 表示 \(\bar x\) 在 \(E(S'')\) 中的像.
+
+\medskip
+\noindent\SGAInlineRefTarget{sga3:ii:theorem:5-2-3}\textbf{定理 5.2.3.}
+\textit{设 \(G\) 为 \(S\)-群, \(K\) 为其子 \(S\)-群. 令
+(\SGARefLink{sga3:i:definition:2:3:3}{I~2.3.3})}
+\[
+ N=\underline{\operatorname{Norm}}_G(K),
+ \qquad
+ Z=\underline{\operatorname{Centr}}_G(K),
+\]
+\textit{并让 \(K\) 通过 \(G\) 的伴随表示作用于
+\(\underline{\operatorname{Lie}}(G/S,\mathscr M)\).}
+\begin{enumerate}
+\renewcommand{\labelenumi}{(\roman{enumi})}
+\item\SGAInlineRefTarget{sga3:ii:theorem:5-2-3:item:i} \textit{若 \(\underline{\operatorname{Lie}}(G/S,\mathscr M)\)
+的群运算交换,\footnote{当 \(G\) 满足 (E) 时, 此条件自动满足, 例如当 \(G\) 可表时.}\footnote{编者注: 关于 \(S\)-群
+\(\underline{\operatorname{Lie}}(G/S)\) 不交换的例子, 见\SGARefLink{sga3:ii:subsection:6-3}{6.3}.}
+则}
+\[
+ \frac{\underline{\operatorname{Lie}}(N/S,\mathscr M)}
+      {\underline{\operatorname{Lie}}(K/S,\mathscr M)}
+ =
+ \left(
+ \frac{\underline{\operatorname{Lie}}(G/S,\mathscr M)}
+      {\underline{\operatorname{Lie}}(K/S,\mathscr M)}
+ \right)^K .
+\]
+\item\SGAInlineRefTarget{sga3:ii:theorem:5-2-3:item:ii} \textit{若同一群运算交换, 则}
+\[
+ \underline{\operatorname{Lie}}(Z/S,\mathscr M)
+   =\underline{\operatorname{Lie}}(G/S,\mathscr M)^K .
+\]
+\item \textit{若 \(G\) 满足 (E), 则 \(Z\) 满足 (E);
+若 \(G\) 和 \(K\) 满足 (E), 则 \(N\) 满足 (E).}
+\item \textit{若 \(G\) 是良好群, 则 \(Z\) 是良好群;
+此外, 若 \(G\) 是甚好群, 则 \(Z\) 是甚好群.}
+\item \textit{若 \(G\) 和 \(K\) 是良好群, 则 \(N\) 是良好群;
+此外, 若 \(G\) 是甚好群, 则 \(N\) 是甚好群.}
+\end{enumerate}
+
+为证明 (i) 和 (ii),\footnote{编者注: 此处的证明作了扩充; 特别地, 新增了原文中隐含的
+\SGARefLink{sga3:ii:lemma:5-2-3-0}{引理~5.2.3.0}.} 使用下述引理, 它由\SGARefLink{sga3:ii:definition:4-1-b}{4.1.B} 中考虑的正合列图,
+交换 \(G\) 和 \(H\) 的角色后得到.
+
+\medskip
+\noindent\SGAInlineRefTarget{sga3:ii:lemma:5-2-3-0}\textbf{引理 5.2.3.0.}
+\textit{设 \(G\) 为 \(S\)-群, \(H\) 为其子 \(S\)-群,
+\(\mathscr M\) 为有限型自由 \(\mathscr O_S\)-模. 则
+\(T_{H/S}(\mathscr M)\) 和
+\(\underline{\operatorname{Lie}}(G/S,\mathscr M)\) 是
+\(T_{G/S}(\mathscr M)\) 的子 \(S\)-群, 且}
+\[
+ T_{H/S}(\mathscr M)\cap
+ \underline{\operatorname{Lie}}(G/S,\mathscr M)
+ =
+ \underline{\operatorname{Lie}}(H/S,\mathscr M),
+\]
+\textit{其中}
+\[
+ T_{H/S}(\mathscr M)\cap
+ \underline{\operatorname{Lie}}(G/S,\mathscr M)
+ \mathrel{\mathop:}=
+ T_{H/S}(\mathscr M)\times_{T_{G/S}(\mathscr M)}
+ \underline{\operatorname{Lie}}(G/S,\mathscr M).
+\]
+
+由于 (i) 和 (ii) 中的函子与基扩张可交换, 只需在 \(S\)-点上证明这些等式.
+令 \(H=N\) (相应地, \(H=Z\)), 并设 \(\alpha=\pm1\).
+由上述引理以及 \(N\) 和 \(Z\) 的定义 (\SGARefLink{sga3:i:definition:2:3:3}{I~2.3.3}),
+\begin{equation}
+\begin{split}
+ \underline{\operatorname{Lie}}(H/S,\mathscr M)(S)
+ =\bigl\{X\in{}&
+ \underline{\operatorname{Lie}}(G/S,\mathscr M)(S)
+ \subset G(I_S(\mathscr M))\ \bigm|\ \\
+ &\text{对每个 }f:S'\to I_S(\mathscr M)
+ \text{ 及 }u\in K(S'),\\
+ &f^*(X^\alpha)\,u\,f^*(X^{-\alpha})\,u^{-1}\in K(S'),\\[-2pt]
+ &\text{相应地, }
+ f^*(X)\,u\,f^*(X^{-1})\,u^{-1}=1
+ \bigr\}.
+\end{split}
+\tag{*}\label{sga3:ii:lemma:5-2-3-0:equation:star}
+\end{equation}
+这里 \(f^*(X)\) 表示 \(X\) 在 \(G(S')\) 中的像.
+
+为简便起见, 记
+\[
+ \mathfrak g=\underline{\operatorname{Lie}}(G/S,\mathscr M),\quad
+ \mathfrak k=\underline{\operatorname{Lie}}(K/S,\mathscr M),\quad
+ \mathfrak n=\underline{\operatorname{Lie}}(N/S,\mathscr M),\quad
+ \mathfrak z=\underline{\operatorname{Lie}}(Z/S,\mathscr M).
+\]
+若 \(X\in\underline{\operatorname{Lie}}(H/S,\mathscr M)(S)\),
+则等式 (*) 对每个 \(f:S'\to S\) 都成立, 因为 \(f\) 经由
+\(I_S(\mathscr M)\) 如下分解:
+\[
+ f=\rho\circ\varepsilon_{\mathscr M}\circ f,
+\]
+其中 \(\rho:I_S(\mathscr M)\to S\) 为结构态射,
+\(\varepsilon_{\mathscr M}:S\to I_S(\mathscr M)\) 为零截面. 因此,
+\[
+ \mathfrak n(S)/\mathfrak k(S)
+   \subset(\mathfrak g/\mathfrak k)^K(S),
+ \qquad
+ \mathfrak z(S)\subset\mathfrak g^K(S).
+\]
+
+为证明反向包含关系, 此后假设 \(\mathfrak g\) 交换.
+于是 \(\mathfrak g^K\) 和 \((\mathfrak g/\mathfrak k)^K\) 是交换
+\(S\)-群. 设 \(X\in\mathfrak g(S)\), 并用 \(\bar X\) 表示它在
+\((\mathfrak g/\mathfrak k)(S)\) 中的像. 假设
+\(\bar X\in(\mathfrak g/\mathfrak k)^K(S)\) (相应地,
+\(X\in\mathfrak g^K(S)\)); 下面证明
+\(X\in\mathfrak n(S)\) (相应地, \(X\in\mathfrak z(S)\)).
+
+设 \(f:S'\to I_S(\mathscr M)\). 考虑笛卡儿方图
+
+\SGAThreeNativeDiagram[0.48\textwidth]
+  {figures/exp2/exp2_p047_theorem523_cartesian_square.tex}
+  {证明反向包含关系时使用的笛卡儿方图.}
+  {fig:sga3-exp2-p047-theorem523-cartesian}
+  {Polo--Gille Exp2-14oct24.pdf, 分篇第 47 页;
+   合订读本第 105 页}
+
+并令 \(h\) 为 \(f\) 定义的 \(\rho'\) 的截面. 只需证明,
+对每个 \(v\in K(I_{S'}(\mathscr M))\), 有
+\begin{equation}
+ \left.
+ \begin{aligned}
+ p^*(X^\alpha)\,v\,p^*(X^{-\alpha})\,v^{-1}
+     &\in K(I_{S'}(\mathscr M)),\\
+ \text{相应地}\qquad
+ p^*(X)\,v\,p^*(X^{-1})\,v^{-1}&=1.
+ \end{aligned}
+ \right\}
+\tag{**}\label{sga3:ii:lemma:5-2-3-0:equation:double-star}
+\end{equation}
+事实上, 取 \(v=\rho'^*(u)\), 并对 (**) 应用 \(h^*\), 即得 (*),
+因为 \(\rho'\circ h=\operatorname{id}_{S'}\) 且 \(p\circ h=f\).
+
+现在证明 (**), 将 \(p^*(X)\) 简记为 \(X\).
+每个 \(v\in K(I_{S'}(\mathscr M))\) 都唯一地具有形式 \(Yk\), 其中
+\(Y\in\underline{\operatorname{Lie}}(K/S,\mathscr M)(S')\) 及
+\(k\in K(S')\). 表达式
+\(X^\alpha vX^{-\alpha}v^{-1}\) 变为
+\[
+ X^\alpha Y\bigl(kX^{-\alpha}k^{-1}\bigr)Y^{-1}
+ =X^\alpha\operatorname{Ad}(k)(X^{-\alpha}),
+\]
+这是因为 \(\underline{\operatorname{Lie}}(G/S,\mathscr M)\) 交换.
+此元素属于 \(\underline{\operatorname{Lie}}(G/S,\mathscr M)(S')\).
+由\SGARefLink{sga3:ii:lemma:5-2-3-0}{引理~5.2.3.0}, 条件 (**) 因而等价于,
+对每个 \(k\in K(S')\),
+\[
+ \begin{cases}
+ \operatorname{Ad}(k)(X)=X, & H=Z,\\
+ X^\alpha\operatorname{Ad}(k)(X^{-\alpha})
+   \in\underline{\operatorname{Lie}}(K/S,\mathscr M)(S'), & H=N.
+ \end{cases}
+\]
+当 \(H=Z\) 时, 这由 \(X\in\mathfrak g^K(S)\) 得到.
+当 \(H=N\) 时, 此条件也可写为
+\begin{equation}
+ \operatorname{Ad}(k)(\bar X)=\bar X,
+ \qquad
+ \operatorname{Ad}(k)(\bar X^{-1})=\bar X^{-1}.
+\tag{*'}\label{sga3:ii:lemma:5-2-3-0:equation:star-prime}
+\end{equation}
+第二个等式由第一个推出, 因为 \(K\) 在 \(\mathfrak g/\mathfrak k\) 上的作用
+保持其群结构. 因此, (**) 也由
+\(\bar X\in(\mathfrak g/\mathfrak k)^K(S)\) 推出, 这就证明了 (i) 和 (ii).
+
+对于 (iii)--(v), 令
+\[
+ \mathfrak g(\mathscr M)
+   =\underline{\operatorname{Lie}}(G/S,\mathscr M)
+\]
+并类似地定义 \(\mathfrak k(\mathscr M)\), \(\mathfrak z(\mathscr M)\)
+以及 \(\mathfrak n(\mathscr M)\). 若 \(G/S\) 满足 (E), 则
+\[
+ \mathfrak g(\mathscr M\oplus\mathscr N)
+ \simeq\mathfrak g(\mathscr M)\times_S\mathfrak g(\mathscr N),
+\]
+从而由\SGARefLink{sga3:ii:lemma:5-2-2:item:i}{引理~5.2.2(i)},
+\[
+ \mathfrak g(\mathscr M\oplus\mathscr N)^K
+ \simeq
+ \mathfrak g(\mathscr M)^K\times_S\mathfrak g(\mathscr N)^K.
+\]
+从而
+\(\mathfrak z(\mathscr M\oplus\mathscr N)
+\simeq\mathfrak z(\mathscr M)\times_S\mathfrak z(\mathscr N)\), 故
+\(Z\) 满足 (E). 若 \(K/S\) 也满足 (E), 则
+\[
+ (\mathfrak g/\mathfrak k)(\mathscr M\oplus\mathscr N)
+ \simeq
+ (\mathfrak g/\mathfrak k)(\mathscr M)
+ \times_S(\mathfrak g/\mathfrak k)(\mathscr N),
+\]
+\[
+ (\mathfrak g/\mathfrak k)^K(\mathscr M\oplus\mathscr N)
+ \simeq
+ (\mathfrak g/\mathfrak k)(\mathscr M)^K
+ \times_S(\mathfrak g/\mathfrak k)(\mathscr N)^K,
+\]
+且有如下交换图.
+
+\SGAThreeNativeDiagram[0.96\textwidth]
+  {figures/exp2/exp2_p048_theorem523_exact_diagram.tex}
+  {用于证明 \(N\) 满足条件 (E) 的正合列比较图.}
+  {fig:sga3-exp2-p048-theorem523-exact}
+  {Polo--Gille Exp2-14oct24.pdf, 分篇第 48 页;
+   合订读本第 106 页}
+
+从而
+\[
+ \mathfrak n(\mathscr M\oplus\mathscr N)
+ \simeq\mathfrak n(\mathscr M)\times_S\mathfrak n(\mathscr N),
+\]
+故 \(N\) 满足 (E).
+
+现在记
+\(\mathfrak g=\mathfrak g(\mathscr O_S)
+=\underline{\operatorname{Lie}}(G/S)\), 并类似地记
+\(\mathfrak k,\mathfrak z,\mathfrak n\). 若 \(G\) 是良好群, 则
+\(\mathfrak g\) 是良 \(\mathbf O_S\)-模, 而\SGARefLink{sga3:ii:lemma:5-2-2:item:ii}{引理~5.2.2(ii)}
+表明 \(\mathfrak z\simeq\mathfrak g^K\) 是良模; 由于 \(Z\) 满足 (E),
+\(Z\) 是良好群. 若 \(K\) 也是良好群, 则 \(\mathfrak k\) 是良模,
+由引理~5.2.1(iv) 和 5.2.2(ii) 可知,
+\(\mathfrak g/\mathfrak k\) 和 \((\mathfrak g/\mathfrak k)^K\) 是良模.
+由正合列
+\[
+ 0\longrightarrow\mathfrak k\longrightarrow\mathfrak n
+ \longrightarrow(\mathfrak g/\mathfrak k)^K\longrightarrow0
+\]
+及引理~5.2.1(iv), 可知 \(\mathfrak n\) 是良模. 最后, 若 \(G\) 是甚好群,
+即对 \(x\in\mathfrak g\) 恒有 \([x,x]=0\), 则 \(Z\) 和 \(N\) 显然是甚好群.
+这就证明了 (iii)--(v).
+
+\medskip
+\noindent\SGAInlineRefTarget{sga3:ii:corollary:5-2-3-1}\textbf{推论 5.2.3.1.}
+\textit{若 \(\underline{\operatorname{Lie}}(G/S)\) 的群运算交换, 则}
+\[
+ \underline{\operatorname{Lie}}
+   \bigl(\underline{\operatorname{Centr}}(G)/S\bigr)
+ =\underline{\operatorname{Lie}}(G/S)^G.
+\]
+
+\medskip
+\noindent\SGAInlineRefTarget{sga3:ii:corollary:5-2-3-2}\textbf{推论 5.2.3.2.}
+\textit{若 \(\underline{\operatorname{Lie}}(G/S)\) 的群运算交换,
+且 \(K\) 是 \(G\) 的正规子群, 则}
+\[
+ \left(
+ \underline{\operatorname{Lie}}(G/S)/
+ \underline{\operatorname{Lie}}(K/S)
+ \right)^K
+ =
+ \underline{\operatorname{Lie}}(G/S)/
+ \underline{\operatorname{Lie}}(K/S).
+\]
+
+\subsection*{\SGAInlineRefTarget{sga3:ii:subsection:5-3}5.3. 线性表示}
+
+设 \(G\) 为良好 \(S\)-群, 它通过
+\[
+ \rho:G\longrightarrow
+ \underline{\operatorname{Aut}}_{\mathbf O_S\text{-}\mathrm{mod}}(F).
+\]
+线性作用于良 \(\mathbf O_S\)-模 \(F\).
+在\SGARefLink{sga3:ii:subsection:4-7-1}{4.7.1} 和\SGARefLink{sga3:ii:corollary:4-8-2}{4.8.2} 中,
+我们定义了相应的线性表示
+\[
+ \rho':
+ \underline{\operatorname{Lie}}(G/S)
+ \longrightarrow
+ \underline{\operatorname{End}}_{\mathbf O_S\text{-}\mathrm{mod}}(F).
+\]
+对 \(F\) 的每个子集 \(E\), 特别地, 对每个
+\(\mathbf O_S\)-子模 \(E\), 都定义了子 \(S\)-群
+\(\underline{\operatorname{Norm}}_G(E)\) 和
+\(\underline{\operatorname{Centr}}_G(E)\).
+
+\medskip
+\noindent\SGAInlineRefTarget{sga3:ii:definition:5-3-0}\textbf{定义 5.3.0.}
+对每个 \(S'\to S\), 令
+\[
+\begin{split}
+ \underline{\operatorname{Norm}}_{\underline{\operatorname{Lie}}(G/S)}
+   (E)(S')
+ &=\{X\in\underline{\operatorname{Lie}}(G/S)(S')
+      \mid \rho'(X)E_{S'}\subset E_{S'}\},\\
+ \underline{\operatorname{Centr}}_{\underline{\operatorname{Lie}}(G/S)}
+   (E)(S')
+ &=\{X\in\underline{\operatorname{Lie}}(G/S)(S')
+      \mid \rho'(X)E_{S'}=0\}.
+\end{split}
+\]
+此构造适用于\SGARefLink{sga3:ii:scholium:4-9}{4.9} 意义下的
+\(\mathbf O_S\)-Lie 代数的每个线性表示,
+所得两个子对象都是在括积下稳定的 \(\mathbf O_S\)-子模.
+
+\medskip
+\noindent\SGAInlineRefTarget{sga3:ii:theorem:5-3-1}\textbf{定理 5.3.1.}
+\textit{设 \(G\) 为良好 \(S\)-群, 它线性作用于良
+\(\mathbf O_S\)-模 \(F\), 并设 \(E\) 为 \(F\) 的
+\(\mathbf O_S\)-子模.}
+\begin{enumerate}
+\renewcommand{\labelenumi}{(\roman{enumi})}
+\item \textit{有}
+\[
+ \underline{\operatorname{Lie}}
+   \bigl(\underline{\operatorname{Centr}}_G(E)/S\bigr)
+ =
+ \underline{\operatorname{Centr}}_
+   {\underline{\operatorname{Lie}}(G/S)}(E),
+\]
+\textit{且 \(\underline{\operatorname{Centr}}_G(E)\) 为良好
+\(S\)-群; 若 \(G\) 是甚好群, 则它也是甚好群.}
+\item \textit{假设 \(E\) 为良 \(\mathbf O_S\)-模. 则}\footnote{编者注: 原文陈述下述等式时, 未对 \(E\) 作假设;
+此处已作修正. 反例见\SGARefLink{sga3:ii:paragraph:6-5-1}{6.5.1}.}
+\[
+ \underline{\operatorname{Lie}}
+   \bigl(\underline{\operatorname{Norm}}_G(E)/S\bigr)
+ =
+ \underline{\operatorname{Norm}}_
+   {\underline{\operatorname{Lie}}(G/S)}(E),
+\]
+\textit{且 \(\underline{\operatorname{Norm}}_G(E)\) 为良好
+\(S\)-群; 若 \(G\) 是甚好群, 则它也是甚好群.}
+\end{enumerate}
+证明留给读者.
+
+\medskip
+\noindent\SGAInlineRefTarget{sga3:ii:paragraph:5-3-2}\textbf{5.3.2.}
+设 \(G\) 为良好 \(S\)-群. 上述结果特别适用于伴随表示.
+设 \(E\) 为 \(\underline{\operatorname{Lie}}(G/S)\) 的良
+\(\mathbf O_S\)-子模.\footnote{编者注: 此假设为新增条件; 参见\SGARefLink{sga3:ii:paragraph:6-5-1}{6.5.1}.} 它在 \(G\) 中有中心化子和正规化子,
+由\SGARefLink{sga3:ii:theorem:5-3-1}{5.3.1}, 它们的 Lie 代数是
+\(E\) 的通常意义下的中心化子和正规化子, 用括积计算如下:
+\[
+\begin{split}
+ \underline{\operatorname{Centr}}_
+   {\underline{\operatorname{Lie}}(G/S)}(E)(S')
+ &=\{X\in\underline{\operatorname{Lie}}(G/S)(S')
+       \mid[X,E_{S'}]=0\},\\
+ \underline{\operatorname{Norm}}_
+   {\underline{\operatorname{Lie}}(G/S)}(E)(S')
+ &=\{X\in\underline{\operatorname{Lie}}(G/S)(S')
+       \mid[X,E_{S'}]\subset E_{S'}\}.
+\end{split}
+\]
+
+\medskip
+\noindent\SGAInlineRefTarget{sga3:ii:paragraph:5-3-3}\textbf{5.3.3.}
+设 \(K\) 为 \(G\) 的子 \(S\)-群. 则
+\(\underline{\operatorname{Lie}}(K/S)\) 是
+\(\underline{\operatorname{Lie}}(G/S)\) 的
+\(\mathbf O_S\)-子模. 假设它是良 \(\mathbf O_S\)-模,\footnote{编者注: 此假设为新增条件; 参见\SGARefLink{sga3:ii:paragraph:6-5-1}{6.5.1}.} 例如当 \(K\) 为良好 \(S\)-群时即如此. 显然,
+\[
+ \underline{\operatorname{Centr}}_G(K)
+ \subset
+ \underline{\operatorname{Centr}}_G
+   \bigl(\underline{\operatorname{Lie}}(K/S)\bigr),
+\]
+\[
+ \underline{\operatorname{Norm}}_G(K)
+ \subset
+ \underline{\operatorname{Norm}}_G
+   \bigl(\underline{\operatorname{Lie}}(K/S)\bigr).
+\]
+从而, 由\SGARefLink{sga3:ii:theorem:5-3-1}{5.3.1},
+\[
+ \underline{\operatorname{Lie}}
+   \bigl(\underline{\operatorname{Centr}}_G(K)/S\bigr)
+ \subset
+ \underline{\operatorname{Centr}}_
+   {\underline{\operatorname{Lie}}(G/S)}
+   \bigl(\underline{\operatorname{Lie}}(K/S)\bigr),
+\]
+\[
+ \underline{\operatorname{Lie}}
+   \bigl(\underline{\operatorname{Norm}}_G(K)/S\bigr)
+ \subset
+ \underline{\operatorname{Norm}}_
+   {\underline{\operatorname{Lie}}(G/S)}
+   \bigl(\underline{\operatorname{Lie}}(K/S)\bigr).
+\]
+这四个包含关系一般都不是等式; 后文将给出许多例子.
+特别地, 若 \(K\) 是 \(G\) 的正规子群,
+则 \(\underline{\operatorname{Lie}}(K/S)\) 是
+\(\underline{\operatorname{Lie}}(G/S)\) 的理想.
+
+% Source page: Exp2 分篇第 50; 合订读本第 108.
+\section*{\SGAInlineRefTarget{sga3:ii:section:6}6. 杂注}
+\addcontentsline{toc}{section}{6. 杂注}
+
+\subsection*{\SGAInlineRefTarget{sga3:ii:subsection:6-1}6.1.}
+对未必是群的 \(S\)-函子 \(X\), 也可以定义两个无穷小自同构的括积:
+只需将本篇的结果应用于 \(\underline{\operatorname{Aut}}_S(X)\).
+为获得方便的形式体系, 自然要假设 \(X\) 是良好的, 即
+\(\mathbf O_X\)-模 \(T_{X/S}\) 是良模.
+若 \(X\) 为 \(S\)-群, 此定义与\SGARefLink{sga3:ii:definition:4-6}{定义~4.6} 一致.
+
+\subsection*{\SGAInlineRefTarget{sga3:ii:subsection:6-2}6.2.}
+存在一些函子, 具有并非自同构的无穷小自态射,
+因而更不满足条件 (E).
+\footnote{编者注: 此处对原文作了扩充.
+特别地, O. Gabber 指出了带基点集合上自由交换幺半群的正确定义.}
+对带基点集合 \((E,x_0)\), 设 \(M_A(E)\) 为由 \(E\) 生成的
+自由交换幺半群, 并设 \(M_{A,P}(E,x_0)\) 为 \(M_A(E)\)
+对由 \(m\sim x_0+m\) 生成的等价关系所取的商. 对应
+\[
+ (E,x_0)\longmapsto M_{A,P}(E,x_0)
+\]
+是从交换幺半群到带基点集合的遗忘函子的左伴随;
+\(M_{A,P}(E,x_0)\) 是带基点集合 \((E,x_0)\) 上的自由交换幺半群.
+
+现在设 \(X\) 为函子, 它将每个概形 \(S\) 映到以零为基点的
+\(\mathbf O(S)\) 上的自由交换幺半群. 每个态射
+\[
+ f:S\longrightarrow I_{\mathbb Z}
+   =\operatorname{Spec}(\mathbb Z[\varepsilon])
+\]
+对应于一个平方为零的元素 \(u_f\in\mathbf O(S)\), 因而通过
+\(x\mapsto x+u_f\) 定义 \(X(S)\) 的一个自态射,
+其中的和在 \(M_{A,P}(\mathbf O(S),0)\) 中取.
+这样就得到
+\[
+ X_{I_{\mathbb Z}}=X\times_{\mathbb Z}I_{\mathbb Z}
+\]
+的自态射 \(\phi\), 对 \(f\in I_{\mathbb Z}(S)\) 及 \(x\in X(S)\), 定义为
+\[
+ \phi((x,f))=(x+u_f,f).
+\]
+若 \(f_0:S\to I_{\mathbb Z}\) 为结构态射
+\(S\to\operatorname{Spec}(\mathbb Z)\) 与零截面的复合,
+则 \(u_{f_0}=0\), 故 \(\phi((x,f_0))=(x,f_0)\).
+因此 \(\phi\) 在 \(X\) 上诱导恒等态射:
+它是 \(X\) 的一个无穷小自态射, 显然不是自同构.
+
+\subsection*{\SGAInlineRefTarget{sga3:ii:subsection:6-3}6.3.}
+存在并非良模的模. 首先, 可以对上述反例稍加修改.\footnote{编者注: 以下观察为新增内容.} 设 \(F(S)\) 为以 \(\mathbf O(S)\) 的元素为基的自由
+\(\mathbf O(S)\)-模. 则 \(F\) 相对于
+\(\operatorname{Spec}(\mathbb Z)\) 不满足 (E).
+此外, 设 \(G\) 为由下式定义的 \(\mathbb Z\)-群:
+\[
+ G(S)=\operatorname{GL}_n(R(S)),\qquad n\geq2,
+\]
+其中 \(R(S)\) 为交换群 \(\mathbf O(S)\) 的
+\(\mathbf O(S)\)-群代数. 则 \(\mathbb Z\)-群
+\(\underline{\operatorname{Lie}}(G/\mathbb Z)\) 不交换.
+
+还有如下反例.\footnote{编者注: 扩充了例 (a), 并新增了例 (b).} 设 \(S=\operatorname{Spec}(k)\), 其中 \(k\) 是特征
+\(p>0\) 的域.
+
+\medskip
+\noindent\textit{(a)}
+设 \(F\) 为 \(\mathbf O_S\)-模, 它将每个 \(S\)-概形
+\(T\) 映到群
+\[
+ F(T)=\Gamma(T,\mathscr O_T),
+\]
+其 \(\mathbf O(T)\)-模结构定义为
+\(r\cdot f=r^pf\). 作为 \(S\)-群函子, \(F\) 同构于
+\(\mathbb G_{a,S}\). 因此 \(F/S\) 满足 (E), 且
+\[
+ \underline{\operatorname{Lie}}(F/S)
+ \simeq
+ \underline{\operatorname{Lie}}(\mathbb G_{a,S}/S)
+ \simeq\mathbf O_S.
+\]
+对每个 \(T\to S\), 典范态射
+\(F\to\underline{\operatorname{Lie}}(F/S)\) 是恒等映射
+\(F(T)\to\mathbf O(T)\). 它保持交换群结构, 但不保持模结构,
+所以 \(F\) 不是良模 (4.4.1).
+
+\medskip
+\noindent\textit{(b)}
+设 \(\alpha_{p,k}\) 为由下式定义的 \(k\)-群函子:
+\[
+ \alpha_{p,k}(T)=\{x\in\mathbf O(T)\mid x^p=0\}.
+\]
+它由 \(\operatorname{Spec}(k[X]/(X^p))\) 表出,
+因而是甚好 \(S\)-群. 它还具有 \(\mathbf O_S\)-模结构,
+但不是良 \(\mathbf O_S\)-模, 因为典范态射
+\[
+ \alpha_{p,k}\longrightarrow
+ \underline{\operatorname{Lie}}(\alpha_{p,k}/k)=\mathbb G_{a,k}
+\]
+不是双射.
+
+\subsection*{\SGAInlineRefTarget{sga3:ii:subsection:6-4}6.4.}
+对于 \(S\) 上的群值函子 \(G\), 由定义有
+\[
+ (G/S\text{ 满足 (E)})
+ \Longleftarrow(G\text{ 是良好群})
+ \Longleftarrow(G\text{ 是甚好群}).
+\]
+证明或否定反向蕴涵将是有趣的问题.
+\footnote{编者注: 可表的 \(G\) 是甚好群 (\SGARefLink{sga3:ii:subsection:4-11}{4.11}).
+关于可表性判据, 例如可见 [MO67]. 关于零特征代数闭域上仿射代数群的自同构,
+见 [HM69].}
+
+\subsection*{\SGAInlineRefTarget{sga3:ii:subsection:6-5}6.5.}
+设 \(\operatorname{Nil}\) 为由下式定义的 \(\mathbb Z\)-群函子:
+\[
+ \operatorname{Nil}(S)
+ =\{x\in\mathbf O(S)\mid
+       \text{存在 }n\in\mathbb N\text{ 使 }x^n=0\}.
+\]
+\footnote{编者注: 此段为新增内容.}
+函子 \(\operatorname{Nil}\) 是甚好群, 但不可表.
+设 \(\operatorname{Nil}^2\), \(\mathbf O_{\mathrm{red}}\) 和 \(F\) 为
+\(\mathbb Z\)-群函子, 它们分别将 \(S\) 映到理想
+\(\operatorname{Nil}(S)^2\) 以及群
+\[
+ \mathbf O_{\mathrm{red}}(S)
+   =\mathbf O(S)/\operatorname{Nil}(S),
+ \qquad
+ F(S)=\mathbf O(S)/\operatorname{Nil}(S)^2.
+\]
+容易看出
+\[
+ \underline{\operatorname{Lie}}
+   (\mathbf O_{\mathrm{red}}/\mathbb Z)=0,
+\]
+故 \(\mathbf O_{\mathbb Z}\)-模
+\(\mathbf O_{\mathrm{red}}\) 不是良模, 虽然它是良好
+\(\mathbb Z\)-群. 若 \(\mathscr M,\mathscr N\) 为有限秩自由
+\(\mathbb Z\)-模, 则
+\[
+\begin{split}
+ \operatorname{Nil}^2(I_S(\mathscr M\oplus\mathscr N))
+ \simeq{}&
+ \operatorname{Nil}^2(S)
+ \oplus\operatorname{Nil}(S)\otimes_{\mathbb Z}\mathscr M\\
+ &\oplus\operatorname{Nil}(S)\otimes_{\mathbb Z}\mathscr N,
+\end{split}
+\]
+从而
+\[
+\begin{split}
+ F(I_S(\mathscr M\oplus\mathscr N))
+ \simeq{}&F(S)
+ \oplus\mathbf O_{\mathrm{red}}(S)\otimes_{\mathbb Z}\mathscr M\\
+ &\oplus\mathbf O_{\mathrm{red}}(S)\otimes_{\mathbb Z}\mathscr N.
+\end{split}
+\]
+因此 \(F\) 满足条件 (E), 而
+\[
+ \underline{\operatorname{Lie}}(F/\mathbb Z)
+   =\mathbf O_{\mathrm{red}}.
+\]
+由于 \(\mathbf O_{\mathrm{red}}\) 不是良
+\(\mathbf O_{\mathbb Z}\)-模, \(F\) 是满足 (E) 却不是良好群的
+\(\mathbb Z\)-群.
+
+\medskip
+\noindent\SGAInlineRefTarget{sga3:ii:paragraph:6-5-1}\textbf{6.5.1.}
+现在给出\SGARefLink{sga3:ii:theorem:5-3-1}{5.3.1}--\SGARefLink{sga3:ii:paragraph:5-3-3}{5.3.3} 中预告的反例.
+设 \(S\) 为概形, \(F=\mathbf O_S^{\oplus2}\) 带有良好
+\(S\)-群 \(G=\operatorname{GL}_{2,S}\) 的自然作用,
+并设 \(E\) 为 \(F\) 中由满足 \(x_2\) 幂零的对
+\((x_1,x_2)\) 组成的 \(\mathbf O_S\)-子模. 令
+\[
+ N=\underline{\operatorname{Norm}}_G(E).
+\]
+则
+\[
+ \underline{\operatorname{Lie}}(N/S)
+   =\underline{\operatorname{Lie}}(G/S),
+\]
+而对每个 \(S'\to S\),
+\[
+ \underline{\operatorname{Norm}}_
+   {\underline{\operatorname{Lie}}(G/S)}(E)(S')
+ =
+ \left\{
+ \begin{pmatrix}a&b\\x&c\end{pmatrix}
+ \,\middle|\,
+ a,b,c,x\in\mathbf O(S'),\ x\text{ 幂零}
+ \right\}.
+\]
+因此,
+\[
+ \underline{\operatorname{Lie}}
+   \bigl(\underline{\operatorname{Norm}}_G(E)/S\bigr)
+ \neq
+ \underline{\operatorname{Norm}}_
+   {\underline{\operatorname{Lie}}(G/S)}(E).
+\]
+
+取半直积 \(G_1=F\rtimes G\), 可得到一个类似的反例,
+其中 \(E\) 是 \(\underline{\operatorname{Lie}}(G_1/S)\) 的
+\(\mathbf O_S\)-子模. 此外, 沿用上述记号,
+\[
+ E=\underline{\operatorname{Lie}}(K/S),
+\]
+其中 \(K\) 为 \(F\) 的子群 \(\mathbf O_S\oplus\operatorname{Nil}^2\);
+即 \(K(S')\) 由满足 \(x_2\in\operatorname{Nil}(S')^2\) 的对
+\((x_1,x_2)\) 组成.
+
+\section*{参考文献}
+\addcontentsline{toc}{section}{参考文献}
+\footnote{编者注: 本篇引用的补充文献.}
+
+\begin{description}
+\item[{[DG70]}] M. Demazure and P. Gabriel,
+  \emph{Groupes Alg\'ebriques}, Masson \& North-Holland, 1970.
+\item[{[HM69]}] G. Hochschild and G. D. Mostow,
+  \emph{Automorphisms of affine algebraic groups},
+  \emph{J. Algebra} \textbf{13} (1969), 535--543.
+\item[{[MO67]}] H. Matsumura and F. Oort,
+  \emph{Representability of group functors and automorphisms of
+  algebraic schemes}, \emph{Invent. Math.} \textbf{4} (1967), 1--25.
+\end{description}
+
+% End of Expose II.
+
+% Translation coverage: source component 893 lines; Sections 5 and 6 and
+% bibliography complete. Formula audit: 443 math expressions, 27 SGARefLink
+% keys, 29 SGAInlineRefTarget keys, 3 labels, 15 footnotes and 5 native diagrams retained.

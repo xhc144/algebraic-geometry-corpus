@@ -11,7 +11,7 @@ def prose(s):
     s=re.sub(r'\\text\{[^{}]*\}',r'\\text{LANG}',s)
     return re.sub(r'\s+','',s)
 def math(s):
-    pats=[r'\\\((.*?)\\\)',r'\\\[(.*?)\\\]',r'(?<!\\)\$(?!\$)(.*?)(?<!\\)\$',r'\\begin\{(?:align\*?|equation\*?|gather\*?|multline\*?)\}(.*?)\\end\{(?:align\*?|equation\*?|gather\*?|multline\*?)\}']
+    pats=[r'\\\((.*?)\\\)',r'(?<!\\)\\\[(.*?)\\\]',r'(?<!\\)\$(?!\$)(.*?)(?<!\\)\$',r'\\begin\{(?:align\*?|equation\*?|gather\*?|multline\*?)\}(.*?)\\end\{(?:align\*?|equation\*?|gather\*?|multline\*?)\}']
     return [collections.Counter(prose(t) for t in re.findall(q,s,re.S)) for q in pats]
 def keys(s,cmd):return re.findall(r'\\'+cmd+r'\{([^{}]+)\}',s)
 result=[];refs=[];targets=[]
