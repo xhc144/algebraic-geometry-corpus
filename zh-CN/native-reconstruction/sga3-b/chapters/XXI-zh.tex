@@ -1,0 +1,649 @@
+% 中文译文前缀；本作者仅负责冻结源行1--3044，末部由另一作者负责。
+\markboth{第 XXI 讲. 根数据}{第 XXI 讲. 根数据}
+\chapter*{第 XXI 讲. 根数据}
+\addcontentsline{toc}{chapter}{第 XXI 讲. 根数据}
+\noindent
+本讲\footnote{编者注: 2024 年 10 月 13 日版本.}由于缺少合适的参考文献,\footnote{编者注: 关于根系的结果 (第 1--5 节), 可参阅 \emph{Groupes et algèbres de Lie}, 第 VI 章.}
+汇集关于根数据 (即“抽象”根系) 的已知结果, 其中大部分将在下文用到.
+
+\medskip
+\noindent\textbf{记号.}
+以 \(\Qp\) 表示正有理数 (或零) 的集合; \(\mathbb Z\cap\Qp=\mathbb N\). 设 \(V\) 是 \(\mathbb Q\)-向量空间. 若 \(A\) (分别地, \(B\)) 是 \(\mathbb Q\) (分别地, \(V\)) 的子集, 则以 \(A\cdot B\) 表示 \(A\otimes B\) 在态射 \(\mathbb Q\otimes V\to V\) 下的像, 换言之, 是 \(B\) 的元素以 \(A\) 中元素为系数的线性组合的集合. 记 \(-B=\{-1\}B\). 以 \(E-F\) 表示 \(E\) 中不属于 \(F\) 的元素的集合.
+
+\section{一般性质}
+\SGAInlineRefTarget{sga3:xxi:subsection:1-1}
+\subsection{定义及初步性质}
+\begin{definition}\label{sga3:XXI:1.1.1}
+设 \(M\) 与 \(M^\ast\) 是两个互为对偶的有限型自由 \(\mathbb Z\)-模. 记
+\[
+  V=M\otimes\mathbb Q,\qquad V^\ast=M^\ast\otimes\mathbb Q;
+\]
+它们是两个互为对偶的 \(\mathbb Q\)-向量空间. 将 \(M\) (分别地, \(M^\ast\)) 与 \(V\) (分别地, \(V^\ast\)) 的子集等同. 将 \(M^\ast\times M\) (分别地, \(V^\ast\times V\)) 上的典范双线性型记作 \((\, ,\,)\).
+
+设 \(R\) 是 \(M\) 的有限子集. 假设给定从 \(R\) 到 \(M^\ast\) 的映射 \(\alpha\mapsto\alpha^\ast\); 当 \(\alpha\in R\) 时, \(\alpha^\ast\) 所成的集合记作 \(R^\ast\). 对每个 \(\alpha\in R\), 定义 \(M\) 及 \(V\) (分别地, \(M^\ast\) 及 \(V^\ast\)) 的自同态 \(s_\alpha\) (分别地, \(s_\alpha^\ast\)):
+\begin{align}
+ s_\alpha(x)&=x-(\alpha^\ast,x)\alpha,
+ &s_\alpha&=\operatorname{id}-\alpha^\ast\otimes\alpha,
+ \tag{1}\label{sga3:XXI:eq:1}\\
+ s_\alpha^\ast(u)&=u-(u,\alpha)\alpha^\ast,
+ &s_\alpha^\ast&=\operatorname{id}-\alpha\otimes\alpha^\ast.
+ \tag{1${}^\ast$}\label{sga3:XXI:eq:1star}
+\end{align}
+若以下公理成立, 则称二元组 \((R,R^\ast)\) (更确切地说, 二元组 \((R,R\to M^\ast)\)) 为 \((M,M^\ast)\) 中的一个\emph{根数据} (root datum), 并称 \((M,M^\ast,R,R^\ast)\) 为根数据:
+\begin{align*}
+ (\mathrm{DR\,I})\quad&
+    (\alpha^\ast,\alpha)=2
+    &&\text{对每个 }\alpha\in R,\\
+ (\mathrm{DR\,II})\quad&
+    s_\alpha(R)\subset R,\qquad
+    s_\alpha^\ast(R^\ast)\subset R^\ast
+    &&\text{对每个 }\alpha\in R.
+\end{align*}
+集合 \(R\) 称为根数据 \(\cR=(M,M^\ast,R,R^\ast)\) 的\emph{根系}. \(R\) (分别地, \(R^\ast\)) 的元素称为此根数据的\emph{根} (分别地, \emph{余根}).
+\end{definition}
+
+\begin{remark}\label{sga3:XXI:1.1.2}
+公理 \((\mathrm{DR\,I})\) 等价于下列性质中的任一个:
+\begin{align}
+ s_\alpha s_\alpha&=\operatorname{id},
+ &s_\alpha^\ast s_\alpha^\ast&=\operatorname{id},
+ \tag{2,2${}^\ast$}\label{sga3:XXI:eq:2}\\
+ s_\alpha(\alpha)&=-\alpha,
+ &s_\alpha^\ast(\alpha^\ast)&=-\alpha^\ast.
+ \tag{3,3${}^\ast$}\label{sga3:XXI:eq:3}
+\end{align}
+\end{remark}
+
+\begin{remark}\label{sga3:XXI:1.1.3}
+公理 \((\mathrm{DR\,I})\) 及 \((\mathrm{DR\,II})\) 蕴含
+\[
+ R=-R,\qquad R^\ast=-R^\ast,\qquad
+ 0\notin R,\qquad 0\notin R^\ast.
+\]
+\end{remark}
+
+\begin{lemma}\label{sga3:XXI:1.1.4}
+映射 \(R\to R^\ast\) 为双射. 更一般地, 若 \(\alpha,\beta\in R\), 且对每个 \(x\in R\) 都有 \((\alpha^\ast,x)=(\beta^\ast,x)\), 则 \(\alpha=\beta\).
+\end{lemma}
+\begin{proof}
+事实上, 此时有
+\[
+ s_\beta(\alpha)=\alpha-2\beta,\qquad
+ s_\alpha(\beta)=\beta-2\alpha.
+\]
+立即得到
+\[
+ s_\beta s_\alpha(\alpha)
+   =2\beta-\alpha=\alpha+2(\beta-\alpha),\qquad
+ s_\beta s_\alpha(\beta-\alpha)
+   =s_\beta(\beta-\alpha)=\beta-\alpha.
+\]
+因此由 \((\mathrm{DR\,II})\),
+\[
+ (s_\beta s_\alpha)^n(\alpha)
+   =\alpha+2n(\beta-\alpha)\in R.
+\]
+由于 \(R\) 有限, \(\beta-\alpha=0\).
+\end{proof}
+
+\begin{corollary}\label{sga3:XXI:1.1.5}
+逆映射 \(R^\ast\to R\) 定义根数据
+\[
+ \cR^\ast=(M^\ast,M,R^\ast,R),
+\]
+称为 \(\cR\) 的\emph{对偶}.\footnote{编者注: \((\alpha^\ast)^\ast=\alpha\).}
+\end{corollary}
+
+\begin{definition}\label{sga3:XXI:1.1.6}
+以 \(\Gamma_0(R)\) 表示 \(M\) 中由 \(R\) 生成的子群. 以 \(\VR(R)\) 表示 \(V\) 中由 \(R\) 生成的向量子空间, 即
+\[
+ \VR(R)=\Gamma_0(R)\otimes\mathbb Q.
+\]
+将这些定义应用于 \(\cR^\ast\), 同样得到 \(\Gamma_0(R^\ast)\) 及 \(\VR(R^\ast)\).
+
+\(\cR\) 的\emph{约化秩} 为数
+\[
+ \rgred(\cR)
+ =\rank(M)=\dim(V)=\dim(V^\ast)=\rank(M^\ast)=\rgred(\cR^\ast).
+\]
+\(\cR\) 的\emph{半单秩} 为数
+\[
+ \rgss(\cR)
+ =\rank(R)=\rank(\Gamma_0(R))=\dim(\VR(R)).
+\]
+因此 \(\rgss(\cR)\leq\rgred(\cR)\).
+
+下文将看到 \(\rgss(\cR)=\rgss(\cR^\ast)\), 即 \(\VR(R)\) 与 \(\VR(R^\ast)\) 的维数相同.
+\end{definition}
+
+\begin{definition}\label{sga3:XXI:1.1.7}\leavevmode\par
+若 \(\rgss(\cR)=\rgred(\cR)\) (分别地, \(\rgss(\cR)=0\)), 则称根数据 \(\cR\) \emph{半单} (分别地, \emph{平凡}). 因而 \(\cR\) 平凡当且仅当 \(R\) 为空. 约化秩为零的平凡根数据记作
+\[
+ 0=(\{0\},\{0\},\varnothing,\varnothing).
+\]
+\end{definition}
+
+\begin{definition}\label{sga3:XXI:1.1.8}
+以 \(W(\cR)\) 表示由 \(s_\alpha\)、\(\alpha\in R\) 生成的 \(M\) 的变换群, 称为 \(\cR\) 的 \emph{Weyl 群}. 记
+\[
+ W^\ast(\cR)=W(\cR^\ast).
+\]
+于是 \(W(\cR)\) 作用于 \(R\)、\(\Gamma_0(R)\)、\(\VR(R)\)、\(M\) 及 \(V\). 若 \(w\in W(\cR)\), \(x\in M\) (分别地, \(x\in V\)), 则
+\[
+ wx-x\in\Gamma_0(R)
+ \quad\text{(分别地 }wx-x\in\VR(R)\text{)};
+\]
+这立即来自公式 \eqref{sga3:XXI:eq:1}. 对 \(W^\ast(\cR)\) 亦然.
+\end{definition}
+
+\begin{lemma}\label{sga3:XXI:1.1.9}
+对每个 \(\alpha\in R\)、\(x\in V\) 以及 \(u\in V^\ast\), 有
+\begin{equation}
+ (s_\alpha^\ast(u),s_\alpha(x))=(u,x).
+ \tag{4}\label{sga3:XXI:eq:4}
+\end{equation}
+\end{lemma}
+\begin{proof}
+将 \eqref{sga3:XXI:eq:1} 与 \eqref{sga3:XXI:eq:1star} 取标量积, 左端为
+\[
+ (u,x)+(u,\alpha)(\alpha^\ast,x)
+       \bigl((\alpha^\ast,\alpha)-2\bigr)=(u,x).
+\]
+\end{proof}
+
+\begin{remark}\label{sga3:XXI:1.1.10}
+若假设 \(0\notin R\) 且 \(0\notin R^\ast\), 则引理~\ref{sga3:XXI:1.1.9} 等价于 \((\mathrm{DR\,I})\).
+\end{remark}
+
+\begin{corollary}\label{sga3:XXI:1.1.11}
+以 \(h\mapsto h^\vee\) 表示从 \(\GL(M)\) 到 \(\GL(M^\ast)\) 的同构, 它将 \(h\) 映为其逆对偶. 则公式 \eqref{sga3:XXI:eq:4} 也可写成
+\begin{equation}
+ (s_\alpha)^\vee=s_\alpha^\ast.
+ \tag{5}\label{sga3:XXI:eq:5}
+\end{equation}
+\end{corollary}
+
+\begin{corollary}\label{sga3:XXI:1.1.12}
+前述同构诱导从 \(W(\cR)\) 到 \(W^\ast(\cR)\) 的同构.
+\end{corollary}
+
+\begin{scholium}\label{sga3:XXI:1.1.13}
+由前述结果, 以下将 \(W\) 与 \(W^\ast\) 等同, 并将 \(W\) 视为
+\[
+ R,\ R^\ast,\ M,\ M^\ast,\ \Gamma_0(R),\ \Gamma_0(R^\ast),\
+ V,\ V^\ast,\ \VR(R),\ \VR(R^\ast)
+\]
+的变换群. 将以 \(s_\alpha\) 表示 \(s_\alpha^\ast\).
+\end{scholium}
+
+\subsection{映射 \texorpdfstring{\(p\)}{p}}
+\begin{lemma}\label{sga3:XXI:1.2.1}
+设 \(p:M\to M^\ast\) (分别地, \(V\to V^\ast\)) 是由下式定义的线性映射:
+\begin{equation}
+ p(x)=\sum_{u\in R^\ast}(u,x)u.
+ \tag{6}\label{sga3:XXI:eq:6}
+\end{equation}
+记 \(\ell(x)=(p(x),x)\). 则:
+\begin{align}
+ \ell(x)&\geq0,\qquad \ell(\alpha)>0
+     &&\text{对 }\alpha\in R,
+ \tag{7}\label{sga3:XXI:eq:7}\\
+ \ell(wx)&=\ell(x)
+     &&\text{对 }w\in W,
+ \tag{8}\label{sga3:XXI:eq:8}\\
+ (p(x),y)&=(p(y),x)
+     &&\text{对 }x,y\in V,
+ \tag{9}\label{sga3:XXI:eq:9}\\
+ \ell(\alpha)\alpha^\ast&=2p(\alpha)
+     &&\text{对 }\alpha\in R.
+ \tag{10}\label{sga3:XXI:eq:10}
+\end{align}
+\end{lemma}
+\begin{proof}
+前三个关系是直接的.\footnote{编者注: 公式 \eqref{sga3:XXI:eq:8} 来自 \eqref{sga3:XXI:eq:4}、\eqref{sga3:XXI:eq:2} 及 \((\mathrm{DR\,II})\).}
+来证明最后一个. 由 \eqref{sga3:XXI:eq:1}, 对 \(u\in V^\ast\),
+\begin{align*}
+ (u,\alpha)^2\alpha^\ast
+  &=(u,\alpha)u-(u,\alpha)s_\alpha(u)\\
+  &=(u,\alpha)u+(u,s_\alpha(\alpha))s_\alpha(u)\\
+  &=(u,\alpha)u+(s_\alpha(u),\alpha)s_\alpha(u)
+       \qquad\bigl(s_\alpha^2=\operatorname{id}\bigr).
+\end{align*}
+由于 \(s_\alpha\) 按 \((\mathrm{DR\,II})\) 置换 \(R^\ast\), 对 \(u\in R^\ast\) 求和即得结果.
+\end{proof}
+
+\begin{scholium}\label{sga3:XXI:1.2.2}
+关系 \eqref{sga3:XXI:eq:10} 表明, 映射 \(\alpha\mapsto\ell(\alpha)\alpha^\ast\) 是一个从 \(M\) 到 \(M^\ast\) 的线性映射在 \(R\) 上的限制. 特别地,
+\[
+ (-\alpha)^\ast=-\alpha^\ast.
+\]
+\end{scholium}
+
+\begin{corollary}\label{sga3:XXI:1.2.3}
+映射 \(p\) 诱导从 \(\VR(R)\) 到 \(\VR(R^\ast)\) 的同构.
+\end{corollary}
+\begin{proof}
+映射 \(p\) 将 \(\VR(R)\) 满射到 \(\VR(R^\ast)\). 因此
+\[
+ \dim\VR(R)\geq\dim\VR(R^\ast).
+\]
+将此不等式应用于对偶根数据, 得
+\[
+ \dim\VR(R)=\dim\VR(R^\ast),
+\]
+所以满射 \(p\) 也是双射.
+\end{proof}
+
+\begin{corollary}\label{sga3:XXI:1.2.4}
+有 \(\dim\VR(R)=\dim\VR(R^\ast)\), 因而
+\[
+ \rgss(\cR)=\rgss(\cR^\ast).
+\]
+\end{corollary}
+
+\begin{corollary}\label{sga3:XXI:1.2.5}
+双线性型 \((u,x)\) 在 \(\VR(R^\ast)\times\VR(R)\) 上非退化, 因而使这两个 \(\mathbb Q\)-向量空间互为对偶.
+\end{corollary}
+\begin{proof}
+若对每个 \(u\in R^\ast\) 都有 \((u,x)=0\), 则 \(p(x)=0\).
+\end{proof}
+
+\begin{corollary}\label{sga3:XXI:1.2.6}
+对称双线性型 \((p(x),y)\) 在 \(\VR(R)\) 上是正的且非退化.
+\end{corollary}
+
+\begin{corollary}\label{sga3:XXI:1.2.7}
+群 \(W\) 在 \(R\) 上忠实作用 (因而在评注~\ref{sga3:XXI:1.1.13} 所列其他集合上也忠实作用).
+\end{corollary}
+\begin{proof}
+设 \(u\in V^\ast\), 并设 \(w\in W\) 满足: 对每个 \(\alpha\in R\), \(w(\alpha)=\alpha\). 来证明 \(w(u)=u\). 对每个 \(\alpha\in R\),
+\[
+ (w(u)-u,\alpha)
+ =(w(u),\alpha)-(u,\alpha)
+ =(u,w^{-1}(\alpha))-(u,\alpha)=0.
+\]
+而 \(w(u)-u\in\VR(R^\ast)\), 它与每个根正交, 因而由推论~\ref{sga3:XXI:1.2.5} 得其为零.
+\end{proof}
+
+\begin{corollary}\label{sga3:XXI:1.2.8}
+群 \(W\) 有限.
+\end{corollary}
+
+\begin{proposition}\label{sga3:XXI:1.2.9}
+\(W\) 的作用保持根与余根之间的对应. 换言之, 对 \(\alpha\in R\) 及 \(w\in W\),
+\[
+ w(\alpha^\ast)=w(\alpha)^\ast.
+\]
+\end{proposition}
+\begin{proof}
+只须对 \(w=s_\beta\)、\(\beta\in R\) 验证, 即验证
+\[
+ s_\beta(\alpha^\ast)=s_\beta(\alpha)^\ast.
+\]
+现在 \(\ell(s_\beta(\alpha))s_\beta(\alpha)^\ast/2\) 等于
+\begin{align*}
+ p(s_\beta(\alpha))
+ &=\sum_{u\in R^\ast}(u,s_\beta(\alpha))u\\
+ &=\sum_{u\in R^\ast}(s_\beta(u),\alpha)u\\
+ &=\sum_{u\in R^\ast}(u,\alpha)s_\beta(u)
+  =s_\beta(p(\alpha)).
+\end{align*}
+由于 \(\ell(s_\beta(\alpha))=\ell(\alpha)\), 得
+\[
+ s_\beta(\alpha)^\ast
+ =s_\beta\!\left(\frac{2p(\alpha)}{\ell(\alpha)}\right)
+ =s_\beta(\alpha^\ast).
+\]
+\end{proof}
+
+\begin{corollary}\label{sga3:XXI:1.2.10}
+若 \(\alpha\in R\) 且 \(w\in W\), 则
+\[
+ ws_\alpha w^{-1}=s_{w(\alpha)}.
+\]
+\end{corollary}
+\begin{proof}
+对 \(x\in V\),
+\[
+ ws_\alpha w^{-1}(x)
+ =x-(\alpha^\ast,w^{-1}(x))w(\alpha)
+ =x-(w(\alpha^\ast),x)w(\alpha).
+\]
+由命题~\ref{sga3:XXI:1.2.9}, 最后一个表达式为
+\[
+ \begin{aligned}
+ x-(w(\alpha)^\ast,x)w(\alpha)
+   &=s_{w(\alpha)}(x).
+ \end{aligned}
+\]
+\end{proof}
+
+\begin{corollary}\label{sga3:XXI:1.2.11}\leavevmode\par
+设 \(R'\subset R\). 四元组 \((M,M^\ast,R',R'^\ast)\) 是根数据, 当且仅当 \(\alpha,\beta\in R'\) 蕴含 \(s_\alpha(\beta)\in R'\).
+\end{corollary}
+
+\section{两根之间的关系}
+\subsection{成比例的根}
+\begin{proposition}\label{sga3:XXI:2.1.1}
+设 \(\alpha\) 和 \(\beta\) 是两个根. 下列条件等价:
+\begin{enumerate}
+\item[(i)] 存在 \(k\in\mathbb Q\) 使 \(\alpha=k\beta\);
+\item[(ii)] \(s_\alpha=s_\beta\).
+\end{enumerate}
+在这些条件下, \(\alpha^\ast=k^{-1}\beta^\ast\), 且 \(k\) 是以下数之一:
+\[
+ 1,\ -1,\ 2,\ -2,\ \tfrac12,\ -\tfrac12.
+\]
+\end{proposition}
+\begin{proof}
+先假设 \SGARefLink{sga3:XXI:2.1.1:item:i:02}{(i)}. 则
+\[
+ \alpha^\ast
+ =\ell(\alpha)^{-1}2p(\alpha)
+ =k^{-2}\ell(\beta)^{-1}2k\,p(\beta)
+ =k^{-1}\beta^\ast.
+\]
+立即得到 \(s_\alpha=s_\beta\). 反过来, 若 \(s_\alpha=s_\beta\), 则
+\[
+ \alpha=s_\alpha(-\alpha)
+       =s_\beta(-\alpha)
+       =(\beta^\ast,\alpha)\beta-\alpha,
+\]
+所以
+\[
+ 2\alpha=(\beta^\ast,\alpha)\beta,
+\qquad(\beta^\ast,\alpha)\in\mathbb Z;
+\]
+因此 \SGARefLink{sga3:XXI:2.1.1:item:ii:02}{(ii)} 蕴含 \SGARefLink{sga3:XXI:2.1.1:item:i:02}{(i)}. 最后, 若 \(\alpha=k\beta\), 则 \(\alpha^\ast=k^{-1}\beta^\ast\), 从而
+\[
+ (\alpha^\ast,\beta)=2k^{-1},
+ \qquad(\beta^\ast,\alpha)=2k.
+\]
+因此 \(2k\) 与 \(2k^{-1}\) 都是整数, 得到所列诸数.
+\end{proof}
+
+\begin{application}\label{sga3:XXI:2.1.2}
+满足 \(\rgss(\cR)=1\) 的根数据 \(\cR\) 为以下两种类型之一:
+\begin{enumerate}
+\item[\SGAInlineRefTarget{sga3:XXI:2.1.1:item:i:02}(i)] \(A_1\) 型: 存在 \(\alpha\in M\), 使根为 \(\alpha\) 和 \(-\alpha\). 余根则为 \(\alpha^\ast\) 与 \(-\alpha^\ast\).
+\item[\SGAInlineRefTarget{sga3:XXI:2.1.1:item:ii:02}(ii)] \(A'_1\) 型: 存在 \(\alpha\in M\), 使根为 \(\alpha,-\alpha,2\alpha,-2\alpha\). 余根则为 \(\alpha^\ast,-\alpha^\ast,\alpha^\ast/2,-\alpha^\ast/2\).
+\end{enumerate}
+\end{application}
+
+\begin{definition}\label{sga3:XXI:2.1.3}
+若 \(\alpha/2\notin R\), 则称根 \(\alpha\in R\) \emph{不可分}. 若每个根均不可分, 则称根数据 \(\cR\) \emph{约化}.
+\end{definition}
+
+根数据 \(\cR\) 约化当且仅当 \(\cR^\ast\) 约化. 若 \(\alpha\) 不可分且 \(w\in W\), 则 \(w(\alpha)\) 不可分.
+
+\begin{definition}\label{sga3:XXI:2.1.4}
+设 \(\alpha\in R\). 若 \(\alpha\) 不可分, 令 \(\operatorname{ind}(\alpha)=\alpha\); 否则令 \(\operatorname{ind}(\alpha)=\alpha/2\).
+\end{definition}
+
+\begin{corollary}\label{sga3:XXI:2.1.5}
+若 \(\alpha\in R\) 不可分, 且 \(k\alpha\in R\), 其中 \(k\in\mathbb Q\), 则 \(k\in\mathbb Z\).
+\end{corollary}
+
+\begin{proposition}\label{sga3:XXI:2.1.6}
+设 \(\cR\) 是根数据. 则
+\[
+ \operatorname{ind}(\cR)
+ =\bigl(M,M^\ast,\operatorname{ind}(R),
+         \operatorname{ind}(R)^\ast\bigr)
+\]
+是约化根数据, 且
+\[
+ W\bigl(\operatorname{ind}(\cR)\bigr)=W(\cR).
+\]
+\end{proposition}
+\begin{proof}
+由于 Weyl 群置换不可分根, 由推论~\ref{sga3:XXI:1.2.11}, 四元组 \(\operatorname{ind}(\cR)\) 是根数据. 第二个断言来自命题~\ref{sga3:XXI:2.1.1}.
+\end{proof}
+
+\begin{remark}\label{sga3:XXI:2.1.7}
+若 \(\cR\) 不约化, 则
+\[
+ \operatorname{ind}(R)^\ast\neq\operatorname{ind}(R^\ast),
+ \qquad
+ \operatorname{ind}(\cR^\ast)\neq\operatorname{ind}(\cR)^\ast.
+\]
+\end{remark}
+
+\subsection{正交的根}
+\begin{lemma}\label{sga3:XXI:2.2.1}
+设 \(\alpha\) 与 \(\beta\) 是两个根. 则
+\begin{equation}
+ \ell(\alpha)(\alpha^\ast,\beta)
+ =\ell(\beta)(\beta^\ast,\alpha).
+ \tag{11}\label{sga3:XXI:eq:11}
+\end{equation}
+\end{lemma}
+\begin{proof}
+这立即来自引理~\ref{sga3:XXI:1.2.1} 的公式 \eqref{sga3:XXI:eq:9} 与 \eqref{sga3:XXI:eq:10}.
+\end{proof}
+
+\begin{corollary}\label{sga3:XXI:2.2.2}
+设 \(\alpha,\beta\in R\). 下列条件等价:
+\begin{enumerate}
+\item[\SGAInlineRefTarget{sga3:XXI:2.2.2:item:i}(i)] \((\alpha^\ast,\beta)=0\);
+\item[(i bis)] \((\beta^\ast,\alpha)=0\);
+\item[(ii)] \((p(\alpha),\beta)=0\);
+\item[(iii)] \(s_\alpha(\beta)=\beta\);
+\item[(iii bis)] \(s_\beta(\alpha)=\alpha\);
+\item[(iv)] \(s_\alpha(\beta^\ast)=\beta^\ast\);
+\item[(iv bis)] \(s_\beta(\alpha^\ast)=\alpha^\ast\);
+\item[\SGAInlineRefTarget{sga3:XXI:2.2.2:item:v}(v)] \(s_\alpha\neq s_\beta\), 且 \(s_\alpha\) 与 \(s_\beta\) 交换.
+\end{enumerate}
+\end{corollary}
+\begin{proof}
+除了涉及 \SGARefLink{sga3:XXI:2.2.2:item:v}{(v)} 的等价关系外, 其余都是直接的. 先证明 \SGARefLink{sga3:XXI:2.2.2:item:i}{(i)} 与其等价条件 (i bis) 蕴含 \SGARefLink{sga3:XXI:2.2.2:item:v}{(v)}. 有
+\[
+ s_\alpha s_\beta(x)
+ =x-(\beta^\ast,x)\beta-(\alpha^\ast,x)\alpha
+   +(\beta^\ast,x)(\alpha^\ast,\beta)\alpha.
+\]
+若 \((\alpha^\ast,\beta)=0\), 则 \((\beta^\ast,\alpha)=0\), 所以
+\[
+ s_\alpha s_\beta(x)=s_\beta s_\alpha(x).
+\]
+
+反过来, 假设 \SGARefLink{sga3:XXI:2.2.2:item:v}{(v)}. 则
+\[
+ s_\alpha=s_\beta s_\alpha s_\beta
+          =s_{s_\beta(\alpha)}
+ \qquad\text{由推论~\ref{sga3:XXI:1.2.10}.}
+\]
+由命题~\ref{sga3:XXI:2.1.1}, 存在 \(k\in\mathbb Q^\ast\) 使
+\[
+ \alpha=k\,s_\beta(\alpha)
+       =k\alpha-k(\beta^\ast,\alpha)\beta.
+\]
+由于 \(s_\alpha\neq s_\beta\), 再由命题~\ref{sga3:XXI:2.1.1}, 根 \(\alpha\) 与 \(\beta\) 不成比例. 因而 \((\beta^\ast,\alpha)=0\).
+\end{proof}
+
+\begin{definition}\label{sga3:XXI:2.2.3}
+满足推论~\ref{sga3:XXI:2.2.2} 中等价条件的两个根称为\emph{正交}.
+\end{definition}
+
+\begin{remark}\label{sga3:XXI:2.2.4}
+根 \(\alpha\) 与 \(\beta\) 正交当且仅当余根 \(\alpha^\ast\) 与 \(\beta^\ast\) 正交.
+\end{remark}
+
+\begin{lemma}\label{sga3:XXI:2.2.5}
+若 \(\alpha\) 与 \(\beta\) 是两个正交根, 则 \(\alpha+\beta\in R\) 当且仅当 \(\alpha-\beta\in R\).
+\end{lemma}
+\begin{proof}
+事实上,
+\[
+ s_\beta(\alpha+\beta)
+ =s_\beta(\alpha)+s_\beta(\beta)=\alpha-\beta.
+\]
+\end{proof}
+
+\begin{lemma}\label{sga3:XXI:2.2.6}
+设 \(\alpha\) 与 \(\beta\) 是两个不正交的根. 对余根 \(\gamma^\ast\), 定义 \(\ell(\gamma^\ast)\) 为 \(\ell\) 在 \(\cR^\ast\) 的根 \(\gamma^\ast\) 上的值. 则
+\begin{equation}
+ \ell(\alpha)\ell(\alpha^\ast)
+ =\ell(\beta)\ell(\beta^\ast).
+ \tag{12}\label{sga3:XXI:eq:12}
+\end{equation}
+\end{lemma}
+\begin{proof}
+将公式 \eqref{sga3:XXI:eq:11} 与对应于 \(\cR^\ast\) 的公式相乘, 并利用对每个 \(\gamma\in R\) 都有 \((\gamma^\ast)^\ast=\gamma\), 得
+\[
+ (\beta^\ast,\alpha)(\alpha^\ast,\beta)
+ \ell(\alpha)\ell(\alpha^\ast)
+ =
+ (\beta^\ast,\alpha)(\alpha^\ast,\beta)
+ \ell(\beta)\ell(\beta^\ast).
+\]
+由于两根不正交, 共同的整数因子非零, 可将其约去.
+\end{proof}
+
+\subsection{一般情形}
+\begin{proposition}\label{sga3:XXI:2.3.1}
+若 \(\alpha\) 与 \(\beta\) 是任意两个根, 则
+\begin{equation}
+ 0\leq(\alpha^\ast,\beta)(\beta^\ast,\alpha)\leq4.
+ \tag{13}\label{sga3:XXI:eq:13}
+\end{equation}
+若 \(\alpha\) 与 \(\beta\) 既不成比例也不正交, 则
+\[
+ 1\leq(\alpha^\ast,\beta)(\beta^\ast,\alpha)\leq3.
+\]
+\end{proposition}
+\begin{proof}
+有
+\[
+ 4(p(\alpha),\beta)^2
+ =\ell(\alpha)\ell(\beta)
+   (\alpha^\ast,\beta)(\beta^\ast,\alpha).
+\]
+另一方面, 由推论~\ref{sga3:XXI:1.2.6}, 对称双线性型 \((p(x),y)\) 在 \(\VR(R)\) 上为正且非退化. 因而
+\[
+ (p(x),y)^2\leq\ell(x)\ell(y).
+\]
+\footnote{编者注: 等号成立当且仅当 \(x\) 与 \(y\) 成比例.}
+第一个不等式随之成立. 在不成比例且不正交的情形中, 该乘积是一个非零整数, 且不能等于 \(4\), 得到第二个不等式.
+\end{proof}
+
+\begin{corollary}\label{sga3:XXI:2.3.2}
+设 \(\alpha\) 与 \(\beta\) 是两个不正交的根. 若 \(\ell(\alpha)=\ell(\beta)\), 则存在 \(w\in W\) 使 \(w(\alpha)=\beta\).
+\end{corollary}
+\begin{proof}
+若 \(\alpha\) 与 \(\beta\) 成比例, 则它们的 \(\ell\) 值相等给出 \(\alpha=\beta\) 或 \(\alpha=-\beta\); 分别取 \(w=1\) 或 \(w=s_\alpha\) 即可. 若两者既不成比例也不正交, 公式 \eqref{sga3:XXI:eq:11} 及命题~\ref{sga3:XXI:2.3.1} 给出
+\[
+ (\beta^\ast,\alpha)=(\alpha^\ast,\beta)=\pm1.
+\]
+若两个整数都是 \(1\), 取 \(w=s_\beta s_\alpha s_\beta\). 若两个都是 \(-1\), 取 \(w=s_\alpha s_\beta\).
+\end{proof}
+
+\begin{corollary}\label{sga3:XXI:2.3.3}
+设 \(\alpha\) 与 \(\beta\) 为根. 若 \(\alpha\neq\beta\) 且 \((\beta^\ast,\alpha)>0\), 则 \(\alpha-\beta\) 为根. 相应地, 若 \(\alpha\neq-\beta\) 且 \((\beta^\ast,\alpha)<0\), 则 \(\alpha+\beta\) 为根.
+\end{corollary}
+\begin{proof}
+将 \(\beta\) 换为 \(-\beta\), 第二种情形即由第一种得到. 先设 \(\alpha\) 与 \(\beta\) 成比例, 且 \((\beta^\ast,\alpha)>0\). 则
+\[
+ \beta=\alpha,\qquad 2\beta=\alpha,\qquad\text{或}\qquad
+ \beta=2\alpha.
+\]
+第一种情形已排除. 其他两种情形分别有 \(\alpha-\beta=\beta\in R\) 及 \(\alpha-\beta=-\alpha\in R\).
+
+若 \(\alpha\) 与 \(\beta\) 不成比例, 则 \((\alpha^\ast,\beta)\) 与 \((\beta^\ast,\alpha)\) 为严格正整数, 其积至多为 \(3\). 因而其中一个等于 \(1\). 若 \((\beta^\ast,\alpha)=1\), 则
+\[
+ \alpha-\beta=s_\beta(\alpha)\in R;
+\]
+若 \((\alpha^\ast,\beta)=1\), 则
+\[
+ \alpha-\beta=-s_\alpha(\beta)\in R.
+\]
+\end{proof}
+
+\begin{lemma}\label{sga3:XXI:2.3.4}
+设 \(\alpha\) 与 \(\beta\) 是两个不成比例的根. 若 \(\beta-\alpha\) 不是根, 则对 \(k=-(\alpha^\ast,\beta)\), 有 \(\beta+k\alpha\in R\), 但对 \(k=-(\alpha^\ast,\beta)+1\), 此式不成立.
+\end{lemma}
+\begin{proof}
+事实上,
+\[
+ \beta-(\alpha^\ast,\beta)\alpha=s_\alpha(\beta)\in R,
+\]
+而
+\[
+ \beta+\bigl(-(\alpha^\ast,\beta)+1\bigr)\alpha
+ =s_\alpha(\beta-\alpha)\notin R.
+\]
+\end{proof}
+
+\begin{proposition}\label{sga3:XXI:2.3.5}
+设 \(\alpha\) 与 \(\beta\) 是两个不成比例的根. 满足 \(\beta+k\alpha\in R\) 的整数 \(k\) 所成的集合是区间 \([p,q]\), 其中 \(p\leq0\) 且 \(q\geq0\), 并且
+\[
+ p+q=-(\alpha^\ast,\beta).
+\]
+\end{proposition}
+\begin{proof}
+对第一个断言, 例如只须证明: 若 \(\beta+k\alpha\in R\), 其中 \(k>0\) 为整数, 则 \(\beta+(k-1)\alpha\in R\). 当 \(k=1\) 时这是显然的. 若 \(k\geq2\), 则
+\[
+ (\alpha^\ast,\beta+k\alpha)
+ =(\alpha^\ast,\beta)+2k\geq-3+4>0,
+\]
+断言由推论~\ref{sga3:XXI:2.3.3} 得到.
+
+设 \([p,q]\) 为所讨论的区间. 对 \(\beta+p\alpha\) 应用引理~\ref{sga3:XXI:2.3.4}, 得
+\[
+ q-p
+ =-(\alpha^\ast,\beta+p\alpha)
+ =-(\alpha^\ast,\beta)-2p.
+\]
+\footnote{编者注: 此等式中的 \(+2p\) 已更正为 \(-2p\).}
+所断言的公式随之成立.
+\end{proof}
+
+\begin{remark}\label{sga3:XXI:2.3.6}
+前述公式包含了引理~\ref{sga3:XXI:2.2.5} 和推论~\ref{sga3:XXI:2.3.3} 的定性陈述.
+\end{remark}
+
+\begin{complements}\label{sga3:XXI:2.3.7}
+\footnote{编者注: 这些补充由编者添加, 用于命题~\ref{sga3:XXI:3.1.5} 的证明.}
+由公式 \eqref{sga3:XXI:eq:9}、\eqref{sga3:XXI:eq:10} 及推论~\ref{sga3:XXI:1.2.6}, \(\VR(R)\) 上由
+\[
+ \langle x,y\rangle=(p(x),y)
+\]
+定义的双线性型对称且正定. 对每个 \(\alpha\in R\) 及 \(y\in\VR(R)\),
+\[
+ \langle\alpha,y\rangle
+ =\frac{\ell(\alpha)}2(\alpha^\ast,y),
+ \qquad
+ \ell(\alpha)=\langle\alpha,\alpha\rangle.
+\]
+因而推论~\ref{sga3:XXI:2.3.3} 给出以下推论.
+\medskip
+\noindent\textbf{推论.}\quad
+\SGARefTarget{sga3:XXI:2.3.7:corollary}
+设 \(\alpha\neq\beta\) 为 \(R\) 中的元素. 若 \(\alpha-\beta\notin R\), 则
+\[
+ \langle\alpha,\beta\rangle\leq0.
+\]
+\end{complements}
+
+\section{单根、正根}
+\subsection{单根系}
+\begin{lemma}\label{sga3:XXI:3.1.1}
+设 \(\alpha\) 及 \(\alpha_i\)、\(i=1,\ldots,n\) 为根, 且假设 \(\alpha\) 不同于各 \(\alpha_i\). 若
+\[
+ \alpha=\sum_{i=1}^n q_i\alpha_i,
+ \qquad q_i\in\Qp,
+\]
+则存在指标 \(i\) 使
+\[
+ q_i\neq0,\qquad(\alpha^\ast,\alpha_i)>0,\qquad
+ \alpha-\alpha_i\in R.
+\]
+\end{lemma}
+\begin{proof}
+写出
+\[
+ 2=(\alpha^\ast,\alpha)
+   =\sum_{i=1}^n q_i(\alpha^\ast,\alpha_i).
+\]
+这证明了前两个断言. 第三个随后由推论~\ref{sga3:XXI:2.3.3} 得到.
+\end{proof}

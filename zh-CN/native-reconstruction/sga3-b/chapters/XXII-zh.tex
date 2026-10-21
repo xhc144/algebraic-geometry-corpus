@@ -1,4 +1,4 @@
-% 译自已校验的原生源 ZIP；XXII.tex 源行 1--4347。
+% 译自已校验的原生源 ZIP；XXII.tex 源行 1--5327。
 \markboth{第二十二讲. 约化群}{第二十二讲. 约化群}
 \setcounter{footnote}{0}
 \SGARefTarget{sga3:xxii:chapter:xxii}\chapter*{第二十二讲\\约化群：分裂结构、子群与商群}
@@ -3009,4 +3009,687 @@
 \]
 得出。因此 \(\underline{\operatorname{Tor}}(H)\) 为 \(H^u\) 下的主齐性层，后者在 \(S\) 上仿射且光滑；断言立即得出。\footnote{编者注：由 SGA 1，VIII，2.1 和 EGA \(\mathrm{IV}_4\)，17.7.1。}
 \hfill\(\square\)
+
+\SGARefTarget{sga3:xxii:sec:5.7}
+\subsection*{\SGAInlineRefTarget{sga3:xxii:subsection:5-7}5.7. Bruhat 定理}
+\addcontentsline{toc}{subsection}{\SGARefLink{sga3:xxii:subsection:5-7}{5.7}. Bruhat 定理}
+
+\SGARefTarget{sga3:xxii:recall:5.7.1}
+\paragraph{回顾 \SGARefLink{sga3:xxii:recall:5.7.1}{5.7.1}.}
+\textit{设 \(k\) 为代数闭域，\(G\) 为约化 \(k\)-群，\(B\) 为 \(G\) 的 Borel 子群，\(T\) 为 \(B\) 的极大环面，且 \(N=\underline{\operatorname{Norm}}_G(T)\)。则}
+\[
+  G(k)=B(k)N(k)B(k);
+\]
+\textit{这就是 Bruhat 定理 \textup{（\emph{Bible}，\S13.4，定理 3 的推论 1）}。更确切地说，采用 \SGARefLink{sga3:xxii:par:3.6}{3.6} 的记号，当 \(w\) 遍历 \((N/T)(k)\) 时，集合}
+\[
+  B(k)N_w(k)B(k)=B^u(k)N_w(k)B^u(k)
+\]
+\textit{构成 \(G(k)\) 的一个分拆。若 \(B'\) 为 \(G\) 的另一个含有 \(T\) 的 Borel 子群，则集合 \(B'(k)N_w(k)B(k)\) 同样构成 \(G(k)\) 的分拆。事实上，若 \(y\in N(k)\) 满足 \(\operatorname{int}(y)B=B'\)，则}
+\[
+  yB(k)N_w(k)B(k)=B'(k)N_{yw}(k)B(k).
+\]
+
+\SGARefTarget{sga3:xxii:def:5.7.2}
+\paragraph{\SGARefLink{sga3:xxii:def:5.7.2}{定义 5.7.2}.}
+\textit{设 \((G,T,M,R)\) 为分裂 \(S\)-群，\(R_-\) 为 \(R\) 的正根系，\(B'=B_{R_-}\) 为其定义的 Borel 子群。对 \(w\in W\)，令 \textup{（参见 \SGARefLink{sga3:xxii:cor:5.6.5}{5.6.5}）}}
+\[
+  R_-^w=R_-\cap w(R_-),
+  \qquad
+  B'{}^u_w=U_{R_-^w}
+  =\prod_{\alpha\in R_-^w}U_\alpha.
+\]
+\textit{若 \(n_w\in\underline{\operatorname{Norm}}_G(T)(S)\) 是 \(w\) 的一个代表 \textup{（\SGARefLink{sga3:xxii:cor:3.8}{3.8}）}，也可以写作}
+\[
+  B'{}^u_w=B'{}^u\cap\operatorname{int}(n_w)B'{}^u.
+\]
+
+\SGARefTarget{sga3:xxii:lem:5.7.3}
+\paragraph{\SGARefLink{sga3:xxii:lem:5.7.3}{引理 5.7.3}.}
+\textit{设 \((G,T,M,R)\) 为分裂 \(S\)-群，\(R_+\) 为 \(R\) 的正根系，令 \(R_-=-R_+\)，以 \(B\) \textup{（或 \(B'\)）}表示 \(G\) 的由 \(R_+\) \textup{（或 \(R_-\)）} 定义的 Borel 子群。取 \(w\in W\)，以 \(N_w\)、\(B'{}^u_w\) 表示 \(G\) 的相应子概形 \textup{（\SGARefLink{sga3:xxii:cor:3.8}{3.8} 和 \SGARefLink{sga3:xxii:def:5.7.2}{5.7.2}）}。}
+\begin{enumerate}
+\item[\textup{\SGAInlineRefTarget{sga3:xxii:lem:5.7.3:item:i}(i)}]
+\textit{层 \(B'\cdot N_w\cdot B\) 是由 \(G\) 中乘法所诱导的态射}
+\[
+  B'\mathop{\times}\limits_S N_w
+  \mathop{\times}\limits_S B
+  \longrightarrow G
+\]
+\textit{的像；它可由 \(G\) 的子概形表示 \textup{（事实上，是开子概形 \(n_w\Omega_{R_+}\) 的一个闭子概形）}。}
+
+\item[\textup{\SGAInlineRefTarget{sga3:xxii:lem:5.7.3:item:ii}(ii)}]
+\textit{由 \(G\) 中乘法所诱导的态射}
+\[
+  B'{}^u_w\mathop{\times}\limits_S N_w
+  \mathop{\times}\limits_S B^u
+  \longrightarrow G,
+\]
+\textit{是一个浸入，其像为前述子概形。}
+\end{enumerate}
+
+\textit{证明。}
+先证明 \textup{\SGARefLink{sga3:xxii:lem:5.7.3:item:ii}{(ii)}} 中的态射为浸入。由定义，\(\operatorname{int}(n_w)^{-1}\) 诱导从 \(B'{}^u_w\) 到 \(B'{}^u\) 的闭浸入；因此态射
+\[
+  (u,b)\longmapsto n_w^{-1}u\,n_wb
+\]
+诱导闭浸入
+\[
+  B'{}^u_w\mathop{\times}\limits_S B
+  \longrightarrow \Omega_{R_+}.
+\]
+立即可知，\textup{\SGARefLink{sga3:xxii:lem:5.7.3:item:ii}{(ii)}} 中的态射诱导其源概形到开子概形 \(n_w\Omega_{R_+}\) 的闭浸入。为证明 \textup{\SGARefLink{sga3:xxii:lem:5.7.3:item:i}{(i)}}，只须证明
+\[
+  B'(S)N_w(S)B(S)
+  =
+  B'{}^u_w(S)N_w(S)B^u(S).
+\]
+而若 \(\alpha\in R\)，则 \(\operatorname{int}(n_w)U_\alpha(S)=U_{w(\alpha)}(S)\)。因此，若 \(w^{-1}(\alpha)\in R_+\)，则
+\[
+\begin{aligned}
+  U_\alpha(S)N_w(S)B(S)
+  &=U_\alpha(S)n_wT(S)B^u(S)\\
+  &=n_wU_{w^{-1}(\alpha)}(S)T(S)B^u(S)\\
+  &=n_wB(S)=N_w(S)B^u(S).
+\end{aligned}
+\]
+结合 \(R_-^w\) 的定义，立即得到所求断言。
+\hfill\(\square\)
+
+\SGARefTarget{sga3:xxii:thm:5.7.4}
+\paragraph{\SGARefLink{sga3:xxii:thm:5.7.4}{定理 5.7.4}.}
+\textit{设 \(S\) 为概形，\((G,T,M,R)\) 为分裂 \(S\)-群，\(B\) 为正根系 \(R_+\) 所定义的 Borel 子群，\(B'\) 为 \(R_-=-R_+\) 所定义的 Borel 子群。}
+\begin{enumerate}
+\item[\textup{(i)}]
+\textit{\textup{（Bruhat 定理）} 当 \(w\) 遍历 \(W\) 时，概形 \(B'{}^u_w\cdot N_w\cdot B\) 构成 \(G\) 的底集的分拆。}
+
+\item[\textup{\SGAInlineRefTarget{sga3:xxii:thm:5.7.4:item:ii}(ii)}]
+\textit{对每个 \(w\in W\)，设 \(n_w\) 是 \(w\) 在 \(\underline{\operatorname{Norm}}_G(T)(S)\) 中的一个代表 \textup{（\SGARefLink{sga3:xxii:cor:3.8}{3.8}）}。则开子概形}
+\[
+  n_w\Omega=n_wB'{}^u\cdot T\cdot B^u
+\]
+\textit{当 \(w\) 遍历 \(W\) 时，构成 \(G\) 的一个开覆盖。}
+\end{enumerate}
+
+\textit{证明。}
+两个断言均可在几何纤维上检验，此时它们由 \SGARefLink{sga3:xxii:recall:5.7.1}{5.7.1} 和 \SGARefLink{sga3:xxii:lem:5.7.3}{5.7.3} 得出。
+\hfill\(\square\)
+
+\SGARefTarget{sga3:xxii:rem:5.7.5}
+\paragraph{\SGARefLink{sga3:xxii:rem:5.7.5}{注 5.7.5}.}
+断言 \textup{\SGARefLink{sga3:xxii:lem:5.7.3:item:i}{(i)}} 蕴含：若 \(S\) 是域的谱，则 \(G(S)\) 为下述集合的不交并：
+\[
+  B'{}^u_w(S)\cdot T(S)\cdot B^u(S).
+\]
+对任意 \(S\)，即使它是局部概形或 Artin 概形，相应断言也显然不成立。不过，\textup{\SGARefLink{sga3:xxii:thm:5.7.4:item:ii}{(ii)}} 蕴含：若 \(S\) 为局部概形，则 \(G(S)\) 确为各 \(n_w\Omega(S)\) 的并。事实上：
+
+\SGARefTarget{sga3:xxii:cor:5.7.6}
+\paragraph{\SGARefLink{sga3:xxii:cor:5.7.6}{推论 5.7.6}.}
+\textit{设 \(\Delta\) 为局部概形 \(S\) 上分裂群 \(G\) 的一个单根系。}
+\begin{enumerate}
+\item[\textup{\SGAInlineRefTarget{sga3:xxii:cor:5.7.6:item:i}(i)}]
+\textit{则 \(G(S)\) 由 \(T(S)\) 及群 \(U_\alpha(S)\)（\(\alpha\in\Delta\cup-\Delta\)）生成。}
+
+\item[\textup{\SGAInlineRefTarget{sga3:xxii:cor:5.7.6:item:ii}(ii)}]
+\textit{若 \(G\) 单连通 \textup{（\SGARefLink{sga3:xxii:def:4.3.3}{4.3.3}）}，则仅用各群 \(U_\alpha(S)\)（\(\alpha\in\Delta\cup-\Delta\)）就已生成 \(G(S)\)。}
+\end{enumerate}
+
+\textit{证明。}
+设 \(H\) 为 \(G(S)\) 中由各 \(U_\alpha(S)\)（\(\alpha\in\Delta\cup-\Delta\)）所生成的子群。先注意，\(H\) 包含每个 \(s_\alpha\)（\(\alpha\in\Delta\)）在 \(\underline{\operatorname{Norm}}_G(T)(S)\) 中的代表 \textup{（\SGARefLink{sga3:xx:3.1}{第二十讲 3.1}）}，因而包含每个 \(w\in W\) 的代表 \(n_w\)。因每个 \(\alpha\in R\) 均可写成 \(w(\alpha_0)\)，其中 \(w\in W\)、\(\alpha_0\in\Delta\)，有
+\[
+  U_\alpha(S)
+  =
+  \operatorname{int}(n_w)U_{\alpha_0}(S)
+  \subset H.
+\]
+因此，由 \(H\) 和 \(T(S)\) 生成的子群含有 \(\Omega(S)\)，再由前述讨论，它便是整个 \(G(S)\)。
+
+现在假设 \(G\) 单连通。来证明 \(H\supset T(S)\)。由 \SGARefLink{sga3:xx:2.7}{第二十讲 2.7}，对每个 \(\alpha\in\Delta\)，\(H\) 包含 \(\alpha^*(\mathbb G_m(S))\)，只须再应用 \SGARefLink{sga3:xxii:rem:4.3.8}{4.3.8}。
+\hfill\(\square\)
+
+\SGARefTarget{sga3:xxii:rem:5.7.6.1}
+\paragraph{\SGARefLink{sga3:xxii:rem:5.7.6.1}{注 5.7.6.1}.}
+对每个 \(\alpha\in\Delta\)，不必同时取 \(U_\alpha(S)\) 和 \(U_{-\alpha}(S)\)，只须取 \(U_\alpha(S)\) 及反射 \(s_\alpha\) 的一个代表 \(w_\alpha\)，或者取 \(U_\alpha(S)\) 及 \(U_{-\alpha}^{\times}\) 的一个截面，等等。
+
+\SGARefTarget{sga3:xxii:cor:5.7.7}
+\paragraph{\SGARefLink{sga3:xxii:cor:5.7.7}{推论 5.7.7}.}
+\textit{假设 \(G\) 的半单秩为 \(1\)，并选取 \(u_\alpha\in U_\alpha^\times(S)\)。则 \(\Omega\) 和 \(u_\alpha\Omega\) 构成 \(G\) 的一个开覆盖。}
+
+\textit{证明。}
+若 \(u_{-\alpha}\) 是 \(U_{-\alpha}\) 的与 \(u_\alpha\) 配对的截面 \textup{（参见 \SGARefLink{sga3:xxii:not:1.3}{1.3}）}，则 \SGARefLink{sga3:xxii:thm:5.7.4}{5.7.4} \textup{\SGARefLink{sga3:xxii:thm:5.7.4:item:ii}{(ii)}} 给出
+\[
+  G
+  =
+  \Omega\cup
+  u_{-\alpha}^{-1}u_\alpha u_{-\alpha}^{-1}\Omega,
+\]
+从而
+\[
+  G
+  =
+  u_{-\alpha}G
+  =
+  u_{-\alpha}\Omega\cup
+  u_\alpha u_{-\alpha}^{-1}\Omega
+  =
+  \Omega\cup u_\alpha\Omega.
+\]
+\hfill\(\square\)
+
+\SGARefTarget{sga3:xxii:cor:5.7.8}
+\paragraph{\SGARefLink{sga3:xxii:cor:5.7.8}{推论 5.7.8}.}
+\textit{设 \(S\) 为概形，\(G\) 为约化 \(S\)-群。则 \(G\) 在 \(S\) 上于 \SGARefLink{sga3:viii:definition:6:1}{第八讲 6.1} 的意义下本质自由。}\footnote{编者注：亦见第 VI\textsubscript{B} 讲的增补 \SGARefLink{def:sga3-VIB-6.2.1}{6.2.1}--\SGARefLink{sga3:xxii:par:6.2.6}{6.2.6} 和 \SGARefLink{thm:sga3-VIB-6.5.2}{6.5.2}--\SGARefLink{cor:sga3-VIB-6.5.5}{6.5.5}。}
+
+\textit{证明。}
+此断言为 fpqc 拓扑下的局部性质，故可以假设 \(G\) 分裂。它于是具有由同构于
+\[
+  \mathbb G_{a,S}^{N}\mathop{\times}\limits_S\mathbb G_{m,S}^{n},
+\]
+的开子概形组成的开覆盖，而这些开子概形都是本质自由的。
+\hfill\(\square\)
+
+\SGARefTarget{sga3:xxii:lem:5.7.9}
+\paragraph{\SGARefLink{sga3:xxii:lem:5.7.9}{引理 5.7.9}.}
+\textit{在 \SGARefLink{sga3:xxii:thm:5.7.4}{5.7.4} 的假设下，设 \(\alpha\) 为 \(R_+\) 的单根，\(u_\alpha\in U_\alpha^\times(S)\)。对每个 \(v\in U_{-\alpha}(S)\)，有}
+\[
+  \Omega\cdot v\subset\Omega\cup u_\alpha\cdot\Omega.
+\]
+
+\textit{证明。}
+我们比较的是 \(G\) 的两个开子概形，因此只须在 \(S\) 为域 \(k\) 的谱时比较。于是须证明
+\[
+  \Omega(k)v\subset\Omega(k)\cup u_\alpha\Omega(k).
+\]
+而
+\[
+\begin{aligned}
+  \Omega(k)v
+  &=B'{}^u(k)T(k)B^u(k)v\\
+  &=U_{-\widehat\alpha}(k)U_{-\alpha}(k)T(k)
+    U_\alpha(k)U_{\widehat\alpha}(k)v\\
+  &\subset
+    U_{-\widehat\alpha}(k)Z_\alpha(k)
+    U_{\widehat\alpha}(k)v.
+\end{aligned}
+\]
+这里使用了 \SGARefLink{sga3:xxii:cor:5.6.8}{5.6.8} 的分解。对群 \(Z_\alpha\) 应用 \SGARefLink{sga3:xxii:cor:5.6.8}{5.6.8} \textup{\SGARefLink{sga3:xxii:cor:5.6.8:item:iii}{(iii)}}，再应用 \SGARefLink{sga3:xxii:cor:5.7.7}{5.7.7}，得到
+\[
+\begin{aligned}
+  \Omega(k)v
+  &\subset
+    U_{-\widehat\alpha}(k)Z_\alpha(k)v
+    U_{\widehat\alpha}(k)\\
+  &\subset
+    U_{-\widehat\alpha}(k)Z_\alpha(k)
+    U_{\widehat\alpha}(k)\\
+  &\subset
+    U_{-\widehat\alpha}(k)U_{-\alpha}(k)T(k)
+    U_\alpha(k)U_{\widehat\alpha}(k)\\
+  &\qquad\cup
+    U_{-\widehat\alpha}(k)u_\alpha U_{-\alpha}(k)T(k)
+    U_\alpha(k)U_{\widehat\alpha}(k).
+\end{aligned}
+\]
+再应用一次 \SGARefLink{sga3:xxii:cor:5.6.8}{5.6.8} \textup{\SGARefLink{sga3:xxii:cor:5.6.8:item:iii}{(iii)}}，将 \(R_+\) 换成 \(R_-\)，即得结果。
+\hfill\(\square\)
+
+\SGARefTarget{sga3:xxii:prop:5.7.10}
+\paragraph{\SGARefLink{sga3:xxii:prop:5.7.10}{命题 5.7.10}.}
+\textit{在 \SGARefLink{sga3:xxii:thm:5.7.4}{5.7.4} 的假设下，对每个单根 \(\alpha\)，选取元素 \(u_\alpha\in U_\alpha^\times(S)\)。设 \(U_1\) 为 \(B^u(S)\) 中由各 \(u_\alpha\) 生成的子幺半群。则各开子概形 \(u\Omega\)（\(u\in U_1\)）构成 \(G\) 的开覆盖。}
+
+\textit{证明。}
+又可以假设 \(S\) 为域 \(k\) 的谱。由 \SGARefLink{sga3:xxii:cor:5.7.6}{5.7.6}，只须证明
+\[
+  \bigcup_{u\in U_1}u\Omega(k)
+\]
+对于每个单根 \(\alpha\)，在右乘 \(T(k)\)、\(U_\alpha(k)\) 及 \(U_{-\alpha}(k)\) 的运算下稳定。前两种情形是平凡的，最后一种情形由引理得出。
+\hfill\(\square\)
+
+\SGARefTarget{sga3:xxii:rem:5.7.11}
+\paragraph{\SGARefLink{sga3:xxii:rem:5.7.11}{注 5.7.11}.}
+指出 \SGARefLink{sga3:xxii:def:5.7.2}{5.7.2} 的一个特殊情形。若 \(w=s_\alpha\) 为关于单根 \(\alpha\) 的反射，则
+\[
+  R_-\cap s_\alpha(R_-)=R_-\setminus\{-\alpha\}
+\]
+\textup{（\SGARefLink{sga3:XXI:3.3.1}{第二十一讲 3.3.1}）}，因此采用 \SGARefLink{sga3:xxii:cor:5.6.8}{5.6.8} 的记号，
+\[
+  B'{}^u_{s_\alpha}=U_{-\widehat\alpha}.
+\]
+
+\SGARefTarget{sga3:xxii:rem:5.7.12}
+\paragraph{\SGARefLink{sga3:xxii:rem:5.7.12}{注 5.7.12}.}
+事实上，\SGARefLink{sga3:xxii:prop:5.7.10}{5.7.10} 的证明立即给出下述陈述。在 \SGARefLink{sga3:xxii:prop:5.7.10}{5.7.10} 的假设下，设 \(\Gamma\) 为 \(G(S)\) 的子幺半群。各开子概形 \(g\Omega\)（\(g\in\Gamma\)）构成 \(G\) 的开覆盖，当且仅当对每个 \(s\in S\) 及每个单根 \(\alpha\)，有
+\[
+  (u_\alpha)_{\bar{s}}B'{}^u(\bar{s})
+  \subset
+  \Gamma\cdot B'{}^u(\bar{s})\cdot T(\bar{s})\cdot B^u(\bar{s}).
+\]
+
+\SGARefTarget{sga3:xxii:rem:5.7.13}
+\paragraph{\SGARefLink{sga3:xxii:rem:5.7.13}{注 5.7.13}.}
+由 \SGARefLink{sga3:xxii:cor:5.5.5}{5.5.5} \textup{\SGARefLink{sga3:xxii:cor:5.5.5:item:iii}{(iii)}}，按 \SGARefLink{sga3:xxii:recall:5.7.1}{5.7.1} 同样论证，立即得到 \SGARefLink{sga3:xxii:thm:5.7.4}{5.7.4} 的如下变式。设 \((G,T,M,R)\) 为分裂 \(S\)-群，\(B\) 和 \(B'\) 为 \(G\) 中含有 \(T\) 的两个 Borel 子群。对每个 \(w\in W\)，层 \(B'\cdot N_w\cdot B\) 可由 \(G\) 的子概形表示；这些子概形在 \(w\) 遍历 \(W\) 时构成 \(G\) 的底集的分拆。还可以给出 \SGARefLink{sga3:xxii:lem:5.7.3}{5.7.3} \textup{\SGARefLink{sga3:xxii:lem:5.7.3:item:ii}{(ii)}} 的对应陈述：须令
+\[
+  B'{}^u_w
+  =
+  B'{}^u\cap\operatorname{int}(n_w)\widetilde B{}^u,
+\]
+其中 \(\widetilde B\) 为 \(B\) 关于 \(T\) 的对向 Borel 子群 \textup{（参见 \SGARefLink{sga3:xxii:prop:5.9.2}{5.9.2}）}。
+
+\SGARefTarget{sga3:xxii:prop:5.7.14}
+\paragraph{\SGARefLink{sga3:xxii:prop:5.7.14}{命题 5.7.14}.}
+\textit{设 \(S\) 为概形，\(G\) 为约化 \(S\)-群，以}
+\[
+  \operatorname{Ad}\colon
+  G\longrightarrow GL_{\mathcal O_S}(\mathfrak g)
+\]
+\textit{表示其伴随表示。则}
+\[
+  \operatorname{Ker}(\operatorname{Ad})
+  =
+  \underline{\operatorname{Centr}}(G).
+\]
+\textit{等价地，\(\operatorname{Ad}\) 通过取商所诱导的典范同态}
+\[
+  \overline{\operatorname{Ad}}\colon
+  G/\underline{\operatorname{Centr}}(G)
+  =
+  \operatorname{ad}(G)
+  \longrightarrow
+  GL_{\mathcal O_S}(\mathfrak g),
+\]
+\textit{是单态射。}\footnote{编者注：由 \SGARefLink{sga3:xvi:corollary:1:5}{第十六讲 1.5}\textup{\SGARefLink{sga3:xxii:lem:5.6.2:item:a}{(a)}}，它甚至是闭浸入。}
+
+\textit{证明。}
+可以假设 \(G\) 分裂。在 \(\Gamma_0(R)\) 上选取与其群结构相容的一个全序，设 \(R_+\) 为正根所成的集合。由 \SGARefLink{sga3:xxii:thm:5.7.4}{5.7.4} \textup{\SGARefLink{sga3:xxii:thm:5.7.4:item:ii}{(ii)}} 及 \SGARefLink{sga3:xxii:cor:4.1.6}{4.1.6}，只须证明：若 \(n_w\) 代表 \(w\in W\)，若
+\[
+  u\in U(S),\qquad t\in T(S),\qquad v\in U_-(S),
+\]
+且 \(\operatorname{Ad}(n_wvtu)=\operatorname{id}\)，则 \(w=e\)、\(v=e\) 及 \(u=e\)。对每个 \(m\in R\cup\{0\}\)，令
+\[
+  \mathfrak g^{>m}
+  =
+  \bigoplus_{n>m}\mathfrak g^n,
+  \qquad
+  \mathfrak g^{<m}
+  =
+  \bigoplus_{n<m}\mathfrak g^n.
+\]
+取 \(X\in\Gamma(S,\mathfrak g^m)\)，写作
+\[
+  \operatorname{Ad}(tu)X
+  =
+  \operatorname{Ad}(v^{-1}n_w^{-1})X.
+\]
+而
+\[
+\begin{aligned}
+  \operatorname{Ad}(t)\operatorname{Ad}(u)X-m(t)X
+  &\in\Gamma(S,\mathfrak g^{>m}),\\
+  \operatorname{Ad}(v^{-1}n_w^{-1})X
+  -\operatorname{Ad}(n_w^{-1})X
+  &\in\Gamma\bigl(S,\mathfrak g^{<w^{-1}(m)}\bigr).
+\end{aligned}
+\]
+若 \(w\ne e\)，则存在 \(\alpha\in R\)，使 \(w^{-1}(\alpha)<\alpha\)。取 \(m=\alpha\)，便得矛盾，因为
+\[
+\begin{aligned}
+  \operatorname{Ad}(tu)X
+  &\in
+  \Gamma\bigl(S,\mathfrak g^\alpha+\mathfrak g^{>\alpha}\bigr)
+  \cap
+  \Gamma\bigl(
+    S,
+    \mathfrak g^{w^{-1}(\alpha)}
+    +\mathfrak g^{<w^{-1}(\alpha)}
+  \bigr)\\
+  &=0.
+\end{aligned}
+\]
+所以 \(w=e\)，且可以选取 \(n_w=e\)。于是有
+\[
+  \operatorname{Ad}(v^{-1})X-X
+  \in
+  \Gamma\bigl(
+    S,
+    \mathfrak g^{<m}\cap
+    (\mathfrak g^m+\mathfrak g^{>m})
+  \bigr)
+  =0,
+\]
+从而对每个 \(X\in\Gamma(S,\mathfrak g^m)\)，有 \(\operatorname{Ad}(v)X=X\)，因此 \(\operatorname{Ad}(v)=\operatorname{id}\)。同理，\(\operatorname{Ad}(u)=\operatorname{id}\)。现在结论由 \SGARefLink{sga3:xxii:remark:5-6-2-bis}{5.6.2 bis} 得出。
+\hfill\(\square\)
+
+\SGARefTarget{sga3:xxii:section:5.8}
+\section*{5.8. 与约化群相联系的概形}
+\addcontentsline{toc}{section}{\SGARefLink{sga3:xxii:section:5.8}{5.8}. 与约化群相联系的概形}
+
+\SGARefTarget{sga3:xxii:thm:5.8.1}
+\paragraph{\SGARefLink{sga3:xxii:thm:5.8.1}{定理 5.8.1}.}
+\textit{设 \(S\) 为概形，\(G\) 为约化 \(S\)-群。设 \(\mathcal H\) 为 \(G\) 的 \textup{(R)} 型子群函子：对每个 \(S'\to S\)，\(\mathcal H(S')\) 为 \(G_{S'}\) 的 \textup{(R)} 型子群所成的集合 \textup{（参见 \SGARefLink{sga3:xxii:def:5.2.1}{5.2.1}）}。则 \(\mathcal H\) 可由一个在 \(S\) 上有限表现的拟射影 \(S\)-概形表示。}
+
+\textit{证明。}\footnote{编者注：以下展开了原文的论证。}
+设
+\[
+  G'=G/\underline{\operatorname{Centr}}(G)
+\]
+为 \(G\) 的伴随群 \textup{（\SGARefLink{sga3:xxii:def:4.3.6}{4.3.6}）}，\(u\colon G\to G'\) 为商态射。由 \SGARefLink{sga3:xii:7.12}{第十二讲 7.12}，映射
+\[
+  H'\longmapsto u^{-1}(H')
+\]
+是从 \(G'\) 的 \textup{(R)} 型子群全体到 \(G\) 的 \textup{(R)} 型子群全体的双射；任意基变换后仍然如此。因此，将 \(G\) 换为 \(G'\)，可以假设 \(G\) 为伴随群。考虑将每个 \textup{(R)} 型子群映至其 Lie 代数的态射
+\[
+  u\colon
+  \mathcal H
+  \longrightarrow
+  \underline{\operatorname{Grass}}(\mathfrak g)
+\]
+\textup{（此 Lie 代数是 \(\mathfrak g\) 中局部为直和因子的子模\footnote{编者注：参见 \SGARefLink{sga3:ii:corollary:4-11-8}{第二讲 4.11.8}。}）}。
+由 \SGARefLink{sga3:xxii:cor:5.3.3}{5.3.3}，\(u\) 为单态射。只须证明它可由有限表现的浸入表示；换言之，只须证明下述断言。对每个 \(S_1\to S\)，给定 \(\mathfrak g_{S_1}\) 中局部为直和因子的子模 \(\mathfrak h\)，使 \(\mathfrak h_{S'}\) 为 \(G_{S'}\) 的某个 \textup{(R)} 型子群的 Lie 代数的态射 \(S'\to S_1\)，恰为那些经由某个在 \(S_1\) 上有限表现的子概形 \(\Sigma\) 分解的态射。将 \(S_1\) 换为 \(S\)，归结到 \(S_1=S\)，还可以假设 \(S\) 仿射；于是存在仿射 Noether 概形 \(S_0\)，使 \(G\) \textup{（或 \(\mathfrak h\)）}由某个伴随约化 \(S_0\)-群 \(G_0\) \textup{（或 \(\mathfrak g_0=\operatorname{Lie}(G_0/S_0)\) 中局部为直和因子的子模 \(\mathfrak h_0\)）}经基变换得到。只须证明存在具有所求性质的 \(S_0\) 的子概形 \(\Sigma_0\)，因为此时 \(\Sigma=\Sigma_0\times_{S_0}S\)。因此，将 \(S\) 换为 \(S_0\)，可以假设 \(S\) 仿射且 Noether \textup{（注意此时 \(S\) 的每个子概形都在 \(S\) 上有限表现）}。最后，将 \(S\) 换为充分小的开子概形后，可以假设 \(\mathfrak g\) 为秩 \(n\) 的自由模，且 \(\mathfrak h\) 为一个秩 \(r\) 的自由直和因子。
+
+首先须表述 \(\mathfrak h_{S'}\) 为 \(\mathfrak g_{S'}\) 的 Lie 子代数这一条件，即由 Lie 括号所诱导的态射
+\[
+  \varphi\colon
+  \mathfrak h\otimes\mathfrak h
+  \xrightarrow{[\, ,\,]}
+  \mathfrak g
+\]
+经由 \(\mathfrak h\) 分解。若 \((e_1,\ldots,e_n)\) 是 \(\mathfrak g\) 的一组基，且 \((e_1,\ldots,e_r)\) 是 \(\mathfrak h\) 的一组基，则 \(\varphi\) 由 \(\mathcal O_S\) 的截面 \(a_k^{ij}\) 给出，其中 \(i,j=1,\ldots,r\)、\(k=1,\ldots,n\)。上述条件等价于要求 \(S'\to S\) 经由 \(S\) 中如下方程定义的闭子概形分解：
+\[
+  a_k^{ij}=0
+  \qquad
+  \text{for \(k=r+1,\ldots,n\) and \(i,j=1,\ldots,r\).}
+\]
+我们将 \(S\) 换为此闭子概形。
+
+此时，由 \SGARefLink{sga3:xxii:recall:5.3.0}{5.3.0}，
+\[
+  N=\underline{\operatorname{Norm}}_G(\mathfrak h)
+\]
+是 \(G\) 的一个在 \(G\) 上有限表现的闭群子概形。现在须表述下述条件 \textup{（参见 \SGARefLink{sga3:xxii:prop:5.3.1}{5.3.1}）}：\(N_{S'}\) 在单位截面的每一点处光滑，相对维数为 \(r=\operatorname{rank}(\mathfrak h)\)，且 \(\mathfrak h_{S'}\) 到 \(\operatorname{Lie}(N_{S'}/S')\) 的包含为等式。
+
+因 \(N\) 在 \(S\) 上仿射\footnote{编者注：原文接着指出，若以 \(\mathfrak n_{N/G}\) 表示余法层 \(\mathcal N_{N/G}\) 在单位截面 \(S\to N\) 下的逆像，则
+\(\mathfrak n_{N_{S'}/G_{S'}}\to
+\omega^1_{G_{S'}/S'}\)
+普遍单射这一条件等价于 \(S'\to S\) 经由 \(S\) 的某个开子概形分解。我们未能证明这一点，因为 \(\mathcal N_{N/G}\) 的形成与基变换不相容，故以 O. Gabber 所建议的如下论证替换了该论证。}
+\textup{（因其在 \(G\) 中闭）}，单位截面 \(\varepsilon\colon S\to N\) 为闭浸入。因此 \(\varepsilon(S)\) 由 \(\mathcal A(N)\) 的一个拟凝聚理想 \(\mathcal J\) 定义。注意
+\[
+  \mathfrak n_{S/N}=\mathcal J/\mathcal J^2
+  \simeq \varepsilon^*(\Omega^1_{N/S}),
+\]
+故其形成与任意基变换 \(S'\to S\) 相容。由 \(\mathrm{EGA}\ \mathrm{IV}_4\)，17.12.1 中的等价关系 \textup{\((c')\Longleftrightarrow(a)\)} \textup{（应用于 \(f\colon N\to S\) 和 \(j=\varepsilon\)）}，态射 \(N_{S'}\to S'\) 在 \(\varepsilon(S')\) 的每一点处光滑、相对维数为 \(r\)，当且仅当
+\[
+  \mathfrak n_{S'/N'}
+  =
+  \mathfrak n_{S/N}\otimes_{\mathcal O_S}\mathcal O_{S'}
+\]
+局部自由且秩为 \(r\)，而且对每个 \(n\geq1\)，态射
+\[
+  \varphi_n(S')\colon
+  \operatorname{Sym}^n(\mathfrak n_{S'/N'})
+  \longrightarrow
+  \mathcal J_{S'}^n/\mathcal J_{S'}^{n+1}
+\]
+为同构。令
+\[
+  K_n(S')=\ker\varphi_n(S').
+\]
+由 \(\mathrm{TDTE}\) I，引理 3.6，\(\mathfrak n_{S/N}\otimes\mathcal O_{S'}\) 局部自由且秩为 \(r\)，当且仅当 \(S'\to S\) 经由 \(S\) 的某个子概形 \(Z\) 分解。将 \(S\) 换为 \(Z\)，因此可以假设 \(\mathfrak n_{S/N}=\mathcal J/\mathcal J^2\) 局部自由且秩为 \(r\)。此时对每个 \(S'\to S\)，
+\[
+  (\mathcal J^2/\mathcal J^3)\otimes\mathcal O_{S'}
+  =
+  \mathcal J_{S'}^2/\mathcal J_{S'}^3,
+\]
+从而
+\[
+  K_2(S')=K_2(S)\otimes\mathcal O_{S'}.
+\]
+可得 \(\varphi_2(S')\) 为同构，当且仅当 \(S'\to S\) 经由 \(S\) 的闭子概形 \(S_2\) 分解，该闭子概形由如下映射的像所生成的理想定义：
+\[
+  \operatorname{Sym}^2(\mathfrak n_{S/N})^*
+  \otimes K_2(S)
+  \longrightarrow
+  \mathcal O_S.
+\]
+在 \(S_2\) 上，模 \(\mathcal J^2/\mathcal J^3\) 此时同构于 \(\operatorname{Sym}^2(\mathfrak n_{S/N})\)，因而局部自由；同样的论证表明，\(\varphi_3(S')\) 为同构当且仅当 \(S'\to S\) 经由 \(S\) 的某个闭子概形 \(S_3\) 分解，依此类推。这样得到，\(N_{S'}\to S'\) 在 \(\varepsilon(S')\) 的每一点处光滑、相对维数为 \(r\)，当且仅当 \(S'\to S\) 经由闭子概形
+\[
+  Z=\bigcap_n S_n.
+\]
+分解。但此时对每个 \(S'\to Z\)，\(\operatorname{Lie}(N_{S'}/S')\) 是 \(\mathfrak g_{S'}\) 中局部秩为 \(r\) 的直和因子，故包含关系
+\[
+  \mathfrak h_{S'}
+  \subset
+  \operatorname{Lie}(N_{S'}/S')
+\]
+为等式。于是令 \(H=N^0\)。
+
+将 \(S\) 换为 \(Z\)，只须再表述下述条件：\(H_{s'}\) 在每个点 \(s'\in S'\) 处与 \(G_{s'}\) 有相同的约化秩；等价地，在 \(S'\) 于 \(S\) 中的集合意义下的像内的每个点 \(s\) 处，\(H_s\) 与 \(G_s\) 具有相同约化秩。此条件定义了 \(S\) 的一个开子集 \textup{（\SGARefLink{sga3:xix:remark:6-2}{第十九讲 6.2}）}。
+\hfill\(\square\)
+
+\SGARefTarget{sga3:xxii:rem:after-5.8.1}
+\paragraph{注.}
+一般而言，概形 \(\mathcal H\) 在 \(S\) 上并不光滑。不过，若 \(6\) 在 \(S\) 上可逆，或者存在素数 \(p\) 使 \(p\cdot1_S=0\) \textup{（即 \(S\) 的特征为 \(p>0\)）}，它便光滑。
+
+\SGARefTarget{sga3:xxii:cor:5.8.2}
+\paragraph{\SGARefLink{sga3:xxii:cor:5.8.2}{推论 5.8.2}.}
+\textit{设 \(S\) 为概形，\(G\) 为约化 \(S\)-群，\(H\) 为 \(G\) 的 \textup{(R)} 型子群。由 \SGARefLink{sga3:xxii:cor:5.3.10}{5.3.10}，已知 \(\underline{\operatorname{Norm}}_G(H)\) 可由 \(G\) 的一个在 \(S\) 上光滑的闭群子概形表示。则商层}
+\[
+  G/\underline{\operatorname{Norm}}_G(H)
+\]
+\textit{可由一个在 \(S\) 上光滑且有限表现的拟射影 \(S\)-概形表示 \textup{（事实上，是 \(\mathcal H\) 的一个开子概形）}。}
+
+事实上，考虑由如下集合意义下的公式定义的态射
+\[
+  f\colon G\longrightarrow\mathcal H
+\]
+\[
+  f(g)=\operatorname{int}(g)H.
+\]
+由 \SGARefLink{sga3:xxii:thm:5.3.9}{5.3.9}，此态射光滑且有限表现，因而为开态射。令 \(V=f(G)\)，赋予其在 \(\mathcal H\) 中的开子概形结构。态射 \(f\colon G\to V\) 为覆盖态射，核为 \(\underline{\operatorname{Norm}}_G(H)\)。因此 \(G/\underline{\operatorname{Norm}}_G(H)\) 可由 \(V\) 表示 \textup{（参见 \SGARefLink{sga3:iv:lemma:4:6:5}{第四讲 4.6.5}）}。
+\hfill\(\square\)
+
+\SGARefTarget{sga3:xxii:cor:5.8.3}
+\paragraph{\SGARefLink{sga3:xxii:cor:5.8.3}{推论 5.8.3}.}
+{\itshape 设 \(S\) 为概形，\(G\) 为约化 \(S\)-群。考虑如下定义的函子 \(\underline{\operatorname{Tor}}(G)\)、\(\underline{\operatorname{Bor}}(G)\) 及 \(\underline{\operatorname{Kil}}(G)\)：
+\[
+\begin{aligned}
+  \underline{\operatorname{Tor}}(G)(S')
+  &=
+  \{\text{maximal tori of \(G_{S'}\)}\},\\
+  \underline{\operatorname{Bor}}(G)(S')
+  &=
+  \{\text{Borel subgroups of \(G_{S'}\)}\},\\
+  \underline{\operatorname{Kil}}(G)(S')
+  &=
+  \{\text{Killing pairs of \(G_{S'}\)
+  \textup{ (cf.\ 5.3.13)}}\}.
+\end{aligned}
+\]
+\textup{\SGARefLink{sga3:xxii:cor:5.7.6:item:i}{(i)}}
+\(\underline{\operatorname{Tor}}(G)\)、\(\underline{\operatorname{Bor}}(G)\) 和 \(\underline{\operatorname{Kil}}(G)\) 可由具有几何整纤维、光滑且有限表现的 \(S\)-概形表示，并分别在 \(S\) 上仿射、射影和仿射。
+
+\textup{\SGARefLink{sga3:xxii:cor:5.7.6:item:ii}{(ii)}}
+典范态射
+\[
+  \underline{\operatorname{Kil}}(G)
+  \longrightarrow
+  \underline{\operatorname{Tor}}(G)
+\]
+\textup{（或 \(\underline{\operatorname{Kil}}(G)\to
+\underline{\operatorname{Bor}}(G)\)）}
+有限平展且满射 \textup{（或仿射、光滑且满射）}。
+
+\SGAInlineRefTarget{sga3:xxii:cor:5.8.3:item:iii}\textup{\SGARefLink{sga3:xxii:prop:5.6.9:item:iii}{(iii)}}
+设 \(T\) 为 \(G\) 的极大环面 \textup{（或设 \(B\) 为 \(G\) 的 Borel 子群，或设 \(B\supset T\) 为 \(G\) 的 Killing 对）}。态射
+\[
+\begin{aligned}
+  G&\longrightarrow\underline{\operatorname{Tor}}(G),
+  &\text{resp.}\quad
+  G&\longrightarrow\underline{\operatorname{Bor}}(G),
+  &\text{resp.}\quad
+  G&\longrightarrow\underline{\operatorname{Kil}}(G),
+\end{aligned}
+\]
+定义为
+\[
+\begin{aligned}
+  g&\longmapsto\operatorname{int}(g)T,
+  &\text{respectively}\quad
+  g&\longmapsto\operatorname{int}(g)B,
+  &\text{respectively}\quad
+  g&\longmapsto
+  \bigl(\operatorname{int}(g)B,\operatorname{int}(g)T\bigr)
+\end{aligned}
+\]}
+
+{\itshape 诱导同构}
+\[
+\begin{aligned}
+  G/\underline{\operatorname{Norm}}_G(T)
+  &\xrightarrow{\;\sim\;}
+  \underline{\operatorname{Tor}}(G),
+  &\text{resp.}\quad
+  G/B
+  &\xrightarrow{\;\sim\;}
+  \underline{\operatorname{Bor}}(G),
+  &\text{resp.}\quad
+  G/T
+  &\xrightarrow{\;\sim\;}
+  \underline{\operatorname{Kil}}(G).
+\end{aligned}
+\]
+
+首先，由极大环面 \textup{（或 Borel 子群，或 Killing 对）} 的共轭定理及等式
+\[
+  \underline{\operatorname{Norm}}_G(B)=B,
+  \qquad
+  \underline{\operatorname{Norm}}_G(B)
+  \cap
+  \underline{\operatorname{Norm}}_G(T)=T,
+\]
+得到 \textup{\SGARefLink{sga3:xxii:prop:5.6.9:item:iii}{(iii)}}，所有这些结果均已在上文建立 \textup{（\SGARefLink{sga3:xxii:rem:5.1.2}{5.1.2}、\SGARefLink{sga3:xxii:cor:5.3.12}{5.3.12}、\SGARefLink{sga3:xxii:cor:5.3.14}{5.3.14}、\SGARefLink{sga3:xxii:prop:5.6.1}{5.6.1}）}。
+
+由此首先可知，典范态射
+\[
+  \underline{\operatorname{Tor}}(G)\longrightarrow\mathcal H,
+  \qquad
+  \underline{\operatorname{Bor}}(G)\longrightarrow\mathcal H
+\]
+在平展拓扑下局部可由开浸入表示 \textup{（\SGARefLink{sga3:xxii:cor:5.8.2}{5.8.2} 以及 \SGARefLink{sga3:xxii:rem:5.1.2}{5.1.2}，或 \SGARefLink{sga3:xxii:cor:5.5.5}{5.5.5}）}。因此通过下降，\(\underline{\operatorname{Tor}}(G)\) 和 \(\underline{\operatorname{Bor}}(G)\) 可由 \(\mathcal H\) 的开子概形表示。同样，\(\underline{\operatorname{Kil}}(G)\) 在平展拓扑下局部可由底概形上的仿射概形表示 \textup{（\SGARefLink{sga3:ix:proposition:2:3}{第九讲 2.3}）}，因而通过仿射概形的下降，可由仿射 \(S\)-概形表示。\footnote{编者注：参见 SGA 1，VIII，2.1。}
+
+\textup{\SGARefLink{sga3:xxii:cor:5.7.6:item:ii}{(ii)}} 的各断言立即由 \SGARefLink{sga3:xxii:cor:5.5.5}{5.5.5}\textup{\SGARefLink{sga3:xxii:cor:5.5.5:item:ii}{(ii)}} 及 \SGARefLink{sga3:xxii:cor:5.6.13}{5.6.13} 得出。于是已经知道，\(\underline{\operatorname{Tor}}(G)\) 在 \(S\) 上仿射 \textup{（EGA II，6.7.1）}。只须再证明 \(\underline{\operatorname{Bor}}(G)\) 在 \(S\) 上射影。已知它拟射影，所以只须证明固有性；\footnote{编者注：可以假设 \(S\) 仿射，且因 \(\underline{\operatorname{Bor}}(G)\) 由 \textup{(i)} 在 \(S\) 上有限表现，归结到 \(S\) 为 Noether 概形的情形；于是满足 EGA IV\(_3\)，15.7.10 的假设。}但其纤维连通，故由 EGA IV\(_3\)，15.7.10，只须在几何纤维上证明此事。若 \(S\) 为代数闭域的谱，则由 \textup{\SGARefLink{sga3:xxii:prop:5.6.9:item:iii}{(iii)}}，有 \(\underline{\operatorname{Bor}}(G)=G/B\)，而结论由 \emph{Bible}，\S6.4，定理 4 \textup{（或 [Ch05]，\S6.5，定理 5）} 得出。
+\hfill\(\square\)
+
+\SGARefTarget{sga3:xxii:rem:5.8.4}
+\paragraph{\SGARefLink{sga3:xxii:rem:5.8.4}{注 5.8.4}.}
+在 \SGARefLink{sga3:xxii:cor:5.8.3}{5.8.3} 的假设下，设 \(Q\) 为 \(G\) 的乘法型中心子群。显然的态射给出同构
+\[
+  \underline{\operatorname{Tor}}(G)
+  \simeq
+  \underline{\operatorname{Tor}}(G/Q),
+  \qquad
+  \underline{\operatorname{Bor}}(G)
+  \simeq
+  \underline{\operatorname{Bor}}(G/Q),
+  \qquad
+  \underline{\operatorname{Kil}}(G)
+  \simeq
+  \underline{\operatorname{Kil}}(G/Q).
+\]
+
+\SGARefTarget{sga3:xxii:cor:5.8.5}
+\paragraph{\SGARefLink{sga3:xxii:cor:5.8.5}{推论 5.8.5}.}
+{\itshape 设 \(S\) 为概形，\(G\) 为约化 \(S\)-群，\(P\) 为 \(G\) 的群子概形，在 \(S\) 上光滑且有限表现。下述条件等价：
+
+\textup{\SGARefLink{sga3:xxii:cor:5.7.6:item:i}{(i)}} 对每个 \(s\in S\)，\(P_{\bar s}\) 是 \(G_{\bar s}\) 的抛物子群 \textup{（即商概形 \(G_{\bar s}/P_{\bar s}\) 在 \(\bar s\) 上固有；等价地，\(P_{\bar s}\) 含有 \(G_{\bar s}\) 的 Borel 子群；参见 \emph{Bible}，\S6.4，定理 4，或 [Ch05]，\S6.5，定理 5）}。
+
+\textup{\SGARefLink{sga3:xxii:cor:5.7.6:item:ii}{(ii)}} 商层 \(G/P\) 可由在 \(S\) 上光滑且射影的 \(S\)-概形表示。
+
+此外，在这些条件下，\(P\) 在 \(G\) 中闭，具有连通纤维，且
+\[
+  P=\underline{\operatorname{Norm}}_G(P).
+\]}
+
+显然 \textup{\SGARefLink{sga3:xxii:cor:5.7.6:item:ii}{(ii)}} 蕴含 \textup{\SGARefLink{sga3:xxii:cor:5.7.6:item:i}{(i)}}。若 \textup{\SGARefLink{sga3:xxii:cor:5.7.6:item:i}{(i)}} 成立，则
+\[
+  P(\bar s)
+  =
+  \underline{\operatorname{Norm}}_{G(\bar s)}(P_{\bar s})
+\]
+且 \(P_{\bar s}\) 连通 \textup{（第一个断言参见 \emph{Bible}，\S12.3，\SGARefLink{sga3:xxii:section:4}{引理 4}；\footnote{编者注：我们补充了下面的细节。}第二个断言}
+\textup{由第一个断言得出，因为 \(P'=P_{\bar s}^{0}\) 是 \(G_{\bar s}\) 的一个被 \(P_{\bar s}\) 正规化的抛物子群，从而 \(P'(\bar s)=P(\bar s)\)，因此 \(P'=P_{\bar s}\)）}。于是 \(P\) 为 \textup{(R)} 型，且
+\[
+  P=\underline{\operatorname{Norm}}_G(P),
+\]
+所以 \(P\) 在 \(G\) 中闭。由 \SGARefLink{sga3:xxii:cor:5.8.2}{5.8.2}，
+\[
+  G/P=G/\underline{\operatorname{Norm}}_G(P)
+\]
+可由拟射影 \(S\)-概形表示。其纤维连通且固有，因此由 \SGARefLink{sga3:xxii:cor:5.8.3}{5.8.3} 的论证，它射影。
+\hfill\(\square\)
+
+\SGARefTarget{sga3:xxii:rem:5.8.6}
+\paragraph{\SGARefLink{sga3:xxii:rem:5.8.6}{注 5.8.6}.}
+陈述 \SGARefLink{sga3:xxii:thm:5.8.1}{5.8.1}、\SGARefLink{sga3:xxii:cor:5.8.2}{5.8.2} 和 \SGARefLink{sga3:xxii:cor:5.8.5}{5.8.5} 对 \textup{(RA)} 型 \(S\)-群，或满足 \SGARefLink{sga3:xxii:prop:5.1.8}{5.1.8} 的 \textup{(RR)} 型 \(S\)-群也成立。\footnote{编者注：事实上，\SGARefLink{sga3:xxii:thm:5.8.1}{5.8.1} 的证明只用了 \SGARefLink{sga3:xxii:cor:5.3.3}{5.3.3} \textup{（它对 \textup{(RA)} 型群成立）}及 \SGARefLink{sga3:xix:remark:6:2}{第十九讲 6.2}，而由 \SGARefLink{sga3:xii:1.7:item:b}{第十二讲 1.7(b)}，后者对 \textup{(RR)} 型群也成立。}
+
+\SGARefTarget{sga3:xxii:rem:5.8.7}
+\paragraph{\SGARefLink{sga3:xxii:rem:5.8.7}{注 5.8.7}.}
+通过 \(G\) 的内自同构，有典范作用
+\[
+\begin{aligned}
+  G&\longrightarrow
+  \underline{\operatorname{Aut}}_S
+  \bigl(\underline{\operatorname{Tor}}(G)\bigr),
+  &
+  G&\longrightarrow
+  \underline{\operatorname{Aut}}_S
+  \bigl(\underline{\operatorname{Bor}}(G)\bigr),
+  &
+  G&\longrightarrow
+  \underline{\operatorname{Aut}}_S
+  \bigl(\underline{\operatorname{Kil}}(G)\bigr),
+\end{aligned}
+\]
+它们在 \SGARefLink{sga3:xxii:cor:5.8.3}{5.8.3}\textup{\SGARefLink{sga3:xxii:prop:5.6.9:item:iii}{(iii)}} 的情形下等同于典范作用
+\[
+\begin{aligned}
+  G&\longrightarrow
+  \underline{\operatorname{Aut}}_S
+  \bigl(G/\underline{\operatorname{Norm}}_G(T)\bigr),
+  &
+  G&\longrightarrow
+  \underline{\operatorname{Aut}}_S(G/B),
+  &
+  G&\longrightarrow
+  \underline{\operatorname{Aut}}_S(G/T).
+\end{aligned}
+\]
+特别地，得到
+\[
+\begin{aligned}
+  \ker\!\left(
+    G\longrightarrow
+    \underline{\operatorname{Aut}}_S
+    \bigl(\underline{\operatorname{Tor}}(G)\bigr)
+  \right)
+  &=
+  \ker\!\left(
+    G\longrightarrow
+    \underline{\operatorname{Aut}}_S
+    \bigl(\underline{\operatorname{Bor}}(G)\bigr)
+  \right)\\
+  &=
+  \ker\!\left(
+    G\longrightarrow
+    \underline{\operatorname{Aut}}_S
+    \bigl(\underline{\operatorname{Kil}}(G)\bigr)
+  \right)\\
+  &=
+  \underline{\operatorname{Centr}}(G).
+\end{aligned}
+\]
+事实上，显然 \(\underline{\operatorname{Centr}}(G)\) 在这三个概形上均平凡地作用。反之，
+\[
+  G\longrightarrow
+  \underline{\operatorname{Aut}}_S
+  \bigl(\underline{\operatorname{Kil}}(G)\bigr)
+\]
+的核是 \SGARefLink{sga3:xxii:cor:4.1.7}{4.1.7} 意义下“\(G\) 的极大环面的交”，因而等于 \(\underline{\operatorname{Centr}}(G)\) \textup{（同上）}。对于 \(\underline{\operatorname{Bor}}(G)\)，注意到“\(G\) 的 Borel 子群的交”也是“其极大环面的交” \textup{（见下一节）}。对于 \(\underline{\operatorname{Tor}}(G)\)，则应用 \SGARefLink{sga3:xii:4.11}{第十二讲 4.11}。
 
