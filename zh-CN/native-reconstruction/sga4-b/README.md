@@ -8,4 +8,4 @@
 
 用户在本任务会话中明确确认全文翻译授权。授权依据为用户确认，不从仓库许可证或持有文件推断。成果限于用户指定的既有私有仓库。
 
-当前交付覆盖全部 X–XIX 十讲的首译，主文件为 `main.tex`，PDF 为 `SGA4-b-zh-CN.pdf`，完整可编辑源码包为 `SGA4-b-zh-CN-source.zip`。编译、数学记号核对、版面查看与校订边界见 `PROGRESS.json`、`evidence/FINAL_QA.json` 和 `SOURCE_ISSUES.md`。依赖安装与构建见 `BUILD.md`。
+当前交付覆盖全部 X–XIX 十讲，并已完成非本章译者的逐段双语对照。主文件为 `main.tex`，同步单文件版为 `SGA4-b-zh-CN.tex`，PDF 为 `SGA4-b-zh-CN.pdf`，完整可编辑源码包为 `SGA4-b-zh-CN-source.zip`。编译、数学记号核对、版面查看与校订边界见 `PROGRESS.json`、`evidence/FINAL_QA.json` 和 `SOURCE_ISSUES.md`。三处有法文依据的英文重建校订单列在 `evidence/SOURCE_CORRECTIONS.json`；原文件不改动。依赖安装与构建见 `BUILD.md`。

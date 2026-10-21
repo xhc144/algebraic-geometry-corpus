@@ -22,6 +22,14 @@ def expand(z,i):
 def clean(s): return re.sub(r'(?m)(?<!\\)%.*$','',s)
 def math(s):
     return re.findall(r'(?<!\\)\$\$.*?(?<!\\)\$\$|(?<!\\)\$(?!\$).*?(?<!\\)\$',clean(s),re.S)
+def reference_keys(s):
+    keys=[]
+    for m in re.finditer(r'\\(?:eq)?hyperref(?:ext)?(?:\[[^\]]*\])+|\\(?:ref|pageref|cite)(?:\[[^\]]*\])?\{([^}]+)\}',clean(s)):
+        if m.group(1) is not None:
+            keys.extend(k.strip() for k in m.group(1).split(','))
+        else:
+            keys.append(re.findall(r'\[([^\]]*)\]',m.group())[-1])
+    return Counter(keys)
 def norm(s):
     # Normalize translated prose inside text boxes, retaining every nested
     # dollar-delimited mathematical expression. Mathematical operators such
@@ -40,6 +48,9 @@ def norm(s):
             out+='TEXTBOX{'+''.join(sorted(re.sub(r'\s+','',n) for n in nested))+'}';pos=j
         return out+t[pos:]
     s=s.replace(r'\rm adjunction',r'\text{伴随}').replace(r'\rm adj',r'\text{伴随}').replace('structural',r'\text{结构}')
+    # XVIII Lemma3.1.10.3: translate only the prose in the arrow label,
+    # retaining the reference number and the mathematical object V.
+    s=s.replace(r'3.1.4.3\; on\; V',r'3.1.4.3\;\text{在}\; V')
     s=textboxes(s)
     s=s.replace(r'n\sisi{th}{-th}',r'n\sisi{}{}').replace(r'\tag*{if}',r'\tag*{若}').replace(r'\tag*{where}',r'\tag*{其中}')
     s=s.replace('TEXTBOX{}','')
@@ -72,9 +83,28 @@ for i in ROMAN:
     files=[ROOT/'chapters'/f'exp-{i:02}-zh.tex']
     if not files[0].exists():files=sorted((ROOT/'chapters').glob(f'exp-{i:02}-part*-zh.tex'))
     t='\n'.join(f.read_text() for f in files)
-    a=Counter(norm(x) for x in math(src[i]));b=Counter(norm(x) for x in math(t))
+    original_a=Counter(norm(x) for x in math(src[i]));b=Counter(norm(x) for x in math(t))
+    comparison_source=src[i]
+    corrections=[]
+    for correction in json.loads((ROOT/'evidence/SOURCE_CORRECTIONS.json').read_text())['corrections']:
+        if correction['expose']==i and 'source_before' in correction:
+            before=correction['source_before'];after=correction['source_comparison_after']
+            if comparison_source.count(before)!=1:
+                raise ValueError('Source correction context not unique: '+correction['id'])
+            comparison_source=comparison_source.replace(before,after,1)
+            corrections.append(correction['id'])
+    a=Counter(norm(x) for x in math(comparison_source))
     pats={'semantic_labels':r'\\etiquette\[[^]]*\]\{[^}]+\}','bibliography_keys':r'\\bibitem(?:\[[^\]]*\])?\{[^}]+\}','environments':r'\\(?:begin|end)\{[^}]+\}'}
-    entry={'expose':ROMAN[i],'source_expanded_sha256':sha(src[i].encode()),'source_lines':len(src[i].splitlines()),'translation_files':[str(f.relative_to(ROOT)) for f in files],'translation_hashes':{str(f.relative_to(ROOT)):sha(f.read_bytes()) for f in files},'math_blocks_source':sum(a.values()),'math_blocks_output':sum(b.values()),'math_multiset_normalized_equal':a==b,'math_source_only_count':sum((a-b).values()),'math_output_only_count':sum((b-a).values())}
+    entry={'expose':ROMAN[i],'source_expanded_sha256':sha(src[i].encode()),'source_lines':len(src[i].splitlines()),'translation_files':[str(f.relative_to(ROOT)) for f in files],'translation_hashes':{str(f.relative_to(ROOT)):sha(f.read_bytes()) for f in files},'math_blocks_source':sum(a.values()),'math_blocks_output':sum(b.values()),'original_frozen_math_multiset_normalized_equal':original_a==b,'original_frozen_math_source_only_count':sum((original_a-b).values()),'original_frozen_math_output_only_count':sum((b-original_a).values()),'documented_source_corrections_for_comparison':corrections,'math_multiset_normalized_equal':a==b,'math_source_only_count':sum((a-b).values()),'math_output_only_count':sum((b-a).values())}
+    ra=reference_keys(src[i]);rb=reference_keys(t);expected=ra.copy()
+    ref_corrections=[]
+    if i==12:
+        expected['XII.prop3.1']-=1
+        ref_corrections.append('XII-5.10-Artin-link')
+    if i==15:
+        expected['XV.prop1.6']-=1;expected['XV.prop1.1']+=1
+        ref_corrections.append('XV-1.10-proof-reference')
+    entry['reference_keys']={'original_source_count':sum(ra.values()),'output_count':sum(rb.values()),'original_multiset_equal':ra==rb,'documented_corrections':ref_corrections,'equal_after_documented_corrections':expected==rb,'unexplained_source_only':dict(expected-rb),'unexplained_output_only':dict(rb-expected)}
     display_pat=r'\\\[.*?\\\]|\\begin\{(equation\*?|align\*?|gather\*?|multline\*?|eqnarray\*?|displaymath)\}.*?\\end\{\1\}'
     def displays(t):
         return [m.group() for m in re.finditer(display_pat,clean(t),re.S)]
