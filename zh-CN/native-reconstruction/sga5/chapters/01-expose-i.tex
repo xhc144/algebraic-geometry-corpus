@@ -1,0 +1,1832 @@
+% Source: 06_SGA5_EN_COMPLETE_PUBLISHED_CONTENT_READER.tex, Exposé I, lines 323--2150.
+\clearpage
+
+\phantomsection\addcontentsline{toc}{section}{报告 I --- 对偶化复形}
+\begin{center}
+{\Large \textbf{SGA 5 --- 报告 I}}\\[0.4em]
+{\large \textbf{对偶化复形}}\\[0.3em]
+A.~Grothendieck\\
+(L.~Illusie 整理)
+\end{center}
+
+\section*{引言}
+
+本报告研究平展上同调中的双对偶定理. 这里以及 SGA~A~XVIII (SGA~A = SGA~4) 中针对预概形的平展拓扑与可构造挠层所建立的理论, 在形式上与 HARTSHORNE~[H] 中针对 Zariski 拓扑与凝聚层所建立的理论十分相似: 后者在很大程度上是前者的范本. 不过, 对于“连续”系数, 对偶化复形的存在性没有困难; 对于“离散”系数, 其证明却要微妙得多, 而且似乎必须实质性地使用奇点消解. 但也请参看 Deligne 的双对偶定理 (SGA~$4^{1/2}$, 有限性定理~4.3.).
+
+第~1 节给出对偶化复形的定义及其形式性质, 特别是将对偶化函子解释为“函子的交换者”.
+
+第~2 节证明, 在连通的局部 Noether 预概形上, 对偶化复形在相差一个次数平移及与可逆层作张量积的意义下唯一确定.
+
+第~3 节讨论本报告的核心定理 (3.4.1.), 它断言: 在“良好”的正则预概形 $X$ 上, 例如在特征为零的卓越 Noether 正则预概形上\footnote{一旦对这些预概形建立 Hironaka 意义下的奇点消解及“纯性定理”, 最后这一限制就不再需要.}, 复形 $(\Z/n\Z)_X$ 是对偶化复形.
+
+第~4 节给出这一理论对局部对偶定理的应用. 后一定理表明: 设“良好”的预概形 $X$ 有一个剩余域可分闭的闭点 $x$, 则对于可构造层 $F$, 在 $\underline{\H}^i(F')_x$ 与 $\underline{\H}^{-i}_x(F)$ 之间有一个完美配对; 这里 $F'$ 是 $F$ 的对偶, 即 $F' = \R\,\underline{\Hom}(F,K_X)$, 而 $K_X$ 是一个对偶化复形.
+
+最后, 第~5 节直接证明: 在维数为~1 的正则预概形上, 复形 $(\Z/n\Z)_X$ 是对偶化复形 ($n$ 与各剩余特征互素).
+
+\section{对偶化复形的定义与形式性质}
+
+固定系数环 $A = \Z/n\Z$. 若 $X$ 是预概形, 以 $A_X$ 表示 $X_{\mathrm{\acute{e}t}}$ 上取值为 $A$ 的常值层, 以 $\D(X)$ 表示 $A_X$-模范畴的导出范畴. 另一方面, 以 $\D_c(X)$ 表示 $\D(X)$ 的全三角子范畴, 其对象为满足如下条件的复形 $F$: 对每个 $i$, $\H^i(F)$ 都是可构造 $A_X$-模. 置 $\D_c^{*}(X) = \D^{*}(X) \cap \D_c(X)$, 其中 $* = \varnothing$, $+$, $-$ 或 $b$.
+
+\subsection*{定义 1.1}
+若 $A_X$-模 $I$ 满足: 对每个\emph{可构造} $A_X$-模 $F$ 及每个 $i > 0$, 都有
+\[
+\underline{\Ext}^i(F,I) = 0,
+\]
+则称 $I$ 为\emph{拟内射}的.
+
+\subsection*{注 1.2}
+\begin{enumerate}[label=\alph*)]
+\item 与“连续”系数的情形不同 (参见~[H]~II.7.17), 拟内射层一般不是内射层. 例如, 设 $X = \Spec(\R)$, $A = \Z/2\Z$: 层 $A_X$ 是拟内射的, 但不是内射的, 甚至不具有有限内射维数, 因为 $\H^{*}(X; A_X) = \H^{*}(\Z/2\Z; \Z/2\Z)$ 是以一个次数为~1 的元素为生成元的多项式代数.
+
+\item 设 $I$ 为拟内射 $A_X$-模. 对可构造 $F$ 成立的关系 $\underline{\Ext}^i(F,I) = 0$ ($i > 0$), 一般并不对所有 $F$ 成立. 事实上, 取 $A = \F_{\ell}$. 设 $k$ 为域, $\ol{k}$ 为 $k$ 的一个可分闭包, $f : \ol{x} = \Spec(\ol{k}) \to X = \Spec(k)$ 为典范态射, 并假定对每个连通平展覆盖 $X' \to X$, 都存在连通平展覆盖 $X'' \to X'$, 使得 $[X'':X']$ 被 $\ell$ 整除 (例如可取 $k = \Q$). 考虑由伴随箭头 $\varepsilon$ 定义的正合列
+\[
+(*) \qquad 0 \longrightarrow A_X \xrightarrow{\;\varepsilon\;} f_{*}f^{*}A_X \longrightarrow F \longrightarrow 0.
+\]
+由假设, $(*)$ 定义的 $\underline{\Ext}^1(F,A_X)$ 的截面在任何平展于 $X$ 的 $U$ 上都不为零; 因而 $\underline{\Ext}^1(F,A_X)_{\ol{x}} \neq\allowbreak  0$. 但容易验证 $A_X$ 是拟内射的.
+\end{enumerate}
+
+\subsection*{命题 1.3 {\normalfont (参见~[H]~1.7.6)}}
+设 $X$ 为预概形, $N \in \Z$. 对 $K \in \ob \D^{+}(X)$, 以下条件等价:
+\begin{enumerate}[label=(\roman*)]
+\item $K$ 在 $\D(X)$ 中同构于一个有界复形 $I$, 对每个 $i$, $I^i$ 为拟内射的, 且当 $i > N$ 时为零;
+\item 对每个满足 $\H^i(F) = 0$ ($i < 0$) 的 $F \in \ob \D_c^{b}(X)$, 当 $i > N$ 时有 $\underline{\Ext}^i(F,K) = 0$;
+\item 对每个可构造 $A_X$-模 $F$, 当 $i > N$ 时有 $\underline{\Ext}^i(F,K) = 0$.
+\end{enumerate}
+
+\emph{证明.} $(i) \Rightarrow (ii)$. 设 $F \in \ob \D_c^{b}(X)$ 满足 $\H^i(F) = 0$ ($i < 0$), 而 $I \in \ob \D^{+}(X)$ 有界, 每个 $I^i$ 都是拟内射的, 且当 $i > N$ 时为零; 证明当 $i > N$ 时 $\underline{\Ext}^i(F,I) = 0$. 对满足 $I^i \neq 0$ 的指标 $i$ 的个数作归纳, 经分步归约, 只需考虑 $N = 0$ 且 $I$ 集中于次数 $0$ 的情形. 此时有双正则谱序列
+\[
+\E_2^{pq} = \underline{\Ext}^p(\H^{-q}(F),I) \Rightarrow \underline{\Ext}^{*}(F,I).
+\]
+由于 $I$ 是拟内射的, 对 $p > 0$ 及任意 $q$ 都有 $\E_2^{pq} = 0$, 从而有 $\E_2^{0i} = \underline{\Hom}(\H^{-i}(F),I) \xrightarrow{\sim} \underline{\Ext}^i(F,I)$, 由此得到结论.
+
+$(ii) \Rightarrow (iii)$ 显然.
+
+$(iii) \Rightarrow (i)$ 可以假设 $K$ 下有界且各分量内射. 将假设用于 $F = A_X$, 得到当 $i > N$ 时 $\H^i(K) = 0$. 因此可用一个同构的有界复形 $K'$ 代替 $K$, 使得当 $i < N$ 时 $K'^i$ 内射, 当 $i > N$ 时 $K'^i$ 为零. 随即看出 $K'^N$ 是拟内射的, 证明完毕.
+
+\subsection*{注 1.3.1}
+整理者不知道: 若将条件 (ii) 中的假设“$F \in \ob \D_c^{b}(X)$”改为“$F \in \ob \D_c^{+}(X)$”, (1.3) 是否仍成立.
+
+\subsection*{定义 1.4}
+$K$ 的\emph{拟内射维数}, 记作 $\dim.\,q.\,inj(K)$, 是满足 (1.3) 中各等价条件的整数 $N$ 在 $\overline{\R}$ 中的下确界.
+
+若 $K$ 具有有限拟内射维数, 则函子 $\R\,\underline{\Hom}(\quad,K) : \D(X) \to \D(X)$ 诱导函子 $\D_c^{b}(X) \to \D^{b}(X)$.
+
+下面将看到: 若 $X$ 在域 $k$ 上光滑, 维数为 $d$, 且 $n$ 与 $k$ 的特征互素, 则 $\dim.\,q.\,inj(A_X) = 2d$.
+
+(1.2~a)) 的例子表明, 有限拟内射维数的复形未必具有有限内射维数. 不过有:
+
+\subsection*{命题 1.5}
+设 $X$ 为局部 Noether 预概形, $K \in \ob \D^{+}(X)$. 假设存在整数 $N$, 使 $\cd_{\mathbf{n}}(X) \leqslant N$, 其中 $\mathbf{n}$ 为 $n$ 的素因子集合 (采用 SGAA~X~1 的记号). 则对 $N' \in \Z$, 有
+\[
+\dim.\,q.\,inj(K) \leqslant N' \quad \Longrightarrow \quad \dim.\,inj(K) \leqslant N + N'.
+\]
+
+证明将使用下述引理.
+
+\subsection*{引理 1.5.1}
+设 $C$ 为满足 (AB5) 且有一族生成元 $(U_i)_{i \in I}$ 的 Abel 范畴. 设 $K \in \ob \D^{+}(C)$, $N \in \Z$. 以下条件等价:
+\begin{enumerate}[label=(\roman*)]
+\item $\dim.\,inj(K) \leqslant N$;
+\item 对每个 $i \in I$ 及 $U_i$ 的每个商对象 $F$, 有
+\[
+\Ext^n(F,K) = 0 \qquad \text{当 } n > N.
+\]
+\end{enumerate}
+
+\emph{证明.} 只需证明 $(ii) \Rightarrow (i)$. 由一个熟知的论证 (例如参见 [H]~1.7.6), 只需证明: 若 $K' \in \ob(C)$ 满足, 只要 $F$ 为某个 $U_i$ 的商对象就有 $\Ext^1(F,K') = 0$, 则 $K'$ 为内射对象. 换言之, 要证明: 若从任一 $U_i$ 的任一子对象 $V$ 到 $K'$ 的态射均可延拓至 $U_i$, 则 $K'$ 为内射对象. 这直接由 (Tohoku) 第~136 页引理~1 的证明得出.
+
+\emph{(1.5) 的证明.} 假设 $\dim.\,q.\,inj(K) \leqslant N'$, 证明 $\dim.\,inj(K) \leqslant N + N'$. $A_X$-模范畴有生成元族 $A_{U,X}$, 其中 $U$ 在 $X$ 上平展且为有限型; 因此由 (1.5.1), 只需证明: 当 $F$ 为某个这样的 $A_{U,X}$ 的商对象, 因而可构造 (SGAA~IX~2.9) 时, 对 $i > N + N'$ 有 $\Ext^i(X; F,K) = 0$. 考虑谱序列
+\[
+\E_2^{pq} = \H^p(X; \underline{\Ext}^q(F,K)) \Rightarrow \Ext^{*}(X; F,K).
+\]
+假设 $\cd_{\mathbf{n}}(X) \leqslant N$ (分别地, $\dim.\,q.\,inj(K) \leqslant N'$) 意味着当 $p > N$ (分别地, $q > N'$) 时 $\E_2^{pq} = 0$. 所以当 $p+q > N+N'$ 时 $\E_2^{pq} = 0$, 得到结论.
+
+\subsection*{注 1.5.2}
+若 $X$ 是可分闭域 $k$ 上的有限型预概形, 维数为 $d$, 且 $n$ 与 $\charac(k)$ 互素, 则 (1.5) 的假设成立, 可取 $N = 2d$ (SGAA~X~4).
+
+\subsection*{命题 1.6}
+设 $f : X \to Y$ 为 Noether 预概形的分离拟有限态射, $K \in \ob \D^{+}(Y)$. 则对 $N \in \Z$, 有
+\[
+\dim.\,q.\,inj(K) \leqslant N \quad \Longrightarrow \quad \dim.\,q.\,inj(\R^{!}f(K)) \leqslant N.
+\]
+
+\emph{证明.} 由“主定理” (EGA~IV~8.12.6), 存在分解 $f = uf'$, 其中 $f'$ 为开浸入, $u$ 为有限态射. 有 $\R^{!}f = \R^{!}f' \, \R^{!}u$, 因而只需分别考察开浸入与有限态射的情形. 若 $f$ 为开浸入, 断言显然 (因为此时 $X$ 上每个可构造层都由 $Y$ 上的可构造层诱导). 于是设 $f$ 为有限态射, $F$ 为可构造 $A_X$-模. 有对偶同构 (SGAA~XVIII~3.1.9.6)
+\[
+f_{*}\underline{\Ext}^i(F, \R^{!}f(K)) \xrightarrow{\sim} \underline{\Ext}^i(f_{*}F, K).
+\]
+由于 $f_{*}(F)$ 可构造 (SGAA~IX~2.14), 若 $\dim.\,q.\,inj(K) \leqslant N$, 则当 $i > N$ 时 $f_{*}\underline{\Ext}^i(F, \R^{!}f(K)) = 0$, 从而当 $i > N$ 时 $\underline{\Ext}^i(F, \R^{!}f(K)) = 0$ (SGAA~VIII~5.5), 正是所需结论.
+
+现在设 $X$ 为预概形, $K \in \ob \D^{+}(X)$. 以 $\underline{D}_K$ 表示函子 $\R\,\underline{\Hom}(\quad, K)$. 对 $F \in \ob \D(X)$, 将定义函子性同态 $F \to \underline{D}_K \underline{D}_K F$ (参见~[H]~V.1.2). 以下构造更一般地适用于赋环拓扑斯. 首先可假设 $K$ 由内射对象组成, 从而可“去掉 $\R$”. 恒等态射 $\underline{\Hom}(F,K) \to \underline{\Hom}(F,K)$ 由 Cartan 熟用的公式定义同态 $F \otimes \underline{\Hom}(F,K) \to K$; 再次应用此公式, 得到同态 $F \to \underline{\Hom}(\underline{\Hom}(F,K), K)$, 这就是所述同态, 称之为典范同态. 若典范同态 $F \to \underline{D}_K \underline{D}_K F$ 为同构, 则称二元组 $(F,K)$ 为\emph{双对偶化}的, 或称其\emph{满足双对偶}, 也称 $F$ 相对于 $K$ 是\emph{自反}的.
+
+\textbf{\uline{从现在起, 除非明确另作说明, 所考察的所有预概形均假定为局部 Noether 的.}}
+
+\subsection*{定义 1.7}
+设 $X$ 为预概形. 若复形 $K \in \ob \D^{+}(X)$ 满足下列条件, 则称其为\emph{对偶化复形}:
+\begin{enumerate}[label=(\roman*)]
+\item $K$ 具有有限拟内射维数;
+\item 对每个 $F \in \ob \D_c^{-}(X)$, 有 $\underline{D}_K(F) \in \ob \D_c^{+}(X)$;
+\item 每个 $F \in \ob \D_c^{b}(X)$ 均相对于 $K$ 自反.
+\end{enumerate}
+
+\subsection*{注 1.8}
+\begin{enumerate}[label=\alph*)]
+\item 作标准的分步归约 (截断 $F$ 并利用 $\D_c(X)$ 为三角范畴这一事实), 可见条件 (ii) 等价于
+
+(ii~bis): 对每个可构造 $A_X$-模 $F$ 及每个 $i \in \Z$, $\underline{\Ext}^i(F,K)$ 均可构造.
+
+\item 条件 (ii~bis) 蕴含 $K \in \ob \D_c^{+}(X)$. 与凝聚层的情形 (EGA~$0_{\mathrm{III}}$~12.3.3) 不同, 逆命题可能并非自动成立. 不过在“良好”的情形下它确实成立 (见第~3 节), 例如在 $X$ 上有奇点消解与纯性时 (特别地, 当 $X$ 为特征为零的卓越预概形时).
+
+\item 对 $F$ 作分步归约, 可见条件 (iii) 等价于 (iii~bis): 每个可构造 $A_X$-模 $F$ 均相对于 $K$ 自反.
+
+\item 若 $K \in \ob \D^{+}(X)$ 满足 (i) 与 (ii) (分别地, 为对偶化复形), 则函子 $\underline{D}_K$ 诱导函子 (分别地, 范畴等价) $(\D_c^{b}(X))^{\circ} \to \D_c^{b}(X)$.
+
+\item 若 $K \in \ob \D^{+}(X)$ 具有有限\emph{内射}维数 (参见~1.5.2) 且满足 (ii), 则对每个 $F \in \ob \D_c(X)$, 有 $\underline{D}_K(F) \in \D_c(X)$, 并且 $\underline{D}_K$ 诱导函子 $(\D_c^{+}(X))^{\circ} \to \D_c^{-}(X)$.
+
+若进一步 $K$ 为对偶化复形, 则每个 $F \in \ob \D_c(X)$ 均相对于 $K$ 自反, 且 $\underline{D}_K$ 诱导范畴等价
+\[
+(\D_c(X))^{\circ} \xrightarrow{\approx} \D_c(X), \quad (\D_c^{-}(X))^{\circ} \xrightarrow{\approx} \D_c^{+}(X), \quad (\D_c^{+}(X))^{\circ} \xrightarrow{\approx} \D_c^{-}(X).
+\]
+若去掉 $K$ 具有有限内射维数这一限制, 不知道此结论是否仍成立.
+\end{enumerate}
+
+现在讨论“交换公式”. 这里不再重述复形的 Tor 维数的概念, 见 SGA A, 第 XVII 报告, 4.1.9.\footnote{亦见 SGA 6, I, 5.} 只需记住以下一点: 若 $X$ 为预概形, $G\in\ob\D^-(X)$, 则对所有 $A_X$-模 $F$ 及 $i\geqslant N$ 有 $\underline{\Tor}_i(F,G)=0$ 这一条件, 等价于仅对可构造 $F$ 要求同一条件; 这是由 SGA A, 第 IX 报告, 2.9 及 $\otimes^{\mathrm L}$ 与滤过归纳极限交换得出的. 因而不必引入“拟 Tor 维数”的概念.
+
+\begin{statement}{引理 1.9, 参见 [H] II.4.3}
+\begin{enumerate}[label=\alph*)]
+\item 设 $X$ 为预概形, $F\in\ob\D_c(X)$, $G\in\ob\D_c^-(X)$. 若 $F\in\ob\D_c^-(X)$, 或 $G$ 具有有限 Tor 维数, 则 $F\otimes^{\mathrm L}G\in\ob\D_c(X)$.
+\item 设 $f:X\to Y$ 为预概形态射, $G\in\ob\D_c(Y)$. 则 $f^*(G)\in\ob\D_c(X)$.
+\end{enumerate}
+\end{statement}
+
+\begin{prooftext}
+(b) 直接由 SGA A, 第 IX 报告, 2.4 得出. 证明 (a). 关于 $(F,G)$ 的任一假设都意味着谱序列
+\[
+   E_2^{pq}=\sum_{q_1+q_2=q}\underline{\Tor}_{-p}\bigl(\Hh^{q_1}(F),\Hh^{q_2}(G)\bigr)
+       \Rightarrow \Hh^*(F\otimes^{\mathrm L}G)
+\]
+是双正则的. 因而只需考虑 $F$ 与 $G$ 均集中于次数 $0$, 即均为可构造 $A_X$-模的情形. 问题是局部的, 故可假设 $X$ 为 Noether 的. 由 SGA A, 第 IX 报告, 2.7, $F$ 有左消解 $F'$, 其中 $F'^i$ 形如 $A_{U,X}$, 而 $U$ 在 $X$ 上平展且为有限型. 有
+\[
+   F\otimes^{\mathrm L}G\xleftarrow{\sim}F'\otimes G,
+\]
+由于 $A_{U,X}\otimes G$ 可构造, 即得结论. \qedtext
+\end{prooftext}
+
+\begin{statement}{记号 1.10}
+若 $X$ 为预概形, 以 $\D^b(X)_{\mathrm{torf}}$ (分别地, $\D^b(X)_{\mathrm{qinjf}}$) 表示 $\D(X)$ 中由具有有限 Tor 维数 (分别地, 有限拟内射维数) 的对象组成的全子范畴.
+\end{statement}
+
+\begin{statement}{命题 1.11, 参见 [H] V.2.6}
+设 $X$ 为预概形, $K\in\ob\D^+(X)$.
+\begin{enumerate}[label=\alph*)]
+\item 对 $F,G\in\ob\D^-(X)$, 或分别对 $F\in\ob\D(X)$ 及 $G\in\ob\D^b(X)_{\mathrm{torf}}$, 有函子性同构
+\[
+   \underline D_K(F\otimes^{\mathrm L}G)\xrightarrow{\sim}
+   \R\,\underline{\Hom}(F,\underline D_K(G)).
+\]
+
+\item 若 $K$ 满足定义 1.7 的条件 (i) 与 (ii), 则
+\[
+   G\in\ob\D_c^b(X)_{\mathrm{torf}}
+   \Longrightarrow
+   \underline D_K(G)\in\ob\D_c^b(X)_{\mathrm{qinjf}}
+\]
+且 $\underline D_K(G)$ 满足条件 1.7(ii).
+
+\item 若 $K$ 为对偶化复形, 则对 $F\in\ob\D_c^-(X)$ 及 $G\in\ob\D_c^b(X)$, 或分别对 $F\in\ob\D(X)$ 及满足 $\underline D_K(G)\in\ob\D_c^b(X)_{\mathrm{torf}}$ 的 $G\in\ob\D_c^b(X)$, 有函子性同构
+\[
+   \underline D_K\bigl(F\otimes^{\mathrm L}\underline D_K(G)\bigr)
+      \xrightarrow{\sim}\R\,\underline{\Hom}(F,G).
+\]
+此外,
+\[
+   \underline D_K(G)\in\ob\D_c^b(X)_{\mathrm{torf}}
+   \Longrightarrow
+   G\in\ob\D_c^b(X)_{\mathrm{qinjf}},
+\]
+且 $G$ 满足条件 1.7(ii).
+
+\item 若 $K$ 为对偶化复形且具有有限内射维数, 则 (b) 与 (c) 中的蕴含均为等价关系.
+\end{enumerate}
+\end{statement}
+
+\begin{prooftext}
+(a) 正是 Cartan 的伴随公式, SGA 6, I, 7.4.
+
+对于 (b), 设 $G\in\ob\D_c^b(X)_{\mathrm{torf}}$. 当 $F$ 遍历可构造 $A_X$-模时, 由引理 1.9, $F\otimes^{\mathrm L}G$ 的各上同调对象可构造, 且在与 $F$ 无关的两个固定界之外均为零. 因此 $\underline D_K(F\otimes^{\mathrm L}G)$ 的各上同调对象也有同样性质, 再由 (a) 得到断言.
+
+对于 (c), 将 (a) 用于 $\underline D_K(G)$ 以代替 $G$, 并结合 $G$ 的自反性, 即得第一断言. 第二断言由类似于 (b) 的论证得出.
+
+对于 (d), 例如证明 (b) 中的逆向蕴含. 假设 $\underline D_K(G)\in\ob\D_c^b(X)_{\mathrm{qinjf}}$ 且满足条件 1.7(ii). 则当 $F$ 遍历可构造模时, $\underline D_K(F\otimes^{\mathrm L}G)$ 的各上同调对象可构造, 且在两个固定界之外均为零. 因而 $\underline D_K\underline D_K(F\otimes^{\mathrm L}G)$ 的各上同调对象也如此; 而由 $K$ 为对偶化复形且具有有限内射维数, 有
+\[
+   F\otimes^{\mathrm L}G\xrightarrow{\sim}\underline D_K\underline D_K(F\otimes^{\mathrm L}G),
+\]
+参见 1.8(d). 因此 $G$ 具有有限 Tor 维数. (c) 中的逆向蕴含同理可证. \qedtext
+\end{prooftext}
+
+\begin{statement}{注 1.11.1}
+\begin{enumerate}[label=\alph*)]
+\item 整理者不知道仅假设 $K$ 为对偶化复形时, 命题 1.11 的断言 (d) 是否成立.
+\item 形象地说, 上一命题表示对偶化函子 $\underline D_K$ 交换函子 $\otimes^{\mathrm L}$ 与 $\R\,\underline{\Hom}$, 也交换有限 Tor 维数与有限拟内射维数这两个概念. 不过, 只有在 $K$ 具有有限内射维数时, 这种交换才完全令人满意.
+\end{enumerate}
+\end{statement}
+
+\begin{statement}{命题 1.12}
+设 $Y$ 为 Noether 预概形, $f:X\to Y$ 为有限型态射, $K\in\ob\D^+(Y)$. 假设 $n$ 与 $Y$ 的各剩余特征互素, 并按 SGA A, 第 XVIII 报告, 3.1 的记号置
+\[
+   K_X=\R^!f(K_Y),\qquad \underline D_X=\underline D_{K_X},\qquad \underline D_Y=\underline D_{K_Y}.
+\]
+\begin{enumerate}[label=\alph*)]
+\item 对 $F\in\ob\D^-(X)$, 有函子性同构
+\begin{equation}
+\R f_*\underline D_X(F)\xrightarrow{\sim}\underline D_Y\R_!f(F).\tag{i}
+\end{equation}
+若进一步 $K_X$ 与 $K_Y$ 均为对偶化复形,\footnote{下面将看到, 在相当一般的条件下, $K_Y$ 为对偶化复形蕴含 $K_X$ 为对偶化复形.} 则对 $F\in\ob\D_c^b(X)$, 有函子性同构
+\begin{equation}
+\R_!f\,\underline D_X(F)\xrightarrow{\sim}\underline D_Y\R f_*(F).\tag{ii}
+\end{equation}
+
+\item 对 $F\in\D_c^-(Y)$, 有函子性同构\footnote{若函子 $\R^!f$ 具有有限上同调维数, 例如当 $Y$ 为域上的有限型预概形时 (SGA A, 第 X 报告, 4.3 及第 XVIII 报告, 3.1.7), 同构 (b)(i) 对 $F\in\ob\D_c(Y)$ 也成立.}
+\begin{equation}
+\R^!f\,\underline D_Y(F)\xrightarrow{\sim}\underline D_X f^*(F).\tag{i}
+\end{equation}
+若进一步 $K_X$ 与 $K_Y$ 均为对偶化复形, 则对 $F\in\D_c^b(Y)$, 有函子性同构
+\begin{equation}
+f^*\underline D_YF\xrightarrow{\sim}\underline D_X\R^!f\,F.\tag{ii}
+\end{equation}
+\end{enumerate}
+\end{statement}
+
+\begin{prooftext}
+同构 (a)(i) 就是 SGA A, 第 XVIII 报告, 3.1.9.6 中的对偶同构.
+
+将 (a)(i) 的变元取为 $\underline D_XF$, 在两端作用 $\underline D_Y$, 并使用有限性定理 SGA A, 第 XVII 报告, 5.3.6 所断言的 $\R_!f(\underline D_X(F))\in\ob\D_c(Y)$, 即得同构 (a)(ii).
+
+同构 (b)(i) 是 SGA A, 第 XVIII 报告, 3.1.12.2 的诱导公式.
+
+将 (b)(i) 的变元取为 $\underline D_YF$, 在两端作用 $\underline D_X$, 并使用 1.9(b), 即得同构 (b)(ii). \qedtext
+\end{prooftext}
+
+\begin{statement}{附论 1.12.1}
+形象地说, 对偶化函子 $\underline D_X$ 与 $\underline D_Y$ 交换通常正像 $\R f_*$ 与非常正像 $\R_!f$, 也交换通常逆像 $f^*$ 与非常逆像 $\R^!f$.
+\end{statement}
+
+\begin{statement}{推论 1.13}
+在命题 1.12 的假设下, 再假设 $f$ 为固有态射, 并设 $F\in\ob\D^-(X)$. 若 $(F,K_X)$ 满足双对偶, 则 $(\R f_*F,K_Y)$ 也满足双对偶. 反之, 若 $f$ 有限且 $(\R f_*F,K_Y)$ 满足双对偶, 则 $(F,K_X)$ 满足双对偶.
+\end{statement}
+
+\begin{prooftext}
+假设 $(F,K_X)$ 满足双对偶. 对典范同构 $F\xrightarrow{\sim}\underline D_X^2F$ 作用 $\R f_*$, 得到\footnote{\emph{编者注.} 印本原文的中间项为 $\underline D_Y\R f_*\underline D_XF$, 并对相继的两个箭头均引用命题~1.12(a)(i). 本版保留该同构链. 数学上一致的修订是在中间一行写 $\underline D_Y\R_!f\,\underline D_XF$, 并对最后一个箭头引用命题~1.12(a)(ii).}
+\begin{align*}
+\R f_*F &\xrightarrow{\sim}\R f_*\underline D_X\underline D_XF \\
+&\xrightarrow{\sim}\underline D_Y\R f_*\underline D_XF \qquad \text{由 (a)(i)}\\
+&\xrightarrow{\sim}\underline D_Y\underline D_Y\R f_*F \qquad \text{由 (a)(i)}.
+\end{align*}
+勇于核验的读者会确信所得同构正是典范同构; 这就证明了第一个断言.
+
+现在假设 $f$ 有限且 $(f_*F,K_Y)$ 满足双对偶, 这里有限性给出 $\R f_*=f_*$. 证明典范态射 $F\to\underline D_X^2F$ 为同构. 由下面的引理 1.14(a), 只需证明诱导态射
+\[
+   f_*F\longrightarrow f_*\underline D_X^2F
+\]
+为同构. 但两次应用 (a)(i), 可知此态射正是典范同构
+\[
+   f_*F\longrightarrow \underline D_Y^2f_*F,
+\]
+证明完毕. \qedtext
+\end{prooftext}
+
+\begin{statement}{引理 1.14}
+设 $f:X\to Y$ 为预概形的有限态射.
+\begin{enumerate}[label=\alph*)]
+\item 对 $\D(X)$ 中的态射 $u:F\to G$, $u$ 为同构当且仅当 $f_*u$ 为同构.
+\item 对 $F\in\ob\D(X)$, 有 $F\in\ob\D_c(X)$ 当且仅当 $f_*F\in\ob\D_c(Y)$.
+\end{enumerate}
+\end{statement}
+
+\begin{prooftext}
+对于 (a), 由于 $f_*$ 正合, 可只考虑 $F$ 与 $G$ 集中于次数零的情形. 断言随即由 $f_*F$ 与 $f_*G$ 的纤维计算得出, 见 SGA A, 第 VIII 报告, 5.5.
+
+对于 (b), 同样可只考虑 $F$ 集中于次数零的情形. 必要性已知, 见 SGA A, 第 IX 报告, 2.14. 证明充分性: $f_*F$ 可构造蕴含 $F$ 可构造. 问题在源端是局部的, 因而在目标端更是局部的, 所以可假设 $Y$ 及 $X$ 均为仿射的. 由 EGA IV, 17.16.6, 存在 $Y$ 的仿射子预概形有限族 $(Y_i)$, 两两不交且并为 $Y$, 使得若 $X_i=X\times_YY_i$, 则诱导态射 $f_i:X_i\to Y_i$ 可分解为
+\[
+   X_i\xrightarrow{u_i}X'_i\xrightarrow{v_i}Y_i,
+\]
+其中 $u_i$ 有限、根式且满射, $v_i$ 有限且平展. 置 $F|_{X_i}=F_i$. 由有限态射的基变换定理, SGA A, 第 VIII 报告, 5.5, 有
+\[
+   f_{i*}(F_i)\xrightarrow{\sim}(f_*F)|_{Y_i},
+\]
+再由 SGA A, 第 IX 报告, 2.8, 只需对 $(f_i,F_i)$ 证明断言. 置 $F'_i=u_{i*}(F_i)$, 则 $f_{i*}(F_i)=v_{i*}(F'_i)$. 从可构造性的定义 (分别地, 从 SGA A, 第 VIII 报告, 1.1) 可见, $F_i$ (分别地, $F'_i$) 可构造当且仅当 $F'_i$ (分别地, $v_{i*}(F'_i)$) 可构造. 断言得证. \qedtext
+\end{prooftext}
+
+\begin{statement}{推论 1.15}
+设 $f:X\to Y$ 为 Noether 预概形的分离拟有限态射. 设 $K_Y\in\ob\D^+(Y)$, 并如命题 1.12 置
+\[
+   K_X=\R^!f(K_Y),\qquad \underline D_X=\underline D_{K_X},\qquad \underline D_Y=\underline D_{K_Y}.
+\]
+若 $K_Y$ 为对偶化复形, 则 $K_X$ 也是对偶化复形.
+\end{statement}
+
+\begin{prooftext}
+由命题 1.6 已知, 若 $K_Y$ 具有有限拟内射维数, 则 $K_X$ 也如此. 现在证明: 若 $K_Y$ 满足定义 1.7 的条件 (ii) (分别地, 条件 (iii)), 则 $K_X$ 也满足同一条件.
+
+由主定理 EGA IV, 8.12.6, $f$ 可分解为 $f=f'i$, 其中 $i$ 为开浸入, $f'$ 有限. 由于
+\[
+   \R^!f\simeq\R^!i\,\R^!f',
+\]
+须分别处理开浸入与有限态射的情形. 若 $f$ 为开浸入, 断言显然, 因为 $X$ 上的可构造层可由 $Y$ 上的可构造层诱导, 且 $\R\,\underline{\Hom}$ 的形成与限制到开集交换.
+
+于是设 $f$ 有限. 由推论 1.13 并考虑有限性定理 SGA A, 第 IX 报告, 2.14, 若 $K_Y$ 满足 (iii), 则 $K_X$ 满足 (iii). 还须证明若 $K_Y$ 满足 (ii), 则 $K_X$ 满足 (ii). 设 $F\in\ob\D_c^-(X)$. 须证明 $\underline D_X(F)\in\ob\D_c^+(X)$. 由有限性定理, $f_*F\in\ob\D_c^-(Y)$. 因而由对 $K_Y$ 的假设,
+\[
+   \underline D_Y f_*F\in\ob\D_c^+(Y).
+\]
+但由命题 1.12(a)(i),
+\[
+   \underline D_Y f_*F\xrightarrow{\sim}f_*\underline D_X(F),
+\]
+再由引理 1.14(b), 证明完毕. \qedtext
+\end{prooftext}
+
+\section*{2. 对偶化复形的唯一性}
+
+本节假设 $A$ 为局部环, 即
+\[
+   A=\ZZ/\ell^\nu\ZZ,
+\]
+其中 $\ell$ 为素数.
+
+\begin{statement}{定理 2.1, 参见 [H] V.3.1}
+设 $X$ 为连通的局部 Noether 预概形, $K$ 为 $X$ 上定义 1.7 意义下的对偶化复形. 再设 $K'\in\ob\D_c^+(X)$. 则 $K'$ 为对偶化复形, 当且仅当存在可逆 $A_X$-模 $L$ 及整数 $r$, 使得
+\[
+   K'\xrightarrow{\sim}K\otimes^{\mathrm L}L[r];
+\]
+此时 $L$ 与 $r$ 在相差唯一同构的意义下必然唯一确定.
+\end{statement}
+
+\begin{prooftext}
+设 $L$ 为可逆 $A_X$-模, $r$ 为整数, 置 $L^\vee=\underline{\Hom}(L,A_X)$. 对 $F\in\ob\D(X)$ 及 $G\in\ob\D^+(X)$, 有典范同构
+\begin{equation}
+\R\,\underline{\Hom}\bigl(F\otimes^{\mathrm L}L^\vee[-r],G\bigr)
+   \xrightarrow{\sim}
+\R\,\underline{\Hom}\bigl(F,G\otimes^{\mathrm L}L[r]\bigr)
+   \xrightarrow{\sim}
+\R\,\underline{\Hom}(F,G)\otimes^{\mathrm L}L[r]. \tag{*}
+\end{equation}
+立即得出: 若 $K'\simeq K\otimes^{\mathrm L}L[r]$, 则 $K'$ 为对偶化复形.
+
+此外, 若记 $\underline D_X=\underline D$, $\underline D_{K'}=\underline D'$, 则对 $F\in\ob\D(X)$, 由同构 $(*)$ 有
+\[
+   \underline D'F\xrightarrow{\sim}\underline DF\otimes^{\mathrm L}L[r].
+\]
+由于 $\underline DK\simeq A_X$, 得到
+\[
+   \underline D'K\xrightarrow{\sim}L[r],
+\]
+这表明 $L[r]$, 因而 $L$ 与 $r$, 由 $K'$ 本质唯一地确定.
+
+反之, 假设 $K'$ 为对偶化复形, 置
+\[
+   P=\underline D'K=\underline D'\underline DA_X=\R\,\underline{\Hom}(K,K').
+\]
+将证明:
+\begin{align*}
+\text{(a)}\qquad K'&\xrightarrow{\sim}K\otimes^{\mathrm L}P,\\
+\text{(b)}\qquad P&\xrightarrow{\sim}L[r]\quad\text{对某个可逆 }A_X\text{-模 }L.
+\end{align*}
+这将完成定理的证明.
+
+首先注意, 由命题 1.9(b)(ii), 对 $F\in\ob\D_c(X)$, 有同构
+\begin{equation}
+F\otimes^{\mathrm L}P\xrightarrow{\sim}\underline D'\underline DF. \tag{**}
+\end{equation}
+将 $(**)$ 用于 $F=K$, 得到
+\[
+   K\otimes^{\mathrm L}P\xrightarrow{\sim}\underline D'\underline DK\xrightarrow{\sim}\underline D'A_X=K',
+\]
+这证明了 (a).
+
+将 $(**)$ 用于
+\[
+   F=P'=\underline D\underline D'A_X,
+\]
+得到
+\[
+   P'\otimes^{\mathrm L}P
+      =\underline D'\underline D\underline D\underline D'A_X
+      \xrightarrow{\sim}\underline D'\underline D'A_X
+      \xrightarrow{\sim}A_X.
+\]
+于是 (b) 由下述引理得出. \qedtext
+\end{prooftext}
+
+\begin{statement}{引理 2.2, 参见 [H] V.3.3}
+设 $X$ 为连通的局部 Noether 预概形, $P,P'\in\ob\D_c^-(X)$ 满足
+\[
+   P\otimes^{\mathrm L}P'\xrightarrow{\sim}A_X.
+\]
+则存在可逆 $A_X$-模 $L$ 及整数 $r$, 使得
+\[
+   P\xrightarrow{\sim}L[r],\qquad P'\xrightarrow{\sim}L^\vee[-r].
+\]
+\end{statement}
+
+\begin{prooftext}
+证明分为两步.
+
+首先假设 $X=\Spec(k)$, 其中 $k$ 可分闭. 只需重复 [H] 中的简单证明. 关键在于: 由 EGA $0_{\mathrm I}$, 5.4.3, 若有限型 $A$-模 $M$ 与 $M'$ 满足
+\[
+   M\otimes M'\xrightarrow{\sim}A,
+\]
+则 $M$ 与 $M'$ 可逆, 且 $M'\simeq M^\vee$. 正是在这里用到了 $A$ 为局部环的假设.
+
+现在转入一般情形. 由刚才处理的特殊情形, 对每个 $x\in X$, 存在整数 $r(x)$, 使得
+\[
+   P_{\ol{x}}\simeq A_{\ol{x}}[r(x)],\qquad
+   P'_{\ol{x}}\simeq A_{\ol{x}}[-r(x)].
+\]
+等价地, 除 $i=-r(x)$ (分别地, $i=r(x)$) 外均有 $\uH^i(P_{\ol{x}})=0$ (分别地, $\uH^i(P'_{\ol{x}})=0$), 且相应的非零上同调模同构于 $A_{\ol{x}}$. 还须证明函数 $x\mapsto r(x)$ 局部常值.
+
+暂且假定此点成立. 由于 $X$ 连通, $r$ 为常数, 设其值为 $r_0$. 则
+\[
+   \uH^i(P)=0\ (i\ne-r_0),\qquad \uH^i(P')=0\ (i\ne r_0),
+\]
+且
+\[
+   \uH^{-r_0}(P)\otimes\uH^{r_0}(P')\xrightarrow{\sim}A.
+\]
+置 $L=\uH^{-r_0}(P)$, $L'=\uH^{r_0}(P')$. 设 $u:\ol{x}\to\ol{y}$ 为特殊化态射, 并设
+\[
+   u^*:L_{\ol{y}}\to L_{\ol{x}},\qquad u'^*:L'_{\ol{y}}\to L'_{\ol{x}}
+\]
+为相应的特殊化态射. 有交换方图
+\begin{equation}
+\begin{tikzcd}
+L_{\ol{y}}\otimes L'_{\ol{y}} \arrow[r,"\sim"] \arrow[d,"u^*\otimes u'^*"'] & A_{\ol{y}} \arrow[d] \\
+L_{\ol{x}}\otimes L'_{\ol{x}} \arrow[r,"\sim"] & A_{\ol{x}}
+\end{tikzcd}
+\tag{*}
+\end{equation}
+\par\medskip
+选取 $L_{\ol{x}}$ (分别地, $L_{\ol{y}}$) 的基 $e$ (分别地, $f$), 并设 $e'$ (分别地, $f'$) 为 $L'_{\ol{x}}$ (分别地, $L'_{\ol{y}}$) 的对偶基, 即 $e\otimes e'$ 与 $f\otimes f'$ 均映至 $1$. 若 $u^*(f)=\lambda e$, $u'^*(f')=\lambda'e'$, 则 $(*)$ 的交换性给出 $\lambda\lambda'=1$. 所以 $u^*$ 为同构, $u'^*$ 为其逆伴随同构. 由 SGA A, 第 IX 报告, 2.13, 得出 $L$ 与 $L'$ 局部常值, 因而作为 $A_X$-模为有限表示的. 于是对每个 $x\in X$ 及每个 $A_X$-模 $F$, 典范映射
+\[
+   \underline{\Hom}(L,F)_{\ol{x}}\longrightarrow\Hom(L_{\ol{x}},F_{\ol{x}})
+\]
+为同构. 由于 $L$ 的各几何纤维可逆, $L$ 本身可逆. 同样 $L'$ 可逆, 且 $L'\simeq L^\vee$. 因此
+\[
+   P\simeq L[-r_0],\qquad P'\simeq L^\vee[r_0].
+\]
+
+最后只须证明 $r$ 局部常值. 对 $m\in\ZZ$, 条件 $r(x)=m$ 等价于
+\[
+   \uH^m(P')_{\ol{x}}\ne0.
+\]
+所以由 SGA A, 第 IX 报告, 2.4, 函数 $r$ 局部可构造. 因此, 为验证其局部常值性, 由 EGA IV, 1.10.1, 可假设 $X$ 为局部预概形. 设 $x$ 为其闭点, $U$ 为其开补集.
+
+证明 $r$ 为常数. 对 $X$ 的维数作归纳, 可以已假设 $r(y)$ 在 $y\in U$ 上为常数 $r_0$; 关键是证明 $r(x)=r_0$.
+
+反设不然, 导出矛盾. 由假设,
+\[
+   P|_U\xrightarrow{\sim}L[r_0],
+\]
+其中 $L$ 为可逆 $A_U$-模. 平移次数后可假设 $r_0=0$. 另一方面 $r(x)\ne0$; 记 $r(x)=a>0$. 设
+\[
+   i:U\to X,
+   \qquad
+   j:x\to X
+\]
+为典范包含. 考虑正合列
+\begin{equation}
+0\longrightarrow i_!(P|_U)\longrightarrow P\longrightarrow j_*j^*P\longrightarrow0.\tag{**}
+\end{equation}
+由假设, $P$ 仅有的非零上同调对象为 $\uH^0(P)$ 与 $\uH^{-a}(P)$, 且
+\[
+   \uH^0(P)\xrightarrow{\sim}i_!L.
+\]
+所以 $(**)$ 通过映射 $P\to\uH^0(P)$ 自然分裂, 因而
+\[
+   P\xrightarrow{\sim} i_!(P|_U)\oplus j_*j^*P.
+\]
+因此
+\begin{align*}
+P\otimes^{\mathrm L}P'
+&\xrightarrow{\sim} i_!(P|_U)\otimes^{\mathrm L}P'
+      \oplus j_*j^*P\otimes^{\mathrm L}P' \\
+&\xrightarrow{\sim} i_!\bigl(P|_U\otimes^{\mathrm L}P'|_U\bigr)
+      \oplus j_*\bigl(j^*P\otimes^{\mathrm L}j^*P'\bigr)\\
+&\xrightarrow{\sim} i_!A_U\oplus j_*A_x,
+\end{align*}
+这是不可能的, 因为 $i_!A_U\oplus j_*A_x$ 显然不同构于 $A_X$; 仅比较 $\uH^0$ 层就已不同构. 这证明了引理 2.2, 因而也证明了定理 2.1. \qedtext
+\end{prooftext}
+
+\section*{3. 对偶化复形的存在性}
+
+\subsection*{3.1. 预备事项}
+
+如引言中所述, 本节的目标是证明: 在“良好”的正则预概形 $X$ 上, 层 $A_X$ 为对偶化复形, 这里假设 $n$ 与各剩余特征互素.
+
+实际上, 希望这一结论对等特征的卓越正则预概形也成立; 不过毫无疑问, 一旦在这种情形下有了奇点消解与纯性定理, 下面给出的证明就可推广到它们.
+
+首先列出将要使用的各项工具.
+
+\begin{statement}{3.1.1. 奇异点集}
+设 $X$ 为局部 Noether 预概形. 若下列等价性质成立 (EGA IV, 6.12.3), 就称 $X$ 满足条件 \emph{(reg)}:
+\begin{enumerate}[label=(\roman*)]
+\item 对 $X$ 的每个子预概形 $Y$, $Y$ 的正则点集 $\Reg(Y)$ 为 $Y$ 的开集;
+\item 对 $X$ 的每个闭整子预概形 $Y$, 集合 $\Reg(Y)$ 包含 $Y$ 的一个非空开集.
+\end{enumerate}
+若 $X$ 在完备 Noether 局部环上, 例如在域上, 为局部有限型 (EGA IV, 6.12.8), 或在分式域特征为零的 Dedekind 环上, 例如在 $\ZZ$ 上, 为局部有限型 (EGA IV, 6.12.6), 则条件 (reg) 成立; 更一般地, 若 $X$ 卓越, 则此条件成立 (EGA IV, 7.8.6).
+\end{statement}
+
+\begin{statement}{3.1.2. 可构造层的分步归约}
+设 $X$ 为 Noether 预概形, $C$ 为可构造 $A_X$-模范畴 $\operatorname{Cons}(X)$ 的严格全子范畴. 假设 $C$ 对直和因子及扩张稳定. 以下条件等价:
+\begin{enumerate}[label=(\roman*)]
+\item $C=\operatorname{Cons}(X)$;
+\item $C$ 包含形如 $i_!(F)$ 的层, 其中 $i:Y\to X$ 为整子预概形的浸入, $F$ 在 $Y$ 上局部常值;
+\item $C$ 包含形如 $f_*i_!(A'_U)$ 的层, 其中 $i:U\to Y$ 为整预概形的开子集, $f:Y\to X$ 为有限态射, 且 $Y$ 的泛点在其像上可分, $A'=\ZZ/\ell\ZZ$, $\ell$ 为 $n$ 的素因子.
+\end{enumerate}
+若 $X$ 满足 (reg) (3.1.1), 则这些条件又等价于下列条件:
+\begin{enumerate}[label=(\roman* bis)]
+\item 与 (ii) 相同, 但进一步要求 $Y$ 正则;
+\item 与 (iii) 相同, 但要求 $U$ 正则.
+\end{enumerate}
+若 $X$ 还为仿射的, 则在 (ii) (分别地, (ii bis)) 中, 可以假设 $Y$ 是某个形如 $D(f)$ 的开集中的闭集, 其中 $f\in \Gamma(X,\cO_X)$.
+\end{statement}
+
+\begin{prooftext}
+(i)--(iii) 的等价性已在 SGA A, 第 IX 报告, 2.5 与 5.8 中证明. 其余断言由 Noether 归纳法得出. \qedtext
+\end{prooftext}
+
+\begin{statement}{3.1.3. 上同调维数}
+设 $X$ 为局部 Noether 预概形. 以 $(\mathrm{cdloc})_n$ 表示下述条件. 对 $X$ 的每个子预概形 $Y$, $Y$ 的每个几何点 $\ol y$, 以及每个
+\[
+   f\in\Gamma\bigl(\wt Y(\ol y),\cO_{Y,\ol y}\bigr),
+\]
+其中 $\wt Y(\ol y)$ 表示 $Y$ 在 $\ol y$ 处的严格局部化 (SGA A, 第 VIII 报告, 7.1), 有
+\[
+   \cd_{\mathbf n}\bigl(\wt Y(\ol y)-V(f)\bigr)
+       \le \dim \cO_{Y,\ol y}
+       \quad (=\dim \cO_{Y,y}\text{, 由 EGA IV, 6.1.3}),
+\]
+其中 $\mathbf n$ 为 $n$ 的素因子集合.
+
+若 $X$ 在域上局部有限型 (SGA A, 第 XIV 报告, 3.5), 或为特征零的卓越预概形 (SGA A, 第 XIX 报告, 6.2), 则条件 $(\mathrm{cdloc})_n$ 成立.\footnote{1977 年增补: 或者, 由 G. Ofer 的一个新近结果, 当 $X$ 卓越、正则且维数为 $2$ 时也成立.}
+\end{statement}
+
+\begin{statement}{3.1.4. 绝对上同调纯性}
+设 $X$ 为正则预概形, $Y$ 为 $X$ 的正则闭子预概形, 在每点的余维数均为 $d$. 若
+\[
+   \uH^i_Y(A_X)=0\qquad (i\ne 2d),
+\]
+且“局部基本类”同态 (SGA $4^{1/2}$, Cycle 2.2)
+\[
+   A_Y\longrightarrow \uH^{2d}_Y\bigl((\mu_n)^{\otimes d}_X\bigr)
+\]
+为同构, 就称二元组 $(X,Y)$ 满足相对于 $n$ 的绝对上同调纯性定理.
+
+若每个如上的二元组 $(U,Y)$ 都满足此定理, 其中 $U$ 为 $X$ 的开集, 就称绝对上同调纯性定理在 $X$ 上成立.
+
+若 $X$ 在特征与 $n$ 互素的完美域上光滑 (SGA A, 第 XVI 报告, 3.9), 或为特征零的卓越预概形 (SGA A, 第 XIX 报告, 3.2), 或为维数 $1$ 的正则预概形 (参见 5.1), 则绝对纯性在 $X$ 上成立.\footnote{1977 年增补: 或者, 由 G. Ofer 的一个新近结果, 当 $X$ 卓越、正则且维数为 $2$ 时也成立.}
+\end{statement}
+
+\begin{statement}{3.1.5. Hironaka 意义下的奇点消解}
+\begin{enumerate}[label=\alph*)]
+\item 设 $X$ 为正则预概形, $D\ge0$ 为 $X$ 上的除子. 若存在 $\Gamma(X,\cO_X)$ 中元素的有限族 $(f_i)_{i\in I}$, 使得
+\[
+   D=\sum_{i\in I}\Div(f_i)
+\]
+(EGA IV, 21), 且对每个 $x\in\Supp(D)$, 属于 $\fm_x$ 的芽 $(f_i)_x$ 构成一组正则参数系的一部分, 就称 $D$ 为\emph{严格正规交叉}除子. 若在平展拓扑下局部地 $D$ 为严格正规交叉除子, 则称 $D$ 为\emph{正规交叉}除子.
+
+仿射空间中坐标超平面的局部有限并给出了正规交叉除子的标准例子.
+
+\item 设 $X$ 为局部 Noether 预概形. 若满足下列条件, 就称 $X$ \emph{可强消解奇点}: 对每个有限态射 $f:Y\to X$, 其中 $Y$ 为整的且其泛点在其像上可分, 以及 $Y$ 的每个正则开集 $U$, 都存在固有双有理态射 $h:Y'\to Y$, 使得 $Y'$ 正则, $h$ 诱导 $U'=h^{-1}(U)$ 到 $U$ 的同构, 且 $Y'-U'$ 为正规交叉除子.
+\end{enumerate}
+下面列出 $X$ 可强消解奇点的情形:
+\begin{enumerate}[label=\alph*)]
+\item $X$ 卓越且特征为零;
+\item $X$ 局部 Noether、正则且维数 $\le1$;
+\item $X$ 在 $\ZZ$ 上或完美域上为有限型, 且维数 $\le2$.\footnote{1977 年增补: 更一般地, 当 $X$ 卓越、Noether 且维数 $\le2$ 时, 见 H. Hironaka, \emph{Desingularization of excellent surfaces}, B. Bennett 整理的讲义, Bowdoin College, 1967; 必要时还须结合 H. Hironaka, \emph{Certain numerical characters of singularities}, J. Math. Kyoto Univ. 10 (1970), 151--187.}
+\end{enumerate}
+\end{statement}
+
+\begin{statement}{3.1.6. 上同调有限性}
+设 $f:X\to Y$ 为预概形态射, $F\in\ob\D_c^+(X)$. 在下列情形中, 有 $\R f_*(F)\in\ob\D_c^+(Y)$:
+\begin{enumerate}[label=\alph*)]
+\item $f$ 为固有且有限表示的 (SGA A, 第 XIV 报告, 1.1);
+\item “在具备奇点消解与纯性定理时”, 特别地:
+\begin{enumerate}[label=(\roman*)]
+\item 若 $X$ 与 $Y$ 在特征零的域 $k$ 上局部有限型, 而 $f$ 为有限型 $k$-态射 (SGA A, 第 XVI 报告, 5.1);
+\item 若 $Y$ 卓越且特征为零, $f$ 为有限型 (SGA A, 第 XIX 报告, 5.1);
+\item 若 $X$ 在域上局部有限型, 且 $\dim(X)\le2$ (SGA A, 第 XIX 报告, 5.1).
+\end{enumerate}
+\end{enumerate}
+\end{statement}
+
+\subsection*{3.2. $A_X$ 的拟内射维数}
+
+\begin{statement}{命题 3.2.1}
+设 $X$ 为正则预概形, 其各剩余特征与 $n$ 互素. 假设 $X$ 满足 (reg) (3.1.1) 与 $(\mathrm{cdloc})_n$ (3.1.3), 且绝对纯性在 $X$ 上成立 (3.1.4). 则对每个可构造 $A_X$-模 $F$ 及每个 $x\in X$, 有
+\begin{equation}
+\uExt^i(F,A_X)_x=0\qquad\text{当 } i>2\dim\cO_{X,x}.\tag{*}
+\end{equation}
+\end{statement}
+
+\begin{prooftext}
+问题是局部的, 可假设 $X$ 为仿射的. 经分步归约 (3.1.2), 只须对 $F=i_!(G)$ 验证 $(*)$, 其中 $i:Y\to X$ 为正则整子预概形的浸入, $Y$ 闭于开集 $D(f)$ 中, $f\in A(X)$, 而 $G$ 为 $Y$ 上的局部常值可构造层. 须计算
+\[
+   \uExt^q(F,A_X)=\Hh^q\bigl(\R\,\underline{\Hom}(F,A_X)\bigr).
+\]
+关于 $i$ 的投影公式 (SGA A, 第 XVIII 报告) 给出
+\[
+ \R\,\underline{\Hom}(i_!G,A_X)
+   \xrightarrow{\sim}
+ \R i_*\R\,\underline{\Hom}(G,\R^!i(A_X)).
+\]
+由纯性,
+\[
+   \R^!i(A_X)\xrightarrow{\sim}(\mu_n)^{\otimes -d}_Y[-2d],
+\]
+其中 $d=\codim(Y,X)$. 置 $T=(\mu_n)^{\otimes -d}_Y$. 由于 $G$ 局部常值且可构造, 对 $Y$ 的每个几何点 $\ol y$ 及每个 $p$, 有
+\[
+   \uExt^p(G,T)_{\ol y}\xrightarrow{\sim}\Ext^p(G_{\ol y},T_{\ol y}).
+\]
+但 $T_{\ol y}$ 同构于 $A=\ZZ/n\ZZ$, 因而是内射的. 所以当 $p\ne0$ 时 $\uExt^p(G,T)=0$, 且
+\[
+   \R\,\underline{\Hom}(G,T)\xrightarrow{\sim}\underline{\Hom}(G,T).
+\]
+于是
+\[
+   \R\,\underline{\Hom}(F,A_X)
+      \xrightarrow{\sim} \R i_*(\mathcal H)[-2d],
+   \qquad \mathcal H=\underline{\Hom}(G,T).
+\]
+设 $Z$ 为 $Y$ 在 $X$ 中的概形论闭包 (EGA I, 9.5.10). 则 $Y=Z\cap D(f)$ (EGA $0_{\mathrm I}$, 2.1.6). 以 $j:Y\to Z$ 及 $k:Z\to X$ 表示典范浸入. 有 $\R i_*=k_*\R j_*$, 因而只须计算 $\R j_*(\mathcal H)$. 若 $\ol x$ 为 $Z$ 的几何点, 设 $\wt Z=\Spec(\cO_{Z,\ol x})$ 为严格局部化, $\wt f$ 为 $f$ 在 $\cO_{Z,\ol x}$ 中的像, $\wt Y=\wt Z\times_XY=\wt Z-V(\wt f)$, 并设 $\wt{\mathcal H}$ 为 $\mathcal H$ 在 $\wt Y$ 上的逆像. 由 SGA A, 第 VIII 报告, 5.2,
+\[
+   \R^qj_*(\mathcal H)_{\ol x}
+      \xrightarrow{\sim}\Hh^q(\wt Y,\wt{\mathcal H}),
+\]
+因而
+\[
+   \uExt^q(F,A_X)_{\ol x}
+      \xrightarrow{\sim}\Hh^{q-2d}(\wt Y,\wt{\mathcal H}).
+\]
+条件 $(\mathrm{cdloc})_n$ 表明, 当
+\[
+   q-2d>\dim\cO_{Z,x}
+\]
+时此群为零. 利用
+\[
+   d=\codim_x(Z,X)\le\dim\cO_{X,x}
+\]
+(EGA IV, 5.1.3) 及
+\[
+   \dim\cO_{Z,x}
+     =\dim\cO_{X,x}-\codim_x(Z,X)
+\]
+(EGA $0_{\mathrm{IV}}$, 16.5.12 及 EGA IV, 5.1.9), 得到
+\[
+   \uExt^q(F,A_X)_x=0\qquad(q>2\dim\cO_{X,x}),
+\]
+正是所需结论. \qedtext
+\end{prooftext}
+
+\begin{statement}{注 3.2.2}
+3.2.1 中所得的界是最佳的. 事实上, 设 $x$ 为 $X$ 的一点, $Y$ 为 $X$ 中以 $x$ 为泛点的闭整子预概形. 由于 $X$ 满足 (reg), 存在 $Y$ 中包含 $x$ 的正则开集 $U$. 由纯性,
+\[
+   \uExt^{2d}(A_U,A_X)|U=(\mu_n)^{\otimes d}_U,
+\]
+其中 $d=\dim\cO_{X,x}=\codim(Y,X)$.
+\end{statement}
+
+\begin{statement}{推论 3.2.3}
+设 $X$ 为维数 $d$ 的正则预概形. 若 $X$ 在特征与 $n$ 互素的域 $k$ 上光滑, 或 $X$ 卓越且特征为零, 则 $X$ 满足 3.2.1 的结论; 因而
+\[
+   \dim.\,q.\,inj(A_X)\le 2d.
+\]
+\end{statement}
+
+\begin{prooftext}
+若 $X$ 卓越且特征为零, 或 $k$ 为特征与 $n$ 互素的完美域且 $X$ 在 $k$ 上光滑, 则由 3.1.1, 3.1.3 及 3.1.4, 3.2.1 的假设成立. 若 $X$ 在任意域 $k$ 上光滑, 则结论仍成立: 作基变换 $\Spec(k')\to\Spec(k)$ 后立即可见, 其中 $k'$ 为 $k$ 的完美闭包 (SGA A, 第 VIII 报告, 1.1). \qedtext
+\end{prooftext}
+
+\begin{statement}{引理 3.2.4}
+设 $X$ 为满足 3.2.1 结论的预概形, 维数 $\le d$. 若存在整数 $N$, 使 $X$ 的上同调维数 $\le N$, 则
+\[
+   \dim.\,inj(A_X)\le 2d+N.
+\]
+若进一步对 $X$ 的每个闭子集 $Y$, 蕴含关系
+\[
+   \codim(Y,X)\ge p \quad\Rightarrow\quad \cd_{\mathbf n}(Y)\le N-2p
+\]
+成立, 则
+\[
+   \dim.\,inj(A_X)\le N.
+\]
+\end{statement}
+
+\begin{prooftext}
+第一断言直接由 1.5 得出. 对于第二断言, 仿照 1.5 论证. 只须对 $X$ 上的可构造 $F$ 证明关系
+\[
+   \Ext^i(X;F,A_X)=0\qquad(i>N).
+\]
+为此考察谱序列
+\[
+   E_2^{pq}=\Hh^p\bigl(X;\uExt^q(F,A_X)\bigr)
+      \Rightarrow \Ext^*(X;F,A_X).
+\]
+由 3.2.1, 层 $\uExt^{2i}(F,A_X)$ 与 $\uExt^{2i-1}(F,A_X)$ 均集中于余维数 $\ge i$ 处. 因而由假设, 当 $p>N-2i$ 时 $E_2^{p,2i}=E_2^{p,2i-1}=0$. 所以当 $p+q>N$ 时 $E_2^{pq}=0$, 断言得证. \qedtext
+\end{prooftext}
+
+\begin{statement}{推论 3.2.5}
+若 $X$ 为可分闭域 $k$ 上维数 $d$ 的光滑预概形, 且 $k$ 的特征与 $n$ 互素, 则
+\[
+   \dim.\,inj(A_X)=2d.
+\]
+\end{statement}
+
+\begin{prooftext}
+由 3.2.3 及 SGA A, 第 X 报告, 4.2, 处于 3.2.4 的情形. 由 SGA A, 第 X 报告, 2.1 与 3.2, SGA A, 第 X 报告, 4.2 的假设成立; 因而 $\dim.\,inj(A_X)\le2d$. 等号由纯性得出: 若 $x$ 为 $X$ 中余维数为 $d$ 的闭点, 则
+\[
+   \Ext^{2d}(X,A_x,A_X)=\Hh^{2d}_x(A_X)
+      \xrightarrow{\sim}(\mu_n)^{\otimes d}(k)\ne0.
+\]
+\qedtext
+\end{prooftext}
+
+\subsection*{3.3. 层 $\uExt^i(F,A_X)$ 的可构造性}
+
+\begin{statement}{命题 3.3.1}
+设 $X$ 为预概形.
+\begin{enumerate}[label=\alph*)]
+\item 下列条件等价:
+\begin{enumerate}[label=(\roman*)]
+\item 对 $F\in\ob\D_c^-(X)$ 及 $G\in\ob\D_c^+(X)$, 有
+\[
+   \R\,\underline{\Hom}(F,G)\in\ob\D_c^+(X);
+\]
+\item[(i bis)] 对每一对可构造 $A_X$-模 $(F,G)$, 有 $\R\,\underline{\Hom}(F,G)\in\ob\D_c^+(X)$, 即所有的层 $\uExt^i(F,G)$ 均可构造;
+\item 对每个开浸入 $i:U\to X$ 及每个可构造 $A_U$-模 $F$, 所有的层 $\R^pi_*(F)$ 均可构造;
+\item[(ii bis)] 对每个浸入 $i:Y\to X$ 及每个可构造 $A_Y$-模 $F$, 所有的层 $\R^pi_*(F)$ 均可构造;
+\item[(ii ter)] 对每个浸入 $i:Y\to X$ 及每个局部常值可构造 $A_Y$-模 $F$, 所有的层 $\R^pi_*(F)$ 均可构造;
+\item 对每个有限态射 (分别地, 每个闭浸入) $f:Y\to X$, 以及每个 $F\in\ob\D_c^+(X)$, 有 $\R^!f(F)\in\ob\D_c^+(Y)$.
+\end{enumerate}
+\item 在以下两种情形中, 这些条件均成立:
+\begin{enumerate}[label=(\roman*)]
+\item $\dim(X)\le1$;
+\item 在 $X$ 上具备 3.1.6(b) 意义下的奇点消解与纯性.
+\end{enumerate}
+\end{enumerate}
+\end{statement}
+
+\begin{prooftext}
+(i) 与 (i bis) 的等价性由从层 Ext 到超 Ext 的标准谱序列得出.
+
+(i bis) $\Rightarrow$ (ii). 设 $\ol F$ 为延拓 $F$ 的可构造 $A_X$-模, 例如 $\ol F=i_!F$. 由对偶性 (SGA A, 第 XVIII 报告, 3.1.10),
+\[
+   \R i_*F
+    =\R i_*\R\,\underline{\Hom}(A_U,i^!\ol F)
+    \xrightarrow{\sim}
+      \R\,\underline{\Hom}(i_!A_U,\ol F),
+\]
+从而断言成立.
+
+(ii) $\Rightarrow$ (ii bis). 将 $i$ 分解为一个闭浸入后接一个开浸入.
+
+(ii bis) $\Rightarrow$ (i bis). 问题是局部的, 可假设 $X$ 为仿射的. 经通常的分步归约 (SGA A, 第 IX 报告, 2.5), 只须对 $F=i_!M$ 验证 (ii), 其中 $i:Y\to X$ 为子预概形的浸入, $M$ 为局部常值可构造 $A_Y$-模. 由投影公式 (SGA A, 第 XVIII 报告),
+\[
+   \R\,\underline{\Hom}(i_!M,G)
+      \xrightarrow{\sim}
+   \R i_*\R\,\underline{\Hom}(M,\R i^!G),
+\]
+再由谱序列, 只须证明
+\[
+   \R\,\underline{\Hom}(M,\R i^!G)\in\ob\D_c^+(Y).
+\]
+首先证明 $\R i^!G\in\ob\D_c^+(Y)$. 将 $i$ 分解后, 可以假设 $Y$ 为闭的. 设 $j:U=X-Y$ 为补开集的浸入. 对
+\[
+   0\longrightarrow A_{U,X}\longrightarrow A_X\longrightarrow A_Y\longrightarrow0
+\]
+作用 $\R\,\underline{\Hom}(\ ,G)$, 得到特异三角形
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+& \R\,\underline{\Hom}(A_{U,X},G) \arrow[dl] & \\
+\R\,\underline{\Hom}(A_Y,G) \arrow[rr] & & \R\,\underline{\Hom}(A_X,G) \arrow[ul]
+\end{tikzcd}
+\]
+由于 $\R\,\underline{\Hom}(A_X,G)=G$, 而由假设,
+\[
+   \R\,\underline{\Hom}(A_{U,X},G)\xrightarrow{\sim}\R j_*j^!G
+\]
+属于 $\D_c^+(X)$, 故
+\[
+   \R\,\underline{\Hom}(A_Y,G)\xrightarrow{\sim}i_*\R i^!G
+\]
+属于 $\D_c^+(X)$. 在 $Y$ 上相对于平展拓扑局部地用自由 $A_Y$-模消解 $M$, 再作一次分步归约, 得到
+\[
+   \R\,\underline{\Hom}(M,\R i^!G)\in\ob\D_c^+(Y).
+\]
+这证明了所需蕴含.
+
+(ii bis) $\Rightarrow$ (ii ter) 显然.
+
+(ii ter) $\Rightarrow$ (ii). 设 $i:U\to X$ 为开浸入, $F$ 为可构造 $A_U$-模. 须证明 $\R i_*F\in\ob\D_c^+(X)$. 问题是局部的, 假设 $X$ 为 Noether 的, 并对 $X$ 作 Noether 归纳. 可假设 $U\ne\varnothing$. 则存在非空开集 $j:V\to U$, 使 $j^*F$ 局部常值 (SGA A, 第 IX 报告, 2.4). 设 $M$ 为
+\[
+   F\longrightarrow \R j_*j^*F
+\]
+的映射柱. 作用 $\R i_*$ 得到特异三角形
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+& \R i_*(M) \arrow[dl,"{(+1)}"'] & \\
+\R i_*(F) \arrow[rr] & & \R i_*\R j_*j^*(F) \arrow[ul]
+\end{tikzcd}
+\]
+条件 (ii ter) 给出
+\[
+   \R i_*\R j_*j^*F\xrightarrow{\sim}\R(ij)_*j^*F\in\ob\D_c^+(X).
+\]
+于是
+\[
+   \R j_*j^*F\xrightarrow{\sim}i^*\R(ij)_*j^*F\in\ob\D_c^+(U).
+\]
+由于 $F\in\ob\D_c^+(U)$, 故 $M\in\ob\D_c^+(U)$. 此外, $M$ 的上同调支撑于 $U$ 的某个不同于 $U$ 的闭子集 $Z$. 将归纳假设用于 $U\cap\ol Z\to\ol Z$, 推出 $\R i_*M\in\ob\D_c^+(X)$, 进而 $\R i_*F\in\ob\D_c^+(X)$.
+
+(i)--(ii ter) 与条件 (iii) 的等价性留给读者; 使用 1.14.
+
+对于 b)(i), 经正规化只需考虑 $X$ 正则的情形, 然后使用将在 5.1 中证明的纯性. 对于 b)(ii), 参看 3.1.6(b). \qedtext
+\end{prooftext}
+
+\subsection*{3.4. 正则预概形上的双对偶定理}
+
+\begin{statement}{定理 3.4.1, 参见 [H], V, 2.2}
+设 $X$ 为有限维的正则局部 Noether 预概形. 假设 $X$ 可强消解奇点 (3.1.5), 满足 (reg) (3.1.1) 与 $(\mathrm{cdloc})_n$ (3.1.3), 且绝对纯性 (3.1.4) 在每个 $X$ 上的光滑预概形上成立. 则 $A_X$ 为对偶化复形.
+\end{statement}
+
+\begin{prooftext}
+须证明 $A_X$ 满足 1.6 的条件 (i)--(iii). 条件 (i) 由 3.2.1 得出. 条件 (ii) 由 3.3.1(b) 得出. 还须证明条件 (iii). 因此由 1.7, 对每个可构造 $A_X$-模 $F$, 须证明典范同态
+\[
+   F\longrightarrow \underline D_X\underline D_XF,
+   \qquad \underline D_X=\R\,\underline{\Hom}(\ ,A_X),
+\]
+为同构. 问题是局部的, 假设 $X$ 为 Noether 的. 经分步归约 (3.1.2, iii bis), 只须处理层
+\[
+   F=f_*i_!(A'_U),
+\]
+其中 $i:U\to Y$ 为整预概形的一个正则开集的包含, $f:Y\to X$ 有限, $Y$ 的泛点在其像上可分, 并且 $A'=\ZZ/\ell\ZZ$, $\ell$ 为 $n$ 的一个素因子.
+
+由于 $X$ 可强消解奇点, 存在固有双有理态射 $h:Y'\to Y$, 其中 $Y'$ 正则, 该态射诱导 $U'=h^{-1}U$ 到 $U$ 的同构, 且 $Y'-U'$ 为正规交叉除子. 由基变换 (SGA A, 第 XVII 报告),
+\[
+   i_!(A'_U)\xrightarrow{\sim}\R h_*i'_!(A'_{U'}),
+\]
+其中 $i':U'\to Y'$ 为包含. 因此置 $g=fh$, 有
+\[
+   f_*i_!(A'_U)
+     \xrightarrow{\sim} f_*\R h_*i'_!(A'_{U'})
+     \xrightarrow{\sim} \R g_*i'_!(A'_{U'}).
+\]
+由 1.11, 只须证明二元组
+\[
+   \bigl(i'_!(A'_{U'}),\R^!g(A_X)\bigr)
+\]
+满足双对偶. 将 $Y'$ 局部浸入一个在 $X$ 上光滑的预概形 $X'$, 并在 $X'$ 上应用纯性, 可见 $\R^!g(A_X)$ 除次数平移外局部同构于 $A_{Y'}$. 因而归结为下面的特殊情形.
+\end{prooftext}
+
+\begin{statement}{引理 3.4.2}
+设 $X$ 为局部 Noether 正则预概形, 绝对纯性在其上成立. 设 $Y=Y_1\cup\cdots\cup Y_p$ 为 $X$ 上的严格正规交叉除子, 置 $U=X-Y$. 则二元组 $(A'_{U,X},A_X)$ 满足双对偶.
+\end{statement}
+
+\begin{prooftext}
+由正合列
+\[
+   0\longrightarrow A'_{U,X}\longrightarrow A'_X\longrightarrow A'_Y\longrightarrow0,
+\]
+等价地只须验证 $(A'_Y,A_X)$ 满足双对偶. 对 $p$ 作归纳.
+
+若 $p=1$, 设 $i:Y\to X$ 为浸入. 由 1.11, 只须验证
+\[
+   (A'_Y,\R^!i(A_X))
+\]
+满足双对偶. 由纯性,
+\[
+   \R^!i(A_X)\xrightarrow{\sim}(\mu_n)^{\otimes -1}_Y[-2].
+\]
+于是典范同态 $A'_Y\to\underline D_Y\underline D_Y(A'_Y)$ 为同构, 这可逐纤维直接验证, 只需使用 $A$-模的 Pontryagin 对偶.
+
+设 $p\ge2$, 置 $Y'=Y_1\cup\cdots\cup Y_{p-1}$. 有正合列
+\[
+   0\longrightarrow A'_{(Y-Y'),X}\longrightarrow A'_Y\longrightarrow A'_{Y'}\longrightarrow0.
+\]
+由归纳假设, $(A'_{Y'},A_X)$ 满足双对偶. 由五引理, 只须对 $(A'_{(Y-Y'),X},A_X)$ 证明双对偶. 但又有正合列
+\[
+   0\longrightarrow A'_{(Y-Y'),X}\longrightarrow A'_{Y_p}\longrightarrow A'_{Y_p\cap Y'}\longrightarrow0.
+\]
+由于 $(A'_{Y_p},A_X)$ 满足双对偶, 还须对 $(A'_{Y_p\cap Y'},A_X)$ 证明同样结论. 再次应用 1.11 并使用纯性, 最后归结为在 $Y_p$ 上对 $(A'_{Y_p\cap Y'},A_{Y_p})$ 证明双对偶, 此时可应用归纳假设. \qedtext
+\end{prooftext}
+
+定理 3.4.1 证明完毕.
+
+\begin{statement}{推论 3.4.3}
+设 $S$ 为特征零的卓越 Noether 正则预概形. 则 $A_S$ 为对偶化复形. 此外, 若 $f:X\to S$ 为有限型态射, 则 $\R^!f(A_S)$ 为对偶化复形.
+\end{statement}
+
+\begin{prooftext}
+第一断言成立, 是因为 $S$ 满足 3.4.1 的各项假设, 如 3.1 中所述. 对于第二断言, 首先须验证 $\R^!f(A_S)$ 具有有限拟内射维数. 用有限个仿射开集 $S_i$ 覆盖 $S$, 使得 $X_i=f^{-1}(S_i)$ 是仿射开集 $X_{ij}$ 的有限并, 而每个 $X_{ij}$ 都可作为闭子概形浸入一个在 $S_i$ 上光滑且有限维的预概形 $X'_{ij}$. 由 3.2.3 及 1.6 得出
+\[
+   \dim.\,q.\,inj\bigl(\R^!f(A_S)\bigr)
+       \le 2\sup \dim X'_{ij}.
+\]
+还须验证 1.7 的条件 (ii) 与 (iii). 它们在 $X$ 上相对于平展拓扑是局部的, 故可假设 $f$ 分解为 $f=f'i$, 其中 $f':X'\to S$ 光滑且相对维数为 $d$, $i:X\to X'$ 为闭浸入. 则
+\[
+   \R^!f(A_S)\simeq \R^!i\,\R^!f'(A_S).
+\]
+但 $\R^!f'(A_S)$ 除平移 $2d$ 外局部同构于 $A_{X'}$, 因而由第一断言为对偶化复形. 由 1.15, $\R^!f(A_S)$ 为对偶化复形, 特别地满足 1.7 的条件 (ii) 与 (iii). \qedtext
+\end{prooftext}
+
+\begin{statement}{推论 3.4.4}
+设 $k$ 为域, $f:X\to S=\Spec(k)$ 为局部有限型态射, 且 $\dim(X)\le2$. 则 $\R^!f(A_S)$ 为对偶化复形.
+\end{statement}
+
+\begin{prooftext}
+用 $k$ 的完美闭包代替 $k$ 不影响平展拓扑 (SGA A, 第 VIII 报告, 1.1), 因而可假设 $k$ 完美. 用 $k$ 上有限型仿射开集 $X_i$ 覆盖 $X$. 由于 $\dim(X_i)\le2$, 正规化引理使 $X_i$ 有限于一个在 $S$ 上光滑、维数 $\le2$ 的概形 $X'_i$. 由 1.15, 这将问题归结为 $f$ 光滑的情形, 从而局部地有
+\[
+   f^!(A_S)\simeq A_X[2d].
+\]
+于是只须在此情形下证明 $A_X$ 为对偶化复形; 这正是 3.4.1, 因为各项假设均满足 (见 3.1). \qedtext
+\end{prooftext}
+
+\begin{statement}{注 3.4.5}
+下面将看到, 若 $X$ 正则且维数 $\le1$, 则 $A_X$ 为对偶化复形.
+\end{statement}
+
+\section*{4. 局部对偶}
+
+本节的目标是将前面各节中所建立的“双对偶”概念表述为更接近几何直观的形式.
+
+\subsection*{4.1}
+设 $X$ 为预概形, $i:x\to X$ 为剩余域可分闭的闭点, $K_X$ 为 $X$ 上的对偶化复形 (1.7). 已知 (1.15), $K_{\{x\}}=\R^{!}i(K_X)$ 为 $x$ 上的对偶化复形, 因而由 (2.1) 及 (3.4.4), 同构于某个 $A[r]$, $r\in\Z$ (若 $A$ 为局部环). 若 $r=0$ 且已给定同构 $K_{\{x\}}\xrightarrow{\sim}A$, 就称 $K_X$ \emph{在 $x$ 处已规范化}.
+
+例如, 若 $X$ 在可分闭域的谱上光滑且相对维数为 $d$, 则由纯性定理 (SGA~XVI~3, SGA~$4^{1/2}$ Cycle~2.3), 复形 $(\mu_n)_X^{\otimes d}[2d]$ 在 $X$ 的每个闭点处典范地规范化.
+
+\subsection*{4.2}
+设 $X$ 为预概形, $i:Y\to X$ 为闭子预概形, $K_X$ 为 $X$ 上的对偶化复形. 则由 (1.15), $K_Y=\R^{!}i(K_X)$ 为 $Y$ 上的对偶化复形, 且对 $F\in \ob\D_c^b(X)$ 有\emph{补充诱导公式} (1.12 b) (ii)):
+\[
+(4.2.1)\qquad i^*\underline{D}_X(F)\xrightarrow{\sim}\underline{D}_Y\R^{!}i(F),
+\]
+其中 $\underline{D}_X=\R\,\underline{\Hom}(\ ,K_X)$, $\underline{D}_Y=\R\,\underline{\Hom}(\ ,K_Y)$.
+
+特别地, 将 (4.2.1) 用于 $Y=\{x\}$ 为 $X$ 的一个剩余域可分闭的闭点、且 $K_X$ 在 $x$ 处已规范化 (4.1) 的情形. 考虑到 $A_x$ 内射, 此时 (4.2.1) 写成
+\[
+(4.2.2)\qquad \underline{D}_X(F)_x\xrightarrow{\sim}\Hom^*(\R^{!}i(F),A).
+\]
+注意到按定义 $\R^{!}i(F)$ 也记作 $\R\Gamma_x(F)$, 因而在 $\D(A)$ 中有完美配对:
+\[
+(4.2.2)'\qquad \underline{D}_X(F)_x\times \R\Gamma_x(F)\longrightarrow A,
+\]
+它给出有限群之间的完美配对:
+\[
+(4.2.2)''\qquad \uH^i(\underline{D}_X(F))_x\times \uH_x^{-i}(F)\longrightarrow A.
+\]
+例如, 设 $X$ 为可分闭域上维数 $d$ 的光滑预概形, $x\in X$ 为闭点. 则对 $F\in\ob\D_c^b(X)$, 有有限群之间的典范完美对偶:
+\[
+(4.2.2)'''\qquad \Ext^{2d-i}(F,(\mu_n)_X^{\otimes d})_x\times \uH_x^i(F)\longrightarrow A.
+\]
+
+\subsection*{习题 4.2.3}
+设 $X$ 为严格局部概形 (SGAA~VIII~4.2), 闭点为 $x$, $i:x\to X$ 为典范态射. 设 $K$ 为 $X$ 上在 $x$ 处已规范化的对偶化复形. 以
+\[
+\mathbf L\, i_? : \D^b(A)\longrightarrow \D^-(X)
+\]
+表示由
+\[
+\mathbf L\, i_?(M)=M\overset{\mathbf L}{\otimes}_A K
+\]
+定义的函子.
+(若 $K$ 在 $A$ 上具有有限 Tor 维数, 则 $\mathbf L\, i_?$ 可延伸为从 $\D^+(A)$ 到 $\D(X)$ 的函子.)
+
+证明: 对 $L\in\D^-(X)$ 及 $M\in\D^b(A)$, 存在典范函子性同构
+\[
+(*)\qquad \R\Hom(L,\mathbf L\, i_?(M))\xrightarrow{\sim}\R\Hom(\R^{!}i(L),M),
+\]
+(当然, 假定 $\R^{!}i:\D^-(X)\to\D^-(A)$ 已有定义 $\dots$).
+
+\emph{提示:} 首先定义“迹”态射 $\R^{!}i\,\mathbf L\, i_?(M)\to M$; 然后为检验 $(*)$ 是同构, 通过分步归约化为 $L\in\ob\D_c^b(X)$ 且 $M=A$ 的情形, 再应用 (4.2.2). 注意当 $M=A$ 时, $(*)$ 化为完美配对 (“局部对偶”, 参见~[H]~V~6.2)
+\[
+\R\Gamma_x(L)\times \R\Hom(L,K)\longrightarrow A,
+\]
+或
+\[
+\H_x^i(L)\times \Ext^{-i}(L,K)\longrightarrow A.
+\]
+
+\subsection*{4.3}
+现在将 (4.2.2) 推广到 $X$ 的几何点 $\ol{x}$ 的情形, 其所位于的点 $x$ 未必闭. 为此需要一些预备工作.
+
+\begin{statement}{引理 4.3}
+设 $X$ 为预概形, $X'$ 为 $X$ 在几何点 $\ol{x}$ 处的严格局部化, $f:X'\to X$ 为典范映射. 则对 $F\in\ob\D_c^-(X)$ 及 $G\in\ob\D^+(X)$, 典范函子性同态 (SGAA~VI~I~3.7)
+\[
+f^*\R\,\underline{\Hom}(F,G)\longrightarrow \R\,\underline{\Hom}(f^*F,f^*G)
+\]
+为同构.
+\end{statement}
+
+\begin{prooftext}[证明]
+照常可归结为 $F$ 与 $G$ 集中于次数 $0$ 的情形. 由于问题在 $x$ 的邻域内是局部的, 可以假设 $X$ 仿射. 此时 $F$ 有由形如 $i_!(A_U)$ 的层组成的左消解 (SGAA~IX~2.7), 其中 $i:U\to X$ 平展且有限表示; 因而经分步归约, 只须考虑 $F=i_!(A_U)$. 构造笛卡尔方图
+\[
+\begin{tikzcd}
+U \arrow[d,"i"'] & U' \arrow[l,"g"'] \arrow[d,"i'"] \\
+X & X' \arrow[l,"f"]
+\end{tikzcd}
+\]
+有典范同构, 它们是对偶性的平凡特例 (SGAA~XVIII~3.1.10):
+\[
+\R\,\underline{\Hom}(F,G)\xleftarrow{\sim}\R i_* i^*G,
+\qquad
+\R\,\underline{\Hom}(f^*F,f^*G)\xleftarrow{\sim}\R i'_* g^*i^*G.
+\]
+在这些同构下, 典范箭头
+\[
+f^*\R\,\underline{\Hom}(F,G)\longrightarrow \R\,\underline{\Hom}(f^*F,f^*G)
+\]
+等同于基变换箭头 (SGAA~XVII)
+\[
+f^*\R i_*i^*(G)\longrightarrow \R i'_*g^*i^*(G).
+\]
+但这是同构, 取极限便可立即看出 (SGAA~VII~5.11).
+\end{prooftext}
+
+\begin{statement}{引理 4.4}
+设 $X$ 为预概形, $K\in\ob\D_c^+(X)$ 为满足 (1.7) 中条件 (i) 与 (ii) 的复形. $K$ 为对偶化复形的充分必要条件是: 对每个严格局部化 $f:\ol{X}(\ol{x})\to X$, $f^*K$ 都是对偶化复形.
+\end{statement}
+
+\begin{prooftext}[证明]
+利用如下事实: 严格局部化 $\ol{X}(\ol{x})$ 上的每个可构造层均由某个 $X$ 上带 $\ol{x}$ 标点的平展概形上的可构造层诱导 (SGAA~IX~2.7.4), 然后应用 (4.3).
+\end{prooftext}
+
+\subsection*{4.5}
+设 $X$ 为预概形, $\ol{x}$ 为 $X$ 的几何点, $f:X'=\ol{X}(\ol{x})\to X$ 为相应的严格局部化.
+
+设 $Y$ 为 $x$ 在 $X$ 中的闭包所成的整闭子预概形; 以 $g:\ol{x}\to Y$ 与 $i:Y\to X$ 表示典范映射, 并构造笛卡尔方图
+\[
+\begin{tikzcd}
+Y \arrow[r,"i"] & X \\
+\ol{x} \arrow[u,"g"] \arrow[r,"i'"'] & X' \arrow[u,"f"']
+\end{tikzcd}
+\]
+($\ol{x}$ 既为 $X'$ 的闭点, 也是 $Y$ 在 $\ol{x}$ 处的严格局部化).
+
+以
+\[
+\R\Gamma_{\ol{x}}:\D^+(X)\longrightarrow \D^+(\ol{x})
+\]
+表示由
+\[
+(4.5.1)\qquad \R\Gamma_{\ol{x}}=g^*\R^{!}i
+\]
+定义的函子.
+利用函子 $\R^{!}i$ 与 $\R j_*j^*$ 之间的熟知关系, 其中 $j:U\to X$ 为 $Y$ 的开补集, 并取极限 (SGAA~VII~5.11), 得到典范同构
+\[
+(4.5.2)\qquad \R\Gamma_{\ol{x}}\xrightarrow{\sim}\R^{!}i' f^*.
+\]
+当 $x$ 为剩余域可分闭的闭点时, 函子 $\R\Gamma_{\ol{x}}$ 与通常的函子 $\R\Gamma_x$ (SGAA~V~4.3) 相同, 因而上述记号是合理的.
+
+设 $K_X\in\ob\D^+(X)$, 置 $K_Y=\R^{!}i(K_X)$, $K_{X'}=f^*K_X$, $K_{\ol{x}}=\R\Gamma_{\ol{x}}(K_X)$ (注意: $K_{\ol{x}}$ 不是 $K_X$ 在 $\ol{x}$ 处的纤维!). 假设 $K_X$ 为对偶化复形. 则由 (1.15) 与 (4.4), $K_{X'}$, $K_Y$ 及 $K_{\ol{x}}$ 也均为对偶化复形. 所以由 (2.1), 对某个 $d\in\Z$ 有 $K_{\ol{x}}\simeq A[d]$.
+
+若 $d=0$ 且已选定同构 $K_{\ol{x}}\simeq A$, 就称 $K_X$ \emph{在 $\ol{x}$ 处已规范化}. 在 $x$ 为剩余域可分闭的闭点时, 这就回到了 (4.1) 中引入的概念.
+
+设 $K_X$ 为对偶化复形, 置 $\underline{D}_X=\R\underline{\Hom}(\ ,K_X)$, $\underline{D}_Y=\R\underline{\Hom}(\ ,K_Y)$, 等等. 设 $F\in\ob\D_c^b(X)$; 计算 $(\underline{D}_XF)_{\ol{x}}$. 有:
+\[
+\begin{aligned}
+(\underline{D}_XF)_{\ol{x}}&\xrightarrow{\sim}g^*i^*\underline{D}_X F\\
+&\xrightarrow{\sim}g^*\underline{D}_Y\R^{!}iF\qquad\text{(由补充诱导公式 (4.2.1))}\\
+&\xrightarrow{\sim}\underline{D}_{\ol{x}}g^*\R^{!}i(F)\qquad\text{(由 (4.3)), 即}
+\end{aligned}
+\]
+\[
+(4.5.3)\qquad (\underline{D}_X F)_{\ol{x}}\xrightarrow{\sim}\underline{D}_{\ol{x}}\R\Gamma_{\ol{x}}(F).
+\]
+当然, 也可以经由 $X'$ 而非 $Y$ 作类似计算; 此时会得到典范同构
+\[
+(\underline{D}_XF)_{\ol{x}}\xrightarrow{\sim}\underline{D}_{\ol{x}}\R^{!}i'f^*(F),
+\]
+它通过等同 (4.5.2) 与 (4.5.3) 相容.
+
+若进一步 $K_X$ 在 $\ol{x}$ 处已规范化, 则得到推广 (4.2.2)' 与 (4.2.2)'' 的完美配对:
+\[
+(4.5.3)'\qquad \underline{D}_X(F)_{\ol{x}}\times \R\Gamma_{\ol{x}}(F)\longrightarrow A,
+\]
+\[
+(4.5.3)''\qquad \uH^i(\underline{D}_X(F)_{\ol{x}})\times \uH_{\ol{x}}^{-i}(F)\longrightarrow A,
+\]
+其中 $\uH_{\ol{x}}^i=\uH^i\R\Gamma_{\ol{x}}$.
+
+反之, 设 $K_X\in\ob\D^+(X)$ 满足 (1.7) 的条件 (i) 与 (ii), 并假设对 $X$ 的每个几何点 $\ol{x}$, $K_{\ol{x}}=\R\Gamma_{\ol{x}}(K_X)$ 均为对偶化复形. 则对每个 $\ol{x}$, 可以定义典范箭头 (参见~1.12 b) (ii))
+\[
+(4.5.3)^{\mathrm{bis}}\qquad \underline{D}_X(F)_{\ol{x}}\longrightarrow \underline{D}_{\ol{x}}\R\Gamma_{\ol{x}}(F)\qquad (F\in\ob\D_c^b(X)).
+\]
+若对每个 $\ol{x}$ 及每个 $F$ 此箭头均为同构, 则 $K_X$ 为对偶化复形. 事实上, 还须验证对每个 $F\in\ob\D_c^b(X)$, 典范箭头
+\[
+F\longrightarrow \underline{D}_X\underline{D}_X(F)
+\]
+为同构. 在任意几何点 $\ol{x}$ 处, 有
+\[
+\begin{aligned}
+F_{\ol{x}}&\xrightarrow{\sim}\underline{D}_{\ol{x}}\underline{D}_{\ol{x}}(F_{\ol{x}})\qquad\text{(因 $K_{\ol{x}}$ 为对偶化复形)}\\
+&\xrightarrow{\sim}\underline{D}_{\ol{x}}\R\Gamma_{\ol{x}}\underline{D}_X(F)\qquad\text{(由 (4.3) 及诱导公式 1.12 b) (i))}\\
+&\xrightarrow{\sim}\underline{D}_X\underline{D}_X(F)_{\ol{x}}\qquad\text{(由假设)},
+\end{aligned}
+\]
+所以, 只要再作一次相容性检验, $(F,K_X)$ 即满足双对偶, 断言得证. 综上:
+
+\begin{statement}{命题 4.5.4}
+设 $X$ 为预概形, $K_X\in\ob\D^+(X)$ 为满足 (1.7) 中条件 (i) 与 (ii) 的复形. $K_X$ 为对偶化复形的充分必要条件是: 对 $X$ 的每个几何点 $\ol{x}$, 复形 $K_{\ol{x}}$ 为对偶化复形, 且对每个 $F\in\ob\D_c^b(X)$, 典范箭头 (4.5.3)$^{\mathrm{bis}}$ 均为同构.
+\end{statement}
+
+\begin{statement}{注 4.5.5}
+从某种意义上说, 对偶化复形的存在性应视为整体对偶定理的重要补充. 事实上, 后一定理表明: 对有限型分离态射 $f:X\to Y$ ($Y$ 拟紧), 有典范同构
+\[
+\underline{D}_Y\R_!f(F)\xrightarrow{\sim}\R f_*\underline{D}_X(F)
+\]
+(采用 1.12 的记号). 要用它计算 $\R_!f(F)$ (当 $F\in\ob\D_c^b(X)$ 时), 需要有关 $\underline{D}_X(F)$ 的信息. 当 $K_X$ 为对偶化复形时, 同构 (4.5.3) 提供了这一信息, 使我们至少在理论上可以将 $\underline{D}_X(F)$ 的纤维计算为“纯粹空间性”的上同调不变量.
+\end{statement}
+
+\begin{statement}{习题 4.5.6}
+设 $X$ 为带有对偶化复形 (1.7) 的预概形. 函子族 (参见~(4.5.3)'')
+\[
+\underline{\H}_{\ol{x}}^i:\D_c^b(X)\longrightarrow (A\text{-模})
+\]
+($i$ 遍历 $\Z$, $\ol{x}$ 遍历 $X$ 的几何点集) 是“保守”的, 即若 $\D_c^b(X)$ 中的态射 $F\to G$ 使各映射 $\H_{\ol{x}}^i(F)\to\H_{\ol{x}}^i(G)$ 都为同构, 则该态射本身为同构.
+\end{statement}
+
+\subsection*{4.6}
+设 $X$ 为预概形, $j:Y\to X$ 为闭子预概形, $i:\ol{x}\to Y$ 为 $Y$ 的几何点. 另一方面, 设 $K_X$ 为 $X$ 上在 $\ol{x}$ 处已规范化的对偶化复形 (参见~(4.5)). 在 (4.5) 中已见到: 若 $Y$ 为 $x$ 的闭包, 则对 $F\in\ob\D_c^b(X)$, 有完美配对
+\[
+\R^{!}j(F)_{\ol{x}}\times \underline{D}_X(F)_{\ol{x}}\longrightarrow A.
+\]
+在一般情形下定义类似配对并不困难. 引入 $i$ 的分解
+\[
+\ol{x}\xrightarrow{i'}\ol{\{x\}}\xrightarrow{i''}Y.
+\]
+对 $F\in\ob\D_c^b(X)$, 有典范同构:\footnote{\emph{编者注.} 印本原文中通常诱导公式所在的一行无法无歧义地辨认. 当前经原文核对的法文 TeX 写为 $i'^*\underline D_{\ol{x}}i''^*\R^!j(F)$; 但沿 $i'':\ol{\{x\}}\to Y$ 检查对象所属的范畴, 下标应当是 $\ol{\{x\}}$, 而原文字形又可能看成 $X$, 第一个拉回记号也不清楚. 本版保留法文校核本的读法, 并不声称扫描本足以作出裁决.}
+\[
+\begin{aligned}
+\R\Gamma_{\ol{x}}j^*\underline{D}_X(F)&\xrightarrow{\sim}\R\Gamma_{\ol{x}}\underline{D}_Y\R^{!}j(F)\qquad\text{(补充诱导公式 (4.2.1))}\\
+&\xrightarrow{\sim}i'^*\R^{!}i''\underline{D}_Y\R^{!}j(F)\qquad\text{($\R\Gamma_{\ol{x}}$ 的定义 (4.5.1))}\\
+&\xrightarrow{\sim}i'^*\underline{D}_{\ol{x}}i''^*\R^{!}j(F)\qquad\text{(通常诱导公式 (1.12 b) (i))}\\
+&\xrightarrow{\sim}\underline{D}_{\ol{x}}i^*\R^{!}j(F)\qquad\text{(由 4.3)), 最终即得到}
+\end{aligned}
+\]
+典范同构
+\[
+(4.6.1)\qquad \R^{!}j(F)_{\ol{x}}\xrightarrow{\sim}\underline{D}_{\ol{x}}\R\Gamma_{\ol{x}}j^*\underline{D}_X(F),
+\]
+从而有完美配对
+\[
+(4.6.1)'\qquad \R^{!}j(F)_{\ol{x}}\times \R\Gamma_{\ol{x}}j^*\underline{D}_X(F)\longrightarrow A,
+\]
+\[
+(4.6.1)''\qquad \uH_Y^i(F)_{\ol{x}}\times \uH_{\ol{x}}^{-i}(\underline{D}_X(F)|Y)\longrightarrow A.
+\]
+
+\begin{statement}{例 4.6.2}
+设 $X$ 为正则预概形, $\ol{x}$ 为 $X$ 的几何点, 置 $d=\dim(\cO_{X,\ol{x}})$. 令 $K_X=(\mu_n)_X^{\otimes d}[2d]$. 若 $X$ 满足条件 (reg) (3.1.1) 及纯性定理 (3.1.4), 则 $K_X$ 在 $\ol{x}$ 处典范地规范化. 因而若 $K_X$ 为对偶化复形, 则对每个包含 $x$ 的闭子集 $Y$ 及每个 $F\in\ob\D_c^b(X)$, 有完美配对
+\[
+\uH_Y^i(F)_{\ol{x}}\times \uH_{\ol{x}}^{2d-i}(F'|Y)\longrightarrow A,
+\]
+其中 $F'=\R\Hom(F,(\mu_n)_X^{\otimes d})$.
+\end{statement}
+
+最后给出 (4.6.1) 的严格局部变体.
+
+\subsection*{4.7}
+设 $X$ 为 Noether 严格局部概形 (SGAA~VIII~4.2), 闭点为 $x$. 设 $Y$ 为 $X$ 的非空闭子集, 并考虑典范浸入
+\[
+U=X-Y\xrightarrow{i}V=X-\{x\}\xrightarrow{j}X.
+\]
+最后, 设 $K_X$ 为在 $x$ 处已规范化的对偶化复形 (4.1), 它在 $U,V,Y,x$ 上给出“相应”的对偶化复形 (且由假设 $\underline{D}_x=\R\Hom(\ ,A)$):
+\[
+K_V=j^*K_X,
+\qquad K_U=i^*K_V,
+\qquad K_Y=\R\Gamma_Y(K_X).
+\]
+设 $G\in\ob\D_c^b(U)$, 置 $G'=\underline{D}_U(G)$. 下面定义自然配对
+\[
+(4.7.1)\qquad \R\Gamma(U,G)\times \R\Gamma(V,i_!G')[-1]\longrightarrow A,
+\]
+即函子性同态
+\[
+(4.7.1)'\qquad \R\Gamma(U,G)\overset{\mathbf L}{\otimes}_A\R\Gamma(V,i_!G')[-1]\longrightarrow A.
+\]
+(由于环 $A=\Z/\ell\Z$ 在 $\ell\geqslant2$ 时具有无限上同调维数, 这里只知道如何定义张量积
+\[
+\overset{\mathbf L}{\otimes}:\D^-(A)\times\D^-(A)\longrightarrow\D^-(A)
+\]
+及
+\[
+\overset{\mathbf L}{\otimes}:\D(A)\times\D^b(A)_{\mathrm{torf}}\longrightarrow\D(A)\quad(*).
+\]
+因此请读者补上适当假设, 确保 (4.7.1)' 中 $\overset{\mathbf L}{\otimes}$ 的两个因子属于 $\D^b(A)$, 或其中一个具有有限 Tor 维数.)
+
+首先注意, 由补充对偶公式 (1.12 a) (ii), 有典范同构
+\[
+(4.7.2)\qquad i_!(G')\xrightarrow{\sim}\underline{D}_V(\R i_*G).
+\]
+另一方面, 有通常对偶同构
+\[
+(4.7.3)\qquad \R\Hom(A_U,G)\xrightarrow{\sim}\R\Hom(A_V,\R i_*G).
+\]
+由 $\underline{D}_V$ 的定义 (无须 $K_V$ 为对偶化复形), 有典范箭头
+\[
+(4.7.4)\qquad \R i_*G\overset{\mathbf L}{\otimes}\underline{D}_V(\R i_*G)\longrightarrow K_V.
+\]
+由 (4.7.2), (4.7.3) 及 (4.7.4), 得到 (典范) 箭头
+\[
+(4.7.5)\qquad \R\Gamma(U,G)\overset{\mathbf L}{\otimes}_A\R\Gamma(V,i_!G')\longrightarrow \R\Hom(A_V,K_V).
+\]
+但 $K_V=j^!K_X$, 且有对偶同构 (SGAA~3.1.10):
+\[
+(4.7.6)\qquad \R\Hom(A_V,K_V)\xrightarrow{\sim}\R\Hom(A_{V,X},K_X).
+\]
+最后, 正合列
+\[
+(4.7.7)\qquad 0\longrightarrow A_{V,X}\longrightarrow A_X\longrightarrow A_x\longrightarrow 0
+\]
+给出次数为 $+1$ 的同态:
+\[
+(4.7.8)\qquad \R\Hom(A_{V,X},K_X)\longrightarrow \R\Hom(A_x,K_X)\xrightarrow{\sim}A.
+\]
+复合 (4.7.5), (4.7.6) 与 (4.7.8), 即得所述箭头 (4.7.1)'.
+
+\emph{(*) (1977 年增补) 此说不确: 实际上容易将 $\overset{\mathbf L}{\otimes}:\D^-(A)\times\D^-(A)\to\D^-(A)$ 延伸为 $\overset{\mathbf L}{\otimes}:\D^-(A)\times\D(A)\to\D(A)$.}
+
+现在说明配对 (4.7.1) 是“完美”的, 即箭头 (4.7.1)' 将 $\R\Gamma(V,i_!G')[-1]$ 等同于 $\underline{D}_x\R\Gamma(U,G)$. 事实上, 可以假设
+\[
+G=(ji)^*F,
+\]
+其中 $F\in\ob\D_c^b(X)$. 置 $F'=\underline{D}_X(F)$, $F'_{U,X}=(ji)_!G'$. 有正合列
+\[
+(4.7.9)\qquad 0\longrightarrow F'_{U,X}\longrightarrow F'\longrightarrow F'|Y\longrightarrow0,
+\]
+它给出特异三角形
+\[
+\begin{tikzcd}
+& \R\Gamma_x(F'_{U,X}) \arrow[dr] \\
+\R\Gamma_x(F'|Y) \arrow[ur,"{+1}"] && \R\Gamma_x(F') \arrow[ll]
+\end{tikzcd}
+\qquad (b)
+\]
+由 $\R\Gamma_x$ 的定义, 有
+\[
+\R\Gamma_x(F'_{U,X})=\R\Hom(A_x,F'_{U,X});
+\]
+因此使用 (4.7.7) 及 $(F'_{U,X})_x=\R\Gamma(X,F'_{U,X})=0$, 有典范同构
+\[
+\R\Hom(A_{V,X},F'_{U,X})[1]\xrightarrow{\sim}\R\Gamma_x(F'_{U,X}).
+\]
+而有
+\[
+\begin{aligned}
+\R\Hom(A_{V,X},F'_{U,X})&=\R\Hom(j_!A_V,j_!i_!G')\\
+&\xrightarrow{\sim}\R\Hom(A_V,i_!G')\qquad\text{由对偶性 (SGAA~3.1.10)},
+\end{aligned}
+\]
+最终得到典范同构
+\[
+(4.7.10)\qquad \R\Gamma(V,i_!G')[-1]\xrightarrow{\sim}\R\Gamma_x(F'_{U,X}).
+\]
+另一方面, 有正合列
+\[
+(4.7.11)\qquad 0\longrightarrow A_{U,X}\longrightarrow A_X\longrightarrow A_Y\longrightarrow0,
+\]
+它给出特异三角形
+\[
+\begin{tikzcd}
+& \R\Gamma(U,F|U) \arrow[dl,"{+1}"'] \\
+\R\Gamma_Y(F) \arrow[rr] && \R\Gamma_X(F) \arrow[ul]
+\end{tikzcd}
+\qquad (a)
+\]
+由 (4.7.1) 与 (4.7.10), 有自然配对
+\[
+(4.7.12)\qquad \R\Gamma(U,F|U)\times\R\Gamma_x(F'_{U,X})\longrightarrow A.
+\]
+由 (4.6.1), 有完美配对
+\[
+(4.7.13)\qquad \R\Gamma_Y(F)\times\R\Gamma_x(F'|Y)\longrightarrow A.
+\]
+最后, 由通常诱导公式 (1.12 b) (i)), 有完美配对
+\[
+(4.7.14)\qquad \R\Gamma(X,F)\times\R\Gamma_x(F')\longrightarrow A.
+\]
+耐心梳理这些错综的“典范箭头”的读者会验证, 配对 (4.7.12), (4.7.13) 及 (4.7.14) 与三角 (a), (b) 的箭头“相容”, 因而配对 (4.7.12) 与 (4.7.1) 均为完美的.
+
+三角 (a) 与 (b) 的配对给出两条“互为转置”的正合列:
+\[
+(4.7.15)\qquad \cdots\longrightarrow \H_Y^i(X,F)\longrightarrow\H^i(X,F)\longrightarrow\H^i(U,F)\longrightarrow\cdots
+\]
+\[
+\cdots\longleftarrow \H_x^{-i}(Y,F'|Y)\longleftarrow\H_x^{-i}(X,F')\longleftarrow\H^{-i-1}(V,F'_{U,V})\longleftarrow\cdots.
+\]
+综上, 可以表述为:
+
+\begin{statement}{命题 4.7.16}
+设 $X$ 为 Noether 严格局部概形, 闭点为 $x$. 设 $Y$ 为 $X$ 的非空闭子集, $U=X-Y$, $V=X-x$, $i:U\to V$ 与 $j:V\to X$ 为典范包含. 设 $K_X$ 为 $X$ 上在 $x$ 处已规范化的对偶化复形 (从而给出 $V,U,Y$ 上相应的对偶化复形). 对 $G\in\ob\D_c^b(U)$, 有完美配对:
+\[
+(*)\qquad \R\Gamma(U,G)\times\R\Gamma(V,i_!G')[-1]\longrightarrow A
+\]
+(其中 $G'=\underline{D}_U(G)$). 若 $G=F|U$, 其中 $F\in\ob\D_c^b(X)$, 则有典范同构
+\[
+(**)\qquad \R\Gamma(V,i_!G')[-1]\xrightarrow{\sim}\R\Gamma_x(F'_{U,X})
+\]
+(其中 $F'=\underline{D}_X(F)$, $F'_{U,X}=(ji)_!(F'|U)=(ji)_!(G')$), 以及特异三角形
+\begin{center}
+\begin{tikzpicture}[>=latex,scale=0.92,baseline=(current bounding box.center)]
+\node (aT) at (0,1.2) {$\R\Gamma(U,F|U)$};
+\node (aL) at (-1.75,0) {$\R\Gamma_Y(F)$};
+\node (aR) at (1.75,0) {$\R\Gamma(X,F)$};
+\draw[->] (aL) -- (aR);
+\draw[->] (aR) -- (aT);
+\draw[->] (aT) -- node[above left] {$+1$} (aL);
+\node at (3.2,0.55) {与};
+\node (bT) at (5.9,1.2) {$\R\Gamma_x(F'_{U,X})$};
+\node (bL) at (4.25,0) {$\R\Gamma_x(F'|Y)$};
+\node (bR) at (7.55,0) {$\R\Gamma_x(F')$};
+\draw[->] (bT) -- (bR);
+\draw[->] (bR) -- (bL);
+\draw[->] (bL) -- node[above left] {$+1$} (bT);
+\end{tikzpicture}
+\end{center}
+之间的完美配对, 它与配对 $(*)$ 及同构 $(**)$ 相容, 并给出两条互为转置的正合列 (4.7.15).
+\end{statement}
+
+\begin{statement}{注 4.7.17}
+在 $Y=\{x\}$ 这一特殊情形中, 仅假设 $K_X$ 在 $x$ 处已规范化 (未必为对偶化复形), 即 $\R\Gamma_x(K_X)\simeq A$ (给定此同构), 就能定义配对 (4.7.1): 此时使用了双对偶的同构 (4.7.2) 化为恒等映射. 由于配对 (4.7.14) 总是完美的, 因此可见 $X$ 上的局部对偶 (以 (4.2.2)' 的形式) 等价于 $U=X-x$ 上的“整体”对偶, 即断言配对 (4.7.1)
+\[
+\R\Gamma(U,G)\times\R\Gamma(U,G')[-1]\longrightarrow A
+\]
+是完美的, 等价地, 配对
+\[
+\H^i(U,G)\times\H^{-i-1}(U,G')\longrightarrow A
+\]
+是完美的.
+
+假设 $X$ 上有在 $x$ 处已规范化的对偶化复形 $K_X$. 若 $X$ 卓越且 $U$ 正则, 维数为 $d$ (因此 $x$ 可以是孤立奇点), 则应能验证 $K_U=K_X|U$ 典范同构于 $(\mu_n)_U^{\otimes d}[2d]$ (无论如何, 若 $X$ 为特征~$0$ 的域上某个局部有限型预概形的严格局部化, 则容易验证此点). 于是 $X$ 上的局部对偶意味着: 对每个局部常值可构造 $A_U$-模 $G$, 都有完美配对:
+\[
+\H^i(U,G)\times\H^{2d-1-i}(U,G^\circ)\longrightarrow A,
+\]
+其中 $G^\circ=\uHom(G,(\mu_n)_U^{\otimes d})$, 形式上对应于维数 $2d-1$ 的概形上的 Poincaré 对偶.
+\end{statement}
+
+\section*{5. 曲线上的局部对偶}
+
+\begin{statement}{定理 5.1}
+设 $X$ 为维数 $1$ 的 Noether 正则预概形. 假设 $n$ 与 $X$ 的各剩余特征互素. 则纯性定理在 $X$ 上成立 (3.1.4), 且复形 $A_X$ 为对偶化复形 (1.7).
+\end{statement}
+
+\begin{prooftext}[证明]
+假定纯性已经证明. 由于 $X$ 显然满足条件 (reg) (3.1.1), 而条件 $(\mathrm{cdloc})_n$ 由 (SGAA~X~2.2) 成立, 所以由 (3.2.1) 得出 $\dim.q.inj(A_X)=2$. 另一方面, (1.7) 的条件 (ii) 由 (3.3.1 b) (i)) 成立 (该结论是在假定纯性的前提下证明的). 因而由 (4.4), 只须在 $X$ 严格局部时证明 $A_X$ 为对偶化复形. 而为了证明纯性, 由于问题在闭点的邻域内是局部的, 也同样可以假设 $X$ 严格局部. 最后, 只须在 $X$ 严格局部时证明定理.
+
+于是设 $X$ 严格局部. 设 $x$ 为其闭点, $(\pi=\car(k(x)))$, $\eta$ 为其泛点, $U=X-x=\Spec(k(\eta))$. 设 $G=\Gal(k(\ol{\eta})/k(\eta))$ 为 $U$ 的基本群. 已知 [CL, 第~IV 章第~2 节习题~2] 有典范正合列
+\[
+(5.1.1)\qquad 1\longrightarrow P\longrightarrow G\longrightarrow H\longrightarrow1,
+\]
+其中 $H=\prod_{\ell\ne\pi}\Z_\ell(1)$, $\Z_\ell(1)=\varprojlim \mu_{\ell^\nu}$, 而 $P$ 为 pro-$\pi$ 群. (当然, $H$ 同构于 $\prod_{\ell\ne\pi}\Z_\ell$, 但非典范地同构.)
+
+还知道 (SGAA~VIII~2), $U$ 的平展上同调可解释为 $G$ 的 Galois 上同调, 其中 $A_U$-模层 (分别地, 可构造 $A_U$-模层) 对应于带 $G$ 连续作用的 $A$-模 (分别地, 有限型 $A$-模).
+
+这样, 各 $\uH_x^i(A_X)$ 由正合列
+\[
+(5.1.2)\qquad 0\longrightarrow \uH_x^0(A_X)\longrightarrow \H^0(X,A_X)\longrightarrow \H^0(U,A_U)\longrightarrow \uH_x^1(A_X)\longrightarrow0,
+\]
+以及同构
+\[
+(5.1.3)\qquad \uH_x^i(A_X)\xrightarrow{\sim}\H^{i-1}(U,A_U)\qquad\text{当 }i\geqslant2
+\]
+确定.
+但显然 $\H^0(X,A_X)=\H^0(U,A_U)=A$, 因而 $\uH_x^0(A_X)=\uH_x^1(A_X)=0$.
+
+另一方面, 对 Galois $G$-$A$-模 $M$, 有 Hochschild--Serre 谱序列
+\[
+E_2^{pq}=\H^p(H,\H^q(P,M))\Longrightarrow \H^{*}(G,M).
+\]
+由于 $n$ 与 $\pi$ 互素, 且 $P$ 为 pro-$\pi$ 群, 有
+\[
+\H^q(P,M)=0\quad\text{当 }q\ne0,
+\]
+因而当 $q\ne0$ 时 $E_2^{pq}=0$, 给出典范同构
+\[
+(5.1.4)\qquad \H^p(G,M)\xrightarrow{\sim}\H^p(H,M^P).
+\]
+由类似论证还可见, 当令因子 $\widehat{\Z}(1)$ 平凡作用于 $N$ 时, $\H^p(H,N)$ 可等同于 $\H^p(\widehat{\Z}(1),N)$. 因此最终在上述约定下有典范同构
+\[
+(5.1.5)\qquad \H^p(G,M)\xrightarrow{\sim}\H^p(\widehat{\Z}(1),M^P).
+\]
+现在 $\widehat{\Z}$ 的 Galois 上同调是熟知的 (CG 第~I 章第~31 页): 对 $G$-$A$-模 $N$, 有
+\[
+(5.1.6)\qquad
+\H^i(\widehat{\Z},N)=0\quad\text{当 }i\geqslant2,
+\qquad
+\H^0(\widehat{\Z},N)=N^{\widehat{\Z}},
+\qquad
+\H^1(\widehat{\Z},N)=N_{\widehat{\Z}}.
+\]
+由 (5.1.3), (5.1.5) 与 (5.1.6) 立即推出
+\[
+\H^i(U,A_U)=0\quad\text{当 }i\geqslant2,
+\]
+以及
+\[
+\H^1(U,A_U)\xrightarrow{\sim}A.
+\]
+最后这个同构并非典范的, 因为它依赖于将 $\widehat{\Z}(1)$ 与 $\widehat{\Z}$ 等同的选择. 但利用 Kummer 正合列, 可得 (SGAA~XIX~1.3) 一个典范同构 (由“局部基本类”给出)
+\[
+(5.1.7)\qquad \H^1(U,\mu_n)\xrightarrow{\sim}A.
+\]
+纯性得证.
+
+现在证明 $A_X$ 为对偶化复形. 由 (4.7.17), 须证明: 对每个局部常值可构造 $A_U$-模 $M$, 配对
+\[
+(5.1.8)\qquad \H^i(U,M)\times\H^{1-i}(U,\uHom(M,A_U))\longrightarrow \H^1(U,A_U)\xrightarrow{\sim}(\mu_n)_X^{\otimes -1}
+\]
+为完美对偶. 将以 Galois 上同调解释这一配对. 为此使用下述初等引理.
+\end{prooftext}
+
+\begin{statement}{引理 5.1.9}
+以 $D=\Hom(\ ,A)$ 表示有限型 $A$-模范畴上的 Pontrjagin 对偶化函子. 设 $M$ 为有限型 $A$-模, 群 $G$ 在其上 $A$-线性地作用.
+\begin{enumerate}[label=(\roman*)]
+\item 有典范同构
+\[
+D(M^G)\xrightarrow{\sim}(DM)_G.
+\]
+\item 若 $G$ 为连续作用于 $M$ 的 射有限群, 且 $G$ 的 pro-阶与 $n$ 互素, 则典范箭头
+\[
+M^G\longrightarrow M_G
+\]
+为同构.
+\end{enumerate}
+\end{statement}
+
+\begin{prooftext}[证明]
+按定义,
+\[
+M^G=\varprojlim_{s\in G}\Ker(M\xrightarrow{s-1}M),
+\]
+因而
+\[
+D(M^G)\xrightarrow{\sim}\varinjlim_{s\in G}\Coker(DM\xrightarrow{s-1}DM)\xrightarrow{\sim}(DM)_G,
+\]
+这证明了 (i).
+
+证明 (ii). 设 $M'$ 为由正合列
+\[
+0\longrightarrow M'\longrightarrow M\longrightarrow M_G\longrightarrow0
+\]
+定义的 $A$-模.
+由于 $G$ 的 pro-阶与 $n$ 互素, 有 $\H^1(G,M')=0$. 因而上同调正合列意味着箭头 $M^G\to M_G$ 为满态射. 但应用函子 $D$ 并考虑 (i), 又推出它为单态射, 证明完毕.
+\end{prooftext}
+
+将 (5.1.9) 用于 $M$ 与 $P$, 得到 $\uHom(M,A)^P$ 典范等同于 $\uHom(M^P,A)$. 若选取从 $\widehat{\Z}(1)$ 到 $\widehat{\Z}$ 的同构, 则考虑 (5.1.5), 配对 (5.1.8) 可写为
+\[
+(5.1.8)'\qquad \H^i(\widehat{\Z},M^P)\times\H^{1-i}(\widehat{\Z},D(M^P))\longrightarrow\H^1(\widehat{\Z},A)\xrightarrow{\sim}A.
+\]
+由 (5.1.6) 与 (5.1.9(i)) 立即得出 (5.1.8)' 为完美配对. (5.1) 证明完毕.
+
+\section*{参考文献}
+
+\begin{description}[leftmargin=2.5cm,style=nextline]
+\item[{[2]}] Hironaka, H. \emph{Resolution of singularities of an algebraic variety over a field of characteristic zero}, Ann. of Math., vol. 79 (1964), p.~109.
+\item[{[1]}] Abhyankar, S. \emph{Local uniformization on algebraic surfaces over ground fields of characteristic $p\ne0$}, Ann. of Math., vol. 63 (1956), p.~491--526, 及 \emph{Resolution of singularities of arithmetical surfaces}, Arithmetical Algebraic Geometry, Harper \& Row, New York (1965).
+\item[{[H]}] Hartshorne, R. \emph{Residues and duality}, Lecture Notes no.~20, Springer (1966).
+\item[{[SGAA]}] Séminaire de Géométrie Algébrique de l'IHES, \emph{Cohomologie étale des schémas}, M.~Artin 与 A.~Grothendieck, 1963--64.
+\item[{[CL]}] Serre, J.-P. \emph{Corps locaux}, Hermann (1962).
+\item[{[CG]}] Serre, J.-P. \emph{Cohomologie galoisienne}, Lecture Notes no.~5, Springer (1964).
+\end{description}
+
+\section*{附录}
+\begin{center}
+L.~Illusie
+\end{center}
+
+上述理论容易推广到比常值环 $\Z/n\Z$ 更一般的基环. 下面简要说明, 当基环局部常值、被 $n>0$ 零化, 且各几何纤维为 Noether 环时, 理论如何表述. 不过, 这仍只是一个暂时的框架\footnote{依 Grothendieck 所说!}: 迟早必须将它整体化, 在预概形 $X$ 上取景 $(X_{\mathrm{\acute et}},\Z/n\Z)$ 上的相对预概形为“系数”.
+
+\subsection*{1. 可构造层}
+
+\textbf{1.1.} 设 $X$ 为预概形, $A_X$ 为 $X$ 上相对于平展拓扑的局部常值环层, 其各几何纤维为左 Noether 环. 以 ${}_A X$ 表示左 $A_X$-模范畴, 以 $\D({}_A X)$ (若无混淆之虞, 也记为 $\D(X)$) 表示相应的导出范畴. 可构造左 $A_X$-模的概念如 (SGAA IX 2.3) 定义, 但将“局部常值且取有限表示的值”替换为“作为 $A_{U_i}$-模为有限表示的”.
+
+以 $\D_c(X)$ 表示 $\D(X)$ 的全子范畴, 其对象为对每个 $i$ 均有 $\uH^i(E)$ 为可构造 $A_X$-模的复形 $E$. 它是 $\D(X)$ 的三角子范畴.
+
+\textbf{1.2.} 设 $E\in\ob\D(X)$. 若对每个 $i$, $\uH^i(E)$ 均为有限表示 $A_X$-模 (或称局部常值可构造模), 则称 $E$ 为伪凝聚的 (参见第~II 报告 3.11). 以 $\D(X)_{\mathrm{coh}}$ (或 $\D_{\mathrm{coh}}(X)$) 表示 $\D(X)$ 中由伪凝聚对象组成的全子范畴. 由 (SGAA IX 2.1), 它是 $\D_c(X)$ 的三角子范畴.
+
+\textbf{命题 1.3} (分步归约引理). 设 $X$ 为拟紧拟分离预概形 (分别地, Noether 预概形), $C$ 为可构造左 $A_X$-模范畴 $\Cons(X)$ 的严格全子范畴. 假设 $C$ 对扩张稳定. 下列条件等价:
+\begin{enumerate}[label=(\roman*)]
+\item $C=\Cons(X)$;
+\item $C$ 包含形如 $i_!(F)$ 的层, 其中 $i:Y\to X$ 为有限表示子预概形 (分别地, 整子预概形), $F$ 在 $Y$ 上局部常值且可构造.
+\end{enumerate}
+若 $A_X$ 为取值于被整数 $n>0$ 零化的左 Noether 环 $A$ 的常值层, 则上述条件等价于:
+\begin{enumerate}[label=(\roman*),start=3]
+\item $C$ 对直和因子稳定, 且包含形如 $f_*i_!(M_U)$ 的层, 其中 $i:U\to Y$ 为开浸入 (分别地, 整预概形的开子集), $f:Y\to X$ 为有限态射 (分别地, 有限且 $Y$ 的泛点在其像上可分), $M_U$ 为常值左 $A_U$-模, 其值为一个被 $n$ 的某个素因子零化的单生成 $A$-模.
+\end{enumerate}
+最后, 若 $X$ 为 Noether 的且满足条件 (reg) (I 3.1.1), 则条件 (ii) (分别地, (iii)) 等价于进一步假设 $Y$ (分别地, $U$) 正则的类似条件.
+
+\emph{证明.} 条件 (i) 与 (ii) 的等价性如 $A_X$ 为常值层时一样证明; 见 (SGAA IX 2.4 及 2.5).
+
+假设 $A_X$ 为取值于 $A$ 且被 $n$ 零化的常值层, 证明 (iii) 蕴含 (ii). 设 $E\in\ob\Cons(X)$; 证明 $E\in\ob C$. 由等价关系 (i)$\Leftrightarrow$(ii), 可以假设 $E=j_!F$, 其中 $j:Z\to X$ 为有限表示子预概形 (分别地, 整子预概形) 的浸入, $F$ 为可构造局部常值 $A_Z$-模; 再作少许分步归约后, 甚至可假设 $F$ 被群为 $G$ 的平展覆盖 $g:Z'\to Z$ 平凡化. 因而层 $F$ 由带 $G$ 作用的有限型 $A$-模 $M$ 定义. 若 $\ell$ 为 $n$ 的素因子, 则 $M$ 中的 $\ell$-挠子群为 $M$ 的一个子 $G$-$A$-模 $M_\ell$, 且
+\[
+        M=\bigoplus_\ell M_\ell,
+\]
+其中 $\ell$ 遍历 $n$ 的素因子集合. 由于 $C$ 对直和因子稳定, 只须考虑 $M$ 为 $\ell$-挠的情形. 设 $H$ 为 $G$ 的一个 $\ell$-Sylow 子群, $h:U=Z'/H\to Z$ 为相应的中间覆盖. 由于 $h$ 的次数与 $\ell$ 互素, “迹方法” (SGAA IX 5.1) 表明伴随映射
+\[
+        F\longrightarrow h_*h^*(F)
+\]
+给出到一个直和因子的同构; 因而只须证明 $j_!h_*h^*(F)\in\ob C$. 由“主定理” (EGA IV 8.12.6), 存在交换图
+\[
+\begin{tikzcd}
+U \arrow[r,"i"] \arrow[d,"h"'] & Y \arrow[d,"f"]\\
+Z \arrow[r,"j"'] & X,
+\end{tikzcd}
+\]
+其中 $i$ 为开浸入, $f$ 有限. 有
+\[
+        j_!h_*h^*(F) \simeq f_* i_! h^*(F).
+\]
+但 $h^*(F)$ 由视为 $H$-$A$-模的 $M$ 定义. 所以 (iii)$\Rightarrow$(ii) 由下述引理得出.
+
+\textbf{引理 1.3.1.} 设 $A$ 为左 Noether 环, $\ell$ 为素数, $H$ 为有限 $\ell$-群, $M$ 为被 $\ell^\nu$ ($\nu\geq1$) 零化的有限型左 $H$-$A$-模. 则 $M$ 存在由子 $H$-$A$-模组成的有限滤过, 其逐次商为被 $\ell$ 零化的单生成 $A$-模, 且 $H$ 在其上平凡作用.
+
+\emph{证明.} 由 $H$-$A$-模的正合列
+\[
+        0\longrightarrow \ell M\longrightarrow M\longrightarrow M/\ell M\longrightarrow 0,
+\]
+对 $\nu$ 作归纳, 归结为 $M$ 被 $\ell$ 零化的情形. 证明此时 $M$ 存在子 $H$-$A$-模的有限滤过, 使 $H$ 在各逐次商上平凡作用. 对具有所述性质的 $M$ 的子 $H$-$A$-模集合作 Noether 归纳, 只须证明 $M\neq0$ 蕴含 $M^H\neq0$. 但增广 $\F_\ell[H]\to\F_\ell$ 的核显然为幂零的, 因而 Nakayama 引理意味着每个非零 $H$-$\F_\ell$-模都有非零不变向量. 断言得证. 所以 $M$ 有一个有限滤过, 其逐次商为被 $\ell$ 零化、且带 $H$ 平凡作用的有限型 $A$-模. 再用 Noether 归纳, 甚至可以使各逐次商为单生成 $A$-模, 从而完成 (1.3.1) 的证明.
+
+(1.3) 的最后断言是直接的, 留给读者.
+
+\subsection*{2. 拟内射维数}
+
+采用 (1.1) 的记号, 如 (I 1.1 及 1.4) 一样定义拟内射 $A_X$-模与 $\D(X)$ 的对象的拟内射维数. 命题 (I 1.3, 1.5 及 1.6) 原样推广.
+
+有时引入逐点拟内射维数的概念很方便. 设 $x\in X$, $K\in\ob\D^+(X)$. 若对每个可构造 $A_X$-模 $F$ 都有
+\[
+        \underline{\Ext}^{i}(F,K)_{\bar{x}}=0\qquad\text{当 }i>N,
+\]
+则称 $K$ 在 $\bar{x}$ 处的拟内射维数 $\leq N$.
+$K$ 在 $\bar{x}$ 处的拟内射维数, 记作 $\dim.\mathrm{q.inj}_{\bar{x}}(K)$, 是满足上述条件的 $N$ 的下确界. 当然,
+\[
+        \dim.\mathrm{q.inj}(K)=\sup_{\bar{x}}\dim.\mathrm{q.inj}_{\bar{x}}(K),
+\]
+其中 $\bar{x}$ 遍历 $X$ 的几何点集.
+
+将它与 Verdier 在 [1] 中引入的严格拓扑维数概念比较是有益的. 若对 $X$ 的每个子预概形 $Y$, 都有
+\[
+        \underline{\Ext}^{i}(A_Y,K)_{\bar{x}}=\uH^i_Y(K)_{\bar{x}}=0\qquad\text{当 }i>N,
+\]
+则称 $K\in\ob\D^+(X)$ 在 $X$ 的几何点 $\bar{x}$ 处的严格拓扑维数 $\leq N$.
+$K$ 在 $\bar{x}$ 处的严格拓扑维数, 记作 $\dim.\mathrm{top}_{\bar{x}}(K)$, 是满足上述条件的 $N$ 的下确界. 拟内射维数先验地依赖于基环, 而严格拓扑维数仅依赖于底层的 Abel 群层复形.
+
+显然有
+\[
+        \dim.\mathrm{top}_{\bar{x}}(K)\leq \dim.\mathrm{q.inj}_{\bar{x}}(K).
+\]
+下面将看到等号成立的例子.
+
+\subsection*{3. 对偶化复形: 定义与形式性质}
+
+保留前述记号, 但假设 $A_X$ 交换. 如 (I 1.7) 一样定义双对偶化二元组及对偶化复形的概念. (I 1.9, 1.11, 1.14) 的陈述原样成立. (I 1.12, 1.13, 1.15) 也成立, 但须假设 $A$ 被某个与 $Y$ 的各剩余特征互素的整数 $n>0$ 零化. 最后, 唯一性定理 (I 2.1) 仍成立, 只须假定对 $X$ 的每个几何点 $\bar{x}$, $\Spec(A_{\bar{x}})$ 连通.
+
+\subsection*{4. 绝对纯性}
+
+回到绝对上同调纯性 (I 3.1.4) 的情形. 设 $X$ 为局部 Noether 正则预概形, $n>0$ 为与 $X$ 的各剩余特征互素的整数, $i:Y\to X$ 为在每一点的余维数均为 $d>0$ 的正则子预概形. 回顾一下, 称二元组 $(Y,X)$ 满足绝对上同调纯性, 意味着“局部基本类”同态 (SGA $4^{1/2}$ Cycle 2.2)
+\begin{equation}\tag{4.1}
+        (\mu_n^{\otimes -d})_Y[-2d]\longrightarrow \R i^!(\Z/n\Z)_X
+\end{equation}
+为同构.
+
+现在在 $X$ 上赋予一个被 $n$ 零化的环层 $A_X$. 暂置 $G=(\Z/n\Z)_X$. 则对每个 $F\in\ob\D_A^+(X)$, 可以在 $\D_A^+(X)$ 中定义典范箭头:
+\begin{equation}\tag{4.2}
+        i^*(F)\otimes^L_{\Z/n\Z} \R i^!(G)\longrightarrow \R i^!\bigl(F\otimes^L_{\Z/n\Z}G\bigr).
+\end{equation}
+事实上, 由对偶性 (SGAA XVIII 3.1.6), 这等价于定义箭头
+\[
+        i_!\bigl(i^*(F)\otimes^L_{\Z/n\Z}\R i^!(G)\bigr)\longrightarrow F\otimes^L_{\Z/n\Z}G;
+\]
+取其为 Künneth 箭头 (SGAA XVII 5.4.2.2)
+\[
+        i_!\bigl(i^*(F)\otimes^L_{\Z/n\Z}\R i^!(G)\bigr)\longrightarrow F\otimes^L_{\Z/n\Z}i_!\R i^!(G),
+\]
+与由迹同态 (SGAA XVIII 3.1.6) 导出的箭头
+\[
+        F\otimes^L_{\Z/n\Z}i_!\R i^!(G)\longrightarrow F\otimes^L_{\Z/n\Z}G
+\]
+的复合.
+注意, 定义 (4.2) 时仅用了 $G$ 与 $\R i^!(G)$ 在 $\Z/n\Z$ 上具有有限 Tor 维数这一事实. 另一方面, 假设函子 $i^!$ 在 $(\Z/n\Z)_X$-模范畴上具有有限上同调维数: 例如当 $X$ 在域上为有限型时 (SGAA XIV 3.1), 更一般地当 $X$ 卓越且等特征并具备奇点消解时 (SGAA XIX 6.1), 或当 $X$ 在 $\Spec(\Z)$ 上为有限型时 (SGAA X 6), 都是如此. 则箭头 (4.2) 对所有 $F\in\ob\D({}_A X)$ 均有定义.
+
+复合 (4.1) 与 (4.2), 对 $F\in\ob\D_A^+(X)$, 得到典范箭头
+\begin{equation}\tag{4.3}
+        i^*(F)\otimes^L_{\Z/n\Z}(\mu_n^{\otimes -d})_Y[-2d]\longrightarrow \R i^!(F).
+\end{equation}
+假设 $A_X$ 局部常值, 并设 $F\in\ob\D_A^+(X)$ 满足每个 $\uH^i(F)$ 都是局部常值 $A_X$-模. 则若 $i^!$ 具有有限上同调维数, 箭头 (4.2) 为同构; 因而若 $(Y,X)$ 满足纯性, 箭头 (4.3) 也为同构.
+
+事实上, 经分步归约, 首先化为 $F$ 集中于次数零的情形. 问题是局部的, 可假设 $X$ 仿射, $A_X$ 与 $F$ 常值. 用自由 $A_X$-模在左侧消解 $F$, 并应用 $i^!$ 具有有限上同调维数这一假设, 化为 $F$ 自由的情形. 直接取极限, 化为 $F$ 为有限型自由模的情形, 最后化为 $F=A_X$. 因而只须在 $A_X=(\Z/n\Z)_X$ 时证明断言. 但前述分步归约又将问题化为 $F=(\Z/n\Z)_X$, 而此时 (4.2) 就是恒等映射.
+
+\textbf{定义 4.4.} 给定环 $A_X$ (局部常值且被 $n$ 零化), 若对每个满足 $\uH^i(F)$ 均局部常值的 $F\in\ob\D_A^+(X)$, 典范箭头 (4.3) 都为同构, 就称二元组 $(Y,X)$ 满足强意义下的上同调纯性.
+
+若相对于平展拓扑局部地, 每个如上的二元组 $(Y,X)$ 都满足强意义下的纯性, 就称强意义下的纯性定理在 $X$ 上成立. 由已证结果可知, 要使 $(Y,X)$ 满足强意义下的纯性, 只须 $(Y,X)$ 满足通常纯性 (I 3.1.), 且函子 $i^!$ 具有有限上同调维数.
+
+\subsection*{5. 拟内射维数的界}
+
+\textbf{命题 5.1.} 设 $X$ 为局部 Noether 正则预概形, 带有局部常值环层 $A_X$, 该层被某个与 $X$ 的各剩余特征互素的整数 $n>0$ 零化, 且其各几何纤维为左 Noether 环. 假设 $X$ 满足条件 (reg) (I 3.1.1) 与 $(\mathrm{cdloc})_n$ (I 3.1.3), 且强意义下的纯性定理在 $X$ 上成立 (4.4) (若 $X$ 在完美域上光滑, 或 $X$ 卓越且特征为零, 则这些条件全部满足).
+
+设 $F\in\allowbreak \ob\D_A^+(X)$ 满足各 $\uH^i(F)$ 局部常值, 设 $x$ 为 $X$ 的一点, 满足 $F_{\bar{x}}\neq\allowbreak 0$ 及 $\dim.\mathrm{inj}_{A_{\bar{x}}}(F_{\bar{x}})<\allowbreak +\infty$. 则采用第~2 节的记号, 有
+\[
+        \dim.\mathrm{q.inj}_{\bar{x}}(F)=2\dim(\mathcal{O}_{X,x})+\dim.\mathrm{inj}(F_{\bar{x}}).
+\]
+
+\emph{证明.} 只须逐步重复 (I 3.2.1) 的证明. 首先证明不等式
+\[
+        \dim.\mathrm{q.inj}_{\bar{x}}(F)\leq 2\dim(\mathcal{O}_{X,x})+\dim.\mathrm{inj}(F_{\bar{x}})=N,
+\]
+即关系
+\begin{equation}\tag{*}
+        \underline{\Ext}^{i}(E,F)_{\bar{x}}=0\quad\text{对 } i>N\text{ 及每个可构造 }A_X\text{-模 }E.
+\end{equation}
+由于问题是局部的, 经分步归约 (1.3), 只须对 $E=i_!(M)$ 检验 $(*)$, 其中 $i:Y\to X$ 为整正则子预概形, 闭于某个开集 $D(f)$ 中 ($f\in\Gamma(X,\mathcal{O}_X)$), 在 $D(f)$ 的每点处余维数为 $d$, 而 $M$ 为局部常值可构造 $A_Y$-模 ($A_Y=i^*A_X$).
+
+现有对偶同构 (SGAA XVIII)
+\[
+        \R\underline{\Hom}(i_!(M),F)\simeq \R i_*\R\underline{\Hom}(M,\R i^!F).
+\]
+由纯性定理, 还有同构 (4.3)
+\[
+        i^*(F)\otimes^L_{\Z/n\Z}(\mu_n^{\otimes -d})_Y[-2d]\xrightarrow{\sim}\R i^!(F).
+\]
+设 $\bar{y}$ 为 $Y$ 的几何点. 由于 $M$ 局部常值且可构造, 典范地有
+\[
+        \R\underline{\Hom}(M,\R i^!F)_{\bar{y}}\simeq \R\underline{\Hom}(M_{\bar{y}},(\R i^!F)_{\bar{y}}),
+\]
+因而由 (4.3),
+\[
+        \R\underline{\Hom}(M,\R i^!F)_{\bar{y}}\simeq \R\underline{\Hom}(M_{\bar{y}},F_{\bar{y}})[-2d].
+\]
+用 $x$ 的一个连通邻域代替 $X$ 后, 由于 $A_X$ 与各 $\uH^i(F)$ 局部常值, 有 $F_{\bar{x}}\simeq F_{\bar{y}}$ 及 $A_{\bar{x}}\simeq A_{\bar{y}}$. 于是
+\[
+        \underline{\Ext}^i(M_{\bar{y}},F_{\bar{y}})=0\quad\text{当 }i>\dim.\mathrm{inj}(F_{\bar{x}}),
+\]
+因而
+\[
+        \underline{\Ext}^{q}(M,\R i^!F)=0\quad\text{当 }q>2d+\dim.\mathrm{inj}(F_{\bar{x}}).
+\]
+置 $G=\R\underline{\Hom}(M,\R i^!F)$, 计算 $\R i_*(G)_{\bar{x}}$. 如 (I 3.2.1) 一样, 引入 $Y$ 在 $X$ 中的概形论闭包 $Z$, 得到浸入的笛卡尔图
+\[
+\begin{tikzcd}
+Y \arrow[r] \arrow[d,"j"'] & D(f) \arrow[d]\\
+Z \arrow[r,"k"'] & X.
+\end{tikzcd}
+\]
+则 $\R i_*(G)\simeq k_*\R j_*(G)$. 当然假设 $x\in Z$, 否则 $\R i_*(G)=0$. 设 $\bar{Z}=\Spec(\mathcal{O}_{Z,\bar{x}})$ 为 $Z$ 在 $\bar{x}$ 处的严格局部化, $\bar{f}$ 为 $f$ 在 $\mathcal{O}_{Z,\bar{x}}$ 中的像, $\bar{Y}=\bar{Z}\times_ZY=\bar{Z}\cap D(\bar{f})$, $\bar{G}$ 为 $G$ 在 $\bar{Y}$ 上的逆像. 由 (SGAA VIII 5.2),
+\[
+        \R i_*(G)_{\bar{x}}=\R j_*(G)_{\bar{x}}\simeq \R\Gamma(\bar{Y},\bar{G}).
+\]
+因而条件 $(\mathrm{cdloc})_n$ 通过谱序列论证给出
+\[
+        R^p i_*(G)_{\bar{x}}=0\quad\text{当 }p>2d+\dim.\mathrm{inj}(F_{\bar{x}})+\dim(\mathcal{O}_{Z,x}).
+\]
+但有 (参见 I 3.2.1 的证明)
+\[
+        \dim(\mathcal{O}_{Z,x})=\dim(\mathcal{O}_{X,x})-d\geq0,
+\]
+所以
+\[
+        R^p i_*(G)_{\bar{x}}=0\quad\text{当 }p>d+\dim(\mathcal{O}_{X,x})+\dim.\mathrm{inj}(F_{\bar{x}}),
+\]
+特别地, 当 $p>2\dim(\mathcal{O}_{X,x})+\dim.\mathrm{inj}(F_{\bar{x}})$ 时成立. 这证明了 $(*)$.
+
+还须证明界 $(*)$ 是最佳的. 置 $f=\dim.\mathrm{inj}(F_{\bar{x}})$, 选取有限型 $A_{\bar{x}}$-模 $M'$, 使得
+\[
+        \underline{\Ext}^f(M',F_{\bar{x}})\neq0.
+\]
+设 $Z$ 为 $x$ 的闭包所成的 $X$ 的整闭子预概形, $Y=U\cap Z$ 为 $Z$ 中包含 $x$ 的正则开集, 在每一点的余维数均为 $d=\dim(\mathcal{O}_{X,x})$. 必要时缩小 $Y$, 存在局部常值可构造 $A_Y$-模 $M$, 使 $M_{\bar{x}}=M'$. 应用纯性定理, 得到
+\[
+        \underline{\Ext}^{2d+f}(M,F|U)_{\bar{x}}\simeq \underline{\Ext}^f(M',F_{\bar{x}})\neq0,
+\]
+证明完毕.
+
+若 $F$ 为 $A_X$-模且 $F_{\bar{x}}$ 内射, 则在证明的最后部分可以取 $M=A_Y$; 因而有:
+
+\textbf{推论 5.1.1.} 在 (5.1) 的假设下, 设 $F$ 为局部常值 $A_X$-模, 且 $F_{\bar{x}}$ 内射. 则采用第~2 节的记号, 有
+\[
+        \dim.\mathrm{q.inj}_{\bar{x}}(F)=\dim.\mathrm{top}_{\bar{x}}(F)=2\dim(\mathcal{O}_{X,x}).
+\]
+
+\textbf{注 5.1.2.} a) 采用 (5.1) 的记号, 若 $F_{\bar{x}}=0$, 则在 $x$ 的某个邻域内 $F=0$, 因而对所有 $E\in\ob\D^{-}(X)$ 均有 $\R\underline{\Hom}(E,F)_{\bar{x}}=0$.
+
+b) 若 $\dim.\mathrm{inj}(F_{\bar{x}})=+\infty$, 则 $\dim.\mathrm{q.inj}_{\bar{x}}(F)=+\infty$; 事实上, 对每个 $p$, 存在有限型 $A_{\bar{x}}$-模 $M'$, 使 $\underline{\Ext}^p(M',F_{\bar{x}})\neq0$, 因而存在在 $x$ 的邻域内局部常值的可构造 $A_X$-模 $M$, 使 $\underline{\Ext}^p(M,F)_{\bar{x}}\neq0$.
+
+\subsection*{6. $\R\underline{\Hom}$ 的可构造性}
+
+将环 $(\Z/n\Z)_X$ 替换为局部常值且各几何纤维为 Noether 环的交换环时, (I 3.3.1) 中 a) 的各条件仍等价: 证明完全不必改动.
+
+在具备奇点消解及强意义下的纯性 (4.4) 时, 上述条件均成立; 特别地, 若 $X$ 的维数 $\leq1$, 或 $X$ 卓越且特征为零, 或 $X$ 在域上局部有限型且维数 $\leq2$, 都是如此.
+
+\subsection*{7. 对偶化复形的存在性}
+
+本节中, $X$ 表示带有局部常值交换环层 $A_X$ 的预概形, 且该环层的各几何纤维为 Noether 环.
+
+\textbf{引理 7.1.} 若 $F\in\ob\D^{-}_{\mathrm{coh}}(X)$, $G\in\ob\D^{+}_{\mathrm{coh}}(X)$, 则 $\R\underline{\Hom}(F,G)\in\ob\D^{+}_{\mathrm{coh}}(X)$ (采用 (1.2) 的记号).
+
+\emph{证明.} 这是标准结论. 通过谱序列化为 $F$ 与 $G$ 集中于次数零的情形, 再仿照 (EGA $0_{\mathrm{III}}$ 12.3.3) 论证.
+
+\textbf{引理 7.2.} 设 $g:X'\to X$ 为预概形态射, 并在 $X'$ 上赋予环层 $A_{X'}=g^*(A_X)$. 则对 $F\in\ob\D^{-}_{\mathrm{coh}}(X)$ 及 $G\in\ob\D^{+}(X)$, 典范映射
+\[
+        g^*\R\underline{\Hom}(F,G)\longrightarrow \R\underline{\Hom}(g^*F,g^*G)
+\]
+为同构.
+
+\emph{证明.} 这也是标准结论: 经分步归约化为 $F=A_X$ (参见 EGA $0_{\mathrm{III}}$ 12.3.5).
+
+\textbf{注 7.2.1.} 前述引理是 (SGA 6 I) 中更一般陈述的特例.
+
+\textbf{引理 7.3.} 假设 $X$ 拟紧, 设 $K\in\ob\D^{+}_{\mathrm{coh}}(X)$ 满足: 对 $X$ 的每个几何点 $\bar{x}$, $K_{\bar{x}}$ 为 [H] V 2.1 意义下的对偶化复形. 则对每个 $F\in\ob\D^{b}_{\mathrm{coh}}(X)$, 有 $\R\underline{\Hom}(F,K)\in\ob\D^{b}_{\mathrm{coh}}(X)$, 且 $F$ 相对于 $K$ 自反.
+
+\emph{证明.} 当然, 只须在 $F$ 集中于次数零时检验. 由 (7.1), $\R\underline{\Hom}(F,K)\in\ob\D^{+}_{\mathrm{coh}}(X)$. 为证明有界性, 设 $\bar{x}$ 为 $X$ 的几何点. 由 (7.2),
+\[
+        \R\underline{\Hom}(F,K)_{\bar{x}}\simeq \R\underline{\Hom}(F_{\bar{x}},K_{\bar{x}}).
+\]
+置 $\dim.\mathrm{inj}(K_{\bar{x}})=N(\bar{x})$, 得到
+\[
+        \underline{\Ext}^i(F,K)_{\bar{x}}=0\quad\text{当 }i>N(\bar{x}).
+\]
+由于各层 $\underline{\Ext}^{i}(F,K)$ 局部常值, 存在 $x$ 的一个开邻域 $U$, 使得当 $i>N(\bar{x})$ 时 $\underline{\Ext}^{i}(F,K)|U=0$; 再由 $X$ 拟紧即得断言. 还须检验典范箭头
+\[
+        F\longrightarrow \R\underline{\Hom}(\R\underline{\Hom}(F,K),K)
+\]
+为同构. 只须在 $X$ 的某个几何点 $\bar{x}$ 处取值. 在交换图
+\[
+\begin{tikzcd}
+F_{\bar{x}} \arrow[r] \arrow[d,"\mathrm{Id}"'] & \R\underline{\Hom}(\R\underline{\Hom}(F,K),K)_{\bar{x}} \arrow[d]\\
+F_{\bar{x}} \arrow[r] & \R\underline{\Hom}(\R\underline{\Hom}(F_{\bar{x}},K_{\bar{x}}),K_{\bar{x}}),
+\end{tikzcd}
+\]
+中, 右侧竖箭头由 (7.2) 为同构, 下方横箭头由于 $K_{\bar{x}}$ 为对偶化复形而为同构; 所以上方横箭头为同构, 证毕.
+
+\textbf{引理 7.4.} 假设 $X$ 为 Noether 正则预概形, $A_X$ 被某个与 $X$ 的各剩余特征互素的整数 $n>0$ 零化, 且强意义下的纯性定理 (4.4) 在 $X$ 上成立.
+
+设 $D$ 为 $X$ 上的正规交叉除子 (I 3.1.5 a)), 以 $j:Y=V(D)\to X$ 及 $i:X-Y=U\to X$ 表示典范包含. 设 $K\in\ob\D^{+}_{\mathrm{coh}}(X)$ 满足: 对 $X$ 的每个几何点 $\bar{x}$, $K_{\bar{x}}$ 为环 $A_{\bar{x}}$ 的对偶化复形 (按 [H] V 2.1 的意义). 则对每个 $E\in\ob\D^{b}_{\mathrm{coh}}(X)$, 有 $\R\underline{\Hom}(i_!i^*(E),K)\in\ob\D^{b}_{c}(X)$, 且二元组 $(i_!i^*(E),K)$ 满足双对偶.
+
+\emph{证明.} 可以假设 $E$ 集中于次数零, 即为局部常值可构造 $A_X$-模. 由于问题在 $X$ 上相对于平展拓扑是局部的, 可假设 (a) $A_X$ 为取值于 $A$ 的常值层, $E$ 为取值于 $E$ 的常值层; (b) $D$ 为严格正规交叉除子, 设 $D=\sum_{i\in I}\mathrm{div}(s_i)$, 其中 $s_i\in\Gamma(X,\mathcal{O}_X)$.
+
+对 $p=\operatorname{card}(I)$ 作归纳. 当 $p=0$ 时, 各断言由 (7.3) 得出. 设 $I=\{1,\ldots,p\}$, 置 $Y_i=V(s_i)$, $Y'=V(\sum_{1\leq i\leq p-1}\mathrm{div}(s_i))$, $U'=X-Y'$. 得到浸入的笛卡尔图
+\[
+\begin{tikzcd}
+\varnothing \arrow[r] \arrow[d] & U'\cap Y_p \arrow[r,"i'_p"] \arrow[d,"j'_p"'] & Y_p \arrow[d,"j_p"]\\
+U \arrow[r] & U' \arrow[r,"i'"'] & X.
+\end{tikzcd}
+\]
+考虑正合列
+\[
+        0\longrightarrow E_{U,X}\longrightarrow E_{U',X}\longrightarrow E_{U'\cap Y_p,X}\longrightarrow0.
+\]
+由归纳假设, 定理对 $(E_{U',X},K)$ 成立. 固定 $K$, 使得 $\R\underline{\Hom}(F,K)\in\ob\D_c^b(X)$ 且 $(F,K)$ 满足双对偶的各 $F$ 构成 $\D_c(X)$ 的三角子范畴; 因而只须考虑 $F=E_{U'\cap Y_p,X}$ 的情形. 但
+\[
+        E_{U'\cap Y_p,X}=j_{p*}i'_{p!}(E_{U'\cap Y_p}),
+\]
+由 (I 1.13), 等价地只须在 $Y_p$ 上对 $(i'_{p!}(E_{U'\cap Y_p}),\R j_p^!(K))$ 证明定理. 而由纯性,
+\[
+        \R j_p^!(K)\simeq j_p^*(K)\otimes^L_{\Z/n\Z}(\mu_n)_{Y_p}^{\otimes -1}[-2].
+\]
+因此 $\R j_p^!(K)\in\ob\D^{+}_{\mathrm{coh}}(Y_p)$, 且对 $Y_p$ 的每个几何点 $\bar{y}$, $(\R j_p^!(K))_{\bar{y}}$ 为对偶化复形. 于是可应用归纳假设.
+
+\textbf{定理 7.5.} 作如下假设: $X$ 为 Noether 正则预概形; $A_X$ 被某个与 $X$ 的各剩余特征互素的整数 $n>0$ 零化; $X$ 可强消解奇点 (I 3.1.5), 满足条件 (reg) (I 3.1.1) 与 $(\mathrm{cdloc})_n$ (I 3.1.3); 强意义下的纯性定理 (4.4) 在每个 $X$ 上的光滑预概形上成立 (若 $X$ 卓越且特征为零, 或 $X$ 维数 $\leq2$ 且在完美域上光滑, 则这些条件成立).
+
+则若 $K\in\ob\D^{+}_{\mathrm{coh}}(X)$ 满足对 $X$ 的每个几何点 $\bar{x}$, $K_{\bar{x}}$ 都为对偶化复形 (按 [H] V 2.1 的意义), 复形 $K$ 就是对偶化复形.
+
+\emph{证明.} 须说明 $K$ 满足 (I 1.7) 的条件 (i) 至 (iii). 对 $X$ 的每个几何点 $\bar{x}$, $K_{\bar{x}}$ 具有有限内射维数; 由于 $K\in\ob\D^{+}_{\mathrm{coh}}(X)$, 函数 $x\mapsto\dim.\mathrm{inj}(K_{\bar{x}})$ 局部常值, 因而由于 $X$ 为 Noether 的而有界. 由 (5.1), $K$ 具有有限拟内射维数.
+
+由第~6 节的结果, 所引定义的条件 (ii) 也满足.
+
+还须证明条件 (iii), 即每个 $F\in\ob\D_c^b(X)$ 都相对于 $K$ 自反. 经分步归约, 可以假设 $F$ 集中于次数零. 由于问题在 $X$ 上相对于平展拓扑是局部的, 可假设 $A_X$ 为取值于 $A$ 的常值层. 分步归约 (1.3) 于是化为 $F=f_*i_!(E_U)$, 其中 $f:Y\to X$ 有限, $Y$ 为整的且其泛点在其像上可分, $i:U\to Y$ 为非空正则开集, $E_U$ 为取值于有限型 $A$-模 $E$ 的常值 $A_U$-模. 由于 $X$ 可强消解奇点, 存在射影双有理态射 $h:Y'\to Y$ (I 3.1.5), 使 $Y'$ 正则, $h$ 诱导同构 $h^{-1}(U)\to U$, 且 $h^{-1}(U)$ 是 $Y'$ 中某个正规交叉除子的补集. 经由 $h$ 将 $h^{-1}(U)$ 与 $U$ 等同, 有交换图
+\[
+\begin{tikzcd}
+& Y' \arrow[d,"h"] \arrow[dr,"g"] & \\
+U \arrow[ur,"i'"] \arrow[r,"i"'] & Y \arrow[r,"f"'] & X.
+\end{tikzcd}
+\]
+因此,
+\[
+        f_*i_!(E_U)\simeq f_*\R h_* i'_!(E_U)\simeq \R g_* i'_!(E_U)\simeq \R g_* i'_! i'^*(E_{Y'}).
+\]
+由 (I 1.13), 只须对二元组 $(i'_!i'^*(E_{Y'}),\R g^!(K))$ 证明双对偶. 但将 $Y'$ 局部嵌入一个在 $X$ 上光滑的预概形 $X'$, 并在 $X'$ 上应用强纯性 (4.4), 可见 $\R g^!(K)$ 除次数平移外局部同构于 $g^*(K)$. 因此 $\R g^!(K)\in\ob\D^{+}_{\mathrm{coh}}(Y')$, 且对 $Y'$ 的每个几何点 $\bar{x}$, $\R g^!(K)_{\bar{x}}$ 为对偶化复形. 最后只须应用 (7.4).
+
+上述证明还表明 $\R\underline{\Hom}(F,K)\in\ob\D_c^b(X)$ (使用固有态射的有限性定理 (SGAA XIV)), 这应能使不信任第~6 节那番说法的读者放心.
+
+证明完毕.
+
+\begin{center}
+$-:\!-:\!-$
+\end{center}
+
+\section*{参考文献}
+
+\begin{enumerate}[label={[\arabic*]}]
+\item Verdier, J.-L., \emph{Dimension des espaces localement compacts}, Note aux C.R. Ac. Sc. Paris, 261, pp.~5293--5296 (1965). 另参见: Verdier, J.-L., \emph{Dualité dans la cohomologie des espaces localement compacts}, Séminaire Bourbaki, no.~300, 1965--66.
+\end{enumerate}
+
+SGA A = SGA 4.
+
+\begin{center}
+$-:\!-:\!-$
+\end{center}
+

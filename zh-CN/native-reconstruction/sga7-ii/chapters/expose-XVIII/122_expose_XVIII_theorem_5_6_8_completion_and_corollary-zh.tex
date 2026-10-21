@@ -1,0 +1,104 @@
+为证明
+\[
+d_2^{p,q}=0\qquad(q\leq n-1),
+\]
+考虑交换图
+\[
+\begin{tikzcd}[column sep=huge,row sep=huge]
+\operatorname{Prim}(E_2^{p,q})
+  \arrow[r,"\xi_X^{n-q}=0"]
+  \arrow[d,"d_2^{p,q}"]
+&
+E_2^{p,2n-q}
+  \arrow[d,"d_2^{p,2n-q}"]
+\\
+E_2^{p+2,q-1}
+  \arrow[r,"\xi_X^{n-1-(q-1)}","\sim"']
+&
+E_2^{p+2,2n-q-1}.
+\end{tikzcd}
+\]
+由 (5.6.8.8), 下方箭头为同构. 因此该图表明, 当 $q\leq n-1$ 时, $d_2^{p,q}$ 在 $\operatorname{Prim}(E_2^{p,q})$ 上为零; 而 (5.6.8.10) 随即表明, 当 $q\leq n-1$ 时, $d_2$ 在 $E_2^{p,q}$ 上为零. 由 (5.6.8.3), 当 $q\geq n+1$ 时它在 $E_2^{p,q}$ 上也为零. 只须再证明
+\[
+d_2^{0,n}:E_2^{0,n}\longrightarrow E_2^{2,n-1}
+\]
+为零, 等价地证明
+\begin{equation}\tag{5.6.8.12}
+\dim E_3^{2,n-1}=\dim E_2^{2,n-1}.
+\end{equation}
+我们已经证明
+\begin{equation}\tag{5.6.8.13}
+\dim E_2^{p,q}=\dim E_3^{p,q}
+\qquad\text{对 }(p,q)\neq(0,n),(2,n-1),
+\end{equation}
+并且由次数的缘故有
+\begin{equation}\tag{5.6.8.14}
+E_3^{p,q}=E_\infty^{p,q}
+\qquad\text{对每一对 }(p,q).
+\end{equation}
+由此得
+\[
+b_i(X)=\dim H^i(X,\mathbb Q_\ell)
+=\sum_{p+q=i}\dim E_3^{p,q}.
+\]
+因此由 (5.6.8.13), 有
+\begin{equation}\tag{5.6.8.15}
+b_{n-1}(X)
+=\dim E_2^{0,n-1}
+ +\dim E_2^{1,n-2}
+ +\dim E_2^{2,n-3}
+\end{equation}
+以及
+\begin{equation}\tag{5.6.8.16}
+b_{n+1}(X)
+=\dim E_2^{0,n+1}
+ +\dim E_2^{1,n}
+ +\dim E_3^{2,n-1}.
+\end{equation}
+Poincaré 对偶性给出
+\begin{equation}\tag{5.6.8.17}
+b_{n-1}(X)=b_{n+1}(X).
+\end{equation}
+首先, 由 (5.6.8.8),
+\[
+\dim E_2^{1,n}=\dim E_2^{1,n-2}.
+\]
+因此 (5.6.8.17) 表明, 一旦知道下列两式, (5.6.8.12) 的证明就完成了:
+\begin{align}
+\dim E_2^{2,n-3}&=\dim E_2^{0,n+1},
+\tag{5.6.8.18}\\
+\dim E_2^{0,n-1}&=\dim E_2^{2,n-1}.
+\tag{5.6.8.19}
+\end{align}
+这两个公式由 (5.6.8.2)、$\rho$ 的光滑纤维上的 Poincaré 对偶性, 以及将下面的引理应用于 $\mathbb P^1$ 和层 $R^{n-3}\rho_*\mathbb Q_\ell$、$R^{n-1}\rho_*\mathbb Q_\ell$ 得出.
+
+\subsection*{引理 5.6.9.}
+\underline{设 $D$ 为代数闭域 $k$ 上的光滑、连通固有曲线. 设 $i:\eta\hookrightarrow D$ 为泛点的包含映射, $F$ 为 $D$ 上的可构造 $\mathbb Q_\ell$-层, 使得 $F\overset{\sim}{\longrightarrow}i_*i^*F$. 则}
+\[
+H^2(D,F)\simeq H^0(D,\check F(-1))^\vee,
+\]
+\underline{其中 $\check F\simeq i_*((i^*F)^\vee)$.}
+
+\subsection*{推论 5.6.10.}
+\textup{(使用 Picard--Lefschetz.)}
+\underline{设 $\rho:\widetilde X\to\mathbb P^1$ 为 Lefschetz 线束所产生的\textquotedblleft 纤维化\textquotedblright{}, 并假设光滑纤维满足 (LV). 则}
+\begin{equation}\tag{5.6.10.1}
+H^i(X_{\bar\eta},\mathbb Q_\ell)^\pi
+=\operatorname{Im}\!\left(
+H^i(X,\mathbb Q_\ell)\longrightarrow
+H^i(X_{\bar\eta},\mathbb Q_\ell)
+\right).
+\end{equation}
+
+\underline{证明.}
+由使用了 Picard--Lefschetz 公式的 5.3.4, 可以应用定理 5.6.8 得到
+\[
+H^i(X_{\bar\eta},\mathbb Q_\ell)^\pi
+=\operatorname{Im}\!\left(
+H^i(\widetilde X,\mathbb Q_\ell)\longrightarrow
+H^i(X_{\bar\eta},\mathbb Q_\ell)
+\right).
+\]
+尚须检验 $H^i(X,\mathbb Q_\ell)$ 与 $H^i(\widetilde X,\mathbb Q_\ell)$ 在 $H^i(X_{\bar\eta},\mathbb Q_\ell)$ 中的像相同. 当 $i\leq n-1$ 时, 这由推论 5.1.6 得出; 当 $i\geq n$ 时, 则由推论 5.2.5 得出.
+
+现在进行最重要的计算:

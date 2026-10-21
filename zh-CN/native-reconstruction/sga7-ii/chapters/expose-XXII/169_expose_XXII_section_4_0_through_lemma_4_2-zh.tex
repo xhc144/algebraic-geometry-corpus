@@ -1,0 +1,167 @@
+\section*{4. 用 Dwork 方法计算超曲面的 zeta 函数}
+
+\subsection*{4.0.}
+设
+
+\begin{equation}\tag{4.0.1}
+f(X)=f(X_1,\ldots,X_{n+2})\in\mathbb F_q[X]
+\end{equation}
+
+为次数 $d$ 的齐次多项式, 其零点集定义超曲面 $V\subset\mathbb P^{n+1}$.
+以 $V^*$ 表示 $V$ 中 $\prod_{i=1}^{n+2}X_i$ 可逆的开子集,
+以 $V^*_{\mathrm{aff}}$ 表示 $V^*$ 上的仿射锥.
+
+选取非平凡的加法特征
+
+\begin{equation}\tag{4.0.2}
+\chi:\mathbb F_{q^\nu}\longrightarrow\mu_p(C),
+\end{equation}
+
+其中 $C$ 为固定的特征零代数闭域 (例如 $C=\mathbb C$). 因此
+
+\begin{equation}\tag{4.0.3}
+\text{对 }x\in\mathbb F_{q^\nu},\qquad
+\sum_{y\in\mathbb F_{q^\nu}}\chi(xy)=
+\begin{cases}
+q^\nu,&x=0,\\
+0,&x\ne0.
+\end{cases}
+\end{equation}
+
+因而对 $x=(x_1,\ldots,x_{n+2})\in(\mathbb F_{q^\nu}^*)^{n+2}$, 有
+
+\begin{equation}\tag{4.0.4}
+1+\sum_{x_0\in\mathbb F_{q^\nu}^*}\chi(x_0f(x))
+=\sum_{x_0\in\mathbb F_{q^\nu}}\chi(x_0f(x))
+=
+\begin{cases}
+q^\nu,&f(x)=0,\\
+0,&\text{其他情形}.
+\end{cases}
+\end{equation}
+
+在 (4.0.4) 中对 $x\in(\mathbb F_{q^\nu}^*)^{n+2}$ 求和得到
+
+\begin{equation}\tag{4.0.5}
+\operatorname{card}V^*_{\mathrm{aff}}(\mathbb F_{q^\nu})
+=\frac1{q^\nu}
+\sum_{x\in(\mathbb F_{q^\nu}^*)^{n+2}}
+\left\{1+\sum_{x_0\in\mathbb F_{q^\nu}^*}\chi(x_0f(x))\right\}.
+\end{equation}
+
+由于
+
+\begin{equation}\tag{4.0.6}
+\operatorname{card}V^*_{\mathrm{aff}}(\mathbb F_{q^\nu})
+=(q^\nu-1)\operatorname{card}V^*(\mathbb F_{q^\nu}),
+\end{equation}
+
+公式 (4.0.5) 化为
+
+\begin{equation}\tag{4.0.7}
+(q^\nu-1)\operatorname{card}V^*(\mathbb F_{q^\nu})
+=\frac{(q^\nu-1)^{n+2}}{q^\nu}
++\frac1{q^\nu}
+\sum_{(x_0,x)\in(\mathbb F_{q^\nu}^*)^{n+3}}\chi(x_0f(x)).
+\end{equation}
+
+将 $f(X)$ 明确写成单项式之和,
+
+\begin{equation}\tag{4.0.8}
+f(X)=\sum_w a_wX^w,
+\end{equation}
+
+其中 $w=(w_1,\ldots,w_{n+2})$, $\sum_iw_i=d$,
+且 $X^w\mathrel{\mathop:}=X_1^{w_1}\cdots X_{n+2}^{w_{n+2}}$.
+于是 (4.0.7) 可改写为
+
+\begin{equation}\tag{4.0.9}
+(q^\nu-1)\operatorname{card}V^*(\mathbb F_{q^\nu})
+=\frac{(q^\nu-1)^{n+2}}{q^\nu}
++\frac1{q^\nu}
+\sum_{(x_0,x)\in(\mathbb F_{q^\nu}^*)^{n+3}}
+\prod_w\chi(a_wx_0X^w).
+\end{equation}
+
+\subsection*{4.1.}
+现在需将“取值于特征零中的加法特征”具体写出. 自然希望直接取
+
+\begin{equation}\tag{4.1.0}
+\chi:x\longmapsto
+\exp\!\left(2\pi i\,\operatorname{tr}_{\mathbb F_{q^\nu}/\mathbb F_p}(x)\right)
+=\xi_p^{\operatorname{tr}_{\mathbb F_{q^\nu}/\mathbb F_p}(x)}.
+\end{equation}
+
+设
+
+\begin{align}
+\tag{4.1.1}
+\Omega&=\text{下述域的代数闭包: }\mathbb Q_p,\\
+\tag{4.1.2}
+\operatorname{ord}:\Omega^*&\longrightarrow\mathbb Q
+  &&\text{为赋值, 归一化为 }\operatorname{ord}(p)=1,\\
+\tag{4.1.3}
+\xi_p&\in\Omega
+  &&\text{为本原 $p$ 次单位根.}
+\end{align}
+
+可以验证 (参见 [2]), 存在
+
+\begin{equation}\tag{4.1.4}
+\pi\in\mathbb Q_p(\xi_p),\qquad
+\operatorname{ord}(\pi)=\frac1{p-1},
+\end{equation}
+
+使得
+
+\begin{equation}\tag{4.1.5}
+\sum_{n\geq0}\frac{\pi^{p^n}}{p^n}=0.
+\end{equation}
+
+(也注意到, 左端在 $\mathbb Q_p(\xi_p)$ 中收敛.)
+
+定义 Artin--Hasse 指数
+
+\begin{equation}\tag{4.1.6}
+E(X)=\exp\!\left(\sum_{n\geq0}\frac{X^{p^n}}{p^n}\right)
+\in\mathbb Q_p[[X]],
+\end{equation}
+
+它奇妙地属于 $\mathbb Z_p[[X]]$. 定义
+
+\begin{equation}\tag{4.1.7}
+\Theta(X)=E(\pi X).
+\end{equation}
+
+其基本性质归纳在下述引理中.
+
+\subsubsection*{引理 4.2.}
+
+\begin{equation}\tag{4.2.1}
+\Theta(X)=\sum_n B_n X^n,\qquad B_0=1,\quad B_1=\pi,\quad
+\operatorname{ord}(B_n)\geq\frac n{p-1}.
+\end{equation}
+
+\begin{equation}\tag{4.2.2}
+\Theta(1)=\xi_p,\qquad\text{为本原 $p$ 次单位根.}
+\end{equation}
+
+设 $t\in\Omega$, 并假设对某个给定整数 $a>0$, 有
+
+\begin{equation}\tag{4.2.3}
+t=t^{p^a};
+\end{equation}
+
+即 $t$ 是 $W(\mathbb F_{p^a})\subset\Omega$ 中的 Teichmüller 代表元.
+则 $\sum_{j=0}^{a-1}t^{p^j}\in\mathbb Z_p$, 故形式级数
+
+\[
+(\Theta(X))^{\sum_{j=0}^{a-1}t^{p^j}}
+\]
+
+有定义, 且有形式幂级数恒等式
+
+\begin{equation}\tag{4.2.3.1}
+\prod_{j=0}^{a-1}\Theta(t^{p^j}X)
+=(\Theta(X))^{\sum_{j=0}^{a-1}t^{p^j}}.
+\end{equation}

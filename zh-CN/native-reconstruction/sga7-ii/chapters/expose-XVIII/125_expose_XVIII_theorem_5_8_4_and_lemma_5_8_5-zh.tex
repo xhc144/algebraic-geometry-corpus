@@ -1,0 +1,118 @@
+\subsection*{定理 5.8.4.}
+\underline{假设 $X$ 满足 (LV) (5.2.2), 且 $\rho$ 满足假设 (A) (5.3). 则对 $\rho$ 的每个非空光滑开集 $U\xrightarrow{\nu}\mathbb P^1$, “模去固定部分”的 Griffiths 同态 (按定义即复合)}
+\begin{equation}\tag{5.8.4.1}
+\resizebox{\textwidth}{!}{%
+\begin{tikzcd}[ampersand replacement=\&,row sep=huge,column sep=huge]
+\operatorname{Prim}^n(X,\mathbb Q_\ell(j))
+  \arrow[r,"\operatorname{Grif}"]
+\&
+H^1(U,\nu^*R^{n-1}\rho_*\mathbb Q_\ell(j))
+  \arrow[d]
+\\
+{}
+\&
+H^1(U,\nu^*E^{n-1}\rho_*\mathbb Q_\ell(j))
+\simeq
+\dfrac{H^1(U,\nu^*R^{n-1}\rho_*\mathbb Q_\ell(j))}
+{(f\times\rho|_U)^*
+ H^1(U,H^{n-1}(X,\mathbb Q_\ell(j))_U)}
+\end{tikzcd}}
+\end{equation}
+\underline{为单射.}
+\footnote{印本在 (5.8.4.1) 中下方左侧的层上略去了 $\nu^*$, 并未闭合其系数的括号. 公式 (5.8.4.3) 以及 (5.8.4.4) 中同一个下方节点给出改正后的写法.}
+
+\underline{证明.}
+由 (5.5.1), 在 $\mathbb P^1$ 上有
+\begin{equation}\tag{5.8.4.2}
+R^{n-1}\rho_*\mathbb Q_\ell(j)
+\simeq
+H^{n-1}(X,\mathbb Q_\ell(j))_{\mathbb P^1}
+\oplus E^{n-1}\rho_*\mathbb Q_\ell(j),
+\end{equation}
+而在 $U$ 上有
+\begin{equation}\tag{5.8.4.3}
+\nu^*R^{n-1}\rho_*\mathbb Q_\ell(j)
+\simeq
+H^{n-1}(X,\mathbb Q_\ell(j))_U
+\oplus \nu^*E^{n-1}\rho_*\mathbb Q_\ell(j).
+\end{equation}
+这使我们能将 (5.8.4.1) 改写如下:
+\begin{equation}\tag{5.8.4.4}
+\begin{tikzcd}[row sep=huge,column sep=large]
+\operatorname{Prim}^n(X,\mathbb Q_\ell(j))
+  \arrow[r,"\operatorname{Grif}"]
+&
+H^1(U,\nu^*R^{n-1}\rho_*\mathbb Q_\ell(j))
+  \arrow[d]
+\\
+{}
+&
+H^1(U,\nu^*E^{n-1}\rho_*\mathbb Q_\ell(j)).
+\end{tikzcd}
+\end{equation}
+由 (5.7.1), 映射 (仅由假设 (A) 才得以定义)
+\begin{equation}\tag{5.8.4.5}
+u:\operatorname{Prim}^n(X,\mathbb Q_\ell(j))
+\longrightarrow
+H^1(\mathbb P^1,R^{n-1}\rho_*\mathbb Q_\ell(j))
+\end{equation}
+为单射. 由于 $\mathbb P^1$ 单连通, 分解 (5.8.4.2) 给出
+\footnote{印本在 (5.8.4.5) 的靶以及 (5.8.4.6) 的左侧中略去了扭转 $(j)$, 尽管源以及分解 (5.8.4.2) 中保留了它.}
+\begin{equation}\tag{5.8.4.6}
+H^1(\mathbb P^1,R^{n-1}\rho_*\mathbb Q_\ell(j))
+\simeq
+H^1(\mathbb P^1,E^{n-1}\rho_*\mathbb Q_\ell(j)).
+\end{equation}
+因此可以将 (5.8.4.4) 补成交换方块:
+\begin{equation}\tag{5.8.4.7}
+\begin{tikzcd}[column sep=huge,row sep=huge]
+\operatorname{Prim}^n(X,\mathbb Q_\ell(j))
+  \arrow[r,"\operatorname{Grif}"]
+  \arrow[d,hook,"u"]
+&
+H^1(U,\nu^*R^{n-1}\rho_*\mathbb Q_\ell(j))
+  \arrow[d]
+\\
+H^1(\mathbb P^1,E^{n-1}\rho_*\mathbb Q_\ell(j))
+  \arrow[r,"\nu^*"]
+&
+H^1(U,\nu^*E^{n-1}\rho_*\mathbb Q_\ell(j)).
+\end{tikzcd}
+\end{equation}
+只须再说明下方箭头为单射. 这由下式
+\begin{equation}\tag{5.8.4.8}
+E^{n-1}\rho_*\mathbb Q_\ell(j)
+\simeq
+\nu_*\nu^*E^{n-1}\rho_*\mathbb Q_\ell(j)
+\end{equation}
+及下面的熟知引理得出.
+
+\subsection*{引理 5.8.5.}
+\underline{设 $\nu:A\to B$ 为拓扑斯的态射, $F$ 为 $A$ 上的层. 则典范映射}
+\begin{equation}\tag{5.8.5.1}
+H^1(B,\nu_*F)\longrightarrow H^1(A,F)
+\end{equation}
+\underline{为单射.}
+
+\underline{证明.}
+对第一象限中的谱序列,
+\begin{equation}\tag{5.8.5.2}
+E_2^{1,0}\simeq E_\infty^{1,0}.
+\end{equation}
+因而, 对 Leray 谱序列
+\[
+E_2^{p,q}=H^p(B,R^q\nu_*F)
+\Longrightarrow H^{p+q}(A,F),
+\]
+有
+\begin{equation}\tag{5.8.5.3}
+E_2^{1,0}=H^1(B,\nu_*F)
+\simeq E_\infty^{1,0}
+=F^1H^1(A,F).
+\end{equation}
+取 $F=\nu^*E$, 其中 $E$ 为 $B$ 上的层, 得
+\begin{equation}\tag{5.8.5.4}
+H^1(B,\nu_*\nu^*E)
+\lhook\joinrel\longrightarrow
+H^1(A,\nu^*E).
+\end{equation}

@@ -1,0 +1,171 @@
+\clearpage
+\ExposeTOC
+\begin{center}
+{\large SGA 7 --- 第 XX 讲}\par
+\vspace{2em}
+{\Large\underline{Griffiths 定理}}\par
+\vspace{1.5em}
+{\large N. Katz}
+\end{center}
+
+\section*{0. 引言}
+
+我们证明 Griffiths 定理~[1], 它给出一种系统的 (但非构造性的) 方法, 用以``找到''在 $\mathbb Q_\ell$-上同调中等价于零、但其任何倍数都不代数等价于零的代数圈. 这里给出的证明 (出自 Grothendieck) 是将 Griffiths 原来或多或少带有超越性质的证明转写为纯代数语言. 在这两个证明中, 不可约性定理 XVIII~6.7 均是关键 (参见~3.1.6 和~3.2).
+
+\section*{1. 本原类的形式体系}
+
+以下始终固定一个素数 $\ell$. 假定所考虑的所有概形的特征均不同于 $\ell$. 考虑下列情形
+
+\begin{equation}\tag{1.0.1}
+\begin{tikzcd}[column sep=huge, row sep=huge]
+X \arrow[rr, "\pi"] \arrow[dr, "f"'] & {} & Y \arrow[dl, "g"] \\
+{} & S & {}
+\end{tikzcd}
+\end{equation}
+其中假设
+\begin{equation}\tag{1.0.3}
+f,\ g \quad\text{光滑, 相对维数分别为}\quad d_1\ \text{和}\ d_2,
+\end{equation}
+以及
+\begin{equation}\tag{1.0.4}
+\pi\quad\text{固有}.
+\end{equation}
+由于 $X$ 和 $Y$ 在 $S$ 上光滑, $\pi$ 的固有性给出一个\underline{Gysin 态射}(Gysin morphism) (SGA~5, 第~IV 讲; 印本中后续的引用留空)
+\begin{equation}\tag{1.0.5}
+\pi_*:H^q(X,\mathbb Q_\ell(i))\longrightarrow
+H^{q-2(d_1-d_2)}(Y,\mathbb Q_\ell(i-d_1+d_2)).
+\end{equation}
+在 $S$ 的平展拓扑下局部化, 同样得到 $S$ 上层的态射\footnote{在 (1.0.6) 中, 印本以撇号代替指数中的右括号, 并将目标的扭写作 $i-d_1-d_2$. 公式 (1.0.5) 和 (1.0.7) 以及 Gysin 次数均给出此处所列的读法.}
+\begin{equation}\tag{1.0.6}
+\pi_*:R^qf_*\mathbb Q_\ell(i)\longrightarrow
+R^{q-2(d_1-d_2)}g_*\mathbb Q_\ell(i-d_1+d_2),
+\end{equation}
+并在应用函子 $H^p(S,-)$ 后得到态射
+\begin{equation}\tag{1.0.7}
+\pi_*:H^p(S,R^qf_*\mathbb Q_\ell(i))\longrightarrow
+H^p(S,R^{q-2(d_1-d_2)}g_*\mathbb Q_\ell(i-d_1+d_2)).
+\end{equation}
+
+\subsubsection*{定义 1.0.8.}
+设 $(E_r^{p,q},d_r^{p,q})$ 和 $({}'E_r^{p,q},{}'d_r^{p,q})$ 为给定阿贝尔范畴中的两个谱序列, $(a,b)\in\mathbb Z\times\mathbb Z$. $({}'E_r^{p,q},{}'d_r^{p,q})$ 的 $(a,b)$ 移位是由下式给出的谱序列 $({}''E_r^{p,q},{}''d_r^{p,q})$\footnote{印本在 (1.0.9) 中漏去了右端微分上的撇号. 带撇号谱序列的移位的定义要求使用带撇号的微分.}
+\begin{equation}\tag{1.0.9}
+\left\{
+\begin{aligned}
+{}''E_r^{p,q}&={}'E_r^{p+a,q+b},\\
+{}''d_r^{p,q}&={}'d_r^{p+a,q+b}.
+\end{aligned}
+\right.
+\end{equation}
+
+\subsubsection*{1.0.10.}
+从 $(E_r^{p,q},d_r^{p,q})$ 到 $({}''E_r^{p,q},{}''d_r^{p,q})$ 的谱序列态射, 称为从 $(E_r^{p,q},d_r^{p,q})$ 到 $({}'E_r^{p,q},{}'d_r^{p,q})$ 的双次数为 $(a,b)$ 的态射.
+
+下列引理是\underline{Gysin 态射}理论 (SGA~5, 第~IV 讲) 的直接推论.
+
+\subsubsection*{引理 1.1.}
+在 Leray 谱序列
+\begin{equation}\tag{1.1.0}
+R^p\alpha_*R^qf_*\mathbb Q_\ell(i)\Longrightarrow
+R^{p+q}(\alpha f)_*\mathbb Q_\ell(i)
+\end{equation}
+和
+\begin{equation}\tag{1.1.1}
+R^p\alpha_*R^qg_*\mathbb Q_\ell(i-d_1+d_2)\Longrightarrow
+R^{p+q}(\alpha g)_*\mathbb Q_\ell(i-d_1+d_2),
+\end{equation}
+之间, 存在双次数为 $(0,-2(d_1-d_2))$ 的典范态射 $\pi_*$\footnote{印本写作 $(a,-2(d_1-d_2))$. 映射 (1.0.7) 不改变第一个 Leray 指标 $p$, 因而双次数的第一个分量为 $0$.}, 它在 $E_2$ 项上由 (1.0.7) 给出, 在极限上由 (1.0.5) 给出.
+
+\subsubsection*{1.2.}
+现在考虑下列情形
+\begin{equation}\tag{1.2.1}
+\begin{tikzcd}[column sep=large, row sep=large]
+{} & X\times_S Y \arrow[dl, "\mathrm{pr}_1"']
+                  \arrow[dr, "\mathrm{pr}_2"] & {} \\
+X \arrow[dr, "f"'] & {} & Y \arrow[dl, "g"] \\
+{} & S \arrow[d, "\alpha"] & {} \\
+{} & T & {}
+\end{tikzcd}
+\end{equation}
+其中 $S,X,f,Y,g$ 如 (1.0.1)--(1.0.4), 但现在还假设 $f$ 固有.\footnote{印本将此范围的起点写作不存在的 (1.0.2); 所列的情形为 (1.0.1).} 设
+\begin{equation}\tag{1.2.2}
+z\in H^a(X\times_S Y,\mathbb Q_\ell(b)).
+\end{equation}
+则 $z$ 诱导仍记为 $z$ 的映射
+\begin{equation}\tag{1.2.3}
+z:H^q(X,\mathbb Q_\ell(i))\longrightarrow
+H^{q+a-2d_1}(Y,\mathbb Q_\ell(i+b-d_1))
+\end{equation}
+其公式为
+\begin{equation}\tag{1.2.4}
+z(x)=\mathrm{pr}_{2*}\bigl(z\wedge\mathrm{pr}_1^*(x)\bigr),
+\end{equation}
+其中 $\mathrm{pr}_{2*}$ 为 Gysin 同态. 在 $S$ 上作平展局部化, 类 $z$ 同样定义
+\begin{equation}\tag{1.2.5}
+z:R^qf_*\mathbb Q_\ell(i)\longrightarrow
+R^{q+a-2d_1}g_*\mathbb Q_\ell(i+b-d_1),
+\end{equation}
+并在应用 $H^p(S,-)$ 后定义映射
+\begin{equation}\tag{1.2.6}
+H^p(S,R^qf_*\mathbb Q_\ell(i))\longrightarrow
+H^p(S,R^{q+a-2d_1}g_*\mathbb Q_\ell(i+b-d_1)).
+\end{equation}
+
+\subsubsection*{引理 1.3.}
+在 Leray 谱序列
+\begin{equation}\tag{1.2.7}
+H^p(S,R^qf_*\mathbb Q_\ell(i))\Longrightarrow
+H^{p+q}(X,\mathbb Q_\ell(i))
+\end{equation}
+和
+\begin{equation}\tag{1.2.8}
+H^p(S,R^qg_*\mathbb Q_\ell(i+b-d_1))\Longrightarrow
+H^{p+q}(Y,\mathbb Q_\ell(i+b-d_1)),
+\end{equation}
+之间, 类 $z$ 定义双次数为 $(0,a-2d_1)$ 的态射\footnote{印本写作 $(0,b-2d_1)$. 映射 (1.2.3), (1.2.5) 和 (1.2.6) 将上同调次数改变 $a-2d_1$; $b$ 控制 Tate 扭.}, 它在 $E_2$ 项上由 (1.2.6) 给出, 在极限上由 (1.2.3) 给出.
+
+\noindent\underline{证明.}
+由 (1.2.4), 又因``乘以 $z$''在 Leray 谱序列
+\begin{equation}\tag{1.2.9}
+H^p\bigl(S,R^q(f\circ\mathrm{pr}_1)_*\mathbb Q_\ell(i)\bigr)
+\Longrightarrow H^{p+q}(X\times_S Y,\mathbb Q_\ell(i))
+\end{equation}
+\begin{center}
+\begin{tikzcd}
+{} \arrow[d, "z"'] \\
+{}
+\end{tikzcd}
+\end{center}
+\begin{equation}\tag{1.2.10}
+H^p\bigl(S,R^{q+a}(f\circ\mathrm{pr}_1)_*\mathbb Q_\ell(i+b)\bigr)
+\Longrightarrow H^{p+q+a}(X\times_S Y,\mathbb Q_\ell(i+b)),
+\end{equation}
+之间定义双次数为 $(0,a)$ 的态射, 故只须对下列情形应用引理~1.1\footnote{在 (1.2.9) 和 (1.2.10) 中, 印本写作 $(\mathrm{pr}_1 f)_*$, 但到 $S$ 的映射为 $f\circ\mathrm{pr}_1$, 正如印本的图 (1.2.11) 本身所示.}
+\begin{equation}\tag{1.2.11}
+\begin{tikzcd}[column sep=large, row sep=large]
+X\times_S Y \arrow[rr, "\mathrm{pr}_2"]
+             \arrow[dr, "f\circ\mathrm{pr}_1"]
+  & {} & Y \arrow[dl, "g"] \\
+{} & S & {}
+\end{tikzcd}
+\qquad .
+\end{equation}
+
+\subsubsection*{推论 1.4.}
+在 (1.2.1)--(1.2.2) 的情形下, 态射 (1.2.3)
+\begin{equation}\tag{1.4.1}
+z:H^q(X,\mathbb Q_\ell(i))\longrightarrow
+H^{q+a-2d_1}(Y,\mathbb Q_\ell(i+b-d_1))
+\end{equation}
+将本原类 (XVIII~5.8.1) 映为本原类, 且下图交换:
+\begin{equation}\tag{1.4.2}
+\begin{tikzcd}[column sep=large, row sep=large]
+\mathrm{Prim}^q(X/S,\mathbb Q_\ell(i))
+  \arrow[r, "z"] \arrow[d, "u_f"]
+& \mathrm{Prim}^{q+a-2d_1}(Y/S,\mathbb Q_\ell(i+b-d_1))
+  \arrow[d, "u_g"] \\
+H^1(S,R^{q-1}f_*\mathbb Q_\ell(i))
+  \arrow[r, "z"]
+& H^1(S,R^{q+a-2d_1-1}g_*\mathbb Q_\ell(i+b-d_1)).
+\end{tikzcd}
+\end{equation}
+这里 $u_f$ 和 $u_g$ 是 XVIII~5.8.1 中的典范同态.

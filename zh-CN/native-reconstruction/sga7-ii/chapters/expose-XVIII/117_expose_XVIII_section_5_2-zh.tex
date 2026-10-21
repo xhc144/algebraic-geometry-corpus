@@ -1,0 +1,172 @@
+\subsection*{5.2. 强 Lefschetz 定理 (LV)}
+
+\subsubsection*{5.2.1.}
+设 $S$ 为代数闭域 $k$ 上的 $n$ 维射影概形, $S\hookrightarrow\mathbb P$ 为射影嵌入. 以下式表示超平面截面的上同调类:
+\[
+u\in H^2(S,\mathbb Z_\ell(1))
+\]
+因而 $u$ 为 $\underline{\mathcal O}_{\mathbb P}(1)$ 在 $H^2(\mathbb P,\mathbb Z_\ell(1))$ 中的第一 Chern 类沿 $S\hookrightarrow\mathbb P$ 的拉回. 记
+\[
+L_S:H^\bullet(S,\mathbb Q_\ell(j))
+   \longrightarrow H^{\bullet+2}(S,\mathbb Q_\ell(j+1))
+\]
+为与 $u$ 相乘的映射.
+
+\subsubsection*{5.2.2.}
+\underline{若对每个 (或某个) 整数 $j$ 和每个整数 $i>0$, 映射}
+\[
+L_S^i:H^{n-i}(S,\mathbb Q_\ell(j))
+\longrightarrow H^{n+i}(S,\mathbb Q_\ell(i+j))
+\]
+\underline{都是同构, 则称 (配备 $u$ 的) $S$ 满足强 Lefschetz 定理 (LV).}
+
+\subsubsection*{5.2.2.1.}
+猜想当 $S$ 光滑时此条件成立. 当 $k$ 的特征为零时它成立 [6]. 因此, 当 $S$ 连同其射影嵌入能够提升到特征零时, 特化定理 [SGA 4, XVI 2.2] 给出同样的结论. 特别地, 它对光滑完全交成立. 对维数至多为二的光滑 $S$ [2], 以及对 Abel 簇, 也已知它成立; 对后者既可直接证明 (Lieberman [4] 和 [2]), 也可利用 Mumford 的定理 [5]: 极化 Abel 簇连同其极化可以提升到特征零.
+
+回顾, 对射影簇 $S$ 及 $i\leq n$, 上同调的本原部分定义为
+\begin{equation}\tag{5.2.2.2}
+\operatorname{Prim}^i(S,\mathbb Q_\ell(j))
+=\operatorname{Ker}\!\left(
+L^{n-i+1}:H^i(S,\mathbb Q_\ell(j))
+\longrightarrow
+H^{2n-i+2}(S,\mathbb Q_\ell(j+n-i+1))
+\right).
+\end{equation}
+若 $S$ 满足 (LV), 则当 $i\leq n$ 时有分解
+\begin{equation}\tag{5.2.2.3}
+H^i(S,\mathbb Q_\ell(j))
+\xleftarrow[\sim]{\ 1+L\ }
+\operatorname{Prim}^i(S,\mathbb Q_\ell(j))
+\oplus H^{i-2}(S,\mathbb Q_\ell(j-1)).
+\end{equation}
+
+\subsection*{命题 5.2.3.}
+\underline{设 $X$ 为光滑射影概形并满足 (LV). 设 $\tau:Y\hookrightarrow X$ 为一个光滑超平面截面的包含映射. 则}
+\begin{equation}\tag{5.2.3.1}
+\operatorname{Prim}^n(X,\mathbb Q_\ell(j))
+=\operatorname{Ker}\!\left(
+\tau^*:H^n(X,\mathbb Q_\ell(j))
+\longrightarrow H^n(Y,\mathbb Q_\ell(j))
+\right).
+\end{equation}
+
+\underline{证明.}
+$\tau:Y\to X$ 的投影公式给出交换图
+\begin{equation}\tag{5.2.3.2}
+\begin{tikzcd}[column sep=huge,row sep=huge]
+H^n(X,\mathbb Q_\ell(j))
+  \arrow[rr,"L"]\arrow[dr,"\tau^*"']
+  & {} &
+H^{n+2}(X,\mathbb Q_\ell(j+1))
+  \arrow[dl,"\tau_*"]\\
+{} & H^n(Y,\mathbb Q_\ell(j)) & {}
+\end{tikzcd}
+\end{equation}
+由对偶性与弱 Lefschetz 定理,
+\[
+\tau_*:H^n(Y,\mathbb Q_\ell(j))
+\longrightarrow H^{n+2}(X,\mathbb Q_\ell(j+1))
+\]
+为同构的转置, 因此本身也是同构. 断言随之得出.
+
+\subsection*{引理 5.2.4.}
+\underline{设 $X$ 为光滑射影概形, $\tau:Y\hookrightarrow X$ 为一个光滑超平面截面的包含映射. 则 $X$ 满足 (LV) 当且仅当以下两个条件成立:}
+
+\smallskip
+\noindent
+\textup{5.2.4.1.} \underline{$Y$ 满足 (LV).}
+
+\smallskip
+\noindent
+\textup{5.2.4.2.} \underline{$H^{n-1}(Y,\mathbb Q_\ell)$ 上的杯积在子空间 $\operatorname{Im}H^{n-1}(X,\mathbb Q_\ell)$ 上的限制非退化.}
+
+\underline{证明.}
+有
+\begin{equation}\tag{5.2.4.3}
+\left\{
+\begin{aligned}
+L_X&=\tau_*\tau^*,\\[1ex]
+L_Y&=\tau^*\tau_* \qquad\text{(由 4.2.11),}
+\end{aligned}
+\right.
+\end{equation}
+因而
+\begin{equation}\tag{5.2.4.4}
+L_X^{i+1}=\tau_*L_Y^i\tau^*.
+\end{equation}
+在交换图
+\begin{equation}\tag{5.2.4.5}
+\begin{tikzcd}[column sep=huge,row sep=huge]
+H^{n-i-1}(X,\mathbb Q_\ell(j))
+  \arrow[r,"L_X^{i+1}"]\arrow[d,"\tau^*"]
+  &H^{n+i+1}(X,\mathbb Q_\ell(j+i+1))\\
+H^{n-1-i}(Y,\mathbb Q_\ell(j))
+  \arrow[r,"L_Y^i"]
+  &H^{n-1+i}(Y,\mathbb Q_\ell(j+i))\arrow[u,"\tau_*"']
+\end{tikzcd}
+\end{equation}
+中, 由弱 Lefschetz 定理, 当 $i\geq1$ 时 $\tau^*$ 为同构, 而由对偶性, $\tau_*$ 为同构. 因而 $X$ 满足 (LV) 当且仅当 $Y$ 满足 (LV) 且
+\begin{equation}\tag{5.2.4.6}
+L_X:H^{n-1}(X,\mathbb Q_\ell(j))
+\longrightarrow H^{n+1}(X,\mathbb Q_\ell(j+1))
+\end{equation}
+为同构.
+
+尚须将 (5.2.4.6) 与 5.2.4.2 对应起来. 设 $a,b\in H^{n-1}(X,\mathbb Q_\ell(j))$. 由 $X$ 上的 Poincaré 对偶性, (5.2.4.6) 等价于下列双线性型的非退化性:
+\begin{equation}\tag{5.2.4.7}
+\begin{aligned}
+H^{n-1}(X,\mathbb Q_\ell(j))\times
+H^{n-1}(X,\mathbb Q_\ell(j))
+&\longrightarrow H^{2n}(X,\mathbb Q_\ell(2j+1)),\\
+(a,b)&\longmapsto a\,L_X(b).
+\end{aligned}
+\end{equation}
+但由 (5.2.4.3) 和投影公式,
+\[
+aL_X(b)=a\tau_*\tau^*(b)
+=\tau_*\bigl(\tau^*(a)\tau^*(b)\bigr).
+\]
+这就证明了 (5.2.4.7) 和 5.2.4.2 的等价性.
+
+\subsection*{推论 5.2.5.}
+\underline{设 $X$ 为 $n$ 维光滑射影概形, $\tau:Y\hookrightarrow X$ 为一个光滑超平面截面的包含映射. 假设 $X$ 满足 (LV). 则当 $q\geq n$ 时, 映射}
+\[
+\tau^*:H^q(X,\mathbb Q_\ell(j))
+\longrightarrow H^q(Y,\mathbb Q_\ell(j))
+\]
+\underline{为满射.}
+
+\underline{证明.}
+由 (5.2.4.3), 当 $i\geq0$ 时有
+\[
+L_Y^{i+1}=\tau^*L_X^i\tau_*,
+\]
+从而得到交换图
+\begin{center}
+\begin{tikzcd}[column sep=huge,row sep=huge]
+H^{n-i}(X,\mathbb Q_\ell(j+1))
+  \arrow[r,"L_X^i"]
+  &H^{n+i}(X,\mathbb Q_\ell(j+i+1))\arrow[d,"\tau^*"]\\
+H^{n-i-2}(Y,\mathbb Q_\ell(j))
+  \arrow[u,"\tau_*"']\arrow[r,"L_Y^{i+1}"]
+  &H^{n+i}(Y,\mathbb Q_\ell(j+i+1)).
+\end{tikzcd}
+\end{center}
+由此得到所需的结果.
+
+\subsection*{引理 5.2.6.}
+\underline{设 $f:F\to B$ 为光滑固有态射, 且 $B$ 连通. 设 $\underline{\mathcal O}_F(1)$ 为 $F$ 上的相对丰沛可逆层, 并在每个几何纤维 $F_{\bar b}$ 上配备 $\underline{\mathcal O}_F(1)$ 所诱导的丰沛可逆层. 若某个几何纤维满足 (LV), 则所有其他几何纤维也满足 (LV).}
+
+\underline{证明.}
+设 $\xi_F\in H^2(F,\mathbb Z_\ell(1))$ 为 $\underline{\mathcal O}_F(1)$ 的第一 Chern 类. 此类及其幂 $\xi_F^i\in H^{2i}(F,\mathbb Z_\ell(i))$ 经由杯积诱导同态
+\begin{equation}\tag{5.2.6.1}
+\xi_F^i:R^{n-i}f_*\mathbb Q_\ell(j)
+\longrightarrow R^{n+i}f_*\mathbb Q_\ell(j+i),
+\end{equation}
+其中 $n$ 为纤维的相对维数. 由固有基变换 [SGA 4, XII 5.2], 所有几何纤维满足 (LV) 当且仅当所有映射 (5.2.6.1) 都是同构. 由特化定理 [SGA 4, XVI 2.2], 层 $R^if_*\mathbb Q_\ell(j)$ 为扭常层. 因而映射 (5.2.6.1) 为同构当且仅当它们在某个给定几何点上为同构.
+
+\subsection*{推论 5.2.7.}
+\underline{设 $X$ 为光滑射影概形. 若某个光滑超平面截面满足 (LV), 则每个光滑超平面截面都满足 (LV).}
+
+\underline{证明.}
+$X$ 的光滑超平面截面的泛族满足引理 5.2.6 的假设.

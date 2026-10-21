@@ -1,0 +1,119 @@
+\subsubsection*{定理 5.2.2.}
+设 $X$ 是 $\mathbb F_q$ 上维数至多为 $n$ 的有限型分离概形,
+$\underline G$ 是可构造的 $T$-整 $E$ 层. 则 $\underline H_c^i(X,\underline G)$
+的自同态 $F$ 和 $q^{n-i}F$ 都是 $T$-整的.
+
+\medskip
+\noindent\emph{证明.}
+$\dim X\leq0$ 的情形是平凡的, $i=0$ 及 $i=2n$ 的情形由引理~5.2.1 得出.
+设 $Z(X,\underline G,t)$ 为形式幂级数
+\[
+Z(X,\underline G,t)=
+\prod_{x\in X}\det\!\left(1-F_xt^{\deg(x)}\,;\,\underline G_x\right)^{-1}
+\in E[[t]].
+\]
+由 SGA~5, Expos\'e~XV, 3.2, 有
+\begin{equation}\tag{5.2.3}
+Z(X,\underline G,t)=
+\prod_i\det\!\left(1-Ft\,;\,\underline H_c^i(X,\underline G)\right)^{(-1)^{i+1}}.
+\end{equation}
+
+先对 $n=1$ 证明定理. 此时对 $i>2$ 有 $\underline H_c^i(X,\underline G)=0$
+(SGA~4, Expos\'e~X, 4.3 或 Expos\'e~XVII, 5.2.8.1).
+按假设 $Z(X,\underline G,t)$ 的系数均为 $T$-整的. 由已证的 $i=0$ 和 $i=2n=2$ 的情形,
+$Z(X,\underline G,t)$ 与下式的乘积
+\[
+\det\!\left(1-Ft\,;\,\underline H_c^0(X,\underline G)\right)
+\det\!\left(1-Ft\,;\,\underline H_c^2(X,\underline G)\right)
+\]
+仍具有 $T$-整系数. 此乘积恰为 $\det(1-Ft\,;\,\underline H_c^1(X,\underline G))$,
+从而在 $n=1$ 时证明了定理.
+
+现对 $n=\dim X$ 归纳. 设 $U$ 是 $X$ 的 Zariski 开子集, 补集 $Z$ 维数小于 $n$,
+并设有到曲线的态射 $f:U\longrightarrow Y$, 其纤维维数至多为 $n-1$:
+\begin{center}
+\begin{tikzcd}
+U \arrow[r,hook,"j"] \arrow[d,"f"'] & X & Z \arrow[l,hook',"i"'] \\
+Y
+\end{tikzcd}
+\qquad .
+\end{center}
+正合列
+\[
+0\longrightarrow j_!j^*\underline G\longrightarrow\underline G
+\longrightarrow i_!i^*\underline G\longrightarrow0
+\]
+诱导正合列
+\[
+\underline H_c^i(U,\underline G)\longrightarrow
+\underline H_c^i(X,\underline G)\longrightarrow
+\underline H_c^i(Z,\underline G).
+\]
+由归纳, 只需对 $U$ 上的 $\underline G$ 验证定理.
+将归纳假设用于 $f$ 的纤维并结合固有基变换, 表明 $Y$ 上的层
+$R^if_!\underline G$ 和 $R^if_!\underline G(i-(n-1))$ 均为 $T$-整的.
+$f$ 的 Leray 谱序列为
+\[
+E_2^{pq}=\underline H_c^p(Y,R^qf_!\underline G)
+\Longrightarrow\underline H_c^{p+q}(U,\underline G).
+\]
+由以上所述以及对 $Y$ 已证的定理, $E_2^{pq}$ 和 $E_2^{pq}(p+q-n)$ 都是 $T$-整的.
+定理得证.
+
+\subsubsection*{推论 5.3.}
+设 $X$ 是 $\mathbb F_q$ 上维数至多为 $1$ 的有限型概形, $U$ 是 $X$ 的开子集,
+$j:U\hookrightarrow X$ 为包含, $\underline G$ 是 $U$ 上的可构造 $E$ 层.
+
+\begin{enumerate}[label=(\alph*)]
+\item 若 $\underline G$ 是 $T$-整的, 则 $j_*\underline G$ 是 $T$-整的.
+\item 若对每个 $x\in U$, $G_x^\vee$ 都是 $T$-整的, 则对每个 $x\in X$,
+  $(j_*\underline G)_x^\vee$ 都是 $T$-整的.
+\end{enumerate}
+
+\medskip
+\noindent\emph{证明.}
+先归结为 $X$ 仿射的情形, 再归结为 $X$ 射影的情形. 用正合列定义 $\underline H$
+\[
+0\longrightarrow j_!\underline G\longrightarrow j_*\underline G
+\longrightarrow\underline H\longrightarrow0.
+\]
+若 $Y$ 是 $\underline H$ 的有限支撑, 则相应的上同调序列给出正合列
+\[
+\underline H^0(U,\underline G)\longrightarrow
+\underline H^0(Y,\underline H)\longrightarrow
+\underline H_c^1(U,\underline G).
+\]
+引理~5.2.1 和定理~5.2.2 表明两端的项均为 $T$-整的.
+故 $\underline H^0(Y,\underline H)$ 是 $T$-整的, 这就证明了 (a).
+
+设 $X'$ 是 $X_{\mathrm{red}}$ 的纯一维部分的正规化, 并选取 $U$ 的开子集 $U'$,
+使它在 $U_{\mathrm{red}}$ 的光滑一维部分中稠密, 且 $\underline G|_{U'}$ 为扭常值层:
+\begin{center}
+\begin{tikzcd}
+U' \arrow[r,hook,"j'"'] \arrow[d,hook] & X' \arrow[d,hook,"p"] & {} \\
+U \arrow[r,hook,"j"'] & X & Y \arrow[l,hook']
+\end{tikzcd}
+\qquad ,
+\end{center}
+则
+\[
+(p_*j'_*\underline G)|_Y\simeq(j_*\underline G)|_Y.
+\]
+因此只需处理 $X$ 光滑一维且 $\underline G|_U$ 为扭常值层的情形.
+此时层 $\underline G^\vee$ 是 $T$-整的, 故已知对每个 $x\in X$,
+$(j_*\underline G^\vee)_x$ 都是 $T$-整的.
+
+设 $\mathfrak G_x$ 表示 $\widehat{\mathcal O}_{X,x}$ 的分式域的 Galois 群,
+$\mathfrak I_x$ 为惯性群. 层 $\underline G$ 定义 $\mathfrak G_x$ 的一个表示,
+仍记为 $\underline G$. $\mathfrak G_x/\mathfrak I_x=
+\operatorname{Gal}(\overline{k(x)}/k(x))$ 模 $(j_*\underline G^\vee)_x$
+(分别地, $(j_*\underline G)_x^\vee$) 可等同于 $\underline G^\vee$ 的不变元模
+(分别地, 余不变元模). 尚需证明:
+
+\medskip
+\noindent\emph{底本注.}
+照录法文层保留了印本 zeta 级数中的系数域 $F[[t]]$, 以及正规化归约中
+印本将 $\underline G$ 限制到 $U$ 的写法. 校订法文层和英文层使用 5.0 中固定的
+系数域 $E$ 以及新选取的开集 $U'$. 直接对照扫描件也将继承的粘连词、
+Fraktur 字体的 Galois 符号及 \emph{D\'esignons} 中重复的辅音修正为印本形式.
+

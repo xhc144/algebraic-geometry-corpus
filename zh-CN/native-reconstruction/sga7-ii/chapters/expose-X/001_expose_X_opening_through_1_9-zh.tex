@@ -1,0 +1,167 @@
+%%%%%%%%%% source scan idx 8 | folio 1 %%%%%%%%%%
+
+\begin{center}
+\underline{正则曲面上的相交}
+
+\medskip
+\underline{P. Deligne 著}
+\end{center}
+
+本讲第一部分先介绍相交理论的一些预备知识（见 $[5]\cup[7]$），然后给出 Raynaud [9] 的一个定理的特殊情形的 Artin 证明（1.13），并先验地证明一个 Néron [8] 曾逐一情形验证的定理（1.15）。[2] 中、从而第 IX 讲中用到的 [9] 的各定理，都较容易从（1.13）推出。
+
+第二部分沿着同一思路，说明“意大利学派”[1]、[3] 如何计算曲面上的相交数。主要结果 2.9 和 2.11 也见于 Northcott [12]、[13]。最后，在 2.27、2.30 和 2.34 中，我提出一个猜想关系，将约化曲线奇点的完备（versal）形式模概形的维数、该奇点的不变量 $\delta$ 与衡量其对称性的一个不变量联系起来。
+
+本讲的内容在讨论班后续各讲中不会用到。
+
+\medskip
+1. \underline{算术曲面上的相交数}
+
+1.0. 本节始终设 $X$ 是一个二维正则概形（regular scheme），$Y$ 是 $X$ 上的约化除子（reduced divisor），$k$ 是 $H^0(Y,\underline{O}_Y)$ 的一个子域。假定 $Y$ 是 $k$ 上的固有曲线（EGA II 7.4.1）。下面给出这种情形的三个例子。
+
+\underline{例} 1.1. 设 $(S,\eta,s)$ 是离散赋值环谱（trait），$f:X\longrightarrow S$ 是正则、固有且平坦的 $S$-概形，各纤维均为纯一维。取 $Y=(f^{-1}(s))_{\mathrm{red}}$ 及 $k=k(s)$。从 1.10 起，我们将只考虑这种情形。
+
+%%%%%%%%%% source scan idx 9 | folio 2 %%%%%%%%%%
+
+\underline{例} 1.2. 设 $X_o$ 是二维正规局部环的谱，$s$ 是 $X_o$ 的闭点，而 $f:X\longrightarrow X_o$ 是正则连通的 $X_o$-概形，在 $X_o$ 上固有，与 $X_o$ 不同，但在 $X_o\setminus\{s\}$ 上与 $X_o$ 一致。取 $Y=(f^{-1}(s))_{\mathrm{red}}$ 及 $k=k(s)$。
+
+\underline{例} 1.3. 取 $X$ 为域 $k$ 上的完备正则曲面，$Y$ 为 $X$ 上的约化曲线。
+
+回顾下述引理（SGA 6 IV，Ex.~1.9）。
+
+\underline{引理} 1.4. \underline{设 $Z_o$ 是 Noether 概形 $Z$ 的闭子概形。则 $Z_o$ 到 $Z$ 的包含，诱导从凝聚 $\underline{O}_{Z_o}$-模范畴的 Grothendieck 群到 $Z$ 上支集包含于 $Z_o$ 的凝聚层范畴的 Grothendieck 群的同构。}
+
+由此引理，可以对 $X$ 上支集包含于 $Y$ 的凝聚层 $\mathcal F$ 定义 Euler--Poincaré 特征数 $\chi(\mathcal F)$，使得：
+
+(i) 若 $\mathcal F$ 是凝聚 $\underline{O}_Y$-模层，则
+\begin{equation}\tag{1.4.1}
+\chi(\mathcal F)=\dim_k H^0(\mathcal F)-\dim_k H^1(\mathcal F).
+\end{equation}
+
+(ii) $\chi$ 对短正合列具有可加性。
+
+若 $\underline{O}_X$-模复形 $K$ 的各上同调层都是支集包含于 $Y$ 的凝聚层，则置
+\begin{equation}\tag{1.4.2}
+\chi(K)=\sum_i(-1)^i\chi(\underline{H}^i(K)).
+\end{equation}
+若 $\mathcal F$ 的支集包含于 $Y$ 的一点 $y$，则
+\begin{equation}\tag{1.4.3}
+\chi(\mathcal F)=\operatorname{length}_{\underline{O}_y}(\mathcal F_y)[k(y):k].
+\end{equation}
+
+%%%%%%%%%% source scan idx 10 | folio 3 %%%%%%%%%%
+
+在（1.1）、（1.2）或（1.3）的假设下，有
+\begin{equation}\tag{1.4.4}
+\chi(\mathcal F)=\operatorname{length}f_*\mathcal F-
+\operatorname{length}R^1f_*\mathcal F.
+\end{equation}
+设 $D$ 是支集包含于 $Y$ 的除子 $\geq0$，$\mathcal L$ 是 $D$ 上的可逆层。则可用唯一的方式定义次数 $\deg_D(\mathcal L)$，使得
+\begin{equation}\tag{1.4.5}
+\left\{
+\begin{array}{l}
+\deg_D(\mathcal L'\otimes\mathcal L'')=
+\deg_D(\mathcal L')+\deg_D(\mathcal L''),\\[3ex]
+\text{对 }\mathcal L\subset\underline O,
+\text{有 }\deg_D(\mathcal L)=-\chi(\underline O/\mathcal L).
+\end{array}
+\right.
+\end{equation}
+于是 $D$ 上的 Riemann--Roch 公式为
+\begin{equation}\tag{1.4.6}
+\chi(\mathcal L)=\chi(\underline{O}_D)+\deg_D(\mathcal L).
+\end{equation}
+若 $D=\sum n_iD_i$ 是 $D$ 分解为约化不可约除子的表达式，则
+\begin{equation}\tag{1.4.7}
+\deg_D(\mathcal L)=\sum n_i\deg_{D_i}(\mathcal L).
+\end{equation}
+
+\underline{定义} 1.5. \underline{设 $D$ 与 $E$ 是 $X$ 上的两个除子 $\geq0$，并假设 $D$ 的支集包含于 $Y$。$D$ 与 $E$ 的相交数（相对于域 $k$（1.0））定义为}
+\begin{equation*}
+(D,E)=\chi(\underline{O}_D\overset{\mathbb L}{\otimes}\underline{O}_E)
+=\chi(\underline{O}_D\otimes\underline{O}_E)
+-\chi(\operatorname{Tor}^1(\underline{O}_D,\underline{O}_E)).
+\end{equation*}
+事实上，在这里的假设下，$\operatorname{Tor}^2(\underline{O}_D,\underline{O}_E)=0$。
+
+\underline{命题} 1.6. \underline{在 1.5 的假设下，有：}
+
+(i) \quad \underline{相交数 $(D,E)$ 对除子 $D$ 与 $E$ 均具有可加性；借助线性性，可据此定义两个未必为正的除子的相交数。}
+
+%%%%%%%%%% source scan idx 11 | folio 4 %%%%%%%%%%
+
+(ii) \quad $(D,E)=\deg_D(\underline O(E))$.
+
+(iii) \quad \underline{若 $D$ 与 $E$ 仅在有限多个点相交，则 $(D,E)=\chi(\underline{O}_D\otimes\underline{O}_E)\geq0$，且仅当 $D$ 与 $E$ 不交时等号才成立。}
+
+(iv) \quad \underline{若 $D$ 与 $E$ 的支集均包含于 $Y$，则 $(D,E)=(E,D)$。}
+
+(v) \quad \underline{若 $N$ 是 $D$ 的余法层（conormal sheaf），则}
+\begin{equation*}
+D^2=(D,D)=-\deg_D(N).
+\end{equation*}
+
+(vi) \quad \underline{若未必为正的 $E$ 是 $X$ 上某个亚纯函数的除子，则 $(D,E)=0$。}
+
+\underline{证明}。正合列
+\begin{equation*}
+0\longrightarrow\underline O(-E)\longrightarrow\underline O_X
+\longrightarrow\underline O_E\longrightarrow0
+\end{equation*}
+结合（1.4.6）给出
+\begin{equation*}
+\begin{array}{rl}
+(D,E)\overset{\mathrm{def}}{=}&
+\chi(\underline{O}_D\overset{\mathbb L}{\otimes}\underline{O}_E)\\
+=&\chi(\underline{O}_D\overset{\mathbb L}{\otimes}\underline{O}_X)
+-\chi(\underline{O}_D\overset{\mathbb L}{\otimes}\underline O(-E))\\[1ex]
+=&\chi(\underline{O}_D)-\chi(\underline O(-E)|D)
+=-\deg_D(\underline O(-E))=\deg_D(\underline O(E)).
+\end{array}
+\end{equation*}
+由（1.4.5）和（1.4.7），这就证明了 (ii)、(vi) 及双可加性。在 (iii) 的假设下，$\operatorname{Tor}^1(\underline{O}_D,\underline{O}_E)=0$，因而得到结论。在 (v) 的假设下，有
+\begin{equation*}
+\underline{O}_D\otimes\underline{O}_D=\underline{O}_D
+\quad\text{且}\quad
+\operatorname{Tor}^1(\underline{O}_D,\underline{O}_D)\simeq N
+\quad(\text{SGA 6 VII 2.5}),
+\end{equation*}
+所以
+\begin{equation*}
+(D,D)=\chi(\underline{O}_D)-\chi(N)=-\deg_D(N).
+\end{equation*}
+最后，(iv) 由张量积的对称性得到。
+
+注意，即使不假设除子为正，(ii)、(iv) 和 (vi) 仍然成立。
+
+%%%%%%%%%% source scan idx 12 | folio 5 %%%%%%%%%%
+
+\underline{命题} 1.7. \underline{设 $(Y_i)_{1\leq i\leq k}$ 是 $Y$ 的各不可约分支，$f$ 是 $X$ 上的亚纯函数，其除子为}
+\begin{equation*}
+\operatorname{div}(f)=\sum_i n_iY_i+Z
+\end{equation*}
+\underline{其中 $|Z|\cap Y$ 为有限集。置 $D_i=n_iY_i$，则对 $(a_i)\in\mathbb Q^k$ 有：}
+\begin{equation*}
+\left(\sum_i a_iD_i\right)^2
+=-\sum_{i<j}(a_i-a_j)^2(D_i,D_j)-\sum_i a_i^2(D_i,Z).
+\end{equation*}
+
+\underline{证明}（依照 [7]）。由 1.6 (v)、(vi)，
+\begin{equation*}
+\begin{aligned}
+\left(\sum_i a_iD_i\right)^2
+&=\sum_i a_i\left(D_i,\sum_j a_jD_j\right)
+=\sum_i a_i\left(D_i,\sum_j a_jD_j-a_i\operatorname{div}f\right)\\
+&=\sum_i a_i\left(D_i,\sum_{j\ne i}(a_j-a_i)D_j-a_iZ\right)\\
+&=\sum_{i\ne j}a_i(a_j-a_i)(D_i,D_j)-\sum_i a_i^2(D_i,Z)\\
+&=-\sum_{i<j}(a_i-a_j)^2(D_i,D_j)-\sum_i a_i^2(D_i,Z).
+\end{aligned}
+\end{equation*}
+
+\underline{推论} 1.8. \underline{在例 1.1 的假设下，取 $f$ 为 $S$ 的一个一致化参数 $\pi$。此时 $Z=0$ 且}
+\begin{equation*}
+\left(\sum_i k_iY_i\right)^2
+=-\sum_{i<j}\frac{1}{n_in_j}(k_in_j-k_jn_i)^2(Y_i,Y_j);
+\end{equation*}
+\underline{所以相交型为负半定；若 $Y$ 连通，则其核恰由 $\operatorname{div}(\pi)$ 的倍数组成。}
+
+\underline{推论} 1.9（Mumford [7]）。\underline{在例 1.2 的假设下，取 $f$ 为局部环 $\underline O_s$ 的极大理想中的非零元。此时 $Z>0$，所以相交型为负定。}

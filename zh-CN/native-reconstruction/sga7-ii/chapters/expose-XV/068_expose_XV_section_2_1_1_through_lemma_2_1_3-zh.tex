@@ -1,0 +1,85 @@
+\section*{2. 标准普通二次情形的消灭圈计算}
+
+\subsection*{2.1. 预备: 锥的上同调}
+
+\subsubsection*{2.1.1.}
+设 $Y\subset\mathbb P^r$ 为代数闭域 $k$ 上的射影簇. 采用以下记号.
+
+以 $X\subset\mathbb A^{r+1}$ 表示 $Y$ 上的仿射锥, 以 $O$ 表示其顶点;
+
+$X_{(O)}$ 为 $X$ 在 $O$ 处的 Hensel 化;
+
+$X^*=X-\{O\}$ 且 $X^*_{(O)}=X_{(O)}-\{O\}$;
+
+$X_1\subset\mathbb P^{r+1}$ 为 $Y$ 上的射影锥, 从而 $X=X_1-Y$;
+
+$\widetilde X$、$\widetilde X_{(O)}$ 及 $\widetilde X_1$ 分别为 $X$、$X_{(O)}$ 及 $X_1$ 在 $O$ 处的爆破;
+
+$Y_0$ 为 $O$ 在 $\widetilde X$、$\widetilde X_{(O)}$ 或 $\widetilde X_1$ 中的逆像;
+
+$h:\widetilde X_1\to Y$ 为自然投影;
+
+$y_0,y_\infty:Y\to\widetilde X_1$ 为 $h$ 的截面, 其像分别为 $Y_0$ 和 $Y$;
+
+$F$ 为一个阶与 $k$ 的特征互素的交换挠群. 以下所考虑的上同调群均以 $F$ 为系数, 记号中将略去这一系数.
+
+本小节的目的是建立 $X^*_{(O)}$ 与 $Y$ 的上同调之间的联系.
+
+\subsubsection*{命题 2.1.2.}
+\underline{有同构}
+\[
+\text{(i)}\qquad
+H^i(X)\xrightarrow{\ \sim\ }H^i(\{O\})=
+\begin{cases}
+F,& i=0,\\
+0,& i>0;
+\end{cases}
+\]
+\[
+\text{(ii)}\qquad
+H^i_{\{O\}}(X)\xrightarrow{\ \sim\ }H^i_c(X).
+\]
+这个命题由同伦论证证明, 现在将此论证形式化.
+
+设 $k$ 为代数闭域, $U$ 和 $V$ 为两个 $k$-概形, $\Lambda$ 为阶与 $k$ 的特征互素的挠环, 并设
+\[
+K\in\operatorname{Ob}D^+(U,\Lambda),
+\qquad L\in\operatorname{Ob}D^+(V,\Lambda).
+\]
+从 $(U,K)$ 到 $(V,L)$ 的一个“态射” $f$, 指由态射 $f:U\to V$ 及态射 $\varphi:f^*L\to K$ 组成的一对. 这样的态射诱导
+\[
+f^*:H^*(V,L)\longrightarrow H^*(U,K).
+\]
+
+称两个“态射” $f_0$ 和 $f_1$ 同伦, 如果存在一个连通的有限型 $k$-概形 $T$, $T$ 的两个点 $0$ 和 $1$, 以及从 $(U\times T,\operatorname{pr}_1^*K)$ 到 $(V,L)$ 的一个“态射” $H$, 它在 $0$ 和 $1$ 处的纤维分别诱导 $f_0$ 和 $f_1$.
+
+\subsubsection*{引理 2.1.3.}
+\underline{若 $f_0$ 与 $f_1$ 同伦, 则 $f_0^*=f_1^*$.}
+
+存在 $T$ 中的点列 $0=x_0,x_1,\ldots,x_n=1$、光滑连通曲线 $\Gamma_i$ 以及态射 $a_i:\Gamma_i\to T$, 使 $x_i$ 和 $x_{i+1}$ 都属于 $a_i$ 的像. 为构造 $\Gamma_i$, 将 $T$ 中一个包含 $0$ 和 $1$ 的连通一维闭子概形正规化即可. 这样就归结为 $T$ 是光滑曲线的情形. 考虑交换方块
+\begin{center}
+\begin{tikzcd}[row sep=large,column sep=large]
+U\times T \arrow[r,"\operatorname{pr}_1"]
+  \arrow[d,"\operatorname{pr}_2"']
+  & U \arrow[d,"f"] \\
+T \arrow[r,"t"'] & k .
+\end{tikzcd}
+\end{center}
+对 $t$ 应用光滑基变换, 得到
+\[
+t^*Rf_*K\xrightarrow{\ \sim\ }
+R\operatorname{pr}_{2*}(\operatorname{pr}_1^*K).
+\]
+因此映射 $f_i^*$ $(i=0,1)$ 分解为
+\begin{center}
+\begin{tikzcd}[row sep=large,column sep=large]
+H^n(V,L) \arrow[r,"H^*"]
+  & H^n(U\times T,\operatorname{pr}_1^*K) \arrow[r]
+  & H^0\bigl(T,R^n\operatorname{pr}_{2*}
+      (\operatorname{pr}_1^*K)\bigr)
+      \arrow[dd,"\text{在以下点的纤维: }i"] \\
+{} & H^0\bigl(T,t^*H^n(U,K)\bigr) \arrow[ur,"\wr"] & {} \\
+{} & {} & H^n(U,K) \arrow[ul,"\wr"']
+\end{tikzcd}
+\end{center}
+从而与 $i$ 无关.
