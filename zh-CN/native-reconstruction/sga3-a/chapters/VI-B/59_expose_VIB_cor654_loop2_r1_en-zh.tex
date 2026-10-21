@@ -1,0 +1,112 @@
+% SGA 3, Expose VI_B, Loop 1 English reconstruction.
+% Scope: Corollary 6.5.4 and its proof in full, including source
+% editor's note 65 and the source-bound commutative triangle.
+% Authority: Polo--Gille Exp6B-13oct24.pdf, component-local pages
+% 47--48 (combined-reader pages 388--389; re-edition headers
+% 377--378).
+% Corollary 6.5.5 begins on local page 48 and is excluded.
+% OCR and Reinhold English Markdown are comparison witnesses only.
+% Loop 2 replaces the source-bound Loop-1 PNG with a faithful
+% native LaTeX reconstruction; the replacement is closed.
+
+\medskip
+\phantomsection\label{cor:sga3-VIB-6.5.4}%
+\noindent\textbf{推论 6.5.4.---}
+\emph{设 \(X\) 为有限呈示的平滑 \(S\)-群概形,
+其纤维连通, \(Y\) 为 \(S\) 上有限呈示的群概形,
+\(i:Y\to X\) 为
+\(S\)-群概形的单态射.}
+\begin{enumerate}
+\item[\textup{(i)}]\phantomsection\label{concl:sga3-VIB-6.5.4-i}
+  \emph{函子
+  \[
+    \prod_{X/S}Y/X
+  \]
+  可由 \(S\) 的一个有限呈示闭子概形
+  表出.}
+\item[\textup{(ii)}]\phantomsection\label{concl:sga3-VIB-6.5.4-ii}
+  \emph{若此外 \(S\) 拟紧, 则对所有
+  充分大的 \(n\),
+  \[
+    \prod_{X/S}Y/X
+      =\prod_{X_n/S}Y_n/X_n,
+  \]
+  其中 \(X_n\) 表示单位截面 \(\epsilon:S\to X\) 的第 \(n\) 阶
+  无穷小邻域, 且
+  \(Y_n=X_n\cap Y\).}
+\end{enumerate}
+
+证明实质上与
+\hyperref[cor:sga3-VIB-6.5.3]{6.5.3} 的证明相同.%
+\footnote{\label{note:sga3-VIB-65}编者注: 下文
+对原文作了扩充, 并补入 EGA~IV 的
+引用.}
+一方面, \(i\) 局部有限呈示
+(EGA~IV\(_1\), 1.4.3). 另一方面, \(Y\)
+和 \(X\) 的单位截面诱导双射浸入
+\[
+  S\longrightarrow Y_n
+  \qquad\text{和}\qquad
+  S\longrightarrow X_n,
+\]
+因而诱导 \(S_{\mathrm{red}}\) 分别到
+\((Y_n)_{\mathrm{red}}\) 和 \((X_n)_{\mathrm{red}}\) 的同构.
+因此, \(i_n\) 拟紧, 从而有限型, 且
+有交换图
+\begin{figure}[H]
+  \centering
+  \phantomsection\label{fig:sga3-VIB-6.5.4-reduced-triangle}%
+  \begin{tikzcd}[row sep=large,column sep=large]
+    (Y_n)_{\mathrm{red}}
+      \arrow[r,"\tau"]
+      \arrow[dr,"\sigma"'] &
+    Y_n \arrow[d,"i_n"'] \\
+    {} &
+    X_n
+  \end{tikzcd}
+\end{figure}
+其中 \(\sigma\) 和 \(\tau\) 为闭浸入, 且 \(\tau\)
+满射. 由于 \(i_n\) 分离 (因为它是
+单态射), 可知 \(i_n\) 固有
+(EGA~II, 5.4.3). 因此 \(i_n\) 为有限呈示的固有单态射,
+从而为闭浸入
+(EGA~IV\(_3\), 8.11.5). 由
+\hyperref[thm:sga3-VIB-6.2.3]{6.2.3} 得到
+\[
+  \prod_{X_n/S}Y_n/X_n
+\]
+可由 \(S\) 的一个闭子概形 \(T_n\) 表出,
+且在 \(S\) 上有限呈示. 只需在进一步假设 \(S\) 仿射时证明
+\hyperref[cor:sga3-VIB-6.5.4]{6.5.4} 的最后一个断言.
+
+仍然可以立即化归为 \(S\) 为
+Noether 概形的情形. 采用 \hyperref[cor:sga3-VIB-6.5.3]{6.5.3} 证明中的记号,
+只需证明 \(R=T\), 或等价地证明
+\[
+  Y\supset X_n\quad\text{对每个 }n
+  \qquad\Longrightarrow\qquad
+  Y=X.
+\]
+由假设, \(i:Y\to X\) 在 \(Y\) 在 \(S\) 上的单位截面的
+各点处为平展态射. 因此 \(Y\) 在这些点处
+在 \(S\) 上平滑, 而 \(Y\) 中使得 \(Y\) 在 \(S\) 上平滑的点所成的
+开子集 \(U\), 是 \(Y\) 的一个诱导开
+子群
+(参见 \hyperref[cor:sga3-VIB-2.3]{2.3}).
+\begin{samepage}
+由 \hyperref[prop:sga3-VIB-2.5]{2.5}, 态射
+\[
+  \tau:U\longrightarrow X
+\]
+此时为平展单态射, 从而为开浸入.
+\end{samepage}
+由于 \(X\) 的纤维连通, 且代数群的每个开子群
+也闭, \(\tau\) 为满射开浸入, 即
+同构. 所以 \(U=X\), 从而更有 \(Y=X\).
+这就完成了 \hyperref[cor:sga3-VIB-6.5.4]{6.5.4} 的证明.
+
+如 \hyperref[ex:sga3-VIB-6.2.4-e]{6.2.4\textup{(e)}}
+中一样论证, 可由 \hyperref[cor:sga3-VIB-6.5.4]{6.5.4} 推出
+推论~\hyperref[cor:sga3-VIB-6.5.5]{6.5.5}.
+
+% 翻译统计: 源行数 111; 输出行数 112 (含本统计行); 行内/行间数学片段 54; 翻译占位 0. 底本疑点另报主线程.

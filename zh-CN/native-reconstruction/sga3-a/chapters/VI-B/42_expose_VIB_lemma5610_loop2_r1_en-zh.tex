@@ -1,0 +1,150 @@
+% SGA 3, 第 VI_B 篇, 第 1 轮英文重构.
+% 范围: 引理 5.6.1.0 全文, 含底本编者注 39,
+% 以及带有底本编者注 40 的过渡句.
+% 底本: Polo--Gille Exp6B-13oct24.pdf, 分篇第 28--29 页
+% (合订本第 369--370 页; 重版本页眉 358--359).
+% 此编者新增单元止于引理 5.6.1 处的原版页边页码 353 标记之前.
+% 引理 5.6.1 本身始于分篇第 29 页.
+% OCR 与 Reinhold 英文 Markdown 仅为比对材料.
+% 英文底本旧注: 此图为第 1 轮的 180 dpi 底本精确裁切; 下方现为原生 TikZ 图码.
+
+\medskip
+\phantomsection\label{lem:sga3-VIB-5.6.1.0}%
+\noindent\textbf{引理 5.6.1.0.---}%
+\footnote{\label{note:sga3-VIB-39}编者注: 我们明确写出此引理,
+它用于\hyperref[lem:sga3-VIB-5.6.1]{引理 5.6.1} 的证明.}
+\emph{设 \(f:X\to S\) 是局部有限呈示态射,
+\(s\in S\), \(x\in X_s\). 置 \(n=\dim_x(X_s)\),
+并设 \(q:\mathbb A^n_S\to S\) 是结构态射.}
+
+\emph{假定给定一个拟有限态射 \(u:X\to\mathbb A^n_S\),
+使 \(f=q\circ u\), 并假设 \(f\) 在 \(X_s\)
+的一个包含 \(x\) 且维数为 \(n\) 的不可约分支
+\(\mathfrak z\) 的泛点 \(z\) 处普遍开.
+则 \(u\) 在点 \(x\in X\) 处普遍开.}
+
+先注意到
+\[
+  (\dagger)\qquad
+  \text{\emph{这些假设在每个覆盖 \(s\) 的基变换
+  \(\pi:S'\to S\) 下都保持}}
+\]
+(即满足 \(\pi^{-1}(s)\ne\varnothing\) 的基变换).
+事实上, 设 \(S'\to S\) 为这样的态射, 并设
+\begin{center}
+  \phantomsection\label{diag:sga3-VIB-5.6.1.0-base-change}%
+  \begin{tikzcd}[row sep=large,column sep=large]
+    X'
+      \arrow[r,"u'"]
+      \arrow[dr,"f'"'] &
+    \mathbb A^n_{S'} \arrow[d,"q'"] \\
+    {} &
+    S'
+  \end{tikzcd}
+\end{center}
+是基变换所得的图, \(s'\) 是 \(S'\) 中位于 \(s\) 上的点,
+\(x'\) 是 \(X'_{s'}\) 中位于 \(x\) 上的点. 由于
+\[
+  X'_{s'}=X_s\otimes_{\kappa(s)}\kappa(s'),
+\]
+由泛化的提升及维数在域扩张下的不变性
+(EGA~IV\(_2\), 2.3.4\textup{(i)} 和 4.1.4) 可知,
+\(x'\) 包含在 \(X'_{s'}\) 的某个不可约分支 \(\mathfrak z'\) 中,
+其泛点 \(z'\) 位于 \(z\) 上, 且
+\[
+  n\leq\dim\mathfrak z'
+    \leq\dim_{x'}X'_{s'}\leq n.
+\]
+因此
+\[
+  \dim\mathfrak z'=n=\dim_{x'}X'_{s'}.
+\]
+由于 \(f\) 在 \(z\) 处普遍开, \(f'\) 在 \(z'\) 处普遍开.%
+\footnote[1]{\label{note:sga3-VIB-5.6.1.0-generic-points}译者注:
+法文底本在此句中分别印作 \(x\) 和 \(x'\).
+所述假设及紧前面对泛点的选取要求此处为 \(z\) 和 \(z'\).}
+
+置 \(Y=\mathbb A^n_S\). 由 EGA~IV\(_3\), 14.3.3.1\textup{(i)},
+为证明 \(u\) 在 \(x\) 处普遍开, 只须证明对每个整数 \(r\geq0\) 及
+\[
+  X'=X[T_1,\ldots,T_r]
+\]
+中位于 \(x\) 上的每个点 \(x'\), 态射
+\[
+  u':X'\longrightarrow
+  Y'=\mathbb A^n_S[T_1,\ldots,T_r]
+\]
+在 \(x'\) 处开. 现在置
+\[
+  S'=S[T_1,\ldots,T_r],
+\]
+并设 \(q'\) 为投影
+\[
+  Y'\simeq\mathbb A^n_{S'}\longrightarrow S'.
+\]
+这就是基变换 \(S'\to S\) 所得的情形.
+因此由前面的观察, 归结为证明 \(u\) 在 \(x\) 处开.
+
+置 \(y=u(x)\). 由于 \(u\) 局部有限呈示
+(因为 \(f\) 和 \(q\) 都如此; 参见 EGA~IV\(_1\), 1.4.3),
+EGA~IV\(_1\), 1.10.3 表明只须证明
+\[
+  u\bigl(\operatorname{Spec}\mathcal O_{X,x}\bigr)
+  =\operatorname{Spec}\mathcal O_{Y,y}.
+\]
+为此可假设 \(S\) 仿射且整. 设 \(\pi:S'\to S\) 是其正规化,
+并用 \(u':X'\to Y'\) 表示 \(u\) 作基变换得到的态射. 由于
+\[
+  \pi_Y:Y'\longrightarrow Y
+\]
+整且满射, 有
+\[
+  \operatorname{Spec}\mathcal O_{Y,y}
+  =
+  \bigcup_{y'}
+  \pi_Y\bigl(\operatorname{Spec}\mathcal O_{Y',y'}\bigr),
+\]
+其中并集遍历 \(Y'\) 中位于 \(y\) 上的所有点 \(y'\).
+因此只须证明, 对每个这样的 \(y'\) 及位于 \(x\) 上的每个
+\(x'\in X'_{y'}\),
+\[
+  u'\bigl(\operatorname{Spec}\mathcal O_{X',x'}\bigr)
+  =\operatorname{Spec}\mathcal O_{Y',y'}.
+\]
+由于这些假设在基变换 \(\pi:S'\to S\) 下保持,
+遂归结为 \(S'\) 的情形; 即可假设 \(S\) 整且正规.
+
+此时, 由 EGA~IV\(_3\), 14.3.13, 关于 \(f\) 的假设蕴含:
+存在 \(X\) 的一个不可约分支 \(Z\), 它包含
+\(\mathfrak z\) (因而包含 \(x\)), 支配 \(S\), 且
+\[
+  \dim_z(Z_s)=n=\dim(Z_\eta),
+\]
+其中 \(\eta\) 是 \(S\) 的泛点. 设 \(\xi\) 是 \(Z\) 的泛点.
+由于 \(u\), 因而也包括
+\[
+  u_\eta:Z_\eta\longrightarrow\mathbb A^n_\eta,
+\]
+拟有限, 点
+\[
+  u_\eta(\xi)=u(\xi)
+\]
+在 \(\mathbb A^n_\eta\) 中的闭包维数为 \(n\).
+因此 \(u(\xi)\) 是 \(\mathbb A^n_\eta\) 的泛点,
+也就是 \(Y=\mathbb A^n_S\) 的泛点.
+所以, 若 \(g\) 表示 \(u\) 在 \(Z\) 上的限制, 则
+\[
+  g:Z\longrightarrow Y
+\]
+拟有限且支配. 由于 \(Y\) 正规,
+\hyperref[lem:sga3-VIB-5.6.0]{引理 5.6.0} 表明 \(g\) 开.
+故 \(u\) 在 \(Z\) 的每个点处开, 特别地在 \(x\) 处开. 因此,
+\[
+  u\bigl(\operatorname{Spec}\mathcal O_{X,x}\bigr)
+  =\operatorname{Spec}\mathcal O_{Y,y},
+\]
+这就完成了\hyperref[lem:sga3-VIB-5.6.1.0]{引理 5.6.1.0} 的证明.
+
+下面的引理可更有效地替代 EGA~IV\(_3\), 14.5.10,%
+\footnote{\label{note:sga3-VIB-40}编者注: 原文标为 19.5.10, 已予改正.}
+因为它不依赖于 Noether 假设.

@@ -30,7 +30,7 @@ inputs(root/'main.tex')
 result=[];refs=[];targets=[]
 for f in sorted((root/'chapters').rglob('*-zh.tex')):
     if f.resolve() not in active:continue
-    if int(f.name.split('_')[0])>a.through:continue
+    if int(re.match(r'\d+',f.name).group())>a.through:continue
     name=f.name.replace('-zh.tex','.tex')
     matches=[n for n in allnames if n.startswith(prefix) and n.endswith('/'+name)]
     if len(matches)!=1:raise ValueError((f,matches))
@@ -44,7 +44,7 @@ for f in sorted((root/'chapters').rglob('*-zh.tex')):
         k[cmd]={'source':len(keys(s,cmd)),'translation':len(keys(t,cmd)),'same_key_multiset':collections.Counter(keys(s,cmd))==collections.Counter(keys(t,cmd))}
     refs.extend(keys(t,'SGARefLink'))
     for cmd in ['SGARefTarget','SGAInlineRefTarget','SGAInlineEquationTarget','SGANextSectionTarget','label']:targets.extend(keys(t,cmd))
-    result.append({'file':str(f.relative_to(root)),'source_member':matches[0],'source_sha256':hashlib.sha256(src).hexdigest(),'translation_sha256':hashlib.sha256(f.read_bytes()).hexdigest(),'source_lines':len(s.splitlines()),'translation_lines':len(t.splitlines()),'math_counts_source':[sum(x.values()) for x in sm],'math_counts_translation':[sum(x.values()) for x in tm],'math_differences':diffs,'keys':k,'footnotes_source':len(re.findall(r'\\footnote\{',s)),'footnotes_translation':len(re.findall(r'\\footnote\{',t))})
+    result.append({'file':str(f.relative_to(root)),'source_member':matches[0],'source_sha256':hashlib.sha256(src).hexdigest(),'translation_sha256':hashlib.sha256(f.read_bytes()).hexdigest(),'source_lines':len(s.splitlines()),'translation_lines':len(t.splitlines()),'math_counts_source':[sum(x.values()) for x in sm],'math_counts_translation':[sum(x.values()) for x in tm],'math_differences':diffs,'keys':k,'footnotes_source':len(re.findall(r'\\footnote\{',s)),'footnotes_translation':len(re.findall(r'\\footnote\{',t)),'footnote_commands_source':len(re.findall(r'\\footnote(?:\[[^\]]*\])?\{',s)),'footnote_commands_translation':len(re.findall(r'\\footnote(?:\[[^\]]*\])?\{',t)),'footnotetext_source':len(re.findall(r'\\footnotetext(?:\[[^\]]*\])?\{',s)),'footnotetext_translation':len(re.findall(r'\\footnotetext(?:\[[^\]]*\])?\{',t)),'environment_multisets_preserved':collections.Counter(re.findall(r'\\(begin|end)\{([^{}]+)\}',s))==collections.Counter(re.findall(r'\\(begin|end)\{([^{}]+)\}',t))})
 missing=collections.Counter(x for x in refs if x not in set(targets))
 report={'scope':'only translated component files in the current main.tex input closure; not a completeness or mathematical proof certification','math_comparison':'whitespace normalized; simple text{} natural-language arguments normalized; named source errata listed separately','components':result,'unresolved_sga_ref_links':dict(sorted(missing.items())),'reference_fallback_warning':'SGARefLink intentionally prints its text when a target is absent. Therefore zero LaTeX undefined-reference warnings does NOT mean every SGARefLink resolves. See this list and SOURCE_ISSUES.md.'}
 (root/'audit/COMPONENT_CHECKS.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')

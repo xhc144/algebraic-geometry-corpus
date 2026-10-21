@@ -1,0 +1,138 @@
+% SGA 3，第 VI_B 篇，第一轮英文重建稿的中文翻译。
+% 范围：第10节标题、段落10.0和10.1，以及引理10.2全文，含编者注90--92。
+% 依据：Polo--Gille Exp6B-13oct24.pdf，本组件局部页68--70
+% （合卷阅读版页409--411；再版页眉398--400；原版页边印刷页385--387）。
+% 引理10.3始于局部页70，不在本组件内。
+% OCR及Reinhold英文Markdown仅用作对照见证。
+% 本组件不含图。
+
+\section*{10. 群概形与带算子群的概形中的射影极限}
+\phantomsection\label{sec:sga3-VIB-10}%
+\addcontentsline{toc}{section}{10. 群概形与带算子群的概形中的射影极限}
+
+\medskip
+\phantomsection\label{par:sga3-VIB-10.0}%
+\noindent\textbf{10.0.---}
+回顾 EGA~IV\(_3\)，\S 8.8 的基本结果。
+设给定下列数据：拟紧且拟分离的概形 \(S_0\)、向上滤过的预序集
+\(I\)，以及拟凝聚交换 \(\mathcal O_{S_0}\)-代数的正向系
+\((\mathcal A_i)_{i\in I}\)，并令
+\[
+  \mathcal A=\varinjlim_i\mathcal A_i,\qquad
+  S_i=\operatorname{Spec}\mathcal A_i\quad(i\in I),
+  \qquad
+  S=\operatorname{Spec}\mathcal A\footnotemark.
+\]
+\footnotetext{\label{note:sga3-VIB-90}编者注：由于 \(S\)
+在 \(S_0\) 上仿射，它是拟紧且拟分离的；参见下文编者
+\hyperref[note:sga3-VIB-92]{注92}。}
+则有限呈示的 \(S\)-概形所成的范畴，在等价意义下，由有限呈示的
+\(S_i\)-概形所成的各范畴、这些范畴之间的函子
+\[
+  \rho_{ji}:X_i\longmapsto X_i\times_{S_i}S_j
+  \qquad(i\leq j),
+\]
+以及传递同构
+\[
+  \rho_{kj}\circ\rho_{ji}\xrightarrow{\ \sim\ }\rho_{ki}
+\]
+所确定。
+
+更确切地，给定 \(j\in I\) 及有限呈示的 \(S_j\)-概形
+\(X_j\)，对每个满足 \(i\geq j\) 的 \(i\in I\)，令
+\[
+  X_i=X_j\times_{S_j}S_i,
+  \qquad
+  X=X_j\times_{S_j}S.
+\]
+则 EGA~IV\(_3\)，8.8.2 给出：
+\begin{enumerate}
+\item[\textup{(i)}]\phantomsection\label{concl:sga3-VIB-10.0-i}
+  给定 \(j\in I\) 及两个有限呈示的 \(S_j\)-概形 \(X_j\) 和 \(Y_j\)，
+  典范映射
+  \phantomsection\label{form:sga3-VIB-10.0-Hom-limit}%
+  \[
+    \varinjlim_{i\geq j}
+      \operatorname{Hom}_{S_i}(X_i,Y_i)
+      \longrightarrow
+      \operatorname{Hom}_S(X,Y)
+  \]
+  是双射。
+
+\item[\textup{(ii)}]\phantomsection\label{concl:sga3-VIB-10.0-ii}
+  对每个有限呈示的 \(S\)-概形 \(X\)，存在指标 \(j\in I\)、有限呈示的
+  \(S_j\)-概形 \(X_j\)，以及 \(S\)-同构
+  \[
+    X\xrightarrow{\ \sim\ }X_j\times_{S_j}S.
+  \]
+\end{enumerate}
+
+由 EGA~IV\(_3\)，8.8.3 可知，只要有限呈示的 \(S\)-概形范畴中的图
+\(\mathcal D\) 仅涉及有限多个对象和箭头，就能找到指标 \(i\in I\)
+及有限呈示的 \(S_i\)-概形范畴中的图 \(\mathcal D_i\)，使得在同构意义下，
+\(\mathcal D\) 由 \(\mathcal D_i\) 经基变换 \(S\to S_i\) 得到。
+甚至可以选取 \(i\) 和 \(\mathcal D_i\)，使 \(\mathcal D\) 中的每个
+笛卡尔方块都由 \(\mathcal D_i\) 中的一个笛卡尔方块得到。
+
+\medskip
+\phantomsection\label{par:sga3-VIB-10.1}%
+\noindent\textbf{10.1.---}
+此外，态射的许多熟知的、在基变换下稳定的性质还满足下列性质：
+\begin{quote}
+\emph{设 \(u:X\to Y\) 是有限呈示的 \(S\)-概形之间的 \(S\)-态射。
+由 \hyperref[par:sga3-VIB-10.0]{10.0}，它由有限呈示的 \(S_j\)-概形之间的
+\(S_j\)-态射 \(u_j:X_j\to Y_j\) 经基变换得到。则 \(u\) 具有性质
+\(\mathcal P\)，当且仅当存在 \(i\geq j\)，使}
+\[
+  u_i=u_j\times_{S_j}S_i
+\]
+\emph{具有性质 \(\mathcal P\)。}
+\end{quote}
+
+当 \(\mathcal P\) 是态射的下列任一性质时，上述论断成立：分离、满射、
+根性、仿射、拟仿射、有限、拟有限、固有、射影、拟射影、同构、单态射、
+浸入、开浸入、闭浸入
+\textup{（EGA~IV\(_3\)，8.10.5）}、平坦
+\textup{（EGA~IV\(_3\)，11.2.6）}、平滑、非分歧或
+平展 \textup{（EGA~IV\(_4\)，17.7.8）}。%
+\footnote{\label{note:sga3-VIB-91}编者注：添加了“平坦”一词，
+并将引用17.7.6更正为17.7.8。}
+
+当 \(\mathcal P\) 是成为 \textup{(fppf)} 拓扑的覆盖这一性质时，上述论断也成立。
+事实上，给定两个有限呈示的 \(S\)-概形 \(X\) 和 \(Y\)，以及
+\(S\)-态射 \(u:X\to Y\)，由
+\hyperref[sga3:iv:proposition:6:3:1:item:i:01]%
+  {\SGARefLink{sga3:iv:proposition:6:3:1:item:i:01}{第IV篇，6.3.1\textup{(i)}}}%
+\footnote{\label{note:sga3-VIB-92}编者注：这里还使用了如下事实：
+\(Y\) 在 \(S\) 上有限呈示，因而是拟紧的。}
+可知，\(u\) 是 \textup{(fppf)} 拓扑的覆盖，当且仅当存在 \(S\)-概形
+\(Z\) 及有限呈示的忠实平坦 \(S\)-态射 \(v:Z\to Y\)，使其通过 \(u\) 分解。
+
+本第\hyperref[sec:sga3-VIB-10]{10}节的目的是对有限呈示的 \(S\)-群范畴、
+带算子群的 \(S\)-概形范畴，以及群单态射的某些性质
+\textup{（正规、中心且商层可表，等等）}，给出这类结果的变式。
+
+下面先给出这方面的两个预备结果。在
+\hyperref[lem:sga3-VIB-10.2]{10.2} 至
+\hyperref[lem:sga3-VIB-10.9]{10.9} 中，沿用
+\hyperref[par:sga3-VIB-10.0]{10.0} 中引入的记号。
+
+\medskip
+\phantomsection\label{lem:sga3-VIB-10.2}%
+\noindent\textbf{引理 10.2.---}
+\emph{设 \(G_j\) 和 \(H_j\) 是两个有限呈示的 \(S_j\)-群。
+对每个 \(i\geq j\)，令
+\[
+  G_i=G_j\times_{S_j}S_i,
+  \qquad
+  G=G_j\times_{S_j}S,
+\]
+并类似地定义 \(H_i\) 和 \(H\)。则典范映射}
+\phantomsection\label{form:sga3-VIB-10.2-Hom-limit}%
+\[
+  \varinjlim_{i\geq j}
+    \operatorname{Hom}_{S_i\text{-}\mathrm{gr}}(G_i,H_i)
+    \longrightarrow
+    \operatorname{Hom}_{S\text{-}\mathrm{gr}}(G,H)
+\]
+\emph{是双射。}

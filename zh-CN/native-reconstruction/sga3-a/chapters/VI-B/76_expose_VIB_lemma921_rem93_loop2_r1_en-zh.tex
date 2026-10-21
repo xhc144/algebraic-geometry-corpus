@@ -1,0 +1,137 @@
+% SGA 3, 第 VI_B 篇, 第 1 轮英文重构底本的中译.
+% 范围: 引理 9.2.1 及完整证明、注 9.2.2 与注 9.3(a)--(b),
+% 包括情形 1--3、编者注 86--89 及原星号警示.
+% 权威底本: Polo--Gille Exp6B-13oct24.pdf, 组件第 67--68 页
+% (合卷第 408--409 页; 重版页眉第 397--398 页; 原版边栏页码第 383--385 页).
+% 第 10 节始于组件第 68 页, 不在本组件内.
+% OCR 与 Reinhold 英文 Markdown 仅为对照材料.
+% 第 2 轮已将原笛卡尔方块裁图替换为忠实的原生 LaTeX 重构, 替换已完成.
+
+\medskip
+\phantomsection\label{lem:sga3-VIB-9.2.1}%
+\noindent\textbf{引理 9.2.1.---}
+\emph{设 \(X\) 是一个 \(S\)-概形,
+\(R\) 是 \(X\) 上由单态射 \(v:R\to X\times_S X\)
+定义的等价关系. 假设 \(R\) 有效. 则:}
+\begin{enumerate}
+\item[\textup{(i)}]\phantomsection\label{concl:sga3-VIB-9.2.1-i}
+  \emph{态射 \(v\) 是浸入;
+  若 \(Y=X/R\) 分离, 则它是闭浸入.}
+
+\item[\textup{(ii)}]\phantomsection\label{concl:sga3-VIB-9.2.1-ii}
+  \emph{再假设 \(Y\) 表出 \(X\) 关于 \(R\)
+  的 \textup{(fpqc)} 商层,}%
+  \footnote{\label{note:sga3-VIB-86}编者注: 正如 O. Gabber 所指出,
+  证明中用到了此条件, 必须将它纳入假设.}
+  \emph{且 \(v\) 是闭浸入. 则 \(Y=X/R\) 在 \(S\) 上分离.}
+\end{enumerate}
+
+回顾 (IV, \SGARefLink{sga3:iv:definition:3:3:2}{定义 3.3.2}),
+假设 ``\(R\) 有效'' 意味着存在一个 \(S\)-概形态射
+\[
+  p:X\longrightarrow Y
+\]
+使得自然态射
+\[
+  R\longrightarrow X\times_Y X
+\]
+是同构. 因而 (EGA~I, 5.3.5) 下图为笛卡尔图:
+\begin{center}
+  \phantomsection\label{diag:sga3-VIB-9.2.1-effective-square}%
+  \begin{tikzcd}[row sep=large,column sep=large]
+    R \arrow[r,"v"] \arrow[d] &
+    X\times_SX \arrow[d,"p\times p"] \\
+    Y \arrow[r,"\Delta_{Y/S}"'] &
+    Y\times_SY
+  \end{tikzcd}
+\end{center}
+由于 \(\Delta_{Y/S}\) 是浸入 (EGA~I, 5.3.9), \(v\) 也如此.
+同样地, 若 \(Y\) 在 \(S\) 上分离,
+则 \(\Delta_{Y/S}\) 是闭浸入, 因而 \(v\) 也是闭浸入.
+
+反之, 假设 \(v\) 是闭浸入,
+且 \(Y\) 表出 \(X\) 关于 \(R\) 的 \textup{(fpqc)} 商层.
+则 \(p\) 是 \textup{(fpqc)} 拓扑的覆盖
+(IV, \SGARefLink{sga3:iv:proposition:4:4:3}{4.4.3}),
+所以 \(p\times p\) 也是覆盖:
+由基变换, \(p\times\operatorname{id}_X\)
+及 \(\operatorname{id}_Y\times p\) 都是覆盖,
+其复合 \(p\times p\) 也如此.
+所以由 \textup{(fpqc)} 下降 (参见 EGA~IV\(_2\), 2.7.1),
+\(\Delta_{Y/S}\) 是闭浸入;
+换言之, \(Y\) 在 \(S\) 上分离.
+
+\medskip
+\phantomsection\label{rem:sga3-VIB-9.2.2}%
+\noindent\textbf{注 9.2.2.---}
+\emph{在 \hyperref[prop:sga3-VIB-9.2]{9.2} 的一般假设下,
+若 \(G'\) 在 \(S\) 上平坦且局部有限呈示,
+则由 \hyperref[concl:sga3-VIB-9.2-vii]{9.2\textup{(vii)}},
+\(p\) 是 \textup{(fppf)} 拓扑的覆盖,}%
+\footnote{\label{note:sga3-VIB-87}编者注: 已将 \textup{(fpqc)} 改正为 \textup{(fppf)}.}
+\emph{所以断言 \hyperref[concl:sga3-VIB-9.2-vii]{9.2\textup{(vii)}} 及
+\hyperref[concl:sga3-VIB-9.2-viii]{9.2\textup{(viii)}}
+可推广到对 \textup{(fppf)} 拓扑为局部的性质 \(\mathscr P\).}
+
+\medskip
+\phantomsection\label{rem:sga3-VIB-9.3}%
+\noindent\textbf{注 9.3.---}
+\phantomsection\label{rem:sga3-VIB-9.3-a}%
+\textup{a)} 商 \(G/G'\) 是否可表, 往往是微妙的问题;
+本讨论班将证明某些特殊商的可表性.
+
+一般来说, 要推出 \(G/G'\) 可表,
+仅假设 \(G\) 与 \(G'\) 在 \(S\) 上有限呈示,
+且 \(G'\) 在 \(S\) 上平坦是不够的.
+事实上, 再假设 \(G\) 平滑且纤维连通.
+此时, 若 \(G/G'\) 是概形,
+则由\hyperref[cor:sga3-VIB-5.4]{推论 5.4}, 它是分离的;
+所以由 \hyperref[concl:sga3-VIB-9.2-x]{9.2\textup{(x)}},
+\(G'\hookrightarrow G\) 是闭浸入.
+因此, 若 \(G'\) 在 \(G\) 中不闭, 则 \(G/G'\) 不可表.
+
+要得到这样的反例, 取 \(S\) 为离散赋值环的谱,
+并置 \(G=\mathbb G_{m,S}\).
+设 \(n>1\) 是一个在 \(S\) 上可逆的整数. 则
+\phantomsection\label{form:sga3-VIB-9.3-mu-n}%
+\[
+  \mu_n=\ker\bigl(G\xrightarrow{\ n\ }G\bigr)
+\]
+是 \(G\) 的一个闭子群, 在 \(S\) 上平展
+(参见第 VII\(_A\) 篇% 
+\footnote{\label{note:sga3-VIB-88}编者注: 见第 VII\(_A\) 篇,
+\SGARefLink{prop:sga3-VIB-8.4}{8.4}, 或
+\SGARefLink{sga3:viii:proposition:2:1}{第 VIII 篇, 2.1}.}).
+设 \(G'\) 是从 \(\mu_n\) 中去掉其闭纤维中原点的补集这一闭子集
+所得到的 \(\mu_n\) 的开子群.
+则 \(G'\) 在 \(G\) 中不闭, 所以 \(G/G'\) 不可表.
+也可构造 \(G'\) 平滑且纤维连通的此类例子.
+
+\phantomsection\label{rem:sga3-VIB-9.3-b}%
+\textup{b)} 然而, 当 \(G\) 与 \(G'\) 在 \(S\) 上有限呈示,
+且 \(G'\) 在 \(S\) 上平坦并在 \(G\) 中为闭时,
+\(G/G'\) 仍有可能可表%
+\begingroup
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}%
+\footnote[1]{\label{note:sga3-VIB-9.3-star}
+这过于乐观, 正如 M. Raynaud 在其学位论文
+\textup{(loc.\ cit., X, 14)} 中所示.}%
+\endgroup\hspace{0.15em}%
+\footnote{\label{note:sga3-VIB-89}编者注: 星号注指的是
+\textup{[Ray70a]} 中的反例 X, 14.
+彼处的基是一个维数为 \(2\) 的正则局部概形.}.
+在这些假设下, 已知以下特殊情形中的 \(G/G'\) 可表:
+\begin{enumerate}
+\item[\textup{\(1^\circ\)---}]\phantomsection\label{case:sga3-VIB-9.3-b-1}
+  \(S\) 是 Artin 环的谱
+  (参见 \hyperref[thm:sga3-VIA-3.2]{VI\(_A\), 3.2} 及
+  \hyperref[thm:sga3-VIA-3.3.2]{3.3.2}).
+
+\item[\textup{\(2^\circ\)---}]\phantomsection\label{case:sga3-VIB-9.3-b-2}
+  \(G'\) 在 \(S\) 上固有, 且 \(G\) 在 \(S\) 上拟射影
+  (参见 \hyperref[thm:sga3-V-7.1]{V, 7.1}).
+
+\item[\textup{\(3^\circ\)---}]\phantomsection\label{case:sga3-VIB-9.3-b-3}
+  \(S\) 局部 Noether 型且维数为 \(1\)
+  (参见 \textup{[An73]}, 定理 4.C).
+\end{enumerate}

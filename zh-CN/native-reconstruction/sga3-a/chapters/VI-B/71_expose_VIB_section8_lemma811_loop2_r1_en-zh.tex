@@ -1,0 +1,97 @@
+% SGA 3, 第 VI_B 篇, 第 1 轮英文重构底本的中译.
+% 范围: 第 8 节标题、8.1 段及引理 8.1.1 全部, 包括原编者注 81.
+% 权威底本: Polo--Gille Exp6B-13oct24.pdf, 组件第 60--61 页
+% (合卷第 401--402 页; 重版页眉第 390--391 页; 原版边栏页码第 374--375 页).
+% 引理 8.1.2 始于组件第 61 页, 不在本组件内.
+% OCR 与 Reinhold 英文 Markdown 仅为对照材料.
+% 第 2 轮已将原交换方块裁图替换为忠实的原生 LaTeX 重构, 替换已完成.
+
+\section*{8. 可解或幂零群概形}
+\phantomsection\label{sec:sga3-VIB-8}%
+\addcontentsline{toc}{section}{8. 可解或幂零群概形}
+
+\medskip
+\phantomsection\label{par:sga3-VIB-8.1}%
+\noindent\textbf{8.1.---}
+设 \(\mathcal C\) 是一个配备了拓扑 \(T\) 的范畴
+(参见第 IV 篇 \S4).
+对 \(\mathcal C\) 上的每个预层 \(P\),
+以 \(P^\flat\) 表示相伴层.
+
+设 \(G\) 是 \(\mathcal C\) 上的一个群预层,
+\(A\) 与 \(B\) 是 \(G\) 的两个群子预层,
+以 \(\operatorname{Comm}(A,B)\) 表示 \(A\) 与 \(B\)
+在 \(G\) 中的换位子的群预层.
+即对每个 \(S\in\operatorname{Ob}\mathcal C\),
+\(\operatorname{Comm}(A,B)(S)\) 是由换位子
+\[
+  aba^{-1}b^{-1},
+  \qquad a\in A(S),\quad b\in B(S).
+\]
+生成的 \(G(S)\) 的子群. 记
+\phantomsection\label{form:sga3-VIB-8.1-CommT}%
+\[
+  \operatorname{Comm}_T(A,B)
+    =\operatorname{Comm}(A,B)^\flat.
+\]
+
+在 \hyperref[prop:sga3-VIB-8.2]{8.2} 的证明中, 将需要以下结果.%
+\footnote{\label{note:sga3-VIB-81}编者注: 原文只陈述了这些结果而未给出证明.
+此处将它们突出列为\hyperref[lem:sga3-VIB-8.1.1]{引理 8.1.1} 和
+\SGARefLink{lem:sga3-VIB-8.1.2}{8.1.2}, 并补出了证明细节.}
+
+\medskip
+\phantomsection\label{lem:sga3-VIB-8.1.1}%
+\noindent\textbf{引理 8.1.1.---}
+\emph{设 \(A\subset G\) 是群层, 且 \(A\) 在 \(G\) 中正规.}
+\begin{enumerate}
+\item[\textup{\SGAInlineRefTarget{lem:sga3-VIB-8.1.1:item:i}(i)}]\phantomsection\label{concl:sga3-VIB-8.1.1-i}
+  \emph{\(\operatorname{Comm}_T(G,A)\) 是 \(G\) 的最小正规群子层 \(C\),
+  使得与商预层 \(A/C\) 相伴的层 \((A/C)^\flat\)
+  在 \((G/C)^\flat\) 中是中心的.}
+
+\item[\textup{(ii)}]\phantomsection\label{concl:sga3-VIB-8.1.1-ii}
+  \emph{特别地, \(\operatorname{Comm}_T(G,G)\)
+  是使商层 \((G/C)^\flat\) 交换的 \(G\) 的最小正规群子层 \(C\).}
+\end{enumerate}
+
+显然, \textup{\SGARefLink{concl:sga3-VIB-8.1.1-ii}{(ii)}}
+是 \textup{\SGARefLink{concl:sga3-VIB-8.1.1-i}{(i)}} 在 \(A=G\) 时的特例,
+所以只需证明 \textup{\SGARefLink{concl:sga3-VIB-8.1.1-i}{(i)}}.
+设 \(C\) 是 \(A\) 的一个在 \(G\) 中正规的群子层,
+使得商层 \((A/C)^\flat\) 在 \((G/C)^\flat\) 中是中心的.
+由引理 IV, \SGARefLink{sga3:iv:lemma:4:4:8:1}{4.4.8.1},
+预层 \(A/C\) 与 \(G/C\) 都是分离的.
+所以, 由 IV, \SGARefLink{sga3:iv:proposition:4:3:11}{4.3.11},
+下图中的所有态射都是单态射:
+\begin{center}
+  \phantomsection\label{diag:sga3-VIB-8.1.1-monomorphisms}%
+  \begin{tikzcd}[row sep=large,column sep=large]
+    A/C \arrow[r,hook] \arrow[d,hook] &
+    G/C \arrow[d,hook] \\
+    (A/C)^\flat \arrow[r,hook] &
+    (G/C)^\flat
+  \end{tikzcd}
+\end{center}
+由于 \((A/C)^\flat\) 在 \((G/C)^\flat\) 中是中心的,
+预层 \(A/C\) 在 \(G/C\) 中也是中心的. 因此
+\[
+  \operatorname{Comm}(G,A)\subset C,
+\]
+所以, 由 IV, \SGARefLink{sga3:iv:corollary:4:3:12}{4.3.12},
+\(C\) 包含 \(\operatorname{Comm}_T(G,A)\).
+
+反之, \(\operatorname{Comm}(G,A)\) 是 \(A\) 的一个正规且分离的群子预层
+(参见 IV, \SGARefLink{sga3:iv:definition:4:3:1}{4.3.1}, 编者注 24).
+因此, 由 IV,
+\SGARefLink{sga3:iv:lemma:4:4:8:2}{4.4.8.2}\textup{\SGARefLink{lem:sga3-VIB-8.1.1:item:i}{(i)}}
+及 IV, \SGARefLink{sga3:iv:proposition:4:3:11}{4.3.11},
+\[
+  C=\operatorname{Comm}_T(G,A)
+\]
+是 \(A\) 的一个包含 \(\operatorname{Comm}(G,A)\) 的正规群子层.
+所以预层 \(A/C\) 在 \(G/C\) 中是中心的,
+从而由 IV,
+\SGARefLink{sga3:iv:lemma:4:4:8:2}{4.4.8.2}\textup{\SGARefLink{sga3:iv:lemma:4:4:8:2:item:ii:01}{(ii)}},
+\((A/C)^\flat\) 在 \((G/C)^\flat\) 中是中心的.
+\hyperref[lem:sga3-VIB-8.1.1]{引理 8.1.1} 得证.

@@ -1,0 +1,141 @@
+% SGA 3, Expose VI_A, Loop 1 English reconstruction.
+% Scope: paragraph 5.4, Proposition 5.4.1, Theorem 5.4.2, and
+% Corollary 5.4.3 in full; paragraph 5.5 is excluded.
+% Authority: Polo--Gille Exp6A-13oct24.pdf, component-local pages 32--33
+% (combined-reader pages 335--336; printed pages 324--325).
+% OCR and the Reinhold English Markdown are comparison witnesses only.
+% Loop 2 replaces the exact 180-dpi source crop with a native tikz-cd
+% factorization controlled against the PDF, local page 32.
+
+\medskip
+\phantomsection\label{par:sga3-VIA-5.4}%
+\noindent\textbf{5.4.---}%
+\footnote{\label{note:sga3-VIA-53a}编者注: 下文对原文作了扩充;
+特别是增添了\hyperref[prop:sga3-VIA-5.4.1]{命题~5.4.1}.}
+设 \(u:G\to H\) 是局部有限型 \(A\)-群之间的拟紧态射,
+使得 \(u\) 的核 \(N\) 在 \(A\) 上平坦.
+此时由 \SGARefLink{thm:sga3-VIA-3.3.2}{3.3.2} 和
+\SGARefLink{prop:sga3-VIB-5.2}{5.2}, 商 \(A\)-群
+\[
+  C=N\backslash G
+\]
+存在, 且态射 \(p:G\to C\) 忠实平坦且局部有限呈示.
+另一方面, 由\SGARefLink{sga3:iv:remark:5:2:6}{第~IV~篇 5.2.6},
+\(u\) 诱导单态射
+\[
+  v:C\longrightarrow H,
+\]
+它是拟紧的 (因为 \(u\) 拟紧且 \(G\to C\) 满射;
+参见 EGA~IV\(_1\), 1.1.3), 因而由 \hyperref[prop:sga3-VIA-2.5.2]{2.5.2},
+它是闭浸入. 于是得到下述命题.
+
+\medskip
+\phantomsection\label{prop:sga3-VIA-5.4.1}%
+\noindent\textbf{命题 5.4.1.---}
+\emph{设 \(u:G\to H\) 是局部有限型 \(A\)-群之间的拟紧态射,
+使得 \(N=\ker u\) 在 \(A\) 上平坦.
+则 \(u\) 具有分解}
+\begin{center}
+  \phantomsection\label{diag:sga3-VIA-5.4.1-factorization}%
+  \begin{tikzcd}[row sep=large,column sep=large]
+    G \arrow[r,"u"] \arrow[d,"p"'] & H \\
+    N\backslash G \arrow[ur,"i"']
+  \end{tikzcd}
+\end{center}
+\emph{其中 \(p\) 忠实平坦且局部有限呈示, \(i\) 为闭浸入.}
+\par\medskip
+
+再设 \(G\) 在 \(A\) 上平坦.
+则由 \SGARefLink{thm:sga3-VIA-3.3.2}{3.3.2},
+\(C=N\backslash G\) 在 \(A\) 上平坦, 因而商
+\[
+  X=C\backslash H
+\]
+在 \((\mathbf{Sch}_{/A})\) 中存在,
+并代表商 \((\mathrm{fppf})\)-层 \(\widetilde C\backslash H\), 而
+\[
+  q:H\longrightarrow X
+\]
+是一个 \(C\)-挠子.
+因此, 若
+\[
+  e:\operatorname{Spec}A\longrightarrow H
+\]
+表示 \(H\) 的单位截面, 则 \(v\) 在 \(\widetilde C\)
+与 \(q\) 和
+\[
+  q\circ e:\operatorname{Spec}A\longrightarrow X,
+\]
+的纤维积之间诱导一个 \((\mathrm{fppf})\)-层同构,
+而这个纤维积由 \(H\) 的一个闭子概形代表.
+因此, \(v\) 是 \(C\) 到 \(H\) 的一个闭子群概形 \(K\) 的同构,
+该子群等于 \(X\) 的 \(A\)-点 \(q\circ e\) 的稳定子.%
+\begingroup
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}%
+\footnote[1]{\label{note:sga3-VIA-5.4-K-ambient}英译者注:
+法文底本写成 \(e:\operatorname{Spec}A\to G\),
+但所显示的复合 \(q\circ e\) 要求它是 \(H\) 的单位截面,
+随后又印为“\(G\) 的一个闭子群概形 \(K\)”.
+这里 \(v:C\to H\), 所显示的纤维积在 \(H\) 中表示,
+下一段又将 \(K\) 等同于 \(\ker(H\to\overline H)\);
+因此, 取 \(e\) 为 \(H\) 的单位截面, 且 \(K\) 所在的环境群应为 \(H\).}%
+\endgroup{}
+(这也给出了如下事实的另一个证明: 局部有限型 \(A\)-群之间的每个拟紧单态射
+\(v:C\to H\) 都是闭浸入; 参见 \SGARefLink{prop:sga3-VIA-2.5.2}{2.5.2}
+及第~VI\(_B\)~篇 \SGARefLink{cor:sga3-VIB-1.4.2}{1.4.2}.)
+
+进一步假设 \(C\) 是 \(H\) 的正规子群. 此时 \(A\)-群
+\[
+  \overline H=C\backslash H
+\]
+是态射 \(u:G\to H\) 在 \(A\)-群范畴中的余核,
+而 \(K\) 是态射
+\[
+  H\longrightarrow\overline H.
+\]
+的核. 当 \(G\) 和 \(H\) 为交换 \(A\)-群时,
+\(K\) 是 \(u\) 在交换 \(A\)-群范畴中的像, 而
+\[
+  C=(\ker u)\backslash G
+\]
+是 \(u\) 的余像. 计入刚刚建立的同构
+\[
+  C\xrightarrow{\ \sim\ }K
+\]
+便得到下述结果.%
+\footnote[53]{\label{note:sga3-VIA-53b}编者注: 为此定理增添了编号
+\SGARefLink{thm:sga3-VIA-5.4.2}{5.4.2}.}
+
+\medskip
+\phantomsection\label{thm:sga3-VIA-5.4.2}%
+\noindent\textbf{定理 5.4.2.---}
+\emph{设 \(k\) 是域. 交换代数 \(k\)-群组成的范畴是阿贝尔范畴.}
+
+事实上, 当 \(k\) 为域时, 无论 \(u\) 如何,
+\(\ker(u)\) 都在 \(k\) 上平坦.
+
+\noindent
+\footnote{\label{note:sga3-VIA-54}编者注: 下文为增补内容.}
+注意, 交换仿射代数 \(k\)-群组成的满子范畴是厚子范畴.
+事实上, 考虑交换代数 \(k\)-群的正合序列
+\[
+  1\longrightarrow N\longrightarrow G\longrightarrow
+  G/N\longrightarrow 1.
+\]
+若 \(G\) 仿射, 则 \(N\) 显然仿射,
+且由 Chevalley 的一个定理, \(G/N\) 也仿射;
+参见第~VI\(_B\)~篇 \SGARefLink{thm:sga3-VIB-11.17}{11.17}.
+反过来, 若 \(N\) 和 \(G/N\) 仿射, 则由第~VI\(_B\)~篇
+\SGARefLink{concl:sga3-VIB-9.2-viii}{9.2(viii)}, \(G\) 也仿射.
+因此得到下述推论.
+
+\medskip
+\phantomsection\label{cor:sga3-VIA-5.4.3}%
+\noindent\textbf{推论 5.4.3.---}
+\emph{设 \(k\) 是域. 交换仿射代数 \(k\)-群组成的范畴是阿贝尔范畴.}
+
+还要指出, 所有交换仿射 \(k\)-群 (不必为有限型) 组成的范畴也是阿贝尔范畴.
+这由第~VI\(_B\)~篇 \SGARefLink{thm:sga3-VIB-11.17}{11.17} 和
+\SGARefLink{thm:sga3-VIB-11.18.2}{11.18.2} 得到
+(参见 \textup{[DG70]}, \S~III.3, \SGARefLink{prop:sga3-VIB-7.4}{7.4});
+关于使用形式群的证明, 另见第~VII\(_B\)~篇 2.4.2.

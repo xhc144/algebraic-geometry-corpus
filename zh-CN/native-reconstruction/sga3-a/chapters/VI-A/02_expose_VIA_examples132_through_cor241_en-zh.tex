@@ -1,0 +1,473 @@
+% SGA 3, Expose VI_A, Loop 1 English reconstruction.
+% Scope: Examples 1.3.2 through the end of Corollary 2.4.1;
+% paragraph 2.5 is excluded.
+% Authority: Polo--Gille Exp6A-13oct24.pdf, component-local pages 7--11
+% (combined-reader pages 310--314; printed pages 299--303).
+% The supplied opening locator (local p. 6 / combined p. 309 / printed
+% p. 298) is the immediately preceding page; the Examples 1.3.2 heading
+% is visibly printed on the next page.
+% OCR and the Reinhold English Markdown are comparison witnesses only.
+
+\medskip
+\phantomsection\label{ex:sga3-VIA-1.3.2}%
+\noindent\textbf{例 1.3.2.}
+设 \(k\) 是特征为 \(p>0\) 的非完美域,
+\(t\in k-k^p\), \(\overline k\) 是 \(k\) 的一个代数闭包,
+且 \(\alpha\in\overline k\) 满足 \(\alpha^p=t\).
+
+\begin{enumerate}
+\item[(1)] 考虑加法群
+\(\mathbb G_{a,k}=\operatorname{Spec}k[X]\),
+设 \(G\) 是由加法多项式 \(X^{p^2}-tX^p\) 定义的群子概形,
+它在 \(k\) 上有限. 则
+\[
+  G_{\mathrm{red}}
+    =\operatorname{Spec}k[X]/X\bigl(X^{p(p-1)}-t\bigr)
+\]
+在原点处平展. 若它是 \(k\) 上的群概形,
+则它将平滑 (由 \hyperref[prop:sga3-VIA-1.3.1]{1.3.1});
+但 \(G_{\mathrm{red}}\) 并非几何约化,
+所以它不是 \(k\) 上的群概形.
+
+\item[(2)] 考虑
+\[
+  \mathbb G^4_{a,k}=\operatorname{Spec}k[X,Y,U,V],
+\]
+设 \(G\) 是由加法多项式
+\[
+  P=X^p-tY^p
+  \qquad\text{及}\qquad
+  Q=U^p-tV^p.
+\]
+所生成的理想 \(I\) 定义的群子概形.
+则 \(G\) 是二维且不可约的, 因为
+\[
+  (G_{\overline k})_{\mathrm{red}}
+    \simeq\operatorname{Spec}\overline k[Y,V]
+\]
+不可约.
+
+设 \(A=k[X,Y,U,V]\), \(\mathfrak m\) 是其增广理想.
+以 \(x,y,u,v\) 表示 \(dX,dY,dU,dV\) 在
+\[
+  \Omega^1_{A/k}\otimes_A(A/\mathfrak m),
+\]
+中的像, 将它们视为切空间
+\[
+  k^4=T_0\mathbb G^4_{a,k}.
+\]
+上的线性形式.
+我们要证明子空间 \(E=T_0G_{\mathrm{red}}\) 等于 \(k^4\).
+否则, 将有一个系数不全为零的线性形式
+\[
+  f=ax+by+a'u+b'v,
+  \qquad a,b,a',b'\in k,
+\]
+在 \(E\) 上为零.
+回顾 \(\Omega^1_{A/k}\) 的构造, 从而切空间的构造,
+与基变换可交换 (参见 EGA~IV\textsubscript{4}, 16.4.5),
+并将 \(f\) 等同于其在 \((\overline k^4)^*\) 中的像.
+由于
+\[
+  (G_{\overline k})_{\mathrm{red}}
+    \subset (G_{\mathrm{red}})_{\overline k},
+\]
+线性形式 \(f\) 在 \(\overline k^4\) 的子空间
+\(T_0(G_{\overline k})_{\mathrm{red}}\) 上为零,
+而该子空间由方程
+\[
+  g_1=x-\alpha y
+  \qquad\text{及}\qquad
+  g_2=u-\alpha v.
+\]
+定义. 因此
+\[
+  f=\lambda g_1+\mu g_2,
+  \qquad \lambda,\mu\in\overline k.
+\]
+但 \(\lambda g_1+\mu g_2\) 属于 \(k^4\),
+仅当 \(\lambda=\mu=0\).
+此矛盾表明 \(E=k^4\), 因而
+\[
+  T_0(G_{\mathrm{red}})_{\overline k}=\overline k^4.
+\]
+
+另一方面, \(R=XV-YU\) 属于 \(\sqrt I\), 因为
+\[
+  R^p=(X^p-tY^p)V^p-Y^p(U^p-tV^p).
+\]
+所以, \((G_{\mathrm{red}})_{\overline k}\) 在点
+\((\alpha,1,\alpha,1)\) 处的切空间 \(F\),
+包含在 \(\overline k^4\) 中方程为
+\[
+  \alpha\,dV+dX-dU-\alpha\,dY=0,
+\]
+的超平面 \(H\) 内, 因而维数至多为 \(3\).%
+\footnote{\label{note:sga3-VIA-16}编者注: 事实上, 容易看出,
+在每个非 \(0\) 的点处, \(\sqrt I\) 都由 \(P,Q,R\) 生成,
+所以 \(F=H\).}
+由 \SGARefLink{prop:sga3-VIA-1.3.1}{1.3.1} 的
+\hyperref[concl:sga3-VIA-1.3.1-1]{第 (1) 部分},
+可知 \(G_{\mathrm{red}}\) 不是 \(k\) 上的群概形.
+\end{enumerate}
+
+\section*{2. 局部有限型 \(A\)-群的连通分支}
+\phantomsection\label{sec:sga3-VIA-2}
+\addcontentsline{toc}{section}{2. 局部有限型
+  \texorpdfstring{\(A\)}{A}-群的连通分支}
+
+\medskip
+\phantomsection\label{par:sga3-VIA-2.1}%
+\noindent\textbf{2.1.}
+先考虑任意 \(A\)-群 \(G\), 以 \(G'\) 表示 \(G\)
+中原点 \(e\) 所在的连通分支.
+此连通分支显然是闭的,
+所以可以将它等同于以 \(G'\) 为底空间的 \(G\) 的约化闭子概形.%
+\footnote{\label{note:sga3-VIA-17}编者注:
+下文 (\SGARefLink{par:sga3-VIA-2.2}{2.2}) 将说明,
+\(G'\) 是范畴 \((\mathbf{Sch}_{/k})_{\mathrm{red}}\) 中的一个群.}
+
+\medskip
+\phantomsection\label{prop:sga3-VIA-2.1.1}%
+\noindent\textbf{命题 2.1.1.}
+\textit{对 \(A\) 的剩余域 \(k\) 的每个扩张 \(K\),
+\(G'\otimes_AK\) 的底空间是 \(K\)-群 \(G\otimes_AK\)
+中原点所在的连通分支; 换言之, \(G'\) 几何连通.}
+
+\medskip
+事实上, 以 \((G\otimes_AK)'\) 表示 \(G\otimes_AK\)
+中原点所在的连通分支.
+由于 \((G\otimes_AK)'\) 在 \(G\) 中的像连通,
+且包含 \(G\) 的单位元, 此像包含在 \(G'\) 中.
+所以, \((G\otimes_AK)'\) 包含在 \(G'\) 于
+\(G\otimes_AK\) 中的逆像 \(G'\otimes_AK\) 中.
+因此, 只要证明 \(G'\otimes_AK\) 连通便得到此命题,
+而这由下列引理证明.
+
+\medskip
+\phantomsection\label{lem:sga3-VIA-2.1.2}%
+\noindent\textbf{引理 2.1.2.}
+\textit{设 \(X\) 和 \(Y\) 是域 \(k\) 上的两个连通概形.
+若 \(X\) 包含一个有理点, 则 \(X\times_kY\) 连通.}
+
+\medskip
+以下直接证明 EGA~IV\textsubscript{2} (4.5.8 和 4.5.14) 中的这一结果.
+
+先假设 \(Y\) 非空、连通且仿射, 其代数为 \(B\).
+则 \(X\times_kY\) 是拟凝聚 \(\mathcal O_X\)-代数
+\[
+  \mathcal B=\mathcal O_X\otimes_kB.
+\]
+的谱. 我们要证明, \(X\times_kY\) 的每个非空既开又闭子集
+\(U\) 都等于 \(X\times_kY\).
+现在, \(U\) 在 \(X\) 上仿射,
+其仿射 \(\mathcal O_X\)-代数是 \(\mathcal B\) 的一个直因子.
+由下文\hyperref[lem:sga3-VIA-2.1.3]{引理 2.1.3},
+\(U\) 在 \(X\) 中的像既开又闭, 所以就是整个 \(X\).
+特别地, 这个像包含 \(X\) 的一个有理点 \(x\),
+所以 \(U\) 与 \(x\) 在 \(X\times_kY\) 中的逆像相交.
+由于此逆像同构于 \(Y\), 因而连通,
+\(U\) 包含整个逆像.
+若 \(U\) 不同于 \(X\times_kY\),
+对 \(U\) 在 \(X\times_kY\) 中的补集也有同样结论, 矛盾.
+
+现在若 \(Y\) 是任意 \(k\)-概形,
+以上论证表明典范投影
+\[
+  X\times_kY\longrightarrow Y
+\]
+的纤维连通. 若 \(x\) 是 \(X\) 的一个有理点,
+则所有这些纤维都与子概形 \(\{x\}\times_kY\) 相交,
+而该子概形本身连通. 断言得证.
+
+\medskip
+\phantomsection\label{lem:sga3-VIA-2.1.3}%
+\noindent\textbf{引理 2.1.3.}
+\textit{设 \(X\) 是一个概形, \(\mathcal A\) 是一个拟凝聚
+\(\mathcal O_X\)-代数, 它局部地%
+\footnote{\label{note:sga3-VIA-18}编者注: ``局部地'' 一词为新增内容.
+对 Kaplansky 的引用是 \emph{Projective modules},
+Ann.\ of Math.\ \textbf{68} (1958), 372--377;
+另见 \textup{[BAC]}, \S~II.3, 习题 3.}
+是一个自由 \(\mathcal O_X\)-模的直因子.
+则 \(\operatorname{Spec}\mathcal A\) 在 \(X\) 中的像既开又闭.}
+
+\medskip
+设 \(V\) 为此像.
+显然 \(V\) 包含在 \(\mathcal A\) 的支集中.
+反之, 若 \(x\) 属于 \(\mathcal A\) 的支集,
+则 \(\mathcal A_x\) 非零, 且为自由 \(\mathcal O_{X,x}\)-模,
+因为由 Kaplansky 的结果, 局部环上的每个投射模都是自由的.
+所以, \(\operatorname{Spec}\mathcal A\) 在 \(x\) 处的纤维是非空的,
+它是代数为
+\[
+  \mathcal A_x\otimes_{\mathcal O_{X,x}}\kappa(x),
+\]
+的仿射概形.
+因此, \(\operatorname{Spec}\mathcal A\) 的像与 \(\mathcal A\) 的支集重合.
+
+若 \(s\) 是 \(\mathcal A\) 的单位截面,
+则等式 \(s_x=0\) 蕴含 \(s\), 从而 \(\mathcal A\),
+在 \(x\) 的一个邻域中为零.
+因此, \(\mathcal A\) 的支集是闭的.
+另一方面, 可以假设 \(\mathcal A\) 是 \(\mathcal L\) 的一个直因子,
+后者是由 \(\mathcal O_X\) 的副本组成的族
+\((\mathcal O_X^\alpha)\) 的直和.%
+\footnote{\label{note:sga3-VIA-19}编者注: 以下内容对原文作了扩充.}
+对每个 \(\beta\), 以 \(\varphi^\beta\) 表示典范投影
+\[
+  \mathcal L=\bigoplus_\alpha\mathcal O_X^\alpha
+    \longrightarrow\mathcal O_X^\beta.
+\]
+在 \(\mathcal A\) 上的限制.
+对 \(x\in X\), 以 \(\mathcal A_x^*\) 表示对偶模
+\[
+  \operatorname{Hom}_{\mathcal O_{X,x}}
+    (\mathcal A_x,\mathcal O_{X,x}).
+\]
+由于 \(\mathcal A_x\) 是 \(\mathcal L_x\) 的一个直因子,
+限制映射
+\[
+  \operatorname{Hom}_{\mathcal O_{X,x}}
+    (\mathcal L_x,\mathcal O_{X,x})
+  \longrightarrow
+  \operatorname{Hom}_{\mathcal O_{X,x}}
+    (\mathcal A_x,\mathcal O_{X,x})
+  =\mathcal A_x^*
+\]
+是满射.
+若 \(\mathcal A_x\ne0\), 则由于 \(\mathcal A_x\) 自由且非零,
+存在 \(a\in\mathcal A_x\) 及线性形式 \(\varphi\in\mathcal A_x^*\),
+使得 \(\varphi(a)=1\).
+因此存在 \(\mathcal O_{X,x}\) 中的一族元素 \((\xi^\alpha)\),
+使得对每个 \(u\in\mathcal A_{X,x}\), 有
+\[
+  \varphi(u)=\sum_\alpha\xi^\alpha\varphi^\alpha(u);
+\]
+这个和是有限的, 因为除有限个 \(\alpha\) 外都有 \(\varphi^\alpha(u)=0\).
+将其应用于 \(u=a\), 得到 \(\alpha_1,\ldots,\alpha_n\), 使得
+\[
+  1=\varphi(a)
+   =\xi^{\alpha_1}\varphi^{\alpha_1}(a)
+    +\cdots+
+    \xi^{\alpha_n}\varphi^{\alpha_n}(a).
+\]
+于是存在 \(x\) 的一个开邻域 \(U\),
+在其上 \(a\) 和各 \(\xi^{\alpha_i}\) 来自截面
+\[
+  \widetilde a\in\mathcal A(U)
+  \qquad\text{及}\qquad
+  \widetilde\xi^{\alpha_i}\in\mathcal O_X(U).
+\]
+等式
+\[
+  \sum_i
+    \widetilde\xi^{\alpha_i}
+    \varphi^{\alpha_i}(\widetilde a)=1
+  \quad\text{在 }U\text{ 上}
+\]
+表明对每个 \(y\in U\), 都有 \(\widetilde a_y\ne0\).
+(``投射模的支集是开的.'')
+
+\medskip
+\phantomsection\label{par:sga3-VIA-2.2}%
+\noindent\textbf{2.2.}
+记号仍如 \hyperref[par:sga3-VIA-2.1]{2.1}.
+显然 \(G'\) 是一个约化 \(k\)-概形.
+\hyperref[lem:sga3-VIA-2.1.2]{引理 2.1.2} 表明 \(G'\times_kG'\) 连通,
+所以 \((G'\times_kG')_{\mathrm{red}}\) 是 \(G\times_AG\)
+中以原点所在的连通分支为底空间的约化子概形.
+特别地, 乘法态射
+\[
+  \mu:G\times_AG\longrightarrow G
+\]
+诱导态射
+\[
+  \mu':(G'\times_kG')_{\mathrm{red}}\longrightarrow G'
+\]
+使 \(G'\) 成为 \((\mathbf{Sch}_{/k})_{\mathrm{red}}\) 中的一个群.
+
+\medskip
+\phantomsection\label{par:sga3-VIA-2.2bis}%
+\noindent\textbf{2.2.bis.}%
+\footnote{\label{note:sga3-VIA-20}编者注: 此段为新增内容,
+旨在与第 VI\textsubscript{B} 篇 \S~3 建立联系.}
+回顾 (参见第 V 篇), 若 \(P\) 是一个概形,
+则 \(\underline P\) 表示 \(P\) 的底拓扑空间.
+如下定义 \(G\) 的一个 \(A\)-子函子 \(G^0\):
+对每个 \(A\)-概形 \(S\), 置
+\[
+  G^0(S)
+    =\{u\in G(S)\mid u(\underline S)\subset\underline{G'}\}.
+\]
+设 \(c:G\to G\) 是求逆态射.
+由于 \(c(\underline{G'})=\underline{G'}\),
+对每个 \(u\in G^0(S)\), 都有 \(c\circ u\in G^0(S)\).
+另一方面, 若 \(u,v\in G^0(S)\),
+则 \(u\boxtimes v\) 将 \(\underline S\) 映入
+\(\underline{G\times_AG}\) 的如下子空间:
+两个投影都属于 \(\underline{G'}\) 的那些点所成的子空间.
+此子空间等同于 \(G'\times_AG'\) 的底空间,
+由\hyperref[lem:sga3-VIA-2.1.2]{引理 2.1.2}, 它是连通的.
+所以, \(\mu\circ(u\boxtimes v)\) 将 \(\underline S\)
+映入 \(\underline{G'}\).
+这证明 \(G^0\) 是 \(G\) 在 \(A\) 上的一个群子函子.
+
+若 \(e\) 所在的连通分支在 \(G\) 中是开的,
+则子函子 \(G^0\) 由 \(G\) 在此开子集上诱导的子概形表出,
+所以此子概形是 \(G\) 的一个群子概形;
+仍将此子概形记作 \(G^0\).
+此时, 按 \SGARefLink{prop:sga3-VIB-2.1}{2.1} 的记号,
+\[
+  G'=(G^0)_{\mathrm{red}},
+\]
+且拓扑空间 \(\underline{G'}\) 与 \(\underline{G^0}\) 重合.%
+\footnote{\label{note:sga3-VIA-21}编者注: 本篇中,
+记号 \(G^0\) 仅用于 \(e\) 所在连通分支为开的情形;
+第 VI\textsubscript{B} 篇 \S~3 中,
+在所有情形下都将以 \(\underline{G^0}\) 表示此连通分支.
+这虽是轻微的记号滥用, 但当此连通分支是
+\(G\) 的一个开群子概形 \(G^0\) 的底拓扑空间时,
+它与以上讨论相容.}
+
+\medskip
+\phantomsection\label{par:sga3-VIA-2.3}%
+\noindent\textbf{2.3.}
+按照 \SGARefLink{par:sga3-VIA-1.1}{1.1} 中的约定,
+从现在起再次假设 \(G\) 在 \(A\) 上局部有限型.
+则 \(G\) 局部 Noether 型, 因而局部连通;%
+\footnote{\label{note:sga3-VIA-22}编者注: 事实上,
+Noether 型空间只有有限个连通分支, 因而每个连通分支都是开的;
+另见 EGA~I, 6.1.9.}
+所以 \(G\) 的每个连通分支都是开的.
+
+以 \(G^0\) 表示 \(G\) 在单位元的连通分支 \(G'\) 上诱导的子概形.
+由 \hyperref[par:sga3-VIA-2.2bis]{2.2.bis},
+\(G^0\) 是 \(G\) 的一个群子概形,
+将其称为 \(G\) 的\emph{单位连通分支 (neutral component)}.
+因此, 对每个 \(A\)-概形 \(S\), 有
+\[
+  G^0(S)
+    =\{u\in G(S)\mid
+      u(\underline S)\subset\underline{G^0}=\underline{G'}\}.
+\]
+
+设 \(G^\alpha\) 是 \(G\) 的任意一个连通分支,
+并设
+\[
+  \nu^\alpha:G^\alpha\times_AG^0\longrightarrow G
+\]
+是对每个 \(S\in(\mathbf{Sch}_{/A})\), \(g\in G^\alpha(S)\)
+及 \(\gamma\in G^0(S)\) 由下式定义的态射:
+\[
+  \nu^\alpha(S)(g,\gamma)=g\gamma g^{-1}
+\]
+若 \(e\) 是 \(G\) 的原点,
+则 \(\nu^\alpha\) 在 \(G^\alpha\times_A\{e\}\) 上的限制是平凡态射.
+由于 \(G^\alpha\times_AG^0\) 由 \hyperref[lem:sga3-VIA-2.1.2]{2.1.2} 可知是连通的,
+\(\nu^\alpha\) 通过 \(G^0\) 分解.
+所以, 对每个 \(A\)-概形 \(S\),
+\(G^0(S)\) 是 \(G(S)\) 的正规子群.
+我们证明了以下命题.%
+\footnote{\label{note:sga3-VIA-23}编者注:
+新增编号 \SGARefLink{prop:sga3-VIA-2.3.1}{2.3.1} 以强调此陈述.
+此外, \(G^0\) 甚至是 \(G\) 的特征子群;
+见 \SGARefLink{thm:sga3-VIA-2.6.5:item:ii}{2.6.5(ii)}.}
+
+\medskip
+\phantomsection\label{prop:sga3-VIA-2.3.1}%
+\noindent\textbf{命题 2.3.1.}
+\textit{设 \(G\) 是一个局部有限型的 \(A\)-群.
+则单位连通分支 \(G^0\) 是 \(G\) 的一个开正规群子概形.}
+
+\medskip
+\phantomsection\label{prop:sga3-VIA-2.4}%
+\noindent\textbf{命题 2.4.}
+\textit{设 \(G\) 是一个局部有限型的 \(A\)-群.}
+\begin{enumerate}
+\item[\SGAInlineRefTarget{prop:sga3-VIA-2.4:item:i}(i)]
+\textit{\(G^0\) 不可约, 且 \(G^0\otimes_Ak\) 在 \(k\) 上几何不可约.}
+\item[\SGAInlineRefTarget{prop:sga3-VIA-2.4:item:ii}(ii)]
+\textit{\(G^0\) 拟紧, 因而在 \(A\) 上有限型.}
+\end{enumerate}
+
+\noindent\footnote{\label{note:sga3-VIA-24}编者注:
+陈述中的 ``\(G^0\) 几何不可约'' 已改为
+``\(G^0\otimes_Ak\) 在 \(k\) 上几何不可约'', 并扩充了证明.}
+\textit{证明.}
+\SGARefLink{prop:sga3-VIA-2.4:item:i}{(i)}
+由于 \(G^0\) 与 \(G^0\otimes_Ak\) 有相同的底拓扑空间,
+只需证明第二个断言.
+设 \(\overline k\) 是 \(k\) 的一个代数闭包.
+由 \SGARefLink{prop:sga3-VIB-2.2}{2.2},
+\((G\otimes_A\overline k)_{\mathrm{red}}\) 是一个局部有限型的约化
+\(\overline k\)-群,
+因而由 \SGARefLink{prop:sga3-VIA-1.3.1}{1.3.1}, 它在 \(\overline k\) 上平滑.
+尤其, \((G\otimes_A\overline k)_{\mathrm{red}}\) 的局部环都是整环.
+因此,%
+\footnote{\label{note:sga3-VIA-25}编者注: 此处对原文作了扩充,
+并新增了对 EGA~I, 6.1.10 的引用.}
+由于 \(G\otimes_A\overline k\) 局部 Noether 型,
+\(G\otimes_A\overline k\) 的连通分支都不可约
+(参见 EGA~I, 6.1.10).
+特别地, 连通分支 \(G^0\otimes_A\overline k\) (参见 2.1.1) 不可约.
+
+\SGARefLink{prop:sga3-VIA-2.4:item:ii}{(ii)}
+现在证明 \(G^0\) 在 \(A\) 上有限型.
+由于 \(G^0\) 在 \(A\) 上局部有限型, 只需证明 \(G^0\) 拟紧.
+因 \(G^0\) 不可约, 这由 \SGARefLink{sga3:VIA:0.5.1}{0.5.1} 得到.
+
+\medskip
+\phantomsection\label{cor:sga3-VIA-2.4.1}%
+\noindent\textbf{推论 2.4.1.}
+\textit{\(G\) 的每个连通分支都不可约,%
+\footnote{\label{note:sga3-VIA-26}编者注: 须记住,
+非单位连通分支一般不是几何连通的.
+例如, 若 \(k=\mathbb R\), 则由
+\(\mathbb R[X]/(X^3-1)\) 表出的群 \(\mu_{3,\mathbb R}\)
+有两个连通分支: \(\{e\}=\operatorname{Spec}\mathbb R\)
+和 \(C=\operatorname{Spec}\mathbb R[X]/(X^2+X+1)\);
+而 \(C\otimes_{\mathbb R}\mathbb C\) 有两个分支.}
+在 \(A\) 上有限型,%
+\footnote{\label{note:sga3-VIA-27}编者注: 以下断言为新增内容;
+参见第 VI\textsubscript{B} 篇, \SGARefLink{lem:sga3-VIB-1.5}{1.5}.}
+且与 \(G^0\) 有相同的维数.}
+
+\medskip
+事实上, 可以假设 \(A\) 等于其剩余域 \(k\).
+设 \(C\) 是 \(G\) 的一个连通分支,
+\(x\) 是 \(C\) 的一个闭点,
+\(\kappa(x)\) 是 \(x\) 的剩余域,
+\(k'\) 是 \(k\) 的一个包含 \(\kappa(x)\) 的有限正规扩张.
+典范投影
+\[
+  \pi:C\otimes_kk'\longrightarrow C
+\]
+既开又闭.%
+\footnote{\label{note:sga3-VIA-28}编者注: 以下内容对原文作了扩充.}
+所以, 若 \(C'\) 是 \(C\otimes_kk'\) 的一个连通分支,
+则投影 \(C'\to C\) 是满射.
+因而 \(C'\) 包含一个点 \(y\in\pi^{-1}(x)\),
+且这样的点在 \(k'\) 上有理 (参见 \hyperref[prop:sga3-VIA-1.2]{1.2} 的证明);
+因此 \(C'\) 是 \(G^0\otimes_kk'\) 在右平移 \(r_y\) 下的像.
+现在, 由 \hyperref[prop:sga3-VIA-2.4]{2.4},
+\(G^0\otimes_kk'\) 在 \(k'\) 上有限型,
+且 \(\pi^{-1}(x)\) 是有限集, 基数至多为 \([k':k]\).
+所以, \(C\otimes_kk'\) 在 \(k'\) 上有限型,
+从而 \(C\) 在 \(k\) 上有限型.
+
+此外, 由于 \(G^0\otimes_kk'\) 由 \SGARefLink{prop:sga3-VIA-2.4}{2.4} 可知不可约,
+\(C'\) 也不可约,%
+\footnote{\label{note:sga3-VIA-29}编者注: 此处简化了原文.}
+而由于投影 \(C'\to C\) 为满射, \(C\) 也不可约.
+
+最后, 以上已知 \(C\otimes_kk'\) 是有限多个
+\(G^0\otimes_kk'\) 的平移的不交并.
+由于维数在基域扩张下不变
+(参见 EGA~IV\textsubscript{2}, 4.1.4),
+\(C\) 与 \(G^0\) 的维数相同.
+(此外, 由 EGA~IV\textsubscript{2}, 5.2.1,
+对每个点 \(g\in G\) 都有 \(\dim_gG=\dim G^0\).)
+
+% Translation coverage: entire assigned component, retaining all source statements and proofs.
+% Statistics: source lines=460; target lines=473; inline math=317; display math=31; unresolved translation TODOs=0; independent compilation not performed here.

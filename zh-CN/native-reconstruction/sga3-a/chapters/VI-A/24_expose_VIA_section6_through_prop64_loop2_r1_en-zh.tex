@@ -1,0 +1,146 @@
+% SGA 3, Expose VI_A, Loop 1 English reconstruction.
+% Scope: Section 6 opening through the proof of Proposition 6.4;
+% Theorem 6.5 is excluded.
+% Authority: Polo--Gille Exp6A-13oct24.pdf, component-local pages 34--36
+% (combined-reader pages 337--339; printed pages 326--328).
+% OCR and the Reinhold English Markdown are comparison witnesses only.
+% Loop 2 replaces the exact 180-dpi Proposition 6.4 source crop with a
+% native tikz-cd reconstruction controlled against PDF local page 35.
+
+\section*{6. 关于不必有限型的 \(k\)-群的补充}
+\phantomsection\label{sec:sga3-VIA-6}
+\addcontentsline{toc}{section}{6. 关于不必有限型的 \(k\)-群的补充}
+
+\footnote{\label{note:sga3-VIA-58}编者注: 下面的结果为增补内容,
+取自 \textup{[Per75]}. 注意, 用 Weil 的语言,
+\hyperref[lem:sga3-VIA-6.1]{引理~6.1} 可表述为
+“\(G\) 的每个点都是两个泛点的乘积”.}
+还要记录下述结果, 它们将在增补篇第~VI\(_B\)~篇 \S~12 中用到.
+固定底域 \(k\).
+
+\medskip
+\phantomsection\label{lem:sga3-VIA-6.1}%
+\noindent\textbf{引理 6.1.---}
+\emph{设 \(G\) 是 \(k\)-群. 对每个 \(x\in G\),
+存在点 \(u\in G\times G\), 使得 \(\mu(u)=x\),
+且两个投影 \(p_1(u)\) 和 \(p_2(u)\) 都是 \(G\) 的极大点.}
+
+\emph{证明.}
+置 \(K=\kappa(x)\). 由于投影 \(G_K\to G\) 将极大点映为极大点,
+可以化归到 \(x\) 为有理点的情形.
+此时左平移 \(\lambda_x\) (相应地, 右平移 \(\rho_x\)) 给出态射
+\[
+  G\longrightarrow G\times G,\qquad
+  g\longmapsto\bigl(\lambda_x(g^{-1}),g\bigr)
+\]
+(相应地为 \(g\longmapsto\bigl(g,\rho_x(g^{-1})\bigr)\)),
+它诱导 \(G\) 到 \(\mu^{-1}(x)\) 的同构,
+其逆为 \(p_2\) (相应地为 \(p_1\)).
+所以, 若 \(u\) 是 \(\mu^{-1}(x)\) 的极大点,
+则 \(p_1(u)\) 和 \(p_2(u)\) 都是 \(G\) 的极大点,
+而 \(u\) 具有所要求的性质.
+
+\medskip
+\phantomsection\label{cor:sga3-VIA-6.2}%
+\noindent\textbf{推论 6.2.---}
+\emph{设 \(f:G\to H\) 是 \(k\)-群之间的拟紧占优态射.
+\begin{enumerate}
+\item[\textup{(i)}]\phantomsection\label{concl:sga3-VIA-6.2-i} \(f\) 满射.
+\item[\textup{(ii)}] 若 \(H\) 约化, 则 \(f\) 忠实平坦.
+\end{enumerate}}
+
+\emph{证明.}
+以 \(\mu_H\) (相应地为 \(\mu_G\)) 表示 \(H\) (相应地为 \(G\)) 的乘法.
+设 \(h\in H\). 由 \hyperref[lem:sga3-VIA-6.1]{6.1},
+存在 \(u\in H\times H\), 使得 \(\mu_H(u)=h\),
+且 \(\alpha=p_1(u)\), \(\beta=p_2(u)\) 均为 \(H\) 的极大点.
+由于 \(f\) 拟紧且占优,
+\(f^{-1}(\alpha)\) 和 \(f^{-1}(\beta)\) 非空
+(参见 EGA~IV\(_1\), 1.1.5).
+因此存在 \(v\in G\times G\), 使得
+\[
+  (f\times f)(v)=u
+\]
+(参见 EGA~I, 3.5.2). 此时 \(g=\mu_G(v)\) 满足 \(f(g)=h\).
+这就证明了 \(f\) 满射.
+
+再设 \(H\) 约化. 则 \(\mathcal O_{H,\alpha}\) 为域,
+且前面已看到 \(f^{-1}(\alpha)\ne\varnothing\).
+所以 \(f\) 在每个点 \(\xi\in f^{-1}(\alpha)\) 处平坦,
+从而由\hyperref[lem:sga3-VIA-2.5.3]{引理~2.5.3}, \(f\) 平坦.
+
+\medskip
+\phantomsection\label{rem:sga3-VIA-6.3}%
+\noindent\textbf{回顾 6.3.---}
+回顾 (参见 EGA~IV\(_3\), 11.10.1),
+若概形态射 \(f:X\to Y\) 满足下述条件, 则称它为\emph{概形占优的 (schematically dominant)}:
+对 \(Y\) 的每个开子集 \(U\),
+若 \(Z\) 是 \(U\) 的闭子概形,
+使得态射 \(f^{-1}(U)\to U\) 经过 \(Z\) 分解, 则 \(Z=U\).
+当 \(f\) 拟紧且拟分离时,
+这等价于 \(X\) 在 \(f\) 下的闭像为 \(Y\)
+(参见该处 11.10.3(iv) 及 EGA~I, 9.5.8).
+
+\medskip
+\phantomsection\label{prop:sga3-VIA-6.4}%
+\noindent\textbf{命题 6.4.---}
+\emph{设 \(f:H\to G\) 是 \(k\)-群之间的拟紧态射.
+则 \(f\) 的闭像是 \(G\) 的子群概形 \(H'\), 且 \(f\) 分解为}
+\begin{center}
+  \phantomsection\label{diag:sga3-VIA-6.4-factorization}%
+  \begin{tikzcd}[row sep=large,column sep=large]
+    H \arrow[r,"f"] \arrow[d,"f'"'] & G \\
+    H' \arrow[ur,"i"']
+  \end{tikzcd}
+\end{center}
+\emph{其中 \(f'\) 概形占优、拟紧且满射.}
+
+\emph{证明.}
+由于 \(H\) 分离 (\hyperref[sga3:VIA:0.3]{0.3}),
+\(f\) 拟紧且分离. 因此 \(f_*(\mathcal O_H)\) 为拟凝聚
+\(\mathcal O_G\)-模, 且 \(f\) 的闭像 \(H'\) 存在,
+它就是由拟凝聚理想
+\[
+  \mathcal I
+    =\ker\bigl(\mathcal O_G\longrightarrow f_*(\mathcal O_H)\bigr)
+\]
+定义的 \(G\) 的闭子概形 (参见 EGA~I, \S~9.5).
+
+以 \(c_G,\mu_G\) (相应地为 \(c_H,\mu_H\)) 表示
+\(G\) (相应地为 \(H\)) 的求逆和乘法态射.
+则 \(c_G\circ f=f\circ c_H\) 经过闭子概形 \(c_G(H')\) 分解, 因而
+\[
+  H'\subset c_G(H')
+  \qquad\text{从而}\qquad
+  H'=c_G(H'),
+\]
+因为 \(c_G^2=\operatorname{id}_G\). 类似地,
+\[
+  f\circ\mu_H=\mu_G\circ(f\times f)
+\]
+经过 \(H'\) 分解,
+所以 \(f\times f\) 经过 \(G\times G\) 的闭子概形
+\(\mu_G^{-1}(H')\) 分解.%
+\begingroup
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}%
+\footnote[1]{\label{note:sga3-VIA-6.4-multiplication-symbol}%
+英译者注: 法文底本这两处印为 \(\pi_H\) 和 \(\pi_G\),
+但紧接在它们前面的句子将乘法态射定义为 \(\mu_H\) 和 \(\mu_G\).
+这里采用该等式所要求的乘法符号.}%
+\endgroup{}
+另一方面, 由于闭像的形成与平坦基变换可交换
+(EGA~III, 1.4.15, 及 EGA~IV\(_1\), 1.7.21),
+\(f\times\operatorname{id}_H\)
+(相应地, \(\operatorname{id}_{H'}\times f\)) 的闭像为
+\(H'\times H\) (相应地为 \(H'\times H'\)).
+因此, 由“闭像的传递性” (EGA~I, 9.5.5),
+\(f\times f\) 的闭像为 \(H'\times H'\).
+所以它包含于 \(\mu_G^{-1}(H')\);
+换言之, \(\mu_G\) 在 \(H'\times H'\) 上的限制经过 \(H'\) 分解.
+这证明了 \(H'\) 是 \(G\) 的闭子群概形.
+以 \(i:H'\hookrightarrow G\) 表示包含态射.
+
+现在有 \(f=i\circ f'\),
+其中 \(f':H\to H'\) 概形占优且拟紧 (因为 \(f\) 拟紧而 \(i\) 分离).
+因此由 \hyperref[cor:sga3-VIA-6.2]{6.2}, \(f'\) 满射.
+这就证明了 \hyperref[prop:sga3-VIA-6.4]{6.4}.

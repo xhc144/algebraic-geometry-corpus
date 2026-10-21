@@ -1,0 +1,224 @@
+% SGA 3, 第 VI_B 篇, 第 1 轮英文重构.
+% 范围: 引理 5.6.1 全文, 含底本编者注 41.
+% 底本: Polo--Gille Exp6B-13oct24.pdf, 分篇第 29--31 页
+% (合订本第 370--372 页; 原版页边印刷页码 353--354, 重版本页眉 359--361).
+% 引理 5.6.2.0 始于分篇第 31 页 / 合订本第 372 页.
+% OCR 与 Reinhold 英文 Markdown 仅为比对材料.
+% 英文底本旧注: 四图均为第 1 轮的 180 dpi 底本精确裁切; 下方现为原生 TikZ 图码.
+
+\medskip
+\phantomsection\label{lem:sga3-VIB-5.6.1}%
+\noindent\textbf{引理 5.6.1.---}
+\emph{设 \(S\) 是概形, \(f:X\to S\) 是局部有限呈示的 \(S\)-概形,
+\(s\) 是 \(S\) 的点, \(x\) 是 \(X_s\) 的闭点.
+假设 \(f\) 在 \(X_s\) 的某个包含 \(x\) 的不可约分支
+\(Z\) 的泛点 \(z\) 处普遍开, 且}
+\[
+  \dim_x(X_s)=\dim Z.
+\]
+\emph{则存在交换图}
+\begin{center}
+  \phantomsection\label{diag:sga3-VIB-5.6.1-statement}%
+  \begin{tikzcd}[row sep=large,column sep=large]
+    X \arrow[r,"f"] &
+    S \\
+    S''
+      \arrow[u,"h"]
+      \arrow[r,"\pi"]
+      \arrow[ur,"\phi"] &
+    S' \arrow[u,"w"']
+  \end{tikzcd}\enspace,
+\end{center}
+\emph{其中 \(S'\) 仿射, \(w\) 平展,
+\(\pi\) 有限、满射且有限呈示, 而 \(\phi^{-1}(s)\)
+仅由一点 \(s''\) 组成, 使得 \(h(s'')=x\) 且 \(\kappa(s'')=\kappa(x)\).}%
+\footnote{\label{note:sga3-VIB-41}编者注: 因此,
+\(h\) 诱导 \(X\times_S S''\to S''\) 的一个截面 \(\sigma\),
+使 \(\sigma(s'')\) 位于 \(x\) 上; 比较 EGA~IV\(_3\), 14.5.10.}
+
+\emph{证明.}
+首先可假设 \(S=\operatorname{Spec}(A)\) 及 \(X=\operatorname{Spec}(B)\),
+其中 \(B\) 是有限呈示 \(A\)-代数.
+设 \(\mathfrak p\) 和 \(\mathfrak q\) 分别是 \(A\) 和 \(B\)
+中对应于 \(s\) 和 \(x\) 的素理想, 从而
+\[
+  \mathfrak p=A\cap\mathfrak q.
+\]
+置 \(n=\dim_x(X_s)\), 并选取 \(t_1,\ldots,t_n\in B\),
+使其在
+\[
+  \mathcal O_{X_s,x}=B_{\mathfrak q}/\mathfrak p B_{\mathfrak q}
+\]
+中的像构成一组参数系. 则
+\[
+  \mathcal O_{X_s,x}/(t_1,\ldots,t_n)
+\]
+在 \(\kappa(x)\) 上有限维,
+因而在 \(\kappa(s)\) 上也有限维,
+因为 \(x\) 是代数 \(\kappa(s)\)-概形 \(X_s\) 的闭点.
+所以 \(S\)-态射
+\[
+  u:X\longrightarrow\mathbb A^n_S
+    =\operatorname{Spec}\bigl(A[T_1,\ldots,T_n]\bigr),
+  \qquad T_i\longmapsto t_i,
+\]
+有限呈示, \(x\) 在纤维 \(u^{-1}(u(x))\) 中孤立, 且
+\[
+  u(x)=\tau_0(s),
+\]
+其中 \(\tau_0:S\to\mathbb A^n_S\) 表示 \(\mathbb A^n_S\to S\)
+的零截面, 对应于 \(A\)-代数同态
+\[
+  A[T_1,\ldots,T_n]\longrightarrow A,\qquad T_i\longmapsto0.
+\]
+\(X\) 中在其位于 \(\mathbb A^n_S\) 上的纤维中孤立的点所成的集合开
+(EGA~IV\(_3\), 13.1.4). 因此缩小 \(X\) 后,
+可假设 \(u\) 拟有限, 且 \(u^{-1}(u(x))=\{x\}\).
+由\hyperref[lem:sga3-VIB-5.6.1.0]{引理 5.6.1.0}, \(u\) 在 \(x\) 处普遍开.
+
+设
+\[
+  B_0=B/(t_1,\ldots,t_n),\qquad
+  X_0=X\times_{\mathbb A^n_S}\tau_0(S)
+      =\operatorname{Spec}(B_0),
+\]
+并设 \(u_0:X_0\to S\) 是 \(u\) 作基变换
+\(\tau_0:S\hookrightarrow\mathbb A^n_S\) 所得的态射.
+则 \(u_0\) 拟有限且有限呈示, 在 \(x\) 处普遍开,
+且 \(x\) 是 \(X_0\) 中位于 \(s\) 上的唯一点.
+
+设 \(A'\) 是局部环
+\[
+  A_{\mathfrak p}=\mathcal O_{S,s},
+\]
+的 Hensel 化, 并置
+\[
+  S'=\operatorname{Spec}(A'),\qquad
+  B'_0=B_0\otimes_A A',\qquad
+  X'_0=X_0\times_S S'=\operatorname{Spec}(B'_0).
+\]
+\(S'\) 的闭点 \(s'\) 是 \(S'\) 中位于 \(s\) 上的唯一点,
+且 \(\kappa(s')=\kappa(s)\).
+概形 \(X'_0\) 在 \(s'\) 上有唯一点 \(x'\);
+此外 \(\kappa(x')=\kappa(x)\), 且 \(x'\) 也是 \(X'_0\)
+中同时位于 \(s\) 和 \(x\) 上的唯一点.
+由于 \(A'\) 是 Hensel 环, EGA~IV\(_4\), 18.5.11 给出既开又闭部分的不交分解
+\[
+  \tag{*}\label{sga3:vi:lemma:5-6-1:equation:star}
+  X'_0=V\amalg W,
+  \qquad
+  V=\operatorname{Spec}(\mathcal O_{X'_0,x'}).
+\]
+局部环 \(\mathcal O_{X'_0,x'}\) 在 \(A'\) 上有限且有限呈示.
+因此 \(u'_0\) 在 \(V\) 上的限制 \(\pi\) 有限且有限呈示.
+此外, 由于 \(u'_0:X'_0\to S'\) 在 \(x'\) 处开,
+\[
+  u'_0(V)=\operatorname{Spec}(\mathcal O_{S',s'})=S',
+\]
+所以 \(\pi\) 满射.
+
+这证明了 \(S=S'\) 时的断言. 一般地,
+\(A'\) 是各个 \(A\)-子代数 \(A_i\) 的滤过正向极限,
+这些子代数在 \(A\) 上平展, 且
+\[
+  S_i=\operatorname{Spec}(A_i)
+\]
+在 \(s\) 上有唯一点 \(s_i\), 满足 \(\kappa(s_i)=\kappa(s)\). 有
+\[
+  B'_0=\varinjlim_i B_i,
+  \qquad
+  B_i=B_0\otimes_A A_i.
+\]
+置
+\[
+  X_i=\operatorname{Spec}(B_i)=X_0\times_S S_i,
+  \qquad
+  C=\mathcal O_{X'_0,x'}.
+\]
+由 \((*)\), 对某个幂等元 \(f\in B'_0\), 有
+\[
+  C\simeq B'_0/fB'_0
+\]
+存在一个指标 \(i\) 和一个在 \(B'_0\) 中的像为 \(f\) 的元素 \(f_i\in B_i\).
+置
+\[
+  C_i=B_i/f_iB_i,\qquad V_i=\operatorname{Spec}(C_i).
+\]
+则
+\[
+  C=C_i\otimes_{A_i}A',
+  \qquad
+  V=V_i\times_{S_i}S',
+\]
+且 \(C_i\) 是有限呈示 \(A_i\)-代数, 因为 \(B_i\) 也是如此.
+所以态射
+\begin{center}
+  \phantomsection\label{diag:sga3-VIB-5.6.1-limit-source}%
+  \begin{tikzcd}[row sep=large,column sep=large]
+    X'_0 \arrow[dr,"u'_0"] &
+    {} \\
+    V
+      \arrow[u,"h'"]
+      \arrow[r,"\pi"] &
+    S'
+  \end{tikzcd}
+\end{center}
+由有限呈示态射
+\begin{center}
+  \phantomsection\label{diag:sga3-VIB-5.6.1-limit-descent}%
+  \begin{tikzcd}[row sep=large,column sep=large]
+    X_i \arrow[dr,"u_i"] &
+    {} \\
+    V_i
+      \arrow[u,"h_i"]
+      \arrow[r,"\pi_i"] &
+    S_i
+  \end{tikzcd}
+\end{center}
+作基变换 \(S'\to S_i\) 得到.
+
+对每个 \(j\geq i\), 令
+\[
+  V_j=V_i\times_{S_i}S_j
+\]
+并设 \(\pi_j:V_j\to S_j\) 是 \(\pi_i\) 作基变换所得的有限呈示态射.
+由于 \(\pi:V\to S'\) 有限且满射,
+EGA~IV\(_2\), 8.10.5 表明, 对某个 \(j\),
+态射 \(\pi_j:V_j\to S_j\) 有限且满射.
+则 \(w:S_j\to S\) 仿射且平展,
+\(S_j\) 在 \(s\) 上有唯一点 \(s_j\),
+而 \(V_j\) 在 \(s_j\) 上有唯一点 \(x_j\),
+因为 \(x'\) 是
+\[
+  V=V_j\times_{S_j}S'
+\]
+中位于 \(s'\) 上的唯一点:
+\begin{center}
+  \phantomsection\label{diag:sga3-VIB-5.6.1-final-composite}%
+  {\small
+  \begin{tikzcd}[row sep=large,column sep=large]
+    X_j
+      \arrow[r]
+      \arrow[dr,"u_j"] &
+    X_0
+      \arrow[r]
+      \arrow[dr,"u_0"] &
+    X
+      \arrow[d,"f"']
+      \arrow[dr,"u"] &
+    {} \\
+    V_j
+      \arrow[u,"h_j"]
+      \arrow[r,"\pi_j"] &
+    S_j
+      \arrow[r,"w"] &
+    S
+      \arrow[r,"\tau_0"] &
+    \mathbb A^n_S
+  \end{tikzcd}}
+\end{center}
+所以 \(x_j\) 是 \(V_j\) 中位于 \(s\) 上的唯一点,
+它在 \(V_j\to X_j\to X\) 下的像为 \(x\), 且
+\[
+  \kappa(x_j)=\kappa(x).
+\]

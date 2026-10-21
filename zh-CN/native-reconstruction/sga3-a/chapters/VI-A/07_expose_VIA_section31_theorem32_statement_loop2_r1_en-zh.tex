@@ -1,0 +1,163 @@
+% SGA 3, Expose VI_A, Loop 1 English reconstruction.
+% Scope: Section 3 heading and paragraph 3.1 through the full statement
+% of Theorem 3.2 and the two following setup paragraphs;
+% paragraph 3.2.1 is excluded.
+% Authority: Polo--Gille Exp6A-13oct24.pdf, component-local pages 20--21
+% (combined-reader pages 323--324; printed pages 312--313).
+% OCR and the Reinhold English Markdown are comparison witnesses only.
+% The three diagrams are exact 180-dpi crops of the controlling PDF:
+% local p. 20, x=530,y=1180,w=440,h=60;
+% local p. 20, x=470,y=1320,w=550,h=120; and
+% local p. 21, x=520,y=700,w=470,h=80, on 1488x2105 renders.
+
+\section*{3. 商的构造 \(F\backslash G\)
+  (\(G,F\) 为有限型)}
+\phantomsection\label{sec:sga3-VIA-3}
+\addcontentsline{toc}{section}{3. 商的构造
+  \texorpdfstring{\(F\backslash G\)}{F backslash G}
+  (G, F 为有限型)}
+
+\medskip
+\phantomsection\label{par:sga3-VIA-3.1}%
+\noindent\textbf{3.1.---}
+设 \(A\) 为 Artin 局部环, \(u:F\to G\) 为 \(A\)-群的同态.
+若
+\[
+  \mu:F\times_A F\longrightarrow F
+  \qquad\text{及}\qquad
+  \nu:G\times_A G\longrightarrow G
+\]
+表示乘法态射, 而 \(\lambda\) 表示复合态射
+\begin{center}
+  \phantomsection\label{diag:sga3-VIA-3.1-lambda-composite}%
+  \begin{tikzcd}[column sep=large]
+    F\times_A G
+      \arrow[r,"u\times G"]
+    &
+    G\times_A G
+      \arrow[r,"\nu"]
+    &
+    G
+  \end{tikzcd},
+\end{center}
+回顾, \(G\) 对 \(F\) 的\emph{左商 (left quotient)} \(F\backslash G\)
+是下述 \((\mathrm{Sch}/A)\)-群胚 \(G_*\) 的余核:
+\begin{center}
+  \phantomsection\label{diag:sga3-VIA-3.1-groupoid}%
+  \begin{tikzcd}[column sep=huge]
+    F\times_A F\times_A G
+      \arrow[r,shift left=2.1ex,"F\times\lambda"]
+      \arrow[r,"\mu\times G" description]
+      \arrow[r,shift right=2.1ex,"\operatorname{pr}_{2,3}"']
+    &
+    F\times_A G
+      \arrow[r,shift left=1.2ex,"\lambda"]
+      \arrow[r,shift right=1.2ex,"\operatorname{pr}_2"']
+    &
+    G
+  \end{tikzcd}
+\end{center}
+这里 \(\operatorname{pr}_2\) 和 \(\operatorname{pr}_{2,3}\) 分别是
+\(F\times_A G\) 和 \(F\times_A(F\times_A G)\) 到第二个因子的投影.
+称 \(G_*\) 为\emph{由 \(u\) 定义的以 \(G\) 为底的群胚}
+(参见第 V 篇, \S~2.a; 与第 V 篇一样, 本篇不采用
+IV, \SGARefLink{sga3:iv:scholium:4:6:15}{4.6.15} 的约定).
+
+由于唯一的 \(A\)-态射 \(F\to\operatorname{Spec}A\) 普遍开
+(EGA~IV\textsubscript{2}, 2.4.9), \(\operatorname{pr}_2\) 为开态射.
+因此 \(\lambda\) 也为开态射, 因为它是 \(\operatorname{pr}_2\)
+与 \(F\times_A G\) 的自同构 \(\sigma\) 的复合, 后者定义为
+\[
+  \sigma(S)(x,y)=\bigl(x,u(S)(x)\cdot y\bigr),
+\]
+其中 \(S\) 为变动的 \(A\)-概形, \(x\in F(S)\), \(y\in G(S)\).
+同样可见, 若 \(F\) 在 \(A\) 上平坦, 则 \(\operatorname{pr}_2\) 和 \(\lambda\) 平坦.
+
+结束这些预备说明前, 还须指出: 每个 \(A\)-态射
+\(s:\operatorname{Spec}A\to G\) 定义群胚 \(G_*\) 的一个自同构,
+它分别在 \(G\), \(F\times_A G\) 和 \(F\times_A F\times_A G\) 上诱导自同构
+\[
+  r_s,\qquad
+  \mathrm{id}_F\times_A r_s,\qquad
+  \mathrm{id}_F\times_A\mathrm{id}_F\times_A r_s.
+\]
+仍用 \(r_s\) 表示 \(G_*\) 的这个自同构,
+并称 \(r_s\) 为\emph{由 \(s\) 定义的右平移}
+(参见\SGARefLink{sga3:VIA:0.4}{0.4}).
+
+\medskip
+\phantomsection\label{thm:sga3-VIA-3.2}%
+\noindent\textbf{定理 3.2.}
+\textit{设 \(F\) 和 \(G\) 为 Artin 局部环 \(A\) 上的平坦局部有限型群.
+设 \(u:F\to G\) 为 \(A\)-群的拟紧同态, 其核在 \(A\) 上有限. 则:}%
+\footnote{\label{note:sga3-VIA-33}编者注: 根据\SGARefLink{prop:sga3-VIA-2.5.2}{2.5.2},
+\SGARefLink{prop:sga3-VIA-2.5.4}{2.5.4} 和\SGARefLink{lem:sga3-V-6.1}{第 V 篇, 6.1} 中的增补,
+我们增加了 (ii\(^{\prime}\)), 并扩充了\hyperref[concl:sga3-VIA-3.2-iv]{(iv)}.}
+\begin{enumerate}
+\item[\SGAInlineRefTarget{thm:sga3-VIA-3.2:item:i}(i)] \textit{\(G\) 对 \(F\) 的左商 \(F\backslash G\) 在
+\((\mathrm{Sch}/A)\) 中存在, 且序列}
+\begin{center}
+  \phantomsection\label{diag:sga3-VIA-3.2-exact-sequence}%
+  \begin{tikzcd}[column sep=large]
+    F\times_A G
+      \arrow[r,shift left=1.2ex,"\lambda"]
+      \arrow[r,shift right=1.2ex,"\operatorname{pr}_2"']
+    &
+    G
+      \arrow[r,"p"]
+    &
+    F\backslash G
+  \end{tikzcd}
+\end{center}
+\textit{在所有赋环空间组成的范畴中正合.}
+
+\item[\SGAInlineRefTarget{thm:sga3-VIA-3.2:item:ii}(ii)] \textit{典范态射 \(p:G\to F\backslash G\) 为满射且开,
+而 \(F\backslash G\) 为 \(A\) 上的有限型概形的直和.}
+
+\item[(ii\(^{\prime}\))]\phantomsection\label{concl:sga3-VIA-3.2-ii-prime} \textit{更确切地, \(X=F\backslash G\) 带有 \(G\) 的右作用,
+使得对每个 \(g\in G\), \(p(e)\cdot g=p(g)\).
+因此 \(X\) 的连通分支在 \(A\) 上有限型、不可约,
+且维数均为 \(\dim G-\dim F\).}
+
+\item[\SGAInlineRefTarget{thm:sga3-VIA-3.2:item:iii}(iii)] \textit{典范态射
+\[
+  F\times_A G\longrightarrow G\times_{(F\backslash G)}G
+\]
+为满射.}
+
+\item[(iv)]\phantomsection\label{concl:sga3-VIA-3.2-iv} \textit{若 \(u\) 为单态射,}%
+\footnote{\label{note:sga3-VIA-34}编者注: 此时可省去 \(G\) 平坦的假设;
+参见\SGARefLink{par:sga3-VIA-3.3}{小节~3.3}.}
+\textit{则:}
+\begin{enumerate}
+\item[\SGAInlineRefTarget{thm:sga3-VIA-3.2:item:a}(a)] \textit{态射
+\[
+  F\times_A G
+    \xrightarrow{(\lambda,\operatorname{pr}_2)}
+  G\times_{(F\backslash G)}G
+\]
+为同构, 且 \(G\to F\backslash G\) 忠实平坦并局部有限呈示.}
+
+\item[(a\(^{\prime}\))] \textit{\(F\backslash G\) 表出 \((\mathrm{fppf})\) 商层
+\(\widetilde{F\backslash G}\), 且 \(G\to F\backslash G\) 为
+关于 \((\mathrm{fppf})\) 拓扑局部平凡的 \(F\)-挠子.}
+
+\item[(b)] \textit{\(F\backslash G\) 在 \(A\) 上平坦;
+若 \(G\) 平滑, 则它也在 \(A\) 上平滑.}
+
+\item[(c)] \textit{\(u:F\to G\) 为闭浸入, 且 \(F\backslash G\) 分离.}
+
+\item[(d)] \textit{此外, 若 \(F\) 为 \(G\) 的正规子群,
+则 \(F\backslash G\) 上存在唯一的 \(A\)-群结构,
+使 \(p:G\to F\backslash G\) 为 \(A\)-群的态射.}
+\end{enumerate}
+\end{enumerate}
+
+在此定理的证明中, \(A'\) 表示一个为局部环且在 \(A\) 上有限自由的
+\(A\)-代数. 若 \(R\) 为涉及 \(A'\) 的关系,
+则称``当 \(A'\) 充分大时 \(R(A')\) 成立'', 若存在一个为局部环且在
+\(A\) 上有限自由的 \(A\)-代数 \(A_1\),
+使关系 \(R(A')\) 对每个为局部环且在 \(A_1\) 上有限自由的
+\(A\)-代数 \(A'\) 都成立.
+
+先在 \(F\) 和 \(G\) 在 \(A\) 上有限型时证明此定理.
