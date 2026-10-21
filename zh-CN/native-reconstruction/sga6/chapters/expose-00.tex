@@ -1,0 +1,383 @@
+% English source lines 149--535; French verification printed pp.1--19.
+\sgaStableTarget{sga6.e00.expose}\section*{第零讲}
+\begin{center}
+{\large 一般概形相交理论的计划纲要}\par
+A. Grothendieck
+\end{center}
+
+本讲具有导论性质, 在逻辑上, 学习本讨论班不以阅读本讲为必要前提. 它尤其面向熟悉 Riemann--Roch 定理初步形式的读者; 这一形式见于 Borel--Serre 的报告, 或引言中已经提到的 Grothendieck 的报告. 后者下文记作 [RRR], 并作为附录重印于本讲末尾.
+
+\sgaStableTarget{sga6.e00.sec.1}\subsection*{1. Riemann--Roch 公式的回顾}
+回顾域 $k$ 上拟射影光滑概形之间的固有态射 (proper morphism)
+\[
+f:X\longrightarrow Y
+\]
+以及 $X$ 上凝聚层 $F$ 的 Riemann--Roch 公式. 用 $\cl(F)$ 表示 $F$ 在 $X$ 上凝聚层的类群 $K(X)$ 中的类, 则
+\sgaStableTarget{sga6.e00.eq.1-1}\begin{equation}\tag{1.1}
+\Todd(T_Y)\,\ch_Y\bigl(f_!(\cl(F))\bigr)=f_*\bigl(\Todd(T_X)\,\ch_X(F)\bigr).
+\end{equation}
+这一公式在 $A(Y)\otimes\mathbb Q$ 中成立, 其中 $A(Y)$ 是 $Y$ 的 Chow 环. 右端的 $f_*$ 是“闭链的正向像”同态
+\[
+f_*:A(X)\longrightarrow A(Y)
+\]
+与 $\mathbb Q$ 作张量积而得的同态; 左端的相应项则是 $F$ 关于 $f$ 的 Euler--Poincaré 示性数:
+\[
+f_!(\cl(F))=\sum_i(-1)^i\cl\bigl(R^if_*(F)\bigr).
+\]
+符号 $\ch_X$, $\ch_Y$ 分别表示 $X$ 与 $Y$ 上的 Chern 特征, $T_X$, $T_Y$ 分别表示 $X$ 与 $Y$ 的切丛. 众所周知, $\Todd(-)$ 与 $\ch(-)$ 都是自变量的 Chern 类的泛多项式, 系数属于 $\mathbb Q$. 因为 $\Todd(-)$ 的常数项为 $1$, 对自变量的每一个取值它都是可逆元. 所以乘以 $\Todd(T_Y)^{-1}$ 后, 公式 \hyperlink{sga6.e00.eq.1-1}{(1.1)} 化为与之等价而更适合我们目的的形式
+\sgaStableTarget{sga6.e00.eq.1-2}\begin{equation}\tag{1.2}
+\ch_Y\bigl(f_!(\cl(F))\bigr)=f_*\bigl(\Todd(T_f)\,\ch_X(F)\bigr),
+\end{equation}
+其中置
+\sgaStableTarget{sga6.e00.eq.1-3}\begin{equation}\tag{1.3}
+T_f=T_X-f^*T_Y\in K(X).
+\end{equation}
+于是 $T_f$ 起着 $X$ 在 $Y$ 上的虚相对切丛的作用. 当 $f$ 光滑时, 即切映射处处满射时, 就有 $T_f=T_{X/Y}$, 即沿纤维的切丛. 当 $f:X\to Y$ 是浸入时则得到
+\[
+T_f=-\check N_{X/Y},
+\]
+其中 $N_{X/Y}$ 表示 $X$ 在 $Y$ 中的法层.
+
+本讨论班的主要目标之一, 是同时从两个方向推广 \hyperlink{sga6.e00.eq.1-2}{(1.2)}:
+\begin{enumerate}[label=\alph*)]
+\item 去掉底域 $k$ 存在的假设;
+\item 将 $Y,X$ 的正则性假设替换为 $f$ 的某种“局部正则性”假设.
+\end{enumerate}
+此外, 在此过程中我们还将处理以下问题:
+\begin{enumerate}[label=\alph*),start=3]
+\item 去掉拟射影性假设; 在没有底域的情形, 这些假设表现为 $X$ 与 $Y$ 上存在丰沛可逆模 (ample invertible module).
+\end{enumerate}
+
+\sgaStableTarget{sga6.e00.sec.2}\subsection*{2. 去掉底域}
+先考察推广 a), 暂且保留 $X$ 与 $Y$ 正则且存在丰沛可逆模的假设.
+
+因为 $X$ 与 $Y$ 正则, 定义 $K(X)$, $K(Y)$ 以及同态 $f_!:K(X)\to K(Y)$ 不会遇到新的问题. 要使 \hyperlink{sga6.e00.eq.1-2}{(1.2)} 有意义, 最自然的途径似乎是定义 Chow 环 $A(X),A(Y)$ 和群同态
+\[
+f_*:A(X)\longrightarrow A(Y),
+\]
+建立给出映射
+\[
+c_i:K(X)\longrightarrow A(X)
+\]
+的 Chern 类理论, 并对 $Y$ 同样处理; 最后还要描述虚相对切丛这个元素
+\[
+T_f\in K(X).
+\]
+
+\sgaStableTarget{sga6.e00.sec.2.1}\subsubsection*{2.1}
+对于最后这一点, 有一个相当明显的定义. 利用 $X$ 与 $Y$ 上存在丰沛可逆模这一假设, 态射 $f$ 可以分解为
+% Original printed p.3 restores the missing (2.1)/(2.2) distinction.
+\sgaStableTarget{sga6.e00.eq.2-1}\begin{equation}\tag{2.1}
+X\xrightarrow{i}X'\xrightarrow{f'}Y,
+\end{equation}
+其中 $i$ 为闭浸入, $f'$ 为光滑态射; 例如可取适当的 $r$, 使 $X'=\mathbb P^r_Y$. 于是置
+\sgaStableTarget{sga6.e00.eq.2-2}\begin{equation}\tag{2.2}
+\check T_f=\cl\bigl(i^*\Omega^1_{X'/Y}\bigr)-\cl\bigl(N_{X/X'}\bigr),
+\end{equation}
+其中 $\Omega^1_{X'/Y}$ 是 $X'$ 在 $Y$ 上的相对 $1$-微分的局部自由模, 亦即相对余切模; $N_{X/X'}$ 是 $X$ 在 $X'$ 中的余法模 (conormal module), 定义为 $J/J^2$, 这里 $J$ 是在 $X'$ 上定义闭子概形 $X$ 的理想. $X$ 与 $X'$ 的正则性还蕴含 $N_{X/X'}$ 局部自由. 最后, $\check T_f$ 表示 $T_f$ 的对偶. 在\hyperlink{sga6.e08.expose}{第八讲}中将容易验证, 由 \hyperlink{sga6.e00.eq.2-2}{(2.2)} 定义的元素 $T_f$ 不依赖所选的 $f$ 的分解.
+
+\sgaStableTarget{sga6.e00.sec.2.2}\subsubsection*{2.2}
+至于在上述条件下定义 Chow 环及相应的 Chern 类理论, 虽然看来可以仿照光滑拟射影代数概形的已知理论来发展, 但目前似乎尚无人完成这一工作, 本讨论班自然也没有着手研究. 我们转而引入另一个环, 使它起着类似 Chow 环的作用; 当 $X$ 是域 $k$ 上的拟射影光滑概形时, 它与 $\mathbb Q$ 的张量积确实同构于 $A(X)\otimes\mathbb Q$. 这个环是 $K(X)$ 关于某个适当滤过的伴随分次环.
+
+$K(X)$ 的第一个自然滤过就是 [RRR] 中考虑的、按凝聚层支集余维给出的拓扑滤过 (topological filtration): $\Fil^iK(X)$ 由所有满足 $\operatorname{codim}(\operatorname{Supp}F,X)\ge i$ 的凝聚层 $F$ 的 $\cl(F)$ 生成. 首先要问, 这个滤过是否与 $K(X)$ 的乘法结构相容. 当 $X$ 在域上光滑时, [RRR] 借助 Chow 的移动引理得到了这种相容性. 承认这一断言后, 得到伴随分次环 $\Gr_{\mathrm{top}}(X)$; [RRR] 中定义了典范的满环同态
+\[
+\varphi:A(X)\longrightarrow \Gr_{\mathrm{top}}(X),
+\]
+把素闭链 $Z$ 的类送到 $\cl(\mathcal O_Z)$; 随后会发现 (\hyperlink{sga6.e14.para.4-2}{第十四讲 4.2}) 它的核是挠子群. 此外, [RRR] 还说明了如何直接用 $\cl(F)\in K(X)$ 与 $K(X)$ 中的外幂运算 $\lambda^i$, 来计算 Chern 类 $c_i(F)$ 在 $\Gr_{\mathrm{top}}(X)$ 中的像.
+
+这说明, 对于带丰沛可逆模的 Noether 正则概形 $X$, 环 $\Gr_{\mathrm{top}}(X)$ 是假想的 Chow 环 $A(X)$ 的一个方便替代. 与后者相比, 它还有一个优点: [RRR] 中导出这个环里若干重要公式的计算, 直接在这个环中进行; 甚至当 $X$ 是域上的射影光滑概形时, 这些公式目前也尚未在 $A(X)$ 本身中得到证明 (第十四讲 4.3 与 4.4). 但是, 要完全说明这一观点的合理性, 还必须解决前面提到的 $K(X)$ 的拓扑滤过与环结构的相容性问题. 这个问题看来本质上与 Chow 的移动引理相联系, 而该引理本身恰是我们声称可以避开的 Chow 环理论中最重要的技术成分.
+
+\sgaStableTarget{sga6.e00.sec.2.3}\subsubsection*{2.3}
+为避开这一问题, 在 $K(X)$ 上赋予比拓扑滤过更细的第二个滤过. 它可以从 $K(X)$ 的增广 $\lambda$-环结构, 用纯代数的方式描述. 这一定义的启发来自 [RRR] 中元素 $x\in K(X)$ 在 $\Gr_{\mathrm{top}}(X)$ 中的 Chern 类表达式:
+\sgaStableTarget{sga6.e00.eq.2-3}\begin{equation}\tag{2.3}
+c_i(x)=\gamma^i(x-\epsilon(x))\mod \Fil^{i+1}K(X),
+\end{equation}
+其中 $\gamma^i$ 是 $\lambda^j$ ($j\le i$) 的某个线性组合, 在该文中有明确写法; $\epsilon$ 是增广映射. 可以证明, $\gamma^i(x-\epsilon(x))$ 的拓扑滤过次数确实至少为 $i$, 从而公式 \hyperlink{sga6.e00.eq.2-3}{(2.3)} 有意义. 于是用理想 $\Fil^i_\lambda K(X)$ 定义 $K(X)$ 的 $\lambda$-滤过, 其中 $\Fil^i_\lambda K(X)$ 由如下形式的表达式的有限和组成:
+\[
+\gamma^{i_1}(x_1-\epsilon(x_1))\cdots \gamma^{i_r}(x_r-\epsilon(x_r)),\qquad i_1+\cdots+i_r\ge i.
+\]
+这一滤过的伴随分次环记为 $\Gr^\bullet(X)$; 在本讨论班中, 它将代替 $X$ 的 Chow 环. 此外, 在此处考虑的情形, 可以证明典范同态
+\sgaStableTarget{sga6.e00.eq.2-4}\begin{equation}\tag{2.4}
+\Gr^\bullet(X)\longrightarrow \Gr_{\mathrm{top}}(X)
+\end{equation}
+模去挠性后是同构; 因此, 这个环与 $\mathbb Q$ 作张量积后, 确实可以处处起到 Chow 环与 $\mathbb Q$ 作张量积后的作用. 另一方面, 上述安排恰使公式 \hyperlink{sga6.e00.eq.2-3}{(2.3)} 在以 $\Fil_\lambda$ 替换 $\Fil_{\mathrm{top}}$ 后, 定义一个取值于 $\Gr^\bullet(X)$ 的 Chern 类理论; $\Gr_{\mathrm{top}}(X)$ 中的 Chern 类随后由同态 \hyperlink{sga6.e00.eq.2-4}{(2.4)} 得出. \hyperlink{sga6.e05.expose}{第五讲}将利用\hyperlink{sga6.e06.expose}{第六讲}证明的事实, 即 $K(X)$ 是 [RRR] 意义下的特殊 $\lambda$-环, 亦即\hyperlink{sga6.e05.expose}{第五讲}意义下的 $\lambda$-环, 来证明这种 Chern 类满足 [RRR] 中回顾的全部通常的形式性质.
+
+\sgaStableTarget{sga6.e00.sec.2.4}\subsubsection*{2.4}
+应当指出, 与 $A(X)$ 及 $\Gr_{\mathrm{top}}(X)$ 的定义相比, $\Gr^\bullet(X)$ 的定义有一个很显著的优点: 对于完全任意的概形 $X$, 乃至任意局部赋环拓扑斯 (locally ringed topos) $X$, 它仍然有意义. 此时以 $X$ 上局部自由模构成的类群为 $K(X)$; 它仍是增广 $\lambda$-环, 因而有相应的滤过和伴随分次环 $\Gr^\bullet(X)$. 然而, 这种一般性也有代价: 如果不愿忽略挠性现象, 即不与 $\mathbb Q$ 作张量积, 那么 $\Gr^\bullet(X)$ 的性质在若干方面不如另外两个环令人满意 (\hyperlink{sga6.e14.sec.4}{第十四讲第 4 节}). 例如, 再设 $f:X\to Y$ 是带有丰沛可逆模的 Noether 正则概形之间的固有态射; 此时一般不能保证同态
+\[
+f_*:K(X)\longrightarrow K(Y)
+\]
+将 $\Fil^i_\lambda K(X)$ 映入 $\Fil^{i-d}_\lambda K(Y)$, 其中 $d$ 是 $X$ 在 $Y$ 上的相对维数; 因而它一般不能在伴随分次环之间诱导 $\Gr^\bullet(X)$ 到 $\Gr^\bullet(Y)$ 的 $-d$ 次同态. 不过, \hyperlink{sga6.e07.expose}{第七讲}证明, 与 $\mathbb Q$ 作张量积后确实如此, 从而得到 $-d$ 次同态
+\sgaStableTarget{sga6.e00.eq.2-5}\begin{equation}\tag{2.5}
+f_*:\Gr^\bullet(X)\otimes\mathbb Q\longrightarrow \Gr^\bullet(Y)\otimes\mathbb Q,
+\end{equation}
+它起着“闭链的正向像”同态 $A(X)\to A(Y)$ 的作用.
+
+% SGA-SRC-001469
+综上可见, 当 $f:X\to Y$ 是具有丰沛可逆模的 Noether 正则概形之间的固有态射时, 即使不假设存在底域, 我们也已经具备使公式 \hyperlink{sga6.e00.eq.1-2}{(1.2)} 有意义的全部结构.
+
+\sgaStableTarget{sga6.e00.sec.3}\subsection*{3. 一般概形的情形}
+现在说明, 当去掉 $X,Y$ 的正则性假设, 而代之以态射 $f$ 的一个稍后将具体说明的局部假设时, 如何仍使公式 \hyperlink{sga6.e00.eq.1-2}{(1.2)} 有意义.
+
+\sgaStableTarget{sga6.e00.sec.3.1}\subsubsection*{3.1}
+第一个困难在于, [RRR] 理论的出发点, 即 $X$ 上层的类群 $K(X)$ 不论用凝聚层还是用局部自由层来定义都相同, 这一事实本质上依赖 $X$ 的正则性. 对于一般概形 $X$, 为简单起见设其为 Noether 概形, 这两个群必须区分, 分别记为 $K_\bullet(X)$ 与 $K^\bullet(X)$. 前者对于固有态射关于 $X$ 协变, 后者对于任意态射关于 $X$ 反变. 注意 $K^\bullet(X)$ 自然带有环结构, 甚至增广 $\lambda$-环结构; 而 $K_\bullet(X)$ 一般不再有环结构, 只有 $K^\bullet(X)$-模结构. 从 $K^\bullet(X)$ 到 $K_\bullet(X)$ 的同态 $x\mapsto x\cdot\cl(\mathcal O_X)$ 一般也不再是同构. 为表述推广的 Riemann--Roch 定理, 我们将只使用 $K^\bullet(X)$ 和 $K^\bullet(Y)$, 而不使用 $K_\bullet(X)$ 和 $K_\bullet(Y)$. 如 \hyperlink{sga6.e00.sec.2.3}{2.3} 所述, 这些增广 $\lambda$-环带有自然的 $\lambda$-滤过, 因而给出分次环 $\Gr^\bullet(X)$, $\Gr^\bullet(Y)$ 以及 Chern 类同态
+\[
+c_i:K^\bullet(X)\longrightarrow \Gr^\bullet(X),
+\]
+对于 $Y$ 亦然. 然而困难在于定义正向像同态
+\sgaStableTarget{sga6.e00.eq.3-1}\begin{equation}\tag{3.1}
+f_*:K^\bullet(X)\longrightarrow K^\bullet(Y).
+\end{equation}
+它已不能用朴素公式
+% SGA-SRC-001470
+\[
+f_*(\cl(F))=\sum_i(-1)^i\cl\bigl(R^if_*(F)\bigr)
+\]
+来定义, 因为即使 $F$ 局部自由, 模 $R^if_*(F)$ 一般也不再局部自由, 甚至不具有有限 Tor 维数, 因而这个公式失去意义. 导出范畴的观点提供了解决这一困难的方法. 事实上, 虽然 $R^if_*(F)$ 一般是“坏”层, 比如 Tor 维数无限, 不知如何在 $K^\bullet(Y)$ 中为其赋予类, 但 $Y$ 上的复形 $Rf_*(F)$, 即 $F$ 在导出范畴意义下的正向像, 往往却非常好; 它的上同调层正是各个 $R^if_*(F)$. 更确切地说, 假设 $F$ 在 $\mathcal O_Y$ 上的 Tor 维数有限; 当 $\mathcal O_X$ 在 $\mathcal O_Y$ 上的 Tor 维数有限且 $F$ 局部自由时就是如此. 此时可以证明 (\hyperlink{sga6.e03.expose}{第三讲}), 复形 $Rf_*(F)$ 是“完美的” (perfect): 这里是指其上同调层凝聚 (无论如何这一点早已知道), 且其整体 Tor 维数有限; 等价地, 在 $Y$ 的每个仿射开集 $U$ 上, 这个复形在导出范畴 $D(U)$ 中同构于一个由有限型局部自由模组成的有界复形. 从同调代数的观点看, 完美复形与局部自由模“一样好”, 是它们的自然推广. 此外, 它们构成导出范畴 $D(Y)$ 的一个“三角子范畴”, 即对态射的锥 (或“映射柱”) 稳定的子范畴. 另一方面, 对每个三角范畴 $C$ 都可以赋予类群 $K(C)$; 这是阿贝尔范畴的类群构造的自然变体: 取由 $C$ 的对象生成的自由群, 对每个好三角形
+\[
+\begin{tikzcd}[column sep=large]
+ & K'' \arrow[dl] & \\
+K' \arrow[rr] && K \arrow[ul]
+\end{tikzcd}
+\]
+模去关系
+\[
+\cl(K)-\cl(K')-\cl(K'').
+\]
+在当前情形中, 代替 [RRR] 基本观察的是以下事实: 当概形 $Y$ 具有丰沛可逆模时, $Y$ 上的每个完美复形 $L_\bullet$ 都在 $D(Y)$ 中整体地 (而不只是局部地) 同构于一个各项均为有限型局部自由模的有界复形 $L'$ (\hyperlink{sga6.e02.expose}{第二讲}). 由此容易推出 (\hyperlink{sga6.e04.expose}{第四讲}), 典范同态
+\[
+% SGA-SRC-001471
+K^\bullet(Y)\longrightarrow K(\Parf(Y))
+\]
+为同构, 其中 $\Parf(Y)$ 是 $Y$ 上完美复形的三角范畴. 因而对 $Y$ 上的每个完美复形 $L_\bullet$, 可以赋予一个类
+\[
+\cl(L_\bullet)\in K^\bullet(Y),
+\]
+它就是
+\[
+\cl(L_\bullet)=\sum_i(-1)^i\cl(L'_i),
+\]
+这里 $L'$ 如上, 所以各个 $L'_i$ 确为 $Y$ 上的局部自由模, 可以取它们在 $K^\bullet(Y)$ 中的类.
+
+% Restored from French printed p.8: English source drops (3.2) and its paragraph.
+这样, 当 $f:X\to Y$ 是有限 Tor 维数的 Noether 概形之间的固有态射, 且 $Y$ 具有丰沛可逆模时, 对 $X$ 上每个局部自由模 $F$ 置
+\sgaStableTarget{sga6.e00.eq.3-2}\begin{equation}\tag{3.2}
+f_*\bigl(\cl(F)\bigr)=\cl\bigl(Rf_*(F)\bigr),
+\end{equation}
+就定义了同态 \hyperlink{sga6.e00.eq.3-1}{(3.1)} (此时 $Rf_*(F)$ 确为 $Y$ 上的完美复形, 所以右端有定义). 若 $X$ 也具有丰沛可逆模, 则 $K^\bullet(X)$ 同样可解释为 $K(\Parf(X))$; 此时同态 \hyperlink{sga6.e00.eq.3-1}{(3.1)} 正是由
+\[
+Rf_*:\Parf(X)\longrightarrow\Parf(Y)
+\]
+所诱导的三角范畴之间的正合函子, 按函子性给出的同态.
+
+\sgaStableTarget{sga6.e00.sec.3.2}\subsubsection*{3.2}
+要使 \hyperlink{sga6.e00.eq.1-2}{(1.2)} 有意义, 还需对 $f$ 施加假设, 以使同态 \hyperlink{sga6.e00.eq.2-5}{(2.5)}, 即
+\sgaStableTarget{sga6.e00.eq.3-3}\begin{equation}\tag{3.3}
+f_*:\Gr^\bullet(X)_{\mathbb Q}\longrightarrow\Gr^\bullet(Y)_{\mathbb Q},
+\end{equation}
+有意义; 也就是说, 要保证刚刚定义的同态 \hyperlink{sga6.e00.eq.3-1}{(3.1)}, 在相差一个次数平移且模去挠性后, 与这些环的滤过相容; 最后还需定义“虚相对切丛”这个元素
+\[
+T_f\in K^\bullet(X).
+\]
+对于后一点, 回到 \hyperlink{sga6.e00.sec.2.1}{2.1} 提出的定义, 可见需要一个假设, 来保证该处记号下的余法模 $N_{X/X'}$ 局部自由. 最自然的假设是 $i$ 为“正则浸入” (regular immersion), 即把 $X$ 等同于 $X'$ 的一个子概形, 其定义理想局部可由 $\mathcal O_{X'}$ 的一个 $\mathcal O_{X'}$-正则截面序列生成. 这是一个纯局部的假设, 事实上不依赖把 $f$ 分解为浸入后接光滑态射的方式 (\hyperlink{sga6.e08.expose}{第八讲}); 如前所述, 由 \hyperlink{sga6.e00.eq.2-2}{(2.2)} 定义的类 $T_f$ 也如此. 当这一假设满足时, 称 $f$ 为“局部完全交”态射 (locally complete intersection morphism).\footnote{我们也允许在这一术语中省去“局部”一词; 这不会引起混淆.} 这样的态射局部具有有限 Tor 维数.
+
+若 $f$ 为局部完全交态射, 用公式
+\[
+d(f)(x)=\dim_x\bigl(f'^{-1}(f(x))\bigr)-\codim_x(X,X')
+\]
+引入自然的“虚相对维数” $d(f)$. 这是一个在 $x\in X$ 处局部常值的整数值函数, 因而当 $X$ 连通时为常数; 此外它也不依赖分解 \hyperlink{sga6.e00.eq.2-1}{(2.1)} 的选择. 当此虚相对维数 $d$ 为常数、$f$ 固有、且 $X,Y$ 均有丰沛可逆模时, 可以证明 (\hyperlink{sga6.e08.expose}{第八讲})
+\begin{equation}\tag{\sgaStableTargetInline{sga6.e00.eq.3-4}3.4}
+f_*\bigl(\Fil^i K^\bullet(X)_{\mathbb Q}\bigr)\subset \Fil^{i-d}K^\bullet(Y)_{\mathbb Q}.
+\end{equation}
+这远非平凡的结果, 并由此得到一个 $-d$ 次的同态 \hyperlink{sga6.e00.eq.3-3}{(3.3)}.
+
+\sgaStableTarget{sga6.e00.sec.3.3}\subsubsection*{3.3}
+因此, 对于具有丰沛可逆模的 Noether 概形 $X,Y$ 之间的局部完全交固有态射, 我们已经具备使公式 \hyperlink{sga6.e00.eq.1-2}{(1.2)} 有意义的全部结构. 只要再稍加注意, 这种表述事实上不依赖任何 Noether 假设, 仍然有意义.
+
+\hyperlink{sga6.e08.expose}{第八讲}将以这种一般形式证明 Riemann--Roch 公式. 读者会发现, 本讨论班的证明结合了 [RRR] 中那两种证明的成分, 引言中已经讨论过它们. 之所以必须使用第一种证明的方法 (与 Borel--Serre 采用的第二种证明相比, 它用到更多 $K$ 的形式体系), 是因为需要证明包含关系 \hyperlink{sga6.e00.eq.3-4}{(3.4)}; 在 [RRR] 与 Borel--Serre [2] 的较狭窄框架中, 可以使用 Chow 环或环 $\Gr^\bullet_{\mathrm{top}}$, 因而没有这个问题. 我们从第二种证明中保留了在 $f$ 为浸入时将 $Y$ 沿 $X$ 爆破所得概形的引入. 一旦\hyperlink{sga6.e14.sec.1}{第十四讲第 1 节}提出的、关于在导出范畴 $D^-(Y)$ 中引入外幂运算的问题得到解决, 这种技术手段无疑就会消失; 浸入情形的证明也将推广到不再假设 $Y$ 具有丰沛可逆模的情形.
+
+\sgaStableTarget{sga6.e00.sec.4}\subsection*{4. 去掉丰沛可逆模的假设}
+最后还须说明, 在不假设 $X,Y$ 上存在丰沛可逆模时, 如何仍使 \hyperlink{sga6.e00.eq.1-2}{(1.2)} 有意义.
+
+\sgaStableTarget{sga6.e00.sec.4.1}\subsubsection*{4.1}
+先注意, 对任意概形 $X$, 或更一般的任意局部赋环拓扑斯, 应当代替 [RRR] 中环 $K(X)$ 的“正确”不变量, 似乎无疑不是前面用 $X$ 上局部自由模定义的环 $K^\bullet(X)$, 而是 \hyperlink{sga6.e00.sec.3.1}{3.1} 考虑的、用 $X$ 上完美复形定义的群 $K(\Parf(X))$. 这里将它记为 $K^\bullet(X)$, 而把 \hyperlink{sga6.e00.sec.3.1}{3.1} 的“朴素”群记为 $K^\bullet_{\mathrm{naive}}(X)$, 以示区别. 这种观点是由定义正向像同态 \hyperlink{sga6.e00.eq.3-1}{(3.1)} 的需要所迫: 考虑有限 Tor 维数的固有态射
+\[
+f:X\longrightarrow Y,
+\]
+不妨先设 $X,Y$ 为 Noether 概形; 非 Noether 情形需要对 $f$ 加上略强的局部有限性条件, 参见\hyperlink{sga6.e03.expose}{第三讲}. 采用现在的 $K^\bullet(X)$ 定义后, 用公式 \hyperlink{sga6.e00.eq.3-2}{(3.2)} 就能直接定义同态 $f_*$; 此时 $F$ 为 $X$ 上任意完美复形, 而这也蕴含 $Rf_*(F)$ 完美.
+
+\sgaStableTarget{sga6.e00.sec.4.2}\subsubsection*{4.2}
+然而, $K^\bullet(X)$ 的这一定义引出了一个新的同调代数问题: 在 $K^\bullet(X)$ 上定义与它的自然环结构相容的 $\lambda$-结构; 该环结构来自导出范畴中的张量积. 若 $L,L'$ 是两个完美复形, 则它们的全张量积 $L\otimes^{\mathbf L}L'$ 也完美. 更确切地说, 需要在导出范畴 $D^-(X)$ 中定义把完美复形变为完美复形的“外幂”运算. 这一问题目前尚未弄清, 正如引言中所说, 它构成本讨论班最严重的缺憾. 一旦解决这个问题, 按照 \hyperlink{sga6.e00.sec.2.3}{2.3} 的方法, 便可在 $K^\bullet(X)$ 上得到自然滤过, 从而构造代替 Chow 环的伴随分次环 $\Gr^\bullet(X)$, 并定义 Chern 类理论
+\[
+c_i:K^\bullet(X)\longrightarrow \Gr^i(X).
+\]
+
+\sgaStableTarget{sga6.e00.sec.4.3}\subsubsection*{4.3}
+要使 Noether 概形之间的局部完全交固有态射
+\[
+f:X\longrightarrow Y
+\]
+的公式 \hyperlink{sga6.e00.eq.1-2}{(1.2)} 有意义, 仍须在公式的陈述中包括非平凡的包含关系 \hyperlink{sga6.e00.eq.3-4}{(3.4)}, 其中 $d$ 是虚相对维数, 以便能够定义 \hyperlink{sga6.e00.eq.3-3}{(3.3)}; 最后还需定义虚相对切类
+\[
+T_f\in K^\bullet(X).
+\]
+若 $f$ 有分解 \hyperlink{sga6.e00.eq.2-1}{(2.1)}, 即先浸入一个相对光滑概形, 则 $T_f$ 的定义没有新的困难. 此时还可用更符合导出范畴精神的方式重新表述: 考虑由外微分诱导的熟知的典范同态
+\sgaStableTarget{sga6.e00.eq.4-1}\begin{equation}\tag{4.1}
+N_{X/X'}\longrightarrow \Omega^1_{X'/Y}\otimes_{\mathcal O_{X'}}\mathcal O_X,
+\end{equation}
+以及将 \hyperlink{sga6.e00.eq.4-1}{(4.1)} “补零”所得的链复形 $L_{X/Y}$. 它在次数 $1$ 与 $0$ 处分别等于同态 \hyperlink{sga6.e00.eq.4-1}{(4.1)} 的源与靶. 公式 \hyperlink{sga6.e00.eq.2-2}{(2.2)} 于是成为更令人满意的形式
+\sgaStableTarget{sga6.e00.eq.4-2}\begin{equation}\tag{4.2}
+T_f=\cl\bigl(L_{X/Y}^{\vee}\bigr).
+\end{equation}
+当 $f$ 是局部完全交态射时, 复形 $L_{X/Y}$ 显然完美, 所以此式在 $K^\bullet(X)$ 中有意义. 此时, $T_f$ 不依赖所选分解的断言还可以精确化为关于复形 $L_{X/Y}$ 的不变性断言: 在导出范畴 $D(X)$ 中相差一个典范同构的意义下, 这个复形也与所选分解无关 (\hyperlink{sga6.e08.expose}{第八讲}).
+
+\sgaStableTarget{sga6.e00.sec.4.4}\subsubsection*{4.4}
+当 $f:X\to Y$ 是任意概形态射时, 仍可构造导出范畴 $D(X)$ 的一个典范对象 $L_{X/Y}$, 在唯一同构的意义下确定, 使得在 $X$ 中位于 $Y$ 的某个仿射开集之上的每个仿射开集上, 它同构于按前段原则构造的复形. 但在一般情形, 应将“光滑”替换为“形式光滑”, 这样环 $A$ 上的每个代数 $B$ 都是某个形式光滑代数的商, 例如某个多项式代数的商. 要作这种定义, 不能简单地将仿射构造黏合起来, 因为导出范畴 $D(X)$ 的对象本质上不能黏合.
+
+下面给出 $L_{X/Y}$ 的一般构造; 它更一般地适用于任意交换赋环拓扑斯之间的态射
+\[
+f:X\longrightarrow Y.
+\]
+令 $B=\mathcal O_X$, $A=f^{-1}\mathcal O_Y$, 于是 $A$ 是空间 $X$ 上的环, $B$ 是 $A$-代数. 取一个集合层同态 $T\to B$, 使 $T$ 作为 $A$-代数的生成元生成 $B$, 即使相应的 $A$-代数同态
+\[
+C=A[T]\longrightarrow B
+\]
+是集合层的满射; 这里 $A[T]$ 表示由 $T$ 自由生成的交换 $A$-代数, 即预层
+\[
+U\longmapsto A(U)[T(U)]
+\]
+的伴随层. 令 $J$ 为 $C\to B$ 的核, 如 \hyperlink{sga6.e00.sec.4.3}{4.3} 一样, 考虑自然同态
+\[
+J/J^2\longrightarrow \Omega^1_{C/A}\otimes_C B
+\]
+定义的长度为 $1$ 的链复形. 不难看出, 在范畴 $D(X)$ 中相差一个典范同构的意义下, 所构造的复形不依赖 $T$ 及 $T\to B$ 的选择, 因此可以称为 $X$ 在 $Y$ 上的相对余切复形 $L_{X/Y}$. 还可以验证, 在 $X$ 中位于 $Y$ 的某个仿射开集之上的每个仿射开集上, 相差一个典范同构的意义下, 它就是由 4.3 的过程给出的复形.
+
+当 $f$ 是局部完全交态射时, 还可看出所得复形完美, 因而可以再用公式 \hyperlink{sga6.e00.eq.4-2}{(4.2)} 定义 $K^\bullet(X)$ 中的元素 $T_f$. 这里同样要指出, 一般不可能把 $T_f$ 定义为 $K^\bullet_{\mathrm{naive}}(X)$ 中的元素, 也没有理由认为 $T_f$ 在 $D(X)$ 中整体同构于一个各项均为有限型局部自由模的有界复形. 这进一步说明了 \hyperlink{sga6.e00.sec.4.1}{4.1} 所提出的观点的合理性: 应采用“精细的” $K^\bullet(X)$, 而不是 $K^\bullet_{\mathrm{naive}}(X)$.
+
+\sgaStableTarget{sga6.e00.sec.4.5}\subsubsection*{4.5}
+因此, 在保留 \hyperlink{sga6.e00.sec.4.2}{4.2} 所提出问题的前提下, 我们又已具备使任意概形之间局部完全交固有态射的公式 \hyperlink{sga6.e00.eq.1-2}{(1.2)} 有意义的全部结构; 前几节中隐含的 Noether 假设实际上可以毫无本质困难地去掉. 可惜这并不意味着即使作了上述保留, 所讨论的公式就已得到证明; 甚至当 $Y$ 是特征 $p>0$ 的代数闭域的谱, 而 $X$ 是一个维数为 $3$ 的固有光滑代数概形时, 也还是如此. 参见\hyperlink{sga6.e14.sec.2}{第十四讲第 2 节}的说明.
+
+\sgaStableTarget{sga6.e00.sec.5}\subsection*{5. 解析变体}
+以第 4 节所述形式, Riemann--Roch 公式 \hyperlink{sga6.e00.eq.1-2}{(1.2)} 对于复解析空间之间或 Tate 意义下刚性解析空间之间的局部完全交固有态射也有意义. 但 [RRR] 中的证明当然只有在额外假设态射 $f$ 为射影态射时才适用; 与代数情形一样, 处理一般情形似乎需要一个本质上新的思想. 此处设想的公式取值于“解析 Chow 环” $\Gr^\bullet(X)$, 更确切地说是 $\Gr^\bullet(X)_{\mathbb Q}$, 该环按 \hyperlink{sga6.e00.sec.4.2}{4.2} 说明的原则构造. 此外, 如\hyperlink{sga6.e14.sec.1}{第十四讲第 1 节}所述, 因为这里处于特征零, 在那一节遇到的困难便消失了.
+
+当 $X,Y$ 非奇异时, 还可按以下方法给出另一版本的 Riemann--Roch 公式. 先令 $X$ 为任意复解析空间, 以 $X^{\mathrm{top}}$ 表示同一空间赋予连续复值函数的环层后所得的赋环空间. 于是有赋环空间的典范态射
+\[
+X^{\mathrm{top}}\longrightarrow X.
+\]
+由于函子 $K^\bullet(X)$ 对赋环空间变量 $X$ 显然反变, 这一态射定义环同态
+\sgaStableTarget{sga6.e00.eq.5-1}\begin{equation}\tag{5.1}
+K^\bullet(X)\longrightarrow K^\bullet(X^{\mathrm{top}}).
+\end{equation}
+为简单起见, 假设 $X^{\mathrm{top}}$ 紧致. 与具有丰沛可逆模的概形情形一样, 可以证明 (\hyperlink{sga6.e02.expose}{第二讲}), $X^{\mathrm{top}}$ 上的每个完美复形都整体同构于一个逐次局部自由的有界复形, 即 $X^{\mathrm{top}}$ 上的复向量丛的复形. 因而 $K^\bullet(X^{\mathrm{top}})$ 典范同构于拓扑学家熟知的群 $K(X^{\mathrm{top}})$ [1], 后者用紧空间 $X^{\mathrm{top}}$ 上的复向量丛定义. 因此可将 \hyperlink{sga6.e00.eq.5-1}{(5.1)} 解释为从用解析结构定义的 $K^\bullet(X)$ 到拓扑学家熟知的环 $K(X^{\mathrm{top}})$ 的同态. 现在若
+\[
+f:X\longrightarrow Y
+\]
+是紧致非奇异解析空间之间的态射, 由 Atiyah--Hirzebruch [1] 的工作, 可以为它赋予群同态
+\sgaStableTarget{sga6.e00.eq.5-2}\begin{equation}\tag{5.2}
+f^{\mathrm{top}}_*:K^\bullet(X^{\mathrm{top}})\longrightarrow K^\bullet(Y^{\mathrm{top}}).
+\end{equation}
+再使用公式 \hyperlink{sga6.e00.eq.3-2}{(3.2)} 定义的 \hyperlink{sga6.e00.eq.3-1}{(3.1)} 中的同态 $f_*$ (这里隐含使用 Grauert 关于解析空间固有态射的有限性定理 [4]), 便得到只包含 $K^\bullet$ 型群而不包含 Chow 环型或上同调型环的自然同态方形:
+\sgaStableTarget{sga6.e00.eq.5-3}\begin{equation}\tag{5.3}
+\begin{array}{ccc}
+K^\bullet(X) & \longrightarrow & K^\bullet(X^{\mathrm{top}}) \\
+\downarrow f_* && \downarrow f^{\mathrm{top}}_* \\
+K^\bullet(Y) & \longrightarrow & K^\bullet(Y^{\mathrm{top}}).
+\end{array}
+\end{equation}
+我们所说的 Riemann--Roch 型公式, 就是断言此方形交换. 要注意这一断言与第 4 节的 Riemann--Roch 公式之间性质上的差别: 前者不忽略挠性现象, 位于本质上离散的群 $K^\bullet(Y^{\mathrm{top}})$ 中; 后者位于一个不再具有离散性质的“Chow”型群中, 但必须与 $\mathbb Q$ 作张量积. 至少当 $X,Y$ 是非奇异射影簇时, 公式 \hyperlink{sga6.e00.eq.5-3}{(5.3)} 已经得到证明 [7], 而第 4 节类型的公式在此情形也已在 [RRR] 中证明. 这里涉及 Atiyah--Singer 指标定理及 Shih [7] 与 Atiyah 对其推广的一种合理变体, 显然应当存在共同的推广. 一旦证明 \hyperlink{sga6.e00.eq.5-3}{(5.3)} 交换, 使用 Atiyah--Hirzebruch [1] 的“微分 Riemann--Roch 定理”, 就能立即推出复解析 Riemann--Roch 公式的上同调变体, 即下图交换:
+\sgaStableTarget{sga6.e00.eq.5-4}\begin{equation}\tag{5.4}
+\begin{array}{ccc}
+K^\bullet(X) & \xrightarrow{\;x\mapsto \ch(x)\Todd(T_X)\;} & H^{2\bullet}(X,\mathbb Q) \\
+\downarrow f_* && \downarrow f_* \\
+K^\bullet(Y) & \xrightarrow{\;y\mapsto \ch(y)\Todd(T_Y)\;} & H^{2\bullet}(Y,\mathbb Q).
+\end{array}
+\end{equation}
+其中水平箭头来自上同调的 Chern 类, 后者又来自同态 \hyperlink{sga6.e00.eq.5-1}{(5.1)} 与通常的 Chern 类同态
+\[
+K^\bullet(X^{\mathrm{top}})\longrightarrow H^{2\bullet}(X,\mathbb Z);
+\]
+第一个竖直箭头与 \hyperlink{sga6.e00.eq.5-3}{(5.3)} 中相同, 第二个则是有理上同调中的 Gysin 同态.
+
+\sgaStableTarget{sga6.e00.sec.6}\subsection*{6. 协变不变量 $K_\bullet(X)$}
+前面的讨论几乎都只涉及反变不变量 $K^\bullet(X)$, 没有讨论其存在性已在 3.1 指出的协变不变量 $K_\bullet(X)$. 若将 $K^\bullet(X)$ 视为拓扑空间的整系数上同调环的类似物, 则应将 $K_\bullet(X)$ 视为整系数同调的类似物. 此时 $K_\bullet(X)$ 的 $K^\bullet(X)$-模结构对应帽积运算.\footnote{这一类比不只是字面上的; 传到相应的伴随分次对象 $\Gr^\bullet(X)$ 与 $\Gr_\bullet(X)$ 后, 可以用 $\Gr_\bullet(X)$ 的模结构与帽积运算之间的一个明确相容关系来精确表述.} 当 $X$ 正则时, 自然同态 $K^\bullet(X)\to K_\bullet(X)$ 为同构; 这一事实应视为定向拓扑流形的 Poincaré 对偶定理的类似物, 后者断言与基本同调类作帽积给出从上同调到同调的同构. 这些类比还提示, 对比如有限多面体 $X$, 也定义协变不变量 $K_\bullet(X)$ 是有用的; 它与整系数同调之间的关系, 如谱序列、Chern 同态等等, 应类似于 $K^\bullet(X)$ 与整系数上同调的关系. 用这些群 $K_\bullet(X)$ 来表述适用于比紧致可微流形更一般空间的微分 Riemann--Roch 定理的变体, 似乎也并非不可能.
+
+回到 $X$ 为任意 Noether 概形的情形. 应在 $K_\bullet(X)$ 上赋予递增滤过, 使 $\Fil_iK_\bullet(X)$ 由满足 $\dim\operatorname{Supp}F\le i$ 的 $X$ 上凝聚层 $F$ 的类 $\cl_\bullet(F)$ 生成. 将在\hyperlink{sga6.e10.expose}{第十讲}证明此滤过与模结构及 $K^\bullet(X)$ 的滤过相容, 即
+\sgaStableTarget{sga6.e00.eq.6-1}\begin{equation}\tag{6.1}
+\Fil^iK^\bullet(X)\cdot \Fil_jK_\bullet(X)\subset \Fil_{j-i}K_\bullet(X).
+\end{equation}
+于是可在滤过模 $K_\bullet(X)$ 的伴随分次群 $\Gr_\bullet(X)$ 上赋予 $\Gr^\bullet(X)$-模结构. 它的元素实际上可以解释为 $X$ 上代数闭链的类; 当 $X$ 在底域 $k$ 上有限型时, 所用等价关系比有理等价更粗. 若
+\[
+f:X\longrightarrow Y
+\]
+是 Noether 概形之间的固有态射, 则
+\sgaStableTarget{sga6.e00.eq.6-2}\begin{equation}\tag{6.2}
+f_*:K_\bullet(X)\longrightarrow K_\bullet(Y)
+\end{equation}
+与滤过相容, 并定义分次群同态
+\sgaStableTarget{sga6.e00.eq.6-3}\begin{equation}\tag{6.3}
+f_*:\Gr_\bullet(X)\longrightarrow \Gr_\bullet(Y).
+\end{equation}
+它满足“投影公式”, 即为 $\Gr^\bullet(Y)$-线性的; 这一公式是同态 \hyperlink{sga6.e00.eq.6-2}{(6.2)} 的类似投影公式在伴随分次对象上的结果, 后一同态是 $K^\bullet(Y)$-线性的.
+
+从本讨论班提出的观点看, 对未必正则的 Noether 概形 $X$, 一种便于运用的相交理论应当联合研究反变不变量 $K^\bullet(X),\Gr^\bullet(X)$ 与协变不变量 $K_\bullet(X),\Gr_\bullet(X)$. 它们起着本质上不同的作用, 性质彼此补充. 例如, 由于可以为协变群建立“同伦正合列” ([RRR] 及\hyperlink{sga6.e09.expose}{第九讲}), 对某些非固有纤维化, 群 $K_\bullet(X),\Gr_\bullet(X)$ 更容易计算. 比如可以证明 (\hyperlink{sga6.e09.expose}{第九讲}) 如下典范同构:
+\[
+K_\bullet(X[t])\simeq K_\bullet(X),\qquad \Gr_\bullet(X[t])\simeq \Gr_\bullet(X),
+\]
+而当 $X$ 为非正则概形时, 对 $K^\bullet$ 一般并不成立. 另一方面, $K^\bullet(X)$ 与 $\Gr^\bullet(X)$ 的环结构使它们很适合计算.
+
+若考虑域上的固有概形 $X$, 则投影
+\[
+\pi_X:X\longrightarrow (\operatorname{point})
+\]
+定义“Euler--Poincaré 示性数”同态
+\sgaStableTarget{sga6.e00.eq.6-4}\begin{equation}\tag{6.4}
+\chi_X=\pi_{X*}:K_\bullet(X)\longrightarrow K_\bullet(\operatorname{point})=\mathbb Z,
+\end{equation}
+它在子群 $\Gr_0(X)=\Fil_0K_\bullet(X)$ 上诱导“零维闭链的次数”同态
+\begin{equation}\tag{\sgaStableTargetInline{sga6.e00.eq.6-5}6.5}
+\deg_X:\Gr_0(X)\longrightarrow \mathbb Z.
+\end{equation}
+乘法同态
+\[
+\Gr^i(X)\times \Gr_i(X)\longrightarrow \Gr_0(X)
+\]
+与次数同态 \hyperlink{sga6.e00.eq.6-5}{(6.5)} 复合, 便给出配对
+\sgaStableTarget{sga6.e00.eq.6-6}\begin{equation}\tag{6.6}
+\Gr^i(X)\times \Gr_i(X)\longrightarrow \mathbb Z.
+\end{equation}
+这说明, 在某些方面 $\Gr^\bullet(X)$ 与 $\Gr_\bullet(X)$ 像上同调与同调一样起着对偶的作用. 因此, 若 $f:X\to Y$ 是固有代数概形之间的态射, 则两个同态
+\[
+f^*:\Gr^\bullet(Y)\longrightarrow \Gr^\bullet(X),\qquad f_*:\Gr_\bullet(X)\longrightarrow \Gr_\bullet(Y)
+\]
+在配对 \hyperlink{sga6.e00.eq.6-6}{(6.6)} 的意义下形式上互为转置.
+
+同态 \hyperlink{sga6.e00.eq.6-4}{(6.4)}、\hyperlink{sga6.e00.eq.6-5}{(6.5)} 及其导出的配对 \hyperlink{sga6.e00.eq.6-6}{(6.6)}, 可视为给定域 $k$ 上固有代数概形的相交理论中数值关系的来源. \hyperlink{sga6.e10.expose}{第十讲}将稍详细地发展这一观点; 它本质上独立于以 Riemann--Roch 定理证明为中心的\hyperlink{sga6.e06.expose}{第六讲}、第七讲、第八讲, 也独立于\hyperlink{sga6.e09.expose}{第九讲}. 该讲还将介绍关于 $K^\bullet(X)$ 与 $\Gr^\bullet(X)$ 在特化下行为的一些概念.
+
+\sgaStableTarget{sga6.e00.sec.7}\subsection*{7. Picard 群与行列式函子}
+与任何相交理论一样, 明确 Picard 群 (用经典术语说即除子的类群) 在理论中的位置是很重要的. 只要施加一个轻微限制, 比如 $X$ 拟紧致时它就自动满足, 就可以在\hyperlink{sga6.e10.expose}{第十讲}中建立典范同构
+\sgaStableTarget{sga6.e00.eq.7-1}\begin{equation}\tag{7.1}
+c_1:\Pic(X)\xrightarrow{\sim}\Gr^1(X),
+\end{equation}
+它表明了 Picard 群在我们提出的理论中的确切作用. 这一作用说明有必要在\hyperlink{sga6.e12.expose}{第十二讲}和第十三讲中更详细地研究 Picard 群; 这两讲在逻辑上独立于讨论班的正文. Kleiman 在\hyperlink{sga6.e13.expose}{第十三讲}中研究数值等价以及 Picard 群的某些有限性定理, 这些定理已在 [6] 中公布而未附证明. 他使用由自己与 Mumford 提出的纯数值技巧, 不依赖 Picard 函子及其可表性理论, 比 Grothendieck 最初的证明明显简单. 唯一不能用 Kleiman 的方法处理、而他又不得不使用的结果是 [6, C-07 (i)]; 该结果的证明及某些加强, 包括 Picard 函子的某些可表性定理, 构成\hyperlink{sga6.e12.expose}{第十二讲}的内容. 该讲的思想与技巧完全不同于讨论班其余部分, 而与 [5] 相联系; 它在逻辑上独立于所有其他各讲.
+
+最后, 第十一讲的性质比第十二、十三讲一般得多, 也更接近讨论班的总体精神: 在任意局部赋环拓扑斯上研究一个称为“行列式函子”的重要函子
+\sgaStableTarget{sga6.e00.eq.7-2}\begin{equation}\tag{7.2}
+\det^\bullet:\Parf_{\mathrm{is}}(X)\longrightarrow \Inv(X).
+\end{equation}
+它从 $X$ 上完美复形的范畴 (态射只取导出范畴 $D(X)$ 意义下的同构) 到 $X$ 上可逆模的范畴. 只要要求该函子具有“局部性质”, 且对于各项局部自由的有界复形 $L$, 由公式
+\sgaStableTarget{sga6.e00.eq.7-3}\begin{equation}\tag{7.3}
+\det^\bullet(L)=\bigotimes_i \det(L_i)^{(-1)^i}
+\end{equation}
+给出, 就几乎确定了这一函子; 其中 $\det(L_i)$ 是局部自由模 $L_i$ 的最高次外幂. 虽然除\hyperlink{sga6.e01.expose}{第一讲}外, 该讲也在逻辑上独立于讨论班其余部分, 但它仍是讨论班所提出、主要在\hyperlink{sga6.e01.expose}{第一讲}至第十一讲中发展的总体“yoga”的一个重要成分.
+
+\sgaStableTarget{sga6.e00.bibliography}\section*{参考文献}
+\begin{enumerate}[label={[\arabic*]},leftmargin=2.5em]
+\item M. Atiyah 与 F. Hirzebruch, \emph{Vector bundles and homogeneous spaces}, Symposia in Pure Mathematics, vol. 3, Differential Geometry, pp. 7--38, 1961.
+\item A. Borel 与 J.-P. Serre, \emph{Le th\'eor\`eme de Riemann--Roch}, Bull. Soc. math. France, t. 86, pp. 97--136 (1958).
+\item H. Grauert, \emph{Ein Theorem der analytischen Garbentheorie}, Pub. Math. no. 5, pp. 5--64 (1960).
+\item A. Grothendieck, \emph{Classes de faisceaux et th\'eor\`eme de Riemann--Roch}, 油印讲义, Princeton, 1957; 引作 [RRR], 并作为本讨论班第零讲的附录重印.
+\item A. Grothendieck, \emph{Technique de descente et th\'eor\`emes d'existence en G\'eom\'etrie Alg\'ebrique}, 收入 \emph{Fondements de la G\'eom\'etrie Alg\'ebrique}, 1957--1962 年 Bourbaki 讨论班选篇, Secr\'etariat Math\'ematique, Paris.
+\item W. Shih, S\'eminaire de Topologie \`a l'I.H.E.S., 1966/67.
+\item M. Atiyah 与 F. Hirzebruch, \emph{The Riemann--Roch theorem for analytic embeddings}, Topology, vol. 1, pp. 151--166 (1962).
+\end{enumerate}
+\clearpage

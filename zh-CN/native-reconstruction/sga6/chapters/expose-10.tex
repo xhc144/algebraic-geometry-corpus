@@ -1,0 +1,838 @@
+
+% Current rescribe index 532; printed volume page 519; source-PDF page 526.
+\sgaStableTarget{sga6.e10.expose}\section*{第 X 讲. 固有代数概形上的相交形式体系}
+\begin{center}
+O. Jussila 著\\ (附录由 A. Grothendieck 撰写)
+
+\end{center}
+
+\sgaStableTarget{sga6.e10.sec.1}\section*{1. 滤过与合成法则的相容性}
+\[
+K^\circ(X)\times K_\bullet(X)\longrightarrow K_\bullet(X).
+\]
+
+\sgaStableTarget{sga6.e10.sec.1.1}\subsection*{1.1}
+% SGA-SRC-001616
+先设 $X$ 为诺特概形, $K_\bullet(X)$ 为凝聚 $\mathcal O_X$ 模的类群. 对每个凝聚 $\mathcal O_X$ 模 $F$, 用 $\cl_\bullet(F)$ 表示其在 $K_\bullet(X)$ 中的类.
+
+
+
+
+\sgaStableTarget{sga6.e10.def.1-1-1}\textbf{定义 1.1.1.} 对每个整数 $n\in\mathbb Z$, 用 $\Filt_n(X)$ 表示 $K_\bullet(X)$ 中由满足下式的凝聚 $\mathcal O_X$ 模 $F$ 的类 $\cl_\bullet(F)$ 生成的子群:
+
+
+
+\[
+\dim(\Supp(F))\leq n.
+\]
+这定义了 $K_\bullet(X)$ 的递增滤过 $(\Filt_n(X))_{n\in\mathbb Z}$, 且当 $n<0$ 时 $\Filt_n(X)=0$.
+
+
+\sgaStableTarget{sga6.e10.prop.1-1-2}\textbf{命题 1.1.2.} 设 $X$ 为诺特概形, $F$ 为满足 $\dim(\Supp(F))\leq n$ 的凝聚 $\mathcal O_X$ 模; 对 $n\in\mathbb Z$, 用 $X(n)$ 表示 $X$ 的子集
+
+
+
+\[
+\{x\in X\,;\,\dim(\overline{\{x\}})=n\}
+\]
+. 对每个 $x\in X$, 用 $Z(x)$ 表示与 $\overline{\{x\}}$ 相伴的整闭子概形. 则对每个 $x\in X(n)$, $\mathcal O_{X,x}$ 模 $F_x$ 的长度有限, 且只有有限多个 $x\in X(n)$ 处的长度非零, 并有
+
+
+
+% Current rescribe index 533; printed volume page 520; source-PDF page 527.
+\sgaStableTarget{sga6.e10.eq.1-1-3}\begin{equation}\tag{1.1.3}
+\cl_\bullet(F)=
+\sum_{x\in X(n)}\longg(F_x)\cl_\bullet(\mathcal O_{Z(x)})+w,
+\end{equation}
+其中 $w\in\Filt_{n-1}(X)$.
+
+立即对 $n$ 归纳, 得到:
+
+\sgaStableTarget{sga6.e10.cor.1-1-4}\textbf{推论 1.1.4.} 对每个诺特概形 $X$ 和每个整数 $n$, $\Filt_n(X)$ 为 $K_\bullet(X)$ 中由各类 $\cl_\bullet(\mathcal O_Z)$ 生成的子群, 其中 $Z$ 遍历 $X$ 的维数至多为 $n$ 的整闭子概形.
+
+
+
+
+
+\emph{1.1.2 的证明.} 设 $X'=\Supp(F)$. 因为 $X'$ 为维数至多 $n$ 的诺特空间, $X'\cap X(n)$ 的元素在 $X'$ 中极大, 因而只有有限多个; 此外, 对每个 $x\in X'\cap X(n)$, $\longg(F_x)$ 有限. 这证明了第一项断言.
+
+
+
+
+
+设 $\mathcal K=\Coh(X)$ 为凝聚 $\mathcal O_X$ 模范畴, $\mathcal K'$ 为 $\operatorname{Ob}(\mathcal K)$ 中由集中于 $X'$ 且满足条件\hyperlink{sga6.e10.eq.1-1-3}{(1.1.3)} 的凝聚 $\mathcal O_X$ 模组成的子集. 显然 $\mathcal K'$ 包含各层 $\mathcal O_{Z(x)}$, $x\in X'$. 因此只须证明 $\mathcal K'$ 为 $\operatorname{Ob}(\mathcal K)$ 的一个“正合”子集, 分解引理 (EGA III 3.1.2) 便给出 $F\in\mathcal K'$.
+
+
+
+
+
+
+
+因此设
+\sgaStableTarget{sga6.e10.eq.1-1-5}\begin{equation}\tag{1.1.5}
+0\longrightarrow G'\longrightarrow G\longrightarrow G''\longrightarrow0
+\end{equation}
+为 $\mathcal O_X$ 模正合列, 其中两项属于 $\mathcal K'$. 则各层 $G'$、$G$ 和 $G''$ 均集中于 $X'$. 因而对每个
+
+
+
+% Current rescribe index 534; printed volume page 521; source-PDF page 528.
+$x\in X(n)$, 各 $\mathcal O_{X,x}$ 模 $G'_x$、$G_x$、$G''_x$ 的长度 $\ell'_x$、$\ell_x$、$\ell''_x$ 均有限, 且
+\sgaStableTarget{sga6.e10.eq.1-1-6}\begin{equation}\tag{1.1.6}
+\ell_x=\ell'_x+\ell''_x\qquad(x\in X(n)).
+\end{equation}
+由假设及等式
+
+\sgaStableTarget{sga6.e10.eq.1-1-7}\begin{equation}\tag{1.1.7}
+\cl_\bullet(G)=\cl_\bullet(G')+\cl_\bullet(G'').
+\end{equation}
+
+立即得到\hyperlink{sga6.e10.eq.1-1-5}{(1.1.5)} 的各项均满足断言\hyperlink{sga6.e10.eq.1-1-3}{(1.1.3)}. 已知 $K_\bullet$ 在局部诺特概形及固有态射组成的范畴上为协变函子. 下述命题说明我们的滤过具有函子性.
+
+
+
+\sgaStableTarget{sga6.e10.prop.1-1-8}\textbf{命题 1.1.8.} 设 $f:X'\to X$ 为局部诺特概形间的固有态射, 并设
+
+\[
+f_*:K_\bullet(X')\longrightarrow K_\bullet(X)
+\]
+为 $f$ 诱导的态射. 则对每个整数 $n$ 有
+\sgaStableTarget{sga6.e10.eq.1-1-9}\begin{equation}\tag{1.1.9}
+f_*(\Filt_n(X'))\subset\Filt_n(X)
+\end{equation}
+.
+
+\emph{证明.} 若 $F$ 为凝聚 $\mathcal O_{X'}$ 模, 则按定义 (\hyperlink{sga6.e04.para.2-11}{IV 2.11}),
+
+\[
+f_*(\cl_\bullet(F))=
+\sum_{i\in\mathbb N}(-1)^i\cl_\bullet(R^if_*(F)).
+\]
+各 $\mathcal O_X$ 模 $R^if_*(F)$ 集中于 $f(\Supp(F))$, 且由 EGA IV 5.4.1(ii),
+
+\[
+\dim(\Supp(F))\geq\dim(f(\Supp(F))),
+\]
+这就证明了断言.
+
+% Current rescribe index 535; printed volume page 522; source-PDF page 529.
+\sgaStableTarget{sga6.e10.sec.1.2}\subsection*{1.2} 现设 $X$ 为任意概形, 考虑局部自由 $\mathcal O_X$ 模 (以下均理解为有限型) 的类群 $K^\circ(X)$. 它是环 $H^0(X,\mathbb Z)$ 上的增广预 $\lambda$ 代数 (\hyperlink{sga6.e05.ex.3-9-1}{V 3.9.1}). 映射 $f\rightsquigarrow f\cdot1\in K^\circ(X)$ 使我们可以将 $H^0(X,\mathbb Z)$ 等同于 $K^\circ(X)$ 的子环. 若 $E$ 为局部自由 $\mathcal O_X$ 模, 用 $\cl^\circ(E)$ 表示其在 $K^\circ(X)$ 中的类. 算子 $\lambda^k$ ($k\in\mathbb N$) 由
+
+
+
+
+
+
+
+
+\sgaStableTarget{sga6.e10.eq.1-2-1}\begin{equation}\tag{1.2.1}
+\lambda^k(\cl^\circ(E))=\cl^\circ(\wedge_{\mathcal O}^kE)
+\end{equation}
+以及
+\sgaStableTarget{sga6.e10.eq.1-2-2}\begin{equation}\tag{1.2.2}
+\lambda^k(x+y)=
+\sum_{\substack{i+j=k\\ i,j\in\mathbb N}}\lambda^i(x)\lambda^j(y).
+\end{equation}
+
+(\hyperlink{sga6.e05.ex.2-2}{V 2.2}) 定义. 回顾 $K^\circ(X)$ 的 $\lambda$ 滤过 $(\Filt^i(X))_{i\in\mathbb Z}$: 当 $i\leq0$ 时 $\Filt^i(X)=K^\circ(X)$; 当 $i\geq1$ 时, $\Filt^i(X)$ 为下述乘积生成的理想:
+
+
+
+\sgaStableTarget{sga6.e10.eq.1-2-3}\begin{equation}\tag{1.2.3}
+P=\gamma^{i_1}(x_1)\cdots\gamma^{i_k}(x_k)
+\end{equation}
+其中 $1\leq i_1,\ldots,i_k$; $i_1+\cdots+i_k\geq i$; $x_1,\ldots,x_k\in I=\Ker(\varepsilon)$, 这里 $\varepsilon$ 为增广同态 (参见\hyperlink{sga6.e05.para.3-10}{第 V 讲 3.10}). 在\hyperlink{sga6.e05.para.3-10}{V 3.10} 中还证明了, $\Filt^i(X)$ 恰为乘积\hyperlink{sga6.e10.eq.1-2-3}{(1.2.3)} 生成的 $H^0(X,\mathbb Z)$ 子模; 因而当 $X$ 连通时, 它是这些乘积生成的阿贝尔子群; 并且还可假定元素 $x_p$ ($p=1,\ldots,k$) 具有形式
+
+
+
+
+
+\sgaStableTarget{sga6.e10.eq.1-2-4}\begin{equation}\tag{1.2.4}
+x_p=\cl^\circ(E_p)-n_p,
+\end{equation}
+其中 $E_p$ 为秩 $n_p\in H^0(X,\mathbb Z)$ 的局部自由 $\mathcal O_X$ 模.
+
+
+% Current rescribe index 536; printed volume page 523; source-PDF page 530.
+\sgaStableTarget{sga6.e10.sec.1.3}\subsection*{1.3} 回顾 (\hyperlink{sga6.e04.para.2-10}{IV 2.10}) 双函子
+
+\[
+(E,F)\rightsquigarrow E\otimes_{\mathcal O_X}F,
+\]
+其中 $E$ 为局部自由 $\mathcal O_X$ 模, $F$ 为凝聚 $\mathcal O_X$ 模, 诱导合成法则
+
+\begin{equation}\tag{\sgaStableTargetInline{sga6.e10.eq.1-3-1}1.3.1}
+K^\circ(X)\times K_\bullet(X)\longrightarrow K_\bullet(X)
+\end{equation}
+使 $K_\bullet(X)$ 成为有单位的 $K^\circ(X)$ 模. 本讲的关键结果如下.
+
+
+\sgaStableTarget{sga6.e10.thm.1-3-2}\textbf{定理 1.3.2.} 设 $X$ 为诺特概形. 对所有 $i,j\in\mathbb Z$, 合成法则\hyperlink{sga6.e10.eq.1-3-1}{(1.3.1)} 通过限制诱导合成法则
+
+
+\sgaStableTarget{sga6.e10.eq.1-3-3}\begin{equation}\tag{1.3.3}
+\Filt^i(X)\times\Filt_j(X)\longrightarrow\Filt_{j-i}(X).
+\end{equation}
+
+\sgaStableTarget{sga6.e10.cor.1-3-3}\textbf{推论 1.3.3.} 若 $X$ 为维数至多 $j$ 的诺特概形, 则由 $\Theta_X(x)=x\cdot\cl_\bullet(\mathcal O_X)$ ($x\in K^\circ(X)$) 定义的典范同态
+
+
+\[
+\Theta_X:K^\circ(X)\longrightarrow K_\bullet(X),
+\]
+对每个 $i\in\mathbb Z$ 诱导同态
+
+\[
+\Filt^i(X)\longrightarrow\Filt_{j-i}(X).
+\]
+
+\emph{证明.} 先证明, 对 $i+j\leq k\in\mathbb Z$ 及每个维数至多 $j$ 的整闭子概形, \hyperlink{sga6.e10.cor.1-3-3}{(1.3.3)} 蕴含 $i+j\leq k$ 时的\hyperlink{sga6.e10.thm.1-3-2}{定理 1.3.2}. 由\hyperlink{sga6.e10.cor.1-1-4}{(1.1.4)}, 只须证明对每个 $x\in\Filt^i(X)$ 及每个维数至多 $j$ 的整闭子概形 $Z$, 有
+
+
+
+
+
+% Current rescribe index 537; printed volume page 524; source-PDF page 531.
+\[
+x\cl_\bullet(\mathcal O_Z)\in\Filt_{j-i}(X).
+\]
+为避免混淆, 用 $1_Z$ 表示 $\mathcal O_Z$ 在 $K_\bullet(Z)$ 中的类. 若 $\alpha:Z\to X$ 为典范浸入, 则投影公式 (IV \ldots) 给出
+
+
+\[
+x\cl_\bullet(\mathcal O_Z)
+=x\alpha_*(1_Z)
+=\alpha_*(\alpha^*(x)1_Z).
+\]
+因 $\alpha^*(x)\in\Filt^i(Z)$, 将\hyperlink{sga6.e10.prop.1-1-8}{(1.1.8)} 和\hyperlink{sga6.e10.cor.1-3-3}{(1.3.3)} 用于 $X=Z$ 及 $i+j\leq k$, 得到
+
+\[
+\alpha_*(\alpha^*(x)1_Z)\in\Filt_{j-i}(X),
+\]
+这证明了断言.
+
+当 $i+j\leq0$ 时, \hyperlink{sga6.e10.thm.1-3-2}{定理 1.3.2} 平凡成立. 归纳假定它对 $i+j<k$ 及每个诺特概形 $X$ 成立. 由前述说明, 只须证明, 对每个维数为 $j$ 的整诺特概形 $X$ 以及每个满足\hyperlink{sga6.e10.eq.1-2-4}{(1.2.4)} 的乘积\hyperlink{sga6.e10.eq.1-2-3}{(1.2.3)}, 有
+
+
+
+\sgaStableTarget{sga6.e10.eq.1-3-4}\begin{equation}\tag{1.3.4}
+P\cl_\bullet(\mathcal O_X)\in\Filt_{j-i}(X).
+\end{equation}
+若\hyperlink{sga6.e10.eq.1-2-3}{(1.2.3)} 中 $k>1$, 则结论来自归纳假设及法则\hyperlink{sga6.e10.eq.1-3-1}{(1.3.1)} 的结合性. 因 $X$ 连通, 可假定
+
+
+\sgaStableTarget{sga6.e10.eq.1-3-5}\begin{equation}\tag{1.3.5}
+x=P=\gamma^m(\cl^\circ(E)-n),
+\end{equation}
+其中 $m\geq i$, 而 $E$ 为秩 $n>0$ 的局部自由 $\mathcal O_X$ 模. 分为两种情形.
+
+
+I. 假定存在可逆 $\mathcal O_X$ 模 $L_1,\ldots,L_n$, 使得
+
+\[
+\cl^\circ(E)=\cl^\circ(L_1)+\cdots+\cl^\circ(L_n)\in K^\circ(X).
+\]
+
+% Current rescribe index 538; printed volume page 525; source-PDF page 532.
+由 (V), $x$ 是各 $\cl^\circ(L_r)-1$ ($r=1,\ldots,n$) 的第 $m$ 个初等对称函数, 因而是以 $(\cl^\circ(L_r)-1)$ ($r=1,\ldots,n$) 为变量的整系数 $m$ 次齐次多项式. 再次应用归纳假设和法则\hyperlink{sga6.e10.eq.1-3-1}{(1.3.1)} 的结合性, 问题归结为证明对每个可逆 $\mathcal O_X$ 模 $L$ 有
+
+
+
+
+
+\sgaStableTarget{sga6.e10.eq.1-3-6}\begin{equation}\tag{1.3.6}
+(\cl^\circ(L)-1)\cl_\bullet(\mathcal O_X)\in\Filt_{j-1}(X).
+\end{equation}
+因 $X$ 整, $L$ 和 $\mathcal O_X$ 均同构于 $X$ 上有理函数组成的常值 $\mathcal O_X$ 模 $R_X$ 的子模. $\mathcal O_X$ 模之和 $F=\mathcal O_X+L$ 是凝聚的, 并得到
+
+
+\begin{align*}
+(\cl^\circ(L)-1)\cl_\bullet(\mathcal O_X)
+&=\cl_\bullet(L)-\cl_\bullet(\mathcal O_X)\\
+&=(\cl_\bullet(F)-\cl_\bullet(\mathcal O_X))
+  -(\cl_\bullet(F)-\cl_\bullet(L))\\
+&=\cl_\bullet(F/\mathcal O_X)-\cl_\bullet(F/L).
+\end{align*}
+但层 $F/\mathcal O_X$ 和 $F/L$ 在泛点处的纤维为零; 因而它们在 $X$ 中的支集无处稠密 (因 $X$ 不可约), 从而维数至多 $j-1$. 立即得到断言\hyperlink{sga6.e10.eq.1-3-6}{(1.3.6)}.
+
+
+
+
+II. 剩下证明一般情形. 引入 $E$ 在 $X$ 上的旗丛
+\[
+g:D\longrightarrow X
+\]
+其上存在可逆 $\mathcal O_D$ 模 $L_1,\ldots,L_n$, 满足
+
+\sgaStableTarget{sga6.e10.eq.1-3-7}\begin{equation}\tag{1.3.7}
+g^*(\cl^\circ(E))=\cl^\circ(L_1)+\cdots+\cl^\circ(L_n)\in K^\circ(D).
+\end{equation}
+设 $e$ 为 $X$ 的泛点, $k(e)$ 为其剩余域. 泛纤维 $D_e$ 上存在一个 $k(e)$ 有理点 $u$,
+
+
+% Current rescribe index 539; printed volume page 526; source-PDF page 533.
+因为这些点与域 $k(e)$ 上维数为 $n>0$ 的向量空间 $E_e$ 中的 $(1,\ldots,1)$ 型 ($n$ 项) 旗一一对应. 这些有理点又对应于 $e$ 的邻域中 $g$ 的截面芽, 因此在 $X$ 的某个开子集 $U$ 上存在这样的截面 $s:U\to D$. 设 $X'=\overline{s(U)}$, 赋予其诱导的约化结构, 并设 $f:X'\to X$ 为 $g$ 到 $X'$ 的限制. 态射 $f$ 是射影的, 且因其在 $s(U)$ 上为同构, 故为双有理态射.
+
+
+
+
+
+
+
+
+于是 $\dim(X')\leq\dim(X)$ (EGA IV 5.6.6.1). 另一方面, $f(X')=g(X')$ 为闭集且包含 $U$, 因此 $f$ 为满射, 且 $\dim(X')\geq\dim(X)$ (EGA IV 5.4.1(ii)). 因而情形 I 的假设对 $X'$ 及 $x'=f^*(x)\in\Filt^i(X')$ 满足, 得到
+
+
+
+\sgaStableTarget{sga6.e10.eq.1-3-7.occ2}\begin{equation}\tag{1.3.7'}
+f^*(x)\cl_\bullet(\mathcal O_{X'})\in\Filt_{j-i}(X').
+\end{equation}
+故由投影公式及\hyperlink{sga6.e10.prop.1-1-8}{(1.1.8)},
+\sgaStableTarget{sga6.e10.eq.1-3-8}\begin{equation}\tag{1.3.8}
+x f_*(\cl_\bullet(\mathcal O_{X'}))\in\Filt_{j-i}(X).
+\end{equation}
+另一方面, 典范同态
+\[
+\mathcal O_X\longrightarrow f_*(\mathcal O_{X'})
+\]
+在稠密开子集 $U$ 上为同构, 而 $\mathcal O_X$ 模 $R^if_*(\mathcal O_{X'})$ ($i\geq1$) 集中于无处稠密闭子集 $X-U$. 从而
+
+
+\sgaStableTarget{sga6.e10.eq.1-3-9}\begin{equation}\tag{1.3.9}
+f_*(\cl_\bullet(\mathcal O_{X'}))=\cl_\bullet(\mathcal O_X)+w,
+\end{equation}
+
+% Current rescribe index 540; printed volume page 527; source-PDF page 534.
+其中 $w\in\Filt_{j-1}(X)$. 由归纳假设, $x\cdot w\in\Filt_{j-i-1}(X)$; 故由\hyperlink{sga6.e10.eq.1-3-8}{(1.3.8)} 及\hyperlink{sga6.e10.eq.1-3-9}{(1.3.9)},
+
+\[
+x\cl_\bullet(\mathcal O_X)\in\Filt_{j-i}(X).
+\]
+这就证明了断言.
+
+\sgaStableTarget{sga6.e10.rem.1-4}\textbf{注 1.4.} 设 $X$ 为局部诺特概形. 注意本节只使用了固有 $X$ 概形 $Y$ 上的“维数函数”
+
+
+\[
+D(x)=D_Y(x)=\dim(\overline{\{x\}})
+\]
+的下述性质:
+\begin{enumerate}[label=(\roman*)]
+\item 对每个固有 $X$ 概形 $Y$ 及每个 $x\in Y$, 有 $D_Y(x)\in\mathbb Z$. \item 若 $y\ne x$ 为 $x$ 的特化, 则 $D(y)<D(x)$. \item 对每个固有 $X$ 概形间的 $X$ 态射 $f:Y_1\to Y_2$ 及每个 $y\in Y_1$, 有
+
+
+
+
+  \[
+  D_{Y_2}(f(y))\leq D_{Y_1}(y).
+  \]
+\item 若 $f$ 为浸入, 或若 $Y_1$ 不可约、$f$ 双有理且满、$y$ 为 $Y_1$ 的泛点, 则 (iii) 中等号成立.
+
+
+\end{enumerate}
+因此, 若将“维数”换成满足上述 (i)--(iv) 的函数 $D$, 并用这样的函数 $D$ 定义 $K_\bullet(X)$ 的滤过, 本节所有结果, 特别是\hyperlink{sga6.e10.thm.1-3-2}{(1.3.2)} 及\hyperlink{sga6.e10.cor.1-3-3}{(1.3.3)}, 仍原样成立.
+
+
+
+
+% Current rescribe index 541; printed volume page 528; source-PDF page 535.
+\sgaStableTarget{sga6.e10.ex.1-5}\textbf{例 1.5.} 设 $S$ 为局部诺特普遍悬链概形 (例如 Cohen--Macaulay 概形的子概形). 置
+
+
+\sgaStableTarget{sga6.e10.eq.1-5-1}\begin{equation}\tag{1.5.1}
+D_S(x)=n-\codim(\overline{\{x\}},S)
+      =n-\dim\mathcal O_{S,x}\qquad(x\in S),
+\end{equation}
+并对每个固有 $S$ 概形 $s_Y:Y\to S$ 及每个 $y\in Y$, 再置
+\sgaStableTarget{sga6.e10.eq.1-5-2}\begin{equation}\tag{1.5.2}
+D_Y(y)=D_S(s_Y(y))+\degtr_{k(s_Y(y))}k(y).
+\end{equation}
+若 $f:Y_1\to Y_2$ 为固有 $S$ 概形间的 $S$ 态射, 则超越次数的可加性与\hyperlink{sga6.e10.eq.1-5-2}{(1.5.2)} 立即给出
+
+\sgaStableTarget{sga6.e10.eq.1-5-3}\begin{equation}\tag{1.5.3}
+D_{Y_1}(y)=D_{Y_2}(f(y))+\degtr_{k(f(y))}k(y)
+\qquad(y\in Y_1).
+\end{equation}
+我们证明这样定义的函数 $D_Y$ 满足 1.4 的条件 (i)--(iv). 由\hyperlink{sga6.e10.eq.1-5-3}{(1.5.3)}, 唯有条件 (ii) 非平凡. 由 (iv), 显然可假定 $Y=\overline{\{x\}}$. 将结构态射 $s_Y$ 经由其像 $s_Y(Y)=Z\hookrightarrow S$ 分解, 记 $s_Y=g\circ f$:
+
+
+
+
+\[
+\begin{tikzcd}
+Y \arrow[r,"f"] & Z \arrow[r,hook,"g"] & S,
+\end{tikzcd}
+\]
+其中 $Y$ 和 $Z$ 不可约, $f$ 固有且满, $g$ 为闭浸入. 置 $x'=s_Y(x)$ 及 $y'=s_Y(y)$. 由\hyperlink{sga6.e10.eq.1-5-2}{(1.5.2)} 和\hyperlink{sga6.e10.eq.1-5-1}{(1.5.1)} 得到
+
+
+\[
+\begin{split}
+D_Y(x)-D_Y(y)={}&\dim\mathcal O_{S,y'}-\dim\mathcal O_{S,x'}\\
+&+\degtr_{k(x')}k(x)-\degtr_{k(y')}k(y).
+\end{split}
+\]
+由于 $S$ 悬链, 有
+
+% Current rescribe index 542; printed volume page 529; source-PDF page 536.
+\[
+\dim\mathcal O_{S,y'}-\dim\mathcal O_{S,x'}
+=\dim\mathcal O_{Z,y'}-\dim\mathcal O_{Z,x'}
+\]
+(EGA $0_{\mathrm{IV}}$ 14.3.2.1), 从而
+\sgaStableTarget{sga6.e10.eq.1-5-4}\begin{equation}\tag{1.5.4}
+\begin{split}
+D_Y(x)-D_Y(y)={}&
+[\dim\mathcal O_{Z,y'}-\degtr_{k(y')}k(y)]\\
+&-[\dim\mathcal O_{Z,x'}-\degtr_{k(x')}k(x)].
+\end{split}
+\end{equation}
+由于 $Z$ 普遍悬链, 可应用 EGA IV 5.6.5.1 得到
+\[
+C_1=\dim\mathcal O_{Y,y}-e,
+\qquad
+C_2=\dim\mathcal O_{Y,x}-e,
+\]
+其中 $C_1$ 和 $C_2$ 为\hyperlink{sga6.e10.eq.1-5-4}{(1.5.4)} 右端的两项. 由\hyperlink{sga6.e10.eq.1-5-4}{(1.5.4)} 立即得到
+
+\[
+D_Y(x)-D_Y(y)
+=\dim\mathcal O_{Y,y}-\dim\mathcal O_{Y,x}>0,
+\]
+这正是所需的结论.
+
+因此, 对维数为 $n$ 的诺特普遍悬链概形 $X$, 若借助\hyperlink{sga6.e10.eq.1-5-1}{(1.5.1)} 按支集的余维数定义 $K_\bullet(X)$ 的滤过, 则\hyperlink{sga6.e10.thm.1-3-2}{(1.3.2)} 及\hyperlink{sga6.e10.cor.1-3-3}{(1.3.3)} 仍成立. 若进一步 $X$ 双等维, 此滤过与\hyperlink{sga6.e10.def.1-1-1}{(1.1.1)} 相同.
+
+
+
+
+\sgaStableTarget{sga6.e10.sec.1.6}\subsection*{1.6} 可以问: 对有限维诺特概形 $X$, 是否总能定义一个函数 $D$, 具有\hyperlink{sga6.e10.rem.1-4}{1.4} 的性质 (i), 并满足下述强于 (ii) 的性质:
+
+
+
+\begin{quote}
+(ii bis) 若 $x\in X$, 而 $y\ne x$ 为 $x$ 的紧邻特化, 则 $D(x)=D(y)+1$.
+
+\end{quote}
+
+% Current rescribe index 543; printed volume page 530; source-PDF page 537.
+显然, 为此 $X$ 必须悬链; 而 $X$ 双等维则为充分条件 (EGA $0_{\mathrm{IV}}$ 14.3.3). 然而存在有限维诺特概形, 悬链且等维, 却不容许这样的函数 $D$. 为此, 将 EGA IV 5.6.11 的例子作如下修改. 取该处环 $E$ 的谱的两个副本 $Y_1$ 和 $Y_2$, 令 $y_i$ 和 $z_i$ ($i=1,2$) 为 $Y_i$ 的闭点, 分别对应于 $E$ 的高为 $2$ 和 $1$ 的极大理想 $\mathfrak m$ 和 $\mathfrak m'$. 回顾 $\mathfrak m$ 和 $\mathfrak m'$ 的剩余域同构. 因此可将 $Y_1$ 与 $Y_2$ 黏合, 将 $y_1$ 与 $z_2$、$y_2$ 与 $z_1$ 分别等同, 构造概形 $X$. 此时 $Y_1$ 和 $Y_2$ 可视为 $X$ 的两个不可约分支; 在 $Z$ 内, $Y_1\cap Y_2=\{y_1,y_2\}$ 的维数为零. 故 $X$ 是维数为 $2$ 的诺特、悬链、等维概形. 若 $X$ 上 (ii bis) 成立, 则有
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\[
+D(y_1)=D(z_1)-1=D(y_2)-1,
+\]
+而另一方面,
+\[
+D(y_1)=D(z_2)=D(y_2)+1,
+\]
+矛盾.
+
+% Current rescribe index 544; printed volume page 531; source-PDF page 538.
+\sgaStableTarget{sga6.e10.sec.2}\section*{2. Snapper 多项式}
+
+\sgaStableTarget{sga6.e10.sec.2.1}\subsection*{2.1} 先回顾多项式映射的定义及若干初等性质.
+
+
+
+\sgaStableTarget{sga6.e10.def.2-1-1}\textbf{定义 2.1.1.} 设 $f$ 为从阿贝尔群 $A$ 到阿贝尔群 $B$ 的映射. 称 $f$ 为多项式映射, 如果对 $A$ 的每个元素序列 $x_1,\ldots,x_r$ ($r\geq1$), 均存在一族
+
+
+
+\[
+\bigl(y(x_1,\ldots,x_r;k_1,\ldots,k_r)\bigr)_{k_1,\ldots,k_r\geq0}
+\]
+$B$ 的元素, 其中除有限项外均为零, 且满足以下条件: 对每个整数序列 $n_1,\ldots,n_r$, 有
+
+\[
+f(n_1x_1+\cdots+n_rx_r)=
+\sum_{k_1,\ldots,k_r\geq0}
+n_1^{k_1}\cdots n_r^{k_r}
+y(x_1,\ldots,x_r;k_1,\ldots,k_r).
+\]
+若对每个整数 $r\geq1$ 及所有 $x_1,\ldots,x_r\in A$, 当 $k_1+\cdots+k_r>m$ 时都有
+
+\[
+y(x_1,\ldots,x_r;k_1,\ldots,k_r)=0
+\]
+则称 $f$ 的次数 $\leq m$.
+
+\sgaStableTarget{sga6.e10.lem.2-1-2}\textbf{引理 2.1.2.} 阿贝尔群的每个同态都是次数 $\leq1$ 的多项式映射. 若 $h=f\circ g$, 其中 $f$ 为 $p$ 次多项式映射, $g$ 为 $q$ 次多项式映射, 则 $h$ 为次数 $\leq pq$ 的多项式映射.
+
+
+
+
+
+证明平凡.
+
+\sgaStableTarget{sga6.e10.lem.2-1-3}\textbf{引理 2.1.3.} 设
+
+\[
+0\longrightarrow G'\longrightarrow G\xrightarrow{j}G''\longrightarrow0
+\]
+为阿贝尔群的正合列, 其中 $G'$ 对某个素数 $p$ 为 $p$ 可除群, 而 $G''$ 为挠群. 则每个经由 $\mathbb Z$ 分解的多项式映射 $f:G\to\mathbb Q$ 都是常值的.
+
+
+
+% Current rescribe index 545; printed volume page 532; source-PDF page 539.
+\emph{证明.} 只须证明对每个 $x\in G$ 有 $f(x)=f(0)$.
+
+
+(a) 先假定 $x$ 为挠元, 设 $mx=0$ ($m\in\mathbb Z$, $m\ne0$). 则多项式 $P_x(n)=f(nx)-f(0)$ 有无穷多个根, 即所有被 $m$ 整除的整数. 因此 $P_x$ 恒为零, 且 $f(x)=f(0)$.
+
+
+
+
+(b) 现假定 $x$ 为 $G$ 中的无限阶元素, 且被每个幂 $p^k$ ($k\in\mathbb Z$) 整除. 考虑以下定义的多项式 $P_k$:
+
+\[
+P_k(n)=f(nx/p^k)=\sum_{i\in\mathbb N}n^iy(x/p^k;i)\in\mathbb Z
+\qquad(n\in\mathbb Z;\ y(x/p^k;i)\in\mathbb Q).
+\]
+对每个 $n\in\mathbb Z$, 有恒等式
+\[
+P_k(n)=P_{k+1}(pn),
+\]
+即
+\[
+\sum_{i\in\mathbb N}n^iy(x/p^k;i)=
+\sum_{i\in\mathbb N}p^in^iy(x/p^{k+1};i).
+\]
+比较系数得到
+\[
+y(x/p^k;i)=p^iy(x/p^{k+1};i)\qquad(i\in\mathbb N).
+\]
+
+% Current rescribe index 546; printed volume page 533; source-PDF page 540.
+每个多项式 $P:\mathbb Q\to\mathbb Q$ 对 $\mathbb R$ 诱导的拓扑都连续. 因此, 当 $k$ 充分大时,
+
+\[
+\lvert P_x(n/p^k)-P_x(0)\rvert<1.
+\]
+然而按定义, 对所有 $n,k\in\mathbb Z$, $P_x(n/p^k)$ 为整数. 从而对充分大的 $k$, $P_x(n/p^k)-P_x(0)=0$. 因此 $P_x$ 为常值, 特别地 $P_x(1)=P_x(0)$, 即 $f(x)=f(0)$.
+
+
+
+
+以上两种情形说明 $f$ 在 $G'$ 上的限制为常值. 现证明 $f$ 在 $G$ 中 $G'$ 的每个陪集上为常值. 对每个 $b\in G$, 定义 $g_b:G'\to\mathbb Q$ 为
+
+
+\[
+g_b(y)=f(b+y)\qquad(y\in G').
+\]
+映射 $g_b$ 是从 $G'$ 到 $\mathbb Q$ 的多项式映射且经由 $\mathbb Z$ 分解, 因而由上述论证为常值. 故 $f$ 在 $G$ 中 $G'$ 的各陪集上为常值. 因此可写 $f=h\circ j$, 其中 $h:G''\to\mathbb Q$ 为经由 $\mathbb Z$ 分解的多项式映射. 因为 $G''$ 是挠群, $h$ 为常值. 故 $f$ 为常值.
+
+
+
+
+
+
+\sgaStableTarget{sga6.e10.lem.2-1-4}\textbf{引理 2.1.4.} 设 $A$ 为有单位元的交换环, $I$ 为 $A$ 的幂零理想. 用 $P$ 表示 $A^*$ 中由形如 $x=1+y$, $y\in I$, 的 $A$ 的可逆元组成的乘法子群, 并设 $i:P\to A$ 为自然单射.
+
+
+
+
+
+% Current rescribe index 547; printed volume page 534; source-PDF page 541.
+则复合映射
+\[
+\alpha:P\xrightarrow{i}A\xrightarrow{j}A\otimes_{\mathbb Z}\mathbb Q,
+\]
+为多项式映射, 其中 $j(x)=x\otimes1$. 若 $I^{m+1}=0$, 则 $\alpha$ 的次数 $\leq m$.
+
+
+\emph{证明.} 设 $x_1,\ldots,x_r$ 为 $P$ 的元素序列, 且 $x_i=1+y_i$ ($i=1,\ldots,r$). 对每个 $n_1,\ldots,n_r\in\mathbb Z$, 二项式公式给出
+
+
+
+\sgaStableTarget{sga6.e10.eq.2-1-5}\begin{equation}\tag{2.1.5}
+x_1^{n_1}\cdots x_r^{n_r}=
+\sum_{k_1,\ldots,k_r\geq0}
+\binom{n_1}{k_1}\cdots\binom{n_r}{k_r}
+y_1^{k_1}\cdots y_r^{k_r},
+\end{equation}
+因元素 $y_1,\ldots,y_r$ 均幂零, 右端的和为有限和. 各系数 $\binom{n_1}{k_1}\cdots\binom{n_r}{k_r}$ 为 $n_1,\ldots,n_r$ 的有理系数多项式, 次数为 $k_1+\cdots+k_r$; 因此 $\alpha$ 确为多项式映射. 若 $I^{m+1}=0$, 则当 $k_1+\cdots+k_r>m$ 时 $y_1^{k_1}\cdots y_r^{k_r}=0$. 故 $\alpha$ 的次数 $\leq m$.
+
+
+
+
+
+
+
+\sgaStableTarget{sga6.e10.sec.2.2}\subsection*{2.2} 现设 $X$ 为诺特概形, $y\in\Filt_j(X)$ \hyperlink{sga6.e10.def.1-1-1}{(1.1.1)}. 对应 $x\mapsto xy$ 定义了 $K^\circ(X)$ 模同态
+
+
+\[
+\Theta_y:K^\circ(X)\longrightarrow K_\bullet(X),
+\]
+由\hyperlink{sga6.e10.thm.1-3-2}{(1.3.2)}, 它经由典范满射
+\[
+j:K^\circ(X)\longrightarrow
+K^\circ(X)/\Filt^{j+1}(X)=A.
+\]
+
+% Current rescribe index 548; printed volume page 535; source-PDF page 542.
+分解. 设 $\beta_y:A\to K_\bullet(X)$ 为这样定义的同态. 若 $I$ 表示 $A$ 的理想
+
+\[
+I=\Filt^1(X)/\Filt^{j+1}(X)
+\]
+则 $I^{j+1}=0$. 沿用\hyperlink{sga6.e10.lem.2-1-4}{引理 2.1.4} 的记号, 得到阿贝尔群同态
+
+\[
+\gamma:\Pic(X)\longrightarrow P
+\]
+它将可逆 $\mathcal O_X$ 模 $L$ 在 $\Pic(X)$ 中的类 $\cl_P(L)$ 映为 $P$ 的元素 $j(\cl^\circ(L))$.
+
+
+由引理\hyperlink{sga6.e10.lem.2-1-2}{2.1.2} 和\hyperlink{sga6.e10.lem.2-1-4}{2.1.4} 立即得到:
+
+\sgaStableTarget{sga6.e10.prop.2-2-1}\textbf{命题 2.2.1.} 对每个诺特概形 $X$ 和每个 $y\in\Filt_j(X)$ ($j\in\mathbb Z$), 复合映射
+
+
+\[
+\Pic(X)\longrightarrow K_\bullet(X)\otimes_{\mathbb Z}\mathbb Q,
+\]
+定义为
+\[
+\cl_P(L)\longmapsto(\cl^\circ(L)y)\otimes1,
+\]
+是次数 $\leq j$ 的多项式映射.
+
+\sgaStableTarget{sga6.e10.sec.2.3}\subsection*{2.3} 若 $X$ 为域 $k$ 上的固有概形, 而 $g:X\to\Spec(k)$ 为结构态射, 则同态
+
+
+\[
+g_*:K_\bullet(X)\longrightarrow K_\bullet(\Spec(k))\simeq\mathbb Z
+\]
+将每个凝聚 $\mathcal O_X$ 模 $F$ 的类 $\cl_\bullet(F)$ 映为 $F$ 在 $X$ 上的 Euler--Poincar\'e 示性数 $\chi(F)\in\mathbb Z$. \hyperlink{sga6.e10.prop.2-2-1}{命题 2.2.1} 立即给出:
+
+
+
+% Current rescribe index 549; printed volume page 536; source-PDF page 543.
+\sgaStableTarget{sga6.e10.prop.2-3-1}\textbf{命题 2.3.1.} 对每个 $k$ 上的固有概形 $X$ 和每个 $y\in\Filt_j(X)$, 映射
+
+\[
+S_y:\Pic(X)\longrightarrow\mathbb Z\hookrightarrow\mathbb Q,
+\]
+定义为
+\[
+\cl_P(L)\longmapsto
+g_*(\cl^\circ(L)y)=\chi(\cl^\circ(L)y),
+\]
+是次数 $\leq j$ 的多项式映射.
+
+当 $L_1,\ldots,L_n$ 为可逆 $\mathcal O_X$ 模, 而 $F$ 为满足 $\dim(\Supp(F))=j$ 的凝聚 $\mathcal O_X$ 模时, \hyperlink{sga6.e10.prop.2-3-1}{命题 2.3.1} 特别蕴含, Euler--Poincar\'e 示性数
+
+
+\sgaStableTarget{sga6.e10.eq.2-3-2}\begin{equation}\tag{2.3.2}
+\chi(L_1^{\otimes m_1}\otimes\cdots\otimes
+L_n^{\otimes m_n}\otimes F)
+\end{equation}
+是 $m_1,\ldots,m_n\in\mathbb Z$ 的数值多项式, 次数 $\leq\dim(\Supp(F))$; 有时称为 $F$ 与序列 $L_1,\ldots,L_n$ 的 Snapper 多项式.
+
+
+
+\sgaStableTarget{sga6.e10.sec.2.4}\subsection*{2.4} 回顾 [2], 对 $\Sch/k$ 上的 $\fpqc$ 拓扑, Picard 函子 $\Pic_{X/k}$ 为预层
+
+
+\[
+T\longmapsto\Pic(X\times_kT)
+\qquad(T\in\Ob(\Sch/k)).
+\]
+所伴的群层. 当 $k$ 代数闭时, 典范同态
+\[
+\Pic(X)\longrightarrow\Pic_{X/k}(\Spec(k))
+\]
+为同构.
+
+% Current rescribe index 550; printed volume page 537; source-PDF page 544.
+当 $X$ 在 $k$ 上固有时, 已知 [4] Picard 函子可由 $k$ 上的局部有限型群概形表示, 仍记作 $\Pic_{X/k}$. $\Pic_{X/k}$ 的单位分支 $\Pic^0_{X/k}$ 为 $k$ 上的连通交换代数群.
+
+
+
+
+\sgaStableTarget{sga6.e10.def.2-4-1}\textbf{定义 2.4.1.} 设 $X$ 为域 $k$ 上的固有概形, $L$ 为可逆 $\mathcal O_X$ 模 (分别地, 设 $x\in\Pic(X)$). 若存在整数 $n\ne0$, 使得 $L^{\otimes n}$ (分别为 $nx$) 代数等价于零, 则称 $L$ (分别为 $x$) 与零 $\tau$ 等价. $\Pic(X)$ 中代数等价于零 (分别为与零 $\tau$ 等价) 的元素构成 $\Pic(X)$ 的子群 $\Pic^0(X)$ (分别为 $\Pic^\tau(X)$).
+
+
+
+
+
+
+
+
+\sgaStableTarget{sga6.e10.lem.2-4-3}\textbf{引理 2.4.3.} 对代数闭域 $k$ 上的每个固有概形 $X$, 群 $\Pic^0(X)$ 对每个与 $k$ 的特征互素的整数 $n$ 都可除.
+
+
+
+
+\emph{证明.} 因 $k$ 代数闭, 有
+
+\[
+\Pic^0(X)\simeq\Pic^0_{X/k}(k).
+\]
+因 $\Pic^0_{X/k}$ 连通且为有限型, 当 $n$ 与 $k$ 的特征互素时, 取 $n$ 次幂的自同态为满射 (SGA 3 XV 1.3 和 VI 1.3.2). 由于 $k$ 代数闭, $\Pic^0_{X/k}(k)$ 的相应自同态也为满射.
+
+
+
+
+由\hyperlink{sga6.e10.lem.2-4-3}{2.4.3}, 正合列
+\[
+0\longrightarrow\Pic^0(X)\longrightarrow\Pic^\tau(X)
+\longrightarrow T\longrightarrow0,
+\]
+中, $\Pic^0(X)$ 对某个素数 $p$ 为 $p$ 可除群, $T$ 为挠群. 因此\hyperlink{sga6.e10.lem.2-1-3}{引理 2.1.3} 可应用于多项式映射\hyperlink{sga6.e10.prop.2-3-1}{(2.3.1)} 在 $\Pic^\tau(X)$ 上的限制. 得到:
+
+
+
+% Current rescribe index 551; printed volume page 538; source-PDF page 545.
+\sgaStableTarget{sga6.e10.prop.2-4-4}\textbf{命题 2.4.4.} \hyperlink{sga6.e10.prop.2-3-1}{(2.3.1)} 的多项式映射 $S_y$ 在 $\Pic(X)$ 中 $\Pic^\tau(X)$ 的各陪集上为常值.
+
+
+
+\emph{证明.} 若 $K$ 为 $k$ 的代数闭扩域, 则有交换图
+
+
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+\Pic(X) \arrow[r,"S_y"] \arrow[d] &
+K_\bullet(\Spec(k)) \arrow[r] &
+\mathbb Z \arrow[r,hook] & \mathbb Q\\
+\Pic(X_K) \arrow[r,"\overline S_y"'] &
+K_\bullet(\Spec(K)) \arrow[ur] &&
+\end{tikzcd}
+\]
+其中 $\overline S_y$ 为 $\Pic(X_K)$ 上与 $S_y$ 相应的多项式映射. 因而可假定 $k$ 代数闭. 此时断言立即由引理\hyperlink{sga6.e10.lem.2-1-3}{2.1.3} 和 2.4.3 得到.
+
+
+
+\sgaStableTarget{sga6.e10.rem.2-4-5}\textbf{注 2.4.5.} 在\hyperlink{sga6.e13.expose}{第 XIII 讲} 中, 将不使用函子 $\Pic_{X/k}$ 的可表示性证明此结果.
+
+
+
+\sgaStableTarget{sga6.e10.sec.3}\section*{3. 相伴分次群的投影公式}
+
+\sgaStableTarget{sga6.e10.sec.3.1}\subsection*{3.1} 设 $X$ 为诺特概形. 用 $\Gro(X)$ 表示 $K^\circ(X)$ 的\mbox{$\lambda$ 滤过}所伴的分次群, 用 $\Grb(X)$ 表示 $K_\bullet(X)$ 的滤过\hyperlink{sga6.e10.def.1-1-1}{1.1.1} 所伴的分次群. 由\hyperlink{sga6.e10.thm.1-3-2}{定理 1.3.2}, 合成法则\hyperlink{sga6.e10.eq.1-3-1}{(1.3.1)}
+
+
+
+
+\[
+K^\circ(X)\times K_\bullet(X)\longrightarrow K_\bullet(X)
+\]
+取相伴分次群后诱导合成法则
+\sgaStableTarget{sga6.e10.eq.3-1-1}\begin{equation}\tag{3.1.1}
+\Gr^i(X)\times\Gr_j(X)\longrightarrow\Gr_{j-i}(X)
+\qquad(i,j\in\mathbb Z).
+\end{equation}
+
+% Current rescribe index 552; printed volume page 539; source-PDF page 546.
+由此 $\Grb(X)$ 成为环 $\Gro(X)$ 上的模; 进一步, 若将 $\Grb(X)$ 分次的符号改变, 置
+
+
+\[
+\Gr^i_\bullet(X)=\Gr_{-i}(X)\qquad(i\in\mathbb Z).
+\]
+
+它便成为分次环 $\Gro(X)$ 上的分次模. 现设
+\[
+f:X'\longrightarrow X
+\]
+为诺特概形间的固有态射. 则 $f$ 诱导分次环同态
+\[
+f^*:\Gro(X)\longrightarrow\Gro(X')
+\]
+(\hyperlink{sga6.e05.expose}{第 V 讲}), 且由\hyperlink{sga6.e10.prop.1-1-8}{命题 1.1.8}, 诱导分次阿贝尔群同态
+\[
+f_*:\Grb(X')\longrightarrow\Grb(X)
+\]
+. 对投影公式 (\hyperlink{sga6.e04.para.2-11}{IV 2.11}) 及\hyperlink{sga6.e10.eq.3-1-1}{(3.1.1)} 取相伴分次群, 得到分次投影公式
+
+\sgaStableTarget{sga6.e10.eq.3-1-2}\begin{equation}\tag{3.1.2}
+x\cdot f_*(y)=f_*\bigl(f^*(x)\cdot y\bigr)
+\qquad(x\in\Gro(X),\ y\in\Grb(X')).
+\end{equation}
+
+\sgaStableTarget{sga6.e10.sec.3.2}\subsection*{3.2} 设 $f:X'\to X$ 为诺特概形间虚维数为 $r$ 的射影完全交态射 (\hyperlink{sga6.e08.expose}{第 VIII 讲}), 且 $X$ 上存在丰沛可逆 $\mathcal O_X$ 模. 在\hyperlink{sga6.e08.expose}{第 VIII 讲} 中证明了 $f$ 诱导同态
+
+
+
+
+\sgaStableTarget{sga6.e10.eq.3-2-1}\begin{equation}\tag{3.2.1}
+f_*:\Filt^k(X')_{\mathbb Q}\longrightarrow
+\Filt^{k-r}(X)_{\mathbb Q}\qquad(k\in\mathbb Z),
+\end{equation}
+它还满足投影公式 (\hyperlink{sga6.e04.expose}{第 IV 讲}):
+\sgaStableTarget{sga6.e10.eq.3-2-2}\begin{equation}\tag{3.2.2}
+f_*\bigl(f^*(x)\cdot y\bigr)=x\cdot f_*(y)
+\qquad(x\in K^\circ(X)_{\mathbb Q},\ y\in K^\circ(X')_{\mathbb Q}).
+\end{equation}
+
+% Current rescribe index 553; printed volume page 540; source-PDF page 547.
+对\hyperlink{sga6.e10.eq.3-2-1}{(3.2.1)} 和\hyperlink{sga6.e10.eq.3-2-2}{(3.2.2)} 取相伴分次群, 得到次数为 $-r$ 的同态:
+
+\sgaStableTarget{sga6.e10.eq.3-2-3}\begin{equation}\tag{3.2.3}
+f_*:\Gro(X')_{\mathbb Q}\longrightarrow\Gro(X)_{\mathbb Q},
+\end{equation}
+且由\hyperlink{sga6.e10.thm.1-3-2}{定理 1.3.2}, 有分次投影公式
+\[
+f_*\bigl(f^*(x)\cdot y\bigr)=x\cdot f_*(y)
+\qquad(x\in\Gro(X)_{\mathbb Q},\ y\in\Gro(X')_{\mathbb Q}).
+\]
+
+\sgaStableTarget{sga6.e10.sec.3.3}\subsection*{3.3} 最后, 设 $f:X'\to X$ 为诺特概形间有限 Tor 维数的态射. 已知 (\hyperlink{sga6.e04.expose}{第 IV 讲}) $f$ 诱导同态
+
+
+\[
+f^*:K_\bullet(X)\longrightarrow K_\bullet(X')
+\]
+使得对每个凝聚 $\mathcal O_X$ 模 $F$, 有
+\[
+f^*(\cl_\bullet(F))=
+\sum_i(-1)^i\cl_\bullet\bigl(
+\Tor_i^{\mathcal O_X}(F,\mathcal O_{X'})\bigr).
+\]
+各 $\mathcal O_{X'}$ 模 $\Tor_i^{\mathcal O_X}(F,\mathcal O_{X'})$ 的支集包含于 $f^{-1}(\Supp(F))$. 若 $f$ 的纤维在各处的维数均 $\leq d$, 则 (EGA IV 5.6.7)
+
+
+
+\[
+\dim\bigl(f^{-1}(\Supp(F))\bigr)\leq\dim(\Supp(F))+d.
+\]
+从而对每个 $k\in\mathbb Z$, $f$ 诱导同态
+\[
+f^*:\Filt_k(X)\longrightarrow\Filt_{k+d}(X'),
+\]
+进而诱导分次阿贝尔群的 $d$ 次同态.
+
+% Current rescribe index 554; printed volume page 541; source-PDF page 548.
+因此有
+\sgaStableTarget{sga6.e10.eq.3-3-1}\begin{equation}\tag{3.3.1}
+f^*:\Grb(X)\longrightarrow\Grb(X').
+\end{equation}
+
+\sgaStableTarget{sga6.e10.sec.3.4}\subsection*{3.4}
+最后假定对态射 $f:X'\to X$, 态射\hyperlink{sga6.e10.eq.3-2-3}{(3.2.3)} 和\hyperlink{sga6.e10.eq.3-3-1}{(3.3.1)} 均有定义, 且 $r=d$. 例如当 $X$ 拟紧且有丰沛可逆 $\mathcal O_X$ 模, 而 $X'=\mathbf P_X(E)$, 其中 $E$ 为秩 $r+1$ 的局部自由 $\mathcal O_X$ 模时, 即属此种情形. 此时导出范畴中的投影公式对每个 $x\in\Filt^i(X')_{\mathbb Q}$ 和 $y\in\Filt_j(X)_{\mathbb Q}$ 给出
+
+
+
+
+
+\[
+f_*\bigl(x\cdot f^*(y)\bigr)=f_*(x)\cdot y
+\in\Filt_{j+r-i}(X)_{\mathbb Q}.
+\]
+当 $X$ 诺特时, \hyperlink{sga6.e10.thm.1-3-2}{定理 1.3.2} 给出相应的分次公式.
+

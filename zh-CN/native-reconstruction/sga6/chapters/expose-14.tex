@@ -1,0 +1,111 @@
+% Source: 07_SGA6_EN_CURRENT_LAYERED_READER.tex, lines 20168--21182.
+% Layered alignment and exact coverage: audits/expose-14.json.
+\sgaStableTarget{sga6.e14.expose}\section*{第 XIV 讲. 相交理论中的未解决问题}
+\begin{center}
+A. Grothendieck 著
+\end{center}
+
+本讲回顾与本讨论班所遇问题相关、值得研究的一些问题. 我们暂不讨论与 Serre 的\emph{局部相交理论}~[14] 有关的问题, 因为讨论班未使用这一理论; 特别地, 关于这一方向上仍未解决的两个基本猜想, 参见该书第 V 章 \S4. 我们也略去与\emph{闭链类群的结构}, 特别是光滑射影代数概形上闭链类群的结构有关的问题; 这些问题对算术应用极为重要. 关于它们的讨论, 参见 S. Kleiman, ``Algebraic cycles and the Weil conjectures'', 载于 \emph{Dix expos\'es sur la cohomologie des sch\'emas} (Masson--North Holland Publishing Co.). 本讲第 4 节还对讨论班作一些补充, 特别涉及此前各讲未及讨论的 \emph{Chow 环}.
+
+\sgaStableTarget{sga6.e14.sec.1}\section*{1. 导出范畴 $D(X)$ 中的运算 $\Lambda^i$\footnote{参见第 23 页的注.}}
+
+设 $X$ 是局部赋环拓扑斯, $K^\bullet(X)$ 是 $X$ 上完美复形的类环 (\hyperlink{sga6.e04.expose}{第 IV 讲}). 希望在 $K^\bullet(X)$ 上定义一个关于 $X$ 函子性的 $\lambda$-环结构 (\hyperlink{sga6.e05.expose}{第 V 讲}), 使自然同态
+\[
+  K^\circ_{\mathrm{naive}}(X)\longrightarrow K^\bullet(X)
+\]
+为 $\lambda$-同态 (其中第一项是 $X$ 上局部自由模的类环, 配备\hyperlink{sga6.e05.expose}{第 V 讲}所定义的 $\lambda$-结构). 为此, 应当定义通常非加性的 ``外幂'' 函子
+\[
+  \Lambda^i:D^-(X)\longrightarrow D^-(X),
+\]
+使伪凝聚 (分别地, 完美) 复形变为伪凝聚 (分别地, 完美) 复形, 并具有关于正合三角的适当形式性质, 从而可用公式
+\sgaStableTarget{sga6.e14.eq.1-1}\begin{equation}\tag{1.1}
+  \lambda^i\bigl(\cl(L^\bullet)\bigr)
+  =\cl\bigl(\Lambda^iL^\bullet\bigr)
+\end{equation}
+定义 $K^\bullet(X)$ 上的 $\lambda$-结构.
+
+当 $X$ 的特征为零, 即其结构层是 $\Q$-代数层时, 只须置
+\sgaStableTarget{sga6.e14.eq.1-2}\begin{equation}\tag{1.2}
+  \Lambda^iL^\bullet
+  =\left({}^{\otimes i}L^\bullet\right)^{\mathrm{alt}},
+\end{equation}
+问题即解决. 这里把 $L^\bullet$ 的导出范畴意义下的第 $i$ 个张量幂看作 $D^-(\mathcal O_i)$ 的对象, 其中 $\mathcal O_i=\mathcal O_X[\mathfrak S_i]$ 是对称群 $\mathfrak S_i$ 在 $\mathcal O_X$ 上的群代数; 上标 \(\mathrm{alt}\) 表示取 ``$\mathfrak S_i$ 作用下的交替部分'', 由于特征为零的假设, 这一运算有意义. [8] (以下记为 [RRR]) 中 Riemann--Roch 定理的第一个证明已使用过这类公式.
+
+不作特征假设时, 若 $L^\bullet$ 在次数 $>0$ 上为零, 则 Dold--Puppe~[6] 给出从 $L^\bullet$ 到某个半单纯模 $L^{\prime\bullet}$ 的相伴复形的典范同伦, 该半单纯模典范地附属于 $L^\bullet$. 例如, 当 $L^\bullet$ 平坦时, $\Lambda^iL^\bullet$ 的一个颇自然的候选是半单纯模 $\Lambda^iL^{\prime\bullet}$ 的相伴复形, 其 $n$ 次分量为 $\Lambda^iL'_n$. 但要把定义扩展到 $D^-(X)$ 中不再假设在次数 $>0$ 上为零的复形, 就须研究前述运算在平移 $L^\bullet\mapsto L^\bullet[1]$ (即 Dold--Puppe 术语~[6] 中的\emph{悬挂}) 下的行为. 遗憾的是, 似乎并不存在会使所需扩展变得直接的同构 $\Lambda^i\bigl(L^\bullet[1]\bigr)\simeq\Lambda^i(L^\bullet)[i]$.
+
+\sgaStableTarget{sga6.e14.sec.2}\section*{2. 不作射影性假设的 Riemann--Roch 公式}
+
+\sgaStableTarget{sga6.e14.para.2-1}\textbf{2.1.} 一旦在 $K^\bullet(X)$ 上有了自然的 $\lambda$-结构, 就可以对任意固有完全相交态射 $f:X\to Y$, 甚至更一般地对局部赋环拓扑斯 $Y$ 上的相对概形 $X$, 以\hyperlink{sga6.e08.expose}{第 VIII 讲}所设想的形式陈述 Riemann--Roch 定理; 这里 $X$ 仍须满足相应的相对条件. $f$ 的 Todd 类用\hyperlink{sga6.e00.sec.4.4}{第 0 讲 4.4} 中构造的相对余切复形 $T_f$ 在 $K^\bullet(X)$ 中的类来定义; 由关于 $f$ 的局部假设, 这里的复形是完美的. 似乎很清楚, 在这一一般情形下证明 Riemann--Roch 公式将需要本质上新的思想; 这些思想也可能提供在复解析 (甚至刚性解析!) 情形下证明类似公式的关键. 回忆在复解析情形, 目前由 Atiyah--Singer 指标公式, 只知道 $Y$ 为单点、$X$ 为紧致非奇异簇、$F$ 为其上局部自由层的情形; 当只假设 $F$ 凝聚时, 现有方法似乎仍无能为力.
+
+\sgaStableTarget{sga6.e14.para.2-2}\textbf{2.2.} 还须记起\hyperlink{sga6.e03.expose}{第 III 讲}提出的\emph{有限性问题}, 它是 Riemann--Roch 公式的一个基本组成部分: 若 $f:X\to Y$ 是固有态射, $L^\bullet$ 是 $X$ 上相对于 $Y$ 伪凝聚的复形, 则 $Rf_*(L^\bullet)$ 是否伪凝聚? 这一猜想的一般证明很可能要用到某些代数思想, 这些思想也会在比 Grauert 的 ``有限性定理''~[7] 原文所用条件显著更一般的条件下给出该定理的证明; 从一开始就应在比解析空间更一般的、以 $\mathbb C$-代数赋环的拓扑赋环空间 (或拓扑斯) $Y$ 上工作. 这将包括以下情形: 带有连续复值函数层的局部紧空间 $Y$、带有复值 $C^m$ 函数层的 $C^m$ 流形、实解析空间, 等等.
+
+\sgaStableTarget{sga6.e14.para.2-3}\textbf{2.3.} 最后, 在这些问题中, 应以如下假设替代 $f$ 的固有性假设: $X$ 上所考虑复形的上同调层 $H^i(L^\bullet)$ 的支集在 $Y$ 上固有.
+% SOURCE-EMENDATION inherited: French says "groups"; the English reads "supports".
+
+\sgaStableTarget{sga6.e14.sec.3}\section*{3. 浸入的 ``无分母'' Riemann--Roch 公式}
+
+\sgaStableTarget{sga6.e14.para.3-1}\textbf{3.1.} 设 $f:Y\to X$ 是正则闭浸入 (\hyperlink{sga6.e07.expose}{第 VII 讲}), 其余法层为 $\underline N$. 为简便起见, 假设 $X$ 有丰沛可逆层. 对 $y\in K^\bullet(Y)$ 的 Riemann--Roch 公式
+\[
+  \ch_X(f_*(y))
+  =f_*\bigl(\ch_Y(y)\Todd(-\check{\underline N})\bigr),
+\]
+连同一般公式 (\hyperlink{sga6.e07.expose}{第 VII 讲})
+\[
+  f_*(y')f_*(y'')
+  =f_*\bigl(y'y''c_d(\underline N)\bigr),
+  \qquad y',y''\in\Gr^\bullet(Y)_{\Q},
+\]
+使我们在假设 $f$ 的余维为 $d$ 时, 能把 $f_*(y)$ 在 $\Gr^\bullet(X)_{\Q}$ 中的 Chern 类表示为
+\sgaStableTarget{sga6.e14.eq.3-1}\begin{equation}\tag{3.1}
+  c_i(f_*(y))
+  =f_*\bigl(P_i((c_\alpha(y))_\alpha,(c_\beta(\underline N))_\beta)\bigr),
+\end{equation}
+其中 $P_i$ 是关于 $c_\alpha(y)$ 和 $c_\beta(\underline N)$ 的万有多项式, 其系数先验地为有理数. 事实上, [RRR] 中证明了这些多项式具有\emph{整数系数}. 这就提出了 ``无分母'' Riemann--Roch 公式是否成立的问题.
+
+事实上, 一般不能在 $\Gr^\bullet(X)$ 本身中寻求这样的 $c_i(f_*(y))$ 公式, 因为同态 $f_*:K^\bullet(Y)\longrightarrow K^\bullet(X)$ 本身并不与 $\lambda$-滤子相容 (允许移动 $d$ 次, 见\hyperlink{sga6.e14.para.4-6}{(4.6)}), 而只在模去挠元后相容. 因此, 不可能定义一个同态 $f_*:\Gr^\bullet(Y)\longrightarrow\Gr^\bullet(X)$, 使它诱导自然同态 $f_*:\Gr^\bullet(Y)_{\Q}\longrightarrow\Gr^\bullet(X)_{\Q}$, 并使\hyperlink{sga6.e14.eq.3-1}{(3.1)} 可解释为 $\Gr^\bullet(X)$ 中而不仅是 $\Gr^\bullet(X)_{\Q}$ 中的公式.
+
+但当 $X$ 正则, 从而 $K^\bullet(X)\simeq K_\bullet(X)$ (\hyperlink{sga6.e04.para.2-5}{IV 2.5}) 时, 可在 $K^\bullet(X)$ 上赋予按支集余维定义的\emph{拓扑滤子}, 它继承自 $K_\bullet(X)$ 的相应滤子. 这一滤子很可能与环结构相容. 至少当 $X$ 在域 $k$ 上光滑时, [RRR] 用 Chow 环理论 [4] 证明了这一点. 此时, 相伴分次对象
+\[
+  \Gtop^\bullet(X)
+\]
+是\emph{分次环}; 而若 $Y$ 也正则, 则恰好可以得到一个自然的 $d$ 次分次群同态
+\[
+  f_*=f_*^{\mathrm{top}}:\Gtop^\bullet(Y)
+  \longrightarrow\Gtop^\bullet(X).
+\]
+因 $K^\bullet(X)$ 的 $\lambda$-滤子比刚才考虑的按余维定义的拓扑滤子更细 (\hyperlink{sga6.e10.cor.1-3-3}{X 1.3.3}), 得到典范的分次群同态 (甚至分次环同态)
+\[
+  \Gr^\bullet(X)\longrightarrow\Gtop^\bullet(X),
+\]
+而且它模去挠元后是同构 (第 VIII 讲). 由此可像 [RRR] 那样, 考虑 $X$ 上取值于 $\Gtop^\bullet(X)$ 的 Chern 类理论, 对 $Y$ 也如此, 从而把\hyperlink{sga6.e14.eq.3-1}{(3.1)} 解释为 $\Gtop^\bullet(X)$ 中的公式. 在这一形式下, 当 $X$ 的\emph{特征为零}时, 至少当 $X$ 在域上光滑时, [RRR] 证明了这个公式 (光滑假设仅用于保证 $K^\bullet(X)$ 的拓扑滤子与环结构相容). 特征零假设实质上用于获得\hyperlink{sga6.e14.eq.1-1}{(1.1)}、\hyperlink{sga6.e14.eq.1-2}{(1.2)} 型的公式; 一旦第 1 节提出的问题得到肯定回答, 本质上同样的证明应当可在不作特征假设的情况下适用.
+
+\sgaStableTarget{sga6.e14.para.3-2}\textbf{3.2.} 当 $X$ 在域上光滑时, 还有 Chow 环
+\[
+  A(X),
+\]
+以及 $X$ 上取值于 $A(X)$ 的 Chern 类理论~[9], 它比刚引入的取值于 $\Gtop^\bullet(X)$ 的理论更细. 后一种 Chern 类是 Chow 意义的 Chern 类在典范满同态 (参见\hyperlink{sga6.e14.para.4-1}{4.1})
+\[
+  \varphi:A(X)\longrightarrow\Gtop^\bullet(X)
+\]
+下的像. 这个同态模去挠元后是同构, 但一般并非同构\hyperlink{sga6.e14.para.4-7}{(4.7)}. 于是, 若 $X$ 和 $Y$ 光滑, 包含映射 $f:Y\to X$ 仍定义一个 $d$ 次分次群同态
+\[
+  f_*:A(Y)\longrightarrow A(X),
+\]
+使\hyperlink{sga6.e14.eq.3-1}{(3.1)} 可解释为 $A^i(X)$ 中的公式. 当 $i<d$ 时, 这个公式化为 $0=0$, 因此只有 $i\geq d$ 时才有意义. 即使在 $i=d=2$ 时, 这一公式目前也未证明 (参见\hyperlink{sga6.e14.para.4-3}{4.3}); 将其中代数闭链的有理等价换成代数等价而得到的较弱公式也未证明. 与 $\Gtop^\bullet(X)$ 中的类似公式不同, 似乎没有令人信服的理由可以假设无分母公式在 $A(X)$ 中成立. 鉴于我们对 $i>2$ 时群 $A^i(X)$ 的性质几乎一无所知, 检验它的一个好方法似乎是检验从它在群 $A^1(Z)=\Pic(Z)$ 中推出的公式;\footnote{这个公式以及\hyperlink{sga6.e14.para.3-3}{3.3} 所述的变体后来均由 P. Jouanolou 证明 (1969 年 11 月). 参见.} 例如对\hyperlink{sga6.e14.eq.3-1}{(3.1)} 两边应用 $g_*:A(X)\longrightarrow A(Z)$, 其中 $g:X\to Z$ 是到维数为 $\dim X-i+1$ 的光滑拟射影概形 $Z$ 的固有态射.
+
+\sgaStableTarget{sga6.e14.para.3-3}\textbf{3.3.} 最后, 只要有 \emph{Gysin 同态}
+\[
+  f_*:H^p(Y,\mu_n^{\otimes i})
+  \longrightarrow H^{p+2d}(X,\mu_n^{\otimes(i+d)}),
+\]
+也可使用上同调 Chern 类理论 (SGA 5 VII) 来赋予\hyperlink{sga6.e14.eq.3-1}{(3.1)} 意义.
+
+至少当 $Y$ 和 $X$ 都在概形 $S$ 上光滑时, 相对上同调纯性定理 (SGA 4 XVI 3.7) 保证这一点; 猜想当 $Y$ 和 $X$ 都正则时, 由绝对上同调纯性定理也有这一点, 而后一定理至少在 $X$ 优秀且特征为零时已证明 (SGA 4 XIX 3.2).
+
+当 $X$ 和 $Y$ 在复数域上光滑时, 也可使用 $X$ 的复点所成局部紧空间 $X(\C)$ 上的整 Chern 类. Atiyah 和 Hirzebruch~[1] 在此情形证明了公式\hyperlink{sga6.e14.eq.3-1}{(3.1)}; 他们更一般地处理了复解析簇的嵌入 (使用朴素的 $K'$). 由 Lefschetz 原理和 SGA 4 的一般结果可知, 只要 $Y$ 和 $X$ 在特征零的代数闭域上光滑, $\ell$ 进公式 (3.1) 就成立. 这使上同调公式\hyperlink{sga6.e14.eq.3-1}{(3.1)} 极其可信. 但应注意, 目前若域 $k$ 非代数闭, 即使 $X$ 和 $Y$ 都在特征零的域 $k$ 上光滑, 该公式也尚未证明.
+
+\noindent\sgaStableTarget{sga6.e14.para.3-4}\textbf{3.4.}
+也可使用 de Rham 或 Hodge 意义的上同调 Chern 类理论~[13]. 在这一框架下, \hyperlink{sga6.e14.eq.3-1}{(3.1)} 是否成立的问题只在 $X$ 的特征不为零时才有意义, 因为无论如何, 已知所述公式模去挠元后成立 (第 6 节). 对域 $k$ 上的光滑拟射影概形, \hyperlink{sga6.e14.eq.3-1}{(3.1)} 的 de Rham 或 Hodge 版本还可由使用模代数等价的闭链类的版本推出. 因此, de Rham 或 Hodge 上同调版本提供了另一种可行方式, 来检验\hyperlink{sga6.e14.eq.3-1}{(3.1)} 的闭链类版本是否成立.
+
+\noindent\sgaStableTarget{sga6.e14.para.3-5}\textbf{3.5.}
+\hyperlink{sga6.e14.eq.3-1}{(3.1)} 的超越上同调版本的证明~[1] 本质上是超越性的, 并使用 $Y$ 在 $X$ 中的管状邻域. 这提示, 证明\hyperlink{sga6.e14.eq.3-1}{(3.1)} 型公式也许与系统地考虑支于 $Y$ 的 $K^\bullet$-群和上同调群有关; 这些群或许能提供\emph{在 $Y$ 周围局部化}的适当技术手段.
