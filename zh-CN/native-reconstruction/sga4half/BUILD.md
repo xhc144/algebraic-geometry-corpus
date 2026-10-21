@@ -14,7 +14,7 @@
 python3 tools/build.py
 ```
 
-脚本关闭 shell escape，按 XeLaTeX → BibTeX → XeLaTeX → XeLaTeX 顺序构建；如引用仍需收敛，再编译一次。成功后写出 `SGA4half-zh-CN.pdf`、`audit/build-status.json` 和 `audit/final-build.log`。如存在未定义引用或缺字，脚本以非零状态结束；溢出另列诊断，不能据返回码推断没有排版问题。
+脚本关闭 shell escape，先按 XeLaTeX → BibTeX → XeLaTeX → XeLaTeX 顺序构建；随后比较 aux、toc、out、brf 的内容哈希，必要时继续编译，最多七遍 XeLaTeX，直到辅助文件稳定且无需重跑。不能仅凭没有引用警告就断定目录页码已收敛。成功后写出 `SGA4half-zh-CN.pdf`、`audit/build-status.json` 和 `audit/final-build.log`。如辅助文件未收敛、存在未定义引用或缺字，脚本以非零状态结束；溢出另列诊断，不能据返回码推断没有排版问题。
 
 本次执行环境的基础 TeX 未安装 CTeX、xeCJK、zhnumber、stmaryrd。已从 TeX Live 2025 的公开历史仓库安装到工作区隔离目录，只选入必要宏包，未改动系统或另一挂载仓库。该环境的实际命令是：
 
