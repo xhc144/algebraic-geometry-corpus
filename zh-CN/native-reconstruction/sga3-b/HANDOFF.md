@@ -1,5 +1,7 @@
 # SGA 3-b 交付交接
 
+**按用户2026-10-21 09:51 UTC指示，整个项目已暂停。六名子任务均已结束；不自动续译、不启动新章节或新一轮审校。详见 PAUSE_STATUS.json。**
+
 本分工全文初译完成：XIII–XXVI 共14讲，加 GUIDE、TERMINAL_INDEX，共16个展开单元，冻结底本52,369/52,369行。已确认28讲的全书分界：前14讲至XII，本分工从XIII开始。不得重新翻译或覆盖已有中文。
 
 工作分支为 `translation/sga3-b-20261021`，早期检查点 d28abf71、d55b09a8、9e60d526 已正常推送。最终交付另建 `translation/sga3-b-delivery-20261021`，从刷新后的main建立隔离工作树，只导入本目录，普通提交和推送，不改写已发布历史。最终准确提交见Git分支和 `evidence/DELIVERY_STATUS.json`；配套源码构建提交见 `evidence/BUILD_STATUS.json`。
