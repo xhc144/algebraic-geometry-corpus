@@ -11,13 +11,16 @@ s=source.read_text().splitlines()
 units=[('01-expose-i.tex',323,2150),('02-expose-iii.tex',2151,4477),('03-expose-iii-b.tex',4478,6947),('04-expose-v-vi.tex',6948,9352),('05-expose-vii-viii.tex',9353,12530),('06-expose-x-xii.tex',12531,14583),('07-expose-xv.tex',14584,15704),('08-indexes.tex',15705,15817)]
 math=lambda x:re.findall(r'(?<!\\)\$(.+?)(?<!\\)\$|\\\((.*?)\\\)',x)
 norm=lambda x:re.sub(r'\s+','',x)
-report={'source_sha256':hashlib.sha256(source.read_bytes()).hexdigest(),'scope':'source-aligned chapters323–15817; sourcepreamble/Englishtitlepage adapted separately, Frenchfrontmatter added separately','checks':[],'limitations':['Counts and tokens do not prove mathematical correctness.','Translated text labels inside math may legitimately differ.','Historical source references are predominantly literal rather than LaTeX refs; manual source issues remain recorded.']}
+ledger_path=root/'qa/content-verification-20261021/adjudication-ledger.json'
+ledger=json.loads(ledger_path.read_text()) if ledger_path.exists() else {'items':[]}
+report={'source_sha256':hashlib.sha256(source.read_bytes()).hexdigest(),'scope':'source-aligned chapters323–15817; sourcepreamble/Englishtitlepage adapted separately, Frenchfrontmatter added separately','checks':[],'collation_ledger':str(ledger_path.relative_to(root)),'application_integrity':'qa/content-verification-20261021/application-verification.json reverses every approved edit to the independently reviewed pre-edit hash.','limitations':['Counts and tokens do not prove mathematical correctness.','Translated text labels inside math may legitimately differ.','Current raw formula differences include explicitly adjudicated corrections to the English reconstruction and French source; they are not claimed to be literal preservation.','Historical source references are predominantly literal rather than LaTeX refs; all82 recorded doubts/new findings have individual adjudications, including4 precise source uncertainties.']}
 inline=[]
 for name,a,b in units:
  original='\n'.join(s[a-1:b]);p=root/'chapters'/name;t=p.read_text();ls=t.splitlines()
  def inventory(x):return Counter(re.findall(r'\\(?:begin|end)\{[^}]+\}|\\(?:tag|label|ref|eqref|pageref)\{[^}]+\}',x))
  delta=inventory(t)-inventory(original);lost=inventory(original)-inventory(t)
  row={'file':str(p.relative_to(root)),'source_range':[a,b],'source_lines':b-a+1,'translation_lines':len(ls),'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'structure_lost':dict(lost),'structure_added':dict(delta),'control_characters':sorted(set(ord(c) for c in t if ord(c)<32 and c not in '\n\t\r')),'inline_math_differences':0}
+ row['approved_collation_item_ids']=[i['id'] for i in ledger['items'] if any(x['file']==str(p.relative_to(root)) for x in i['patches'])]
  if len(ls)!=b-a+1:
   row['inline_math_differences']=None
   row['inline_math_check']='Physical lines reflowed; use independent review and display/structure inventories, not a false zero. '
