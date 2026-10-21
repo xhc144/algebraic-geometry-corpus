@@ -1,0 +1,44 @@
+% Chinese working edition. Original book class, geometry, headings and Latin font retained.
+\documentclass[a4paper,oneside,fleqn]{book}
+\usepackage{geometry}
+% Upstream running heads use two lines; preserve the text block's top position.
+\setlength{\headheight}{22pt}
+\addtolength{\topmargin}{-10pt}
+\PassOptionsToPackage{no-math}{fontspec}
+\usepackage[fontset=none,scheme=plain]{ctex}
+\setCJKmainfont{Noto Serif CJK SC}[ItalicFont=Noto Serif CJK SC,ItalicFeatures={FakeSlant=0.2}]
+\setCJKsansfont{Noto Sans CJK SC}
+\setCJKmonofont{Noto Sans Mono CJK SC}
+\def\mode{WebMode}
+\usepackage{ifthen}
+\input{preamble}
+\usepackage{Baskervaldx}
+\AtEndPreamble{\setmainfont{Baskervaldx-Reg.otf}[BoldFont=Baskervaldx-Bol.otf,ItalicFont=Baskervaldx-Ita.otf,BoldItalicFont=Baskervaldx-BolIta.otf]}
+\special{pdf:mapfile Baskervaldx.map}
+\special{pdf:mapfile ESSTIX.map}
+\addbibresource{fga-bibliography.bib}
+\title{代数几何基础\\[0.5em]\large Fondements de la Géométrie Algébrique\\[1em]\normalsize 中文工作稿：前言与报告 I 第 1--2 节}
+\author{Alexander Grothendieck}
+\date{1956--1962}
+\begin{document}
+\frontmatter
+\pagestyle{plain}
+\maketitle
+\begin{abstract}
+本稿据 Tim Hosgood 的英文原生稿翻译，并在发现疑误处核对法文原本。本次仅含前言、第一篇报告的引言及第 1--2 节；其他七篇报告和第一篇其余各节尚未译入。原书作者、报告编号、公式与引用均予保留。英文稿与法文之间的差异及校核状态另见源码包中的 SOURCE\_NOTES.json。本稿尚未完成独立数学审校。
+\end{abstract}
+\setcounter{tocdepth}{1}
+\tableofcontents
+\mainmatter
+\pagestyle{fancy}
+\setcounter{part}{-1}
+\renewcommand\thepart{}
+\input{chapters/fga-foreword}
+\clearpage
+\renewcommand\thepart{\arabic{part}}
+\input{chapters/fga1}
+\backmatter
+\pagestyle{plain}
+\nocite{Car1957,Gro1957,Ser1955}
+\printbibliography[heading=bibintoc,title=参考文献]
+\end{document}

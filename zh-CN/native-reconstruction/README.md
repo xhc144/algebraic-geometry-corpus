@@ -21,3 +21,8 @@
 SGA 3/4 的 a/b 分割按已出版 exposé 有序列表的中点；a 管卷首，b 管卷末。全局索引及本协调目录由协调者独占维护。
 
 FGA 由协调者负责；其余十个作者目录由父线程启动的任务独占。未完成稿必须明确标注。
+
+## 已有可检查的工作稿
+
+- [FGA：前言、报告 1 引言及 §§1–2，7 页](fga/outputs/FGA-zh-working.pdf)，另有[单文件 TeX](fga/outputs/FGA-zh-working-standalone.tex)和[原生源码 ZIP](fga/outputs/FGA-zh-working-source.zip)。实际多遍编译通过，未作全书完成或独立数学审校声明；逐节缺口见 [PROGRESS.json](fga/PROGRESS.json)。
+- SGA 3-a 的引言与 exposé I（作者报 51 页）已进入独立核验队列；未在此认定原法文覆盖完整。SGA 5 十讲的首稿因构建尚未通过，暂不计为可交付译本。
