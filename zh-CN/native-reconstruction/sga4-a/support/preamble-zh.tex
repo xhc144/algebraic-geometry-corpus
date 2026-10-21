@@ -24,6 +24,11 @@
 \usepackage{pifont}
 \input{support/numerotation-zh}
 \input{support/macros-zh}
+% The source contains U+2009 thin spaces. Nimbus Roman lacks that glyph;
+% retain the source bytes and typeset the intended thin space natively.
+\catcode"2009=\active
+\protected\def {\ifmmode\mskip\thinmuskip\else\thinspace\fi}
+\emergencystretch=2em
 \def\cf{参见\kern.3em}
 \def\Cf{参见\kern.3em}
 \def\ie{即\kern.3em}
