@@ -28,10 +28,15 @@ def signature(s):
         'hypertargets': r'\\hypertarget\{([^}]*)\}',
         'environments_begin': r'\\begin\{([^}]*)\}',
         'environments_end': r'\\end\{([^}]*)\}',
+        'bibliography_keys': r'\\bibitem(?:\[[^\]]*\])?\{([^}]*)\}',
+        'citation_keys': r'\\cite(?:\[[^\]]*\])?\{([^}]*)\}',
+        'equation_tags': r'\\tag\{([^}]*)\}',
     }
     out = {k: re.findall(p, s) for k, p in patterns.items()}
     out['original_page_markers'] = len(re.findall(r'\\pageoriginale(?:d)?\b', s))
     out['xymatrix_count'] = len(re.findall(r'\\xymatrix\b', s))
+    out['heading_command_counts'] = dict(collections.Counter(re.findall(r'\\(section|subsection|subsubsection|paragraph)\*?\{', s)))
+    out['footnote_command_counts'] = dict(collections.Counter(re.findall(r'\\(footnote|footnotemark|footnotetext|nde|ndemark|ndetext)\b', s)))
     return out
 
 def math(s):

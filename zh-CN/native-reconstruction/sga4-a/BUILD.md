@@ -25,3 +25,5 @@ xelatex -no-shell-escape -interaction=nonstopmode -halt-on-error -file-line-erro
 本分册七次明确引向 X–XIX 的引用保留可见篇节文字。五个目标均由完整英文源核实；独立分册内不创建伪标签，也不生成无效本地链接。`support/external-references.tex` 仅对这五个明确目标处理；若整合版已有真实标签，则自动使用原超链接。其余任何未定义引用照常报告。
 
 原文中编号、箭头和残缺引文的疑点未批量“修正”；见各篇审校记录、`audit/REFERENCE_AUDIT.md` 与独立编号复核。`audit/FULL_CHUNK_MAP.json` 给出全部19正文区段的精确底本行界；`tools/check_full_scope.py` 可重现数学片段与结构差异盘点。
+
+当前项目已按用户指令暂停；不自动继续。精确暂停边界和恢复点见 `PAUSED.md`。最终独立源码包已实测两遍编译，463页，与工作目录PDF逐页提取文本完全一致。

@@ -10,6 +10,6 @@
 \setboolean{original}{false}
 
 \newcounter{cnote}
-\def\nde#1{\ifthenelse{\boolean{original}}{}{\stepcounter{cnote}\def\thefootnote{\arabic{cnote}}\protect\footnote[\value{cnote}]{编者注: #1}}}
-\def\ndemark{\ifthenelse{\boolean{original}}{}{\stepcounter{cnote}\def\thefootnote{\arabic{cnote}}\protect\footnotemark[\value{cnote}]}}
-\def\ndetext#1{\ifthenelse{\boolean{original}}{}{\def\thefootnote{\arabic{cnote}}\protect\footnotetext[\value{cnote}]{编者注: #1}}}
+\def\nde#1{\ifthenelse{\boolean{original}}{}{\stepcounter{cnote}\begingroup\def\thefootnote{\arabic{cnote}}\protect\footnote[\value{cnote}]{编者注: #1}\endgroup}}
+\def\ndemark{\ifthenelse{\boolean{original}}{}{\stepcounter{cnote}\begingroup\def\thefootnote{\arabic{cnote}}\protect\footnotemark[\value{cnote}]\endgroup}}
+\def\ndetext#1{\ifthenelse{\boolean{original}}{}{\begingroup\def\thefootnote{\arabic{cnote}}\protect\footnotetext[\value{cnote}]{编者注: #1}\endgroup}}
