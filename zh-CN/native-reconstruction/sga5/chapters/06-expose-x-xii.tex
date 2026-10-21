@@ -1,0 +1,2053 @@
+
+\phantomsection\addcontentsline{toc}{section}{报告 X --- 平展上同调中的 Euler--Poincaré 公式}
+\section*{报告 X --- 平展上同调中的 Euler--Poincaré 公式}
+
+\begin{center}
+\textbf{平展上同调中的 EULER--POINCARÉ 公式}
+
+A. Grothendieck 著
+
+(I. Bucur 整理)
+\end{center}
+
+本报告旨在陈述并证明 Euler--Poincaré 型公式 (7.2). 这一公式推广了 Ogg 和 Chafarevitch 各自独立得到的公式; M. Raynaud 的报告 [1] 从平展上同调的观点介绍了他们的结果.
+
+Euler--Poincaré 公式本质地使用了导出范畴的形式体系. 与上述文献一样, 证明通过 Weil 的一个著名公式的变体 (5.1) 来进行.
+
+\subsection*{1. 带算子的概形上的层}
+
+设 $X$ 为概形, 群 $G$ 以自同构作用于其上. 仿照 ([T] 第 V 章), 可以定义 $X$ 上以 $G$ 为算子群的平展层的概念, 简称为“$(X_{\et},G)$ 上的层”.
+
+按照定义, 给定 $X$ 上一个以 $G$ 为算子群的平展层, 就是给定一个层 $F\in \Ob(\widetilde X_{\et})$, 并对每个 $g\in G$ 给定一个态射
+\[
+S_g:F\longrightarrow g^*(F)
+\]
+使之满足下列条件:
+\[
+\text{a) }\quad S_e=1_F,
+\]
+并且对 $g,h\in G$, 图
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+F \arrow[r,"S_{hg}"] \arrow[d,"S_h"'] & (hg)^*(F) \arrow[d,"C_{h,g}(F)"]\\
+h^*(F) \arrow[r,"h^*(S_g)"'] & h^*(g^*(F))
+\end{tikzcd}
+\]
+交换, 其中
+\[
+C_{h,g}(F):(hg)^*(F)\longrightarrow h^*(g^*(F))
+\]
+是典范同构.
+
+$X$ 上以 $G$ 为算子群的两个层 $(F,S_g)$, $(F',S'_g)$ 之间的态射按显然的方式定义, 从而得到范畴 $\widetilde X_{\et,G}$. 由 Giraud 判据 (SGA 4 II 4.12) 容易推出, 这一范畴是拓扑斯.
+
+给定 $\widetilde X_{\et,G}$ 中的环 $A$, 可以考虑 $A$-模的阿贝尔范畴, 记为 $\Mod(A)$.
+
+例如, 给定一个环 $\Lambda$, 利用典范传递同构
+\[
+S_g:\Lambda_X\xrightarrow{\sim}g^*(\Lambda_X).
+\]
+便可赋予与 $\Lambda$ 相伴的常值层 $\Lambda_X$ 以平凡的算子群 $G$-层结构. [1] 第 V 章证明的所有结果都可以推广到这一情形, 细节留给读者.
+
+\subsection*{2. 证明某个 $\Lambda[G]$-模复形是完美复形}
+
+回顾 SGA 4 XVII 的下述结果.
+
+\begin{statement}{引理 2.1}
+设 $X$ 和 $Y$ 为两个概形, $f:X\to Y$ 为固有态射, 且 $Y$ 拟紧. 设 $A$ 为挠环, $F^\bullet$ 为 $X$ 上具有有限 Tor 维数的 $A$-模层复形 (SGA 4 XVII). 则 $Rf_*(F^\bullet)$ 具有有限 Tor 维数.
+\end{statement}
+
+\begin{statement}{命题 2.2}
+设 $X$ 为可分闭域 $k$ 上的固有概形, 有限群 $G$ 作用于 $X$, $V$ 为 $X$ 中在 $G$ 下稳定的开子集, 并且 $G$ 在 $V$ 上的作用可容许 (SGA 1 V 1.7) 且自由. 设 $\Lambda=\mathbb Z/\ell^n\mathbb Z$, 其中 $\ell$ 为不同于 $k$ 的特征的素数; 设 $\Lambda_V$ 为 $V$ 上与 $\Lambda$ 相伴的常值层, 赋予其平凡的算子群 $G$-层结构. 设
+\[
+i:V\longrightarrow X
+\]
+为 $V$ 到 $X$ 的浸入, 置 $\Lambda_{V,X}=i_!(\Lambda_V)$. 在这些条件下, $\Lambda[G]$-模复形
+\[
+R\Gamma_X(\Lambda_{V,X})
+\]
+是完美复形 (VIII 7).
+\end{statement}
+
+\begin{prooftext}
+若 $p:X\to Y=X/G$ 是典范投影, 则众所周知, 在范畴 $D(\Lambda[G])$ 中有典范同构
+\[
+R\Gamma_X(\Lambda_{V,X})\simeq R\Gamma_Y(Rp_*(\Lambda_{V,X}))
+\]
+另一方面, $Y$ 上的 $\Lambda[G]$-模复形 $Rp_*(\Lambda_{V,X})$ 具有有限 Tor 维数. 事实上, 由于 $p:X\to Y$ 是概形的有限态射, 有
+\[
+R^q p_*(\Lambda_{V,X})=0\qquad(q\ne0)
+\]
+(SGA 4 VIII 5.5). 因此
+\[
+Rp_*(\Lambda_{V,X})=p_*(\Lambda_{V,X}).
+\]
+SGA 4 VIII 5.5 也使我们能够确定层 $p_*(\Lambda_{V,X})$ 的纤维; 考虑到 $G$ 在 $V$ 上自由作用, 可得
+\[
+\bigl(p_*(\Lambda_{V,X})\bigr)_{\bar y}\simeq
+\begin{cases}
+\displaystyle \prod_{x\in p^{-1}(y)}\Lambda_{V,X,\bar x}\simeq \Lambda[G],& y\in p(V),\\[1em]
+0,& y\notin p(V),
+\end{cases}
+\]
+其中 $\bar y$ 是 $Y$ 中位于 $y$ 处的几何点.
+
+所以 $p_*(\Lambda_{V,X})$ 的每个纤维在 $\Lambda[G]$ 上均平坦 (SGA 4 XVII), 因而具有有限 Tor 维数. 对典范态射 $Y\to\Spec(k)$ 应用 2.1, 推出
+\[
+R\Gamma_X(\Lambda_{V,X})=R\Gamma_Y(Rp_*(\Lambda_{V,X}))
+\]
+具有有限 Tor 维数.
+
+要断定 $R\Gamma_X(\Lambda_{V,X})$ 是完美复形, 还须证明它拟凝聚且上同调有界 (VIII 8.1). 由于 $\Lambda[G]$ 是诺特环, 要验证 $R\Gamma_X(\Lambda_{V,X})$ 拟凝聚, 只须证明各群 $H^q(X,\Lambda_{V,X})$ 是有限型 $\Lambda[G]$-模 (VIII 7.2), 等价地, 是有限型 $\Lambda$-模; 这由对 $\Lambda$-模 $\Lambda_{V,X}$ 应用 (SGA 4 XIV 1.1) 得到.
+\end{prooftext}
+
+当 $X$ 是曲线时, Weil 公式 6.1 将利用已知的整体不变量
+以及将在第 5 节定义的局部不变量, 给出类 $\operatorname{cl}_{K^\bullet(\Lambda[G])}(R\Gamma_X(\Lambda_{V,X}))$
+的一个表达式.
+
+
+\subsection*{3. 有限群线性表示的回顾}
+
+本节中, $\Lambda$ 表示交换环, $G$ 表示群.
+
+\subsubsection*{3.1. 特征标}
+
+考虑 $\Mod(\Lambda[G])$ 的满子范畴 $\mathcal E$, 它由底层 $\Lambda$-模为有限型投射模的 $\Lambda[G]$-模 $M$ 组成. 对这样的模 $M$ 以及 $g\in G$, 考虑关于 $\Lambda$-模结构的自同态
+\[
+g_M:M\longrightarrow M,
+\qquad g_M(x)=gx.
+\]
+便得到函数
+\[
+\chi_M:G\longrightarrow \Lambda,
+\qquad \chi_M(g)=\Tr^*_\Lambda(g),
+\]
+它是 $G$ 上的中心函数, 称为 $\Lambda[G]$-模 $M$ 的特征标.
+
+将每个 $M\in\Ob(\mathcal E)$ 对应到其特征标 $\chi_M$, 得到一个加性函数 (VIII 1). 利用完美复形自同态的迹的形式体系, 甚至可以在那些作为 $\Lambda$-模复形为完美复形的 $\Lambda[G]$-模复形所成的范畴上得到加性函数 $\Tr$. 因而有同态
+\[
+\Tr:R^{\bullet}(G)\longrightarrow \mathcal F(G,\Lambda),
+\]
+其中 $R^{\bullet}_{\Lambda}(G)$ 是 $G$ 在 $\Lambda$ 上的表示环 (VIII 10), $\mathcal F(G,\Lambda)$ 是中心函数 $G\to\Lambda$ 所成的模.
+
+当 $G$ 有限时, 典范同态
+\[
+K^{\bullet}(\Lambda[G])\longrightarrow R^{\bullet}_{\Lambda}(G)
+\]
+与 $\Tr$ 的复合记为 $\tr$.
+
+回顾下述结果 (IX 定理 1, 推论 3).
+
+\begin{statement}{命题 3.2}
+设 $\mathbb Z_\ell$ 是 $\ell$ 进整数环, $G$ 是有限群. 则同态
+\[
+\tr:K^{\bullet}(\mathbb Z_\ell[G])\longrightarrow \mathcal F(G,\mathbb Z_\ell)
+\]
+为单同态. 具有相同迹函数 $\mathcal F(G,\mathbb Z_\ell)$ 的两个投射 $\mathbb Z_\ell[G]$-模同构.
+\end{statement}
+
+\subsubsection*{3.3. 限制与诱导}
+
+设 $\alpha:G\to G'$ 是群 $G$ 到群 $G'$ 的同态. 通过限制算子, 得到正合函子
+\[
+J:\Mod(\Lambda[G'])\longrightarrow\Mod(\Lambda[G]).
+\]
+这个函子具有左伴随
+\[
+I:\Mod(\Lambda[G])\longrightarrow\Mod(\Lambda[G']),
+\]
+即
+\[
+I(F)=\Lambda[G']\otimes_{\Lambda[G]}F.
+\]
+若 $F$ 为有限型投射模, 或为有限型模, 则 $I(F)$ 也分别如此.
+
+若 $\varphi\in\mathcal F(G',\Lambda)$ 是 $G'$ 上的中心函数, 则函数 $\varphi\circ\alpha$ 是 $G$ 上的中心函数, 从而得到映射
+\[
+\alpha^*: \mathcal F(G',\Lambda)\longrightarrow\mathcal F(G,\Lambda).
+\]
+若 $\varphi$ 是 $\mathcal C(G')$ 中 $\Lambda[G']$-模 $M$ 的特征标, 则 $\alpha^*(\varphi)$ 是 $\Lambda[G]$-模 $J(M)$ 的特征标.
+
+现设 $\alpha:G\to G'$ 单射, 且 $G$ 在 $G'$ 中的指数有限. 若 $F$ 是 $\mathcal C(G)$ 中的 $\Lambda[G]$-模, 其特征标为 $\psi:G\to\Lambda$, 则 $I(F)$ 属于 $\mathcal C(G')$, 且 $I(F)$ 的特征标 $\psi^*:G'\to\Lambda$ 就是由 $\psi$ 诱导的特征标, 即由公式
+\[
+\psi^*(g)=\sum_{t\in G'/G}\psi(t^{-1}gt),
+\tag{3.3.1}
+\]
+从 $\psi$ 得到的 $G'$ 上的函数, 其中约定当 $t^{-1}gt\notin G$ 时 $\psi(t^{-1}gt)=0$.
+
+\subsubsection*{3.4. 复形上的附加结构}
+
+设 $X^\bullet$ 和 $Y^\bullet$ 为两个 $A$-模复形. 与模的情形一样, 若复形 $X^\bullet$, $Y^\bullet$ 中有一个附加了 $A$-$B$-双模结构, 则可在 $\Hom_A^\bullet(X^\bullet,Y^\bullet)$ 上引入 $B$-模复形结构, 从而在 $\RHom_A(X^\bullet,Y^\bullet)$ 上引入相应结构.
+
+例如, 设 $X^\bullet$ 是 $D^-(A)$ 的对象, $Y^\bullet$ 是 $A$-$B$-双模复形; 更确切地说, 设我们处于符号 ${}_{A-B}Y^\bullet$ 所描述的情形. 特别地, $Y^\bullet$ 是 $D(A)$ 的对象. 设 $P^\bullet\to X^\bullet$ 是 $X^\bullet$ 的投射消解. 则 $\Hom_A^\bullet(P^\bullet,Y^\bullet)$ 显然是左 $B$-模复形, 即 $D(B)$ 的对象. 若使用另一个投射消解 $P_1^\bullet\to X^\bullet$, 则 $B$-模复形 $\Hom_A^\bullet(P_1^\bullet,Y^\bullet)$ 在 $D(B)$ 中与 $\Hom_A^\bullet(P^\bullet,Y^\bullet)$ 典范同构. 因此可将 $\RHom_A(X^\bullet,Y^\bullet)$ 定义为 $D(B)$ 的对象, 它在唯一同构意义下确定, 并且对 $D^-(A)$ 中的 $X^\bullet$ 以及 $D(A\otimes_{\mathbb Z}B)$ 中的 $Y^\bullet$ 具有函子性.
+
+类似的考虑适用于复形 $X^\bullet\otimes_A^{\mathbf L}Y^\bullet$. 例如, 若 $Y^\bullet$ 是上述 $A$-$B$-双模复形, $X^\bullet$ 是右 $A$-模组成的右有界复形, 则可将 $X^\bullet\otimes_A^{\mathbf L}Y^\bullet$ 定义为 $D(B)$ 中在唯一同构意义下确定的对象.
+
+\subsubsection*{3.5}
+
+设 $\Lambda$ 为交换环, $A$ 和 $B$ 为两个 $\Lambda$-代数, 置 $C=A\otimes_\Lambda B$. 因而 $C$-模就是 $A$-$B$-双模.
+
+若 $\Delta$ 为 $D(A)$ 的满三角子范畴, 以 $D(C)_{\Delta}$ 表示由那些作为 $D(A)$ 的对象时属于 $\Delta$ 的复形生成的 $D(C)$ 的满三角子范畴.
+
+\begin{statement}{命题 3.6}
+沿用 3.4 和 3.5 的记号, 设 $\Delta$ 是 $D(A)$ 的一个对直因子稳定的满三角子范畴. 若 $P^\bullet$ 是 $D(B)_{\parf}$ 的对象 (VIII 7), $M^\bullet$ 是 $D(C)_{\Delta}$ 的对象, 则 4.1 中定义的 $A$-模复形 $\RHom_B(P^\bullet,M^\bullet)\in D(A)$ 是 $\Delta$ 的对象. 特别地, 有三角范畴的配对
+\[
+\RHom:D(B)_{\parf}\times D(C)_{\Delta}\longrightarrow \Delta,
+\tag{3.6.1}
+\]
+即对每个变量均正合的双函子, 从而 (VIII 3) 有双线性映射
+\[
+K^{\bullet}(B)\times K^{\bullet}(D(C)_{\Delta})\xrightarrow{\operatorname{hom}} K(\Delta)
+\tag{3.6.2}
+\]
+满足
+\[
+K(a)\bigl(\cl_{K^{\bullet}(B)}(P^\bullet),\cl_{K(D(C)_{\Delta})}(M^\bullet)\bigr)
+=\cl_{K(\Delta)}\bigl(\RHom_B(P^\bullet,M^\bullet)\bigr).
+\tag{3.6.3}
+\]
+将 $B$ 换成它的反环 $B^\circ$, 并将 $\RHom_B(P^\bullet,M^\bullet)$ 换成 $P^\bullet\otimes_B^{\mathbf L}M^\bullet$, 就得到类似的陈述.
+\end{statement}
+
+\begin{prooftext}[证明]
+先在 $P^\bullet$ 只有一个非零分量的特殊情形中证明 $\RHom_B(P^\bullet,M^\bullet)$ 是 $\Delta$ 的对象, 再对 $P^\bullet$ 的非零分量数目作归纳.
+\end{prooftext}
+
+\subsubsection*{3.7}
+
+设 $P$ 是 $\Lambda[G]$-模. 它特别也是 $\Lambda$-模. 对每个 $u\in\Hom_\Lambda(P,\Lambda)$ 和 $g\in G$, 令 $(gu)(x)=u(g^{-1}x)$, 便可赋予 $\Lambda$-模 $\check P=\Hom_\Lambda(P,\Lambda)$ 以左 $\Lambda[G]$-模结构, 即
+\[
+g_{\check P}={}^{t}(g^{-1})_P.
+\tag{3.7.1}
+\]
+这样得到的 $\Lambda[G]$-模 $\check P$ 称为 $P$ 的对偶.
+
+于是可将 $\Lambda[G]$-模复形 $P^\bullet$ 的对偶 $\check P^\bullet=\Hom_\Lambda^\bullet(P^\bullet,\Lambda)$ 定义为一个 $\Lambda[G]$-模复形.
+
+若 $\chi_P$ 是 $P$ 的特征标, 则它的对偶的特征标 $\chi_{\check P}$ 由
+\[
+\chi_{\check P}(g)=\chi_P(g^{-1}),
+\tag{3.7.2}
+\]
+给出; 利用公式
+\[
+\Tr_\Lambda^*(v)=\Tr_\Lambda^*({}^{t}v).
+\]
+即可由 (4.3.1) 立即得到这一点. 若 $P$ 是有限型投射 $\Lambda[G]$-模, 则 $\check P$ 显然也是有限型投射 $\Lambda[G]$-模. 此外, 此时 $\Lambda$-模的典范同态
+\[
+P\longrightarrow\check{\check P}
+\]
+实际上是 $\Lambda[G]$-模的同构. 这样就在 $K^{\bullet}(\Lambda[G])$ 上定义了一个对合
+\[
+x\longmapsto \check x,
+\]
+它将 $P$ 的类对应到 $\check P$ 的类. 显然, 若 $\mu:\Lambda\to\Gamma$ 是交换环同态, $u:\Lambda[G]\to\Gamma[G]$ 为相伴同态, 则同态
+\[
+u^*:K^{\bullet}(\Lambda[G])\longrightarrow K^{\bullet}(\Gamma[G])
+\]
+与 $K^{\bullet}(\Lambda[G])$ 及 $K^{\bullet}(\Gamma[G])$ 上的对合 $x\longmapsto\check x$ 交换.
+
+设 $A$ 为 $\Lambda$-代数, 置
+\[
+A[G]=\Lambda[G]\otimes_\Lambda A.
+\]
+给定一个 $A[G]$-模复形 $X^\bullet$, 以 $X^{\bullet G}$ 表示 $X^\bullet$ 在下述函子下的像所成的 $A$-模复形: 该函子将每个 $A[G]$-模 $X$ 对应到由 $X$ 的 $G$-不变元素组成的 $A$-模.
+
+\begin{statement}{命题 3.8}
+设 $G$ 为有限群, $P^\bullet$ 为各分量均是有限型投射模的有界 $\Lambda[G]$-模复形, $M^\bullet$ 为 $A[G]$-模复形. 在这些条件下, 有 $A$-模复形的典范同构
+\[
+\Hom_{\Lambda[G]}^\bullet(P^\bullet,M^\bullet)
+\simeq \Hom_\Lambda^\bullet(P^\bullet,M^\bullet)^G
+\simeq (\check P^\bullet\otimes_\Lambda M^\bullet)^G
+\simeq \check P^\bullet\otimes_{\Lambda[G]}M^\bullet.
+\tag{3.8.1}
+\]
+\end{statement}
+
+证明使用模的情形中众所周知的同构, 留给读者完成. 注意, 在第二项和第三项中, $G$ 在 $\Hom_\Lambda^\bullet(P^\bullet,M^\bullet)$, 分别在 $\check P^\bullet\otimes_\Lambda M^\bullet$ 上的作用, 是由它在 $P^\bullet$ 和 $M^\bullet$, 分别在 $\check P^\bullet$ 和 $\check M^\bullet$ 上的作用经结构搬移而定义的.
+
+\begin{statement}{推论 3.9}
+若 $P^\bullet\in\Ob(D(\Lambda[G])_{\parf})$, $M^\bullet\in D^+(A[G])$, 则在导出范畴 $D(A)$ 中有下列同构:
+\[
+\RHom_{\Lambda[G]}(P^\bullet,M^\bullet)
+=R\Gamma^G(\check P^\bullet\otimes_\Lambda^{\mathbf L}M^\bullet)
+\simeq \check P^\bullet\otimes_{\Lambda[G]}M^\bullet.
+\tag{3.9.1}
+\]
+\end{statement}
+
+事实上, 由于 $P^\bullet\in D(\Lambda[G])_{\parf}$, 可以假设 $P^\bullet$ 有界且各分量均为有限型投射模. 因此
+\[
+\RHom_{\Lambda[G]}(P^\bullet,M^\bullet)=\Hom_{\Lambda[G]}^\bullet(P^\bullet,M^\bullet)
+\]
+可以使用同构 (4.3.4). 但 $\check P^\bullet$ 与 $P^\bullet$ 一样, 有界且各分量为有限型投射模, 所以
+\[
+\check P^\bullet\otimes_{\Lambda[G]}M^\bullet\simeq
+\check P^\bullet\otimes_{\Lambda[G]}^{\mathbf L}M^\bullet.
+\]
+类似地, $\check P^\bullet\otimes_\Lambda M^\bullet=\check P^\bullet\otimes_\Lambda^{\mathbf L}M^\bullet$. 此外, 复形 $\check P^\bullet\otimes_\Lambda M^\bullet$ 的各分量上同调平凡 ([3] IX 3), 因而
+\[
+R\Gamma^G(\check P^\bullet\otimes_\Lambda^{\mathbf L}M^\bullet)
+\simeq (\check P^\bullet\otimes_\Lambda M^\bullet)^G.
+\]
+
+\subsection*{4. Swan 表示}
+
+设 $E$ 为代数闭域 $k$ 上的光滑连通代数曲线. 若 $x\in E$ 是 $E$ 的闭点, 则其局部环 $\mathcal O_{E,x}$, 简记为 $\mathcal O_x$, 是离散赋值环, 其分式域同构于 $E$ 的有理函数域, 剩余域为 $k$. 相应的赋值记为 $v_x$.
+
+\begin{statement}{引理 4.1}
+设 $E$ 为代数闭域 $k$ 上的光滑代数曲线, $g:E\to E$ 为 $E$ 上不同于恒等态射的自态射. 设 $x\in E$ 是 $g$ 的孤立不动点, $\pi$ 为 $\mathcal O_{E,x}$ 的素元. 若 $v_x$ 是 $\mathcal O_{E,x}$ 相应的赋值, 则映射 $g$ 的不动点 $x$ 的重数 $v_x(g)$ (IV) 等于 $v_x(g(\pi)-\pi)$.
+\end{statement}
+
+
+在积 $E\times E$ 中, 分别以 $\Delta$ 和 $\Gamma_g$ 表示对角线及自态射 $g$ 的图像. 设
+\[
+\gamma:E\longrightarrow E\times E,\qquad
+\delta:E\longrightarrow E\times E
+\]
+为相应的浸入. 在 $x$ 和 $(x,x)$ 处的完备局部环上, 它们由同态
+\[
+\gamma^*,\delta^*:A\widehat\otimes A\longrightarrow A
+\qquad (A=\widehat{\mathcal O}_x),
+\]
+给出, 其中
+\[
+\delta^*(a\otimes b)=ab,\qquad
+\gamma^*(a\otimes b)=a\,g^*(b).
+\]
+须计算 $E\times E$ 上的交 $\Delta\Gamma_g$ 中点 $\delta(x)$ 的重数 $v_x(g)$. 除子 $\Delta$ 对应于 $A\widehat\otimes A$ 中由元素 $1\otimes\pi-\pi\otimes1$ 生成的理想. 因此, 交 $\Delta\Gamma_g$ 中 $\delta(x)$ 的重数为
+\[
+v_x(g)=v_x\bigl(\gamma^*(1\otimes\pi-\pi\otimes1)\bigr)
+      =v_x(g(\pi)-\pi),
+\]
+即得所证.
+
+\subsubsection*{4.2}
+
+设 $C$ 为代数闭域 $k$ 上的光滑、固有、连通代数曲线. 若 $\eta$ 为其一般点, 以 $K=k(\eta)$ 表示其有理函数域.
+
+设
+\[
+K'\supset K,\qquad [K':K]=n
+\]
+为次数 $n$ 的有限 Galois 扩张, 其 Galois 群为 $G$. 设 $C'$ 是 $C$ 在 $K'$ 中的正规化,
+\[
+p:C'\longrightarrow C
+\]
+为典范投影. Galois 群 $G$ 自然作用于 $C'$. $y'\in C'$ 在 $G$ 中的稳定子记为 $G_{y'}$.
+
+若 $\pi$ 是 $\mathcal O_{C',y'}$ 的素元, 且 $s\in G_{y'}$, $s\ne e$, 置
+\[
+v_{y'}(s(\pi)-\pi)=v_{y'}(s)
+\tag{4.2.1}
+\]
+(即映射 $s:C'\to C'$ 的不动点 $y'$ 的重数 (引理 5.1)).
+
+与 $y'$ 相伴的 Swan 表示由其特征标 $\sigma_{y'}$ 定义, 后者由下式给出:
+\[
+\sigma_{y'}(s)=
+\begin{cases}
+1-v_{y'}(s),& s\ne e,\\[0.4em]
+\displaystyle\sum_{s\ne e}\bigl(v_{y'}(s)-1\bigr),& s=e.
+\end{cases}
+\tag{4.2.2}
+\]
+Artin--Serre--Swan 的结果 (IX 定理 4) 表明: 对于不同于 $k$ 的特征的素数 $\ell$, 存在有限型投射 $\mathbb Z_\ell[G_{y'}]$-模 $Sw_{y'}$, 它在同构意义下确定, 其特征标为 $\sigma_{y'}$.
+
+考虑下述 $\mathbb Z_\ell[G_{y'}]$-模也很有用:
+\[
+Sw'_{y'}=Sw_{y'}\oplus\mathbb Z_\ell[G_{y'}].
+\tag{4.2.3}
+\]
+$Sw'_{y'}$ 的特征标 $\sigma'_{y'}$ 由下式给出:
+\[
+\sigma'_{y'}(s)=
+\begin{cases}
+1-v_{y'}(s),& s\ne e,\\[0.4em]
+\displaystyle 1+\sum_{s\ne e}v_{y'}(s)
+=1+v_{y'}(\mathfrak D_{C'/C}),& s=e,
+\end{cases}
+\tag{4.2.4}
+\]
+其中 $\mathfrak D_{C'/C}$ 为覆盖 $C'/C$ 的余差; 最后一个公式就是 [3, 第 VI 章 2, 命题 4] 中取 $H=\{1\}$ 的情形.
+
+最后, 函数
+\[
+a_{y'}=\sigma_{y'}+u_{G_{y'}}=\sigma'_{y'}-1_{G_{y'}},
+\tag{4.2.5}
+\]
+也是某个 $\mathbb Q_\ell[G_{y'}]$-模的特征标, 这个模就是 $G_{y'}$ 的 Artin 表示, 记为 $Art_{y'}$; 其中 $u_{G_{y'}}$ 表示 $\mathbb Z_\ell[G_{y'}]$ 的增广理想的特征标.
+
+因而
+\[
+a_{y'}(s)=
+\begin{cases}
+-v_{y'}(s),& s\ne e,\\[0.4em]
+\displaystyle\sum_{s\ne e}v_{y'}(s)=v_{y'}(\mathfrak D_{C'/C}),& s=e.
+\end{cases}
+\tag{4.2.6}
+\]
+
+现考虑包含 $G_{y'}\subset G$. 置
+\[
+Sw_y=Sw_{y'}\otimes_{\mathbb Z_\ell[G_{y'}]}\mathbb Z_\ell[G],
+\qquad
+Sw'_y=Sw'_{y'}\otimes_{\mathbb Z_\ell[G_{y'}]}\mathbb Z_\ell[G],
+\tag{4.2.7}
+\]
+\[
+Art_y=Art_{y'}\otimes_{\mathbb Q_\ell[G_{y'}]}\mathbb Q_\ell[G].
+\tag{4.2.8}
+\]
+上述表示的特征标分别记为 $\sigma_y$, $\sigma'_y$ 和 $a_y$.
+
+\subsubsection*{4.3}
+
+如此得到的模在同构意义下只依赖于点 $y\in C$, 而与 $y$ 上方的点 $y'$ 及 $C'$ 的选择无关. 设 $y''$ 为另一个这样的点. 存在 $g\in G$ 使 $y''=g y'$. 情形 $(C',y'',G)$ 由情形 $(C,y',G)$ 通过 $C'$ 上的同构 $g$ 以及 $G$ 上的 $\operatorname{int}(g):h\mapsto ghg^{-1}$ 得到. 由结构搬移可知, 与 $y''$ 相伴的模 $Sw_y$ 等, 是由与 $y'$ 相伴的模经 $\operatorname{int}(g):G\to G$ 扩张算子而得到的. 众所周知, 这一扩张将模变为与之同构的模.
+
+\begin{statement}{命题 4.4}
+沿用 3.7 的记号, 取 $(\Lambda=\mathbb Z_\ell)$, 且设 $M^\bullet$ 为 $D^+(A[G])$ 的对象, 则有同构
+\[
+(*)\qquad Sw_y\simeq \check{Sw}_y,
+\]
+\[
+(**)\qquad
+\Hom^\bullet_{\mathbb Z_\ell[G]}(Sw_y,M^\bullet)
+\simeq Sw_y\otimes_{\mathbb Z_\ell[G]}M^\bullet.
+\]
+\end{statement}
+
+证明. 两个有限型投射 $\mathbb Z_\ell[G]$-模只要有相同的特征标就同构 (3.2). 若 $\check\sigma_y$ 表示 $\check{Sw}_y$ 的特征标, 则由 (3.7.2) 有
+\[
+\check\sigma_y(s)=\sigma_y(s^{-1}).
+\]
+另一方面,
+\[
+v_{y'}(s^{-1}(\pi)-\pi)
+=v_{y'}(s(s^{-1}(\pi)-\pi))
+=v_{y'}(\pi-s(\pi))
+=v_{y'}(s(\pi)-\pi),
+\]
+所以 $Sw_{y'}\simeq\check{Sw}_{y'}$, 再由定义 (4.2.7) 得公式 $(*)$. 公式 $(**)$ 由 3.8 得到.
+
+\subsubsection*{4.5}
+
+下面将需要 Swan 表示的特征标的显式公式. 事实上, 有公式
+\[
+\sigma^{*}_{y'}(s)=\sigma^{*}_{y''}(s)=\sigma_y(s)=
+\begin{cases}
+\displaystyle\sum_{\substack{p(z')=y\\s(z')=z'}}\bigl(1-v_{z'}(s)\bigr),& s\ne e,\\[0.8em]
+\displaystyle\sum_{p(z')=y}\bigl(1+v_{z'}(\mathfrak D_{C'/C})\bigr)-n,& s=e,
+\end{cases}
+\tag{4.5.1}
+\]
+\[
+\sigma^{\prime*}_{y'}(s)=\sigma^{\prime*}_{y''}(s)=\sigma'_y(s)=
+\begin{cases}
+\displaystyle\sum_{\substack{p(z')=y\\s(z')=z'}}\bigl(1-v_{z'}(s)\bigr),& s\ne e,\\[0.8em]
+\displaystyle\sum_{p(z')=y}\bigl(1+v_{z'}(\mathfrak D_{C'/C})\bigr),& s=e,
+\end{cases}
+\tag{4.5.2}
+\]
+\[
+a^{*}_{y'}(s)=a^{*}_{y''}(s)=a_y(s)=
+\begin{cases}
+\displaystyle-\sum_{\substack{p(z')=y\\s(z')=z'}}v_{z'}(s),& s\ne e,\\[0.8em]
+\displaystyle\sum_{p(z')=y}v_{z'}(\mathfrak D_{C'/C}),& s=e.
+\end{cases}
+\tag{4.5.3}
+\]
+为推出这些公式, 使用 (3.3.1) 并注意下述事实: 若固定点 $y'_0\in C'$, 则对每个满足 $p(y')=p(y'_0)$ 的 $y'\in C'$, 都可找到元素 $g'\in G$ 使 $g'(y')=y'_0$. 这些元素 $g'$ 构成 $G$ 中关于 $G_{y'_0}$ 的右陪集代表系, 并且
+\[
+G_{y'_0}=g'G_{y'}g'^{-1}.
+\]
+可在公式 (3.3.1) 的右端使用这一代表系, 从而得到上面列出的各式.
+
+\subsubsection*{4.6}
+
+不变量 $Sw_y$, $Sw'_y$, $Art_y$ 可在更一般的条件下定义. 设 $C'$ 是 $k$ 上不必连通的光滑代数曲线. 设有限群 $G$ 作用于 $C'$, 且 $C=C'/G$ 有一个在 $C$ 中稠密的开子集 $U$, 使 $C'|U$ 是 $U$ 的群为 $G$ 的主覆盖. 对点 $y\in C$, 可仿照上面定义模 $Sw_y$, $Sw'_y$, $Art_y$. 按如下方式可归结到 $C'$ 连通的情形. 设 $y'\in C'$ 满足 $p(y')=y$, $C'_1$ 为包含 $y'$ 的 $C'$ 的不可约分支, $C_1$ 为包含 $y$ 的 $C$ 的不可约分支. 若 $G_{C'_1}$ 是分支 $C'_1$ 的稳定子, $\eta'_1$ (分别 $\eta_1$) 是 $C'_1$ (分别 $C_1$) 的一般点, 则扩张
+\[
+K'_1=k(\eta'_1)\supset k(\eta_1)=K_1
+\]
+是 Galois 扩张, 其 Galois 群为 $G_{C'_1}$, 且 $C'_1$ 为 $C_1$ 在 $K'_1$ 中的正规化 (SGA 1 I 10). 因而可以对曲线 $C'_1$, $C_1$ 及群 $G_{C'_1}$ 应用上述考虑. 这样得到有限型投射 $\mathbb Z_\ell[G_{C'_1}]$-模
+\[
+Sw_{G_{C'_1},y},\qquad Sw'_{G_{C'_1},y},\qquad Art_{G_{C'_1},y},
+\]
+而 $Sw_y$, $Sw'_y$, $Art_y$ 是与包含 $G_{C'_1}\subset G$ 相伴的诱导模.
+
+注 4.6. 模 $Sw_{y'}$, $Sw'_{y'}$, $Art_{y'}$ 是纯粹局部的不变量: 只要知道群 $G_{y'}$ 在局部环 $\mathcal O_{C',y'}$ 的完备化上的作用就知道这些模. 此外, $Sw_{y'}=0$ 当且仅当 $p:C'\to C$ 在 $y'$ 处温和分歧, 等价地, $G_{y'}$ 的阶与 $k$ 的特征互素 [3 VI].
+
+\subsection*{5. Weil 公式 (参看 [3 VI §4])}
+
+\subsubsection*{5.0}
+
+本节考虑的所有概形都定义在代数闭基域 $k$ 上.
+
+使用下列记号:
+\[
+\Lambda_\nu=\mathbb Z/\ell^\nu\mathbb Z,
+\]
+其中 $\ell$ 为固定的不同于 $k$ 的特征的素数.
+
+设 $\mathbb Z_\ell\to\Lambda_\nu$ 为典范同态. 它诱导同态
+\[
+\lambda_\nu:\mathbb Z_\ell[G]\longrightarrow \Lambda_\nu[G]
+\]
+从而 [VIII 9] 诱导约化同态
+\[
+\lambda_\nu^*:K^{\bullet}(\mathbb Z_\ell[G])\longrightarrow K^{\bullet}(\Lambda_\nu[G]).
+\]
+模 $Sw_y$, $Sw'_y$ 对应的元素在 $\lambda_\nu^*$ 下的像记为
+\[
+Sw_y^{\Lambda_\nu},\qquad Sw_y'{}^{\Lambda_\nu}.
+\]
+约化同态 $\lambda_\nu^*$ 实际上是同构 [IX 1.5]. $\lambda_\nu^*$ 的逆记为 $\mu_\nu$.
+
+概形 $X$ 上与环 $\Lambda_\nu$ 相伴的常值层记为 $\Lambda_{\nu,X}$.
+
+设 $V$ 为 $X$ 的开子集, $j:V\hookrightarrow X$ 为典范浸入. 置
+\[
+j_!(\Lambda_{\nu,V})=\Lambda_{\nu,V,X}.
+\]
+
+\begin{statement}{命题 5.1}
+设 $C'$ 为代数闭域 $k$ 上的光滑固有代数曲线, 有限群 $G$ 作用于 $C'$, 设 $C=C'/G$, $p:C'\to C$ 为典范投影, $U$ 为 $C$ 的稠密开子集, 使 $U'=p^{-1}(U)$ 是 $U$ 的群为 $G$ 的主覆盖; 设 $Y=C-U$, $Y'=p^{-1}(Y)=C'-U'$, 并以 $\EP(C)$ 表示 $C$ 的 Euler--Poincaré 示性数 (当 $C$ 连通且亏格为 $g$ 时, 它等于 $2-2g$).
+在这些条件下, 有 Weil 公式:
+\[
+\clKstar{\Lambda_\nu[G]}\bigl(\RG_{C'}(\Lambda_{\nu,U',C'})\bigr)
+=
+\EP(C)\clKstar{\Lambda_\nu[G]}(\Lambda_\nu[G])
+-\sum_{y\in Y}Sw_y'{}^{\Lambda_\nu},
+\tag{5.2}
+\]
+其中 (5.2) 的左端借助 2.1 定义.
+\end{statement}
+
+证明. 分别以 $S_1$ 和 $S_2$ 表示待证公式的左端和右端. 由于约化同态 $\lambda_\nu^*$ 实际上是同构, 只须证明
+\[
+\mu_\nu(S_1)=\mu_\nu(S_2).
+\]
+另一方面, 由 (3.3.1), 迹同态
+\[
+K^{\bullet}(\mathbb Z_\ell[G])\xrightarrow{\ tr\ }\mathcal F(G,\mathbb Z_\ell)
+\]
+为单同态. 所以只须证明
+\[
+\operatorname{tr}(\mu_\nu(S_1))=\operatorname{tr}(\mu_\nu(S_2)).
+\]
+特征标 $\sigma_2=\operatorname{tr}(\mu_\nu(S_2))$ 显然由下式给出:
+\[
+\sigma_2=\EP(C)r_G-\sum_{y\in Y}\sigma'_y,
+\tag{5.2.1}
+\]
+其中 $\sigma'_y$ 为 $Sw'_y$ 的特征标 ((4.2.7) 及 (4.2.3)), $r_G$ 为正则表示.
+
+现考虑迹的约化同态:
+\[
+\mathcal F(G,\mathbb Z_\ell)\xrightarrow{\lambda_n^*}\mathcal F(G,\mathbb Z/\ell^n\mathbb Z).
+\]
+显然有
+\[
+\mathcal F(G,\mathbb Z_\ell)=\varprojlim_n\mathcal F(G,\mathbb Z/\ell^n\mathbb Z).
+\]
+因而只须对每个 $n$ 证明
+\[
+\lambda_n^*(\operatorname{tr}(\mu_\nu(S_1)))=\lambda_n^*(\sigma_2).
+\]
+左端等于 $\operatorname{tr}(\lambda_n^*(\mu_\nu(S_1)))$, 而
+\[
+\lambda_n^*(\mu_\nu(S_1))
+=
+\clKstar{\Lambda_n[G]}\bigl(\RG_{C'}(\Lambda_{n,U',C'})\bigr),
+\]
+这是由 Künneth 公式 (SGA 4 XVIII)
+\[
+\RG_{C'}(\Lambda_{n,U',C'})\otimes_{\Lambda_n}^{L}\Lambda_\nu
+\simeq \RG_{C'}(\Lambda_{\nu,U',C'})
+\quad\text{当 } n\ge\nu
+\]
+得到的. 从而归结为证明等式
+\[
+\operatorname{tr}\bigl(\clKstar{\Lambda_n[G]}(\RG_{C'}(\Lambda_{n,U',C'}))\bigr)
+=
+\lambda_n^*(\sigma_2).
+\]
+以 $\tau$ 表示此等式的左端, 取 $g\in G$. 元素 $g$ 显然诱导典范三角
+\[
+\begin{tikzcd}[column sep=huge,row sep=large]
+& \RG_{Y'}(\Lambda_{n,Y'}) \arrow[dl] \arrow[dr] & \\
+\RG_{C'}(\Lambda_{n,U',C'}) \arrow[rr] && \RG_{C'}(\Lambda_{n,C'})
+\end{tikzcd}
+\]
+的自同态. 因此
+\[
+\tau(g)=\Tr^*g_{\RG_{C'}(\Lambda_{n,U',C'})}
+=\Tr^*g_{\RG_{C'}(\Lambda_{n,C'})}
+-\Tr^*g_{\RG_{Y'}(\Lambda_{n,Y'})}.
+\]
+为简便起见, 这里用 $\Tr^*$ 代替 $\Tr^*_{\Lambda_n}$.
+
+对带有 $g$ 作用的离散空间 $Y'$ 应用一个平凡的 Lefschetz 公式, 得
+\[
+\begin{aligned}
+\Tr^*g_{\RG_{Y'}(\Lambda_{n,Y'})}
+&=\text{$g$ 在 $Y'$ 上的限制 $g_{Y'}$ 的不动点数目}\\
+&=\sum_{\substack{y'\in Y'\\gy'=y'}}1.
+\end{aligned}
+\]
+另一方面, 对 $g$ 在 $C'$ 上的作用应用 Lefschetz 公式 (III 4.7), 当 $g\ne e$ 时得到
+\[
+\Tr^*g_{\RG_{C'}(\Lambda_{n,C'})}
+=
+\sum_{y'\in Y'} v_{y'}(g),
+\]
+即映射 $g_{C'}:C'\to C'$ 的不动点重数之和. 又有
+\[
+\Tr^*g_{\RG_{C'}(\Lambda_{n,C'})}=\EP(C')\cdot1_\Lambda
+\quad\text{当 }g=e,
+\]
+这是通过 (SGA 4 IX 47) 及 Künneth 公式 (SGA 4 XVII) 显式计算 $H^1(C',\Lambda_{n,C'})$ 得到的. 因而有如下关于 $\tau$ 的公式:
+\[
+\tau(g)=
+\begin{cases}
+\displaystyle\sum_{\substack{y'\in Y'\\g(y')=y'}}\bigl(v_{y'}(g)-1\bigr),& g\ne e,\\[0.8em]
+\EP(C')-\operatorname{card}(Y'),& g=e.
+\end{cases}
+\tag{5.2.2}
+\]
+与 (5.2.1) 比较, 容易得到 $\tau=\lambda_n^*(\sigma_2)$. 事实上, 若 $g\ne e$, 则 $\tau(g)$ 与 $\lambda_n^*(\sigma_2)$ 相等直接由 (4.5.2) 得出. 若 $g=e$, 则须验证的公式为
+\[
+\EP(C')-\operatorname{card}(Y')
+=
+N\EP(C)-\sum_{y\in Y}\sigma'_y(e),
+\qquad N=\operatorname{card}(G),
+\]
+即由 (4.5.2) 须验证
+\[
+\EP(C')-N\EP(C)=-\deg(\mathfrak D_{C'/C}),
+\]
+这正是经典的 Hurwitz 公式.
+
+\subsection*{6. 局部项 $\varepsilon_x^\Delta(F)$ 的定义}
+
+\subsubsection*{6.1}
+
+设 $C$ 为代数闭域 $k$ 上的连通光滑代数曲线, $A$ 为 $\Lambda$-代数 ($\Lambda=\mathbb Z/\ell^\nu\mathbb Z$, 其中 $\ell$ 不同于 $k$ 的特征), $\Delta\subset D^+(A)$ 为 $D^+(A)$ 中对直因子稳定的三角子范畴. 设 $F$ 为 $C$ 上满足下列条件的 $A$-模层复形:
+
+i) 对每个几何点 $\bar x\in C(k)$, 有 $F_{\bar x}\in\Ob(\Delta)$.
+
+ii) 存在 $C$ 的非空开子集, 使 $F$ 在其上局部常值; 等价地, 存在 $C$ 的非空开子集 $U$ 及群为 $G$ 的连通 Galois 覆盖 $C'\xrightarrow{p}C$, 使得若 $F'=p^*(F)$ 为 $F$ 在 $p$ 下的逆像, 则 $F'|U'$ 是常值的 $(U'=p^{-1}(U))$.
+
+因此, 层 $F'|U'$ 由一个带 $G$ 作用的 $A$-模复形 $M$ 定义. 若 $\eta$ (分别 $\eta'$) 为 $C$ (分别 $C'$) 的一般点, $\bar\eta$ (分别 $\bar\eta'$) 为 $\eta$ (分别 $\eta'$) 上方的几何点, 则
+\[
+p(\eta')=\eta,\qquad
+F_{\bar\eta}\simeq F'_{\bar\eta'}=M.
+\tag{6.1.1}
+\]
+作为 $A$-模复形, $M$ 同构于 $F_{\bar\eta}$, 且由条件 i), 它是 $\Delta$ 的对象. 因此, 由 (3.6), 对每个 $x\in C(k)$,
+\[
+\Hom^\bullet_{\Lambda[G]}(Sw_x^\Lambda,M)
+\]
+是 $\Delta$ 的对象, 从而定义 $K(\Delta)$ 的一个元素.
+
+事实上, $\Hom^\bullet_{\Lambda[G]}(Sw_x^\Lambda,M)$ 定义的 $\Delta$ 中的对象, 在同构意义下与将 $F|U$ 平凡化的 Galois 覆盖 $C'\to C$ 无关. 为此只须比较与两个覆盖
+\[
+C'\xrightarrow{p}C,\qquad C''\xrightarrow{p'}C'\xrightarrow{p}C.
+\]
+相伴的元素. 此时, 若 $G'$ 为覆盖 $C''\xrightarrow{p''}C$ 的 Galois 群, 则 $G$ 为 $G'$ 的商群. 设
+\[
+\varphi:\mathbb Z_\ell[G']\longrightarrow \mathbb Z_\ell[G]
+\]
+为相伴的典范满同态. 此时 Swan 模之间有关系
+\[
+Sw_{G,x}\simeq Sw_{G',x}\otimes_{\mathbb Z_\ell[G']}\mathbb Z_\ell[G],
+\]
+这直接由下述事实得到: 特征标 $a_{G,x}$ 是从 $G'$ 到 $G$ 诱导的特征标 ([3] VI 命题 3).
+
+另一方面, 有 $A[G']$-模复形的同构
+\[
+F_{\bar\eta''}\simeq [F_{\bar\eta'}]_{(\varphi)}.
+\]
+因此, 下列两个 $A$-模复形之间有典范同构:
+\[
+\Hom^\bullet_{\Lambda[G]}(Sw_{G,x}^\Lambda,F_{\bar\eta})
+\quad\text{与}\quad
+\Hom^\bullet_{\Lambda[G']}(Sw_{G',x}^\Lambda,F_{\bar\eta''})
+\]
+(伴随公式).
+
+\subsubsection*{6.2}
+
+使用下列记号:
+\[
+\alpha_x^\Delta(F)
+=
+\clK{\Delta}\bigl(\Hom^\bullet_{\Lambda[G]}(Sw_x^\Lambda,F_{\bar\eta})\bigr),
+\tag{6.2.1}
+\]
+\[
+\varepsilon_x^\Delta(F)
+=
+\alpha_x^\Delta(F)+
+\bigl(\clK{\Delta}(F_{\bar\eta})-\clK{\Delta}(F_x)\bigr).
+\tag{6.2.2}
+\]
+当然, 在公式 (6.2.1) 中, $F_{\bar\eta}$ 的 $A[G]$-模结构是通过同构 (6.1.1) 赋予的. 注意, 若 $x\in C(k)$ 使 $C'$ 在 $x$ 处温和分歧, 则由 (4.6) 有 $Sw_x=0$, 所以 $\alpha_x^\Delta(F)=0$. 此时, 与 Ogg-Shafarevich 的结果一致, 有
+\[
+\varepsilon_x^\Delta(F)=\clK{\Delta}(F_{\bar\eta})-\clK{\Delta}(F_x).
+\tag{6.2.3}
+\]
+显然, 若 $x\notin Y=C-U$, 则 $\varepsilon_x^\Delta(F)=0$, 因而只有有限多个 $x$ 满足 $\varepsilon_x^\Delta(F)\ne0$.
+
+现在给出满足上述条件的范畴 $\Delta$ 与层复形 $F$ 的例子.
+
+a) 设 $\Delta=D^b(A)_{\coh}$ (VIII 5), $F$ 为上同调有界的可构造 $A$-模层复形 (SGA 4 XVII). 此时 $\varepsilon_x^\Delta(F)\in K_\bullet(A)$.
+
+b) 取 $\Delta=D(A)_{\parf}$ (VIII 6), 设 $F$ 为具有有限 tor 维数的可构造 $A$-模层复形. 此时 $\varepsilon_x^\Delta(F)\in K^{\bullet}(A)$.
+
+c) 设 $A$, $B$ 为两个 $\Lambda$-代数, $\varphi:A\to B$ 为 $\Lambda$-代数同态. 取 $\Delta=D^b(B\operatorname{ rel }A)_{\coh}$ (VIII 10), 并设 $F$ 为 $B$-模层复形, 它作为 $A$-模复形的层是可构造的, 且上同调有界. 得到 $\varepsilon_x^\Delta(F)\in K_\bullet(B\operatorname{ rel }A)$. 当然, 也可仿照上面变动这一构造, 例如得到元素 $\varepsilon_x^\Delta(F)\in K^{\bullet}(B\operatorname{ rel }A)$.
+
+\subsection*{7. Euler--Poincaré 公式}
+
+\begin{statement}{定理 7.1}
+设 $C$ 为代数闭域 $k$ 上的连通、光滑、固有代数曲线, $\eta$ 为 $C$ 的一般点, $\Delta\subset D^+(A)$ 为 $D^+(A)$ 中对直因子稳定的三角子范畴, $F$ 为满足 7.1 的条件 i), ii) 的 $A$-模层复形. 在这些条件下有 $\RG_C(F)\in\Ob(\Delta)$, 且下述公式 (Euler--Poincaré 公式) 成立:
+\[
+\clK{\Delta}(\RG_C(F))
+=
+\EP(C)\clK{\Delta}(F_{\bar\eta})
+-\sum_{x\in C(k)}\varepsilon_x^\Delta(F),
+\tag{7.2}
+\]
+其中 $\varepsilon_x^\Delta(F)$ 定义于 6.2 (公式 6.2.2).
+\end{statement}
+
+分几步证明这一定理.
+
+a) 设 $\Psi$ 为 $C$ 上的下有界的 $\Lambda[G]$-模层复形. 有同构
+\[
+R\Gamma^G(\RG_C(\Psi))\simeq\RG_C(R\underline{\Gamma}^G(\Psi)),
+\tag{7.3}
+\]
+其中 $\underline{\Gamma}^G$ 为“$G$-不变截面子层”函子. 事实上, $\Gamma_C$ 将内射 $\Lambda[G]$-模层映到内射 $\Lambda[G]$-模, 而 $\underline{\Gamma}^G$ 将内射 $\Lambda[G]$-模层映到内射 $\Lambda$-模层 (例如利用 $\Gamma_C$ 和 $\underline{\Gamma}^G$ 的显然的伴随函子即可). 此外,
+\[
+\Gamma^G\circ\Gamma_C=\Gamma_C\circ\underline{\Gamma}^G.
+\]
+两边取导出函子, 并应用 [5] 命题 3.1), 就得到 (7.3).
+
+b) 设 $\Phi$ 为 $C$ 上的下有界且在 $U$ 外为零的 $\Lambda$-模层复形. 有同构
+\[
+\Phi\simeq R\underline{\Gamma}^G(p_*(\Phi')),
+\qquad \Phi'=p^*(\Phi).
+\tag{7.4}
+\]
+先注意, 函子 $p^*$ 与 $\underline{\Gamma}^G\circ p_*$ 在下列两范畴间给出互为拟逆的等价: 一方为 $C'$ 上带 $G$ 作用且在 $U'=p^{-1}(U)$ 外为零的 $\Lambda$-模层范畴, 另一方为 $C$ 上在 $U$ 外为零的 $\Lambda$-模层范畴. 因而有同构
+\[
+\Phi\simeq R\bigl((\underline{\Gamma}^G\circ p_*)\circ p^*\bigr)(\Phi).
+\]
+另一方面, 可以再次应用 [5] 命题 3.1); 由于 $Rp^*=p^*$ 且 $Rp_*=p_*$, 得到
+\[
+\Phi\simeq R(\underline{\Gamma}^G\circ p_*)(p^*(\Phi))
+\simeq (R\underline{\Gamma}^G)(p_*p^*(\Phi)),
+\]
+这就是所求的同构.
+
+c) 设 $\Phi$ 为 b) 中的层复形. 有同构
+\[
+\RG_C(\Phi)=(R\Gamma^G)(\RG_{C'}(\Phi')),
+\qquad \Phi'=p^*(\Phi).
+\tag{7.5}
+\]
+事实上,
+\[
+(R\Gamma^G)(\RG_{C'}(\Phi'))
+\simeq
+(R\Gamma^G)(\RG_C(p_*(\Phi')))
+\simeq
+\RG_C(R\underline{\Gamma}^G(p_*(\Phi')))
+\]
+这里使用了 (7.3), 而 (7.5) 则由同构 (7.4) 得到.
+
+d) 设 $i':U'\to C'$, $i:U\to C$ 为典范包含, 置
+\[
+\Phi=F_{U,C}=i_!(F|U).
+\]
+为计算 $\RG_C(\Phi)$, 可应用公式 (7.5). 另一方面, 沿用 7.1 的记号,
+\[
+\Phi'\simeq \Lambda_{U',C'}\otimes_\Lambda^L M,
+\]
+而 Künneth 公式 (SGA 4 XVII) 给出
+\[
+\RG_{C'}(\Phi')
+\simeq
+\RG_{C'}(\Lambda_{U',C'}\otimes_\Lambda^L M)
+\xleftarrow{\sim}
+\RG_{C'}(\Lambda_{U',C'})\otimes_\Lambda^L M.
+\tag{7.6}
+\]
+最后这个同构实际上是两端所定义的 $D(A[G])$ 的对象之间的同构. 结合 (7.6), (7.5) 以及由 2.1 可以应用的公式 (3.9.1), 得
+\[
+\RG_C(F_{U,C})
+\simeq
+R\Gamma^G\bigl(\RG_{C'}(\Lambda_{U',C'})\otimes_\Lambda^L M\bigr)
+\simeq
+\RHom_{\Lambda[G]}\bigl(\RG_{C'}(\Lambda_{U',C'})^\vee,M\bigr).
+\tag{7.7}
+\]
+因此, 由于 $M\simeq F_{\bar\eta}\in\Ob(\Delta)$ (条件 (i)), 由 (3.6) 得
+\[
+\RG_C(F_{U,C})\in\Ob(\Delta).
+\]
+另一方面, 有典范三角 (其中 $Y=C-U$)
+\[
+\begin{tikzcd}[column sep=huge,row sep=large]
+& \RG_Y(F|Y) \arrow[dl] & \\
+\RG_C(F_{U,C}) \arrow[rr] && \RG_C(F) \arrow[ul]
+\end{tikzcd}
+\tag{7.8}
+\]
+其中显然有
+\[
+\RG_Y(F)=\coprod_{y\in Y}F_y\in\Ob(\Delta),
+\]
+因为 $F_y\in\Ob(\Delta)$ (条件 (i)). 从而 $\RG_C(F)\in\Ob(\Delta)$, 即定理的第一个断言. 典范三角 (7.8) 还给出关系
+\[
+\clK{\Delta}(\RG_C(F))
+=
+\clK{\Delta}(\RG_C(F_{U,C}))
++\sum_{y\in Y}\clK{\Delta}(F_y),
+\]
+利用同构 7.7, 得
+\[
+\clK{\Delta}(\RG_C(F))
+=
+\clK{\Delta}\bigl(\RHom_{\Lambda[G]}(\RG_{C'}(\Lambda_{U',C'})^\vee,F_{\bar\eta})\bigr)
++\sum_{y\in Y}\clK{\Delta}(F_y).
+\]
+要得到 Euler--Poincaré 公式, 只须再使用 Weil 公式 (5.2). 事实上, 首先由 4.4, (5.2) 及 3.6 (取特殊情形 $B=\Lambda[G]$) 有
+\[
+\clKstar{\Lambda[G]}\bigl(\RG_{C'}(\Lambda_{U',C'})\bigr)
+=
+\clKstar{\Lambda[G]}\bigl(\RG_{C'}(\Lambda_{U',C'})^\vee\bigr).
+\]
+\[
+\begin{aligned}
+\clK{\Delta}(\RG_C(F))
+&=\operatorname{hom}\Bigl(
+\clKstar{\Lambda[G]}\bigl(\RG_{C'}(\Lambda_{U',C'})\bigr),
+\cl_{K(D(A[G])_\Delta)}(F_{\bar\eta})\Bigr)
+ +\sum_{y\in Y}\clK{\Delta}(F_y)\\
+&=\sum_{y\in Y}\clK{\Delta}(F_y)\\
+&\quad +\operatorname{hom}\Bigl(
+\EP(C)\clKstar{\Lambda[G]}(\Lambda[G])
+ -\sum_{y\in Y}\bigl(Sw_y^{\Lambda}+\clKstar{\Lambda[G]}(\Lambda[G])\bigr),\\
+&\hspace{10em}\cl_{K(D(A[G])_\Delta)}(F_{\bar\eta})\Bigr)\\
+&=\sum_{y\in Y}\clK{\Delta}(F_y)
+ +\EP(C)\clK{\Delta}(F_{\bar\eta})
+ -\sum_{y\in Y}\bigl(\alpha_y^\Delta(F)+\clK{\Delta}(F_{\bar\eta})\bigr)\\
+&=\EP(C)\clK{\Delta}(F_{\bar\eta})
+ -\sum_{y\in Y}\varepsilon_y^\Delta(F).
+\end{aligned}
+\]
+由于 $x\notin Y$ 时 $\varepsilon_x^\Delta(F)=0$, 这恰好就是公式 (7.2). 对满足 7.1 条件的层复形 $F$, 引入记号
+\[
+\EP_\Delta(C,F)=\clK{\Delta}(\RG_C(F)).
+\]
+
+\begin{statement}{推论 7.9}
+若 $F$, $F'$ 为满足 7.1 条件的层复形, 且它们作为 $A$-模复形局部同构 (关于平展拓扑), 则
+\[
+\EP_\Delta(C,F)=\EP_\Delta(C,F').
+\tag{7.10}
+\]
+特别地, 若 $F$ 是取值为 $M^\bullet$ 的局部常值复形, 则
+\[
+\EP_\Delta(C,F)=\EP(C)\clK{\Delta}(M^\bullet).
+\tag{7.11}
+\]
+\end{statement}
+
+\begin{statement}{推论 7.12}
+设 $C$ 为 $k$ 上的连通光滑固有代数曲线, $V$ 为 $C$ 的非空开子集, $\Delta$ 为 7.1 中那样的 $D^+(A)$ 的子范畴, $F$ 为 $V$ 上的 $A$-模层复形, 它在 $V$ 中某个适当的非空开子集上的限制被 $V$ 的 Galois 覆盖平凡化. 再设对每个 $x\in V$ 有 $F_{\bar x}\in\Ob(\Delta)$. 在这些条件下有
+\[
+(*)\qquad \RG_!V(F),\ \RG_V(F)\in\Ob(\Delta),
+\]
+\[
+(**)\qquad
+\clK{\Delta}(\RG_!V(F))=\clK{\Delta}(\RG_V(F)).
+\]
+置 $\EP_\Delta(V,F)=\clK{\Delta}(\RG_V(F))$ 及
+\[
+\EP(V)=\EP_{D(F_\ell)_{\coh}}(V,F_\ell)=\EP(C)-\operatorname{card}(Z),
+\]
+其中 $Z=C-V$, $F_\ell$ 为 $C$ 上在零次由与 $F_\ell=\mathbb Z/\ell\mathbb Z$ 相伴的常值层定义的层. 则有公式
+\[
+\EP_\Delta(V,F)
+=
+\EP(V)\clK{\Delta}(F_{\bar\eta})
+-\sum_{x\in V(k)}\varepsilon_x^\Delta(F)
+-\sum_{x\in Z}\alpha_x^\Delta(F),
+\tag{7.13}
+\]
+其中 $\varepsilon_x^\Delta$ 和 $\alpha_x^\Delta$ 由 (6.2.1), (6.2.2) 定义.
+\end{statement}
+
+将使用下述引理.
+
+\begin{statement}{引理 7.14}
+设 $K$ 为严格局部离散赋值环 $R$ 的分式域, $W=\Spec K$, $A$ 为被整数 $n$ 零化的诺特环, 其中 $n$ 与 $R$ 的剩余特征 $p$ 互素; 设 $F$ 为 $W$ 上被 $K$ 的有限扩张平凡化的 $A$-模层复形. 若 $\Delta$ 为 $D^+(A)$ 中对直因子稳定的三角子范畴, 且 $F_{\bar\eta}\in\Ob(\Delta)$ ($\eta$ 为 $S$ 的一般点), 则 $\RG_W(F)\in\Ob(\Delta)$, 且
+\[
+\clK{\Delta}(\RG_W(F))=0.
+\]
+\end{statement}
+
+7.14 的证明. 设 $\pi$ 为 $W$ 的基本群. 则 $F$ 对应于以 $\pi$ 为算子群的 $A$-模复形 $M^\bullet$. $M^\bullet$ 的底层 $A$-模复形同构于 $F_{\bar\eta}$, 所以属于 $\Ob(\Delta)$. 引入 $\pi$ 关于其唯一 Sylow $p$-子群 $P$ 的商群 $\bar\pi$ [4, II 33], 即 $\pi$ 的阶与 $p$ 互素的离散商群的投射极限, 其中 $p$ 为 $R$ 的剩余域的特征指数 (若 $p=1$, 置 $\bar\pi=\pi$). 于是有正合列
+\[
+1\longrightarrow P\longrightarrow \pi\longrightarrow \bar\pi\longrightarrow0,
+\]
+从而得到
+\[
+\RG_W(F)\simeq R\Gamma^\pi(M^\bullet)
+\simeq R\Gamma^{\bar\pi}(R\Gamma^P(M^\bullet))
+\]
+(Hochschild--Serre 同构). 现在 $P$ 通过某个有限商群作用于 $M^\bullet$; 该商群因而为 $p$-群, 阶与 $n$ 互素. 所以
+\[
+R\Gamma^P(M^\bullet)\simeq \Gamma^P(M^\bullet),
+\]
+且 $\Gamma^P(M^\bullet)$ 是 $M^\bullet$ 的直因子, 因此属于 $\Ob(\Delta)$. 另一方面,
+\[
+\bar\pi=\prod_{\ell\ne p}\mathbb Z_\ell
+\]
+([4], II 33). 因而归结为证明: 若 $M^\bullet\in\Ob(\Delta)$, 则 $R\Gamma^{\bar\pi}(M^\bullet)\in\Ob(\Delta)$, 且
+\[
+\clK{\Delta}(R\Gamma^{\bar\pi}(M^\bullet))=0.
+\]
+为此, 设 $f$ 为 $\bar\pi$ 的一个拓扑生成元. 可假设 $M$ 的分量 $M^i$ 为满足下式的 $\bar\pi$-模:
+\[
+H^j(\bar\pi,M^i)=0\quad\text{当 }j\ge1.
+\]
+于是有典范三角
+\[
+\begin{tikzcd}[column sep=huge,row sep=large]
+& M^\bullet \arrow[dl] &\\
+R\Gamma^{\bar\pi}(M^\bullet) \arrow[rr] && M^\bullet \arrow[ul,"1-f"]
+\end{tikzcd}
+\tag{7.15}
+\]
+事实上, 一方面显然有 $R\Gamma^{\bar\pi}=\Ker(1-f)$. 另一方面, $1-f:M^\bullet\to M^\bullet$ 是满射. 这是因为
+\[
+H^1(\bar\pi,M)=M^\bullet/(1-f)M^\bullet
+\]
+(这一计算可参看 [4] 第 197 页中一个基本类似的情形), 因而 $M^\bullet=(1-f)M^\bullet$. 三角 (7.15) 同时给出 $R\Gamma^{\bar\pi}(M^\bullet)\in\Ob(\Delta)$ 及
+\[
+\clK{\Delta}(R\Gamma^{\bar\pi}(M^\bullet))=0,
+\]
+这就证明了 7.14.
+
+7.12 的证明. 对复形 $i_!(F)$ 应用 7.1, 其中 $i:V\to C$, 立即得到 $\RG_!V(F)\in\Ob(\Delta)$; 事实上,
+\[
+\RG_!V(F)=\RG_C(i_!F).
+\]
+为证明 $\RG_V(F)\in\Ob(\Delta)$, 考虑典范三角
+\[
+\begin{tikzcd}[column sep=huge,row sep=large]
+& Q^\bullet \arrow[dl] &\\
+Ri_!(F) \arrow[rr] && Ri_*(F) \arrow[ul],
+\end{tikzcd}
+\]
+其中 $Q^\bullet$ 集中在 $Z=C-V$ 上. 应用 $\RG_C$ 得到典范三角
+\[
+\begin{tikzcd}[column sep=huge,row sep=large]
+& \RG_Z(Q^\bullet|Z) \arrow[dl] &\\
+\RG_!V(F) \arrow[rr] && \RG_V(F) \arrow[ul].
+\end{tikzcd}
+\tag{7.16}
+\]
+由于 $\RG_!V(F)\in\Ob(\Delta)$, 可知 $\RG_V(F)\in\Ob(\Delta)$ 当且仅当 $\RG_Z(Q^\bullet|Z)\in\Ob(\Delta)$, 即当且仅当对每个 $x\in Z$ 有 $(Ri_*(F))_{\bar x}\in\Ob(\Delta)$. 回顾计算 $(Ri_*(F))_{\bar x}$ 的方法, 考虑笛卡儿方块
+\[
+\begin{tikzcd}
+\bar V \arrow[r,hook,"j"] \arrow[d,"u"'] & C_x \arrow[d]\\
+V \arrow[r,hook] & C
+\end{tikzcd}
+\]
+其中 $C_x$ 是与几何点 $x$ 相应的严格局部化概形. 有
+\[
+Ri_*(F)_{\bar x}\simeq \RG_{\bar V}(u^*(F)),
+\]
+由 7.14, 遂有 $(Ri_*(F))_{\bar x}\in\Ob(\Delta)$, 且
+\[
+\clK{\Delta}((Ri_*(F))_{\bar x})=0.
+\]
+从而
+\[
+\clK{\Delta}(\RG_Z(Q^\bullet|Z))=0,
+\]
+再由典范三角 (7.16) 得
+\[
+\clK{\Delta}(\RG_!V(F))=\clK{\Delta}(\RG_V(F)).
+\]
+最后, 为建立 (7.13), 只须对层复形 $i_!(F)$ 使用 Euler--Poincaré 公式 (7.2):
+\[
+\EP_\Delta(V,F)
+=
+\clK{\Delta}(\RG_!V(F))
+=
+\clK{\Delta}(\RG_C(i_!(F)))
+=
+\EP(C)\clK{\Delta}(F_{\bar\eta})
+-\sum_{x\in C(k)}\varepsilon_x^\Delta(i_!(F)).
+\]
+但
+\[
+\sum_{x\in C(k)}\varepsilon_x^\Delta(i_!(F))
+=
+\sum_{x\in V(k)}\varepsilon_x^\Delta(F)
++\sum_{x\in Z}\varepsilon_x^\Delta(F).
+\]
+对 $x\in Z$ 有 $(i_!(F))_{\bar x}=0$, 因此对这样的 $x$,
+\[
+\varepsilon_x^\Delta(i_!(F))
+=
+\alpha_x^\Delta(F)+\clK{\Delta}(F_{\bar\eta}),
+\]
+由此得到公式 (7.13).
+
+\section*{参考文献}
+
+\begin{enumerate}
+\item[{[1]}] M. Raynaud, Caractéristique d'Euler-Poincaré d'un faisceau et cohomologie des variétés abéliennes. Séminaire Bourbaki 1965, n\textsuperscript{o} 286.
+\item[{[2]}] A. Grothendieck, Sur quelques points d'algèbre homologique, Tohoku Math. Journal, vol. 9 (1957), p. 119--221, (引作 [T]).
+\item[{[3]}] Serre, J.-P., Corps locaux, Act. Sci. Ind., 1296 (1962), Hermann, Paris.
+\item[{[4]}] Serre, J.-P., Cohomologie Galoisienne, Lecture Notes in Mathematics 5, 1964 (Springer).
+\item[{[5]}] Verdier, J.-L., Catégories dérivées, I H E S 1963 (发表于 SGA $4^{1/2}$).
+\end{enumerate}
+
+
+\phantomsection\addcontentsline{toc}{section}{报告 XII --- Nielsen--Wecken 公式与 Lefschetz 公式}
+\section*{报告 XII}
+
+\begin{center}
+\Large\bfseries 代数几何中的 NIELSEN--WECKEN 公式与 LEFSCHETZ 公式
+\end{center}
+
+\begin{center}
+A. Grothendieck 著
+
+I. BUCUR 整理
+\end{center}
+
+\bigskip
+
+\section*{1.}
+设 $X'$ 为代数闭域 $k$ 上的固有概形, 有限群 $G$ 作用于 $X'$.
+
+对每个元素 $g\in G$, 以
+\[
+g_{X'}:X'\to X'
+\]
+表示 $g$ 所诱导的 $X'$ 的自同构.
+
+设存在 $X'$ 中在 $G$ 下稳定的开子集 $U'$, 使 $G$ 在 $U'$ 上自由作用, 并设
+\[
+\La_n=\bZ/\ell^n\bZ,
+\]
+其中 $\ell$ 为不同于 $k$ 的特征的素数.
+
+以 $\La_{n,U',X'}$ 表示 $X'$ 上的层 $i_!(\La_{n,U'})$, 其中 $\La_{n,U'}$ 为 $U'$ 上与环 $\La_n$ 相伴的常值层, $i:U'\hookrightarrow X'$ 为 $U'$ 到 $X'$ 的典范浸入. 层 $\La_{n,U',X'}$ 自然地具有以 $G$ 为算子群的层结构. 从而复形
+\[
+H_{n,U',X'}=R\Gamma_{X'}(\La_{n,U',X'})
+\]
+是 $\La_n[G]$-模复形, 更确切地说, 是完美的 (VIII, 7) $\La_n[G]$-模复形 (IX, 2).
+
+下面将看到, 就我们的目的而言, 与其考虑复形 $R\Gamma_{X'}(\La_{n,U',X'})$, 不如考虑它关于环 $\La_n$ 的导出范畴意义下的对偶
+\[
+H_{n,U',X'}^\vee=R\Gamma_{X'}(\La_{n,U',X'})^\vee
+\]
+即
+\[
+H_{n,U',X'}^\vee
+=R\Gamma_{X'}(\La_{n,U',X'})^\vee
+=R\Hom_{\La_n}(R\Gamma_{X'}(\La_{n,U',X'}),\La_n).
+\]
+复形 $R\Gamma_{X'}(\La_{n,U',X'})^\vee$ 是完美 $\La_n[G]$-模复形.
+
+现设给定概形 $X'$ 的自态射 $f':X'\to X'$ 以及群 $G$ 的自同态 $\varphi:G\to G$, 满足以下两个条件:
+\begin{equation}\tag{1.1}
+f'g_{X'}=\varphi(g)_{X'}f'\qquad \forall g\in G .
+\end{equation}
+\begin{equation}\tag{1.2}
+\text{补集 }Y'=X'-U'\text{ 在 }f'\text{ 下稳定}.
+\end{equation}
+在已有假设下, $Y'$ 在 $G$ 下稳定. 一般并不要求开子集 $U'$ 在 $f'$ 下稳定.
+
+因而得到层的同态
+\begin{align*}
+f'_{\La_{n,X'}} &: \La_{n,X'}\longrightarrow \La_{n,X'},\qquad
+f'_{\La_{n,Y'}} : \La_{n,Y'}\longrightarrow \La_{n,Y'},\\
+f'_{\La_{n,U',X'}} &: \La_{n,U',X'}\longrightarrow \La_{n,U',X'},
+\qquad
+g_{\La_{n,U',X'}} : \La_{n,U',X'}\longrightarrow \La_{n,U',X'},
+\end{align*}
+使得下述各行正合的图交换:
+\[
+\begin{tikzcd}
+0 \arrow[r] & \La_{n,U',X'} \arrow[r] \arrow[d,"f'_{\La_{n,U',X'}}"'] & \La_{n,X'} \arrow[r] \arrow[d,"f'_{\La_{n,X'}}"] & \La_{n,Y'} \arrow[r] \arrow[d,"f'_{\La_{n,Y'}}"] & 0 \\
+0 \arrow[r] & \La_{n,U',X'} \arrow[r] & \La_{n,X'} \arrow[r] & \La_{n,Y'} \arrow[r] & 0 .
+\end{tikzcd}
+\tag{1.3}
+\]
+特别地, 得到 $\La_n$-模复形的同态
+\begin{align*}
+f'_{H_{n,U',X'}}&=R\Gamma_{X'}(f'_{\La_{n,U',X'}}):H_{n,U',X'}\to H_{n,U',X'},\\
+f'^\vee_{H_{n,U',X'}}&=(f'_{H_{n,U',X'}})^\vee:H_{n,U',X'}^\vee\to H_{n,U',X'}^\vee,\\
+g_{H_{n,U',X'}}&=R\Gamma_{X'}(g_{\La_{n,U',X'}}):H_{n,U',X'}\to H_{n,U',X'},\\
+g^\vee_{H_{n,U',X'}}&=(g_{H_{n,U',X'}})^\vee:H_{n,U',X'}^\vee\to H_{n,U',X'}^\vee,
+\end{align*}
+使得下列关系成立:
+\begin{align}
+\tag{1.4}g_{H_{n,U',X'}}\circ f'_{H_{n,U',X'}}&=f'_{H_{n,U',X'}}\circ \varphi(g)_{H_{n,U',X'}},\\
+\tag{1.5}f'^\vee_{H_{n,U',X'}}\circ g^\vee_{H_{n,U',X'}}&=\varphi(g)^\vee_{H_{n,U',X'}}\circ f'^\vee_{H_{n,U',X'}} .
+\end{align}
+关系 (1.5) 表明 (参见讨论迹的一般理论的报告 XI, 5.2.1, 7.1), 迹
+\[
+\Tr^*_{\La_n[G],\varphi}(f'^\vee_{H_{n,U',X'}})
+\in \La_n[G]_{\natural,\varphi}\simeq \mathcal F_!(G_{\natural,\varphi},\La_n)
+\qquad (*)\footnote{参见 III B 5.12.}
+\]
+有定义.
+
+我们的第一个目标是在若干附加假设下, 用与 $f'$ 相伴的局部不变量给出 $\Tr^*_{\La_n[G],\varphi}(f'^\vee_{H_{n,U',X'}})$ 的显式公式; 这些局部项将在下面定义.
+
+\section*{2.}
+事实上还可以做得更好. 为此, 取两个正整数 $n,m$, 满足 $m\ge n$. 环同态
+\[
+\alpha_{m,n}:\La_m\longrightarrow \La_n
+\]
+引出 $X'$ 上的环层同态:
+\begin{align*}
+\alpha_{m,n,X'}&:\La_{m,X'}\longrightarrow \La_{n,X'},\\
+\alpha_{m,n,U',X'}&:\La_{m,U',X'}\longrightarrow \La_{n,U',X'} .
+\end{align*}
+应用 Künneth 公式得
+\begin{align}
+\tag{2.1}R\Gamma_{X'}(\La_{m,X'})\otimes_{\La_m}^{\mathbb L}\La_n&\simeq R\Gamma_{X'}(\La_{n,X'}),\\
+\tag{2.2}R\Gamma_{X'}(\La_{m,U',X'})\otimes_{\La_m}^{\mathbb L}\La_n&\simeq R\Gamma_{X'}(\La_{n,U',X'}),\\
+\tag{2.3}R\Gamma_{X'}(f'_{\La_{m,X'}})\otimes_{\La_m}^{\mathbb L}\La_n&\simeq R\Gamma_{X'}(f'_{\La_{n,X'}}),\\
+\tag{2.4}R\Gamma_{X'}(f'_{\La_{m,U',X'}})\otimes_{\La_m}^{\mathbb L}\La_n&\simeq R\Gamma_{X'}(f'_{\La_{n,U',X'}}).
+\end{align}
+容易推出
+\begin{align}
+\tag{2.5}R\Hom_{\La_m}(R\Gamma_{X'}(\La_{m,U',X'}),\La_m)\otimes_{\La_m}^{\mathbb L}\La_n&\simeq R\Hom_{\La_n}(R\Gamma_{X'}(\La_{n,U',X'}),\La_n),\\
+\tag{2.6}f'^\vee_{H_{m,U',X'}}\otimes_{\La_m}^{\mathbb L}\La_n&\simeq f'^\vee_{H_{n,U',X'}}.
+\end{align}
+因此, 完美复形的态射 $R\Gamma_{X'}(f'_{\La_{n,X'}})$ (分别 $R\Gamma_{X'}(f'_{\La_{n,U',X'}})$, $f'^\vee_{H_{n,U',X'}}$) 是由态射 $R\Gamma_{X'}(f'_{\La_{m,X'}})$ (分别 $R\Gamma_{X'}(f'_{\La_{m,U',X'}})$, $f'^\vee_{H_{m,U',X'}}$) 通过态射 $\alpha_{m,n}$ (分别 $\alpha_{m,n}$, $\alpha_{m,n,G}:\La_m[G]\to\La_n[G]$) 作标量扩张 (XI, 6.3) 而得到的.
+
+利用 (XI, 6.3, 6.3.2, 6.3.3), 2.3 及 2.6, 得到关系
+\begin{align}
+\tag{2.7}\Tr^*_{\La_n}(R\Gamma_{X'}(f'_{\La_{n,X'}}))&=\alpha_{m,n}(\Tr^*_{\La_m}(R\Gamma_{X'}(f'_{\La_{m,X'}}))),\\
+\tag{2.8}\Tr^*_{\La_n[G],\varphi}(f'^\vee_{H_{n,U',X'}})&=\alpha_{m,n,G}(\Tr^*_{\La_m[G],\varphi}(f'^\vee_{H_{m,U',X'}})).
+\end{align}
+函数系
+\[
+(\Tr_{\La_n[G],\varphi}(f'^\vee_{H_{n,U',X'}}))_{n>0}
+\]
+定义函数
+\[
+\Tr_{\bZ_\ell[G],\varphi}(f'^\vee_{H_{U',X'}(\ell)})
+\in \mathcal F_!(G_{\natural\varphi},\bZ_\ell),
+\]
+它在 $G$ 上为 $\varphi$-中心函数, 取值于 $\ell$ 进整数环 $\bZ_\ell$.
+
+类似地, 元素 $\Tr^*_{\La_n}(R\Gamma_{X'}(f'_{\La_{n,X'}}))$, $n\ge1$, 定义一个 $\ell$ 进整数
+\[
+\Tr^*_{\bZ_\ell}(f'_{R\Gamma_{X'}(\bZ_\ell,X')}).
+\]
+我们的目标是求出
+\[
+\Tr^*_{\bZ_\ell[G],\varphi}(f'^\vee_{H_{U',X'}(\ell)}).
+\]
+的公式.
+\section*{3. 局部 Nielsen--Wecken 不变量 (参见 [1])}
+除第 1 节的假设外, 再设 $G$ 的每条轨道都包含在一个仿射开子集中. 则商 $X=X'/G$ 存在, 且由公式 1.1, $X'$ 的自态射 $f'$ 下降到商上:
+\[
+f:X\longrightarrow X .
+\]
+使用下列记号:
+\begin{align*}
+p &: X'\longrightarrow X=X'/G\quad \text{为典范投影,}\\
+Y&=p(Y')=Y'/G,\\
+U&=X-Y.
+\end{align*}
+开子集 $U'$ 是结构群为 $G$ 的主覆盖. 设 $x\in U$ 为 $f$ 的不动点. 将按如下方式与之对应一个 $\varphi$-共轭类 (XI, 7.1), 记为 $\mathrm{NW}_{f}^{G,\varphi}(x)$.
+
+取 $x'\in U'$ 使 $p(x')=x$. 由于 $U'$ 为结构群 $G$ 的主覆盖, 且 $x$ 在 $f$ 下不动, 存在唯一元素 $g\in G$ 使 $f'(x')=gx'$. $g$ 的 $\varphi$-共轭类仅依赖于 $x$. 事实上, 若 $p(x'')=x$, 则存在 $h\in G$ 使 $hx''=x'$. 所以若 $f'(x'')=g'x''$, 则
+\begin{align*}
+gx'&=f'(x')=f'(hx'')=\varphi(h)f'(x'')=(\varphi(h)g'h^{-1})x',\\
+g&=\varphi(h)g'h^{-1},
+\end{align*}
+即 $g$ 与 $g'$ 为 $\varphi$-共轭的. 因而得到良定义的 $\varphi$-共轭类, 即与 $f$ 的不动点 $x\in U$ 相伴的局部 Nielsen--Wecken 不变量, 记为 $\mathrm{NW}_{f}^{G,\varphi}(x)$.
+
+$\varphi$-共轭类 $\mathrm{NW}_{f}^{G,\varphi}(x)$ 定义了一个整值的 $\varphi$-中心函数 (参见 XI, 7.1)
+\[
+\mathrm{NW}_{f}^{G,\varphi}(x):G\longrightarrow \bZ
+\]
+它由下列关系刻画:
+\begin{equation}\tag{3.1}
+\mathrm{NW}_{f}^{G,\varphi}(x)(g)=
+\begin{cases}
+1&\text{若存在 }x'\in X'\text{ 使 }(g^{-1}f')(x')=x'\\
+ &\qquad\text{且 }p(x')=x,\\
+0&\text{其他情形.}
+\end{cases}
+\end{equation}
+
+\section*{4. 局部项的一般性质}
+设 $X'$ 在 $k$ 上光滑, 并且 $f$ 的不动点数目有限. 特别地, 对每个 $g\in G$, $g^{-1}f'$ 的不动点数目也有限.
+
+对 $f$ 的每个不动点 $x\in X$, 引入取有理数值的 $\varphi$-中心函数
+\[
+S_x(f',f,G,\varphi):G\longrightarrow \bQ,
+\]
+其定义公式为
+\begin{equation}\tag{4.1}
+S_x(f',f,G,\varphi)(g)=
+\frac{1}{c^\varphi(g)}
+\sum_{x'\in {X'_x}^{g^{-1}f'}}(\nu_{x'}(g^{-1}f')-1).
+\end{equation}
+这里使用了下列记号:
+\begin{equation}\tag{4.2}
+c^\varphi(g)=\card G_g^\varphi,
+\qquad
+G_g^\varphi=\{x\in G\mid \varphi(x)gx^{-1}=g\},
+\end{equation}
+\begin{equation}\tag{4.3}
+{X'_x}^{g^{-1}f'}=\{x'\in X'\mid p(x')=x,\\ (g^{-1}f')(x')=x'\},
+\end{equation}
+\begin{equation}\tag{4.4}
+\nu_{x'}(g^{-1}f')=\text{$g^{-1}f'$ 的不动点 }x'\text{ 的重数}.
+\end{equation}
+通过与典范包含
+\[
+\bQ\hookrightarrow \bQ_\ell,
+\]
+复合, 函数 $S_x(f',f,G,\varphi)$ 给出 $G$ 上取值于 $\ell$ 进数域 $\bQ_\ell$ 的 $\varphi$-中心函数 $S_{x,\ell}(f',f,G,\varphi)$.
+
+\medskip
+\noindent
+\textbf{猜想 4.5.} \emph{对每个 $\ell\ne\car(k)$, 函数 $S_{x,\ell}(f',f,G,\varphi)$ 的取值均为 $\ell$ 进整数.}
+
+\medskip
+下面将证明, 当 $X$ 的维数等于 $1$ 时, 猜想 4.5 成立.
+
+\medskip
+\noindent
+\textbf{命题 4.6.} \emph{设 $R$ 为离散赋值环, $\fm$ 为其极大理想, $\pi$ 为素元, 剩余域 $k=R/\fm$ 假设为代数闭域, $v$ 为其赋值, $f'_R:R\to R$ 为 $R$ 的自同态, $G$ 为 $R$ 的有限自同构群. 设自同态 $f'_R$ 和各自同构 $g_R$ 在 $k$ 上诱导恒等映射, 并且给定 $G$ 的自同态
+\[
+\varphi:G\longrightarrow G,
+\]
+满足
+\[
+f'_R\circ g_R=\varphi(g)_R\circ f'_R.
+\]
+若对每个 $g\in G$ 记
+\[
+\nu(g_R^{-1}f'_R)=v(g_R^{-1}f'_R(\pi)-\pi),
+\]
+并将 $c^\varphi(g)$ (参见 4.2) 分解为
+\[
+c^\varphi(g)=p^sq,
+\qquad (p,q)=1,
+\qquad p=\car(k),
+\]
+则 $q\mid(\nu(g_R^{-1}f'_R)-1)$.}
+
+\medskip
+为证明命题 4.6, 可归结到 $g=e$ 及 $\varphi=\id_G$ 的情形. 事实上, 先将情形 $(f'_R,G,g,\varphi)$ 对应到情形
+\[
+(f''_R=g_R^{-1}f'_R,
+\; G,
+\; e,
+\; \varphi'=\mathrm{int}(g)\circ\varphi),
+\]
+其中 $\varphi'(a)=g^{-1}\varphi(a)g$, 并容易看出
+\[
+\nu(g_R^{-1}f')-1=\nu(f''_R)-1
+\]
+以及
+\[
+c^\varphi(g)=c^{\varphi'}(e)\qquad (G_g^\varphi=G_e^{\varphi'})\qquad (\text{参见 4.2}).
+\]
+就归结到 $g=e$ 的情形. 为同时归结到 $g=e$, $\varphi=\id_G$ 的情形, 注意可将情形 $(f''_R,G,e,\varphi')$ 对应到情形
+\[
+(f''_R,G_e^{\varphi'},e,\id_{G_e^{\varphi'}}),
+\]
+并且
+\[
+G_e^{\varphi'}=(G_e^{\varphi'})_e^{\id_{G_e^{\varphi'}}}.
+\]
+命题 4.6 的证明本质地使用下述引理.
+
+\medskip
+\noindent
+\textbf{引理 4.7.} \emph{沿用命题 4.6 的假设和记号, 再设 $\varphi=\id_G$, 即 $G$ 在 $R$ 上的作用与 $f'_R$ 交换, 并设 $r=\nu(f'_R)\ge2$. 置
+\[
+c=\card(\im(G\longrightarrow \Aut_k(\fm/\fm^2))).
+\]
+则下列整除关系成立:
+\[
+c\mid (r-1).
+\]}
+
+\medskip
+\noindent
+\textbf{证明.} 显然, 整数 $r$ 满足下列条件:
+\begin{enumerate}
+\item[a)] $f'_R$ 所诱导的同态
+\[
+f'_r:A/\fm^r\longrightarrow A/\fm^r
+\]
+为恒等映射;
+\item[b)] 同态
+\[
+f'_{r+1}:A/\fm^{r+1}\longrightarrow A/\fm^{r+1}
+\]
+不同于恒等映射.
+\end{enumerate}
+另一方面, $G$ 显然作用于所有 $k$-向量空间 $\fm^i/\fm^{i+1}$.
+
+先证明, 在引理的假设下, 存在唯一的 $k[G]$-模同态
+\[
+u(f'_R):\fm/\fm^2\longrightarrow \fm^r/\fm^{r+1}
+\]
+满足下列两个条件:
+\begin{enumerate}
+\item[1)] $u(f'_R)\ne0$;
+\item[2)] 对每个 $x\in\fm$, 有 $u(f'_R)(x\bmod \fm^2)=(f'_R(x)-x)\bmod \fm^{r+1}$.
+\end{enumerate}
+显然, 条件 a) 蕴含对每个 $x\in R$ 都有 $f'_R(x)-x\in\fm^r$, 因此条件 2) 有意义. 这一观察还使我们能定义阿贝尔群同态
+\[
+\fm\longrightarrow \fm^r/\fm^{r+1},
+\qquad
+x\longmapsto (f'_R(x)-x)\bmod \fm^{r+1}.
+\]
+这个同态在 $\fm^2$ 上为零. 事实上, 若 $x_1,x_2\in\fm$, 则 $f'_R(x_1x_2)-x_1x_2\in\fm^{r+1}$, 因为由条件 a) 有
+\[
+f'_R(x_1)=x_1+\alpha_1,
+\quad \alpha_1\in\fm^r,
+\]
+\[
+f'_R(x_2)=x_2+\alpha_2,
+\quad \alpha_2\in\fm^r,
+\]
+从而
+\[
+f'_R(x_1x_2)=f'_R(x_1)f'_R(x_2)=(x_1+\alpha_1)(x_2+\alpha_2)
+=x_1x_2+x_1\alpha_2+x_2\alpha_1+\alpha_1\alpha_2,
+\]
+而显然 $x_1\alpha_2+x_2\alpha_1+\alpha_1\alpha_2\in\fm^{r+1}$.
+
+由此取商, 得到阿贝尔群同态
+\[
+u(f'_R):\fm/\fm^2\longrightarrow \fm^r/\fm^{r+1}.
+\]
+同态 $u(f'_R)$ 实际上是 $k$-向量空间同态. 为此须证明, 对所有 $x\in\fm$, $\alpha\in R$,
+\[
+f'_R(\alpha x)-\alpha x\equiv \alpha(f'_R(x)-x)\pmod{\fm^{r+1}},
+\]
+即
+\begin{equation}
+\tag{4.7.1}
+f'_R(\alpha x)-\alpha f'_R(x)\in\fm^{r+1}.
+\end{equation}
+但
+\[
+f'_R(\alpha x)-\alpha f'_R(x)=(f'_R(\alpha)-\alpha)f'_R(x),
+\]
+这就给出 (4.7.1), 因为
+\[
+f'_R(\alpha)-\alpha\in\fm^r\quad\text{(条件 a))},
+\qquad
+f'_R(x)\in\fm\quad(x\in\fm).
+\]
+
+同态 $u(f'_R)$ 是 $k[G]$-模同态. 事实上,
+对 $x\in\fm$ 有
+\[
+\begin{aligned}
+u(f'_R)\bigl(g(x\bmod\fm^2)\bigr)
+&=(f'_R(gx)-gx)\bmod\fm^{r+1}\\
+&=g(f'_R(x)-x)\bmod\fm^{r+1}
+=g\,u(f'_R)(x\bmod\fm^2).
+\end{aligned}
+\]
+
+最后, $u(f'_R)\ne0$. 事实上, 由条件 b) 存在元素
+$x_0\in R$ 使 $f'_R(x_0)-x_0\notin\fm^{r+1}$. 但我们需要的是 $\fm$ 中这样的
+元素. 为找到它, 将 $x_0$ 写为
+\[
+x_0=\frac{x}{x'},\qquad x,x'\in\fm,\quad x'\notin\fm^{r+1}.
+\]
+元素 $x,x'$ 至少有一个满足所求条件.
+
+反设同时有
+\[
+f'_R(x)-x\in\fm^{r+1},
+\qquad
+f'_R(x')-x'\in\fm^{r+1}.
+\]
+则在 $A$ 的分式域 $K$ 中, 有
+\[
+\frac{f'_R(x)}{x}\in1+\fm^r,
+\qquad
+\frac{f'_R(x')}{x'}\in1+\fm^r.
+\]
+可假设 $f'_R(x')\ne0$, 否则 $x'$ 就是所求的
+元素. 由于 $1+\fm^r$ 是乘法群, 得
+\[
+\frac{x'}{f'_R(x')}\in1+\fm^r,
+\]
+从而
+\[
+\frac{f'_R(x)}{x}\cdot\frac{x'}{f'_R(x')}\in1+\fm^r.
+\]
+最后这个关系蕴含
+\[
+\frac{f'_R(x_0)}{x_0}\in1+\fm^r.
+\]
+事实上,
+\[
+\begin{aligned}
+\frac{f'_R(x_0)}{x_0}
+-\frac{f'_R(x)}{x}\cdot\frac{x'}{f'_R(x')}
+&=\frac{f'_R(\frac{x}{x'})}{\frac{x}{x'}}
+-\frac{f'_R(x)}{x}\cdot\frac{x'}{f'_R(x')}\\
+&=\frac{x'f'_R(\frac{x}{x'})}{x}
+-\frac{f'_R(x)}{x}\cdot\frac{x'}{f'_R(x')}\\
+&=\frac1x\left(
+\frac{x'f'_R(x')f'_R(\frac{x}{x'})-x'f'_R(x)}
+{f'_R(x')}\right)=0.
+\end{aligned}
+\]
+所以 $f'_R(x_0)-x_0\in\fm^{r+1}$, 矛盾.
+
+若向量空间
+\[
+\Hom_k(\fm/\fm^2,\fm^r/\fm^{r+1})
+\]
+赋予通常的 $G$-模结构, 则它的元素 $u(f'_R)$
+属于 $G$-不变子空间
+\[
+\Hom_k(\fm/\fm^2,\fm^r/\fm^{r+1})^G
+\]
+.
+
+经典结果表明, 向量空间 $\fm^i/\fm^{i+1}$ 典范地等同于
+第 $i$ 次张量幂
+$\bigotimes_k^i(\fm/\fm^2)$. 因此
+$\Hom_k(\fm/\fm^2,\fm^r/\fm^{r+1})$ 通过缩并同态等同于
+第 $(r-1)$ 次张量幂
+$\bigotimes_k^{r-1}(\fm/\fm^2)$:
+\[
+\gamma:\Hom_k(\fm/\fm^2,\fm^r/\fm^{r+1})
+\longrightarrow\bigotimes_k^{r-1}(\fm/\fm^2).
+\]
+经由 $\gamma$, Hom 空间上的 $G$-模结构
+被搬移为 $\bigotimes_k^{r-1}(\fm/\fm^2)$ 上由
+$\fm/\fm^2$ 的结构所诱导的 $G$-模结构:
+\[
+g(\xi_1\otimes\xi_2\otimes\cdots\otimes\xi_{r-1})
+=g\xi_1\otimes\cdots\otimes g\xi_{r-1}.
+\]
+以 $\mu(f'_R)$ 表示 $u(f'_R)$ 在 $\gamma$ 下的像. 因而:
+\begin{enumerate}
+\item[I)] $0\ne\mu(f'_R)\in\bigotimes_k^{r-1}(\fm/\fm^2)$;
+\item[II)] $\mu(f'_R)$ 在 $G$ 下不变.
+\end{enumerate}
+
+现在可以完成引理 4.7 的证明. 由于向量空间
+$\fm/\fm^2$ 的维数为一,
+\[
+\Aut_k(\fm/\fm^2)=k^*.
+\]
+因此 $G\to\Aut_k(\fm/\fm^2)$ 的像是 $k^*$ 的有限循环
+子群, 由一个本原 $c$ 次单位根
+$\varepsilon$ 生成. 它由自同构
+\[
+\chi:\fm/\fm^2\longrightarrow\fm/\fm^2,
+\qquad \xi\longmapsto\varepsilon\xi.
+\]
+生成. 由于 $\mu(f'_R)$ 在 $G$ 下不变,
+\[
+\begin{aligned}
+\mu(f'_R)
+&=\chi\mu(f'_R)\\
+&=\chi\sum_i\xi_{1i}\otimes\xi_{2i}\otimes\cdots\otimes\xi_{r-1,i}\\
+&=\sum_i\varepsilon\xi_{1i}\otimes\varepsilon\xi_{2i}
+  \otimes\cdots\otimes\varepsilon\xi_{r-1,i}\\
+&=\varepsilon^{r-1}\mu(f'_R),
+\end{aligned}
+\]
+即
+\[
+(1-\varepsilon^{r-1})\mu(f'_R)=0.
+\]
+由于 $\mu(f'_R)\ne0$, 得
+$1-\varepsilon^{r-1}=0$, 即 $c\mid(r-1)$.
+
+\medskip
+\noindent
+\textbf{命题 4.6 的证明.} 前已指出, 可归结到 $g=e$, $\varphi=\id_G$ 的情形. 若以 $G_1$ 表示同态
+\[
+G\longrightarrow\Aut_k(\fm/\fm^2),
+\]
+的核, 则分歧理论给出
+\[
+\card(G_1)=p^t.
+\]
+因此, 沿用引理 4.7 的记号,
+\[
+\card(G)=p^tc.
+\]
+另一方面, 由于 $c^{\id_G}(e)=\card(G)$, 命题 4.6 在 $g=e$, $\varphi=\id_G$ 情形的断言由引理 4.7 得到, 从而一般情形也成立.
+
+\medskip
+\noindent
+\textbf{推论 4.8.} \emph{对每个 $\ell\ne\car(k)$, 有理数
+\[
+\frac{\nu(g_R^{-1}f'_R)-1}{c^\varphi(g)}
+\]
+在典范包含
+\[
+\bQ\hookrightarrow \bQ_\ell
+\]
+下的像是 $\ell$ 进整数.}
+
+\medskip
+\noindent
+\textbf{命题 4.9.} \emph{若概形 $X$ 的维数等于 $1$, 则猜想 4.5 成立.}
+
+\medskip
+\noindent
+\textbf{证明.} 引入自同态
+\[
+\psi:G\longrightarrow G
+\]
+定义为
+\[
+\psi=\mathrm{int}_g\circ\varphi,
+\qquad \mathrm{int}_g(\xi)=g^{-1}\xi g.
+\]
+容易看出:
+\begin{enumerate}
+\item[i)] $\psi(G_{x'})\subset G_{g^{-1}f'x'}$, 其中 $G_{x'}$ 为点 $x'$ 的稳定子;
+\item[ii)] $c^\varphi(g)=\card(G^\psi)$, 其中 $G^\psi=\{\xi\mid\psi(\xi)=\xi\}$;
+\item[iii)] $G^\psi$ 作用于 ${X'_x}^{g^{-1}f'}$;
+\item[iv)] 对每个 $h\in G^\psi$, 有 $\nu_{x'}(g^{-1}f')=\nu_{hx'}(g^{-1}f')$;
+\item[v)] $(g^{-1}f')(g_1x)=\psi(g_1)(g^{-1}f')(x)$.
+\end{enumerate}
+因此可将 ${X'_x}^{g^{-1}f'}$ 分解为轨道的并, 得
+\begin{equation}\tag{4.9.1}
+\sum_{x'\in {X'_x}^{g^{-1}f'}}(\nu_{x'}(g^{-1}f')-1)
+=
+\sum_{x'\in {X'_x}^{g^{-1}f'}/G^\psi}
+\frac{\nu_{x'}(g^{-1}f')-1}{\card(G^\psi_{x'})}\,\card(G^\psi),
+\end{equation}
+其中
+\[
+\nu_{x'}(g^{-1}f')=\nu\bigl((g^{-1}f')_{\mathcal O_{x'}}\bigr),
+\]
+即
+\begin{equation}\tag{4.9.2}
+S_x(f',f,G,\varphi)(g)=\sum_{x'\in {X'}^{g^{-1}f'}/G^\psi}
+\frac{\nu_{x'}(g^{-1}f')-1}{\card(G^\psi_{x'})}.
+\end{equation}
+命题 4.9 由命题 4.6 得到.
+
+\section*{5. 一个 Nielsen--Wecken 型公式的推广 {\normalfont (参见 [1])}}
+
+\begin{statement}{命题 5.1}
+沿用第 1, 2, 3, 4 节的假设和记号, 再设 $Y'$ 为 $X'$ 的有限子集.
+
+若 $\ell$ 为不同于 $k$ 的特征的素数, 则:
+\begin{enumerate}[label=\alph*)]
+\item $\varphi$-中心函数
+\[
+\sum_{x\in Y^f}S_{x,\ell}(f,f',G,\varphi)
+\]
+的取值均为 $\ell$ 进整数;
+\item 下列公式成立:
+\begin{equation}\tag{5.1.1}
+\Tr_{\bZ_\ell[G],\varphi}\bigl(f'^\vee_{H_{U',X'}(\ell)}\bigr)
+=\sum_{x\in U^f}\nu_x(f)\mathrm{NW}^{G,\varphi}_f(x)
++\sum_{x\in Y^f}S_{x,\ell}(f,f',G,\varphi).
+\end{equation}
+\end{enumerate}
+\end{statement}
+
+\noindent
+\textbf{证明.} 显然, 若将一切均视为取值于 $\bQ_\ell$ 的函数而证明了等式 b), 则断言 a) 立即得出, 因为 $\mathrm{NW}^{G,\varphi}_{f}(x)$ 和 $\Tr_{\bZ_\ell[G],\varphi}(f'^\vee_{H_{U',X'}(\ell)})$ 都是取值于 $\bZ_\ell$ 的函数.
+
+首先, 对每个 $n\ge1$ 模 $\ell^n$ 约化, 并使用 (XI, 7.2.3.6), 可知对每个 $g\in G$,
+\begin{equation}\tag{5.2}
+\begin{aligned}
+c^\varphi(g)\,\Tr_{\bZ_\ell[G],\varphi}(f'^\vee_{H_{U',X'}(\ell)})(g)
+&=\Tr_{\bZ_\ell}(g_{X'}^{-1}f')^\vee_{H_{U',X'}(\ell)}\\
+&=\Tr_{\bZ_\ell}(g_{X'}^{-1}f')_{H^\vee_{U',X'}(\ell)}.
+\end{aligned}
+\end{equation}
+各行正合的交换图 (1.3) 给出 (XI, \S4)
+\begin{equation}\tag{5.3}
+\Tr_{\bZ_\ell}(g_{X'}^{-1}f')_{H^\vee_{U',X'}(\ell)}
+=\Tr_{\bZ_\ell}(g_{X'}^{-1}f')_{R\Gamma_{X'}(\bZ_{\ell,X'})}
+-\Tr^*_{\bZ_\ell}(g_{Y'}^{-1}f'_{Y'})_{R\Gamma_{Y'}(\bZ_{\ell,Y'})}.
+\end{equation}
+% SGA-SRC-000386: the scan leaves the citation blank; reconstructed from the mathematics.
+(5.3) 右端的两项可用经典的 Lefschetz 公式 (参见 III, 4.8 和 4.10) 计算. (对最后一项, 这实际上是一个平凡的 Lefschetz 公式):
+\begin{equation}\tag{5.4}
+\Tr_{\bZ_\ell}(g_{X'}^{-1}f')_{R\Gamma_{X'}(\bZ_{\ell,X'})}
+=\sum_{x\in X^f}\sum_{x'\in {X'_x}^{g_{X'}^{-1}f'}}\nu_{x'}(g_{X'}^{-1}f'),
+\end{equation}
+\begin{equation}\tag{5.5}
+\Tr^*_{\bZ_\ell}(g_{Y'}^{-1}f'_{Y'})_{R\Gamma_{Y'}(\bZ_{\ell,Y'})}
+=\text{$g_{Y'}^{-1}f'_{Y'}$ 的不动点数目}.
+\end{equation}
+因此,
+\begin{equation}\tag{5.6}
+\Tr_{\bZ_\ell}(g_{X'}^{-1}f')_{H^\vee_{U',X'}(\ell)}
+=\sum_{x\in U^f}\sum_{x'\in {X'_x}^{g_{X'}^{-1}f'}}\nu_{x'}(g_{X'}^{-1}f')
+-\sum_{x\in Y^f}\sum_{x'\in {X'_x}^{g_{X'}^{-1}f'}}(1-\nu_{x'}(g_{X'}^{-1}f')).
+\end{equation}
+但对给定的 $x\in U^f$, 集合 ${X'_x}^{g_{X'}^{-1}f'}$ 非空当且仅当 $\mathrm{NW}_{f}^{G,\varphi}(x)=1$. 此外,
+\begin{equation}\tag{5.7}
+\card {X'_x}^{g_{X'}^{-1}f'}=c^\varphi(g),
+\qquad x\in U,
+\end{equation}
+\begin{equation}\tag{5.8}
+\nu_{x'}(g_{X'}^{-1}f')=\nu_x(f),
+\qquad x\in U.
+\end{equation}
+因此关系 (5.2) 和 (5.6) 给出
+\begin{equation}\tag{5.9}
+\Tr_{\bZ_\ell[G],\varphi}(f'^\vee_{H_{U',X'}(\ell)})(g)
+=\sum_{x\in U^f}\nu_x(f)\mathrm{NW}_f^{G,\varphi}(x)(g)
+-\sum_{x\in Y^f}\sum_{x'\in {X'_x}^{g_{X'}^{-1}f'}}
+\frac{1-\nu_{x'}(g_{X'}^{-1}f')}{c^\varphi(g)},
+\end{equation}
+这就是待证的公式.
+
+\subsection*{5.10. 特殊情形}
+\subsubsection*{a) 不分歧的情形: $Y'=\emptyset$, 即 $Y=\emptyset$.}
+此时公式 (5.1.1) 成为
+\begin{equation}\tag{5.11}
+\Tr_{\bZ_\ell[G],\varphi}(f'^\vee_{H_{U',X'}(\ell)})
+=
+\sum_{x\in X^f}\nu_x(f)\mathrm{NW}_f^{G,\varphi}(x).
+\end{equation}
+
+\subsubsection*{b) 重数为 $1$ 的情形: 对每个 $x'\in {Y'}^{g_{Y'}^{-1}f'_{Y'}}$ 以及每个 $g\in G$, 有 $\nu_{x'}(g_{X'}^{-1}f')=1$.}
+此时公式 5.1.1 化为公式 5.11. 特别地, 当 $\dim X=1$ 且对每个 $y\in Y$ 有 $\nu_x(f)=1$ 时, 就出现这一情形.
+
+\section*{6. 在一个 Lefschetz 公式中的应用}
+
+\subsection*{6.1}
+除非明确另作说明, 沿用第 1 节的记号和条件\footnote{$X^f$ 表示 $X$ 的闭不动点的集合.}. 设 $A$ 为交换诺特 $\La_n$-代数, $F$ 为 $X$ 上关于平展拓扑的可构造完美 $A$-模层, 设
+\[
+u:f^*(F)\longrightarrow F
+\]
+为 $A$-模层同态.
+
+特别地, 得到对 $(X,F)$ 的自态射:
+\[
+(u,f):(X,F)\longrightarrow (X,F),
+\]
+从而得到 $A$-模复形的自同态:
+\[
+R\Gamma_X(u,f):R\Gamma_X(F)\longrightarrow R\Gamma_X(F).
+\]
+由于假设中概形 $X$ 在 $k$ 上固有, 且层 $F$ 可构造并为挠层, 有限性定理 (SGA 4, XVII 5) 保证复形 $R\Gamma_X(F)$ 为完美 $A$-模复形. 因此迹
+\[
+\Tr_A(R\Gamma_X(u,f))
+\]
+有定义, 且
+\[
+\Tr_A(R\Gamma_X(u,f))\in A.
+\]
+我们的目标是在若干附加假设下, 用与 $f$ 的不动点相伴的局部不变量给出 $\Tr_A(R\Gamma_X(u,f))$ 的显式公式.
+
+\subsection*{6.2. 局部项的定义}
+设 $X'$ 不可约且维数为一, 层 $F'=p^*(F)$ 在 $U'$ 上的限制为常值层.
+
+从现在起假设 $f'$ 的不动点数目有限, 此时总可假设 $X^f\subset Y^f$.
+
+因而层 $F'|_{U'}$ 由一个带 $G$ 作用的 $A$-模 $M$ 定义:
+\[
+F'|_{U'}\simeq M_{U'}.
+\]
+事实上, 若 $\eta$ (分别 $\eta'$) 为 $X$ (分别 $X'$) 的一般点, $\bar\eta$ (分别 $\bar\eta'$) 为 $\eta$ (分别 $\eta'$) 上方的几何点, 则
+\[
+p(\eta')=\eta,\qquad F_{\bar\eta}\simeq F'_{\bar\eta'}.
+\]
+复形 $F'$ 同构于 $M$, 因而 $M$ 是完美 $A$-模.
+
+另一方面, 若态射 $f'$ 非常值, 则它固定 $X'$ 的一般点. 因而对 $(X',F')$ 的态射 $(p^*(u),f')$ 在纤维 $F'_{\bar\eta'}$ 上诱导态射
+\[
+u'_{\bar\eta'}:F'_{\bar\eta'}\longrightarrow F'_{\bar\eta'},
+\]
+从而显然给出 $A$-模态射
+\[
+u_M:M\longrightarrow M.
+\]
+容易看出满足下述关系:
+\begin{equation}\tag{6.2.1}
+u_M(\varphi(g)m)=g u_M(m) \qquad \forall m\in M,\quad \forall g\in G.
+\end{equation}
+所以 $M$ 关于 $A$ 的对偶 $M^\vee$ 带有 $A[G]$-模结构以及自同态
+\[
+u_M^\vee:M^\vee\longrightarrow M^\vee
+\]
+使得
+\[
+u_M^\vee(gx)=\varphi(g)u_M^\vee(x) \qquad \forall g\in G,\quad \forall x\in M^\vee.
+\]
+此外, $M^\vee$ 是完美 $A$-模, 因而对每个 $g\in G$, 迹 $\Tr_A(g^{-1}u_M^\vee)$ 均有定义.
+
+设 $x\in X^f$ 为 $f$ 的闭不动点. 态射 $u$ 在模 $F_x$, 即层 $F$ 在点 $x$ 的纤维上诱导自同态 ($X$ 的闭点与 $X(x)$ 的点相等同):
+\[
+u_x:F_x\longrightarrow F_x.
+\]
+迹 $\Tr_A(u_x)$ 给出与不动点 $x$ 相伴的第一个局部不变量.
+
+用公式
+\begin{equation}\tag{6.2.2}
+\alpha_x(f,u,f',G,\varphi)=
+\sum_{g\in G_{\natural,\varphi}}
+S_{x,\ell^n}(f,f',G,\varphi)(g)\Tr_A(g^{-1}u_M^\vee),
+\end{equation}
+引入另一个局部不变量 $\alpha_x(f,u,f',G,\varphi)$, 它是环 $A$ 的元素, 其中函数
+\[
+S_{x,\ell^n}(f,f',G,\varphi):G\longrightarrow\La_n
+\]
+由函数 $i_\ell\circ S_x(f,F',G,\varphi)$ (参见 4) 模 $\ell^n\bZ$ 约化得到, 即
+\[
+S_{x,\ell^n}(f,f',G,\varphi)(g)=
+(i_\ell\circ S_x(f,f',G,\varphi))(g)\bmod \ell^n\bZ.
+\]
+
+\subsection*{6.3. 一个 Lefschetz 公式}
+在 5.1, 6.1 和 6.2 的假设与记号下, 有公式
+\begin{equation}
+\tag{6.3.1}
+\Tr_A(\RG_X(u,f))=\sum_{x\in X^f}\tau_x(f,u,f',G,\varphi),
+\end{equation}
+其中
+\begin{equation}
+\tag{6.3.2}
+\tau_x(f,u,f',G,\varphi)=\Tr_A(u_x)-\alpha_x(f,u,f',G,\varphi).
+\end{equation}
+
+\emph{证明.} 由于子概形 $Y$ 在 $f$ 下稳定, 态射
+\[
+(u,f):(X,F)\longrightarrow(X,F)
+\]
+诱导典范三角的自同态
+\begin{equation}
+\tag{6.3.3}
+\begin{tikzpicture}[baseline=(current bounding box.center),>=stealth]
+\node (Y) at (0,1.75) {$\RG_Y(F|Y)$};
+\node (U) at (-2.45,0) {$\RG_X(F_{U,X})$};
+\node (X) at (2.35,0) {$\RG_X(F)$};
+\node at (2.75,2.25) {$\scriptstyle\RG_Y(u|Y,f|Y)$};
+\node at (-5.05,0.02) {$\scriptstyle\RG_X((u,f)_{U,X})$};
+\node at (5.05,0.02) {$\scriptstyle\RG_X(u,f)$};
+\draw[->] (Y) to[out=145,in=35,looseness=5.8] (Y);
+\draw[->] (U) to[out=210,in=-30,looseness=5.5] (U);
+\draw[->] (X) to[out=25,in=-25,looseness=7] (X);
+\draw[->] (Y) -- (U);
+\draw[->] (U) -- (X);
+\draw[->] (X) -- (Y);
+\end{tikzpicture}
+\end{equation}
+从而有关系
+\begin{equation}
+\tag{6.3.4}
+\Tr_A(\RG_X(u,f))=
+\Tr_A(\RG_X((u,f)_{U,X}))+
+\Tr_A(\RG_Y(u|Y,f|Y)).
+\end{equation}
+利用初等 Lefschetz 公式以及总可假设 $X^f=Y^f$ 这一事实, 可将 (6.3.4) 的最后一项显式写出:
+\begin{equation}
+\tag{6.3.5}
+\Tr_A(\RG_Y(u|_Y,f|_Y))=\sum_{x\in X^f}\Tr_A(u_x).
+\end{equation}
+另一方面,
+\begin{equation}
+\tag{6.3.6}
+\RG_X((u,f)_{U,X})\simeq \R\Gamma^G\RG_{X'}((u',f')_{U',X'}),\quad (u'=p^*(u)),
+\end{equation}
+\begin{equation}
+\tag{6.3.7}
+F_{U',X'}\simeq \La_{n,U',X'}\otimes_{\La_n}^{\mathbf L}M,
+\qquad
+(u',f')_{U',X'}=f'_{\La_{n,U',X'}}\otimes_{\La_n}M,
+\end{equation}
+由 Künneth 公式得到
+\begin{equation}
+\tag{6.3.8}
+\RG_{X'}(u',f')_{U',X'}\simeq
+\RG_{X'}(f'_{\La_{n,U',X'}})\otimes_{\La_n}^{\mathbf L}u_M.
+\end{equation}
+由 (6.3.8) 可得
+\begin{equation}
+\tag{6.3.9}
+\RG_{X'}((u',f')_{U',X'})^\vee\simeq
+(\RG_{X'}(f'_{\La_{n,U',X'}}))^\vee\otimes_{\La_n}^{\mathbf L}A\otimes_A^{\mathbf L}u_M^\vee.
+\end{equation}
+利用公式 6.3.6, 得到
+\begin{equation}
+\tag{6.3.10}
+\RG_X((u,f)_{U,X})=\RG_{X'}(f'_{\La_{n,U',X'}})\otimes_{A[G]}^{\mathbf L}u_M^\vee,
+\end{equation}
+因而, 考虑到一般公式 (参见报告 XI, 7.5.9),
+\begin{equation}
+\tag{6.3.11}
+\Tr_A((u,f)_{U,X})=
+\sum_{g\in G_{\natural,\varphi}}\Tr_{\La_n[G],\varphi}(f'{}^\vee_{H_{n,U',X'}})(g)\Tr_A(g^{-1}u_M^\vee).
+\end{equation}
+但迹 $\Tr_{\La_n[G],\varphi}(f'{}^\vee_{H_{n,U',X'}})$ 可以用 Nielsen--Wecken 公式 (参见命题 5.1 b)) 计算, 当然须先模 $\ell^n\mathbb Z$ 约化.
+
+考虑到关系 $X^f=Y^f$, 得到
+\begin{equation}\tag{6.3.12}
+\Tr_{\La_n[G],\varphi}(f'{}^\vee_{H_{n,U',X'}})(g)=\sum_{x\in X^f}S_{x,\ell^n}(f,f',G,\varphi)(g).
+\end{equation}
+
+结合关系 6.3.12, 6.3.11, 6.3.5 和 6.3.4, 即得所述公式.
+
+\subsection*{6.4. 关于局部项的注记}
+\subsubsection*{a)} 容易看出, 若 $g\in G$, 则有关系
+\begin{equation}\tag{6.4.1}
+\alpha_x(f,u,g^{-1}f',G,\varphi_g)
+=
+\alpha_x(f,u,f',G,\varphi),
+\end{equation}
+其中
+\begin{equation}\tag{6.4.2}
+\varphi_g(\xi)=(\mathrm{int}_g\circ\varphi)(\xi)=g^{-1}\varphi(\xi)g,
+\qquad \forall\xi\in G.
+\end{equation}
+关系 6.4.1 使我们总能将 $f'$ 换成 $g^{-1}f'$, $\varphi$ 换成 $\varphi_g$, 从而归结到至少存在一点 $x'\in {X'_x}^{f'}$ 的情形.
+
+\subsubsection*{b)} 设 $x'\in X_x'{}^{f'}$, $G_{x'}$ 为点 $x'$ 的稳定子. 显然 $G_{x'}$ 在 $\varphi$ 下稳定, 从而得到自同态
+\[
+\varphi_{x'}=\varphi|_{G_{x'}}:G_{x'}\longrightarrow G_{x'}.
+\]
+以 $X'/G_{x'}$ 表示 $X'$ 关于 $G_{x'}$ 定义的等价关系得到的商概形, 以 $F'/G_{x'}$ 表示由 $X'$ 的自态射 $f'$ 通过同一等价关系得到的 $X'/G_{x'}$ 的自态射, 并以 $x'$ 表示点 $x'$ 模此等价关系的类.
+
+典范投影
+\[
+p:X'\longrightarrow X'/G=X
+\]
+分解为
+\[
+p:X'\xrightarrow{\;p_1\;}X'/G_{x'}\xrightarrow{\;p_2\;}X=X'/G.
+\]
+将同态 $u$ 沿 $p_2$ 取逆像, 得到同态
+\[
+v=p_2(u):(f'/G_{x'})^*(p_2^*(F))\longrightarrow p_2^*(F).
+\]
+容易看出
+\begin{equation}\tag{6.4.3}
+\alpha_{x'}(f'/G_{x'},v,f',G_{x'},\varphi_{x'})
+=
+\alpha_x(f,u,f',G,\varphi)
+\qquad (x=p(x')).
+\end{equation}
+因而总可归结到“完全分歧”的情形, 即点 $x$ 的纤维仅含一点的情形.
+
+\subsubsection*{c) “温和分歧”的情形.} 设存在 $x'\in p^{-1}(x)$ 使
+\[
+f'(x')=x',\qquad p(x')=x,
+\]
+这是总能归结到的情形, 参见情形 a); 并设群 $G_{x'}$ 的阶与域 $k$ 的特征互素. 则有
+\begin{equation}\tag{6.4.4}
+\alpha_x(f,u,f',G,\varphi)=S_{x,\ell^n}(f,f',G,\varphi)(e)\,\Tr_A(u_M^\vee).
+\end{equation}
+考虑到情形 b), 可假设 $G=G_{x'}$. 于是公式 (6.4.4) 由下述引理得到.
+
+\subsection*{引理 6.4.5}
+\emph{若满足下列关系:}
+\begin{align*}
+\nu_{x'}(f')&>1,\\
+\nu_{x'}(g^{-1}f')&>1,
+\end{align*}
+\emph{则 $g$ 属于第一分歧群 $G_1$ (参见 4.7):}
+\[
+g\in G_1,
+\]
+\emph{即 $g$ 在向量空间 $\fm_{x'}/\fm_{x'}^2$ 上诱导恒等映射.}
+
+\subsection*{证明}
+设 $\widehat{\mathcal O}_{x'}=k[[T]]$. $g^{-1}$ 在 $\fm/\fm^2$ 上诱导的自同构, 由单位根 $\varepsilon(g^{-1})\in k$ 通过条件
+\[
+g^{-1}T=\varepsilon(g^{-1})T\mod \fm^2,
+\]
+确定, 其中 $\fm$ 为环 $k[[T]]$ 的极大理想.
+
+另一方面, 假设 $\nu_{x'}(f')>1$ 给出
+\[
+f'(T)=T+a_\nu T^\nu+a_{\nu+1}T^{\nu+1}+\cdots,
+\qquad \nu\ge2.
+\]
+因此
+\[
+g^{-1}f'(T)=\varepsilon(g^{-1})T+b_\nu T^\nu+b_{\nu+1}T^{\nu+1}+\cdots,
+\]
+而假设 $\nu(g^{-1}f')>1$ 蕴含 $\varepsilon(g^{-1})=1$, 即得所证.
+
+\subsubsection*{d) 层 $F$ 在自态射 $f$ 的不动点处不分歧的情形.}
+此时局部项 $\tau_x(f,u,f',G,\varphi)$ 由公式
+\begin{equation}\tag{6.4.6}
+\tau_x(f,u,f',G,\varphi)=\nu_x(f)\,\Tr_A(u_x),
+\end{equation}
+给出, 因而仅依赖于对 $(f,u)$.
+
+事实上, 此时有
+\begin{equation}\tag{6.4.7}
+S'_{x,\ell^n}(f,f',G,\varphi)(g)=
+\begin{cases}
+0&\text{若存在 }x'\in X'\text{ 使 }(g^{-1}f')(x')=x'\text{, 或}\\
+&\text{等价地, 若 $g$ 的 $\varphi$-共轭类等于}\\
+&\text{类 }\mathrm{NW}_{f}^{G,\varphi}(x)\text{ (参见 3); }\\
+\nu_x(f)-1&\text{其他情形.}
+\end{cases}
+\end{equation}
+特别地, 得
+\begin{equation}\tag{6.4.8}
+S_{x,\ell^n}(f,f';G,\varphi)(g)=0
+\qquad \text{若 } g\notin \mathrm{NW}_{f}^{G,\varphi}(x).
+\end{equation}
+于是得到
+\begin{equation}\tag{6.4.9}
+\begin{aligned}
+\tau_x(f,u,f',G,\varphi)
+&=\nu_x(f)\Tr_A(g^{-1}u_M^\vee)
+=\nu_x(f)\Tr_A(g^{-1}u')_{x'}\\
+&=\nu_x(f)\Tr_A(u_x).
+\end{aligned}
+\end{equation}
+
+\section*{7. 关于 Lefschetz 公式成立条件的说明}
+
+\subsection*{7.1}
+当然, 实际中是从 $k$ 上的固有概形 $X$ 及自态射
+\[
+(u,f):(X,F)\longrightarrow (X,F),
+\]
+出发, 它们满足:
+\begin{itemize}
+\item $F$ 为可构造 $A$-模层,
+\item $f$ 的不动点集合 $X^f$ 有限.
+\end{itemize}
+问题是在这些条件下定义局部项 $\tau_x(u,f)$, $x\in X^f$, 使得
+\[
+\text{(*)}\qquad \Tr_A(R\Gamma_X(u,f))=\sum_{x\in X^f}\tau_x(u,f).
+\]
+利用整体与局部这两个对偶性定理, Verdier 成功定义了使公式 (*) 成立的项 $\tau_x(u,f)$ (参见 III). 遗憾的是, 要用已知局部不变量显式确定 Verdier 所定义的 $\tau_x(u,f)$ 似乎颇为困难; 因而上一节提出的定义就具有意义.\footnote{不过, 关于 6.3.1 的局部项与 Verdier 的局部项的比较, 参见 III B.}
+
+然而, 后面这些定义需要对 $F$, $f$ 和 $u$ 加上附加假设, 即要求存在满足 5.1, 6.1, 6.2 中所需性质的 $U,U',G,f',\varphi$.
+
+\begin{statement}{命题 7.2}
+设 $X$ 为维数 $1$ 的光滑概形, $F$ 可构造, 设
+\[
+(u,f):(X,F)\longrightarrow (X,F)
+\]
+为自态射, 使得层的态射
+\[
+u:f^*(F)\longrightarrow F
+\]
+为同构. 在这些条件下, 存在满足 5.1, 6.1, 6.2 条件的 $U,U',G,f',\varphi$.
+\end{statement}
+
+\begin{prooftext}[证明]
+设 $U$ 为 $X$ 上使 $F$ 局部常值的最大开子集, 以 $Y$ 表示其补集. 集合 $Y$ 在 $f$ 下稳定:
+\[
+f(Y)\subset Y.
+\]
+事实上, 反设存在 $y\in Y$ 使 $f(y)\in U$. 则层 $f^*(F)$ 在 $y$ 的一个邻域中局部常值; 利用同构 $u$, 可得 $F$ 在 $y$ 的一个邻域中局部常值, 矛盾.
+
+若 $f$ 为常值态射, 则命题的证明是平凡的. 因而假设 $f$ 非常值. 若 $\eta$ 为 $X$ 的一般点, 则 $f(\eta)=\eta$.
+
+设 $i_\eta:\Spec(k(\eta))\hookrightarrow X$ 为典范包含, 置 $F_\eta=i_\eta^*(F)$, 设
+\[
+u_\eta:f_\eta^*(F_\eta)\longrightarrow F_\eta
+\]
+为 $u$ 诱导的层态射, 它实际上是同构; 这里 $f_\eta$ 当然是 $f$ 在 $\Spec(k(\eta))$ 上的限制.
+
+将一切翻译成 $H$-模的语言, 其中
+\[
+H=\Gal(k(\eta)_s/k(\eta)),\qquad k(\eta)_s\text{ 为 }k(\eta)\text{ 的一个可分闭包},
+\]
+得到同构
+\[
+\begin{tikzcd}[column sep=large]
+H \arrow[r,"\Psi"] & H
+\end{tikzcd}
+\qquad
+\begin{tikzcd}[column sep=large]
+F_{\bar\eta} \arrow[r,"u_{\bar\eta}"] & F_{\bar\eta},
+\end{tikzcd}
+\]
+其中 $F_{\bar\eta}$ 具有 $H$-模结构, 且下述关系成立:
+\[
+u_{\bar\eta}(gx)=\Psi(g)\,u_{\bar\eta}x,
+\qquad g\in H,
+\quad x\in F_{\bar\eta}.
+\]
+若 $H_1$ 为 $H$ 中满足 $F_{\bar\eta}^{H_1}=F_{\bar\eta}$ 的最大有限指数正规子群, 则 $\Psi(H_1)=H_1$. 由于层 $F_\eta$ 可构造, 这样的子群存在.
+
+设 $K\supset k(\eta)$ 为与子群 $H_1$ 对应的 $k(\eta)$ 的 Galois 扩张, $X'$ 为 $X$ 在 $K$ 中的正规化. 显然可以定义自态射
+\[
+f':X'\longrightarrow X'
+\]
+以及自同态
+\[
+H/H_1=G\xrightarrow{\varphi}G
+\]
+使系统 $U,U',f',G,\varphi$ 满足所求条件.
+\end{prooftext}
+
+\begin{statement}{例 7.3}
+设 $X$ 为有限域 $\mathbb F_p$ 上定义的预概形, 其中 $p$ 为素数, 设 $\fr_X:X\to X$ 为 Frobenius 自态射 (参见 XIV), $F$ 为 $X$ 上的 $\Lambda$-模层.
+
+若 $Y,S$ 为 $\mathbb F_p$ 上的概形, 且 $Y$ 为 $S$ 上的概形, 以
+\[
+\Fr_{Y/S}:Y\longrightarrow Y^{(p/S)}
+\]
+表示相对 Frobenius 态射 (参见 XIV 2).
+
+按如下方式得到 $X_{\et}$ 上的层态射
+\[
+(\fr_X)_*(F)\longrightarrow F
+\]
+即对每个平展 $X$-预概形 $U$, 令
+\[
+(\fr_X)_*(F)(U)=F(\fr_X^{-1}(U))=F(U^{(p/X)})
+ \xrightarrow{\,F(\Fr_{U/X})\,}F(U).
+\]
+这个态射实际上是同构. 它的逆
+\[
+F(\Fr_{/X})^{-1}:F\longrightarrow (\fr_X)_*(F)
+\]
+通过伴随定义态射
+\[
+\Fr_{F/X}^*:(\fr_X)^*(F)\longrightarrow F
+\]
+它为同构.
+
+特别地, 若 $X$ 光滑且维数为 $1$, $F$ 可构造, 则对
+\[
+(\Fr_{F/X}^*,\fr_X):(X,F)\longrightarrow (X,F)
+\]
+属于命题 7.2 的适用范围.
+\end{statement}
+
+\noindent[1] Wecken, F., Fixpunktklassen I, Math. Ann. 117 (1941), p. 659--671; Fixpunktklassen II, III, Math. Ann. 118 (1942--1943), 第 216--234 页及第 544--577 页.
+
