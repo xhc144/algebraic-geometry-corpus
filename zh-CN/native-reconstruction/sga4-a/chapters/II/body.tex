@@ -1,0 +1,2051 @@
+% BEGIN INCLUDED SGA4_English_current_buildable_source_20260906/source/02/drafts/SGA4_II_LINES_31_212_English.texfrag
+在\pageoriginale{}定义拓扑与预拓扑 (\hyperref[II.sec1]{第 1 节})
+以及集合层 (\hyperref[II.sec2]{第 2 节}) 之后,
+我们在 \hyperref[II.sec3]{第 3 节} 转向本篇的核心定理
+(\hyperref[II.theo3.4]{3.4}): 预层的相伴层的存在性.
+为涵盖实际遇到的一切情形, 我们对 $𝒰$-景上的预层
+(\hyperref[II.def3.0.2]{3.0.2}) 证明这一函子的存在性.
+在 \hyperref[II.sec4]{第 4 节} 和第 5 节, 导出该定理关于层范畴中
+归纳极限与投射极限的行为的推论.
+在 \hyperref[II.sec6]{第 6 节}, 定义并研究取值于任意范畴的层,
+并立即着重考察环层、群层、模层\etcn
+
+\section{拓扑、覆盖族、预拓扑}\etiquette[1]{II.sec1}
+
+\begin{enonce*}{定义 1.1}\etiquette[1.1]{II.def1.1}
+范畴 $C$ 上的拓扑（topology）, 是给 $C$ 的每个对象 $X$
+指定 $X$ 上的一个筛集 $J(X)$, 满足下列公理:
+\begin{itemize}
+\item[T 1)] {\rm{(基变换下的稳定性).}}
+对 $C$ 的每个对象 $X$、每个筛 $R\in J(X)$
+以及每个态射 $f:Y\rightarrow X$ $(Y\in \ob (C))$,
+$Y$ 上的筛 $R\times_X Y$ 属于 $J(Y)$.
+
+\item[T 2)] {\rm(局部性).} 若 $R$ 和 $R'$ 是 $X$ 上的两个筛,
+$R\in J(X)$, 且对每个 $Y\in \ob (C)$ 及每个态射 $Y\rightarrow R$,
+筛 $R'\times_X Y$ 属于\pageoriginale{} $J(Y)$,
+则 $R'$ 属于 $J(X)$.
+
+\item[T 3)] 对 $C$ 的每个对象 $X$, $X$ 属于 $J(X)$.
+\end{itemize}
+\end{enonce*}
+
+\setcounter{subsection}{1}
+\subsubsection{}\etiquette[1.1.1]{II.subsubsec1.1.1}
+
+属于 $J(X)$ 的筛称为\emph{覆盖 $X$ 的筛},
+或 $X$ 的\emph{加细（refinement）}.
+由公理 (T1)、(T2) 和 (T3) 立即可知,
+覆盖 $X$ 的筛集对有限交稳定,
+并且每个包含覆盖筛的筛本身也是覆盖筛.
+因此, 集合 $J(X)$ 按包含关系排序后是余滤过的
+(\hyperrefext[I][I.sec8]{8}).
+
+\subsubsection{}\etiquette[1.1.2]{II.subsubsec1.1.2}
+
+设 $C$ 是一个范畴, $T$ 和 $T'$ 是 $C$ 上的两个拓扑.
+若对 $C$ 的每个对象 $X$,
+$X$ 关于拓扑 $T'$ 的每个加细都是 $X$ 关于拓扑 $T$ 的加细,
+就称拓扑 $T$ \emph{比拓扑 $T'$ 细}.
+这就在拓扑集上定义了一个序结构.
+
+\subsubsection{}\etiquette[1.1.3]{II.subsubsec1.1.3}
+
+设 $(T_i)_{i\in I}$ 是 $C$ 上的一族拓扑.
+对 $C$ 的每个对象 $X$,
+$X$ 上那些关于所有拓扑 $T_i$ 都覆盖的筛所成的集合
+满足公理 (T 1)、(T 2) 和 (T 3), 因而定义了一个拓扑:
+各 $T_i$ 的\emph{交拓扑}, \ie 各 $T_i$ 的下确界.
+它是在所有比各个 $T_i$ 都粗的拓扑中最细的拓扑.
+因此, 族 $(T_i)_{i \in I}$ 也有\emph{上确界}:
+所有比每个~$T_i$ 都细的拓扑的交拓扑.
+
+\subsubsection{}\etiquette[1.1.4]{II.subsubsec1.1.4}
+特别地\pageoriginale{}, 取 $J(X)$ 为 $X$ 上所有筛的集合,
+就得到一个比 $C$ 上每个拓扑都细的拓扑;
+我们称其为\emph{离散拓扑}.
+
+还有一个比 $C$ 上每个拓扑都粗的拓扑:
+对 $C$ 的每个 $X$, 都有 $J(X)=\{X\}$ 的拓扑.
+这个拓扑称为\emph{粗拓扑}或\emph{混沌拓扑}.
+
+\subsubsection{}\etiquette[1.1.5]{II.subsubsec1.1.5}
+配备一个拓扑的范畴 $C$ 称为\emph{景（site）}.
+范畴 $C$ 称为\emph{该景的底范畴}.
+
+\begin{enonce*}{定义 1.2}\etiquette[1.2]{II.def1.2}
+设 $C$ 是一个景, $X$ 是 $C$ 的一个对象.
+如果态射族 $f_{\alpha}$ 生成的筛
+{\rm(I~\hyperref[I.sec4.3.3]{4.3.3})} 是覆盖 $X$ 的筛,
+就称态射族 $(f_{\alpha}:X_{\alpha}\rightarrow X)$, $\alpha\in A$,
+为覆盖族（covering family）.
+\end{enonce*}
+
+\subsubsection{}\etiquette[1.1.6]{II.subsubsec1.1.6}
+设 $C$ 是一个范畴.
+假定对 $C$ 的每个对象 $X$, 给定以 $X$ 为靶的态射族的一个集合.
+于是存在一个使所给各族均为覆盖族的最粗拓扑 $T$,
+即所有这类拓扑的交 (\hyperref[II.subsubsec1.1.3]{1.1.3}).
+这个拓扑称为\emph{由所给态射族集生成的拓扑}.
+一般说来, 很难描述此拓扑的所有覆盖筛.
+不过, 在下面的情形, 情况较为有利:
+
+\begin{enonce*}{定义 1.3}\etiquette[1.3]{II.def1.3}
+设 $C$ 是一个范畴.
+$C$ 上的预拓扑（pretopology）, 是给 $C$ 的每个对象 $X$
+指定以 $X$ 为靶的态射族的一个集合 $\Cov(X)$,
+满足下列公理:
+\begin{itemize}
+\item[PT 0)] 对\pageoriginale{} $C$ 的每个对象 $X$,
+属于 $\Cov(X)$ 的各族中的态射都可拉回.
+(回忆, 态射 $Y\rightarrow X$ 称为可拉回的,
+是指对每个态射 $Z\rightarrow X$, 纤维积 $Z\times_X Y$ 可表示.)
+
+\item[PT 1)] 对 $C$ 的每个对象 $X$、属于 $\Cov(X)$ 的每个族
+$(X_{\alpha}\rightarrow X)_{\alpha \in A}$
+及每个态射 $Y\rightarrow X$ $(Y\in \ob (C))$,
+族 $(X_{\alpha}\times_X Y\rightarrow Y)_{\alpha \in A}$ 属于 $\Cov(Y)$.
+(基变换下的稳定性.)
+
+\item[PT 2)] 若 $(X_{\alpha}\rightarrow X)_{\alpha \in A}$ 属于
+$\Cov(X)$, 且对每个 $\alpha\in A$,
+$(X_{\beta_{\alpha}}\rightarrow X_{\alpha})_{\beta_{\alpha}\in
+  B_{\alpha}}$ 属于 $\Cov(X_{\alpha})$,
+则族 $(X_\gamma\rightarrow X)_{\gamma\in \amalg_{\alpha\in A}B_{\alpha}}$
+属于 $\Cov(X)$
+(其中对每个 $\gamma=(\alpha,\beta_{\alpha})$, $\alpha\in A$,
+$\beta_{\alpha}\in B_{\alpha}$,
+态射 $X_\gamma\rightarrow X$ 为复合态射
+$X_\gamma=X_{\beta_{\alpha}}\rightarrow
+  X_{\alpha}\rightarrow X$). (复合下的稳定性.)
+
+\item[PT 3)] 族 $X\xrightarrow{\id_X} X$ 属于 $\Cov(X)$.
+\end{itemize}
+\end{enonce*}
+
+\setcounter{subsection}{3} \setcounter{subsubsection}{0}
+\subsubsection{}\etiquette[1.3.1]{II.subsubsec1.3.1}
+
+\hyperref[II.subsubsec1.1.6]{1.1.6} 的定义使我们可以对 $C$ 上给定的一个\emph{预拓扑},
+考察由该预拓扑生成的 $C$ 上的\emph{拓扑}.
+注意, 如果 $C$ 是一个纤维积可表示的范畴,
+则 $C$ 上的每个拓扑 $T$ 都可以由某个预拓扑定义:
+取 $\Cov(X)$ 为关于拓扑 $T$ 覆盖 $X$ 的\emph{所有}族即可.
+
+\begin{enonce*}{命题 1.4}\etiquette[1.4]{II.prop1.4}
+设 $C$ 是一个范畴, $E$ 是 $C$ 上的一个预拓扑,
+$T$ 是由预拓扑 $E$ 定义的拓扑
+$(\hyperref[II.subsubsec1.1.6]{1.1.6})$, $X$ 是 $C$ 的一个对象.
+以 $J_E(X)$ 表示由预拓扑中的族生成的 $X$ 上的筛所成的集合,
+以 $J_T(X)$ 表示 $X$ 关于\pageoriginale{}拓扑 $T$ 的加细所成的集合.
+则 $J_E(X)$ 在 $J_T(X)$ 中共尾.
+换句话说, $X$ 上的筛 $R$ 属于 $J_T(X)$,
+当且仅当存在筛 $R'\in J_E(X)$ 使得 $R'\subset R$.
+\end{enonce*}
+
+\begin{enonce*}[remark]{证明}
+对 $C$ 的每个对象 $X$, 设 $J'(X)$ 为 $X$ 上那些包含某个属于
+$J_E(X)$ 的筛的筛所成的集合.
+显然, $J'(X)\subset J_T(X)$.
+要证明 $J'(X)=J_T(X)$, 只须证明数据 $J'(X)$ 定义了 $C$ 上的一个拓扑.
+各 $J'(X)$ 显然满足公理 (T 1) 和 (T 3).
+因此只剩下验证 (T 2). 为此, 只须证明:
+若 $R'$ 是 $R\in J_E(X)$ 的子筛,
+且对每个 $Y\rightarrow R$, $Y$ 上的筛 $R'\times_X Y$ 属于 $J'(Y)$,
+则筛 $R'$ 属于 $J'(X)$.
+筛 $R$ 由属于 $\Cov(X)$ 的一个族 $(X_{\alpha}\rightarrow X)$ 生成,
+并且对每个 $\alpha$, 筛 $R'\times_X X_{\alpha}$
+包含由属于 $\Cov(X_{\alpha})$ 的一个族
+$(X_{\beta_{\alpha}}\rightarrow X_{\alpha})$ 生成的筛.
+因此, 筛 $R'$ 包含由族 $(X_{\beta_{\alpha}}\rightarrow X)$ 生成的筛.
+于是由公理 (PT 2), $R'$ 包含一个属于 $J_E(X)$ 的筛,
+从而属于 $J'(X)$, \cqfd
+\end{enonce*}
+
+% END INCLUDED SGA4_English_current_buildable_source_20260906/source/02/drafts/SGA4_II_LINES_31_212_English.texfrag
+
+
+% BEGIN INCLUDED SGA4_English_current_buildable_source_20260906/source/02/drafts/SGA4_II_LINES_213_421_English.texfrag
+\section{集合层}\etiquette[2]{II.sec2}
+
+\begin{enonce*}{定义 2.1}\etiquette[2.1]{II.def2.1}
+设 $C$ 是一个底范畴为 $𝒰$-范畴的景.
+取值于 $𝒰-\Ens$ 的预层 $F$ 称为分离的
+(\resp 称为层), 是指对覆盖 $C$ 的一个对象 $X$ 的每个筛 $R$,
+映射
+$$
+\Hom_{C^{\widehat{\phantom{,}}}}(X,F)\longrightarrow
+\Hom_{C^{\widehat{\phantom{,}}}}(R,F)
+$$
+为单射 (\resp 双射).
+$C^{\widehat{\phantom{,}}}$ 中以层为\pageoriginale{}对象的满子范畴
+称为 $C$ 上的集合层范畴, 通常记为 $\widehat{C}$
+\footnote[1]{或者记为 $C^{\widetilde{\phantom{,}}}$,
+视打字机的心情而定.}.
+在不致混淆时, 简称 $C$ 上的层范畴;
+另一方面, 有时也将更明确地称为取值于 $𝒰-\Ens$ 的层范畴,
+或 $𝒰$-层范畴.
+\end{enonce*}
+
+\begin{enonce*}{命题 2.2}\etiquette[2.2]{II.prop2.2}
+设 $C$ 是一个 $𝒰$-范畴,
+$\Ff=(F_i)_{i\in I}$ 是 $C$ 上的一族 $𝒰$-预层.
+对 $C$ 的每个对象 $X$, 以 $J_{\Ff}(X)$ 表示那些筛
+$R\rightarrow X$ 所成的集合, 它们满足:
+对 $C$ 中以 $X$ 为靶的每个态射 $Y\rightarrow X$,
+筛 $R\times_X Y$ 有如下性质: 对每个 $i\in I$, 映射
+$$
+\Hom_{C^{\widehat{\phantom{,}}}}(Y,F_i)\longrightarrow
+\Hom_{C^{\widehat{\phantom{,}}}} (R\times_X Y, F_i)
+$$
+为双射 (\resp 单射).
+则各集合 $J_{\Ff}(X)$ 定义 $C$ 上的一个拓扑,
+它是使每个 $F_i$ 为层 (\resp 分离预层) 的最细拓扑.
+\end{enonce*}
+
+\begin{enonce*}[remark]{证明}
+各 $J_{\Ff}(X)$ 显然满足公理 (T 1) 和 (T 3).
+只须证明它们满足 (T 2). 为此, 只须证明下面两点:
+\begin{enumerate}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 若 $R'\hookrightarrow R\hookrightarrow X$ 是 $X$ 上的两个筛,
+$R\in J_{\Ff}(X)$, 且对每个 $Y\rightarrow R$
+(其中 $Y$ 是 $C$ 的对象), 筛 $R'\times_X Y$ 属于 $J_{\Ff}(Y)$,
+则筛 $R'$ 属于 $J_{\Ff}(X)$.
+
+\item 若 $R'\hookrightarrow R\hookrightarrow X$ 是 $X$ 上的两个筛,
+$R'\in J_{\Ff}(X)$, 则筛 $R$ 属于 $J_{\Ff}(X)$.
+\end{enumerate}
+\end{enonce*}
+
+注意, 在情形 2) 中, 对每个 $Y\rightarrow R$
+(其中 $Y$ 是 $C$ 的对象), 筛 $R'\times_X Y$ 属于 $J_{\Ff}(Y)$.
+在情形 1) 和 2) 中, $R$ 都是 $C$ 中 $R$ 上各对象 $Y$ 的归纳极限
+(I \hyperref[I.prop3.4]{3.4}).
+$C^{\widehat{\phantom{,}}}$ 中的\pageoriginale{}归纳极限都是泛的
+(\hyperrefext[I][I.cor3.3]{3.3}).
+因此, 在情形 1) 和 2) 中, $R'$ 都是各 $R'\times_X Y$ 的归纳极限.
+而在情形 1) 和 2) 中, $R'\times_X Y$ 都属于 $J_{\Ff}(Y)$.
+对 $C$ 中 $R$ 上的各对象 $Y$ 取归纳极限, 得到对每个 $i\in I$, 映射
+$$
+\Hom_{C^{\widehat{\phantom{,}}}}(R,F_i)\longrightarrow
+\Hom_{C^{\widehat{\phantom{,}}}}(R',F_i)
+$$
+是双射 (\resp 单射).
+由此可知, 在情形 1) 和 2) 中, 映射
+$$
+\Hom_{C^{\widehat{\phantom{,}}}}(X,F_i)\longrightarrow
+\Hom_{C^{\widehat{\phantom{,}}}}(R',F_i)\quav
+\Hom_{C^{\widehat{\phantom{,}}}}(X,F_i)\longrightarrow
+\Hom_{C^{\widehat{\phantom{,}}}}(R,F_i)
+$$
+均为双射 (\resp 单射).
+此外, 假设 1) 和 2) 显然在任意基变换 $Y\rightarrow X$
+($Y$ 为 $C$ 的对象) 下稳定.
+于是对 $C$ 中 $X$ 上的每个对象 $Y$ 以及每个 $i\in I$, 映射
+\begin{align*}
+\Hom_{C^{\widehat{\phantom{,}}}}(Y,F_i)&\longrightarrow
+\Hom_{C^{\widehat{\phantom{,}}}}(R\times_X Y, F_i)\\
+\Hom_{C^{\widehat{\phantom{,}}}}(Y,F_i)&\longrightarrow
+\Hom_{C^{\widehat{\phantom{,}}}}(R'\times_X Y, F_i)
+\end{align*}
+在两种情形中均为双射 (\resp 单射);
+这就证明 $R'$ 和 $R$ 都属于 $J_{\Ff}(X)$, \cqfd
+
+\begin{enonce*}{推论 2.3}\etiquette[2.3]{II.cor2.3}
+设 $C$ 是一个 $𝒰$-范畴,
+对 $C$ 的每个 $X$, 设 $K(X)$ 为 $X$ 上的一个筛集.
+假定各 $K(X)$ 满足 {\rm(\hyperref[II.def1.1]{1.1})} 的公理 {\rm (T 1)}.
+预层 $F$ 是由各 $K(X)$ 生成
+(\hyperref[II.subsubsec1.1.6]{1.1.6}) 的拓扑的层
+(\resp 分离预层), 当且仅当对 $C$ 的每个对象 $X$
+及每个筛 $R\in K(X)$, 映射
+$$
+\Hom_{C^{\widehat{\phantom{,}}}}(X,F)\longrightarrow
+\Hom_{C^{\widehat{\phantom{,}}}}(R,F)
+$$
+为双射 (\resp 单射).
+\end{enonce*}
+
+\begin{enonce*}{推论 2.4}\etiquette[2.4]{II.cor2.4}
+特别地\pageoriginale{}, 设 $C$ 是一个配备了预拓扑的 $𝒰$-范畴.
+预层 $F$ 是层 (\resp 分离预层), 当且仅当
+对 $C$ 的每个对象 $X$ 及属于 $\Cov(X)$ 的每个覆盖族
+$(X_{\alpha}\rightarrow X)$, 集合图
+$$
+F(X)\rightarrow \prod_{\alpha\in A}F(X_{\alpha})\rightrightarrows
+\prod_{(\alpha,\beta)\in A\times A}F(X_{\alpha}\times_X X_{\beta})
+$$
+正合 (\resp 映射
+$$
+F(X)\longrightarrow \prod_{\alpha\in A}F(X_{\alpha})
+$$
+为单射).
+\end{enonce*}
+
+\begin{enonce*}[remark]{证明}
+应用 \hyperref[II.cor2.3]{2.3}, 再应用
+(\hyperrefext[I][I.cor3.5]{3.5}) 和 (\hyperrefext[I][I.prop2.12]{2.12}).
+
+推论 \hyperref[II.cor2.4]{2.4} 重新给出了 [1] 中的定义.
+\end{enonce*}
+
+\begin{enonce*}{定义 2.5}\etiquette[2.5]{II.def2.5}
+设 $C$ 是一个 $𝒰$-范畴.
+$C$ 的典范拓扑（canonical topology）是使可表示函子均为层的最细拓扑
+(\hyperref[II.prop2.2]{2.2}).
+关于典范拓扑覆盖 $X$ 的筛称为泛严格满筛.
+关于典范拓扑的覆盖族称为泛严格满族.
+如果覆盖族中的态射还可拉回, 就称该族为泛有效满族 $[2]$.
+\end{enonce*}
+
+\begin{enonce*}[remark]{注 2.5.1}\etiquette[2.5.1]{II.rem2.5.1}
+对于迄今使用过的几乎所有景, 其拓扑都比典范拓扑\emph{粗};
+换句话说, $C$ 上的可表示函子都是层,
+\ie $C$ 的覆盖族都是泛严格满族.
+这一规律\pageoriginale{}唯一的例外是第 ${\rm n^{\circ}}$ 5 节研究的景 $\widehat{C}$
+(其拓扑比典范拓扑\emph{细}, 而且通常严格更细).
+\end{enonce*}
+
+\begin{enonce*}{命题 2.6}\etiquette[2.6]{II.prop2.6}
+筛 $R\hookrightarrow X$ 是泛严格满的,
+当且仅当对 $C$ 中 $X$ 上的每个对象 $Y\rightarrow X$
+以及 $C$ 的每个对象 $Z$, 映射
+$$
+\Hom_C(Y,Z)\longrightarrow \varprojlim_{C/(Y\times_X R)}\Hom_C (.,
+Z)
+$$
+是双射.
+\end{enonce*}
+
+\begin{enonce*}[remark]{证明}
+应用 \hyperref[II.prop2.2]{2.2}, 再应用
+(\hyperrefext[I][I.sec5.3]{5.3}), 即得.
+\end{enonce*}
+
+\begin{enonce*}[remark]{注 2.7}\etiquette[2.7]{II.rem2.7}
+\begin{enumerate}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 命题 \hyperref[II.prop2.6]{2.6} 给出了范畴 $C$ 的泛严格满筛的一个刻画,
+它与预层取值所在的宇宙无关, 只须 $C$ 的态射集
+$\Hom(X,Y)$ 属于该宇宙即可.
+因此, 可以对任意范畴 $C$ 定义典范拓扑, 无须指定宇宙.
+
+\item 设 $C$ 是一个底范畴为 $𝒰$-范畴的景,
+$F$ 是一个 $𝒰$-预层, $𝒱$ 是包含 $𝒰$ 的宇宙.
+$C$ 的底范畴是一个 $𝒱$-范畴, 且 $F$ 可以看作 $𝒱$-预层.
+$𝒰$-预层 $F$ 是层 (\resp 分离预层),
+当且仅当 $𝒱$-预层 $F$ 是层 (\resp 分离预层).
+换句话说, 预层 $F$ 为层 (\resp 分离预层) 的条件
+在刚才\pageoriginale{}说明的意义下,
+与预层 $F$ 取值所在的宇宙无关.
+特别地, 设 $C$ 是一个景, $F$ 是一个 $𝒰$-预层;
+如果存在一个包含 $𝒰$ 的宇宙 $𝒱$,
+使得范畴 $C$ 是一个 $𝒱$-范畴,
+且 $F$ 是一个 $𝒱$-层 (\resp 分离 $𝒱$-预层),
+就称 $F$ 为层 (\resp 分离预层).
+这一性质与宇宙 $𝒱$ 无关.
+\end{enumerate}
+\end{enonce*}
+
+% END INCLUDED SGA4_English_current_buildable_source_20260906/source/02/drafts/SGA4_II_LINES_213_421_English.texfrag
+
+
+% BEGIN INCLUDED SGA4_English_current_buildable_source_20260906/source/02/drafts/SGA4_II_LINES_422_562_English.texfrag
+\section{预层的相伴层}\etiquette[3]{II.sec3}
+
+\begin{enonce*}{定义 3.0.1}\etiquette[3.0.1]{II.def3.0.1}
+设 $C$ 是一个景.
+$C$ 的拓扑生成族（topologically generating family）
+(或者在不致混淆时, 简称生成族) 是 $C$ 的一个对象集 $G$,
+使 $C$ 的每个对象都是 $C$ 的一个覆盖态射族
+(\hyperref[II.def1.2]{1.2}) 的靶, 且该族各态射的源都是 $G$ 的元素.
+\end{enonce*}
+
+\begin{enonce*}{定义 3.0.2}\etiquette[3.0.2]{II.def3.0.2}
+设 $𝒰$ 是一个宇宙.
+$𝒰$-景是指底范畴为 $𝒰$-范畴
+{\rm(\hyperrefext[I][I.def1.1]{1.1})},
+且具有一个小拓扑生成族的景 $C$.
+设 $C$ 是一个 $𝒰$-范畴;
+$C$ 上的 $𝒰$-拓扑是 $C$ 上使 $C$ 成为 $𝒰$-景的一个拓扑.
+若景 $C$ 的底范畴是小的 {\rm(\hyperrefext[I][I.sec1.0]{1.0})},
+就称它是 $𝒰$-小的, 或沿用惯常说法, 简称小的.
+\end{enonce*}
+
+\setcounter{subsubsection}{2}
+\subsubsection{}\etiquette[3.0.3]{II.subsubsec3.0.3}
+由定义立即可知, 比一个 $𝒰$-拓扑更细的每个拓扑都是 $𝒰$-拓扑,
+并且小景都是 $𝒰$-景.
+
+\begin{enonce*}{命题 3.0.4}\etiquette[3.0.4]{II.prop3.0.4}
+设\pageoriginale{} $C$ 是一个 $𝒰$-景, $G$ 是 $C$ 的一个小拓扑生成族.
+对每个 $X\in\ob C$, 以 $J_G(X)$ 表示覆盖 $X$ 且由如下态射族生成的筛所成的集合:
+$$
+(Y_{\alpha}\xrightarrow{u_{\alpha}} X), \alpha\in A, \mbox{ 其中 }
+Y_{\alpha}\in G{\quoi}.
+$$
+\begin{enumerate}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 集合 $J_G(X)$ 是小的.
+
+\item 集合 $J_G(X)$ 在按包含关系排序的覆盖 $X$ 的所有筛的集合 $J(X)$ 中共尾.
+
+\item 对每个 $R\in J_G(X)$, 都存在一个小满族
+{\rm(\hyperrefext[I][I.sec10.2]{10.2})}
+$(u_\alpha:Y\rightarrow R)$, $\alpha\in A$, 其中 $Y\in G$.
+\end{enumerate}
+\end{enonce*}
+
+\begin{enonce*}[remark]{证明}
+\begin{enumerate}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 置 $A(X)=\amalg_{Y\in G}\hom(Y,X)$.
+集合 $A(X)$ 是小的 (\hyperrefext[I][I.sec0]{0}),
+且 $\card(J_G(X))\leq2^{\card(A(X))}$.
+因此 $J_G(X)$ 是小的.
+
+\item 设 $R\in J(X)$. 置 $A(R)=\amalg_{Y\in G}\Hom(Y,R)$,
+并设 $R'$ 为 $X$ 上由族
+$(Y\xrightarrow{u}R\hookrightarrow X)$, $u\in A(R)$, 生成的筛.
+有 $R'\subset R$, 只须证明 $R'$ 覆盖.
+由 \hyperref[II.def1.1]{1.1} 的公理 (T 2),
+只须证明对每个态射 $Z\rightarrow R$, $Z\in\ob C$,
+$Z$ 上的筛 $R'\times_XZ$ 覆盖.
+筛 $R'\times_XZ$ 包含由满足 $Y\in G$ 的所有态射 $Y\rightarrow Z$
+组成的族生成的筛, 而由假设, 后者覆盖.
+因此 $Z$ 上的筛 $R'\times_XZ$ 覆盖
+(\hyperref[II.def1.1]{1.1} 的公理 T2).
+
+\item 设 $R\in J_G(X)$.
+由假设, 族 $(Y\xrightarrow{u}R)$,
+$u\in A(R)=\amalg_{Y\in G}\Hom(Y,R)$, 是满的.
+对每个 $Y\in\ob C$, $\Hom(Y,R)$ 包含于小集 $\Hom(Y,X)$.
+因此 $A(R)$ 是小的.
+\end{enumerate}
+\end{enonce*}
+
+\setcounter{subsubsection}{4}
+\subsubsection{}\etiquette[3.0.5]{II.subsubsec3.0.5}
+设 $C$ 是一个 $𝒰$-景,
+$𝒱$ 是满足 $C\in𝒱$ 且 $𝒰\subset𝒱$ 的宇宙,
+$G$ 是 $C$ 的一个 $𝒰$-小拓扑生成族.
+$C$ 上的 $𝒰$-集合预层的范畴 $C^{\widehat{\phantom{,}}}$
+是一个 $𝒱$-范畴 (I \hyperref[I.sec1.1.1]{1.1.1}).
+设 $X$\pageoriginale{} 是 $C$ 的一个对象.
+覆盖 $X$ 的筛集 $J(X)$ 是 $𝒱$-小的,
+并且按包含关系排序后是余滤过的
+(\hyperref[II.subsubsec1.1.1]{1.1.1}).
+因此对每个 $𝒰$-预层 $F$, 归纳极限
+$\varinjlim_{J(X)}\Hom_{C^{\widehat{\phantom{,}}}}(R,F)$
+可由 $𝒱$ 的一个元素表示
+(\hyperrefext[I][I.def2.4.1]{2.4.1}).
+此外, 由 (\hyperref[II.prop3.0.4]{3.0.4} 3)) 可知,
+对每个 $R\in J_G(X)$,
+$\Hom_{C^{\widehat{\phantom{,}}}}(R,F)$ 是 $𝒰$-小的;
+又因 $J_G(X)$ 是 $J(X)$ 中的一个 $𝒰$-小共尾集 (\loccit),
+由 (\hyperrefext[I][I.sec2.4.2]{2.4.2}) 可知,
+$\varinjlim_{J(X)}\Hom_{C^{\widehat{\phantom{,}}}}(R,F)$ 是 $𝒰$-小的.
+对每个 $F$ 和每个 $X$, 选取 $𝒰$ 的一个元素表示这一归纳极限, 并置
+$$
+LF(X)=\varinjlim_{J(X)}\Hom_{C^{\widehat{\phantom{,}}}}(.,F).
+$$
+设 $g:Y\rightarrow X$ 是 $C$ 的一个态射.
+基变换函子 $g^\ast:J(X)\rightarrow J(Y)$ 定义映射
+$$
+LF(g):LF(X)\longrightarrow LF(Y){\quoi},
+$$
+使 $X\mapsto LF(X)$ 成为 $C$ 上的一个预层.
+
+由于态射 $\id_X:X\rightarrow X$ 是 $J(X)$ 的元素,
+对 $C$ 的每个对象 $X$, 都有映射
+$$
+\ell(F)(X):F(X)\longrightarrow LF(X){\quoi},
+$$
+它显然定义了函子态射
+$$
+\ell(F):F\longrightarrow LF{\quoi}.
+$$
+此外, 显然 $F\mapsto LF$ 是关于 $F$ 的函子,
+各态射 $\ell(F)$ 定义态射
+$$
+\ell:\Id\longrightarrow L{\quoi}.
+$$
+最后, 设 $R\hookrightarrow X$ 是 $X$ 的一个覆盖筛.
+由 $LF(X)$ 的定义及 (\hyperrefext[I][I.prop1.4]{1.4}) 得到映射
+$$
+Z_R:\Hom_{C^{\widehat{\phantom{,}}}}(R,F)\longrightarrow
+\Hom_{C^{\widehat{\phantom{,}}}}(X,LF){\quoi},
+$$
+并且\pageoriginale{}, 对 $C$ 的每个态射 $Y\xrightarrow{g}X$,
+函子 $LF$ 的定义表明下图交换:
+\[\vcenter{
+\xymatrix{ \qquad Z_R :& \Hom_{C^{\widehat{\phantom{a}}}}(R,F)
+\ar[r]\ar[d] &
+\Hom_{C^{\widehat{\phantom{a}}}}(X,LF)\ar[d]\\
+Z_{\fprod{R}{Y}{X}}:&  \Hom_{C^{\widehat{\phantom{a}}}}(\fprod{R}{Y}{X},F) \ar[r]&  \Hom_{C^{\widehat{\phantom{a}}}}(Y,LF)\\
+}}\leqno{(*)}
+\]
+(竖箭头为显然的箭头).
+
+\noindent 现在照录 [2].
+
+
+% END INCLUDED SGA4_English_current_buildable_source_20260906/source/02/drafts/SGA4_II_LINES_422_562_English.texfrag
+
+
+% BEGIN INCLUDED SGA4_English_current_buildable_source_20260906/source/02/drafts/SGA4_II_LINES_563_764_English.texfrag
+\begin{enonce*}{引理 3.1}\etiquette[3.1]{II.lem3.1}
+\begin{enumerate}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 对每个覆盖筛 $i_R:R\hookrightarrow X$
+及每个 $u:R\rightarrow F$, 图
+\[\vcenter{
+\xymatrix@L=5pt@R=1.35cm@C=3.5cm@M=.2cm{
+F\ar[r]^{\ell(F)} & LF\\
+R\ar[u]^{u}\ar@{^{(}->}_{i_R}[r] & X \ar[u]_{Z_R(u)} }}\leqno{(**)}
+\]
+交换.
+
+\item 对每个态射 $v:X\rightarrow LF$,
+都存在 $X$ 的一个覆盖筛 $R$ 及一个态射 $u:R\rightarrow F$,
+使得 $Z_R(u)=v$.
+
+\item 设 $Y$ 是 $C$ 的一个对象,
+$u,v:Y\rightrightarrows F$ 是满足
+$\ell(F)\circ u=\ell(F)\circ v$ 的两个态射.
+则对 $(u,v)$ 的核是 $Y$ 的一个覆盖筛.
+
+\item 设 $R,R'$ 是 $X$ 的两个覆盖筛,
+$u:R\rightarrow F$, $u':R'\rightarrow F$ 是两个态射.
+要使 $Z_R(u)=Z_{R'}(u')$,
+充要条件是 $u$ 和 $u'$ 在某个覆盖筛
+$R''\hookrightarrow R\times_XR'$ 上一致.
+\end{enumerate}
+\end{enonce*}
+
+\begin{enonce*}[remark]{证明}
+唯一非平凡的断言是断言 1).
+须证明 $Z_R(u)\circ i_R=\ell(F)\circ u$.
+为此, 只须证明 (\hyperrefext[I][I.prop3.4]{3.4})
+这两个态射与每个态射 $Y\xrightarrow{g}R$
+($Y$ 为\pageoriginale{} $C$ 的对象) 的复合相等.
+考察 $f=i_R\circ g$ 以及纤维积 $R\times_XY$:
+\[\vcenter{
+\xymatrix@L=5pt@R=1cm@C=3.5cm@M=.2cm{
+F  \ar[r]^{\ell(F)}   & LF \\
+R \ar[u]^{u}        \ar@{^{(}->}_{i_R}[r]  & X \ar[u]_{Z_R(u)} \\
+\fprod{R}{Y}{X} \ar[u]^{g'} \ar[r]^(.35){\sim}_{i'} & Y
+\ar[lu]^{g}\ar[u]_{f}. }}
+\]
+
+在上图中, $i'$ 是具有一个截面的单态射.
+因此 (\hyperref[II.def1.3]{1.3} 3) $i'$ 是同构.
+由态射 $\ell(F)$ 的定义,
+态射 $Z_{R\times_XY}(u\circ g')$ 等于 $\ell(F)\circ u\circ g$.
+另一方面, 图 (*) 的交换性给出等式
+$Z_{R\times_XY}(u\circ g')=Z_R(u)\circ f$,
+所以确有 $\ell(F)\circ u\circ g=Z_R(u)\circ i_R\circ g$.
+\end{enonce*}
+
+\begin{enonce*}{命题 3.2}\etiquette[3.2]{II.prop3.2}
+\begin{enumerate}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 函子 $L$ 是左正合的
+{\rm(\hyperrefext[I][I.cor2.3.2]{2.3.2}).}
+
+\item 对每个预层 $F$, $LF$ 是一个分离预层.
+
+\item 预层 $F$ 分离, 当且仅当态射
+$\ell(F):F\rightarrow LF$ 为单态射.
+此时预层 $LF$ 是层.
+
+\item 下列性质等价:
+\begin{enumerate}
+\renewcommand{\theenumii}{\roman{enumii}}
+\renewcommand{\labelenumii}{(\theenumii)}
+\item $\ell(F):F\rightarrow LF$ 是同构.
+
+\item $F$ 是层.
+\end{enumerate}
+\end{enumerate}
+\end{enonce*}
+
+\begin{enonce*}[remark]{证明}
+\begin{enumerate}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 只须证明 (\hyperrefext[I][I.prop3.1]{3.1}),
+对 $C$ 的每个对象 $X$, 函子 $F\mapsto LF(X)$ 与有限投射极限交换.
+由投射极限的定义, 函子
+$$
+F\longmapsto \Hom_{C^{\widehat{\phantom{,}}}}(R,F)\quad
+R\hookrightarrow X\in \ob(J(X))
+$$
+与\pageoriginale{}投射极限交换;
+而归纳极限 $\varinjlim_{J(X)}$ 与有限投射极限交换,
+因为 $J(X)$ 是余滤过集 (\hyperrefext[I][I.def2.7]{2.7}).
+
+\item 设 $X$ 是 $C$ 的一个对象,
+$f,g:X\rightrightarrows LF$ 是在 $X$ 的某个覆盖筛
+$R\hookrightarrow X$ 上一致的两个态射.
+由 \hyperref[II.lem3.1]{3.1}\quad 2),
+存在一个总可假定包含于 $R$ 的覆盖筛 $R'\hookrightarrow X$,
+以及两个态射 $u,v:R'\rightrightarrows F$,
+使得 $Z_{R'}(u)=f$ 且 $Z_{R'}(v)=g$.
+由 \hyperref[II.lem3.1]{3.1} 1), 有
+$\ell(F)\circ u=\ell(F)\circ v$.
+因此 (\hyperref[II.lem3.1]{3.1} 4)),
+$u$ 和 $v$ 在某个覆盖筛 $R''\hookrightarrow R'$ 上一致.
+设 $w$ 为 $u$ 在 $R''$ 上的限制.
+有 $Z_{R''}(w)=Z_{R'}(u)=Z_{R'}(v)$,
+从而 $f=g$. 因此预层 $LF$ 分离.
+
+\item 若 $F$ 分离, 则态射 $\ell(F)$ 为单态射,
+因为单态射的滤过归纳极限为单态射.
+若 $\ell(F)$ 为单态射, 则预层 $F$ 是一个分离预层的子预层,
+因而分离. 下面证明此时 $LF$ 是层.
+设 $i:R\hookrightarrow X$ 是覆盖 $C$ 的一个对象 $X$ 的筛,
+$u:R\rightarrow LF$ 是态射. 只须证明 $u$ 通过 $X$ 分解.
+置 $R'=\fprod{F}{R}{LF}$ 及 $v=Z_{R'}(\pr_1)$:
+\[
+\xymatrix@L=5pt@R=1cm@C=1.5cm{
+F \ar[rr]^{\ell(F)}               && LF                      &\\
+R' \ar[u]^{\pr_1} \ar[rr]^{\pr_2}   && R \ar[r]^{i} \ar[u]_{u} & X \ar@{-}[lu]_{v}\\
+R''\ar[u]^{p_1} \ar[rr]^{p_2}     && Y  \ar[u]_{m}               &
+\quad . }
+\]
+要\pageoriginale{}证明 $u=v\circ i$,
+只须证明 (I \hyperref[I.prop3.4]{3.4})
+对每个态射 $m:Y\rightarrow R$ ($Y$ 为 $C$ 的对象),
+都有 $v\circ i\circ m=u\circ m$.
+置 $R''=Y\times_RR'$, 并设 $p_1,p_2$ 为投影.
+投影 $\xymatrix@M=5pt{R''\ar@{^{(}->}[r]^{p_2}&Y}$ 为单态射,
+且使 $R''$ 成为 $Y$ 的一个覆盖筛 (\hyperref[II.lem3.1]{3.1} 2)).
+有 $v\circ i\circ\pr_2=\ell(F)\circ\pr_1$
+(\hyperref[II.lem3.1]{3.1} 1)),
+从而 $v\circ i\circ\pr_2=u\circ m\circ p_2$.
+由此得到 $v\circ i\circ\pr_2\circ p_1=u\circ\pr_2\circ p_1$,
+\ie $v\circ i\circ m\circ p_2=u\circ m\circ p_2$.
+由于预层 $LF$ 分离, 有 $v\circ i\circ m=u\circ m$, \cqfd
+
+\item 显然.
+\end{enumerate}
+\end{enonce*}
+
+\begin{enonce*}[remark]{注 3.3}\etiquette[3.3]{II.rem3.3}
+设 $J'(X)$ 为 $J(X)$ 的一个共尾子集. 有
+$$
+LF(X)=\varinjlim_{J'(X)}\Hom_{C^{\widehat{\phantom{,}}}}(.,F){\quoi}.
+$$
+
+特别地, 若 $C$ 的拓扑由预拓扑
+$X\mapsto\Cov(X)$ (\hyperref[II.subsubsec1.1.3]{1.1.3}) 定义,
+则可以利用 $\Cov(X)$ 的覆盖族描述函子 $L$
+(\hyperrefext[I][I.prop2.12]{2.12} 和 \hyperrefext[I][I.cor3.5]{3.5}).
+明确写出这些公式, 就重新得到 [ 中的构造
+% SOURCE-DEFECT: English and French recomposition both truncate citation after '['; see II/review.md.
+\end{enonce*}
+
+\begin{enonce*}{定理 3.4}\etiquette[3.4]{II.theo3.4}
+设 $C$ 是一个 $𝒰$-景.
+从层到预层的包含函子
+$i:C^{\widetilde{\phantom{,}}}\hookrightarrow
+C^{\widehat{\phantom{,}}}$ 具有左伴随 $\underline{a}$,
+且它是左正合的 (\hyperrefext[I][I.cor2.3.2]{2.3.2}):
+\[
+\xymatrix@=3cm@M=.2cm{
+ \widetilde{C}  \ar @{^{(}->} @<-1ex>[r]_{i} & C^{\widehat{\phantom{,}}} \ar@<-1ex>[l]_{\underline{a}}
+\qquad .}
+\]
+
+函子 $i\circ\underline{a}$ 与函子 $L\circ L$ 典范同构
+(参见 \hyperref[II.subsubsec3.0.5]{3.0.5}).
+对每个预层 $F$, 伴随态射
+$F\rightarrow i\circ\underline{a}(F)$
+经上述同构由态射
+$\ell(LF)\ell(F):F\rightarrow L\circ L(F)$ 得到.
+\end{enonce*}
+
+\begin{enonce*}{定义 3.5}\etiquette[3.5]{II.def3.5}
+层\pageoriginale{} $\underline{a}F$ 称为预层 $F$ 的相伴层（associated sheaf）.
+\end{enonce*}
+
+定理 \hyperref[II.theo3.4]{3.4} 立即由命题 \hyperref[II.prop3.2]{3.2} 得到.
+
+\begin{enonce*}{命题 3.6}\etiquette[3.6]{II.prop3.6}
+设 $C$ 是一个 $𝒰$-景, $𝒱\supset𝒰$ 是一个宇宙.
+以 $C^{\widehat{\phantom{,}}}_{𝒰}$ 和
+$C^{\widetilde{\phantom{,}}}_{𝒰}$ (分别以
+$C^{\widehat{\phantom{,}}}_{𝒱}$ 和
+$C^{\widetilde{\phantom{,}}}_{𝒱}$)
+表示 $𝒰$-预层和 $𝒰$-层 (分别为 $𝒱$-预层和 $𝒱$-层) 的范畴,
+并以 $\underline{a}_{𝒰}:C^{\widehat{\phantom{,}}}_{𝒰}\rightarrow
+C^{\widetilde{\phantom{,}}}_{𝒰}$ (分别以
+$\underline{a}_{𝒱}:C^{\widehat{\phantom{,}}}_{𝒱}\rightarrow
+C^{\widetilde{\phantom{,}}}_{𝒱}$)
+表示相应的“相伴层”函子.
+图
+\[
+\xymatrix@C=3.5cm@R=1.25cm{ C^{\widehat{\phantom{a}}}_{U}
+\ar[r]^{\underline{a}_{\underline{U}}}
+\ar @{_{(}->}[d]& C^{\widetilde{\phantom{a}}}_{\underline{U}}\ar @{_{(}->}[d]\\
+C^{\widehat{\phantom{a}}}_{\underline{V}}
+\ar[r]^{\underline{a}_{\underline{V}}} &
+C^{\widetilde{\phantom{a}}}_{\underline{V}} , }
+\]
+在典范同构意义下交换, 其中竖向函子为典范包含函子.
+\end{enonce*}
+
+\begin{enonce*}[remark]{证明}
+这来自函子 $\underline{a}_U$ 与 $\underline{a}_V$ 的构造
+(\hyperref[II.theo3.4]{3.4} 及 \hyperref[II.subsubsec3.0.5]{3.0.5}).
+\end{enonce*}
+
+
+% END INCLUDED SGA4_English_current_buildable_source_20260906/source/02/drafts/SGA4_II_LINES_563_764_English.texfrag
+
+
+% BEGIN INCLUDED SGA4_English_current_buildable_source_20260906/source/02/drafts/SGA4_II_LINES_765_975_English.texfrag
+\section{层范畴的正合性}\etiquette[4]{II.sec4}
+
+层范畴的正合性由预层范畴的正合性通过定理
+\hyperref[II.theo3.4]{3.4} 得到.
+本节通过若干最有用的标准命题明确表达这一思想.
+
+\begin{enonce*}{定理 4.1}\etiquette[4.1]{II.theo4.1}
+设 $C$ 是一个 $𝒰$-景, $\widetilde{C}$ 是层范畴,
+$\underline{a}:C^{\widehat{\phantom{,}}}\rightarrow
+\widetilde{C}$ 是相伴层函子,
+$i:\widetilde{C}\rightarrow C^{\widehat{\phantom{,}}}$ 是包含函子.
+\begin{enumerate}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 函子 $\underline{a}$ 与归纳极限交换, 并且正合.
+
+\item $\widetilde{C}$ 中的\pageoriginale{} $𝒰$-归纳极限可表示.
+对每个小范畴 $I$ 及每个函子 $E:I\rightarrow \widetilde{C}$,
+典范态射
+$$
+\varinjlim_I E\longrightarrow \underline{a}(\varinjlim_I i\circ E)
+$$
+为同构.
+
+\item $\widetilde{C}$ 中的 $𝒰$-投射极限可表示.
+对 $C$ 的每个对象 $X$,
+函子 $\widetilde{C}:F\mapsto F(X)$ 与投射极限交换,
+\ie 包含函子 $i:\widetilde{C}\rightarrow \widehat{C}$ 与投射极限交换.
+\end{enumerate}
+\end{enonce*}
+
+\begin{enonce*}[remark]{证明}
+这些性质基本上来自定理 \hyperref[II.theo3.4]{3.4}
+及 (\hyperrefext[I][I.prop2.11]{2.11}).
+\end{enonce*}
+
+因此, 在层范畴中, 以 $𝒰$ 的元素为指标的积、纤维积、
+以 $𝒰$ 的元素为指标的和、融合和、核、余核、像及余像均可表示.
+
+\begin{enonce*}{推论 4.1.1}\etiquette[4.1.1]{II.cor4.1.1}
+设 $C$ 是一个 $𝒰$-景, $F$ 是 $C$ 上的一个集合层.
+典范同态
+$$
+\varinjlim_{C/F} \underline{a}X\longrightarrow F
+$$
+是同构.
+\end{enonce*}
+
+\begin{enonce*}[remark]{证明}
+这来自 (\hyperrefext[I][I.prop3.4]{3.4}) 以及
+$\underline{a}$ 与归纳极限交换这一事实.
+\end{enonce*}
+
+\begin{enonce*}{命题 4.2}\etiquette[4.2]{II.prop4.2}
+$\widetilde{C}$ 中同时为满态射和单态射的每个态射都是同构.
+\end{enonce*}
+
+\begin{enonce*}[remark]{证明}
+设 $u:G\rightarrow H$ 是 $\widetilde{C}$ 中同时为满态射和单态射的态射.
+首先注意, 态射 $u$ 是预层的单态射\pageoriginale{}
+(\hyperref[II.theo4.1]{4.1} 1)).
+在预层范畴中构造融合和 $H\amalg_G H=K$ 及两个典范态射
+$i_1$, $i_2:H\rightrightarrows K$.
+由于 $u$ 是预层的单态射, 立即可验证下图既为笛卡儿图又为余笛卡儿图
+(\hyperrefext[I][I.sec10.1]{10.1}):
+\[
+\xymatrix@C=3cm@R=1.5cm{
+G \ar[r]^{u} \ar[d]_{u}& H \ar[d]^{i_2}\\
+H \ar[r]^{i_1}& K . }
+\]
+应用“相伴层”函子, 就得到层范畴中的一个既为笛卡儿又为余笛卡儿的图
+(\hyperref[II.theo4.1]{4.1} 1)):
+\[\vcenter{
+\xymatrix@C=3cm@R=1.5cm{
+G \ar[r]^{u} \ar[d]_{u}& H \ar[d]^{\underline{a}i_2}\\
+H \ar[r]^{\underline{a}i_1}& \underline{a}K . }}\leqno{(*)}
+\]
+由于 $u$ 是层的满态射, 态射 $\underline{a}i_1$ 是同构;
+又因图 (*) 为笛卡儿图, 态射 $u$ 是同构.
+\end{enonce*}
+
+\begin{enonce*}{命题 4.3}\etiquette[4.3]{II.prop4.3}
+\begin{enumerate}
+\renewcommand{\labelenumi}{\theenumi)}
+\item $C^{\widetilde{\phantom{,}}}$ 中可表示的归纳极限都是泛的
+{\rm(\hyperrefext[I][I.def2.5]{2.5}).}
+
+\item 每个满态射族 {\rm(\hyperrefext[I][I.sec10.2]{10.2})}
+都是泛有效满族 (\hyperref[II.prop2.6]{2.6}).
+
+\item 每个等价关系都是泛有效的 {\rm(I \hyperref[I.sec10.6]{10.6}).}
+
+\item 滤过 $𝒰$-归纳极限与有限投射极限交换
+{\rm(\hyperrefext[I][I.prop2.6]{2.6})}.
+\end{enumerate}
+\end{enonce*}
+
+\begin{enonce*}[remark]{证明}
+断言\pageoriginale{} 1) 至 4) 在集合范畴中成立,
+因而在预层范畴中成立 (\hyperrefext[I][I.prop3.1]{3.1}).
+断言 1) 和 4) 立即来自关于预层的相应断言以及 \hyperref[II.theo4.1]{4.1}.
+证明 3). 设 $p_1$, $p_2:$
+$\xymatrix{R\ar@<2pt>[r] \ar@<-2pt>[r]& X}$
+为 $C^{\widetilde{\phantom{,}}}$ 中的一个等价关系.
+于是图 $\xymatrix{R \ar@<2pt>[r]^{p_1} \ar@<-2pt>[r]_{p_2}&X}$
+是预层的等价关系 (\hyperref[II.cor4.1.1]{4.1.1}).
+因此存在一个预层态射 $u:X\rightarrow Y$, 使图
+\[
+\xymatrix@C=3cm@R=1.25cm{
+R \ar[r]^{p_2} \ar[d]_{p_1}& X\ar[d]^{u}\\
+X \ar[r]^{u}& Y }
+\]
+在预层范畴中既为笛卡儿图又为余笛卡儿图.
+应用“相伴层”函子, 就得到层范畴中一个既为笛卡儿又为余笛卡儿的图
+(\hyperref[II.theo4.1]{4.1} 1)).
+由此可知,
+$\xymatrix{R \ar@<2pt>[r]^{p_1} \ar@<-2pt>[r]_{p_2}&X}$
+是一个有效等价关系.
+由前面所证, 每个等价关系都有效, 因而每个等价关系都泛有效.
+证明 2). 设 $(u_i:X_i\rightarrow X)$, $i\in I$,
+是 $C^{\widetilde{\phantom{,}}}$ 中的一个满族.
+由 (II\ \hyperref[II.prop2.6]{2.6})
+及 (\hyperrefext[I][I.prop2.12]{2.12}), 只须证明下列断言:
+\begin{enumerate}
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 对每个层态射 $v:Y\rightarrow X$,
+态射族 $\pr_{2,i}:X_i\times_X Y\rightarrow Y$, $i\in I$,
+是 $C^{\widetilde{\phantom{,}}}$ 中的满族.
+
+\item 对每个层 $Z$, 下列集合图正合:
+$$
+\Hom(X,Z)\rightarrow \prod_{i\in I} \Hom(X_i,Z)\rightrightarrows
+\prod_{(i,k)\in I\times I}\Hom(X_i\times_X X_k,Z)
+$$
+\end{enumerate}
+\end{enonce*}
+
+设\pageoriginale{} $X'$ 是在预层范畴中形成的各态射 $u_i$ 的像的并,
+$j:X'\hookrightarrow X$ 是典范单射.
+对每个 $i\in I$, 态射 $u_i:X_i\rightarrow X$
+分解为一个态射 $u'_i:X_i\rightarrow X'$ 后接 $j$,
+且族 $u'_i:X_i\rightarrow X'$, $i\in I$,
+是 $C^{\widehat{\phantom{,}}}$ 中的满族.
+由于 $j$ 为单态射, 态射
+$\underline{a}j:\underline{a}X'\rightarrow X$ 是层的单态射
+(\hyperref[II.theo4.1]{4.1}).
+又因对每个 $i\in I$, 有 $u_i=\underline{a}j\underline{a}u'_i$,
+故 $\underline{a}j$ 是层的满态射.
+于是 $\underline{a}j$ 为同构 (\hyperref[II.prop4.2]{4.2}).
+设 $v:Y\rightarrow X$ 为层态射.
+由基变换得到态射 $j_v:X'\times_X Y\rightarrow Y$
+及态射 $u'_{i,v}:X_i\times_X Y\rightarrow X'\times_X Y$.
+由于 $\underline{a}$ 与纤维积交换, $\underline{a}j_v$ 是同构.
+由于 $C^{\widehat{\phantom{,}}}$ 中的满族在基变换下仍为满族,
+族 $u'_{i,v}$, $i\in I$, 在 $C^{\widehat{\phantom{,}}}$ 中为满族.
+又因 $\underline{a}$ 与归纳极限交换,
+族 $\underline{a}u'_{i,v}:X_i\times_X Y\rightarrow
+\underline{a}(X'\times_X Y)$, $i\in I$,
+在 $C^{\widetilde{\phantom{,}}}$ 中为满族, 这就证明了 a).
+证明 b). 设 $Z$ 为层. 由于 $\underline{a}j$ 是同构, 映射
+$$
+\Hom(X,Z)\longrightarrow \Hom(X',Z)
+$$
+是双射.
+由于各 $u'_i$, $i\in I$,
+构成 $C^{\widehat{\phantom{,}}}$ 中的满族, 下列集合图正合:
+$$
+\Hom(X',Z)\rightarrow \prod_{i\in I} \Hom(X_i,Z)\rightrightarrows
+\prod_{(i,k)\in I\times I}\Hom(X_i\times_{X'}X_k, Z)
+$$
+最后, 因为 $X'$ 是 $X$ 的子预层,
+预层 $X_i\times_{X'}X_k$, $(i,k)\in I\times I$,
+典范同构于 $X_i\times_X X_k$, 这就证明了 b).
+
+\begin{enonce*}[remark]{注 4.3.1}\etiquette[4.3.1]{II.rem4.3.1}
+\begin{enumerate}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 命题\pageoriginale{} \hyperref[II.prop4.3]{4.3} 2)
+形式地给出了 \hyperref[II.prop4.2]{4.2} 的第二个证明:
+显然, 在任意范畴中, 一个同时为泛有效满态射和单态射的态射必为同构.
+
+\item 由前述命题可知, 层范畴中的每个态射
+都唯一分解为一个有效满态射后接一个有效单态射.
+这一性质将 Abel 范畴的公理 (AB2) 自然推广到非加性范畴
+(coim $\simeq$ im) [Tohoku].
+\end{enumerate}
+\end{enonce*}
+
+\setcounter{subsection}{4} \setcounter{subsubsection}{-1}
+
+% END INCLUDED SGA4_English_current_buildable_source_20260906/source/02/drafts/SGA4_II_LINES_765_975_English.texfrag
+
+
+% BEGIN INCLUDED SGA4_English_current_buildable_source_20260906/source/02/drafts/SGA4_II_LINES_976_1126_English.texfrag
+\subsubsection{}\etiquette[4.4.0]{II.subsubsec4.4.0}
+设 $C$ 是一个 $𝒰$-景.
+将函子 $h:C\rightarrow
+C^{\widehat{\phantom{,}}}$ (\hyperrefext[I][I.sec1.3.1]{1.3.1})
+与相伴层函子复合, 得到函子$$
+\epsilon_C:C\longrightarrow C^{\widetilde{\phantom{,}}}{\quoi},
+$$
+称为从 $C$ 到 $C^{\widetilde{\phantom{,}}}$ 的\emph{典范函子},
+下文将不断使用它.
+函子 $\epsilon_C$ 与有限投射极限交换.
+当 $C$ 上的拓扑比典范拓扑粗时,
+$\epsilon_C$ 全忠实, 并与投射极限交换;
+此外, 此时即使不假定 $C$ 有小拓扑生成族, 它也有定义.
+我们不详细研究 $\epsilon_C$ 关于归纳极限的行为
+(\cf [SGA 3 IV]). 不过, 我们将需要下面的结果.
+
+\begin{enonce*}{定理 4.4}\etiquette[4.4]{II.theo4.4}
+设 $C$ 是一个 $𝒰$-景,
+$(u_i:X_i\rightarrow X)$, $i\in I$, 是 $C$ 中以 $X$ 为靶的一族态射.
+下列条件等价\footnote[1]{当景 $C$ 不一定具有小拓扑生成族,
+且 $C$ 上的拓扑比典范拓扑粗时, 有
+ii) $\Rightarrow$ i) (\cf \hyperref[II.theo4.4]{4.4} 的证明).}:
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 族 $(\epsilon_C u_i:\epsilon_C X_i\rightarrow \epsilon_C
+  X)$, $i\in I$, 是 $C^{\widetilde{\phantom{,}}}$ 中的满族
+{\rm(\hyperrefext[I][I.sec10.2]{10.2}).}\pageoriginale
+
+\item 族 $(u_i:X_i\rightarrow X)$, $i\in I$,
+是 $C$ 的覆盖族 (\hyperref[II.def1.2]{1.2}).
+\end{enumerate}
+\end{enonce*}
+
+\begin{enonce*}[remark]{证明}
+ii) $\Rightarrow$ i).
+设 $R\hookrightarrow X$ 是各 $u_i$, $i\in I$,
+生成的筛 (\hyperrefext[I][I.sec4.3.3]{4.3.3}),
+$u'_i:X_i\rightarrow R$ 是各 $u_i$ 诱导的态射.
+态射 $u'_i$, $i\in I$,
+构成 $C^{\widehat{\phantom{,}}}$ 中的满族,
+且 $R$ 是 $X$ 的覆盖筛.
+因此, 对每个层 $F$, 映射
+$$
+\Hom(X,F)\longrightarrow \Hom(R,F)
+$$
+为双射, 且映射
+$$
+\Hom(R,F)\longrightarrow \prod_i \Hom(X_i,F)
+$$
+为单射. 因此, 映射
+$$
+\Hom(X,F)\longrightarrow \prod_i\Hom(X_i,F)
+$$
+为单射, 从而映射
+$$
+\Hom(\underline{a}X,F)\longrightarrow \prod_i \Hom(\underline{a}X_i,F)
+$$
+为单射, 这就证明了 i).
+
+\noindent i) $\Rightarrow$ ii).
+沿用上面引入的记号, 设 $J_R:R\hookrightarrow X$
+为各 $u_i$, $i\in I$, 生成的筛到 $X$ 的典范包含.
+由 i) 可知, 层态射
+$\underline{a}J_R:\underline{a}R\rightarrow \underline{a}X$
+在层范畴中既为满态射又为单态射.
+因此它是层的同构 (\hyperref[II.prop4.2]{4.2}).
+沿用第 ${\rm n^{\circ}}$ 3 节的记号, 有交换图:
+\[
+\xymatrix@C=2.5cm@R=1.5cm@M=.25cm{
+X \ar[r]^{\ell(X)} & LX \ar[r]^{\ell(LX)} & \mathsf{\underline{a}}X\\
+R \ar[r]^{\ell(R)} \ar@{^{(}->}[u]^{J_R}& LR \ar[r]^{\ell(LR)}
+\ar@{^{(}->}[u]^{LJ_R}& \mathsf{\underline{a}}R
+\ar[u]^{\wr}_{\mathsf{\underline{a}}J_R}. }
+\]
+首先\pageoriginale{}, 由 \hyperref[II.lem3.1]{3.1} 2),
+存在一个覆盖筛 $J_{S_1}:S_1\rightarrow X$
+以及一个态射 $u_1:S_1\rightarrow LR$, 使得
+\begin{equation}
+\ell(LX)\circ \ell (X)\circ J_{S_1}=\underline{a}J_R\circ \ell (LR)\circ
+u_1=\ell(LX)\circ LJ_R\circ u_1{\quoi}.\tag{4.6.1}
+\end{equation}\etiquette[4.6.1]{II.eq4.6.1}
+置 $m=\ell(X)\circ J_{S_1}$ 及 $n=LJ_R\circ u_1$.
+态射 $m$ 和 $n$ 是从 $S_1$ 到 $LX$ 的态射.
+设 $S_2\hookrightarrow S_1$ 为箭头对 $(m,n)$ 的核.
+对 $C$ 的每个对象 $Y$ 及每个态射 $\alpha:Y\rightarrow S_1$,
+由 \hyperref[II.eq4.6.1]{4.6.1}, 有
+$\ell(LX)\circ m\circ \alpha
+=\ell(LX)\circ n\circ\alpha$.
+于是由 (\hyperref[II.lem3.1]{3.1} 3)) 可知,
+箭头对 $(m\circ \alpha,n\circ \alpha)$ 的核 $S_2\times_{S_1}Y$
+是 $Y$ 的一个覆盖筛.
+因此, 由拓扑的公理 (T 2),
+$J_{S_2}:S_2\hookrightarrow X$ 是 $X$ 的一个覆盖筛.
+于是存在一个态射 $u_2:S_2\rightarrow LR$ 及交换图:
+\hypertarget{sga4.exp.II.equation.4.6.2}{}\[\vcenter{
+\xymatrix@C=2.5cm@R=.8cm@M=.2cm{
+S_2 \ar@{^{(}->}[rr]^{J_{S_{2}}} \ar[dd]_{u_2}&  &X \ar[dd]^{\ell(X)}\\
+                  &R\ar@{^{(}->}[ru]_{J_R} \ar[ld]^{\ell(R)}&\\
+LR \ar[rr]^{LJ_R}  &  &LX&. }}\leqno{(4.6.2)}
+\]
+
+设 $Y$ 是 $C$ 的一个对象, $\beta:Y\rightarrow S_2$ 是一个态射.
+由 \hyperref[II.lem3.1]{3.1} 2) 及 1),
+存在一个覆盖筛 $J_{Q_1}:Q_1\hookrightarrow Y$
+及一个态射 $v_1:Q_1\rightarrow R$,
+使得 $u_2\circ\beta\circ J_{Q_1}=\ell(R)\circ v_1$.
+置 $f=J_{S_{2}}\circ \beta\circ J_{Q_1}$ 及 $g=J_R\circ v_1$.
+设 $Q_2$ 为对 $(f,g):Q_1\rightrightarrows X$ 的核,
+$J_{Q_2}:Q_2\hookrightarrow Y$ 为典范包含.
+对 $C$ 的每个对象 $Z$ 及每个态射 $\gamma:Z\rightarrow Q_1$,
+由 (\hyperlink{sga4.exp.II.equation.4.6.2}{4.6.2}) 的交换性, 有:
+% SOURCE-CORRECTION: former II.cor4.6.2 referred to a later corollary, not this diagram; French physical p.146 confirms diagram.
+\begin{gather*}
+\ell(X)\circ f\circ \gamma =\ell(X)\circ J_{S_2}\circ \beta\circ
+J_{Q_1}\circ \gamma =LJ_R\circ u_2\circ \beta\circ J_{Q_1}\circ \gamma=\\
+=LJ_R\circ \ell(R)\circ v_1\circ \gamma =\ell (X)\circ J_R\circ
+v_1\circ \gamma = \ell(X)\circ g\circ \gamma{\quoi}.
+\end{gather*}
+于是\pageoriginale{}, 由 \hyperref[II.lem3.1]{3.1} 3) 可知,
+对 $(f\circ\gamma,g\circ\gamma)$ 的核 $Q_2\times_{Q_1}Z$
+是 $Z$ 的一个覆盖筛.
+由拓扑的公理 (T 2),
+$J_{Q_2}:Q_2\hookrightarrow Y$ 是 $Y$ 的一个覆盖筛.
+因此, 对每个态射 $\beta:Y\rightarrow S_2$,
+都存在一个覆盖筛 $J_{Q_2}:Q_2\hookrightarrow Y$
+及一个态射 $v_2:Q_2\rightarrow R$, 使下图交换:
+\[
+\xymatrix@C=2.5cm@R=1.5cm@M=.2cm{
+Y\ar[r]^{\beta}   & S_2\ar[r]^{J_{S_2}} & X\\
+Q_2 \ar[r]^{v_2} \ar@{^{(}->}[u]^{J_{Q_2}}& R
+\ar@{^{(}->}[ru]_{J_{R}}  &}
+\]
+
+以 $S_2\cap R$ 表示 $S_2$ 与 $R$ 在 $X$ 上的纤维积.
+($Y$ 的) 筛 $(S_2\cap R)\times_{S_2}Y$ 包含筛 $Q_2$,
+因而 $(S_2\cap R)\times_{S_2}Y$ 是 $Y$ 的覆盖筛.
+由拓扑的公理 (T 2) 可知, $S_2\cap R$ 是 $X$ 的覆盖筛,
+从而包含 $S_2\cap R$ 的筛 $R$ 也是 $X$ 的覆盖筛, \cqfd
+\end{enonce*}
+
+\setcounter{subsubsection}{3}
+\begin{enonce*}{推论 4.4.4}\etiquette[4.4.4]{II.cor4.4.4}
+设 $T$ 为 $\Uu$-景 $C$ 的拓扑,
+$T'$ (\resp $T''$) 为使 $\widetilde{C}$ 的对象均为层
+\emph{(\resp 分离预层)} 的那些 $C$ 上的拓扑中最细者
+(\hyperref[II.prop2.2]{2.2}). 则 $T=T'=T''$.
+\end{enonce*}
+
+事实上, 显然有 $T\leq T'\leq T''$;
+而 \hyperref[II.theo4.4]{4.4} 及 \hyperref[II.prop2.2]{2.2}
+蕴含 $T''\leq T$, \cqfd
+
+% END INCLUDED SGA4_English_current_buildable_source_20260906/source/02/drafts/SGA4_II_LINES_976_1126_English.texfrag
+
+
+% BEGIN INCLUDED SGA4_English_current_buildable_source_20260906/source/02/drafts/SGA4_II_LINES_1127_1298_English.texfrag
+\begin{enonce*}{定义 4.5}\etiquette[4.5]{II.def4.5}
+范畴 $A$ 的始对象是表示空归纳极限的对象 $\phi_A$,
+\ie 对每个 $X\in \ob A$, 都存在唯一箭头 $\phi_A\rightarrow X$.
+若对象 $\phi_A$ 是始对象,
+且每个以 $\phi_A$ 为靶的态射都是同构, 就称其为\emph{严格始对象}.
+设 $(S_i)$, $i\in I$, 是范畴 $A$ 的一族对象.
+假定和 $S=\amalg_{i\in I} S_i$ 可表示.
+若结构态射 $S_i\rightarrow S$ 可拉回且为单态射,
+并且对每对 $i$, $j$, $i\neq j$,
+纤维积 $S_i\times_S S_j$ 是 $A$ 的始对象,
+就称和 $S$ 是不交的.
+若和 $S$ 不交,
+且在每个基变换 $T\rightarrow S$ 后仍为不交和,
+就称它是不交且泛的\pageoriginale{};
+此时对每对 $i$, $j$, $i\neq j$,
+对象 $S_i\times_S S_j$ 都是 $A$ 的严格始对象.
+\end{enonce*}
+
+\begin{enonce*}[remark]{例 4.5.1}\etiquette[4.5.1]{II.exem4.5.1}
+在集合范畴中, 和是不交且泛的.
+因此, 每个集合预层范畴中也是如此
+(\hyperrefext[I][I.prop3.1]{3.1}),
+从而 $𝒰$-景上的每个集合层范畴中也是如此
+(\hyperref[II.theo4.1]{4.1});
+特别地, $C^{\widetilde{\phantom{,}}}$ 的始对象是严格的.
+\end{enonce*}
+
+\begin{enonce*}{命题 4.6}\etiquette[4.6]{II.prop4.6}
+设 $C$ 是一个 $𝒰$-范畴,
+$(s_i:X_i\rightarrow X)$, $i\in I$, 是 $C$ 的一族态射.
+对 $C$ 上的每个 $𝒰$-拓扑 $\Tt$ (\hyperref[II.def3.0.2]{3.0.2}),
+以 $C^{\widetilde{\phantom{,}}}_{\Tt}$ 表示相应层范畴,
+以 $\epsilon_{\Tt}:C\rightarrow
+C^{\widetilde{\phantom{,}}}_{\Tt}$ 表示相应函子.
+\begin{enumerate}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 设 $\Tt$ 为一个使
+$$
+\coprod_{i\in I}
+\epsilon_{\Tt}(X_i)\xrightarrow{(\epsilon_{\Tt}(s_i))}\epsilon_{\Tt}(X)
+$$
+成为同构的 $𝒰$-拓扑.
+则对比 $\Tt$ 细的每个拓扑 $\Tt'$, 态射
+$$
+\coprod_{i\in
+  I}\epsilon_{\Tt'}(X_i)\xrightarrow{(\epsilon_{\Tt'}(s_i))}\epsilon_{\Tt'}(X)
+$$
+是同构.
+
+\item 设 $\Tt$ 是 $C$ 上的一个 $𝒰$-拓扑.
+下列性质 {\rm(i)} 和 {\rm(ii)} 等价:
+\begin{itemize}
+\item[i)]
+\begin{itemize}
+\item[a)] 族 $(s_i:X_i\rightarrow X)$, $i\in I$, 关于 $\Tt$ 覆盖.
+
+\item[b)] 对每个 $i\in I$, 预层的对角态射
+$\Delta_i:X_i\hookrightarrow X_i\times_X X_i$\pageoriginale{}
+在相伴层函子 (关于 $\Tt$) 下的像为同构
+(当各 $s_i$ 为单态射时即是如此).
+
+\item[c)] 对 $I$ 的每对元素 $(i,j)$, $i\neq j$,
+预层 $X_i\times_X X_j$ 在相伴层函子 (关于 $\Tt$) 下的像
+为 $C^{\widetilde{\phantom{,}}}_{\Tt}$ 的始对象.
+\end{itemize}
+\item[ii)] $\epsilon_{\Tt}(X)$ 是各 $\epsilon_{\Tt}(X_i)$ 的和.
+\end{itemize}
+\end{enumerate}
+\end{enonce*}
+
+\begin{enonce*}[remark]{证明}
+\begin{enumerate}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 关于 $\Tt'$ 的层也是关于 $\Tt$ 的层.
+因此, 对关于 $\Tt'$ 的每个层 $F$, 态射
+$$
+\Hom_{C^{\widehat{\phantom{,}}}}(X,F)\longrightarrow \prod_{i\in I}
+\Hom_{C^{\widehat{\phantom{,}}}}(X_i,F)
+$$
+是同构, 这就证明了断言.
+
+\item 由定义, 性质 ii) 成立,
+当且仅当预层态射
+$$
+\Phi=(h(s_i),i\in I):\coprod_i h(X_i)\longrightarrow h(X)
+$$
+在相伴层函子下的像为同构,
+\ie (\hyperref[II.prop4.2]{4.2})
+当且仅当 $\underline{a}(\Phi)$ 既为层的满态射又为单态射.
+由 (\hyperref[II.theo4.4]{4.4}),
+态射 $\underline{a}(\Phi)$ 为满态射, 当且仅当性质 a) 成立.
+对角态射
+$$
+\Delta:\coprod_i h(X_i)\longrightarrow (\coprod_i
+h(X_i))\times_{h(X)}(\coprod_i h(X_i))
+$$
+是如下定义的一族态射 $\Delta_{i,j}$, $(i,j)\in I\times I$, 的直和:
+\begin{itemize}
+\item[$\beta)$] 当 $i=j$ 时, $\Delta_{i,i}$ 为对角态射
+$h(X_i)\rightarrow h(X_i)\times_{h(X)}h(X_i)$.
+
+\item[$\gamma)$] 当 $i\neq j$ 时, $\Delta_{i,j}$ 为态射
+$\phi_{C^{\widehat{\phantom{,}}}}\rightarrow
+  h(X_i)\times_{h(X)}h(X_j)$
+($\phi_{C^{\widehat{\phantom{,}}}}$ 表示 $C^{\widehat{\phantom{,}}}$ 的始对象).
+\end{itemize}
+\end{enumerate}
+\end{enonce*}
+
+态射\pageoriginale{} $\underline{a}(\Phi)$ 为单态射,
+当且仅当 $\underline{a}(\Delta)$ 为同构;
+而由 (\hyperref[II.theo4.1]{4.1}),
+$\underline{a}(\Delta)$ 为同构,
+当且仅当各 $\underline{a}(\Delta_{i,j})$ 都是同构,
+即当且仅当性质 b) 和 c) 成立.
+
+\begin{enonce*}{推论 4.6.1}\etiquette[4.6.1]{II.cor4.6.1}
+设 $C$ 是一个 $𝒰$-范畴, $X$ 是 $C$ 的一个对象.
+\begin{enumerate}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 设 $\Tt$ 是 $C$ 上的一个 $𝒰$-拓扑.
+$C$ 的对象 $X$ 在相伴层函子 (关于拓扑 $\Tt$) 下的像
+为 $C^{\widetilde{\phantom{,}}}_{\Tt}$ 的始对象,
+当且仅当空筛覆盖 $X$.
+
+\item 当 $X$ 是 $C$ 的严格始对象时,
+对比典范拓扑细的每个 $𝒰$-拓扑, $X$ 的相伴层都是始对象.
+\end{enumerate}
+\end{enonce*}
+
+\begin{enonce*}[remark]{证明}
+\begin{enumerate}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 在 \hyperref[II.prop4.6]{4.6} 2) 中取指标集 $I$ 为空集.
+
+\item 由 1) 及 \hyperref[II.prop4.6]{4.6} 1),
+只须证明空筛关于典范拓扑覆盖 $X$;
+\ie 由 (\hyperref[II.prop2.6]{2.6}),
+只须证明对 $X$ 上的每个对象 $Y\rightarrow X$,
+$Y$ 都是 $C$ 的始对象, 而这来自定义 (\hyperref[II.def4.5]{4.5}).
+\end{enumerate}
+\end{enonce*}
+
+\begin{enonce*}{推论 4.6.2}\etiquette[4.6.2]{II.cor4.6.2}
+设 $C$ 是一个 $𝒰$-景,
+$(s_i:X_i\rightarrow X)$, $i\in I$,
+是 $C$ 中同靶的一族可拉回态射, 且具有下列性质:
+\begin{itemize}
+\item[$\alpha)$] 各 $s_i$, $i\in I$, 构成的族覆盖.
+
+\item[$\beta)$] 对每个 $i\in I$, $s_i:X_i\rightarrow X$ 为单态射.
+
+\item[$\gamma)$] 对 $I$ 的每对元素 $(i,j)$, $i\neq j$,
+$X_i\times_X X_j$ 被空筛覆盖,
+\ie 对 $C$ 上的每个层 $F$, $F(X_i\times_X X_j)$ 为单元集.
+\end{itemize}
+则 $\epsilon_C(X)$ 是各 $\epsilon_C(X_i)$, $i\in I$, 的和.
+\end{enonce*}
+
+\begin{enonce*}[remark]{证明}
+这立即\pageoriginale{}来自 \hyperref[II.prop4.6]{4.6} 2)
+及 \hyperref[II.cor4.6.1]{4.6.1} 1).
+\end{enonce*}
+
+% END INCLUDED SGA4_English_current_buildable_source_20260906/source/02/drafts/SGA4_II_LINES_1127_1298_English.texfrag
+
+
+% BEGIN INCLUDED SGA4_English_current_buildable_source_20260906/source/02/drafts/SGA4_II_LINES_1299_1528_English.texfrag
+\begin{enonce*}{推论 4.6.3}\etiquette[4.6.3]{II.cor4.6.3}
+设 $C$ 是一个 $𝒰$-范畴,
+$(s_i:X_i\rightarrow X)$, $i\in I$, 是同靶的一族可拉回态射.
+假定 $C$ 的典范拓扑是一个 $𝒰$-拓扑.
+下列条件等价:
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item $C$ 上存在一个比典范拓扑粗的 $𝒰$-拓扑 $\Tt$,
+使得 $\epsilon_\Tt(X)$ 是各 $\epsilon_\Tt(X_i)$, $i\in I$, 的和.
+
+\item 对象 $X$ 是 (在 $C$ 中) 各 $X_i$ 的不交且泛的和
+(\hyperref[II.def4.5]{4.5}).
+\end{enumerate}
+\end{enonce*}
+
+\begin{enonce*}[remark]{证明}
+ii) $\Rightarrow$ i).
+由于 $X$ 是各 $X_i$, $i\in I$, 的泛和,
+各 $s_i$, $i\in I$, 构成的族关于 $C$ 的典范拓扑覆盖
+(\hyperref[II.prop2.6]{2.6}).
+因此, 当 $C$ 配备典范拓扑时,
+\hyperref[II.cor4.6.2]{4.6.2} 的条件 $\alpha$) 成立.
+条件 $\beta$) 显然成立,
+性质 $\gamma$) 来自 \hyperref[II.prop4.6]{4.6} 1) 2), 从而得到 i).
+
+\noindent i) $\Rightarrow$ ii).
+设 $\Tt$ 是 $C$ 上一个比典范拓扑粗的拓扑,
+使得 $\epsilon_\Tt(X)$ 是各 $\epsilon_\Tt(X_i)$ 的和.
+对关于 $\Tt$ 的每个层 $F$,
+典范映射 $\Hom(X,F)\rightarrow\prod_i\Hom(X_i,F)$ 为双射.
+此外, 每个可表示预层都是层.
+立即可知, $X$ 是 $C$ 中各 $X_i$, $i\in I$, 的和.
+将这一点用于 $I$ 为空集的情形可见:
+若 $C$ 的一个对象被映为 $C^{\widetilde{\phantom{,}}}$ 的始对象,
+则该对象是 $C$ 的始对象.
+函子 $\epsilon_\Tt:C\rightarrow C^{\widetilde{\phantom{,}}}$
+全忠实, 并与有限投射极限交换.
+因此, \hyperref[II.cor4.6.2]{4.6.2} 的条件 b) 蕴含各 $s_i$,
+$i\in I$, 是 $C$ 的单态射,
+而条件 c) 与前面所证蕴含各 $X_i\times_XX_j$, $i\neq j$,
+为 $C$ 的始对象.
+因此 $X$ 是各\pageoriginale{} $X_i$ 的不交和.
+由于 $\epsilon_\Tt$ 与纤维积交换,
+最后这一性质在每个基变换 $Y\rightarrow X$ 下稳定,
+故 $X$ 是各 $X_i$, $i\in I$, 的不交且泛的和.
+\end{enonce*}
+
+\begin{enonce*}{推论 4.6.4}\etiquette[4.6.4]{II.cor4.6.4}
+设 $C$ 是一个 $𝒰$-范畴, $X$ 是 $C$ 的一个对象.
+假定 $C$ 上的典范拓扑是一个 $𝒰$-拓扑.
+下列性质等价:
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item $C$ 上存在一个比典范拓扑粗的拓扑,
+使得 $\epsilon_\Tt(X)$ 是 $C^{\widetilde{\phantom{,}}}_\Tt$ 的始对象.
+
+\item $X$ 是 $C$ 的严格始对象.
+\end{enumerate}
+\end{enonce*}
+
+\begin{enonce*}[remark]{证明}
+在 \hyperref[II.cor4.6.3]{4.6.3} 中取集合 $I$ 为空集.
+\end{enonce*}
+
+\begin{enonce*}{命题 4.7}\etiquette[4.7]{II.prop4.7}
+设 $C$ 是一个 $𝒰$-范畴,
+$C^{\widetilde{\phantom{,}}}$ 是 $C$ 上关于典范拓扑的层范畴,
+$\epsilon_C:C\rightarrow C^{\widetilde{\phantom{,}}}$
+是典范函子 (\hyperref[II.subsubsec4.4.0]{4.4.0}),
+$R\rightrightarrows X$ 是 $C$ 中的一个等价关系,
+在 $C$ 中具有余核 $Y$.
+设 $\Pi:X\rightarrow Y$ 为典范态射, 并假定它可拉回.
+考察下列性质:
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item $\epsilon_C(Y)$ 是等价关系
+$\epsilon_C(R)\rightrightarrows\epsilon_C(X)$ 的商.
+
+\item 等价关系 $R\rightrightarrows X$ 泛有效
+{\rm(参见第 ${\rm n^{\circ}}$ 7 节).}
+\end{enumerate}
+有 {\rm{ii) $\Rightarrow$ i).}}
+当 $C$ 具有一个比典范拓扑粗的 $𝒰$-拓扑时,
+有 {\rm{i) $\Rightarrow$ ii).}}
+\end{enonce*}
+
+\begin{enonce*}[remark]{证明}
+ii) $\Rightarrow$ i).
+典范态射 $R\rightarrow X\times_YX$ 是同构.
+设 $S\rightarrow Y$ 是由 $\pi:X\rightarrow Y$ 生成的筛.
+对每个预层 $F$, 都有正合图 (\hyperrefext[I][I.prop2.12]{2.12}):
+$$
+\Hom(S,F)\rightarrow \Hom(X,F)\rightrightarrows \Hom(R,F){\quoi}.
+$$
+因此\pageoriginale{}, 只须证明对关于典范拓扑的每个层 $F$, 映射
+$$
+\Hom(X,F)\longrightarrow \Hom(S,F)
+$$
+为双射,
+\ie 只须证明 $S$ 关于典范拓扑覆盖;
+等价地, 证明由 $\pi:X\rightarrow Y$ 生成的筛覆盖,
+而这来自 \hyperref[II.def2.5]{定义 2.5}.
+
+\noindent i) $\Rightarrow$ ii).
+函子 $\epsilon_C:C\rightarrow C^{\widetilde{\phantom{,}}}$
+与有限投射极限交换且全忠实.
+典范态射
+$\epsilon_C(R)\rightarrow J_C(X)\times_{J_C(Y)}J_C(X)$
+是同构 (\hyperref[II.prop4.3]{4.3}).
+因此, 典范态射 $R\rightarrow X\times_YX$ 是同构.
+态射 $\epsilon_C(X)\rightarrow\epsilon_C(Y)$ 为满态射,
+这蕴含 (\hyperref[II.theo4.4]{4.4})
+$\pi:X\rightarrow Y$ 是 $C$ 关于典范拓扑的覆盖态射, \cqfd
+\end{enonce*}
+
+\begin{enonce*}{命题 4.8}\etiquette[4.8]{II.prop4.8}
+设 $C$ 是一个 $𝒰$-景.
+$C$ 上的层范畴具有下列性质:
+\begin{enumerate}
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 有限投射极限可表示.
+
+\item 以 $𝒰$ 的元素为指标的直和可表示.
+它们是不交且泛的 (\hyperref[II.def4.5]{4.5}).
+
+\item 等价关系泛有效.
+\end{enumerate}
+\end{enonce*}
+
+这些已在 \hyperref[II.theo4.1]{4.1}, 2) 和 3),
+\hyperref[II.prop4.3]{4.3}, 3), 以及 \hyperref[II.exem4.5.1]{4.5.1} 中证明.
+
+之所以特别列出这些性质,
+是因为以后可以用它们刻画那些等价于 $𝒰$ 中某个范畴上的层范畴的 $𝒰$-范畴
+(\hyperrefext[IV][IV.theo1.2]{1.2}).
+
+\begin{enonce*}[remark]{注}
+回忆, 性质 a) 等价于性质:
+
+存在一个终对象, 并且纤维积可表示
+(\hyperrefext[I][I.sec2.3.1]{2.3.1}).
+\end{enonce*}
+
+\setcounter{subsection}{8}
+\subsection{}\etiquette[4.9]{II.subsec4.9}
+设\pageoriginale{} $C$ 是一个底范畴为 $𝒰$-范畴的景.
+则 $C$ 上的 $𝒰$-层范畴 $\widetilde{C}$
+满足 \hyperrefext[I][I.cor7.3]{7.3} 中所考虑的条件
+((i) 或 (ii), 可任取),
+因而由 \loccit{},
+\hyperrefext[I][I.def7.1]{7.1} 中所考虑的
+$\widetilde{C}$ 中的\emph{生成族}概念的各种形式彼此一致.
+明确了这一点之后, 有:
+
+\begin{enonce*}{命题 4.10}\etiquette[4.10]{II.prop4.10}
+沿用前述记号, 考察典范函子
+$\epsilon:C\rightarrow\widetilde{C}$
+(\hyperref[II.subsubsec4.4.0]{4.4.0}),
+并设 $G\subset\ob C$ 是 $C$ 的一个拓扑生成族
+(\hyperref[II.def3.0.1]{3.0.1}).
+则 $\widetilde{C}$ 的对象族 $(\epsilon(X))_{X\in G}$ 是生成族.
+特别地, $\widetilde{C}$ 的对象族
+$(\epsilon(X))_{X\in\ob C}$ 是生成族.
+\end{enonce*}
+
+须证明, $\widetilde{C}$ 中的每个态射 $u:F\rightarrow F'$,
+如果对每个 $X\in G$,
+\begin{equation}
+\Hom(\epsilon(X),F)\longrightarrow \Hom(\epsilon(X),F')\tag{4.10.1}
+\end{equation}\etiquette[4.10.1]{II.eq4.10.1}
+均为双射, 则该态射为同构.
+上述映射等同于映射
+\begin{equation}
+u(X):F(X)\longrightarrow F'(X){\quoi},\tag{4.10.2}
+\end{equation}\etiquette[4.10.2]{II.eq4.10.2}
+而我们须证明: 若后者对每个 $X\in G$ 都为双射,
+则对每个 $X\in\ob C$ 也都为双射.
+设 $(X_i\rightarrow X)_{i\in I}$ 是由 $G$ 的对象构成的 $X$ 的一个覆盖族,
+并对 $I$ 中每对指标 $(i,j)$, 考察 $\widehat{C}$ 中所有满足
+$X_{ijk}\in G$ 的态射 $X_{ijk}\rightarrow X_i\times_XX_j$
+所成的集合 ($k$ 遍历指标集 $I_{i,j}$).
+于是得到集合正合图的一个态射
+\[
+\xymatrix{ F(X) \ar[r] \ar[d]& \displaystyle{{\prod_i}} F(X_i)
+\ar[d]^{\wr} \ar@<3pt>[r] \ar@<-3pt>[r] & \displaystyle{\prod_{ijk}}
+F(X_{ijk}) \ar[d]^{\wr}\\
+F'(X) \ar[r] & \displaystyle{{\prod_i}} F'(X_i) \ar@<3pt>[r]
+\ar@<-3pt>[r] & \displaystyle{\prod_{ijk}} F'(X_{ijk})&, }
+\]
+其中\pageoriginale{}, 由假设, 最后两个竖箭头为双射.
+因此第一个竖箭头也为双射, \cqfd
+
+\begin{enonce*}{推论 4.11}\etiquette[4.11]{II.cor4.11}
+假定 $C$ 是一个 $𝒰$-景 (\hyperref[II.def3.0.2]{3.0.2}).
+则范畴 $\widetilde{C}$ 是一个 $𝒰$-范畴,
+并且有一个 $𝒰$-小生成族.
+\end{enonce*}
+
+事实上, 由假设, 在 \hyperref[II.prop4.10]{4.10} 中可以取 $G$
+为一个小生成族, 这就证明小生成族存在.
+另一方面, 若 $F,F'\in\ob\widetilde{C}$,
+一旦知道对每个 $X\in\ob G$ 的态射
+\eqhyperref[II.eq4.10.1]{4.10.1},
+\ie \eqhyperref[II.eq4.10.2]{4.10.2},
+就知道了从 $F$ 到 $F'$ 的态射
+(I \hyperref[I.sec7.1.1]{7.1.1}), 因此映射
+$$
+\Hom(F,F')\longrightarrow \prod_{X\in G}\Hom(F(X),F'(X))
+$$
+为单射. 由于右端是 $𝒰$-小的, 左端也如此,
+这就证明 $\widetilde{C}$ 是一个 $𝒰$-范畴.
+
+\begin{enonce*}{推论 4.12}\etiquette[4.12]{II.cor4.12}
+设 $C$ 是一个 $𝒰$-景.
+则对 $\widetilde{C}$ 的每个对象 $X$,
+$X$ 的子对象集和 $X$ 的商对象集都是 $𝒰$-小的.
+\end{enonce*}
+
+这分别来自 \hyperrefext[I][I.prop7.4]{7.4}
+和 \hyperrefext[I][I.cor7.5]{7.5};
+由 \hyperref[II.cor4.11]{4.11}, 它们均可应用.
+
+
+% END INCLUDED SGA4_English_current_buildable_source_20260906/source/02/drafts/SGA4_II_LINES_1299_1528_English.texfrag
+
+
+% BEGIN INCLUDED SGA4_English_current_buildable_source_20260906/source/02/drafts/SGA4_II_LINES_1529_1645_English.texfrag
+\section{将拓扑由 $C$ 扩张到 $C^{\shat{\;\hbox{}}}$}\etiquette[5]{II.sec5}
+
+\begin{enonce*}{命题 5.1}\etiquette[5.1]{II.prop5.1}
+设 $C$ 是一个 $𝒰$-景,
+$f:H\rightarrow K$ 是 $C^{\widehat{\phantom{,}}}$ 的一个态射.
+下列条件等价:
+\begin{itemize}
+\item[i)] 对每个 $X\rightarrow K$, $X\in \ob C$,
+相应态射 $H\times_K X\rightarrow X$ 的像是 $X$ 的覆盖筛.
+
+\item[ii)] 相伴层之间的态射
+$\underline{a}(f):\underline{a}H\rightarrow \underline{a}K$
+是\pageoriginale{} $C^{\widetilde{\phantom{,}}}$ 中的满态射.
+
+\item[ii bis)] 对 $C$ 上的每个层 $F$,
+由 $f$ 诱导的映射 $\Hom(K,F)\rightarrow \Hom(H,F)$ 为单射.
+\end{itemize}
+\end{enonce*}
+
+\begin{enonce*}[remark]{证明}
+显然 ii) 等价于 ii bis).
+\end{enonce*}
+
+证明 (ii) $\Rightarrow$ (i).
+由 \hyperref[II.theo4.4]{4.4}, (i) 意味着
+$u:\underline{a}(H\times_K X)\rightarrow \underline{a}(X)$ 为满态射.
+由于 $\underline{a}$ 与有限 $\varprojlim$ 交换
+(\hyperref[II.theo4.1]{4.1}), 有
+$\underline{a}(H\times_K X)\simeq
+\underline{a}(H)\times_{\underline{a}(K)}\underline{a}(X)$,
+因此所考察的态射由
+$\underline{a}(f):\underline{a}(H)\rightarrow
+\underline{a}(K)$ 经基变换得到.
+由于 $\widetilde{C}$ 的满态射是泛的,
+这就证明了 (ii) $\Rightarrow$ (i).
+反过来, 由于所有满足 $X_i\in\ob C$ 的 $X_i\rightarrow K$
+构成的族为满族,
+$\widetilde{C}$ 中的族
+$\underline{a}(X_i)\rightarrow \underline{a}(K)$ 也为满族
+(\hyperref[II.theo4.1]{4.1}).
+因此, 要验证
+$\underline{a}(f):\underline{a}(H)\rightarrow \underline{a}(K)$ 为满态射,
+只须在上述每个形如
+$\underline{a}(X_i)\rightarrow \underline{a}(K)$ 的基变换之后验证,
+这就证明了 i) $\Rightarrow$ ii), \cqfd
+
+\begin{enonce*}{定义 5.2}\etiquette[5.2]{II.def5.2}
+\begin{enumerate}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 满足 \hyperref[II.prop5.1]{5.1} 的三个等价条件的态射
+$f:H\rightarrow K$ 称为\emph{覆盖态射}.
+同靶的一族态射 $f_i:H_i\rightarrow K$, $i\in I$,
+称为\emph{覆盖的}, 是指相应态射 $f:\amalg_i H_i\rightarrow K$ 覆盖.
+
+\item 若态射 $f:H\rightarrow K$ 覆盖,
+且对角态射 $H\rightarrow H\times_K H$ 也覆盖,
+就称它为\emph{双覆盖态射（bicovering morphism）}.
+同靶的一族 $f_i:H_i\rightarrow K$, $i\in I$,
+称为双覆盖的, 是指相应态射 $f:\amalg_i H_i\rightarrow K$ 双覆盖.
+\end{enumerate}
+\end{enonce*}
+
+由 \hyperref[II.prop5.1]{5.1} 的条件 i),
+称族 $(f_i:H_i\rightarrow K)$, $i\in I$, 覆盖,
+意味着对每个态射 $X\rightarrow K$, $X\in \ob C$,
+族 $H_i\times_K X\rightarrow X$, $i\in I$,
+的像为\pageoriginale{} $X$ 的覆盖筛;
+或者等价地, 由 ii),
+意味着 $C^{\widetilde{\phantom{,}}}$ 中的态射族
+$\underline{a}(f_i):\underline{a}H_i\rightarrow
+\underline{a}K$ 为满族
+(这里用到函子 $\underline{a}$ 与直和交换
+(\hyperref[II.theo4.1]{4.1})).\footnote[1]{注意,
+$C^{\widehat{\phantom{,}}}$ 的态射或态射族为覆盖
+(\resp 双覆盖) 的性质在基变换下稳定.}
+
+\begin{enonce*}{命题 5.3}\etiquette[5.3]{II.prop5.3}
+设 $C$ 是一个 $𝒰$-景,
+$f:H\rightarrow K$ 是 $C^{\widehat{\phantom{,}}}$ 的一个态射.
+下列条件等价:
+\begin{itemize}
+\item[i)] 态射 $f$ 双覆盖 (\hyperref[II.def5.2]{5.2}).
+
+\item[i bis)] 态射 $f$ 覆盖,
+且对 $C$ 的每个对象 $X$ 及满足 $fu=fv$ 的每对态射
+$u$, $v:X\rightrightarrows H$,
+$(u,v)$ 的核是 $X$ 的覆盖筛.
+
+\item[ii)] 态射
+$\underline{a}(f):\underline{a}H\to \underline{a}K$
+是 $C^{\widetilde{\phantom{,}}}$ 中的同构.
+
+\item[ii bis)] 对 $C$ 上的每个层 $F$,
+映射 $\Hom(K,F)\rightarrow \Hom(H,F)$ 为双射.
+\end{itemize}
+\end{enonce*}
+
+\begin{enonce*}[remark]{证明}
+将 \hyperref[II.prop5.1]{5.1} 的条件 i)
+应用于对角态射 $H\rightarrow H\times_K H$,
+即得等价性 i) $\Leftrightarrow$ i bis);
+等价性 ii) $\Leftrightarrow$ ii bis) 是显然的.
+
+\noindent i) $\Rightarrow$ ii).
+态射 $\underline{a}(f):\underline{a}H\rightarrow \underline{a}K$
+为满态射 (\hyperref[II.prop5.1]{5.1}).
+由于函子 $\underline{a}$ 与纤维积的形成交换
+(\hyperref[II.theo4.1]{4.1}), 对角态射
+$\underline{a}H\rightarrow
+\underline{a}H\times_{\underline{a}K}\underline{a}H$
+为满态射 (\hyperref[II.prop5.1]{5.1}).
+由于对角态射总为单态射, 它为同构 (\hyperref[II.prop4.2]{4.2}).
+由此可知态射 $\underline{a}(f)$ 为单态射.
+因此它为同构 (\hyperref[II.prop4.2]{4.2}).
+
+\noindent ii) $\Rightarrow$ i).
+由于函子 $\underline{a}$ 与纤维积的形成交换,
+态射 $f$ 与对角态射 $H\rightarrow H\times_K H$
+在 $\underline{a}$ 下均映为同构.
+特别地, 它们在 $\underline{a}$ 下均映为满态射.
+因此它们均覆盖, \cqfd
+\end{enonce*}
+
+\setcounter{subsection}{3} \setcounter{subsubsection}{0}
+
+% END INCLUDED SGA4_English_current_buildable_source_20260906/source/02/drafts/SGA4_II_LINES_1529_1645_English.texfrag
+
+
+% BEGIN INCLUDED SGA4_English_current_buildable_source_20260906/source/02/drafts/SGA4_II_LINES_1646_1819_English.texfrag
+\subsubsection{}\etiquette[5.3.1]{II.subsubsec5.3.1}
+由\pageoriginale{} \hyperref[II.prop5.3]{5.3},
+以及 $\underline{a}$ 与直和交换这一事实可知:
+$C^{\widehat{\phantom{,}}}$ 的一族态射
+$(f_i:H_i\rightarrow K)$, $i\in I$, 双覆盖,
+当且仅当各 $f_i$ 在相伴层上诱导从直和
+$\amalg_i \underline{a}H_i$ 到 $\underline{a}K$ 的同构;
+或者等价地, 当且仅当对每个层 $F$, 映射
+$$
+\Hom(K,F)\longrightarrow \prod_i \Hom(H_i,F)
+$$
+为双射.
+
+\begin{enonce*}{命题 5.4}\etiquette[5.4]{II.prop5.4}
+设 $C$ 是一个 $𝒰$-景.
+$C^{\widehat{\phantom{,}}}$ 上存在一个 (必然唯一的) 拓扑,
+使 $C^{\widehat{\phantom{,}}}$ 中的同靶箭头族
+$H_i\rightarrow K$ 关于该拓扑覆盖,
+当且仅当它在 \hyperref[II.def5.2]{5.2} 的意义下覆盖.
+它也是 $C^{\widehat{\phantom{,}}}$ 上具有下列性质的拓扑 $T$ 中最粗者:
+\begin{enumerate}
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item $T$ 比 $C^{\widehat{\phantom{,}}}$ 的典范拓扑细
+(\ie $C^{\widehat{\phantom{,}}}$ 中的每个满族关于 $T$ 都覆盖).
+
+\item $C$ 中的每个覆盖族在 $C^{\widehat{\phantom{,}}}$ 中均覆盖.
+\end{enumerate}
+\end{enonce*}
+
+\begin{enonce*}[remark]{证明}
+这里只给出提示.
+请读者证明, 在 \hyperref[II.def5.2]{5.2} 的意义下覆盖的各族
+是 $C^{\widehat{\phantom{,}}}$ 上某个拓扑 $T_C$ 的覆盖族
+(利用 \hyperref[II.theo4.1]{4.1}).
+$C^{\widehat{\phantom{,}}}$ 上的典范拓扑的覆盖族
+就是 $C^{\widehat{\phantom{,}}}$ 中的满族
+(\hyperref[II.prop2.6]{2.6} 及 I \hyperref[I.prop3.1]{3.1}).
+由于 $\underline{a}$ 与归纳极限交换
+(\hyperref[II.theo4.1]{4.1}),
+拓扑 $T_C$ 比 $C^{\widehat{\phantom{,}}}$ 的典范拓扑细.
+此外, $C$ 的覆盖族是 $T_C$ 的覆盖族 (\hyperref[II.prop5.1]{5.1}).
+因此, 若 $T'$ 表示 $C^{\widehat{\phantom{,}}}$ 上具有性质 a) 和 b) 的最粗拓扑,
+则 $T_C$ 比 $T'$ 细.
+设 $(f_i:H_i\rightarrow K)$, $i\in I$, 是\pageoriginale{} $T_C$ 的一个覆盖族.
+证明 $(f_i,i\in I)$ 是 $T'$ 的覆盖族.
+设 $s_i:H_i\rightarrow H=\amalg_i H_i$ 为典范单态射,
+$f=(f_i,i\in I):H=\amalg_i H_i\rightarrow K$
+为各 $f_i$ 定义的态射.
+各 $s_i$ 构成的族关于 $T'$ 覆盖.
+因此, 由拓扑的公理 (T~2),
+要证明 $(f_i,i\in I)$ 是 $T'$ 的覆盖族,
+只须证明态射 $f:H\rightarrow K$ 关于 $T'$ 覆盖.
+$C^{\widehat{\phantom{,}}}$ 中存在满族
+$u_{\lambda}:X_{\lambda}\rightarrow K$, $\lambda\in \Lambda$,
+其中 $X_{\lambda}\in \ob C$ (\hyperrefext[I][I.prop3.4]{3.4}).
+因此, 再由拓扑的公理 (T 2),
+要证明 $f:H\rightarrow K$ 关于 $T'$ 覆盖,
+只须证明对每个 $\lambda\in \Lambda$,
+态射 $\pr_2:H\times_K X_{\lambda}\rightarrow X_{\lambda}$ 关于 $T'$ 覆盖.
+设 $v_j:Y_j\rightarrow H\times_K X_{\lambda}$, $j\in J$,
+$Y_j\in \ob C$, 是 $C^{\widehat{\phantom{,}}}$ 中的一个满族.
+族 $(\pr_2\circ v_j,j\in J)$ 关于 $T_C$ 覆盖.
+因此它是 $C$ 中的覆盖族 (\hyperref[II.prop5.1]{5.1}),
+从而是 $T'$ 的覆盖族.
+故由 $\pr_2:H\times_K X_{\lambda}\rightarrow X_{\lambda}$
+生成的筛包含一个关于 $T'$ 的覆盖筛.
+因而它关于 $T'$ 覆盖,
+从而 $\pr_2:H\times_K X_{\lambda}\rightarrow X_{\lambda}$ 覆盖, \cqfd
+\end{enonce*}
+
+\begin{enonce*}[remark]{注 5.4.1}\etiquette[5.4.1]{II.rem5.4.1}
+\hyperref[II.prop5.4]{5.4} 的证明实际上表明,
+$C^{\widehat{\phantom{,}}}$ 上比 $C^{\widehat{\phantom{,}}}$
+的典范拓扑细的每个拓扑 $T'$,
+都是 $C^{\widehat{\phantom{,}}}$ 上具有下列性质的拓扑 $T$ 中最粗者:
+\begin{enumerate}
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item $T$ 比 $C^{\widehat{\phantom{,}}}$ 的典范拓扑细.
+
+\item 形如 $u_i:X_i\rightarrow X$, $i\in I$,
+其中 $X$ 和各 $X_i$ 均为 $C$ 的对象的每个 $T'$-覆盖族,
+关于 $T$ 都覆盖.
+\end{enumerate}
+\end{enonce*}
+
+特别地, $C^{\widehat{\phantom{,}}}$ 上比典范拓扑细的每个拓扑 $T'$,
+都由那些关于 $T'$ 覆盖的族 $u_i:X_i\rightarrow X$, $i\in I$,
+其中 $X_i$ 及 $X$ 均为 $C$ 的对象, 唯一确定.
+
+\begin{enonce*}[remark]{注 5.4.2}\etiquette[5.4.2]{II.rem5.4.2}
+容易\pageoriginale{}证明,
+对 $C^{\widehat{\phantom{,}}}$ 上比典范拓扑细的每个拓扑 $T'$,
+$C$ 中关于 $T'$ 覆盖的同靶态射族 $(X_i\rightarrow X)$,
+$i\in I$, 所成的集合,
+就是 $C$ 上某个拓扑的覆盖族所成的集合.
+因此, \hyperref[II.prop5.4]{5.4} 及 \hyperref[II.rem5.4.1]{5.4.1}
+在 $C$ 上的拓扑与 $C^{\widehat{\phantom{,}}}$ 上比典范拓扑细的拓扑之间
+建立了一一对应.
+\end{enonce*}
+
+\setcounter{subsection}{5} \setcounter{subsubsection}{-1}
+\subsubsection{}\etiquette[5.5.0]{II.subsubsec5.5.0}
+设 $C$ 是一个小范畴.
+以 $\Caf$ 表示 $C^{\widehat{\phantom{,}}}$ 的那些严格满子范畴
+(每个与子范畴某个对象同构的对象也都是该子范畴的对象) 所成的集合,
+其包含函子具有一个与有限投射极限交换的左伴随.
+另以 $\Tt$ 表示 $C$ 上的拓扑集.
+定理 \hyperref[II.theo3.4]{3.4} 定义了映射
+$$
+\Phi:\Tt\longrightarrow \Caf{\quoi}.
+$$
+
+我们将定义一个反向映射.
+为此, 给 $\Caf$ 的每个元素
+$\xymatrix{ e=i': C' \ar@<-4pt>[r]&
+\ar@<-2pt>[l]_(.35){a'} C^{\widehat{\phantom{,}}} }$,
+其中 $\underline{a}'$ 是 $i'$ 的左伴随,
+须对应 $C$ 上的一个拓扑 $T_e$.
+对 $C$ 的每个对象 $X$,
+定义 $J_e(X)$ 为 $X$ 的那些子对象所成的集合,
+其包含态射在 $\underline{a}'$ 下的像为同构.
+利用对 $\underline{a}'$ 所作的假设,
+立即可验证这定义了 $C$ 上的一个拓扑 $T_e$.
+于是定义了映射
+$$
+\Psi:\Caf\longrightarrow \Tt{\quoi}.
+$$
+
+于是有下列结果 (归于 J. GIRAUD):
+
+\begin{enonce*}{定理 5.5}\etiquette[5.5]{II.theo5.5}
+映射\pageoriginale{} $\Phi$ 为双射, 而 $\Psi$ 为其逆映射.
+\end{enonce*}
+
+\begin{enonce*}[remark]{证明}
+映射 $\Psi\circ \Phi$ 为恒等映射.
+事实上, 这立即来自 \hyperref[II.prop5.1]{5.1}.
+映射 $\Phi\circ \Psi$ 为恒等映射.
+事实上, 设
+$\xymatrix{ i': C' \ar@<-4pt>[r]&
+\ar@<-2pt>[l]_(.35){{\underline{a}'}}
+C^{\widehat{\phantom{,}}} }$
+为 $\Caf$ 的一个元素,
+$T_e$ 为它在 $\Psi$ 下对应的拓扑,
+$C_e$ 为关于 $T_e$ 的层范畴.
+利用拓扑 $T_e$ 的定义及双覆盖态射的定义
+(\hyperref[II.def5.2]{5.2}), 可证明下列断言等价:
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item $C^{\widehat{\phantom{,}}}$ 的态射 $u$ 关于拓扑 $T_e$ 双覆盖.
+
+\item $C^{\widehat{\phantom{,}}}$ 的态射 $u$
+在 $\underline{a}'$ 下的像为同构.
+\end{enumerate}
+
+显然 $C'$ 是 $C_e$ 的满子范畴.
+因此, 只须证明关于拓扑 $T_e$ 的每个层 $F$ 都是 $C'$ 的对象.
+由上述等价性, 态射 $F\rightarrow i'\circ a'(F)$ 双覆盖;
+又因其源与靶均为层,
+由 \hyperref[II.prop5.3]{5.3} (ii) 可知,
+$F\rightarrow i'\circ a'(F)$ 是同构, \cqfd
+\end{enonce*}
+
+
+% END INCLUDED SGA4_English_current_buildable_source_20260906/source/02/drafts/SGA4_II_LINES_1646_1819_English.texfrag
+
+
+% BEGIN INCLUDED SGA4_English_current_buildable_source_20260906/source/02/drafts/SGA4_II_LINES_1820_2120_English.texfrag
+\section{取值于一个范畴的层}\etiquette[6]{II.sec6}
+
+\setcounter{subsection}{-1}
+\subsection{}\etiquette[6.0]{II.subsec6.0}
+设 $C$ 和 $D$ 是两个范畴.
+从 $C$ 到 $D$ 的反变函子 $F:C^{\circ}\rightarrow D$
+称为\emph{$C$ 上取值于 $D$ 的预层}.
+
+\begin{enonce*}{定义 6.1}\etiquette[6.1]{II.def6.1}
+设 $C$ 是一个景, $D$ 是一个范畴.
+预层 $F:C^{\circ}\rightarrow D$
+称为\emph{$C$ 上取值于 $D$ 的层}
+(或简洁地称为取值于 $D$ 的层),
+是指对 $D$ 的每个对象 $S$, 集合预层
+$$
+X\longmapsto \Hom_D(S,F(X))\quav X\in \ob(C)
+$$
+为层.
+$\Hhom(C^{\circ},D)$ 中由 $C$ 上取值于 $D$ 的层构成的满子范畴记为
+$\Hhom^{\sim}(C^{\circ},D)$.
+\end{enonce*}
+
+\begin{enonce*}[remark]{注 6.2}\etiquette[6.2]{II.rem6.2}
+\begin{enumerate}
+\renewcommand{\labelenumi}{\theenumi)}
+\hypertarget{sga4.exp.II.remark.6.2.item.1}{}\item
+\hyperref[II.def6.1]{6.1} 的条件\pageoriginale{}意味着,
+对 $C$ 的每个对象 $X$、$X$ 的每个覆盖筛 $R$
+以及 $D$ 的每个对象 $S$, 都有同构
+(\hyperrefext[I][I.cor3.5]{3.5} 及 \hyperref[II.def2.1]{2.1}):
+$$
+\Hom_D(S,F(X))\xrightarrow{\sim}\varprojlim_{C/R}F(.){\quoi}.
+$$
+因此, 当 $D$ 是 $𝒰$-集合范畴时,
+就重新得到集合层的定义 (\loccit).
+
+\item 设 $D'$ 是一个 $𝒰$-范畴,
+$G:D\rightarrow D'$ 是一个与投射极限交换的函子.
+由复合, 函子 $G$ 将取值于 $D$ 的层映为取值于 $D'$ 的层.
+\end{enumerate}
+\end{enonce*}
+
+\setcounter{subsection}{3} \setcounter{subsubsection}{-1}
+\subsubsection{}\etiquette[6.3.0]{II.subsubsec6.3.0}
+设 $\gamma$ 是由有限投射极限定义的一种代数结构
+(\hyperrefext[I][I.cor2.9]{2.9}),
+$𝒰-\gamma$ 是属于 $𝒰$ 的 $\gamma$-集合范畴.
+以 $\esj:𝒰-\gamma\rightarrow 𝒰-\Ens$ 表示“底集合”函子.
+函子 $\esj$ 与投射极限交换,
+因此由前注, 通过复合定义函子
+\begin{align*}
+&\esj^{\widehat{\phantom{,}}} :
+\Hhom(C^{\circ},𝒰-\gamma)\longrightarrow
+C^{\widehat{\phantom{,}}}\\
+&\esj^{\widetilde{\phantom{,}}} :
+\Hhom^{\sim}(C^{\circ},𝒰-\gamma) \longrightarrow
+C^{\widetilde{\phantom{,}}}{\quoi}.
+\end{align*}
+
+函子 $\esj^{\widetilde{\phantom{,}}}$ 称为“底集合层”函子.
+事实上, 它典范地通过 $C^{\widetilde{\phantom{,}}}$ 中的
+$\gamma$-对象范畴 $\gamma-\widetilde{C}$ 分解.
+仍以 $\widetilde{\esj}$ 表示所得到的函子
+$$
+\Hhom^{\sim}(C^{\circ}, 𝒰-\gamma)\longrightarrow
+\gamma-\widetilde{C},
+$$
+可以陈述:
+
+\begin{enonce*}{命题 6.3.1}\etiquette[6.3.1]{II.prop6.3.1}
+函子 $\esj^{\widetilde{\phantom{,}}}$
+在 $C$ 上取值于 $𝒰-\gamma$ 的层范畴、
+集合层范畴中的 $\gamma$-对象范畴,
+以及集合预层范畴中底预层为层的 $\gamma$-对象范畴之间建立等价.
+\end{enonce*}
+
+\begin{enonce*}[remark]{证明}
+证明\pageoriginale{}主要使用 (\hyperrefext[I][I.cor3.2]{3.2})
+以及预层范畴中层的有限投射极限仍是层这一事实
+(\hyperref[II.theo4.1]{4.1}).
+\end{enonce*}
+
+\setcounter{subsection}{3} \setcounter{subsubsection}{1}
+\subsubsection{}\etiquette[6.3.2]{II.subsubsec6.3.2}
+前面的命题说明, 将一个取值于 $𝒰-\gamma$ 的层
+等同于 $C^{\widetilde{\phantom{,}}}$ 中相应的 $\gamma$-对象的惯常说法是合理的.
+此后我们一律沿用这种说法.
+
+我们将使用经典术语:\emph{群层、交换群层}
+(我们通常称之为\emph{Abel 层})、\emph{环层、$A$-模层}\ldotsn
+
+\subsubsection{}\etiquette[6.3.3]{II.subsubsec6.3.3}
+以
+$$
+C^{\widetilde{\phantom{,}}}_{\gamma}(\resp
+C^{\widehat{\phantom{,}}}_{\gamma})
+$$
+表示 $C^{\widetilde{\phantom{,}}}$
+(\resp $C^{\widehat{\phantom{,}}}$) 的 $\gamma$-对象范畴.
+当 $\gamma$ 是“$A$-模”这一结构类型时,
+也记为 $C^{\widetilde{\phantom{,}}}_{A}$,
+或者当 $A=\ZZ$ 时, 简记为 $\widetilde{C}_{\ab}$.
+
+假定 $C$ 是一个 $𝒰$-景.
+“相伴层”函子是左正合的 (\hyperref[II.theo4.1]{4.1}), 因此:
+
+\begin{enonce*}{命题 6.4}\etiquette[6.4]{II.prop6.4}
+包含函子
+$i_{\gamma}:C^{\widetilde{\phantom{,}}}_{\gamma}\rightarrow
+C^{\widehat{\phantom{,}}}_{\gamma}$
+具有一个左正合的左伴随 $a_{\gamma}$;
+即有同构
+$$
+\Hom_{C^{\widetilde{\phantom{,}}}_{\gamma}}(a_{\gamma},\;)\xrightarrow{\sim}\Hom_{C^{\widehat{\phantom{,}}}_{\gamma}}(\;,i_{\gamma}){\quoi}.
+$$
+
+设 $X$ 是 $C^{\widehat{\phantom{,}}}_{\gamma}$ 的一个对象.
+$a_{\gamma}(X)$ 的底集合层
+典范同构于 $X$ 的底集合预层的相伴集合层.
+伴随态射 $\id\rightarrow i_{\gamma}a_{\gamma}$ 的底集合预层态射,
+等同于应用到底集合预层的伴随态射.
+\end{enonce*}
+
+\begin{enonce*}{命题 6.5}\etiquette[6.5]{II.prop6.5}
+假定\pageoriginale{}函子
+$\esj:\gamma-𝒰\rightarrow 𝒰-\Ens$ 具有一个左伴随
+\footnote[1]{可以证明, 这样的伴随总存在 [C.F.]:
+自由群、自由 Abel 群、自由 $A$-模\ldotsn}:
+$$
+\Hom_{𝒰-\Ens}(.,\esj(.))\xrightarrow{\sim}\Hom_{\gamma-𝒰}(\Lib(.),.){\quoi}.
+$$
+
+函子
+$\esj^{\widetilde{\phantom{,}}}:C^{\widetilde{\phantom{,}}}_{\gamma}\rightarrow
+C^{\widetilde{\phantom{,}}}$ (\resp
+$\esj^{\widehat{\phantom{,}}}:C^{\widehat{\phantom{,}}}_{\gamma}\rightarrow
+C^{\widehat{\phantom{,}}}$)
+具有左伴随 $\Lib^{\widetilde{\phantom{,}}}$
+(\resp $\Lib^{\widehat{\phantom{,}}}$), 并有典范同构
+$$
+\Lib^{\widetilde{\phantom{,}}}=a_{\gamma}\Lib^{\widehat{\phantom{,}}}
+i{\quoi}.
+$$
+\end{enonce*}
+
+\begin{enonce*}[remark]{证明}
+证明是形式的, 留给读者.
+\end{enonce*}
+
+\begin{enonce*}{推论 6.6}\etiquette[6.6]{II.cor6.6}
+设 $(X_i)$, $i\in I$,
+是 $C^{\widetilde{\phantom{,}}}$ 的生成族
+(\hyperref[II.subsec4.9]{4.9}).
+则族 $\Lib^{\widetilde{\phantom{,}}}(X_i)$
+是 $C^{\widetilde{\phantom{,}}}_{\gamma}$ 的生成族.
+\end{enonce*}
+
+\begin{enonce*}[remark]{证明}
+注意到函子 $\esj^{\widetilde{\phantom{,}}}$
+与投射极限交换且保守
+($\esj^{\widetilde{\phantom{,}}}(u)$ 为同构
+$\Leftrightarrow$ $u$ 为同构) 后, 证明就是形式的.
+\end{enonce*}
+
+\begin{enonce*}{命题 6.7}\etiquette[6.7]{II.prop6.7}
+设 $A$ 是一个 $𝒰$-环层或一个小环,
+$C^{\widetilde{\phantom{,}}}_A$ (\resp
+$C^{\widehat{\phantom{,}}}_A$)
+是 $𝒰$-景 $C$ 上的含幺 $A$-模层
+(\resp 预层) 范畴 $(\hyperref[II.subsubsec6.3.3]{6.3.3})$.
+则 $C^{\widetilde{\phantom{,}}}_A$ 是一个 Abel $𝒰$-范畴,
+满足 {\rm[\textsc{Tohoku}]} 的公理
+{\rm (AB 5)} (“左正合的滤过归纳极限存在”)
+以及 {\rm (AB 3)$^{\ast}$} (“无限积存在”).
+它有一个以 $𝒰$ 的某个元素为指标的生成元族.
+\end{enonce*}
+
+\begin{enonce*}[remark]{证明}
+显然, 范畴 $C^{\widehat{\phantom{,}}}_A$
+是一个满足公理 (AB 3)、(AB 4) 和 (AB 5) 的 Abel 范畴
+(\hyperrefext[I][I.prop2.8]{2.8} 及 \hyperrefext[I][I.cor3.3]{3.3}).
+于是\pageoriginale{}由 \hyperref[II.prop6.4]{6.4} 可知,
+范畴 $C^{\widetilde{\phantom{,}}}_A$
+是一个核与余核均可表示的加性范畴.
+更确切地说, 分别以 $i_A$ 和 $a_A$ 表示包含函子和相伴层函子,
+设 $u:X\rightarrow Y$ 是 $C^{\widetilde{\phantom{,}}}_A$ 的一个态射.
+函子 $a_A$ 左正合且与归纳极限交换.
+函子 $i_A$ 与投射极限交换.
+因此, 函子
+$i_Aa_A:C^{\widehat{\phantom{,}}}_A\rightarrow
+C^{\widehat{\phantom{,}}}_A$ 是一个加性左正合函子.
+由此得到典范同构
+\begin{gather*}
+i_A(\Ker(u))\xrightarrow{\sim} \Ker(i_A(u)){\quoi},\tag{$\ast$}\\
+\coker(u)\xrightarrow{\sim} a_A \coker
+(i_A(u)){\quoi}.\tag{${\ast}{\ast}$}
+\end{gather*}
+因此, 有典范同构
+\begin{equation}\coim(u)\xrightarrow{\sim} a_A \coim (i_A (u)){\quoi}.
+\tag{${\ast}{\ast}{\ast}$}
+\end{equation}
+下面证明典范态射 $\coim(u)\rightarrow \im(u)$ 为同构.
+为此, 由 (*), 只须证明序列
+$$
+0\longrightarrow i_A(\coim(u))\longrightarrow i_A(Y)\longrightarrow
+i_A(\coker(u))
+$$
+正合.
+利用同构 $({\ast}{\ast})$ 和 $({\ast}{\ast}{\ast})$,
+并注意 $a_Ai_A(Y)$ 同构于 $Y$,
+可见这一序列同构于序列
+$$
+0\longrightarrow i_Aa_A(\coim(i_A(u)))\longrightarrow i_Aa_Ai_A
+(Y)\longrightarrow i_Aa_A(\coker(i_A(u))){\quoi},
+$$
+而后者正是序列
+$$
+0\longrightarrow \coim(i_A(u))\longrightarrow i_A(Y)\longrightarrow
+\coker(i_A(u)){\quoi}.
+$$
+在函子 $i_Aa_A$ 下的像.
+这一序列正合, 且函子 $i_Aa_A$ 左正合.
+因此范畴 $C^{\widetilde{\phantom{,}}}_A$ 是一个 Abel 范畴.
+函子 $a_A:C^{\widehat{\phantom{,}}}_A\rightarrow
+C^{\widetilde{\phantom{,}}}_A$\pageoriginale{}
+左正合且与任意归纳极限交换.
+因此它是加性的、正合的, 且与归纳极限交换.
+由于范畴 $C^{\widehat{\phantom{,}}}_A$ 满足公理 (AB 5),
+范畴 $C^{\widetilde{\phantom{,}}}_A$ 也如此.
+最后, 显然在范畴 $C^{\widetilde{\phantom{,}}}_A$ 中,
+以 $𝒰$ 的元素为指标的积可表示,
+因而公理 (AB 3)$^{\ast}$ 成立.
+这就完成了第一个断言的证明.
+\end{enonce*}
+
+对每个属于 $𝒰$ 的环 $A$, 函子
+$$
+\esj:𝒰-A-\mbox{module}\longrightarrow 𝒰-\Ens
+$$
+具有左伴随 $X\longmapsto X_A$
+(由 $X$ 生成的自由 $A$-模).
+因此, 应用 \hyperref[II.prop4.10]{4.10}
+及 \hyperref[II.cor6.6]{6.6}, 即可完成证明.
+
+\begin{enonce*}[remark]{记号 6.8}\etiquette[6.8]{II.not6.8}
+设 $H$ 是一个集合层.
+预层 (\cf 记号 \hyperref[II.prop6.5]{6.5})
+$$
+X\longmapsto \Lib_A H(X)\qquad X\in \ob C
+$$
+的相伴 $A$-模层记为 $A_H$.
+当 $H=\underline{a}(X)$ (由 $X$ 表示的预层的相伴层) 时,
+有时简记为 $A_X$ (这是一种惯常记号).
+\hyperref[II.prop6.7]{6.7} 的证明表明,
+$A$-模层族 $A_X$, $(X\in \ob(C))$,
+是 $A$-模层范畴的一个以 $𝒰$ 的某个元素为指标的生成族.
+\end{enonce*}
+
+\begin{enonce*}[remark]{注 6.9}\etiquette[6.9]{II.rem6.9}
+根据 [\textsc{Tôhoku}], \hyperref[II.prop6.7]{6.7} 表明,
+当 $A$ 是 $𝒰$ 的元素时,
+范畴 $C^{\widetilde{\phantom{,}}}_A$ 有足够多的内射对象.
+还知道, $C^{\widetilde{\phantom{,}}}_A$ 中的无限积不一定正合,
+因此, 一般说来, 范畴
+$C^{\widetilde{\phantom{,}}}_A$ 没有足够多的投射对象
+[\textsc{Roos}].
+\end{enonce*}
+
+\begin{thebibliography}{99}
+\bibitem{sga4.exp.II.bib.1} M. \textsc{Artin};\pageoriginale{} Grothendieck's topologies.
+
+\bibitem{sga4.exp.II.bib.2} M. \textsc{Demazure}: Séminaire de Géométrie Algébrique III,
+  Exposé IV
+
+Lecture Notes. Springer-Verlag.
+
+\bibitem{sga4.exp.II.bib.3} A. \textsc{Grothendieck}: Sur quelques points d'Algèbre
+Homologique.
+
+ Tohoku Math. Journal.
+
+\bibitem{sga4.exp.II.bib.4} J.E. \textsc{Roos}: CR
+\end{thebibliography}
+
+\ifx\danslelivre\undefined
+%\bibliography{../fichiers-configuration-latex/bibliographie}
+%\bibliographystyle{../fichiers-configuration-latex/smfalpha}
+\end{document}
+\fi
+
+% END INCLUDED SGA4_English_current_buildable_source_20260906/source/02/drafts/SGA4_II_LINES_1820_2120_English.texfrag
+
+
