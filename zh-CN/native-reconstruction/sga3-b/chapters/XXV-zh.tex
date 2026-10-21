@@ -1,0 +1,623 @@
+% 冻结英文底本 source-reference/XXV.tex 的逐段译稿.
+\markboth{第 XXV 讲. 存在性定理}{第 XXV 讲. 存在性定理}
+\chapter*{第 XXV 讲\\存在性定理}
+\addcontentsline{toc}{chapter}{第 XXV 讲. 存在性定理}
+\begin{center}
+\textit{M. Demazure 著}
+\end{center}
+
+\footnote{编者注: 2024 年 10 月 13 日版.}
+为使论述完整, 本讲给出分裂群的存在性定理的一个证明. 与 Chevalley 最初的证明（“Sur certains schémas de groupes semi-simples”, \textit{Séminaire Bourbaki}, 1961 年 5 月, 第~219 号）一样, 这一证明以每种可能的型都存在复半单代数群为基础. Cartier 给出过一种更令人满意的证明的基本想法, 直接建立与给定 Cartan 矩阵相联系的单连通分裂半单 \(\mathbb Z\)-群的存在性（未发表）.\footnote{编者注: B.~Kostant 也曾在 \emph{[Ko66]} 中勾画过这样的想法; 较近时, G.~Lusztig 在 \emph{[Lu09]} 中利用量子群给出了完整证明.}
+不过应当指出, 困难并不在于显式构造一个群概形, 而在于核实如此构造出的群确实满足所要求的条件——主要是它的纤维确实光滑且约化.
+
+\SGASection{1}{定理的陈述}
+\SGARefTarget{sga3:xxv:section:1}
+
+\begin{sgastatement}{定理 1.1}
+设 \(S\) 为非空概形. 函子
+\[
+  G\longmapsto R(G)
+\]
+给出钉扎约化 \(S\)-群范畴到钉扎约化根数据范畴的等价.
+\end{sgastatement}
+\SGARefTarget{sga3:xxv:theorem:1:1}
+
+由唯一性定理（第 XXIII 讲, 4.1）, 上述陈述等价于下述命题.
+
+\begin{sgastatement}{\SGAInlineRefTarget{sga3:xxv:corollary:1-2}推论 1.2（分裂群的存在性）}
+对每个约化根数据 \(R\), 都存在分裂约化 \(\mathbb Z\)-群 \(G\), 使 \(R(G)\simeq R\).\footnote{编者注: F.~Bruhat 和 J.~Tits 的著作 \emph{[BT84]} 也包含 Chevalley 构造的一个变体（\emph{同上}, 2.2.3--2.2.5 及 \S3.2）, 它特别给出一个具有连通纤维的光滑仿射 \(\mathbb Z\)-群 \(G\), 具有分裂极大环面, 且其泛纤维是型为 \(R\) 的约化 \(\mathbb Q\)-群. \(G\) 的几何纤维的约化性可由\emph{同上} 4.6.12 和 4.6.15 对特殊纤维的幺幂根基的研究得到（这些结果对与赋值根数据相联系的更一般的 \(G\) 也成立）; 不过, 由 \(\mathfrak g=\operatorname{Lie}(G)\) 的描述、第 XIX 讲 1.12(iii), 以及\SGARefLink{sga3:xx:3.1:item:iv}{第 XX 讲 3.1(iv)} 中元素 \(w_\alpha(X)\) 的存在性推出这一点更为简单; 见 \emph{[BT84]}, 3.2.1.}
+\end{sgastatement}
+\SGARefTarget{sga3:xxv:corollary:1:2}
+
+特别地:
+
+\begin{sgastatement}{推论 1.3}
+设 \(k\) 为域. 对每个可分裂约化 \(k\)-群 \(G_k\), 都存在约化 \(\mathbb Z\)-群 \(G\), 使
+\[
+  G\otimes_{\mathbb Z}k\simeq G_k.
+\]
+\end{sgastatement}
+\SGARefTarget{sga3:xxv:corollary:1:3}
+
+反过来, 首先注意, 由\SGARefLink{sga3:xxii:prop:4.3.1}{第 XXII 讲 4.3.1} 和\SGARefLink{sga3:XXI:6.5.10}{第 XXI 讲 6.5.10}, 为证明\SGARefLink{sga3:xxv:corollary:1-2}{1.2}, 只需考虑根数据 \(R\) 单连通的情形（如果愿意, 由\SGARefLink{sga3:XXI:7.1.6}{第 XXI 讲 7.1.6}, 甚至可假设它不可约）.
+
+另一方面, 在\SGARefLink{sga3:xxv:corollary:1:3}{1.3} 的假设下, 群概形 \(G\) 的型为常值（因为 \(\operatorname{Spec}(\mathbb Z)\) 连通）, 因而其型为 \(R(G_k)\). 于是由\SGARefLink{sga3:XXIII:5.9}{第 XXIII 讲 5.9}, 对给定群 \(G_k\), 若\SGARefLink{sga3:xxv:corollary:1:3}{1.3} 成立, 就存在型为 \(R(G_k)\) 的分裂 \(\mathbb Z\)-群.\footnote{编者注: 实际上不需要\SGARefLink{sga3:XXIII:5.9}{第 XXIII 讲 5.9}: 本讲对每个半单 \(\mathbb Q\)-群 \(G_{\mathbb Q}\), 都构造出一个与 \(G_{\mathbb Q}\) 具有相同的型的半单 \(\mathbb Z\)-群 \(G\), 并赋予它一个分裂极大环面 \(T\); 因而由\SGARefLink{sga3:xxii:prop:2.2}{第 XXII 讲 2.2}, \(G\) 分裂.}
+
+因此, 为证明\SGARefLink{sga3:xxv:corollary:1-2}{1.2} 从而证明\SGARefLink{sga3:xxv:theorem:1:1}{1.1}, 只需在 \(k\) 的特征为零（例如 \(k=\mathbb C\)）且 \(G_k\) 单连通（特别地, 半单）的情形证明\SGARefLink{sga3:xxv:corollary:1:3}{1.3}, 并证明以下命题.
+
+\begin{sgastatement}{命题 1.4}
+对每个单连通约化根数据 \(R\), 都存在型为 \(R\) 的半单代数 \(\mathbb C\)-群.
+\end{sgastatement}
+\SGARefTarget{sga3:xxv:proposition:1:4}
+
+可以如下证明\SGARefLink{sga3:xxv:proposition:1:4}{1.4}. 首先存在型为 \(R\) 的复半单 Lie 代数 \(\mathfrak g\); 例如见 N.~Jacobson, \textit{Lie Algebras}, 第 VII 章, 定理 5.\footnote{编者注: 设 \(\Delta\) 为 \(R\) 的一组基, 以 \(\widetilde{\mathfrak g}\) 表示由 \((e_\alpha,f_\alpha,h_\alpha)_{\alpha\in\Delta}\) 生成的复 Lie 代数, 其中满足关系 \([h_\alpha,h_\beta]=0\), 当 \(\beta=\alpha\) 时 \([e_\alpha,f_\beta]=h_\alpha\), 否则 \(=0\), 以及 \([h_\alpha,e_\beta]=(\alpha^\ast,\beta)e_\beta\) 和 \([h_\alpha,f_\beta]=-(\alpha^\ast,\beta)f_\beta\).
+在\emph{同上}中, \(\mathfrak g\) 定义为 \(\widetilde{\mathfrak g}\) 对其所有有限维不可约表示的核的交所取的商. \emph{[Se66]}, \S VI.5, 定理 9（另见 \emph{[BLie]}, VIII, \S4.3, \SGARefLink{sga3:xxv:section:1}{定理 1}）证明, \(\mathfrak g\) 是 \(\widetilde{\mathfrak g}\) 加上关系
+\[
+ \operatorname{ad}(e_\alpha)^{1-(\alpha^\ast,\beta)}(e_\beta)=0,\qquad
+ \operatorname{ad}(f_\alpha)^{1-(\alpha^\ast,\beta)}(f_\beta)=0.
+\]
+所得的商. 关于结构常数、特别是符号选择的显式描述, 见\SGARefLink{sga3:XXIII:6.5}{第 XXIII 讲 6.5} 和 6.7, 以及 \emph{[Ti66]}, \S4, \SGARefLink{sga3:xxv:section:1}{定理 1}; 对 \(A,D,E\) 型, 还可参见 \emph{[Sp98]}, 10.2.5.}
+于是 \(G=\operatorname{Aut}(\mathfrak g)^0\) 是型为 \(\operatorname{ad}(R)\) 的半单代数 \(\mathbb C\)-群.\footnote{编者注: 可假设 \(R\) 不可约, 因而 \(\mathfrak g\) 单纯. 根据一般论证, \(\operatorname{Lie}(G)\) 是 \(\mathfrak g\) 的导子所成的复 Lie 代数; 见 \emph{[DG70]}, \S II.4, 命题 2.3. 这些导子都是内导子; 见 \emph{[BLie]}, I, \S6.1, \SGARefLink{sga3:xxv:section:1}{命题 1} 的推论 3. 因此 \(\operatorname{Lie}(G)=\mathfrak g\), 所以 \(G\) 没有正维不变子群, 从而半单. 它的根系因而与 \(\mathfrak g\) 的根系相同. 另外, \(G\) 的中心在 \(\mathfrak g\) 上的作用既平凡又忠实, 所以中心平凡; 因而 \(G\) 是伴随群.}
+由 \textit{Bible}, \S23.1, \SGARefLink{sga3:xxv:section:1}{命题 1}, 可知存在型为 \(R\) 的半单 \(\mathbb C\)-群.
+
+本讲余下部分用于在 \(k\) 的特征为零且 \(G_k\) 半单的情形证明\SGARefLink{sga3:xxv:corollary:1:3}{1.3}. 证明分为两个阶段: 构造一个“\(\mathbb Z\)-群概形块”（\S2）, 然后研究由应用“Weil 定理”而得到的群（\S3）.
+
+为避免混淆, 在 \S2 中, 若 \(X\) 为 \(\mathbb Z\)-概形, 不用缩写 \(X_k\) 表示 \(k\)-概形 \(X\otimes_{\mathbb Z}k\).
+
+\SGASection{2}{存在性定理: 群块的构造}
+\SGARefTarget{sga3:xxv:section:2}
+
+\SGANextSectionTarget{sga3:xxv:subsection:2-1}\SGASubsection{2.1}{}
+\SGARefTarget{sga3:xxv:paragraph:2:1}
+
+固定选取 \(G_k\) 的一个分裂结构, 记为
+\[
+  (G_k,T_k,M,R)
+\]
+（见\SGARefLink{sga3:xxii:def:1.13}{第 XXII 讲 1.13}）, 选取 \(R\) 的一组单根 \(\Delta\)（它确定正根系 \(R^+\)）, 并选取 \(G_k\) 的一个 Chevalley 系 \((X_{\alpha,k})_{\alpha\in R}\)（\SGARefLink{sga3:XXIII:6.1}{第 XXIII 讲 6.1} 和\SGARefLink{sga3:XXIII:6.2}{6.2}）, 满足附加条件（见\SGARefLink{sga3:xx:2.6}{第 XX 讲 2.6}）
+\[
+  X_{\alpha,k}X_{-\alpha,k}=1\qquad(\alpha\in R).
+\]
+最后, 在 \(M\) 中由 \(R\) 生成的子群上选取一个与群结构相容的全序, 使得根中 \(>0\) 的元素恰为 \(R^+\) 中的元素. 于是将根写为
+\[
+ -\alpha_n<-\alpha_{n-1}<\cdots<-\alpha_1
+ <\alpha_1<\alpha_2<\cdots<\alpha_n.
+\]
+对 \(\alpha\in R\), 以 \(U_{\alpha,k}\) 表示对应于根 \(\alpha\) 的向量群, 以
+\[
+ p_{\alpha,k}\colon\mathbb G_{a,k}\xrightarrow{\ \sim\ }U_{\alpha,k}
+\]
+表示由 \(X_{\alpha,k}\) 确定的向量群同构.
+
+\SGANextSectionTarget{sga3:xxv:subsection:2-2}\SGASubsection{2.2}{}
+\SGARefTarget{sga3:xxv:paragraph:2:2}
+
+\(G_k\) 的分裂结构特别包含一个 \(k\)-群同构
+\[
+ T_k\simeq D_k(M).
+\]
+置 \(T=D(M)\). 这是一个 \(\mathbb Z\)-环面, 上述同构可视为同构
+\[
+ T_k\simeq T\otimes_{\mathbb Z}k.
+\]
+有
+\[
+ \operatorname{Hom}_{\mathbb Z\text{-gr.}}(T,\mathbb G_m)=M,
+\]
+以下将 \(R\subset M\) 中的元素视为 \(T\) 的特征. 同样, 将 \(R^\ast\) 中的元素视为 \(\mathbb Z\)-群态射 \(\mathbb G_m\to T\).
+
+\SGANextSectionTarget{sga3:xxv:subsection:2-3}\SGASubsection{2.3}{}
+\SGARefTarget{sga3:xxv:paragraph:2:3}
+
+对每个 \(\alpha\in R^+\), 令 \(\mathbb G_a(\alpha)\) 为 \(\mathbb G_a\) 的一个副本, 并考虑 \(\mathbb Z\)-概形
+\[
+ U=\mathbb G_a(\alpha_1)\times\cdots\times\mathbb G_a(\alpha_n).
+\]
+若 \(U_k\) 表示 \(G_k\) 中由 \(R^+\) 确定的 Borel 子群 \(B_k\) 的幺幂部分, 则以
+\[
+ a\colon U\otimes_{\mathbb Z}k\xrightarrow{\ \sim\ }U_k
+\]
+表示由下式确定的 \(k\)-概形同构:
+\[
+ a(x_1,\ldots,x_n)
+ =p_{\alpha_1,k}(x_1)\cdots p_{\alpha_n,k}(x_n).
+\]
+
+\SGANextSectionTarget{sga3:xxv:subsection:2-4}\SGASubsection{2.4}{}
+\SGARefTarget{sga3:xxv:paragraph:2:4}
+
+\(U_k\) 的群律由形如
+\[
+ a(x_1,\ldots,x_n)a(y_1,\ldots,y_n)=a(z_1,\ldots,z_n),
+\]
+的关系表示, 其中对 \(h=1,\ldots,n\), 每个 \(z_h\) 都是一个多项式
+\[
+ z_h=x_h+y_h+
+ Q_h(x_1,\ldots,x_{h-1},y_1,\ldots,y_{h-1}),
+\]
+其系数为整数（\SGARefLink{sga3:xxii:lem:5.5.8}{第 XXII 讲 5.5.8} 以及\SGARefLink{sga3:XXIII:6.4}{第 XXIII 讲 6.4}）. 此外,
+\[
+ Q_h(x_1,\ldots,x_{h-1},0,\ldots,0)=0.
+\]
+
+在 \(U\) 上赋予由这些公式确定的合成律, 这些公式确实“定义在 \(\mathbb Z\) 上”. 由于这一合成律诱导 \(U_k\) 上的群律, 它满足结合律, 且 \((0)\) 是单位元. 事实上, 这两条断言由多项式 \(Q_h\) 之间的关系表示, 而 \(\mathbb Z\to k\) 是单射. 这也是一个群律: 若 \((x_i)\) 是 \(U\) 在任意概形 \(S\) 上的截面, 则其逆元 \((y_i)\) 可由递推公式
+\[
+ y_i=-x_i-Q_i(x_1,\ldots,x_{i-1},y_1,\ldots,y_{i-1}),
+\]
+计算, 这些公式仍“定义在 \(\mathbb Z\) 上”.
+
+综上, 我们在 \(U\) 上构造了一个群律, 使上述同构 \(a\) 成为群同构.
+
+对每个 \(\alpha\in R^+\), 考虑由 \(p_\alpha(x)=(x_i)\) 定义的态射
+\[
+ p_\alpha\colon\mathbb G_a\longrightarrow U
+\]
+其中
+\[
+ x_i=
+ \begin{cases}
+ x,&\alpha_i=\alpha,\\
+ 0,&\alpha_i\ne\alpha.
+ \end{cases}
+\]
+它是闭浸入, 也是群同态; 以 \(U_\alpha\) 表示其像. 由于
+\[
+ (x_i)=p_{\alpha_1}(x_1)\cdots p_{\alpha_n}(x_n),
+\]
+可将 \(U\) 与乘积
+\[
+ U=U_{\alpha_1}U_{\alpha_2}\cdots U_{\alpha_n}.
+\]
+等同.
+
+\SGANextSectionTarget{sga3:xxv:subsection:2-5}\SGASubsection{2.5}{}
+\SGARefTarget{sga3:xxv:paragraph:2:5}
+
+令 \(T=D(M)\) 通过特征 \(\alpha\) 作用于各个 \(U_\alpha\). 可以立即验证, 这确定 \(T\) 在群 \(U\) 上的作用, 因而可构成半直积 \(B=T\ltimes U\). 有一个典范的 \(k\)-群同构
+\[
+ B\otimes_{\mathbb Z}k\xrightarrow{\ \sim\ }B_k.
+\]
+
+若在 \(R^+\) 上改取任意一个序, 则由 \(U\) 中的乘法定义的态射
+\[
+ \prod_{\alpha\in R^+}U_\alpha\longrightarrow U
+\]
+仍为同构. 事实上, 两边都是平坦的有限表示 \(\mathbb Z\)-概形, 所以只需在几何纤维上验证此断言. 于是归结到 Lazard 理论（\textit{Bible}, \S13.1, \SGARefLink{sga3:xxv:paragraph:2:1}{命题 1}）: 将 \(U\) 视为带算子 \(T\) 的群, 并利用作为带算子群的各 \(U_\alpha\) 两两不同构这一事实, 因为 \(T\) 的特征 \(\alpha\in R^+\) 在每个纤维上都两两不同.
+
+\SGANextSectionTarget{sga3:xxv:subsection:2-6}\SGASubsection{2.6}{}
+\SGARefTarget{sga3:xxv:paragraph:2:6}
+
+将 \(R^+\) 换成 \(R^-=-R^+\), 可类似地构造群 \(U^-\)、\(B^-\) 以及 \(\alpha\in R^-\) 时的 \(U_\alpha\), 并得到同构
+\[
+ p_\alpha\colon\mathbb G_a\xrightarrow{\ \sim\ }U_\alpha,
+ \qquad \alpha\in R^-.
+\]
+最后引入乘积概形
+\[
+ \Omega=U^-\times T\times U.
+\]
+有一个典范的 \(k\)-概形同构
+\[
+ \Omega\otimes_{\mathbb Z}k
+ \xrightarrow{\ \sim\ }
+ U^-_k\times_kT_k\times_kU_k
+ \simeq\Omega_k,
+\]
+其中 \(\Omega_k\) 是 \(G_k\) 的“大胞腔”（\SGARefLink{sga3:xxii:prop:4.1.2}{第 XXII 讲 4.1.2}）.
+
+以下利用此同构将 \(\Omega\otimes_{\mathbb Z}k\) 与 \(\Omega_k\) 等同, 并通过单位截面将 \(U^-\)、\(T\) 和 \(U\) 视为 \(\Omega\) 的子概形. 记
+\[
+ e=((0),e,(0))
+\]
+为 \(\Omega\) 的“单位截面”. 现在的目标是在 \(\Omega\) 上赋予一个群块的合成律.
+
+\begin{sgastatement}{\SGAInlineRefTarget{sga3:xxv:lemma:2-7}引理 2.7}
+设 \(\alpha\in\Delta\), 以 \(w_{\alpha,k}\) 表示由 \(X_{\alpha,k}\) 确定的 \(\operatorname{Norm}_{G_k}(T_k)(k)\) 中的元素; 回忆按照定义有
+\[
+ w_{\alpha,k}
+ =p_{-\alpha,k}(-1)p_{\alpha,k}(1)p_{-\alpha,k}(-1).
+\]
+存在 \(\Omega\) 的一个包含截面 \(e\) 的开子集 \(V_\alpha\) 以及一个态射
+\[
+ h_\alpha\colon V_\alpha\longrightarrow\Omega
+\]
+满足:
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=2.2em]
+\item \(h_\alpha(e)=e\);
+\item \((h_\alpha)\otimes_{\mathbb Z}k\) 与 \(\operatorname{int}(w_{\alpha,k})\) 在 \(V_\alpha\otimes_{\mathbb Z}k\subset G_k\) 上的限制一致;
+\item \(T\subset V_\alpha\), 且 \(h_\alpha\) 将 \(T\) 映入 \(T\).
+对每个 \(\beta\in R\), 有 \(U_\beta\subset V_\alpha\), 且 \(h_\alpha\) 将 \(U_\beta\) 映入 \(U_{s_\alpha(\beta)}\).
+\end{enumerate}
+\end{sgastatement}
+\SGARefTarget{sga3:xxv:lemma:2:7}
+
+根据 Chevalley 系的定义（\SGARefLink{sga3:XXIII:6.1}{第 XXIII 讲 6.1}）, 对每个 \(\beta\in R\), 存在整数 \(e_\beta=\pm1\), 使得对每个 \(x\in\mathbb G_a(S)\) 和每个 \(S\to\operatorname{Spec}(k)\), 都有
+\[
+ \operatorname{int}(w_{\alpha,k})p_{\beta,k}(x)
+ =p_{s_\alpha(\beta),k}(e_\beta x)
+\]
+
+设 \(S\) 为任意概形. 将 \(\Omega(S)\) 的任意元素写为
+\[
+\left(
+ \left(\prod_{\substack{\beta\in R^-\\\beta\ne-\alpha}}
+ p_\beta(x_\beta)\right)p_{-\alpha}(x_{-\alpha}),
+ \ t,\
+ p_\alpha(x_\alpha)
+ \left(\prod_{\substack{\beta\in R^+\\\beta\ne\alpha}}
+ p_\beta(x_\beta)\right)
+\right),
+\]
+其中利用\SGARefLink{sga3:xxv:subsection:2-5}{2.5}, 在 \(R^-\setminus\{-\alpha\}\) 和 \(R^+\setminus\{\alpha\}\) 上选取了任意的序. 由下式定义态射 \(d\colon\Omega\to\mathbb A^1_{\mathbb Z}\):
+\[
+ d(u)=\alpha(t)+x_\alpha x_{-\alpha}.
+\]
+
+令 \(V_\alpha=\Omega_d\), 即 \(\Omega\) 中由 \(d(u)\) 可逆所确定的开子集. 它包含 \(e\)、\(T\) 以及每个 \(U_\beta\), \(\beta\in R\). 定义
+\[
+ h_\alpha\colon V_\alpha\longrightarrow\Omega,\qquad
+ h_\alpha(u)=(a(u),b(u),c(u)),
+\]
+其中
+\begin{align*}
+a(u)
+ &=
+\left(\prod_{\substack{\beta\in R^-\\\beta\ne-\alpha}}
+ p_{s_\alpha(\beta)}(e_\beta x_\beta)\right)
+p_{-\alpha}\!\left(-x_\alpha d(u)^{-1}\right),\\
+b(u)&=t\cdot\alpha^\ast(d(u)),\\
+c(u)
+ &=p_\alpha\!\left(-x_{-\alpha}d(u)^{-1}\right)
+\left(\prod_{\substack{\beta\in R^+\\\beta\ne\alpha}}
+ p_{s_\alpha(\beta)}(e_\beta x_\beta)\right).
+\end{align*}
+由于 \(s_\alpha\) 置换不同于 \(\alpha\) 的正根（分别地, 不同于 \(-\alpha\) 的负根）, \(c(u)\)（分别地, \(a(u)\)）是 \(U\)（分别地, \(U^-\)）的截面, 所以上述态射有定义. 它显然满足 (i) 和 (iii). 断言 (ii) 直接由 \(e_\beta\), \(\beta\in R\) 的定义以及\SGARefLink{sga3:xx:3.12}{第 XX 讲 3.12} 得到.
+
+\begin{sgastatement}{\SGAInlineRefTarget{sga3:xxv:lemma:2-8}引理 2.8}
+存在 \(\Omega\) 的开子集 \(V,V'\) 以及态射
+\[
+ h\colon V\longrightarrow\Omega,\qquad
+ h'\colon V'\longrightarrow\Omega
+\]
+具有下述性质:
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=2.2em]
+\item \(V\) 和 \(V'\) 包含 \(e\), 且 \(h(e)=h'(e)=e\);
+\item\SGAInlineRefTarget{sga3:xxv:lemma:2-8:item:ii} 由
+\[
+ h'\circ h\colon h^{-1}(V')\longrightarrow\Omega
+\]
+诱导的态射是恒等态射的限制;
+\item\SGAInlineRefTarget{sga3:xxv:lemma:2-8:item:iii} \(k\)-态射 \(h\otimes_{\mathbb Z}k\) 和 \(h'\otimes_{\mathbb Z}k\) 分别是群 \(G_k\) 的自同构在 \(V\otimes_{\mathbb Z}k\) 和 \(V'\otimes_{\mathbb Z}k\) 上的限制;
+\item\SGAInlineRefTarget{sga3:xxv:lemma:2-8:item:iv} \(V\) 和 \(V'\) 包含 \(U,T,U^-\); 态射 \(h,h'\) 将 \(U\) 映入 \(U^-\), 将 \(U^-\) 映入 \(U\), 并将 \(T\) 映入 \(T\).
+\end{enumerate}
+\end{sgastatement}
+\SGARefTarget{sga3:xxv:lemma:2:8}
+
+设 \(w^0\) 为 \(G_k\) 的 Weyl 群中将 \(R^+\) 映至 \(R^-\) 的元素. 写成
+\[
+ w^0=s_{\alpha_n}\cdots s_{\alpha_1},\qquad \alpha_i\in\Delta
+\]
+（这里与\SGARefLink{sga3:xxv:subsection:2-1}{2.1} 中的编号无关）, 并置
+\[
+ w_0=w_{\alpha_n,k}\cdots w_{\alpha_1,k}
+ \in\operatorname{Norm}_{G_k}(T_k)(k).
+\]
+对 \(i\leq n\), 递归定义 \(\Omega\) 的开子集 \(V_i\) 和态射 \(h_i\colon V_i\to\Omega\), 令
+\[
+ V_0=\Omega,\qquad h_0=\operatorname{id},
+\]
+并对 \(i=0,\ldots,n-1\), 令
+\[
+ V_{i+1}=h_i^{-1}(V_{\alpha_{i+1}}),\qquad
+ h_{i+1}=h_{\alpha_{i+1}}\circ h_i,
+\]
+其中 \(V_{\alpha_j}\) 和 \(h_{\alpha_j}\) 如\SGARefLink{sga3:xxv:lemma:2-7}{2.7} 所定义.
+
+取 \(V=V_n\) 和 \(h=h_n\). 关于 \(V\) 和 \(h\) 的条件 (i)、(iii) 和 (iv) 成立: (i) 和 (iii) 直接由\SGARefLink{sga3:xxv:lemma:2-8}{2.8} 得到, 而 (iv) 则由 \(h\otimes_{\mathbb Z}k\) 为 \(\operatorname{int}(w_0)\) 在 \(V\otimes_{\mathbb Z}k\) 上的限制这一事实得到.
+
+由于 \((w^0)^2=1\), 还有
+\[
+ w^0=s_{\alpha_1}\cdots s_{\alpha_n}
+ =(s_{\alpha_1}^{\,3})\cdots(s_{\alpha_n}^{\,3}).
+\]
+置
+\[
+ w'_0=(w_{\alpha_1,k})^3\cdots(w_{\alpha_n,k})^3.
+\]
+重复上面的构造, 得到也满足 (i)、(iii) 和 (iv) 的开子集 \(V'\) 及态射 \(h'\). 此外, \(h'\otimes_{\mathbb Z}k\) 为 \(\operatorname{int}(w'_0)\) 在 \(V'\otimes_{\mathbb Z}k\) 上的限制. 然而, 对每个单根 \(\alpha\in\Delta\), 都有 \((w_{\alpha,k})^4=e\)（\SGARefLink{sga3:xx:3.1}{第 XX 讲 3.1}）, 因而 \(w'_0w_0=e\).
+由此可知, \(h'\circ h\) 在 \(\Omega\otimes_{\mathbb Z}k\) 的某个非空开子集上诱导恒等态射. 由于 \(\Omega\) 在 \(\mathbb Z\) 上光滑且为有限表示, \(\Omega\otimes_{\mathbb Z}k\) 在 \(\Omega\) 中概形稠密; 这就证明了 (ii).
+
+\begin{sgastatement}{\SGAInlineRefTarget{sga3:xxv:proposition:2-9}命题 2.9}
+存在 \(\Omega\times\Omega\) 的开子集 \(V_1\)、\(\Omega\) 的开子集 \(V_2\), 以及态射
+\[
+ \pi\colon V_1\longrightarrow\Omega,\qquad
+ \sigma\colon V_2\longrightarrow\Omega
+\]
+具有下述性质:
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=2.2em]
+\item 若 \(x\in\Omega(S)\), 则 \((e,x)\) 和 \((x,e)\) 是 \(V_1\) 的截面, 且
+\[
+ \pi(e,x)=\pi(x,e)=x;
+\]
+\item \(V_2\) 包含 \(e\), 且 \(\sigma(e)=e\);
+\item\SGAInlineRefTarget{sga3:xxv:proposition:2-9:item:iii} \(\pi_k\) 和 \(\sigma_k\) 分别是由乘法和取逆确定的态射 \(G_k\times_kG_k\to G_k\) 与 \(G_k\to G_k\) 的限制.
+\end{enumerate}
+\end{sgastatement}
+\SGARefTarget{sga3:xxv:proposition:2:9}
+
+\SGAProof
+设 \((v,t,u)\) 和 \((v',t',u')\) 为 \(\Omega\) 的两个截面. 由\SGARefLink{sga3:xxv:lemma:2-8:item:iv}{2.8(iv)}, \(h(u)\) 是 \(U^-\) 的截面, 而 \(h(v')\) 是 \(U\) 的截面; 因此可将 \((h(u),e,h(v'))\) 视为 \(\Omega\) 的截面. 将 \(V_1\) 定义为 \(\Omega\times\Omega\) 中由下式确定的开子集:
+\[
+\bigl((v,t,u),(v',t',u')\bigr)\in V_1(S)
+\quad\Longleftrightarrow\quad
+(h(u),e,h(v'))\in V'(S),
+\]
+其中使用\SGARefLink{sga3:xxv:lemma:2-8}{2.8} 的记号. 若左边的二元组是 \(V_1\) 的截面, 则 \(h'(h(u),e,h(v'))\) 有定义, 并且是 \(\Omega\) 的截面; 写为
+\[
+ h'(h(u),e,h(v'))=(v'',t'',u'').
+\]
+置
+\[
+ \pi\bigl((v,t,u),(v',t',u')\bigr)
+ =
+ \bigl(v\cdot t v''t^{-1},\ tt''t',\
+ t'^{-1}u''t'\cdot u'\bigr).
+\]
+断言 (i) 直接由\SGARefLink{sga3:xxv:lemma:2-8:item:ii}{2.8(ii)} 得到. 为验证 (iii) 中关于 \(\pi\) 的断言, 注意由\SGARefLink{sga3:xxv:lemma:2-8:item:iii}{2.8(iii)} 和 (ii), 对 \(u\in U(S)\)、\(v'\in U^-(S)\) 和 \(S\to k\), 都有
+\[
+ h'(h(u),e,h(v'))=uv'=v''t''u''
+\]
+
+态射 \(\sigma\) 的构造与此类似. 若 \((v,t,u)\) 为 \(\Omega\) 的截面, 则 \(h(u^{-1})\) 为 \(U^-\) 的截面, \(h(v^{-1})\) 为 \(U\) 的截面, 而 \(h(t^{-1})\) 为 \(T\) 的截面. 因此
+\[
+ (h(u^{-1}),h(t^{-1}),h(v^{-1}))
+\]
+是 \(\Omega\) 的截面. 定义 \(\Omega\) 的开子集 \(V_2\):
+\[
+ (v,t,u)\in V_2(S)
+ \quad\Longleftrightarrow\quad
+ (h(u^{-1}),h(t^{-1}),h(v^{-1}))\in V'(S),
+\]
+并定义
+\[
+ \sigma(v,t,u)=h'(h(u^{-1}),h(t^{-1}),h(v^{-1})).
+\]
+\(\sigma\) 所要求的性质可用相同方法验证.
+
+\begin{sgastatement}{推论 2.10}
+\(\pi\)“泛满足结合律”, 而 \(\sigma\) 是“泛逆”: 若 \(x,y,z\in\Omega(S)\), 且下述表达式有定义（在 \(\Omega\) 中某个包含单位截面的开子集上总是如此）, 则
+\[
+ \pi(x,\pi(y,z))=\pi(\pi(x,y),z),\qquad
+ \pi(x,\sigma(x))=e=\pi(\sigma(x),x).
+\]
+\end{sgastatement}
+\SGARefTarget{sga3:xxv:corollary:2:10}
+
+事实上, 每个公式的两边都定义了光滑有限表示 \(\mathbb Z\)-概形之间的态射, 而由\SGARefLink{sga3:xxv:proposition:2-9:item:iii}{2.9(iii)}, 这些态射在泛纤维上一致.\footnote{法文底本写成“由\SGARefLink{sga3:xxv:proposition:2-9:item:iii}{2.10(iii)}”; 所指应为命题 2.9(iii).}
+
+\begin{sgastatement}{\SGAInlineRefTarget{sga3:xxv:corollary:2-11}推论 2.11}
+设 \(\alpha\in R\), \(S\) 为概形. 假设 \(x,y\in\mathbb G_a(S)\) 满足
+\[
+ (p_\alpha(x),p_{-\alpha}(y))\in V_1(S),
+ \qquad 1+xy\in\mathbb G_m(S).
+\]
+这些条件确定 \(\mathbb G_{a,S}^2\) 中包含截面 \((0,0)\) 的一个开子集. 则
+\[
+ \pi(p_\alpha(x),p_{-\alpha}(y))
+ =
+ \left(
+ p_{-\alpha}\!\left(\frac{y}{1+xy}\right),
+ \alpha^\ast(1+xy),
+ p_\alpha\!\left(\frac{x}{1+xy}\right)
+ \right).
+\]
+\end{sgastatement}
+\SGARefTarget{sga3:xxv:corollary:2:11}
+
+证明与上面相同, 利用\SGARefLink{sga3:xx:2.1}{第 XX 讲 2.1} 即可.
+
+\SGASection{3}{存在性定理: 证明的结束}
+\SGARefTarget{sga3:xxv:section:3}
+
+为方便起见, 作如下定义.
+
+\begin{sgastatement}{\SGAInlineRefTarget{sga3:xxv:definition:3-1}定义 3.1}
+设 \(S\) 为概形, \(G\) 为 \(S\)-群概形. 若存在一个 \(S\)-概形的开浸入
+\[
+ i\colon\Omega_S=\Omega\times S\longrightarrow G
+\]
+满足下述条件, 则称群 \(G\) 为\emph{容许的}（admissible）:
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=2.2em]
+\item 图
+\[
+\begin{tikzcd}[column sep=4.5em,row sep=3.2em]
+(V_1)_S
+  \arrow[r]
+  \arrow[d,"\pi"]
+&
+\Omega_S\times_S\Omega_S
+  \arrow[r,"i\times_S i"]
+&
+G\times_SG
+  \arrow[d,"\pi_G"]
+\\
+\Omega_S
+  \arrow[rr,"i_S"]
+&&
+G
+\end{tikzcd}
+\]
+交换, 其中 \(\pi_G\) 表示 \(G\) 的乘法态射;
+\item 存在有限个截面 \(a_j\in\Omega(S)\), 使开子集 \(i(a_j)\,i(\Omega_S)\) 覆盖 \(G\).
+\end{enumerate}
+\end{sgastatement}
+\SGARefTarget{sga3:xxv:definition:3:1}
+
+由“Weil 定理”（\SGARefLink{sga3:xviii:corollary:3-13:item:iii}{第 XVIII 讲 3.13(iii)} 和 (iv)）, 有:
+
+\begin{sgastatement}{引理 3.2}
+若在 \(S\) 于 \(\mathbb Z\) 上平展且为有限型时, 每个容许 \(S\)-群都是仿射的, 则存在一个容许的仿射 \(\mathbb Z\)-群.
+\end{sgastatement}
+\SGARefTarget{sga3:xxv:lemma:3:2}
+
+现在有:
+
+\begin{sgastatement}{引理 3.3}
+设 \(S\) 为概形, \(G\) 为容许 \(S\)-群. 则 \(G\) 在 \(S\) 上光滑且为有限表示, 其纤维仿射、连通且半单.
+\end{sgastatement}
+\SGARefTarget{sga3:xxv:lemma:3:3}
+
+由于 \(\Omega_S\) 在 \(S\) 上光滑且为有限表示, 并具有连通纤维, 由条件 (ii), \(G\) 也如此. 因此, 为证明\SGARefLink{sga3:xxv:lemma:3:3}{3.3}, 可假设 \(S\) 是一个域 \(K\) 的谱. 将 \(\Omega_K\) 与它在 \(G\) 中的像等同. 显然 \(\Omega_K\) 是 \(G\) 的子群 \(T_K\) 与 \(U_{\alpha,K}\), \(\alpha\in R\) 的乘积
+\[
+ \left(\prod_{\alpha\in R^-}U_{\alpha,K}\right)
+ T_K
+ \left(\prod_{\alpha\in R^+}U_{\alpha,K}\right)
+\]
+因此, \(G\) 的 Lie 代数可与直和
+\[
+ \operatorname{Lie}(T_K)
+ \oplus
+ \bigoplus_{\alpha\in R}\operatorname{Lie}(U_{\alpha,K}).
+\]
+等同. 由 \(T_K\) 的截面定义的内自同构通过特征
+\[
+ \alpha\in R\subset M
+ \simeq\operatorname{Hom}_{K\text{-gr.}}(T_K,\mathbb G_{m,K}).
+\]
+作用于 \(U_{\alpha,K}\), 从而也如此作用于 \(\operatorname{Lie}(U_{\alpha,K})\). 因此上述 \(\operatorname{Lie}(G)\) 的分解恰为它在 \(T\) 的伴随作用下的分解. 于是 \(G_K\) 关于 \(T_K\) 的根就是元素 \(\alpha\in R\).
+
+应用\SGARefLink{sga3:xix:corollary:1-13}{第 XIX 讲 1.13}. 设 \(T_\alpha\) 为 \(\ker(\alpha)\subset T_K\) 的极大环面, 并置
+\[
+ Z_\alpha=\operatorname{Centr}_G(T_\alpha).
+\]
+只需证明每个 \(Z_\alpha\) 都约化. 但
+\[
+ Z_\alpha\cap\Omega_K
+ =
+ \left(
+ \prod_{\substack{\beta\in R^-\\\beta|_{T_\alpha}=e}}
+ U_{\beta,K}
+ \right)
+ T_K
+ \left(
+ \prod_{\substack{\beta\in R^+\\\beta|_{T_\alpha}=e}}
+ U_{\beta,K}
+ \right).
+\]
+在 \(T_\alpha\) 上为零的根是 \(\alpha\) 的有理倍数, 因而恰为 \(\alpha\) 和 \(-\alpha\). 所以
+\[
+ Z_\alpha\cap\Omega_K
+ =U_{-\alpha,K}\,T_K\,U_{\alpha,K}.
+\]
+由\SGARefLink{sga3:xx:3.4}{第 XX 讲 3.4}, 为证明 \(Z_\alpha\) 约化, 只需说明 \(U_{\alpha,K}\) 与 \(U_{-\alpha,K}\) 不交换, 而这直接由\SGARefLink{sga3:xxv:corollary:2-11}{2.11} 得到.
+
+由\SGARefLink{sga3:xxv:lemma:3:2}{3.2} 和\SGARefLink{sga3:xxv:lemma:3:3}{3.3} 可知, 只要证明了下面的引理, 整个证明就完成了.
+
+\begin{sgastatement}{引理 3.4}
+设 \(S\) 为维数至多为 \(1\) 的局部 Noether 概形, \(G\) 为 \(S\) 上的光滑有限型群, 其纤维仿射、连通且半单. 则 \(G\) 仿射（因而半单）.
+\end{sgastatement}
+\SGARefTarget{sga3:xxv:lemma:3:4}
+
+\noindent\textit{说明.}\quad
+第 XVI 讲已证明, 对 \(S\) 不作任何假设时, \SGARefLink{sga3:xxv:lemma:3:4}{3.4} 也成立, 但证明较为精细. 由于这里只需特殊情形\SGARefLink{sga3:xxv:lemma:3:4}{3.4}, 我们给出一个直接证明.
+
+考虑 \(G\) 的 Lie 代数 \(\mathfrak g\), 它是局部自由 \(\mathcal O_S\)-模, 以及伴随表示
+\[
+ \operatorname{Ad}\colon
+ G\longrightarrow\operatorname{GL}_{\mathcal O_S}(\mathfrak g).
+\]
+为证明 \(G\) 在 \(S\) 上仿射, 只需证明 \(\operatorname{Ad}\) 仿射. 由于 \(G\) 光滑且具有连通纤维, 它在 \(S\) 上分离（第 VI\textsubscript{B} 讲, \SGARefLink{cor:sga3-VIB-5.5}{5.5}）, 因此 \(\operatorname{Ad}\) 分离. 根据附录中证明的结果（见\SGARefLink{sga3:xxv:proposition:4:1}{4.1}）, 只需说明 \(\operatorname{Ad}\) 拟有限. 于是归结到 \(S\) 为一个域的谱的情形. 此时 \(G\) 仿射从而半单, 而所需断言就是\SGARefLink{sga3:xxii:prop:5.7.14}{第 XXII 讲 5.7.14}.
+
+\SGASection{4}{附录}
+\SGARefTarget{sga3:xxv:section:4}
+
+在证明过程中, 我们用到了如下命题.
+
+\begin{sgastatement}{命题 4.1}
+设 \(S\) 为维数至多为 \(1\) 的局部 Noether 概形; \(G\) 和 \(H\) 为两个有限型 \(S\)-群概形; \(f\colon G\to H\) 为拟有限分离群同态. 若 \(G\) 在 \(S\) 上平坦,\footnote{编者注: 我们补上了原先遗漏的平坦性假设.} 则 \(f\) 仿射.
+\end{sgastatement}
+\SGARefTarget{sga3:xxv:proposition:4:1}
+
+我们只在 \(G\) 于 \(S\) 上光滑的情形给出证明, 上面的应用确实满足这一假设.
+
+\SGANextSectionTarget{sga3:xxv:subsection:4-2}\SGASubsection{4.2}{}
+\SGARefTarget{sga3:xxv:paragraph:4:2}
+
+由 EGA II, 1.6.4, 可假设 \(S\) 约化. 利用通常的取极限技巧,\footnote{编者注: 见 EGA IV\textsubscript{3}, 8.10.5(viii).} 可假设 \(S\) 为局部概形. 若 \(\dim(S)=0\), 断言显然成立.\footnote{编者注: 事实上, 若 \(S=\operatorname{Spec}(k)\), 其中 \(k\) 为域, 则 \(f\) 是投影 \(p\colon G\to G/\ker(f)\) 与一个闭浸入 \(i\) 的复合. 由于 \(\ker(f)\) 在 \(k\) 上有限, \(p\) 有限（第 VI\textsubscript{B} 讲, 9.2）.}
+因此假设 \(\dim(S)=1\). 利用忠实平坦下降, 可假设 \(S\) 完备, 且剩余域代数闭. 必要时用其正规化 \(\widetilde S\) 替换 \(S\), 可假设 \(S\) 正规（EGA II, 6.7.1 及 EGA \(0_{\mathrm{IV}}\), 23.1.5）.\footnote{编者注: 事实上, \(S\) 的不可约分支 \(S_1,\ldots,S_r\) 是完备整 Noether 局部概形. 由 Nagata 的一个定理（EGA \(0_{\mathrm{IV}}\), 23.1.5）, 正规化 \(\widetilde S_i\) 在 \(S_i\) 上有限, 因而 \(\widetilde S\) 在 \(S\) 上有限. Chevalley 的一个定理（EGA II, 6.7.1）于是表明, 若 \(f\times_S\widetilde S\) 仿射, 则 \(f\) 也仿射.}
+这样就归结到 \(S\) 是一个剩余域代数闭的完备离散赋值环 \(A\) 的谱的情形.
+
+\SGANextSectionTarget{sga3:xxv:subsection:4-3}\SGASubsection{4.3}{}
+\SGARefTarget{sga3:xxv:paragraph:4:3}
+
+以 \(\eta\)（分别地, \(s\)）表示 \(S\) 的泛点（分别地, 闭点）. 考虑 \(G_\eta\) 在 \(H_\eta\) 中的像 \(f_\eta(G_\eta)\). 它是 \(H_\eta\) 的闭子群概形. 设 \(H'\) 为 \(f_\eta(G_\eta)\) 在 \(H\) 中的概形闭包. 由于 \(H'\to H\) 仿射（它是闭浸入）, 可以用 \(H'\) 替换 \(H\), 从而假设 \(H\) 在 \(S\) 上平坦, 且 \(f_\eta\) 满射. 由于 \(f_\eta\) 有限, 且 \(G,H\) 在 \(S\) 上平坦, 有
+\[
+ \dim(G_s)=\dim(G_\eta)=\dim(H_\eta)=\dim(H_s).
+\]
+
+\SGANextSectionTarget{sga3:xxv:subsection:4-4}\SGASubsection{4.4}{}
+\SGARefTarget{sga3:xxv:paragraph:4:4}
+
+设 \(H_s^0,\ldots,H_s^n\) 为 \(H_s\) 的不可约分支, 其中 \(H_s^0\) 表示单位分支, 以 \(z_0,\ldots,z_n\) 表示它们的泛点. 由于每个局部环 \(\mathcal O_{H,z_i}\) 的维数至多为 \(1\), 态射
+\[
+ G\times_H\mathcal O_{H,z_i}\longrightarrow\mathcal O_{H,z_i}
+\]
+为仿射, 因为它拟有限且分离（见\SGARefLink{sga3:xvi:lemma:4:2}{第 XVI 讲引理 4.2}）. 因此, \(G\) 在 \(z_i\) 的某个邻域上对 \(H\) 仿射. 设 \(V\) 为 \(H\) 中使 \(G|_V\) 仿射的最大开子集. 则 \(V\) 包含每个 \(z_i\),\footnote{编者注: 以下一句为补入的文字.} 因而包含至少一个闭点 \(y_i\in H_s^i\). 另外, 由于 \(\kappa(s)\) 代数闭, 有 \(\kappa(y_i)=\kappa(s)\).
+
+另一方面, \(V\) 显然在任意元素 \(g\in G(S)\) 的平移下稳定. 有 \(\dim(G_s)=\dim(H_s)\), 且 \(f_s\) 有限, 所以
+\[
+ f(s)\colon G_s^0(s)\longrightarrow H_s^0(s)
+\]
+满射. 由于 \(A\) 完备, 且 \(G\) 在 \(S\) 上光滑, 典范映射 \(G^0(S)\to G_s^0(s)\) 满射. 由于 \(H_s^0(s)\) 在每个 \(H_s^i(s)\) 上传递作用, 可知 \(V\supset H_s(s)\); 又因 \(\kappa(s)\) 代数闭, 从而 \(V\supset H_s\).\footnote{编者注: 当不假设 \(G\) 在 \(S\) 上光滑时, 可以如下论证. 设 \(h_0\) 为 \(H_s^0\) 的一个有理点, \(g_0\) 为 \(G_s^0\) 的一个有理点, 满足 \(f(g_0)=h_0\). 由第 VI\textsubscript{B} 讲 5.6.1, 存在交换图
+\[
+\begin{tikzcd}[ampersand replacement=\&,column sep=4.0em,row sep=3.0em]
+S'' \arrow[r,"g"] \arrow[d,"\pi"'] \arrow[dr,"\phi"]
+  \& G \arrow[d]\\
+S' \arrow[r,"w"] \& S
+\end{tikzcd}
+\]
+其中 \(w\) 平展且满射, \(\pi\) 有限且满射, 而 \(\phi^{-1}(s)\) 仅由一个点 \(s''\) 构成, 且 \(g(s'')=g_0\). 于是 \(G_{S''}\to H_{S''}\) 在 \(h_0y_i\) 的某个邻域上仿射, 因而 \(G_{S'}\to H_{S'}\) 也如此（EGA II, 6.7.1）; 再由忠实平坦下降（EGA IV\textsubscript{2}, 2.7.1(xiii)）, \(G\to H\) 也如此. 故 \(h_0y_i\in V\), 由此推出 \(V\) 包含 \(H_s(s)\), 从而也包含 \(H_s\).}
+
+显然 \(V\supset H_\eta\), 因为 \(f_\eta\) 有限. 所以 \(V=H\). \SGAQED
+
+\section*{参考文献\footnote{编者注: 本讲所引用的补充参考文献.}}
+\addcontentsline{toc}{section}{参考文献}
+\SGARefTarget{sga3:xxv:bibliography}
+
+\begin{description}[style=multiline,leftmargin=4.8em,labelwidth=4.0em]
+\item[\textup{[BLie]}]
+N.~Bourbaki, \textit{Groupes et algèbres de Lie}, 第 I、VII--VIII 章, Hermann, 1960 和 1975 年.
+
+\item[\textup{[BT84]}]
+F.~Bruhat and J.~Tits, \textit{Groupes réductifs sur un corps local II.
+Schémas en groupes. Existence d'une donnée radicielle valuée},
+Publ.\ Math.\ I.H.É.S. \textbf{60} (1984), 5--184.
+
+\item[\textup{[DG70]}]
+M.~Demazure and P.~Gabriel, \textit{Groupes algébriques},
+Masson \& North-Holland, 1970.
+
+\item[\textup{[Ko66]}]
+B.~Kostant, \textit{Groups over \(\mathbb Z\)}, 第~90--98 页, 载于
+\textit{Algebraic groups and their discontinuous subgroups}
+（A.~Borel 和 G.~D.~Mostow 编）, Proc.\ Symp.\ Pure Math.\
+\textbf{IX}, American Mathematical Society, 1966.
+
+\item[\textup{[Lu09]}]
+G.~Lusztig, \textit{Study of a \(\mathbb Z\)-form of the coordinate
+ring of a reductive group}, J.\ Amer.\ Math.\ Soc.\ \textbf{22}
+(2009), 第~3 期, 739--769.
+
+\item[\textup{[Se66]}]
+J.-P.~Serre, \textit{Algèbres de Lie semi-simples complexes},
+Benjamin, 1966.
+
+\item[\textup{[Sp98]}]
+T.~A.~Springer, \textit{Linear algebraic groups}, 第 2 版,
+Birkhäuser, 1998.
+
+\item[\textup{[Ti66]}]
+J.~Tits, \textit{Sur les constantes de structure et le théorème
+d'existence des algèbres de Lie semi-simples},
+Publ.\ Math.\ I.H.É.S. \textbf{31} (1966), 21--58.
+\end{description}

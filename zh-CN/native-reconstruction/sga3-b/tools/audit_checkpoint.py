@@ -19,7 +19,7 @@ for unit,entry in units.items():
  count=sum(z-a+1 for a,z in intervals)
  complete=bool(c.get('complete',c.get('translation_complete',False)))
  if not tf.exists():records.append({'unit':unit,'source_lines':entry['lines'],'translated_source_lines':0,'complete':False});continue
- s='\n'.join(src.splitlines()[a-1:z][i] for a,z in [] for i in []) if False else '\n'.join('\n'.join(src.splitlines()[a-1:z]) for a,z in intervals)
+ s='\n'.join('\n'.join(src.splitlines()[a-1:z]) for a,z in intervals)
  t=tf.read_text();ss=strip_comments(s);tt=strip_comments(t)
  src_targets=target_re.findall(ss);tr_targets=target_re.findall(tt)
  targets.extend(tr_targets);links.extend(link_re.findall(tt));compiled.append(t)

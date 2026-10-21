@@ -1,0 +1,179 @@
+% 来源: 冻结原生源 XVIII.tex 第 1--226 行; 当前仅导言与§1完整.
+\markboth{第 XVIII 讲. Weil 定理}{第 XVIII 讲. Weil 定理}
+\setcounter{footnote}{0}
+\SGARefTarget{sga3:xviii:chapter:xviii}\chapter*{第 XVIII 讲\\由有理律构造群的 Weil 定理}
+\addcontentsline{toc}{chapter}{第 XVIII 讲. 由有理律构造群的 Weil 定理}
+\markboth{第 XVIII 讲. Weil 定理}{第 XVIII 讲. Weil 定理}
+\begin{center}
+  \textit{Michael Artin}
+\end{center}
+\begingroup
+\renewcommand{\thefootnote}{0}
+\footnotetext{2009 年 5 月 8 日的版本.}
+\endgroup
+
+\SGARefTarget{sga3:xviii:section:0}\section*{0. 导言}
+\addcontentsline{toc}{section}{0. 导言}
+
+本讲讨论熟知的 Weil 定理 [1], 它从一个双有理律构造群簇.
+将此结果推广到基底为离散赋值环的谱的情形, 似乎早已为一些人所知; 例如参见 [2].
+这里将对任意基预概形 \(S\) 上的有限表现平坦群证明这一定理.
+由于假设的表述必须稍加小心, 陈述并非 Weil 所给的形式;
+但当 \(S\) 为域的谱时, 可见这里给出的形式与 Weil 的形式本质上等价.
+采用 Grothendieck 的如下建议:
+给定预概形 \(S\) 上的一个“群芽” \(X\), 应将群构造为 \(X\times_S X\)
+对一个适当等价关系的商.
+
+\SGARefTarget{sga3:xviii:section:1}\section*{1. 关于有理映射的“回顾”}
+\addcontentsline{toc}{section}{1. 关于有理映射的“回顾”}
+
+设 \(X/S\) 为相对预概形, \(U\subseteq X\) 为开子集.
+若对每个基变换 \(S'\to S\), 开子集 \(U\times_S S'\)
+都在 \(X\times_S S'\) 中概形稠密,
+则称 \(U\) \emph{在 \(X\) 中相对于 \(S\) 概形稠密},
+或称 \(U\hookrightarrow X\) \emph{相对概形稠密}.
+关于此概念的定义与性质, 参见第 IX 讲, \S4.\begingroup
+\renewcommand{\thefootnote}{*}\footnote{也参见 EGA IV\textsubscript{3}, 11.9, 11.10
+(特别是 11.10.8), 其中使用术语“相对于 \(S\) 普遍概形稠密”.}
+\addtocounter{footnote}{-1}
+\endgroup
+
+\SGARefTarget{sga3:xviii:prop:1.1}\paragraph{\SGARefLink{sga3:xviii:prop:1.1}{命题 1.1}.}
+\textit{(i) 相对于 \(S\) 概形稠密的开子集的有限交,
+以及这样的开子集的非空族的并, 都相对于 \(S\) 概形稠密.}
+
+\textit{(ii) 若 \(U\subseteq X\) 相对于 \(S\) 概形稠密,
+且 \(S\to T\) 为态射, 则 \(U_T\subseteq X_T\) 相对于 \(T\) 概形稠密.}
+
+\textit{(iii) 设 \(U\subseteq V\subseteq X\) 为开浸入.
+\(U\) 在 \(X\) 中相对于 \(S\) 概形稠密的充要条件是:
+它在 \(V\) 中如此, 且 \(V\) 在 \(X\) 中如此.}
+
+\textit{\SGAInlineRefTarget{sga3:xviii:prop:1.1:item:iv}(iv)
+若 \(U\subseteq X\) 和 \(V\subseteq Y\) 相对概形稠密,
+则 \(U\times_S V\) 在 \(X\times_S Y\) 中相对于 \(S\) 概形稠密.}
+
+在第 IX 讲中有如下判别准则:
+
+\SGARefTarget{sga3:xviii:prop:1.2}\paragraph{\SGARefLink{sga3:xviii:prop:1.2}{命题 1.2}.}
+\textit{设 \(X/S\) 局部有限表现且平坦, \(U\) 为 \(X\) 的一个开子集.
+若对每个 \(s\in S\), 纤维 \(U_s\) 在 \(X_s\) 中概形稠密,
+则 \(U\) 在 \(X\) 中相对于 \(S\) 概形稠密.}
+
+特别地:
+
+\SGARefTarget{sga3:xviii:cor:1.3}\paragraph{\SGARefLink{sga3:xviii:cor:1.3}{推论 1.3}.}
+\textit{设 \(X/S\) 局部有限表现且平坦, 且每个纤维 \(X_s\) “无嵌入分支”.
+则 \(U\) 在 \(X\) 中相对于 \(S\) 概形稠密当且仅当对每个 \(s\in S\),
+\(U_s\) 在 \(X_s\) 中在拓扑意义下稠密.}
+
+从定义容易推出下列命题.
+
+\SGARefTarget{sga3:xviii:prop:1.4}\paragraph{\SGARefLink{sga3:xviii:prop:1.4}{命题 1.4}.}
+\textit{设 \(U\subseteq X\) 相对于 \(S\) 概形稠密,
+\(f,g:X\to Y\) 为 \(S\) 上的两个函子态射, 其中 \(Y\) 满足下列条件之一:}
+
+\begin{enumerate}
+\item[\SGAInlineRefTarget{sga3:xviii:prop:1.4:item:i}(i)] \textit{\(Y\) 为 \(S\) 上的预概形,
+且每个纤维 \(Y_s\) 都分离.}
+\item[\SGAInlineRefTarget{sga3:xviii:prop:1.4:item:ii}(ii)] \textit{\(Y\) 为 \(S\) 上的预层\footnote{编者注:
+需明确针对哪一种拓扑; 先验而言应为 fpqc 拓扑.},
+使对角态射 \(Y\to Y\times_S Y\) 可由一个闭浸入表示.
+\footnote{编者注: 此处回顾闭浸入的定义.
+\(S\)-函子的态射 \(F\to G\) 称为\emph{相对可表示的},
+若对每个 \(S\)-态射 \(T\to G\), 其中 \(T\) 为 \(S\)-预概形,
+\(T\)-函子 \(F_T=F\times_G T\) 都可由一个 \(T\)-预概形表示.
+法文源此处印作 \(F\times_S T\); 由前面的态射 \(T\to G\) 可知应取在 \(G\) 上的纤维积.
+\(S\)-函子的态射 \(F\to G\) 称为开浸入 (分别地, 闭浸入),
+若它相对可表示, 且对每个 \(S\)-态射 \(T\to G\), 其中 \(T\) 为 \(S\)-预概形,
+\(T\)-态射 \(F_T\to T\) 都为开浸入 (分别地, 闭浸入).}}
+\end{enumerate}
+
+\textit{则若在 \(U\) 上 \(f=g\), 就有 \(f=g\).}
+
+\textit{证明.}
+在情形\SGARefLink{sga3:xviii:prop:1.4:item:i}{(i)} 中,
+第 IX 讲, \SGARefLink{sga3:ix:definition:4:1}{4.1} 之后的标准论证表明,
+\(f\) 与 \(g\) 在每个纤维上相等;
+故 \(X\) 的子预概形 \(\operatorname{Ker}(f,g)\) 与 \(X\) 在集合意义下相等, 因而为闭的.
+由于它包含 \(U\), 故等于 \(X\), 即 \(f=g\).
+情形\SGARefLink{sga3:xviii:prop:1.4:item:ii}{(ii)} 的证明同\textit{所引文献}.
+\footnote{编者注: 此处需给出细节\ldots}
+
+\SGARefTarget{sga3:xviii:def:1.5}\paragraph{\SGARefLink{sga3:xviii:def:1.5}{定义 1.5}.}
+\begingroup
+\renewcommand{\thefootnote}{*}
+\footnote{参见 EGA IV\textsubscript{4}, 20.5,
+其中为避免与 EGA I, 7.12 冲突, 使用术语“从 \(X\) 到 \(Y\) 相对于 \(S\) 的伪态射”.}
+\addtocounter{footnote}{-1}
+\endgroup
+\textit{设 \(X\) 为 \(S\) 上的预概形, \(Y\) 为 \(S\) 上的预层.
+\(S\) 上的\emph{有理映射} (rational map) \(f:X\dashrightarrow Y\)
+是 \(S\) 上态射 \(f:U\to Y\) 的等价类,
+其中 \(U\) 为 \(X\) 中相对于 \(S\) 概形稠密的开子集.
+规定
+\[
+  (f:U\to Y)\sim(f':U'\to Y)
+\]
+当且仅当存在开子集 \(U''\subseteq U'\cap U\),
+它相对于 \(S\) 概形稠密, 且在 \(U''\) 上有 \(f=f'\).}
+
+此定义使得对每个基变换 \(S'\to S\),
+有理映射 \(f\times_S S'\) 都能以显然的方式定义.
+
+若 \(U\) 为 \(X\) 的开子集, 则当存在一个代表 \(f\) 的态射,
+其定义集合包含 \(U\) 时, 称有理映射 \(f\) \emph{在 \(U\) 上有定义}.
+
+\SGARefTarget{sga3:xviii:def:1.5.1}\paragraph{\SGARefLink{sga3:xviii:def:1.5.1}{定义 1.5.1}.}
+\footnote{编者注: 已增补编号\SGARefLink{sga3:xviii:def:1.5.1}{1.5.1}.}
+\textit{若 \(Y\) 满足\SGARefLink{sga3:xviii:prop:1.4}{1.4} 的条件\SGARefLink{sga3:xviii:prop:1.4:item:i}{(i)},
+\SGARefLink{sga3:xviii:prop:1.4:item:ii}{(ii)} 之一,
+则显然存在 \(X\) 的一个最大的开子集 \(U\), 使 \(f\) 在其上有定义,
+且此 \(U\) 相对于 \(S\) 概形稠密.
+称它为 \emph{\(f\) 在 \(S\) 上的定义域}, 记为 \(\Dom(f)\).}
+
+此概念一般不与基变换交换, 但有:
+
+\SGARefTarget{sga3:xviii:prop:1.6}\paragraph{\SGARefLink{sga3:xviii:prop:1.6}{命题 1.6}.}
+\textit{设 \(X\) 为 \(S\)-预概形, \(Y\) 为满足\SGARefLink{sga3:xviii:prop:1.4}{1.4}
+的假设\SGARefLink{sga3:xviii:prop:1.4:item:i}{(i)}, \SGARefLink{sga3:xviii:prop:1.4:item:ii}{(ii)}
+之一的 \(S\)-函子.
+设 \(f:X\dashrightarrow Y\) 为 \(S\) 上的有理映射,
+\(S'\to S\) 为局部有限表现的平坦态射, 并置 \(f'=f\times_S S'\). 则}
+\[
+  \Dom(f')=\Dom(f)\times_S S'.
+\]
+
+\textit{证明.}
+置 \(U=\Dom(f)\). 显然 \(V'=\Dom(f')\) 包含 \(U\times_S S'\).
+设 \(V\) 为 \(V'\) 的像; 它为 \(X\) 的开子集, 因为 \(X'\to X\) 为开映射.
+须证明 \(V=U\), 即须找到代表 \(f\) 的一个态射 \(V\to Y\).
+置 \(S''=S'\times_S S'\), 以及
+\[
+  X''=X\times_S S'',\qquad
+  U''=U\times_S S'',\qquad
+  V''=V'\times_V V'.
+\]
+则 \(U''\) 在 \(X''\) 中相对于 \(S''\) 概形稠密;
+又因 \(U''\subseteq V''\subseteq X''\), \(U''\) 在 \(V''\) 中相对于 \(S''\) 概形稠密.
+\(f':V'\to Y'\) 在 \(U'\) 上的限制由 \(f:U\to Y\) 基变换而得.
+由 \(f'\) 通过两个投影得到的两个态射 \(V''\to Y\)
+在 \(U''\) 上相等, 因而相等.\begingroup
+\renewcommand{\thefootnote}{\ensuremath{\dagger}}\footnote{法文源在前面的稠密性断言中印作 \(S\),
+而非 \(S''\); 在此下降断言中印作未定义的符号 \(g\), 而非 \(f'\).
+基变换的构造确定了这里所采用的读法.}
+\addtocounter{footnote}{-1}
+\endgroup
+由于 \(V'\to V\) 平坦且局部有限表现, 它为 fppf 覆盖
+(\SGARefLink{sga3:iv:subsection:6:3}{第 IV 讲, 6.3}), 而态射 \(V\to Y\) 由下降得到.
+
+将经常用到下述平凡事实:
+
+\SGARefTarget{sga3:xviii:prop:1.7}\paragraph{\SGARefLink{sga3:xviii:prop:1.7}{命题 1.7}.}
+\textit{设 \(X/S\) 忠实平坦且局部有限表现,
+\(U\subseteq X\) 为相对概形稠密的开子集.
+则存在一个 fppf 覆盖基变换 \(S'\to S\),
+以及包含在 \(U(S')\) 中的一个截面 \(x\in X(S')\).}
+
+事实上, \(U/S\) 为 fppf 覆盖.
+取 \(S'=U\), 并以包含 \(U\hookrightarrow X\) 的 \(S\)-图作为截面.
