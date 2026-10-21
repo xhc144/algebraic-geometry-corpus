@@ -1,0 +1,339 @@
+% FGA Explained §9.6, source PDF303--312 / printed pp291--300.
+% Exercise9.6.29 on PDF313 is owned by the Appendix A translator; not duplicated here.
+\section{单位元的挠性分支}\label{ch09s6:section}
+% Source PDF303 / printed p.291.
+本节在 $X/S$ 射影且其几何纤维为整概形时, 证明 $\mathbf{Pic}_{X/S}$ 的两个主要有限性定理. 第一个定理断言挠性分支 $\mathbf{Pic}_{X/S}^{\tau}$ 的有限性; 它是一个既开又闭的群子概形. 按定义, 它由某个倍数落在上一节研究的连通分支 $\mathbf{Pic}_{X/S}^0$ 中的点组成.
+
+第二个定理断言一类更大的子集 $\mathbf{Pic}_{X/S}^{\varphi}$ 的有限性. 它的点表示具有给定 Hilbert 多项式 $\varphi$ 的可逆层. 本节首先在 $S$ 为代数闭域的谱时, 给出 $\mathbf{Pic}_{X/S}^{\tau}$, 或更确切地说, 相应可逆层的数值刻画. 这部分需要对基本相交理论有一定了解, 相关理论在附录 B 中展开.
+
+\begin{origstatement}{定义}{9.6.1}\label{ch09s6:def961}
+假定 $S$ 为域的谱. 设 $\mathcal L,\mathcal N$ 是 $X$ 上的可逆层. 若对某个依赖于 $\mathcal L,\mathcal N$ 的非零 $m$, $m$ 次幂 $\mathcal L^{\otimes m}$ 与 $\mathcal N^{\otimes m}$ 代数等价, 则称 $\mathcal L$ 与 $\mathcal N$ \emph{$\tau$ 等价}.
+
+此外, 若对每条完备曲线 $Y\subset X$, 相应的相交数相等:
+\[\int c_1\mathcal L\cdot[Y]=\int c_1\mathcal N\cdot[Y],\]
+则称 $\mathcal L$ 与 $\mathcal N$ \emph{数值等价}.
+\end{origstatement}
+由可加性, 只需取 $Y$ 为完备整曲线. 此时这等价于 $\deg\mathcal L_Y=\deg\mathcal N_Y$, 也等价于 $\deg\mathcal L_{Y'}=\deg\mathcal N_{Y'}$, 其中 $Y'$ 为 $Y$ 的正规化, 因为总有
+\[\int c_1\mathcal L\cdot[Y]=\deg\mathcal L_Y=\deg\mathcal L_{Y'}.\]
+
+\begin{origstatement}{定义}{9.6.2}\label{ch09s6:def962}
+假定 $S$ 为域的谱. 设 $\Lambda$ 是 $X$ 上可逆层的一个族. 若存在有限型 $S$ 概形 $T$ 及 $X_T$ 上的可逆层 $\mathcal M$, 使给定 $\mathcal L\in\Lambda$, 存在 $T$ 的几何点 $t$, 满足 $\mathcal L_t\simeq\mathcal M_t$, 则称 $\Lambda$ \emph{有界}.
+\end{origstatement}
+
+\begin{origstatement}{定理}{9.6.3}\label{ch09s6:th963}
+假定 $S$ 为代数闭域的谱, $X$ 射影. 设 $\mathcal L$ 是 $X$ 上的可逆层. 则下列条件等价:
+\begin{enumerate}
+\item[(a)] 层 $\mathcal L$ 与 $\mathcal O_X$ $\tau$ 等价.
+\item[(b)] 层 $\mathcal L$ 与 $\mathcal O_X$ 数值等价.
+\item[(c)] 族 $\{\mathcal L^{\otimes p}\mid p\in\mathbb Z\}$ 有界.
+\item[(d)] 对 $X$ 上的每个凝聚层 $\mathcal F$, 有 $\chi(\mathcal F\otimes\mathcal L)=\chi(\mathcal F)$.
+\item[(e)] 对每条闭整曲线 $Y\subset X$, 有 $\chi(\mathcal L_Y)=\chi(\mathcal O_Y)$.
+\item[(f)] 对每个整数 $p$, 层 $\mathcal L^{\otimes p}(1)$ 丰沛.
+\end{enumerate}
+若 $X$ 不可约, 则上述所有条件还等价于下列条件:
+\begin{enumerate}\item[(g)] 对每对整数 $p,n$, 有 $\chi(\mathcal L^{\otimes p}(n))=\chi(\mathcal O_X(n))$.\end{enumerate}
+若 $X$ 不可约且维数 $r\geq2$, 则上述所有条件还等价于下列条件:
+\begin{enumerate}\item[(h)] 置 $\ell:=c_1\mathcal L$, $h:=c_1\mathcal O_X(1)$, 有 $\int\ell h^{r-1}=0$ 及 $\int\ell^2h^{r-2}=0$.\end{enumerate}
+\end{origstatement}
+
+% Source PDF304 / printed p.292.
+\begin{proof}
+我们依次建立下列蕴含关系:
+\[\begin{gathered}
+(c)\Longrightarrow(a)\Longrightarrow(d)\Longrightarrow(e)\Longleftrightarrow(b)\Longrightarrow(c)\Longrightarrow(f)\Longrightarrow(b);\\
+(d)\Longrightarrow(g)\Longrightarrow(h)\Longrightarrow(b);\qquad
+(g)\Longrightarrow(b)\quad\text{当 $\dim X=1$ 时}.
+\end{gathered}\]
+假定 (c). 则按定义, 存在有限型 $S$ 概形 $T$ 和 $X_T$ 上的可逆层 $\mathcal M$, 使给定 $p\in\mathbb Z$, 存在 $T$ 的几何点 $t$, 满足 $\mathcal L_t^{\otimes p}=\mathcal M_t$. 应用抽屉原理: 不妨设 $\mathcal L^{\otimes p_1}$ 与 $\mathcal L^{\otimes p_2}$ 属于 $T$ 的同一个连通分支, 但 $p_1\ne p_2$. 置 $m:=p_1-p_2$. 则 $\mathcal L^{\otimes m}$ 与 $\mathcal O_X$ 代数等价. 因而 (a) 成立.
+
+此外, 对每个 $t\in T$, 由 [EGAII, 4.5.8], 存在 $n$, 使 $\mathcal M_t(n)$ 丰沛. 因而由 [EGAIII1, 4.7.1], $t$ 有一个邻域 $U$, 使对每个 $u\in U$, $\mathcal M_u(n)$ 丰沛. 因为 $T$ 拟紧, 有限多个这样的 $U$ 覆盖 $T$. 令 $N$ 为相应各 $n$ 的乘积. 则对所有 $t\in T$, $\mathcal M_t(N)$ 丰沛. 特别地, 对所有 $p\in\mathbb Z$, $\mathcal L^{\otimes p}(N)$ 丰沛. 所以对所有 $q\in\mathbb Z$, $(\mathcal L^{\otimes q}(1))^{\otimes N}$ 丰沛. 因而 (f) 成立.
+
+假定 (a). 函数 $n\mapsto\chi(\mathcal F\otimes\mathcal L^{\otimes n})$ 是多项式. 要证明它为常数, 可将 $\mathcal L$ 换成任意非零 $m$ 的 $\mathcal L^{\otimes m}$. 因而可假定 $\mathcal L$ 与 $\mathcal O_X$ 代数等价. 于是设 $T$ 为连通 $S$ 概形, $\mathcal M$ 为 $X_T$ 上的可逆层. 对固定的 $n$, 当 $t\in T$ 变化时, 由 [EGAIII2, 7.9.5], 函数 $t\mapsto\chi(\mathcal F\otimes\mathcal L_t^{\otimes n})$ 为常数. 从而 (d) 成立.
+% Original uses L_t rather than M_t in this sentence; retained.
+
+假定 (d). 取 $\mathcal F:=\mathcal O_Y$, 即得 (e). 取 $\mathcal F:=\mathcal L^{\otimes p}(n)$, 得到 $\chi(\mathcal L^{\otimes(p+1)}(n))=\chi(\mathcal L^{\otimes p}(n))$. 所以无论 $X$ 是否不可约, (g) 都成立.
+
+假定 (g). 则 $X$ 不可约, 不妨设维数为 $r$. 置 $\ell:=c_1\mathcal L$, $h:=c_1\mathcal O_X(1)$. 写作
+\[\chi(\mathcal L^{\otimes p}(n))=\sum_{0\leq i,j\leq r}a_{ij}\binom{p+i}{i}\binom{n+j}{j},\]
+其中当 $i+j=r$ 时 $a_{ij}=\int\ell^ih^j$. 于是 (g) 蕴含当 $i\geq1$ 时 $a_{ij}=0$. 若 $r\geq2$, 即得 (h). 设 $r=1$. 则 $\int\ell=0$. 此时 $X_{\mathrm{red}}$ 是 $X$ 中唯一的闭整曲线, 而 $\int\ell$ 是 $\int\ell\cdot[X_{\mathrm{red}}]$ 的一个倍数. 因而 (b) 成立.
+
+条件 (e) 和 (d) 等价, 因为由 Riemann 定理, 有 $\chi(\mathcal L_Y)=\deg(\mathcal L_Y)+\chi(\mathcal O_Y)$.
+% Original prints (d) here, though the proof chain and content indicate (b); retained.
+
+假定 (f). 则对每条闭整曲线 $Y\subset X$ 及每个整数 $p$, 有
+\[0\leq\deg(\mathcal L_Y^{\otimes p}(1))=p\deg(\mathcal L_Y)+\deg(\mathcal O_Y(1)).\]
+所以 $\deg(\mathcal L_Y)=0$, 因而 (b) 成立.
+
+假定 (h). 则 $X$ 不可约, 维数 $r\geq2$. 为证明 (b), 显然可将 $X$ 换成其约化. 对 $r$ 作归纳. 若 $r=2$, 则由 Hodge 指数定理, (b) 成立.
+
+设 $r\geq3$. 给定完备整曲线 $Y\subset X$, 取 $n$, 使扭曲理想 $\mathcal I_{Y,X}(n-1)$ 由整体截面生成. 将这些截面视为 $\mathcal O_X(n-1)$ 的截面, 它们定义一个在 $X-Y$ 上无基点的线性系. 所以 $\mathcal I_Y(n)$ 的整体截面定义一个在 $X-Y$ 上很丰沛的线性系. 特别地, 该系把 $X-Y$ 映到维数至少为 2 的簇上; 换言之, 该系并非 ``由一个线性束复合而成''.
+
+因此, 由 [Zar58, Thm.~1.6.3, p.~30], 一般成员 $H_\eta$ 几何不可约. 首先必须把所引定理应用于 $X$ 的正规化上的诱导线性系, 得到 $H_\eta$ 的原像几何不可约.
+% Source PDF305 / printed p.293.
+但于是 $H_\eta$ 也几何不可约. 因而由 [EGAIV3, 9.7.7], 一般成员 $H$ 不可约.
+
+置 $\ell_1:=c_1\mathcal L_H$, $h_1:=c_1\mathcal O_H(1)$. 则由投影公式,
+\[\int\ell_1h_1^{r-2}=n\int\ell h^{r-1}=0,\qquad
+\int\ell_1^2h_1^{r-3}=n\int\ell^2h^{r-2}=0.\]
+所以由归纳假设, $\mathcal L_H$ 在 $H$ 上与 $\mathcal O_X$ 数值等价. 但 $Y\subset H$, 因为 $H$ 来自 $\mathcal I_Y(n)$ 的一个截面. 因而由投影公式,
+\[\int\ell\cdot[Y]=\int\ell_1\cdot[Y]=0.\]
+于是 (b) 成立.
+
+最后, 假定 (b). 由下文的引理 9.6.6, 存在 $m$, 使 $X$ 上任何与 $\mathcal O_X$ 数值等价的可逆层 $\mathcal N$ 都 $m$ 正则. 因而 $\mathcal N(m)$ 由整体截面生成, 且其高阶上同调群消没.
+
+置 $\varphi(n):=\chi(\mathcal O_X(n))$, $M:=\varphi(m)$. 则 $\dim H^0(\mathcal N(m))=M$, 因为同样由下文引理 9.6.6, $\chi(\mathcal N(n))=\varphi(n)$. 置 $\mathcal F:=\mathcal O_X(-m)^{\oplus M}$. 则 $\mathcal N$ 是 $\mathcal F$ 的商.
+
+置 $T:=\mathbf{Quot}^{\varphi}_{\mathcal F/X/k}$. 则 $T$ 有限型. 令 $\mathcal M$ 为万有商. 则存在 $k$ 点 $t\in T$, 使 $\mathcal N=\mathcal M_t$. 令 $U\subset X\times T$ 为 $\mathcal M$ 可逆的开集, $R\subset T$ 为 $U$ 的补集的像. 则 $R$ 闭. 将 $T$ 换成 $T-R$, $\mathcal M$ 换成其限制, 仍有 $t\in T$. 因而 $X$ 上与 $\mathcal O_X$ 数值等价的可逆层组成一个有界族. 特别地, (c) 成立.
+\end{proof}
+
+\begin{origstatement}{习题}{9.6.4}\label{ch09s6:ex964}
+考虑前一段, 即定理 9.6.3 证明的最后一段. 使用 $\mathbf{Div}_{X/k}$ 代替 $\mathbf{Quot}^{\varphi}_{\mathcal F/X/k}$, 另证 $X$ 上与 $\mathcal O_X$ 数值等价的可逆层 $\mathcal N$ 组成一个有界族.
+\end{origstatement}
+
+\begin{origstatement}{引理}{9.6.5}\label{ch09s6:lem965}
+假定 $S$ 为代数闭域的谱, $X$ 射影, 维数为 $r$. 设 $\mathcal F$ 为 $X$ 上的凝聚层. 则存在一个数 $B_{\mathcal F}$, 使对 $X$ 上任何与 $\mathcal O_X$ 数值等价的可逆层 $\mathcal L$, 有
+\[\dim H^0(\mathcal L\otimes\mathcal F(n))\leq B_{\mathcal F}\binom{n+r}{r}\qquad\text{对所有 $n\geq0$}.\]
+\end{origstatement}
+\begin{proof}
+设 $r=0$. 则 $\mathcal L\otimes\mathcal F(n)=\mathcal F$, 故可取 $B_{\mathcal F}=\dim H^0(\mathcal F)$.
+
+设 $r\geq1$. 给定短正合列 $0\to\mathcal F'\to\mathcal F\to\mathcal F''\to0$, 有
+\[\dim H^0(\mathcal L\otimes\mathcal F(n))\leq\dim H^0(\mathcal L\otimes\mathcal F'(n))+\dim H^0(\mathcal L\otimes\mathcal F''(n)).\]
+所以给定 $B_{\mathcal F'}$ 与 $B_{\mathcal F''}$, 可取 $B_{\mathcal F}:=B_{\mathcal F'}+B_{\mathcal F''}$.
+
+设 $X=\Proj(A)$, $\mathcal F=\widetilde M$, 其中 $M$ 为有限生成分次 $A$ 模. 则存在分次子模滤过
+\[M=:M_q\supset M_{q-1}\supset\cdots\supset M_1\supset M_0:=0,\]
+使 $M_{i+1}/M_i\simeq(A/P_i)[p_i]$, 其中每个 $P_i$ 都为齐次素理想. 因而可假定 $X$ 为整概形, $\mathcal F=\mathcal O_X(p)$.
+
+设 $\mathcal L$ 与 $\mathcal O_X$ 数值等价. 置 $\ell:=c_1\mathcal L$, $h:=c_1\mathcal O_X(1)$. 设 $\mathcal L(p)$ 有非零截面. 它定义一个可能为 $0$ 的除子 $D$. 因而
+\[0\leq\int h^{r-1}[D]=\int h^{r-1}\ell+p\int h^r.\]
+但 $\int h^{r-1}\ell=0$, 因为 $r\geq1$, $h^{r-1}$ 由一条曲线表示; 而 $\int h^r>0$. 所以 $p\geq0$. 因而 $H^0(\mathcal L(-1))=0$.
+% Source PDF306 / printed p.294.
+设 $H$ 为 $X$ 的一个超平面截面. 则有正合列
+\[0\longrightarrow\mathcal L(n-1)\longrightarrow\mathcal L(n)\longrightarrow\mathcal L_H(n)\longrightarrow0.\]
+对 $r$ 作归纳, 可假定存在数 $B$, 使
+\[\dim H^0(\mathcal L_H(n))\leq B\binom{n+r-1}{r-1}\qquad\text{对所有 $n\geq0$};\]
+而且 $B$ 对每个 $\mathcal L$ 都适用. 因而
+\[\dim H^0(\mathcal L(n))-\dim H^0(\mathcal L(n-1))\leq B\binom{n+r-1}{r-1}\qquad\text{对所有 $n\geq0$}.\]
+但 $H^0(\mathcal L(-1))=0$. 因为 $\binom{n+r-1}{r}+\binom{n+r-1}{r-1}=\binom{n+r}{r}$, 对 $n$ 归纳得到
+\[\dim H^0(\mathcal L(n))\leq B\binom{n+r}{r}\qquad\text{对所有 $n\geq0$}.\]
+回顾 $\mathcal F=\mathcal O_X(p)$. 若 $p\leq0$, 则 $\mathcal F\subset\mathcal O_X$, 故可取 $B_{\mathcal F}:=B$. 但若 $p\geq0$, 则 $\binom{p+n+r}{r}\leq\binom{p+r}{r}\binom{n+r}{r}$, 因为每个次数为 $p+n$ 的单项式都是一个次数 $p$ 的单项式与一个次数 $n$ 的单项式的乘积; 因而可取 $B_{\mathcal F}:=B\binom{p+r}{r}$.
+\end{proof}
+
+\begin{origstatement}{引理}{9.6.6}\label{ch09s6:lem966}
+假定 $S$ 为代数闭域的谱, $X$ 射影. 则存在整数 $m$, 使 $X$ 上任何与 $\mathcal O_X$ 数值等价的可逆层 $\mathcal L$ 都 $m$ 正则, 且
+\[\chi(\mathcal L(n))=\chi(\mathcal O_X(n))\qquad\text{对所有 $n$}.\]
+\end{origstatement}
+\begin{proof}
+置 $r:=\dim(X)$, 并对 $r$ 归纳. 若 $r=0$, 两个断言都平凡. 因而假定 $r\geq1$.
+
+首先建立所断言的等式. 给定 $\mathcal L$, 固定 $q\geq1$, 使 $\mathcal L(q)$ 很丰沛. 取有效除子 $F,G$, 使
+\[\mathcal O_X(F)=\mathcal O_X(q),\qquad\mathcal O_X(G)=\mathcal L(q).\]
+对每个 $p$, 显然 $\mathcal L_F^{\otimes p}$ 和 $\mathcal L_G^{\otimes p}$ 分别与 $\mathcal O_F$ 和 $\mathcal O_G$ 数值等价. 构造 $0\to\mathcal O_X(-F)\to\mathcal O_X\to\mathcal O_F\to0$ 以及 $0\to\mathcal O_X(-G)\to\mathcal O_X\to\mathcal O_G\to0$, 将它们与 $\mathcal L^{\otimes p}(n+q)$ 作张量积. 得到
+\begin{equation}0\longrightarrow\mathcal L^{\otimes p}(n)\longrightarrow\mathcal L^{\otimes p}(n+q)\longrightarrow\mathcal L_F^{\otimes p}(n+q)\longrightarrow0,\tag{9.6.6.1}\label{ch09s6:eq9661}\end{equation}
+\[0\longrightarrow\mathcal L^{\otimes(p-1)}(n)\longrightarrow\mathcal L^{\otimes p}(n+q)\longrightarrow\mathcal L_G^{\otimes p}(n+q)\longrightarrow0.\]
+施行 $\chi(\bullet)$ 并相减, 得到
+\[\chi(\mathcal L^{\otimes p}(n))-\chi(\mathcal L^{\otimes(p-1)}(n))=\chi(\mathcal L_G^{\otimes p}(n+q))-\chi(\mathcal L_F^{\otimes p}(n+q)).\]
+由归纳假设, 右边是 $n$ 的一个不依赖于 $p$ 的多项式. 因而存在多项式 $\varphi_1(n),\varphi_0(n)$, 使
+\begin{equation}\chi(\mathcal L^{\otimes p}(n))=\varphi_1(n)p+\varphi_0(n).\tag{9.6.6.2}\label{ch09s6:eq9662}\end{equation}
+设 $\varphi_1\ne0$. 不妨设对所有 $n\geq n_1$, $\varphi_1(n)\ne0$.
+
+由归纳假设, 存在整数 $n_2$, 使对每个 $p$, $\mathcal L_F^{\otimes p}$ 都 $n_2$ 正则. 因而对 $i\geq1$, $n\geq n_2-i$ 及每个 $p$, 有 $H^i(\mathcal L_F^{\otimes p}(n))=0$. 所以由正合列 (9.6.6.1), 有同构
+\[H^i(\mathcal L^{\otimes p}(n))\xrightarrow\sim H^i(\mathcal L^{\otimes p}(n+q))\qquad\text{对 $i\geq2$, $n\geq n_2$ 及每个 $p$}.\]
+现在对每个 $i\geq2$, 每个 $p$ 和每个 $n$, 由 Serre 定理, 存在 $j\geq0$, 使
+\[H^i(\mathcal L^{\otimes p}(n+jq))=0.\]
+% Source PDF307 / printed p.295.
+所以
+\[H^i(\mathcal L^{\otimes p}(n))=0\qquad\text{对 $i\geq2$, $n\geq n_2$ 及每个 $p$}.\]
+因而对 $n\geq n_2$ 及每个 $p$, $H^0(\mathcal L^{\otimes p}(n))\geq\chi(\mathcal L^{\otimes p}(n))$. 取 $n:=\max(n_2,n_1)$. 由等式 (9.6.6.2), 若 $\varphi_1(n)>0$, 则当 $p\to\infty$ 时 $H^0(\mathcal L^{\otimes p}(n))\to\infty$; 若 $\varphi_1(n)<0$, 则当 $p\to-\infty$ 时同样如此. 然而, 由引理 9.6.5, 存在数 $B$, 使对任意 $p$, 有 $H^0(\mathcal L^{\otimes p}(n))\leq B$. 这一矛盾说明 $\varphi_1=0$. 因而由等式 (9.6.6.2), 对所有 $n$, $\chi(\mathcal L(n))=\chi(\mathcal O_X(n))$, 如所求.
+
+最后, 为证明存在 $m$, 使每个与 $\mathcal O_X$ 数值等价的 $\mathcal L$ 都 $m$ 正则, 必须修改 Mumford 的原始工作 [Mum66, Lect.~14], 因为这些 $\mathcal L$ 并不是理想. 然而, 如 Mumford 自己所指出的 [Mum66, pp.~102--103], 他的层 $\mathcal I$ 为理想的假设仅通过界 $\dim H^0(\mathcal I(n))\leq\binom{n+r}{r}$ 进入论证. 显然, 这一界可用引理 9.6.5 中取 $\mathcal F:=\mathcal O_X$ 的界 $B_{\mathcal F}$ 代替. 当然, 还必须使用刚刚证明的事实, 即所有 $\mathcal L$ 有相同的 Hilbert 多项式.
+\end{proof}
+
+\begin{origstatement}{习题}{9.6.7}\label{ch09s6:ex967}
+假定 $S$ 为代数闭域的谱, $X$ 是维数 $r\geq1$ 的射影整概形. 置 $h:=c_1\mathcal O_X(1)$. 设 $\mathcal L$ 为 $X$ 上的可逆层, 置 $\ell:=c_1\mathcal L$. 不妨写
+\[\chi(\mathcal L(n))=\sum_{0\leq i\leq r}a_i\binom{n+i}{i},\qquad a:=\int\ell h^{r-1}.\]
+假定 $a<a_r$. 证明对所有 $n\geq0$, 有 $\dim H^0(\mathcal L(n))\leq a_r\binom{n+r}{r}$. 此外, 略微修改 Mumford 的工作 [Mum66, pp.~102--103], 证明存在一个仅依赖于 $r$ 的多项式 $\Phi_r$, 使 $\mathcal L$ 为 $m$ 正则, 其中 $m:=\Phi_r(a_0,\ldots,a_{r-1})$.
+
+一般地, 证明存在仅依赖于 $r$ 的多项式 $\Psi_r$, 使 $\mathcal L$ 为 $m$ 正则, 其中 $m:=\Psi_r(a_0,\ldots,a_r;a)$.
+\end{origstatement}
+
+\begin{origstatement}{定义}{9.6.8}\label{ch09s6:def968}
+设 $G/S$ 为群概形. 对 $n>0$, 以 $\varphi_n:G\to G$ 记 $n$ 次幂映射. 于是 $G^\tau$ 为下式定义的集合:
+\[G^\tau:=\bigcup_{n>0}\varphi_n^{-1}G^0,\]
+其中 $G^0$ 为各 $s\in S$ 的单位元连通分支 $G_s^0$ 的并.
+\end{origstatement}
+
+\begin{origstatement}{引理}{9.6.9}\label{ch09s6:lem969}
+设 $k$ 为域, $G$ 为局部有限型交换群概形. 则 $G^\tau$ 是开群子概形, 且其形成与 $k$ 的扩张交换. 此外, 若 $G^\tau$ 拟紧, 则它闭且有限型.
+\end{origstatement}
+\begin{proof}
+由引理 9.5.1, $G^0$ 为有限型的既开又闭群子概形, 且其形成与 $k$ 的扩张交换. 现在 $n$ 次幂映射 $\varphi_n$ 连续, 且其形成与 $k$ 的扩张交换; 又因为 $G$ 交换, $\varphi_n$ 是同态. 所以 $G^\tau$ 为既开又闭群子概形 $\varphi_n^{-1}G^0$ 的滤过并, 且这些子概形的形成与 $k$ 的扩张交换. 因而 $G^\tau$ 为开群子概形, 且其形成与 $k$ 的扩张交换. 此外, 若 $G^\tau$ 拟紧, 则 $G^\tau$ 为有限多个 $\varphi_n^{-1}G^0$ 的并, 所以 $G^\tau$ 闭; 又因 $G$ 局部有限型, 此时 $G^\tau$ 有限型.
+\end{proof}
+
+\begin{origstatement}{习题}{9.6.10}\label{ch09s6:ex9610}
+设 $k$ 为域, $G$ 为局部有限型交换群概形, $H\subset G$ 为有限型群子概形. 证明 $H\subset G^\tau$. (因此, 若 $G^\tau$ 有限型, 则它为最大的有限型群子概形.)
+\end{origstatement}
+
+% Source PDF308 / printed p.296.
+\begin{origstatement}{习题}{9.6.11}\label{ch09s6:ex9611}
+假定 $S$ 为域 $k$ 的谱. 假定 $\mathbf{Pic}_{X/k}$ 存在且表示 $\operatorname{Pic}_{(X/k)(\mathrm{fppf})}$. 设 $\mathcal L$ 为 $X$ 上的可逆层, $\lambda\in\mathbf{Pic}_{X/k}$ 为相应的点. 证明 $\mathcal L$ 与 $\mathcal O_X$ $\tau$ 等价当且仅当 $\lambda\in\mathbf{Pic}_{X/k}^{\tau}$.
+\end{origstatement}
+
+\begin{origstatement}{命题}{9.6.12}\label{ch09s6:prop9612}
+假定 $S$ 为域 $k$ 的谱. 假定 $\mathbf{Pic}_{X/k}$ 存在且表示 $\operatorname{Pic}_{(X/k)(\mathrm{fppf})}$. 则 $\mathbf{Pic}_{X/k}^{\tau}$ 是开群子概形, 且其形成与 $k$ 的扩张交换. 此外, 若 $X$ 射影, 则 $\mathbf{Pic}_{X/k}^{\tau}$ 闭且有限型.
+\end{origstatement}
+\begin{proof}
+由命题 9.4.17, $\mathbf{Pic}_{X/S}$ 局部有限型. 所以由引理 9.6.9, 只需证明当 $X$ 射影时, $\mathbf{Pic}_{X/k}^{\tau}$ 拟紧. 因为 $\mathbf{Pic}_{X/k}^{\tau}$ 的形成与 $k$ 的扩张交换, 还可假定 $k$ 代数闭.
+
+在定理 9.6.3 证明的最后, 已证明与 $\mathcal O_X$ 数值等价的可逆层 $\mathcal L$ 组成有界族. 换言之, 存在有限型 $k$ 概形 $T$ 和 $X_T$ 上的可逆层 $\mathcal M$, 使各 $\mathcal L$ 出现在纤维 $\mathcal M_t$ 之中.
+
+于是 $\mathcal M$ 定义映射 $\theta:T\to\mathbf{Pic}_{X/k}$. 由定理 9.6.3 与习题 9.6.11, 有 $\theta(T)\supset\mathbf{Pic}_{X/k}^{\tau}$. 因为 $T$ 为 Noether 空间, $\theta(T)$ 也是 Noether 空间; 从而 $\theta(T)$ 的任何子空间都是 Noether 空间. 因此 $\mathbf{Pic}_{X/k}^{\tau}$ 拟紧, 如所需.
+\end{proof}
+
+\begin{origstatement}{习题}{9.6.13}\label{ch09s6:ex9613}
+假定 $S$ 为域 $k$ 的谱. 假定 $X$ 射影且几何整. 证明 $\mathbf{Pic}_{X/k}^{\tau}$ 拟射影. 若此外 $X$ 几何正规, 证明 $\mathbf{Pic}_{X/k}^{\tau}$ 射影.
+\end{origstatement}
+
+\begin{origstatement}{注}{9.6.14}\label{ch09s6:rem9614}
+在命题 9.6.12 中, 若 $X$ 射影, 则由推论 9.4.18.3, $\mathbf{Pic}_{X/k}$ 确实存在且表示 $\operatorname{Pic}_{(X/k)(\mathrm{fppf})}$. 实际上, 该推论断言只要 $X$ 完备, $\mathbf{Pic}_{X/k}$ 就存在且表示 $\operatorname{Pic}_{(X/k)(\mathrm{fppf})}$; 不必要求 $X$ 射影. 此外, 虽然证明命题 9.6.12 使用了射影方法, 只要 $X$ 完备, 仍可如下推出该命题.
+
+假定 $X$ 完备. 由 Chow 引理, 存在射影簇 $X'$ 及满射映射 $\gamma:X'\to X$. 由定理 9.4.18.5, 诱导映射
+\[\gamma^*:\mathbf{Pic}_{X/k}\longrightarrow\mathbf{Pic}_{X'/k}\]
+有限型. 置 $H:=(\gamma^*)^{-1}\mathbf{Pic}_{X'/k}^{\tau}$. 则 $H$ 有限型, 因为由命题 9.6.12, $\mathbf{Pic}_{X'/k}^{\tau}$ 有限型. 现在显然 $\gamma^*\mathbf{Pic}_{X/k}^0\subset\mathbf{Pic}_{X'/k}^0$. 因为 $\gamma^*$ 是同态, 有 $\gamma^*\mathbf{Pic}_{X/k}^{\tau}\subset\mathbf{Pic}_{X'/k}^{\tau}$; 从而 $\mathbf{Pic}_{X/k}^{\tau}\subset H$ (事实上由习题 9.6.10, 两者相等). 因为 $\mathbf{Pic}_{X/k}^{\tau}$ 开, 所以它是有限型子概形.
+
+类似地, 在定理 9.6.3 中, 只要 $X$ 完备, 条件 (a)--(e) 仍有意义且保持等价. 事实上, 我们对蕴含关系
+\[(c)\Longrightarrow(a)\Longrightarrow(d)\Longrightarrow(e)\Longleftrightarrow(b),\qquad(c)\Longrightarrow(f)\Longrightarrow(b)\]
+的证明无需改变. 然而, 证明 $(b)\Rightarrow(c)$ 时使用了射影方法. 尽管如此, 只要 $X$ 完备, 仍可如下推出这一蕴含关系.
+
+设 $\mathcal L$ 与 $\mathcal O_X$ 数值等价, $\gamma:X'\to X$ 如上. 则 $\gamma^*\mathcal L$ 与 $\mathcal O_{X'}$ 数值等价. 事实上, 设 $Y'\subset X'$ 为闭曲线. 由投影公式, $\int c_1\gamma^*\mathcal L\cdot[Y']$ 是 $\int c_1\mathcal L\cdot[\gamma Y']$ 的一个倍数; 因而后者消没时前者也消没.
+% Source PDF309 / printed p.297.
+
+令 $\lambda\in\mathbf{Pic}_{X/k}$ 表示 $\mathcal L$. 则 $\gamma^*\lambda\in\mathbf{Pic}_{X'/k}$ 表示 $\gamma^*\mathcal L$. 现在 $\gamma^*\mathcal L$ 与 $\mathcal O_{X'}$ 数值等价. 所以由定理 9.6.3 和习题 9.6.11, $\gamma^*\lambda\in\mathbf{Pic}_{X'/k}^{\tau}$. 因而 $\lambda\in H:=(\gamma^*)^{-1}\mathbf{Pic}_{X'/k}^{\tau}$.
+
+包含映射 $H\hookrightarrow\mathbf{Pic}_{X/k}$ 由某个 fppf 覆盖 $T\to H$ 上 $X_T$ 的可逆层 $\mathcal M$ 定义. (尽管 $k$ 代数闭, $\mathcal O_S\xrightarrow\sim f_*\mathcal O_X$ 可能并不普遍成立, 所以不能简单地取 $T:=H$.) 将 $T$ 换成一个开子概形, 使 $T\to H$ 有限型且满射. 因为 $H$ 有限型, $T$ 也有限型.
+
+设 $t\in T$ 是映到 $\lambda\in H$ 的 $k$ 点. 则 $\mathcal M_t\simeq\mathcal L$. 现在对每个 $p\in\mathbb Z$, 显然 $\mathcal L^{\otimes p}$ 与 $\mathcal O_X$ 数值等价. 因而类似地, 对某个 $k$ 点 $t_p\in T$, 有 $\mathcal L^{\otimes p}\simeq\mathcal M_{t_p}$. 于是 (c) 成立.
+\end{origstatement}
+
+\begin{origstatement}{习题}{9.6.15}\label{ch09s6:ex9615}
+假定 $\mathbf{Pic}_{X/S}$ 存在且表示 $\operatorname{Pic}_{(X/S)(\mathrm{fppf})}$. 设 $\Lambda$ 为 $\mathbf{Pic}_{X/S}$ 的任意子集, $L$ 为习题 9.4.5 意义下 $X/S$ 各纤维上相应的可逆层类组成的族. 证明 $\Lambda$ (带诱导拓扑) 拟紧, 当且仅当 $L$ 在如下意义下有界: 存在有限型 $S$ 概形 $T$ 与 $X_T$ 上的可逆层 $\mathcal M$, 使 $L$ 中的每个类都由某个 $t\in T$ 的纤维 $\mathcal M_t$ 表示.
+\end{origstatement}
+
+\begin{origstatement}{定理}{9.6.16}\label{ch09s6:th9616}
+假定 $f:X\to S$ 在 $S$ 上 Zariski 局部射影, 且平坦并具有整几何纤维. 则 $\mathbf{Pic}_{X/S}^{\tau}$ 是有限型的既开又闭群子概形, 其形成与 $S$ 的变换交换. 若此外 $X/S$ 射影且 $S$ 为 Noether 的, 则 $\mathbf{Pic}_{X/S}^{\tau}$ 拟射影.
+\end{origstatement}
+\begin{proof}
+第二个断言来自第一个断言和习题 9.4.11. 第一个断言在 $S$ 上是局部的; 因而为证明它, 可假定 $X/S$ 射影.
+
+定理 9.4.8 断言 $\mathbf{Pic}_{X/S}$ 存在且局部有限型. 所以由习题 9.4.4 和引理 9.6.9, 各 $\mathbf{Pic}_{X_{k_s}/k_s}^{\tau}$ 是各 $\mathbf{Pic}_{X_{k_s}/k_s}$ 的子群, 而且 $\mathbf{Pic}_{X_{k_s}/k_s}^{\tau}$ 的形成与 $k_s$ 的扩张交换. 显然, 作为集合有 $\mathbf{Pic}_{X/S}^{\tau}=\bigcup_{s\in S}\mathbf{Pic}_{X_{k_s}/k_s}^{\tau}$. 因而 $\mathbf{Pic}_{X/S}^{\tau}$ 的形成与 $S$ 的变换交换; 而为推出 $\mathbf{Pic}_{X/S}^{\tau}$ 为群子概形, 只需证明它开.
+
+显然, 拓扑空间 $B$ 的子集 $\Lambda$ 开或闭, 若 (且仅若) 对 $B$ 的一个开覆盖的每个成员 $B_i$, $\Lambda\cap B_i$ 在 $B_i$ 中开或闭. 因而为推出 $\mathbf{Pic}_{X/S}^{\tau}$ 为既开又闭群子概形, 只需证明对 $\mathbf{Pic}_{X/k}$ 的任意仿射开子概形 $U$, 交 $U\cap\mathbf{Pic}_{X/S}^{\tau}$ 在 $U$ 中既开又闭.
+% Original prints Pic_{X/k} in the preceding and following clauses; retained.
+
+定理 9.4.8 还断言 $\mathbf{Pic}_{X/k}$ 表示 $\operatorname{Pic}_{(X/S)(\mathrm{\acute et})}$. 所以包含映射 $U\hookrightarrow\mathbf{Pic}_{X/S}$ 由某个平展覆盖 $T\to U$ 上 $X_T$ 的可逆层 $\mathcal M$ 定义. 将 $T$ 换成开子概形, 使 $T\to U$ 有限型且满射. 令 $T^{\tau}$ 为使 $\mathcal M_t$ 与 $\mathcal O_{X_t}$ $\tau$ 等价的 $t\in T$ 的集合. 则由习题 9.6.11, $T^{\tau}$ 是 $\mathbf{Pic}_{X/S}^{\tau}$ 在 $T$ 中的原像. 所以需证明 $T^{\tau}$ 既开又闭.
+
+因为 $U$ 仿射, 它拟紧, 因而有限型. 从而 $T$ 有限型. 所以它只有有限多个连通分支. 但对每对 $p,n$, 函数 $t\mapsto\chi(\mathcal M_t^{\otimes p}(n))$ 在 $T$ 的每个连通分支上为常数. 因而定理 9.6.3 蕴含 $T^{\tau}$ 既开又闭, 如所求.
+
+还需证明 $\mathbf{Pic}_{X/S}^{\tau}$ 有限型. 令 $L$ 为 $X/S$ 各纤维上相应的可逆层类组成的族. 由习题 9.6.15, 只需证明 $L$ 有界. 在定理 9.6.3 证明的最后, 已经在 $S$ 为代数闭域的谱、$X$ 射影但未必整的情形下, 基本上证明了这一断言.
+% Source PDF310 / printed p.298.
+这里可以类似论证, 但必须作两项重要修改.
+
+首先, 若 $L$ 中的一个类由纤维 $X_k$ 上的可逆层 $\mathcal L$ 表示, 其中域 $k$ 包含点 $s\in S$ 的域 $k_s$, 则由引理 9.6.6, 对所有 $n$, 有 $\chi(\mathcal L(n))=\chi(\mathcal O_{X_s}(n))$. 但 $\chi(\mathcal O_{X_s}(n))$ 可随 $s$ 变化. 尽管如此, 它在 $S$ 的每个连通分支上必须不变. 所讨论的问题在 $S$ 上是局部的, 所以可以且必须假定 $S$ 连通.
+
+其次, 在引理 9.6.6 证明末尾修改 Mumford 的工作时, 我们用了引理 9.6.5 中取 $\mathcal F:=\mathcal O_X$ 所得的界 $B_{\mathcal F}$; 事实上, 在归纳步骤中, 还隐含地使用了 $X$ 的各个子概形的相应界. 不幸的是, 一般并不清楚这些界如何随 $X$ 变化. 但可用习题 9.6.7 代替引理 9.6.6, 它给出一个一致的 $m$, 使每个表示 $L$ 中某个类的 $\mathcal L$ 都 $m$ 正则.
+\end{proof}
+
+\begin{origstatement}{推论}{9.6.17}\label{ch09s6:cor9617}
+假定 $S$ 为 Noether 的. 假定 $f:X\to S$ 在 $S$ 上 Zariski 局部射影, 且平坦并具有几何整纤维. 对每个 $s\in S$, 以 $k_s'$ 记剩余域 $k_s$ 的代数闭包. 则挠群
+\begin{equation}\mathbf{Pic}_{X_{k_s'}/k_s'}^{\tau}(k_s')\big/\mathbf{Pic}_{X_{k_s'}/k_s'}^0(k_s')\tag{9.6.17.1}\label{ch09s6:eq96171}\end{equation}
+有限, 且其阶有界.
+\end{origstatement}
+\begin{proof}
+因为由命题 9.5.3, $\mathbf{Pic}_{X_{k_s'}/k_s'}^0$ 在 $\mathbf{Pic}_{X_{k_s'}/k_s'}^{\tau}$ 中开, 它们的商的阶等于 $\mathbf{Pic}_{X_{k_s'}/k_s'}^{\tau}$ 的连通分支数. 这个数有限, 因为由命题 9.6.12, $\mathbf{Pic}_{X_{k_s'}/k_s'}^{\tau}$ 有限型.
+
+此外, 再由命题 9.6.12, $\mathbf{Pic}_{X_{k_s'}/k_s'}^{\tau}$ 等于 $\mathbf{Pic}_{X_s/k_s}^{\tau}\otimes k_s'$, 从而本质上由定义 9.6.8, 等于 $\mathbf{Pic}_{X/S}^{\tau}\otimes k_s'$. 但由定理 9.6.16, $\mathbf{Pic}_{X/S}^{\tau}$ 有限型, 所以由 [EGAIV3, 9.7.9], 当 $s$ 属于 $S$ 的某个非空开子集时, $\mathbf{Pic}_{X/S}^{\tau}\otimes k_s'$ 的连通分支数为常数. 因而由 Noether 归纳, 该数有界.
+\end{proof}
+
+\begin{origstatement}{习题}{9.6.18}\label{ch09s6:ex9618}
+假定 $X/S$ 射影且光滑, 其几何纤维不可约, $S$ 为 Noether 的. 证明 $\mathbf{Pic}_{X/S}^{\tau}$ 射影.
+\end{origstatement}
+
+\begin{origstatement}{注}{9.6.19}\label{ch09s6:rem9619}
+假定 $X/S$ 固有. 若 $\mathbf{Pic}_{X/S}$ 存在且表示 $\operatorname{Pic}_{(X/k)(\mathrm{fppf})}$, 则 $\mathbf{Pic}_{X/S}^{\tau}$ 是有限型开群子概形. 通过一系列归约步骤, 可由定理 9.6.16 导出此事实; 见 [Kle71, Thm.~4.7, p.~647].
+
+再假定 $S$ 为 Noether 的. 则无论 $\mathbf{Pic}_{X/k}$ 是否存在, 挠群 (9.6.17.1) 都有限且阶有界. 由前一个事实通过推论 9.6.17 的证明可知这一点, 因为由 Grothendieck 定理 9.4.18.2, 存在 $S_{\mathrm{red}}$ 的非空开子概形 $V$, 使 $\mathbf{Pic}_{X_V/V}$ 存在且表示 $\operatorname{Pic}_{(X_V/V)(\mathrm{fppf})}$.
+
+此外, 相应的 ``Néron--Severi'' 群
+\[\mathbf{Pic}_{X_{k_s'}/k_s'}(k_s')\big/\mathbf{Pic}_{X_{k_s'}/k_s'}^{\tau}(k_s')\]
+的秩有限且有界. 这个事实深刻得多; 见 [Kle71, Thm.~5.1, p.~650, 及 Rem.~5.3, p.~652], 另见 [Zar71, pp.~121--124]. 而且, 该秩本质上是算术性的: 它的值不必是 $s\in S$ 的可构造函数; 一个标准例子在
+% Source PDF311 / printed p.299.
+[BLR90, p.~235] 中讨论.
+\end{origstatement}
+
+\begin{origstatement}{定理}{9.6.20}\label{ch09s6:th9620}
+假定 $X/S$ 射影且平坦, 并具有整几何纤维. 给定多项式 $\varphi\in\mathbb Q[n]$, 令 $\mathbf{Pic}_{X/S}^{\varphi}\subset\mathbf{Pic}_{X/S}$ 为表示满足对所有 $n$ 都有 $\chi(\mathcal L(n))=\varphi(n)$ 的可逆层 $\mathcal L$ 的点的集合. 则各 $\mathbf{Pic}_{X/S}^{\varphi}$ 为既开又闭的有限型子概形; 它们互不相交且构成覆盖, 其形成与 $S$ 的变换交换. 若此外 $S$ 为 Noether 的, 则 $\mathbf{Pic}_{X/S}^{\varphi}$ 拟射影.
+\end{origstatement}
+\begin{proof}
+显然, 各 $\mathbf{Pic}_{X/S}^{\varphi}$ 互不相交且构成覆盖, 其形成与 $S$ 的变换交换. 其余证明类似于定理 9.6.16 的证明. 事实上, 此处更简单, 因为按假设所讨论的层具有相同的 Hilbert 多项式; 无需诉诸定理 9.6.3 或引理 9.6.6.
+\end{proof}
+
+\begin{origstatement}{习题}{9.6.21}\label{ch09s6:ex9621}
+假定 $X/S$ 在 $S$ 上局部射影且平坦, 其几何纤维为整曲线. 给定整数 $m$, 令 $\mathbf{Pic}_{X/S}^m\subset\mathbf{Pic}_{X/S}$ 为表示次数 $m$ 的可逆层 $\mathcal L$ 的点的集合.
+
+证明各 $\mathbf{Pic}_{X/S}^m$ 是既开又闭的有限型子概形; 证明它们互不相交且构成覆盖, 并证明其形成与 $S$ 的变换交换.
+
+证明这里没有滥用记号: $\mathbf{Pic}_{X/S}^0$ 在 $s\in S$ 上的纤维是 $0\in\mathbf{Pic}_{X_s/k_s}$ 的连通分支. 证明没有挠性: $\mathbf{Pic}_{X/S}^0=\mathbf{Pic}_{X/S}^{\tau}$. 证明每个 $\mathbf{Pic}_{X/S}^m$ 都是 $\mathbf{Pic}_{X/S}^{\tau}$ 下的 fppf 挠子; 即后者自然作用于前者, 且二者在一个 fppf 覆盖的基变换后同构.
+
+若 $X/S$ 射影且 $S$ 为 Noether 的, 证明各 $\mathbf{Pic}_{X/S}^m$ 拟射影.
+\end{origstatement}
+
+\begin{origstatement}{注}{9.6.22}\label{ch09s6:rem9622}
+还有一个重要情形满足 $\mathbf{Pic}_{X/S}^0=\mathbf{Pic}_{X/S}^{\tau}$, 即 $X$ 为 Abel $S$ 概形时. 事实上, 若等式在 $X/S$ 的每个几何纤维上成立, 则它成立; 因而可假定 $S$ 为代数闭域的谱. 在此情形, Mumford [Mum70, Cor.~2, p.~178] 给出了一个现代证明.
+\end{origstatement}
+
+\begin{origstatement}{例}{9.6.23}\label{ch09s6:ex9623}
+若 $X/S$ 的某个几何纤维可约, 定理 9.6.20 可以失效. 例如, 设 $S$ 为域 $k$ 的谱, $X$ 为两条互不相交直线的并. 对每对 $a,b\in\mathbb Z$, 以 $\mathcal L_{a,b}$ 记在第一条直线上限制为 $\mathcal O(a)$、在第二条直线上限制为 $\mathcal O(b)$ 的可逆层.
+
+由 Riemann 定理, $\chi(\mathcal L_{a,b}(n))=(a+b)+2n+1$. 容易看出, $\mathbf{Pic}_{X/k}$ 为由 $\mathbb Z\times\mathbb Z$ 编指标的各个 $\Spec(k)$ 副本的不交并; 与习题 9.4.15 比较. 而且, $\mathcal L_{a,b}$ 由指标 $(a,b)$ 的点表示. 因而每个集合 $\mathbf{Pic}_{X/k}^{\varphi}$ 都无限, 从而非有限型.
+\end{origstatement}
+% Original constant term is +1 for disjoint lines; retained, see review.
+
+\begin{origstatement}{注}{9.6.24}\label{ch09s6:rem9624}
+定理 9.6.20 可作如下修改. 假定 $S$ 为 Noether 的, $X/S$ 射影且平坦, 并具有维数 $r$ 的整几何纤维. 则若在相应可逆层的 Hilbert 多项式 $\sum_{i=0}^ra_i\binom{n+i}{i}$ 中, $a_{r-1}$ 保持上下有界, $a_{r-2}$ 仅保持下有界, 子集 $\Lambda\subset\mathbf{Pic}_{X/S}$ 就拟紧. 此外, 若改为 $\int\ell h^{r-1}$ 保持上下有界, $\int\ell^2h^{r-2}$ 仅保持下有界, 则 $\Lambda$ 也拟紧, 其中 $\ell,h$ 使用通常的记号.
+
+将情形归结到纤维正规的情形, 并在此情形用简单初等的方法说明给定的界蕴含所有 $a_i$ 的界, 即可从定理 9.6.20 导出这些事实; 见 [Kle71, Thm.~3.13, p.~641].
+% Source PDF312 / printed p.300.
+
+在给定定理 9.6.20 与 9.4.18.5 后, 第一个事实本质上等价于下述事实. 假定 $S$ 为 Noether 的, $X/S$ 射影且平坦, 其纤维的各不可约分支维数至少为 3. 设 $Y$ 为一个相对有效除子, 其相伴层为 $\mathcal O_X(1)$. 则诱导的 Picard 函子映射可由有限型映射表示. 见 [Kle71, Thm.~3.8, p.~636].
+
+后一个事实最早由 Grothendieck [FGA, p.~C-10] 使用注 9.5.8 中提到的 ``等价判别法'' 直接证明.
+\end{origstatement}
+
+\begin{origstatement}{推论}{9.6.25}\label{ch09s6:cor9625}
+假定 $X/S$ 射影且平坦, 并具有整几何纤维. 则 $\mathbf{Pic}_{X/S}$ 的各连通分支是既开又闭的有限型子概形.
+\end{origstatement}
+\begin{proof}
+由构造, $\mathbf{Pic}_{X/S}$ 局部 Noether. 因而其连通分支既开又闭; 见引理 9.5.1 的证明. 现在一个连通分支总包含在它所相交的任意既开又闭集合中. 所以由定理 9.6.20, $\mathbf{Pic}_{X/S}$ 的连通分支有限型.
+\end{proof}
+
+\begin{origstatement}{注}{9.6.26}\label{ch09s6:rem9626}
+在推论 9.6.25 中, $X/S$ 必须射影, 不能只是固有, 甚至在 $S$ 上 Zariski 局部射影也不够. 事实上, Grothendieck [FGA, Rem.~3.3, p.~232-07] 给出了一个 $\mathbf{Pic}_{X/S}$ 有非有限型连通分支的例子: 此处 $S$ 是一条具有两个分支、它们在两点相交的曲线, 例如代数闭域上平面中的一条光滑二次曲线与一条直线的并, 而 $X$ 在 $S$ 的每个分支的某个邻域上射影.
+\end{origstatement}
+
+\begin{origstatement}{推论}{9.6.27}\label{ch09s6:cor9627}
+假定 $X/S$ 射影且平坦, 并具有整几何纤维. 对 $n\ne0$, $n$ 次幂映射 $\varphi_n:\mathbf{Pic}_{X/S}\to\mathbf{Pic}_{X/S}$ 有限型.
+\end{origstatement}
+\begin{proof}
+由推论 9.6.25, 只需证明给定 $\mathbf{Pic}_{X/S}$ 的任意连通分支 $U$, 原像 $\varphi_n^{-1}U$ 也有限型. 因为由定理 9.4.8, $\mathbf{Pic}_{X/k}$ 表示 $\operatorname{Pic}_{(X/S)(\mathrm{\acute et})}$, 包含映射 $U\hookrightarrow\mathbf{Pic}_{X/S}$ 由某个平展覆盖 $T\to U$ 上 $X_T$ 的可逆层 $\mathcal M$ 定义.
+
+固定 $t\in T$, 置 $\psi(p,q):=\chi(\mathcal M_t^{\otimes p}(q))$. 固定 $p,q$, 并构造由满足 $\chi(\mathcal M_{t'}^{\otimes p}(q))=\psi(p,q)$ 的 $t'\in T$ 组成的集合 $T'$. 由 [EGAIII2, 7.9.4], 集合 $T'$ 开, 其补集也开. 因而它们在 $U$ 中的像开, 而这些像显然互不相交. 但 $U$ 连通, 所以 $T'=T$.
+
+设 $\lambda\in\varphi_n^{-1}U$, 用一个可逆层 $\mathcal L$ 表示 $\lambda$. 置 $\theta(m,q):=\chi(\mathcal L^{\otimes m}(q))$. 不妨写 $\theta(m,q)=\sum a_i(m)\binom{q+i}{i}$, 其中 $a_i(m)$ 为多项式. 现在 $\varphi_n(\lambda)\in U$, 所以 $\theta(mn,q)=\psi(m,q)$. 因而对所有 $m$, $a_i(mn)$ 不依赖于 $\lambda$ 的选择, 故 $a_i(m)$ 也是如此. 置 $\varphi(n):=\theta(1,q)$. 则 $\varphi_n^{-1}U\subset\mathbf{Pic}_{X/S}^{\varphi}$. 所以定理 9.6.20 蕴含 $\varphi_n^{-1}U$ 有限型.
+% Original writes varphi(n):=theta(1,q); retained.
+\end{proof}
+
+\begin{origstatement}{注}{9.6.28}\label{ch09s6:rem9628}
+推论 9.6.27 在更大的一般性下成立. 假定 $X/S$ 固有, 且 $\mathbf{Pic}_{X/S}$ 存在并表示 $\operatorname{Pic}_{(X/k)(\mathrm{fppf})}$. 则对 $n\ne0$, $n$ 次幂映射 $\varphi_n:\mathbf{Pic}_{X/S}\to\mathbf{Pic}_{X/S}$ 有限型. 通过一系列与推广定理 9.6.16 时类似的归约步骤, 可从该推论导出这一事实; 见 [Kle71, Thm.~3.6, p.~635].
+\end{origstatement}
+% End of assigned source PDF312. Exercise9.6.29 follows on PDF313 and is separately assigned.
