@@ -10,6 +10,8 @@
 
 ## 已据法文明确订正的英语底本问题
 
+最终术语扫描另统一 XIX 四处 reduced／geometrically reduced 为“约化／几何约化”，并在 2.5 区分概形约化与群约化；无公式或假设改动，见 `evidence/FINAL_TERMINOLOGY_ADJUSTMENTS.json`。
+
 这些修订只发生在新中文稿中，附有可识别的译校注，原始法文、英文及已有中文文件均未改变。
 
 | 位置 | 核验及处理 | 法文合卷物理页 |
