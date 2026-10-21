@@ -1,0 +1,237 @@
+% Source printed pp.257--261 = PDF269--273, section9.3 in full.
+\section{相对有效除子}
+\label{ch09s03:section}
+\begingroup
+\def\L{\mathcal L}\def\N{\mathcal N}\def\M{\mathcal M}
+\def\I{\mathcal I}\def\Q{\mathcal Q}\def\F{\mathcal F}
+\def\sHom{\mathcal H\!om}
+\def\DivF{\Div_{X/S}}\def\DivS{\mathbf{Div}_{X/S}}
+\def\HilbS{\mathbf{Hilb}_{X/S}}
+\def\LS{\operatorname{LinSys}_{\L/X/S}}
+
+% Source PDF269 / printed257, from the actual section9.3 heading.
+Grothendieck 通过选取一族合适的有效除子, 再模去线性等价取商, 构造了 Picard 概形. 本节发展这些概念的基本理论.
+
+\begin{origstatement}{}{9.3.1 (有效除子)}\label{ch09s03:item931}
+闭子概形 $D\subset X$ 称为\emph{有效 (Cartier) 除子} (effective (Cartier) divisor), 如果它的理想 $\I$ 可逆. 给定 $\mathcal O_X$-模 $\F$ 和 $n\in\mathbf Z$, 置
+\[
+\F(nD):=\F\otimes\I^{\otimes-n}.
+\]
+特别地, $\mathcal O_X(-D)=\I$. 所以包含映射 $\I\hookrightarrow\mathcal O_X$ 与 $\mathcal O_X(D)$ 作张量积, 给出单射 $\mathcal O_X\hookrightarrow\mathcal O_X(D)$, 后者又对应于 $\mathcal O_X(D)$ 的一个整体截面. 这个截面不是任意的, 因为它对应于一个单射. 对应于单射的截面称为\emph{正则截面} (regular section).
+
+反过来, 给定 $X$ 上任意可逆层 $\L$, 以 $H^0(X,\L)_{\mathrm{reg}}$ 表示 $H^0(X,\L)$ 中正则截面组成的子集, 即对应于单射 $\L^{-1}\hookrightarrow\mathcal O_X$ 的那些截面. 以 $|\L|$ 表示满足 $\mathcal O_X(D)$ 以某种方式同构于 $\L$ 的有效除子 $D$ 所成的集合. 由于历史原因, $|\L|$ 称为
+% Source PDF270 / printed258.
+与 $\L$ 相关联的\emph{完全线性系} (complete linear system) (但如果 $X$ 不是整概形, $|\L|$ 未必是一个 $\mathbf P^n$).
+\end{origstatement}
+
+\begin{origstatement}{习题}{9.3.2}\label{ch09s03:ex932}
+在 (9.3.1) 的条件下, 建立典范同构
+\[
+H^0(X,\L)_{\mathrm{reg}}/H^0(X,\mathcal O_X^*)\xrightarrow{\sim}|\L|.
+\]
+\end{origstatement}
+
+\begin{origstatement}{定义}{9.3.3}\label{ch09s03:def933}
+$X/S$ 上的\emph{相对有效除子} (relative effective divisor) 是一个 $S$-平坦的有效除子 $D\subset X$.
+\end{origstatement}
+
+\begin{origstatement}{引理}{9.3.4}\label{ch09s03:lem934}
+设 $D\subset X$ 是闭子概形, $x\in D$ 是一点, $s\in S$ 是它的像. 则下列陈述等价:
+\begin{enumerate}
+\item[(i)] 子概形 $D\subset X$ 在 $x$ 处 (即在 $x$ 的一个邻域中) 是相对有效除子.
+\item[(ii)] 概形 $X,D$ 在 $x$ 处都 $S$-平坦, 且纤维 $D_s$ 在 $x$ 处是 $X_s$ 上的有效除子.
+\item[(iii)] 概形 $X$ 在 $x$ 处 $S$-平坦, 且子概形 $D\subset X$ 在 $x$ 处由一个在纤维 $X_s$ 上正则 (即为非零因子) 的元素截出.
+\end{enumerate}
+\end{origstatement}
+\begin{proof}
+为方便起见, 置 $A:=\mathcal O_{S,s}$, 以 $k$ 表示其剩余域. 此外, 置 $B:=\mathcal O_{X,x}$, $C:=\mathcal O_{D,x}$. 则 $B\otimes_Ak=\mathcal O_{X_s,x}$.
+
+假设 (i), 来证明 (ii). 由假设, $D$ 在 $x$ 处是有效除子. 所以存在一个生成 $D$ 的理想的正则元素 $b\in B$. 以 $b$ 相乘定义短正合列
+\[
+0\longrightarrow B\longrightarrow B\longrightarrow C\longrightarrow0.
+\]
+这个序列又诱导如下正合列:
+\[
+\Tor_1^A(B,k)\longrightarrow\Tor_1^A(B,k)\longrightarrow\Tor_1^A(C,k)
+\longrightarrow B\otimes k\longrightarrow B\otimes k.
+\]
+由假设, $D$ 在 $x$ 处 $S$-平坦; 因而 $\Tor_1^A(C,k)=0$. 所以 $B\otimes k\to B\otimes k$ 为单射. 它的像是 $D_s$ 的理想. 因此 $D_s$ 是有效除子.
+
+由于 $\Tor_1^A(C,k)=0$, 映射 $\Tor_1^A(B,k)\to\Tor_1^A(B,k)$ 为满射. 这个映射由以 $b$ 相乘给出, 而 $b$ 属于 $B$ 的极大理想. 并且 $\Tor_1^A(B,k)$ 是有限生成 $B$-模. 所以由 Nakayama 引理, $\Tor_1^A(B,k)=0$. 因而, 由平坦性的局部判别法 [SGA1, Thm.~5.6, p.~98] 或 [OB72, Thm.~6.1, p.~73], $B$ 是 $A$-平坦的; 换言之, $X$ 在 $x$ 处 $S$-平坦. 所以 (ii) 成立.
+
+假设 (ii). 为证明 (iii), 以 $I$ 表示 $D$ 在 $B$ 中的理想, 以 $I'$ 表示 $D_s$ 在 $B\otimes k$ 中的理想. 取元素 $b\in I$, 其在 $B\otimes k$ 中的像 $b'$ 生成 $I'$; 这样的 $b$ 存在, 因为由假设 $D_s$ 在 $x$ 处是有效除子. 同理, $b'$ 是正则的. 还需证明 $b$ 生成 $I$.
+
+考虑短正合列
+\[
+0\longrightarrow I\longrightarrow B\longrightarrow C\longrightarrow0.
+\]
+由假设, $C$ 是 $A$-平坦的. 因而映射 $I\otimes k\to B\otimes k$ 是单射. 其像为 $I'$, 由 $b'$ 生成. 所以 $b$ 在 $I\otimes k$ 中的像生成 $I\otimes k$. 于是由 Nakayama 引理, $b$ 生成 $I$. 所以 (iii) 成立.
+
+假设 (iii). 为证明 (i), 仍以 $I$ 表示 $D$ 在 $B$ 中的理想. 由假设, $I$ 由一个元素 $b$ 生成, 其在 $B\otimes k$ 中的像 $b'$ 正则. 我们必须证明 $b$ 正则, 且 $C$ 是 $A$-平坦的.
+
+% Source PDF271 / printed259.
+正合列 $0\to I\to B\to C\to0$ 给出正合列
+\begin{equation}
+\tag{9.3.4.1}\label{ch09s03:eq9341}
+\Tor_1^A(B,k)\longrightarrow\Tor_1^A(C,k)\longrightarrow I\otimes k\longrightarrow B\otimes k.
+\end{equation}
+最后一个映射为单射, 原因如下. 由于 $I=Bb$, 以 $b$ 相乘诱导满射 $B\to I$, 因而诱导满射 $B\otimes k\to I\otimes k$. 考虑复合
+\[
+B\otimes k\longrightarrow I\otimes k\longrightarrow B\otimes k.
+\]
+它由以 $b'$ 相乘给出, 因为 $b'$ 正则, 所以这个复合是单射. 因而 $B\otimes k\xrightarrow{\sim}I\otimes k$. 于是 $I\otimes k\to B\otimes k$ 是单射.
+
+由假设, $B$ 是 $A$-平坦的. 所以 $\Tor_1^A(B,k)=0$. 因而由 (9.3.4.1) 的正合性得到 $\Tor_1^A(C,k)=0$. 于是由局部判别法, $C$ 是 $A$-平坦的.
+
+由于 $B,C$ 都是 $A$-平坦的, 且 $0\to I\to B\to C\to0$ 正合, $I$ 也是 $A$-平坦的.
+
+用正合列 $0\to K\to B\to I\to0$ 定义 $K$. 由于 $I$ 是 $A$-平坦的, 序列
+\[
+0\longrightarrow K\otimes k\longrightarrow B\otimes k\longrightarrow I\otimes k\longrightarrow0
+\]
+是正合的. 但 $B\otimes k\xrightarrow{\sim}I\otimes k$. 所以 $K\otimes k=0$. 因此由 Nakayama 引理, $K=0$. 但 $K$ 是 $B$ 上以 $b$ 相乘的核. 所以 $b$ 正则. 于是 (i) 成立.
+\end{proof}
+
+\begin{origstatement}{习题}{9.3.5}\label{ch09s03:ex935}
+设 $D,E$ 是 $X/S$ 上的相对有效除子, $D+E$ 是它们的和. 证明 $D+E$ 也是相对有效除子.
+\end{origstatement}
+
+\begin{origstatement}{定义}{9.3.6}\label{ch09s03:def936}
+用下列公式定义函子 $\DivF$:
+\[
+\DivF(T):=\{\text{$X_T/T$ 上的相对有效除子 $D$}\}.
+\]
+\end{origstatement}
+
+注意 $\DivF$ 确实是函子. 即给定 $X_T/T$ 上的相对有效除子 $D$ 和任意 $S$-映射 $p:T'\to T$, 我们须验证 $T'$-平坦的闭子概形 $D_{T'}\subset X_{T'}$ 是有效除子. 以 $\I$ 表示 $D$ 的理想. 由于 $D$ 是 $T$-平坦的, $p_{X_T}^*\I$ 等于 $D_{T'}$ 的理想. 但由于 $\I$ 可逆, $p_{X_T}^*\I$ 也可逆. 所以 $D_{T'}$ 是 (相对) 有效除子.
+
+\begin{origstatement}{定理}{9.3.7}\label{ch09s03:thm937}
+假设 $X/S$ 射影且平坦. 则 $\DivF$ 由 Hilbert 概形 $\HilbS$ 的一个开子概形 $\DivS$ 表示.
+\end{origstatement}
+\begin{proof}
+置 $H:=\HilbS$, 设 $W\subset X\times H$ 是泛 (闭) 子概形, $q:W\to H$ 是投影. 以 $V$ 表示 $W$ 在其处为有效除子的点 $w\in W$ 所成的集合. 显然 $V$ 在 $W$ 中开. 置 $Z:=q(W-V)$. 因为 $q$ 为固有态射, 所以 $Z$ 是闭集. 置 $U:=H-Z$. 则 $U$ 开, 且 $q^{-1}U$ 是 $X\times U$ 中的有效除子. 事实上, 由于 $q$ 平坦, $q^{-1}U$ 是 $X\times U/U$ 中的相对有效除子.
+
+还需证明 $U$ 表示 $\DivF$. 设 $T$ 是 $S$-概形, $D\subset X_T/T$ 是相对有效除子. 由二元组 $(H,W)$ 的泛性质, 存在唯一映射 $g:T\to H$, 使 $g_X^{-1}W=D$. 我们必须证明 $g$ 经过 $U$ 分解.
+
+对每个 $t\in T$, 纤维 $D_t$ 是有效除子, 因为它由基变换得到 (也可以利用引理 9.3.4). 但 $D_t=W_{g(t)}\otimes k_t$, 其中 $k_t$ 是 $t$ 的剩余域. 因而 $W_{g(t)}$ 也是除子, 因为域扩张是忠实平坦的. 但 $X\times H$ 与 $W$ 都是 $H$-平坦的. 所以由引理 9.3.4, $W$ 沿 $g(t)$ 上的纤维为相对有效除子. 于是 $g(t)\in U$. 但 $U$ 是开集. 因此 $g$ 经过 $U$ 分解.
+\end{proof}
+
+% Source PDF272 / printed260.
+\begin{origstatement}{习题}{9.3.8}\label{ch09s03:ex938}
+假设 $f:X\to S$ 平坦, 并且在 $S$ 上 Zariski 局部为射影态射. 假设其纤维是曲线, 即纯维数为 $1$. 给定 $m\geq1$, 设 $\Div_{X/S}^m$ 是这样的函子: 其 $T$-点是 $X_T/T$ 上纤维 $D_t$ 的次数为 $m$ 的相对有效除子 $D$.
+
+证明各 $\Div_{X/S}^m$ 由有限型的开闭子概形 $\mathbf{Div}_{X/S}^m\subset\DivS$ 表示, 它们彼此不交并覆盖 $\DivS$.
+
+设 $X_0\subset X$ 是 $X/S$ 光滑处的子概形. 证明 $X_0=\mathbf{Div}_{X/S}^1$.
+
+设 $X_0^m$ 是 $m$ 重 $S$-纤维积. 证明存在自然的 $S$-映射
+\[
+\alpha:X_0^m\longrightarrow\mathbf{Div}_{X/S}^m,
+\]
+其在 $T$-点上由 $\alpha(\Gamma_1,\ldots,\Gamma_m)=\sum\Gamma_i$ 给出.
+\end{origstatement}
+
+\begin{origstatement}{注}{9.3.9}\label{ch09s03:rem939}
+考虑习题 9.3.8 的映射 $\alpha$. 显然 $\alpha$ 与置换 $X_0^m$ 的各因子相容. 因而 $\alpha$ 经过对称积 $X_0^{(m)}$ 分解. 事实上, $\alpha$ 诱导同构
+\[
+X_0^{(m)}\xrightarrow{\sim}\mathbf{Div}_{X_0/S}^m.
+\]
+这个同构在 [Del73, Prp.~6.3.9, p.~437] 中有详细讨论, [BLR90, Prp.~3, p.~254] 则给出其概要.
+\end{origstatement}
+
+\begin{origstatement}{}{9.3.10 (模 $\Q$)}\label{ch09s03:item9310}
+假设 $f:X\to S$ 固有, 设 $\F$ 是 $S$-平坦的凝聚 $\mathcal O_X$-模. 回忆 [EGAIII2, 7.7.6], 存在凝聚 $\mathcal O_S$-模 $\Q$ 以及关于拟凝聚 $\mathcal O_S$-模 $\N$ 的函子同构
+\begin{equation}
+\tag{9.3.10.1}\label{ch09s03:eq93101}
+q:\sHom(\Q,\N)\xrightarrow{\sim}f_*(\F\otimes f^*\N).
+\end{equation}
+二元组 $(\Q,q)$ 在唯一同构的意义下唯一; 并且由 [EGAIII2, 7.7.9], 它的形成与基变换相交换, 特别地, 与局部化相交换.
+
+固定 $s\in S$, 假设 $S=\Spec(\mathcal O_{S,s})$. 注意, 下列条件等价:
+\begin{enumerate}
+\item[(i)] $\mathcal O_S$-模 $\Q$ 自由 (等价地, 射影);
+\item[(ii)] 函子 $\N\mapsto f_*(\F\otimes f^*\N)$ 右正合;
+\item[(iii)] 对所有 $\N$, 自然映射是同构:
+\[
+f_*(\F)\otimes\N\xrightarrow{\sim}f_*(\F\otimes f^*\N);
+\]
+\item[(iv)] 自然映射是满射:
+\[
+H^0(X,\F)\otimes k_s\twoheadrightarrow H^0(X_s,\F_s).
+\]
+\end{enumerate}
+事实上, (i)–(iii) 的等价性是初等且直接的. 此外, (iv) 是 (iii) 的特殊情形. 反过来, 由 [EGAIII2, 7.7.10] 或 [OB72, Cor.~5.1, p.~72], (iv) 蕴涵 (iii); 这个有用的蕴涵称为“交换性质”.
+
+此外, 下列条件蕴涵 (i)–(iv):
+\begin{enumerate}
+\item[(v)] 纤维的一阶上同调群消灭, 即 $H^1(X_s,\F_s)=0$.
+\end{enumerate}
+事实上, 由 [EGAIII2, 7.5.3] 或 [OB72, Cor.~2.1, p.~68], (v) 意味着对所有 $\N$, 有 $R^1f_*(\F\otimes f^*\N)=0$; 这个消灭又由高阶直像的长正合列蕴涵 (ii).
+\end{origstatement}
+
+\begin{origstatement}{习题}{9.3.11}\label{ch09s03:ex9311}
+假设 $f:X\to S$ 固有且平坦, 其几何纤维既约且连通. 证明 $\mathcal O_S\xrightarrow{\sim}f_*\mathcal O_X$ 普遍成立.
+\end{origstatement}
+
+% Source PDF273 / printed261.
+\begin{origstatement}{定义}{9.3.12}\label{ch09s03:def9312}
+设 $\L$ 是 $X$ 上的可逆层. 用下列公式定义 $\DivF$ 的子函子 $\LS$:
+\[
+\begin{aligned}
+\LS(T):=\{\,&\text{$X_T/T$ 上的相对有效除子 $D$, 满足}\\
+&\mathcal O_{X_T}(D)\simeq\L_T\otimes f_T^*\N,
+\quad\text{其中 $\N$ 是 $T$ 上的某个可逆层}\,\}.
+\end{aligned}
+\]
+\end{origstatement}
+
+注意此定义与 $\Pic_{X/S}$ 的定义 9.2.2 的相似之处: 两个定义都考虑 $X_T$ 上可逆层的同构类, 再模去 $\Pic(T)$, 希望由此得到可表函子. 这里, 根据下一个定理, 在 $f$ 满足合适假设时, 这个希望能够实现.
+
+\begin{origstatement}{定理}{9.3.13}\label{ch09s03:thm9313}
+假设 $X/S$ 固有且平坦, 其几何纤维是整概形. 设 $\L$ 是 $X$ 上的可逆层, $\Q$ 是 9.3.10 小节中与 $\F:=\L$ 相关联的 $\mathcal O_S$-模. 置 $L:=\mathbf P(\Q)$. 则 $L$ 表示 $\LS$.
+\end{origstatement}
+\begin{proof}
+设 $D\in\LS(T)$. 假定 $\mathcal O_{X_T}(D)\simeq\L_T\otimes f_T^*\N$. 则 $\N$ 在同构意义下确定. 事实上, 设 $\N'$ 是另一种选择. 则
+\[
+\L_T\otimes f_T^*\N\simeq\L_T\otimes f_T^*\N'.
+\]
+所以由于 $\L$ 可逆, 有 $f_T^*\N\simeq f_T^*\N'$. 于是由引理 9.2.7, $\N\simeq\N'$; 该引理可用于 $f_T:X_T\to T$, 因为由习题 9.3.11, $\mathcal O_S\xrightarrow{\sim}f_*\mathcal O_X$ 普遍成立.
+
+假定 $D$ 由 $\sigma\in H^0(X_T,\L_T\otimes f_T^*\N)$ 定义. 现在, $\Q$ 的形成与向 $T$ 的基变换相交换, 所以 (9.3.10.1) 变为
+\begin{equation}
+\tag{9.3.13.1}\label{ch09s03:eq93131}
+\sHom(\Q_T,\N)\xrightarrow{\sim}f_{T*}(\L_T\otimes f_T^*\N).
+\end{equation}
+因而 $\sigma$ 对应于映射 $u:\Q_T\to\N$.
+
+设 $t\in T$. 由于 $D$ 是 $X_T/T$ 上的相对有效除子, 由引理 9.3.4, 其纤维 $D_t$ 是 $X_t$ 上的除子. 由于 $D_t$ 由 $\sigma_t\in H^0(X_t,\L|X_t)$ 定义, 必有 $\sigma_t\ne0$. 但 $\sigma_t$ 对应于 $u\otimes k_t$, 所以 $u\otimes k_t\ne0$. 现在 $\N$ 可逆, 因而 $\N\otimes k_t$ 是维数为 $1$ 的 $k_t$-向量空间. 所以 $u\otimes k_t$ 是满射. 于是由 Nakayama 引理, $u$ 在 $t$ 处为满射. 但 $t$ 任意. 所以 $u$ 处处为满射.
+
+因此, $u:\Q_T\twoheadrightarrow\N$ 由 [EGAII, 4.2.3] 定义 $S$-映射 $p:T\to L$. 由于 $(\N,u)$ 在同构意义下确定, 第二种选择给出相同的 $p$.
+
+显然, 这个构造关于 $T$ 具有函子性. 于是得到函子之间的映射
+\[
+\Lambda:\LS(T)\longrightarrow L(T).
+\]
+下面证明 $\Lambda$ 是同构.
+
+设 $p\in L(T)$, 即 $p:T\to L$ 是 $S$-映射. 则 $p$ 来自满射 $u:\Q_T\twoheadrightarrow\N$; 即 $u=p^*\alpha$, 其中 $\alpha:\Q_L\twoheadrightarrow\mathcal O(1)$ 是典范映射. 此外, 这样的二元组 $(\N,u)$ 在同构意义下只有一个.
+
+通过 (9.3.13.1) 中的同构, 满射 $u$ 对应于整体截面 $\sigma\in H^0(X_T,\L_T\otimes f_T^*\N)$. 设 $t\in T$. 则 $u\otimes k_t$ 为满射, 所以 $u\otimes k_t\ne0$. 但 $u\otimes k_t$ 对应于 $\sigma_t\in H^0(X_t,\L|X_t)$, 所以 $\sigma_t\ne0$. 由假设, $X/S$ 的几何纤维是整概形, 因而 $X_t$ 是整概形. 所以 $\sigma_t$ 正则.
+
+截面 $\sigma$ 定义映射 $(\L_T\otimes f_T^*\N)^{-1}\to\mathcal O_{X_T}$. 其像是闭子概形 $D\subset X$ 的理想, 这个子概形局部由一个元素截出; 此外, 在纤维 $X_t$ 上, 这个元素对应于 $\sigma_t$, 因而正则. 所以由引理 9.3.4, $D$ 是 $X_T/T$ 上的相对有效除子. 事实上, $D\in\LS(T)$. 显然 $D$ 是与 $(\N,u)$ 对应的唯一这样的除子, 因而在 $\Lambda$ 下映到 $p$.
+% SOURCE ISSUE: source prints D subset X (rather than X_T); retained.
+
+所以 $\Lambda$ 是同构. 换言之, $L$ 表示 $\LS$.
+\end{proof}
+
+% Source PDF274 / printed262, leading exercise before section9.4.
+\begin{origstatement}{习题}{9.3.14}\label{ch09s03:ex9314}
+在定理 9.3.13 的条件下, 证明在 $X_L/L$ 上存在自然的相对有效除子 $W$, 使得
+\[
+\mathcal O_{X_L}(W)=\L_L\otimes f_L^*\mathcal O_L(1).
+\]
+此外, $W$ 具有如下泛性质: 给定任意 $S$-概形 $T$ 和任意 $X_T/T$ 上的相对有效除子 $D$, 使得对 $T$ 上的某个可逆层 $\N$ 有 $\mathcal O_{X_T}(D)\simeq\L_T\otimes f_T^*\N$, 则存在唯一的 $S$-映射 $w:T\to L$, 使得 $(1\times w)^{-1}W=D$.
+\end{origstatement}
+
+% End of full section9.3; stop at actual section9.4 heading on PDF274.
+\endgroup

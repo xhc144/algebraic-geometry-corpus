@@ -53,8 +53,14 @@
 \newtheorem{exercise}[theorem]{习题}
 \newtheorem{notation}[theorem]{记号}
 \newtheorem{convention}[theorem]{约定}
-\newenvironment{origstatement}[2]{\par\addvspace{6pt}\noindent\hspace*{1.5em}\textbf{#1 #2.}\ \ignorespaces}{\par\addvspace{4pt}}
+\newcounter{origanchor}
+\makeatletter
+\newenvironment{origstatement}[2]{\par\addvspace{6pt}\refstepcounter{origanchor}\def\@currentlabel{#2}\noindent\hspace*{1.5em}\textbf{#1 #2.}\ \ignorespaces}{\par\addvspace{4pt}}
+\makeatother
 \renewcommand{\proofname}{证明}
+\renewcommand{\contentsname}{目录}
+\renewcommand{\bibname}{参考文献}
+\renewcommand{\indexname}{索引}
 \numberwithin{equation}{chapter}
 \DeclareMathOperator{\Spec}{Spec}
 \DeclareMathOperator{\Proj}{Proj}

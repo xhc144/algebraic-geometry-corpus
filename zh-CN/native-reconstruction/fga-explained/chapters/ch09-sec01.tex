@@ -1,0 +1,370 @@
+% Actual scan PDF247--263, printed235--251. Part5 and chapter9 section9.1.
+% PDF247 / printed235
+\part[Picard 概形]{Picard 概形\\[12pt]{\normalfont\large Steven L. Kleiman}}
+% PDF248 / printed236 is blank in the original.
+% PDF249 / printed237
+\chapter{Picard 概形}\label{ch09}
+\section{引言}\label{ch09:sec91}
+在任意赋环空间 $X$ 上, 可逆层的同构类组成一个群; 记为 $\Pic(X)$, 称为 (绝对) \emph{Picard 群}. 假设 $X$ 是“射影簇”; 换言之, $X$ 是代数闭域 $k$ 上的射影整概形. 如本讲义将证明的, 群 $\Pic(X)$ 带有自然的 $k$-概形结构, 它是拟射影概形的不交并, 且乘法和取逆运算由 $k$-映射给出. 这个概形记为 $\mathbf{Pic}_{X/k}$, 称为 \emph{Picard 概形}. 在特征零时它约化, 而在正特征时并不总如此. 当 $X$ 在代数族中变化时, $\mathbf{Pic}_{X/k}$ 也相应地变化.
+
+Picard 概形由 Grothendieck 于 1962 年引入. 他在两次 Bourbaki 报告, 即第 232 号与第 236 号中, 概述了这个理论; 这些报告连同他的评注一起重印在 [FGA] 中. 不过, Grothendieck 推进的是一个旧课题, 当时还有许多人正在积极发展它. 尽管如此, Grothendieck 的理论在概念和技术上都具有革命性.
+
+要充分理解 Grothendieck 的贡献, 必须回顾 Picard 概形的历史. 回顾这段历史, 也有助于引入 Grothendieck 的理论并说明其动机. 此外, 这段历史丰富而引人入胜, 是代数几何史的重要组成部分.
+
+现在来回顾截至 1962 年的 Picard 概形史. 我们只需概述并展开 Brigaglia, Ciliberto, Pedrini 的文章 [BCP04] 和本文作者的文章 [Kle04] 中分散的一些部分. 两篇文章都给出了许多指向原始文献和二手研究的准确参考; 因此, 这里只列很少的参考文献.
+
+Picard 概形的根源可追溯至 17 世纪. 在那个世纪中, 许多人为了设计透镜、瞄准火炮、制造钟表、悬挂缆索等目的, 共同发展了微积分. 由此, 人们开始关注以不定积分形式出现的函数的性质.
+
+特别地, 1694 年, James Bernoulli 分析杆的弯曲方式, 由此引入“双纽线” (lemniscate), 即方程为 $(x^2+y^2)^2=a^2(x^2-y^2)$ 的 8 字形曲线, 其中 $a$ 非零. 他用极坐标求得弧长 $s$ 为
+\[
+s=\int_0^r\frac{a^2\,dr}{\sqrt{a^4-r^4}}.
+\]
+他猜测 $s$ 不能用初等函数表达. 在求椭圆轨道弧长的尝试中, 类似积分早已出现; 因而这些积分被称为“椭圆积分”.
+
+1698 年, James 的弟弟 John 回顾到, 对数函数以及反三角
+% PDF250 / printed238
+函数的和与差所对应的自变量之间存在代数关系. 接着他证明, 类似地, 给定三次抛物线 $y=x^3$ 上从原点出发的两段弧, 它们的长度之差等于某个第三段这样的弧的长度. 他还提出了寻找更多此类现象的问题.
+
+果然, 1714 至 1720 年间, Fagnano 用一些专门的方法, 找到了椭圆、双曲线和双纽线的弦与弧的类似关系. Fagnano 的工作又促使 Euler 于 1757 年发现“加法公式”
+\[
+\int_0^{x_1}\frac{dx}{\sqrt{1-x^4}}\mathbin{\pm}\int_0^{x_2}\frac{dx}{\sqrt{1-x^4}}=\int_0^{x_3}\frac{dx}{\sqrt{1-x^4}},
+\]
+其中变量 $x_1,x_2,x_3$ 必须满足对称关系
+\[
+\begin{aligned}
+&x_1^4x_2^4x_3^4+2x_1^4x_2^2x_3^2+2x_1^2x_2^4x_3^2+2x_1^2x_2^2x_3^4\\
+&\qquad+x_1^4+x_2^4+x_3^4-2x_1^2x_2^2-2x_1^2x_3^2-2x_2^2x_3^2=0.
+\end{aligned}
+\]
+1759 年, Euler 把这个公式推广到另外一些椭圆积分. 具体地说, Euler 发现, 两个这样的积分的和或差, 等于某个第三个积分再加上一个初等函数. 此外, 他遗憾地表示, 自己只能处理平方根和四次幂, 而不能处理更高次的根或幂.
+
+1826 年, Abel 取得重大进展: 他发现了一个具有广泛一般性的加法定理. 它涉及某些代数积分, 不久这些积分就被称为“Abel 积分”. 它们具有如下形式:
+\[
+\psi x:=\int_{x_0}^xR(x,y)\,dx,
+\]
+其中 $x$ 是独立复变量, $R$ 是有理函数, $y=y(x)$ 是整代数函数; 即 $y$ 是由形如
+\[
+f(x,y):=y^n+f_1(x)y^{n-1}+\cdots+f_n(x)=0
+\]
+的不可约方程隐式定义的多值函数, 其中 $f_i(x)$ 是 $x$ 的多项式.
+
+设 $p$ 是曲线 $f=0$ 的亏格, $h_1,\ldots,h_\alpha$ 是有理数. 则 Abel 加法定理断言
+\[
+h_1\psi x_1+\cdots+h_\alpha\psi x_\alpha=v+\psi x'_1+\cdots+\psi x'_p,
+\]
+其中 $v$ 是独立变量 $x_1,\ldots,x_\alpha$ 的初等函数, $x'_1,\ldots,x'_p$ 是它们的代数函数. 更确切地说, $v$ 是 $x_1,\ldots,x_\alpha$ 的一个代数函数与另一些代数函数的对数的复线性组合; 而且, $x'_1,\ldots,x'_p$ 对每一种 $\psi x$ 的选择都适用. 最后, $p$ 是最小的: 给定 $x_1,\ldots,x_p$ 的代数函数 $x'_1,\ldots,x'_{p-1}$, 存在积分 $\psi x$, 使得对任意初等函数 $v$, 都有
+\[
+\psi x_1+\cdots+\psi x_p\ne v+\psi x'_1+\cdots+\psi x'_{p-1}.
+\]
+
+Abel 在巴黎完成了这篇 61 页的手稿, 并于 1826 年 10 月 30 日亲自提交给皇家科学院, 后者指定 Cauchy 和 Legendre 为审稿人. 但科学院直到 1841 年才发表它, 距 Abel 于 1829 年 4 月 6 日因肺结核去世已很久.
+
+与此同时, Abel 担心他的手稿永远遗失了. 因此, 他在 Crelle's Journal 第 3 卷 (1828) 中, 非正式地概述了他的一般加法定理. 然后, 他详细处理了一个重要的特殊情形, 即 $f(x,y):=y^2-\varphi(x)$, 其中 $\varphi(x)$ 是
+% PDF251 / printed239
+次数为 $d\geq1$ 的无平方因子多项式. 特别地, Abel 求得
+\[
+p=\begin{cases}(d-1)/2,&\text{若 }d\text{ 为奇数};\\(d-2)/2,&\text{若 }d\text{ 为偶数}.\end{cases}
+\]
+因此, 若 $d\geq5$, 则 $p\geq2$, 所以 Euler 的公式不能延伸到这种情形.
+
+在 Jacobi 的帮助下, Legendre 开始认识到这个情形的重要性. 他在其关于椭圆积分的长篇专著的第三个补编中专门讨论了它; 当 $d=3,4$ 时, 就得到椭圆积分. 当 $d\geq5$ 时, 这些积分有许多相同的形式性质. 因而 Legendre 称它们为“ultra-elliptiques”.
+
+1832 年 3 月 24 日, Legendre 把补编的一份副本寄给 Crelle, 请他安排评论, 而 Crelle 请 Jacobi 撰写评论. Jacobi 把“ultra-elliptiques”译为“hyperelliptischen”, 此后前缀“hyper”沿用至今. 在附信中, Legendre 赞扬 Abel 的加法定理, 用 Horace 的 Ode 3, XXX.1 中那句不朽的话称它为“一座比青铜更长久的纪念碑” (monumentum aere perennius). Jacobi 在评论中说, 若这个定理能获得 Abel 定理之名, 它将成为一座最崇高的纪念碑. 后来果真如此!
+
+受此启发, 几个月后, Jacobi 给出了他对超椭圆情形下 Abel 定理的若干证明中的第一个. 此外, 他提出了著名的问题, 后来称为“Jacobi 反演问题”. 他问道: “在一般情形下, 哪些函数的反函数是 Abel 积分? Abel 定理又揭示了它们的什么性质?”
+
+Jacobi 在 $d=5,6$ 时解决了反演问题. 具体地说, 他构造
+\[
+\psi x:=\int_{x_0}^x\frac{dx}{\sqrt{\varphi(x)}}\quad\text{和}\quad
+\psi_1x:=\int_{x_0}^x\frac{x\,dx}{\sqrt{\varphi(x)}},
+\]
+并置
+\[
+\psi x+\psi y=u\quad\text{和}\quad\psi_1x+\psi_1y=v.
+\]
+他证明了 $x+y$ 和 $xy$ 是 $u,v$ 的具有四个周期的单值函数.
+
+有些历史学家认为 Abel 已经考虑过这个反演, 只是时间不够了. 无论如何, 1827 年, Abel 首创了对椭圆积分求反函数的想法, 得到后来所谓的“椭圆函数”. 他和 Jacobi 对它们进行了广泛研究. 此外, Jacobi 引入“theta 函数”来辅助研究; Riemann 于 1857 年推广了这些函数, 并用它们解决了任意亏格的反演问题.
+
+Abel 关于超椭圆积分的论文共十二页. 其中八页用于一个关键中间结果的计算性证明. 半年后, Abel 在 Crelle's Journal 第 4 卷 (1829) 中发表了一篇两页的论文, 对任意 Abel 积分 $\psi x$ 给出这个结果的概念性证明. 这个结果说, 若 $x_1,\ldots,x_\mu$ 并不独立, 而是曲线 $f=0$ 与一条在线性系中变化的第二条平面曲线的可变交点的横坐标, 则 $\psi x_1+\cdots+\psi x_\mu$ 等于一个初等函数 $v$; 不过, 这个几何表述来自 Clebsch.
+
+在前两篇论文中, Abel 都处理了另外两个中间问题: 首先, 和 $\psi x_1+\cdots+\psi x_\mu$ 何时为常数? 其次, 能独立变化的 $x_i$ 的数目 $\alpha$ 是多少? 引人注目的是, 答案涉及亏格 $p$.
+
+对超椭圆积分, Abel 发现, 若 $\psi x$ 是以下 $p$ 个积分的线性组合, 则 $\psi x_1+\cdots+\psi x_\mu$ 为常数:
+\[
+\int_{x_0}^x\frac{dx}{\sqrt{\varphi(x)}},\quad
+\int_{x_0}^x\frac{x\,dx}{\sqrt{\varphi(x)}},\quad\ldots,\quad
+\int_{x_0}^x\frac{x^{p-1}\,dx}{\sqrt{\varphi(x)}}.
+\]
+
+% PDF252 / printed240
+这里 $x_1,\ldots,x_\mu$ 是曲线 $y^2=\varphi(x)$ 与曲线 $\theta_1(x)y=\theta_2(x)$ 的可变交点的横坐标, 后一条曲线的系数变化, 但 $\theta_2(x)$ 和 $\varphi(x)$ 保持一个固定的公因子 $\varphi_1(x)$. 此外, Abel 发现
+\begin{equation}\tag{9.1.1}\label{ch09:eq911}
+\mu-\alpha\geq p;
+\end{equation}
+等号不总成立, 但给定 $d,\alpha$, 通过适当选择 $\theta_1(x)$ 和 $\varphi_1(x)$ 的次数, 可以达到等号.
+
+假设 $\mu-\alpha=p$. 则
+\[
+\psi x_1+\cdots+\psi x_\alpha=v-(\psi x_{\alpha+1}+\cdots+\psi x_{\alpha+p}),
+\]
+其中 $x_{\alpha+1},\ldots,x_{\alpha+p}$ 是 $x_1,\ldots,x_\alpha$ 的代数函数. 类似地, 给定任意 $x'_1,\ldots,x'_{\alpha'}$, 得到
+\[
+\psi x'_1+\cdots+\psi x'_{\alpha'}+\psi x_{\alpha+1}+\cdots+\psi x_{\alpha+p}
+=v'-(\psi x''_1+\cdots+\psi x''_p).
+\]
+从上一个公式减去这个公式, 并置 $V:=v-v'$. 结果为
+\[
+\psi x_1+\cdots+\psi x_\alpha-\psi x'_1-\cdots-\psi x'_{\alpha'}
+=V+\psi x''_1+\cdots+\psi x''_p,
+\]
+即 $h_i=\pm1$ 的加法定理. 这个结果本质上就是 Abel 关于超椭圆积分的主定理.
+
+在巴黎手稿中, Abel 对任意 $f$ 处理了两个中间问题. 不过, 他的计算更复杂, 结果也不那么确定. 他发现, 当 $\psi x$ 具有如下形式时, 常值性成立:
+\begin{equation}\tag{9.1.2}\label{ch09:eq912}
+\psi x:=\int_{x_0}^x\frac{h(x,y)}{\partial f/\partial y}\,dx,
+\end{equation}
+其中 $\deg h\leq\deg f-3$. 此外, $h$ 必须满足某些线性条件; 即在曲线 $f=0$ 上, 无论有限远还是无穷远处, 每当 $\partial f/\partial y$ 为零, $h$ 都必须适当地消失. Abel 把独立的 $h$ 的最大数目作为亏格 $p$.
+
+此外, Abel 发现存在 $i\geq0$, 使得
+\begin{equation}\tag{9.1.3}\label{ch09:eq913}
+\mu-\alpha=p-i.
+\end{equation}
+这与 (9.1.1) 不矛盾, 因为两个 $\alpha$ 不同; (9.1.1) 中的交点线性系是不完全的, 而 (9.1.3) 中的线性系是完全的.
+
+随着时间推移, 许多人的努力澄清并补全了 Abel 的思想. 毫无疑问, Riemann 在其 1857 年关于 Abel 函数的革命性论文中作出了最大的贡献. 在 1851 年的学位论文中, 他发展了一种把复分析推广到单变量 $x$ 的多值函数 $y$ 的方式: 把 $y$ 看作 $x$-平面的抽象多层覆盖上的单值函数, 这个覆盖就是 $y$ 的“Riemann 曲面”. 1857 年, 他处理了曲面紧的情形, 并证明这恰好对应于 $y$ 为代数函数的情形.
+
+Riemann 从拓扑上定义亏格 $p$, 本质上就是曲面第一 Betti 数的一半. 不过, “亏格”这个术语并非出自 Riemann, 而出自 Clebsch. Clebsch 于 1865 年引入它, 表明他希望利用 $p$ 来分类代数曲线. 他证明, 每条亏格为 $0$ 的曲线都双有理等价于直线, 每条亏格为 $1$ 的曲线都双有理等价于一条非奇异平面三次曲线.
+
+同在 1865 年, Clebsch 给出了平面曲线亏格 $p$ 的代数几何公式: 若曲线次数为 $d$, 至多有 $\delta$ 个结点和 $\kappa$ 个尖点, 则
+\[
+p=(d-1)(d-2)/2-\delta-\kappa.
+\]
+
+% PDF253 / printed241
+次年, Clebsch 和 Gordan 用这个公式证明了 $p$ 的双有理不变性; 他们确定了 $d,\delta,\kappa$ 如何变化.
+
+显然, 双有理等价的曲线有同胚的 Riemann 曲面, 因而亏格 $p$ 相同. 但 Clebsch 已不满足于仅仅展示 Riemann 工作的推论. 他现在希望以 Cayley, Salmon, Sylvester 所发展的曲线代数理论为基础, 建立 Abel 积分理论. 当时, Riemann 的理论陌生且受到怀疑; 彼时还没有流形理论, 也没有 Dirichlet 原理的证明. Clebsch 的努力引起了代数几何的重大转变, 使它转向双有理不变量的研究.
+
+Riemann 把处处有限的积分定义为“第一类”积分. 他证明这些积分构成维数为 $p$ 的向量空间. 此外, 只要曲线 $f=0$ 至多有二重点, 每个这样的积分都能表示成 (9.1.2) 的形式; 这时, 对 $h$ 的线性条件只要求 $h$ 在这些二重点处消失. 1874 年, Brill 和 M. Noether 将这一结果推广至普通 $m$ 重点: $h$ 必须消失到 $m-1$ 阶. 他们称这样的 $h$ 为“伴随式” (adjoints). 与此同时, 从 1858 年的 Kronecker 和 1871 年的 Noether 开始, 一直到 1938 年的 Muhly 和 Zariski, 许多代数几何学家都发展了相应的方法, 借助双有理变换约化给定平面曲线的奇点.
+
+Euler 注意到积分 $\int_0^x dx/\sqrt{1-x^4}$ 有一种类似于反三角函数的“多值模”. Abel 注意到任意 Abel 积分也有类似的不确定性, 但将其视为一种积分常数, 并通过把定义域保持得很小来回避它. Riemann 彻底澄清了这个问题. 他证明每个第一类积分都有 $2p$ 个“周期”, 即一些数, 它们生成因积分路径改变而导致的积分值的一切可能变化.
+
+Riemann 实际上做了如下工作. 他固定第一类积分的一组基 $\psi_1x,\ldots,\psi_px$, 并固定由 $2p$ 条路径组成的同调基. 然后在向量空间 $\mathbb C^p$ 中, 构造由相应的 $2p$ 个 $p$ 维周期向量生成的格 $\mathbb L$. 他证明商是一个 $p$ 维复环面
+\[
+J:=\mathbb C^p/\mathbb L.
+\]
+后来, 为纪念 Jacobi 在反演方面的工作, $J$ 被称为“Jacobian”.
+
+设 $C$ 是曲线 $f=0$, 或更准确地说, 是相应的 Riemann 曲面. 设 $C^{(\mu)}$ 是其 $\mu$ 重对称积. Riemann 实际上构造了如下映射:
+\[
+\begin{gathered}
+\Psi_\mu:C^{(\mu)}\longrightarrow J,\\
+\Psi_\mu(x_1,\ldots,x_\mu)=\left(\sum_{i=1}^\mu\psi_1x_i,\ldots,\sum_{i=1}^\mu\psi_px_i\right).
+\end{gathered}
+\]
+映射 $\Psi_\mu$ 十分重要. 它被称为“Abel--Jacobi 映射”和“Abel 映射”. 后一个名称在历史上更准确, 也更简短, 所以更好.
+
+Riemann 实际上研究了 Abel 映射 $\Psi_\mu$ 的纤维. 他证明, 若两个除子 $x_1+\cdots+x_\mu$ 和 $x'_1+\cdots+x'_\mu$ 线性等价, 则
+\[
+\Psi_\mu(x_1,\ldots,x_\mu)=\Psi_\mu(x'_1,\ldots,x'_\mu).
+\]
+Riemann 把这个结果称为“Abel 加法定理”, 并引用了 Jacobi 于 1832 年在超椭圆情形下给出的证明.
+
+这个结果的逆命题也成立. 不过 Abel 没有认识到它, 而在 Riemann 的论文中, 充其量也只是隐含于字里行间. 这个逆命题最早由
+% PDF254 / printed242
+Clebsch 于 1864 年明确陈述, 又在后来某个时候由 Weierstrass 首次完整地证明. 1913 年, 在 Weyl 那本著名的 Riemann 曲面专著中, Weyl 把这个结果及其逆命题合在 Abel 定理的名下. 此后, 大多数数学家都沿用了这种做法, 尽管 Weyl 曾解释, 这样做在历史上并不准确.
+
+上述结果及其逆命题一起意味着, 纤维 $\Psi_\mu^{-1}\Psi_\mu(x_1,\ldots,x_\mu)$ 是由 $x_1+\cdots+x_\mu$ 决定的完全线性系. 它的维数正是 Abel 的 $\alpha$, 即在线性系中能够独立变化的 $x_i$ 的数目. 此外, Riemann 实际上重新发现了 Abel 的公式 (9.1.3), 而 1864 年, Roch 把 $i$ 确定为在 $x_1,\ldots,x_\mu$ 上消失的独立伴随式的数目. 1874 年, 受到 Clebsch 启发的 Brill 和 Noether 首次以代数几何方式处理这个公式, 并把它的陈述命名为“Riemann--Roch 定理”.
+
+最后, Riemann 处理了反演问题. 他实际上证明 Abel 映射 $\Psi_p$ 在某个饱和的 Zariski 开子集 $U\subseteq C^{(p)}$ 上是双全纯的; 具体地, $U$ 是 $C^{(p-1)}$ 经映射
+\[
+(x_2,\ldots,x_p)\longmapsto(x_0,x_2,\ldots,x_p)
+\]
+在 $C^{(p)}$ 中的像的补集. 逆映射 $\Psi_pU\to U$ 可用 $C^{(p)}$ 上的坐标函数来表达, 从而用 $\Psi_pU$ 上的函数来表达. 因为 $J:=\mathbb C^p/\mathbb L$, 这些函数可以提升到 $\mathbb C^p$ 的开子集上, 再延拓为 $\mathbb C^p$ 上具有 $2p$ 个周期的亚纯函数. Riemann 称这些特殊函数为“Abel 函数”.
+
+两年后, 即 1859 年, Riemann 证明每个 $p$ 变量亚纯函数 $F$ 至多有 $2p$ 个独立的周期向量. 恰有 $2p$ 个的那些 $F$, 很快被称为“Abel 函数”. 许多人研究了它们, 包括 Weierstrass, Frobenius 和 Poincaré. 特别地, 1869 年, Weierstrass 注意到并非每个 $F$ 都来自曲线.
+
+取所有周期群包含 $\mathbb C^p$ 中给定秩 $2p$ 格 $\mathbb L$ 的“Abel 函数”组成的集合 $K$. 结果表明, $K$ 是 $\mathbb C$ 上超越次数为 $p$ 的域. 因此, $K$ 是某个 $p$ 维射影代数簇 $A$ 的有理函数域, 而 $A$ 的一个 Zariski 开集由其中 $p$ 个函数参数化. 这样的 $A$ 有很多, 起初它们都被称为“Abel 簇”. 1919 年, Lefschetz 证明存在一个特殊的 $A$, 其底集合可以自然地与 $\mathbb C^p/\mathbb L$ 等同, 并把“Abel 簇”这个术语限制于它.
+
+Abel 簇 $A$ 的点不仅组成群, 而且加法和取逆运算由多项式给出. 因而 $A$ 是完备代数群, 或 Weil 于 1948 年所定义的“Abel 簇”. Weil 证明了每个这样的抽象 Abel 簇都是交换的. 更早的 1889 年, Picard 实际上已在曲面情形下证明了这个交换性.
+
+每个连通射影代数群, 都可用具有共同周期格的 Abel 函数作整体参数化. Picard 于 1889 年对曲面证明了这个事实, 又于 1895 年在群交换的假设下对任意维数证明了它. 1903 年, Painlevé 补全了其证明中的某些分析细节. 因此 Lefschetz 和 Weil 对 Abel 簇的两个定义一致; 不过, Weil 是在任意特征中工作的.
+
+对上述曲线 $C$, 它的 Jacobian $J$ 因而是 Abel 簇. 而且对任意 $\mu\geq p$, $J$ 都是 $C^{(\mu)}$ 模掉线性等价的商. 所以 $J,\Psi_\mu$ 虽由积分定义, 却由多项式给出! $J$ 上的加法对应于除子的加法. 因此, 只需构造这个商, 就可以用代数几何方法构造 $J,\Psi_\mu$. Severi 把这个构造归于 Castelnuovo.
+
+% PDF255 / printed243
+1905 年, Castelnuovo 把这个构造推广至曲面. 为了铺垫, 他回顾了曲线情形, 称其为众所周知的 (notissimo). 他的工作是不规则曲面史上的里程碑, 而这段历史始于 1868 年.
+
+1868 年, Clebsch 把 Abel 的公式 (9.1.2) 推广到具有普通奇点、且 $z$ 轴上的无穷远点不在其上的曲面 $f(x,y,z)=0$; 换言之, $f=0$ 是一个光滑曲面的一般投影. Clebsch 证明每个第一类二重积分都具有形式
+\[
+\iint\frac{h(x,y,z)}{\partial f/\partial z}\,dx\,dy,
+\]
+其中 $\deg h=\deg f-4$, 且每当 $\partial f/\partial z$ 为零时, $h$ 也消失. 独立积分的数目后来称为“几何亏格”, 记为 $p_g$.
+
+1870 年, M. Noether 找到了 Clebsch 所猜测的 $p_g$ 的双有理不变性的代数几何证明. 1871 年, Cayley 找到了独立 $h$ 的预期数目的公式, 后来称为“算术亏格”, 记为 $p_a$. 他注意到, 若 $f=0$ 是以亏格为 $p$ 的曲线为底的直纹曲面, 则 $p_a=-p$, 但 $p_g=0$. 同年稍后, Zeuthen 用 Cayley 的公式给出了 $p_a$ 也为双有理不变量的代数几何证明.
+
+1875 年, Noether 解释了 $p_g,p_a$ 之间出乎意料的差别: $h$ 的消失条件不必独立; 无论如何, $p_g\geq p_a$. 他指出, 若三维空间中的曲面 $f=0$ 光滑或有理, 则 $p_g=p_a$. 人们预期等式通常成立; 因而成立时就称 $f=0$ 为“规则的”. 差 $p_g-p_a$ 定量衡量了 $f=0$ 偏离规则情形的程度, 因此 $p_g-p_a$ 被称为其“不规则度”.
+
+1884 年, Picard 在曲面 $f=0$ 上研究闭的单重积分
+\[
+\int P(x,y,z)\,dx+\int Q(x,y,z)\,dy,
+\]
+即满足 $\partial P/\partial y=\partial Q/\partial x$ 的积分; 它们后来称为“Picard 积分”. 用 $q$ 表示独立的第一类 Picard 积分的数目. Picard 指出, 若 $f=0$ 光滑, 则 $q=0$. 1894 年, Humbert 证明, 若 $q=0$, 则每个代数曲线系都包含在某个线性系中.
+
+受 Humbert 结果启发, 1896 年, Castelnuovo 证明, 若 $p_g-p_a=0$, 则在某个限制条件下, $f=0$ 上的每个代数曲线系都包含在某个线性系中. 1899 年, Enriques 去掉了这个限制. 这个结果及其逆命题共同刻画规则曲面; 它们的现代表述见习题 9.5.16 和 9.5.17.
+
+1897 年, Castelnuovo 固定曲面 $f=0$ 上的一个线性曲线系, 研究其他成员在一般成员上截出的“特征”线性系. 设 $\delta$ 是特征系的维数比其完全线性系的维数少的数目, 称为“亏量” (deficiency). Castelnuovo 证明
+\[
+\delta\leq p_g-p_a,
+\]
+而对适当高次曲面截出的系, 等号成立.
+
+1904 年 2 月, Severi 推广了 Castelnuovo 的工作. Severi 取曲面 $f=0$ 上无重复的完全代数曲线系, 设其参数空间为维数 $R$ 的 $\Sigma$. 设 $\sigma\in\Sigma$ 是一般点, $C_\sigma$ 是对应曲线. 假设 $C_\sigma$ 在维数为 $r$ 的完全线性系中变化. 现在, Severi 以单射方式给 $\sigma\in\Sigma$ 处的每个切方向配上 $C_\sigma$ 上的完全特征系的
+% PDF256 / printed244
+一个成员. 这样就得到一个 $R$ 维的“特征”线性子系. 完全特征系的维数为 $r+\delta$. 因此,
+\[
+R\leq r+p_g-p_a.
+\]
+
+几个月后, Enriques, 以及稍后的 Severi, 都给出了如下断言的证明: 若 $C_\sigma$ 充分正, 则上式等号成立; 换言之, 这时 $\Sigma$ 的特征系是完全的. 如 Severi 本人于 1921 年指出的, 这两个证明都有严重缺口. 与此同时, 1910 年, Poincaré 以分析方法构造了一个 $R=p_g-p_a$, $r=0$ 的族. 借助曲面的 Riemann--Roch 定理, 可以形式地推出: 每当 $C_\sigma$ 充分正, 特征系就完全. 在 Severi 提出批评之后, 寻找这个问题的纯代数几何处理方式, 成为一个重要的公开问题. 不过, 参见推论 9.5.5 和注 9.5.18: 最终的解决在四十年后到来, 依靠的是 Grothendieck 对幂零元的系统使用!
+
+1905 年 1 月中旬, Severi 证明了 $p_g-p_a\geq q$ 和 $p_g-p_a=b-q$, 其中 $b$ 是独立的第二类 Picard 积分的数目, 它等于第一 Betti 数. 同时且独立地, Picard 也证明了 $p_g-p_a=b-q$.
+
+一周之后, 以及同年 5 月、6 月更完整地, Castelnuovo 朝这个方向迈出了最后一步. 他固定充分正的 $C_\sigma$, 并构造 $\Sigma$ 模掉线性等价的商, 记为 $P$. 因此 $P$ 是射影的, 且 $\dim P=p_g-p_a$. 此外, 因为两条充分正的曲线之和是第三条这样的曲线, 所以 $P$ 与 $C_\sigma$ 的选择无关, 并且是交换群簇. 因而, 由上面提到的、经 Painlevé 补全的 Picard 的一般定理, $P$ 是 Abel 簇. 所以 $P$ 由 $\dim P$ 个 Abel 函数参数化. Castelnuovo 证明, 它们在 $f=0$ 上诱导独立的 Picard 积分. 因此 $p_g-p_a\leq q$. 这样, Castelnuovo 得到了不规则曲面的基本定理:
+\begin{equation}\tag{9.1.4}\label{ch09:eq914}
+\dim P=p_g-p_a=q=b/2.
+\end{equation}
+这个结果的现代讨论见注 9.5.15 和习题 9.5.16. 1905 年, “Abel 簇”这个术语还没有使用, 所以 Castelnuovo 很自然地把 $P$ 称为曲面 $f=0$ 的“Picard 簇”.
+
+Picard 也研究了曲面 $f=0$ 上的第三类 Picard 积分. 1901 年, 他证明存在最小整数 $\varrho$, 使得任意 $\varrho+1$ 条曲线都是某个这样的积分的对数曲线. 基于这个结果, 1905 年, Severi 实际上证明 $\varrho$ 是所有曲线模掉代数等价所成群的秩. 1952 年, Néron 在任意特征中证明了这个结果. 因此, 这个群现在称为“Néron--Severi 群”, 而 $\varrho$ 称为“Picard 数”.
+
+1908 年和 1910 年, Severi 实际上研究了 Néron--Severi 群的挠子群, 特别是证明了它有限. 1957 年, Matsusaka 在任意特征中证明了这个有限性. 不过, 这个子群及其阶并没有专门的名称. 关于它们及 $\varrho$ 的更多内容, 见推论 (9.6.17) 和注 (9.6.19).
+
+在任意特征中工作的动力来自数论的发展. 1921 年, E. Artin 在学位论文中, 实际上对奇特征素域上的超椭圆曲线提出了 Riemann 假设的类似物. 1929 年, F. K. Schmidt 把 Artin 的工作推广到所有有限域上的所有曲线, 并用 Dedekind 和 Weber 的几何风格重新表述. 1882 年,
+% PDF257 / printed245
+他们曾把曲线看作 $\mathbb C$ 上超越次数为 $1$ 的有限生成域中的离散赋值环的集合, 并对 Riemann--Roch 定理给出了抽象代数处理. Schmidt 注意到, 他们的处理只需少量修改就能用于任意特征; 他用 Riemann--Roch 定理证明了 Artin 的 zeta 函数满足自然的函数方程.
+
+1936 年, Hasse 借助椭圆函数理论的类似物, 在亏格 $1$ 时证明了 Artin 的 Riemann 假设. 随后, 他和 Deuring 注意到, 要将证明推广至更高亏格, 需要发展一种曲线间的对应理论, 类似于 Hurwitz 等人所发展的理论. 这项工作启发 Weil 研究 Frobenius 对应的不动点, 引出了他 1940 年的结果宣布及 1948 年的两个伟大证明: 证明任意曲线 zeta 函数的 Artin 的 Riemann 假设, 以及证明他对 Artin 于 1923 年和 1930 年引入的 $L$-函数的类似物的整性.
+
+首先, 1946 年, Weil 从头仔细重建了代数几何的基础. 追随 E. Noether, van der Waerden 和 Schmidt 的脚步, Weil 在一个固定的、具有无限超越次数的代数闭坐标域中, 取任意特征的可变系数域. 然后, 他通过拼接射影簇的片段构造“抽象”簇, 并规定何时这些簇“完备”. 最后, 他发展了代数闭链的演算.
+
+1948 年, Weil 出版了两部令人振奋的专著. 在第一部中, 他重新证明了 (光滑完备) 曲线的 Riemann--Roch 定理, 这是他视为基础性的定理 (见 [Wei79, I, 第 562 页上部; II, 第 541 页上部]). 随后, 他发展了曲线间对应的初等理论, 其中包括 Castelnuovo 于 1906 年给出的对应等价亏量的正定性定理. 当然, Castelnuovo 的证明在 $\mathbb C$ 上进行, 但用 Weil 在 1954 年 ICM 报告中的话说, “一旦创造了所需技术, 把它译成抽象语言本质上就只是例行工作了”. 最后, Weil 推出了 Riemann 假设.
+
+在第二部专著中, Weil 建立了 Abel 簇的抽象理论. 他把对称积 $C^{(p)}$ 的某个开子集的若干副本拼接起来, 构造亏格为 $p$ 的曲线 $C$ 的 Jacobian $J$. 然后, 取不同于特征的素数 $l$, 利用 $J$ 上所有阶为 $l^n$ ($n\geq1$) 的点, 构造对应环的一个 $l$-进表示, 它等价于 $C$ 的第一上同调群上的表示. 最后, 他证明了这个表示的迹的正定性, 再次证明 zeta 函数的 Riemann 假设, 并完成了他对 Artin 关于数域 $L$-函数的整性猜想的类似物的证明.
+
+Weil 留下了两个问题: 曲线及其 Jacobian 是否具有相同的系数域? 每个 Abel 簇是否射影? Chow 和 Matsusaka 很快对两个问题都给出了肯定答案. 不过, 构造非射影簇和寻找射影性判别法, 仍一直受到一定关注. 此外, Weil 于 1956 年开始研究系数域下降的一般问题, 而这项工作又启发了 Grothendieck 的一般下降理论, 后者在 [FGA, 第 236 号] 中作了概述.
+
+1949 年, Weil 发表了他关于任意维数簇的 zeta 函数的著名猜想. Weil 没有用某种假想的上同调理论明确解释这些猜想, 但这样的解释隐含在他的论文中. 此外, Serre 于 1956 年的
+% PDF258 / printed246
+“墨西哥论文” [Ser58, 第 24 页] 和 Grothendieck 于 1958 年的 ICM 报告, 都明确把这种解释归功于他.
+
+Grothendieck 在报告中宣布, 他找到了发展所需“Weil 上同调”的新途径. 他写道: “这一想法一方面来自层论上同调与 Galois 群上同调之间的联系, 另一方面来自簇的非分歧覆盖的分类……, 还来自 Serre 的一个想法: 一个‘合理的’代数主纤维空间……, 如果不是局部平凡的, 就应当在某个于给定点上非分歧的覆盖上变为局部平凡.” 这就是 Grothendieck 拓扑的宣布.
+
+1960 年, Grothendieck 和 Dieudonné [EGAI, 第 6 页] 列出了计划撰写的各章标题. 最后一章, 即第 XIII 章, 标题为“Cohomologie de Weil”. 倒数第二章标题为“Schémas abéliens et schémas de Picard”. 更早, 在 1958 年 ICM 报告的结尾, Grothendieck 曾列出五个公开问题; 第五个就是构造 Picard 概形.
+
+1950 年, Weil 发表了一篇关于 Abel 簇的重要短文. 对每个任意维数、任意特征的完备正规簇 $X$, 他说应当有两个相联系的 Abel 簇, 即“Picard”簇 $P$ 和“Albanese”簇 $A$, 并具有下面将讨论的某些性质. 他说明自己对光滑复簇 $X$ 已有完整证明, 而在一般情形下有“纲要”. 很快, 所有结论都得到了证明.
+
+Weil 的纲要依赖于线性等价的两个判别法, 由 Severi 于 1906 年发展, 又由 Weil 在 1950 年短文中重新表述. 他于 1952 年宣布了它们的证明, 并于 1954 年发表细节. 更多资料见 [Zar71, 第 120 页] 和注 9.5.8. Weil 在对其 1954 年论文的评注中写道: “自 1949 年以来, 我一直认为构造 Picard 簇的代数理论是抽象代数几何中最紧迫的任务.”
+
+这些性质如下. 首先, $P$ 参数化 $X$ 上除子的线性等价类. 存在映射 $X\to A$, 它在如下意义下具有“泛性”: 从 $X$ 到 Abel 簇的每个映射都经过它分解. 在对这篇短文的评注中, Weil 解释 $P$ 是由 Castelnuovo 引入并命名的; 因而从历史上说, 以 Castelnuovo 之名命名 $P$ 是有根据的, 但最好不要改动通用名称. 相比之下, Weil 选择以 Albanese 之名命名 $A$, 为的是纪念他于 1934 年将 $A$ 看作 $X$ 的对称幂的商的工作, 尽管 $A$ 已由 Severi 于 1913 年引入并研究.
+
+其次, 若 $X$ 是 Abel 簇, 则 $X$ 等于 $P$ 的 Picard 簇; 所以 $X,P$ 互为“对偶”. 若 $X$ 任意, 则 $A,P$ 是对偶 Abel 簇; 事实上, 泛映射 $X\to A$ 诱导从 $A$ 的 Picard 簇到 $P$ 的典范同构. 若 $X$ 是曲线, 则 $A,P$ 都与 $X$ 的 Jacobian 相同, 且泛映射 $X\to A$ 就是 Abel 映射; 换言之, Jacobian “自对偶”. 这种自对偶性可以视为第一类积分的 Abel 定理及其逆命题的代数几何表述. 更多内容见注 9.5.24--9.5.26.
+
+1951 年, Matsusaka 给出了 $P$ 的第一个代数构造. 不过, 由于应用了 Weil 的结果, 即一个等价判别法和 Jacobian 的构造, 他不得不扩张底域. 两处应用都涉及“泛曲线”, 即 $X$ 与互补维数的一般线性空间的截面. 1952 年, Matsusaka 给出了不同的构造; 它不必扩张底域, 但要求 $X$ 光滑.
+
+% PDF259 / printed247
+这两个构造都与 Castelnuovo 的构造相似: 首先构造充分正除子的一个完全代数系, 然后构造模掉线性等价的商. 为参数化除子, Matsusaka 使用了“Chow 坐标”理论, 由 Chow 和 van der Waerden 于 1938 年发展, 同期又由 Chow 加以完善. 1952 年, Matsusaka 也用这个理论来构造商. 在同一篇论文中, 他首次构造了 $A$, 再次使用泛曲线的 Jacobian, 但并未联系 $A,P$.
+
+1954 年, Chow 发表了一个 Jacobian 的构造, 类似于 Matsusaka 对 $P$ 的第二个构造. Chow 于 1949 年已宣布它, 其间 Weil 和 Matsusaka 都提到过它. 1955 年, Chow 用一种新方法构造了 $A,P$; 他取泛曲线的 Jacobian 的“像”和“迹”. 此外, 他证明泛映射 $X\to A$ 诱导从 $A$ 的 Picard 簇到 $P$ 的同构.
+
+在 1954--55 年芝加哥大学的一门课程中, Weil 给出了更完整、更优美的处理, 以他从 Severi 那里改造而来的“跷跷板原理” (see-saw principle), 以及他自己的平方定理和立方定理为基础. 这种处理成为 Lang 于 1959 年出版的著作 Abelian Varieties 的核心. 想法是先用泛曲线构造 $A$, 再把 $P$ 构造为 $A$ 模掉有限子群的商; 因而不必使用 Chow 坐标.
+
+1959 年和 1960 年, Nishi 和 Cartier 独立地在完整的一般性下建立了 $A,P$ 之间的对偶性.
+
+1952 至 1957 年间, Rosenlicht 发表了一系列重要论文, 源自他 1950 年的 Harvard 学位论文. 论文由 Zariski 指导, 而 Zariski 曾于 1921 至 1927 年在罗马跟随 Castelnuovo, Enriques 和 Severi 学习 Abel 函数与代数几何. 特别地, Rosenlicht 把线性等价和第一类微分的概念推广到具有任意奇点的曲线. 随后, 他在 $\mathbb C$ 上通过积分、在任意特征中通过拼接, 构造了“广义 Jacobian”. 它不是 Abel 簇, 而是正规化曲线的 Jacobian 被仿射代数群的扩张.
+
+Rosenlicht 引用了 Severi 1947 年的专著 Funzioni Quasi Abeliane, 其中首次讨论广义 Jacobian, 但只涉及具有二重点的曲线. Severi 又将相应的拟 Abel 函数理论的历史追溯到 Klein, Picard, Poincaré 和 Lefschetz.
+
+1956 年, Igusa 在任意特征中证明, 当一般曲线光滑、特殊曲线至多有一个结点时, 曲线的特殊化与其广义 Jacobian 的特殊化相容. Igusa 解释说, 1952 年, Néron 已研究过这样一个 Jacobian 族的总空间, 但没有明确分析特殊纤维. Igusa 的方法在精神上类似于此前 Castelnuovo, Chow, Matsusaka 和此后 Grothendieck 的方法. 不过, Grothendieck 走得远得多: 他对具有任意奇点、任意维数的簇族证明了与特殊化的相容性, 同时适用于等特征和混合特征.
+
+1960 年, Chevalley 利用局部主除子闭链为任意正规簇 $X$ 构造了 Picard 簇. Cartier 已在 1958 年的巴黎学位论文中关注过这些闭链. 不过, Chevalley 说他将简单地称它们为“除子”, 我们也如此, 尽管它们现在通常称为“Cartier 除子”.
+
+% PDF260 / printed248
+首先, Chevalley 构造了一个“严格的”Albanese 簇; 它对于到 Abel 簇的正则映射 (态射) 具有泛性. 然后, 他把它的 Picard 簇作为 $X$ 的 Picard 簇. 他指出, 他的 Picard 簇和 Albanese 簇不必等于 $X$ 的某个解奇点的相应簇. 相比之下, Weil 的 $P,A$ 是双有理不变量, 其泛映射 $X\to A$ 是有理映射, 在 $X$ 光滑的地方都有定义. 1962 年, Seshadri 把 Chevalley 的构造推广到具有任意奇点的簇, 从而恢复了 Rosenlicht 的广义 Jacobian.
+
+早在 1924 年, van der Waerden 就发起了以交换代数为基础重建代数几何全部基础的计划. 他的目标是响应 Hilbert 第十五问题的要求, 发展 Schubert 枚举几何的严格理论. Van der Waerden 借助了 Kronecker, Dedekind 和 Hilbert 学派所发展的消元理论、理想理论和域论. 特别地, van der Waerden 首创了代数的特殊化概念, 以代替拓扑的连续性概念.
+
+1934 年, Zariski 在撰写其著作 [Zar71] 时, 对他的意大利老师们的代数几何的清晰性、精确性和完整性失去了信心. 他花了几年时间研究 E. Noether 和 Krull 的代数, 目标是严格地约化奇点. 他引入了三个代数工具: 正规化、赋值论和完备化. 他广泛使用把任意域上的仿射坐标整环在任意素理想处局部化所得到的环. 1944 年, 他又在一个代数函数域中所有赋值环的集合上赋予拓扑, 并使用了每个开覆盖都有有限子覆盖的性质.
+
+1949 年, Weil 看出, 可以在他的抽象簇上赋予“Zariski 拓扑”, 简化旧有叙述, 并提示人们构造新对象, 如局部平凡纤维空间. 在 1950 年关于 Abel 簇的论文中, 他指出线丛与除子的线性等价类相对应, 并预言线丛将在拟 Abel 函数理论中发挥作用.
+
+1955 年, Serre 为抽象代数几何提供了一个非常强大的新工具: 层上同调. 给定一个赋有 Zariski 拓扑的簇, 他把局部环组织成一个“结构”层的茎. 随后, 他发展了凝聚层的上同调理论, 类似于他与 Cartan, 以及 Kodaira 与 Spencer 刚在复解析几何中发展的理论; 该理论已被如此成功地用于建立并推广以往关于复代数簇的工作.
+
+大约同时, Chevalley 发展了抽象代数几何的一般理论. 他没有使用层和上同调, 但使用了他称为“概形”的对象, 由拼接“仿射概形”得到; 一个仿射概形是把任意域上的有限生成整环局部化所得到的环的集合. 不过, 在研究代数群理论时, 他很快又回到了更传统的“簇”理论.
+
+1954 年 1 月, Chevalley 在 Kyoto University 讲授概形. 他的讲课启发 Nagata 在 [Nag56] 中用 Dedekind 整环代替系数域, 推广这一理论. 不过, Nagata 使用的是 Zariski 的术语“模型”, 而非 Chevalley 的术语“概形”. 更早在 1950 年 ICM 上, Weil 曾回顾 Kronecker 关于整数上代数几何的梦想; 然而 Nagata 没有引用 Weil 的报告, 很可能也并非受其启发.
+
+% PDF261 / printed249
+1955 年秋, Chevalley 在 Séminaire Cartan--Chevalley 讲授域上的概形, Grothendieck 在场. 到 1956 年 2 月 (见 [CS01, 第 32 页]), Grothendieck 已在拼接任意 Noether 环的谱, 并研究 Cartier 的“拟凝聚”层的上同调. 增加这种一般性有充分理由: 幂零元有利于处理高阶无穷小形变、正特征中的不可分性以及向完备化的过渡; 拟凝聚层具有凝聚层在技术上的便利, 却没有其繁重的有限性要求. 到 1958 年 10 月 (见 [CS01, 第 63 页]), Grothendieck 和 Dieudonné 已开始撰写 EGA 的宏大计划: 再次重建代数几何基础, 以提供更灵活的框架、更强大的方法以及更精细的理论.
+
+同在 1958 年, 还出现了另外两篇讨论类似于 Chevalley 概形的对象的论文: Kähler 出版了一部 400 页的基础性专著, 引入一般换基; Chow 和 Igusa 发表了一篇四页的短文, 证明凝聚层的 Künneth 公式. [CS01, 第 101 页], [EGAI, 第 8 页] 和 [EGAG, 第 6 页] 都简略提到这两项工作; 不过, 它们似乎对 Grothendieck 很少有影响, 或没有影响.
+
+最后, 1961--1962 年, Grothendieck 构造了 Hilbert 概形和 Picard 概形. 这个构造是技术上的杰作, 展示了 Grothendieck 新工具的巨大力量. 特别地, 平坦性理论起着核心作用. Serre 于 1956 年把它作为比较代数函数与解析函数的形式工具引入. 随后 Grothendieck 大力发展这个理论, 因为他认识到平坦性是最能表达族中连续性的技术条件.
+
+Grothendieck [FGA, 第 221-1 页] 认为 Hilbert 概形“注定要取代”Chow 坐标. 但他 [FGA, 第 221-7 页] 不得不借助 Chow 坐标理论来获得一个关键的有限性结果: 射影空间中给定次数的子簇构成有界族. 几年后, Mumford [Mum66, 第 14, 15 讲] 给出了这个有限性的简单直接证明; 其证明引入了一个重要的新工具, 现在称为“Castelnuovo--Mumford”正则性. 略作修改后, 这个工具在下面第 6 章将讨论的 Picard 概形有限性定理的证明中起核心作用.
+% source-error: the scan says Chapter6 here, although the intended reference is section9.6; retained.
+
+在精神上, Grothendieck 对 Picard 概形的构造与 Castelnuovo 和 Matsusaka 的构造相似. 他从一个充分正的除子确定的 Hilbert 概形的分支 $\Sigma$ 出发, 然后构造商; 事实上, 为展示不同方法, 他做了两次. 第一次使用“拟截面”; 第二次更优美, 使用 $\Sigma$ 的 Hilbert 概形.
+
+Grothendieck 对这两个概形的定义, 比它们的构造还是更大的贡献. 他通过点函子定义它们. 这些概形是泛参数空间; 因此当且仅当概形 $T$ 参数化一族子概形或一族可逆层时, $T$ 分别有到它们的映射, 且这个映射唯一.
+
+什么是泛族? 使用概形时, 答案似乎显然. 但 Chow 坐标参数化的是正闭链, 而不是子概形. 即便在 Picard 簇 $P$ 的解析理论中, $P$ 在什么意义下参数化除子类, 也曾有疑问. 事实上, American Journal of Math. 第 74 卷 (1952) 载有三篇关于 $P$ 的论文. 首先, Igusa 构造了 $P$, 但没有解决泛性. 随后 Weil 和 Chow 用不同论证解决了它.
+
+% PDF262 / printed250
+点函子, 或“可表函子”, 不是从概形到集合的任意反变函子. 它由局部决定, 所以是层. 而要表示一个层, 只需局部表示它, 因为拼接已经确定. 因此, 要构造 Hilbert 概形, 第一步就是检验 Hilbert 函子确实是 Zariski 拓扑中的层, 即“Zariski 层”.
+
+朴素 Picard 函子不是 Zariski 层. 所以第一步是将其局部化, 即构造相伴层. 这一次, Zariski 拓扑还不够细. 不过, 由 Grothendieck 下降理论的一个主要定理, 可表函子是 fpqc 层. 实际中, 只需对平展 Grothendieck 拓扑或 fppf 拓扑局部化, 而且这些局部化更便于使用. 第 2 章讨论 Picard 函子的这些局部化.
+% source-error: the scan says Chapter2 here rather than section9.2; retained.
+
+下一步是用可表的 Zariski 开子函子覆盖局部化后的 Picard 函子. 这一步是初等的, 但技术上很复杂, 超过本讲义中的任何其他论证. 它在主要结果定理 9.4.8 的证明中完成. 每个子函子由 Hilbert 概形的某个开子概形的商表示. 这样就构造出 Picard 概形.
+
+总之, Grothendieck 的可表函子方法就像 Descartes 的坐标轴方法: 简单而强大. 这是天才的一个标志!
+
+在以下讲义中, 我们的首要目标是详细发展 Grothendieck 关于 Picard 概形的大部分原始理论, 基本上是补全他在 [FGA] 中的纲要. 次要目标是简要回顾 Grothendieck 及其他人所发展的其余大部分理论. 我们在一系列分散的注中回顾这些次要材料. 这些注彼此引用, 也引用主要论述, 但主要论述从不引用这些注. 因此, 初读时可以放心略过它们.
+
+特别地, 主要论述不发展 Grothendieck 的“相对可表性”方法. 事实上, 细节会使我们偏离主题太远. 另一方面, 若使用这个方法, 可以通过归约到我们实际处理的情形, 在更大的一般性下获得某些存在性定理和有限性定理. 因此, 第 4--6 节的一些结果直接假设 Picard 概形存在, 而不假设保证它存在的条件. 不过, 我们会在注 9.4.18 和其他注中讨论这个方法及其应用.
+
+本讲义还包含许多习题, 要求计算例子和构造证明. 与注不同, 这些习题是主要论述的组成部分; 它们不仅丰富主要论述, 主要论述也部分地建立在它们之上. 此外, 习题旨在帮助理解. 解答不涉及新的概念或技术. 习题原本都应当容易; 若某一部分显得困难, 则也许应当复习和思考. 不过, 所有解答都在附录 9.6 中详细给出.
+% source-error: the scan prints Appendix9.6; the actual answer appendix is A; retained.
+
+本讲义假设读者熟悉 Hartshorne 那本广为使用的教材 [Har77] 第 II, III 章中发展的基本代数几何, 并假设在较低程度上熟悉 Grothendieck 和 Dieudonné 的宏大参考著作 [EGAI] 至 [EGAG] 中发展的基础材料. 此外, 本讲义假设读者熟悉基本的 Grothendieck 拓扑、下降理论和 Hilbert 概形理论, 例如 Bosch, Lütkebohmert 和 Raynaud 那本受欢迎的综述著作 [BLR90] 第 129--147, 199--201, 215--221 页所解释的内容; 这些材料及更多内容由 Grothendieck 在三次 Bourbaki 报告, 即第 190, 212, 221 号中引入, 它们重印在 [FGA] 中, 至今仍值得阅读.
+
+% PDF263 / printed251
+当然, 下面使用专门结果时, 都会提供准确的参考文献.
+
+本讲义始终只处理局部 Noether 概形, 正如 Grothendieck 在 [FGA] 中所做的. 不久之后, Grothendieck 提倡消除这个限制, 通过一个极限过程把一般情形归约到 Noether 情形. 此后, 这种归约一直很常用. 不过, 这个过程是初等而直接的. 在这里使用它只会分散注意力.
+
+给定同在第三个概形之上的两个局部 Noether 概形, 它们的 (纤维) 积不必局部 Noether. 因此, 在局部 Noether 概形范畴上使用 fpqc 拓扑会有一些小的技术困难. 另一方面, 实际中不必使用 fpqc 拓扑. 所以, 本讲义不再使用它.
+
+始终固定一个有限型分离映射
+\[
+f:X\longrightarrow S.
+\]
+为方便起见, 给定 $S$-概形 $T$ 时, 置
+\[
+X_T:=X\times_ST,
+\]
+并将投影记为 $f_T:X_T\to T$. 此外, 给定 $T$-概形 $T'$, 以及 $T$ 上的拟凝聚层 $\mathcal N$ 和 $X_T$ 上的拟凝聚层 $\mathcal M$, 分别用 $\mathcal N|T'$ 或 $\mathcal N_{T'}$, 以及 $\mathcal M|X_{T'}$ 或 $\mathcal M_{T'}$ 表示拉回层.
+
+给定 $S$-概形 $P$, 称 $S$-映射 $T\to P$ 为 $P$ 的一个 \emph{$T$-点}, 用 $P(T)$ 表示所有 $T$-点的集合. 随着 $T$ 变化, 集合 $P(T)$ 在 $S$-概形范畴上组成反变函子, 称为 $P$ 的\emph{点函子}.
+
+第 2 节引入并比较四个常见的相对 Picard 函子, 它们是 Picard 概形的点函子的可能候选. 它们就是函子 $T\mapsto\Pic(X_T)/\Pic(T)$ 及其在 Zariski 拓扑、平展拓扑和 fppf 拓扑中的相伴层. 第 3 节处理 $X/S$ 上的相对有效 (Cartier) 除子及线性等价关系. 我们证明, 这些除子由 $X/S$ 的 Hilbert 概形的某个开子概形参数化. 此外, 我们研究参数化纤维线性等价的除子的子概形, 并证明它具有 $\mathbb P(\mathcal Q)$ 的形式, 其中 $\mathcal Q$ 是 $S$ 上的某个凝聚层.
+
+第 4 节开始研究 Picard 概形 $\mathbf{Pic}_{X/S}$ 本身. 特别地, 我们证明 Grothendieck 的主要定理: 当 $X/S$ 射影、平坦且几何纤维为整概形时, $\mathbf{Pic}_{X/S}$ 存在. 然后, 我们详细讨论 Mumford 的例子, 说明整性假设是必要的. 第 5 节研究 $\mathbf{Pic}_{X/S}^0$, 即 $\mathbf{Pic}_{X/S}^0$ 各纤维的单位元所在连通分支的并.
+% source-error: scan prints Pic^0 again as the ambient scheme in this definition; retained.
+特别地, 我们计算每个纤维在单位元处的切空间. 能够形式地证明如此多关于 $\mathbf{Pic}_{X/S}^0$ 的结论, 是引人注目的. 第 6 节证明两个更深的有限性定理. 它们涉及 $\mathbf{Pic}_{X/S}^\tau$, 其点是某个倍数在 $\mathbf{Pic}_{X/S}^0$ 中的点, 以及 $\mathbf{Pic}_{X/S}^\varphi$, 其点表示具有给定 Hilbert 多项式 $\varphi$ 的可逆层.
+
+最后, 有两个附录. 附录 A 包含所有习题的详细解答. 附录 B 发展基本的除子相交理论, 第 6 节中将自由使用它; 这个处理简短、简单且初等.
+
+本讲义得益于 Allen Altman, Ethan Cotterill, Eduardo Esteves, Rebecca Lehman, Joseph Lipman, Jean-Pierre Serre 和 Angelo Vistoli 对早期稿件提出的许多意见. 作者深表感谢.

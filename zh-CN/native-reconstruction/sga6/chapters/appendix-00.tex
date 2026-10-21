@@ -1,0 +1,412 @@
+\sgaStableTarget{sga6.e00.appendix-to-expose-0-rrr}\section*{第零讲附录: RRR}
+\begin{center}
+{\Large 层的类与 Riemann--Roch 定理}\par
+\vspace{0.5em}
+A. Grothendieck\footnote{本文原样重印本讨论班引言所引的报告. 标有 (*), (**) 的脚注于 1967 年 10 月增补.}
+\end{center}
+
+\begin{center}
+Riemann--Roch 定理的证明 (1957 年 11 月 1 日).
+\end{center}
+
+\sgaStableTarget{sga6.e00.chapter-i-rings-formal-preliminaries}\subsection*{第一章. $\lambda$-环 (形式预备知识)}
+\begin{longtable}{@{}p{0.74\linewidth}r@{}}
+1. 定义 & 1\\
+2. 例子 & 4\\
+3. 分次环所定义的 $\lambda$-环 & 8\\
+4. 运算 $\lambda^p(N,x)$ & 13\\
+\end{longtable}
+
+\sgaStableTarget{sga6.e00.chapter-ii-classes-of-coherent-algebraic-sheaves}\subsection*{第二章. 凝聚代数层的类与 Chern 类}
+\begin{longtable}{@{}p{0.74\linewidth}r@{}}
+1. Chow 的理论 & 18\\
+2. 凝聚代数层的 Chern 类的定义 & 22\\
+3. $K(X)$ 的函子性的一般性质 & 27\\
+4. 若干技术性结果 & 34\\
+5. Chern 类的层论定义及其对浸入态射研究的应用 & 43\\
+6. Riemann--Roch 定理 & 49
+\end{longtable}
+
+\sgaStableTarget{sga6.e00.chapter-i-rings-formal-preliminaries.occ2}\section*{第一章. $\lambda$-环 (形式预备知识)}
+
+\sgaStableTarget{sga6.e00.sec.1.occ2}\subsection*{1. 定义}
+
+所谓 \emph{$\lambda$-环},\footnote{本讨论班中称其为\emph{前 $\lambda$-环} (\hyperlink{sga6.e05.def.2-1}{V 2.1}), 而把 $\lambda$-环这个名称留给满足第 3 页补充条件的那些环 (参见 \hyperlink{sga6.e05.def.2-4}{V 2.4}).} 是指一个带单位元的交换环 $K$, 赋予一族映射
+\sgaStableTarget{sga6.e00.eq.1-1.occ2}\begin{equation}\tag{1.1}
+\lambda^i:K\longrightarrow K\qquad (i\text{ 为整数 }\geq 0)
+\end{equation}
+满足以下条件:
+\sgaStableTarget{sga6.e00.eq.1-2.occ2}\begin{equation}\tag{1.2}
+\lambda_x^0=1,\qquad \lambda_x^1=x,\qquad
+\lambda^n(x+y)=\sum_{i=0}^n \lambda^i_x\lambda^{n-i}_y .
+\end{equation}
+对每个 $x\in K$, 置
+\sgaStableTarget{sga6.e00.eq.1-3.occ2}\begin{equation}\tag{1.3}
+\lambda_t(x)=\sum_{n\geq 0}\lambda^n(x)t^n\in K[[t]].
+\end{equation}
+上述关系说明, $x\mapsto\lambda_t(x)$ 是从加法群 $K$ 到 $K$ 上常数项为 $1$ 的形式幂级数所成乘法群 $1+K[[t]]^+$ 的同态, 它是典范同态
+\[
+1+\sum_{i>0}x_it^i\longmapsto x_1.
+\]
+
+因此环 $\Z$ 上存在唯一一个与环结构相容且满足
+\sgaStableTarget{sga6.e00.eq.1-4}\begin{equation}\tag{1.4}
+\lambda_t(1)=1+t .
+\end{equation}
+的 $\lambda$-结构. 此时有
+\sgaStableTarget{sga6.e00.eq.1-5}\begin{equation}\tag{1.5}
+\lambda_t(n)=(1+t)^n,
+\end{equation}
+从而
+\[
+\lambda^i(n)=\binom{n}{i}.
+\]
+
+$\lambda$-环的 $\lambda$-同态的概念是清楚的; \emph{增广 $\lambda$-环} 是指赋予一个到 $\Z$ 的 $\lambda$-同态的 $\lambda$-环.
+
+为定义\emph{特殊} $\lambda$-环, 以下考虑是有用的. 令 $k$ 为带单位元的交换环, 令
+\[
+K=1+k[[t]]^+
+\]
+为系数在 $k$ 中且常数项为 $1$ 的形式幂级数所成的群. 我们将在其上引入一个 $\lambda$-环运算, 使加法结构为形式幂级数的乘法. 此环的乘法记作 $f\circ g$. 它由以下条件完全确定: $f\circ g$ 的系数 $c_n=c_n(f\circ g)$ 由 $f$ 与 $g$ 的系数 $a_i=c_i(f)$, $b_i=c_i(g)$ 的整系数泛多项式给出,
+\sgaStableTarget{sga6.e00.eq.1-6}\begin{equation}\tag{1.6}
+c_n=P_n(a_1,\ldots,a_n;b_1,\ldots,b_n),
+\end{equation}
+此乘法对“加法” $fg$ 满足分配律, 对一次因子则由
+\sgaStableTarget{sga6.e00.eq.1-7}\begin{equation}\tag{1.7}
+(1+at)\circ(1+bt)=1+abt.
+\end{equation}
+给出. 各 $P_n$ 可用对称函数的计算求得; 它关于 $a_i$ 是权为 $n$ 的等权多项式, 关于 $b_i$ 也是权为 $n$ 的等权多项式 (其中 $a_i,b_i$ 的权均为 $i$), 而且关于 $a=(a_i)$ 与 $b=(b_i)$ 对称.
+
+类似地, $\lambda^i(f)$ 由以下条件无歧义地确定: 它的系数
+\[
+c_n\bigl(\lambda^i(f)\bigr)=c_n
+\]
+由 $f$ 的系数 $c_n(f)=a_n$ 的整系数泛多项式算出,
+\sgaStableTarget{sga6.e00.eq.1-8}\begin{equation}\tag{1.8}
+c_n=P_{i,n}(a_1,\ldots,a_{in}),
+\end{equation}
+满足关系 \hyperlink{sga6.e00.eq.1-2.occ2}{(1.2)}, 且当 $i>1$ 时有
+\sgaStableTarget{sga6.e00.eq.1-9}\begin{equation}\tag{1.9}
+\lambda^i(1+at)=1
+\end{equation}
+($1$ 是环 $K=1+k[[t]]^+$ 的零元). 各 $P_{i,n}$ 同样可用对称函数计算; 可以看出 $P_{i,n}$ 是关于 $a_i$ 的权为 $in$ 的等权多项式. 赋予上述运算后, $K$ 成为 $\lambda$-环; 它的零元是 $1$, 单位元是 $1+t$. 还应注意关系
+\sgaStableTarget{sga6.e00.eq.1-7bis}\begin{equation}\tag{1.7 bis}
+(1+at)\circ f=f(at).
+\end{equation}
+
+现在令 $K$ 为任意 $\lambda$-环. 若从 $K$ 到 $1+K[[t]]^+$ 的加法同态 $\lambda_t$ 为 $\lambda$-同态, 则称 $K$ 为\emph{特殊}的. 这就是说, 有公式
+\sgaStableTarget{sga6.e00.eq.1-10}\begin{equation}\tag{1.10}
+\lambda_t(1)=1+t,\quad
+\lambda_t(xy)=\lambda_t(x)\circ\lambda_t(y),\quad
+\lambda_t(\lambda^i(x))=\lambda^i(\lambda_t(x)),
+\end{equation}
+更明确地写为
+\sgaStableTarget{sga6.e00.eq.1-11}\begin{equation}\tag{1.11}
+\begin{cases}
+\lambda^i(1)=0 & \text{若 }i>1,\\
+\lambda^n(xy)=P_n(\lambda^1x,\ldots,\lambda^n x;\lambda^1y,\ldots,\lambda^n y),\\
+\lambda^n(\lambda^i(x))=P_{i,n}(\lambda^1x,\ldots,\lambda^{in}x),
+\end{cases}
+\end{equation}
+其中 $P_n$ 与 $P_{i,n}$ 是上述泛多项式. 特别地可推出公式 \hyperlink{sga6.e00.eq.1-5}{(1.5)}. 可以证明, 由交换环 $k$ 构造的 $\lambda$-环 $1+k[[t]]^+$ 是特殊的, 但我们不需要这一事实.
+
+\sgaStableTarget{sga6.e00.sec.2.occ2}\subsection*{2. 例子}
+
+\sgaStableTarget{sga6.e00.ex.2-1}1) 设 $G$ 为群, $k$ 为交换环. 考虑由 $G$ 在有限型 $k$-模中的表示的类生成的自由群, 模去由所有形如
+\[
+(\rho\oplus\rho')-(\rho)-(\rho')
+\]
+的元素所生成的子群而得的群 $K(G)$ (其中 $\oplus$ 表示直和). 张量积与外幂在 $K(G)$ 上定义 $\lambda$-环结构. 还可以进一步模去所有形如
+\[
+(\rho)-(\rho')-(\rho''),
+\]
+的元素, 其中表示 $\rho$ 是 $\rho'$ 被 $\rho''$ 的扩张, 且作为 $k$-模的扩张是平凡的. 这样得到 $G$ 的表示的约化类群 $K_r(G)$, 并可验证 $\lambda$-环运算可传到商上.
+
+当 $k$ 是特征 $0$ 的代数闭域时,\footnote{$k$ 不必代数闭; 一个更一般的结果参见 \hyperlink{sga6.e06.thm.3-3}{VI 3.3}, 它涵盖本报告将使用的所有结果.} 可以证明 $K(G)$, 从而 $K_r(G)$, 是特殊 $\lambda$-环. 特征非 $0$ 时这不再成立; 但若 $k$ 代数闭, $K_r(G)$ 仍为特殊 $\lambda$-环. 为证明这一点, 可归结到 $G$ 为乘积 $\Gl(m,k)\times\Gl(n,k)$ 且只考虑 $G$ 的有理表示的情形; 这一断言由下文对 $K_r(G)$ 的明确确定推出 (\hyperlink{sga6.e00.ex.2-3}{例 3}). 最后, 当 $k$ 的特征为 $0$ 时, $G$ 的有理表示的完全可约性说明 $K(G)=K_r(G)$.
+
+以上例子的变体: $G$ 是定义在 $k$ 上的代数群, 而只考虑定义在 $k$ 上的 $G$ 的有理表示; 也可考虑拓扑群或 Lie 群及其连续表示等等.\footnote{还可以构造其他 $\lambda$-环的例子: 比如二次型的等价类的集合、Lie 代数表示的类的集合等等. 我们保证, 处理 Riemann--Roch 定理并不需要所有这些例子.}
+
+\sgaStableTarget{sga6.e00.ex.2-2}2) 令 $X$ 为域 $k$ 上定义的代数簇, 不要求不可约. 可以考虑由 $X$ 上定义在 $k$ 上的向量丛的类生成的自由群, 模去由形如
+\[
+(E\oplus E')-(E)-(E'),
+\]
+的元素生成的子群所得的商群; 张量积与外幂在其上定义 $\lambda$-环运算. 若 $X$ 完备, 由 Krull--Remak--Schmidt 定理, 这是由 $X$ 上不可分解向量丛生成的自由群; 知道这个环及其基, 就等价于完全分类 $X$ 上的向量丛并知道这些丛的基本张量运算. 若 $k$ 代数闭且特征为 $0$, 则根据下文 3) 的内容, 也就知道了向量丛的类的所有其他张量运算. 还可以进一步模去由元素
+\[
+(E)-(E')-(E''),
+\]
+生成的群, 其中向量丛 $E$ 是 $E'$ 被 $E''$ 的扩张. 这样得到 $\lambda$-环 $K(\xi(X))$, 这里 $\xi(X)$ 表示 $X$ 上定义在 $k$ 上的向量丛的加性范畴. 利用\hyperlink{sga6.e00.ex.2-1}{例 1} 的结果, 可证明: 若 $k$ 代数闭,\footnote{这一条件不必要, 参见前一脚注.} 则 $\lambda$-环 $K(\xi(X))$ 为特殊的; 若 $k$ 的特征为 $0$, 此处定义的第一个 $\lambda$-环也特殊, 但一般情形并非如此.
+
+\sgaStableTarget{sga6.e00.ex.2-3}3) 在若干重要情形确定 $K(G)$ 与 $K_r(G)$. 假设域 $k$ 代数闭, 群 $G$ 为仿射代数群、连通且“整体约化” ($G$ 的根基同构于 $(k^*)^s$), 并只考虑有理线性表示. 当特征为 $0$ 时, $G$ 的有理线性表示完全可约, 所以 $K(G)=K_r(G)$ 是由不可约有理表示的类生成的自由群. 若 $T$ 为 $G$ 的极大环面, 则
+\[
+K(T)=K_r(T)=\Z(\That),
+\]
+即 $T$ 的有理特征所成群 $\That$ 的群代数; 若 $G$ 的秩为 $r$, 则 $\That\simeq\Z^r$ (与特征无关). Weyl 群 $W$ 作用于 $T$, 从而作用于 $K(T)$; 这种作用只依赖 $W$ 在自由群 $\That$ 上的作用. 由 $T$ 到 $G$ 的嵌入得到显然的 $\lambda$-环同态
+\sgaStableTarget{sga6.e00.eq.1-13}\begin{equation}\tag{1.13}
+K_r(G)\longrightarrow K_r(T)^W=K(T)^W,
+\end{equation}
+其中 $K(T)^W$ 表示 $W$ 在 $K(T)$ 中的不动点集合. $G$ 的线性表示理论\footnote{参见 1956/58 年 Chevalley 讨论班, \emph{Groupes de Lie algébriques} (École Normale Supérieure).} 给出以下定理.
+
+\sgaStableTarget{sga6.e00.thm.1-1}\textbf{定理 1.1.} 同态 \hyperlink{sga6.e00.eq.1-13}{(1.13)} 是同构.
+
+由此可见, 一旦知道 $G$ 的“类型” (由 $W$ 在群 $\Z^r$ 上的作用刻画), $K_r(G)$ 就与特征无关, 且为特殊 $\lambda$-环. $K_r(G)$ 有一组典范基, 对应于 $W$ 在 $\That$ 中的轨道; 另一组基可以如下得到. 令 $(\rho_i)_{1\leq i\leq r'}$ 为对应于 $G/\rad G$ 的基本表示的 $G$ 的表示类, 令 $(\sigma_j)_{1\leq j\leq r''}$ 为从 $G$ 到 $k^*$ 的有理同态群的一组基. 于是 $r'+r''=r$ (即 $G$ 的秩).
+
+\sgaStableTarget{sga6.e00.cor.unnamed}\textbf{推论.} 环 $K_r(G)$ 可等同于以 $\rho_i,\sigma_j$ 为变量的 $\Q$ 上有理函数域的子环
+\[
+\Z[\rho_1,\ldots,\rho_{r'};\sigma_1,\ldots,\sigma_{r''},\sigma_1^{-1},\ldots,\sigma_{r''}^{-1}]
+\]
+.\footnote{为使此陈述正确, 必须假设 $G$ 的导群 $G'$ 单连通.}
+
+特别地, $K_r(G)$ 没有零因子. 若 $G=\prod_i\Gl(n_i,k)$, 则环 $K_r(G)$ 可以如下明确写出. 令 $\rho_i$ 为 $G$ 的表示, 它由 $\Gl(n_i,k)$ 的恒等表示给出. 考虑以 $\lambda^j(\rho_i)$, $1\leq j\leq n_i$, 为不定元的 $\Q$ 上有理函数域, 则 $K_r(G)$ 可等同于由这些不定元及各 $\lambda^{n_i}(\rho_i)$ 的逆元生成的子环. 这就证明了我们的断言: 至少在特征 $0$ 时, 运算 $\lambda^i$ 足以恢复向量丛的全部张量运算; 在任意特征的代数闭域上, 若取约化类, 这一点仍然成立.
+
+\sgaStableTarget{sga6.e00.rem.unnamed}\textbf{注.} a) \hyperlink{sga6.e00.ex.2-1}{例 1} 中的环 $K(G)$ 有增广, 由表示的次数定义; 传到商上, 这一增广给出 $K_r(G)$ 的增广. 同样, 当 $X$ 为 $k$-不可约时, \hyperlink{sga6.e00.ex.2-2}{例 2} 中的 $\lambda$-环有增广; 在 $K(\xi(X))$ 中, 增广由向量丛的秩, 即纤维的维数给出.
+
+b) 当域 $k$ 不代数闭时, 特征 $0$ 情形的 $K(G)$ 很可能仍是特殊 $\lambda$-环, 任意特征下的 $K_r(G)$ 亦如此.
+
+c) 在非零特征时, \hyperlink{sga6.e00.thm.1-1}{定理 1.1} 由 Chevalley 慷慨提供.
+
+\sgaStableTarget{sga6.e00.sec.3.occ2}\subsection*{3. 分次环所定义的 $\lambda$-环}
+
+设 $A$ 为带单位元的分次交换环. 为简单起见, 假设 $A$ 的次数非负且 $A^0=\Z$. 用 $\Ahat$ 表示各 $A^i$ 的直积 (它是带单位元的交换环), 用 $\Ahp$ 表示显然的增广映射 $\Ahat\to A^0=\Z$ 的核. 则 $1+\Ahp$ 为 $\Ahat$ 的可逆元乘法群的子群. 考虑阿贝尔群
+\sgaStableTarget{sga6.e00.eq.1-14}\begin{equation}\tag{1.14}
+\widetilde A=\Z\times (1+\Ahp),
+\end{equation}
+它的元素记为 $[n,x]$, 其中 $n\in\Z$, 且
+\[
+x=1+\sum_{i\geq 1}x^i\in 1+\Ahp\qquad (x^i\in A^i).
+\]
+将这一群写成加法形式, 即
+\sgaStableTarget{sga6.e00.eq.1-15}\begin{equation}\tag{1.15}
+[n,x]+[n',x']=[n+n',xx'].
+\end{equation}
+此群的零元为 $[0,1]$. 我们将在其上引入与加法结构相容的增广 $\lambda$-环结构, 增广为 $\varepsilon:[n,x]\mapsto n$. 乘积 $[m,x][n,y]$ 由以下条件完全刻画: 它写成
+\[
+[mn,x^n y^m(x*y)],
+\]
+其中 $x*y$ 是 $1+\Ahp$ 的元素, 其分量表示为 $x^i,y^i$ 的整系数泛多项式:
+\sgaStableTarget{sga6.e00.eq.1-16}\begin{equation}\tag{1.16}
+(x*y)^i=Q_i(x^1,\ldots,x^i;y^1,\ldots,y^i)\qquad (i\geq 1),
+\end{equation}
+多项式 $Q_i$ 为权为 $i$ 的等权多项式. 此外, $x*y$ 应对“加法” $xy$ 满足分配律, 且对“一次”因子应化为
+\sgaStableTarget{sga6.e00.eq.1-17}\begin{equation}\tag{1.17}
+[1,1+x^1][1,1+y^1]=[1,1+x^1+y^1].
+\end{equation}
+多项式 $Q_i$ 可通过初等对称函数的计算求得. 这就是用两个向量丛的 Chern 类 $x^i,y^i$ 及其各自的维数 $m,n$ 来计算张量积的 Chern 类. 从 \hyperlink{sga6.e00.eq.1-17}{(1.17)} 推得
+\sgaStableTarget{sga6.e00.eq.1-17bis}\begin{equation}\tag{1.17 bis}
+(1+x^1)*(1+y^1)=\frac{1+x^1+y^1}{(1+x^1)(1+y^1)},
+\end{equation}
+任意乘积 $x*y$ 则可通过形式分解
+\[
+x=\prod_{i=1}^n(1+\alpha_i),\qquad y=\prod_{i=1}^n(1+\beta_i),
+\]
+逐项计算, 这里各 $\alpha_i,\beta_i$ 的次数均为 $1$.
+
+这样 $\widetilde A$ 成为带单位元 $[1,1]$ 的增广交换环; 可将它解释为给环 $1+\Ahp$ 添加单位元所得的环. 此外, 在 $\widetilde A$ 上定义滤过: 置 $\widetilde A^0=\widetilde A$, 并用 $\widetilde A^n$ 表示满足 $1\leq i<n$ 时 $x^i=0$ 的所有 $[0,x]$ 的集合. 这一滤过与乘法相容, 因为
+\sgaStableTarget{sga6.e00.eq.1-18}\begin{equation}\tag{1.18}
+\left(1+\sum_{i\geq m}x^i\right)*\left(1+\sum_{j\geq n}y^j\right)
+=1-\frac{(m+n-1)!}{(m-1)!(n-1)!}x^m y^n+\cdots,
+\end{equation}
+其中省略的各项次数均 $>m+n$. 此公式说明, $\widetilde A$ 的伴随分次环 $G(\widetilde A)$ 在加法意义下可等同于 $A$, 但乘法意义下不行. 只能说, 由
+\sgaStableTarget{sga6.e00.eq.1-19}\begin{equation}\tag{1.19}
+\eta'(x^i)=(-1)^{i-1}(i-1)!\,x^i\qquad (x^i\in A^i)
+\end{equation}
+定义的从 $A$ 到 $G(\widetilde A)$ 的映射 $\eta'$ 为环同态.
+
+在 $\widetilde A$ 上引入满足 $\lambda$-环公理 (第 1 节的公式 \hyperlink{sga6.e00.eq.1-2.occ2}{(1.2)}) 的运算 $\lambda^i$; 以下条件将它们完全确定: $\lambda^i[0,x]$ 的分量由 $x$ 的分量 $x^i$ 的整系数泛多项式给出,
+\sgaStableTarget{sga6.e00.eq.1-20}\begin{equation}\tag{1.20}
+\lambda^i[0,x]=[0,\lambda^i x],\qquad (\lambda^i x)^{(n)}=Q_{i,n}(x^1,\ldots,x^n),
+\end{equation}
+其中 $Q_{i,n}$ 为权为 $n$ 的等权多项式, 并且
+\sgaStableTarget{sga6.e00.eq.1-21}\begin{equation}\tag{1.21}
+\lambda^i[1,1+x^1]=0\qquad\text{当 }i>1.
+\end{equation}
+多项式 $Q_{i,n}$ 可用初等对称函数计算: 这就是用向量丛的 Chern 类与秩来计算其外幂的 Chern 类. 可以看出, $\widetilde A$ 是特殊增广 $\lambda$-环, 且各 $\widetilde A^i$ 对运算 $\lambda^j$ 稳定.
+
+增广 $\lambda$-环 $\widetilde A$ 可以看作关于 $A$ 的函子. 因此, $A$ 的主自同构
+\[
+x=\sum_{i\geq 0}x^i\longmapsto \check x=\sum_{i\geq 0}(-1)^i x^i
+\]
+给出 $\widetilde A$ 的一个自同构, 仍以符号 $\check{\ }$ 表示.
+
+\sgaStableTarget{sga6.e00.prop.1-2}\textbf{命题 1.2.} 设 $x\in\widetilde A$ 具有形式
+\[
+x=[n,1+x^1+\cdots+x^n]
+\]
+(因此 $i>n$ 时 $x^i=0$). 则 $i>n$ 时 $\lambda^i(x)=0$, 有 $\lambda^n(x)=[1,1+x^1]$, 最后还有
+\sgaStableTarget{sga6.e00.eq.1-22}\begin{equation}\tag{1.22}
+\sum_{i=0}^{n}(-1)^i\lambda^i(x)=[0,1-(n-1)!x^n+\cdots].
+\end{equation}
+由此命题及各 $\widetilde A^i$ 对运算 $\lambda^j$ 稳定这一事实可知, 只要 $\varepsilon(x)=n$, 无论 $i>n$ 时 $x^i$ 是否为零, 公式 \hyperlink{sga6.e00.eq.1-22}{(1.22)} 都成立.
+
+公式 \hyperlink{sga6.e00.eq.1-22}{(1.22)} 有以下推广. 设 $K$ 为任意 $\lambda$-环, $n$ 任意. 对 $x\in K$, 置
+\sgaStableTarget{sga6.e00.eq.1-23}\begin{equation}\tag{1.23}
+\gamma^n(x)=(-1)^n\sum_{i=0}^{n}(-1)^i\lambda^i(x+n)=\lambda^n(x+n-1)
+\end{equation}
+(最后两项相等可由直接归纳得到). 特别地 $\gamma^0(x)=1$, $\gamma^1(x)=x$. 再置
+\sgaStableTarget{sga6.e00.eq.1-24}\begin{equation}\tag{1.24}
+\gamma_t(x)=\sum_{n\geq 0}\gamma^n(x)t^n\in K[[t]].
+\end{equation}
+可推出公式
+\sgaStableTarget{sga6.e00.eq.1-25}\begin{equation}\tag{1.25}
+\gamma_t(x)=\lambda_{t/(1-t)}(x),
+\end{equation}
+等价地,
+\sgaStableTarget{sga6.e00.eq.1-25bis}\begin{equation}\tag{1.25 bis}
+\lambda_s(x)=\gamma_{s/(1+s)}(x).
+\end{equation}
+这说明 $\lambda^i$ 可以用 $\gamma^i$ 表示, 并且
+\[
+\gamma_t(x+y)=\gamma_t(x)\gamma_t(y).
+\]
+因此映射 $\gamma^i$ 在 $K$ 上定义一个新的 $\lambda$-环结构. 于是公式 \hyperlink{sga6.e00.eq.1-22}{(1.22)} 说明, 当 $K=\widetilde A$ 时, 对每个 $x\in\widetilde A$ 有
+\sgaStableTarget{sga6.e00.eq.1-22bis}\begin{equation}\tag{1.22 bis}
+\gamma^n(x-\varepsilon(x))=[0,1+(-1)^{n-1}(n-1)!x^n+\cdots],
+\end{equation}
+所以将 $\widetilde A^n$ 中的元素 $\gamma^n(x-\varepsilon(x))$ 模去 $\widetilde A^{n+1}$, 相差因子 $(-1)^{n-1}(n-1)!$ 就得到分量 $x^n$.
+
+\sgaStableTarget{sga6.e00.the-chern-homomorphism}\paragraph{Chern 同态.}
+对每个满足上述条件的分次环 $A$, 将定义增广环的同态
+\sgaStableTarget{sga6.e00.eq.1-26}\begin{equation}\tag{1.26}
+\ch:\widetilde A\longrightarrow \Ahat\otimes\Q.
+\end{equation}
+以下条件无歧义地定义这一同态: 它为加法同态, 将 $1$ 送到 $1$; $\ch(x)$ 在次数 $>0$ 处的分量由 $x$ 的分量的有理系数泛等权多项式给出; 而且
+\sgaStableTarget{sga6.e00.eq.1-27}\begin{equation}\tag{1.27}
+\ch([1,1+x^1])=\exp x^1=\sum_{n\geq 0}(x^1)^n/n!.
+\end{equation}
+$\ch$ 的明确表达式可以立即得到. 令 $\eta$ 为 $\Ahat\otimes\Q$ 的加法自同态, 对次数为 $i$ 的 $x^i$ 定义为
+\sgaStableTarget{sga6.e00.eq.1-28}\begin{equation}\tag{1.28}
+\eta(x^i)=\frac{1}{(-1)^{i-1}(i-1)!}x^i .
+\end{equation}
+则
+\sgaStableTarget{sga6.e00.eq.1-29}\begin{equation}\tag{1.29}
+\ch\left([n,1+\sum_{i\geq 1}x^i]\right)
+=n+\eta\left(\log\left(1+\sum_{i\geq 1}x^i\right)\right).
+\end{equation}
+这一公式可以反解, 至少当 $A$ 只有有限个非零齐次分量时如此. 因而在此情形, $\ch$ 是环 $\widetilde A\otimes\Q$ 到环 $\Ahat\otimes\Q$ 的同构, 从而完全阐明了 $\widetilde A\otimes\Q$ 的结构.
+
+回顾 Hirzebruch [1] 的结果, 形式幂级数 $f\in\Q[[t]]$ 通过泛多项式公式定义加法同态
+\[
+1+\Ahp\longrightarrow 1+(\Ahat\otimes\Q)^+,
+\]
+记为 $\mathfrak C_f$. 当 $f(t)=t/(1-\exp(-t))$ 时, 简记为 $\mathfrak C_f=\mathfrak C$ (Todd 的首字母). 将 $\mathfrak C(x)$ 的定义延伸至 $x\in\widetilde A$. 于是有以下结果.
+
+\sgaStableTarget{sga6.e00.prop.1-3}\textbf{命题 1.3.} 设 $N\in\widetilde A$ 具有形式
+\[
+N=[q,1+N^1+\cdots+N^q]
+\]
+(因此 $i>q$ 时 $N^i=0$). 若置
+\[
+\lambda_{-1}(N)=\sum_{i\geq 0}(-1)^i\lambda^i(N)=\sum_{i=0}^{n}(-1)^i\lambda^i(N),
+\]
+则
+\sgaStableTarget{sga6.e00.eq.1-30}\begin{equation}\tag{1.30}
+\ch(\lambda_{-1}(N))=(-1)^qN^q\mathfrak C(\check N)^{-1},
+\end{equation}
+等价地,
+\sgaStableTarget{sga6.e00.eq.1-30bis}\begin{equation}\tag{1.30 bis}
+\ch(\lambda_{-1}(\check N))=N^q\mathfrak C(N)^{-1}.
+\end{equation}
+
+\sgaStableTarget{sga6.e00.sec.4.occ2}\subsection*{4. 运算 $\lambda^p(N,x)$}
+
+设 $A$ 为以两列无穷不定元 $\lambda^iN,\lambda^i x$ ($i\geq1$) 为变量的整系数形式幂级数环. 置 $\lambda^1N=N$, $\lambda^1x=x$, 并在 $A$ 上引入唯一的特殊 $\lambda$-环结构, 使
+\[
+\lambda^i(N)=\lambda^iN,
+\qquad
+\lambda^i(x)=\lambda^i x,
+\]
+且各运算 $\lambda^i$ 连续. 若只考虑以 $\lambda^iN,\lambda^i x$ 为变量的多项式, 得到的就是由 $N,x$ 自由生成的 $\lambda$-环; 我们的环 $A$ 是其完备化. 于是可构造
+\sgaStableTarget{sga6.e00.eq.1-31}\begin{equation}\tag{1.31}
+\lambda_{-1}(N)=\sum_{i\geq 0}(-1)^i\lambda^iN,
+\end{equation}
+它是常数项为 $1$ 的形式幂级数, 因而可逆. 所以可以无歧义地定义 $A$ 的元素 $\lambda^p(N,x)$, 使
+\sgaStableTarget{sga6.e00.eq.1-32}\begin{equation}\tag{1.32}
+\lambda^p(N,x)\lambda_{-1}(N)=\lambda^p(x\lambda_{-1}(N)).
+\end{equation}
+
+\sgaStableTarget{sga6.e00.thm.1-4}\textbf{定理 1.4.} 设 $J_q$ 为 $A$ 中由 $i>q$ 的各 $\lambda^iN$ 生成的闭理想. 将 $A/J_q$ 等同于以 $\lambda^i x$ 与 $\lambda^jN$ ($1\leq j\leq q$) 为变量的形式幂级数环. 则 $\lambda^p(N,x)$ 模 $J_q$ 的像是一个多项式, 对变量 $\lambda^i x$ 等权, 权为 $p$.
+
+设 $N,F$ 为特征 $0$ 的代数闭域 $k$ 上维数分别为 $q,q'$ 的有限维向量空间. 用 $N^{(p)}$ 表示从 $N^p$ 到 $N$ 的映射
+\[
+(a_1,\ldots,a_p)\longmapsto a_1+\cdots+a_p
+\]
+的核. 令对称群 $\mathfrak S_p$ 作用于 $N^p$, 从而作用于 $N^{(p)}$, 再作用于 $\Lambda(N^{(p)})$ 及
+\[
+\Lambda(N^{(p)})\otimes\bigotimes^p F.
+\]
+. 将这一向量空间看作 $\mathfrak S_p\times\Gl(N)\times\Gl(F)$ 上的分次模, 并取其“交错部分”; 后者是 $\Gl(N)\times\Gl(F)=G$ 上的分次模. 则
+\sgaStableTarget{sga6.e00.eq.1-33}\begin{equation}\tag{1.33}
+\lambda^p(N,F)=E_G\left(\left(\Lambda(N^{(p)})\otimes\bigotimes^p F\right)^{\mathrm{alt}}\right).
+\end{equation}
+
+注意: 若 $M$ 为 $G$-模的复形, $E_G(M)$ 表示 $M$ 的各项的类在 $K(G)$ 中的交错和, 即 $M$ 的 Euler--Poincaré 示性数. 在公式 \hyperlink{sga6.e00.eq.1-33}{(1.33)} 中, 左端 $\lambda^p(N,F)$ 表示将变量 $\lambda^i_N,\lambda^i_F$ 分别替换为 $G$-模 $\lambda^i(N),\lambda^i(F)$ 在 $K(G)$ 中的类而得的环 $K(G)$ 的元素.
+
+\emph{证明.} 用第二个公式 \hyperlink{sga6.e00.eq.1-11}{(1.11)} 展开 \hyperlink{sga6.e00.eq.1-32}{(1.32)} 的右端, 可知只要证明置 $x=1$ 所得的类似断言, 就证明了第一个断言. 即须证明在 $\lambda$-环 $\Z[\lambda^1N,\ldots,\lambda^qN]$ 中 (其中 $i>q$ 时 $\lambda^iN=0$), 元素 $\lambda^p(\lambda_{-1}(N))$ 可被 $\lambda_{-1}(N)$ 整除. 先验地, 商
+\[
+\lambda^p(N,1)=\lambda^p(\lambda_{-1}(N))/\lambda_{-1}(N)
+\]
+是以 $\lambda^iN$, $1\leq i\leq q$, 为变量的形式幂级数环的分式域 $K$ 中的形式幂级数. 另一方面, 也用 $N$ 表示特征 $0$ 的代数闭域 $k$ 上的 $q$ 维向量空间, 并考虑元素
+\[
+\mathscr L^p(N)=E_G((\Lambda(N^{(p)}))^{\mathrm{alt}})\in K(G),
+\]
+其中现在 $G=\Gl(N)$. 我们知道 (第 2 节, \hyperlink{sga6.e00.thm.1-1}{定理 1.3}), $K(G)$ 可等同于 $K$ 中由 $\lambda^i_N$, $1\leq i\leq q$, 及 $\lambda_N^q$ 的逆元生成的子环. 此外, 在此环中容易验证
+\[
+\mathscr L^p(N)\lambda_{-1}(N)=\lambda^p(\lambda_{-1}(N)).
+\]
+因为我们处于一个大域 $K$ 中且 $\lambda_{-1}(N)\ne0$, 所以 $\mathscr L^p(N)=\lambda^p(N,1)$. 两端均属于 $K(G)$ 与以 $\lambda_N^i$ 为变量的形式幂级数环的交, 因而都是 $\lambda_N^i$ 的多项式.
+
+要在一般情形证明 \hyperlink{sga6.e00.eq.1-33}{(1.33)}, 验证右端在 $K(G)$ 中满足与 \hyperlink{sga6.e00.eq.1-32}{(1.32)} 类似的公式, 即与 $\lambda_{-1}(N)$ 相乘为 $\lambda^p(F\lambda_{-1}(N))$. 同样, 由 $K(G)$ 为特殊的可知, $\lambda^p(N,F)\in K(G)$ 与 $\lambda_{-1}(N)$ 的乘积也是 $\lambda^p(F\lambda_{-1}(N))$. 因为 $K(G)$ 是整环 (参见第 2 节), 且 $\lambda_{-1}(N)\ne0$ (同处), 公式 \hyperlink{sga6.e00.eq.1-33}{(1.33)} 得证. \hfill$\square$
+
+\sgaStableTarget{sga6.e00.rem.unnamed.occ2}\textbf{注.} a) 当 $F$ 的维数 $q'$ 至少为 $p$ 时, 公式 \hyperlink{sga6.e00.eq.1-33}{(1.33)} 刻画了以 $\lambda_N^i$ ($1\leq i\leq q$) 及 $\lambda_x^j$ ($1\leq j\leq p$) 为变量的多项式 $\lambda^p(N,x)$.
+
+b) 域 $k$ 不代数闭时, 公式 \hyperlink{sga6.e00.eq.1-33}{(1.33)} 很可能仍成立.\footnote{事实上用同一方法即可证明.} 若希望用下面将说明的方法, 证明特征 $0$ 的非代数闭域上的 Riemann--Roch 定理, 就必须解决这一问题. 从 $\mathfrak S_p$-模取交错部分, 只有当底域特征为 $0$ 时才具有合理意义.
+
+现在令 $K$ 为任意特殊 $\lambda$-环, $N\in K$ 且当 $i$ 充分大时 $\lambda^iN=0$. 于是对每个 $x\in K$ 及整数 $p\geq1$, 可以考虑元素 $\lambda^p(N,x)$; 它们表示为 $\lambda_N^i,\lambda_x^j$ 的整系数泛多项式. 在 $K$ 中有 $\lambda^1(N,x)=x$ 以及公式 \hyperlink{sga6.e00.eq.1-32}{(1.32)}. 为表述运算 $x\mapsto\lambda^p(N,x)$ 的性质, 宜引入新的 $\lambda$-环 $K_N$. 作为交换环, $K_N$ 是给下述环添加单位元所得的环: 其底层加法群为 $K$, 乘法为
+\sgaStableTarget{sga6.e00.eq.1-34}\begin{equation}\tag{1.34}
+x_Ny=xy\mu\qquad(\mu=\lambda_{-1}(N)).
+\end{equation}
+从 $K_N$ 到 $K_N[[t]]$ 的映射 $\lambda_t$ 定义为
+\sgaStableTarget{sga6.e00.eq.1-35}\begin{equation}\tag{1.35}
+\lambda_t(n,x)=(1+t)^n\sum_{p\geq 0}\lambda^p(N,x)t^p,
+\end{equation}
+其中 $\lambda^0(N,x)=(1,0)$ (即 $K_N$ 的单位元). 我断言这些运算使 $K_N$ 成为特殊 $\lambda$-环. 因而须对 $X,Y\in K_N$ 验证公式
+\[
+\lambda_t(X+Y)=\lambda_t(X)\lambda_t(Y),\qquad
+\lambda_t(XY)=\lambda_t(X)\lambda_t(Y),\qquad
+\lambda_t(\lambda^i(X))=\lambda^i(\lambda_t(X))
+\]
+. 可以只验证 $X,Y$ 属于 $K$ 的情形, 并可看出只须在 $K$ 是由 $X,Y,N$ 自由生成、满足 $i>q$ 时 $\lambda^iN=0$ 这一关系的特殊 $\lambda$-环时验证. 但群同态
+\sgaStableTarget{sga6.e00.eq.1-36}\begin{equation}\tag{1.36}
+K_N\longrightarrow K,
+\end{equation}
+将单位元送到单位元, 且在 $K$ 上为 $x\mapsto x\mu$; 直接验证便知它与环结构和映射 $\lambda^i$ 相容. 在当前情形, 它在 $K$ 上的限制为单射. 因为 $K$ 为特殊 $\lambda$-环, 容易推出上述关系对 $X,Y\in K$ 确实成立, 从而证明了我们的断言.
+
+根据公式 \hyperlink{sga6.e00.eq.1-23}{(1.23)}, 对 $x\in K$, $n\geq1$, 自然应置
+\sgaStableTarget{sga6.e00.eq.1-37}\begin{equation}\tag{1.37}
+\gamma^n(N,x)=\sum_{i=0}^{n-1}\binom{n-1}{i}\lambda^i(N,x),
+\end{equation}
+换言之, $\gamma^n(N,x)=\gamma^n(x_N)$, 其中 $x_N$ 是将 $x$ 看作 $\lambda$-环 $K_N$ 的元素.
+
+\sgaStableTarget{sga6.e00.prop.1-5}\textbf{命题 1.5.} 设 $A$ 为带单位元的分次交换环, $N\in\widetilde A$ 具有形式
+\[
+N=[q,1+N^1+\cdots+N^q],
+\]
+并设 $x$ 为 $\widetilde A$ 的任意元素:
+\[
+x=[\nu,1+\sum_{i\geq 1}x^i].
+\]
+则对每个整数 $j\geq0$, 有 $\gamma^{q+j}(N,x)\in\widetilde A^j$, 且 $\gamma^{q+j}(N,x)$ 的 $j$ 次分量具有形式
+\sgaStableTarget{sga6.e00.eq.1-38}\begin{equation}\tag{1.38}
+\bigl(\gamma^{q+j}(N,x)\bigr)^{(j)}=(-1)^{j-1}(j-1)!\,G_{q,j}(\nu,x^1,\ldots,x^j;N^1,\ldots,N^j),
+\end{equation}
+其中 $G_{q,j}$ 是由以下条件刻画的整系数泛多项式:
+\sgaStableTarget{sga6.e00.eq.1-39}\begin{equation}\tag{1.39}
+G_{q,j}(\nu,x^1,\ldots,N^j)\,(N^q)=(-1)^q(x*\lambda_{-1}(N))^{(q+j)}.
+\end{equation}
+
+\emph{证明.} 可假设 $A$ 为以 $x^i,N^j$ ($1\leq j\leq q$) 为不定元的整系数多项式环. 结合 \hyperlink{sga6.e00.eq.1-32}{(1.32)} 与 \hyperlink{sga6.e00.eq.1-37}{(1.37)}, 有
+\sgaStableTarget{sga6.e00.eq.1-40}\begin{equation}\tag{1.40}
+\gamma^n(N,x)\lambda_{-1}(N)=\gamma^n(x\lambda_{-1}(N)),
+\end{equation}
+当 $n=q+j$ 时, 右端的滤过次数 $\geq q+j$ (使用公式 \hyperlink{sga6.e00.eq.1-22bis}{(1.22 bis)}, 并注意 $x\lambda_{-1}(N)$ 的增广为零); 而 $\lambda_{-1}(N)$ 的滤过次数为 $q$ (公式 \hyperlink{sga6.e00.eq.1-22}{(1.22)}). 由 \hyperlink{sga6.e00.eq.1-18}{(1.18)} 可知这里 $A$ 的伴随分次环为整环, 所以 $\gamma^n(N,x)$ 的滤过次数为 $j$. 使用上述公式, 立即得到所述 $(\gamma^{q+j}(N,x))^{(j)}$ 的形式. \hfill$\square$
+
