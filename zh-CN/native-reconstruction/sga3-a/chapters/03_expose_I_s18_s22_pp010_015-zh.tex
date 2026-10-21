@@ -1,0 +1,360 @@
+% SGA 3, Expose I, Loop 1 English reconstruction.
+% Scope: Section 1.8 through the end of Section 2.2, including the transition
+% sentence immediately before Section 2.3.
+% Authority: Polo--Gille Exp1-13oct24.pdf, component pages 10--15
+% (combined-reader pages 20--25). OCR and the Reinhold English Markdown are
+% drafting/comparison witnesses only.
+
+\SGARefTarget{sga3:i:subsection:1:8}
+\subsection*{1.8. 常对象}
+
+设 \(\mathscr C\) 是一个范畴, 其中存在直和与纤维积, 且直和与基变换可交换
+(例如概形范畴).\footnote{编者注: 旧术语“预概形/概形”已替换为现行术语
+“概形/分离概形”.} 对每个集合 \(E\) 和 \(\mathscr C\) 的每个对象 \(S\), 置
+\begin{equation}
+  \tag{1.8.1}\label{sga3:i:subsection:1-8:equation:1-8-1}
+  E_S=
+  \left\{
+    \begin{aligned}
+      &\text{对象族 }(S_i)_{i\in E}\text{ 的直和,}\\
+      &\text{其中各对象属于 }\mathscr C\text{ 且均同构于 }S.
+    \end{aligned}
+  \right.
+\end{equation}
+这个对象由下式刻画:
+\begin{equation}
+  \tag{1.8.2}\label{sga3:i:subsection:1-8:equation:1-8-2}
+  \operatorname{Hom}_{\mathscr C}(E_S,T)
+  =\operatorname{Hom}_{\mathbf{Set}}
+      \bigl(E,\operatorname{Hom}_{\mathscr C}(S,T)\bigr),
+\end{equation}
+其中 \(T\in\operatorname{Ob}(\mathscr C)\) 任意.
+
+对象 \(E_S\) 有一个到 \(S\) 的典范投影, 因而 \(E\mapsto E_S\) 实际上是从
+\(\mathbf{Set}\) 到 \(\mathscr C_{/S}\) 的函子.\footnote{编者注: 以下三段调整了
+语句次序, 并增补了关于下述条件 \((*)\) 所起作用的若干细节.} 若 \(S'\to S\) 是
+\(\mathscr C\) 中的箭头, 则由于直和与基变换可交换, 有
+\[
+  E_{S'}=(E_S)_{S'}.
+\]
+特别地, 若 \(\mathscr C\) 有终对象 \(e\), 则
+\[
+  E_S=(E_e)_S.
+\]
+
+从 \(\mathbf{Set}\) 到 \(\mathscr C_{/S}\) 的函子 \(E\mapsto E_S/S\) 与有限积
+可交换. 只需证明
+\begin{equation}
+  \tag{\ensuremath{\times}}
+  E_S\mathbin{\times_S}F_S=(E\times F)_S.
+\end{equation}
+事实上, 将 \SGARefLink{sga3:i:subsection:1:7}{1.7} 的结果用于 \(\mathscr C_{/S}\),
+可知对每个 \(T\in\operatorname{Ob}(\mathscr C_{/S})\) 都有自然同构
+(所有未注明下标的 \(\operatorname{Hom}\) 均在 \(\mathscr C_{/S}\) 中取):
+\begin{align*}
+  \operatorname{Hom}((E\times F)_S,T)
+  &\simeq
+    \operatorname{Hom}_{\mathbf{Set}}
+      \bigl(E\times F,\operatorname{Hom}(S,T)\bigr)\\
+  &\simeq
+    \operatorname{Hom}_{\mathbf{Set}}
+      \bigl(E,
+        \operatorname{Hom}_{\mathbf{Set}}
+          (F,\operatorname{Hom}(S,T))\bigr)\\
+  &\simeq
+    \operatorname{Hom}_{\mathbf{Set}}
+      \bigl(E,\operatorname{Hom}(F_S,T)\bigr),
+\end{align*}
+以及
+\begin{align*}
+  \operatorname{Hom}(E_S\mathbin{\times_S}F_S,T)
+  &\simeq
+    \operatorname{Hom}
+      \bigl(E_S,\underline{\operatorname{Hom}}(F_S,T)\bigr)\\
+  &\simeq
+    \operatorname{Hom}_{\mathbf{Set}}
+      \bigl(E,
+        \operatorname{Hom}
+          (S,\underline{\operatorname{Hom}}(F_S,T))\bigr).
+\end{align*}
+但
+\[
+  \operatorname{Hom}
+    \bigl(S,\underline{\operatorname{Hom}}(F_S,T)\bigr)
+  \simeq \operatorname{Hom}(F_S,T),
+\]
+这就证明了 \((\times)\).
+
+设以 \(\varnothing\) 表示 \(\mathscr C\) 的一个始对象, 且下图是笛卡尔图:
+
+% Authority: Exp1-13oct24.pdf p. 11; combined reader p. 21.
+\begin{center}
+  \makebox[0.62\textwidth][l]{%
+    \textup{(*)}\hfill
+    \input{figures/exp1/diag_006_constant_objects_cartesian_square}%
+    \hfill\phantom{\textup{(*)}}%
+  }
+\end{center}
+概形范畴满足这一条件.\footnote{编者注: 若 \(\mathscr C\) 是仅有箭头
+\(A\to B\), \(\operatorname{id}_A\) 和 \(\operatorname{id}_B\) 的范畴, 则条件
+\((*)\) 不成立. 此时有 \(B\coprod B=B\) 和 \(B\times_BB=B\not\simeq A\).}
+那么函子 \(E\mapsto E_S\) 与有限逆极限可交换.
+
+事实上, 由 \((\times)\) 可知, 只需证明 \(E\mapsto E_S\) 与纤维积可交换.
+设 \(u:E\to G\) 和 \(v:F\to G\) 是两个集合映射. 由于 \(\mathscr C\) 中的直和
+与基变换可交换, 有
+\begin{equation}
+  \tag{1}\label{sga3:i:subsection:1-8:equation:1}
+  F_S\mathbin{\times_{G_S}}E_S
+  \simeq
+  \coprod_{f\in F}
+    \bigl(S_f\mathbin{\times_{G_S}}E_S\bigr)
+  \simeq
+  \coprod_{\substack{f\in F\\x\in E}}
+    \bigl(S_f\mathbin{\times_{G_S}}S_x\bigr).
+\end{equation}
+若 \(v(f)\ne u(x)\), 则在 \(\mathscr C_{/S}\) 中有态射
+\[
+  S_f\mathbin{\times_{G_S}}S_x
+  \longrightarrow
+  S_f\mathbin{\times_{S_{v(f)}\coprod S_{u(x)}}}S_x.
+\]
+由条件 \((*)\), 右端为 \(\varnothing\). 因此
+\begin{equation}
+  \tag{2}\label{sga3:i:subsection:1-8:equation:2}
+  S_f\mathbin{\times_{G_S}}S_x\simeq\varnothing
+  \qquad\text{当 }v(f)\ne u(x).
+\end{equation}
+另一方面, 若 \(v(f)=u(x)\), 则在 \(\mathscr C_{/S}\) 中有态射
+\[
+  S\longrightarrow S_f\mathbin{\times_{G_S}}S_x.
+\]
+由于 \(S\xrightarrow{\operatorname{id}}S\) 是 \(\mathscr C_{/S}\) 的终对象, 可得
+\begin{equation}
+  \tag{3}\label{sga3:i:subsection:1-8:equation:3}
+  S_f\mathbin{\times_{G_S}}S_x\simeq S
+  \qquad\text{当 }v(f)=u(x).
+\end{equation}
+结合 \SGARefLink{sga3:i:proposition:1:4:1}{(1)}, \SGARefLink{sga3:i:section:2}{(2)}
+及 \SGARefLink{sga3:i:section:3}{(3)}, 得到关于 \(S\) 函子性的同构:
+\[
+  F_S\mathbin{\times_{G_S}}E_S
+  \simeq \coprod_{F\times_G E}S
+  =(F\mathbin{\times_G}E)_S.
+\]
+
+形如 \(E_S\) 的对象称为\emph{常对象 (constant object)}. 存在一个关于 \(E\)
+函子性的态射
+\[
+  E\longrightarrow\Gamma(E_S/S),
+\]
+它把每个 \(i\in E\) 对应到由 \(S\) 到 \(S_i\) 的同构所定义的 \(E_S\) 在
+\(S\) 上的截面. 设条件 \((*)\) 对 \(\mathscr C\) 的每个对象 \(S\) 均成立.
+那么只要 \(S\not\simeq\varnothing\), \(E\to\Gamma(E_S/S)\) 就是单态射.
+
+若 \(\mathscr C\) 是概形范畴, 则 \(\Gamma(E_S/S)\) 等同于从拓扑空间 \(S\)
+到集合 \(E\) 的局部常值映射的集合; 上述映射把 \(E\) 的每个元素对应到相应的
+常值映射. 因此, 也可以等价地将 \(E_S\) 定义为下述函子的代表对象: 该函子把每个
+\(S\) 上的 \(S'\) 对应到从拓扑空间 \(S'\) 到 \(E\) 的局部常值函数的集合.
+\footnote{编者注: 对角态射 \(E_S\to E_S\times_SE_S=(E\times E)_S\) 也是闭浸入;
+换言之, \(E_S\) 在 \(S\) 上分离.}
+
+\section*{\SGAInlineRefTarget{sga3:i:section:2}2. 代数结构}
+\addcontentsline{toc}{section}{2. 代数结构}
+
+给定集合范畴中的一种代数结构, 我们要将它推广到范畴 \(\mathscr C\).
+先讨论群的例子.
+
+\subsection*{\SGAInlineRefTarget{sga3:i:subsection:2-1}2.1. 群结构}
+
+沿用上一段的记号.
+
+\medskip
+\noindent\SGAInlineRefTarget{sga3:i:definition:2-1-1}\textbf{定义 2.1.1.}
+设 \(\mathbf G\in\operatorname{Ob}(\widehat{\mathscr C})\).
+\(\mathbf G\) 上的一个\emph{\(\widehat{\mathscr C}\)-群结构}是指: 对每个
+\(S\in\operatorname{Ob}(\mathscr C)\), 给定集合 \(\mathbf G(S)\) 上的一个群结构,
+使得对 \(\mathscr C\) 中的每个箭头 \(f:S'\to S''\), 映射
+\[
+  \mathbf G(f):\mathbf G(S'')\longrightarrow\mathbf G(S')
+\]
+是群同态. 若 \(\mathbf G\) 与 \(\mathbf H\) 是两个 \(\widehat{\mathscr C}\)-群,
+则从 \(\mathbf G\) 到 \(\mathbf H\) 的\emph{\(\widehat{\mathscr C}\)-群态射}是指
+满足下述条件的态射 \(u\in\operatorname{Hom}(\mathbf G,\mathbf H)\): 对每个
+\(S\in\operatorname{Ob}(\mathscr C)\), \(u(S):\mathbf G(S)\to\mathbf H(S)\)
+都是群同态.
+
+以
+\(\operatorname{Hom}_{\widehat{\mathscr C}\text{-}\mathrm{Gr}}
+  (\mathbf G,\mathbf H)\)
+表示这些态射的集合, 并以 \((\widehat{\mathscr C}\text{-}\mathrm{Gr})\) 表示它们构成的范畴.
+
+\medskip
+\noindent\textbf{例.}
+对 \(\mathbf E\in\operatorname{Ob}(\widehat{\mathscr C})\), 对象
+\(\underline{\operatorname{Aut}}(\mathbf E)\) 显然具有
+\(\widehat{\mathscr C}\)-群结构. 终对象 \(\underline{\mathbf e}\) 有唯一的
+\(\widehat{\mathscr C}\)-群结构, 使它成为 \((\widehat{\mathscr C}\text{-}\mathrm{Gr})\)
+的终对象.
+
+对每个 \(S\in\operatorname{Ob}(\mathscr C)\), 设 \(e_{\mathbf G}(S)\) 为
+\(\mathbf G(S)\) 的单位元. 这些元素 \(e_{\mathbf G}(S)\) 组成的族定义了
+\[
+  e_{\mathbf G}\in\Gamma(\mathbf G)
+  =\operatorname{Hom}(\underline{\mathbf e},\mathbf G).
+\]
+它是一个 \(\widehat{\mathscr C}\)-群态射 \(\underline{\mathbf e}\to\mathbf G\),
+称为 \(\mathbf G\) 的\emph{单位截面 (unit section)}.
+
+给定 \(\mathbf G\) 上的 \(\widehat{\mathscr C}\)-群结构, 等价于给定
+\(\mathbf G\) 上的一个合成律, 即一个 \(\widehat{\mathscr C}\)-态射
+\[
+  \pi_{\mathbf G}:\mathbf G\times\mathbf G\longrightarrow\mathbf G
+\]
+使得对每个 \(S\in\operatorname{Ob}(\mathscr C)\), \(\pi_{\mathbf G}(S)\) 都赋予
+\(\mathbf G(S)\) 一个群结构.
+
+同样, \(f:\mathbf G\to\mathbf H\) 是 \(\widehat{\mathscr C}\)-群态射, 当且仅当下图交换:
+
+% Authority: Exp1-13oct24.pdf p. 13; combined reader p. 23.
+\begin{center}
+  \input{figures/exp1/diag_007_group_morphism_square}
+\end{center}
+
+若 \(\mathbf G\) 的子对象 \(\mathbf H\) 满足: 对每个 \(S\), \(\mathbf H(S)\)
+均为 \(\mathbf G(S)\) 的子群, 则它显然具有由 \(\mathbf G\) 的结构诱导出的
+\(\widehat{\mathscr C}\)-群结构. 这是使单态射 \(\mathbf H\to\mathbf G\) 成为
+\(\widehat{\mathscr C}\)-群态射的唯一结构. 配备这一结构后, 称 \(\mathbf H\)
+为 \(\mathbf G\) 的一个\emph{子 \(\widehat{\mathscr C}\)-群}.
+
+若 \(\mathbf G\) 与 \(\mathbf H\) 是两个 \(\widehat{\mathscr C}\)-群, 则
+\(\mathbf G\times\mathbf H\) 具有显然的积结构: 对每个 \(S\), 在集合
+\(\mathbf G(S)\times\mathbf H(S)\) 上赋予所给群结构的积. 所得对象称为
+\(\mathbf G\) 与 \(\mathbf H\) 的\emph{积 \(\widehat{\mathscr C}\)-群};
+它是它们在 \(\widehat{\mathscr C}\)-群范畴中的积.
+
+若 \(\mathbf G\) 是 \(\widehat{\mathscr C}\)-群, 则对每个
+\(S\in\operatorname{Ob}(\mathscr C)\), \(\mathbf G_S\) 都是
+\(\widehat{\mathscr C_{/S}}\)-群. 对两个 \(\widehat{\mathscr C}\)-群
+\(\mathbf G\) 和 \(\mathbf H\), 以下式定义 \(\widehat{\mathscr C}\) 的对象
+\(\underline{\operatorname{Hom}}_{
+  \widehat{\mathscr C}\text{-}\mathrm{Gr}}(\mathbf G,\mathbf H)\):
+\[
+  \underline{\operatorname{Hom}}_{
+    \widehat{\mathscr C}\text{-}\mathrm{Gr}}(\mathbf G,\mathbf H)(S)
+  =
+  \operatorname{Hom}_{
+    \widehat{\mathscr C_{/S}}\text{-}\mathrm{Gr}}
+    (\mathbf G_S,\mathbf H_S).
+\]
+注意, \(\underline{\operatorname{Hom}}_{
+  \widehat{\mathscr C}\text{-}\mathrm{Gr}}\) 一般不是
+\(\widehat{\mathscr C}\)-群, 更不是范畴 \((\widehat{\mathscr C}\text{-}\mathrm{Gr})\)
+中的内部 \(\underline{\operatorname{Hom}}\) 对象.
+
+类似地定义
+\[
+  \underline{\operatorname{Isom}}_{
+    \widehat{\mathscr C}\text{-}\mathrm{Gr}}(\mathbf G,\mathbf H),
+  \qquad
+  \underline{\operatorname{End}}_{
+    \widehat{\mathscr C}\text{-}\mathrm{Gr}}(\mathbf G),
+  \qquad
+  \underline{\operatorname{Aut}}_{
+    \widehat{\mathscr C}\text{-}\mathrm{Gr}}(\mathbf G).
+\]
+
+\medskip
+\noindent\SGAInlineRefTarget{sga3:i:definition:2-1-2}\textbf{定义 2.1.2.}
+设 \(G\in\operatorname{Ob}(\mathscr C)\). \(G\) 上的一个
+\emph{\(\mathscr C\)-群结构}是指
+\(\mathbf h_G\in\operatorname{Ob}(\widehat{\mathscr C})\) 上的
+\(\widehat{\mathscr C}\)-群结构. 从 \(\mathscr C\)-群 \(G\) 到
+\(\mathscr C\)-群 \(H\) 的态射是指一个元素
+\[
+  u\in\operatorname{Hom}(G,H)
+  \simeq\operatorname{Hom}(\mathbf h_G,\mathbf h_H)
+\]
+它定义了从 \(\mathbf h_G\) 到 \(\mathbf h_H\) 的
+\(\widehat{\mathscr C}\)-群态射.
+
+以 \((\mathscr C\text{-}\mathrm{Gr})\) 表示 \(\mathscr C\)-群的范畴.
+在 \(\mathbf{Cat}\) 中有一个笛卡尔方块:
+
+% Authority: Exp1-13oct24.pdf p. 13; combined reader p. 23.
+\begin{center}
+  \input{figures/exp1/diag_008_representable_group_cartesian_square}
+\end{center}
+
+因此, 只要上述定义和构造所用的函子 (积, 内部
+\(\underline{\operatorname{Hom}}\) 对象等等) 可表, 这些定义和构造就立即适用于
+\((\mathscr C\text{-}\mathrm{Gr})\). 它们也适用于范畴 \(\mathscr C_{/S}\).
+此时将 \(\underline{\operatorname{Hom}}_{\mathscr C_{/S}\text{-}\mathrm{Gr}}\)
+记为 \(\underline{\operatorname{Hom}}_{S\text{-}\mathrm{Gr}}\), 其他对象也采用类似记号.
+
+\subsection*{\SGAInlineRefTarget{sga3:i:subsection:2-2}2.2.}
+
+更一般地, 设 \((T)\) 是由有限逆极限定义的、以 \(n\) 个集合为基集的一种结构
+---例如用笛卡尔积构成的交换图来定义的结构, 如幺半群、群、带算子的集合、环上的模
+或环上的 Lie 代数结构. 上述构造定义了 \(\widehat{\mathscr C}\) 的 \(n\) 个对象
+\(\mathbf F_1,\ldots,\mathbf F_n\) 上的“\((T)\) 类结构”的概念.
+这种结构是指: 对每个 \(S\in\operatorname{Ob}(\mathscr C)\), 在集合
+\(\mathbf F_1(S),\ldots,\mathbf F_n(S)\) 上给定一个 \((T)\) 类结构,
+使得对 \(\mathscr C\) 中的每个箭头 \(S'\to S''\), 映射族
+\[
+  \bigl(\mathbf F_i(S'')\bigr)_i
+  \longrightarrow
+  \bigl(\mathbf F_i(S')\bigr)_i
+\]
+是关于结构种类 \((T)\) 的多重同态 (polyhomomorphism).
+
+类似地定义 \((T)\) 类结构的态射, 得到一个范畴
+\[
+  (\widehat{\mathscr C}\times\cdots\times\widehat{\mathscr C})^{(T)}.
+\]
+于是全忠实函子 \(\mathbf h\times\cdots\times\mathbf h\) 通过逆像定义了范畴
+\[
+  (\mathscr C\times\cdots\times\mathscr C)^{(T)}.
+\]
+由于它与逆极限可交换, 在 \(\widehat{\mathscr C}\) 中引入的所有函子性性质、概念和
+记号都可以移用于这一范畴.
+
+现设 \(\mathscr C\) 中存在纤维积, 并设 \((T)\) 是这样一种代数结构:
+它由笛卡尔积之间的某些态射指定, 所满足的公理由这些态射构成的交换图给出.
+于是, \(\mathscr C\) 中一族对象上的一个 \((T)\) 类结构, 就由笛卡尔积之间满足
+相应交换性条件的相应态射来定义. 因此, 若 \(\mathscr C\) 与 \(\mathscr C'\)
+是有积的范畴, \(f:\mathscr C\to\mathscr C'\) 是与积可交换的函子, 则
+\(\mathscr C\) 的一族对象 \((F_i)\) 上的 \((T)\) 类结构, 在
+\(\mathscr C'\) 的对象族 \((f(F_i))\) 上诱导出一个同类结构. 这样, 每个
+\(\mathscr C\)-群都成为一个 \(\mathscr C'\)-群, 由一个 \(\mathscr C\)-环和该环上的
+一个模组成的每一对对象, 都成为 \(\mathscr C'\) 中相应的一对对象, 依此类推.
+
+特别地, 设 \(\mathscr C\) 满足 \SGARefLink{sga3:i:subsection:1:8}{1.8} 的条件.
+\footnote{编者注: 包括条件 \((*)\).} 该处定义的函子 \(E\mapsto E_S\)
+与有限逆极限可交换. 因此, 它把群变成 \(S\)-群 (即 \(\mathscr C_{/S}\)-群),
+把环变成 \(S\)-环, 等等.
+
+\medskip
+\noindent\textbf{注.}
+应当注意, 将上述构造用于 \(\widehat{\mathscr C}\), 得到的恰好是该范畴中已经定义的
+那些概念. 换言之, 在 \(\widehat{\mathscr C}\) 的一个对象上, 将它视为
+\(\mathscr C\) 上的函子而给定 \((T)\) 类结构, 等价于在这个对象所定义的
+\(\widehat{\mathscr C}\) 上的可表函子上给定 \((T)\) 类结构.
+\footnote{编者注: 例如, 对于群结构, 设
+\(\mathbf G\in\operatorname{Ob}(\widehat{\mathscr C})\). 若函子
+\[
+  \widehat{\mathscr C}\longrightarrow\mathbf{Set},
+  \qquad
+  \mathbf F\longmapsto
+  \operatorname{Hom}_{\widehat{\mathscr C}}(\mathbf F,\mathbf G)
+\]
+具有群结构, 则它在 \(\mathscr C\) 上的限制, 即 \(X\mapsto\mathbf G(X)\),
+也具有群结构. 反之, 若 \(\mathbf G\) 是 \(\widehat{\mathscr C}\)-群, 则其乘法态射
+\(\pi_{\mathbf G}:\mathbf G\times\mathbf G\to\mathbf G\) 对每个
+\(\mathbf F\in\operatorname{Ob}(\widehat{\mathscr C})\), 在
+\(\operatorname{Hom}_{\widehat{\mathscr C}}(\mathbf F,\mathbf G)\) 上诱导出一个群结构,
+而且这关于 \(\mathbf F\) 是函子性的.}
+
+我们还要讨论这一构造的另外两个特殊情形: 带算子群的结构与模.
+
+% End of component. Section 2.3 begins in the next unit.

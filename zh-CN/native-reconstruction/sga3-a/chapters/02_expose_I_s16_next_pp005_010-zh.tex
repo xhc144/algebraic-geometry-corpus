@@ -1,0 +1,523 @@
+% SGA 3, Expose I, Loop 1 English reconstruction.
+% Scope: Section 1.6 through the end of Remark 1.7.3.
+% Authority: Polo--Gille Exp1-13oct24.pdf, component pages 5--10
+% (combined-reader pages 15--20). OCR is drafting/locator material only.
+
+\subsection*{\SGAInlineRefTarget{sga3:i:subsection:1-6}1.6. 函子中的基变换}
+
+对每个 \(S\in\operatorname{Ob}(\mathscr C)\), 有典范函子
+\[
+  i_S:\mathscr C_{/S}\longrightarrow\mathscr C
+\]
+其定义为: 当 \(f\) 是箭头 \(T\to S\) 时, \(i_S(f)=T\). 若
+\(f:T\to S\) 是 \(\mathscr C_{/S}\) 的一个对象, 我们用
+\(i_{T/S}=i_f\) 表示函子
+\[
+  i_{T/S}:(\mathscr C_{/S})_{/T}\longrightarrow\mathscr C_{/S},
+\]
+并且有交换图:
+
+% Authority: Exp1-13oct24.pdf p. 5; combined reader p. 15.
+\begin{center}
+  \input{figures/exp1/diag_003_base_change_triangle}
+\end{center}
+
+因此, 将 \((\mathscr C_{/S})_{/T}\) 与 \(\mathscr C_{/T}\) 等同
+(今后我们都这样做), 就有
+\[
+  i_S\circ i_{T/S}=i_T.
+\]
+同样, 当 \(\mathscr C\) 有终对象 \(e\), 且将 \(\mathscr C\) 与
+\(\mathscr C_{/e}\) 等同时, \(i_{S/e}:\mathscr C_{/S}\to\mathscr C_{/e}\)
+便与 \(i_S\) 等同.
+
+对 \(X\in\operatorname{Ob}(\mathscr C)\) (分别地,
+\(Y\in\operatorname{Ob}(\mathscr C_{/S})\)), 用 \(p_S(X)\)
+(分别地, \(p_{T/S}(Y)\)) 表示 \(\mathscr C_{/S}\) (分别地,
+\(\mathscr C_{/T}\)) 中如下定义的对象 (只要它存在):
+\(X\times S\) (分别地, \(Y\times_S T\)) 配备其第二投影:
+
+% Authority: Exp1-13oct24.pdf p. 5; combined reader p. 15.
+\begin{center}
+  \input{figures/exp1/diag_004_base_change_projections}
+\end{center}
+
+部分定义的函子 \(p_S\) (分别地, \(p_{T/S}\)) 称为
+\emph{基变换函子 (base-change functor)}. 由积 (分别地, 纤维积) 的定义,
+它是 \(i_S\) (分别地, \(i_{T/S}\)) 的右伴随.
+\footnote{编者注: 即若 \(g:U\to S\) (分别地,
+\(h:V\to T\)) 是 \(\mathscr C_{/S}\) (分别地,
+\(\mathscr C_{/T}\)) 的一个对象, 则 \(i_S(g)=U\), 而 \(i_{T/S}(h)\)
+是 \(\mathscr C_{/S}\) 中的对象 \(f\circ h:V\to S\), 并且
+\[
+  \operatorname{Hom}_{\mathscr C_{/S}}(U,X\times S)
+    \simeq \operatorname{Hom}_{\mathscr C}(U,X),
+\]
+分别地,
+\[
+  \operatorname{Hom}_{\mathscr C_{/T}}(V,X\times_S T)
+    \simeq \operatorname{Hom}_{\mathscr C_{/S}}(V,X).
+\]}
+我们也记
+\[
+  p_S(X)=X_S,
+  \qquad
+  p_{T/S}(Y)=Y_T.
+\]
+
+函子 \(i_S\) 定义了一个限制函子
+\[
+  i_S^*:\widehat{\mathscr C}\longrightarrow
+    \widehat{\mathscr C_{/S}}.
+\]
+我们记
+\[
+  \mathbf F_S=i_S^*(\mathbf F)=\mathbf F\circ i_S.
+\]
+显然,
+\[
+  i_{T/S}^*\circ i_S^*=i_T^*,
+\]
+即对每个函子
+\(\mathbf F\in\operatorname{Ob}(\widehat{\mathscr C})\),
+\[
+  (\mathbf F_S)_T=\mathbf F_T.
+\]
+下面的结果说明这一记号是合理的.
+
+\medskip
+\noindent\SGAInlineRefTarget{sga3:i:proposition:1-6-1}\textbf{命题 1.6.1.}
+\textit{函子
+\[
+  (\mathbf h_X)_S:(\mathscr C_{/S})^{\circ}\longrightarrow\mathbf{Set}
+\]
+可表当且仅当积 \(X\times S\) 存在. 此时
+\[
+  (\mathbf h_X)_S\simeq\mathbf h_{X_S}.
+\]}
+
+这说明 \(\mathbf F_S\) 有两种解释: 它既是 \(\mathbf F\) 在
+\(\mathscr C_{/S}\) 上的限制, 也是由基变换 \(e\leftarrow S\)
+得到的函子. 因此采用如下记号:
+
+% Authority: Exp1-13oct24.pdf p. 6; combined reader p. 16.
+\begin{center}
+  \input{figures/exp1/diag_005_functor_base_change_notation}
+\end{center}
+
+此图同时体现了前面的两种解释. 注意
+\[
+  \Gamma(\mathbf F_S)
+    \simeq\operatorname{Hom}(\mathbf h_S,\mathbf F)
+    \simeq\mathbf F(S),
+\]
+特别地,
+\[
+  \Gamma(X_S)\simeq\operatorname{Hom}(S,X).
+\]
+
+\subsection*{\SGAInlineRefTarget{sga3:i:subsection:1-7-0}1.7.0.}
+
+设 \(\mathbf E\) 是 \(\widehat{\mathscr C}\) 的一个对象.
+\footnote{编者注: 下面的引理是新增的 (见 SGA~4,
+I.3.4); 它用于 \SGARefLink{sga3:i:proposition:1-7-1}{1.7.1} 的证明,
+并且在后文中会多次用到.}
+考虑 \(\mathbf E\) 上的 \emph{\(\mathscr C\) 的对象}所成的范畴
+\(\mathscr C_{/\mathbf E}\). 其对象是二元组 \((V,\rho)\),
+由 \(\mathscr C\) 的一个对象 \(V\) 和 \(\widehat{\mathscr C}\) 中的一个态射
+\(\rho:\mathbf h_V\to\mathbf E\), 即 \(\rho\in\mathbf E(V)\) 组成.
+从 \((V,\rho)\) 到 \((V',\rho')\) 的态射是 \(\mathscr C\) 中满足
+\[
+  \rho'\circ f=\rho,
+  \qquad\text{即}\qquad
+  \mathbf E(f)(\rho')=\rho.
+\]
+的态射 \(f:V\to V'\).
+设 \(\mathbf L\) 为函子
+\[
+  \mathbf L=\varinjlim_{(V,\rho)\in\mathscr C_{/\mathbf E}}\mathbf h_V.
+\]
+因此, 对每个 \(S\in\operatorname{Ob}(\mathscr C)\),
+\[
+  \mathbf L(S)
+    =\varinjlim_{(V,\rho)\in\mathscr C_{/\mathbf E}}\mathbf h_V(S)
+\]
+是三元组 \((V,\rho,v)\) 的等价类所成的集合, 其中
+\(v:S\to V\) 是 \(\mathscr C\) 中的态射; 对每个满足
+\(\rho'\circ f=\rho\) 的 \(\mathscr C\) 中的态射 \(f:V\to V'\),
+将 \((V,\rho,v)\) 与 \((V',\rho',f\circ v)\) 等同.
+
+将 \((V,\rho,v)\) 的类映到 \(\mathbf E(S)\) 中的元素
+\(\rho\circ v\) 的映射 \(\phi_{\mathbf E}(S)\) 是良定义的,
+并给出一个函子态射
+\[
+  \phi_{\mathbf E}:
+  \varinjlim_{(V,\rho)\in\mathscr C_{/\mathbf E}}\mathbf h_V
+    \longrightarrow\mathbf E.
+\]
+
+\medskip
+\noindent\textbf{引理.}
+\textit{态射 \(\phi_{\mathbf E}\) 是同构.}
+
+事实上, 设 \(S\in\operatorname{Ob}(\mathscr C)\). 每个
+\(x\in\mathbf E(S)\) 都是三元组 \((S,x,\operatorname{id}_S)\)
+在 \(\phi_{\mathbf E}(S)\) 下的像; 因此 \(\phi_{\mathbf E}(S)\) 是满射.
+反过来, 设
+\(\ell_1=(V_1,\rho_1,v_1)\) 和
+\(\ell_2=(V_2,\rho_2,v_2)\) 是 \(\mathbf L(S)\) 的两个元素,
+它们在 \(\mathbf E(S)\) 中具有相同的像, 并置
+\[
+  \gamma=\rho_1\circ v_1=\rho_2\circ v_2.
+\]
+那么 \(\ell_1\) 和 \(\ell_2\) 在 \(\mathbf L(S)\) 中都等于
+\((S,\gamma,\operatorname{id}_S)\) 的类. 因此
+\(\phi_{\mathbf E}(S)\) 是单射.
+
+\medskip
+\noindent\textbf{推论.}
+\textit{对 \(\widehat{\mathscr C}\) 的每个对象 \(\mathbf F\), 有
+\[
+  \operatorname{Hom}(\mathbf E,\mathbf F)
+    =\varprojlim_{(V,\rho)\in\mathscr C_{/\mathbf E}}\mathbf F(V).
+\]}
+
+\SGARefTarget{sga3:i:subsection:1:7}
+\subsection*{1.7. 对象 \(\underline{\operatorname{Hom}}\),
+\(\underline{\operatorname{Isom}}\) 等}
+
+设 \(\mathbf F\) 和 \(\mathbf G\) 是 \(\widehat{\mathscr C}\)
+的两个对象. 定义 \(\widehat{\mathscr C}\) 的另一个对象如下:
+\begin{align*}
+  \underline{\operatorname{Hom}}(\mathbf F,\mathbf G)(S)
+  &={}\operatorname{Hom}_{\widehat{\mathscr C_{/S}}}
+       (\mathbf F_S,\mathbf G_S)\\
+  &\simeq\operatorname{Hom}_{\widehat{\mathscr C}_{/\mathbf h_S}}
+       (\mathbf F\times\mathbf h_S,\mathbf G\times\mathbf h_S)\\
+  &\simeq\operatorname{Hom}_{\widehat{\mathscr C}}
+       (\mathbf F\times\mathbf h_S,\mathbf G).
+\end{align*}
+对象 \(\underline{\operatorname{Hom}}(\mathbf F,\mathbf G)\) 有如下性质:
+\begin{enumerate}
+  \item[(i)]
+    \(\underline{\operatorname{Hom}}(\underline{\mathbf e},\mathbf G)
+      \simeq\mathbf G\).
+    \footnote{编者注: 若 \(\mathbf E\) 是 \(\widehat{\mathscr C}\)
+    的第三个对象, 则
+    \[
+      \underline{\operatorname{Hom}}(\mathbf E,\mathbf F\times\mathbf G)
+      \simeq
+      \underline{\operatorname{Hom}}(\mathbf E,\mathbf F)
+        \times
+      \underline{\operatorname{Hom}}(\mathbf E,\mathbf G).
+    \]}
+  \item[\SGAInlineRefTarget{sga3:i:subsection:1:7:item:ii}(ii)] \(\underline{\operatorname{Hom}}\)
+    的构造与基扩张可交换:
+    \[
+      \underline{\operatorname{Hom}}(\mathbf F_S,\mathbf G_S)
+        \simeq
+      \underline{\operatorname{Hom}}(\mathbf F,\mathbf G)_S.
+    \]
+  \item[(iii)]
+    \((\mathbf F,\mathbf G)\mapsto
+      \underline{\operatorname{Hom}}(\mathbf F,\mathbf G)\) 是双函子,
+    对 \(\mathbf F\) 反变, 对 \(\mathbf G\) 协变.
+\end{enumerate}
+这三个性质由定义立即可得.
+
+我们将证明, 对 \(\widehat{\mathscr C}\) 的每个对象 \(\mathbf E\),
+\[
+  \operatorname{Hom}
+    \bigl(\mathbf E,
+      \underline{\operatorname{Hom}}(\mathbf F,\mathbf G)\bigr)
+    \simeq
+  \operatorname{Hom}(\mathbf E\times\mathbf F,\mathbf G).
+\]
+设 \(\phi:\mathbf E\times\mathbf F\to\mathbf G\). 我们要为它配一个
+从 \(\mathbf E\) 到 \(\underline{\operatorname{Hom}}(\mathbf F,\mathbf G)\)
+的态射. 对 \(\mathscr C\) 的一个箭头 \(S'\to S\), 有映射
+\[
+  \mathbf E(S)\times\mathbf F(S')
+    \longrightarrow
+  \mathbf E(S')\times\mathbf F(S')
+    \xrightarrow{\ \phi(S')\ }
+  \mathbf G(S').
+\]
+因此, \(\mathbf E(S)\) 的每个元素 \(e\) 对每个 \(S'\to S\)
+定义一个关于 \(S'\) 函子性的映射 \(\mathbf F(S')\to\mathbf G(S')\);
+这便是 \(\underline{\operatorname{Hom}}(\mathbf F,\mathbf G)(S)\)
+的一个元素 \(\theta_\phi(e)\). 由此得到映射
+\[
+  \phi\longmapsto\theta_\phi,
+  \qquad
+  \operatorname{Hom}(\mathbf E\times\mathbf F,\mathbf G)
+    \longrightarrow
+  \operatorname{Hom}
+    \bigl(\mathbf E,
+      \underline{\operatorname{Hom}}(\mathbf F,\mathbf G)\bigr),
+\]
+它关于 \(\mathbf E\) 是函子性的.
+
+\medskip
+\noindent\SGAInlineRefTarget{sga3:i:proposition:1-7-1}\textbf{命题 1.7.1.}
+\footnote{编者注: 新增的 \SGARefLink{sga3:i:proposition:1-7-1:item:b}{(b)}
+项将在 II.1 和 II.3.11 中用到. 还补写了
+\SGARefLink{sga3:i:proposition:1-7-1:item:a}{(a)} 项的另一种更直接的证明梗概.}
+\textit{设
+\(\mathbf E,\mathbf F,\mathbf G\in
+\operatorname{Ob}(\widehat{\mathscr C})\).
+\begin{enumerate}
+  \item[\SGAInlineRefTarget{sga3:i:proposition:1-7-1:item:a}(a)] 映射 \(\phi\mapsto\theta_\phi\) 是双射:
+    \[
+      \operatorname{Hom}(\mathbf E\times\mathbf F,\mathbf G)
+        \xrightarrow{\ \sim\ }
+      \operatorname{Hom}
+        \bigl(\mathbf E,
+          \underline{\operatorname{Hom}}(\mathbf F,\mathbf G)\bigr).
+    \]
+  \item[\SGAInlineRefTarget{sga3:i:proposition:1-7-1:item:b}(b)] 此外, 有函子同构
+    \[
+      \underline{\operatorname{Hom}}
+        \bigl(\mathbf E,
+          \underline{\operatorname{Hom}}(\mathbf F,\mathbf G)\bigr)
+        \simeq
+      \underline{\operatorname{Hom}}
+        (\mathbf E\times\mathbf F,\mathbf G).
+    \]
+\end{enumerate}}
+
+对于 \SGARefLink{sga3:i:proposition:1-7-1:item:a}{(a)}, 将两端都看成
+\(\mathbf E\) 的函子. 当 \(\mathbf E=\mathbf h_X\) 时, 所述结果成立,
+因为这时它恰好是函子
+\(\underline{\operatorname{Hom}}(\mathbf F,\mathbf G)\) 的定义. 此外,
+两端作为 \(\mathbf E\) 的函子, 都将正向极限变成逆向极限.
+最后, 由 \SGARefLink{sga3:i:subsection:1-7-0}{引理~1.7.0},
+\(\widehat{\mathscr C}\) 的每个对象 \(\mathbf E\) 都同构于
+\(\mathbf h_X\) 的正向极限, 其中 \(X\) 遍历 \(\mathscr C_{/\mathbf E}\).
+这就证明了 \SGARefLink{sga3:i:proposition:1-7-1:item:a}{(a)}.
+
+我们还给出 \SGARefLink{sga3:i:proposition:1-7-1:item:a}{(a)} 的一个直接证明的梗概.
+对每个
+\[
+  \theta\in\operatorname{Hom}
+    \bigl(\mathbf E,
+      \underline{\operatorname{Hom}}(\mathbf F,\mathbf G)\bigr)
+\]
+如下配一个 \(\phi_\theta\in
+\operatorname{Hom}(\mathbf E\times\mathbf F,\mathbf G)\). 对每个
+\(S\in\operatorname{Ob}(\mathscr C)\), 有关于 \(S\) 函子性的映射
+\[
+  \theta(S):\mathbf E(S)\longrightarrow
+    \operatorname{Hom}(\mathbf F\times S,\mathbf G),
+\]
+若 \((e,f)\in\mathbf E(S)\times\mathbf F(S)\), 则 \(f\)
+是态射 \(S\to\mathbf F\), 所以 \(f\times\operatorname{id}_S\)
+是态射 \(S\to\mathbf F\times S\). 另一方面, \(\theta(S)(e)\)
+是态射 \(\mathbf F\times S\to\mathbf G\). 因此复合给出态射
+\[
+  \theta(S)(e)\circ(f\times\operatorname{id}_S):S\longrightarrow\mathbf G,
+\]
+即 \(\mathbf G(S)\) 的一个元素 \(\phi_\theta(S)(e,f)\). 容易验证,
+\(S\mapsto\phi_\theta(S)\) 关于 \(S\) 是函子性的, 因而定义了
+从 \(\mathbf E\times\mathbf F\) 到 \(\mathbf G\) 的态射 \(\phi_\theta\).
+映射 \(\theta\mapsto\phi_\theta\) 和 \(\phi\mapsto\theta_\phi\)
+是互逆双射的验证留给读者.
+
+对于 \SGARefLink{sga3:i:proposition:1-7-1:item:b}{(b)}, 若
+\(S\in\operatorname{Ob}(\mathscr C)\), 则由
+\SGARefLink{sga3:i:subsection:1:7:item:ii}{1.7(ii)}, 以及将
+\SGARefLink{sga3:i:proposition:1-7-1:item:a}{(a)} 项应用于 \(\mathscr C_{/S}\), 有
+\begin{align*}
+  &\underline{\operatorname{Hom}}
+    \bigl(\mathbf E,
+      \underline{\operatorname{Hom}}(\mathbf F,\mathbf G)\bigr)(S)\\
+  &\quad\simeq
+    \operatorname{Hom}_S
+      \bigl(\mathbf E_S,
+        \underline{\operatorname{Hom}}_S(\mathbf F_S,\mathbf G_S)\bigr)\\
+  &\quad\simeq
+    \operatorname{Hom}_S
+      (\mathbf E_S\times_S\mathbf F_S,\mathbf G_S)\\
+  &\quad\simeq
+    \operatorname{Hom}(\mathbf E\times\mathbf F\times S,\mathbf G)\\
+  &\quad\simeq
+    \underline{\operatorname{Hom}}
+      (\mathbf E\times\mathbf F,\mathbf G)(S),
+\end{align*}
+并且这些同构关于 \(S\) 是函子性的.
+
+\medskip
+\noindent\SGAInlineRefTarget{sga3:i:corollary:1-7-2}\textbf{推论 1.7.2.}
+\textit{有同构
+\[
+  \operatorname{Hom}
+    \bigl(\mathbf E,
+      \underline{\operatorname{Hom}}(\mathbf F,\mathbf G)\bigr)
+    \simeq
+  \operatorname{Hom}
+    \bigl(\mathbf F,
+      \underline{\operatorname{Hom}}(\mathbf E,\mathbf G)\bigr),
+\]
+以及
+\[
+  \underline{\operatorname{Hom}}
+    \bigl(\mathbf E,
+      \underline{\operatorname{Hom}}(\mathbf F,\mathbf G)\bigr)
+    \simeq
+  \underline{\operatorname{Hom}}
+    \bigl(\mathbf F,
+      \underline{\operatorname{Hom}}(\mathbf E,\mathbf G)\bigr).
+\]}
+
+特别地, 取 \(\mathbf E=\underline{\mathbf e}\), 并利用
+\(\underline{\operatorname{Hom}}(\underline{\mathbf e},\mathbf G)
+\simeq\mathbf G\), 得到
+\[
+  \Gamma\bigl(\underline{\operatorname{Hom}}(\mathbf F,\mathbf G)\bigr)
+    \simeq\operatorname{Hom}(\mathbf F,\mathbf G).
+\]
+复合运算给出函子性的态射
+\[
+  \underline{\operatorname{Hom}}(\mathbf F,\mathbf G)
+    \times
+  \underline{\operatorname{Hom}}(\mathbf G,\mathbf H)
+    \longrightarrow
+  \underline{\operatorname{Hom}}(\mathbf F,\mathbf H).
+\]
+
+若 \(\mathbf F\) 和 \(\mathbf G\) 是 \(\widehat{\mathscr C}\)
+的两个对象, 用 \(\operatorname{Isom}(\mathbf F,\mathbf G)\) 表示
+\(\operatorname{Hom}(\mathbf F,\mathbf G)\) 中由从 \(\mathbf F\)
+到 \(\mathbf G\) 的同构组成的子集. 定义
+\(\underline{\operatorname{Hom}}(\mathbf F,\mathbf G)\) 的子对象
+\(\underline{\operatorname{Isom}}(\mathbf F,\mathbf G)\) 如下:
+\[
+  \underline{\operatorname{Isom}}(\mathbf F,\mathbf G)(S)
+    =\operatorname{Isom}(\mathbf F_S,\mathbf G_S).
+\]
+则
+\[
+  \Gamma\bigl(\underline{\operatorname{Isom}}
+    (\mathbf F,\mathbf G)\bigr)
+    \simeq\operatorname{Isom}(\mathbf F,\mathbf G),
+  \qquad
+  \underline{\operatorname{Isom}}(\mathbf F,\mathbf G)
+    \simeq
+  \underline{\operatorname{Isom}}(\mathbf G,\mathbf F).
+\]
+在 \(\mathbf F=\mathbf G\) 的特殊情形下, 置
+\begin{align*}
+  \underline{\operatorname{End}}(\mathbf F)
+    &=\underline{\operatorname{Hom}}(\mathbf F,\mathbf F),
+  &
+  \operatorname{End}(\mathbf F)
+    &=\operatorname{Hom}(\mathbf F,\mathbf F)
+      \simeq\Gamma\bigl(\underline{\operatorname{End}}(\mathbf F)\bigr),\\
+  \underline{\operatorname{Aut}}(\mathbf F)
+    &=\underline{\operatorname{Isom}}(\mathbf F,\mathbf F),
+  &
+  \operatorname{Aut}(\mathbf F)
+    &=\operatorname{Isom}(\mathbf F,\mathbf F)
+      \simeq\Gamma\bigl(\underline{\operatorname{Aut}}(\mathbf F)\bigr).
+\end{align*}
+对象 \(\underline{\operatorname{Hom}}\),
+\(\underline{\operatorname{Isom}}\),
+\(\underline{\operatorname{Aut}}\) 和
+\(\underline{\operatorname{End}}\) 的构造都与基变换可交换.
+
+\medskip
+\noindent\SGAInlineRefTarget{sga3:i:remark:1-7-3}\textbf{注 1.7.3.}
+\footnote{编者注: 为便于后文引用, 增加了编号
+\SGARefLink{sga3:i:remark:1-7-3}{1.7.3}.}
+也可以如下构造一个与
+\(\underline{\operatorname{Isom}}(\mathbf F,\mathbf G)\) 同构的对象.
+有态射
+\[
+  \underline{\operatorname{Hom}}(\mathbf F,\mathbf G)
+    \times
+  \underline{\operatorname{Hom}}(\mathbf G,\mathbf F)
+    \longrightarrow
+  \underline{\operatorname{End}}(\mathbf F).
+\]
+交换 \(\mathbf F\) 和 \(\mathbf G\), 得到态射
+\[
+  \underline{\operatorname{Hom}}(\mathbf F,\mathbf G)
+    \times
+  \underline{\operatorname{Hom}}(\mathbf G,\mathbf F)
+    \longrightarrow
+  \underline{\operatorname{End}}(\mathbf F)
+    \times
+  \underline{\operatorname{End}}(\mathbf G).
+\]
+另一方面, \(\mathbf F\) 的恒等态射是
+\(\operatorname{End}(\mathbf F)\) 的一个元素, 因而定义了态射
+\(\underline{\mathbf e}\to
+\underline{\operatorname{End}}(\mathbf F)\). 对 \(\mathbf G\) 作同样处理,
+再取积, 得到态射
+\[
+  \underline{\mathbf e}\longrightarrow
+  \underline{\operatorname{End}}(\mathbf F)
+    \times
+  \underline{\operatorname{End}}(\mathbf G).
+\]
+于是立即可见, \(\underline{\mathbf e}\) 与
+\[
+  \underline{\operatorname{Hom}}(\mathbf F,\mathbf G)
+    \times
+  \underline{\operatorname{Hom}}(\mathbf G,\mathbf F)
+\]
+在
+\(\underline{\operatorname{End}}(\mathbf F)
+\times\underline{\operatorname{End}}(\mathbf G)\)
+上的纤维积同构于
+\(\underline{\operatorname{Isom}}(\mathbf F,\mathbf G)\).
+
+所有这些定义特别适用于
+\(\mathbf F=\mathbf h_X\) 和 \(\mathbf G=\mathbf h_Y\) 的情形.
+若 \(\underline{\operatorname{Hom}}(\mathbf h_X,\mathbf h_Y)\)
+可由 \(\mathscr C\) 的某个对象表示, 则将该对象记为
+\(\underline{\operatorname{Hom}}(X,Y)\). 它具有如下性质:
+若 \(Z\times X\) 存在, 则
+\[
+  \operatorname{Hom}
+    \bigl(Z,\underline{\operatorname{Hom}}(X,Y)\bigr)
+    \simeq
+  \operatorname{Hom}(Z\times X,Y).
+\]
+当 \(\mathscr C\) 中的积存在时, 这一性质刻画了该对象.
+
+同样, 当下列对象存在时, 定义
+\[
+  \underline{\operatorname{Isom}}(X,Y),
+  \qquad
+  \underline{\operatorname{End}}(X),
+  \qquad
+  \underline{\operatorname{Aut}}(X).
+\]
+我们只指出, 上述构造表明, 只要 \(\mathscr C\) 中的纤维积存在,
+并且对象
+\[
+  \underline{\operatorname{Hom}}(X,Y),
+  \quad
+  \underline{\operatorname{Hom}}(Y,X),
+  \quad
+  \underline{\operatorname{End}}(X),
+  \quad\text{以及}\quad
+  \underline{\operatorname{End}}(Y)
+\]
+存在, 则 \(\underline{\operatorname{Isom}}(X,Y)\) 存在.
+
+以上一切也适用于形如 \(\mathscr C_{/S}\) 的范畴.
+我们将尽可能用适当的符号明确表示相应的对象. 例如, 若 \(T\) 和
+\(T'\) 是 \(\mathscr C\) 中 \(S\) 上的两个对象, 则用
+\(\underline{\operatorname{Hom}}_S(T,T')\) 表示对象
+\[
+  \underline{\operatorname{Hom}}_{\mathscr C_{/S}}(T/S,T'/S).
+\]
+
+% End of assigned component. Section 1.8 begins in the next unit.
+
+% Translation coverage: entire component, Sections 1.6--1.7.3.
+% Source lines: 533; translated body lines before this audit comment: 518.
+% Math: 191 inline, 44 displayed, 3 align* blocks; all preserved (two prose \text arguments translated).
+% Footnotes: 5/5; reference targets: 10/10; reference links: 11/11; unresolved TODOs: 0.
