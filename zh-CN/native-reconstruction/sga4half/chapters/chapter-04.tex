@@ -1,0 +1,964 @@
+% !TEX root = ../main.tex
+
+\chapter{闭链的上同调类}\label{IV}
+\blfootnote{A.\ Grothendieck 作, P.\ Deligne 整理}
+
+本讲受到 Grothendieck 的笔记的启发, 这些笔记构成了 \cite[IV]{sga5} 的初稿.
+我们定义域上有限型分离光滑概形中闭链 (cycle) $X$ 的上同调类,
+并证明相交对应于杯积 (cup product).
+
+第 \ref{IV:1} 节包含一些一般性的形式准备. 第 \ref{IV:2} 节在若干比上述情形更一般的情况下定义闭链的类.
+这里没有讨论的主要相容性, 是闭链的正像与上同调中的迹态射之间的相容性.
+第 \ref{IV:3} 节运用这一形式体系, 推出代数闭域 $k$ 上适当光滑概形的、具有孤立不动点的自同态的 Lefschetz 迹公式,
+以及曲线的 Frobenius 自同态的迹公式.
+
+我们采用下列约定:
+\begin{enumerate}[\indent 1)]
+  \item “概形”指分离 Noether 概形 (这主要是为方便而作的假设).
+  \item 第 \ref{IV:2} 节固定整数 $n$, 并假定 $n$ 在所有考虑的概形上均可逆.
+  \item 第 \ref{IV:3} 节固定素数 $\ell$, 并假定 $\ell$ 在所有考虑的概形上均可逆.
+    所用上同调始终为 $\ell$ 进上同调:
+    \[
+      \h^\bullet(X) = \dQ_\ell\otimes_{\dZ_\ell} \varprojlim \h^\bullet(X,\dZ/\ell^n) \text{.}
+    \]
+\end{enumerate}
+闭链的上同调类、迹态射等, 都由有限系数 $\dZ/\ell^n$ 的情形取极限定义 (参见 \cite[VI]{sga5}).
+
+\section{带支集上同调与杯积}\label{IV:1}
+
+本节回顾一般拓扑学中的一些内容, 读者只需在用到时查阅.
+
+\subsection{\texorpdfstring{$H^1$}{H1} 与挠子}\label{IV:1-1}
+
+\subsubsection{}\label{IV:1-1-1}
+
+设 $\sF$ 为景 $X$ 上的阿贝尔层. 已知 $\h^1(X,\sF)$ 分类 $X$ 上的 $\sF$-挠子 (torsor).
+我们将同构 $($ $\sF$-挠子的同构类之集 $)\to \h^1(X,\sF)$ 规范化 ($=$ 选定其符号),
+使得对于每个正合列 $0\to \sF\xrightarrow\alpha\sG\xrightarrow\beta\sH\to 0$
+以及每个 $h\in\h^0(X,\sH)$, $\sF$-挠子 $\beta^{-1}(h)\subset \sG$ 的类为 $\partial h$;
+其中 $\sF$ 的作用由 $(f,x)\mapsto \alpha(f)+x$ 给出.
+
+\subsubsection{}\label{IV:1-1-2}
+
+设 $\sP$ 为一个 $\sF$-挠子. 若 $(U_i)$ 是 $X$ 的开覆盖, $p_i$ 是 $\sP$ 在 $U_i$ 上的截面,
+则给 $\sP$ 配以 \v{C}ech 上闭链
+\[
+  p_{i j} = p_j - p_i \qquad \text{($p_{i j}\in \h^0(U_i\times U_j,\sF)$).}
+\]
+若按通常规则定义映射
+$\operatorname{\check H}^\bullet(X,\sF)\to \h^\bullet(X,\sF)$,
+使之成为 $\delta$-函子的态射, 则
+$(p_{i j})\in \operatorname{\check H}^1(X,\sF)$ 在 $\h^1(X,\sF)$ 中的像,
+就是按 \ref{IV:1-1-1} 规范化的 $\sP$ 的类.
+
+\subsubsection{}\label{IV:1-1-3}
+
+$\h^\bullet(X,\sF)$ 的定义如下: 若 $\sF^\bullet$ 是 $\sF$ 的一个各项均无上同调的消解,
+则 $\h^i(X,\sF) = \h^i\Gamma(X,\sF^\bullet)$.
+$\delta$-函子结构由以下方式得到: 给层的短正合列配以消解的短正合列,
+且该列在施加函子 $\Gamma$ 后仍正合. 若 $\sF^\bullet$ 是 $\sF$ 的消解,
+则与
+\[\xymatrix{
+  0 \ar[r]
+    & \sF \ar[r]
+    & \sF^0 \ar[r]^-d
+    & \ker(d) \ar[r]
+    & 0
+}\]
+相联系的连接同态 $\partial$ 诱导定义同构
+$\h^1(X,\sF) = \Gamma\left(X,\ker(d)\right)/d \Gamma(X,\sF^0)$ 的负值.
+
+\subsubsection{}\label{IV:1-1-4}
+
+设 $U$ 是 $X$ 的开部分 (终层的一个子层), $D$ 为其“闭补集”.
+已知 $\h_D^1(X,\sF)$ 分类 $X$ 上在 $U$ 上给定平凡化的 $\sF$-挠子.
+对于每个短正合列 $0\to \sF\xrightarrow\alpha \sG\xrightarrow\beta\sH\to 0$
+以及每个支集在 $D$ 中的截面 $h\in\h_D^0(X,\sH)$,
+由截面 $0$ 在 $U$ 上平凡化的挠子 $\beta^{-1}(h)$ 的类为 $\partial h$.
+
+带支集上同调的长正合列
+\[\xymatrix{
+  \cdots \ar[r]^-\partial
+    & \h_D^i(X,\sF) \ar[r]
+    & \h^i(X,\sF) \ar[r]
+    & \h^i(U,\sF) \ar[r]^-\partial
+    & \cdots
+}\]
+由函子列
+\[\xymatrix{
+  0 \ar[r]
+    & \Gamma_D \ar[r]
+    & \Gamma \ar[r]
+    & \Gamma(U,-) \ar[r]
+    & 0
+}\]
+定义 (它在内射层上正合). 对每个截面 $f\in \h^0(U,\sF)$,
+$\partial f\in \h_D^1(X,\sF)$ 是由截面 $f$ 在 $U$ 上平凡化的平凡挠子 $\sF$ 的类.
+
+\subsubsection{}\label{IV:1-1-5}
+
+设 $j:U\hookrightarrow X$. 若 $\sF$ 嵌入 $j_* j^* \sF$, 则正合列
+\[\xymatrix{
+  0 \ar[r]
+  & \sF \ar[r]
+  & j_* j^* \sF \ar[r]
+  & j_* j^* \sF / \sF \ar[r]
+  & 0
+}\]
+给出
+$\partial:\h^0(j_* j^*\sF/\sF) = \h_D^0(j_* j^* \sF/\sF) \to \h_D^1(X,\sF)$.
+复合映射
+\[\xymatrix{
+  \h^0(U,\sF) = \h^0(X,j_* j^*\sF) \ar[r]
+    & \h^0(X,j_* j^*\sF / \sF) \ar[r]^-\partial
+    & \h_D^1(X,\sF)
+}\]
+是 \ref{IV:1-1-4} 中所考虑映射的负值.
+
+\subsubsection{}\label{IV:1-1-6}
+
+回顾: 若 $\sL$ 是概形 $X$ 上的可逆层, 则与其对应的 $\dG_m$-挠子是层
+$\operatorname{Isom}(\sO,\sL)$, $\dG_m$ 通过
+$(\lambda,f)\mapsto f\circ (\lambda\cdot) = \lambda f$ 作用于它.
+还要回顾: 若 $D$ 是 $X$ 上的 Cartier 除子, $j:U\hookrightarrow X$ 是补开子概形的包含映射,
+则可逆层 $\sO(D)$ 是 $j_*\sO_U$ 的子层, 由满足 $s f$ 属于 $\sO_X$ 的局部截面 $s$ 组成,
+其中 $f$ 是 $D$ 的局部方程.
+
+\subsection{杯积}\label{IV:1-2}
+
+本小节讨论带支集上同调中杯积的一些性质, 在 [\nameref{V}] 中还会用到它们,
+以联系曲线的 Poincaré 对偶性与 Jacobian 的自对偶性.
+
+\subsubsection{}\label{IV:1-2-1}
+
+设 $X$ 为景, $Y$ 为 $X$ 的闭部分, $\sF,\sG$ 为 $X$ 上的两个阿贝尔层.
+例如: $X$ 为概形, $Y$ 为闭子概形, $\sF,\sG$ 为 $\et X$ 上的层. 定义乘积
+\begin{equation*}\tag{1.2.1.1}\label{IV:eq:1-2-1-1}
+  \Gamma_Y(X,\sF)\otimes \Gamma(Y,\sG) \to \Gamma_Y(X,\sF\otimes\sG) \text{.}
+\end{equation*}
+支集在 $Y$ 中的 $\sF$ 的截面 $s$, 与 $\sG$ 在 $Y$ 上的截面 $t$ 的乘积如下构造:
+在 $X$ 上局部地, $t$ 是 $\sG$ 在 $X$ 上的某截面 $t'$ 到 $Y$ 的限制, 于是取乘积 $s\otimes t'$.
+其支集在 $Y$ 中, 且不依赖于 $t'$ 的选取; 这说明定义合理, 并使之能够整体化.
+
+设 $i:Y\hookrightarrow X$ 为包含态射. \eqref{IV:eq:1-2-1-1} 的局部对应物为乘积
+\begin{equation*}\tag{1.2.1.2}\label{IV:eq:1-2-1-2}
+  i^!\sF\otimes i^*\sG \to i^!(\sF\otimes\sG) \text{,}
+\end{equation*}
+对其施加 $\Gamma(Y,-)$ 就得到 \eqref{IV:eq:1-2-1-1}.
+
+\subsubsection{}\label{IV:1-2-2}
+
+现在将这些箭头导出. 设 $\sK$, $\sL$, $\sM$ 为导出范畴中的对象,
+并给定双线性映射 $\sK\lotimes\sL\to\sM$. 将 \eqref{IV:eq:1-2-1-1} 导出, 得到
+\begin{equation*}\tag{1.2.2.1}\label{IV:eq:1-2-2-1}
+  \eR\Gamma_Y(X,\sK) \lotimes \eR\Gamma(Y,\sL) \to \eR\Gamma_Y(X,\sM)
+\end{equation*}
+它诱导
+\begin{equation*}\tag{1.2.2.2}\label{IV:eq:1-2-2-2}
+  \h_Y^i(X,\sK)\otimes \h^j(Y,\sL) \to \h_Y^{i+j}(X,\sM)
+\end{equation*}
+(杯积). 局部箭头 \eqref{IV:eq:1-2-1-2} 给出
+\begin{equation*}\tag{1.2.2.3}\label{IV:eq:1-2-2-3}
+  \eR i^! \sK\lotimes i^*\sL \to \eR i^!\sM \text{,}
+\end{equation*}
+对其施加 $\eR\Gamma(Y,-)$ 就得到 \eqref{IV:eq:1-2-2-1}.
+
+\subsubsection{}\label{IV:1-2-3}
+
+上面, 我没有提及在同一公式中使用右导出函子 ($\eR\Gamma$) 与左导出函子 ($\lotimes$) 所产生的冲突.
+\begin{enumerate}[\indent a)]
+  \item 下一小节中, 所考虑的右导出函子均具有有限上同调维数.
+    这使我们能够始终在导出范畴 $\eD^-$ 中工作.
+    为得到既平坦又松弛的复形, 使用 \cite[XVII]{sga4} 中的典范松弛消解.
+  \item 要建立更一般的理论, 就不能再将由 $\sK$ 和 $\sL$ 到 $\sM$ 的双线性映射解释为由
+    $\sK\lotimes\sL$ 到 $\sM$ 的态射.
+    例如, 若两个因子都在 $\eD^+$ 中, 则
+    $\eR\Gamma_Y(X,\sK)\lotimes\eR\Gamma(Y,\sL)$ 没有定义.
+    一种解决办法是在 $\eD^+$ 中工作, 定义
+    \[
+      \operatorname{Bil}(\sK,\sL;\sM) = \varinjlim \hom(\sK'\otimes\sL',\sM') \text{,}
+    \]
+    其中极限取遍拟同构 $\sK'\iso \sK$, $\sL'\iso \sL$, $\sM\iso \sM'$
+    ($\sK'$, $\sL'$, $\sM'$ 下有界), $\hom$ 表示“模去同伦的复形态射”,
+    并始终使用这种双线性映射, 而完全不提 $\otimes$.
+\end{enumerate}
+
+\subsubsection{第二主题}\label{IV:1-2-4}
+
+设 $U$ 为 $X$ 的开子概形, $j:U\hookrightarrow X$ 为包含态射.
+对 $U$ 上导出范畴中的 $\sK$, 置
+$\eR\Gamma_!(U,\sK)=\eR\Gamma(X,j_!\sK)$.
+设 $\sK$, $\sL$, $\sM$ 在 $U$ 上, 并有双线性映射 $\sK\lotimes\sL\to\sM$, 我们希望定义
+\begin{equation*}\tag{1.2.4.1}\label{IV:eq:1-2-4-1}
+  \eR\Gamma(U,\sK)\lotimes\eR\Gamma_!(U,\sL)\to\eR\Gamma_!(U,\sM) \text{.}
+\end{equation*}
+在层及其整体截面的层次上, 这样的乘积来自同构
+$j_*\sF\otimes j_!\sG\xleftarrow\sim j_!(\sF\otimes \sG)$;
+但须注意, $\eR\Gamma_!$ 一般不是 $\Gamma(X,j_!-)$ 的导出函子.
+
+我们先定义
+\[\xymatrix{
+  \eR j_* \sK\lotimes j_! \sL
+    & \ar[l]_-\sim j_!(\sK\lotimes \sL) \ar[r]
+    & j_!\sM \text{.}
+}\]
+施加 $\eR\Gamma(X,-)$, 得到
+\[\xymatrix{
+  \eR\Gamma(U,\sK)\lotimes\eR\Gamma_!(U,\sL) = \eR\Gamma(X,\eR j_*\sK)\lotimes \eR\Gamma(X,j_!\sL) \ar[r]
+    & \eR\Gamma(X,j_! \sM) \text{.}
+}\]
+
+这里同样将在下一小节通过在 $\eD^-$ 中工作, 来解决左、右之间的冲突.
+
+\subsubsection{尾声}\label{IV:1-2-5}
+
+设 $j:U\hookrightarrow X$ 为开部分, $i:Y\hookrightarrow U$ 为 $U$ 的闭部分.
+设 $\bar Y$ 为 $X$ 的闭子集, 满足 $\bar Y\cap U=Y$ (例如 $U\setminus Y$ 的补集).
+设 $\sK$ 在 $U$ 上. 置
+$\eR\Gamma_{Y!}(U,\sK)=\eR\Gamma_!(Y,\eR i^!\sK)$,
+其中 $\eR\Gamma_!$ 是相对于 $Y$ 到 $\bar Y$ 的包含而言的.
+对于 $U$ 中包含 $Y$ 的每个开子集 $V$, $\eR\Gamma_{Y!}(U,\sK)$ 映到 $\eR\Gamma_!(V,\sK)$:
+若仍以 $i$ 表示 $\bar Y$ 到 $X$ 的包含, $j$ 表示 $Y$ 到 $\bar Y$ 的包含,
+$k$ 表示 $V$ 到 $X$ 的包含, 则有
+$\eR i^!\sK = j^*\eR i^! k_!(k^*\sK)$, 从而有态射
+$j_!\eR i^!\sK \to \eR i^! k_!(k^*\sK)$.
+对其施加 $\eR\Gamma(\bar Y,-)$, 得到
+$\eR\Gamma_{Y!}(U,\sK)\to \eR\Gamma_{\bar Y}(k_! k^* \sK) \to \eR\Gamma(k_! k^*\sK) = \eR\Gamma_!(V,\sK)$.
+
+对于 $U$ 上的 $\sK,\sL,\sM$ 及双线性映射
+$\sK\lotimes\sL\to\sM$, 我们希望定义
+\begin{equation*}\tag{1.2.5.1}\label{IV:eq:1-2-5-1}
+  \h^n(U,\sK)\otimes \h_!^m(Y,\sL) \to \h_{Y!}^{n+m}(U,\sM)
+\end{equation*}
+(最后这个群本身又映到 $\h_!^{n+m}(V,\sM)$).
+在导出范畴中, 这意味着要定义
+\begin{equation*}\tag{1.2.5.2}\label{IV:eq:1-2-5-2}
+  \eR\Gamma_Y(U,\sK) \lotimes \eR\Gamma_!(Y,\sL) \to \eR\Gamma_{Y!}(U,\sM) \text{.}
+\end{equation*}
+我们将 $\eR\Gamma_Y$ 与 $\eR\Gamma(Y,\eR i^!\sK)$ 等同.
+所求的乘积于是具有 \eqref{IV:eq:1-2-4-1} 的形式, 对应于 $Y$ 上的局部乘积
+\eqref{IV:eq:1-2-2-3}:
+$\eR i^! \sK\lotimes\sL \to \eR i^! \sM$.
+
+\subsubsection{}\label{IV:1-2-6}
+
+上面建立了绝对形式体系. 还有平行的相对形式体系:
+对态射 $f:X\to S$, 将 $\Gamma$ 换成 $f_*$ 即可.
+
+\subsection{Koszul 规则}\label{IV:1-3}
+
+设 $A$ 为交换环, $(V_i)_{i\in I}$ 为有限族分次 (或 $\dZ/2$-分次) $A$-模.
+回顾 Koszul 规则意义下的分次张量积 $\bigotimes_{i\in I} V_i$ 的定义
+(参见 \cite[XVII 1.1]{sga4}). 对 $I$ 上的每个全序 $a$, 我们定义一个模 $V(a)$.
+还要定义同构的传递系统 $\varphi_{a b}:V(b)\iso V(a)$;
+各 $V_i$ 的分次张量积就是这一模系统的“共同值” $\varprojlim V(a)$. 取
+\begin{enumerate}[\indent a)]
+  \item $V(a) = \bigotimes_{i\in I} |V_i|$ (各 $V_i$ 的底层非分次模的通常张量积).
+  \item 若 $x_i\in V_i$ 为齐次元, 则取
+    $\varphi_{a b}(\otimes x_i) = (-1)^N \otimes x_i$,
+    其中 $N$ 是对满足 $i<_a j$ 且 $i>_b j$ 的各对 $(i,j)$ 求和所得的 $\deg(x_i)\deg(x_j)$ 之和.
+\end{enumerate}
+
+\subsubsection*{\hypertarget{sga4half.e04.example.1-3-1}{例 1}}
+
+取 $I=\{1,2\}$, $a$ 为 $1<2$ 的序, $b$ 为 $1>2$ 的序.
+设 $v_i\in V_i$ 为齐次元, 以 $v_1\otimes v_2$ (分别以 $v_2\otimes v_1$)
+表示各 $v_i$ 在 $V(a)$ (分别在 $V(b)$) 中乘积在分次张量积中的像. 有
+\[
+  v_1\otimes v_2 = (-1)^{\deg(v_1)\deg(v_2)} v_2\otimes v_1
+\]
+(Koszul 规则).
+
+\subsubsection*{\hypertarget{sga4half.e04.example.1-3-2}{例 2}}
+
+若所有 $V_i$ 的次数均为 $1$, 则分次张量积的底层模与各 $V_i$ 的底层模 $|V_i|$ 的通常张量积之间有典范同构:
+\[
+  \left|\bigotimes V_i\right| \simeq \bigotimes |V_i|\otimes_{\dZ}\bigwedge^{|I|}\dZ^I \text{.}
+\]
+
+\subsubsection*{\hypertarget{sga4half.e04.example.1-3-3}{例 3}}
+
+若 $A$ 为域, $X_i$ 为有限族空间, 则 K\"unneth 公式写为
+$\h^\bullet\left(\prod X_i,A\right) = \bigotimes \h^\bullet(X_i,A)$.
+
+设 $V^\vee$ 为 $V$ 的分次对偶. 典范映射
+\begin{equation*}\tag{1.3.1}\label{IV:eq:1-3-1}
+  V^\vee\otimes V = V\otimes V^\vee \to A
+\end{equation*}
+为 $v'\otimes v\to v'(v)$.
+
+现在假定 $A$ 为域, 并且只考虑有限维向量空间. 典范同构
+\begin{equation*}\tag{1.3.2}\label{IV:eq:1-3-2}
+  W\otimes V^\vee \to \hom(V,W)
+\end{equation*}
+为 $w\otimes v'\mapsto \left(v\mapsto w\cdot v'(v)\right)$.
+通过此同构, 复合
+$\hom(Y,Z)\otimes \hom(X,Y)\to \hom(X,Z)$
+等同于由 \eqref{IV:eq:1-3-1} 诱导的态射:
+$Z\otimes Y^\vee\otimes Y\otimes X^\vee \to Z\otimes X^\vee$.
+
+$f:V\to V$ 的迹 (齐次 $f$ 的次数为 $\ne 0$ 时迹为零) 是 $f$ 在
+\begin{equation*}\tag{1.3.4}\label{IV:eq:1-3-4}
+  \tr:\hom(V,V) {\xleftarrow\sim}_\text{\eqref{IV:eq:1-3-2}} V\otimes V^\vee = V^\vee \otimes V \to_\text{\eqref{IV:eq:1-3-1}} A .
+\end{equation*}
+下的像.
+
+容易验证, 当 $f$ 的次数为 $0$ 时,
+\begin{equation*}\tag{1.3.5}\label{IV:eq:1-3-5}
+  \tr(f,V) = \sum (-1)^i \tr(f,V^i) \text{.}
+\end{equation*}
+
+将由态射 \eqref{IV:eq:1-3-1}
+$V^\vee\otimes V\otimes W^\vee\otimes W\to k$
+复合得到的两个态射的交换性写出, 可得对齐次映射 $f:V\to W$ 和 $g:W\to V$, 有
+\begin{equation*}\tag{1.3.6}\label{IV:eq:1-3-6}
+  \tr(f g) = (-1)^{\deg(f)\deg(g)} \tr(g f) \text{.}
+\end{equation*}
+
+\section{闭链的上同调类}\label{IV:2}
+
+\subsection{除子的类}\label{IV:2-1}
+
+\subsubsection{}\label{IV:2-1-1}
+
+设 $D$ 为概形 $X$ 中的 Cartier 除子. 在 $D$ 之外, 可逆层 $\sO(D)$ 由截面 $1$ 平凡化.
+$D$ 在 $\h_D^1(X,\dG_m)$ 中的类 $\cl(D)$,
+是相应的、在 $X\setminus D$ 上给定平凡化的 $\dG_m$-挠子的类
+(\ref{IV:1-1-6} 和 \ref{IV:1-1-4}).
+
+设 $\partial:\h^i(X\setminus D,\dG_m)\to \h_D^i(X,\dG_m)$ 为 \ref{IV:1-1-4} 的态射.
+若 $D$ 有整体方程 $f$, 则乘以 $f$ 给出从在 $X\setminus D$ 上由 $1$ 平凡化的 $\sO(D)$,
+到在 $X\setminus D$ 上由 $f$ 平凡化的 $\sO$ 的同构.
+因此由 \ref{IV:1-1-4} 得
+\begin{equation*}\tag{2.1.1}\label{IV:eq:2-1-1}
+  \cl(D) = \partial f \text{.}
+\end{equation*}
+
+对于使 $u^* D$ 仍为 Cartier 除子的每个态射 $u:X'\to X$
+(即 $u^{-1} D$ 与 $\operatorname{Ass}(X')$ 不相交), 有
+$\cl(u^* D) = u^*\cl(D)$.
+若希望对每个态射 $u$ 都有这样的函子性, 则应考虑更一般的带截面的可逆层, 而不只考虑 Cartier 除子.
+
+回顾, 从现在起假定整数 $n$ 在所考虑的概形上可逆.
+设 $\partial:\h_D^i(X,\dG_m) \to \h_D^{i+1}(X,\dmu_n)$
+为 Kummer 正合列 $0 \to \dmu_n \to \dG_m \to \dG_m \to 0$ 的边界映射.
+
+\begin{definition}\label{IV:2-1-2}
+$D$ 在 $\h_D^2(X,\dmu_n)$ 中的\emph{类 $\cl_n(D)$} 为 $\partial \cl(D)$.
+\end{definition}
+
+在不致混淆时省略下标 $n$.
+
+\subsubsection{}\label{IV:2-1-3}
+
+图
+\[\xymatrix{
+  \h^0(X\setminus D,\dG_m) \ar[r]^-\partial \ar[d]^-\partial
+    & \h_D^1(X,\dG_m) \ar[d]^-\partial \\
+  \h^1(X\setminus D,\dmu_n) \ar[r]^-\partial
+    & \h_D^2(X,\dmu_n)
+}\]
+是反交换的. 因此, 若 $D$ 有整体方程 $f$, 则 $\cl_n(D)$
+是 $f$ 的 $n$ 次根所成的 $\dmu_n$-挠子在 $\h^1(X\setminus D,\dmu_n)$ 中的类经 $\partial$ 映射所得像的负值.
+
+\begin{proposition}\label{IV:2-1-4}
+设 $i$ 为 $D$ 到 $X$ 的包含. 若 $D$ 和 $X$ 都正则,
+则带支集上同调层 $\eR^p i^! \dmu_n$ 在 $p=0,1$ 时为零,
+且 $\eR^2 i^!\dmu_n = \underline{\dZ/n}$, 由 $\cl_n(D)$ 生成.
+\end{proposition}
+
+只需证明, 当 $X$ 严格局部且 $D$ 由一个正则参数定义时,
+$\h_D^p(X,\dmu_n) = 0$ 对 $p=0,1$ 成立,
+而 $\h_D^2(X,\dmu_n) = \dZ/n$, 由 $\cl(D)$ 生成.
+以 $\sim$ 表示约化上同调, 则有
+$\widetilde\h^{p-1}(X\setminus D,\dmu_n)\iso \h_D^p(X,\dmu_n)$.
+$p=0,1$ 的断言是说 $D$ 不使 $X$ 不连通; $p=2$ 时, 由 Abhyankar 引理结合 \ref{IV:2-1-3} 得到.
+
+这是相对定理 (\hyperref[I]{平展上同调}, \ref{I:5-3-4}) 的部分对应物.
+Grothendieck 猜想 $\eR^p i^! \dmu_n$ 在 $p\ne 2$ 时消失,
+至少对优良的 $X$ 如此 (纯性猜想); 但这只在特征 $0$ 的情形已知 (\cite[XIX]{sga4}).
+
+\begin{theorem}[基本相容性]\label{IV:2-1-5}
+设 $X$ 为代数闭域 $k$ 上的光滑曲线, $P$ 为 $X$ 的闭点,
+$\tr$ 为复合 $\h_P^2(X,\dmu_n) \to \h_c^2(X,\dmu_n) \xrightarrow{\tr} \dZ/n$. 则有
+\[
+  \tr \cl(P) = 1 \text{.}
+\]
+\end{theorem}
+
+设 $\bar X$ 为补全 $X$ 的光滑射影曲线. 此公式是说 $\bar X$ 上的可逆层 $\sO(P)$ 的次数为 $1$.
+
+\subsection{上同调方法}\label{IV:2-2}
+
+\subsubsection{}\label{IV:2-2-1}
+
+设 $X$ 为 (Noether) 概形. 回顾: 若 $X$ 的子概形 $Y$ 局部地 (在 $Y$ 上)
+由 $X$ 中 $c$ 个方程组成的正则序列定义, 则称它是余维 $c$ 的局部完全交 (local complete intersection).
+当 $X$ 为极大理想为 $\fm$ 的局部环 $A$ 的谱, $Y$ 的理想为 $\fa$ 时,
+这意味着对 $i<\dim(\fa/\fm\fa)=c$, 有 $\Ext^i(A/\fa,A) = 0$,
+而 $\fa$ 中在 $\fa/\fm\fa$ 内的像构成其一组基的每个元素序列, 都是 $Y$ 的一个正则方程序列.
+
+\subsubsection{}\label{IV:2-2-2}
+
+设 $i:Y\hookrightarrow X$ 为余维 $c$ 的局部完全交.
+我们要定义局部基本类 $\cl(Y)$, 它是带支集上同调层
+$\eR^{2c}i^! \dZ/n(c)$ 的整体截面 (回顾 $\dZ/n(c)=\dmu_n^{\otimes c}$).
+
+局部地, $Y$ 是一列 $c$ 个除子 $D_i$ 的交, 我们将 $\cl(Y)$ 定义为各 $\cl(D_i)$ 的杯积.
+每个 $\cl(D_i)$ 的支集在 $D_i$ 中, 因而它们的乘积的支集在 $Y$ 中.
+这一乘积局部地不依赖于 $D_i$ 的选取, 可由下面的 \ref{IV:2-2-3} 及下列不变性得到:
+\begin{enumerate}[\indent a)]
+  \item 与局部化相容;
+  \item 不依赖于各 $D_i$ 的顺序 (各 $\cl(D_i)$ 的次数 $2$ 为偶数, 所以杯积可交换);
+  \item 乘积仅依赖于“旗标”
+    $D_1\supset D_1\cap D_2\supset \cdots\supset Y$.
+\end{enumerate}
+为证明 c), 注意存在乘积 (\ref{IV:1-2-1} 的一个变式)
+\[
+  \h_{D_1}^\bullet(X)\otimes \h_{D_1\cap D_2}^\bullet(D_1)\otimes \cdots \otimes \h_Y^\bullet(D_1\cap \cdots \cap D_{c-1}) \to \h_Y^\bullet(X) \text{;}
+\]
+各 $\cl(D_i)$ 的乘积也就是各 ($\cl(D_i)$ 限制到
+$D_1\cap \cdots \cap D_{i-1})=(\cl(D_1\cap \cdots \cap D_i)$ 在
+$D_1\cap \cdots \cap D_{i-1})$ 中的乘积.
+
+\begin{lemma}\label{IV:2-2-3}
+设 $A$ 为极大理想为 $\fm$ 的局部环,
+$u=(u_1,\dots,u_c)$, $v=(v_1,\dots,v_c)$ 为生成同一理想 $\fa$ 的两个正则序列.
+则存在由这样的序列构成的一列 $w_i$ ($1\leqslant i\leqslant N$) 将它们连接起来,
+使 $w_{i+1}$ 可由 $w_i$ 经置换或只改变最后一个元素而得到.
+\end{lemma}
+
+既然允许置换, 则允许改变一个元素与允许只改变最后一个元素是等价的.
+由 \ref{IV:2-2-1}, 我们只需验证: 在向量空间 $\fa/\fm\fa$ 中,
+可通过一系列置换以及每次只改变一个向量的换基, 从一组基变到另一组基.
+这确实成立, 因为线性群由对角矩阵、初等矩阵及置换矩阵生成.
+
+\subsubsection{}\label{IV:2-2-4}
+
+同样的方法使我们能够对每个局部可由 $c$ 个方程定义的 $Y\subset X$ 定义局部基本类
+(在所需方程少于 $c$ 个的地方, 此类为零).
+
+\subsubsection{}\label{IV:2-2-5}
+
+有半纯性结果时, 可以从这样的局部基本类
+$\h^0\left(Y,\eR^{2 c} i^!\dZ/n(c)\right)$
+过渡到整体基本类 $\h_Y^{2 c}\left(X,\dZ/n(c)\right)$ 中:
+
+\begin{proposition}\label{IV:2-2-6}
+\begin{enumerate}[(i)]
+  \item 若对 $p<2 c$ 有 $\eR^p i^!\dZ/n=0$, 则
+    \[
+      \h_Y^{2 c}\left(X,\dZ/n(c)\right) \iso \h^0\left(Y,\eR^{2 c} i^! \dZ/n(c)\right) \text{.}
+    \]
+  \item 设 $Z$ 为 $Y$ 的闭部分, 在 $Y$ 中的补集为 $V$, $k$ 为 $Z$ 到 $X$ 的包含.
+    若对 $p\leqslant 2 c$ 有 $\eR^p i^! \dZ/n = 0$, 则
+    \[
+      \h_Y^{2 c}\left(X,\dZ/n(c)\right) \hookrightarrow \h_V^{2 c}\left(X,\dZ/n(c)\right) \text{.}
+    \]
+    若对 $p\leqslant 2 c+1$ 有 $\eR^p i^!\dZ/n=0$, 则此箭头为同构.
+\end{enumerate}
+\end{proposition}
+
+假设 $\eR^p i^!\dZ/n=0$ 等价于 $\eR^p i^!\dZ/n(c)=0$.
+据此, (i) 由谱序列 $\h^p(Y,\eR^q i^!)\Rightarrow \h_Y^{p+q}(X,-)$ 得到.
+若 $k_1$ 为 $Z$ 到 $Y$ 的包含, 则 $k=i k_1$, 从而
+$\eR k^! \dZ/n=\eR k_1^! \eR i^!$,
+而 $Z\subset Y$ 的上同调长正合列给出长正合列
+\[\xymatrix{
+  \cdots \ar[r]
+    & \h^i\left(Z,\eR k^! \dZ/n(c)\right) \ar[r]
+    & \h_Y^i\left(X,\dZ/n(c)\right) \ar[r]
+    & \h_V^i\left(X,\dZ/n(c)\right) \ar[r]
+    & \cdots
+}\]
+由此得到 (ii).
+
+\subsubsection{推广}\label{IV:2-2-7}
+
+对于任意有限型分离态射 $i$ 以及任意整数 $2 c$ (正或负),
+只要将其中的 $\h_Y^{2 c}\left(X,\dZ/n(c)\right)$
+换为 $\h^{2 c}\left(Y,\eR i^!\dZ/n(c)\right)$,
+并对 $\h_V$ 作同样替换, 命题 \ref{IV:2-2-6} 仍然成立.
+
+下列半纯性结果可由 \cite[1.8, 1.10, 1.15]{sga2} 得到. 我们回顾其证明.
+
+\begin{theorem}\label{IV:2-2-8}
+设有有限型 $S$-概形的态射
+\[\xymatrix{
+  Y \ar[r]^-i \ar[dr]_-f
+    & X \ar[d]^-g \\
+  & S
+}\]
+假定 $X$ 光滑, 纯相对维数为 $N$, 而 $Y$ 的各纤维维数 $\leqslant d$. 置 $c=N-d$.
+\begin{enumerate}[\indent (i)]
+  \item 对 $p<2 c$, 有 $\eR^p i^!\dZ/n=0$;
+    将 $\dZ/n$ 换成层 $g^* \sF$ 也一样.
+  \item 若在 $S$ 的稠密开子集 $U$ 上, $Y$ 的各纤维维数 $<d$,
+    则对 $p\leqslant 2 c$ 有 $\eR^p i^!\dZ/n=0$.
+    若此外 $U$ 的补集 $Z$ 局部地不使 $S$ 不连通,
+    则对 $p\leqslant 2 c+1$ 有 $\eR^pi^!\dZ/n=0$.
+\end{enumerate}
+\end{theorem}
+
+由于 $\eR g^! \sF=g^*\sF(N)[2N]$, 传递公式
+$\eR i^!\eR g^!=\eR f^!$ 表明
+$\eR^{2 c+q} i^!(g^*\sF)=0\Leftrightarrow \eR^{-2 d+q}f^!(\sF)$.
+因此归结为研究 $f$, 即假定 $X=S$. 此时断言 (i) 就是 \cite[XVIII 3.17]{sga4}.
+
+设 $Y'$ 为 $Z$ 在 $Y$ 中的逆像:
+\[\xymatrix{
+  Y' \ar[r]^-v \ar[d]^-f
+    & Y \ar[d]^-f \\
+  Z \ar[r]^-u
+    & S
+}\]
+由 (i), 当 $p\leqslant -2 d+1$ 时, $\eR^p f^! \dZ/n$ 的支集在 $Y'$ 中;
+谱序列 $\eR^a v^!\eR^b f^! \Rightarrow \eR^{a+b} (f v)^!$
+表明它们与 $\eR^p(f v)^!\dZ/n=\eR^p(u f)^!\dZ/n$ 相同.
+将 (i) 用于 $Y'/Z$ 以及谱序列
+$\eR^a f^!\eR^b u^! \Rightarrow \eR^{a+b} (u f)^!$,
+可知 (ii) 分别来自 $\eR^b u^! \dZ/n$ 在 $b=0$, 或在 $b=0$ 和 $1$ 时的消失.
+
+\subsubsection{}\label{IV:2-2-9}
+
+Grothendieck 猜想 \ref{IV:2-2-8} 有如下绝对对应形式
+(半纯性猜想, 是纯性猜想的推论): 若 $Y$ 在正则 $X$ 中的余维 $\geqslant c$,
+则对 $i<2 c$ 有 $\h_Y^i(X,\dZ/n)=0$, 至少在 $X$ 优良时成立.
+
+\subsubsection{}\label{IV:2-2-10}
+
+现在可以定义域 $k$ 上光滑的 $X$ 中余维 $c$ 的闭链 $Y$ 的类.
+写成 $Y=\sum d_i Y_i$, 其中各 $Y_i$ 约化且不可约.
+$Y_i$ 的某个开子集 $U_i$ 是 $X$ 中的局部完全交, 且其补集的余维 $>c$.
+于是可以定义 $U_i$ 的局部基本类.
+由 \ref{IV:2-2-6} 和 \ref{IV:2-2-8}, 它来自唯一的基本类
+$\cl(Y_i)\in \h_{Y_i}^{2 c}\left(X,\dZ/n(c)\right)$, 我们置
+\[
+  \cl(Y) = \sum d_i \cl(Y_i) \in \h_{|Y|}^{2 c}\left(X,\dZ/n(c)\right) \text{.}
+\]
+
+\subsubsection{}\label{IV:2-2-11}
+
+在复解析几何中, Baum、Fulton 和 Mac Pherson \cite{bfm75} 的一个构造,
+可以不加限制地定义局部完全交 $Y\subset X$ 的上同调类.
+假定 $Y$ 的纯余维为 $c$, 以 $\sN$ 表示 $Y$ 上的向量丛, 即 $Y$ 在 $X$ 中的法丛.
+其局部截面为 $(\sI/\sI^2)^\vee$ 的截面, 其中 $\sI$ 是 $Y$ 的理想层.
+回顾: $X$ 上 $C^\infty$ 函数层的定义, 局部地通过 $X$ 到 $\dC^n$ 的局部嵌入给出:
+将 $\dC^n$ 上的 $C^\infty$ 函数层模去由定义 $X$ 的方程的实部和虚部生成的理想,
+再将所得商限制到 $X$.
+丛 $\sN$ 可延拓为 $Y$ 在 $X$ 中某邻域 $U$ 上的复 $C^\infty$ 向量丛 $N$;
+且 $U$ 充分小时, 存在 $N$ 的截面 $f$, 其零点集为 $Y$,
+并使在 $Y$ 上 $d f:\sN\to N$ 为恒等映射.
+$N$ 和 $f$ 的两种选取在 $Y$ 的充分小邻域上同伦.
+
+$N$ 的零截面 (记为 $z:U\to N$) 的上同调类 $\cl(U)$ 已有定义:
+$U$ 是 $N$ 中的局部完全交, 且在 $i\ne 2 c$ 时有 $\eR^i z^!\dZ = 0$,
+又有 $\eR^{2 c} z^!\dZ = \dZ$.
+我们有 $f^*:\h_U^\bullet(N,\dZ) \to \h_Y^\bullet(X,\dZ)$, 并置
+\[
+  \cl(Y) = f^*\cl(U) \text{.}
+\]
+
+只要 $X$ 的解析子空间 $Y$ 带有如下法向结构, 同一构造仍适用:
+$Y_\text{red}$ 上秩 $c$ 的局部自由层 $\sC$, 以及满态射
+$\sC\to \sI/\sI\cdot \sI_\text{red}$.
+
+\subsection{同调方法}\label{IV:2-3}
+
+\subsubsection{}\label{IV:2-3-1}
+
+设 $f:Y\to S$ 为有限型平坦态射, 纤维维数 $\leqslant d$.
+在 \cite[XVIII 2.9]{sga4} 中, 我们定义了迹态射
+\begin{equation*}\tag{2.3.1.1}\label{IV:eq:2-3-1-1}
+  \tr_f:\eR^{2 d} f_! \dZ/n(d) \to \dZ/n \text{.}
+\end{equation*}
+在 $i>2 d$ 时有 $\eR^i f_!\dZ/n(d)=0$,
+在 $i<-2 d$ 时有 $\eR^i f^!\dZ/n=0$.
+结合 $\eR f_!$ 与 $\eR f^!$ 之间的伴随, 得到同构
+\begin{equation*}\tag{2.3.1.2}\label{IV:eq:2-3-1-2}
+\begin{aligned}
+  \hom\left(\eR^{2 d}f_!\dZ/n(d),\dZ/n\right)
+    &= \hom\left(\eR f_!\dZ/n(d),\dZ/n[-2 d]\right) \\
+    &= \hom\left(\dZ/n,\eR f^!\dZ/n(-d)[-2 d]\right) \\
+    &= \h^0\left(Y,\eR^{-2 d}f^!\dZ/n\right) \text{.}
+\end{aligned}
+\end{equation*}
+至少当 $S$ 为一点时, $\tr_f$ 在最后两个群中的像适合称为 $Y$ 的基本类 (在同调中).
+
+我们仍以 $\tr_f$ 表示 $\tr_f$ 在第二个群中的像,
+以及通过函子性由其得到的态射. 例如, 当 $Y/S$ 适当时, 有态射
+\begin{equation*}\tag{2.3.1.3}\label{IV:eq:2-3-1-3}
+\xymatrix{
+  \h^i\left(Y,\dZ/n(d)\right) = \h^i\left(S,\eR f_!\dZ/n(d)\right) \ar[r]
+    & \h^{i-2 d}(S,\dZ/n) \text{.}
+}
+\end{equation*}
+
+假定 $Y$ 包含在 $S$ 上光滑且纯相对维数为 $N$ 的 $X$ 中, 并置 $c=N-d$.
+\[\xymatrix{
+  Y \ar@{^{(}->}[r]^-i \ar[dr]_-f
+    & X \ar[d] \\
+  & S
+}\]
+有 $\eR f^! = \eR i^!\eR g^!$, 以及
+$\eR g^! \dZ/n=\dZ/n(-N)[-2 N]$.
+$Y$ 的基本类与
+$\h^0\left(Y,\eR i^!\dZ/n(c)[2 c]\right)=\h_Y^{2 c}\left(X,\dZ/n(c)\right)$
+中的一个元素等同, 即 $Y$ 在 $X$ 中的类 $\cl(Y)$.
+下面将看到, 它只依赖于 $Y\subset X$, 而不依赖于 $X$ 到 $S$ 的投影;
+且当 $Y$ 为局部完全交时, 它诱导上一小节的局部类.
+
+现在明确写出将 $\cl(Y)$ 映为 $\tr_f$ 的同构
+\[
+  \h_Y^{2 c}\left(X,\dZ/n(c)\right) \iso \hom\left(\eR^{2 d}f_!\dZ/n(d),\dZ/n\right)
+\]
+: 通过同构
+\begin{align*}
+  \h_Y^{2 c}\left(X,\dZ/n(c)\right)
+    &= \h_Y^{2 c}\left(\eR i^!\dZ/n(c)\right) \\
+    &= \hom_Y\left(\dZ/n(d)[2 d],\eR i^!\dZ/n(N)[2 N]\right) \\
+    &= \hom_X\left(\dZ/n(d)[2 d]_Y,\dZ/n(N)[2 N]\right) \text{,}
+\end{align*}
+它就是下图的上行:
+\[\xymatrix{
+  \h_Y^{2 c} \ar[r] \ar[dr]_-{(3)}
+    & \hom\left(\eR f_!\dZ/n(d)[2 d],\eR f_! \eR i^!\dZ/n(N)[2 N]\right) \ar[r]^-{(1)} \ar[d]^-{\tr_i} \ar@{}[dr]|-{(2)}
+    & \hom\left(\eR f_!\dZ/n(d)[2d],\dZ/n\right) \ar@{=}[d] \\
+  & \hom\left(\eR g_!\dZ/n(d)[2 d]_Y,\eR g_!\dZ/n(N)[2 N]\right) \ar[r]^-{\tr_g}
+    & \hom\left(\eR g_!\dZ/n(d)[2 d]_Y,\dZ/n\right) \text{,}
+}\]
+其中 (1) 为伴随箭头 $\eR f_!\eR f^!\to \text{id}$.
+(2) 的交换性表达同构 $\eR f^!=\eR i^!\eR g^!$ 是通过伴随定义的.
+最后, 由 (3) 得到的箭头
+\[
+  \h_Y^{2c}\left(X,\dZ/n(c)\right) \otimes \eR^{2 d} f_!\dZ/n(d) \to \eR^{2 N} g_!\dZ/n(N)
+\]
+解释为杯积 (参见 \ref{IV:1-2}).
+
+\begin{definition}\label{IV:2-3-2}
+类 $\cl(Y)\in\h_Y^{2 c}\left(X,\dZ/n(c)\right)$ 由下列性质刻画:
+对于 $\eR^{2 d}f_! \dZ/n(d)$ 的每个局部截面 $u$, 有
+\[
+  \tr_f(u) = \tr_g\left(\cl(Y)\smallsmile u\right) \text{.}
+\]
+\end{definition}
+
+由于 $\cl(Y)$ 在
+$\hom\left(\eR f_!\dZ/n(d)[2 d],\dZ/n\right)$ 中已有像 $\tr_f$,
+公式 \ref{IV:2-3-2} 对通过函子性由 $\tr_f$ 得到的箭头也成立.
+例如, 当 $X$ 在 $S$ 上适当且 $u\in \h^\bullet(Y,\dZ/n)$ 时,
+该公式在 $\h^\bullet\left(S,\dZ/n(-d)\right)$ 中成立.
+对于 $v\in \h^\bullet(X,\dZ/n)$, 它给出
+\[
+  \tr_f(i^* v) = \tr_g\left(\cl(Y)\smallsmile v\right) \text{,}
+\]
+其中杯积可在 $\h^\bullet(X,\dZ/n)$ 中计算.
+
+\subsubsection{}\label{IV:2-3-3}
+
+我们将在更一般的假设下定义迹态射, 因而也定义类 $\cl(Y)$. 考虑图
+\[\xymatrix{
+  Y \ar@{^{(}->}[r] \ar[dr]_-f
+    & X \ar[d]^-g \\
+  & S
+}\]
+其中 $g$ 光滑且纯相对维数为 $N$, $Y$ 在 $X$ 中闭, 各纤维维数 $\leqslant d$.
+再给 $Y$ 配备如下类型的“权” $\sK$:
+$\sK\in\eD_{\text{parf},X}^b$ 是 $X$ 上 $\sO$-模层的有界复形,
+在 $S$ 上 (或在 $X$ 上, 两者等价) 具有有限 $\tor$-维数,
+其上同调层凝聚且支集在 $Y$ 中.
+我们要定义态射 $\tr_{f,\sK}:\eR^{2 d}f_! \dZ/n(d) \to \dZ/n$.
+当 $Y$ 在 $S$ 上平坦且 $\sK=\sO_Y$ 时, 它就是前面的迹态射.
+一般地, 它只依赖于 $\sK$ 在 $Y$ 的各不可约分支的一般点 $y$ 处的长度
+($\operatorname{lg}_y(\sK) = \sum (-1)^i \operatorname{lg} \h^i(\sK)_y$).
+% 核对记录: 英文源在此注明上同调符号是否应为花体 H 尚不明确; 保留原式.
+最后, 以 $\cl(Y,\sK)$ 表示支集在 $Y$ 中且满足
+\begin{equation*}\tag{2.3.3.1}\label{IV:eq:2-3-3-1}
+  \tr_g\left(\cl(Y,\sK)\smallsmile u\right) = \tr_{f,\sK}(u) \text{.}
+\end{equation*}
+的类.
+
+\subsubsection{}\label{IV:2-3-4}
+
+$\tr_{f,\sK}$ 的构造与 \cite[XVIII.2]{sga4} 中的构造平行; 我们只指出其主要步骤.
+
+\paragraph{A}
+$d=0$ ($f$ 拟有限). 设 $x$ 为 $Y$ 的几何点, $s$ 为其在 $S$ 中的像,
+$\sK_{(x)}$ 为 $\sK$ 在 $X$ 于 $x$ 的严格局部化上的逆像,
+$\sK_{(x)s} = \sK_{(x)}\lotimes_{\sO_{S,s}^h} k(s)$ 为其在 $s$ 处几何纤维上的逆像,
+并置 $n(x)=\sum (-1)^i \dim_{k(s)} \h^i(\sK_{(x)s})$.
+函数 $x\mapsto n(x)$ 是 $f$ 的一个加权, 我们取对应的迹态射 \cite[XVII.6.2.5]{sga4}.
+加权 $n(x)$ 及 $\tr_{f,\sK}$ 的形成与任意基变换相容.
+
+\paragraph{B}
+一般情形. 若 $u:X\to \dA_S^d$ 使 $u i$ 拟有限,
+则置 $\tr_{f,\sK} = \tr_{\dA_S^d}\circ \tr_{u i,\sK}$.
+此迹态射显然与每个基变换 $S'/S$ 相容.
+所以为证明它不依赖于 $u$, 可假定 $S$ 为代数闭域 $k$ 的谱.
+此时, 设 $Y_i$ 为 $Y$ 的不可约分支, $\operatorname{lg}_i$ 为 $\sK$ 在 $Y_i$ 一般点处的长度.
+若 $\alpha_i$ 为 $(Y_i)_\text{red}$ 到 $Y$ 的包含, 则有
+\begin{equation*}\tag{2.3.4}\label{IV:eq:2-3-4}
+  \tr_{f,\sK} = \sum \operatorname{lg}_i \tr_{Y_{i,\text{red}/S}} \alpha_i^\ast
+\end{equation*}
+(此公式由 $\tr_{u i}$ 的对应的容易验证的公式得到).
+
+这样在 $Y$ 上局部地定义了 $\tr_{f,\sK}$; 随后按 \cite[XVIII.2.9]{sga4} 继续即可.
+
+\begin{lemma}\label{IV:2-3-5}
+若 $g=g'g'':X\xrightarrow{g''} S'\xrightarrow{g'} S$,
+其中 $g'$ 和 $g''$ 光滑, 纯相对维数分别为 $N'$ 和 $N''$,
+且 $Y$ 在 $S'$ 上的各纤维余维仍 $\geqslant c$,
+则类 $\operatorname{cl}(Y,\sK)$ 无论相对于 $g$ 还是相对于 $g''$ 计算都相同.
+\end{lemma}
+
+设 $f'=g'' i$, $d'=d-N'$.
+公式 $\tr_g=\tr_{g'}\tr_{g''}$ (\cite[XVIII.2.9]{sga4} 变式 3) 保证下图交换:
+\[\xymatrix{
+  \h_Y^{2 c}\left(X,\dZ/n(c)\right) \ar[d] \\
+  \hom_{S'}\left(\eR f_!\dZ/n(d')[2 d'],\eR g_!''\dZ/n(N'')[2 N'']\right) \ar[r] \ar[d]^-{\eR g_!'(N')}
+    & \hom_{S'}\left(\eR^{2 d'} f_!' \dZ/n,\dZ/n\right) \ar[d]^-{\tr_{g'}\circ \eR^{2 N'} g_!'} \\
+  \hom_S\left(\eR f_!\dZ/n(d)[2d],\eR g_!'\dZ/n(N)[2 N]\right) \ar[r]
+    & \hom_S\left(\eR^{2 d} f_!\dZ/n,\dZ/n\right)
+}\]
+而对应的、容易验证的公式 $\tr_{f,\sK}=\tr_{g'}\tr_{f',\sK}$
+保证 $\tr_{f',\sK}$ 的像是 $\tr_{f,\sK}$. 断言随之成立.
+
+\begin{lemma}\label{IV:2-3-6}
+若 $Y$ 是 $X$ 中的除子, 则 \ref{IV:2-3-2} 的类与 \ref{IV:2-1-2} 的类相同.
+\end{lemma}
+
+由半纯性 (\ref{IV:2-2-6}(i) 和 \ref{IV:2-2-8}(i)), 问题在 $Y$ 上是局部的;
+再用 \ref{IV:2-3-5} 将 $S$ 换成适当的 $S'$, 就可假定 $N=1$.
+再次利用半纯性 (\ref{IV:2-2-6}(ii) 和 \ref{IV:2-2-8}(ii)),
+只需在 $S$ 的一般点上证明 \ref{IV:2-3-6}.
+再经平展局部化, 可归结到 $S$ 为代数闭域 $k$ 的谱的情形.
+由于 \ref{IV:2-3-2} 和 \ref{IV:2-1-2} 的类都对 $Y$ 可加,
+可归结到 $Y$ 为 $k$ 上光滑曲线的闭点的情形.
+此时, 刻画性质 \ref{IV:2-3-2} 成立这一事实, 就是基本相容性 \ref{IV:2-1-5}.
+
+\begin{lemma}\label{IV:2-3-7}
+$\cl(Y,\sK)$ 的形成与任意基变换 $S'/S$ 相容.
+\end{lemma}
+
+这由迹态射的同一断言得到.
+
+\begin{theorem}\label{IV:2-3-8}
+(i) $\cl(Y,\sK)$ 仅依赖于 $Y\subset X$ 及 $\sK$ 在 $Y$ 的一般点处的长度.
+此类对 $\sK$ 可加. 当 $\sK=\sO_Y$ 且 $Y$ 为局部完全交时,
+它诱导 \ref{IV:2-2-2} 的局部类.
+
+(ii) 设有交换图
+\[\xymatrix{
+  X' \ar[r]^-u \ar[d]
+    & X \ar[d] \\
+  S' \ar[r]
+    & S
+}\]
+其中 $X'$ 在 $S'$ 上光滑. 若 $u^{-1}(Y)$ 的各纤维余维仍 $\geqslant c$, 则
+\[
+  \cl\left(u^{-1}(Y),\eL u^\ast\sK\right) = u^\ast \cl(Y,\sK) \text{.}
+\]
+
+(iii) 设 $Y'\subset X$ 的各纤维余维 $\geqslant c'$,
+$\sK'$ 为 $Y'$ 上的权, 并假定 $Y\cap Y'$ 的各纤维余维 $\geqslant c+c'$. 则
+\[
+\cl\left(Y\cap Y',\sK\lotimes \sK'\right) = \cl(Y,\sK) \smallsmile \cl(Y',\sK') \text{.}
+\]
+\end{theorem}
+
+% 以下各段原有编号.
+% (2.3.8.1)
+\paragraph{(A)}
+给定上述 $Y\subset X/S$, 由半纯性 (\ref{IV:2-2-6}, \ref{IV:2-2-8}) 可知,
+要验证 $\h_Y^{2 c}\left(X,\dZ/n(c)\right)$ 中的两个类相同,
+只需在 $Y$ 的各一般点处局部地验证;
+甚至只需在每次基变换 $s\to S$ ($s$ 为 $S$ 的几何一般点) 后, 在 $Y$ 的各一般点处验证.
+
+% (2.3.8.2)
+\paragraph{(B) 当 $S=S'$ 且 $u$ 为闭浸入时 (ii) 的证明}
+由局部化 (A), 可假定 $X'$ 是光滑态射 $v:X\to \dA_S^{N'}$ 下零截面 $0$ 的逆像:
+\[\xymatrix{
+  X' \ar[r]^-u \ar[d]
+    & X \ar[d]^-v \\
+  S \ar[r]^-0
+    & \dA_S^{N'} \ar[r]^-\pi
+    & S
+}\]
+对 $g=\pi v$ 应用 \ref{IV:2-3-5}, 对基变换 $S\to \dA_S^{N'}$ 应用 \ref{IV:2-3-7}.
+
+% (2.3.8.3)
+\paragraph{(C) 在乘积情形中:}
+$X=X'\times_S X''$, $Y=Y'\times_S Y''$, $\sK=\sK'\lotimes_S \sK''$, 有
+$\cl(Y,\sK) = \cl(Y',\sK')\smallsmile \cl(Y'',\sK'')$
+(外杯积, 即 $\operatorname{pr}_1^\ast \cl(Y',\sK')\smallsmile \operatorname{pr}_2^\ast \cl(Y'',\sK'')$).
+
+$\tr_g$ 的函子性质 \cite[XVIII.2.12]{sga4} 蕴涵下图交换:
+\small
+\[\xymatrix@=0.5cm{
+  \h_{X'}^{2c'}\otimes \h_{X''}^{2 c''}\ar[r] \ar[d]
+    & \hom_S\left(\eR f_!' \dZ/n(d')[2 d'],\eR g_!'\dZ/n(N')[2 N']\right)\otimes \cdots \ar[r] \ar[d]
+    & \hom_S\left(\eR^{2 d'} f_!' \dZ/n,\dZ/n\right) \otimes \cdots \ar[d] \\
+  \h_X^{2 c} \ar[r]
+    & \hom_S\left(\eR f_!\dZ/n(d)[2 d],\eR g_!\dZ/n(N)[2 N]\right) \ar[r]
+    & \hom_S\left(\eR^{2 d}f_!\dZ/n,\dZ/n\right)
+}\]
+\normalsize
+并可验证 $\tr_f$ 是 $\tr_{f'}\otimes \tr_{f''}$ 的像, 断言由此得到.
+
+\paragraph{(ii) 的证明}
+由 (\ref{IV:2-3-7}) 并先作一次基变换, 可假定 $S=S'$.
+将 $u$ 通过其图像分解:
+\[\xymatrix{
+  X' \ar[r]^-{(\text{id},u)}
+    & X'\times X \ar[r]^-{\operatorname{pr}_2}
+    & X \text{.}
+}\]
+于是分别处理 $\operatorname{pr}_2$ 与 $(\text{id},u)$:
+前者归于 (C), 取 $Y'=X'$, $\sK'=\sO_{X'}$
+(此时 $\cl(Y')=1\in \h^0(X',\dZ/n)$); 后者归于 (B).
+
+\paragraph{(iii) 的证明}
+设 $\delta:X\to X\times_S X$ 为对角包含.
+利用公式 $\delta^\ast(Y_1\times_S Y_2) = Y_1\cap Y_2$, 归结到 (B) 和 (C).
+
+\paragraph{(i) 的证明}
+基变换 $S_\text{red}\to S$ 将 $X$ 换为 $X_\text{red}$;
+从而可假定 $X$ 和 $S$ 约化.
+然后在 $Y$ 的一般点附近局部化, 可归结到 $Y_\text{red}$ 不可约且为 $c$ 个除子 $D_i$ 的完全交的情形.
+同样的局部化, 结合拟有限情形中 $\tr$ 的定义, 表明
+$\cl(Y,\sK)=\operatorname{lg}\cl(Y_\text{red},\sO_{Y_\text{red}})$,
+其中 $\operatorname{lg}$ 为 $\sK$ 在 $Y$ 一般点处的长度.
+因此由 (iii), 有
+\[
+  \cl(Y,\sK) = \operatorname{lg} \prod_i \cl(D_i,\sO_{D_i})
+\]
+结论即由 \ref{IV:2-3-6} 得到.
+
+\subsubsection{注}\label{IV:2-3-9}
+
+当 $S$ 为域的谱、闭链的类按 \ref{IV:2-2-10} 定义时,
+断言 (iii) 是说, 若两个闭链 $Y'$ 和 $Y''$ 按正确的维数相交, 则
+\[
+  \cl(Y'\cap Y'') = \cl(Y')\smallsmile \cl(Y'')\text{,}
+\]
+其中 $Y'\cap Y''$ 的各分支的重数须以 $\tor$ 的交错和计算.
+
+\subsubsection{注}\label{IV:2-3-10}
+
+设 $X/\spec(k)$, $k$ 代数闭. 若 $X$ 中两个余维 $c$ 的闭链代数等价,
+则上述相对理论的存在表明, 它们的类在 $\h^{2 c}(X,\dZ/n(c))$ 中的像,
+是常值层 $\h^{2 c}(X,\dZ/n(c))$
+(即 $f=\operatorname{pr}_2:X\times S\to S$ 的层 $\eR^{2 c} f_\ast \dZ/n(c)$)
+在适当连通 $S$ 上的一个截面于两个点处的纤维:
+两个代数等价的闭链在 $\h^{2 c}(X,\dZ/n(c))$ 中有相同的类.
+
+\section{应用: 适当光滑情形的 Lefschetz 迹公式}\label{IV:3}
+
+\subsection{}\label{IV:3-1}
+
+设 $X$ 和 $Y$ 为代数闭域 $k$ 上的适当光滑代数簇, 纯维数分别为 $N$ 和 $M$.
+通过 K\"unneth 同构 $\h^\bullet(X\times Y)=\h^\bullet(X)\otimes \h^\bullet(Y)$,
+迹态射 $\h^\bullet(X\times Y)(M)\to \h^\bullet(X)$ 就是
+$\h^\bullet(X)\otimes ($迹态射 $\h^\bullet(Y)(M)\to \dQ_\ell)$.
+由于此态射是偶数次齐次的, 没有符号问题. 记为 $\int_Y$.
+
+\subsection{}\label{IV:3-2}
+
+类 $\eta\in \h^{2 q}(X\times Y)(q)$ 定义一个次数为 $2(q-M)$ 的态射
+$\eta_{XY}:\h^\bullet(Y)(M-q)\to \h^\bullet(X)$, 其公式为
+\[
+  \beta \mapsto \int_Y \eta\cdot \operatorname{pr}_2^\ast \beta \text{.}
+\]
+
+\begin{proposition_}\label{IV:3-3}
+设 $p$ 和 $q$ 为两个整数, $p+q=N+M$, 并设
+$\varepsilon\in \h^{2 p}(X\times Y)(p)$,
+$\eta\in \h^{2 q}(X\times Y)(q)$.
+将 $\eta_{X Y}\varepsilon_{Y X}:\h^\bullet(X)\to \h^\bullet(X)$ 的迹理解为 \ref{IV:1-3} 的意义, 则有
+\[
+  \tr_{X\times Y}(\eta\cdot \varepsilon) = \tr\left(\eta_{X Y}\varepsilon_{Y X},\h^\bullet(X)\right) \text{.}
+\]
+\end{proposition_}
+
+为消除符号的困扰, 只保留 $\h^\bullet$ 分次的底层 $\dZ/2$-分次会更方便.
+为免不断写出 Tate 扭转, 再固定同构 $\dQ_\ell(1)=\dQ_\ell$.
+设 $\alpha_Y$ 为使下图交换的同态 $\h^\bullet(Y)\to \h^\bullet(Y)^\vee$ (它是同构):
+\[\xymatrix{
+  \h^\bullet(Y)\otimes \h^\bullet(Y) \ar[r] \ar[d]^-{\alpha_Y\otimes 1}
+    & \h^\bullet(Y) \ar[r]^-{\tr}
+    & \dQ_\ell \ar@{=}[d] \\
+  \h^\bullet(Y)^\vee \otimes \h^\bullet(Y) \ar[rr]^-{\text{(\ref{IV:eq:1-3-1})}}
+    & & \dQ_\ell \text{.}
+}\]
+映射 $\eta_{X Y}$ 为 $\eta$ 在
+\[\xymatrix{
+  \h^\bullet(X\times Y) = \h^\bullet(X)\otimes \h^\bullet(Y) \ar[r]^-{\alpha_Y}
+    & \h^\bullet(X) \otimes \h^\bullet(Y)^\vee \ar@{=}[r]^-{\text{(\ref{IV:eq:1-3-2})}}
+    & \hom\left(\h^\bullet(Y),\h^\bullet(X)\right) \text{,}
+}\]
+下的像, $\varepsilon$ 也一样.
+于是迹的定义 \ref{IV:eq:1-3-4} 将 \ref{IV:3-3} 归结为公式 $\tr_{X\times Y}=\tr_X\otimes \tr_Y$.
+
+\subsection{注}\label{IV:3-4}
+
+\ref{IV:3-3} 的证明没有用到 $\alpha_X$ 与 $\alpha_Y$ 为同构这一事实.
+不假定 $X$ 和 $Y$ 光滑, 它仍成立.
+不过在非光滑情形, 难以找到值得应用 \ref{IV:3-3} 的\emph{上同调}类.
+
+\subsection{注}\label{IV:3-5}
+
+若 $\varepsilon,\eta$ 是 $X\times Y$ 上余维分别为 $p$ 和 $q$ 的代数闭链 $A$ 和 $B$ 的上同调类,
+且 $A\cap B$ 的维数为 $0$, 则 $\tr_{X\times Y}(\eta\varepsilon)$
+就是以 $\tor$ 的交错和计算的相交重数 $A\cdot B$ (\ref{IV:2-3-9}).
+
+\begin{proposition_}\label{IV:3-6}
+当 $q=M$, $\eta=\cl(B)$ 为在 $X$ 上有限的子概形 $B\subset X\times Y$ 的类时,
+映射 $\eta_{X Y}$ 是复合
+\[\xymatrix{
+  \eta_{X Y} : \h^\bullet(Y) \ar[r]^-{\operatorname{pr}_2^\ast}
+    & \h^\bullet(B) \ar[r]^-{\tr_{B/X}}
+    & \h^\bullet(X) \text{.}
+}\]
+\end{proposition_}
+
+事实上, 由 \ref{IV:3-2} 及 $\sK=\sO_B$ 时的 \eqref{IV:eq:2-3-3-1}, 有
+\[
+  \eta_{X Y}(\beta) = \tr_{X\times Y/X}\left(\cl(B)\cdot \operatorname{pr}_2^\ast\beta\right) = \tr_{B/X}\left(\operatorname{pr}_2^\ast \beta\right) \text{.}
+\]
+
+最重要的情形是 $B$ 为映射 $f:X\to Y$ 的图像.
+此时 \ref{IV:3-6} 表明 $\eta_{X Y}=f^\ast$.
+
+\begin{corollary_}\label{IV:3-7}
+设 $f$ 为代数闭域 $k$ 上适当光滑的 $X$ 的自同态.
+假定 $f$ 的不动点孤立. 则迹 $\sum (-1)^i \tr(f^\ast,\h^i(X))$
+是 $f$ 的不动点个数, 每点按其重数计数.
+\end{corollary_}
+
+在 \ref{IV:3-5} 中取 $A=$ 恒等映射的图像, $B=$ $f$ 的图像,
+并应用 \ref{IV:3-3}、\ref{IV:3-6}.
+
+\begin{corollary_}\label{IV:3-8}
+设 $X$ 为代数闭域 $k$ 上的曲线, 由 $\dF_q$ 上的 $X_0$ 经标量扩张得到,
+$f$ 为 Frobenius 态射. 则 $\sum (-1)^i \tr\left(f^\ast,\h_c^i(X)\right)$
+是 $f$ 的不动点个数.
+\end{corollary_}
+
+可以将 $X$ 换为 $X_\text{red}$, 从而假定 $X$ 约化.
+设 $U$ 为 $X$ 上光滑且维数为 $1$ 的开子集, $\bar U$ 为 $U$ 的光滑射影补全.
+$(X,U)$ 与 $(\bar U,U)$ 的上同调长正合列给出
+\[
+  \tr\left(f^\ast,\h_c^\bullet(X)\right) = \tr\left(f^\ast,\h_c^\bullet(U)\right) + \tr\left(f^\ast,\h_c^\bullet(X\setminus U)\right)
+\]
+以及
+\[
+  \tr\left(f^\ast,\h_c^\bullet(\bar U)\right) = \tr\left(f^\ast,\h_c^\bullet(U)\right) + \tr\left(f^\ast,\h_c^\bullet(\bar U\setminus U)\right) \text{.}
+\]
+不动点个数也满足相同的公式.
+由于公式 \ref{IV:3-8} 对维数 $0$ 的概形显然成立, 只需对 $\bar U$ 证明 \ref{IV:3-8}.
+这一情形由 \ref{IV:3-7} 得到. $d f=0$ 这一事实保证所有不动点的重数为一.
+
+\subsection{注}\label{IV:3-9}
+
+当 $X$ 在代数闭域 $k$ 上的维数 $\leqslant 1$, 且 $f:X\to X$ 满足 $d f=0$ 时,
+不难验证 \ref{IV:3-8} 仍成立.

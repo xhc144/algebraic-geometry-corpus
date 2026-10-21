@@ -1,0 +1,1189 @@
+% !TEX root = ../main.tex
+
+\chapter{迹公式在三角和中的应用}\label{VI}
+\chaptermark{在三角和中的应用}
+
+本讲说明如何利用迹公式（trace formula）计算或研究各种三角和（trigonometric sums），以及如何结合 Weil 猜想给出它们的界。
+
+前两节是这些工具的“使用指南”。\hyperref[VI:3]{第 3 节}用上同调语言表述 Weil 关于单变量和的结果。第 $4$ 至 $6$ 节详细研究 Gauss 和与 Jacobi 和，其中包括 Weil 关于由 Jacobi 和定义的 Hecke 特征的早期及近期结果。第 $7$ 节研究 Kloosterman 和的多变量推广。最后，第 $8$ 节简要介绍这些方法已经得到或可能得到的其他应用。
+
+\section*{记号}\label{VI:0}
+
+\subsection{}\label{VI:0-1}
+
+我们沿用\hyperref[II]{《迹公式报告》}第 \ref{II:1} 节的记号。经常需要考虑 $\dF_q$ 的有限扩张 $\dF_{q^n}\subset \dF$。下标 $0$ 表示 $\dF_q$ 上的对象，下标 $1$ 表示 $\dF_{q^n}$ 上的对象。将下标 $0$ 改为下标 $1$（分别地，省略下标），表示将标量扩张到 $\dF_{q^n}$（分别地，扩张到 $\dF$）。
+
+\subsection{}\label{VI:0-2}
+
+以 $\ell$ 表示素数 $\ne p$。我们自由使用 $\dQ_\ell$-层的语言，也使用 $E_\lambda$-层的语言，其中 $E_\lambda$ 是 $\dQ_\ell$ 的有限扩张（参见\hyperref[II]{《迹公式报告》}第 \ref{II:2} 节，特别是 \ref{II:2-11}）。
+
+\subsection{}\label{VI:0-3}
+
+设 $H^\bullet$ 是分次向量空间。若 $T$ 是 $H^\bullet$ 的自同态，令（参见\hyperref[IV]{《与闭链相关联的上同调类》}\ref{IV:eq:1-3-5}）
+\[
+  \tr(T,H^\bullet) = \sum (-1)^i \tr(T,H^i) \text{.}
+\]
+
+\section{原理}\label{VI:1}
+
+\subsection{}\label{VI:1-1}
+
+设 $X_0$ 是 $\dF_q$ 上的分离有限型概形，$E_\lambda$ 是 $\dQ_\ell$ 的有限扩张，$\sF_0$ 是 $X_0$ 上的 $E_\lambda$-层。迹公式断言
+\begin{equation*}\tag{1.1.1}\label{VI:eq:1-1-1}
+  \sum_{x\in X^F} \tr(F_x^\ast,\sF) = \sum (-1)^i \tr\left(F^\ast,\h_c^i(X,\sF)\right) \text{.}
+\end{equation*}
+
+采用 \ref{VI:0-3} 的记号，右端可简写为 $\tr(F^\ast,\h_c^\bullet(X,\sF))$。
+
+这个 $E_\lambda$-层的迹公式，既可通过取极限由\hyperref[II]{《迹公式报告》}\ref{II:4-10} 推出（参见\hyperref[II]{《迹公式报告》}\ref{II:4-11} 至 \ref{II:4-13}），也可用（\hyperref[III]{《模 $\ell^n$ 的 $L$ 函数》}\ref{III:4-3}）的方法，从 $\dQ_\ell$-层的迹公式（\hyperref[II]{《迹公式报告》}\ref{II:3-2}）推出。
+
+我们将选取适当的 $X_0$ 和 $\sF_0$，把各种三角和解释为 \eqref{VI:eq:1-1-1} 的左端。
+
+% 本节沿用底本的记号，以正体字母而非花体字母表示挠子。
+\subsection{}\label{VI:1-2}
+
+设 $A$ 是有限群。概形 $X$ 上的一个 \emph{$A$-挠子（$A$-torsor）}是 $X$ 上配备 $A$ 的右作用的层 $T$，使得它在 $X$ 的平展拓扑下局部同构于常值层 $A$，而 $A$ 在后者上按右平移作用。
+
+若 $\tau:A\to B$ 是同态，$T$ 是 $A$-挠子，则在唯一同构的意义下，存在唯一的 $B$-挠子 $\tau(T)$，配备层态射 $\tau:T\to \tau(T)$，使得
+\begin{equation*}\tag{1.2.1}\label{VI:eq:1-2-1}
+  \tau(t a) = \tau(t) \tau(a)\text{.}
+\end{equation*}
+
+若 $T$ 是 $X$ 上的 $A$-挠子，$\rho$ 是 $A$ 的线性表示 $\rho:A\to \gl(V)$（其中 $V$ 是 $E_\lambda$ 上的有限维向量空间），则在唯一同构的意义下，存在唯一的秩为 $\dim(V)$ 的光滑 $E_\lambda$-层 $\sF$，配备层态射
+\begin{equation*}\tag{1.2.2}\label{VI:eq:1-2-2}
+  \rho:T\to \underline{\operatorname{Isom}}(V,\sF) \text{.}
+\end{equation*}
+使得 $\rho(t a) = \rho(t) \rho(a)$。将它记为 $\rho(T)$。对于 $\tau:A\to B$ 及 $B$ 的表示 $\rho$，有典范同构 $\rho(\tau(T)) = (\rho\tau)(T)$。
+
+本节（附录除外）只考虑 $A$ 交换且 $V=E_\lambda$ 的情形：此时 $\rho$ 是特征 $A\to E_\lambda^\times$，而 $\rho(T)$ 是秩为一的光滑 $E_\lambda$-层。态射 \eqref{VI:eq:1-2-2} 可以解释为处处非零的态射
+\begin{equation*}\tag{1.2.3}\label{VI:eq:1-2-3}
+  \rho:T\to \rho(T)
+\end{equation*}
+满足 $\rho(t a) = \rho(a)\rho(t)$。
+
+\subsection{}\label{VI:1-3}
+
+设 $S$ 是概形，$G$ 是 $S$ 上的交换群概形，$G'$ 是 $S$ 上的交换群概形扩张
+\[\xymatrix{
+  0 \ar[r]
+    & A \ar[r]
+    & G' \ar[r]^-\pi
+    & G \ar[r]
+    & 0 \text{.}
+}\]
+则 $\pi$ 的局部截面层 $T$ 是 $G$ 上的 $A$-挠子。
+
+若 $X$ 是 $S$ 上的概形，$f,g$ 是从 $X$ 到 $G$ 的两个 $S$-态射，则由 $T$ 是通过扩张定义的这一事实，得到典范同构
+\begin{equation*}\tag{1.3.1}\label{VI:eq:1-3-1}
+  (f+g)^\ast T = f^\ast T + g^\ast T \text{.}
+\end{equation*}
+左端的 $f+g$ 是相对于 $G$ 的群运算的和；右端的 $+$ 表示挠子的和。
+
+若 $f:X\to G$ 经由 $G'$ 分解，则 $f^\ast T$ 平凡（这样的分解给出一个平凡化）；在非唯一同构的意义下，$A$-挠子 $f^\ast T$ 只依赖于 $f$ 在 $\hom_S(X,G)/\pi\hom_S(X,G')$ 中的像：它由正合列
+\[\xymatrix{
+  \hom(X,G') \ar[r]
+    & \hom(X,G) \ar[r]^-\partial
+    & \h^1(X,A) \text{.}
+}\]
+中的态射 $\partial$ 给出。
+
+我们将把这些构造应用于 Kummer 正合列 $0 \to \dmu_n \to \dG_m \to \dG_m \to 0$，以及 Lang 挠子。
+
+\subsection{Lang 挠子}\label{VI:1-4}
+
+设 $G_0$ 是 $\dF_q$ 上的连通交换代数群（非交换情形见附录）。群运算采用\emph{乘法记号}。Lang 同源
+\[
+\fL:G_0 \to G_0: x\mapsto F x\cdot x^{-1}
+\]
+是平展的；它的像是 $G_0$ 的开子群，因而只能是 $G_0$ 本身；它的核是有限群 $G_0(\dF_q)$。\emph{Lang 挠子} $L$ 是由正合列
+\begin{equation*}\tag{1.4.1}\label{VI:eq:1-4-1}
+\xymatrix{
+  0 \ar[r]
+    & G_0(\dF_q) \ar[r]
+    & G_0 \ar[r]^-\fL
+    & G_0 \ar[r]
+    & 0 \text{.}
+}
+\end{equation*}
+定义的 $G_0$ 上的 $G_0(\dF_q)$-挠子。
+
+\paragraph{记号}
+对 $L$ 和 $\fL$ 扩张基域所得的对象，仍记为 $L$ 和 $\fL$（或 $L_{(q)}$ 和 $\fL_{(q)}$）。必要时用下标 $0$ 或 $1$ 加以注明。
+
+\paragraph{例}
+当 $G_0=\dG_a$ 或 $\dG_m$ 时，正合列 \eqref{VI:eq:1-4-1} 分别写作
+\begin{align*}\tag{1.4.2}\label{VI:eq:1-4-2}
+&\xymatrix{
+  0 \ar[r]
+    & \dF_q \ar[r]
+    & \dG_a \ar[r]^-{x^q-x}
+    & \dG_a \ar[r]
+    & 0
+} \\
+\tag{1.4.3}\label{VI:eq:1-4-3}
+&\xymatrix{
+  0 \ar[r]
+    & \dmu_{q-1} \ar[r]
+    & \dG_m \ar[r]^-{x^{q-1}}
+    & \dG_m \ar[r]
+    & 0
+}
+\end{align*}
+
+\subsection{}\label{VI:1-5}
+
+计算 Lang 挠子在 $\gamma\in G^F=G_0(\dF_q)$ 处纤维上的自同态 $F^\ast$。若 $g\in \fL^{-1}(\gamma)\subset G$，则 $F g = F g\cdot g^{-1}\cdot g = \gamma g$。因此（\hyperref[II]{《迹公式报告》}\ref{II:1-2}）
+\begin{equation*}\tag{1.5.1}\label{VI:eq:1-5-1}
+  \text{在 $L_0(G_0)_\gamma\simeq \fL^{-1}(\gamma)$ 上，$F^\ast$ 为 $g\mapsto g\gamma^{-1}$。}
+\end{equation*}
+
+\subsection{}\label{VI:1-6}
+
+在 $\dF_{q^n}$ 上，$G_1$ 的自同态之间的等式 $F_{(q^n)}=F_{(q)}^n$ 蕴含 $\fL_{(q^n)}=\fL_{(q)}\circ \prod_{i=0}^{n-1} F_{(q)}^i$。在 $G_0(\dF_{q^n})$ 上，$F_{(q)}^i$ 的作用是 $\gal(\dF_{q^n}/\dF_q)$ 中的元素 $x\mapsto x^{q^i}$。所以，在 $G_0(\dF_{q^n})$ 上，$\prod F_{(q)}^i$ 是范数 $G_0(\dF_{q^n})\to G_0(\dF_q)$ 与包含映射 $G_0(\dF_q)\subset G_0(\dF_{q^n})$ 的复合：图
+\begin{equation*}\tag{1.6.1}\label{VI:eq:1-6-1}
+\xymatrix{
+  0 \ar[r]
+    & G_0(\dF_{q^n}) \ar[r] \ar[d]^-N
+    & G_1 \ar[r]^-{\fL_{(q^n)}} \ar[d]^-{\prod_{i=0}^{n-1} F_{(q)}^i}
+    & G_1 \ar[r] \ar@{=}[d]
+    & 0 \\
+  0 \ar[r]
+    & G_0(\dF_q) \ar[r]
+    & G_1 \ar[r]^-{\fL_{(q)}}
+    & G_1 \ar[r]
+    & 0
+}
+\end{equation*}
+交换。用挠子语言表述，这给出 $G_1$ 上的 $G_0(\dF_q)$-挠子之间的典范同构
+\begin{equation*}\tag{1.6.2}\label{VI:eq:1-6-2}
+  N L_{(q^n)} = L_{(q)} \text{.}
+\end{equation*}
+
+\begin{definition_}\label{VI:1-7}
+设 $f_0:X_0\to G_0$ 是态射，$\chi:G_0(\dF_q)\to E_\lambda^\times$ 是特征。令 $\sF(\chi,f_0) = \chi^{-1}(f_0^\ast (L_0(G_0))) = f_0^\ast\chi^{-1}(L_0(G_0))$。
+\end{definition_}
+
+有如下函子性：
+\begin{enumerate}[a)]
+  \item $\sF(\chi,f_0)$ 关于 $\chi$ 和 $f_0$ 是双重乘法性的：
+    \begin{align*}\tag{1.7.1}\label{VI:eq:1-7-1}
+      \sF(\chi,f_0'\cdot f_0'') &= \sF(\chi,f_0')\otimes \sF(\chi,f_0'') \text{,} \\
+      \tag{1.7.2}\label{VI:eq:1-7-2}
+      \sF(\chi'\chi'',f_0) &= \sF(\chi',f_0)\otimes \sF(\chi'',f_0) \text{.}
+    \end{align*}
+    这由挠子 $T$ 的 $\chi(T)$ 的定义得到；对于 \eqref{VI:eq:1-7-1}，还要结合 \eqref{VI:eq:1-3-1}。
+  \item 对于态射 $g_0:Y_0\to X_0$，有
+    \begin{equation*}\tag{1.7.3}\label{VI:eq:1-7-3}
+      \sF(\chi,f_0\circ g_0) = g_0^\ast \sF(\chi,f_0) \text{.}
+    \end{equation*}
+    特别地，$\sF(\chi,f_0) = f_0^\ast \sF(\chi)$，其中 $\sF(\chi)$ 表示 $\sF(\chi,\operatorname{id}_{G_0})$。
+  \item 对于态射 $u_0:G_0\to H_0$ 及 $\chi:H_0(\dF_q) \to E_\lambda^\times$，有
+    \begin{equation*}\tag{1.7.4}\label{VI:eq:1-7-4}
+      \sF(\chi,u_0 f_0) = \sF(\chi u_0,f_0) \text{.}
+    \end{equation*}
+  \item 设 $G_0=\prod_{i\in I} G_0^i$，$\chi$ 的各坐标为 $\chi_i$（$i\in I$），$f_0$ 的各坐标为 $f_0^i$。由 \eqref{VI:eq:1-7-1} 至 \eqref{VI:eq:1-7-4} 得到
+    \begin{equation*}\tag{1.7.5}\label{VI:eq:1-7-5}
+      \sF(\chi,f_0) = \bigotimes_{i\in I} \sF(\chi_i,f_0^i) \text{.}
+    \end{equation*}
+\end{enumerate}
+
+注意定义 \ref{VI:1-7} 中的 $\chi^{-1}$。它保证对 $x\in X^F$，在 $\sF(\chi,f_0)_x$ 上有
+\begin{equation*}\tag{1.7.6}\label{VI:eq:1-7-6}
+  F_x^\ast = \chi f_0(x)
+\end{equation*}
+（利用当 $\rho=\chi^{-1}$ 时，态射 \eqref{VI:eq:1-2-2} 在 $x$ 处的纤维与 $F_x^\ast$ 交换，再结合 \eqref{VI:eq:1-5-1}）。
+
+若 $\sF(\chi,f_0)_1$ 是将 $\sF(\chi,f_0)$ 的基域扩张到 $\dF_{q^n}$ 所得的层，则由 \eqref{VI:eq:1-6-2} 得
+\begin{equation*}\tag{1.7.7}\label{VI:eq:1-7-7}
+  \sF(\chi,f_0)_1 = \sF(\chi\circ N,f_1) \text{.}
+\end{equation*}
+
+\subsection{记号的滥用}\label{VI:1-8}
+
+(i) 若 $\Xi$ 表示复合映射 $\chi f_0:X_0(\dF_q) \to E_\lambda^\times$，有时将 $\sF(\chi,f_0)$ 写作 $\sF(\Xi)$。由 \eqref{VI:eq:1-7-1} 至 \eqref{VI:eq:1-7-5}，这个记号不大可能造成歧义。例如：
+\begin{enumerate}[a)]
+  \item 将 $\sF(\chi,\operatorname{id}_{G_0})$ 写作 $\sF(\chi)$（\ref{VI:1-7}b) 中已使用这个记号）；
+  \item 将 $\sF(\chi,f_0)$ 写作 $\sF(\chi f_0)$；
+  \item 采用 \ref{VI:1-7}d) 的记号，将 $\sF(\chi,f_0)$ 写作 $\sF(\prod \chi_i f_0^i)$。
+\end{enumerate}
+
+采用这些记号，\eqref{VI:eq:1-7-4} 表明记号 $\sF(\chi u_0 f_0)$ 无歧义；\eqref{VI:eq:1-7-1}、\eqref{VI:eq:1-7-2}、\eqref{VI:eq:1-7-5} 表达 $\sF(\Xi)$ 关于 $\Xi$ 的乘法性；而 \eqref{VI:eq:1-7-6} 变为在 $\sF(\Xi)_x$ 上 $F_x^\ast = \Xi(x)$。
+
+(ii) 若 $X$ 是 $\dF_q$ 的扩张域 $k$ 上的概形，$f$ 是从 $X$ 到 $G_0\otimes_{\dF_q} k$ 的态射，我们仍将由 $\chi^{-1}(L_0(G))$ 从 $\dF_q$ 到 $k$ 扩张标量所得的 $E_\lambda$-层在 $f$ 下的逆像记为 $\sF(\chi,f)$、$\sF(\chi f)$，或在 $f$ 是包含映射时记为 $\sF(\chi)$。若 $f_0$ 是复合映射 $X\to G_0\otimes_{\dF_q} k \to G_0$，这仍是 \ref{VI:1-7} 中的 $\sF(\chi,f_0)$。若 $k$ 是 $\dF_q$ 的有限扩张，则 $\sF(\chi f) = \sF(\chi N_{k/\dF_q} f)$。
+
+将 \eqref{VI:eq:1-1-1} 应用于 \eqref{VI:eq:1-7-6} 和 \eqref{VI:eq:1-7-7}，得到：
+
+% 原著称此为 scholium。
+\begin{theorem_}\label{VI:1-9}
+设 $S_0$ 是 $\dF_q$ 上的分离有限型概形，$G_0$ 是 $\dF_q$ 上的连通交换代数群，$f_0:S_0\to G_0$ 是态射，且 $\chi:G_0(\dF_q) \to E_\lambda^\times$。有
+\begin{equation*}\tag{1.9.1}\label{VI:eq:1-9-1}
+  \sum_{s\in S_0(\dF_q)} \chi f_0(s) = \tr(F^\ast,\h_c^\bullet(S,\sF(\chi,f_0)))
+\end{equation*}
+并且对任意整数 $n\geqslant 1$，有
+\begin{equation*}\tag{1.9.2}\label{VI:eq:1-9-2}
+  \sum_{s\in S_0(\dF_{q^n})} \chi\circ N_{\dF_{q^n}/\dF_q} f_0(s) = \tr({F^\ast}^n, \h_c^\bullet\left(S,\sF(\chi,f_0))\right) \text{.}
+\end{equation*}
+\end{theorem_}
+
+\addtocounter{subsubsection}{2}
+\subsubsection{注}\label{VI:1-9-3}
+
+取 $G_0$ 为直积。采用 \ref{VI:1-7}d) 和 \ref{VI:1-8}c) 的记号，公式 \eqref{VI:eq:1-9-2} 变为
+\[
+  \sum_{s\in S_0(\dF_{q^n})} \prod_i \chi_i\circ N_{\dF_{q^n}/\dF_q} (f_0^i(s)) = \tr\Big({F^\ast}^n, \h_c^\bullet\Big(S,\sF\Big(\prod_i \chi_i f_0^i\Big)\Big)\Big) \text{.}
+\]
+
+\subsubsection{注}\label{VI:1-9-4}
+
+取 $G_0=\{e\}$。公式 \eqref{VI:eq:1-9-1} 变为
+\[
+  \left|S_0(\dF_q)\right| = \sum_{s\in S_0(\dF_q)} 1 = \tr(F^\ast,\h_c^\bullet(S,\dQ_\ell)) \text{.}
+\]
+
+能够显式计算 \eqref{VI:eq:1-9-1} 右端的情形很少。下面是 $G_0=\{e\}$ 时的一个有趣例子。
+
+\subsection{例}\label{VI:1-10}
+
+\texorpdfstring{$\dF_q$}{Fq} 上的奇数维非奇异射影二次超曲面，与 \texorpdfstring{$\dF_q$}{Fq} 上同维数的射影空间具有相同数目的有理点。
+
+在 $\dC$ 上，若 $X$ 是射影空间 $\dP^{2 N}$ 中的非奇异二次超曲面，$Y$ 是超平面，则已知对 $i\leqslant 2\dim(X)=2\dim(Y)$，包含映射 $X\hookrightarrow \dP^{2 N}\hookleftarrow Y$ 诱导同构（通常上同调）
+\[\xymatrix{
+  \h^i(X,\dQ)
+    & \ar[l]_-\sim \h^i(\dP^{2 N},\dQ) \ar[r]^-\sim
+    & \h^i(Y,\dQ) \text{.}
+}\]
+
+通过特化可知，若 $X_0'$ 是 $\dF_q$ 上射影空间 $\dP_0^{2 N}$ 中的非奇异二次超曲面，$Y_0'$ 是超平面，则包含映射 $X_0'\hookrightarrow \dP_0^{2 N}\hookleftarrow Y_0'$ 诱导同构
+\[\xymatrix{
+  \h^i(X',\dQ_\ell)
+    & \ar[l]_-\sim \h^i(\dP^{2 N},\dQ_\ell) \ar[r]^-\sim
+    & \h^i(Y',\dQ_\ell) \text{.}
+}\]
+这些同构与 $F^\ast$ 交换，因而可应用迹公式。
+
+\subsection{}\label{VI:1-11}
+
+迹公式也可以用来理解有限域上线性群及某些齐性空间的有理点数的经典公式（见\hyperref[VI:8]{第 8 节}）。
+
+\subsection{}\label{VI:1-12}
+
+存在一部将三角和的各种经典运算翻译为上同调语言的词典，第 \hyperref[VI:2]{2 节}将给出这部词典。由于上同调表述更加“几何化”，它有时可以应用于某些情形，而经典论证只有在扩张有限基域之后才能适用。下面是一个例子（Kazhdan 的一个定理的特例）。
+
+\begin{theorem_}[Kazhdan]\label{VI:1-13}
+设 $X_0$ 是 $\dF_q$ 上的概形。假设存在 $\dG_a$ 在 $X$ 上的作用 $\rho$，以及 $\dF$ 上的概形态射 $f:X\to Y$，使 $X$ 成为 $Y$ 上的 $\dG_a$-挠子。则 $X_0$ 的有理点数可被 $q$ 整除。
+\end{theorem_}
+
+先假设 $\rho$、$Y$ 及 $f$ 都定义在 $\dF_q$ 上。
+
+\paragraph{经典论证}
+$f:X_0(\dF_q)\to Y_0(\dF_q)$ 的各纤维都有 $q$ 个元素：$|X_0(\dF_q)| = q\cdot |Y_0(\dF_q)|$，从而得到整除性。
+
+\paragraph{上同调表述}
+高阶正像层 $\eR^i f_!\dQ_\ell$ 为
+\[
+  \eR^i f_!\dQ_\ell = \begin{cases}
+                       \dQ_\ell(-1) & \text{若 $i = 2$} \\
+                       0            & \text{若 $i\ne 2$}
+                     \end{cases}
+\]
+因此 $f$ 的 Leray 谱序列退化，给出同构
+\[
+  \h_c^i(X,\dQ_\ell) = \h_c^{i-2}(Y,\dQ_\ell)(-1) \text{.}
+\]
+要理解 Tate 扭转对 Frobenius 特征值的影响，最方便的办法是采用 Galois 观点（\hyperref[II]{《迹公式报告》}\ref{II:1-8}），并注意 Frobenius 代换 $\varphi$ 在 $\dQ_\ell(1)$ 上按乘以 $q$ 作用。因此，$F^\ast$ 在 $\h_c^p(X,\dQ_\ell)$ 上的特征值，是将 $F^\ast$ 在 $\h_c^{i-2}(Y,\dQ_\ell)$ 上的特征值乘以 $q$ 所得。已知后者都是代数整数 \cite[XXI 5.2.2]{sga7}；所以
+\begin{equation*}\tag{$*$}\label{VI:eq:*}
+  \substack{\displaystyle\text{$F^\ast$ 在 $\h_c^i(X,\dQ_\ell)$ 上的特征值都是} \\
+  \displaystyle\text{可被 $q$ 整除的代数整数。}}
+\end{equation*}
+
+\paragraph{下降}
+回到定理的假设。可以选取适当的 $n$，使 $\rho$、$Y$ 及 $f$ 都定义在 $\dF_{q^n}$ 上。由于相对于 $\dF_{q^n}$ 的 Frobenius 态射是相对于 $\dF_q$ 的 Frobenius 态射的 $n$ 次幂，将断言 \eqref{VI:eq:*} 应用于由 $X_0$ 扩张标量所得的 $\dF_{q^n}$ 上的概形，得到：
+\begin{equation*}\tag{$**$}\label{VI:eq:**}
+  \substack{\displaystyle\text{$F^\ast$ 在 $\h_c^i(X,\dQ_\ell)$ 上的特征值的 $n$ 次幂} \\ \displaystyle\text{都是可被 $q^n$ 整除的代数整数。}}
+\end{equation*}
+
+这个断言蕴含 \eqref{VI:eq:*}。因此，$X_0$ 的有理点数，即 $\sum (-1)^i \tr(F^\ast,\h^i(X,\dQ_\ell))$，是可被 $q$ 整除的代数整数。由于它是有理整数，故在有理整数意义下也可被 $q$ 整除。
+
+\subsection{}\label{VI:1-14}
+
+公式 \ref{VI:1-9-3} 控制左端三角和对 $n$ 的依赖关系。它蕴含一个三角和与对它“扩张标量”所得的三角和之间的恒等式。其中最著名的是 Hasse--Davenport 恒等式。设 $\chi:\dF_q^\times \to \dC^\times$ 及 $\psi:\dF_q\to \dC^\times$ 是特征，且 $\psi$ 非平凡，定义 Gauss 和
+\begin{equation*}\tag{1.14.1}\label{VI:eq:1-14-1}
+  \tau(\chi,\psi) = - \sum_{x\in \dF_q^\times} \psi(x) \chi^{-1}(x) \text{.}
+\end{equation*}
+
+\begin{theorem_}[Hasse-Davenport]\label{VI:1-15}
+有
+\begin{equation*}\tag{1.15.1}\label{VI:eq:1-15-1}
+  \tau\left(\chi\circ N_{\dF_{q^n}/\dF_q},\psi\circ \tr_{\dF_{q^n}/\dF_q}\right) = \tau(\chi,\psi)^n \text{.}
+\end{equation*}
+\end{theorem_}
+
+设 $E\subset \dC$ 是包含 $\chi$ 和 $\psi$ 的各值的数域，$E_\lambda$ 是 $E$ 在剩余特征 $\ell\ne p$ 的一个素位处的完备化。恒等式 \eqref{VI:eq:1-15-1} 是 $E$ 中的恒等式。在 $\dC$ 中证明它，等价于在 $E_\lambda$ 中证明它。我们将在 $E_\lambda$ 中证明它，把 $\chi$ 和 $\psi$ 看作取值于 $E_\lambda^\times$。
+
+取 $\dF_q$ 上的 $X_0=\dG_m$ 及 $G_0=\dG_m\times \dG_a$，应用 \ref{VI:1-9-3}。当 $i\ne 1$ 时，群 $\h_c^i(\dG_m,\sF(\chi^{-1}\psi))$ 消失，而 $\h_c^1$ 的维数为 $1$（\ref{VI:4-2}）。由 \ref{VI:1-9-3}，$\tau(\chi\circ N_{\dF_{q^n}/\dF_q},\psi\circ \tr_{\dF_{q^n}/\dF_q})$ 是 $(F^\ast)^n$ 在 $\h_c^1$ 上的唯一特征值，从而得到 \eqref{VI:eq:1-15-1}。
+
+类似的例子见 Weil \cite[App V]{we74}。
+
+\subsection{}\label{VI:1-16}
+
+$X_0$ 上的 $E_\lambda$-层 $\sF_0$ 称为\emph{逐点纯且权为 $n$（pointwise pure of weight $n$）}，如果对任意闭点 $x\in |X_0|$，$F_x^\ast$ 的特征值（\hyperref[II]{《迹公式报告》}\ref{II:1-2}）都是代数数，且它们的所有复共轭的绝对值均为 $q_x^{n/2}$，其中 $q_x$ 是 $k(x)$ 的元素个数。以下定理将在 \cite{de80} 中证明。
+
+\begin{theorem_}\label{VI:1-17}
+若 $\sF_0$ 逐点纯且权为 $n$，则对于 $\h_c^i(X,\sF)$ 的自同态 $F^\ast$ 的任意特征值 $\alpha$，存在整数 $m\leqslant n+i$，使 $\alpha$ 的所有复共轭的绝对值均为 $q^{m/2}$。
+\end{theorem_}
+
+\ref{VI:1-9} 中考虑的层的权为 $0$。因此，该定理给出和 \ref{VI:eq:1-9-1}（更准确地说，它的所有复共轭）的界
+\begin{equation*}\tag{1.17.1}\label{VI:eq:1-17-1}
+  \left|\sum_{s\in S_0(\dF_q)} \prod_i \chi_i(f^i(s)) \right| \leqslant \sum_i \dim \h_c^i\left(S,\sF\left(\prod \chi_i f^i\right)\right)\cdot q^{i/2} \text{.}
+\end{equation*}
+
+\subsection{注}\label{VI:1-18}
+
+\begin{enumerate}[a)]
+  \item 若 $\dim S=n$，则对于 $S$ 上任意 $E_\lambda$-层 $\sF$，有
+    \[
+      \h_c^i(S,\sF) = 0 \qquad \text{当 $i\notin [0,2n]$ 时。}
+    \]
+  \item 群 $\h_c^0(X,\sF)$ 是 $\sF$ 在 $S$ 上的支集适当的整体截面所成的群。若 $S$ 连通而非适当，且 $\sF$ 光滑，则这个群为零；若 $S$ 连通，且 $\sF$ 是非恒定的秩一光滑层，结论亦然。
+  \item 若 $S$ 光滑且纯维数为 $n$，$\sF$ 光滑，则 Poincaré 对偶性断言，向量空间 $\h_c^i(X,\sF)$ 和 $\h^{2n-i}(X,\sF^\vee)(n)$ 互为对偶（关于 Tate 扭转对 Frobenius 特征值的影响，参见 \ref{VI:1-13} 证明的第 $2$ 部分）。
+  \item 若 $\dim S=n$，则可由 Poincaré 对偶性如下计算 $\h_c^{2n}(S,\sF)$：取 $S_\text{red}$ 的开子集 $U$，使补集的维数 $<n$；要求 $U$ 光滑且纯维数为 $n$，并使 $\sF$ 在其上光滑。于是 $\h_c^{2n}(U,\sF) \iso \h_c^{2n}(S,\sF)$，因为在上同调长正合列中，$\h_c^i(S\setminus U,\sF) = 0$ 对 $i=2n,2n-1$ 成立。因此 Poincaré 对偶性给出
+    \[
+      \h_c^{2n}(S,\sF) \iso \left(\h^0(U,\sF^\vee)(n)\right)^\vee \text{.}
+    \]
+
+    设 $U$ 连通，$u$ 是 $U$ 的几何点。“局部系统” $\sF$ 对应于 $\pi_1(U,u)$ 在 $\sF_u$ 上的表示，且 $\h^0(U,\sF^\vee)$ 是 $ (\sF_u^\vee)^{\pi_1(U,u)}=((\sF_u)_{\pi_1(U,u)})^\vee$（余不变量空间的对偶）。所以
+    \[
+      \h_c^{2n}(S,\sF) \simeq (\sF_u)_{\pi_1(U,u)}(-n) \text{.}
+    \]
+  \item 这些注释往往可以用来计算 $b_0$ 及 $b_{2n}$。其他 $b_i$ 的计算可能很困难。若 $b_{2n}=0$ 且 $b_{2n-1}=0$，则界 \eqref{VI:eq:1-17-1} 是 Lang--Weil 型界；当 $q$ 很大时，相对于平凡界 $O(q^n)$ 改进了一个 $\sqrt q$ 因子。不过应记住，\eqref{VI:eq:1-17-1} 在形式上并不蕴含平凡界
+    \[
+      \left|\sum_{s\in S_0(\dF_q)} \prod_i \chi_i(f^i(s))\right| \leqslant \left| S_0(\dF_q)\right| \text{,}
+    \]
+    因此把后者也考虑在内可能有用（参见 \ref{VI:3-8} 的证明）。
+\end{enumerate}
+
+下面说明一种证明 $i\ne n$ 时 $b_i=0$ 的方法。在该方法适用时，它给出 $O(q^{n/2})$ 量级的估计。$O$ 中隐含的常数是 $b_n=(-1)^n \chi(S,\sF(\prod \chi_i f^i))$，它可能难以计算。
+
+\begin{proposition_}\label{VI:1-19}
+设 $\bar X$ 是代数闭域 $k$ 上的适当概形，$j:X\hookrightarrow \bar X$ 是定义域为 $X$ 的开浸入，$\sF$ 是 $X$ 上的 $E_\lambda$-层。假设
+\begin{enumerate}[\indent a)]
+  \item 对 $x\in \bar X\setminus X$，有 $(j_\ast\sF)_x = 0$，即 $j_!\sF\iso j_\ast\sF$；
+  \item 对 $i>0$，有 $\eR^i j_\ast \sF = 0$。
+\end{enumerate}
+则映射
+\[
+  \h_c^i(X,\sF) \to \h^i(X,\sF)
+\]
+都是同构。
+\end{proposition_}
+
+假设 a) 及 b) 意味着 $j_! \sF \iso \eR j_\ast \sF$，因此
+\[
+  \h_c^i(X,\sF) = \h^i(\bar X,j_!\sF) \iso \hh^i(\bar X,\eR j_\ast \sF) = \h^i(X,\sF) \text{.}
+\]
+换言之，$j$ 的 Leray 谱序列
+\[
+  E_2^{pq} = \h^p(\bar X,\eR^q j_\ast \sF) \Rightarrow \h^{p+q}(X,\sF)
+\]
+由 b) 退化为同构
+\[
+  \h^i(\bar X,j_\ast\sF) \iso \h^i(X,\sF) \text{,}
+\]
+而由 a)，
+\[
+  \h_c^i(X,\sF) = \h^i(\bar X,j_!\sF) \iso \h^i(\bar X,j_\ast\sF) \text{.}
+\]
+
+\subsubsection{例}\label{VI:1-19-1}
+
+若 $X$ 是曲线，或者 $\bar X$ 光滑、$X$ 是正规交叉除子的补集且 $\sF$ 是驯分歧的，则 \ref{VI:1-19} 的假设 a)（局部单值作用下无不变量）蕴含假设 b)。
+
+\begin{proposition_}\label{VI:1-20}
+设 $X_0$ 是 $\dF_q$ 上的光滑仿射概形，纯维数为 $n$，$\sF_0$ 是 $X_0$ 上的光滑 $E_\lambda$-层，逐点纯且权为 $m$。假设映射 $\h_c^i(X,\sF) \to \h^i(X,\sF)$ 都是同构（参见 \ref{VI:1-17}）。则当 $i\ne n$ 时，$\h_c^i(X,\sF) = 0$，而 $F^\ast$ 在 $\h_c^n(X,\sF)$ 上的特征值的各复共轭的绝对值均为 $q^{(m+n)/2}$。
+\end{proposition_}
+
+Poincaré 对偶性将 $\h_c^i(X,\sF)$（分别地，$\h_c^i(X,\sF^\vee)$）与 $\h^{2n-i}(X,\sF^\vee(n))$（分别地，$\h^{2n-i}(X,\sF(n))$）配对。由 \cite[XIV 3.2]{sga4}，通常上同调群 $\h^i$ 在 $i>n$ 时消失。由对偶性，$\h_c^i$ 在 $i<n$ 时为零；又因 $\h_c^i(X,\sF) \iso \h^i(X,\sF)$，这些群在 $i\ne n$ 时为零。将 \ref{VI:1-17} 应用于 $\sF_0$ 及 $\sF_0^\vee(n)$（权为 $-m-2n$），得到 $F^\ast$ 在 $\h_c^n(X,\sF) = \h_c^n(X,\sF^\vee(n))^\vee$ 上的特征值的各复共轭 $\alpha$ 满足
+\begin{align*}
+  |\alpha| &\leqslant q^{(m+n)/2} && \text{且} \\
+  |\alpha^{-1}| &\leqslant q^{((-m-2n)+n)/2} = q^{-(m+n)/2} \text{,}
+\end{align*}
+从而得到所述结论。
+
+\subsection{注}\label{VI:1-21}
+
+最后的论证表明：若 $X_0$ 是 $\dF_q$ 上的光滑分离概形，$\sF_0$ 是 $X_0$ 上逐点纯且权为 $m$ 的光滑 $E_\lambda$-层，且 $\h_c^i(X,\sF) \hookrightarrow \h^i(X,\sF)$，则 $F^\ast$ 在 $\h_c^i(X,\sF)$ 上的特征值的各复共轭的绝对值均为 $q^{(m+i)/2}$。
+
+\subsection*{附录：非交换情形的 Lang 同源}
+
+\subsection{}\label{VI:1-22}
+
+设 $G_0$ 是 $\dF_q$ 上的连通代数群，$\fL$ 是 $G_0$ 到自身的态射 $x\mapsto F x\cdot x^{-1}$。若 $G_0$ 在源上的作用是左平移 $x\mapsto (y\mapsto x y)$，在目标上的作用是 $x\mapsto (y\mapsto F x\cdot y\cdot x^{-1})$，则它是 $G_0$-齐性空间的态射。对 $y\in G_0(\dF_q)$，有 $\fL(xy) = \fL(x)$，且 $\fL$ 诱导同构 $G_0/G_0(\dF_q)\iso G_0$。
+
+因此，与交换情形一样，$\fL$ 将 $G_0$ 变为 $G_0$ 上的 $G_0(\dF_q)$-挠子，即 \emph{Lang 挠子} $L$。若 $\rho:G_0(\dF_q) \to \gl(n,E_\lambda)$ 是 $G_0(\dF_q)$ 的线性表示，以 $\sF(\rho)$ 表示 $E_\lambda$-层 $\rho(L)$（\ref{VI:1-2}）。
+
+\subsection{}\label{VI:1-23}
+
+设 $\gamma\in G^F=G_0(\dF_q)$，计算 $\sF(\rho)_\gamma$ 的自同态 $F^\ast$。取 $g\in G$ 使 $\fL(g)=\gamma$，并选取标架 $\rho(g)\in \operatorname{Isom}(E_\lambda^n,\sF(\rho)_\gamma)$。对 $e\in E_\lambda^n$，有
+\[
+  F(\rho(g)(e)) = \rho(F g)(e) = \rho(\gamma g)(e) = \rho(g\cdot g^{-1}\gamma g)(e) \text{.}
+\]
+我们将看到 $g^{-1} \gamma g\in G_0(\dF_q)$，所以
+\[
+  F(\rho(g)(e)) = \rho(g) \rho(g^{-1}\gamma g)(e)
+\]
+及
+\begin{equation*}\tag{1.23.1}\label{VI:eq:1-23-1}
+  \rho(g)^{-1} (F_\gamma^\ast)^{-1} \rho(g) = \rho(g^{-1} \gamma g) \text{:}
+\end{equation*}
+$\rho(g)$ 将 $\gamma$ 处的 $F^\ast$ 的逆与 $E_\lambda^n$ 的自同构 $\rho(g^{-1} \gamma g)$ 相对应。还需理解 $g^{-1} \gamma g$。
+
+\begin{lemma_}\label{VI:1-24}
+\begin{enumerate}[(i)]
+  \item 若 $F g\cdot g^{-1} \in G_0(\dF_q)$，则 $g^{-1} (F g\cdot g^{-1}) g = g^{-1} F g\in G_0(\dF_q)$。
+  \item 设 $\gamma\in G_0(\dF_q)$，$g$ 满足 $F g\cdot g^{-1} = \gamma$。则 $\gamma'=g^{-1} Fg$ 在 $G_0(\dF_q)$ 中的共轭类只依赖于 $\gamma$ 的共轭类。
+  \item $\gamma\mapsto \gamma'$ 在 $G_0(\dF_q)$ 的共轭类集合 $G_0(\dF_q)^\natural$ 上诱导的映射是双射。其逆是反群所对应的映射。
+\end{enumerate}
+\end{lemma_}
+
+(i) 若 $\gamma= F g\cdot g^{-1}\in G_0(\dF_q)$，则由恒等式 $F g=\gamma g$ 及 $F\gamma=\gamma$ 得到 $F(g^{-1} F g) = (F g)^{-1} F F g = g^{-1} \gamma^{-1} F(\gamma g) = g^{-1} \gamma^{-1} F \gamma F g = g^{-1} F g$，故 $g^{-1} F g \in G_0(\dF_q)$。
+
+(ii) 对于 $\alpha,\gamma\in G_0(\dF_q)$，满足 $F g\cdot g^{-1} = \gamma$ 的各 $g$ 构成 $G_0(\dF_q)$ 的一个右陪集；若 $F g\cdot g^{-1} = \gamma$，则 $F(\alpha g \alpha^{-1})(\alpha g \alpha^{-1})^{-1} = \alpha \gamma\alpha^{-1}$。因此，当 $\gamma$ 遍历 $G_0(\dF_q)$ 中的一个共轭类时，满足 $F g\cdot g^{-1} = \gamma$ 的各 $g$ 遍历 $G_0(\dF_q)$ 的一个双陪集，而 $\gamma'= g^{-1} F g$ 遍历一个共轭类。
+
+(iii) 最后，$F g\cdot g^{-1}\mapsto g^{-1} F g$ 的逆是 $g^{-1} F g\mapsto F g\cdot g^{-1}$。
+
+\subsection{}\label{VI:1-25}
+
+公式 \eqref{VI:eq:1-23-1} 可简述为：$\gamma$ 处的 $F^\ast$ 是 $\rho(\gamma')^{-1}$。若 $\gamma$ 属于其中心化子的单位连通分支，则可在 $Z(\gamma)$ 中选取 $g$，于是 $\gamma=\gamma'$。若不满足这个条件，$\gamma$ 和 $\gamma'$ 未必共轭。
+
+\subsection{一个例子}\label{VI:1-26}
+
+当 $G_0=\operatorname{SL}(2)$、$q$ 为奇数、$\alpha\in \dF_q^\times\setminus {\dF_q^\times}^2$，且 $\bar\gamma$ 是 $-1(1+N)$ 的共轭类，其中 $N^2=0$ 时，$\bar\gamma'$ 是 $-1\cdot (1+\alpha N)$ 的共轭类。因此若 $N\ne 0$，则 $\bar\gamma'\ne \bar\gamma$。
+
+\section{词典}\label{VI:2}
+
+通过迹公式，三角和的初等运算往往可以看作上同调命题的对应物。本节列出这样的命题及其对应表述；两者使用相同编号，但在上同调表述的编号后加上 $\ast$。
+
+\subsection{}\label{VI:2-1}
+
+“代数整数之和仍是代数整数”在上同调中的对应命题是以下定理，其证明见 \cite[XXI 5.2.2]{sga7}（\ref{VI:1-13} 中使用了 \ref{VI:2-1}$^\ast$）。
+
+\begin{theorem*}[2.1*]\label{VI:2-1*}
+设 $X_0$ 是 $\dF_q$ 上的分离有限型概形，$\sF_0$ 是 $X_0$ 上的 $E_\lambda$-层。若对所有 $x\in |X_0|$，$F_x^\ast$ 在 $\sF_0$ 上的特征值都是代数整数，则 $F^\ast$ 在 $\h_c^i(X,\sF)$ 上的特征值也是代数整数。
+\end{theorem*}
+
+\subsection{}\label{VI:2-2}
+
+\cite[XXI, 5.2.2 et 5.4]{sga7} 还证明了其他整性结论：若 $\dim(X_0)\leqslant n$，$\alpha$ 是 $F^\ast$ 在 $\h_c^i(X,\sF)$ 上的特征值，则：
+\begin{enumerate}[a)]
+  \item 在 \ref{VI:2-1}$^\ast$ 的假设下，若 $i>n$，则 $q^{i-n}$ 整除 $\alpha$；
+  \item 若 $F_x^\ast$ 的特征值的逆都是代数整数，则 $\alpha^{-1}$ 在 $p$ 以外整。更准确地说，$q^{\inf(n,i)}\alpha^{-1}$ 是代数整数。
+\end{enumerate}
+
+对于 \ref{VI:1-9} 中考虑的层，$F_x^\ast$ 的特征值都是单位根，所以满足上述定理及 b) 的假设。
+
+\subsection{}\label{VI:2-3}
+
+设 $f:A\to B$ 是两个有限集之间的映射，$\varepsilon$ 是 $A$ 上的函数。则
+\begin{equation*}\tag{2.3.1}\label{VI:eq:2-3-1}
+  \sum_{a\in A} \varepsilon(a) = \sum_{b\in B} \sum_{f(a)=b} \varepsilon(a) \text{.}
+\end{equation*}
+
+\subsection*{2.3*}\label{VI:2-3*}
+
+设 $f:X\to Y$ 是代数闭域 $k$ 上的分离有限型概形之间的态射，$\sF$ 是 $X$ 上的 $E_\lambda$-层。$f$ 的紧支集上同调 Leray 谱序列为
+\begin{align*}\tag{2.3.1*}\label{VI:eq:2-3-1*}
+  E_2^{p q} = \h_c^p(Y,\eR^q f_! \sF) \Rightarrow \h_c^{p+q}(X,\sF) \text{.}
+\end{align*}
+
+设 $f_0:X_0 \to Y_0$ 是 $\dF_q$ 上的分离有限型概形之间的态射，$\sF_0$ 是 $X_0$ 上的 $E_\lambda$-层。\eqref{VI:eq:2-3-1} 与 \eqref{VI:eq:2-3-1*} 具有如下相容性。
+
+\begin{enumerate}[a)]
+  \item 层 $\eR^q f_! \sF$ 是将 $Y_0$ 上的层 $\eR^q f_{0!} \sF_0$ 的标量从 $\dF_q$ 扩张到 $\dF$ 所得。因此，它配备 Frobenius 对应 $F^\ast:F^\ast\eR^q f_! \sF \to \eR^q f_! \sF$。此对应由 $\sF$ 的 Frobenius 对应通过 $\eR f_!$ 的函子性得到，即复合映射
+    \[\xymatrix{
+      F^\ast \eR^q f_! \sF \ar[r]^-\sim
+        & \eR^q f_! F^\ast \sF \ar[r]^-\sim
+        & \eR^q f_! \sF \text{.}
+    }\]
+  \item $\sF_0$ 的迹公式写作
+    \begin{align*}\tag{1}\label{VI:eq:1}
+      \sum_{x\in X_0(\dF_q)} \tr(F_x^\ast,\sF_0) = \tr(F^\ast,\h_c^\bullet(X,\sF)) \text{;}
+    \end{align*}
+    而 $\eR^q f_! \sF$ 的迹公式写作
+    \begin{align*}\tag{2$_q$}\label{VI:eq:2_q}
+      \sum_{y\in Y_0(\dF_q)} \tr(F_y^\ast,\eR^q f_! \sF) = \tr(F^\ast, \h_c^\bullet(Y,\eR^q f_! \sF)) \text{.}
+    \end{align*}
+\end{enumerate}
+
+对 $y\in Y(\dF)$，有 $(\eR^q f_! \sF)_y = \h_c^q(f^{-1}(y),\sF)$；若 $y\in Y_0(\dF_q)$，则
+\[
+  \tr(F_y^\ast,\eR^q f_! \sF) = \tr(F^\ast,\h_c^q(f^{-1}(y),\sF)) \text{,}
+\]
+从而由纤维上的迹公式，
+\[
+  \sum_{\substack{x\in X_0(\dF_q) \\ f(x) = y}} \tr(F_x^\ast,\sF_0) = \sum (-1)^q \tr(F_y^\ast,\eR^q f_! \sF) \text{.}
+\]
+对恒等式 \eqref{VI:eq:2_q} 取交错和，便得
+\begin{align*}\tag{2}\label{VI:eq:2}
+  \sum_{y\in Y_0(\dF_q)} \sum_{\substack{x \in X_0(\dF_q) \\ f(x) = y}} \tr(F_x^\ast,\sF_0) = \tr(F^\ast,\h_c^\bullet(Y,\eR^\bullet f_! \sF)) \text{.}
+\end{align*}
+
+\eqref{VI:eq:1} 与 \eqref{VI:eq:2} 左端相等由 \eqref{VI:eq:2-3-1} 得到；右端相等由 \eqref{VI:eq:2-3-1*} 得到（注意 $F^\ast$ 是整个谱序列的自同态）。
+
+\subsection{}\label{VI:2-4}
+
+设 $(A_i)_{i\in I}$ 是有限集的一个有限族，$A=\prod_{i\in I} A_i$，$\varepsilon_i$ 是 $A_i$ 上的函数，$\varepsilon$ 是 $A$ 上的函数 $a\mapsto \prod \varepsilon_i(a_i)$。则
+\begin{align*}\tag{2.4.1}\label{VI:eq:2-4-1}
+  \sum_{a\in A} \varepsilon(a) = \prod_{i\in I} \sum_{a_i\in A_i} \varepsilon_i(a_i) \text{.}
+\end{align*}
+
+\subsection*{2.4*}\label{VI:2-4*}
+
+设 $(X_i)_{i\in I}$ 是代数闭域 $k$ 上的分离有限型概形的一个有限族，$X=\prod_{i\in I} X_i$，$\sF_i$ 是 $X_i$ 上的 $E_\lambda$-层，$\sF$ 是各 $\sF_i$ 的外张量积 $\bigboxtimes_{i\in I}\sF_i = \bigotimes_{i\in I} \pr_i^\ast(\sF_i)$。K\"unneth 公式给出
+\begin{align*}\tag{2.4.1*}\label{VI:eq:2-4-1*}
+  \h_c^\bullet(X,\sF) = \bigotimes_{i\in I} \h_c^\bullet(X_i,\sF_i) \text{.}
+\end{align*}
+
+为了使同构 \eqref{VI:eq:2-4-1*} 具有典范性且不依赖于 $I$ 上全序的选取，右端的张量积应理解为采用 Koszul 符号规则的分次张量积（\hyperref[IV]{《与闭链相关联的上同调类》}\ref{IV:1-3}）。
+
+\subsection{}\label{VI:2-5}
+
+设 $A$ 是有限集，$B$ 是 $A$ 的子集，$\varepsilon$ 是 $A$ 上的函数。则
+\begin{align*}\tag{2.5.1}\label{VI:2-5-1}
+  \sum_{a\in A} \varepsilon(a) = \sum_{a\in A\setminus B}\varepsilon(a) + \sum_{a\in B} \varepsilon(a) \text{.}
+\end{align*}
+
+\subsection*{2.5*}\label{VI:2-5*}
+
+设 $X$ 是代数闭域 $k$ 上的分离有限型概形，$Y$ 是闭子概形，$\sF$ 是 $X$ 上的 $E_\lambda$-层。有上同调长正合列
+\begin{align*}\tag{2.5.1*}\label{VI:eq:2-5-1*}
+\xymatrix{
+  \cdots \ar[r]^-\partial
+    & \h_c^i(X\setminus Y,\sF) \ar[r]
+    & \h_c^i(X,\sF) \ar[r]
+    & \h_c^i(Y,\sF) \ar[r]^-\partial
+    & \cdots
+}
+\end{align*}
+
+更一般地，给定 $X$ 的闭子集组成的有限滤过 $X_p$（$p\in \dZ$；假设 $X_p\supset X_{p+1}$，当 $p$ 充分小时 $X_p=X$，当 $p$ 充分大时 $X_p=\varnothing$），则有谱序列
+\begin{align*}\tag{2.5.2*}\label{VI:eq:2-5-2*}
+  E_1^{p q} = \h_c^{p+q}(X_p\setminus X_{p+1},\sF) \Rightarrow \h_c^{p+q}(X,\sF) \text{.}
+\end{align*}
+
+\subsection{}\label{VI:2-6}
+
+设 $A$ 是有限集，$(A_i)_{i\in I}$ 是 $A$ 的一个有限覆盖，$\varepsilon$ 是 $A$ 上的函数。对 $J\subset I$，以 $A_J$ 表示各 $A_j$（$j\in J$）的交。则
+\begin{align*}\tag{2.6.1}\label{VI:eq:2-6-1}
+  \sum_{J\subset I} (-1)^{|J|} \sum_{a\in A_J} \varepsilon(a) = 0 \text{.}
+\end{align*}
+
+\subsection*{2.6*}\label{VI:2-6*}
+
+设 $X$ 是代数闭域 $k$ 上的分离有限型概形，$(X_i)_{i\in I}$ 是由子概形组成的 $X$ 的有限闭覆盖（分别地，开覆盖），$\sF$ 是 $X$ 上的 $E_\lambda$-层。对 $J\subset I$，令 $X_J$ 为各 $X_j$（$j\in J$）的交。分别有 Leray 谱序列
+\begin{align*}\tag{2.6.1*}\label{VI:eq:2-6-1*}
+  E_1^{p q} &= \bigoplus_{|J|=p+1>0} \h_c^q(X_J,\sF) \otimes_\dZ \textstyle\bigwedge^{|J|} \dZ^J \Rightarrow \h_c^{p+q}(X,\sF) \\
+  \tag{2.6.2*}\label{VI:eq:2-6-2*}
+  E_1^{p q} &= \bigoplus_{|J|=1-p>0} \h_c^q(X_J,\sF) \otimes_\dZ \textstyle\bigwedge^{|J|} \dZ^J \Rightarrow \h_c^{p+q}(X,\sF)
+\end{align*}
+若不排除 $J=\varnothing$，还会有收敛于 $0$ 的谱序列。加入因子 $\bigwedge^{|J|} \dZ^J$，是为了避免在 $I$ 上选取全序。
+
+\subsection{}\label{VI:2-7}
+
+设 $A$ 是有限交换群，$\chi:A \to E_\lambda^\times$ 是非平凡特征。则
+\begin{align*}\tag{2.7.1}\label{VI:eq:2-7-1}
+  \sum_{a\in A} \chi(a) = 0 \text{.}
+\end{align*}
+我们将把以下证明移用到上同调中，以证明 \eqref{VI:eq:2-7-1} 的上同调对应命题：若 $x\in A$，则 $a\mapsto x a$ 是 $A$ 的置换，并且
+\begin{align*}
+  \sum_{a\in A}\chi(a) = \sum_{a\in A} \chi(x a) &= \chi(x) \sum_{a\in A} \chi(a) && \text{，从而} \\
+  (\chi(x)-1)\sum_{a\in A}\chi(a) &= 0 \text{,}
+\end{align*}
+而由假设，存在 $x$ 使 $\chi(x)-1\ne 0$。
+
+\begin{theorem*}[2.7*]\label{VI:2-7*}
+设 $G_0$ 是 $\dF_q$ 上的连通交换代数群，$\chi:G_0(\dF_q) \to E_\lambda^\times$ 是非平凡特征。则
+\begin{align*}\tag{2.7.1*}\label{VI:eq:2-7-1*}
+  \h_c^\bullet(G,\sF(\chi)) = 0 \text{.}
+\end{align*}
+\end{theorem*}
+
+对 $G$ 的有理点 $x$，以 $t_x$ 表示 $G$ 的平移 $t_x(g) = x g$。公式 $\fL t_x = t_{\fL(x)} \fL$ 表明，$(t_x,t_{\fL(x)})$ 是图 $G\xrightarrow\fL G$（即配备 Lang 挠子的 $G$）的自同构。以 $\rho(g)$ 表示由此诱导的 $(G,\sF(\chi))$ 的自同构。若 $g\in G_0(\dF_q)$，即 $\fL(g) = e$，则它在 $G$ 上是恒等映射，在 $\sF(\chi)$ 上是乘以 $\chi(g)^{-1}$。
+
+以 $\rho_H(g)$ 表示由 $\rho(g)$ 诱导的 $\h_c^\bullet(G,\sF(\chi))$ 的自同构。一个同伦论证（下面的引理 \ref{VI:2-8}）表明 $\rho_H(g) = \rho_H(e)$，故它是恒等映射。另一方面，对 $g\in G_0(\dF_q)$，$\rho_H(g)$ 是乘以 $\chi^{-1}(g)$：在 $\h^\bullet(G,\sF(\chi))$ 上，乘以 $(\chi^{-1}(g)-1)$ 为零。取 $g$ 使 $\chi(g)\ne 1$，便得 \ref{VI:2-7*}。
+
+\begin{lemma_}\label{VI:2-8}
+设 $X$ 和 $Y$ 是代数闭域 $k$ 上的两个概形，其中 $X$ 分离且有限型，$Y$ 连通。设 $\sF$ 是 $X$ 上的层，$(\rho,\varepsilon)$ 是以 $Y$ 为参数的 $(X,\sF)$ 的一族自同态：
+\begin{align*}
+  \rho:Y\times_k X &\to Y\times_k X && \text{是 $Y$-态射，而} \\
+  \varepsilon:\rho^\ast \pr_2^\ast \sF &\to \pr_2^\ast\sF && \text{是层态射。}
+\end{align*}
+假设 $\rho$ 适当。对 $y\in Y(k)$，以 $\rho_H(y)^\ast$ 表示由 $\rho_y:X\to X$ 和 $\varepsilon_y:\rho_y^\ast\sF\to \sF$ 诱导的 $\h_c^\bullet(X,\sF)$ 的自同态。则 $\rho_H(y)^\ast$ 与 $y$ 无关。
+\end{lemma_}
+
+事实上，$\eR^p \pr_{1!} \pr_2^\ast\sF$ 是 $Y$ 上纤维为 $\h_c^p(X,\sF)$ 的常值层，而 $\rho_H(y)^\ast$ 是此层的自同态
+\[\xymatrix{
+  \eR^p \pr_{1!} \pr_2^\ast \sF \ar[r]^-{\rho^\ast}
+    & \eR^p \pr_{1!} \rho^\ast \pr_2^\ast \sF \ar[r]^-\varepsilon
+    & \eR^p \pr_{1!} \pr_2^\ast \sF
+}\]
+在 $y$ 处的纤维。
+
+\subsection{注}\label{VI:2-9}
+
+设 $G_0$ 是 $\dF_q$ 上的连通代数群，$\rho:G_0(\dF_q) \to \operatorname{GL}(V)$ 是满足 $V^{G_0(\dF_q)}=0$ 的线性表示。则同样有 $\h_c^\bullet(G,\rho(L))=0$。
+
+\section{单变量和}\label{VI:3}
+
+\subsection{}\label{VI:3-1}
+
+Weil 最先把“上同调”方法应用于单变量三角和的研究；由于他已证明函数域上的 Artin $L$ 函数的 Riemann 假设对应命题，这些方法给出了很好的估计（量级为 $O(\text{项数的平方根})$），并揭示了这些和在“扩张基域”时的变化规律。
+
+本节的实质，是以上同调语言表述他的结果。
+
+\subsection{}\label{VI:3-2}
+
+在这里，上同调方法引导我们计算群 $\h_c^i(X,\sF)$，其中 $\sF_0$ 是 $\dF_q$ 上曲线 $X_0$ 上的 $E_\lambda$-层。当 $i\ne 0,1,2$ 时，这些群消失；当 $i=0,2$ 时，它们有简单的解释（\ref{VI:1-8} a,b,c）。此外，Euler--Poincaré 示性数 $\chi_c(\sF) = \sum (-1)^i \dim \h_c^i(X,\sF)$（它也等于 $\chi(\sF) = \sum (-1)^i \dim \h^i(X,\sF)$）可以用 $X$、$\sF$ 在 $X$ 各泛点处的秩及 $\sF$ 的分歧来计算。关键结果如下。
+
+设 $\bar X$ 是代数闭域 $k$ 上亏格为 $g$ 的光滑连通射影曲线，$X$ 是 $\bar X$ 中有限点集 $S$ 的补集所成的稠密开子集，$\sF$ 是 $X$ 上的光滑 $E_\lambda$-层。令 $\chi(X)=2-2 g-\# S$ 为 $X$ 的 Euler--Poincaré 示性数，$\operatorname{rg}(\sF)$ 为 $\sF$ 的秩。对每个点 $s\in S$，定义整数 $\swan_s(\sF)$，称为 Swan 导子，用来度量 $\sF$ 的野分歧，并且有
+\begin{align*}\tag{3.2.1}\label{VI:eq:3-2-1}
+  \chi_c(\sF) = \operatorname{rg}(\sF) \cdot \chi(X) - \sum_{s\in S} \swan_s(\sF)
+\end{align*}
+\cite{ra65}。
+
+\subsection{}\label{VI:3-3}
+
+设 $\bar X$、$j:X\hookrightarrow\bar X$ 及 $\sF$ 如 \ref{VI:3-2}。Poincaré 对偶定理此时有特别方便的形式：$\h^i(\bar X,j_\ast \sF)$ 和 $\h^{2-i}(\bar X,j_\ast(\sF^\vee(1)))$ 互为对偶（\hyperref[V]{《对偶性》}\ref{V:1-3}）。
+
+\subsection{}\label{VI:3-4}
+
+取 $k=\dF$，并假设 $X$、$\bar X$ 及 $\sF$ 来自 $\dF_q$ 上的 $X_0$、$\bar X_0$ 及 $\sF_0$。若 $\sF_0$ 在 $X_0$ 的某个有限覆盖上变为平凡，则 Weil 证明了 $F^\ast$ 在 $\h^i(\bar X,j_\ast\sF)$ 上的特征值的各复共轭的绝对值为 $q^{i/2}$。这样的层 $\sF_0$ 对应于 $\bar X_0$ 的函数域上的 Artin $L$ 函数。
+
+\subsection*{3.5}\label{VI:3-5_} % 原著有两个编号为 3.5 的小节。
+
+在相同假设下，或更一般地，若 $E_\lambda$ 是数域 $E$ 在素位 $\lambda$ 处的完备化，且 $\sF_0$ 属于一个无限的 $v$ 进表示相容系（$v$ 是 $E$ 的素位），则可由 $\sF_0$ 的\emph{局部}信息计算
+\[
+  \prod_i \det(-F^\ast,\h^i(X,\sF))^{(-1)^i}
+\]
+这一点见 \cite{de73} 的说明。当 $\sF_0$ 在 $X_0$ 的某个有限覆盖上平凡时，这就是把 Artin $L$ 函数的函数方程中的常数表示为局部常数的乘积。
+
+\subsection{例}\label{VI:3-5}
+
+设 $\psi$ 是 $\dF_q$ 的特征 $\exp\left(\frac{2\pi i}{p} \tr_{\dF_q/\dF_p}\right)$；有 $\psi(a^p-a)=1$。设 $X_0$ 是 $\dF_q$ 上亏格为 $g$ 的光滑射影几何不可约曲线，$f$ 是 $X_0$ 上的有理函数，即不恒等于 $\infty$ 的态射 $f:X_0 \to \dP^1$。我们关心和
+\[
+  S_f' = \sum_{\substack{x\in X_0(\dF_q) \\ f(x)\ne \infty}} \psi(f(x))
+  \text{.}
+\]
+% TODO(核对): 英文底本称 f=g^p-g 时此和为零，与 ψ(g^p-g)=1 不符；须对照法文。
+当 $f$ 形如 $g^p-g$ 时，这个和为零。这提示我们如下修改和 $S_f'$：
+\begin{enumerate}[\indent a)]
+  \item 对 $X_0$ 的任意闭点 $x$，若 $f(x)=\infty$，令 $v_x(f) = $ $f$ 在 $x$ 处的极点阶数，否则令 $v_x(f)=0$；另令 $v_x^\ast(f) = \inf v_x(f+g^p-g)$（下确界对 $g$ 取遍）。
+  \item 若 $v_x^\ast(f)=0$、$x\in X_0(\dF_q)$，且 $f+g^p-g$ 在 $x$ 处正则，令 $\psi(f(x)) = \psi((f+g^p-g)(x))$。最后令
+    \begin{equation*}\tag{3.5.1}\label{VI:eq:3-5-1}
+      S_f = \sum'_{x\in X_0(\dF_q)} \psi(f(x)) \text{,}
+    \end{equation*}
+    其中 $(-)'$ 表示求和只对满足 $v_x^\ast(f)=0$ 的 $x$ 进行。
+\end{enumerate}
+
+有 $S_f=S_{f+g^p-g}$。我们将验证，若 $f$ 不形如 $g^p-g+c^{t e}$，则
+\begin{equation*}\tag{3.5.2}\label{VI:eq:3-5-2}
+  |S_f|\leqslant \left(2 g-2+\sum_{v_x^\ast(f)\ne 0} [k(x):\dF_q] (1+v_x^\ast(f))\right) q^{1/2} \text{.}
+\end{equation*}
+
+先从复系数转到 $\ell$ 进系数，将 $\psi$ 换成形如 $\psi_0\circ \tr_{\dF_q/\dF_p}$ 的特征，其中 $\psi_0:\dF_p\hookrightarrow E_\lambda^\times$。令 $j:U_0\hookrightarrow X_0$ 为开集 $f\ne\infty$ 的包含映射，然后证明
+\begin{equation*}\tag{3.5.3}\label{VI:eq:3-5-3}
+  S_f = \sum (-1)^i \tr(F^\ast,\h^i(X,j_\ast \sF(\psi f))) \text{.}
+\end{equation*}
+
+迹公式将这个断言归结为以下两点（对 $x\in X_0(\dF_q)$）：
+\begin{enumerate}[\indent a)]
+  \item 若 $v_x^\ast(f)=0$，则 $F_x^\ast$ 在 $j_\ast \sF(\psi f)$ 上为 $\psi(f(x))$；
+  \item 若 $v_x^\ast(f)\ne 0$，则 $j_\ast \sF(\psi f)$ 在 $x$ 处分歧：$(j_\ast \sF(\psi f))_{\bar x}=0$。
+\end{enumerate}
+
+当 $v_x(f)=0$ 时，公式 a) 由 \eqref{VI:eq:1-7-6} 得到；一般情形可将 $f$ 换成 $f+g^p-g$ 而归结到此情形：在同构意义下，这不改变 $\sF(\psi f)_0$ 在 $f$ 和 $g$ 都正则的开集上的限制（\ref{VI:1-3}）。
+
+公式 b) 由下式得到：
+\begin{equation*}\tag{3.5.4}\label{VI:eq:3-5-4}
+  \swan_x \sF(f,\psi) = v_x^\ast(f) \text{.}
+\end{equation*}
+先归结到 $v_x(f)=v_x^\ast(f)$（从而 $p\nmid v_x(f)$）的情形，并将标量扩张到 $\dF$，则这个公式可见 \cite[4.4]{se61}。
+
+最后验证，若 $f$ 不形如 $g^p-g+c^{t e}$，则 $U$ 上的层 $\sF(\psi f)$ 非恒定：由于 $\psi_0$ 单射，$\sF(\psi f)=\sF(\psi_0 f)$ 的平凡性（\ref{VI:1-8}.ii）等价于 $U$ 上由 $T^p-T-f=0$ 定义的 $\dF_p$-挠子的平凡性。若此挠子平凡，则 $U_0$ 上同一方程定义的挠子将是 $\spec(\dF_q)$ 上方程为 $T^p-T-\lambda=0$ 的某个 $\dF_q$-挠子的逆像，而 $U_0$ 上方程为 $T^p-T-(f-\lambda)=0$ 的 $\dF_p$-挠子将是平凡的，因此 $f$ 将形如 $g^p-g+\lambda$。所以 $\h^i(\bar X,j_\ast \sF(\psi f))$ 在 $i\ne 1$ 时消失，公式 \eqref{VI:eq:3-5-3} 归结为
+\begin{equation*}\tag{3.5.5}\label{VI:eq:3-5-5}
+  S_f = -\tr(F^\ast,\h^1(\bar X,j_\ast \sF(\psi f)))
+\end{equation*}
+并且由 \eqref{VI:eq:3-2-1} 及 \eqref{VI:eq:3-5-4}，$\h^1$ 的维数为 $2 g-2+\sum_{v_x^\ast(f)>0} [k(x):\dF_q](1+v_x^\ast(f))$；此外，$-S_f$ 是这么多个 $F^\ast$ 的特征值之和，每个特征值的复绝对值都是 $q^{1/2}$。
+
+\subsection{}\label{VI:3-6}
+
+假设对 $X_0$ 的某个自同构 $\sigma$，有
+\[
+  f(\sigma x) = - f(x) \text{.}
+\]
+则和 $S_f$ 是实数。若 $\sigma$ 是对合，则利用 Poincaré 对偶性还能得到更多结论：令 $\sF_0=j_\ast \sF(\psi f)$、$\sG_0 = j_\ast \sF(\psi(-f))$，则
+\begin{enumerate}[\indent a)]
+  \item $\sF_0$ 与 $\sG_0$ 互为对偶；
+  \item 有自然同构 $\sigma^\ast \sF_0 \iso \sG_0$ 和 $\sigma^\ast \sG_0 \iso \sF_0$，使复合映射 $\sF_0=(\sigma^2)^\ast \sF_0 \iso \sigma^\ast \sG_0 \iso \sF_0$ 是恒等映射；
+  \item 配对 $\sF_0\otimes \sG_0 \to E_\lambda$ 满足 $\sigma^\ast(f\cdot g) = \sigma^\ast(f) \cdot \sigma^\ast (g)$。
+\end{enumerate}
+
+转到上同调，得到 $\h^1(X,\sF)$ 与 $\h^1(X,\sG)$ 具有取值于 $E_\lambda(1)$ 的完美对偶，且 $\h^1(X,\sF)$ 上的双线性形式 $\alpha\cdot \sigma^\ast\beta$ 是\emph{交错的}：$\sigma^\ast$ 在 $E_\lambda(1)$ 上的作用平凡，并且
+\[
+  \alpha\cdot \sigma^\ast \beta = \sigma^\ast(\alpha\cdot \sigma^\ast \beta) = \sigma^\ast \alpha\cdot \beta = -\beta\cdot \sigma^\ast \alpha \text{.}
+\]
+由此可知，$\h^1(X,\sF)$ 是偶数维的（也容易验证每个非零的 $v_x^\ast(f)$ 都是奇数），且 $F^\ast$ 在 $\h^1(X,\sF)$ 上的特征值成对出现，分别为 $\alpha$ 和 $q/\alpha$。
+
+\subsection{例}\label{VI:3-7}
+
+这适用于 Kloosterman 和 $\sum_{x\in \dF_q^\times} \psi\left(x+\frac a x\right)$（取 $X_0=\dP^1$、$f=x+\frac a x$、$\sigma x=-x$；$f$ 的极点为 $0$ 和 $\infty$，且在每个极点处 $v_x^\ast(f)=1$；$\h^1$ 的维数为 $-2+2+2=2$）。因此（当 $a\ne 0$ 时）
+\[
+  \sum_{\substack{x y=a \\ x,y\in \dF_{q^n}}} \exp\left(\frac{2\pi i}{p} \tr_{\dF_{q^n}/\dF_p}(x+y)\right) = -(\alpha^n+\bar\alpha^n) \qquad \text{, }\alpha\bar \alpha = q \text{.}
+\]
+这个结果归于 L.\ Carlitz \cite{ca69}。
+
+现在给出 Lang--Weil 方法的一个应用。
+
+\begin{proposition_}\label{VI:3-8}
+设 $P\in \dF_q[X_1,\dots,X_n]$ 是次数为 $d$ 的 $n$ 元多项式，且不形如 $Q^p-Q+C^{te}$。仍令 $\psi(x) = \exp\left(\frac{2\pi i}{p} \tr_{\dF_q/\dF_p}(x)\right)$，则
+\[
+  \left|\sum_{x_i\in \dF_q} \psi P(x_1,\dots,x_n)\right| \leqslant (d+1) q^{n-\frac 1 2} \text{.}
+\]
+\end{proposition_}
+
+左端有平凡估计 $q^n$。因此，只需在 $d-1<q^{1/2}$ 时证明 \ref{VI:3-8}；于是可假设 $d<q+1$，并以 $P_d$ 表示 $P$ 的 $d$ 次齐次部分。回顾：
+
+\begin{lemma_}\label{VI:3-9}
+$\dP^r$（$r\geqslant 1$）中次数为 $d$ 的超曲面不可能包含所有 $\dF_q$-有理点，除非 $d\geqslant q+1$。
+\end{lemma_}
+
+用归纳法论证：若存在不完全包含在该超曲面中的有理超平面（$r=1$ 时无此情形），就对超曲面与这个超平面的交应用归纳假设。否则，次数 $d$ 大于或等于有理超平面的个数，而此个数 $\geqslant q+1$。
+
+现在区分两种情形。
+
+\paragraph{情形 1：$p\nmid d$。}
+将引理应用于 $P_d$，可知必要时作线性变量代换后，可假设 $P_d(1,0,\ldots,0)\ne 0$，即 $P$ 中 $X_1^d$ 的系数非零。一个单变量多项式
+\[
+  S(X) = \sum_{i=0}^d a_i x^i \text{,}
+\]
+若 $a_d\ne 0$（$p\nmid d$），便不可能形如 $Q^p-Q+C^{t e}$，且估计 \eqref{VI:eq:3-5-2} 归结为
+\[
+  \left| \sum \psi(S(x)) \right| \leqslant (d-1) q^{1/2} \text{.}
+\]
+对只让 $x_1$ 变化而得到的各部分和应用这个估计，得
+\[
+  \left| \sum \psi P(x_1,\dots,x_n) \right| = \left| \sum_{x_2,\dots,x_n} \sum_{x_1} \psi P(x_1,\dots,x_n)\right| \leqslant q^{n-1} (d-1) q^{1/2}
+\]
+正如所需。
+
+\paragraph{情形 2：$p\mid d$（$d>0$）。}
+若 $P_d$ 是 $p$ 次幂，则以 $P-(P_d-P_d^{1/p})$ 代替 $P$ 不改变所考虑的和，却降低了次数：对此情形可对 $d$ 归纳。否则，$P_d$ 的微分不恒为零；应用 \ref{VI:3-9}，必要时作线性变量代换，可假设它在点 $(1,0,\dots,0)$ 处非零。写成
+\[
+  P_d = \sum_{i=0}^d X_1^{d-i} S_i(X_2,\dots,X_n) \text{,}
+\]
+这意味着线性型 $S_1$ 不恒为零。
+
+型 $S_0$ 是常数，以 $P-(S_0 X_1^d -S_0^{1/p} X_1^{d/p})$ 代替 $P$，可假设它为零。最后，以 $-\lambda$ 表示 $P$ 中 $X_1^{d-1}$ 的系数。对固定的 $x_2,\dots,x_n$，有
+\[
+  P(X_1,x_2,\dots,x_n) = (S_1(x_2,\dots,x_n)-\lambda) X_1^{d-1} + \text{关于 $X_1$ 的更低次项}
+\]
+而若 $S_1(x_2,\dots,x_n)\ne \lambda$，便有
+\[
+  \left| \sum_{x_1} \psi P(x_1,\dots,x_n)\right| \leqslant (d-2) q^{1/2} \text{.}
+\]
+总之，
+\begin{align*}
+  \left|\sum \psi P(x_1,\dots,x_n)\right|
+    &\leqslant \left|\sum_{S_1=\lambda} \psi P(x_1,\dots,x_n)\right| + \sum_{S_1(X_2,\dots,X_n)\ne\lambda} \left| \sum_{x_1} \psi P(x_1,\dots,x_n)\right| \\
+    &\leqslant q^{n-1} + (q^{n-1}-q^{n-2})(d-2) q^{1/2} \\
+    &< (d-2) q^{n-1/2} + q^{n-1} \\
+    &< (d-1) q^{n-1/2} \text{.}
+\end{align*}
+
+R.A.\ Smith \cite{sm70} 给出了另一个此类结果。
+
+\section{Gauss 和与 Jacobi 和}\label{VI:4}
+
+\subsection{}\label{VI:4-1}
+
+设 $k$ 是特征为 $p$ 的有限域，$\chi$ 是 $k^\times$ 的特征，$\psi$ 是 $k$ 的加法群的非平凡特征。采用如下 Gauss 和定义：
+\begin{equation*}\tag{4.1.1}\label{VI:eq:4-1-1}
+  \tau(\chi,\psi) = -\sum_{x\in k^\times} \psi(x) \chi^{-1}(x)
+\end{equation*}
+（注意负号）。经典上，$\chi$ 和 $\psi$ 取复数值。这里取它们的值在 $E_\lambda^\times$ 中（见 \ref{VI:1-15} 的证明）。将 $-\tau(\chi,\psi)$ 看作对 $k$ 上概形 $\dG_m$ 的有理点求和。由第 \ref{VI:1} 节，$-\tau(\chi,\psi) = \tr(F^\ast,\h_c^\ast(\dG_m,\sF(\psi \chi^{-1}))$。此外，
+
+\begin{proposition_}\label{VI:4-2}
+以 $\sF(\psi\chi^{-1})$ 为系数的 $\dG_m$ 的上同调满足
+\begin{enumerate}[(i)]
+  \item 当 $i\ne 1$ 时，$\h_c^i=0$，且 $\dim \h_c^1=1$；
+  \item $F^\ast$ 在 $\h_c^1$ 上按乘以 $\tau(\chi,\psi)$ 作用；
+  \item 若 $\chi$ 非平凡，则 $\h_c^\bullet \iso \h^\bullet$。
+\end{enumerate}
+\end{proposition_}
+\begin{proof}[证明]
+对任意与 $p$ 互素的 $n$，以 $K_n$ 表示由 K\"ummer 正合列 $0 \to \dmu_n \to \dG_m \xrightarrow{x^n} \dG_m \to 0$ 定义的 $\dG_m$ 上的 $\dmu_n$-挠子。若 $k$ 有 $q$ 个元素，则在 $k$ 上有 $\dmu_{q-1}=k^\times$，且 $\dG_m/k$ 上的 Lang 挠子为 $K_{q-1}$。因此 $\sF(\chi^{-1})=\chi(K_{q-1})$。断言 \ref{VI:4-2}(ii) 由 (i,iii) 得到，而后两者又由下面的几何断言得到；在该断言中，$\sF(\psi)$ 表示将 $\dG_m/k$ 上的 $\sF(\psi)$ 从 $k$ 扩张标量到 $\dF$ 所得的 $\dG_m/\dF$ 上的层（\ref{VI:1-8}.b）。
+\end{proof}
+
+\begin{proposition_}\label{VI:4-3}
+设 $\chi:\dmu_n \to E_\lambda^\times$。以 $\sF(\psi)\otimes \chi(K_n)$ 为系数的 $\dG_m$ 的上同调满足
+\begin{enumerate}[\indent (i)]
+  \item 当 $i\ne 1$ 时，$\h_c^i=0$，且 $\dim \h_c^1{} = 1$；
+  \item 若 $\chi$ 非平凡，则 $\h_c^\bullet{}\iso \h^\bullet{}$。
+\end{enumerate}
+\end{proposition_}
+\begin{proof}[证明]
+层 $\sF(\psi)$ 是 $\dG_a$ 上某个局部常值层在 $\dG_m$ 上的限制；该层在无穷远处野分歧，Swan 导子为 $1$。若 $\chi=1$，则层 $\chi(K_n)$ 常值；若 $\chi\ne 1$，则它在 $0$ 和 $\infty$ 处驯分歧。
+
+因此，层 $\sF(\psi)\otimes\chi(K_n)$ 在 $\infty$ 处分歧；由 \ref{VI:1-18}(b,c)，$i\ne 1$ 时有 $\h_c^i(\dG_m,\sF(\psi)\otimes \chi(K_n))=0$。若 $\chi\ne 1$，则它在 $0$ 和 $\infty$ 处均分歧，(ii) 由 \ref{VI:1-19}.a 得到。
+
+Swan 导子在 $0$ 处为 $0$，在 $\infty$ 处为 $1$。故由 \eqref{VI:eq:3-2-1}，Euler--Poincaré 示性数为 $-1$，证明完成。
+\end{proof}
+
+\subsection{注}\label{VI:4-4}
+
+若 $\chi$ 非平凡，则由 \ref{VI:4-2}(iii) 及 Poincaré 对偶性，$\h_c^1(\dG_m,\sF(\psi\chi^{-1}))$ 与 $\h_c^1(\dG_m,\sF(\psi^{-1}\chi))$ 互为对偶（对偶取值于 $E_\lambda(-1)$）。因此有 $\tau(\chi,\psi)\cdot \tau(\chi^{-1},\psi^{-1}) = q$，即 $|\tau(\chi,\psi)|=q^{1/2}$。
+
+\subsection{}\label{VI:4-5}
+
+若 $k$ 是 $\dF_q$ 的 $N$ 次扩张，也可将 \eqref{VI:eq:4-1-1} 看作 $\dF_q$ 上的 $N$ 变量和。更一般地，设 $k$ 是 $\dF_q$ 上的平展代数，其作为 $\dF_q$-代数的次数为 $N$。它是若干次数为 $N_i$ 的域 $k_i$ 的乘积，令
+\begin{equation*}\tag{4.5.1}\label{VI:eq:4-5-1}
+  \varepsilon(k) = (-1)^{\sum (N_i+1)} \text{.}
+\end{equation*}
+这是 Frobenius 代换 $\varphi\in \gal(\dF/\dF_q)$ 在 $S=\hom_{\dF_q}(k,\dF)$ 上诱导的置换的符号。
+
+设 $\psi:\dF_q\to E_\lambda^\times$ 是非平凡特征，且 $\chi:k^\times \to E_\lambda^\times$。令
+\begin{equation*}\tag{4.5.2}\label{VI:eq:4-5-2}
+  \tau_{\dF_q}(\chi,\psi) = (-1)^N \sum_{x\in k^\times} \psi \tr_{k/\dF_q}(x) \cdot \chi^{-1}(x) \text{.}
+\end{equation*}
+
+若 $\chi$ 的各坐标为 $\chi_i:k_i^\times \to E_\lambda^\times$，则有初等恒等式
+\begin{equation*}\tag{4.5.3}\label{VI:eq:4-5-3}
+  \tau_{\dF_q}(\chi,\psi) = \varepsilon(k) \prod \tau(\chi_i,\psi\circ \tr_{k_i/\dF_q}) \text{.}
+\end{equation*}
+
+经过一些准备，\ref{VI:4-10} 将给出和 \eqref{VI:eq:4-5-2} 的上同调解释。在 \ref{VI:4-12} 中，将把 Hasse--Davenport 恒等式解释为 \eqref{VI:eq:4-5-3} 的下述特例的扭形式（参见 \ref{VI:1-12}）：若 $k=\dF_q^N$，$\chi$ 是 $\dF_q^\times$ 的特征，则 $\tau_{\dF_q}(\chi\circ N_{k/\dF_q},\psi)=\tau(\chi,\psi)^N$。
+
+\subsection{}\label{VI:4-6}
+
+回顾，若 $M$ 是环 $A$ 上的有限生成投射模，则从 $\spec(A)$ 上的仿射概形到 $\mathsf{Ens}$ 的函子 $\spec(B)\mapsto M\otimes_A B$ 由仿射概形 $\dV(M^\vee)$（EGA 记号）表示，即 $\operatorname{Sym}_A^\bullet(M^\vee)$ 的谱。若 $M=A^n$，这就是标准的 $n$ 维仿射空间。
+
+假设 $M$ 是有单位元的 $A$-代数，令 $V=\dV(M^\vee)$。由定义，对任意配备 $A$-代数结构的 $B$，$V$ 的 $B$ 值点集 $V(B)$ 为 $M\otimes_A B$。由于函子 $B\mapsto M\otimes_A B$ 取值于有单位元的环，$V$ 是 $\spec(A)$ 上的有单位元的环概形。范数及迹态射 $M\otimes_A B\to B$ 关于 $B$ 具有函子性，因而对应于从 $V$ 到 $\dG_a$ 的概形态射 $N$ 和 $T$。我们将考虑由 $V$ 得到的以下概形：
+\begin{enumerate}[a)]
+  \item $V^\ast$ 是 $V$ 的可逆元所成的开子概形（关于 $\cdot$ 为群概形）；
+  \item $W$ 是方程为 $T=0$ 的超平面，$W^\ast=W\cap V^\ast$；
+  \item $P$ 是 $\spec(A)$ 上的仿射空间 $V$ 的无穷远超平面 $V\setminus \{0\}/\dG_m$。若 $Q$ 是 $W$ 的无穷远超平面，则 $W^\ast/\dG_m$ 和 $V^\ast/\dG_m$ 分别是 $\spec(A)$ 上的射影空间 $Q$ 和 $P$ 的开子集。
+    \begin{equation*}\tag{4.6.1}\label{VI:eq:4-6-1}
+    \xymatrix{
+      W^\ast \ar@{^{(}->}[r] \ar[d]^-\pi
+        & V^\ast \ar[d]^-\pi \\
+      W^\ast/\dG_m \ar@{^{(}->}[r]
+        & V^\ast/\dG_m
+    }\qquad\subset\qquad
+    \xymatrix{
+      W\setminus \{0\} \ar@{^{(}->}[r] \ar[d]^-\pi
+        & V\setminus \{0\} \ar[d]^-\pi \\
+      Q \ar@{^{(}->}[r]
+        & P \text{.}
+    }
+    \end{equation*}
+\end{enumerate}
+
+若 $M=A^I$，其中 $I$ 是有限集，则 $V\simeq \dG_a^I$、$V^\ast=\dG_m^I$，$V^\ast/\dG_m$ 是环面 $\dG_m^I/(\dG_m\text{ 对角嵌入})$，$N$ 和 $T$ 分别由 $\prod x_i$ 和 $\sum x_i$ 给出，因此 $Q$ 是 $P$ 中方程为 $\sum x_i=0$ 的射影超平面。
+
+我们关心 $M$ 在 $A$ 上有限平展的情形。此时上述描述在 $\spec(A)$ 的平展拓扑下局部成立，可写成 $V^\ast=\dG_m^I$，其中 $I$ 是 $\spec(A)$ 上的有限集的局部常值层。例如，若 $A$ 是域，其代数闭包为 $\bar A$，$M$ 是可分 $A$-代数，则令 $I=\hom_A(M,\bar A)$，在 $\bar A$ 上有 $V\sim \dG_a^I$。通过这个同构，$N$ 和 $T$ 分别由 $\prod x_i$ 和 $\sum x_i$ 给出。
+
+\subsection{Kummer 挠子}\label{VI:4-7}
+
+设 $S$ 是概形，$n$ 是在 $S$ 上可逆的整数，$G$ 是 $S$ 上具有连通纤维的交换群概形（采用乘法记号）。序列
+\[\xymatrix{
+  0 \ar[r]
+    & G_n \ar[r]
+    & G \ar[r]^-{x^n}
+    & G \ar[r]
+    & 0
+}\]
+正合。它定义 $G$ 上的 $G_n$-挠子 $K_n(G)$（或简记为 $K_n$）。对从平展 $S$-层 $G_n$ 到常值层 $E_\lambda^\times$ 的同态 $\chi:G_n \to E_\lambda^\times$，以 $\sK_n(\chi)$ 表示 $E_\lambda$-层 $\chi^{-1}(K_n)$。
+
+各挠子 $K_n$ 构成群投射系 $G_n$ 下的挠子逆系（过渡态射为 $x\mapsto x^d:G_{n d}\to G_n$）。这表达了如下图的交换性：
+\[\xymatrix{
+  0 \ar[r]
+    & G_{n d} \ar[r] \ar[d]^-{x^d}
+    & G \ar[r]^-{x^{n d}} \ar[d]^-{x^d}
+    & G \ar[r] \ar@{=}[d]
+    & 0 \\
+  0 \ar[r]
+    & G_n \ar[r]
+    & G \ar[r]^-{x^n}
+    & G \ar[r]
+    & 0 \text{.}
+}\]
+所以 $\sK_n(\chi) = \sK_{n d}(\chi\circ x^d)$。
+
+\subsection{}\label{VI:4-8}
+
+将 \ref{VI:4-6} 的构造应用于 $A=\dF_q$，并取 $M=k$ 为 $\dF_q$ 上的平展代数。按照一般约定，以添下标 $0$ 的方式表示 \ref{VI:4-6} 中记为 $V,V^\ast,\ldots$ 的各 $\dF_q$-概形。不带下标的相同字母表示扩张标量所得的 $\dF$ 上的概形。
+
+令 $I=\hom(k,\dF)$；则 $V\sim \dG_a^I$，$T$ 由 $(x_i)\mapsto \sum x_i$ 给出。
+\begin{equation*}\tag{4.8.1}\label{VI:eq:4-8-1}
+  \sF(\psi\circ \tr_{k/\dF_q}) = T^\ast \sF(\psi) = \bigotimes_i \pr_i^\ast \sF(\psi) \text{.}
+\end{equation*}
+由于 $V^\ast\sim \dG_m^I$，$V_n^\ast\sim \dmu_n^I$ 的取值于 $E_\lambda^\times$ 的特征 $\chi$，等同于以 $I$ 为指标的 $\dmu_n$ 的特征族 $(\chi_i)_{i\in I}$。当且仅当对所有 $\sigma\in \gal(\dF/\dF_q)$，有 $\chi_{\sigma_i} = \chi_i\circ \sigma^{-1}$ 时，它定义在 $\dF_q$ 上。此时它定义 $V_0^\ast$ 上的 $E_\lambda$-层 $\sK_n((\chi_i)_{i\in I})$。若各 $\chi_i$ 的乘积平凡，则 $\chi$ 经由 $(V_0^\ast/\dG_m)_n$ 的一个特征分解，而 $\sK_n((\chi_i)_{i\in I})$ 是 $V_0^\ast/\dG_m$ 上一个仍用相同记号表示的层的逆像。这个构造与 Lang 挠子的关系如下。
+
+\begin{lemma_}\label{VI:4-9}
+\begin{enumerate}[(i)]
+  \item 当 $n$ 的整除性充分大时，有交换图
+    \[\xymatrix{
+      0 \ar[r]
+        & (V_0^\ast)_n \ar[r] \ar[d]^-\tau
+        & V_0^\ast \ar[r]^-{x^n} \ar[d]^-\tau
+        & V_0^\ast \ar[r] \ar@{=}[d]
+        & 0 \\
+      0 \ar[r]
+        & k^\times \ar[r]
+        & V_0^\ast \ar[r]^-\fL
+        & V_0^\ast \ar[r]
+        & 0 \text{;}
+    }\]
+    若 $\chi$ 是特征 $\chi:k^\times \to E_\lambda^\times$，则 $\sF(\chi) = \sK_n(\chi\circ\tau)$。
+  \item 当 $n$ 的整除性充分大时，$\tau$ 将 $k^\times$ 与 $\gal(\dF/\dF_q)$ 在 $V_n^\ast\sim \dmu_n^I$ 上作用的余不变量相等同。
+  \item 若 $k$ 是域，$N=[k:\dF_q]$，$\omega\in I$ 是 $k$ 到 $\dF$ 的一个嵌入，且 $n=q^N-1$，则 $\chi\circ\tau$ 的指标为 $\omega$ 的分量是 $\chi\circ \omega^{-1}$。
+  \item 若 $\chi$ 在 $k$ 的每个因子上均非平凡，则各 $(\chi\circ \tau)_i$ 都非平凡。
+\end{enumerate}
+\end{lemma_}
+
+只需在 $k$ 是 $\dF_q$ 的 $N$ 次域扩张时证明引理。此时，$n$ 的“整除性充分大”意指 $q^N-1\mid n$。选取 $k$ 到 $\dF$ 的一个嵌入 $\omega$；则可将 $I$ 等同于 $\dZ/N$：元素 $i\in \dZ/N$ 对应于 $\omega_i=\omega^{q^i}$。通过同构 $V_0^\ast(\dF) = {\dF^\times}^I$，有
+\begin{enumerate}[\indent a)]
+  \item $x\in k^\times$ 对应于 $(\omega_i(x))\in {\dF^\times}^I$；
+  \item $F((x_i)_{i\in \dZ/N})=(x_{i-1}^q)_{i\in \dZ/N}$。
+\end{enumerate}
+
+$V_n^\ast\sim \dmu_n^I$ 的特征 $\chi=(\chi_i)$ 定义在 $\dF_q$ 上，当且仅当 $\chi_{-i}(x) =\chi_0(x^{q^i})$（$i\in \dZ$）。若 $q^N-1\mid n$，这样的特征共有 $q^N-1$ 个：$\chi_0$ 经由 $\dmu_{q^N-1}$ 分解，并确定各 $\chi_i$。因此要证明 (ii)，只需验证 (i) 和 (iii)（或其推论 (iv)）；后者保证 $\chi\mapsto \chi\circ \tau$ 为单射。
+
+下面在 $n=q^N-1$ 时证明 (i) 和 (iii)。将 $V^\ast\sim \dG_m^I$ 的自同态群写成加法记号；特别地，以 $n$ 表示算子 $x\mapsto x^n$。若 $\alpha$ 是循环置换算子 $(x_i)\mapsto (x_{i-1})$，则有 $q^N-1=(q\alpha)^N-1 = (q\alpha-1)((q\alpha)^{N-1}+\cdots + 1)$。这确定了 $\tau$：有 $\tau((x_i)) = \prod_{0\leqslant j<N} x_{i-j}^{q^j}$，而从 $(V_0^\ast)_n$ 到 $k^\times$ 的诱导映射为［采用上面 a) 的等同］$(x_i)\mapsto \prod x_{-i}^{q^i}$；由此得到 (iii)。
+
+\begin{proposition_}\label{VI:4-10}
+以 $\sF(\chi^{-1}\cdot \psi\tr_{k/\dF_q})$ 为系数的 $V^\ast$ 的上同调满足
+\begin{enumerate}[\indent (i)]
+  \item 当 $i\ne N$ 时，$\h_c^i = 0$，且 $\dim \h_c^N=1$；
+  \item 在 $\h_c^N$ 上，$F^\ast$ 为乘以 $\tau_{\dF_q}(\chi,\psi)$；
+  \item 若 $\chi$ 在 $k$ 的每个因子上均非平凡，则 $\h_c^\bullet \iso \h^\bullet$。
+\end{enumerate}
+\end{proposition_}
+
+由 \ref{VI:4-9}(i)，在 $\dF$ 上，若 $\chi\circ \tau=(\chi_i)_{i\in I}$，则 $\sF(\chi) = \sK_n((\chi_i)_{i\in I})$。因此 (i) 和 (iii) 由下面更具几何性的断言得到（对 (iii)，应用 \ref{VI:4-9}(iv)），而 (ii) 由迹公式得到：
+
+\begin{proposition_}\label{VI:4-11}
+设 $(\chi_i)_{i\in I}$ 是 $\dmu_n(\dF)$ 的一族特征。以 $\sK_n((\chi_i)_{i\in I})\otimes \sF(\psi\tr_{k/\dF_q})$ 为系数的 $V^\ast\simeq \dG_m^I$ 的上同调满足
+\begin{enumerate}[\indent (i)]
+  \item 当 $i\ne N$ 时，$\h_c^i{}=0$，且 $\dim \h_c^N{} = 1$；
+  \item 若各 $\chi_i$ 都非平凡，则 $\h_c^\bullet{}\iso \h^\bullet$。
+\end{enumerate}
+\end{proposition_}
+
+有 $V^\ast\sim \dG_m^I$、$\sK((\chi_i)) = \bigotimes_i \pr_i^\ast \chi_i(K_n(\dG_m))$ 以及 $\sF(\psi\circ \tr_{k/\dF_q})=T^\ast \sF(\psi) = \bigotimes_i \pr_i^\ast \sF(\psi)$。于是可应用 K\"unneth 公式，\ref{VI:4-11} 由 \ref{VI:4-3} 得到。
+
+\subsection{}\label{VI:4-12}
+
+由 \ref{VI:2-4*}* 及（\hyperref[IV]{《与闭链相关联的上同调类》}\ref{IV:1-3} 例 2），还可得到：$I$ 的满足 $\chi_i = \chi_{\sigma i}$（$i\in I$）的各置换 $\sigma$ 组成的群，在 $\h_c^N$ 上按乘以符号 $\varepsilon(\sigma)$ 作用。由此得到 Hasse--Davenport 恒等式的第二个证明。
+
+若 $\chi$ 是 $\dF_q^\times$ 的特征，则由于 $N$ 在 $\dF$ 上由 $(x_i)\mapsto \prod x_i$ 给出，有 $\sF(\chi\circ N)=N^\ast\sF(\chi) = \bigotimes_i \pr_i^\ast\sF(\chi)$，且 K\"unneth 公式给出
+\[
+  \h_c^\bullet(V^\ast,\sF(\chi^{-1}\circ N,\psi\circ \tr)) \sim \h_c^\bullet(\dG_m,\sF(\chi^{-1}\psi))^{\otimes I} \text{,}
+\]
+其中右端的张量积按 \ref{VI:2-4*}* 的意义理解。由于 $\h_c^1(\dG_m,\sF(\psi\chi^{-1}))$ 是 $1$ 维的，其通常意义下的张量幂 $\otimes I$ 只依赖于 $I$ 的基数 $n$。应用（\hyperref[IV]{《与闭链相关联的上同调类》}\ref{IV:1-3} 例 2），得到典范同构
+\begin{equation*}\tag{4.12.1}\label{VI:eq:4-12-1}
+  \h_c^N\left(V^\ast,\sF(\chi^{-1}\circ N)\otimes T^\ast \sF(\psi)\right) \sim \h_c^1(\dG_m,\sF(\psi\chi^{-1})) \otimes_\dZ \textstyle \bigwedge^N \dZ^I \text{.}
+\end{equation*}
+计算 $F^\ast$ 的作用时，最方便的是采用 Galois 观点，并注意同构 \eqref{VI:eq:4-12-1} 的典范性保证它与 $\gal(\dF/\dF_q)$ 的结构迁移作用相容。若 $\varepsilon(k)$ 是 $I$ 上置换 $\varphi$ 的符号，则
+\begin{align*}
+  \tau_{\dF_q}(\chi\circ N_{k/\dF_q},\psi)
+    &= \tr\left(\varphi^{-1},\h_c^N\left(V^\ast,N^\ast\sF(\chi^{-1})\otimes T^\ast \sF(\psi)\right)\right) \\
+    &= \varepsilon(k) \tr\left(\varphi^{-1},\h_c^1(\dG_m,\sF(\chi^{-1}\psi))\right)^N \\
+    &= \varepsilon(k) \tau(\chi,\psi)^N \text{,}
+\end{align*}
+即
+\begin{equation*}\tag{4.12.2}\label{VI:eq:4-12-2}
+  \tau_{\dF_q}\left(\chi\circ N_{k/\dF_q},\psi\right) = \varepsilon(k) \tau(\chi,\psi)^N \text{.}
+\end{equation*}
+
+若 $k$ 是域，则 $\varphi$ 是 $I$ 上的循环置换，$\varepsilon(k) = (-1)^{N+1}$，得到 Hasse--Davenport 恒等式：
+\[
+  \tau\left(\chi\circ N_{k/\dF_q},\psi\circ \tr_{k/\dF_q}\right) = (-1)^{N+1} \tau_{\dF_q}\left(\chi\circ N_{k/\dF_q},\psi\right) = \tau(\chi,\psi)^N \text{.}
+\]
+
+\begin{lemma_}\label{VI:4-13}
+设 $\chi\circ \tau=(\chi_i)_{i\in I}$ 如 \ref{VI:4-9}(i)。以下条件等价：
+\begin{enumerate}[\indent (i)]
+  \item $\chi| \dF_q^\times$ 平凡；
+  \item 各 $\chi_i$ 的乘积平凡；
+  \item $\sF(\chi) = \sK_n((\chi_i))$ 是 $V^\ast/\dG_m$ 上唯一的一个层的逆像；
+  \item $\sF(\chi)$ 在 $\dG_m$ 上的逆像平凡（$\dG_m$ 通过结构态射 $\dF_q \to k$ 嵌入 $V^\ast$）。
+\end{enumerate}
+\end{lemma_}
+
+(i)$\Rightarrow$(ii)。将 $\chi$ 看作 $V^\ast/\dG_m(\dF_q)=k^\times/\dF_q^\times$ 的特征，并在 $V^\ast/\dG_m$ 上取 $\sF(\chi)$。
+
+(ii)$\Rightarrow$(iii)。同样，将 $(\chi_i)$ 看作 $(V^\ast/\dG_m)_n$ 的特征。(iii) 中的唯一性来自 $V^\ast$ 是 $V^\ast/\dG_m$ 上纤维连通的纤维化，而 (iii)$\Rightarrow$(iv) 显然。
+
+(iv)$\Rightarrow$(i)、(ii)。此逆像为 $\sF(\chi|\dF_q^\times)$ 及 $\sK_n(\prod \chi_i)$。
+
+\subsection{}\label{VI:4-14}
+
+设 $k$ 是 $\dF_q$ 上维数为 $N+1$ 的平展代数，$\chi$ 是 $k^\times$ 的非平凡特征，且在 $\dF_q^\times$ 上平凡。Jacobi 和 $J(\chi)$ 定义为
+\begin{equation*}\tag{4.14.1}\label{VI:eq:4-14-1}
+  J(\chi) = (-1)^{N-1} \sum_{\substack{x\in k^\times/\dF_q^\times \\ \tr(x)=0}} \chi^{-1}(x) \text{.}
+\end{equation*}
+
+Gauss 和与 Jacobi 和之间有如下恒等式。
+
+\begin{proposition_}\label{VI:4-15}
+对于上述 $\chi$ 以及 $\dF_q$ 的非平凡加法特征 $\psi$，有
+\[
+  q J(\chi) = \tau_{\dF_q}(\chi,\psi) \text{.}
+\]
+\end{proposition_}
+
+在特例 $k=\dF_q^n$ 中，由公式 \eqref{VI:eq:4-5-3} 可将它改写为
+\begin{equation*}\tag{4.15.1}\label{VI:eq:4-15-1}
+  q J(\chi) = \prod_i \tau(\chi_i,\psi) \text{,}
+\end{equation*}
+或等价地写成
+\begin{align*}
+  \chi_0(-1) J(\chi) &= (-1)^{N-1} \sum_{\substack{x_1,\dots,x_N\in \dF_q^\times \\ \sum x_i = 1}} \prod_{i=1}^N \chi_i^{-1}(x_i) = \tau(\chi_0^{-1},\psi)^{-1} \prod_{i=1}^N \tau(\chi_i,\psi) \\
+  \chi_0^{-1} &= \prod_{i=1}^N \chi_i
+\end{align*}
+
+\begin{proof}[\ref{VI:4-15} 的证明]
+\[
+  \tau_{\dF_q}(\chi,\psi) = (-1)^{N+1} \sum_{x\in k^\times} \chi(x)^{-1} \psi \tr(x) = (-1)^{N+1} \sum_{x\in k^\times/\dF_q^\times} \chi(x)^{-1} \sum_{\lambda\in \dF_q^\times} \psi(\lambda \tr x) \text{.}
+\]
+和 $\sum_{\lambda\in \dF_q^\times} \psi(\lambda \tr x)$ 在 $\tr(x)=0$ 时等于 $q-1$，在 $\tr(x)\ne 0$ 时等于 $-1$。因此，
+\[
+  \tau_{\dF_q}(\chi,\psi) = (-1)^{N+1} \left(q\sum_{\substack{x\in k^\times/\dF_q^\times \\ \tr(x)=0}} \chi(x)^{-1} - \sum_{x\in k^\times/\dF_q^\times} \chi(x)^{-1}\right) \text{.}
+\]
+右端第二项是一个非平凡特征的值之和，故为零，从而得到 \ref{VI:4-15}。
+\end{proof}
+
+因此，命题 \ref{VI:4-15} 有如下上同调对应命题：
+
+\begin{proposition_}\label{VI:4-16}
+以 $\sF(\chi^{-1})$ 为系数的 $W^\ast/\dG_m$（\ref{VI:4-6}、\ref{VI:4-8}）的上同调满足
+\begin{enumerate}[\indent (i)]
+  \item 当 $i\ne N-1$ 时，$\h_c^i=0$，且 $\dim \h_c^{N-1}{}=1$；
+  \item 在 $\h_c^{N-1}$ 上，$F^\ast$ 为乘以 $J(\chi)$；
+  \item $\h_c^{N-1}$ 典范同构于 $\h_c^{N+1}\left(V^\ast,\sF(\chi^{-1},\psi\circ \tr_{k/\dF_q})\right)(1)$。
+\end{enumerate}
+\end{proposition_}
+
+断言 (ii) 由 (i) 及迹公式得到；(i) 和 (iii) 由 \ref{VI:4-11} 及以下更具几何性的断言得到。
+
+\begin{proposition_}\label{VI:4-17}
+设 $(\chi_i)_{i\in I}$ 是 $\dmu_n(\dF)$ 的一族特征，不全平凡且乘积为 $1$。则 $\h_c^{i-1}\left(W^\ast/\dG_m,\sK_n((\chi_i)_{i\in I})\right)$ 典范同构于
+\newline
+$\h_c^{i+1}\left(V^\ast,\sK_n((\chi_i)_{i\in I})\otimes \sF(\psi\tr_{k/\dF_q})\right)(1)$。
+\end{proposition_}
+
+\ref{VI:4-15} 证明的第一行，即投影公式，给出（$\pi$ 如 \eqref{VI:eq:4-6-1}）
+\begin{equation*}\tag{4.17.1}\label{VI:eq:4-17-1}
+  \eR^i \pi_!\left(\sK_n((\chi_i)_{i\in I})\otimes \sF(\psi \tr_{k/\dF_q})\right) = \sK_n((\chi_i)_{i\in I}) \otimes \eR^i \pi_! \sF(\psi\tr_{k/\dF_q})
+\end{equation*}
+（在 $V^\ast/\dG_m$ 上）。来计算层 $\eR^i\pi_! \sF(\psi\tr_{k/\dF_q}) = \eR^i \pi_! T^\ast \sF(\psi)$。设 $v_0:\widetilde V_0 \to V_0$ 是 $V_0$ 在 $\{0\}$ 处的爆破。在图
+\begin{equation*}\tag{4.17.2}\label{VI:eq:4-17-2}
+\xymatrix{
+  V_0\setminus \{0\} \ar@{^{(}->}[r] \ar[dr]_-\pi
+    & \widetilde V_0 \ar[r]^-{v_0} \ar[d]^-{\bar\pi}
+    & V_0 \\
+  & P_0
+}
+\end{equation*}
+中，$\pi$ 是纤维为去掉原点的仿射直线的纤维化，$\widetilde V_0$ 是相应的线丛，$Z_0=v_0^{-1}(0)$ 是其零截面。$V_0\setminus \{0\}$ 上的层 $T^\ast\sF(\psi)$ 延拓为 $\widetilde V_0$ 上的 $(T v_0)^\ast \sF(\psi)$；由于 $T_0 v_0$ 在 $Z_0$ 上为零，此层在 $Z_0$ 上的限制是常值层 $E_\lambda$。因此，紧支集上同调长正合列为
+\begin{equation*}\tag{4.17.3}\label{VI:eq:4-17-3}
+\xymatrix{
+  \ar[r]
+    & \eR^i \pi_! T^\ast \sF(\psi) \ar[r]
+    & \eR^i \bar\pi_! (T v_0)^\ast \sF(\psi) \ar[r]
+    & (E_\lambda\text{ 当 $i=0$，否则为 $0$}) \ar[r]
+    &
+}
+\end{equation*}
+
+逆像 $\bar\pi^{-1}(Q_0)$ 是 $W_0$ 在 $0$ 处的爆破 $\widetilde W_0$；$T_0 v_0$ 在 $\widetilde W_0$ 上为零；因而在 $\bar\pi^{-1}(Q_0)$ 上有 $(T v_0)^\ast \sF(\psi)=E_\lambda$。又因 $\bar\pi$ 是仿射直线纤维化，
+\begin{equation*}\tag{4.17.4}\label{VI:eq:4-17-4}
+  \eR^i \bar\pi_! (T v_0)^\ast \sF(\psi)|Q =
+    \begin{cases}
+      0 & \text{当 $i\ne 2$ 时} \\
+      E_\lambda(-1) & \text{当 $i=2$ 时。}
+    \end{cases}
+\end{equation*}
+
+若 $x\in P$、$x\notin Q$，则直线 $D=\pi^{-1}(x)$ 经 $T v_0$ 同构地映到 $\dG_a$；因此（由 \ref{VI:2-7}*）
+\begin{align} \notag
+  \h_c^\bullet(D,(T v_0)^\ast \sF(\psi)) &= \h_c^\bullet(\dG_a,\sF(\psi)) = 0 && \text{且} \\
+  \tag{4.17.5}\label{VI:eq:4-17-5}
+  \eR^i \bar\pi_! (T v_0)^\ast \sF(\psi)
+    &= \begin{cases}
+         0 & \text{当 $i\ne 2$ 时} \\
+         E_\lambda(-1)_Q & \text{当 $i=2$ 时}
+       \end{cases}
+\end{align}
+
+结合 \eqref{VI:eq:4-17-3} 和 \eqref{VI:eq:4-17-5}，最后得到
+\begin{equation*}\tag{4.17.6}\label{VI:eq:4-17-6}
+  \eR^i \pi_! T^\ast\sF(\psi) =
+    \begin{cases}
+      0 & \text{当 $i\ne 1,2$ 时} \\
+      E_\lambda & \text{当 $i=1$ 时} \\
+      E_\lambda(-1)_Q & \text{当 $i=2$ 时。}
+    \end{cases}
+\end{equation*}
+
+\subsection{}\label{VI:4-18}
+
+利用 $\pi:V^\ast\to V^\ast/\dG_m$ 的 Leray 谱序列，计算 $V^\ast$ 上层 $\sK_n((\chi_i))\otimes T^\ast \sF(\psi)$ 的紧支集上同调。应用 \eqref{VI:eq:4-17-1} 和 \eqref{VI:eq:4-17-6}，得到初始项 $E_2^{p,1} = \h_c^p(V^\ast/\dG_m,\sK_n(\chi_i)) = 0$（因为 $(\chi_i)\ne 1$）及 $E_2^{p,2} = \h_c^p(W^\ast/\dG_m,\sK(\chi_i))(-1)$。
+
+谱序列归结为同构，便得 \ref{VI:4-17}。
+
+\subsection{}\label{VI:4-19}
+
+层 $\sK_n((\chi_i)_{i\in I})$ 在任意域上，乃至在任意基概形上都有意义。因此可以推广 \ref{VI:4-16}(i)。采用 \ref{VI:4-6} 的记号，假设 $M$ 在 $A$ 上有限平展，常秩为 $N$，且 $n$ 在 $A$ 中可逆。设 $a$ 是 $W^\ast/\dG_m$ 到 $\spec(A)$ 的投影。另设 $\chi$ 是特征（层态射）$\chi:(V^\ast/\dG_m)_n \to E_\lambda^\times$，$\sK_n(\chi)$ 是相应的层。在平展拓扑下局部，可将 $\chi$ 看作 $\dmu_n$ 的一族乘积平凡的特征 $(\chi_i)_{i\in I}$。
+
+\begin{proposition_}\label{VI:4-20}
+\begin{enumerate}[(i)]
+  \item 若 $\chi$ 处处非平凡，则当 $i\ne N-2$ 时 $\eR^i a_! (\sK_n(\chi)) = 0$，且 $\eR^{N-2} a_!(\sK_n(\chi))$ 是秩为 $1$ 的光滑层；
+  \item 保持 $\chi$ 的 $M$ 的自同构 $\sigma$ 在此 $\eR^{N-2} a_!$ 上，按乘以 $\sigma$ 作为 $I$ 上置换的符号 $\varepsilon(\sigma)$ 作用；
+  \item 若各 $\chi_i$ 都非平凡，则 $\eR a_! \iso \eR a_\ast$。
+\end{enumerate}
+\end{proposition_}
+\begin{proof}[证明]
+概形 $W^\ast/\dG_m$ 是 $Q$ 中相对正规交叉除子的补集，其中 $Q$ 在 $\spec(A)$ 上适当且光滑，而 $\sK_n(\chi)$ 在 $W^\ast/\dG_m$ 上局部常值，沿边界驯分歧。因此，各 $\eR^i a_!$ 和 $\eR^i a_\ast$ 都是光滑层，并与任意基变换相容。一个标准论证便将问题归结到 $A$ 为有限域的情形；于是 (i) 由 \ref{VI:4-17} 及 \ref{VI:4-11}(i) 得到。对 (ii)，利用 $\sigma$ 的作用与同构 \ref{VI:4-17} 的相容性，并结合 \ref{VI:4-12}。对 (iii)，注意若各 $\chi_i$ 都非平凡，则 $W^\ast/\dG_m\subset Q$ 上的 $\sK_n(\chi)$ 沿每个无穷远除子均分歧，再应用 \ref{VI:1-19-1}。
+\end{proof}
+
+\section{Hecke 特征}\label{VI:5}
+
+\subsection{}\label{VI:5-1}
+
+设 $F$ 是数域（$\dQ$ 的有限次扩张），$k$ 是特征为 $0$ 的域。以下是\emph{代数}同态 $\alpha:F^\times \to k^\times$ 的几种等价描述。
+\begin{enumerate}[(i)]
+  \item 设 $\{e_i\}$ 是 $F$ 在 $\dQ$ 上的一组基。若同态 $\alpha$ 由公式 $\alpha(\sum x^i e_i) = A(x^i)$、$A\in k(X^i)$ 给出，就称它是代数的。
+\end{enumerate}
+
+这意味着，$\alpha$ 在 $F^\times$ 上与一个定义在 $k$ 上、从 $\res_{F/\dQ}(\dG_m)$ 到 $\dG_m$ 的有理映射一致。由 $F^\times$ 的 Zariski 稠密性，以及有理同态处处有定义，这样的映射是群概形同态：
+\begin{enumerate}[(i)]
+\setcounter{enumi}{1}
+  \item $\alpha$ 由 $k$ 上的群概形同态
+    \[
+      \res_{F/\dQ}(\dG_m)\otimes_\dQ k \to \dG_m \text{.}
+    \]
+    诱导。
+\end{enumerate}
+
+若 $k$ 是数域，标量限制 $R$ 的伴随性质表明，这等价于
+\begin{enumerate}[(i)]
+\setcounter{enumi}{2}
+  \item （$k$ 为数域）$\alpha$ 由 $\dQ$ 上的群概形同态 $\res_{F/\dQ}(\dG_m) \to \res_{k/\dQ}(\dG_m)$ 诱导。
+\end{enumerate}
+
+设 $\bar k$ 是 $k$ 的代数闭包，$I=\hom(F,\bar k)$。在 $\bar k$ 上，$\res_{F/\dQ}(\dG_m)$ 的特征群为 $\dZ^I$，以 $F$ 到 $\bar k$ 的各嵌入为基。定义在 $k$ 上的特征，就是在 $\gal(\bar k/k)$ 下不变的特征；它们既可描述为将 $F^\times$ 映入 $k^\times\subset \bar k$ 的特征，也可用 $\gal(\bar k/k)$ 在 $I$ 上的轨道来描述，而这些轨道又对应于 $F\otimes k$ 的各因子。
+\begin{enumerate}[(i)]
+\setcounter{enumi}{3}
+  \item $\alpha$ 形如 $\alpha=\prod_{\omega\in I} \omega^{n_\omega}$。所容许的指数族 $(n_\omega)$ 是那些满足以下条件的族：若 $\omega$ 与 $\omega'$ 属于 $\gal(\bar k/k)$ 的同一轨道，则 $n_\omega=n_{\omega'}$。等价地，就是对每个 $x\in F$，有 $\prod_\omega \omega(x)^{n_\omega}\in k$ 的那些族。
+  \item 写成 $F\otimes k=\prod_{j\in J} F_j$，其中各 $F_j$ 为域。则 $\alpha$ 可写成 $\alpha=\prod N_{F_j/k}^{m_j}$。

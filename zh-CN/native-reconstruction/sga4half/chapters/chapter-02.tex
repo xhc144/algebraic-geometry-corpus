@@ -1,0 +1,776 @@
+% !TEX root = ../main.tex
+
+\chapter{迹公式报告}\label{II}
+
+在这篇文字中, 我试图尽可能直接地介绍 Grothendieck 的 $L$-函数上同调理论. 我紧密遵循 Grothendieck 于 1966 年春在 IHES 所作的若干次讲演. 按照本书的宗旨, 除了两处引用第 XI 讲中的段落之外, 我们不援引 SGA 5; 而第 XI 讲本身也独立于该讨论班的其余部分.
+
+读者可在 \cite{de73} 的 \S 10 (第 81--90 页) 中找到这一理论在曲线这一关键情形下的概要.
+
+\section{若干回顾}\label{II:1}
+
+\subsection{记号}\label{II:1-1}
+
+$p,q,\dF,\dF_q$: $p$ 是素数, $q=p^f$ 是 $p$ 的一个幂, $\dF$ 是素域 $\dF_p$ 的代数闭包. 对 $p$ 的每个幂 $p^n$, 用 $\dF_{p^n}$ 表示 $\dF$ 中含有 $p^n$ 个元素的子域.
+
+$X_0,X$: $\dF_q$ 上的对象通常用带下标 $0$ 的符号表示. 去掉 $0$ 的同一符号则表示将其标量扩张到 $\dF$ 所得到的对象. 例如, 若 $\sF_0$ 是 $\dF_q$ 上概形 $X_0$ 上的层, 则以 $\sF$ 表示它在 $X=X_0\otimes_{\dF_q} \dF$ 上的逆像.
+
+$F$: 若 $X_0$ 是 $\dF_q$ 上的概形, 则将“坐标为 $x$ 的点送到坐标为 $x^q$ 的点”的 $X_0$ 的自同态称为 \emph{Frobenius 态射 (Frobenius morphism)}, 记为 $F$: 它在底层拓扑空间上是恒等映射, 而对结构层的局部截面 $x$, 有 $F^* x = x^q$.
+
+由它作标量扩张得到的 $X$ 的自同态也记为 $F$. 在 $X$ 的有理点集 $X(\dF) = X_0(\dF)$ 上, $F$ 按照由 $\varphi(x)=x^q$ 定义的 Frobenius 置换 $\varphi\in\gal(\dF/\dF_q)$ 作用. 特别地, $X^F=X_0(\dF_q)$.
+
+有歧义时, 我们写 $F_{(q)}$ 而不写 $F$.
+
+\subsection{Frobenius 对应}\label{II:1-2}
+
+设 $X_0$ 是 $\dF_q$ 上的概形, $\sF_0$ 是 $X_0$ 上的层. 我喜欢以下述方式看待 \emph{Frobenius 对应 (Frobenius correspondence)}, 即 $\sF_0$ 的一个 $F$-自同态:
+\begin{equation*}\tag{1.2.1}\label{II:eq:1-2-1}
+  F^* : F^*\sF_0 \iso \sF_0
+\end{equation*}
+
+将 $\sF_0$ 看作 $X_0$ 上一个平展空间 $[\sF_0]$ 的局部截面层 ($[\sF_0]$ 是 M. Artin 意义下的代数空间). $F$ 的函子性给出交换图
+\[\xymatrix{
+  [\sF_0] \ar[r]^-F \ar[d]
+    & [\sF_0] \ar[d] \\
+  X_0 \ar[r]^F
+    & X_0
+}\]
+由于 $[\sF_0]$ 在 $X_0$ 上平展, 这个图是笛卡儿图; 它给出一个同构 $[\sF_0]\iso F^*[\sF_0]$, 其逆即为 \eqref{II:eq:1-2-1}. 对由 $F$ 经标量扩张或函子性导出的对应或态射, 我们也记为 $F^*$, 例如 $F^*:\h_c^\bullet(X,\sF)\to \h_c^\bullet(X,\sF)$.
+
+形式定义参见 \cite[XI.1,2]{sga5}. 那里只考虑 $q=p$ 的情形, 但一般情形的处理完全相同.
+
+\subsection{}\label{II:1-3}
+
+Frobenius 对应关于 $(X_0,\sF_0)$ 具有函子性. 若 $f_0:X_0\to Y_0$ 是 $\dF_q$-概形的态射, $\sF_0$ 是 $X_0$ 上的层, $\sG_0$ 是 $Y_0$ 上的层, 且 $u\in\hom(f_0^*\sG_0,\sF_0)$ 是从 $\sG_0$ 到 $\sF_0$ 的一个 $f_0$-态射, 则有空间的交换图 $f_0 F = F f_0$, 以及其上的层的交换图
+\[\xymatrix{
+  X_0 \ar[r]^-{f_0} \ar[d]^-F
+    & Y_0 \ar[d]^-F \\
+  X_0 \ar[r]^-{f_0}
+    & Y_0
+}\qquad\qquad
+\xymatrix{
+  \sF_0
+    & \ar[l]_-u \sG_0 \\
+  \sF_0 \ar[u]_-{F^*}
+    & \ar[l] \sG_0 \ar[u]^-{F^*}
+}\]
+特别地, 从 $(X_0,\sF_0)$ 的 Frobenius 对应导出的 $f_{0*}\sF_0$ 上的对应, 就是 $(Y_0,f_{0*}\sF_0)$ 的 Frobenius 对应.
+
+\subsection{}\label{II:1-4}
+
+自然态射 $Y\to Y_0$ 是平展态射的极限. 因此, 对 $X_0$ 上每个阿贝尔层 $\sF_0$, 各 $\eR^if_0\sF_0$ 在 $Y$ 上的逆像就是各 $\eR^if_*\sF$.
+
+在 $\eR^if_*\sF$ 上, 有
+\begin{enumerate}[\indent a)]
+  \item 由 Frobenius 对应经函子性导出的对应
+    $F^*\eR^i f_*\sF \iso \eR^i f_*\sF \xrightarrow{F^*} \eR^if_*\sF$;
+  \item 对应 $F^*\eR^if_*\sF\to\eR^if_*\sF$, 它是 $\eR^i f_{0*}\sF_0$ 上 Frobenius 对应在 $Y$ 上的逆像.
+\end{enumerate}
+
+由 (\ref{II:1-3}) 可知这两个对应相同. 它们给出整个谱序列上的 Frobenius 作用的初始项
+\[
+  \h^p(Y,\eR^q f_*\sF) \rightarrow \h^{p+q}(X,\sF) \text{.}
+\]
+适当支集上同调以及下列谱序列的情形也是如此:
+\[
+  \h_c^p(Y,\eR^q f_* \sF) \rightarrow \h_c^{p+q}(X,\sF)
+\]
+
+\subsection{有限域的变换}\label{II:1-5}
+
+设 $(X_0,\sF_0)$ 定义在 $\dF_q$ 上, $n$ 是整数, $\dF_{q^n}$ 上的 $(X_1,\sF_1)$ 由 $(X_0,\sF_0)$ 经标量扩张得到. 一方面有 Frobenius 对应 $F_{(q)}:X_0\to X_0)$, $F_{(q)}^*:F_{(q)}^*\sF_0\to \sF_0$, 另一方面有 $F_{(q^n)}:X_1\to X_1$, $F_{(q^n)}^*:F_{(q^n)}^*\sF_1\to\sF_1$. 容易验证, $F_{(q^n)}$ 是将 $F_{(q)}$ 的 $n$ 次幂从 $\dF_q$ 标量扩张到 $\dF_{q^n}$ 所得的; 在标量扩张到 $\dF$ 之后, $X$ 的自同态之间以及 $X$ 上的对应之间仍有同一等式 $F_{(q^n)}=F_{(q)}^n$.
+
+若 $x$ 是 $X_0$ 的闭点, 且 $[k(x),\dF_q]=n$, 而 $\bar x\in X_0(\dF) = X(\dF)$ 位于 $x$ 之上, 则 $\bar x$ 是 $F_{(q^n)}=F_{(q)}^n$ 的不动点. 以 $F_x^*$ 表示由 $F_{(q^n)}^*$ 诱导的 $\sF_{\bar x}$ 的自同态. 在相差一个同构的意义下, $(F_{\bar x}^*,\sF_{\bar x})$ 与 $\bar x$ 的选取无关. $F_x^*$ 的迹等用 $\tr(F_x^*,\sF)$ 等记号表示.
+
+\subsection{\texorpdfstring{$L$}{L}-函数}\label{II:1-6}
+
+设 $X_0$ 是 $\dF_q$ 上的有限型概形. 用 $|X_0|$ 表示其闭点集, 对 $x\in |X_0|$, 置 $\deg(x)=[k(x),\dF_p]$. 若 $\sF_0$ 是 $X_0$ 上的 $\dQ_\ell$-层 (这一概念见下文), 或者是一个交换 Noether 环 $A$ 上的可构造平坦模层, 则用 $L(X_0,\sF_0)$ 表示 $\dQ_\ell\llbracket t\rrbracket$ 或 $A\llbracket t\rrbracket$ 中常数项为 $1$ 的形式级数
+\[
+  L(X_0,\sF_0) = \prod_{x\in|X_0|} \det\left(1-F_x^* t^{\deg(x)},\sF\right)^{-1} \text{.}
+\]
+
+\subsection{注}\label{II:1-7}
+
+在定义 (\ref{II:1-6}) 中, $\deg(x)=[k(x),\dF_p]$ 是绝对次数, 而不是相对于 $\dF_q$ 的次数 $\deg(x)=[k(x),\dF_q]$. 这样, $L(X_0,\sF_0)$ 就只依赖于概形 $X_0$ 与层 $\sF_0$, 而不依赖于 $q$ 以及结构态射 $X_0\to\spec(\dF_q)$. 不定元 $t$ 是 $p^{-s}$ 的一种化身.
+
+\subsection{Galois 观点}\label{II:1-8}
+
+本小节 (n$^\circ$) 在报告的其余部分不再使用. 对 $X_0$ 上的阿贝尔层 $\sF_0$, Galois 群 $\gal(\dF/\dF_q)$ 作用于 $\dF$, 并通过结构搬运作用于 $\h_c^i(X,\sF)$. 特别地, Frobenius 置换 $\varphi$ (\ref{II:1-1}) 诱导 $\h_c^i(X,\sF)$ 的一个自同构, 也记为 $\varphi$. 另一方面, Frobenius 对应定义了 $\h_c^i(X,\sF)$ 的一个自同态 $F^*$. 有
+\begin{equation*}\tag{1.8.1}\label{II:eq:1-8-1}
+  {F^*}^{-1} = \varphi \qquad \text{(在 $\h_c^i(X,\sF)$ 上).}
+\end{equation*}
+
+为说明这一点, 将 (\ref{II:1-4}) 应用于 $Y_0$ 是一个点, 即 $Y_0=\spec(\dF_q)$ 的情形. 可知 $\h_c^i(X,\sF)$ 是 $\eR^i f_! \sF_0$ 在 $Y_0$ 的几何点 $\spec(\dF)$ 处的纤维, 而 $F^*$ 是 $\eR^i f_!\sF_0$ 的 Frobenius 对应的纤维. 令 $[\eR^i f_! \sF_0]$ 如 (\ref{II:1-2}) 所定义. 有 $\h_c^i(X,\sF) = [\eR^i f_!\sF_0](\dF)$, 并且
+\begin{enumerate}[\indent a)]
+  \item $\varphi$ 通过其在 $\dF$ 上的作用, 按结构搬运作用;
+  \item $F^*$ 是 $F:[\eR^i f_!\sF_0](\dF) \to [\eR^i f_!\sF_0](\dF)$ 的逆.
+\end{enumerate}
+
+由 (\ref{II:1-1}) 中的等式 $F=\varphi$ 即得结论.
+
+Galois 观点的一个优点是它允许用结构搬运进行论证.
+
+\section{\texorpdfstring{$\dQ_\ell$}{Ql}-层}\label{II:2}
+
+$\dQ_\ell$-层的概念在 \cite[V,VI]{sga5} 中有详细论述. 我们只使用下面的定义与结果.
+
+\begin{definition_}\label{II:2-1}
+设 $X$ 是 Noether 概形. $X$ 上的一个 $\dZ_\ell$-层 $\sF$ 是层 $\sF_n$ ($n\geqslant 0$) 的一个逆系统, 其中 $\sF_n$ 是可构造的 $\dZ/\ell^{n+1}$-模层 \cite[IX.2]{sga4}, 且转移态射 $\sF_n\to\sF_{n-1}$ 通过如下同构分解:
+\[
+  \sF_n\otimes_{\dZ/\ell^{n+1}} \dZ/\ell^n \iso \sF_{n-1}\text{.}
+\]
+若各 $\sF_n$ 都局部常值, 则称层 $\sF$ 是\emph{光滑的 (lisse)}.
+\end{definition_}
+
+\cite{sga5} 的术语有所不同: 那里用“可构造 $\dZ_\ell$-层”表示“$\dZ_\ell$-层”, 用“可构造地扭曲常值”表示“光滑”.
+
+下文的 $\dQ_\ell$-层也一样.
+
+\subsection{}\label{II:2-2}
+
+若 $k$ 是可分闭域, 则 $\spec(k)$ 上的 $\dZ/\ell^n$-模层可与 $\dZ/\ell^n$-模等同, 而函子 $\sF\mapsto \varprojlim \sF_n$ 将 $\spec(k)$ 上的 $\dZ_\ell$-层与有限型 $\dZ_\ell$-模等同. 这说明下述定义是合理的: $\dZ_\ell$-层 $\sF$ 在 $X$ 的几何点 $x$ 处的\emph{纤维 (fiber)} 是 $\dZ_\ell$-模 $\varprojlim (\sF_n)_x$.
+
+\subsection{}\label{II:2-3}
+
+设 $X$ 连通, $x$ 是 $X$ 的一个几何点. 已知“在 $x$ 处取纤维”函子给出可构造局部常值 $\dZ/\ell^n$-模层范畴与带有 $\pi_1(X,x)$ 连续作用的有限型 $\dZ/\ell^n$-模范畴之间的等价. 取极限即得下面的命题.
+
+\begin{proposition_}\label{II:2-4}
+在上述假设下, “在 $x$ 处取纤维”函子给出 $X$ 上光滑 $\dZ_\ell$-层范畴与带有 $\pi_1(X,x)$ 连续作用的有限型 $\dZ_\ell$-模范畴之间的等价.
+\end{proposition_}
+
+\begin{proposition_}\label{II:2-5}
+设 $\sF$ 是 Noether 概形 $X$ 上的 $\dZ_\ell$-层. 存在 $X$ 的有限局部闭分划 $X_i$, 使得各 $\sF|X_i$ 光滑.
+\end{proposition_}
+
+对 $m\geqslant n$, 置 $\gr_\ell^n\sF=\ell^n\sF_m/\ell^{m+1}\sF_m$, 并置 $\gr_\ell\sF=\bigoplus \gr_\ell^n\sF$. 它是 Noether 环 $\gr_\ell\dZ=\dZ/\ell[t]$ 上的模层, 该环是 $\dZ$ 关于 $\ell$-进滤过的分次环. 它是 $\gr_\ell^0\sF \otimes_{\dZ/\ell} \dZ/\ell[t]$ 的商, 因而是可构造 $\gr_\ell\dZ$-模层 \cite[IX.2]{sga4}; 存在 $X$ 的有限局部闭分划 $X_i$, 使 $\gr_\ell \sF|X_i$ 局部常值. 此时各层 $\gr_\ell^n\sF|X_i$ 都局部常值, 各 $\sF_m|X_i$ 作为它们的逐次扩张, 也局部常值.
+
+\subsection{}\label{II:2-6}
+
+若 $\sF$ 与 $\sG$ 是 $X$ 上的两个 $\dZ_\ell$-层, 则置 $\hom(\sF,\sG) = \varprojlim(\sF_n,\sG_n)$; 这是一个 $\dZ_\ell$-模. 由于对 $m\geqslant n$ 有 $\hom(\sF_n,\sG_n) = \hom(\sF_m,\sG_n)$, 还得到
+\[
+  \hom(\sF,\sG) = \varprojlim_n \varinjlim_m \hom(\sF_m,\sG_n) \text{,}
+\]
+所以函子 $\sF\mapsto \text{``}\varprojlim\text{''}\sF_n$ 是从 $\dZ_\ell$-层范畴到 $X$ 上的 pro-层范畴 (即 $X$ 上层范畴的 pro-对象范畴) 的全忠实函子. 我们将用它把 $\dZ_\ell$-层与某些 pro-层等同, 即那些每个 $\sF_n=\sF/\ell^{n+1}\sF$ 都是一个层, 且 $\sF\iso \text{``}\varprojlim\text{''}\sF_n$ 的 pro-层. 容易验证, 若 $\sF+\text{``}\varprojlim\text{''}\sF_n$, 其中 $\sF_n$ 是可构造 $\dZ/\ell^n$-模层, 则 $\sF$ 是 $\dZ_\ell$-层当且仅当各逆系统 (关于 $n$) $\sF_n/\ell^{k+1}\sF_n$ 本质常值: 此时 $\sF_k'=\varprojlim_n\sF_n/\ell^{k+1}\sF_n$ 构成的逆系统满足 (\ref{II:2-1}) 的条件, 且 $\sF=\text{``}\varprojlim\text{''}\sF_k'$.
+
+以下不再使用 (\ref{II:2-1}) 中的记号 $\sF_n$; 若 $\sF$ 是 $\dZ_\ell$-层, 则 (\ref{II:2-1}) 中的层 $\sF_n$ 记为 $\sF\otimes\dZ/\ell^{n+1}$.
+
+\subsection{}\label{II:2-7}
+
+在 pro-层的阿贝尔范畴中, $\dZ_\ell$-层构成的子范畴对核、余核与扩张稳定. 对余核这是显然的. 对核, 若 $f:\sF\to\sG$ 是 $\dZ_\ell$-层的态射, 则由 (\ref{II:2-4}, \ref{II:2-5}) 与 Artin--Rees 容易得到, $\ker(f:\sF\otimes\dZ/\ell^n\to\sG\otimes\dZ/\ell^n)$ 构成的逆系统满足上面 (\ref{II:2-6}) 的判据. 甚至存在一个整数 $r$, 使得对每个 $n$ 都有
+\[
+  \ker(f)\otimes\dZ/\ell^n = \ker(f:\sF\otimes\dZ/\ell^{n+r}\to\sG\otimes\dZ/\ell^{n+r})\otimes\dZ/\ell^n \text{.}
+\]
+扩张的情形留给读者.
+
+\subsection{}\label{II:2-8}
+
+若 $\ker(\ell:\sF\to\sF) = 0$, 则称 $\dZ_\ell$-层 $\sF$ \emph{无挠 (torsion-free)}. 此时每个 $\sF\otimes\dZ/\ell^n$ 都在 $\dZ/\ell^n$ 上平坦 (即其各纤维都是有限秩自由 $\dZ/\ell^n$-模). 由 (\ref{II:2-4}, \ref{II:2-5}) 可知, 对每个 $\dZ_\ell$-层 $\sF$, 都存在整数 $n$, 使得 $\sF/\ker(\ell^n)$ 无挠.
+
+\subsection{}\label{II:2-9}
+
+$X$ 上 \emph{$\dQ_\ell$-层}构成的阿贝尔范畴, 是 $\dZ_\ell$-层范畴关于挠 $\dZ_\ell$-层子范畴的商范畴. 等价地, 其对象就是 $\dZ_\ell$-层; 用 $\sF\otimes\dQ_\ell$ 表示视为 $\dQ_\ell$-层范畴中对象的 $\dZ_\ell$-层 $\sF$, 则有
+\[
+  \hom(\sF\otimes\dQ_\ell,\sG\otimes\dQ_\ell) = \hom(\sF,\sG)\otimes_{\dZ_\ell}\dQ_\ell \text{.}
+\]
+
+$\dQ_\ell$-层 $\sF\otimes\dQ_\ell$ 在 $X$ 的几何点 $x$ 处的\emph{纤维}, 是有限维 $\dQ_\ell$-向量空间 $\sF_x\otimes_{\dZ_\ell}\dQ_\ell$.
+
+\subsection{}\label{II:2-10}
+
+设 $X$ 是代数闭域 $k$ 上的分离有限型概形, $\sF$ 是 $X$ 上的可构造 $\dQ_\ell$-层. 取可构造 $\dZ_\ell$-层 $\sF'$, 使得 $\sF\sim \sF'\otimes_{\dZ_\ell}\dQ_\ell$. 我们将在 (\ref{II:4-11}) 中看到,
+\[
+  \left(\varprojlim \h_c^q(X,\sF'\otimes \dZ/\ell^n)\right)\otimes_{\dZ_\ell}\dQ_\ell
+\]
+是有限维 $\dQ_\ell$-向量空间. 它只依赖于 $\sF'$, 记为 $\h_c^q(X,\sF)$. 证明并未使用 $\ell$ 与特征互素这一事实, 但我们只关心这种情形.
+
+\subsection{}\label{II:2-11}
+
+在本讲中, 所有重要计算都在 $\dZ/\ell^n$-层的层面上进行, 只在最后才过渡到 $\dQ_\ell$-层. 不过在实际应用中, 系统地使用 $\dQ_\ell$-层往往较为方便. 在 \cite{sga5} 第 V、VI 讲中, Jouanolou 建立了使之成为可能的形式体系. 一个基本结果 (\hyperref[VI:2-2]{VI 2.2}) 是: 若 $f:X\to Y$ 是 Noether 概形之间的分离有限型态射, $\sF$ 是 $Y$ 上的 $\dZ_\ell$-层, 则对每个 $q$, pro-层 $\text{``}\varprojlim\text{''}\eR^q f_! (\sF\otimes\dZ/\ell^n)$ 都是 $Y$ 上的 $\dZ_\ell$-层. 他还证明了各 $\eR^q f_!(\sF\otimes\dZ/\ell^n)$ 构成的逆系统具有更强的正则性 (Artin--Rees 型).
+
+Jouanolou 甚至在更一般的情形下工作, 其中包括很有用的 $E_\lambda$-层的情形, 这里 $E_\lambda$ 是 $\dQ_\ell$ 的有限扩张. 它们的定义与 $\dQ_\ell$-层相同, 只须将 $\dQ_\ell$ 换成 $E_\lambda$, 将 $\dZ_\ell$ 换成赋值 $\lambda$ 的赋值环 $\sO_\lambda$, 将 $\dZ/\ell^n$ 换成 $\sO_\lambda/\pi^n$, 其中 $\pi$ 是素元. 也可以等价地将 $E_\lambda$-层定义为带有同态 $E_\lambda\to\operatorname{End}(\sF)$ 的 $\dQ_\ell$-层 $\sF$.
+
+\section{迹公式与 \texorpdfstring{$L$}{L}-函数}\label{II:3}
+
+\emph{沿用 \S\ref{II:1} 的记号, 并设 $\ell$ 为素数, $\ell\ne p$.}
+
+设 $X_0$ 是 $\dF_q$ ($q=p^f$) 上的分离有限型概形, $\sF_0$ 是 $X_0$ 上的可构造 $\dQ_\ell$-层. Grothendieck 对 $L$-函数的上同调解释是如下定理:
+
+\begin{theorem_}\label{II:3-1}
+$L(X_0,\sF_0) = \prod_i \det\left(1-F^* t^f, \h_c^i(X,\sF)\right)^{(-1)^{i+1}}$.
+\end{theorem_}
+
+它是下列迹公式的推论:
+
+\begin{theorem_}\label{II:3-2}
+对每个整数 $n$, 有
+$\sum_{x\in X^{F^n}} \tr\left({F^n}^*,\sF_x\right) = \sum_i (-1)^i \tr\left({F^n}^*,\h_c^i(X,\sF)\right)$.
+\end{theorem_}
+
+下面简要回顾由 (\ref{II:3-2}) 推出 (\ref{II:3-1}) 的经典方法. 置 $T=t^f$; 两边都是关于 $T$ 的形式级数, 常数项均为 $1$. 由于 $\dQ_\ell$ 的特征为 $0$, 只须证明两边的对数导数 $T\frac{d}{dT}\log$ 相等.
+
+为计算这些对数导数, 我们使用公式
+\[
+  T \frac{d}{dT}\log\det(1-f T)^{-1} = \sum_{n>0} \tr(f^n) T^n \text{,}
+\]
+% NOTE: 英文源在此标注以下各行的排版不正确.
+其证明 (在略为一般的情形中) 将在下面回顾. 对左边, 得到
+\begin{align*}
+  T\frac{d}{dT}\log L(X_0,\sF_0)
+    &= \sum_{x\in |X_0|} \sum_n [k(x):\dF_q] \tr\left(F_x^n,\sF\right) T^{n\cdot[k(x):\dF_q]} \\
+    &= \sum_{n>0} T^n \sum_{x\in X^{F^n}} \tr\left({F^n}^*,\sF_x\right)
+\end{align*}
+而对右边则得到
+\[
+  \sum_{n>0} T^n \sum (-1)^i \tr\left({F^n}^*,\h_c^i(X,\sF)\right) \text{ ; }
+\]
+逐项比较即可.
+
+\begin{proposition_}\label{II:3-3}
+设 $A$ 是交换环, $M$ 是有限型投射 $A$-模, $f$ 是 $M$ 的自同态. 对每个可逆形式级数 $Q$, 置 $\frac{d}{dT}\log Q = Q^{-1}\frac{d}{dT}Q$. 则有
+\begin{equation*}\tag{3.3.1}\label{II:eq:3-3-1}
+  T\frac{d}{dT}\log\det(1-f T)^{-1} = \sum_{n>0} \tr(f^n) T^n \text{.}
+\end{equation*}
+\end{proposition_}
+
+取 $A$-模 $M'$, 使 $M\oplus M'$ 为有限秩自由模. 将 $(M,f)$ 换成 $(M\oplus M',f\oplus 0)$ 不改变 (\ref{II:3-3}) 的任何一边, 并将问题归结为 $M$ 自由的情形. 当 $M=A^d$ 时, \eqref{II:eq:3-3-1} 是关于 $f$ 的系数 $f_i^j$ 的代数恒等式. 根据代数恒等式的扩张原理, 只须在 $A$ 是特征为 $0$ 的代数闭域时验证. 由于在扩张 $0\to M'\to M\to M''\to 0$ 中两边都关于 $M$ 可加, 甚至只须处理 $M$ 的秩为 $1$ 的情形. 若 $f$ 是乘以 $a$, 则 \eqref{II:eq:3-3-1} 化为公式
+\[
+  T\frac{d}{dT}\log\left((1-a T)^{-1}\right) = \sum_{n>0} a^n T^n \text{.}
+\]
+
+\begin{corollary_}\label{II:3-4}
+设 $n$ 是整数, $f^{(n)}$ 是 $M^n$ 的自同态 $(x_1,\dotsc,x_n)\mapsto \left(f(x_n),x_1,\dotsc,x_{n-1}\right)$. 有
+\begin{equation*}\tag{3.4.1}\label{II:eq:3-4-1}
+  \det(1-f T^n) = \det(1-f^{(n)} T) \text{.}
+\end{equation*}
+\end{corollary_}
+
+与 (\ref{II:3-3}) 中一样, 可归结为假设 $A$ 的特征为 $0$. 此时只须验证两边的对数导数 $-T\frac{d}{dT}\log$ 相等.
+\begin{align*}
+  -T\frac{d}{dT}\log\det(1-f T^n) &= - n T^n \frac{d}{dT^n} \log\det(1-f T^n) = n \sum_{m>0} \tr(f^m) T^{n m} \text{,} \\
+  -T \frac{d}{dT}\log\det\left(1-f^{(n)} T\right) &= \sum_{m>0} \tr\left(f^{(n) m}\right) T^m \text{,}
+\end{align*}
+并注意到
+\begin{align*}
+  \tr(f^{(n) m}) &= 0 \qquad \text{若 $n\nmid m$} \\
+  \tr(f^{(n) n m}) &= n \tr(f^m) \text{.}
+\end{align*}
+
+\subsection{注}\label{II:3-5}
+
+当 $A=\dQ_\ell$ 时, \eqref{II:eq:3-4-1} 就是 (\ref{II:3-1}) 在 $X_0=\spec(\dF_{q^n})$ 时的特例. 利用这个恒等式, 容易直接验证 (\ref{II:3-1}) 的右边与 $q$ 以及结构态射 $X_0\to\spec(\dF_q)$ 无关.
+
+\subsection{注}\label{II:3-6}
+
+若 $j:X_0\hookrightarrow \bar X_0$ 是 $X_0$ 的一个紧化, 则有 $L(X_0,\sF_0) = L(\bar X_0, j_!\sF_0)$ 以及 $\h_c^i(X,\sF) = \h^i(\bar X,j_!\sF)$. 这将 (\ref{II:3-1}) 归结为适当情形, 并解释了为何使用适当支集上同调. 当 $X$ 适当时, (\ref{II:3-2}) 具有 Lefschetz 迹公式的形式. 注意, 局部项 $\tr(F^{n *},\sF_x)$ ($x\in X^{F^n}$) 只依赖于 $\sF$ 在 $x$ 处的纤维, 而不带任何重数. 当 $X$ 与 $\sF$ 都光滑时, 这对应于 $F$ 的图与对角线横截这一事实 (因为 $d F = 0$).
+
+\subsection{注}\label{II:3-7}
+
+若承认 $\dQ_\ell$-层的形式体系 (参见 \ref{II:2-11}; 需要 Leray 谱序列以及高阶正像 $\eR^q f_!$ 的基变换定理), 则容易将 (\ref{II:3-1}, \ref{II:3-2}) 的证明归结到 $X_0$ 为光滑曲线且 $\sF_0$ 光滑的情形. \cite[\S 5]{gr95} 对此有清楚的说明 (针对 \ref{II:3-1}; \ref{II:3-2} 的处理相同).
+
+\subsection{}\label{II:3-8}
+
+证明 (\ref{II:3-2}) 有两种方法.
+
+\paragraph{Lefschetz--Verdier}
+若 $X_0$ 适当 (参见 \ref{II:3-6}), 则一般的 Lefschetz--Verdier 迹公式将 (\ref{II:3-2}) 的右边表示为局部项之和, $X^{F^n}$ 的每个点对应一个局部项. 在 \cite{sga5} 的原始版本中, 这个公式只在假定奇点消解成立的条件下得到了证明. 读者将在最终版本中找到无条件的证明. 对于可以归约到的曲线情形 (\ref{II:3-7}), 证明所需的一切实际上早已具备.
+
+为了从 Lefschetz--Verdier 公式推出 (\ref{II:3-2}), 必须能够计算其局部项. 对曲线和 Frobenius 自同态, Artin 与 Verdier \cite{ve67} 已经完成了这一计算.
+
+\paragraph{Nielson--Wecken}
+受 Nielsen 和 Wecken 工作启发的一种方法, 能将 (\ref{II:3-2}) 归结为 Weil 证明的一个特例; 后面几节将说明这种方法.
+
+\section{归约到 \texorpdfstring{$\dZ/\ell^n$}{Z/l n}-上同调中的定理}\label{II:4}
+
+我们将通过对 $\dZ/\ell^n$-上同调中的类似定理取极限来证明 (\ref{II:3-2}). 其陈述遇到如下困难. 设 $X_0$ 是 $\dF_q$ 上的分离有限型概形, $\sF_0$ 是可构造平坦 $\dZ/\ell^n$-模层. 它的纤维是有限秩自由 $\dZ/\ell^n$-模, 因此 (\ref{II:3-2}) 的左边有意义 (它是 $\dZ/\ell^n$ 的一个元素). 另一方面, 各 $\h_c^i(X,\sF)$ 一般不是自由的, 所以右边没有定义. 为克服这一困难而使用导出范畴理论, 是 Grothendieck 对该理论的一项基本应用.
+
+\subsection{}\label{II:4-1}
+
+关于阿贝尔范畴 $\cA$ 的导出范畴 (derived category) $\eD(\cA)$ 以及子范畴 $\eD^+(\cA)$, $\eD^-(\cA)$, $\eD^b(\cA)$ 的定义, 参见本书中 Verdier 的文章. 对环 $\Lambda$, 我们以 $\eD(\Lambda)$ 代替 $\eD(\text{左 $\Lambda$-模的范畴})$; 对景 $X$, 以 $\eD(X,\Lambda)$ 代替 $\eD($左 $\Lambda$-模层的范畴$)$. $\eD^-$ 等记号也同样使用\ldots
+
+符号 $\eR$ (分别为 $\mathsf{L}$) 表示右导出 (分别为左导出) 函子. 例如, $\lotimes$ 表示张量积的导出函子: 对 $\eD^-(\Lambda^\circ)$ 中的 $K$ 和 $\eD^-(\Lambda)$ 中的 $L$ ($\Lambda^\circ$ 为 $\Lambda$ 的反环), $K\lotimes L$ 的计算如下: 取拟同构 $K'\to K$, $L'\to L$, 使 $K'$ 与 $L$ 上有界, 且其中一个的分量平坦, 再取双复形 $K'\otimes_\Lambda L'$ 所对应的单复形 $s(K'\otimes_\Lambda L)$.
+
+\subsection{}\label{II:4-2}
+
+即使只处理 $\dZ/\ell^n$-上同调的情形, 也需要不一定交换的环上的模自同态的迹理论 (有限群代数 $\dZ/\ell^n[G]$). 这些迹由 Stallings 与 Hattori 引入 \cite{ba76}.
+
+设 $\Lambda$ 是环 (有单位元, 但不一定交换). 用 $\Lambda^\natural$ 表示 $\Lambda$ 的加法群模去由交换子 $a b-b a$ 生成的子群的商群. 若 $f$ 是自由左 $\Lambda$-模 $\Lambda^n$ 的自同态, 其矩阵为 $f_i^j$, 则用 $\tr(f)$ 表示 $\sum_i f_i^i$ 在 $\Lambda^\natural$ 中的像. 若 $f$ 和 $g$ 是两个同态 $f:\Lambda^n \leftrightarrows \Lambda^m : g$, 则立即可验证 $\tr(f g) = \tr(g f)$.
+
+设 $f$ 是有限型投射 $\Lambda$-模 $P$ 的自同态. 将 $P$ 写成自由模 $\Lambda^n$ 的一个直和因子: 这就是说, 选取一个模 $P'$ 和一个同构 $\alpha:P\oplus P'\iso \Lambda^n$, 或者等价地, 选取同态 $a:P\to \Lambda^n$ 及其收缩 $b:\Lambda^n\to P$ (取 $P'=\ker(b)$). 令 $f'=\alpha(f\oplus 0)\alpha^{-1} =af b$. 置 $\tr(f) = \tr(f')$. $\Lambda^\natural$ 的这个元素只依赖于 $f$: 若作另一选择 $c:P\leftrightarrows \Lambda^m:d$, 则有 $a=a(dc)(ba)$, 从而
+\[
+ \tr(a f b) = \tr(adcbafb) = \tr(cbafbad) = \tr(cfd) \text{.}
+\]
+
+若 $f$ 是有限型投射 $\dZ/2$-分次 $\Lambda$-模的自同态, 分量为 $f_i^j:P^j\to P^i$, 则置
+\[
+  \tr(f) = \tr(f_0^0) - \tr(f_1^1) \text{.}
+\]
+有歧义时改写为 $\tr(f;P)$. 若同态 $f:P\leftrightarrows Q:g$ 是齐次的, 则归约到自由情形后立即验证得到
+\begin{equation*}\tag{4.2.1}\label{II:eq:4-2-1}
+  \tr(f g) = \tr\left((-1)^{\deg f \deg g} g f\right) \text{.}
+\end{equation*}
+
+若 $f$ 是滤过 $\dZ/2$-分次 $\Lambda$-模 $(P,F)$ 的自同态, 其滤过有限且与分次相容, 并且各 $\gr_F^i(P)$ 都是有限型投射模, 则 $P$ 是有限型投射模, 且
+\begin{equation*}\tag{4.2.2}\label{II:eq:4-2-2}
+  \tr(f;P) = \sum \tr\left(f; \gr_F^i(P) \right)
+\end{equation*}
+(将滤过分裂即可归结到直和的情形).
+
+\subsection{}\label{II:4-3}
+
+$\dZ$-分次模可按次数的奇偶性视为 $\dZ/2$-分次模. 特别地, 若 $f$ 是有限型投射 $\Lambda$-模的有界复形的自同态, 则置
+\begin{equation*}\tag{4.3.1}\label{II:eq:4-3-1}
+  \tr(f) = \sum (-1)^i \tr(f^i) \text{.}
+\end{equation*}
+
+由 \eqref{II:eq:4-2-1}, 若 $f$ 同伦于零, 则 $\tr(f) = 0$:
+\begin{equation*}\tag{4.3.2}\label{II:eq:4-3-2}
+  f = d H + H d \rightarrow \tr(f) = 0 \text{.}
+\end{equation*}
+
+设 $\mathsf{K}_\text{parf}(\Lambda)$ 为如下范畴: 对象是有限型投射 $\Lambda$-模的有界复形, 箭头是模去同伦的复形态射. 函子 $\mathsf{K}_\text{parf}(\Lambda)\to\eD(\Lambda)$ 全忠实. 将其本质像记为 $\mathsf{D}_\text{parf}(\Lambda)$. 利用公式 \eqref{II:eq:4-3-1} 与 \eqref{II:eq:4-3-2}, 可对 $K\in\ob \mathsf{D}_\text{parf}(\Lambda)$ 的自同态 $f$ 定义 $\tr(f)$ (此迹只依赖于 $(K,f)$ 的同构类).
+
+\subsection{}\label{II:4-4}
+
+回顾阿贝尔范畴 $\cA$ 的滤过导出范畴 $\mathsf{DF}(\cA)$: 它由 $\cA$ 中带有限滤过的对象复形范畴, 将滤过拟同构 (即在相伴分次上诱导拟同构的滤过复形态射) 逆化后得到. 有“底层复形”函子 $\mathsf{DF}(\cA)\to\eD(\cA): (K,F)\mapsto K$, 以及“相伴分次的第 $p$ 个分量”函子 $\mathsf{DF}(\cA)\to\eD(\cA): (K,F)\mapsto \gr_F^p(K)$.
+
+设 $\mathsf{KF}_\text{parf}(\Lambda)$ 为如下范畴: 对象是带有限滤过的有界滤过复形 $(K,F)$, 各 $\gr_F^p(K^q)$ 都是有限型投射模, 箭头是模去保持滤过的同伦的保持滤过的复形态射. 函子 $\mathsf{KF}_\text{parf}(\Lambda)\to\mathsf{DF}(\Lambda)$ 全忠实; 其本质像 $\mathsf{DF}_\text{parf}(\Lambda)$ 由 $\mathsf{DF}(\Lambda)$ 中那些各 $\gr_F^p(K)$ 属于 $\mathsf{D}_\text{parf}(\Lambda)$ 且几乎全为零的 $(K,F)$ 构成; 若 $(K,F)$ 属于 $\mathsf{DF}_\text{parf}(\Lambda)$, 则 $K$ 属于 $\mathsf{D}_\text{parf}(\Lambda)$.
+
+由 \eqref{II:eq:4-2-2}, 若 $f$ 是 $(K,F)\in\ob\mathsf{DF}_\text{parf}(\Lambda)$ 的自同态, 则有
+\begin{equation*}\tag{4.4.1}\label{II:eq:4-4-1}
+ \tr(f,K) = \sum_p \tr(f,\gr_F^p(K)) \text{.}
+\end{equation*}
+
+\subsection{}\label{II:4-5}
+
+设 $\Lambda$ 是环, $K\in\ob\eD^-(\Lambda)$. 若对每个右 $\Lambda$-模 $N$, 超 Tor $\h^i(N\lotimes_\Lambda K)$ 在 $i<-r$ 时均为零, 则称 $K$ 的 Tor 维数 (tor-dimension) $\leqslant r$. 若存在某个 $r$ 使此条件成立, 则称其 Tor 维数有限.
+
+对层的复形 $K\in\ob\eD^-(X,\Lambda)$ 也使用同样的术语.
+
+\begin{lemma}\label{II:4-5-1}
+设 $\Lambda$ 是左 Noether 环, $K\in\ob\eD^-(\Lambda)$. 则 $K$ 属于 $\mathsf{D}_\text{parf}(\Lambda)$ 当且仅当其 Tor 维数有限, 且各 $\h^i(K)$ 都是有限型的.
+\end{lemma}
+
+将 $K$ 换成 (在 $\eD^-(\Lambda)$ 中) 与之同构的复形后, 可以假定 $K$ 上有界, 且其分量都是有限秩自由模 (参见下文 \ref{II:4-7}). 若 $K$ 的 Tor 维数 $\leqslant r$, 则 $\h^i(K)$ 在 $i<-r$ 时为零, $K^{-r}/\im(d)$ 有自由消解
+\[
+  (\cdots \to K^{-r-1} \to K^{-r}) \to K^{-r}/\im(d) \text{,}
+\]
+并且对每个右 $\Lambda$-模 $N$, 当 $k\geqslant 1$ 时,
+$\h^{-r-k}(N\lotimes_\Lambda K) = \h^{-r-k}(N\otimes_\Lambda K)
+= \tor_k(N,K^{-r}/\im d)$.
+
+由假设, 这些群均为零; 因而模 $K^{-r}/\im d$ 平坦且为有限表示, 即为有限型投射模. $K$ 的商复形
+\[
+  0 \to K^{-r}/\im(d) \to K^{-r+1} \to K^{-r+2}\to \cdots
+\]
+与 $K$ 拟同构, 从而 $K\in\ob\mathsf{D}_\text{parf}(\Lambda)$.
+
+\begin{prop-def_}\label{II:4-6}
+设 $X$ 是 Noether 概形, $\Lambda$ 是左 Noether 环. 用 $\eD_\textnormal{ctf}^b(X,\Lambda)$ 表示 $\eD^-(X,\Lambda)$ 中由满足下列等价条件的复形 $\sK$ 构成的子范畴:
+\begin{enumerate}[\indent i)]
+  \item $\sK$ (在 $\eD^-(X,\Lambda)$ 中) 同构于可构造平坦 $\Lambda$-模层的有界复形.
+  \item $\sK$ 的 Tor 维数有限, 且各层 $\h^i(K)$ 都可构造.
+\end{enumerate}
+\end{prop-def_}
+
+从下面的引理出发, 作与 (\ref{II:4-5}) 中相同的论证即可.
+
+\begin{lemma_}\label{II:4-7}
+若 $\Lambda$-模层的复形 $\sK$ 满足各 $\h^i(\sK)$ 可构造, 且当 $i$ 充分大时为零, 则存在拟同构 $\sK'\to \sK$, 其中 $\sK'$ 上有界, 且其分量均平坦、可构造.
+\end{lemma_}
+
+从右向左逐项构造 $\sK'$. 取 $m$ 使 $\h^i(\sK)$ ($i\geqslant m$) 均为零, 并对 $i\geqslant m$ 置 ${\sK'}^i = 0$. 再假定对 $i>n$ 已构造出各 ${\sK'}^i$:
+\[\xymatrix{
+  \cdots \ar[r]
+    & \sK^{n-1} \ar[r]
+    & \sK^n \ar[r]
+    & \sK^{n+1} \ar[r]
+    & \cdots \\
+  & & & {\sK'}^{n+1} \ar[u] \ar[r]
+    & \cdots \text{,}
+}\]
+并且当 $i>n+1$ 时有 $\h^i(\sK')\iso \h^i(\sK)$, 而在次数 $n+1$ 处 $\ker(d)\to\h^{n+1}(\sK)$ 为满射. 由笛卡儿图定义层 $\sA$ 与 $\sB$:
+\[\xymatrix{
+  \sK^n \ar[r]
+    & \sK^n/\im(d) \ar[r]
+    & \ker(d) \\
+  \sA \ar[u] \ar[r]^u
+    & \sB \ar[u]\ar[r]
+    & \ker(d) \ar[u] \text{.}
+}\]
+
+此时 $\sB$ 可构造, $u$ 为满射, 而为将构造推进一步, 只须构造平坦可构造的 ${\sK'}^n$ 以及 $v:{\sK'}^n\to \sA$, 使 $u v$ 为满射. 以下引理保证能够这样做.
+
+\begin{lemma_}\label{II:4-8}
+设 $v:\sA\to \sB$ 是 $\Lambda$-模层的满态射, 且 $\sB$ 可构造. 则存在 $u:\sK\to \sA$, 其中 $\sK$ 平坦、可构造, 使 $v u$ 为满态射.
+\end{lemma_}
+
+层 $\sA$ 是一些形如 $\varphi_! \Lambda$ 的层的和的商, 其中 $\varphi:U\to X$ 平展. 由于 $\sB$ 是 Noether 的 (\cite[IX.2.10]{sga4}), 其中一个有限和已经满射到 $\sB$, 这就证明了引理.
+
+\begin{theorem_}\label{II:4-9}
+设 $f:X\to Y$ 是 Noether 概形之间的分离有限型态射. 若 $\sK\in\ob\eD_\textnormal{ctf}^b(X,\Lambda)$, 则 $\eR f_!\sK\in \ob\eD_\textnormal{ctf}^b(Y,\Lambda)$.
+\end{theorem_}
+
+回顾, 若 $j:X\hookrightarrow \bar X \xrightarrow{\bar f} Y$ 是 $X/Y$ 的相对紧化, 则按定义 $\eR f_! = \eR \bar f_* \circ j_!$, 其中 $\eR \bar f_*$ 是 $\bar f_*$ 的导出函子. 此公式将 (\ref{II:4-9}) 的证明归结为 $f$ 适当的情形. 当 $f$ 适当时, $f_*$ 的上同调维数有限; 因而可以在整个导出范畴上定义 $\eR f_*$, 也可以将其定义为函子
+\[
+  \eR f_* : \eD^-(X,\Lambda) \to \eD^-(Y,\Lambda) \text{.}
+\]
+通过复合, 一般情形下也可定义
+\[
+  \eR f_! : \eD^-(X,\Lambda) \to \eD^-(Y,\Lambda) \text{.}
+\]
+
+对每个右 $\Lambda$-模 $N$, 有 (证明见下文)
+\begin{equation*}\tag{4.9.1}\label{II:eq:4-9-1}
+  N\lotimes \eR f_! \sK \iso \eR f_! (N\lotimes \sK) \text{.}
+\end{equation*}
+
+由 \eqref{II:eq:4-9-1} 推出 (\ref{II:4-9}) 如下.
+\begin{enumerate}[\indent a)]
+  \item 谱序列
+    \[
+      E_2^{p q} = \eR^p f_! \h^q(\sK) \rightarrow \h^{p+q} \eR f_! \sK \text{.}
+    \]
+    以及 $\eR f_!$ 的有限性定理说明 $\eR f_!\sK\in \ob \eD^b(Y,\Lambda)$, 且其上同调可构造. 剩下只须证明其 Tor 维数有限 (\ref{II:4-6}).
+  \item 若 $\sK$ 的 Tor 维数 $\leqslant -r$, 则 $\eR f_! \sK$ 也如此: 有 $\h^i(N\lotimes \eR f_! \sK) = \h^i(\eR f_!(N\lotimes \sK))$, 且在上面用于 $N\lotimes \sK$ 的谱序列中, 当 $q<r$ 时各 $E_2^{p q}$ 为零, 因而当 $p+q<r$ 时当然也为零.
+\end{enumerate}
+
+下面在复形的层面上证明 \eqref{II:eq:4-9-1}.
+\begin{enumerate}[\indent a)]
+  \item 利用定义公式 $\eR f_! = \eR f_*\circ j_!$, 可归结为假设 $f$ 适当.
+  \item 以一个上有界复形表示 $\sK$, 其分量均对 $f_*$ 无上同调, 即当 $p>0$ 时 $\eR^p f_* \sK^q = 0$. 此时有 $\eR f_* K \sim f_* \sK$. 正因为 $f_*$ 的上同调维数有限, 才能这样使用上有界复形.
+  \item 若 $L$ 是自由右 $\Lambda$-模, 则有 $\eR^p f_*(L\otimes \sK^q) = L\otimes \eR^p f_* \sK^q$: 当 $\Lambda$ 为有限型自由模时这是平凡的, 一般情形则由取极限得到. 层 $L\otimes \sK^q$ 对 $f_*$ 无上同调, 且 $f_*(L\otimes \sK^q) = L\otimes f_* \sK^q$.
+  \item 设 $N_\bullet$ 是 $N$ 的自由消解. 有 $N\lotimes \sK\sim s(N_\bullet\otimes \sK)$ (双复形 $N_\bullet\otimes \sK$ 所对应的单复形). 由 c),
+    \[
+      \eR f_*(N\lotimes \sK) \sim \eR f_* (s(N_\bullet\otimes \sK)) \sim f_*(s(N_\bullet\otimes \sK)) \sim s(N_\bullet\otimes f_* \sK) \sim N\lotimes \eR f_* \sK \text{,}
+    \]
+    这就是所要的公式.
+\end{enumerate}
+
+当 $Y$ 是可分闭域的谱时, 函子 $\eR f_!$ 与一个记为 $\eR \Gamma_c : \eD_\text{ctf}^b(X,\Lambda)\to\eD_\text{parf}(\Lambda)$ 的函子等同.
+
+\begin{theorem_}\label{II:4-10}
+沿用 \S\ref{II:1} 的记号, 设 $X_0$ 是 $\dF_q$ 上的分离有限型概形, $\Lambda$ 是被一个与 $p$ 互素的整数零化的 Noether 挠环. 设 $\sK_0\in\ob\eD_\textnormal{ctf}^b(X_0,\Lambda)$. 按照 (\ref{II:4-3}) 中迹的定义, 对每个 $N$ 有
+\begin{equation*}\label{II:eq:4-10}
+  \sum_{x\in X^{F^n}} \tr\left({F^n}^*,\sK_x\right) = \tr\left({F^n}^*,\eR\Gamma_c(X,\sK)\right) \text{.}
+\end{equation*}
+\end{theorem_}
+
+在本节其余部分, 我们将由 \ref{II:4-10} 推出 \ref{II:3-2}, 并证明 \ref{II:2-10}.
+
+\subsection{\texorpdfstring{\ref{II:2-10}}{2.10} 的证明}\label{II:4-11}
+
+设 $X$ 是代数闭域 $k$ 上的分离有限型概形, $\sG$ 是 $X$ 上的 $\dQ_\ell$-层. 由 \ref{II:2-8}, 可将其写为 $\sG=\sF\otimes\dQ_\ell$, 其中 $\sF$ 是无挠 $\dZ_\ell$-层. 置
+\[
+  K_n = \eR \Gamma_c(X,\sF\otimes\dZ/\ell^{n+1})\in\eD(\dZ/\ell^{n+1}) \text{.}
+\]
+由 \ref{II:4-9}, 有 $K_n\in\ob\eD_\text{parf}(\dZ/\ell^{n+1})$, 而由 \eqref{II:eq:4-9-1} 可知自然箭头
+\begin{equation*}\tag{4.11.1}\label{II:eq:4-11-1}
+\xymatrix{
+  K_n\lotimes_{\dZ/\ell^{n+1}} \dZ/\ell^n \ar[r] & K_{n-1} \text{,}
+}
+\end{equation*}
+是一个同构. 如何定义此箭头将在 \ref{II:4-12} 中讨论.
+
+现在可援引 \cite[XV.3.3]{sga5} (第 31 页倒数第 1--2 行; 这一段独立于 \cite{sga5} 的其余部分), 将每个 $K_n$ 实现为有限秩自由 $\dZ/\ell^{n+1}$-模的有界复形, 将箭头 \eqref{II:eq:4-11-1} 实现为\emph{复形的同构}
+\[\xymatrix{
+  K_n\otimes \dZ/\ell^n \ar[r]^-\sim
+    & K_{n-1} \text{.}
+}\]
+令 $K$ 为复形 $\varprojlim K_n$. 它是自由 $\dZ_\ell$-模的有界复形, 且 $K_n\simeq K\otimes_{\dZ_\ell}\dZ/\ell^{n+1}$. 有
+\[
+  \h^i(K) = \varprojlim \h^i(K_n) \text{,}
+\]
+(事实上, 每个有限群的逆系统都满足 Mittag--Leffler 条件), 且 $\h^i(K)$ 是有限型 $\dZ_\ell$-模. 有
+\[
+  \h_c^i(X,\sG) = \left(\varprojlim \h^i(K_n) \right)\otimes_{\dZ_\ell} \dQ_\ell \text{:}
+\]
+这是一个有限维 $\dQ_\ell$-向量空间.
+
+\subsection{箭头 \texorpdfstring{\eqref{II:eq:4-11-1}}{(4.11.1)}}\label{II:4-12}
+
+为了\emph{定义}箭头 \eqref{II:eq:4-11-1}, 不能像 \ref{II:4-9} 中那样, 用自由 $\dZ/\ell^{n+1}$-模的复形来消解 $\dZ/\ell^n$, 因为我们要在 $\eD_\text{parf}(\dZ/\ell^n)$ 中构造同构. 所要的箭头是下面这个标量扩张箭头的特例.
+
+(*) 设 $\Lambda\to\Lambda'$ 是 Noether 挠环的同态. 对代数闭域 $k$ 上的分离有限型概形 $X$, 以及 $\sK\in\ob\eD_\text{ctf}(X,\Lambda)$, 有同构
+\[\xymatrix{
+  \eR\Gamma_c(X,\sK)\lotimes_\Lambda \Lambda' \ar[r]^-\sim & \eR \Gamma_c(X,\sK\lotimes_\Lambda \Lambda') \text{.}
+}\]
+
+更一般的箭头在 \cite[XVII 4.2.12]{sga4} 中构造. 方法如下:
+\begin{enumerate}[\indent a)]
+  \item 利用 $\eR\Gamma_c$ 的定义以及开浸入的公式 $j_!(\sK\otimes_\Lambda\Lambda') = (j_! \sK)\otimes_\Lambda\Lambda'$, 可归结到 $X$ 适当的情形.
+  \item 当 $X$ 适当时, 必须将 $\sK$ 换成有界复形, 其分量对函子 $\Gamma$ 无上同调, 且其在每个几何点 (甚至只须每个闭点) 处的纤维同伦于平坦 $\Lambda$-模的复形. 对这样的复形, 有 $\Gamma(X,\sK)\sim \eR\Gamma(X,\sK)$ 以及 $K\otimes_\Lambda\Lambda'\sim \sK\lotimes_\Lambda\Lambda'$; 箭头 \eqref{II:eq:4-11-1} 定义为复合
+    \[
+      \eR\Gamma(X,\sK)\lotimes_\Lambda \Lambda' \to \Gamma(X,\sK)\otimes_\Lambda\Lambda' \to \Gamma(X,\sK\otimes_\Lambda\Lambda') \xleftarrow\sim \eR\Gamma(X,\sK\lotimes_\Lambda\Lambda') \text{.}
+    \]
+  \item 剩下须说明 $\sK$ 可以换成所要类型的复形 \cite[XVII.4.2.10]{sga4}. 先将 $\sK$ 换成分量平坦的有界复形 (\ref{II:4-6}), 再取它的截断典范松弛消解 (这不改变各纤维复形的同伦型, 且截断位置取得充分远, 使对 $\Gamma$ 无上同调的条件成立, 即截断位置超过 $\Gamma$ 的上同调维数).
+\end{enumerate}
+
+\subsection{\texorpdfstring{(\ref{II:3-2})}{(3.2)} 的证明}\label{II:4-13}
+
+为简化记号, 只处理 (\ref{II:3-2}) 中 $n=1$ 的情形. 将下面的 $F$ 换成 $F^n$, 即得一般情形.
+
+于是, 设 $X_0$ 在 $\dF_q$ 上分离且为有限型, $\sG_0$ 是 $X_0$ 上的 $\dQ_\ell$-层. 对适当选取的无挠 $\dZ_\ell$-层 $\sF_0$, 有 $\sG_0=\sF_0\otimes\dQ_\ell$. 令 $K_n=\eR\Gamma_c(X,\sF\otimes\dZ/\ell^n)$. Frobenius 态射诱导态射
+\[
+  F^* : K_n\to K_n \qquad \text{(在 $\eD_\text{parf}(\dZ/\ell^{n+1})$ 中),}
+\]
+它们通过同构 \eqref{II:eq:4-11-1} 彼此导出.
+
+如 (\ref{II:4-11}) 中一样, 将各 $K_n$ 以及同构 \eqref{II:eq:4-11-1} 在复形层面实现. 已引用过的段落 \cite[XV.3.3]{sga5} 使我们能够将态射 $F^*$ 实现为复形自同态, 仍记为 $F^*$, 且这些自同态彼此模约化相容. 它们的逆极限及由其导出的自同态也记为 $F^*$. 由于 $\h_c^i(X,\sG) = \h^i(K)\otimes\dQ_\ell = \h^i(K\otimes\dQ_\ell)$, 有 (采用 \ref{II:eq:4-3-1} 的符号约定)
+\[
+  \tr\left(F^*, \h_c^\bullet(X,\sG)\right) = \tr\left(F^*,K^\bullet\otimes\dQ_\ell\right) = \varprojlim_n \tr\left(F^*,K_n^\bullet\right) = \varprojlim_n \tr\left(F^*,\eR\Gamma_c(X,\sF\otimes\dZ/\ell^{n+1})\right) \text{.}
+\]
+取 $\Lambda=\dZ/\ell^{n+1}$, 将 (\ref{II:4-10}) 应用于 $\sF_0\otimes\dZ/\ell^{n+1}$ (视为集中在次数 $0$ 的复形), 得
+\begin{align*}
+  \tr\left(F^*,\eR\Gamma_c(X,\sF\otimes\dZ/\ell^{n+1})\right)
+    &= \sum_{x\in X^F} \tr\left(F^*,\sF_x\otimes\dZ/\ell^{n+1}\right) \\
+    &= \sum_{x\in X^F} \tr\left(F^*,\sG_x\right) \mod \ell^{n+1} \text{,}
+\end{align*}
+取极限即得 (\ref{II:3-2}).
+
+\section{Nielsen--Wecken 方法}\label{II:5}
+
+本章证明 (\ref{II:4-10}) 的两个特例. 一般情形将在下一章考虑.
+
+\begin{lemma_}\label{II:5-1}
+当 $X_0$ 的维数为 $0$ 时, 定理 (\ref{II:4-10}) 成立.
+\end{lemma_}
+
+在维数 $0$ 的情形, 公式 \eqref{II:eq:4-10} 对任意对应都成立, 而不只对 Frobenius 的迭代成立. 它是下述命题的特例 (应用于 $X(\dF)$, $K$ 以及各 ${F^*}^n$).
+
+(*) 设 $X$ 是有限集, $F:X\to X$, $\sK\in\ob\eD_\text{parf}(X,\Lambda)$, 并设 $F^*:F^* \sK\to \sK$. 则有
+\[
+  \sum_{X^F} \tr\left(F^*,\sK_x\right) = \tr\left(F^*,\Gamma(X,K)\right) \text{.}
+\]
+
+有 $\Gamma(X,\sK)=\bigoplus_{x\in X} \sK_x$, 而对每个矩阵为 $u_x^y$ 的态射 $u:\bigoplus_{x\in X} \sK_x\to \bigoplus_{x\in X} \sK_x$, 有 $\tr(u)=\sum_{x\in X} \tr\left(u_x^x\right)$; 公式由此得出.
+
+\begin{lemma_}\label{II:5-2}
+设 $\Lambda$ 是被素数 $\ell\ne p$ 的某个幂零化的 Noether 挠环, $X_0$ 是 $\dF_q$ 上的光滑射影连通曲线, $j:U_0\hookrightarrow X_0$ 是 $X_0$ 的一个稠密开子概形, $\sG_0$ 是 $U_0$ 上的局部常值投射 $\Lambda$-模层. 有
+\[
+  \sum_{x\in U^F} \tr\left(F^*,\sG_x\right) = \tr\left(F^*,\eR\Gamma_c(U,\sG)\right) \text{.}
+\]
+\end{lemma_}
+
+更确切地说, 我们将由下面的定理推出 (\ref{II:5-2}).
+
+\begin{theorem_}\label{II:5-3}
+设 $X$ 是代数闭域 $k$ 上的非奇异射影曲线, $f$ 是 $X$ 的一个具有孤立不动点的自同态, $v(f)$ 是 $f$ 的不动点各按其重数计数所得的数目: $v(f)$ 是 $f$ 的图与 $X\times X$ 的对角线的相交数. 则当 $\ell$ 与 $k$ 的特征指数互素时, 有
+\[
+  v(f) = \sum (-1)^i \tr\left(f^*,\h^i(X,\dQ_\ell)\right) \text{.}
+\]
+\end{theorem_}
+
+此定理由 Weil 给出 (\cite{we48}, n$^\circ$ 43, 66, 68); Lang \cite{la83} 重述了 Weil 的证明 (VI \S3 结合 VII \S2, 定理 3). 也可以由与闭链相伴的上同调类的形式体系推出它 (\nameref{IV}, \ref{IV:3-7}).
+
+\begin{corollary_}\label{II:5-4}
+设 $j:U\hookrightarrow X$ 是 $X$ 的一个稠密开子概形, 满足 $f^{-1}(U)=U$. 若 $f$ 在 $X\setminus U$ 中的不动点的重数均为一, 则 $f$ 在 $U$ 中的不动点各按其重数计数所得的数目 $v_U(f)$ 为
+\[
+  v_U(f) = \sum (-1)^i \tr\left(f^*,\h_c^i(U,\dQ_\ell)\right) \text{.}
+\]
+\end{corollary_}
+
+设 $F$ 为有限集 $X\setminus U$. 短正合列 $0\to j_! \dQ_\ell\to\dQ_\ell\to{\dQ_\ell}_F\to 0$ 定义的上同调正合列
+\[\xymatrix{
+  \ar[r]^-\partial
+    & \h_c^i(U,\dQ_\ell) \ar[r]
+    & \h^i(X,\dQ_\ell) \ar[r]
+    & \h^i(F,\dQ_\ell) \ar[r]^-\partial
+    &
+}\]
+给出 (采用 (\ref{II:3-1}) 的符号约定)
+\[
+  \tr\left(f^*,\h_c^\bullet(U,\dQ_\ell)\right)
+    = \tr\left(f^*,\h^\bullet(X,\dQ_\ell)\right) - \tr\left(f^*,\h^\bullet(F,\dQ_\ell)\right)
+    = v(f) - \tr(f^*,\dQ_\ell^F) \text{.}
+\]
+$f^*$ 在 $\dQ_\ell^F$ 上的迹是 $f$ 在 $F$ 中的不动点的数目 $v_F(f)$; 所以重数为一的假设保证
+\[
+  \tr\left(f^*,\h_c^\bullet(U,\dQ_\ell)\right)
+    = v(f) - v_F(f) = v_U(f) \text{,}
+\]
+正如所要证明的.
+
+(\ref{II:5-2}) 的证明使用关于非交换迹 (\ref{II:4-2}) 的一个特例的若干引理, 下面对其加以论述. \emph{为简便起见, 以下说投射时均指有限型投射}.
+
+\subsection{}\label{II:5-5}
+
+设 $\Lambda$ 是环, $H$ 是有限群. 从群代数 $\Lambda[H]$ 到 $\Lambda^\natural$ 的映射 $\sum a_h \cdot a\mapsto $ $a_e$ 的类, 在 $\Lambda[H]$ 的交换子 $ab-ba$ 上为零. 因而它通过下列映射分解:
+\[
+  \varepsilon : \Lambda[H]^\natural \to \Lambda^\natural \text{.}
+\]
+若 $F$ 是投射 $\Lambda[H]$-模 $P$ 的自同态, 则置
+\[
+  \tr_\Lambda^H(F) = \varepsilon \tr_{\Lambda[H]} (F)
+\]
+其中右边出现的是 (\ref{II:4-2}) 的迹. 为免歧义, 有时将此迹写为 $\tr_\Lambda^H(F,P)$.
+
+\begin{proposition_}\label{II:5-6}
+$\tr_\Lambda(F) = |H|\tr_\Lambda^H(F)$.
+\end{proposition_}
+
+由迹的形式性质, 只须处理 $P=\Lambda[H]$ 的情形. 此时自同态 $F$ 是右乘以 $\Lambda[H]$ 的一个元素 $\sum a_h\cdot h$, 且 $\tr_\Lambda(F) = |H| a_e$, $\tr_\Lambda^H(F) = a_e$.
+
+\subsection{}\label{II:5-7}
+
+设 $A$ 是交换环, $\Lambda$ 是 $A$-代数. 乘以 $A$ 的元素下降到商上, 定义 $A^\natural$ 上的一个 $A$-模结构. 若 $H$ 是有限群, $P$ 是投射 $A[H]$-模, 而 $M$ 是一个作为 $\Lambda$-模投射的 $\Lambda[H]$-模, 则已知配备 $H$ 的对角作用的 $\Lambda$-模 $P\otimes_A M$ 是投射 $\Lambda[H]$-模. 事实上:
+\begin{enumerate}[\indent a)]
+  \item 只须在 $P=A[H]$ 时验证.
+  \item $\Lambda$-模 $P\otimes_A M$ 配备由 $H$ 在第一个因子上的作用定义的 $H$ 作用时, 显然是投射 $\Lambda[H]$-模; 将其记为 $(P\otimes_A M)'$.
+  \item 映射 $h\otimes m\mapsto h\otimes h^{-1} m$ 诱导同构
+    \begin{equation*}\tag{5.7.1}\label{II:eq:5-7-1}
+      A[H]\otimes_A M \iso (A[H]\otimes_A M)' \text{.}
+    \end{equation*}
+\end{enumerate}
+
+\begin{proposition_}\label{II:5-8}
+沿用上述记号, 若 $u$ 是 $P$ 的自同态, $v$ 是 $M$ 的自同态, 则
+\[
+  \tr_\Lambda^H(u\otimes v) = \tr_A^H(u)\tr_\Lambda(v) \text{.}
+\]
+\end{proposition_}
+
+可归结到假设 $P=A[H]$; 此时自同态 $u$ 是右乘以 $A[H]$ 的一个元素 $x=\sum a_h h$ 的映射 $m_x$. 同构 \eqref{II:eq:5-7-1} 将 $u\otimes v$ 变为 $\sum a_h m_h\otimes h^{-1} v$, 其迹为 $a_e\cdot\tr_\Lambda(v)$.
+
+\subsection{}\label{II:5-9}
+
+设群 $G$ 是 $\dZ$ 关于有限群 $H$ 的扩张
+\[
+  1 \to H \to G \to \dZ \to 1 \text{,}
+\]
+令 $G^+$ 为 $\dN$ 的逆像. 设 $\Lambda$ 是环, $P$ 是一个作为 $\Lambda[H]$-模投射的 $\Lambda[G^+]$-模. 对 $g\in G^+$, 以 $Z_g$ 表示 $g$ 在 $H$ 中的中心化子; 将 $P$ 视为 $\Lambda[Z_g]$-模时, 乘以 $g$ 是它的一个自同态. 由于 $P$ 是 $\Lambda[Z_g]$-投射的, 迹 $\tr_\Lambda^{Z_g}(g)$ 有定义. 由 \ref{II:5-6}, 有
+\begin{equation*}\tag{5.9.1}\label{II:eq:5-9-1}
+  \tr_\Lambda(g) = |Z_g| \cdot \tr_\Lambda^{Z_g}(g) \text{.}
+\end{equation*}
+
+假设 $\Lambda$ 是交换环 $A$ 上的代数. 对作为 $A[H]$-模投射的 $A[G^+]$-模 $P$, 以及作为 $\Lambda$-模投射的 $\Lambda[G^+]$-模 $M$, $\Lambda[G^+]$-模 $P\otimes_A M$ ($G^+$ 作对角作用) 作为 $\Lambda[H]$-模是投射的, 并且由 \ref{II:5-8}, 对每个 $g\in G^+$ 有
+\begin{equation*}\tag{5.9.2}\label{II:eq:5-9-2}
+  \tr_\Lambda^{Z_g}(g,P\otimes_A M) = \tr_A^{Z_g}(g,P) \cdot \tr_\Lambda(g,M) \text{.}
+\end{equation*}
+
+\subsection{}\label{II:5-10}
+
+设 $P$ 是作为 $\Lambda[H]$-模投射的 $\Lambda[G^+]$-模, $P_H$ 是 $P$ 关于 $H$ 的余不变量模 (coinvariants). 它是投射 $\Lambda$-模. $g\in G^+$ 的作用下降到商上, 定义 $P_H$ 的一个自同态, 其只依赖于 $g$ 在 $\dN$ 中的像. 将像为 $1$ 的各 $g\in G^+$ 的作用记为 $F$.
+
+\begin{proposition_}\label{II:5-11}
+$\tr_\Lambda(F,P_H) = \sum_{g\mapsto 1}' \tr_\Lambda^{Z_g}(g,P)$, 其中 $\sum_{g\mapsto 1}'$ 表示对 $G^+$ 中在 $\dN$ 中的像为 $1$ 的元素的 $H$-共轭类求和.
+\end{proposition_}
+
+将此公式乘以 $|H|$ 后, 可如下验证:
+\[
+  |H|\cdot \tr_\Lambda(F,P_H)
+    = \tr_\Lambda\left(\sum_{g\mapsto 1} g,P\right)
+    = \sum_{g\mapsto 1}' \frac{|H|}{|Z_g|}\tr_\Lambda(g,P)
+    = \sum_{g\mapsto 1}' |H|\cdot \tr_\Lambda^{Z_g}(g,P) \text{.}
+\]
+
+选取在 $\dN$ 中的像为 $1$ 的元素 $g\in G^+$, 令 $\sigma$ 是由 $H$ 的自同构 $\operatorname{ad} g$ 诱导的 $\Lambda[H]$ 的自同构. 给定一个 $\Lambda[G^+]$-模, 等价于给定带有一个 $\sigma$-线性自同态 $\gamma$ 的 $\Lambda[H]$-模: 令 $g^n h$ 按 $\gamma^n h$ 作用. 用这种语言, 公式 \ref{II:5-11} 写为: 对投射 $\Lambda[H]$-模 $P$ 及其 $\sigma$-线性自同态 $\gamma$, 有
+\[
+  \tr_\Lambda(\gamma,P_H) = \sum_h' \tr_\Lambda^{Z_g}(h\gamma,P)\text{,}
+\]
+其中 $\sum'$ 是对 $H$ 中的 $\operatorname{ad}g$-共轭类求和 (即 $H$ 通过映射 $x\mapsto h x \operatorname{ad} g(h)^{-1}$ 作用于自身的轨道).
+
+在这种形式下, 迹的性质立即将问题归结为 $P=\Lambda[H]$ 的情形. 此时自同态 $\gamma$ 形如 $x\mapsto \sigma(x) a$, 其中 $a=\sum a_h h$ 属于 $\Lambda[H]$. 只须处理各 $a_h$ 为不定元的普遍情形. 此时 $\Lambda=\dZ\langle a_h\rangle_{h\in H}$ (非交换多项式), 而 $\Lambda^\natural$ 无挠: 利用开头的论证再除以 $|H|$, 即得 \ref{II:5-11}. 也可以直接计算.
+
+\subsubsection{注}\label{II:5-11-1}
+
+上面的一切同样适用于 $\dZ/2$-分次模, 或模的复形 (参见 \ref{II:4-2}, \ref{II:4-3}).
+
+\subsection{}\label{II:5-12}
+
+保留 \ref{II:5-2} 的记号, 令 $A=\dZ/\ell^n$, 其中 $n$ 充分大, 使 $\Lambda$ 成为 $A$-代数. 设 $f:V_0\to U_0$ 是 $U_0$ 的有限平展连通覆盖, 它是 Galois 覆盖, Galois 群为 $H$, 并且层 $f^*\sG_0$ 为常值层. 将其常值 $\h^0(V_0,f^*\sG_0)$ 记为 $M$; 它是一个作为 $\Lambda$-模投射的 $\Lambda[H]$-模.
+
+$U_0$ 上的层 $f_* A$ 配备 $H$ 的自然作用, 是局部自由 (秩为一) $A[H]$-模层. 因此复形 $\eR\Gamma_c(U,f_* A)$ 是 $\eD_\text{parf}\left(A[H]\right)$ 的一个对象. 它带有 Frobenius 自同态 $F^*$.
+
+对 $H$ 在 $f_* f^*\sG_0$ 上的自然作用, 迹态射 $f_* f^*\sG_0\to\sG_0$ 通过同构
+\[
+  \left(f_* f^*\sG_0\right)_H \to \sG_0 \text{.}
+\]
+分解. 此外有 $f_* f^*\sG_0=f_* A\otimes_A M$ (其中 $H$ 作对角作用). 同构
+\[\xymatrix{
+  \sG_0
+    & \ar[l]_-\sim (f_* A\otimes_A M)_H = (f_* A\otimes_A M)\otimes_{\Lambda[H]} \Lambda
+}\]
+导出 (\ref{II:4-12}) 为同构
+\[
+  \eR\Gamma_c(U,\sG) \sim \left(\eR\Gamma_c(U,f_* A)\otimes_A M\right)\otimes_{\Lambda[H]} \Lambda \text{.}
+\]
+
+左边的自同态 $F^*$ 由 $\eR\Gamma_c(U,f_* A)$ 的自同态 $F^*$ 导出. 带有 $F^*$ 的 $\Lambda[H]$-模复形 $\eR\Gamma_c(U,f_* A)$ 可以视为 $\Lambda[G^+]$-模的复形, 其中 $G^+=H\times \dN$. 因此公式 \ref{II:5-10} 与 \eqref{II:eq:5-9-2}, 结合 \ref{II:5-11-1}, 给出
+\[
+  \tr\left(F^*,\eR\Gamma_c(U,\sG)\right) = \sum_h' \tr_A^{Z_h}\left(h F^*,\eR\Gamma_c(U,f_* A)\right)\cdot \tr_\Lambda(h,M)
+\]
+其中 $\sum'$ 表示对 $H$ 的共轭类求和. 此外,
+\[
+  |Z_h|\cdot \tr_A^{Z_h}\left(h F^*,\eR\Gamma_c(U,f_* A)\right) = \tr_A\left((F h^{-1})^*,\eR\Gamma_c(V,A)\right) \text{.}
+\]
+对 $A=\dZ/\ell^m$, 随着 $m$ 不断增大, 此公式仍成立. 取极限可知 $\tr_A^{Z_h}\left(h F^*,\eR\Gamma_c(U,f_* A)\right)$ 等于
+\[
+  \frac{1}{|Z_h|} \sum (-1)^i \tr\left((F h^{-1})^*,\h_c^i(V,\dQ_\ell)\right)
+\]
+(它是 $\dZ_\ell$ 的元素), 且
+\begin{equation*}\tag{5.12.1}\label{II:eq:5-12-1}
+\tr\left(F^*,\eR\Gamma_c(U,\sG)\right) = \sum_h' \frac{1}{|Z_h|} \tr\left((F h^{-1})^*,\h_c^\bullet(V,\dQ_\ell)\right)\cdot \tr_\Lambda(h,M) \text{.}
+\end{equation*}
+
+\subsection{}\label{II:5-13}
+
+剩下只须应用 \ref{II:5-4} (注意, 若 $\bar V$ 是 $V$ 的非奇异射影完备化, 则 $F h^{-1}$ 的所有不动点的重数都为一). 无须任何计算即可做到这一点:
+\begin{enumerate}[\indent A.]
+  \item 若 $U^F=\varnothing$, 则 $\tr\left(F^*,\eR\Gamma_c(U,\sG)\right) = 0$. \end{enumerate}
+
+事实上, $F h^{-1}$ 在 $V$ 上没有不动点; 由 \ref{II:5-4} 可知 $\sum (-1)^i \tr\left((F h^{-1})^*,\h_c^i(V,\dQ_\ell)\right)=0$, 再应用 \eqref{II:eq:5-12-1} 即可.
+\begin{enumerate}[\indent A.]
+\setcounter{enumi}{1}
+  \item 在一般情形, 令 $j:U'=U\setminus U^F\hookrightarrow U$. $\sG_0$ 的滤过 $j_! j^* \sG_0\subset \sG_0$ 诱导 $\eR\Gamma_c(U,\sG)$ 的滤过, 其逐次商为 $\eR\Gamma_c(U',\sG)$ 与 $\eR\Gamma_c(U^F,\sG)$. 由 \eqref{II:eq:4-4-1} 及 \ref{II:5-1}, 有
+    \[
+      \tr\left(F^*,\eR\Gamma_c(U,\sG)\right) = \tr\left(F^*,\eR\Gamma_c(U',\sG)\right) + \sum_{x\in U^F} \tr(F^*,\sG_x) \text{,}
+    \]
+    而由于 ${U'}^F=0$, 右边的第一项为 $0$.
+\end{enumerate}
+
+\section{\ref{II:4-10} 的证明的结束}\label{II:6}
+
+我们在附加假设环 $\Lambda$ 被某个素数 $\ell\ne p$ 的幂零化且 $n=1$ 的条件下证明 \ref{II:4-10}. 一般情形即可由此得出: 将 $\Lambda$ 分解为其各 $\ell$-准素分量 (其中 $\ell$ 遍历各素数), 再将 $\dF_q$ 换成 $\dF_{q^n}$, 将 $X_0$ 换成 $X_0\otimes_{\dF_q}\dF_{q^n}$.
+
+对 $\dF_q$ 上的分离有限型概形 $X_0$, 以及 $\sK_0\in\ob\eD_\text{ctf}(X_0,\Lambda)$, 置
+\[
+  T'(X_0,\sK_0) = \sum_{x\in X^F} \tr(F^*,\sK_x)
+\]
+及
+\[
+  T''(X_0,\sK_0) = \tr(F^*,\eR\Gamma_c(X,\sK)) \text{.}
+\]
+必须证明等式
+\[
+  (1;X_0,\sK_0) \qquad T'(X_0,\sK_0) = T''(X_0,\sK_0) \text{.}
+\]
+首先注意到, $T'$ 与 $T''$ (统记为 $T$) 服从同一套形式规则:
+
+(A) 若 $j:U_0\hookrightarrow X_0$ 是 $X_0$ 的开子概形, 其闭补集为 $Y_0$, 则有
+\[
+  T(X_0,\sK_0) = T(U_0,\sK_0|U_0) + T(Y_0,\sK_0|Y_0) \text{.}
+\]
+对 $T'$ 这是显然的. 对 $T''$, 注意 $\sK_0$ 的滤过 $0\subset j_! j^* \sK_0\subset \sK_0$ 诱导 $\eR\Gamma_c(X,\sK)$ 的滤过, 其逐次商为 $\eR\Gamma_c(U,\sK)$ 与 $\eR\Gamma_c(Y,\sK)$, 再援引 \eqref{II:eq:4-4-1} (更确切地说: 配备上述滤过的 $\sK_0$ 定义 $\mathsf{DF}(X,\Lambda)$ 的一个对象; 对其应用 $\eR\Gamma_c$, 得到 $\mathsf{DF}_\text{parf}(\Lambda)$ 的对象, 其底层对象为 $\eR\Gamma_c(X,\sK)$, 相伴分次如上所述).
+
+(B) 若 $\sK_0$ 是分量可构造且平坦的有界复形, 则
+\[
+  T(X_0,\sK_0) = \sum (-1)^i T(X_0,\sK^i) \text{.}
+\]
+对 $T'$ 这是显然的; 对 $T''$, 将上面的论证应用于 $\sK_0$ 的平凡滤过, 得到
+\[
+  T''(X_0,\sK_0) = \sum T''(X_0,\sK_0^i[-i]) = \sum (-1)^i T''(X_0,\sK_0^i) \text{.}
+\]
+
+(C) 对态射 $f:X_0\to Y_0$, 有
+\[
+  T''(X_0,\sK_0) = T''(Y_0,\eR f_! \sK_0)
+\]
+而若 $f$ 在 $Y_0$ 的各有理点处的纤维满足 $\left(1;f^{-1}(y),\sK_0|f^{-1}(y)\right)$, 则同一等式也对 $T'$ 成立: 利用下述事实
+\[
+  T'(X_0,\sK_0) = \sum_{y\in Y^F} T'\left(f^{-1}(y), \sK_0|f^{-1}(y)\right)
+\]
+以及
+\[
+  \eR\Gamma_c(Y, \eR f_! \sK) = \eR\Gamma_c(X,\sK) \text{.}
+\]
+
+利用这一形式体系与 \ref{II:4-7}, \ref{II:4-10} 的证明便归结到 \ref{II:5-1} 与 \ref{II:5-2} 两个特例.
