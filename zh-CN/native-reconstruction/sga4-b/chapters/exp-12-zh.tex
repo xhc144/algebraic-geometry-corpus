@@ -1,0 +1,1202 @@
+\chapter{固有态射的换基定理}
+%\addtocontents{toc}{M. Artin}
+\begin{center}
+M. Artin
+\end{center}
+\phantomsection\MakeLinkTarget*{sga4.exp.XII}\label{sga4.exp.XII}
+
+\setcounter{pageoriginal}{78}
+
+\section{引言}\etiquette[1]{XII.sec1}\pageoriginale
+
+本讲证明如下基本定理: 更精确地说, 对于概形间的\emph{固有}(proper) 态射 $f:X\to Y$ 及 $X$ 上的挠阿贝尔层 $F$, $R^qf_*F$ 在 $Y$ 的几何点 $\xi$ 处的茎同构于纤维 $X_\xi$ 的上同调 $H^q(X_\xi,F|X_\xi)$.
+
+回顾一下, 仿紧空间间固有态射的类似结果是众所周知而且容易的 (Godement II 4.11). 对概形而言, 这一结果要微妙得多. 例如, 与仿紧空间的情形不同, $F$ 为挠层的假设是必不可少的.
+
+证明分为几个阶段. 通过或多或少是形式的逐层剥离 (dévissage) 论证, 将问题归结为 $Y$ 是 Noether 概形、$f$ 的相对维数至多为 $1$ 且层 $F$ 为常层的情形. 为处理这一特殊情形, 要用到基本群的特殊化定理 (\hyperref[XII.thm5.9]{5.9}); 它是上述定理的一个非阿贝尔变体, 在这里所考虑的情形下可以直接证明 (\hyperrefext[XIII][XIII.sec2]{2}).
+
+\section{一个例子}\etiquette[2]{XII.sec2}\pageoriginale
+
+我们说明 $F$ 为挠层的假设是必要的. 设 $X$ 是代数闭域 $k$ 上的非奇异曲面, $Y$ 是 $k$ 上的非奇异曲线, $f:X\to Y$ 是固有态射, 其一般纤维光滑, 且在 $Y$ 的某个几何点 $\bar y$ 处的几何纤维不可约, 并有一个普通二重点 (ordinary double point). 取 $F$ 为常层 $\ZZ_X$.
+
+回顾下述事实. 对于概形 $Z$ 的任意点 $z$, 设 $i:z\to Z$ 为嵌入, 则 $H^1(Z,i_*\ZZ_z)=0$ (\hyperrefext[IX][IX.prop3.6]{3.6} (i)). 由于 $X$ 正规, 因而是单枝的, 所以 $\ZZ_X\simeq i_*\ZZ_x$, 其中 $i:x\to X$ 为一般点的嵌入. 因此 $H^1(X,\ZZ_X)=0$, 同样也有 $R^1f_*\ZZ_X=0$. 但对于 $X/Y$ 的具有普通二重点的几何纤维 $X_\circ$, 我断言 $H^1(X_\circ,\ZZ_{X_\circ})\simeq\ZZ$\footnote[1]{从 $\Pi_1$ 的观点比较 \SGA 3 X (6, 例) 及 (1.6).}; 这就给出了反例, 因为 $\ZZ_{X_\circ}\simeq\ZZ_X|X_\circ$.
+
+设 $i_\circ:x_\circ\to X_\circ$ 为 $X_\circ$ 的一般点的嵌入, $Q$ 为 $X_\circ$ 的奇点. 曲线 $X_\circ$ 在 $Q$ 处有两个“分枝”, 从而 $i_{\circ*}(\ZZ_{x_\circ})$ 在 $Q$ 处的茎同构于 $\ZZ\times\ZZ$. 在 $Q$ 之外, 曲线 $X_\circ$ 正规, 因此在 $X_\circ-Q$ 上有 $i_{\circ*}(\ZZ_{x_\circ})\simeq\ZZ_{X_\circ}$. 所以有正合列
+$$
+0\longrightarrow\ZZ_{X_\circ}\longrightarrow
+i_{\circ*}(\ZZ_{x_\circ})\longrightarrow(\ZZ)_Q
+\longrightarrow0{\quoi},
+$$
+其中末项是点 $Q$ 上的层 $\ZZ$ 的零延拓. 这三项的 $H^0$ 都同构于 $\ZZ$, 并且\linebreak $H^1(X_\circ,i_{\circ*}(\ZZ_{x_\circ}))=0$. 因此上同调长正合列给出 $H^1(X_\circ,\ZZ_{X_\circ})=\ZZ$\pageoriginale.
+
+\section{非阿贝尔 $H^1$ 的回顾}\etiquette[3]{XII.sec3}
+
+我们简要回顾下面将要用到的非阿贝尔上同调的一些结果. 大多数证明均略去; 它们在各种特殊情形下都是熟知的, 可见 Giraud 的学位论文 [1].
+
+设 $X$ 为概形, $F$ 为 $X$ 上的群层. 对每个平展 $X'/X$, 可以定义带基点集合 (pointed set) $H^1(X',F)$, 它对 $F$ 具有协变函子性, 对 $X'$ 具有反变函子性. 函子 $H^1$ 与层的有限积可交换. 若 $f:X\to Y$ 为态射, 则可以定义带基点集合层 (即具有指定截面的层) $R^1f_*F$. 它是带基点集合预层 $\Rr^1F$ 的伴随层, 后者将每个平展 $Y'/Y$ 对应于集合 $H^1(\fprod{X}{Y'}{Y},F)$.
+
+有通常的上同调正合列; 我们记录其中一个:
+
+\begin{enonce*}{命题 3.1}\etiquette[3.1]{XII.prop3.1}
+设 $0\to F\xrightarrow{u}G$ 为群层的单射, $C=G/F$ 为 $G$ 的齐性空间层. 有带基点集合层的正合列
+$$
+0\to f_*F\to f_*G\to f_*C\xrightarrow{\partial}
+R^1f_*F\xrightarrow{u^1}R^1f_*G{\quoi}.
+$$
+\end{enonce*}
+
+当然, 这一正合列由预层的正合列取伴随层而得; 后者在平展 $Y'/Y$ 上的值为
+$$
+0\to F(X')\to G(X')\to C(X')\xrightarrow{\partial}
+H^1(X',F)\to H^1(X',G){\quoi},
+$$
+其中\pageoriginale $X'=\fprod{X}{Y'}{Y}$. $\partial$ 所诱导的等价关系就是 $f_*G$ 在 $f_*C$ 上的作用所给出的等价关系. 和通常一样, 可以利用“扭转”(twisting) 的概念 [1] 明确写出 $u^1$ 所诱导的等价关系.
+
+\begin{enonce*}{命题 3.2}\etiquette[3.2]{XII.prop3.2}
+设 $X\xrightarrow{f}Y\xrightarrow{g}Z$ 为概形态射. 对每个平展 $Z'/Z$, 置 $Y'=\fprod{Y}{Z'}{Z}$ 及 $X'=\fprod{X}{Z'}{Z}$, 则有正合列
+$$
+0\longrightarrow H^1(Y',f_*F)\longrightarrow H^1(X',F)
+\longrightarrow H^0(Y',R^1f_*F){\quoi}.
+$$
+取伴随层, 得到 $Z$ 上带基点层的正合列:
+$$
+0\longrightarrow (R^1g_*)f_*F\longrightarrow R^1(gf)_*F
+\longrightarrow g_*(R^1f_*)F{\quoi}.
+$$
+\end{enonce*}
+
+\begin{enonce*}{命题 3.3}\etiquette[3.3]{XII.prop3.3}
+形如 $H^1(X',F)$ (其中 $X'$ 在 $X$ 上平展) 以及形如 $R^1f_*F$ (其中 $f:X\to Y$ 为任意态射) 的函子族是可消去的 (effaceable): 存在单射 $F\xrightarrow{u}G$, 使所有诱导态射 $H^1(X',F)\to H^1(X',G)$ 及 $R^1f_*F\to R^1f_*G$ 均为零. 更精确地说, 存在这样的单射, 使每个 $H^1(X',G)$ (其中 $X'$ 在 $X$ 上平展) 以及每个带基点层 $R^1f_*G$ 都为零. 若 $X$ 是 Noether 概形, 且 $F$ 是可构造的 ind-$\LL$ 群层, 则存在这样的单射, 使 $G$ 也为 ind-$\LL$ 群层.
+\end{enonce*}
+
+\emph{证明.} 第一个断言大概在任意拓扑斯中都成立, 但对于平展拓扑, 利用“Godement 预解”来进行消去是方便的:
+\begin{equation*}
+F\longrightarrow G=\prod_{x\in X}i_{x*}i_x^*F{\quoi}.
+\tag{3.4}
+\end{equation*}\etiquette[3.4]{XII.eq3.4}
+这里\pageoriginale $x$ 遍历 $X$ 的各点, $i_x:\bar x\to X$ 是 $x$ 上方的一个几何点. 对于平展 $X'/X$, 有
+$$
+G(X')=\prod_{x\in X}(i_x^*F)(\fprod{X'}{\bar x}{X})
+=\prod_{x\in X}\left(\prod_{\bar x'/\bar x}F_{\bar x'}\right){\quoi},
+$$
+其中 $\bar x'$ 是 $X'$ 的几何点. 显然 $X'$ 的每个点上方至少有一个 $\bar x'$; 所以 $F(X')\subset G(X')$ (VIII 3), 因而 $F\subset G$. 此外, 每个平展 $\bar u/\bar x$ 都是可分闭域的谱的不交并, 所以对 $\bar x$ 上的每个层 $\bar G$ 都有 $H^1(\bar u,\bar G)=0$. 由 \hyperref[XII.prop3.2]{3.2} 可知, 对每个平展 $X'/X$ 都有 $H^1(X',i_{x*}i_x^*F)=0$. 由于 $H^1$ 与积可交换, 有 $H^1(X',G)=0$, 因而对每个 $f:X\to Y$ 都有 $R^1f_*G=0$; 这是由将 $R^1f_*G$ 描述为预层 $Y'\mapsto H^1(\fprod{X}{Y'}{Y},G)$ 的伴随层得到的.
+
+再假设 $F$ 可构造, $X$ 是 Noether 概形. 立即可知, 存在 $X$ 的有限点集 $\{x_1,\ldots,x_n\}$, 使
+$$
+F\longrightarrow\prod_{1\leq i\leq n}i_{x_i*}i_{x_i}^*F
+$$
+已经为单射. 层 $i_{x_i*}i_{x_i}^*F$ 是 ind-有限群层 (IX \hyperref[IX.def1.5]{1.5}), 因而其有限积也是 (\hyperrefext[IX][IX.prop1.4]{1.4} 及 \hyperrefext[IX][IX.prop1.6]{1.6} (iii)). 以此层代替 $G$, 就得到最后一个断言.
+
+\setcounter{subsection}{4}
+\subsection{}\etiquette[3.5]{XII.subsec3.5}
+与阿贝尔上同调的情形一样 (见 V \hyperref[V.subsec2.4]{2.4}), $H^1$ 可以用 \v{C}ech 方法计算 [1].
+
+\section{换基态射}\etiquette[4]{XII.sec4}\pageoriginale
+
+设
+$$
+\xymatrix@C=2.75cm@R=1.5cm{
+X \ar[d]_{f}&X'\ar[l]_{g'}\ar[d]^{f'}\\
+S&S'\ar[l]_{g}
+}
+$$
+是概形态射的笛卡尔方块. 由此按如下方式得到函子态射 $\varphi=\varphi_g$:
+\begin{equation*}
+g^{\ast}f_{\ast}\xrightarrow{\varphi}f'_{\ast}{g'}^{\ast}\tag{4.1}
+\end{equation*}\etiquette[4.1]{XII.eq4.1}
+由 $g^{\ast}$ 与 $g_{\ast}$ 之间的伴随性, 给定这样的态射等价于给定函子态射
+\begin{equation*}
+f_{\ast}\longrightarrow g_{\ast}{f'}_{\ast}{g'}^{\ast}{\quoi}.
+\tag{4.1 adj}
+\end{equation*}\MakeLinkTarget*{sga4.exp.XII.equation.4.1-adj}\label{4.1 adj}
+我们取为如下态射:
+$$
+f_{\ast}\xrightarrow{(\id\rightarrow {g'}_{\ast}{g'}^{\ast})}
+f_{\ast}{g'}_{\ast}{g'}^{\ast}
+=g_{\ast}{f'}_{\ast}{g'}^{\ast}{\quoi},
+$$
+这里利用了
+$$
+g_{\ast}{f'}_{\ast}=(gf')_{\ast}=(fg')_{\ast}
+=f_{\ast}{g'}_{\ast}{\quoi}.
+$$
+
+\eqhyperref[XII.eq4.1]{4.1} 还有另一个候选. 事实上, 给定这样的态射也等价于给定
+$$
+{f'}^{\ast}g^{\ast}f_{\ast}\longrightarrow {g'}^{\ast},
+$$
+而我们可以取
+$$
+{f'}^{\ast}g^{\ast}f_{\ast}\simeq
+{g'}^{\ast}f^{\ast}f_{\ast}
+\xrightarrow{(f^{\ast}f_{\ast}\rightarrow\id)}{g'}^{\ast}{\quoi}.
+$$
+
+我不知道\pageoriginale 这两种选取是否总是一致\footnote[1]{\textsc{Deligne} 先生在广泛得多的背景下肯定地解决了这一疑问; \cf 第 XVII 讲.}; 无论如何, 我们只使用第一种. 称它为\emph{换基态射}(base-change morphism).
+
+将 \eqhyperref[XII.eq4.1]{4.1} 限制到阿贝尔层 (分别地, 群层), 就对每个 $q\geq0$ (分别地, $q=0,1$) 得到态射 $\varphi^q=\varphi^q_g$:
+\begin{equation*}
+g^{\ast}(R^qf_{\ast})\xrightarrow{\varphi^q}
+(R^q{f'}_{\ast}){g'}^{\ast}{\quoi}.
+\tag{4.2}
+\end{equation*}\etiquette[4.2]{XII.eq4.2}
+事实上, 这等价于给定
+\begin{equation*}
+(R^qf_{\ast})\longrightarrow
+g_{\ast}(R^q{f'}_{\ast}){g'}^{\ast}{\quoi},
+\tag{4.2 adj}
+\end{equation*}\MakeLinkTarget*{sga4.exp.XII.equation.4.2-adj}\label{4.2 adj}
+而有如下“显然”的态射:
+\begin{gather*}
+(R^qf_{\ast})\xrightarrow{a}
+(R^qf_{\ast}){g'}_{\ast}{g'}^{\ast}
+\xrightarrow{b}R^q(fg')_{\ast}{g'}^{\ast}\\
+=R^q(gf')_{\ast}{g'}^{\ast}
+\xrightarrow{c}g_{\ast}(R^q{f'}_{\ast}){g'}^{\ast}{\quoi}.
+\end{gather*}
+
+\begin{enonce*}[remark]{注 4.3}\etiquette[4.3]{XII.rem4.3}
+假设 $g$ (因而 $g'$) 为闭浸入. 则上述态射 $b$ 与 $c$ 为同构 (VIII \hyperref[VIII.cor5.7]{5.7}). 因此 \eqhyperref[XII.eq4.2]{4.2} 实质上正是上述态射 $a$, 它由对典范态射 $F\rightarrow {g'}_{\ast}{g'}^{\ast}F$ 应用 $R^qf_{\ast}$ 而得.
+\end{enonce*}
+
+\begin{enonce*}{命题 4.4}\etiquette[4.4]{XII.prop4.4}
+(换基态射的复合).
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item 设
+$$
+\xymatrix@C=2.5cm@R=1.5cm{
+X\ar[d]_{f}&X'\ar[l]_{g'}\ar[d]_{f'}&
+X''\ar[l]_{h'}\ar[d]_{f''}\\
+S&S'\ar[l]_{g}&S''\ar[l]_{h}
+}
+$$
+是概形态射的\pageoriginale 笛卡尔图表. 则下图交换:
+$$
+\xymatrix@C=2cm@R=1.5cm{
+(gh)^{\ast}f_{\ast}\ar[rr]^{\varphi_{gh}}
+\ar[d]^{\text{\rotatebox{90}{$\backsim$}}}&&
+f''_{\ast}(g'h')^{\ast}
+\ar[d]^{\text{\rotatebox{90}{$\backsim$}}}\\
+h^{\ast}g^{\ast}f_{\ast}
+\ar[r]^{h^{\ast}\varphi_g}&
+h^{\ast}f'_{\ast}g'^{\ast}
+\ar[r]^{\varphi_h g'^{\ast}}&
+f''_{\ast}h'^{\ast}g'^{\ast}.}
+$$
+在有关函子的自然定义范围内, 将 $f_{\ast}$、$f'_{\ast}$ 及 $f''_{\ast}$ 分别换成 $R^qf_{\ast}$、$R^qf'_{\ast}$ 及 $R^qf''_{\ast}$ 所得的图表也同样交换 \textup{(\cf 第 $\textup{n}^{\circ}$ 3 节)}.
+
+\item 设
+$$
+\xymatrix@C=3.25cm@R=1.25cm{
+Y\ar[d]_{e}&Y'\ar[l]_{g''}\ar[d]^{e'}\\
+X\ar[d]_{f}&X'\ar[l]_{g'}\ar[d]^{f'}\\
+S&S'\ar[l]_{g}
+}
+$$
+是概形态射的笛卡尔图表. 则下图交换:
+$$
+\xymatrix@C=2.75cm@R=1.5cm{
+g^{\ast}(fe)_{\ast}\ar[rr]^{\varphi_g^{fe}}\ar@{=}[d]&&
+(f'e')_{\ast}g''^{\ast}\ar@{=}[d]\\
+g^{\ast}f_{\ast}e_{\ast}
+\ar[r]^{\varphi_g^f e_{\ast}}&
+f'_{\ast}g'{}^{\ast}e_{\ast}
+\ar[r]^{f'_{\ast}\varphi_{g'}^e}&
+f'_{\ast}e'_{\ast}g''^{\ast},
+}
+$$
+其中三个水平箭头分别来自 $fe$、$f$ 及 $e$ 的换基同态.
+
+在阿贝尔情形下, $fe$ 的换基态射由如下谱序列态射诱导:
+$$
+\xymatrix{
+E^{p,q}_2=g^{\ast}(R^pf_{\ast})(R^qe_{\ast})F
+\ar@{=>}[r]\ar[d]_{\varphi}&
+g^{\ast}R^{p+q}(fe)_{\ast}F\ar[d]_{\varphi}\\
+(R^pf'_{\ast})(R^qe'_{\ast})g''^{\ast}F
+\ar@{=>}[r]&R^{p+q}(f'e')_{\ast}g''^{\ast}F,
+}
+$$
+它在起始项上由 $e$ 与 $f$ 的换基态射诱导. 对于群层, 有正合列态射
+$$
+\xymatrix{
+0\ar[r]&g^{\ast}(R^1f_{\ast})e_{\ast}F
+\ar[r]\ar[d]^{\varphi}&
+g^{\ast}R^1(fe)_{\ast}F\ar[r]\ar[d]^{\varphi}&
+g^{\ast}f_{\ast}(R^1e_{\ast})F\ar[d]^{\varphi}\\
+0\ar[r]&(R^1f'_{\ast})e'_{\ast}g''^{\ast}F\ar[r]&
+R^1(f'e')_{\ast}g''^{\ast}F\ar[r]&
+f'_{\ast}(R^1e'_{\ast})g''^{\ast}F.
+}
+$$
+\end{enumerate}
+\end{enonce*}
+
+证明留给读者.
+
+\section{主要定理的陈述及若干变体}\etiquette[5]{XII.sec5}
+
+定理如下:
+
+\begin{enonce*}{定理 5.1}\etiquette[5.1]{XII.thm5.1}
+(固有换基定理). 设
+$$
+\xymatrix@C=3.25cm@R=1.5cm{
+X \ar[d]_{f} & X' \ar[l]_{g'} \ar[d]^{f'}\\
+S & S' \ar[l]_{g}
+}
+$$
+是概形的笛卡尔图表, 其中 $f$ 固有.
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item 设 $F$ 是 $X$ 上的集合层. 则态射 \eqhyperref[XII.eq4.1]{4.1}
+$$
+\varphi:g^{\ast}f_{\ast}F\longrightarrow {f'}_{\ast}{g'}^{\ast}F
+$$
+为双射.
+
+\item 设\pageoriginale $F$ 是 $X$ 上的群层 (分别地, ind-有限群层). 则态射 \eqhyperref[XII.eq4.2]{4.2}
+$$
+\varphi^1:g^{\ast}(R^1f_{\ast})F\longrightarrow
+(R^1{f'}_{\ast}){g'}^{\ast}F
+$$
+为单射 (分别地, 双射).
+
+\item 设 $F$ 是 $X$ 上的挠阿贝尔层. 则态射 \eqhyperref[XII.eq4.2]{4.2}
+$$
+\varphi^q:g^{\ast}(R^qf_{\ast})F\longrightarrow
+(R^q{f'}_{\ast}){g'}^{\ast}F
+$$
+对每个 $q\geq0$ 均为双射.
+\end{enumerate}
+\end{enonce*}
+
+先给出定理的一些直接推论. 若 $S'=\xi$ 是 $S$ 的几何点, 因而 $\xi$ 上的层由其整体截面决定, 则对 $X'$ 上的每个层 $G$ 都有 $H^0(\xi,R^q{f'}_{\ast}G)=H^q(X',G)$. 于是得到下述推论 (此外, 它实质上与 \hyperref[XII.thm5.1]{5.1} 等价):
+
+\begin{enonce*}{推论 5.2}\etiquette[5.2]{XII.cor5.2}
+设 $f:X\longrightarrow S$ 固有, $\xi\longrightarrow S$ 为几何点, $X_{\xi}$ 为 $f$ 在 $\xi$ 处的纤维.
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item 若 $F$ 为 $X$ 上的集合层, 则典范换基态射
+$$
+(f_{\ast}F)_{\xi}\longrightarrow H^0(X_{\xi},F|X_{\xi})
+$$
+为双射.
+
+\item 若 $F$ 为群层 (分别地, ind-有限群层), 则换基态射
+$$
+(R^1f_{\ast}F)_{\xi}\longrightarrow H^1(X_{\xi},F|X_{\xi})
+$$
+为单射 (分别地, 双射).
+
+\item 若\pageoriginale $F$ 为挠阿贝尔层, 则对每个 $q\geq0$, 换基态射
+$$
+(R^qf_{\ast}F)_{\xi}\longrightarrow H^q(X_{\xi},F|X_{\xi})
+$$
+为双射.
+\end{enumerate}
+\end{enonce*}
+
+考虑到 \hyperrefext[X][X.cor4.3]{4.3} 及 \hyperrefext[X][X.cor5.2]{5.2}, 得到:
+
+\begin{enonce*}{推论 5.3}\etiquette[5.3]{XII.cor5.3}
+在 \hyperrefext[X][X.cor5.2]{5.2} 的假设下, 设 $n$ 为纤维 $X_{\xi}$ 的维数. 则对 $X$ 上的每个挠阿贝尔层 $F$, 茎 $(R^qf_{\ast}F)_{\xi}$ 在 $q>2n$ 时为零. 若 $F$ 为 $p$ 挠群层, 其中 $p$ 是 $\xi$ 的特征, 则 $R^qf_{\ast}F$ 在 $\xi$ 处的茎在 $q>n$ 时为零.
+\end{enonce*}
+
+回顾一下, 若每个纤维的维数均 $\leq n$, 就称 \emph{$X/S$ 的相对维数} $\leq n$. 因而有:
+
+\begin{enonce*}{推论 5.3 bis}\etiquette[5.3 bis]{XII.corbis5.3}
+设 $f:X\longrightarrow S$ 固有, $X/S$ 的相对维数 $\leq n$. 则对 $X$ 上的每个挠阿贝尔层 $F$, 当 $q>2n$ 时有 $R^qf_{\ast}F=0$. 若 $S$ 的特征为 $p$, 且 $F$ 为 $p$ 挠阿贝尔群层, 则当 $q>n$ 时有 $R^qf_{\ast}F=0$.
+\end{enonce*}
+
+将 \hyperref[XII.thm5.1]{5.1} 应用于可分闭域的谱之间的态射, 得到:
+
+\begin{enonce*}{推论 5.4}\etiquette[5.4]{XII.cor5.4}
+(固有情形下上同调在基域扩张下的不变性). 设 $k\subset K$ 为可分闭域, $X$ 为 $\Spec k$ 上的固有概形. 置 $X'=X_K$. 设 $F$ 为 $X$ 上的层, $F'$ 为它在 $X'$ 上的逆像层. 则:
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item $H^0(X,F)\xrightarrow{\sim}H^0(X',F')$.
+
+\item 若\pageoriginale $F$ 为群层 (分别地, ind-有限群层), 则态射
+$$
+H^1(X,F)\longrightarrow H^1(X',F')
+$$
+为单射 (分别地, 双射).
+
+\item 若 $F$ 为挠阿贝尔层, 则对每个 $q$ 都有
+$$
+H^q(X,F)\xrightarrow{\sim}H^q(X',F')
+$$
+\end{enumerate}
+\end{enonce*}
+
+\hyperref[XII.cor5.2]{5.2} 的一个略有不同的变体如下:
+
+\begin{enonce*}{推论 5.5}\etiquette[5.5]{XII.cor5.5}
+设 $S$ 为 Hensel 环的谱, $S'=s_{\circ}$ 为其闭点, $f:X\longrightarrow S$ 固有. 置 $X_{\circ}=X'$ 及 $F_{\circ}={g'}^{\ast}F$. 则:
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item $H^0(X,F)\xrightarrow{\sim}H^0(X_{\circ},F_{\circ})$
+
+对每个集合层 $F$ 都成立.
+
+\item 态射 $H^1(X,F)\longrightarrow H^1(X_{\circ},F_{\circ})$
+
+对每个群层 (分别地, ind-有限群层) $F$ 为单射 (分别地, 双射).
+
+\item $H^q(X,F)\xrightarrow{\sim}H^q(X_{\circ},F_{\circ})$
+
+对每个挠阿贝尔层 $F$ 及每个 $q$ 都成立.
+\end{enumerate}
+\end{enonce*}
+
+事实上, 当 $S$ 是严格局部概形时, 此陈述只是 \hyperref[XII.cor5.2]{5.2} 的特殊情形. 假设已知 \hyperref[XII.cor5.2]{5.2}. 设 $\bar S$ 为 $S$ 的严格局部化, $\bar s$ 为 $\bar S$ 的闭点, $G$ 为 $\bar S/S$ 的 Galois 群 (它也是 $\bar s/s_{\circ}$ 的 Galois 群). 则 $G$ 作用在 $R^q$ 的茎上, 并且采用显然的记号, 对集合层 $F$ 有
+\begin{align*}
+H^0(X,F)&\simeq H^0(\bar X,\bar F)^G,\\
+H^0(X_{\circ},F_{\circ})&\simeq
+H^0(\bar X_{\circ},\bar F_{\circ})^G
+\end{align*}
+\pageoriginale 由于 $H^0(\bar X,\bar F)\xrightarrow{\sim}
+H^0(\bar X_{\circ},\bar F_{\circ})$, 而且该同构显然与 $G$ 的作用可交换, 得到断言 (i).
+
+若 $F$ 为群层, 容易定义带基点集合正合列的态射
+$$\vcenter{\etiquette[5.5.1]{XII.eq5.5.1}
+\xymatrix{
+0 \ar[r] & H^1(G,H^0(\bar X,\bar F)) \ar[r]\ar[d] &
+H^1(X,F) \ar[r]\ar[d] & H^1(\bar X,\bar F)^G \ar[d]\\
+0 \ar[r] & H^1(G,H^0(\bar X_{\circ},\bar F_{\circ})) \ar[r] &
+H^1(X_{\circ},F_{\circ}) \ar[r] &
+H^1(\bar X_{\circ},\bar F_{\circ})^G ,
+}}\leqno{(5.5.1)}
+$$
+其中左边的竖直箭头为同构, 由 \hyperref[XII.cor5.2]{5.2}, 右边的竖直箭头为单射. 设 $\alpha,\beta\in H^1(X,F)$ 为在 $H^1(X_{\circ},F_{\circ})$ 中具有相同像的类, $F^{\alpha}$ 为将 $F$ 以 $\alpha$ 扭转所得的层 \cite{sga4.exp.XII.bib.1}. 设 $\beta'$ 为 $H^1(X,F^{\alpha})$ 中对应于 $\beta$ 的类. 由于对应于 $\alpha$ 的类 $\alpha'$ 是中性的, $\beta'$ 在 $H^1(X_{\circ},(F^{\alpha})_{\circ})$ 中的像是中性的.
+
+考虑在 \eqhyperref[XII.eq5.5.1]{5.5.1} 中以 $F^{\alpha}$ 代替 $F$ 所得的图表. 它说明 $\beta'$ 在 $H^1(\bar X,\bar F^{\alpha})^G$ 中的像是中性的, 因而 $\beta'$ 来自 $H^1(G,H^0(\bar X,\bar F^{\alpha}))$ 的一个元素; 此元素本身必为中性的. 因此 $\beta'$ 是中性的, 即 $\beta'=\alpha'$, 从而 $\beta=\alpha$. 这就证明了 (ii) 中态射的单射性.
+
+现在假设 $F$ 是 ind-有限群层, 并证明 (ii) 中箭头的满射性. 只须证明函子 $F\mapsto H^1(X_{\circ},F_{\circ})$ 可消去. 事实上, 设 $0\longrightarrow F\xrightarrow{u}G$ 是消去该函子的单射, 并置 $C=G/F$. 有正合列态射 (\hyperref[XII.prop4.4]{4.4})
+$$
+\xymatrix{
+H^0(X,C) \ar[r]\ar[d] & H^1(X,F) \ar[d]_{\epsilon}\ar[r] &
+H^1(X,G) \ar[d]\\
+H^0(X_{\circ},C_{\circ}) \ar[r] &
+H^1(X_{\circ},F_{\circ}) \ar[r]^{u_{\circ}^1} &
+H^1(X_{\circ},G_{\circ})
+}
+$$
+其中 $u_{\circ}^1$ 为零; 这确实蕴含 $\epsilon$ 的满射性.
+
+来证明\pageoriginale 对于 ind-有限群层 $F$, 函子 $F\mapsto H^1(X_{\circ},F_{\circ})$ 可消去. 设 $F\xrightarrow{u}C$ 为“Godement 预解” \eqhyperref[XII.eq3.4]{3.4}. 有
+$$
+H^1(G,H^0(\bar X_{\circ},\bar C_{\circ}))\simeq
+H^1(G,H^0(\bar X,\bar C))\subset H^1(X,C)=0{\quoi}.
+$$
+
+此外, 有交换方块
+$$
+\xymatrix{
+H^1(\bar X,\bar F) \ar@{-}[r]^{\sim}\ar[d] &
+H^1(\bar X_{\circ},\bar F_{\circ})\ar[d]\\
+0=H^1(\bar X,\bar C) \ar[r] &
+H^1(\bar X_{\circ},\bar C_{\circ})
+}
+$$
+(事实上, $H^1(\bar X,\bar C)=\varinjlim H^1(X',C)=0$, 其中 $X'/X$ 遍历平展态射), 所以右边的竖直箭头为零. 于是有正合列态射
+$$
+\xymatrix{
+0 \ar[r] & H^1(G,H^0(\bar X_{\circ},\bar F_{\circ}))
+\ar[r]\ar[d] & H^1(X_{\circ},F_{\circ}) \ar[r]\ar[d]^{\beta} &
+H^1(\bar X_{\circ},\bar F_{\circ})^G \ar[d]^{\alpha^G}\\
+&0 \ar[r] & H^1(X_{\circ},C_{\circ}) \ar[r] &
+H^1(\bar X_{\circ},\bar C_{\circ})^G
+}
+$$
+其中 $\alpha^G$ 为零. 因而 $\beta$ 也为零, 所以该函子可消去.
+
+最后证明 \hyperref[XII.cor5.5]{5.5} 的断言 (iii). 有谱序列态射
+$$
+\xymatrix{
+**[l]E_2^{p,q}=H^p(G,H^q(\bar X,\bar F))
+\ar@{=>}[r]\ar[d] & H^n(X,F)\ar[d]^{\varphi}\\
+H^p(G,H^q(\bar X_{\circ},\bar F_{\circ}))
+\ar@{=>}[r] & H^n(X_{\circ},F_{\circ}).
+}
+$$
+由 \hyperref[XII.cor5.2]{5.2}, 态射 $H^q(\bar X,\bar F)\longrightarrow
+H^q(\bar X_{\circ},\bar F_{\circ})$ 为同构. 因而 $E_2^{p,q}$ 项的态射为同构, 从而收敛项的态射也是同构. 结果得证, \cqfd
+
+\setcounter{subsection}{5}
+\subsection{}\etiquette[5.6]{XII.subsec5.6}
+来考察\pageoriginale $F$ 为常层时的 \hyperref[XII.cor5.5]{5.5} (i) 与 (ii). 设 $F=T_X$ 为 $X$ 上以 $T$ 为值的常集合层. 则 $F(X)$ 就是 $X$ 到 $T$ 的局部常值映射的集合. 若 $X_{\circ}$ 为 $X$ 的子概形, 且 $T$ 至少有两个元素, 则 $F(X)\longrightarrow F(X_{\circ})$ 为双射当且仅当映射
+$$
+U\longmapsto U_{\circ}=U\cap X_{\circ}
+$$
+为双射, 这里它是从 $X$ 的既开又闭的子集所成集合 $\Theta(X)$ 到类似集合 $\Theta(X_{\circ})$ 的映射. 若 $X_{\circ}$ 的连通分支集合 $\Pi_{\circ}(X_{\circ})$ 有限, 则这等价于映射 $\Pi_{\circ}(X_{\circ})\longrightarrow\Pi_{\circ}(X)$ 为双射. 因而 \hyperref[XII.cor5.5]{5.5} (i) 也可重述如下 (注意在这种情形下, $X_{\circ}$ 在域上有限型, 因而是 Noether 概形, 所以 $\Pi_{\circ}(X_{\circ})$ 有限):
+
+\begin{enonce*}{推论 5.7}\etiquette[5.7]{XII.cor5.7}
+设 $S$ 为 Hensel 环的谱, $s_{\circ}$ 为其闭点, $f:X\longrightarrow S$ 为固有态射, $X_{\circ}$ 为 $X/S$ 的闭纤维. 则 $X_{\circ}\longrightarrow X$ 所诱导的映射
+$$
+\Pi_{\circ}(X_{\circ})\longrightarrow\Pi_{\circ}(X)
+$$
+为双射.
+\end{enonce*}
+
+(特别地, 这说明 $\Pi_{\circ}(X)$ 有限.) 我们将在 Noether 情形下直接证明 \hyperref[XII.cor5.7]{5.7}:
+
+\begin{enonce*}{引理 5.8}\etiquette[5.8]{XII.lem5.8}
+若 $S$ 为 Noether 概形, 则陈述 \hyperref[XII.cor5.7]{5.7} 成立\footnote[1]{\Cf \EGA IV 18.5.19.}.
+\end{enonce*}
+
+\emph{证明.} 在 Noether 情形下, $\Pi_{\circ}(X)$ 当然有限. 将 $X$ 换成一个连通分支, 可以假设 $\Pi_{\circ}(X)$ 只有一个元素, 即 $X$ 连通且非空. 必须证明 $X_{\circ}$ 也连通且非空. $X$ 在 $S$ 中的像因 $f$ 固有而闭, 又因 $X$ 非空而非空; 所以它包含 $s_{\circ}$, 这说明 $X_{\circ}$ 非空. 设
+$$
+\xymatrix@R=1cm@C=1.5cm{
+X \ar[rd]^{f'} \ar[dd]_{f}& \\
+  & S'\ar[ld]^{\pi}\\
+S &
+}
+$$
+为 $f$ 的\pageoriginale Stein 分解 (\EGA III 4.3.3), 于是 $S'/S$ 有限而 $S'$ 连通. 已知 $f'$ 的每个纤维都连通且非空, 而 $X_{\circ}$ 的底空间是 $S'$ 的各闭点上方的纤维的底空间之并. 只须证明 $S'$ 是某个\emph{局部}环的谱. 由于 $S$ 是 Hensel 环, $S'$ 的环 $A'$ 是局部环之积 (VII \hyperref[VII.prop4.1]{4.1} (i)); 又因 $S'$ 连通, $A'$ 是局部环. 这就证明了 \hyperref[XII.lem5.8]{5.8}.
+
+\setcounter{subsection}{9}
+\setcounter{subsubsection}{-1}
+\subsubsection{}\etiquette[5.9.0]{XII.subsubsec5.9.0}
+现在假设 $F=G_X$ 为以有限群 $G$ 为值的常群层. 则 $H^1(X,G_X)$ 分类 $X$ 的群为 $G$ 的主 Galois 覆盖 (VII \hyperref[VII.rem2.1]{2.1}). 推论 \hyperref[XII.cor5.5]{5.5} (ii) 说态射 $X_{\circ}\longrightarrow X$ 诱导这些覆盖的同构类集合之间的双射. 根据 $\Pi_1$ 的定义, \hyperref[XII.cor5.5]{5.5} (ii) 对于常有限群层的结论 (连同 (i)) 等价于:
+
+\begin{enonce*}{定理 5.9}\etiquette[5.9]{XII.thm5.9}
+(基本群的特殊化定理). 采用 \hyperref[XII.cor5.5]{5.5} 的记号, 假设 $X$ 连通且非空. 则 $X_{\circ}$ 连通且非空; 并且, 若 $\bar x_{\circ}$ 为 $X_{\circ}$ 的几何点, 则基本群态射
+$$
+\Pi_1(X_{\circ},\bar x_{\circ})\longrightarrow
+\Pi_1(X,\bar x_{\circ})
+$$
+为同构.
+\end{enonce*}
+
+另一方面\pageoriginale, 由 Galois 理论 (\SGA V), 陈述 \hyperref[XII.thm5.9]{5.9} (在 $X_{\circ}$ 连通的情形下; 由 \hyperref[XII.cor5.7]{5.7} 可以这样假设) 等价于:
+
+\begin{enonce*}{定理 5.9 bis}\etiquette[5.9 bis]{XII.thmbis5.9}
+设 $S$ 为 Hensel 环的谱, $s_{\circ}$ 为 $S$ 的闭点, $f:X\longrightarrow S$ 为固有态射, $X_{\circ}$ 为 $X/S$ 的闭纤维. 对概形 $Z$, 以 $\Et(Z)$ 表示 $Z$ 的平展覆盖范畴. 则限制函子
+$$
+\Et(X)\longrightarrow\Et(X_{\circ})
+$$
+为范畴等价.
+\end{enonce*}
+
+\begin{enonce*}[remark]{注 5.10}\etiquette[5.10]{XII.rem5.10}
+回顾一下, 当 $S$ 为完备 Noether 局部环的谱时, 已经证明了 \hyperref[XII.thm5.9]{5.9} (\SGA 1 X 2.1). 遗憾的是, 这一结果似乎不能给出一般情形下 \hyperref[XII.thm5.9]{5.9} 的证明\footnote[1]{自写下这些文字以来, 情况已经改变; \cf M. Artin, Algebraic approximation of structures over complete local rings (待刊) 中的定理 \hyperref[XII.prop3.1]{3.1}.}. 本讲及下一讲给出的 \hyperref[XII.thm5.9]{5.9} 的证明, 与 \SGA 1 X 中所给的证明很不相同.
+\end{enonce*}
+
+\setcounter{subsection}{10}
+\subsection{}\etiquette[5.11]{XII.subsec5.11}
+利用 J. \textsc{Giraud} 的 2-上同调理论 (\cf J. \textsc{Giraud} 正在撰写的学位论文), 可以给出 \hyperref[XII.cor5.5]{5.5} (ii) 的另一个“非交换”变体. 假设 $S$ 为 Noether 概形. 设 $L$ 为 $X$ 上的一个\emph{带}(band), 并假设 $L$ 在局部 (相对于平展拓扑) 由一个 ind-有限群层表示. 考虑映射
+$$
+\varphi^{(2)}:H^2(X,L)\longrightarrow H^2(X_{\circ},L_{\circ}){\quoi},
+$$
+其中 $L_{\circ}$ 为 $L$ 在 $X_{\circ}$ 上的限制. 则
+\begin{equation*}
+(\varphi^{(2)})^{-1}(H^2(X_{\circ},L_{\circ})')
+=H^2(X,L)'{\quoi},\tag{5.11.1}
+\end{equation*}\etiquette[5.11.1]{XII.eq5.11.1}
+其中\pageoriginale “撇号”表示由中性元素组成的子集.
+
+由 \hyperref[XII.cor5.5]{5.5} (iii), 这一陈述也等价于下述陈述:
+
+\emph{对 $X$ 上带为上述 $L$ 的每个 gerbe（层群胚）$\mathcal G$, 以 $\mathcal G_{\circ}$ 表示它在 $X_{\circ}$ 上的限制. 则截面范畴之间的限制函子}
+$$
+\mathcal G(X)\longrightarrow\mathcal G_{\circ}(X_{\circ})
+$$
+\emph{为范畴等价.}
+
+
+事实上, 此函子完全忠实由 \hyperref[XII.cor5.5]{5.5} (i) 得到; 当 $\mathcal G(X)\neq\varnothing$, 即 $\mathcal G$ 的类 $\xi\in H^2(X,\sisi{\mathcal G}{L})$ 为中性时, 此函子本质满由 \hyperref[XII.cor5.5]{5.5} (ii) 得到. 还须表达如下事实: $\mathcal G_{\circ}(X_{\circ})\neq\varnothing$ 蕴含 $\mathcal G(X)\neq\varnothing$, 而这恰为 \eqhyperref[XII.eq5.11.1]{5.11.1}.
+
+这里不给出 \eqhyperref[XII.eq5.11.1]{5.11.1} 的证明. 只指出, 对任意 Noether 概形 $X$ 及 $X$ 的任意闭子概形, 事实上可以证明, 陈述 \hyperref[XII.cor5.5]{5.5} (i)、(ii) 的成立蕴含 \eqhyperref[XII.eq5.11.1]{5.11.1} 的成立. 证明相当初等, 利用下降结果 VIII \hyperref[VIII.thm9.4]{9.4} a).
+
+\section{初步归约}\etiquette[6]{XII.sec6}
+
+用缩写 $(f,F,g)$ 表示 \hyperref[XII.thm5.1]{5.1} 在该定理的 (i)、(ii)、(iii) 任一情形中的数据.
+
+\begin{enonce*}{引理 6.1}\etiquette[6.1]{XII.lem6.1}
+要使 \hyperref[XII.thm5.1]{5.1} 对数据 $(f,F,g)$ 成立, 其中 $f$ 与 $F$ 固定而 $g$ 任意, 只须定理对 $(\bar f,\bar F,\bar g)$ 成立, 这里 $\bar S$ 遍历如下 $S$ 概形: 它是某个在 $S$ 上局部\pageoriginale 有限型的概形 $S'$ 在其纤维中的一个闭点处的严格局部化. 这里 $\bar f$ 与 $\bar F$ 由 $f$ 与 $F$ 经换基 $\bar S\to S$ 而得, $\bar g:\bar s\to\bar S$ 为 $\bar S$ 的闭点的嵌入.
+\end{enonce*}
+
+\noindent
+\emph{证明.} 显然可以假设 $S$ 与 $S'$ 仿射, 设分别为环 $A$ 与 $A'$ 的谱. 则 $A'$ 为其有限型 $A$ 子代数 $A'_i$ 的滤过正向极限. 利用取极限的理论 (VII \hyperref[VII.cor5.11]{5.11} 及 \hyperref[VII.rem5.14]{5.14}), 只须对三元组 $(f,F,g_i)$ 证明 \hyperref[XII.thm5.1]{5.1}, 其中 $g_i:\Spec(A'_i)=S'_i\to S$; 这就归结为 $g$ 为有限型的情形. 为证明换基同态为同构, 只须证明它们在有关层的茎上诱导同构, 并且只须考虑 $S'$ 的点 $s'$ 处的几何茎, 其中这些点在 $S$ 上的纤维中为闭点 (VIII \hyperref[VIII.rem3.13]{3.13}). 设 $\bar s'$ 为 $S'$ 的几何点, 对应于 $k(s')$ 的某个可分闭包. 由于 $s'$ 在 $S$ 的相应点 $s$ 上代数, $k(\bar s')$ 也是 $k(s)$ 的可分闭包. 以 $\bar s$ 表示视为 $S$ 上的预概形 $\bar s'$, 即视为 $S$ 的几何点, 并考虑 $S$ 与 $S'$ 分别在 $\bar s$ 与 $\bar s'$ 处的严格局部化 $\bar S$ 与 $\bar S'$. 于是有交换方块
+$$
+\vcenter{
+\xymatrix@C=3cm@R=1.25cm{
+\bar{s}'  \ar[r] \ar[d]& \bar{s}\ar[d]\\
+\bar{S}'  \ar[r] &  \bar{S},
+}}
+$$
+其中第一个水平箭头为同构. 由 VIII \hyperref[VIII.thm5.2]{5.2} 及 \hyperref[VIII.rem5.3]{5.3}, 与 $(f,F,g)$ 关联的换基同态在 $\bar s'$ 处的茎上所诱导的同态, 等同于由 $\bar X'\to\bar X$ 诱导\pageoriginale 的同态
+$$
+H^{i}(\bar{X},\bar{F})\longrightarrow H^{i}(\bar{X}',\bar{F}')
+$$
+其中 $\bar X$ 与 $\bar X'$ 分别表示 $X$ 经换基 $\bar S\to S$ 及 $\bar S'\to S$ 所得的概形. 上面的交换方块显然给出交换方块
+$$
+\xymatrix@C=3cm@R=1.5cm{
+H^{i}(\bar{X}_{\bar{s}}, \bar{F}) \ar[r]&
+H^{i}(\bar{X}'_{\bar{s}'},\bar{F}')\\
+H^{i}(\bar{X},\bar{F})  \ar[r] \ar[u]&
+H^{i}(\bar{X}',\bar{F}') \ar[u],
+}
+$$
+其中第一个水平箭头仍为同构. 因此, 只要两个竖直箭头都是同构, 第二个水平箭头就是同构. 这恰是 \hyperref[XII.lem6.1]{6.1} 的假设所保证的, \cqfd
+
+\setcounter{subsection}{1}
+\subsubsection{}\etiquette[6.1.1]{XII.subsubsec6.1.1}
+因此, 为在情形 $(F,f,-)$ 下证明 \hyperref[XII.thm5.1]{5.1}, 只须研究特殊情形 \hyperref[XII.cor5.5]{5.5}, 其中 $S$ 严格局部. 这引导我们一般地研究概形态射 $h:Y\to X$, 并寻求使相应同态
+$$
+H^{i}(X,F)\longrightarrow H^{i}(Y,h^{\ast}(F))
+$$
+为双射的一般条件. 本小节给出这一情形下的一些简单辅助结果. 为便于以后引用, 我们以比证明 \hyperref[XII.thm5.1]{5.1} 所需的更一般、更精确的形式陈述这些结果.
+
+\begin{enonce*}{引理 6.2}\etiquette[6.2]{XII.lem6.2}
+设 $C$ 与 $C'$ 为两个阿贝尔范畴, $T^{\bigdot}=(T^{i})$ 与 $T'^{\bigdot}=({T'}^{i})$ 为从 $C$ 到 $C'$ 的两个上同调函子, $\varphi=(\varphi^{i})$ 为从 $T^{\bigdot}$ 到 $T'^{\bigdot}$ 的上同调函子\pageoriginale 态射. 假设 $T^{\bigdot}$ 与 $T'^{\bigdot}$ 在次数 $<0$ 时为零, 且 $T^{i}$ 对 $i>0$ 可消去. 设 $n$ 为整数. 下述条件等价:
+\begin{enumerate}
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item $\varphi^{i}$ 对 $i\leq n$ 为同构, 对 $i=n+1$ 为单态射.
+
+\item (若 $n\geq -1$.) 同态 $\varphi^{i}$ 对 $i=0$ 为单态射, 对 $i\leq n$ 为满态射.
+
+\item (若 $n\geq 0$.) 同态 $\varphi^{\circ}$ 为同构, 且 ${T'}^{i}$ 对 $0<i\leq n$ 可消去.
+\end{enumerate}
+
+若这些条件成立且 $A\in\Ob(C)$, 则 $\varphi^{n+1}(A):T^{n+1}(A)\to {T'}^{n+1}(A)$ 为满态射 (从而为同构), 当且仅当 ${T'}^{n+1}(A)$ 可消去, 即存在单态射 $A\to B$, 使相应同态 ${T'}^{n+1}(A)\to {T'}^{n+1}(B)$ 为零. 若 $C'=(\Ab)$ 为阿贝尔群范畴, 且 $\xi\in {T'}^{n+1}(A)$, 则 $\xi$ 属于 $T^{n+1}(A)$ 的像, 当且仅当 $\xi$ 可消去, 即存在单态射 $A\to B$, 使 $\xi$ 在 ${T'}^{n+1}(B)$ 中的像为零.
+\end{enonce*}
+
+\noindent
+\emph{证明.} 显然 (a) 蕴含 (b) 与 (c). 由于对 $T^{\bigdot}$ 的假设蕴含 $i>0$ 时的 $T^{i}$ 是 $T^{\circ}$ 的右卫星函子, 蕴含 (c) $\Rightarrow$ (a) 就由卫星函子的公理刻画得到. 它也可对 $n$ 作归纳, 从 \hyperref[XII.lem6.2]{6.2} 的最后一个断言得到; 后者可用熟知的论证证明, 这里不再重复 (比较下面 \hyperref[XII.cor6.6]{6.6} 的证明). 若 $n=-1$, 则蕴含 (b) $\Rightarrow$ (a) 是直接的. 若 $n\geq0$, 对 $n$ 作归纳: 归纳假设允许我们假设 $\varphi^{i}$ 对 $i\leq n-1$ 为同构, 对\pageoriginale $i=n$ 为单态射. 于是题设使它对 $i=n$ 也为同构, 只须利用 $\varphi^n$ 为同构, 证明它对 $i=n+1$ 为单态射. 设 $A\to B$ 为消去 $T^{n+1}$ 的单态射, 从而在 $C$ 中有正合列 $0\to A\to B\to C\to0$, 并在 $C'$ 中有正合列态射:
+$$
+\xymatrix@R=1.25cm{
+T^{n}(B)  \ar[r] \ar[d]& T^{n}(C)  \ar[r]\ar[d] & T^{n+1}(A) \ar[d] \ar[r] & T^{n+1}(B)\ar[d]\\
+T'^{n}(B)  \ar[r] & T'^{n}(C) \ar[r] & T'^{n+1}(A)  \ar[r] &
+T'^{n+1}(B),
+}
+$$
+其中由刚才的证明, 前两个竖直箭头为同构, 而 $T^{n+1}(A)\to T^{n+1}(B)$ 根据构造为零. 于是五引理蕴含 $T^{n+1}(A)\to {T'}^{n+1}(A)$ 为单态射, \cqfd
+
+\begin{enonce*}{推论 6.3}\etiquette[6.3]{XII.cor6.3}
+假设 $T^{\bigdot}$ 与 $T'^{\bigdot}$ 来自右导出范畴 $D^{+}(C)$ 上的上同调函子 (仍以相同符号表示), 取值于 $C'$ \cite{sga4.exp.XII.bib.3}; 不一定假设 $T^{i}$ 对 $i>0$ 可消去. 假设对 $K^{\bigdot}\in D^{+}(C)$, 条件“对 $i<0$ 有 $H^{i}(K^{\bigdot})=0$”蕴含“对 $i<0$ 有 $T^{i}(K^{\bigdot})={T'}^{i}(K^{\bigdot})=0$”. 设 $K^{\bigdot}\in\Ob D^{+}(C)$ 为 $C$ 中的下有界复形, 满足对 $i<0$ 有 $H^{i}(K^{\bigdot})=0$.
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item 若 \hyperref[XII.lem6.2]{6.2} 的条件 {\rm (a)} 满足, 则同态 $\varphi^{i}(K^{\bigdot})=T^{i}(K^{\bigdot})\to
+  {T'}^{i}(K^{\bigdot})$ 对 $i\leq n$ 为同构, 对 $i=n+1$ 为单态射.
+
+\item 再设 $L^{\bigdot}\in\Ob D^{+}(C)$ 满足对 $i<0$ 有 $H^{i}(L^{\bigdot})=0$, 且 $u:L^{\bigdot}\to K^{\bigdot}$ 为 $D^{+}(C)$ 中诱导单同态 $H^{\circ}(u):H^{\circ}(L^{\bigdot})\to
+  H^{\circ}(K^{\bigdot})$ 的态射. 则同态 $T^{n+1}(L^{\bigdot})\to {T'}^{n+1}(L^{\bigdot})$ 为满射\pageoriginale, 当且仅当 ${T'}^{n+1}(L^{\bigdot})$ 在 ${T'}^{n+1}(K^{\bigdot})$ 中的像包含于 $T^{n+1}(K^{\bigdot})$ 的像. 若 $C'=(\Ab)$ 且 $\xi\in {T'}^{n+1}(L^{\bigdot})$, 则 $\xi$ 属于 $T^{n+1}(L^{\bigdot})$ 的像, 当且仅当其在 ${T'}^{n+1}(K^{\bigdot})$ 中的像属于 $T^{n+1}(K^{\bigdot})$ 的像.
+\end{enumerate}
+\end{enonce*}
+
+回顾一下, $T^{\bigdot}$ 与 $T'^{\bigdot}$ 来自 $D^{+}(C)$ 上的上同调函子这一假设, 可以明确表述如下: 它们来自 $C$ 的下有界复形所成阿贝尔范畴上的上同调函子, 这些函子与次数平移可交换, 将零伦的复形态射映为 $C'$ 中的零态射, 并将每个为拟同构 (即诱导同构 $H^{i}(K^{\bigdot})\to H^{i}(L^{\bigdot})$) 的复形态射 $u:K^{\bigdot}\to L^{\bigdot}$ 映为 $C'$ 中的同构. 在实际中, 遇到的所有从 $C$ 到 $C'$ 的上同调函子都是这样来的.
+
+\medskip
+\noindent
+\emph{\hyperref[XII.cor6.3]{6.3} 的证明.} 先证明 (i). 若对 $i\leq n+1$ 有 $H^{i}(K^{\bigdot})=0$, 断言显然成立, 因为加于 $T^{\bigdot}$ 与 $T'^{\bigdot}$ 的次数性质给出, 对 $i\leq n+1$ 有 $T^{i}(K^{\bigdot})={T'}^{i}(K^{\bigdot})=0$. 另一方面, 取整数 $m\geq0$ 使对 $i<m$ 有 $H^{i}(K^{\bigdot})=0$; 这样的整数存在, 例如取 $m=0$ 即可. 对 $m$ 作降归纳; 当 $m=n+2$ 时已经证明断言. 因此假设已对 $m'>m$ 证明断言, 并对 $m$ 证明之. 根据对 $K^{\bigdot}$ 次数的假设, 复形 $K^{\bigdot}$ 拟同构于一个集中在次数 $\geq m$ 的复形, 所以可以假设它本身就集中于这些次数. 于是有复形正合列
+$$
+0\longrightarrow H^m[-m]\longrightarrow K^{\bigdot}\longrightarrow
+K'^{\bigdot}\longrightarrow 0{\quoi},
+$$
+其中 $H^m=H^m(K^{\bigdot})$, 记号 $[-m]$ 表示复形次数的 $-m$ 平移,\pageoriginale 而 $K'^{\bigdot}$ 定义为余核. 因此 $K'^{\bigdot}$ 的上同调对象, 在次数 $\geq m+1$ 为 $K^{\bigdot}$ 的上同调对象, 在次数 $\leq m$ 为零. 特别地, 归纳假设适用于 $K'^{\bigdot}$. 前述正合列给出正合列态射
+$$
+\xymatrix{
+T^{i-1} (K'^{\;\bigdot}) \ar[d] \ar[r] & T^{i-m}(H^m)  \ar[r]\ar[d] &
+T^{i}(K^{\bigdot}) \ar[r] \ar[d]& T^{i} (K'^{\;\bigdot})  \ar[r] \ar[d]&
+T^{i+1-m}(H^m) \ar[d]\\
+T'^{i-1}(K'^{\;\bigdot})  \ar[r] & T'^{i-m}(H^m)  \ar[r] &
+T'^{i}(K^{\bigdot})  \ar[r] & T'^{i}(K'^{\;\bigdot})  \ar[r] & T'^{i+1-m}(H^m).
+}
+$$
+在此图表中取 $i\leq n$, 利用归纳假设及 $m\geq0$, 得到紧邻中间竖直箭头两侧的竖直箭头为同构, 从而特别是满态射, 而最右边的竖直箭头为单态射. 因此五引理表明中间的竖直箭头为满态射. 取 $i\leq n+1$, 同样得到紧邻中间竖直箭头两侧的竖直箭头为单态射, 而最左边的竖直箭头为同构, 从而特别是满态射. 五引理于是表明中间的竖直箭头为单态射. 这就证明了 \hyperref[XII.cor6.3]{6.3} (i).
+
+为证明第二个断言, 即 \hyperref[XII.cor6.3]{6.3} (ii), 同样使用正合列
+$$
+0\longrightarrow L^{\bigdot}\longrightarrow K^{\bigdot}\longrightarrow
+K'^{\bigdot}\longrightarrow 0{\quoi},
+$$
+其中 $K'^{\bigdot}$ 定义为 $L^{\bigdot}\to K^{\bigdot}$ 的映射柱 (mapping cylinder), 并且仍仅在非负次数上有上同调. 在
+$$
+\xymatrix{
+T^{n}(K^{\bigdot})  \ar[r] \ar[d]& T^{n}(K'^{\;\bigdot})  \ar[r] \ar[d]& T^{n+1}
+(L^{\bigdot})  \ar[r]\ar[d] & {T^{n+1}(K^{\bigdot})}  \ar[r]
+\ar[d]&{T^{n+1}(K'^{\;\bigdot})} \ar[d]\\
+T'^{n}(K^{\bigdot}) \ar[r] & T'^{n}(K'^{\;\bigdot})  \ar[r] &
+T'^{n+1}(L^{\bigdot}) \ar[r] & T'^{n+1}(K^{\bigdot}) \ar[r] & T'^{n+1}(K'^{\bigdot})
+}
+$$
+中作通常的图追踪, 就得到\pageoriginale \hyperref[XII.cor6.3]{6.3} 的最后一个断言; 因为由已证的第一部分, 前两个竖直箭头为同构, 后两个为单态射. 至此完成了 \hyperref[XII.cor6.3]{6.3} 的证明.
+
+\begin{enonce*}{引理 6.4}\etiquette[6.4]{XII.lem6.4}
+若 $f$ 有限, 则定理 \hyperref[XII.thm5.1]{5.1} 成立.
+\end{enonce*}
+
+事实上, 这立即由 VIII \hyperref[VIII.prop5.5]{5.5} 及 \hyperref[VIII.rem5.8]{5.8} 得到.
+
+\begin{enonce*}{命题 6.5}\etiquette[6.5]{XII.prop6.5}
+设 $h:Y\to X$ 为拟紧且拟分离的概形态射. 在下面的 {\rm (i)} 中, $I$ 表示一个至少有两个元素的固定集合; 在 {\rm (ii)} 与 {\rm (iii)} 中, $\LL$ 表示素数集合 $\PP$ 的一个非空子集; 在 {\rm (iii)} 中, $n$ 表示整数.
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item 下述条件等价:
+\begin{itemize}
+\item[a)] 对 $X$ 上的每个集合层 $F$, 典范映射
+$$
+H^{\circ}(X,F)\longrightarrow H^{\circ}(Y,h^{\ast}(F))
+$$
+为单射 (分别地, 双射).
+
+\item[b)] 对每个有限态射 $X'\to X$, 设 $h':Y'\to X'$ 为 $h$ 经换基 $X'\to X$ 所得的态射. 则由 $h'$ 诱导的典范映射
+$$
+H^{\circ}(X', I_{X'})\longrightarrow H^{\circ}(Y',I_{Y'})
+$$
+为单射 (分别地, 双射).
+
+\item[${\rm b')}$] 采用 {\rm (b)} 的记号, 从 $X'$ 的既开又闭的子集集合到 $Y'$ 的既开又闭的子集集合的映射 $U\mapsto {h'}^{-1}(U)$ 为单射 (分别地, 双射).
+
+\item[${\rm b'')}$] (若\pageoriginale $X$ 局部 Noether.) 采用 {\rm (b)} 的记号, 所诱导的连通分支集合间的映射
+$$
+\Pi_{\circ}(h'):\Pi_{\circ}(Y')\longrightarrow \Pi_{\circ}(X')
+$$
+为满射 (分别地, 双射). 等价地, 若 $X'$ 非空 (分别地, 连通且非空), 则 $Y'$ 也如此.
+\end{itemize}
+
+此外, 若这些条件成立, 则对 $X$ 上的每个群层 $F$, 从 $F$ 下的挠子 (torsor, 齐性主丛) 范畴到 $h^{\ast}(F)$ 下的挠子范畴的函子 $P\mapsto h^{\ast}(P)$ 是忠实的 (分别地, 完全忠实的). 特别地, 在后一情形下, 典范映射
+$$
+H^1(X,F)\longrightarrow H^1(Y,h^{\ast}(F))
+$$
+为单射. 最后, 在同样的假设下, 从 $X$ 的平展覆盖范畴到 $Y$ 的平展覆盖范畴的函子 $X'\mapsto Y'=\fprod{X'}{Y}{X}$ 是忠实的 (分别地, 完全忠实的).
+
+\item 下述条件等价:
+\begin{itemize}
+\item[a)] 对 $X$ 上的每个 ind-$\LL$ 有限群层 $F$, 典范映射
+$$
+H^i(X,F)\longrightarrow H^i(Y,h^{\ast}(F))
+$$
+对 $i=0,1$ 为双射.
+
+\item[b)] 对每个有限态射 $X'\to X$, 设 $h':Y'\to X'$ 为 $h$ 经换基所得的态射, $G$ 为任意通常的有限 $\LL$ 群. 则典范映射
+$$
+H^i(X',G_{X'})\longrightarrow H^i(Y',G_{Y'})
+$$
+对 $i=0,1$ 为双射.
+
+\item[${\rm b')}$] (若\pageoriginale $\LL=\PP$.) 采用 {\rm (b)} 的记号, $h'$ 下的逆像函子诱导从 $X'$ 的平展覆盖范畴到 $Y'$ 的平展覆盖范畴的等价.
+
+\item[${\rm b'')}$] (若 $X$ 是 Noether 概形且 $\LL=\PP$.) 采用 {\rm (b)} 的记号, 若 $X'$ 非空, 则 $Y'$ 非空. 若 $y'$ 为 $Y'$ 的几何点, $x'$ 为其在 $X'$ 中的像, 则典范映射
+$$
+\Pi_i(Y',y')\longrightarrow \Pi_i(X',x')\quav\mbox{ 对于 }i=0,1{\quoi},
+$$
+为双射.
+\end{itemize}
+
+\item 下述条件等价:
+\begin{itemize}
+\item[a)] 对 $X$ 上的每个 $\LL$ 挠群层 $F$, 同态
+$$
+H^{i}(X,F)\longrightarrow H^{i}(Y,h^{\ast}(F))
+$$
+对 $i\leq n$ 为同构, 对 $i=n+1$ 为单态射.
+
+\item[${\rm a')}$] (若 $n\geq -1$.) 对每个上述 $F$, 有关同态对 $i=0$ 为单射, 对 $i\leq n$ 为满射.
+
+\item[b)] (若 $n\geq -1$.) 对每个有限态射 $X'\to X$, 设 $h':Y'\to X'$ 为 $h$ 经换基 $X'\to X$ 所得的态射. 则对每个 $\ell\in\LL$ 及 $\nu>0$, 典范同态
+$$
+H^{i}(X',(\ZZ/\ell^{\nu}\ZZ)_{X'})\longrightarrow
+H^{i}(Y',(\ZZ/\ell^{\nu}\ZZ)_{Y'})
+$$
+对 $i=0$ 为单射, 对 $i\leq n$ 为满射.
+\end{itemize}
+\end{enumerate}
+\end{enonce*}
+
+此外, 对前述陈述还有如下补充:
+
+\begin{enonce*}{推论 6.6}\etiquette[6.6]{XII.cor6.6}
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item 假设 \hyperref[XII.prop6.5]{6.5} {\rm (i) (a)} 中括号外的条件成立. 设 $F$ 为 $X$ 上的集合层, 且 $\xi\in H^{\circ}(Y,h^{\ast}(F))$. 假设\pageoriginale 存在集合层的单态射 $F\to G$, 使 $\xi$ 在 $H^{\circ}(Y,h^{\ast}(G))$ 中的像属于 $H^{\circ}(X,G)$ 的像. 则 $\xi$ 属于 $H^{\circ}(X,F)$ 的像.
+
+\item 假设 \hyperref[XII.prop6.5]{6.5} {\rm (i) (a)} 中括号内的条件成立. 设 $F$ 为 $X$ 上的群层, 且 $\xi\in H^1(Y,h^{\ast}(F))$. 假设存在群层的单态射 $F\to G$, 使 $\xi$ 在 $H^1(Y,h^{\ast}(G))$ 中的像属于 $H^1(X,G)$ 的像. 则 $\xi$ 属于 $H^1(X,F)$ 的像.
+
+\item 假设对某个固定的 $n$, 条件 \hyperref[XII.prop6.5]{6.5} {\rm (iii) (a)} 成立. 设 $F$ 为 $X$ 上的 $\LL$ 挠群层, 且 $\xi\in H^{n+1}(Y,h^{\ast}(F))$. 假设存在 $\LL$ 挠群层的单态射 $F\to G$, 使 $\xi$ 在 $H^{n+1}(Y,h^{\ast}(G))$ 中的像属于 $H^{n+1}(X,G)$ 的像. 则 $\xi$ 属于 $H^{n+1}(X,F)$ 的像.
+\end{enumerate}
+\end{enonce*}
+
+\noindent
+\emph{\hyperref[XII.prop6.5]{6.5} 及 \hyperref[XII.cor6.6]{6.6} 的证明.}
+先证明 \hyperref[XII.cor6.6]{6.6}.
+
+\hyperref[XII.cor6.6]{6.6} (iii) 的情形是 \hyperref[XII.cor6.3]{6.3} 最后一个断言的特殊情形: 取 $C$ 为 $X$ 上的阿贝尔 $\LL$ 挠层范畴, $C'$ 为范畴 $(\Ab)$, 并取 $T^{i}(F)=H^{i}(X,F)$、${T'}^{i}(F)=H^{i}(Y,h^{\ast}(F))$ (注意 $T'^{\bigdot}$ 确实是 $F$ 的上同调函子, 因为函子 $h^{\ast}$ 正合). 当然, 这里不必像 \hyperref[XII.cor6.3]{6.3} 中那样使用复形 (在后面的 \hyperref[XII.prop6.8]{6.8} 中这样做是方便的); 这里只用 \hyperref[XII.cor6.3]{6.3} 的最后一个断言.
+
+为证明 (i), 考虑合并和 $H=G\amalg_F G$, 即图表
+$$
+\xymatrix@R=.5cm{
+  & G\\
+F \ar[ru] \ar[rd]&\\
+  & G
+}
+$$
+在 $X$ 上的集合层范畴中的余极限.\pageoriginale 由于 $F\rightarrow G$ 为单态射, 集合层拓扑斯通常的正合性性质表明, 有 $X$ 上的集合层的\emph{正合}图表
+$$
+F\to G\rightrightarrows H
+$$
+(这可表述为拓扑斯中每个单态射都是有效的, 并可照常归约到集合范畴予以证明). 由于函子 $H^{0}$ 与 $h^{\ast}$ 左正合, 得到集合的正合图表之间的态射
+$$
+\xymatrix@R=1.25cm{
+H^{0}(X,F) \ar[r]\ar[d]& H^{0}(X,G)  \ar[d]\ar@<2pt>[r]\ar@<-2pt>[r]& H^{0}(X,H)\ar[d]\\
+H^{0}(Y,h^{\ast}(F)) \ar[r]& H^{0}(Y,h^{\ast}(G)) \ar@<2pt>[r]\ar@<-2pt>[r]& H^{0}(Y,h^{\ast}(H)),
+}
+$$
+其中竖直箭头均为单射. 直接作图追踪即证明断言 \hyperref[XII.cor6.6]{6.6} (i).
+
+为证明 \hyperref[XII.cor6.6]{6.6} (ii), 先证明 \hyperref[XII.prop6.5]{6.5} (i) 的第二个断言, 即在 \hyperref[XII.prop6.5]{6.5} (i) 的条件 a) 下, 对 $X$ 上的每个群层 $F$, 从 $F$ 下的挠子范畴到 $h^{\ast}(F)$ 下的挠子范畴的函子 $P\mapsto h^{\ast}(P)$ 忠实 (\resp 完全忠实), 因而在相应情形下在 $H^1$ 上诱导单射. 为此, 若 $P$ 与 $P'$ 为 $F$ 下的两个挠子, 以 $\sheaf{\Isom}_F(P,P')$ 表示从 $P$ 到 $P'$ 的 $F$ 同构层. 立即可知, 该层的形成与任意基扩张可交换, 特别与 $h$ 下的基扩张可交换. (此断言对任意景态射都成立.) 将关于 $h^{\ast}$ 对 $H^{0}$ 的作用的假设应用于层 $\sheaf{\Isom}_F(P,P')$, 得到映射
+$$
+\Isom_F(P,P')\longrightarrow
+\Isom_F(h^{\ast}(P),h^{\ast}(P'))
+$$
+为单射 (\resp 双射), 即函子 $P\mapsto h^{\ast}(P)$ \pageoriginale 忠实 (\resp 完全忠实). (注意群层下的挠子范畴中的每个态射都是同构.)
+
+另一方面, 注意若 $F$ 是群层 $G$ 的子群层, 则给定 $F$ 下的挠子 $P$, 等价于给定 $G$ 下的挠子 $Q$ (即由 $P$ 沿 $F\rightarrow G$ 扩张结构群所得的挠子), \emph{连同} $Q/F$ 的一个截面 (这确实解释为将结构群从 $G$ 约化到 $F$). 采用 \hyperref[XII.cor6.6]{6.6} (ii) 的记号, $\xi$ 在 $H^1(Y,h^{\ast}(G))$ 中的像来自 $H^1(X,G)$ 的一个元素; 后者由 $G$ 下的挠子 $Q$ 表示, 所以 $\xi$ 的像是 $h^{\ast}(G)$ 下的挠子 $h^{\ast}(Q)$ 的类. 此类来自 $\xi\in H^1(Y,h^{\ast}(F))$, 明确地说就是 $\xi$ 是由 $h^{\ast}(Q)$ 及 $h^{\ast}(Q)/h^{\ast}(F)$ 的一个适当截面所定义的 $h^{\ast}(F)$ 挠子的类. 由于函子 $h^{\ast}$ 右正合, 最后这个层正是 $h^{\ast}(Q/F)$; 又因 $h^{\ast}$ 在集合层的 $H^{0}$ 上诱导双射, 所以 $h^{\ast}(Q)/h^{\ast}(F)$ 的所述截面来自 $Q/F$ 的一个截面. 这个截面通过结构群约化定义一个 $F$ 挠子, 该挠子在 $H^1(X,F)$ 中的类在 $H^1(Y,h^{\ast}(F))$ 中的像显然为 $\xi$. 这就证明了 \hyperref[XII.cor6.6]{6.6} (ii), 并完成了 \hyperref[XII.cor6.6]{6.6} 的证明.
+
+现在证明 \hyperref[XII.prop6.5]{6.5}, 先从 \hyperref[XII.prop6.5]{6.5} (iii) 开始. 显然 a) 蕴含 ${\rm a'}$), 而反向蕴含是 \hyperref[XII.lem6.2]{6.2} 的特殊情形 (仍取 $C$ 为 $X$ 上的 $\LL$ 挠层范畴, $C'$ 为阿贝尔群范畴), 只须证明 $i>0$ 时函子 $H^{i}(X,F)$ 在 $C$ 中可消去. 这没有困难; 或者也可以\pageoriginale 不证明该结果, 而注意到 $F$ 是其子层 $F_i$ 的滤过余极限, 其中存在整数 $n>0$ 零化 $F_i$ (\hyperrefext[IX][IX.def1.1]{1.1}). 于是 $h^{\ast}(F)$ 是 $h^{\ast}(F_i)$ 的余极限; 考虑到上同调与滤过余极限可交换 (VII \hyperref[VII.prop3.3]{3.3}), 这一点来自 $X$ 与 $Y$ 的拟紧和拟分离假设 (这些假设在 \hyperref[XII.cor6.6]{6.6} 中并未使用), 只须对 $F_i$ 证明条件 a). 因而归结为存在整数 $m>0$ 使 $mF=0$ 的情形. 显然可以假设 $m$ 的每个素因子都属于 $\LL$, 于是可取 $C$ 为 $X$ 上的 $\ZZ/m\ZZ$ 模层范畴. 在此范畴中, 已知函子 $H^{i}(X,-)$ 对 $i\geq1$ 可消去. 这就证明了 \hyperref[XII.prop6.5]{6.5} (iii) 中条件 a) 与 ${\rm a'}$) 的等价性.
+
+另一方面, 将 a) 应用于在 $X$ 上有限的概形 $X'$ 上的 $\LL$ 挠层 $F'$ 的正像; 根据 \hyperrefext[IX][IX.prop1.2]{1.2} (v) 及 \hyperrefext[IX][IX.prop1.6]{1.6} (iii), 此正像是 $\LL$ 挠层. 利用 \hyperref[XII.lem6.4]{6.4} 及 VIII \hyperref[VIII.prop5.5]{5.5}, 得到同态
+$$
+H^{i}(X',F')\longrightarrow H^{i}(Y',{h'}^{\ast}(F'))
+$$
+对 $i\leq n$ 为同构, 对 $i=n+1$ 为单态射, 因而更有条件 b). 只须证明此条件蕴含 ${\rm a'}$). 为此, 利用如下事实 (\hyperrefext[IX][IX.cor2.7.2]{2.7.2}): $X$ 上的每个 $\LL$ 挠层 $F$ 都是可构造 $\LL$ 挠层的滤过余极限. 上述余极限论证表明, 在 ${\rm a'}$) 中只须考虑可构造的 $F$. 根据 \hyperrefext[IX][IX.prop2.14]{2.14}, 存在有限多个有限态射 $p_i:X'_i\rightarrow X$、$X'_i$ 上的常 $\LL$ 挠层 $G_{X'_i}$, 以及单同态
+$$
+F\longrightarrow \prod_{i}p_{i\ast}(G_{X'_i}).
+$$
+现在\pageoriginale 若 $n=-1$, 即所求结论归结为
+$$
+H^{0}(X,F)\longrightarrow H^{0}(Y,h^{\ast}(F))
+$$
+为单射, 则在此问题中, 可以直接将 $F$ 换成一个包含 $F$ 的层 $G$, 因而可将 $F$ 换成各 $p_{i\ast}(G_{X'_i})$ 的积. 由 \hyperref[XII.lem6.4]{6.4}, 只须在将 $h:Y\rightarrow X$ 换成 $h':Y'\rightarrow X'$, 将 $F$ 换成 $X'$ 上以通常的有限 $\LL$ 挠群 $G$ 为值的常层之后, 证明单射性的断言. 但 $G$ 同构于形如 $\ZZ/\ell^{\nu}\ZZ$ 且 $\ell\in\LL$ 的群之直和. 因而确实归结为验证 b).
+
+当 $n\geq0$ 时同样处理. 对 $n$ 作归纳, 可以假设已将 $n$ 换成 $n-1$ 证明了所求结论 (因而也证明了 a)). 应用 \hyperref[XII.cor6.6]{6.6} (iii), 可见仍可将 $F$ 换成一个包含 $F$ 的层 $G$, 且仍取 $G=p_{\ast}(G_{X'})$. 由 \hyperref[XII.lem6.4]{6.4}, 以及当 $p$ 有限时 $R^{i}p_{\ast}$ 对 $i\geq1$ 为零 (VIII \hyperref[VIII.prop5.5]{5.5}), 仍只须在将 $h:Y\rightarrow X$ 换成 $h':Y'\rightarrow X'$, 将 $F$ 换成 $X'$ 上以通常的有限 $\LL$ 挠群为值的常层之后, 证明 $H^n$ 的满射性. 根据归纳假设及蕴含 ${\rm a')}\Rightarrow{\rm a)}$, 已知单射性; 因而对 $G$ 作逐层剥离, 再次归结为 $G$ 形如 $\ZZ/\ell^{\nu}\ZZ$ 的情形, 即 \hyperref[XII.prop6.5]{6.5} (iii) 的条件 b) 所考虑的情形. 这就证明了 \hyperref[XII.prop6.5]{6.5} 的情形 (iii).
+
+情形 (i) 与 (ii) 中, 关于 \hyperref[XII.prop6.5]{6.5} (i) \resp \hyperref[XII.prop6.5]{6.5} (ii) 中条件 a) 与 b) 的等价性, 证明完全相同: 利用\pageoriginale \hyperrefext[IX][IX.cor2.7.2]{2.7.2} 以及 $H^{0}$ 与 $H^1$ 与层的滤过余极限可交换 (VII \hyperref[VII.rem5.14]{5.14}), 归结为 $F$ 可构造的情形, 再利用 \hyperrefext[IX][IX.prop2.14]{2.14}、\hyperref[XII.cor6.6]{6.6} (i)、(ii) 及 VIII \hyperref[VIII.rem5.8]{5.8}, 归结为 b) 中所考虑的特殊情形. 此外, 在 (i) 中, 条件 b)、${\rm b'}$) 与 ${\rm b''}$) 的等价性是平凡的, 仅为便于引用而记录; 它们蕴含从 $X$ 的平展覆盖范畴到 $Y$ 的平展覆盖范畴的函子 $X'\mapsto Y'$ 忠实 (\resp 完全忠实), 这一事实也是如此. 在 \hyperref[XII.prop6.5]{6.5} (ii) 中补充给出的条件 b)、${\rm b'}$) 与 ${\rm b''}$) 的等价性也同样如此. 至此完成了 \hyperref[XII.prop6.5]{6.5} 的证明.
+
+\begin{enonce*}[remark]{注 6.7}\etiquette[6.7]{XII.rem6.7}
+\footnote{编者建议略去这些注以及 \hyperref[XII.rems6.13]{6.13}; 它们是由一位不敬的合作者偷偷加进来的 (他还对原文作了各种其他或好或坏的改动).}
+\begin{enumerate}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 证明 \hyperref[XII.prop6.5]{6.5} 与 \hyperref[XII.cor6.6]{6.6} 的论证显然十分一般, 实质上也很平凡; 若能将其抽出为与 \hyperref[XII.lem6.2]{6.2} 同类的抽象引理, 将是有益的 (其中各层 $p_{\ast}(G_{X'})$ 起所研究的范畴 $C$ 的余生成元的作用). 将这一愉快的练习留给读者, 只指出, 以 $R^{i}f_{\ast}$ 之类的函子代替函子 $H^{i}$, 仍可给出实质相同的陈述. 同样的评注也适用于下面的 \hyperref[XII.prop6.8]{6.8} 及 \hyperref[XII.prop6.11]{6.11}.
+
+
+\item 当 $X$ 为 Noether 概形时, 上述论证表明, 在 \hyperref[XII.prop6.5]{6.5} (i)、(ii)、(iii) 的条件 b) 及其变体中, 可以只考虑\emph{整的} $X'$; 当 $X$ 泛日本时, 甚至可以取它们整且正规. 即使对 $X$ 不作日本性假设, 也可以如此,\pageoriginale 只须用\emph{整}态射 $p:X'\rightarrow X$ 代替有限态射. 本讨论班后面不会使用这些变体.
+
+\item \hyperref[XII.cor6.6]{6.6} 的证明没有使用关于 $X$ 的拟紧和拟分离假设. 在 (i)、(ii)、(iii) 中, 条件 a) 蕴含其他条件, 以及条件 b)、${\rm b'}$)、${\rm b''}$) 彼此等价, 这两点也是如此. 还要注意, \hyperref[XII.prop6.5]{6.5} (i) 中条件的 b) 形式表明, 对 $\LL\neq\phi$, 它们是 \hyperref[XII.prop6.5]{6.5} (iii) 中 $n=-1$ \resp $n=0$ 时的特殊情形 (当 $X$ 拟紧且拟分离时). 此外, 即使没有所述关于 $X$ 的限制, 这一点仍然成立 (只考虑 a) 形式的条件). 事实上, 对每个集合层 $F$ 及每个素数 $\ell$, 可以找到两个阿贝尔 $\ell$ 挠层 $G$ 与 $H$, 以及底集合层的同态 $u:G\rightarrow H$, 使 $F$ 同构于零截面的逆像 (取 $G$ 为由 $F$ 生成的自由 $\ZZ/\ell\ZZ$ 模, 取 $H$ 为 $X$ 上的常层 $\ZZ/\ell\ZZ$). 同样的论证表明, \hyperref[XII.prop6.5]{6.5} (ii) a) (其中甚至只须取 $i=0$) 蕴含相应条件 \hyperref[XII.prop6.5]{6.5} (i) a), 而无需任何拟紧或拟分离限制. 由于后者已经蕴含对 $X$ 上的每个群层 $F$, $H^1(X,F)\rightarrow H^1(Y,h^{\ast}(F))$ 为单射, 因此在 \hyperref[XII.prop6.5]{6.5} (ii) a) 的陈述中, 对 $i=1$ 只须要求 $H^1(X,F)\rightarrow H^1(Y,h^{\ast}(F))$ 的\emph{满射性}. 遗憾的是, 不能将 \hyperref[XII.prop6.5]{6.5} (ii) 看成 \hyperref[XII.prop6.5]{6.5} (iii) 的特殊情形; 这使我们常常不得不在非交换情形中重复一个实质上已在交换情形中完成的论证. 还要注意, 除 \hyperref[XII.cor6.10]{6.10} 外, 后面的结果都表述为无需\pageoriginale 任何拟紧或拟分离假设仍然成立的形式.
+\end{enumerate}
+\end{enonce*}
+
+\begin{enonce*}{命题 6.8}\etiquette[6.8]{XII.prop6.8}
+(下降引理). 采用 \hyperref[XII.prop6.5]{6.5} 的一般记号, 再假设给定态射 $p:\bar{X}\rightarrow X$. 以 $\bar{h}:\bar{Y}\rightarrow\bar{X}$ 表示 $h$ 经换基 $p$ 所得的态射, 以 $p_Y:\bar{Y}\rightarrow Y$ 表示典范态射. 假设 $p$ 为满射, 或者 $h$ 为闭浸入且 $X=p(\bar{X})\cup h(Y)$.
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item 假设 $\bar{h}:\bar{Y}\rightarrow\bar{X}$ 满足 \hyperref[XII.prop6.5]{6.5} {\rm(i) a)} 的单射性 (\resp 双射性) 条件. 在相应情形下, 再假设对 $\bar{X}$ 上的每个集合层 $\bar{F}$, 换基态射
+\begin{equation*}
+h^{\ast}(p_{\ast}(\bar{F}))\longrightarrow
+p_{Y\ast}(\bar{h}^{\ast}(\bar{F}))\tag{$\ast$}
+\end{equation*}
+为单射. 则态射 $h:Y\rightarrow X$ 也满足 \hyperref[XII.prop6.5]{6.5} {\rm(i) a)} 的单射性 (\resp 双射性) 条件.
+
+\item 假设 $\bar{h}:\bar{Y}\rightarrow\bar{X}$ 满足条件 \hyperref[XII.prop6.5]{6.5} {\rm(ii) a)}, 且对 $\bar{X}$ 上的每个 ind-$\LL$ 群层 $\bar{F}$, 换基态射 $(\ast)$ 为双射. 则 $h:Y\rightarrow X$ 也满足条件 \hyperref[XII.prop6.5]{6.5} {\rm(ii) a)}.
+
+\item 假设 $\bar{h}:\bar{Y}\rightarrow\bar{X}$ 满足条件 \hyperref[XII.prop6.5]{6.5} {\rm(iii) a)}, 且对 $\bar{X}$ 上的每个阿贝尔 $\LL$ 挠层 $\bar{F}$, 换基同态
+$$
+h^{\ast}(R^{i}p_{\ast}(\bar{F}))\longrightarrow
+R^{i}p_{Y\ast}(\bar{h}^{\ast}(\bar{F}))
+$$
+对 $i\leq n-1$ 为双射, 对 $i=n$ 为单射, 其中 $n\geq1$ 为给定整数. 则 $h:Y\rightarrow X$ 也满足条件 \hyperref[XII.prop6.5]{6.5} {\rm(iii) a)}.
+\end{enumerate}
+\end{enonce*}
+
+\noindent
+\emph{\hyperref[XII.prop6.8]{6.8} 的证明.}\pageoriginale 在不假设 $p$ 为满射, 而假设 $h$ 为闭浸入且 $X=p(\bar{X})\cup h(Y)$ 的情形下, 考虑 $\bar{X}$ 与 $Y$ 的不交并概形 $\bar{X}'$, 以及由 $p$ 和 $h$ 诱导的态射 $p':\bar{X}'\rightarrow X$. 则 $p'$ 为满射; 此外, 在 (i)、(ii)、(iii) 三种情形中的每一种, 立即可知, 关于对 $(h,p)$ 的假设对于对 $(h,p')$ 仍然满足. 因而归结为 $p$ 为满射的情形, 以下均如此假设. 在这种情形下, 对 $X$ 上的每个层 $F$, 典范同态
+$$
+F\longrightarrow p_{\ast}(p^{\ast}(F))
+$$
+为单射. 在情形 (i) 中, 为验证 $H^{0}(X,F)\rightarrow H^{0}(Y,h^{\ast}(F))$ 的单射性, 立即归结为将 $F$ 换成 $p_{\ast}(\bar{F})$ 的情形, 其中 $\bar{F}=p^{\ast}(F)$. 考虑交换图表
+$$
+\xymatrix@C=2.75cm@R=.75cm{
+**[r]H^{0}(X,p_{\ast}(\bar{F})) \ar[dd]^{\text{\rotatebox{90}{$\backsim$}}} \ar[r]& **[r]H^{0}(Y,h^{\ast}(p_{\ast}(\bar{F}))) \ar[d]\\
+                           &**[r]H^{0}(Y,p_{Y\ast}(\bar{h}^{\ast}(\bar{F})))\ar[d]_{\text{\rotatebox{90}{$\backsim$}}}\\
+**[r]H^{0}(\bar{X},\bar{F})  \ar[r] &
+                           **[r]H^{0}(\bar{Y},\bar{h}^{\ast}(\bar{F})),
+}
+$$
+其中左边的竖直箭头及右边的第二个竖直箭头为典范同构, 右边的第一个竖直箭头由 $h$ 的换基同态诱导. 根据假设, 第二个水平箭头为单射, 立即可知第一个也是单射; 这证明了 (i) 中不带“分别地”的断言. 对于带“分别地”的断言, 假设第二个水平箭头为满射. 由于根据假设换基同态为单态射, 右边的第一个竖直箭头为单态射, 从而右边两个\pageoriginale 竖直箭头的复合也为单态射. 立即可知第一个水平箭头也为满射, 至此完成了 (i) 的证明.
+
+为证明 (ii), 由前面的论证及 \hyperref[XII.prop6.5]{6.5} (i), 只须证明 $H^1(X,F)\rightarrow H^1(Y,h^{\ast}(F))$ 的满射性. 应用 \hyperref[XII.cor6.6]{6.6} (ii), 又只须对形如 $p_{\ast}(\bar{F})$ 的 $F$ 证明它, 其中 $\bar{F}$ 为 $\bar{X}$ 上的 ind-$\LL$ 群层 (\hyperrefext[IX][IX.prop1.6]{1.6} (ii)). 对态射 $p$ 与 $p_Y$ 写出 $H^1$ 的正合列 (\hyperref[XII.prop3.2]{3.2} 的变体), 得到非交换正合列的态射:
+$$
+\xymatrix@R=1.5cm{
+H^{1}(X,p_{\ast}(\bar{F})) \ar[r] \ar[d] & H^{1}(\bar{X},\bar{F}) \ar[r]\ar[d] &
+H^{0}(X,R^{1}p_{\ast}(\bar{F})) \ar[d]&\\
+H^{1}(Y,p_{Y\ast}(\bar{h}^{\ast}(\bar{F}))) \ar[r] &
+H^{1}(\bar{Y},\bar{h}^{\ast}(\bar{F})) \ar[r] &
+H^{0}(Y,R^{1}p_{Y\ast}(\bar{h}^{\ast}(\bar{F}))),
+}
+$$
+其中每一行的第一个箭头为单射, 并将第一项等同于第三项指定点在第二个箭头下的逆像. 根据关于 $\bar{h}$ 的假设, 中间的竖直箭头为双射. 两侧的竖直箭头分别经由
+$$
+H^1(Y,h^{\ast}(p_{\ast}(\bar{F})))
+\quad\hbox{及}\quad
+H^{0}(Y,h^{\ast}(R^1p_{\ast}(\bar{F}))),
+$$
+分解, 方法是将同态 $H^{i}(X,-)\rightarrow H^{i}(Y,h^{\ast}(-))$ (分别对于 $i=1$ 及 $i=0$) 与对换基同态应用 $H^{i}(Y,-)$ (对同样的 $i$ 值) 所得的同态复合; 这些换基同态分别为
+$$
+h^{\ast}(p_{\ast}(\bar{F}))\longrightarrow
+p_{Y\ast}(\bar{h}^{\ast}(\bar{F}))
+$$
+以及
+$$
+h^{\ast}(R^1p_{\ast}(\bar{F}))\longrightarrow
+R^1p_{Y\ast}(\bar{h}^{\ast}(\bar{F})).
+$$
+由于根据假设第一个箭头为同构, 上图中第一个竖直箭头可等同于我们要研究的同态 $H^1(X,-)\rightarrow H^1(Y,h^{\ast}(-))$. 因而为证明它是双射, 只须证明图表中最后一个竖直箭头为单射. 根据刚才的说明, 它是两个映射的复合,\pageoriginale 第一个为典范同态 $H^{0}(X,-)\rightarrow H^{0}(Y,h^{\ast}(-))$, 从而为双射; 第二个为单射, 因为它由将左正合函子 $H^{0}(Y,-)$ 应用于单态射
+$$
+h^{\ast}(R^1p_{\ast}(\bar{F}))\longrightarrow
+R^1p_{Y\ast}(\bar{h}^{\ast}(\bar{F})).
+$$
+而得. 最后这个事实容易从前一个次数 $0$ 的换基同态为双射这一假设得到, 例如利用 \hyperref[XII.prop6.5]{6.5} (i) 的第二个断言及高阶正像的茎的通常计算 (VIII \hyperref[VIII.rem5.3]{5.3}). 这就证明了 \hyperref[XII.prop6.8]{6.8} (ii).
+
+只须证明 \hyperref[XII.prop6.8]{6.8} (iii). 为此, 与其如上直接使用单射 $F\rightarrow p_{\ast}(p^{\ast}(F))$, 不如使用右导出范畴 $D^{+}(C)$ 中的同态
+$$
+F\longrightarrow Rp_{\ast}(\bar{F})
+$$
+这里 $C$ 表示 $X$ 上的阿贝尔层范畴. 回顾一下, 根据定义, $Rp_{\ast}(\bar{F})$ 为复形 $p_{\ast}(C(\bar{F}))$, 其中 $C(\bar{F})$ 为 $\bar{X}$ 上的阿贝尔层范畴中 $\bar{F}$ 的内射预解. 若 $K^{\bigdot}$ 为 $X$ 上的复形, 以 $H^{i}(X,K^{\bigdot})$ 表示 $X$ 以 $K^{\bigdot}$ 为系数的超上同调群, 并在 $Y$ 上使用类似记号. 由 \hyperref[XII.cor6.3]{6.3}, 只须证明如下同态的满射性:
+\begin{equation*}
+H^n(X,Rp_{\ast}(\bar{F}))\longrightarrow
+H^n(Y,h^{\ast}(Rp_{\ast}(\bar{F}))).\tag{1}
+\end{equation*}\etiquette[1]{XII.eq1}
+根据假设, 换基同态
+\begin{equation*}
+h^{\ast}(Rp_{\ast}(\bar{F}))\longrightarrow
+Rp_{Y\ast}(\bar{h}^{\ast}(\bar{F}))\tag{2}
+\end{equation*}\etiquette[2]{XII.eq2}
+在次数 $\leq n-1$ 的上同调层上诱导同构, 在次数 $n$ 诱导单态射. 等价地, 上述同态的“映射柱”\pageoriginale $K^{\bigdot}$ 只在次数 $\geq n$ 有非零上同调层. 因而对 $i<n$ 有 $H^{i}(Y,K^{\bigdot})=0$, 而上同调正合列表明, 上述同态所诱导的同态
+\begin{equation*}
+H^{i}(Y,h^{\ast}(Rp_{\ast}(\bar{F})))\longrightarrow
+H^{i}(Y,Rp_{Y\ast}(\bar{h}^{\ast}(\bar{F})))\tag{3}
+\end{equation*}\etiquette[3]{XII.eq3}
+对 $i\leq n-1$ 为同构, 对 $i=n$ 为单态射. 考虑 (1) 与 (3) 的复合:
+\begin{equation*}
+H^n(X,Rp_{\ast}(\bar{F}))\longrightarrow
+H^n(Y,h^{\ast}(Rp_{\ast}(\bar{F})))\longrightarrow
+H^n(Y,Rp_{Y\ast}(\bar{h}^{\ast}(\bar{F})))\tag{4}
+\end{equation*}\etiquette[4]{XII.eq4}
+
+根据定义, 两端的项分别同构于 $H^n(\bar{X},\bar{F})$ 与 $H^n(\bar{Y},\bar{h}^{\ast}(\bar{F}))$, 而 (4) 中的复合恰为 $\bar{h}$ 所诱导的同态, 由关于 $\bar{h}$ 的假设它为双射. 根据刚才的说明, (4) 中第二个箭头为单射, 因而第一个也为双射. 至此完成了 \hyperref[XII.prop6.8]{6.8} 的证明.
+
+此外, 上面的证明立即给出下述略为精确和一般的结果:
+
+\begin{enonce*}{推论 6.9}\etiquette[6.9]{XII.cor6.9}
+记号同 \hyperref[XII.prop6.8]{6.8}. 再假设 $h$ 满足 \hyperref[XII.prop6.5]{6.5} \textup{(i)} 中括号外的条件 (分别地, \hyperref[XII.prop6.5]{6.5} \textup{(i)} 中括号内的条件; 分别地, \hyperref[XII.prop6.5]{6.5} \textup{(iii)} 中的条件, 其中 $n\geq -1$), 并且对 $\bar{X}$ 上的每个集合层 $\bar{F}$, 换基同态
+$$
+h^{\ast}(p_{\ast}(\bar{F}))\longrightarrow
+p_{Y\ast}(\bar{h}^{\ast}(\bar{F}))
+$$
+为单射 (分别地, 双射; 分别地, 对 $\bar{X}$ 上的每个 $\LL$ 挠群层 $\bar{F}$, 换基同态
+$$
+h^{\ast}R^{i}p_{\ast}(\bar{F})\longrightarrow
+R^{i}p_{Y\ast}(\bar{h}^{\ast}(\bar{F}))
+$$
+对 $i\leq n$ 为双射, 对 $i=n+1$ 为单射). 设 $F$ 为 $X$ 上的集合层 (分别地, ind-$\LL$ 群层; 分别地, $\LL$ 挠群层), 并设 $\xi\in H^{n+1}(Y,h^{\ast}(F))$ (其中在情形\pageoriginale \textup{(i)} 中取 $n=-1$, 在情形 \textup{(ii)} 中取 $n=0$). 置 $\bar{F}=p^{\ast}(F)$. 则 $\xi$ 属于 $H^{n+1}(X,F)$ 的像, 当且仅当它在
+$$
+H^{n+1}(\bar{Y},p_Y^{\ast}(h^{\ast}(F)))
+=H^{n+1}(\bar{Y},\bar{h}^{\ast}(\bar{F}))
+$$
+中的逆像属于 $H^{n+1}(\bar{X},\bar{F})$ 的像.
+\end{enonce*}
+
+将利用 \hyperref[XII.prop6.8]{6.8} 的这一加强形式来证明下面的结果.
+
+\begin{enonce*}{推论 6.10}\etiquette[6.10]{XII.cor6.10}
+记号同 \hyperref[XII.prop6.5]{6.5}. 为简单起见, 假设 \hyperref[XII.prop6.5]{6.5} \textup{(i)} 中括号外的条件成立.
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item \hyperref[XII.prop6.5]{6.5} \textup{(i)} 中括号内的条件成立 (分别地, 条件 \hyperref[XII.prop6.5]{6.5} \textup{(ii) a)} 成立; 分别地, 条件 \hyperref[XII.prop6.5]{6.5} \textup{(iii) a)} 成立), 当且仅当下述条件满足. 对 $X$ 上的每个集合层 $F$ (分别地, ind-$\LL$ 群层; 分别地, 阿贝尔 $\LL$ 挠群层), 每个 $\xi\in H^{\circ}(Y,h^{\ast}(F))$ (分别地, 每个满足 $i=0,1$ 的 $\xi\in H^{i}(Y,h^{\ast}(F))$; 分别地, 每个满足 $i\leq n$ 的 $\xi\in H^{i}(Y,h^{\ast}(F))$), 以及 $X$ 的每个非空闭子集 $X'$, 若以 $Y'$ 表示它在 $Y$ 中的逆像, 则存在态射 $p:\bar{X}\rightarrow X$ 满足下述条件:
+\begin{itemize}
+\item[$1^{\circ}$)] 像 $p(\bar{X})$ 包含于 $X'$, 并包含 $X'$ 的一个非空开子集.
+
+\item[$2^{\circ}$)] 对 $\bar{X}$ 上的每个集合层 $\bar{F}$, 换基同态
+$$
+h^{\ast}(p_{\ast}(\bar{F}))\longrightarrow
+p_{Y\ast}(\bar{h}^{\ast}(\bar{F}))
+$$
+为同构 (分别地, 对 $\bar{X}$ 上的每个 ind-$\LL$ 群层 $\bar{F}$, 换基同态
+$$
+h^{\ast}(R^{i}p_{\ast}(\bar{F}))\longrightarrow
+R^{i}p_{Y\ast}(\bar{h}^{\ast}(\bar{F}))
+$$
+对 $i=0,1$ 为双射; 分别地, 对 $\bar{X}$ 上的每个阿贝尔 $\LL$ 挠群层 $\bar{F}$, 换基同态对 $i\leq n$ 为双射).
+
+\item[$3^{\circ}$)] $\xi$ 在
+$$
+H^{i}(\bar{Y},p_Y^{\ast}(h^{\ast}(F)))
+=H^{i}(\bar{Y},\bar{h}^{\ast}(p^{\ast}(F)))
+$$
+中的逆像属于 $H^{i}(\bar{X},p^{\ast}(F))$ 的像.
+\end{itemize}
+
+\item 设\pageoriginale $n\geq -1$, 并假设对 $X$ 上的每个集合层 $F$ (分别地, 每个 ind-$\LL$ 群层; 分别地, 每个阿贝尔 $\LL$ 挠群层), 同态
+$$
+H^{i}(X,F)\longrightarrow H^{i}(Y,h^{\ast}(F))
+$$
+对 $i\leq n$ 为双射, 对 $i=n+1$ 为单射 (在第一种情形下取 $n=-1$, 在第二种情形下取 $n=-1$ 或 $0$). 设 $\xi\in H^{n+1}(Y,h^{\ast}(F))$. 则 $\xi$ 属于 $H^{n+1}(X,F)$ 的像, 当且仅当它满足上述 \textup{(i)} 中的条件, 其中 $i=n+1$.
+\end{enumerate}
+\end{enonce*}
+
+\noindent
+\emph{\hyperref[XII.cor6.10]{6.10} 的证明.} 利用 \hyperref[XII.prop6.5]{6.5} 并对 $n$ 作直接的归纳, 可见 \hyperref[XII.cor6.10]{6.10} (i) 可由 \hyperref[XII.cor6.10]{6.10} (ii) 得到; 现在证明后者.
+
+假设 $\xi$ 不属于 $H^{n+1}(X,F)$ 的像. 设 $\Phi$ 为 $X$ 的如下闭子集 $X'$ 所成的集合: $\xi$ 在 $H^{n+1}(Y',h^{\ast}(F)|Y')$ 中的像不属于 $H^{n+1}(X',F|X')$ 的像. 根据假设, $X\in\Phi$, 所以 $\Phi$ 非空. 用关系 $\supset$ 对 $\Phi$ 排序, 并证明 $\Phi$ 是归纳的. 只须证明, 若 $(X'_{\lambda})$ 为 $\Phi$ 中的一个全序元素族, $X'$ 为其交, 则 $X'\in\Phi$. 给各 $X'_{\lambda}$ 及 $X'$ 赋予其诱导的既约结构. 态射 $X'_{\lambda}\rightarrow X$ 是仿射的 (因为是闭浸入), 因而各 $X'_{\lambda}$ 所成逆向系满足 VII 5 中考虑的假设. 此外, 立即可知 $X'$ 是各 $X'_{\lambda}$ 的逆极限. 同样, $Y'$ 是各 $Y'_{\lambda}$ 所成逆向系的逆极限, 后者在 $Y$ 上仿射. 因而由 VII \hyperref[VII.cor5.8]{5.8},
+$$
+\begin{gathered}
+\varinjlim H^{n+1}(X'_{\lambda},F|X'_{\lambda})\xrightarrow{\sim}
+H^{n+1}(X',F|X')\quad,\\
+\varinjlim H^{n+1}(Y'_{\lambda},h^{\ast}(F)|Y'_{\lambda})
+\xrightarrow{\sim}H^{n+1}(Y',h^{\ast}(F)|Y'){\quoi}.
+\end{gathered}
+$$
+立即可知, 若 $(\xi|Y')\in\Iim H^{n+1}(X',F|X')$, 则\pageoriginale 存在指标 $\lambda$, \linebreak 使 $(\xi|Y'_{\lambda})\in\allowbreak\Iim H^{n+1}(X'_{\lambda},F|X'_{\lambda})$, 矛盾. 因此确有 $X'\in\Phi$. 从而 $\Phi$ 是归纳的, 因而包含一个关于包含关系极小的元素, 记为 $X'$. 由于 $\varnothing\notin\Phi$, 集合 $X'$ 非空. 将 \hyperref[XII.cor6.10]{6.10} 的假设应用于 $\xi$ 与 $X'$, 得到满足 \hyperref[XII.cor6.10]{6.10} 中条件 $1^{\circ}$)--$3^{\circ}$) 的态射 $p:\bar{X}\rightarrow X$. 注意甚至可以假设 $p$ \emph{满射到 $X'$}. 事实上, 设 $U$ 为包含在 $p(\bar{X})$ 中的 $X'$ 的一个非空开子集, $X'_1$ 为其在 $X'$ 中的补集. 根据构造, $X'_1\notin\Phi$. 置 $\bar{X}_1=\bar{X}\amalg X'_1$, 并设 $p_1:\bar{X}_1\rightarrow X$ 为由 $p$ 及嵌入 $X'_1\hookrightarrow X$ 定义的态射. 利用关系 $X'_1\notin\Phi$, 立即可知 $p_1$ 仍满足与 $p$ 相同的假设; 而且它满射到 $X'$. 因而可以假设 $p$ 满射到 $X'$. 现在应用 \hyperref[XII.cor6.9]{6.9}, 将其中的 $h:Y\rightarrow X$ 换成 $h':Y'\rightarrow X'$ (例如给 $X'$ 赋予其诱导的既约结构), 并将 $\xi$ 换成 $\xi|Y'$. 由 \hyperref[XII.cor6.9]{6.9} 得到 $(\xi|Y')\in\Iim H^{n+1}(X',F|X')$, 与 $X'\in\Phi$ 矛盾. 至此完成了 \hyperref[XII.cor6.10]{6.10} 的证明.
+
+将利用 \hyperref[XII.cor6.10]{6.10} 将 \hyperref[XII.cor5.5]{5.5} 归结为 $f$ 射影的情形. 但在非 Noether 情形下, 这需要 Chow 引理的非 Noether 变体, 将在下一节给出.
+
+\begin{enonce*}{命题 6.11}\etiquette[6.11]{XII.prop6.11}
+(传递性引理). 记号同 \hyperref[XII.prop6.8]{6.8}, 但对 $p$ 不加满射性假设. 假设 $h$ 满足 \hyperref[XII.prop6.5]{6.5} 的条件 \textup{(i) a)} (分别地, \textup{(ii) a)}; 分别地, \textup{(iii) a)}). 在情形 \textup{(i)} 中, 再假设对 $\bar{X}$ 上的每个集合层 $\bar{F}$, \hyperref[XII.prop6.8]{6.8} 中的换基同态为单态射 (分别地, 同构); 在情形 \textup{(ii)} 中, 假设 $\bar{X}$ 是 Noether 概形, 并且对每个 ind-$\LL$ 群层 $\bar{F}$, 换基同态
+$$
+h^{\ast}(R^ip_{\ast}(\bar{F}))\longrightarrow
+R^ip_{Y\ast}(\bar{h}^{\ast}(\bar{F}))
+$$
+对 $i=0,1$ 为\pageoriginale 双射; 最后在情形 \textup{(iii)} 中, 假设换基同态对 $i\leq n$ 为双射, 对 $i=n+1$ 为单射. 则 $\bar{h}:\bar{Y}\rightarrow\bar{X}$ 也满足 \hyperref[XII.prop6.5]{6.5} 的条件 \textup{(i)} (分别地, \textup{(ii)}; 分别地, \textup{(iii)}).
+\end{enonce*}
+
+\noindent
+\emph{\hyperref[XII.prop6.11]{6.11} 的证明.} 在情形 (i) 中, 考虑 \hyperref[XII.prop6.8]{6.8} (i) 证明中的交换图表. 这里假设蕴含第一个水平箭头与右上方的竖直箭头为单射 (分别地, 双射), 因而第二个水平箭头也如此, 正如所求. 在情形 (ii) 中, 设 $\bar{F}$ 为 $\bar{X}$ 上的 ind-$\LL$ 群层. 须证明 $H^1(\bar{Y},\bar{h}^{\ast}(\bar{F}))$ 的每个元素都来自 $H^1(\bar{X},\bar{F})$ 的某个元素. 将 \hyperref[XII.cor6.6]{6.6} (ii) 应用于 $\bar{h}$, 只须找到 $\bar{X}$ 上的群层单态射 $\bar{F}\rightarrow\bar{G}$, 以\emph{消去} $H^1(\bar{Y},\bar{h}^{\ast}(\bar{F}))$. 考虑 \hyperref[XII.prop6.8]{6.8} (ii) 证明中所用图表的第二行. 只须依次找到单态射 $\bar{F}\rightarrow\bar{G}$, 其中 $\bar{G}$ 为 ind-$\LL$ 有限群层, 以消去最后一项 $H^{\circ}(Y,R^1p_{Y\ast}(\bar{h}^{\ast}(\bar{F})))$, 再找到群层单态射 $\bar{G}\rightarrow\bar{H}$, 以消去 $H^1(Y,p_{Y\ast}(\bar{h}^{\ast}(\bar{G})))$. 如 \hyperref[XII.prop6.8]{6.8} (i) 的证明中所指出, 根据这里对 $p$ 与 $h$ 的换基同态的假设, 待消去的两项通过有关图表两端的竖直箭头分别同构于 $H^{\circ}(X,R^1p_{\ast}(\bar{F}))$ 与 $H^1(X,p_{\ast}(\bar{F}))$. 这些同构显然对 $\bar{F}$ 具有函子性, 所以只须消去后两项. 由 \hyperref[XII.prop3.3]{3.3}, 可以将 $\bar{F}$ 嵌入某个 ind-$\LL$ 群 $\GG$, 以消去 $R^1p_{\ast}(\bar{F})$ (从而更能消去 $H^{\circ}(X,R^1p_{\ast}(\bar{F}))$). 只须消去 $H^1(X,p_{\ast}(\bar{F}))$. 这是可能的, 因为\pageoriginale 根据有关图表, 后一项通过一个对 $\bar{F}$ 具有函子性的单态射映入 $H^1(\bar{X},\bar{F})$, 而 $H^1(\bar{X},\bar{F})$ 再次由 \hyperref[XII.prop3.3]{3.3} 可消去.
+
+只须处理情形 (iii), 这里仍然倒读 \hyperref[XII.prop6.8]{6.8} 的证明\footnote[1]{也可不用 \hyperref[XII.cor6.3]{6.3}, 而使用 $p$ 与 $p_Y$ 的 Leray 谱序列.}. 须证明同态
+$$
+H^{i}(\bar{X},\bar{F})\longrightarrow
+H^{i}(\bar{Y},\bar{h}^{\ast}(\bar{F}))
+$$
+对 $i\leq n$ 为同构, 对 $i=n+1$ 为单态射. 这些同态由复形同态
+$$
+\RR\Gamma_{\bar{X}}(\bar{F})\longrightarrow
+\RR\Gamma_{\bar{Y}}(\bar{h}^{\ast}(\bar{F})){\quoi},
+$$
+诱导, 后者由一个内射预解 $C(\bar{F})$, 以及从 $\bar{h}^{\ast}(C(\bar{F}))$ (它是 $\bar{h}^{\ast}(\bar{F})$ 的预解) 到 $\bar{h}^{\ast}(\bar{F})$ 的一个内射预解的同态得到. 上述同态也等同于复合
+$$
+\RR\Gamma_X(Rp_{\ast}(\bar{F}))\longrightarrow
+\RR\Gamma_Y(h^{\ast}(Rp_{\ast}(\bar{F})))\longrightarrow
+\RR\Gamma_Y(Rp_{Y\ast}(\bar{h}^{\ast}(\bar{F}))){\quoi},
+$$
+其中第一个同态为 $h^{\ast}$ 对 $Rp_{\ast}(\bar{F})$ 所诱导的同态, 第二个为将 $\RR\Gamma_Y$ 应用于换基同态
+$$
+h^{\ast}(Rp_{\ast}(\bar{F}))\longrightarrow
+Rp_{Y\ast}(\bar{h}^{\ast}(\bar{F})).
+$$
+所得的同态. 因此, 根据关于 $h$ 的假设及 \hyperref[XII.cor6.3]{6.3} (i), 第一个同态在所需范围内于有关复形的上同调群上诱导同构. 根据关于换基同态的假设, 使用 \hyperref[XII.prop6.8]{6.8} (iii) 证明中的论证, 第二个也如此. 因而它们的复合也有相同结论, 至此完成了 \hyperref[XII.prop6.11]{6.11} 的证明.
+
+\begin{enonce*}[remark]{注 6.12}\etiquette[6.12]{XII.rem6.12}
+对 \hyperref[XII.prop6.11]{6.11} 的情形 (i) 与 (iii) 给出的论证\pageoriginale 给出下述更精确的结果. 为对 $\bar{X}$ 上一个\emph{给定的}层 $\bar{F}$ 断言
+$$
+H^{i}(\bar{X},\bar{F})\longrightarrow
+H^{i}(\bar{Y},\bar{h}^{\ast}(\bar{F}))
+$$
+对 $i\leq n$ 为双射, 对 $i=n+1$ 为单射, 只须假设
+\begin{itemize}
+\item[$1^{\circ}$)] 换基同态
+$$
+h^{\ast}(R^{i}p_{\ast}(\bar{F}))\longrightarrow
+R^{i}p_{Y\ast}(\bar{h}^{\ast}(\bar{F}))
+$$
+对 $i\leq n$ 为同构, 对 $i=n+1$ 为单态射, 且
+
+\item[$2^{\circ}$)] 对每一对整数 $i,j\geq0$, 由 $h$ 诱导的同态
+$$
+H^{i}(X,R^{j}p_{\ast}(\bar{F}))\longrightarrow
+H^{i}(Y,h^{\ast}(R^{j}p_{\ast}(\bar{F})))
+$$
+在 $i+j\leq n$ 时为同构, 在 $i+j=n+1$ 时为单态射.
+\end{itemize}
+
+情形 (ii) 中很可能也有类似结果, 但其陈述必然涉及非交换 $2$ 上同调. 为避免诉诸该理论, 在 \hyperref[XII.prop6.11]{6.11} (ii) 中采用了基于非交换 $H^1$ 的可消去性质的不同论证; 但它与上面的论证不同, 不能对固定的 $\bar{F}$ 给出结果.
+\end{enonce*}
+
+
+\begin{enonce*}[remark]{注 6.13}\etiquette[6.13]{XII.rems6.13}
+\hyperref[XII.prop6.5]{6.5} (i)、(ii)、(iii) 的条件成立的最重要情形, 是 \hyperref[XII.cor5.5]{5.5} 中所考虑的情形; 下一讲将利用本讲所作的归约加以证明. 另一个有趣的情形 (其中 $h$ 不再像 \hyperref[XII.cor5.5]{5.5} 中那样为闭浸入) 将在 XV 中研究. 再提及与之密切相关的情形: $X$ 是某个 Noether 环 $A$ 的谱, 此环对于理想 $J$ 定义的拓扑分离且完备, $Y=\Spec(A/J)$ 是 $X$ 中由 $J$ 定义的闭子概形. 此时由 \EGA IV 18.3.2 可直接以\pageoriginale $\textup{ b'')}$ 的形式 (其中 $\LL=\PP$) 验证条件 \hyperref[XII.prop6.5]{6.5} (ii). 很有可能 \hyperref[XII.prop6.5]{6.5} (iii) 的条件也对每个 $n$ 成立; 即对 $X$ 上的每个挠层 $F$, 同态
+$$
+H^n(X,F)\longrightarrow H^n(Y,F|Y)
+$$
+为双射. 可以提出广泛得多的猜想, 它们与将 Hensel 化构造推广到非局部概形有关. 首先, 还不知道有任何例子, 其中 $h$ 为闭浸入, 且当 \hyperref[XII.prop6.5]{6.5} (i) 中括号内的条件成立, 即按 \EGA IV 18.5.5 的术语 $(X,Y)$ 为 \emph{Hensel 对}(henselian pair) 时, \hyperref[XII.prop6.5]{6.5} (ii) 与 (iii) (其中 $\LL=\PP$) 的条件不成立. 因而可以猜想, 每个这样的对都满足 \hyperref[XII.prop6.5]{6.5} (ii) 与 (iii) 的条件 (其中 $\LL=\PP$, 对每个 $n$).
+
+另一方面, 可以问: 对一个由拟紧且拟分离概形 $X$ 及其闭子概形 $Y$ 构成的对 $(X,Y)$, 在什么条件下, 下述性质蕴含该对是 Hensel 对:
+
+$(\ast)$ 对 $X$ 上的每个平展概形 $X'$, 置 $Y'=\fprod{X'}{Y}{X}$. 典范映射
+$$
+\Gamma(X'/X)\longrightarrow\Gamma(Y'/Y)
+$$
+为双射 (\cf \EGA IV 18.5.4 b)). 此条件\emph{先验地}显然弱于 Hensel 条件 \hyperref[XII.prop6.5]{6.5} (i), 而且事实上严格较弱: 例如, 当 $X$ 是域 $k$ 上维数为 $\geq2$ 的正规不可约射影概形, $Y$ 是 $X$ 的超平面截面时, 此条件成立 (这容易由 \SGA 2 XII 2.1 取 $S=\Spec(k)$ 得到), 但对 $(X,Y)$ 显然不是 Hensel 对. 不过, 当 $X$ 仿射时, 条件 $(\ast)$ 也许蕴含 $(X,Y)$ 是 Hensel 对. 如果如此, 则对每个仿射概形 $X$ 及 $X$ 的每个闭子集 $Y$, 应当能用一个\pageoriginale 类似局部环 Hensel 化的沿 $Y$ 的平展局部化过程, 与之关联一个 \emph{Hensel} 对 $(X',Y)$, 其中 $X'$ 在 $X$ 上“pro-平展”. 关于 $(X,Y)$ 的另一种假设 (由 Hironaka 与 Rossi 关于代数簇某些子簇可收缩性的结果所启发), 也许也能使 Hensel 性由较弱的性质 $(\ast)$ 推出, 即: 浸入 $Y\rightarrow X$ 是余维为 $1$ 的正则浸入, 且余法层 $\NN_{Y/X}=\JJ/\JJ^2$ (其中 $\JJ$ 是在 $X$ 中定义 $Y$ 的理想) 是 $Y$ 上的\emph{丰沛}可逆层. (相反, 在上面考虑的反例中, 这个余法层是反丰沛的, 即其逆是丰沛的.)
+\end{enonce*}
+
+\footnotetext{\hypertarget{sga4.exp.XII.note.section7}{}只对 Noether 情形下\hyperref[XII.sec5]{第 5 节}陈述感兴趣的读者可以略去本节.}
+
+\section[Chow 引理的一个变体 ${}^{(*)}$.]{Chow 引理的一个变体
+\texorpdfstring{\protect\hyperlink{sga4.exp.XII.note.section7}{${}^{(*)}$}}{(*)}.}\etiquette[7]{XII.sec7}
+
+需要 (\EGA II 5.6.1) 的如下变体, 去掉所有 Noether 性及不可约性假设.
+
+\begin{enonce*}{引理 7.1}\etiquette[7.1]{XII.lem7.1}
+设 $S$ 为拟紧且拟分离概形, $f:X\rightarrow S$ 为有限型分离态射, 且 $X$ 非空. 存在交换图表
+$$
+\xymatrix@=1.25cm{
+X \ar[rd]_{f}&    &\bar{X}\ar[ll]_{\pi}\ar[ld]^{\bar{f}}\\
+  &  S &
+}
+$$
+其中\pageoriginale $\pi$ 射影, $\bar{f}$ 拟射影, 并且存在 $X$ 的非空开子集 $U$, 使 $\pi$ 诱导从 $\bar{U}=\fprod{U}{\bar{X}}{X}=\pi^{-1}(U)$ 到 $U$ 的同构.
+\end{enonce*}
+
+\noindent
+\emph{证明.} 先作下述观察. 设 $i:X'\rightarrow X$ 为 $X$ 的一个闭 $S$ 子概形, $V\subset X'$ 为在 $X$ 中开且在 $X'$ 中稠密的子概形. 若引理对 $X'$ 成立, 则对 $X$ 也成立. 事实上, 设
+$$
+\xymatrix@=1.25cm{
+X' \ar[rd]_{f'}&    &\bar{X}'\ar[ll]_{\pi'}\ar[ld]^{\bar{f}'}\\
+  &  S &
+}
+$$
+为陈述中的那种图表, $U'\neq\varnothing$ 为 $X'$ 的开子集, 使 $\pi'$ 诱导同构 $\bar{U}'={\pi'}^{-1}(U')\rightarrow U'$. 由于 $V$ 在 $X'$ 中稠密, 有 $U'\cap V\neq\varnothing$, 因而可将 $U'$ 换成这个开子集. 则 $U'$ 在 $X$ 中开, 置 $\pi=i\pi'$、$\bar{f}=\bar{f}'$ 及 $U=U'$.
+
+现在, $X$ 有由非空仿射开子集 $U_k$、$k=1,\ldots,n$ 构成的有限覆盖. 关于 $S$ 的假设蕴含每个 $U_k\rightarrow S$ 都拟仿射, 因而更是拟紧的. 对 $n$ 作归纳, 为每个 $X$ 证明引理. 若各 $U_k$ 的交 $U$ 在 $X$ 中稠密, 可以照搬 (\EGA II 5.6, B, C, D) 的证明, 并作必要的记号变更. 若此交非空, 则将 $X$ 换成 $U$ 的闭包 $X'$ (如上述观察中那样), 并将 $U_k$ 换成 $U'_k=U_k\cap X'$, 归结为交稠密的情形. 最后, 假设 $U$ 为空, 选取 $r$、$1\leq r<n$, 使
+$$
+V=\bigcap_{k=1}^{r}U_k\neq\varnothing
+\qquad\hbox{但}\qquad
+V\cap U_{r+1}=\varnothing;
+$$
+由于 $U_1\neq\varnothing$, 显然可以如此选取. 现在可以将 $X$ 换成 $V$ 的闭包 $X'$, 将每个 $U_k$ 换成 $U_k\cap X'$, 并舍去空的各项. 由于 $U_{r+1}\cap X'=\varnothing$ (它在 $X'$ 中开, 且与稠密开集 $V$ 不交), 结果由归纳假设得到.
+
+\section{最后的归约}\etiquette[8]{XII.sec8}\pageoriginale
+
+\begin{enonce*}{引理 8.1}\etiquette[8.1]{XII.lem8.1}
+为证明断言 {\rm \hyperref[XII.thm5.1]{5.1} (i)、(ii)、(iii)} 中的任一个, 只须在 $f$ \emph{射影}且 $S$ 为 Noether 概形的假设下证明之.
+\end{enonce*}
+
+先假设已在 $f$ 射影时证明 \hyperref[XII.thm5.1]{5.1}; 说明如何对任意 $f$ 得到相同断言. 利用 \hyperref[XII.lem6.1]{6.1}, 归结为 \hyperref[XII.cor5.5]{5.5} 的情形, 其中 $S$ 严格局部. 现在取 $Y=X_{\circ}$ 应用 \hyperref[XII.cor6.10]{6.10}. 给定如 \hyperref[XII.cor6.10]{6.10} 中的 $(\xi,X')$, 应用 Chow 引理 \hyperref[XII.lem7.1]{7.1}, 找到 $S$ 态射 $p:\bar{X}\rightarrow X'$, 其中 $\bar{X}$ 在 $S$ 上射影, 使 $p(\bar{X})$ 包含 $X'$ 的一个非空开子集 (\hyperref[XII.cor6.10]{6.10} 的条件 $1^{\circ}$). 由于 $p$ 射影, 根据假设, $(p,h)$ 的换基同态为同构 (\hyperref[XII.cor6.10]{6.10} 的条件 $2^{\circ}$). 最后, 由于 $\bar{X}$ 在 $S$ 上射影, 嵌入 $\bar{Y}=\bar{X}_{\circ}\rightarrow\bar{X}$ 根据假设在上同调群上诱导同构
+$$
+H^{i}(\bar{X},\bar{F})\longrightarrow
+H^{i}(\bar{X}_{\circ},\bar{h}^{\ast}(\bar{F})),
+$$
+这正是 \hyperref[XII.cor6.10]{6.10} 的条件 $3^{\circ}$. 因而 \hyperref[XII.cor6.10]{6.10} 的所有条件均满足, 结论得证.
+
+再说明, 为对 $f$ 射影的每个情形 $(f,F,g)$ 验证 \hyperref[XII.thm5.1]{5.1} 的三个断言中的任一个, 还可假设 $S$ 为 Noether 概形. 由 \hyperref[XII.lem6.1]{6.1}, 可假设 $S$ 严格局部, 且 $S'\rightarrow S$ 为闭点的嵌入; 因而只须验证 $S$ 严格局部时的 \hyperref[XII.cor5.5]{5.5}. 此外, 由于 $X$ 嵌入射影概形 $\PP^r_S$, 相容性 \hyperref[XII.prop4.4]{4.4} (ii) 允许将 $X$ 换成 $\PP^r_S$, 将 $F$ 换成其在 $\PP^r_S$ 上的正像. 因而归结为情形 $X=\PP^r_S$.
+
+写成 $S=\Spec(A)$. 环 $A$ 是 Noether Hensel 局部子环 $A_i$ 的滤过正向极限, 其中嵌入 $A_i\rightarrow A$ 为局部同态: 可取 $A$ 的有限生成 $\ZZ$ 子代数在 $A$ 的极大理想所诱导的素理想处的严格 Hensel 化. 在这些条件下, $A$ 的剩余域 $k$ 同样是各 $A_i$ 的剩余域 $k_i$ 的滤过正向极限 (\EGA IV 5.13.1). 置 $S_i=\Spec(A_i)$ 及 $X_i=\PP^r_{S_i}$. 假设如 VII \hyperref[VII.thm5.7]{5.7} 中那样, 在各 $X_i$ 上给定一个层的正向系 $(F_i)$, 其层属于所考虑断言中的类型, 以 $F$ 表示它在 $X$ 上定义的层. 以 $F_{i\circ}$ (分别地, $F_{\circ}$) 表示 $F_i$ 在 $S_i$ 的闭点 $s_i$ 上的纤维 $X_{i\circ}$ 上所诱导的层 (分别地, $F$ 在 $S$ 的闭点 $s$ 上的纤维 $X_{\circ}$ 上所诱导的层). 于是有交换图表
+$$
+\xymatrix{
+\displaystyle\mathop{\varinjlim}_{i} H^{n}(X_i,F_i) \ar[r] \ar[d]&
+H^{n}(X,F)\ar[d]\\
+\displaystyle\mathop{\varinjlim}_{i} H^{n}(X_{i\circ},F_{i\circ}) \ar[r] &
+H^{n}(X_{\circ},F_{\circ}),
+}
+$$
+由 VII \hyperref[VII.thm5.7]{5.7}, 两个水平箭头为同构. 因而为证明第二个竖直箭头为同构, 只须为第一个证明这一点; 故只须证明同态
+$$
+H^n(X_i,F_i)\longrightarrow H^n(X_{i\circ},F_{i\circ})
+$$
+为同构. 另一方面, $X$ 上所考虑类型的每个层 $F$ 都同构于上述类型的某个正向系的极限; 例如由 \hyperref[XII.cor5.2]{5.2} 及 \hyperrefext[IX][IX.prop1.6]{1.6} (iii), 可取 $F_i=u_{i*}(F)$, 其中 $u_i:X\rightarrow X_i$ 为典范态射. 至此完成了 \hyperref[XII.lem8.1]{8.1} 的证明.
+
+\begin{enonce*}{推论 8.2}\etiquette[8.2]{XII.cor8.2}
+定理 {\rm \hyperref[XII.thm5.1]{5.1} (i)} 成立.
+\end{enonce*}
+
+事实上, 只须结合 \hyperref[XII.lem8.1]{8.1}、判据 \hyperref[XII.prop6.5]{6.5} (i) ${\rm b'')}$ 及 \hyperref[XII.lem5.8]{5.8}.
+
+\begin{enonce*}{引理 8.3}\etiquette[8.3]{XII.lem8.3}
+为\pageoriginale 证明断言 {\rm \hyperref[XII.thm5.1]{5.1} (i)、(ii)、(iii)} 中的任一个, 只须在 $f$ 为相对维数 $\leq 1$ 的射影态射且 $S$ 为 Noether 概形时证明之.
+\end{enonce*}
+
+事实上, \hyperref[XII.lem8.1]{8.1} 已经表明, 可以只考虑 $f$ 射影且 $S$ 为 Noether 概形的情形, 前面用过的一个论证又允许假设 $X=\PP^r_S$. 对 $r$ 作归纳, 注意根据假设, 定理对 $r=1$ 成立. 因而可以假设 $r\geq2$, 且已经对 $\PP^{r-1}_S\rightarrow S$ 证明定理 (在每个基 $S$ 上). 按通常方式将 $Z=\PP^{r-2}_S$ 嵌入 $X=\PP^r_S$, 设 $p:\bar{X}\rightarrow X$ 为 $X$ 沿 $Z$ 的爆破. 直接计算 (\cf \EGA V) 给出一个自然态射 $p_1:\bar{X}\rightarrow X_1=\PP^1_S$, 使 $\bar{X}$ 成为一个局部同构于 $\PP^{r-1}_{X_1}$ 的 $X_1$ 概形 (它是 $X_1$ 上与 $X_1$ 上一个适当的秩为 $r$ 的局部自由层关联的射影丛). 另一方面, $p$ 的纤维维数为 $\leq1$, $f_1:X_1\rightarrow S$ 的纤维也是如此. 因而在交换图表
+$$
+\xymatrix{
+   & \bar{X} \ar[ld]_{p} \ar[rd]^{p_1} &          \\
+ X \ar[rd]_{f}&           & X_1\ar[ld]^{f_1}\\
+   &    S      &
+}$$
+中, 可以对 $p$ 与 $f_1$ 应用相对维数为一的假设, 对 $p_1$ 应用归纳假设. 由于 $p$ 为满射, 根据 \hyperref[XII.prop6.8]{6.8}, 只须对复合 $\bar{f}=fp=f_1p_1$ 证明 \hyperref[XII.thm5.1]{5.1}. 但已经可以对 $f_1$ 与 $p_1$ 都应用 \hyperref[XII.thm5.1]{5.1}. 考虑到 \hyperref[XII.prop6.11]{6.11}, 得到 \hyperref[XII.thm5.1]{5.1} 对它们的复合 $f_1p_1$ 也成立. 至此完成了 \hyperref[XII.lem8.3]{8.3} 的证明.
+
+\begin{enonce*}{引理 8.4}\etiquette[8.4]{XII.lem8.4}
+为\pageoriginale 证明 {\rm \hyperref[XII.thm5.1]{5.1} (ii)}, 只须在 $f$ 为相对维数 $\leq1$ 的射影态射, 且 $S$ 为 Noether 严格局部概形的情形下, 证明“基本群的特殊化定理” {\rm \hyperref[XII.thmbis5.9]{5.9 bis}}.
+\end{enonce*}
+
+这立即由 \hyperref[XII.lem8.3]{8.3}、\hyperref[XII.lem6.1]{6.1} 及 \hyperref[XII.prop6.5]{6.5} (ii) (判据 b)) 得到.
+
+\hyperref[XII.lem8.4]{8.4} 情形下的特殊化定理将在下一讲 (\hyperrefext[XIII][XIII.sec2]{2}) 中直接证明.
+
+\begin{enonce*}{引理 8.5}\etiquette[8.5]{XII.lem8.5}
+为证明 {\rm \hyperref[XII.thm5.1]{5.1} (iii)}, 只须证明 {\rm \hyperref[XII.thm5.1]{5.1} (ii)}, 并且再证明下述命题 (它将在下一讲 {\rm (\hyperrefext[XIII][XIII.sec3]{3})} 中证明, 或见 {\rm (\EGA IV 21.9.12)}):
+\end{enonce*}
+
+\begin{enonce*}{命题 8.6}\etiquette[8.6]{XII.prop8.6}
+设 $S$ 为 Hensel Noether 概形, $f:X\rightarrow S$ 为相对维数 $\leq1$ 的射影态射, $X_{\circ}$ 为 $X/S$ 的闭纤维. 对每个概形 $Z$, 以 $\Pic Z=H^1(Z,(G_m)_Z)$ 表示 $Z$ 的 Picard 群. 则限制同态
+$$
+\Pic X\longrightarrow \Pic X_{\circ}
+$$
+为满射.
+\end{enonce*}
+
+\noindent
+\emph{\hyperref[XII.lem8.5]{8.5} 的证明.} 由 \hyperref[XII.prop6.5]{6.5} (iii) 及 \hyperref[XII.cor8.2]{8.2}, 只须证明
+$$
+\varphi^q:H^q(X,\ZZ/\ell^\nu \ZZ)\longrightarrow
+H^q(X_{\circ},\ZZ/\ell^{\nu}\ZZ)
+$$
+对每个 $q\geq1$ 及每个素数 $\ell$ 为满射. 对于 $q=1$, 满射性已由 \hyperref[XII.thm5.1]{5.1} (ii) 得知. 此外, 由于 $X_{\circ}$ 是可分闭域 $k$ 上维数 $\leq1$ 的射影概形, 有
+$$
+H^q(X_{\circ},\ZZ/\ell^{\nu}\ZZ)=0
+$$
+在 $\ell\neq\operatorname{char} k$ 时对 $q>2$ 成立 (\hyperrefext[X][X.cor4.3]{4.3}), 在 $\ell=\operatorname{char} k$ 时对 $q>1$ 成立 (\hyperrefext[X][X.cor5.2]{5.2}). 因而对于这些 $q$ 值, 满射性自动成立.
+
+还\pageoriginale 须考虑素数 $\ell\neq\operatorname{char} k$ 时的 $q=2$. 置 $n=\ell^{\nu}$. $n$ 次单位根层 $(\mu_n)_S$ 局部同构于 $(\ZZ/n\ZZ)_S$, 由于 $S$ 严格局部, 存在非典范同构
+$$
+(\mu_n)_S\simeq(\ZZ/n\ZZ)_S,
+$$
+因而 $(\mu_n)_X\simeq(\ZZ/n\ZZ)_X$.
+
+对 $X$ 与 $X_{\circ}$ 应用 Kummer 理论 \hyperrefext[IX][IX.Thr3.2]{3.2}, 得到正合列态射
+$$
+\xymatrix@R=1.5cm{
+\Pic X \ar[r] \ar[d]^{\epsilon}&
+H^{2}(X,(\mu_n)_X) \ar[d]^{\varphi^2}\ar[r]&
+H^{2}(X,(G_m)_X)\ar[d]\\
+\Pic X_{\circ} \ar[r]&
+H^2(X_{\circ},(\mu_n)_{X_{\circ}}) \ar[r]&
+H^2(X_{\circ},(G_m)_{X_{\circ}}).
+}
+$$
+由 \hyperrefext[IX][IX.thm4.6]{4.6}, 有 $H^2(X_{\circ},(G_m)_{X_{\circ}})=0$. 因而 $\epsilon$ 的满射性蕴含 $\varphi^2$ 的满射性, 引理得证.
+
+\begin{thebibliography}{99}
+\bibitem{sga4.exp.XII.bib.1} \textsc{Giraud} J., \emph{Cohomologie non-abélienne}, 学位论文 (即将出版), 以及 C.R., vol. 260, pp. 2392 与 2656 (1965) 中的两篇短文.
+
+\bibitem{sga4.exp.XII.bib.2} \textsc{Godement} R., \emph{Théorie des faisceaux}, Paris
+(1958).
+
+\bibitem{sga4.exp.XII.bib.3} \textsc{Verdier} J.L., \emph{Catégories dérivées},
+Institut des Hautes Études Scientifiques (1964).
+\end{thebibliography}
+
+

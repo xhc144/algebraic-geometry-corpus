@@ -1,0 +1,29 @@
+% Chinese adaptation of this SGA 4 source's own AMS/SMF layout.
+\usepackage{xeCJK}
+\setCJKmainfont[BoldFont={Noto Serif CJK SC Bold},ItalicFont={Noto Serif CJK SC},SmallCapsFont={Noto Serif CJK SC}]{Noto Serif CJK SC}
+\setCJKsansfont{Noto Sans CJK SC}
+\setCJKmonofont{Noto Sans Mono CJK SC}
+\def\chaptername{第}
+\def\contentsname{目录}
+\def\bibname{参考文献}
+\def\appendixname{附录}
+\def\proofname{证明}
+\def\theoname{定理}\def\propname{命题}\def\conjname{猜想}
+\def\coroname{推论}\def\lemmname{引理}\def\definame{定义}
+\def\remaname{注}\def\exemname{例}
+\def\cf{\ifmmode\text{参见}\else 参见\fi\kern.3em}\def\Cf{参见\kern.3em}
+\def\ie{\ifmmode\text{即}\else 即\fi\kern.3em}\def\iev{即\xspace}
+\def\resp{\ifmmode\text{分别}\else 分别\fi}\def\etcn{等等\xspace}\def\etco{等等\xspace}
+\def\quaet{\quad\text{且}\quad}
+\def\loccit{前引文献\xspace}
+% Heading label follows original Roman exposé numbering.
+\def\thechapter{\Roman{chapter}}
+\hypersetup{pdftitle={SGA 4：拓扑斯理论与概形的平展上同调，第 X--XIX 讲（翻译检查点）},pdfauthor={M. Artin; A. Grothendieck; J.-L. Verdier},pdfsubject={SGA 4 中文原生 LaTeX，覆盖状况见 PROGRESS.json}}
+
+\emergencystretch=2em
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd{\@makechapterhead}{\enspace\thechapter}{\enspace\thechapter\enspace 讲}{}{}
+\makeatother
+\AtBeginDocument{\def\chaptername{第}\def\contentsname{目录}\def\bibname{参考文献}\def\proofname{证明}}
+\input{style/external-references.tex}

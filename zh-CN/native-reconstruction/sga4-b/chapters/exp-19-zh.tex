@@ -1,0 +1,1786 @@
+\chapter{等特征优良预概形的上同调}
+%\addtocontents{toc}{M. Artin}
+\begin{center}
+M. Artin
+\end{center}
+\phantomsection\MakeLinkTarget*{sga4.exp.XIX}\label{sga4.exp.XIX}
+
+% The edition is fixed to the corrected (second) reading. This expandable
+% selector is output-equivalent and avoids current Xy-pic conditional failures.
+\renewcommand{\sisi}[2]{#2}
+
+\newcommand{\UU}{\mathbf{U}}
+
+本\pageoriginale 讲讨论等特征（equal characteristic）优良预概形（excellent prescheme）
+（\EGA IV 7.8.1）的平展上同调，\emph{并假设这类预概形的
+奇点消解\pageoriginale 定理成立}，具体形式如下：
+
+设 $X=\Spec A$ 为等特征优良局部概形，
+$U\subset X$ 为正则开子集。则存在一个固有双有理态射
+$f:X'\rightarrow X$ 及 $X$ 上的开浸入
+$U\rightarrow X'$，使 $X'$ 正则，而
+$Y=X'-U$ 处处为余维 \hyperref[XIX.sec1]{1}，且具有正规交叉。
+
+\emph{因此，这些证明“目前”只在特征零时有效}
+\cite{sga4.exp.XIX.bib.4}。也可以由这些证明推出
+特征 $p>0$ 的低维预概形的一些结果
+\cite{sga4.exp.XIX.bib.1}。
+
+在奇点消解假设下，对于等特征预概形及与特征互素的系数，
+我们将得到或多或少令人满意的结果（\cf \hyperref[XIX.thm3.2]{3.2}，\hyperref[XIX.thm4.1]{4.1}，
+\hyperref[XIX.thm5.1]{5.1}，\hyperref[XIX.thm6.1]{6.1}）。另一方面，对于一般混合特征预概形的上同调，
+几乎一无所知；即使在已有奇点消解的
+\hyperref[XIX.sec2]{2} 维情形也是如此 \cite{sga4.exp.XIX.bib.2}。
+例如，对任何维数 $>1$ 的混合特征完备环，
+纯性定理 \hyperref[XIX.thm2.1]{2.1} 仍是未知的。
+这一结果在形式幂级数环 $k[[x_{1},\ldots, x_{n}]]$ 上的情形
+（\hyperref[XIX.thm1.2]{1.2}），是该理论的主要工具之一。
+还应指出，\hyperref[XIX.thm1.2]{1.2} 的证明并不使用消解定理。
+\emph{因此，此定理已在任意特征下得到证明。}
+
+我们将经常使用 \EGA IV 7.8 中建立的优良\pageoriginale 概形的性质，
+而不明确指出，例如优良性在有限型扩张下的稳定性
+（\EGA IV 7.8.3(ii)），以及在严格局部化下的稳定性。
+后一个事实由奇点消解及 \EGA IV 7.9.5 得到。
+
+\section{环 $k[[x_{1},\ldots,x_{n}]]$ 的纯性}\etiquette[1]{XIX.sec1}
+
+回顾 \hyperrefext[XVI][XVI.thm3.7]{3.7} 的以下推论：
+
+\begin{enonce*}{推论 1.1}\etiquette[1.1]{XIX.cor1.1}
+设 $A$ 为严格局部环，并用 $A\{x\}$ 表示 $A[x]$
+在由 $\rad A$ 和 $x$ 生成的素理想处的严格局部化。
+设 $U=\Spec A\{x\}[1/x]$。则对与 $A$ 的剩余特征互素的 $n$，有
+$$
+H^{q}(U,𝛍_{n})\simeq
+\begin{cases}
+𝛍_{n}(A) & \text{\rm 若}\quad q=0\\
+\ZZ/n & \text{\rm 若}\quad q=1\\
+0            & \text{\rm 若}\quad q>1{\quoi}.
+\end{cases}
+$$
+\end{enonce*}
+
+事实上，设 $X=\Spec A[x]$，并设 $Y=V(x)$ 为 $x$
+在 $X$ 中的零点集。则 $(Y,X)$ 是
+$\Spec A$ 上的一个光滑对（\hyperrefext[XVI][XVI.def3.1]{3.1}）。
+由 (V 4, VIII 5)，$H^{q}(U,𝛍_{n})$
+可与层 $ℋ^{q+1}_{Y}$ $(X,𝛍_{n})$
+在位于 $X$ 的点 $(\rad A,x)$ 上方的一个几何点处的纤维等同，
+因而此推论立即由（\hyperrefext[XVI][XVI.thm3.7]{3.7}）得到。
+注意，$𝛍_{n}$ 和 $\ZZ/n$ 都是 $n$ 阶循环群。
+此处使用它们是为了给出典范\pageoriginale 公式（\cf \hyperref[XIX.thm3.4]{3.4}）。
+
+\begin{enonce*}{定理 1.2}\etiquette[1.2]{XIX.thm1.2}
+设 $k$ 为可分闭域，$U=\Spec
+k[[x_{1},\ldots,x_{r}]]$ $[1/x_{r}]$。则对与
+$k$ 的特征互素的 $n$，有
+$$
+H^{q}(U,𝛍_{n})=
+\begin{cases}
+𝛍_{n}(A) &\text{\rm 若}\quad q=0\\
+\ZZ/n &\text{\rm 若}\quad q=1\\
+0 &\text{\rm 若}\quad q>1{\quoi}.
+\end{cases}
+$$
+\end{enonce*}
+
+\begin{enonce*}[remark]{注}
+当 $k=\CC$ 时，这一证明同样适用于收敛幂级数环。
+此外，只须将结果的陈述稍加斟酌，便容易去掉 $k$ 可分闭的假设。
+不过，为了建立一般的纯性定理 \hyperref[XIX.thm3.2]{3.2}
+（当然是在奇点消解假设下），我们只需要
+$k$ 可分闭时的结果，而这些其他断言都是
+定理 \hyperref[XIX.thm3.2]{3.2} 的推论。
+\end{enonce*}
+
+在维数为 0 和 1 时，可对每个正则严格局部环证明该结果：
+
+\begin{enonce*}{引理 1.3}\etiquette[1.3]{XIX.lem1.3}
+设 $A$ 为正则严格局部环，$x\in \rad A$ 为一个
+局部参数。设 $U=\Spec A[1/x]$。则
+$H^{0}(U,𝛍_{n})=𝛍_{n}(A)$，且有典范同构
+$$
+\ZZ/n\simeq H^{0}(U,\GG_{m})/(H^{0}(U,\GG_{m}))^{n}\simeq
+H^{1}(U,𝛍_{n}){\quoi},
+$$
+其中\pageoriginale $\ZZ/n$ 的生成元为 $x\in H^{0}$ $(U,\GG_{m})$ 的“剩余类”。
+\end{enonce*}
+
+\medskip
+\noindent
+\emph{证明}。对于 $q=0$，断言就是 $U$ 连通且非空。
+这确实成立。对于 $q=1$，应用 Kummer 正合列
+（\hyperrefext[IX][IX.rems3.7]{3.7}）。由于 $A$ 正则且为析因环，
+而 $U$ 是 $X=\Spec A$ 的开子集，有 $\Pic U=0$。
+于是有正合列
+$$
+H^{0}(U,\GG_{m})\xrightarrow{n}H^{0}(U,\GG_{m})\rightarrow
+H^{1}(U,𝛍_{n})\rightarrow 0{\quoi},
+$$
+还须证明 $H^{0}(U,\GG_{m})/(H^{0}(U,\GG_{m}))^{n}$
+同构于 $\ZZ/n$，且由 $x$ 的剩余类生成。
+然而，有显然的正合列
+$$
+\xymatrix@R=.1cm{
+0 \ar[r]& H^0(X,\GG_m)\ar[r] & H^{0}(U,\GG_m)\ar[r] &
+\ZZ \ar[r]& 0\\
+& \text{\rotatebox{-90}{$\simeq$}} & \text{\rotatebox{-90}{$\simeq$}} &\\
+& A^{\ast}  & A[1/x]^{\ast}   
+}
+$$
+其中截面 $a\in H^{0}$ $(U,\GG_{m})$ 在
+$\ZZ$ 中的像为 $a$ 沿 $\{x=0\}$ 的消失阶数。
+群 $A^{\ast}$ 是 $n$-可除的，因为 $A$ 严格局部，
+且 $n$ 与剩余特征互素。事实上，若
+$u\in H^{0}$ $(X,\GG_{m})$，则方程 $Y^{n}-u=0$
+定义 $A$ 的一个有限平展扩张，故该扩张完全分裂。
+于是 $H^{1}$ $(U,𝛍_{n})\simeq \ZZ/n$，引理得证。
+
+\medskip
+\noindent
+\emph{\hyperref[XIX.thm1.2]{1.2} 的证明}。还须处理
+$q>1$ 的情形。回顾 (V，附录) 的术语。有
+$$
+H^{q}(U,𝛍_{n})=\varinjlim_{\UU}
+H^{q}(\UU,𝛍_{n})
+$$ 
+其中\pageoriginale $\xymatrix{\UU = \bigg\{U_0 & U_1
+\ar@<3pt>[l] \ar@<-3pt>[l] & \ldots \ar@<5.5pt>[l]
+\ar[l]\ar@<-5.5pt>[l]\bigg\}}$ 遍历 $U$ 的\emph{超覆盖}（hypercovering）
+所成的范畴（在同伦意义下滤过）。设 $\UU$ 为这样一个超覆盖，
+并取各 $U_{i}$ 为分离且有限型的。
+由于要证明 $H^{q}$ $(U,𝛍_{n})=0$，只须找出一个
+超覆盖 $\VV$ 及态射 $\VV\rightarrow \UU$，使诱导态射
+$$
+H^{q}(\UU,𝛍_{n})\longrightarrow
+H^{q}(\VV,𝛍_{n})
+$$
+为零态射。
+
+设 $\{W_{1},\ldots,W_{m}\}$ 为 $i\leq q+1$ 时所有
+$U_{i}$ 的连通分支所成的集合，并设 $B_{j}$ 为
+$A=k[[x_{1},\ldots,x_{r}]]$ 在 $W_{j}$ 的有理函数域
+$R(W_{j})$ 中的正规化。则由于 $W_{j}\rightarrow U$ 平展，
+概形 $W_{j}$ 是 $\Spec B_{j}$ 的一个开子集，
+可设它为 $\Spec C_{j}$ 的开补集，其中 $C_{j}$
+为 $B_{j}$ 的适当的约化商环。
+
+另取 $B_{j}$ 的元素 $b_{j}$，使 $b_{j}$ 生成
+$k((x_{1},\ldots,x_{r}))$ 的可分扩张 $R(W_{j})$。
+设 $f_{j}(Y)\in A[Y]$ 为 $b_{j}$ 在 $A$ 上的
+首一不可约多项式，则 $B_{j}$ 同构于环 $A[Y]/(f_{j})$ 的正规化。
+最后，设 $d_{j}\in A$ 为 $f_{j}(Y)$ 的判别式，
+它是 $A$ 的一个非零元素。
+
+现在可以将 $i<r$ 的各 $x_{i}$ 换为 $A$ 的其他元素，
+唯一的条件是 $\{x_{1},\ldots,x_{r}\}$ 构成 $A$ 的一个参数系。
+
+容易看出，必要时更换这些元素后，
+可\pageoriginale 假设满足以下条件：
+
+\setcounter{subsection}{3}
+\subsection{}\etiquette[1.4]{XIX.subsec1.4}
+\begin{itemize}
+\item [(i)] 对每个使 $d_{j}$ 不是单位的 $j$，
+$x_{1},\ldots,x_{r-1}$ 与 $d_{j}$ 生成一个根为
+$\rad A$ 的准素理想。
+
+\item[(ii)] 对每个 $j$，$x_{1},\ldots,x_{r-1}$ 在
+$C_{j}$ 中的像生成一个根为 $\rad C_{j}$ 的准素理想。
+\end{itemize}
+于是有以下引理：
+
+\begin{enonce*}{引理 1.5}\etiquette[1.5]{XIX.lem1.5}
+设 $A^{0}=k[[x_{1},\ldots,x_{r-1}]]$ $\{x_{r}\}$ 为
+$k[[x_{1},\ldots,x_{r-1}]]$ $[x_{r}]$ 在点
+$(x_{1},\ldots,x_{r})$ 处的 Hensel 化（henselization），
+并设 $X^{0}=\Spec A^{0}$，$U^{0}=\Spec
+A^{0}$ $[1/x_{r}]$。在上述 $\hyperref[XIX.subsec1.4]{1.4}$ 的条件下，
+存在 $U^{0}$ 的一个（$q+1$ 阶）超覆盖 $\UU^{0}$，以及
+同构 $\fprod{\UU^{0}}{X}{X^{0}}\simeq\UU$。
+\end{enonce*}
+
+先承认此引理。环 $A^{0}$ 是优良的（\EGA IV 7.8.3
+(ii), 7.9.5），因此 $U^{0}_{i}$ 和 $U_{i}$ 的连通分支
+双射对应（\EGA IV 7.8.3 (vii)）。同构
+$\fprod{\UU^{0}}{X}{X^{0}}\simeq
+\UU$ 因而给出一个同构
+$$
+H^{q}(\UU^{0},𝛍_{n})\simeq
+H^{q}(\UU,𝛍_{n}){\quoi}.
+$$
+由于 $k$ 可分闭，$A^{0}$ 为严格局部环，
+可将 \hyperref[XIX.cor1.1]{1.1} 应用于环 $A^{0}$。
+于是 $H^{q}$ $(U^{0},𝛍_{n})=0$。然而
+$$
+H^{q}(U^{0},𝛍_{n})\simeq
+\varinjlim_{\VV^{0}}H^{q}(\VV^{0},𝛍_{n}){\quoi},
+$$
+其中 $\VV^{0}$ 遍历 $U^{0}$ 的 $q+1$ 阶超覆盖所成的范畴，\pageoriginale 且
+$H^{q}$ $(\UU^{0},𝛍_{n})$ 为有限群。
+因此存在超覆盖态射 $\VV^{0}\rightarrow \UU^{0}$，使诱导态射
+$$
+H^{q}(\UU^{0},𝛍_{n})\longrightarrow
+H^{q}(\VV^{0},𝛍_{n})
+$$
+为零态射。置 $\VV=\fprod{\VV^{0}}{X}{X^{0}}$。
+则 $H^{q}$ $(\VV^{0},𝛍_{n})\simeq
+H^{q}(\VV,𝛍_{n})$（用与 $\UU^{0}$ 相同的论证），所以
+$$
+H^{q}(\UU,𝛍_{n})\longrightarrow
+H^{q}(\VV,𝛍_{n})
+$$
+也为零态射，\cqfd
+
+\medskip
+\noindent
+\emph{\hyperref[XIX.lem1.5]{1.5} 的证明}。只须找出有限
+$A^{0}$-代数 $B^{0}_{j}$ 及 $C^{0}_{j}$，以及 $A$-同构
+\begin{align*}
+B^{0}_{j}\otimes_{A^{0}}A &\xrightarrow{\sim} B_{j}\\
+C^{0}_{j}\otimes_{A^{0}}A &\xrightarrow{\sim} C_{j}{\quoi}.
+\end{align*}
+事实上，由（\cite{sga4.exp.XIX.bib.3}~\hyperref[XIX.subsec1.4]{1.4}），
+态射 $B_{j}\rightarrow C_{j}$ 由一个态射
+$B^{0}_{j}\rightarrow C^{0}_{j}$ 诱导，故开子集 $W_{j}\subset
+\Spec B_{j}$ 由某个开子集 $W^{0}_{j}\subset \Spec
+B^{0}_{j}$ 诱导。此外，各 $W_{j}$ 之间的 $U$-态射
+由各 $A$-代数 $B_{j}$ 之间的态射诱导，从而
+由各 $B^{0}_{j}$ 之间的态射诱导
+（\cite{sga4.exp.XIX.bib.3}~\hyperref[XIX.subsec1.4]{1.4}），
+因而也由各 $W^{0}_{j}$ 之间的 $U^{0}$-态射诱导。
+所以，这些 $W^{0}_{j}$ 构成 $U^{0}$ 上的一个单纯形对象
+$\UU^{0}$ 的连通分支集，且它诱导出 $\UU$；
+立即可见，它是 $U^{0}$ 的一个超覆盖。
+
+由 \hyperref[XIX.subsec1.4]{1.4} (ii) 确实可知 $C_{j}$ 由
+一个 $A^{0}$-代数\pageoriginale $C^{0}_{j}$ 诱导，这很容易验证
+\footnote[1]{事实上，由 \hyperref[XIX.subsec1.4]{1.4} (ii)，$C_{j}$ 在
+$k[[X_{1},\ldots,X_{r-1}]]$ 上有限，因而在 $A^{0}$ 上更是有限，
+只须取 $C^{0}_{j}=C_{j}$，赋予由限制标量得到的
+$A^{0}$-模结构。}。对于 $B_{j}$，只须找出
+首一多项式 $f^{0}_{j}(Y)\in A^{0}[Y]$，使两个
+$A$-代数
+$$
+A[Y]/(f_{j})\quav
+A[Y]/(f^{0}_{j})=A\otimes_{A^{0}}A^{0}[Y]/(f^{0}_{j})
+$$
+同构。事实上，此时 $A^{0}[Y]/(f^{0}_{j})$ 约化，
+取 $B^{0}_{j}$ 为 $A^{0}[Y]/(f^{0}_{j})$ 的正规化
+（\EGA IV 7.8.3 (vi)）。环 $B^{0}_{j}\otimes_{A^{0}}A$
+仍然正规（\EGA IV 7.8.3 (vii)），并且与 $B_{j}$ 双有理，
+因而等于该环。
+
+由 \hyperref[XIX.subsec1.4]{1.4} (i)，由 $d_{j}$ 生成的理想 $I_{j}\subset A$
+是由 $k[[x_{1},\ldots,x_{r-1}]]$ $[x_{r}]$ 的一个理想诱导的
+（Weierstrass 预备定理 \cite{sga4.exp.XIX.bib.5}\cite{sga4.exp.XIX.bib.6}），
+从而由 $A^{0}$ 的一个理想 $I^{0}_{j}$ 诱导。
+此外，$A/I_{j}$ 是一个有限 $k[[x_{1},\ldots,x_{r-1}]]$-代数，
+因而同构于 $A^{0}/I^{0}_{j}$。故后一环完备，
+从而 $A^{0}$ 的 $I^{0}_{j}$-进完备化是完备的，且同构于 $A$。
+于是可找到一个首一多项式
+$f^{0}_{j}\in A^{0}$ $[Y]$，使在 $A$ $[Y]$ 中有
+$$
+f_{j}\equiv f^{0}_{j}(\text{\rm 模 } d_{j}{}^{2}\rad A){\quoi}.
+$$
+由（\cite{sga4.exp.XIX.bib.3}，\hyperref[XIX.lem1.3]{1.3}），$A[Y]/(f_{j})\simeq A[Y]/(f^{0}_{j})$，
+引理得证。
+
+\section{严格局部环的情形}\etiquette[2]{XIX.sec2}
+
+定理如下：
+
+\begin{enonce*}{定理 2.1}\etiquette[2.1]{XIX.thm2.1}
+\footnote[1]{依赖于奇点消解（\cf 导言）。}。\pageoriginale 设 $A$ 为等特征的优良、正则、
+严格局部环，$x$ 为 $A$ 的一个“局部参数”
+\footnote[2]{此处指：属于某个\emph{正则}参数系的元素。}。
+设 $U=\Spec A[1/x]$。则对与 $A$ 的特征互素的 $n$，有
+$$
+H^{q}(U,𝛍_{n})=
+\begin{cases}
+𝛍_{n}(A) &\text{\rm 若}\quad q=0\\
+\ZZ/n &\text{\rm 若}\quad q=1\\
+0 &\text{\rm 若}\quad q>1{\quoi}.
+\end{cases}
+$$
+\end{enonce*}
+
+证明对 $q$ 作归纳。用 $P(N)$ 表示
+\hyperref[XIX.thm2.1]{2.1} 对各 $q\leq N$ 的断言。
+由 \hyperref[XIX.lem1.3]{1.3}，断言 $P(1)$ 成立。
+
+\begin{enonce*}{引理 2.2}\etiquette[2.2]{XIX.lem2.2}
+假设 $P(N)$ 成立。设 $A\rightarrow A'$ 为等特征的优良、正则、
+严格局部环之间的一个局部态射。
+设 $\{x_{1},\ldots,x_{r}\}$ 为 $A$ 的某个正则参数系的一部分，
+且它在 $A'$ 中的像集仍为某个正则参数系的一部分。设
+\begin{align*}
+U &= \Spec A[1/x_{1},\ldots,1/x_{r}]\\
+U'&= \Spec A'[1/x'_{1},\ldots,1/x'_{r}]{\quoi}.
+\end{align*}
+则典范态射
+$$
+H^{q}(U,𝛍_{n})\longrightarrow
+H^{q}(U',𝛍_{n})
+$$
+对每个 $q\leq N$ 均为\pageoriginale 双射。
+\end{enonce*}
+
+\medskip
+\noindent
+\emph{证明}。\footnote[3]{有一个比下述证明更短、但使用杯积形式体系的证明：
+在假设 $P(N)$ 下证明，上同调
+$H^{\ast}(U,\ZZ/n\ZZ)$ 在维数 $\leq N$ 内为
+$H^{1}(U,\ZZ/n\ZZ)\simeq (\ZZ/n\ZZ)^{r}$
+上的（$\ZZ/n\ZZ)$ 上的）外代数，
+从而只须证明 $q=1$ 时的 \hyperref[XIX.lem2.2]{2.2}，而这是熟知的情形。
+例如，\SGA 7 中明确给出了在假设 $P(N)$ 下的上述计算。}
+对 $r$ 作归纳：$r=0$ 时断言平凡。
+设 $r>0$，并假设定理对 $r-1$ 已获证明。
+置 $B=A/(x_{r})$，$V=\Spec A[1/x_{1},\ldots,1/x_{r-1}]$，
+$Y=\Spec B[1/x_{1},\ldots,1/x_{r-1}]$
+（$x_{i}$ 在 $B$ 中的像仍用同一符号表示）。
+有开浸入 $i:U\rightarrow V$，而 $Y$ 为由元素
+$x_{r}$ 定义的互补闭子集。
+
+将 $P(N)$ 应用于 $V$ 在 $Y$ 的各几何点处的严格局部化，得到
+\begin{equation*}
+R^{q}i_{\ast}(𝛍_{n})_{U}=
+\begin{cases}
+(𝛍_{n})_{V} &\text{\rm 若}\quad q=0\\
+(\ZZ/n)_{Y} &\text{\rm 若}\quad q=1\\
+0 &\text{\rm 若}\quad 1<q\leq N{\quoi},
+\end{cases}\tag{2.3}
+\end{equation*}\etiquette[2.3]{XIX.eq2.3}
+因为这些严格局部化是等特征优良正则环，
+而元素 $x_{r}$ 在 $Y$ 的每一点都是局部参数。
+
+用“撇号”表示由 $A'$ 得到的类似对象。得到一个谱序列态射
+$$
+\xymatrix@C=.4cm{
+E^{pq}_2 \ar[d]^{\varphi^{pq}_2} & = \text{\phantom{ab}} H^{p}(V,R^{q}i_{\ast}
+𝛍_n)\ar[d]^{\varphi} \ar@{=>}[r] & H^{p+q}(U,𝛍_n) \ar[d]^{\varphi}&\\
+E'^{pq}_2 &= \text{\phantom{ab}} H^{p}(V',R^{q}i'_{\ast}𝛍_n) \ar@{=>}[r]& H^{p+q}(U',𝛍_n).
+}
+$$
+由 \hyperref[XIX.lem1.3]{1.3} 及 \eqhyperref[XIX.eq2.3]{2.3} 显然\pageoriginale 可知，
+基变换 $V\xleftarrow{g}V'$ 对 $q\leq N$ 诱导同构
+$$
+g^{\ast}R^{q}i_{\ast}𝛍_{n}\xrightarrow{\sim}
+R^{q}i'_{\ast}𝛍_{n}
+$$
+（只有在 $q=0$、$1$ 时才需要验证）。
+因此，将归纳假设应用于态射
+$$
+H^{q}(V,𝛍_{n})\longrightarrow
+H^{q}(V',𝛍_{n}){\quoi},
+$$
+可知当 $q=0$ 且 $p\leq N$ 时，$\varphi^{pq}_{2}$ 为同构。
+
+同样，可将归纳假设应用于环态射 $B\rightarrow B'$；
+这两个环都是等特征的正则、优良、严格局部环，
+而元素 $x_{1},\ldots,x_{r-1}$ 构成某个参数系的一部分。
+于是
+$$
+H^{q}(Y,𝛍_{n})\xrightarrow{\sim} H^{q}(Y',
+𝛍_{n})\quad\text{\rm 若}\quad q\leq N{\quoi}.
+$$
+由于 $(𝛍_{n})\simeq (\ZZ/n)_{Y}$，可知当 $p\leq N$ 且 $q=1$ 时，
+$\varphi^{pq}_{2}$ 也为双射。
+
+当 $1<q\leq N$ 时，
+$R^{q}i_{\ast}𝛍_{n}=R^{q}i'_{\ast}𝛍_{n}=0$，
+故当 $1<q\leq N$ 时有 $E^{pq}_{2}={E'}^{pq}_{2}=0$；
+因此对 $1\leq m\leq N$，谱序列态射归结为正合列态射
+$$
+\xymatrix@C=.4cm{
+H^{m-2}(Y,\ZZ/n) \ar[r] \ar[d]^{a}& H^{m}(V,𝛍_n) \ar[r]\ar[d]^{b}&
+H^m(U,𝛍_n) \ar[r]^(.45){e} \ar[d]^{c}&
+H^{m-1}(Y,\ZZ/n)  \ar[r] \ar[d]^{d}&
+H^{m+1}(V,𝛍_n) \ar[d]\\
+H^{m-2}(Y',\ZZ/n) \ar[r] & H^{m}(V',𝛍_n) \ar[r]&
+H^m(U',𝛍_n) \ar[r]^(.45){e} & H^{m-1}(Y',\ZZ/n)  \ar[r]&
+H^{m+1}(V',𝛍_n).
+}
+$$
+已经\pageoriginale 看到 $a$、$b$ 及 $d$ 为双射，
+所以 $c$ 为\emph{单射}。为证明 $c$ \emph{满射}，
+只须证明当 $m\leq N$ 时，态射
+$$
+H^{m}(U,𝛍_{n})\xrightarrow{e}H^{m-1}(Y,\ZZ/n)
+$$
+为满射。
+
+% SGA-SRC-001196
+设 $k\subset A$ 为任意可分闭子域，并设
+$A^{0}=k\{x_{1},\ldots, x_{r}\}$ 为
+$k[x_{1},\ldots,x_{r}]$ 在原点的 Hensel 化。
+则态射 $A^{0}\rightarrow A$ 及元素 $x_{i}$ 满足
+\hyperref[XIX.thm2.1]{2.1} 的假设。采用显然的记号，有交换方块
+$$
+\xymatrix@R=1.25cm{
+H^{m}(U^{0},𝛍_n)  \ar[r]^(.45){e^0} \ar[d]^{c^0}& H^{m-1}(Y^0,
+\ZZ/n) \ar[d]^{d^{0}}\\
+H^{m}(U,𝛍_n)  \ar[r]^(.45){e} & H^{m-1}(Y,
+\ZZ/n)
+}
+$$
+且已知箭头 $d^{0}$ 为双射。因此，只须证明态射
+$e^{0}$ 满射。于是，略去上标 ${}^{0}$，
+只须验证 $A=k\{x_{1},\ldots,x_{r}\}$ 时的满射性。
+
+对于这个环，它是 $k$ 上光滑概形的极限，
+我们已在 \hyperrefext[XVI][XVI.thm3.7]{3.7} 中证明了纯性定理。
+故\pageoriginale 对每个 $q>1$ 有 $R^{q}i_{\ast}𝛍_{n}=0$，
+从而对每个 $m\geq 1$ 有正合列
+$$
+H^{m}(U,𝛍_{n})\xrightarrow{e}H^{m-1}(Y,\ZZ/n)\rightarrow
+H^{m+1}(V,𝛍_{n})\xrightarrow{f}H^{m+1}(U,𝛍_{n})
+$$
+。因此，$e$ 的满射性等价于 $f$ 的单射性。
+
+设 $Z=\Spec k\{x_{1},\ldots,x_{r-1}\}$
+$[1/x_{1},\ldots,1/x_{r-1}]$。由环的包含给出的态射
+$\Spec k\{x_{1},\ldots,x_{r}\}\rightarrow \Spec k\{x_{1},\ldots,x_{r-1}\}$
+是无环的。这就是光滑态射的局部无环性
+（\hyperrefext[XVI][XVI.thm1.1]{1.1}）。
+由于 $\Spec k\{x_{1},\ldots, x_{r}\}$ 的开子集 V 是
+$Z$ 的逆像，态射
+$$
+H^{q}(Z,𝛍_{n})\longrightarrow
+H^{q}(V,𝛍_{n})
+$$
+对每个 $q$ 均为双射（\hyperrefext[XV][XV.def1.3]{1.3}）。
+因此，只须证明态射
+$$
+H^{q}(Z,𝛍_{n})\longrightarrow
+H^{q}(U,𝛍_{n})
+$$
+对每个 $q$ 均为单射。
+
+环 $k\{x_{1},\ldots,x_{r}\}$ 是各环
+$A_{\alpha}$ 的归纳极限，这些环在
+$k\{x_{1},\ldots,x_{r-1}\}$ $[x_{r}]$ 上平展，
+且各自赋有点 $x_{1}=x_{2}=\ldots=x_{r}=0$ 到该环的一个提升。
+因此，$U$ 是各开子集
+$U_{\alpha}=\Spec A_{\alpha}[1/x_{1},\ldots,1/x_{r}]$ 的投射极限，且有
+$$
+H^{q}(U,𝛍_{n})=\varinjlim_{\alpha}H^{q}(U_{\alpha},
+𝛍_{n}){\quoi}.
+$$
+% SGA-SRC-001198
+由于 $A_{\alpha}[1/x_{r}]$ 在 Hensel 环
+$k\{x_{1},\ldots,x_{r-1}\}$ 上光滑，\pageoriginale 且
+$A_{\alpha}[1/x_{r}]$ 的闭纤维非空，立即可知
+$k\{x_{1},\ldots, x_{r-1}\}$-代数 $A_{\alpha}[1/x_{r}]$ 有截面。
+因而 $U_{\alpha}$ 在 $Z$ 上有截面，于是
+$$
+H^{q}(Z,𝛍_{n})\longrightarrow
+H^{q}(U_{\alpha},𝛍_{n})
+$$
+对每个 $q$ 均为单射，因而
+$$
+H^{q}(Z,𝛍_{n})\longrightarrow
+H^{q}(U,𝛍_{n})
+$$
+也为单射，引理得证。
+
+\hypertarget{sga4.exp.XIX.lemma.2.4}{}\begin{enonce*}{引理 2.4}\etiquette[2.4]{XIX.lem2.4}
+假设 $P(N)$ 成立。设 $A\rightarrow A'$ 为等特征的优良严格局部环
+（不必正则）之间的一个正则态射\emph{（\EGA IV 6.8.1）}，
+$U\subset \Spec A$ 为正则开子集。设
+$U'=\fprod{U}{\Spec A'}{\Spec A}$。则对与 $A$ 的剩余特征互素的 $n$，
+态射
+$$
+H^{q}(U,𝛍_{n})\longrightarrow
+H^{q}(U',𝛍_{n})
+$$
+在 $q\leq N$ 时为双射。
+\end{enonce*}
+
+\medskip
+\noindent
+\emph{证明。}设 $f:X\rightarrow \Spec A$ 为 $\Spec A$ 的一个奇点消解，
+使 $\Spec A$ 的开子集 $U$ 提升为开浸入
+$i:U\rightarrow X$，且闭子集 $Y=X-U$ 纯为余维 1 并具有正规交叉。
+用撇号表示由 $A\rightarrow A'$ 诱导的基变换。
+态射 $g:X'\rightarrow X$ 正则（\EGA IV 6.8.3），故
+$f':X'\rightarrow \Spec A'$ 为 $\Spec A'$ 的一个消解，
+$i':U'\rightarrow X'$ 为开浸入，且\pageoriginale
+$Y'=X'-U'$ 纯为余维 1 并具有正规交叉。
+这些概形都是优良的。
+
+设 $p'$ 为 $X'$ 的一点，$p$ 为其在 $X$ 中的像。
+由于 $Y$ 在 $X$ 中具有正规交叉，存在元素
+$x_{1},\ldots,x_{r}\in O_{X,p}$，使 $\{x_{1},\ldots,x_{r}\}$
+为 $O_{X,p}$ 的一个参数系的一部分，且 $\Spec
+O_{X,p}\cap Y=V(x_{1},\ldots,x_{r})$。
+此外，由 $g:X'\rightarrow X$ 正则立即可知，
+各 $x_{i}$ 在 $O_{X',p'}$ 中的像 $x'_{i}$ 构成该环的
+一个参数系的一部分，且 $\Spec O_{X',p'}\cap
+Y'=V(x'_{1},\ldots,x'_{r})$。
+
+设 $B'$ 为 $O_{X',p'}$ 在 $p'$ 上方的一个几何点
+$\bar{p}$ 处的严格局部化，$B$ 为
+$O_{X,p}$ 在 $X$ 的相应几何点处的严格局部化
+（这些环是优良的（\EGA IV 7.8.3 (ii), 7.9.5））。设
+$$
+U_{\bar{p}}=\Spec B[1/x_{1},\ldots,1/x_{r}]\quav U'_{\bar{p}}=\Spec
+B'[1/x'_{1},\ldots,1/x'_{r}]{\quoi}.
+$$
+引理 \hyperref[XIX.lem2.2]{2.2} 适用，从而态射
+\begin{equation*}
+H^{q}(U_{\bar{p}},𝛍_{n})\longrightarrow
+H^{q}(U'_{\bar{p}},𝛍_{n})\tag{$\ast$}
+\end{equation*}
+在 $q\leq N$ 时为双射。
+
+计算开浸入 $i:U\rightarrow X$ 及 $i':U'\rightarrow X'$ 的层
+$R^{q}i_{\ast}𝛍_{n}$ 及 $R^{q}i'_{\ast}𝛍_{n}$：
+在几何点 $\bar{p}$ 处的茎
+$(R^{q}i'_{\ast}𝛍_{n})_{\bar{p}}$ 恰为
+$H^{q}(U'_{\bar{p}},𝛍_{n})$（VIII 5）。同样，
+$(R^{q}i_{\ast}𝛍_{n})_{\bar{p}}=H^{q}(U_{\bar{p}},𝛍_{n})$。
+因此，$(\ast)$ 表明基变换态射
+\begin{equation*}
+g^{\ast}R^{q}i_{\ast}𝛍_{n}\longrightarrow R^{q}i'_{\ast}𝛍_{n}\tag{${\ast}{\ast}$}
+\end{equation*}
+在 $q\leq N$ 时\pageoriginale 为双射。
+
+由固有态射的基变换定理
+（\hyperrefext[XII][XII.cor5.5]{5.5}），对每个挠层 $F$
+及每个 $q$，有（因为 $X$ 和 $X'$ 在严格局部环的谱上固有，
+且 $X$ 和 $X'$ 的闭纤维相等）
+$$
+H^{q}(X,F)\xrightarrow{\sim} H^{q}(X',g^{\ast}F)
+$$
+。因此，由 $({\ast}{\ast})$，谱序列态射
+$$
+\xymatrix@C=.5cm{
+E^{pq}_2 \ar[d]& =& H^{p}(X,R^{q}i_{\ast}𝛍_n) \ar@{=>}[r]\ar[d]^{\varphi^{pq}_2}&
+H^{p+q}(U,𝛍_n) \ar[d]^{\varphi}\\
+E'^{pq}_2   &=&   H^{p}(X',R^{q}i'_{\ast}𝛍_n)\ar@{=>}[r]
+& H^{p+q}(U',𝛍_n),
+}
+$$
+中的箭头 $\varphi^{pq}_{2}$ 对每个 $q\leq N$ 均为双射。
+容易看出，这意味着当 $q\leq N$ 且 $p+q\leq N+1$ 时，
+$\varphi^{pq}_{\infty}$ 为双射。因此，收敛项之间的态射
+$$
+H^{m}(U,𝛍_{n})\longrightarrow
+H^{m}(U',𝛍_{n})
+$$
+在 $m\leq N$ 时为双射，引理得证。
+
+以下引理将完成 \hyperref[XIX.thm2.1]{2.1} 的证明：
+
+\hypertarget{sga4.exp.XIX.lemma.2.5}{}\begin{enonce*}{引理 2.5}\etiquette[2.5]{XIX.lem2.5}
+$P(N)\Rightarrow P(N+1)$。
+\end{enonce*}
+
+\medskip
+\noindent
+\emph{证明}。设 $A$ 为等\pageoriginale 特征的严格局部、正则、优良环，
+$x\in \rad A$ 为局部参数，$U=\Spec A[1/x]$。
+设 $\hat{A}$ 为 $A$ 的完备化，$\hat{x}$ 为 $x$ 的像，
+$\hat{U}=\Spec \hat{A}[1/x]$，$g:\hat{U}\rightarrow U$ 为典范态射。
+只须证明
+\begin{equation*}
+\begin{split}
+g_{\ast}(𝛍_{n})_{\hat{U}}\simeq
+(𝛍_{n})_{U}\quad\text{\rm 且}\\
+R^{q}g_{\ast}𝛍_{n}=0\quad\text{\rm 若}\quad 1\leq
+q\leq N{\quoi}.
+\end{split}\tag{2.6}
+\end{equation*}\etiquette[2.6]{XIX.eq2.6}
+事实上，Leray 谱序列
+$$
+E^{pq}_{2}=H^{p}(U,R^{q}g_{\ast}𝛍_{n})\Longrightarrow
+H^{p+q}(\hat{U},𝛍_{n})
+$$
+将在 $q\leq N$ 时给出同构
+$$
+H^{q}(U,𝛍_{n})\xrightarrow{\sim}
+H^{q}(\hat{U},𝛍_{n})
+$$
+以及正合列
+$$
+0\longrightarrow H^{N+1}(U,𝛍_{n})\longrightarrow
+H^{N+1}(\hat{U},𝛍_{n})\longrightarrow
+H^{0}(U,R^{N+1}g_{\ast}𝛍_{n}){\quoi}.
+$$
+然而，已经知道 $P(1)$ 成立（\hyperref[XIX.lem1.3]{1.3}），
+因此只须证明当 $1<q\leq N+1$ 时 $H^{q}(U,𝛍_{n})=0$。
+于是可将 $A$ 换为 $\hat{A}$，后者同构于形式幂级数环
+$\hat{A}\simeq k[[x_{1},\ldots,x_{r}]]$，其中 $k$ 可分闭，
+且 $\hat{x}=x_{r}$。这一情形已在 \hyperref[XIX.thm1.2]{1.2} 中处理。
+
+现在验证 \eqhyperref[XIX.eq2.6]{2.6}：
+$g_{\ast}(𝛍_{n})_{\hat{U}}\simeq
+(𝛍_{n})_{U}$ 这一事实，正是 \eqhyperref[XIX.eq2.3]{2.3}
+在 $q=0$ 时的断言。回顾 $R^{q}g_{\ast}𝛍_{n}$ 为
+预层 $\Rr^{q}$ 的伴随层，其中
+$$
+\Rr^{q}(V)=H^{q}(\hat{V},𝛍_{n})
+$$
+对\pageoriginale 平展的 $V\rightarrow U$ 成立。
+只须取 $V$ 分离且有限型；此时 $V$ 是若干整概形的不交并，
+而只须考虑这样的 $V$。设 $B$ 为 $A$ 在
+$\Gamma(V,O_{V})$ 的分式域中的正规化。
+则 $B$ 为有限 $A$-代数（\EGA IV 7.8.3 (vi)），
+立即可见 V 为 $\Spec B$ 的正则开子集，
+而 $\hat{V}$ 为 $\Spec \hat{B}$ 的相应开子集，
+其中 $\hat{B}=B\otimes_{A}\hat{A}$。
+于是开子集 $V\subset \Spec B$ 及态射
+$B\rightarrow \hat{B}$ 满足 \hyperref[XIX.lem2.4]{2.4} 的假设。故
+$$
+\Rr^{q}(V)\simeq H^{q}(V, 𝛍_{n})\simeq
+H^{q}(\hat{V}, 𝛍_{n})
+$$
+在 $q\leq N$ 时成立。但预层
+$V\mapsto H^{q}(V,𝛍_{n})$ 的伴随层显然为零，引理得证。
+
+\section{纯性}\etiquette[3]{XIX.sec3}
+
+采用与 \hyperrefext[XVI][XVI.sec3]{3} 类似的术语：
+
+\hypertarget{sga4.exp.XIX.definition.3.1}{}\begin{enonce*}{定义 3.1}\etiquette[3.1]{XIX.def3.1}
+一个\emph{余维 $c$ 的正则对 $(Y,X)$}（regular pair），是指局部 Noether 正则概形之间的闭浸入
+$i:Y\rightarrow X$，使对每个 $y\in Y$ 均有 $\codim_{y}(Y,X)=c$
+（此时存在 $y$ 在 $X$ 中的一个开邻域 $X'$，以及生成
+$Y$ 的理想的截面 $x_{1},\ldots,x_{c}\in \Gamma(X',O_{X})$，
+使它们在 $Y\cap X'$ 的每一点均构成 $X$ 的一个正则参数系的一部分）。
+记 $U=X-Y$，并记 $j:U\rightarrow X$ 为相应的开浸入。
+\end{enonce*}
+
+余维 $c$ 的正则对的\emph{态射}\pageoriginale
+$(Y',X')\rightarrow (Y,X)$，是一个使 $Y'=\fprod{Y}{X'}{X}$ 的态射
+$X'\rightarrow X$。正则三元组、正则三元组的态射等概念，
+也以类似的显然方式定义。
+
+\hypertarget{sga4.exp.XIX.theorem.3.2}{}\begin{enonce*}{定理 3.2}\etiquette[3.2]{XIX.thm3.2}
+\footnote[1]{依赖于奇点消解（\cf 导言）。}。
+\emph{（上同调纯性）}设 $(Y,X)$ 为余维 $c>0$ 的正则对，
+其中 $X$ 为等特征优良预概形。设 $F$ 为 $X$ 上的局部常值层，
+其值为阶数 $n$ 与 $X$ 的特征互素的循环群。
+则采用 \emph{(V 4, VIII 5)} 的记号，有
+\begin{align*}
+ℋ^{q}_{Y} (X,F) &= (R^{q}i^{!})F=0\quad\text{\rm 若}\quad q\neq
+2c{\quoi},\\
+(R^{q}j_{\ast})j^{\ast}F &= 0\quad\text{\rm 若}\quad q\neq 0,
+2c-1,\quad \text{且}\\
+ℋ^{2c}_{Y}(X,F) &= i^{\ast}(R^{2c-1}j_{\ast})j^{\ast}F
+\end{align*}
+\noindent
+为 $Y$ 上的 $n$ 阶循环群的局部常值层。
+\end{enonce*}
+
+\medskip
+\noindent
+\emph{证明}。（\cf \hyperrefext[XVI][XVI.thm3.7]{3.7}）。立即可见
+$$
+ℋ^{q}_{Y}(X,F)=0\quad\text{\rm 若}\quad q=0,1{\quoi}.
+$$
+由 (V \hyperref[V.cor4.5]{4.5})，
+$$
+ℋ^{q}_{Y}(X,F)=(R^{q}i^{!})F\simeq
+i^{\ast}(R^{q-1}j_{\ast})j^{\ast}F\quad\text{\rm 若}\quad q>1{\quoi},
+$$
+故关于这三个层的断言等价。由于这些断言对于平展拓扑在
+$X$ 上是局部的，可\pageoriginale 假设 $F=𝛍_{n}$。
+
+当 $c=1$ 时，计算 $(R^{q}j_{\ast})j^{\ast}𝛍_{n}$ 的茎
+（VIII 5），便归结为 \hyperref[XIX.thm2.1]{2.1} 中所考虑的情形，从而
+$$
+((R^{q}j_{\ast})j^{\ast}𝛍_{n})_{\bar{y}}=
+\begin{cases}
+\ZZ/n &\text{\rm 若}\quad q=1\\
+0 &\text{\rm 若}\quad q>1
+\end{cases}
+$$
+对 $Y$ 的每个几何点 $\bar{y}$ 成立。
+无论如何，这些层在 $Y$ 外均为零，因此这证明了 $q>1$ 时的断言。
+对 $q=1$ $(=2c-1)$，应用
+（\hyperrefext[IX][IX.prop2.13]{2.13} (i)）的判别法及
+\hyperref[XIX.lem1.3]{1.3} 的显式计算。
+
+$c>1$ 的情形用归纳法处理（\cf
+\hyperrefext[XVI][XVI.thm3.7]{3.7}）：设 $(Y,X)$ 为余维 $c>1$ 的正则对。
+由定义显然可知，在 $X$ 上局部地可找到正则三元组
+$(Y,Z,X)$，其中 $(Z,X)$ 的余维为 1，而 $(Y,Z)$ 的余维为 $c-1$。设
+$$
+\xymatrix{
+  Y \ar[rr]^{u} \ar[rd]_{i}   &   & Z\ar[ld]^{v}\\
+      & X & 
+}
+$$
+为这些闭浸入。有谱序列
+$$
+E^{pq}_{2}=(R^{p}u^{!})(R^{q}v^{!})F\Longrightarrow
+(R^{p+q}i^{!})F{\quoi}.
+$$
+由归纳假设，$q\neq 2$ 时 $(R^{q}v^{!})F=0$，
+而 $q=2$ 时它局部常值，等等。
+于是再次将归纳假设应用于态射 $u$，
+当 $(p,q)\neq (2c-2,2)$ 时\pageoriginale
+有 $(R^{p}u^{!})(R^{2}v^{!})F=0$，
+而当 $(p,q)=(2c-2,2)$ 时它局部常值，等等；
+由此便得关于收敛项 $(R^{p+q}i^{!})F$ 的结果，\cqfd
+
+\setcounter{subsection}{2}
+\subsection{}\etiquette[3.3]{XIX.subsec3.3}
+还须在\emph{典范}同构意义下确定
+（\hyperref[XIX.thm3.2]{3.2}）中的局部常值层。
+对每个预概形 $S$，引入局部常值层
+$(𝛍_{n}^{\otimes r})_{S}=$ 层
+$(𝛍_{n})_{S}$ 在常值环层 $\ZZ_{S}$ 上的 $r$ 重张量积。
+另置 $(𝛍_{n}^{\otimes 0})_{S}=(\ZZ/n)_{S}$。
+立即可见，若 $n$ 在 $S$ 上可逆，
+则 $(𝛍_{n}^{\otimes r})_{S}$ 为 $n$ 阶循环群的局部常值层。
+有形如 $(𝛍_{n}^{\otimes r})\otimes
+(𝛍_{n}^{\otimes
+s})=(𝛍_{n}^{\otimes r+s})$ 的公式，且若 $S'\rightarrow
+S$，则 $(𝛍_{n}^{\otimes r})_{S'}$ 典范同构于
+$(𝛍_{n}^{\otimes r})_{S}$ 在 $S'$ 上的逆像。
+在不会引起混淆时，常略去符号 $S$。
+
+设 $(Y,X)$ 为余维 1 的正则对，并假设 $Y$
+由方程 $x=0$ 定义。有层的正合列
+$$
+0\longrightarrow (\GG_{m})_{X}\longrightarrow
+j_{\ast}(\GG_{m})_{U}\longrightarrow \ZZ_{Y}\longrightarrow
+0{\quoi},
+$$
+于是应用（\hyperref[XIX.lem1.3]{1.3}），得到典范同构
+\begin{equation*}
+(R^{1}j_{\ast})𝛍_{n}\simeq
+j_{\ast}(\GG_{m})_{U}/(j_{\ast}(\GG_{m})_{U})^{n}\simeq
+(\ZZ/n)_{Y}{\quoi},\tag{3.3.1}
+\end{equation*}\etiquette[3.3.1]{XIX.eq3.3.1}
+这些同构显然不依赖于 $x$ 的选取。因此，有典范同构
+\begin{equation*}
+\varphi:\ZZ/n\xrightarrow{\sim}
+(R^{2}i^{!})𝛍_{n}\simeq i^{\ast}(R^{1}j_{\ast})𝛍_{n}{\quoi}.\tag{3.3.2}
+\end{equation*}\etiquette[3.3.2]{XIX.eq3.3.2}
+
+\begin{enonce*}{定理 3.4}\etiquette[3.4]{XIX.thm3.4}
+
+\footnote[1]{依赖于奇点消解（\cf 导言）。此定理也可看成
+\hyperref[XIX.thm3.2]{3.2} 与第 XVIII \Exp 中借助“局部基本类”建立的变性理论的结合；
+在那里，当 $Y$ 在 $X$ 中局部为完全交时，研究了
+同态 $\varphi(Y,X)$（它们不必为双射）。}。\pageoriginale
+设 $C$ 为等特征优良概形的正则对所成的族。
+存在唯一函数 $\varphi$，它将每个余维 $c$ 的正则对
+$(Y,X)$ 对应到一个层同构（称为典范同构）
+$$
+\varphi(Y,X)=\varphi:\ZZ/n\xrightarrow{\sim}
+ℋ^{2c}_{Y}(X,𝛍_{n}^{\otimes
+c})=(R^{2c}i^{!})𝛍_{n}^{\otimes c}
+$$
+并使 $\varphi$ 满足以下条件：
+
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item 若 $c=1$，且 $Y$ 在 $X$ 中由方程 $x=0$ 定义，
+% SGA-SRC-001210
+则 $\varphi$ 为态射 \eqhyperref[XIX.eq3.3.2]{3.3.2}。
+
+\item $\varphi$ 与正则对的光滑态射相容；即若
+$(Y',X')\rightarrow (Y,X)$ 为一个态射，设 $g:Y'\rightarrow Y$ 为
+诱导的态射。则 $Y'$ 上的层的图式
+$$
+\xymatrix{
+\ZZ/n  \ar[rr]^{\varphi(Y',X')} & &
+(R^{2c}i^{!})𝛍_n^{{\boxtimes}c}\\
+g^{\ast}(\ZZ/n) \ar[u]\ar[rr]^{g^{\ast}\varphi(Y,X)}& &
+g^{\ast}(R^{2c}i^{!})𝛍_n^{{\boxtimes}c} \ar[u]
+}
+$$
+交换（特别地，这意味着右边的竖箭头为同构）。
+
+\item \emph{传递性：}设 $(Z,Y,X)$ 为正则三元组，即
+正则预概形之间的闭浸入的交换图式，等等，
+$$
+\xymatrix{
+Z \ar[rr]^{v}\ar[rd]_{w}&    &Y\ar[ld]^{u}\\
+            & X  & .
+}
+$$
+分别\pageoriginale 设 $a$、$b$、$c$ 为 $u$、$v$、$w$ 的余维
+\emph{（故 $c=a+b$）}。有同构
+\begin{align*}
+\varphi(Y,X)\otimes 𝛍_{n} {}^{\otimes
+b}:𝛍_{n} {}^{\otimes b} \longrightarrow &
+ (R^{2a}u^{!})(𝛍_{n}^{\otimes a}) \otimes
+𝛍_{n} {}^{\otimes b}\simeq\\
+& \simeq (R^{2a}u^{!})𝛍_{n}{}^{\otimes c}{\quoi}.
+\end{align*}
+谱序列 $(R^{p}v^{!})(R^{q}u^{!})F\Rightarrow
+(R^{p+q}w^{!})F$ 给出同构
+$$
+\xi : (R^{2b}v^{!})(R^{2a}u^{!})𝛍_{n}{}^{\otimes
+c}\xrightarrow{\sim} (R^{2c}w^{!})𝛍_{n}{}^{\otimes
+c}{\quoi}.
+$$
+于是得到同构的图式
+% SGA-SRC-001212 — tensor typography checked against the scan; missing \varphi reconstructed from transitivity
+$$\vcenter{\etiquette[3.4.1]{XIX.eq3.4.1}
+\xymatrix{
+\ZZ/n \ar[r]^{\varphi(Z,Y)} \ar[d]^{\varphi(Z,X)}&
+(R^{2b}v^{!})𝛍_{n}^{\otimes b} \ar[d]^{\eta =
+  (R^{2b}v^{!})(\varphi(Y,X)\otimes 𝛍_{n}^{\otimes b})}\\
+(R^{2c}w^{!})𝛍_{n}^{\otimes c} &
+(R^{2b}v^{!})(R^{2a}u^{!})𝛍_{n}^{\otimes c}\ar[l]
+}}\leqno{(3.4.1)}
+$$
+传递性断言就是这一图式交换。
+\end{enumerate}
+\end{enonce*}
+
+\medskip
+\noindent
+\emph{证明。}存在性与唯一性对余维 $c$ 作归纳。
+当 $c=1$ 时，由 \eqhyperref[XIX.eq3.3.1]{3.3.1} 局部地定义
+态射 $\varphi$。由于此态射不依赖于参数 $x$ 的选择，
+通过粘合，对每个余维 1 的 $(Y,X)$ 得到一个同构 $\varphi$；
+由该态射的定义及 \hyperref[XIX.lem1.3]{1.3}，
+显然这样构造的 $\varphi$ 满足 (ii)。$c=1$ 时不涉及传递性。
+
+现\pageoriginale 假设余维 $<c$ 时存在性及唯一性已获证明，
+且 $c>1$。应用归纳假设，立即可知在
+\hyperref[XIX.thm3.4]{3.4} (iii) 的情形下，
+\eqhyperref[XIX.eq3.4.1]{3.4.1} 中已定义的三个箭头，
+即 $\varphi (Z,Y)$、$\xi$、$\eta$，
+与正则三元组的态射相容。在此情形下置
+$$
+\Psi (Z,Y,X)=\xi \eta \varphi (Z,Y){\quoi},
+$$
+于是 $\Psi$ 也与三元组的态射相容。
+若 $(Z,X)$ 为余维 $c>1$ 的正则对，
+则在 $X$ 上局部地可找到一个满足 $0<\codim(Y,X)<c$ 的三元组
+$(Z,Y,X)$。因此，只须证明箭头 $\Psi(Z,Y,X)$ 不依赖于 $Y$。
+事实上，这将证明余维 $c$ 时 $\varphi$ 的唯一性，
+而存在性随即由粘合得到。
+
+若 $(Z,Y,X)$ 任意且 $\codim(Y,X)>1$，
+则在 $X$ 上局部地可找到正则三元组 $(Y,W,X)$，
+使 $(W,X)$ 的余维为 1。留给读者的一个关于传递性的图追踪论证，
+就将问题归结为在 $(Y,X)$ 的余维为 1 时验证与 $Y$ 无关。
+
+设 $(Z,Y_{0},X)$ 及 $(Z,Y_{1},X)$ 为两个这样的三元组。
+只须逐纤维验证该断言，因此可归结为 $X$ 严格局部，
+而各 $Y_{i}$ 由一个方程定义的情形，设方程为 $f_{i}=0$
+$(i=0,1)$。设 $\bar{X}=\sheaf{\Spec}O_{X}[t]$，
+$\bar{Z}=\fprod{Z}{\bar{X}}{X}$，并设 $\bar{Y}$ 为
+$\bar{X}$ 中由方程
+$$
+(f_{1}-f_{0})t+f_{0}=0{\quoi}.
+$$
+定义的闭子概形。则\pageoriginale $\bar{Y}$ 在位于
+$\bar{X}/X$ 的截面 $\epsilon_{0}:\{t=0\}$ 及 $\epsilon_{1}:\{t=1\}$
+上方的点处显然正则。设 $C$ 为 $\bar{Y}$ 中由
+$\bar{Y}$ 不正则的点组成的闭子集（\EGA IV 7.8.3 (iv)），
+并分别将 $\bar{X}$、$\bar{Y}$、$\bar{Z}$ 换为
+$\bar{X}-C$、$\bar{Y}-C$、$\bar{Z}-C\cap \bar{Z}$。
+则 $(\bar{Z},\bar{Y},\bar{X})$ 为正则三元组，
+且各截面 $\epsilon_{i}$ 给出三元组的态射
+$$
+(Z,Y_{i},X)\longrightarrow (\bar{Z},\bar{Y},\bar{X})\quad
+(i=0,1){\quoi}.
+$$
+
+设 $F=(R^{2c}w^{!})𝛍_{n}{}^{\otimes c}$ 为 $Z$ 上的层。
+它是一个同构于 $\ZZ/n$ 的局部常值层
+（取任一个同构 $\Psi (Z,Y_{i},X)$ 即可），
+立即可见，$\bar{Z}$ 上的层
+$\bar{F}=(R^{2c}\bar{w}^{!})𝛍_{n}{}^{\otimes c}$
+是 $F$ 在 $\bar{Z}$ 上的逆像。由于 $\bar{Z}\rightarrow Z$ 的纤维
+连通且非空，而 $\bar{Z}\rightarrow Z$ 光滑，因而是开映射，
+可知诱导态射
+$$
+H^{0}(Z,F)\longrightarrow H^{0}(\bar{Z},\bar{F})
+$$
+为\emph{双射}；因而以下各态射
+$$\vcenter{
+\xymatrix@R=.5cm{
+                 &                                & H^{0}(Z,F)\\
+H^{0}(Z,F) \ar[r]& H^{0}(\bar{Z},\bar{F})\ar[ru]^{\epsilon^{\ast}_0} \ar[rd]_{\epsilon^{\ast}_1} &           \\
+                 &                                & H^{0}(Z,F)
+}}\leqno{(*)}
+$$
+均为双射，故 $\epsilon^{\ast}_{0}=\epsilon^{\ast}_{1}$。
+
+给出层 $F$ 与 $\ZZ/n$ 的一个同构，等价于给出
+一个为生成元的整体截面（即 1 的像）。设 $\bar{\alpha}$、
+$\alpha_{i}$ 分别为同构\pageoriginale
+$\Psi(\bar{Z},\bar{Y},\bar{X})$、$\Psi(Z,Y_{i},X)$
+给出的 $\bar{F}$、$F$ 的整体截面。
+由于 $\Psi(.,.,.)$ 与态射相容，图式 $(\ast)$ 给出
+$$
+\alpha_{0}=\epsilon^{\ast}_{0}(\bar{\alpha})=\epsilon^{\ast}_{1}(\bar{\alpha})=\alpha_{1}{\quoi},
+$$
+所以 $\Psi(Z,Y_{0},X)=\Psi(Z,Y_{1},X)$，\cqfd
+
+\section{正则态射的局部无环性}\etiquette[4]{XIX.sec4}
+
+\begin{enonce*}{定理 4.1}\etiquette[4.1]{XIX.thm4.1}
+\footnote[1]{依赖于奇点消解（\cf 导言）。}
+\emph{（局部无环性）。}设
+$g:X'\rightarrow X$ 为等特征优良概形之间的正则态射
+\emph{（\EGA IV 6.8.1）}。则对与特征互素的 $n$，
+$g$ 为普遍局部无环的。
+\end{enonce*}
+
+\medskip
+\noindent
+\emph{证明}。由于假设在有限型基变换下稳定，
+由 \hyperrefext[XV][XV.prop1.13]{1.13} ii) 立即可知，
+只须证明 $g$ 对 $n$ 局部无环。
+应用 \hyperrefext[XV][XV.cor1.17]{1.17} 的判别法：
+设 $\bar{x}'$ 为 $X'$ 的一个几何点，$\bar{x}$ 为 $X$ 的相应几何点。
+由正则态射的定义立即可知，$g$ 在这些点处诱导的
+严格局部化之间的态射仍然正则。于是归结为
+$X=\Spec A$ 和 $X'=\Spec A'$ 严格局部，且 $g$ 为局部态射的情形。
+由 \hyperrefext[XV][XV.cor1.17]{1.17}，只须证明
+$g$ 的\pageoriginale 几何纤维对 $n$ 无环。
+将 $X$ 换为一个整闭子概形，$X'$ 换为相应的闭子概形，
+便归结为几何泛纤维 $X'_{\bar{x}}$ 的情形。
+取 $\bar{x}=\Spec \bar{K}$，其中 $\bar{K}$ 为
+$X$ 的有理函数域的可分闭包。则
+$$
+\bar{x}=\varprojlim_{\alpha}U_{\alpha}
+$$
+其中 $U_{\alpha}$ 遍历一个连通平展 $X$-概形的滤过范畴，
+并可假设它们\emph{正则}（\EGA IV 7.8.3 (v)）。
+设 $B_{\alpha}$ 为 $A$ 在有理函数域
+$R(U_{\alpha})$ 中的正规化。
+置 $U'_{\alpha}=\fprod{X'}{U_{\alpha}}{X}$，
+$B'_{\alpha}=A'\otimes_{A}B_{\alpha}$。
+则 $U_{\alpha}$ 为 $\Spec B_{\alpha}$ 的一个正则开子概形，
+且 $B_{\alpha}\rightarrow B'_{\alpha}$
+% SGA-SRC-001217
+正则，故由 \hyperref[XIX.lem2.4]{引理 2.4}，对每个 $q$ 有
+$$
+H^{q}(U_{\alpha},𝛍_{n})\xrightarrow{\sim}
+H^{q}(U'_{\alpha},𝛍_{n})
+$$
+。纤维 $X'_{\bar{x}}$ 是各 $U'_{\alpha}$ 的极限，因而
+\begin{align*}
+H^{q}(X'_{\bar{x}},𝛍_{n}) &= \varinjlim_{\alpha}
+H^{q}(U'_{\alpha},𝛍_{n})\\
+&= \varinjlim_{\alpha} H^{q}(U_{\alpha}, 𝛍_{n})\\
+ &= H^{q}(\bar{x},𝛍_{n})=0\quad\mbox{\rm 若}\quad q>0,\cqfd.
+\end{align*}
+
+\begin{enonce*}{推论 4.2}\etiquette[4.2]{XIX.cor4.2}
+（沿正则态射的基变换）。设
+$$
+\xymatrix@C=2.25cm@R=1cm{
+X \ar[d]^{f}& X'\ar[l]_{g'} \ar[d]^{f'}\\
+Y & Y'\ar[l]_{g}
+}
+$$
+为笛卡尔图式，其中 $g:Y'\rightarrow Y$ 为等特征优良预概形之间的正则态射，
+且 $f$ 拟紧且拟分离。\pageoriginale 则对每个挠性与特征互素的
+阿贝尔挠层 $F$，基变换态射
+\emph{（XII \hyperref[XII.eq4.2]{4.2}）}
+$$
+g^{\ast}(R^{q}f_{\ast})F\longrightarrow (R^{q}f'_{\ast}){g'}^{\ast}F
+$$
+对每个 $q\geq 0$ 均为双射。
+\end{enonce*}
+
+这由 \hyperref[XIX.thm4.1]{4.1} 及
+\hyperrefext[XVI][XVI.thm1.1]{1.1} 得到。
+
+由 \hyperref[XIX.thm4.1]{4.1} 及 \hyperrefext[XV][XV.cor1.17]{1.17}
+立即推出
+
+\begin{enonce*}{推论 4.3}\etiquette[4.3]{XIX.cor4.3}
+设 $A$ 为等特征优良严格局部环，
+$f:X\rightarrow \Spec A$ 为一个态射。设 $A\rightarrow A'$ 为正则态射，
+其中 $A'$ 也是等特征优良严格局部环。
+用 $'$ 表示由 $A\rightarrow A'$ 诱导的基变换。
+对 $X$ 上的每个挠性与 $A$ 的特征互素的挠层 $F$，有
+$$
+H^{q}(X,F)\xrightarrow{\sim} H^{q}(X',F')
+$$
+对每个 $q\geq 0$ 成立。
+\end{enonce*}
+
+特别地，当 $A'$ 为 $A$ 的完备化 $\hat{A}$ 时，此推论适用。
+（在这一情形下，假设“$A$ 严格局部”还可换为
+“$A$ 为 Hensel 局部环”，这是立即可见的。）
+
+\section{有限性定理}\etiquette[5]{XIX.sec5}\pageoriginale
+
+\begin{enonce*}{定理 5.1}\etiquette[5.1]{XIX.thm5.1}
+\footnote[1]{\hypertarget{sga4.exp.XIX.note.resolution}{}依赖于奇点消解（\cf 导言）。}
+\emph{（有限性）。}设 $f:X\rightarrow S$ 为等特征优良概形之间的有限型态射，
+$F$ 为 $X$ 上的可构造阿贝尔挠层，其挠性与特征互素。
+则对每个 $q$，$(R^{q}f_{\ast})F$ 同样可构造。
+\end{enonce*}
+
+此结果推广了 \hyperrefext[XVI][XVI.thm5.1]{5.1} 中的定理。
+证明几乎相同：应用纯性结果
+\hyperref[XIX.thm3.2]{3.2}，代替 \hyperrefext[XVI][XVI.thm3.7]{3.7}。
+
+\begin{enonce*}{推论 5.2}\etiquette[5.2]{XIX.cor5.2}
+设 $A$ 为等特征优良严格局部环，
+$f:X\rightarrow \Spec A$ 为有限型态射。
+设 $F$ 为 $X$ 上的可构造阿贝尔层，
+其挠性与 $A$ 的特征互素。则对每个 $q$，群 $H^{q}(X,F)$ 均为有限群。
+\end{enonce*}
+
+\section{仿射态射的上同调维数}\etiquette[6]{XIX.sec6}
+
+设 $f:X\rightarrow Y$ 为优良预概形之间的有限型态射，
+$F$ 为 $X$ 上的层。回顾，当 $Y$ 局部时，
+已定义了一个整数 $\delta(F)$（\hyperrefext[XIV][XIV.def2.2]{2.2}）。
+因此，对任意 $Y$，可将\pageoriginale $\delta$ 看成一个函数 $\delta(F,f)$，置
+\begin{equation*}
+\delta(F,f,y)=\delta(F'){\quoi},\tag{6.0}
+\end{equation*}\etiquette[6.0]{XIX.eq6.0}
+其中 $Y'=\Spec O_{Y,y}$，$X'\rightarrow Y'$ 为
+由 $f$ 经基变换 $Y'\rightarrow Y$ 所得的态射，
+$F'$ 为 $F$ 在 $X'$ 上的逆像层。
+
+有以下结果，它推广了 \hyperrefext[XVI][XVI.def3.1]{3.1}：
+
+\begin{enonce*}{定理 6.1}\etiquette[6.1]{XIX.thm6.1}
+\sgarepeatedfootnotemark{sga4.exp.XIX.note.resolution}。设 $f:X\rightarrow Y$ 为有限型仿射态射，
+其中 $Y$ 为等特征优良概形，$F$ 为 $X$ 上的
+阿贝尔挠层。则在每个满足 $\delta(F,f,y)<q$ 的点
+$y\in Y$ 处，$R^{q}f_{\ast}F$ 均为零。
+\end{enonce*}
+
+以下是局部的变形，它显然等价于 \hyperref[XIX.thm6.1]{6.1}：
+
+\begin{enonce*}{定理 6.1 bis}\etiquette[6.1 bis]{XIX.thmbis6.1}
+\sgarepeatedfootnotemark{sga4.exp.XIX.note.resolution}。设 $A$ 为等特征优良严格局部环，
+$f:X\rightarrow Y=\Spec A$ 为有限型仿射态射。
+设 $F$ 为 $X$ 上的挠层。则
+$$
+H^{q}(X,F)=0\quad\text{\rm 若}\quad q>\delta(F){\quoi}.
+$$
+\end{enonce*}
+
+回顾（\hyperrefext[X][X.thm5.1]{5.1}），当 $F$ 为 $p$-挠层，
+其中 $p$ 为特征时，这类断言没有特别的意义。\pageoriginale
+因此可假设 $F$ 的挠性与特征互素。
+
+有以下推论：
+
+\begin{enonce*}{推论 6.2}\etiquette[6.2]{XIX.cor6.2}
+设 $A$ 为等特征优良 Hensel 环，剩余域为 $k$，
+$U\subset \Spec A$ 为仿射开子概形。
+设 $\ell \in \PP$。则
+$$
+\cd_{\ell}U\leq \cd_{\ell}k+\dim A{\quoi}.
+$$
+\end{enonce*}
+
+事实上，设 $\widetilde{A}$ 为 $A$ 的严格局部化，
+它是群为 $G=G(\bar{k}/k)$ 的无限 Galois 平展覆盖，
+并设 $\widetilde{U}$ 为 $U$ 在 $\Spec \widetilde{A}$ 中诱导的仿射开子概形。
+应用 Hochschild--Serre 谱序列（VIII \hyperref[VIII.prop8.4]{8.4}）
+$$
+H^{p}(G,H^{q}(\widetilde{U},.))\Longrightarrow H^{p+q}(U,.)
+$$ 
+便归结为 $A=\widetilde{A}$ 的情形，而这就是
+\hyperref[XIX.thm6.1]{6.1} bis 的特殊情形。
+
+采用以上记号，设 $R(A)$ 为 $A$ 上的有理函数环。
+有 $\Spec R(A)=\varprojlim_{\alpha}U_{\alpha}$，其中 $U_{\alpha}$
+为 $\Spec A$ 的仿射开子概形。因此，取极限理论给出
+
+\begin{enonce*}{推论 6.3}\etiquette[6.3]{XIX.cor6.3}
+设 $A$ 为等特征优良 Hensel 环，剩余域为 $k$。
+设 $R(A)$ 为 $\Spec A$ 上的有理函数域。
+则对 $\ell \in \PP$，有
+$$
+\cd_{\ell}R(A)\leq \cd_{\ell}k+\dim A
+$$
+且\pageoriginale 当 $\ell$ 在 $k$ 中可逆，并且另有
+$\ell\neq 2$ 或 $k$ 不可序时，等号成立。
+\end{enonce*}
+
+后一情形下的等号由 \hyperrefext[X][X.cor2.4]{2.4} 得到。
+
+最后，应用 \hyperrefext[X][X.cor4.2]{4.2}、
+\hyperrefext[X][X.cor4.4]{4.4}，得到
+
+\begin{enonce*}{推论 6.4}\etiquette[6.4]{XIX.cor6.4}
+设 $X$ 为等特征 Noether 优良概形，$R(X)$ 为
+$X$ 上的有理函数环。设 $\ell\in \PP$ 在 $X$ 上可逆，
+并假设 $\ell\neq 2$ 或 $X$ 的剩余域均不可序。则
+$$
+\cd_{\ell}(X)\leq \cd_{\ell}R(X)+\dim X\leq 2\cd_{\ell}R(X){\quoi}.
+$$
+\end{enonce*}
+
+\medskip
+\noindent
+\emph{\hyperref[XIX.thm6.1]{6.1} 的证明}。首先作与
+\hyperrefext[XIV][XIV.sec3]{3} 类似的归约。对 $\delta$ 作归纳：
+显然，$\delta\leq d$ 时的 \hyperref[XIX.thm6.1]{6.1} 等价于
+$\delta\leq d$ 时的（\hyperref[XIX.thm6.1]{6.1} bis）。
+$\delta=0$ 时结论平凡。以 \hyperref[XIX.thm6.1]{6.1} bis 的形式
+处理 $\delta\leq 1$ 的情形。由于 $F$ 为其各可构造子层的
+滤过归纳极限（\hyperrefext[IX][IX.prop2.9]{2.9} (iii)），
+可假设 $F$ 可构造；此时 $F$ 的支集包含在某个闭子集
+$Z\subset X$ 中，且对每个 $z\in Z$ 有 $\delta(z)\leq 1$
+（\hyperrefext[XIV][XIV.def2.2]{2.2}）。于是，$Z$ 的每个约化不可约分支
+$Z_{i}$，或者是 $Y$ 的闭点 $y$ 上的维数 $\leq 1$ 的有限型仿射概形，
+或者是在 $Y$ 的某个维数为 1 的约化闭子概形 $C$ 上拟有限的概形。
+在后一情形中，$C=\Spec B$，其中 $B$ 为维数 1 的严格局部整环。
+这样的概形 $Z_{i}$ 是维数 $\leq 1$ 的严格局部整环的谱，
+或者是 $B$ 的分式域的某个有限扩张域的谱。
+因此，由 \hyperrefext[X][X.thm2.3]{2.3} 及
+\hyperrefext[IX][IX.cor5.7]{5.7}，无论何种情形，
+$Z_{i}$ 的上同调维数至多为\pageoriginale 1。有正合列
+$$
+0\longrightarrow F\longrightarrow \prod_{i} F_{i}\longrightarrow
+\epsilon \longrightarrow 0
+$$
+其中 $F_{i}$ 为 $F$ 在 $Z_{i}$ 上的限制，由此即得 $Z$ 的结果。
+
+现假设定理对各 $\delta<d$ 已获证明，
+来证明 $\delta(F)\leq d$ 时的结论，并假设 $d\geq 2$。
+
+\hypertarget{sga4.exp.XIX.lemma.6.5}{}\begin{enonce*}{引理 6.5}\etiquette[6.5]{XIX.lem6.5}
+只须处理 $X=\EE^{1}_{Y}=\sheaf{\Spec}O_{Y}[t]$
+为 $1$ 维仿射空间，且 $Y$ 严格局部的情形。
+\end{enonce*}
+
+证明与 \hyperrefext[XIV][XIV.lem4.2]{4.2} 相同：
+显然可假设 $Y$ 严格局部，且 $\delta(F)\leq d$。
+须证明 $q>d$ 时 $H^{q}(X,F)=0$。可将 $X$ 嵌入
+$\EE^{N}_{Y}$，因此只须处理 $X=\EE^{N}_{Y}$ 的情形。
+对 $N$ 作归纳：考虑图式
+$$
+\xymatrix@C=1.2cm@R=1cm{
+\EE^{N}_Y \ar[rr]^{g} \ar[rd]_{f}&   & \EE^{N-1}_Y \ar[ld]^{h}\\
+                     & Y   &  
+}
+$$
+于是 $\EE^{N}_{Y}$ 是 $\EE^{N-1}_{Y}$ 上的 1 维仿射空间。
+应用归纳假设及 Leray 谱序列
+$$
+H^{p}(\EE^{N-1},R^{q}g_{\ast}F)\Longrightarrow
+H^{p+q}(\EE^{N},F)
+$$
+可知只须证明
+$$
+\delta(R^{q}g_{\ast}F)\leq d-q{\quoi}.
+$$
+这\pageoriginale 就是说，若 $z\in \EE^{N-1}$ 满足
+$\delta(z)>d-q$，则 $R^{q}g_{\ast}F=0$ 在点 $z$ 处成立。
+然而，关于 $N$ 的归纳假设适用于态射 $g$，
+故若 $\delta(F,g,z)<q$，则 $R^{q}g_{\ast}F=0$ 在点 $z$ 处成立。
+所以只须证明不等式
+$$
+\delta(F,g,z)+\delta(z)\leq \delta(F){\quoi}.
+$$
+这一乐趣留给读者。
+
+\hypertarget{sga4.exp.XIX.lemma.6.6}{}\begin{enonce*}{引理 6.6}\etiquette[6.6]{XIX.lem6.6}
+为证明各 $\delta\leq d$ 时的 $\hyperref[XIX.thm6.1]{6.1}$，只须证明：
+设 $B$ 为等特征、维数 $d$ 的完备正规局部环。
+设 $U\subset \Spec B$ 为仿射开子集。
+假设存在元素 $x\in \rad B$ 在 $U$ 上可逆。则
+$$
+H^{q}(U,\ZZ/\ell)=0\quad\text{\rm 若}\quad q>d{\quoi}.
+$$
+\end{enonce*}
+
+此外，此引理是推论 \hyperref[XIX.cor6.2]{6.2} 的特殊情形。
+
+\medskip
+\noindent
+\emph{证明}（\cf \hyperrefext[XIV][XIV.lem4.4]{4.4}）。由 \hyperref[XIX.lem6.5]{6.5}，
+只须处理 $Y$ 严格局部且 $X=\EE^{1}_{Y}$ 的情形。考虑图式
+$$
+\xymatrix@C=1cm@R=.8cm{
+\EE^{1}_Y \ar[rr]^{i} \ar[rd]_{f}&   & \PP^{1}_Y \ar[ld]^{g}\\
+          & Y &,
+}
+$$
+其中 $\PP^{1}_{Y}$ 为射影直线，$\EE^{1}_{Y}$ 是由
+$\PP^{1}$ 去掉无穷远截面 $Y_{\infty}$ 得到的。
+设 $F$ 为 $\EE^{1}$ 上的挠层，且 $\delta(F)\leq d$。有谱序列
+$$
+H^{p}(\PP^{1},R^{q}i_{\ast}F)\Longrightarrow
+H^{p+q}(\EE^{1},F){\quoi}.
+$$
+当 $q>0$ 时，\pageoriginale $R^{q}i_{\ast}F$ 集中于
+同构于 $Y$ 的截面 $Y_{\infty}$ 上。
+由于 $Y$ 严格局部，当 $p>0$ 且 $q>0$ 时，有
+$H^{p}(\PP^{1},R^{q}i_{\ast}F)=0$。
+此外，由 \hyperrefext[XII][XII.cor5.3]{5.3}，当 $p>2$ 时有
+$H^{p}(\PP^{1}, i_{\ast}F)=0$。
+由于要证明当 $n>d$ 时 $H^{n}(\EE^{1},F)=0$，且 $d\geq 2$，只须证明
+$$
+H^{0}(\PP^{1},
+R^{q}i_{\ast}F)=H^{0}(Y_{\infty},R^{q}i_{\ast}F)=0\quad\text{\rm
+若}\quad q>d{\quoi}.
+$$
+此群同构于 $R^{q}i_{\ast}F$ 在闭纤维中
+$\PP^{1}$ 的无穷远点 $y_{\infty}$ 处的茎。
+
+现在只须（VII \hyperref[VII.prop3.3]{3.3} 及 \hyperrefext[IX][IX.prop2.9]{2.9} (iii)）
+处理 $F$ 可构造的情形。此时，由于 $\delta(F)\leq d$，
+存在 $\PP^{1}$ 的一个闭子概形 $X$，满足 $\dim X\leq d$，
+且 $X$ 包含 $F$ 的支集。设 $\Spec A=\widetilde{X}$ 为
+$X$ 在点 $y_{\infty}$ 处的严格局部化，
+$\widetilde{U}=\widetilde{X}-\fprod{\widetilde{X}}{Y_{\infty}}{\PP^{1}}$，
+并设 $\widetilde{F}$ 为 $F$ 在 $\widetilde{U}$ 上诱导的层。
+注意，$\widetilde{U}$ 由 $\widetilde{X}$ 对元素
+$x\in \Gamma(X,O_{X})$ 局部化得到。有
+$$
+(R^{q}i_{\ast}F)_{y_{\infty}}\simeq
+H^{q}(\widetilde{U},\widetilde{F}){\quoi}.
+$$
+因此，只须证明对 $\widetilde{U}$ 上的每个挠层 $\widetilde{F}$，
+若 $q>d$，则 $H^{q}(\widetilde{U},\widetilde{F})=0$。
+
+现在可应用 \hyperrefext[IX][IX.prop5.6]{5.6}，取 $\varphi=\delta$，
+可知只须证明
+$$
+H^{q}(V,\ZZ/\ell)=0\quad\text{\rm 若}\quad q>\delta(V)
+$$
+对\pageoriginale 每个在 $\widetilde{U}$ 上有限且整的 $V$ 以及可逆的 $\ell$ 成立。
+设 $x:\bar{V}\rightarrow V$ 为 $V$ 的正规化。有正合列
+$$
+0\longrightarrow (\ZZ/\ell)_{V}\longrightarrow
+x_{\ast}(\ZZ/\ell)_{\bar{V}}\longrightarrow C\longrightarrow 0
+$$
+且 $\delta(C)<\delta(V)$；由此（对 $\delta$ 作归纳）
+可知只须取 $V$ \emph{正规}。
+
+设 $B$ 为 $A$ 在 $V$ 上的有理函数域中的正规化。
+则 $B$ 为等特征优良严格局部环，$V$ 是 $\Spec B$ 的一个仿射开子集，
+由对 $x$ 局部化得到。设 $\hat{B}$ 为 $B$ 的完备化，
+$\hat{V}$ 为诱导的开子集（它由 $\Spec \hat{B}$
+对 $x$ 在 $\hat{B}$ 中的像局部化得到）。由 \hyperref[XIX.cor4.3]{4.3}，有
+$$
+H^{q}(V,\ZZ/\ell)\simeq H^{q}(\hat{V},\ZZ/\ell){\quoi}.
+$$
+因此，归结为证明
+$$
+H^{q}(\hat{V},\ZZ/\ell)=0\quad\text{\rm 若}\quad q>\delta
+(V)=\dim B=\dim \hat{B}{\quoi}.
+$$
+由归纳假设，若 $\delta(V)<d$，则定理成立，
+故定理 \hyperref[XIX.thm6.1]{6.1} bis 适用于此情形。
+因此只须处理 $\dim \hat{B}=d$ 的情形；
+由于 $\hat{B}$ 正规，此时正是引理的情形，于是得到结果。
+
+\setcounter{subsection}{7}
+\setcounter{subsubsection}{-1}
+\subsubsection{}\etiquette[6.7.0]{XIX.subsubsec6.7.0}
+首先在附加假设下证明 \hyperref[XIX.lem6.6]{6.6}，其中
+$B$ 的特征为 $p>0$。设 $A$ 为等特征、等维的完备环，
+$k\subset A$ 为使 $A/\rad A$ 为 $k$ 的有限扩张的子域。
+称\pageoriginale $k$-代数 $A$ \emph{形式可分}（formally separable），
+若存在 $A$ 的一个形如 $k[[x_{1},\ldots,x_{n}]]$ 的 $k$-子代数，
+使态射 $\Spec A\rightarrow \Spec k[[x]]$ 有限，
+且在 $\Spec k[[x]]$ 的泛点处平展
+$(x=(x_{1},\ldots,x_{n}))$。
+
+\hypertarget{sga4.exp.XIX.lemma.6.7}{}\begin{enonce*}{引理 6.7}\etiquette[6.7]{XIX.lem6.7}
+设 $k\subset B$ 为使 $B/\rad B$ 在其上有限的子域。
+在上述关于 $d$ 的归纳假设下，若 $\hyperref[XIX.lem6.6]{6.6}$ 的假设满足，
+且另有以下任一条件满足，则 \hyperref[XIX.lem6.6]{6.6} 的结论成立：
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item $k$ 的特征为 $0$。
+
+\item 存在元素 $x\in \rad B$，它在 $U$ 上可逆，
+且 $\bar{B}=B/(x)$ 为形式可分的 $k$-代数。
+\end{enumerate}
+\end{enonce*}
+
+\medskip
+\noindent
+\emph{证明}。选取 $\rad B$ 中的元素 $x_{1}=x$、
+$x_{2},\ldots, x_{d}$，使 $\{x_{1},\ldots,x_{d}\}$
+生成一个根为 $\rad B$ 的准素理想。则 $B$ 为有限 $A$
+-代数，其中 $A=k[[x_{1},\ldots,x_{d}]]$，
+而 $\bar{B}$ 为 $k[[x_{2},\ldots, x_{d}]]=\bar{A}$-代数 $B/x_{1}B$。
+在情形 (ii) 中，由于 $\bar{B}$ 形式可分，
+可选取元素 $x_{2},\ldots,x_{d}$，使
+$\bar{B}$ 成为泛点处平展的 $k[[x_{2},\ldots,x_{d}]]$-代数。
+立即可知，$B$ 也是泛点处平展的 $A$-代数，
+而在情形 (i) 中这当然也成立。
+
+设 $b\in B$ 为生成 $R(B)$ 在 $k((x))$ 上的域扩张的元素。
+设 $\epsilon \in k[[x]]$ 为 $b$ 在 $k[[x]]$ 上的
+首一不可约方程的判别式。在情形 (ii) 中，
+可选择 $b$，使 $x_{1}$ 不整除 $\epsilon$。
+另写\pageoriginale $\Spec B-U=V(x_{1})\cup Y$，
+其中 $Y$ 不包含 $V(x_{1})$ 的任何不可约分支。
+设 $C$ 为环 $\Gamma(Y,O_{Y})$，这里赋予 $Y$ 诱导的约化结构。
+必要时更换 $x_{2},\ldots,x_{d}$，可假设
+$V(x_{d})$ 不包含在 $Y$ 在 $\Spec A$ 中的像内，
+并且在情形 (ii) 中，$V(x_{d})$ 也不包含在 $V(\epsilon)$ 中。
+
+\hypertarget{sga4.exp.XIX.lemma.6.8}{}\begin{enonce*}{引理 6.8}\etiquette[6.8]{XIX.lem6.8}
+设 $A_{0}=k[[x_{1},\ldots,x_{d-1}]]$ $\{x_{d}\}$ 为
+$k[[x_{1},\ldots,x_{d-1}]]$ $[x_{d}]$ 在点
+$x_{1}=x_{2}=\ldots=x_{d}=0$ 处的严格局部化。
+在上述条件下，存在一个 $A^{0}$-代数 $B^{0}$、
+一个仿射开子集 $U^{0}\subset \Spec B^{0}$，以及
+一个同构 $A\otimes_{A^{0}}B^{0}\simeq B$，
+使 $U^{0}$ 在 $\Spec B$ 中诱导的开子集为 $U$。
+\end{enonce*}
+
+此引理的证明与 \hyperref[XIX.lem1.5]{1.5} 类似：
+只须找出 $A^{0}$-代数 $B^{0}$、$C^{0}$ 及同构
+$A\otimes_{A^{0}}B^{0}\simeq B$、$A\otimes_{A^{0}}C^{0}\simeq C$，
+因为此时存在唯一的（满射）态射 $B^{0}\rightarrow C^{0}$，
+诱导出态射 $B\rightarrow C$
+（\cite{sga4.exp.XIX.bib.3}~\hyperref[XIX.subsec1.4]{1.4}）。
+因此取 $U^{0}=\Spec B^{0}-\{(\Spec C^{0})\cup V(x_{1})\}$，
+立即验证 $U$ 由 $U^{0}$ 诱导。
+$C^{0}$ 的存在性，以及情形 (ii) 中 $B^{0}$ 的存在性，
+均与 \hyperref[XIX.lem1.5]{1.5} 中一样证明。
+情形 (i) 中 $B^{0}$ 的存在性由
+（\cite{sga4.exp.XIX.bib.3} \hyperref[XIX.thm5.1]{5.1}）得到。
+（也可以将 Abhyankar 引理应用于沿 $\{x_{1}=0\}$ 的分歧，
+再使用下降，直接证明。）
+
+现在可以完成 \hyperref[XIX.lem6.7]{6.7} 的证明。
+再次应用 \hyperref[XIX.cor4.3]{4.3}，得到
+$$
+H^{q}(U,\ZZ/\ell)\simeq H^{q}(U^{0},\ZZ/\ell){\quoi},
+$$
+由此\pageoriginale 可知，只须证明当 $q>d$ 时后一个群为零。
+$\Spec A^{0}$ 是在 $k[[x_{1},\ldots,x_{d-1}]]$ $[x_{d}]$ 上
+仿射且平展的概形的极限，故 $\Spec B^{0}$ 是
+$\Spec k[[x_{1},\ldots,x_{d-1}]]$ 上的有限型概形的极限，
+而这些概形的各纤维维数均 $\leq 1$。
+由于 $U^{0}\subset \Spec B^{0}[1/x_{1}]$，有
+$$
+U^{0}=\varprojlim U^{0}_{\alpha}
+$$
+其中 $U^{0}_{\alpha}$ 在概形
+$V^{0}=\Spec k[[x_{1},\ldots, x_{d-1}]]$ $[1/x_{1}]$ 上仿射且有限型，
+并且 $U^{0}_{\alpha}/V^{0}$ 的各纤维维数均 $\leq 1$。
+
+设 $f^{0}:U^{0}\rightarrow V^{0}$ 为结构态射。
+由于 $f^{0}_{\alpha}$ 的各纤维维数均 $\leq 1$，对
+$v\in V^{0}$ 有
+$$
+\delta(\ZZ/\ell, f^{0}_{\alpha},v)\leq \dim O_{V^{0},v}+1\leq
+d-1
+$$
+（因为 $\dim O_{V^{0},v}\leq d-2$）。故关于
+% SGA-SRC-001224
+$d$ 的归纳假设适用于态射 $f^{0}_{\alpha}$；
+应用 \hyperref[XIX.thm6.1]{6.1}，得到
+$$
+R^{q}f^{0}_{\alpha\ast}(\ZZ/\ell)=0\quad\text{\rm 在点}\quad v\quad\text{\rm 若}\quad q>\dim O_{V^{0},v}+1{\quoi},
+$$
+即若 $q>d-\dim\bar{v}$。
+因此，$R^{q}f^{0}_{\alpha\ast}(\ZZ/\ell)\neq 0$ 在点 $v$ 处成立
+意味着 $\dim\bar{v}\geq d-q$。
+于是，对于包含 $i:V^{0}\rightarrow \Spec
+k[[x_{1},\ldots, x_{d-1}]]$（\cf \eqhyperref[XIX.eq6.0]{6.0}），有
+$$
+\delta (R^{q}f^{0}_{\alpha\ast}(\ZZ/\ell))\leq d-q{\quoi},
+$$
+将 \hyperref[XIX.thm6.1]{6.1} bis 形式的归纳假设
+应用于态射\pageoriginale $i$，得到
+$$
+H^{p}(V^{0},R^{q}f^{0}_{\alpha\ast}(\ZZ/\ell))=0\quad\text{\rm
+若}\quad p+q>d{\quoi}.
+$$
+因此 Leray 谱序列
+$$
+E^{pq}_{2}=H^{p}(V^{0},R^{q}f^{0}_{\alpha\ast}(\ZZ/\ell))\Longrightarrow
+H^{p+q}(U^{0},\ZZ/\ell)
+$$
+表明 $n>d$ 时 $H^{n}(U^{0}_{\alpha},\ZZ/\ell)=0$；
+由于 $U^{0}$ 是各 $U^{0}_{\alpha}$ 的极限，同样得到
+$$
+H^{n}(U^{0},\ZZ/\ell)=0\quad\text{\rm 若}\quad n>d{\quoi}.
+$$
+
+这就完成了 \hyperref[XIX.lem6.7]{6.7} 的证明，
+从而完成了特征 0 时定理 \hyperref[XIX.thm6.1]{6.1} 的证明。
+
+\section{仿射态射——证明的完成}\etiquette[7]{XIX.sec7}
+
+回顾，为完成特征 $p>0$ 时的 \hyperref[XIX.thm6.1]{6.1} 的证明
+（仍在奇点消解假设下），已由 \hyperref[XIX.lem6.6]{6.6}
+归结为对 $d\geq 2$ 证明以下断言：
+
+\hypertarget{sga4.exp.XIX.lemma.7.1}{}\begin{enonce*}{引理 7.1}\etiquette[7.1]{XIX.lem7.1}
+设 $B$ 为等特征完备正规局部环，剩余域可分闭，维数为 $d$。
+设 $U\subset \Spec B$ 为仿射开子集，且存在 $x\in \rad B$
+在 $U$ 上可逆。则
+$$
+H^{q}(U,\ZZ/\ell)=0\quad\text{\rm 若}\quad q>d{\quoi}.
+$$
+
+此外，\pageoriginale 由归纳假设，可假设
+$\hyperref[XIX.thm6.1]{6.1}$ 对各 $\delta<d$ 成立，且
+$\hyperref[XIX.lem7.1]{7.1}$ 已在特殊情形
+$\hyperref[XIX.lem6.7]{6.7}$ {\rm (ii)} 下得到证明。
+\end{enonce*}
+
+首先注意，$B$ 正规的条件并不重要。
+事实上，设 $B$ 任意，$\pi:\bar{B}\rightarrow B$
+为 $B$ 的正规化，$\bar{U}\subset\Spec \bar{B}$ 为 $U$ 的逆像。
+有正合列
+$$
+0\longrightarrow (\ZZ/\ell)_{U}\longrightarrow
+\pi_{\ast}(\ZZ/\ell)_{\bar{U}}\longrightarrow C\longrightarrow
+0{\quoi},
+$$
+其中 $C$ 的支集维数 $<d$，故当 $q>d-1$ 时有 $H^{q}(U,C)=0$。
+由于 $H^{q}(U,\pi_{\ast}\bigdot)\simeq
+H^{q}(\bar{U},\bigdot)$（VIII \hyperref[VIII.cor5.6]{5.6}），可知
+\begin{equation*}
+\begin{split}
+& H^{q}(U,\ZZ/\ell)=0\quad \text{\rm 若}\quad q>d\quad
+\text{\rm 等价于}\\
+& H^{q}(\bar{U},\ZZ/\ell)=0\quad\text{\rm 若}\quad q>d{\quoi}.
+\end{split}\tag{7.2}
+\end{equation*}\etiquette[7.2]{XIX.eq7.2}
+
+\setcounter{subsection}{3}
+\setcounter{subsubsection}{-1}
+\subsubsection{}\etiquette[7.3.0]{XIX.subsubsec7.3.0}
+简要回顾形式可分概念所需的性质，不给证明。
+读者可参阅（\EGA IV 18.11.10, 18.11.11）：
+设 $A$ 为完备 Noether 局部 $k$-代数，
+其剩余域为 $k$ 的有限扩张，并用 $A'$ 表示局部环
+$A\otimes_{k}k'$ 的完备化（其中 $k'=k^{1/p}$）。
+则扩张 $A\rightarrow A'$ 是\emph{纯不可分}（radicial）的
+（可能为无限扩张），这很容易看出——这是 Nagata 的著名例子。
+因此，为计算平展上同调，可将 $A$ 换为 $A'$ 而不影响结果（VIII 1）。
+
+现在，一个维数\pageoriginale $d$ 的等维代数 $A$
+形式\emph{可分}的条件，即它为 $k[[x_{1},\ldots, x_{d}]]$
+的有限且泛点处平展的扩张这一条件，可以用模
+$\widehat{\Omega}^{1}_{A/k}$（\EGA IV 18.11.10），
+或 Jacobian 判别法（\EGA $0_{IV}$ 22.6, IV 7.1）
+\footnote[1]{本讨论班的共同编者未能弄清这一引用的意义，
+因为所引之处的情形在他看来颇不相同；
+他也未能弄清下一个断言的理由。A. G.}
+表述；由此可见，若 $A$ 不形式可分，则 $k'$-代数 $A'$ 不约化。
+例如，为证明此事，可以归结为 $A$ 由一个方程 $f=0$ 给定的情形，
+其中 $f\in k[[x_{1},\ldots,x_{d+1}]]$，
+并应用 Jacobian 判别法及以下引理，
+其有趣的证明留给读者：
+
+\hypertarget{sga4.exp.XIX.lemma.7.3}{}\begin{enonce*}{引理 7.3}\etiquette[7.3]{XIX.lem7.3}
+设 $f(x_{1},\ldots,x_{n})\in k[[x_{1},\ldots,x_{n}]]$ 为形式幂级数。
+假设对每个 $i=1,\ldots,n$，存在可逆元素
+$u_{i}\in k[[x_{1},\ldots,x_{n}]]$，使 $u_{i}f$
+为关于 $x_{i}^{p}$ 及
+$x_{1},\ldots,x_{i-1},x_{i+1},\ldots,x_{n}$ 的级数。
+则存在可逆元素 $v\in k[[x_{1},\ldots,x_{n}]]$，使
+$$
+vf\in k[[x_{1}^{p},\ldots,x_{n}^{p}]]{\quoi}.
+$$
+\end{enonce*}
+
+容易得到，有限次应用
+% SGA-SRC-001226
+将 $(A,k)$ 换为 $(\bar{A}',k')$ 的步骤，
+其中 $\bar{A}'$ 为 $A'$ 的正规化，
+便可归结为 $A$ 确实形式可分的情形。
+同样可证明，对给定的 $x\in\rad A$，
+对代数 $A$ 应用同样步骤后，
+环 $(A/(x))_{\text{\rm réd}}$ 将变为形式可分代数。
+
+应用 VIII \hyperref[VIII.thm1.1]{1.1} 及 \hyperref[VIII.def7.2]{7.2}，得到
+
+\hypertarget{sga4.exp.XIX.corollary.7.4}{}\begin{enonce*}{推论 7.4}\etiquette[7.4]{XIX.cor7.4}
+只须在如下附加条件下证明 $\hyperref[XIX.lem7.1]{(7.1)}$：
+$B$ 包含一个域 $k$，使 $B/\rad B$ 在其上有限，
+且 $k$-代数 $(B/(x))_{\text{\rm réd}}$ 形式可分。\pageoriginale
+\end{enonce*}
+ 
+这一情形下 \hyperref[XIX.lem7.1]{7.1} 的证明，
+是将它归结为 \hyperref[XIX.lem6.7]{6.7} (ii) 中处理的特殊情形：
+
+采用 \hyperref[XIX.lem7.1]{7.1}、\hyperref[XIX.cor7.4]{7.4} 的记号，设
+$$
+D(x)=\sum_{i}r_{i}X_{i}
+$$
+为 $x$ 的除子，故每个 $X_{i}$ 是 $\Spec B$ 的
+一个余维 1 的闭不可约子概形，且在 $k$ 上形式可分
+（即 $B/\mathfrak{J}(X_{i})$ 为形式可分 $k$-代数，
+而这又等价于 $(B/(x))_{\text{\rm réd}}$ 形式可分）。
+选择 $y\in\rad B$，使有
+$$
+D(y)=\sum_{i}(r_{i}-1)X_{i}+\Gamma
+$$
+其中 $\Gamma$ 不包含任何 $X_{i}$，并考虑理想 $(x,y)$ 的爆破（blow-up）
+$$
+f:Z\longrightarrow \Spec B
+$$
+。环 $B[y/x]$ 和 $B[x/y]$ 的谱构成 $Z$ 的一个仿射开覆盖。
+
+设 $B_{1}$ 为 $B[x/y]$ 在由 $(\rad B,x/y)$ 生成的极大理想处的严格局部化。
+对 $\Spec B[y/x]\rightarrow \Spec B$ 的闭纤维的每个闭点 $Q$，
+记 $A_{Q}$ 为 $B[y/x]$ 在 $Q$ 处的严格局部化，
+$U_{Q}$ 为 $\Spec A_{Q}$ 中作为 $U$ 的逆像的仿射开子集。
+
+\hypertarget{sga4.exp.XIX.lemma.7.5}{}\begin{enonce*}{引理 7.5}\etiquette[7.5]{XIX.lem7.5}
+为\pageoriginale 对环 $B$ 证明 $\hyperref[XIX.lem7.1]{7.1}$，
+只须证明当 $q>d(\geq 2)$ 时有
+\begin{equation*}
+H^{q}(\Spec B_{1}[y/x],\ZZ/\ell)=0\tag{i}
+\end{equation*}
+及
+\begin{equation*}
+H^{q}(U_{Q},\ZZ/\ell)=0\quad\text{对每个 $Q$}{\quoi}.\tag{ii}
+\end{equation*}
+\end{enonce*}
+
+\medskip
+\noindent
+\emph{证明。}有开浸入
+$$
+U\hookrightarrow \Spec B[1/x]\hookrightarrow \Spec B[y/x]{\quoi},
+$$
+从而有图式
+$$
+\xymatrix{
+U \ar[rr]^{i} \ar[rd]_{k}&         & \Spec B[y/x] \ar[ld]^j\\
+                        &   Z     &      . 
+}
+$$
+若 $Q$ 为 $\Spec B[y/x]\rightarrow \Spec B$ 的闭纤维的一个闭点，
+则由假设，当 $q>d$ 时有 $(R^{q}i_{\ast}\ZZ/\ell)_{Q}=0$。
+对 $\Spec B[y/x]$ 的每个不是
+$\Spec B[y/x]\rightarrow \Spec B$ 的闭纤维中的闭点的点 $P$，
+有 $\delta(F,i,P)<d$，其中 $F=(\ZZ/\ell)_{U}$
+（\eqhyperref[XIX.eq6.0]{6.0} 的记号）。
+因此，将归纳假设及 \hyperref[XIX.thm6.1]{6.1} 应用于态射 $i$，
+可知对于态射 $\Spec B[y/x]\rightarrow \Spec B$ 有
+$$
+\delta(R^{q}i_{\ast}\ZZ/\ell)\leq d-q{\quoi}.
+$$
+所以，将 \hyperref[XIX.thm6.1]{6.1} bis 形式的归纳假设
+应用于后一个态射，得到
+$$
+H^{p}(\Spec B[y/x],R^{q}i_{\ast}\ZZ/\ell)=0
+$$
+若\pageoriginale $q>0$ 且 $p>d-q$。利用 Leray 谱序列
+$$
+E^{pq}_{2}=H^{p}(\Spec
+B[y/x],R^{q}i_{\ast}\ZZ/\ell)\Longrightarrow
+H^{p+q}(U,\ZZ / \ell){\quoi}.
+$$
+证明 \hyperref[XIX.lem7.1]{7.1} 的问题归结为证明
+$$
+H^{p}(\Spec B[y/x],i_{\ast}\ZZ/\ell)=0\quad\text{\rm 若}\quad
+p>d{\quoi}.
+$$
+
+有正合列
+\begin{equation*}
+0\longrightarrow \ZZ/\ell\longrightarrow
+i_{\ast}(\ZZ/\ell)_{U}\longrightarrow C\longrightarrow 0\tag{7.6}
+\end{equation*}\etiquette[7.6]{XIX.eq7.6}
+其中 $\delta(C)<d$。因此（再次由归纳法），只须证明
+\begin{equation*}
+H^{p}(\Spec B[y/x],\ZZ/\ell)=0\quad\text{\rm 若}\quad
+p>d{\quoi}.\tag{7.7}
+\end{equation*}\etiquette[7.7]{XIX.eq7.7}
+
+开浸入 $\Spec B[y/x]\xrightarrow{j}Z$ 由从 $Z$ 中去掉
+“无穷远处”的闭子集 $C$ 得到，而在 $Z$ 的另一个开子集
+$\Spec B[x/y]$ 中，它与开子集 $C=V(x/y)$ 等同。
+各 $R^{q}j_{\ast}\ZZ/\ell$ 集中在 $C$ 上，
+且态射 $C\rightarrow \Spec B$ 为闭浸入。
+因此，当 $p>0$ 且 $q>0$ 时有 $H^{p}(Z,R^{q}j_{\ast}\ZZ/\ell)=0$。
+由于 $Z\rightarrow \Spec B$ 的闭纤维维数为 1，且该态射固有，
+由 \hyperrefext[XII][XII.cor5.3]{5.3} bis 可知
+$p>2$ 时有 $H^{p}(Z,j_{\ast}\ZZ/\ell)=0$。所以谱序列
+$$
+E^{pq}_{2}=H^{p}(Z,R^{q}j_{\ast}\ZZ/\ell)\Longrightarrow
+H^{p+q}(\Spec B[y/x],\ZZ/\ell)
+$$
+给出同构
+$$
+H^{q}(\Spec B[y/x],\ZZ/\ell)\simeq
+H^{0}(Z,R^{q}j_{\ast}\ZZ/\ell)\simeq
+(R^{q}j_{\ast}\ZZ/\ell)_{P}
+$$
+若\pageoriginale $q>2$，其中 $P$ 为 $Z$ 的“无穷远点”。
+这些茎正是（VIII 5）
+% SGA-SRC-001231
+$$
+(R^{q}j_{\ast}\ZZ/\ell)_{P}\simeq H^{q}(\Spec
+B_{1}[y/x],\ZZ/\ell){\quoi}.
+$$
+
+由 \eqhyperref[XIX.eq7.7]{7.7}，只须证明后面的这些群在 $q>d$ $(\geq 2)$ 时为零。
+有一个与 \eqhyperref[XIX.eq7.6]{7.6} 类似的正合列，
+结合归纳假设，它表明只须有
+$$
+H^{q}(\Spec B_{1}[y/x],\ZZ/\ell)=0\quad\mbox{\rm 若}\quad
+q>d{\quoi},
+$$
+引理得证。
+
+\medskip
+\noindent
+\emph{\hyperref[XIX.lem7.5]{7.5} (i) 的证明。}
+
+考虑 $\Spec B[x/y]$ 的闭子集 $C=V(x/y)$，赋予它诱导的约化结构。
+立即可见，态射 $Z\rightarrow \Spec B$ 诱导的
+$C$ 到 $\Spec B$ 的闭浸入，将 $C$ 与
+$\Spec B$ 的闭子概形 $X=\bigcup X_{i}$ 等同。
+由于
+\begin{align*}
+D(x) &= \sum r_{i}X_{i}\\
+D(y) &= \sum (r_{i}-1)X_{i}+\Gamma{\quoi},
+\end{align*}
+元素 $x/y$ 在 $X_{i}$ 的泛点附近局部生成理想
+$\mathfrak{J}(X_{i})$；在该处，由于 $B$ 正规，局部环是离散赋值环。
+因此，态射 $\Spec B[x/y]\rightarrow \Spec B$ 在这样的点的
+一个邻域上为同构，而元素 $x/y$ 在 $C$ 的每个
+不可约\pageoriginale 分支 $C_{i}$（对应于 $X_{i}$）上的消失阶数为 1。
+
+由于闭子集 $C$ 可提升到 $\Spec B_{1}$，
+将环 $B[x/y]$ 换为 $B_{1}$ 后上述结论仍成立，
+故 $B_{1}/(x/y)$ 是一个\emph{完备}环，且为形式可分的 $k$-代数。
+
+为证明 \hyperref[XIX.lem7.5]{7.5} (i)，首先可应用 \hyperref[XIX.cor4.3]{4.3}，
+由此可将 $B_{1}$ 换为其完备化 $\hat{B}_{1}$，
+而不改变环 $B_{1}/(x/y)$。由 \eqhyperref[XIX.eq7.2]{7.2}，
+还可将 $\hat{B}_{1}$ 换为其正规化 $\bar{B}_{1}$。
+由于 $B_{1}$（从而 $\hat{B}_{1}$）在各 $C_{i}$ 的泛点处已经正则，
+态射 $\Spec \bar{B}_{1}\rightarrow \Spec \hat{B}_{1}$ 在这些点处为同构，
+故 $\bar{B}_{1}/(x/y)$ 仍为形式可分的 $k$-代数。
+于是归结为特殊情形 \hyperref[XIX.lem6.7]{6.7} (ii)，结果得证。
+
+\medskip
+\noindent
+\emph{\hyperref[XIX.lem7.5]{7.5} (ii) 的证明。}
+
+选取 $\Spec B[y/x]\rightarrow \Spec B$ 的闭纤维中的点 $Q$。
+严格局部化 $A_{Q}$ 可写为极限
+$$
+A_{Q}=\varinjlim A
+$$
+其中 $A$ 遍历在 $B[y/x]$ 上平展且有限型的环的一个滤过范畴。
+设 $U_{A}$ 为 $\Spec A$ 中作为 $U$ 的逆像的仿射开子集。
+由于 $x$ 在 $U_{A}$ 上可逆，态射 $U_{A}\rightarrow \Spec B$ 平展，
+且 $U_{A}$ 正规。因此，若 $C$ 表示 $B$ 在
+$A$ 的有理函数域 $R(A)$ 中的正规化，则有开浸入
+$$
+U_{A}\longrightarrow \Spec C{\quoi}.
+$$
+只\pageoriginale 须（VII \hyperref[VII.thm5.7]{5.7}）证明，
+对每个 $A$，若 $q>d$，则 $H^{q}(U_{A},\ZZ/\ell)$
+在 $H^{q}(U_{Q},\ZZ/\ell)$ 中的像为零。
+由于 $x$ 在 $U_{Q}$ 上可逆，若 $f\in B$ 为任一满足
+$f$ 在 $B[y/x]$ 中被 $x$ 整除，且 $f/x$ 在点 $Q$ 处不为零的元素，
+则态射 $U_{Q}\rightarrow \Spec A$ 通过 $\Spec A[1/f]$ 分解。
+所以只须对某个适当的这样的 $f$ 证明
+$$
+H^{q}(U_{A,f},\ZZ/\ell)=0\quad\text{\rm 若}\quad q>d{\quoi},
+$$
+其中 $U_{A,f}=U_{A}-V(f)$ 为 $\Spec A[1/f]$ 的仿射开子集，
+同时也是 $\Spec C$ 的仿射开子集。
+
+设 $c\in k$ 使 $y/x+c$ 在 $Q$ 处不为零，
+并设 $J$ 为 $B$ 中闭子集 $\Gamma\cap X$ 的理想。则若
+\begin{equation*}
+f\equiv y+cx(\text{\rm 模 }J^{N})\quad N>0{\quoi},\tag{7.8}
+\end{equation*}\etiquette[7.8]{XIX.eq7.8}
+元素 $f$ 便满足上述条件：事实上，立即可见在
+$\Spec B[y/x]$ 中有 $V(J)=V(x)$。
+故 \eqhyperref[XIX.eq7.8]{7.8} 确实意味着 $f$ 被 $x$ 整除，从而
+$$
+f/x\equiv y/x+c(\text{\rm 模 }J){\quoi}.
+$$
+由于 $J$ 在 $Q$ 处为零，而 $y/x+c$ 在 $Q$ 处非零，断言得证。
+
+现在，$\Gamma\cap X$ 为 $\Spec B$ 的一个余维 2 的闭子集。
+因此，可选取一个满足 \eqhyperref[XIX.eq7.8]{7.8} 的 $f$，
+记为 $z$，使 $V(z)\cap V(y)$ 的余维也为\pageoriginale 2。
+另取元素 $x_{3},\ldots,x_{d}$，使
+$y$、$z$、$x_{3},\ldots,x_{d}$ 构成环 $B$ 的一个参数系。
+则 $B$，从而 $C$，为有限 $k[[y,z,x_{3},\ldots,x_{d}]]$-代数。
+
+设 $C^{0}$ 为 $k[[y,z,x_{3},\ldots,x_{d}]]$ 在
+$k$ $((y,z,x))$ 于有理函数域 $R(C)$ 中的可分闭包内的正规化，
+于是 $C$ 为 $C^{0}$ 的纯不可分扩张，
+而 $C^{0}$ 为 $k$ $((y,z,x))$ 的泛点处平展的扩张
+（其中 $x=x_{3},\ldots,x_{d}$）。
+
+选择一个线性组合
+$$
+f=az+by\quad (a,b\in k){\quoi},
+$$
+使态射
+$$
+\Spec C^{0}\longrightarrow \Spec k[[z,y,x]]
+$$
+在 $V(f)$ 的泛点上方平展，且 $f/x$ 在
+$\Spec B[y/x]$ 的 $Q$ 处不为零。只须证明
+$$
+H^{q}(U_{A,f},\ZZ/\ell)=0\quad\text{\rm 若}\quad q>d{\quoi},
+$$
+因而（VIII \hyperref[VIII.thm1.1]{1.1}）只须证明
+$$
+H^{q}(U^{0}_{A,f},\ZZ/\ell)=0\quad\text{\rm 若}\quad
+q>d{\quoi},
+$$
+其中 $U^{0}_{A,f}$ 为 $\Spec C^{0}$ 中对应于
+$\Spec C$ 的开子集 $U_{A,f}$ 的开子集；
+由下降可知它是仿射的（\EGA IV 2.7.1 (xiii)）。
+但由构造，$C^{0}$ 的元素 $f$ 在 $U^{0}_{A,f}$ 上可逆，
+且 $C^{0}/(f)$ 为形式可分的 $k$-代数。
+所以这正是 \hyperref[XIX.lem6.7]{6.7} (ii) 的情形，
+从而完成了 \hyperref[XIX.lem7.5]{7.5} (ii) 的证明，
+也就完成了 \hyperref[XIX.thm6.1]{6.1} 的证明。
+
+\begin{thebibliography}{99}
+\bibitem{sga4.exp.XIX.bib.1} \textsc{Abhyankar}, S.\pageoriginale Local uniformization on
+algebraic surfaces over ground fields of characteristic $p\neq
+0$. Annals of Math. vol. 63 (1963), and Resolution of singularities of
+embedded algebraic surfaces, Academic Press (1966).
+
+\bibitem{sga4.exp.XIX.bib.2} \textsc{Abhyankar}, S. Resolution of singularities of
+arithmetical surfaces. Arithmetical Algebraic Geometry, New York
+(1966).
+
+\bibitem{sga4.exp.XIX.bib.3} \textsc{Artin}, M. Etale coverings of schemes over hensel
+rings, Amer, Journal Math. vol 88 ${\rm n^{\circ}}$ 4 p 915-934
+(1966).
+
+\bibitem{sga4.exp.XIX.bib.4} \textsc{Hironaka}, H. Resolution of singularities of an
+algebraic variety over a field of characteristic zero I, II. Annals of
+Math. vol. 79, ${\rm n^{\circ}}$ 1, 2 (1964).
+
+\bibitem{sga4.exp.XIX.bib.5} \textsc{Weierstrass}, K. Einige auf die analytischen
+Functionen mehrerer Veränderlichen sich beziehende
+Sätze. Mathematische Werke von K. Weierstrass, Bd 2, Berlin (1895).
+
+\bibitem{sga4.exp.XIX.bib.6} \textsc{Bourbaki}, N. Commutative Algebra, Chap. 3.
+\end{thebibliography}
+
+
+%XII 4.2 no ref. 1072
+
+\ifx\danslelivre\undefined
+\let\SGAXIXenddocument\enddocument
+\else
+\let\SGAXIXenddocument\relax
+\fi
+\SGAXIXenddocument
+

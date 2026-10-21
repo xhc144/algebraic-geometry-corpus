@@ -1,0 +1,1057 @@
+\chapter{固有支集上同调}\MakeLinkTarget*{sga4.exp.XVII}\label{sga4.exp.XVII}
+%\addtocontents{toc}{P. Deligne}
+\begin{center}
+P. Deligne
+\end{center}
+
+% The edition is fixed to the corrected (second) reading. Keeping the
+% generic ifthen-based selector inside Xy-pic matrices breaks current
+% Xy-pic; this equivalent expandable selector avoids that toolchain bug.
+\renewcommand{\sisi}[2]{#2}
+
+\setcounter{pageoriginal}{251}
+
+\footnotetext[1]{本讲及下一讲写于 1968 年和 1969 年，重现并补充了
+  A.~\textsc{Grothendieck} 的口头讲演（1964 年春）。这份书面稿的作者没有参加
+  当时的讨论班，撰写时部分依据了 A.~\textsc{Grothendieck} 的笔记。}
+
+
+\section*{引言}\pageoriginale
+
+本讲建立固有支集上同调（cohomology with proper supports）的形式理论。
+口头讨论班中仅作了合理性说明的协变、反变性质问题，在这里得到了细致的处理。
+这也解释了本讲篇幅之长；其中第 \hyperref[XVII.sec1]{1} 至
+\hyperref[XVII.sec4]{4} 节讨论范畴和一般拓扑。
+强烈建议读者只阅读第 \hyperref[XVII.sec5]{5} 和 \hyperref[XVII.sec6]{6} 节，
+本讲的几何实质集中在那里（\S \hyperref[XVII.sec5]{5}：固有支集上同调的构造与
+协变、反变性质，基变换，有限性，有限 \tTor-维数及比较定理；
+\S \hyperref[XVII.sec6]{6}：拟有限平坦态射的\sisi{迹}{迹}态射理论）。
+
+第 \hyperref[XVII.sec1]{1} 和 \hyperref[XVII.sec2]{2} 节“回顾”导出范畴的若干结果。
+\S \hyperref[XVII.sec1]{1} 第 ${\rm n^{\circ}}$ 1 节专门讨论符号规则。
+在 \S \hyperref[XVII.sec3]{3}，我们处理两套协变、反变形式理论的黏合问题。
+在 \S \hyperref[XVII.sec4]{4}，我们引入平坦解消，并研究 \textsc{Godement}
+松层解消的特殊性质。
+
+本讲\pageoriginale 仅在 $f$ 为可紧化态射（compactifiable morphism）
+（\hyperref[XVII.def3.2.1]{3.2.1}）时定义固有支集高阶直像函子 $R^{q}f_{!}$
+以及产生这些函子的函子 $Rf_{!}$。由 \textsc{B. Saint-Donat} 撰写的附录说明，
+如何将定义推广到目标拟紧且拟分离的有限型分离态射。
+\nde{\MakeLinkTarget*{sga4.exp.XVII.editor-note.introduction.nagata-compactification}\label{XVII.ndeConrad}
+Nagata 紧化定理保证，目标拟紧且拟分离的每个有限型分离态射都可紧化。
+见 B.~Conrad，“Deligne's notes on Nagata compactifications”，
+\emph{J. Ramanujan Math.\ Soc.} \textbf{22} (2007)，205--257，
+下文 \hyperref[XVII.subsec4.1]{4.1} 引为 [C]；另见
+“Erratum for `Deligne's notes on Nagata compactifications'”，
+\emph{J. Ramanujan Math.\ Soc.} \textbf{24} (2009)，427--428。}
+
+\S \hyperref[XVII.sec5]{5} 第 ${\rm n^{\circ}}$ \hyperref[XVII.sec5]{5} 节
+（对称积的上同调）在本讨论班的后文中不再使用。它将在 \SGA 5 中用于加强
+$L$-函数的有理性定理。\nde{见 \SGA 4$\frac{1}{2}$，
+模 $\ell^n$ 和模 $p$ 的 $L$-函数。}
+
+\S \hyperref[XVII.sec6]{6} 第 ${\rm n^{\circ}}$ \hyperref[XVII.sec3]{3} 节
+（\emph{连续}系数的迹理论）在第 XVIII 讲中仅用于光滑群这一相对简单的情形。
+若读者关心 Poincaré 对偶定理（整体对偶），并愿意接受一个超越论证，
+甚至可以完全不读此 \S \hyperref[XVII.sec6]{6} 第 ${\rm n^{\circ}}$
+\hyperref[XVII.sec3]{3} 节，以及 XVIII 中 \S \refnoexpose{XVIII.sec1} 的大部分内容。
+
+\setcounter{section}{-1}
+\section{术语预备}\etiquette[0]{XVII.sec0}
+
+\subsection{}\etiquette[0.1]{XVII.subsec0.1}
+两个表示范畴中对象的符号组之间的符号 $=$，有时将滥用记号，表示这些对象典范同构。
+原则上，范畴与该典范同构都应事先定义。在图中，符号 $=$ 此时表示该同构本身。
+
+\hypertarget{sga4.exp.XVII.subsection.0.2}{}\setcounter{subsection}{2}
+\setcounter{subsubsection}{-1}
+\subsubsection{}\etiquette[0.2.0]{XVII.subsubsec0.2.0}
+设 $f:S\rightarrow S'$ 是景（site）的态射
+（\hyperrefext[IV][IV.subsubsec4.9.3]{4.9.3}）。若 $U$ 与 $U'$ 分别是 $S$ 和 $S'$
+的对象，则定义从 $U$ 到 $U'$ 的 $f$-态射为从 $U$ 到 $f^{\ast}U'$ 的态射。
+对概形的平展景，这就回到通常的概念。
+
+\subsubsection{}\etiquette[0.2.1]{XVII.subsubsec0.2.1}
+若\pageoriginale $\mathcal{F}$ 和 $\mathcal{F}'$ 分别是 $S$ 和 $S'$ 上的层，
+则从 $\mathcal{F}$ 到 $\mathcal{F}'$ 的 $f$-态射等价地指：
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item 从 $f^{\ast}\mathcal{F}'$ 到 $\mathcal{F}$ 的态射；
+
+\item 从 $\mathcal{F}'$ 到 $f_{\ast}\mathcal{F}$ 的态射；
+
+\item 一个函数，它给从 $S$ 的对象 $U$ 到 $S'$ 的对象 $U'$ 的每个 $f$-态射
+  $\varphi$ 赋予一个从 $\mathcal{F}'(U')$ 到 $\mathcal{F}(U)$ 的函数，
+  且这一赋予与 $\varphi$ 同 $S$ 或 $S'$ 中箭头的复合相容
+  \footnote{这些术语不与将 $S$ 的对象等同于其伴随层的做法相容。}。
+\end{enumerate}
+
+由 (i)、(ii) 和 (iii)，集合层在景的范畴上组成一个纤维化且余纤维化范畴。
+
+赋环景上的左模层同样如此。概形上的平展层也一样；这并非立即就是上述陈述的特例，
+因为景实际上组成一个 2-范畴，而“$X$ 的平展景”仅是关于 $X$ 的一个伪函子
+（\hyperrefext[VII][VII.subsec1.4]{1.4}）。
+
+上述定义使变化的景上的集合层（\resp\ldots）成为景的范畴上的一个纤维化范畴，
+其纤维范畴是通常集合层（\resp\ldots）范畴的\emph{反范畴}。
+
+\subsection{}\etiquette[0.3]{XVII.subsec0.3}
+设 $I$ 是有限集，$\epsilon$ 是 $I$ 上取值于 $\{+1,-1\}$ 的函数，
+$(\Aa_i)_{i\in I}$ 是一族由平移函子 $T_i$ 分次的加性范畴
+（\cite{sga4.exp.XVII.bib.CD} I \sisi{1.10}{1.1.0}），$F$ 是从诸范畴 $\Aa_i$
+到加性范畴 $\Aa$ 的多重加性多函子，后者由平移函子 $T$ 分次。
+假设 $F$ 对于满足 $\epsilon_i=1$（\resp $\epsilon_i=-1$）的变量 $i$
+是协变（\resp 反变）的。修改并补充\pageoriginale
+（\cite{sga4.exp.XVII.bib.CD} \sisi{I 1.1}{II 2.1.1}），若给定一族
+$(\varphi_i)_{i\in I}$，其中每个都是函子 $T\circ F$ 与
+$F\circ T_i^{\varepsilon_{i}}$ 之间的同构，且对于 $I$ 中的 $i\neq j$，
+下面的图反交换，则称 $F$ 是\emph{分次函子}（graded functor）：
+\[
+\xymatrix{
+F \circ (T_i^{\varepsilon_i}, T_j^{\varepsilon_j})  \ar[rr]^{\varphi_j
+  \ast T_i^{\varepsilon_i}} \ar[dd]^{\varphi_i\ast T_j^{\varepsilon_j}}& &T\circ F \circ T_i^{\varepsilon_i} \ar[dd]^{T\ast
+  \varphi_i}\\
+ & - & \\
+ T\circ F \circ T_j^{\varepsilon_j}  \ar[rr]^{T\ast \varphi_j} & &T\circ T
+  \circ F.
+}
+\]
+两个分次函子的复合的定义及其仍为分次函子的验证，留给读者。
+
+\subsection{}\etiquette[0.4]{XVII.subsec0.4}
+设 $\Aa$ 是加性范畴，$I$ 是有限集。对 $i\in I$，以 $1_i$ 表示
+$\ZZ^{I}$ 的第 $i$ 个基向量。$\Aa$ 的一个\emph{$I$-重复形}
+（\resp 一个\sisi{朴素}{\emph{朴素}}\emph{$I$-重复形}）由下述数据组成：
+\begin{enumerate}
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item $\Aa$ 的一族对象 $(K^{k})_{k\in \ZZ^{I}}$；
+
+\item 对每个 $i\in I$ 和每个 $k\in \ZZ^{I}$，一个箭头
+  $d^{k}_i:K^{k}\rightarrow K^{k+1_i}$，满足 $d^{k+1_i}_i d^{k}_i=0$，
+  且当 $i\neq j$ 时，$d^{k+1_j}_i d^{k}_j+d^{k+1_i}_j d^{k}_i=0$
+  （\resp $d^{k+1_j}_i d^{k}_j=d^{k+1_i}_j d^{k}_i$）。
+\end{enumerate}
+
+\subsection{}\etiquette[0.5]{XVII.subsec0.5}
+范畴 $\sisi{C}{\Cc}$ 的一个\pageoriginale \emph{\ppro-对象}，是从
+$\sisi{C}{\Cc}$ 到 $(\Ens)$ 的一个函子，它是可表函子的滤过正向极限
+（指标范畴为小滤过范畴）（\cf \hyperrefext[I][I.sec8.10]{8.10}）。
+每个 \ppro-对象都是以小滤过偏序集为指标的可表函子的正向极限。
+若 $X_{i}$ 是 $\sisi{C}{\Cc}$ 中以小滤过范畴为指标的对象逆系统，
+则以 $\quotprojlim X_{i}$ 表示 \ppro-对象 $\varinjlim h^{X_i}$。
+
+\subsection{}\etiquette[0.6]{XVII.subsec0.6}
+读者可将 \hyperref[XVII.subsec0.5]{0.5} 对偶化，得到 \iind-对象的情形
+（\Cf \hyperrefext[I][I.sec8.2]{8.2}）。
+
+\subsection{}\etiquette[0.7]{XVII.subsec0.7}
+按照新术语，过去称为预概形的对象现在称为\emph{概形}，
+过去称为概形的对象现在称为\emph{分离概形}。
+
+\subsection{}\etiquette[0.8]{XVII.subsec0.8}
+\emph{赋环概形}范畴的对象是平展景上赋有环层的概形；从 $(S,\Aa)$ 到 $(T,\Bb)$
+的箭头是一个二元组，由从 $S$ 到 $T$ 的概形态射 $f$ 以及从 $f^{\ast}\Bb$
+到 $\Aa$ 的环层同态 $\varphi$ 组成。称概形态射 $f$ \emph{由} $(f,\varphi)$ \emph{诱导}。
+
+\subsection{}\etiquette[0.9]{XVII.subsec0.9}
+若 $X$ 是 $Y$ 上的概形，则以 $(X/Y)^n$ 表示 $X$ 在 $Y$ 上的 $n$ 重纤维积。
+
+\subsection{}\etiquette[0.10]{XVII.subsec0.10}
+设 $S$ 是概形。$S$ 的\emph{大平展景}（\resp \emph{大 fppf 景}，
+\resp \emph{大 fpqc 景}）是景 $\Sch/{S}$，赋予平展拓扑
+（\resp fppf 拓扑，\resp fpqc 拓扑）（\SGA 3 IV 6.3）。
+务必注意，它不是 $\sisi{U}{\Uu}$-景（$\sisi{U}{\Uu}$ 是
+\sisi{有限}{固定的}宇宙，而 $\Sch/{S}$ 由 $\in \sisi{U}{\Uu}$ 的概形组成）。
+
+$S$ 的\pageoriginale \emph{小 fpqc 景}（\resp \emph{小 fppf 景}）
+是 $S$ 上平坦（\resp 平坦且有限表现）概形所成的景，赋予 fpqc 拓扑
+（\resp fppf 拓扑）。需要避免歧义时，$S$ 的\emph{小平展景}指景
+$S_{\et}$（\hyperrefext[VII][VII.subsec1.2]{1.2}）。
+
+\subsection{}\etiquette[0.11]{XVII.subsec0.11}
+在许多地方，本应说本质交换的图，即相差同构意义下交换的图时，
+作者径直说成了景态射的交换图（\cf IV \hyperref[IV.subsubsec3.2.2]{3.2.2}）。
+读者可验证，我们给出的论证也适用于一般情形。
+
+\subsection{}\etiquette[0.12]{XVII.subsec0.12}
+A.~Grothendieck 在若干地方不动声色地引入了“\emph{凝聚概形}”这一术语，
+用来表示“拟紧拟分离概形”。
+
+\subsection{}\etiquette[0.13]{XVII.subsec0.13}
+概形 $S$ 上的挠层 $F$ 称为\emph{与 $S$ 的剩余特征互素}的，
+如果它是其被 $S$ 上可逆整数 $n$ 零化的子层的正向极限。
+
+\section{导出范畴}\etiquette[1]{XVII.sec1}
+
+\subsection{正合函子（符号规则）}\etiquette[1.1]{XVII.subsec1.1}
+
+\subsubsection{}\etiquette[1.1.1]{XVII.subsubsec1.1.1}
+关于导出范畴的基本定理，请参阅 \textsc{Verdier} \cite{sga4.exp.XVII.bib.CD}
+及 \cite{sga4.exp.XVII.bib.V2}。本小节特别仔细地处理符号问题。
+
+回顾，若 $f:X\rightarrow Y$ 是复形的态射（所在范畴为加性范畴，以下对此不再说明），
+则它的\emph{锥}（cone）$C(f)$\pageoriginale 定义为
+$$\etiquette[1.1.1.1]{XVII.eq1.1.1.1}
+C(f)^{n}=X^{n+1}\oplus Y^{n}\quad d^{n}=-d^{n+1}_X+f^{n+1}+d^{n}_Y{\quoi}.\leqno(1.1.1.1)
+$$
+当 $X=0$（\resp $Y=0$）时，有 $C(f)=Y$（\resp $C(f)=X[1]$），
+从而交换图
+\[
+\xymatrix{
+0        \ar@{=}[r] \ar[d]&   0   \sisi{\ar@{=}[r]}{\ar[r]} \ar[d]&  X
+\ar@{=}[r]\ar[d]^{f}  & X \ar[d]\\
+X        \ar[r]^{f}   &  Y    \ar@{=}[r] & Y     \ar[r]        & 0
+}
+\]
+定义一个“三角”
+\[
+X\xrightarrow{f}Y\rightarrow C(f)\xrightarrow{j}X[1]{\quoi}.
+\]
+
+在复形模同伦的范畴中，若一个三角同构于上述类型的三角，则称它为\emph{特殊三角}
+（distinguished triangle）；若将各箭头的符号改变后成为特殊三角，则称为
+\emph{反特殊三角}（antidistinguished triangle）。容易验证，由逐次分裂的复形正合列
+所定义的三角（\cite{sga4.exp.XVII.bib.CD} 第~10 页，\cf
+\hyperref[XVII.lem1.1.5.4]{1.1.5.4} 的证明）是反特殊三角；
+而在同构意义下，每个反特殊三角都可如此得到。
+
+\subsubsection*{${}^{\ast}$1.1.2.}\etiquette[*1.1.2]{XVII.subsubsec*1.1.2}
+使用下述“形式规则”进行符号计算最为方便。
+将 $C(f)^{n}$ 的元素写成 $1\otimes x+y$ $(x\in X^{n+1}, y\in Y^{n})$，
+其中 $1$ 是一个维数为 $1$ 的“胞腔”，并令 $d(1)\otimes x=f(x)$。于是
+\[
+d(1\otimes x+y)=d1\otimes x-1\otimes dx+dy=-1\otimes
+dx+f(x)+dy{\quoi}._{\ast}
+\]
+
+\begin{enonce*}{定义 1.1.3}\etiquette[1.1.3]{XVII.def1.1.3}
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item 从三角范畴 $\Aa$ 到三角范畴 $\Bb$ 的\pageoriginale 分次函子
+  （\hyperref[XVII.subsec0.3]{0.3}），若将特殊三角映为特殊三角，则称为正合的。
+
+\item 从三角范畴 $\Aa$ 到三角范畴 $\Bb$ 的反变分次函子，若对 $\Aa$ 的每个特殊三角
+  $(X,Y,Z,u,v,w)$，三角 $(F(Z),F(Y), F(X), F(v),F(u),TF(w))$ 都是典范的，
+  则称为\emph{正合}的（此定义中借助 $F$ 的分次，将 $FX$ 等同于 $TFTX$）。
+
+\item 设 $(\Aa_i)_{i\in I}$ 是三角范畴的有限族，$\epsilon$ 是从 $I$ 到
+  $\{+1,-1\}$ 的函数，$\Aa$ 是三角范畴。设 $F$ 是从诸 $\Aa_i$ 的乘积到
+  $\Aa$ 的分次函子，对满足 $\epsilon(i)=1$ 的 $i$ 协变，对满足 $\epsilon(i)=-1$
+  的 $i$ 反变。若对每个 $i\in I$，将其余变量固定后，
+  由 $F$ 得到的从 $\Aa_i$ 到 $\Aa$ 的函子都是正合函子，则称该函子\emph{正合}。
+\end{enumerate}
+\end{enonce*}
+
+正合函子的复合仍为正合函子。
+
+\setcounter{subsubsection}{3}
+\subsubsection{}\etiquette[1.1.4]{XVII.subsubsec1.1.4}
+若 $(K^{n_1\ldots n_p}, d_1,\ldots,d_p)$ 是多重复形
+（\hyperref[XVII.subsec0.4]{0.4}），则其伴随单复形定义为
+$$\etiquette[1.1.4.0]{XVII.eq1.1.4.0}
+K^{n}=\prod_{\sum n_i=n}K^{(n_i)}\quav d=\sum d_i{\quoi}.\leqno(1.1.4.0)
+$$
+
+在个别情况下若采用直和而非乘积来定义，将明确说明。
+
+设 $I$ 是有限集。按照 \textsc{Cartan--Eilenberg} 和 \textsc{J.~P. Serre}，
+我们说明如何给每个朴素 $I$-重复形 $K$ 典范地\pageoriginale 伴随一个
+$I$-重复形（\hyperref[XVII.subsec0.4]{0.4}）。
+
+对 $I$ 上的每个全序 $<$，设 $K(<)$ 为下述 $I$-重复形：
+$$\etiquette[1.1.4.1]{XVII.eq1.1.4.1}
+\begin{cases}
+K(<)^{\sheafk }=K^{\sheafk }\\
+d(<)_i^{\sheafk }=(-1)^{\sum\limits_{j<i} k_j} d_i{\quoi}.
+\end{cases}\leqno{(1.1.4.1)}
+$$
+
+若 $<_1$ 和 $<_2$ 是 $I$ 上的两个\sisi{全}{全}序，则定义
+\emph{$K(<_1)$ 与 $K(<_2)$ 之间的典范同构 $\tau$}为下式给出的同构：
+$$\etiquette[1.1.4.2]{XVII.eq1.1.4.2}
+\tau^{\sheafk }=(-1)^{\epsilon(<_1,<_2)},\quad\mbox{\rm 其中}\quad
+\epsilon(<_1,<_2)=\sum_{\substack{i<_1j\\ \sisi{i<_2 j}{j<_2 i}}}k_ik_j{\quoi}.\leqno{(1.1.4.2)}
+$$
+
+\subsubsection*{1.1.4.2.1}\etiquette[1.1.4.2.1]{XVII.par1.1.4.2.1}
+容易验证，当 $<$ 遍历 $I$ 上的全序时，这些典范同构在各 $K(<)$ 之间组成一个传递同构系。
+因此，这些 $K(<)$ 决定一个在唯一同构意义下唯一的 $I$-重复形，本小节将其记为
+$K(\ast)$，称为\emph{朴素 $I$-重复形 $K$ 的伴随 $I$-重复形}。
+注意，$K(\ast)^{\sheafk}$ \emph{并不典范同构于 $K^{\sheafk}$：
+只有在 $I$ 上选定全序，才能将这两个对象等同。}
+
+若 $K$ 是朴素 $I$-重复形，$i\in I$，则以 $K[1_i]$ 表示下述朴素复形，
+其微分记作 $d_j[1_i]$：
+$$\etiquette[1.1.4.3]{XVII.eq1.1.4.3}
+\begin{cases}
+K[1_i]^{\sheafk } = K^{\sheafk +1_i}\\
+d_j[1_i]^{\sheafk } = d_j^{\sheafk +1_{i}}\quad{\mbox{\rm 若 }} i\neq
+j\\
+d_i[1_i]^{\sheafk }= -d_i^{\sheafk +1_i}{\quoi}.
+\end{cases}\leqno{(1.1.4.3)}
+$$
+
+若\pageoriginale $K$ 是 $I$-重复形，则令
+$$\etiquette[1.1.4.4]{XVII.eq1.1.4.4}
+\begin{cases}
+K[1_i]^{\sheafk } = K^{\sheafk +1_i}\\
+d_j[1_i]^{\sheafk } = -d_j[1_i]^{\sheafk +1_i}\sisi{}{.}
+\end{cases}\leqno{(1.1.4.4)}
+$$
+
+若 $K$ 是朴素 $I$-重复形，$<$ 是 $I$ 上的全序，从而 $K(\ast)$ 由
+\eqhyperref[XVII.eq1.1.4.1]{1.1.4.1} 给出，则用公式
+$$\etiquette[1.1.4.5]{XVII.eq1.1.4.5}
+\sigma^{\sheafk }=(-1)^{\sum\limits_{j<i}k_j} \id_{K^{\sheafk +1_i}}{\quoi}.\leqno{(1.1.4.5)}
+$$
+定义 $K[1_i](\ast)$ 与 $K(\ast)[1_i]$ 之间的同构 $\sigma$。
+
+\setcounter{subsubsection}{4}
+\setcounter{paragraph}{5}
+\paragraph{}\etiquette[1.1.4.6]{XVII.par1.1.4.6}
+容易验证，这个同构与全序 $<$ 的选取无关，因而定义一个
+$K[1_i](\ast)$ 与 $K(\ast)[1_i]$ \emph{之间的同构，称为典范同构}。
+
+\paragraph{}\etiquette[1.1.4.7]{XVII.par1.1.4.7}
+对任意 $i,j\in I$，若 $K$ 是 $I$-重复形或朴素 $I$-重复形，
+则以显然的方式将 $K[1_i][1_j]$ 与 $K[1_j][1_i]$ 等同。
+
+此时，对于 $I$ 中的 $i\neq j$，下列由 \hyperref[XVII.par1.1.4.6]{1.1.4.6}
+或 \hyperref[XVII.par1.1.4.7]{1.1.4.7} 型典范同构组成的图\emph{反交换}：
+$$\etiquette[1.1.4.7.1]{XVII.eq1.1.4.7.1}
+\vcenter{
+\xymatrix{
+K[1_i][1_j](\ast) \ar@{=}[r] \ar@{<->}[d]& K[1_j][1_i](\ast)
+\ar@{<->}[r] & K[1_j](\ast)[1_i]\ar@{<->}[d] \\
+K[1_i](\ast)[1_j] \ar@{<->}[r] & K(\ast)[1_i][1_j]  \ar@{=}[r]& K(\ast)[1_j][1_i]\rlap{.}
+}}\leqno{(1.1.4.7.1)}
+$$
+
+
+\subsubsection{}\etiquette[1.1.5]{XVII.subsubsec1.1.5}
+设\pageoriginale $F:\Aa\rightarrow \Bb$ 是加性范畴之间的反变加性函子。
+它的\emph{对复形的延拓} $F:C(\Aa)\rightarrow C(\Bb)$ 定义如下。
+若 $K$ 是 $\Aa$ 的复形，则令
+$$\etiquette[1.1.5.1]{XVII.eq1.1.5.1}
+\begin{cases}
+F(K)^{k}=F(K^{-k})\\
+d^{k}_{F(K)}=(-1)^{k+1}F(d^{-k-1})\sisi{}{.}
+\end{cases}\leqno(1.1.5.1)
+$$
+
+\emph{$F(K)[1]$ 与 $F(K[-1])$ 之间的典范同构 $\sigma$}定义为
+$$\etiquette[1.1.5.2]{XVII.eq1.1.5.2}
+\sigma^{\sisi{\sheafk }{k}}=(-1)^{k+1}\id_{F(K^{-k-1})}{\quoi}.\leqno(1.1.5.2)
+$$
+
+若 $F:\Aa\rightarrow \Bb$ 和 $G:\Bb\rightarrow \sisi{C}{\Cc}$
+是两个反变加性函子，则用下式定义 $G{\circ}F(K)$ \emph{与} $G(F(K))$
+之间的典范同构 $\rho$：
+$$\etiquette[1.1.5.3]{XVII.eq1.1.5.3}
+\rho^{k}=(-1)^{k}\sisi{}{\id_{G\circ F(K^k)}}{\quoi}.\leqno(1.1.5.3)
+$$
+
+\begin{enonce*}{引理 1.1.5.4}\etiquette[1.1.5.4]{XVII.lem1.1.5.4}
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item 对每个反变加性函子 $F:\Aa\rightarrow \Bb$，公式
+  \eqhyperref[XVII.eq1.1.5.1]{1.1.5.1} 和 \eqhyperref[XVII.eq1.1.5.2]{1.1.5.2}
+  定义一个从 $K(\Aa)$ 到 $K(\Bb)$ 的正合反变函子。
+
+\item 对每对可复合的反变加性函子 $(G,F)$，公式
+  \eqhyperref[XVII.eq1.1.5.3]{1.1.5.3} 定义一个分次函子同构，
+  介于 $GF$ 对复形的延拓与 $G$、$F$ 各自对复形的延拓的复合之间。
+\end{enumerate}
+\end{enonce*}
+
+\begin{enonce*}[remark]{证明}
+一个\pageoriginale 次数为 $i$ 的态射 $f:K\rightarrow L$，可以看成下列任一种数据：
+\begin{enumerate}
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item 从 $K$ 到 $L[i]$ 的态射；
+
+\item 从 $K[-i]$ 到 $L$ 的态射；
+
+\item 一族 $f^{n}:K^{n}\rightarrow L^{n+i}$，按照 $i$ 的奇偶性与微分交换或反交换。
+\end{enumerate}
+\end{enonce*}
+
+若 $f:K\rightarrow L[i]$ 是次数为 $i$ 的态射，则
+$F(f):F(L)[-i]\rightarrow F(K)$ 仍是次数为 $i$ 的态射；对于 $i=1$，有
+$$\etiquette[1.1.5.5]{XVII.eq1.1.5.5}
+F(f)^{n}=(-1)^{n+1}F(f^{-n-1}){\quoi}.\leqno(1.1.5.5)
+$$
+
+若 $0\rightarrow K\xrightarrow{u} L\xrightarrow{v} M\rightarrow 0$
+是逐次分裂的复形正合列，则选定一个分裂，便可将 $L$ 的微分写成
+\[
+d_L=d_K+d_M+f{\quoi},
+\]
+其中 $f$ 是从 $M$ 到 $K$ 的一次态射。类似地，对偶正合列
+\[
+0\longrightarrow F(M)\longrightarrow F(L)\longrightarrow
+F(K)\longrightarrow 0
+\]
+定义一个从 $F(K)$ 到 $F(\sisi{L}{M})$ 的一次态射 $f^{\ast}$。
+有 $f^{\ast}=F(f)$。由此可知，短正合复形列定义的三角 $(K,L,M,u,v,f)$
+在 $F$ 下的像仍是同一类型的三角，而由 \hyperref[XVII.subsubsec1.1.1]{1.1.1}，
+这就证明了 (i)。
+
+在 (ii) 的假设下，对一次的 $f$，有
+$G(F(f))^{n}=(-1)^{n+1}(-1)^{-n}G\circ F(f)^{n}=-G\circ F(f)^{n}$；
+特别地，分次同构 $G(F(K[1]))\simeq G(F(K))[1]$ 是各分量均为 $-1$ 的同构。
+
+因而\pageoriginale 图
+\[
+\xymatrix{
+G\circ F(K)[1]  \ar@{<->}[r]^{\rho[1]} \ar@{=}[d] & G(F(K))[1] \ar@{<->}[d]\\
+G\circ F(K[1])  \ar@{<->}[r]^{\rho} & G(F(K[1]))
+}
+\]
+交换，这就证明了 (ii)。
+
+\subsubsection{}\etiquette[1.1.6]{XVII.subsubsec1.1.6}
+设 $s=+$ 或 $s=-$；设 $I$ 是有限集，$\epsilon:I\rightarrow \{+,-\}$ 是函数，
+$(\Aa_i)_{i\in I}$ 和 $\Aa$ 是加性范畴，$F$ 是从诸范畴 $\Aa_i$ 到
+$\Aa$ 的多重加性多函子，对于满足 $\epsilon(i)=+$ 的 $i$ 所标记的变量协变，
+对于其余变量反变。我们将定义 $F$ 对复形的延拓 $K^{s}(F)$（或简称 $F$），
+它是从诸范畴 $K^{s\epsilon(i)}(\Aa_i)$（$s\epsilon(i)=\pm$，遵循符号规则）
+到 $K^{s}(\Aa)$ 的正合多函子\footnote[1]{这个构造也给出 $F$ 对复形的延拓，
+  它是从诸范畴 $C^{s\epsilon(i)}(\Aa_i)$ 到 $C^{s}(\Aa)$ 的多函子。}，
+其协变、反变性质与 $F$ 相同。然后我们将说明，这一构造在何种意义下与函子的复合相容。
+对于\emph{次数}还可以采用别的约定，后文也会使用；这个问题与此处所考虑的\emph{符号}问题无关。
+
+\paragraph{}\etiquette[1.1.6.1]{XVII.par1.1.6.1}
+若 $F$ 是单变量反变函子，则 $K^{s}(F)$ 由 \hyperref[XVII.subsubsec1.1.5]{1.1.5}
+的公式定义。
+
+\paragraph{}\etiquette[1.1.6.2]{XVII.par1.1.6.2}
+若 $F$ 协变，则函子 $K^{s}(F)$ 由以下函子的复合取商而得：
+从诸范畴 $C^{s}(\Aa_i)$ 的乘积到朴素 $I$-重复形范畴的显然函子；
+从朴素 $I$-重复形范畴到\pageoriginale $I$-重复形范畴的函子
+（\hyperref[XVII.subsubsec1.1.4]{1.1.4}，\hyperref[XVII.par1.1.4.2.1]{1.1.4.2.1}）；
+以及伴随单复形函子 \eqhyperref[XVII.eq1.1.4.0]{1.1.4.0}：
+\[
+K^{s}(F)=C^{s}(F)(\ast)_{s.a}{\quoi}.
+\]
+
+设 $K_j\in K^{s}(\Aa_j)$ 是复形，$i\in I$；当 $j\neq i$ 时令
+$K_j[1_i]=K_j$，并令 $K_i[1_i]=K_{i}[1]$。此时有显然的同构
+\[
+C^{s}(F)(K_{j}[1_i])\simeq C^{s}(F)(K_j)[1_i]{\quoi},
+\]
+以及
+\[
+C^{s}(F)(K_j)(\ast)[1_i]_{s.a}\simeq
+C^{s}(F)(K_j)(\ast)_{s.a}[1]{\quoi},
+\]
+从而由 \eqhyperref[XVII.eq1.1.4.5]{1.1.4.5} 得到
+$K^{s}(F)(K_{j}[1_i])$ 与 $K^{s}(F)(K_{j})[1]$ 之间的\emph{典范同构} $\sigma$。
+由 \hyperref[XVII.par1.1.4.7]{1.1.4.7} 可知，这些同构定义 $K^{s}(F)$ 的一个分次。
+
+\paragraph{}\etiquette[1.1.6.3]{XVII.par1.1.6.3}
+在一般情形中，$F$ 是典范反变函子 $\Aa_i\rightarrow \Aa^{\circ}_i$
+（对 $\epsilon(i)=-$）与一个协变函子 $F^{+}$ 的复合；利用
+\hyperref[XVII.par1.1.6.1]{1.1.6.1} 和 \hyperref[XVII.par1.1.6.2]{1.1.6.2}，
+通过复合定义函子 $K^{s}(F)$。
+
+\begin{enonce*}{命题 1.1.7}\etiquette[1.1.7]{XVII.prop1.1.7}
+在上述假设下，函子 $K^{s}(F)$ 是正合多重加性函子。
+\end{enonce*}
+
+只须在 \hyperref[XVII.par1.1.6.1]{1.1.6.1} 的假设下
+（此时命题就是 \hyperref[XVII.lem1.1.5.4]{1.1.5.4}~(i)），
+或在 \hyperref[XVII.par1.1.6.2]{1.1.6.2} 的假设下验证 \hyperref[XVII.prop1.1.7]{1.1.7}。
+要验证将除第 $i$ 个变量以外的所有变量固定后，由 $K^{s}(F)$ 得到的函子正合，
+可以选择 $I$ 上以 $i$ 为最小元素的全序，显式描述 $K^{s}(F)$；
+此时，标准\pageoriginale 形式 \eqhyperref[XVII.eq1.1.1.1]{1.1.1.1} 的特殊三角
+便映为同一形式的特殊三角。
+
+\setcounter{subsubsection}{7}
+\subsubsection{}\etiquette[1.1.8]{XVII.subsubsec1.1.8}
+设 $I$ 和 $J$ 是两个有限集，$\Psi:I\rightarrow J$ 是满射，
+$\epsilon_{I}:I\rightarrow \{+,-\}$ 和
+
+$\epsilon_{J}:J\rightarrow \{+,-\}$ 是函数，并设给定多重加性多函子，
+它们对满足 $\epsilon=+$ 的变量协变，对其余变量反变：
+\begin{align*}
+G_j&: \prod_{\Psi(i)=j}\Aa_i\longrightarrow
+\Bb_j\qquad (j\in J)\\
+F&:  \prod_{j\in J} \Bb_j\longrightarrow \sisi{C}{\Cc.}
+\end{align*}
+
+在 $I$ 和 $J$ 上选取全序，使 $\Psi$ 是递增映射。
+我们用下式定义\emph{$F\circ (G_j)$ 对复形的延拓，与 $F$ 及各 $G_j$
+对复形的延拓的复合之间的典范同构 $\rho$}：
+$$\etiquette[1.1.8.1]{XVII.eq1.1.8.1}
+\rho^{\sheafk }=\sisi{\prod_i \eta_i^{k_i}}{(-1)^{A(\sheafk )}}:\; \mbox{\rm 下式的自同构：}
+F\circ (G_j)(K_{i}^{k_i\epsilon\sisi{}{_I}(i)\epsilon\sisi{}{_J}(\Psi(i))}){\quoi}.\leqno(1.1.8.1)
+$$%
+其中 \sisi{若 $\epsilon_I(i)=\epsilon_{J}(\Psi(i))=-$，则 $\eta_i=-1$，
+否则 $\eta_i=1$。}{\[
+A(\sheafk )=\sum_{\epsilon_I(i)=\epsilon_J(\Psi(i))=-} k_i + \sum_{\epsilon_J(j)=-} \sum_{\substack{\Psi(a)=\Psi(b)=j\\a<b}} k_a k_b.
+\]}%See the Erratum in SGA 4 1/2, p. 312
+
+此公式推广了 \eqhyperref[XVII.eq1.1.5.3]{1.1.5.3}；容易验证，$\rho$ 不依赖于
+$I$ 与 $J$ 上所选的全序，并且是分次函子的同构
+（\cf \hyperref[XVII.lem1.1.5.4]{1.1.5.4} (ii)）。
+
+这些同构 $\rho$ 对三重复合满足显然的上循环条件。
+
+\subsubsection{}\etiquette[1.1.9]{XVII.subsubsec1.1.9}
+设\pageoriginale $I$ 是有限集，$i$ 和 $j$ 是 $I$ 的两个不同元素，
+$I'=I\backslash\{i,j\}$，$(\Aa_i)_{i\in I}$ 与 $\Aa$ 是加性范畴，
+$F:(\Aa_i)_{i\in I}\rightarrow \Aa$ 和 $G:(\Aa_i)_{i\in I'}\rightarrow \Aa$
+是多重加性多函子。假设 $\Aa_i=\Aa_j$，且 $F$ 对第 $i$ 个变量反变，
+对第 $j$ 个变量协变。对 $X$、$Y\in \Ob \Aa_i$，以 $F_{X,Y}$ 表示
+将第 $i$ 和第 $j$ 个变量固定后，得到的从 $(\Aa_i)_{i\in I'}$ 到 $\Aa$ 的多函子：
+\[
+F_{X,Y}(\ldots)=F(\ldots\sisi{}{,} X,\ldots,Y,\ldots){\quoi}.
+\]
+一个\emph{缩并态射}（contraction morphism）$c:F\rightarrow G$ 由以下数据组成：
+对每个 $X\in \Aa_i$，给定函子态射
+\[
+c_{X}:F_{X,X}\longrightarrow G{\quoi},
+\]
+使得对 $\Aa_i$ 的每个箭头 $f:X\rightarrow Y$，图
+\[
+\xymatrix{
+F_{Y,X} \ar[d] \ar[r] & F_{X,X} \ar[d]^{c_X}\\
+F_{Y,Y}  \ar[r]_{c_Y}     & G
+}
+\]
+交换。
+
+\hyperref[XVII.subsubsec1.1.6]{1.1.6} 的约定来源于下面的引理。
+
+\begin{enonce*}{引理 1.1.9.1}\etiquette[1.1.9.1]{XVII.lem1.1.9.1}
+设 $c:F\rightarrow G$ 是缩并态射，$(K_{\ell})_{\ell \in I}$ 是诸 $\Aa_{\ell}$
+中的复形，且 $K_{i}=K_{j}$。设 $<$ 是 $I$ 上的一个全序，其中 $i$ 紧邻在 $j$ 之前。
+沿用 \hyperref[XVII.subsubsec1.1.6]{1.1.6} 的记号，对 $k\in \ZZ$，设
+\[
+c^{k}:K^{s}(F)(K_{\ell})^{k}\longrightarrow K^{s}(G)(K_{\ell})^{k}
+\]
+为\pageoriginale 如下态射：它在 $F(\ldots K_{i}^{k_i}K_{j}^{k_j}\ldots)$ 上的限制，
+当 $k_i\neq k_j$ 时为 $0$，当 $k_{i}=k_{j}$ 时为 $c_{K_i^{k_i}}$。
+则 $(c^{k})_{k\in \ZZ}$ 是复形态射。
+\end{enonce*}
+
+此引理的验证，以及\emph{缩并态射} $(c^{k})$ 不依赖于 $I$ 上所选全序这一事实的验证，
+都留给读者。
+
+缩并态射的标准例子是复合律
+\[
+\Hom(Y,Z)\otimes \Hom(X,Y)\longrightarrow \Hom(X,Z)\sisi{}{.}
+\]
+
+\begin{enonce*}[remark]{例 1.1.10}\etiquette[1.1.10]{XVII.exem1.1.10}
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item 将 \hyperref[XVII.subsubsec1.1.6]{1.1.6} 的定义应用于\emph{张量积}函子，
+  便得到两个复形的张量积的通常概念，其微分为
+\[
+d(x\otimes y)=dx\otimes y+(-1)^{\deg x}x\otimes dy{\quoi}.
+\]
+
+\item 将 \hyperref[XVII.subsubsec1.1.6]{1.1.6} 的定义应用于函子 $\Hom(X,Y)$，
+  \emph{将 $Y$ 看作第一个变量、$X$ 看作第二个变量}；我们将始终遵循这个约定。
+  按此约定，对于两个复形 $X$、$Y$，\hyperref[XVII.subsubsec1.1.6]{1.1.6}
+  定义的复形 $\Hom(X,Y)$ 的第 $k$\sisi{个}{个}分量等同于
+  $\prod_n\Hom(X^{n},Y^{n+k})$，并得到通常的微分：对
+  $f\in \Hom(X^{n},Y^{n+k})$，有
+\[
+df=d\circ f-(-1)^{k}f\circ d{\quoi}.
+\]
+
+\item 上述约定的优点是，下列箭头系均为复形态射，无须插入任何符号
+  \pageoriginale（\hyperref[XVII.subsubsec1.1.9]{1.1.9}）：
+\begin{align*}
+& \Hom^{\bigdot}(L,M)\otimes \Hom^{\bigdot}(K,L)\longrightarrow
+  \Hom^{\bigdot}(K,M):f\otimes g\mapsto f\circ g\\
+& \Hom^{\bigdot}(L,M)\otimes L\longrightarrow M: f\otimes x\mapsto f(x){\quoi}.
+\end{align*}
+\end{enumerate}
+\end{enonce*}
+
+\subsubsection*{${}^{\ast}$1.1.10.1}\etiquette[*1.1.10.1]{XVII.par1.1.10.1}
+对于 $F=\otimes$，约定 \eqhyperref[XVII.eq1.1.4.5]{1.1.4.5}--
+（\hyperref[XVII.par1.1.6.2]{1.1.6.2}）的理由如下：
+$((K\otimes L)[1])^{n}$ 的元素写成（\hyperref[XVII.subsubsec*1.1.2]{*1.1.2}）
+（回顾 $(K\otimes L)[1]=C(K\otimes L\rightarrow 0)$
+\eqhyperref[XVII.eq1.1.1.1]{1.1.1.1}）$\sum 1\otimes(x^{p}\otimes y^{q})$；
+$(K[1]\otimes L)^{n}$ 的元素写成 $\sum (1\otimes x^{p})\otimes y^{q}$；
+$(K\otimes L[1])^{n}$ 的元素写成 $\sum x^{p}\otimes (1\otimes y^{q})$。
+符号在交换 $x^{p}$ 与 $1$ 时出现。
+对于 $F=$ 对偶，约定 \eqhyperref[XVII.eq1.1.5.2]{1.1.5.2} 的理由如下：
+$K^{\ast}[1]$ 的一个元素写成 $1\otimes \omega$；它在 $K[-1]$ 的元素
+$1'\otimes x$（$1'$ 是维数为 $-1$ 的胞腔）上的值为
+$<1\otimes \omega, 1'\otimes x>=(-1)^{\deg\omega}<1, 1'><\omega,x>=(-1)^{\deg\omega}<\omega,x>$；
+这正是所采用的约定。${}_{\ast}$
+
+\begin{enonce*}[remark]{注 1.1.11}\etiquette[1.1.11]{XVII.rem1.1.11}
+“回顾”，\emph{预加性范畴}（preadditive category）是其箭头集 $\Hom(X,Y)$
+赋有阿贝尔群结构，且态射复合为双加性的范畴。
+预加性范畴之间的\emph{加性函子} $F$ 是满足下式的函子：
+\[
+F(f+g)=F(f)+F(g)
+\]
+其中 $f$、$g\in \Hom(X,Y)$。
+从预加性范畴 $\Aa$ 到另一预加性范畴 $\Bb$ 的加性函子所成的范畴，记为
+$\Hhom_{\text{\rm add}}(\Aa,\Bb)$。
+\end{enonce*}
+
+设\pageoriginale $(D)$ 是唯一的预加性范畴，其对象集以 $\ZZ$ 为指标，
+记为 $(X\sisi{_n}{^n})_{n\in \ZZ}$，且满足
+$$\etiquette[1.1.11.1]{XVII.eq1.1.11.1}
+\begin{cases}
+\Hom(X^{n},X^{n})=\ZZ,\;\mbox{\rm 由恒等态射生成}\\
+\Hom(X^{n},X^{n+1})=\ZZ,\;\mbox{\rm 由记为 $d_n$ 的箭头生成}\\
+\Hom(X^{i},X^{j})=0\;\mbox{若 } j-i\neq 0\;\mbox{\rm 或 } 1{\quoi}.
+\end{cases}\leqno(1.1.11.1)
+$$
+
+设 $D$ 是 $(D)$ 中由 $D^{n}=X^{n}$ 及 $d^{n}=d_n$ 定义的复形。
+
+对每个预加性范畴 $\Aa$，从 $\Hhom_{\text{\rm add}}((D),\Aa)$ 到 $C(\Aa)$
+的函子 $G\mapsto G(D)$ 是同构。
+
+\hyperref[XVII.subsubsec1.1.6]{1.1.6} 的构造可以推广到从预加性范畴 $\Aa_i$
+到加性范畴 $\Aa$ 的多重加性函子的情形。
+
+设
+\[
+F^{\bigdot}=(F^{n},d^{n})_{n\in \ZZ}
+\]
+是从加性范畴 $\Aa_i$ 到加性范畴 $\Aa$ 的多重加性函子复形。
+可以将 $F^{\bigdot}$ 看作从 $(D)$ 到多函子范畴的函子，或者等价地，
+看作多重加性函子
+\[
+F_1:\prod\Aa_i\times (D)\longrightarrow \Aa{\quoi}.
+\]
+\emph{$F\sisi{}{^{\bigdot}}$ 对复形的延拓}由下式定义：
+$$\etiquette[1.1.11.2]{XVII.eq1.1.11.2}
+F^{\bigdot}(K_{1}\ldots K_{n})=F_{1}(K_{1}\ldots K_{n},D){\quoi}.\leqno(1.1.11.2)
+$$
+
+\setcounter{subsubsection}{11}
+\subsubsection{}\etiquette[1.1.12]{XVII.subsubsec1.1.12}
+设 $\Aa$ 和 $\Bb$ 是两个加性范畴，并设
+\[
+F^{\bigdot}=(F^{n},d^{n})_{n\in \ZZ}
+\]
+是从 $\Aa$ 到 $\Bb$ 的加性函子复形。假设函子\pageoriginale $F^{i}$ 有右伴随
+$F_i$；设 $\leftexp{t}{d}^{i}:F_{i+1}\rightarrow F_i$ 是 $d^{i}$ 的转置，
+$F_{\bigdot}$ 是从 $\Bb$ 到 $\Aa$ 的加性函子复形，其分量为 $F_{i}$，微分算子为
+\[
+(d_\bigdot)^{i}=(-1)^{i+1}\,\leftexp{t}{d}^{-i-1}:F_{-i}\longrightarrow
+F_{-i-1}{\quoi}.
+\]
+设 ${}^{t}$ 是从 $(D)$ 到 $(D)$ 的\emph{反变}函子，给定为
+\[
+\leftexp{t}{X}^{n}=X^{-n}\quav \leftexp{t}{d}^{n}=d^{-n-1}{\quoi}.
+\]
+下图在典范同构意义下交换：
+$$\etiquette[1.1.12.1]{XVII.eq1.1.12.1}
+\vcenter{
+\xymatrix@C=6em{
+\mathcal{A} \times (D) \times \mathcal{B}  \ar[d]^{(\Id,{}^t,\Id)}\ar[r]^(.55){(F^{n}(A), \Id)} &
+\mathcal{B}\times \mathcal{B}  \ar[r]^{\Hom_{\mathcal{B}}}&
+(\Ab)\ar@{=}[d] \\
+\mathcal{A} \times (D) \times \mathcal{B}
+\ar[r]^(.6){(\Id,(F_{\bigdot})^n(B))} & \mathcal{A} \times \mathcal{A}
+\ar[r]^{\Hom_{\mathcal{A}}} & (\Ab) \rlap{.}
+}}\leqno{(1.1.12.1)}
+$$
+它表达伴随公式
+\begin{equation*}
+\Hom(F^{n}(A),B)\overset{\sim}{\longleftrightarrow}\Hom(A,F_{n}(B)){\quoi}.
+\end{equation*}
+因此，\hyperref[XVII.def1.1.3]{1.1.3} 的一般约定给出同构
+\begin{equation*}
+\Hom^{\bigdot}(F^{\bigdot}(K),L)\overset{\sim}{\longleftrightarrow}\Hom\sisi{}{^\bigdot}(K,F_{\bigdot}(L)){\quoi}.
+\end{equation*}
+
+\begin{enonce*}{定义 1.1.13}\etiquette[1.1.13]{XVII.def1.1.13}
+若 $K$ 是阿贝尔范畴 $\Aa$ 中的复形，则 $K$ 在维数 $n$ 处的
+\emph{右截断（\resp 左截断）}，记为 $\tau_{\leq n}(K)$
+\emph{（\resp $\tau_{\geq n}(K)$）}，指下列复形：
+\begin{align*}
+\tau_{\leq n}(K) &: \ldots K^{n-2}\longrightarrow
+K^{n-1}\longrightarrow \Ker(d^n)\longrightarrow 0\\
+\tau_{\geq n}(K) &: 0\longrightarrow \coker (d^{n-1})\longrightarrow
+K^{n+1}\longrightarrow K^{n+2}\ldots.
+\end{align*}
+\end{enonce*}
+
+\begin{enonce*}{命题 1.1.14}\etiquette[1.1.14]{XVII.prop1.1.14}
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item 当 $i>n$ 时，$H^{i}(\tau_{\leq n}(K))=0$\pageoriginale；
+当 $i<n$ 时，$H^{i}(\tau_{\geq n}(K))=0$。
+
+\item 典范态射 $\tau_{\leq n}(K)\rightarrow K$（\resp $K\rightarrow \tau_{\geq n}K$）
+在 $i\leq n$（\resp $i\geq n$）时，诱导 $H^{i}$ 上的同构。
+\end{enumerate}
+\end{enonce*}
+
+函子 $\tau_{\leq n}$（\resp $\tau_{\geq n}$）将同伦的态射映为同伦的态射。
+因此由 \sisi{\hyperref[XVII.subsubsec1.1.4]{1.1.4}}{\hyperref[XVII.prop1.1.14]{1.1.14}}，
+\hyperref[XVII.def1.1.13]{1.1.13} 的函子在导出范畴中仍有意义。
+
+\setcounter{subsubsection}{14}
+\subsubsection{}\etiquette[1.1.15]{XVII.subsubsec1.1.15}
+若 $K$ 是双复形，第一（\resp 第二）微分为 $d'$（\resp $d''$），
+则以 $\tau''_{\leq n}(K)$ 表示 $K$ 的如下双子复形：
+\begin{equation*}
+\tau''_{\leq n}(K)^{pq}=
+\begin{cases}
+K^{pq}&\mbox{\rm 若 } q<n\\
+\Ker(d'') &\mbox{\rm 若 } q=n\\
+0 &\mbox{\rm 若 } q>n
+\end{cases}
+\end{equation*}
+并类似定义 $\tau''_{\geq n}(K)$、$\tau'_{\leq n}(K)$ 以及 $\tau'_{\geq n}(K)$。
+
+\subsubsection{}\etiquette[1.1.16]{XVII.subsubsec1.1.16}
+我们也会考虑复形 $K$ 的“愚笨截断”，定义为
+\begin{xalignat*}{2}
+\sigma_{\leq n}(K)^{i}=
+\begin{cases}
+K^{i} &\mbox{\rm 若 } i\leq n\\
+0 &\mbox{\rm 若 } i>n
+\end{cases}
+&&
+\sigma_{\geq n}(K)^{i}=
+\begin{cases}
+K^{i} &\mbox{\rm 若 } i\geq n\\
+0 &\mbox{\rm 若 } i<n{\quoi}.
+\end{cases}
+\end{xalignat*}
+
+\subsection{导出函子}\etiquette[1.2]{XVII.subsec1.2}\pageoriginale
+
+设 $\Aa$ 是三角范畴，$S$ 是饱和乘法系
+（\cite{sga4.exp.XVII.bib.CD} \sisi{}{I }2.1.2）。若 $A\in \Ob \Aa$，
+则以 $A^{+}$ 和 $A^{-}$ 分别表示 \iind-对象和 \ppro-对象
+（（\hyperref[XVII.subsec0.5]{0.5}）和（\hyperref[XVII.subsec0.6]{0.6}））
+\begin{equation*}
+A^{+}=\quotinjlim_{A\xrightarrow{s}A'} A' \qquad A^{-}=\quotprojlim_{A'\xrightarrow{s}A}A'{\quoi},
+\end{equation*}
+其中 $s$ 分别遍历 $S$ 中以 $A$ 为源或为目标的箭头组成的滤过范畴。
+
+函子 $A\mapsto A^{+}$ 和 $A\mapsto A^{-}$ 使 $S$ 的元素可逆，
+并分别定义从 $\Aa(S^{-1})$ 到 $\Aa$ 的 Ind-对象范畴和 \ppro-对象范畴的全忠实函子。
+
+\begin{enonce*}{定义 1.2.1}\etiquette[1.2.1]{XVII.def1.2.1}
+设 $F$ 是从三角范畴 $(\Aa_i)_{0<i\leq n}$ 到三角范畴 $\Aa$ 的正合协变多函子，
+$S_i$ 和 $S$ 分别是诸范畴 $\Aa_i$ 和 $\Aa$ 中的饱和乘法系。
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item $F$ 的右导出函子 $RF$（相对于诸 $S_i$ 和 $S$），是从诸范畴
+$\Aa_i(S^{-1}_i)$ 到 $\Aa(S^{-1})$ 的 \iInd-对象范畴的函子，使下图交换。
+\[
+\xymatrix@C=5em{%csy
+  (\Aa_i)  \ar[d]\ar[r]^{(A_i)\sisi{\simarrow}{\mapsto}  F(A^{+}_i)} & \Ind
+  \Aa\ar[d] \\
+\Aa_i(S^{-1}_i)\ar[r]^{RF} & \Ind\Aa(S^{-1}).
+}
+\]
+
+\item 若 $\Aa(S^{-1})$ 的 \iInd-对象 $RF(A_i)$ “本质常值”，
+\ie 来自 $\Aa(S^{-1})$ 的一个对象，则\pageoriginale 称 $RF$ 在 $(A_i)$ 处有定义；
+该对象称为 $RF$ 在 $(A_i)$ 处\emph{的值}。
+
+\item 若 $RF$ 处处有定义，则称 $F$ \emph{可右导出}；
+此时仍以 $RF$ 表示所得到的从诸 $\Aa_i(S^{-1}_i)$ 到 $\Aa(S^{-1})$ 的函子。
+
+\item 诸 $\Aa_i$ 的一族对象 $(A_i)$，若从 $F(A_i)$ 到 $RF(A_i)$ 的典范态射是同构，
+则称它\emph{适合于} $RF$。
+\end{enumerate}
+\end{enonce*}
+
+通过对偶性定义 $F$ 的左导出函子 $LF$（取值于 $\Pro \Aa(S^{-1})$），
+并将上述定义推广到 $F$ 对某些变量协变、对另一些变量反变的情形，这些工作留给读者。
+
+当 $RF$ 处处有定义时，这里的定义与 Verdier 的定义一致
+（\cite{sga4.exp.XVII.bib.CD} 第~39 页），容易验证。
+
+\begin{enonce*}{命题 1.2.2}\etiquette[1.2.2]{XVII.prop1.2.2}
+设 $(A'_1, A_1,A''_1)$ 是 $\Aa_1$ 中的特殊三角，并设\break
+$A_i\in \Ob \Aa_i$ $(i\neq 1)$。
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item 若 $(A'_{1},(A_{i}))$ 和 $(A''_{1},(A_{i}))$ 适合于 $RF$，
+  则族 $(A_{1},(A_{i}))$ 也适合于 $RF$。
+
+\item 若 $RF$ 在 $(A'_1, (A_i))$ 和 $(A''_1, (A_i))$ 处有定义，
+则它在 $(A_1, (A_i))$ 处也有定义，且三角
+$(RF(A'_1,(A_i)), RF(A_1,(A_i)),RF(A''_1,(A_i)))$
+是 $\Aa(S^{-1})$ 中的特殊三角。
+\end{enumerate}
+\end{enonce*}
+
+先证明\pageoriginale (ii) $\Rightarrow$ (i)。因为 $F$ 正合，箭头
+$$(F(A'_1,(A_i)), F(A_1,(A_i)), F(A''_1,(A_i)))\rightarrow
+(RF(A'_1,(A_i)), RF(A_1,(A_i)), RF(A''_1,(A_i)))$$
+是特殊三角的态射。由假设，此箭头在两个顶点处是同构，所以在第三个顶点处也是同构，
+这就是所需结论。
+
+\begin{enonce*}{引理 1.2.2.1}\etiquette[1.2.2.1]{XVII.lem1.2.2.1}
+若 $\Delta=(X,Y,Z)$ 是三角范畴 $\Aa$ 中的特殊三角，$S$ 是 $\Aa$ 中的饱和乘法系，
+则 $\Ind\Aa$ 中的三角 $\Delta^{+}=(X^{+},Y^{+},Z^{+})$ 是
+$\Aa$ 中特殊三角的极限。
+\end{enonce*}
+
+以 $\mathcal{L}$ 表示源为 $\Delta$ 且其各箭头均属于 $S$ 的特殊三角态射所成的范畴。
+\begin{enumerate}
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item 若 $\Delta=(X,Y,Z)$ 与 $\Delta'=(X',Y',Z')$ 是 $\Aa$ 中的两个特殊三角，
+且 $f:\Delta\rightarrow \Delta'$ 是三角的 $\Aa(S^{-1})$-态射，
+则在 $\Aa$ 中存在三角态射 $s:\Delta'\rightarrow\Delta''$ 和
+$f_1:\Delta\rightarrow \Delta''$，使 $s$ 的各分量属于 $S$，且图
+\[
+\vcenter{
+\xymatrix{
+\Delta                \ar[rd]^{f_1}  \ar[d]_{f}  &\\
+\Delta'          \ar[r]^{s}    & \Delta''
+}}\tag{1}
+\]
+在 $\Aa(S^{-1})$ 中交换。
+
+
+\sisi{\noindent}{}%
+存在交换图
+\[
+\vcenter{
+\xymatrix{
+X \ar[rd]^{f_1} \ar[d]_{f}&  &\\
+X' \ar[r]^{s\sisi{}{_X}} & X''\sisi{}{_0}&
+}}(s\sisi{}{_X} \in S, f_1 \in \Fl \Aa)\tag{2}
+\]
+以及\pageoriginale $S$ 中的态射 $\Delta'\xrightarrow{s\sisi{_1}{}}\Delta''\sisi{_1}{_0}$，
+它以 $s\sisi{}{_X}$ 为一个分量。在其他顶点处类似论证，便得到类型 (1) 的图。
+不过，$f_1$ 此时还不是\emph{在} $\Aa$ \emph{中}的三角态射，因为例如图
+\[
+\vcenter{
+\xymatrix{
+Z  \ar[r]^{f\sisi{}{_1}} \ar[d]_{w}& Z''_{0} \ar[d]_{w\sisi{'}{''}}\\
+X         \ar[r]^{f\sisi{}{_1}} & X''_{0}
+}}\tag{3}
+\]
+可能不在 $\Aa$ \emph{中}交换，而仅在 $\Aa(S^{-1})$ 中交换。
+存在 $S$ 中的 $t\sisi{_0}{_X}:X''_0\rightarrow X''_1$，使
+$t\sisi{}{_X}w''f\sisi{}{_1}=t\sisi{}{_X}f\sisi{}{_1}w$，
+以及以 $t\sisi{_0}{_X}$ 为一个分量的 $t:\Delta''_0\rightarrow \Delta''_1$。
+用 $\Delta''_1$ 代替 $\Delta''_0$，用 $ts$ 代替 $s$，用 $tf_1$ 代替 $f_1$；
+在所得的类型 (1) 的图中，(3) 现在交换。在其他顶点处类似处理，便得到 (1)。
+以下事实的类似验证留给读者：
+
+\item 若 $f$、$g:\Delta\rightrightarrows \Delta'$ 是 $\Aa$ 中的两个特殊三角态射，
+它们在 $\Aa(S^{-1})$ 中相等，则存在各箭头均在 $S$ 中的特殊三角态射
+$s:\Delta'\rightarrow \Delta''$，使 $\sisi{S}{s}f=\sisi{S}{s}g$。
+
+\item 范畴 $\Ll$ 是向右滤过的。
+
+\item 注意到
+\[
+\Delta^{+}=\quotinjlim_{s\in \Ll}{\mbox{\rm （$s$ 的目标）。}}
+\]
+便完成引理的证明。
+\end{enumerate}
+
+现在证明\pageoriginale \hyperref[XVII.prop1.2.2]{1.2.2} (ii)。
+设 $X'$ 和 $X''$ 是 $\Aa(S^{-1})$ 的对象，分别代表 $RF(A'_1,(A_i))$
+与 $RF(A''_1,(A_i))$，并将从 $X''$ 到 $X'$ 的一次态射补全为特殊三角 $(X',X,X'')$。
+将 $A_i$、$A'_1$、$A_1$ 和 $A''_1$ 分别换成
+\sisi{$S$}{$S_i$ 或 $S_1$} 中以 $A_i$、$A'_1$、$A_1$ 或 $A''_1$ 为源的箭头的目标，
+便归结到存在以下交换图的情形：
+\[
+\xymatrix{
+F(A''_1, (A_i)) \ar[d] & X''  \ar[l]_-{a''} \ar[d]\\
+F(A'_1, (A_i))    & X'  \ar[l]_-{a'}\rlap{,}
+}
+\]
+其中 $a''$ 和 $a'$ 分别是从 $F(A''_1,(A_i))$ 到 $X''$ 以及
+从 $F(A'_1,(A_i))$ 到 $X'$ 的箭头的截面。
+由 \cite{sga4.exp.XVII.bib.CD} 的公理 $TR$ 3，此图可补全为三角态射
+\begin{align*}
+(X'XX'')& \longrightarrow
+(F(A'_1,(A_i)),F(A_1,(A_i)),F(A''_1,(A_i)))\\
+& \longrightarrow
+(RF(A'_1,(A_i)),RF(A_1,(A_i)),RF(A''_1,(A_i))){\quoi}.
+\end{align*}
+
+复合箭头是三角态射，其源为特殊三角，目标为特殊三角的极限
+（在 $\Ind\Aa(S^{-1})$ 中）（\hyperref[XVII.lem1.2.2.1]{1.2.2.1}）。
+对 $\Aa(S^{-1})$ 中的任意 $Y$，下图交换且各行正合：
+\[
+\text{\tiny
+$\xymatrix@C=1em{
+\Hom\sisi{'}{(}Y, X''[\sisi{}{-}1]) \ar[r]\ar[d]& \Hom(Y,X') \ar[r] \ar[d]& \Hom(Y,X)
+\ar[r]\ar[d]& \Hom(Y,X'') \ar[r] \ar[d]&
+\Hom(Y,X'[1]) \ar[d]\\
+\Hom(Y,RF(A''\sisi{}{_1},A_i)[\sisi{}{-}1])\ar[r] & \Hom(Y,RF(A'_1,A_i)\sisi{}{)}\ar[r] &  \Hom(Y,RF(A_1,A_i))\ar[r] &
+\Hom(Y,RF(A''_1,A_i)\sisi{}{)}\ar[r] & \Hom(Y,RF(A'_1,A_i)[1])
+}$}
+\]
+由\pageoriginale 假设，除了中间的箭头，其余箭头都是同构。
+\hyperref[XVII.sec5]{5}-引理表明，对每个 $Y$，中间箭头也为同构，
+从而特殊三角 $(X',X,X'')$ 同构于三角（$RF(A'_1,(A_i))$、
+$RF(A_1,(A_i))$、$RF(A''_1,(A_i))$）。证明至此完成。
+
+若 $\Aa$ 和 $\Bb$ 是两个阿贝尔范畴，$F$ 是从 $\Aa$ 到 $\Bb$ 的加性协变函子，
+则 $F$ 定义从 $K(\Aa)$ 到 $K(\Bb)$、从 $K^{+}(\Aa)$ 到 $K^{+}(\Bb)$
+以及从 $K^{-}(\Aa)$ 到 $K^{-}(\Bb)$ 的正合函子
+（\hyperref[XVII.prop1.1.7]{1.1.7}）。
+
+\begin{enonce*}{定义 1.2.3}\etiquette[1.2.3]{XVII.def1.2.3}
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item \emph{$F$ 的右导出函子}，是由 $F$ 对复形的延拓
+$K^{+}(\Aa)\rightarrow K^{+}(\Bb)$ 和 $K(\Aa)\rightarrow K(\Bb)$
+右导出得到的、从 $D^{+}(\Aa)$ 到 $\Ind D^{+}\sisi{\Bb}{(\Bb)}$
+以及从 $D(\Aa)$ 到 $\Ind D(\Bb)$ 的函子。
+
+\item $\Aa$ 的一个对象 $A$，若在次数 $0$ 集中于 $A$ 的复形适合于 $RF$，
+则称为关于 $F$ \emph{右无环}的，或滥用术语，称为\emph{关于} $RF$ \emph{无环}的。
+\end{enumerate}
+\end{enonce*}
+
+我们主要关心 $RF$ 处处有定义的情形；此时，按照所考虑的情形，可以将它看作
+从 $D^{+}(\Aa)$ 到 $D^{+}(\Bb)$，或从 $D(\Aa)$ 到 $D(\Bb)$ 的函子。
+
+\begin{enonce*}{命题 1.2.4}\etiquette[1.2.4]{XVII.prop1.2.4}
+下图交换。
+\[
+\xymatrix{
+D^{+}(\mathcal{A})  \ar[r] \ar[d]^{RF}& D(\mathcal{A})\ar[d]^{RF}        \\
+ \Ind \;D^{+}(\mathcal{B}) \ar[r] & \Ind \; D(\mathcal{B}).
+}
+\]
+\end{enonce*}
+
+若\pageoriginale $K$ 是在次数 $<n$ 处为零的复形，且 $s:K\rightarrow L$
+是拟同构，则复合态射 $K\xrightarrow{s}L\rightarrow \sigma_{\geq n}(L)$
+（\hyperref[XVII.subsubsec1.1.6]{1.1.6}）仍为拟同构。因此，从 $K$ 到下有界复形的
+拟同构组成以 $K$ 为源的所有拟同构范畴的一个共尾（满）子范畴。
+命题形式地随之得到。
+
+特别地，若函子 $RF$\sisi{，}{}在 $D(\Aa)$ 上处处有定义，
+则它在 $D^{+}(\sisi{\Bb}{\Aa})$ 上处处有定义，且导出函子
+$RF:D^{+}(\Aa)\rightarrow D^{+}(\Bb)$ 是导出函子
+$RF:D(\Aa)\rightarrow D(\Bb)$ 的限制。
+
+\setcounter{subsubsection}{4}
+\subsubsection{}\etiquette[1.2.5]{XVII.subsubsec1.2.5}
+以下工作留给读者：
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item 将定义 \hyperref[XVII.def1.2.3]{1.2.3} 推广到多函子复形的情形，
+它们对某些变量协变，对另一些变量反变；
+
+\item 将定义 \hyperref[XVII.subsubsec1.2.5]{1.2.5} (i) 对偶化，定义左导出函子；
+
+\item 将命题 \hyperref[XVII.prop1.2.4]{1.2.4} 推广到有界多函子复形的情形；
+
+\item 考虑左导出函子以及 $D^{-}(\Bb)$ 到 $D(\Bb)$ 的包含，
+将命题 \hyperref[XVII.subsubsec1.2.5]{1.2.5} (iii) 对偶化。
+\end{enumerate}
+
+\begin{enonce*}{命题 1.2.6}\etiquette[1.2.6]{XVII.prop1.2.6}
+设 $\Aa$ 和 $\Bb$ 是两个阿贝尔范畴，$𝒫$ 是 $\Ob(\Aa)$ 的一个子集，
+$F$ 是从 $\Aa$ 到 $\Bb$ 的加性函子。假设：
+\begin{enumerate}
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item $\Aa$ 的每个对象都是 $𝒫$ 的一个元素的商；
+
+\item 对每个短正合列
+\[
+0\longrightarrow P\longrightarrow Q\longrightarrow R\longrightarrow
+0{\quoi},
+\]
+其中 $Q$ 和 $R$ 属于 $𝒫$，则 $P$ 也属于 $𝒫$，且 $0$-列
+$0\rightarrow FP\rightarrow FQ\rightarrow FR\rightarrow 0$\pageoriginale 正合。
+则 $𝒫$ 的每个对象都关于 $LF$ 无环。
+\end{enumerate}
+\end{enonce*}
+
+若 $A\in \Ob \Aa$，则 $A$ 的由 $𝒫$ 中对象组成的左解消，在 $A\sisi{_0}{}$
+的左解消的滤过范畴中组成一个共尾系。因此只须证明：若复形
+\[
+\ldots\longrightarrow A_2\longrightarrow A_1\longrightarrow A_0
+\longrightarrow A\longrightarrow 0
+\]
+无环，且其对象属于 $𝒫$，则它的像也无环。将它拆成短正合列
+$$\etiquette[1.2.6.i]{XVII.eq1.2.6.i}
+0\longrightarrow \Iim(d_{i-1})\longrightarrow A_i\longrightarrow
+\Iim(d_i)\longrightarrow 0\qquad\sisi{(1.2.6. i)\quad}{}(i\geq 0)\sisi{}{\leqno(1.2.6.i)}%\tag{1.2.6.$i$}
+$$
+对 $i$ 归纳可知，$\Iim(d_i)\in \PP$，且
+\sisi{(\hyperref[XVII.prop1.2.6]{1.2.6} $i$)}{\eqhyperref[XVII.eq1.2.6.i]{1.2.6.i}}
+在 $F$ 下的像为短正合列。因此，该复形的像无环。
+
+\begin{enonce*}{命题 1.2.7}\etiquette[1.2.7]{XVII.prop1.2.7}
+设 $F$ 是从一个阿贝尔范畴到阿贝尔范畴 $\Bb$ 的加性函子。
+若 $\Aa$ 的每个对象都是关于 $LF$（\resp $RF$）无环的一个对象的商
+（\resp 子对象）（\hyperref[XVII.def1.2.3]{1.2.3}），则导出函子
+$LF:D^{-}(\Aa)\rightarrow D^{-}(\Bb)$（\resp $RF:D^{+}(\Aa)\rightarrow D^{+}(\Bb)$）
+处处有定义，且关于 $LF$（\resp $RF$）无环的对象组成的每个上有界
+（\resp 下有界）复形都是适合的。
+\end{enonce*}
+
+只须考虑左导出函子 $LF$。若 $K$ 是上有界复形，则 $L$ 上有界且由无环对象组成的
+拟同构 $s:L\rightarrow K$，在目标为 $K$ 的拟同构范畴中组成共尾系。
+只须证明，当 $K$ 由无环对象组成时，$F(s):F(L)\rightarrow F(K)$ 是拟同构；
+\pageoriginale 此时，在一般情形中将有 $F(L)=LF(K)$。
+设 $M$ 是 $s$ 的锥。此复形由无环对象\sisi{}{们}组成，且 $H^{\ast}(M)=0$；
+须证明 $H^{\ast}(F(M))=0$。
+
+设 $i$ 是整数。适合的复形组成一个三角子范畴，所以无环对象组成的每个有界复形，
+特别是 $\tau_{\geq i}(M)$，都是适合的。
+因为对 $j>i$ 有 $H^{j}(\tau_{\geq i}(\sisi{L}{M}))=0$，所以对 $j>i$，有
+$H^{j}(F(M))=H^{j}(F(\tau_{\geq i}(M)))=H^{j}LF(\tau_{\geq i}(M))=0$。
+
+\begin{enonce*}{命题 1.2.8}\etiquette[1.2.8]{XVII.prop1.2.8}
+设 $F^{\bigdot}$ 是从 $\Aa$ 到 $\Bb$ 的下有界函子复形。
+若对每个 $K\in K^{+}(\Aa)$ 都存在拟同构 $L\xrightarrow{s}K$，其中
+$L\in K^{+}(\Aa)$ 适合于所有 $RF^{i}$，则导出函子
+$RF^{\bigdot}:D^{+}(\Aa)\rightarrow D^{+}(\Bb)$ 存在，
+且适合于所有 $RF^{i}$ 的每个\emph{下有界}复形都适合于 $RF^{\bigdot}$。
+\end{enonce*}
+
+\sisi{\noindent}{}%
+证明留给读者，对偶陈述的证明也一样；取 $F$ 为反变函子，
+或取有界函子复形并在 $D(\Aa)$ 与 $D(\Bb)$ 中考虑所得到的变体，其证明也留给读者。
+
+\begin{enonce*}{定义 1.2.9}\etiquette[1.2.9]{XVII.def1.2.9}
+设 $F$ 是从 $D^{b}(\Aa)$ 到 $D(\Bb)$ 的函子，$d$ 是 $\ZZ$ 中的一个区间。
+若对每个 $A\in \Ob \Aa$ 以及 $i\not\in d$，都有 $H^{i}F(A)=0$，
+则称 $F$ 的\emph{上同调幅度 $\subset d$}。
+\end{enonce*}
+
+很多时候，$d$ 是形如 $[0,x]$ 或 $[-x,0]$ 的区间；
+此时称 $F$ 的上同调维数（\resp 同调维数）$\leq x$。
+若存在 $\ZZ$ 中的一个有限区间 $d$，使 $F$ 的幅度 $\subset d$，则称 $F$ 的维数有限。
+
+\begin{enonce*}{命题 1.2.10}\etiquette[1.2.10]{XVII.prop1.2.10}
+假设\pageoriginale \hyperref[XVII.prop1.2.7]{1.2.7} 的假设成立，且函子
+$RF:D^{+}(\Aa)\rightarrow D^{+}(\Bb)$（\resp $LF:D^{-}(\Aa)\rightarrow D^{-}(\Bb)$）
+的维数有限。则关于 $RF$（\resp $LF$）无环的对象组成的每个复形都是适合的，
+且函子 $RF:D(\Aa)\rightarrow D(\Bb)$（\resp $LF:D(\Aa)\rightarrow D(\Bb)$）处处有定义。
+\end{enonce*}
+
+证明参见 Verdier \cite{sga4.exp.XVII.bib.CD}。
+对于有界函子复形有类似陈述。上标 $+$（\resp $-$）也可换成 $b$。

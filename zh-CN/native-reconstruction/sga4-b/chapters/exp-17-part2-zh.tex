@@ -1,0 +1,984 @@
+\section{纤维为导出范畴的范畴}\etiquette[2]{XVII.sec2}
+
+\subsection{引言}\etiquette[2.1]{XVII.sec2.1}
+
+撰稿人强烈建议读者不要阅读本\S。这里给出平凡对偶定理的形式体系，并解决 Artin 在 \hyperrefext[XII][XII.sec4]{4} 中提出的疑惑。
+
+关于一个范畴之上的范畴、纤维化范畴（fibered category）、余纤维化范畴（cofibered category）以及劈分（cleavage）的概念，参见 \SGA 1 VI。该讲特别建立了范畴 $\sisi{C}{\Cc}$ 上的正规化分裂纤维化范畴与从 $\sisi{C}{\Cc}^{\circ}$ 到 $(\Cat)$ 的伪函子（pseudofunctor）之间的等价。
+
+\begin{enonce*}{定义 2.1.1}\etiquette[2.1.1]{XVII.def2.1.1}
+若 $X$ 是环化景（ringed site），则 $D(X)$ 表示 $X$ 上左模层的阿贝尔范畴的导出范畴（derived category）。
+\end{enonce*}
+
+需要避免混淆时，改写为 $D(X,\Aa)$，其中 $\Aa$ 表示环层。
+
+若\pageoriginale $f:X\rightarrow Y$ 是环化景的态射，则 $f$ 定义导出函子
+\begin{itemize}
+\item[(1)] $Rf_{\ast}:D^{+}(X)\rightarrow D^{+}(Y)$，以及
+
+\item[(2)] $Lf^{\ast}:D^{-}(Y)\rightarrow D^{-}(X)$，
+\end{itemize}
+转到反范畴\sisi{}{}，则得到函子
+\begin{itemize}
+\item[$\rm(1^{\circ})$] $Rf_{\ast}:D^{+}(X)^{\circ}\rightarrow
+D^{+}(Y)^{\circ}$
+
+\item[$\rm(2^{\circ})$] $Lf^{\ast}:D^{-}(Y)^{\circ}\rightarrow
+D^{-}(X)^{\circ}$，
+\end{itemize}
+它们关于 $f$ 是“函子性的”。更确切地说，$(1^{\circ})$ 和 $(2^{\circ})$ 定义了从景的范畴到三角范畴（triangulated category）的范畴的两个伪函子，一个协变，另一个反变。由此得到景的范畴之上的两个范畴：一个是余纤维化的，纤维为 $D^{+}(X)^{\circ}$，正像函子为 $Rf_{\ast}$；另一个是纤维化的，纤维为 $D^{-}(X)^{\circ}$，逆像函子为 $\sisi{\LL}{L} f^{\ast}$。若函子 $f^{\ast}$ 具有有限同调维数（\ie 有限的“\tTor-维数”），则 (2) 中的上标可换成 $+$。这样，在由环化景及有限 \tTor-维数的环化景态射组成的范畴 $\Ss_{\tdf}$ 之上，便得到两个范畴\sisi{}{}；它们的纤维都是范畴 $D^{+}(X)^{\circ}$。\textsc{Verdier} 的“平凡对偶定理”（\cite{sga4.exp.XVII.bib.CD} 第~48 页）断言这两个范畴典范同构；所以它们既是纤维化的也是余纤维化的；其“正像”函子为 $Rf_{\ast}$\sisi{}{ }（原文如此），而“逆像”函子为 $Lf^{\ast}$\sisi{}{ }（原文如此）。
+
+\setcounter{subsection}{1}
+\setcounter{subsubsection}{1}
+\subsubsection{}\etiquette[2.1.2]{XVII.subsubsec2.1.2}
+
+纤维范畴的语言很容易解决 \textsc{Artin} 在 \hyperrefext[XII][XII.sec4]{4} 中提出的疑惑：只需把下面的命题应用于景的范畴之上的一个既纤维化又余纤维化的范畴\pageoriginale，其纤维为相应景上层范畴的反范畴（\cf \hyperlink{sga4.exp.XVII.subsection.0.2}{0.2}）。
+
+设 $\Ee$ 是 $\Bb$ 上的范畴，$f:y\rightarrow x$ 是 $\Bb$ 的箭头，$F\in \Ob(\Ee_x)$。回忆，若对所有 $g:\sisi{Z}{z}\rightarrow y$ 和 $H\in \Ob
+\Ee\sisi{_Z}{_z}$ 都有
+\[
+\Hom_g(H,G)\xrightarrow[\sim]{\varphi}\Hom_{fg}(H,F){\quoi}.
+\]
+则称二元组 $(G,\varphi)$ $(G\in \Ob \Ee_y, \varphi\in
+\Hom_f(G,F))$ 为 $F$ 关于 $f$ 的\emph{严格逆像}（strict inverse image）。严格正像的定义类似。若 $\Ee$ 在 $\Bb$ 上是纤维化或余纤维化的，则这一概念归结为逆像的概念。
+
+\begin{enonce*}{命题 2.1.3}\etiquette[2.1.3]{XVII.prop2.1.3}
+设 $\epsilon$ 是 $\Bb$ 上的范畴，$y\in \Ob
+\Bb$，$F\in \Ob \Ee_y$，并考虑 $\Bb$ 中的交换图：
+$$\etiquette[2.1.3.1]{XVII.eq2.1.3.1}
+\vcenter{
+\xymatrix{
+y'  \ar[r]^{g'} \ar[d]_{f'}& y\ar[d]^{f}         \\
+x'          \ar[r]    & x.
+}}\leqno{(2.1.3.1)}
+$$
+假设正像和逆像 $f_{\ast}F$、$g^{\ast}f_{\ast}F$、${g'}^{\ast}F$ 及 $f'_{\ast}{g'}^{\ast}F$ 在严格意义下存在。那么存在唯一的箭头 $\varphi \in \Fl \Ee_{x'}$，称为\emph{基变换箭头}，使图
+$$\etiquette[2.1.3.2]{XVII.eq2.1.3.2}
+\vcenter{
+\xymatrix{
+                             &  g'^{\ast}F \ar[ld]  \ar[r]    & F \ar[d]\\
+f'_{\ast}g'^{\ast}F \ar[rd]_{\varphi}  &                                & f_{\ast}F\\
+  & g^{\ast}f_{\ast}F \ar[ru]&.
+}}\leqno{(2.1.3.2)}
+$$
+交换。若\pageoriginale 此外正像 $g'_{\ast}{g'}^{\ast
+}F$ 和 $g'_{\ast}f'_{\ast}{g'}^{\ast}F$ 在严格意义下存在，则箭头 $\varphi$ 与\emph{\hyperrefext[XII][XII.sec4]{4}} 中定义的箭头一致。若 ${f'}^{\ast}f'_{\ast}{g'}^{\ast}F$ 和 ${f'}^{\ast}f'_{\ast}F$ 在严格意义下存在，则它还与\emph{\hyperrefext[XII][XII.sec4]{4}} 中定义的第 $2$\sisi{个}{个}箭头一致。
+
+特别地，\emph{\hyperrefext[XII][XII.sec4]{4}} 中的两个基变换箭头相同。
+\end{enonce*}
+
+由假设，图 \eqhyperref[XVII.eq2.1.3.2]{2.1.3.2} 中的箭头诱导双射
+\sisi{\begin{align*}
+& \Hom_y(F,F)=\Hom_{g'}({g'}^{\ast}F,F)=\Hom_{fg'}({g'}^{\ast}F,f_{\ast}F)
+\quad\mbox{\rm 且}\\
+&
+\Hom_{x'}(f'_{\ast}{g'}^{\ast}F,g^{\ast}f_{\ast}F)=\Hom_{f'}({g'}^{\ast}F,
+g^{\ast}f_{\ast}F)=\Hom_{gf'}({g'}^{\ast}F, f_{\ast}F){\quoi}.
+\end{align*}}{\[\Hom_{x'}(f'_{\ast}{g'}^{\ast}F,g^{\ast}f_{\ast}F)=\Hom_{f'}({g'}^{\ast}F,
+g^{\ast}f_{\ast}F)=\Hom_{gf'}({g'}^{\ast}F, f_{\ast}F).\]}
+由于 $fg'=gf'$，$\Hom_{fg'}({g'}^{\ast}F,f_{\ast}F)$ 与 $\Hom_{gf'}({g'}^{\ast}F,f_{\ast}F)$ 相同，而图 \sisi{(2.1.2.2)}{\eqhyperref[XVII.eq2.1.3.2]{2.1.3.2}} 中的箭头诱导\sisi{双射}{映射}
+\[
+\Hom_y(F,F)\sisi{=}{\to}\Hom_{fg'}({g'}^{\ast}F,f_{\ast}F)=\Hom_{x'}(f'_{\ast}{g'}^{\ast}F,g^{\ast}f_{\ast}F){\quoi},
+\]
+并且 $1_F$ 的像是 $\Ee_{x'}$ 中使 \eqhyperref[XVII.eq2.1.3.2]{2.1.3.2} 交换的唯一箭头。%See the Erratum in SGA 4 1/2, p. 312.
+
+按 \hyperrefext[XII][XII.sec4]{4} 中的定义，基变换箭头 $\psi$ 是使下图交换的箭头：
+$$\etiquette[2.1.3.3]{XVII.eq2.1.3.3}
+\vcenter{
+\xymatrix{
+f'_{\ast}g'{}^{\ast}F \ar[d]^{\psi}  & g'{}^{\ast}F \ar[d]^{u_4} \ar[l] \ar@{=}[r] &
+g'{}^{\ast}F \ar[r] \ar[d]^{u_3}   & F \ar@{=}[r] \ar[d]^{u_2}&  F \ar[d]^{u_1}\\
+g'_{\ast}f_{\ast}F   & {f'}^{\ast}g^{\ast}f_{\ast}F  \ar[l] \ar@{=}[r] &
+g'f^{\ast}f_{\ast}F   \ar[r] & f^{\ast}f_{\ast}F \ar[r] &  f_{\ast}F.
+}}\leqno{(2.1.3.3)}
+$$
+水平箭头和 $u_1$ 是典范箭头；因此 $u_2$ 是伴随箭头，$u_3={g\sisi{^{1}}{'}}^{\ast}(u_2)$，$u_4$ 由 ${f'}^{\ast}g^{\ast}$ 与 ${g'}^{\ast}f^{\ast}$ 之间的同构导出，而箭头 $\psi$ 由 $u_4$ 通过伴随导出。
+
+源为 ${g'}^{\ast}F$、靶为 $f_{\ast}F$ 的复合\pageoriginale 映射就是 \eqhyperref[XVII.eq2.1.3.2]{2.1.3.2} 中出现的那个映射，因而在下面的交换图中也是如此；其左侧方块取自 \sisi{(2.1.2.3)}{\eqhyperref[XVII.eq2.1.3.3]{2.1.3.3}}：
+\[
+\xymatrix{
+g'{}^{\ast}F \ar[r]^{u_4} \ar[d]& f'{}^{\ast}g{}^{\ast}f_{\ast}F
+\ar[r] \ar[d]&
+f_{\ast}F \ar@{=}[d]\\
+f'_{\ast}g'{}^{\ast}F  \ar[r]^{\psi} & g^{\ast}f_{\ast}F \ar[r] &
+f_{\ast}F\rlap{.}
+}
+\]
+这表明 $\psi$ 满足 $\varphi$ 的定义性质。
+
+$\varphi$ 的定义是自对偶的，因而不必证明 \hyperref[XVII.prop2.1.3]{2.1.3} 的第二部分。
+
+\subsection{纤维为三角范畴的范畴}\etiquette[2.2]{XVII.subsec2.2}
+
+\begin{enonce*}{定义 2.2.1}\etiquette[2.2.1]{XVII.def2.2.1}
+“范畴 $\Bb$ 上的加性范畴”是指 $\Bb$ 上的范畴 $\Aa$，其箭头集 $\Hom_f(X,Y)$（其中 $f\in \Fl (\Bb)$，$X$（\resp $Y$）位于 $f$ 的源（\resp 靶）之上）赋有阿贝尔群结构，使得：
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item 对于 $\Bb$ 中任意的 $x\xrightarrow{f}y\xrightarrow{g}z$，以及 $\Aa$ 中分别位于 $\sisi{s}{x}$、$y$、$z$ 之上的 $X$、$Y$、$Z$，复合法则
+\[
+\Hom_g(Y,Z)\times \Hom_f
+(X,Y)\xrightarrow{\circ}\Hom_{gf}(X,Z)
+\]
+是双加性的。
+
+\item 各纤维范畴是加性的。
+\end{enumerate}
+\end{enonce*}
+
+这些阿贝尔群结构若存在，便由 $\Aa$、$\Bb$ 和 $\rho$ 唯一确定；这里不需要这一事实。\nde{这里 $\rho$ 表示结构函子 $\Aa\to \Bb$。} 若 $\Bb$ 上加性范畴之间的 $\Bb$-函子 $F:\Aa_1\rightarrow \Aa_2$ 诱导同态
+\[
+F:\Hom_{\Aa_1,f}(X,Y)\longrightarrow
+\Hom_{\Aa_{2},f}(X,Y){\quoi}.
+\]
+，则称其为\emph{加性}函子。
+
+\begin{enonce*}{定义 2.2.2}\etiquette[2.2.2]{XVII.def2.2.2}
+“范畴 $\Bb$ 上的阿贝尔范畴”\pageoriginale 是指 $\Bb$ 上的加性范畴 $\Aa$，其纤维是阿贝尔范畴，并且对 $\Bb$ 的每个箭头 $f:x\rightarrow y$，双函子
+\[
+\Hom_f(X,Y):\Aa^{\circ}_x\times \Aa_y\longrightarrow
+(\Ab)
+\]
+关于 $X$ 和 $Y$ 均左正合。
+\end{enonce*}
+
+若 $\Aa$ 是 $\Bb$ 上的纤维且余纤维范畴（\SGA 1 VI 6），则只要其纤维是阿贝尔范畴，它就是 $\Bb$ 上的阿贝尔范畴；这里也不需要这一事实。
+
+\begin{enonce*}{定义 2.2.3}\etiquette[2.2.3]{XVII.def2.2.3}
+“范畴 $\Bb$ 上的三角范畴”是指 $\Bb$ 上的加性范畴 $\Aa$，赋有一个函子 $T:\Aa\rightarrow \Aa$，并且对每个 $x\in \Ob \Bb$，纤维 $\Aa_x$ 赋有三角形集合 $\Delta_x$，满足：
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item $T$ 是 $\Aa$ 的加性 $\Bb$-自同构。
+
+\item 每个纤维范畴 $\Aa_x$，赋予由 $T$ 诱导的函子 $T_x$ 以及集合 $\Delta_x$ 后，是一个三角范畴 \emph{（\cite{sga4.exp.XVII.bib.CD} \sisi{}{I 1.}1.1）}。
+
+\item 若三角形 $(X,Y,Z,u,v,w)$ 和 $(X',Y',Z',u',v',w')$ 分别属于 $\Delta_x$ 和 $\Delta_{x'}$，则每个满足 $u'f=gu$ 的图
+\[
+\xymatrix{
+            & Z   \ar[ldd]_{w}&            &  &           & Z'   \ar[ldd]|\hole_(.3){w'} & \\
+            &   & Y\ar[lu]_{v} \ar[rrrr]_(.4){\sisi{j}{g}}&  &     &       &Y'\ar[lu]_{v'} \\
+X   \ar[rru]^{u} \ar[rrrr]_{f}&             &          &  &   X'   \ar[rru]^{u'} &              &
+}
+\]
+都能补成三角形的态射 $(f,g,h):(X,Y,Z)\rightarrow (X',Y',Z')$。
+\end{enumerate}
+\end{enonce*}
+
+称 $T$\pageoriginale 为平移函子（translation functor）；常用 $A[1]$ 代替 $T(A)$，此时以 $A[n]$ 表示 $T^{n}(A)$ $(n\in\ZZ)$。
+
+属于集合 $\Delta_x$ 的三角形称为\emph{特殊三角}（distinguished triangle）或\emph{正合三角形}。
+
+\begin{enonce*}{命题 2.2.4}\etiquette[2.2.4]{XVII.prop2.2.4}
+设 $\Aa$ 是 $\Bb$ 上的三角范畴，$x$ 是 $\Bb$ 的一个对象，$(X,Y,Z,u,v,w)$ 是 $\Aa_x$ 的一个特殊三角。对于每个 $f:y\rightarrow x$ 以及每个对象 $A\in
+\Ob \Aa_y$，下面的无限序列正合：
+\begin{align*}
+\ldots  \longrightarrow \Hom_f(A,X) \longrightarrow \Hom_f(A,Y)&\longrightarrow
+\Hom_f(A,Z)\\
+ & \longrightarrow \Hom_f(A,X[1])\longrightarrow
+\Hom_f(A,Y[1])\longrightarrow\ldots
+\end{align*}
+\end{enonce*}
+
+对于 $f:x\rightarrow y$ 和 $A\in \Ob \Aa_y$，有类似的陈述。
+
+读者可仿照 \textsc{Verdier} \cite{sga4.exp.XVII.bib.CD} 第~4 页证明这一命题。下面的命题的含义及其验证也留给读者：
+
+\begin{enonce*}{命题 2.2.5}\etiquette[2.2.5]{XVII.prop2.2.5}
+设 $\Aa$ 是 $\Bb$ 上的加性（\resp 阿贝尔，\resp 三角）范畴。对于每个靶为 $\Bb$ 的函子 $\Bb'\rightarrow \Bb$，范畴 $\Aa'=\fprod{\Aa}{\Bb'}{\Bb}$ 是 $\Bb$ 上的加性（\resp 阿贝尔，\resp 三角）范畴。
+\end{enonce*}
+
+\begin{enonce*}[remark]{例 2.2.6}\etiquette[2.2.6]{XVII.exem2.2.6}
+变动环化景上的模层范畴是环化景范畴之上的阿贝尔范畴。
+\end{enonce*}
+
+\begin{enonce*}[remark]{例 2.2.7}\etiquette[2.2.7]{XVII.exem2.2.7}
+设 $\Aa$ 是 $\Bb$ 上的加性范畴。$\Bb$ 上 $\Aa$ 的复形范畴 $C(\Aa/\Bb)$ 的对象为各纤维范畴的复形。从 $(X^n,d)$ 到 $(Y^n,d)$ 的箭头 $f$ 是一族\pageoriginale 箭头 $f^{n}:X^{n}\rightarrow Y^{n}$，满足 $\sisi{fd}{df}^{n}=f^{n+1} d$。令 $p(f)=p(f^{n})$（这个箭头与 $n$ 无关，因为 $p(d)$ 都是恒等箭头）。$C(\Aa/\Bb)$ 是 $\Bb$ 上的加性范畴。令
+\[
+(K[1])^{n}=K^{n+1}\quav (d[1])\sisi{_n}{^n}=-d\sisi{_{n+1}}{^{n+1}}{\quoi}.
+\]
+即定义了“平移”函子。
+\end{enonce*}
+
+\begin{enonce*}[remark]{例 2.2.8}\etiquette[2.2.8]{XVII.exem2.2.8}
+设 $\Aa$ 是 $\Bb$ 上的加性范畴。\emph{$\Bb$ 上 $\Aa$ 的复形模去同伦所得的范畴 $K(\Aa/\Bb)$} 与 $C(\Aa/\Bb)$ 有相同的对象。它由 $C(\Aa/\Bb)$ 中与零同伦的箭头置零得到；换言之，对于 $\Bb$ 中的 $f:x\rightarrow y$，以及 $X^{\bigdot}\in \Ob C(\Aa/\Bb)_x$ 和 $Y^{\bigdot}\in
+\Ob C(\Aa/\Bb)_y$，令
+\[
+\Hom_f(X^{\bigdot},
+Y^{\bigdot})=H^{0}\Hom^{\bigdot}_f(X^{\bigdot},Y^{\bigdot})
+\]
+\end{enonce*}
+
+平移函子降为商上的函子。
+
+若 $F:\Bb'\rightarrow \Bb$ 是以 $\Bb$ 为靶的函子，且 $\Aa'=\fprod{\Aa}{\Bb'}{\Bb}$，则将 $C(\Aa'/\Bb')$ 与 $\fprod{C(\Aa/\Bb)}{\Bb'}{\Bb}$、$K(\Aa'/\Bb')$ 与 $\fprod{K(\Aa/\Bb)}{\Bb'}{\Bb}$ 等同的工作留给读者。特别地，范畴 $K(\Aa/\Bb)$ 的纤维为范畴 $K(\Aa_x)$，因此是三角范畴。
+
+\begin{enonce*}{命题 2.2.9}\etiquette[2.2.9]{XVII.prop2.2.9}
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item 赋予 \hyperref[XVII.exem2.2.8]{2.2.8} 中定义的附加结构后，范畴 $K(\Aa/\Bb)$ 是 $\Bb$ 上的三角范畴。
+
+\item 加性（\resp 三角）范畴 $C(\Aa/\Bb)$（\resp $K(\Aa/\Bb)$）的构造与任意底范畴变换 $\Bb'\rightarrow \Bb$ 相容。
+\end{enumerate}
+\end{enonce*}
+
+定义 \hyperref[XVII.def2.2.3]{2.2.3} 的条件\pageoriginale (i) 和 (ii) 逐纤维验证。仿照 \textsc{Verdier} \cite{sga4.exp.XVII.bib.CD} 第~4 页即可验证条件 (iii)。
+
+\begin{enonce*}[remark]{注 2.2.10}\etiquette[2.2.10]{XVII.rem2.2.10}
+前面的讨论也适用于范畴\sisi{}{} $K^{+}(\Aa/\Bb)$、$K^{-}(\Aa/\Bb)$ 及 $K^{b}(\Aa/\Bb)$，它们分别由限制到下有界、上有界以及有界复形得到。
+\end{enonce*}
+
+\begin{enonce*}[remark]{注 2.2.11}\etiquette[2.2.11]{XVII.rem2.2.11}
+取 $\Bb$ 为终范畴，就得到通常的复形范畴。
+\end{enonce*}
+
+\setcounter{subsection}{2}
+\setcounter{subsubsection}{11}
+\subsubsection{}\etiquette[2.2.12]{XVII.subsubsec2.2.12}
+设 $F$ 是从范畴 $\Bb^{\circ}$ 到 $(\Cat)$ 的伪函子。已知（\SGA 1 VI），$F$ 定义一个 $\Bb$ 上的纤维化范畴，其纤维为范畴 $F(x)$。对于 $\Bb$ 中任意的 $f:x\rightarrow y$ 及 $X\in \Ob F(\sisi{n}{x})$、$Y\in \Ob
+F(y)$，按定义有
+$$\etiquette[2.2.12.1]{XVII.eq2.2.12.1}
+\Hom_f(X,Y)=\Hom_{F(x)}(X,F(f)(Y)){\quoi}.\leqno(2.2.12.1)
+$$
+已知（同上），前面的构造定义了从 $\Bb^{\circ}$ 到 $(\Cat)$ 的伪函子的 2-范畴与 $\Bb$ 上纤维化范畴的 2-范畴之间的等价。
+
+从一个由 $\Bb^{\circ}$ 到如下 2-范畴的伪函子出发：其对象为加性（\resp 阿贝尔，\resp 三角）范畴，其 1-箭头为加性（\resp 左正合，\resp 三角）函子。立即可验证，由 \sisi{(2.1.12.1)}{\eqhyperref[XVII.eq2.2.12.1]{2.2.12.1}} 定义的范畴是加性（\resp 阿贝尔，\resp 三角）的。反过来：
+
+\begin{enonce*}{命题 2.2.13}\etiquette[2.2.13]{XVII.prop2.2.13}
+上述\pageoriginale 构造建立了以下两者之间的等价：
+\begin{enumerate}
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item 从 $\Bb^{\circ}$ 到如下 $2$-范畴的伪函子的 $2$-范畴：其对象为加性（\resp 阿贝尔，\resp 三角）范畴，其 $1$-箭头为加性（\resp 左正合，\resp 三角）函子。
+
+\item $\Bb$ 上加性（\resp 阿贝尔，\resp 三角）范畴中在 $\Bb$ 上纤维化的那些范畴的 $2$-范畴。
+\end{enumerate}
+\end{enonce*}
+
+\SGA 1 VI 中建立的理论表明，只需验证下面这一点：
+
+\setcounter{subsubsection}{13}
+\setcounter{paragraph}{0}
+\paragraph{}\etiquette[2.2.13.1]{XVII.par2.2.13.1}
+设 $\Aa$ 是 $\Bb$ 上的加性（\resp 阿贝尔，\resp 三角）范畴，$f:x\rightarrow y$ 是 $\Bb$ 的箭头，并假设逆像函子 $f^{\ast}:\Aa_y\rightarrow \Aa\sisi{_n}{_x}$ 存在；那么 $f^{\ast}$ 是加性的（\resp 左正合的，\resp 三角的）。
+
+函子 $f^{\ast}$ 给出同构
+\[
+\Hom_f(X,Y)\simeq \Hom_x (X,f^{\ast}(Y)){\quoi}.
+\]
+在三角情形\sisi{}{}，还须证明 $f^{\ast}$ 关于使下图交换的同构 $Tf^{\ast}=f^{\ast}T$（其中 $T$ 是平移函子）为三角函子：
+$$\etiquette[2.2.13.2]{XVII.eq2.2.13.2}
+\vcenter{
+\xymatrix{
+\Hom_f(X,Y)  \ar@{=}[r] \ar@{=}[d]& \Hom_x(X,f^{\ast}Y)\ar@{=}[rd]\\
+\Hom_f(TX,TY)\ar@{=}[rd]           &      & \Hom_x(TX,Tf^{\ast}Y) \\
+             &      \Hom_x(TX,f^{\ast}TY)\ar@{=}[ru] &
+}}\leqno{(2.2.13.2)}
+$$
+
+\begin{itemize}
+\item[\emph{加性情形}：] 考虑\pageoriginale 图
+$$\etiquette[2.2.13.3]{XVII.eq2.2.13.3}
+\vcenter{
+\xymatrix@C=2.5cm@R=1.75cm{
+f^{\ast} X \ar@<-3pt>[d]_{f^{*}(u)}\ar@<3pt>^{f^{\ast}(v)}[d]        \ar[r]^{p} & X
+\ar@<-3pt>_{u}[d] \ar@<3pt>^{v}[d]\\
+f^{\ast} X' \ar[r]^{p'}& X'\rlap{.}
+}}\leqno{(2.2.13.3)}
+$$
+有 $p'f^{\ast}(u+v)=(u+v)p=up+vp=p'f^{\ast}(u)+p'f^{\ast}(v)=p'(f^{\ast}(u)+f^{\ast}(v))$，因而 $f^{\ast}(u+v)=f^{\ast}(u)+f^{\ast}(v)$。
+
+\item[\emph{阿贝尔情形}：] 由定义（\hyperref[XVII.subsec2.2]{2.2}），对每个 $X$，函子 $\Hom(X,f^{\ast}Y)=\Hom_f(X,Y)$ 关于 $Y$ 左正合，故 $f^{\ast}$ 左正合。
+
+\item[\emph{三角情形}：] 设 $(Y',Y,Y'')$ 是 $\Aa_y$ 中的特殊三角，并设 \sisi{$(f^{\ast}Y',f^{\ast}Y)$}{$(f^{\ast}Y',f^{\ast}Y, X'')$ 是 $\Aa_x$ 中的特殊三角}。由 \hyperref[XVII.def2.2.3]{2.2.3}，这些三角形的底之间的典范态射可以补成三角形的态射，给出下图：
+\[
+\xymatrix@C=2em{
+&  X''       \ar[rrr]^{\sisi{}{s}}\ar[ldd]   &     & &**[r]f^{\ast}Y''\ar[rrr]\ar[ldd]   &  & & Y''\ar[ldd] \\                      &     & f^{\ast}Y   \sisi{\ar[rrr]|\hole}{\ar@{=}[rrr]|\hole}\ar[lu]& &      &f^{\ast}Y \ar[rrr]|\hole\sisi{}{\ar[ul]}&&& Y\ar[lu]\\
+  f^{\ast}Y' \sisi{\ar[rrr]}{\ar@{=}[rrr]}\ar[rru]         &&& f^{\ast}Y'\sisi{}{\ar[rru]}   \ar[rrr] && & Y'\ar[rru]&&.
+}
+\]
+
+证明 $s$ 是同构，便完成了证明。对于 $\Ob \Aa_x$ 中的每个 $X$，有交换图：
+\[
+\text{\scriptsize
+$\xymatrix@C=1em{
+\Hom_x(X,f^{\ast}Y') \ar[r] \ar@{=}[d]& \Hom_x(X,f^{\ast}Y) \ar@{=}[d]\ar[r]& \Hom_x(X,X'')\ar[d]
+\ar[r]& \Hom_x(X,f^{\ast}Y'[1])\ar[r]\ar@{=}[d]
+& \Hom_x(X,f^{\ast}Y[1]) \ar@{=}[d]\\
+\Hom_x(X,f^{\ast}Y') \ar[r]\ar@{=}[d]&  \Hom_x(X,f^{\ast}Y)\ar[r] \ar@{=}[d]&
+\Hom_x(X,f^{\ast}Y'') \ar[r]\ar@{=}[d]&  \Hom_x(X,f^{\ast}Y'[1])\ar@{=}[d] \ar[r]&
+\Hom_x(X,f^{\ast}Y[1]) \ar@{=}[d]\\
+\Hom_f(X,Y)  \ar[r]& \Hom_f(X,Y)\ar[r]  &
+\Hom_f(X,Y'') \ar[r]& \Hom_f(X,Y'[1])\ar[r] &
+\Hom_x(X,Y[1]).
+}$}
+\]
+
+由 \hyperref[XVII.prop2.2.4]{2.2.4}，\pageoriginale 第一行和最后一行正合。由五引理，$s$ 诱导的从 $\Hom(X,X'')$ 到 $\Hom(X,f^{\ast}Y'')$ 的映射总是双射，因此 $s$ 是同构。
+\end{itemize}
+
+当然，对于余纤维化范畴也有对偶的结果。
+
+\subsection{平凡对偶公式}\etiquette[2.3]{XVII.subsec2.3}
+
+设 $\Aa$ 是底范畴~$\Bb$ 上的范畴，$S$ 是 $\Aa$ 的一组箭头，每个都投到 $\Bb$ 的恒等箭头上。由 $\Aa$ 通过分式演算得到的范畴 $\Aa(S^{-1})$ 是 $\Bb$ 上的范畴（由泛性质）。
+
+设 $\Bb'\rightarrow \Bb$ 为函子；以 $\Aa'$ 表示纤维积 $\fprod{\Aa}{\Bb'}{\Bb}$，以 $S'$ 表示 $S$ 在 $\Aa'$ 中的逆像。复合函子 $\Aa'\rightarrow \Aa\rightarrow \Aa(S^{-1})$ 使 $S'$ 的箭头可逆，因而通过 $\Aa'({S'}^{-1})$ 分解。于是得到如下的典范 $\Bb'$-函子：
+$$\etiquette[2.3.1]{XVII.eq2.3.1}
+\Aa'(S^{-1})\longrightarrow
+\fprod{\Bb'}{\Aa(\sisi{S}{{S'}}^{-1})}{\Bb}{\quoi}.\leqno(2.3.1)
+$$
+
+\begin{enonce*}{引理 2.3.2}\etiquette[2.3.2]{XVII.lem2.3.2}
+若 $\Bb'$ 是 $\Bb$ 的子范畴，并且每当 $\Bb$ 的复合箭头 $h=f\circ g$ 属于 $\Bb'$ 时，$f$ 和 $g$ 都属于 $\Bb'$，那么函子 \eqhyperref[XVII.eq2.3.1]{2.3.1} 为同构。
+\end{enonce*}
+
+注意\pageoriginale，\eqhyperref[XVII.eq2.3.1]{2.3.1} 总在对象上诱导双射，而且在当前情形，$\fprod{\Bb'}{\Aa(S^{-1})}{\Bb}$ 是 $\Aa(S^{-1})$ 的子范畴。
+
+回忆 $\Aa(S^{-1})$ 的“显式”构造 \cite[\sisi{第}{\chap}~I 章]{sga4.exp.XVII.bib.GZ}。给定 $\Aa$ 的两个对象 $X$ 和 $Y$，考虑“形式复合”$f_1\ldots f_n$，其中每个 $f_i$ 或为 $\Aa$ 的箭头，或为 $S$ 的箭头的逆。集合 $\Hom_{\Aa(S^{-1})}(X,Y)$ 是这些“形式复合”的集合模去由以下关系生成的等价关系所得的商：
+\begin{alignat*}{2}
+& f_1\ldots uv\ldots f_n\equiv f_1\ldots (u\circ v)\ldots f_n &\quad &
+\mbox{\rm 其中 } u,v\;\mbox{\rm 属于 } \Fl(\Aa)\\
+& f_1\ldots ss^{-1}\ldots f_n\equiv f_1\ldots f_n && \mbox{\rm 对 }
+s\in S\\
+& f_1\ldots s^{-1}s\ldots f_n\equiv f_1\ldots f_n && \mbox{\rm 对 }
+s\in S{\quoi}.
+\end{alignat*}
+
+若对 $\Aa$ 和子范畴 $\Aa'$ 应用这些构造，可验证 $\Aa'(S^{-1})$ 与 $\Aa(S^{-1})$ 中 $\Bb'$ 的逆像子范畴相同，因为若一个“形式复合”$f_1\ldots f_n$ 在 $\Bb$ 中的复合为 $\Bb'$ 的箭头，则每个 $f_i$ 的像也都是 $\Bb'$ 的箭头。
+
+现在设 $\Aa$ 是 $\Bb$ 上的三角范畴，并且对每个 $x\in \Ob(\Bb)$，集合 $S_x=S\cap \Fl(\Aa_x)$ 是饱和乘法系（\cite{sga4.exp.XVII.bib.CD} \sisi{第}{\chap}~I 章 \S~2\sisi{. 1}{ 第 1 号}）。
+
+\begin{enonce*}{定义 2.3.3}\etiquette[2.3.3]{XVII.def2.3.3}
+在前面的假设下，若对每个函子 $F:\Bb'\rightarrow\Bb$，函子 \eqhyperref[XVII.eq2.3.1]{2.3.1} 为同构（\resp 并且 $\Aa(S^{-1})$ 在 $\Bb$ 上纤维化，\resp 余纤维化），则称范畴 $\Aa/\Bb$ 关于 $S$ \emph{几乎可导出}（almost derivable）（\resp 可导出，\resp 可余导出）。
+\end{enonce*}
+
+以\pageoriginale $I$ 表示下图所给的范畴：
+$$\etiquette[2.3.4]{XVII.eq2.3.4}
+I:\underset{0}{\times} \xrightarrow{F} \underset{1}{\times}{\quoi}.\leqno{(2.3.4)}
+$$
+
+由 \hyperref[XVII.prop2.2.13]{2.2.13}，给定 $I$ 上的一个三角范畴 $\Aa$，在 $\sisi{\Aa}{I}$ 上纤维化（\resp 余纤维化），等价于给定其纤维 $\Aa_0$ 和 $\Aa_1$ 以及三角逆像函子 $F^{\ast}:\Aa_1\rightarrow\Aa_0$（\resp 以及三角正像函子 $F_{\ast}:\Aa_0\rightarrow\Aa_1$）。若 $A_0\in\Ob\Aa_0$ 和 $A_1\in\Ob\Aa_1$，则由 \eqhyperref[XVII.eq2.2.12.1]{2.2.12.1}，
+\[
+\Hom_F(A_0,A_1)=\Hom(A_0,F^{\ast}A_1)
+\]
+（\resp $\Hom_F(A_0,A_1)=\Hom(F_{\ast}A_0,A_1)$）。
+
+\begin{enonce*}{命题 2.3.5}\etiquette[2.3.5]{XVII.prop2.3.5}
+设 $\Aa$ 是 $I$ 上的三角范畴，$S$ 如（\hyperref[XVII.def2.3.3]{2.3.3}）所述。
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item $\Aa$ 关于 $S$ 几乎可导出，并且 $\Aa(S^{-1})$ 在 $I$ 上为三角范畴。
+
+\item 若 $\Aa$ 是纤维化的（\resp 余纤维化的），则函子 $F^{\ast}$（\resp $F_{\ast}$）关于 $S_0$ 和 $S_1$ 右可导出（\resp 左可导出）（\hyperref[XVII.def1.2.1]{1.2.1}），当且仅当 $\Aa$ 在 $I$ 上可导出（\resp 可余导出）。
+\end{enumerate}
+\end{enonce*}
+
+由引理 \hyperref[XVII.lem2.3.2]{2.3.2}，$\Aa(S^{-1})$ 的纤维范畴为 $\Aa_0(S^{-1}_0)$ 和 $\Aa_1(S^{-1}_1)$，其中 $S_i=S\cap\Fl(\Aa_i)$ $(i=0,1)$。沿用 \S \hyperref[XVII.sec1]{1} ${\rm n^{\circ}}$ \hyperref[XVII.sec2]{2} 的记号，函子 $A_0\rightarrow A^{-}_0$ 和 $A_1\rightarrow A^{+}_1$ 将 $\Aa_0(S^{-1}_0)$ 和 $\Aa_1(S^{-1}_1)$ 分别等同于 $\Aa_0$ 和 $\Aa_1$ 的 \ppro-对象与 \iind-对象的范畴。这样，可以定义 $I$ 上的一个范畴，其纤维为 $\Aa_0(S^{-1}_0)$ 和 $\Aa_1(S^{-1}_1)$：对于 $A_0\in\Aa_0$ 和 $A_1\in\Aa_1$，令
+\[
+\Hom_F(A_0,A_1)=\Hom_F(A^{-}_0,A^{+}_1)=\varinjlim_{A'_0{\xrightarrow[s]{}}A_{\sisi{p}{0}}}
+\varinjlim_{A_1{\xrightarrow[t]{}}{A'_1}}\Hom(A'_0,A'_1){\quoi},
+\]
+其中\pageoriginale $s$ 和 $t$ 遍历 $S_0$ 和 $S_1$ 中以 $A_0$ 为靶（分别以 $A_1$ 为源）的元素。范畴 $\Aa$ 映到这个范畴，而且立即可验证，它在 $I$ 上以及在每次基变换之后都满足 $\Aa(S^{-1})$ 的泛性质。
+
+为验证 (i)，只需证明这个范畴，即 $\Aa(S^{-1})$，是三角范畴，而为此只需验证条件 \hyperref[XVII.def2.2.3]{2.2.3}~(iii)。于是设 $(X_0,Y_0,Z_0)$ 和 $(X_1,Y_1,Z_1)$ 分别为 $\Aa_0$ 和 $\Aa_1$ 的特殊三角，它们给出 $\Aa_0(S^{-1}_0)$ 和 $\Aa_1(S^{-1}_1)$ 中的特殊三角 $(X^{-}_0,Y^{-}_0,Z^{-}_0)$ 和 $(X^{+}_1,Y^{+}_1,Z^{+}_1)$。
+$$\etiquette[2.3.5.1]{XVII.eq2.3.5.1}
+\vcenter{
+\xymatrix{
+X^{-}_{0}  \ar[r]^{u} \ar[d]& X^{+}_1  \ar[d]\\
+Y^{-}_{0}  \ar[r]^{v} & Y^{+}_1\rlap{.}\\
+}}\leqno{(2.3.5.1)}
+$$
+
+由引理 \hyperref[XVII.lem1.2.2.1]{1.2.2.1}，三角形 $(X^{-}_0,Y^{-}_0,Z^{-}_0)$ 和 $(X^{+}_1,Y^{+}_1,Z^{+}_1)$ 是特殊三角的极限；因此存在特殊三角的态射
+\begin{equation*}
+\begin{split}
+(X^{-}_0,Y^{-}_0,Z^{-}_0) &\longrightarrow (X'_0, Y'_0,Z'_0)\\
+(X'_1, Y'_1, Z'_1) &\longrightarrow (X^{+}_1, Y^{+}_1, Z^{+}_1){\quoi},
+\end{split}\tag{2.3.5.2}
+\end{equation*}\etiquette[2.3.5.2]{XVII.eq2.3.5.2}%Removing this comment would introduce unwanted white space.
+以及\pageoriginale 一个与 \eqhyperref[XVII.eq2.3.5.1]{2.3.5.1} 相容的图
+\[
+\xymatrix{
+X'_{0}  \ar[r]^{u'} \ar[d]& X'_1 \ar[d] \\
+Y'_{0}  \ar[r]^{v'} & Y'_1\rlap{,}
+}
+\]
+。由于 $\Aa$ 在 $I$ 上为三角范畴，此图可以扩充为三角形的态射
+\[
+(X'_0,Y'_0,Z'_0)\longrightarrow (X'_1, Y'_1, Z'_1){\quoi}.
+\]
+将后者与态射 \eqhyperref[XVII.eq2.3.5.2]{2.3.5.2} 复合，可见图 \eqhyperref[XVII.eq2.3.5.1]{2.3.5.1} 能扩充为三角形的态射，这就证明了 \hyperref[XVII.def2.2.3]{2.2.3}~(iii)。
+
+验证 (ii)，例如假设 $\Aa$ 在 $I$ 上纤维化。若 $A_1\in\Ob(\Aa_1(S^{-1}_1))$，则 $A_1$ 在 $\Aa(S^{-1})$ 中的逆像是 $\Aa_0(S^{-1}_0)$ 的一个对象 $B$，满足在 $\Aa_0(S^{-1}_0)$ 中，
+\begin{align*}
+\Hom_{\Aa_0(S^{-1}_0)}(A_0,B) & =\Hom_F(A^{-}_0,
+A^{+}_1)=\Hom(A^{-}_0,
+F^{\ast}(A^{+}_1))\\
+&=\Hom_{\Aa_0(S^{-1}_0)}
+(A_0,F^{\ast}(A^{+}_1)){\quoi}.
+\end{align*}
+这样的对象 $B$ 存在，当且仅当 $\Aa_0(S^{-1}_0)$ 的 \iInd-对象 $F^{\ast}(A^{+}_1)$ 本质常值（\ie 可表）；这时 $B$ 表示这个 \iind-对象，它恰为 $RF(A_1)$（\hyperref[XVII.def1.2.1]{1.2.1}）；这就证明了断言。
+
+\begin{enonce*}{推论 2.3.6}\etiquette[2.3.6]{XVII.cor2.3.6}
+沿用 \hyperref[XVII.def2.3.3]{2.3.3} 的记号，若 $\Aa$ 在 $\Bb$ 上几乎可导出，则 $\Aa(S^{-1})$ 是 $\Bb$ 上的三角范畴。
+\end{enonce*}
+
+首先，纤维范畴 $\Aa(S^{-1})_x$ 可与 $\Aa_x(S^{-1}_x)$ 等同：将假设应用于基变换 $\{x\}\rightarrow\Bb$ 即可。这个\pageoriginale 范畴是三角范畴，赋有三角形集合 $\Delta_x$，因而前面的陈述有了意义。为验证条件 \hyperref[XVII.def2.2.3]{2.2.3}~(iii)，只需在每次基变换 $I\rightarrow\Bb$ 后验证，而断言由 \hyperref[XVII.prop2.3.5]{2.3.5}~(i) 得出。
+
+由 \hyperref[XVII.prop2.3.5]{2.3.5}~(ii) 的证明立即得到：
+
+\begin{enonce*}{定理 2.3.7}\etiquette[2.3.7]{XVII.thm2.3.7}
+\emph{（平凡对偶公式）。}
+
+设 $\Aa$ 是 $I$ 上的三角纤维化且余纤维化范畴，并以 $F_{\ast}$ 和 $F^{\ast}$ 表示正像与逆像函子。设 $S=S_0\cup S_1$ 是如 \hyperref[XVII.def2.3.3]{2.3.3} 中的乘法系。假设 $LF_{\ast}$ 在 $A_0\in\Ob\Aa(S^{-1}_0)$ 处有定义，$RF^{\ast}$ 在 $A_1\in\Ob\Aa_1(S^{-1}_1)$ 处有定义。那么
+\[
+\Hom_{\Aa_0(S^{-1}_0)}(A_0,RF^{\ast}A_1)=\Hom_{\Aa\sisi{_{(S^{-1})}}{(S^{-1})}}(A_0,A_1)=\Hom_{\Aa_1(S^{-1}_1)}(LF_{\ast}A_0,A_1){\quoi}.
+\]
+\end{enonce*}
+
+\hyperref[XVII.thm2.3.7]{2.3.7} 中符号 $R$、$L$、${}^{\ast}$ 和 ${}_{\ast}$ 的位置只是表面上反常：事实上，在变动景上的层构成的纤维化且余纤维化范畴 \hyperlink{sga4.exp.XVII.subsection.0.2}{0.2} 中，纤维范畴是通常层范畴的反范畴。
+
+\subsection{纤维为导出范畴的范畴}\etiquette[2.4]{XVII.subsec2.4}
+
+\setcounter{subsubsection}{-1}
+\subsubsection{}\etiquette[2.4.0]{XVII.subsubsec2.4.0}
+在本 ${\rm n^{\circ}}$ 中，$\Aa$ 表示 $\Bb$ 上余纤维化的三角范畴，$S$ 表示 $\Aa$ 的一个态射乘法系，其中的态射都位于恒等箭头之上，并且对于每个 $x\in\Ob(\Bb)$，$S_x=S\cap\Fl(\Aa_x)$ 都是 $\Aa_x$ 的饱和乘法系 \cite[\sisi{}{I }1.2.1]{sga4.exp.XVII.bib.CD}。
+
+我们\pageoriginale 要为 $\Aa$ 关于 $S$ 可余导出（\hyperref[XVII.def2.3.3]{2.3.3}）寻找一个判据；这蕴含，将所有与 $\Aa$ 的特殊三角的像同构的三角组成的集合赋给 $\Aa(S^{-1})$，它就是 $\Bb$ 上的三角范畴（\hyperref[XVII.prop2.3.5]{2.3.5}）。
+
+\begin{enonce*}{命题 2.4.1}\etiquette[2.4.1]{XVII.prop2.4.1}
+设 $\Aa$、$\Bb$ 和 $S$ 如上。要使 $\Aa$ 关于 $S$ 可余导出，只需满足以下条件：
+\begin{itemize}
+\item[$(\ast)$] $\forall x\in\Ob\Bb$，$\forall A\in\Ob(\Aa_x)$，$\exists s:A'\rightarrow A$ 属于 $S$\sisi{}{，} $\forall g$，$f:x\xrightarrow{f}y\xrightarrow{g}\sisi{Z}{z}$，$f_{\ast}A'$ 对函子 $g_{\ast}$ 左适配。
+\end{itemize}
+\end{enonce*}
+
+以 $\Aa^{1}$ 表示 $\Aa$ 的满子范畴，其对象为所有正像都对所有正像函子适配的对象。于是 \hyperref[XVII.prop1.2.2]{1.2.2} 表明 $\Aa^{1}$ 是 $\Aa$ 的三角子范畴，显然是余纤维化的。令 $S^{1}=S\cap\text{Fl}(\Aa^{1})$。
+
+\begin{enonce*}{引理 2.4.1.1}\etiquette[2.4.1.1]{XVII.lem2.4.1.1}
+假设 $S$ 在正像下稳定。那么 $\Aa/\Bb$ 可余导出，而 $\Aa(S^{-1})$ 可用右分式演算计算。
+\end{enonce*}
+
+验证 \cite[I 2.2]{sga4.exp.XVII.bib.GZ} 的条件 c)，它或许是各条件中最不显然的一个。给定 $f$ 和 $s$ $(s\in S)$，须找出一个满足 $t\in S$ 的交换\pageoriginale 图 \eqhyperref[XVII.eq2.4.1.2]{2.4.1.2}：
+$$\etiquette[2.4.1.2]{XVII.eq2.4.1.2}
+\vcenter{
+\xymatrix{
+A'        \ar@{-->}[r]      & B'          \\
+A  \ar[u]^{s}   \sisi{\ar[r]}{\ar[r]_f}          & B\rlap{,}  \ar@{-->}[u]^{t}
+}}\leqno{(2.4.1.2)}
+$$
+设 $F$ 是 $f$ 在 $\Bb$ 中的像。由假设，$F_{\ast}(s)$ 仍属于 $S$，所以由 \textsc{Verdier}，存在交换图
+\[
+\xymatrix{
+F_{\ast}(A')  \ar[r] & B'\\
+F_{\ast}(A)    \ar[r]_{f}\sisi{\ar[u]_{s}}{\ar[u]^{F_\ast(s)}}   & B\ar[u]_{t}
+}
+\]
+，因而也存在图 \eqhyperref[XVII.eq2.4.1.2]{2.4.1.2}。
+
+由于 $\Aa(S^{-1})$ 用右分式演算计算，其构造与基变换 $c:\Bb'\rightarrow\Bb$ 交换是立即可见的。
+
+此引理特别适用于 $\Aa^{1}$ 和 $S^{1}$；因此，下面的引理蕴含 \hyperref[XVII.prop2.4.1]{2.4.1}：
+
+\begin{enonce*}{引理 2.4.1.3}\etiquette[2.4.1.3]{XVII.lem2.4.1.3}
+在 $\Bb$ 上，以及在每次基变换 $c:\Bb'\rightarrow\Bb$ 后，典范函子
+$\Phi:\Aa\sisi{_1}{^1}(\sisi{{S^1}}{(S^1)}^{-1})\rightarrow\Aa(S^{-1})$
+都是范畴等价。
+\end{enonce*}
+
+构造 $\Phi$ 的一个拟逆。对于每个 $A\in\Ob\Aa$，选择以 $A$ 为靶、以 $A^1\in\Ob\Aa^{1}$ 为源的 $s_A\in S$，并且当 $A\in\Ob\Aa^{1}$ 时取 $s_A=\Id_A$。设 $f$ 是 $\Aa$ 中以 $A$ 为靶、以 $B$ 为源、在 $\Bb$ 中的像为 $F$ 的箭头。由于 $s_B\in S$ 以及 $F_{\ast}A^{1}\in\Ob\Aa^{1}$，可以找到 $B\sisi{^{1}}{'}$、\sisi{$v$ 和 $s\in S^{1}$}{$s\in S^1$ 和 $u$} 使下图交换：
+$$\etiquette[2.4.1.4]{XVII.eq2.4.1.4}
+\vcenter{
+\xymatrix{
+A      \ar[r]^{f} &  B      \ar[r]_{s_B} & B\sisi{_1}{^1}       \\
+A\sisi{_1}{^1} \ar[u]_{s_A}\ar[r]^{a} & F_{\ast}A\sisi{_1}{^1}  \ar[u]& B'\rlap{.} \ar[l]_{s} \ar[u]_u
+}}\leqno{(2.4.1.4)}
+$$
+
+于是 $\Aa^{1}(\sisi{{S^1}}{(S^1)}^{-1})$ 的箭头\pageoriginale $f^{1}=us^{-1}a$ 只依赖于 $f$。
+
+设 $f$ 和 $g$ 为两个可复合的箭头，其在 $\Bb$ 中的像为 $F$ 和 $G$。为证明 $(g\circ f)^{1}=g^{1}\circ f^{1}$，考虑下图，它包含了 $f$ 和 $g$ 的图 \eqhyperref[XVII.eq2.4.1.4]{2.4.1.4}：
+\[
+\xymatrix@C=2em{
+                      & A \ar[rr]^{f}&      & B\ar[rrr]^{g}     & &
+                      & C  &       \\
+ A^{1} \ar[ru] \ar[rr]^{a}&          &F_{\ast}A^{1}\ar[ru] \ar[rrr]^(.6){a'}& & & (GF)_{\ast}A^1\ar[ru] &
+              & &C^{1}\ar[llu]\\
+& & & B^1 \ar[rrr]^(.4){b}|(.58)\hole\ar[uu]|\hole & & & G_{\ast}B^1\ar[uu] &     \\
+&  & B'\ar[uu]^{s}\ar[rrr]^{b'}\ar[ru]_{u}       &   & &G_{\ast}B'\ar[ru]\ar[uu]^(.3){G_{\ast}s}    &  &C''\ar[ll]^{r}\ar[r]_{w} & C'\ar[llu]_t\ar[uu]_{v}\rlap{.}
+}
+\]
+
+由于 $t\in S$，存在 $C''$、$r\in S^{1}$ 和 $w$ 使图交换。由定义，\break $g^{1}\circ f^{1}=vt^{-1}b\,u\,s^{-1}a$ 且 $(g\circ f)^{1}=vw(G_{\ast}(s)r)^{-1}a'a$，结论由图的交换性得出。
+
+这样便定义了从 $\Aa$ 到 $\Aa^{1}(\sisi{{S^1}}{(S^1)}^{-1})$ 的函子；由 $\Aa(S^{-1})$ 的泛性质，它通过 $\Psi:\Aa(S^{-1})\rightarrow\Aa^{1}(\sisi{{S^1}}{(S^1)}^{-1})$ 分解。复合 $\Phi\Psi$ 同构于恒等函子，因为它与函子 $J:\Aa\rightarrow\Aa(S^{-1})$ 的复合同构于 $J$。类似地可验证 $\Psi\Phi$ 同构于恒等函子。
+
+\begin{enonce*}{推论 2.4.2}\etiquette[2.4.2]{XVII.cor2.4.2}
+沿用 \hyperref[XVII.prop2.4.1]{2.4.1} 的记号，只要对于 $\Bb$ 的任意有限箭头集 $B$，当只考虑 $B$ 中箭头下的正像时条件 $(\ast)$ 成立，$\Aa$ 就关于 $S$ 可余导出。
+\end{enonce*}
+
+对于\pageoriginale 每个箭头集有限的范畴 $\Bb'$，在每次基变换 $\Bb'\rightarrow\Bb$ 后都可应用命题 \hyperref[XVII.prop2.4.1]{2.4.1}。我们将取 $\Bb'$ 为以下各图给出的范畴：
+\[
+  \begin{gathered}
+    *\\
+    (0)
+  \end{gathered}\qquad
+  \begin{gathered}
+    *\to*\\
+    (1)
+  \end{gathered}\qquad
+  \begin{gathered}
+    *\to*\to*\\
+    (2)
+  \end{gathered}\qquad
+  \begin{gathered}
+    *\to*\to*\to*\\
+    (3)
+  \end{gathered}
+\]
+考虑范畴 $\Aa_x(S^{-1}_x)$ $(x\in\Ob\Bb)$。给定 $f\in\Fl(\Bb)$ 以及这些范畴中位于 $f$ 的源与靶之上的 $A_1,A_2$，将 $\Hom_f(A_1,A_2)$ 定义为由 $f$ 确定的 (1) 型基变换后所定义的类似集合。利用 (3) 型基变换定义态射的复合。这样构造出 $\Bb$ 上的范畴 $\Aa(S^{-1})^{\ast}$，其构造与任意基变换相容；利用 (0)、(1) 和 (2) 型基变换，可验证它解决了定义 $\Aa(S^{-1})$ 的泛问题。
+
+以下结果与 \hyperref[XVII.cor2.4.2]{2.4.2} 对偶。
+
+\begin{enonce*}{命题 2.4.3}\etiquette[2.4.3]{XVII.prop2.4.3}
+设 $\Aa$ 是 $\Bb$ 上纤维化的三角范畴，$S$ 如 \hyperref[XVII.prop2.4.1]{2.4.1} 所述。要使 $\Aa$ 关于 $S$ 可导出，只需对于 $\Bb$ 的每个有限箭头集 $B$，有
+\begin{itemize}
+\item[$(\ast')$] $\forall x\in\Ob(\Bb)$，$\forall A\in\Ob(\Aa_x)$，$\exists s:A\rightarrow A'$ 属于 $S$，对于 $B$ 中的 $\forall g,f:Z\xrightarrow{g}Y\xrightarrow{f}X$，$f^{\ast}A'$ 对函子 $g^{\ast}$ 右适配。
+\end{itemize}
+\end{enonce*}
+
+\section{纤维化或余纤维化范畴的粘合}\etiquette[3]{XVII.sec3}\pageoriginale
+
+\subsection{引言}\etiquette[3.1]{XVII.subsec3.1}
+
+设 $f:Y\rightarrow X$ 是从概形 $Y$ 到概形 $X$ 的有限型分离态射，或是从局部紧空间到局部紧空间的连续映射。这时可定义一个从 $Y$ 上阿贝尔层的范畴到 $X$ 上阿贝尔层的范畴的“具有固有支集的正像”函子，记为 $f_{!}$（概形的情形，\cf \sisi{\hyperref[XVII.subsec5.3]{5.3}}{\hyperref[XVII.subsec6.1]{6.1}}；分离局部紧空间的情形，见 \textsc{Verdier} \cite{sga4.exp.XVII.bib.V3}）。当 $Y$ 和 $X$ 是 $\CC$ 上的有限型概形时，这两个定义在显然的意义下相容。遗憾的是，概形的情况与局部紧空间不同，$f_{!}$ 的导出函子具有病态行为；尽管如此，仍可直接定义从 $D^{+}(Y)$ 到 $D^{+}(X)$ 的合理的“具有固有支集的正像”函子。为此，把 $f$ 分解为开浸入后接固有态射：$f=\bar f j$。所求函子 $Rf_{!}$ 就定义为“零延拓”$j_{!}$ 与函子 $R\bar f_{\ast}$ 的复合，后者由 $\bar f$ 下的正像导出。
+
+这些“具有固有支集的正像”函子 $Rf_{!}$，只有在验证了一套“协变反变形式体系”之后才便于使用；对于复合 $f=gh$，这套形式体系包含公式
+\[
+Rf_{!}=Rg_{!}Rh_{!}
+\]
+，而这最宜用余纤维化范畴的语言表述。对于“零延拓”和固有态射下的\pageoriginale 正像，分别已有这样的形式体系，问题在于将它们粘合。为避免以后陷入无谓的计算，本\S 拟列出完成这一粘合所需的初等验证。我们将在比实际需要稍抽象一些的框架下进行，希望结果以后还能用到。
+
+上面概述的 $Rf_{!}$ 的构造要求态射 $f$ 能分解为开浸入后接固有态射。依照 \textsc{Hartshorne} \cite[III 8 第~189 页]{sga4.exp.XVII.bib.RD}，在第 \hyperref[XVII.sec2]{2} 号中引入适当的可紧化态射概念。
+
+\subsection{可紧化态射}\etiquette[3.2]{XVII.subsec3.2}
+
+\begin{enonce*}{定义 3.2.1}\etiquette[3.2.1]{XVII.def3.2.1}
+若从 $S$-概形 $X$ 到拟紧拟分离的 $S$-概形 $Y$ 的态射 $f$，存在一个在 $S$ 上固有的 $S$-概形 $P$，以及 $f$ 的如下分解：先由分离拟有限态射 $j$ 从 $X$ 映到 $\fprod{P}{Y}{S}$，再由 $\fprod{P}{Y}{S}$ 投影到 $Y$，则称该态射是\emph{$S$-可紧化的}（compactifiable）：
+\[
+\xymatrix{
+                                & &  &\fprod{P}{Y}{S} \ar[rd]\ar[ld]& \\
+X \ar[rr]^(.7){f} \ar[rrru]^{j}\ar[rrrd]& &Y \ar[rd]&                & P\ar[ld]\\
+                                & &  &       S        &.
+}
+\]
+\end{enonce*}
+
+当 $S=Y$ 时，简称为可紧化态射。
+
+\begin{enonce*}{命题 3.2.2}\etiquette[3.2.2]{XVII.prop3.2.2}
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item $S$-可紧化态射\pageoriginale 是分离且有限型的。
+
+\item 若 $Y$ 拟紧且拟分离，则靶为 $Y$ 的分离拟有限态射是\sisi{}{$S$-}可紧化的。
+
+\item 两个 $S$-可紧化态射的复合仍为 $S$-可紧化的。
+
+\item 设有拟紧拟分离 $S$-概形的图
+\[
+\xymatrix{
+\fprod{X}{Y'}{Y} \ar[d]_{f'} \ar[r] & X \ar[d]^{f}      \\
+Y' \ar[r]& Y\rlap{.}
+}
+\]
+若 $f$ 为 $S$-可紧化的，则 $f'$ 为 $S$-可紧化的。
+
+\item 设 $g$ 是 $S$-可紧化态射；\nde{只需假设 $g$ 是 $S$-概形之间的拟紧拟分离态射。}要使复合态射 $g\circ f$ 为 $S$-可紧化的，必须使 $\sisi{h}{f}$ 也如此。
+\end{enumerate}
+\end{enonce*}
+
+断言 (i)、(ii) 和 (iv) 是立即可见的。为证明 (iii) 和 (v)，考虑复合 $f=gh$，其中 $g$ 是\sisi{}{$S$-}可紧化的。
+
+设 $gh$ 是\sisi{}{$S$-}可紧化的，于是得到图
+\[
+\xymatrix{
+                     & \fprod{P}{Y}{S} \ar[d] \ar[r]^{v} & \fprod{P}{Z}{S}\ar[d] \\  X  \ar[ru]^{u} \ar[r]^{h}   & Y                \ar[r]^{g} &    Z\rlap{.}
+}
+\]
+复合 $vu$ 拟有限；因此 $u$ 拟有限，(v) 得证。
+
+若 $h$ 可紧化，则有图
+\[
+\xymatrix{
+  &&                & &\sisi{Q\times P \times Z}{\fprod{\fprod{Q}{P}{S}}{Z}{S}} \ar[d]&\\
+  &&\fprod{Q}{Y}{S} \ar[d]\ar[rru]\ar[rdd]& & \fprod{P}{Z}{S} \ar[d]\ar[rdd] & \\
+X \ar[rrrdd]\ar[rru] \ar[rr]^{h}&& Y \sisi{\ar[rru]}{\ar[rru]|(.2)\hole} \ar[rdd]\sisi{\ar[rr]^{g}}{\ar[rr]^g|(.25)\hole}            & & Z\ar[ldd]                & \\
+  &&                &Q\ar[d]&                  &P\ar[lld] \\
+  &&                &S&                   &,
+}
+\]
+并且\pageoriginale $f=fh$ 通过一个映到 $\fprod{(\fprod{Q}{P}{S})}{Z}{S}$ 的分离拟有限态射分解。
+
+Nagata 在 \sisi{[5]}{\cite{sga4.exp.XVII.bib.Na}} 中断言，分离整 Noether 概形之间的每个有限型态射都可紧化。\nde{更一般地，靶拟紧且拟分离的每个有限型分离态射都可紧化。见 \nderef{XVII.ndeConrad}。}撰稿人承认自己未能理解这一证明。
+
+现在固定概形 $S$，以 $(S)$ 表示 $S$-概形范畴的子范畴，其对象为拟紧拟分离的 $S$-概形，箭头为 $S$-可紧化的 $S$-态射。\nde{由紧化定理，也可以在（绝对）概形范畴的如下子范畴中工作：其对象为拟紧拟分离概形，箭头为有限型分离态射（\ie 可紧化态射）。注意，可紧化态射在复合下的稳定性等价于紧化定理的一般形式。}
+
+\begin{enonce*}{命题 3.2.3}\etiquette[3.2.3]{XVII.prop3.2.3}
+在范畴 $(S)$ 中：
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item 开浸入（\resp 固有态射）定义 $(S)$ 的子范畴 $(S,i)$（\resp $(S,p)$），其对象与 $(S)$ 相同。
+
+\item $(S,p)$ 中存在纤维积，且它们也是 $(S)$ 中的纤维积。
+
+\item 每个态射 $f$ 都是固有态射 $p$ 与开浸入的复合 $f=pj$。
+\end{enumerate}
+\end{enonce*}
+
+由\pageoriginale \hyperref[XVII.prop3.2.2]{3.2.2} (iii)、(iv) 和 (v)，$(S)$ 中存在纤维积，且它们也是所有概形组成的范畴中的纤维积。由于两个在 $Y$ 上固有的概形的纤维积 $X=\fprod{X_1}{X_2}{Y}$ 仍在 $Y$ 上固有，并且一个概形在 $X$ 上固有，当且仅当它在 $X_1$ 和 $X_2$ 上都固有，条件 (ii) 得到满足。
+
+若 $f$ 是 $(S)$ 的态射，则由假设，它在 $(S)$ 中有分解 $f=pj'$，其中 $p$ 固有，$j\sisi{}{'}$ 分离且拟有限。由 \EGA IV 18.12.13，$j'$ 有分解 $j'=qj$，其中 $q$ 有限，$j$ 为开浸入；此外，由 \hyperref[XVII.prop3.2.2]{3.2.2} (ii)，$q$ 和 $j$ 属于 $(S)$。于是有 $f=(pq)j$，这就证明了 (iii)。断言 (i) 由 \hyperref[XVII.prop3.2.2]{3.2.2} (iii) 得出。
+
+\setcounter{subsubsection}{3}
+\subsubsection{}\etiquette[3.2.4]{XVII.subsubsec3.2.4}
+本\S 余下部分中，设给定一个范畴 $(S)$，赋有两个子范畴 $(S,i)$ 和 $(S,p)$，使得
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item $\Ob(S)=\Ob(S,i)=\Ob(S,p)$；
+
+\item $(S,p)$ 中存在纤维积，且它们也是 $(S)$ 中的纤维积；
+
+\item $\forall f\in \Fl(S)$，$\exists p\in \Fl(S,p)$，$\exists
+j\in \Fl(S,i)$，$f=pj$。
+\end{enumerate}
+
+$(S,i)$（\resp $(S,p)$）的箭头将称为开浸入（\resp 固有态射）。
+
+\begin{enonce*}{定义 3.2.5}\etiquette[3.2.5]{XVII.def3.2.5}
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item $(S)$ 的态射 $f$（\resp 一对可复合态射 $(f,g)$，\resp 三个可复合态射 $(f,g,h)$）的\emph{紧化}，是指水平箭头为开浸入、斜箭头为固有态射的交换图 \eqhyperref[XVII.eq3.2.5.1]{3.2.5.1}（\resp \eqhyperref[XVII.eq3.2.5.2]{3.2.5.2}，\resp \eqhyperref[XVII.eq3.2.5.3]{3.2.5.3}）。
+
+\item \emph{紧化之间的态射}\pageoriginale 是图 \eqhyperref[XVII.eq3.2.5.1]{3.2.5.1}（\resp\ldots）之间的态射，它在第 1\sisi{个}{个}竖列上为恒等态射，并且在每个顶点处都是固有态射：
+$$
+\etiquette[3.2.5.1]{XVII.eq3.2.5.1}
+\etiquette[3.2.5.2]{XVII.eq3.2.5.2}
+\etiquette[3.2.5.3]{XVII.eq3.2.5.3}
+\begin{gathered}[b]
+\xymatrix{
+Y        \ar[d]_{f} \ar@{^{(}->}[r]^{i}                & \bar{Y} \ar[ld]^{\bar{f}}\\
+X      & &}\\
+\hyperref[XVII.eq3.2.5.1]{(3.2.5.1)}
+\end{gathered}\qquad
+\begin{gathered}[b]
+\xymatrix{
+Z        \ar@{^{(}->}[r]^{j} \sisi{\ar[d]}{\ar[d]_g}& \bar{Z}\ar@{^{(}->}[r]^{j'}\sisi{\ar@{-}[ld]^{\bar{g}}}{\ar[ld]^{\bar{g}}}
+&\bar{\bar{Z}} \ar[ld]^{\bar{\bar{g}}}\\
+Y \ar[d]_{f}\ar@{^{(}->}[r]^{i} & {\bar{Y}} \ar[ld]^{\bar{f}}&\\
+X      & &}\\
+\hyperref[XVII.eq3.2.5.2]{(3.2.5.2)}
+\end{gathered}\qquad
+\begin{gathered}[b]
+\xymatrix@=3em{
+\bigdot \ar@{^{(}->}[r]_(.4){\sisi{h}{k}} \ar[d]_{h}& \bigdot \ar@{^{(}->}[r]_(.4){\sisi{h}{k}'}\ar[ld]^(.4){\bar{h}} & \bigdot
+\ar@{^{(}->}[r]_(.4){\sisi{h}{k}''} \ar[ld]^(.4){\bar{\bar{h}}}&\bigdot \ar[ld]^(.4){\bar{\bar{\bar{h}}}}\\
+\bigdot \ar@{^{(}->}[r]_(.4){j}\ar[d]_{g} & \bigdot \ar@{^{(}->}[r]_(.4){j'}
+\ar[ld]^(.4){\bar{g}}& \bigdot \ar[ld]^(.4){\bar{\bar{g}}}\\
+\bigdot
+\ar@{^{(}->}[r]_(.4){i} \ar[d]_{f}&\bigdot \ar[ld]^(.4){\bar{f}}\\
+\bigdot}\\
+\hyperref[XVII.eq3.2.5.3]{(3.2.5.3)}
+\end{gathered}
+$$
+\end{enumerate}
+\end{enonce*}
+
+\begin{enonce*}{命题 3.2.6}\etiquette[3.2.6]{XVII.prop3.2.6}
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item 每个态射（\resp 每对可复合态射 $(f,g)$，\resp 每组三个可复合态射 $(f,g,h)$）都存在紧化。
+
+\item $f$ 的紧化范畴是左滤过的。\nde{“左滤过”意为“余滤过”（\hyperrefext[I][I.def2.7]{2.7}）。关于 \hyperref[XVII.prop3.2.6]{3.2.6} 的证明中的公理 $L_1$ 和 $L_2$，\cf \hyperrefext[V][V.par8.1.1.1]{8.1.1.1}。}
+
+\item 若图 $\sisi{(3.2.4.2)}{\eqhyperref[XVII.eq3.2.5.2]{3.2.5.2}}_i$ $(i=1,2)$ 是 $(f,g)$ 的紧化，则存在 $(f,g)$ 的一个紧化 $\sisi{(3.2.4.2)}{\eqhyperref[XVII.eq3.2.5.2]{3.2.5.2}}_3$，以及从 $\sisi{(3.2.4.2)}{\eqhyperref[XVII.eq3.2.5.2]{3.2.5.2}}_3$ 到各紧化 $\sisi{(3.2.4.2)}{\eqhyperref[XVII.eq3.2.5.2]{3.2.5.2}}_i$ 的紧化态射。
+\end{enumerate}
+\end{enonce*}
+
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item 一个态射的情形正是 \hyperref[XVII.subsubsec3.2.4]{3.2.4} (iii)。处理三个态射的情形；沿用 \eqhyperref[XVII.eq3.2.5.3]{3.2.5.3} 的记号，只需依次构造 $f$、$g$ 和 $h$ 的紧化，$i\bar{g}$ 和 $j\bar{h}$ 的紧化，最后构造 $j'\bar{\bar{h}}$ 的紧化。
+
+\item 设\pageoriginale $\eqhyperref[XVII.eq3.2.5.1]{3.2.5.1}_1$ 和 $\eqhyperref[XVII.eq3.2.5.1]{3.2.5.1}_2$ 是 $f$ 的两个紧化。从 $\fprod{\bar{Y}_1}{\bar{Y}_2}{S}$ 到 $X$ 的投影 $\sisi{\rho}{p}$ 固有，而 $Y$ 通过 $(i_1,i_2)$ 映到它上面；根据（\hyperref[XVII.subsubsec3.2.4]{3.2.4} (iii)），后者可紧化为 $(i_1,i_2)=qj$。紧化 $f=(p\sisi{\cdot}{\circ} q)j$ 控制 $\sisi{(3.2.4.1)}{\eqhyperref[XVII.eq3.2.5.1]{3.2.5.1}}_1$ 和 $\sisi{(3.2.4.1)}{\eqhyperref[XVII.eq3.2.5.1]{3.2.5.1}}_2$。
+
+若 $r$ 和 $s$ 是从 $\sisi{(3.2.4.1)}{\eqhyperref[XVII.eq3.2.5.1]{3.2.5.1}}_1$ 到 $\sisi{(3.2.4.1)}{\eqhyperref[XVII.eq3.2.5.1]{3.2.5.1}}_2$ 的两个态射，则箭头对 $\bar{Y}_{1} \overset{r}{\underset{s}\rightrightarrows} \bar{Y}_{2}$ 的核 $K$ 通过固有态射映到 $\bar{Y}_1$，而 $i_1$ 通过 $K$ 分解：写成 $i_1=ki$。若 $i=pi_3$ 是 $i$ 的紧化，则紧化 $f=(\bar{f}_1kp)i_3$ 的存在性表明公理 $L_2$ 得到满足。
+
+\item 对从 $\sisi{(3.2.4.2)}{\eqhyperref[XVII.eq3.2.5.2]{3.2.5.2}}_i$ $(i=1,2)$ 导出的 $f$ 和 $g$ 的紧化，应用滤过范畴的公理 $L_1$。由此得到 $\bar{Y}_3$ 和 $\bar{Z}_3$，给出交换图 $\eqhyperref[XVII.eq3.2.5.1]{3.2.5.1}_i$ $(i=1,2)$：
+\[
+\xymatrix{
+&         &\bar{Z}_i \ar[d] \ar@{^{(}->}[r]& \bar{\bar{Z}}_i\ar[d]\\
+\bar{Z}_3 \ar[rru] \ar[d]^{\bar{g}_3} &&Y   \ar@{^{(}->}[r]      & \bar{Y}_i\\
+Y \ar@{=}[rru]\ar[r]_{i_3} & \bar{Y}_3 \ar[rru]&&\sisi{(3.2.5.1)_i}{},
+}
+\]
+只需再找到通过 $\bar{\bar{Z}}_3$ 的 $i_3\bar{g}_3$ 的紧化，使得 $\bar{\bar{Z}}_3$ 能通过固有态射映到 $\bar{\bar{Z}}_i$，从而给出交换立方体 $(i=1,2)$。若 $i_3\bar{g}_3$ 的紧化之间的某个态射的靶具有这一性质，则其源也具有这一性质；由 (ii)，只需分别考虑 $i=1$ 和 $i=2$ 的情形。设\pageoriginale $T$ 为 $\bar{Y}_3$ 和 $\bar{\bar{Z}}_i$ 在 $\bar{Y}_i$ 上的纤维积：于是 $T$ 出现在一个与所求立方体类似的交换立方体中，只是从 $\bar{Z}_3$ 到 $T$ 的箭头 $k$ 可能不是开浸入。写成 $k=pj$（$p$ 固有，$j$ 为开浸入），并用 $p$ 的源 $\bar{\bar{Z}}_3$ 代替 $T$，便得到所求立方体。
+\end{enumerate}
+
+\begin{enonce*}{注 3.2.7}\etiquette[3.2.7]{XVII.rem3.2.7}
+在可紧化态射的定义 \hyperref[XVII.def3.2.1]{3.2.1} 中，即使去掉 $Y$ 拟紧且拟分离的要求，改为要求 $j$ 是拟紧开浸入而不只是拟有限态射，命题 \hyperref[XVII.prop3.2.3]{3.2.3} 仍然成立。
+\end{enonce*}
+
+\subsection{粘合}\etiquette[3.3]{XVII.subsec3.3}
+
+回忆，我们假设 \hyperref[XVII.subsubsec3.2.4]{3.2.4} 中的条件得到满足。
+
+\subsubsection{}\etiquette[3.3.1]{XVII.subsubsec3.3.1}
+设给定：
+\begin{itemize}
+\item[$\alpha$)] 对每个 $X\in \Ob (S)$，给定一个范畴 $F(X)$，
+
+\item[$\beta$)] 给定一个 $(S,i)$-余纤维化范畴 $F_i$ 及一个 $(S,p)$-余纤维化范畴 $F_{p}$，
+
+\item[$\gamma$)] 对每个 $X\in \Ob(S)$，给定 $F(X)$、$(F_{i})_X$ 和 $(F_{p})_X$ 之间的同构，
+
+\item[$\delta$)] 给定 $F_{i}$ 的一个正规化劈分以及 $F_{p}$ 的一个正规化劈分。
+\end{itemize}
+
+由（\SGA 1 VI），这与改为给定 $\alpha$) 及以下资料“是一回事”：
+\begin{itemize}
+\item[(i)] 对每个固有态射 $p:X\rightarrow Y$，给定函子 $p_{\ast}:F(X)\rightarrow F(Y)$，
+
+\item[(ii)] 对每对可复合的固有态射 $(p,q)$，给定函子同构\pageoriginale $c_{p,q}:p_{\ast}q_{\ast}\leftrightarrow (pq)_{\ast}$，
+
+\item[(i\sisi{}{'}) 及 (ii\sisi{)'}{')},] 对 $(S,i)$ 给定类似的资料，
+\end{itemize}
+这些资料满足以下条件：
+\begin{itemize}
+\item[(a)] 若 $p$ 为恒等态射，则 $p_{\ast}$、$c_{p,q}$ 和 $c_{q,p}$ 都为恒等态射，
+
+\item[(b)] 对任意三个可复合的固有态射，有
+\[
+c_{p,qr}\circ (p_{\ast}\ast c_{q,r})=c_{pq,r}\circ (c_{p,q}\ast
+r_{\ast}){\quoi},
+\]
+
+\item[(a\sisi{)'}{')} 及 (b\sisi{)'}{')},] 对 $(S,p)$ 有类似的条件。
+\end{itemize}
+
+此外，假设\emph{给定}：
+\begin{itemize}
+\item[(iii)] 对每个交换图 $D$
+\[
+\vcenter{
+\xymatrix{
+X \ar[r]^{j'} \ar[d]^{p'}& Y\ar[d]^{p} \\
+Z \ar[r]_{j}             &           T
+}}\quad j,j' \in \Fl(S,i)\text{; }
+  p,p' \in \Fl(S,p),
+\]
+给定函子同构 $d(D):p_{\ast}j'_{\ast}\leftrightarrow
+j_{\ast}p'_{\ast}$。
+\end{itemize}
+
+\begin{enonce*}{命题 3.3.2}\etiquette[3.3.2]{XVII.prop3.3.2}
+若资料 {\rm (i) (ii) ${\rm (i')}$ ${\rm (ii')}$ (iii)} 满足条件 {\rm (a) (b) ${\rm (a')}$ ${\rm (b')}$} 以及下面陈述的 {\rm(c)} 和 ${\rm (c')}$，则存在一个且“本质上”唯一的 $S$ 上余纤维化的范畴 $F$，赋有同构 $\fprod{F}{(S,i)}{S}=F_i$ 和 $\fprod{F}{(S,p)}{S}=F_p$，与资料 \hyperref[XVII.subsubsec3.3.1]{3.3.1} $\gamma$) 相容，并使 {\rm(iii)} 中的同构 $d(D)$ 成为复合同构 $j_{\ast}p'_{\ast}=(jp')_{\ast}=(pj')_{\ast}=p_{\ast}j'_{\ast}$。
+\end{enonce*}
+
+\begin{itemize}
+\item[(c)] 对于以下类型的每个交换图
+\[
+\xymatrix{
+X_1 \ar@{^{(}->}[r]^{i} \ar[d]^{p_1}& X_2 \ar@{^{(}->}[r]^{i'}
+\ar[d]^{p_2}& X_3 \ar[d]^{p_3}\\
+Y_1 \ar@{^{(}->}[r]^{j}& Y_2 \ar@{^{(}->}[r]^{j'}& Y_3,\\
+}
+\]
+，其中\pageoriginale 水平箭头是开浸入，竖直箭头是固有态射，由 (iii) 中的同构 $d$ 构成的以下三角形交换：
+\[
+\xymatrix@R=1cm{
+p_{3{\ast}} i'_{\ast} i_{\ast} \ar[rr] \ar@{-}[rd]&  & j'_{\ast}j_{\ast}p_{1{\ast}}\ar@{-}[ld]\\
+                               &j'_{\ast}p_{2{\ast}}
+                                i_{\ast}&.
+}
+\]
+
+\item[(c')] 对于以下类型的每个交换图
+\[
+\xymatrix{
+X_1  \ar[r]^{p} \ar[d]^{i_1}& X_2  \ar[r]^{p'} \ar[d]^{i_2}& X_3 \ar[d]^{i_3}          \\
+Y_1         \ar[r]^{q} & Y_2  \ar[r]^{q'} & Y_3\rlap{,}
+}
+\]
+，其中水平箭头是固有态射，竖直箭头是开浸入，由 (iii) 中的同构 $d$ 构成的以下三角形交换：
+\[
+\xymatrix{
+i_{3{\ast}} p'_{\ast} p_{\ast} \ar[rr] \ar@{-}[rd]&    &q'_{\ast} q_{\ast}
+i_{1{\ast}} \\
+&q'_{\ast} i_{2{\ast}} p_{\ast}  \ar@{-}[ru]&.
+}
+\]
+\end{itemize}
+
+\setcounter{subsubsection}{2}
+\paragraph{$f_{\ast}$ 的定义}\etiquette[3.3.2.1]{XVII.par3.3.2.1}\pageoriginale
+设 $f$ 是从 $Y$ 到 $X$ 的态射。$f$ 的每个紧化，其图为 \sisi{(\hyperref[XVII.def3.2.5]{3.2.5} (i))}{\eqhyperref[XVII.eq3.2.5.1]{3.2.5.1}}，都定义一个从 $F(Y)$ 到 $F(X)$ 的复合函子 $\bar{f}_{\ast}i_{\ast}$。紧化之间的一个态射定义交换图
+$$\etiquette[3.3.2.2]{XVII.eq3.3.2.2}
+\vcenter{
+\xymatrix{
+Y  \ar@{^{(}->}[r]^{i_1} \ar@{=}[d]& \bar{Y}_1  \sisi{\ar[d]}{\ar[d]^p}\\
+Y  \ar@{^{(}->}[r]^{i_2} \ar[d]        & \bar{Y}_2 \ar[ld]^{\bar{f}_2}\\
+X                         &.
+}}\leqno{(3.3.2.2)}
+$$
+因此资料 (iii) 给出一个同构
+\[
+\bar{f}_{2{\ast}} i_{2{\ast}}=\bar{f}_{2\ast} \circ
+(i_{2\ast}\circ 1_{Y{\ast}})=\bar{f}_{2{\ast}}\circ
+(p_{\ast}\circ i_{1{\ast}})=\bar{f}_{1{\ast}}\circ
+i_{1{\ast}}{\quoi}.
+\]
+公理 ${\rm(c')}$ 还保证：与紧化态射的复合相伴的同构，就是与每个紧化态射相伴的同构的复合。由于紧化态射的范畴是余滤过的（\hyperref[XVII.prop3.2.6]{3.2.6} (ii)），由此得到与 $f$ 的各个紧化相伴的函子之间的传递同构系。选定其中一个，就定义了函子 $f_{\ast}$。
+
+\setcounter{paragraph}{2}
+\paragraph{传递同态}\etiquette[3.3.2.3]{XVII.par3.3.2.3}
+
+每对可复合态射 $(f,g)$ 的紧化（图 \eqhyperref[XVII.eq3.2.5.2]{3.2.5.2}）都定义 $f$ 的一个紧化、$g$ 的一个紧化、$f\circ g=(\bar{f}\bar{\bar{g}})(j'j)$ 的一个紧化，以及同构 $c_{f,g}:(fg)_{\ast}\isomto f_{\ast}g_{\ast}$，它是以下同构的复合：
+\[
+(fg)_{\ast}=(\bar{g}\,\bar{\bar{g}})_{\ast}(j'j)_{\ast}=\bar{f}_{\ast}(\bar{\bar{g}}_{\ast}j'_{\ast})j_{\ast}=\bar{f}_{\ast}(i_{\ast}\bar{g}_{\ast})j_{\ast}=(\bar{f}_{\ast}i_{\ast})(\bar{g}_{\ast}j_{\ast})=f_{\ast}g_{\ast}
+\]
+（其中\pageoriginale 中间的同构来自 (iii)）。
+
+证明这个同构不依赖为 $(f,g)$ 选择的紧化。由 \hyperref[XVII.prop3.2.6]{3.2.6} (iii)，只需比较从两个紧化 $\sisi{(3.2.4.2)}{\eqhyperref[XVII.eq3.2.5.2]{3.2.5.2}}_i$ $(i=1,2)$ 得到的同构 $c_{f,g}$，并假设存在从第一个紧化到第二个紧化的紧化态射。这些态射中的箭头记为 $p$。
+
+考虑以下函子同构的图。为便于阅读，省略了 ${\ast}$。
+\[
+\xymatrix{
+\bar{f}_2 \bar{\bar{g}}_2j'_2j_2\sisi{}{\ar@{}[rrd]|{(1)}} \ar@{-}[rr] \ar@{-}[ddd] \ar@{-}[rd]& &
+\bar{f}_2\bar{\bar{g}}_2pj'_1j_1
+\ar@{-}[rr] \ar@{-}[ld] \ar@{-}[rd]& &\bar{f}_1\bar{\bar{g}}_1j'_1j_1 \ar@{-}[ddd]\sisi{}{\ar@{}[lld]|{(2)}}\\
+ \ar@{}[ddr]|{(3)} & \bar{f}_2\bar{\bar{g}}_2j'_2pj_1\ar@{-}[ru] \ar@{-}[dd]& &
+\bar{f}_2p\bar{\bar{g}}_1j'_1j_1 \ar@{-}[dd]\ar@{-}[ru]& \ar@{}[ldd]|{(5)}\\
+ &  &  (4)  & &\\
+\bar{f}_2i_2\bar{g}_2j_2 \ar@{-}[r] & \bar{f}_2i_2\bar{g}_2pj_1 & &
+\bar{f}_2pi_1\bar{g}_1j_1 \ar@{-}[r]&  \bar{f}_1i_1\bar{g}_1j_1\\
+& &  \bar{f}_2i_21_Y\bar{g}_1j_1 \ar@{-}[ru]\ar@{-}[lu]& & .\\
+}
+\]
+
+\begin{enumerate}
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item 沿第 1\sisi{行}{行}的复合同构\pageoriginale，就是 $(fg)_{\ast}$ 的两个定义之间的同构 \hyperref[XVII.par3.3.2.1]{3.3.2.1}。
+
+\item 沿最后一行的复合同构，就是 $f_{\ast}g_{\ast}$ 的两个定义之间的同构 \hyperref[XVII.par3.3.2.1]{3.3.2.1}。
+
+\item 两侧最外面的竖直同构，就是从两个紧化之一导出的 $(fg)_{\ast}$ 与 $f_{\ast}g_{\ast}$ 之间的同构 $c_{f,g}$。
+\end{enumerate}
+因此，问题在于证明此图的外边界交换。一个交换的函子图，在各函子都与同一函子复合后仍然交换。考虑到这一点，(\sisi{i}{1}) 的交换性可由对图
+\[
+\xymatrix{
+Z  \ar@{^{(}->}[r]^{j_1} \ar@{=}[d]& \bar{Z}_1  \ar@{^{(}->}[r]^{j'_1} \ar[d]& \bar{\bar{Z}}_1 \ar[d]\\
+Z  \ar@{^{(}->}[r]^{j_2} & \bar{Z}_2  \ar@{^{(}->}[r]^{j'_2} & \bar{\bar{Z}}_2\rlap{.}
+}
+\]
+应用 (c) 得出。(3) 和 (5) 的交换性是显然的；(2) 本质上涉及固有态射，其交换性也是显然的。只需考虑六边形 (4)。
+
+考虑以下交换立方体
+\[
+\xymatrix{
+                              &**[r]\bar{Z}_2  \ar@{^{(}->}[rrr]^{ j'_2}
+                              \ar[dd]^(.35){\bar{g}_2}|\hole &    &   &
+                              **[r]\bar{\bar{Z}}_2 \ar[dd]^{\bar{\bar{g}}_2}\\
+  \bar{Z}_1\sisi{}{\ar@{-->}[rd]}  \ar@{^{(}->}[rrr]^(.65){ j'_1} \ar[ru] \ar[dd]^{\bar{g}_1}   &           &               &
+                              \bar{\bar{Z}}_1 \ar[ru]\ar@{-->}[rd] \ar[dd]^(.35){\bar{\bar{g}}_1}|\hole&\\
+& **[r] Y\ar[rrr]_{i_2}  \ar@{^{(}->}[rrr]  & && **[r]\bar{Y}_2 \\
+Y  \ar@{^{(}->}[rrr]_{i_1}   \ar@{=}[ru]  &           &               &
+                              \bar{Y}_1\ar[ru]  &.\\
+}
+\]
+
+从\pageoriginale $\bar{Z}_1$ 沿立方体的棱走到 $\bar{Y}_2$，共有六种走法，每种都与另外两种“相邻”；与两条相邻路径（\ie 只隔着一个面的路径）相伴的复合函子之间有一个同构，而 (4) 的交换性将由所得六边形的交换性得出。
+
+这类图的意义在于：一条棱表示一个函子，一个面表示复合函子之间的同构，一个体表示相容性条件（即其边界上各面之间的相容性）。我们沿“平面”$\bar{Z}_1 \bar{\bar{Z}}_1 Y \bar{Y}_2$ 把立方体分解成两个三棱柱，以归结到假设 ${\rm(c')}$。
+
+更确切地，把六边形补成以下同构图（为便于阅读，省略了 ${\ast}$）：
+\[
+\xymatrix{
+                   & & \bar{\bar{g}}_2 j'_2p      & &   \\
+i_2\bar{g}_2 p  \ar@{-}[rru] \ar@{-}[rd]\ar@{-}[dd] &   &   &&   \bar{\bar{g}}_2 p j'_1 \ar@{-}[ld]\ar[dd]\ar@{-}[llu]\\
+ & i_2(g_2p) \ar@{-}[rr]&      & (\bar{\bar{g}}_2p)j'_1 & \\
+i_21_{Y}\bar{g}_1 \ar@{-}[ru] \ar@{-}[rrd]&      &&   &
+  p\bar{\bar{g}}_1 j'_1 \ar@{-}[lu] \ar@{-}[lld]\\
+&  &  pi_1 \bar{g}_1  & &
+}
+\]
+这些\pageoriginale 三角形显然交换，而五边形由 ${\rm(c')}$ 交换。
+
+\paragraph{上闭链条件}\etiquette[3.3.2.4]{XVII.par3.3.2.4}
+
+验证在 \hyperref[XVII.par3.3.2.3]{3.3.2.3} 中构造的同构 $c_{f,g}$ 对于任意三个可复合态射 $(f,g,h)$ 满足上闭链条件（cocycle condition）。引入 $(f,g,h)$ 的一个紧化，其图为 \sisi{(3.2.4.3)}{\eqhyperref[XVII.eq3.2.5.3]{3.2.5.3}}，并考虑以下函子同构的图：
+\[
+\sisi{\xymatrix{
+\bar{f} i \bar{g} j \bar{h} k \ar@{-}[rr] \ar@{-}[dd]&
+&\bar{f}\bar{\bar{g}} j' j\bar{h} k \ar@{-}[dd]\\
+ & \bar{f}\bar{\bar{g}}j' \bar{\bar{h}}
+k' k \ar@{-}[rd]&\\
+\bar{f} i \bar{g}\bar{\bar{h}}k' k \ar@{-}[ru] \ar@{-}[rr]&    &
+\bar{f}\bar{\bar{g}}\bar{\bar{h}}k'' k' k.
+}}{\xymatrix{
+\bar{f} i \bar{g} j \bar{h} k \ar@{-}[rr]^{c_{f,g}*h_*} \ar@{-}[dd]_{f_**c_{g,h}}&&
+\bar{f}\bar{\bar{g}} j' j\bar{h} k \ar@{-}[dd]\ar@{-}[rddd]^{c_{fg,h}}\\
+&\\
+\bar{f} i \bar{g}\bar{\bar{h}}k' k \ar@{-}[rrrd]_{c_{f,gh}} \ar@{-}[rr] && \bar{f}\bar{\bar{g}}j' \bar{\bar{h}}
+k' k \ar@{-}[rd]\\
+& &   & \bar{f}\bar{\bar{g}}\bar{\bar{\bar{h}}}k'' k' k.
+}}
+\]
+方块的交换性显然，而三角形的交换性由 (c) 和 ${\rm(c')}$ 得出。所要证明的正是外边界的交换性，因而这就完成了 \hyperref[XVII.prop3.3.2]{3.3.2} 的证明。
+
+\subsubsection{}\etiquette[3.3.3]{XVII.subsubsec3.3.3}
+
+设在 $(S,i)$ 和 $(S,p)$ 上分别给定赋有正规化劈分的纤维化范畴 $F_i$ 和 $F_p$，并假设对于每个 $X\in \Ob S$，$F_i$ 和 $F_p$ 有相同的纤维 $F(X)$。
+
+根据 \SGA 1 VI，这与改为给定以下资料“是一回事”：
+\begin{itemize}
+\item[(i bis)] 对每个固有态射 $p:X\rightarrow Y$，给定函子 $p^{\ast}:F(Y)\rightarrow F(X)$，
+
+\item[(ii bis)] 对每对可复合的固有态射 $(p,q)$，给定函子同构 $c_{p,q}:q^{\ast}p^{\ast}\leftrightarrow (pq)^{\ast}$，
+
+\item[(${\rm i'}$ bis)] 及\pageoriginale (${\rm ii'}$ bis)，对 $(S,i)$ 给定类似的资料；这些资料满足与 \hyperref[XVII.subsubsec3.3.1]{3.3.1} (a) (b) ${\rm (a')}$ ${\rm (b')}$ 对偶的条件 (a bis) (b bis) (${\rm a'}$ bis) (${\rm b'}$ bis)。
+
+此外，假设\emph{给定}：
+
+\item[(iii bis)] 对每个交换图 $D$
+\[
+\vcenter{
+\xymatrix{
+X \ar[r]^{j'} \ar[d]^{p'}&  Y\ar[d]^{p} \\
+Z \ar[r]^{j}& T
+}}\quad j,j' \in \Fl(S,i)\text{; }p\sisi{}{,} p' \in \Fl(S,p)
+\]
+给定函子同构 $d(D):{j'}^{\ast}p^{\ast}\leftrightarrow
+{p'}^{\ast}j^{\ast}$。
+\end{itemize}
+
+与 \hyperref[XVII.prop3.3.2]{3.3.2} (c) 和 ${\rm (c')}$ 对偶的条件 (c bis) 和 (${\rm c'}$ bis) 的陈述留给读者。
+
+与前面平行的论证即可证明下面的命题。
+
+\begin{enonce*}{命题 3.3.4}\etiquette[3.3.4]{XVII.prop3.3.4}
+若资料 {\rm (i bis) (ii bis) (${\rm i'}$ bis) (${\rm ii'}$ bis) (iii bis)} 满足条件 {\rm (a bis) (b bis) (${\rm
+a'}$ bis) (${\rm b'}$ bis) (c bis) (${\rm c'}$ bis)}，则存在一个且本质上唯一的 $S$ 上余纤维化的范畴 $F$，赋有同构 $\fprod{F}{(S,i)}{S}=F_i$、$\fprod{F}{(S,p)}{S}=F_p$；这些同构与等同 $F_{iX}=F_{pX}$ $(X\in \Ob S)$ 相容，并使 {\rm (iii bis)} 中的同构 $d(D)$ 成为复合同构 ${p'}^{\ast}j^{\ast}=(jp')^{\ast}=(pj')^{\ast}={j'}^{\ast}p^{\ast}$。
+\end{enonce*}
+
+然而应注意，\hyperref[XVII.prop3.3.4]{3.3.4} 并不与 \hyperref[XVII.prop3.3.2]{3.3.2} 对偶，因为对 $(S,i)$ 和 $(S,p)$ 所加的假设并不自对偶。
+

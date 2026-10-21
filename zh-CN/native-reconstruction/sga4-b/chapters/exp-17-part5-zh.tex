@@ -1,0 +1,1004 @@
+\section[函子 $f_{!}$]{函子 $f_{!}$}\etiquette[6]{XVII.sec6}\pageoriginale
+
+我们将直接构造 \hyperref[XVII.var5.1.11]{5.1.11} 的函子 $f_{!}$。
+然后利用这一构造，为有限表现的拟有限平坦态射定义“迹态射”
+（\hyperref[XVII.thm6.2.3]{6.2.3}）。
+
+\subsection[函子 $f_{!}$ 的新构造]{函子 $f_{!}$ 的新构造}\etiquette[6.1]{XVII.subsec6.1}
+
+设 $f:X\rightarrow S$ 是局部有限型态射。$X$ 的一个子集 $P$，
+若是 $X$ 的某个在 $S$ 上固有的子概形的像，则称它在 $S$ 上\emph{固有}。
+
+\begin{enonce*}{命题 6.1.1}\etiquette[6.1.1]{XVII.prop6.1.1}
+设 $f:X\rightarrow S$ 是局部有限型且拟分离的态射。
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item $X$ 的一个在 $S$ 上固有的子集是局部闭的；若 $f$ 分离，则该子集闭。
+
+\item 若 $f$ 分离，则 $X$ 的两个在 $S$ 上固有的子集之并仍在 $S$ 上固有。
+
+\item 对每个 $S$-概形 $U$，以 $\Phi_{X}(U)$ 表示 $\fprod{U}{X}{S}$ 的
+在 $U$ 上固有的子集所成的集合。函子 $\Phi_{X}$ 是 \emph{fpqc} 拓扑下的层。
+若 $f$ 分离，则就包含关系而言，$\Phi\sisi{}{_X}$ 是滤过偏序集层。
+\end{enumerate}
+\end{enonce*}
+
+断言\pageoriginale (i) 和 (ii) 平凡，(iii) 的第二个断言由 (ii) 得到。
+对于覆盖均为满射的每种拓扑，函子 $U\mapsto \mathcal{P}(\fprod{U}{X}{S})$ 都是层。
+由 \EGA IV 2.3.14 及 \EGA IV 2.7.1 (vii)，$\Phi_{X}$ 是它的子层。
+
+若 $\Ff $ 是概形 $X$ 上的带点集平展层，回顾（IV \hyperref[IV.subsubsec8.5.2]{8.5.2}），
+$\Ff $ 的一个截面 $s$ 的支集，是使 $s=0$ 的最大开集的补集，
+其中 $0$ 表示指定截面。
+
+\begin{enonce*}{定义 6.1.2}\etiquette[6.1.2]{XVII.def6.1.2}
+设 $f:X\rightarrow S$ 是局部有限型分离态射，$\Ff $ 是 $X$ 上的带点集层。
+以 $f_{!}\Ff $ 表示 $f_{\ast}\Ff $ 的一个子层，它在 $U$ 上的截面
+（$U$ 在 $S$ 上平展），是 $\Ff $ 在 $\fprod{U}{X}{S}$ 上的支集在 $U$ 上固有的截面。
+\end{enonce*}
+
+由 \hyperref[XVII.prop6.1.1]{6.1.1}，$f_{!}\Ff $ 确实是层。
+
+容易验证如下引理：
+
+\begin{enonce*}{引理 6.1.3}\etiquette[6.1.3]{XVII.lem6.1.3}
+若 $f$ 是两个局部有限型分离态射的复合 $gh$，则存在唯一的函子同构
+$f_{!}\simeq g_{!}h_{!}$，使下图交换
+$$
+\xymatrix@C=1cm@R=1.25cm@M=.2cm{
+f_{!}  \ar@{-}[r]^{\sim} \ar@{^{(}->}[d]& g_{!}h_{!} \ar@{^{(}->}[d]\\
+f_{\ast} \ar@{=}[r]      & g_{\ast} h_{\ast}.
+}
+$$
+\end{enonce*}
+
+若\pageoriginale $f$ 是开浸入（\resp 固有态射），则函子 $f_{!}$ 是补零延拓函子
+（\resp 函子 $f_{\ast}$）。因此，由 \hyperref[XVII.lem6.1.3]{6.1.3}，
+定义 \hyperref[XVII.def6.1.2]{6.1.2} 和 \hyperref[XVII.var5.1.11]{5.1.11}
+在共同适用的范围内一致。
+
+在 \hyperref[XVII.sec5]{\S 5} 验证的函子 $f_{!}$ 的性质，
+在更一般的 \hyperref[XVII.def6.1.2]{6.1.2} 的情形中仍然有效。
+
+\begin{enonce*}{命题 6.1.4}\etiquette[6.1.4]{XVII.prop6.1.4}
+设 $f:X\rightarrow S$ 是局部有限型分离态射。
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item 函子 $f_{!}$ 左正合（\ie 与有限逆向极限交换），且与滤过正向极限交换。
+
+\item 若 $f$ 拟有限，则函子 $f_{!}$ 是从 $X$ 上的阿贝尔层范畴到
+$S$ 上的阿贝尔层范畴的正合函子。
+
+\item 对每个笛卡尔图
+$$
+\xymatrix@C=1.5cm@R=1.25cm{
+X'          \ar[r]^{g'} \ar[d]^{f'}& X \ar[d]^{f}\\
+S'          \ar[r]^{g}  & S
+}
+$$
+存在基变换同构，使图
+$$
+\xymatrix@C=1.5cm@R=1.25cm{
+g^{\ast}f_{!}  \sisi{\ar@{=}[r]}{\ar@{-}[r]^\sim} \ar@{^{(}->}[d]& f'_{!}g'^{\ast}\ar@{^{(}->}[d]\\
+g^{\ast}f_{\ast}  \ar[r]    & f'_{\ast}g'^{\ast},
+}
+$$
+交换，其中第二个水平箭头是基变换箭头
+\emph{\neweqhyperrefext[XII][XII.eq4.1]{4.1}}。
+\end{enumerate}
+\end{enonce*}
+
+\begin{enonce*}[remark]{证明}
+对\pageoriginale 每个 $U\in \Ob S_{\et}$，有
+\[
+f_{!}\Ff (U)=\varinjlim_{P\in
+\Phi(U)}\Gamma_{\sisi{p}{P}}(\Ff ){\quoi},
+\]
+而当 $U$ 拟紧且拟分离时，函子 $\Ff \mapsto f_{!}\Ff (U)$
+与有限逆向极限和滤过正向极限交换，因为它是具有这些性质的函子的滤过正向极限
+（\hyperref[XVII.prop6.1.1]{6.1.1}\sisi{)}{} (iii)\sisi{}{)}。
+
+这证明了 (i)。断言 (ii) 立即由 (iii) 得到（取 $S$ 的各几何点作为基变换）。
+
+断言 (iii) 在 $S$ 上是局部的，因此可假设它仿射。
+设 $I$ 是 $X$ 的在 $S$ 上有限型的开子集所成的滤过偏序集。
+若 $U\overset{j}{\hookrightarrow}X$ 是 $X$ 的开子集，则
+$(fj)_{!}(\Ff |U)=f_{!}(j_{!}(\Ff |U))$ 映到 $f_{!}(\Ff\sisi{|U}{})$。
+此外，
+$$
+f_{!}(\Ff )=\varinjlim_{U\in I}
+(fj\sisi{}{)}_{!}(\Ff |U){\quoi}.
+$$
+这样便可假设 $X$ 在 $S$ 上有限型，并应用 Chow 引理
+（\EGA II 第 2\sisi{nd}{\textsuperscript{nd}} 版）\nde{见 \nderef{XVII.ndeConrad} 中引用的 [C, 2.6]。}
+找到一个射影满态射 $p^{0}:X^{0}\rightarrow X$，使 $fp\sisi{_{0}}{^0}$ 可紧化。
+设 $X^{1}=\fprod{X^{0}}{X^{0}}{X}$，$p^{1}$ 是从 $X^{1}$ 到 $X$ 的自然箭头。
+序列
+$$
+0\rightarrow \Ff \rightarrow
+p^{0}_{\ast}p^{0{\ast}}\Ff \rightrightarrows
+p^{1}_{\ast}p^{1{\ast}}\Ff
+$$
+正合（\sisi{VII 9.2}{\hyperrefext[VIII][VIII.cor9.2]{9.2}}）。
+
+考虑到基变换箭头的函子性和 (i)，只须对层
+$p^{0}_{\ast}p^{0^{\ast}}\Ff $ 与 $p^{1}_{\ast}p^{1^{\ast}}\Ff $ 验证 (iii)。
+通过记号变换 $(p^{1}\mapsto p^{0})$，我们\pageoriginale 便归结到假设
+$\Ff $ 形如 $p^{0}_{\ast}\mathcal{G}$。对二元组 $(f,p^{0}_{\ast}\mathcal{G})$
+的断言 (iii)，等价于对二元组 $(p^{0}_{\ast}\sisi{}{,}\mathcal{G})$ 和
+$(fp^{0}_{\ast},\mathcal{G})$ 的断言 (iii)。由 \hyperref[XVII.var5.2.7]{5.2.7} (i)
+即可得出结论；它之所以适用，是因为 $p^{0}$ 和 $fp^{0}$ 可紧化。
+\end{enonce*}
+
+\begin{enonce*}[remark]{反例 6.1.6}\etiquette[6.1.6]{XVII.contrexem6.1.6}
+函子 $Rf_{!}$ 一般不与函子 $f_{!}$ 的导出函子一致。
+事实上，若 $X$ 是代数闭域 $k$ 上的仿射概形，则有
+$$
+f_{!}\Ff =\sisi{\sum}{\bigoplus}_{x\in X(k)}H^{0}_{x}(\Ff ){\quoi},
+$$
+因而 $f_{!}$ 的第 $i$ 个导出函子在 $\Ff $ 处的值为
+$$
+\sisi{\sum}{\bigoplus}_{x\in X(k)}H^{i}_{x}(\Ff ){\quoi}.
+$$
+另一方面，若 $X$ 光滑、不可约且维数为 1，则对于与 $k$ 的特征互素的 $\ell$，有
+$$
+H^{2}_{c}(X,\mu_{\ell^{n}})\simeq \ZZ/\ell^{n}
+$$
+成立。
+\end{enonce*}
+
+\subsection{相对维数 0 的迹态射}\etiquette[6.2]{XVII.subsec6.2}
+
+本 ${\rm n^{\circ}}$ 的主要结果是定理 \hyperref[XVII.thm6.2.3]{6.2.3}。
+建议读者不读技术预备部分 \hyperref[XVII.subsubsec6.2.1]{6.2.1}
+和 \hyperref[XVII.prop6.2.2]{6.2.2}。
+它们使 \hyperref[XVII.thm6.2.3]{6.2.3} 的证明只须考虑有限态射 $f$；
+借助 \EGA IV 18.12\sisi{.}{，}，这一归约无论如何都相当显然。
+
+\subsubsection{}\etiquette[6.2.1]{XVII.subsubsec6.2.1}
+设\pageoriginale $f:X\rightarrow S$ 是\emph{拟有限分离}态射。
+对每个 $U\in \Ob S^{\et}$，以 $\Psi_{f}(U)$ 表示下述二元组所成的范畴：
+一个有限带点集 $I$，其指定点记为 $0$；以及将 $f^{\ast}U$ 分成开闭子集的一个分解
+$f^{\ast}U=\prod_{i\in I}V_{i}$，其中当 $i\neq 0$ 时 $V_{i}$ 在 $U$ 上有限。
+从 $\varphi=(V_{i})_{i\in I}$ 到 $\varphi'=(V'_{i})_{i\in I'}$ 的态射，
+是从 $I'$ 到 $I$ 的一个映射 $\sigma$，使对 $i\in I$ 有
+$V_{i}=\bigcup_{j\in \sigma^{-1}(i)}V'_{j}$。
+若存在从 $\varphi$ 到 $\varphi'$ 的态射，则称 $\varphi'$ \emph{加细} $\varphi$。
+
+设 $\Ff $ 是 $S$ 上的阿贝尔群层，$U\in \Ob S_{\text{\rm et}}$，
+$\varphi=(V_{i})_{i\in I}\in \Ob\Psi_{f}(U)$，$I^{\ast}=I\backslash \{0\}$，
+$f_{i}$ 是 $V_{i}$ 到 $U$ 的投影。有
+$$
+f_{!}f^{\ast}\Ff |U=f_{0!}f_{0}^{\ast}(\Ff |U)\oplus
+\bigoplus_{i\neq 0} f_{i\ast}f_{i}^{\ast}(\Ff |U){\quoi},
+$$
+从而有复合箭头
+$$\etiquette[6.2.1.1]{XVII.eq6.2.1.1}
+\tau_{\varphi}:\Ff ^{I^{\ast}}|U\longrightarrow
+\bigoplus_{i\neq 0}
+f_{i\ast}f_{i}^{\ast}(\Ff |U)\longrightarrow f_{!}f^{\ast}\Ff |U{\quoi}.\leqno(6.2.1.1)
+$$
+
+若 $\sigma:I\rightarrow J$ 是带点集态射，则以
+$\leftexp{t}{\sigma}:\Ff ^{J^{\ast}}\rightarrow \Ff ^{I^{\ast}}$ 表示如下箭头：
+若 $\sigma(i)=j$，则其坐标 $\leftexp{t}{\sigma}^i_{\phantom{i}j}=\Id$；
+若 $\sigma(i)\neq j$，则 $\leftexp{t}{\sigma}^i_{\phantom{i}j}=0$。
+若 $\sigma:I'\rightarrow I$ 是从 $\varphi$ 到 $\varphi'$ 的态射，则图
+$$
+\vcenter{\etiquette[6.2.1.2]{XVII.eq6.2.1.2}
+\xymatrix@R=1.25cm{
+\Ff^{I^{\ast}}|U \ar[rr]^{\leftexp{t}{\sigma}}   \ar[rd] \ar[rd]_{\tau_{\varphi}}&&
+\Ff^{I'^{\ast}}|U     \ar[ld]^{\tau_{\varphi'}}\\
+      &          f_{!}f^{\ast}\Tt|U  &
+}}\leqno{(6.2.1.2)}
+$$
+\pageoriginale 交换。此外，${}^{t}(\sigma\rho)={}^{t}\rho{}^{t}\sigma$。
+各 $\Psi_{f}(U)$ 组成 $S_{\text{\rm et}}$ 上的一个纤维化范畴 $\Psi_{f}$；
+上述构造与局部化交换，因而定义一个 $S_{\text{\rm et}}$-函子
+$\varphi=(V_{i})_{i\in I} \in \Psi_{f}(U)\mapsto \Ff ^{I^{\ast}}|U$，
+从 $\Psi$ 到 $S$ 的平展开子概形上的层所成的 $S_{\text{\rm et}}$-范畴，
+并定义一个函子态射 $\tau_{\varphi}:\Ff ^{I^{\ast}}|U\rightarrow f_{!}f^{\ast}\Ff |U$。
+
+\begin{enonce*}{命题 6.2.2}\etiquette[6.2.2]{XVII.prop6.2.2}
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item 范畴 $\Psi_{f}$ 在 $S_{\text{\rm et}}$ 上局部向右滤过
+\emph{（\sisi{IV 14}{\hyperrefext[V][V.def8.1.1]{8.1.1}}）}。
+
+\item 箭头 \eqhyperref[XVII.eq6.2.1.1]{6.2.1.1} 定义一个同构\sisi{们}{}
+\[
+\tau:\varinjlim_{\varphi=(V_{i})_{i\in I}\in
+\Psi_{f}(U)}\Ff ^{I^{\ast}}|U\isomto  f_{!}f^{\ast}\Ff\sisi{}{|U} {\quoi}.
+\]
+\end{enumerate}
+\end{enonce*}
+
+若 $S$ 严格局部，闭点为 $s$，则 $S$-概形 $X$ 有开闭部分的一个分解
+$\varphi\in\Psi_{f}(S)$，$X=\coprod_{i\in I}X_{i}$，以带点集 $I$ 为指标，
+使 $X_{0}$ 在 $s$ 处的纤维为空，当 $i\neq 0$ 时，$X_{i}$ 在 $S$ 上有限，
+且 $X_{i}$ $(i\neq 0)$ 在 $s$ 处的纤维仅含一点（\EGA IV 18.12.1）。
+这样的分解是 $\Psi\sisi{}{_f}(S)$ 的终对象。
+此外，由 \hyperref[XVII.prop6.1.4]{6.1.4} (iii)（或直接由显然性），
+箭头 $\tau_{\varphi}$ \eqhyperref[XVII.eq6.2.1.1]{6.2.1.1} 在 $s$ 处的纤维是同构。
+
+在一般情形中，设 $x$ 是 $S$ 的一个几何点，$\Psi_{x}$ 是 $\Psi_{f}$ 在 $x$ 处的纤维，
+\[
+\Psi_{x}=\varinjlim_{U(x)} \Psi_{f}(U){\quoi},
+\]
+其中 $U$ 遍历 $x$ 的平展邻域。设 $S_{x}$ 是 $S$ 在 $x$ 处的严格局部化，
+$X_{x}=\fprod{X}{S_{x}}{S}$，$f_{x}:X_{x}\rightarrow S_{x}$。
+标准的极限论证表明\pageoriginale，范畴 $\Psi_{x}$ 等价于范畴
+$\Phi_{f_{x}}(S_{x})$，因而向右滤过。由此，$\Psi\sisi{}{_f}$ 局部向右滤过。
+此外，$\tau$ 在 $x$ 处的纤维等同于箭头
+$$
+\tau_{x}:\varinjlim_{\Psi_{x}}\Ff _{x}^{I_{x}}\longrightarrow
+(f_{!}f^{\ast}\Ff )_{x}
+$$
+而根据上述讨论，这个箭头是同构。
+
+\begin{enonce*}{定理 6.2.3}\etiquette[6.2.3]{XVII.thm6.2.3}
+存在唯一的方式，对每个分离、平坦、有限表现且拟有限的态射 $f:X\rightarrow S$
+以及 $S$ 上的每个阿贝尔层 $\Ff $，定义迹态射
+$$
+\Tr_{f}:f_{!}f^{\ast}\Ff \longrightarrow \Ff
+$$
+使以下条件满足：
+\begin{itemize}
+\item[\textsuperscript{(Var 1)}] $\Tr_{f}$ 对 $\Ff $ 具有函子性。
+
+\item[\textsuperscript{(Var 2)}] $\Tr_{f}$ 与任意基变换相容，\ie 对每个笛卡尔图
+$$
+\xymatrix{
+X' \ar[rr]^{g'} \ar[d]^{f'}& & X\ar[d]^{f}\\
+S' \ar[rr]^{g} & &  S
+}
+$$
+下列函子图交换：
+$$
+\xymatrix{
+f'_{!} f'^{\ast} g^{\ast} \ar@{=}[r] \ar[d]^{\Tr_{f'}\ast g^{\ast}}& f'_{!}g'^{\ast} f^{\ast}\ar@{=}[r] &
+g^{\ast}f_{!}f^{\ast} \ar[d]^{g^{\ast}\ast
+  \Tr_f}\\
+g^{\ast} \ar@{=}[rr]&  & g^{\ast} &.
+}
+$$
+
+\item[\textsuperscript{(Var 3)}] $\Tr_{f}$\pageoriginale 与复合相容，
+\ie 若 $f$ 是两个分离、平坦、有限表现且拟有限的态射的复合 $f=gh$，则下图交换：
+$$
+\xymatrix{
+f_{!}f^{\ast}\ar[rrdd]_{\Tr_f} \ar@{=}[rr]& & g_{!}h_{!} h^{\ast}g_{\ast}\ar[d]^{g_{!}\ast\mathord{\Tr_{h}}\ast g^\ast}\\
+              & &  g_{!}g^{\ast} \ar[d]^{\Tr_g}\\
+              & & \Id .
+}
+$$
+
+\item[\textsuperscript{(Var 4)}] （正规化条件）。若 $f$ 有限且常秩为 $n$，则复合同态
+$$
+\Ff \rightarrow
+f_{\ast}f^{\ast}\Ff =f_{!}f^{\ast}\Ff \xrightarrow{\Tr_{f}}\Ff
+$$
+为乘以 $n$ 的同态。
+\end{itemize}
+\end{enonce*}
+
+\sisi{\emph{首先注意，条件 \emph{(Var 2)} 至 \emph{(Var 4)} 蕴含下述引理。}}{
+首先注意，条件 (Var 2) 至 (Var 4) 蕴含下述引理。}
+
+\begin{enonce*}{引理 6.2.3.1}\etiquette[6.2.3.1]{XVII.lem6.2.3.1}
+若 $X=X'\amalg X''$\sisi{}{，}，令 $f'=f|X'$ 和 $f''=f|X''$，则态射 $\Tr_{f}$：
+$$
+f_{!}f^{\ast}\Ff =f'_{!}{f'}^{\ast}\Ff \oplus
+f''_{!}{f''}^{\ast}\Ff \longrightarrow \Ff
+$$
+是 $\Tr_{f!}$ 和 $\Tr_{f''}$ 之和。
+$$
+\xymatrix@C=2.25cm@R=.75cm{
+  X' \ar@{^{(}->}[rd]^{j'}&           &\\
+   & X   \ar[r]^{f}  \ar[r]^{f}    & S\\
+X'' \ar@{^{(}->}[ru]_{j''}& &.
+}
+$$
+\end{enonce*}
+
+若\pageoriginale 对 $j'$ 应用关于基变换 $j'$ 的 (Var 2)，并对恒等映射应用 (Var 4)，可知
+$$
+\Tr_{j'}:j'_{!}{j'}^{\ast}f^{\ast}\Ff \longrightarrow
+f^{\ast}\Ff
+$$
+是由 $f^{\ast}\Ff $ 的直和分解
+$$
+f^{\ast}\Ff =j'_{!}{j'}^{\ast}f^{\ast}\Ff \oplus
+j''_{!}{j''}^{\ast}f^{\ast}\Ff {\quoi}.
+$$
+所定义的典范映射。
+
+若对 $f'=f\circ j'$ 应用 (Var 3)，可知下图交换
+\[
+\xymatrix@R=1.25cm{
+f'_{!} f'^{\ast}\Ff  \ar[rr] \ar[rd]_{\Tr_{f'}}& &f_{!}f^{\ast}\Ff \ar[ld]^{\Tr_f}\\
+                                   & \Ff    &    ,
+}
+\]
+结合 $f''$ 的类似陈述，这正是 \hyperref[XVII.lem6.2.3.1]{6.2.3.1}。
+
+设 $f:X\rightarrow S$ 是分离、平坦、拟有限的有限表现态射。
+对每个 $U\in \Ob S_{\text{\rm et}}$，设 $\Psi'_{f}(U)$ 是
+$\Psi_{f}(U)$（\sisi{\hyperref[XVII.prop6.1.1]{6.1.1}}{\hyperref[XVII.subsubsec6.2.1]{6.2.1}}）
+的满子范畴，由满足下述条件的分解 $(V_{i})_{i\in I}$ 组成：
+当 $i\neq 0$ 时，$V_{i}$ 在 $U$ 上局部自由且常秩。
+诸范畴\pageoriginale $\Psi'_{f}(U)$ 组成 $\Psi_{f}$ 的一个纤维化子范畴，
+在 $\Psi_{f}$ 中共尾。
+
+设 $\Ff $ 和 $\mathcal{G}$ 是 $S$ 上的阿贝尔层。
+由 \hyperref[XVII.prop6.2.2]{6.2.2} (ii)，给定一个态射
+$g:f_{!}f^{\ast}\Ff \rightarrow \mathcal{G}$，等价于对每个分解
+$\varphi=(V_{i})_{i\in I}\in\Psi'_{f}(U)$ 给定一个态射
+$g_{\varphi}:\Ff ^{I^{\ast}}|U\rightarrow \mathcal{G}|U$，
+与 \eqhyperref[XVII.eq6.2.1.2]{6.2.1.2} 的态射 ${}^{t}\sigma$ 相容。
+若 $f_{i}$ 是从 $V_{i}$ 到 $U$ 的投影，则 $g_{\varphi}$ 是坐标箭头为下述复合的箭头：
+\[
+g^{i}_{\varphi}:\Ff |U\rightarrow
+f_{i\ast}f^{\ast}_{i}\Ff |U\rightarrow
+f_{!}f^{\ast}\Ff |U\xrightarrow{g} \mathcal{G}|U{\quoi}.
+\]
+
+由此，存在唯一的箭头 $\Tr_{f}$，它与平展局部化相容，且满足 (Var 4) 和
+\hyperref[XVII.lem6.2.3.1]{6.2.3.1}。显然，它满足 (Var 1) 和 (Var~2)。
+
+为验证 (Var 3)，通过基变换可归结到 $S$ 为代数闭域的谱这一简单情形。
+
+\setcounter{subsubsection}{3}
+\subsubsection{}\etiquette[6.2.4]{XVII.subsubsec6.2.4}
+分离拟有限态射 $f:X\rightarrow S$ 的一个\emph{赋权}（weighting），
+是对 $X$ 的每个几何点 $x$ 给定一个整数 $n(x)$，它仅依赖于 $x$ 所在的底层点，且满足：
+\begin{itemize}
+\item[$(\ast)$] \emph{对于每个 $U\in \Ob S_{\text{\rm et}}$ 以及
+$f^{-1}(U)$ 中在 $U$ 上有限的每个开闭子空间 $X_{1}$，
+将 $U$ 的几何\sisi{点}{点} $s$ 映到数 $\sum_{x\in X_{1}(s)}n(x)$ 的函数是局部常值的。}
+\end{itemize}
+
+若 $f=gh$ 是两个已赋权态射的复合，则令
+$n_{f}(x)=n_{h}(x)\sisi{.}{\cdot}n_{g}(h(x))$，以此给 $f$ 赋权。
+
+若\pageoriginale 态射 $f'$ 由已赋权态射 $f$ 经基变换 $g$ 得到，
+则令 $n_{f'}(x)=n_{f}(g'(x))$，以此给 $f'$ 赋权。
+
+上述论证实际上证明了：
+
+\begin{enonce*}{命题 6.2.5}\etiquette[6.2.5]{XVII.prop6.2.5}
+存在唯一的方式，对每个已赋权的分离拟有限态射 $f:X\rightarrow S$ 以及
+$S$ 上的每个阿贝尔层 $\Ff $，定义迹态射
+$\Tr_{f}:f_{!}f^{\ast}\Ff \rightarrow \Ff $，
+它对 $\Ff $ 具有函子性，与基变换及复合相容，并满足：
+\begin{itemize}
+\item[\textsuperscript{(Var $\sisi{\leftexp{\prime}{4}}{4'}$)}]
+若 $f$ 有限，并存在整数 $n$，使对 $S$ 的每个几何点 $s$ 都有
+$\sum_{x\in X(s)}n(x)=n$，则复合箭头
+$$
+\Ff \longrightarrow
+f_{\ast}f^{\ast}\Ff =f_{!}f^{\ast}\Ff \xrightarrow{\Tr_{f}}\Ff
+$$
+为乘以 $n$ 的箭头。
+\end{itemize}
+\end{enonce*}
+
+\begin{enonce*}[remark]{例 6.2.6}\etiquette[6.2.6]{XVII.exem6.2.6}
+设 $S$ 是\sisi{}{约化的} Noether 几何单支概形（例如正规概形），
+$f:X\rightarrow S$ 是分离拟有限态射。对 $X$ 的每个几何点 $x$，
+其在 $S$ 中的像为 $s$，设 $\Oo_{x}$（\resp $\Oo_{s}$）是
+$X$ 在 $x$ 处（\resp $S$ 在 $s$ 处）的严格局部环。
+概形 $\Spec(\Oo_{s})$ 约化且有唯一的极大点 $\eta$。
+此外，$\Oo_{x}$ 在 $\Oo_{s}$ 上有限。令 $n(x)=\rg_{\eta}(\Oo_{x})$。
+容易验证，$n(x)$ 是 $f$ 的赋权，因而给出迹态射 $\Tr_{f}$。
+\end{enonce*}
+
+\setcounter{subsubsection}{6}
+\subsubsection{}\etiquette[6.2.7]{XVII.subsubsec6.2.7}
+设\pageoriginale $u:X\rightarrow Y$ 是有限表现的分离拟有限平坦态射。
+因为迹态射（\hyperref[XVII.thm6.2.3]{6.2.3}）具有函子性，
+它对 $Y$ 上的每个阿贝尔层复形 $K$ 定义一个复形态射
+$$\etiquette[6.2.7.1]{XVII.eq6.2.7.1}
+\Tr_{u}:u_{!} u^{\ast}K\longrightarrow K{\quoi}.\leqno(6.2.7.1)
+$$
+对于通过应用函子从 \eqhyperref[XVII.eq6.2.7.1]{6.2.7.1} 或
+\hyperref[XVII.thm6.2.3]{6.2.3} 得到的任意态射，我们将不加区别地称为
+\emph{迹态射}、\emph{Gysin 态射}或\emph{态射} $u_{\ast}$；例如下面这些态射。
+
+考虑交换图
+$$
+\xymatrix@C=1.5cm@R=1.75cm{
+X  \ar[rr]^{u} \ar[rd]_{f}&   & Y\ar[ld]^{g}\\
+                          & S &
+}
+$$
+其中 $g$ 分离且局部有限型。对 $Y$ 上每个阿贝尔层 $\Ff $，迹态射定义一个态射
+$$\etiquette[6.2.7.2]{XVII.eq6.2.7.2}
+\Tr_{u}\quad\mbox{\rm 或}\quad u_{\ast}:f_{!}u^{\ast}\Ff \simeq
+g_{!}u_{!}u^{\ast}\Ff \xrightarrow{g_{!}(\Tr_{u})} g_{!}\Ff {\quoi}.\leqno(6.2.7.2)
+$$
+
+若 $g$ 可紧化，$K$ 是上同调为挠的下有界复形，或为 $g^{\ast}\Aa$-模复形，
+其中 $\Aa$ 是 $S$ 上的挠环层，则迹态射 \eqhyperref[XVII.eq6.2.7.1]{6.2.7.1}
+同样诱导
+\begin{align*}
+\Tr_{u}\quad\mbox{\rm 或}\quad u_{\ast} &: Rf_{!}u^{\ast}K\simeq
+Rg_{!}u_{!}u^{\ast}K\xrightarrow{Rg_{!}(\Tr_{u})}Rg_{!}K{\quoi},\tag{6.2.7.3}\\
+\Tr_{u}\quad\mbox{\rm 或}\quad u_{\ast} &: R^{q}f_{!}u^{\ast}K\simeq
+R^{q}g_{!}u_{!}u^{\ast}K\xrightarrow{R^{q}g_{!}(\Tr_{u})}
+R^{q}g_{!}K{\quoi}.\tag{6.2.7.4}
+\end{align*}\etiquette[6.2.7.3]{XVII.eq6.2.7.3}
+\etiquette[6.2.7.4]{XVII.eq6.2.7.4}%The vertical space following this paragraph is too large.
+
+当\pageoriginale $S$ 是代数闭域的谱时，\eqhyperref[XVII.eq6.2.7.4]{6.2.7.4} 是态射
+$$\etiquette[6.2.7.5]{XVII.eq6.2.7.5}
+u_{\ast}:\HH^{q}_{c}(X,u^{\ast}K)\longrightarrow \HH^{q}_{c}(Y,K){\quoi}.\leqno(6.2.7.5)
+$$
+
+由此可见，\emph{固有支集上同调关于拟有限态射是协变的}。
+
+\subsubsection{}\etiquette[6.2.8]{XVII.subsubsec6.2.8}
+设 $u:X\rightarrow Y$ 如 \hyperref[XVII.subsubsec6.2.7]{6.2.7}，
+$\Delta_{n}=[0,n]$ 是含有 $\sisi{}{(}n+1\sisi{}{)}$ 个元素的标准集合，
+$X_{n}$ 是 $X$ 在 $Y$ 上的 $(n+1)$ 重迭代纤维积。
+各 $X_{n}$ 组成一个增广到 $Y$ 的单纯概形（\cf \sisi{VI${}_{\text{B}}$}{VBIS}）。
+以 $u_{n}:X_{n}\rightarrow Y$ 表示增广态射。
+若 $\Ff $ 是 $Y$ 上的阿贝尔层，则由 \eqhyperref[XVII.eq6.2.7.2]{6.2.7.2}
+（作记号变换 $S\sisi{\rightarrow}{\mapsto} Y$、
+$X\sisi{\rightarrow}{\mapsto} X_{n}$、$Y\sisi{\rightarrow}{\mapsto} Y$ 或 $X_{m}$ 后应用），
+各层 $\Ff _{n}=u_{n!}u_{n}^{\ast}\Ff $ 组成增广到 $\Ff $ 的\emph{单纯}层。
+按定义，此单纯层的“\emph{非退化链}”微分复形的第 $n$ 个分量是
+$\Ff _{n}$ 的一个商，即以 $\Ff _{n}$ 为目标的退化算子的直和，
+以及对称算子 $\sigma$ 的态射 $\sigma-\epsilon(\sigma)$ 的余核。
+
+\begin{enonce*}{命题 6.2.9}\etiquette[6.2.9]{XVII.prop6.2.9}
+在上述假设下，若 $u$ 是分离、平展、有限型且满的态射，
+则对于 $Y$ 上每个阿贝尔层 $\Ff $，有
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item 各层 $\Ff _{n}$ 组成 $\Ff $ 的一个（左）解消。
+
+\item 单纯层 $(\Ff _{n})$ 的非退化链微分复形是 $\Ff $ 的一个（左）解消。
+若 $u$ 的所有几何纤维至多有 $d$ 个点，则此解消的长度 $\leq d$。
+\end{enumerate}
+\end{enonce*}
+
+由\pageoriginale 基变换，只须在 $Y$ 是代数闭域的谱时验证此陈述；
+此时 \hyperref[XVII.subsubsec6.2.8]{6.2.8} 归结为计算一个单纯形的单纯同调。
+
+设 $(U_{i})_{i\in I}$ 是概形 $Y$ 的有限开覆盖，$\Ff $ 是 $Y$ 上的阿贝尔层；
+对 $I$ 的每个子集 $P$，设 $j_{P}$ 为 $U_{P}=\cap_{i\in P}U_{i}$ 到
+$\sisi{X}{Y}$ 的包含。假设 $I$ 上已选定全序。
+若 $X=\coprod_{i\in I}U_{i}$，$u$ 是从 $X$ 到 $Y$ 的投影，
+则 $\Ff $ 的解消 \hyperref[XVII.prop6.2.9]{6.2.9} (ii) 为
+$$\etiquette[6.2.9.1]{XVII.eq6.2.9.1}
+(\Ff _{n})_{n\,\text{deg}}=\bigoplus_{|P|=n+1}j_{P!}j^{\ast}_{P}\Ff {\quoi}.\leqno(6.2.9.1)
+$$
+
+当 $I$ 无限时，这个解消仍有意义。
+
+\setcounter{subsubsection}{9}
+\subsubsection{}\etiquette[6.2.10]{XVII.subsubsec6.2.10}
+在 \hyperref[XVII.prop6.2.9]{6.2.9} 的假设下，设 $\Aa$ 是 $Y$ 上的挠环层，
+$K\in \Ob^{-}(Y,\Aa)$。将 $X$ 看作赋环 $u^{\ast}\Aa$ 的概形。
+因为解消 \hyperref[XVII.prop6.2.9]{6.2.9} (i)
+（\resp \hyperref[XVII.prop6.2.9]{6.2.9} (ii)）对 $\Ff $ 具有函子性，
+它给 $K$ 定义一个由双复形 $K_{1}$ 构成的解消。
+此解消称为 $K$ 的非常 \emph{Čech 解消}
+（\resp \emph{非常交错} Čech 解消）。
+
+考虑交换图
+$$
+\xymatrix@C=1.5cm@R=1.75cm{
+X  \ar[rr]^{u} \ar[rd]_{f}&   & Y\ar[ld]^{g}\\
+                          & S & ,
+}
+$$
+其中 $g$ 可紧化。沿用 \hyperref[XVII.subsubsec6.2.8]{6.2.8} 的记号，
+若 $f_{n}$ 是从 $X_{n}$ 到 $S$ 的投影，则有 $Rf_{n!}=Rg_{!}\sisi{U}{u}_{n!}$。
+因而，按\pageoriginale 半单纯次数过滤的复形 $K_{1}$ 定义一个谱序列
+$$\etiquette[6.2.10.1]{XVII.eq6.2.10.1}
+E^{-p,q}_{1}=R^{q}f_{p!}(u^{\ast}_{p}K)\Longrightarrow R^{-p+q} g_{!}
+K{\quoi}.\leqno(6.2.10.1)
+$$
+微分 $d_{1}$ 来自单纯箭头，因而
+$$\etiquette[6.2.10.2]{XVII.eq6.2.10.2}
+E^{-p,q}_{2}=\check{\Hh}^{p}(R^{q}f_{p!}(u^{\ast}_{p}K)\sisi{}{)}\Longrightarrow
+R^{-p+q}g_{!}K{\quoi}.\leqno(6.2.10.2)
+$$
+
+在 \eqhyperref[XVII.eq6.2.9.1]{6.2.9.1} 的假设下，类似地得到谱序列
+$$\etiquette[6.2.10.3]{XVII.eq6.2.10.3}
+E^{-p,q}_{1}=\bigoplus_{|P|=p+1}R^{q}f_{p!}(j^{\ast}_{p}K)\Longrightarrow R^{-p+q}g_{!}K{\quoi}.\leqno(6.2.10.3)
+$$
+
+谱序列 \eqhyperref[XVII.eq6.2.10.1]{6.2.10.1} 和
+\eqhyperref[XVII.eq6.2.10.3]{6.2.10.3} 称为\emph{上局部化谱序列}。
+
+\begin{enonce*}{命题 6.2.11}\etiquette[6.2.11]{XVII.prop6.2.11}
+若 $f$ 是有限型分离平展态射，则函子 $f_{!}$ 是函子 $f^{\ast}$ 的左伴随，
+其伴随箭头是迹态射。
+\end{enonce*}
+
+已知，若 $X$ 是景 $S$ 的一个对象，则将阿贝尔层限制到 $X$ 的函子 $f^{\ast}$
+有左伴随 $f_{!}$。若 $F$ 是 $X$ 上的阿贝尔层，则 $f_{!}F$ 是由预层
+$$
+V\longrightarrow \bigoplus_{\xi \in \Hom(V,X)}F(\xi){\quoi}.
+$$
+生成的层。在平展情形，暂将此函子记为 $f\sisi{''}{^0}_{!}$。
+其伴随性质立即蕴含其构造与任意基变换交换。
+迹态射定义一个从 $f_{!}\Ff $ 到 $f^{0}_{!}\Ff $ 的态射 $t$，
+与\pageoriginale 任意基变换相容。只须逐纤维说明 $t$ 是同构，
+\ie 当 $S$ 为可分闭域的谱时验证，此时结论平凡。
+
+\setcounter{subsubsection}{11}
+\paragraph{}\etiquette[6.2.11.1]{XVII.par6.2.11.1}
+须注意，$f^{0}_{!}$ 的这种解释专属于平展景的情形，
+例如不能推广到预概形的 fpqf 景。
+
+\subsection{连续系数的迹的变式}\etiquette[6.3]{XVII.subsec6.3}
+
+本节证明 \textsc{Grothendieck} \cite[第 6 节]{sga4.exp.XVII.bib.Gr} 的断言，
+并将这些结果用于为适当的 fppf 层定义“迹态射”。
+
+
+\subsubsection{}\etiquette[6.3.1]{XVII.subsubsec6.3.1}
+设 $A$ 是交换环。若 $L$ 和 $M$ 是两个有限生成投射 $A$-模，则从
+$\Hom(L,M)$ 到 $\Hom(\bigwedge\limits^{m}L,\bigwedge\limits^{m}M)$
+的映射 $u\mapsto \bigwedge\limits^{m}u$ 与任意基变换相容，并且是
+$m$\sisi{次齐次}{\textsuperscript{次齐次}}的
+（\sisi{\hyperref[XVII.subsubsec5.5.2]{5.5.2}}{\hyperref[XVII.par5.5.2.2]{5.5.2.2}}）。
+由 \sisi{\hyperref[XVII.subsubsec5.5.2]{5.5.2}}{\hyperref[XVII.par5.5.2.3]{5.5.2.3}}，
+它定义态射
+$$\etiquette[6.3.1.1]{XVII.eq6.3.1.1}
+\bigwedge^{m}:\Gamma^{m}\Hom(L,M)\longrightarrow
+\Hom(\bigwedge^{m} L, \bigwedge^{m}M)\leqno(6.3.1.1)
+$$
+使得每次基变换之后，对 $u\in \Hom(L,M)$ 都有
+$\bigwedge\limits^{m}(\gamma^{m}(u))=\bigwedge\limits^{m}u$。
+因为 $\Hom(L,M)$ 平坦，此态射等同于
+（\sisi{\hyperref[XVII.subsubsec5.5.2]{5.5.2}}{\hyperref[XVII.par5.5.2.5]{5.5.2.5}}）一个态射
+$$\etiquette[6.3.1.2]{XVII.eq6.3.1.2}
+\bigwedge^{m}:TS^{m}\Hom(L,M)\longrightarrow
+\Hom(\bigwedge^{m}L, \bigwedge^{m}M){\quoi}.\leqno(6.3.1.2)
+$$
+注意，只要 $2$ 在 $A$ 中可逆，也可以定义这样的同态：
+$\bigotimes\limits^{m}\Hom(L,M)$ 的一个对称元素定义从
+$\bigotimes\limits^{m}L$ 到 $\bigotimes\limits^{m}M$ 的一个对称同态，
+它下降到商上，定义从 $\bigwedge\limits^{m}L$ 到 $\bigwedge\limits^{m}M$ 的同态。
+
+给定\pageoriginale 三个有限生成投射 $A$-模，图
+$$
+\vcenter{\etiquette[6.3.1.3]{XVII.eq6.3.1.3}
+\xymatrix{
+\Gamma^{m} \Hom(L,M) \otimes \Gamma^{m} \Hom(M,N)  \ar[r] \ar[d]^{\bigwedge\limits^{m}\otimes \bigwedge\limits^{m}}& \Gamma^{m}
+\Hom(L,N) \ar[d]^{\bigwedge\limits^{m}}\\
+\Hom(\bigwedge\limits^{m} L,
+\bigwedge\limits^{m} M) \otimes
+\Hom(\bigwedge\limits^{m} M,
+\bigwedge\limits^{m} N)         \ar[r]     &
+\Hom(\bigwedge\limits^{m} L,
+\bigwedge\limits^{m} N),
+}}\leqno{(6.3.1.3)}
+$$
+交换，其中水平箭头来自复合映射（第一个还来自（\hyperref[XVII.par5.5.2.8]{5.5.2.8}））。
+这表达了公式
+$\bigwedge\limits^{m}(vu)=\bigwedge\limits^{m}v\circ \bigwedge\limits^{m}u$。
+
+若 $L$ 是秩为 $n$ 的自由 $A$-模，\eqhyperref[XVII.eq6.3.1.2]{6.3.1.2}
+定义一个典范态射
+$$\etiquette[6.3.1.4]{XVII.eq6.3.1.4}
+\det:\Gamma^{n}\End_{A}(L)=TS^{n}\End_{A}(L)\longrightarrow
+A{\quoi},\leqno(6.3.1.4)
+$$
+由 \eqhyperref[XVII.eq6.3.1.3]{6.3.1.3}，它是代数同态。按定义有
+$$\etiquette[6.3.1.5]{XVII.eq6.3.1.5}
+\det (u^{\otimes n})=\det (u\text{; }L){\quoi}.\leqno(6.3.1.5)
+$$
+
+若进一步 $L$ 是一个 $A$-代数 $B$ 上的模，则 \eqhyperref[XVII.eq6.3.1.4]{6.3.1.4}
+通过复合定义代数同态
+$$\etiquette[6.3.1.6]{XVII.eq6.3.1.6}
+{\det}_{L}:TS^{n}_{A}(B)\longrightarrow A{\quoi}.\leqno(6.3.1.6)
+$$
+
+\begin{enonce*}{引理 6.3.2}\etiquette[6.3.2]{XVII.lem6.3.2}
+假设 $L$ 出现在正合列
+\[
+\sisi{F}{E}:0\longrightarrow L'\longrightarrow L\longrightarrow
+L''\longrightarrow 0
+\]
+中，其中 $L'$（\resp $L''$）局部自由，秩为 $n_{1}$（\resp $n_{2}$）。
+令 $n=n_{1}+n_{2}$，设 $\alpha$ 是从扩张 $E$ 的自同态\pageoriginale 群
+$\End(E)$ 到 $\End(L')\oplus \End(L'')$ 的“伴随分次”态射；
+对两个平坦 $A$-模 $X$ 和 $Y$，设 $\beta$ 是由同构
+（\hyperref[XVII.par5.5.2.6]{5.5.2.6}）
+\[
+TS^{n}(X\oplus Y)\simeq \sisi{\sum}{\bigoplus}_{n'+n''=n} TS^{n'\sisi{_{1}}{}}(X)\otimes
+TS^{n''}(Y){\quoi}.
+\]
+得到的从 $TS^{n}(X\oplus Y)$ 到 $TS^{n_{1}}(X)\otimes TS^{n_{2}}(Y)$ 的态射。
+则下图交换：{\footnotesize
+\[
+\xymatrix@C=1cm@R=1.5cm{
+  TS^{n}(\End\sisi{)}{} (E)) \ar[d] \ar[r]^(.4){TS^{n}(\alpha)} & TS^{n}(\End(L')\oplus
+\Ens(L''))  \ar[r]^(.45){\beta} & TS^{n_1} (\End(L')) \otimes TS^{n_2}
+(\End(L'')) \ar[d]^{\det \otimes \det}\\
+TS^{n}(\sisi{L}{\End(L)})         \ar[rr]^{\det} &                 & A.
+}
+\]
+}
+\end{enonce*}
+
+由 $TS^{n}$ 的泛性质 \hyperref[XVII.subsubsec5.5.2]{5.5.2}，
+只须验证对 $u\in \End(E)$，$u^{\otimes n}$ 的两个像相等。
+若 $\alpha{u}=(u',u'')$，这两个像分别为 $\det(u)$ 和 $\det(u').\det(u'')$，
+这就证明了断言。
+
+\begin{enonce*}{引理 6.3.3}\etiquette[6.3.3]{XVII.lem6.3.3}
+设 $A$ 是\sisi{}{交换}环，$B$ 是\sisi{}{交换} $A$-代数，$C$ 是未必交换的
+$B$-代数，$E$ 是在 $A$ 上自由且秩为 $n$ 的 $B$-模，
+$F$ 是在 $B$ 上自由且秩为 $m$ 的 $C$-模。假设 $C$ 在 $A$ 上平坦。
+由 $\Gamma^{nm}$ 的泛性质 \hyperref[XVII.par5.5.2.2]{5.5.2.2}
+和 \hyperref[XVII.par5.5.2.3]{5.5.2.3}，存在唯一的箭头
+$\sigma:TS^{nm}_{A}(C)\rightarrow TS^{n}_{A}TS^{\sisi{n}{m}}_{B}(C)$，
+使每次环扩张 $A\rightarrow A'$ 后，都有
+$\sigma(c^{\otimes nm})=(c^{\otimes m})^{\otimes n}$。于是下图交换：
+$$
+\xymatrix@C=2cm@R=1.5cm{
+TS^n_A (B) \ar[d]^{\det_E}  &  & TS^{n}_A TS^{m}_B (C) \ar[ll]_{TS^n_A
+  (\det_F)}\\
+A    & & TS^{nm}_A (C) \ar[ll]_{\det_{E\otimes_B F}} \ar[u]_{\sigma}.
+}
+$$
+\end{enonce*}
+
+\begin{enonce*}[remark]{证明}
+由\pageoriginale \hyperref[XVII.par5.5.2.2]{5.5.2.2} 和
+\hyperref[XVII.par5.5.2.3]{5.5.2.3}，只须说明 $TS^{nm}_{A}(C)$ 的元素
+$u^{\otimes nm}$ 的两个像相等。这两个像是 $\det_{E}(\det_{F}(u))$ 和
+$\det_{E\otimes_{B}F}(u)$；它们可由 $A$、$B$、$E$、$F$ 及
+$u\in \End_{B}(F)$ 表示。要验证它们相等，可以先用 $B$ 在 $\End(E)$ 中的
+（交换）像 $B_{1}$ 代替 $B$，并用 $F\otimes_{B}B_{1}$ 代替 $F$。
+此时待证公式就是分块行列式公式（\textsc{Bourbaki}，
+\sisi{Alg.}{\emph{Alg.}} \sisi{第}{\chap}~8 章 \S~12，引理 2，
+\sisi{第 140 页}{第~140 页}）。
+\end{enonce*}
+
+当不再要求 $C$ 在 $A$ 上平坦时，同样的证明更一般地给出代数的交换图
+$$\vcenter{\etiquette[6.3.3.1]{XVII.eq6.3.3.1}
+\xymatrix@C=3cm@R=1.5cm{
+\Gamma^{n}_A (B)  \ar[d]^{\det_E}& \Gamma^{n}_A
+\Gamma^n_{B}(C) \ar[l]_{\Gamma_A^{n}(\det_F)}\\
+A            & \ar[l]_{\det_{E\otimes_B F}}  \Gamma^{nm}_A (C) \ar[u]_{\sigma}.
+}}\leqno{(6.3.3.1)}
+$$
+
+\setcounter{subsubsection}{3}
+\subsubsection{}\etiquette[6.3.4]{XVII.subsubsec6.3.4}
+若 $B$ 是交换 $A$-代数，则 $\Spec(TS^{n}(B))$ 恰为 $\Spec(B)$ 在 $\Spec(A)$
+上的第 $n$ 个对称幂，\ie $(\Spec(B)/\Spec(A))^{n}$ 模对称群的商
+（\SGA 1 \sisi{IV 3}{V 1}）。
+
+若\pageoriginale $X$ 是\sisi{}{在 $S$ 上}分离的概形，
+则 $X$ 上的拟凝聚 $\Oo_{X}$-模 $\Ff $，若其支集在 $S$ 上有限，
+且其直像在 $S$ 上局部自由、秩有限（\resp 秩为 $n$），
+则称它\emph{在} $S$ \emph{上有限局部自由}（\resp 秩为 $n$）。
+这里 $\Ff $ 的\emph{支集}仍指由 $\Ff $ 的零化子定义的 $X$ 的\emph{子概形}
+（该零化子是拟凝聚理想，因为 $\Ff $ 是有限型拟凝聚层）。
+
+若 $\Ff $ 在 $S$ 上有限局部自由，秩为 $n$，支集为 $E$，则 $E$ 在 $S$ 上仿射。
+在 $S$ 上整体化，$\Ff $ 借助 \eqhyperref[XVII.eq6.3.1.6]{6.3.1.6} 定义
+$\Sym^{n}_{S}(E)$ 的截面 $\sigma_{E}(\Ff )$，从而由函子性，定义代数空间
+\footnote[1]{\MakeLinkTarget*{sga4.exp.XVII.footnote.6.3.4.artin-1}\label{XVII.noteArtin1}
+M. \textsc{Artin}，Algebraization of formal moduli I\sisi{}{
+，载于 \emph{Global Analysis: Papers in Honor of K.~Kodaira}，Princeton University Press，1969，21--71}。
+我们只在 $\Sym^{n}_{S}(X)$ 作为概形存在时使用上述构造；当 $X$ 在 $S$ 上拟射影时即如此。}
+$\Sym^{n}_{S}(X)$ 的一个截面 $\sigma(\Ff )$，
+$$\etiquette[6.3.4.1]{XVII.eq6.3.4.1}
+\sigma(\Ff )\in \Gamma(\Sym^{n}_{S}(X)/S){\quoi}.\leqno(6.3.4.1)
+$$
+
+特别地，若 $f:S'\rightarrow S$ 有限局部自由，秩为 $n$，则取 $\Ff =\Oo_{S'}$，
+得到典范截面
+$$\etiquette[6.3.4.2]{XVII.eq6.3.4.2}
+t\in\Gamma(\Sym^{n}_{S}(S')/S){\quoi}.\leqno(6.3.4.2)
+$$
+
+\begin{enonce*}{命题 6.3.5}\etiquette[6.3.5]{XVII.prop6.3.5}
+设 $X$ 是在 $S$ 上分离的概形，$\Ff _{1}$ 和 $\Ff _{2}$ 是两个
+在 $S$ 上有限局部自由的 $\Oo_{X}$-模，秩分别为 $n_{1}$ 和 $n_{2}$。
+令 $n=n_{1}+n_{2}$。设 $d$ 是典范箭头
+$d:\Sym^{n_{1}}_{S}(X)\times \Sym^{n_{2}}_{S}(X)\rightarrow \Sym^{n}_{S}(X)$。
+若 $\Ff $ 是 $\Ff _{1}$ 被 $\Ff _{2}$ 的扩张，则
+$$
+\sigma(\Ff )=d(\sigma(\Ff _{1}),\sigma(\Ff _{2})){\quoi}.
+$$
+\end{enonce*}
+
+可以\pageoriginale 用 $\Ff _{1}\oplus \Ff _{2}$ 的支集（它在 $S$ 上有限）代替 $X$，
+并假设 $S$ 仿射。将命题译成环论语言，它就由 \hyperref[XVII.lem6.3.2]{6.3.2} 得到。
+
+\begin{enonce*}{引理 6.3.6}\etiquette[6.3.6]{XVII.lem6.3.6}
+若 $X$ 是在 $S$ 上分离的概形，$\Ff $ 是在 $S$ 上有限局部自由、秩为 $n$ 的
+$\Oo_{X}$-模，$\Ll$ 是 $X$ 上的可逆层，则
+$$
+\sigma(\Ff )=\sigma(\Ff \otimes\Ll){\quoi}.
+$$
+\end{enonce*}
+
+用 $\Ff $ 的支集（\hyperref[XVII.subsubsec6.3.4]{6.3.4}）代替 $X$\sisi{，}{。}
+在 $S$ 上局部地，$\Ll$ 同构于 $\Oo_{X}$，断言便显然成立。
+
+读者可验证：
+
+\begin{enonce*}{命题 6.3.7}\etiquette[6.3.7]{XVII.prop6.3.7}
+对每个在 $S$ 上分离的 $S$-概形图
+\[
+\xymatrix{
+X        \ar[rr]^{u} \ar[rd]_{f} &        &  Y  \ar[ld]^{g}\\
+                                & S      &,
+}
+\]
+以及每个在 $S$ 上有限局部自由、秩为 $n$ 的 $\Oo_{X}$-模 $\Ff $，
+$\Oo_{Y}$-模 $u_{\ast}\Ff $ 在 $S$ 上有限局部自由，秩为 $n$，且
+\[
+\sisi{u}{(\Sym^n_S u)}(\sigma(\Ff ))=\sigma(u_{\ast}\Ff ){\quoi}.
+\]
+\end{enonce*}
+
+\setcounter{subsubsection}{7}
+\paragraph{}\etiquette[6.3.7.1]{XVII.par6.3.7.1}
+最后注意，态射 $\sigma$ \eqhyperref[XVII.eq6.3.4.1]{6.3.4.1} 和
+$t$ \eqhyperref[XVII.eq6.3.4.2]{6.3.4.2} 的构造\emph{与任意基变换相容}；
+由 \hyperref[XVII.par5.5.2.7]{5.5.2.7}，这一说法有意义。
+
+\subsection*{应用 1．光滑曲线的情形}\pageoriginale
+
+\subsubsection{}\etiquette[6.3.8]{XVII.subsubsec6.3.8}
+设 $f:X\rightarrow S$ 是 $S$ 上的光滑拟射影曲线，\ie 纯相对维数为 $1$
+的光滑拟射影态射。Hilbert 概形理论
+\sisi{[}{}\textsc{Grothendieck} \cite{sga4.exp.XVII.bib.Gr}）表明，
+fpqc 层 $\sheaf{\Div}^{n}_{X/S}$ 可表；它给每个 $S$-概形 $S'$ 赋予
+$X'=\fprod{X}{S'}{S}$ 上在 $S$ 上\emph{有限}且次数为 $n$ 的相对除子所成的集合。
+
+对 $X$ 上在 $S$ 上有限且次数为 $n$ 的每个相对除子 $E$，有典范元素
+\sisi{(6.3.4.3)}{\eqhyperref[XVII.eq6.3.4.2]{6.3.4.2}}
+$t(E)\in \Sym^{n}_{S}(E)$，其在 $\Sym^{n}_{S}(X)$ 中的像为 $\sigma(E)$。
+因为这一构造与任意基变换相容，它定义
+$$\etiquette[6.3.8.1]{XVII.eq6.3.8.1}
+\sigma:\sheaf{\Div}^{n}_{X/S}\longrightarrow
+\Sym^{n}_{S}(X):E\longrightarrow \sigma(\Oo_{E}){\quoi}.\leqno(6.3.8.1)
+$$
+
+$f$ 的每个截面 $s$ 都定义一个在 $S$ 上有限且次数为 $1$ 的相对除子，
+即除子 $s(S)$。态射
+\[
+(X/S)^{n}\longrightarrow \sheaf{\Div}^{n}_{X/S}:(s_{i})_{0<i\leq
+n}\longmapsto \sum s_{i}(S)
+\]
+对称，因而诱导态射
+$$\etiquette[6.3.8.2]{XVII.eq6.3.8.2}
+\alpha:\Sym^{n}_{S}(X)\longrightarrow \sheaf{\Div}^{n}_{X/S}{\quoi}.\leqno(6.3.8.2)
+$$
+
+\begin{enonce*}{命题 6.3.9}\etiquette[6.3.9]{XVII.prop6.3.9}
+\hyperref[XVII.subsubsec6.3.8]{6.3.8} 的态射 $\sigma$ 和 $\alpha$ 是互逆同构。
+\end{enonce*}
+
+\begin{enonce*}[remark]{证明}
+\begin{enumerate}
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item $\sigma\alpha=\Id$。只须证明复合箭头
+$$
+(X/S)^{n}\xrightarrow{\pi}\Sym^{n}_{S}(X)\xrightarrow{\alpha}\sheaf{\Div}^{n}_{X/S}\xrightarrow{\sigma}\Sym^{n}_{S}(X)
+$$
+是\pageoriginale $\pi$。当 $n=1$ 时断言显然；一般情形由下面的引理得到。
+
+\begin{enonce*}{引理 6.3.9.1}\etiquette[6.3.9.1]{XVII.lem6.3.9.1}
+沿用 \hyperref[XVII.prop6.3.5]{6.3.5} 和 \eqhyperref[XVII.eq6.3.8.1]{6.3.8.1} 的记号，有
+\[
+\sigma(E+F)=d(\sigma(E),\sigma(F)){\quoi}.
+\]
+\end{enonce*}
+
+此引理由 \hyperref[XVII.prop6.3.5]{6.3.5}、\hyperref[XVII.lem6.3.6]{6.3.6}
+以及正合列
+\[
+0\longrightarrow \Oo(-F)\otimes \Oo_{E}\longrightarrow
+\Oo_{E+F}\longrightarrow \Oo_{F}\longrightarrow 0{\quoi}.
+\]
+得到。
+
+\item 已知 $\sheaf{\Div}^{n}_{X/S}$ 在 $S$ 上光滑
+（曲线上除子的无穷小提升没有障碍（\cf \SGA 3 XI 1））。
+态射 $\alpha\pi:(X/S)^{n}\rightarrow \sheaf{\Div}^{n}_{X/S}$
+是光滑 $S$-概形\sisi{}{之间}的拟有限满态射，其源的纤维等维。
+因而它平坦（\EGA ${\rm 0_{IV}}$ 17.3.5），所以 $\alpha\pi$ 是 fppf 层的满态射，
+从而 $\alpha$ 也是。结合 a)，便完成 \hyperref[XVII.prop6.3.9]{6.3.9} 的证明。
+\end{enumerate}
+\end{enonce*}
+
+\begin{enonce*}{引理 6.3.10}\etiquette[6.3.10]{XVII.lem6.3.10}
+设 $k$ 是交换环，$M$ 是自由 $k$-模，$u$ 是 $M$ 的自同态。
+以 $N_{\det(u-T)=0}$ 表示从 $k[T]/\det(u-T)$ 到 $k$ 的范数。
+则对 $P\in k[T]$，有
+\[
+N_{\det(u-T)=0} (P(T))=\det(P(u),M){\quoi}.
+\]
+\end{enonce*}
+
+这归结为验证 $u$ 的矩阵各元素与 $P$ 的系数之间的一个代数恒等式。
+因此，为证明 \hyperref[XVII.lem6.3.10]{6.3.10}，只须
+（由熟知的论证）处理 $k$ 代数闭且 $u$ 半单、特征值为 $a_{i}$ 的情形。
+
+此时\pageoriginale 有
+\begin{align*}
+& \det(u-T)=\Pi(a_{i}-T)\\
+& N_{\det(u-T)=0}(P(T))=\Pi P(a_{i})\quad\mbox{\rm 且}\\
+& \det(P(u),M)=\Pi P(a_{i}){\quoi}.
+\end{align*}
+
+\setcounter{subsubsection}{11}
+\setcounter{paragraph}{-1}
+\paragraph{}\etiquette[6.3.11.0]{XVII.par6.3.11.0}
+设 $f:X\rightarrow S$ 是有限表现的拟射影态射，平坦且纤维是纯一维
+Cohen--Macaulay 概形；因此，当 $X$ 是 $S$ 上的光滑拟射影曲线时，这些条件满足。
+设 $\Ff $ 是\emph{在} $S$ \emph{上}有限局部自由的 $\Oo_{X}$-模。
+因为 $\Ff $ 在 $X$ 的一个逐纤维稠密开子集上为零，存在典范箭头
+$\psi:\Oo_{X}\rightarrow \det^{\ast}(\Ff )$
+（\SGA 6 XI 或 \textsc{Mumford}
+\sisi{[1 第~5 章 \S~3]}{\cite[\chap~5 \S~3]{sga4.exp.XVII.bib.Mu}}）。
+以 $\delta(\Ff )$ 表示由 $\coker(\psi)$ 的零化理想定义的除子（同上）；
+此除子在 $S$ 上有限。
+
+\begin{enonce*}{命题 6.3.11.1}\etiquette[6.3.11.1]{XVII.prop6.3.11.1}
+在 \hyperref[XVII.par6.3.11.0]{6.3.11.0} 的假设下，沿用
+\hyperref[XVII.subsubsec6.3.8]{6.3.8} 和 \eqhyperref[XVII.eq6.3.4.1]{6.3.4.1} 的记号，
+若 $\Ff $ 的秩为 $n$，则 $\delta(\Ff )$ 的次数为 $n$，且
+\[
+\sigma(\Ff )=\sigma(\delta(\Ff )){\quoi}.
+\]
+\end{enonce*}
+
+\begin{enonce*}[remark]{证明}
+\begin{enumerate}
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item \emph{$f$ 光滑的情形。}由标准归约，可以假设 $S$ 是剩余域代数闭的 Artin 局部概形。
+$\sigma$ 的可加性（\hyperref[XVII.prop6.3.5]{6.3.5}）使我们可以假设
+$\Ff $ 的支集集中于 $X$ 的一个有理点 $x$。
+立即可验证，若 $T$ 是 $x$ 处的局部一致化参数，定义
+$p:X\rightarrow \sisi{A}{\AAA}^{1}_{S}$，则
+$p_{\ast}(\Oo_{\sisi{S}{\delta}(\Ff )})\simeq \Oo_{\delta(p_{\ast}\Ff )}$
+（因为所考虑的构造与完备化交换）。结合 \hyperref[XVII.prop6.3.7]{6.3.7}，
+便归结到 $X=\sisi{A'}{\AAA^1}_{S}$ 的情形。
+
+若\pageoriginale $X=\AAA\sisi{'}{^1}_{S}$ 且 $S$ 仿射，$S=\Spec(k)$，
+则 $\Ff $ 可等同于赋有自同态 $u$（即 $T$ 的作用）的局部自由 $k$-模 $M$。
+作为 $k[T]$-模，$M$ 有解消
+\[
+0\rightarrow
+k[T]\otimes_{k}M\xrightarrow{\varphi}k[T]\otimes_{k}M\xrightarrow{\epsilon}
+M\rightarrow 0{\quoi},
+\]
+其中 $\epsilon(P\otimes m)=P(u)(m)$，
+$\varphi(1\otimes m)=1\otimes um-T\otimes m$。
+由公式 $\varphi=u-T$，可知除子 $\delta(\Ff )$ 的方程为 $\det(u-T,M)=0$。
+
+为验证 \sisi{6.3.11}{\hyperref[XVII.prop6.3.11.1]{6.3.11.1}}，
+只须说明在每次基变换之后，对 $\Oo_{X}$ 的每个截面 $\varphi$，有
+\[
+{\det}_{k}(\varphi,M)={\det}_{k}(\varphi,\Oo_{\delta(\Ff )})(=N_{\delta(\Ff )/S}(\varphi)){\quoi}.
+\]
+当 $\sisi{f}{\varphi}=P(T)$ 时，这正是 \hyperref[XVII.lem6.3.10]{6.3.10} 的断言。
+
+
+\item 一般情形。我们先以下面更具体的形式，明确陈述所要证明的断言：
+
+\begin{enonce*}{推论 6.3.11.2}\etiquette[6.3.11.2]{XVII.cor6.3.11.2}
+在关于 $f:X\rightarrow S$ 的假设 \hyperref[XVII.par6.3.11.0]{6.3.11.0} 下，
+设 $M$ 是 $X$ 上的有限局部自由模，$u$ 是 $M$ 的自同态，使 $\det u$ 是
+$\Oo_{X}$ 的一个在每个纤维 $X_{s}$ 上都正则的截面
+（从而 $\Coker u=M/u(M)$ 和 $\Coker \det u=\Oo_{X}/\det u$
+都在 $S$ 上平坦且有限表现，且有\sisi{拟有限纤维}{拟有限支集}）。
+假设这些层的共同支集\nde{$M/uM$ 在 \hyperref[XVII.subsubsec6.3.4]{6.3.4}
+意义下的支集，是 $\Oo/\det u$ 的支集的一个由幂零理想定义的子概形。}
+在 $S$ 上有限，从而它们定义在 $S$ 上有限局部自由的层。
+则对 $\Oo_{X}$ 的每个截面 $\varphi$，它作用于 $\Coker u$ 与
+$\Coker \det u$ 的、在 $\Oo_{S}$ 上的行列式相等：
+$$\etiquette[6.3.11.3]{XVII.eq6.3.11.3}
+{\det}_{S}(\varphi,M/u(M))={\det}_{S}(\varphi,\Oo_{X}/\det
+u){\quoi}.\leqno(6.3.11.3)
+$$
+\end{enonce*}
+
+
+我们\pageoriginale 注意到，由齐次性，此陈述蕴含所考虑的两个局部自由模在 $S$ 上的秩相等
+（将 $\varphi$ 换成 $T\varphi$，其中 $T$ 是 $\Oo_{S}$ 的一个“未定”截面）。
+此外，%\c
+将 $\varphi$ 换成 $1+T\varphi$，其中 $\sisi{j}{T}$ 是这样的未定元
+（更确切地说，作基变换 $S'=S[T]\rightarrow S$），
+便从 \eqhyperref[XVII.eq6.3.11.3]{6.3.11.3} 推出关于特征多项式的表面上更一般的公式
+$$\etiquette[6.3.11.4]{XVII.eq6.3.11.4}
+\Pol_{S}(\varphi,M/uM)(T)=\Pol_{S}(\varphi,\Oo_{X}/\det u)(T)\leqno(6.3.11.4)
+$$
+成立。
+
+为证明 \eqhyperref[XVII.eq6.3.11.3]{6.3.11.3}，将归结到已经证明的光滑情形。
+通过在 $S$ 上平展局部化，归结到 $S$ 严格局部、闭点为 $s$ 的情形；
+再由可加性，归结到 $M/u(M)$ 的支集在 $X_{s}$ 中只有一个点 $x$ 的情形。
+对底作平坦扩张之后，可以假设剩余域扩张 $k(x)/k(s)$ 平凡；
+再将 $X$ 换成 $x$ 的充分小邻域，并给 $\varphi$ 加上一个在 $M/u(M)$ 及
+$\Oo_{X}/ \det u$ 上诱导零运算的函数（这不改变待证公式），
+容易看出可以假设 $\varphi$ 诱导 $\Oo_{X_{s}}$ 的一个在 $x$ 处正则的截面，
+从而（缩小 $X$ 后）定义一个拟有限平坦态射
+$$
+p:X\longrightarrow X'=S[T]{\quoi}.
+$$
+所以，通过在 $X$ 和 $X'$ 上平展局部化，可以假设有如上的\emph{有限平坦}态射 $p$，
+其中 $X'$ 在 $S$ 上光滑，且 $\varphi=p^{\ast}(\varphi')$，
+$\varphi'$ 是 $\Oo_{X'}$ 的一个截面。令
+\begin{align*}
+& M'=p_{\ast}(M)\quav u'=p_{\ast}(u){\quoi},\\
+& P=\Coker u\quav Q=\Coker \det u{\quoi},\\
+& P'=\Coker u'\quav Q'=\Coker \det u'{\quoi}.
+\end{align*}
+我们\pageoriginale 知道
+\[
+\det u'=N_{\sisi{X'/X}{X/X'}}\det u,\quad\mbox{\rm 故}\quad Q'=\Coker
+N_{\sisi{X'/X}{X/X'}}(\det u){\quoi}.
+\]
+显然有
+\[
+{\det}_{S}(\varphi,P)={\det}_{S}(\varphi',P\sisi{}{'}){\quoi},
+\]
+而由已在光滑情形证明的公式 \eqhyperref[XVII.eq6.3.11.3]{6.3.11.3}，有
+\[
+{\det}_{S}(\varphi',P')={\det}_{S}(\varphi',Q'){\quoi},
+\]
+所以尚须证明公式
+\[
+{\det}_{S}(\varphi',Q')={\det}_{S}(\varphi,Q){\quoi},
+\]
+它\emph{等价于}所要建立的公式 \eqhyperref[XVII.eq6.3.11.3]{6.3.11.3}。
+由此可见，后者是否成立仅依赖于 $\Oo_{X}$ 的截面 $\det u$；
+等价地，它等价于将 $M$ 换成 $\Oo_{X}$、将 $\varphi$ 换成 $\det u$ 时的同一公式。
+但当 $M=\Oo_{X}$ 时，公式 \eqhyperref[XVII.eq6.3.11.3]{6.3.11.3} 是重言式！
+证明至此完成。
+\end{enumerate}
+\end{enonce*}
+
+\begin{enonce*}[remark]{注 6.3.11.5}\etiquette[6.3.11.5]{XVII.rem6.3.11.5}
+在\pageoriginale $S$ 为 Artin 概形的情形，$\Coker u$ 与 $\Coker \det u$
+（沿用 \hyperref[XVII.cor6.3.11.2]{6.3.11.2} 的记号）在 $S$ 上秩相等，
+是 \EGA IV 21.10.17.3 的特例；\eqhyperref[XVII.eq6.3.11.3]{6.3.11.3}
+可视为它的一个“相对”版本。
+\end{enonce*}
+
+\begin{enonce*}{命题 6.3.12}\etiquette[6.3.12]{XVII.prop6.3.12}
+设 $X$ 和 $Y$ 是 $S$ 上的两条有限表现的拟射影曲线，平坦且纤维为
+Cohen--Macaulay 概形，并设 $u:X\rightarrow Y$ 是拟有限平坦态射。
+
+则下图
+\[
+\xymatrix@C=4em{
+\sheaf{\Div}^{n}_{X/S}  \ar[r]^{u_{\ast}} \ar[d]_{\sigma_X} &
+\sheaf{\Div}^{n}_{Y/S} \ar[d]_{\sigma_Y}\\
+\Sym^{n}_S(X)     \ar[r]^{\Sym^{n}(u)} & \Sym^{n}_S(Y)
+}
+\]
+交换\footnote[1]{\MakeLinkTarget*{sga4.exp.XVII.footnote.6.3.12.1}\label{XVII.note192}
+因为我们只考虑在 $S$ 上\emph{有限}的除子，态射 $u_{\ast}$ 有定义。
+例如，可取 $u_{\ast}(D)=\delta(u_{\ast}\Oo_{D})$ 作为定义；
+当 $u$ 有限时，这一公式与 \EGA IV 21.5.5 一致。}。
+\end{enonce*}
+
+\sisi{\noindent}{}%
+因为 $u_{\ast}(D)=\delta(u_{\ast}\Oo_{D})$，\hyperref[XVII.prop6.3.12]{6.3.12}
+由 \hyperref[XVII.prop6.3.7]{6.3.7} 和 \hyperref[XVII.prop6.3.11.1]{6.3.11.1} 得到。
