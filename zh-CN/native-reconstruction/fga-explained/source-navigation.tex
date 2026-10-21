@@ -1,0 +1,32 @@
+% Editorial navigation only. It preserves all original index entries/page numbers.
+\usepackage{zref-abspage,zref-user}
+\makeatletter
+\newcommand{\sourcepage}[1]{%
+  \begingroup
+  \Hy@raisedlink{\hyper@anchorstart{origpdf.#1}\hyper@anchorend}%
+  \def\@currentlabel{#1}\edef\@currentHref{origpdf.#1}%
+  \label{origpdf:#1}\zlabel{origabs:#1}%
+  \endgroup}
+\newcommand{\sourceindex}[1]{\hyperlink{origmap.#1}{#1}}
+\newcount\sourceStartNative
+\newcount\sourceEndNative
+\newcount\sourceStartAbsolute
+\newcount\sourceEndAbsolute
+\newcommand{\sourcewindow}[2]{%
+  \sourceStartNative=\numexpr\getpagerefnumber{origpdf:#1}-1\relax
+  \sourceEndNative=\numexpr\getpagerefnumber{origpdf:#2}+1\relax
+  \sourceStartAbsolute=\numexpr\zref@extractdefault{origabs:#1}{abspage}{0}-1\relax
+  \sourceEndAbsolute=\numexpr\zref@extractdefault{origabs:#2}{abspage}{0}+1\relax
+  \ifnum\sourceStartNative<1 \sourceStartNative=1\fi
+  \ifnum\sourceStartAbsolute<1 \sourceStartAbsolute=1\fi
+  \ifnum\sourceEndNative<1 \sourceEndNative=1\fi
+  \ifnum\sourceEndAbsolute<1 \sourceEndAbsolute=1\fi}
+\newcommand{\sourcemaprow}[5]{%
+  \hypertarget{origmap.#1}{}#1#5\ (PDF #2)&%
+  \begingroup\sourcewindow{#3}{#4}%
+  \hyperlink{page.\the\sourceStartNative}{\the\sourceStartNative--\the\sourceEndNative}%
+  \endgroup&%
+  \begingroup\sourcewindow{#3}{#4}%
+  \the\sourceStartAbsolute--\the\sourceEndAbsolute
+  \endgroup\\}
+\makeatother

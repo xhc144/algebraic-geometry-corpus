@@ -20,4 +20,6 @@ OCR 脚本仅用于重新识别，需仓库内原扫描；PDF 构建本身完全
 
 编译成功只说明语法和字体依赖可用。未译内容、原书疑似笔误、参考文献交叉引用、实际打开检查的页面、缺字和溢出等状态分别记录，不以一次编译代替内容完整性检查。
 
-运行 `python3 scripts/package_source.py` 可重新生成源码 ZIP、内部逐文件哈希清单及外部 `SHA256SUMS`。ZIP 排除 `build/`、原扫描和预编译 PDF；解包后在 `fga-explained/` 中按上面的三遍命令独立编译即可。保存的重建证据见 `evidence/replay-review.json`，其验收比较的是全部页面的文字与渲染像素，不将 PDF 时间戳导致的二进制差异误作正文变化。
+运行 `python3 scripts/package_source.py` 可重新生成源码 ZIP、内部逐文件哈希清单及外部 `SHA256SUMS`。ZIP 排除 `build/`、原扫描和预编译 PDF；解包后在 `fga-explained/` 中按上面的三遍命令独立编译即可。`evidence/replay-review.json` 是初稿提交 `2b1f9f7` 的历史独立解包重建证据；此次暂停修订已经三遍编译，但为有界收尾未再次独立重放 ZIP，不能沿用历史证据冒充新验证。
+
+项目已按用户要求暂停。`source-navigation.tex` 和 `scripts/source_navigation.py` 为未集成、未验收的页码映射原型，不属于当前 `main.tex` 的编译依赖；暂停状态不应运行其 `prepare` 操作。恢复须由用户明确请求，再按 `evidence/PAUSED-CHECKPOINT.json` 继续未完成的审校与地图工作。
