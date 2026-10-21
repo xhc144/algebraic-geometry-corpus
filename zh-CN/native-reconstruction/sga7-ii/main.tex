@@ -1,22 +1,27 @@
 % SGA 7-II native Simplified Chinese reconstruction.
 % Source and coverage evidence: SOURCE_LOCK.json, PROGRESS.json, review/.
 \documentclass[11pt,a4paper,leqno,fontset=none]{ctexart}
-\setCJKmainfont{Noto Serif CJK SC}
+\setCJKmainfont[AutoFakeSlant=.15,SmallCapsFont={Noto Serif CJK SC}]{Noto Serif CJK SC}
 \setCJKsansfont{Noto Sans CJK SC}
 \setCJKmonofont{Noto Sans Mono CJK SC}
 \usepackage{amsmath,amssymb,amsfonts,mathrsfs,mathtools}
 \usepackage{tikz}
 \usetikzlibrary{cd,arrows.meta}
 \usepackage{geometry}
+\usepackage{fancyhdr}
 \geometry{margin=2.4cm}
 \usepackage{enumitem}
 \usepackage[normalem]{ulem}
+\usepackage{xeCJKfntef}
 \usepackage{hyperref}
 \hypersetup{colorlinks=true,linkcolor=black,citecolor=black,urlcolor=black,
  hypertexnames=false,pdftitle={SGA 7-II：代数几何中的单值群},pdfauthor={P. Deligne; N. Katz}}
 \let\mathunderline\underline
-\renewcommand{\underline}[1]{\ifmmode\mathunderline{#1}\else\uline{#1}\fi}
+\renewcommand{\underline}[1]{\ifmmode\mathunderline{#1}\else\CJKunderline{#1}\fi}
 \emergencystretch=3em
+% Original XV uses \textcircled as a tikzcd arrow label in math mode.
+\let\SGAtextcircled\textcircled
+\renewcommand{\textcircled}[1]{\ifmmode\text{\SGAtextcircled{#1}}\else\SGAtextcircled{#1}\fi}
 \providecommand{\Gal}{\operatorname{Gal}}
 \providecommand{\Spec}{\operatorname{Spec}}
 \providecommand{\Hom}{\operatorname{Hom}}
@@ -28,10 +33,18 @@
 \providecommand{\codim}{\operatorname{codim}}
 \providecommand{\pr}{\operatorname{pr}}
 \providecommand{\id}{\mathrm{id}}
+\newcommand{\CurrentExpose}{引言}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small SGA 7 II}
+\fancyhead[R]{\small\CurrentExpose}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\setlength{\headheight}{14pt}
 \begin{document}
 \begin{titlepage}
 \sffamily
-\hspace*{.19\textwidth}\begin{minipage}{.79\textwidth}
+\noindent\hspace*{.19\textwidth}\begin{minipage}{.79\textwidth}
 \vspace*{.4cm}
 {\fontsize{34}{41}\selectfont Lecture Notes in\\ Mathematics\par}
 \vspace{1.2cm}
@@ -39,17 +52,18 @@
 \vspace{2.3cm}
 {\fontsize{28}{32}\selectfont 340\par}
 \end{minipage}
-\par\noindent\rule{\textwidth}{1.2pt}
-\vspace{.5cm}
-\hspace*{.19\textwidth}\begin{minipage}{.79\textwidth}
+\par\vspace{.45cm}
+\noindent\rule{\textwidth}{1.2pt}\par
+\vspace{.65cm}
+\noindent\hspace*{.19\textwidth}\begin{minipage}{.79\textwidth}
 {\fontsize{27}{38}\selectfont 代数几何中的\\单值群\par}
 \vspace{.5cm}
 {\Large 第二部分\quad SGA 7 II\par}
 \end{minipage}
 \vfill
-\par\noindent\rule{\textwidth}{1.2pt}
+\par\noindent\rule{\textwidth}{1.2pt}\par
 \vspace{.6cm}
-\hspace*{.19\textwidth}\begin{minipage}{.79\textwidth}
+\noindent\hspace*{.19\textwidth}\begin{minipage}{.79\textwidth}
 {\Large Springer-Verlag\par}
 {\large Berlin · Heidelberg · New York 1973\par}
 \medskip
@@ -68,7 +82,9 @@ P. Deligne 与 N. Katz\\[5em]
 \vfill
 \end{titlepage}
 \pagenumbering{Roman}
-\IfFileExists{frontmatter/introduction-zh.tex}{\input{frontmatter/introduction-zh.tex}\clearpage}{}
+\input{frontmatter/introduction-zh.tex}\clearpage
+\renewcommand{\CurrentExpose}{目录}
+\setcounter{tocdepth}{1}
 \tableofcontents
 \clearpage
 \pagenumbering{arabic}

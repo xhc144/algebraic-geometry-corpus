@@ -1,0 +1,120 @@
+\clearpage
+\begin{center}
+{\large SGA 7 --- 第 XVIII 讲}\par
+\vspace{2em}
+{\Large\underline{Lefschetz 线束的上同调研究}}\par
+\vspace{1.5em}
+{\large N. Katz\footnote{根据 Grothendieck 的简要笔记写成.}}
+\end{center}
+
+\section*{目录}
+
+\noindent 1. 射影丛的上同调. \hfill 2
+
+\noindent 2. 爆破簇的上同调. \hfill 4
+
+\noindent 3. 与线束相伴的爆破. \hfill 13
+
+\noindent 4. 与线束相伴的爆破的上同调. \hfill 17
+
+\noindent 5. 与线束相伴的态射 $\rho:\widetilde X\longrightarrow\mathbb P^1$ 的上同调研究.
+\hfill 24
+
+\noindent\quad 5.1. 限制同态
+$H^*(\widetilde X)\longrightarrow H^*(Y)$. \hfill 24
+
+\noindent\quad 5.2. “强 Lefschetz 定理” (Lefschetz vache, LV). \hfill 27
+
+\noindent\quad 5.3. 条件 (A). \hfill 33
+
+\noindent\quad 5.8. Griffiths 同态. \hfill 47
+
+\noindent\quad 5.9. 不满足假设 (A) 的一个例子.
+\hfill 57
+
+\noindent 6. 消灭圈局部理论的应用
+(Picard--Lefschetz). \hfill 58
+
+\section*{引言}
+
+本讲给出 Lefschetz 线束的初等上同调结构. 第 1--4 节给出有关射影丛和爆破的上同调结构的“熟知”事实. 第 5 节在假设 $X$ 满足“强 Lefschetz 定理” (5.2), 且所考虑的线束 $D$ 满足某个在 $D$ 上具有局部性质的条件 (A) (5.3) 的前提下, 进行标题所述的研究. 主要结果是 5.6、5.7 和 5.8.7; 最后一个结果在第 XX 讲 Griffiths 定理的证明中起着关键作用. 最后一节明显较不初等, 我们利用 SGA 1 中 Mme Raynaud 关于\underline{驯基本群}的第 XIII 讲, 以及\underline{Picard--Lefschetz 公式} (XVI), 证明:
+\begin{enumerate}[label=(\arabic*)]
+\item 条件 (A) 往往成立 (6.3, 6.4);
+\item 除 $\dim(X)$ 为奇数且特征为 $2$ 的情形外, Lefschetz 线束的单值群在“消灭上同调”上的作用不可约, 并在经由 Picard--Lefschetz 公式与线束的各个“临界点”相伴的“局部消灭圈”集合上的作用可迁 (相差符号视为相同) (6.6 和 6.7).
+\end{enumerate}
+
+\section*{1. 射影丛的上同调}
+
+\subsubsection*{定理 1.1 (Deligne).}
+\underline{设 $f:X\longrightarrow S$ 为固有态射, $\ell$ 为在 $S$ 上可逆的素数, $u\in H^2(X,\mathbb Z_\ell(1))$ (分别地, $u\in H^2(X,\mathbb Q_\ell(1))$) 为 $X$ 上的上同调类, $\mathfrak F$ 为 $X$ 上的 $\mathbb Z_\ell$-层 (分别地, $\mathbb Q_\ell$-层). 假设存在整数 $n$, 使得对每个整数 $j$ 和每个整数 $i>0$, 映射}
+\begin{equation}\tag{1.1.1}
+R^{n-i}f_*\bigl(\mathfrak F(j)\bigr)
+\xrightarrow{\ \wedge u^i\ }
+R^{n+i}f_*\bigl(\mathfrak F(j+i)\bigr)
+\end{equation}
+\underline{是 $S$ 上的 $\mathbb Z_\ell$-层 (分别地, $\mathbb Q_\ell$-层) 的同构. 则对每个态射 $g:S\longrightarrow T$, Leray 谱序列}
+\[
+E_2^{p,q}=R^pg_*R^qf_*(\mathfrak F)
+\Longrightarrow R^{p+q}(gf)_*(\mathfrak F)
+\]
+\underline{退化.}
+
+证明见 [1, 命题~2.4]. 注意, 由固有基变换定理 (SGA 4 XII, 5.2), 可以逐纤维检验此假设.
+
+\subsubsection*{定理 1.2 (参见 SGA 5 VII, 2.2.1).}
+\underline{设 $\mathcal E\longrightarrow X$ 为秩为 $1+r$ 的局部自由向量丛. 以 $f:\mathbb P(\mathcal E)\longrightarrow X$ 表示 $\mathcal E$ 定义的射影丛, 并设 $u\in H^2(\mathbb P(\mathcal E),\mathbb Z_\ell(1))$ 为典范可逆层 $\mathcal O_{\mathbb P(\mathcal E)}(1)$ 的第一 Chern 类. 对在 $X$ 上可逆的素数 $\ell$, 有:}
+\begin{enumerate}[label=\alph*)]
+\item \underline{谱序列}
+\begin{equation}\tag{1.2.1}
+E_2^{p,q}=H^p\bigl(X,R^qf_*\mathbb Z_\ell\bigr)
+\Longrightarrow
+H^{p+q}\bigl(\mathbb P(\mathcal E),\mathbb Z_\ell\bigr)
+\end{equation}
+\underline{退化;}
+\item \underline{映射}
+\begin{equation}\tag{1.2.2}
+\bigoplus_{0\leq j\leq r}
+H^{q-2j}\bigl(X,\mathbb Z_\ell(-j)\bigr)
+\longrightarrow
+H^q\bigl(\mathbb P(\mathcal E),\mathbb Z_\ell\bigr),
+\qquad
+(\tau_{q-2j})_j\longmapsto
+\sum_j f^*(\tau_{q-2j})\wedge u^j
+\end{equation}
+\underline{是同构.}
+\end{enumerate}
+\footnote{在 (1.2.2) 中, 印本把上限写成 $n$, 把次数写成 $q-2-j$, 并少了一个右括号. 秩 $1+r$、定义映射以及紧接在下面的证明都要求 $0\leq j\leq r$ 和 $q-2j$; 此处给出改正后的公式.}
+
+\noindent\underline{证明.}
+$f$ 的纤维是 $r$ 维射影空间, 而我们知道
+\begin{equation}\tag{1.2.3}
+R^if_*\mathbb Z_\ell
+\xleftarrow[\ \sim\ ]{\ \wedge^{i/2}u\ }
+\begin{cases}
+\mathbb Z_\ell\left(-\dfrac{i}{2}\right),
+  & \text{若 $i$ 为偶数且 $0\leq i\leq2r$},\\[2ex]
+0, & \text{其他情形}.
+\end{cases}
+\end{equation}
+将定理 1.1 应用于 $(f,\ell,u,\mathbb Z_\ell,r)$, 即得 (a). 由 (1.2.3),
+\begin{equation}\tag{1.2.4}
+E_2^{a,b}=
+\begin{cases}
+H^a\left(X,\mathbb Z_\ell\left(-\dfrac b2\right)\right),
+  & \text{若 $b$ 为偶数且 $0\leq b\leq2r$},\\[2ex]
+0, & \text{其他情形}.
+\end{cases}
+\end{equation}
+因此, 对谱序列给出的滤过, 与 $H^q(\mathbb P(\mathcal E),\mathbb Z_\ell)$ 相伴的分次对象为
+\[
+\bigoplus_{0\leq j\leq r}
+H^{q-2j}\bigl(X,\mathbb Z_\ell(-j)\bigr).
+\]
+若在此直和上赋予滤过
+\[
+F^i=
+\bigoplus_{\substack{0\leq j\leq r\\q-2j\leq i}}
+H^{q-2j}\bigl(X,\mathbb Z_\ell(-j)\bigr),
+\]
+则映射 (1.2.2) 与滤过相容, 并在相伴分次对象上诱导恒等映射. 这就证明了 (b).
+

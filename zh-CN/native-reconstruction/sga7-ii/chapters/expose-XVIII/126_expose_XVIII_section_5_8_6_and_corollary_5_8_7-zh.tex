@@ -1,0 +1,128 @@
+\subsection*{5.8.6.}
+设 $L/k(\eta)$ 为 $\mathbb P^1$ 的有理函数域的有限扩张, 并置
+\begin{equation}\tag{5.8.6.1}
+S=\text{$\mathbb P^1$ 在 $L$ 中的正规化}.
+\end{equation}
+在情形 (5.8.3.2) 中作基变换 $S\to\mathbb P^1$:
+\begin{equation}\tag{5.8.6.1 bis}
+\begin{tikzcd}[column sep=huge,row sep=large]
+{} & \widetilde X \arrow[dl,"f"] \arrow[dd,"\rho"]
+& \widetilde X_S \arrow[l,"\alpha_S"'] \arrow[dd,"\rho_S"] \\
+X&{}&{} \\
+{} & \mathbb P^1 & S\arrow[l,"\pi"'] .
+\end{tikzcd}
+\end{equation}
+对于每个使 $\rho_S$ 在其上光滑的开浸入 $V\xhookrightarrow{\mu}S$, 在 (5.8.3.2) 中沿 $V\xrightarrow{\pi\mu}\mathbb P^1$ 作基变换, 得
+\begin{equation}\tag{5.8.6.2}
+\begin{tikzcd}[column sep=huge,row sep=large]
+{} & \widetilde X \arrow[dl,"f"] \arrow[dd,"\rho"]
+& \widetilde X_V \arrow[l,"\alpha_V"'] \arrow[dd,"\rho_V"]
+  \arrow[dr,"f\times\rho_V"] &{} \\
+X&{}&{}&X\times V\arrow[dl,"\operatorname{pr}_2"] \\
+{} & \mathbb P^1 & V\arrow[l,"\pi\mu"'] &{} .
+\end{tikzcd}
+\end{equation}
+仍有 (参见 (5.8.2.3))
+\begin{equation}\tag{5.8.6.3}
+\alpha_V^*f^*\operatorname{Prim}^n(X,\mathbb Q_\ell(j))
+\subset
+\operatorname{Prim}^n(\widetilde X_V/V,\mathbb Q_\ell(j)),
+\end{equation}
+所以我们仍可谈论 Griffiths 同态
+\begin{equation}\tag{5.8.6.4}
+\operatorname{Prim}^n(X,\mathbb Q_\ell(j))
+\xrightarrow{\operatorname{Grif}}
+H^1(V,R^{n-1}\rho_{V*}\mathbb Q_\ell(j)).
+\end{equation}
+
+\subsection*{推论 5.8.7.}
+\underline{沿用前面的记号, 并在 5.8.4 的假设下, “模去固定部分”的 Griffiths 同态, 即复合}
+\begin{equation}\tag{5.8.7.1}
+\resizebox{\textwidth}{!}{%
+\begin{tikzcd}[ampersand replacement=\&,column sep=huge,row sep=huge]
+\operatorname{Prim}^n(X,\mathbb Q_\ell(j))
+  \arrow[r,"\operatorname{Grif}"]
+\& H^1(V,R^{n-1}\rho_{V*}\mathbb Q_\ell(j)) \arrow[d] \\
+{}
+\& H^1(V,(\pi\mu)^*E^{n-1}\rho_*\mathbb Q_\ell(j))
+\simeq
+\dfrac{H^1(V,R^{n-1}\rho_{V*}\mathbb Q_\ell(j))}
+{(f\times\rho_V)^*H^1(V,H^{n-1}(X,\mathbb Q_\ell(j))_V)}
+\end{tikzcd}}
+\end{equation}
+\underline{为单射.}
+
+\underline{证明.}
+由上同调的特化定理,
+\[
+R^{n-1}\rho_{V*}\mathbb Q_\ell(j)
+=(\pi\mu)^*R^{n-1}\rho_*\mathbb Q_\ell(j).
+\]
+因而分解 (5.8.4.2) 将 (5.8.7.1) 改写如下:
+\[
+\begin{tikzcd}[column sep=huge,row sep=huge]
+\operatorname{Prim}^n(X,\mathbb Q_\ell(j))
+  \arrow[r,"\operatorname{Grif}"]
+& H^1(V,(\pi\mu)^*R^{n-1}\rho_*\mathbb Q_\ell(j)) \arrow[d] \\
+{}
+& H^1(V,(\pi\mu)^*E^{n-1}\rho_*\mathbb Q_\ell(j)).
+\end{tikzcd}
+\]
+因此只须证明
+\begin{equation}\tag{5.8.7.3}
+\operatorname{Prim}^n(X,\mathbb Q_\ell(j))
+\longrightarrow
+H^1(V,\mu^*\pi^*E^{n-1}\rho_*\mathbb Q_\ell(j))
+\end{equation}
+对任意小的开浸入 $V\xhookrightarrow{\mu}S$ 的单射性. 问题归结为如下情形:
+\[
+\left\{
+\begin{aligned}
+U&\xhookrightarrow{\nu}\mathbb P^1
+   &&\text{为使 $\rho$ 在其上光滑的开子集},\\
+V&\xrightarrow{\pi_U}U
+   &&\text{为 $U$ 在 $L$ 中的正规化}.
+\end{aligned}
+\right.
+\]
+从 Cartesian 方块
+\[
+\begin{tikzcd}[column sep=huge,row sep=huge]
+V\arrow[r,hook,"\mu"]\arrow[d,"\pi_U"']
+&S\arrow[d,"\pi"]\\
+U\arrow[r,hook,"\nu"]
+&\mathbb P^1
+\end{tikzcd}
+\]
+得到
+\[
+\mu^*\pi^*E^{n-1}\rho_*\mathbb Q_\ell(j)
+=\pi_U^*\nu^*E^{n-1}\rho_*\mathbb Q_\ell(j).
+\]
+因而 (5.8.7.3) 分解为
+\[
+\begin{tikzcd}[column sep=huge,row sep=huge]
+\operatorname{Prim}^n(X,\mathbb Q_\ell(j)) \arrow[r]
+&H^1(U,\nu^*E^{n-1}\rho_*\mathbb Q_\ell(j))
+  \arrow[d,"\pi_U^*"] \\
+{}
+&H^1(V,\pi_U^*\nu^*E^{n-1}\rho_*\mathbb Q_\ell(j)).
+\end{tikzcd}
+\]
+由 (5.8.4), 只须验证
+\[
+\pi_U^*:H^1(U,\nu^*E^{n-1}\rho_*\mathbb Q_\ell(j))
+\longrightarrow
+H^1(V,\pi_U^*\nu^*E^{n-1}\rho_*\mathbb Q_\ell(j))
+\]
+为单射. 由于 $\pi_U:V\to U$ 有限且平坦, 迹理论 [SGA 4 XVII 6.2] 对 $U$ 上每个 $\mathbb Q_\ell$-层 $F$ (例如 $F=\nu^*E^{n-1}\rho_*\mathbb Q_\ell(j)$) 给出映射
+\[
+\operatorname{tr}_{\pi_U}:H^1(V,\pi_U^*F)\longrightarrow H^1(U,F)
+\]
+使得
+\[
+\operatorname{tr}_{\pi_U}\circ\pi_U^*
+=\deg(\pi_U)\,\operatorname{id}.
+\]
+由此得 $H^*(U,F)\to H^*(V,\pi_U^*F)$ 为单射, 证明完毕.
+\footnote{印本在一处基变换公式中略去了扭转 $(j)$, 而冻结转录稿将迹映射的源和靶都讹写了. 改正后的公式就是最后论证所用的标准有限平坦拉回与迹的恒等式.}
