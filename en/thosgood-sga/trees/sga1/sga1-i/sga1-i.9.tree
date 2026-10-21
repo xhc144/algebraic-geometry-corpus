@@ -1,0 +1,336 @@
+\title{Invariance properties}
+\taxon{section}
+\number{I.9}
+\parent{sga1-i}
+
+\import{sga1-macros}
+\put\transclude/numbered{false}
+
+\p{
+  Let #{A\to B} be a morphism that is local and étale;
+  we study here some cases where a certain property of #{A} implies the same property for #{B}, or vice versa.
+  A certain number of such propositions are already consequences of the simple fact that #{B} is \em{quasi-finite} and \em{flat} over #{A}, and we content ourselves with "recalling" some of them.
+  \em{#{A} and #{B} have the same Krull dimension, and the same depth} (Serre's "cohomological codimension", in the more modern language).
+  It also follows, for example, that \em{#{A} is Cohen–Macaulay if and only if #{B} is}.
+  Also, for any prime ideal #{\mathfrak{q}} of #{B} (inducing some #{\mathfrak{p}} of #{A}), #{B_\mathfrak{q}} is again quasi-finite and flat over #{A_\mathfrak{p}}, as long as we suppose that #{B} is the localisation of an algebra of finite type over #{A} (this follows from the fact that the set of points where a morphism of finite type is quasi-finite (resp. flat) is open);
+  furthermore, \em{every} prime ideal #{\mathfrak{p}} of #{A} is induced by a prime ideal #{\mathfrak{q}} of #{B} (since #{B} is \em{faithfully} flat over #{A}).
+  It thus follows, for example, that \em{#{\mathfrak{q}} and #{\mathfrak{p}} have the same rank};
+  also, \em{#{A} has no embedded prime ideals if and only if #{B} has none}.
+}
+
+\p{
+  We will thus content ourselves with more specific propositions concerning the case of étale morphisms.
+}
+
+\subtree[sga1-i.9.1]{
+  \taxon{proposition}
+  \number{I.9.1}
+
+  \p{
+    Let #{A\to B} be an étale local homomorphism.
+    For #{A} to be regular, it is necessary and sufficient that #{B} be regular.
+  }
+
+  \proof{
+    \p{
+      Let #{k} be the residue field of #{A}, and #{L} the residue field of #{B}.
+      Since #{B} is flat over #{A}, and since #{L=B\otimes_A k} (i.e. #{\mathfrak{n}=\mathfrak{m}B}, where #{\mathfrak{m}} and #{\mathfrak{n}} are the maximal ideals of #{A} and #{B} respectively), the #{\mathfrak{m}}-adic filtration on #{B} is identical to the #{\mathfrak{n}}-adic filtration, and
+      ##{
+        \gr^\bullet(B) = \gr^\bullet(A)\otimes_k L.
+      }
+      It follows that #{\gr^\bullet(B)} is a polynomial algebra over #{L} if and only if #{\gr^\bullet(A)} is a polynomial algebra over #{K}.
+      (N.B. we have not used the fact that #{L/k} is separable.)
+    }
+  }
+}
+
+\subtree[sga1-i.9.2]{
+  \taxon{corollary}
+  \number{I.9.2}
+
+  \p{
+    Let #{f\colon X\to Y} be an étale morphism.
+    If #{Y} is regular, then #{X} is regular;
+    the converse is true if #{f} is surjective.
+  }
+}
+
+\subtree{
+  \taxon{proposition}
+  \number{I.9.2}
+
+  \p{
+    Let #{f\colon X\to Y} be an étale morphism.
+    If #{Y} is reduced, then #{X} is reduced;
+    the converse is true if #{f} is surjective.
+  }
+}
+
+\p{
+  This is equivalent to the following:
+}
+
+\subtree[sga1-i.9.3]{
+  \taxon{corollary}
+  \number{I.9.3}
+
+  \p{
+    Let #{f\colon A\to B} be an étale local homomorphism, with #{B} isomorphic to the localisation of an #{A}-algebra of finite type over #{A}.
+    For #{A} to be reduced, it is necessary and sufficient that #{B} be reduced.
+  }
+
+  \proof{
+    \p{
+      The necessity is trivial, since #{A\to B} is injective (since #{B} is faithfully flat over #{A}).
+      For the sufficiency, let #{\mathfrak{p}_i} be the minimal prime ideals of #{A}.
+      By hypothesis, the natural map #{A\to\prod_i A/\mathfrak{p}_i} is injective, and so tensoring with the flat #{A}-module #{B} gives that #{B\to\prod_i B/\mathfrak{p}_iB} is injective, and we can thus reduce to proving that the #{B/\mathfrak{p}_iB} are reduced.
+      Since #{B/\mathfrak{p}_iB} is étale over #{A/\mathfrak{p}_i}, we can reduce to the case where #{A} is integral.
+      Let #{K} be the field of fractions of #{A}, so that #{A\to K} is injective, and thus so too is #{B\to B\otimes_A K} (since #{B} is #{A}-flat), and we can thus reduce to proving that #{B\otimes_A K} is reduced.
+      But #{B} is the localisation of an #{A}-algebra of finite type over #{A}, and thus is the local ring of a point #{x} of a scheme of finite type #{X=\Spec(C)} over #{Y=\Spec(A)} that is also \em{étale} over #{Y}, so #{B\otimes_A K} is a localisation (with respect to some suitable multiplicatively stable set) of the ring #{C\otimes_A K} of #{X\otimes_A K}.
+      Since #{X\otimes_A K} is étale over #{K}, its ring is a finite product of fields (that are separable extensions of #{K}), and thus so too is #{B\otimes_A K}.
+    }
+  }
+}
+
+\subtree[sga1-i.9.4]{
+  \taxon{corollary}
+  \number{I.9.4}
+
+  \p{
+    Let #{f\colon A\to B} be an étale local homomorphism, with #{A} analytically reduced (i.e. such that the completion #{\widehat{A}} of #{A} has no nilpotent elements).
+    Then #{B} is analytically reduced, and a fortiori reduced.
+  }
+
+  \proof{
+    Indeed, #{\widehat{B}} is \em{finite} and étale over #{\widehat{A}};
+    we can apply \ref{sga1-i.9.3}.
+  }
+}
+
+\subtree[sga1-i.9.5]{
+  \taxon{theorem}
+  \number{I.9.5}
+
+  \p{
+    Let #{f\colon A\to B} be a local homomorphism, with #{B} isomorphic to the localisation of an #{A}-algebra of finite type over #{A}.
+  }
+
+  \olc{
+    \lic{i.}{
+      If #{f} is étale, then #{A} is normal if and only if #{B} is normal.
+    }
+    \lic{ii.}{
+      If #{A} is normal, then #{f} is étale if and only if #{f} is injective and unramified (and then #{B} is normal, by (i)).
+    }
+  }
+}
+
+\p{
+  We will give two different proofs of (i):
+  the first using certain properties of quasi-finite flat morphisms (stated at the start of this section) and without using \ref{sga1-i.7.6} (and thus the Main Theorem);
+  the second proof does the opposite.
+  For (ii), it seems like we do indeed need the Main Theorem, no matter what.
+}
+
+\subtree[sga1-i.9.5.i-proof-1]{
+  \taxon{proof}
+  \number{I.9.5.i}
+  \title{First proof}
+
+  \p{
+    We use the following necessary and sufficient condition for a local Noetherian ring #{A} of dimension #{\neq0} to be normal.
+  }
+
+  \subtree[sga1-i.9-serres-criterion]{
+    \title{Serre's criterion}
+
+    \olc{
+      \lic{i.}{
+        For every rank-#{1} prime ideal #{\mathfrak{p}} of #{A}, #{A_\mathfrak{p}} is normal (or, equivalently, regular);
+      }
+      \lic{ii.}{
+        For every rank-#{\geq2} prime ideal #{\mathfrak{p}} of #{A}, the depth of #{A_\mathfrak{p}} is #{\geq2}.
+        \footnote{cf. EGA IV 5.8.6.}
+      }
+    }
+  }
+
+  \p{
+    We assume this criterion here, but it should also appear in the section on flatness.
+    Its main advantage is that it does not suppose a priori that #{A} is reduced, nor a fortiori that #{A} is integral.
+    Here, we can already suppose that #{\dim A=\dim B\neq0}.
+  }
+
+  \p{
+    By the statements at the start of this section, the rank-#{1} (resp. rank-#{\geq2}) prime ideals #{\mathfrak{p}} of #{A} are exactly the intersections of #{A} with the rank-#{1} (resp. rank-#{\geq2}) prime ideals #{\mathfrak{q}} of #{B}.
+    Finally, if #{\mathfrak{p}} and #{\mathfrak{q}} correspond to one another, then #{B_\mathfrak{q}} is étale over #{A_\mathfrak{p}}, and thus of the same depth as #{A_\mathfrak{p}}, and is regular if and only if #{A_\mathfrak{p}} is (by \ref{sga1-i.9.1}).
+    Applying [Serre's criterion](sga1-i.9-serres-criterion), we see that #{A} is normal if and only if #{B} is.
+  }
+}
+
+\subtree[sga1-i.9.5.i-proof-2]{
+  \taxon{proof}
+  \number{I.9.5.i}
+  \title{Second proof}
+
+  \p{
+    Suppose that #{B} is normal, with field of fractions #{L};
+    let #{K} be the field of fractions of #{A} (and note that #{A} is integral, since #{B} is integral).
+    We have already seen, in the proof of \ref{sga1-i.9.3}, that #{B\otimes_A K} is a finite product of fields;
+    since it is contained in #{L}, it is a field;
+    since it contains #{B}, it is equal to #{L} itself.
+    An element of #{K} that is integral over #{A} is integral over #{B}, and is thus in #{B}, since #{B} is normal, and thus also in #{A}, since #{B\cap K=A} (as follows from the fact that #{B} is faithfully flat over #{A}).
+  }
+
+  \p{
+    Now suppose that #{A} is normal;
+    we will prove that #{B} is also normal.
+    By \ref{sga1-i.7.6}, we have that #{B=B'_\mathfrak{n}}, where #{B'=A[t]/FA[t]} (with #{F} and #{\mathfrak{n}} as in \ref{sga1-i.7.6}).
+    Thus #{L=B\otimes_A K} is a localisation of #{B'\otimes_A K=K[t]/FK[t]}, and also a product of fields (finite separable extensions of #{K}).
+    This latter product (#{B'\otimes_A K}) is a direct factor of #{B'_K} (since each time we localise an Artinian ring (here #{B'_K}) with respect to a multiplicatively stable set), and thus corresponds to a decomposition #{F=F_1F_2} in #{K[t]}, with the generator of #{L} corresponding to #{t} being annihilated by #{F_1}.
+    But, \em{since #{A} is normal, the #{F_i} are in #{A[t]}} (supposing that they are monic).
+    Note that #{B\to L=B\otimes_A K} is injective (since #{A\to K} is, since #{B} is flat over #{A}), and so #{F_1(u)=0}, with #{u} being the class of #{t} in #{L}.
+    Suppose that #{F} were of minimal degree;
+    then it would follows that #{F_2=1}.
+    (N.B. we would have #{F'(u)=F'_1(u)F_2(u)+F_1(u)F'_2(u)=F'_1(u)F_2(u)}, since #{F_1(u)=0}, whence #{F'_1(u)\neq 0} since #{F'(u)\neq0}.)
+    Thus
+    ##{
+      L = B\otimes_A K = K[t]/FK[t]
+    }
+    and so #{F} is a separable polynomial in #{K[T]} (but evidently not necessarily in #{A[t]}).
+    (N.B. for now, we have only shown, essentially, that we can choose #{F} and #{\mathfrak{n}} in \ref{sga1-i.7.6} such that, with the above notation, #{B'\to B'_\mathfrak{n}=B} is \em{injective};
+    for this, we have used the fact that #{A} is normal;
+    I do not know if this remains true without this normality hypothesis).
+  }
+}
+
+\p{
+  Now recall the well-known lemma, taken from Serre's lectures last year:
+}
+
+\subtree[sga1-i.9.6]{
+  \taxon{lemma}
+  \number{I.9.6}
+
+  \p{
+    Let #{K} be a ring, #{F\in K[t]} a separable monic polynomial, #{L=K[t]/FK[t]}, and #{u} the class of #{t} in #{L} (so that #{F'(u)} is an invertible element of #{L}).
+    Then
+    ##{
+      \tr_{L/K} u^i/F'(u) =
+      \begin{cases}
+        0 &\text{if }0\leq i<n-1\text{;}
+      \\1 &\text{if }i=n-1
+      \end{cases}
+    }
+    where #{n=\deg F}.
+  }
+}
+
+\subtree[sga1-i.9.7]{
+  \taxon{corollary}
+  \number{I.9.7}
+
+  \p{
+    The determinant of the matrix #{(u^j\cdot u^i/F'(u))_{0\leq i,j\leq n-1}} is equal to #{(-1)^{n(n-1)/2}}, and thus invertible in every sub-ring #{A} of #{K}.
+  }
+}
+
+\subtree[sga1-i.9.8]{
+  \taxon{corollary}
+  \number{I.9.8}
+
+  \p{
+    Let #{A} be a sub-ring of #{K}, #{V} the #{A}-module generated by the #{u^i} (for #{0\leq i\leq n-1}), and #{V'} the sub-#{A}-module of #{L} consisting of the #{x\in L} such that #{\tr_{L/K}(xy)\in A} for all #{y\in V} (i.e. for #{y} of the form #{u^i}, for #{0\leq i\leq n-1}).
+    Then #{V'} is the #{A}-module given by the basis #{u^i/F'(u)} (for #{0\leq i\leq n-1}).
+  }
+}
+
+\subtree[sga1-i.9.9]{
+  \taxon{corollary}
+  \number{I.9.9}
+
+  \p{
+    Suppose that #{K} is the field of fractions of an integral normal ring #{A}, with the coefficients of #{F} lying in #{A}.
+    Then, with the notation of \ref{sga1-i.9.8}, #{V'} contains the normal closure #{A'} of #{A} in #{L}, which is thus contained in #{A[u]/F'(u)}, and a fortiori in #{A[u][F'(u)^{-1}]}.
+  }
+}
+
+\p{
+  We can apply [the above corollary](sga1-i.9.9) to the situation that we have obtained in the proof: since #{F'(u)} is invertible in #{B}, and since #{B} contains #{A[u]}, #{B} contains #{A'}.
+  By the Main Theorem (or by the fact that #{B=A[u]_\mathfrak{n}}), #{B} is a localisation of #{A'}.
+  Since #{A'} is normal, so too is #{B}.
+}
+
+\subtree[sga1-i.9.5.ii-proof]{
+  \taxon{proof}
+  \number{I.9.5.ii}
+
+  \p{
+    We proceed as in the above proof to show that we can choose #{F} in \ref{sga1-i.7.6} such that we again have
+    ##{
+      L = B\otimes_A K = K[t]/FK[t]
+    }
+    The only obstacle a priori is that we can no longer prove that #{B\to L} is injective, since #{B} is no longer assumed to be flat over #{A}, and so we can only apply the same argument a priori to the image #{B_1} of #{B} under the aforementioned homomorphism.
+    It immediately follows that #{B_1} is flat over #{A} (since it is the localisation of a free #{A}-algebra).
+    By \ref{sga1-i.4.8}, the morphism #{B\to B_1} is étale, and thus an isomorphism, which finishes the proof.
+  }
+}
+
+\p{
+  (From an editorial point of view, we should perform the two proofs above, and place the formal calculations of the lemma and of its corollaries in a separate section).
+}
+
+\subtree[sga1-i.9.10]{
+  \taxon{corollary}
+  \number{I.9.10}
+
+  \p{
+    Let #{f\colon X\to Y} be an étale morphism.
+    If #{Y} is normal, then #{X} is normal;
+    the converse is true if #{f} is surjective.
+  }
+}
+
+\subtree[sga1-i.9.11]{
+  \taxon{corollary}
+  \number{I.9.11}
+
+  \p{
+    Let #{f\colon X\to Y} be a dominant morphism, with #{Y} normal and #{X} connected.
+    If #{f} is unramified, then it is also étale, and #{X} is then normal and thus irreducible (since it is connected).
+  }
+
+  \proof{
+    \p{
+      Let #{U} be the set of points where #{f} is étale.
+      Since #{U} is open, it suffices to show that it is also closed and non-empty.
+      Since #{U} contains the inverse image of the generic point of #{Y} (recall that, for an algebra over a field, unramified = étale), it is non-empty (since #{X} dominates #{Y}).
+      If #{x} belongs to the closure of #{U}, then it belongs to the closure of an irreducible component #{U_i} of #{U}, and thus to an irreducible component #{X_i=\bar{U_i}} of #{X} which intersects #{U} and which thus dominates #{Y} (since every component of #{U}, being flat over #{Y}, dominates #{Y}).
+      Then, if #{y} is the projection of #{x} over #{Y}, #{\sh{O}_y\to\sh{O}_x} is \em{injective} (taking into account the fact that #{\sh{O}_y} is integral).
+      Since #{\sh{O}_y} is normal and #{\sh{O}_y\to\sh{O}_x} is unramified, we conclude with the help of (ii) from \ref{sga1-i.9.5}.
+    }
+  }
+}
+
+\subtree[sga1-i.9.12]{
+  \taxon{corollary}
+  \number{I.9.12}
+
+  \p{
+    Let #{f\colon X\to Y} be a dominant morphism of finite type, with #{Y} normal and #{X} irreducible.
+    Then the set of points where #{f} is étale is identical to the complement of the support of #{\Omega_{X/Y}^1}, i.e. to the complement of the sub-prescheme of #{X} defined by the different ideal #{\mathfrak{d}_{X/Y}}.
+  }
+}
+
+\p{
+  (\ref{sga1-i.9.12} is the "less trivial" statement which was alluded to in the remark in \ref{sga1-i.4}.)
+}
+
+\subtree{
+  \taxon{remark}
+
+  \p{
+    We do not claim that a connected étale cover of an irreducible scheme is itself irreducible if we do not assume the base to be normal;
+    this question will be studied in \ref{sga1-i.11}.
+  }
+}
