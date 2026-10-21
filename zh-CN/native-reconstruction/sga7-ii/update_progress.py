@@ -3,7 +3,7 @@ import json,re,hashlib,shutil
 r=Path(__file__).resolve().parent
 rows=json.loads((r/'review/mechanical-audit.json').read_text())['components']
 lock=json.loads((r/'SOURCE_LOCK.json').read_text());s=(r/'build/main.log').read_text()
-for name in ['pass1.txt','pass2.txt','main.log']:shutil.copyfile(r/'build'/name,r/'review'/('full-build-'+name))
+for name in ['pass1.txt','pass2.txt','main.log']:shutil.copyfile(r/'build'/name,r/'review'/('full-build-log.txt' if name=='main.log' else 'full-build-'+name))
 shutil.copyfile(r/'build/render/manifest.json',r/'review/render-manifest.json')
 render=json.loads((r/'build/render/manifest.json').read_text())
 pages=int(re.findall(r'Output written.*?\((\d+) pages',s)[-1])
