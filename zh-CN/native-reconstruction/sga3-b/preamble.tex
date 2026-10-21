@@ -24,7 +24,7 @@
 \usepackage[hidelinks,hypertexnames=false,pdfstartview={},linktoc=page,
   pdftitle={SGA 3 - Chinese native translation draft},
   pdfauthor={M. Demazure; A. Grothendieck},
-  pdfsubject={SGA 3: Exposes XIII-XXVI; partial Chinese translation checkpoint},
+  pdfsubject={SGA 3: Exposes XIII-XXVI; complete Chinese first translation draft, proofreading pending},
   pdfkeywords={SGA 3, group schemes, Chinese translation, native TeX diagrams}]{hyperref}
 
 \setlength{\emergencystretch}{3em}
@@ -102,11 +102,13 @@
 \providecommand{\SGAInlineRefTarget}[1]{%
   \begingroup
     \def\@currentHref{#1}%
+    \Hy@raisedlink{\hyper@anchorstart{#1}\hyper@anchorend}%
     \label{#1}%
   \endgroup}
 \providecommand{\SGAInlineEquationTarget}[1]{%
   \begingroup
     \def\@currentHref{#1}%
+    \Hy@raisedlink{\hyper@anchorstart{#1}\hyper@anchorend}%
     \ltx@label{#1}%
   \endgroup}
 \let\SGA@PendingSectionTarget\@empty
@@ -130,6 +132,7 @@
   \def\SGAInlineRefTarget#1{}%
   \def\SGAInlineEquationTarget#1{}%
   \def\SGANextSectionTarget#1{}%
+  \def\SGARefLink#1#2{#2}%
 }
 \providecommand{\SGARefLink}[2]{%
   \@ifundefined{r@#1}{#2}{\hyperref[#1]{#2}}%
@@ -171,6 +174,7 @@
 \makeatother
 \ctexset{section={format=\normalfont\bfseries\normalsize,beforeskip=3.5ex plus 1ex minus .2ex,afterskip=1.5ex plus .2ex},subsection={format=\normalfont\bfseries\normalsize}}
 \renewcommand{\contentsname}{目录}
+\renewcommand{\bibname}{参考文献}
 \renewcommand{\proofname}{证明}
 \renewcommand{\figurename}{图}
 \renewcommand{\tablename}{表}

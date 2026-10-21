@@ -26,6 +26,13 @@ evidence={'source_commit':commit,'source_subtree':rel,'immutable_build_directory
 if evidence['compile_success']:
  import fitz
  doc=fitz.open(pdf);evidence['pdf_pages']=len(doc);evidence['pdf_sha256']=hashlib.sha256(pdf.read_bytes()).hexdigest();shutil.copyfile(pdf,p/'SGA3-b-zh.pdf')
+ names=doc.resolve_names();bad_links=[];link_count=0
+ for pi,page in enumerate(doc):
+  for link in page.get_links():
+   link_count+=1
+   if link.get('nameddest') and (link['nameddest'] not in names or link.get('page') is None or link.get('page',-1)<0):
+    bad_links.append({'physical_page':pi+1,'destination':link['nameddest']})
+ evidence['pdf_link_audit']={'links':link_count,'named_destinations':len(names),'unresolved_link_occurrences':len(bad_links),'unresolved_destinations':sorted(set(x['destination'] for x in bad_links)),'details':bad_links,'limits':'Checks that PDF links resolve to existing destinations; source citation semantics are a separate review.'}
 # Keep the compiler log even on failure and do not claim a failed PDF is delivered.
 (p/'evidence').mkdir(exist_ok=True);shutil.copyfile(work/'build/main.log',p/'evidence'/('build-'+commit[:12]+'.log'))
 source_files=[]

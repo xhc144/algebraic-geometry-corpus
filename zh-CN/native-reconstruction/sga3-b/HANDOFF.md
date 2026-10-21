@@ -1,19 +1,19 @@
-# SGA 3-b 接续记录
+# SGA 3-b 交付交接
 
-根分支 `translation/sga3-b-20261021`；首个已推送提交 `d28abf71e18b8ceac4b59d6916141d7215f6deea`。工作区后续真实译文尚在推进，提交不得越出本目录。
+本分工全文初译完成：XIII–XXVI 共14讲，加 GUIDE、TERMINAL_INDEX，共16个展开单元，冻结底本52,369/52,369行。已确认28讲的全书分界：前14讲至XII，本分工从XIII开始。不得重新翻译或覆盖已有中文。
 
-- 已核验底本：SOURCE_LOCK.json。冻结英文逐讲展开文件 source-reference/*.tex，与 /tmp/sga3-audit/units/*.tex 内容相同；不得重译已完成段落。English source-reference 不参与中文编译、不计翻译。
-- shared root 文件：main.tex、preamble.tex、chapters-current.tex、PROGRESS.json、tools/、evidence/、指南与索引。共享底层已补 ctex/xeCJK（BUILD.md 说明临时路径）。\TranslationNote 保留原注编号。
-- 子任务 xiii_xiv：XIII 已全译；XIV 首轮至1830/3401，已 followup 续1831–3401，然后独占XXIII1–3108。
-- 子任务 xv_xvi：XV 在推进至5238；随后需新轮续XVI1–2008，再译XXI尾3045–5057，写parts/XXI-tail-zh.tex及coverage-parts/XXI-tail.json，不能改XXI前缀。
-- 子任务 xvii_xviii：XVII在推进至4860；随后XVIII1–1589，再译XXVI尾2664–4641，写parts/XXVI-tail-zh.tex及coverage-parts/XXVI-tail.json，不能改XXVI前缀。
-- 子任务 xix_xxi：XIX已全译且法文订正5.13为t≠0；XX在推进至3578；随后只译XXI前缀1–3044，不能开始3045的§6。
-- 子任务 xxii_xxiii：仅继续XXII1–7294；XXIII已转给xiii_xiv，不可重复。
-- 子任务 xxiv_xxvi：XXIV已全译；只译XXVI前缀1–2663，不能开始2664的§5。
-- 根已全译XXV910行、GUIDE126行、TERMINAL_INDEX254行。XXV501行内公式多重集、66行间公式逐序、47targets均与源相符。
+工作分支为 `translation/sga3-b-20261021`，早期检查点 d28abf71、d55b09a8、9e60d526 已正常推送。最终交付另建 `translation/sga3-b-delivery-20261021`，从刷新后的main建立隔离工作树，只导入本目录，普通提交和推送，不改写已发布历史。最终准确提交见Git分支和 `evidence/DELIVERY_STATUS.json`；配套源码构建提交见 `evidence/BUILD_STATUS.json`。
 
-尾部分工只在前缀译者完成并停止该文件后，由根将 parts/XXI-tail-zh.tex、parts/XXVI-tail-zh.tex 依序追加到相应chapters文件，合并coverage为全区间；不能把尾部既当独立章节又重复纳入。parts及coverage-parts是实际译文持久检查点，不是占位。
+- 底本、清单、哈希、源件保护、法文参考和权限依据：SOURCE_LOCK.json。
+- 全文中文：chapters/*.tex；main.tex、preamble.tex、chapters-current.tex 组成独立分册。
+- source-reference/*.tex 为只读英文审计对照，不参与正文编译，不计翻译。
+- XXI前缀1–3044与尾3045–5057已各合并一次；XXVI前缀1–2663与尾2664–4641已各合并一次。parts及coverage-parts只保留真实持久检查点，不能重复纳入正文或计数。
+- 所有译者子任务均已停止写稿；没有Git子任务并发操作。
+- 原注和译校注分开：TranslationNote使用“译”标记，不占原数字脚注编号。
+- 编译包依赖及标准构建：BUILD.md。环境本地临时中文TeX路径不是交付依赖。
+- 已确认的法文订正、继承疑点和校读范围：SOURCE_REVIEW.md；XXV完整独立通读、XVII及XXIV部分独立抽核，其余并未虚称全篇独立校订。
+- 最终编译PDF、配套ZIP、源快照及日志：evidence/BUILD_STATUS.json。旧d55的343页PDF只是历史检查点，不能代表最终范围。
+- 标签/公式机械检查：CHECKPOINT_AUDIT.json；身份引用核对：REFERENCE_AUDIT.json。全部本分工目标齐全，272个未纳入目标身份都指前半部分工，保持可见引用。
+- 行内引用原生宏已补实际PDF锚点，最终PDF的链接目的地检查见BUILD_STATUS。目的地存在不证明底本引用语义正确。
 
-仍需：继续各子任务至完整；逐单位检验math/keys/环境/段落；明确原文疑误与法文订正；稳定源后多遍编译、静态ref审计（SGARefLink会退化为普通文字，日志无undefined不能证明全链接）；处理overflows；渲染实际看页并记录样本，不虚称逐页独立审校；生成同源PDF/源码ZIP；正常fetch/rebase并提交推送，核验只含独占目录。
-
-源覆盖与独立校对分开。所有现行coverage/*.json为具体断点真值，本文仅分工接续，不替代最新元数据。无访问拒绝；不要因已完成译者首轮结束而停止根任务，应followup继续。
+完整初译与完整校订分别记录。后续继续校订时，以具体source区间和证据为准，不能因为编译成功就抹去SOURCE_REVIEW中的问题。没有访问拒绝、未决批准或已知不确定执行结果；未修改无关挂载仓库、已有中文或源件。

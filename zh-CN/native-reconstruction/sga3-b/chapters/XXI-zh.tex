@@ -171,7 +171,7 @@
 由前述结果, 以下将 \(W\) 与 \(W^\ast\) 等同, 并将 \(W\) 视为
 \[
  R,\ R^\ast,\ M,\ M^\ast,\ \Gamma_0(R),\ \Gamma_0(R^\ast),\
- V,\ V^\ast,\ \VR(R),\ \VR(R^\ast)
+ V,\ V^\ast,\ \VR(R),\ \VR(R^\ast).
 \]
 的变换群. 将以 \(s_\alpha\) 表示 \(s_\alpha^\ast\).
 \end{scholium}
@@ -366,7 +366,7 @@
 满足 \(\rgss(\cR)=1\) 的根数据 \(\cR\) 为以下两种类型之一:
 \begin{enumerate}
 \item[\SGAInlineRefTarget{sga3:XXI:2.1.1:item:i:02}(i)] \(A_1\) 型: 存在 \(\alpha\in M\), 使根为 \(\alpha\) 和 \(-\alpha\). 余根则为 \(\alpha^\ast\) 与 \(-\alpha^\ast\).
-\item[\SGAInlineRefTarget{sga3:XXI:2.1.1:item:ii:02}(ii)] \(A'_1\) 型: 存在 \(\alpha\in M\), 使根为 \(\alpha,-\alpha,2\alpha,-2\alpha\). 余根则为 \(\alpha^\ast,-\alpha^\ast,\alpha^\ast/2,-\alpha^\ast/2\).
+\item[\SGAInlineRefTarget{sga3:XXI:2.1.1:item:ii:02}(ii)] \(A'_1\) 型: 存在 \(\alpha\in M\), 使根为 \(\alpha,-\alpha,2\alpha,-2\alpha\). 余根则为\linebreak \(\alpha^\ast,-\alpha^\ast,\alpha^\ast/2,-\alpha^\ast/2\).
 \end{enumerate}
 \end{application}
 
@@ -647,3 +647,3392 @@
 \]
 这证明了前两个断言. 第三个随后由推论~\ref{sga3:XXI:2.3.3} 得到.
 \end{proof}
+
+\begin{proposition}\label{sga3:XXI:3.1.2}
+设 \(\alpha\) 及 \(\alpha_i\)、\(i=1,\ldots,n\) 为根. 若
+\[
+ \alpha=\sum_{i=1}^n m_i\alpha_i,
+ \qquad m_i\in\mathbb N,
+\]
+则存在从各 \(\alpha_i\) 中选取的根的序列 \(\beta_1,\ldots,\beta_m\), 不必两两不同, 使令
+\[
+ \gamma_p=\sum_{i=1}^p\beta_i,\qquad p=1,\ldots,m,
+\]
+后有 \(\gamma_p\in R\) 及 \(\gamma_m=\alpha\).
+\end{proposition}
+\begin{proof}
+对整数 \(m'=\sum_i m_i\) 作归纳. 若 \(\alpha\) 等于某个 \(\alpha_i\), 比如 \(\alpha_{i_0}\), 在 \(m'=1\) 时必属此情形, 则取
+\[
+ m=1,\qquad\beta_1=\alpha_{i_0}.
+\]
+否则, 引理~\ref{sga3:XXI:3.1.1} 给出一个指标 \(i\), 使 \(m_i\neq0\) 且 \(\alpha-\alpha_i\) 是根. 则 \(m_i-1\in\mathbb N\), 且
+\[
+ \alpha-\alpha_i
+ =(m_i-1)\alpha_i+\sum_{j\neq i}m_j\alpha_j.
+\]
+对 \(\alpha-\alpha_i\) 应用归纳假设, 再将 \(\alpha_i\) 添加到所得序列的末尾即可.
+\end{proof}
+
+\begin{corollary}\label{sga3:XXI:3.1.3}
+设 \(R'\subset R\). 下列条件等价:
+\begin{enumerate}
+\item[\SGAInlineRefTarget{sga3:XXI:3.1.3:item:i}(i)] 若 \(\alpha,\beta\in R'\) 且 \(\alpha+\beta\in R\), 则 \(\alpha+\beta\in R'\);
+\item[\SGAInlineRefTarget{sga3:XXI:3.1.3:item:ii}(ii)] \((\mathbb N\cdot R')\cap R\subset R'\).
+\end{enumerate}
+\end{corollary}
+\begin{proof}
+显然 \SGARefLink{sga3:XXI:3.1.3:item:ii}{(ii)} 蕴含 \SGARefLink{sga3:XXI:3.1.3:item:i}{(i)}. 反向蕴含立即来自命题~\ref{sga3:XXI:3.1.2}.
+\end{proof}
+
+\begin{definition}\label{sga3:XXI:3.1.4}
+满足推论~\ref{sga3:XXI:3.1.3} 中等价条件的根集称为\emph{闭}根集.
+\end{definition}
+
+\begin{proposition}\label{sga3:XXI:3.1.5}
+设 \(\Delta\subset R\) 是一组根. 下列条件等价:
+\begin{enumerate}
+\item[\SGAInlineRefTarget{sga3:XXI:3.1.5:item:i}(i)] \(\Delta\) 的元素不可分且线性无关, 并且
+  \[
+   R\subset(\Qp\cdot\Delta)\cup(-\Qp\cdot\Delta);
+  \]
+\item[\SGAInlineRefTarget{sga3:XXI:3.1.5:item:ii}(ii)] \(\Delta\) 的元素线性无关, 并且
+  \[
+   R\subset(\mathbb N\cdot\Delta)\cup(-\mathbb N\cdot\Delta);
+  \]
+\item[\SGAInlineRefTarget{sga3:XXI:2.3.7:corollary:item:iii}(iii)] 每个根都可唯一地表示成 \(\Delta\) 的元素的线性组合, 其系数为同号整数.
+\end{enumerate}
+\end{proposition}
+\begin{proof}
+\footnote{编者注: 以下论证调换了次序, 且展开了蕴含 \SGARefLink{sga3:XXI:2.3.7:corollary:item:iii}{(iii)}\(\Rightarrow\)\SGARefLink{sga3:XXI:3.1.5:item:i}{(i)} 的证明.}
+显然 \SGARefLink{sga3:XXI:3.1.5:item:ii}{(ii)} 蕴含 \SGARefLink{sga3:XXI:2.3.7:corollary:item:iii}{(iii)}. 以 \(\alpha_1,\ldots,\alpha_n\) 表示 \(\Delta\) 的互不相同的元素.
+
+假设 \SGARefLink{sga3:XXI:3.1.5:item:i}{(i)}, 并设 \(\alpha\in R\). 存在唯一的表示
+\[
+ \varepsilon\alpha=\sum_i q_i\alpha_i,
+ \qquad q_i\in\Qp,\qquad\varepsilon=\pm1.
+\]
+来证明各 \(q_i\) 为整数. 若其中除一个外都为零, 由推论~\ref{sga3:XXI:2.1.5} 立即成立. 否则 \(\varepsilon\alpha\) 不同于各 \(\alpha_i\), 引理~\ref{sga3:XXI:3.1.1} 给出一个 \(i_0\) 使
+\[
+ \alpha'=\varepsilon\alpha-\alpha_{i_0}\in R,
+ \qquad q_{i_0}\neq0.
+\]
+因此
+\[
+ \alpha'
+ =(q_{i_0}-1)\alpha_{i_0}
+  +\sum_{i\neq i_0}q_i\alpha_i.
+\]
+至少存在一个 \(i\neq i_0\) 使 \(q_i\) 非零, 所以 \SGARefLink{sga3:XXI:3.1.5:item:i}{(i)} 迫使 \(q_{i_0}-1\geq0\). 对 \(\alpha'\) 重复这一操作, 有限步后可知各 \(q_i\) 均为整数. 这证明了 \SGARefLink{sga3:XXI:3.1.5:item:ii}{(ii)}.
+
+现假设 \SGARefLink{sga3:XXI:2.3.7:corollary:item:iii}{(iii)}. 先证明 \(\alpha_1,\ldots,\alpha_n\) 在 \(\mathbb Q\) 上线性无关. 否则存在等式
+\[
+ x=\sum_{i\in I}a_i\alpha_i
+  =\sum_{j\in J}b_j\alpha_j,
+\]
+其中 \(I\) 与 \(J\) 是 \(\{1,\ldots,n\}\) 的不交子集, 至少一个, 比如 \(I\), 非空, 且 \(a_i,b_j\in\mathbb N^\ast\). 由补充~\ref{sga3:XXI:2.3.7} 中的推论, 对 \(i\in I\) 及 \(j\in J\), 有 \(\langle\alpha_i,\alpha_j\rangle\leq0\). 因此 \(\langle x,x\rangle\leq0\), 故 \(x=0\).
+
+选取 \(i_0\in I\). 两个表示
+\[
+ \alpha_{i_0}
+ =\alpha_{i_0}+\sum_{i\in I}a_i\alpha_i
+ =\alpha_{i_0}+\sum_{j\in J}b_j\alpha_j
+\]
+由 \SGARefLink{sga3:XXI:2.3.7:corollary:item:iii}{(iii)} 推出对所有 \(i,j\) 有 \(a_i=0=b_j\), 矛盾. 所以 \(\Delta\) 的元素在 \(\mathbb Q\) 上线性无关.
+
+还须证明它们不可分. 假设 \(\beta\in\Delta\) 可分. 则 \(\beta/2\in R\), 所以
+\[
+ \frac{\beta}{2}
+ =\varepsilon\sum_{\alpha\in\Delta}m_\alpha\alpha,
+ \qquad m_\alpha\in\mathbb N,\qquad\varepsilon=\pm1.
+\]
+于是
+\[
+ \beta=2\varepsilon\sum_{\alpha\in\Delta}m_\alpha\alpha.
+\]
+由唯一性, 当 \(\alpha\neq\beta\) 时 \(m_\alpha=0\), 且 \(2\varepsilon m_\beta=1\), 矛盾.
+\end{proof}
+
+\begin{definition}\label{sga3:XXI:3.1.6}
+满足命题~\ref{sga3:XXI:3.1.5} 条件的根集 \(\Delta\) 称为 \(\cR\) 的一个\emph{单根系}, 或一个\emph{基}.
+\end{definition}
+
+若 \(w\in W\) 且 \(\Delta\) 是单根系, 则 \(w(\Delta)\) 是单根系.
+
+\begin{remark}\label{sga3:XXI:3.1.7}
+这一定义只涉及 \(R\), 不涉及 \(\cR\); 实际上它只涉及 \(\operatorname{ind}(R)\).
+\end{remark}
+
+\begin{remark}\label{sga3:XXI:3.1.8}
+若 \(\Delta\) 是单根系, 则 \(\Delta\) 是自由阿贝尔群 \(\Gamma_0(R)\) 的基. 因而
+\[
+ \operatorname{Card}(\Delta)=\rgss(\cR).
+\]
+\end{remark}
+
+\begin{remark}\label{sga3:XXI:3.1.9}
+因此, 命题~\ref{sga3:XXI:3.1.5} 的条件等价于以下条件:
+\begin{enumerate}
+\item[(i\('\))] \(\Delta\) 的元素不可分, 其个数至多为 \(\rgss(\cR)\), 且
+  \[
+   R\subset(\Qp\cdot\Delta)\cup(-\Qp\cdot\Delta);
+  \]
+\item[(ii\('\))] \(\operatorname{Card}(\Delta)\leq\rgss(\cR)\), 且
+  \[
+   R\subset(\mathbb N\cdot\Delta)\cup(-\mathbb N\cdot\Delta).
+  \]
+\end{enumerate}
+\end{remark}
+
+\begin{corollary}\label{sga3:XXI:3.1.10}
+若 \(\Delta\) 是单根系, 则 \(\operatorname{ind}(\Delta^\ast)\) 是一个单余根系 \emph{(即}\ \(\cR^\ast\) 的单根系\emph{)}.
+\end{corollary}
+\begin{proof}
+若
+\[
+ \beta=\sum_{\alpha\in\Delta}a_\alpha\alpha,
+ \qquad a_\alpha\in\mathbb N,
+\]
+则
+\[
+ p(\beta)=\sum_{\alpha\in\Delta}a_\alpha p(\alpha).
+\]
+因而由 \eqref{sga3:XXI:eq:10},
+\[
+ \beta^\ast
+ =\sum_{\alpha\in\Delta}
+   a_\alpha\frac{\ell(\alpha)}{\ell(\beta)}\alpha^\ast,
+\]
+这表明 \(\operatorname{ind}(\Delta^\ast)\) 满足注~\ref{sga3:XXI:3.1.9} 的条件 (i\('\)).
+\end{proof}
+
+由命题~\ref{sga3:XXI:2.1.1}, 若 \(\alpha^\ast\) 不是不可分的, 则
+\[
+ \alpha^\ast=2u^\ast,
+ \qquad
+ u^\ast\in\operatorname{ind}(\Delta^\ast)
+ \quad\text{且}\quad
+ u=2\alpha.
+\]
+因此:\footnote{编者注: 前一句为新增; 在推论 3.1.11 中, 将表达式 \(4a_\alpha\ell(\alpha)\) 改为 \(2a_\alpha\ell(\alpha)\).}
+
+\begin{corollary}\label{sga3:XXI:3.1.11}
+设 \(\Delta\) 是单根系, 并设
+\[
+ \beta=\sum_{\alpha\in\Delta}a_\alpha\alpha,
+ \qquad a_\alpha\in\mathbb Z,
+\]
+为 \(\beta\) 关于 \(\Delta\) 的表示. 则 \(\ell(\beta)\) 整除 \(2a_\alpha\ell(\alpha)\); 若 \(\alpha^\ast\) 不可分, 它甚至整除 \(a_\alpha\ell(\alpha)\).
+\end{corollary}
+
+在继续陈述单根系的性质前, 先证明这样的系存在.
+
+\subsection{正根系}
+\begin{definition}\label{sga3:XXI:3.2.1}
+若子集 \(R_+\subset R\) 满足下列条件, 则称它为 \(\cR\) 的一个\emph{正根系} \emph{(或 \(R\) 的正根系; 见注~\ref{sga3:XXI:3.2.2}\emph{)}}:
+\begin{enumerate}
+\item[(P 1)] \(R_+\cap(-R_+)=\varnothing\);
+\item[(P 2)] \(R_+\cup(-R_+)=R\);
+\item[(P 3)] \((\Qp\cdot R_+)\cap R\subset R_+\).
+\end{enumerate}
+特别地, 这样的集合是闭的. 下文推论~\ref{sga3:XXI:3.3.8} 将表明, 满足 (P 1) 及 (P 2) 的闭集也满足 (P 3), 因而是正根系. 若 \(w\in W\) 且 \(R_+\) 是正根系, 则 \(w(R_+)\) 是正根系.
+\end{definition}
+
+\begin{remark}\label{sga3:XXI:3.2.2}
+这一定义只涉及 \(R\). 也称 \(R_+\) 为 \(R\) 的正根系.
+\end{remark}
+
+\begin{remark}\label{sga3:XXI:3.2.3}
+由条件 (P 1) 及 (P 2) 立即得
+\[
+ \operatorname{Card}(R_+)=\frac{\operatorname{Card}(R)}{2}.
+\]
+因而若 \(R_+\) 与 \(R'_+\) 是两个正根系, 且 \(R_+\subset R'_+\), 则 \(R_+=R'_+\).
+\end{remark}
+
+\begin{remark}\label{sga3:XXI:3.2.4}
+若 \(R_+\) 是正根系, 则 \(R^\ast_+\) 是正余根系 \emph{(即}\ \(R^\ast\) 的正根系\emph{)}.
+\end{remark}
+这立即来自引理~\ref{sga3:XXI:1.1.4} 及评注~\ref{sga3:XXI:1.2.2}.
+
+\begin{definition}\label{sga3:XXI:3.2.5}
+设 \(\Delta\) 是单根系. 令
+\[
+ \mathscr{P}(\Delta)
+ =(\Qp\cdot\Delta)\cap R
+ =(\mathbb N_+\cdot\Delta)\cap R.
+\]
+\end{definition}
+
+\begin{proposition}\label{sga3:XXI:3.2.6}
+若 \(\Delta\) 是单根系, 则 \(\mathscr{P}(\Delta)\) 是正根系. 若 \(\Delta\) 为单根系, \(R_+\) 为正根系, 则
+\[
+ \Delta\subset R_+
+ \quad\Longleftrightarrow\quad
+ R_+=\mathscr{P}(\Delta).
+\]
+\end{proposition}
+\begin{proof}
+第一个断言是直接的. 若 \(\Delta\subset R_+\), 则由 (P 3), \(\mathscr{P}(\Delta)\subset R_+\), 因而由注~\ref{sga3:XXI:3.2.3}, \(\mathscr{P}(\Delta)=R_+\). 其余显然.
+\end{proof}
+
+\begin{remark}\label{sga3:XXI:3.2.7}
+正根系存在: 在 \(\VR(R)\) 上赋予全序向量空间结构. 对此序为 \(\geq0\) 的根所成的集合是一个正根系.
+\end{remark}
+
+\begin{theorem}\label{sga3:XXI:3.2.8}
+设 \(R_+\) 是正根系. 存在唯一的单根系 \(\mathscr{S}(R_+)\) 使
+\[
+ \mathscr{S}(R_+)\subset R_+,
+ \qquad\text{即}\qquad
+ R_+=\mathscr{P}\bigl(\mathscr{S}(R_+)\bigr).
+\]
+\end{theorem}
+唯一性立即来自:
+
+\begin{lemma}\label{sga3:XXI:3.2.9}
+设 \(\Delta\) 是单根系. 元素 \(\alpha\in\mathscr{P}(\Delta)\) 属于 \(\Delta\), 当且仅当 \(\alpha\) 不能表示为 \(\mathscr{P}(\Delta)\) 的两个元素之和.
+\end{lemma}
+\begin{proof}
+这立即来自定义及命题~\ref{sga3:XXI:3.1.2}.
+\end{proof}
+
+现在证明 \(\mathscr{S}(R_+)\) 的存在性. 考虑 \(R_+\) 的满足
+\[
+ T=\operatorname{ind}(T)
+ \qquad\text{且}\qquad
+ \Qp\cdot T\supset R_+.
+\]
+的子集 \(T\) 所成的集合. 此集合非空, 因为它包含 \(\operatorname{ind}(R_+)\). 设 \(\Delta\) 为此集合关于包含关系的一个极小元素. 来证明 \(\Delta\) 为单根系; 由命题~\ref{sga3:XXI:3.1.5}\SGARefLink{sga3:XXI:3.1.5:item:i}{(i)}, 只须证明 \(\Delta\) 是 \(M\otimes\mathbb Q\) 的线性无关子集.
+
+\begin{lemma}\label{sga3:XXI:3.2.10}
+若 \(\alpha,\beta\in\Delta\), 且
+\[
+ q\alpha+q'\beta\in R,
+ \qquad q,q'\in\mathbb Q,
+\]
+则 \(qq'\geq0\).
+\end{lemma}
+\begin{proof}
+若 \(qq'<0\), 则必要时交换 \(\alpha\) 与 \(\beta\), 可写为
+\[
+ a\alpha-b\beta\in R_+,
+ \qquad a,b\in\mathbb Q^\ast_+.
+\]
+由 \(\Delta\) 的定义性质, 有关系式
+\[
+ a\alpha-b\beta
+   =\sum_{\gamma\in\Delta}c(\gamma)\gamma,
+ \qquad c(\gamma)\in\Qp.
+\]
+若 \(a\leq c(\alpha)\), 此式成为
+\[
+ -\beta
+ =\frac{c(\alpha)-a}{b}\alpha
+  +\sum_{\gamma\neq\alpha}\frac{c(\gamma)}{b}\gamma.
+\]
+因此 \(-\beta\in(\Qp\cdot\Delta)\cap R\), 而由 (P 3), 该集合包含于 \(R_+\). 于是 \(\beta\in R_+\cap(-R_+)\), 与 (P 1) 矛盾.
+
+若 \(a>c(\alpha)\), 则
+\[
+ \bigl(a-c(\alpha)\bigr)\alpha
+ =b\beta+\sum_{\gamma\neq\alpha}c(\gamma)\gamma,
+\]
+这表明
+\[
+ \Delta\subset\Qp\cdot\bigl(\Delta\setminus\{\alpha\}\bigr),
+\]
+与 \(\Delta\) 的极小性矛盾.
+\end{proof}
+
+回顾补充~\ref{sga3:XXI:2.3.7}, \(\VR(R)\) 上由
+\[
+ \langle x,y\rangle=(p(x),y)
+\]
+定义的双线性型是欧氏内积. 此外, 对 \(\alpha\in R\),
+\[
+ \langle\alpha,y\rangle
+ =\frac{\ell(\alpha)}{2}(\alpha^\ast,y),
+\]
+所以 \(\langle\alpha,y\rangle\) 与 \((\alpha^\ast,y)\) 同号.
+
+\begin{lemma}\label{sga3:XXI:3.2.11}
+若 \(\alpha,\beta\in\Delta\), 则
+\[
+ (\beta^\ast,\alpha)\leq0
+ \qquad\text{从而}\qquad
+ \langle\beta,\alpha\rangle\leq0.
+\]
+\end{lemma}
+\begin{proof}
+事实上,
+\[
+ s_\beta(\alpha)
+ =\alpha-(\beta^\ast,\alpha)\beta\in R,
+\]
+因此由引理~\ref{sga3:XXI:3.2.10}, \((\beta^\ast,\alpha)\leq0\).
+\end{proof}
+
+现在证明 \(\Delta\) 线性无关. 否则, 完全仿照命题~\ref{sga3:XXI:3.1.5} 的证明, 引理~\ref{sga3:XXI:3.2.11} 将推出存在非平凡关系
+\[
+ \sum_{\alpha\in\Delta}m(\alpha)\alpha=0,
+ \qquad m(\alpha)\in\mathbb N.
+\]
+若 \(m(\alpha_0)\geq1\), 则
+\[
+ -\alpha_0
+ =\bigl(m(\alpha_0)-1\bigr)\alpha_0
+  +\sum_{\alpha\neq\alpha_0}m(\alpha)\alpha.
+\]
+由 (P 3), 得 \(\alpha_0\in R_+\cap(-R_+)\), 与 (P 1) 矛盾. 因此 \(\Delta\) 是 \(\cR\) 的基, 定理~\ref{sga3:XXI:3.2.8} 的证明完成.
+
+\begin{corollary}\label{sga3:XXI:3.2.12}
+设 \(R_+\) 是正根系, \(\Delta\) 是 \(\cR\) 的基, \(w\in W\). 则
+\[
+ \Delta\subset R_+
+ \quad\Longleftrightarrow\quad
+ R_+=\mathscr{P}(\Delta)
+ \quad\Longleftrightarrow\quad
+ \Delta=\mathscr{S}(R_+),
+\]
+\[
+ \mathscr{P}\bigl(\operatorname{ind}(\Delta^\ast)\bigr)
+   =\mathscr{P}(\Delta)^\ast,
+ \qquad
+ \mathscr{S}(R^\ast_+)
+   =\operatorname{ind}\bigl(\mathscr{S}(R_+)^\ast\bigr),
+\]
+且
+\[
+ \mathscr{S}\bigl(w(R_+)\bigr)=w\bigl(\mathscr{S}(R_+)\bigr),
+ \qquad
+ \mathscr{P}\bigl(w(\Delta)\bigr)=w\bigl(\mathscr{P}(\Delta)\bigr).
+\]
+\end{corollary}
+
+\begin{definition}\label{sga3:XXI:3.2.13}
+一旦选定单根系 \(\Delta\), 就称 \(\mathscr{P}(\Delta)\) 的元素为\emph{正}根. 一旦选定正根系 \(R_+\), 就称 \(\mathscr{S}(R_+)\) 的元素为\emph{单}根.
+\end{definition}
+
+\begin{corollary}\label{sga3:XXI:3.2.14}
+设 \(R_+\) 是正根系, \(\alpha\in R_+\). 下列条件等价:
+\begin{enumerate}
+\item[\SGAInlineRefTarget{sga3:XXI:3.2.14:item:i}(i)] \(\alpha\) 为单根, 即 \(\alpha\in\mathscr{S}(R_+)\);
+\item[\SGAInlineRefTarget{sga3:XXI:3.2.14:item:ii}(ii)] \(\alpha\) 不是 \(R_+\) 的两个元素之和;
+\item[(iii)] \(R_+\setminus\{\alpha\}\) 是闭的.
+\end{enumerate}
+\end{corollary}
+\begin{proof}
+\SGARefLink{sga3:XXI:3.2.14:item:i}{(i)} 与 \SGARefLink{sga3:XXI:3.2.14:item:ii}{(ii)} 的等价性立即来自引理~\ref{sga3:XXI:3.2.9}; \SGARefLink{sga3:XXI:3.2.14:item:ii}{(ii)} 与 \SGARefLink{sga3:XXI:2.3.7:corollary:item:iii}{(iii)} 的等价性立即来自定义~\ref{sga3:XXI:3.1.4}.
+\end{proof}
+
+\begin{definition}\label{sga3:XXI:3.2.15}
+设 \(\Delta\) 是单根系. 根 \(\alpha\) 关于 \(\Delta\) 的表示中各系数的和, 称为 \(\alpha\) \emph{关于 \(\Delta\) 的阶}, 记作 \(\operatorname{ord}_\Delta(\alpha)\).
+\end{definition}
+有
+\[
+ \alpha\in\mathscr{P}(\Delta)
+ \quad\Longleftrightarrow\quad
+ \operatorname{ord}_\Delta(\alpha)>0,
+ \qquad
+ \alpha\in\Delta
+ \quad\Longleftrightarrow\quad
+ \operatorname{ord}_\Delta(\alpha)=1.
+\]
+
+\begin{lemma}\label{sga3:XXI:3.2.16}
+设 \(\Delta\) 是单根系, \(\alpha\in\mathscr{P}(\Delta)\). 存在序列 \(\alpha_i\in\Delta\)、\(i=1,\ldots,m\), 使
+\[
+ \alpha_1+\alpha_2+\cdots+\alpha_p\in\mathscr{P}(\Delta)
+ \quad\text{对 }p=1,\ldots,m,
+\]
+且
+\[
+ \alpha_1+\alpha_2+\cdots+\alpha_m=\alpha.
+\]
+此外, 对每个满足这些条件的序列, 都有
+\[
+ m=\operatorname{ord}_\Delta(\alpha).
+\]
+\end{lemma}
+\begin{proof}
+这立即来自命题~\ref{sga3:XXI:3.1.2}.
+\end{proof}
+
+\subsection{正根系的刻画与共轭性}
+\begin{lemma}\label{sga3:XXI:3.3.1}
+若 \(\alpha\in\mathscr{P}(\Delta)\), \(\beta\in\Delta\), 且 \(\alpha\) 与 \(\beta\) 不成比例, 则
+\[
+ s_\beta(\alpha)\in\mathscr{P}(\Delta).
+\]
+\end{lemma}
+\begin{proof}
+有
+\[
+ s_\beta(\alpha)=\alpha-(\beta^\ast,\alpha)\beta.
+\]
+在 \(\alpha\) 的表示中, 至少有一个不同于 \(\beta\) 的单根以非零、因而严格正的系数出现. 它在 \(s_\beta(\alpha)\) 的表示中以相同的系数出现; 因而 \(s_\beta(\alpha)\) 也为正根.
+\end{proof}
+
+\begin{corollary}\label{sga3:XXI:3.3.2}
+若 \(\beta\in\Delta\), 则反射 \(s_\beta\) 置换 \(\mathscr{P}(\Delta)\) 中不与 \(\beta\) 成比例的元素.
+\end{corollary}
+
+\begin{lemma}\label{sga3:XXI:3.3.3}
+设
+\[
+ \alpha\in\mathscr{P}(\Delta)\setminus\Delta
+\]
+不可分. 存在 \(\beta\in\Delta\) 使
+\[
+ s_\beta(\alpha)\in\mathscr{P}(\Delta)
+ \qquad\text{且}\qquad
+ \operatorname{ord}_\Delta\bigl(s_\beta(\alpha)\bigr)
+   <\operatorname{ord}_\Delta(\alpha).
+\]
+\end{lemma}
+\begin{proof}
+由引理~\ref{sga3:XXI:3.1.1}, 存在 \(\beta\in\Delta\) 使 \((\beta^\ast,\alpha)>0\). 由于 \(\alpha\notin\Delta\) 且 \(\alpha\) 不可分, 它不能与 \(\beta\) 成比例. 因而由引理~\ref{sga3:XXI:3.3.1}, \(s_\beta(\alpha)\in\mathscr{P}(\Delta)\), 且
+\[
+ \operatorname{ord}_\Delta\bigl(s_\beta(\alpha)\bigr)
+ =\operatorname{ord}_\Delta(\alpha)-(\beta^\ast,\alpha)
+ <\operatorname{ord}_\Delta(\alpha).
+\]
+\end{proof}
+
+\begin{corollary}\label{sga3:XXI:3.3.4}
+若 \(\alpha\in\mathscr{P}(\Delta)\) 不可分, 则存在序列 \(\beta_p\in\Delta\)、\(p=1,\ldots,q\), 使
+\[
+ \alpha_p
+ =s_{\beta_p}\cdots s_{\beta_1}(\alpha)
+ \in\mathscr{P}(\Delta)
+ \quad\text{对 }p=1,\ldots,q,
+\]
+且 \(\alpha_q\in\Delta\).
+\end{corollary}
+\begin{proof}
+对 \(\operatorname{ord}_\Delta(\alpha)\) 作归纳, 反复应用引理~\ref{sga3:XXI:3.3.3}.
+\end{proof}
+
+\begin{proposition}\label{sga3:XXI:3.3.5}
+Weyl 群由 \(s_\alpha\)、\(\alpha\in\Delta\) 生成. 每个不可分根都在 Weyl 群的某个元素作用下与某个单根共轭.
+\end{proposition}
+\begin{proof}
+第二个断言立即来自推论~\ref{sga3:XXI:3.3.4}. 第一个随后由推论~\ref{sga3:XXI:1.2.10} 及命题~\ref{sga3:XXI:2.1.1} 得到.
+\end{proof}
+
+\begin{proposition}\label{sga3:XXI:3.3.6}
+设 \(R_+\) 是正根系, \(P'\subset R\) 闭且满足 (P 2). 则存在 \(w\in W\) 使
+\[
+ w(R_+)\subset P'.
+\]
+\end{proposition}
+先列出推论.
+
+\begin{corollary}\label{sga3:XXI:3.3.7}
+Weyl 群在正根系所成的集合上以及单根系所成的集合上均传递作用.
+\end{corollary}
+
+\begin{corollary}\label{sga3:XXI:3.3.8}
+\(R\) 的子集为正根系, 当且仅当它闭且满足 (P 1) 及 (P 2).
+\end{corollary}
+
+\begin{corollary}\label{sga3:XXI:3.3.9}
+假设在 \(\Gamma_0(R)\) 上赋予一个有序群结构, 使每个根或者 \(>0\), 或者 \(<0\). 则关于此序为正的根所成的集合是一个正根系.
+\end{corollary}
+
+\begin{proof}[命题~\ref{sga3:XXI:3.3.6} 的证明]
+选取 \(w\in W\), 使 \(\operatorname{Card}(w(R_+)\cap P')\) 最大. 将 \(R_+\) 换为 \(w(R_+)\), 可设
+\begin{equation}
+ \operatorname{Card}(R_+\cap P')
+ \geq
+ \operatorname{Card}\bigl(R_+\cap s_\alpha(P')\bigr)
+ \quad\text{对每个 }\alpha\in\mathscr{S}(R_+)=\Delta.
+ \tag{\(\ast\)}\label{sga3:XXI:3.3.6:star}
+\end{equation}
+来证明 \(R_+\subset P'\). 否则, 由于 \(P'\) 闭, 存在 \(\alpha\in\Delta\) 使 \(\alpha\notin P'\). \(P'\) 满足 (P 2), 因而 \(-\alpha\in P'\), 若 \(2\alpha\) 为根, 还有 \(-2\alpha\in P'\).
+
+对每个 \(\beta\in R_+\cap P'\), 有 \(\beta\neq\alpha\). 若 \(2\alpha\) 不是根, 则由引理~\ref{sga3:XXI:3.3.1}, \(s_\alpha(\beta)\in R_+\); 所以
+\[
+ s_\alpha(R_+\cap P')
+ \subset R_+\cap s_\alpha(P').
+\]
+但 \(R_+\cap s_\alpha(P')\) 还包含 \(\alpha=s_\alpha(-\alpha)\), 与 \eqref{sga3:XXI:3.3.6:star} 矛盾. 若 \(2\alpha\) 是根, 同样的论证适用.
+\end{proof}
+
+因此, 为研究满足 (P 2) 的闭根集, 只须考虑包含一个正根系的那些根集.
+
+\begin{proposition}\label{sga3:XXI:3.3.10}
+设 \(R_+\) 为正根系, \(P'\) 为 \(R\) 的一个包含 \(R_+\) 的闭子集. 令
+\[
+ \Delta=\mathscr{S}(R_+),
+ \qquad
+ \Delta'=\Delta\cap(-P').
+\]
+则 \(P'\) 是 \(R_+\) 与由 \(\Delta'\) 的元素以负系数作线性组合所得的根的集合之并.
+\end{proposition}
+\begin{proof}
+对根 \(\gamma\in P'\setminus R_+\) 的阶作归纳. 若 \(\operatorname{ord}_\Delta(\gamma)=-1\), 则 \(-\gamma\in\Delta\), 从而 \(\gamma\in-\Delta'\).
+
+假设 \(\operatorname{ord}_\Delta(\gamma)<-1\). 由命题~\ref{sga3:XXI:3.1.2}, 存在 \(\beta\in\Delta\) 使 \(-\gamma-\beta\in R\). 则
+\[
+ 0<\operatorname{ord}_\Delta(-\gamma-\beta)
+  =\operatorname{ord}_\Delta(-\gamma)-1
+  <\operatorname{ord}_\Delta(-\gamma).
+\]
+第一个不等式表明 \(-\gamma-\beta\in R_+\). 因此, 由于 \(R_+\cap(-R_+)=\varnothing\), 且 \(\gamma+\beta\) 是 \(P'\) 的两个根之和, 根 \(\gamma+\beta\) 属于 \(P'\setminus R_+\), 并满足
+\[
+ \operatorname{ord}_\Delta(\gamma+\beta)
+ >\operatorname{ord}_\Delta(\gamma).
+\]
+由归纳, \(\gamma+\beta\) 是 \(\Delta'\) 的元素以负系数作成的线性组合. 由于 \(\gamma=(\gamma+\beta)-\beta\), 还只须证明 \(\beta\in-P'\). 但 \(\gamma\in P'\), 且 \(-(\gamma+\beta)\in R_+\subset P'\), 所以
+\[
+ -\beta=\gamma-(\gamma+\beta)\in P'.
+\]
+\end{proof}
+
+\begingroup
+\renewcommand{\thetheorem}{3.3.10.1}
+\begin{definition}\label{sga3:XXI:3.3.10.1}
+\footnote{编者注: 此定义为此处插入.}
+若 \(R\) 的子集 \(R'\) 满足
+\[
+ -R'=R'.
+\]
+则称其\emph{对称}.
+\end{definition}
+\endgroup
+\addtocounter{theorem}{-1}
+
+\begin{scholium}\label{sga3:XXI:3.3.11}
+设 \(P'\) 是满足 (P 2) 的闭根集. 存在一个单根系 \(\Delta\) 及 \(\Delta\) 的一个子集 \(\Delta'\), 使
+\[
+ P'=R\cap\bigl(\mathbb{N}\cdot\Delta
+          \,\cup\, -\mathbb{N}\cdot\Delta'\bigr).
+\]
+若令
+\[
+ R_{\Delta'}=(\mathbb{Z}\cdot\Delta')\cap R,
+\]
+它是 \(R\) 的闭对称子集, 则 \(P'\) 是 \(R_{\Delta'}\) 与 \(\mathscr{P}(\Delta)\) 中由
+\[
+ \alpha\in\mathscr{P}(\Delta)\setminus
+           \mathbb{N}\cdot\Delta',
+\]
+组成的闭子集的不交并; 后一集合也就是关于 \(\Delta\) 的分解中“至少含有 \(\Delta\setminus\Delta'\) 的一个根”的那些正根.
+\end{scholium}
+
+\subsection{闭对称根集}
+\label{sga3:XXI:3.4}
+\begin{proposition}\label{sga3:XXI:3.4.1}
+设
+\[
+ \cR=(M,M^\ast,R,R^\ast)
+\]
+是根数据, \(R'\) 是 \(R\) 的闭对称子集. 则:
+\begin{enumerate}
+\item[(i)] \(\cR'=(M,M^\ast,R',R'^\ast)\) 是根数据;
+\item[(ii)] 对 \(R\) 的每个正根系 \(R_+\), \(R'_+=R_+\cap R'\) 是 \(R'\) 的正根系;
+\item[(iii)] \(\cR'\) 的 Weyl 群 \(W(\cR')\) 是 \(W(\cR)\) 中由 \(s_\alpha\)、\(\alpha\in R'\) 生成的子群.
+\end{enumerate}
+\end{proposition}
+\begin{proof}
+第一个断言立即来自推论~\ref{sga3:XXI:1.2.11}; 第二个来自推论~\ref{sga3:XXI:3.3.8}; 第三个显然.
+\end{proof}
+
+\begin{corollary}\label{sga3:XXI:3.4.2}
+设 \(w\in W(\cR')\). \(w\) 的阶是使
+\[
+ w^n(\alpha')=\alpha'
+ \qquad\text{对每个 }\alpha'\in R'.
+\]
+成立的最小整数 \(n>0\).
+\end{corollary}
+\begin{proof}
+对根数据 \(\cR'\) 应用推论~\ref{sga3:XXI:1.2.7}.
+\end{proof}
+
+\begin{corollary}\label{sga3:XXI:3.4.3}
+设 \(\alpha\) 与 \(\beta\) 是两个不成比例的根. 设 \(n\) 是满足
+\[
+ (s_\alpha s_\beta)^n(\alpha)=\alpha,
+ \qquad
+ (s_\alpha s_\beta)^n(\beta)=\beta.
+\]
+的最小整数 \(>0\). 则 \(W\) 中由 \(s_\alpha\) 与 \(s_\beta\) 生成的子群 \(W_{\alpha,\beta}\) 由关系
+\[
+ s_\alpha^2=1,\qquad
+ s_\beta^2=1,\qquad
+ (s_\alpha s_\beta)^n=1.
+\]
+定义.
+\end{corollary}
+\begin{proof}
+由推论~\ref{sga3:XXI:3.4.2}, 还只须验证以下引理.
+\end{proof}
+
+\begin{lemma}\label{sga3:XXI:3.4.4}
+设 \(G\) 是由两个元素 \(x\) 和 \(y\) 生成、满足关系 \(x^2=y^2=1\) 的群. \(G\) 中既不包含 \(x\) 也不包含 \(y\) 的每个正规子群, 都由一个形如 \((xy)^n\)、\(n>0\) 的元素作为正规子群生成.
+\end{lemma}
+\begin{proof}
+\footnote{编者注: 下文更正了原文.}
+\(G\) 的每个元素都可写成 \((xy)^n\)、\((yx)^n=(xy)^{-n}\), 或以下形式之一:
+\[
+\begin{array}{c@{\qquad}c@{\qquad}c}
+ (a) & x(yx)^{2n} & \text{或 } y(xy)^{2n+1},\\[2mm]
+ (b) & y(xy)^{2n} & \text{或 } x(yx)^{2n+1},
+\end{array}
+\]
+其中 \(n\in\mathbb{N}\). (a) 型元素与 \(x\) 共轭, (b) 型元素与 \(y\) 共轭.
+\end{proof}
+
+\begin{remark}\label{sga3:XXI:3.4.5}
+整数 \(n\) 可直接计算. 令
+\[
+ (\alpha^\ast,\beta)=p,\qquad
+ (\beta^\ast,\alpha)=q.
+\]
+则\footnote{编者注: 下文更正了原文.}
+\[
+ (s_\alpha s_\beta)(\alpha)=(pq-1)\alpha-q\beta,
+ \qquad
+ (s_\alpha s_\beta)(\beta)=p\alpha-\beta.
+\]
+所以 \(n\) 是矩阵
+\[
+ \begin{pmatrix}
+  pq-1 & p\\
+  -q   & -1
+ \end{pmatrix}.
+\]
+的阶. 若 \(pq=0\), 则由推论~\ref{sga3:XXI:2.2.2}, \(p=q=0\), 故 \(n=2\). 否则, 命题~\ref{sga3:XXI:2.3.1} 表明 \(pq\) 等于 \(1\)、\(2\) 或 \(3\), 相应得到 \(n=3\)、\(4\) 或 \(6\).
+
+\smallskip
+\noindent
+\emph{注意.} 将上述矩阵的阶有限这一条件写出, 可重新得到命题~\ref{sga3:XXI:2.3.1} 的不等式 \SGARefLink{sga3:XXI:eq:13}{(13)}.
+\end{remark}
+
+\begin{definition}\label{sga3:XXI:3.4.6}
+设 \(\Delta\) 是单根系, \(\Delta'\subset\Delta\). 记
+\[
+ R_{\Delta'}
+   =R\cap(\mathbb{Q}\cdot\Delta')
+   =R\cap(\mathbb{Z}\cdot\Delta').
+\]
+\end{definition}
+
+\begin{lemma}\label{sga3:XXI:3.4.7}
+集合 \(R_{\Delta'}\) 闭且对称, \(\Delta'\) 是根数据
+\[
+ (M,M^\ast,R_{\Delta'},R_{\Delta'}^\ast).
+\]
+的单根系. 其 Weyl 群是 \(W\) 中由 \(s_\alpha\)、\(\alpha\in\Delta'\) 生成的子群 \(W_{\Delta'}\). 此外,
+\[
+ \Delta\cap R_{\Delta'}=\Delta'.
+\]
+\end{lemma}
+\begin{proof}
+显然.
+\end{proof}
+
+\begin{proposition}\label{sga3:XXI:3.4.8}
+设 \(R'\subset R\). 下列条件等价:
+\begin{enumerate}
+\item[\SGAInlineRefTarget{sga3:XXI:3.4.8:item:i}(i)] 存在 \(V\) 或 \(\VR(R)\) 的向量子空间 \(V'\), 使 \(R'=R\cap V'\).
+\item[\SGAInlineRefTarget{sga3:XXI:3.4.8:item:ii}(ii)] 存在 \(R\) 的单根系 \(\Delta\) 及 \(\Delta\) 的子集 \(\Delta'\), 使 \(R'=R_{\Delta'}\).
+\end{enumerate}
+更确切地说, 在这些条件下, \((M,M^\ast,R',R'^\ast)\) 的每个单根系 \(\Delta'\) 都包含于 \(R\) 的某个单根系 \(\Delta\), 并且有 \(R'=R_{\Delta'}\).
+\end{proposition}
+\begin{proof}
+蕴含 \SGARefLink{sga3:XXI:3.4.8:item:ii}{(ii)} \(\Rightarrow\) \SGARefLink{sga3:XXI:3.4.8:item:i}{(i)} 显然. 假设 \SGARefLink{sga3:XXI:3.4.8:item:i}{(i)}. 则 \(R'\) 闭且对称, 所以 \((M,M^\ast,R',R'^\ast)\) 是根数据. 设 \(\Delta'\) 为此根数据的单根系, 令
+\[
+ R'_+=\mathscr{P}(\Delta').
+\]
+若 \(V'=V\), 则 \(\Delta'\) 是 \(\cR\) 的单根系, 无须再证. 否则存在 \(x\in V^\ast\) 使
+\[
+ (x,V')=\{0\},
+ \qquad
+ (x,\alpha)\ne0
+ \quad\text{对每个 }\alpha\in R\setminus R'.
+\]
+令
+\[
+ R_+(x)=\{\alpha\in R\mid(x,\alpha)>0\},
+ \qquad
+ R_+=R_+(x)\cup R'_+.
+\]
+对每个 \(\alpha\in R\), 有
+\[
+\begin{aligned}
+ (x,\alpha)>0 &\Longleftrightarrow \alpha\in R_+(x),\\
+ (x,\alpha)<0 &\Longleftrightarrow \alpha\in-R_+(x),\\
+ (x,\alpha)=0 &\Longleftrightarrow \alpha\in R'.
+\end{aligned}
+\]
+由推论~\ref{sga3:XXI:3.3.8} 立即可知, \(R_+\) 是 \(R\) 的正根系. 令 \(\Delta=\mathscr{S}(R_+)\). 只须证明 \(\Delta'\subset\Delta\). 否则, 设 \(\alpha\in\Delta'\setminus\Delta\). 由推论~\ref{sga3:XXI:3.2.14}, 存在 \(\beta,\gamma\in R_+\) 使
+\[
+ \alpha=\beta+\gamma.
+\]
+若 \(\beta,\gamma\in R_+(x)\), 则 \(\alpha\in R_+(x)\), 这不可能, 因为 \((x,\Delta')=0\). 若 \(\beta,\gamma\) 中的一个, 比如 \(\beta\), 属于 \(R'_+\), 则因 \(R'\) 对称且闭,
+\[
+ \gamma=\alpha-\beta\in R_+\cap R'=R'_+.
+\]
+但此时 \(\alpha\) 在 \(R'_+\) 中不是单根, 再次矛盾.
+\end{proof}
+
+\begin{lemma}\label{sga3:XXI:3.4.9}
+在前述条件下, 设
+\[
+ \alpha\in\mathscr{P}(\Delta)\setminus R'.
+\]
+对每个 \(w\in W_{\Delta'}\), 有
+\[
+ w(\alpha)\in\mathscr{P}(\Delta)\setminus R'.
+\]
+\end{lemma}
+\begin{proof}
+只须对 \(w=s_\beta\)、\(\beta\in\Delta'\) 验证此断言. 此时它来自引理~\ref{sga3:XXI:3.3.1} 以及 \(s_\beta(R')=R'\).
+\end{proof}
+
+\begin{lemma}\label{sga3:XXI:3.4.10}
+设 \(w\in W\). 在命题~\ref{sga3:XXI:3.4.8} 的条件下, 下列条件等价:
+\begin{enumerate}
+\item[\SGAInlineRefTarget{sga3:XXI:3.4.10:item:i}(i)] \(w\in W_{\Delta'}\).
+\item[\SGAInlineRefTarget{sga3:XXI:3.4.10:item:ii}(ii)] 对每个 \(m\in M\), 有 \(w(m)-m\in V'\).
+\item[(iii)] 对每个 \(\alpha\in R\), 有 \(w(\alpha)-\alpha\in V'\).
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+显然 \SGARefLink{sga3:XXI:3.4.10:item:i}{(i)} 蕴含 \SGARefLink{sga3:XXI:3.4.10:item:ii}{(ii)}, 而 \SGARefLink{sga3:XXI:3.4.10:item:ii}{(ii)} 蕴含 \SGARefLink{sga3:XXI:2.3.7:corollary:item:iii}{(iii)}. 假设 \SGARefLink{sga3:XXI:2.3.7:corollary:item:iii}{(iii)}. 写成
+\[
+ w=s_{\alpha_n}\cdots s_{\alpha_1},
+ \qquad \alpha_i\in\Delta,
+\]
+并对 \(n\) 作归纳来证明每个 \(\alpha_i\) 都属于 \(\Delta'\). 可设
+\[
+ w'=s_{\alpha_{n-1}}\cdots s_{\alpha_1}\in W_{\Delta'}.
+\]
+则对每个 \(\alpha\in R\),
+\[
+ w(\alpha)-\alpha
+   =w'(\alpha)-\alpha-(\alpha_n^\ast,w'(\alpha))\alpha_n.
+\]
+取 \(\alpha=w'^{-1}(\alpha_n)\), 得 \(2\alpha_n\in V'\), 从而 \(\alpha_n\in\Delta'\). 因此
+\[
+ w=s_{\alpha_n}w'\in W_{\Delta'}.
+\]
+\end{proof}
+
+\subsection{若干说明}
+\label{sga3:XXI:3.5}
+\begin{proposition}\label{sga3:XXI:3.5.1}
+设 \(R_+\) 是正根系. 令
+\[
+ \rho_{R_+}
+   =\frac12\sum_{\alpha\in\operatorname{ind}(R_+)}\alpha.
+\]
+则
+\[
+ (\beta^\ast,\rho_{R_+})=1
+ \qquad\text{对每个 }\beta\in\mathscr{S}(R_+).
+\]
+\end{proposition}
+\begin{proof}
+可以写成
+\[
+ 2\rho_{R_+}
+   =\beta+
+     \sum_{\substack{\alpha\in\operatorname{ind}(R_+)\\
+                     \alpha\ne\beta}}\alpha.
+\]
+因而由引理~\ref{sga3:XXI:3.3.2},
+\[
+ s_\beta(2\rho_{R_+})=2\rho_{R_+}-2\beta
+\]
+\end{proof}
+
+\begin{corollary}\label{sga3:XXI:3.5.2}
+令
+\[
+ \rho_{R_+}^\ast
+   =\frac12
+     \sum_{\alpha^\ast\in\operatorname{ind}(R_+^\ast)}
+     \alpha^\ast.
+\]
+则:
+\begin{enumerate}
+\item[(i)] 对每个 \(\alpha\in R_+\), 有 \((\rho_{R_+}^\ast,\alpha)>0\); 等价地, 用定义~\ref{sga3:XXI:3.6.8} 的记号, \(\rho_{R_+}^\ast\in\mathcal{C}(R_+)\).
+\item[(ii)] 对每个 \(\alpha\in R\),
+  \[
+   \operatorname{ord}_{\mathscr{S}(R_+)}(\alpha)
+      =(\rho_{R_+}^\ast,\alpha).
+  \]
+\end{enumerate}
+\footnote{编者注: 由引理~\ref{sga3:XXI:3.1.5}, 只须对 \(\alpha\in\Delta\) 验证此公式. 再对 \(R^\ast\) 应用命题 \ref{sga3:XXI:3.5.1}, 得 \((\rho_{R_+}^\ast,\alpha)=1=\operatorname{ord}_{\mathscr{S}(R_+)}(\alpha)\).}
+\end{corollary}
+
+\begin{remark}\label{sga3:XXI:3.5.3}
+若 \(w\in W\), 则
+\[
+ \rho_{w(R_+)}=w(\rho_{R_+}),
+ \qquad
+ \rho_{w(R_+)}^\ast=w(\rho_{R_+}^\ast).
+\]
+\end{remark}
+
+\begin{proposition}\label{sga3:XXI:3.5.4}
+设 \(\alpha\) 与 \(\gamma\) 是两个不成比例的根, 且 \(\alpha\) 不可分. 存在一个单根系, 其中包含 \(\alpha\) 以及某个根 \(\beta\), 使
+\[
+ \gamma=a\alpha+b\beta,
+ \qquad a,b\in\mathbb{N}.
+\]
+\end{proposition}
+\begin{proof}
+选取向量空间 \(\VR(R)\) 的一个包含 \(\alpha_1=\alpha\) 及 \(\alpha_2=\gamma\) 的基, 并考虑关于此基的字典序. 设 \(R_+\) 是 \(>0\) 的根所成的集合. 显然 \(R_+\) 是正根系, 且\footnote{编者注: 此处修改了原文, 以兼顾 \(2\alpha\) 为根的情形.} \(R_+\) 中不与 \(\alpha\) 成比例的最小元素是单根. 此元素形如
+\[
+ \beta=p\alpha+q\gamma,
+ \qquad 0<q\le1.
+\]
+所以
+\[
+ \gamma=q^{-1}\beta-q^{-1}p\alpha.
+\]
+由于 \(q^{-1}>0\), 有
+\[
+ q^{-1}\in\mathbb{N}^{\ast},
+ \qquad
+ -q^{-1}p\in\mathbb{N}.
+\]
+\end{proof}
+
+最后对群 \(\Gamma_0(R)\) 作两点说明.
+\begin{proposition}\label{sga3:XXI:3.5.5}
+设 \(G\) 是阿贝尔群, \(f:R\to G\) 是满足下列条件的映射:
+\begin{enumerate}
+\item[(i)] 若 \(\alpha\in R\), 则 \(f(-\alpha)=-f(\alpha)\);
+\item[(ii)] 若 \(\alpha,\beta,\alpha+\beta\in R\), 则
+  \[
+   f(\alpha+\beta)=f(\alpha)+f(\beta).
+  \]
+\end{enumerate}
+存在唯一的群同态
+\[
+ \overline f:\Gamma_0(R)\longrightarrow G
+\]
+使对每个 \(\alpha\in R\) 都有 \(\overline f(\alpha)=f(\alpha)\).
+\end{proposition}
+\begin{proof}
+设 \(\Delta\) 是 \(R\) 的单根系, 写成
+\[
+ \beta=\sum_{\alpha\in\Delta}a(\alpha)\alpha.
+\]
+引理~\ref{sga3:XXI:3.2.16} 立即给出
+\[
+ f(\beta)=\sum_{\alpha\in\Delta}a(\alpha)f(\alpha).
+\]
+而 \(\Delta\) 是 \(\Gamma_0(R)\) 的基.
+\end{proof}
+
+\begin{proposition}\label{sga3:XXI:3.5.6}
+设 \(\Delta\) 是单根系. 在 \(\Gamma_0(R)\) 上存在一个全序群结构, 使 \(>0\) 的根为 \(\mathscr{P}(\Delta)\) 的元素, 且使
+\[
+ \alpha\longmapsto\operatorname{ord}_\Delta(\alpha)
+\]
+保序.
+\end{proposition}
+\begin{proof}
+设
+\[
+ \alpha_1,\alpha_2,\ldots,\alpha_n,
+ \qquad n=\rgss(\cR),
+\]
+是 \(\Delta\) 的元素. 每个 \(x\in\Gamma_0(R)\) 都有分解
+\[
+ x=\sum_{i=1}^{n}m_i(x)\alpha_i.
+\]
+取关于函数
+\[
+ \sum_i m_i,\quad m_n,\quad m_{n-1},\quad\ldots,\quad m_2.
+\]
+的字典序.
+\end{proof}
+
+\begin{remark}\label{sga3:XXI:3.5.7}
+最前面的根依次为
+\[
+ \alpha_1,\alpha_2,\ldots,\alpha_n;
+\]
+随后, 如果它们是根, 则为
+\[
+ 2\alpha_1,\quad
+ \alpha_1+\alpha_2,\quad
+ \alpha_1+\alpha_3,\quad\ldots.
+\]
+\end{remark}
+
+\subsection{Weyl 室}
+\label{sga3:XXI:3.6}
+\begin{lemma}\label{sga3:XXI:3.6.1}
+设 \(V\) 是有限维实向量空间.\footnote{编者注: 已将原文的 \(\mathbb{Q}\) 改为 \(\mathbb{R}\).} 设 \(f_i\) 是线性无关的线性型. 令
+\[
+ C=\{x\in V\mid f_i(x)>0\}.
+\]
+则 \(C\) 是
+\[
+ X=V\setminus\bigcup_i f_i^{-1}(0).
+\]
+的极大凸子集.
+\end{lemma}
+\begin{proof}
+显然.
+\end{proof}
+
+\begin{definition}\label{sga3:XXI:3.6.2}
+这里将按引理~\ref{sga3:XXI:3.6.1} 的构造得到的子集 \(C\subset V\) 称为 \(V\) 的一个\emph{室}.
+\end{definition}
+
+\begin{definition}\label{sga3:XXI:3.6.3}
+若 \(V\) 的超平面 \(H\) 满足
+\[
+ H\cap(\overline C\setminus C)
+\]
+包含其中的一个非空开子集, 则称 \(H\) 是 \(C\) 的一个\emph{壁}.
+\end{definition}
+
+\begin{remark}\label{sga3:XXI:3.6.4}
+对于凸子集, 不借助 \(V\) 的拓扑也能描述其闭包: 它是包含在所给子集中的所有开线段的端点所成的集合.
+\end{remark}
+
+\begin{lemma}\label{sga3:XXI:3.6.5}
+在引理~\ref{sga3:XXI:3.6.1} 的条件下,
+\[
+ \overline C=\{x\in V\mid f_i(x)\ge0\}.
+\]
+\(C\) 的壁是超平面 \(f_i^{-1}(0)\).
+\end{lemma}
+\begin{proof}
+第一个断言显然. 第二个来自
+\[
+ \overline C\setminus C\subset\bigcup_i f_i^{-1}(0)
+\]
+以及各 \(f_i^{-1}(0)\) 显然都是 \(C\) 的壁这一事实.
+\end{proof}
+
+\begin{proposition}\label{sga3:XXI:3.6.6}
+设 \(C\) 为 \(V\) 的室. 若
+\[
+ H_i,\qquad i=1,2,\ldots,n,
+\]
+是 \(C\) 的互不相同的壁, 则对每个满足 \(H_i=u_i^{-1}(0)\) 的线性型组 \(\{u_i\}\), 存在 \(\varepsilon_i\in\{-1,+1\}\) 使
+\[
+ C=\{x\in V\mid\varepsilon_i u_i(x)>0\}.
+\]
+对 \(C\) 的每个壁 \(H\),
+\[
+ H\cap C=\varnothing,
+ \qquad
+ H\cap\overline C=\overline{C_H},
+\]
+其中 \(C_H\) 是 \(H\) 中的一个室. \(C_{H_i}\) 的壁是各 \(H_j\cap H_i\)、\(j\ne i\).
+\end{proposition}
+\begin{proof}
+这立即来自引理.
+\end{proof}
+
+\begin{definition}\label{sga3:XXI:3.6.7}
+称各 \(C_{H_i}\) 为 \(C\) 的\emph{面}.
+\end{definition}
+现设
+\[
+ \cR=(M,M^\ast,R,R^\ast)
+\]
+为根数据, 令
+\[
+ V_{\mathbb{R}}^\ast=M^\ast\otimes\mathbb{R}.
+\]
+
+\begin{definition}\label{sga3:XXI:3.6.8}
+\footnote{编者注: 此处添加了超平面 \(\mathcal{H}_\alpha\) 的定义.}
+对每个 \(\alpha\in R\), 令
+\[
+ \mathcal{H}_\alpha
+   =\{x\in V_{\mathbb{R}}^\ast\mid(x,\alpha)=0\}.
+\]
+记
+\[
+ X=V_{\mathbb{R}}^\ast
+   \setminus\bigcup_{\alpha\in R}\mathcal{H}_\alpha.
+\]
+对每个 \(x\in X\), 令
+\[
+ R_+(x)=\{\alpha\in R\mid(x,\alpha)>0\}.
+\]
+对每个正根系 \(R_+\), 令
+\[
+ \mathcal{C}(R_+)
+   =\{x\in V_{\mathbb{R}}^\ast
+       \mid (x,\alpha)>0\text{ 对每个 }\alpha\in R_+\}.
+\]
+\end{definition}
+
+\begin{proposition}\label{sga3:XXI:3.6.9}
+\begin{enumerate}
+\item[\SGAInlineRefTarget{sga3:XXI:3.6.9:item:i}(i)] 对每个 \(x\in X\), \(R_+(x)\) 是正根系. 对每个正根系 \(R_+\), \(\mathcal{C}(R_+)\) 是 \(V_{\mathbb R}^\ast\) 中的一个室. 各 \(\mathcal{C}(R_+)\) 是 \(X\) 的极大凸子集.
+\item[\SGAInlineRefTarget{sga3:XXI:3.6.9:item:ii}(ii)] 设 \(\Delta\) 为单根系. 有
+\[
+ \mathcal{C}(\mathscr{P}(\Delta))
+ =\{x\in V_{\mathbb R}^\ast
+       \mid (x,\alpha)>0\text{ 对每个 }\alpha\in\Delta\}.
+\]
+\(\mathcal{C}(\mathscr{P}(\Delta))\) 的壁是超平面
+\[
+ \mathcal{H}_\alpha=\alpha^{-1}(0),
+ \qquad \alpha\in\Delta;
+\]
+其面为
+\[
+ C_\alpha
+ =\{x\in V_{\mathbb R}^\ast
+      \mid (x,\alpha)=0,\ 
+      (x,\beta)>0\text{ 对 }\beta\in\Delta,\ \beta\ne\alpha\}.
+\]
+\item[\SGAInlineRefTarget{sga3:XXI:3.6:item:iii}(iii)] 有等价关系
+\[
+ R_+(x)=R_+
+ \quad\Longleftrightarrow\quad
+ x\in\mathcal{C}(R_+).
+\]
+\end{enumerate}
+\end{proposition}
+\begin{proof}
+首先显然 \(R_+(x)\) 是正根系. 由于 \(x\in\mathcal{C}(R_+(x))\), 各 \(\mathcal{C}(R_+(x))\) 的并为 \(X\). 性质 \SGARefLink{sga3:XXI:3.6:item:iii}{(iii)} 是直接的; 因而各 \(\mathcal{C}(R_+)\) 构成 \(X\) 的一个划分. \SGARefLink{sga3:XXI:3.6.9:item:ii}{(ii)} 的第一个断言显然, 由此立即可见 \(\mathcal{C}(R_+)\) 为 \(V_{\mathbb R}^\ast\) 中的室, 这就证明了 \SGARefLink{sga3:XXI:3.6.9:item:i}{(i)} 的其余部分. 令
+\[
+ C=\mathcal{C}(\mathscr{P}(\Delta)).
+\]
+还只须注意到
+\[
+ \overline C\cap
+ \left(V_{\mathbb R}^\ast\setminus
+       \bigcup_{\alpha\in R}\alpha^{-1}(0)\right)
+ =
+ \overline C\cap
+ \left(V_{\mathbb R}^\ast\setminus
+       \bigcup_{\alpha\in\Delta}\alpha^{-1}(0)\right)
+\]
+再由引理~\ref{sga3:XXI:3.6.1} 即可完成 \SGARefLink{sga3:XXI:3.6.9:item:ii}{(ii)} 的证明.
+\end{proof}
+
+\begin{definition}\label{sga3:XXI:3.6.10}
+称各 \(\mathcal{C}(R_+)\) 为根数据的 \emph{Weyl 室}. 反过来, 对每个 Weyl 室 \(C\), 令
+\[
+ R_+(C)=R_+(x)
+\]
+其中 \(x\in C\) 任取.
+\end{definition}
+
+\begin{corollary}\label{sga3:XXI:3.6.11}
+映射
+\[
+ R_+\longmapsto\mathcal{C}(R_+),
+ \qquad
+ C\longmapsto R_+(C)
+\]
+给出正根系与 Weyl 室之间的双射对应.
+\end{corollary}
+此对应在 Weyl 群下不变:
+
+\begin{lemma}\label{sga3:XXI:3.6.12}
+若 \(w\in W(\mathcal{R})\), 则
+\[
+ \mathcal{C}(w(R_+))=w(\mathcal{C}(R_+)).
+\]
+\end{lemma}
+
+\begin{corollary}\label{sga3:XXI:3.6.13}
+对应关系
+\[
+ \Delta\longleftrightarrow R_+\longleftrightarrow C
+\]
+是 \(W(\mathcal{R})\) 下齐性空间的同构.
+\end{corollary}
+下文将看到这些齐性空间是主齐性空间 (\SGARefLink{sga3:XXI:5.5}{5.5}).
+
+\begin{remark}\label{sga3:XXI:3.6.14}
+若 \(C\) 是 Weyl 室, 则 \(-C\) 也是, 称为 \(C\) 的\emph{相反室}. 因而存在 \(w_0\in W\), 实际上恰有一个, 参见 \SGARefLink{sga3:XXI:5.5}{5.5}, 使
+\[
+ w_0(C)=-C.
+\]
+称它为根数据关于 Weyl 室 \(C\) (或关于 \(R_+(C)\), 或关于 \(\mathscr{S}(R_+(C))\), 等等) 的\emph{对称}.
+\end{remark}
+
+\section{半单秩为 \texorpdfstring{\(2\)}{2} 的约化根数据}
+\label{sga3:XXI:4}
+\renewcommand{\thetheorem}{\thesection.\arabic{theorem}}
+\setcounter{theorem}{0}
+\SGARefTarget{sga3:XXI:4.0}
+\noindent\textbf{4.0.}\footnote{编者注: 为便于下文引用, 添加了编号 \(4.0\).}
+设 \(\mathcal{R}\) 是半单秩为 \(2\) 的根数据. 设 \(\{\alpha,\beta\}\) 为单根系, 并假设 \(\ell(\alpha)\le\ell(\beta)\). 由 \ref{sga3:XXI:2.3.1} 及 \ref{sga3:XXI:3.2.1}, 有以下四种可能:
+\[
+\begin{array}{c|c|c|c|c}
+\text{类型}
+ &\ell(\beta)/\ell(\alpha)
+ &\ell(\beta^\ast)/\ell(\alpha^\ast)
+ &(\beta^\ast,\alpha)
+ &(\alpha^\ast,\beta)\\ \hline
+A_1\times A_1&-&-&0&0\\
+A_2&1&1&-1&-1\\
+B_2&2&1/2&-1&-2\\
+G_2&3&1/3&-1&-3
+\end{array}
+\]
+由注~\ref{sga3:XXI:3.4.5}, \(s_\alpha s_\beta\) 的阶分别为 \(2,3,4,6\).
+
+分别研究这些根系, 并列出不可分根.
+\medskip
+\noindent\emph{\(A_1\times A_1\) 型.}
+不可分根为
+\[
+ \alpha,\quad\beta,\quad-\alpha,\quad-\beta.
+\]
+相应的余根为
+\[
+ \alpha^\ast,\quad\beta^\ast,\quad-\alpha^\ast,\quad-\beta^\ast.
+\]
+
+\medskip
+\noindent\emph{\(A_2\) 型.}
+不可分正根如下:
+\[
+\begin{array}{c|ccc}
+\text{根 }\gamma
+ &\alpha&\beta&\alpha+\beta\\ \hline
+\ell(\gamma)/\ell(\alpha)
+ &1&1&1\\ \hline
+\text{余根 }\gamma^\ast
+ &\alpha^\ast&\beta^\ast&\alpha^\ast+\beta^\ast\\ \hline
+\ell(\gamma^\ast)/\ell(\beta^\ast)
+ &1&1&1
+\end{array}
+\]
+不可分正根的半和为
+\[
+ \rho=\alpha+\beta.
+\]
+
+\medskip
+\noindent\emph{\(B_2\) 型.}
+不可分正根如下:
+\[
+\begin{array}{c|cccc}
+\text{根 }\gamma
+ &\alpha&\beta&\alpha+\beta&2\alpha+\beta\\ \hline
+\ell(\gamma)/\ell(\alpha)
+ &1&2&1&2\\ \hline
+\text{余根 }\gamma^\ast
+ &\alpha^\ast&\beta^\ast
+ &2\alpha^\ast+\beta^\ast&\alpha^\ast+\beta^\ast\\ \hline
+\ell(\gamma^\ast)/\ell(\beta^\ast)
+ &2&1&2&1
+\end{array}
+\]
+不可分正根的半和为
+\[
+ \rho=\frac{4\alpha+3\beta}{2}.
+\]
+
+\medskip
+\noindent\emph{\(G_2\) 型.}
+不可分正根如下:
+\begin{center}
+\resizebox{\textwidth}{!}{%
+$\displaystyle
+\begin{array}{c|cccccc}
+\text{根 }\gamma
+ &\alpha&\beta&\alpha+\beta&2\alpha+\beta
+ &3\alpha+\beta&3\alpha+2\beta\\ \hline
+\ell(\gamma)/\ell(\alpha)
+ &1&3&1&1&3&3\\ \hline
+\text{余根 }\gamma^\ast
+ &\alpha^\ast&\beta^\ast&\alpha^\ast+3\beta^\ast
+ &2\alpha^\ast+3\beta^\ast&\alpha^\ast+\beta^\ast
+ &\alpha^\ast+2\beta^\ast\\ \hline
+\ell(\gamma^\ast)/\ell(\beta^\ast)
+ &3&1&3&3&1&1
+\end{array}
+$%
+}
+\end{center}
+不可分正根的半和为
+\[
+ \rho=5\alpha+3\beta.
+\]
+
+\begin{proposition}\label{sga3:XXI:4.1}
+\footnote{以下 \(4.1\) 至 \(4.4\) 用于定理~\ref{sga3:XXI:5.1} 的证明. 现在已有更简单的证明; 见 \emph{Groupes et algèbres de Lie}, 第~V 章, \S3, 定理~1. 编者注: 此处明确列出了参考文献, 并将原文出现在 \(4.2\) 的此注移到这里.}
+设 \(n\) 为 \(s_\alpha s_\beta\) 的阶. 令 \(u_0=0\), 并对 \(p\in\mathbb N\) 定义
+\[
+\left\{
+\begin{aligned}
+u_{2p+1}&=u_{2p}+(s_\alpha s_\beta)^p(\alpha),\\
+u_{2p+2}&=u_{2p+1}+(s_\alpha s_\beta)^p s_\alpha(\beta).
+\end{aligned}
+\right.
+\]
+则:\footnote{编者注: 设 \(\rho\) 为正根的半和, 参见命题~\ref{sga3:XXI:3.5.1}. 若如下文那样令 \(w_0=1\)、\(w_1=s_\alpha\)、\(w_2=s_\beta s_\alpha\)、\(w_3=s_\alpha s_\beta s_\alpha\), 等等, 则 \(u_k=\rho-w_k^{-1}(\rho)\). 这证明了 \SGARefLink{sga3:XXI:4.1:item:i}{(i)}, 因为 \(w_{2n}=1\).}
+\begin{enumerate}
+\item[\SGAInlineRefTarget{sga3:XXI:4.1:item:i}(i)] 对每个 \(k\in\mathbb N\), \(u_{k+2n}=u_k\).
+\item[\SGAInlineRefTarget{sga3:XXI:4.1:item:ii}(ii)] \(u_0=0\)、\(u_1=\alpha\)、\(u_{2n-1}=\beta\), 且 \(u_{2n}=0\).
+\item[(iii)] 若 \(1<k<2n-1\), 则
+\[
+ u_k=a_k\alpha+b_k\beta,
+ \qquad a_k,b_k\in\mathbb N^\ast.
+\]
+\end{enumerate}
+\end{proposition}
+\begin{proof}
+断言 \SGARefLink{sga3:XXI:4.1:item:i}{(i)} 来自 \((s_\alpha s_\beta)^n=1\) 及 \(u_{2n}=0\).
+
+来证明 \SGARefLink{sga3:XXI:4.1:item:ii}{(ii)} 和 \SGARefLink{sga3:XXI:3.6:item:iii}{(iii)}. 在四种情形中, 直接计算给出以下取值序列:\footnote{编者注: 此处更正了原文, 以符合 \(4.0\) 中的约定 \(\ell(\alpha)\le\ell(\beta)\).}
+\[
+\begin{array}{c|l}
+A_1\times A_1&0,\alpha,\beta+\alpha,\beta,0,\\[2pt]
+A_2&0,\alpha,\beta+2\alpha,2\beta+2\alpha,
+       2\beta+\alpha,\beta,0,\\[2pt]
+B_2&0,\alpha,\beta+3\alpha,2\beta+4\alpha,
+       3\beta+4\alpha,3\beta+3\alpha,2\beta+\alpha,\beta,0,\\[2pt]
+G_2&0,\alpha,\beta+4\alpha,2\beta+6\alpha,
+       4\beta+9\alpha,5\beta+10\alpha,6\beta+10\alpha,\\
+   &\quad 6\beta+9\alpha,5\beta+6\alpha,4\beta+4\alpha,
+       2\beta+\alpha,\beta,0.
+\end{array}
+\]
+\end{proof}
+
+\begin{lemma}\label{sga3:XXI:4.2}
+令
+\[
+ w_{2p}=(s_\beta s_\alpha)^p,
+ \qquad
+ w_{2p+1}=s_\alpha(s_\beta s_\alpha)^p,
+\]
+使 \(w_0,\ldots,w_{2n-1}\) 为 \(W\) 的互不相同的元素. 设 \(u_0,\ldots,u_{2n-1}\) 为命题~\ref{sga3:XXI:4.1} 中定义的 \(V\) 的元素. 对每个 \(x\in V^\ast\), 有
+\[
+ x-w_k(x)=n_k\alpha^\ast+m_k\beta^\ast,
+\]
+其中 \(n_k,m_k\in\mathbb Q\), 且
+\[
+ n_k+m_k=(x,u_k).
+\]
+\footnote{编者注: 根据前一编者注, 这立即来自命题~\ref{sga3:XXI:3.5.1} 和 \ref{sga3:XXI:1.1.9}: 有
+\[
+ n_k+m_k=(x-w_k(x),\rho)
+ =(x,\rho-w_k^{-1}(\rho))=(x,u_k).
+\]}
+\end{lemma}
+\begin{proof}
+对 \(k\) 作归纳. 若 \(k=0\), 公式显然. 例如从 \(w_{2p}\) 到 \(w_{2p+1}\) 的步骤如下. 由于 \(w_{2p+1}=s_\alpha w_{2p}\),
+\[
+\begin{aligned}
+x-w_{2p+1}(x)
+ &=x-w_{2p}(x)+w_{2p}(x)-s_\alpha w_{2p}(x)\\
+ &=n_{2p}\alpha^\ast+m_{2p}\beta^\ast
+   +(w_{2p}(x),\alpha)\alpha^\ast.
+\end{aligned}
+\]
+所以
+\[
+\begin{aligned}
+n_{2p+1}+m_{2p+1}
+ &=n_{2p}+m_{2p}
+   +\bigl((s_\beta s_\alpha)^p(x),\alpha\bigr)\\
+ &=(x,u_{2p})+\bigl(x,(s_\alpha s_\beta)^p(\alpha)\bigr)\\
+ &=(x,u_{2p+1}).
+\end{aligned}
+\]
+\end{proof}
+
+\begin{corollary}\label{sga3:XXI:4.3}
+\footnote{编者注: 此陈述已更正.}
+设 \(x\in V^\ast\). 对每个 \(w\in W\), 令
+\[
+ x-w(x)=a_w\alpha^\ast+b_w\beta^\ast.
+\]
+若 \((x,\alpha)\ge0\) 且 \((x,\beta)\ge0\), 则
+\[
+ a_w+b_w\ge0.
+\]
+若还有 \((x,\alpha)>0\) (分别地, \((x,\beta)>0\)), 则对 \(w\ne1,s_\beta\) (分别地, 对 \(w\ne1,s_\alpha\)), 有
+\[
+ a_w+b_w>0
+\]
+\end{corollary}
+\begin{proof}
+这立即来自命题~\ref{sga3:XXI:4.1} 及引理~\ref{sga3:XXI:4.2}.
+\end{proof}
+
+\begin{corollary}\label{sga3:XXI:4.4}
+设 \(\mathcal{R}\) 是任意根数据, \(\Delta\) 是单根系. 设 \(\gamma\) 为正根, \(\alpha,\beta\) 为两个单根, \(W_{\alpha,\beta}\) 为 \(W\) 中由 \(s_\alpha\) 与 \(s_\beta\) 生成的子群. 若
+\[
+ \operatorname{ord}_\Delta(s_\alpha(\gamma))
+ <\operatorname{ord}_\Delta(\gamma),
+ \qquad
+ \operatorname{ord}_\Delta(s_\beta(\gamma))
+ \le\operatorname{ord}_\Delta(\gamma),
+\]
+则对每个 \(w\in W_{\alpha,\beta}\),
+\[
+ \operatorname{ord}_\Delta(w(\gamma))
+ \le\operatorname{ord}_\Delta(\gamma).
+\]
+此外, 若 \(w\ne1,s_\beta\), 则
+\[
+ \operatorname{ord}_\Delta(w(\gamma))
+ <\operatorname{ord}_\Delta(\gamma)
+\]
+\end{corollary}
+\begin{proof}
+考虑对偶根数据 \(\mathcal{R}^\ast\), 再考虑根数据
+\[
+ (M^\ast,M,R'^\ast,R'),
+\]
+其中 \(R'\) 是 \(\alpha\) 与 \(\beta\) 的有理线性组合所成的根集. 对此根数据应用推论~\ref{sga3:XXI:4.3}, 即得所述结果.
+\footnote{编者注: 假设表明 \((\gamma,\alpha^\ast)>0\) 且 \((\gamma,\beta^\ast)\ge0\). 所以对每个 \(w\in W_{\alpha,\beta}\), 有 \(\gamma-w(\gamma)\in\mathbb N\alpha+\mathbb N\beta\), 且当 \(w\notin\{1,s_\beta\}\) 时非零.}
+\end{proof}
+
+\section{Weyl 群: 生成元与关系}
+\label{sga3:XXI:5}
+\setcounter{theorem}{0}
+设 \(\mathcal{R}\) 是根数据. 由于它与相应的约化根数据具有相同的 Weyl 群, 研究 Weyl 群时可以假设 \(\mathcal{R}\) 约化.
+
+设
+\[
+ \Delta=\{\alpha_1,\ldots,\alpha_n\}
+\]
+是单根系, 其中 \(n=\rgss(\mathcal{R})\). 设 \(n_{ij}\) 为 \(s_{\alpha_i}s_{\alpha_j}\) 在 \(W\) 中的阶. 特别地, \(n_{ii}=1\), 而注~\ref{sga3:XXI:3.4.2} 和 \ref{sga3:XXI:3.4.3} 表明, \(W\) 中由 \(s_{\alpha_i}\) 和 \(s_{\alpha_j}\) 生成的子群 \(W_{ij}\) 由关系
+\[
+ s_{\alpha_i}^{\,2}=s_{\alpha_j}^{\,2}
+ =(s_{\alpha_i}s_{\alpha_j})^{n_{ij}}=1.
+\]
+定义.
+
+\begin{theorem}\label{sga3:XXI:5.1}
+群 \(W\) 由元素
+\[
+ s_{\alpha_i},\qquad i=1,2,\ldots,n,
+\]
+生成, 满足关系
+\[
+ (s_{\alpha_i}s_{\alpha_j})^{n_{ij}}=1.
+\]
+\end{theorem}
+\begin{proof}
+已看到当 \(n=2\) 时定理成立; 证明中将使用这一事实. 引入群 \(\widetilde W\), 它由元素
+\[
+ T_i,\qquad i=1,2,\ldots,n,
+\]
+生成, 满足关系
+\[
+ (T_iT_j)^{n_{ij}}=1.
+\]
+特别地, \(n_{ii}=1\), 因而 \(T_i^2=1\). 设
+\[
+ p:\widetilde W\longrightarrow W
+\]
+为将 \(T_i\) 映到 \(s_{\alpha_i}\) 的群同态. 已知 \(p\) 满射; 下面将证明它为单射.
+\end{proof}
+
+\begin{lemma}\label{sga3:XXI:5.2}
+对每个 \(\alpha\in\mathscr{P}(\Delta)\), 可唯一定义元素 \(T_\alpha\in\widetilde W\), 具有以下性质:
+\begin{enumerate}
+\item[(i)] \(p(T_\alpha)=s_\alpha\);
+\item[(ii)] \(T_{\alpha_i}=T_i\);
+\item[(iii)] 若 \(\beta\) 与 \(\alpha\) 为正根, 且 \(s_{\alpha_i}(\alpha)=\beta\), 则
+\[
+ T_iT_\alpha T_i=T_\beta.
+\]
+\end{enumerate}
+\end{lemma}
+
+% BEGIN inputs/XXI/tex/components/19_expose_XXI_lemma52_proof_partA_en.tex
+\begin{proof}
+首先注意, 由 \ref{sga3:XXI:1.2.10} 和 \ref{sga3:XXI:3.3.6} 可知, (i) 是 (ii) 与 \SGARefLink{sga3:XXI:3.6:item:iii}{(iii)} 的推论, 而 (ii) 与 \SGARefLink{sga3:XXI:3.6:item:iii}{(iii)} 完全确定了各个 \(T_\alpha\). 我们对 \(\operatorname{ord}_\Delta(\alpha)\) 归纳构造它们. 若 \(\operatorname{ord}_\Delta(\alpha)=1\), 则 \(\alpha\in\Delta\); 当 \(\alpha=\alpha_i\) 时, 置 \(T_\alpha=T_i\).
+
+考虑以下假设:
+\[
+\begin{split}
+(\mathrm{H}_p)\quad&
+\text{对满足 \(\operatorname{ord}_\Delta(\alpha)\le p\) 的
+\(\alpha\in\mathscr{P}(\Delta)\), 存在满足 (ii) 的 \(T_\alpha\),}\\
+&\text{且只要 \(\operatorname{ord}_\Delta(\alpha)\le p\) 与
+\(\operatorname{ord}_\Delta(\beta)\le p\), 就满足 (iii).}
+\end{split}
+\]
+它对 \(p=1\) 成立. 事实上, 若 \(\alpha\) 与 \(s_{\alpha_i}(\alpha)=\beta\) 均为单根, 则 \(\alpha_i\) 与 \(\alpha\) 正交. 因而若 \(\alpha_j=\alpha=\beta\), 就有 \(n_{ij}=2\), 从而
+\[
+ T_iT_jT_i=T_j.
+\]
+
+设 \(p>1\), 且 \((\mathrm{H}_{p-1})\) 成立.
+
+\medskip
+\noindent\textbf{A) 对 \(\operatorname{ord}_\Delta(\alpha)\le p\) 构造 \(T_\alpha\).}
+只须在 \(\operatorname{ord}_\Delta(\alpha)=p\) 时构造. 由引理~\ref{sga3:XXI:3.3.3}, 存在 \(\alpha_i\in\Delta\), 使得
+\[
+ s_{\alpha_i}(\alpha)\in\mathscr{P}(\Delta),
+ \qquad
+ \operatorname{ord}_\Delta(s_{\alpha_i}(\alpha))<p
+\]
+置
+\begin{equation}
+\tag{\(\star\)}
+\label{sga3:XXI:5.2:construction}
+ T_\alpha=T_iT_{s_{\alpha_i}(\alpha)}T_i.
+\end{equation}
+我们验证 \(T_\alpha\) 仅依赖于 \(\alpha\). 设 \(\alpha_j\in\Delta\) 也满足
+\[
+ s_{\alpha_j}(\alpha)\in\mathscr{P}(\Delta),
+ \qquad
+ \operatorname{ord}_\Delta(s_{\alpha_j}(\alpha))<p.
+\]
+须证明
+\begin{equation}
+\tag{\(+\)}
+\label{sga3:XXI:5.2:independence}
+ T_iT_{s_{\alpha_i}(\alpha)}T_i
+ =T_jT_{s_{\alpha_j}(\alpha)}T_j.
+\end{equation}
+分两种情形.
+
+\begin{enumerate}
+\item[(1)] 设 \(\alpha\) 是 \(\alpha_i\) 与 \(\alpha_j\) 的线性组合. 则 \(s_{\alpha_i}(\alpha)\) 和 \(s_{\alpha_j}(\alpha)\) 也如此; 由 \((\mathrm{H}_{p-1})\), 元素 \(T_{s_{\alpha_i}(\alpha)}\) 和 \(T_{s_{\alpha_j}(\alpha)}\) 是由 \(T_i,T_j\) 构成的字. 由于 \eqref{sga3:XXI:5.2:independence} 投影到 \(W\) 后成立, 且定理在 \(n=2\) 时成立, 故 \(p\) 限制到 \(\widetilde W\) 中由 \(T_i,T_j\) 生成的子群上为单射. 于是 \eqref{sga3:XXI:5.2:independence} 成立.
+
+\item[(2)] 设 \(\alpha\) 不是 \(\alpha_i\) 与 \(\alpha_j\) 的线性组合. 则对 \(w\in W_{\alpha_i,\alpha_j}\), 各个 \(w(\alpha)\) 都为正根 (参见引理~\ref{sga3:XXI:3.4.9}). 所须验证的关系也可写为
+\begin{equation}
+\tag{\({+}{+}\)}
+\label{sga3:XXI:5.2:rank-two-relation}
+ (T_iT_j)^{n_{ij}-1}T_{s_{\alpha_i}(\alpha)}
+ (T_jT_i)^{n_{ij}-1}
+ =T_{s_{\alpha_j}(\alpha)}.
+\end{equation}
+推论~\ref{sga3:XXI:4.4} 表明, 当 \(w\in W_{\alpha_i,\alpha_j}\), \(w\ne1\) 时, 各个 \(w(\alpha)\) 的阶都 \(<p\). 因而可应用 \((\mathrm{H}_{p-1})\) 共 \(2(n_{ij}-1)\) 次, 即得所需关系.
+\end{enumerate}
+
+\medskip
+\noindent\textbf{B) 验证 \((\mathrm{H}_p)\).}
+\footnote{编者注: 以下展开了原文的论证.}
+须验证: 若 \(\alpha_j\in\Delta\), 且 \(\beta=s_{\alpha_j}(\alpha)\) 满足 \(\operatorname{ord}_\Delta(\beta)\le p\), 则
+\[
+ T_jT_\alpha T_j=T_\beta.
+\]
+若 \(\operatorname{ord}_\Delta(\beta)<p\), 则因 \(T_j^2=1\), 这由上述构造即得. 因而可设
+\[
+ \operatorname{ord}_\Delta(\beta)
+ =p=\operatorname{ord}_\Delta(\alpha).
+\]
+此时 \(\alpha\) 与 \(\alpha_j\) 正交, 因此 \(\beta=\alpha\), 只须证明
+\begin{equation}
+\tag{\(\dagger\)}
+\label{sga3:XXI:5.2:orthogonal}
+ T_jT_\alpha T_j=T_\alpha.
+\end{equation}
+由 \eqref{sga3:XXI:5.2:construction},
+\[
+ T_\alpha=T_iT_{s_{\alpha_i}(\alpha)}T_i,
+\]
+因而只须验证
+\begin{equation}
+\tag{\({+}{+}{+}\)}
+\label{sga3:XXI:5.2:orthogonal-expanded}
+ T_jT_iT_{s_{\alpha_i}(\alpha)}T_iT_j
+ =T_\alpha
+ =T_iT_{s_{\alpha_i}(\alpha)}T_i.
+\end{equation}
+\end{proof}
+
+% END inputs/XXI/tex/components/19_expose_XXI_lemma52_proof_partA_en.tex
+
+% BEGIN inputs/XXI/tex/components/20_expose_XXI_lemma52_partB_through_theorem56_statement_en.tex
+\begin{proof}[引理~\ref{sga3:XXI:5.2} 的证明, 续]
+置 \(m=n_{ij}\), \(s_i=s_{\alpha_i}\), \(s_j=s_{\alpha_j}\). 有
+\[
+ T_jT_i=(T_iT_j)^{m-1}.
+\]
+由推论~\ref{sga3:XXI:4.4}, 对每个不同于
+\[
+ 1=(s_is_j)^m
+ \quad\text{及}\quad
+ s_j=s_i(s_is_j)^{m-1}.
+\]
+的 \(w\in W_{ij}\), 都有 \(\operatorname{ord}_\Delta(w(\alpha))<p\). 因而归纳假设给出
+\[
+\begin{split}
+ &T_j(T_iT_j)^{m-2}T_{s_i(\alpha)}
+       (T_jT_i)^{m-2}T_j\\
+ &\qquad
+ =T_{s_j(s_is_j)^{m-2}s_i(\alpha)}
+ =T_{s_is_j(\alpha)}
+ =T_{s_i(\alpha)}.
+\end{split}
+\]
+最后一个等号成立是因为 \(s_j(\alpha)=\alpha\). 故
+\[
+ (T_iT_j)^{m-1}T_{s_i(\alpha)}(T_jT_i)^{m-1}
+ =T_iT_{s_i(\alpha)}T_i,
+\]
+这就证明了 \eqref{sga3:XXI:5.2:orthogonal-expanded}.
+\end{proof}
+
+\begin{lemma}\label{sga3:XXI:5.3}
+设 \(h\in\widetilde W\). 写成
+\[
+ h=T_{\alpha_1}\cdots T_{\alpha_m},
+\]
+其中 \(\alpha_i\in\Delta\) 不必互异, 并选择它们使 \(m\) 最小. 则
+\[
+ p(h)(\alpha_m)\in-\mathscr{P}(\Delta).
+\]
+\end{lemma}
+
+\begin{proof}
+由于
+\[
+ p(T_{\alpha_m})(\alpha_m)
+ =s_{\alpha_m}(\alpha_m)=-\alpha_m,
+\]
+若 \(p(h)(\alpha_m)\) 为正根, 则存在指标 \(k\), \(1\le k\le m-1\), 使得
+\[
+ u=s_{\alpha_{k+1}}\cdots s_{\alpha_m}(\alpha_m)
+ =-s_{\alpha_{k+1}}\cdots s_{\alpha_{m-1}}(\alpha_m)
+ \in-\mathscr{P}(\Delta)
+\]
+且 \(s_{\alpha_k}(u)\in\mathscr{P}(\Delta)\). 由引理~\ref{sga3:XXI:3.3.1}, 必有 \(u=-\alpha_k\), 从而
+\[
+ s_{\alpha_{k+1}}\cdots s_{\alpha_{m-1}}(\alpha_m)=\alpha_k.
+\]
+于是引理~\ref{sga3:XXI:5.2} 的性质 \SGARefLink{sga3:XXI:3.6:item:iii}{(iii)} 给出
+\[
+ T_{\alpha_k}T_{\alpha_{k+1}}\cdots
+ T_{\alpha_{m-1}}T_{\alpha_m}
+ =
+ T_{\alpha_{k+1}}\cdots T_{\alpha_{m-1}},
+\]
+这与 \(m\) 的极小性矛盾.
+\end{proof}
+
+现在设 \(h\in\widetilde W\) 满足
+\[
+ p(h)\bigl(\mathscr{P}(\Delta)\bigr)
+ \subset\mathscr{P}(\Delta).
+\]
+引理~\ref{sga3:XXI:5.3} 给出 \(p(h)=1\). 这就证明了定理~\ref{sga3:XXI:5.1}, 以及以下两个推论.
+
+\begin{corollary}\label{sga3:XXI:5.4}
+若 \(R_+\) 为正根系, 且 \(w\in W\) 满足 \(w(R_+)=R_+\), 则 \(w=1\).
+\end{corollary}
+
+\begin{corollary}\label{sga3:XXI:5.5}
+Weyl 群在正根系集合、单根系集合以及 Weyl 室集合上的作用均为自由且传递的.
+\end{corollary}
+
+选择单根系 \(\Delta\), 并置
+\[
+ R^+=\mathscr{P}(\Delta).
+\]
+\footnote{编者注: 此处用上标记号 \(R^+\) 而非 \(R_+\), 以使 \(R^+_{\alpha,\beta}=R_{\alpha,\beta}\cap R^+\).}
+对每对单根 \((\alpha,\beta)\in\Delta\times\Delta\), 设 \(R_{\alpha,\beta}\) 为可表为 \(\alpha\) 与 \(\beta\) 的线性组合的根所成的集合. 置
+\[
+ R^+_{\alpha,\beta}=R^+\cap R_{\alpha,\beta},
+\]
+并设 \(W_{\alpha,\beta}\) 为 \(R_{\alpha,\beta}\) 的 Weyl 群, 即 \(W\) 中由 \(s_\alpha\) 与 \(s_\beta\) 生成的子群.
+
+\begin{theorem}[Tits]\label{sga3:XXI:5.6}
+设 \(\alpha\) 与 \(\beta\) 为两个单根, 且 \(w\in W\) 满足 \(w(\alpha)=\beta\). 存在单根序列 \(\alpha_0,\ldots,\alpha_m\) 以及 \(W\) 中元素的序列 \(w_0,\ldots,w_{m-1}\), 满足:
+\begin{enumerate}
+\item[(i)] \(\alpha_0=\alpha\) 且 \(\alpha_m=\beta\);
+\item[(ii)] \(w=w_{m-1}w_{m-2}\cdots w_0\);
+\item[(iii)] 对 \(0\le i\le m-1\), 有 \(w_i(\alpha_i)=\alpha_{i+1}\);
+\item[(iv)] 对每个满足 \(\alpha_i\ne\alpha_{i+1}\) 的 \(i\), \(0\le i\le m-1\), 有 \(w_i\in W_{\alpha_i,\alpha_{i+1}}\);
+\item[(v)] 对每个满足 \(\alpha_i=\alpha_{i+1}\) 的 \(i\), \(0\le i\le m-1\), 存在单根 \(\beta_i\), 使 \(w_i\in W_{\alpha_i,\beta_i}\).
+\end{enumerate}
+\end{theorem}
+
+% END inputs/XXI/tex/components/20_expose_XXI_lemma52_partB_through_theorem56_statement_en.tex
+
+% BEGIN inputs/XXI/tex/components/21_expose_XXI_theorem56_proof_en.tex
+\begin{proof}
+置\footnote{编者注: 以下展开了原文的论证, 并更正了等式 \((1)\).}
+\[
+ M(w)
+ =\operatorname{Card}\bigl(R^+\cap w^{-1}(-R^+)\bigr)
+ =\operatorname{Card}\{\gamma\in R^+\mid w(\gamma)\in-R^+\}.
+\]
+若 \(M(w)=0\), 则 \(w(R^+)=R^+\), 因而由推论~\ref{sga3:XXI:5.4} 得 \(w=1\); 此时定理显然成立: \(m=0\), 而断言 (iii)--(v) 为空.
+
+我们对 \(M(w)\) 归纳. 设 \(M(w)>0\). 存在 \(\beta_0\in\Delta\), 使 \(w(\beta_0)\in-R^+\). 置 \(\alpha_0=\alpha\), 并考虑
+\[
+ A=w^{-1}(R^+)\cap R_{\alpha_0,\beta_0}.
+\]
+这是 \(R_{\alpha_0,\beta_0}\) 的一个正根系. 故存在 \(w_0\in W_{\alpha_0,\beta_0}\), 使得
+\[
+ w_0^{-1}\bigl(R^+_{\alpha_0,\beta_0}\bigr)=A.
+\]
+置 \(w'=ww_0^{-1}\). 引理~\ref{sga3:XXI:3.4.9} 给出
+\[
+ R^+-R^+_{\alpha_0,\beta_0}
+ =
+ w_0\bigl(R^+-R^+_{\alpha_0,\beta_0}\bigr),
+\]
+因而
+\begin{equation}
+\tag{1}
+\label{sga3:XXI:5.6:outside-rank-two}
+\begin{split}
+ &(R^+-R^+_{\alpha_0,\beta_0})\cap w^{-1}(-R^+)\\
+ &\qquad=
+ w_0\Bigl((R^+-R^+_{\alpha_0,\beta_0})
+             \cap w'^{-1}(-R^+)\Bigr).
+\end{split}
+\end{equation}
+另一方面,
+\begin{equation}
+\tag{2}
+\label{sga3:XXI:5.6:beta-negative}
+ \beta_0\in
+ R^+_{\alpha_0,\beta_0}\cap w^{-1}(-R^+).
+\end{equation}
+由于 \(w_0(R_{\alpha_0,\beta_0})=R_{\alpha_0,\beta_0}\), 有
+\[
+ w_0(-A)
+ =R_{\alpha_0,\beta_0}\cap w'^{-1}(-R^+),
+\]
+从而
+\begin{equation}
+\tag{\(2'\)}
+\label{sga3:XXI:5.6:rank-two-empty}
+\begin{split}
+ R^+_{\alpha_0,\beta_0}\cap w'^{-1}(-R^+)
+ &=
+ R^+_{\alpha_0,\beta_0}\cap w_0(-A)\\
+ &=
+ R^+_{\alpha_0,\beta_0}\cap(-R^+_{\alpha_0,\beta_0})
+ =\varnothing.
+\end{split}
+\end{equation}
+由 \eqref{sga3:XXI:5.6:outside-rank-two}, \eqref{sga3:XXI:5.6:beta-negative} 及 \eqref{sga3:XXI:5.6:rank-two-empty} 可得
+\[
+ M(w')<M(w).
+\]
+
+置 \(\alpha_1=w_0(\alpha_0)\). 我们证明 \(\alpha_1\in\Delta\), 等价地, 证明 \(\alpha_0\in w_0^{-1}(\Delta)\). 因 \(w(\alpha_0)\in\Delta\), 有
+\[
+ \alpha_0\in
+ w^{-1}(\Delta)\cap R_{\alpha_0,\beta_0}.
+\]
+因而 \(\alpha_0\) 为
+\[
+ A
+ =w^{-1}(R^+)\cap R_{\alpha_0,\beta_0}
+ =w_0^{-1}(R^+_{\alpha_0,\beta_0}),
+\]
+的单根, 从而由引理~\ref{sga3:XXI:3.4.8}, 它属于
+\[
+ w_0^{-1}\bigl(\Delta\cap R^+_{\alpha_0,\beta_0}\bigr)
+ =
+ w_0^{-1}\{\alpha_0,\beta_0\}
+\]
+故 \(\alpha_1=w_0(\alpha_0)\) 等于 \(\alpha_0\) 或 \(\beta_0\). 若 \(\alpha_1\ne\alpha_0\), 则 \(\alpha_1=\beta_0\) 且 \(w_0\in W_{\alpha_0,\alpha_1}\).
+
+最后,
+\[
+ \beta=w'(\alpha_1)
+ \qquad\text{且}\qquad
+ M(w')<M(w),
+\]
+因而由归纳假设即可完成证明.
+\end{proof}
+
+% END inputs/XXI/tex/components/21_expose_XXI_theorem56_proof_en.tex
+
+% ROOT_MERGE_XXI_TAIL: source3045-5057; included exactly once.
+% 第 XXI 讲尾部；冻结底本源行 3045--5057；由总编与前部合并。
+\section{根数据的态射}\label{sga3:XXI:6}
+\renewcommand{\thetheorem}{\thesubsection.\arabic{theorem}}
+
+\subsection{定义}\label{sga3:XXI:6.1}
+
+设
+\[
+ \cR=(M,M^\ast,R,R^\ast),
+ \qquad
+ \cR'=(M',M'^\ast,R',R'^\ast)
+\]
+为两个根数据。设 \(f:M'\to M\) 为线性映射，\({}^tf:M^\ast\to M'^\ast\) 为其转置。
+
+\begin{definition}\label{sga3:XXI:6.1.1}
+若 \(f\) 诱导 \(R'\) 到 \(R\) 的双射，且 \({}^tf\) 诱导 \(R^\ast\) 到 \(R'^\ast\) 的双射，则称映射 \(f\) 为 \(\cR'\) 到 \(\cR\) 的一个\emph{态射}，记为
+\[
+ f:\cR'\longrightarrow\cR.
+\]
+\end{definition}
+
+此时 \({}^tf\) 为对偶根数据之间的态射：
+\[
+ {}^tf:\cR^\ast\longrightarrow\cR'^\ast.
+\]
+若 \(f:\cR'\to\cR\) 为态射，且对 \(\alpha'\in R'\) 有 \(\alpha=f(\alpha')\)，则
+\[
+ \alpha'^\ast={}^tf(\alpha^\ast).
+\]
+事实上，若 \(p\) 与 \(p'\) 分别表示 \(\cR\) 与 \(\cR'\) 的 \ref{sga3:XXI:1.2.1} 中的映射，则
+\[
+ p'={}^tf\circ p\circ f,
+\]
+由此立即得到断言。读者可自行验证下述各断言，它们几乎都是直接的。
+
+\begin{proposition}\label{sga3:XXI:6.1.2}
+设 \(f:\cR'\to\cR\) 为根数据的态射。若 \(\alpha'\in R'\)，且 \(\alpha=f(\alpha')\)，则
+\[
+ \alpha'^\ast={}^tf(\alpha^\ast).
+\]
+此外，\(f\) 诱导同构
+\[
+ R'\xrightarrow{\sim}R,\qquad
+ \Gamma_0(R')\xrightarrow{\sim}\Gamma_0(R),\qquad
+ \VR(R')\xrightarrow{\sim}\VR(R),
+\]
+而 \({}^tf\) 诱导同构
+\[
+ R^\ast\xrightarrow{\sim}R'^\ast,\qquad
+ \Gamma_0(R^\ast)\xrightarrow{\sim}\Gamma_0(R'^\ast),\qquad
+ \VR(R^\ast)\xrightarrow{\sim}\VR(R'^\ast).
+\]
+最后一个同构是由 \(f\) 诱导的相应态射的转置。映射
+\[
+ s_{\alpha'}\longmapsto s_{f(\alpha')}
+\]
+延拓为一个同构
+\[
+ W(\cR')\xrightarrow{\sim}W(\cR),
+\]
+它与这两个群在 \ref{sga3:XXI:1.1.13} 中各集合上的作用相容。
+\end{proposition}
+
+\begin{proposition}\label{sga3:XXI:6.1.3}
+映射
+\[
+ \Delta'\longmapsto f(\Delta'),\qquad
+ R'_+\longmapsto f(R'_+),\qquad
+ C'\longmapsto({}^tf\otimes\mathbb R)^{-1}(C')
+\]
+定义了 \(\cR'\) 与 \(\cR\) 的单根系、正根系及 Weyl 腔之间的双射对应。这些对应与 Weyl 群的作用以及对应
+\[
+ \mathscr{S}(R_+)\longleftrightarrow R_+
+ \longleftrightarrow\mathscr{C}(R_+)
+\]
+相容。
+\end{proposition}
+
+\begin{lemma}\label{sga3:XXI:6.1.4}
+态射可复合。态射 \(f:\cR'\to\cR\) 为同构，当且仅当线性映射 \(f:M'\to M\) 为双射。
+\end{lemma}
+
+\subsection{同源}\label{sga3:XXI:6.2}
+
+\begin{definition}\label{sga3:XXI:6.2.1}
+若根数据的态射 \(f:\cR'\to\cR\) 满足 \(f:M'\to M\) 为单射且余核有限，则称它为一个\emph{同源}。
+\end{definition}
+
+若 \(f\) 为同源，则 \({}^tf\) 为同源。
+
+\begin{definition}\label{sga3:XXI:6.2.2}
+设 \(f:\cR'\to\cR\) 为同源。令
+\[
+ K(f)=\operatorname{Coker}\bigl(M'\xrightarrow{f}M\bigr).
+\]
+\end{definition}
+
+\begin{lemma}\label{sga3:XXI:6.2.3}
+存在自然配对
+\[
+ K(f)\times K({}^tf)\longrightarrow\mathbb Q/\mathbb Z,
+\]
+使这两个有限群互为对偶。
+\end{lemma}
+
+\begin{proof}
+这是经典结果。
+\end{proof}
+
+\begin{lemma}\label{sga3:XXI:6.2.4}
+若 \(f:\cR'\to\cR\) 为态射，则
+\[
+ \rgss(\cR')=\rgss(\cR).
+\]
+若进一步 \(f\) 为同源，则
+\[
+ \rgred(\cR')=\rgred(\cR).
+\]
+\end{lemma}
+
+\begin{proof}
+这是直接的。
+\end{proof}
+
+\begin{lemma}\label{sga3:XXI:6.2.5}
+半单根数据之间的每个态射均为同源。
+\end{lemma}
+
+\begin{proof}
+映射 \(f\) 必须诱导 \(V'=\VR(R')\) 到 \(V=\VR(R)\) 的同构。
+\end{proof}
+
+若 \(\cR'\) 与 \(\cR\) 半单，则每个同源 \(f:\cR'\to\cR\) 定义交换图：
+\begin{center}
+\begin{tikzcd}[column sep=huge,row sep=large]
+\Gamma_0(R') \arrow[r,"\sim"] \arrow[d]
+  & \Gamma_0(R) \arrow[d] \\
+M' \arrow[r,"f"'] & M
+\end{tikzcd}
+\end{center}
+若 \(M=\Gamma_0(R)\)，则 \(f\) 必为同构。
+
+\begin{definition}\label{sga3:XXI:6.2.6}
+若根数据满足
+\[
+ M=\Gamma_0(R),
+ \qquad\text{分别为}\qquad
+ M^\ast=\Gamma_0(R^\ast),
+\]
+则称它为\emph{伴随的}，分别为\emph{单连通的}。
+\end{definition}
+
+因此伴随或单连通根数据均半单。此外，\(\cR\) 伴随，分别为单连通，当且仅当 \(\cR^\ast\) 单连通，分别为伴随。上述结果给出下述命题。
+
+\begin{proposition}\label{sga3:XXI:6.2.7}
+设 \(\cR\) 为半单根数据。下述条件等价：
+\begin{enumerate}
+\item[(i)] \(\cR\) 伴随，分别为单连通；
+\item[(ii)] 每个同源 \(\cR'\to\cR\)，分别为 \(\cR\to\cR'\)，都是同构。
+\end{enumerate}
+\end{proposition}
+
+\begin{proposition}\label{sga3:XXI:6.2.8}
+设 \(\cR\) 为伴随，分别为单连通的根数据。每个不可分根，分别为余根，都是 \(M\)，分别为 \(M^\ast\)，中的不可分元素。
+\end{proposition}
+
+\begin{proof}
+由 \ref{sga3:XXI:3.3.5}，每个不可分根属于 \(\Gamma_0(R)\) 的某个基。
+\end{proof}
+
+\subsection{根基与余根基}\label{sga3:XXI:6.3}
+
+设 \(\cR\) 为根数据。令
+\[
+ N=\{x\in M\mid(\alpha^\ast,x)=0
+       \text{ 对每个 }\alpha^\ast\in R^\ast\},
+\qquad
+ N^\ast=M^\ast/\bigl(\VR(R^\ast)\cap M^\ast\bigr).
+\]
+
+\begin{lemma}\label{sga3:XXI:6.3.1}
+考虑典范态射
+\[
+ N\longrightarrow M,
+ \qquad
+ M^\ast\longrightarrow N^\ast.
+\]
+它们互为转置，且 \(N^\ast\) 与 \(N\) 的对偶相认同。
+\end{lemma}
+
+\begin{proof}
+这直接由 \ref{sga3:XXI:1.2.5} 得到。
+\end{proof}
+
+\begin{definition}\label{sga3:XXI:6.3.2}
+\(\cR\) 的\emph{余根基}，记为 \(\operatorname{corad}(\cR)\)，是平凡根数据
+\[
+ \operatorname{corad}(\cR)=(N,N^\ast,\varnothing,\varnothing).
+\]
+\end{definition}
+
+若
+\[
+ \cR^0=(M,M^\ast,\varnothing,\varnothing),
+\]
+即一个平凡根数据，则有态射
+\[
+ \operatorname{corad}(\cR)\longrightarrow\cR^0.
+\]
+
+\begin{definition}\label{sga3:XXI:6.3.3}
+\(\cR\) 的\emph{根基}，记为 \(\operatorname{rad}(\cR)\)，是平凡根数据
+\footnote{编者注：等价地，若
+\[
+ P=\{y\in M^\ast\mid(y,\alpha)=0\text{ 对每个 }\alpha\in R\},
+ \qquad
+ P^\ast=M/\bigl(\VR(R)\cap M\bigr),
+\]
+则 \(\operatorname{rad}(\cR)=(P^\ast,P,\varnothing,\varnothing)\)。}
+\[
+ \operatorname{rad}(\cR)=\operatorname{corad}(\cR^\ast)^\ast.
+\]
+\end{definition}
+
+因此有图
+\begin{center}
+\begin{tikzcd}[column sep=huge,row sep=large]
+\operatorname{corad}(\cR) \arrow[rr] \arrow[dr]
+  && \operatorname{rad}(\cR) \\
+& \cR^0 \arrow[ur] &
+\end{tikzcd}
+\end{center}
+其转置为 \(\cR^\ast\) 对应的图。
+
+\begin{lemma}\label{sga3:XXI:6.3.4}
+典范态射
+\[
+ u:\operatorname{corad}(\cR)\longrightarrow\operatorname{rad}(\cR)
+\]
+为同源。
+\end{lemma}
+
+\begin{definition}\label{sga3:XXI:6.3.5}
+令
+\[
+ N(\cR)=K(u)
+ =
+ M\Big/
+ \left(
+   \bigl(\VR(R)\cap M\bigr)
+   +\bigcap_{\alpha\in R}\ker(\alpha^\ast)
+ \right).
+\]
+则有典范配对
+\[
+ N(\cR)\times N(\cR^\ast)\longrightarrow\mathbb Q/\mathbb Z.
+\]
+\end{definition}
+
+\begin{lemma}\label{sga3:XXI:6.3.6}
+有
+\[
+ \rgred\bigl(\operatorname{rad}(\cR)\bigr)
+ =
+ \rgred\bigl(\operatorname{corad}(\cR)\bigr)
+ =
+ \rgred(\cR)-\rgss(\cR),
+\]
+且下述条件等价：
+\begin{enumerate}
+\item[(i)] \(\cR\) 半单；
+\item[(ii)] \(\operatorname{rad}(\cR)=0\)；
+\item[(iii)] \(\operatorname{corad}(\cR)=0\)。
+\end{enumerate}
+\end{lemma}
+% 底本源行 3045--3354 译毕。
+
+\subsection{根数据的积}\label{sga3:XXI:6.4}
+
+\begin{definition}\label{sga3:XXI:6.4.1}
+设
+\[
+ \cR=(M,M^\ast,R,R^\ast),
+ \qquad
+ \cR'=(M',M'^\ast,R',R'^\ast)
+\]
+为两个根数据。\(\cR\) 与 \(\cR'\) 的\emph{积根数据}，记为
+\[
+ \cR''=\cR\times\cR',
+\]
+是根数据 \((M'',M''^\ast,R'',R''^\ast)\)，其中
+\[
+\begin{aligned}
+ M''&=M\times M',
+ &M''^\ast&=M^\ast\times M'^\ast,\\
+ R''&=(R\times0)\cup(0\times R'),
+ &R''^\ast&=(R^\ast\times0)\cup(0\times R'^\ast),
+\end{aligned}
+\]
+而映射 \(\alpha\mapsto\alpha^\ast\) 为显然的映射。
+\end{definition}
+
+\begin{proposition}\label{sga3:XXI:6.4.2}
+在上述假设下，有典范同构
+\[
+ \Gamma_0(R'')\simeq\Gamma_0(R)\times\Gamma_0(R'),
+ \qquad
+ \VR(R'')\simeq\VR(R)\times\VR(R'),
+\]
+\[
+ W(\cR'')\simeq W(\cR)\times W(\cR'),
+\]
+其余附属构造也有类似结果。此外，
+\[
+ \rgred(\cR'')=\rgred(\cR)+\rgred(\cR'),
+ \qquad
+ \rgss(\cR'')=\rgss(\cR)+\rgss(\cR').
+\]
+还有根数据的典范同构
+\[
+ (\cR\times\cR')^\ast\simeq\cR^\ast\times\cR'^\ast.
+\]
+\end{proposition}
+
+上述定义立即推广到任意有限个因子的积。
+
+\begin{proposition}\label{sga3:XXI:6.4.3}
+设
+\[
+ \cR=\cR_1\times\cR_2\times\cdots\times\cR_n
+\]
+为根数据的积。下述条件等价：
+\begin{enumerate}
+\item[(i)] \(\cR\) 半单，分别为单连通、伴随、约化；
+\item[(ii)] 每个 \(\cR_i\) 均半单，分别为单连通、伴随、约化。
+\end{enumerate}
+\end{proposition}
+
+考虑下述特殊情形。设 \(\cR_0\) 为平凡根数据，\(\cR_1\) 为半单根数据。此时有交换图
+\begin{center}
+\begin{tikzcd}[column sep=large,row sep=large]
+& \cR_0\times\cR_1 \arrow[dr] & \\
+\cR_1 \arrow[ur] \arrow[rr,"\operatorname{id}"]
+  && \cR_1
+\end{tikzcd}
+\end{center}
+
+\begin{lemma}\label{sga3:XXI:6.4.4}
+有典范同构
+\begin{center}
+\begin{tikzcd}[column sep=huge,row sep=large]
+\operatorname{corad}(\cR_0\times\cR_1)
+  \arrow[rr,"\sim"] \arrow[dr,"\sim"']
+  && \operatorname{rad}(\cR_0\times\cR_1) \\
+& \cR_0 \arrow[ur,"\sim"'] &
+\end{tikzcd}
+\end{center}
+特别地，
+\[
+ N(\cR_0\times\cR_1)=0.
+\]
+\end{lemma}
+
+后面将看到，反过来，若 \(N(\cR)=0\)，则 \(\cR\) 为一个半单根数据与一个平凡根数据的积。
+
+\subsection{诱导根数据与余诱导根数据}\label{sga3:XXI:6.5}
+
+设 \(\cR=(M,M^\ast,R,R^\ast)\) 为根数据，\(N\subset M\) 为包含各根的子群，即
+\[
+ \Gamma_0(R)\subset N\subset M.
+\]
+典范线性映射 \(i_N:N\to M\) 经转置给出线性映射
+\[
+ {}^ti_N:M^\ast\longrightarrow N^\ast.
+\]
+令
+\[
+ R_N=R,
+ \qquad
+ R_N^\ast={}^ti_N(R^\ast).
+\]
+
+\begin{lemma}\label{sga3:XXI:6.5.1}
+四元组
+\[
+ \cR_N=(N,N^\ast,R_N,R_N^\ast)
+\]
+是根数据，且 \(i_N\) 为态射。
+\end{lemma}
+
+\begin{proof}
+首先，\({}^ti_N\) 诱导 \(R^\ast\) 到 \(R_N^\ast\) 的同构。事实上，若 \(\alpha,\beta\in R\)，且
+\[
+ {}^ti_N(\alpha^\ast)={}^ti_N(\beta^\ast),
+\]
+则对每个 \(x\in N\)，特别是对 \(x\in R\)，有
+\[
+ (\alpha^\ast,x)=(\beta^\ast,x).
+\]
+因此由 \ref{sga3:XXI:1.1.4}，\(\alpha=\beta\)。其余部分不难得到。
+\end{proof}
+
+\begin{definition}\label{sga3:XXI:6.5.2}
+称根数据 \(\cR_N\) 为\emph{由 \(\cR\) 在 \(N\) 上诱导的根数据}。
+\end{definition}
+
+\begin{lemma}\label{sga3:XXI:6.5.3}
+设 \(f:\cR'\to\cR\) 为态射，令
+\[
+ N=f(M')\subset M.
+\]
+则 \(f\) 唯一地经过 \(i_N\) 分解。
+\end{lemma}
+
+特别地，在同构意义下，同源 \(\cR'\to\cR\) 与
+\[
+ M/\Gamma_0(R)
+\]
+的有限指数子群一一对应。这加强了 \ref{sga3:XXI:6.2.7}。
+
+现设 \(N^\ast\subset M^\ast\) 为包含 \(R^\ast\) 的子群。\emph{由 \(\cR\) 在 \(N^\ast\) 上余诱导的根数据}定义为
+\[
+ \cR^{N^\ast}=(\cR^\ast_{N^\ast})^\ast.
+\]
+有典范态射
+\[
+ p^{N^\ast}:\cR\longrightarrow\cR^{N^\ast}.
+\]
+
+\begin{lemma}\label{sga3:XXI:6.5.4}
+设 \(f:\cR'\to\cR\) 为态射。存在子群 \(N\subset M\) 与 \(N'^\ast\subset M'^\ast\)，使 \(f\) 分解为
+\begin{center}
+\begin{tikzcd}[column sep=huge,row sep=large]
+\cR' \arrow[r,"f"] \arrow[d,"p^{N'^\ast}"']
+  & \cR \\
+\cR'^{\,N'^\ast} \arrow[r,"f_0","\sim"']
+  & \cR_N \arrow[u,"i_N"']
+\end{tikzcd}
+\end{center}
+其中 \(f_0\) 为同构。
+\end{lemma}
+
+\begin{proof}
+与 \ref{sga3:XXI:6.5.3} 一样，取 \(N=f(M')\)。所得态射 \(M'\to N\) 为满射，故其转置为单射。取此转置的像为 \(N'^\ast\)。
+\end{proof}
+
+现处理几个特殊情形。若 \(N=\Gamma_0(R)\)，记
+\[
+ \cR_N=\operatorname{ad}(\cR).
+\]
+若 \(N=\VR(R)\cap M\)，记
+\[
+ \cR_N=\operatorname{ss}(\cR).
+\]
+因此有图
+\[
+ \operatorname{ad}(\cR)\longrightarrow
+ \operatorname{ss}(\cR)\longrightarrow\cR.
+\]
+令
+\[
+ \operatorname{der}(\cR)=\operatorname{ss}(\cR^\ast)^\ast,
+ \qquad
+ \operatorname{sc}(\cR)=\operatorname{ad}(\cR^\ast)^\ast.
+\]
+由对偶性，有图
+\[
+ \cR\longrightarrow
+ \operatorname{der}(\cR)\longrightarrow
+ \operatorname{sc}(\cR).
+\]
+
+\begin{proposition}\label{sga3:XXI:6.5.5}
+\begin{enumerate}
+\item[(i)] 图
+\begin{center}
+\begin{tikzcd}[column sep=large,row sep=large]
+\operatorname{ad}(\cR) \arrow[r]
+  & \operatorname{ss}(\cR) \arrow[rr] \arrow[dr]
+  && \operatorname{der}(\cR) \arrow[r]
+  & \operatorname{sc}(\cR) \\
+&& \cR \arrow[ur] &&
+\end{tikzcd}
+\end{center}
+第一行中的四个根数据均半单，三个态射均为同源。
+\item[(ii)] 数据 \(\operatorname{ad}(\cR)\) 伴随；且 \(\cR\) 伴随，当且仅当 \(\operatorname{ad}(\cR)\to\cR\) 为同构。
+\item[(iii)] 数据 \(\operatorname{sc}(\cR)\) 单连通；且 \(\cR\) 单连通，当且仅当 \(\cR\to\operatorname{sc}(\cR)\) 为同构。
+\item[(iv)] 下述条件等价：
+\begin{enumerate}
+\item[(a)] \(\cR\) 半单；
+\item[(b)] \(\operatorname{ss}(\cR)\to\cR\) 为同构；
+\item[(c)] \(\cR\to\operatorname{der}(\cR)\) 为同构。
+\end{enumerate}
+\end{enumerate}
+\end{proposition}
+
+考虑态射
+\[
+ \operatorname{ss}(\cR)\longrightarrow\operatorname{der}(\cR).
+\]
+由定义立即得到下述结果。
+
+\begin{lemma}\label{sga3:XXI:6.5.6}
+设
+\[
+ h:\operatorname{ss}(\cR)\longrightarrow\operatorname{der}(\cR)
+\]
+为典范同源。则
+\[
+ K(h)\simeq N(\cR).
+\]
+\end{lemma}
+
+\SGARefTarget{sga3:XXI:6.5.7}
+考虑诱导根数据的其他特殊情形。令
+\[
+ N=
+ \{x\in M\mid(\alpha^\ast,x)=0\text{ 对每个 }\alpha\in R\}
+ \times\Gamma_0(R).
+\]
+由 \ref{sga3:XXI:1.2.5}，这个和是直和。于是 \(\cR_N\) 可与
+\[
+ \operatorname{ad}(\cR)\times\operatorname{corad}(\cR)
+\]
+相认同。可将 \(\Gamma_0(R)\) 换为 \(\VR(R)\cap M\)，再将这两个构造对偶化。这给出下述根数据图：
+\begin{center}
+\resizebox{\textwidth}{!}{%
+\begin{tikzpicture}[
+  >=stealth,
+  every node/.style={font=\small},
+  x=1cm,y=1cm
+]
+\node (at) at (0,2.1) {$\operatorname{ad}(\cR)$};
+\node (st) at (4,2.1) {$\operatorname{ss}(\cR)$};
+\node (dt) at (10,2.1) {$\operatorname{der}(\cR)$};
+\node (ct) at (14,2.1) {$\operatorname{sc}(\cR)$};
+
+\node (am) at (0,0) {$\operatorname{ad}(\cR)\times\operatorname{corad}(\cR)$};
+\node (sm) at (4,0) {$\operatorname{ss}(\cR)\times\operatorname{corad}(\cR)$};
+\node (rm) at (7,0) {$\cR$};
+\node (dm) at (10,0) {$\operatorname{der}(\cR)\times\operatorname{rad}(\cR)$};
+\node (cm) at (14,0) {$\operatorname{sc}(\cR)\times\operatorname{rad}(\cR)$};
+
+\node (ab) at (0,-2.1) {$\operatorname{ad}(\cR)$};
+\node (sb) at (4,-2.1) {$\operatorname{ss}(\cR)$};
+\node (db) at (10,-2.1) {$\operatorname{der}(\cR)$};
+\node (cb) at (14,-2.1) {$\operatorname{sc}(\cR)$};
+
+\draw[->] (at) -- (st);
+\draw[->] (st) -- (dt);
+\draw[->] (dt) -- (ct);
+\draw[->] (am) -- (sm);
+\draw[->] (sm) -- (rm);
+\draw[->] (rm) -- (dm);
+\draw[->] (dm) -- (cm);
+\draw[->] (ab) -- (sb);
+\draw[->] (sb) -- (db);
+\draw[->] (db) -- (cb);
+
+\draw[->] (at) -- (am);
+\draw[->] (am) -- (ab);
+\draw[->] (st) -- (sm);
+\draw[->] (sm) -- (sb);
+\draw[->] (dt) -- (dm);
+\draw[->] (dm) -- (db);
+\draw[->] (ct) -- (cm);
+\draw[->] (cm) -- (cb);
+\end{tikzpicture}
+}
+\end{center}
+立即可验证此图交换，并且在显然的意义下自对偶。各水平态射均为同源，各竖直箭头的复合均为恒等。
+
+\begin{lemma}\label{sga3:XXI:6.5.8}
+设 \(h_1\) 与 \(h_2\) 为典范同源
+\[
+ \operatorname{ss}(\cR)\times\operatorname{corad}(\cR)
+ \xrightarrow{h_1}\cR
+ \xrightarrow{h_2}
+ \operatorname{der}(\cR)\times\operatorname{rad}(\cR).
+\]
+则
+\[
+ K(h_1)\simeq K(h_2)\simeq N(\cR).
+\]
+\end{lemma}
+
+\begin{proof}
+这直接由定义得到。
+\end{proof}
+
+\begin{corollary}\label{sga3:XXI:6.5.9}
+对根数据 \(\cR\)，下述条件等价：
+\begin{enumerate}
+\item[(i)] \(N(\cR)=0\)，即 \(\operatorname{corad}(\cR)\to\operatorname{rad}(\cR)\) 为同构；
+\item[(ii)] 典范映射 \(\operatorname{ss}(\cR)\to\operatorname{der}(\cR)\) 为同构；
+\item[(iii)] \(h_1\) 为同构；
+\item[(iv)] \(h_2\) 为同构；
+\item[(v)] \(\cR\) 为一个半单根数据与一个平凡根数据的积。
+\end{enumerate}
+\end{corollary}
+
+\begin{corollary}\label{sga3:XXI:6.5.10}
+对每个根数据 \(\cR\)，存在同源
+\[
+ \operatorname{ad}(\cR)\times\cR_0
+ \longrightarrow\cR\longrightarrow
+ \operatorname{sc}(\cR)\times\cR_0,
+\]
+其中 \(\cR_0\) 为秩是 \(\rgred(\cR)-\rgss(\cR)\) 的平凡根数据。
+\end{corollary}
+
+\begin{lemma}\label{sga3:XXI:6.5.11}
+设 \(\cR\) 为根数据，\(\Delta\) 为单根系，\(\Delta'\subset\Delta\)。考虑 \ref{sga3:XXI:3.4.7} 中的根数据
+\[
+ \cR_{\Delta'}=(M,M^\ast,R_{\Delta'},R^\ast_{\Delta'}).
+\]
+\begin{enumerate}
+\item[(i)] 若 \(\cR\) 单连通，则 \(\operatorname{der}(\cR_{\Delta'})\) 单连通。
+\item[(ii)] 若 \(\cR\) 伴随，则 \(\operatorname{ss}(\cR_{\Delta'})\) 伴随。
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+由对偶性，两项断言等价。第二项化为
+\[
+ M\cap\VR(R_{\Delta'})=\Gamma_0(R_{\Delta'}).
+\]
+当 \(M=\Gamma_0(R)\) 时，两边均为 \(M\) 中由 \(\Delta'\) 生成的子群。
+\end{proof}
+% 底本源行 3355--3758 译毕。
+
+\subsection{权}\label{sga3:XXI:6.6}
+
+\begin{definition}\label{sga3:XXI:6.6.1}
+对根数据 \(\cR\)，令
+\footnote{编者注：为避免与 \(\Gamma_0(R)\) 混淆，记号 \(\Gamma(\cR)\) 已改为 \(\Lambda(\cR)\)。}
+\[
+ \Lambda(\cR)=
+ \{x\in\VR(R)\mid(\alpha^\ast,x)\in\mathbb Z
+   \text{ 对每个 }\alpha^\ast\in R^\ast\}.
+\]
+\(\Lambda(\cR)\) 的元素称为 \(\cR\) 的\emph{权}。\(\cR^\ast\) 的权称为 \(\cR\) 的\emph{余权}。
+\end{definition}
+
+有
+\[
+ \Gamma_0(R)\subset\Lambda(\cR),
+\]
+且 \(\Lambda(\cR)\) 在 \(W(\cR)\) 下稳定。
+
+\begin{lemma}\label{sga3:XXI:6.6.2}
+双线性映射
+\[
+ V^\ast\times V\longrightarrow\mathbb Q
+\]
+诱导对偶配对
+\[
+ \Gamma_0(R^\ast)\times\Lambda(\cR)\longrightarrow\mathbb Z.
+\]
+\end{lemma}
+
+\begin{proof}
+直接可得。
+\end{proof}
+
+\begin{corollary}\label{sga3:XXI:6.6.3}
+设
+\[
+ \Delta^\ast=(\alpha_1^\ast,\ldots,\alpha_n^\ast)
+\]
+为单余根系，且由
+\[
+ (\alpha_i^\ast,p_j)=\delta_{ij}
+\]
+定义 \(p_i\in\VR(R)\)，\(i=1,\ldots,n\)。于是
+\[
+ s_{\alpha_i}(p_i)=p_i-\alpha_i,
+ \qquad
+ s_{\alpha_i}(p_j)=p_j\quad(i\ne j).
+\footnote{注意：当数据不约化时，各 \(\alpha_i\) 不一定构成单根系。}
+\]
+则 \(\Lambda(\cR)\) 为各 \(p_i\) 生成的自由 Abel 群。
+\end{corollary}
+
+各 \(p_i\) 称为与单余根系 \(\Delta^\ast\) 对应的\emph{基本权}。
+
+\begin{corollary}\label{sga3:XXI:6.6.4}
+对每个 \(\alpha^\ast\in\Delta^\ast\)，有
+\[
+ \left(\alpha^\ast,\sum_i p_i\right)=1.
+\]
+因此，按 \ref{sga3:XXI:3.5.1} 的记号，
+\[
+ \sum_i p_i=\rho_{R_+},
+ \qquad
+ R_+=\mathscr P\bigl(\operatorname{ind}(\Delta)\bigr).
+\]
+\end{corollary}
+
+\begin{corollary}\label{sga3:XXI:6.6.5}
+对每个 \(x\in\VR(R)\)，有
+\[
+ x=\sum_i(\alpha_i^\ast,x)p_i.
+\]
+\end{corollary}
+
+由于
+\[
+ R^\ast\subset\Gamma_0(R^\ast),
+ \qquad
+ R\subset\Lambda(\cR),
+\]
+四元组
+\[
+ \bigl(\Lambda(\cR),\Gamma_0(R^\ast),R,R^\ast\bigr)
+\]
+为根数据。
+
+\begin{corollary}\label{sga3:XXI:6.6.6}
+典范态射
+\[
+ \Gamma_0(R^\ast)\longrightarrow M^\ast
+\]
+为
+\[
+ x\longmapsto\sum_i(\alpha_i^\ast,x)p_i
+\]
+的转置。此映射定义根数据的态射，且有交换图
+\begin{center}
+\begin{tikzcd}[column sep=huge,row sep=large]
+\cR \arrow[rr] \arrow[dr]
+  && \operatorname{sc}(\cR) \arrow[dl,"\wr"'] \\
+& \bigl(\Lambda(\cR),\Gamma_0(R^\ast),R,R^\ast\bigr) &
+\end{tikzcd}
+\end{center}
+\end{corollary}
+
+因此，我们用 \(\cR\) 的权给出了 \(\operatorname{sc}(\cR)\) 的明确描述。同样可得到交换图
+\begin{center}
+\begin{tikzcd}[column sep=huge,row sep=large]
+\operatorname{ad}(\cR) \arrow[rr] \arrow[d,"\wr"]
+  && \cR \\
+\bigl(\Gamma_0(R),\Lambda(\cR^\ast),R,R^\ast\bigr)
+  \arrow[urr] &&
+\end{tikzcd}
+\end{center}
+
+\begin{corollary}\label{sga3:XXI:6.6.7}
+数据 \(\cR\) 单连通，当且仅当
+\[
+ M=\Lambda(\cR).
+\]
+\end{corollary}
+
+\begin{remark}\label{sga3:XXI:6.6.8}
+有
+\[
+ \Lambda(\cR)\cap M=\VR(R)\cap M.
+\]
+因此，\(\cR\) 半单，当且仅当
+\[
+ M\subset\Lambda(\cR).
+\]
+\end{remark}
+
+第 \ref{sga3:XXI:6.5} 节的结果还给出：
+
+\begin{corollary}\label{sga3:XXI:6.6.9}
+数据 \(\cR\) 为一个单连通数据与一个平凡数据的积，当且仅当
+\[
+ M\supset\Lambda(\cR).
+\]
+\end{corollary}
+
+现考虑典范同源
+\[
+ f:\operatorname{ad}(\cR)\longrightarrow\operatorname{sc}(\cR),
+\]
+并令 \(Z(\cR)=K(f)\)。有
+\[
+ Z(\cR)\simeq Z(\operatorname{sc}\cR)
+ \simeq Z(\operatorname{ad}\cR).
+\]
+
+\begin{corollary}\label{sga3:XXI:6.6.10}
+有典范同构
+\[
+ Z(\cR)=\Lambda(\cR)/\Gamma_0(R).
+\]
+更确切地，有 \(W(\cR)\)-模的正合列
+\[
+ 0\longrightarrow\Gamma_0(R)\longrightarrow\Lambda(\cR)
+ \longrightarrow Z(\cR)\longrightarrow0.
+\]
+\end{corollary}
+
+\begin{corollary}\label{sga3:XXI:6.6.11}
+有典范配对
+\[
+ Z(\cR^\ast)\times Z(\cR)\longrightarrow\mathbb Q/\mathbb Z,
+\]
+使这两个群互为对偶。
+\end{corollary}
+
+\begin{remark}\label{sga3:XXI:6.6.12}
+有
+\[
+ Z(\cR\times\cR')\simeq Z(\cR)\times Z(\cR').
+\]
+特别地，考虑单连通数据 \(\cR_i\)，\(i=1,2,\ldots,n\)，以及平凡数据 \(\cR_0\)。令
+\[
+ \cR=\cR_0\times\cR_1\times\cdots\times\cR_n.
+\]
+若
+\[
+ \cR=(M,M^\ast,R,R^\ast),
+ \qquad
+ \cR_0=(M_0,M_0^\ast,\varnothing,\varnothing),
+\]
+则
+\[
+ M/\Gamma_0(R)\simeq
+ M_0\times Z(\cR_1)\times\cdots\times Z(\cR_n).
+\]
+\end{remark}
+
+\subsection{自同构}\label{sga3:XXI:6.7}
+
+由 \ref{sga3:XXI:6.1.4}，\(\cR\) 的一个自同构是 \(M\) 的一个自同构 \(u\)，使
+\[
+ u(R)=R,
+ \qquad
+ {}^tu(R^\ast)=R^\ast.
+\]
+特别地，每个 \(w\in W(\cR)\) 定义 \(\cR\) 的一个自同构。
+
+\begin{lemma}\label{sga3:XXI:6.7.1}
+群 \(W(\cR)\) 为 \(\operatorname{Aut}(\cR)\) 的正规子群。更确切地，若 \(u\in\operatorname{Aut}(\cR)\) 且 \(\alpha\in R\)，则
+\[
+ us_\alpha u^{-1}=s_{u(\alpha)}.
+\]
+\end{lemma}
+
+\begin{proof}
+证明与 \ref{sga3:XXI:1.2.10} 相同。
+\end{proof}
+
+\begin{proposition}\label{sga3:XXI:6.7.2}
+设 \(\Delta\) 为单根系，令
+\[
+ E_\Delta(\cR)=
+ \{u\in\operatorname{Aut}(\cR)\mid u(\Delta)=\Delta\}.
+\]
+则 \(\operatorname{Aut}(\cR)\) 为 \(W(\cR)\) 与 \(E_\Delta(\cR)\) 的半直积，其中前者为正规子群。
+\end{proposition}
+
+\begin{proof}
+这立即由下述事实得到：\(W(\cR)\) 在各单根系上单可迁地作用；且若 \(\Delta\) 为 \(\cR\) 的单根系，则对 \(\cR\) 的每个自同构 \(u\)，\(u(\Delta)\) 都是单根系。
+\end{proof}
+
+后面将在约化不可约根数据的情形下给出 \(E_\Delta(\cR)\) 的更简单描述。\footnote{编者注：当 \(\cR\) 单连通或伴随时，参见 \SGARefLink{sga3:XXI:7.4.5}{7.4.5}。}
+
+\begin{definition}\label{sga3:XXI:6.7.3}
+以 \(\operatorname{Aut}^{s}(\cR)\)\footnote{编者注：上标 \(s\) 用以提示“半单”（semisimple）。}表示满足下图交换的 \(u\in\operatorname{Aut}(\cR)\) 所构成的集合：
+\begin{center}
+\begin{tikzcd}[column sep=huge,row sep=large]
+\cR \arrow[rr,"u"] \arrow[dr]
+  && \cR \arrow[dl] \\
+& \operatorname{rad}(\cR) &
+\end{tikzcd}
+\end{center}
+记
+\[
+ E_\Delta^{s}(\cR)
+ =E_\Delta(\cR)\cap\operatorname{Aut}^{s}(\cR).
+\]
+\end{definition}
+
+\begin{remark}\label{sga3:XXI:6.7.4}
+若 \(u\in\operatorname{Aut}(\cR)\)，则 \(u\in\operatorname{Aut}^{s}(\cR)\)，当且仅当
+\[
+ (u-\operatorname{id})(M)\subset\VR(R).
+\]
+特别地，
+\[
+ W(\cR)\subset\operatorname{Aut}^{s}(\cR).
+\]
+\end{remark}
+
+\begin{proposition}\label{sga3:XXI:6.7.5}
+对每个单根系 \(\Delta\)，群 \(\operatorname{Aut}^{s}(\cR)\) 为 \(W(\cR)\) 与 \(E_\Delta^{s}(\cR)\) 的半直积，其中前者为正规子群。
+\end{proposition}
+
+由函子性，\(\cR\) 的每个自同构诱导 \(\operatorname{ad}(\cR)\) 的一个自同构。因此有典范同态
+\[
+ \operatorname{Aut}(\cR)\longrightarrow
+ \operatorname{Aut}(\operatorname{ad}(\cR)).
+\]
+
+\begin{lemma}\label{sga3:XXI:6.7.6}
+同态
+\[
+ \operatorname{Aut}^{s}(\cR)\longrightarrow
+ \operatorname{Aut}(\operatorname{ad}(\cR))
+\]
+为单射。
+\end{lemma}
+
+\begin{proof}
+设 \(u\) 为 \(M\) 的自同构，使
+\[
+ (u-\operatorname{id})(M)\subset\VR(R)
+\]
+且
+\[
+ {}^tu(\alpha^\ast)=\alpha^\ast
+ \qquad(\alpha^\ast\in R^\ast).
+\]
+对每个 \(x\in M\)，有
+\[
+ (\alpha^\ast,u(x)-x)
+ =({}^tu(\alpha^\ast)-\alpha^\ast,x)=0.
+\]
+故由 \ref{sga3:XXI:1.2.5}，\(u(x)-x=0\)。
+\end{proof}
+
+\begin{lemma}\label{sga3:XXI:6.7.7}
+群 \(\operatorname{Aut}^{s}(\cR)\) 有限。
+\end{lemma}
+
+\begin{proof}
+只需在 \(\cR\) 伴随时证明 \(\operatorname{Aut}(\cR)\) 有限。此时 \(M\) 由 \(R\) 生成，故 \(\cR\) 的每个自同构均由其在 \(R\) 上诱导的置换决定。
+\end{proof}
+% 底本源行 3759--4107 译毕。
+
+\begin{remark}\label{sga3:XXI:6.7.8}
+直接可知，\(\operatorname{Aut}(\cR)\)（分别为 \(E_\Delta(\cR)\)）有限，当且仅当
+\[
+ \rgred(\cR)-\rgss(\cR)\leq1.
+\]
+\end{remark}
+
+\subsection{约化根数据的 \(p\)-态射}
+\label{sga3:XXI:6.8}
+
+本小节始终固定一个正整数 \(p\)。
+
+\begin{definition}\label{sga3:XXI:6.8.1}
+设
+\[
+ \cR=(M,M^\ast,R,R^\ast),
+ \qquad
+ \cR'=(M',M'^\ast,R',R'^\ast)
+\]
+为两个约化根数据。若存在双射
+\[
+ u:R\xrightarrow{\sim}R'
+\]
+及映射
+\[
+ q:R\longrightarrow\{p^n\mid n\in\mathbb N\}
+\]
+使群同态
+\[
+ f:M'\longrightarrow M
+\]
+满足下述条件，则称它为\emph{从 \(\cR'\) 到 \(\cR\) 的 \(p\)-态射}：
+\begin{enumerate}
+\item[(i)] 对每个 \(\alpha\in R\)，\(f(u(\alpha))=q(\alpha)\alpha\)；
+\item[(ii)] 对每个 \(\alpha\in R\)，\({}^tf(\alpha^\ast)=q(\alpha)u(\alpha)^\ast\)。\footnote{编者注：这两个条件蕴含，对一切 \(\alpha,\beta\in R\)，有
+  \[
+   q(\alpha)\bigl(u(\alpha)^\ast,u(\beta)\bigr)
+   =q(\beta)(\alpha^\ast,\beta).
+  \]}
+\end{enumerate}
+\end{definition}
+
+\begin{corollary}\label{sga3:XXI:6.8.2}
+\(1\)-态射恰为态射。
+\end{corollary}
+
+\begin{corollary}\label{sga3:XXI:6.8.3}
+\(p\)-态射的转置为 \(p\)-态射。
+\end{corollary}
+
+\begin{lemma}\label{sga3:XXI:6.8.4}
+若 \(w\in W(\cR)\) 且 \(\alpha\in R\)，则
+\[
+ q(w(\alpha))=q(\alpha).
+\]
+映射
+\[
+ s_\alpha\longmapsto s_{u(\alpha)}
+\]
+延拓为同构
+\[
+ u:W(\cR)\xrightarrow{\sim}W(\cR'),
+\]
+使
+\[
+ u(w(\alpha))=u(w)\bigl(u(\alpha)\bigr).
+\]
+\end{lemma}
+
+\begin{proof}
+只需对 \(\alpha,\beta\in R\) 证明
+\[
+ u(s_\alpha(\beta))=s_{u(\alpha)}u(\beta),
+ \qquad
+ q(s_\alpha(\beta))=q(\beta).
+\]
+依次有
+\begin{align*}
+ f\bigl(s_{u(\alpha)}u(\beta)\bigr)
+  &=f(u(\beta))
+    -\bigl(u(\alpha)^\ast,u(\beta)\bigr)f(u(\alpha))\\
+  &=q(\beta)\beta
+    -q(\beta)q(\alpha)^{-1}
+       (\alpha^\ast,\beta)q(\alpha)\alpha\\
+  &=q(\beta)\bigl(\beta-(\alpha^\ast,\beta)\alpha\bigr)\\
+  &=q(\beta)s_\alpha(\beta).
+\end{align*}
+若
+\[
+ \gamma=u^{-1}\bigl(s_{u(\alpha)}u(\beta)\bigr),
+\]
+则
+\[
+ q(\gamma)\gamma=f(u(\gamma))=q(\beta)s_\alpha(\beta).
+\]
+根 \(\gamma\) 与 \(s_\alpha(\beta)\) 在 \(\mathbb Q\) 上成比例，故相等或互为相反根。由于 \(q(\gamma)\) 与 \(q(\beta)\) 为正，得到
+\[
+ q(\gamma)=q(\beta),
+ \qquad
+ \gamma=s_\alpha(\beta).
+\]
+\end{proof}
+
+\begin{definition}\label{sga3:XXI:6.8.5}
+各数 \(q(\alpha)\) 称为 \(f\) 的\emph{根指数}。
+\end{definition}
+
+\begin{example}\label{sga3:XXI:6.8.6}
+设 \(\cR\) 为约化根数据，\(q=p^n\)，\(n\in\mathbb N\)。乘以 \(q\) 的映射
+\[
+ M\longrightarrow M,\qquad x\longmapsto qx,
+\]
+为 \(p\)-态射，其根指数全等于 \(q\)（且有 \(u=\operatorname{id}\)）。记为
+\[
+ q:\cR\longrightarrow\cR.
+\]
+\end{example}
+
+\begin{proposition}\label{sga3:XXI:6.8.7}
+采用 \ref{sga3:XXI:6.8.1} 的记号，\(u\) 诱导 \(R\) 的单根系（分别为正根系）的集合到 \(R'\) 的相应集合的同构。
+\end{proposition}
+
+\begin{proof}
+这直接由 \ref{sga3:XXI:3.1.5}（分别为 \ref{sga3:XXI:3.2.1}）得到。
+\end{proof}
+
+\section{结构}\label{sga3:XXI:7}
+
+\subsection{根数据的分解}\label{sga3:XXI:7.1}
+
+\begin{proposition}\label{sga3:XXI:7.1.1}
+设 \(\cR\) 为根数据，\(\Delta\) 为单根系。
+\begin{enumerate}
+\item[\SGAInlineRefTarget{sga3:XXI:7.1.1:item:i}(i)] 设 \(R'\) 与 \(R''\) 为构成 \(R\) 的一个划分的两个闭对称根集。若
+  \[
+   \Delta'=\Delta\cap R',
+   \qquad
+   \Delta''=\Delta\cap R'',
+  \]
+  则
+  \[
+   R'=R_{\Delta'},
+   \qquad
+   R''=R_{\Delta''},
+  \]
+  且 \(\Delta'\) 的每个根都与 \(\Delta''\) 的每个根正交。
+\item[\SGAInlineRefTarget{sga3:XXI:7.1.1:item:ii}(ii)] 设 \(\Delta'\) 与 \(\Delta''\) 为构成 \(\Delta\) 的一个划分的两个正交子集。则 \(R_{\Delta'}\) 与 \(R_{\Delta''}\) 构成 \(R\) 的一个划分。
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+先证明 \SGARefLink{sga3:XXI:7.1.1:item:i}{(i)}。
+
+\begin{lemma}\label{sga3:XXI:7.1.2}
+在 \textup{\SGARefLink{sga3:XXI:7.1.1:item:i}{(i)}} 的假设下，若 \(\alpha\)、\(\beta\) 及 \(\alpha+\beta\) 均为根，则三者全属于 \(R'\)，或全属于 \(R''\)。
+\end{lemma}
+
+例如，设 \(\alpha+\beta\in R'\)。不可能有 \(\alpha,\beta\in R''\)，因为 \(R''\) 闭。因此可设 \(\alpha\in R'\)。于是 \(-\alpha\in R'\)，且
+\[
+ \beta=(\beta+\alpha)-\alpha\in R'.
+\]
+
+现对正根 \(\alpha\in R'\cap\mathscr P(\Delta)\) 的阶作归纳，证明 \(R'=R_{\Delta'}\)。若 \(\operatorname{ord}_\Delta(\alpha)=1\)，则
+\[
+ \alpha\in R'\cap\Delta=\Delta'.
+\]
+若 \(\operatorname{ord}_\Delta(\alpha)>1\)，则存在 \(\beta\in\Delta\)，使 \(\alpha-\beta\in R\)。由引理，
+\[
+ \beta\in\Delta',
+ \qquad
+ \alpha-\beta\in R'.
+\]
+故由归纳假设，\(\alpha-\beta\in R_{\Delta'}\)，最后有
+\[
+ \alpha=(\alpha-\beta)+\beta\in R_{\Delta'}.
+\]
+
+接着证明 \(\Delta'\) 与 \(\Delta''\) 正交。若 \(\alpha\in\Delta'\) 且 \(\beta\in\Delta''\)，则
+\[
+ (\beta^\ast,\alpha)\leq0.
+\]
+若 \((\beta^\ast,\alpha)\neq0\)，则 \(\beta+\alpha\) 为根，与引理矛盾。
+
+现证 \SGARefLink{sga3:XXI:7.1.1:item:ii}{(ii)}。若 \(\Delta'\) 或 \(\Delta''\) 为空，断言直接成立。否则，若 \(R_{\Delta'}\) 与 \(R_{\Delta''}\) 不构成 \(R\) 的划分，则存在形如
+\[
+ \alpha=\sum_i m_i'\alpha_i'
+       +\sum_j m_j''\alpha_j'',
+ \qquad
+ m_i',m_j''\in\mathbb Z_+,
+\]
+的根 \(\alpha\)，其中各 \(\alpha_i'\)（分别为 \(\alpha_j''\)）属于 \(\Delta'\)（分别为 \(\Delta''\)）。应用 \ref{sga3:XXI:3.1.2}，必要时交换 \(\Delta'\) 与 \(\Delta''\)，得到关系
+\[
+ \delta=\gamma+\beta,
+ \qquad
+ \gamma\in R_{\Delta'},
+ \quad
+ \beta\in\Delta'',
+ \quad
+ \delta\in R.
+\]
+但 \((\beta^\ast,\gamma)=0\)，故由 \ref{sga3:XXI:2.2.5}，\(\gamma-\beta\) 也是根，这不可能。
+\end{proof}
+
+\begin{proposition}\label{sga3:XXI:7.1.3}
+设 \(\cR\) 为根数据。下述条件等价：
+\begin{enumerate}
+\item[\SGAInlineRefTarget{sga3:XXI:7.1.3:item:i}(i)] 不存在将 \(R\) 划分为两个闭对称子集的非平凡划分。
+\item[\SGAInlineRefTarget{sga3:XXI:7.1:item:ii}(ii)] 对 \(R\) 的某个（分别为每个）单根系 \(\Delta\)，不存在将 \(\Delta\) 划分为两个非空正交子集的划分。
+\item[\SGAInlineRefTarget{sga3:XXI:7.1.3:item:iii}(iii)] \(W(\cR)\) 在 \(\VR(R)\) 上的自然表示不可约。
+\item[\SGAInlineRefTarget{sga3:XXI:7.1.3:item:iv}(iv)] 对每对根 \((\alpha,\beta)\)，存在根的序列
+  \[
+   \alpha_0,\alpha_1,\ldots,\alpha_n,
+   \qquad
+   \alpha_0=\alpha,\quad\alpha_n=\beta,
+  \]
+  使对 \(i=0,\ldots,n-1\)，\(\alpha_i\) 与 \(\alpha_{i+1}\) 不正交。
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+等价关系 \SGARefLink{sga3:XXI:7.1.3:item:i}{(i)}\(\Leftrightarrow\)\SGARefLink{sga3:XXI:7.1:item:ii}{(ii)} 由 \ref{sga3:XXI:7.1.1} 得到，而 \SGARefLink{sga3:XXI:7.1.3:item:iv}{(iv)}\(\Rightarrow\)\SGARefLink{sga3:XXI:7.1.1:item:ii}{(ii)} 直接成立。反之，若 \(\Delta\) 满足 \SGARefLink{sga3:XXI:7.1.1:item:ii}{(ii)}，则当 \(\alpha,\beta\in\Delta\) 时，\SGARefLink{sga3:XXI:7.1.3:item:iv}{(iv)} 成立。每个根与某个单根不正交，例如可由 \ref{sga3:XXI:3.1.1} 得到。此外，\SGARefLink{sga3:XXI:7.1.3:item:iii}{(iii)}\(\Rightarrow\)\SGARefLink{sga3:XXI:7.1.3:item:i}{(i)}：在 \ref{sga3:XXI:7.1.1} 的假设下，空间 \(\VR(R')\) 在 \(W(\cR)\) 下稳定。只需再证明 \SGARefLink{sga3:XXI:7.1.1:item:i}{(i)}\(\Rightarrow\)\SGARefLink{sga3:XXI:7.1.3:item:iii}{(iii)}。
+
+设 \(H\) 为 \(\VR(R)\) 的一个在 \(W(\cR)\) 下稳定的向量子空间。对每个 \(\alpha\in R\)，由等式 \(s_\alpha(H)=H\) 立即得到
+\[
+ \alpha\in H
+ \qquad\text{或}\qquad
+ \alpha^\ast\in H^\perp,
+\]
+其中 \(H^\perp\) 表示 \(H\) 在与 \(\VR(R)\) 对偶的 \(\VR(R^\ast)\) 中的正交补。令
+\[
+ R'=\{\alpha\in R\mid\alpha\in H\},
+ \qquad
+ R''=\{\alpha\in R\mid\alpha^\ast\in H^\perp\}.
+\]
+这给出了 \(R\) 到两个闭对称子集的划分。
+\end{proof}
+
+\begin{definition}\label{sga3:XXI:7.1.4}
+满足 \ref{sga3:XXI:7.1.3} 的等价条件且半单秩非零的根数据（分别为根系）称为\emph{不可约的}。
+\end{definition}
+
+\begin{corollary}\label{sga3:XXI:7.1.5}
+对每个根数据 \(\cR\)，存在将 \(R\) 划分为闭对称不可约子集的划分，且在不计次序的意义下唯一。
+\end{corollary}
+
+\begin{corollary}\label{sga3:XXI:7.1.6}
+每个伴随（分别为单连通）根数据均为不可约伴随（分别为单连通）根数据的积。
+\end{corollary}
+
+\begin{proof}
+只需考虑伴随情形。此时，断言由下述事实得到：在 \ref{sga3:XXI:7.1.1} 的假设下，
+\[
+ \Gamma_0(R)=\Gamma_0(R')\times\Gamma_0(R'').
+\]
+\end{proof}
+
+\begin{corollary}\label{sga3:XXI:7.1.7}
+对每个根数据（分别为约化根数据）\(\cR\)，存在同源
+\[
+ \cR\longrightarrow\cR',
+\]
+其中 \(\cR'\) 为一个平凡根数据与若干不可约单连通根数据（分别为不可约约化单连通根数据）的积。
+\end{corollary}
+
+\subsection{不可约根数据的性质}
+\label{sga3:XXI:7.2}
+
+\begin{definition}\label{sga3:XXI:7.2.1}
+设 \(\cR\) 为不可约根数据。对每个 \(\alpha\in R\)，令
+\[
+ \operatorname{long}(\alpha)
+ =\ell(\alpha)/\ell(\alpha_0),
+\]
+其中 \(\alpha_0\in R\) 满足 \(\ell(\alpha_0)\) 最小。数 \(\operatorname{long}(\alpha)\) 称为 \(\alpha\) 的\emph{长度}。
+\end{definition}
+
+\begin{lemma}\label{sga3:XXI:7.2.2}
+设 \(\cR\) 为不可约根数据。Weyl 群在给定长度的根的集合上传递作用。
+\end{lemma}
+
+\begin{proof}
+设 \(\alpha,\beta\in R\)。由于 \(W(\cR)\) 在 \(\VR(R)\) 上的表示不可约，\(\alpha\) 不可能与所有 \(w(\beta)\)，\(w\in W(\cR)\)，正交。因此某个 \(w(\beta)\) 与 \(\alpha\) 不正交。由于
+\[
+ \ell(w(\beta))=\ell(\beta),
+\]
+断言由 \ref{sga3:XXI:2.3.2} 得到。
+\end{proof}
+
+\begin{lemma}\label{sga3:XXI:7.2.3}
+若 \(\cR\) 不可约且约化，则
+\[
+ \operatorname{long}(R)
+ \in\bigl\{\{1\},\{1,2\},\{1,3\}\bigr\}.
+\]
+\end{lemma}
+
+\begin{proof}
+由上面使用的观察，对每个 \(\alpha,\beta\in R\)，存在 \(w\in W(\cR)\)，使 \(w(\beta)\) 与 \(\alpha\) 不正交。因此由 \ref{sga3:XXI:2.3.1}，
+\[
+ \frac{\ell(\alpha)}{\ell(\beta)}
+ \in\left\{1,2,3,\frac12,\frac13\right\}.
+\]
+故 \(\operatorname{long}(\alpha)\) 为 \(1\)、\(2\) 或 \(3\)。但长度 \(2\) 和 \(3\) 不能同时出现，因为其比 \(2/3\) 不在上述集合中。
+\end{proof}
+% 底本源行 4108--4497 译毕。
+
+\begin{remark}\label{sga3:XXI:7.2.4}
+类似的论证给出下述结果。若 \(\cR\) 不可约且非约化，并有 \(\rgss(\cR)>1\)，则
+\[
+ \operatorname{long}(R)=\{1,2,4\}.
+\]
+若 \(R_i=\operatorname{long}^{-1}(i)\)，则
+\[
+ \operatorname{ind}(R)=R_1\cup R_2,\qquad R_4=2R_1,
+\]
+且 \(R_1\) 中两个不成比例的根互相正交。反之，设 \(R\) 为满足 \(\operatorname{long}(R)=\{1,2\}\) 的不可约约化根系。令 \(R_i=\operatorname{long}^{-1}(i)\)，并假设 \(R_1\) 中两个不成比例的根互相正交。则 \(R\cup2R_1\) 不可约且非约化，且
+\[
+ \operatorname{ind}(R\cup2R_1)=R.
+\]
+\end{remark}
+
+\begin{lemma}\label{sga3:XXI:7.2.5}
+若 \(\cR\) 为不可约根数据，则 \(\cR^\ast\) 也不可约，且当 \(\alpha\) 遍历 \(R\) 时，乘积
+\[
+ \operatorname{long}(\alpha)\operatorname{long}(\alpha^\ast)
+\]
+为常数。
+\end{lemma}
+
+\begin{proof}
+这直接由 \ref{sga3:XXI:7.1.3}\,\SGARefLink{sga3:XXI:7.2:item:iv}{(iv)} 及 \ref{sga3:XXI:2.2.6} 得到。
+\end{proof}
+
+\begin{definition}\label{sga3:XXI:7.2.6}
+设 \(\cR\) 为任意根数据。\(\alpha\in R\) 的\emph{长度}，记为 \(\operatorname{long}(\alpha)\)，是 \(\alpha\) 在其不可约分量中的长度。
+\end{definition}
+
+\begin{lemma}\label{sga3:XXI:7.2.7}
+存在唯一的群同态
+\[
+ u:\Gamma_0(R)\longrightarrow\Gamma_0(R^\ast)
+\]
+使
+\[
+ u(\alpha)=\operatorname{long}(\alpha)\alpha^\ast
+ \qquad(\alpha\in R).
+\]
+\end{lemma}
+
+\begin{proof}
+由 \ref{sga3:XXI:3.5.5}，只需验证每当 \(\alpha,\beta,\alpha+\beta\in R\) 时，
+\[
+ \operatorname{long}(\alpha)\alpha^\ast+
+ \operatorname{long}(\beta)\beta^\ast
+ =
+ \operatorname{long}(\alpha+\beta)(\alpha+\beta)^\ast.
+\]
+但由 \ref{sga3:XXI:7.1.2}，\(\alpha,\beta,\alpha+\beta\) 属于 \(R\) 的同一不可约分量；故断言化归到 \ref{sga3:XXI:1.2.2}。
+\end{proof}
+
+\begin{remark}\label{sga3:XXI:7.2.8}
+设 \(u\) 如 \ref{sga3:XXI:7.2.7}。对 \(\alpha,\beta\in R\)，有
+\[
+ (u(\alpha),\beta)=(u(\beta),\alpha).
+\]
+事实上，这等价于
+\[
+ \operatorname{long}(\alpha)(\alpha^\ast,\beta)
+ =
+ \operatorname{long}(\beta)(\beta^\ast,\alpha),
+\]
+当 \(\alpha\) 与 \(\beta\) 正交时，这显然成立。若二者不正交，则属于 \(R\) 的同一不可约分量，断言化归到 \ref{sga3:XXI:1.2.1} 的公式 \SGARefLink{sga3:XXI:eq:9}{(9)}。
+\end{remark}
+
+\begin{remark}\label{sga3:XXI:7.2.9}
+对称双线性型
+\[
+ (x,y)\longmapsto(u(x),y)
+\]
+在 \(\Gamma_0(R)\) 上为正且非退化。
+\end{remark}
+
+\begin{proof}
+设各 \(R_i\) 为 \(R\) 的不可约分量。则
+\[
+ \Gamma_0(R)=\prod_i\Gamma_0(R_i),
+\]
+且双线性型 \((u(x),y)\) 为各群 \(\Gamma_0(R_i)\) 上的型
+\[
+ 2\ell(\alpha_i)^{-1}(p(x),y)
+\]
+之积，其中 \(\ell(\alpha_i)\) 是 \(\alpha\in R_i\) 时 \(\ell(\alpha)\) 的最小值。由 \ref{sga3:XXI:1.2.6}，这些对称双线性型为正且非退化。
+\end{proof}
+
+\subsection{Cartan 矩阵}\label{sga3:XXI:7.3}
+
+设 \(\cR\) 为根数据。若 \(\Delta\) 为单根系，则 \(\cR\) 相对于 \(\Delta\) 的 \emph{Cartan 矩阵}是以 \(\Delta\) 为指标集的方阵，定义为
+\[
+ a_{\alpha,\beta}=(\alpha^\ast,\beta),
+ \qquad \alpha,\beta\in\Delta.
+\]
+若 \(\Delta'\) 为另一个单根系，且 \(w\in W(\cR)\) 满足 \(w(\Delta)=\Delta'\)，则
+\[
+ (w(\alpha)^\ast,w(\beta))=(\alpha^\ast,\beta).
+\]
+因此，相对于 \(\Delta'\) 的 Cartan 矩阵由相对于 \(\Delta\) 的矩阵通过 \(w\) 定义的指标集同构 \(\Delta\to\Delta'\) 得到。故在指标集的同构意义下，Cartan 矩阵只依赖于 \(\cR\)。
+
+\begin{proposition}\label{sga3:XXI:7.3.1}
+Cartan 矩阵具有下述性质。
+\begin{enumerate}
+\item[\SGAInlineRefTarget{sga3:XXI:7.3.1:item:i}(i)] \(a_{\alpha,\alpha}=2\)，且当 \(\alpha\neq\beta\) 时，\(a_{\alpha,\beta}\leq0\)。
+\item[\SGAInlineRefTarget{sga3:XXI:7.3.1:item:ii}(ii)] \(a_{\alpha,\beta}=0\) 蕴含 \(a_{\beta,\alpha}=0\)。
+\item[\SGAInlineRefTarget{sga3:XXI:7.2:item:iii}(iii)] 存在严格正整数 \(m_\alpha=\operatorname{long}(\alpha)\)，使矩阵
+  \[
+   (m_\alpha a_{\alpha,\beta})
+  \]
+  对称、为正且非退化。
+\item[\SGAInlineRefTarget{sga3:XXI:7.2:item:iv}(iv)] \((a_{\alpha,\beta})_{\alpha,\beta\in\Delta}\) 的主子式，即
+  \[
+   \det(a_{\alpha,\beta})_{\alpha,\beta\in\Delta'}
+   \qquad(\Delta'\subset\Delta),
+  \]
+  均严格为正。
+\item[\SGAInlineRefTarget{sga3:XXI:7.2:item:v}(v)] 有
+  \[
+   s_\alpha(\beta)=\beta-a_{\alpha,\beta}\alpha,
+   \qquad
+   s_\alpha(\beta^\ast)
+   =\beta^\ast-a_{\beta,\alpha}\alpha^\ast.
+  \]
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+\SGARefLink{sga3:XXI:7.2:item:v}{(v)} 即为定义；\SGARefLink{sga3:XXI:7.3.1:item:i}{(i)} 由 \ref{sga3:XXI:3.2.11} 得到，\SGARefLink{sga3:XXI:7.3.1:item:ii}{(ii)} 由 \ref{sga3:XXI:2.2.2} 得到，\SGARefLink{sga3:XXI:7.2:item:iii}{(iii)} 由 \ref{sga3:XXI:7.2.9} 得到。\SGARefLink{sga3:XXI:7.2:item:iv}{(iv)} 直接由 \SGARefLink{sga3:XXI:7.2:item:iii}{(iii)} 及
+\[
+ \det(m_\alpha a_{\alpha,\beta})_{\alpha,\beta\in\Delta'}
+ =
+ \left(\prod_{\alpha\in\Delta'}m_\alpha\right)
+ \det(a_{\alpha,\beta})_{\alpha,\beta\in\Delta'}
+\]
+得到。
+\end{proof}
+
+\begin{proposition}\label{sga3:XXI:7.3.2}
+设 \(\cR\) 与 \(\cR'\) 为两个约化单连通（分别为伴随）根数据，\(\Delta\) 与 \(\Delta'\) 为 \(\cR\) 与 \(\cR'\) 的单根系，\(u:\Delta\to\Delta'\) 为同构。以 \((a_{\alpha,\beta})\) 与 \((a'_{\alpha',\beta'})\) 表示相应的 Cartan 矩阵，并假设
+\[
+ a'_{u(\alpha),u(\beta)}=a_{\alpha,\beta}.
+\]
+则存在唯一的 \(\cR\) 到 \(\cR'\) 的同构，在 \(\Delta\) 上诱导 \(u\)。
+\end{proposition}
+
+\begin{proof}
+只需在伴随情形下给出证明。此时 \(M=\Gamma_0(R)\) 与 \(M'=\Gamma_0(R')\) 分别是由 \(\Delta\) 与 \(\Delta'\) 生成的自由 Abel 群。因此存在唯一的群同构 \(M\to M'\)，在 \(\Delta\) 上诱导 \(u\)；仍将它记为 \(u\)。
+
+证明 \(u(R)\subset R'\)。\(R\) 的每个根 \(\alpha\) 均可写为
+\[
+ \alpha=s_{\alpha_1}\cdots s_{\alpha_n}(\alpha_{n+1}),
+ \qquad \alpha_i\in\Delta.
+\]
+由对 \(u\) 的假设及关系 \ref{sga3:XXI:7.3.1}\,\SGARefLink{sga3:XXI:7.2:item:v}{(v)}，有
+\[
+ u(\alpha)=
+ s_{u(\alpha_1)}\cdots s_{u(\alpha_n)}
+ \bigl(u(\alpha_{n+1})\bigr).
+\]
+只需再证明 \({}^tu(R'^\ast)\subset R^\ast\)。由 \ref{sga3:XXI:1.2.5}，\(M^\ast\)（分别为 \(M'^\ast\)）中的元素由其与 \(R\) 或 \(\Delta\)（分别为 \(R'\) 或 \(\Delta'\)）的对偶配对决定，故得到此结论。
+\end{proof}
+
+\begin{corollary}\label{sga3:XXI:7.3.3}
+一个约化单连通或伴随根数据在同构意义下由其 Cartan 矩阵决定。
+\end{corollary}
+
+\begin{corollary}\label{sga3:XXI:7.3.4}
+设 \(\cR\) 为约化单连通（分别为伴随）根数据，\(\Delta\) 为单根系。群 \(E_\Delta(\cR)\) 与保持 Cartan 矩阵的集合 \(\Delta\) 的自同构群相认同。
+\end{corollary}
+
+\begin{remark}\label{sga3:XXI:7.3.5}
+给定例如满足 \SGARefLink{sga3:XXI:7.3.1:item:i}{(i)}、\SGARefLink{sga3:XXI:7.3.1:item:ii}{(ii)} 及 \SGARefLink{sga3:XXI:7.2:item:iv}{(iv)} 的 Cartan 矩阵，相应根数据的存在性在不使用分类的情况下不易直接解决。
+\end{remark}
+
+\subsection{Dynkin 图}\label{sga3:XXI:7.4}
+
+\begin{definition}\label{sga3:XXI:7.4.1}
+有限集 \(\Delta\) 上的一个 \emph{Dynkin 图结构}（显然应避免使用“概形”一词），由 \(\Delta\) 中不同元素的某些对所构成的集合，以及一个映射
+\[
+ \Delta\longrightarrow\{1,2,3\}
+\]
+组成；这些对称为\emph{相连对}。此种结构之间的同构概念是显然的。
+\end{definition}
+
+\begin{definition}\label{sga3:XXI:7.4.2}
+设 \(\cR\) 为根数据，\(\Delta\) 为单根系。\(\cR\) 相对于 \(\Delta\) 的 \emph{Dynkin 图}为集合 \(\Delta\)，其中两个单根相连，当且仅当它们不正交，并给每个根赋以其长度。
+\end{definition}
+
+\begin{proposition}\label{sga3:XXI:7.4.3}
+Dynkin 图与 Cartan 矩阵互相唯一决定。
+\end{proposition}
+
+\begin{proof}
+等价关系
+\[
+ \alpha\text{ 与 }\beta\text{ 不相连}
+ \quad\Longleftrightarrow\quad
+ a_{\alpha,\beta}=0
+\]
+及关系
+\[
+ \operatorname{long}(\alpha)a_{\alpha,\beta}
+ =
+ \operatorname{long}(\beta)a_{\beta,\alpha},
+\]
+连同图的每个连通分量中 \(\inf\operatorname{long}(\alpha)=1\)，由相连关系及长度决定各 \(a_{\alpha,\beta}\)，反之亦然。细节留待读者验证。
+\end{proof}
+
+\begin{corollary}\label{sga3:XXI:7.4.4}
+约化单连通或伴随根数据由其 Dynkin 图决定。
+\end{corollary}
+
+\begin{corollary}\label{sga3:XXI:7.4.5}
+设 \(\cR\) 为约化单连通或伴随根数据，\(\Delta\) 为单根系。群 \(E_\Delta(\cR)\) 与 \(\cR\) 相对于 \(\Delta\) 的 Dynkin 图的自同构群相认同；即与 \(\Delta\) 的保持长度及相连关系的置换群相认同。
+\end{corollary}
+
+\begin{remark}\label{sga3:XXI:7.4.6}
+通常的方法\footnote{参见 Bourbaki，\emph{Groupes et algèbres de Lie}，第 VI 章，第 4.2 号，或 Sophus Lie Seminar。}
+\footnote{编者注：略有不同的证明亦可参见 [De80]。}
+对连通 Dynkin 图作出分类，并证明每个图确实对应于一个不可约约化单连通根数据。所得即为熟知的各型：
+\begin{center}
+\begin{tikzpicture}[
+  x=.86cm,y=.78cm,
+  dyn/.style={circle,fill=black,inner sep=1.35pt},
+  wt/.style={font=\small,above=2pt},
+  typ/.style={font=\normalsize,anchor=west}
+]
+% A_n
+\foreach \x in {0,1,2,4,5,6} {
+  \node[dyn] (A\x) at (\x,0) {};
+  \node[wt] at (A\x) {$1$};
+}
+\draw (A0)--(A1)--(A2);
+\draw (A4)--(A5)--(A6);
+\node at (3,0) {$\cdots$};
+\node[typ] at (7.3,0) {$A_n,\qquad n\geq1.$};
+
+% B_n
+\foreach \x in {0,1,2,4,5} {
+  \node[dyn] (B\x) at (\x,-1.55) {};
+  \node[wt] at (B\x) {$2$};
+}
+\node[dyn] (B6) at (6,-1.55) {};
+\node[wt] at (B6) {$1$};
+\draw (B0)--(B1)--(B2);
+\draw (B4)--(B5)--(B6);
+\node at (3,-1.55) {$\cdots$};
+\node[typ] at (7.3,-1.55) {$B_n,\qquad n\geq2.$};
+
+% C_n
+\foreach \x in {0,1,2,4,5} {
+  \node[dyn] (C\x) at (\x,-3.10) {};
+  \node[wt] at (C\x) {$1$};
+}
+\node[dyn] (C6) at (6,-3.10) {};
+\node[wt] at (C6) {$2$};
+\draw (C0)--(C1)--(C2);
+\draw (C4)--(C5)--(C6);
+\node at (3,-3.10) {$\cdots$};
+\node[typ] at (7.3,-3.10) {$C_n,\qquad n\geq3.$};
+
+% D_n
+\foreach \x in {0,1,2,4} {
+  \node[dyn] (D\x) at (\x,-4.65) {};
+  \node[wt] at (D\x) {$1$};
+}
+\node[dyn] (Du) at (5,-4.25) {};
+\node[wt] at (Du) {$1$};
+\node[dyn] (Dl) at (5,-5.05) {};
+\node[wt] at (Dl) {$1$};
+\draw (D0)--(D1)--(D2);
+\draw (D4)--(Du);
+\draw (D4)--(Dl);
+\node at (3,-4.65) {$\cdots$};
+\node[typ] at (7.3,-4.65) {$D_n,\qquad n\geq4.$};
+
+% E_n
+\foreach \x in {0,1,3,4,5} {
+  \node[dyn] (E\x) at (\x,-6.35) {};
+  \node[wt] at (E\x) {$1$};
+}
+\node[dyn] (Ev) at (3,-7.15) {};
+\node[right=2pt,font=\small] at (Ev) {$1$};
+\draw (E0)--(E1);
+\draw (E3)--(E4)--(E5);
+\draw (E3)--(Ev);
+\node at (2,-6.35) {$\cdots$};
+\node[typ] at (7.3,-6.65) {$E_n,\qquad n=6,7,8.$};
+
+% F_4
+\foreach \x/\w in {0/1,1/1,2/2,3/2} {
+  \node[dyn] (F\x) at (\x,-8.15) {};
+  \node[wt] at (F\x) {$\w$};
+}
+\draw (F0)--(F1)--(F2)--(F3);
+\node[typ] at (7.3,-8.15) {$F_4.$};
+
+% G_2
+\node[dyn] (G0) at (2,-9.70) {};
+\node[wt] at (G0) {$1$};
+\node[dyn] (G1) at (3,-9.70) {};
+\node[wt] at (G1) {$3$};
+\draw (G0)--(G1);
+\node[typ] at (7.3,-9.70) {$G_2.$};
+\end{tikzpicture}
+\end{center}
+由 \ref{sga3:XXI:7.4.5}，立即可得相应的群 \(E_\Delta(\cR)\)：
+\[
+\begin{array}{ll}
+E_\Delta(\cR)=\{e\},
+ & A_1,\ B_n,\ C_n,\ E_7,\ E_8,\ F_4,\ G_2,\\[2pt]
+E_\Delta(\cR)=\mathbb Z/2\mathbb Z,
+ & A_n\ (n\geq2),\ D_n\ (n\geq5),\ E_6,\\[2pt]
+E_\Delta(\cR)=\mathfrak S_3,
+ & D_4.
+\end{array}
+\]
+\end{remark}
+% 底本源行 4498--4908 译毕。
+
+\subsection{关于 \(p\)-态射的补充}\label{sga3:XXI:7.5}
+
+设 \(f:\cR\to\cR'\) 为 \(p\)-态射（参见 \ref{sga3:XXI:6.8}）。由定义显然可见，与 \(f\) 相伴的双射 \(u:R\xrightarrow{\sim}R'\) 使 \(R\) 与 \(R'\) 的单根系、正根系、不可约分量等等互相对应。因此为简单起见，可设 \(R\) 与 \(R'\) 不可约。
+
+\begin{lemma}\label{sga3:XXI:7.5.1}
+若 \(R\) 与 \(R'\) 不可约，则存在 \(k\in\mathbb Q\)，使对每个 \(\alpha\in R\)，有
+\[
+ k\,\operatorname{long}(u(\alpha))
+ =
+ q(\alpha)^2\operatorname{long}(\alpha).
+\]
+\end{lemma}
+
+\begin{proof}
+有
+\[
+ \operatorname{long}(\alpha)(\alpha^\ast,\beta)
+ =
+ \operatorname{long}(\beta)(\beta^\ast,\alpha),
+\]
+且类似地，有
+\[
+ \operatorname{long}(u(\alpha))
+   (u(\alpha)^\ast,u(\beta))
+ =
+ \operatorname{long}(u(\beta))
+   (u(\beta)^\ast,u(\alpha)).
+\]
+立即推出，对不正交的 \(\alpha,\beta\)，有
+\[
+ \frac{q(\alpha)^2\operatorname{long}(\alpha)}
+      {\operatorname{long}(u(\alpha))}
+ =
+ \frac{q(\beta)^2\operatorname{long}(\beta)}
+      {\operatorname{long}(u(\beta))}.
+\]
+结论遂由 \ref{sga3:XXI:7.1.3}\,\SGARefLink{sga3:XXI:7.1.3:item:iv}{(iv)} 得到。
+\end{proof}
+
+\begin{remark}\label{sga3:XXI:7.5.2}
+由 \ref{sga3:XXI:7.2.2} 及 \ref{sga3:XXI:6.8.4}，\(q(\alpha)\) 只依赖于 \(\operatorname{long}(\alpha)\)。于是容易看出，若 \(q(\alpha)\) 非常值，则乘积 \(q(\alpha)\operatorname{long}(\alpha)\) 为常值；故 \(p=2\) 或 \(3\)。考察上述各图，得到四种可能的情形（同一字母表示 Dynkin 图及其相应的约化单连通根数据）：
+\[
+\begin{array}{llll}
+p=2, & B_n\xrightarrow{\,f_1\,}C_n,
+     & C_n\xrightarrow{\,f_2\,}B_n,
+     & (C_2=B_2),\\
+p=2, & F_4\xrightarrow{\,g\,}F_4,\\
+p=3, & G_2\xrightarrow{\,h\,}G_2.
+\end{array}
+\]
+读者可注意到，\(f_1\circ f_2\)、\(f_2\circ f_1\)、\(g\circ g\) 及 \(h\circ h\) 均为 \ref{sga3:XXI:6.8.6} 所述形式的 \(p\)-态射。
+\end{remark}
+
+\medskip
+\noindent\textbf{7.5.3。}\label{sga3:XXI:7.5.3}
+上述描述立即表明：若 \(\cR\) 与 \(\cR'\) 为两个半单秩至多为 \(2\) 的约化根数据，且存在从 \(\cR'\) 到 \(\cR\) 的 \(p\)-态射，则 \(\cR\) 与 \(\cR'\) 的型相同。更确切地，有下表。
+
+\medskip
+\noindent\emph{记号。}
+设 \(f:\cR'\to\cR\) 为 \(p\)-态射。符号 \(q\) 与 \(q_1\) 表示 \(p\) 的任意正幂。对秩二根系，采用第 \ref{sga3:XXI:4} 节的记号，其中 \(\alpha,\beta\) 为单根，且 \(\ell(\alpha)\leq\ell(\beta)\)。
+
+\begin{center}
+\begingroup
+\renewcommand{\arraystretch}{1.35}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{|c|c|c|c|}
+\hline
+\textbf{型} & \(p\) & \textbf{\(f\) 的值}
+ & \textbf{\({}^tf\) 的值}\\
+\hline
+平凡 & 任意 & --- & ---\\
+\hline
+\(A_1\) & 任意
+ & \(f(\alpha')=q\alpha\)
+ & \({}^tf(\alpha^\ast)=q\alpha'^\ast\)\\
+\hline
+\(A_1\times A_1\) & 任意
+ & \(\begin{array}{c}f(\alpha')=q\alpha\\
+                      f(\beta')=q_1\beta\end{array}\)
+ & \(\begin{array}{c}{}^tf(\alpha^\ast)=q\alpha'^\ast\\
+                      {}^tf(\beta^\ast)=q_1\beta'^\ast\end{array}\)\\
+\hline
+\(A_2,B_2,G_2\) & 任意
+ & \(\begin{array}{c}f(\alpha')=q\alpha\\
+                      f(\beta')=q\beta\end{array}\)
+ & \(\begin{array}{c}{}^tf(\alpha^\ast)=q\alpha'^\ast\\
+                      {}^tf(\beta^\ast)=q\beta'^\ast\end{array}\)\\
+\hline
+\(B_2\) & \(p=2\)
+ & \(\begin{array}{c}f(\alpha')=q\beta\\
+                      f(\beta')=2q\alpha\end{array}\)
+ & \(\begin{array}{c}{}^tf(\alpha^\ast)=2q\beta'^\ast\\
+                      {}^tf(\beta^\ast)=q\alpha'^\ast\end{array}\)\\
+\hline
+\(G_2\) & \(p=3\)
+ & \(\begin{array}{c}f(\alpha')=q\beta\\
+                      f(\beta')=3q\alpha\end{array}\)
+ & \(\begin{array}{c}{}^tf(\alpha^\ast)=3q\beta'^\ast\\
+                      {}^tf(\beta^\ast)=q\alpha'^\ast\end{array}\)\\
+\hline
+\end{tabular}}
+\endgroup
+\end{center}
+
+\section*{参考文献}
+\addcontentsline{toc}{section}{参考文献}
+\label{sga3:XXI:bibliography}
+
+\begin{description}
+\item[{[BLie]}] N.~Bourbaki，
+  \emph{Groupes et algèbres de Lie}，第 IV--VI 章，
+  Hermann，1968。
+\item[{[De80]}] M.~Demazure，
+  ``A, B, C, D, E, F, etc.,'' 见
+  \emph{Séminaire sur les singularités des surfaces}
+  （Palaiseau，1976--1977），第 221--227 页，M.~Demazure、
+  H.~C.~Pinkham 及 B.~Teissier 编，
+  Lecture Notes in Mathematics \textbf{777}，
+  Springer-Verlag，1980。
+\end{description}
+% 底本源行 4909--5057 译毕；本分工范围首译完成。

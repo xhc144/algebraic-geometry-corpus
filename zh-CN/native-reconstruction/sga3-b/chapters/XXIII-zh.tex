@@ -1,0 +1,2581 @@
+% Mechanically extracted after \mainmatter from the frozen standalone master.
+
+\markboth{第XXIII讲：钉扎群的唯一性}{第XXIII讲：钉扎群的唯一性}
+% BEGIN inputs/XXIII/tex/components/00_expose_XXIII_title_and_definition11.tex
+\chapter*{第XXIII讲\\约化群：钉扎群的唯一性}
+\addcontentsline{toc}{chapter}{第XXIII讲：钉扎群的唯一性}
+\begin{center}
+\textit{M. Demazure 著}
+\end{center}
+
+\NDE{2024年10月13日版。}
+本讲旨在证明唯一性定理（定理~4.1）。Chevalley 已在代数闭域的情形证明了这一定理；这里所用的归约到秩二的方法同样出自 Chevalley（见 \textit{Bible}，第~23、24讲）。在此过程中，我们得到约化群的一个用生成元和关系给出的显式描述（3.5）。
+
+\SGANextSectionTarget{sga3:xxiii:section:1}\SGASection{1}{钉扎}
+
+\SGARefTarget{sga3:XXIII:1.1}
+\SGAStatement{定义 1.1}{设 \(S\) 为概形，\((G,T,M,R)\) 为一个 \(S\)-分裂群（XXII，\SGARefLink{sga3:xxii:def:1.13}{1.13}）。这个分裂群的一个\emph{钉扎}
+\NDE{据 Demazure 告知，这个术语背后是一幅蝴蝶的图景（由 Grothendieck 向他描述）：身体是一个极大环面 \(T\)，双翅是两个关于 \(T\) 相反的 Borel 子群；先将双翅展开，把蝴蝶展平，再在加法群中固定一些元素（如同插上钉针），使其刚性化，即消除自同构。}
+是指一个由 \(R\) 的单根组成的单根系 \(\Delta\)，以及对每个 \(\alpha\in\Delta\) 给定的一个截面
+\[
+  X_\alpha\in\Gamma(S,\mathfrak g^\alpha)^\times .
+\]}
+
+换言之，非空概形 \(S\) 上的约化群 \(G\) 的一个钉扎，是指如下数据：
+\begin{enumerate}
+  \item[(i)] 一个极大环面 \(T\)；
+  \item[(ii)] 一个阿贝尔群 \(M\) 和一个同构 \(T\simeq D_S(M)\)；
+  \item[(iii)] \(G\) 关于 \(T\) 的一个根系 \(R\)；
+  \item[(iv)] \(R\) 的一个单根系 \(\Delta\)；
+  \item[\SGAInlineRefTarget{sga3:XXIII:1.1:item:v}(v)] 对每个 \(\alpha\in\Delta\)，一个元素 \(X_\alpha\in\Gamma(S,\mathfrak g^\alpha)^\times\)，也就是一个元素
+    \[
+      u_\alpha=\exp_\alpha(X_\alpha)\in U_\alpha^\times(S)
+      \qquad\text{对每个 }\alpha\in\Delta,
+    \]
+\end{enumerate}
+这些数据满足\SGARefLink{sga3:xxii:def:1.13}{第~XXII讲，1.13}的条件 (D1)（事实上，\textit{该处}的条件 (D2) 自动成立\NDE{条件\SGARefLink{sga3:XXIII:1.1:item:v}{(v)}，即截面 \(X_\alpha\in\Gamma(S,\mathfrak g^\alpha)^\times\) 的存在性，蕴含这个条件。}）。
+
+每个分裂群都具有钉扎；特别地，每个约化群在平展拓扑下局部都可赋予钉扎。
+
+% END inputs/XXIII/tex/components/00_expose_XXIII_title_and_definition11.tex
+
+% BEGIN inputs/XXIII/tex/components/01_expose_XXIII_par12_and_definition13.tex
+\SGARefTarget{sga3:XXIII:1.2}
+\SGAParagraph{1.2}
+若 \(G\) 是一个钉扎 \(S\)-群，即配备了钉扎的 \(S\)-分裂群，则它典范地带有由 \(\Delta\) 确定的正根系 \(R^+\)、相应的 Borel 子群 \(B=B_{R^+}\)、相反的 Borel 子群 \(B^-=B_{R^-}\)、幺幂群 \(U=B_u\) 和 \(U^-=(B^-)_{u}\)、开子概形 \(U^-\cdot T\cdot U\)，等等。同样，对每个 \(\alpha\in\Delta\)，都有一个典范的向量群同构
+\[
+  p_\alpha:\mathbb G_{a,S}\xrightarrow{\ \sim\ }U_\alpha,
+  \qquad x\longmapsto \exp_\alpha(xX_\alpha)=u_\alpha^x,
+\]
+它被 \(T\) 正规化，乘子为 \(\alpha\)，且给定它等价于给定 \(X_\alpha\)（\SGARefLink{sga3:xxii:thm:1.1}{第~XXII讲，1.1}）。
+
+由对偶性，得到一个 \(X_{-\alpha}\in\Gamma(S,\mathfrak g^{-\alpha})^\times\)，以及一个同构
+\[
+  p_{-\alpha}:\mathbb G_{a,S}\xrightarrow{\ \sim\ }U_{-\alpha}
+\]
+它与前一个同构互为反变同构（\SGARefLink{sga3:xxii:not:1.3}{第~XXII讲，1.3}）。置（\SGARefLink{sga3:xx:3.1}{第~XX讲，3.1}）
+\[
+  w_\alpha=w_\alpha(X_\alpha)
+  =p_\alpha(1)p_{-\alpha}(-1)p_\alpha(1)
+  =p_{-\alpha}(-1)p_\alpha(1)p_{-\alpha}(-1).
+\]
+于是（\textit{该处}，\SGARefLink{sga3:xxiii:subsection:3-1}{3.1} 和 \SGARefLink{sga3:xx:3.7}{3.7}）
+\[
+  w_\alpha^2=\alpha^\ast(-1),\qquad
+  \operatorname{int}(w_\alpha)t
+    =s_\alpha(t)=t\cdot\alpha^\ast\!\bigl(\alpha(t)^{-1}\bigr),
+\]
+\[
+\begin{aligned}
+  \operatorname{int}(w_\alpha)p_\alpha(x)
+    &=p_{-\alpha}(-x)=p_{-\alpha}(x)^{-1},&
+  \operatorname{Ad}(w_\alpha)X_\alpha&=-X_{-\alpha},\\
+  \operatorname{int}(w_\alpha)p_{-\alpha}(x)
+    &=p_\alpha(-x)=p_\alpha(x)^{-1},&
+  \operatorname{Ad}(w_\alpha)X_{-\alpha}&=-X_\alpha .
+\end{aligned}
+\]
+下文将一贯使用上述记号。
+
+\SGARefTarget{sga3:XXIII:1.3}
+\SGAStatement{定义 1.3}{设 \(S\) 为概形，并设
+\[
+  (G,T,M,R,\Delta,(X_\alpha))
+  \quad\text{和}\quad
+  (G',T',M',R',\Delta',(X'_{\alpha'}))
+\]
+为两个钉扎 \(S\)-群。分裂群的态射（\SGARefLink{sga3:xxii:def:4.2.1}{第~XXII讲，4.2.1}）
+\[
+  f:G\longrightarrow G'
+\]
+称为\emph{与钉扎相容}，或称其定义了一个\emph{钉扎群的态射}，如果相应的双射 \(d:R\to R'\)（参见\textit{该处}）满足 \(d(\Delta)=\Delta'\)，且对每个 \(\alpha\in\Delta\)，有
+\[
+  f\bigl(\exp_\alpha(X_\alpha)\bigr)
+    =\exp_{d(\alpha)}\bigl(X'_{d(\alpha)}\bigr),
+  \qquad\text{即}\qquad
+  f(u_\alpha)=u'_{d(\alpha)} .
+\]}
+\NDE{双射 \(R\xrightarrow{\sim}R'\) 用 \(d\)（而不用 \(u\)）表示，以避免出现记号 \(u'_{u(\alpha)}\)。}
+
+% END inputs/XXIII/tex/components/01_expose_XXIII_par12_and_definition13.tex
+
+% BEGIN inputs/XXIII/tex/components/02_expose_XXIII_par14_through_scholium16.tex
+\SGARefTarget{sga3:XXIII:1.4}
+\SGAParagraph{1.4}
+若以 \(q(\alpha)\) 表示\textit{该处}的整数，则
+\[
+  f\bigl(p_\alpha(x)\bigr)
+    =p'_{d(\alpha)}\bigl(x^{q(\alpha)}\bigr)
+    \qquad (\alpha\in\Delta),
+\]
+从而
+\[
+  f\bigl(p_{-\alpha}(x)\bigr)
+    =p'_{-d(\alpha)}\bigl(x^{q(\alpha)}\bigr),
+  \qquad
+  f(w_\alpha)=w'_{d(\alpha)} .
+\]
+回顾（\SGARefLink{sga3:xxii:subsection:4-2}{第~XXII讲，4.2}），对每个 \(\alpha\in R\)、每个 \(z\in\mathbb G_m(S')\) 和每个 \(t\in T(S')\)，都有
+\[
+  f\bigl(\alpha^\ast(z)\bigr)
+    =d(\alpha)^\ast(z)^{q(\alpha)}
+    =d(\alpha)^\ast\bigl(z^{q(\alpha)}\bigr),
+  \qquad
+  d(\alpha)\bigl(f(t)\bigr)=\alpha(t)^{q(\alpha)} .
+\]
+
+\SGARefTarget{sga3:XXIII:1.5}
+\SGAParagraph{1.5}
+我们称配备了一个单根系的根数据为\emph{钉扎根数据}，称将单根映到单根的根数据的 \(p\)-态射（\SGARefLink{sga3:XXI:6.8}{第~XXI讲，6.8}）为\emph{钉扎根数据的 \(p\)-态射}。
+
+若 \(G\) 是钉扎 \(S\)-群，以 \(\mathscr R(G)\) 表示相应的钉扎根数据（即\SGARefLink{sga3:xxii:prop:1.14}{第~XXII讲，1.14}中的根数据，配备 \(\Delta\)）。设 \(p\) 为\SGARefLink{sga3:xxii:rem:4.2.2}{第~XXII讲，4.2.2}中定义的整数。于是：
+
+\SGARefTarget{sga3:XXIII:1.6}
+\SGAStatement{附论 1.6}{对应 \(G\longmapsto\mathscr R(G)\) 定义了从钉扎约化 \(S\)-群范畴到钉扎根数据范畴（其中态射为 \(p\)-态射）的一个函子。}
+
+% END inputs/XXIII/tex/components/02_expose_XXIII_par14_through_scholium16.tex
+
+% BEGIN inputs/XXIII/tex/components/03_expose_XXIII_par17_through_remark193.tex
+\SGASubsection{1.7}{钉扎群 \(Z_{\Delta_1}\)}
+\SGARefTarget{sga3:XXIII:1.7}
+
+设 \(\Delta_1\) 为钉扎群 \(G\) 的单根系 \(\Delta\) 的一个子集。设 \(T_{\Delta_1}\) 为 \(\bigcap_{\alpha\in\Delta_1}\ker(\alpha)\) 的极大环面，并置
+\[
+  Z_{\Delta_1}=\operatorname{Centr}_G(T_{\Delta_1}).
+\]
+置 \(R'=\mathbb Z\Delta_1\cap R\)。已知（\SGARefLink{sga3:xxii:para:5.10.7}{第~XXII讲，5.10.7}），\(Z_{\Delta_1}\) 是根基为 \(T_{\Delta_1}\) 的约化 \(S\)-群，\((T,M,R')\) 是这个群的一个分裂结构，且 \(\Delta_1\) 是一个单根系。因此
+\[
+  (Z_{\Delta_1},T,M,R',\Delta_1,(X_\alpha)_{\alpha\in\Delta_1})
+\]
+是一个钉扎 \(S\)-群。我们始终在 \(Z_{\Delta_1}\) 上采用这个钉扎。特别地，我们将考察
+\[
+  Z_\alpha=Z_{\{\alpha\}},\qquad
+  Z_{\alpha\beta}=Z_{\{\alpha,\beta\}}.
+\]
+记 \(B_{\Delta_1}=B\cap Z_{\Delta_1}\)。已知（\textit{该处}），这是 \(Z_{\Delta_1}\) 的典范 Borel 子群\NDE{即 \(Z_{\Delta_1}\) 中对应于 \(R'^+=R'\cap R^+\) 的 Borel 子群。}，且其幺幂部分为 \(U_{\Delta_1}=U\cap Z_{\Delta_1}\)。特别地，
+\[
+  B_\alpha=T\cdot U_\alpha.
+\]
+记
+\[
+  U_{\alpha\beta}=U_{\{\alpha,\beta\}}
+  =U\cap Z_{\alpha\beta}
+  =\prod_{\gamma\in R_{\alpha\beta}^{+}}U_\gamma,
+\]
+其中 \(R_{\alpha\beta}^{+}\) 是可以表示成 \(\alpha\) 和 \(\beta\) 的线性组合的正根所成的集合。
+
+现在设 \(f:G\to G'\) 为钉扎 \(S\)-群的态射。若 \(d:R\to R'\) 为相应的双射，且 \(\Delta_1\subset\Delta\)，则 \(d(\Delta_1)=\Delta'_1\subset\Delta'\)。显然，\(f\) 将 \(T_{\Delta_1}\) 映入 \(T'_{\Delta'_1}\)，从而将 \(Z_{\Delta_1}\) 映入 \(Z'_{\Delta'_1}\)。相应的 \(S\)-态射
+\[
+  f_{\Delta_1}:Z_{\Delta_1}\longrightarrow Z'_{\Delta'_1}
+\]
+与典范钉扎相容。它定义了一个钉扎根数据的态射
+\[
+  \mathscr R(f_{\Delta_1}):
+  \mathscr R(Z_{\Delta_1},T,M,\ldots)
+  \longrightarrow
+  \mathscr R(Z'_{\Delta'_1},T',M',\ldots),
+\]
+而 \(\mathscr R(f)\) 和 \(\mathscr R(f_{\Delta_1})\) 的底层态射 \(M'\to M\) 相同。
+
+\SGASubsection{1.8}{群 \(\operatorname{Norm}_G(T)\) 的研究}
+\SGARefTarget{sga3:XXIII:1.8}
+
+对每一对单根 \((\alpha,\beta)\)，设 \(n_{\alpha\beta}\) 为 \(s_\alpha s_\beta\) 在 Weyl 群 \(W\) 中的阶。特别地，\(n_{\alpha\alpha}=1\)，因而 \((w_\alpha w_\beta)^{n_{\alpha\beta}}\in T(S)\)。
+
+\SGARefTarget{sga3:XXIII:1.8.1}
+\SGAStatement{定义 1.8.1}{对每个 \((\alpha,\beta)\in\Delta\times\Delta\)，置
+\[
+  t_{\alpha\beta}=(w_\alpha w_\beta)^{n_{\alpha\beta}}\in T(S).
+\]
+此外，置（\SGARefLink{sga3:xx:3.1}{第~XX讲，3.1}）
+\[
+  t_\alpha=t_{\alpha\alpha}=w_\alpha^2=\alpha^\ast(-1)\in T(S).
+\]}
+
+\SGARefTarget{sga3:XXIII:1.8.2}
+\SGAStatement{命题 1.8.2}{设 \(H\) 为一个将概形的直和映为乘积的群值 \(S\)-函子（例如 Zariski 拓扑的一个层）。设
+\[
+  f_T:T\longrightarrow H
+\]
+为一个群态射，并设 \(h_\alpha\in H(S)\)（\(\alpha\in\Delta\)）。存在一个在存在时必唯一的群态射
+\[
+  f_N:\operatorname{Norm}_G(T)\longrightarrow H
+\]
+它在 \(T\) 上诱导 \(f_T\)，并对 \(\alpha\in\Delta\) 满足 \(f_N(w_\alpha)=h_\alpha\)，当且仅当下列两个条件成立：
+\begin{enumerate}
+  \item[\SGAInlineRefTarget{sga3:XXIII:1.8.2:item:i}(i)] 对每个 \(\alpha\in\Delta\)，
+    \[
+      f_T(s_\alpha(t))=h_\alpha f_T(t)h_\alpha^{-1}
+    \]
+    对每个 \(t\in T(S')\)、\(S'\to S\) 成立；等价地，\(f_T\circ s_\alpha=\operatorname{int}(h_\alpha)\circ f_T\)；
+  \item[\SGAInlineRefTarget{sga3:XXIII:1.8.2:item:ii}(ii)] 对每个 \((\alpha,\beta)\in\Delta\times\Delta\)，
+    \[
+      f_T(t_{\alpha\beta})
+        =(h_\alpha h_\beta)^{n_{\alpha\beta}}.
+    \]
+\end{enumerate}}
+
+\SGAProof
+在 \((\mathrm{Sch})\) 上赋予拓扑 \(\mathcal T\)，它由以直和为覆盖族的预拓扑生成。假设说明 \(H\) 是一个 \(\mathcal T\)-层。设 \(L\) 为以 \((m_\alpha)_{\alpha\in R}\) 为生成元的自由群，设 \(L_1\) 为由下列元素生成的正规子群：
+\[
+  (m_\alpha m_\beta)^{n_{\alpha\beta}},
+  \qquad(\alpha,\beta)\in\Delta\times\Delta.
+\]
+以 \(g(m_\alpha)=s_\alpha\) 定义 \(g:L\to W\)。已知（\SGARefLink{sga3:XXI:5.1}{第~XXI讲，5.1}），\(g\) 诱导一个同构 \(\overline g:L/L_1\xrightarrow{\sim}W\)。令 \(L\) 通过 \(g\) 作用在 \(T\) 上，等价地，令 \(m_\alpha\cdot t=s_\alpha(t)\)。以 \(L_S\) 表示由 \(L\) 定义的常值群，作半直积 \(N=T\cdot L_S\)。存在唯一的 \(S\)-群态射
+\[
+  h:N=T\cdot L_S\longrightarrow\operatorname{Norm}_G(T)
+\]
+使得 \(h(m_\alpha)=w_\alpha\)，且对每个 \(t\in T(S')\)、\(S'\to S\)，有 \(h(t)=t\)。
+
+设 \(N_1\) 为 \(N\) 中由下列元素生成的正规子群层：
+\[
+  t_{\alpha\beta}^{-1}(m_\alpha m_\beta)^{n_{\alpha\beta}},
+  \qquad(\alpha,\beta)\in\Delta\times\Delta.
+\]
+显然 \(N_1\subset\ker h\)，故 \(h\) 诱导
+\[
+  h_1:N/N_1\longrightarrow\operatorname{Norm}_G(T).
+\]
+我们证明 \(h_1\) 为同构。由于 \(h|_T\) 是典范浸入，因而是单态射，典范态射 \(T\to N/N_1\) 也是单态射，并诱导同构 \(T\xrightarrow{\sim}TN_1/N_1\)。于是 \(h_1\) 诱导同构 \(TN_1/N_1\xrightarrow{\sim}T\)。只需再证明
+\[
+  h_2:N/TN_1\longrightarrow\operatorname{Norm}_G(T)/T
+\]
+为同构。但 \(TN_1\) 是由 \(T\) 和各个 \((m_\alpha m_\beta)^{n_{\alpha\beta}}\) 生成的 \(N\) 的正规 \(\mathcal T\)-子群层；因而它就是由 \(T\) 和 \(L_1\) 生成的子群层，即 \(T\cdot(L_1)_S\)。所以 \(h_2\) 可等同于
+\[
+  \overline g:L_S/(L_1)_S\longrightarrow W_S,
+\]
+而这按构造是同构。
+
+命题的证明现在立即得到。必要性显然。反过来，条件\SGARefLink{sga3:XXIII:1.8.2:item:i}{(i)} 给出一个态射
+\[
+  u:N\longrightarrow H
+\]
+使得对 \(\alpha\in\Delta\) 有 \(u(m_\alpha)=h_\alpha\)，且 \(u|_T=f_T\)。条件\SGARefLink{sga3:XXIII:1.8.2:item:ii}{(ii)} 说明 \(u\) 在 \(N_1\) 上平凡，结论由此得到。
+
+\SGASubsection{1.9}{函子 \(\mathscr R\) 的忠实性}
+\SGARefTarget{sga3:XXIII:1.9}
+
+\SGARefTarget{sga3:XXIII:1.9.1}
+\SGAStatement{命题 1.9.1}{\SGARefLink{sga3:XXIII:1.6}{1.6}中的函子 \(\mathscr R\) 是忠实的：若
+\[
+  f,g:G\rightrightarrows G'
+\]
+为两个钉扎群态射，且 \(\mathscr R(f)=\mathscr R(g)\)，则 \(f=g\)。}
+
+事实上，\(f\) 和 \(g\) 在 \(T\)、每个 \(U_\alpha\)（\(\alpha\in\Delta\)）以及每个 \(U_{-\alpha}\)（\(\alpha\in\Delta\)）上相同；所以只需应用：
+
+\SGARefTarget{sga3:XXIII:1.9.2}
+\SGAStatement{引理 1.9.2}{设 \(S\) 为概形，\(G\) 为一个钉扎约化 \(S\)-群，\(H\) 为一个对于 fppf 拓扑分离的群值 \(S\)-预层。设
+\[
+  f,g:G\rightrightarrows H
+\]
+为两个 \(S\)-群态射。下列条件等价：
+\begin{enumerate}
+  \item[\SGAInlineRefTarget{sga3:XXIII:1.9.2:item:i}(i)] \(f=g\);
+  \item[\SGAInlineRefTarget{sga3:XXIII:1.9.2:item:ii}(ii)] \(f\) 和 \(g\) 在 \(T\)、每个 \(U_\alpha\)（\(\alpha\in\Delta\)）以及每个 \(U_{-\alpha}\)（\(\alpha\in\Delta\)）上相同；
+  \item[\SGAInlineRefTarget{sga3:XXIII:1.9.2:item:iii}(iii)] \(f\) 和 \(g\) 在 \(T\) 及每个 \(U_\alpha\)（\(\alpha\in\Delta\)）上相同，且对每个 \(\alpha\in\Delta\)，有 \(f(w_\alpha)=g(w_\alpha)\)。
+\end{enumerate}}
+
+\SGAProof
+蕴含\SGARefLink{sga3:XXIII:1.9.2:item:i}{(i)}\(\Rightarrow\)\SGARefLink{sga3:XXIII:1.9.2:item:ii}{(ii)} 是平凡的，而\SGARefLink{sga3:XXIII:1.9.2:item:ii}{(ii)}\(\Rightarrow\)\SGARefLink{sga3:XXIII:1.9.2:item:iii}{(iii)} 直接来自\SGARefLink{sga3:XXIII:1.2}{1.2}中 \(w_\alpha\) 的定义。剩下要证\SGARefLink{sga3:XXIII:1.9.2:item:iii}{(iii)}\(\Rightarrow\)\SGARefLink{sga3:XXIII:1.9.2:item:i}{(i)}。若 \(\alpha\in R\)，存在一个序列 \(\{\alpha_i\}\subset\Delta\)，使得
+\[
+  \alpha=s_{\alpha_1}s_{\alpha_2}\cdots
+    s_{\alpha_n}(\alpha_{n+1}),
+\]
+从而
+\[
+  U_\alpha
+    =\operatorname{int}(w_{\alpha_1}\cdots w_{\alpha_n})
+       U_{\alpha_{n+1}} .
+\]
+因此 \(f\) 和 \(g\) 在每个 \(U_\alpha\) 上相同。故它们在 \(\Omega\) 上相同，于是在处处都相同（\SGARefLink{sga3:xxii:prop:4.1.11}{第~XXII讲，4.1.11}）。
+
+\SGARefTarget{sga3:XXIII:1.9.3}
+\SGAStatement{注 1.9.3}{若 \(G\) 是半单的，则在\SGARefLink{sga3:XXIII:1.9.2:item:ii}{(ii)} 和\SGARefLink{sga3:XXIII:1.9.2:item:iii}{(iii)} 中，可以省略 \(f\) 和 \(g\) 在 \(T\) 上相同这一假设。事实上，\(G\) 作为 fppf 层由各个 \(U_\alpha\)、\(\alpha\in R\) 生成（\SGARefLink{sga3:xxii:rem:6.2.2:item:a}{第~XXII讲，6.2.2(a)}）。}
+
+% END inputs/XXIII/tex/components/03_expose_XXIII_par17_through_remark193.tex
+
+% BEGIN inputs/XXIII/tex/components/04_expose_XXIII_theorem21_through_corollary24.tex
+\SGASection{2}{钉扎群的生成元和关系}
+\SGARefTarget{sga3:XXIII:2}
+
+本节始终固定一个钉扎 \(S\)-群 \(G\)。对 \(\alpha,\beta\in\Delta\)，使用\SGARefLink{sga3:XXIII:1.7}{1.7}中的记号 \(Z_\alpha,Z_{\alpha\beta},U_{\alpha\beta},R^+_{\alpha\beta}\)。
+
+\SGARefTarget{sga3:XXIII:2.1}
+\SGAStatement{定理 2.1}{设 \(S\) 为概形，\(G\) 为一个钉扎 \(S\)-群，\(H\) 为一个群值 fppf \(S\)-层。假设给定群态射
+\[
+  f_N:\operatorname{Norm}_G(T)\longrightarrow H,\qquad
+  f_\alpha:U_\alpha\longrightarrow H\quad(\alpha\in R).
+\]
+存在一个在存在时必唯一的群态射
+\[
+  f:G\longrightarrow H
+\]
+延拓 \(f_N\) 和所有的 \(f_\alpha\)、\(\alpha\in R\)，当且仅当下列条件成立：
+\begin{enumerate}
+  \item[\SGAInlineRefTarget{sga3:XXIII:2.1:item:i}(i)] 对每个 \(\alpha\in\Delta\) 和 \(\beta\in R\)，
+    \[
+      \operatorname{int}\bigl(f_N(w_\alpha)\bigr)\circ f_\beta
+        =f_{s_\alpha(\beta)}\circ\operatorname{int}(w_\alpha);
+    \]
+  \item[\SGAInlineRefTarget{sga3:XXIII:2.1:item:ii}(ii)] 对每个 \(\alpha\in\Delta\)，存在一个群态射
+    \[
+      F_\alpha:Z_\alpha\longrightarrow H
+    \]
+    延拓 \(f_\alpha\)、\(f_{-\alpha}\) 和 \(f_N|_{\operatorname{Norm}_{Z_\alpha}(T)}\)；
+  \item[\SGAInlineRefTarget{sga3:XXIII:2.1:item:iii}(iii)] 对每个 \((\alpha,\beta)\in\Delta\times\Delta\)，存在一个群态射 \(U_{\alpha\beta}\to H\)，对每个 \(\gamma\in R^+_{\alpha\beta}\)，它在 \(U_\gamma\) 上诱导 \(f_\gamma\)（故 \(U_\gamma\subset U_{\alpha\beta}\)）。
+\end{enumerate}}
+
+\SGASubsection{2.1.1}{证明}
+\SGARefTarget{sga3:XXIII:2.1.1}
+
+这些条件显然必要。在 \(\Gamma_0(R)\) 上选取一个全序群结构，使得 \(R\) 中的正元素恰为 \(R^+\)（\SGARefLink{sga3:XXI:3.5.6}{第~XXI讲，3.5.6}）；凡以 \(R\) 的子集为指标的乘积，都按这个次序取。以 \(f_T\) 表示 \(f_N\) 在 \(T\) 上的限制，并定义一个集合态射
+\[
+  f:\Omega\longrightarrow H
+\]
+如下：
+\[
+  f\left(
+    \prod_{\alpha\in R^-}y_\alpha\cdot t\cdot
+    \prod_{\alpha\in R^+}x_\alpha
+  \right)
+  =
+  \prod_{\alpha\in R^-}f_\alpha(y_\alpha)\cdot f_T(t)\cdot
+  \prod_{\alpha\in R^+}f_\alpha(x_\alpha).
+\]
+满足定理的每个态射都必须延拓这个映射。反过来，延拓它的任何群态射 \(f:G\to H\) 也延拓 \(f_N\)：由于它延拓 \(f_\alpha\) 和 \(f_{-\alpha}\)，有
+\[
+  f(w_\alpha)=F_\alpha(w_\alpha)=f_N(w_\alpha),
+\]
+且由假设它延拓 \(f_T\)。由\SGARefLink{sga3:xxii:prop:4.1.11:item:ii}{第~XXII讲，4.1.11(ii)}，只需证明：
+
+\SGARefTarget{sga3:XXIII:2.1.2}
+\SGAStatement{命题 2.1.2}{上面定义的态射 \(f:\Omega\to H\) \emph{具有泛乘法性}：对每个 \(S'\to S\) 和每个满足 \(xy\in\Omega(S')\) 的 \(x,y\in\Omega(S')\)，有 \(f(xy)=f(x)f(y)\)。}
+
+\SGARefTarget{sga3:XXIII:2.1.3}
+\SGAStatement{引理 2.1.3}{设 \(n\in\operatorname{Norm}_G(T)(S')\)、\(S'\to S\)，并设 \(\alpha,\beta\in R\) 满足 \(\operatorname{int}(n)U_\alpha=U_\beta\)，等价地，\(n(\alpha)=\beta\)。则
+\[
+  \operatorname{int}\bigl(f_N(n)\bigr)\circ f_\alpha
+    =f_\beta\circ\operatorname{int}(n).
+\]}
+
+只需对 \(\operatorname{Norm}_G(T)\) 的一组生成元验证此公式。由\SGARefLink{sga3:XXIII:2.1:item:i}{2.1(i)}，它对每个 \(w_\alpha\)、\(\alpha\in\Delta\) 成立，故只需处理 \(n\in T(S')\)。当 \(\alpha\) 为单根时，这直接来自\SGARefLink{sga3:XXIII:2.1:item:ii}{2.1(ii)}。否则选取 \(w\in W\)，使得 \(w^{-1}(\alpha)\in\Delta\)。将 \(w\) 写成单反射的乘积\NDE{将“基本对称”改为“单反射”。}，便归结为证明：若公式对 \(\alpha\) 和每个 \(n\) 成立，则对 \(w_{\alpha_0}(\alpha)\) 和 \(t\in T(S')\) 也成立，其中 \(\alpha_0\in\Delta\)。由\SGARefLink{sga3:XXIII:2.1:item:i}{2.1(i)}，
+\[
+\begin{aligned}
+  \operatorname{int}\bigl(f_N(t)\bigr)\circ f_{w_{\alpha_0}(\alpha)}
+   &=
+  \operatorname{int}\bigl(f_N(tw_{\alpha_0})\bigr)\circ
+  f_\alpha\circ\operatorname{int}(w_{\alpha_0}^{-1})\\
+   &=
+  f_{w_{\alpha_0}(\alpha)}\circ\operatorname{int}(tw_{\alpha_0})
+    \circ\operatorname{int}(w_{\alpha_0}^{-1}).
+\end{aligned}
+\]
+
+\SGARefTarget{sga3:XXIII:2.1.4}
+\SGAStatement{引理 2.1.4}{\(f\) 在 \(U\)（分别在 \(U^-\)）上的限制是群态射。特别地，这个限制与所选的根的次序无关。}
+
+只需对 \(U\) 证明此断言。由\SGARefLink{sga3:xxii:lem:5.5.8}{第~XXII讲，5.5.8}，只需证明，对每一对正根 \(\alpha<\beta\) 以及每个 \(x_\alpha\in U_\alpha(S')\)、\(x_\beta\in U_\beta(S')\)、\(S'\to S\)，有
+\[
+  f_\beta(x_\beta)f_\alpha(x_\alpha)f_\beta(x_\beta^{-1})
+   =f(x_\beta x_\alpha x_\beta^{-1}).
+\]
+由\SGARefLink{sga3:xxii:cor:5.5.2}{第~XXII讲，5.5.2}，存在元素 \(x_\gamma\in U_\gamma(S')\)，其中 \(\gamma=i\alpha+j\beta\in R\)、\(i>0\)、\(j\geq0\)\NDE{将印本中的 \(i,j>0\) 改为 \(i>0,j\geq0\)，因为右边的乘积中含有 \(x_\alpha\)。}，使得
+\[
+  x_\beta x_\alpha x_\beta^{-1}=\prod_\gamma x_\gamma.
+\]
+还需验证
+\[
+  f_\beta(x_\beta)f_\alpha(x_\alpha)f_\beta(x_\beta^{-1})
+   =
+  \prod_{\substack{\gamma=i\alpha+j\beta\\i>0,\ j\geq0}}
+  f_\gamma(x_\gamma).
+\]
+由\SGARefLink{sga3:XXI:3.5.4}{第~XXI讲，3.5.4}，存在一个 \(w\in W\)，使得 \(w(\alpha)=\alpha_0\in\Delta\)，且对某个 \(\beta_0\in\Delta\)，有 \(w(\beta)\in A_{\alpha_0\beta_0}\)，其中使用\SGARefLink{sga3:XXIII:1.7}{1.7}的记号。由\SGARefLink{sga3:xxii:cor:3.8}{第~XXII讲，3.8}，将 \(w\) 提升为 \(n\in\operatorname{Norm}_G(T)(S)\)。只需验证经 \(f_N(n)\) 共轭后的关系；由\SGARefLink{sga3:XXIII:2.1.3}{2.1.3}，这归结为 \(\alpha,\beta\in R^+_{\alpha_0\beta_0}\) 的情形，此时条件\SGARefLink{sga3:XXIII:2.1:item:iii}{2.1(iii)} 适用。
+
+\SGARefTarget{sga3:XXIII:2.1.5}
+\SGAStatement{引理 2.1.5}{设 \(n\in\operatorname{Norm}_G(T)(S)\) 满足 \(\operatorname{int}(n)U=U^-\)，故 \(n\) 代表 Weyl 群的对称元\NDE{关于 \(\Delta\) 而言。}（\SGARefLink{sga3:XXI:3.6.14}{第~XXI讲，3.6.14}）。对每个 \(u\in U(S')\)、\(S'\to S\)（分别对 \(u\in U^-(S')\)），有
+\[
+  f(nun^{-1})=f_N(n)f(u)f_N(n^{-1}).
+\]}
+这直接来自\SGARefLink{sga3:XXIII:2.1.3}{2.1.3} 和\SGARefLink{sga3:XXIII:2.1.4}{2.1.4}。
+
+\SGARefTarget{sga3:XXIII:2.1.6}
+\SGAStatement{引理 2.1.6}{设 \(u\in B(S')\)、\(v\in B^-(S')\)、\(g\in\Omega(S')\)，其中 \(S'\to S\)。则
+\[
+  f(vgu)=f(v)f(g)f(u).
+\]}
+
+写成
+\[
+  v=v_1t_1,\qquad g=v_2t_2u_2,\qquad u=t_3u_3,
+\]
+其中 \(v_i\in U^-(S')\)、\(t_i\in T(S')\)、\(u_i\in U(S')\)。一方面，
+\[
+  f(v)f(g)f(u)
+  =f(v_1)f_T(t_1)f(v_2)f_T(t_2)f(u_2)f_T(t_3)f(u_3).
+\]
+另一方面，
+\[
+\begin{aligned}
+ f(vgu)
+ &=f(v_1t_1v_2t_1^{-1}\,t_1t_2t_3\,
+       t_3^{-1}u_2t_3u_3)\\
+ &=f(v_1\cdot t_1v_2t_1^{-1})f_T(t_1t_2t_3)
+       f(t_3^{-1}u_2t_3\cdot u_3).
+\end{aligned}
+\]
+对两端的因子应用\SGARefLink{sga3:XXIII:2.1.4}{2.1.4}，得到
+\[
+ f(vgu)=f(v_1)f(t_1v_2t_1^{-1})f_T(t_1t_2t_3)
+   f(t_3^{-1}u_2t_3)f(u_3).
+\]
+只需再使用
+\[
+\begin{aligned}
+ f(t_1v_2t_1^{-1})&=f_T(t_1)f(v_2)f_T(t_1)^{-1},\\
+ f(t_3^{-1}u_2t_3)&=f_T(t_3)^{-1}f(u_2)f_T(t_3),
+\end{aligned}
+\]
+这两个等式来自 \(f\) 的定义和\SGARefLink{sga3:XXIII:2.1.3}{2.1.3}。
+
+\SGARefTarget{sga3:XXIII:2.1.7}
+\SGAStatement{引理 2.1.7}{设 \(\alpha\in\Delta\)，且
+\[
+  g\in\Omega(S')\cap\operatorname{int}(w_\alpha)^{-1}\Omega(S'),
+  \qquad S'\to S.
+\]
+则
+\[
+  f(w_\alpha gw_\alpha^{-1})
+   =f_N(w_\alpha)f(g)f_N(w_\alpha)^{-1}.
+\]}
+
+由\SGARefLink{sga3:xxii:cor:5.6.8}{第~XXII讲，5.6.8}，写成
+\[
+  g=ax_{-\alpha}tx_\alpha b,
+\]
+其中 \(a\in U^-_{-\widehat\alpha}(S')\)、\(x_{-\alpha}\in U_{-\alpha}(S')\)、\(t\in T(S')\)、\(x_\alpha\in U_\alpha(S')\)、\(b\in U_{\widehat\alpha}(S')\)。由\SGARefLink{sga3:XXIII:2.1.3}{2.1.3} 和\SGARefLink{sga3:XXIII:2.1.4}{2.1.4}，且因 \(s_\alpha\) 置换除 \(\alpha\) 以外的正根（\SGARefLink{sga3:XXI:3.3.2}{第~XXI讲，3.3.2}），有
+\[
+  \operatorname{int}(w_\alpha)a\in U^-_{-\widehat\alpha}(S'),
+  \qquad
+  \operatorname{int}(w_\alpha)b\in U_{\widehat\alpha}(S').
+\]
+所需公式对 \(g=a\) 和 \(g=b\) 成立。由\SGARefLink{sga3:XXIII:2.1.6}{2.1.6}，只需处理 \(g=x_{-\alpha}tx_\alpha\in Z_\alpha(S')\)；此时所有运算均在 \(Z_\alpha\) 中进行，条件\SGARefLink{sga3:XXIII:2.1:item:ii}{2.1(ii)} 适用。
+
+\SGARefTarget{sga3:XXIII:2.1.8}
+\SGAStatement{引理 2.1.8}{设 \(n\in\operatorname{Norm}_G(T)(S)\)。对每个 \(S'\to S\) 和每个满足 \(\operatorname{int}(n)g\in\Omega(S')\) 的 \(g\in\Omega(S')\)，有
+\[
+  f(ngn^{-1})=f_N(n)f(g)f_N(n)^{-1}.
+\]}
+
+当 \(n\in T(S)\) 时，这由\SGARefLink{sga3:XXIII:2.1.3}{2.1.3} 立即得到。等式两边定义从 \(\Omega\cap\operatorname{int}(n)^{-1}\Omega\) 到 \(H\) 的态射。只需找到一个包含单位截面的开集 \(V_n\subset\Omega\)，使得 \(\operatorname{int}(n)V_n\subset\Omega\)，且 \(f\circ\operatorname{int}(n)\) 和 \(\operatorname{int}(f_N(n))\circ f\) 在其上相同。由 \(\operatorname{Norm}_G(T)\) 的结构，只需证明，若这对 \(n'\) 为真，则对 \(n=n'w_\alpha\)、\(\alpha\in\Delta\) 也为真。置
+\[
+  V_n=\Omega\cap\operatorname{int}(w_\alpha)^{-1}V_{n'}.
+\]
+于是 \(\operatorname{int}(n)V_n\subset\operatorname{int}(n')V_{n'}
+\subset\Omega\)。若 \(g\in V_n(S')\)，则
+\[
+  \operatorname{int}(n)g
+   =\operatorname{int}(n')\operatorname{int}(w_\alpha)g.
+\]
+而 \(\operatorname{int}(w_\alpha)g\in V_{n'}(S')\)，故归纳假设给出
+\[
+  f\bigl(\operatorname{int}(n')\operatorname{int}(w_\alpha)g\bigr)
+   =\operatorname{int}(f_N(n'))f(\operatorname{int}(w_\alpha)g).
+\]
+\SGARefLink{sga3:XXIII:2.1.7}{引理 2.1.7} 给出
+\[
+  f(\operatorname{int}(w_\alpha)g)
+   =\operatorname{int}(f_N(w_\alpha))f(g),
+\]
+结论由此得到。
+
+现在证明\SGARefLink{sga3:XXIII:2.1.2}{命题 2.1.2}。设 \(x,x'\in\Omega(S')\)，写成
+\[
+  x=vtu,\qquad x'=v't'u',
+\]
+于是 \(xx'=vt(uv')t'u'\)。由\SGARefLink{sga3:XXIII:2.1.6}{2.1.6} 和 \(U^-(S')\Omega(S')U(S')=\Omega(S')\)，只需证明，只要 \(uv'\in\Omega(S')\)，便有 \(f(uv')=f(u)f(v')\)。如\SGARefLink{sga3:XXIII:2.1.5}{2.1.5}中选取 \(n\in\operatorname{Norm}_G(T)(S')\)。则
+\[
+\begin{aligned}
+ f(u)&=f_N(n)^{-1}f(nun^{-1})f_N(n),\\
+ f(v')&=f_N(n)^{-1}f(nv'n^{-1})f_N(n),
+\end{aligned}
+\]
+从而
+\[
+ f(u)f(v')=f_N(n)^{-1}f(nun^{-1})f(nv'n^{-1})f_N(n).
+\]
+由于 \(nun^{-1}\in U^-(S')\) 且 \(nv'n^{-1}\in U(S')\)，
+\[
+ f(nun^{-1})f(nv'n^{-1})
+   =f\bigl((nun^{-1})(nv'n^{-1})\bigr)
+   =f(nuv'n^{-1}).
+\]
+因此
+\[
+  f(u)f(v')=f_N(n)^{-1}f(nuv'n^{-1})f_N(n).
+\]
+若 \(uv'\in\Omega(S')\)，则\SGARefLink{sga3:XXIII:2.1.8}{引理 2.1.8} 完成证明。
+
+\SGARefTarget{sga3:XXIII:2.2}
+\SGAStatement{注 2.2}{可以不指定 \(f_N\)，而指定一个态射 \(f_T:T\to H\) 及满足\SGARefLink{sga3:XXIII:1.8.2}{1.8.2}中条件的截面 \(h_\alpha\in H(S)\)、\(\alpha\in\Delta\)。此时须将\SGARefLink{sga3:XXIII:2.1}{定理 2.1}中的条件\SGARefLink{sga3:XXIII:1.8.2:item:ii}{(ii)} 替换为：
+\begin{quote}
+\emph{(ii\('\)) 存在一个群态射 \(F_\alpha:Z_\alpha\to H\)，延拓 \(f_\alpha,f_{-\alpha},f_T\)，并满足 \(F_\alpha(w_\alpha)=h_\alpha\)。}
+\end{quote}}
+
+现在保留前一定理的记号，将其写成更显式的形式。
+
+\SGARefTarget{sga3:XXIII:2.3}
+\SGAStatement{定理 2.3}{设 \(S\) 为概形，\(G\) 为一个钉扎 \(S\)-群，\(H\) 为一个群值 fppf \(S\)-层。假设给定群态射
+\[
+  f_T:T\longrightarrow H,\qquad
+  f_\alpha:U_\alpha\longrightarrow H\quad(\alpha\in\Delta),
+\]
+以及截面 \(h_\alpha\in H(S)\)、\(\alpha\in\Delta\)。存在一个在存在时必唯一的群态射 \(f:G\to H\)，诱导 \(f_T\) 和各个 \(f_\alpha\)，并对所有 \(\alpha\in\Delta\) 满足 \(f(w_\alpha)=h_\alpha\)，当且仅当：
+\begin{enumerate}
+  \item[\SGAInlineRefTarget{sga3:XXIII:2.3:item:i}(i)] 对每个 \(S'\to S\)、\(t\in T(S')\)、\(\alpha\in\Delta\) 和 \(x\in U_\alpha(S')\)，
+    \begin{equation}
+    \tag{1}\label{sga3:XXIII:2.3:eq1}
+      f_T(t)f_\alpha(x)f_T(t)^{-1}
+       =f_\alpha(\operatorname{int}(t)x);
+    \end{equation}
+  \item[\SGAInlineRefTarget{sga3:XXIII:2.3:item:ii}(ii)] 对每个 \(\alpha\in\Delta\)、\(S'\to S\) 和 \(t\in T(S')\)，
+    \begin{equation}
+    \tag{2}\label{sga3:XXIII:2.3:eq2}
+      h_\alpha f_T(t)h_\alpha^{-1}
+       =f_T(s_\alpha(t))
+       =f_T\!\bigl(t\alpha^\ast(\alpha(t)^{-1})\bigr);
+    \end{equation}
+  \item[(iii)] 对每个 \((\alpha,\beta)\in\Delta\times\Delta\)，
+    \begin{equation}
+    \tag{3}\label{sga3:XXIII:2.3:eq3}
+      (h_\alpha h_\beta)^{n_{\alpha\beta}}
+       =f_T(t_{\alpha\beta});
+    \end{equation}
+  \item[(iv)] 对每个 \(\alpha\in\Delta\)，回顾 \(u_\alpha=\exp_\alpha(X_\alpha)\)，有
+    \begin{equation}
+    \tag{4}\label{sga3:XXIII:2.3:eq4}
+      (h_\alpha f_\alpha(u_\alpha))^3=e;
+    \end{equation}
+  \item[\SGAInlineRefTarget{sga3:XXIII:2.3:item:v}(v)] 对每两个不同的 \(\alpha,\beta\in\Delta\)，存在一个态射 \(f_{\alpha\beta}:U_{\alpha\beta}\to H\)，使得
+    \begin{equation}
+    \tag{5}\label{sga3:XXIII:2.3:eq5}
+      f_{\alpha\beta}|_{U_\alpha}=f_\alpha,\qquad
+      f_{\alpha\beta}|_{U_\beta}=f_\beta,
+    \end{equation}
+    且对每个满足 \(\gamma\ne\alpha\)（分别满足 \(\gamma\ne\beta\)）的 \(\gamma\in R^+_{\alpha\beta}\) 以及每个 \(x\in U_\gamma(S')\)、\(S'\to S\)，有
+    \begin{equation}
+    \tag{6}\label{sga3:XXIII:2.3:eq6}
+      \operatorname{int}(h_\alpha)f_{\alpha\beta}(x)
+       =f_{\alpha\beta}(\operatorname{int}(w_\alpha)x)
+    \end{equation}
+    （分别有 \(\operatorname{int}(h_\beta)f_{\alpha\beta}(x)
+     =f_{\alpha\beta}(\operatorname{int}(w_\beta)x)\)）。
+\end{enumerate}}
+
+\SGAProof
+唯一性来自\SGARefLink{sga3:XXIII:1.9.2}{1.9.2}。下面证明存在性。
+
+\SGARefTarget{sga3:XXIII:2.3.1}
+\SGAStatement{引理 2.3.1}{存在一个态射
+\[
+  f_N:\operatorname{Norm}_G(T)\longrightarrow H
+\]
+延拓 \(f_T\)，并满足 \(f_N(w_\alpha)=h_\alpha\)。}
+考虑条件 \eqref{sga3:XXIII:2.3:eq2} 和 \eqref{sga3:XXIII:2.3:eq3}，这正是\SGARefLink{sga3:XXIII:1.8.2}{1.8.2}。
+
+\SGARefTarget{sga3:XXIII:2.3.2}
+\SGAStatement{引理 2.3.2}{对每个 \(\alpha\in\Delta\)，存在一个群态射 \(F_\alpha:Z_\alpha\to H\)，延拓 \(f_T\) 和 \(f_\alpha\)，满足 \(F_\alpha(w_\alpha)=h_\alpha\)，因而延拓 \(f_N|_{\operatorname{Norm}_{Z_\alpha}(T)}\)。}
+这来自\SGARefLink{sga3:xx:6.2}{第~XX讲，6.2} 和条件 \eqref{sga3:XXIII:2.3:eq1}、\eqref{sga3:XXIII:2.3:eq3} 及 \eqref{sga3:XXIII:2.3:eq4}。
+
+\SGARefTarget{sga3:XXIII:2.3.3}
+\SGAStatement{引理 2.3.3}{设 \((\alpha,\beta)\in\Delta\times\Delta\)、\(\alpha\ne\beta\)。设 \(n\in\operatorname{Norm}_{Z_{\alpha\beta}}(T)(S)\) 满足 \(n(\alpha)=\alpha\)（分别满足 \(n(\alpha)=\beta\)），等价地，\(\operatorname{int}(n)U_\alpha=U_\alpha\)（分别为 \(U_\beta\)）。则对每个 \(S'\to S\) 和 \(x\in U_\alpha(S')\)，有
+\[
+  \operatorname{int}(f_N(n))f_\alpha(x)
+   =f_\alpha(\operatorname{int}(n)x)
+\]
+（分别地，右边为 \(f_\beta(\operatorname{int}(n)x)\)）。}
+
+存在 \(t\in T(S)\) 和一个序列 \(\{\alpha_i\}\subset\{\alpha,\beta\}\)，使得
+\[
+  n=tw_{\alpha_k}\cdots w_{\alpha_1}.
+\]
+条件 \eqref{sga3:XXIII:2.3:eq1} 处理了 \(n=t\) 的情形，故可略去 \(t\)。对 \(k\) 归纳，并置
+\[
+  \gamma_i=s_{\alpha_i}\cdots s_{\alpha_1}(\alpha).
+\]
+若每个 \(\gamma_i\) 都是正根，则条件\SGARefLink{sga3:XXIII:2.3:item:v}{(v)} 给出
+\[
+  \operatorname{int}\bigl(f_N(w_{\alpha_i}\cdots w_{\alpha_1})\bigr)
+     f_\alpha(x)
+   =
+  f_{\alpha\beta}\bigl(
+     \operatorname{int}(w_{\alpha_i}\cdots w_{\alpha_1})x\bigr),
+\]
+取 \(i=k\) 即得结论。否则存在一个 \(j<k\)，使得 \(\gamma_j\in R^+\)，但 \(\gamma_{j+1}\notin R^+\)。由于 \(\gamma_{j+1}=s_{\alpha_j}(\gamma_j)\)，\SGARefLink{sga3:XXI:3.3.2}{第~XXI讲，3.3.2} 给出 \(\gamma_j=\alpha_j\)，故 \(\gamma_j\) 是 \(\alpha\) 或 \(\beta\)。作分解
+\[
+ n=n'n'',\qquad
+ n'=w_{\alpha_k}\cdots w_{\alpha_{j+1}},\qquad
+ n''=w_{\alpha_j}\cdots w_{\alpha_1}.
+\]
+\(n'\) 和 \(n''\) 都满足引理的假设，且所含反射的个数都小于 \(k\)，故可应用归纳。
+
+\SGARefTarget{sga3:XXIII:2.3.4}
+\SGAStatement{引理 2.3.4}{设 \(\alpha\in R\)。假设 \(n,n'\in\operatorname{Norm}_G(T)(S)\) 和 \(\beta,\beta'\in\Delta\) 满足 \(n(\alpha)=\beta\) 及 \(n'(\alpha)=\beta'\)。则对每个 \(x\in U_\alpha(S')\)、\(S'\to S\)，有
+\[
+ \operatorname{int}(f_N(n)^{-1})f_\beta(nx n^{-1})
+ =
+ \operatorname{int}(f_N(n')^{-1})f_{\beta'}(n'x n'^{-1}).
+\]}
+
+只需证明，若 \(n(\alpha)=\beta\)，其中 \(\alpha,\beta\in\Delta\)，则
+\[
+  \operatorname{int}(f_N(n))\circ f_\alpha
+    =f_\beta\circ\operatorname{int}(n).
+\]
+由 Tits 引理（\SGARefLink{sga3:XXI:5.6}{第~XXI讲，5.6}），存在单根
+\[
+  \alpha_0=\alpha,\alpha_1,\ldots,\alpha_m=\beta
+\]
+和元素 \(w_i\in W\)、\(0\leq i<m\)，使得
+\[
+  n=w_{m-1}\cdots w_0,\qquad
+  w_i(\alpha_i)=\alpha_{i+1},
+\]
+且对每个 \(i\)，存在一个单根 \(\beta_i\)，使得
+\[
+  w_i\in W_{\alpha_i\beta_i},\qquad
+  \alpha_{i+1}=\alpha_i\ \text{或}\ \beta_i.
+\]
+归纳将断言归结到\SGARefLink{sga3:XXIII:2.3.3}{引理 2.3.3}。
+
+\SGARefTarget{sga3:XXIII:2.3.5}
+\SGAStatement{引理 2.3.5}{存在一族群态射 \(f'_\gamma:U_\gamma\to H\)、\(\gamma\in R\)，使得：
+\begin{enumerate}
+  \item[\SGAInlineRefTarget{sga3:XXIII:2.3.5:item:i}(i)] 对 \(\alpha\in\Delta\)，有 \(f'_\alpha=f_\alpha\) 和 \(f'_{-\alpha}=F_\alpha|_{U_{-\alpha}}\)；
+  \item[\SGAInlineRefTarget{sga3:XXIII:2.3.5:item:ii}(ii)] 若 \(\alpha,\beta\in\Delta\)，且 \(\gamma\in R^+_{\alpha\beta}\)，则 \(f'_\gamma=f_{\alpha\beta}|_{U_\gamma}\)；
+  \item[\SGAInlineRefTarget{sga3:XXIII:2.3.5:item:iii}(iii)] 若 \(n\in\operatorname{Norm}_G(T)(S)\) 和 \(\alpha,\beta\in R\) 满足 \(n(\alpha)=\beta\)，则
+    \[
+      \operatorname{int}(f_N(n))f'_\alpha(x)
+       =f'_\beta(\operatorname{int}(n)x)
+    \]
+    对每个 \(x\in U_\alpha(S')\)、\(S'\to S\) 成立。
+\end{enumerate}}
+
+对每个根 \(\alpha\)，选取满足 \(n(\alpha)\in\Delta\) 的 \(n\in\operatorname{Norm}_G(T)(S)\)，并用\SGARefLink{sga3:XXIII:2.3.4}{引理 2.3.4}中的表达式定义 \(f'_\alpha(x)\)。这与 \(n\) 无关，且 \(f'_\alpha\) 是群态射。性质\SGARefLink{sga3:XXIII:2.3.5:item:iii}{(iii)} 按构造成立。取 \(n=e\)，得到\SGARefLink{sga3:XXIII:2.3.5:item:i}{(i)} 的前半部分；取 \(n=w_\alpha\) 并使用\SGARefLink{sga3:XXIII:2.3.2}{2.3.2}，得到后半部分。若 \(\gamma\in R^+_{\alpha\beta}\)，选取满足 \(n(\gamma)=\alpha\) 或 \(\beta\) 的 \(n\in\operatorname{Norm}_{Z_{\alpha\beta}}(T)(S)\)；此时\SGARefLink{sga3:XXIII:2.3.5:item:iii}{(iii)} 连同条件 \eqref{sga3:XXIII:2.3:eq5} 和 \eqref{sga3:XXIII:2.3:eq6} 证明了\SGARefLink{sga3:XXIII:2.3.5:item:ii}{(ii)}。
+
+\SGARefTarget{sga3:XXIII:2.3.6}
+\SGAParagraph{2.3.6}
+最后对 \(f_N\) 和 \(f'_\alpha\)、\(\alpha\in R\) 验证\SGARefLink{sga3:XXIII:2.1}{定理 2.1}的条件，以完成证明：
+\begin{itemize}
+  \item \SGARefLink{sga3:XXIII:2.1:item:i}{2.1(i)} 来自\SGARefLink{sga3:XXIII:2.3.5:item:iii}{2.3.5(iii)}；
+  \item \SGARefLink{sga3:XXIII:2.1:item:ii}{2.1(ii)} 来自\SGARefLink{sga3:XXIII:2.3.5:item:i}{2.3.5(i)} 和\SGARefLink{sga3:XXIII:2.3.2}{2.3.2}；
+  \item \SGARefLink{sga3:XXIII:2.1:item:iii}{2.1(iii)} 来自\SGARefLink{sga3:XXIII:2.3.5:item:ii}{2.3.5(ii)} 以及 \(f_{\alpha\beta}\) 是群态射这一事实。
+\end{itemize}
+
+立即得到以下推论：
+
+\SGARefTarget{sga3:XXIII:2.4}
+\SGAStatement{推论 2.4}{设 \(S\) 为概形，\(G\) 为半单秩至少为 \(1\) 的钉扎 \(S\)-群，\(H\) 为群值 fppf \(S\)-层。对每个 \((\alpha,\beta)\in\Delta\times\Delta\)，设
+\[
+  F_{\alpha\beta}:Z_{\alpha\beta}\longrightarrow H
+\]
+为一个群态射。存在一个态射 \(f:G\to H\) 诱导各个 \(F_{\alpha\beta}\)，当且仅当对每个 \((\alpha,\beta)\in\Delta\times\Delta\)，有
+\[
+  F_{\alpha\beta}|_{Z_\alpha}=F_{\alpha\alpha}.
+\]}
+
+必要性显然。反过来，置
+\[
+  f_T=F_{\alpha\alpha}|_T;
+\]
+这与 \(\alpha\) 无关，因为
+\[
+  F_{\alpha\alpha}|_T
+   =F_{\alpha\beta}|_T
+   =F_{\beta\beta}|_T.
+\]
+置
+\[
+  f_\alpha=F_{\alpha\alpha}|_{U_\alpha},\qquad
+  h_\alpha=F_{\alpha\alpha}(w_\alpha),\qquad
+  f_{\alpha\beta}=F_{\alpha\beta}|_{U_{\alpha\beta}}.
+\]
+\SGARefLink{sga3:XXIII:2.3}{定理 2.3}的条件成立：(1)、(2)、(4) 在 \(Z_\alpha\) 中成立，而 (3)、(5)、(6) 在 \(Z_{\alpha\beta}\) 中成立。因此存在一个态射 \(f:G\to H\)，延拓 \(f_T\) 和所有的 \(f_\alpha\)，并满足 \(f(w_\alpha)=h_\alpha\)。它与 \(F_{\alpha\beta}\) 在 \(Z_{\alpha\beta}\) 的生成元上相同；故 \(f|_{Z_{\alpha\beta}}=F_{\alpha\beta}\)。
+
+% END inputs/XXIII/tex/components/04_expose_XXIII_theorem21_through_corollary24.tex
+
+% BEGIN inputs/XXIII/tex/components/05_expose_XXIII_cor25_through_par313.tex
+\SGARefTarget{sga3:XXIII:2.5}
+\SGAStatement{推论 2.5}{设 \(S\) 为概形；\(G\) 和 \(G'\) 为两个半单秩为 \(2\) 的钉扎 \(S\)-群；\(q>0\) 为一个整数，使得 \(x\mapsto x^q\) 是 \(\mathbf G_{a,S}\) 的自同态；并设
+\[
+  h:R(G')\longrightarrow R(G)
+\]
+为钉扎根数据的一个 \(q\)-态射。对每个 \(\alpha\in R^+\)，选取
+\[
+  X_\alpha\in\Gamma(S,\mathfrak g^\alpha)^\times,
+  \qquad
+  X'_{d(\alpha)}
+    \in\Gamma(S,\mathfrak g'^{\,d(\alpha)})^\times,
+\]
+延拓 \(\alpha\in\Delta\) 时的典范选择。假设：
+\begin{enumerate}
+  \item[\SGAInlineRefTarget{sga3:XXIII:2.5:item:i}(i)] 若 \(\Delta=\{\alpha,\beta\}\)，则
+    \[
+      D_S(h)(t_{\alpha\beta})=t'_{d(\alpha)d(\beta)};
+    \]
+  \item[\SGAInlineRefTarget{sga3:XXIII:2.5:item:ii}(ii)] 对每个 \(\alpha\in\Delta\) 及每个 \(\beta\in R^+\)、\(\beta\ne\alpha\)，若 \(z\in\mathbf G_m(S)\) 由
+    \[
+      \operatorname{Ad}(w_\alpha)X_\beta
+        =zX_{s_\alpha(\beta)},
+    \]
+    定义，则
+    \[
+      \operatorname{Ad}(w'_{d(\alpha)})X'_{d(\beta)}
+        =z^{q(\beta)}X'_{d(s_\alpha(\beta))};
+    \]
+  \item[(iii)] 存在一个群态射 \(f:U\to U'\)，使得对每个 \(\alpha\in R^+\)、每个 \(S'\to S\) 和每个 \(x\in\mathbf G_a(S')\)，有
+    \[
+      f(\exp(xX_\alpha))
+        =\exp\!\bigl(x^{q(\alpha)}X'_{d(\alpha)}\bigr).
+    \]
+\end{enumerate}
+则存在一个钉扎群态射 \(g:G\to G'\)，使得 \(R(g)=h\)。}
+
+事实上，以
+\[
+  f_\alpha(\exp(xX_\alpha))
+    =\exp\!\bigl(x^{q(\alpha)}X'_{d(\alpha)}\bigr),
+\]
+定义 \(f_\alpha:U_\alpha\to G'\)，并置
+\[
+  f_T=D_S(h),\qquad h_\alpha=w'_{d(\alpha)}.
+\]
+\SGARefLink{sga3:XXIII:2.3}{定理 2.3}的条件成立：注意，由\SGARefLink{sga3:XXI:6.8.4}{第~XXI讲，6.8.4}，有
+\[
+  q(s_\alpha(\beta))=q(\beta)
+\]
+且
+\[
+  D_S(h)(t_\alpha)=t'_{d(\alpha)}
+\]
+总成立。断言立即得到。
+
+\SGARefTarget{sga3:XXIII:2.6}
+\SGAStatement{注 2.6}{\SGARefLink{sga3:XXIII:2.3}{定理 2.3}的条件 (v) 可显式地写为如下形式。首先必须验证：
+\begin{enumerate}
+  \item[\SGAInlineRefTarget{sga3:XXIII:2.6:item:a}(a)] 对 \(w_\alpha,w_\beta\) 中的每个字，若其对应的字将 \(\alpha\) 或 \(\beta\) 映为 \(\alpha\) 或 \(\beta\)，则\SGARefLink{sga3:XXIII:2.3.3}{2.3.3}中所出现类型的相应关系成立。
+\end{enumerate}
+\SGARefLink{sga3:XXIII:2.3.3}{2.3.3}的证明表明，只需检验极小的字，即没有非平凡的起始子字满足所规定条件的字。
+
+若\SGARefLink{sga3:XXIII:2.6:item:a}{(a)} 成立，如\SGARefLink{sga3:XXIII:2.3.5}{2.3.5}中那样，对每个 \(\gamma\in R^+_{\alpha\beta}\) 定义 \(f_\gamma:U_\gamma\to H\)。然后还须要求：
+\begin{enumerate}
+  \item[\SGAInlineRefTarget{sga3:XXIII:2.6:item:b}(b)] 由各个 \(f_\gamma\) 定义的映射
+    \[
+      U_{\alpha\beta}
+        =\prod_{\gamma\in R^+_{\alpha\beta}}U_\gamma
+        \longrightarrow H,
+    \]
+    是一个群态射。
+\end{enumerate}
+由\SGARefLink{sga3:xxii:lem:5.5.8}{第~XXII讲，5.5.8}，下列条件蕴含条件\SGARefLink{sga3:XXIII:2.6:item:b}{(b)}：
+\begin{enumerate}
+  \item[(b\('\))] 上述映射保持 \(U_\gamma\) 与 \(U_\delta\) 之间的交换关系，其中 \(\gamma,\delta\in R^+_{\alpha\beta}\)、\(\gamma>\delta\)；即\SGARefLink{sga3:xxii:cor:5.5.2}{第~XXII讲，5.5.2}中涉及 \(C_{i,j,\gamma,\delta}\) 的那些关系。
+\end{enumerate}}
+
+反过来，\SGARefLink{sga3:XXIII:2.6:item:a}{(a)} 与 (b\('\)) 同时成立等价于条件 (v)。
+
+这些条件甚至可归约为只涉及 \(H\) 中的
+\[
+  h_\alpha,\quad h_\beta,\quad
+  f_\alpha(u_\alpha),\quad f_\beta(u_\beta)
+\]
+的条件。例如，若 \(s_\alpha s_\beta s_\alpha(\beta)=\alpha\)，则一个 (a) 型条件写为
+\begin{equation}
+  \operatorname{int}(h_\alpha h_\beta h_\alpha)f_\beta(x)
+    =f_\alpha\!\left(
+       \operatorname{int}(w_\alpha w_\beta w_\alpha)x
+     \right).
+  \tag{1}
+  \label{sga3:XXIII:2.6:eq1}
+\end{equation}
+这里 \(x\in U_\beta(S')\)、\(S'\to S\)。特别地，取 \(x=u_\beta\)，有
+\[
+  \operatorname{int}(w_\alpha w_\beta w_\alpha)u_\beta
+    =u_\alpha^z
+\]
+其中 \(z\in\mathbf G_m(S)\) 为某个元素，且
+\begin{equation}
+  \operatorname{int}(h_\alpha h_\beta h_\alpha)f_\beta(u_\beta)
+    =f_\alpha(u_\alpha)^z.
+  \tag{1\('\)}
+  \label{sga3:XXIII:2.6:eq1prime}
+\end{equation}
+
+反过来，考虑\SGARefLink{sga3:XXIII:2.3}{2.3}的条件\SGARefLink{sga3:XXIII:2.5:item:i}{(i)}--(iv)，\eqref{sga3:XXIII:2.6:eq1prime} 蕴含 \eqref{sga3:XXIII:2.6:eq1}。若 \(t\in T(S')\)，用 \(t\) 共轭 \eqref{sga3:XXIII:2.6:eq1prime}，并使用\SGARefLink{sga3:XXIII:2.3:item:i}{(i)} 和\SGARefLink{sga3:XXIII:2.3:item:ii}{(ii)}，便得到在
+\[
+  x=\operatorname{int}(t)u_\beta=u_\beta^{\beta(t)}.
+\]
+时的 \eqref{sga3:XXIII:2.6:eq1}。态射 \(\beta:T\to\mathbf G_{m,S}\) 忠实平坦，故 \eqref{sga3:XXIII:2.6:eq1} 对 \(x\in U_\beta(S')^\times\) 成立。它关于 \(x\) 是加法的，而 \(U_\beta\) 的每个截面局部都是两个可逆截面的和。因此
+\[
+  \text{(1')}+\text{(i)}+\text{(ii)}
+    \quad\Longrightarrow\quad\text{(1)}.
+\]
+
+同样的论证适用于\SGARefLink{sga3:XXIII:2.6:item:b}{(b)} 型条件。这里利用的事实是，两个不同的正根 \(\gamma,\gamma'\) 在 \(\mathbf Q\) 上线性无关，故以 \(\gamma,\gamma'\) 为分量的态射
+\[
+  T\longrightarrow\mathbf G_{m,S}^2
+\]
+忠实平坦。我们将这种改述的细节留给读者。
+
+\SGANextSectionTarget{sga3:xxiii:section:3}\SGASection{3}{半单秩为 \texorpdfstring{\(2\)}{2} 的群}
+\SGANextSectionTarget{sga3:xxiii:subsection:3-1}\SGASubsection{3.1}{一般性质}
+
+\SGARefTarget{sga3:XXIII:3.1.1}
+\SGAStatement{引理 3.1.1}{设 \(S\) 为概形，\(G\) 为一个钉扎 \(S\)-群，\(\alpha,\beta\) 为 \(G\) 的两个根，满足 \(\alpha+\beta\ne0\)。
+\begin{enumerate}
+  \item[\SGAInlineRefTarget{sga3:xxiii:subsection:3-1:item:i}\SGAInlineRefTarget{sga3:xxiii:lemma:3-1-1:item:i}(i)] 若 \(\alpha+\beta\notin R\)，则
+    \[
+      \exp(X_\alpha)\exp(X_\beta)
+        =\exp(X_\beta)\exp(X_\alpha)
+    \]
+    对每个 \(S'\to S\)、\(X_\alpha\in W(\mathfrak g^\alpha)(S')\) 和 \(X_\beta\in W(\mathfrak g^\beta)(S')\) 成立。
+  \item[\SGAInlineRefTarget{sga3:xxiii:lemma:3-1-1:item:ii}\SGAInlineRefTarget{sga3:xxiii:subsection:3-1:item:ii}(ii)] 若 \(\alpha+\beta\) 和 \(\alpha-\beta\) 都不是根，则
+    \[
+      w_\alpha(z_\alpha)\exp(X_\beta)w_\alpha(z_\alpha)^{-1}
+        =\exp(X_\beta)
+    \]
+    对每个 \(X_\beta\in W(\mathfrak g^\beta)(S')\) 和 \(z_\alpha\in W(\mathfrak g^\alpha)^\times(S')\) 成立，且
+    \[
+      w_\alpha(z_\alpha)w_\beta(z_\beta)
+        =w_\beta(z_\beta)w_\alpha(z_\alpha)
+    \]
+    对每个 \(z_\alpha\in W(\mathfrak g^\alpha)^\times(S')\) 和 \(z_\beta\in W(\mathfrak g^\beta)^\times(S')\) 成立。
+  \item[\SGAInlineRefTarget{sga3:XXIII:3.1.1:item:iii}\SGAInlineRefTarget{sga3:xxiii:lemma:3-1-1:item:iii}(iii)] 设 \(X_\alpha\in W(\mathfrak g^\alpha)^\times(S')\)、\(X_\beta\in W(\mathfrak g^\beta)^\times(S')\) 和 \(w\in\operatorname{Norm}_G(T)(S')\) 满足 \(w(\alpha)=\beta\)。以
+    \[
+      \operatorname{Ad}(w)X_\alpha=zX_\beta.
+    \]
+    定义 \(z\in\mathbf G_m(S')\)。则
+    \[
+    \begin{aligned}
+      \operatorname{int}(w)\exp(xX_\alpha)
+        &=\exp(xzX_\beta),\\
+      \operatorname{int}(w)\exp(yX_\alpha^{-1})
+        &=\exp(yz^{-1}X_\beta^{-1}),\\
+      \operatorname{int}(w)w_\alpha(X_\alpha)
+        &=\beta^*(z)w_\beta(X_\beta).
+    \end{aligned}
+    \]
+    特别地，若 \(z=\pm1\)，则
+    \[
+      \operatorname{int}(w)w_\alpha(X_\alpha)
+        =w_\beta(X_\beta)^z.
+    \]
+  \item[\SGAInlineRefTarget{sga3:XXIII:3.1.1:item:iv}(iv)] 若 \(t_\alpha=\alpha^*(-1)\) 和 \(t_\beta=\beta^*(-1)\)，则
+    \[
+      s_\alpha(t_\beta)
+        =t_\beta t_\alpha^{(\beta^*,\alpha)},
+      \qquad
+      \beta(t_\alpha)=(-1)^{(\alpha^*,\beta)}.
+    \]
+\end{enumerate}}
+
+\SGAProof
+\SGARefLink{sga3:xxiii:subsection:3-1:item:i}{(i)} 直接来自\SGARefLink{sga3:xxii:cor:5.5.2}{第~XXII讲，5.5.2}。\SGARefLink{sga3:xxiii:subsection:3-1:item:ii}{(ii)} 来自\SGARefLink{sga3:xx:3.1}{第~XX讲，3.1} 以及将\SGARefLink{sga3:xxiii:subsection:3-1:item:i}{(i)} 应用于
+\[
+  (\beta,\alpha),\quad(\beta,-\alpha),\quad
+  (-\beta,\alpha),\quad(-\beta,-\alpha).
+\]
+\SGARefLink{sga3:XXIII:3.1.1:item:iii}{(iii)} 直接来自定义；对于其最后一个断言，只需注意
+\[
+  \beta^*(-1)=w_\beta(X_\beta)^{-2}.
+\]
+最后，\SGARefLink{sga3:XXIII:3.1.1:item:iv}{(iv)} 是不言自明的。
+
+\SGARefTarget{sga3:XXIII:3.1.2}
+\SGAStatement{命题 3.1.2（\(A_1\times A_1\) 型的群）}{设 \(S\) 为概形，\(G\) 为一个 \(A_1\times A_1\) 型的钉扎 \(S\)-群。记 \(\Delta=R^+=\{\alpha,\beta\}\)。
+\begin{enumerate}
+  \item[\SGAInlineRefTarget{sga3:XXIII:3.1.2:item:i}(i)]
+    \[
+      t_{\alpha\beta}=(w_\alpha w_\beta)^2
+        =t_\alpha t_\beta
+        =(w_\beta w_\alpha)^2=t_{\beta\alpha}.
+    \]
+  \item[\SGAInlineRefTarget{sga3:XXIII:3.1.2:item:ii}(ii)]\SGAInlineRefTarget{sga3:xxiii:proposition:3-1-2:item:ii}
+    \[
+      \operatorname{Ad}(w_\alpha)X_\beta=X_\beta,
+      \qquad
+      \operatorname{Ad}(w_\beta)X_\alpha=X_\alpha.
+    \]
+  \item[\SGAInlineRefTarget{sga3:XXIII:3.1.2:item:iii}(iii)] 群 \(U_\alpha\) 和 \(U_\beta\) 相互交换；换言之，\(U\) 是交换群。
+\end{enumerate}}
+
+\SGAProof
+\SGARefLink{sga3:xxiii:lemma:3-1-1:item:ii}{引理 3.1.1(ii)} 给出 \(w_\alpha w_\beta=w_\beta w_\alpha\)，由此
+\[
+  (w_\alpha w_\beta)^2=w_\alpha^2w_\beta^2=t_\alpha t_\beta,
+\]
+这证明了\SGARefLink{sga3:XXIII:3.1.2:item:i}{(i)}。同一个引理给出\SGARefLink{sga3:XXIII:3.1.2:item:ii}{(ii)}，而\SGARefLink{sga3:XXIII:3.1.2:item:iii}{(iii)} 就是\SGARefLink{sga3:xxiii:lemma:3-1-1:item:i}{引理 3.1.1(i)}。
+
+\SGARefTarget{sga3:XXIII:3.1.3}
+\SGAParagraph{3.1.3}
+\SGARefLink{sga3:XXIII:2.3}{定理 2.3}的条件 (v) 具有如下显式形式。置
+\[
+  v_\alpha=f_\alpha(u_\alpha)
+  \qquad(\alpha\in\Delta).
+\]
+则这两组条件为
+\[
+\text{(A)}\quad
+\begin{cases}
+  h_\alpha v_\beta h_\alpha^{-1}=v_\beta,\\
+  h_\beta v_\alpha h_\beta^{-1}=v_\alpha,
+\end{cases}
+\qquad
+\text{(B)}\quad
+v_\alpha v_\beta=v_\beta v_\alpha.
+\]
+
+% END inputs/XXIII/tex/components/05_expose_XXIII_cor25_through_par313.tex
+
+% BEGIN inputs/XXIII/tex/components/06_expose_XXIII_type_A2_and_B2.tex
+\SGANextSectionTarget{sga3:xxiii:subsection:3-2}\SGASubsection{3.2}{\(A_2\) 型的群}
+
+\SGARefTarget{sga3:XXIII:3.2.1}
+\SGAStatement{命题 3.2.1}{设 \(S\) 为概形，\(G\) 为一个 \(A_2\) 型的钉扎 \(S\)-群。记
+\[
+  \Delta=\{\alpha,\beta\},
+  \qquad
+  R^+=\{\alpha,\beta,\alpha+\beta\}.
+\]
+\begin{enumerate}
+  \item[\SGAInlineRefTarget{sga3:XXIII:3.2.1:item:i}\SGAInlineRefTarget{sga3:xxiii:proposition:3-2-1:item:i}(i)]
+    \[
+      t_{\alpha\beta}=(w_\alpha w_\beta)^3
+        =e=(w_\beta w_\alpha)^3=t_{\beta\alpha}.
+    \]
+  \item[\SGAInlineRefTarget{sga3:xxiii:proposition:3-2-1:item:ii}\SGAInlineRefTarget{sga3:XXIII:3.2.1:item:ii}(ii)] 置 \(\operatorname{Ad}(w_\beta)X_\alpha=X_{\alpha+\beta}\)。则
+    \[
+    \begin{aligned}
+      \operatorname{Ad}(w_\alpha)X_\beta&=-X_{\alpha+\beta},\\
+      \operatorname{Ad}(w_\alpha)X_{\alpha+\beta}&=X_\beta,\\
+      \operatorname{Ad}(w_\beta)X_{\alpha+\beta}&=-X_\alpha.
+    \end{aligned}
+    \]
+  \item[\SGAInlineRefTarget{sga3:XXIII:3.2.1:item:iii}(iii)] 置
+    \[
+      p_{\alpha+\beta}(x)
+        =\exp(xX_{\alpha+\beta})
+        =\operatorname{int}(w_\beta)p_\alpha(x).
+    \]
+    则
+    \[
+      p_\beta(y)p_\alpha(x)
+        =p_\alpha(x)p_\beta(y)p_{\alpha+\beta}(xy).
+    \]
+\end{enumerate}}
+
+\SGARefTarget{sga3:XXIII:3.2.2}
+\SGAParagraph{3.2.2}
+证明见\SGARefLink{sga3:XXIII:3.2.2}{3.2.2}--\SGARefLink{sga3:XXIII:3.2.7}{3.2.7}。首先，
+\[
+  (\beta^*,\alpha)=(\alpha^*,\beta)=-1,
+\]
+故 \(\alpha(t_\beta)=\beta(t_\alpha)=-1\)。置
+\[
+  \operatorname{Ad}(w_\beta)X_\alpha=X_{\alpha+\beta}.
+\]
+则
+\[
+  \operatorname{Ad}(w_\beta)X_{\alpha+\beta}
+    =\alpha(t_\beta)X_\alpha=-X_\alpha.
+\]
+写成
+\[
+  \operatorname{Ad}(w_\alpha)X_\beta=zX_{\alpha+\beta},
+  \qquad z\in\mathbf G_m(S).
+\]
+由此得到
+\[
+  \operatorname{Ad}(w_\alpha)X_{\alpha+\beta}
+    =\beta(t_\alpha)z^{-1}X_\beta=-z^{-1}X_\beta.
+\]
+由\SGARefLink{sga3:xxii:cor:5.5.2}{第~XXII讲，5.5.2}，存在唯一的 \(A\in\mathbf G_a(S)\)，使得
+\begin{equation}
+  p_\beta(y)p_\alpha(x)
+    =p_\alpha(x)p_\beta(y)p_{\alpha+\beta}(Axy).
+  \tag{+}
+  \label{sga3:XXIII:3.2:eqplus}
+\end{equation}
+因此\SGARefLink{sga3:XXIII:3.2.1:item:ii}{(ii)} 和\SGARefLink{sga3:XXIII:3.2.1:item:iii}{(iii)} 归结为证明 \(A=-z=1\)。
+
+\SGARefTarget{sga3:XXIII:3.2.3}
+\SGAParagraph{3.2.3}
+用 \(w_\beta\) 共轭 \eqref{sga3:XXIII:3.2:eqplus}，得到
+\begin{equation}
+  p_{-\beta}(-y)p_{\alpha+\beta}(x)
+    =p_{\alpha+\beta}(x)p_{-\beta}(-y)p_\alpha(-Axy).
+  \tag{++}
+  \label{sga3:XXIII:3.2:eqplusplus}
+\end{equation}
+
+\SGARefTarget{sga3:XXIII:3.2.4}
+\SGAParagraph{3.2.4}
+由定义，
+\[
+  w_\beta p_\alpha(x)w_\beta^{-1}=p_{\alpha+\beta}(x).
+\]
+展开 \(w_\beta\)，此式成为
+\[
+\begin{aligned}
+  &p_\beta(1)p_{-\beta}(-1)p_\beta(1)p_\alpha(x)
+    p_\beta(-1)p_{-\beta}(1)p_\beta(-1)\\
+  &\hspace{55mm}=p_{\alpha+\beta}(x).
+\end{aligned}
+\]
+由于 \(p_\beta\) 与 \(p_{\alpha+\beta}\) 交换，这可写为
+\[
+  p_\beta(1)p_\alpha(x)p_\beta(-1)
+    =p_{-\beta}(1)p_{\alpha+\beta}(x)p_{-\beta}(-1).
+\]
+左边使用 \eqref{sga3:XXIII:3.2:eqplus}，右边使用 \eqref{sga3:XXIII:3.2:eqplusplus}，得到
+\[
+\begin{aligned}
+  p_\alpha(x)p_\beta(1)p_{\alpha+\beta}(Ax)p_\beta(-1)
+   ={}&p_{\alpha+\beta}(x)p_{-\beta}(1)\\
+     &{}\cdot p_\alpha(Ax)p_{-\beta}(-1).
+\end{aligned}
+\]
+由于 \(\alpha+2\beta\)、\(\alpha-\beta\) 和 \(2\alpha+\beta\) 都不是根，这归约为
+\[
+  p_\alpha(x)p_{\alpha+\beta}(Ax)
+    =p_\alpha(Ax)p_{\alpha+\beta}(x).
+\]
+现在\SGARefLink{sga3:xxii:rem:4.1.3}{第~XXII讲，4.1.3} 给出 \(A=1\)。
+
+\SGARefTarget{sga3:XXIII:3.2.5}
+\SGAParagraph{3.2.5}
+用 \(w_\alpha\) 共轭 \eqref{sga3:XXIII:3.2:eqplus}，并使用 \(A=1\)，得到
+\begin{equation}
+  p_{\alpha+\beta}(zy)p_{-\alpha}(-x)
+   =p_{-\alpha}(-x)p_{\alpha+\beta}(zy)
+      p_\beta(-z^{-1}xy).
+  \tag{+++}
+  \label{sga3:XXIII:3.2:eqplusplusplus}
+\end{equation}
+
+\SGARefTarget{sga3:XXIII:3.2.6}
+\SGAParagraph{3.2.6}
+与前面一样，
+\[
+  w_\alpha p_\beta(y)w_\alpha^{-1}=p_{\alpha+\beta}(zy).
+\]
+由于 \(p_\alpha\) 和 \(p_{\alpha+\beta}\) 交换，
+\[
+  p_\alpha(1)p_\beta(y)p_\alpha(-1)
+    =p_{-\alpha}(1)p_{\alpha+\beta}(zy)p_{-\alpha}(-1).
+\]
+使用 \eqref{sga3:XXIII:3.2:eqplus} 和 \eqref{sga3:XXIII:3.2:eqplusplusplus}，此式成为
+\[
+  p_\beta(y)p_{\alpha+\beta}(-y)
+    =p_{\alpha+\beta}(zy)p_\beta(-z^{-1}y).
+\]
+这两个因子交换，故 \(z=-1\)。
+
+\SGARefTarget{sga3:XXIII:3.2.7}
+\SGAParagraph{3.2.7}
+还需证明\SGARefLink{sga3:XXIII:3.2.1:item:i}{(i)}。有
+\[
+  w_\alpha w_\beta w_\alpha
+    =w_\alpha w_\beta w_\alpha^{-1}w_\alpha^2
+    =w_{\alpha+\beta}^{-1}t_\alpha,
+\]
+因此
+\[
+\begin{aligned}
+  w_\beta w_\alpha w_\beta w_\alpha w_\beta
+    &=w_\beta w_{\alpha+\beta}^{-1}t_\alpha w_\beta\\
+    &=w_\beta w_{\alpha+\beta}^{-1}w_\beta^{-1}
+      \,s_\beta(t_\alpha)t_\beta\\
+    &=w_\alpha t_\alpha t_\beta t_\beta
+      =w_\alpha t_\alpha=w_\alpha^{-1}.
+\end{aligned}
+\]
+于是
+\[
+  (w_\alpha w_\beta)^3=(w_\beta w_\alpha)^3=e.
+\]
+
+\SGARefTarget{sga3:XXIII:3.2.8}
+\SGAStatement{注 3.2.8}{置 \(v_\alpha=f_\alpha(u_\alpha)\)。\SGARefLink{sga3:XXIII:2.3}{2.3}的条件 (v) 成为
+\[
+\text{(A)}\quad
+\begin{cases}
+  \operatorname{int}(h_\alpha h_\beta h_\alpha)v_\beta=v_\beta,\\
+  \operatorname{int}(h_\beta h_\alpha h_\beta)v_\alpha=v_\alpha,
+\end{cases}
+\]
+以及
+\[
+\text{(B)}\quad
+\begin{cases}
+  v_\beta v_\alpha
+    =v_\alpha v_\beta\,(h_\beta v_\alpha h_\beta^{-1}),\\
+  v_\beta(h_\beta v_\alpha h_\beta^{-1})
+    =(h_\beta v_\alpha h_\beta^{-1})v_\beta,\\
+  v_\alpha(h_\beta v_\alpha h_\beta^{-1})
+    =(h_\beta v_\alpha h_\beta^{-1})v_\alpha.
+\end{cases}
+\]
+记 \(v_{\alpha+\beta}=\operatorname{int}(h_\beta)v_\alpha\)，则后一组条件等价于
+\[
+\text{(B)}\quad
+\begin{cases}
+  v_\beta v_\alpha=v_\alpha v_\beta v_{\alpha+\beta},\\
+  v_\alpha v_{\alpha+\beta}=v_{\alpha+\beta}v_\alpha,\\
+  v_\beta v_{\alpha+\beta}=v_{\alpha+\beta}v_\beta.
+\end{cases}
+\]}
+
+\SGANextSectionTarget{sga3:xxiii:subsection:3-3}\SGASubsection{3.3}{\(B_2\) 型的群}
+
+\SGARefTarget{sga3:XXIII:3.3.1}
+\SGAInlineRefTarget{sga3:xxiii:proposition:3-3-1}\SGAStatement{命题 3.3.1}{设 \(S\) 为概形，\(G\) 为一个 \(B_2\) 型的钉扎 \(S\)-群。记
+\[
+  \Delta=\{\alpha,\beta\},
+  \qquad
+  R^+=\{\alpha,\beta,\alpha+\beta,2\alpha+\beta\}.
+\]
+\begin{enumerate}
+  \item[\SGAInlineRefTarget{sga3:xxiii:proposition:3-3-1:item:i}(i)]
+    \[
+      t_{\alpha\beta}=(w_\alpha w_\beta)^4
+        =t_\alpha=(w_\beta w_\alpha)^4=t_{\beta\alpha}.
+    \]
+  \item[\SGAInlineRefTarget{sga3:XXIII:3.3.1:item:ii}\SGAInlineRefTarget{sga3:xxiii:proposition:3-3-1:item:ii}(ii)] 若
+    \[
+      \operatorname{Ad}(w_\beta)X_\alpha=X_{\alpha+\beta},
+      \qquad
+      \operatorname{Ad}(w_\alpha)X_\beta=X_{2\alpha+\beta},
+    \]
+    则
+    \[
+    \begin{aligned}
+      \operatorname{Ad}(w_\alpha)X_{\alpha+\beta}
+        &=-X_{\alpha+\beta},&
+      \operatorname{Ad}(w_\alpha)X_{2\alpha+\beta}&=X_\beta,\\
+      \operatorname{Ad}(w_\beta)X_{\alpha+\beta}
+        &=-X_\alpha,&
+      \operatorname{Ad}(w_\beta)X_{2\alpha+\beta}&=X_{2\alpha+\beta}.
+    \end{aligned}
+    \]
+  \item[\SGAInlineRefTarget{sga3:XXIII:3.3.1:item:iii}(iii)] 置
+    \[
+    \begin{aligned}
+      p_{\alpha+\beta}(x)
+        &=\exp(xX_{\alpha+\beta})
+          =\operatorname{int}(w_\beta)p_\alpha(x),\\
+      p_{2\alpha+\beta}(x)
+        &=\exp(xX_{2\alpha+\beta})
+          =\operatorname{int}(w_\alpha)p_\beta(x).
+    \end{aligned}
+    \]
+    则
+    \[
+    \begin{aligned}
+      p_\beta(y)p_\alpha(x)
+        &=p_\alpha(x)p_\beta(y)p_{\alpha+\beta}(xy)
+          p_{2\alpha+\beta}(x^2y),\\
+      p_{\alpha+\beta}(y)p_\alpha(x)
+        &=p_\alpha(x)p_{\alpha+\beta}(y)
+          p_{2\alpha+\beta}(2xy).
+    \end{aligned}
+    \]
+\end{enumerate}}
+
+\SGARefTarget{sga3:XXIII:3.3.2}
+\SGAParagraph{3.3.2}
+证明见\SGARefLink{sga3:XXIII:3.3.2}{3.3.2}--\SGARefLink{sga3:XXIII:3.3.6}{3.3.6}。有
+\[
+  (\beta^*,\alpha)=-1,\qquad(\alpha^*,\beta)=-2,
+\]
+故 \(\alpha(t_\beta)=-1\) 和 \(\beta(t_\alpha)=1\)。特别地，\(\beta(t_\alpha)=\alpha(t_\alpha)=1\)，所以 \(t_\alpha\) 是 \(\operatorname{Centr}(G)\) 的一个截面。置
+\[
+  \operatorname{Ad}(w_\beta)X_\alpha=X_{\alpha+\beta},
+  \qquad
+  \operatorname{Ad}(w_\alpha)X_\beta=X_{2\alpha+\beta}.
+\]
+则
+\[
+\begin{aligned}
+  \operatorname{Ad}(w_\beta)X_{\alpha+\beta}
+    &=\alpha(t_\beta)X_\alpha=-X_\alpha,\\
+  \operatorname{Ad}(w_\alpha)X_{2\alpha+\beta}
+    &=\beta(t_\alpha)X_\beta=X_\beta,\\
+  \operatorname{Ad}(w_\beta)X_{2\alpha+\beta}
+    &=X_{2\alpha+\beta}.
+\end{aligned}
+\]
+对某个 \(k\in\mathbf G_m(S)\)，有
+\[
+  \operatorname{Ad}(w_\alpha)X_{\alpha+\beta}
+    =kX_{\alpha+\beta}.
+\]
+由\SGARefLink{sga3:xxii:cor:5.5.2}{第~XXII讲，5.5.2}，存在 \(A,B,C\in\mathbf G_a(S)\)，使得
+\begin{align}
+  p_\beta(y)p_\alpha(x)
+    &=p_\alpha(x)p_\beta(y)p_{\alpha+\beta}(Axy)
+      p_{2\alpha+\beta}(Bx^2y), \tag{1}\label{sga3:XXIII:3.3:eq1}\\
+  p_{\alpha+\beta}(y)p_\alpha(x)
+    &=p_\alpha(x)p_{\alpha+\beta}(y)
+      p_{2\alpha+\beta}(Cxy). \tag{2}\label{sga3:XXIII:3.3:eq2}
+\end{align}
+还需证明
+\[
+  A=B=1,\qquad C=2,\qquad k=-1.
+\]
+
+\SGARefTarget{sga3:XXIII:3.3.3}
+\SGAParagraph{3.3.3}
+用 \(w_\alpha\) 共轭 \eqref{sga3:XXIII:3.3:eq1}，得到
+\begin{equation}
+\begin{aligned}
+  p_{2\alpha+\beta}(y)p_{-\alpha}(-x)
+    ={}&p_{-\alpha}(-x)p_{2\alpha+\beta}(y)\\
+      &{}\cdot p_{\alpha+\beta}(Akxy)p_\beta(Bx^2y).
+\end{aligned}
+\tag{3}\label{sga3:XXIII:3.3:eq3}
+\end{equation}
+对 \eqref{sga3:XXIII:3.3:eq2} 作同样变换，得到
+\begin{equation}
+  p_{\alpha+\beta}(ky)p_{-\alpha}(-x)
+   =p_{-\alpha}(-x)p_{\alpha+\beta}(ky)p_\beta(Cxy).
+\tag{4}\label{sga3:XXIII:3.3:eq4}
+\end{equation}
+用 \(w_\beta\) 共轭 \eqref{sga3:XXIII:3.3:eq1}，得到
+\begin{equation}
+\begin{aligned}
+  p_{-\beta}(-y)p_{\alpha+\beta}(x)
+    ={}&p_{\alpha+\beta}(x)p_{-\beta}(-y)\\
+      &{}\cdot p_\alpha(-Axy)p_{2\alpha+\beta}(Bx^2y).
+\end{aligned}
+\tag{5}\label{sga3:XXIII:3.3:eq5}
+\end{equation}
+
+\SGARefTarget{sga3:XXIII:3.3.4}
+\SGAParagraph{3.3.4}
+写出
+\[
+  w_\beta p_\alpha(x)w_\beta^{-1}=p_{\alpha+\beta}(x).
+\]
+由于 \(\alpha+2\beta\) 不是根，
+\[
+  p_\beta(1)p_\alpha(x)p_\beta(-1)
+    =p_{-\beta}(1)p_{\alpha+\beta}(x)p_{-\beta}(-1).
+\]
+左边使用 \eqref{sga3:XXIII:3.3:eq1}，右边使用 \eqref{sga3:XXIII:3.3:eq5}，得到
+\[
+\begin{aligned}
+  &p_\alpha(x)p_\beta(1)p_{\alpha+\beta}(Ax)
+    p_{2\alpha+\beta}(Bx^2)p_\beta(-1)\\
+  &\quad=p_{\alpha+\beta}(x)p_{-\beta}(1)p_\alpha(Ax)
+    p_{2\alpha+\beta}(-Bx^2)p_{-\beta}(-1).
+\end{aligned}
+\]
+将所示因子交换，并应用 \eqref{sga3:XXIII:3.3:eq2} 后，此式成为
+\[
+\begin{aligned}
+  p_\alpha(x)p_{\alpha+\beta}(Ax)p_{2\alpha+\beta}(Bx^2)
+  ={}&p_\alpha(Ax)p_{\alpha+\beta}(x)\\
+     &{}\cdot p_{2\alpha+\beta}((AC-B)x^2).
+\end{aligned}
+\]
+故
+\[
+  A=1,\qquad C=2B.
+\]
+
+\SGARefTarget{sga3:XXIII:3.3.5}
+\SGAParagraph{3.3.5}
+现在写出
+\[
+  w_\alpha p_\beta(y)w_\alpha^{-1}=p_{2\alpha+\beta}(y).
+\]
+由于 \(3\alpha+\beta\) 不是根，
+\[
+  p_\alpha(1)p_\beta(y)p_\alpha(-1)
+    =p_{-\alpha}(1)p_{2\alpha+\beta}(y)p_{-\alpha}(-1).
+\]
+左边使用 \eqref{sga3:XXIII:3.3:eq1}，右边使用 \eqref{sga3:XXIII:3.3:eq3}，得到
+\[
+\begin{aligned}
+  p_\beta(y)p_{\alpha+\beta}(-Ay)p_{2\alpha+\beta}(By)
+  ={}&p_{2\alpha+\beta}(y)p_{\alpha+\beta}(Aky)p_\beta(By).
+\end{aligned}
+\]
+这三个群交换，故
+\[
+  B=1,\qquad -A=Ak.
+\]
+从而
+\[
+  A=B=1,\qquad C=2,\qquad k=-1.
+\]
+
+\SGARefTarget{sga3:XXIII:3.3.6}
+\SGAParagraph{3.3.6}
+我们已证明\SGARefLink{sga3:XXIII:3.3.1:item:ii}{(ii)} 和\SGARefLink{sga3:XXIII:3.3.1:item:iii}{(iii)}。由于
+\[
+  s_\beta(t_\alpha)
+    =t_\alpha t_\beta^{(\alpha^*,\beta)}
+    =t_\alpha,
+\]
+依次得到
+\[
+\begin{aligned}
+  w_\alpha w_\beta w_\alpha
+    &=w_{2\alpha+\beta}t_\alpha,\\
+  w_\beta w_\alpha w_\beta w_\alpha w_\beta
+    &=w_{2\alpha+\beta}t_\alpha t_\beta,\\
+  w_\alpha w_\beta w_\alpha w_\beta w_\alpha w_\beta w_\alpha
+    &=w_\beta^{-1}t_\alpha.
+\end{aligned}
+\]
+\NDE{法文印本写为 \((\alpha^*,\beta)=2\)；依照上文刚用过的约定，应为 \(-2\)。由于 \(t_\beta^2=e\)，结论不变。}
+由此得到
+\[
+  (w_\beta w_\alpha)^4=t_\alpha,
+  \qquad
+  (w_\alpha w_\beta)^4=s_\beta(t_\alpha)=t_\alpha.
+\]
+
+\SGARefTarget{sga3:XXIII:3.3.7}
+\SGAStatement{注 3.3.7}{置
+\[
+  v_{\alpha+\beta}=\operatorname{int}(h_\beta)v_\alpha,
+  \qquad
+  v_{2\alpha+\beta}=\operatorname{int}(h_\alpha)v_\beta.
+\]
+\SGARefLink{sga3:XXIII:2.3}{2.3}的条件\SGARefLink{sga3:XXIII:2.3:item:v}{(v)} 成为
+\[
+\text{(A)}\quad
+\begin{cases}
+  \operatorname{int}(h_\alpha h_\beta h_\alpha)v_\beta=v_\beta,\\
+  \operatorname{int}(h_\beta h_\alpha h_\beta)v_\alpha=v_\alpha,
+\end{cases}
+\]
+以及
+\[
+\text{(B)}\quad
+\begin{cases}
+  v_\beta v_\alpha
+    =v_\alpha v_\beta v_{\alpha+\beta}v_{2\alpha+\beta},\\
+  v_{\alpha+\beta}v_\alpha
+    =v_\alpha v_{\alpha+\beta}v_{2\alpha+\beta}^{\,2},\\
+  v_{\alpha+\beta}v_\beta=v_\beta v_{\alpha+\beta},\\
+  v_{2\alpha+\beta}v_\alpha=v_\alpha v_{2\alpha+\beta},\\
+  v_{2\alpha+\beta}v_\beta=v_\beta v_{2\alpha+\beta},\\
+  v_{2\alpha+\beta}v_{\alpha+\beta}
+    =v_{\alpha+\beta}v_{2\alpha+\beta}.
+\end{cases}
+\]}
+
+% END inputs/XXIII/tex/components/06_expose_XXIII_type_A2_and_B2.tex
+
+% BEGIN inputs/XXIII/tex/components/07_expose_XXIII_type_G2.tex
+\SGANextSectionTarget{sga3:xxiii:subsection:3-4}\SGASubsection{3.4}{\(G_2\) 型的群}
+
+\SGARefTarget{sga3:XXIII:3.4.1}
+\SGAInlineRefTarget{sga3:xxiii:proposition:3-4-1}\SGAStatement{命题 3.4.1}{设 \(S\) 为概形，\(G\) 为一个 \(G_2\) 型的钉扎 \(S\)-群。记
+\[
+  \Delta=\{\alpha,\beta\},\qquad
+  R^+=\{\alpha,\beta,\alpha+\beta,2\alpha+\beta,
+                 3\alpha+\beta,3\alpha+2\beta\}.
+\]
+\begin{enumerate}
+  \item[\SGAInlineRefTarget{sga3:xxiii:proposition:3-4-1:item:i}\SGAInlineRefTarget{sga3:XXIII:3.4.1:item:i}(i)]
+    \[
+      t_{\alpha\beta}=(w_\alpha w_\beta)^6
+        =e=(w_\beta w_\alpha)^6=t_{\beta\alpha}.
+    \]
+  \item[\SGAInlineRefTarget{sga3:XXIII:3.4.1:item:ii}\SGAInlineRefTarget{sga3:xxiii:proposition:3-4-1:item:ii}(ii)] 若
+    \[
+    \begin{aligned}
+      \operatorname{Ad}(w_\beta)X_\alpha&=X_{\alpha+\beta},&
+      \operatorname{Ad}(w_\alpha)X_{\alpha+\beta}&=X_{2\alpha+\beta},\\
+      \operatorname{Ad}(w_\alpha)X_\beta&=-X_{3\alpha+\beta},&
+      \operatorname{Ad}(w_\beta)X_{3\alpha+\beta}&=X_{3\alpha+2\beta},
+    \end{aligned}
+    \]
+    则
+    \[
+    \begin{aligned}
+      \operatorname{Ad}(w_\alpha)X_{2\alpha+\beta}
+        &=-X_{\alpha+\beta},&
+      \operatorname{Ad}(w_\alpha)X_{3\alpha+\beta}&=X_\beta,\\
+      \operatorname{Ad}(w_\alpha)X_{3\alpha+2\beta}
+        &=X_{3\alpha+2\beta},&
+      \operatorname{Ad}(w_\beta)X_{\alpha+\beta}&=-X_\alpha,\\
+      \operatorname{Ad}(w_\beta)X_{2\alpha+\beta}
+        &=X_{2\alpha+\beta},&
+      \operatorname{Ad}(w_\beta)X_{3\alpha+2\beta}&=-X_{3\alpha+\beta}.
+    \end{aligned}
+    \]
+  \item[\SGAInlineRefTarget{sga3:XXIII:3.4.1:item:iii}(iii)] 置
+    \[
+    \begin{aligned}
+      p_{\alpha+\beta}(x)
+        &=\exp(xX_{\alpha+\beta})
+          =\operatorname{int}(w_\beta)p_\alpha(x),\\
+      p_{2\alpha+\beta}(x)
+        &=\exp(xX_{2\alpha+\beta})
+          =\operatorname{int}(w_\alpha w_\beta)p_\alpha(x),\\
+      p_{3\alpha+\beta}(x)
+        &=\exp(xX_{3\alpha+\beta})
+          =\operatorname{int}(w_\alpha)p_\beta(-x),\\
+      p_{3\alpha+2\beta}(x)
+        &=\exp(xX_{3\alpha+2\beta})
+          =\operatorname{int}(w_\beta w_\alpha)p_\beta(-x).
+    \end{aligned}
+    \]
+    则
+    \[
+    \begin{aligned}
+      p_\beta(y)p_\alpha(x)
+        ={}&p_\alpha(x)p_\beta(y)p_{\alpha+\beta}(xy)
+          p_{2\alpha+\beta}(x^2y)\\
+        &\qquad{}\cdot p_{3\alpha+\beta}(x^3y)
+          p_{3\alpha+2\beta}(x^3y^2),\\
+      p_{\alpha+\beta}(y)p_\alpha(x)
+        ={}&p_\alpha(x)p_{\alpha+\beta}(y)
+          p_{2\alpha+\beta}(2xy)p_{3\alpha+\beta}(3x^2y)
+          p_{3\alpha+2\beta}(3xy^2),\\
+      p_{2\alpha+\beta}(y)p_\alpha(x)
+        ={}&p_\alpha(x)p_{2\alpha+\beta}(y)
+          p_{3\alpha+\beta}(3xy),\\
+      p_{3\alpha+\beta}(y)p_\beta(x)
+        ={}&p_\beta(x)p_{3\alpha+\beta}(y)
+          p_{3\alpha+2\beta}(-xy),\\
+      p_{2\alpha+\beta}(y)p_{\alpha+\beta}(x)
+        ={}&p_{\alpha+\beta}(x)p_{2\alpha+\beta}(y)
+          p_{3\alpha+2\beta}(3xy).
+    \end{aligned}
+    \]
+\end{enumerate}}
+
+\SGARefTarget{sga3:XXIII:3.4.2}
+\SGAParagraph{3.4.2}
+证明见\SGARefLink{sga3:XXIII:3.4.2}{3.4.2}--\SGARefLink{sga3:XXIII:3.4.9}{3.4.9}。由于
+\[
+  (\beta^*,\alpha)=-1,\qquad(\alpha^*,\beta)=-3,
+\]
+有 \(\beta(t_\alpha)=\alpha(t_\beta)=-1\)。如\SGARefLink{sga3:XXIII:3.4.1:item:ii}{(ii)} 中那样定义四个非单根的根向量。则
+\[
+\begin{aligned}
+  \operatorname{Ad}(w_\beta)X_{\alpha+\beta}
+    &=\alpha(t_\beta)X_\alpha=-X_\alpha,\\
+  \operatorname{Ad}(w_\alpha)X_{2\alpha+\beta}
+    &=\alpha(t_\alpha)\beta(t_\alpha)X_{\alpha+\beta}
+      =-X_{\alpha+\beta},\\
+  \operatorname{Ad}(w_\alpha)X_{3\alpha+\beta}
+    &=-\beta(t_\alpha)X_\beta=X_\beta,\\
+  \operatorname{Ad}(w_\beta)X_{3\alpha+2\beta}
+    &=\alpha(t_\beta)^3\beta(t_\beta)X_{3\alpha+\beta}
+      =-X_{3\alpha+\beta}.
+\end{aligned}
+\]
+由于 \((3\alpha+2\beta)\pm\alpha\) 和 \((2\alpha+\beta)\pm\beta\) 都不是根，
+\[
+  \operatorname{Ad}(w_\alpha)X_{3\alpha+2\beta}=X_{3\alpha+2\beta},
+  \qquad
+  \operatorname{Ad}(w_\beta)X_{2\alpha+\beta}=X_{2\alpha+\beta}.
+\]
+
+\SGARefTarget{sga3:XXIII:3.4.3}
+\SGAParagraph{3.4.3}
+由\SGARefLink{sga3:xxii:cor:5.5.2}{第~XXII讲，5.5.2}，存在截面
+\[
+  A,B,C,D,E,F,G,H,J\in\mathbf G_a(S)
+\]
+使得
+\begin{align}
+ p_\beta(y)p_\alpha(x)
+  ={}&p_\alpha(x)p_\beta(y)p_{\alpha+\beta}(Axy)
+     p_{2\alpha+\beta}(Bx^2y)p_{3\alpha+\beta}(Cx^3y)
+     p_{3\alpha+2\beta}(Dx^3y^2), \tag{1}\label{sga3:XXIII:3.4:eq1}\\
+ p_{\alpha+\beta}(y)p_\alpha(x)
+  ={}&p_\alpha(x)p_{\alpha+\beta}(y)p_{2\alpha+\beta}(Exy)
+     p_{3\alpha+\beta}(Fx^2y)p_{3\alpha+2\beta}(Gxy^2),
+     \tag{2}\label{sga3:XXIII:3.4:eq2}\\
+ p_{2\alpha+\beta}(y)p_\alpha(x)
+  ={}&p_\alpha(x)p_{2\alpha+\beta}(y)p_{3\alpha+\beta}(Hxy),
+     \tag{3}\label{sga3:XXIII:3.4:eq3}\\
+ p_{3\alpha+\beta}(y)p_\beta(x)
+  ={}&p_\beta(x)p_{3\alpha+\beta}(y)p_{3\alpha+2\beta}(Jxy).
+     \tag{4}\label{sga3:XXIII:3.4:eq4}
+\end{align}
+
+\SGARefTarget{sga3:XXIII:3.4.4}
+\SGAParagraph{3.4.4}
+用 \(w_\beta\) 共轭 (1)、(3)、(4)，得到
+\begin{align}
+ p_{-\beta}(-y)p_{\alpha+\beta}(x)
+  ={}&p_{\alpha+\beta}(x)p_{-\beta}(-y)p_\alpha(-Axy)
+     p_{2\alpha+\beta}(Bx^2y)\notag\\
+    &{}\cdot p_{3\alpha+2\beta}(Cx^3y)
+     p_{3\alpha+\beta}(-Dx^3y^2), \tag{5}\label{sga3:XXIII:3.4:eq5}\\
+ p_{2\alpha+\beta}(y)p_{\alpha+\beta}(x)
+  ={}&p_{\alpha+\beta}(x)p_{2\alpha+\beta}(y)
+     p_{3\alpha+2\beta}(Hxy), \tag{6}\label{sga3:XXIII:3.4:eq6}\\
+ p_{3\alpha+2\beta}(y)p_{-\beta}(-x)
+  ={}&p_{-\beta}(-x)p_{3\alpha+2\beta}(y)
+     p_{3\alpha+\beta}(-Jxy). \tag{7}\label{sga3:XXIII:3.4:eq7}
+\end{align}
+用 \(w_\alpha\) 共轭 (1)，得到
+\begin{align}
+ p_{3\alpha+\beta}(-y)p_{-\alpha}(-x)
+  ={}&p_{-\alpha}(-x)p_{3\alpha+\beta}(-y)
+     p_{2\alpha+\beta}(Axy)p_{\alpha+\beta}(-Bx^2y)\notag\\
+    &{}\cdot p_\beta(Cx^3y)p_{3\alpha+\beta}(Dx^3y^2).
+     \tag{8}\label{sga3:XXIII:3.4:eq8}
+\end{align}
+
+\SGARefTarget{sga3:XXIII:3.4.5}
+\SGAParagraph{3.4.5}
+由于 \(\alpha+2\beta\) 不是根，恒等式
+\[
+  w_\beta p_\alpha(x)w_\beta^{-1}=p_{\alpha+\beta}(x)
+\]
+可写为
+\begin{equation}
+  p_\beta(1)p_\alpha(x)p_\beta(-1)
+   =p_{-\beta}(1)p_{\alpha+\beta}(x)p_{-\beta}(-1).
+  \tag{9}\label{sga3:XXIII:3.4:eq9}
+\end{equation}
+先使用 (1)，再使用 (4)，其左边成为
+\begin{align}
+ &p_\alpha(x)p_{\alpha+\beta}(Ax)p_{2\alpha+\beta}(Bx^2)
+   p_{3\alpha+\beta}(Cx^3)
+   p_{3\alpha+2\beta}((D-CJ)x^3). \tag{10}\label{sga3:XXIII:3.4:eq10}
+\end{align}
+先使用 (5)，再使用\SGARefLink{sga3:XXIII:3.4:eq7}{(7)}，其右边成为
+\[
+ p_{\alpha+\beta}(x)p_\alpha(Ax)p_{2\alpha+\beta}(-Bx^2)
+ p_{3\alpha+2\beta}(-Cx^3)p_{3\alpha+\beta}((CJ-D)x^3).
+\]
+应用 (2)，将此式变为
+\begin{align}
+ &p_\alpha(Ax)p_{\alpha+\beta}(x)
+ p_{2\alpha+\beta}((AE-B)x^2)
+ p_{3\alpha+\beta}((A^2F+CJ-D)x^3)\notag\\
+ &\hspace{35mm}\cdot
+ p_{3\alpha+2\beta}((AG-C)x^3). \tag{12}\label{sga3:XXIII:3.4:eq12}
+\end{align}
+比较\SGARefLink{sga3:XXIII:3.4:eq10}{(10)} 和\SGARefLink{sga3:XXIII:3.4:eq12}{(12)}，得到
+\[
+  A=1,\qquad E=2B,\qquad C+D=F+CJ,\qquad F=G.
+\]
+
+\SGARefTarget{sga3:XXIII:3.4.6}
+\SGAParagraph{3.4.6}
+写出
+\[
+  w_\alpha p_\beta(y)w_\alpha^{-1}=p_{3\alpha+\beta}(-y).
+\]
+由于 \(4\alpha+\beta\) 不是根，
+\begin{equation}
+ p_\alpha(1)p_\beta(y)p_\alpha(-1)
+  =p_{-\alpha}(1)p_{3\alpha+\beta}(-y)p_{-\alpha}(-1).
+ \tag{13}\label{sga3:XXIII:3.4:eq13}
+\end{equation}
+使用 (1)，左边为
+\[
+ p_\beta(y)p_{\alpha+\beta}(-Ay)p_{2\alpha+\beta}(By)
+ p_{3\alpha+\beta}(-Cy)p_{3\alpha+2\beta}(-Dy^2).
+\]
+使用\SGARefLink{sga3:XXIII:3.4:eq8}{(8)}、(6)、(4)，右边为
+\[
+\begin{aligned}
+ p_\beta(Cy)p_{\alpha+\beta}(-By)p_{2\alpha+\beta}(Ay)
+ p_{3\alpha+\beta}(-y)
+ p_{3\alpha+2\beta}((D-CJ-ABH)y^2).
+\end{aligned}
+\]
+因此
+\[
+  C=1,\qquad A=B,\qquad D-CJ-ABH=-D.
+\]
+结合前面的恒等式，得到
+\[
+ A=B=C=1,\quad E=2,\quad F=G,\quad
+ D+1=F+J,\quad 2D=H+J.
+\]
+
+\SGARefTarget{sga3:XXIII:3.4.7}
+\SGAParagraph{3.4.7}
+由
+\[
+  w_\beta p_{3\alpha+\beta}(x)w_\beta^{-1}
+    =p_{3\alpha+2\beta}(x)
+\]
+得到
+\[
+  p_{3\alpha+\beta}(x)p_{3\alpha+2\beta}(-Jx)
+   =p_{3\alpha+2\beta}(x)p_{3\alpha+\beta}(-Jx),
+\]
+因此 \(J=-1\)。
+
+\SGARefTarget{sga3:XXIII:3.4.8}
+\SGAParagraph{3.4.8}
+最后，
+\[
+  w_\alpha p_{\alpha+\beta}(y)w_\alpha^{-1}=p_{2\alpha+\beta}(y),
+\]
+等价地，
+\[
+ p_\alpha(1)p_{\alpha+\beta}(y)p_\alpha(-1)
+  =p_{-\alpha}(1)p_\alpha(-1)p_{2\alpha+\beta}(y)
+    p_\alpha(1)p_{-\alpha}(-1).
+\]
+左边使用 (2)，右边使用 (3)，得到
+\[
+\begin{aligned}
+ &p_{\alpha+\beta}(y)p_{2\alpha+\beta}(-Ey)
+   p_{3\alpha+\beta}(Fy)p_{3\alpha+2\beta}(-Gy^2)\\
+ &\qquad=p_{-\alpha}(1)p_{2\alpha+\beta}(y)
+   p_{3\alpha+\beta}(Hy)p_{-\alpha}(-1).
+\end{aligned}
+\]
+先将 \(p_{-\alpha}(-1)\) 移过 \(p_{3\alpha+\beta}(Hy)\)，再移过 \(p_{2\alpha+\beta}(y)\)，不会引入新的 \(p_{3\alpha+\beta}\) 因子。比较这些因子，得到 \(F=H\)。故
+\[
+  2D=D+1,\qquad D=1,\qquad F=G=H=2D-J=3.
+\]
+这确定了所有系数，并证明了\SGARefLink{sga3:XXIII:3.4.1:item:iii}{(iii)}。
+
+\SGARefTarget{sga3:XXIII:3.4.9}
+\SGAParagraph{3.4.9}
+对于\SGARefLink{sga3:XXIII:3.4.1:item:i}{(i)}，依次得到
+\[
+\begin{aligned}
+ w_\alpha w_\beta w_\alpha
+  &=w_{3\alpha+\beta}^{-1}t_\alpha,\\
+ w_\beta(w_\alpha w_\beta)^2
+  &=w_{3\alpha+2\beta}^{-1}t_\alpha,\\
+ w_\alpha(w_\beta w_\alpha)^3
+  &=w_{3\alpha+2\beta}^{-1},\\
+ w_\beta(w_\alpha w_\beta)^4
+  &=w_{3\alpha+\beta}t_\beta,\\
+ w_\alpha(w_\beta w_\alpha)^5
+  &=w_\beta^{-1}.
+\end{aligned}
+\]
+从而
+\[
+  (w_\alpha w_\beta)^6=(w_\beta w_\alpha)^6=e.
+\]
+
+\SGARefTarget{sga3:XXIII:3.4.10}
+\SGAStatement{注 3.4.10}{\SGARefLink{sga3:XXIII:2.3}{2.3}的条件\SGARefLink{sga3:XXIII:2.3:item:v}{(v)} 首先包含
+\[
+\text{(A)}\quad
+\begin{cases}
+ \operatorname{int}(h_\alpha h_\beta h_\alpha h_\beta h_\alpha)v_\beta
+   =v_\beta,\\
+ \operatorname{int}(h_\beta h_\alpha h_\beta h_\alpha h_\beta)v_\alpha
+   =v_\alpha,
+\end{cases}
+\]
+以及，在置
+\[
+\begin{aligned}
+ v_{\alpha+\beta}&=\operatorname{int}(h_\beta)v_\alpha,&
+ v_{2\alpha+\beta}&=\operatorname{int}(h_\alpha h_\beta)v_\alpha,\\
+ v_{3\alpha+\beta}&=\operatorname{int}(h_\alpha)v_\beta^{-1},&
+ v_{3\alpha+2\beta}&=\operatorname{int}(h_\beta h_\alpha)v_\beta^{-1},
+\end{aligned}
+\]
+之后的下列交换关系：
+\[
+\text{(B)}\quad
+\begin{aligned}
+ v_\beta v_\alpha
+  &=v_\alpha v_\beta v_{\alpha+\beta}v_{2\alpha+\beta}
+    v_{3\alpha+\beta}v_{3\alpha+2\beta},\\
+ v_{\alpha+\beta}v_\alpha
+  &=v_\alpha v_{\alpha+\beta}v_{2\alpha+\beta}^{\,2}
+    v_{3\alpha+\beta}^{\,3}v_{3\alpha+2\beta}^{\,3},\\
+ v_{2\alpha+\beta}v_\alpha
+  &=v_\alpha v_{2\alpha+\beta}v_{3\alpha+\beta}^{\,3},\\
+ v_{3\alpha+\beta}v_\alpha&=v_\alpha v_{3\alpha+\beta},&
+ v_{3\alpha+2\beta}v_\alpha&=v_\alpha v_{3\alpha+2\beta},\\
+ v_{\alpha+\beta}v_\beta&=v_\beta v_{\alpha+\beta},&
+ v_{2\alpha+\beta}v_\beta&=v_\beta v_{2\alpha+\beta},\\
+ v_{3\alpha+\beta}v_\beta
+  &=v_\beta v_{3\alpha+\beta}v_{3\alpha+2\beta}^{-1},\\
+ v_{3\alpha+2\beta}v_\beta&=v_\beta v_{3\alpha+2\beta},\\
+ v_{2\alpha+\beta}v_{\alpha+\beta}
+  &=v_{\alpha+\beta}v_{2\alpha+\beta}v_{3\alpha+2\beta}^{\,3},\\
+ v_{3\alpha+\beta}v_{\alpha+\beta}
+  &=v_{\alpha+\beta}v_{3\alpha+\beta},\\
+ v_{3\alpha+2\beta}v_{\alpha+\beta}
+  &=v_{\alpha+\beta}v_{3\alpha+2\beta},\\
+ v_{3\alpha+\beta}v_{2\alpha+\beta}
+  &=v_{2\alpha+\beta}v_{3\alpha+\beta},\\
+ v_{3\alpha+2\beta}v_{2\alpha+\beta}
+  &=v_{2\alpha+\beta}v_{3\alpha+2\beta},\\
+ v_{3\alpha+2\beta}v_{3\alpha+\beta}
+  &=v_{3\alpha+\beta}v_{3\alpha+2\beta}.
+\end{aligned}
+\]}
+
+% END inputs/XXIII/tex/components/07_expose_XXIII_type_G2.tex
+
+% BEGIN inputs/XXIII/tex/components/08_expose_XXIII_generators_relations_explicit.tex
+\SGANextSectionTarget{sga3:xxiii:subsection:3-5}\SGASubsection{3.5}{生成元与关系定理的显式形式}
+
+\SGARefTarget{sga3:XXIII:3.5.1}
+\SGAStatement{定理 3.5.1}{设 \(S\) 为概形，\(G\) 为一个钉扎 \(S\)-群，其极大环面为 \(T\)，单根系为 \(\Delta\)，并带有由钉扎定义的元素
+\[
+  u_\alpha\in U_\alpha(S)^\times,\qquad
+  w_\alpha\in\operatorname{Norm}_G(T)(S)
+  \qquad(\alpha\in\Delta)
+\]
+。设 \(H\) 为一个群值 fppf \(S\)-层，设
+\[
+  f_T:T\to H,\qquad f_\alpha:U_\alpha\to H
+  \quad(\alpha\in\Delta)
+\]
+为群态射，并设 \(h_\alpha\in H(S)\)。置
+\[
+  v_\alpha=f_\alpha(u_\alpha).
+\]
+存在一个群态射 \(f:G\to H\)，延拓 \(f_T\) 和所有的 \(f_\alpha\)，并满足 \(f(w_\alpha)=h_\alpha\)，当且仅当：
+\begin{enumerate}
+  \item[(i)] 对每个 \(S'\to S\)、\(\alpha\in\Delta\)、\(t\in T(S')\) 和 \(x\in U_\alpha(S')\)，
+    \begin{equation}
+      \operatorname{int}(f_T(t))f_\alpha(x)
+       =f_\alpha(\operatorname{int}(t)x)
+       =f_\alpha(x^{\alpha(t)}); \tag{1}\label{sga3:xxiii:theorem:3-5-1:equation:1}
+    \end{equation}
+  \item[(ii)] 对每个 \(\alpha\in\Delta\)、每个 \(S'\to S\) 及每个 \(t\in T(S')\)，
+    \begin{equation}
+      \operatorname{int}(h_\alpha)f_T(t)
+       =f_T(s_\alpha(t))
+       =f_T\!\left(t\alpha^*(\alpha(t)^{-1})\right); \tag{2}\label{sga3:xxiii:theorem:3-5-1:equation:2}
+    \end{equation}
+  \item[(iii)] 对每个 \(\alpha\in\Delta\)，
+    \begin{equation}
+      h_\alpha^2=f_T(\alpha^*(-1)), \tag{\(3_1\)}\label{sga3:xxiii:theorem:3-5-1:equation:3-1}
+    \end{equation}
+    且
+    \begin{equation}
+      (h_\alpha v_\alpha)^3=e; \tag{4}\label{sga3:xxiii:theorem:3-5-1:equation:4}
+    \end{equation}
+  \item[\SGAInlineRefTarget{sga3:XXIII:3.5.1:item:iv}(iv)] 对不同的 \(\alpha,\beta\in\Delta\)：
+    \begin{enumerate}
+      \item[(a)] 相应的辫关系为
+        \begin{equation}
+        \tag{\(3_2\)}\label{sga3:xxiii:theorem:3-5-1:equation:3-2}
+        \begin{cases}
+        (h_\alpha h_\beta)^2
+          =f_T(\alpha^*(-1)\beta^*(-1)),
+          &(\alpha^*,\beta)=0,\\
+        (h_\alpha h_\beta)^3=e,
+          &(\alpha^*,\beta)=-1,\\
+        (h_\alpha h_\beta)^4=f_T(\alpha^*(-1)),
+          &(\alpha^*,\beta)=-2,\\
+        (h_\alpha h_\beta)^6=e,
+          &(\alpha^*,\beta)=-3;
+        \end{cases}
+        \end{equation}
+      \item[(b)] \SGARefLink{sga3:XXIII:3.1.3}{3.1.3}、\SGARefLink{sga3:XXIII:3.2.8}{3.2.8}、\SGARefLink{sga3:XXIII:3.3.7}{3.3.7} 或\SGARefLink{sga3:XXIII:3.4.10}{3.4.10}中相应的关系 (A) 和 (B) 成立。
+    \end{enumerate}
+\end{enumerate}
+\(f\) 在存在时必唯一。}
+
+这直接来自\SGARefLink{sga3:XXIII:2.3}{定理 2.3}、\SGARefLink{sga3:XXIII:2.6}{注 2.6}，以及各种秩二情形中的计算。
+
+\SGARefTarget{sga3:XXIII:3.5.2}
+\SGAStatement{注 3.5.2}{也可以等价地通过给定态射
+\[
+  a_\alpha:T\!\cdot U_\alpha\longrightarrow H,
+  \qquad
+  b_\alpha:\operatorname{Norm}_{Z_\alpha}(T)\longrightarrow H
+  \qquad(\alpha\in\Delta),
+\]
+并置
+\[
+  h_\alpha=b_\alpha(w_\alpha),
+  \qquad
+  v_\alpha=a_\alpha(u_\alpha).
+\]
+来表述此结果。所需条件为：
+\begin{enumerate}
+  \item[(1)] 所有的 \(a_\alpha\) 和 \(b_\alpha\) 在 \(T\) 上的限制都相同；
+  \item[(2)] 条件 (4) 和\SGARefLink{sga3:XXIII:3.5.1}{定理 3.5.1}的\SGARefLink{sga3:XXIII:3.5.1:item:iv}{(iv)} 中的所有条件都成立。
+\end{enumerate}}
+
+\SGARefTarget{sga3:XXIII:3.5.3}
+\SGAParagraph{3.5.3}
+下一讲还将给出其他应用。这里给出一个。\SGARefLink{sga3:XXIII:3.5.1}{定理 3.5.1}在 fppf \(S\)-层范畴中以生成元和关系描述了 \(G\)。更明确地，对每个 \(S'\to S\)，设 \(H(S')\) 为由
+\[
+  T(S'),\qquad U_\alpha(S')\ (\alpha\in R),\qquad
+  w_\alpha\ (\alpha\in R),
+\]
+生成的群，并施加类似于
+\[
+  (1),\ (2),\ (3_1),\ (4),\ (3_2),\ (A),\ (B).
+\]
+的关系。则 \(G\) 是与预层 \(S'\mapsto H(S')\) 相伴的层。
+
+特别地，若 \(S'\) 是代数闭域 \(k\) 的谱，则 \(G(S')=H(S')\)。这直接来自零点定理的下述形式：代数闭域上的 fppf 覆盖筛是平凡的。因此\SGARefLink{sga3:XXIII:3.5.1}{定理 3.5.1}给出抽象群 \(G(k)\) 的一个用生成元和关系表示的显式呈示。
+
+% END inputs/XXIII/tex/components/08_expose_XXIII_generators_relations_explicit.tex
+
+% BEGIN inputs/XXIII/tex/components/09_expose_XXIII_fundamental_theorem.tex
+\SGANextSectionTarget{sga3:xxiii:section:4}\SGASection{4}{钉扎群的唯一性：基本定理}
+
+\SGARefTarget{sga3:XXIII:4.1}
+\SGAInlineRefTarget{sga3:xxiii:theorem:4-1}\SGAStatement{定理 4.1}{设 \(S\) 为非空概形。\SGARefLink{sga3:XXIII:1.6}{1.6}中的函子 \(R\) 完全忠实。更确切地，设 \(G,G'\) 为钉扎 \(S\)-群，\(p>0\) 为一个使 \(x\mapsto x^p\) 成为 \(\mathbf G_{a,S}\) 的自同态的整数，并设
+\[
+  h:R(G')\longrightarrow R(G)
+\]
+为钉扎根数据的一个 \(p\)-态射。存在唯一的钉扎群态射 \(f:G\to G'\)，使得 \(R(f)=h\)。}
+
+唯一性已在\SGARefLink{sga3:XXIII:1.9}{1.9}中证明，故只剩存在性。由假设，存在一个双射 \(d:R\xrightarrow{\sim}R'\) 和一个映射
+\[
+  q:R\longrightarrow\{p^n\mid n\in\mathbf N\}
+\]
+使得对每个 \(\alpha\in R\)，有
+\[
+  h(d(\alpha))=q(\alpha)\alpha,
+  \qquad
+  {}^th(\alpha^*)=q(\alpha)d(\alpha)^*.
+\]
+特别地，\(G\) 和 \(G'\) 有相同的半单秩。
+
+\SGARefTarget{sga3:XXIII:4.1.1}
+\SGAParagraph{4.1.1}
+假设两者的半单秩都为 \(0\)。则 \(G,G'\) 为环面：
+\[
+  G=T=D_S(M),\qquad G'=T'=D_S(M'),
+\]
+且 \(h:M'\to M\) 是普通同态。取 \(f=D_S(h)\)。
+
+\SGARefTarget{sga3:XXIII:4.1.2}
+\SGAParagraph{4.1.2}
+假设两者的半单秩都为 \(1\)，并置
+\[
+  f_T=D_S(h):T\longrightarrow T'.
+\]
+记 \(\alpha'=d(\alpha)\)，则图
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+\mathbf G_{m,S}\ar[r,"\alpha^*"]\ar[d,"q(\alpha)"]
+  &T\ar[r,"\alpha"]\ar[d,"f_T"']
+  &\mathbf G_{m,S}\ar[d,"q(\alpha)"]\\
+\mathbf G_{m,S}\ar[r,"\alpha'^*"]
+  &T'\ar[r,"\alpha'"]
+  &\mathbf G_{m,S}
+\end{tikzcd}
+\]
+交换。应用\SGARefLink{sga3:xx:4.1}{第~XX讲，4.1}。
+
+\SGARefTarget{sga3:XXIII:4.1.3}
+\SGAParagraph{4.1.3}
+假设两者的半单秩都为 \(2\)。\SGARefLink{sga3:XXI:7.5.3}{第~XXI讲，7.5.3}列举了所有可能的 \(h\)；我们逐一验证\SGARefLink{sga3:XXIII:2.5}{推论 2.5}的条件。记
+\[
+  \Delta=\{\alpha,\beta\},\qquad
+  \Delta'=\{\alpha',\beta'\},\qquad
+  d(\alpha)=\alpha',\quad d(\beta)=\beta'.
+\]
+
+\SGARefTarget{sga3:XXIII:4.1.4}
+\SGAParagraph{4.1.4. \(G\) 和 \(G'\) 为 \(A_1\times A_1\) 型}
+此时
+\[
+  h(\alpha')=q\alpha,\qquad h(\beta')=q_1\beta.
+\]
+条件\SGARefLink{sga3:XXIII:2.5:item:ii}{2.5(ii)} 和 (iii) 来自\SGARefLink{sga3:xxiii:proposition:3-1-2:item:ii}{命题 3.1.2(ii)}、(iii)。对于 (i)，
+\[
+\begin{aligned}
+ D_S(h)t_{\alpha\beta}
+  &=D_S(h)(t_\alpha t_\beta)\\
+  &={}^th(\alpha^*)(-1)\,{}^th(\beta^*)(-1)\\
+  &=\alpha'^*((-1)^q)\,\beta'^*((-1)^{q_1}).
+\end{aligned}
+\]
+关于 \(x\mapsto x^p\) 的假设连同 \(S\ne\varnothing\) 蕴含 \(p=1\) 或 \(S\) 的特征为 \(p\)。所以 \((-1)^q=-1\)：若 \(q\) 为偶数，则 \(p=2\)，且 \(1=-1\)。从而
+\[
+  D_S(h)t_{\alpha\beta}
+   =\alpha'^*(-1)\beta'^*(-1)=t'_{\alpha'\beta'}.
+\]
+
+\SGARefTarget{sga3:XXIII:4.1.5}
+\SGAParagraph{4.1.5. \(G\) 和 \(G'\) 为 \(A_2\) 型}
+此时
+\[
+  h(\alpha')=q\alpha,\qquad h(\beta')=q\beta.
+\]
+置
+\[
+  X_{\alpha+\beta}=\operatorname{Ad}(w_\beta)X_\alpha,
+  \qquad
+  X'_{\alpha'+\beta'}=\operatorname{Ad}(w'_{\beta'})X'_{\alpha'}.
+\]
+条件 (i) 与上面一样来自\SGARefLink{sga3:xxiii:proposition:3-2-1:item:i}{命题 3.2.1(i)}，而 (ii) 直接来自\SGARefLink{sga3:xxiii:proposition:3-2-1:item:ii}{命题 3.2.1(ii)}。对于 (iii)，映射
+\[
+\begin{aligned}
+ p_\alpha(x)p_\beta(y)p_{\alpha+\beta}(z)
+ \longmapsto
+ p'_{\alpha'}(x^q)p'_{\beta'}(y^q)p'_{\alpha'+\beta'}(z^q)
+\end{aligned}
+\]
+须为同态。唯一非平凡的关系为
+\[
+ p_\beta(y)p_\alpha(x)
+  =p_\alpha(x)p_\beta(y)p_{\alpha+\beta}(xy),
+\]
+它映为
+\[
+ p'_{\beta'}(y^q)p'_{\alpha'}(x^q)
+  =p'_{\alpha'}(x^q)p'_{\beta'}(y^q)
+    p'_{\alpha'+\beta'}(x^qy^q).
+\]
+
+\SGARefTarget{sga3:XXIII:4.1.6}
+\SGAParagraph{4.1.6}
+使用\SGARefLink{sga3:xxiii:proposition:3-3-1}{命题 3.3.1} 和\SGARefLink{sga3:xxiii:proposition:3-4-1}{3.4.1}，同样的论证也处理了根式指数相等时的 \(B_2\) 型和 \(G_2\) 型。只需再处理\SGARefLink{sga3:XXI:7.5.3}{第~XXI讲，7.5.3}中的两个例外情形。
+
+\SGARefTarget{sga3:XXIII:4.1.7}
+\SGAParagraph{4.1.7. \(B_2\) 型，特征为 \(2\)，\(q(\alpha)=2q\)、\(q(\beta)=q\)}
+正根分别为
+\[
+ \{\alpha,\beta,\alpha+\beta,2\alpha+\beta\}
+\]
+和
+\[
+ \{\alpha',\beta',\alpha'+\beta',\alpha'+2\beta'\},
+\]
+其中 \(\alpha\) 和 \(\beta'\) 是短单根。有
+\[
+\begin{aligned}
+ h(\alpha')&=2q\alpha,&h(\beta')&=q\beta,\\
+ h(\alpha'+\beta')&=q(2\alpha+\beta),&
+ h(\alpha'+2\beta')&=2q(\alpha+\beta),
+\end{aligned}
+\]
+故
+\[
+\begin{aligned}
+ d(\alpha+\beta)&=\alpha'+2\beta',&q(\alpha+\beta)&=2q,\\
+ d(2\alpha+\beta)&=\alpha'+\beta',&q(2\alpha+\beta)&=q.
+\end{aligned}
+\]
+置
+\[
+\begin{aligned}
+ X_{\alpha+\beta}&=\operatorname{Ad}(w_\beta)X_\alpha,&
+ X_{2\alpha+\beta}&=\operatorname{Ad}(w_\alpha)X_\beta,\\
+ X'_{\alpha'+\beta'}&=\operatorname{Ad}(w'_{\alpha'})X'_{\beta'},&
+ X'_{\alpha'+2\beta'}&=\operatorname{Ad}(w'_{\beta'})X'_{\alpha'}.
+\end{aligned}
+\]
+
+对于 (i)，特征为 \(2\) 给出 \(-1=1\)，故
+\[
+ t_{\alpha\beta}=t_\alpha=\alpha^*(-1)=e
+   =\beta'^*(-1)=t'_{\beta'}=t'_{\alpha'\beta'}.
+\]
+对于 (ii)，两个定义恒等式为
+\[
+\begin{aligned}
+ \operatorname{Ad}(w_\alpha)X_\beta
+  &=X_{2\alpha+\beta},&
+ \operatorname{Ad}(w'_{\alpha'})X'_{\beta'}
+  &=X'_{\alpha'+\beta'}=X'_{d(2\alpha+\beta)},\\
+ \operatorname{Ad}(w_\beta)X_\alpha
+  &=X_{\alpha+\beta},&
+ \operatorname{Ad}(w'_{\beta'})X'_{\alpha'}
+  &=X'_{\alpha'+2\beta'}=X'_{d(\alpha+\beta)}.
+\end{aligned}
+\]
+\SGARefLink{sga3:xxiii:proposition:3-3-1:item:ii}{命题 3.3.1(ii)} 连同 \(-1=1\) 给出其余四个恒等式：
+\[
+\begin{aligned}
+ \operatorname{Ad}(w_\alpha)X_{\alpha+\beta}&=X_{\alpha+\beta},&
+ \operatorname{Ad}(w'_{\alpha'})X'_{d(\alpha+\beta)}
+   &=X'_{d(\alpha+\beta)},\\
+ \operatorname{Ad}(w_\alpha)X_{2\alpha+\beta}&=X_\beta,&
+ \operatorname{Ad}(w'_{\alpha'})X'_{d(2\alpha+\beta)}
+   &=X'_{d(\beta)},\\
+ \operatorname{Ad}(w_\beta)X_{\alpha+\beta}&=X_\alpha,&
+ \operatorname{Ad}(w'_{\beta'})X'_{d(\alpha+\beta)}
+   &=X'_{d(\alpha)},\\
+ \operatorname{Ad}(w_\beta)X_{2\alpha+\beta}&=X_{2\alpha+\beta},&
+ \operatorname{Ad}(w'_{\beta'})X'_{d(2\alpha+\beta)}
+   &=X'_{d(2\alpha+\beta)}.
+\end{aligned}
+\]
+
+对于 (iii)，仅有的非平凡关系为
+\[
+\begin{aligned}
+ p_\beta(y)p_\alpha(x)
+  &=p_\alpha(x)p_\beta(y)p_{\alpha+\beta}(xy)
+    p_{2\alpha+\beta}(x^2y),\\
+ p'_{\alpha'}(y')p'_{\beta'}(x')
+  &=p'_{\beta'}(x')p'_{\alpha'}(y')
+    p'_{\alpha'+\beta'}(x'y')
+    p'_{\alpha'+2\beta'}(x'y'^2).
+\end{aligned}
+\]
+所考虑的映射为
+\[
+\begin{aligned}
+ &p_\alpha(x)p_\beta(y)p_{\alpha+\beta}(z)p_{2\alpha+\beta}(t)\\
+ &\quad\longmapsto
+ p'_{\alpha'}(x^{2q})p'_{\beta'}(y^q)
+ p'_{\alpha'+2\beta'}(z^{2q})p'_{\alpha'+\beta'}(t^q).
+\end{aligned}
+\]
+它保持第一个关系，因为在第二个关系中取 \(y'=x^{2q}\) 和 \(x'=y^q\)，便可写成
+\[
+\begin{aligned}
+ p'_{\beta'}(y^q)p'_{\alpha'}(x^{2q})
+  ={}&p'_{\alpha'}(x^{2q})p'_{\beta'}(y^q)
+   p'_{\alpha'+2\beta'}((xy)^{2q})\\
+   &{}\cdot p'_{\alpha'+\beta'}((x^2y)^q).
+\end{aligned}
+\]
+
+\SGARefTarget{sga3:XXIII:4.1.8}
+\SGAParagraph{4.1.8. \(G_2\) 型，特征为 \(3\)，\(q(\alpha)=3q\)、\(q(\beta)=q\)}
+正根分别为
+\[
+\{\alpha,\beta,\alpha+\beta,2\alpha+\beta,3\alpha+\beta,
+  3\alpha+2\beta\}
+\]
+和
+\[
+\{\alpha',\beta',\alpha'+\beta',\alpha'+2\beta',
+  \alpha'+3\beta',2\alpha'+3\beta'\},
+\]
+其中 \(\alpha\) 和 \(\beta'\) 仍为短根。有
+\[
+\begin{aligned}
+ h(\alpha')&=3q\alpha,&h(\beta')&=q\beta,\\
+ h(\alpha'+\beta')&=q(3\alpha+\beta),&
+ h(\alpha'+2\beta')&=q(3\alpha+2\beta),\\
+ h(\alpha'+3\beta')&=3q(\alpha+\beta),&
+ h(2\alpha'+3\beta')&=3q(2\alpha+\beta),
+\end{aligned}
+\]
+从而
+\[
+\begin{aligned}
+ d(\alpha+\beta)&=\alpha'+3\beta',&q(\alpha+\beta)&=3q,\\
+ d(2\alpha+\beta)&=2\alpha'+3\beta',&q(2\alpha+\beta)&=3q,\\
+ d(3\alpha+\beta)&=\alpha'+\beta',&q(3\alpha+\beta)&=q,\\
+ d(3\alpha+2\beta)&=\alpha'+2\beta',&q(3\alpha+2\beta)&=q.
+\end{aligned}
+\]
+定义
+\[
+\begin{aligned}
+ X_{\alpha+\beta}&=\operatorname{Ad}(w_\beta)X_\alpha,&
+ X_{2\alpha+\beta}&=\operatorname{Ad}(w_\alpha)X_{\alpha+\beta},\\
+ X_{3\alpha+\beta}&=-\operatorname{Ad}(w_\alpha)X_\beta,&
+ X_{3\alpha+2\beta}&=\operatorname{Ad}(w_\beta)X_{3\alpha+\beta},\\
+ X'_{\alpha'+\beta'}&=-\operatorname{Ad}(w'_{\alpha'})X'_{\beta'},&
+ X'_{\alpha'+2\beta'}&=\operatorname{Ad}(w'_{\beta'})X'_{\alpha'+\beta'},\\
+ X'_{\alpha'+3\beta'}&=\operatorname{Ad}(w'_{\beta'})X'_{\alpha'},&
+ X'_{2\alpha'+3\beta'}&=\operatorname{Ad}(w'_{\alpha'})X'_{\alpha'+3\beta'}.
+\end{aligned}
+\]
+条件 (i) 来自\SGARefLink{sga3:xxiii:proposition:3-4-1:item:i}{命题 3.4.1(i)}。(ii) 中的四个等式按定义成立：
+\[
+\begin{aligned}
+ \operatorname{Ad}(w_\beta)X_\alpha&=X_{\alpha+\beta},&
+ \operatorname{Ad}(w'_{\beta'})X'_{\alpha'}&=X'_{d(\alpha+\beta)},\\
+ \operatorname{Ad}(w_\alpha)X_\beta&=-X_{3\alpha+\beta},&
+ \operatorname{Ad}(w'_{\alpha'})X'_{\beta'}&=-X'_{d(3\alpha+\beta)},\\
+ \operatorname{Ad}(w_\beta)X_{3\alpha+\beta}&=X_{3\alpha+2\beta},&
+ \operatorname{Ad}(w'_{\beta'})X'_{d(3\alpha+\beta)}
+   &=X'_{d(3\alpha+2\beta)},\\
+ \operatorname{Ad}(w_\alpha)X_{\alpha+\beta}&=X_{2\alpha+\beta},&
+ \operatorname{Ad}(w'_{\alpha'})X'_{d(\alpha+\beta)}
+   &=X'_{d(2\alpha+\beta)}.
+\end{aligned}
+\]
+其余等式来自\SGARefLink{sga3:xxiii:proposition:3-4-1:item:ii}{命题 3.4.1(ii)}；例如，
+\[
+\begin{aligned}
+ \operatorname{Ad}(w_\alpha)X_{2\alpha+\beta}&=-X_{\alpha+\beta},&
+ \operatorname{Ad}(w'_{\alpha'})X'_{d(2\alpha+\beta)}
+   &=-X'_{d(\alpha+\beta)},\\
+ \operatorname{Ad}(w_\beta)X_{3\alpha+2\beta}&=-X_{3\alpha+\beta},&
+ \operatorname{Ad}(w'_{\beta'})X'_{d(3\alpha+2\beta)}
+   &=-X'_{d(3\alpha+\beta)}.
+\end{aligned}
+\]
+
+对于 (iii)，在特征为 \(3\) 时，\(U\) 中的非平凡关系为
+\[
+\begin{aligned}
+ p_\beta(y)p_\alpha(x)
+  ={}&p_\alpha(x)p_\beta(y)p_{\alpha+\beta}(xy)
+  p_{2\alpha+\beta}(x^2y)p_{3\alpha+\beta}(x^3y)
+  p_{3\alpha+2\beta}(x^3y^2),\\
+ p_{\alpha+\beta}(y)p_\alpha(x)
+  ={}&p_\alpha(x)p_{\alpha+\beta}(y)p_{2\alpha+\beta}(-xy),\\
+ p_{3\alpha+\beta}(y)p_\beta(x)
+  ={}&p_\beta(x)p_{3\alpha+\beta}(y)p_{3\alpha+2\beta}(-xy).
+\end{aligned}
+\]
+\(U'\) 中的相应关系为
+\[
+\begin{aligned}
+ p'_{\alpha'}(y')p'_{\beta'}(x')
+  ={}&p'_{\beta'}(x')p'_{\alpha'}(y')
+  p'_{\alpha'+\beta'}(-x'y')p'_{\alpha'+2\beta'}(-x'^2y')\\
+  &{}\cdot p'_{\alpha'+3\beta'}(-x'^3y')
+  p'_{2\alpha'+3\beta'}(-x'^3y'^2),\\
+ p'_{\alpha'+\beta'}(y')p'_{\beta'}(x')
+  ={}&p'_{\beta'}(x')p'_{\alpha'+\beta'}(y')
+  p'_{\alpha'+2\beta'}(x'y'),\\
+ p'_{\alpha'+3\beta'}(y')p'_{\alpha'}(x')
+  ={}&p'_{\alpha'}(x')p'_{\alpha'+3\beta'}(y')
+  p'_{2\alpha'+3\beta'}(x'y').
+\end{aligned}
+\]
+以
+\[
+\begin{aligned}
+ &\phi\!\left(
+ p_\alpha(x)p_\beta(y)p_{\alpha+\beta}(t)p_{2\alpha+\beta}(u)
+ p_{3\alpha+\beta}(v)p_{3\alpha+2\beta}(w)\right)\\
+ &\quad=
+ p'_{\alpha'}(x^{3q})p'_{\beta'}(y^q)
+ p'_{\alpha'+3\beta'}(t^{3q})p'_{2\alpha'+3\beta'}(u^{3q})
+ p'_{\alpha'+\beta'}(v^q)p'_{\alpha'+2\beta'}(w^q).
+\end{aligned}
+\]
+定义 \(\phi:U\to U'\)。在上面列出的 \(U'\) 的三个关系中代入 \(x^{3q},y^q\)，恰得到 \(U\) 的三个关系的像；因此 \(\phi\) 是同态。
+
+\SGARefTarget{sga3:XXIII:4.1.9}
+\SGAParagraph{4.1.9. 半单秩大于 \(2\)}
+对 \(\alpha\in\Delta\)，置 \(\alpha'=d(\alpha)\)。对每个 \((\alpha,\beta)\)，考察秩至多为二的钉扎群
+\[
+  Z_{\alpha\beta},\qquad Z'_{\alpha'\beta'}.
+\]
+\(h\) 的底层同态 \(M'\to M\) 诱导一个 \(p\)-态射
+\[
+  h_{\alpha\beta}:R(Z'_{\alpha'\beta'})
+    \longrightarrow R(Z_{\alpha\beta}).
+\]
+由前面的各个情形，存在一个钉扎群态射
+\[
+  f_{\alpha\beta}:Z_{\alpha\beta}
+    \longrightarrow Z'_{\alpha'\beta'}
+\]
+满足 \(R(f_{\alpha\beta})=h_{\alpha\beta}\)。限制
+\[
+  f_{\alpha\beta}|_{Z_\alpha},
+  \qquad f_{\alpha\alpha}:Z_\alpha\to Z'_{\alpha'}
+\]
+对应于同一个钉扎根数据态射，故由唯一性相同。现在\SGARefLink{sga3:XXIII:2.4}{推论 2.4}将各个 \(f_{\alpha\beta}\) 粘合为一个态射 \(f:G\to G'\)。它是钉扎群态射，并满足 \(R(f)=h\)，证明完成。
+
+% END inputs/XXIII/tex/components/09_expose_XXIII_fundamental_theorem.tex
+
+% BEGIN inputs/XXIII/tex/components/10_expose_XXIII_corollaries.tex
+\SGANextSectionTarget{sga3:xxiii:section:5}\SGASection{5}{基本定理的推论}
+
+其中最重要的是下述推论。
+
+\SGARefTarget{sga3:XXIII:5.1}
+\SGAStatement{推论 5.1}{设 \(S\) 为非空概形，\(G,G'\) 为钉扎 \(S\)-群，并设
+\[
+  h:R(G')\xrightarrow{\sim}R(G)
+\]
+为一个钉扎根数据的同构。存在唯一的钉扎 \(S\)-群同构 \(f:G\xrightarrow{\sim}G'\)，使得 \(R(f)=h\)。}
+
+这也来自\SGARefLink{sga3:XXIII:3.5.1}{定理 3.5.1}，因为其中的关系只用 \(R(G)\) 就可写出。它也来自\SGARefLink{sga3:xxiii:theorem:4-1}{定理 4.1}证明中的初等部分，无须用到\SGARefLink{sga3:XXIII:4.1.7}{4.1.7} 和\SGARefLink{sga3:XXIII:4.1.8}{4.1.8}中的例外同源。
+
+\SGARefTarget{sga3:XXIII:5.2}
+\SGAStatement{推论 5.2（唯一性定理）}{设 \(S\) 为概形，\(G,G'\) 为两个可分裂的 \(S\)-群。若它们具有相同的型，则它们同构。}
+
+\SGARefTarget{sga3:XXIII:5.3}
+\SGAStatement{推论 5.3}{设 \(S\) 为概形，\(G,G'\) 为两个可分裂的 \(S\)-群。下列条件等价：
+\begin{enumerate}
+  \item[\SGAInlineRefTarget{sga3:XXIII:5.3:item:i}(i)] \(G\) 和 \(G'\) 同构；
+  \item[\SGAInlineRefTarget{sga3:XXIII:5.3:item:ii}(ii)] 它们在 fpqc 拓扑下局部同构；
+  \item[\SGAInlineRefTarget{sga3:XXIII:5.3:item:iii}(iii)] 存在 \(s\in S\)，使得 \(G_s\) 和 \(G'_s\) 具有相同的型。
+\end{enumerate}}
+
+显然\SGARefLink{sga3:XXIII:5.3:item:i}{(i)} 蕴含\SGARefLink{sga3:XXIII:5.3:item:ii}{(ii)}，后者蕴含\SGARefLink{sga3:XXIII:5.3:item:iii}{(iii)}。反过来，\SGARefLink{sga3:XXIII:5.3:item:iii}{(iii)} 给出
+\[
+  R(G)=R(G_s)=R(G'_s)=R(G'),
+\]
+故\SGARefLink{sga3:XXIII:5.2}{推论 5.2}适用。
+
+\SGARefTarget{sga3:XXIII:5.4}
+\SGAStatement{推论 5.4（Chevalley 概形的唯一性）}{设 \(G,G'\) 为 \(\mathbf Z\) 上的约化群，且各自具有一个分裂极大环面。下列条件等价：
+\begin{enumerate}
+  \item[(i)] \(G\) 和 \(G'\) 同构；
+  \item[(ii)] 存在 \(s\in\operatorname{Spec}\mathbf Z\)，使得 \(G_s\) 和 \(G'_s\) 具有相同的型；
+  \item[(iii)] \(G_{\mathbf C}\) 和 \(G'_{\mathbf C}\) 具有相同的型。
+\end{enumerate}}
+
+事实上，由\SGARefLink{sga3:xxii:prop:2.2}{第~XXII讲，2.2}，\(G\) 和 \(G'\) 可分裂。
+\NDE{事实上，每个 \(\mathbf Z\)-环面都分裂：每个 \(\mathbf Z\)-环面都等平凡，且 \(\operatorname{Spec}\mathbf Z\) 的每个平展覆盖都平凡。}
+
+\SGARefTarget{sga3:XXIII:5.5}
+\SGAStatement{推论 5.5（外自同构的存在性）}{设 \(S\) 为概形，\(G\) 为一个钉扎 \(S\)-群，\(h\) 为钉扎根数据 \(R(G)\) 的一个自同构。存在唯一的保持钉扎的 \(G\) 的自同构 \(u\)，满足 \(R(u)=h\)。}
+
+\SGARefTarget{sga3:XXIII:5.5bis}
+\SGAStatement{推论 5.5 bis}{设 \(S\) 为概形，\(G\) 为一个分裂约化 \(S\)-群，\(R^+\) 为一个正根系。对每个单根 \(\alpha\)，选取一个向量群同构
+\[
+  p_\alpha:\mathbf G_{a,S}\xrightarrow{\sim}U_\alpha.
+\]
+设 \(h\) 为 \(M\) 的一个自同构，它置换正根及相应的余根：若 \(\alpha\in R^+\)，则
+\[
+  h(\alpha)\in R^+,\qquad h^\vee(\alpha^*)=h(\alpha)^*.
+\]
+存在唯一的 \(G\) 的自同构 \(u\)，它在 \(T\) 上诱导 \(D_S(h)\)，并对每个单根 \(\alpha\) 满足 \(u\circ p_\alpha=p_{h(\alpha)}\)。}
+
+\SGARefTarget{sga3:XXIII:5.6}
+\SGAStatement{推论 5.6}{设 \(G,G'\) 为约化 \(S\)-群。下列条件等价：
+\begin{enumerate}
+  \item[\SGAInlineRefTarget{sga3:XXIII:5.6:item:i}(i)] \(G,G'\) 在 fpqc 拓扑下局部同构；
+  \item[(i bis)] 它们在平展拓扑下局部同构；
+  \item[(ii)] 对每个 \(s\in S\)，\(G_s,G'_s\) 同构；
+  \item[\SGAInlineRefTarget{sga3:XXIII:5.6:item:iii}(iii)] 函数 \(s\mapsto\operatorname{type}(G_s)\) 和 \(s\mapsto\operatorname{type}(G'_s)\) 相等。
+\end{enumerate}}
+
+蕴含 (i bis)\(\Rightarrow\)\SGARefLink{sga3:XXIII:5.6:item:i}{(i)} 立即成立；(i)\(\Rightarrow\)(ii) 来自有限扩张原理（EGA IV\(_3\)，9.1.4）；(ii)\(\Rightarrow\)(iii) 立即成立。对于\SGARefLink{sga3:XXIII:5.6:item:iii}{(iii)}\(\Rightarrow\)(i bis)，可假设 \(G,G'\) 可分裂（\SGARefLink{sga3:xxii:cor:2.3}{第~XXII讲，2.3}），然后应用\SGARefLink{sga3:XXIII:5.3}{推论 5.3}。
+
+\SGARefTarget{sga3:XXIII:5.7}
+\SGAStatement{推论 5.7}{设 \(S\) 为概形，\(G\) 为一个约化 \(S\)-群，\(G'\) 为一个纤维连通的仿射光滑 \(S\)-群。若 \(s\in S\)，且 \(G_s\simeq G'_s\)，则存在一个覆盖 \(s\) 的平展态射 \(S'\to S\)，使得 \(G_{S'}\simeq G'_{S'}\)。}
+
+由第~XIX讲，\SGARefLink{sga3:XXIII:2.5}{2.5} 和第~XXII讲，\SGARefLink{sga3:xxii:prop:2.1}{2.1}，可假设 \(G,G'\) 约化且可分裂，因而\SGARefLink{sga3:XXIII:5.3}{推论 5.3}适用。
+
+\SGARefTarget{sga3:XXIII:5.8}
+\SGAStatement{推论 5.8}{设 \(k\) 为域，\(G,G'\) 为约化 \(k\)-群。下列条件等价：
+\begin{enumerate}
+  \item[(i)] \(G,G'\) 具有相同的型；
+  \item[(ii)] \(G\otimes_k\bar k\) 和 \(G'\otimes_k\bar k\) 同构；
+  \item[(iii)] 存在某个有限可分扩张 \(K/k\)，使得 \(G\otimes_kK\) 和 \(G'\otimes_kK\) 同构。
+\end{enumerate}}
+
+\SGARefTarget{sga3:XXIII:5.9}
+\SGAStatement{推论 5.9}{设 \(S\) 为非空概形，\(R\) 为一个根数据。下列条件等价：
+\begin{enumerate}
+  \item[\SGAInlineRefTarget{sga3:XXIII:5.9:item:i}(i)] 存在一个 \(R\) 型的钉扎 \(S\)-群；
+  \item[(ii)] 存在一个 \(R\) 型的 \(S\)-群；
+  \item[\SGAInlineRefTarget{sga3:XXIII:5.9:item:iii}(iii)] fpqc 局部地存在一个 \(R\) 型的约化 \(S\)-群。
+\end{enumerate}}
+
+只需证明\SGARefLink{sga3:XXIII:5.9:item:iii}{(iii)}\(\Rightarrow\)\SGARefLink{sga3:XXIII:5.9:item:i}{(i)}。为简便起见，假设存在一个忠实平坦拟紧态射 \(S'\to S\) 及一个 \(R\) 型的约化 \(S'\)-群 \(G'\)。可假设 \(G'\) 可分裂，并选取一个钉扎 \(E'\)，记 \(R=R(G',E')\)。\((G',E')\) 在
+\[
+  S''=S'\times_SS'
+\]
+上的两个拉回是钉扎群 \((G''_1,E''_1)\)、\((G''_2,E''_2)\)，并带有典范同构
+\[
+  p_i:R(G''_i,E''_i)\xrightarrow{\sim}R.
+\]
+因此
+\[
+  p=p_2^{-1}\circ p_1:
+  R(G''_1,E''_1)\xrightarrow{\sim}R(G''_2,E''_2).
+\]
+唯一性定理给出唯一的同构
+\[
+  f:(G''_1,E''_1)\xrightarrow{\sim}(G''_2,E''_2)
+\]
+满足 \(R(f)=p\)。这是 \(G'\) 上的一个下降数据。由于 \(R\) 完全忠实，相应的余圈条件可在应用 \(R\) 后检验，此时由 \(p\) 的构造得到。由于 \(G'\) 仿射，这个数据是有效的。钉扎在下降下稳定，故下降为一个 \(R\) 型的钉扎 \(S\)-群 \((G,E)\)。
+
+\medskip
+\noindent\textit{注意}\quad
+用纤维范畴的语言，上述证明会更简短，也更清楚。
+
+\SGARefTarget{sga3:XXIII:5.10}
+\SGAStatement{推论 5.10}{设 \(S\) 为非空概形，\(R\) 为一个钉扎根数据，并且存在一个 \(R\) 型的约化 \(S\)-群。则存在一个 \(R\) 型的钉扎 \(S\)-群，且在唯一同构意义下唯一。}
+
+\SGARefTarget{sga3:XXIII:5.11}
+\SGAStatement{定义 5.11}{在这些假设下，将唯一的 \(R\) 型钉扎 \(S\)-群记作 \(\operatorname{\acute Ep}_S(R)\)，其典范极大环面记作 \(T_S(R)\)，其典范 Borel 子群记作 \(B_S(R)\)，依此类推。}
+
+对每个满足 \(S'\ne\varnothing\) 的态射 \(S'\to S\)，可将
+\[
+  \operatorname{\acute Ep}_{S'}(R)
+    =\operatorname{\acute Ep}_S(R)\times_SS'.
+\]
+等同起来。若 \(\operatorname{\acute Ep}_{\operatorname{Spec}\mathbf Z}(R)\) 存在，则将其记作 \(\operatorname{\acute Ep}(R)\)；于是
+\[
+  \operatorname{\acute Ep}_S(R)
+    =\operatorname{\acute Ep}(R)
+      \times_{\operatorname{Spec}\mathbf Z}S.
+\]
+群 \(\operatorname{\acute Ep}(R)\) 称为\emph{\(R\) 型的 Chevalley 群概形}。
+
+\SGARefTarget{sga3:XXIII:5.12}
+\SGAParagraph{5.12}
+因此，群值 \(S\)-层 \(G\) 是一个 \(R\) 型的约化 \(S\)-群，当且仅当它在平展或 fpqc 拓扑下局部同构于 \(\operatorname{\acute Ep}_S(R)\)。类似地，由共轭定理，给定一个带极大环面的 \(R\) 型约化 \(S\)-群，局部等价于
+\[
+  (\operatorname{\acute Ep}_S(R),T_S(R)).
+\]
+对于 Borel 子群和 Killing 对也有类似断言。
+
+% END inputs/XXIII/tex/components/10_expose_XXIII_corollaries.tex
+
+% BEGIN inputs/XXIII/tex/components/11_expose_XXIII_chevalley_systems_and_bibliography.tex
+\SGANextSectionTarget{sga3:xxiii:section:6}\SGASection{6}{Chevalley 系}
+
+\SGARefLink{sga3:xxiii:section:3}{第 3 节}的显式计算有一些重要的数值推论。
+
+\SGARefTarget{sga3:XXIII:6.1}
+\SGAStatement{定义 6.1}{设 \(S\) 为概形，\((G,T,M,R)\) 为一个分裂 \(S\)-群。\(G\) 的一个 \emph{Chevalley 系}是指一族
+\[
+  (X_\alpha)_{\alpha\in R},
+  \qquad
+  X_\alpha\in\Gamma(S,\mathfrak g^\alpha)^\times,
+\]
+满足：
+\begin{description}
+  \item[(SC)] 对每一对 \(\alpha,\beta\in R\)，
+  \[
+    \operatorname{Ad}(w_\alpha(X_\alpha))X_\beta
+      =\pm X_{s_\alpha(\beta)}.
+  \]
+\end{description}}
+
+回顾
+\[
+  w_\alpha(X_\alpha)
+    =\exp(X_\alpha)\exp(-X_\alpha^{-1})\exp(X_\alpha).
+\]
+特别地，条件 (SC) 蕴含
+\[
+  X_{-\alpha}=\pm X_\alpha^{-1}
+\]
+这是因为有恒等式
+\[
+  \operatorname{Ad}(w_\alpha(X_\alpha))X_\alpha=-X_\alpha^{-1}.
+\]
+
+\SGARefTarget{sga3:XXIII:6.2}
+\SGAStatement{命题 6.2}{每个分裂群都具有一个 Chevalley 系。更确切地，若
+\[
+  \bigl(\Delta,(X'_\alpha)_{\alpha\in\Delta}\bigr)
+\]
+是 \((G,T,M,R)\) 的一个钉扎，则存在一个 Chevalley 系 \((X_\alpha)_{\alpha\in R}\)，使得对 \(\alpha\in\Delta\)，有 \(X_\alpha=X'_\alpha\)。}
+
+首先，只需对 \(\alpha\in\Delta\) 验证 (SC)。事实上，对每个 \(\alpha\in R\)，选取一个序列 \(\alpha_i\in\Delta\)，使得
+\[
+  \alpha=s_{\alpha_1}\cdots s_{\alpha_n}(\alpha_{n+1}).
+\]
+反复使用 (SC)，得到
+\[
+ X_\alpha
+  =\pm\operatorname{Ad}\!\left(
+    w_{\alpha_1}(X_{\alpha_1})\cdots
+    w_{\alpha_n}(X_{\alpha_n})\right)X_{\alpha_{n+1}}.
+\]
+由\SGARefLink{sga3:xxiii:lemma:3-1-1:item:iii}{引理 3.1.1(iii)}，
+\[
+\begin{aligned}
+ &w_{\alpha_1}(X_{\alpha_1})\cdots w_{\alpha_n}(X_{\alpha_n})
+  w_{\alpha_{n+1}}(X_{\alpha_{n+1}})
+  w_{\alpha_n}(X_{\alpha_n})^{-1}\cdots
+  w_{\alpha_1}(X_{\alpha_1})^{-1}\\
+ &\hspace{42mm}=\alpha^*(\pm1)w_\alpha(X_\alpha).
+\end{aligned}
+\]
+而
+\[
+ w_{\alpha_i}(X_{\alpha_i})^{-1}
+  =\alpha_i^*(-1)w_{\alpha_i}(X_{\alpha_i}),
+\]
+且
+\[
+ \beta(\gamma^*(-1))=(-1)^{(\gamma^*,\beta)}=\pm1.
+\]
+由此可知，对每一对 \((\alpha_i,\gamma)\) 成立的 (SC) 蕴含对每个 \((\alpha,\beta)\) 成立的 (SC)。
+
+对每个 \(\alpha\in R\)，选取这样的一个序列，并定义
+\[
+ X_\alpha=
+ \operatorname{Ad}\!\left(
+  w_{\alpha_1}(X_{\alpha_1})\cdots
+  w_{\alpha_n}(X_{\alpha_n})\right)X'_{\alpha_{n+1}}.
+\]
+只需再证明下述引理。
+
+\SGARefTarget{sga3:XXIII:6.3}
+\SGAStatement{引理 6.3}{设
+\[
+ (G,T,M,R,\Delta,(X_\alpha)_{\alpha\in\Delta})
+\]
+为一个钉扎 \(S\)-群。若 \(\alpha_i\)、\(0\le i\le n+1\) 为单根，满足
+\[
+  s_{\alpha_1}\cdots s_{\alpha_n}(\alpha_{n+1})=\alpha_0,
+\]
+则
+\[
+  \operatorname{Ad}(w_{\alpha_1}\cdots w_{\alpha_n})
+    X_{\alpha_{n+1}}=\pm X_{\alpha_0}.
+\]}
+
+与\SGARefLink{sga3:XXIII:2.3.4}{2.3.4}一样，使用 Tits 引理，将证明归结到：
+\begin{enumerate}
+  \item[\SGAInlineRefTarget{sga3:XXIII:6.3:item:a}(a)] \(G\) 的半单秩至多为 \(2\)；或
+  \item[\SGAInlineRefTarget{sga3:XXIII:6.3:item:b}(b)] \(w_{\alpha_1}\cdots w_{\alpha_n}\) 是 \(T\) 的一个截面。
+\end{enumerate}
+情形\SGARefLink{sga3:XXIII:6.3:item:a}{(a)} 正是\SGARefLink{sga3:XXIII:3.1.2:item:i}{3.1.2(i)}、\SGARefLink{sga3:xxiii:proposition:3-2-1:item:i}{3.2.1(i)}、\SGARefLink{sga3:xxiii:proposition:3-3-1:item:i}{3.3.1(i)} 或\SGARefLink{sga3:xxiii:proposition:3-4-1:item:i}{3.4.1(i)} 中的计算。
+
+在情形\SGARefLink{sga3:XXIII:6.3:item:b}{(b)} 中，只需证明，若
+\[
+  s_{\alpha_1}\cdots s_{\alpha_n}=1,
+\]
+则 \(t=w_{\alpha_1}\cdots w_{\alpha_n}\) 对每个根 \(\alpha\) 满足 \(\alpha(t)=\pm1\)。由 Weyl 群的结构，以 \(s_\alpha\) 生成的自由群中的这个字属于由
+\[
+  (s_\alpha s_\beta)^{n_{\alpha\beta}}.
+\]
+生成的正规子群。因此归结为形如
+\[
+ s_{\alpha_1}\cdots s_{\alpha_i}
+ (s_{\alpha_{i+1}}s_{\alpha_{i+2}})
+ ^{n_{\alpha_{i+1}\alpha_{i+2}}}
+ s_{\alpha_i}\cdots s_{\alpha_1},
+\]
+的字，此时
+\[
+  t=s_{\alpha_1}\cdots s_{\alpha_i}
+      (t_{\alpha_{i+1}\alpha_{i+2}}).
+\]
+现在，由\SGARefLink{sga3:XXIII:3.1.2:item:i}{3.1.2(i)}、\SGARefLink{sga3:xxiii:proposition:3-2-1:item:i}{3.2.1(i)}、\SGARefLink{sga3:xxiii:proposition:3-3-1:item:i}{3.3.1(i)} 和\SGARefLink{sga3:xxiii:proposition:3-4-1:item:i}{3.4.1(i)} 中算出的 \(t_{\alpha_1\alpha_2}\) 的值，立即得到断言。
+
+\SGARefTarget{sga3:XXIII:6.4}
+\SGAStatement{命题 6.4}{设 \((G,T,M,R)\) 为一个带 Chevalley 系 \((X_\alpha)_{\alpha\in R}\) 的分裂 \(S\)-群。设 \(\alpha,\beta\) 为不成比例的根，满足
+\[
+  \operatorname{length}(\alpha)\le\operatorname{length}(\beta),
+  \qquad
+  |(\beta^*,\alpha)|\le|(\alpha^*,\beta)|.
+\]
+设 \(q\) 和 \(p-1\) 为非负整数，使得形如 \(\beta+k\alpha\) 的根为
+\[
+  \{\beta-(p-1)\alpha,\ldots,\beta,\ldots,\beta+q\alpha\}.
+\]
+于是 \(-(\alpha^*,\beta)=q-p+1\)。记 \(p_\gamma(x)=\exp(xX_\gamma)\)，则 \(U_\alpha\) 和 \(U_\beta\) 之间的交换关系如下：
+\[
+\begin{array}{c|l}
+(p,q)&p_\beta(y)p_\alpha(x)p_\beta(-y)p_\alpha(-x)\\ \hline
+(-,0)&e\\
+(1,1)&p_{\alpha+\beta}(\pm xy)\\
+(1,2)&p_{\alpha+\beta}(\pm xy)p_{2\alpha+\beta}(\pm x^2y)\\
+(1,3)&p_{\alpha+\beta}(\pm xy)p_{2\alpha+\beta}(\pm x^2y)
+       p_{3\alpha+\beta}(\pm x^3y)p_{3\alpha+2\beta}(\pm x^3y^2)\\
+(2,1)&p_{\alpha+\beta}(\pm2xy)\\
+(2,2)&p_{\alpha+\beta}(\pm2xy)p_{2\alpha+\beta}(\pm3x^2y)
+       p_{\alpha+2\beta}(\pm3xy^2)\\
+(3,1)&p_{\alpha+\beta}(\pm3xy)
+\end{array}
+\]
+这些穷尽了所有可能性，因为根串的长度至多为 \(3\)。}
+
+\SGAProof
+由\SGARefLink{sga3:XXI:3.5.4}{第~XXI讲，3.5.4}，存在一个单根系 \(\Delta\)，使得 \(\alpha\in\Delta\)，且存在 \(\alpha'\in\Delta\)、\(a,b\in\mathbf Q_+\)，满足
+\[
+  \beta=a\alpha+b\alpha'.
+\]
+所求关系位于 \(U_{\alpha\alpha'}\) 中，故它来自第 3 节的秩二计算及条件 (SC)。
+
+\SGARefTarget{sga3:XXIII:6.5}
+\SGAStatement{推论 6.5（Chevalley 法则）}{设 \((X_\alpha)_{\alpha\in R}\) 为分裂 \(S\)-群 \(G\) 的一个 Chevalley 系。若 \(\alpha,\beta,\alpha+\beta\in R\)，则
+\[
+  [X_\alpha,X_\beta]=\pm pX_{\alpha+\beta},
+\]
+其中 \(p\) 是使得 \(\beta-p\alpha\) 不是根的最小正整数。}
+
+此断言关于 \(\alpha,\beta\) 对称；将两者排列成 \(\operatorname{length}(\alpha)\le\operatorname{length}(\beta)\) 后，它来自\SGARefLink{sga3:XXIII:6.4}{命题 6.4}。
+
+\SGARefTarget{sga3:XXIII:6.6}
+\SGAStatement{推论 6.6}{设 \(S\) 为满足 \(6\cdot1_S\ne0\) 的概形，\((G,T,M,R)\) 为一个分裂 \(S\)-群。若 \(R'\subset R\) 使得
+\begin{equation}
+  \mathfrak g_{R'}
+   =\mathfrak t\oplus\bigoplus_{\alpha\in R'}\mathfrak g^\alpha
+  \tag{*}\label{sga3:XXIII:6.6:star}
+\end{equation}
+是 \(\mathfrak g\) 的一个 Lie 子代数，则 \(R'\) 是 \(R\) 的闭子集。}
+
+选取一个 Chevalley 系，并设 \(\alpha,\beta\in R'\)，满足 \(\alpha+\beta\in R\)。由\SGARefLink{sga3:XXIII:6.5}{推论 6.5}和\SGARefLink{sga3:XXIII:6.4}{命题 6.4}，
+\[
+  [X_\alpha,X_\beta]=\pm pX_{\alpha+\beta},
+  \qquad p\in\{1,2,3\}.
+\]
+由于 \(2\) 和 \(3\) 在 \(S\) 上都不为零，\eqref{sga3:XXIII:6.6:star} 蕴含 \(\mathfrak g^{\alpha+\beta}\subset\mathfrak g_{R'}\)，从而 \(\alpha+\beta\in R'\)。
+\NDE{只需 \(2\) 和 \(3\) 在 \(S\) 上不为零；例如，此结果适用于 \(S=\operatorname{Spec}(\mathbf Z/6\mathbf Z)\)。在被排除的特征下，短根子系提供了标准的反例。}
+
+\SGARefTarget{sga3:XXIII:6.7}
+\SGAParagraph{6.7}
+本节中确切的符号可通过研究 \(\operatorname{Norm}_G(T)\)，更确切地说，通过研究扩充 Weyl 群
+\[
+  W^*=N(\mathbf Z),\qquad
+  N=\operatorname{Norm}_{\operatorname{\acute{E}p}_{\mathbf Z}(R)}
+         (T_{\mathbf Z}(R)).
+\]
+来确定。它是 \(W(R)\) 被一个 \((2,2,\ldots,2)\) 型的阿贝尔群的扩张，这就解释了符号的来源。
+
+\SGARefTarget{sga3:XXIII:6.7.1}
+\SGAStatement{注 6.7.1}{由 3.1.2(i) 和 3.\(n\).1（\(n=2,3,4\)），元素 \(w_\alpha,w_\beta\in N(\mathbf Z)\) 满足辫关系
+\[
+  w_\alpha w_\beta\cdots=w_\beta w_\alpha\cdots
+\]
+其中每边都有 \(n_{\alpha\beta}\) 个因子。}
+
+另见 Tits \cite{Ti66}、Bourbaki \cite{BLie}，IX.4，习题~12，以及 Springer \cite[9.3.2]{Sp98}。
+
+\begin{thebibliography}{99}
+\bibitem[BLie]{BLie}
+N.~Bourbaki,
+\emph{Lie 群与 Lie 代数}（\emph{Groupes et algèbres de Lie}），第~IX章，
+Masson，1982。
+
+\bibitem[Ja87]{Ja87}
+J.~C. Jantzen,
+\emph{代数群的表示}（\emph{Representations of Algebraic Groups}），
+Academic Press，1987；第2版，American Mathematical Society，2003。
+
+\bibitem[Sp98]{Sp98}
+T.~A. Springer,
+\emph{线性代数群}（\emph{Linear Algebraic Groups}），第2版，
+Birkhäuser，1998。
+
+\bibitem[St62]{St62}
+R.~Steinberg,
+\emph{代数群的生成元、关系与覆盖}（\emph{Générateurs, relations et revêtements de groupes algébriques}），
+代数群理论讨论会（Bruxelles，1962），
+Université de Louvain 与 Gauthier--Villars，1962；
+收入\emph{R. Steinberg 论文集}（\emph{R. Steinberg Collected Papers}），第~133--147页，
+American Mathematical Society，1997。
+
+\bibitem[St67]{St67}
+R.~Steinberg,
+\emph{Chevalley 群讲义}（\emph{Lectures on Chevalley Groups}），
+Yale University，1967。
+
+\bibitem[Ta83]{Ta83}
+M.~Takeuchi,
+\emph{约化群的同构与同源定理的一个超代数证明}（\emph{A hyperalgebraic proof of the isomorphism and isogeny theorems for reductive groups}），
+J. Algebra \textbf{85}（1983），179--196。
+
+\bibitem[Ti66]{Ti66}
+J.~Tits,
+\emph{环面的正规化子 I：扩充 Coxeter 群}（\emph{Normalisateurs de tores I. Groupes de Coxeter étendus}），
+J. Algebra \textbf{4}（1966），96--116。
+\end{thebibliography}
+
+% END inputs/XXIII/tex/components/11_expose_XXIII_chevalley_systems_and_bibliography.tex
+
+
