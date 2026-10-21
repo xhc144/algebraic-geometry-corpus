@@ -18,7 +18,7 @@
 \def\loccit{前引文献\xspace}
 % Heading label follows original Roman exposé numbering.
 \def\thechapter{\Roman{chapter}}
-\hypersetup{pdftitle={SGA 4：拓扑斯理论与概形的平展上同调，第 X--XIX 讲（翻译检查点）},pdfauthor={M. Artin; A. Grothendieck; J.-L. Verdier},pdfsubject={SGA 4 中文原生 LaTeX，覆盖状况见 PROGRESS.json}}
+\hypersetup{pdftitle={SGA 4：拓扑斯理论与概形的平展上同调，第 X--XIX 讲（中文首译稿）},pdfauthor={M. Artin; A. Grothendieck; J.-L. Verdier},pdfsubject={SGA 4 中文原生 LaTeX，覆盖状况见 PROGRESS.json},pdfkeywords={SGA 4, 拓扑斯, 平展上同调, 中文翻译, X--XIX}}
 
 \emergencystretch=2em
 \usepackage{etoolbox}
@@ -27,3 +27,10 @@
 \makeatother
 \AtBeginDocument{\def\chaptername{第}\def\contentsname{目录}\def\bibname{参考文献}\def\proofname{证明}}
 \input{style/external-references.tex}
+
+% Localize the inherited editorial-note prefix without changing counters.
+\makeatletter
+\patchcmd{\nde}{N.D.E.:}{编者注:}{}{}
+\patchcmd{\ndetext}{N.D.E.:}{编者注:}{}{}
+\makeatother
+\renewcommand{\nderef}[1]{第~\ref{#1}~条编者注（第~\pageref{#1}~页）}
