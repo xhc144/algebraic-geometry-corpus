@@ -113,9 +113,10 @@ en/     英文译本与工作版：EGA、SGA、FGA 的英文 PDF、LaTeX 源码�
 | EGA IV 第四部分 | 概形与态射的局部性质（四） | 2025 | 386 | [EGA-IV-4-概形与态射的局部性质-周健译.pdf](zh-CN/official/EGA-IV-4-概形与态射的局部性质-周健译.pdf) |
 | SGA 1 | 平展覆盖与基本群（社区中译） | — | 255 | [SGA-1-平展覆盖与基本群-中译.pdf](zh-CN/official/SGA-1-平展覆盖与基本群-中译.pdf) |
 | EGA III | 凝聚层的上同调 | 2021 | 285 | [EGA-III-凝聚层的上同调-周健译.pdf](zh-CN/official/EGA-III-凝聚层的上同调-周健译.pdf) |
+| EGA IV 第三部分 | 概形与态射的局部性质（三） | 2024 | 286 | [EGA-IV-3-概形与态射的局部性质-周健译.pdf](zh-CN/official/EGA-IV-3-概形与态射的局部性质-周健译.pdf) |
 
 同目录下的《平展覆盖与基本群》是 SGA 1 的社区中译，非官方出版物，单独标注。
-**库内缺 EGA IV 第三部分**（2024 年出版）：下载当日额度用尽，待补。
+至此 EGA I–IV 共 8 册官方中译**全部到齐**。
 
 ## 英文译本与 LaTeX 工作版
 
@@ -130,6 +131,18 @@ en/     英文译本与工作版：EGA、SGA、FGA 的英文 PDF、LaTeX 源码�
 
 这些英文版多为机器辅助或未定稿译本：SGA 6 的校对程度不一致，EGA 英文版亦未经独立数学审校，
 适合作为翻译底稿与对照，不宜作为权威版本引用。
+
+## 其他参考资料（extra/）
+
+| 内容 | 来源 | 说明 | 目录 |
+| --- | --- | --- | --- |
+| SGA 原版扫描档案 | wstein.org/sga | SGA 1–7 与 4½ 的英文档案站点，逐卷 PDF，作为 Springer 版的对照 | extra/SGA-archive/ |
+| Conrad《SGA 3 讲义》 | Stanford，B. Conrad | 用现代方法重讲 SGA 3 的约化群概形理论 | extra/Conrad/ |
+| Vistoli：Grothendieck 拓扑、纤维范畴与下降 | arXiv:1207.3648 | FGA Explained 相关章节的免费预印本 | extra/arXiv/ |
+| Nitsure：Hilbert 与 Quot 概形的构造 | arXiv:math/0206203 | 同上，补充 FGA 中原未展开的构造 | extra/arXiv/ |
+| Kleiman：Picard 概形 | arXiv:math/0412512 | 同上 | extra/arXiv/ |
+
+这些是辅助性材料，不与原著、中译、英译三套正文混放。
 
 ## 社区中文译本（本库完整收录）
 
@@ -160,4 +173,4 @@ EGA、SGA、FGA 原文由 Springer、IHES、North-Holland 等出版方发行，F
 Stacks Project 由 A. J. de Jong 等人以开放许可维护。**本仓库为私有仓库**，所收文件仅作个人研究、翻译与编撰参照，
 不再分发、不用于商业用途。引用请以各出版方的正式版本为准。
 
-_清单生成于 2026-10-21 01:15；共 889 个文件，合计 932.6 MB。_
+_清单生成于 2026-10-21 03:30；共 906 个文件，合计 1445.9 MB。_
