@@ -22,3 +22,5 @@
 - 推论 3.5 证明中引用定义 1.2，按底稿保留，未代改交叉引用。
 
 编译与视觉状态：本分片由主代理集成后统一编译；译者未运行此分片的独立编译，未声称 PDF、字体或溢出检查通过。分片内部没有未译占位段落或待续标记；人名均保留原文拼写。正文内新增首次出现的英文学术词仅为双语术语说明，保留的 `source`、`Fonct` 为底稿公式中的算子名称。
+
+Root independent-review correction: the definition of c(U) in§0 now separates the universe U from the parenthetical bound c(U)≤card(U), so the Chinese says “the supremum of cardinalities of elements of U”. The original selected TeX put U and the bound in one math span; treating the whole span as a noun made the Chinese ambiguous. The independent reviewer checked original scan physical p.19, printed p.3. All symbols remain; only sentence/math-span grouping changed.

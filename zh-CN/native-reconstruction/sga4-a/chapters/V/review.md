@@ -34,3 +34,5 @@ Read-only French witness SHA-256: `f6df53c777a9188eba002beeb241c9bc1c3e735ca6a82
 ## Review and build limits
 
 Translation and mechanical preservation checks complete. Self-review performed; independent mathematical proofreading is not claimed. The parent owns preamble, heading, integrated compilation, cross-exposé reference resolution, PDF rendering, missing-glyph/overflow review and final packaging. No compilation or rendered-page inspection is claimed by this subagent. No commits or pushes were made. Repository writes were confined to this assigned body and review note.
+
+Root integration: three overwide chains of Hom/cohomology isomorphisms were broken into aligned lines with all mathematical symbols/arrows in the original order. The bare `quad` in8.1.13 was restored to `\quad`; the translator verified that the French witness has spacing rather than a variable named quad. This repairs notation, not a mathematical assertion.
