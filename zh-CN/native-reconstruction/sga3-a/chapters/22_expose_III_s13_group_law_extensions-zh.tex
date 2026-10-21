@@ -1,0 +1,335 @@
+% SGA 3, Expose III, Loop 1 English reconstruction.
+% Scope: Section 1.3, from its heading on Exp3 component-local p. 28
+% through the end of the section on p. 31, stopping immediately before
+% Section 2 (combined-reader pp. 138--141; printed pp. 128--131).
+% Authority: Polo--Gille Exp3-14oct24.pdf. Jacob Reinhold's CC BY 4.0
+% Markdown lineage at commit e7a259f3f8608ad3edf9bf6eead3fd504dd2d23e
+% was used only as a comparison. The PDF controls the prose, mathematics,
+% numbering, editorial notes, and the two temporary diagram images.
+
+\setcounter{footnote}{45}
+
+% Source page: Exp3 component-local p. 28; combined-reader p. 138; printed p. 128.
+\subsection*{\SGAInlineRefTarget{sga3:iii:subsection:1-3}1.3. 群律的扩张.}
+考虑如下情形: 有 \(\widehat{\mathscr C}\) 中的一个态射
+\[
+ (\dagger)\qquad p:X\longrightarrow Y,
+\]
+和一个作用于 \(X\) 的交换 \(\widehat{\mathscr C}\)-群 \(M\),
+使得 \(X\) 在 \(Y\) 上关于 \(M_Y\) 形式主齐性.
+
+若 \(g:Y\to Z\) 是 \(\widehat{\mathscr C}\) 中的任意态射,
+则 \(g\circ p:X\to Z\) 在 \(M\) 下不变:
+对每个 \(S\in\operatorname{Ob}\mathscr C\),
+映射 \((g\circ p)(S)\) 在 \(M(S)\) 对 \(X(S)\) 的作用下不变.
+反过来, 我们将假设对 \(n=1,2,3,4\) 下列条件成立:
+
+\medskip
+\noindent\((+)_{n}\): \textit{从 \(X^n\) 到 \(M\) 的每个在
+\(M^n\) 对 \(X^n\) 的作用下不变的态射, 都唯一地经过
+\(p^n:X^n\to Y^n\) 分解, 其中上标 \(n\) 表示笛卡尔幂.}
+
+\medskip
+\noindent\SGAInlineRefTarget{sga3:iii:lemma:1-3-1}\textbf{引理 1.3.1.}
+\begin{enumerate}
+ \item[(i)] \textit{若 \(h\) 是从 \(Y\) 到 \(M\) 的态射,
+ 则从集合论角度由 \(x\mapsto h(p(x))\cdot x\) 定义的
+ \(X\) 的自同构 \(u_h\) 保持 \(p\) 的纤维,
+ 并且与 \(M\) 在 \(X\) 上的作用可交换.
+ \footnote{编者注: 这里及下文中, 将``与 \(p\) 及 \(M\) 的作用可交换''
+ 改成了``保持 \(p\) 的纤维, 并与 \(M\) 的作用可交换''.
+ 随后的等式也是新增的.} 因此, 对每个
+ \(S\in\operatorname{Ob}\mathscr C\), \(x\in X(S)\) 及
+ \(m\in M(S)\), 有}
+ \[
+  p\bigl(h(p(x))\cdot x\bigr)=p(x),
+  \qquad
+  m\cdot h(p(x))\cdot x
+   =h(p(m\cdot x))\cdot m\cdot x.
+ \]
+
+ \item[(ii)] \textit{此构造给出从 \(Y\) 到 \(M\) 的态射与
+ 保持 \(p\) 的纤维并与 \(M\) 的作用可交换的 \(X\) 的自同构之间的一一对应.}
+\end{enumerate}
+
+第一个断言是显然的, 因为 \(p(m\cdot x)=p(x)\), 且 \(M\) 交换.
+反过来, \(X\) 的保持 \(p\) 的纤维的自同构 \(u\)
+可从集合论角度写成 \(x\mapsto g(x)x\),
+其中 \(g\) 是某个从 \(X\) 到 \(M\) 的态射.
+若 \(u\) 与 \(M\) 的作用可交换, 则 \(g\) 在 \(M\) 下不变,
+\footnote{编者注: 事实上,
+\(mg(x)x=mu(x)=u(mx)=g(mx)mx\), 因而 \(g(mx)=g(x)\).}
+于是结论由条件 \((+)_{1}\) 得到.
+
+现在再假设给定了 \(Y\) 上的群律及 \(Y\) 在 \(M\) 上的作用,
+即一个 \(\widehat{\mathscr C}\)-群态射
+\[
+ (\ddagger)\qquad
+ f:Y\longrightarrow
+ \underline{\operatorname{Aut}}_{\widehat{\mathscr C}\text{-gr.}}(M).
+\]
+
+\medskip
+\noindent\SGAInlineRefTarget{sga3:iii:definition:1-3-2}\textbf{定义 1.3.2.}
+\textit{\(X\) 上的合成律}
+\[
+ P:X\times X\longrightarrow X,
+\]
+\textit{称为\emph{容许的 (admissible)}, 若它满足以下两个条件:}
+
+% Source page: Exp3 component-local p. 29; combined-reader p. 139; printed p. 129.
+\begin{enumerate}
+ \item[\SGAInlineRefTarget{sga3:iii:definition:1-3-2:item:i}(i)]
+ \textit{\(P\) 提升了 \(Y\) 的群律; 即下图交换.}
+
+ \SGAThreeNativeDiagram[0.28\textwidth]
+  {figures/exp3/diagram_029_exp3_p029_admissible_law_square.tex}
+  {容许合成律与 \(Y\) 上的群律的相容性.}
+  {fig:exp3-p029-admissible-law-square}
+  {Polo--Gille Exp3-14oct24.pdf, 分篇第 29 页; 合订本第 139 页; 印刷页码 129}
+
+ \item[\SGAInlineRefTarget{sga3:iii:definition:1-3-2:item:ii}(ii)]
+ \textit{对每个 \(S\in\operatorname{Ob}\mathscr C\)
+ 及所有 \(x,y\in X(S)\), \(m,n\in M(S)\), 有}
+ \[
+  (++)\qquad
+  P(m\cdot x,n\cdot y)
+   =m\cdot f(p(x))(n)\cdot P(x,y).
+ \]
+\end{enumerate}
+
+\medskip
+\noindent\SGAInlineRefTarget{sga3:iii:proposition:1-3-3}\textbf{命题 1.3.3.}
+\textit{\(X\) 上的群律 \(\ast\) 容许的充要条件是下列四个条件成立:}
+\begin{enumerate}
+ \item[(i)] \textit{\(p:X\to Y\) 是群态射.}
+
+ \item[(ii)] \textit{由 \(i(m)=m\cdot e_X\) 定义的态射
+ \(i:M\to X\) 是从 \(M\) 到 \(\ker(p)\) 的群同构;
+ 换言之, 从集合论角度有}
+ \[
+  (m\cdot e_X)\ast(n\cdot e_X)=(mn)\cdot e_X.
+ \]
+
+ \item[(iii)] \textit{对每个 \(m\in M(S)\) 和 \(x\in X(S)\), 有
+ \(m\cdot x=(m\cdot e_X)\ast x=i(m)\ast x\).}
+
+ \item[(iv)] \textit{\(X\) 的内自同构依照集合论公式}
+ \[
+  x\ast i(m)\ast x^{-1}=i\bigl(f(p(x))m\bigr).
+ \]
+ \textit{作用于 \(\ker(p)\).}
+\end{enumerate}
+证明是直接的.
+
+\medskip
+\noindent\SGAInlineRefTarget{sga3:iii:lemma:1-3-4}\textbf{引理 1.3.4.}
+\footnote{编者注: 为用于 \SGARefLink{sga3:iii:proposition:1-3-6}{1.3.6}
+证明的步骤~\SGARefLink{sga3:iii:paragraph:2-0:equation:e}{(e)},
+扩充了陈述及其证明.}
+\textit{设 \(h:Y\to M\) 是态射, 并设 \(u_h\) 是
+\(X\) 的自同构 \(x\mapsto h(p(x))\cdot x\)
+(参见~\SGARefLink{sga3:iii:lemma:1-3-1}{1.3.1}).
+设 \(P\) 是 \(X\) 上的容许合成律 (分别地, 容许群律),
+并设 \(P'\) 是由 \(P\) 通过 \(u_h\) 得到的 \(X\) 上的合成律, 即}
+\[
+ P'(x,y)=u_h^{-1}\bigl(P(u_h(x),u_h(y))\bigr).
+\]
+\textit{则:}
+\begin{enumerate}
+ \item[\SGAInlineRefTarget{sga3:iii:lemma:1-3-4:item:i}(i)]
+ \textit{\(P'\) 是容许合成律 (分别地, 容许群律).}
+
+ \item[\SGAInlineRefTarget{sga3:iii:lemma:1-3-4:item:ii}(ii)]
+ \textit{对每个 \(x,y\in X(S)\), 其中
+ \(S\in\operatorname{Ob}\mathscr C\), 置 \(v=p(x)\) 和
+ \(w=p(y)\). 则}
+ \[
+  P'(x,y)=h(vw)^{-1}\cdot h(v)\cdot f(v)(h(w))\cdot P(x,y)
+   =(\partial^1h)(p(x),p(y))\cdot P(x,y).
+ \]
+\end{enumerate}
+
+\noindent\textit{证明.}
+有 \(u_h^{-1}=u_{h^\vee}\), 其中 \(h^\vee:Y\to M\)
+由 \(h^\vee(y)=h(y)^{-1}\) 定义.
+由 \SGARefLink{sga3:iii:definition:1-3-2:item:i}{1.3.2(i)} 和
+\SGARefLink{sga3:iii:lemma:1-3-4:item:ii}{(ii)},
+\[
+ P(h(v)\cdot x,h(w)\cdot y)
+  =h(v)\cdot f(v)(h(w))\cdot P(x,y),
+ \qquad p(P(x,y))=vw,
+\]
+因而
+\[
+ P'(x,y)=h(vw)^{-1}\cdot h(v)\cdot f(v)(h(w))\cdot P(x,y)
+  =(\partial^1h)(p(x),p(y))\cdot P(x,y).
+\]
+立即可知, \(P'\) 满足 \SGARefLink{sga3:iii:definition:1-3-2}{1.3.2}
+的条件 \SGARefLink{sga3:iii:lemma:1-3-4:item:i}{(i)} 和
+\SGARefLink{sga3:iii:lemma:1-3-4:item:ii}{(ii)}.
+
+\medskip
+\noindent\SGAInlineRefTarget{sga3:iii:definition:1-3-5}\textbf{定义 1.3.5.}
+\textit{通过 \SGARefLink{sga3:iii:lemma:1-3-4}{1.3.4} 的过程彼此得到的
+两个容许合成律称为\emph{等价的}.}
+\footnote{编者注: 这确实是等价关系, 因为
+\(u_h^{-1}=u_{h^\vee}\).}
+
+% Source page: Exp3 component-local p. 30; combined-reader p. 140; printed p. 130.
+\medskip
+\noindent\SGAInlineRefTarget{sga3:iii:proposition:1-3-6}\textbf{命题 1.3.6.}
+\textit{假定 \(X\) 上存在一个容许合成律. 则:}
+\begin{enumerate}
+ \item[\SGAInlineRefTarget{sga3:iii:proposition:1-3-6:item:i}(i)]
+ \textit{存在一个典范确定的类 \(c\in H^3(Y,M)\),
+ 此类为零是 \(X\) 上存在一个容许的结合合成律的充要条件.}
+
+ \item[\SGAInlineRefTarget{sga3:iii:proposition:1-3-6:item:ii}(ii)]
+ \textit{若 \(c=0\), 则 \(X\) 上容许的结合合成律所成的集合
+ (分别地, 它们的等价类所成的集合) 在 \(Z^2(Y,M)\)
+ (分别地, \(H^2(Y,M)\)) 下主齐性.}
+\end{enumerate}
+
+证明分为几个步骤.
+
+\smallskip
+\noindent\textbf{(a)}
+设 \(P\) 是 \(X\) 上的容许合成律. 由于 \(P\) 提升了
+\(Y\) 的结合合成律, 存在唯一的态射 \(a:X^3\to M\), 使得
+\[
+ (*)\qquad
+ P(x,P(y,z))=a(x,y,z)\cdot P(P(x,y),z).
+\]
+应用条件 \SGARefLink{sga3:iii:definition:1-3-2:item:i}{1.3.2(i)} 和
+\SGARefLink{sga3:iii:proposition:1-3-6:item:ii}{(ii)},
+立即可见 \(a\) 在 \(M^3\) 对 \(X^3\) 的作用下不变.
+\footnote{编者注: 对 \(x,y,z\in X(S)\), 置 \(u=p(x)\),
+\(v=p(y)\) 及 \(w=p(z)\). 则
+\[
+\begin{aligned}
+ P(mx,P(m'y,m''z))
+  &=P(mx,m'f(v)(m'')P(y,z))\\
+  &=mf(u)(m')f(uv)(m'')P(x,P(y,z)).
+\end{aligned}
+\]
+另一方面, 由于 \(p(P(x,y))=uv\), 也有
+\[
+\begin{aligned}
+ P(P(mx,m'y),m''z)
+  &=P(mf(u)(m')P(x,y),m''z)\\
+  &=mf(u)(m')f(uv)(m'')P(P(x,y),z).
+\end{aligned}
+\]
+将这些等式与 \((*)\) 比较, 得到
+\(a(mx,m'y,m''z)=a(x,y,z)\).}
+因此条件 \((+)_{3}\) 给出:
+
+\smallskip
+\noindent\textit{(1) 存在唯一的态射
+\(DP:Y^3\to M\), 使得}
+\[
+ P(x,P(y,z))=DP(p(x),p(y),p(z))\cdot P(P(x,y),z),
+\]
+\textit{且 \(P\) 结合当且仅当 \(DP=0\).}
+
+\smallskip
+\noindent\textbf{(b)}
+利用前式逐步计算 \(P(P(P(x,y),z),t)\). 置
+\[
+ p(x)=u,\qquad p(y)=v,\qquad p(z)=w,\qquad p(t)=h.
+\]
+得到\footnote{编者注: 下图是新增的.}如下五边形图,
+其中箭头 \(a\xrightarrow{m}b\) 表示 \(b=m\cdot a\).
+
+\SGAThreeNativeDiagram[0.82\textwidth]
+  {figures/exp3/diagram_030_exp3_p030_associativity_pentagon.tex}
+ {用于计算结合性障碍的五边形比较图.}
+ {fig:exp3-p030-associativity-pentagon}
+ {Polo--Gille Exp3-14oct24.pdf, 分篇第 30 页; 合订本第 140 页; 印刷页码 130}
+
+由此得到
+\[
+\begin{aligned}
+ &DP(u,v,w)\cdot DP(u,vw,h)\cdot f(u)(DP(v,w,h))\\
+ &\qquad\cdot DP(u,v,wh)^{-1}\cdot DP(uv,w,h)^{-1}=e_M,
+\end{aligned}
+\]
+即 \(\partial^3DP(u,v,w,h)=e_M\). 此外, 前式左端可借助
+\(P\) 和 \(a\) 表为某个态射 \(X^4\to M\)
+在 \((x,y,z,t)\) 处的值.
+
+% Source page: Exp3 component-local p. 31; combined-reader p. 141; printed p. 131.
+由 \((+)_{4}\) 中的唯一性断言可知,
+使同一态射分解的 \(\partial^3DP\) 和 \(e_M\) 相等. 因而:
+
+\smallskip
+\noindent\textit{(2) \(DP\) 是余循环; 即
+\(DP\in Z^3(Y,M)\).}
+
+\smallskip
+\noindent\textbf{(c)}
+若 \(P\) 和 \(P'\) 是 \(X\) 上的两个容许合成律,
+则存在唯一的态射
+\[
+ b:X^2\longrightarrow M
+\]
+使 \(P'(x,y)=b(x,y)P(x,y)\).
+对 \(P\) 和 \(P'\) 应用 \SGARefLink{sga3:iii:definition:1-3-2:item:ii}{1.3.2(ii)},
+可知 \(b\) 在 \(M^2\) 下不变, 因而由 \((+)_{2}\):
+
+\smallskip
+\noindent\textit{\SGARefLink{sga3:iii:section:3}{(3)}
+对每一对容许合成律 \((P,P')\), 存在唯一的态射
+\(d(P,P'):Y^2\to M\), 使得}
+\[
+ P'(x,y)=d(P,P')(p(x),p(y))\cdot P(x,y),
+\]
+\textit{从而使容许合成律所成的集合在}
+\[
+ \operatorname{Hom}(Y^2,M)=C^2(Y,M).
+\]
+\textit{下主齐性.}
+
+\smallskip
+\noindent\textbf{(d)}
+在前述条件下, 有
+\[
+ (4)\qquad DP'-DP=\partial^2d(P,P').
+\]
+
+\smallskip
+\noindent\textbf{\SGARefLink{sga3:iii:paragraph:2-0:equation:e}{(e)}}
+合成律 \(P\) 和 \(P'\) 等价当且仅当有态射
+\[
+ h\in C^1(Y,M)=\operatorname{Hom}(Y,M)
+\]
+使 \(d(P,P')=\partial^1h\). 这由等价的定义和
+\SGARefLink{sga3:iii:lemma:1-3-4:item:ii}{1.3.4(ii)} 得到.
+
+\smallskip
+\noindent\textbf{(f)}
+现在只须作出结论. 我们寻求一个结合的 \(P'\), 即
+\(DP'=e_M\). 而 \(DP\) 是余循环, 由
+\SGARefLink{sga3:iii:section:3}{(3)} 和 \SGARefLink{sga3:iii:section:4}{(4)},
+它在 \(H^3(Y,M)\) 中的类不依赖于所选容许合成律 \(P\).
+此类就是所求的障碍 \(c\). 能选取适当的 \(P'\) 当且仅当 \(c=0\).
+事实上, 任取 \(P\) 后, 由 \SGARefLink{sga3:iii:section:1}{(1)}, 必须解
+\[
+ 0=DP'=DP+\partial^2d(P,P'),
+\]
+由 \SGARefLink{sga3:iii:section:3}{(3)} 和 \SGARefLink{sga3:iii:section:4}{(4)},
+这可能当且仅当 \(c=0\). 再由 \SGARefLink{sga3:iii:section:3}{(3)} 和
+\SGARefLink{sga3:iii:section:4}{(4)}, 结合合成律 \(P'\)
+所成的集合在 \(Z^2(Y,M)\) 下主齐性.
+由 \SGARefLink{sga3:iii:paragraph:2-0:equation:e}{(e)},
+结合合成律 \(P'\) 模等价所成的集合在 \(H^2(Y,M)\) 下主齐性.
+
+% Continue with Section 2 on Exp3 component-local p. 31; combined-reader
+% p. 141; printed p. 131.
+
+% Translation coverage: entire component, Section 1.3.
+% Source lines: 343; translated body lines before this audit comment: 329.
+% Math preserved: 170 inline formulas, 23 display blocks (all unchanged).
+% Reference targets: 13/13; reference links: 23/23; footnotes: 6/6; diagrams: 2/2.
+% Unresolved TODOs: 0; compile and visual review delegated to the volume integrator.

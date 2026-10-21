@@ -1,0 +1,450 @@
+% SGA 3, Expose III, Loop 1 English reconstruction.
+% Scope: section 4 from its heading through Complement 4.4.1, stopping
+% immediately before 4.5.0.
+% Authority: Polo--Gille Exp3-14oct24.pdf, component-local pp. 42--47
+% (combined-reader pp. 152--157; printed pp. 127--131), with only the
+% section-4 portions of the first and last pages admitted. Force-OCR is a
+% locator only. English wording was compared with Jacob C. Reinhold's CC BY
+% 4.0 Markdown lineage at commit e7a259f3f8608ad3edf9bf6eead3fd504dd2d23e.
+% The Polo--Gille PDF controls prose, mathematics, numbering, notes, and the
+% seven native TeX diagrams linked below.
+
+\setcounter{footnote}{73}
+
+% Source page: Exp3 local p. 42; combined p. 152; printed p. 127.
+\section*{\SGAInlineRefTarget{sga3:iii:section:4}4. 闭子群的无穷小扩张}
+\addcontentsline{toc}{section}{4. 闭子群的无穷小扩张}
+
+先陈述一个对任意阿贝尔范畴成立的结果.
+
+\medskip
+\noindent\SGAInlineRefTarget{sga3:iii:lemma:4-1}\textbf{引理 4.1.}
+\textit{设
+\[
+ 0\longrightarrow A'\xrightarrow{i}A\xrightarrow{p}A''\longrightarrow0
+\]
+是一个正合列, \(\phi:A'\to Q\) 是一个态射,
+而 \(\pi:A''\to P\) 是核为 \(C\) 的满态射.
+设 \(E\) 是模去同构后的四元组 \((B,f,g,h)\) 的集合,
+其中序列
+\[
+ 0\longrightarrow Q\xrightarrow{f}B\xrightarrow{g}P\longrightarrow0
+\]
+正合, 且下图交换:}
+
+% Native TeX diagram dependency; source locator follows.
+% Authority: Exp3-14oct24.pdf local p. 42; combined reader p. 152.
+\begin{center}
+  \SGAThreeNativeInput[0.78\textwidth]
+    {figures/exp3/diagram_031_exp3_p042_lemma41_commutative.tex}
+\end{center}
+
+\begin{enumerate}
+\item[(i)] \textit{集合 \(E\) 非空, 当且仅当
+\(\operatorname{Ext}^1(A'',A')\) 的元素 \(A\)
+在 \(\operatorname{Ext}^1(C,Q)\) 中的像为零.}
+\item[\SGAInlineRefTarget{sga3:iii:lemma:4-1:item:ii}(ii)]
+\textit{在这些条件下, \(E\) 是阿贝尔群
+\(\operatorname{Hom}(C,Q)\) 下的主齐性集合.}
+\end{enumerate}
+
+引入并合和
+\[
+ B'=A\mathop{\sqcup}\limits_{A'}Q.
+\]
+于是有一个行正合的交换图:
+\footnote{编者注: 有
+\(\operatorname{Coker}(j)=B'\mathop{\sqcup}\limits_Q0
+=A\mathop{\sqcup}\limits_{A'}0=A''\),
+以及 \(\operatorname{Ker}(j)\simeq\operatorname{Ker}(i)=0\),
+只需 ``如同该范畴是一个模范畴那样'' 推理即可看出.
+完全用箭头表述的证明, 例如可见 [Fr64], 定理 2.5.4 (*).}
+
+% Native TeX diagram dependency; source locator follows.
+% Authority: Exp3-14oct24.pdf local p. 43; combined reader p. 153.
+\begin{center}
+  \SGAThreeNativeInput[0.78\textwidth]
+    {figures/exp3/diagram_032_exp3_p043_lemma41_pushout.tex}
+\end{center}
+
+% Source page: Exp3 local p. 43; combined p. 153; printed pp. 128--129.
+显然, 该问题的解所构成的范畴, 典范同构于对序列
+\[
+ 0\longrightarrow Q\longrightarrow B'\longrightarrow A''\longrightarrow0
+\]
+以及态射 \(\operatorname{id}_Q\) 与 \(\pi:A''\to P\)
+所提出的相应问题的解范畴.
+\footnote{编者注: 以下将 \(A\) 替换为 \(B'\),
+并扩充了论证的结尾.}
+此时, \(E\) 与 \(B'\) 的那些子对象 \(N\) 的集合有双射,
+其中 \(B'\to A''\) 诱导 \(N\) 与 \(A''\to P\) 的核 \(C\) 之间的同构;
+等价地, 它是提升典范态射 \(C\to A''\) 的态射 \(e:C\to B'\) 的集合.
+阿贝尔群 \(G=\operatorname{Hom}(C,Q)\) 通过
+\(g\cdot e=g+e\) 作用于 \(E\),
+其中加法取于 \(\operatorname{Hom}(C,B')\);
+若 \(E\ne\varnothing\), 则这使 \(E\) 成为 \(G\) 下的主齐性集合.
+
+由此得到以下结果.
+
+\medskip
+\noindent\SGAInlineRefTarget{sga3:iii:proposition:4-2}\textbf{命题 4.2.}
+\footnote{编者注: 已改写此陈述, 使它恰好适用于
+\SGARefLink{sga3:iii:proposition:4-3}{4.3} 中的应用;
+遵循 M. Demazure 提供的提示, 也扩充了证明.}
+\textit{设 \(S\) 是一个概形,
+\(S_{\mathscr J}\) 是由平方为零的拟凝聚理想 \(\mathscr J\) 定义的闭子概形,
+\(X\) 是一个 \(S\)-概形, 而 \(\mathscr F\) 是一个
+\(\mathscr O_X\)-模. 置
+\[
+ X_{\mathscr J}=X\times_S S_{\mathscr J},\qquad
+ \mathscr F_{\mathscr J}
+ =\mathscr F\otimes_{\mathscr O_S}\mathscr O_{S_{\mathscr J}},
+\]
+并设
+\(\mathscr G_{\mathscr J}=\mathscr F_{\mathscr J}/\mathscr H_{\mathscr J}\)
+是 \(\mathscr F_{\mathscr J}\) 的一个商模.
+假设给定了一个 \(\mathscr O_{X_{\mathscr J}}\)-模态射
+\[
+ f:\mathscr J\otimes_{\mathscr O_{S_{\mathscr J}}}
+       \mathscr G_{\mathscr J}\longrightarrow\mathscr Q.
+\]
+设 \(\mathcal E\) 是 \(X\) 上如下定义的集合层:
+对 \(X\) 的每个开子集 \(U\), \(\mathcal E(U)\) 是
+\(\mathscr F|_U\) 的商模 \(\mathscr G\) 的集合,
+其中 \(\mathscr G/\mathscr J\mathscr G=\mathscr G_{\mathscr J}|_U\),
+并且存在一个同构
+\[
+ h:\mathscr J\mathscr G\xrightarrow{\sim}\mathscr Q|_U
+\]
+使下图交换:}
+
+% Native TeX diagram dependency; source locator follows.
+% Authority: Exp3-14oct24.pdf local p. 43; combined reader p. 153.
+\begin{center}
+  \SGAThreeNativeInput[0.43\textwidth]
+    {figures/exp3/diagram_033_exp3_p043_prop42_triangle.tex}
+\end{center}
+
+\textit{此时同构 \(h\) 是唯一的, 因为
+\(
+ \mathscr J\otimes_{\mathscr O_{S_{\mathscr J}}}
+ (\mathscr G_{\mathscr J}|_U)\to\mathscr J\mathscr G
+\)
+是满态射. 则 \(\mathcal E\) 是下列交换群层下的形式主齐性层:
+\[
+ \mathscr A=
+ \operatorname{Hom}_{\mathscr O_X}(\mathscr H_{\mathscr J},\mathscr Q)
+ =\operatorname{Hom}_{\mathscr O_{X_{\mathscr J}}}
+   (\mathscr H_{\mathscr J},\mathscr Q).
+\]}
+
+\noindent\textit{证明.}
+若 \(\mathcal E(U)=\varnothing\), 则无需证明;
+因而可以假设 \(\mathcal E(U)\) 含有一个元素
+\(\widetilde{\mathscr G}\).
+在下图中, \(h\) 是同构, 且所有箭头都是满态射:
+
+% Native TeX diagram dependency; source locator follows.
+% Authority: Exp3-14oct24.pdf local p. 44; combined reader p. 154.
+\begin{center}
+  \SGAThreeNativeInput[0.70\textwidth]
+    {figures/exp3/diagram_034_exp3_p044_prop42_epimorphisms.tex}
+\end{center}
+
+% Source page: Exp3 local p. 44; combined p. 154; printed p. 129.
+所以态射
+\[
+ \mathscr J\otimes_{\mathscr O_{S_{\mathscr J}}}
+ (\mathscr F_{\mathscr J}|_U)\longrightarrow\mathscr Q|_U
+\]
+诱导一个必然唯一的满态射
+\(\phi:\mathscr J\mathscr F|_U\to\mathscr Q|_U\).
+若 \(\mathscr G\) 是一个 \(\mathscr O_U\)-模, 满足
+\(\mathscr G/\mathscr J\mathscr G=\mathscr G_{\mathscr J}|_U\),
+并且有一个行正合的交换图
+
+% Native TeX diagram dependency; source locator follows.
+% Authority: Exp3-14oct24.pdf local p. 44; combined reader p. 154.
+\begin{center}
+  \SGAThreeNativeInput[0.69\textwidth]
+    {figures/exp3/diagram_035_exp3_p044_prop42_exact_rows.tex}
+\end{center}
+
+\noindent(其中 \(p_{\mathscr J}\) 是投影
+\(\mathscr G\to\mathscr G/\mathscr J\mathscr G
+=\mathscr G_{\mathscr J}|_U\), 因而
+\(\mathscr Q|_U=\operatorname{Ker}(p_{\mathscr J})
+=\mathscr J\mathscr G\)), 则 \(\mathscr G\) 可以等同于
+\(\mathscr F|_U\) 的一个商模.
+所以, 由 \SGARefLink{sga3:iii:lemma:4-1:item:ii}{4.1(ii)},
+集合 \(\mathcal E(U)\) 是下列阿贝尔群的主齐性集合:
+\[
+ \operatorname{Hom}_{\mathscr O_X}
+  (\mathscr H_{\mathscr J},\mathscr Q)(U)
+ =\operatorname{Hom}_{\mathscr O_{X_{\mathscr J}}}
+  (\mathscr H_{\mathscr J},\mathscr Q)(U).
+\]
+
+\medskip
+\noindent\SGAInlineRefTarget{sga3:iii:proposition:4-3}\textbf{命题 4.3.}
+\textit{(TDTE \SGARefLink{sga3:iv:subsection:5:1}{IV 5.1})
+设 \(S\) 是一个概形,
+\(S_{\mathscr J}\) 是由平方为零的拟凝聚理想 \(\mathscr J\) 定义的闭子概形,
+\(X\) 是一个 \(S\)-概形, 而 \(\mathscr F\) 是一个拟凝聚
+\(\mathscr O_X\)-模. 置
+\[
+ X_{\mathscr J}=X\times_S S_{\mathscr J},\qquad
+ \mathscr F_{\mathscr J}
+ =\mathscr F\otimes_{\mathscr O_S}\mathscr O_{S_{\mathscr J}}.
+\]
+设 \(\mathscr G_{\mathscr J}=\mathscr F_{\mathscr J}/\mathscr H_{\mathscr J}\)
+是 \(\mathscr F_{\mathscr J}\) 的一个拟凝聚商模, 且在
+\(S_{\mathscr J}\) 上平坦.
+对 \(X\) 的每个开子集 \(U\), 以 \(\mathcal E(U)\) 表示
+\(\mathscr F|_U\) 的那些在 \(S\) 上平坦的拟凝聚商模
+\(\mathscr G\)\footnote{编者注: 为使陈述简洁,
+此处增加了 \(\mathscr G\) 拟凝聚的假设;
+这一假设自动满足的说明已移到证明中, 并相应扩充了证明.}
+的集合, 其中 \(\mathscr G/\mathscr J\mathscr G\simeq
+\mathscr G_{\mathscr J}|_U\).
+则这些 \(\mathcal E(U)\) 构成 \(X\) 上的一个集合层 \(\mathcal E\),
+它是下列交换群层下的形式主齐性层:
+\[
+ \mathscr A=
+ \operatorname{Hom}_{\mathscr O_{X_{\mathscr J}}}
+  \left(
+   \mathscr H_{\mathscr J},
+   \mathscr J\otimes_{\mathscr O_{S_{\mathscr J}}}
+   \mathscr G_{\mathscr J}
+  \right).
+\]}
+
+\noindent\textit{证明.}
+设 \(\pi:X\to S\) 是结构态射.
+设 \(U\) 是 \(X\) 的一个开子集, \(\mathscr G\) 是一个
+在 \(S\) 上平坦的 \(\mathscr O_U\)-模, 满足
+\(\mathscr G/\mathscr J\mathscr G\simeq
+\mathscr G_{\mathscr J}|_U\).
+对每个 \(x\in U\), 茎 \(\mathscr G_x\) 是局部环
+\(\mathscr O_{S,s}\) 上的平坦模, 其中 \(s=\pi(x)\).
+所以态射
+\[
+ \mathscr J_s\otimes_{\mathscr O_{S,s}}
+  (\mathscr G/\mathscr J\mathscr G)_x
+ =\mathscr J_s\otimes_{\mathscr O_{S,s}}\mathscr G_x
+ \longrightarrow(\mathscr J\mathscr G)_x
+\]
+是双射. 因此有正合列
+\[
+ 0\longrightarrow
+ \mathscr J\otimes_{\mathscr O_S}(\mathscr G_{\mathscr J}|_U)
+ \longrightarrow\mathscr G\longrightarrow
+ \mathscr G_{\mathscr J}|_U\longrightarrow0.
+\]
+
+% Source page: Exp3 local p. 45; combined p. 155; printed p. 130.
+由于 \(\mathscr J\otimes_{\mathscr O_S}(\mathscr G_{\mathscr J}|_U)\)
+和 \(\mathscr G_{\mathscr J}|_U\) 是拟凝聚 \(\mathscr O_U\)-模,
+\(\mathscr G\) 也拟凝聚 (EGA III, 1.4.17).
+
+反之, 由于 \(\mathscr G_{\mathscr J}\) 在 \(S_{\mathscr J}\) 上平坦,
+若 \(\mathscr G\) 是一个拟凝聚 \(\mathscr O_U\)-模, 满足
+\(\mathscr G/\mathscr J\mathscr G\simeq\mathscr G_{\mathscr J}\),
+且态射
+\[
+ \mathscr J\otimes_{\mathscr O_{S_{\mathscr J}}}
+ \mathscr G_{\mathscr J}\longrightarrow\mathscr J\mathscr G
+\]
+是双射, 则由 ``平坦性基本判别法'' (SGA 1, IV, 5.5),
+\(\mathscr G\) 在 \(S\) 上平坦.
+\footnote{编者注: 另见 [BAC], \S III.5, 定理 1.}
+
+因此, 此处所考虑的集合 \(\mathcal E(U)\),
+正是 \SGARefLink{sga3:iii:proposition:4-2}{4.2} 中当 \(f\) 为
+\(\mathscr J\otimes_{\mathscr O_{S_{\mathscr J}}}
+\mathscr G_{\mathscr J}\) 的恒等态射时所考虑的集合;
+故结论由 \SGARefLink{sga3:iii:proposition:4-2}{4.2} 得到.
+\hfill\(\square\)
+
+沿用以上记号.
+\footnote{编者注: 以下讨论作了扩充, 并新增了
+\SGARefLink{sga3:iii:corollary:4-3-1}{推论 4.3.1}.
+还须记住, ``伪挠子 (pseudo-torsor)'' 与 ``形式主齐性'' 同义.}
+设 \(Y_{\mathscr J}\) 是 \(X_{\mathscr J}\) 的一个闭子概形,
+由拟凝聚理想 \(\mathscr I_{Y_{\mathscr J}}\) 定义,
+并假设 \(Y_{\mathscr J}\) 在 \(S_{\mathscr J}\) 上平坦.
+将 \SGARefLink{sga3:iii:proposition:4-3}{4.3} 应用于
+\(\mathscr F=\mathscr O_X\) 和
+\[
+ \mathscr G_{\mathscr J}=\mathscr O_{Y_{\mathscr J}}
+ =\mathscr O_{X_{\mathscr J}}/\mathscr I_{Y_{\mathscr J}},
+\]
+便得到下列推论.
+
+\medskip
+\noindent\SGAInlineRefTarget{sga3:iii:corollary:4-3-1}\textbf{推论 4.3.1.}
+\textit{设 \(S,S_{\mathscr J},\mathscr J,X,X_{\mathscr J},
+Y_{\mathscr J}\) 及 \(\mathscr I_{Y_{\mathscr J}}\) 如上,
+并假设 \(Y_{\mathscr J}\) 在 \(S_{\mathscr J}\) 上平坦.
+设 \(\mathscr A_{\mathscr J}\) 是 \(X_{\mathscr J}\) 上的交换群层
+\[
+ \operatorname{Hom}_{\mathscr O_{X_{\mathscr J}}}
+ \left(
+  \mathscr I_{Y_{\mathscr J}},
+  \mathscr J\otimes_{\mathscr O_{S_{\mathscr J}}}
+  \mathscr O_{Y_{\mathscr J}}
+ \right)
+\]
+并置 \(\mathscr A=i_*(\mathscr A_{\mathscr J})\),
+其中 \(i:X_{\mathscr J}\hookrightarrow X\) 是浸入.
+对 \(X\) 的每个开子集 \(U\), 以 \(\mathcal E(U)\) 表示
+\(U\) 的那些在 \(S\) 上平坦的闭子概形 \(Y\) 的集合, 其中
+\[
+ Y\times_S S_{\mathscr J}=Y_{\mathscr J}\cap U.
+\]
+则 \(\mathcal E\) 是一个 \(\mathscr A\)-伪挠子.}
+
+\textit{此外, 若这样的 \(Y\) 局部存在,
+即每个 \(x\in X\) 都有一个开邻域 \(U\) 使得
+\(\mathcal E(U)\ne\varnothing\), 则 \(\mathcal E\) 是一个
+\(\mathscr A\)-挠子 (torsor).}
+\(X\) 上的 \(\mathscr A\)-挠子由
+\[
+ H^1(X,\mathscr A)=H^1(X_{\mathscr J},\mathscr A_{\mathscr J})
+\]
+参数化 (例如见 EGA IV\textsubscript{4}, 16.5.15),
+且 \(\mathcal E\) 有整体截面, 即 \(\mathcal E(X)\ne\varnothing\),
+当且仅当其对应的上同调类为零. 由此得到:
+
+\medskip
+\noindent\SGAInlineRefTarget{sga3:iii:corollary:4-4}\textbf{推论 4.4.}
+\textit{设 \(S,S_{\mathscr J},\mathscr J,X,X_{\mathscr J},
+Y_{\mathscr J}\) 及 \(\mathscr I_{Y_{\mathscr J}}\) 如上,
+并假设 \(Y_{\mathscr J}\) 在 \(S_{\mathscr J}\) 上平坦.
+设 \(E\) 是 \(X\) 的那些在 \(S\) 上平坦的闭子概形
+\(Y\) 的集合, 其中 \(Y\times_S S_{\mathscr J}=Y_{\mathscr J}\).}
+\begin{enumerate}
+\item[(i)] \textit{集合 \(E\) 或者为空,
+或者是下列阿贝尔群下的主齐性集合:}
+\[
+ H^0(X,\mathscr A)=H^0(X_{\mathscr J},\mathscr A_{\mathscr J})
+ =\operatorname{Hom}_{\mathscr O_{X_{\mathscr J}}}
+ \left(
+  \mathscr I_{Y_{\mathscr J}},
+  \mathscr J\otimes_{\mathscr O_{S_{\mathscr J}}}
+  \mathscr O_{Y_{\mathscr J}}
+ \right).
+\]
+
+% Source page: Exp3 local p. 46; combined p. 156; printed p. 131.
+\item[(ii)] \textit{集合 \(E\) 非空, 当且仅当以下两个条件同时成立:}
+\begin{enumerate}
+\item[(a)] \textit{该问题在 \(X\) 上局部有解.}
+\item[(b)] \textit{下列群中的某个障碍消失:}
+\[
+ H^1\!\left(
+  X_{\mathscr J},
+  \operatorname{Hom}_{\mathscr O_{X_{\mathscr J}}}
+  \left(
+   \mathscr I_{Y_{\mathscr J}},
+   \mathscr J\otimes_{\mathscr O_{S_{\mathscr J}}}
+   \mathscr O_{Y_{\mathscr J}}
+  \right)
+ \right).
+\]
+\end{enumerate}
+\end{enumerate}
+
+\medskip
+\noindent\SGAInlineRefTarget{sga3:iii:complement:4-4-1}\textbf{补充 4.4.1.}
+\footnote{编者注: 此补充为新增内容; 它有助于证明命题 4.8(ii).}
+沿用 \SGARefLink{sga3:iii:corollary:4-4}{4.4} 的记号,
+并假设 \(E\) 含有一个元素 \(Y\).
+设 \(\mathscr I_Y\) 是定义 \(Y\) 的 \(\mathscr O_X\) 的理想,
+以 \(\mathscr I_{Y_{\mathscr J}}\) 表示它在
+\(\mathscr O_{X_{\mathscr J}}\) 中的像.
+如 \SGARefLink{sga3:iii:proposition:4-2}{4.2} 的证明中所见, 有交换图
+
+% Native TeX diagram dependency; source locator follows.
+% Authority: Exp3-14oct24.pdf local p. 46; combined reader p. 156.
+\begin{center}
+  \SGAThreeNativeInput[0.44\textwidth]
+    {figures/exp3/diagram_036_exp3_p046_complement441_square.tex}
+\end{center}
+
+\noindent 因而有 \(\mathscr O_X\)-模满态射
+\[
+ \phi:\mathscr J\mathscr O_X\longrightarrow
+ \mathscr J\otimes_{\mathscr O_{S_{\mathscr J}}}
+ \mathscr O_{Y_{\mathscr J}}.
+\]
+设 \(\mathscr K\) 为其核.
+于是, 对 \(E\) 的每个元素 \(Y'\), 态射
+\(\mathscr O_X\to\mathscr O_{Y'}\) 通过
+\(\mathscr O_X/\mathscr K\) 分解,
+后者正是\SGARefLink{sga3:iii:lemma:4-1}{引理 4.1} 证明中的并合和 \(B'\).
+若 \(\mathscr I_{Y'}\) 表示 \(Y'\) 在 \(\mathscr O_X\) 中的理想,
+则有交换图
+
+% Native TeX diagram dependency; source locator follows.
+% Authority: Exp3-14oct24.pdf local p. 46; combined reader p. 156.
+\begin{center}
+  \SGAThreeNativeInput[0.80\textwidth]
+    {figures/exp3/diagram_037_exp3_p046_complement441_exact_diagram.tex}
+\end{center}
+
+以 \(\mathscr K\) 定义的闭子概形代替 \(X\),
+便归约到 \(\mathscr K=0\) 的情形.
+此时, 给定 \(Y'\) 等价于给定 \(\mathscr O_X\) 的一个
+\(\mathscr O_X\)-子模 \(\mathscr I_{Y'}\),
+它在投影 \(p:\mathscr O_X\to\mathscr O_{X_{\mathscr J}}\) 下
+双射地映到 \(\mathscr I_{Y_{\mathscr J}}\).
+以
+\[
+ f':\mathscr I_{Y_{\mathscr J}}\xrightarrow{\sim}\mathscr I_{Y'},
+ \qquad
+ f:\mathscr I_{Y_{\mathscr J}}\xrightarrow{\sim}\mathscr I_Y
+\]
+分别表示其逆同构. 则 \(f'-f\) 是
+\[
+ \operatorname{Hom}_{\mathscr O_{X_{\mathscr J}}}
+ \left(
+  \mathscr I_{Y_{\mathscr J}},
+  \mathscr J\otimes_{\mathscr O_{S_{\mathscr J}}}
+  \mathscr O_{Y_{\mathscr J}}
+ \right)
+ =\operatorname{Hom}_{\mathscr O_{X_{\mathscr J}}}
+  (\mathscr I_{Y_{\mathscr J}},\mathscr J\mathscr O_Y),
+\]
+中的一个元素, 将其记作 \(d(Y',Y)\).
+注意到 \(d(Y,Y')=-d(Y',Y)\).
+
+% Source page: Exp3 local p. 47; combined p. 157; printed p. 131.
+固定 \(Y\), 令 \(Y'\) 变动, 考虑态射
+\[
+ \mathscr I_{Y'}\longrightarrow\mathscr O_X\longrightarrow
+ \mathscr O_Y=\mathscr O_X/\mathscr I_Y.
+\]
+由于它与 \(\mathscr O_Y\to\mathscr O_{Y_{\mathscr J}}\)
+的复合为零, 它取值于
+\[
+ \mathscr J\mathscr O_Y
+ =\mathscr J\otimes_{\mathscr O_{S_{\mathscr J}}}
+  \mathscr O_{Y_{\mathscr J}}.
+\]
+更明确地说, 设 \(V\) 是 \(X\) 的一个开子集,
+\(x'\) 是 \(\mathscr I_{Y'}\) 在 \(V\) 上的一个截面,
+以 \(x_{\mathscr J}\) 表示它在
+\(\Gamma(V,\mathscr I_{Y_{\mathscr J}})\) 中的像. 则
+\[
+ x'=f'(x_{\mathscr J})
+   =f(x_{\mathscr J})+(f'-f)(x_{\mathscr J})
+   =f(x_{\mathscr J})+d(Y',Y)(x_{\mathscr J}).
+\]
+所以, 态射 \(\mathscr I_{Y'}\to\mathscr J\mathscr O_Y\)
+由 \(d(Y',Y)\) 给出.
+
+% Continue with 4.5.0 on Exp3 local p. 47 / combined p. 157 / printed p. 131.
+
+% Translation coverage: Section 4 opening through Complement 4.4.1, stopping before 4.5.0.
+% Statistics: source lines=449; target lines=450; inline math=200; display math=27; equation/align/multline blocks=0; unresolved translation TODOs=0.

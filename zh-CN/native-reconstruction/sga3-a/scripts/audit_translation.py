@@ -14,8 +14,20 @@ def math(s):
     pats=[r'\\\((.*?)\\\)',r'(?<!\\)\\\[(.*?)\\\]',r'(?<!\\)\$(?!\$)(.*?)(?<!\\)\$',r'\\begin\{(?:align\*?|equation\*?|gather\*?|multline\*?)\}(.*?)\\end\{(?:align\*?|equation\*?|gather\*?|multline\*?)\}']
     return [collections.Counter(prose(t) for t in re.findall(q,s,re.S)) for q in pats]
 def keys(s,cmd):return re.findall(r'\\'+cmd+r'\{([^{}]+)\}',s)
+active=set()
+def inputs(f):
+    f=f.resolve()
+    if f in active or not f.is_file():return
+    active.add(f)
+    for n in re.findall(r'\\input\{([^{}#]+)\}',f.read_text()):
+        if '\\' in n:continue
+        q=root/n
+        if not q.suffix:q=q.with_suffix('.tex')
+        if q.is_file():inputs(q)
+inputs(root/'main.tex')
 result=[];refs=[];targets=[]
-for f in sorted((root/'chapters').glob('*-zh.tex')):
+for f in sorted((root/'chapters').rglob('*-zh.tex')):
+    if f.resolve() not in active:continue
     if int(f.name.split('_')[0])>a.through:continue
     name=f.name.replace('-zh.tex','.tex')
     matches=[n for n in allnames if n.startswith(prefix) and n.endswith('/'+name)]
