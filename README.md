@@ -68,6 +68,7 @@ Stacks/ The Stacks Project（英文原版 + 中文译本）
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Stacks Project | The Stacks Project | 代数叠项目 | A. J. de Jong et al. | 2023 | stacks.math.columbia.edu | [Stacks-Project.pdf](Stacks/Stacks-Project.pdf) | 35.5 MB |
 | Stacks Project（中文翻译） | The Stacks Project — Chinese translation | 代数叠项目（中文译本） | The Stacks Project Authors | — | 社区译本 | [Stacks-Project-zh-CN.pdf](Stacks/Stacks-Project-zh-CN.pdf) | 33.6 MB |
+| Stacks Project（官网最新） | The Stacks Project — official current build | 代数叠项目（官网最新编译版） | A. J. de Jong et al. | 2026-07-14（Version ed88ff78） | stacks.math.columbia.edu/download/book.pdf | [Stacks-Project-2026-07-14.pdf](Stacks/Stacks-Project-2026-07-14.pdf) | 36.6 MB |
 
 ## 完整性校验
 
@@ -79,4 +80,4 @@ EGA、SGA、FGA 原文由 Springer、IHES、North-Holland 等出版方发行，F
 Stacks Project 由 A. J. de Jong 等人以开放许可维护。**本仓库为私有仓库**，所收文件仅作个人研究、翻译与编撰参照，
 不再分发、不用于商业用途。引用请以各出版方的正式版本为准。
 
-_清单生成于 2026-10-21 00:42；共 23 个文件，合计 420.1 MB。_
+_清单生成于 2026-10-21 00:51；共 24 个文件，合计 456.7 MB。_
