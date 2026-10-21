@@ -21,7 +21,7 @@ Pierre Berthelot
 \subsection*{证明的安排}
 证明分为三个部分。
 
-首先证明，\(\xi\) 的幂作为 \(K^\bullet(S)\)-模生成 \(K^\bullet(X)\)。为此，只需建立下述事实。若 \(F\) 是 \(X\) 上的有限型局部自由层，则可以找到一个有限表现、且在 \(\mathcal O_S\) 上平坦的分次 \(\Sym(E)\)-模 \(M\)，使得 \(F=\Proj_0(M)\)。这样的 \(M\) 有一个有限分次消解
+首先证明，\(\xi\) 的幂作为 \(K^\bullet(S)\)-模生成 \(K^\bullet(X)\)。为此，只需建立下述事实。若 \(F\) 是 \(X\) 上的有限型局部自由层，则可以找到一个有限表现、且在 \(\mathcal O_S\) 上平坦的分次 \(\Sym(E)\)-模 \(M\)，使得 \(F=\Proj_0(M)\)（\(\Sym(E)\) 是 \(E\) 的对称代数；记号 \(\Proj_0\) 参见 EGA II 8.12.1）。这样的 \(M\) 有一个有限分次消解
 \[
   0\longrightarrow L_{r+1}\longrightarrow \cdots \longrightarrow L_0\longrightarrow M\longrightarrow 0
 \]
@@ -54,6 +54,12 @@ Pierre Berthelot
 \sgaStableTarget{sga6.e06.eq.1-2-2}\begin{equation}\tag{1.2.2}
   M\simeq \bigoplus_{n=n_0}^{n_1} B(-n)^{k_n}.
 \end{equation}
+
+这给出 \(M\) 的一个齐次有限型自由分次 \(B\)-模的直和分解
+\[
+ M=\bigoplus_{n=n_0}^{n_1}M^{(n)},
+\]
+其中 \(M^{(n)}\) 的次数为 \(n\)，秩为 \(k_n\)。
 
 \sgaStableTarget{sga6.e06.prop.1-2}\textbf{命题 1.2.3.} 分解 \hyperlink{sga6.e06.eq.1-2-2}{(1.2.2)} 中出现的整数 \(k_n\) 与所选分解无关。
 
@@ -122,11 +128,21 @@ S \arrow[r,"g_0"'] & S_0 .
 \]
 其中 \(L_i\) 是有限型局部自由分次 \(B\)-模。
 
-首先，\(M\) 有一个分次满同态 \(L\to M\)，其中 \(L\) 有限型局部自由：取整数 \(N\)，使 \(M\) 由次数 \(\leq N\) 的分量生成，并取
+先证明：对每个满足命题假设的分次 \(B\)-模 \(M\)，都存在一个分次满同态 \(L\to M\)，其中 \(L\) 是有限型局部自由分次 \(B\)-模。由于 \(M\) 有限型，存在整数 \(N\)，使 \(M\) 由次数 \(\leq N\) 的齐次分量在 \(B\) 上生成。令
 \[
-  L=\bigoplus_{i\leq N} M_i\otimes_{\mathcal O_S} B(-i),
+ L=\bigoplus_{i\leq N}M_i\otimes_{\mathcal O_S}B(-i).
 \]
-同态取为 \hyperlink{sga6.e06.eq.1-2-1}{(1.2.1)}。对逐次所得的核重复此构造，就得到一个全局分次消解。经过 \(r+1\) 步后，\hyperlink{sga6.e06.lem.1-5-2}{引理 1.5.2} 表明，在各仿射开集上局部，最后的核在 \(B\) 上是投射的，而\hyperlink{sga6.e06.lem.1-5-1}{引理 1.5.1} 随后表明它作为分次 \(B\)-模是局部自由的；截断即得到所述消解。
+利用 (1.2.1) 定义 \(L\to M\)，此同态显然满。
+
+由 1.5.2，\(M\) 在每个仿射开集上都有一个由有限型局部自由 \(B\)-模组成的不分次消解。因此，若已给出一个全局部分消解
+\[
+ L_i\longrightarrow L_{i-1}\longrightarrow\cdots
+ \longrightarrow L_0\longrightarrow M\longrightarrow0,
+\]
+其中各 \(L_j\) 都是有限型局部自由 \(B\)-模，则 \(L_i\to L_{i-1}\) 的核 \(Z_i\) 仍为有限型 \(B\)-模（I 2.11）。对 \(i+1\) 作同样论证，可知它甚至为有限表现。最后，它在 \(S\) 上平坦。因此它满足与 \(M\) 相同的假设，利用开头的论证，便可逐步构造 \(M\) 的一个全局分次消解，各项均为有限型局部自由分次 \(B\)-模。对 \(i\geq r+1\)，由 1.5.2，\(Z_i\) 在每个仿射开集上都是投射 \(B\)-模；由 1.5.1，它作为分次 \(B\)-模也局部自由。于是，在已构造的分次消解中，用 \(Z_{r+1}\) 代替 \(L_{r+1}\)，把后续各项换成零，就得到所述消解。% 原书第372页此处核指标与截断指标的配合须另作数学复核；正文忠实保留。
+
+
+最后证明证明安排中的 c)。
 
 \sgaStableTarget{sga6.e06.prop.1-7}\textbf{命题 1.7.} 设 \(S\) 拟紧，\(E\) 有限型局部自由，\(B=\Sym(E)\)，\(L\) 是有限型局部自由分次 \(B\)-模。则 \(L\) 有一个由分次子模 \(L^{(m)}\) 组成的有限递减滤过，使得
 \[
@@ -139,35 +155,58 @@ S \arrow[r,"g_0"'] & S_0 .
 \]
 其中 \(N_m\) 在 \(S\) 上有限型局部自由。
 
-问题在 \(S\) 上是局部的。由于 \(S\) 拟紧，局部出现的齐次基的次数都介于两个固定整数之间。对这个区间的长度作归纳。第一步是从最低非零齐次分量出发的典范映射
+由于 \(S\) 拟紧，可以找到整数 \(n_0,n_1\)，使 \(S\) 的每一点附近，\(L\) 的齐次基元素的次数都介于 \(n_0\) 与 \(n_1\) 之间。对 \(N=n_1-n_0\) 作归纳。
+
+若 \(N=0\)，令 \(n=n_0=n_1\)。典范同态 (1.2.1)
 \[
-  L_{n_0}\otimes_{\mathcal O_S}B(-n_0)\longrightarrow L,
+ L_n\otimes_{\mathcal O_S}B(-n)\longrightarrow L
 \]
-它在局部等同于相应的直和因子。商模的局部齐次基的次数更高，因而可以应用归纳假设。
+是同构。事实上，这可局部检验；由 1.2.3，可以假设 \(L\simeq(B(-n))^k\)，此时结论显然。
+
+若 \(N>0\)，仍考虑典范同态
+\[
+ L_{n_0}\otimes_{\mathcal O_S}B(-n_0)\longrightarrow L.
+\]
+局部检验可知，此同态为单同态，其余核 \(L'\) 有限型局部自由，且局部生成元的次数介于 \(n_0+1\) 与 \(n_1\) 之间。事实上，在 \(S\) 的每一点附近，\(L_{n_0}\) 或者为零，或者是 \(L\) 的最低次非零齐次分量。取 (1.2.2) 型直和分解，后一情形下，由 1.2.3，\(L_{n_0}\otimes B(-n_0)\) 同构于 \(L\) 的直和因子 \((B(-n_0))^{k_{n_0}}\)，故得到所述性质。对 \(L'\) 应用归纳假设，立即得到所需结论。
 
 \sgaStableTarget{sga6.e06.sec.1.8}\subsection*{1.8. 由 \(\xi\) 的幂生成}
-设 \(F\) 是 \(X\) 上的有限型局部自由层。由\hyperlink{sga6.e06.cor.1-4}{推论 1.4} 和\hyperlink{sga6.e06.prop.1-6}{命题 1.6}，\(F\) 来自一个分次模 \(M\)，后者有一个由 \(L_i\) 组成的有限分次消解。应用 \(\Proj_0\)，得到 \(X\) 上局部自由层的正合列，因而在 \(K^\bullet(X)\) 中有
+回到定理 1.1 的证明，来证明 \(K^\bullet(X)\) 作为 \(K^\bullet(S)\)-模由 \(\xi\) 的幂生成。
+
+若 \(F\) 是有限型局部自由 \(\mathcal O_X\)-模，由 1.4，存在有限表现、且在 \(S\) 上平坦的分次 \(B\)-模 \(M\)，使 \(F=\Proj_0(M)\)。由 1.6，\(M\) 有一个由有限型局部自由分次 \(B\)-模组成的分次消解。由此得到正合列
 \[
-  \cl(F)=\sum_i(-1)^i\cl(\Proj_0(L_i)).
+0\longrightarrow\Proj_0(L_{r+1})\longrightarrow\cdots
+\longrightarrow\Proj_0(L_0)\longrightarrow\Proj_0(M)\longrightarrow0
 \]
-利用\hyperlink{sga6.e06.prop.1-7}{命题 1.7} 的滤过，每一项都是下列类的和：
+以及 \(K^\bullet(X)\) 中的等式
 \[
-  \cl\bigl(f^*N_{ij}(j)\bigr)=f^*\cl(N_{ij})\,\xi^j .
+ \cl(F)=\sum_i(-1)^i\cl(\Proj_0(L_i)).
 \]
-所以，\(K^\bullet(X)\) 作为 \(K^\bullet(S)\)-模由 \(\xi\) 的幂生成。
+利用 1.7 在各 \(L_i\) 上定义的滤过，得到
+\[
+ \cl(\Proj_0(L_i))
+ =\sum_j\cl\bigl(\Proj_0(N_{ij}\otimes_{\mathcal O_S}B(j))\bigr).
+\]
+而 \(\Proj_0(N_{ij}\otimes_{\mathcal O_S}B(j))=f^*(N_{ij})(j)\)，所以
+\[
+ \cl(\Proj_0(L_i))=\sum_j\cl(f^*N_{ij})\,\xi^j.
+\]
+最终把 \(\cl(F)\) 表示成了 \(\xi\) 的幂的 \(K^\bullet(S)\)-线性组合。
 
 \sgaStableTarget{sga6.e06.sec.1.9}\subsection*{1.9. 关系式}
 为了证明线性相关，使用典范满同态 \(f^*E\to\mathcal O_X(1)\)。其核局部自由且秩为 \(r\)。因此
 \[
   \lambda^{r+1}(f^*E-\xi)=0.
 \]
-由于 \(\lambda_t(-\xi)=1/(1+\xi t)\)，得到关系式
+这里 \(E=\cl(E)\)，\(K^\bullet(X)\) 上的各 \(\lambda^i\) 运算在 V 2.2 中定义。因此
+\[
+ \sum_{i=0}^{r+1}\lambda^i(f^*E)\lambda^{r+1-i}(-\xi)=0.
+\]
+由于 \(\mathcal O_X(1)\) 可逆，\(\lambda_t(\xi)=1+\xi t\)，因而 \(\lambda_t(-\xi)=1/(1+\xi t)\)。最终得到关系式
 \sgaStableTarget{sga6.e06.eq.1-9-1}\begin{equation}\tag{1.9.1}
   \sum_{i=0}^{r+1}(-1)^i\,\lambda^i(E)\,\xi^{r+1-i}=0,
 \end{equation}
-亦即 \(\xi\) 对应于局部自由模 \(E\) 的特征方程。
+最后证明 \(1,\xi,\ldots,\xi^r\) 在 \(K^\bullet(S)\) 上线性无关。\begingroup\renewcommand{\thefootnote}{*}\footnote[1]{此证明归功于 J.-P. Jouanolou。}\endgroup
 \sgaStableTarget{sga6.e06.sec.1.10}\subsection*{1.10--1.11. 线性无关性}
-线性无关性断言的证明归功于 J.-P. Jouanolou。
 
 \sgaStableTarget{sga6.e06.lem.1-10}\textbf{引理 1.10.} 在\hyperlink{sga6.e06.thm.1-1}{定理 1.1} 的假设下，设 \(F\) 和 \(G\) 是 \(X\) 上的有限型局部自由层，假设它们在 \(K^\bullet(X)\) 中有相同的类。则存在整数 \(n_0\)，使得对所有 \(n\geq n_0\)，有
 \[
@@ -177,50 +216,146 @@ S \arrow[r,"g_0"'] & S_0 .
 \end{array}
 \]
 
-\(K^\bullet(X)\) 中两个类相等，意味着它们的差是由局部自由层的短正合列所给关系的有限整数线性组合。用 \(\mathcal O_X(n)\) 扭曲并应用 \(f_*\) 后，当 \(n\) 足够大时，全部高阶正像消失，而且全部正像均有限型局部自由；于是相同的关系在 \(K^\bullet(S)\) 中成立。
+设 \(A\) 是以 \(X\) 上有限型局部自由层的同构类为基的自由阿贝尔群。根据 \(K^\bullet\) 的构造，\(F,G\) 在 \(K^\bullet(X)\) 中具有相同的类，意味着存在有限型局部自由 \(\mathcal O_X\)-模的正合列
+\[
+ 0\longrightarrow L_i\longrightarrow M_i\longrightarrow N_i
+ \longrightarrow0\qquad(i=1,\ldots,k)
+\]
+以及整数 \(n_i\)，使在 \(A\) 中有
+\[
+ (F)-(G)=\sum_i n_i\bigl((L_i)-(M_i)+(N_i)\bigr).
+\]
+对每个 \(n\)，与 \(\mathcal O_X(n)\) 张量定义 \(A\) 的自同构，因此
+\[
+ (F(n))-(G(n))
+ =\sum_i n_i\bigl((L_i(n))-(M_i(n))+(N_i(n))\bigr),
+\]
+且各列 \(0\to L_i(n)\to M_i(n)\to N_i(n)\to0\) 仍正合。
+
+设 \(B'\) 是以 \(S\) 上拟凝聚层的同构类为基的自由阿贝尔群，\(A'\subset B'\) 是由 \(S\) 上有限型局部自由层的类生成的子群。取正像定义同态 \(A\to B'\)，所以仍有
+\[
+\begin{aligned}
+ &(f_*F(n))-(f_*G(n))\\
+ &\quad=\sum_i n_i\bigl((f_*L_i(n))-(f_*M_i(n))+(f_*N_i(n))\bigr).
+\end{aligned}
+\]
+当 \(n\) 充分大时，各 \(R^k f_*L_i(n)\)（\(k\geq1\)）消失，且 \(f_*L_i(n)\)、\(f_*M_i(n)\)、\(f_*N_i(n)\)、\(f_*F(n)\)、\(f_*G(n)\) 均有限型局部自由。于是这些元素全部属于 \(A'\)，满足上面的关系，而且各列
+\[
+ 0\longrightarrow f_*L_i(n)\longrightarrow f_*M_i(n)
+ \longrightarrow f_*N_i(n)\longrightarrow0
+\]
+正合。因此 \(f_*F(n)\) 和 \(f_*G(n)\) 在 \(K^\bullet(S)\) 中具有相同的类。
 
 假设
 \sgaStableTarget{sga6.e06.eq.1-11-1}\begin{equation}\tag{1.11.1}
   f^*(x_0)+f^*(x_1)\xi+\cdots+f^*(x_r)\xi^r=0 .
 \end{equation}
-把每个 \(x_i\) 写成局部自由层的类之差，并加上适当的直和项，就把 \hyperlink{sga6.e06.eq.1-11-1}{(1.11.1)} 化成 \(X\) 上有限型局部自由层的类的等式 \(\cl(F)=\cl(G)\)。由\hyperlink{sga6.e06.lem.1-10}{引理 1.10}，对所有足够大的 \(n\)，有
+把每个 \(x_j\) 写成两个层的类之差：\(x_j=\cl(E_j)-\cl(E'_j)\)，其中 \(E_j,E'_j\) 均为 \(S\) 上的有限型局部自由层。令
+\[
+ F=\bigoplus_{j=0}^r f^*E_j(j),\qquad
+ F'=\bigoplus_{j=0}^r f^*E'_j(j).
+\]
+等式 (1.11.1) 就成为 \(\cl(F)=\cl(F')\)。由引理 1.10，对充分大的 \(n\)，有 \(\cl(f_*F(n))=\cl(f_*F'(n))\)。而
+\[
+\begin{aligned}
+ f_*F(n)&=\bigoplus_j f_*\bigl(f^*E_j\otimes\mathcal O_X(n+j)\bigr)\\
+        &=\bigoplus_j E_j\otimes f_*\mathcal O_X(n+j).
+\end{aligned}
+\]
+又 \(f_*\mathcal O_X(n+j)=\Sym^{n+j}(E)\)；用 \(\sigma_{n+j}(E)\) 表示其在 \(K^\bullet(S)\) 中的类。于是 (1.11.1) 最终给出
 \sgaStableTarget{sga6.e06.eq.1-11-2}\begin{equation}\tag{1.11.2}
   \sum_{i=0}^{r} x_i\,\sigma_{n+i}(E)=0
   \quad\text{在 }K^\bullet(S)\text{ 中},
 \end{equation}
 其中 \(\sigma_p(E)\) 表示 \(\Sym^p(E)\) 的类，并约定当 \(p<0\) 时，\(\sigma_p(E)=0\)。
 
-对称代数的 Koszul 复形对 \(p\geq 1\) 给出
+考虑复形
+\[
+\begin{aligned}
+ 0\longrightarrow\bigwedge^{r+1}E\otimes\Sym(E)
+ \longrightarrow\cdots\longrightarrow E\otimes\Sym(E)
+ \longrightarrow\Sym(E)\longrightarrow\mathcal O_S\longrightarrow0,
+\end{aligned}
+\]
+其中箭头由
+\[
+\begin{aligned}
+ &(x_1\wedge\cdots\wedge x_n)\otimes a\\
+ &\quad\longmapsto\sum_{j=1}^n(-1)^{j-1}
+ (x_1\wedge\cdots\wedge\widehat{x_j}\wedge\cdots\wedge x_n)\otimes ax_j
+\end{aligned}
+\]
+定义。把 \(\bigwedge^n E\) 看作集中于次数 \(n\) 的分次 \(\mathcal O_S\)-模，这就是分次 \(\Sym(E)\)-模的复形，其态射均为分次态射。
+
+这个复形是 \(\mathcal O_S\) 的消解：在 \(E\) 自由的开集上，\(\Sym(E)\) 等同于多项式代数 \(A[T_0,\ldots,T_r]\)，此复形等同于由 \(\Sym(E)\)-正则序列 \(T_0,\ldots,T_r\) 定义的 Koszul 复形；它是 \(\Sym(E)/(T_0,\ldots,T_r)=\mathcal O_S\) 的消解。
+
+写出各正次数齐次分量无环，便在 \(K^\bullet(S)\) 中得到：对所有 \(p\geq1\)，
 \sgaStableTarget{sga6.e06.eq.1-11-3}\begin{equation}\tag{1.11.3}
   \sum_{i=0}^{r+1}(-1)^i\lambda^i(E)\,\sigma_{p-i}(E)=0 .
 \end{equation}
-利用这一关系，在 \hyperlink{sga6.e06.eq.1-11-2}{(1.11.2)} 中从充分大的 \(n\) 开始作递降归纳。由此可知，\hyperlink{sga6.e06.eq.1-11-2}{(1.11.2)} 对一切 \(n\geq -r\) 成立。取 \(n=-r\)，得 \(x_r=0\)；重复这一论证，依次得到所有 \(x_i=0\)。这就证明了线性无关性，从而证明了\hyperlink{sga6.e06.thm.1-1}{定理 1.1}。
+假设 (1.11.2) 对 \(n\geq n_0\) 成立。来证明它对 \(n_0-1\) 仍成立；由此可以递降归纳到 \(n=-r\)，后面将看到这足以推出各 \(x_i\) 为零。
 
-\sgaStableTarget{sga6.e06.rem.1-12}\textbf{注 1.12.} 令
+由 (1.11.3)，对任意 \(p(j)\geq1\)，有
+\[
+ \sum_{j=0}^r x_j\left(\sum_{i=0}^{r+1}
+ (-1)^i\lambda^i(E)\sigma_{p(j)-i}(E)\right)=0.
+\]
+取 \(p(j)=n_0+r+j\)；当 \(n_0>-r\) 时，它确实 \(\geq1\)。得到
+\sgaStableTarget{sga6.e06.eq.1-11-4}\begin{equation}\tag{1.11.4}
+\begin{aligned}
+ &\sum_{j=0}^r x_j\sum_{i=0}^{r+1}(-1)^i\lambda^i(E)
+                  \sigma_{n_0+r+j-i}(E)\\
+ &=\sum_{i=0}^{r+1}(-1)^i\lambda^i(E)
+                  \sum_{j=0}^r x_j\sigma_{n_0+r+j-i}(E)=0.
+\end{aligned}
+\end{equation}
+若 \(i\ne r+1\)，则 \(n_0+r-i\geq n_0\)，由 (1.11.2)，相应的内层和为零。因此 (1.11.4) 化为
+\[
+ \lambda^{r+1}(E)\sum_{j=0}^r x_j\sigma_{n_0-1+j}(E)=0.
+\]
+\(E\) 的秩为 \(r+1\)，故 \(\lambda^{r+1}(E)\) 是可逆层的类，在 \(K^\bullet(S)\) 中可逆。因此得到 \(n=n_0-1\) 时的 (1.11.2)。
+
+所以 (1.11.2) 对 \(n\geq-r\) 成立。取 \(n=-r\)，得到 \(x_r\sigma_0(E)=0\)。由于 \(\sigma_0(E)=1\)，有 \(x_r=0\)。再使 \(n\) 从 \(-r\) 依次取到 \(0\)，对 \(j\) 作递降归纳，就得到所有 \(x_j=0\)。这证明了 \(1,\xi,\ldots,\xi^r\) 在 \(K^\bullet(S)\) 上线性无关，完成了定理 1.1 的证明。
+
+\sgaStableTarget{sga6.e06.rem.1-12}\textbf{注 1.12.} 对每个有限型局部自由 \(\mathcal O_S\)-模 \(E\)，设 \(\sigma_i(E)\) 是 \(E\) 的第 \(i\) 个对称幂在 \(K^\bullet(S)\) 中的类。令
 \[
   \sigma_t(E)=\sum_{i\geq 0}\sigma_i(E)t^i .
 \]
 关系式 \hyperlink{sga6.e06.eq.1-11-3}{(1.11.3)} 等价于
 \[
-  \lambda_t(E)\,\sigma_{-t}(E)=1.
+  \lambda_t(E)\,\sigma_{-t}(E)=1.\tag{1.12.1}
 \]
 特别地，\(\sigma_t\) 是可加的，并延拓为同态
 \[
   K^\bullet(S)\longrightarrow 1+K^\bullet(S)[[t]]_+ .
 \]
 
-\sgaStableTarget{sga6.e06.rem.1-13}\textbf{注 1.13.} \(\xi\) 的任意连续 \(r+1\) 个幂都是 \(K^\bullet(X)\) 在 \(K^\bullet(S)\) 上的一组基。若
+\sgaStableTarget{sga6.e06.rem.1-13}\textbf{注 1.13.} 可以取 \(\xi^k,\xi^{k+1},\ldots,\xi^{k+r+1}\) 作为 \(K^\bullet(X)\) 在 \(K^\bullet(S)\) 上的一组基。\footnote{译校注：法文原书第 379 页的末项印作 \(\xi^{k+r+1}\)；与定理 1.1 所述秩及本段论证相符的末项应为 \(\xi^{k+r}\)，即连续 \(r+1\) 个幂。}因为 \(\xi\) 可逆，这些元素线性无关；另一方面，由 (1.9.1) 及 \(\xi\) 的可逆性，其他各幂都可以显式表示成它们的 \(K^\bullet(S)\)-线性组合。
+
+令 \(x=1-\xi^{-1}\)（\(x\) 可解释为“超平面截面的类”）。于是也可取 \(1,x,\ldots,x^r\) 为基。为得到 \(1,x,\ldots,x^{r+1}\) 的线性相关方程，考虑正合列
 \[
-  x=1-\xi^{-1}
+ 0\longrightarrow F\longrightarrow f^*E\longrightarrow\mathcal O_X(1)\longrightarrow0,
 \]
-是超平面截面的类，则 \(1,x,\ldots,x^r\) 也是一组基。线性相关关系变为
+以及取对偶所得的正合列
+\[
+ 0\longrightarrow\mathcal O_X(-1)\longrightarrow f^*\check E
+ \longrightarrow\check F\longrightarrow0.
+\]
+注意 \(\gamma^{r+1}(\check F-r)=0\)，从而
+\[
+ \gamma^{r+1}(\check F-r)
+ =\gamma^{r+1}(\check E-r-1+x)=0,
+\]
+即
 \sgaStableTarget{sga6.e06.eq.1-13-1}\begin{equation}\tag{1.13.1}
-  \sum_{k=0}^{r+1}\lambda^{r+1-k}(\check E-r-1)\,x^k=0.
+ \sum_{k=0}^{r+1}\gamma^{r+1-k}(\check E-r-1)x^k=0.
 \end{equation}
-当 \(E=\mathcal O_S^{r+1}\)，因而 \(X=\mathbf P^r_S\) 时，这化为
-\[
-  x^{r+1}=0.
-\]
+引入 \(x'=\xi-1\) 也得到类似结果。
+
+最后注意，若 \(E=\mathcal O_S^{r+1}\)，从而 \(X=\mathbf P_S^r\)，则 \(E=r+1\)，等式 (1.13.1) 化为
+\sgaStableTarget{sga6.e06.eq.1-13-2}\begin{equation}\tag{1.13.2}
+ x^{r+1}=0.
+\end{equation}
 \sgaStableTarget{sga6.e06.rem.1-14}\textbf{注 1.14.} 使用 Hakim 意义下的相对概形，当 \(S\) 是局部赋环拓扑斯时，\hyperlink{sga6.e06.thm.1-1}{定理 1.1} 仍然有意义；若该拓扑斯的终对象拟紧，证明也可以直接移用而无实质变化。
 
 \sgaStableTarget{sga6.e06.sec.2}\section*{2. 射影丛的 \(K^\bullet\) 的计算：完美复形的情形}
@@ -233,7 +368,7 @@ S \arrow[r,"g_0"'] & S_0 .
 \]
 为基的自由 \(K^\bullet(S)\)-模。
 \sgaStableTarget{sga6.e06.sec.2.2}\subsection*{2.2. 记号}
-固定如下记号：\(B\) 表示 \(E\) 的对称代数；\(\mathcal A\) 表示 \(\mathcal O_X\)-模范畴，\(\mathcal G\) 表示以分次态射为态射的分次 \(B\)-模范畴，\(\mathcal G_0\) 表示 \(\mathcal G\) 的如下满子范畴：其对象是作为分次 \(B\)-模有限型局部自由的 \(B\)-模；\(\mathcal G'\) 表示 \(\mathcal O_S\)-模范畴。对每个 \(n\) 以及 \(D^+(\mathcal A)\) 的每个复形 \(L^\bullet\)，我们用 \(L^\bullet(n)\) 表示复形
+固定如下记号：\(B\) 表示 \(E\) 的对称代数；\(\mathcal A\) 表示 \(\mathcal O_X\)-模范畴，\(\mathcal G\) 表示以分次态射为态射的分次 \(B\)-模范畴，\(\mathcal G_0\) 表示 \(\mathcal G\) 的如下满子范畴：其对象是作为分次 \(B\)-模有限型局部自由的 \(B\)-模；\(\mathcal G'\) 表示 \(\mathcal O_S\)-模范畴。范畴 \(\mathcal A,\mathcal G,\mathcal G'\) 都是阿贝尔范畴。对每个 \(n\) 以及 \(D^+(\mathcal A)\) 的每个复形 \(L^\bullet\)，我们用 \(L^\bullet(n)\) 表示复形
 \[
   L^\bullet(n)=L^\bullet\otimes_{\mathcal O_X}\mathcal O_X(n).
 \]
@@ -350,19 +485,48 @@ f_{U,st}^{-1}\bigl(M_{(s),U}\bigr)
 \sgaStableTarget{sga6.e06.eq.2-4-1}\begin{equation}\tag{2.4.1}
   F_k(L)=\bigoplus_{n\geq k} f_*(L(n)).
 \end{equation}
-函子 \(F_k\) 左正合，因而有右导出函子
+函子 \(F_k:\mathcal A\to\mathcal G\) 左正合。由于 \(\mathcal O_X\)-模范畴有足够的内射对象，可以定义右导出函子
 \sgaStableTarget{sga6.e06.eq.2-4-2}\begin{equation}\tag{2.4.2}
   RF_k:D^+(\mathcal A)\longrightarrow D^+(\mathcal G).
 \end{equation}
-若 \(L\) 有限型局部自由，则由上面 1.3 所用的消失定理，当 \(k\) 足够大时，\(L\) 是 \(F_k\)-无环的。
+若 \(L\) 是有限型局部自由 \(\mathcal O_X\)-模，则存在整数 \(k_0\)，使对 \(k\geq k_0\)，\(L\) 为 \(F_k\)-无环。只需证明，对充分大的 \(n\)，\(L\) 关于函子 \(L\mapsto f_*(L(n))\) 无环。由于与 \(\mathcal O_X(n)\) 张量是正合函子，这立即由复合函子谱序列及 1.3 得到。
 
-对每个 \(k\)，有函子性态射
+\subsection*{2.5}
+我们要对每个 \(\mathcal O_X\)-模 \(F\)，构造一个关于 \(F\) 具有函子性的同态
 \sgaStableTarget{sga6.e06.eq.2-5-1}\begin{equation}\tag{2.5.1}
-  \beta:\Proj_0(F_k(F))\longrightarrow F,
+ \beta:\Proj_0(F_k(F))\longrightarrow F.
 \end{equation}
-它在每个 \(D_+(U,s)\) 上由通常的局部化公式构造：把一个由充分高次齐次截面表示的分式送到 \(F\) 的相应局部截面。在拟凝聚情形，这就是 EGA 中的典范态射。过渡到导出范畴得到
+为此，定义 \(\beta\) 在各 \(D_+(U,s)\)（2.3.2）上的限制。由构造，令 \(M=F_k(F)\)，则
+\[
+ \Proj_0(M)|_{D_+(U,s)}=\bar f_{U,s}^{\,*}(M_{(s),U}).
+\]
+为了定义同态
+\[
+ \bar f_{U,s}^{\,*}(M_{(s),U})\longrightarrow F|_{D_+(U,s)},
+\]
+根据 \(\bar f_{U,s}^{\,*}\) 是正像函子的左伴随这一定义，只需定义一个 \(f_{U,s*}(\mathcal O_X)\)-线性同态
+\[
+ M_{(s),U}\longrightarrow f_{U,s*}(F|_{D_+(U,s)}).
+\]
+为此，需对 \(U\) 的每个开集 \(V\) 给出同态
 \sgaStableTarget{sga6.e06.eq.2-5-2}\begin{equation}\tag{2.5.2}
-  \Proj_0\circ RF_k \longrightarrow \operatorname{id}_{D^+(\mathcal A)}.
+ \Gamma(V,M)_{(s)}\longrightarrow\Gamma(D_+(V,s),F),
+\end{equation}
+使其与 \(U\) 中开集的限制相容，再取相应的伴随层同态。具体定义如下：设 \(z/s^n\in\Gamma(V,M)_{(s)}\)。若 \(s\) 的次数为 \(d\)，则
+\[
+ z\in\Gamma(V,M_{nd})=\Gamma(f^{-1}(V),F(nd)).
+\]
+把 \(z/s^n\) 送到 \(F\) 在 \(D_+(V,s)\) 上的截面 \(z\,q_d(s^n)^{-1}\)，这里
+\[
+ q_e:\Gamma(V,B_e)\longrightarrow\Gamma(f^{-1}(V),\mathcal O_X(e))
+\]
+是典范同态（参见 EGA II 2.6.3 和 2.6.4）。容易验证所需的相容性，由粘合得到 (2.5.1)。\par\smallskip\noindent\textit{译校注：}法文原书第 385 页印作 \(q_d(s^n)\)；按下行 \(q_e\) 的定义及 \(s^n\) 的次数，此处的下标应为 \(nd\)。
+
+显然，若 \(F\) 拟凝聚，如此构造的同态就是 EGA II (3.3.4.1) 中的同态。
+
+\(\mathcal O_X\)-模范畴上的函子同态 \(\Proj_0\circ F_k\to\operatorname{id}\)，过渡到导出范畴后，给出 \(D^+(\mathcal A)\) 上的函子同态
+\sgaStableTarget{sga6.e06.eq.2-5-3}\begin{equation}\tag{2.5.3}
+ \Proj_0\circ RF_k\longrightarrow\operatorname{id}_{D^+(\mathcal A)}.
 \end{equation}
 
 \sgaStableTarget{sga6.e06.prop.2-6}\textbf{命题 2.6.} 设 \(S\) 拟紧，\(E\) 有限型局部自由，\(X=\mathbf P(E)\)，\(L^\bullet\) 是 \(X\) 上的完美复形。则当 \(k\) 足够大时，
@@ -374,14 +538,26 @@ f_{U,st}^{-1}\bigl(M_{(s),U}\bigr)
 \end{array}
 \]
 
-此断言在 \(S\) 上是局部的。因此可以假设 \(S\) 仿射。由于 \(\mathcal O_X(1)\) 丰沛，完美复形 \(L^\bullet\) 可以在局部、进而细化后在全局表示为一个各项有限型局部自由的有界复形。当 \(k\) 足够大时，这有限多个项都为 \(F_k\)-无环的，且分次模 \(F_k(L^i)\) 都是 \(\mathcal G_0\)-完美的。这给出 (i)，此时态射 \hyperlink{sga6.e06.eq.2-5-2}{(2.5.2)} 逐项都是同构，从而得到 (ii)。
+这里所用的 \(\mathcal G_0\)-完美复形概念是局部概念，即关于 \(\mathcal G_0\) 在 \(S\) 上定义的纤维范畴而言的完美性。此概念确实有意义，因为 \(\mathcal G_0\) 满足 I 4.0 的公理：只有对满同态的核的稳定性并非立即可见，而这一点由 1.5.1 得到。
+
+由于 \(S\) 拟紧，只需在 \(S\) 上局部验证 2.6 的两个断言，所以可假设 \(S\) 仿射。此时可逆层 \(\mathcal O_X(1)\) 丰沛，在 \(X\) 上有全局消解（II 2.2.9）。因此存在严格完美复形 \(L'{}^\bullet\)，以及完美复形的导出范畴中的同构 \(L^\bullet\simeq L'{}^\bullet\)，故可假设 \(L^\bullet\) 严格完美。由 2.4，当 \(k\) 足够大时，各 \(L^i\) 都为 \(F_k\)-无环；除有限多个以外，这些项均为零。因此对充分大的 \(k\)，
+\[
+ RF_k(L^\bullet)=F_k(L^\bullet).
+\]
+由 1.3 和 1.6，可找到 \(k_0\)，使对 \(k\geq k_0\)，上一条件成立，而且每个 \(F_k(L^i)\) 都是 \(\mathcal G_0\)-完美 \(B\)-模。于是复形 \(F_k(L^\bullet)\) 为 \(\mathcal G_0\)-完美，得到 i)。
+
+如此选取 \(k\) 后，同态 (2.5.3) 就是
+\[
+ \Proj_0(F_k(L^\bullet))\longrightarrow L^\bullet.
+\]
+由于已假设 \(L^\bullet\) 严格完美，它在每个分量上都是同构，得到 ii)。
 
 \sgaStableTarget{sga6.e06.sec.2.7}\subsection*{2.7. \(\mathcal G_0\)-完美复形的分解}
 在 \(\mathcal G\) 上，把一个分次 \(B\)-模送到其第 \(n\) 个齐次分量的函子，是取值于 \(\mathcal G'\) 的正合函子；它定义函子
 \sgaStableTarget{sga6.e06.eq.2-7-1}\begin{equation}\tag{2.7.1}
   \Comp_n:D^+(\mathcal G)\longrightarrow D^+(\mathcal G').
 \end{equation}
-同态 \hyperlink{sga6.e06.eq.1-2-1}{(1.2.1)} 给出函子态射
+对每个整数 \(n\)，还可考虑由与 \(B(-n)\) 张量定义的函子 \(\mathcal G'\to\mathcal G\)。同态 \hyperlink{sga6.e06.eq.1-2-1}{(1.2.1)} 先给出 \(\mathcal G\) 上的函子态射，再给出相应导出范畴间的函子态射
 \sgaStableTarget{sga6.e06.eq.2-7-2}\begin{equation}\tag{2.7.2}
   \Comp_n\otimes_{\mathcal O_S}B(-n)\longrightarrow
   \operatorname{id}_{D^+(\mathcal G)}.
@@ -403,34 +579,64 @@ N_k^\bullet & \longrightarrow & P_{k-1}^\bullet,
 \]
 而 \(K_i^\bullet\) 是 \(S\) 上通常意义下的完美复形。
 
-事实上，由于 \(M^\bullet\) 是 \(\mathcal G_0\)-完美的，且 \(S\) 拟紧，存在 \(S\) 的有限覆盖以及整数 \(d_0\)，使得在覆盖的每个开集上，\(M^\bullet\) 都表示为有限型局部自由 \(B\)-模组成的有界复形，且没有次数 \(<d_0\) 的齐次生成元。取最小的 \(d_0\)，态射 \hyperlink{sga6.e06.eq.2-7-2}{(2.7.2)} 抽取出最低次部分。其锥的全部齐次生成元的次数都严格增大。重复这一过程，并利用\hyperlink{sga6.e06.prop.1-7}{命题 1.7} 中次数区间的有限性，便得到所需的有限个三角形。
+由于 \(M^\bullet\) 是 \(\mathcal G_0\)-完美的，且 \(S\) 拟紧，存在 \(S\) 的一个有限覆盖及整数 \(d_0\)，使在此覆盖的每个开集 \(U\) 上，\(M^\bullet\) 同构于一个由有限型局部自由 \(B\)-模组成的有界复形 \(M_U^\bullet\)，且当 \(d<d_0\) 时，\(\Comp_d(M_U^\bullet)=0\)。
+
+考虑典范态射 (2.7.2)
+\[
+ N_1^\bullet=\Comp_{d_0}(M^\bullet)\otimes_{\mathcal O_S}B(-d_0)
+ \longrightarrow M^\bullet,
+\]
+设 \(P_1^\bullet\) 为其锥。它仍为 \(\mathcal G_0\)-完美复形。事实上，对每个 \(n\)，\(\Comp_n(M^\bullet)\) 是 \(S\) 上的完美复形，因为当 \(M^\bullet\) 有界且各项为有限型局部自由 \(B\)-模时，这一点成立。因此 \(\Comp_{d_0}(M^\bullet)\otimes B(-d_0)\) 是 \(\mathcal G_0\)-完美复形，其锥也如此（I 4.10）。
+
+另一方面，在覆盖的每个开集 \(U\) 上可写出交换图
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+ \Comp_{d_0}(M^\bullet)\otimes B(-d_0) \arrow[r] \arrow[d,"\sim"'] &
+ M^\bullet \arrow[d,"\sim"]\\
+ \Comp_{d_0}(M_U^\bullet)\otimes B(-d_0) \arrow[r] & M_U^\bullet.
+\end{tikzcd}
+\]
+它诱导两个锥之间的同构。而下方同态在次数 \(d_0\) 上为同构，所以 \(P_1^\bullet|_U\) 同构于一个有界复形，其各项为有限型局部自由 \(B\)-模，且 \(d<d_0+1\) 时的齐次分量 \(\Comp_d\) 均为零。因此 \(P_1^\bullet\) 满足与 \(M^\bullet\) 相同的性质，只是 \(d_0\) 换成了 \(d_0+1\)。
+
+可以迭代此过程，只需验证有限步后得到的复形 \(P_k^\bullet\) 无环。这仍是局部问题，故只需对 \(M_U^\bullet\) 验证。对它的每一项，上述态射恰好是定义命题 1.7 的滤过的那些态射。该滤过有限，所以从 \(M_U^\bullet\) 出发经过有限步就得到零复形，即相应的 \(P_k^\bullet\) 无环。
 
 \sgaStableTarget{sga6.e06.sec.2.8}\subsection*{2.8. 定理 2.1 的证明}
-设 \(L^\bullet\) 是 \(X\) 上的完美复形。对充分大的 \(k\)，令
+设 \(L^\bullet\) 是 \(X\) 上的完美复形。存在整数 \(k\)，使 \(M^\bullet=RF_k(L^\bullet)\) 为 \(\mathcal G_0\)-完美复形，且 \(L^\bullet\simeq\Proj_0(RF_k(L^\bullet))\)。对 \(M^\bullet\) 应用 2.7，再应用函子 \(\Proj_0\)，所构造的可区别三角形序列给出完美复形的导出范畴中的可区别三角形序列；显然，\(\Proj_0\) 把 \(\mathcal G_0\)-完美复形变为完美复形。此外，对 \(D^+(\mathcal G')\) 中的 \(K^\bullet\)，有
 \[
-  M^\bullet=RF_k(L^\bullet).
+ \Proj_0\bigl(K^\bullet\otimes_{\mathcal O_S}B(d)\bigr)=f^*(K^\bullet)(d).
 \]
-由\hyperlink{sga6.e06.prop.2-6}{命题 2.6}，\(M^\bullet\) 是 \(\mathcal G_0\)-完美的，且 \(\Proj_0(M^\bullet)\simeq L^\bullet\)。应用 \hyperlink{sga6.e06.sec.2.7}{2.7} 的分解，再应用 \(\Proj_0\)，在 \(K^\bullet(X)\) 中得到
+注意，由于 \(f\) 平坦，\(f^*=Lf^*\)。因此，在 \(K^\bullet(X)\) 中得到
 \[
-  \cl(L^\bullet)
-  =
-  \sum_i \cl\bigl(f^*K_i^\bullet(d_i)\bigr)
-  =
-  \sum_i f^*\cl(K_i^\bullet)\,\xi^{d_i}.
+ \cl(L^\bullet)=\sum_i\cl(f^*K_i^\bullet)\xi^{d_i}
+              =\sum_i f^*\cl(K_i^\bullet)\xi^{d_i},
 \]
-因此，\(\xi\) 的幂作为 \(K^\bullet(S)\)-模生成 \(K^\bullet(X)\)。
+其中 \(K_i^\bullet\) 是 2.7 中的 \(S\) 上完美复形。所以，\(K^\bullet(X)\) 作为 \(K^\bullet(S)\)-模由 \(\xi\) 的幂生成。
 
-线性相关关系仍然是关系式 \hyperlink{sga6.e06.eq.1-9-1}{(1.9.1)}，只是现在把它解释为完美复形的 Grothendieck 群中的关系。为了证明线性无关，使用 \(K^\bullet(S)\)-线性同态
+为证明 \(1,\xi,\ldots,\xi^{r+1}\) 线性相关，考虑同态
 \[
-  f_*:K^\bullet(X)\longrightarrow K^\bullet(S).
+ K^\bullet_{\mathrm{naive}}(X)\longrightarrow K^\bullet_{\mathrm{parf}}(X),
 \]
-对射影丛的结构层和负扭曲，有
+它把有限型局部自由层 \(L\) 的类，送到在 \(0\) 次为 \(L\)、其余次数为零的复形的类。方程 (1.9.1) 由此给出 \(K^\bullet_{\mathrm{parf}}(X)\) 中的线性相关关系。
+
+为证明 \(1,\xi,\ldots,\xi^r\) 线性无关，可以使用 \(K^\bullet(S)\)-线性态射
 \[
-  f_*(1)=1,\qquad f_*(\xi^n)=0\quad(-r\leq n<0).
+ f_*:K^\bullet_{\mathrm{parf}}(X)\longrightarrow K^\bullet_{\mathrm{parf}}(S).
 \]
-用 \(\xi\) 的适当负幂乘 \(1,\xi,\ldots,\xi^r\) 之间的一个关系，再依次应用 \(f_*\)，得到其全部系数都等于零。这就完成了\hyperlink{sga6.e06.thm.2-1}{定理 2.1} 的证明。
+有 \(f_*(1)=1\)，因为 \(f_*\mathcal O_X=\mathcal O_S\)，且 \(R^if_*\mathcal O_X=0\)（\(i\geq1\)）。还具有 \(f_*(\xi^n)=0\)（\(-r\leq n<0\)），因为此时所有 \(R^if_*\mathcal O_X(n)\)（\(i\geq0\)）都为零。
 
-
+若有关系式
+\[
+ f^*(x_0)+f^*(x_1)\xi+\cdots+f^*(x_r)\xi^r=0,
+\]
+乘以 \(\xi^{-r}\) 并应用 \(f_*\)，得到 \(x_r=0\)。由此归纳即可：若 \(0\leq s\leq r\)，且对 \(s<j\leq r\) 有 \(x_j=0\)，则
+\[
+ \sum_{i=0}^s f^*(x_i)\xi^i=0,
+\]
+从而乘以 \(\xi^{r-s}\) 后有
+\[
+ \sum_{i=0}^s f^*(x_i)\xi^{i+r-s}=0,
+\]
+由前面的论证得到 \(x_s=0\)。这完成了证明。
 
 % 第 VI 讲的续接宏
 \providecommand{\Sym}{\operatorname{Sym}}
@@ -443,16 +649,6 @@ N_k^\bullet & \longrightarrow & P_{k-1}^\bullet,
 \providecommand{\Dflag}{D}
 \providecommand{\Gmn}{G}
 
-
-这就完成了归纳，因为若 \(0\le s\le r\)，且当 \(s<j\le r\) 时 \(x_j=0\)，则由关系式
-\[
-  \sum_{i=0}^{s} f^*(x_i)\xi^i=0
-\]
-乘以 \(\xi^{r-s}\) 后得到
-\[
-  \sum_{i=0}^{s} f^*(x_i)\xi^{i+r-s}=0,
-\]
-由前面的论证即有 \(x_s=0\)。
 
 \sgaStableTarget{sga6.e06.sec.3}\section*{3. 射影丛的 \(K^\bullet\) 的结构定理的推论}
 
@@ -468,7 +664,7 @@ N_k^\bullet & \longrightarrow & P_{k-1}^\bullet,
 
 利用旗概形的泛性质，立即可验证这一点。概形 \(X\) 可如下构造：考虑一列归纳定义的 \(S\)-概形 \(X_1,\ldots,X_n\)，取 \(X_k\) 为 \(E_k\) 在 \(X_{k-1}\) 上的逆像的旗概形；于是 \(X=X_n\)。因此，为了证明命题，只需证明 \(n=1\) 的情形，一般情形由归纳得到。所以可以假设 \(X\) 是某个有限型局部自由 \(\mathcal O_S\)-模 \(E\) 的旗概形。
 
-% SGA-SRC-001528 — reconstructed by mathematical inference; scan inconclusive
+% 此处构造已核对法文原书第391页。
 把 \(S\) 分解成有限多个既开又闭的子概形以后，可以假设 \(E\) 的秩为常数 \(r\)。此时可如下构造概形 \(X\)。令 \(E=F_0\)，\(S=X_0\)，然后依次定义概形 \(X_1,\ldots,X_r\)，并对每个 \(i\) 定义有限型局部自由 \(\mathcal O_{X_i}\)-模 \(F_i\)，方法为
 \[
   X_i=\mathbb P(F_{i-1}),\qquad
@@ -519,7 +715,15 @@ N_k^\bullet & \longrightarrow & P_{k-1}^\bullet,
 \]
 的类。在此同态下，\(E\) 的类是标准表示的像。因此，\(\lambda^i(E)\) 之间的任何多项式关系，都由 \(R_{\mathbb Z}(\GL(n))\) 中标准表示的相应关系推出。
 
-类似地，对秩分别为 \(n,p\) 的两个局部自由模 \(E,F\)，使用一个 \(\GL(n,A)\times\GL(p,A)\)-挠子；对第一个因子，\(\GL(n,A)\) 通过标准表示作用，\(\GL(p,A)\) 通过平凡表示作用，对 \(F\) 则相反。于是归结到证明：对 \(\Spec\mathbb Z\) 上每个为若干线性群概形的有限乘积的群概形 \(G\)，预 \(\lambda\)-环 \(R_{\mathbb Z}(G)\) 是 \(\lambda\)-环。这可以由 [5] 中对 \(R_{\mathbb Z}(G)\) 的显式计算得到；也可利用 1.14，仿照 \hyperlink{sga6.e06.thm.3-2}{3.2} 进行论证。
+对秩分别为 \(n,p\) 的两个局部自由 \(A\)-模 \(E,F\)，也可作同样的论证。可找到一个 \(\GL(n,A)\times\GL(p,A)\)-挠子 \(P\)，使
+\[
+ E=P\times_{\GL(n,A)\times\GL(p,A)}A^n,
+\]
+其中在 \(A^n\) 上，\(\GL(n,A)\) 通过标准表示作用，\(\GL(p,A)\) 通过平凡表示作用；对 \(F\) 则交换两个因子的作用。接着，按照上面相同的方法定义 \(\lambda\)-同态
+\[
+ R_{\mathbb Z}(\GL(n)\times\GL(p))\longrightarrow K.
+\]
+于是，\(\lambda^i(E),\lambda^j(F)\) 之间的关系，就归结为 \(R_{\mathbb Z}(\GL(n)\times\GL(p))\) 中相应元素的关系。因此，我们归结到证明：对 \(\Spec\mathbb Z\) 上每个为若干线性群概形的有限乘积的群概形 \(G\)，预 \(\lambda\)-环 \(R_{\mathbb Z}(G)\) 是 \(\lambda\)-环。这可以由 [5] 中对 \(R_{\mathbb Z}(G)\) 的显式计算得到；也可利用 1.14，仿照 \hyperlink{sga6.e06.thm.3-2}{3.2} 进行论证。
 
 \sgaStableTarget{sga6.e06.sec.4}\section*{4. 旗丛的 \(K^\bullet\) 的计算}
 
@@ -575,15 +779,15 @@ N_k^\bullet & \longrightarrow & P_{k-1}^\bullet,
   (\xi^{(1)})^{\alpha(1)}\cdots(\xi^{(k)})^{\alpha(k)},
   \qquad 0\leq \alpha_i^{(j)}\leq p_j-i,
 \]
-构成 \(C\) 作为 \(B\)-模的一组基。
+构成 \(C\) 作为 \(B\)-模的一组基；这里 \(\alpha(j)=(\alpha_1^{(j)},\ldots,\alpha_{p_j}^{(j)})\)。
 \item \(A\)-代数 \(B\) 的生成元 \(c_i^{(j)}\) 满足由
 \[
-% SGA-SRC-001520 — reconstructed by mathematical inference; scan inconclusive
-  1+\sum_{i=1}^n c_i
+% 法文原书第395页的原印公式；下附显式译校注。
+  \sum_{i=1}^n c_i
   =
-  \prod_{j=1}^{k}\left(1+\sum_{i=1}^{p_j} c_i^{(j)}\right),
+  \prod_{j=1}^{k}\left(\sum_{i=1}^{p_j} c_i^{(j)}\right),
 \]
-导出的 \(n\) 个等权关系，其中给 \(c_i\) 和 \(c_i^{(j)}\) 赋予权 \(i\)；这 \(n\) 个关系生成各 \(c_i^{(j)}\) 之间的关系理想。
+导出的 \(n\) 个等权关系，其中给 \(c_i\) 和 \(c_i^{(j)}\) 赋予权 \(i\)；这 \(n\) 个关系生成各 \(c_i^{(j)}\) 之间的关系理想。\par\smallskip\noindent\textit{译校注：}法文原书第 395 页上式两边均未印常数项。按此处意指的 Chern 类恒等式，应写成 \(1+\sum_i c_i=\prod_j(1+\sum_i c_i^{(j)})\)。正文保留原印式。
 \end{enumerate}
 
 \sgaStableTarget{sga6.e06.cor.4-4}\textbf{推论 4.4.} \(C\) 中形如
@@ -593,7 +797,7 @@ N_k^\bullet & \longrightarrow & P_{k-1}^\bullet,
 \]
 的元素构成 \(C\) 作为 \(A\)-模的一组基。
 
-引理和推论借自 [2]，第 4 讲，第 4.19 页，其证明参见该处。
+引理和推论借自 [2]，第 4 讲，第 4、19 页，其证明参见该处。
 
 \sgaStableTarget{sga6.e06.sec.4.5}\subsection*{4.5}
 设 \(S\) 拟紧，\(E\) 是秩为 \(n\) 的局部自由 \(\mathcal O_S\)-模，\(\pi=(p_1,\ldots,p_k)\) 是和为 \(n\) 的整数序列，每项均 \(\geq 1\)，并令 \(X=D_\pi(E)\)。概形 \(X\) 带有典范商 \(L_i\)。令 \(L_0=0\)，\(L_k=f^*E\)，其中 \(f:X\to S\) 是结构态射。对 \(1\leq i\leq k\)，设 \(F_i\) 是 \(L_i\to L_{i-1}\) 的核。设 \(K^\bullet(X)\) 是 \(X\) 上有限型局部自由层、或完美复形的 Grothendieck 群。用 \(F_j\) 表示 \(F_j\) 的类，用 \(\lambda_i^{(j)}\) 表示 \(\lambda^i(F_j)\) 的类。当 \(K^\bullet(X)\) 由完美复形定义时，给级数 \(\lambda_t(E)\) 和 \(\lambda_t(F_j)\) 赋予同样显然的意义，其中 \(E\) 表示 \(E\) 的类。最后，
@@ -632,7 +836,7 @@ D(E)=D(F) \arrow[r,"h"] \arrow[dr,"f"'] & \mathbb P(E) \arrow[d,"g"]\\
 \]
 表明 \(K^\bullet(S)\to K^\bullet(X)\) 通过 \(K^\bullet(\mathbb P(E))\) 分解。对 \(D(F)\) 应用归纳假设，再由\hyperlink{sga6.e06.cor.4-4}{推论 4.4}，\(K^\bullet(X)\) 在 \(K^\bullet(\mathbb P(E))\) 上有一组基，由
 \[
-  \xi_2^{\alpha_2}\cdots \xi_n^{\alpha_{n-1}},
+  \xi_2^{\alpha_2}\cdots \xi_{n-1}^{\alpha_{n-1}},
   \qquad 0\leq \alpha_i\leq n-i.
 \]
 组成。此外，\(K^\bullet(\mathbb P(E))\) 在 \(K^\bullet(S)\) 上有基 \(1,\xi_1,\ldots,\xi_1^{n-1}\)。因此，\(K^\bullet(X)\) 在 \(K^\bullet(S)\) 上有基
@@ -730,22 +934,21 @@ D(E)=D(F) \arrow[r,"h"] \arrow[dr,"f"'] & \mathbb P(E) \arrow[d,"g"]\\
 
 \sgaStableTarget{sga6.e06.sec.5.2}\subsection*{5.2}
 对 \(X\) 上的有限型局部自由层 \(G\)，高阶正像 \(R^if_*G\) 不一定是 \(S\) 上的有限型局部自由层。因此，不能像用完美复形定义 \(K^\bullet\) 时那样，用高阶正像的交错和定义正像 \(f_*:K^\bullet(X)\to K^\bullet(S)\)。\hyperlink{sga6.e06.thm.1-1}{定理 1.1} 使我们可以如下绕过这个困难：每个 \(y\in K^\bullet(X)\) 可以唯一地表示成
-\[
+\sgaStableTarget{sga6.e06.eq.5-2-1}\begin{equation}\tag{5.2.1}
    y=a_0+a_1\xi^{-1}+\cdots+a_r\xi^{-r},
   \qquad a_i\in K^\bullet(S),
-\]
+\end{equation}
 于是令
-\[
+\sgaStableTarget{sga6.e06.eq.5-2-2}\begin{equation}\tag{5.2.2}
   f_*(y)=a_0.
-\]
+\end{equation}
 此加法同态满足投影公式。此外，
-\[
-  f_*(1)=1,
-  \qquad
-  f_*(\xi^n)=0\quad(-r\leq n<0),
-  \qquad
-  f_*(\xi^n)=s_n\quad(n\geq 0),
-\]
+\sgaStableTarget{sga6.e06.eq.5-2-3}\begin{equation}\tag{5.2.3}
+\begin{aligned}
+  f_*(1)&=1,\qquad f_*(\xi^n)=0\quad(-r\leq n<0),\\
+  f_*(\xi^n)&=s_n\quad(n\geq0),
+\end{aligned}
+\end{equation}
 其中 \(s_n\) 是 \(E\) 的各根的第 \(n\) 个完全对称函数。为验证最后一组关系，对 \(n\) 作归纳。假设对 \(p\leq n-1\) 已有 \(f_*(\xi^p)=s_p\)。把关系式 \hyperlink{sga6.e06.eq.1-9-1}{(1.9.1)} 乘以 \(\xi\) 的适当幂，得到 \(\sum_{i=0}^{r+1}(-1)^i\lambda^i(E)\xi^{n-i}=0\)。应用 \(f_*\) 后得到 \(\sum_{i=0}^{r+1}(-1)^i\lambda^i(E)f_*(\xi^{n-i})=0\)。由关系式 \hyperlink{sga6.e06.eq.1-11-3}{(1.11.3)} 和归纳假设，即得结论。
 
 \sgaStableTarget{sga6.e06.prop.5-3}\textbf{命题 5.3.} 对每个 \(k\geq 0\)，有
@@ -757,11 +960,24 @@ D(E)=D(F) \arrow[r,"h"] \arrow[dr,"f"'] & \mathbb P(E) \arrow[d,"g"]\\
 \]
 这是 \(K^\bullet(S)\)-模的直和分解，其中滤过是增广 \(\lambda\)-环的典范滤过。
 
-这里 \(x\) 的增广为零，并且
+首先注意到，\(x\) 的增广为零。另外，
 \[
-  \gamma_t(x)=\lambda_{t/(1-t)}(1-\xi^{-1})=\frac{1}{1-xt},
+ \gamma_t(x)=\lambda_{t/(1-t)}(1-\xi^{-1})
+ =\left(1+\frac{t}{1-t}\right)
+  \left(1+\xi^{-1}\frac{t}{1-t}\right)^{-1}
+ =\frac1{1-xt}.
 \]
-因而 \(\gamma^i(x)=x^i\)。由 \hyperlink{sga6.e05.prop.4-12}{V, 4.12} 和 \hyperlink{sga6.e05.rem.4-13}{V, 4.13} 中对自由 \(\lambda\)-环的滤过的计算，以及关系式 \hyperlink{sga6.e06.eq.1-9-1}{(1.9.1)}，即得结论。直和性来自 \(1,x,\ldots,x^r\) 的线性无关性。
+因此，对每个 \(i\)，有 \(\gamma^i(x)=x^i\)。所以，\(K^\bullet(X)\) 是由生成元 \(x\) 及关系 \(\gamma^i(x)=x^i\) 生成的 \(K^\bullet(S)\)-\(\lambda\)-代数的一个商，而取商所用的理想由关系 (1.13.1) 生成。于是可应用 V 4.12 和 V 4.13.ii)，只须证明，对每个 \(n\geq0\)，
+\[
+ x^n\in\Fil^nK^\bullet(S)+\Fil^{n-1}K^\bullet(S)x
+       +\cdots+\Fil^{n-r}K^\bullet(S)x^r.
+\]
+当 \(n\leq r\) 时显然成立；以后对 \(n\) 归纳。关系 (1.13.1) 给出
+\[
+ x^n=-\sum_{i=0}^r\gamma^{r+1-i}(\check E-r-1)x^{n-r-1+i},
+ \qquad n\geq r+1.
+\]
+对各 \(x^{n-r-1+i}\) 应用归纳假设，即得所需结论。由于 \(1,\ldots,x^r\) 在 \(K^\bullet(S)\) 上线性无关，此和为直和。
 
 \sgaStableTarget{sga6.e06.cor.5-4}\textbf{推论 5.4.} \(K^\bullet(X)\) 在 \(K^\bullet(S)\) 上诱导的滤过，等于 \(K^\bullet(S)\) 原有的滤过。
 
@@ -770,6 +986,8 @@ D(E)=D(F) \arrow[r,"h"] \arrow[dr,"f"'] & \mathbb P(E) \arrow[d,"g"]\\
   \Gr K^\bullet(S)\longrightarrow \Gr K^\bullet(X)
 \]
 是单同态。
+
+按照 3.1 的论证，可归结到 \(X\) 是 \(S\) 上一个射影丛的情形；此情形直接由 5.4 得到。
 
 \sgaStableTarget{sga6.e06.cor.5-6}\textbf{推论 5.6.} 使用上述射影丛的记号，\(\Gr K^\bullet(X)\) 是以 \(1,x,\ldots,x^r\) 为基的自由 \(\Gr K^\bullet(S)\)-模，并且
 \[
@@ -780,7 +998,7 @@ D(E)=D(F) \arrow[r,"h"] \arrow[dr,"f"'] & \mathbb P(E) \arrow[d,"g"]\\
 \[
   \sum_{i=0}^{r+1}(-1)^i c_i(E)x^{r+1-i}=0,
 \]
-其中 \(c_i(E)\) 是 \(E\) 的第 \(i\) 个 Chern 类。
+其中 \(c_i(E)\) 是 \(E\) 的第 \(i\) 个 Chern 类（V 6.7）。这是 1.1、5.3 及 (1.13.1) 的直接推论。
 
 \sgaStableTarget{sga6.e06.cor.5-7}\textbf{推论 5.7.} 对 \hyperlink{sga6.e06.sec.4.5}{4.5} 中的旗丛，\(\Gr K^\bullet(S)\)-代数 \(\Gr K^\bullet(X)\) 由各 \(\gamma^i(F_\alpha-p_\alpha)\) 在 \(\Gr^iK^\bullet(X)\) 中的类 \(\bar\gamma_i^{(\alpha)}\) 生成，其关系由
 \[
@@ -832,7 +1050,45 @@ D(E)=D(F) \arrow[r,"h"] \arrow[dr,"f"'] & \mathbb P(E) \arrow[d,"g"]\\
 \[
   \lambda_{-1}(E)=\lambda_{-1}(F)\lambda_{-1}(\xi)=\lambda_{-1}(F)(1-\xi).
 \]
-反之，写成 \(z=\sum_{i=0}^r a_i\xi^i\)。把 \(\xi\) 的幂之间的线性相关关系与 \(z(1-\xi)=0\) 结合，利用 \(1,\ldots,\xi^r\) 的线性无关性，即可把 \(z\) 表示成 \(\lambda_{-1}(F)\) 的倍数。最高次关系给出 \(y\lambda_{-1}(E)=0\)。
+设 \(z(1-\xi)=0\)，即 \(zx'=0\)。由注 1.13，存在唯一的 \(a_i\in K^\bullet(S)\)，使
+\[
+ z=\sum_{i=0}^r a_ix'{}^i.
+\]
+另一方面，\(x'{}^i\) 满足关系
+\[
+ \sum_{i=0}^r c_ix'{}^i+x'{}^{r+1}=0,
+ \qquad c_i=(-1)^{r+1+i}\gamma^{r+1-i}(E-r-1).
+\]
+由 \(zx'=0\)，得到
+\[
+ a_rx'{}^{r+1}=-\sum_{i=1}^r a_{i-1}x'{}^i
+             =-\sum_{i=0}^r a_rc_ix'{}^i.
+\]
+利用 \(1,\ldots,x'{}^r\) 的线性无关性，得
+\[
+ a_rc_0=0,\qquad a_i=a_rc_{i+1}\quad(0\leq i<r).
+\]
+因此
+\[
+ z=a_r\left(\sum_{i=0}^{r-1}c_{i+1}x'{}^i+x'{}^r\right).
+\]
+而
+\[
+\begin{aligned}
+ \sum_{i=0}^{r-1}c_{i+1}x'{}^i+x'{}^r
+ &=(-1)^r\left(\sum_{i=0}^{r-1}
+       \gamma^{r-i}(E-r-1)(-1)^ix'{}^i+(-1)^rx'{}^r\right)\\
+ &=(-1)^r\sum_{i=0}^r\gamma^{r-i}(E-r-1)\gamma^i(-x')\\
+ &=(-1)^r\gamma^r(E-r-1-x')\\
+ &=(-1)^r\gamma^r(F-r)\\
+ &=(-1)^r\lambda^r(F-1)=\lambda_{-1}(F).
+\end{aligned}
+\]
+令 \(y=a_r\)，即得 \(z=y\lambda_{-1}(F)\)。此外，\(yc_0=0\)，而
+\[
+ c_0=(-1)^{r+1}\gamma^{r+1}(E-r-1)=\lambda_{-1}(E),
+\]
+故 \(y\lambda_{-1}(E)=0\)。
 
 \sgaStableTarget{sga6.e06.prop.5-11}\textbf{命题 5.11.} 设 \(z\in \Gr K^\bullet(X)\)。条件 \(zx=0\) 等价于存在 \(y\in \Gr K^\bullet(S)\)，使得
 \[
@@ -859,9 +1115,20 @@ D(E)=D(F) \arrow[r,"h"] \arrow[dr,"f"'] & \mathbb P(E) \arrow[d,"g"]\\
 % 恢复法文原书第 408 页的计算；英文底本标记 SGA-SRC-001543。
 而 \(\lambda^m(mEL^{-n}-1)=(-1)^m\lambda_{-1}(mEL^{-n})=(-1)^m\lambda_{-1}(EL^{-n})^m=(-1)^m(1-EL^{-n})^m\)。所以，对每个可逆层 \(E\)，当 \(n\) 足够大时，元素 \(1-EL^{-n}\) 幂零；乘以 \(L^n\) 后得到的 \(L^n-E\) 也幂零。现在可写成 \(E-1=(L^n-1)-(L^n-E)\)。由前面的论证，当 \(n\) 足够大时，\(L^n-E\) 和 \(L^n-1\) 都幂零，因而 \(E-1\) 幂零。
 
-\sgaStableTarget{sga6.e06.prop.6-2}\textbf{推论 6.2.} 设 \(R\) 是 \(K^\bullet(X)\) 的增广 \(\lambda\)-子代数，由有限多个层的类生成。则 \(R\) 的 \(\lambda\)-环滤过是离散的，且 \(\Fil^1R\) 幂零。此外，\(R\) 在它于 \(H^0(X,\mathbb Z)\) 中的像上是有限模。
+\sgaStableTarget{sga6.e06.prop.6-2}\textbf{推论 6.2.} 设 \(R\) 是 \(K^\bullet(X)\) 的增广 \(\lambda\)-子代数，由有限多个层的类生成。则 \(R\) 的 \(\lambda\)-环滤过是离散的，且 \(R\cap\Fil^1K^\bullet(X)\) 幂零。此外，\(R\) 在 \(R\cap H^0(X,\mathbb Z)\) 上是有限模（V 3.9.6）。
 
-归结到常秩情形以后，\(R\) 由有限多个元素 \(x_i=E_i-\varepsilon(E_i)\) 及其 \(\gamma\)-运算生成。\hyperlink{sga6.e06.prop.6-1}{命题 6.1} 表明这些元素全部幂零。因此，\(R\) 的增广理想幂零；关于各 \(x_i\) 和各 \(\gamma^j(x_i)\) 的非零单项式只剩有限多个。这同时给出离散性和有限性。
+由 \(X\) 拟紧，可找到由有限个两两不交开集组成的覆盖，使生成 \(R\) 的各层在每个开集上均为常秩。通常的论证于是将问题归结到这些层在 \(X\) 上均为常秩的情形；此时 \(R\) 的增广取值于 \(\mathbb Z\)。
+
+设这些层为 \(E_i\)（\(1\leq i\leq k\)），其类仍记为 \(E_i\)，令 \(x_i=E_i-\varepsilon(E_i)\)，\(r_i=\varepsilon(E_i)\)。则 \(R\) 是由各 \(x_i\) 及关系
+\(\gamma^j(x_i)=0\)（\(j>r_i\)）生成的 \(\lambda\)-环的一个商，亦即
+\[
+ \mathbb Z[x_i,\gamma^j(x_i)]_{\,1\leq i\leq k,\ 2\leq j\leq r_i}
+\]
+的一个商；所以 \(R\) 诺特。由命题 6.1，各 \(x_i,\gamma^j(x_i)\) 均幂零。因此 \(R\) 的增广理想幂零，而此理想正是 \(R\cap\Fil^1K^\bullet(X)\)。
+
+\(\Fil^nR\) 的每个元素都能表示成关于各 \(x_i,\gamma^j(x_i)\) 的多项式，其权小于 \(n\) 的齐次分量均为零。设 \(m\) 是满足某个 \(\gamma^m(x_i)\ne0\) 的最大整数，取 \(p\) 使所有 \(x_i,\gamma^j(x_i)\) 的 \(p\) 次幂均为零。当 \(n>kp(1+\cdots+m)\) 时，显然有 \(\Fil^nR=0\)；故滤过离散。
+
+滤过既然离散，关于各 \(x_i,\gamma^j(x_i)\) 的非零单项式只有有限多个。这些单项式作为 \(\mathbb Z\)-模生成 \(R\)，证明完成。
 
 \sgaStableTarget{sga6.e06.cor.6-3}\textbf{推论 6.3.} 设 \(A\) 是交换环。\(K^\bullet(X)\otimes_{\mathbb Z}A\) 的元素 \(y\) 可逆，当且仅当其增广可逆。特别地，每个处处非零的有限型局部自由层的类在 \(K^\bullet(X)\otimes_{\mathbb Z}\mathbb Q\) 中可逆。
 
@@ -876,7 +1143,7 @@ D(E)=D(F) \arrow[r,"h"] \arrow[dr,"f"'] & \mathbb P(E) \arrow[d,"g"]\\
 \[
   f_*(f^*y\cdot x')=y\cdot f_*(x'),
 \]
-而 \(f_*(x')\) 由 6.3 可知可逆。
+而 \(f_*(x')\) 的增广可逆，故由 6.3，它可逆。因此复合同态\[K^\bullet(X)\otimes A\xrightarrow{f^*}K^\bullet(X')\otimes A\xrightarrow{\,\cdot x'\,}K^\bullet(X')\otimes A\xrightarrow{f_*}K^\bullet(X)\otimes A\]是乘以可逆元 \(f_*(x')\) 的同态，从而是自同构；所以第一个同态 \(f^*\) 为单同态。
 
 \sgaStableTarget{sga6.e06.sec.6.5}\subsection*{6.5. 余维数滤过}
 现在假设 \(X\) 诺特，维数为 \(d\)，且有丰沛层。如下定义滤过 \(K^\bullet(X)^i\)：元素 \(x\in K^\bullet(X)\) 属于 \(K^\bullet(X)^i\)，当且仅当对每个闭子概形 \(Y\subset X\)，都可用一个完美复形 \(M^\bullet(Y)\) 表示，使得
@@ -892,12 +1159,27 @@ D(E)=D(F) \arrow[r,"h"] \arrow[dr,"f"'] & \mathbb P(E) \arrow[d,"g"]\\
 
 \sgaStableTarget{sga6.e06.lem.6-7}\textbf{引理 6.7.} 设 \(X=\Spec A\) 仿射诺特，\(x_1,\ldots,x_n\) 是 \(X\) 的有限多个点，\(E\) 可逆。则存在截面 \(s\in \Gamma(X,E)\)，使它在每个 \(x_i\) 处都是 \(E_{x_i}\) 的一组基。
 
-证明使用极大理想 \(\mathfrak m_i\) 彼此不同的闭特殊化 \(x_i'\)、同构 \(M/\mathfrak m_iM\simeq A/\mathfrak m_i\)（其中 \(M=\Gamma(X,E)\)），以及 Nakayama 引理。
+令 \(M=\Gamma(X,E)\)。对每个 \(i\)，取 \(X\) 的一个闭点 \(x_i'\)，使 \(x_i'\in\overline{\{x_i\}}\)。各 \(x_i'\) 对应于 \(A\) 的极大理想 \(\mathfrak m_i\)；必要时改变指标集，使它们两两不同，每个理想只出现一次。由于 \(E\) 可逆，对每个 \(i\)，有
+\[
+ M_{\mathfrak m_i}\simeq A_{\mathfrak m_i},
+ \qquad M/\mathfrak m_iM\simeq A/\mathfrak m_i.
+\]
+由此得到
+\[
+ \prod_iM/\mathfrak m_iM\simeq\prod_i A/\mathfrak m_i,
+ \qquad
+ M/(\textstyle\prod_i\mathfrak m_i)M
+ \simeq A/\textstyle\prod_i\mathfrak m_i.
+\]
+提升最后这个同构，得到一个同态 \(A\to M\)，其局部化 \(A_{\mathfrak m_i}\to M_{\mathfrak m_i}\) 对每个 \(i\) 模 \(\mathfrak m_i\) 都为同构，因而由 Nakayama 引理，它本身就是同构。\(1\) 的像便给出 \(E\) 的一个截面 \(s\)，在每个 \(x_i'\) 处为一组基。由于 \(s\) 成为 \(E\) 的基的点组成 \(X\) 的一个开集，\(s\) 在每个 \(x_i\) 处也为 \(E_{x_i}\) 的一组基。
 
-% SGA-SRC-001548 — reconstructed by mathematical inference; scan inconclusive
 \sgaStableTarget{sga6.e06.lem.6-8}\textbf{引理 6.8.} 设 \(X\) 诺特且有丰沛层 \(L\)，\(E\) 可逆，\(x_1,\ldots,x_n\) 是 \(X\) 的点。则存在整数 \(N\)，使得对每个 \(k\geq1\)，\(E(kN)\) 有一个全局截面，在每个 \(x_i\) 处都是一组基。
 
-取丰沛层的某个幂及其一个截面，使其非零迹为仿射开集且包含全部 \(x_i\)；在此开集上应用\hyperlink{sga6.e06.lem.6-7}{引理 6.7}，再乘以进一步的幂以延拓此截面。
+可取整数 \(n_0\) 及截面 \(f\in\Gamma(X,L^{\otimes n_0})\)，使每个 \(x_i\) 属于 \(X_f\)，且 \(X_f\) 仿射（EGA II 4.5.4）。在 \(X_f\) 上，由引理 6.7 可取 \(E\) 的截面 \(t\)，在各 \(x_i\) 处均为一组基。又存在整数 \(n_1\)，使截面
+\[
+ t\otimes f^{\otimes n_1}\in\Gamma(X_f,E(n_0n_1))
+\]
+能延拓到整个 \(X\)。令 \(N=n_0n_1\)，则 \(f^{\otimes n_1}\in\Gamma(X,L^{\otimes N})\)。将上面所得的 \(E(N)\) 的截面与 \(f^{\otimes kn_1}\) 张量，对每个 \(k\geq0\) 得到 \(E((k+1)N)\) 的截面。由于对每个 \(p\)，有 \(X_{f^{\otimes p}}=X_f\)，而 \(t\) 在每个 \(x_i\) 处为 \(E_{x_i}\) 的一组基，如此构造的 \(E(kN)\) 的截面，在每个 \(x_i\) 处也为一组基。
 
 \sgaStableTarget{sga6.e06.thm.6-9}\textbf{定理 6.9.} 设 \(X\) 是维数为 \(d\) 的诺特概形，且有丰沛层。则
 \[
@@ -905,7 +1187,24 @@ D(E)=D(F) \arrow[r,"h"] \arrow[dr,"f"'] & \mathbb P(E) \arrow[d,"g"]\\
 \]
 因此 \((\Fil^1K^\bullet(X))^{d+1}=0\)。
 
-首先，若 \(E\) 和 \(E'\) 可逆，仍用 \(E,E'\) 表示其类，则 \(E-E'\in K^\bullet(X)^1\)。对闭集 \(Y\subset X\)，在其每个不可约分支中取一个点。\hyperlink{sga6.e06.lem.6-8}{引理 6.8} 给出从丰沛层的适当负幂到 \(E\) 和 \(E'\) 的态射，使它们在所取各点处为同构。由这些态射构造的两项复形的类为 \(E-E'\)，且在所取的 \(Y\) 的一般点处无环；所以其上同调支集在 \(Y\) 中的余维数至少为 \(1\)。
+（在这里所考虑的一般情形下，后一个等式归功于 J.-P. Serre。）
+
+先证明：若 \(E,E'\) 是 \(X\) 上的两个可逆层，其类仍记为 \(E,E'\)，则 \(E-E'\in K^\bullet(X)^1\)。
+
+设 \(Y\) 是 \(X\) 的一个闭集，\(Y_1,\ldots,Y_k\) 是其不可约分支；对每个 \(i\)，取
+\(x_i\in Y_i\setminus\bigcup_{j\ne i}Y_j\)。由引理 6.8，存在整数 \(n,n'\)，使对任意 \(k,k'\geq1\)，可找到从 \(\mathcal O_X\) 到 \(E(kn),E'(k'n')\) 的同态，且在各 \(x_i\) 处均为同构。因此可取态射
+\[
+ s:L^{\otimes(-nn')}\longrightarrow E,
+ \qquad s':L^{\otimes(-nn')}\longrightarrow E',
+\]
+在各 \(x_i\) 处均为同构。考虑复形
+\[
+ N^\bullet:\quad
+ 0\longrightarrow L^{\otimes(-nn')}
+ \xrightarrow{(s',0)} E'\oplus L^{\otimes(-nn')}
+ \xrightarrow{0+s}E\longrightarrow0.
+\]
+其类为 \(E-E'\)；此外，\(N^\bullet\) 在各 \(x_i\) 处无环。因此 \(\Supp H^*(N^\bullet)\cap Y\) 不含 \(Y\) 的任何不可约分支，故在 \(Y\) 中的余维数至少为 \(1\)。这就证明了 \(E-E'\in K^\bullet(X)^1\)。
 
 现在取 \(x\in \Fil^{d+1}K^\bullet(X)\)。只需处理乘积
 \[
@@ -922,11 +1221,19 @@ D(E)=D(F) \arrow[r,"h"] \arrow[dr,"f"'] & \mathbb P(E) \arrow[d,"g"]\\
 \[
   \gamma^i(\xi-\eta)=(-1)^{i-1}(\xi-\eta)(\eta-1)^{i-1}\in K^\bullet(X')^i.
 \]
-因此，\(x\) 的拉回属于 \(K^\bullet(X')^{d+1}\)。乘以 \(K^\bullet(X')\) 在 \(K^\bullet(X)\) 上的一组基中相对余维数为 \(r\) 的元素，得到 \(K^\bullet(X')^{d+1+r}=0\) 中的元素，因为 \(\dim X'=d+r\)。由基的性质与单射性，便得到 \(x=0\)。
+因此，\(x\) 的拉回属于 \(K^\bullet(X')^{d+1}\)。下面由此推出 \(f^*(x)=0\)。设 \(r\) 是 \(X'\) 在 \(X\) 上的相对维数。存在 \(K^\bullet(X')\) 在 \(K^\bullet(X)\) 上的一组基中的一个元素 \(x'\)，形如
+\[
+ x'=\prod_{i=0}^r(\xi_i-1),
+\]
+其中各 \(\xi_i\) 是可逆层的类。\footnote{译校注：法文原书第 415 页的乘积下标印作 \(i=0\)，但下文将 \(x'\) 置于第 \(r\) 层；按此处论证，乘积应有 \(r\) 个因子。正文保留原印下标。}要证明这一点，按照 3.1 的论证归结到 \(X'\) 是 \(X\) 上的一个射影丛的情形，再直接应用 1.13 即可。由前面的结论，此 \(x'\) 属于 \(K^\bullet(X')^r\)，因而
+\[
+ x'f^*(x)\in K^\bullet(X')^{d+r+1}.
+\]
+但 \(\dim X'=d+r\)，所以由 6.6，\(x'f^*(x)=0\)。由于 \(x'\) 属于 \(K^\bullet(X')\) 在 \(K^\bullet(X)\) 上的一组基，这就推出 \(f^*(x)=0\)。最后，\(f^*\) 由 3.1 为单同态，故 \(x=0\)。
 
 \sgaStableTarget{sga6.e06.problem.6-10}\textbf{问题 6.10.} 在\hyperlink{sga6.e06.thm.6-9}{定理 6.9} 的假设下，是否对每个 \(k\) 都有
 \[
-  K^\bullet(X)^k=\Fil^kK^\bullet(X)?
+  \Fil^kK^\bullet(X)\subset K^\bullet(X)^k?
 \]
 
 \sgaStableTarget{sga6.e06.bibliography-for-expose-vi}\subsection*{第 VI 讲参考文献}
