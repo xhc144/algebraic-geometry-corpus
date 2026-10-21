@@ -14,50 +14,66 @@
 | 社区中文译本 | zh-CN/EGA/、zh-CN/Stacks/、extra/数译中译/、extra/译馆-PKU/ |
 | 英文译本与 LaTeX 源码 | en/、extra/SGA-English-Zenodo/ |
 | 增补与参考 | extra/ |
-| **中文译本对照表（单文件）** | [译本对照表.md](译本对照表.md) |
+| **中文译本与格式对照表（单文件）** | [译本对照表.md](译本对照表.md) |
 | 逐文件校验 | MANIFEST.sha256 |
 
-## 中文译本对照总表
+## 文献格式总览：原著 / 中译 / 英译，PDF 与 LaTeX 各有什么
 
-标记：✅ 有中译　❌ 无中译　⚠️ 仅有英文影印或非正式稿。
+| 系列 | 原著 PDF | 原著 LaTeX | 官方中译 PDF | 官方中译 LaTeX | 社区中译 PDF | 社区中译 LaTeX | 英译 PDF | 英译 LaTeX |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| EGA | 8 册 ✅ | ❌ | 8 册 ✅ | ❌ | I–III ✅ | I–III ✅ | ✅ | ✅ |
+| SGA | 11 册 ✅ | ❌ | — | — | 1、2 ✅ | ❌ | ✅ | ✅ |
+| FGA | 1 ✅ | ❌ | — | — | ❌ | ❌ | ❌ | ✅（源码） |
+| FGA Explained | 1 ✅ | ❌ | — | — | ❌ | ❌ | ❌ | ❌ |
+| Stacks Project | 3 ✅ | ❌ | — | — | 全译 ✅ | ✅ | 即原著 | — |
 
-### EGA（原著 8 册：官方中译 8/8 全覆盖）
+**要点**：原著全部只有扫描 PDF，没有 LaTeX 源码；原文重排/重打须自行 OCR 或从英译源码反推。
+官方中译只有 PDF；带 LaTeX 的中译仅 Zenodo 两套（EGA I–III、Stacks 中文）。
+英译中 FGA 只有 LaTeX 源码、没有现成 PDF（需自行编译）。
 
-| 卷次 | 原文书名 | 中文书名 | 译本性质 | 译者 / 出版 | 年份 | 页数 | 库内文件 |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| EGA I | Le langage des schémas | 概形语言 | ✅ 官方 | 周健 / 高等教育出版社 | 2018 | 261 | zh-CN/official/EGA-I-概形语言-周健译.pdf |
-| EGA II | Étude globale élémentaire de quelques classes de morphismes | 几类态射的整体性质 | ✅ 官方 | 周健 / 高等教育出版社 | 2019 | 243 | zh-CN/official/EGA-II-几类态射的整体性质-周健译.pdf |
-| EGA III（两部分合订） | Étude cohomologique des faisceaux cohérents, I–II | 凝聚层的上同调 | ✅ 官方 | 周健 / 高等教育出版社 | 2021 | 285 | zh-CN/official/EGA-III-凝聚层的上同调-周健译.pdf |
-| EGA IV.1 | Étude locale des schémas et des morphismes, I | 概形与态射的局部性质（一） | ✅ 官方 | 周健 / 高等教育出版社 | 2022 | 291 | zh-CN/official/EGA-IV-1-…-周健译.pdf |
-| EGA IV.2 | Étude locale des schémas et des morphismes, II | 概形与态射的局部性质（二） | ✅ 官方 | 周健 / 高等教育出版社 | 2023 | 264 | zh-CN/official/EGA-IV-2-…-周健译.pdf |
-| EGA IV.3 | Étude locale des schémas et des morphismes, III | 概形与态射的局部性质（三） | ✅ 官方 | 周健 / 高等教育出版社 | 2024 | 286 | zh-CN/official/EGA-IV-3-…-周健译.pdf |
-| EGA IV.4 | Étude locale des schémas et des morphismes, IV | 概形与态射的局部性质（四） | ✅ 官方 | 周健 / 高等教育出版社 | 2025 | 386 | zh-CN/official/EGA-IV-4-…-周健译.pdf |
+## 逐卷对照表
 
-另有非官方译本：EGA I–III 简体中文版（Zenodo 22907053，2026-09-23，AI 辅助，含全部 LaTeX 源码），存于 zh-CN/EGA/。
+标记：✅ 有　❌ 无。
 
-### SGA（原著 11 卷：只有 2 卷有中译）
+### EGA（原著 8 册 / 官方中译 8 册全覆盖）
 
-| 卷次 | 原文书名 | 中文书名 | 中译 | 译者 / 来源 | 版本 | 页数 | 库内文件 |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| SGA 1 | Revêtements étales et groupe fondamental | 平展覆盖与基本群 | ✅ 社区 | Fingolfin / 数译站 | v2 | 257 | extra/数译中译/SGA1-…pdf |
-| SGA 2 | Cohomologie locale des faisceaux cohérents et théorèmes de Lefschetz | 凝聚层的局部上同调与局部、整体 Lefschetz 定理 | ✅ 社区 | 幺半群胚胚 / 数译站 | v2 | 176 | extra/数译中译/SGA2-…pdf |
-| SGA 3 | Schémas en groupes I–III | 群概形 I–III | ❌ 无 | — | — | — | — |
-| SGA 4.1 | Théorie des topos et cohomologie étale, I | 拓扑斯理论与平展上同调（一） | ❌ 无 | — | — | — | — |
-| SGA 4.2 | Théorie des topos et cohomologie étale, II | 拓扑斯理论与平展上同调（二） | ❌ 无 | — | — | — | — |
-| SGA 4.3 | Théorie des topos et cohomologie étale, III | 拓扑斯理论与平展上同调（三） | ❌ 无 | — | — | — | — |
-| SGA 4½ | Cohomologie étale（Deligne） | 平展上同调 | ❌ 无 | — | — | — | — |
-| SGA 5 | Cohomologie ℓ-adique et fonctions L | ℓ 进上同调与 L 函数 | ❌ 无 | — | — | — | — |
-| SGA 6 | Théorie des intersections et théorème de Riemann-Roch | 相交理论与 Riemann–Roch 定理 | ❌ 无 | — | — | — | — |
-| SGA 7-I | Groupes de monodromie, I | 代数几何中的单值群（一） | ❌ 无 | — | — | — | — |
-| SGA 7-II | Groupes de monodromie, II | 代数几何中的单值群（二） | ❌ 无 | — | — | — | — |
+| 卷次 | 原著 PDF | 中译版本 | 中译 PDF | 中译 LaTeX | 英译 PDF | 英译 LaTeX |
+| --- | --- | --- | --- | --- | --- | --- |
+| EGA I | ✅ 法文 18.1 MB | 周健 / 高教社 2018，261 页 | ✅ | ❌（Zenodo 非官方版有） | ✅ ega-en | ✅ ega-en |
+| EGA II | ✅ 法文 26.2 MB | 周健 / 高教社 2019，243 页 | ✅ | ❌（Zenodo 非官方版有） | ✅ ega-en | ✅ ega-en |
+| EGA III | ✅ 法文 两部分合订 | 周健 / 高教社 2021，285 页 | ✅ | ❌（Zenodo 非官方版有） | ✅ ega-en | ✅ ega-en |
+| EGA IV.1 | ✅ 法文 30.5 MB | 周健 / 高教社 2022，291 页 | ✅ | ❌ | ✅ ega-en | ✅ ega-en |
+| EGA IV.2 | ✅ 法文 30.3 MB | 周健 / 高教社 2023，264 页 | ✅ | ❌ | ✅ ega-en | ✅ ega-en |
+| EGA IV.3 | ✅ 法文 15.7 MB | 周健 / 高教社 2024，286 页 | ✅ | ❌ | ✅ ega-en | ✅ ega-en |
+| EGA IV.4 | ✅ 法文 47.5 MB | 周健 / 高教社 2025，386 页 | ✅ | ❌ | ✅ ega-en | ✅ ega-en |
+
+非官方补充：EGA I–III 简体中文版（Zenodo 22907053）**同时有 PDF 与 LaTeX**，存于 zh-CN/EGA/。
+
+### SGA（原著 11 册 / 仅 2 册有中译）
+
+| 卷次 | 原著 PDF | 中译版本 | 中译 PDF | 中译 LaTeX | 英译 PDF | 英译 LaTeX |
+| --- | --- | --- | --- | --- | --- | --- |
+| SGA 1 | ✅ 法文 10.7 MB | 数译站 Fingolfin v2，257 页 | ✅ | ❌ | ✅ sga-en | ✅ sga-en |
+| SGA 2 | ✅ 法文 6.8 MB | 数译站 幺半群胚胚 v2，176 页 | ✅ | ❌ | ✅ sga-en | ✅ sga-en |
+| SGA 3 | ✅ 法文 1371 页合卷 | ❌ 无 | — | — | ✅ sga-en | ✅ sga-en |
+| SGA 4.1 | ✅ 法文 | ❌ 无 | — | — | ✅ sga-en | ✅ sga-en |
+| SGA 4.2 | ✅ 法文 | ❌ 无 | — | — | ✅ sga-en | ✅ sga-en |
+| SGA 4.3 | ✅ 法文 | ❌ 无 | — | — | ✅ sga-en | ✅ sga-en |
+| SGA 4½ | ✅ 法文 5.8 MB | ❌ 无 | — | — | ✅ sga-en | ✅ sga-en |
+| SGA 5 | ✅ 法文 5.8 MB | ❌ 无 | — | — | ✅ sga-en | ✅ sga-en |
+| SGA 6 | ✅ 法文 25.6 MB | ❌ 无 | — | — | ✅ sga-en | ✅ sga-en |
+| SGA 7-I | ✅ 法文 8.4 MB | ❌ 无 | — | — | ✅ sga-en | ✅ sga-en |
+| SGA 7-II | ✅ 法文 8.2 MB | ❌ 无 | — | — | ✅ sga-en | ✅ sga-en |
+
+另有 SGA 英文读者版 PDF 8 个（Zenodo 21749057，extra/SGA-English-Zenodo/）与 SGA 原版扫描 12 卷（extra/SGA-archive/）。
 
 ### FGA / FGA Explained / Stacks Project
 
-| 书目 | 原文 | 中译 | 说明 | 库内文件 |
-| --- | --- | --- | --- | --- |
-| FGA | Fondements de la géométrie algébrique | ❌ 无 | 未见任何正式或社区中译 | FGA/FGA-Fondements-…pdf |
-| FGA Explained | Fundamental Algebraic Geometry | ⚠️ 无 | 2019 年国内版为英文影印本，不是翻译 | FGA/FGA-Explained-…pdf |
-| Stacks Project | The Stacks Project | ✅ 社区 | 116 章中文全译（Zenodo 22865712，AI 辅助，GFDL-1.2） | zh-CN/Stacks/、Stacks/Stacks-Project-zh-CN.pdf |
+| 书目 | 原著 PDF | 中译版本 | 中译 PDF | 中译 LaTeX | 英译 PDF | 英译 LaTeX |
+| --- | --- | --- | --- | --- | --- | --- |
+| FGA | ✅ 法文 7.5 MB | ❌ 无任何中译 | — | — | ❌ 无现成 PDF | ✅ thosgood/fga 源码 |
+| FGA Explained | ✅ 英文 62.5 MB | ⚠️ 2019 国内版是英文影印本，非翻译 | — | — | ❌ 无 | ❌ 无 |
+| Stacks Project | ✅ 英文 2023 与 2026 两版 | Zenodo 中文全译（116 章，AI 辅助，GFDL） | ✅ | ✅ | 即原著 | — |
 
 ### 中译覆盖率
 
@@ -229,4 +245,4 @@ EGA、SGA、FGA 由 Springer、IHES、North-Holland 等出版；FGA Explained �
 官方中译版权属高等教育出版社；Stacks Project 以开放许可维护（中文译本为 GFDL-1.2-or-later）。
 **本仓库为私有仓库**，仅作个人研究、翻译与编撰参照，不再分发、不用于商业用途。
 
-_清单生成于 2026-10-21 04:10；共 1042 个文件，合计 1540.6 MB。_
+_清单生成于 2026-10-21 04:15；共 1042 个文件，合计 1540.6 MB。_
