@@ -43,7 +43,7 @@ def normalized(formula):
     # symbols, indices, numbers, tags, operators, or target identifiers.
     # Eight flat labels and one surjective label in VI are localized as text.
     # They are text on arrows, not operator or variable changes.
-    formula = formula.replace(r'\mathrm{flat}', '').replace(r'\mathrm{surjective}', '')
+    formula = formula.replace(r'\mathrm{flat}', '').replace(r'\mathrm{surjective}', '').replace(r'\mathrm{incl.}', '')
     for match in reversed(list(re.finditer(r'\\(?:text|textrm|textnormal|mbox|hbox)\{', formula))):
         depth, end = 1, match.end()
         while end < len(formula) and depth:
@@ -70,6 +70,7 @@ def main():
     locked = json.loads((ROOT / 'SOURCE_LOCK.json').read_text())['sources'][0]['sha256']
     assert hashlib.sha256(SOURCE.read_bytes()).hexdigest() == locked, 'Locked source changed'
     source = components(source_text)
+    r2_repairs = json.loads((ROOT / 'qa/FIDELITY-R2-SOURCE-REPAIRS.json').read_text())
     chapters = sorted((ROOT / 'chapters').glob('*-zh.tex'))
     targets, duplicates = {}, []
     for chapter in chapters:
@@ -123,6 +124,14 @@ def main():
         if bad_exponent in checked_original:
             named_repairs.append({'source': bad_exponent, 'translation': r'\underline m^{n+1}', 'evidence': 'Original scan PDF521/printed516; chapters/expose-IX-d-status.json'})
             checked_original = checked_original.replace(bad_exponent, r'\underline m^{n+1}')
+        for repair in r2_repairs:
+            if int(name.split('_')[0]) != repair['component']:
+                continue
+            assert checked_original.count(repair['before']) == repair['count'], repair['id']
+            named_repairs.append({'id': repair['id'], 'source': repair['before'],
+                                  'translation': repair['after'], 'count': repair['count'],
+                                  'evidence': repair['evidence']})
+            checked_original = checked_original.replace(repair['before'], repair['after'])
         layout_repairs = []
         if 'column sep=0.8em' in canonical_target:
             layout_repairs.append({'source': 'column sep=small', 'translation': 'column sep=0.8em', 'reason': '5.07216pt diagram overflow; symbols/arrows unchanged'})
@@ -149,6 +158,9 @@ def main():
             'translation_targets': re.findall(r'\\SGARef(?:Alias)?Target\{([^}]+)\}', translated),
             'references_same_multiset': Counter(re.findall(r'\\SGARefLink\{([^}]+)\}', original)) == Counter(re.findall(r'\\SGA(?:RefLink|ExternalRef)\{([^}]+)\}', translated)),
             'environments_same_order': re.findall(r'\\begin\{([^}]+)\}', original) == re.findall(r'\\begin\{([^}]+)\}', translated),
+            'source_footnote_count': len(re.findall(r'\\footnote(?:text|mark)?(?:\[.*?\])?\{', uncomment(original))),
+            'translation_footnote_count': len(re.findall(r'\\footnote(?:text|mark)?(?:\[.*?\])?\{', uncomment(translated))),
+            'forbidden_control_characters': [hex(ord(c)) for c in translated if ord(c) < 32 and c not in '\n\t\r'],
             'translation_sha256': hashlib.sha256(translated.encode()).hexdigest(),
         })
     counts = {}
@@ -177,9 +189,20 @@ def main():
     available = '\n'.join('\\expandafter\\def\\csname SGAavailable@' + target + '\\endcsname{}'
                           for target in sorted(compiled_targets)) + '\n'
     (ROOT / 'available-targets.tex').write_text(available)
-    print(json.dumps({'coverage': coverage['status'], 'translated_components': len(approved),
+    result = {'coverage': coverage['status'], 'translated_components': len(approved),
                       'source_components': len(source), 'formula_difference_components':
-                      [a['component'] for a in audits if not a['formula_multiset_equal_after_text_localization']]}, ensure_ascii=False))
+                      [a['component'] for a in audits if not a['formula_multiset_equal_after_text_localization']],
+                      'footnote_count_difference_components': [a['component'] for a in audits if a['source_footnote_count'] != a['translation_footnote_count']],
+                      'control_character_components': [a['component'] for a in audits if a['forbidden_control_characters']]}
+    print(json.dumps(result, ensure_ascii=False))
+    failed = duplicates or len(approved) != len(source) or any(
+        not a['formula_multiset_equal_after_text_localization'] or
+        a['source_targets'] != a['translation_targets'] or
+        not a['references_same_multiset'] or not a['environments_same_order'] or
+        a['source_footnote_count'] != a['translation_footnote_count'] or
+        a['forbidden_control_characters'] for a in audits)
+    if failed:
+        raise SystemExit(1)
 
 
 if __name__ == '__main__':

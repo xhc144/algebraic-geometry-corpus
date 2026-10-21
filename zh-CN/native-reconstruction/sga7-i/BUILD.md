@@ -27,3 +27,7 @@ latexmk -xelatex -interaction=nonstopmode -halt-on-error -outdir=build main.tex
 `ctex-v2.5.10` 标签生成兼容宏包（提交 `13a22565bdd14d750b604c2f1ed0fa1938cb6cd4`）。
 实际验证命令在上述 `latexmk` 前加 `TEXMFHOME=/tmp/sga7-texmf-2024 XDG_CACHE_HOME=/tmp/sga7-cache`；
 这两个路径是本轮环境配置，不是中文工程的文件依赖。在正常安装相应宏包的系统中无需这两个环境变量。
+
+第二轮限定复核记录见 `qa/FIDELITY-R2-RESULT.md`。最新全卷及脱离仓库原文的独立构建均为295页，
+零宏包警告、缺字、未定义引用和溢出；保留并检查四条旧有的低 badness Underfull hbox。
+`qa/BUILD_STATUS.json` 和 `qa/PDF_CHECK.json` 记录当前文件哈希、真实命令和检查范围。

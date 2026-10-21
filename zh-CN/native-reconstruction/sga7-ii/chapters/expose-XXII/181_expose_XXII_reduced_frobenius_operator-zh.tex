@@ -2,8 +2,14 @@
 $\tau^{-1}$ 线性运算 $\bar\alpha_S:W_S(1)\to W_S(1)$ 等于
 
 \begin{equation}\tag{6.1.1}
-\frac1p\,\tau^{-1}\circ\psi_p\circ(X_0f(X))^{p-1}.
+\tau^{-1}\circ\psi_p\circ(X_0f(X))^{p-1}.
 \end{equation}
+
+\begin{editorialnote}
+法文原书第433页的 (6.1.1) 没有因子 $1/p$; 英文底本多出了该因子.
+这里的算子作用于 $\mathbb F_q$ 向量空间 $W_S(1)$, 本就不能除以 $p$.
+证明中的 (6.1.6)--(6.1.11) 先在整数环上的格中约去该分母, 再模 $p$ 化, 正好给出上式.
+\end{editorialnote}
 
 \noindent\emph{证明.}
 写作
@@ -58,7 +64,7 @@ H_i(X)\,R_S(j)\subset R_S(i+j),
 \begin{equation}\tag{6.1.8}
 \begin{aligned}
 H(X)
-&=\prod_W\Theta(\pi A_WX_0X^W)\\
+&=\prod_W\Theta(A_WX_0X^W)\\
 &=\prod_W\exp\!\left(
 \sum_{r\geq0}\frac{(\pi A_WX_0X^W)^{p^r}}{p^r}
 \right)\\
@@ -68,16 +74,22 @@ H(X)
 \pmod{\text{次数为如下范围的项: }\geq p}\\
 &=\exp\!\left(\pi\sum_WA_WX_0X^W\right)
 \pmod{\text{次数为如下范围的项: }\geq p}\\
-&=\exp(\pi X_0f(X))
+&=\exp(\pi X_0F(X))
 \pmod{\text{次数为如下范围的项: }\geq p}.
 \end{aligned}
 \end{equation}
+
+\begin{editorialnote}
+(6.1.8) 按法文原书第434页恢复为 $\Theta(A_WX_0X^W)$, 而非英文底本的 $\Theta(\pi A_WX_0X^W)$,
+因为 $\Theta(X)=E(\pi X)$ 已包含 $\pi$. 同页 (6.1.8) 末行与 (6.1.9) 使用 (4.4.2) 的提升多项式 $F(X)$;
+只有在 (6.1.11) 模 $p$ 化后才写作 $f(X)$. 推论 6.1.12 证明首行也按原书第435页删去英文底本多出的 $1/p$.
+\end{editorialnote}
 
 由此得
 
 \begin{equation}\tag{6.1.9}
 H_{p-1}(X)
-=\frac{\pi^{p-1}X_0^{p-1}}{(p-1)!}\,f(X)^{p-1}.
+=\frac{\pi^{p-1}X_0^{p-1}}{(p-1)!}\,F(X)^{p-1}.
 \end{equation}
 
 容易验证
@@ -113,7 +125,7 @@ H_{p-1}(X)
 (\bar\alpha_S)^{\operatorname{ord}(q)}
 &=
 \left(
-\frac1p\,\tau^{-1}\circ\psi_p\circ(X_0f(X))^{p-1}
+\tau^{-1}\circ\psi_p\circ(X_0f(X))^{p-1}
 \right)^{\operatorname{ord}(q)}\\
 &=
 \psi_q\circ
