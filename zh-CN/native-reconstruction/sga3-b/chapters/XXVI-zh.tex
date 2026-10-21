@@ -1,0 +1,3251 @@
+% 依据验证过的原生源工程翻译；原编号和引用键保留。
+\markboth{第 XXVI 讲. 抛物子群}{第 XXVI 讲. 抛物子群}
+\chapter*{第 XXVI 讲\\约化群的抛物子群}
+\addcontentsline{toc}{chapter}{第 XXVI 讲. 约化群的抛物子群}
+\begin{center}
+\large M. Demazure
+\end{center}
+\medskip
+本讲研究约化 \(S\)-群 \(G\) 的抛物子群。主要结果是共轭定理（\SGARefLink{sga3:xxvi:cor:5:4}{5.4}）。主要工具是两个抛物子群的横截位置这一概念，第 4 节将系统研究它。另一个起重要作用的事实，是抛物子群 \(P\) 的幺幂根基 \(\rad^{u}(P)\) 可分解为向量群的逐次扩张（\SGARefLink{sga3:xxvi:proposition:2-1}{2.1}）。\footnote{\emph{编者注。} 由于 \(P\) 的 Levi 子群组成 \(\rad^{u}(P)\) 下的主齐性丛（\SGARefLink{sga3:xxvi:cor:1:9}{1.9}），当 \(S\) 半局部时，这意味着 \(P\) 有 Levi 子群，因而有极大环面（\SGARefLink{sga3:xxvi:cor:2:4}{2.4}）。}
+
+第 3 节研究与 \(G\) 相伴的各种概形；第 6 节讨论 \(G\) 的分裂子环面\footnote{\emph{编者注。} 将“平凡环面”这一术语换成了“分裂环面”。}及其与抛物子群的关系。
+
+最后，第 7 节简要说明，在半局部基上如何表述约化群的“相对理论”；域上的这一理论见 A.~Borel 与 J.~Tits 的文章 \emph{Groupes réductifs}，Publications Mathématiques de l'IHÉS，第 27 期。在下文记为 [BT65] 的这篇文章中，读者还可找到基为域时此处未论及的其他结果。\footnote{\emph{编者注。} 2024 年 10 月 13 日版本。}
+
+\SGASection{1}{回顾. Levi 子群}
+\SGARefTarget{sga3:xxvi:section:1}
+\begin{sgastatement}{定义 1.1}
+设 \(S\) 是概形，\(G\) 是约化 \(S\)-群，\(P\) 是 \(G\) 的 \(S\)-子群概形。若满足以下条件，则称 \(P\) 为 \(G\) 的\emph{抛物子群}：
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item \(P\) 在 \(S\) 上光滑；
+\item 对每个 \(s\in S\)，商 \(\bar s\)-概形 \(G_{\bar s}/P_{\bar s}\) 固有（即，由 Bible，第 \SGARefLink{sga3:xxvi:corollary:6-4}{6.4} 节，\SGARefLink{sga3:xxvi:prop:1:4}{定理 4} \(=\) [Ch05]，第 \SGARefLink{sga3:xxvi:subsec:6:5}{6.5} 节，定理 5，\(P_{\bar s}\) 包含 \(G_{\bar s}\) 的一个 Borel 子群）。
+\end{enumerate}
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:def:1:1}
+
+\begin{sgastatement}{命题 1.2 \textup{（第 XXII 讲，\SGARefLink{sga3:xxii:cor:5.8.5}{5.8.5}）}}
+设 \(S\) 是概形，\(G\) 是约化 \(S\)-群，\(P\) 是 \(G\) 的抛物子群。则 \(P\) 在 \(G\) 中闭，纤维连通，并且
+\[
+  P=\Norm_G(P).
+\]
+此外，商层 \(G/P\) 可由一个在 \(S\) 上光滑且射影的 \(S\)-概形表示。
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:prop:1:2}
+
+\begin{sgastatement}{\SGAInlineRefTarget{sga3:xxvi:proposition:1-3}命题 1.3 \textup{（第 XXII 讲，\SGARefLink{sga3:xxii:thm:5.3.9}{5.3.9} 和 5.3.11）}}
+设 \(S\) 是概形，\(G\) 是约化 \(S\)-群，\(P,P'\) 是 \(G\) 的两个抛物子群。下列条件等价：
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item \(P\) 与 \(P'\) 在平展（分别为 fpqc）拓扑下局部地在 \(G\) 中共轭。
+\item 对每个 \(s\in S\)，\(P_{\bar s}\) 与 \(P'_{\bar s}\) 通过 \(G(\bar s)\) 的一个元素共轭。
+\item 从 \(P\) 到 \(P'\) 的严格运输子 \(\Transt_G(P,P')\)，对每个 \(S'\to S\) 由
+\[
+ \Transt_G(P,P')(S')
+ =\{g\in G(S')\mid \Int(g)P_{S'}=P'_{S'}\},
+\]
+定义，是 \(G\) 的闭子概形，在 \(S\) 上光滑且有限呈示，并且是 \(P\) 下的右主齐性丛及 \(P'\) 下的左主齐性丛。
+\end{enumerate}
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:prop:1:3}
+
+\begin{sgastatement}{命题 1.4}
+设 \(S\) 是非空概形，\((G,T,M,R)\) 是分裂约化 \(S\)-群，\(R'\) 是 \(R\) 的子集。关于 \(R'\) 的下列条件等价：
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item
+\[
+ \mathfrak g_{R'}=\mathfrak t\oplus
+ \bigoplus_{\alpha\in R'}\mathfrak g^\alpha
+\]
+是 \(G\) 的一个包含 \(T\) 的抛物子群的 Lie 代数（该子群必唯一，第 XXII 讲，\SGARefLink{sga3:xxii:cor:5.3.5}{5.3.5}）。
+\item \(R'\) 为 \textup{(R)} 型（第 XXII 讲，\SGARefLink{sga3:xxii:def:5.4.2}{5.4.2}），且包含一个正根系。
+\item \(R'\) 是 \(R\) 的闭子集，且满足：若 \(\alpha\in R-R'\)，则 \(-\alpha\in R'\)；等价地，\(R=R'\cup(-R')\)。
+\item 存在单根系 \(\Delta\) 及子集 \(A\subset\Delta\)，使得 \(R'\) 是正根与那些可写成 \(A\) 中元素的线性组合的负根的并。
+\item\SGAInlineRefTarget{sga3:xxvi:prop:1:4:item:v} \(R'\) 包含 \(R\) 的一个单根系；此外，若 \(\Delta\subset R'\) 是 \(R\) 的单根系，且
+\[
+ A=(-R')\cap\Delta,
+\]
+则 \(R'\) 是正根与那些可写成 \(A\) 中元素的线性组合的负根的并。
+\end{enumerate}
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:prop:1:4}
+
+由第 XXII 讲 \SGARefLink{sga3:xxii:prop:5.4.5:item:ii}{5.4.5(ii)} 与 \SGARefLink{sga3:xxii:prop:5.5.1}{5.5.1}，有 (i)\(\Leftrightarrow\)(ii)；由第 XXI 讲 \SGARefLink{sga3:XXI:3.3.6}{3.3.6} 及第 XXII 讲 \SGARefLink{sga3:xxii:thm:5.4.7}{5.4.7}，有 (iii)\(\Rightarrow\)(ii)。显然 (v)\(\Rightarrow\)(iv)\(\Rightarrow\)(iii)，而 (iii)\(\Rightarrow\)(v) 由第 XXI 讲 \SGARefLink{sga3:XXI:3.3.6}{3.3.6} 与 3.3.10 推出。
+
+尚须证明 (i) 蕴含 \(R'\) 在 \(R\) 中闭。最后这个断言可在任一几何纤维上验证，故可设 \(S\) 是代数闭域的谱。
+
+设 \(P\) 是 \(G\) 中包含 \(T\)、Lie 代数为 \(\mathfrak g_{R'}\) 的抛物子群。由于 \(P\) 的 Borel 子群就是包含于 \(P\) 的 \(G\) 的 Borel 子群，Bible，\S12.3，\SGARefLink{sga3:xxvi:theorem:4:2:1}{定理 1}，及第 XXII 讲 \SGARefLink{sga3:xxii:prop:5.4.5:item:i}{5.4.5(i)} 表明：若以 \(U\) 表示 \(P\) 的幺幂根基，则 \(T\cdot U\) 是 \(G\) 中包含 \(T\)、Lie 代数为
+\[
+ \mathfrak g_{R''}=\mathfrak t\oplus
+ \bigoplus_{\alpha\in R''}\mathfrak g^\alpha,
+\]
+的子群，其中 \(R''\) 是包含于 \(R'\) 的各个 \(R\) 的正根系的交。特别地，\(R''\) 闭，且 \(R''\cap(-R'')=\varnothing\)。
+
+另一方面，\(H=P/U\) 约化，\(T\) 的典范像 \(\bar T\) 是 \(H\) 的极大环面（且 \(T\to\bar T\) 是同构），并有 \(\bar T\)-模的同构，等价地，\(M\)-分次向量空间的同构
+\[
+ \operatorname{Lie}(H)\simeq\mathfrak t\oplus
+ \bigoplus_{\alpha\in R_s}\mathfrak g^\alpha,
+\]
+其中 \(R_s\) 是 \(R''\) 在 \(R'\) 中的补集。因此 \(R_s\) 自然等同于 \(H\) 关于 \(\bar T\) 的根集，特别地 \(R_s=-R_s\)。所以
+\[
+ R''=\{\alpha\in R'\mid-\alpha\notin R'\},
+ \qquad
+ R_s=\{\alpha\in R'\mid-\alpha\in R'\}.
+\]
+
+现在证明 \(R'\) 闭。设 \(\alpha,\beta\in R'\)，且 \(\alpha+\beta\in R\)。若 \(\alpha,\beta\in R''\)，则因 \(R''\) 闭，有 \(\alpha+\beta\in R''\)。若 \(\alpha\in R_s\)、\(\beta\in R''\)，且 \(\alpha+\beta\notin R'\)，则 \(\alpha+\beta\in-R''\)，从而
+\[
+ -\alpha=-(\alpha+\beta)+\beta\in R'',
+\]
+因为 \(R''\) 闭。于是 \(-\alpha\in R''\cap R_s\)，矛盾。只须考虑 \(\alpha,\beta\in R_s\)。若 \(\alpha+\beta\notin R'\)，则 \(\alpha+\beta\in-R''\)。由于 \(\alpha+\beta\ne0\)，根系 \(R_s\) 的某个正根系同时包含 \(\alpha\) 与 \(\beta\)，因而 \(H=P/U\) 的某个 Borel 子群包含 \(U_\alpha\)、\(U_\beta\) 的典范像。它在 \(P\) 中的逆像是一个 Borel 子群，包含 \(U_\alpha\)、\(U_\beta\)、\(U\)，因而还包含 \(U_{-(\alpha+\beta)}\)，这是不可能的。
+
+\begin{sgastatement}{推论 1.5}
+约化群的抛物子群为 \textup{(RC)} 型（第 XXII 讲，\SGARefLink{sga3:xxii:def:5.11.1}{5.11.1}）。
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:cor:1:5}
+
+\begin{sgastatement}{\SGAInlineRefTarget{sga3:xxvi:proposition:1-6}命题 1.6 \textup{（第 XXII 讲，\SGARefLink{sga3:xxii:prop:5.11.4}{5.11.4}）}}
+设 \(S\) 是概形，\(G\) 是约化 \(S\)-群，\(P\) 是 \(G\) 的 \textup{(RC)} 型子群。\footnote{\emph{编者注。} 仿照第 XXII 讲 \SGARefLink{sga3:xxii:prop:5.11.4}{5.11.4}，将“抛物子群”换成“(RC) 型子群”，因为后文（\SGARefLink{sga3:xxvi:proposition:4-5-1}{4.5.1}、\SGARefLink{sga3:xxvi:cor:6:17}{6.17}）要将陈述用于 \(P,P'\) 抛物而 \(P\cap P'\) 为 (RC) 型的情形中的 \(P\cap P'\)。}
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item \(P\) 有最大的正规子群概形，它在 \(S\) 上光滑且有限呈示，几何纤维连通且幺幂。它是 \(P\) 的特征子群，称为 \(P\) 的\emph{幺幂根基}，记为 \(\rad^u(P)\)。商层 \(P/\rad^u(P)\) 可由约化 \(S\)-群表示。
+\item\SGAInlineRefTarget{sga3:xxvi:proposition:1-6:item:ii} 若 \(T\) 是 \(P\) 的极大环面，则 \(P\) 有一个包含 \(T\) 的约化子群 \(L\)，使得：
+\begin{enumerate}[label=\textup{(\alph*)}]
+\item \(P\) 中每个包含 \(T\) 的约化子群都包含于 \(L\)；
+\item \(P\) 是半直积 \(L\cdot\rad^u(P)\)，即典范态射 \(L\to P/\rad^u(P)\) 是同构。
+\end{enumerate}
+此外，\(L\) 是 \(P\) 中包含 \(T\) 并满足 (b)（分别为 (a)）的唯一子群（分别为约化子群）。最后，
+\[
+ \Norm_P(L)=L,\qquad \Norm_P(T)=\Norm_L(T).
+\]
+\end{enumerate}
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:prop:1:6}
+
+\paragraph{\SGARefLink{sga3:xxvi:prop:1:6}{1.7}.}
+满足条件 \SGARefLink{sga3:xxvi:proposition:1-6:item:ii}{1.6(ii)}(b) 的 \(P\) 的子群 \(L\) 称为 \(P\) 的\emph{Levi 子群}。它是 \(P\) 的极大约化子群。事实上，它与 \(P/\rad^u(P)\) 同构，因而约化。若 \(L'\) 是 \(P\) 中包含 \(L\) 的约化子群，则在 fpqc 拓扑下局部地，\(L\) 有极大环面 \(T\)，再由 \SGARefLink{sga3:xxvi:proposition:1-6:item:ii}{1.6(ii)} 得 \(L'=L\)。
+\SGARefTarget{sga3:xxvi:item:1:7}
+
+若 \(L\)、\(L'\) 是 \(P\) 的两个 Levi 子群，则它们在 fpqc 拓扑下局部地在 \(P\) 中共轭。事实上，局部地可以选取极大环面 \(T\subset L\)、\(T'\subset L'\)；进一步作 fpqc 局部化后，它们在 \(P\) 中共轭，故可设 \(T=T'\)，再由 \SGARefLink{sga3:xxvi:proposition:1-6:item:ii}{1.6(ii)} 得 \(L=L'\)。由于 \(P=L\cdot\rad^u(P)\) 且 \(\Norm_P(L)=L\)，得到：
+
+\begin{sgastatement}{推论 1.8}
+设 \(P\) 是约化 \(S\)-群 \(G\) 的 \textup{(RC)} 型子群。若 \(L,L'\) 是 \(P\) 的两个 Levi 子群，则存在唯一的 \(u\in\rad^u(P)(S)\)，使得 \(\Int(u)L=L'\)。
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:cor:1:8}
+
+以 \(\Lev(P)\) 表示 \(P\) 的 Levi 子群函子：对 \(S'\to S\)，\(\Lev(P)(S')\) 是 \(P_{S'}\) 的 Levi 子群集。\SGARefLink{sga3:xxvi:cor:1:8}{推论 1.8} 给出：
+
+\begin{sgastatement}{推论 1.9}
+设 \(P\) 是约化 \(S\)-群 \(G\) 的 \textup{(RC)} 型子群。则 \(\Lev(P)\) 是 \(S\)-群 \(\rad^u(P)\) 下的主齐性丛；特别地，它可由在 \(S\) 上光滑且仿射、几何纤维整的 \(S\)-概形表示。
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:cor:1:9}
+
+同样，由 \SGARefLink{sga3:xxvi:proposition:1-6}{1.6} 立即得到：
+\begin{sgastatement}{推论 1.10}
+设 \(P\) 是约化 \(S\)-群 \(G\) 的 \textup{(RC)} 型子群。\(P\) 的极大环面函子 \(\Tor(P)\) 可由光滑仿射 \(S\)-概形表示。关系 \(L\supset T\) 定义态射
+\[
+ \Tor(P)\longrightarrow\Lev(P),
+\]
+其在 \(L\in\Lev(P)(S)\) 上方的纤维等同于 \(\Tor(L)\)（第 XXII 讲，\SGARefLink{sga3:xxii:cor:5.8.3}{5.8.3}）。
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:cor:1:10}
+
+\SGARefLink{sga3:xxvi:cor:1:10}{1.10} 的第一个断言由其余两个断言及第 XXII 讲 \SGARefLink{sga3:xxii:cor:5.8.3}{5.8.3} 推出。
+
+\begin{sgastatement}{\SGAInlineRefTarget{sga3:xxvi:definition:1-11}定义 1.11}
+设 \(S\) 是非空概形，\(G\) 是约化 \(S\)-群，\(P\) 是 \(G\) 的抛物子群，
+\[
+ \mathcal E=(T,M,R,\Delta,(X_\alpha)_{\alpha\in\Delta})
+\]
+是 \(G\) 的钉扎。若 \(P\supset T\)，且 \(P\) 的 Lie 代数形如
+\[
+ \mathfrak t\oplus\bigoplus_{\alpha\in R'}\mathfrak g^\alpha,
+\]
+其中 \(R'\subset R\) 包含 \(R^+\)，则称 \(\mathcal E\) \emph{适合于} \(P\)，或称它是\emph{有序对 \((G,P)\) 的钉扎}。
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:def:1:11}
+
+特别地，若 \(T\subset B\) 是这个钉扎定义的 Killing 偶，则 \(T\subset B\subset P\)。在此条件下置 \(\Delta(P)=\Delta\cap(-R')\)。第 XXII 讲 \SGARefLink{sga3:xxii:lem:5.4.3}{5.4.3} 给出
+\[
+ \alpha\in\Delta(P)
+ \ \Longleftrightarrow\
+ \alpha\in\Delta\text{ 且 }U_{-\alpha}\subset P
+ \ \Longleftrightarrow\
+ \alpha\in\Delta\text{ 且 }U_{-\alpha}\cap P\ne e.
+\]
+
+由\SGARefLink{sga3:xxvi:prop:1:4:item:v}{命题 1.4(v)} 及第 XXII 讲 \SGARefLink{sga3:xxii:lem:5.11.3}{5.11.3} 和 5.10.6 立即得到：
+\begin{sgastatement}{\SGAInlineRefTarget{sga3:xxvi:proposition:1-12}命题 1.12}
+设 \(S\) 是概形，\(G\) 是约化 \(S\)-群，\(P\) 是 \(G\) 的抛物子群，\((T,M,R,\Delta,(X_\alpha)_{\alpha\in\Delta})\) 是适合于 \(P\) 的 \(G\) 的钉扎。\(\Delta(P)\subset\Delta\) 的意义如上。
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item \(P\) 的幺幂根基为
+\[
+ \rad^u(P)=U_{R''}=\prod_{\alpha\in R''}U_\alpha,
+\]
+其中 \(R''\) 是在其关于 \(\Delta\) 的展开中，\(\Delta-\Delta(P)\)\footnote{\emph{编者注。} 将 \(\Delta(P)\) 改为 \(\Delta-\Delta(P)\)。}的至少一个元素具有非零系数的那些正根组成的集合。
+\item \(P\) 中包含 \(T\) 的唯一 Levi 子群 \(L\) 为
+\[
+ Z_{\Delta(P)}=\Centr_G(T_{\Delta(P)}),
+\]
+其中 \(T_{\Delta(P)}\) 是 \(\bigcap_{\alpha\in\Delta(P)}\ker(\alpha)\) 的极大环面。此外，\(T_{\Delta(P)}=\rad(L)\)。
+\end{enumerate}
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:prop:1:12}
+
+\begin{sgastatement}{推论 1.13}
+约化群 \(G\) 的抛物子群 \(P\) 的每个 Levi 子群 \(L\) 都是 \(G\) 的\emph{临界子群}；即（第 XXII 讲，\SGARefLink{sga3:xxii:def:5.10.4}{5.10.4}），
+\[
+ L=\Centr_G(\rad(L)).
+\]
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:cor:1:13}
+
+这立即由 \SGARefLink{sga3:xxvi:proposition:1-12}{1.12} 及下一引理推出；后一引理包含在 \SGARefLink{sga3:xxvi:prop:1:3}{1.4} 及第 XXII 讲 \SGARefLink{sga3:xxii:5.4.1}{5.4.1} 中：
+\begin{sgastatement}{引理 1.14}
+在平展拓扑下局部地，每个有序对 \((G,P)\) 都有 \SGARefLink{sga3:xxvi:definition:1-11}{1.11} 意义下的钉扎，其中 \(P\) 是约化群 \(G\) 的抛物子群。
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:lemma:1:14}
+
+再记下：
+\begin{sgastatement}{命题 1.15}
+设 \(S\) 是概形，\(G\) 是约化 \(S\)-群，\(P\) 是 \(G\) 的抛物子群，\(\mathcal E,\mathcal E'\) 是 \(G\) 的适合于 \(P\) 的两个钉扎。将 \(\mathcal E\) 变为 \(\mathcal E'\) 的唯一的 \(G\) 在 \(S\) 上的内自同构（第 XXIV 讲，\SGARefLink{sga3:xxiv:1.5}{1.5}）来自 \(P\)，经由
+\[
+ P\longrightarrow P/\Centr(P)
+ =P/\Centr(G)\longrightarrow G/\Centr(G).
+\]
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:prop:1:15}
+
+事实上，只须仿照第 XXIV 讲 \SGARefLink{sga3:xxiv:1.5}{1.5} 的论证，并使用：
+\begin{sgastatement}{引理 1.16 \textup{（第 XXII 讲，\SGARefLink{sga3:xxii:cor:5.3.14}{5.3.14} 和 \SGARefLink{sga3:xxii:prop:5.2.6}{5.2.6}）}}
+约化 \(S\)-群 \(G\) 的抛物子群 \(P\) 的极大环面（分别为 Borel 子群、Killing 偶）在平展拓扑下局部地在 \(P\) 中共轭。
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:lemma:1:16}
+
+\begin{sgastatement}{命题 1.17}
+设 \(S\) 是概形，\(G\) 是约化 \(S\)-群，\(P,P'\) 是 \(G\) 的两个抛物子群，\(B\) 是同时包含于 \(P\)、\(P'\) 的 Borel 子群。若 \(P\) 与 \(P'\) 在平展拓扑下局部地在 \(G\) 中共轭，则 \(P=P'\)。
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:prop:1:17}
+
+事实上，可设 \(g\in G(S)\) 满足 \(\Int(g)P=P'\)。群 \(B\)、\(\Int(g)^{-1}B\) 是 \(P\) 的两个 Borel 子群。扩张 \(S\) 后，\SGARefLink{sga3:xxvi:lemma:1:16}{引理 1.16} 使我们能选取 \(p\in P(S)\)，使得 \(\Int(p)\Int(g^{-1})B=B\)。因此
+\[
+ pg^{-1}\in\Norm_G(B)(S)=B(S),
+\]
+故 \(g\in B(S)\cdot p\subset P(S)\)，从而 \(P'=\Int(g)P=P\)。
+
+\begin{sgastatement}{注 1.18}
+若 \(P,P'\) 是 \(G\) 中包含公共 Borel 子群的两个抛物子群，则 \(P\cap P'\) 仍是 \(G\) 的抛物子群。事实上，它沿单位截面光滑（第 XXII 讲，\SGARefLink{sga3:xxii:prop:5.4.5}{5.4.5}），并包含一个 Borel 子群。
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:rem:1:18}
+
+\begin{sgastatement}{\SGAInlineRefTarget{sga3:xxvi:proposition:1-19}命题 1.19}
+设 \(S\) 是概形，\(G\) 是约化 \(S\)-群，\(G'\) 是它的导群（第 XXII 讲，\SGARefLink{sga3:xxii:thm:6.2.1}{6.2.1}）。
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item 对应
+\[
+ P\longmapsto P'=P\cap G',
+ \qquad
+ P'\longmapsto P'\cdot\rad(G)=\Norm_G(P')
+\]
+给出 \(G\) 的抛物子群与 \(G'\) 的抛物子群之间的互逆双射。此外，\(\rad^u(P)=\rad^u(P')\)。
+\item 设 \(P\) 是 \(G\) 的抛物子群，\(P'=P\cap G'\)。对应
+\[
+ L\longmapsto L'=L\cap G'=L\cap P',
+ \qquad
+ L'\longmapsto L'\cdot\rad(G)=\Centr_G(\rad(L'))
+\]
+给出 \(P\) 的 Levi 子群与 \(P'\) 的 Levi 子群之间的互逆双射。此外，
+\[
+ \rad(L')=(\rad(L)\cap G')^0.
+\]
+\end{enumerate}
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:prop:1:19}
+
+证明是直接的，例如可归结到分裂情形；将其与以下命题的直接证明一起留给读者。
+\begin{sgastatement}{\SGAInlineRefTarget{sga3:xxvi:proposition:1-20}命题 1.20}
+设 \(S\) 是概形，\(G\) 是约化 \(S\)-群，\(P\) 是 \(G\) 的抛物子群，\(L\) 是 \(P\) 的 Levi 子群。对应
+\[
+ Q\longmapsto Q\cap L=Q',
+ \qquad
+ Q'\longmapsto Q'\cdot\rad^u(P)
+\]
+给出包含于 \(P\) 的 \(G\) 的抛物子群与 \(L\) 的抛物子群之间的互逆双射。此外，\(Q'\) 的 Levi 子群恰是包含于 \(L\) 的 \(Q\) 的 Levi 子群。
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:prop:1:20}
+
+\SGARefLink{sga3:xxvi:proposition:1-6}{命题 1.6} 可补充如下。
+\begin{sgastatement}{\SGAInlineRefTarget{sga3:xxvi:proposition:1-21}命题 1.21}
+设 \(S\) 是概形，\(G\) 是约化 \(S\)-群，\(P\) 是 \(G\) 的抛物子群。
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item \(P\) 有最大的正规子群，它在 \(S\) 上光滑且有限呈示，几何纤维连通且可解。它是 \(P\) 的特征子群，称为 \(P\) 的\emph{根基}，记为 \(\rad(P)\)。商层 \(P/\rad(P)\) 可由半单 \(S\)-群表示。
+\item 若 \(L\) 是 \(P\) 的 Levi 子群，则 \(\rad(P)\) 是 \(\rad^u(P)\) 与 \(\rad(L)\) 的半直积；有
+\[
+\begin{aligned}
+ \rad(L)&=L\cap\rad(P),
+ \qquad
+ L=\Centr_G(L\cap\rad(P)),\\
+ P/\rad(P)&\simeq L/\rad(L).
+\end{aligned}
+\]
+\end{enumerate}
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:prop:1:21}
+
+事实上，断言 (i) 是局部的，故可设 \(P\) 有 Levi 子群 \(L\)。此时立即可知
+\[
+ R=\rad^u(P)\cdot\rad(L)
+\]
+有 (i) 所述的性质。对 (ii)，只须证明 \(\rad(L)=L\cap\rad(P)\)；这立即推出，因为 \(L\) 是环面的中心化子，所以 \(L\cap\rad(P)\) 光滑且纤维连通。\footnote{\emph{编者注。} 参见\SGARefLink{sga3:xix:lemma:1:4}{第 XIX 讲 1.4}。}
+% 已译源行 1--472；第1节完整。
+
+\SGASection{2}{抛物子群的幺幂根基的结构}
+\SGARefTarget{sga3:xxvi:section:2}
+\begin{sgastatement}{\SGAInlineRefTarget{sga3:xxvi:proposition:2-1}命题 2.1}
+设 \(S\) 是概形，\(G\) 是约化 \(S\)-群，\(P\) 是 \(G\) 的抛物子群，\(\rad^u(P)\) 是它的幺幂根基。存在 \(\rad^u(P)\) 的子群概形列
+\[
+ \rad^u(P)=U_0\supset U_1\supset U_2\supset\cdots
+ \supset U_n\supset\cdots
+\]
+具有以下性质：
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item 每个 \(U_i\) 都光滑、纤维连通，并且是 \(P\) 的闭特征子群。在变动的 \(S'\to S\) 上，\(U_i\) 的一个截面与 \(U_j\) 的一个截面的换位子，是 \(U_{i+j+1}\) 的截面。
+\item 对每个 \(i\geq0\)，存在局部自由 \(\mathcal O_S\)-模 \(\mathcal E_i\) 及 \(S\)-群层的同构
+\[
+ U_i/U_{i+1}\xrightarrow{\sim}W(\mathcal E_i).
+\]
+此外，在变动的 \(S'\to S\) 上，\(P\) 的自同构线性作用于 \(W(\mathcal E_i)\)。
+\item 对每个 \(s\in S\)，只要
+\[
+ n>\dim\bigl(\rad^u(P)_s\bigr).
+\]
+就有 \(U_{n,s}=e\)。
+\end{enumerate}
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:prop:2:1}
+
+\paragraph{\SGARefLink{sga3:xxvi:prop:2:1}{2.1.1}.}
+先设有序对 \((G,P)\) 有钉扎。设 \((T,M,R,\Delta,\ldots)\) 是 \(G\) 的适合于 \(P\) 的钉扎，\(\Delta(P)\subset\Delta\) 由 \(P\) 确定。以 \(\alpha_1,\ldots,\alpha_p\) 表示 \(\Delta(P)\) 的元素，以 \(\beta_1,\ldots,\beta_q\) 表示 \(\Delta-\Delta(P)\) 的元素。每个根 \(\gamma\in R\) 有唯一表达式
+\[
+ \gamma
+ =a_1\alpha_1+\cdots+a_p\alpha_p
+  +b_1\beta_1+\cdots+b_q\beta_q.
+\]
+置
+\[
+ a(\gamma)=b_1+\cdots+b_q.
+\tag{7}\label{sga3:xxvi:proposition:2-1:equation:7}
+\]
+\footnote{\emph{编者注。} 将原文的 \(a_1+\cdots+a_p\) 改为 \(b_1+\cdots+b_q\)。}
+由定义立即得到（参见 \SGARefLink{sga3:xxvi:proposition:1-12}{1.12}）：
+\[
+\begin{aligned}
+ U_\gamma\subset P
+   &\ \Longleftrightarrow\ a(\gamma)\geq0,\\
+ U_\gamma\subset\rad^u(P)
+   &\ \Longleftrightarrow\ a(\gamma)>0,\\
+ a(n\gamma+m\gamma')
+   &=n\,a(\gamma)+m\,a(\gamma')
+   \qquad(n,m\in\mathbb Z).
+\end{aligned}
+\]
+
+对 \(i\geq0\)，设 \(R_i\) 为满足 \(a(\gamma)>i\) 的根 \(\gamma\in R\) 的集合。每个 \(R_i\) 都是闭根集，且满足 \(R_i\cap(-R_i)=\varnothing\)。考虑（第 XXII 讲，\SGARefLink{sga3:xxii:cor:5.6.5}{5.6.5}）\(S\)-群
+\[
+ U_i=U_{R_i}=\prod_{\gamma\in R_i}U_\gamma.
+\]
+它是 \(G\) 的闭子群概形，在 \(S\) 上光滑，纤维连通。
+
+设 \(\alpha,\beta\in R\)。考虑第 XXII 讲 \SGARefLink{sga3:xxii:cor:5.5.2}{5.5.2} 的交换关系：
+\[
+ p_\alpha(x)p_\beta(y)p_\alpha(-x)
+ =
+ p_\beta(y)
+ \prod_{n,m\in\mathbb N^*}
+ p_{n\alpha+m\beta}
+ \bigl(C_{n,m,\alpha,\beta}x^ny^m\bigr),
+\]
+其中每个
+\[
+ p_\gamma:\mathbb G_{a,S}\xrightarrow{\sim}U_\gamma
+\]
+都是向量群同构。若 \(a(\alpha)>i\)、\(a(\beta)>j\)，则对 \(n,m>0\)，
+\[
+\begin{aligned}
+ a(n\alpha+m\beta)
+ &=n\,a(\alpha)+m\,a(\beta)\\
+ &\geq n(i+1)+m(j+1)>i+j+1.
+\end{aligned}
+\]
+故 \(U_\alpha\) 的一个截面与 \(U_\beta\) 的一个截面的换位子属于 \(U_{i+j+1}\)；因此
+\[
+ (U_i,U_j)\subset U_{i+j+1}.
+\]
+特别地，\(U_i/U_{i+1}\) 交换，并自然等同于
+\[
+ U_i/U_{i+1}
+ \simeq
+ \prod_{a(\gamma)=i+1}U_\gamma
+ \simeq W(\mathcal E_i),
+\]
+其中 \(\mathcal E_i\) 是满足 \(a(\gamma)=i+1\) 的各 \(\mathfrak g^\gamma\) 的直和。
+
+回到交换公式，设 \(a(\alpha)\geq0\)、\(a(\beta)>i\)。若 \(n,m\in\mathbb N^*\)，则或者
+\[
+ a(n\alpha+m\beta)>i+1,
+\]
+或者 \(a(n\alpha+m\beta)=i+1\)，而此时必有 \(m=1\)。这首先证明 \(\Int(p_\alpha(x))\) 保持 \(U_i\)，因而也保持 \(U_{i+1}\)。其次，它表明，模 \(U_{i+1}\)，\(\Int(p_\alpha(x))p_\beta(y)\) 的表达式只含有形如
+\[
+ p_{n\alpha+\beta}
+ \bigl(C_{n,1,\alpha,\beta}x^ny\bigr),
+\]
+的项，它们对 \(y\) 线性。因此，由 \(U_\alpha\) 的截面定义的内自同构线性作用于 \(U_i/U_{i+1}\simeq W(\mathcal E_i)\)。对 \(T\) 的截面定义的内自同构，同样是显然的。由于 \(P\) 由 \(T\) 及满足 \(a(\alpha)\geq0\) 的 \(U_\alpha\) 生成，得到：
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item 每个 \(U_i\) 都在 \(P\) 中正规；
+\item 由 \(P\) 的截面定义的内自同构线性作用于 \(U_i/U_{i+1}\simeq W(\mathcal E_i)\)。
+\end{enumerate}
+\SGARefTarget{sga3:xxvi:item:2:1:1}
+
+\paragraph{\SGARefLink{sga3:xxvi:item:2:1:1}{2.1.2}.}
+现设 \((T',M',R',\Delta',\ldots)\) 是 \(G\) 的另一个适合于 \(P\) 的钉扎。由 \SGARefLink{sga3:xxvi:prop:1:15}{1.15}，存在来自 \(P\) 的 \(G\) 的一个内自同构，将第一个钉扎变为第二个。扩张 \(S\) 后，可将它写成 \(\Int(p)\)，其中 \(p\in P(S)\)。用第二个钉扎重复构造，得到群 \(U'_i\) 及向量群同构
+\[
+ U'_i/U'_{i+1}\simeq W(\mathcal E'_i)
+\]
+它们由 \(U_i\) 及 \(U_i/U_{i+1}\simeq W(\mathcal E_i)\) 经 \(\Int(p)\) 下的结构转移得到。因此，上述不变性与线性断言给出 \(U'_i=U_i\)，且
+\[
+ U_i/U_{i+1}=U'_i/U'_{i+1}
+\]
+上的两个向量空间结构一致。
+
+所以，\(U_i\) 及其逐次商上的向量结构与所选钉扎无关，特别地，在 \(P\) 的每个自同构下不变。这证明了 \((G,P)\) 有钉扎时的命题。断言 (iii) 是直接的：由第 XXI 讲 \SGARefLink{sga3:XXI:3.1.2}{3.1.2}，集合 \(\{a(\gamma)\mid\gamma\in R\}\) 是 \(\mathbb Z\) 中的区间，所以除非 \(U_{i,s}=e\)，否则不可能有 \(\dim U_{i,s}=\dim U_{i+1,s}\)。
+\SGARefTarget{sga3:xxvi:item:2:1:2}
+
+\paragraph{\SGARefLink{sga3:xxvi:item:2:1:2}{2.1.3}.}
+一般情形，存在 fpqc 覆盖族 \(\{S_j\to S\}\)，使每个有序对 \((G_{S_j},P_{S_j})\) 都有钉扎（\SGARefLink{sga3:xxvi:lemma:1:14}{1.14}）。以上构造在各 \(\rad^u(P_{S_j})_i\) 上给出与商的向量结构相容的下降资料。由闭子概形及局部自由模的下降即得结果。\footnote{\emph{编者注。} 参见 SGA~1，\SGARefLink{sga3:viii:corollary:1:3}{第 VIII 讲 1.3}、\SGARefLink{sga3:xxvi:cor:1:9}{1.9} 与 \SGARefLink{sga3:xxvi:cor:1:10}{1.10}。}
+\SGARefTarget{sga3:xxvi:item:2:1:3}
+
+\begin{sgastatement}{推论 2.2}
+设 \(S\) 仿射，\(G\) 是约化 \(S\)-群，\(P\) 是 \(G\) 的抛物子群。则
+\[
+ H^1(S,\rad^u(P))=0;
+\]
+即 \(\rad^u(P)\) 下的每个主齐性丛都平凡。
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:cor:2:2}
+
+事实上，\(S\) 是若干子概形的不交并，\(\rad^u(P)\) 在各子概形上相对维数恒定。因此，由 2.1(iii)，可设对某个 \(n\)，有 \(U_n=e\)。又由 TDTE I，B，\SGARefLink{sga3:xxvi:def:1:1}{1.1}（或 SGA~1，\SGARefLink{sga3:xi:corollary:5:1}{第 XI 讲 5.1}），有
+\[
+ H^1(S,U_i/U_{i+1})
+ =H^1(S,W(\mathcal E_i))=0
+\]
+由此即得结论。
+
+\begin{sgastatement}{推论 2.3}
+在上述假设下，\(P\) 有 Levi 子群 \(L\)。若 \(L\) 是 \(P\) 的任意 Levi 子群，则典范映射
+\[
+ H^1(S,L)\longrightarrow H^1(S,P)
+\]
+是双射（\(H^1(S,-)\) 的定义见第 XXIV 讲引言）。
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:cor:2:3}
+
+第一个断言由 \SGARefLink{sga3:xxvi:cor:2:2}{2.2} 与 \SGARefLink{sga3:xxvi:cor:1:9}{1.9} 推出。映射 \(H^1(S,L)\to H^1(S,P)\) 是满射，因为 \(P=L\cdot\rad^u(P)\)。为证单射性，只须对每个主齐性 \(L\)-丛 \(Q\) 证明
+\[
+ H^1\bigl(S,\rad^u(P)_Q\bigr)=0
+\]
+其中下标表示由 \(Q\) 的扭转。可以利用 \(U_i/U_{i+1}\) 上的向量结构的 \(L\)-不变性，重复 \SGARefLink{sga3:xxvi:cor:2:2}{2.2} 的证明；也可注意 \(\rad^u(P)_Q\) 是 \(G_Q\) 的抛物子群 \(P_Q\) 的幺幂根基，再将 \SGARefLink{sga3:xxvi:cor:2:2}{2.2} 用于 \(P_Q\)。
+
+\begin{sgastatement}{推论 2.4}
+设 \(S\) 是半局部概形，\(G\) 是约化 \(S\)-群，\(P\) 是 \(G\) 的抛物子群。存在包含于 \(P\) 的 \(G\) 的极大环面 \(T\)。
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:cor:2:4}
+
+事实上，由 \SGARefLink{sga3:xxvi:cor:2:3}{2.3}，群 \(P\) 有 Levi 子群 \(L\)，只须知道 \(L\) 有极大环面；这由第 XIV 讲 \SGARefLink{sga3:xiv:3.20}{3.20} 推出。
+
+\begin{sgastatement}{推论 2.5}
+设 \(S\) 仿射，\(G\) 是约化 \(S\)-群，\(P\) 是 \(G\) 的抛物子群。存在局部自由 \(\mathcal O_S\)-模 \(\mathcal E\)，使得 \(\rad^u(P)\) 作为 \(S\)-概形同构于 \(W(\mathcal E)\)。
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:cor:2:5}
+
+对 \(i\) 归纳，证明有 \(S\)-概形同构
+\[
+ \rad^u(P)/U_i
+ \simeq
+ W(\mathcal E_0\oplus\mathcal E_1\oplus\cdots\oplus\mathcal E_{i-1}).
+\]
+当 \(i=0\) 时显然。若 \(i>0\)，则 \(\rad^u(P)/U_i\) 是 \(\rad^u(P)/U_{i-1}\) 上
+\[
+ (U_{i-1}/U_i)_{\rad^u(P)/U_{i-1}}
+ \simeq
+ W\!\left(
+ \mathcal E_{i-1}\otimes
+ \mathcal O_{\rad^u(P)/U_{i-1}}
+ \right).
+\]
+下的主齐性丛。基是仿射的，例如由归纳假设可知，故丛平凡（TDTE~I 或 SGA~1，第 XI 讲，同上）。于是
+\[
+ \rad^u(P)/U_i
+ \simeq
+ \bigl(\rad^u(P)/U_{i-1}\bigr)\times_S(U_{i-1}/U_i),
+\]
+归纳完成。
+
+\begin{sgastatement}{推论 2.6}
+设 \(S\) 半局部，\(\{s_i\}\) 是它的闭点，\(G\) 是约化 \(S\)-群，\(P\) 是 \(G\) 的抛物子群。典范映射
+\[
+ \rad^u(P)(S)\longrightarrow
+ \prod_i\rad^u(P)(\operatorname{Spec}\kappa(s_i))
+\]
+为满射。
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:cor:2:6}
+
+事实上，记 \(S=\operatorname{Spec}A\)、\(\kappa(s_i)=A/\mathfrak p_i\)。若 \(\mathcal E\) 对应于投射的、因而平坦的 \(A\)-模 \(E\)，则只须证明
+\[
+ E\longrightarrow\prod_i E\otimes_A A/\mathfrak p_i
+\]
+为满射。只须对 \(E=A\) 证明，此时结论是熟知的（Bourbaki，\emph{Algèbre commutative}，第 II 章，\S1，第 2 小节，命题 5）。
+
+\begin{sgastatement}{推论 2.7}
+设 \(k\) 是无限域，\(G\) 是约化 \(k\)-群，\(P\) 是 \(G\) 的抛物子群。则 \(\rad^u(P)(k)\) 在 \(\rad^u(P)\) 中稠密。
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:cor:2:7}
+
+\begin{sgastatement}{推论 2.8}
+设 \(S\) 半局部，\(\{s_i\}\) 是它的闭点，\(G\) 是约化 \(S\)-群，\(P\) 是 \(G\) 的抛物子群，并对每个 \(i\)，设 \(L_i\) 是 \(P_{s_i}\) 的 Levi 子群。存在 \(P\) 的 Levi 子群 \(L\)，其在每个 \(s_i\) 处的纤维为 \(L_i\)。
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:cor:2:8}
+
+事实上，设 \(L_0\) 是 \(P\) 的 Levi 子群（\SGARefLink{sga3:xxvi:cor:2:3}{2.3}）。对每个 \(i\)，由 \SGARefLink{sga3:xxvi:cor:1:8}{1.8} 选取
+\[
+ u_i\in\rad^u(P)(\operatorname{Spec}\kappa(s_i))
+\quad\text{使得}\quad
+ \Int(u_i)L_{0,s_i}=L_i
+\]
+若 \(u\in\rad^u(P)(S)\) 诱导各 \(u_i\)（\SGARefLink{sga3:xxvi:cor:2:6}{2.6} 保证可如此选取），则 \(L=\Int(u)L_0\) 有所需的纤维。
+
+\begin{sgastatement}{\SGAInlineRefTarget{sga3:xxvi:corollary:2-9}推论 2.9}
+沿用 \SGARefLink{sga3:xxvi:proposition:2-1}{2.1} 的条件，再设 \(H\) 是 \(G\) 的子群概形，在 \(S\) 上光滑且有限呈示，纤维连通，并使得 \(P\cap H\) 在 fpqc 拓扑下局部地包含 \(G\) 的极大环面。对每个 \(i\geq0\)，存在局部为直和因子的子模 \(\mathcal F_i\subset\mathcal E_i\)，使同构
+\[
+ U_i/U_{i+1}\xrightarrow{\sim}W(\mathcal E_i)
+\]
+诱导同构
+\[
+ (U_i\cap H)/(U_{i+1}\cap H)\xrightarrow{\sim}W(\mathcal F_i).
+\]
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:cor:2:9}
+
+事实上，\(H\) 是 \(G\) 的 (R) 型子群（第 XXII 讲，\SGARefLink{sga3:xxii:def:5.2.1}{5.2.1}）。断言是 fpqc 局部的，故可设 \(G\) 关于 \(P\cap H\) 的一个极大环面分裂，甚至可归结到 \SGARefLink{sga3:xxvi:prop:2:1}{2.1.1} 的情形，其中 \(H\) 由子集 \(R'\subset R\) 定义。沿用该处记号，第 XXII 讲 \SGARefLink{sga3:xxii:cor:5.6.7:item:ii}{5.6.7(ii)} 给出
+\[
+ U_i\cap H=\prod_{\alpha\in R_i\cap R'}U_\alpha.
+\]
+于是 \((U_i\cap H)/(U_{i+1}\cap H)\) 等同于
+\[
+ \prod_{\substack{\alpha\in R'\\a(\alpha)=i+1}}U_\alpha,
+\]
+断言得证。
+
+\begin{sgastatement}{推论 2.10}
+在 \SGARefLink{sga3:xxvi:corollary:2-9}{2.9} 的条件下，将 \(\rad^u(P)\) 换成 \(\rad^u(P)\cap H\)，\SGARefLink{sga3:xxvi:cor:2:2}{2.2}、\SGARefLink{sga3:xxvi:cor:2:5}{2.5}、\SGARefLink{sga3:xxvi:cor:2:6}{2.6} 和 \SGARefLink{sga3:xxvi:cor:2:7}{2.7} 的结论仍成立。
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:cor:2:10}
+
+\begin{sgastatement}{推论 2.11}
+设\footnote{\emph{编者注。} \SGARefLink{sga3:xxvi:cor:2:11}{推论 2.11} 为增补，将用于 \SGARefLink{sga3:xxvi:proposition:4-5-1}{4.5.1} 及 \SGARefLink{sga3:xxvi:cor:6:17}{6.17}。}\(G\) 是约化 \(S\)-群，\(P\) 是抛物子群，\(H\) 是 \(P\) 的 \textup{(RC)} 型子群，并满足
+\[
+ \rad^u(H)=\rad^u(P)\cap H.
+\]
+则在 \SGARefLink{sga3:xxvi:cor:2:2}{2.2} 至 \SGARefLink{sga3:xxvi:cor:2:8}{2.8} 中，将 \(P\) 换成 \(H\)，各陈述仍成立。
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:cor:2:11}
+% 已译源行 473--833；第2节完整。
+
+\SGASection{3}{约化群的抛物子群概形}
+\SGARefTarget{sga3:xxvi:section:3}
+\SGAInlineRefTarget{sga3:xxvi:paragraph:3-1}\paragraph{\SGARefLink{sga3:xxvi:paragraph:3-1}{3.1}.}
+设 \(E\) 是有限扭常 \(S\)-概形（第 X 讲，\SGARefLink{sga3:x:definition:5-1}{5.1}）。考虑 \(S\)-函子 \(\Of(E)\)，其中 \(\Of(E)(S')\) 是 \(E_{S'}\) 的开闭子概形集，等价地是 \(E_{S'}\) 的开闭子集集。则 \(\Of(E)\) 可由有限扭常 \(S\)-概形表示。事实上，若 \(E=A_S\)，其中 \(A\) 为有限集，则
+\[
+ \Of(E)\simeq\mathcal P(A)_S,
+\]
+其中 \(\mathcal P(A)\) 表示 \(A\) 的幂集；一般情形由开闭子概形的下降得到。显然，
+\[
+ \Of(E_{S'})=\Of(E)_{S'},
+ \qquad
+ \Of(E\times_SE')=\Of(E)\times_S\Of(E').
+\]
+\SGARefTarget{sga3:xxvi:item:3:1}
+
+\paragraph{\SGARefLink{sga3:xxvi:item:3:1}{3.2}.}
+设 \(S\) 是概形，\(G\) 是约化 \(S\)-群。定义 \(G\) 的抛物子群函子 \(\Par(G)\) 为
+\[
+ \Par(G)(S')
+ =\{G_{S'}\text{ 的抛物子群}\}.
+\]
+特别地，\(G\in\Par(G)(S)\)，且 \(\underline{\operatorname{Bor}}(G)\subset\Par(G)\)。我们将定义态射
+\[
+ t:\Par(G)\longrightarrow\Of(\underline{\operatorname{Dyn}}(G))
+\]
+具有以下性质：
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item \(t\) 关于 \(G\) 的同构具有函子性，并与基变换交换。
+\item 若 \((T,M,R,\Delta,\ldots)\) 是适合于抛物子群 \(P\) 的 \(G\) 的钉扎，则典范同构
+\[
+ \underline{\operatorname{Dyn}}(G)\simeq\Delta_S
+\qquad\textup{（第 XXIV 讲，3.4(iii)）}
+\]
+将 \(t(P)\) 映到 \(\Delta(P)_S\)，这里沿用 \SGARefLink{sga3:xxvi:definition:1-11}{1.11} 与 \SGARefLink{sga3:xxvi:proposition:1-12}{1.12} 的记号。
+\end{enumerate}
+
+先设 \(P\) 是 \(G\) 的抛物子群，\((T,M,R,\Delta,\ldots)\) 是适合于 \(P\) 的 \(G\) 的钉扎。用 (ii) 定义 \(t(P)\)。所得的 \(\underline{\operatorname{Dyn}}(G)\) 的子概形与钉扎无关。事实上，若 \((T',M',R',\Delta',\ldots)\) 是另一个适合于 \(P\) 的钉扎，则由 \SGARefLink{sga3:xxvi:prop:1:15}{1.15}，将第一个钉扎变为第二个的 \(G\) 的唯一内自同构来自 \(P\)。所以典范同构 \(\Delta\xrightarrow{\sim}\Delta'\) 将 \(\Delta(P)\) 映到 \(\Delta'(P)\)。
+
+不假设 \((G,P)\) 有钉扎时，\SGARefLink{sga3:xxvi:lemma:1:14}{1.14} 及 \(\underline{\operatorname{Dyn}}(G)\) 的定义（第 XXIV 讲，\SGARefLink{sga3:xxiv:3.3}{3.3}）使我们能下降得到唯一的开闭子概形 \(t(P)\)，使得只要 \((G,P)_{S'}\) 有钉扎，就有
+\[
+ t(P)_{S'}=t(P_{S'})
+\]
+\SGARefTarget{sga3:xxvi:item:3:2}
+
+\begin{sgastatement}{定理 3.3}
+设 \(S\) 是概形，\(G\) 是约化 \(S\)-群，
+\[
+ t:\Par(G)\longrightarrow\Of(\underline{\operatorname{Dyn}}(G))
+\]
+是刚定义的态射。
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item \(G\) 的两个抛物子群 \(P,P'\) 在 fpqc 拓扑下局部共轭（参见 \SGARefLink{sga3:xxvi:proposition:1-3}{1.3}），当且仅当 \(t(P)=t(P')\)。
+\item\SGAInlineRefTarget{sga3:xxvi:thm:3:3:item:ii} \(\Par(G)\) 可表，而且 \(t\) 光滑且射影，几何纤维整。
+\end{enumerate}
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:thm:3:3}
+
+由 3.2(i)，再结合 \(G\) 的内自同构在 \(\underline{\operatorname{Dyn}}(G)\) 上作用平凡这一事实（第 XXIV 讲，\SGARefLink{sga3:xxiv:3.4:item:iv}{3.4(iv)}），共轭的抛物子群具有相同类型。反之，设 \(t(P)=t(P')\)。局部地，首先可设 \((G,P)\)、\((G,P')\) 都有钉扎（\SGARefLink{sga3:xxvi:lemma:1:14}{1.14}）。再由 \(G\) 的钉扎的共轭性（第 XXIV 讲，\SGARefLink{sga3:xxiv:1.5}{1.5}），可选取一个同时适合于 \(P\)、\(P'\) 的钉扎 \((T,M,R,\Delta)\)。类型相等给出 \(\Delta(P)=\Delta(P')\)，故由 \SGARefLink{sga3:xxvi:prop:1:4:item:v}{1.4(v)}，有 \(P=P'\)。这证明了 (i)。
+
+对 (ii)，沿用第 XXII 讲 \SGARefLink{sga3:xxii:prop:5.11.5}{5.11.5} 的记号。\footnote{\emph{编者注。} 回忆 \(\mathscr H_c=\mathscr H_c(G)\) 表示 \(G\) 的 (RC) 型子群函子，\(\mathcal C\ell_c=\mathcal C\ell_c(G)\) 表示其“共轭类”函子，\(c\ell:\mathscr H_c\to\mathcal C\ell_c\) 是典范投影。}存在典范态射 \(\Par(G)\to\mathscr H_c\)，它嵌入笛卡尔方图
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+ \Par(G) \arrow[r,"t"] \arrow[d,hook]
+   & \Of(\underline{\operatorname{Dyn}}(G)) \arrow[d,hook]\\
+ \mathscr H_c \arrow[r,"c\ell"]
+   & \mathcal C\ell_c .
+\end{tikzcd}
+\]
+竖箭头是单态射。由该处结果，\(\mathscr H_c\) 可表，且 \(c\ell\) 光滑、拟射影、有限呈示，几何纤维整；所以 \(t\) 也有这些性质。
+
+尚须证明 \(t\) 固有。这是 fpqc 局部的，故可归结到钉扎群\linebreak \(G=(G,T,M,R,\Delta,\ldots)\)。此时 \(\underline{\operatorname{Dyn}}(G)\simeq\Delta_S\)，只须对每个 \(\Delta_1\subset\Delta\) 证明
+\[
+ t^{-1}((\Delta_1)_S)
+\]
+在 \(S\) 上固有。设 \(P_1\) 是包含 \(T\) 且满足 \(\Delta(P_1)=\Delta_1\) 的抛物子群。(i) 表明，\(g\mapsto\Int(g)P_1\) 诱导同构
+\[
+ G/\Norm_G(P_1)\xrightarrow{\sim}t^{-1}((\Delta_1)_S).
+\]
+由 \SGARefLink{sga3:xxvi:prop:1:2}{1.2}，\(G/\Norm_G(P_1)=G/P_1\)，而它在 \(S\) 上射影。
+
+\begin{sgastatement}{定义 3.4}
+称 \(\Of(\underline{\operatorname{Dyn}}(G))\) 为 \(G\) 的\emph{抛物子群的类型概形}，称 \(t(P)\) 为 \(P\) 的\emph{类型}。
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:def:3:4}
+
+\begin{sgastatement}{推论 3.5}
+\(S\)-函子 \(\Par(G)\) 可由在 \(S\) 上光滑且射影的 \(S\)-概形表示。分解
+\[
+ \Par(G)\longrightarrow
+ \Of(\underline{\operatorname{Dyn}}(G))
+ \longrightarrow S
+\]
+是结构态射 \(\Par(G)\to S\) 的 Stein 分解（EGA III，4.3.3）。
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:cor:3:5}
+
+\begin{sgastatement}{\SGAInlineRefTarget{sga3:xxvi:corollary:3-6}推论 3.6}
+对每个 \(t\in\Of(\underline{\operatorname{Dyn}}(G))(S)\)，类型为 \(t\) 的抛物子群所成的 \(S\)-概形
+\[
+ \Par_t(G)=t^{-1}(t)
+\]
+在 \(S\) 上光滑且射影，并在 \(G\) 下齐性。若 \(P\) 是 \(G\) 的抛物子群，则存在典范同构
+\[
+ G/P\xrightarrow{\sim}\Par_{t(P)}(G).
+\]
+此外，
+\[
+ \Par_{\varnothing}(G)=\underline{\operatorname{Bor}}(G),
+ \qquad
+ \Par_{\underline{\operatorname{Dyn}}(G)}(G)\xrightarrow{\sim}S.
+\]
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:cor:3:6}
+
+\begin{sgastatement}{\SGAInlineRefTarget{sga3:xxvi:remark:3-7}注 3.7}
+\(S\)-概形 \(\Of(\underline{\operatorname{Dyn}}(G))\) 有自然的序结构，其支配关系为子概形的集合包含关系。它是格；特别地，\(\underline{\operatorname{Dyn}}(G)_{S'}\) 的两个开闭子概形的下确界就是它们的交。
+
+若 \(B\) 是 \(G\) 的 Borel 子群，设 \(X\) 是包含 \(B\) 的抛物子群函子。由 \(t\) 诱导的态射
+\[
+ X\longrightarrow\Of(\underline{\operatorname{Dyn}}(G))
+\]
+是有序概形的同构。这由 \(P\subset Q\Rightarrow t(P)\subset t(Q)\) 及下一引理推出。
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:rem:3:7}
+
+\begin{sgastatement}{引理 3.8}
+设 \(S\) 是概形，\(G\) 是约化 \(S\)-群，\(P\) 是 \(G\) 的抛物子群，并设
+\[
+ t'\in\Of(\underline{\operatorname{Dyn}}(G))(S)
+\quad\text{满足}\quad
+ t(P)\subset t'.
+\]
+存在 \(G\) 的唯一抛物子群 \(P'\)，包含 \(P\) 且满足 \(t(P')=t'\)。
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:lemma:3:8}
+
+扩张基后，可设 \(P\) 包含 \(G\) 的 Borel 子群 \(B\)。此时唯一性由 \SGARefLink{sga3:xxvi:prop:1:17}{1.17} 推出。为证存在性，可在分裂情形工作，此时断言由第 1 节立即得到。
+
+\begin{sgastatement}{注 3.8.1}
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item 将包含关系颠倒所得的 \SGARefLink{sga3:xxvi:lemma:3:8}{3.8} 的类似断言不成立。例如，它将蕴含每个 \(A_1\) 型群都有 Borel 子群，而事实并非如此（第 XX 讲第 5 节）。
+\item 上述讨论表明，\(t(P)\subset t(Q)\) 意味着在 fpqc 或平展拓扑下局部地，\(P\) 与 \(Q\) 的一个子群共轭。这只须在几何纤维上检验。\SGARefLink{sga3:xxvi:section:5}{第 5 节}将说明，可将平展拓扑换成 Zariski 拓扑。
+\end{enumerate}
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:rem:3:8:1}
+
+\SGAInlineRefTarget{sga3:xxvi:paragraph:3-9}\paragraph{\SGARefLink{sga3:xxvi:paragraph:3-9}{3.9}.}
+对临界子群，可以重复上述讨论。回忆（第 XXII 讲，\SGARefLink{sga3:xxii:def:5.10.4}{5.10.4} 和 \SGARefLink{sga3:xxii:cor:5.10.5}{5.10.5}），约化群 \(G\) 的约化子群 \(H\) 称为\emph{临界的}，如果
+\[
+ H=\Centr_G(\rad(H)),
+\]
+子环面 \(Q\subset G\) 称为 \emph{\(C\)-临界环面}，如果
+\[
+ Q=\rad(\Centr_G(Q)),
+\]
+并且临界子群与 \(C\)-临界环面通过
+\[
+ H\longmapsto\rad(H),
+ \qquad
+ Q\longmapsto\Centr_G(Q).
+\]
+一一对应。\footnote{\emph{编者注。} 此处将“临界环面”换成“\(C\)-临界环面”。下文又用“临界环面”表示“\(C\)-临界环面”。}
+
+若 \((G,T,M,R)\) 分裂，则与 \(R'\subset R\) 对应、包含 \(T\) 的 \(G\) 的子群（第 XXII 讲，\SGARefLink{sga3:xxii:def:5.4.2}{5.4.2}）临界，当且仅当 \(R'\) \emph{是向量型的}，即它是 \(R\) 与 \(M\otimes\mathbb Q\) 的某个向量子空间的交（第 XXII 讲，\SGARefLink{sga3:xxii:prop:5.10.6}{5.10.6}）。
+
+对任意 \(G\)，第 XXII 讲 \SGARefLink{sga3:xxii:prop:5.11.5}{5.11.5} 定义了一个有限平展 \(S\)-概形 \(\mathcal C\ell_{\mathrm{crit}}\)；在分裂情形，它是与 \(R\) 的向量型子集模 Weyl 群作用所得的集合相伴的常概形。若 \(\Crit(G)\) 表示临界子群函子，则有典范态射
+\[
+ c\ell:\Crit(G)\longrightarrow\mathcal C\ell_{\mathrm{crit}}
+\]
+嵌入笛卡尔方图
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+ \Crit(G) \arrow[r,"c\ell"] \arrow[d,hook]
+   & \mathcal C\ell_{\mathrm{crit}} \arrow[d,hook]\\
+  \mathscr H_c \arrow[r,"c\ell"]
+   & \mathcal C\ell_c .
+\end{tikzcd}
+\]
+\footnote{\emph{编者注。} 记号 \(\mathscr H_c,\mathcal C\ell_c\) 见 \SGARefLink{sga3:xxvi:item:3:2}{3.3} 的编者注。}
+\SGARefTarget{sga3:xxvi:item:3:9}
+
+\begin{sgastatement}{命题 3.10}
+设 \(S\) 是概形，\(G\) 是约化 \(S\)-群，\(\Crit(G)\) 是其临界子群函子，而 \(\mathcal C\ell_{\mathrm{crit}}\) 及
+\[
+ c\ell:\Crit(G)\longrightarrow\mathcal C\ell_{\mathrm{crit}}
+\]
+意义如上。
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item \(G\) 的临界子群 \(H,H'\) 在 fpqc 拓扑下局部共轭，当且仅当 \(c\ell(H)=c\ell(H')\)。
+\item \(\Crit(G)\) 可表，\(c\ell\) 光滑且仿射，几何纤维整。
+\end{enumerate}
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:prop:3:10}
+
+除 \(c\ell\) 的仿射性外，证明与 \SGARefLink{sga3:xxvi:item:3:2}{3.3} 相同。只须证明 \(\Crit(G)\) 在 \(S\) 上仿射。函子 \(\Crit(G)\) 自然等同于 \(G\) 的临界环面函子，给出典范单态射
+\[
+ \Crit(G)\longrightarrow\mathcal M,
+\]
+其中 \(\mathcal M\) 是 \(G\) 的乘法型子群概形（第 XI 讲，\SGARefLink{sga3:xi:theorem:4:1}{4.1}）。由第 XII 讲 \SGARefLink{sga3:xii:5.3}{5.3}，只须证明它是开闭浸入。作基变换 \(\mathcal M\to S\) 后，这归结为：若 \(Q\) 是 \(G\) 的乘法型子群，则使 \(Q_{S'}\) 为 \(G_{S'}\) 的临界环面的那些 \(S'\to S\)，恰是经 \(S\) 的某个开闭子概形分解的那些态射。这个条件是以下两条件的合取：
+\begin{enumerate}[label=\textup{(\arabic*)}]
+\item \(Q\) 是环面；
+\item 当 \(Q\) 为环面时，环面 \(\rad(\Centr_G(Q))\) 与 \(Q\) 有相同的相对维数。
+\end{enumerate}
+两个条件都具有所需性质。
+
+\begin{sgastatement}{推论 3.11}
+\(S\)-函子 \(\Crit(G)\) 可由在 \(S\) 上光滑且仿射的 \(S\)-概形表示。
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:cor:3:11}
+
+\begin{sgastatement}{推论 3.12}
+设 \(H\) 是约化 \(S\)-群 \(G\) 的临界子群。则 \(G/\Norm_G(H)\) 与 \(G/H\) 可由在 \(S\) 上仿射且光滑的 \(S\)-概形表示。
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:cor:3:12}
+
+第一个断言由 \SGARefLink{sga3:xxvi:cor:3:11}{3.11} 推出，第二个断言由第一个断言及第 XXII 讲 \SGARefLink{sga3:xxii:cor:5.10.2}{5.10.2} 推出。
+
+\begin{sgastatement}{推论 3.13}
+设 \(Q\) 是约化 \(S\)-群 \(G\) 的子环面。则 \(G/\Centr_G(Q)\) 可由在 \(S\) 上光滑且仿射的 \(S\)-概形表示。当 \(Q\) 是 \(G\) 的临界子环面时，\(G/\Norm_G(Q)\) 也如此。
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:cor:3:13}
+
+事实上，\(H=\Centr_G(Q)\) 临界（第 XXII 讲，\SGARefLink{sga3:xxii:cor:5.10.5}{5.10.5}），而当 \(Q\) 临界时，有 \(\Norm_G(H)=\Norm_G(Q)\)（同上，5.10.8）。
+
+\SGAInlineRefTarget{sga3:xxvi:paragraph:3-14}\paragraph{\SGARefLink{sga3:xxvi:paragraph:3-14}{3.14}.}
+\(G\) 的抛物子群的 Levi 子群的共轭性给出唯一态射
+\[
+ u:\Of(\underline{\operatorname{Dyn}}(G))
+ \longrightarrow\mathcal C\ell_{\mathrm{crit}}
+\]
+使得对每个抛物子群 \(P\) 及每个 Levi 子群 \(L\subset P\)，有
+\[
+ c\ell(L)=u(t(P)),
+\]
+并且与所有基变换相容。
+\SGARefTarget{sga3:xxvi:item:3:14}
+
+\paragraph{\SGARefLink{sga3:xxvi:item:3:14}{3.15}.}
+设 \(S\) 是概形，\(G\) 是约化 \(S\)-群。考虑以下 \(S\)-函子\footnote{\emph{编者注。} 将原文的 \(LT\) 改为 \(CT\)。}：
+\[
+\begin{aligned}
+ PL(S')={}&\{(P,L)\mid P\supset L,\ P\text{ 是 }G_{S'}\text{ 的抛物子群},\
+                    L\text{ 是 }P\text{ 的 Levi 子群}\},\\
+ PT(S')={}&\{(P,T)\mid P\supset T,\ P\text{ 是 }G_{S'}\text{ 的抛物子群},\
+                    T\text{ 是 }P\text{ 的极大环面}\},\\
+ CT(S')={}&\{(C,T)\mid C\supset T,\ C\text{ 是 }G_{S'}\text{ 的临界子群},\
+                    T\text{ 是 }C\text{ 的极大环面}\},\\
+ PLT(S')={}&\{(P,L,T)\mid P\supset L\supset T,\ (P,T)\in PT(S'),\
+                    L\text{ 是 }P\text{ 的 Levi 子群}\}.
+\end{aligned}
+\]
+这些函子之间，以及它们与 \(\Par(G),\Crit(G)\)、\(\Tor(G)\) 之间，有显然的态射。它们组成如下交换截角立方体。
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+  >=to,
+  every node/.style={font=\small},
+  morph/.style={->,line width=.45pt}
+]
+  \node (CT)     at (5.2,7.2) {\(\underline{CT}\)};
+  \node (PLT)    at (9.0,7.2) {\(\underline{PLT}\)};
+  \node (Crit)   at (0.8,5.2) {\(\Crit(G)\)};
+  \node (PL)     at (7.1,5.2) {\(\underline{PL}\)};
+  \node (Cl)     at (1.0,3.1) {\(\mathcal C\ell_{\mathrm{crit}}\)};
+  \node (Tor)    at (5.2,3.1) {\(\Tor(G)\)};
+  \node (PT)     at (9.0,3.1) {\(\underline{PT}\)};
+  \node (S)      at (3.3,1.4) {\(S\)};
+  \node (Of)     at (2.0,-.2) {\(\Of(\underline{\operatorname{Dyn}}(G))\)};
+  \node (Par)    at (7.1,-.2) {\(\Par(G)\)};
+  \draw[morph] (PLT) -- node[above]{\(g\)（平展）} (CT);
+  \draw[morph] (CT) -- node[above left]{\(a\)} node[below right]{（仿射）} (Crit);
+  \draw[morph] (PLT) -- node[above left]{\(b\)} node[below right]{（仿射）} (PL);
+  \draw[morph] (PL) -- node[above]{\(f\)（平展）} (Crit);
+  \draw[morph] (CT) -- node[right]{\(k\)（平展）} (Tor);
+  \draw[morph] (PLT) -- node[left]{\(\wr\)}
+    node[right]{\(e\)（同构）} (PT);
+  \draw[morph] (Crit) -- node[left]{\(c\ell\)（仿射）} (Cl);
+  \draw[morph] (PL) -- node[right]{\(d\)（仿射）} (Par);
+  \draw[morph] (PT) -- node[above]{\(h\)（平展）} (Tor);
+  \draw[morph] (PT) -- node[right]{\(c\)（仿射）} (Par);
+  \draw[morph] (S) -- node[above left]{\(q\)（平展）} (Cl);
+  \draw[morph] (Tor) -- node[above right]{\(r\)（仿射）} (S);
+  \draw[morph] (Of) -- node[above left]{\(u\)（平展）} (Cl);
+  \draw[morph] (Of) -- node[right]{\(p\)（平展）} (S);
+  \draw[morph] (Par) -- node[above]{\(t\)（射影）} (Of);
+\end{tikzpicture}
+\refstepcounter{figure}
+\label{sga3:xxvi:fig:3:15:1}
+\par\smallskip
+{\small 图 3.15.1}
+\end{figure}
+\SGARefTarget{sga3:xxvi:item:3:15}
+
+\begin{sgastatement}{定理 3.16 \textup{（参见图 3.15.1）}}
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item 图中每个态射都光滑、满且有限呈示。
+\item 除 \(t\) 外每个态射都仿射；\(t\) 射影。
+\item 每个态射要么有限平展，要么几何纤维整：\(f,g,h,k,p,q,u\) 有限平展；\(a,b,c,d,r,c\ell\) 的几何纤维整；\(e\) 是同构。
+\item 方图 \((a,b,f,g)\) 是笛卡尔图。
+\end{enumerate}
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:thm:3:16}
+
+\SGAProof
+由 \SGARefLink{sga3:xxvi:proposition:1-6:item:ii}{1.6(ii)}，显然 \(e\) 是同构，而 (iv) 是直接的。态射 \(a\) 光滑、仿射，几何纤维整。事实上，作基变换 \(\Crit(G)\to S\) 后，这归结为态射
+\[
+ \Tor(L_0)\longrightarrow S,
+\]
+具有相同性质，其中 \(L_0\) 是泛临界子群；\(L_0\) 按定义约化，因而可应用第 XXII 讲 \SGARefLink{sga3:xxii:cor:5.8.3}{5.8.3}。由 (iv)，\(b\) 具有同样性质。
+
+由 \SGARefLink{sga3:xxvi:cor:1:9}{1.9}，态射 \(d\) 也光滑、仿射，几何纤维整；因此
+\[
+ c=dbe^{-1}.
+\]
+也如此。由第 XXII 讲 \SGARefLink{sga3:xxii:cor:5.8.3}{5.8.3}，态射 \(r\) 具有这些性质，而 \(c\ell\) 由 \SGARefLink{sga3:xxvi:item:3:9}{3.10} 具有这些性质。
+
+已经知道，\(p\)、\(q\) 有限平展且满（\SGARefLink{sga3:xxvi:paragraph:3-1}{3.1} 及 \SGARefLink{sga3:xxvi:paragraph:3-9}{3.9}）。若 \(f\)、\(k\) 有限平展且满，则由 (iv)，\(g\) 也如此，\(h=kge^{-1}\) 也如此。由于关于 \(t\) 的断言已在 \SGARefLink{sga3:xxvi:thm:3:3:item:ii}{3.3(ii)} 中证明，只须证明对 \(f\)、\(k\) 的断言。我们对 \(k\) 证明，\(f\) 的证明相同。
+
+若 \(T\) 是 \(G\) 的极大环面，设 \(\mathcal C\) 是包含 \(T\) 的临界子群函子。须证明 \(\mathcal C\) 由纤维非空的有限平展 \(S\)-概形表示。可设 \(G\) 关于 \(T\) 分裂。若 \(E\) 是根系 \(R\) 的向量型子集集，则由 3.9，\(\mathcal C\) 由 \(E_S\) 表示。
+\SGAQED
+
+\begin{sgastatement}{推论 3.17}
+上述图中的所有函子都可由在 \(S\) 上光滑的 \(S\)-概形表示，且除 \(\Par(G)\) 外，都在 \(S\) 上仿射。
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:cor:3:17}
+
+\begin{sgastatement}{\SGAInlineRefTarget{sga3:xxvi:remark:3-18}注 3.18}
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item \(f:PL\to\Crit(G)\) 平展且满这一事实说明，\(G\) 的子群临界，当且仅当它在平展拓扑下局部地是某个抛物子群的 Levi 子群。
+
+一般而言，映射 \(PL(S)\to\Crit(G)(S)\) 未必为满射：一个临界子群 \(C\) 可能在 \(S\) 上并不来自抛物子群。例如，极大环面未必包含于 Borel 子群中，\(\operatorname{SL}_2\) 的非分裂形式即如此（第 XX 讲第 5 节）。
+\item 同样，
+\[
+ u:\Of(\underline{\operatorname{Dyn}}(G))
+ \longrightarrow\mathcal C\ell_{\mathrm{crit}}
+\]
+未必是同构。两个不同类型的抛物子群可能有相同类型的 Levi 子群。例如，在 \(A_2\) 型群中，Levi 子群半单秩为 \(1\) 的两种类型的抛物子群，对应于图的两个顶点，而秩为 \(1\) 的临界子群只有一种类型。
+
+\(A_3\) 型的类似例子表明，即使在代数闭域上，互不同构的抛物子群也可能有相同类型的 Levi 子群。\footnote{\emph{编者注。} 具体而言，在 \(\operatorname{GL}_4\) 中，抛物子群
+\[
+ P=\left\{\begin{pmatrix}
+ *&*&*&*\\0&*&*&*\\0&0&*&*\\0&0&0&*
+ \end{pmatrix}\right\},
+ \qquad
+ P'=\left\{\begin{pmatrix}
+ *&*&*&*\\0&*&*&*\\0&*&*&*\\0&0&0&*
+ \end{pmatrix}\right\}
+\]
+不同构（它们的幺幂根基不同构），而它们的 Levi 子群
+\[
+ L=\left\{\begin{pmatrix}
+ *&*&0&0\\ *&*&0&0\\0&0&*&0\\0&0&0&*
+ \end{pmatrix}\right\},
+ \quad
+ L'=\left\{\begin{pmatrix}
+ *&0&0&0\\0&*&*&0\\0&*&*&0\\0&0&0&*
+ \end{pmatrix}\right\}
+\]
+由
+\(
+\left(\begin{smallmatrix}
+0&0&1&0\\0&1&0&0\\1&0&0&0\\0&0&0&1
+\end{smallmatrix}\right).
+\)
+共轭。}
+\end{enumerate}
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:rem:3:18}
+
+本节最后给出对主丛的一个应用。
+\begin{sgastatement}{\SGAInlineRefTarget{sga3:xxvi:lemma:3-20}引理 3.20}
+设\footnote{\emph{编者注。} 保留原文的编号：没有第 3.19 小节。}\(S\) 是概形，\(G\) 是约化 \(S\)-群，\(F\) 是 \(G\) 下的主齐性丛，\(G_F\) 是相应的扭形式。将 \(\underline{\operatorname{Dyn}}(G)\) 与 \(\underline{\operatorname{Dyn}}(G_F)\) 等同（第 XXIV 讲，\SGARefLink{sga3:xxiv:3.5}{3.5}）。对 \(G\) 的每个抛物子群 \(P\)，有典范同构
+\[
+ F/P\xrightarrow{\sim}\Par_{t(P)}(G_F).
+\]
+特别地，\(F\) 的结构群可约化到 \(P\)，当且仅当 \(G_F\) 有类型为 \(t(P)\) 的抛物子群。
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:lemma:3:20}
+
+证明与第 XXIV 讲 \SGARefLink{sga3:xxiv:proposition:4-2-1}{4.2.1} 的证明完全相同。
+
+\SGAInlineRefTarget{sga3:xxvi:paragraph:3-21}\paragraph{\SGARefLink{sga3:xxvi:paragraph:3-21}{3.21}.}
+若 \(S\) 是概形，\(G\) 是约化 \(S\)-群，并且
+\[
+ t\in\Of(\underline{\operatorname{Dyn}}(G))(S),
+\]
+则以 \(H^1_t(S,G)\) 表示 \(H^1(S,G)\) 的如下子集：由相伴群 \(G_F\) 有类型为 \(t\) 的抛物子群的那些主 \(G\)-丛 \(F\) 的类组成。若 \(G\) 本身有类型为 \(t\) 的抛物子群 \(P\)，则 \(H^1_t(S,G)\) 恰是 \(H^1(S,P)\) 在 \(H^1(S,G)\) 中的像，故与所选的 \(P\) 无关。
+\SGARefTarget{sga3:xxvi:item:3:21}
+% 已译源行 834--1388；第3节完整。
+
+\SGASection{4}{两个抛物子群的相对位置}
+\SGARefTarget{sga3:xxvi:section:4}
+\SGASubsection{4.1}{一个预备结果}
+\SGARefTarget{sga3:xxvi:subsection:4:1}
+
+\begin{sgastatement}{引理 4.1.1}
+设 \(k\) 是域，\(G\) 是约化 \(k\)-群，\(P,P'\) 是 \(G\) 的两个抛物子群。
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item 交 \(P\cap P'\) 光滑，与 \(G\) 有相同的约化秩，并包含 \(G\) 的极大环面 \(T\)。
+\item \(P\cap P'\) 关于 \(T\) 的根集 \(R'\)，是 \(G\) 关于 \(T\) 的根集 \(R\) 的闭子集。
+\end{enumerate}
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:lemma:4:1:1}
+\footnote{\emph{编者注。} (ii) 为编者增补，将用于 \SGARefLink{sga3:xxvi:proposition:4-5-1}{4.5.1}。}
+
+\SGAProof
+先设 \(k\) 代数闭。设 \(B\)（分别为 \(B'\)）是 \(P\)（分别为 \(P'\)）的 Borel 子群。存在元素 \(g\in G(k)\)，使得 \(\Int(g)B=B'\)。另一方面，若 \(T_0\) 是 \(B\) 的极大环面，\(N=\Norm_G(T_0)\)，则 Bruhat 定理（\emph{Bible}，\S13.4，定理 3 的推论 1）给出
+\[
+ G(k)=B(k)N(k)B(k).
+\]
+所以存在 \(b,b_1\in B(k)\) 及 \(n\in N(k)\)，使得 \(g=bnb_1\)，因而 \(\Int(b)\Int(n)B=B'\)。因此
+\[
+ P\cap P'\supset B\cap B'
+  =\Int(b)\bigl(B\cap\Int(n)B\bigr)
+  \supset\Int(b)T_0.
+\]
+
+现在设 \(k\) 任意。上述结果表明，\(P_{\bar k}\cap P'_{\bar k}\) 包含 \(G_{\bar k}\) 的极大环面。由第 XXII 讲 \SGARefLink{sga3:xxii:prop:5.4.5}{5.4.5}，\((P\cap P')_{\bar k}\) 沿单位截面光滑；由于基为域，它因此光滑（第 VI\textsubscript{A} 讲，\SGARefLink{prop:sga3-VIA-1.3.1}{1.3.1}），故 \(P\cap P'\) 光滑。由第 VI\textsubscript{A} 讲 \SGARefLink{prop:sga3-VIA-2.3.1}{2.3.1}，单位连通分支 \((P\cap P')^0\) 是 \(P\cap P'\) 的开子群，在 \(k\) 上光滑。对它应用第 XIV 讲 \SGARefLink{sga3:xiv:1.1}{1.1}，即得 (i)。
+
+最后，\(P\)（分别为 \(P'\)）关于 \(T\) 的根集 \(R_P\)（分别为 \(R_{P'}\)）闭，且
+\[
+ R'=R_P\cap R_{P'}.
+\]
+这证明了 (ii)。
+\SGAQED
+
+\begin{sgastatement}{注 4.1.2}
+可以证明（[BT65]，\SGARefLink{sga3:xxvi:subsection:4:5}{4.5}），\(P\cap P'\) 连通；这一事实将用于 \SGARefLink{sga3:xxvi:proposition:4-5-1}{4.5.1}。
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:remark:4:1:2}
+\footnote{\emph{编者注。} 鉴于 \SGARefLink{sga3:xxvi:proposition:4-5-1}{4.5.1} 中增补的细节，改写了原文“我们不使用这一事实”的说法。}
+
+\begin{sgastatement}{\SGAInlineRefTarget{sga3:xxvi:remark:4-1-3}注 4.1.3}
+上述引理在任意概形上不成立。例如，设 \(G\) 是代数闭域 \(k\) 上的约化群，\(B\) 是 \(G\) 的 Borel 子群。以 \(S=G\) 为基，考虑 \(G_G\) 的 Borel 子群 \(B_1,B_2\)，其中
+\[
+ B_1=B_G,\qquad B_2=\Int(g_0)B_1,
+\]
+而 \(g_0\) 为 \(G_G\) 的典范（对角）截面。对每个 \(g\in G(k)\)，\(B_1\cap B_2\) 在 \(g\) 处的纤维为 \(B\cap\Int(g)B\)。若 \(B\ne G\)，这个纤维的维数随 \(g\) 变化，故 \(B_1\cap B_2\) 不可能在 \(G\) 上光滑。
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:remark:4:1:3}
+
+\SGASubsection{4.2}{横截位置}
+\SGARefTarget{sga3:xxvi:subsection:4:2}
+\begin{sgastatement}{\SGAInlineRefTarget{sga3:xxvi:theorem:4-2-1}定理 4.2.1}
+设 \(S\) 是概形，\(G\) 是约化 \(S\)-群，\(P,Q\) 是 \(G\) 的两个抛物子群。关于有序对 \((P,Q)\) 的下列条件等价：
+\begin{enumerate}[leftmargin=3.2em,labelsep=.7em]
+\item[\textup{\SGAInlineRefTarget{sga3:xxvi:theorem:4-2-1:item:i}(i)}]
+\(\operatorname{Lie}(P/S)+\operatorname{Lie}(Q/S)
+  =\operatorname{Lie}(G/S)\)。
+\item[\textup{\SGAInlineRefTarget{sga3:xxvi:theorem:4-2-1:item:ii}(ii)}]
+典范态射 \(P\times_SQ\to G\) 光滑。
+\item[\textup{(ii\(^{\prime}\))}]
+典范态射 \(P\to G/Q\) 光滑。
+\item[\textup{\SGAInlineRefTarget{sga3:xxvi:theorem:4-2-1:item:iii}(iii)}]
+典范态射 \(P\times_SQ\to G\) 开。
+\item[\textup{(iii\(^{\prime}\))}]
+典范态射 \(P\to G/Q\) 开。
+\item[\textup{\SGAInlineRefTarget{sga3:xxvi:theorem:4-2-1:item:iv}(iv)}]
+典范态射 \(P\times_SQ\to G\) 逐纤维占优。
+\item[\textup{(iv\(^{\prime}\))}]
+典范态射 \(P\to G/Q\) 逐纤维占优。
+\item[\textup{\SGAInlineRefTarget{sga3:xxvi:theorem:4-2-1:item:v}(v)}]
+对每个 \(s\in S\)，群 \(P_s\cap Q_s\) 具有最小维数，即
+\[
+ \dim(P_s\cap Q_s)=\dim P_s+\dim Q_s-\dim G_s.
+\]
+\item[\textup{\SGAInlineRefTarget{sga3:xxvi:theorem:4-2-1:item:vi}(vi)}]
+存在平展覆盖族 \(\{S_i\to S\}\)，并对每个 \(i\)，存在 \(P_{S_i}\) 的 Borel 子群 \(B_i\) 与 \(Q_{S_i}\) 的 Borel 子群 \(B'_i\)，使得 \(B_i\cap B'_i\) 是 \(G_{S_i}\) 的极大环面。
+\item[\textup{\SGAInlineRefTarget{sga3:xxvi:theorem:4-2-1:item:vii}(vii)}]
+存在平展覆盖族 \(\{S_i\to S\}\)，并对每个 \(i\)，存在 \(G_{S_i}\) 的分裂结构 \((T_i,\ldots,R_i)\) 及 \(R_i\) 的正根系 \(R_i^+\)，使得 \(P_{S_i}\)（分别为 \(Q_{S_i}\)）是 \(G_{S_i}\) 中包含 \(T_i\)、由 \(R_i\) 的子集 \(R_i^{(1)}\)（分别为 \(R_i^{(2)}\)）定义的 \textup{(R)} 型子群，而该子集包含 \(R_i^+\)（分别为 \(-R_i^+\)）；参见第 XXII 讲 \SGARefLink{sga3:xxii:def:5.4.2}{5.4.2} 与 5.2.1。
+\end{enumerate}
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:theorem:4:2:1}
+
+\SGAProof
+按以下逻辑图证明定理：
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+ \textup{(i)} \arrow[d,Rightarrow] &
+ \textup{(vii)} \arrow[l,Rightarrow] &
+ \textup{(vi)} \arrow[l,Rightarrow] \\
+ \textup{(ii\(^{\prime}\))} \arrow[d,Rightarrow] \arrow[r,Rightarrow] &
+ \textup{(iii\(^{\prime}\))} \arrow[r,Rightarrow] &
+ \textup{(iv\(^{\prime}\))} \arrow[r,Rightarrow] &
+ \textup{(v)} \arrow[ul,Rightarrow] \\
+ \textup{(ii)} \arrow[r,Rightarrow] &
+ \textup{(iii)} \arrow[r,Rightarrow] &
+ \textup{(iv)} \arrow[ur,Rightarrow] &
+ {} .
+\end{tikzcd}
+\]
+
+蕴含 \textup{\SGARefLink{sga3:xxvi:theorem:4-2-1:item:ii}{(ii)}} \(\Rightarrow\) \textup{\SGARefLink{sga3:xxvi:theorem:4-2-1:item:iii}{(iii)}} 及 \textup{(ii\(^{\prime}\))} \(\Rightarrow\) \textup{(iii\(^{\prime}\))} 是直接的。若 \textup{\SGARefLink{sga3:xxvi:theorem:4-2-1:item:iii}{(iii)}} 成立，则 \(P\times_SQ\to G\) 的集合像为 \(G\) 的一个包含单位截面的开子集。由于 \(G\) 的纤维连通，这个像在每个纤维中稠密；故 \textup{\SGARefLink{sga3:xxvi:theorem:4-2-1:item:iv}{(iv)}} 成立。蕴含 \textup{(iii\(^{\prime}\))} \(\Rightarrow\) \textup{(iv\(^{\prime}\))} 相同。
+
+由笛卡尔图
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+ P\times_SQ \arrow[r] \arrow[d,"\operatorname{pr}_1"'] & G \arrow[d]\\
+ P \arrow[r] & G/Q .
+\end{tikzcd}
+\]
+可知条件 \textup{(ii\(^{\prime}\))} 蕴含 \textup{\SGARefLink{sga3:xxvi:theorem:4-2-1:item:ii}{(ii)}}。另一方面，由维数理论（EGA IV\textsubscript{2}，5.6.6），\textup{(iv)} 或 \textup{(iv\(^{\prime}\))} 蕴含 \textup{(v)}。事实上，可设 \(S=\operatorname{Spec}(k)\)，其中 \(k\) 代数闭；\textup{\SGARefLink{sga3:xxvi:theorem:4-2-1:item:iv}{(iv)}} 中的态射在 \(G(k)\) 的点处的每个非空纤维，以及 \textup{(iv\(^{\prime}\))} 中的态射在 \((G/Q)(k)\) 的点处的每个非空纤维，都同构于 \(P\cap Q\)。
+
+蕴含 \textup{\SGARefLink{sga3:xxvi:theorem:4-2-1:item:vi}{(vi)}} \(\Rightarrow\) \textup{\SGARefLink{sga3:xxvi:theorem:4-2-1:item:vii}{(vii)}} 由第 XXII 讲 \SGARefLink{sga3:xxii:prop:5.5.1}{5.5.1}\textup{\SGARefLink{sga3:xxvi:theorem:4-2-1:item:iv}{(iv)}} 及 \SGARefLink{sga3:xxii:prop:5.9.2}{5.9.2} 推出。条件 \textup{\SGARefLink{sga3:xxvi:theorem:4-2-1:item:vii}{(vii)}} 蕴含 \textup{\SGARefLink{sga3:xxvi:theorem:4-2-1:item:i}{(i)}}，因为后者可在 fpqc 局部检验。在 \textup{\SGARefLink{sga3:xxvi:theorem:4-2-1:item:vii}{(vii)}} 下，因此可设 \(G\) 分裂，\(P\supset B_{R^+}\)，\(Q\supset B_{-R^+}\)；此时已经有
+\[
+ \operatorname{Lie}(B_{R^+})+\operatorname{Lie}(B_{-R^+})
+ =\operatorname{Lie}(G).
+\]
+
+来证明 \textup{\SGARefLink{sga3:xxvi:theorem:4-2-1:item:i}{(i)}} 蕴含 \textup{(ii\(^{\prime}\))}。设 \(u:P\to G/Q\) 为典范态射。由于 \(P\) 与 \(G/Q\) 都在 \(S\) 上光滑，可在几何纤维上检验光滑性；所以可设 \(S\) 是代数闭域的谱。态射 \(u\) 与 \(P\) 的显然作用相容：\(u(pp')=p\,u(p')\)。因而平移论证（比较第 VI\textsubscript{B} 讲 1.3 的证明）将光滑性归结到点 \(e\in P(k)\)。由 SGA 1，II，4.7，只须 \(e\) 处的切映射为满射。这个映射自然等同于
+\[
+ \operatorname{Lie}(P)\longrightarrow
+ \operatorname{Lie}(G)/\operatorname{Lie}(Q),
+\]
+而在 \textup{\SGARefLink{sga3:xxvi:theorem:4-2-1:item:i}{(i)}} 下，它为满射。
+
+尚须证明 \textup{\SGARefLink{sga3:xxvi:theorem:4-2-1:item:v}{(v)}} \(\Rightarrow\) \textup{\SGARefLink{sga3:xxvi:theorem:4-2-1:item:vi}{(vi)}}。先设 \(S\) 是代数闭域的谱。由 \SGARefLink{sga3:xxvi:lemma:4:1:1}{4.1.1}，存在同时包含于 \(P\)、\(Q\) 的极大环面 \(T\)。设 \(R\)、\(R_1\)、\(R_2\) 分别是 \(G\)、\(P\)、\(Q\) 关于 \(T\) 的根集。由第 XXII 讲 \SGARefLink{sga3:xxii:lem:5.4.4}{5.4.4} 及 \SGARefLink{sga3:xxii:prop:5.4.5}{5.4.5}，
+\[
+\begin{aligned}
+ \dim G&=\dim T+\operatorname{Card}(R),&
+ \dim P&=\dim T+\operatorname{Card}(R_1),\\
+ \dim Q&=\dim T+\operatorname{Card}(R_2),&
+ \dim(P\cap Q)&=\dim T+\operatorname{Card}(R_1\cap R_2).
+\end{aligned}
+\]
+所以条件 \textup{\SGARefLink{sga3:xxvi:theorem:4-2-1:item:v}{(v)}} 等价于
+\[
+ \operatorname{Card}(R_1\cap R_2)
+ =\operatorname{Card}(R_1)+\operatorname{Card}(R_2)
+  -\operatorname{Card}(R),
+\]
+即等价于 \(R_1\cup R_2=R\)。由第 XXII 讲 \SGARefLink{sga3:xxii:prop:5.9.2}{5.9.2} 与 \SGARefLink{sga3:xxii:prop:5.4.5}{5.4.5}，只须证明 \(R_1\cap(-R_2)\) 包含 \(R\) 的一个正根系。因此归结为以下引理。
+
+\begin{sgastatement}{引理 4.2.2}
+设 \(R\) 是“根系”——例如第 XXI 讲意义下根数据的根集。设 \(R_1,R_2\) 是 \(R\) 的两个闭子集，各包含一个正根系。若 \(R_1\cup R_2=R\)，则 \(R_1\cap(-R_2)\) 包含一个正根系。
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:lemma:4:2:2}
+
+事实上，\(R_3=R_1\cap(-R_2)\) 闭，故由第 XXI 讲 \SGARefLink{sga3:XXI:3.3.6}{3.3.6}，只须说明 \(R_3\cup(-R_3)=R\)。现在
+\[
+ R_1\cup(-R_1)=R=R_2\cup(-R_2),
+\]
+结论由如下初等事实得到：若 \(A,A',B,B'\) 是集合 \(E\) 的四个子集，且
+\[
+ A\cup A'=B\cup B'=A\cup B=A'\cup B'=E,
+\]
+则
+\[
+ (A\cap B')\cup(A'\cap B)=E.
+\]
+
+这就证明了代数闭域的谱上 \textup{\SGARefLink{sga3:xxvi:theorem:4-2-1:item:v}{(v)}} \(\Rightarrow\) \textup{\SGARefLink{sga3:xxvi:theorem:4-2-1:item:vi}{(vi)}}。现在回到一般情形，并假设 \textup{\SGARefLink{sga3:xxvi:theorem:4-2-1:item:v}{(v)}} 成立。设 \(s\in S\)。由上述论证，存在 \(P_{\bar s}\) 的 Borel 子群 \(\bar B\) 和 \(Q_{\bar s}\) 的 Borel 子群 \(\bar B'\)，使得 \(\bar B\cap\bar B'\) 是 \(G_{\bar s}\) 的极大环面。
+
+\(P\) 的 Borel 子群所成的 \(S\)-概形
+\[
+ \Bor(P)\simeq\Bor\bigl(P/\rad^u(P)\bigr)
+\]
+光滑。应用“Hensel 引理”（第 XI 讲，\SGARefLink{sga3:xi:proposition:1:10}{1.10}），并在 \(s\) 附近对平展拓扑作局部化，可设存在 \(P\) 的 Borel 子群 \(B\)，其特化为 \(\bar B\)。同样，存在 \(Q\) 的 Borel 子群 \(B'\)，其特化为 \(\bar B'\)。由于 \(\bar B\cap\bar B'\) 是 \(G_{\bar s}\) 的极大环面，\(s\) 的某个开邻域 \(U\) 满足：\(B_U\cap B'_U\) 是 \(G_U\) 的极大环面（第 XXII 讲，\SGARefLink{sga3:xxii:cor:5.9.4}{5.9.4}）。这证明了 \textup{\SGARefLink{sga3:xxvi:theorem:4-2-1:item:vi}{(vi)}}。
+\SGAQED
+
+\begin{sgastatement}{定义 4.2.3}
+若有序对 \((P,Q)\) 满足\SGARefLink{sga3:xxvi:theorem:4-2-1}{定理 4.2.1} 的等价条件 \textup{\SGARefLink{sga3:xxvi:theorem:4-2-1:item:i}{(i)}}--\textup{\SGARefLink{sga3:xxvi:theorem:4-2-1:item:vii}{(vii)}}，则称它处于\emph{横截位置}。也称 \(P\) 相对于 \(Q\) 处于横截位置，或滥用术语，称 \(P\)、\(Q\) 处于（相互）横截位置。
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:def:4:2:3}
+
+由 \textup{\SGARefLink{sga3:xxvi:theorem:4-2-1:item:vi}{(vi)}}，对 Borel 子群，这一定义与第 XXII 讲 \SGARefLink{sga3:xxii:def:5.9.1}{5.9.1} 的定义一致。
+
+\begin{sgastatement}{\SGAInlineRefTarget{sga3:xxvi:corollary:4-2-4}推论 4.2.4}
+设 \(S\) 是概形，\(G\) 是约化 \(S\)-群，\(P,Q\) 是 \(G\) 的两个抛物子群。
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item 有序对 \((P,Q)\) 处于横截位置，当且仅当对每个 \(s\in S\)，有序对 \((P_{\bar s},Q_{\bar s})\) 处于横截位置。若 \(S'\to S\) 满，且 \((P_{S'},Q_{S'})\) 处于横截位置，则 \((P,Q)\) 也如此。
+\item 存在开子概形 \(U\subset S\)，具有如下性质：态射 \(S'\to S\) 经 \(U\) 分解，当且仅当 \((P_{S'},Q_{S'})\) 处于横截位置。
+\item 考虑以下子函子
+\[
+ \Gen(G)\subset\Par(G)\times_S\Par(G),\qquad
+ \Gen(/Q)\subset\Par(G),\qquad
+ \Gen(P/Q)\subset G,
+\]
+其定义如下。对 \(S'\to S\)，集合 \(\Gen(G)(S')\) 由处于横截位置的 \(G_{S'}\) 的抛物子群对组成；\(\Gen(/Q)(S')\) 由相对于 \(Q_{S'}\) 处于横截位置的 \(G_{S'}\) 的抛物子群组成；\(\Gen(P/Q)(S')\) 由使 \(\Int(g)P_{S'}\) 相对于 \(Q_{S'}\) 处于横截位置的 \(g\in G(S')\) 组成。
+
+这些函子分别由相应 \(S\)-概形
+\[
+ \Par(G)\times_S\Par(G),\qquad\Par(G),\qquad G,
+\]
+的开子概形表示，并且这些开子概形在 \(S\) 上泛概形稠密。
+\end{enumerate}
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:cor:4:2:4}
+\footnote{\emph{编者注。} 将原文“相对稠密”换成“在 \(S\) 上泛概形稠密”；比较 EGA IV\textsubscript{3}，定义 11.10.8。}
+
+断言 \textup{\SGARefLink{sga3:xxvi:theorem:4-2-1:item:i}{(i)}} 立即由条件 \SGARefLink{sga3:xxvi:theorem:4-2-1}{4.2.1}\textup{\SGARefLink{sga3:xxvi:theorem:4-2-1:item:i}{(i)}} 得到。对 \textup{\SGARefLink{sga3:xxvi:theorem:4-2-1:item:ii}{(ii)}}，取
+\[
+ U=S-\operatorname{Supp}(\operatorname{Coker}u),
+\]
+其中
+\[
+ u:\operatorname{Lie}(P)\oplus\operatorname{Lie}(Q)
+   \longrightarrow\operatorname{Lie}(G)
+\]
+是典范态射。\footnote{\emph{编者注。} 将原印为 \(\operatorname{Lie}(G)\) 的第二个直和项改为 \(\operatorname{Lie}(Q)\)；这就是\SGARefLink{sga3:xxvi:theorem:4-2-1}{定理 4.2.1}\textup{\SGARefLink{sga3:xxvi:theorem:4-2-1:item:i}{(i)}} 中使用的映射。}
+
+有笛卡尔图
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+ G \arrow[r,"f"] & \Par(G)\\
+ \Gen(P/Q) \arrow[u,hook] \arrow[r] & \Gen(/Q)\arrow[u,hook]
+\end{tikzcd}
+\qquad
+\begin{tikzcd}[column sep=large,row sep=large]
+ \Par(G) \arrow[r,"f'"] & \Par(G)\times_S\Par(G)\\
+ \Gen(/Q) \arrow[u,hook] \arrow[r] & \Gen(G)\arrow[u,hook],
+\end{tikzcd}
+\]
+其中 \(f(g)=\Int(g)P\)、\(f'(R)=(R,Q)\)。所以只须对 \(\Gen(G)\) 证明 \textup{\SGARefLink{sga3:xxvi:theorem:4-2-1:item:iii}{(iii)}}。
+
+设 \(P_0\) 是 \(G_{\Par(G)}\) 的典范抛物子群，并置
+\[
+ X=\Par(G)\times_S\Par(G),\qquad
+ P=\operatorname{pr}_1^*(P_0),\qquad
+ Q=\operatorname{pr}_2^*(P_0).
+\]
+将 \textup{\SGARefLink{sga3:xxvi:theorem:4-2-1:item:ii}{(ii)}} 用于 \(G_X\) 的抛物子群 \(P,Q\)，得到开子概形 \(U\subset X\)，它立即可等同于 \(\Gen(G)\)。稠密性断言可在几何纤维上检验，\footnote{\emph{编者注。} 比较 EGA IV\textsubscript{3}，11.10.10。}故设 \(S=\operatorname{Spec}(k)\)，其中 \(k\) 代数闭。由于 \(\Par(G)\) 光滑，只须证明 \(\Gen(G)\) 与 \(\Par(G)\times_S\Par(G)\) 的每个不可约分支都相交。由 \SGARefLink{sga3:xxvi:item:3:2}{3.3}，这归结为：给定 \(t,t'\in\Of(\underline{\operatorname{Dyn}}(G))(S)\)，求处于横截位置的有序对 \((P,P')\)，使得 \(t(P)=t\)、\(t(P')=t'\)。
+
+选取 \(G\) 的 Borel 子群 \(B,B'\)，使得 \(B\cap B'\) 是极大环面（使 \(G\) 分裂，再应用第 XXII 讲 \SGARefLink{sga3:xxii:prop:5.9.2}{5.9.2}）。由 \SGARefLink{sga3:xxvi:lemma:3:8}{3.8}，存在抛物子群 \(P\supset B\)、\(P'\supset B'\)，使得 \(t(P)=t\)、\(t(P')=t'\)。它们具有所需类型，并由 \SGARefLink{sga3:xxvi:theorem:4-2-1}{4.2.1}\textup{\SGARefLink{sga3:xxvi:theorem:4-2-1:item:vi}{(vi)}} 处于横截位置。
+\SGAQED
+% 已译源行 1389--1764。
+
+\begin{sgastatement}{\SGAInlineRefTarget{sga3:xxvi:corollary:4-2-5}推论 4.2.5}
+设 \(S\) 是概形，\(G\) 是约化 \(S\)-群，\(P,Q\) 是 \(G\) 的两个抛物子群，且 \((P,Q)\) 处于横截位置。
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item 设 \(P',Q'\) 是 \(G\) 的抛物子群，类型分别与 \(P,Q\) 相同。有序对 \((P',Q')\) 处于横截位置，当且仅当它在平展拓扑下局部地与 \((P,Q)\) 共轭。（第 5 节将说明，可将平展拓扑换成 Zariski 拓扑。）
+\item 典范态射 \(P\times_SQ\to G\) 诱导光滑满态射
+\[
+ P\times_SQ\longrightarrow\Gen(Q/P)
+\]
+及同构
+\[
+ (P\times_SQ)/(P\cap Q)\xrightarrow{\sim}\Gen(Q/P),
+\]
+其中 \(R=P\cap Q\) 在 \(P\times_SQ\) 上的作用为
+\[
+ (p,q)r=(pr,r^{-1}q).
+\]
+\item 典范态射
+\[
+ P\longrightarrow\Par_{t(Q)}(G),\qquad p\longmapsto\Int(p)Q,
+\]
+诱导光滑满态射
+\[
+ P\longrightarrow\Gen(/P)\cap\Par_{t(Q)}(G)
+\]
+及同构
+\[
+ P/(P\cap Q)\xrightarrow{\sim}
+ \Gen(/P)\cap\Par_{t(Q)}(G).
+\]
+\item 典范态射
+\[
+ G\longrightarrow\Par_{t(P)}(G)\times_S\Par_{t(Q)}(G),\qquad
+ g\longmapsto\bigl(\Int(g)P,\Int(g)Q\bigr),
+\]
+诱导光滑满态射
+\[
+ G\longrightarrow
+ \Gen(G)\cap
+ \bigl(\Par_{t(P)}(G)\times_S\Par_{t(Q)}(G)\bigr)
+\]
+及同构
+\[
+ G/(P\cap Q)\xrightarrow{\sim}
+ \Gen(G)\cap
+ \bigl(\Par_{t(P)}(G)\times_S\Par_{t(Q)}(G)\bigr).
+\]
+\end{enumerate}
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:cor:4:2:5}
+
+\SGAProof
+先证 (i)。所述条件显然充分。反之，设 \((P',Q')\) 处于横截位置。由于 \(P\)、\(P'\) 在平展拓扑下局部共轭，可设 \(P=P'\)。此时只须证明，同类型且都相对于 \(P\) 处于横截位置的两个抛物子群 \(Q,Q'\)，在平展拓扑下局部地可由 \(P\) 的截面共轭。
+
+由 \SGARefLink{sga3:xxvi:theorem:4-2-1}{4.2.1}\textup{\SGARefLink{sga3:xxvi:theorem:4-2-1:item:vi}{(vi)}}，再次作平展局部化后，存在 Borel 子群 \(B,B'\subset P\)、\(B_1\subset Q\)、\(B'_1\subset Q'\)，使得
+\[
+ B\cap B_1=T,\qquad B'\cap B'_1=T'
+\]
+为 \(G\) 的极大环面。\(P\) 的 Killing 偶 \((B,T)\)、\((B',T')\) 在平展拓扑下局部地在 \(P\) 中共轭（\SGARefLink{sga3:xxvi:lemma:1:16}{1.16}）。故可设 \(B=B'\)、\(T=T'\)。于是由第 XXII 讲 \SGARefLink{sga3:xxii:prop:5.9.2}{5.9.2}，有 \(B_1=B'_1\)，再由 \SGARefLink{sga3:xxvi:lemma:3:8}{3.8}，有 \(Q=Q'\)。
+
+(ii)、(iii)、(iv) 的证明平行。这里证明 (ii)。设 \(g\in\Gen(Q/P)(S)\)；即 \(g\in G(S)\)，且 \(\Int(g)Q\) 相对于 \(P\) 处于横截位置。上述论证表明，\(Q\) 与 \(\Int(g)Q\) 在平展拓扑下局部地由 \(P\) 的一个截面共轭。在此拓扑下作局部化，选取 \(p\in P(S)\)，使得 \(\Int(g)Q=\Int(p)Q\)。于是
+\[
+ p^{-1}g\in\Norm_G(Q)(S)=Q(S),
+\]
+故对某个 \(q\in Q(S)\)，有 \(g=pq\)。因此 \textup{\SGARefLink{sga3:xxvi:theorem:4-2-1:item:ii}{(ii)}} 中的态射是平展覆盖。比较 \SGARefLink{sga3:xxvi:theorem:4-2-1}{4.2.1}\textup{\SGARefLink{sga3:xxvi:theorem:4-2-1:item:ii}{(ii)}}，它光滑且满。
+
+最后，\(P\times_SQ\to G\) 在 \(P\times_SQ\) 上定义的等价关系，恰是与 \(R=P\cap Q\) 的作用
+\[
+ (p,q)r=(pr,r^{-1}q).
+\]
+相伴的关系。这就证明了关于商的断言，因为光滑满态射特别是有效满态射。
+\SGAQED
+
+\begin{sgastatement}{注 4.2.6}
+若 \(P,Q\) 处于横截位置，则 \(G\) 的开子集 \(\Gen(Q/P)\) 常记为 \(P\cdot Q\)；\SGARefLink{sga3:xxvi:corollary:4-2-5}{4.2.5}\textup{(ii)} 说明了这一记号的合理性。
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:remark:4:2:6}
+
+\begin{sgastatement}{\SGAInlineRefTarget{sga3:xxvi:proposition:4-2-7}命题 4.2.7}
+设 \(S\) 是概形，\(G\) 是约化 \(S\)-群，\(P,Q\) 是 \(G\) 的两个抛物子群，且 \((P,Q)\) 处于横截位置。
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item 群 \(P\cap Q\) 在 \(S\) 上光滑（事实上，由 \SGARefLink{sga3:xxvi:remark:4:1:2}{4.1.2}，它的纤维连通）。其单位连通分支 \((P\cap Q)^0\)（第 VI\textsubscript{B} 讲，\SGARefLink{thm:sga3-VIB-3.10}{3.10}）是 \(G\) 的 \textup{(RC)} 型子群（第 XXII 讲，\SGARefLink{sga3:xxii:def:5.11.1}{5.11.1}），其幺幂根基（同上，5.11.4）分解为直积
+\[
+ \rad^u\bigl((P\cap Q)^0\bigr)
+ =
+ \bigl(\rad^u(P)\cap Q\bigr)
+ \times_S
+ \bigl(P\cap\rad^u(Q)\bigr).
+\]
+\item 若 \(S\) 仿射，则
+\[
+ H^1\bigl(S,\rad^u((P\cap Q)^0)\bigr)=0.
+\]
+若 \(S\) 半局部，则 \(P\cap Q\) 包含 \(G\) 的极大环面。
+\end{enumerate}
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:prop:4:2:7}
+
+\SGAProof
+由 \SGARefLink{sga3:xxvi:theorem:4-2-1}{4.2.1}\textup{\SGARefLink{sga3:xxvi:theorem:4-2-1:item:ii}{(ii)}} 及笛卡尔图
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+ P\times_SQ \arrow[r] & G\\
+ P\cap Q \arrow[u] \arrow[r] & S\arrow[u]
+\end{tikzcd}.
+\]
+可知群 \(P\cap Q\) 光滑。
+
+其余关于 \((P\cap Q)^0\) 的断言可对平展拓扑作局部检验。由 \SGARefLink{sga3:xxvi:theorem:4-2-1}{4.2.1}\textup{\SGARefLink{sga3:xxvi:theorem:4-2-1:item:vii}{(vii)}}，选取 \(G\) 的分裂结构 \((G,T,M,R)\)，使得 \(P,Q\) 包含 \(T\)，且由 \(R\) 的子集 \(R_1,R_2\) 定义，其中 \(R_1\) 包含正根系 \(R^+\)，\(R_2\) 包含相反根系 \(R^-\)。设 \(\Delta\) 是 \(R^+\) 的单根集，置
+\[
+ A_1=\Delta\cap(-R_1),\qquad
+ A_2=\Delta\cap R_2,\qquad
+ A=A_1\cap A_2.
+\]
+由 \SGARefLink{sga3:xxvi:prop:1:3}{1.4}\textup{(v)} 与 \SGARefLink{sga3:xxvi:proposition:1-12}{1.12}，
+\[
+\begin{aligned}
+ R_1&=R^+\cup\bigl(R^-\cap(-\mathbb N A_1)\bigr),&
+ R_2&=\bigl(R^+\cap\mathbb N A_2\bigr)\cup R^-,\\
+ \rad^u(P)&=
+   \prod_{\substack{\alpha\in R_1\\\alpha\notin-R_1}}U_\alpha,&
+ \rad^u(Q)&=
+   \prod_{\substack{\alpha\in R_2\\\alpha\notin-R_2}}U_\alpha.
+\end{aligned}
+\]
+因此第 XXII 讲 \SGARefLink{sga3:xxii:cor:5.6.7}{5.6.7} 给出
+\[
+\begin{aligned}
+ \rad^u(P)\cap Q
+  &=
+  \prod_{\substack{\alpha\in R_1\cap R_2\\\alpha\notin-R_1}}U_\alpha
+  =\prod_{\alpha\in K_2}U_\alpha,\\
+ \rad^u(Q)\cap P
+  &=
+  \prod_{\substack{\alpha\in R_1\cap R_2\\\alpha\notin-R_2}}U_\alpha
+  =\prod_{\alpha\in K_1}U_\alpha,
+\end{aligned}
+\]
+其中 \(K_2\) 由可写成 \(A_2\) 中元素的线性组合、却不能写成 \(A\) 中元素的线性组合的正根组成，\(K_1\) 由可写成 \(A_1\) 中元素的线性组合、却不能写成 \(A\) 中元素的线性组合的负根组成。若 \(\alpha\in K_2\)、\(\beta\in K_1\)，则 \(\alpha+\beta\) 既不是根也不为零。因此上述两个群交换。
+
+由第 XXII 讲 \SGARefLink{sga3:xxii:prop:5.4.5}{5.4.5}，群
+\[
+ H=(P\cap Q)^0
+\]
+由根集
+\[
+ R_1\cap R_2
+ =
+ \bigl(R^+\cap\mathbb N A_2\bigr)
+ \cup
+ \bigl(R^-\cap(-\mathbb N A_1)\bigr).
+\]
+定义。这个集合闭，所以按定义 \(H\) 为 \textup{(RC)} 型（第 XXII 讲，\SGARefLink{sga3:xxii:def:5.11.1}{5.11.1}）。由该处 \SGARefLink{sga3:xxii:lem:5.11.3}{5.11.3} 与 \SGARefLink{sga3:xxii:prop:5.11.4}{5.11.4}，
+\[
+ \rad^u(H)=\prod_{\alpha\in K}U_\alpha,
+\]
+其中 \(K\) 由满足 \(\alpha\notin-(R_1\cap R_2)\) 的 \(\alpha\in R_1\cap R_2\) 组成。\(R_1\cap R_2\) 的对称部分为 \(R\cap\mathbb ZA\)，所以 \(K=K_1\cup K_2\)。这证明了 (i)。
+
+(ii) 的第一个断言由 (i) 及 \SGARefLink{sga3:xxvi:cor:2:10}{2.10} 推出。对第二个断言，当基半局部时，约化群
+\[
+ (P\cap Q)^0/\rad^u((P\cap Q)^0)
+\]
+有极大环面 \(\bar T\)。\(\bar T\) 在 \((P\cap Q)^0\) 中的逆像 \(N\) 是 \(G\) 的 \textup{(R)} 型子群，纤维可解，并且
+\[
+ N^u=\rad^u((P\cap Q)^0)
+\]
+（第 XXII 讲，\SGARefLink{sga3:xxii:prop:5.6.9}{5.6.9}）。\(N\) 的极大环面概形是 \(N^u\) 下的主齐性丛（同上，\SGARefLink{sga3:xxii:cor:5.6.13}{5.6.13}），因 \(H^1(S,N^u)=0\) 而有截面。
+\SGAQED
+% 已译源行 1765--1989。
+
+\SGASubsection{4.3}{相反抛物子群}
+\SGARefTarget{sga3:xxvi:subsection:4:3}
+\SGAInlineRefTarget{sga3:xxvi:paragraph:4-3-1}\paragraph{\SGARefLink{sga3:xxvi:paragraph:4-3-1}{4.3.1}.}
+设 \(G\) 是约化 \(S\)-群。第 XXIV 讲 \SGARefLink{sga3:xxiv:proposition:3-16-6}{3.16.6} 定义了 \(G\) 的一个典范“外自同构” \(s_G\)，其阶至多为 \(2\)。\footnote{\emph{编者注。} 将“阶为 \(2\)”换成“阶至多为 \(2\)”，因为 \(s_G\) 可能平凡，例如 \(G\) 为 \(A_1,B_n,C_n,\ldots\) 型时。}它诱导 \(\underline{\operatorname{Dyn}}(G)\) 的一个阶同样至多为 \(2\) 的典范自同构，因而也诱导 \(\Of(\underline{\operatorname{Dyn}}(G))\) 的自同构。将这些自同构都记为 \(s_G\)，或简记为 \(s\)。若抛物子群的两个类型
+\[
+ t,t'\in\Of(\underline{\operatorname{Dyn}}(G))(S)
+\]
+满足 \(t=s_G(t')\)，则称它们\emph{相反}。
+\SGARefTarget{sga3:xxvi:item:4:3:1}
+
+\begin{sgastatement}{定理 4.3.2}
+设 \(S\) 是概形，\(G\) 是约化 \(S\)-群，\(P\) 是 \(G\) 的抛物子群。
+
+\textup{(a)} 若 \(L\) 是 \(P\) 的 Levi 子群，则存在 \(G\) 的唯一抛物子群 \(P'\)，使得 \(P\cap P'=L\)。
+
+\textup{(b)} 对 \(G\) 的每个抛物子群 \(Q\)，下列条件等价：
+\begin{enumerate}[leftmargin=3.2em,labelsep=.7em]
+\item[\textup{\SGAInlineRefTarget{sga3:xxvi:item:4:3:1:item:i}(i)}]
+对每个 \(s\in S\)，由 \SGARefLink{sga3:xxvi:lemma:4:1:1}{4.1.1} 可知光滑的单位连通分支 \(\bigl((P\cap Q)_{\bar s}\bigr)^0\) 是约化的。
+\item[\textup{\SGAInlineRefTarget{sga3:xxvi:item:4:3:1:item:ii}(ii)}]
+群 \(P\cap Q\) 同时是 \(P\) 与 \(Q\) 的 Levi 子群。
+\item[\textup{\SGAInlineRefTarget{sga3:xxvi:item:4:3:1:item:iii}(iii)}]
+群 \(P,Q\) 的类型相反，且有序对 \((P,Q)\) 处于横截位置。
+\item[\textup{\SGAInlineRefTarget{sga3:xxvi:item:4:3:1:item:iv}(iv)}]
+群 \(P,Q\) 的类型相反，且 \(\rad^u(P)\cap Q=e\)。
+\item[\textup{\SGAInlineRefTarget{sga3:xxvi:item:4:3:1:item:v}(v)}]
+\[
+ \rad^u(P)\cap Q=\rad^u(Q)\cap P=e.
+\]
+\item[\textup{\SGAInlineRefTarget{sga3:xxvi:item:4:3:1:item:vi}(vi)}]
+典范态射 \(\rad^u(P)\times_SQ\to G\) 是开浸入。
+\item[\textup{(vi\(^{\prime}\))}]
+典范态射 \(\rad^u(P)\to G/Q\) 是开浸入。
+\item[\textup{\SGAInlineRefTarget{sga3:xxvi:item:4:3:1:item:vii}(vii)}]
+存在平展覆盖族 \(\{S_i\to S\}\)，并对每个 \(i\)，存在 \(G_{S_i}\) 的分裂结构 \((T_i,M_i,R_i)\) 及子集 \(R_i^{(1)}\subset R_i\)，使得 \(P_{S_i}\) 是包含 \(T_i\)、由 \(R_i^{(1)}\) 定义的 \textup{(R)} 型子群，而 \(Q_{S_i}\) 是由
+\[
+ R_i^{(2)}=-R_i^{(1)}.
+\]
+定义的子群。
+\end{enumerate}
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:theorem:4:3:2}
+
+\SGAProof
+先证 (b)。由 \SGARefLink{sga3:xxvi:theorem:4-2-1}{4.2.1}\textup{\SGARefLink{sga3:xxvi:theorem:4-2-1:item:vii}{(vii)}} 以及分裂情形下 \(s_G\) 的定义（第 XXIV 讲，\SGARefLink{sga3:xxiv:proposition:3-16-2}{3.16.2}\textup{\SGARefLink{sga3:xxiv:proposition:3-16-2:item:iv}{(iv)}}），条件 \textup{\SGARefLink{sga3:xxvi:theorem:4-2-1:item:iii}{(iii)}} 与 \textup{\SGARefLink{sga3:xxvi:theorem:4-2-1:item:vii}{(vii)}} 等价。显然 \textup{\SGARefLink{sga3:xxiv:proposition:3-16-2:item:ii}{(ii)}} 蕴含 \textup{\SGARefLink{sga3:xxiv:proposition:3-16-2:item:i}{(i)}}，而沿 \(G\to G/Q\) 作基变换可知，\textup{(vi\(^{\prime}\))} 蕴含 \textup{\SGARefLink{sga3:xxvi:theorem:4-2-1:item:vi}{(vi)}}。
+
+现在假设 \textup{\SGARefLink{sga3:xxvi:item:4:3:1:item:vii}{(vii)}} 成立。由于所要证明的各断言都是平展局部的，可设 \(G=(G,T,M,R)\) 分裂，\(P\) 由 \(R'\subset R\) 定义，\(Q\) 由 \(-R'\) 定义。设 \(L\) 是包含 \(T\)、由 \(R'\cap(-R')\) 定义的 \textup{(R)} 型子群。由第 XXII 讲 \SGARefLink{sga3:xxii:lem:5.11.3}{5.11.3}，\(L\) 同时是 \(P\)、\(Q\) 的 Levi 子群。此外，
+\[
+ P=L\cdot\rad^u(P),\qquad Q=L\cdot\rad^u(Q),
+\]
+且第 XXII 讲 \SGARefLink{sga3:xxii:cor:5.6.7}{5.6.7} 给出
+\[
+ \rad^u(P)\cap Q=Q\cap\rad^u(P)=e.
+\]
+于是 \(P\cap Q=L\)，这证明了 \textup{\SGARefLink{sga3:xxii:cor:5.6.7:item:ii}{(ii)}} 与 \textup{\SGARefLink{sga3:xxvi:item:4:3:1:item:v}{(v)}}。
+
+由于 \(P,Q\) 处于横截位置，由 \SGARefLink{sga3:xxvi:theorem:4-2-1}{4.2.1}，典范态射 \(P\to G/Q\) 诱导开浸入
+\[
+ P/(P\cap Q)\longrightarrow G/Q
+\]
+典范态射
+\[
+ \rad^u(P)\longrightarrow P/(P\cap Q)=P/L
+\]
+为同构，故 \textup{(vi\(^{\prime}\))} 成立。因此所有条件都由 \textup{\SGARefLink{sga3:xxvi:theorem:4-2-1:item:vii}{(vii)}} 推出。
+
+尚须说明 \textup{\SGARefLink{sga3:xxvi:item:4:3:1:item:i}{(i)}}、\textup{\SGARefLink{sga3:xxvi:item:4:3:1:item:iv}{(iv)}}、\textup{\SGARefLink{sga3:xxvi:item:4:3:1:item:v}{(v)}}、\textup{\SGARefLink{sga3:xxvi:item:4:3:1:item:vi}{(vi)}} 中的每个条件都蕴含 \textup{\SGARefLink{sga3:xxvi:item:4:3:1:item:vii}{(vii)}}。由于已知 \textup{\SGARefLink{sga3:xxvi:item:4:3:1:item:ii}{(ii)}} 与 \textup{\SGARefLink{sga3:xxvi:item:4:3:1:item:iii}{(iii)}} 等价，可在几何纤维上检验。可设 \(S\) 是代数闭域的谱。由 \SGARefLink{sga3:xxvi:lemma:4:1:1}{4.1.1}，\(P\cap Q\) 包含 \(G\) 的极大环面 \(T\)。设 \(R,R_1,R_2\) 分别是 \(G,P,Q\) 关于 \(T\) 的根集。记
+\[
+ R_1^a=\{\alpha\in R_1\mid-\alpha\notin R_1\},
+\]
+类似地定义 \(R_2^a\)。须证明 \(R_1=-R_2\)。
+\begin{itemize}[leftmargin=2em]
+\item 条件 \textup{\SGARefLink{sga3:xxvi:item:4:3:1:item:i}{(i)}} 表明 \(R_1\cap R_2\) 对称。若 \(\alpha\in R_1\) 且 \(\alpha\notin R_2\)，则 \(\alpha\in-R_2\)；若 \(\alpha\in R_2\)，则
+\[
+ \alpha\in R_1\cap R_2=-(R_1\cap R_2)\subset-R_2.
+\]
+所以 \(R_1\subset-R_2\)，由对称性得到 \(R_1=-R_2\)。
+\item 条件 \textup{\SGARefLink{sga3:xxvi:item:4:3:1:item:iv}{(iv)}} 给出 \(\operatorname{Card}(R_1)=\operatorname{Card}(R_2)\) 及 \(R_1^a\cap R_2=\varnothing\)。后一个条件等价于 \(R_2\subset-R_1\)，再由基数相等得到 \(R_2=-R_1\)。
+\item 条件 \textup{\SGARefLink{sga3:xxvi:item:4:3:1:item:v}{(v)}} 给出
+\[
+ R_1^a\cap R_2=R_2^a\cap R_1=\varnothing.
+\]
+所以 \(R_2\subset-R_1\)、\(R_1\subset-R_2\)，仍有 \(R_2=-R_1\)。
+\item 条件 \textup{\SGARefLink{sga3:xxvi:item:4:3:1:item:vi}{(vi)}} 给出
+\[
+ \operatorname{Lie}(\rad^u(P))\oplus\operatorname{Lie}(Q)
+ =\operatorname{Lie}(G).
+\]
+所以 \(R\) 是 \(R_2\) 与 \(R_1^a\) 的不交并，这蕴含 \(R_2=-R_1\)。
+\end{itemize}
+
+这证明了 (b)。对 (a)，蕴含 \textup{\SGARefLink{sga3:xxvi:item:4:3:1:item:vii}{(vii)}} \(\Rightarrow\) \textup{\SGARefLink{sga3:xxvi:item:4:3:1:item:ii}{(ii)}} 已在平展局部给出所求的抛物子群 \(P'\)。只须证明唯一性，而这也是平展局部的。可设 \(G\) 关于 \(L\) 的极大环面 \(T\) 分裂，\(P\)、\(P'\) 由 \(R\) 的子集 \(R_1\)、\(R'_1\) 定义。由假设，\(R_1\cap R'_1\) 对称。上述论证给出 \(R'_1=-R_1\)；因此 \(P'\) 由 \(P\)、\(L\) 确定。
+\SGAQED
+
+\begin{sgastatement}{\SGAInlineRefTarget{sga3:xxvi:definition:4-3-3}定义 4.3.3}
+若 \(G\) 的两个抛物子群满足\SGARefLink{sga3:xxvi:item:4:3:1}{定理 4.3.2} 的等价条件 \textup{(i)}--\textup{\SGARefLink{sga3:xxvi:item:4:3:1:item:vii}{(vii)}}，则称它们\emph{相反}。若 \(P\) 是 \(G\) 的抛物子群，\(L\) 是 \(P\) 的 Levi 子群，则\emph{关于 \(L\) 与 \(P\) 相反的抛物子群}是 \(G\) 中满足 \(P\cap Q=L\) 的唯一抛物子群 \(Q\)。
+
+若 \(T\) 是 \(P\) 的极大环面，则\emph{关于 \(T\) 与 \(P\) 相反的抛物子群}是唯一的 \(Q\)，使得 \(P\cap Q\) 是 \(P\) 中包含 \(T\) 的唯一 Levi 子群（\SGARefLink{sga3:xxvi:proposition:1-6}{1.6}）；等价地，它是使 \(P\cap Q\) 包含 \(T\) 且 \(P,Q\) 相反的唯一的 \(Q\)。
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:def:4:3:3}
+
+由 \SGARefLink{sga3:xxvi:item:4:3:1}{4.3.2}\textup{\SGARefLink{sga3:xxvi:item:4:3:1:item:iii}{(iii)}}，\SGARefLink{sga3:xxvi:corollary:4-2-4}{推论 4.2.4} 与 \SGARefLink{sga3:xxvi:corollary:4-2-5}{4.2.5} 立即给出平行的结果。这里举出一个例子。
+\begin{sgastatement}{\SGAInlineRefTarget{sga3:xxvi:corollary:4-3-4}推论 4.3.4}
+设 \(S\) 是概形，\(G\) 是约化 \(S\)-群，\(P,Q\) 是 \(G\) 的两个抛物子群。
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item 群 \(P,Q\) 相反，当且仅当对每个 \(s\in S\)，\(P_{\bar s},Q_{\bar s}\) 相反。若 \(S'\to S\) 满，且 \(P_{S'},Q_{S'}\) 相反，则 \(P,Q\) 相反。
+\item 对 \(S'\to S\)，以 \(\Opp(G)(S')\) 表示 \(G_{S'}\) 的相反抛物子群对的集合。这个函子由 \(\Par(G)^2\) 的开子概形表示。以 \(\Opp(/P)(S')\) 表示与 \(P_{S'}\) 相反的 \(G_{S'}\) 的抛物子群的集合。这个函子由
+\[
+ \Par_{s(t(P))}(G).
+\]
+的一个在 \(S\) 上泛概形稠密的开子概形表示。
+\item 设 \(P,Q\) 相反，\(P',Q'\) 是 \(G\) 的抛物子群，其中 \(P'\) 与 \(P\) 类型相同。群 \(P',Q'\) 相反，当且仅当在平展拓扑下局部地，有序对 \((P',Q')\) 与 \((P,Q)\) 共轭。（第 5 节将把平展拓扑换成 Zariski 拓扑。）
+\end{enumerate}
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:cor:4:3:4}
+\footnote{\emph{编者注。} 此处也将“相对稠密”换成“在 \(S\) 上泛概形稠密”；比较 EGA IV\textsubscript{3}，定义 11.10.8。}
+
+\begin{sgastatement}{\SGAInlineRefTarget{sga3:xxvi:corollary:4-3-5}推论 4.3.5}
+设 \(S\) 是概形，\(G\) 是约化 \(S\)-群，\(P\) 是 \(G\) 的抛物子群。
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item 态射
+\[
+ \Opp(/P)\longrightarrow\Lev(P),\qquad Q\longmapsto P\cap Q,
+\]
+是同构。概形 \(\Opp(/P)\) 是 \(\rad^u(P)\) 下的主齐性丛，后者通过内自同构作用。若 \(S\) 仿射，则 \(G\) 有与 \(P\) 相反的抛物子群。
+\item 设 \(S\) 半局部，闭点为 \(\{s_i\}\)。对每个 \(i\)，设 \(Q_i\) 是 \(G_{s_i}\) 中与 \(P_{s_i}\) 相反的抛物子群。存在 \(G\) 中与 \(P\) 相反的抛物子群 \(Q\)，使得对每个 \(i\)，都有 \(Q_{s_i}=Q_i\)。
+\item 态射
+\[
+ \Opp(G)\longrightarrow\mathrm{PL},\qquad
+ (P,Q)\longmapsto(P,P\cap Q),
+\]
+为同构。
+\end{enumerate}
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:cor:4:3:5}
+
+这些断言由\SGARefLink{sga3:xxvi:item:4:3:1}{定理 4.3.2}\textup{(a)} 以及 \SGARefLink{sga3:xxvi:cor:1:9}{1.9}、\SGARefLink{sga3:xxvi:cor:2:3}{2.3} 和 \SGARefLink{sga3:xxvi:cor:2:8}{2.8} 推出。
+
+\begin{sgastatement}{注 4.3.6}
+设 \(P,Q\) 是 \(G\) 的相反抛物子群，\(P\cdot Q\) 是 \SGARefLink{sga3:xxvi:remark:4:2:6}{4.2.6} 引入的 \(G\) 的开子概形，它是 \(P\times_SQ\) 的层意义下的像。乘积态射 \(G\times_SG\to G\) 诱导同构
+\[
+ \rad^u(P)\times_SQ
+ \xrightarrow{\sim}P\cdot Q
+ \xleftarrow{\sim}P\times_S\rad^u(Q).
+\]
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:remark:4:3:6}
+
+事实上，这由 \SGARefLink{sga3:xxvi:item:4:3:1}{4.3.2}（或 \SGARefLink{sga3:xxvi:corollary:4-2-5}{4.2.5}\textup{\SGARefLink{sga3:xxvi:item:4:3:1:item:ii}{(ii)}}）以及 \(P\cap Q\) 同时是 \(P\)、\(Q\) 的 Levi 子群这一事实推出：
+\[
+ P=\rad^u(P)\cdot(P\cap Q),\qquad
+ Q=\rad^u(Q)\cdot(P\cap Q).
+\]
+同样有交换图
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+ \rad^u(P) \arrow[r,hook] \arrow[d,"\sim"] & G/Q\arrow[d,"\sim"]\\
+ \Opp(/P) \arrow[r,hook] & \Par_{t(Q)}(G),
+\end{tikzcd}
+\]
+其中竖箭头由 \(g\mapsto\Int(g)Q\) 诱导。
+% 已译源行 1990--2249。
+
+\SGASubsection{4.4}{密切位置}
+\SGARefTarget{sga3:xxvi:subsection:4:4}
+\begin{sgastatement}{\SGAInlineRefTarget{sga3:xxvi:proposition:4-4-1}命题 4.4.1}
+设 \(S\) 是概形，\(G\) 是约化 \(S\)-群，\(P,Q\) 是 \(G\) 的两个抛物子群。下列条件等价：
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item \(P\cap Q\) 是 \(G\) 的抛物子群。
+\item 在平展拓扑下局部地，\(P\cap Q\) 包含 \(G\) 的一个 Borel 子群。
+\item 在平展拓扑下局部地，\(P\cap Q\) 包含 \(G\) 的极大环面；此外，对每个 \(S'\to S\) 以及同时包含于 \(P_{S'}\)、\(Q_{S'}\) 的 \(G_{S'}\) 的每个极大环面 \(T\)，关于 \(T\) 与 \(P_{S'}\) 相反的抛物子群，相对于 \(Q_{S'}\) 处于横截位置。
+\item 存在平展覆盖族 \(\{S_i\to S\}\)，并对每个 \(i\)，存在同时包含于 \(P_{S_i}\)、\(Q_{S_i}\) 的 \(G_{S_i}\) 的极大环面 \(T_i\)，使得关于 \(T_i\) 与 \(P_{S_i}\) 相反的抛物子群，相对于 \(Q_{S_i}\) 处于横截位置。
+\item 存在平展覆盖族 \(\{S_i\to S\}\)，并对每个 \(i\)，存在 \(G_{S_i}\) 的分裂结构 \((T_i,M_i,R_i)\)，使得 \(P_{S_i}\)、\(Q_{S_i}\) 分别是 \(G_{S_i}\) 中包含 \(T_i\)、由根集 \(R_i^{(1)}\)、\(R_i^{(2)}\) 定义的 \textup{(R)} 型子群，且 \(R_i^{(1)}\cap R_i^{(2)}\) 包含 \(R_i\) 的一个正根系。
+\end{enumerate}
+此外，当这些条件成立时，沿用 \SGARefLink{sga3:xxvi:item:3:1}{3.2} 的记号，有
+\[
+ t(P\cap Q)=t(P)\cap t(Q)
+\]
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:prop:4:4:1}
+
+蕴含 (v)\(\Rightarrow\)(ii) 及 (iii)\(\Rightarrow\)(iv) 是直接的。此外，(ii)\(\Rightarrow\)(i) 由 \SGARefLink{sga3:xxvi:rem:1:18}{1.18} 推出。为证 (iv)\(\Rightarrow\)(v)，可设 \(G\) 分裂，而 \(P\)、\(Q\) 分别由根集 \(R_1\)、\(R_2\) 定义。此时与 \(P\) 相反的抛物子群由 \(-R_1\) 定义，断言归结为\SGARefLink{sga3:xxvi:lemma:4:2:2}{引理 4.2.2}。蕴含 (i)\(\Rightarrow\)(iii) 也可在使群分裂后以相同方式证明。最后，末一断言可在平展局部证明：可设 \(P\cap Q\) 包含 \(G\) 的 Borel 子群 \(B\)，此时断言归结为 \SGARefLink{sga3:xxvi:remark:3-7}{3.7}。
+
+\begin{sgastatement}{定义 4.4.2}
+若 \(G\) 的两个抛物子群满足 \SGARefLink{sga3:xxvi:proposition:4-4-1}{4.4.1} 的等价条件 (i)--(v)，则称它们处于\emph{密切位置}（osculating position）。
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:def:4:4:2}
+
+\begin{sgastatement}{推论 4.4.3}
+设 \(P,Q\) 是处于密切位置的抛物子群，\(P',Q'\) 是 \(G\) 的抛物子群，类型分别与 \(P,Q\) 相同。子群 \(P',Q'\) 处于密切位置，当且仅当在平展拓扑下局部地，有序对 \((P',Q')\) 与有序对 \((P,Q)\) 共轭。
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:cor:4:4:3}
+
+只须说明，若 \(P\)、\(P'\) 都相对于 \(Q\) 处于密切位置，则它们在平展局部由 \(Q\) 的一个截面共轭。现在 \(P\cap Q\)、\(P'\cap Q\) 是包含于 \(Q\) 的同类型抛物子群。因此，由下一引理的 (ii)，它们在平展局部由 \(Q\) 的一个截面共轭。故可设 \(P\cap Q=P'\cap Q\)；再由该引理的 (i)，得 \(P=P'\)。
+
+\begin{sgastatement}{引理 4.4.4}
+设 \(P,P',Q\) 是约化 \(S\)-群 \(G\) 的三个抛物子群。
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item 等式 \(P=P'\) 成立，当且仅当 \(P\)、\(P'\) 处于密切位置且类型相同。
+\item 设 \(P\subset Q\)、\(P'\subset Q\)。若 \(g\in G(S)\) 使 \(\Int(g)P\) 与 \(P'\) 处于密切位置，则 \(g\in Q(S)\)。
+\end{enumerate}
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:lemma:4:4:4}
+
+(i) 立即由 \SGARefLink{sga3:xxvi:proposition:4-4-1}{4.4.1} 的最后一个断言推出。为证 (ii)，注意 \(Q\)、\(\Int(g)Q\) 都包含 \(P'\cap\Int(g)P\)，因而处于密切位置。由 (i)，它们相同，故
+\[
+ g\in\Norm_G(Q)(S)=Q(S).
+\]
+
+\SGARefLink{sga3:xxvi:proposition:4-4-1}{命题 4.4.1} 的断言 (iii)、(iv) 立即给出：
+\begin{sgastatement}{推论 4.4.5}
+设 \(P,P',Q\) 是约化 \(S\)-群 \(G\) 的三个抛物子群，包含 \(G\) 的同一个极大环面 \(T\)。设 \(P\)、\(P'\) 关于 \(T\) 相反。则 \(Q\) 相对于 \(P\) 处于密切位置，当且仅当它相对于 \(P'\) 处于横截位置。在此条件下，\(P\cap Q\) 也相对于 \(P'\) 处于横截位置。
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:cor:4:4:5}
+
+\begin{sgastatement}{推论 4.4.6}
+设 \(P,Q\) 是 \(G\) 的两个抛物子群，包含同一个极大环面 \(T\)。子群 \(P,Q\) 处于横截位置，当且仅当存在 \(G\) 的抛物子群 \(P'\subset P\)、\(Q'\subset Q\)，它们关于 \(T\) 相反。甚至可选取
+\[
+ t(P')=t(P)\cap s(t(Q)).
+\]
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:cor:4:4:6}
+\footnote{\emph{编者注。} 对合 \(s\) 定义于 \SGARefLink{sga3:xxvi:paragraph:4-3-1}{4.3.1}。}
+
+由 \SGARefLink{sga3:xxvi:theorem:4-2-1}{4.2.1}\textup{\SGARefLink{sga3:xxvi:theorem:4-2-1:item:i}{(i)}} 与 \SGARefLink{sga3:xxvi:item:4:3:1}{4.3.2}\textup{\SGARefLink{sga3:xxvi:item:4:3:1:item:iii}{(iii)}}，该条件显然充分。反之，设 \(P^-\)、\(Q^-\) 分别是关于 \(T\) 与 \(P\)、\(Q\) 相反的抛物子群。由 \SGARefLink{sga3:xxvi:cor:4:4:5}{4.4.5}，\(P^-\cap Q\) 同时相对于 \(P\)、\(Q^-\) 处于横截位置；再次应用 \SGARefLink{sga3:xxvi:cor:4:4:5}{4.4.5}，它也相对于 \(P\cap Q^-\) 处于横截位置。此外，
+\[
+\begin{aligned}
+ t(P^-\cap Q)
+ &=t(P^-)\cap t(Q)\\
+ &=s(t(P))\cap s(t(Q^-))\\
+ &=s\bigl(t(P)\cap t(Q^-)\bigr)\\
+ &=s\bigl(t(P\cap Q^-)\bigr).
+\end{aligned}
+\]
+由 \SGARefLink{sga3:xxvi:item:4:3:1}{4.3.2}\textup{\SGARefLink{sga3:xxvi:item:4:3:1:item:iii}{(iii)}}，
+\[
+ P^-\cap Q=P',\qquad P\cap Q^-=Q'
+\]
+相反。由于 \(P'\cap Q'\supset T\)，它们确实关于 \(T\) 相反。
+% 已译源行 2250--2396。
+
+\SGASubsection{4.5}{标准位置}
+\SGARefTarget{sga3:xxvi:subsection:4:5}
+本小节简要说明，如何推广前面的若干结果。
+
+\begin{sgastatement}{\SGAInlineRefTarget{sga3:xxvi:proposition:4-5-1}命题 4.5.1}
+设 \(P_1,P_2\) 是约化 \(S\)-群 \(G\) 的两个抛物子群。下列条件等价：
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item \(P_1\cap P_2\) 光滑。
+\item \(P_1\cap P_2\) 是 \(G\) 的 \textup{(R)} 型，或 \textup{(RC)} 型子群。
+\item 在 fpqc 局部，\(P_1\cap P_2\) 包含 \(G\) 的极大环面。
+\item 在 Zariski 局部，\(P_1\cap P_2\) 包含 \(G\) 的极大环面。
+\end{enumerate}
+当 \(S\) 半局部时，这些条件还等价于：
+\begin{enumerate}[label=\textup{(\roman*)},start=5]
+\item \(P_1\cap P_2\) 包含 \(G\) 的极大环面。
+\end{enumerate}
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:prop:4:5:1}
+
+\SGAProof
+显然 (iv) 蕴含 (iii)，而当 \(S\) 半局部时，(v) 蕴含 (iv)；由第 XXII 讲\SGARefLink{sga3:xxii:def:5.2.1}{定义 5.2.1}，条件 (ii) 蕴含 (i)。我们将证明
+\[
+ \textup{(i)}\Rightarrow\textup{(ii)}
+ \Rightarrow\textup{(iii)},
+\]
+再说明 (iii) 蕴含 \textup{\SGARefLink{sga3:xxii:def:5.2.1:item:i}{(i)}}、(iv)，并且当 \(S\) 半局部时还蕴含 (v)。置 \(K=P_1\cap P_2\)。由 \SGARefLink{sga3:xxvi:lemma:4:1:1}{4.1.1} 及 \textup{[BT65]}，\SGARefLink{sga3:xxvi:subsection:4:5}{4.5}，每个几何纤维 \(K_{\bar s}\) 都包含 \(G_{\bar s}\) 的极大环面 \(T_{\bar s}\)，且连通，其关于 \(T_{\bar s}\) 的根集是 \(G_{\bar s}\) 的根集的闭子集。因此，若 \(K\) 在 \(S\) 上光滑，则它是 \textup{(RC)} 型子群，从而更是 \textup{(R)} 型子群；参见第 XXII 讲 \SGARefLink{sga3:xxii:def:5.2.1}{5.2.1} 与 5.11.1。因此 \textup{\SGARefLink{sga3:xxii:def:5.2.1:item:i}{(i)}} 与 \textup{\SGARefLink{sga3:xxii:def:5.2.1:item:ii}{(ii)}} 等价。
+
+若 \(K\) 为 \textup{(R)} 型，则由第 XXII 讲 \SGARefLink{sga3:xxii:prop:2.2}{2.2} 及第 XIX 讲 \SGARefLink{sga3:xxvi:proposition:6-1}{6.1}，它在平展局部包含 \(G\) 的极大环面。因此 \textup{\SGARefLink{sga3:xxii:def:5.2.1:item:ii}{(ii)}} 蕴含 (iii)。
+
+假设 (iii)，来证明 \(K\) 光滑。由 fpqc 下降，可设
+\[
+ G=(G,T,M,R)
+\]
+分裂，其中 \(T\) 是包含于 \(P_1\cap P_2\) 的极大环面，并存在 \(R\) 的闭子集 \(R_1,R_2\)，使得
+\[
+ P_1=H_{R_1},\qquad P_2=H_{R_2}.
+\]
+由于 \(K\) 的纤维连通，第 XXII 讲 \SGARefLink{sga3:xxii:prop:5.4.5}{5.4.5} 给出
+\[
+ K=H_{R_1\cap R_2};
+\]
+故 \(K\) 在 \(S\) 上光滑且为 \textup{(RC)} 型。
+
+设 \(R_1^s\) 是 \(R_1\) 的对称部分，并置 \(R_1^a=R_1-R_1^s\)；则
+\[
+ \rad^u(P_1)=H_{R_1^a}.
+\]
+如 \textup{[BT65]}，\SGARefLink{sga3:xxvi:subsection:4:4}{4.4} 的证明中所观察到，
+\[
+ R'=(R_1^s\cap R_2)\cup R_1^a
+\]
+是 \(R\) 的闭子集，且满足 \(R'\cup(-R')=R\)。因此，由第 XXI 讲 \SGARefLink{sga3:XXI:3.3.6}{3.3.6}，\(R'\) 包含 \(R\) 的一个正根系。此外，\(R'\) 的对称部分为 \(R_1^s\cap R_2^s\)，它包含于 \(R_1\cap R_2\)。
+
+由此得到
+\[
+ P'=K\cdot\rad^u(P_1)
+\]
+是 \(G\) 的抛物子群，且 \(K\) 是 \(P'\) 的 \textup{(RC)} 型子群，满足
+\[
+ \rad^u(K)=K\cap\rad^u(P').
+\]
+因此，由 \SGARefLink{sga3:xxvi:cor:2:11}{2.11}，\(K\) 有 Levi 子群 \(L\)。于是，第 XIV 讲 \SGARefLink{sga3:xiv:3.20}{3.20} 和 \SGARefLink{sga3:xxvi:paragraph:3-21}{3.21} 表明 \(K\) 满足 (iv)，且当 \(S\) 半局部时也满足 (v)。这就证明了\SGARefLink{sga3:xxvi:proposition:4-5-1}{命题 4.5.1}。
+\SGAQED
+\footnote{\emph{编者注。} 等价性的证明以及原版 \SGARefLink{sga3:xxvi:cor:6:17}{6.17} 中隐含使用的条件 (v)，均由 Polo--Gille 版增补。因此将原来的 \SGARefLink{sga3:xxvi:proposition:4-5-1}{4.5.1} 分为\SGARefLink{sga3:xxvi:proposition:4-5-1}{命题 4.5.1} 与\SGARefLink{sga3:xxvi:def:4:5:1:1}{定义 4.5.1.1}。}
+
+\begin{sgastatement}{定义 4.5.1.1}
+当上述条件成立时，称 \(P_1\)、\(P_2\) 处于\emph{相互标准位置}。例如，它们处于横截位置、处于密切位置，或基为域的谱时，均为如此。这个概念在基扩张下稳定，并且是 fpqc 局部的。
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:def:4:5:1:1}
+\footnote{\emph{编者注。} 参见前一编者注。关于不处于标准位置的抛物子群的例子，见下文 \SGARefLink{sga3:xxvi:counterexamples:7:11}{7.11}。}
+
+\SGAInlineRefTarget{sga3:xxvi:paragraph:4-5-2}\paragraph{\SGARefLink{sga3:xxvi:paragraph:4-5-2}{4.5.2}.}
+\SGARefTarget{sga3:xxvi:item:4:5:2}
+设 \((P,Q)\)、\((P',Q')\) 是 \(G\) 的处于标准位置的两对抛物子群。定义 \(G\) 的子函子 \(H\)：令 \(H(S')\) 为使得
+\[
+ \Int(g)P=P',\qquad \Int(g)Q=Q'.
+\]
+的 \(g\in G(S')\) 的集合。它是 \(G\) 的闭子概形，在 \(S\) 上光滑，并形式地为 \(P\cap Q\) 下的主齐性空间。于是下列条件等价：
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item \((P,Q)\) 与 \((P',Q')\) 在 fpqc 局部共轭；
+\item \((P,Q)\) 与 \((P',Q')\) 在平展局部共轭；
+\item \((P,Q)\) 与 \((P',Q')\) 在每个几何纤维上共轭。
+\end{enumerate}
+此时称有序对 \((P,Q)\)、\((P',Q')\) 具有相同的\emph{相互位置类型}。这一概念在基变换下稳定，并且是 fpqc 局部的。
+
+\paragraph{4.5.3.}
+\SGARefTarget{sga3:xxvi:item:4:5:3}
+设 \(\Stand(G)\) 是 \(\Par(G)\times_S\Par(G)\) 中由处于相互标准位置的有序对组成的子函子。函子 \(\Stand(G)\) 可表。存在有限平展 \(S\)-概形 \(\TypeStand\)，称为\emph{相互标准位置的类型概形}，并存在一个光滑有限呈示、几何纤维不可约、因而特别地忠实平坦的态射
+\[
+ t_2:\Stand(G)\longrightarrow\TypeStand.
+\]
+这个态射是 \(\Stand(G)\) 对 \(G\) 的作用的商：在任意 \(S'\to S\) 上，\(\Stand(G)\) 的两个截面具有相同的相互位置类型，当且仅当它们在 \(t_2\) 下具有相同的像。有交换图
+\[
+\begin{tikzcd}[column sep=huge,row sep=large]
+ \Stand(G) \arrow[r,"t_2"] \arrow[d]
+   & \TypeStand \arrow[d,"q"]\\
+ \Par(G)\times_S\Par(G) \arrow[r,"t\times t"]
+   & \Of(\underline{\operatorname{Dyn}}(G))
+       \times_S\Of(\underline{\operatorname{Dyn}}(G)).
+\end{tikzcd}
+\]
+态射 \(q\) 可通过下降描述如下。设 \((P,Q)\) 是 \(G\) 中处于相互标准位置的抛物子群对，\(T\) 是 \(P\cap Q\) 的极大环面。在集合层面如下定义的态射
+\[
+ \Norm_G(T)\longrightarrow\Stand(G),\qquad
+ n\longmapsto(P,\Int(n)Q),
+\]
+诱导同构
+\[
+ W_P(T)\backslash W_G(T)/W_Q(T)
+ \xrightarrow{\sim}q^{-1}\bigl(t(P),t(Q)\bigr).
+\]
+左端表示双陪集层。这些断言是直接的；特别应注意
+\[
+ t_2^{-1}\bigl(t_2(P,Q)\bigr)\simeq G/(P\cap Q).
+\]
+
+\SGAInlineRefTarget{sga3:xxvi:paragraph:4-5-4}\paragraph{\SGARefLink{sga3:xxvi:paragraph:4-5-4}{4.5.4}.}
+\SGARefTarget{sga3:xxvi:item:4:5:4}
+固定 \(G\) 的抛物子群 \(P\)，设 \(\Par(G;P)\) 是相对于 \(P\) 处于标准位置的 \(G\) 的抛物子群函子。对每个
+\[
+ t\in\Of(\underline{\operatorname{Dyn}}(G))(S),
+\]
+置
+\[
+ \Par_t(G;P)=\Par(G;P)\cap\Par_t(G).
+\]
+两个函子都由 \(\Stand(G)\) 经纤维积得到，因此都由在 \(S\) 上光滑、有限呈示且纤维非空的 \(S\)-概形表示。有由 \(t_2\) 诱导的典范态射
+\[
+ t_P:\Par_t(G;P)\longrightarrow q^{-1}\bigl(t(P),t\bigr),
+ \qquad t_P(Q)=t_2(P,Q),
+\]
+它光滑且有限呈示，几何纤维不可约。典范态射
+\[
+ \Par_t(G;P)\longrightarrow\Par_t(G)
+\]
+是满的单态射，因而可视为 \(\Par_t(G)\) 的\emph{胞腔分解}，其指标集为 \(q^{-1}(t(P),t)\) 的连通分支集。
+
+\SGAInlineRefTarget{sga3:xxvi:paragraph:4-5-5}\paragraph{4.5.5.}
+\SGARefTarget{sga3:xxvi:item:4:5:5}
+设类型 \(t\) 形如 \(t(Q)\)，其中 \(Q\) 是 \(G\) 中相对于 \(P\) 处于标准位置的抛物子群，并设 \(P\cap Q\) 包含极大环面 \(T\)。则
+\[
+ \Par_t(G)\simeq G/Q,\qquad
+ q^{-1}\bigl(t(P),t\bigr)
+ \simeq W_P(T)\backslash W_G(T)/W_Q(T),
+\]
+且有图
+\[
+\begin{tikzcd}[column sep=huge,row sep=large]
+ \Par_{t(Q)}(G;P)
+   \arrow[r,"f"] \arrow[d,"i"']
+   & W_P(T)\backslash W_G(T)/W_Q(T)\\
+ \Par_{t(Q)}(G) \arrow[r,"\sim"]
+   & G/Q .
+\end{tikzcd}
+\]
+这里 \(i\) 是满的单态射，\(f\) 光滑、有限呈示且几何纤维不可约。此外，若 \(Q_1,Q_2\) 是某个 \(S'\to S\) 上 \(\Par_{t(Q)}(G;P)\) 的两个截面，即 \(G_{S'}\) 的两个在 fpqc 局部与 \(Q\) 共轭且相对于 \(P_{S'}\) 处于标准位置的抛物子群，则 \(Q_1,Q_2\) 在 fpqc 局部可由 \(P\) 的一个截面共轭，当且仅当
+\[
+ f(Q_1)=f(Q_2).
+\]
+若 \(S\) 是代数闭域 \(k\) 的谱，就得到
+\[
+ P(k)\backslash G(k)/Q(k)
+ \simeq
+ W_P(T)(k)\backslash W_G(T)(k)/W_Q(T)(k).
+\]
+
+更一般地，设概形 \(W_P(T)\backslash W_G(T)/W_Q(T)\) 为常概形，形如 \(E_S\)；例如当 \(G\) 关于 \(T\) 分裂且 \(S\) 连通时即如此。于是各子概形 \(f^{-1}(e)\)，\(e\in E\)，将 \(\Par_{t(Q)}(G;P)\) 分解为开闭子概形。它们是 \(P\) 下的齐性空间，在 \(S\) 上光滑、有限呈示，几何纤维不可约。
+
+\SGAInlineRefTarget{sga3:xxvi:paragraph:4-5-6}\paragraph{\SGARefLink{sga3:xxvi:paragraph:4-5-6}{4.5.6}.}
+\SGARefTarget{sga3:xxvi:item:4:5:6}
+回到 \SGARefLink{sga3:xxvi:paragraph:4-5-4}{4.5.4} 的一般情形。概形 \(q^{-1}(t(P),t)\) 总有两个特殊截面，分别对应于“横截位置”和“密切位置”类型。如上所见，第一个截面的逆像是 \(\Par_t(G;P)\) 的相对稠密开子概形；它是分解中相对维数最大的胞腔。
+
+第二个截面的逆像大概是 \(\Par_t(G;P)\) 的闭子概形；它是分解中相对维数最小的胞腔。\footnote{\emph{编者注。} 在本段中，Polo--Gille 版将 \(t^{-1}(t(P),t)\) 改为 \(q^{-1}(t(P),t)\)，并两次将 \(\Par_t(G)\) 改为 \(\Par_t(G;P)\)。}
+% 已译源行 2397--2663；本译者的XXVI前缀分工在此结束，后缀由协调方合并。
+
+% ROOT_MERGE_XXVI_TAIL: source2664-4641; included exactly once.
+% 翻译覆盖始于冻结源 XXVI.tex 第 2664 行；独立尾部，供主线程合并。
+% BEGIN inputs/XXVI/tex/components/08_section5_1.tex
+\SGASection{5}{共轭定理}
+\SGARefTarget{sga3:xxvi:section:5}
+
+\begin{sgastatement}{定理 5.1}
+设 \(S\) 是半局部概形，\(G\) 是约化 \(S\)-群，\(P,P'\) 是 \(G\) 的两个相反抛物子群 \textup{（\SGARefLink{sga3:xxvi:definition:4-3-3}{4.3.3}）}。则
+\[
+ \rad^u(P)(S)\cdot P'\cdot P=G.
+\]
+换言之，当 \(u\) 遍历 \(\rad^u(P)(S)\) 时，\(G\) 的开子集 \(uP'\cdot P\) \textup{（\SGARefLink{sga3:xxvi:remark:4:3:6}{4.3.6}）} 覆盖整个 \(G\)。
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:theorem:5:1}
+
+证明分为若干步。
+
+\SGAInlineRefTarget{sga3:xxvi:paragraph:5-1-1}\paragraph{\SGARefLink{sga3:xxvi:paragraph:5-1-1}{5.1.1}.}
+\SGARefTarget{sga3:xxvi:item:5:1:1}
+只须在 \(S\) 为域 \(k\) 的谱时证明定理；这立即由 \SGARefLink{sga3:xxvi:cor:2:6}{2.6} 得出。
+
+\SGAInlineRefTarget{sga3:xxvi:paragraph:5-1-2}\paragraph{\SGARefLink{sga3:xxvi:paragraph:5-1-2}{5.1.2}.}
+\SGARefTarget{sga3:xxvi:item:5:1:2}
+置 \(L=P\cap P'\)。假设 \(L\) 有 Borel 子群 \(B_L\)，并如第 XXII 讲 \SGARefLink{sga3:xxii:cor:5.9.7}{5.9.7}，取 \(B_L\) 的极大环面 \(T\)。立即可验
+\[
+ B=B_L\cdot\rad^u(P)
+\]
+是 \(P\) 的 Borel 子群。设 \(B'\) 是 \(G\) 中相对于 \(T\) 与 \(B\) 相反的 Borel 子群，因而 \(B\cap B'=T\)。使 \(G\) 相对于 \(T\) 分裂后，立即看出 \(B'\subset P'\)。我们断言
+\[
+ B^u(S)\cdot B'\cdot B
+ \subset \rad^u(P)(S)\cdot P'\cdot P.                 \tag{x}\label{sga3:xxvi:theorem:5-1:equation:x}
+\]
+事实上，
+\[
+ B^u(S)\subset P(S)
+ =\rad^u(P)(S)\cdot L(S)
+ \subset\rad^u(P)(S)\cdot P'(S),
+\]
+故只须注意 \(B'\cdot B\subset P'\cdot P\)。于是 \textup{(x)} 将\SGARefLink{sga3:xxvi:theorem:5:1}{定理 5.1} 归结为有序对 \((B,B')\) 的情形。
+
+\SGAInlineRefTarget{sga3:xxvi:paragraph:5-1-3}\paragraph{\SGARefLink{sga3:xxvi:paragraph:5-1-3}{5.1.3}.}
+\SGARefTarget{sga3:xxvi:item:5:1:3}
+当 \(k\) 代数闭时，定理成立：此时满足 \SGARefLink{sga3:xxvi:paragraph:5-1-2}{5.1.2} 的假设，可应用第 XXII 讲 \SGARefLink{sga3:xxii:prop:5.7.10}{5.7.10}。
+
+\SGAInlineRefTarget{sga3:xxvi:paragraph:5-1-4}\paragraph{\SGARefLink{sga3:xxvi:paragraph:5-1-4}{5.1.4}.}
+\SGARefTarget{sga3:xxvi:item:5:1:4}
+当 \(k\) 是无限域时，定理也成立。事实上，由 \SGARefLink{sga3:xxvi:cor:2:7}{2.7}，
+\[
+ \rad^u(P)(k)\ \text{在}\ \rad^u(P)(\bar k)\ \text{中稠密},
+\]
+而定理在 \(\bar k\) 上成立。
+
+\paragraph{5.1.5.}
+\SGARefTarget{sga3:xxvi:item:5:1:5}
+因而归结为 \(k\) 是有限域的情形。概形 \(\Bor(L)\) 是 \(L\) 下的光滑齐性空间；于是 Lang 定理 \textup{（Amer.\ J. Math.\ \textbf{78} \textup{(1956)}）} 表明 \(L\) 有 Borel 子群 \(B_L\)。
+\footnote{\emph{编者注。} 另见 \textup{[DG70]}，\(\S\)III.5，\SGARefLink{sga3:xxvi:theorem:7-4}{7.4}。}
+因此，由 5.1.2，可设 \(P=B\)、\(P'=B'\) 是 Borel 子群。记 \(T=B\cap B'\)。
+
+\SGAInlineRefTarget{sga3:xxvi:paragraph:5-1-6}\paragraph{5.1.6.}
+\SGARefTarget{sga3:xxvi:item:5:1:6}
+设 \(K\) 是 \(k\) 的代数闭包。选取 \((G_K,B_K,T_K)\) 的钉扎，并以 \(R^+\)、\(\Delta\) 分别表示正根集、单根集。由第 XXII 讲 \SGARefLink{sga3:xxii:def:5.7.2}{5.7.2}，只须对每个 \(\alpha\in\Delta\) 证明
+\[
+ u_\alpha B'^{\,u}(K)
+ \subset B^u(k)B'^{\,u}(K)B(K).                       \tag{1}\label{sga3:xxvi:theorem:5-1:equation:1}
+\]
+设 \(\alpha_i\) 是 \(\alpha\) 在 \(k\) 上的各个不同共轭元。由于 \(B\) 定义在 \(k\) 上，它们都属于 \(\Delta\)。设 \(R'\) 是可写为 \(\alpha_i\) 的线性组合的根的集合，并置 \(R'_- = R_-\cap R'\)。由于 \(R'\) 定义在 \(k\) 上，存在 \(T\) 的子环面 \(Q\)，使得 \(Q_K\) 是各 \(\alpha_i\) 的公共核的极大环面。
+
+置
+\[
+ Z=\Centr_G(Q),\qquad B_Z=B\cap Z,\qquad B'_Z=B'\cap Z
+\]
+\textup{（第 XXII 讲 \SGARefLink{sga3:xxii:cor:5.10.2}{5.10.2}）}。只须在 \(Z\) 中验证所需断言，即
+\[
+ u_\alpha B_Z'^{\,u}(K)
+ \subset B_Z^u(k)B_Z'^{\,u}(K)B_Z(K).                 \tag{2}\label{sga3:xxvi:theorem:5-1:equation:2}
+\]
+事实上，
+\[
+ (B_Z'^{\,u})_K=\prod_{\beta\in R'_-}U_\beta.
+\]
+设 \(R''=R-R'\)，并置
+\[
+ V=\prod_{\beta\in R''\cap R_-}U_\beta.
+\]
+则
+\[
+ (B'^{\,u})_K=(B_Z'^{\,u})_K\cdot V,
+\]
+且由第 XXII 讲 \SGARefLink{sga3:xxii:cor:5.6.7}{5.6.7}，\((B_Z)_K\) 正规化 \(V\)。因此，由 \textup{\SGARefLink{sga3:xxvi:theorem:5-1:equation:2}{(2)}} 依次得到
+\[
+\begin{aligned}
+ u_\alpha B'^{\,u}(K)
+ &=u_\alpha B_Z'^{\,u}(K)V(K)\\
+ &\subset B_Z^u(k)B_Z'^{\,u}(K)B_Z(K)V(K)\\
+ &\subset B_Z^u(k)B_Z'^{\,u}(K)V(K)B_Z(K),
+\end{aligned}
+\]
+这立即给出 \textup{\SGARefLink{sga3:xxvi:theorem:5-1:equation:1}{(1)}}。于是归结为 \(G=Z\)，即 \(\operatorname{Gal}(K/k)\) 在单根集上传递作用的情形。
+
+\SGAInlineRefTarget{sga3:xxvi:paragraph:5-1-7}\paragraph{\SGARefLink{sga3:xxvi:paragraph:5-1-7}{5.1.7}.}
+\SGARefTarget{sga3:xxvi:item:5:1:7}
+待证断言等价地说，\(G/B\) 是 \(B'^{\,u}\) 的开像在 \(B^u(k)\) 作用下各平移的并。将 \(G\) 换为其伴随群，甚至换为任意具有相同伴随群的群，都不改变这一断言。因此可设 \(G\) 是伴随群。
+
+\SGAInlineRefTarget{sga3:xxvi:paragraph:5-1-8}\paragraph{\SGARefLink{sga3:xxvi:paragraph:5-1-8}{5.1.8}.}
+\SGARefTarget{sga3:xxvi:item:5:1:8}
+考虑 \(G_K\) 的 Dynkin 图。Galois 群在其上传递作用。但此 Galois 群只有循环商群，而 Dynkin 图没有回路。因此，该图为 \(nA_1\) 型，其中 \(n\geq0\)，或为 \(mA_2\) 型，其中 \(m\geq0\)。利用第 XXIV 讲 \SGARefLink{sga3:xxiv:proposition:5-9}{5.9} 的典范分解，可写成
+\[
+ G=\prod_{D/k}G_0,
+\]
+其中 \(D\) 是有限 \(k\)-概形，而 \(G_0\) 或为环面，或为 \(A_1\) 型、\(A_2\) 型。
+
+由第 XXIV 讲 \SGARefLink{sga3:xxiv:corollary:5-12}{5.12}，群 \(B\) 来自 \(G_0\) 的 Borel 子群 \(B_0\)，而 \(T\) 来自 \(G_0\) 的极大环面 \(T_0\)；群 \(B'\) 来自 \(G_0\) 中相对于 \(T_0\) 与 \(B_0\) 相反的 Borel 子群 \(B'_0\)。有
+\[
+ B^{u}(k)=B_0^u(D),\qquad
+ B'^{\,u}\cdot T\cdot B^u
+ =\prod_{D/k}B_0'^{\,u}\cdot T_0\cdot B_0^u.
+\]
+因此，只须对三元组 \((G_0,B_0,T_0)\) 证明断言。
+
+\SGAInlineRefTarget{sga3:xxvi:paragraph:5-1-9}\paragraph{\SGARefLink{sga3:xxvi:paragraph:5-1-9}{5.1.9}.}
+\SGARefTarget{sga3:xxvi:item:5:1:9}
+所以可设 \(G\) 为 \(\varnothing\)、\(A_1\) 或 \(A_2\) 型。由于 \(G\) 有 Borel 子群 \(B\)，由第 XXIV 讲 \SGARefLink{sga3:xxiv:3.9.1}{3.9.1}，它相对于 \(B\) 拟分裂，故在 \(\varnothing\) 型或 \(A_1\) 型时分裂。在分裂情形，已由第 XXII 讲 \SGARefLink{sga3:xxii:prop:5.7.10}{5.7.10} 知道定理成立，因此只剩下 \(A_2\) 型。
+
+由第 XXIV 讲 \SGARefLink{sga3:xxiv:3.11}{3.11}，存在态射 \(E\to\operatorname{Spec}(k)\)，它是 \(A_2\) 型 Dynkin 图的自同构群 \(\mathbb Z/2\mathbb Z\) 下的 Galois 主齐性丛，使得
+\[
+ G=\operatorname{Q\text{-}\acute{E}p}_{E/\operatorname{Spec}(k)}
+ (A_2).
+\]
+若 \(E\) 有截面，则 \(G\) 分裂，定理随即成立。否则 \(E=\operatorname{Spec}(k')\)，其中 \(k'/k\) 是二次扩张。最后，如 \SGARefLink{sga3:xxvi:paragraph:5-1-7}{5.1.7} 所述，可设 \(G\) 单连通，即 \(G\) 是 \(\operatorname{SL}_{3,k}\) 的形式。
+
+\SGAInlineRefTarget{sga3:xxvi:paragraph:5-1-10}\paragraph{\SGARefLink{sga3:xxvi:paragraph:5-1-10}{5.1.10}.}
+\SGARefTarget{sga3:xxvi:item:5:1:10}
+现在处于如下情形：\(k\) 是有限域，\(k'/k\) 是二次扩张。对行列式为 \(1\) 的 \(3\times3\) 矩阵群 \(\operatorname{SL}_{3,k'}\)，如下选取钉扎：极大环面取对角矩阵群，Borel 子群取上三角矩阵群，根向量取为
+\[
+ u_\alpha=
+ \begin{pmatrix}1&1&0\\0&1&0\\0&0&1\end{pmatrix},
+ \qquad
+ u_\beta=
+ \begin{pmatrix}1&0&0\\0&1&1\\0&0&1\end{pmatrix}.
+\]
+大胞腔 \(\Omega\) 由下式给出：
+\[
+ \begin{pmatrix}a&b&c\\d&e&f\\g&h&i\end{pmatrix}
+ \in\Omega(S)
+ \quad\Longleftrightarrow\quad
+ a\ \text{及}\ ae-bd\ \text{可逆},
+\]
+且
+\[
+ B^u(k)=
+ \left\{
+ \left.
+ \begin{pmatrix}1&\bar x&z\\0&1&x\\0&0&1\end{pmatrix}
+ \ \right|\
+ x,z\in k',\ z+\bar z=x\bar x
+ \right\}.
+\]
+
+须证明 \SGARefLink{sga3:xxvi:paragraph:5-1-6}{5.1.6} 中的包含关系 \textup{\SGARefLink{sga3:xxvi:theorem:5-1:equation:1}{(1)}}。因此，对任意 \(a,b,c\in K\)，须求 \(x,z\in k'\)，使得 \(z+\bar z=x\bar x\) 且
+\[
+ \begin{pmatrix}1&\bar x&z\\0&1&x\\0&0&1\end{pmatrix}
+ \begin{pmatrix}1&1&0\\0&1&0\\0&0&1\end{pmatrix}
+ \begin{pmatrix}1&0&0\\a&1&0\\b&c&1\end{pmatrix}
+ \in\Omega(K).                                         \tag{3}\label{sga3:xxvi:theorem:5-1:equation:3}
+\]
+若 \(a\ne-1\)，取 \(x=z=0\)。若 \(a=-1\)，所需条件为
+\[
+ \begin{cases}
+ z+\bar z=x\bar x,\\
+ bz-\bar x\ne0,\\
+ (b+c)\bar z+bx-1\ne0.
+ \end{cases}                                           \tag{4}\label{sga3:xxvi:theorem:5-1:equation:4}
+\]
+设 \(q\geq2\) 是 \(k\) 的元素个数。对每个 \(m\in k\)，方程 \(z+\bar z=m\) 在 \(z\in k'\) 中有 \(q\) 个解。
+
+若 \(b=0\)，取 \(x=1\)。只须解
+\[
+ z+\bar z=1,\qquad c\bar z\ne1,
+\]
+由上述观察，这总是可能的。
+
+若 \(b\ne0\)，取 \(x=0\)。只须解
+\[
+ z+\bar z=0,\qquad z\ne0,\qquad (b+c)z\ne1.
+\]
+当 \(q\geq3\) 时，这总是可能的。当 \(k=\mathbb F_2\) 时，若 \(b+c\ne1\)，可取 \(z=1\)。
+
+只剩下 \(k=\mathbb F_2\)、\(b+c=1\)、\(b\ne0\) 的情形。方程组变为
+\[
+ z+\bar z=x\bar x,\qquad bz\ne\bar x,\qquad
+ \bar z+bx\ne1.
+\]
+若 \(b=1\)，或 \(b\notin k'\)，取 \(x=1\)；后两个条件变为
+\[
+ z\ne b^{-1},\qquad z\ne1-b,
+\]
+任意满足 \(z+\bar z=1\) 的解均满足这两个条件。最后，若 \(b\in k'-k\)，取 \(x=b\)、\(z=\bar b\)。证明完毕。
+\SGAQED
+
+% END inputs/XXVI/tex/components/08_section5_1.tex
+
+% BEGIN inputs/XXVI/tex/components/09_section5_2_through_5_5.tex
+\begin{sgastatement}{\SGAInlineRefTarget{sga3:xxvi:corollary:5-2}推论 5.2}
+设 \(S\) 是半局部概形，\(G\) 是约化 \(S\)-群，\(P,P'\) 是 \(G\) 的两个相反抛物子群。典范映射
+\[
+ \rad^u(P)(S)\cdot\rad^u(P')(S)\longrightarrow(G/P)(S)
+\]
+是满射。特别地，
+\[
+ (G/P)(S)=G(S)/P(S).
+\]
+\(G\) 中每个与 \(P\) 同类型的抛物子群 \(Q\) 都形如
+\[
+ Q=\Int(uu')P,
+\]
+其中 \(u\in\rad^u(P)(S)\)、\(u'\in\rad^u(P')(S)\)。
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:cor:5:2}
+
+第二个断言显然等价于第一个，故证明后者。设 \(s_i\) 是 \(S\) 的各闭点，\(V\) 是 \(G/P\) 中由 \(P'\) 的像给出的开子概形 \textup{（由 \SGARefLink{sga3:xxvi:remark:4:3:6}{4.3.6}，它同构于 \(\rad^u(P')\)）}，并取 \(x\in(G/P)(S)\)。由 \SGARefLink{sga3:xxvi:theorem:5:1}{5.1}，对每个 \(i\)，存在
+\[
+ u_i\in\rad^u(P)\bigl(\kappa(s_i)\bigr),
+\]
+使得 \(u_ix_{s_i}\) 是 \(V_{s_i}\) 的截面。由 \SGARefLink{sga3:xxvi:cor:2:6}{2.6}，可选取同时提升所有 \(u_i\) 的 \(u\in\rad^u(P)(S)\)。于是 \(ux\) 是 \(V\) 的截面，因为这可在闭纤维上检验。最后，
+\[
+ \rad^u(P')(S)\xrightarrow{\sim}V(S)
+\]
+是双射，结论得证。
+
+\begin{sgastatement}{推论 5.3}
+设 \(S\) 是半局部概形，\(G\) 是约化 \(S\)-群，\(P,P',Q\) 是 \(G\) 的三个抛物子群。存在 \(g\in G(S)\)，使得 \(\Int(g)Q\) 同时相对于 \(P\)、\(P'\) 处于横截位置。
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:cor:5:3}
+
+采用 \SGARefLink{sga3:xxvi:corollary:4-2-4}{4.2.4}\textup{(ii)} 的记号，须证明 \(G\) 的普遍概形稠密开子概形
+\[
+ \Gen(Q/P)\cap\Gen(Q/P')
+\]
+在 \(S\) 上有截面。
+\footnote{\emph{编者注。} Polo--Gille 版将“相对稠密”改为“在 \(S\) 上普遍概形稠密”；比较 EGA IV\textsubscript{3}，定义 11.10.8。}
+由 \SGARefLink{sga3:xxvi:corollary:4-3-5}{4.3.5}\textup{(i)}，选取与 \(Q\) 相反的抛物子群 \(Q_1\)，并置
+\[
+ U=\rad^u(Q),\qquad U'=\rad^u(Q_1).
+\]
+我们将在 \(U(S)U'(S)\) 中求所需的 \(g\)。在这一形式下，\SGARefLink{sga3:xxvi:corollary:4-2-4}{4.2.4}\textup{(i)} 及 \SGARefLink{sga3:xxvi:cor:2:6}{2.6} 表明，只须在 \(S\) 的闭点上方的纤维上证明；因而可设 \(S=\operatorname{Spec}(k)\)。
+
+若 \(k\) 代数闭，存在具有所需性质的 \(g\in G(k)\)。由 \SGARefLink{sga3:xxvi:corollary:5-2}{5.2}，可写成
+\[
+ g=uu'q,\qquad u\in U(k),\quad u'\in U'(k),\quad q\in Q(k),
+\]
+且 \(\Int(uu')Q=\Int(g)Q\)。
+
+设 \(k\) 是无限域。令 \(V\) 是由笛卡尔图
+\[
+\begin{tikzcd}[column sep=huge,row sep=large]
+ U\times_kU' \arrow[r] & G\\
+ V \arrow[u,hook] \arrow[r]
+   & \Gen(Q/P)\cap\Gen(Q/P') \arrow[u,hook].
+\end{tikzcd}
+\]
+定义的 \(U\times_kU'\) 的开子集。由刚才所证，\(V(\bar k)\ne\varnothing\)，故 \(V\) 在 \(U\times_kU'\) 中稠密；于是由 \SGARefLink{sga3:xxvi:cor:2:7}{2.7}，它有 \(k\)-点。
+
+最后设 \(k\) 是有限域。如 5.1.5 中那样应用 Lang 定理，可知 \(P\)、\(P'\) 分别有 Borel 子群 \(B\)、\(B'\)，因为
+\[
+ \Bor(P)\simeq\Bor(P/\rad^u(P)),\qquad
+ \Bor(P')\simeq\Bor(P'/\rad^u(P'))
+\]
+是光滑的。
+\footnote{\emph{编者注。} 法文底本的第二个同构中印作 \(\Bor(Q)\)；平行论证需要 \(\Bor(P')\)，此处采用后者。}
+设 \(B_1\) 是与 \(B\) 相反的 Borel 子群。由 \SGARefLink{sga3:xxvi:corollary:5-2}{5.2}，存在
+\[
+ a\in B^u(k),\qquad a_1\in B_1^u(k),
+\]
+使得 \(\Int(aa_1)B=B'\)。于是
+\[
+ B_0=\Int(aa_1)B_1=\Int(a)B_1
+\]
+同时与 \(B'\)、\(B\) 相反。如 \SGARefLink{sga3:xxvi:lemma:3:8}{3.8}，设 \(Q_0\) 是 \(G\) 中包含 \(B_0\) 且与 \(Q\) 同类型的唯一抛物子群。由 \SGARefLink{sga3:xxvi:theorem:4-2-1}{4.2.1}\textup{\SGARefLink{sga3:xxvi:theorem:4-2-1:item:vi}{(vi)}}，它同时相对于 \(P\)、\(P'\) 处于横截位置。另一方面，\SGARefLink{sga3:xxvi:corollary:5-2}{5.2} 给出
+\[
+ Q_0=\Int(uu')Q,\qquad u\in U(k),\quad u'\in U'(k),
+\]
+从而断言得证。
+
+\begin{sgastatement}{推论 5.4}
+设 \(S\) 是半局部概形，\(G\) 是约化 \(S\)-群，\(P,Q\) 是 \(G\) 的两个抛物子群。存在 \(g\in G(S)\)，使得 \(\Int(g)P\) 相对于 \(Q\) 处于密切位置；等价地，\(\Int(g)P\cap Q\) 是 \(G\) 的抛物子群。
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:cor:5:4}
+
+由 \SGARefLink{sga3:xxvi:corollary:4-3-5}{4.3.5}\textup{(i)}，选取与 \(P\) 相反的抛物子群 \(P'\)。由 \SGARefLink{sga3:xxvi:cor:5:3}{5.3}，存在与 \(P'\) 同类型、同时相对于 \(P\)、\(Q\) 处于横截位置的抛物子群 \(P'_1\)。如 \SGARefLink{sga3:xxvi:proposition:4-2-7}{4.2.7}\textup{(ii)}，设 \(T\) 是 \(P'_1\cap Q\) 的极大环面，并设 \(P_1\) 是相对于 \(T\) 与 \(P'_1\) 相反的抛物子群。由 \SGARefLink{sga3:xxvi:cor:4:4:5}{4.4.5}，\(P_1\)、\(Q\) 处于密切位置。由于 \(P\)、\(P_1\) 都与 \(P'_1\) 相反，由 \SGARefLink{sga3:xxvi:corollary:4-3-5}{4.3.5}\textup{(i)}，存在
+\[
+ g\in\rad^u(P'_1)(S),
+\]
+使得 \(\Int(g)P=P_1\)。
+\SGAQED
+
+同理，存在 \(u\in\rad^u(P)(S)\)，使得 \(\Int(u)P'=P'_1\)。故存在 \(u'\in\rad^u(P')(S)\)，使得 \(g=\Int(u)u'\)，且
+\[
+ P_1=\Int(uu'u^{-1})P=\Int(uu')P.
+\]
+这也给出了 \SGARefLink{sga3:xxvi:corollary:5-2}{5.2} 的另一个证明。
+
+\SGARefLink{sga3:xxvi:cor:5:3}{推论 5.3} 及 \SGARefLink{sga3:xxvi:cor:5:4}{5.4} 是本节的主要结果。先记录 \SGARefLink{sga3:xxvi:cor:5:4}{5.4} 的若干推论。
+
+\begin{sgastatement}{\SGAInlineRefTarget{sga3:xxvi:corollary:5-5}推论 5.5}
+设 \(S\) 是半局部概形，\(G\) 是约化 \(S\)-群。
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item 若 \(P,Q\) 是 \(G\) 的抛物子群，且 \(t(P)\subset t(Q)\)，则存在 \(g\in G(S)\)，使得 \(\Int(g)P\subset Q\)。
+\item 设
+\[
+ P_1\supset P_2\supset\cdots\supset P_n,\qquad
+ P'_1\supset P'_2\supset\cdots\supset P'_n
+\]
+是 \(G\) 的两条抛物子群链，且对每个 \(i\) 有 \(t(P_i)=t(P'_i)\)。存在 \(g\in G(S)\)，使得对每个 \(i\)，均有 \(\Int(g)P_i=P'_i\)。
+\item 设 \(P,Q,P',Q'\) 是 \(G\) 的四个抛物子群，满足 \(t(P)=t(P')\)、\(t(Q)=t(Q')\)。若有序对 \((P,Q)\)、\((P',Q')\) 都处于横截位置，或都处于密切位置，则存在 \(g\in G(S)\)，使得
+\[
+ \Int(g)P=P',\qquad\Int(g)Q=Q'.
+\]
+\item 设 \(P,P'\) 是同类型的抛物子群，\(L\)、\(L'\) 分别是 \(P\)、\(P'\) 的 Levi 子群。存在 \(g\in G(S)\)，使得
+\[
+ \Int(g)P=P',\qquad\Int(g)L=L'.
+\]
+\end{enumerate}
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:cor:5:5}
+
+\SGAProof
+断言 \textup{(i)} 立即由 \SGARefLink{sga3:xxvi:cor:5:4}{5.4} 推出。断言 \textup{(ii)} 对 \(n\) 归纳证明，\(n=0\) 时显然。可设对 \(i=1,\ldots,n-1\)，有 \(P_i=P'_i\)。由 \SGARefLink{sga3:xxvi:corollary:5-2}{5.2}，存在 \(g\in G(S)\)，使得 \(\Int(g)P_n=P'_n\)。但 \(P_n\)、\(\Int(g)P_n\) 都包含于 \(P_{n-1}=P'_{n-1}\)，故由 \SGARefLink{sga3:xxvi:lemma:4:4:4}{4.4.4}\textup{(ii)}，
+\[
+ g\in P_{n-1}(S).
+\]
+从而对每个 \(i\)，均有 \(\Int(g)P_i=P'_i\)。
+
+断言 \textup{(iv)} 立即由 \SGARefLink{sga3:xxvi:corollary:5-2}{5.2} 及 \SGARefLink{sga3:xxvi:cor:1:8}{1.8} 推出。先在横截情形证明 \textup{(iii)}。当 \(P\)、\(Q\) 的类型相反时，断言由 \textup{(iv)} 及 \SGARefLink{sga3:xxvi:definition:4-3-3}{4.3.3}\textup{(iii)} 推出。一般情形，由 \SGARefLink{sga3:xxvi:proposition:4-2-7}{4.2.7}\textup{(iii)} 及 \SGARefLink{sga3:xxvi:cor:4:4:6}{4.4.6}，可求得抛物子群
+\[
+ P_1\subset P,\quad P'_1\subset P',\quad
+ Q_1\subset Q,\quad Q'_1\subset Q',
+\]
+使得 \(P_1,P'_1\) 相反，\(Q_1,Q'_1\) 相反，且 \(t(P_1)=t(P'_1)\)。于是存在 \(g\in G(S)\)，使得
+\[
+ \Int(g)P_1=P'_1,\qquad\Int(g)Q_1=Q'_1.
+\]
+施以共轭后，可设 \(P_1=P'_1\)、\(Q_1=Q'_1\)。此时 \(P,P'\) 处于密切位置且同类型，故由 \SGARefLink{sga3:xxvi:lemma:4:4:4}{4.4.4}\textup{(i)}，有 \(P=P'\)。同样，\(Q=Q'\)。
+
+只剩下在密切情形证明 \textup{(iii)}。由 \SGARefLink{sga3:xxvi:corollary:5-2}{5.2}，可设 \(P=P'\)。再次由 \SGARefLink{sga3:xxvi:corollary:5-2}{5.2}，存在 \(g\in G(S)\)，使得 \(\Int(g)Q=Q'\)。但此时由 \SGARefLink{sga3:xxvi:lemma:4:4:4}{4.4.4}\textup{(ii)}，有 \(g\in P(S)\)，因此
+\[
+ \Int(g)P=P=P'.
+\]
+\SGAQED
+
+% END inputs/XXVI/tex/components/09_section5_2_through_5_5.tex
+
+% BEGIN inputs/XXVI/tex/components/10_section5_6_through_5_11.tex
+\begin{sgastatement}{定义 5.6}
+设 \(S\) 是概形，\(G\) 是约化 \(S\)-群，\(P\) 是 \(G\) 的抛物子群。若 \(G\) 中包含于 \(P\) 的每个抛物子群 \(Q\) 都等于 \(P\)，则称 \(P\) 是\emph{极小}的。
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:def:5:6}
+
+注意，一般而言，此概念在取纤维时不保持。
+
+\begin{sgastatement}{\SGAInlineRefTarget{sga3:xxvi:corollary:5-7}推论 5.7}
+设 \(S\) 是半局部概形，\(G\) 是约化 \(S\)-群。
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item 设
+\[
+ t,t'\in\Of\bigl(\operatorname{Dyn}(G)\bigr)(S).
+\]
+若 \(G\) 有一个类型为 \(t\) 的抛物子群及一个类型为 \(t'\) 的抛物子群，则它有类型为 \(t\cap t'\) 的抛物子群。特别地，当 \(P\) 遍历 \(G\) 的抛物子群时，所有 \(t(P)\) 组成的集合有最小元 \(t_{\min}\)。
+\item \(G\) 的每个抛物子群都包含极小抛物子群。\(G\) 的抛物子群极小，当且仅当其类型为 \(t_{\min}\)。\(G\) 的任意两个极小抛物子群都由 \(G(S)\) 的某个元素共轭。
+\end{enumerate}
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:cor:5:7}
+
+这立即由 \SGARefLink{sga3:xxvi:cor:5:4}{5.4} 及 \SGARefLink{sga3:xxvi:corollary:5-5}{5.5}\textup{(i)} 推出。
+
+\begin{sgastatement}{注 5.8}
+与极小抛物子群相反的抛物子群也极小。因此，
+\[
+ s(t_{\min})=t_{\min}.
+\]
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:rem:5:8}
+
+\begin{sgastatement}{\SGAInlineRefTarget{sga3:xxvi:corollary:5-9}推论 5.9}
+设 \(S\) 是概形，\(G\) 是约化 \(S\)-群，\(P\) 是 \(G\) 的抛物子群。典范态射
+\[
+ G\longrightarrow G/P=X
+\]
+使 \(G\) 成为 \(X\) 上的 Zariski 局部平凡 \(P_X\)-丛。若 \(L\) 是 \(P\) 的 Levi 子群，则典范态射 \textup{（参见 \SGARefLink{sga3:xxvi:cor:3:12}{3.12}）}
+\[
+ G\longrightarrow G/L=Y
+\]
+使 \(G\) 成为 \(Y\) 上的 Zariski 局部平凡 \(L_Y\)-丛。
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:cor:5:9}
+
+只须证明如下提升断言：给定态射 \(S'\to S\)，其中 \(S'\) 为局部概形，每个态射 \(S'\to X\) \textup{（或 \(S'\to Y\)）} 都可提升为态射 \(S'\to G\)。换言之，可假设 \(S\) 是局部概形，而须证明
+\[
+ G(S)\longrightarrow X(S),
+ \qquad\text{或分别为}\qquad
+ G(S)\longrightarrow Y(S),
+\]
+是满射。
+
+第一个断言已在 \SGARefLink{sga3:xxvi:corollary:5-2}{5.2} 中证明。对第二个断言，取 \(y\in Y(S)\)。它在 \(X(S)\) 中的典范像是某个 \(g\in G(S)\) 的像。因此，\(g\) 在 \(Y(S)\) 中的像 \(y'\) 与 \(y\) 在 \(X(S)\) 中的像相同。故存在唯一的
+\[
+ u\in\rad^u(P)(S),
+\]
+使得 \(y'u=y\)，而 \(gu\) 在 \(Y(S)\) 中的像确为 \(y\)。
+
+\begin{sgastatement}{\SGAInlineRefTarget{sga3:xxvi:corollary:5-10}推论 5.10}
+设 \(S\) 是半局部概形，\(G\) 是约化 \(S\)-群。
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item 设 \(P\) 是 \(G\) 的抛物子群，\(L\) 是 \(P\) 的 Levi 子群。典范映射 \textup{（参见 3.21）} 诱导双射
+\[
+ H^1(S,L)\xrightarrow{\ \sim\ }H^1(S,P)
+       \xrightarrow{\ \sim\ }H^1_{t(P)}(S,G).
+\]
+\item 若
+\[
+ t,t'\in\Of\bigl(\operatorname{Dyn}(G)\bigr)(S),
+\]
+则 \textup{（参见 3.21）}
+\[
+ H^1_t(S,G)\cap H^1_{t'}(S,G)=H^1_{t\cap t'}(S,G).
+\]
+\item 若 \(P\)、\(Q\) 是 \(G\) 中处于密切位置的两个抛物子群，则下列典范图是笛卡尔图，且其中所有箭头都是单射：
+\[
+\begin{tikzcd}[column sep=huge,row sep=large]
+ H^1(S,P) \arrow[r] & H^1(S,G)\\
+ H^1(S,P\cap Q) \arrow[u] \arrow[r] & H^1(S,Q). \arrow[u]
+\end{tikzcd}
+\]
+\end{enumerate}
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:cor:5:10}
+
+证明 \textup{(i)}。由 \SGARefLink{sga3:xxvi:cor:2:3}{2.3}，映射
+\[
+ H^1(S,L)\longrightarrow H^1(S,P)
+\]
+是双射，而由 3.21，
+\[
+ H^1(S,P)\longrightarrow H^1_{t(P)}(S,G)
+\]
+是满射。须证明它是单射，等价地，证明典范映射
+\[
+ H^1(S,P)\longrightarrow H^1(S,G)
+\]
+是单射。设 \(Q\) 是 \(P\) 下的主齐性丛，\(Q_1\) 是相伴的 \(G\) 下的主齐性丛，\(P'\)、\(G'\) 是相应的 \(P\)、\(G\) 的扭形式。显然，\(G'\) 是约化 \(S\)-群，\(P'\) 是 \(G'\) 的抛物子群。
+
+\(H^1(S,P)\) 中在 \(H^1(S,G)\) 内与 \(Q\) 的类有相同像的元素，自然等同于
+\[
+ H^1(S,P')\longrightarrow H^1(S,G')
+\]
+的核。由上同调正合列，此核又等同于 \((G'/P')(S)\) 中的 \(G'(S)\)-轨道集。\footnote{关于非交换上同调中的这些论证，见 Giraud 的学位论文，\textup{[Gi71]}，\S~III.3。}
+但由 \SGARefLink{sga3:xxvi:corollary:5-2}{5.2}，\(G'(S)\) 在 \((G'/P')(S)\) 上传递作用。
+
+对 \textup{(ii)}，设 \(Q\) 是 \(G\) 下的主齐性丛，\(G_Q\) 是 \(G\) 的相应扭形式。由定义 \textup{（3.21）}，须证明 \(G_Q\) 有类型为 \(t\cap t'\) 的抛物子群，当且仅当它有类型为 \(t\)、\(t'\) 的抛物子群。这正是 \SGARefLink{sga3:xxvi:lemma:3:8}{3.8} 与 \SGARefLink{sga3:xxvi:corollary:5-7}{5.7}\textup{(i)} 的结合。最后，\textup{(iii)} 立即由 \textup{(i)}、\textup{(ii)} 推出。
+
+现在叙述 \SGARefLink{sga3:xxvi:cor:5:3}{5.3} 的一个推论。
+
+\begin{sgastatement}{推论 5.11}
+设 \(S\) 是半局部概形，\(G\) 是约化 \(S\)-群，\(P\) 是 \(G\) 的抛物子群。若 \(P\ne G\)，则 \(G\) 至少有三个与 \(P\) 同类型的不同抛物子群。换言之，
+\[
+ P\ne G\qquad\Longrightarrow\qquad
+ \bigl(G(S):P(S)\bigr)\geq 3.
+\]
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:cor:5:11}
+
+事实上，如 \SGARefLink{sga3:xxvi:corollary:4-3-5}{4.3.5}\textup{(i)}，设 \(P'\) 是与 \(P\) 相反的抛物子群。由于 \(P\ne G\)，有 \(\rad^u(P')\ne e\)，例如见 \SGARefLink{sga3:xxvi:item:4:3:1}{4.3.2}。由 \SGARefLink{sga3:xxvi:proposition:2-1}{2.1}，\(\rad^u(P')(S)\ne e\)；选取
+\[
+ u\in\rad^u(P')(S),\qquad u\ne e.
+\]
+则 \(\Int(u)P\ne P\)。由 \SGARefLink{sga3:xxvi:cor:5:3}{5.3}，存在与 \(P\) 同类型且同时与 \(P\)、\(\Int(u)P\) 相反的抛物子群 \(P_1\)。于是 \(P_1\)、\(P\)、\(\Int(u)P\) 是 \(G\) 的三个同类型的不同抛物子群。
+\SGAQED
+
+% END inputs/XXVI/tex/components/10_section5_6_through_5_11.tex
+
+% BEGIN inputs/XXVI/tex/components/11_section6_1_through_6_8.tex
+\SGASection{6}{抛物子群与分裂环面}
+\SGARefTarget{sga3:xxvi:sec:6}
+
+\begin{sgastatement}{\SGAInlineRefTarget{sga3:xxvi:proposition:6-1}命题 6.1}
+设 \(S\) 是概形，\(G\) 是约化 \(S\)-群，\(\mathfrak g=\operatorname{Lie}(G/S)\)，\(Q\) 是 \(G\) 的分裂子环面。写成 \(Q=D_S(M)\)，并设
+\[
+ \mathfrak g=\bigoplus_{\alpha\in M}\mathfrak g^\alpha
+\]
+是 \(Q\) 作用下 \(\mathfrak g\) 的分解。设 \(M_1\subset M\) 满足
+\[
+ 0\in M_1,\qquad
+ \alpha,\beta\in M_1\Longrightarrow\alpha+\beta\in M_1.
+\]
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item 存在 \(G\) 的唯一光滑子群 \(H_{M_1}\)，它的纤维连通，包含 \(\Centr_G(Q)\)，且 Lie 代数为
+\[
+ \bigoplus_{\alpha\in M_1}\mathfrak g^\alpha.
+\]
+\item 有下列蕴涵：
+\[
+\begin{aligned}
+ M_1=\{0\}
+   &\Longrightarrow H_{M_1}=\Centr_G(Q),\\
+ M_1=-M_1
+   &\Longrightarrow H_{M_1}\text{ 是约化群},\\
+ M_1\cup(-M_1)=M
+   &\Longrightarrow
+   \begin{gathered}
+    H_{M_1}\text{ 与 }H_{-M_1}\text{ 是 \(G\) 的相反抛物子群，}\\
+    \text{具有公共 Levi 子群 }H_{M_1\cap(-M_1)}.
+   \end{gathered}
+\end{aligned}
+\]
+\end{enumerate}
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:prop:6:1}
+
+断言 \textup{(i)}、\textup{(ii)} 对 fpqc 拓扑是局部的。因此，可设 \(Q\) 包含于 \(G\) 的极大环面 \(T\)，并进一步使 \(G\) 相对于 \(T\) 分裂。此时，断言 \textup{(i)} 立即由\SGARefLink{sga3:xxii:cor:5.3.5}{第 XXII 讲 5.3.5}、\SGARefLink{sga3:xxii:prop:5.4.5}{5.4.5} 及 \SGARefLink{sga3:xxii:thm:5.4.7}{5.4.7} 推出。\textup{(ii)} 中的各断言由\SGARefLink{sga3:xxii:cor:5.3.5}{第 XXII 讲 5.3.5}、\SGARefLink{sga3:xxii:prop:5.10.1}{5.10.1}、\SGARefLink{sga3:xxii:lem:5.11.3}{5.11.3}，以及本讲的 \SGARefLink{sga3:xxvi:prop:1:3}{1.4}、\SGARefLink{sga3:xxvi:item:4:3:1}{4.3.2} 推出。
+
+\begin{sgastatement}{推论 6.2}
+设 \(S\) 是概形，\(G\) 是约化 \(S\)-群，\(Q\) 是 \(G\) 的分裂子环面。存在 \(G\) 的抛物子群，以 \(\Centr_G(Q)\) 为 Levi 子群。
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:cor:6:2}
+
+事实上，写成 \(Q=D_S(M)\)，在群 \(M\) 上选取全序，并以 \(M_1\) 表示其正元素的集合。子群 \(H_{M_1}\) 具有所需性质。
+
+\begin{sgastatement}{推论 6.3}
+若约化 \(S\)-群 \(G\) 有非中心的分裂子环面，则它有真抛物子群 \textup{（即不同于 \(G\) 的抛物子群）}。
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:cor:6:3}
+
+结合 \SGARefLink{sga3:xxvi:cor:6:2}{6.2}、\SGARefLink{sga3:xxvi:corollary:5-9}{5.9} 及 \SGARefLink{sga3:xxvi:corollary:5-10}{5.10}，得到如下结果。
+
+\begin{sgastatement}{\SGAInlineRefTarget{sga3:xxvi:corollary:6-4}推论 6.4}
+设 \(S\) 是概形，\(G\) 是约化 \(S\)-群，\(Q\) 是 \(G\) 的分裂子环面。典范态射
+\[
+ G\longrightarrow G/\Centr_G(Q)
+\]
+是局部平凡纤维化。
+
+若 \(S\) 半局部，则映射
+\[
+ G(S)\longrightarrow\bigl(G/\Centr_G(Q)\bigr)(S)
+\]
+是满射，而映射
+\[
+ H^1\bigl(S,\Centr_G(Q)\bigr)\longrightarrow H^1(S,G)
+\]
+是单射。
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:cor:6:4}
+
+\SGASubsection{6.5}{}
+\SGARefTarget{sga3:xxvi:subsec:6:5}
+
+设 \(S\) 连通。若 \(T\) 是 \(S\)-环面，而 \(T'\)、\(T''\) 是 \(T\) 的两个分裂子环面，则其乘积
+\[
+ T'\cdot T''
+\]
+仍是 \(T\) 的分裂子环面。\footnote{\emph{编者注。} Polo--Gille 版在此采用乘法记号，将底本的“和 \(T'+T''\)”改为“乘积 \(T'\cdot T''\)”。}
+事实上，它等同于 \(T'\times_S T''\) 对 \(T'\cap T''\) 的商，由\SGARefLink{sga3:ix:proposition:2:11}{第 IX 讲 2.11}，此商分裂。从而 \(T\) 有最大的分裂子环面，记为 \(T_{\mathrm{spl}}\)。
+
+\begin{sgastatement}{\SGAInlineRefTarget{sga3:xxvi:lemma:6-6}引理 6.6}
+设 \(S\) 是连通概形，\(T\) 是等平凡 \(S\)-环面，\(T_{\mathrm{spl}}\) 是其最大的分裂子环面。下列条件等价：
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item 存在不同于平凡同态的同态
+\[
+ T\longrightarrow\mathbf G_{m,S}.
+\]
+\item \(T_{\mathrm{spl}}\ne e\)。
+\end{enumerate}
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:lem:6:6}
+
+由于 \(T\) 等平凡，存在有限群 \(\Gamma\)、群为 \(\Gamma\) 的连通 Galois 主覆盖 \(S'\to S\)，以及同构
+\[
+ T_{S'}\simeq D_{S'}(M).
+\]
+此时群 \(M\) 是 \(\Gamma\)-模，且有自然同构
+\[
+ \operatorname{Hom}_S(T,\mathbf G_{m,S})
+   =H^0(\Gamma,M).
+\]
+
+设 \(V\) 是由元素
+\[
+ \gamma(m)-m,\qquad \gamma\in\Gamma,\quad m\in M
+\]
+生成的 \(M\otimes\mathbf Q\) 的向量子空间。立即可验
+\[
+ (T_{\mathrm{spl}})_{S'}
+   \simeq D_{S'}\bigl(M/(M\cap V)\bigr).
+\]
+因此，\textup{(i)} 等价于
+\[
+ H^0(\Gamma,M)\ne0,
+\]
+或等价地，
+\[
+ H^0(\Gamma,M\otimes\mathbf Q)\ne0,
+\]
+而 \textup{(ii)} 等价于 \(M\ne M\cap V\)，或等价于 \(M\otimes\mathbf Q\ne V\)。但
+\[
+ M\otimes\mathbf Q
+ =H^0(\Gamma,M\otimes\mathbf Q)\oplus V.
+\]
+考虑从 \(M\otimes\mathbf Q\) 到其不变子空间的投影算子，它将 \(x\) 映为其在 \(\Gamma\) 下所有变换的平均值，即得此结论。
+
+\begin{sgastatement}{引理 6.7}
+设 \(S\) 是概形，\(G\) 是约化 \(S\)-群，\(P\ne G\) 是 \(G\) 的抛物子群，\(L\) 是 \(P\) 的 Levi 子群，\(Q=\rad(L)\)。存在不同于平凡同态的同态
+\[
+ Q\longrightarrow\mathbf G_{m,S}.
+\]
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:lem:6:7}
+
+设 \(U=\rad^u(P)\)。它在 \(\Int(P)\) 下不变，因而在 \(\Int(Q)\) 下不变。考虑可逆 \(\mathcal O_S\)-模
+\[
+ \det\bigl(\operatorname{Lie}(U)\bigr),
+\]
+即局部自由 \(\mathcal O_S\)-模 \(\operatorname{Lie}(U)\) 的最高外幂。伴随表示定义同态
+\[
+ f:Q\longrightarrow
+ \operatorname{Aut}\!\left(\det\bigl(\operatorname{Lie}(U)\bigr)\right)
+ =\mathbf G_{m,S}.
+\]
+由于 \(P\ne G\)，有 \(U\ne e\)。选取 \(s\in S\)，使得 \(U_s\ne e\)。相对于包含 \(Q_s\) 的极大环面使 \(G_s\) 分裂后，立即看出 \(f_s\ne e\)。
+
+\begin{sgastatement}{命题 6.8}
+设 \(S\) 是连通半局部概形，\(G\) 是约化 \(S\)-群，\(P\) 是 \(G\) 的抛物子群，\(L\) 是 \(P\) 的 Levi 子群，\(Q=\rad(L)\)。设 \(Q_{\mathrm{spl}}\) 是 \(Q\) 的最大分裂子环面，等价地，是 \(L\) 的最大中心分裂子环面。则
+\[
+ L=\Centr_G(Q_{\mathrm{spl}}).
+\]
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:prop:6:8}
+
+置 \(L'=\Centr_G(Q_{\mathrm{spl}})\)。这是 \(G\) 中包含 \(L\) 的约化子群，且由 \SGARefLink{sga3:xxvi:proposition:1-20}{1.20}，
+\[
+ P'=P\cap L'
+\]
+是 \(L'\) 的抛物子群，以 \(L\) 为 Levi 子群。若 \(L'\ne L\)，则 \(L'\not\subset P\)，因为由 \SGARefLink{sga3:xxvi:prop:1:6}{1.7}，\(L\) 是 \(P\) 的极大约化子群。故 \(P'\ne L'\)。
+
+设 \(G_1\) 是 \(L'\) 的导出群，置 \(P_1=P'\cap G_1\)。由 \SGARefLink{sga3:xxvi:proposition:1-19}{1.19}，\(P_1\) 是半单群 \(G_1\) 的抛物子群，群 \(L_1=L\cap G_1\) 是 \(P_1\) 的 Levi 子群，且
+\[
+ Q_1=\rad(L_1)
+    =\bigl(\rad(L)\cap G_1\bigr)^0
+    =\bigl(Q\cap G_1\bigr)^0.
+\]
+由\SGARefLink{sga3:xiv:3.20}{第 XIV 讲 3.20}，群 \(L_1\) 有极大环面 \(T_1\)，而由\SGARefLink{sga3:xxiv:theorem:4-1-5}{第 XXIV 讲 4.1.5}，\(T_1\) 等平凡。因此，由\SGARefLink{sga3:ix:proposition:2:11}{第 IX 讲 2.11}，其子环面 \(Q_1\) 也等平凡。由于 \(P_1\ne G_1\)，\SGARefLink{sga3:xxvi:lem:6:7}{引理 6.7} 及 \SGARefLink{sga3:xxvi:lemma:6-6}{6.6} 给出
+\[
+ (Q_1)_{\mathrm{spl}}\ne e.
+\]
+从而
+\[
+ \bigl(Q_{\mathrm{spl}}\cap G_1\bigr)^0\ne e,
+\]
+因此 \(Q_{\mathrm{spl}}\not\subset\rad(L')\)，因为 \(\rad(L')\cap G_1\) 有限。这与 \(L'\) 的定义矛盾。
+\SGAQED
+
+% END inputs/XXVI/tex/components/11_section6_1_through_6_8.tex
+
+% BEGIN inputs/XXVI/tex/components/12_section6_9_through_6_18.tex
+\begin{sgastatement}{\SGAInlineRefTarget{sga3:xxvi:corollary:6-9}推论 6.9}
+设 \(S\) 是连通半局部概形，\(G\) 是约化 \(S\)-群，\(Q\) 是 \(G\) 的临界子环面，即满足
+\[
+ \rad\bigl(\Centr_G(Q)\bigr)=Q
+\]
+的子环面。群 \(\Centr_G(Q)\) 是 \(G\) 的某个抛物子群的 Levi 子群，当且仅当
+\[
+ \Centr_G(Q)=\Centr_G(Q_{\mathrm{spl}}),
+\]
+或等价地，
+\[
+ \operatorname{Lie}(G)^Q
+   =\operatorname{Lie}(G)^{Q_{\mathrm{spl}}}.
+\]
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:cor:6:9}
+
+这由 \SGARefLink{sga3:xxvi:cor:6:2}{6.2} 及 \SGARefLink{sga3:xxvi:prop:6:8}{6.8} 推出。
+
+\begin{sgastatement}{\SGAInlineRefTarget{sga3:xxvi:corollary:6-10}推论 6.10}
+设 \(S\) 是连通半局部概形，\(G\) 是约化 \(S\)-群，\(L\) 是 \(G\) 的子群。下列条件等价：
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item 存在 \(G\) 的抛物子群，以 \(L\) 为 Levi 子群。
+\item 存在 \(G\) 的分裂子环面，其中心化子为 \(L\)。
+\item 存在同态
+\[
+ \mathbf G_{m,S}\longrightarrow G,
+\]
+其中心化子为 \(L\)。
+\end{enumerate}
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:cor:6:10}
+
+蕴涵 \textup{(i)}\(\Rightarrow\)\textup{(ii)} 由 \SGARefLink{sga3:xxvi:prop:6:8}{6.8} 推出，\textup{(iii)}\(\Rightarrow\)\textup{(i)} 由 \SGARefLink{sga3:xxvi:proposition:6-1}{6.1} 推出。只须证明 \textup{(ii)}\(\Rightarrow\)\textup{(iii)}。因此，假设
+\[
+ L=\Centr_G(Q),\qquad Q=D_S(M).
+\]
+记 \(\mathfrak g=\operatorname{Lie}(G/S)\)，并写成
+\[
+ \mathfrak g=\bigoplus_{\alpha\in M}\mathfrak g^\alpha,
+\]
+以 \(R\) 表示满足 \(\mathfrak g^\alpha\ne0\) 的 \(\alpha\in M\setminus\{0\}\) 的集合。
+
+由于 \(R\) 有限且不含 \(0\)，存在同态
+\[
+ u:M\longrightarrow\mathbf Z,
+\]
+使得对每个 \(\alpha\in R\)，有 \(u(\alpha)\ne0\)。由对偶性，\(u\) 给出同态 \(\mathbf G_{m,S}\to Q\)，从而给出同态
+\[
+ f:\mathbf G_{m,S}\longrightarrow G.
+\]
+有
+\[
+ \Centr_G(f)\supset\Centr_G(Q).
+\]
+这是 \(G\) 的两个具有连通纤维的光滑子群，而且它们的 Lie 代数相同，因为都等于 \(\mathfrak g^0\)。因此，由通常的论证，它们相等。
+
+\begin{sgastatement}{\SGAInlineRefTarget{sga3:xxvi:corollary:6-11}推论 6.11}
+设 \(S\) 是连通半局部概形，\(G\) 是约化 \(S\)-群。映射
+\[
+ L\longmapsto\rad(L)_{\mathrm{spl}},
+ \qquad
+ Q\longmapsto\Centr_G(Q)
+\]
+在下列两个集合之间给出互逆的反序双射：
+\begin{itemize}
+\item \(G\) 的抛物子群的所有 Levi 子群 \(L\) 组成的集合；
+\item 满足
+\[
+ \rad\bigl(\Centr_G(Q)\bigr)_{\mathrm{spl}}=Q
+\]
+的 \(G\) 的分裂子环面 \(Q\) 组成的集合。
+\end{itemize}
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:cor:6:11}
+
+\begin{sgastatement}{推论 6.12}
+设 \(S\) 是连通半局部概形，\(G\) 是约化 \(S\)-群。考虑下列断言：
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item \(G\) 有不同于 \(G\) 的抛物子群。
+\item \(G\) 有非中心的分裂子环面。
+\item[\textup{(ii bis)}] \(G\) 有相对维数为 \(1\) 的非中心分裂子环面。
+\item 存在群同态
+\[
+ \mathbf G_{a,S}\longrightarrow G,
+\]
+它是闭浸入。
+\end{enumerate}
+则
+\[
+ \textup{(i)}
+ \Longleftrightarrow\textup{(ii)}
+ \Longleftrightarrow\textup{(ii bis)}
+ \Longrightarrow\textup{(iii)}.
+\]
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:cor:6:12}
+
+唯一的新断言是 \textup{(i)}\(\Rightarrow\)\textup{(iii)}。设 \(P\ne G\) 是 \(G\) 的抛物子群。则 \(U=\rad^u(P)\ne e\)。如 \SGARefLink{sga3:xxvi:proposition:2-1}{2.1}，考虑 \(U\) 的合成列中最后一个非平凡子群 \(U_n\)。有同构
+\[
+ U_n\simeq W(E_n),
+\]
+其中 \(E_n\) 是局部自由 \(\mathcal O_S\)-模，由于 \(S\) 半局部且连通，它是自由模。由于 \(E_n\ne0\)，存在单态射
+\[
+ \mathcal O_S\longrightarrow E_n,
+\]
+其像局部地为直和项。它诱导闭浸入
+\[
+ \mathbf G_{a,S}=W(\mathcal O_S)
+   \lhook\joinrel\longrightarrow W(E_n)\simeq U_n,
+\]
+从而 \textup{(iii)} 得证。
+
+\begin{sgastatement}{注 6.12.1}
+当 \(S\) 是特征为 \(0\) 的域的谱时，Jacobson--Morozov 定理给出 \textup{(iii)}\(\Rightarrow\)\textup{(ii bis)}。于是上述四个条件等价 \textup{（“Godement 判别法”；参见 \textup{[BT65]}，8.5）}。\footnote{更一般地，当 \(S\) 是完美域的谱时，这仍成立 \textup{（Tits）}；见 \textup{[BT71]}，推论 3.7。}
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:rem:6:12:1}
+
+\begin{sgastatement}{定义 6.13}
+设 \(S\) 是连通半局部概形，\(G\) 是约化 \(S\)-群。若 \(G\) 不含非平凡的分裂子环面，则称 \(G\) 是\emph{各向异性}的。
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:def:6:13}
+
+\begin{sgastatement}{推论 6.14}
+设 \(S\) 是连通半局部概形。约化 \(S\)-群 \(G\) 各向异性，当且仅当它没有抛物子群 \(P\ne G\)，且它的根基各向异性。
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:cor:6:14}
+
+结合 \SGARefLink{sga3:xxvi:lemma:6-6}{6.6}、\SGARefLink{sga3:xxiv:theorem:4-1-5}{第 XXIV 讲 4.1.5} 及\SGARefLink{sga3:xxii:subsection:6-2}{第 XXII 讲 6.2}，得到：
+
+\begin{sgastatement}{推论 6.15}
+设 \(S\) 是连通半局部概形，\(G\) 是等平凡约化 \(S\)-群 \textup{（例如 \(G\) 半单，或 \(S\) 正规；参见\SGARefLink{sga3:x:theorem:5-16}{第 X 讲 5.16}）}。群 \(G\) 各向异性，当且仅当它没有抛物子群 \(P\ne G\)，且
+\[
+ \operatorname{Hom}_{S\text{-}\mathrm{gr}}
+   (G,\mathbf G_{m,S})=e.
+\]
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:cor:6:15}
+
+\begin{sgastatement}{命题 6.16}
+设 \(S\) 是连通半局部概形，\(G\) 是约化 \(S\)-群。\(G\) 的极大分裂子环面恰为 \(G\) 的极小抛物子群的 Levi 子群的最大中心分裂子环面。任意两个这样的环面都由 \(G(S)\) 的某个元素共轭。
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:prop:6:16}
+
+设 \(Q\) 是 \(G\) 的极大分裂子环面。由 \SGARefLink{sga3:xxvi:cor:6:2}{6.2}，
+\[
+ L=\Centr_G(Q)
+\]
+是 \(G\) 的某个抛物子群 \(P\) 的 Levi 子群。由于
+\[
+ Q\subset\rad\bigl(\Centr_G(Q)\bigr)_{\mathrm{spl}},
+\]
+由 \(Q\) 的极大性得到
+\[
+ Q=\rad\bigl(\Centr_G(Q)\bigr)_{\mathrm{spl}}.
+\]
+由 \SGARefLink{sga3:xxvi:corollary:6-11}{6.11}，\(L\) 在 \(G\) 的抛物子群的 Levi 子群中极小。故由 \SGARefLink{sga3:xxvi:proposition:1-20}{1.20}，\(P\) 是 \(G\) 的极小抛物子群。由 \SGARefLink{sga3:xxvi:corollary:5-7}{5.7} 及 \SGARefLink{sga3:xxvi:corollary:5-5}{5.5}\textup{(iv)}，任意两个这样的子环面 \(Q\) 都由 \(G(S)\) 的某个元素共轭。环面 \(Q\) 及有序对 \((P,L)\) 的共轭性也证明了第一个断言。
+
+\begin{sgastatement}{推论 6.17}
+设 \(S\) 是连通半局部概形，\(P,P'\) 是处于标准位置的两个极小抛物子群 \textup{（\SGARefLink{sga3:xxvi:def:4:5:1:1}{4.5.1.1}）}。则 \(P\cap P'\) 包含 \(P\)、\(P'\) 的一个公共 Levi 子群。
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:cor:6:17}
+
+事实上，由 \SGARefLink{sga3:xxvi:proposition:4-5-1}{4.5.1}\textup{(v)}，\(P\cap P'\) 包含 \(G\) 的极大环面 \(T\)。设 \(L\) 是 \(P\) 中包含 \(T\) 的唯一 Levi 子群。由 \SGARefLink{sga3:xxvi:proposition:1-21}{1.21}，
+\[
+ \rad(P)\cap T=\rad(P)\cap L=\rad(L).
+\]
+因此，\(\rad(P)\cap T\) 包含 \(\rad(L)_{\mathrm{spl}}\)，后者是 \(G\) 的极大分裂子环面，因而必等于 \(T_{\mathrm{spl}}\)。故
+\[
+ L=\Centr_G(T_{\mathrm{spl}}),
+\]
+由对称性，\(L\) 也是 \(P'\) 的 Levi 子群。
+
+\begin{sgastatement}{注 6.18}
+由 \SGARefLink{sga3:xxvi:proposition:1-21}{1.21} 可知，\(G\) 的抛物子群 \(P\) 极小，当且仅当 \(\rad(P)\) 包含 \(G\) 的极大分裂子环面。在此情形，若 \(T\) 是 \(P\) 的极大环面，则环面 \(T_{\mathrm{spl}}\) 同时是 \(G\) 及 \(\rad(P)\) 的极大分裂子环面，而 \(\Centr_G(T_{\mathrm{spl}})\) 是 \(P\) 的 Levi 子群。此外，\(P\) 的每个 Levi 子群都以此方式得到。
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:rem:6:18}
+
+% END inputs/XXVI/tex/components/12_section6_9_through_6_18.tex
+
+% BEGIN inputs/XXVI/tex/components/13_section7_opening_through_7_4.tex
+\SGASection{7}{相对根数据}
+\SGARefTarget{sga3:xxvi:sec:7}
+
+本节始终以 \(S\) 表示非空连通半局部概形，\(G\) 表示约化 \(S\)-群，\(Q\) 表示 \(G\) 的极大分裂子环面，并以 \(L\) 表示 \(Q\) 在 \(G\) 中的中心化子：
+\[
+ L=\Centr_G(Q).
+\]
+
+\SGASubsection{7.1}{}
+\SGARefTarget{sga3:xxvi:subsec:7:1}
+
+由于 \(Q\) 是 \(L\) 的最大中心分裂子环面，\(G(S)\) 中每个正规化 \(L\) 的元素也正规化 \(Q\)。因此 \textup{（参见 \SGARefLink{sga3:xxvi:subsec:7:1:1}{7.1.1}）}
+\[
+ \Norm_G(L)(S)=\Norm_G(Q)(S).
+\]
+另一方面，\SGARefLink{sga3:xxvi:corollary:6-4}{6.4} 表明
+\[
+ G(S)\longrightarrow(G/L)(S)
+\]
+是满射。于是有典范等同
+\[
+ W_G(Q)(S)
+ =\bigl(\Norm_G(Q)/\Centr_G(Q)\bigr)(S)
+ \simeq\Norm_G(L)(S)/L(S).
+\]
+
+设
+\[
+ M=\operatorname{Hom}_{S\text{-}\mathrm{gr}}
+      (Q,\mathbf G_{m,S}),
+\]
+故典范地有 \(Q\simeq D_S(M)\)。以 \(W\) 表示由 \(W_G(Q)(S)\) 定义的 \(M\) 的自同构群。于是
+\[
+ W\simeq W_G(Q)(S)\simeq\Norm_G(L)(S)/L(S).
+\]
+
+\SGASubsection{7.1.1}{}
+\SGARefTarget{sga3:xxvi:subsec:7:1:1}
+
+一般并没有 \(\Norm_G(L)=\Norm_G(Q)\)。例如，设 \(S\) 是域 \(k\) 的谱，该域有二次扩张 \(k'\)，并取 \(G\) 为酉群
+\[
+ {}^2\!A_{2,k'/k}
+\]
+\textup{（参见\SGARefLink{sga3:xxiv:3.11.2}{第 XXIV 讲 3.11.2}）}。\(G\) 的极小抛物子群就是其 Borel 子群，而它们的 Levi 子群是极大环面；故
+\[
+ \bigl(\Norm_G(L)/L\bigr)(\bar k)=\mathfrak S_3.
+\]
+\TranslationNote{英文底本在本段两条 Weyl 群等式的取点域中均遗漏了横线；经核对法文合卷 PDF 第 1361 页（印刷页 323、边页 504），此处均应在代数闭包上取点，故据法文补正。}
+由于 \(G\) 不分裂，其极大分裂环面的维数至多为 \(1\)，因而同构于 \(\mathbf G_{m,k}\)。群 \(\Norm_G(Q)/L\) 忠实地作用在 \(Q\) 上，并且
+\[
+ \bigl(\Norm_G(Q)/L\bigr)(\bar k)=\mathbf Z/2\mathbf Z.
+\]
+\footnote{\emph{编者注。} 法文版在最后这个等式中印作 \(\Norm_G(Q)/Q\)，但紧接此前的作用以及相对 Weyl 群的定义均使用 \(\Norm_G(Q)/L\)。}
+
+\SGASubsection{7.2}{}
+\SGARefTarget{sga3:xxvi:subsec:7:2}
+
+设 \(P\) 是 \(G\) 的一个以 \(L\) 为 Levi 子群的抛物子群；由 \SGARefLink{sga3:xxvi:cor:6:2}{6.2}，这样的子群存在。由 \SGARefLink{sga3:xxvi:rem:6:18}{6.18}，它必极小。利用 \(G\) 的极小抛物子群的共轭性 \textup{（\SGARefLink{sga3:xxvi:corollary:5-7}{5.7}）}、一个抛物子群的 Levi 子群的共轭性 \textup{（\SGARefLink{sga3:xxvi:cor:1:8}{1.8}）}，以及 \SGARefLink{sga3:xxvi:proposition:1-6}{1.6} 中的等式
+\[
+ P=\Norm_G(P),\qquad \Norm_G(L)\cap P=L,
+\]
+得到如下结论：\(G\) 中以 \(L\) 为 Levi 子群的 \textup{（极小）} 抛物子群组成的集合，是 \(W\) 下的主齐性空间。
+
+\SGASubsection{7.3}{}
+\SGARefTarget{sga3:xxvi:subsec:7:3}
+
+\(G\) 的 Lie 代数在 \(Q\) 作用下分解为
+\[
+ \operatorname{Lie}(G)
+ =\operatorname{Lie}(L)
+  \oplus\bigoplus_{\alpha\in R}\operatorname{Lie}(G)^\alpha,
+\]
+其中 \(R\) 是 \(Q\) 的满足 \(\operatorname{Lie}(G)^\alpha\ne0\) 的非零特征 \(\alpha\) 组成的集合。这些就是 \(G\) 相对于 \(Q\) 的根。
+
+设
+\[
+ M^*=\operatorname{Hom}_{S\text{-}\mathrm{gr}}
+       (\mathbf G_{m,S},Q).
+\]
+它与 \(M\) 对偶，而 \(W\) 通过结构搬运自然地作用在它上面。
+
+\begin{sgastatement}{\SGAInlineRefTarget{sga3:xxvi:theorem:7-4}定理 7.4}
+采用 \SGARefLink{sga3:xxvi:subsec:7:3}{7.3} 的记号，存在唯一映射
+\[
+ R\longrightarrow M^*,\qquad \alpha\longmapsto\alpha^*,
+\]
+使 \((M,M^*)\) 成为 Weyl 群为 \(W\) 的根数据 \textup{（\SGARefLink{sga3:xxi:subsection:1-1}{第 XXI 讲 1.1}）}。
+
+此外，\(G\) 中以 \(L\) 为 Levi 子群的抛物子群 \(P\)，通过关系
+\[
+ \operatorname{Lie}(P)
+ =\operatorname{Lie}(L)
+  \oplus\bigoplus_{\alpha\in R^+}\operatorname{Lie}(G)^\alpha,
+\]
+与 \(R\) 中的正根系 \(R^+\) 一一对应。
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:thm:7:4}
+
+\SGASubsection{7.4.1}{}
+\SGARefTarget{sga3:xxvi:subsec:7:4:1}
+
+先假设已证明所需映射 \(\alpha\mapsto\alpha^*\) 的存在性。由\SGARefLink{sga3:XXI:3.4.10}{第 XXI 讲 3.4.10}，\(s_\alpha\) 是 \(W\) 中唯一使
+\[
+ s_\alpha(m)-m
+\]
+对每个 \(m\in M\) 都是 \(\alpha\) 的有理倍数的元素。因此，\(s_\alpha\) 由 \(\alpha\) 确定。由于
+\[
+ \alpha^*(m)\alpha=m-s_\alpha(m),
+\]
+\footnote{\emph{编者注。} 在此以及 \SGARefLink{sga3:xxvi:subsec:7:4:4}{7.4.4} 中，Polo--Gille 版均补回原文在 \(\alpha^*(m)\) 后遗漏的因子 \(\alpha\)。}
+余根 \(\alpha^*\) 也由 \(\alpha\) 确定，从而证明了该映射的唯一性。
+
+\SGASubsection{7.4.2}{}
+\SGARefTarget{sga3:xxvi:subsec:7:4:2}
+
+取 \(\alpha\in R\)。分别以 \(L_\alpha\)、\(H_\alpha\)、\(H_{-\alpha}\) 表示 \(G\) 中包含 \(L\)、纤维连通且满足下式的唯一光滑子群 \textup{（参见 \SGARefLink{sga3:xxvi:proposition:6-1}{6.1}\textup{(i)}）}：
+\[
+\begin{aligned}
+ \operatorname{Lie}(L_\alpha)
+  &=\operatorname{Lie}(L)
+    \oplus\bigoplus_{\gamma\in\mathbf Z\alpha\cap R}
+       \operatorname{Lie}(G)^\gamma,\\
+ \operatorname{Lie}(H_\alpha)
+  &=\operatorname{Lie}(L)
+    \oplus\bigoplus_{\gamma\in\mathbf N\alpha\cap R}
+       \operatorname{Lie}(G)^\gamma,\\
+ \operatorname{Lie}(H_{-\alpha})
+  &=\operatorname{Lie}(L)
+    \oplus\bigoplus_{\gamma\in-\mathbf N\alpha\cap R}
+       \operatorname{Lie}(G)^\gamma.
+\end{aligned}
+\]
+由 \SGARefLink{sga3:xxvi:proposition:6-1}{6.1}\textup{(ii)}，群 \(L_\alpha\) 是 \(G\) 的约化子群，而 \(H_\alpha,H_{-\alpha}\) 是 \(L_\alpha\) 中以 \(L\) 为公共 Levi 子群的相反抛物子群。
+
+因此，由 \SGARefLink{sga3:xxvi:subsec:7:2}{7.2}，存在元素
+\[
+ s_\alpha\in\Norm_{L_\alpha}(Q)(S)/L(S)\subset W,
+\]
+使得 \(s_\alpha(H_\alpha)=H_{-\alpha}\)。有
+\[
+ s_\alpha(\alpha)=-\alpha,
+\]
+因为 \(\alpha\)、\(-\alpha\) 分别是出现在 \(H_\alpha\)、\(H_{-\alpha}\) 中的 \(R\) 的元素的公因子。此外，\(s_\alpha^2=\mathrm{id}\)，因为 \(s_\alpha^2(H_\alpha)\)、\(H_\alpha\) 都相对于 \(L\) 与 \(H_{-\alpha}\) 相反。这样便构造了元素 \(s_\alpha\in W\)，具有性质
+\[
+\tag{x}\label{sga3:xxvi:subsection:7-4-2:equation:x}
+ s_\alpha(\alpha)=-\alpha,\qquad s_\alpha^2=\mathrm{id},
+\]
+以及
+\[
+\tag{xx}\label{sga3:xxvi:subsection:7-4-2:equation:xx}
+ s_\alpha\text{ 可由 }L_\alpha(S)\text{ 的一个元素代表}.
+\]
+该构造关于 \(\alpha\) 是典范的；特别地，
+\[
+\tag{xxx}\label{sga3:xxvi:subsection:7-4-2:equation:xxx}
+ w s_\alpha w^{-1}=s_{w(\alpha)}
+ \qquad\text{对每个 }w\in W.
+\]
+
+\SGASubsection{7.4.3}{}
+\SGARefTarget{sga3:xxvi:subsec:7:4:3}
+
+现在证明
+\[
+\tag{xxxx}\label{sga3:xxvi:subsection:7-4-3:equation:xxxx}
+ s_\alpha(m)-m\in\mathbf Z\alpha
+ \qquad\text{对每个 }m\in M.
+\]
+由于 \(S\) 连通，此断言对 fpqc 拓扑是局部的。因此可设
+\[
+ L_\alpha=G_1
+\]
+相对于 \(L\) 的极大环面 \(T_1\) 分裂。设 \((G_1,T_1,M_1,R_1)\) 是这样的分裂结构。单态射 \(Q\to T_1\) 将 \(M\) 等同于 \(M_1\) 的一个商；以
+\[
+ p:M_1\longrightarrow M
+\]
+表示典范映射。
+
+\(R_1\) 在 \(p\) 下的像可能含零，由 \(G_1\) 相对于 \(Q\) 的根组成，因而由 \(R\) 中 \(\alpha\) 的整数倍组成。因此，
+\[
+ p(R_1)\subset\mathbf Z\alpha.
+\]
+由 \textup{\SGARefLink{sga3:xxvi:subsection:7-4-2:equation:xx}{(xx)}}，\(\Norm_{G_1}(L)(S)\) 的一个元素在 \(Q\) 上诱导 \(s_\alpha\)。于是\SGARefLink{sga3:xxii:rem:5.10.10}{第 XXII 讲 5.10.10} 给出截面
+\[
+ w\in(W_1)_S(S),
+\]
+它在 \(Q\) 上诱导 \(s_\alpha\)，其中 \(W_1\) 是根数据 \((M_1,R_1,\ldots)\) 的 Weyl 群。必要时缩小 \(S\)，可设 \(w\in W_1\)，且
+\[
+ p\bigl(w(m_1)\bigr)=s_\alpha\bigl(p(m_1)\bigr)
+ \qquad(m_1\in M_1).
+\]
+由定义，\(w\) 是与 \(R_1\) 的元素相伴的反射的乘积。故 \(w(m_1)-m_1\) 是 \(R_1\) 的元素的整线性组合。从而
+\[
+ s_\alpha\bigl(p(m_1)\bigr)-p(m_1)
+\]
+是 \(p(R_1)\subset\mathbf Z\alpha\) 的元素的整线性组合，因此是 \(\alpha\) 的整数倍，正如所需。
+
+\SGASubsection{7.4.4}{}
+\SGARefTarget{sga3:xxvi:subsec:7:4:4}
+
+现在可用
+\[
+ \alpha^*(m)\alpha=m-s_\alpha(m)
+\]
+定义 \(\alpha^*\in M^*\)。由 \textup{(x)}，
+\[
+ \langle\alpha^*,\alpha\rangle=2.
+\]
+此外，由 \textup{\SGARefLink{sga3:xxvi:subsection:7-4-2:equation:xxx}{(xxx)}}，对每个 \((\alpha,\alpha')\in R\times R\)，有
+\[
+ s_\alpha(\alpha')\in R,\qquad
+ s_\alpha(\alpha'^*)=s_\alpha(\alpha')^*.
+\]
+因此，由\SGARefLink{sga3:xxi:subsection:1-1}{第 XXI 讲 1.1}，映射 \(\alpha\mapsto\alpha^*\) 在 \((M,M^*)\) 上定义了根数据。
+
+\SGASubsection{7.4.5}{}
+\SGARefTarget{sga3:xxvi:subsec:7:4:5}
+
+设 \(W'\) 是此根数据的 Weyl 群，即由各 \(s_\alpha\) 生成的 \(M\) 的变换群。则 \(W'\subset W\)。
+
+在自由交换群 \(M\) 上选取全序，并置
+\[
+ R^+=\{\alpha\in R\mid\alpha\geq0\}.
+\]
+这是 \(R\) 中的正根系。取 \(w\in W\)，并以元素
+\[
+ n\in\Norm_G(L)(S)=\Norm_G(Q)(S)
+\]
+代表它。采用 \SGARefLink{sga3:xxvi:proposition:6-1}{6.1} 的记号，置 \(P=H_{R^+}\)。则 \(P\) 是 \(G\) 中以 \(L\) 为 Levi 子群的抛物子群，且
+\[
+ \Int(n)P=H_{w(R^+)}.
+\]
+由 \SGARefLink{sga3:xxvi:subsec:7:3}{7.3}，\(w(R^+)=R^+\) 蕴涵 \(w=e\)。由\SGARefLink{sga3:XXI:3.3.7}{第 XXI 讲 3.3.7}，群 \(W'\) 在 \(R\) 的正根系集合上传递作用，而 \(W\) 中 \(R^+\) 的稳定子群平凡。因此，\(W=W'\)。
+
+还可得出，\(W=W'\) 在 \(R\) 的正根系集合上以及 \(G\) 中以 \(L\) 为 Levi 子群的抛物子群集合上都单传递地作用。这证明了 \SGARefLink{sga3:xxvi:theorem:7-4}{7.4} 的最后一个断言。
+\SGAQED
+
+% END inputs/XXVI/tex/components/13_section7_opening_through_7_4.tex
+
+% BEGIN inputs/XXVI/tex/components/14_section7_5_through_7_9.tex
+\SGASubsection{7.5}{}
+\SGARefTarget{sga3:xxvi:subsec:7:5}
+
+设 \(P,P_1\) 是 \(G\) 的两个极小抛物子群，其 Levi 子群分别为 \(L,L_1\)，并设 \(Q,Q_1\) 分别是 \(L,L_1\) 的最大中心分裂子环面。则有序对 \((P,Q)\)、\((P_1,Q_1)\) 共轭：存在 \(g\in G(S)\)，使得
+\[
+ \Int(g)P=P_1,\qquad \Int(g)Q=Q_1.
+\]
+事实上，由 \SGARefLink{sga3:xxvi:corollary:5-7}{5.7}，\(P\)、\(P_1\) 共轭，故可设 \(P=P_1\)。此时由 \SGARefLink{sga3:xxvi:cor:1:8}{1.8}，\(L\)、\(L_1\) 由 \(P(S)\) 的一个元素共轭。此外，若 \(g,g'\) 是将 \((P,Q)\) 共轭到 \((P_1,Q_1)\) 的 \(G(S)\) 的两个元素，则 \(g'^{-1}g\) 正规化 \(P\)、\(Q\)，从而也正规化 \(P\)、\(L\)。但
+\[
+ \Norm_G(P)\cap\Norm_G(L)
+ =P\cap\Norm_G(L)
+ =L
+ =\Centr_G(Q).
+\]
+因此，由 \(\Int(g)\) 诱导的同构
+\[
+ Q\xrightarrow{\ \sim\ }Q_1
+\]
+与 \(g\) 的选取无关。
+
+设 \(\mathcal R,\mathcal R_1\) 是 \SGARefLink{sga3:xxvi:theorem:7-4}{7.4} 在
+\[
+ \operatorname{Hom}_{S\text{-}\mathrm{gr}}(Q,\mathbf G_{m,S})
+ \quad\text{及}\quad
+ \operatorname{Hom}_{S\text{-}\mathrm{gr}}(Q_1,\mathbf G_{m,S})
+\]
+中定义的根数据，并设 \(R^+,R_1^+\) 是对应于 \(P,P_1\) 的正根系。刚构造的典范同构 \(Q\simeq Q_1\) 将 \((\mathcal R,R^+)\) 搬运到 \((\mathcal R_1,R_1^+)\)。因此，利用上述具有传递性的同构系，将各个有序对 \((\mathcal R,R^+)\) 等同，便可定义 \(G\) 在 \(S\) 上的\emph{带基相对根数据}。\footnote{带基根数据是附带选定的正根系、等价地附带单根系的根数据；参见\SGARefLink{sga3:XXIII:1.5}{第 XXIII 讲 1.5}。}
+
+今后，以
+\[
+ \mathcal R(G/S)
+ =(\underline M,\underline M^*,\underline R,
+   \underline R^*,\underline R^+)
+\]
+表示此带基根数据。因此，对每个上述有序对 \(P\supset Q\)，都有典范同构
+\[
+ \underline M\xrightarrow{\ \sim\ }
+ \operatorname{Hom}_{S\text{-}\mathrm{gr}}(Q,\mathbf G_{m,S}),
+\]
+它将 \(\underline R\)、\(\underline R^+\) 分别搬运到 \(G\)、\(P\) 相对于 \(Q\) 的根，并将 \(W(\mathcal R)\) 搬运到 \(W_G(Q)(S)\)。
+
+\SGASubsection{7.6}{}
+\SGARefTarget{sga3:xxvi:subsec:7:6}
+
+再设 \(Q\) 是 \(G\) 的极大分裂环面，\(P\) 是 \(G\) 中以 \(\Centr_G(Q)\) 为 Levi 子群的极小抛物子群，
+\[
+ (M,M^*,R,R^*,R^+)
+\]
+是 \SGARefLink{sga3:xxvi:theorem:7-4}{7.4} 中相应的带基根数据，\(\Delta\) 是 \(R^+\) 中的单根集。对每个 \(A\subset\Delta\)，置
+\[
+ R_A=R^+\cup(\mathbf Z A\cap R^-).
+\]
+因此，\(R_A\) 由正根以及可写成 \(A\) 的元素的整线性组合的负根组成。由\SGARefLink{sga3:XXI:3.1.4}{第 XXI 讲 3.1.4}，这是闭根集；而由\SGARefLink{sga3:XXI:3.3.10}{第 XXI 讲 3.3.10}，每个包含 \(R^+\) 的闭集都唯一地具有此形式。
+
+由 \SGARefLink{sga3:xxvi:proposition:6-1}{6.1}，存在 \(G\) 的唯一光滑子群 \(P_A\)，它的纤维连通，包含 \(\Centr_G(Q)\)，并满足
+\[
+ \operatorname{Lie}(P_A)
+ =\operatorname{Lie}(G)^0
+  \oplus\bigoplus_{\alpha\in R_A}\operatorname{Lie}(G)^\alpha.
+\]
+由 \SGARefLink{sga3:xxvi:proposition:6-1}{6.1}、极小抛物子群的共轭性，以及 \(G\) 中包含 \(Q\) 的抛物子群的根集是闭集这一事实 \textup{（此事实在使群分裂后由 \SGARefLink{sga3:xxvi:prop:1:3}{1.4} 推出）}，立即得到下列结果。
+
+\begin{sgastatement}{\SGAInlineRefTarget{sga3:xxvi:proposition:7-7}命题 7.7}
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item 映射
+\[
+ A\longmapsto P_A
+\]
+给出从 \(\Delta\) 的子集集合到 \(G\) 中包含 \(P\) 的抛物子群集合的保包含关系的双射。
+\item \(G\) 的每个抛物子群都由 \(G(S)\) 的某个元素共轭于唯一的 \(P_A\)。
+\end{enumerate}
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:prop:7:7}
+
+\SGASubsection{7.8}{}
+\SGARefTarget{sga3:xxvi:subsec:7:8}
+
+设 \(P\supset Q\) 如上。考虑 \SGARefLink{sga3:xxvi:subsec:7:5}{7.5} 中定义的 \(G\) 在 \(S\) 上的相对根数据及典范同构
+\[
+ f:(M,M^*,R,R^*,R^+)
+   \xrightarrow{\ \sim\ }
+   (\underline M,\underline M^*,\underline R,
+    \underline R^*,\underline R^+).
+\]
+\(R^+\) 中的单根集 \(\Delta\) 被搬运到 \(\underline R^+\) 中的单根集 \(\underline\Delta\)。因此，每个子集 \(A\subset\Delta\) 都被搬运到子集
+\[
+ f(A)\subset\underline\Delta.
+\]
+
+\begin{sgastatement}{定义 7.9.0}
+设 \(H\) 是 \(G\) 的任意抛物子群。由 \SGARefLink{sga3:xxvi:proposition:7-7}{7.7}\textup{(ii)}，它共轭于唯一的 \(P_A\)。置
+\[
+ t_r(H)=f(A)\subset\underline\Delta.
+\]
+由共轭定理立即可知，\(t_r(H)\) 与有序对 \(P\supset Q\) 的选取无关。称它为 \(H\) 的\emph{相对类型}。
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:def:7:9:0}
+
+\begin{sgastatement}{\SGAInlineRefTarget{sga3:xxvi:proposition:7-9}命题 7.9}
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item 映射 \(H\mapsto t_r(H)\) 诱导从 \(G\) 的抛物子群的 \(G(S)\)-共轭类集合到 \(\underline\Delta\) 的子集集合的双射。
+\item 设 \(H\) 是 \(G\) 的抛物子群，\(P\) 是包含于 \(H\) 的极小抛物子群，\(Q\) 是 \(P\) 的某个 Levi 子群的最大中心分裂环面，\(\Delta\) 是 \(P\) 相对于 \(Q\) 的单根集，并设
+\[
+ f:\Delta\xrightarrow{\ \sim\ }\underline\Delta
+\]
+是典范同构。对每个 \(\alpha\in\Delta\)，
+\[
+ f(\alpha)\in t_r(H)
+ \quad\Longleftrightarrow\quad
+ \operatorname{Lie}(H)^{-\alpha}\ne0,
+\]
+且
+\[
+ H=P_A,\qquad A=f^{-1}\bigl(t_r(H)\bigr).
+\]
+\item 若 \(H,H'\) 是 \(G\) 中包含 \(P\) 的两个抛物子群，则 \textup{（其他等价条件见 \SGARefLink{sga3:xxvi:rem:3:8:1}{3.8.1}\textup{(ii)} 及 \SGARefLink{sga3:xxvi:corollary:5-5}{5.5}\textup{(i)}）}
+\[
+ t_r(H)\subset t_r(H')
+ \quad\Longleftrightarrow\quad
+ t(H)\subset t(H').
+\]
+\end{enumerate}
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:prop:7:9}
+
+% END inputs/XXVI/tex/components/14_section7_5_through_7_9.tex
+
+% BEGIN inputs/XXVI/tex/components/15_section7_10_and_7_11.tex
+\SGASubsection{7.10}{}
+\SGARefTarget{sga3:xxvi:subsec:7:10}
+
+两个极小抛物子群的相对位置可如下描述。采用 4.5.2 的记号 \(t_2(P,P_1)\)。
+
+\begin{enumerate}[label=\textup{(\arabic*)}]
+\item 设 \(P,P_1,P',P'_1\) 是 \(G\) 的四个极小抛物子群。则
+\[
+ t_2(P,P_1)=t_2(P',P'_1),
+\]
+即有序对 \((P,P_1)\)、\((P',P'_1)\) 在 fpqc 拓扑下局部共轭，当且仅当存在 \(g\in G(S)\)，使得
+\[
+ \Int(g)P=P',\qquad \Int(g)P_1=P'_1.
+\]
+
+\item 固定 \(G\) 的一个极小抛物子群 \(P\)，以 \(L\) 为其 Levi 子群，并设 \(T\) 是 \(L\) 的极大环面。考虑 \(G\) 中相对于 \(P\) 处于标准位置的极小抛物子群的概形
+\[
+ \Par_{t_{\min}}(G;P).
+\]
+存在态射 \textup{（参见 \SGARefLink{sga3:xxvi:paragraph:4-5-5}{4.5.5}）}
+\[
+ f:\Par_{t_{\min}}(G;P)
+   \longrightarrow W_P(T)\backslash W_G(T)/W_P(T),
+\]
+其纤维是 \(P\) 在 \(\Par_{t_{\min}}(G;P)\) 中的轨道。因此由 \textup{(1)}，\(f\) 诱导单态射
+\[
+ P(S)\backslash\Par_{t_{\min}}(G;P)(S)
+ \lhook\joinrel\longrightarrow
+ \bigl(W_P(T)\backslash W_G(T)/W_P(T)\bigr)(S).
+\]
+其像等同于 \(W\)。这就是 Bruhat 定理：\(P(S)\) 在 \(\Par_{t_{\min}}(G;P)(S)\) 中的每个轨道，恰含一个以 \(L\) 为 Levi 子群的 \(G\) 的抛物子群，即一个形如
+\[
+ \Int(n)P,\qquad n\in\Norm_G(L)(S)
+\]
+的子群。
+
+\item 等价地，以 \(E(S)\) 表示使 \(\Int(g)P\) 与 \(P\) 处于相互标准位置的元素 \(g\in G(S)\) 的集合。则 \(E(S)\) 分拆为模 \(P(S)\) 的双陪集，以 \(W\) 为指标集：
+\[
+ E(S)=P(S)\,W\,P(S).
+\]
+置 \(U=\rad^u(P)\)，也可写成
+\[
+ E(S)=U(S)\cdot\Norm_G(L)(S)\cdot U(S).
+\]
+这给出 \(E(S)\) 按模 \(U(S)\) 的双陪集的分拆，以 \(\Norm_G(L)(S)\) 为指标集。
+
+\item 若 \(S\) 是域的谱，则 \(E(S)=G(S)\)，从而恢复 \textup{[BT65]}，5.15。
+\end{enumerate}
+
+\begin{sgastatement}{\SGARefLink{sga3:xxvi:counterexamples:7:11}{反例 7.11}}
+设
+\[
+ S=\operatorname{Spec}(\mathbf Z/4\mathbf Z),
+ \qquad G=\operatorname{SL}_{2,S}.
+\]
+设 \(B\) 是通常的 Borel 子群，由满足
+\[
+ \begin{pmatrix}a&b\\c&d\end{pmatrix}
+ \qquad\text{其中 }c=0
+\]
+的矩阵组成，并置
+\[
+ g=\begin{pmatrix}-1&1\\2&1\end{pmatrix}\in G(S),
+ \qquad B'=\Int(g)B.
+\]
+则
+\[
+ B(S)=B'(S),
+\]
+但 \(B\cap B'\) 不含极大环面。
+\footnote{事实上，\(B'\) 是 \(G\) 中由 \(c=2(a+b)\) 定义的子群。因此，\(B\cap B'\) 在 \(S\) 上不平坦，从而由 \SGARefLink{sga3:xxvi:proposition:4-5-1}{4.5.1}，不含极大环面。}
+
+这同时表明，两个不同的极小抛物子群可以有相同的截面群，而且一般不能仅从群 \(P(S)\)、\(P'(S)\) 判断两个极小抛物子群 \(P,P'\) 是否处于标准位置。特别地，看来不能仅从配置
+\[
+ \{G(S),P(S),\Norm_G(L)(S)\}
+\]
+定义 \(G(S)\) 的子集 \(E(S)\)。在上例中，该子集由 \(c\ne2\) 定义。
+\footnote{更一般地，对每个 \(S\)-概形 \(S'\)，集合 \(E(S')\) 由 \(c\) 为零或可逆的条件定义。}
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:counterexamples:7:11}
+
+% END inputs/XXVI/tex/components/15_section7_10_and_7_11.tex
+
+% BEGIN inputs/XXVI/tex/components/16_section7_12_through_bibliography.tex
+\SGASubsection{7.12}{}
+\SGARefTarget{sga3:xxvi:subsec:7:12}
+
+现在研究 \(\mathcal R(G/S)\) 如何随 \(S\) 变化。设 \(S'\) 是同样非空、连通且半局部的 \(S\)-概形。若 \(Q\) 是 \(G\) 的极大分裂环面，则 \(Q_{S'}\) 是 \(G_{S'}\) 的分裂环面。选取 \(G_{S'}\) 中包含 \(Q_{S'}\) 的极大分裂环面 \(Q'\)，并置
+\[
+\begin{aligned}
+ M&=\operatorname{Hom}_{S\text{-}\mathrm{gr}}
+       (Q,\mathbf G_{m,S})
+   \simeq
+   \operatorname{Hom}_{S'\text{-}\mathrm{gr}}
+       (Q_{S'},\mathbf G_{m,S'}),\\
+ M'&=\operatorname{Hom}_{S'\text{-}\mathrm{gr}}
+       (Q',\mathbf G_{m,S'}).
+\end{aligned}
+\]
+单态射 \(Q_{S'}\to Q'\) 诱导满态射
+\[
+ u:M'\longrightarrow M.
+\]
+记
+\[
+ L=\Centr_G(Q),\qquad L'=\Centr_{G_{S'}}(Q').
+\]
+则 \(L'\subset L_{S'}\)。
+
+若 \(H\) 是 \(G\) 中包含 \(L\) 的子群，则 \(H_{S'}\) 包含 \(L'\)，且
+\[
+\begin{aligned}
+ \operatorname{Lie}(H)
+  &=\operatorname{Lie}(L)
+    \oplus\bigoplus_{\alpha\in R_H}
+       \operatorname{Lie}(H)^\alpha,\\
+ \operatorname{Lie}(H_{S'})
+  &=\operatorname{Lie}(L')
+    \oplus\bigoplus_{\alpha'\in R'_{H_{S'}}}
+       \operatorname{Lie}(H_{S'})^{\alpha'}.
+\end{aligned}
+\]
+这里 \(R_H\)、\(R'_{H_{S'}}\) 分别表示 \(H\)、\(H_{S'}\) 相对于 \(Q\)、\(Q'\) 的根集。立即得到
+\[
+ R_H\subset u\bigl(R'_{H_{S'}}\bigr)
+       \subset R_H\cup\{0\}.
+\]
+
+取 \(H=G\)，首先得到
+\[
+ R\subset u(R')\subset R\cup\{0\}.
+\]
+再取 \(H\) 为以 \(L\) 为 Levi 子群的极小抛物子群 \(P\)。则 \(R'_{H_{S'}}\) 包含 \(R'\) 的一个正根系。因此，由 \SGARefLink{sga3:xxvi:theorem:7-4}{7.4}，存在 \(G_{S'}\) 的极小抛物子群 \(P'\)，以 \(L'\) 为 Levi 子群且包含于 \(P_{S'}\)。这样便构造了包含关系图
+\[
+\begin{array}{ccccc}
+ Q_{S'} & \subset & L_{S'} & \subset & P_{S'}\\[1.2ex]
+ \cap   &         & \cup   &         & \cup\\[1.2ex]
+ Q'     & \subset & L'     & \subset & P'.
+\end{array}
+\]
+
+若 \(R^+\)、\(\Delta\) 分别是 \(P\) 定义的 \(R\) 的正根系、单根集，并类似地定义 \(R'^+,\Delta'\)，则
+\[
+ R^+\subset u(R'^+)\subset R^+\cup\{0\},
+ \qquad
+ \Delta\subset u(\Delta')\subset\Delta\cup\{0\}.
+\]
+
+现在取
+\[
+ w\in W\simeq\Norm_G(Q)(S)/\Centr_G(Q)(S),
+\]
+并选取代表元 \(n\in\Norm_G(Q)(S)\)。由于 \(\Int(n)Q=Q\)，有 \(\Int(n)L=L\)，从而 \(\Int(n)L_{S'}=L_{S'}\)。因此，环面 \(Q'\)、\(\Int(n)Q'\) 是 \(L_{S'}\) 的两个极大分裂环面，故由某个 \(x\in L(S')\) 共轭。可选取 \(x\)，使得
+\[
+ \Int(nx)Q'=Q'.
+\]
+于是 \(n'=nx\) 属于 \(\Norm_{G_{S'}}(Q')(S')\)。设 \(w'\) 是 \(n'\) 在
+\[
+ W'\simeq
+ \Norm_{G_{S'}}(Q')(S')/\Centr_{G_{S'}}(Q')(S')
+\]
+中的像。\(w'\) 在 \(M'\) 上的作用与 \(u:M'\to M\) 相容，且在 \(M\) 上诱导的作用就是 \(w\) 的作用。
+
+利用相对根数据的定义以及共轭定理，得到如下结果。
+
+\begin{sgastatement}{\SGAInlineRefTarget{sga3:xxvi:theorem:7-13}定理 7.13}
+设 \(S,S'\) 是非空连通半局部概形，\(S'\to S\) 是概形态射，\(G\) 是约化 \(S\)-群，并以
+\[
+\begin{aligned}
+ \mathcal R(G/S)
+  &=(\underline M,\underline M^*,\underline R,
+     \underline R^*,\underline R^+),\\
+ \mathcal R(G_{S'}/S')
+  &=(\underline M',\underline M'^*,\underline R',
+     \underline R'^*,\underline R'^+)
+\end{aligned}
+\]
+表示带基相对根数据。存在典范同态
+\[
+ u:\underline M'\longrightarrow\underline M,
+\]
+具有如下性质：
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item 同态 \(u\) 是满射。
+\item 对每个 \(w\in W\)，存在与 \(u\) 相容并在 \(\underline M\) 上诱导 \(w\) 的元素 \(w'\in W'\)。
+\item 对每个子集 \(X\subset\underline M\)，置
+\[
+ X^\wedge=X\cap(\underline M\setminus\{0\}).
+\]
+则
+\[
+ u(\underline R'^+)^\wedge=\underline R^+,
+ \qquad
+ u(\underline\Delta')^\wedge=\underline\Delta.
+\]
+\item 对每个抛物子群 \(H\)，考虑
+\[
+ t_r(H)\subset\underline\Delta,
+ \qquad
+ t_r(H_{S'})\subset\underline\Delta'.
+\]
+则
+\[
+\begin{aligned}
+ t_r(H_{S'})
+ &=u^{-1}\bigl(t_r(H)\cup\{0\}\bigr)
+       \cap\underline\Delta'\\
+ &=\left\{\alpha'\in\underline\Delta'
+       \ \middle|\ 
+       u(\alpha')\in t_r(H)\text{ 或 }u(\alpha')=0
+   \right\}.
+\end{aligned}
+\]
+\end{enumerate}
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:thm:7:13}
+
+\begin{sgastatement}{注 7.14}
+若 \(G\) 在 \(S\) 上可分裂，则其极大分裂环面就是极大环面，这里引入的相对概念与此前定义的绝对概念一致。因此，前一定理利用 \(G_{S'}\) 的绝对根数据和绝对类型，描述相对根数据 \(\mathcal R(G/S)\) 及相对类型 \(t_r\)，其中选取 \(S'\) 使 \(G_{S'}\) 可分裂 \textup{（参见\SGARefLink{sga3:xxiv:theorem:4-4-1}{第 XXIV 讲 4.4.1}）}。这一描述见 \textup{[BT65]}，\SGARefLink{sga3:xxvi:cor:6:11}{6.12} 及随后各节。
+\end{sgastatement}
+\SGARefTarget{sga3:xxvi:rem:7:14}
+
+\SGASubsection{7.15}{}
+\SGARefTarget{sga3:xxvi:subsec:7:15}
+
+设 \(S\) 是 Hensel 局部概形，\(s_0\) 是其闭点，\(S_0\) 是 \(s_0\) 处剩余域的谱，将其等同于 \(S\) 的闭子概形。对 \(S\) 上的每个对象 \(X\)，以 \(X_0\) 表示其到 \(S_0\) 的基变换。设 \(G\) 是约化 \(S\)-群。
+
+对 \(G\) 的每个抛物子群 \(\overline P\)，群 \(\overline P_0\) 是 \(G_0\) 的抛物子群。反之，对 \(G_0\) 的每个抛物子群 \(P\)，存在 \(G\) 的抛物子群 \(\overline P\)，使得
+\[
+ \overline P_0=P.
+\]
+这由 Hensel 引理及 \(\Par(G)\) 是光滑 \(S\)-概形这一事实推出。特别地，由 \SGARefLink{sga3:xxvi:corollary:5-7}{5.7}，\(\overline P\) 极小，当且仅当 \(\overline P_0\) 极小。
+
+选定这样的子群 \(\overline P\) 后，同样的论证表明，\(\overline P_0\) 的每个极大分裂子环面都形如 \(T_0\)，其中 \(T\) 是 \(\overline P\) 的极大分裂子环面。容易由此得出，\(G\) 在 \(S\) 上及 \(G_0\) 在 \(S_0\) 上的相对根数据典范同构。因此，\(G\) 的抛物子群理论归结为 \(G_0\) 的相应理论。
+
+反之，由\SGARefLink{sga3:xxiv:1.21}{第 XXIV 讲命题 1.21}，每个约化 \(S_0\)-群都形如 \(G_0\)。这使得约化 \(S_0\)-群的抛物子群研究可归结为在 \(S\) 上的相应研究。
+
+\chapter*{参考文献}
+\addcontentsline{toc}{chapter}{参考文献}
+\SGARefTarget{sga3:xxvi:bibliography}
+
+\begin{description}[leftmargin=4.5em,style=nextline]
+\item[\textup{[BT65]}]
+A.~Borel 与 J.~Tits，\emph{Groupes réductifs}，
+Publ.\ Math.\ I.H.É.S.\ \textbf{27} \textup{(1965)}，55--150。
+\footnote{\emph{编者注。} 此文献见于原版；以下文献由 Polo--Gille 版增补。}
+
+\item[\textup{[BT71]}]
+A.~Borel 与 J.~Tits，\\
+\emph{Éléments unipotents et sous-groupes
+paraboliques de groupes réductifs. I}，
+Invent.\ Math.\ \textbf{12} \textup{(1971)}，95--104。
+
+\item[\textup{[Ch05]}]
+C.~Chevalley，\emph{Classification des groupes algébriques
+semi-simples}，P.~Cartier、A.~Grothendieck 与 M.~Lazard 合作，
+文集第~3~卷，Springer，2005。
+
+\item[\textup{[DG70]}]
+M.~Demazure 与 P.~Gabriel，\emph{Groupes algébriques}，
+Masson \& North-Holland，1970。
+
+\item[\textup{[Gi71]}]
+J.~Giraud，\emph{Cohomologie non abélienne}，
+Springer-Verlag，1971。
+\end{description}
+
+% END inputs/XXVI/tex/components/16_section7_12_through_bibliography.tex
