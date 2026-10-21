@@ -1,0 +1,1167 @@
+% Source: FGA/FGA-Explained-Fantechi-AMS-2005.pdf, PDF 25--52, printed 13--40.
+% Native reconstruction from the actual scan; printed-source anomalies are recorded separately.
+\chapter{反变函子}\label{ch02}
+% PDF 25 / printed 13
+\section{可表函子与 Yoneda 引理}\label{ch02:sec21}
+\subsection{可表函子}
+先回顾范畴论的几个基本概念.
+
+设 $\mathcal C$ 是一个范畴. 考虑从 $\mathcal C^{\mathrm{op}}$ 到 $(\mathrm{Set})$ 的函子. 它们是一个范畴的对象, 这个范畴记为
+\[
+\Hom(\mathcal C^{\mathrm{op}},(\mathrm{Set})),
+\]
+其中的箭头是自然变换. 从现在起, 我们把 $\mathcal C$ 上反变函子之间的自然变换称为\emph{态射}.
+
+设 $X$ 是 $\mathcal C$ 的一个对象. 有一个取值于集合范畴的函子
+\[
+\mathrm h_X:\mathcal C^{\mathrm{op}}\longrightarrow(\mathrm{Set}),
+\]
+它把 $\mathcal C$ 的对象 $U$ 送到集合
+\[
+\mathrm h_XU=\Hom_{\mathcal C}(U,X).
+\]
+若 $\alpha:U'\to U$ 是 $\mathcal C$ 中的箭头, 则 $\mathrm h_X\alpha:\mathrm h_XU\to\mathrm h_XU'$ 定义为与 $\alpha$ 复合. (当 $\mathcal C$ 是固定底概形上的概形范畴时, $\mathrm h_X$ 常称为 $X$ 的\emph{点函子} (functor of points).)
+
+现在, 一个箭头 $f:X\to Y$ 通过与 $f$ 复合, 对 $\mathcal C$ 的每个对象 $U$ 给出映射 $\mathrm h_fU:\mathrm h_XU\to\mathrm h_YU$. 这定义了态射 $\mathrm h_X\to\mathrm h_Y$, 也就是说, 对所有箭头 $\alpha:U'\to U$, 图表
+\[
+\begin{tikzcd}
+\mathrm h_XU\arrow[r,"\mathrm h_fU"]\arrow[d,"\mathrm h_X\alpha"']&\mathrm h_YU\arrow[d,"\mathrm h_Y\alpha"]\\
+\mathrm h_XU'\arrow[r,"\mathrm h_fU'"']&\mathrm h_YU'
+\end{tikzcd}
+\]
+交换.
+
+把 $\mathcal C$ 的每个对象 $X$ 送到 $\mathrm h_X$, 把 $\mathcal C$ 的每个箭头 $f:X\to Y$ 送到 $\mathrm h_f:\mathrm h_X\to\mathrm h_Y$, 就定义了函子 $\mathcal C\to\Hom(\mathcal C^{\mathrm{op}},(\mathrm{Set}))$.
+
+\begin{origstatement}{Yoneda 引理 (弱形式)}{}\label{ch02:yonedaweak}
+设 $X,Y$ 是 $\mathcal C$ 的对象. 把 $f:X\to Y$ 送到 $\mathrm h_f:\mathrm h_X\to\mathrm h_Y$ 的映射
+\[
+\Hom_{\mathcal C}(X,Y)\longrightarrow\Hom(\mathrm h_X,\mathrm h_Y)
+\]
+是双射.
+\end{origstatement}
+
+换言之, 函子 $\mathcal C\to\Hom(\mathcal C^{\mathrm{op}},(\mathrm{Set}))$ 是全忠实的. 它不是范畴等价, 因为一般并不本质满. 这意味着, 并非每个函子 $\mathcal C^{\mathrm{op}}\to(\mathrm{Set})$ 都同构于形如 $\mathrm h_X$ 的函子. 不过, 若把范围限制到 $\Hom(\mathcal C^{\mathrm{op}},(\mathrm{Set}))$ 的一个全子范畴, 其中的对象为同构于某个 $\mathrm h_X$ 的函子 $\mathcal C^{\mathrm{op}}\to(\mathrm{Set})$, 就得到一个与 $\mathcal C$ 等价的范畴.
+
+% PDF 26 / printed 14
+\begin{origstatement}{定义}{2.1}\label{ch02:def21}
+范畴 $\mathcal C$ 上的一个\emph{可表函子} (representable functor) 是函子
+\[
+F:\mathcal C^{\mathrm{op}}\longrightarrow(\mathrm{Set}),
+\]
+它同构于形如 $\mathrm h_X$ 的函子, 其中 $X$ 是 $\mathcal C$ 的某个对象.
+
+这时, 我们说 $F$ \emph{由 $X$ 表示}.
+\end{origstatement}
+
+给定两个同构 $F\simeq\mathrm h_X$ 和 $F\simeq\mathrm h_Y$, 由 Yoneda 引理的弱形式可知, 所得到的同构 $\mathrm h_X\simeq\mathrm h_Y$ 来自 $\mathcal C$ 中唯一的同构 $X\simeq Y$. 因此, \emph{表示同一个函子的两个对象典范同构}.
+
+\subsection{Yoneda 引理}
+借助 Yoneda 引理的更一般形式, 可以把函子可表这一条件重新表述. 设 $X$ 是 $\mathcal C$ 的一个对象, $F:\mathcal C^{\mathrm{op}}\to(\mathrm{Set})$ 是函子. 给定自然变换 $\tau:\mathrm h_X\to F$, 就得到元素 $\xi\in FX$: 它定义为恒等映射 $\mathrm{id}_X\in\mathrm h_XX$ 在映射 $\tau_X:\mathrm h_XX\to FX$ 下的像. 这个构造定义了映射 $\Hom(\mathrm h_X,F)\to FX$.
+
+反过来, 给定元素 $\xi\in FX$, 可以如下定义态射 $\tau:\mathrm h_X\to F$. 给定 $\mathcal C$ 的对象 $U$, $\mathrm h_XU$ 的一个元素就是箭头 $f:U\to X$; 这个箭头诱导映射 $Ff:FX\to FU$. 定义映射 $\tau_U:\mathrm h_XU\to FU$, 把 $f\in\mathrm h_XU$ 送到 $Ff(\xi)\in FU$. 容易检验, 如此定义的 $\tau$ 确实是一个态射. 这样就定义了映射
+\[
+\Hom(\mathrm h_X,F)\longrightarrow F(X)
+\]
+以及
+\[
+F(X)\longrightarrow\Hom(\mathrm h_X,F).
+\]
+
+\begin{origstatement}{Yoneda 引理}{}\label{ch02:yoneda}
+这两个映射互为逆映射, 因而建立双射对应
+\[
+\Hom(\mathrm h_X,F)\simeq FX.
+\]
+\end{origstatement}
+
+证明很容易, 留给读者. Yoneda 引理并不是一个深刻的事实, 但它的重要性怎么强调也不过分.
+
+我们来看, Yoneda 引理的这个形式如何推出上面的弱形式. 假设 $F=\mathrm h_Y$: 这里构造的映射 $\Hom(X,Y)=\mathrm h_YX\to\Hom(\mathrm h_X,\mathrm h_Y)$ 把每个箭头 $f:X\to Y$ 送到
+\[
+\mathrm h_Yf(\mathrm{id}_Y)=\mathrm{id}_Y\circ f:X\longrightarrow Y,
+\]
+所以它正是弱形式中出现的映射 $\Hom(X,Y)\to\Hom(\mathrm h_X,\mathrm h_Y)$.
+
+可以这样理解 Yoneda 引理. 弱形式说, 范畴 $\mathcal C$ 嵌入范畴 $\Hom(\mathcal C^{\mathrm{op}},(\mathrm{Set}))$. 强形式说, 给定函子 $F:\mathcal C^{\mathrm{op}}\to(\mathrm{Set})$, 可以把它延拓为可表函子 $\mathrm h_F:\Hom(\mathcal C^{\mathrm{op}},(\mathrm{Set}))^{\mathrm{op}}\to(\mathrm{Set})$: 因而, 每个函子在适当延拓后都成为可表函子. (实际中, 范畴 $\Hom(\mathcal C^{\mathrm{op}},(\mathrm{Set}))$ 通常太大, 需要作适当限制.)
+
+我们可以用 Yoneda 引理给出可表函子的一个十分重要的刻画.
+
+% PDF 27 / printed 15
+\begin{origstatement}{定义}{2.2}\label{ch02:def22}
+设 $F:\mathcal C^{\mathrm{op}}\to(\mathrm{Set})$ 是函子. $F$ 的一个\emph{泛对象} (universal object) 是一对 $(X,\xi)$, 由 $\mathcal C$ 的对象 $X$ 和元素 $\xi\in FX$ 组成, 并具有如下性质: 对 $\mathcal C$ 的每个对象 $U$ 和每个 $\sigma\in FU$, 存在唯一箭头 $f:U\to X$, 使得 $Ff(\xi)=\sigma\in FU$.
+\end{origstatement}
+
+换言之, $(X,\xi)$ 是泛对象, 当且仅当由 $\xi$ 定义的态射 $\mathrm h_X\to F$ 是同构. 每个自然变换 $\mathrm h_X\to F$ 都由某个对象 $\xi\in FX$ 定义, 因此得到如下结论.
+
+\begin{origstatement}{命题}{2.3}\label{ch02:prop23}
+函子 $F:\mathcal C^{\mathrm{op}}\to(\mathrm{Set})$ 可表, 当且仅当它有泛对象.
+\end{origstatement}
+
+此外, 若 $F$ 有泛对象 $(X,\xi)$, 则 $F$ 由 $X$ 表示.
+
+Yoneda 引理保证, 把对象 $X$ 送到函子 $\mathrm h_X$ 的自然函子 $\mathcal C\to\Hom(\mathcal C^{\mathrm{op}},(\mathrm{Set}))$, 给出 $\mathcal C$ 与可表函子范畴之间的等价. 从现在起, 我们不再区分对象 $X$ 和它所表示的函子 $\mathrm h_X$. 因此, 若 $X,U$ 是 $\mathcal C$ 的对象, 我们把由箭头 $U\to X$ 组成的集合 $\mathrm h_XU=\Hom_{\mathcal C}(U,X)$ 记为 $X(U)$. 此外, 若 $X$ 是对象, $F:\mathcal C^{\mathrm{op}}\to(\mathrm{Set})$ 是函子, 我们也把从 $\mathrm h_X$ 到 $F$ 的态射集合 $\Hom(X,F)=\Hom(\mathrm h_X,F)$ 与 $FX$ 等同.
+
+\subsection{例子}\label{ch02:sec213}
+下面是可表函子和不可表函子的几个例子.
+\begin{enumerate}
+\item[(i)] 考虑函子 $\mathrm P:(\mathrm{Set})^{\mathrm{op}}\to(\mathrm{Set})$, 它把每个集合 $S$ 送到 $S$ 的子集组成的集合 $\mathrm P(S)$. 若 $f:S\to T$ 是映射, 则 $\mathrm P(f):\mathrm P(T)\to\mathrm P(S)$ 定义为 $\mathrm P(f)\tau=f^{-1}\tau$, 其中 $\tau\subseteq T$.
+
+给定子集 $\sigma\subseteq S$, 有唯一映射 $\chi_\sigma:S\to\{0,1\}$, 使得 $\chi_\sigma^{-1}(\{1\})=\sigma$, 即\emph{特征函数}:
+\[
+\chi_\sigma(s)=\begin{cases}1&\text{若 }s\in\sigma,\\0&\text{若 }s\notin\sigma.\end{cases}
+\]
+因此, $(\{0,1\},\{1\})$ 是泛对象, 函子 $\mathrm P$ 由 $\{0,1\}$ 表示.
+
+\item[(ii)] 这个例子与前一个相似. 考虑所有拓扑空间构成的范畴 $(\mathrm{Top})$, 其中的箭头为连续映射. 定义函子 $F:(\mathrm{Top})^{\mathrm{op}}\to(\mathrm{Set})$, 把每个拓扑空间 $S$ 送到它的所有开子空间组成的集合 $F(S)$. 在 $\{0,1\}$ 上赋予使子集 $\{1\}\subseteq\{0,1\}$ 为闭集的最粗拓扑; 这个拓扑中的开集是 $\varnothing$, $\{1\}$ 和 $\{0,1\}$.
+% source-error: the scan prints "closed", inconsistent with its displayed list of open sets; retained.
+映射 $f:S\to\{0,1\}$ 连续, 当且仅当 $f^{-1}(\{1\})$ 在 $S$ 中开, 因而 $(\{0,1\},\{1\})$ 是这个函子的泛对象.
+
+空间 $\{0,1\}$ 称为 \emph{Sierpinski 空间}.
+
+\item[(iii)] 下一个例子看似相近, 但结论很不相同. 设 $(\mathrm{HausTop})$ 是所有 Hausdorff 拓扑空间构成的范畴, 并考虑上述函子的限制 $F:(\mathrm{HausTop})\to(\mathrm{Set})$. 我断言这个函子不可表.
+% source-error: the printed variance lacks op here; retained.
+事实上, 假设 $(X,\xi)$ 是泛对象. 设 $S$ 是任意集合, 赋予离散拓扑; 根据定义, 有唯一映射 $f:S\to X$, 使得 $f^{-1}\xi=S$, 也就是说, 有唯一映射 $S\to\xi$. 这意味着 $\xi$ 只能有一个元素. 类似地, 有唯一映射
+% PDF 28 / printed 16
+$S\to X\setminus\xi$, 所以 $X\setminus\xi$ 也只有一个元素. 这就意味着 $X$ 是有两个元素的 Hausdorff 空间, 因而必有离散拓扑; 所以 $\xi$ 在 $X$ 中也闭. 因此, 若 $S$ 是一个拓扑空间, 其中有一个非开的闭子集 $\sigma$, 就不存在连续映射 $f:S\to X$ 使得 $f^{-1}\xi=\sigma$.
+% source-error: the scan says "a closed subset sigma that is not open" although F classifies open subsets; retained.
+
+\item[(iv)] 取 $(\mathrm{Grp})$ 为群范畴, 考虑函子
+\[
+\mathrm{Sgr}:(\mathrm{Grp})^{\mathrm{op}}\longrightarrow(\mathrm{Set}),
+\]
+它把每个群 $G$ 送到 $G$ 的所有子群组成的集合. 若 $f:G\to H$ 是群同态, 就定义映射 $\mathrm{Sgr}\,f:\mathrm{Sgr}\,H\to\mathrm{Sgr}\,G$, 把 $H$ 的每个子群送到它在 $G$ 中的逆像.
+
+这个函子不可表: 不存在群 $\Gamma$ 及其子群 $\Gamma_1\subseteq\Gamma$, 使得对所有带子群 $G_1\subseteq G$ 的群 $G$, 都有唯一同态 $f:G\to\Gamma$ 满足 $f^{-1}\Gamma_1=G_1$. 这可以用几种方式检验; 例如, 若取子群 $\{0\}\subseteq\mathbb Z$, 就应有唯一同态 $f:\mathbb Z\to\Gamma$, 使得 $f^{-1}\Gamma_1=\{0\}$. 但给定这样的 $f$, 由 $n\mapsto f(2n)$ 定义的同态 $\mathbb Z\to\Gamma$ 也具有这个性质, 而且不同于 $f$, 这与唯一性矛盾.
+
+\item[(v)] 下面是一个复杂得多的例子. 设 $(\mathrm{Hot})$ 是 CW 复形范畴, 其中的箭头为连续映射的同伦类. 若 $n$ 是固定的自然数, 则有函子 $H^n:(\mathrm{Hot})^{\mathrm{op}}\to(\mathrm{Set})$, 把 CW 复形 $S$ 送到它的第 $n$ 个上同调群 $H^n(S,\mathbb Z)$. 这个函子由一个 CW 复形表示, 称为 \emph{Eilenberg--Mac Lane 空间}, 通常记作 $K(\mathbb Z,n)$; 这是一个很不平凡的事实.
+\end{enumerate}
+
+不过, 我们真正感兴趣的是代数几何, 下面给出这个背景下的几个例子. 设 $S=\Spec R$ (这只是为简化记号; 当 $S$ 非仿射时, 本质上并无变化).
+
+\begin{origstatement}{例}{2.4}\label{ch02:ex24}
+考虑仿射直线 $\mathbb A^1_S=\Spec R[x]$. 有函子
+\[
+\mathcal O:(\mathrm{Sch}/S)^{\mathrm{op}}\longrightarrow(\mathrm{Set}),
+\]
+它把每个 $S$-概形 $U$ 送到整体截面环 $\mathcal O(U)$. 若 $f:U\to V$ 是概形态射, 对应映射 $\mathcal O(V)\to\mathcal O(V)$ 由 $f^\#:\mathcal O_V\to f_*\mathcal O_U$ 诱导.
+% source-error: scan prints O(V)->O(V), rather than O(V)->O(U); retained.
+
+于是 $x\in\mathcal O(\mathbb A^1_S)$, 并且给定 $S$ 上的概形 $U$ 及元素 $f\in\mathcal O(U)$, 有唯一态射 $U\to\mathbb A^1_S$, 使得 $x$ 在 $U$ 上的拉回恰为 $f$. 这意味着函子 $\mathcal O$ 由 $\mathbb A^1_S$ 表示, 且 $(\mathbb A^1_S,x)$ 是泛对象.
+
+更一般地, 仿射空间 $\mathbb A^n_S$ 表示函子 $\mathcal O^n$, 它把每个概形 $S$ 送到环 $\mathcal O(S)^n$.
+\end{origstatement}
+
+\begin{origstatement}{例}{2.5}\label{ch02:ex25}
+现在考虑 $\mathbb G_{\mathrm m,S}=\mathbb A^1_S\setminus0_S=\Spec R[x,x^{-1}]$. 这里 $0_S$ 指零截面 $S\to\mathbb A^1_S$ 的像. $S$-概形态射 $U\to\mathbb G_{\mathrm m,S}$ 由 $x\in\mathcal O(\mathbb G_{\mathrm m,S})$ 在 $\mathcal O(S)$ 中的像决定; 因此 $\mathbb G_{\mathrm m,S}$ 表示函子 $\mathcal O^*:(\mathrm{Sch}/S)^{\mathrm{op}}\to(\mathrm{Set})$, 它把每个概形 $U$ 送到结构层的可逆截面群 $\mathcal O^*(U)$.
+% source-error: scan prints O(S) where the map would give O(U); retained.
+\end{origstatement}
+
+射影空间给出了一个微妙得多的例子.
+
+% PDF 29 / printed 17
+\begin{origstatement}{例}{2.6}\label{ch02:ex26}
+射影空间 $\mathbb P^n_S=\operatorname{Proj}R[x_0,\ldots,x_n]$ 上有线丛 $\mathcal O(1)$, 带有生成它的 $n+1$ 个截面 $x_0,\ldots,x_n$.
+
+设 $U$ 是概形, 考虑如下序列组成的集合:
+\[
+(\mathcal L,s_0,\ldots,s_n),
+\]
+其中 $\mathcal L$ 是 $U$ 上的可逆层, $s_0,\ldots,s_n$ 是生成 $\mathcal L$ 的截面. 若存在可逆层同构 $\phi:\mathcal L\simeq\mathcal L'$, 把每个 $s_i$ 送到 $s_i'$, 则称 $(\mathcal L,s_0,\ldots,s_n)$ 与 $(\mathcal L',s_0',\ldots,s_n')$ 等价. 注意, 因为 $s_i$ 生成 $\mathcal L$, 所以 $\phi$ 若存在就是唯一的.
+
+可以考虑映射 $Q_n:(\mathrm{Sch}/S)\to(\mathrm{Set})$, 它把每个概形 $U$ 送到上述序列 $(\mathcal L,s_0,\ldots,s_n)$ 模掉等价关系后的集合. 若 $f:U\to V$ 是 $S$-概形态射, 且 $(\mathcal L,s_0,\ldots,s_n)\in Q_n(V)$, 则 $f^*\mathcal L$ 有截面 $f^*s_0,\ldots,f^*s_n$ 生成它; 这使 $Q_n$ 成为函子 $(\mathrm{Sch}/S)^{\mathrm{op}}\to(\mathrm{Set})$.
+
+函子 $Q_n$ 还有如下描述. 给定概形 $U$ 及上述序列 $(\mathcal L,s_0,\ldots,s_n)$, 截面 $s_i$ 定义同态 $\mathcal O_U^{n+1}\to\mathcal L$, 而 $s_i$ 生成 $\mathcal L$ 等价于这个同态为满射. 两个序列等价, 当且仅当它们表示 $\mathcal O_S^n$ 的同一个商.
+% source-error: scan prints O_S^n, inconsistent with O_U^{n+1} just above; retained.
+
+下面这个事实众所周知, 也是代数几何的基石之一: 对 $S$-概形 $U$ 上的任意序列 $(\mathcal L,s_0,\ldots,s_n)$, 存在唯一态射 $f:U\to\mathbb P^n_S$, 使得 $(\mathcal L,s_0,\ldots,s_n)$ 与 $(f^*\mathcal O(1),f^*x_0,\ldots,f^*x_n)$ 等价. 这恰好意味着 $\mathbb P^n_S$ 表示函子 $Q_n$.
+\end{origstatement}
+
+\begin{origstatement}{例}{2.7}\label{ch02:ex27}
+这个例子是前一个的重要推广.
+
+这里设 $S$ 是任意概形, 不必仿射, $\mathcal M$ 是 $S$ 上的拟凝聚层. 按 Grothendieck 的记号, $\pi:\mathbb P(\mathcal M)\to S$ 是 $\mathcal M$ 在 $\mathcal O_S$ 上的对称代数层的相对齐次谱 $\operatorname{Proj}_S\operatorname{Sym}_{\mathcal O_S}\mathcal M$. $\mathbb P(\mathcal M)$ 上有一个可逆层, 记为 $\mathcal O_{\mathbb P(\mathcal M)}(1)$, 它是 $\pi^*\mathcal M$ 的商. 它是一个泛对象, 意思是: 给定任意 $S$-概形 $\phi:U\to S$, 其上有可逆层 $\mathcal L$ 及满射 $\alpha:\phi^*\mathcal M\to\mathcal L$, 则存在唯一的 $S$-概形态射 $f:U\to\mathbb P(\mathcal M)$ 和 $\mathcal O_U$-模同构 $a:\mathcal L\simeq f^*\mathcal O_{\mathbb P(\mathcal M)}(1)$, 使得复合
+\[
+f^*\pi^*\mathcal M\simeq\phi^*\mathcal M\longrightarrow\mathcal L\xrightarrow{a}f^*\mathcal O_{\mathbb P(\mathcal M)}(1)
+\]
+为投影 $\pi^*\mathcal M\twoheadrightarrow\mathcal O_{\mathbb P(\mathcal M)}(1)$ 的拉回 ([EGAI, 命题 4.2.3]).
+
+这意味着如下事实. 考虑函子 $Q_{\mathcal M}:(\mathrm{Sch}/S)^{\mathrm{op}}\to(\mathrm{Set})$, 它把 $S$ 上的每个概形 $\phi:U\to S$ 送到拉回 $\phi^*\mathcal M$ 的所有可逆商组成的集合. 若 $f:V\to U$ 是从 $\phi:U\to S$ 到 $\psi:V\to S$ 的 $S$-概形态射, 且 $\alpha:\phi^*\mathcal M\twoheadrightarrow\mathcal L$ 是 $Q_{\mathcal M}(U)$ 的对象, 则
+\[
+f^*\alpha:\psi^*\mathcal E\simeq f^*\phi^*\mathcal M\longrightarrow f^*\mathcal L
+\]
+是 $Q_{\mathcal M}(V)$ 的对象: 这定义了拉回 $Q_{\mathcal M}(U)\to Q_{\mathcal M}(V)$. 这个函子由 $\mathbb P(\mathcal M)$ 表示.
+% source-error: scan prints psi^*E, not psi^*M; retained.
+
+当 $\mathcal M=\mathcal O_S^{n+1}$ 时, 就恢复了前例的函子 $Q_n$.
+\end{origstatement}
+
+\begin{origstatement}{例}{2.8}\label{ch02:ex28}
+沿用前例的设定, 固定正整数 $r$. 考虑函子 $(\mathrm{Sch}/S)^{\mathrm{op}}\to(\mathrm{Set})$, 它把每个 $\phi:U\to S$ 送到
+% PDF 30 / printed 18
+$\phi^*\mathcal M$ 的所有秩为 $r$ 的局部自由商组成的集合. 这个函子也由概形 $\mathbb G(r,\mathcal M)\to S$ 表示.
+\end{origstatement}
+
+最后, 给出一个不可表函子的例子.
+
+\begin{origstatement}{例}{2.9}\label{ch02:ex29}
+这个例子与 §2.1.3 的例 (iii) 十分相似. 设 $\kappa$ 是域, $(\mathrm{Sch}/\kappa)$ 为 $\kappa$ 上的概形范畴. 考虑函子 $F:(\mathrm{Sch}/\kappa)^{\mathrm{op}}\to(\mathrm{Set})$, 它把每个 $\kappa$ 上的概形 $U$ 送到 $U$ 的所有开子集组成的集合; $F$ 在箭头上的作用由取逆像给出.
+
+我断言这个函子不可表. 事实上, 假设它由一对 $(X,\xi)$ 表示, 其中 $X$ 是 $\kappa$ 上的概形, $\xi$ 是一个开子集. 可将 $\xi$ 看作 $X$ 的开子概形. 若 $U$ 是 $\kappa$ 上的任意概形, 一个 $\kappa$-概形态射 $U\to\xi$ 就是像包含在 $\xi$ 中的 $\kappa$-概形态射 $U\to X$; 由 $X$ 的定义, 这样的态射只有一个, 就是把开子集 $U$ 看作 $FU$ 的元素时所对应的态射. 因此 $\kappa$-概形 $\xi$ 表示的函子是单点函子, 把任意 $\kappa$-概形 $U$ 送到单元素集合, 而这个函子由 $\Spec\xi$ 表示. 所以 $\xi$ 作为 $\kappa$-概形同构于 $\Spec\kappa$; 这意味着, 把 $\xi$ 看作 $X$ 的开子概形时, 它只含 $X$ 的唯一一个 $\kappa$-有理点. 但 $\kappa$-概形的 $\kappa$-有理点必为闭点 (对仿射概形这是直接的; 一般情形也成立, 因为拓扑空间的子集为闭集是局部性质). 所以 $\xi$ 也闭; 但这将推出 $\kappa$-概形的每个开子集也闭, 而例如 $\mathbb A^1_\kappa\setminus\{0\}\subseteq\mathbb A^1_\kappa$ 就不满足这一点.
+% source-error: scan prints Spec xi at the first occurrence, then Spec kappa; retained.
+\end{origstatement}
+
+\begin{origstatement}{注}{2.10}\label{ch02:rem210}
+Yoneda 引理有一个对偶形式, 我们将在 §3.2.1 中用到它. $\mathcal C$ 的每个对象 $X$ 定义函子
+\[
+\Hom_{\mathcal C}(X,-):\mathcal C\longrightarrow(\mathrm{Set}).
+\]
+可将它看作函子 $\mathrm h_X:(\mathcal C^{\mathrm{op}})^{\mathrm{op}}\to(\mathrm{Set})$; 因此, 把 Yoneda 引理的通常形式应用于 $\mathcal C^{\mathrm{op}}$, 对任意两个对象 $X,Y$, 得到 $\Hom_{\mathcal C}(X,Y)$ 与自然变换 $\Hom_{\mathcal C}(Y,-)\to\Hom_{\mathcal C}(X,-)$ 组成的集合之间的典范双射对应.
+\end{origstatement}
+
+\section{群对象}\label{ch02:sec22}
+本节中, 范畴 $\mathcal C$ 都具有有限积; 用 $\mathrm{pt}$ 表示一个终对象.
+
+\begin{origstatement}{定义}{2.11}\label{ch02:def211}
+$\mathcal C$ 的一个\emph{群对象} (group object) 是 $\mathcal C$ 的对象 $G$, 连同取值于群范畴的函子 $\mathcal C^{\mathrm{op}}\to(\mathrm{Grp})$, 使得它与遗忘函子 $(\mathrm{Grp})\to(\mathrm{Set})$ 的复合等于 $\mathrm h_G$.
+
+拓扑空间范畴中的群对象称为\emph{拓扑群}. 概形 $S$ 上的概形范畴中的群对象称为 \emph{$S$ 上的群概形}.
+\end{origstatement}
+
+等价地说: 一个群对象是对象 $G$, 连同 $\mathcal C$ 的每个对象 $U$ 所对应的 $G(U)$ 上的群结构, 使得与 $\mathcal C$ 中的箭头 $f:U\to V$ 相联系的映射 $f^*:G(V)\to G(U)$ 总是群同态.
+
+利用 Yoneda 引理, 可以把这一点重新表述如下.
+
+\begin{origstatement}{命题}{2.12}\label{ch02:prop212}
+在 $\mathcal C$ 的对象 $G$ 上给定群对象结构, 等价于指定三个箭头 $m_G:G\times G\to G$ (乘法), $i_G:G\to
+% PDF 31 / printed 19
+G$ (逆元), $e_G:\mathrm{pt}\to G$ (单位元), 使得下列图表交换.
+\begin{enumerate}
+\item[(i)] 单位元是左、右单位元:
+\[
+\begin{tikzcd}[column sep=small]
+\mathrm{pt}\times G\arrow[r,"e_G\times\mathrm{id}_G"]\arrow[dr,equal]&G\times G\arrow[d,"m_G"]\\&G
+\end{tikzcd}
+\qquad
+\begin{tikzcd}[column sep=small]
+G\times\mathrm{pt}\arrow[r,"\mathrm{id}_G\times e_G"]\arrow[dr,equal]&G\times G\arrow[d,"m_G"]\\&G
+\end{tikzcd}
+\]
+\item[(ii)] 乘法满足结合律:
+\[
+\begin{tikzcd}
+G\times G\times G\arrow[r,"m_G\times\mathrm{id}_G"]\arrow[d,"\mathrm{id}_G\times m_G"']&G\times G\arrow[d,"m_G"]\\
+G\times G\arrow[r,"m_G"']&G
+\end{tikzcd}
+\]
+\item[(iii)] 逆元是左、右逆元:
+\[
+\begin{tikzcd}[column sep=small]
+G\arrow[r,"{(i_G,\mathrm{id}_G)}"]\arrow[d]&G\times G\arrow[d,"m_G"]\\
+\mathrm{pt}\arrow[r,"e_G"']&G
+\end{tikzcd}
+\qquad
+\begin{tikzcd}[column sep=small]
+G\arrow[r,"{(\mathrm{id}_G,i_G)}"]\arrow[d]&G\times G\arrow[d,"m_G"]\\
+\mathrm{pt}\arrow[r,"e_G"']&G
+\end{tikzcd}
+\]
+\end{enumerate}
+\end{origstatement}
+\begin{proof}
+当 $\mathcal C$ 是集合范畴时, 容易直接检验, 上述图表的交换性给出的正是通常的群公理. 因此, 在 $\mathcal C$ 的任意对象 $U$ 上对上述图表 (看成函子图表) 求值, 即得结论.
+\end{proof}
+
+例如, 拓扑群就是具有拓扑空间结构的群, 使得乘法映射和逆元映射连续 (当然, 从单点空间给出单位元的映射自动连续).
+
+下面给出群概形的例子.
+
+第一个例子是概形 $\mathbb A^n_S\to S$; 它们表示函子 $\mathcal O^n$, 把概形 $U\to S$ 送到集合 $\mathcal O(U)^n$, 后者有显然的加法群结构.
+
+群概形 $\mathbb A^1_S$ 常记为 $\mathbb G_{\mathrm a,S}$.
+
+此外, $\mathbb G_{\mathrm m,S}=\mathbb A^1_S\setminus0_S$ 表示函子 $\mathcal O^*:(\mathrm{Sch}/S)^{\mathrm{op}}\to(\mathrm{Set})$, 把每个概形 $U\to S$ 送到群 $\mathcal O^*(U)$; 这赋予 $\mathbb G_{\mathrm m,S}$ 一个显然的群概形结构.
+
+现在考虑函子 $(\mathrm{Sch}/S)^{\mathrm{op}}\to(\mathrm{Set})$, 它把每个概形 $U\to S$ 送到系数在环 $\mathcal O(U)$ 中的 $n\times n$ 矩阵集合 $\mathrm M_n(\mathcal O(U))$. 它显然由概形 $\mathrm M_{n,S}\overset{\mathrm{def}}=\mathbb A_S^{n^2}$ 表示. 把行列式映射看作概形态射 $\det:\mathrm M_{n,S}\to\mathbb A^1_S$; 用 $\mathrm{GL}_{n,S}$ 表示开子概形 $\mathbb G_{\mathrm m,S}\subseteq\mathbb A^1_S$ 的逆像. 于是 $\mathrm{GL}_{n,S}$ 是 $\mathrm M_{n,S}$ 的开子概形; 它所表示的函子把每个概形 $U\to S$ 送到 $\mathrm M_n(\mathcal O(U))$ 中行列式可逆的矩阵集合. 这些正是可逆矩阵, 它们组成一个群. 这赋予 $\mathrm{GL}_{n,S}$ 一个 $S$ 上的群概形结构.
+
+% PDF 32 / printed 20
+$\mathrm{GL}_{n,S}$ 的许多子概形都是群概形. 例如, $\mathrm{SL}_{n,S}$ 是单位截面 $1_S:S\to\mathbb G_{\mathrm m,S}$ 在态射 $\det:\mathrm{GL}_{n,S}\to\mathbb G_{\mathrm m,S}$ 下的逆像; 它表示把每个概形 $U\to S$ 送到行列式为 $1$ 的 $n\times n$ 矩阵群 $\mathrm{SL}(\mathcal O(U))$ 的函子.
+
+正交群概形 $\mathrm O_{n,S}$ 和辛群概形 $\mathrm{Sp}_{n,S}$ 的定义留给读者.
+
+\begin{origstatement}{定义}{2.13}\label{ch02:def213}
+若 $G,H$ 是群对象, 则\emph{群对象同态} (homomorphism of group objects) 定义为 $\mathcal C$ 中的箭头 $G\to H$, 使得对 $\mathcal C$ 的每个对象 $U$, 所诱导的映射 $G(U)\to H(U)$ 都是群同态.
+\end{origstatement}
+
+等价地说, 同态是使图表
+\[
+\begin{tikzcd}
+G\times G\arrow[r,"m_G"]\arrow[d,"f\times f"']&G\arrow[d,"f"]\\
+H\times H\arrow[r,"m_H"']&H
+\end{tikzcd}
+\]
+交换的箭头 $f:G\to H$.
+
+恒等箭头显然是群对象到自身的同态. 此外, 群对象同态的复合仍是同态; 因此, 固定范畴中的群对象组成范畴, 记为 $\mathrm{Grp}(\mathcal C)$.
+
+\begin{origstatement}{注}{2.14}\label{ch02:rem214}
+假设 $\mathcal C,\mathcal D$ 是具有积和终对象 $\mathrm{pt}_{\mathcal C},\mathrm{pt}_{\mathcal D}$ 的范畴. 假设 $F:\mathcal C\to\mathcal D$ 是保持有限积的函子, $G$ 是 $\mathcal C$ 中的群对象. 箭头 $e_G:\mathrm{pt}_{\mathcal C}\to G$ 给出箭头 $Fe_G:F\mathrm{pt}_{\mathcal C}\to FG$; 可把它与唯一箭头 $F\mathrm{pt}_{\mathcal C}\to\mathrm{pt}_{\mathcal D}$ 的逆复合, 得到箭头 $e_{FG}:\mathrm{pt}_{\mathcal D}\to FG$, 这里该唯一箭头为同构, 因为 $F\mathrm{pt}_{\mathcal C}$ 是终对象. 类似地, 用 $Fm_G:F(G\times G)\to FG$ 和同构 $F(G\times G)\simeq FG\times FG$ 的逆来定义箭头 $m_{FG}:FG\times FG\to FG$. 最后, 置 $i_{FG}\overset{\mathrm{def}}=Fi_G:FG\to FG$.
+
+留给读者检验, 这赋予 $FG$ 群对象结构, 并诱导从 $\mathcal C$ 中的群对象范畴到 $\mathcal D$ 中的群对象范畴的函子.
+\end{origstatement}
+
+\subsection{群对象的作用}\label{ch02:sec221}
+取值于群的函子在取值于集合的函子上的左作用, 有显然的定义.
+
+\begin{origstatement}{定义}{2.15}\label{ch02:def215}
+函子 $G:\mathcal C^{\mathrm{op}}\to(\mathrm{Grp})$ 在函子 $F:\mathcal C^{\mathrm{op}}\to(\mathrm{Set})$ 上的一个\emph{左作用} (left action) $\alpha$, 是自然变换 $G\times F\to F$, 使得对 $\mathcal C$ 的任意对象 $U$, 所诱导的映射 $G(U)\times F(U)\to F(U)$ 都是群 $G(U)$ 在集合 $F(U)$ 上的作用.
+\end{origstatement}
+
+上述定义中, $G\times F$ 表示把 $\mathcal C$ 的对象 $U$ 送到群 $GU$ 的底集合与集合 $FU$ 的积的函子. 换言之, $G\times F$ 是积 $\widetilde G\times F$, 其中 $\widetilde G$ 是 $G$ 与遗忘函子 $(\mathrm{Grp})\to(\mathrm{Set})$ 的复合.
+
+等价地, $G$ 在 $F$ 上的左作用由对所有 $\mathcal C$ 的对象 $U$ 给出的 $G(U)$ 在 $F(U)$ 上的作用组成, 满足对 $\mathcal C$ 的任意箭头 $f:U\to V$, 任意 $g\in G(V)$ 及任意 $x\in F(V)$, 都有
+\[
+f^*g\cdot f^*x=f^*(g\cdot x)\in F(U).
+\]
+
+% PDF 33 / printed 21
+右作用的定义类似.
+
+群对象 $G$ 在对象 $X$ 上的作用, 定义为函子 $\mathrm h_G:\mathcal C^{\mathrm{op}}\to(\mathrm{Grp})$ 在 $\mathrm h_X:\mathcal C^{\mathrm{op}}\to(\mathrm{Set})$ 上的作用.
+
+同样, 可以用图表重新表述这个定义.
+
+\begin{origstatement}{命题}{2.16}\label{ch02:prop216}
+给定群对象 $G$ 在对象 $X$ 上的左作用, 等价于指定箭头 $\alpha:G\times X\to X$, 使得下面两个图表交换.
+\begin{enumerate}
+\item[(i)] $G$ 的单位元在 $X$ 上的作用是恒等作用:
+\[
+\begin{tikzcd}
+\mathrm{pt}\times X\arrow[r,"e_G\times\mathrm{id}_X"]\arrow[dr,equal]&G\times X\arrow[d,"\alpha"]\\&X
+\end{tikzcd}
+\]
+\item[(ii)] 作用与 $G$ 的乘法满足结合律:
+\[
+\begin{tikzcd}
+G\times G\times X\arrow[r,"m_G\times\mathrm{id}_X"]\arrow[d,"\mathrm{id}_G\times\alpha"']&G\times X\arrow[d,"\alpha"]\\
+G\times X\arrow[r,"\alpha"']&X
+\end{tikzcd}
+\]
+\end{enumerate}
+\end{origstatement}
+\begin{proof}
+当 $\mathcal C$ 是集合范畴时, 容易直接检验, 上述图表的交换性给出的正是左作用的通常公理. 因此, 在 $\mathcal C$ 的任意对象 $U$ 上对上述图表 (看成函子图表) 求值, 由 Yoneda 引理即得结论.
+\end{proof}
+
+\begin{origstatement}{定义}{2.17}\label{ch02:def217}
+设 $X,Y$ 是 $\mathcal C$ 中带有 $G$ 作用的对象. 若对 $\mathcal C$ 的所有对象 $U$, 所诱导的映射 $X(U)\to Y(U)$ 都是 $G(U)$-等变的, 则称箭头 $f:X\to Y$ 为 \emph{$G$-等变的} (equivariant).
+\end{origstatement}
+
+等价地说, $f$ 是 $G$-等变的, 当且仅当图表
+\[
+\begin{tikzcd}
+G\times X\arrow[r]\arrow[d,"\mathrm{id}_G\times f"']&X\arrow[d,"f"]\\
+G\times Y\arrow[r]&Y
+\end{tikzcd}
+\]
+交换, 其中横向箭头由作用给出 (这两个定义的等价性由 Yoneda 引理得到).
+
+函子 $G:\mathcal C^{\mathrm{op}}\to(\mathrm{Grp})$ 在 $\mathcal C$ 的对象 $X$ 上的作用, 还有另一种定义方式. 给定 $\mathcal C$ 的对象 $U$, 用 $\End_U(U\times X)$ 表示与投影 $\mathrm{pr}_1:U\times X\to U$ 相容的箭头 $U\times X\to U\times X$ 的集合; 它具有幺半群结构, 运算是复合. 换言之, $\End_U(U\times X)$ 是把 $\mathrm{pr}_1:U\times X\to U$ 看作逗号范畴 $(\mathcal C/U)$ 的对象时, 该对象的自同态幺半群. 用 $\Aut_U(U\times X)$ 表示 $\End_U(U\times X)$ 中的自同构群.
+
+定义函子
+\[
+\underline{\Aut}_{\mathcal C}(X):\mathcal C^{\mathrm{op}}\longrightarrow(\mathrm{Grp}),
+\]
+它把 $\mathcal C$ 的每个对象 $U$ 送到群 $\underline{\Aut}_{\mathcal C}(X)(U)\overset{\mathrm{def}}=\Aut_U(U\times X)$. 群 $\underline{\Aut}_{\mathcal C}(X)(\mathrm{pt})$ 典范同构于 $\Aut_{\mathcal C}(X)$.
+
+% PDF 34 / printed 22
+考虑 $\mathcal C$ 中的箭头 $f:U\to V$; 我们需要为它配上群同态 $f^*:\Aut_V(V\times X)\to\Aut_U(U\times X)$. 图表
+\[
+\begin{tikzcd}
+U\times X\arrow[r,"f\times\mathrm{id}_X"]\arrow[d,"\mathrm{pr}_1"']&V\times X\arrow[d,"\mathrm{pr}_1"]\\
+U\arrow[r,"f"']&V
+\end{tikzcd}
+\]
+是笛卡尔图; 因此, 给定 $V$ 上的箭头 $\beta:V\times X\to V\times X$, 存在唯一箭头 $\alpha:U\times X\to U\times X$, 使图表
+\[
+\begin{tikzcd}[column sep=small]
+U\times X\arrow[rr,"f\times\mathrm{id}_X"]\arrow[dr,dashed,"\alpha"]\arrow[ddr,bend right=15,"\mathrm{pr}_1"']&&V\times X\arrow[d,"\beta"]\\
+&U\times X\arrow[r,"f\times\mathrm{id}_X"]\arrow[d,"\mathrm{pr}_1"']&V\times X\arrow[d,"\mathrm{pr}_1"]\\
+&U\arrow[r,"f"']&V
+\end{tikzcd}
+\]
+交换. 这给出从集合 $\End_V(V\times X)$ 到 $\End_U(U\times X)$ 的映射, 很容易检验它是幺半群同态 (即它把恒等元送到恒等元, 并保持复合). 从而, 它限制为群同态 $f^*:\Aut_V(V\times X)\to\Aut_U(U\times X)$. 这赋予 $\underline{\Aut}_{\mathcal C}(X)$ 函子结构.
+
+这个构造是第 3.7 节构造的一个很特殊的情形.
+
+\begin{origstatement}{命题}{2.18}\label{ch02:prop218}
+设 $G:\mathcal C^{\mathrm{op}}\to(\mathrm{Grp})$ 是函子, $X$ 是 $\mathcal C$ 的对象. 给定 $G$ 在 $X$ 上的作用, 等价于给定函子 $\mathcal C^{\mathrm{op}}\to(\mathrm{Grp})$ 之间的自然变换 $G\to\underline{\Aut}_{\mathcal C}(X)$.
+\end{origstatement}
+\begin{proof}
+假设给定自然变换 $G\to\underline{\Aut}_{\mathcal C}(X)$. 那么, 对 $\mathcal C$ 的每个对象 $U$, 都有群同态 $G(U)\to\Aut_U(U\times X)$. 集合 $X(U)$ 与投影 $\mathrm{pr}_1:U\times X\to U$ 的截面 $U\to U\times X$ 的集合之间有双射对应, 而若 $s:U\to U\times X$ 是截面, $\alpha\in\Aut_U(U\times X)$, 则 $\alpha\circ s:U\to U\times X$ 仍是截面. 这诱导 $\Aut_U(U\times X)$ 在 $X(U)$ 上的作用, 并且经由给定同态 $G(U)\to\Aut_U(U\times X)$, 也诱导 $G(U)$ 在 $X(U)$ 上的作用. 容易检验, 这定义了 $G$ 在 $X$ 上的作用.
+
+反过来, 假设 $G$ 作用于 $X$, 设 $U$ 是 $\mathcal C$ 的对象, $g\in G(U)$. 我们需要给 $g$ 配上
+\[
+\underline{\Aut}_{\mathcal C}(X)(U)=\Aut_U(U\times X)
+\]
+的一个对象. 再次利用 Yoneda 引理, 把 $U\times X$ 看成函子 $U\times X:(\mathcal C/U)^{\mathrm{op}}\to(\mathrm{Set})$. 对 $\mathcal C$ 中的每个箭头 $V\to U$, 集合 $X(V)$ 与 $\mathcal C/U$ 中的箭头 $V\to U\times X$ 组成的集合之间有一个双射对应, 它由把箭头 $V\to U\times X$ 与投影 $\mathrm{pr}_2:U\times X\to X$ 复合给出. 现在给定 $G(V)$ 在 $X(V)$ 上的作用, 这诱导 $G(V)$ 在 $\Hom_{(\mathcal C/U)}(V,U\times X)=(U\times X)(V)$ 上的作用. 箭头 $V\to U$ 诱导群同态 $G(U)\to G(V)$, 所以元素 $g\in G(U)$ 诱导 $(U\times X)(V)$ 的一个置换. 有几件事需要检验: 它们都很直接, 留给读者作为练习.
+% PDF 35 / printed 23
+\begin{enumerate}
+\item[(i)] 这个构造为每个 $g$ 配上函子 $U\times X$ 的一个自同构, 因而配上 $(\mathcal C/U)$ 中 $U\times X$ 的一个自同构.
+\item[(ii)] 所得映射 $G(U)\to\underline{\Aut}_{\mathcal C}(X)(U)$ 是群同态.
+\item[(iii)] 这定义了自然变换 $G\to\underline{\Aut}_{\mathcal C}(X)$.
+\item[(iv)] 所得到的、在 $G$ 于 $X$ 上的作用的集合与自然变换 $G\to\underline{\Aut}_{\mathcal C}(X)$ 的集合之间的映射互为逆映射.
+\end{enumerate}
+\end{proof}
+
+\subsection{离散群}\label{ch02:sec222}
+群在范畴的对象上的作用有一个标准定义: 给定群同态 $\Gamma\to\Aut_{\mathcal C}(X)$ 时, 就说群 $\Gamma$ 作用于 $\mathcal C$ 的对象 $X$. 在适当假设下, 这个作用可以解释为离散群对象在 $U$ 上的作用.
+% source-error: scan prints U, although the object in this paragraph is X; retained.
+
+许多具体情形下, 几何对象的范畴中都有可称为\emph{离散的}对象. 例如, 拓扑空间范畴中有离散空间: 它们是带离散拓扑的空间, 换言之, 是点的不交并. 在 $S$ 上的概形范畴 $(\mathrm{Sch}/S)$ 中, 当一个对象是若干个 $S$ 的不交并时, 就应称之为离散的. 用范畴语言来说, 不交并就是余积; 因此, $(\mathrm{Sch}/S)$ 的离散对象是 $S$ 上的概形 $U$, 满足函子 $\Hom_S(U,-):(\mathrm{Sch}/S)\to(\mathrm{Set})$ 是若干个 $\Hom_S(S,-)$ 的积.
+
+\begin{origstatement}{定义}{2.19}\label{ch02:def219}
+设 $\mathcal C$ 是范畴. 若它有终对象 $\mathrm{pt}$, 且对任意集合 $I$, 余积 $\coprod_{i\in I}\mathrm{pt}$ 都存在, 则称 $\mathcal C$ \emph{有离散对象}.
+
+$\mathcal C$ 中同构于某个集合 $I$ 对应的 $\coprod_{i\in I}\mathrm{pt}$ 的对象, 称为\emph{离散对象} (discrete object).
+\end{origstatement}
+
+假设 $\mathcal C$ 有离散对象. 若 $I,J$ 是两个集合, $\phi:I\to J$ 是映射, 就得到一族以 $I$ 为参数的箭头 $\mathrm{pt}\to\coprod_{j\in J}\mathrm{pt}$: 给每个 $i\in I$ 配上对应于元素 $\phi(j)\in J$ 的自然箭头 $\mathrm{pt}\to\coprod_{j\in J}\mathrm{pt}$. 这样就定义了箭头
+% source-error: scan prints phi(j), not phi(i); retained.
+\[
+\phi_*:\coprod_{i\in I}\mathrm{pt}\longrightarrow\coprod_{j\in J}\mathrm{pt}.
+\]
+容易直接检验, 若 $\phi:I\to J$ 和 $\psi:J\to K$ 是映射, 则
+\[
+(\psi\circ\phi)_*=\psi_*\circ\phi_*:\coprod_{i\in I}\mathrm{pt}\longrightarrow\coprod_{k\in K}\mathrm{pt}.
+\]
+这样就定义了函子 $\Delta:(\mathrm{Set})\to\mathcal C$, 它把集合 $I$ 送到 $\coprod_{i\in I}\mathrm{pt}$. 这称为\emph{离散对象函子}. 根据构造, 它是函子 $\Hom_{\mathcal C}(\mathrm{pt},-)$ 的左伴随. 回顾这意味着: 对每个集合 $I$ 和 $\mathcal C$ 的每个对象 $U$, $\Hom_{\mathcal C}(\Delta I,U)$ 与从 $I$ 到 $\Hom_{\mathcal C}(\mathrm{pt},U)$ 的映射集合之间有双射对应; 并且这个双射对应关于 $I,U$ 都是函子性的.
+
+反过来, 若假设 $\mathcal C$ 有终对象 $\mathrm{pt}$, 且 $\Delta:(\mathrm{Set})\to\mathcal C$ 是函子 $\Hom_{\mathcal C}(\mathrm{pt},-)$ 的左伴随, 则容易看出, 对每个集合 $I$, 对象 $\Delta I$ 都是余积 $\coprod_{i\in I}\mathrm{pt}$.
+
+我们希望在范畴 $\mathcal C$ 中构造离散群对象; 为此, 需要有离散对象, 并且根据注 2.14, 还需要离散对象函子 $(\mathrm{Set})\to\mathcal C$ 保持有限积. 下面给出保证这一点的条件.
+
+假设 $\mathcal C$ 是具有有限积的范畴. 进一步假设, 对 $\mathcal C$ 中的任意对象 $U$ 和任意集合 $I$, 余积 $\coprod_{i\in I}U$ 都在 $\mathcal C$ 中存在; 特别地, $\mathcal C$
+% PDF 36 / printed 24
+有离散对象. 若 $U$ 是 $\mathcal C$ 的对象, $I$ 是集合, 置 $I\times U\overset{\mathrm{def}}=\coprod_{i\in I}U$. 根据定义, 一个箭头 $I\times U\to V$ 由以 $I$ 为参数的一族箭头 $f_i:U\to V$ 决定. 特别地, $\varnothing\times U$ 是 $\mathcal C$ 的始对象.
+
+注意如下事实. 设 $I$ 是集合, $U$ 是 $\mathcal C$ 的对象. 若 $i\in I$, 则 $\Delta\{i\}$ 是 $\mathcal C$ 的终对象, 因而有典范同构 $U\simeq\Delta\{i\}\times U$ (投影 $\Delta\{i\}\times U\to U$ 的逆). 另一方面, 嵌入 $\iota_i:\{i\}\hookrightarrow I$ 诱导箭头 $\Delta\iota_i\times\mathrm{id}_U:\Delta\{i\}\times U\to\Delta I\times U$. 把这些 $\Delta\iota_i$ 与同构 $U\simeq\Delta\{i\}\times U$ 复合, 得到以 $I$ 为参数的一族箭头 $U\to\Delta I\times U$, 从而得到箭头 $I\times U\to\Delta I\times U$.
+
+\begin{origstatement}{定义}{2.20}\label{ch02:def220}
+当以下条件成立时, 称范畴 $\mathcal C$ \emph{有离散群对象}.
+\begin{enumerate}
+\item[(i)] $\mathcal C$ 有有限积.
+\item[(ii)] 对 $\mathcal C$ 中的任意对象 $U$ 和任意集合 $I$, 余积 $I\times U\overset{\mathrm{def}}=\coprod_{i\in I}U$ 都存在.
+\item[(iii)] 对 $\mathcal C$ 中的任意对象 $U$ 和任意集合 $I$, 典范箭头 $I\times U\to\Delta I\times U$ 都是同构.
+\end{enumerate}
+\end{origstatement}
+
+例如, 范畴 $(\mathrm{Top})$ 中的终对象是一个点 (即单元素拓扑空间), 而余积是不交并. 容易检验定义中的各个条件. 这也适用于固定底概形 $S$ 上的概形范畴 $(\mathrm{Sch}/S)$; 这时, 终对象是 $S$ 本身.
+
+\begin{origstatement}{命题}{2.21}\label{ch02:prop221}
+若 $\mathcal C$ 有离散群对象, 则离散对象函子 $\Delta:(\mathrm{Set})\to\mathcal C$ 保持有限积.
+\end{origstatement}
+
+因此, 由注 2.14, 当范畴 $\mathcal C$ 有离散群对象时, 函子 $\Delta:(\mathrm{Set})\to\mathcal C$ 给出从群范畴到 $\mathcal C$ 中群对象范畴的函子, 也记为 $\Delta:(\mathrm{Grp})\to\mathrm{Grp}(\mathcal C)$. 若 $\mathcal C$ 中的群对象同构于形如 $\Delta\Gamma$ 的对象, 其中 $\Gamma$ 是群, 则称它是\emph{离散的}.
+
+\begin{proof}
+设 $\mathcal C$ 是有离散群对象的范畴. 为证明 $\Delta$ 保持有限积, 只需检验 $\Delta$ 把终对象送到终对象, 并保持两个对象的积. 前一事实直接由 $\Delta$ 的定义得到.
+
+我们来证明, 给定两个集合 $I,J$, 自然箭头 $\Delta(I\times J)\to\Delta I\times\Delta J$ 是同构. 根据定义, $\Delta(I\times J)=(I\times J)\times\mathrm{pt}$. 另一方面, 有众所周知的典范同构, 将
+\[
+(I\times J)\times\mathrm{pt}=\coprod_{(i,j)\in I\times J}\mathrm{pt}
+\]
+与
+\[
+\coprod_{i\in I}\Bigl(\coprod_{j\in J}\mathrm{pt}\Bigr)=I\times(J\times\mathrm{pt})=I\times\Delta J
+\]
+等同. 把这个同构 $\Delta(I\times J)\simeq I\times\Delta J$ 与上面讨论的同构 $I\times\Delta J\simeq\Delta I\times\Delta J$ 复合, 就得到同构 $\Delta(I\times J)\simeq\Delta I\times\Delta J$. 容易检验, 投影 $\Delta(I\times J)\to\Delta I$ 和 $\Delta(I\times J)\to\Delta J$ 由投影 $I\times J\to I$ 和 $I\times J\to J$ 诱导; 证明完成.
+\end{proof}
+
+群的作用与其相应离散群对象的作用是相同的.
+
+% PDF 37 / printed 25
+\begin{origstatement}{命题}{2.22}\label{ch02:prop222}
+假设 $\mathcal C$ 有有限群对象. 设 $X$ 是 $\mathcal C$ 的对象, $\Gamma$ 是群, $\Delta\Gamma$ 是相应的 $\mathcal C$ 中的离散群对象. 则给定 $\Gamma$ 在 $X$ 上的作用, 即给定群同态 $\Gamma\to\Aut_{\mathcal C}(X)$, 等价于给定群对象 $\Delta\Gamma$ 在 $X$ 上的作用.
+% source-error: scan prints "finite group objects", rather than "discrete group objects"; retained.
+\end{origstatement}
+\begin{proof}
+从 $\Gamma$ 到 $X$ 的自箭头集合 $\Hom_{\mathcal C}(X,X)$ 的映射, 根据定义对应于箭头 $\Gamma\times X\to X$; 上述同构 $\Gamma\times X\simeq\Delta\Gamma\times X$ 给出了映射 $\Gamma\to\Hom_{\mathcal C}(X,X)$ 与箭头 $\Delta\Gamma\times X\to X$ 之间的双射对应. 我们需要检验, 映射 $\Gamma\to\Hom_{\mathcal C}(X,X)$ 给出 $\Gamma$ 在 $X$ 上的作用, 当且仅当相应的箭头 $\Delta\Gamma\times X\to X$ 给出 $\Delta\Gamma$ 在 $X$ 上的作用. 这是直接的, 留给读者.
+\end{proof}
+
+\begin{origstatement}{注}{2.23}\label{ch02:rem223}
+术语“$\mathcal C$ 有离散群对象”也许会引起误解; 要使 $\mathcal C$ 有离散群对象, 只需有离散对象, 且函子 $\Delta$ 保持有限积就够了.
+
+不过, 要让离散群对象表现良好, 仅仅存在还不够, 我们还希望命题 2.22 成立: 为此, 定义 2.20 中的条件似乎是最合适的 (但不必假设 $\mathcal C$ 有所有积; 不过我所想到的例子都满足这个假设).
+\end{origstatement}
+
+\section{Grothendieck 拓扑中的层}\label{ch02:sec23}
+\subsection{Grothendieck 拓扑}\label{ch02:sec231}
+读者熟悉拓扑空间上的层的概念. 拓扑空间 $X$ 上的预层可以看成函子. 用 $X_{\mathrm{cl}}$ 表示对象为 $X$ 的开子集、箭头为包含关系的范畴. 那么, $X$ 上的集合预层是函子 $X_{\mathrm{cl}}^{\mathrm{op}}\to(\mathrm{Set})$; 当它满足适当的粘合条件时, 它就是一个层.
+
+在更一般的情形下, 也可以询问一个函子是否为层. 例如, 考虑函子 $F:(\mathrm{Top})^{\mathrm{op}}\to(\mathrm{Set})$; 对每个拓扑空间 $X$, 可以考虑它在 $(\mathrm{Top})$ 的子范畴 $X_{\mathrm{cl}}$ 上的限制 $F_X$. 若对所有 $X$, $F_X$ 都是 $X$ 上的层, 则称 $F$ 是 $(\mathrm{Top})$ 上的层.
+
+Grothendieck 拓扑中有一个非常一般的层的概念; 本节回顾这个理论.
+
+在 Grothendieck 拓扑中, 一个空间的“开集”是到这个空间的映射; 纤维积代替了交, 而并不再起作用. 公理描述的不是“开集”, 而是空间的覆盖.
+
+\begin{origstatement}{定义}{2.24}\label{ch02:def224}
+设 $\mathcal C$ 是范畴. $\mathcal C$ 上的一个 \emph{Grothendieck 拓扑}, 是给 $\mathcal C$ 的每个对象 $U$ 指定一类箭头集合 $\{U_i\to U\}$, 称为 $U$ 的\emph{覆盖} (coverings), 使得以下条件成立.
+\begin{enumerate}
+\item[(i)] 若 $V\to U$ 是同构, 则集合 $\{V\to U\}$ 是覆盖.
+\item[(ii)] 若 $\{U_i\to U\}$ 是覆盖, $V\to U$ 是任意箭头, 则纤维积 $\{U_i\times_UV\}$ 存在, 且投影族 $\{U_i\times_UV\to V\}$ 是覆盖.
+\item[(iii)] 若 $\{U_i\to U\}$ 是覆盖, 并且对每个指标 $i$ 都有覆盖 $\{V_{ij}\to U_i\}$ (这里 $j$ 在依赖于 $i$ 的集合中变化), 则复合箭头族 $\{V_{ij}\to U_i\to U\}$ 是 $U$ 的覆盖.
+\end{enumerate}
+\end{origstatement}
+
+带有 Grothendieck 拓扑的范畴称为\emph{景} (site).
+
+% PDF 38 / printed 26
+注意, 由 (ii), (iii) 可知, 若 $\{U_i\to U\}$ 和 $\{V_j\to U\}$ 是同一个对象的两个覆盖, 则 $\{U_i\times_UV_j\to U\}$ 也是覆盖.
+
+\begin{origstatement}{注}{2.25}\label{ch02:rem225}
+事实上, 我们在这里定义的是 [SGA4] 中所谓的\emph{预拓扑} (pretopology); 一个预拓扑定义一个拓扑, 而很不相同的预拓扑也可能定义同一个拓扑. 关键在于, 层论只依赖于拓扑, 而不依赖于预拓扑. 两个预拓扑诱导同一个拓扑, 当且仅当它们在定义 2.47 的意义下等价.
+
+尽管 [SGA4] 所定义的拓扑概念在技术上无疑有优点, 我却觉得它不太直观, 因而宁愿避免使用它 (无疑只是习惯问题).
+
+不过, 拓扑定义中出现的\emph{筛} (sieves) 是很有用的对象, 我们将广泛使用它们.
+\end{origstatement}
+
+下面给出 Grothendieck 拓扑的几个例子. 以下把映射或概形态射的集合 $\{U_i\to U\}$ 称为\emph{联合满射的} (jointly surjective), 若它们的像在集合意义下的并等于 $U$.
+
+\begin{origstatement}{例}{2.26}\label{ch02:ex226}
+\textbf{(拓扑空间的景)} 设 $X$ 是拓扑空间; 用 $X_{\mathrm{cl}}$ 表示对象为 $X$ 的开子集、箭头为包含关系的范畴. 为每个开子集 $U\subseteq X$ 配上 $U$ 的开覆盖的集合, 就在 $X_{\mathrm{cl}}$ 上得到一个 Grothendieck 拓扑.
+
+这时, 若 $U_1\to U$, $U_2\to U$ 是箭头, 则纤维积 $U_1\times_UU_2$ 是交集 $U_1\cap U_2$.
+\end{origstatement}
+
+\begin{origstatement}{例}{2.27}\label{ch02:ex227}
+\textbf{(整体经典拓扑)} 这里 $\mathcal C$ 是拓扑空间范畴 $(\mathrm{Top})$. 若 $U$ 是拓扑空间, 则 $U$ 的覆盖定义为联合满射的开嵌入族 $U_i\to U$.
+
+注意, 这里必须把“开嵌入”理解为连续、开、单的映射 $V\to U$; 若把开嵌入仅理解为开子空间的包含映射, 则不满足定义 2.24 的条件 (i).
+\end{origstatement}
+
+\begin{origstatement}{例}{2.28}\label{ch02:ex228}
+\textbf{(拓扑空间的整体平展拓扑)} 这里 $\mathcal C$ 是拓扑空间范畴 $(\mathrm{Top})$. 若 $U$ 是拓扑空间, 则 $U$ 的覆盖定义为联合满射的局部同胚族 $U_i\to U$.
+\end{origstatement}
+
+下面是代数几何中的一个极其重要的例子.
+
+\begin{origstatement}{例}{2.29}\label{ch02:ex229}
+\textbf{(概形的小平展景)} 设 $X$ 是概形. 考虑 $(\mathrm{Sch}/X)$ 的全子范畴 $X_{\text{ét}}$, 其对象为局部有限表现的平展态射 $U\to X$. 若 $U\to X$, $V\to X$ 是 $X_{\text{ét}}$ 的对象, 则 $X$ 上的箭头 $U\to V$ 必为平展的.
+
+小平展拓扑中 $U\to X$ 的覆盖, 是联合满射的态射族 $U_i\to U$.
+\end{origstatement}
+
+下面是在固定概形 $S$ 上的概形范畴 $(\mathrm{Sch}/S)$ 中可赋予的拓扑. 在不同背景中, 还使用过其他一些拓扑.
+
+\begin{origstatement}{例}{2.30}\label{ch02:ex230}
+\textbf{(整体 Zariski 拓扑)} 这里覆盖 $\{U_i\to U\}$ 是覆盖 $U$ 的开嵌入族. 与整体经典拓扑的例子一样, 开嵌入必须定义为把 $V$ 同构到 $U$ 的某个开子概形的态射 $V\to U$, 而不只是开子概形的嵌入.
+\end{origstatement}
+
+% PDF 39 / printed 27
+\begin{origstatement}{例}{2.31}\label{ch02:ex231}
+\textbf{(整体平展拓扑)} 覆盖 $\{U_i\to U\}$ 是联合满射的、局部有限表现的平展映射族.
+\end{origstatement}
+
+\begin{origstatement}{例}{2.32}\label{ch02:ex232}
+\textbf{(fppf 拓扑)} 覆盖 $\{U_i\to U\}$ 是联合满射的、局部有限表现的平坦映射族.
+
+缩写 fppf 代表“fidèlement plat et de présentation finie”.
+\end{origstatement}
+
+\subsection{fpqc 拓扑}\label{ch02:sec232}
+有时, 考虑并非局部有限表现的覆盖是有用的. 可以在 $(\mathrm{Sch}/S)$ 上定义拓扑, 简单地取所有态射族 $\{U_i\to U\}$, 满足所得态射 $\coprod_iU_i\to U$ 忠实平坦. 遗憾的是, 这个拓扑表现并不好 (见注 1.14 和 2.56). 要得到合理的拓扑, 需要某种有限性条件.
+
+例如, 可以像本讲义第一版中那样, 把覆盖定义为态射族 $\{U_i\to U\}$, 使所得态射 $\{\coprod_iU_i\to U\}$ 忠实平坦且拟紧; 但这样便不包括 Zariski 覆盖, 所得拓扑也不能与 Zariski 拓扑比较. 下面由 Steve Kleiman 建议的 fpqc 拓扑的定义, 给出正确的层论.
+
+\begin{origstatement}{命题}{2.33}\label{ch02:prop233}
+设 $f:X\to Y$ 是满的概形态射. 则以下性质等价.
+\begin{enumerate}
+\item[(i)] $Y$ 的每个拟紧开子集都是 $X$ 的某个拟紧开子集的像.
+\item[(ii)] 存在由仿射开子概形组成的 $Y$ 的覆盖 $\{V_i\}$, 使得每个 $V_i$ 都是 $X$ 的某个拟紧开子集的像.
+\item[(iii)] 给定点 $x\in X$, 存在 $x$ 在 $X$ 中的开邻域 $U$, 使得像 $fU$ 在 $Y$ 中开, 且 $f$ 的限制 $U\to fU$ 拟紧.
+\item[(iv)] 给定点 $x\in X$, 存在 $x$ 在 $X$ 中的拟紧开邻域 $U$, 使得像 $fU$ 在 $Y$ 中开且仿射.
+\end{enumerate}
+\end{origstatement}
+\begin{proof}
+(i) 推出 (ii) 显然. 从拟紧概形到仿射概形的态射拟紧, 因而 (iv) 推出 (iii).
+
+也容易证明 (iii) 推出 (iv): 若 $U'$ 是 $X$ 中包含 $x$ 的开子集, 且其在 $Y$ 中的像 $fU'$ 开, 就取 $f(x)$ 在 $fU'$ 中的仿射邻域 $V$, 并置 $U=f^{-1}V$.
+% source-error: no restriction of f to U' is written here in the scan; retained.
+
+由于 $f$ 满, 可知 (iv) 推出 (ii).
+
+反过来, 假设 (ii) 成立, 取点 $x\in X$. 则 $f(x)$ 包含在某个 $V_i$ 中. 设 $U'$ 是 $X$ 中像为 $V_i$ 的拟紧开子集, $U''$ 是 $x$ 在 $f^{-1}V_i$ 中的开邻域. 则 $U=U'\cup U''$ 拟紧, 包含 $x$, 且像为 $V_i$.
+% source-error: scan does not require U'' quasi-compact before concluding U is quasi-compact; retained.
+
+只剩下证明 (ii) 推出 (i). 设 $V$ 是 $Y$ 的拟紧开子集. 包含在某个 $V\cap V_i$ 中的 $Y$ 的仿射开子集构成 $V$ 的覆盖, 所以可以选取其中有限多个, 记为 $W_1,\ldots,W_r$. 给定某个 $W_j$, 选取指标 $i$ 使得 $W_j\subseteq V_i$, 再选 $X$ 中像为 $V_i$ 的拟紧开子集 $U_i$; 限制 $U_i\to V_i$ 拟紧, 因而 $W_j$ 在 $U_i$ 中的逆像 $W_j'$ 拟紧. 于是 $\bigcup_{j=1}^rW_j'$ 是 $X$ 的拟紧开子概形, 像为 $\bigcup_{j=1}^rW_j=V$.
+\end{proof}
+
+% PDF 40 / printed 28
+\begin{origstatement}{定义}{2.34}\label{ch02:def234}
+概形的 \emph{fpqc 态射}, 是满足命题 2.33 中各个等价条件的忠实平坦态射.
+\end{origstatement}
+
+缩写 fpqc 代表“fidèlement plat et quasi-compact”.
+
+下面是 fpqc 态射的若干性质.
+
+\begin{origstatement}{命题}{2.35}\label{ch02:prop235}
+\begin{enumerate}
+\item[(i)] fpqc 态射的复合是 fpqc 态射.
+\item[(ii)] 若 $f:X\to Y$ 是概形态射, 且存在 $Y$ 的开覆盖 $V_i$, 使得限制 $f^{-1}V_i\to V_i$ 为 fpqc 态射, 则 $f$ 是 fpqc 态射.
+\item[(iii)] 开的忠实平坦态射是 fpqc 态射.
+\item[(iv)] 局部有限表现的忠实平坦态射是 fpqc 态射.
+\item[(v)] 由 fpqc 态射换基得到的态射是 fpqc 态射.
+\item[(vi)] 若 $f:X\to Y$ 是 fpqc 态射, 则 $Y$ 的一个子集在 $Y$ 中开, 当且仅当它的逆像在 $X$ 中开.
+\end{enumerate}
+\end{origstatement}
+\begin{proof}
+利用命题 2.33 中的刻画 (i), 由定义可得 (i). 利用刻画 (ii) 也容易得到 (ii), 而 (iii) 由条件 (iii) 得到. (iv) 来自 (iii) 以及局部有限表现的忠实平坦态射是开的这一事实 (命题 1.12).
+
+对 (iii), 假设给定概形的笛卡尔图
+% source-error: scan prints "For (iii)" here, although this paragraph proves (v); retained.
+\[
+\begin{tikzcd}X'\arrow[r]\arrow[d]&X\arrow[d]\\Y'\arrow[r]&Y\end{tikzcd}
+\]
+使得 $X\to Y$ 是 fpqc 态射. 取 $Y$ 的仿射开子概形覆盖 $V_i$, 对每一个 $V_i$, 选取满映到 $V_i$ 的 $X$ 的拟紧开子集 $U_i$. 若用 $V_i'$ 表示 $V_i$ 在 $Y'$ 中的逆像, $U_i'$ 表示 $U_i$ 在 $X$ 中的逆像, 则容易检验 $U_i'=V_i'\times_{V_i}U_i$. 因为态射 $U_i\to V_i$ 拟紧, 所以 $U_i'\to V_i'$ 也拟紧. 现在取仿射开子概形组成的覆盖 $\{V_j''\}$, 使得每个 $V_j''$ 都包含在某个 $V_i'$ 中; 则每个 $V_j''$ 都是 $X'$ 的一个拟紧开子集的像, 即它在某个 $U_i'$ 中的逆像的像.
+% source-error: the scan says inverse image "in X" at the first definition of U_i'; retained.
+
+来证明 (vi). 设 $A$ 是 $Y$ 的子集, 它在 $X$ 中的逆像开. 选取 $Y$ 的仿射开子集覆盖 $\{V_i\}$, 其中每个 $V_i$ 都是 $X$ 中某个拟紧开子集 $U_i$ 的像. 则 $A$ 在每个 $U_i$ 中的逆像都开; 由命题 1.13, 这意味着每个 $A\cap V_i$ 在 $V_i$ 中开, 所以 $A$ 在 $Y$ 中开.
+\end{proof}
+
+范畴 $(\mathrm{Sch}/S)$ 上的 \emph{fpqc 拓扑}, 是把态射族 $\{U_i\to U\}$ 定义为覆盖的拓扑, 其条件是诱导态射 $\coprod U_i\to U$ 为 fpqc 态射.
+
+来验证这确实是拓扑, 即检验定义 2.24 中的三个条件. 条件 (i) 显然, 因为同构是 fpqc 态射.
+
+条件 (ii) 由命题 2.35 (v) 得到.
+
+条件 (iii) 容易由命题 2.35 的 (i), (ii) 两部分证明.
+
+fpqc 拓扑比 fppf 拓扑细, 后者比平展拓扑细, 而平展拓扑又比 Zariski 拓扑细.
+
+态射的许多性质, 在 fpqc 拓扑中是关于靶局部的.
+
+% PDF 41 / printed 29
+\begin{origstatement}{命题}{2.36}\label{ch02:prop236}
+设 $X\to Y$ 是概形态射, $\{Y_i\to Y\}$ 是 fpqc 覆盖. 假设对每个 $i$, 投影 $Y_i\times_YX\to Y_i$ 都具有下列某种性质:
+\begin{enumerate}
+\item[(i)] 分离,
+\item[(ii)] 拟紧,
+\item[(iii)] 局部有限表现,
+\item[(iv)] 固有,
+\item[(v)] 仿射,
+\item[(vi)] 有限,
+\item[(vii)] 平坦,
+\item[(viii)] 光滑,
+\item[(ix)] 非分歧,
+\item[(x)] 平展,
+\item[(xi)] 嵌入,
+\item[(xii)] 闭嵌入.
+\end{enumerate}
+则 $X\to Y$ 具有相同的性质.
+\end{origstatement}
+\begin{proof}
+上述每个性质都在 Zariski 拓扑中关于靶局部; 由这一事实、命题 2.33 中的刻画 (ii) 以及命题 1.15, 容易得到结论.
+\end{proof}
+
+\subsection{层}\label{ch02:sec233}
+若 $X$ 是拓扑空间, 则 $X$ 上的集合预层是函子 $X_{\mathrm{cl}}^{\mathrm{op}}\to(\mathrm{Set})$, 其中 $X_{\mathrm{cl}}$ 是 $X$ 的开子集范畴, 如例 2.26 中所述. 只需用纤维积代替不再有意义的交, 就能很容易地把 $F$ 为层的条件推广到任意景. (当然, $X_{\mathrm{cl}}$ 中的纤维积就是交.)
+
+\begin{origstatement}{定义}{2.37}\label{ch02:def237}
+设 $\mathcal C$ 是景, $F:\mathcal C^{\mathrm{op}}\to(\mathrm{Set})$ 是函子.
+\begin{enumerate}
+\item[(i)] 若给定覆盖 $\{U_i\to U\}$ 以及 $FU$ 中的两个截面 $a,b$, 且它们在每个 $FU_i$ 中的拉回相同, 就能推出 $a=b$, 则称 $F$ \emph{分离} (separated).
+\item[(ii)] 若以下条件成立, 则称 $F$ 是\emph{层} (sheaf). 假设给定 $\mathcal C$ 中的覆盖 $\{U_i\to U\}$ 以及一族元素 $a_i\in FU_i$. 分别用 $\mathrm{pr}_1:U_i\times_UU_j\to U_i$ 和 $\mathrm{pr}_2:U_i\times_UU_j\to U_j$ 表示第一、第二投影, 并假设对所有 $i,j$ 都有 $\mathrm{pr}_1^*a_i=\mathrm{pr}_2^*a_j\in F(U_i\times_UU_j)$. 则有唯一截面 $a\in FU$, 使得对所有 $i$, 它在 $FU_i$ 中的拉回都为 $a_i$.
+\end{enumerate}
+
+若 $F,G$ 是景 $\mathcal C$ 上的层, 则\emph{层态射} $F\to G$ 就是函子之间的自然变换.
+\end{origstatement}
+
+景上的层显然分离.
+
+当然, 也可如常定义群层、环层等等: 从 $\mathcal C^{\mathrm{op}}$ 到群范畴或环范畴的函子, 若它与到集合范畴的遗忘函子的复合为层, 就称为层.
+
+读者也许觉得我们对层的定义过于拘谨, 不明白为什么不简单地说“假设 $a_i,a_j$ 在 $F(U_i\times_UU_j)$ 中的拉回相同”. 原因如下: 当 $i=j$ 时, 在拓扑空间的经典情形下有 $U_i\times_UU_i=U_i\cap U_i=U_i$, 所以两个可能的拉回 $U_i\times_UU_i\to U_i$ 相同; 但若映射 $U_i\to U$ 非单, 则两个投影 $U_i\times_UU_i\to U_i$ 不同. 因此, 例如在经典情形下, 只含一个子集的覆盖并不重要, 对它们层条件自动成立; 而在一般情形下, 情况远非如此.
+
+% PDF 42 / printed 30
+还有另一种表述 $F$ 为层的条件的方式. 设 $A,B,C$ 是集合, 并假设给定图表
+\[
+\begin{tikzcd}A\arrow[r,"f"]&B\arrow[r,shift left=.5ex,"g"]\arrow[r,shift right=.5ex,"h"']&C.\end{tikzcd}
+\]
+(即给定映射 $f:A\to B$ 和两个映射 $f,g:B\to C$). 若 $f$ 单, 且将 $A$ 满映到子集 $\{b\in B\mid g(b)=h(b)\}\subseteq B$, 则称该图表为\emph{等化子} (equalizer).
+% source-error: scan prints f,g in the parenthetical prose, whereas the diagram and condition use g,h; retained.
+
+等价地, 该图表为等化子, 当且仅当 $g\circ f=h\circ f$, 且每个满足 $g\circ p=h\circ p$ 的映射 $p:D\to B$ 都唯一地经过 $A$ 分解.
+
+现在取函子 $F:\mathcal C^{\mathrm{op}}\to(\mathrm{Set})$ 和 $\mathcal C$ 中的覆盖 $\{U_i\to U\}$. 有图表
+\begin{equation}\tag{2.3.1}\label{ch02:eq231}
+\begin{tikzcd}
+FU\arrow[r]&\prod_iFU_i\arrow[r,shift left=.7ex,"\mathrm{pr}_1^*"]\arrow[r,shift right=.7ex,"\mathrm{pr}_2^*"']&\prod_{i,j}F(U_i\times_UU_j),
+\end{tikzcd}
+\end{equation}
+其中映射 $FU\to\prod_iFU_i$ 由限制映射 $FU\to FU_i$ 诱导, 而
+\[
+\mathrm{pr}_1^*:\prod_iFU_i\longrightarrow\prod_{i,j}F(U_i\times_UU_j)
+\]
+把元素 $(a_i)\in\prod_iFU_i$ 送到元素 $\mathrm{pr}_1^*(a_i)\in\prod_{i,j}F(U_i\times_UU_j)$, 它在 $F(U_i\times_UU_j)$ 中的分量是 $a_i$ 沿第一投影 $U_i\times_UU_j\to U_i$ 的拉回 $\mathrm{pr}_1^*a_i$. 映射
+\[
+\mathrm{pr}_2^*:\prod_iFU_i\longrightarrow\prod_{i,j}F(U_i\times_UU_j)
+\]
+的定义类似.
+
+立即可知, $F$ 是层, 当且仅当对 $\mathcal C$ 中的所有覆盖 $\{U_i\to U\}$, 图表 (2.3.1) 都是等化子.
+
+\subsection{筛}\label{ch02:sec234}
+给定范畴 $\mathcal C$ 的对象 $U$ 和 $\mathcal C$ 中的箭头集合 $\mathcal U=\{U_i\to U\}$, 定义子函子 $\mathrm h_{\mathcal U}\subseteq\mathrm h_U$, 令 $\mathrm h_{\mathcal U}(T)$ 为满足如下性质的箭头 $T\to U$ 的集合: 对某个 $i$, 存在分解 $T\to U_i\to U$. 用技术术语说, $\mathrm h_{\mathcal U}$ 是与覆盖 $\mathcal U$ 相联系的\emph{筛}. 这个词富有启发性: 把 $U_i$ 看作 $U$ 上的洞. 箭头 $T\to U$ 属于 $\mathrm h_{\mathcal U}T$, 就是说它穿过其中的一个洞. 因此, 筛由能穿过它的东西决定.
+
+\begin{origstatement}{定义}{2.38}\label{ch02:def238}
+设 $U$ 是范畴 $\mathcal C$ 的对象. $U$ 上的一个\emph{筛}是 $\mathrm h_U:\mathcal C^{\mathrm{op}}\to(\mathrm{Set})$ 的子函子.
+\end{origstatement}
+
+给定子函子 $S\subseteq\mathrm h_U$, 就得到一类箭头 $T\to U$, 记为 $\mathcal S$ (由 $T$ 遍历 $\mathcal C$ 的所有对象时的 $ST$ 的并组成), 它具有如下性质: 每当箭头 $T\to U$ 属于 $\mathcal S$, 每个复合箭头 $T'\to T\to U$ 也属于 $\mathcal S$. 反过来, 由这样的一类箭头得到子函子 $S\subseteq\mathrm h_U$, 其中 $ST$ 是属于 $\mathcal S$ 的所有箭头 $T\to U$ 组成的集合.
+
+现在设 $\mathcal U=\{U_i\to U\}$ 是箭头集合, $F:\mathcal C^{\mathrm{op}}\to(\mathrm{Set})$ 是函子. 定义 $F\mathcal U$ 为 $\prod_iFU_i$ 中在 $\prod_{i,j}F(U_i\times_UU_j)$ 内的两个像相等的元素组成的集合. 于是限制映射 $FU\to FU_i$ 诱导映射 $FU\to F\mathcal U$; 根据定义, 层就是满足对所有覆盖 $\mathcal U=\{U_i\to U\}$, $FU\to F\mathcal U$ 都是双射的函子 $F$.
+
+% PDF 43 / printed 31
+集合 $F\mathcal U$ 可以用筛来定义.
+
+\begin{origstatement}{命题}{2.39}\label{ch02:prop239}
+有典范双射
+\[
+R:\Hom(\mathrm h_{\mathcal U},F)\simeq F\mathcal U,
+\]
+使得图表
+\[
+\begin{tikzcd}
+\Hom(\mathrm h_U,F)\arrow[r]\arrow[d]&FU\arrow[d]\\
+\Hom(\mathrm h_{\mathcal U},F)\arrow[r,"R"']&F\mathcal U
+\end{tikzcd}
+\]
+交换, 其中上横行是 Yoneda 同构, 左竖列是由 $\mathrm h_{\mathcal U}$ 到 $\mathrm h_U$ 的嵌入所诱导的限制映射, 右竖列由限制映射 $FU\to FU_i$ 诱导.
+\end{origstatement}
+\begin{proof}
+取自然变换 $\phi:\mathrm h_{\mathcal U}\to F$. 对每个 $i$, 箭头 $U_i\to U$ 是 $\mathrm h_{\mathcal U}U_i$ 的对象; 由此得到元素 $R\phi\overset{\mathrm{def}}=(\phi(U_i\to U))\in\prod_iFU_i$. 在 $FU_{ij}$ 中的拉回 $\mathrm{pr}_1^*\phi(U_i\to U)$ 和 $\mathrm{pr}_2^*\phi(U_j\to U)$ 都等于 $\phi(U_{ij}\to U)$, 因此 $R\phi$ 是 $F\mathcal U$ 的元素. 这定义了映射 $R:\Hom(\mathrm h_{\mathcal U},F)\to F\mathcal U$; 图表的交换性立即可检验.
+
+需要证明 $R$ 是双射. 取两个自然变换 $\phi,\psi:\mathrm h_{\mathcal U}\to F$, 满足 $R\phi=R\psi$. 考虑某个 $\mathrm h_{\mathcal U}T$ 的元素 $T\to U$; 根据定义, 对某个箭头 $f:T\to U$, 它可分解为 $T\xrightarrow fU_i\to U$. 则由自然变换的定义有
+% source-error: the scan calls f an arrow T->U in the prose, although the factorization has T->U_i; retained.
+\[
+\phi(T\to U)=f^*\phi(U_i\to U)=f^*\psi(U_i\to U)=\psi(T\to U),
+\]
+所以 $\phi=\psi$. 这证明了 $R$ 的单射性.
+
+为证满射性, 取元素 $(\xi_i)\in F\mathcal U$; 需要定义自然变换 $\mathrm h_{\mathcal U}\to F$. 若 $T\to U$ 是 $\mathrm h_{\mathcal U}T$ 的元素, 选取分解 $T\xrightarrow fU_i\to U$; 这定义了 $FU$ 的元素 $f^*\xi_i$.
+% source-error: scan prints FU rather than FT here; retained.
+这个元素不依赖于分解: 两个分解 $T\xrightarrow fU_i\to U$ 和 $T\xrightarrow gU_j\to U$ 给出箭头 $T\to U_{ij}$, 它与 $\mathrm{pr}_1:U_{ij}\to U_i$ 和 $\mathrm{pr}_2:U_{ij}\to U_j$ 的复合分别等于 $f,g$. 因为 $\mathrm{pr}_1^*\xi_i=\mathrm{pr}_2^*\xi_j$, 可知 $f^*\xi_i=g^*\xi_j$.
+
+这为每个 $T$ 定义了映射 $\mathrm h_{\mathcal U}T\to FT$. 留给读者证明, 它定义了自然变换 $\phi:\mathrm h_{\mathcal U}\to F$, 且 $R\phi=(\xi_i)$.
+\end{proof}
+
+作为直接推论, 得到如下层的刻画.
+
+\begin{origstatement}{推论}{2.40}\label{ch02:cor240}
+函子 $F:\mathcal C^{\mathrm{op}}\to(\mathrm{Set})$ 是层, 当且仅当对 $\mathcal C$ 中的任意覆盖 $\mathcal U=\{U_i\to U\}$, 所诱导的映射
+\[
+FU\simeq\Hom(\mathrm h_U,F)\longrightarrow\Hom(\mathrm h_{\mathcal U},F)
+\]
+是双射. 此外, $F$ 分离, 当且仅当这个映射总是单射.
+\end{origstatement}
+
+还可以加强这个刻画.
+
+\begin{origstatement}{定义}{2.41}\label{ch02:def241}
+设 $\mathcal T$ 是范畴 $\mathcal C$ 上的 Grothendieck 拓扑. $\mathcal C$ 的对象 $U$ 上的筛 $S\subseteq\mathrm h_U$, 若存在 $U$ 的覆盖 $\mathcal U$, 使得 $\mathrm h_{\mathcal U}\subseteq S$, 则称它\emph{属于 $\mathcal T$}.
+\end{origstatement}
+
+% PDF 44 / printed 32
+若 $\mathcal C$ 是景, 我们说 $\mathcal C$ 的筛时, 指属于 $\mathcal C$ 的拓扑的筛.
+
+下面这个刻画的重要性, 在命题 2.49 的证明之后就会显现出来.
+
+\begin{origstatement}{命题}{2.42}\label{ch02:prop242}
+函子 $F:\mathcal C^{\mathrm{op}}\to(\mathrm{Set})$ 是拓扑 $\mathcal T$ 中的层, 当且仅当对每个属于 $\mathcal T$ 的筛 $S$, 所诱导的映射
+\[
+FU\simeq\Hom(\mathrm h_U,F)\longrightarrow\Hom(S,F)
+\]
+是双射. 此外, $F$ 分离, 当且仅当这个映射总是单射.
+\end{origstatement}
+\par\noindent\textit{证明.}
+这个条件推出 $F$ 为层, 是推论 2.42 的直接结果.
+% source-error: printed reference is Corollary 2.42 (there is no such corollary); retained.
+
+为证明逆命题, 设 $F$ 是层, 取属于 $\mathcal C$ 的筛 $S\subseteq\mathrm h_U$, 并选取 $U$ 的覆盖 $\mathcal U$, 使得 $\mathrm h_{\mathcal U}\subseteq S$. 再由推论 2.42 可知, 复合
+\[
+\Hom(\mathrm h_U,F)\longrightarrow\Hom(S,F)\longrightarrow\Hom(\mathrm h_{\mathcal U},F)
+\]
+是双射, 所以结论由下一个引理得到.
+
+\begin{origstatement}{引理}{2.43}\label{ch02:lem243}
+若 $F$ 分离, 则限制映射
+\[
+\Hom(S,F)\longrightarrow\Hom(\mathrm h_{\mathcal U},F)
+\]
+是单射.
+\end{origstatement}
+\begin{proof}
+取两个自然变换 $\phi,\psi:S\to F$, 它们在 $\Hom(\mathrm h_{\mathcal U},F)$ 中有相同的像; 再取 $ST$ 的元素 $T\to U$, 来证明 $\phi(T\to U)=\psi(T\to U)\in FT$.
+
+置 $\mathcal U=\{U_i\to U\}$, 考虑纤维积 $T\times_UU_i$ 及其投影 $p_i:T\times_UU_i\to T$. 因为 $T\times_UU_i\to U$ 属于 $\mathrm h_{\mathcal U}(T\times_UU_i)$, 有
+\[
+p_i^*\phi(T\to U)=\phi(T\times_UU_i)=\psi(T\times_UU_i)=p_i^*\psi(T\to U).
+\]
+因为 $\{p_i:T\times_UU_i\to T\}$ 是覆盖, 且 $F$ 是预层, 所以得到 $\phi(T\to U)=\psi(T\to U)\in FT$, 如所欲证.
+% source-error: scan says "presheaf" where the separation assumption is used; retained.
+\end{proof}
+
+这完成了命题 2.42 的证明.\hfill$\square$
+
+最后作一个说明. 假设 $\mathcal U=\{U_i\to U\}$ 和 $\mathcal V=\{V_j\to U\}$ 是覆盖. 则 $\mathcal U\times_U\mathcal V\overset{\mathrm{def}}=\{U_i\times_UV_j\to U\}$ 是覆盖. 箭头 $T\to U$ 经过 $U_i\times_UV_j$ 分解, 当且仅当它既经过 $U_i$ 又经过 $U_j$ 分解. 这个简单观察容易推出下述事实.
+% source-error: scan prints U_j at the last occurrence, although the other covering is V_j; retained.
+
+\begin{origstatement}{命题}{2.44}\label{ch02:prop244}
+\begin{enumerate}
+\item[(1)] 若 $\mathcal U=\{U_i\to U\}$ 和 $\mathcal V=\{V_j\to U\}$ 是覆盖, 则
+\[
+\mathrm h_{\mathcal U\times_U\mathcal V}=\mathrm h_{\mathcal U}\cap\mathrm h_{\mathcal V}\subseteq\mathrm h_U.
+\]
+\item[(2)] 若 $S_1,S_2$ 是 $U$ 上属于 $\mathcal T$ 的筛, 则交 $S_1\cap S_2\subseteq\mathrm h_U$ 也属于 $\mathcal T$.
+\end{enumerate}
+\end{origstatement}
+
+% PDF 45 / printed 33
+\subsection{Grothendieck 拓扑的等价}\label{ch02:sec235}
+有时, 同一范畴上的两个不同拓扑定义相同的层.
+
+\begin{origstatement}{定义}{2.45}\label{ch02:def245}
+设 $\mathcal C$ 是范畴, $\{U_i\to U\}_{i\in I}$ 是箭头集合. 一个\emph{加细} (refinement) $\{V_a\to U\}_{a\in A}$ 是箭头集合, 满足对每个指标 $a\in A$, 都有某个指标 $i\in I$, 使得 $V_a\to U$ 经过 $U_i\to U$ 分解.
+\end{origstatement}
+
+注意, 分解 $V_a\to U_i\to U$ 的选择并不属于数据的一部分, 我们只要求它们存在.
+
+箭头集合之间的这个关系, 用筛最容易表达. 下面的事实是直接的.
+
+\begin{origstatement}{命题}{2.46}\label{ch02:prop246}
+给定两个箭头集合 $\mathcal U=\{U_i\to U\}$ 和 $\mathcal V=\{V_a\to U\}$. 则 $\mathcal V$ 是 $\mathcal U$ 的加细, 当且仅当 $\mathrm h_{\mathcal V}\subseteq\mathrm h_{\mathcal U}$.
+\end{origstatement}
+
+加细的加细显然仍是加细. 而且, 任意覆盖都是它自身的加细: 因而, 加细关系是对象 $U$ 的覆盖集合上的预序.
+
+\begin{origstatement}{定义}{2.47}\label{ch02:def247}
+设 $\mathcal C$ 是范畴, $\mathcal T,\mathcal T'$ 是 $\mathcal C$ 上的两个拓扑. 若 $\mathcal T$ 中的每个覆盖都有一个加细, 该加细是 $\mathcal T'$ 中的覆盖, 则称 $\mathcal T$ \emph{从属于} (subordinate to) $\mathcal T'$, 记为 $\mathcal T\prec\mathcal T'$.
+
+若 $\mathcal T\prec\mathcal T'$ 且 $\mathcal T'\prec\mathcal T$, 则称 $\mathcal T,\mathcal T'$ \emph{等价}, 记为 $\mathcal T\equiv\mathcal T'$.
+\end{origstatement}
+
+加细是到 $U$ 的箭头集合之间的关系, 它具有传递性和自反性. 因此, 从属是 $\mathcal C$ 上拓扑之间的传递、自反关系, 而等价是等价关系.
+
+拓扑之间的这个关系, 用筛可以自然地表达.
+
+\begin{origstatement}{命题}{2.48}\label{ch02:prop248}
+设 $\mathcal T,\mathcal T'$ 是范畴 $\mathcal C$ 上的拓扑. 则 $\mathcal T\prec\mathcal T'$, 当且仅当每个属于 $\mathcal T$ 的筛也属于 $\mathcal T'$.
+
+特别地, 两个拓扑等价, 当且仅当它们有相同的筛.
+\end{origstatement}
+
+这由命题 2.46 清楚可见.
+
+\begin{origstatement}{命题}{2.49}\label{ch02:prop249}
+设 $\mathcal T,\mathcal T'$ 是同一范畴 $\mathcal C$ 上的两个 Grothendieck 拓扑. 若 $\mathcal T$ 从属于 $\mathcal T'$, 则 $\mathcal T'$ 中的每个层也是 $\mathcal T$ 中的层. 特别地, 两个等价拓扑有相同的层.
+\end{origstatement}
+
+证明直接来自命题 2.42 和 2.48.
+
+按 Grothendieck 的用语, 我们所定义的东西称为预拓扑, 而两个等价预拓扑定义同一个拓扑.
+
+\begin{origstatement}{例}{2.50}\label{ch02:ex250}
+$(\mathrm{Top})$ 上的整体经典拓扑 (例 2.27) 与例 2.28 的整体平展拓扑等价.
+\end{origstatement}
+
+\begin{origstatement}{例}{2.51}\label{ch02:ex251}
+若 $S$ 是底概形, 则在范畴 $(\mathrm{Sch}/S)$ 上还可定义另一个拓扑, 即\emph{光滑拓扑}, 其中覆盖 $\{U_i\to U\}$ 为联合满射的、局部有限表现的光滑态射集合.
+
+由 [EGAIV4, 推论 17.16.3], 给定光滑覆盖 $\{U_i\to U\}$, 可以找到一个经过不交并 $\coprod_iU_i\to U$ 分解的平展满态射 $V\to U$; 给定这样的分解, 若 $V_i$ 是 $U_i$ 在 $V$ 中的逆像, 则 $\{V_i\to U\}$ 是 $\{U_i\to U\}$ 的一个平展覆盖加细. 这意味着光滑拓扑从属于平展拓扑. 由于每个平展覆盖显然都是光滑覆盖, 两个拓扑等价.
+\end{origstatement}
+
+% PDF 46 / printed 34
+\begin{origstatement}{定义}{2.52}\label{ch02:def252}
+范畴 $\mathcal C$ 上的拓扑 $\mathcal T$, 若满足给定 $\mathcal T$ 中的覆盖 $\mathcal U$, $\mathcal U$ 的每个加细也属于 $\mathcal T$, 就称为\emph{饱和的} (saturated).
+
+若 $\mathcal T$ 是 $\mathcal C$ 的拓扑, 则 $\mathcal T$ 的\emph{饱和化} $\overline{\mathcal T}$ 是 $\mathcal T$ 中各个覆盖的加细所组成的集合.
+\end{origstatement}
+
+\begin{origstatement}{命题}{2.53}\label{ch02:prop253}
+设 $\mathcal T$ 是范畴 $\mathcal C$ 上的拓扑.
+\begin{enumerate}
+\item[(i)] $\mathcal T$ 的饱和化 $\overline{\mathcal T}$ 是饱和拓扑.
+\item[(ii)] $\mathcal T\subseteq\overline{\mathcal T}$.
+\item[(iii)] $\overline{\mathcal T}$ 与 $\mathcal T$ 等价.
+\item[(iv)] 拓扑 $\mathcal T$ 饱和, 当且仅当 $\mathcal T=\overline{\mathcal T}$.
+\item[(v)] $\mathcal C$ 上的拓扑 $\mathcal T'$ 从属于 $\mathcal T$, 当且仅当 $\mathcal T'\subseteq\overline{\mathcal T}$.
+\item[(vi)] $\mathcal C$ 上的拓扑 $\mathcal T'$ 与 $\mathcal T$ 等价, 当且仅当 $\overline{\mathcal T'}=\overline{\mathcal T}$.
+\item[(vii)] $\mathcal C$ 上的拓扑与唯一一个饱和拓扑等价.
+\end{enumerate}
+\end{origstatement}
+
+简单的证明留给读者.
+
+\subsection{可表函子的层条件}\label{ch02:sec236}
+\begin{origstatement}{命题}{2.54}\label{ch02:prop254}
+可表函子 $(\mathrm{Top})^{\mathrm{op}}\to(\mathrm{Set})$ 是整体经典拓扑中的层.
+\end{origstatement}
+
+这就是说, 给定两个拓扑空间 $U,X$, 一个开覆盖 $\{U_i\subseteq U\}$, 以及连续映射 $f_i:U_i\to X$, 满足对所有 $i,j$, $f_i,f_j$ 在 $U_i\cap U_j$ 上的限制相同, 则存在唯一连续映射 $U\to X$, 其限制 $U_i\to X$ 为 $f_i$. 这基本上是显然的 (归结为映射的连续性关于定义域局部这一事实). 由类似理由, 容易证明, 底概形 $S$ 上的概形范畴 $(\mathrm{Sch}/S)$ 上的可表函子是 Zariski 拓扑中的层.
+
+另一方面, 下面的结论却一点也不容易: 概形是一个拓扑空间连同 Zariski 拓扑中的环层. 乍看起来, 似乎没有理由能让我们在比 Zariski 拓扑更细的拓扑中粘合概形态射.
+
+\begin{origstatement}{定理}{2.55}\label{ch02:thm255}
+\textbf{(Grothendieck)} $(\mathrm{Sch}/S)$ 上的可表函子是 fpqc 拓扑中的层.
+\end{origstatement}
+
+所以特别地, 它也是平展拓扑和 fppf 拓扑中的层.
+
+这个结论还有另一种表达方式. 回顾, 在范畴 $\mathcal C$ 中, 箭头 $f:V\to U$ 称为\emph{满态射} (epimorphism), 若每当有两个箭头 $U\rightrightarrows X$, 满足两个复合 $V\to U\rightrightarrows X$ 相同, 这两个箭头就相等. 换言之, 要求对 $\mathcal C$ 的任意对象 $X$, 映射 $\Hom_{\mathcal C}(U,X)\to\Hom_{\mathcal C}(V,X)$ 都单.
+
+另一方面, $V\to U$ 称为\emph{有效满态射} (effective epimorphism), 若对 $\mathcal C$ 的任意对象 $X$, 任意满足两个复合
+\[
+\begin{tikzcd}
+V\times_UV\arrow[r,shift left=.6ex,"\mathrm{pr}_1"]\arrow[r,shift right=.6ex,"\mathrm{pr}_2"']&V\arrow[r]&X
+\end{tikzcd}
+\]
+相同的箭头 $V\to X$, 都唯一地经过 $U$ 分解. 换言之, 要求图表
+\[
+\begin{tikzcd}
+\Hom_{\mathcal C}(U,X)\arrow[r]&\Hom_{\mathcal C}(V,X)\arrow[r,shift left=.6ex]\arrow[r,shift right=.6ex]&\Hom_{\mathcal C}(V\times_UV,X)
+\end{tikzcd}
+\]
+为等化子.
+
+% PDF 47 / printed 35
+于是, 定理 2.55 是说, 每个概形的 fpqc 态射都是 $(\mathrm{Sch}/S)$ 中的有效满态射.
+
+\begin{origstatement}{注}{2.56}\label{ch02:rem256}
+如 §2.3.2 开头已经指出的, 有一种“野性”的平坦拓扑, 其中覆盖是联合满射的平坦态射集合 $\{U_i\to U\}$. 不过, 这个拓扑表现很差; 特别地, 并非所有可表函子都是层.
+
+如注 1.14, 取代数闭域上的一条整光滑曲线 $U$, 其分式域为 $K$, 并对所有闭点 $p\in U(k)$ 置 $V_p=\Spec\mathcal O_{U,p}$. 则 $\{V_p\to U\}$ 是这个野性平坦拓扑中的覆盖.
+
+每个 $V_p$ 都包含闭点 $p$, 且 $V_p\setminus\{p\}=\Spec K$ 是 $V_p$ 的泛点; 此外, 当 $p=q$ 时, $V_p\times_UV_q=V_p$, 否则 $V_p\times_UV_q=\Spec K$.
+
+把所有 $V_p$ 沿 $\Spec K$ 粘合起来, 可以构成一个 (极不分离的) 概形 $X$; 则嵌入 $V_p\hookrightarrow X$ 和 $V_q\hookrightarrow X$ 在限制到 $V_p\times_UV_q$ 时相同, 所以给出 $\prod_p\mathrm h_XV_p$ 的一个元素, 它在 $\prod_{p,q}\mathrm h_X(V_p\times_UV_q)$ 中的两个像相同. 不过, 不存在态射 $U\to X$, 其在每个 $V_p$ 上的限制为自然态射 $V_p\to U$.
+% source-error: scan prints V_p->U at this occurrence, although the desired restricted map has target X; retained.
+事实上, 这样的态射必把每个闭点 $p\in U$ 送到 $p\in V_p\subseteq X$, 把泛点送到泛点; 但所得集合映射 $U\to X$ 不连续, 因为 $X$ 中所有由闭点组成的子集都闭, 而 $U$ 中只有有限集闭.
+\end{origstatement}
+
+\begin{origstatement}{定义}{2.57}\label{ch02:def257}
+范畴 $\mathcal C$ 上的拓扑 $\mathcal T$, 若满足 $\mathcal C$ 上的每个可表函子都是关于 $\mathcal T$ 的层, 就称为\emph{次典范的} (subcanonical).
+
+\emph{次典范景}是赋有次典范拓扑的范畴.
+\end{origstatement}
+
+有些景不是次典范的 (注 2.56 中刚看到一个例子), 不过我从未与它们打过交道.
+
+“次典范”这个名称来自如下事实: 范畴 $\mathcal C$ 上有一个称为\emph{典范拓扑}的拓扑, 它是使每个可表函子都成为层的最细拓扑. 我们不需要这个事实.
+
+\begin{origstatement}{定义}{2.58}\label{ch02:def258}
+设 $\mathcal C$ 是景, $S$ 是 $\mathcal C$ 的对象. 在逗号范畴 $(\mathcal C/S)$ 上定义\emph{逗号拓扑} (comma topology): $(\mathcal C/S)$ 的对象 $U\to S$ 的覆盖是一族箭头
+\[
+\begin{tikzcd}U_i\arrow[r,"f_i"]\arrow[dr]&U\arrow[d]\\&S\end{tikzcd}
+\]
+使得族 $\{f_i:U_i\to U\}$ 是 $\mathcal C$ 中的覆盖. 换言之, $U\to S$ 的覆盖就是 $U$ 的覆盖.
+\end{origstatement}
+
+很容易检验, 逗号拓扑确实是拓扑.
+
+例如, 若 $\mathcal C$ 是所有概形的范畴 (或等价地, $\mathbb Z$ 上的概形范畴), 则 $(\mathcal C/S)$ 是 $S$ 上的概形范畴, 而由 fpqc 拓扑在 $(\mathcal C/S)$ 上诱导的逗号拓扑就是 fpqc 拓扑. 对 Zariski 拓扑、平展拓扑和 fppf 拓扑也有类似陈述.
+
+\begin{origstatement}{命题}{2.59}\label{ch02:prop259}
+若 $\mathcal C$ 是次典范景, $S$ 是 $\mathcal C$ 的对象, 则 $(\mathcal C/S)$ 也是次典范的.
+\end{origstatement}
+
+% PDF 48 / printed 36
+\begin{proof}
+需要证明, 对 $(\mathcal C/S)$ 中的任意覆盖 $\{U_i\to U\}$, 序列
+\[
+\begin{tikzcd}[column sep=small]
+\Hom_S(U,X)\arrow[r]&\prod_i\Hom_S(U_i,X)\arrow[r,shift left=.6ex]\arrow[r,shift right=.6ex]&\prod_{i,j}\Hom_S(U_i\times_UU_i,X)
+\end{tikzcd}
+\]
+是等化子. 映射
+% source-error: scan prints U_i x_U U_i in the first display, although the product is indexed by i,j; retained.
+\[
+\Hom_S(U,X)\longrightarrow\prod_i\Hom_S(U_i,X)
+\]
+的单射性显然, 因为 $\Hom_S(U,X)$ 单射到 $\Hom_S(U,X)$ 中, $\prod_i\Hom_S(U_i,X)$ 单射到 $\prod_i\Hom(U_i,X)$ 中, 而由于 $\mathrm h_X$ 是层, $\Hom_S(U,X)$ 单射到 $\prod_i\Hom(U_i,X)$ 中.
+% source-error: first target Hom_S(U,X) printed with subscript S as well; retained.
+另一方面, 假设给定 $\prod_i\Hom_S(U_i,X)$ 的元素 $(a_i)$, 使得对所有指标对 $i,j$, 都在 $\Hom_S(U_i\times_UU_j,X)$ 中有 $\mathrm{pr}_1^*a_i=\mathrm{pr}_2^*a_j$. 则存在态射 $a\in\Hom(U,X)$, 使得对所有 $i$, 复合 $U_i\to U\xrightarrow aX$ 都与 $a_i$ 相同, 而我们只需检验 $a$ 是 $S$-概形态射. 但对所有 $i$, 复合 $U_i\to U\xrightarrow aX\to S$ 都与结构态射 $U_i\to S$ 相同; 因为 $\Hom(-,S)$ 是概形范畴上的层, 所以 $\Hom(U,S)$ 单射到 $\prod_i\Hom(U_i,S)$ 中, 这就意味着复合 $U\xrightarrow aX\to S$ 是 $U$ 的结构态射, 证明完成.
+\end{proof}
+
+\paragraph{定理 2.55 的证明.}
+我们将使用下面这个有用的判别法.
+
+\begin{origstatement}{引理}{2.60}\label{ch02:lem260}
+设 $S$ 是概形, $F:(\mathrm{Sch}/S)^{\mathrm{op}}\to(\mathrm{Set})$ 是函子. 假设 $F$ 满足以下两个条件.
+\begin{enumerate}
+\item[(i)] $F$ 是整体 Zariski 拓扑中的层.
+\item[(ii)] 每当 $V\to U$ 是仿射 $S$-概形的忠实平坦态射时, 图表
+\[
+\begin{tikzcd}
+FU\arrow[r]&FV\arrow[r,shift left=.6ex,"\mathrm{pr}_1^*"]\arrow[r,shift right=.6ex,"\mathrm{pr}_2^*"']&F(V\times_UV)
+\end{tikzcd}
+\]
+都是等化子.
+\end{enumerate}
+则 $F$ 是 fpqc 拓扑中的层.
+\end{origstatement}
+\begin{proof}
+取 $S$ 上概形在 fpqc 拓扑中的覆盖 $\{U_i\to U\}$, 并置 $V=\coprod_iU_i$. 诱导态射 $V\to U$ 是 fpqc 态射. 因为 $F$ 是 Zariski 层, 由限制所诱导的映射 $FV\to\prod_iFU_i$ 是同构. 有集合的交换图
+\[
+\begin{tikzcd}[column sep=small]
+FU\arrow[r]\arrow[d,equal]&FV\arrow[r,shift left=.6ex,"\mathrm{pr}_1^*"]\arrow[r,shift right=.6ex,"\mathrm{pr}_2^*"']\arrow[d]&F(V\times_UV)\arrow[d]\\
+FU\arrow[r]&\prod_iFU_i\arrow[r,shift left=.6ex,"\mathrm{pr}_1^*"]\arrow[r,shift right=.6ex,"\mathrm{pr}_2^*"']&\prod_{i,j}F(U_i\times_UU_j)
+\end{tikzcd}
+\]
+其中各竖列都是双射; 因此要证明下横行是等化子, 只需证明上横行是等化子. 换言之, 已经证明只需考虑由单个态射组成的覆盖 $\{V\to U\}$. 类似地, 为检验 $F$ 分离, 也可只考虑由单个态射组成的覆盖.
+
+% PDF 49 / printed 37
+这个论证也说明, 若 $\{U_i\to U\}$ 是有限覆盖, 且 $U$ 和各 $U_i$ 都仿射, 则图表
+\[
+\begin{tikzcd}
+FU\arrow[r]&\prod_iFU_i\arrow[r,shift left=.6ex,"\mathrm{pr}_1^*"]\arrow[r,shift right=.6ex,"\mathrm{pr}_2^*"']&\prod_{i,j}F(U_i\times_UU_j)
+\end{tikzcd}
+\]
+为等化子. 事实上, 这时有限不交并 $\coprod_iU_i$ 也仿射.
+
+现在给定 fpqc 态射 $f:V\to U$; 取 $V$ 的拟紧开子集组成的开覆盖 $\{V_i\}$, 使得其像 $U_i=fV_i$ 开且仿射. 把每个 $V_i$ 写成有限多个开子概形 $V_{ia}$ 的并. 考虑图表
+% source-error: scan does not explicitly say V_ia are affine, though the argument needs this; retained.
+\[
+\begin{tikzcd}[column sep=small,row sep=large]
+FU\arrow[r]\arrow[d]&FV\arrow[r,shift left=.5ex]\arrow[r,shift right=.5ex]\arrow[d]&F(V\times_UV)\arrow[d]\\
+\prod_iFU_i\arrow[r]\arrow[d,shift left=.5ex]\arrow[d,shift right=.5ex]&\prod_i\prod_aFV_{ia}\arrow[r,shift left=.5ex]\arrow[r,shift right=.5ex]\arrow[d,shift left=.5ex]\arrow[d,shift right=.5ex]&\prod_i\prod_{a,b}F(V_{ia}\times_UV_{ib})\\
+\prod_{i,j}F(U_i\cap U_j)\arrow[r]&\prod_{i,j}\prod_{a,b}F(V_{ia}\cap V_{jb}).&
+\end{tikzcd}
+\]
+因为 $F$ 是 Zariski 拓扑中的层, 它的各竖列都是等化子. 另一方面, 第二横行是等化子, 因为每个图表
+\[
+\begin{tikzcd}[column sep=small]
+FU_i\arrow[r]&\prod_kFV_{ia}\arrow[r,shift left=.5ex]\arrow[r,shift right=.5ex]&\prod_{a,b}F(V_{ia}\times_UV_{ib})
+\end{tikzcd}
+\]
+都是等化子, 而等化子的积是等化子.
+% source-error: the preceding display prints product index k, not a; retained.
+因此限制映射 $FU\to FV$ 单, 所以 $F$ 分离. 但这意味着最下面的横行是单射, 再作简单的图追踪, 就能证明最上面的横行正合.
+\end{proof}
+
+为证明定理 2.55, 需要检验, 若 $F=\mathrm h_X$, 其中 $X$ 是 $S$-概形, 则满足引理 2.60 的第二个条件. 首先, 由命题 2.59, 只需在 $S=\Spec\mathbb Z$ 的情形下证明结论, 即 $(\mathrm{Sch}/S)$ 就是所有概形的范畴. 所以在证明的余下部分, 只需考虑概形态射, 不必顾及底概形.
+
+先假设 $X$ 仿射. 置 $U=\Spec A$, $V=\Spec B$, $X=\Spec R$. 这时, 结论容易由下述引理得到. 考虑与态射 $V\to U$ 相对应的环同态 $f:A\to B$, 以及由 $e_1(b)=b\otimes1$ 和 $e_2(b)=1\otimes b$ 定义的两个 $A$-代数同态 $e_1,e_2:B\to B\otimes_AB$; 它们对应于两个投影 $V\times_UV\to V$.
+
+\begin{origstatement}{引理}{2.61}\label{ch02:lem261}
+序列
+\[
+0\longrightarrow A\xrightarrow fB\xrightarrow{e_1-e_2}B\otimes_AB
+\]
+正合.
+\end{origstatement}
+\begin{proof}
+$f$ 的单射性显然, 因为 $B$ 在 $A$ 上忠实平坦. 此外, $f$ 的像显然包含在 $e_1-e_2$ 的核中, 所以只需证明 $e_1-e_2$ 的核包含在 $f$ 的像中.
+
+假设存在 $A$-代数同态 $g:B\to A$ (换言之, 假设态射 $V\to U$ 有截面). 则复合 $g\circ f:A\to A$ 是恒等映射. 取元素 $b\in\ker(e_1-e_2)$; 根据定义, 这意味着在 $B\otimes_AB$ 中有 $b\otimes1=1\otimes b$. 对等式两边应用同态 $g\otimes\mathrm{id}_B:B\otimes_A
+% PDF 50 / printed 38
+B\to A\otimes_AB=B$, 得到 $f(gb)=b$, 从而 $b\in\operatorname{im}f$.
+
+一般并不存在截面 $U\to V$; 不过, 假设存在忠实平坦的 $A$-代数 $A\to A'$, 使得换基得到的同态 $f\otimes\mathrm{id}_{A'}:A'\to B\otimes A'$ 具有如上的截面 $B\otimes A'\to A'$. 置 $B'=B\otimes A'$. 则存在自然的 $A'$-代数同构 $B'\otimes_{A'}B'\simeq(B\otimes_AB)\otimes_AA'$, 使得图表
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+0\arrow[r]&A'\arrow[r,"f\otimes\mathrm{id}_{A'}"]\arrow[d,equal]&B'\arrow[r,"e'_1-e'_2"]\arrow[d,equal]&B'\otimes_{A'}B'\arrow[d]\\
+0\arrow[r]&A'\arrow[r,"f\otimes\mathrm{id}_{A'}"']&B'\arrow[r,"(e_1-e_2)\otimes\mathrm{id}_{A'}"']&(B\otimes_AB)\otimes_AA'
+\end{tikzcd}
+\]
+交换. 因为截面存在, 上横行正合, 因而下横行正合. 由于 $A'$ 在 $A$ 上忠实平坦, 结论成立. 而要找到这样的同态 $A\to A'$, 只需置 $A'=B$; 由 $b\otimes b'\mapsto bb'$ 定义的乘法 $B\otimes_AA'\to A'$ 给出所需的截面. 用几何语言来说, 对角态射 $V\to V\times_UV$ 给出第一投影 $V\times_UV\to V$ 的截面.
+\end{proof}
+
+为完成 $X$ 仿射时定理 2.55 的证明, 回顾概形态射 $U\to X$, $V\to X$ 和 $V\times_UV\to X$ 分别对应于环同态 $R\to A$, $R\to B$ 和 $R\to B\otimes_AB$; 于是结论立即由上述引理得到. 这证明了当 $X$ 仿射时, $\mathrm h_X$ 是层.
+
+若不再要求 $X$ 仿射, 把 $X=\bigcup_iX_i$ 写为仿射开子概形的并.
+
+来证明 $\mathrm h_X$ 分离. 给定覆盖 $V\to U$, 取两个态射 $f,g:U\to X$, 使得两个复合 $V\to U\rightrightarrows X$ 相等. 因为 $V\to U$ 满, $f,g$ 在集合意义下相同, 所以可以置 $U_i=f^{-1}X_i=g^{-1}X_i$, 并把 $U_i$ 在 $V$ 中的逆像记为 $V_i$. 两个复合
+\[
+\begin{tikzcd}
+V_i\arrow[r]&U_i\arrow[r,shift left=.6ex,"f|_{U_i}"]\arrow[r,shift right=.6ex,"g|_{U_i}"']&X_i
+\end{tikzcd}
+\]
+相同, 而 $X_i$ 仿射; 因此对所有 $i$ 都有 $f|_{U_i}=g|_{U_i}$, 从而 $f=g$, 如所欲证.
+
+为完成证明, 假设 $g:V\to X$ 是态射, 满足两个复合
+\[
+\begin{tikzcd}
+V\times_UV\arrow[r,shift left=.6ex,"\mathrm{pr}_1"]\arrow[r,shift right=.6ex,"\mathrm{pr}_2"']&V\arrow[r,"g"]&X
+\end{tikzcd}
+\]
+相等; 需要证明 $g$ 经过 $U$ 分解. 态射 $V\to U$ 满, 所以由下面的引理 2.62, $g$ 在集合意义下经过 $U$ 分解. 因为 $U$ 带有态射 $V\to U$ 诱导的商拓扑 (命题 1.13), 所得映射 $f:U\to X$ 连续.
+
+对所有 $i$, 置 $U_i=f^{-1}X_i$, $V_i=g^{-1}V_i$. 复合
+% source-error: scan prints V_i=g^{-1}V_i, rather than g^{-1}X_i; retained.
+\[
+\begin{tikzcd}
+V_i\times_UV_i\arrow[r,shift left=.6ex,"\mathrm{pr}_1"]\arrow[r,shift right=.6ex,"\mathrm{pr}_2"']&V_i\arrow[r,"g|_{V_i}"]&V_i\arrow[r]&X_i
+\end{tikzcd}
+\]
+% source-error: scan displays an additional V_i between g|_{V_i} and X_i; retained.
+% PDF 51 / printed 39
+相同, 而 $X_i$ 仿射, 所以 $g|_{V_i}:V_i\to X$ 唯一地经过态射 $f_i:U_i\to X_i$ 分解. 有
+\[
+f_i|_{U_i\cap U_j}=f_j|_{U_i\cap U_j}:U_i\cap U_j\longrightarrow X,
+\]
+因为 $\mathrm h_X$ 分离; 因此, 各个 $f_i$ 粘合起来, 给出所需的分解 $V\to U\to X$.\hfill$\square$
+
+\begin{origstatement}{引理}{2.62}\label{ch02:lem262}
+设 $f_1:X_1\to Y$ 和 $f_2:X_2\to Y$ 是概形态射. 若 $x_1,x_2$ 分别为 $X_1,X_2$ 中的点, 且 $f_1(x_1)=f_2(x_2)$, 则纤维积 $X_1\times_YX_2$ 中存在点 $z$, 使得 $\mathrm{pr}_1(z)=x_1$, $\mathrm{pr}_2(z)=x_2$.
+\end{origstatement}
+\begin{proof}
+置 $y=f_1(x_1)=f_2(x_2)\in Y$. 考虑扩张 $k(y)\subseteq k(x_1)$ 和 $k(y)\subseteq k(x_2)$; 张量积 $k(x_1)\otimes_{k(y)}k(x_2)$ 非零, 因为域上两个向量空间的张量积, 除非有一个向量空间为零, 否则绝不为零. 因此 $k(x_1)\otimes_{k(y)}k(x_2)$ 有极大理想; 商域 $K$ 是 $k(y)$ 的扩张, 同时包含 $k(x_1)$ 和 $k(x_2)$. 两个复合 $\Spec K\to\Spec k(x_1)\to X_1\xrightarrow{f_1}U$ 和 $\Spec K\to\Spec k(x_2)\to X_2\xrightarrow{f_2}U$ 相同, 所以得到态射 $\Spec K\to X_1\times_YX_2$. 取 $z$ 为 $\Spec K$ 在 $X_1\times_YX_2$ 中的像.
+% source-error: scan prints target U in these composites, while the lemma's target is Y; retained.
+\end{proof}
+
+定理 2.55 的证明至此完成.
+
+\subsection{函子的层化}\label{ch02:sec237}
+拓扑空间上的集合预层的层化的通常构造, 可以推广到这个更一般的背景.
+
+\begin{origstatement}{定义}{2.63}\label{ch02:def263}
+设 $\mathcal C$ 是景, $F:\mathcal C^{\mathrm{op}}\to(\mathrm{Set})$ 是函子. $F$ 的一个\emph{层化} (sheafification) 是层 $F^{\mathrm a}:\mathcal C^{\mathrm{op}}\to(\mathrm{Set})$, 连同自然变换 $F\to F^{\mathrm a}$, 满足:
+\begin{enumerate}
+\item[(i)] 给定 $\mathcal C$ 的对象 $U$ 以及 $FU$ 的两个对象 $\xi,\eta$, 若它们在 $F^{\mathrm a}U$ 中的像 $\xi^{\mathrm a},\eta^{\mathrm a}$ 同构, 则存在覆盖 $\{\sigma_i:U_i\to U\}$, 使得 $\sigma_i^*\xi=\sigma_i^*\eta$;
+\item[(ii)] 对 $\mathcal C$ 的每个对象 $U$ 和每个 $\xi\in F^{\mathrm a}(U)$, 存在覆盖 $\{\sigma_i:U_i\to U\}$ 及元素 $\xi_i\in F(U_i)$, 使得 $\xi_i^{\mathrm a}=\sigma_i^*\xi$.
+\end{enumerate}
+% source-error: the scan calls images in the set F^a U "isomorphic" in (i); retained.
+\end{origstatement}
+
+\begin{origstatement}{定理}{2.64}\label{ch02:thm264}
+设 $\mathcal C$ 是景, $F:\mathcal C^{\mathrm{op}}\to(\mathrm{Set})$ 是函子.
+\begin{enumerate}
+\item[(i)] 若 $F^{\mathrm a}:\mathcal C^{\mathrm{op}}\to(\mathrm{Set})$ 是 $F$ 的层化, 则从 $F$ 到层的任意态射都唯一地经过 $F^{\mathrm a}$ 分解.
+\item[(ii)] 存在层化 $F\to F^{\mathrm a}$, 且它在典范同构的意义下唯一.
+\item[(iii)] 自然变换 $F\to F^{\mathrm a}$ 单 (即每个映射 $FU\to F^{\mathrm a}U$ 都单), 当且仅当 $F$ 分离.
+\end{enumerate}
+\end{origstatement}
+\begin{proof}[证明提要]
+对 (i), 分解唯一性的检验留给读者.
+
+为证存在性, 设 $\phi:F\to G$ 是从 $F$ 到层 $G:\mathcal C^{\mathrm{op}}\to(\mathrm{Set})$ 的自然变换. 给定 $F^{\mathrm a}U$ 的元素 $\xi$, 希望定义 $\xi$ 在 $GU$ 中的像. 存在覆盖 $\{\sigma_i:U_i\to U\}$ 和元素 $\xi_i\in FU_i$, 使得 $\xi_i$ 在 $F^{\mathrm a}U_i$ 中的像是 $\sigma_i^*\xi$. 置 $\eta_i=\phi\xi_i\in GU_i$. 在 $GU_{ij}$ 中的拉回 $\mathrm{pr}_1^*\eta_i$ 和 $\mathrm{pr}_2^*\eta_j$, 在 $F^{\mathrm a}U_{ij}$ 中的像都是 $\xi$ 的拉回; 因此存在覆盖 $\{U_{ij\alpha}\to U_{ij}\}$, 使得对每个 $\alpha$, $\mathrm{pr}_1^*\xi_i$ 和 $\mathrm{pr}_2^*\xi_j$ 在 $FU_{ij\alpha}$ 中的拉回相同.
+% source-error: no morphism G->F^a is given, although the preceding source sentence says the eta pullbacks have images there; retained.
+应用 $\phi$, 并记住它是自然变换且
+% PDF 52 / printed 40
+$G$ 是层, 就知道对任意指标对 $i,j$, $\eta_i,\eta_j$ 在 $GU_{ij}$ 中的拉回相同. 因此有 $GU$ 的元素 $\eta$, 它在每个 $GU_i$ 中的拉回为 $\eta_i$.
+
+留给读者验证, 这个 $\eta\in GU$ 只依赖于 $\xi$, 并且把每个 $\xi$ 送到相应的 $\eta$, 就定义了自然变换 $F^{\mathrm a}\to G$, 它与给定态射 $F\to F^{\mathrm a}$ 的复合为 $\phi$.
+
+来证明 (ii). 对 $\mathcal C$ 的每个对象 $U$, 在 $FU$ 上如下定义等价关系 $\sim$. 给定 $FU$ 的两个元素 $a,b$, 若存在覆盖 $U_i\to U$, 使得 $a,b$ 在每个 $U_i$ 上的拉回相同, 则记 $a\sim b$. 容易检验这是等价关系, 定义 $F^{\mathrm s}U=FU/{\sim}$. 还可验证, 若 $V\to U$ 是 $\mathcal C$ 中的箭头, 则拉回 $FU\to FV$ 与这些等价关系相容, 给出拉回 $F^{\mathrm s}U\to F^{\mathrm s}V$. 这就定义了函子 $F^{\mathrm s}$ 及满态射 $F\to F^{\mathrm s}$. 容易直接检验, $F^{\mathrm s}$ 分离, 且从 $F$ 到分离函子的每个自然变换都唯一地经过 $F^{\mathrm s}$ 分解.
+
+为构造 $F^{\mathrm a}$, 对 $\mathcal C$ 的每个对象 $U$, 取所有对 $\bigl(\{U_i\to U\},\{a_i\}\bigr)$ 组成的集合, 其中 $\{U_i\to U\}$ 是覆盖, $\{a_i\}$ 是一族满足 $a_i\in F^{\mathrm s}U_i$ 的元素, 且 $a_i,a_j$ 分别沿第一、第二投影在 $F^{\mathrm s}(U_i\times_UU_j)$ 中的拉回相同. 在这个集合上施加等价关系: 当 $a_i,b_j$ 分别沿第一、第二投影在 $F^{\mathrm s}(U_i\times_UV_j)$ 中的限制相同时, 声明 $\bigl(\{U_i\to U\},\{a_i\}\bigr)$ 与 $\bigl(\{V_j\to U\},\{b_j\}\bigr)$ 等价. 要验证这个关系的传递性, 需要用到函子 $F^{\mathrm s}$ 分离这一事实.
+
+对每个 $U$, 用 $F^{\mathrm a}U$ 表示等价类的集合. 若 $V\to U$ 是箭头, 则定义映射 $F^{\mathrm a}U\to F^{\mathrm a}V$, 把 $F^{\mathrm a}U$ 中一对 $\bigl(\{U_i\to U\},\{a_i\}\bigr)$ 的类送到 $\bigl(\{U_i\times_UV\},p_i^*a_i\bigr)$ 的类, 其中 $p_i:U_i\times_UV\to U_i$ 是投影. 检验这个定义良定之后, 就得到函子 $F^{\mathrm a}:\mathcal C^{\mathrm{op}}\to(\mathrm{Set})$. 还有自然变换 $F^{\mathrm s}\to F^{\mathrm a}$, 由把元素 $a\in F^{\mathrm s}U$ 送到 $\bigl(\{U=U\},a\bigr)$ 得到. 然后验证 $F^{\mathrm a}$ 是层, 且自然变换 $F\to F^{\mathrm s}$ 和 $F^{\mathrm s}\to F^{\mathrm a}$ 的复合具有所需的泛性质.
+
+在典范同构意义下的唯一性直接由 (i) 得到. (iii) 容易由定义得到.
+\end{proof}
+
+还有一个更简洁而等价的定义. 考虑 $\mathcal C$ 的对象 $U$ 上属于 $\mathcal T$ 的筛组成的集合 $S_i$. 它们构成有序集: 若 $S_j\subseteq S_i$, 就置 $i\leq j$. 根据命题 2.44, 这是一个正向系, 即给定两个指标 $i,j$, 存在某个 $k$, 使得 $k\geq i$ 且 $k\geq j$. 则 $F^{\mathrm a}U$ 与正向极限 $\varinjlim_i\Hom_{\mathcal C}(S_i,F^{\mathrm s})$ 之间有典范双射对应.

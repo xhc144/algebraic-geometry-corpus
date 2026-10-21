@@ -1,0 +1,208 @@
+% Source PDF 19–24, printed 7–12. OCR corrected against all six rendered pages.
+\chapter{预备概念}\label{ch01}
+\section{代数几何}\label{ch01:sec1}
+本章不加证明地回顾本书用到的若干概形论基本概念. 所有环和代数都假定为交换的.
+
+我们沿用 \textit{Éléments de géométrie algébrique} 的术语, 但遵照通常的惯例, 将其中所称的“预概形”称为“概形”（在 \textit{Éléments de géométrie algébrique} 中, 概形还被假定为分离的）.
+
+先讨论若干有限性条件. 回顾一下, 若 $B$ 是环 $A$ 上的一个代数, 称 $B$ 是\emph{有限表现的}（finitely presented）, 是指它是 $A$ 上某个多项式环 $A[x_1,\ldots,x_n]$ 模去一个有限生成理想所得的商. 若 $A$ 是 Noether 环, 则每个有限生成代数都是有限表现的.
+
+若 $B$ 在 $A$ 上有限表现, 则无论将其写成何种形式 $B=A[x_1,\ldots,x_n]/I$, 理想 $I$ 在 $A[x_1,\ldots,x_n]$ 中总是有限生成的（[\textbf{EGAIV1}, 命题 1.4.4]）.
+
+\begin{definition}[参见 {\normalfont[\textbf{EGAIV1}, 1.4.2]}]\label{ch01:def1.1}
+概形态射 $f\colon X\to Y$ 称为\emph{局部有限表现的}（locally of finite presentation）, 是指对每个 $x\in X$, 都存在 $x$ 在 $X$ 中的仿射邻域 $U$ 和 $f(x)$ 在 $Y$ 中的仿射邻域 $V$, 使得 $f(U)\subseteq V$, 且 $\cO(U)$ 是 $\cO(V)$ 上的有限表现代数.
+\end{definition}
+
+显然, 若 $Y$ 局部 Noether, 则 $f$ 局部有限表现当且仅当它局部有限型.
+
+\begin{proposition}[{\normalfont[\textbf{EGAIV1}, 1.4]}]\label{ch01:prop1.2}
+\begin{enumerate}
+\item 若 $f\colon X\to Y$ 局部有限表现, $U$ 和 $V$ 分别是 $X$ 和 $Y$ 的仿射开子集, 且 $f(U)\subseteq V$, 则 $\cO(U)$ 在 $\cO(V)$ 上有限表现.
+\item 局部有限表现态射的复合仍局部有限表现.
+\item 给定 Cartesian 图
+\[\begin{tikzcd}X'\ar[r]\ar[d]&X\ar[d]\\Y'\ar[r]&Y,\end{tikzcd}\]
+若 $X\to Y$ 局部有限表现, 则 $X'\to Y'$ 也局部有限表现.
+\end{enumerate}
+\end{proposition}
+
+\begin{definition}[参见 {\normalfont[\textbf{EGAI}, 6.6.1]}]\label{ch01:def1.3}
+概形态射 $X\to Y$ 称为\emph{拟紧的}（quasi-compact）, 是指 $Y$ 的每个拟紧开子集在 $X$ 中的逆像都是拟紧的.
+\end{definition}
+
+仿射概形是拟紧的, 因而一个概形拟紧当且仅当它是有限个仿射开子概形之并; 利用这一点, 容易证明下述命题.
+
+% Source PDF 20, printed 8.
+\begin{proposition}[{\normalfont[\textbf{EGAI}, 命题 6.6.4]}]\label{ch01:prop1.4}
+设 $f\colon X\to Y$ 是概形态射. 下列条件等价.
+\begin{enumerate}
+\item $f$ 拟紧.
+\item 每个仿射开子概形的逆像都是拟紧的.
+\item 存在由仿射开子概形组成的覆盖 $Y=\bigcup_i V_i$, 使得每个 $V_i$ 在 $X$ 中的逆像都是拟紧的.
+\end{enumerate}
+特别地, 从拟紧概形到仿射概形的态射是拟紧的.
+\end{proposition}
+
+\begin{remark}\label{ch01:rem1.5}
+若没有附加假设, 仅仅假定 $Y$ 有一个由拟紧开子概形 $V_i$ 组成的覆盖, 且每个 $V_i$ 在 $X$ 中的逆像都拟紧, 还不够. 例如, 考虑一个其根理想不满足升链条件的环 $A$（譬如无穷多个变元的多项式环）, 并令 $X=\Spec A$. 在 $X$ 中存在一个不拟紧的开子集 $U$; 记 $Y$ 为将 $X$ 的两个副本沿 $U$ 粘合所得的概形, 记 $f\colon X\to Y$ 为其中一个副本的包含态射. 此时 $Y$ 和 $X$ 都是拟紧的; 另一方面, $Y$ 有一个仿射开子集（即 $X$ 的另一个副本）, 它在 $X$ 中的逆像是 $U$, 因而 $f$ 不拟紧.
+\end{remark}
+
+\begin{proposition}[{\normalfont[\textbf{EGAI}, 6.6]}]\label{ch01:prop1.6}
+\begin{enumerate}
+\item 拟紧态射的复合仍拟紧.
+\item 给定 Cartesian 图
+\[\begin{tikzcd}X'\ar[r]\ar[d]&X\ar[d]\\Y'\ar[r]&Y,\end{tikzcd}\]
+若 $X\to Y$ 拟紧, 则 $X'\to Y'$ 也拟紧.
+\end{enumerate}
+\end{proposition}
+
+现在转向平坦态射.
+
+\begin{definition}\label{ch01:def1.7}
+概形态射 $f\colon X\to Y$ 称为\emph{平坦的}（flat）, 是指对每个 $x\in X$, 局部环 $\cO_{X,x}$ 作为 $\cO_{Y,f(x)}$-模是平坦的.
+\end{definition}
+
+\begin{proposition}[{\normalfont[\textbf{EGAIV2}, 命题 2.1.2]}]\label{ch01:prop1.8}
+设 $f\colon X\to Y$ 是概形态射. 则下列条件等价.
+\begin{enumerate}
+\item $f$ 平坦.
+\item 对每个 $x\in X$, 都存在 $x$ 在 $X$ 中的仿射邻域 $U$ 和 $f(x)$ 在 $Y$ 中的仿射邻域 $V$, 使得 $f(U)\subseteq V$, 且 $\cO(U)$ 在 $\cO(V)$ 上平坦.
+\item 对 $X$ 中和 $Y$ 中任意满足 $f(U)\subseteq V$ 的仿射开子集 $U$ 和 $V$, $\cO(U)$ 都在 $\cO(V)$ 上平坦.
+\end{enumerate}
+\end{proposition}
+
+\begin{proposition}[{\normalfont[\textbf{EGAIV2}, 2.1]}]\label{ch01:prop1.9}
+\begin{enumerate}
+\item 平坦态射的复合仍平坦.
+\item 给定 Cartesian 图
+\[\begin{tikzcd}X'\ar[r]\ar[d]&X\ar[d]\\Y'\ar[r]&Y,\end{tikzcd}\]
+若 $X\to Y$ 平坦, 则 $X'\to Y'$ 也平坦.
+\end{enumerate}
+\end{proposition}
+
+% Source PDF 21, printed 9.
+\begin{definition}\label{ch01:def1.10}
+概形态射 $f\colon X\to Y$ 称为\emph{忠实平坦的}（faithfully flat）, 是指它既平坦又满射.
+\end{definition}
+
+设 $B$ 是 $A$ 上的一个代数. 若相应的概形态射 $\Spec B\to\Spec A$ 忠实平坦, 则称 $B$ 忠实平坦.
+
+\begin{proposition}[{\normalfont[\textbf{Mat89}, 定理 7.2 和 7.3]}]\label{ch01:prop1.11}
+设 $B$ 是 $A$ 上的一个代数. 下列条件等价.
+\begin{enumerate}
+\item $B$ 在 $A$ 上忠实平坦.
+\item 一个 $A$-模序列 $M'\to M\to M''$ 正合当且仅当它诱导的 $B$-模序列 $M'\otimes_A B\to M\otimes_A B\to M''\otimes_A B$ 正合.
+\item 一个 $A$-模同态 $M'\to M$ 单射当且仅当相应的 $B$-模同态 $M'\otimes_A B\to M\otimes_A B$ 单射.
+\item $B$ 在 $A$ 上平坦, 且若一个 $A$-模 $M$ 满足 $M\otimes_A B=0$, 则 $M=0$.
+\item $B$ 在 $A$ 上平坦, 且对 $A$ 的每个极大理想 $\mathfrak m$, 都有 $\mathfrak mB\ne B$.
+\end{enumerate}
+\end{proposition}
+
+下面这个事实十分重要.
+
+\begin{proposition}[{\normalfont[\textbf{EGAIV2}, 命题 2.4.6]}]\label{ch01:prop1.12}
+局部有限表现的平坦态射是开态射.
+\end{proposition}
+
+对于不局部有限表现的平坦态射, 这一结论一般不成立; 但仍有下面这个较弱的版本.
+
+\begin{proposition}[{\normalfont[\textbf{EGAIV2}, 推论 2.3.12]}]\label{ch01:prop1.13}
+若 $f\colon X\to Y$ 是忠实平坦、满射、拟紧的态射, 则 $Y$ 的一个子集是开集当且仅当它在 $X$ 中的逆像是 $X$ 中的开集.
+\end{proposition}
+
+换言之, $Y$ 的拓扑由 $X$ 的拓扑诱导.
+
+\begin{remark}\label{ch01:rem1.14}
+这里需要假定 $f$ 拟紧, 仅假定它忠实平坦是不够的. 例如, 设 $Y$ 是代数闭域上的一条整光滑曲线, $X$ 是所有闭点 $y\in Y$ 所对应的 $\Spec\cO_{Y,y}$ 的不交并. 自然投影 $f\colon X\to Y$ 显然平坦. 然而, 若 $S$ 是 $Y$ 中包含泛点的一个子集, 则 $f^{-1}S$ 在 $X$ 中总是开集, 而 $S$ 在 $Y$ 中是开集当且仅当它的补集有限.
+\end{remark}
+
+\begin{proposition}[{\normalfont[\textbf{EGAIV2}, 命题 2.7.1]}]\label{ch01:prop1.15}
+设
+\[\begin{tikzcd}X'\ar[r]\ar[d]&X\ar[d]\\Y'\ar[r]&Y\end{tikzcd}\]
+是一个概形的 Cartesian 图, 其中 $Y'\to Y$ 忠实平坦, 并且或者拟紧, 或者局部有限表现. 假定 $X'\to Y'$ 具有下列某一性质:
+\begin{enumerate}
+\item 分离;
+\item 拟紧;
+\item 局部有限表现;
+\item 固有;
+\item 仿射;
+\item 有限;
+% Source PDF 22, printed 10: continuation of Proposition 1.15.
+\item 平坦;
+\item 光滑;
+\item 非分歧;
+\item 平展;
+\item 为浸入;
+\item 为闭浸入.
+\end{enumerate}
+则 $X\to Y$ 具有同一性质.
+\end{proposition}
+
+在 [\textbf{EGAIV2}] 中, 这些陈述都是在 $Y'\to Y$ 拟紧的情形下证明的. 利用命题~\ref{ch01:prop1.12}, 以及这些性质都在 $Y$ 的 Zariski 拓扑下局部这一事实, 不难在 $Y'\to Y$ 局部有限表现时也证明上述结论.
+
+\section{范畴论}\label{ch01:sec2}
+我们假定读者熟悉范畴、函子和自然变换的概念. 范畴论的标准参考文献是 [\textbf{ML98}]; [\textbf{Bor94a}]、[\textbf{Bor94b}] 和 [\textbf{Bor94c}] 也很有用.
+
+我们不区分小范畴与大范畴. 更一般地, 我们忽略一切集合论困难. 这些困难可用宇宙的标准论证加以克服.
+
+设 $F\colon\mathcal A\to\mathcal B$ 是函子. 回顾一下, 称 $F$ \emph{全忠实}（fully faithful）, 是指对 $\mathcal A$ 的任意两个对象 $A$ 和 $A'$, 由 $F$ 定义的映射
+\[\Hom_{\mathcal A}(A,A')\longrightarrow\Hom_{\mathcal B}(FA,FA')\]
+是双射. 称 $F$ \emph{本质满射}（essentially surjective）, 是指 $\mathcal B$ 的每个对象都与 $\mathcal A$ 的某个对象的像同构.
+
+还要回顾, 称 $F$ 为一个\emph{等价}（equivalence）, 是指存在函子 $G\colon\mathcal B\to\mathcal A$, 使得复合 $GF\colon\mathcal A\to\mathcal A$ 同构于 $\id_{\mathcal A}$, 且 $FG\colon\mathcal B\to\mathcal B$ 同构于 $\id_{\mathcal B}$.
+
+两个等价的复合仍是等价. 特别地,“等价”是范畴之间的一个等价关系.
+
+下面这个熟知的事实将被频繁使用.
+
+\begin{proposition}\label{ch01:prop1.16}
+函子是等价当且仅当它既全忠实又本质满射.
+\end{proposition}
+
+若 $\mathcal A$ 和 $\mathcal B$ 是范畴, 则有范畴 $\Hom(\mathcal A,\mathcal B)$, 其对象是函子 $\Phi\colon\mathcal A\to\mathcal B$, 箭头 $\alpha\colon\Phi\to\Psi$ 是自然变换. 若 $F\colon\mathcal A'\to\mathcal A$ 是函子, 则有诱导函子
+\[F^*\colon\Hom(\mathcal A,\mathcal B)\longrightarrow\Hom(\mathcal A',\mathcal B),\]
+它在对象上的定义由显然的规则给出: 对每个函子 $\Phi\colon\mathcal A\to\mathcal B$, 令
+\[F^*\Phi\overset{\mathrm{def}}=\Phi\circ F\colon\mathcal A'\longrightarrow\mathcal B.\]
+在箭头层面, 对每个自然变换 $\alpha\colon\Phi\to\Psi$, $F^*$ 由下式定义:
+\[(F^*\alpha)_{A'}\overset{\mathrm{def}}=\alpha_{FA'}\colon\Phi FA'\longrightarrow\Psi FA'.\]
+同样, 对每个函子 $F\colon\mathcal B\to\mathcal B'$, 也得到一个诱导函子
+\[F_*\colon\Hom(\mathcal A,\mathcal B)\longrightarrow\Hom(\mathcal A,\mathcal B'),\]
+% Source PDF 23, printed 11.
+其定义由上述定义作显然的变动得到.
+
+读者还应回顾, \emph{群胚}（groupoid）是每个箭头都可逆的范畴.
+
+我们还会大量使用任意范畴中的纤维积和 Cartesian 图的概念. 我们将对一些 Cartesian 图作运算. 特别地, 读者会遇到形如
+\[\begin{tikzcd}A'\ar[r]\ar[d]&B'\ar[r]\ar[d]&C'\ar[d]\\A\ar[r]&B\ar[r]&C\end{tikzcd}\]
+的图; 当其中两个方块都是 Cartesian 方块时, 我们称此图为 Cartesian 图. 这等价于说右边的方块与将两行分别复合所得的方块
+\[\begin{tikzcd}A'\ar[r]\ar[d]&C'\ar[d]\\A\ar[r]&C\end{tikzcd}\]
+都是 Cartesian 方块. 还会出现其他形如“存在一个 Cartesian 图……”的陈述. 这些都应当容易直接核查.
+
+对任意范畴 $\mathcal C$ 和 $\mathcal C$ 的任意对象 $X$, 记 $(\mathcal C/X)$ 为\emph{逗号范畴}（comma category）, 其对象是 $\mathcal C$ 中的箭头 $U\to X$, 箭头则是交换图
+\[\begin{tikzcd}U\ar[rr]\ar[dr]&&V\ar[dl]\\&X.&\end{tikzcd}\]
+
+还以 $\mathcal C^{\op}$ 表示 $\mathcal C$ 的\emph{反范畴}（opposite category）: 它的对象不变, 箭头也相同, 但交换箭头的源与目标. 从 $\mathcal C$ 到另一个范畴 $\mathcal D$ 的\emph{反变函子}（contravariant functor）, 是函子 $\mathcal C^{\op}\to\mathcal D$.
+
+每当范畴中有纤维积 $X_1\times_Y X_2$, 我们用 $\pr_1\colon X_1\times_Y X_2\to X_1$ 和 $\pr_2\colon X_1\times_Y X_2\to X_2$ 表示两个投影. 对三个或更多对象的积, 也采用类似的记号: 例如, 用
+\[\pr_i\colon X_1\times_Y X_2\times_Y X_3\longrightarrow X_i\]
+表示第 $i$ 个投影, 用
+\[\pr_{ij}\colon X_1\times_Y X_2\times_Y X_3\longrightarrow X_i\times_Y X_j\]
+表示到第 $i$ 个和第 $j$ 个因子之积的投影.
+
+回顾一下, 范畴有有限积当且仅当它有终对象（即 $0$ 个对象的积）, 并且任意两个对象都有积.
+
+设 $\mathcal C$ 和 $\mathcal D$ 是有有限积的范畴; 用 $\mathrm{pt}_{\mathcal C}$ 和 $\mathrm{pt}_{\mathcal D}$ 表示它们的终对象. 称函子 $F\colon\mathcal C\to\mathcal D$ \emph{保持有限积}（preserve finite products）, 是指满足下述条件. 给定 $\mathcal C$ 的对象 $U_1,\ldots,U_r$: 投影 $U_1\times\cdots\times U_r\to U_i$ 诱导箭头 $F(U_1\times\cdots\times U_r)\to FU_i$. 于是相应的箭头
+\[F(U_1\times\cdots\times U_r)\longrightarrow FU_1\times\cdots\times FU_r\]
+是 $\mathcal C$ 中的同构.
+% SOURCE ISSUE: printed p11 says “in C”; typed faithfully although the arrow is in D.
+
+% Source PDF 24, printed 12.
+若 $f_1\colon U_1\to V_1,\ldots,f_r\colon U_r\to V_r$ 是 $\mathcal C$ 中的箭头, 则图
+\[\begin{tikzcd}[column sep=large]
+ F(U_1\times\cdots\times U_r)\ar[r]\ar[d,"F(f_1\times\cdots\times f_r)"']&FU_1\times\cdots\times FU_r\ar[d,"Ff_1\times\cdots\times Ff_r"]\\
+ F(V_1\times\cdots\times V_r)\ar[r]&FV_1\times\cdots\times FV_r
+\end{tikzcd}\]
+显然交换, 其中横向箭头是上面定义的同构.
+
+通过一个简单的归纳论证可知, $F$ 保持有限积当且仅当 $F\mathrm{pt}_{\mathcal C}$ 是 $\mathcal D$ 的终对象, 且对 $\mathcal C$ 的任意两个对象 $U$ 和 $V$, 箭头 $F(U\times V)\to FU\times FV$ 是同构（换言之, 要使 $F$ 保持有限积, 只需它保持 $0$ 个和 $2$ 个对象的积）.
+
+最后, 用 $(\Set)$ 表示集合范畴, $(\mathrm{Top})$ 表示拓扑空间范畴, $(\mathrm{Grp})$ 表示群范畴, $(\Sch/S)$ 表示固定基概形 $S$ 上的概形范畴.

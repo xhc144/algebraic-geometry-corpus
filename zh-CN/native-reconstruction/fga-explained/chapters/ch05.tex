@@ -1,0 +1,1081 @@
+% Part 2; source PDF pp.117--150, printed pp.105--138.
+% Translation checkpoint. Native reconstruction; no scan overlays.
+\providecommand{\chHilb}{\mathcal{H}ilb}
+\providecommand{\chQuot}{\mathcal{Q}uot}
+\providecommand{\chGrass}{\mathcal{G}rass}
+\providecommand{\chProj}{\operatorname{Proj}}
+\providecommand{\chSym}{\operatorname{Sym}}
+\providecommand{\chGrassScheme}{\operatorname{Grass}}
+\providecommand{\chHilbScheme}{\operatorname{Hilb}}
+\providecommand{\chQuotScheme}{\operatorname{Quot}}
+% Source PDF 117, printed 105; PDF 118 is blank.
+\part{Hilbert 概形与 Quot 概形的构造}
+\begin{center}Nitin Nitsure\end{center}
+% Source PDF 119, printed 107.
+\chapter{Hilbert 概形与 Quot 概形的构造}\label{ch05}
+\section*{引言}
+每个概形 $X$ 都定义一个从概形范畴到集合范畴的反变函子 $h_X$ (称为概形 $X$ 的点函子), 它把每个概形 $T$ 对应到从 $T$ 到 $X$ 的全部态射组成的集合 $\Mor(T,X)$. 由 Yoneda 引理, 可以从 $h_X$ 恢复概形 $X$ (精确到唯一同构). 事实上, 为了恢复概形 $X$, 只须知道该函子在仿射概形组成的满子范畴上的限制.
+
+直接描述函子 $h_X$ 往往比给出概形 $X$ 容易. 各种参数概形与模概形, 或任意基底上的各种群概形, 通常都是如此: 我们可以直接定义一个从概形范畴到集合范畴的反变函子 $F$, 它应当是所求概形的点函子, 而事先并不知道这样的概形是否确实存在.
+
+这就提出了从概形范畴到集合范畴的反变函子的可表性问题. 可表性的一个重要必要条件来自如下事实: 函子 $h_X$ 对忠实平坦拟紧覆盖满足下降.
+
+(回忆, 对集合值函子 $F$, 下降就是层条件: 若 $(f_i:U_i\to U)$ 是 fpqc 拓扑中 $U$ 的一个开覆盖, 则序列
+\[
+ F(U)\longrightarrow\prod_iF(U_i)\rightrightarrows\prod_{i,j}F(U_i\times_U U_j)
+\]
+是正合的.)
+
+对给定函子 $F$, 下降条件通常容易验证, 但它并不是可表性的充分条件.
+
+因此, 构造表示各种重要函子 (例如模函子) 的概形, 是代数几何中一个微妙且技术上困难的问题. Grothendieck 通过证明某些基本函子, 即 Hilbert 函子和 Quot 函子的可表性, 处理了这个问题. 他所构造的表示概形称为 Hilbert 概形和 Quot 概形, 是证明大多数模函子可表 (无论是由概形表示还是由代数叠表示) 的基础.
+
+Grothendieck 所用的技巧以他所发展的下降理论与上同调理论为基础. 他在 Bourbaki 讨论班的一系列报告中 (汇集为 \textit{Fondements de la G\'eom\'etrie Alg\'ebriques}, 见 [FGA]) 概述了下降理论, Hilbert 概形与 Quot 概形的构造, 以及这些构造在 Picard 概形构造中的应用 (还概述了形式概形与某些取商技巧).
+
+以下讲义说明 Hilbert 概形和 Quot 概形的构造. 我们假定读者熟悉概形语言与上同调的基本知识, 大致达到 Hartshorne 的 \textit{Algebraic Geometry} [Har77] 第 2、3 章的程度.
+% Source PDF 120, printed 108.
+我们所需的关于平坦态射的一些更深入的事实 (包括平坦性的局部判别准则), 可以在 Altman 与 Kleiman 的 \textit{Introduction to Grothendieck Duality Theory} [AK70] 中找到. 本书第一部分关于下降理论的讲义, 特别包含了我们所需的下降背景. 射影几何中的某些深入技巧, 即 Castelnuovo--Mumford 正则性和平坦化分层 (我们对这两个主题各用一讲), 在 Mumford 的 \textit{Lectures on Curves on an Algebraic Surface} [Mum66] 中有很好的介绍. Bosch、L\"utkebohmert、Raynaud 的 \textit{Neron Models} [BLR90] 简要介绍了下降、Quot 概形和 Picard 概形. 强烈建议本讲义的读者阅读 Grothendieck 在 [FGA] 中的原始论述.
+
+\section{Hilbert 函子与 Quot 函子}\label{ch05:sec5.1}
+\subsection{函子 $\chHilb_{\mathbb P^n}$}\label{ch05:sec5.1.1}
+第二部分所讨论的主要问题, 最简单的形式如下. 若 $S$ 是局部 Noether 概形, 则称一个闭子概形 $Y\subset\mathbb P^n_S=\mathbb P^n_{\mathbb Z}\times S$ 为一个\emph{以 $S$ 为参数的 $\mathbb P^n$ 的子概形族}, 如果 $Y$ 在 $S$ 上平坦. 若 $f:T\to S$ 是任意局部 Noether 概形间的态射, 则由以 $S$ 为参数的族 $Y$, 通过拉回得到以 $T$ 为参数的族
+\[
+ f^*(Y)=(\id\times f)^{-1}(Y)\subset\mathbb P^n_T.
+\]
+这就定义了一个从所有局部 Noether 概形的范畴到集合范畴的反变函子 $\chHilb_{\mathbb P^n}$, 它把每个 $S$ 对应到所有这些族组成的集合
+\[
+ \chHilb_{\mathbb P^n}(S)=\{Y\subset\mathbb P^n_S\mid Y\text{ 在 }S\text{ 上平坦}\}.
+\]
+\textbf{问题:} 函子 $\chHilb_{\mathbb P^n}$ 是否可表?
+
+Grothendieck 证明了这个问题的回答是肯定的, 即存在一个局部 Noether 概形 $\chHilbScheme_{\mathbb P^n}$, 连同一个以 $\chHilbScheme_{\mathbb P^n}$ 为参数的族 $Z\subset\mathbb P^n_{\mathbb Z}\times\chHilbScheme_{\mathbb P^n}$, 使得 $S$ 上的任意族 $Y$ 都由唯一确定的态射 $\varphi_Y:S\to\chHilbScheme_{\mathbb P^n}$ 拉回 $Z$ 而得. 换言之, $\chHilb_{\mathbb P^n}$ 同构于函子 $\Mor(-,\chHilbScheme_{\mathbb P^n})$.
+
+\subsection{函子 $\chQuot_{\oplus^r\mathcal O_{\mathbb P^n}}$}\label{ch05:sec5.1.2}
+以 $S$ 为参数的 $\mathbb P^n$ 的子概形族 $Y$, 等同于 $\mathbb P^n_S$ 上的一个凝聚商层 $q:\mathcal O_{\mathbb P^n_S}\to\mathcal O_Y$, 使得 $\mathcal O_Y$ 在 $S$ 上平坦. 以这种方式看待函子 $\chHilb_{\mathbb P^n}$, 就有如下富有成效的推广.
+
+设 $r$ 为任意正整数. 一个\emph{以局部 Noether 概形 $S$ 为参数的 $\oplus^r\mathcal O_{\mathbb P^n}$ 的商族}, 是指一个二元组 $(\mathcal F,q)$, 其中包括
+\begin{enumerate}
+\item[(i)] $\mathbb P^n_S$ 上在 $S$ 上平坦的一个凝聚层 $\mathcal F$, 以及
+\item[(ii)] 一个满的 $\mathcal O_{\mathbb P^n_S}$ 线性层同态 $q:\oplus^r\mathcal O_{\mathbb P^n_S}\to\mathcal F$.
+\end{enumerate}
+以 $S$ 为参数的两个这样的族 $(\mathcal F,q)$ 和 $(\mathcal F',q')$ 被视为等价, 如果存在一个同构 $f:\mathcal F\to\mathcal F'$, 把 $q$ 变为 $q'$, 即下图交换:
+\[
+\begin{tikzcd}
+\oplus^r\mathcal O_{\mathbb P^n_S}\arrow[r,"q"]\arrow[d,equal]&\mathcal F\arrow[d,"f"]\\
+\oplus^r\mathcal O_{\mathbb P^n_S}\arrow[r,"q'"']&\mathcal F'.
+\end{tikzcd}
+\]
+这等价于条件 $\ker(q)=\ker(q')$. 我们用 $\langle\mathcal F,q\rangle$ 表示一个等价类. 若 $f:T\to S$ 是局部 Noether 概形间的态射, 则沿 $\id\times f:\mathbb P^n_T\to\mathbb P^n_S$ 拉回商 $q:\oplus^r\mathcal O_{\mathbb P^n_S}\to\mathcal F$, 就定义了 $T$ 上的一个族 $f^*(q):\oplus^r\mathcal O_{\mathbb P^n_T}\to f^*(\mathcal F)$.
+% Source PDF 121, printed 109.
+这有意义, 因为张量积右正合且保持平坦性. 拉回运算保持族之间的等价关系, 因而令
+\[
+ \chQuot_{\oplus^r\mathcal O_{\mathbb P^n}}(S)=\{\text{所有以 }S\text{ 为参数的 }\langle\mathcal F,q\rangle\},
+\]
+便得到一个从所有局部 Noether 概形的范畴到集合范畴的反变函子 $\chQuot_{\oplus^r\mathcal O_{\mathbb P^n}}$.
+
+显然, 函子 $\chQuot_{\oplus^r\mathcal O_{\mathbb P^n}}$ 满足忠实平坦下降. Grothendieck 证明, 事实上上述函子在所有局部 Noether 概形的范畴上可由一个概形 $\chQuotScheme_{\oplus^r\mathcal O_{\mathbb P^n}}$ 表示.
+
+\subsection{函子 $\chHilb_{X/S}$ 与 $\chQuot_{E/X/S}$}\label{ch05:sec5.1.3}
+上述函子 $\chHilb_{\mathbb P^n}$ 与 $\chQuot_{\oplus^r\mathcal O_{\mathbb P^n}}$ 有如下简单推广. 设 $S$ 为 Noether 概形, $X\to S$ 为其上的有限型概形, $E$ 为 $X$ 上的一个凝聚层. 用 $\Sch_S$ 表示 $S$ 上所有局部 Noether 概形的范畴. 对 $\Sch_S$ 中任意 $T\to S$, 一个\emph{以 $T$ 为参数的 $E$ 的商族}是指一个二元组 $(\mathcal F,q)$, 其中包括
+\begin{enumerate}
+\item[(i)] $X_T=X\times_S T$ 上的一个凝聚层 $\mathcal F$, 使得 $\mathcal F$ 的概形论支集在 $T$ 上固有, 且 $\mathcal F$ 在 $T$ 上平坦, 以及
+\item[(ii)] 一个满的 $\mathcal O_{X_T}$ 线性层同态 $q:E_T\to\mathcal F$, 其中 $E_T$ 为 $E$ 沿投影 $X_T\to X$ 的拉回.
+\end{enumerate}
+以 $T$ 为参数的两个这样的族 $(\mathcal F,q)$ 和 $(\mathcal F',q')$ 被视为等价, 如果 $\ker(q)=\ker(q')$; 用 $\langle\mathcal F,q\rangle$ 表示一个等价类. 由于固有性和平坦性在基变换下保持, 且张量积右正合, 所以 $\langle\mathcal F,q\rangle$ 沿 $S$ 态射 $T'\to T$ 的拉回有良好定义. 于是得到一个集合值反变函子 $\chQuot_{E/X/S}:\Sch_S\to\mathrm{Sets}$, 它将
+\[
+ T\longmapsto\{\text{所有以 }T\text{ 为参数的 }\langle\mathcal F,q\rangle\}.
+\]
+当 $E=\mathcal O_X$ 时, 函子 $\chQuot_{\mathcal O_X/X/S}:\Sch_S\to\mathrm{Sets}$ 将 $T$ 对应到 $X_T$ 中在 $T$ 上固有且平坦的所有闭子概形 $Y$ 组成的集合. 我们把这个函子记为 $\chHilb_{X/S}$.
+
+特别注意, 有
+\[
+ \chHilb_{\mathbb P^n}=\chHilb_{\mathbb P^n_{\mathbb Z}/\Spec\mathbb Z},\qquad
+ \chQuot_{\oplus^r\mathcal O_{\mathbb P^n}}=
+ \chQuot_{\oplus^r\mathcal O_{\mathbb P^n_{\mathbb Z}}/\mathbb P^n_{\mathbb Z}/\Spec\mathbb Z}.
+\]
+显然, 函子 $\chQuot_{E/X/S}$ 与 $\chHilb_{X/S}$ 满足忠实平坦下降, 因而提出它们的可表性问题是有意义的.
+
+\subsection{按 Hilbert 多项式分层}\label{ch05:sec5.1.4}
+设 $X$ 为域 $k$ 上的有限型概形, 并带有一个线丛 $L$. 回忆, 若 $F$ 是 $X$ 上的凝聚层, 其支集在 $k$ 上固有, 则 $F$ 的 \emph{Hilbert 多项式} $\Phi\in\mathbb Q[\lambda]$ 由函数
+\[
+ \Phi(m)=\chi(F(m))=\sum_{i=0}^n(-1)^i\dim_k H^i(X,F\otimes L^{\otimes m})
+\]
+定义. 由于凝聚性与固有性条件, 这些上同调的维数都是有限的. 在上述假设下, $\chi(F(m))$ 确实是 $m$ 的多项式; 这一事实是通常所谓 Snapper 引理的一个特例 (证明见第五部分 B.7).
+
+设 $X\to S$ 为 Noether 概形间的有限型态射, $L$ 为 $X$ 上的线丛, $\mathcal F$ 为 $X$ 上的任意凝聚层, 其概形论支集在 $S$ 上固有. 对每个 $s\in S$, 我们得到一个多项式 $\Phi_s\in\mathbb Q[\lambda]$, 它是 $\mathcal F$ 在 $s$ 上的纤维 $X_s$ 上的限制 $\mathcal F_s=\mathcal F|_{X_s}$ 关于线丛 $L_s=L|_{X_s}$ 的 Hilbert 多项式.
+% Source PDF 122, printed 110.
+已知若 $\mathcal F$ 在 $S$ 上平坦, 则从 $S$ 的点集到多项式环 $\mathbb Q[\lambda]$ 的函数 $s\mapsto\Phi_s$ 在 $S$ 上局部常值.
+
+这表明函子 $\chQuot_{E/X/S}$ 自然分解为余积
+\[
+ \chQuot_{E/X/S}=\coprod_{\Phi\in\mathbb Q[\lambda]}\chQuot^{\Phi,L}_{E/X/S},
+\]
+其中, 对任意多项式 $\Phi\in\mathbb Q[\lambda]$, 函子 $\chQuot^{\Phi,L}_{E/X/S}$ 将任意 $T$ 对应到满足如下条件的族 $\langle\mathcal F,q\rangle$ 的所有等价类组成的集合: 对每个 $t\in T$, 限制 $\mathcal F_t$ 关于 $L$ 的拉回的 Hilbert 多项式为 $\Phi$. 相应地, 表示概形 $\chQuotScheme_{E/X/S}$ (若存在) 自然分解为余积
+\[
+ \chQuotScheme_{E/X/S}=\coprod_{\Phi\in\mathbb Q[\lambda]}\chQuotScheme^{\Phi,L}_{E/X/S}.
+\]
+\emph{注.} 我们通常取 $X$ 为 $S$ 上的 (拟) 射影概形, 并取 $L$ 为相对甚丰沛线丛. 此时 Hilbert 函子与 Quot 函子确实可由概形表示, 但一般情形并非如此.
+
+\subsection{初等例子与习题}\label{ch05:sec5.1.5}
+\textbf{(1) 将 $\mathbb P^n_{\mathbb Z}$ 视为 Quot 概形.}
+证明概形 $\mathbb P^n_{\mathbb Z}=\chProj\mathbb Z[x_0,\ldots,x_n]$ 表示从概形到集合的函子 $\varphi$: 它把每个 $S$ 对应到商 $q:\oplus^{n+1}\mathcal O_S\to\mathcal F$ 的所有等价类 $\langle\mathcal F,q\rangle$ 组成的集合, 其中 $\mathcal F$ 为可逆 $\mathcal O_S$ 模. 由于 $S$ 上 $\mathcal O_S$ 平坦且每个纤维均为一维的凝聚层, 恰好就是 $S$ 上秩为 $1$ 的局部自由层, 所以 $\varphi$ 就是函子 $\chQuot^{1,\mathcal O_{\mathbb Z}}_{\oplus^{n+1}\mathcal O_{\mathbb Z}/\mathbb Z/\mathbb Z}$ (为简便起见, 有时我们只写 $\mathbb Z$ 而不写 $\Spec\mathbb Z$). 这表明
+\[
+ \chQuotScheme^{1,\mathcal O_{\mathbb Z}}_{\oplus^{n+1}\mathcal O_{\mathbb Z}/\mathbb Z/\mathbb Z}=\mathbb P^n_{\mathbb Z}.
+\]
+在此等同下, 证明 $\chQuotScheme^{1,\mathcal O_{\mathbb Z}}_{\oplus^{n+1}\mathcal O_{\mathbb Z}/\mathbb Z/\mathbb Z}$ 上的泛族就是典范商 $\oplus^{n+1}\mathcal O_{\mathbb P^n_{\mathbb Z}}\to\mathcal O_{\mathbb P^n_{\mathbb Z}}(1)$.
+
+更一般地, 证明若 $E$ 是 Noether 概形 $S$ 上的局部自由层, 则函子 $\chQuot^{1,\mathcal O_S}_{E/S/S}$ 由 $S$ 概形 $\mathbb P(E)=\chProj\chSym_{\mathcal O_S}E$ 表示, 以典范商 $\pi^*(E)\to\mathcal O_{\mathbb P(E)}(1)$ 为泛族.
+
+\textbf{(2) 将 Grassmann 概形视为 Quot 概形.}
+对任意整数 $r\geq d\geq1$, 本节末尾给出了 $\mathbb Z$ 上 Grassmann 概形 $\chGrassScheme(r,d)$ 的显式构造, 连同典范商 $u:\oplus^r\mathcal O_{\chGrassScheme(r,d)}\to\mathcal U$, 其中 $\mathcal U$ 为 $\chGrassScheme(r,d)$ 上秩为 $d$ 的局部自由层. 那里还证明了 $\pi:\chGrassScheme(r,d)\to\Spec\mathbb Z$ 的固有性, 并给出了一个闭浸入
+\[
+ \chGrassScheme(r,d)\hookrightarrow\mathbb P(\pi_*\det\mathcal U)=\mathbb P^m_{\mathbb Z},\qquad m=\binom rd-1.
+\]
+证明 $\chGrassScheme(r,d)$ 连同商 $u:\oplus^r\mathcal O_{\chGrassScheme(r,d)}\to\mathcal U$ 表示从概形到集合的反变函子
+\[
+ \chGrass(r,d)=\chQuot^{d,\mathcal O_{\mathbb Z}}_{\oplus^r\mathcal O_{\mathbb Z}/\mathbb Z/\mathbb Z},
+\]
+它把每个 $T$ 对应到商 $q:\oplus^r\mathcal O_T\to\mathcal F$ 的所有等价类 $\langle\mathcal F,q\rangle$ 组成的集合, 其中 $\mathcal F$ 是 $T$ 上秩为 $d$ 的局部自由层. 因而 $\chQuotScheme^{d,\mathcal O_{\mathbb Z}}_{\oplus^r\mathcal O_{\mathbb Z}/\mathbb Z/\mathbb Z}$ 存在, 且等于 $\chGrassScheme(r,d)$.
+
+\textbf{向量丛的 Grassmann 概形.}
+证明对任意环 $A$, 群 $GL_r(A)$ 在自由模 $\oplus^r A$ 上的作用诱导了 $GL_r(A)$ 在集合 $\chGrass(r,d)(A)$ 上的作用, 并使得对任意环同态 $A\to B$, 集合映射 $\chGrass(r,d)(A)\to\chGrass(r,d)(B)$ 关于群同态 $GL_r(A)\to GL_r(B)$ 等变.
+% Source PDF 123, printed 111.
+(用概形语言来说, 这意味着我们有群概形 $GL_{r,\mathbb Z}$ 在 $\chGrassScheme(r,d)$ 上的作用.)
+
+利用上述结果证明: 更一般地, 若 $S$ 是概形, $E$ 是秩为 $r$ 的局部自由 $\mathcal O_S$ 模, 则所有 $S$ 概形上的函子 $\chGrass(E,d)=\chQuot^{d,\mathcal O_S}_{E/S/S}$ 可表; 按定义, 它把每个 $T$ 对应到商 $q:E_T\to\mathcal F$ 的所有等价类 $\langle\mathcal F,q\rangle$ 组成的集合, 其中 $\mathcal F$ 在 $T$ 上局部自由且秩为 $d$. 表示概形记为 $\chGrassScheme(E,d)$, 称为 $E$ 在 $S$ 上的\emph{秩 $d$ 相对 Grassmann 概形}. 它参数化一个泛商 $\pi^*E\to\mathcal F$, 其中 $\pi:\chGrassScheme(E,d)\to S$ 为投影. 证明 $\chGrassScheme(E,d)$ 上的行列式线丛 $\bigwedge^d\mathcal F$ 在 $S$ 上相对甚丰沛, 并给出闭浸入
+\[
+ \chGrassScheme(E,d)\hookrightarrow\mathbb P(\pi_*\textstyle\bigwedge^d\mathcal F)\subset\mathbb P(\textstyle\bigwedge^d E).
+\]
+(此浸入的固有性由 $\pi:\chGrassScheme(E,d)\to S$ 的固有性推出; 后者在 $S$ 上局部可由 $\chGrassScheme(r,d)$ 在 $\mathbb Z$ 上的固有性经基变换得到, 见下面习题 (5) 或 (7).)
+
+\textbf{凝聚层的 Grassmann 概形.}
+若 $E$ 是 $S$ 上的凝聚层, 不一定局部自由, 则按定义, 所有 $S$ 概形上的函子 $\chGrass(E,d)=\chQuot^{d,\mathcal O_S}_{E/S/S}$ 将每个 $T$ 对应到商 $q:E_T\to\mathcal F$ 的所有等价类 $\langle\mathcal F,q\rangle$ 组成的集合, 其中 $\mathcal F$ 在 $T$ 上局部自由且秩为 $d$. 若 $r:E'\to E$ 是 $S$ 上凝聚层的满射, 证明由此诱导的函子态射
+\[
+ \chGrass(E,d)\longrightarrow\chGrass(E',d),\qquad
+ \langle\mathcal F,q\rangle\longmapsto\langle\mathcal F,q\circ r\rangle,
+\]
+是闭浸入. 由此, 把凝聚层在局部表示为向量丛的商, 证明即使 $E$ 是 $S$ 上不一定局部自由的凝聚层, $\chGrass(E,d)$ 仍然可表. 表示概形 $\chGrassScheme(E,d)$ 在 $S$ 上固有, 因为它在 $S$ 上局部是某个向量丛的 Grassmann 概形的闭子概形. 通过在 $S$ 上作局部论证, 证明 $\chGrassScheme(E,d)$ 上的线丛 $\bigwedge^d\mathcal F$ 在 $S$ 上相对甚丰沛, 再利用固有性得出 $\chGrassScheme(E,d)$ 在 $S$ 上射影.
+
+\textbf{(3) 将 Grassmann 概形视为 Hilbert 概形.}
+令 $\Phi=1\in\mathbb Q[\lambda]$. 则 Hilbert 概形 $\chHilbScheme^{1,\mathcal O(1)}_{\mathbb P^n}$ 就是 $\mathbb P^n_{\mathbb Z}$ 本身. 更一般地, 令 $\Phi_r=\binom{r+\lambda}{r}\in\mathbb Q[\lambda]$, 其中 $r\geq0$. Hilbert 概形 $\chHilbScheme^{\Phi_r,\mathcal O(1)}_{\mathbb P^n}$ 同构于 $\mathbb Z$ 上的 Grassmann 概形 $\chGrassScheme(n+1,r+1)$. 这可通过以下步骤看出, 细节的验证留给读者作为习题.
+\begin{enumerate}
+\item[(i)] $\mathbb Z$ 上的 Grassmann 概形 $\chGrassScheme(n+1,r+1)$ 参数化一个 Hilbert 多项式为 $\Phi_r$ 的 $\mathbb P^n$ 的子概形典范族. 因此得到自然变换 $h_{\chGrassScheme(n+1,r+1)}\to\chHilb^{\Phi_r,\mathcal O(1)}_{\mathbb P^n}$.
+\item[(ii)] 对任意域 $k$, Hilbert 多项式为 $\Phi_r$ 的任意闭子概形 $Y\subset\mathbb P^n_k$, 都同构于在 $k$ 上线性嵌入 $\mathbb P^n_k$ 的 $\mathbb P^r_k$. 若 $V$ 是 Noether 基底 $S$ 上的向量丛, 而 $Y\subset\mathbb P(V)$ 是在 $S$ 上平坦的闭子概形, 每个概形论纤维 $Y_s$ 都是射影空间 $\mathbb P(V_s)$ 的 $r$ 维线性子空间, 则 $Y$ 定义了一个秩为 $r+1$ 的商向量丛
+\[
+ V=\pi_*\mathcal O_{\mathbb P(V)}(1)\longrightarrow\pi_*\mathcal O_Y(1),
+\]
+其中 $\pi:\mathbb P(V)\to S$ 为投影. 这给出自然变换 $\chHilb^{\Phi_r,\mathcal O(1)}_{\mathbb P^n}\to h_{\chGrassScheme(n+1,r+1)}$.
+\item[(iii)] 上述两个自然变换互逆.
+\end{enumerate}
+
+\textbf{(4) $\mathbb P^n$ 中超曲面的 Hilbert 概形.}
+令 $\Phi_d=\binom{n+\lambda}{n}-\binom{n-d+\lambda}{n}\in\mathbb Q[\lambda]$, 其中 $d\geq1$. Hilbert 概形 $\chHilbScheme^{\Phi_d,\mathcal O(1)}_{\mathbb P^n}$ 同构于 $\mathbb P^m_{\mathbb Z}$, 其中 $m=\binom{n+d}{d}-1$. 这可由以下步骤看出, 留作习题.
+% Source PDF 124, printed 112.
+\begin{enumerate}
+\item[(i)] 对任意域 $k$, Hilbert 多项式为 $\Phi_d$ 的任意闭子概形 $Y\subset\mathbb P^n_k$, 都是 $\mathbb P^n_k$ 中次数为 $d$ 的超曲面. \emph{提示:} 若 $Y\subset\mathbb P^n_k$ 为 Hilbert 多项式次数为 $n-1$ 的闭子概形, 证明其高度 $1$ 的准素分量的概形论闭包 $Z$ 是 $\mathbb P^n_k$ 中的超曲面, 且 $\deg(Z)=\deg(Y)$.
+\item[(ii)] 任意族 $Y\subset\mathbb P^n_S$ 都是 $\mathbb P^n_S$ 中的 Cartier 除子. 它产生一个线子丛
+\[
+ \pi_*(\mathcal I_Y\otimes\mathcal O_{\mathbb P^n_S}(d))\subset\pi_*\mathcal O_{\mathbb P^n_S}(d),
+\]
+从而定义自然态射 $f_Y:S\to\mathbb P^m_{\mathbb Z}$, 其中 $m=\binom{n+d}{d}-1$. 这给出函子态射 $\chHilb^{\Phi_d}_{\mathbb P^n}\to\mathbb P^m$, 这里将 $h_{\mathbb P^m_{\mathbb Z}}$ 简记为 $\mathbb P^m$.
+\item[(iii)] 概形 $\mathbb P^m_{\mathbb Z}$ 参数化次数为 $d$ 的超曲面的典范族, 因而给出反方向的函子态射 $\mathbb P^m\to\chHilb^{\Phi_d,\mathcal O(1)}_{\mathbb P^n}$. 二者互逆.
+\end{enumerate}
+
+\textbf{(5) Hilbert 概形与 Quot 概形的基变换性质.}
+设 $S$ 是 Noether 概形, $X$ 是 $S$ 上的有限型概形, $E$ 是 $X$ 上的凝聚层. 若 $T\to S$ 是 Noether 概形间的态射, 证明有函子的自然同构
+\[
+ \chQuot_{E_T/X_T/T}\longrightarrow\chQuot_{E/X/S}\times_{h_S}h_T.
+\]
+因此, 若 $\chQuotScheme_{E/X/S}$ 存在, 则 $\chQuotScheme_{E_T/X_T/T}$ 也存在, 且自然同构于 $\chQuotScheme_{E/X/S}\times_S T$. 对 $\chQuot^{\Phi,L}_{E/X/S}$ 可以证明类似结论. 特别地, $\chHilbScheme_{X/S}$ 与 $\chHilbScheme^{\Phi,L}_{X/S}$ (若存在) 正确地与基变换相容.
+
+\textbf{(6) fpqc 拓扑中的下降条件.}
+若 $U$ 为 $S$ 概形, 而 $(f_i:U_i\to U)$ 为 fpqc 拓扑中 $U$ 的开覆盖, 证明以下集合序列正合:
+\[
+ \chQuot_{E/X/S}(U)\longrightarrow\prod_i\chQuot_{E/X/S}(U_i)
+ \rightrightarrows\prod_{i,j}\chQuot_{E/X/S}(U_i\times_U U_j).
+\]
+
+\textbf{(7) 固有性的赋值判别准则.}
+当 $X\to S$ 固有时, 证明函子态射 $\chQuot_{E/X/S}\to h_S$ 对离散赋值环满足固有性的赋值判别准则. 即若 $R$ 是离散赋值环, 并给定态射 $\Spec R\to S$, 使其成为 $S$ 概形, 则证明限制映射
+\[
+ \chQuot_{E/X/S}(\Spec R)\longrightarrow\chQuot_{E/X/S}(\Spec K)
+\]
+为双射, 其中 $K$ 是 $R$ 的分式域, $\Spec K$ 以显然的方式视为 $S$ 概形.
+
+\textbf{(8) Hironaka 的反例.}
+Hironaka 构造了复数域 $\mathbb C$ 上的一个三维光滑固有概形 $X$, 连同群 $G=\mathbb Z/(2)$ 的一个自由作用, 使商 $X/G$ 不作为概形存在. ($X$ 的构造见 [Har77, 附录 B, 例 3.4.1]. $G$ 作用的定义以及 $X/G$ 不存在的证明留给读者.) 特别地, 这意味着 Hilbert 函子 $\chHilb_{X/\mathbb C}$ 不能由概形表示.
+
+\subsection{Grassmann 概形的构造}\label{ch05:sec5.1.6}
+以下对 $\mathbb Z$ 上 Grassmann 概形 $\chGrassScheme(r,d)$ 的显式构造, 最适合看成商 $GL_{d,\mathbb Z}\backslash V$ 的构造, 其中 $V$ 为所有秩为 $d$ 的 $d\times r$ 矩阵组成的概形, 群概形 $GL_{d,\mathbb Z}$ 通过矩阵乘法在 $V$ 上左作用. 不过, 这里不使用群概形作用的语言, 而是直接给出 Grassmann 概形的初等构造.
+% Source PDF 125, printed 113.
+初读时, 读者可以在下面取 $d=1$, 得到特例 $\chGrassScheme(r,1)=\mathbb P^{r-1}_{\mathbb Z}$, 后者另有构造 $\chProj\mathbb Z[x_1,\ldots,x_r]$.
+
+\textbf{通过粘合仿射片构造.}
+对任意整数 $r\geq d\geq1$, $\mathbb Z$ 上的 Grassmann 概形 $\chGrassScheme(r,d)$, 连同典范商 $u:\oplus^r\mathcal O_{\chGrassScheme(r,d)}\to\mathcal U$ (其中 $\mathcal U$ 为 $\chGrassScheme(r,d)$ 上秩为 $d$ 的局部自由层), 可以显式构造如下.
+
+若 $M$ 为 $d\times r$ 矩阵, $I\subset\{1,\ldots,r\}$ 的基数 $\#(I)$ 等于 $d$, 则 $M$ 的第 $I$ 个子式 $M_I$, 指 $M$ 中列由 $I$ 标号的 $d\times d$ 子矩阵.
+
+对任意满足 $\#(I)=d$ 的子集 $I\subset\{1,\ldots,r\}$, 考虑 $d\times r$ 矩阵 $X^I$: 其第 $I$ 个子式 $X^I_I$ 为 $d\times d$ 单位矩阵 $1_{d\times d}$, 而 $X^I$ 的其余元素为 $\mathbb Z$ 上的独立变量 $x^I_{p,q}$. 记 $\mathbb Z[X^I]$ 为变量 $x^I_{p,q}$ 的多项式环, 令 $U^I=\Spec\mathbb Z[X^I]$; 它非典范地同构于仿射空间 $\mathbb A^{d(r-d)}_{\mathbb Z}$.
+
+对任意满足 $\#(J)=d$ 的 $J\subset\{1,\ldots,r\}$, 令 $P^I_J=\det(X^I_J)\in\mathbb Z[X^I]$, 其中 $X^I_J$ 是 $X^I$ 的第 $J$ 个子式. 令 $U^I_J=\Spec\mathbb Z[X^I,1/P^I_J]$ 为 $U^I$ 中 $P^I_J$ 可逆的开子概形. 这意味着 $d\times d$ 矩阵 $X^I_J$ 在 $U^I_J$ 上有逆矩阵 $(X^I_J)^{-1}$.
+
+对任意 $I,J$, 定义环同态
+\[
+ \theta_{I,J}:\mathbb Z[X^J,1/P^J_I]\longrightarrow\mathbb Z[X^I,1/P^I_J]
+\]
+如下: 变量 $x^J_{p,q}$ 的像由矩阵公式 $\theta_{I,J}(X^J)=(X^I_J)^{-1}X^I$ 的各元素给出. 特别地, 有 $\theta_{I,J}(P^J_I)=1/P^I_J$, 所以这个映射扩张到 $\mathbb Z[X^J,1/P^J_I]$.
+
+注意 $\theta_{I,I}$ 是 $U^I_I=U^I$ 上的恒等映射. 对 $\{1,\ldots,r\}$ 中任意三个基数为 $d$ 的子集 $I,J,K$, 验证余循环条件 $\theta_{I,K}=\theta_{I,J}\theta_{J,K}$ 成立, 留给读者. 因而让 $I$ 遍历 $\{1,\ldots,r\}$ 中全部 $\binom rd$ 个基数为 $d$ 的不同子集时, 概形 $U^I$ 可以利用余循环 $(\theta_{I,J})$ 粘合, 得到 $\mathbb Z$ 上的有限型概形 $\chGrassScheme(r,d)$. 由于每个 $U^I$ 都同构于 $\mathbb A^{d(r-d)}_{\mathbb Z}$, 所以 $\chGrassScheme(r,d)\to\Spec\mathbb Z$ 是相对维数为 $d(r-d)$ 的光滑态射.
+
+\textbf{分离性.}
+容易看出, $\chGrassScheme(r,d)$ 的对角线与 $U^I\times U^J$ 的交, 是由矩阵公式 $X^J_I X^I-X^J=0$ 的各元素定义的闭子概形 $\Delta_{I,J}\subset U^I\times U^J$, 因而 $\chGrassScheme(r,d)$ 是分离概形.
+
+\textbf{固有性.}
+现在证明 $\pi:\chGrassScheme(r,d)\to\Spec\mathbb Z$ 固有. 只须验证离散赋值环的固有性赋值判别准则. 设 $R$ 是离散赋值环, $K$ 是其分式域, $\varphi:\Spec K\to\chGrassScheme(r,d)$ 为一个态射. 它由某个 $I$ 的环同态 $f:\mathbb Z[X^I]\to K$ 给出. 固定这样的 $I$ 后, 再选取 $J$, 使 $v(f(P^I_J))$ 最小, 其中 $v:K\to\mathbb Z\cup\{\infty\}$ 表示离散赋值. 由于 $P^I_I=1$, 注意到 $v(f(P^I_J))\leq0$, 因而 $f(P^I_J)\neq0$, 所以矩阵 $f(X^I_J)$ 属于 $GL_d(K)$.
+
+现在考虑由矩阵公式
+\[
+ g(X^J)=f((X^I_J)^{-1}X^I)
+\]
+的各元素定义的同态 $g:\mathbb Z[X^J]\to K$. 则 $g$ 定义同一个态射 $\varphi:\Spec K\to\chGrassScheme(r,d)$, 而且所有 $d\times d$ 子式 $X^J_K$ 都满足 $v(g(P^J_K))\geq0$. 由于子式 $X^J_J$ 是单位矩阵, 由上述结论可得, 事实上对 $X^J$ 的每个元素都有 $v(g(x^J_{p,q}))\geq0$. 因而映射 $g:\mathbb Z[X^J]\to K$ 唯一地经由 $R\subset K$ 分解. 所得概形态射 $\Spec R\to U^J\hookrightarrow\chGrassScheme(r,d)$ 延拓了 $\varphi:\Spec K\to\chGrassScheme(r,d)$.
+% Source PDF 126, printed 114.
+我们已经验证了 $\chGrassScheme(r,d)$ 的分离性, 因此现在知道 $\chGrassScheme(r,d)\to\Spec\mathbb Z$ 固有.
+
+\textbf{泛商.}
+接着定义 $\chGrassScheme(r,d)$ 上秩为 $d$ 的局部自由层 $\mathcal U$, 连同满同态 $\oplus^r\mathcal O_{\chGrassScheme(r,d)}\to\mathcal U$. 在每个 $U^I$ 上, 用矩阵 $X^I$ 定义满同态 $u^I:\oplus^r\mathcal O_{U^I}\to\oplus^d\mathcal O_{U^I}$. 与粘合仿射片 $U^I$ 的余循环 $(\theta_{I,J})$ 相容, 令
+\[
+ g_{I,J}=(X^I_J)^{-1}\in GL_d(U^I_J),
+\]
+给出粘合平凡丛 $\oplus^d\mathcal O_{U^I}$ 的粘合数据 $(g_{I,J})$. 它与同态 $u^I$ 相容, 因而得到满同态 $u:\oplus^r\mathcal O_{\chGrassScheme(r,d)}\to\mathcal U$.
+
+\textbf{射影浸入.}
+由于 $\mathcal U$ 由上述转移函数 $g_{I,J}$ 给出, 行列式线丛 $\det(\mathcal U)$ 由转移函数 $\det(g_{I,J})=1/P^I_J\in GL_1(U^I_J)$ 给出. 对每个 $I$, 利用开覆盖 $(U^J)$ 上的平凡化, 令
+\[
+ \sigma_I|_{U^J}=P^J_I\in\Gamma(U^J,\mathcal O_{U^J}),
+\]
+定义一个整体截面 $\sigma_I\in\Gamma(\chGrassScheme(r,d),\det(\mathcal U))$. 验证截面 $\sigma_I$ 构成无基点且相对于 $\Spec\mathbb Z$ 分离点的线性系, 留给读者; 所以它给出 $\chGrassScheme(r,d)$ 到 $\mathbb P^m_{\mathbb Z}$ 的一个浸入, 其中 $m=\binom rd-1$. 由 $\pi:\chGrassScheme(r,d)\to\Spec\mathbb Z$ 的固有性, 这是闭浸入. 特别地, $\det(\mathcal U)$ 是 $\chGrassScheme(r,d)$ 上相对于 $\mathbb Z$ 的相对甚丰沛线丛.
+
+\emph{注.} 这些 $\sigma_I$ 称为 Pl\"ucker 坐标, 它们满足某些称为 Pl\"ucker 关系的二次多项式, 后者定义 Grassmann 概形的射影像. 我们不需要用到这些事实.
+
+\section{Castelnuovo--Mumford 正则性}\label{ch05:sec5.2}
+Mumford 对 $m$ 正则性的运用简化了 Quot 概形的构造. Grothendieck 最初的构造则依靠 Chow 坐标.
+
+设 $k$ 为域, $\mathcal F$ 为 $k$ 上射影空间 $\mathbb P^n$ 上的凝聚层, $m$ 为整数. 若
+\[
+ H^i(\mathbb P^n,\mathcal F(m-i))=0\qquad\text{对每个 }i\geq1,
+\]
+则称层 $\mathcal F$ 是 \emph{$m$ 正则的}. 这个定义乍看可能有些奇怪, 但它适于通过限制到适当的超平面, 对 $n=\dim(\mathbb P^n)$ 作归纳论证. 若超平面 $H\subset\mathbb P^n$ 不包含 $\mathcal F$ 的任何相伴点, 则有层的短正合列
+\[
+ 0\longrightarrow\mathcal F(m-i-1)\xrightarrow{\alpha}\mathcal F(m-i)
+ \longrightarrow\mathcal F_H(m-i)\longrightarrow0,
+\]
+其中映射 $\alpha$ 在局部由乘以 $H$ 的定义方程给出, 因而是单射. 所得到的上同调长正合列
+\[
+ \cdots\longrightarrow H^i(\mathbb P^n,\mathcal F(m-i))
+ \longrightarrow H^i(\mathbb P^n,\mathcal F_H(m-i))
+ \longrightarrow H^{i+1}(\mathbb P^n,\mathcal F(m-i-1))\longrightarrow\cdots
+\]
+表明若 $\mathcal F$ 是 $m$ 正则的, 则它在不包含 $\mathcal F$ 的任何相伴点的超平面 $H\simeq\mathbb P^{n-1}$ 上的限制 $\mathcal F_H$, 也对同一 $m$ 正则.
+% Source PDF 127, printed 115.
+注意, 只要 $\mathcal F$ 凝聚, 它的相伴点集就是有限的; 因此当域 $k$ 无限时, 至少存在一个这样的超平面 $H$.
+
+据 Mumford [Mum66], 以下引理归功于 Castelnuovo.
+\begin{origstatement}{引理}{5.1}\label{ch05:lem5.1}
+若 $\mathcal F$ 是 $\mathbb P^n$ 上的 $m$ 正则层, 则以下结论成立:
+\begin{enumerate}
+\item[(a)] 只要 $r\geq m$, 典范映射
+\[
+ H^0(\mathbb P^n,\mathcal O_{\mathbb P^n}(1))\otimes H^0(\mathbb P^n,\mathcal F(r))
+ \longrightarrow H^0(\mathbb P^n,\mathcal F(r+1))
+\]
+就是满射.
+\item[(b)] 当 $i\geq1$ 且 $r\geq m-i$ 时, 有 $H^i(\mathbb P^n,\mathcal F(r))=0$. 换言之, 若 $\mathcal F$ 是 $m$ 正则的, 则对所有 $m'\geq m$, 它都为 $m'$ 正则的.
+\item[(c)] 只要 $r\geq m$, 层 $\mathcal F(r)$ 就由整体截面生成, 且所有高阶上同调都为零.
+\end{enumerate}
+\end{origstatement}
+\begin{proof}
+由于上同调在域扩张下正确地与基变换相容, 可以假定域 $k$ 无限. 对 $n$ 作归纳. 当 $n=0$ 时, (a)、(b)、(c) 显然成立; 以下设 $n\geq1$. 因为 $k$ 无限, 存在不包含 $\mathcal F$ 的任何相伴点的超平面 $H$, 所以如前所述, 限制 $\mathcal F_H$ 仍是 $m$ 正则的. 由于 $H$ 同构于 $\mathbb P^{n-1}_k$, 由归纳假设, 引理的结论对层 $\mathcal F_H$ 成立.
+
+当 $r=m-i$ 时, (b) 中的等式 $H^i(\mathbb P^n,\mathcal F(r))=0$ 对所有 $n\geq0$ 都由 $m$ 正则性的定义得到. 为证明 (b), 现在对 $r$ 作归纳, 其中 $r\geq m-i+1$. 考虑正合列
+\[
+ H^i(\mathbb P^n,\mathcal F(r-1))\longrightarrow H^i(\mathbb P^n,\mathcal F(r))
+ \longrightarrow H^i(H,\mathcal F_H(r)).
+\]
+由关于 $r-1$ 的归纳假设, 第一项为零; 由关于 $n-1$ 的归纳假设, 最后一项为零. 因而中间一项为零, 完成 (b) 的证明.
+
+现在考虑交换图
+\[
+\begin{tikzcd}[column sep=small]
+ &\begin{gathered}H^0(\mathbb P^n,\mathcal F(r))\otimes\\H^0(\mathbb P^n,\mathcal O_{\mathbb P^n}(1))\end{gathered}
+ \arrow[r,"\sigma"]\arrow[d,"\mu"]
+ &\begin{gathered}H^0(H,\mathcal F_H(r))\otimes\\H^0(H,\mathcal O_H(1))\end{gathered}\arrow[d,"\tau"]\\
+ H^0(\mathbb P^n,\mathcal F(r))\arrow[r,"\alpha"]
+ &H^0(\mathbb P^n,\mathcal F(r+1))\,\mathrm{arr}\arrow[r,"\nu_{r+1}"]
+ &H^0(H,\mathcal F_H(r+1)).
+\end{tikzcd}
+\]
+% Original scan printed p.115 contains literal ``arr'' after the middle lower term.
+最上方的映射 $\sigma$ 是满射, 理由如下: 由 $\mathcal F$ 的 $m$ 正则性和已经证明的 (b), 当 $r\geq m$ 时有 $H^1(\mathbb P^n,\mathcal F(r-1))=0$, 因而限制映射 $\nu_r:H^0(\mathbb P^n,\mathcal F(r))\to H^0(H,\mathcal F_H(r))$ 为满射. 此外, 限制映射 $\rho:H^0(\mathbb P^n,\mathcal O_{\mathbb P^n}(1))\to H^0(H,\mathcal O_H(1))$ 是满射. 所以这两个映射的张量积 $\sigma=\nu_r\otimes\rho$ 为满射.
+
+由关于 $n-1=\dim(H)$ 的归纳假设, 第二个竖直映射 $\tau$ 是满射.
+
+因此复合 $\tau\circ\sigma$ 为满射, 从而复合 $\nu_{r+1}\circ\mu$ 为满射, 所以
+\[
+ H^0(\mathbb P^n,\mathcal F(r+1))=\operatorname{im}(\mu)+\ker(\nu_{r+1}).
+\]
+由于最下面一行正合, 得到 $H^0(\mathbb P^n,\mathcal F(r+1))=\operatorname{im}(\mu)+\operatorname{im}(\alpha)$. 然而 $\operatorname{im}(\alpha)\subset\operatorname{im}(\mu)$, 因为映射 $\alpha$ 由张量乘以 $\mathcal O_{\mathbb P^n}(1)$ 的某个截面给出 (其除子为 $H$). 因而 $H^0(\mathbb P^n,\mathcal F(r+1))=\operatorname{im}(\mu)$. 这就对所有 $n$ 完成了 (a) 的证明.
+
+为证明 (c), 考虑映射
+\[
+ H^0(\mathbb P^n,\mathcal F(r))\otimes H^0(\mathbb P^n,\mathcal O_{\mathbb P^n}(p))
+ \longrightarrow H^0(\mathbb P^n,\mathcal F(r+p)).
+\]
+反复使用 (a) 可知, 当 $r\geq m$ 且 $p\geq0$ 时它是满射. 当 $p\gg0$ 时, 已知 $H^0(\mathbb P^n,\mathcal F(r+p))$ 由其整体截面生成. 所以当 $r\geq m$ 时, $H^0(\mathbb P^n,\mathcal F(r))$ 也由其整体截面生成.
+% Source PDF 128, printed 116. Original wording above and below has H^0 rather than the sheaf.
+由 (b) 已知当 $r\geq m$ 时, 对 $i\geq1$ 有 $H^i(\mathbb P^n,\mathcal F(r))=0$. 这证明了 (c), 并完成引理的证明.
+\end{proof}
+
+\begin{origstatement}{注}{5.2}\label{ch05:rem5.2}
+以下事实基于上述证明中所用的交换图, 后面会用到. 沿用上述记号, 设限制映射 $\nu_r:H^0(\mathbb P^n,\mathcal F(r))\to H^0(H,\mathcal F_H(r))$ 为满射. 再设 $\mathcal F_H$ 是 $r$ 正则的, 因而由引理 5.1(a), 映射
+\[
+ H^0(H,\mathcal O_H(1))\otimes H^0(H,\mathcal F_H(r))
+ \longrightarrow H^0(H,\mathcal F_H(r+1))
+\]
+为满射. 那么限制映射 $\nu_{r+1}:H^0(\mathbb P^n,\mathcal F(r+1))\to H^0(H,\mathcal F_H(r+1))$ 仍是满射. 因此, 若 $\mathcal F_H$ 是 $m$ 正则的, 且对某个 $r\geq m$, 限制映射 $\nu_r:H^0(\mathbb P^n,\mathcal F(r))\to H^0(H,\mathcal F_H(r))$ 为满射, 则对所有 $p\geq r$, 限制映射 $\nu_p:H^0(\mathbb P^n,\mathcal F(p))\to H^0(H,\mathcal F_H(p))$ 都为满射.
+\end{origstatement}
+
+\textbf{习题.} 求使可逆层 $\mathcal O_{\mathbb P^n}(r)$ 为 $m$ 正则的所有 $m$.
+
+\textbf{习题.} 设 $0\to\mathcal F'\to\mathcal F\to\mathcal F''\to0$ 是 $\mathbb P^n$ 上凝聚层的正合列. 证明: 若 $\mathcal F'$ 与 $\mathcal F''$ 都为 $m$ 正则的, 则 $\mathcal F$ 也为 $m$ 正则的; 若 $\mathcal F'$ 为 $(m+1)$ 正则的且 $\mathcal F$ 为 $m$ 正则的, 则 $\mathcal F''$ 为 $m$ 正则的; 若 $\mathcal F$ 为 $m$ 正则的且 $\mathcal F''$ 为 $(m-1)$ 正则的, 则 $\mathcal F'$ 为 $m$ 正则的.
+
+$m$ 正则性通过以下定理用于构造 Quot 概形.
+\begin{origstatement}{定理}{5.3}(Mumford)\label{ch05:thm5.3}
+对任意非负整数 $p,n$, 存在一个 $n+1$ 元整系数多项式 $F_{p,n}$, 具有以下性质:
+
+设 $k$ 为任意域, $\mathbb P^n$ 为 $k$ 上的 $n$ 维射影空间. 设 $\mathcal F$ 是 $\mathbb P^n$ 上的任意凝聚层, 同构于 $\oplus^p\mathcal O_{\mathbb P^n}$ 的一个子层. 将 $\mathcal F$ 的 Hilbert 多项式写成二项式系数的形式
+\[
+ \chi(\mathcal F(r))=\sum_{i=0}^n a_i\binom ri,\qquad a_0,\ldots,a_n\in\mathbb Z.
+\]
+则 $\mathcal F$ 是 $m$ 正则的, 其中 $m=F_{p,n}(a_0,\ldots,a_n)$.
+\end{origstatement}
+\begin{proof}
+(取自 Mumford [Mum66].) 如前可假定 $k$ 无限. 对 $n$ 作归纳. 当 $n=0$ 时, 显然可取 $F_{p,0}$ 为任意多项式. 以下设 $n\geq1$. 设超平面 $H\subset\mathbb P^n$ 不包含 $\oplus^p\mathcal O_{\mathbb P^n}/\mathcal F$ 的有限多个相伴点中的任何一个 (因 $k$ 无限, 这样的 $H$ 存在). 则下述挠层为零:
+\[
+ \underline{\operatorname{Tor}}^{\mathcal O_{\mathbb P^n}}_1
+ (\mathcal O_H,\oplus^p\mathcal O_{\mathbb P^n}/\mathcal F)=0.
+\]
+因此正合列 $0\to\mathcal F\to\oplus^p\mathcal O_{\mathbb P^n}\to\oplus^p\mathcal O_{\mathbb P^n}/\mathcal F\to0$ 限制到 $H$ 后得到短正合列 $0\to\mathcal F_H\to\oplus^p\mathcal O_H\to\oplus^p\mathcal O_H/\mathcal F_H\to0$. 这表明 $\mathcal F_H$ 同构于 $\oplus^p\mathcal O_{\mathbb P^{n-1}_k}$ 的一个子层 (将 $H$ 与 $\mathbb P^{n-1}_k$ 等同); 这是归纳论证所需的基本步骤.
+
+注意 $\mathcal F$ 若非零, 就是无挠层, 所以有短正合列 $0\to\mathcal F(-1)\to\mathcal F\to\mathcal F_H\to0$. 由相应的上同调序列, 得到
+\[
+\begin{aligned}
+ \chi(\mathcal F_H(r))
+ &=\chi(\mathcal F(r))-\chi(\mathcal F(r-1))\\
+ &=\sum_{i=0}^n a_i\binom ri-\sum_{i=0}^n a_i\binom{r-1}{i}
+ =\sum_{i=0}^n a_i\binom{r-1}{i-1}
+ =\sum_{j=0}^{n-1}b_j\binom rj,
+\end{aligned}
+\]
+其中系数 $b_0,\ldots,b_{n-1}$ 可写成 $b_j=g_j(a_0,\ldots,a_n)$, $g_j$ 为不依赖于域 $k$ 和层 $\mathcal F$ 的整系数多项式.
+% Source PDF 129, printed 117.
+(\textbf{习题:} 显式写出 $g_j$.)
+
+由关于 $n-1$ 的归纳假设, 存在多项式 $F_{p,n-1}(x_0,\ldots,x_{n-1})$, 使 $\mathcal F_H$ 为 $m_0$ 正则的, 其中 $m_0=F_{p,n-1}(b_0,\ldots,b_{n-1})$. 代入 $b_j=g_j(a_0,\ldots,a_n)$, 得到 $m_0=G(a_0,\ldots,a_n)$, 其中 $G$ 为不依赖于域 $k$ 和层 $\mathcal F$ 的整系数多项式.
+
+当 $m\geq m_0-1$ 时, 因而有上同调长正合列
+\[
+\begin{aligned}
+0&\longrightarrow H^0(\mathcal F(m-1))\longrightarrow H^0(\mathcal F(m))
+ \xrightarrow{\nu_m}H^0(\mathcal F_H(m))\\
+ &\longrightarrow H^1(\mathcal F(m-1))\longrightarrow H^1(\mathcal F(m))
+ \longrightarrow0\longrightarrow\cdots,
+\end{aligned}
+\]
+它对 $i\geq2$ 给出同构 $H^i(\mathcal F(m-1))\xrightarrow{\sim}H^i(\mathcal F(m))$. 由于 $m\gg0$ 时有 $H^i(\mathcal F(m))=0$, 这些等式表明
+\[
+ H^i(\mathcal F(m))=0\quad\text{对所有 }i\geq2\text{ 且 }m\geq m_0-2.
+\]
+满射 $H^1(\mathcal F(m-1))\to H^1(\mathcal F(m))$ 表明, 当 $m\geq m_0-2$ 时, 函数 $h^1(\mathcal F(m))$ 关于变量 $m$ 单调递减. 事实上, 我们将证明, 当 $m\geq m_0$ 时, 函数 $h^1(\mathcal F(m))$ 严格递减, 直至其值变成零; 这将推出
+\[
+ H^1(\mathcal F(m))=0\qquad\text{当 }m\geq m_0+h^1(\mathcal F(m_0)).
+\]
+接着我们将给出 $h^1(\mathcal F(m_0))$ 的适当上界, 从而完成定理的证明. 注意当 $m\geq m_0$ 时, 有 $h^1(\mathcal F(m-1))\geq h^1(\mathcal F(m))$, 且对某个 $m\geq m_0$ 等号成立, 当且仅当限制映射 $\nu_m:H^0(\mathcal F(m))\to H^0(\mathcal F_H(m))$ 为满射. 因为 $\mathcal F_H$ 为 $m$ 正则的, 由注 5.2 可知, 对所有 $j\geq m$, 限制映射 $\nu_j:H^0(\mathcal F(j))\to H^0(\mathcal F_H(j))$ 都是满射, 因而对所有 $j\geq m$, 有 $h^1(\mathcal F(j-1))=h^1(\mathcal F(j))$. 又因 $j\gg0$ 时有 $h^1(\mathcal F(j))=0$, 这就证明了我们的断言: 当 $m\geq m_0$ 时, $h^1(\mathcal F(m))$ 严格递减, 直至其值变成零.
+
+为给出 $h^1(\mathcal F(m_0))$ 的界, 利用 $\mathcal F\subset\oplus^p\mathcal O_{\mathbb P^n}$, 必有
+\[
+ h^0(\mathcal F(r))\leq p h^0(\mathcal O_{\mathbb P^n}(r))=p\binom{n+r}{n}.
+\]
+由已经证明的事实 $H^i(\mathcal F(m))=0$ (对所有 $i\geq2$ 且 $m\geq m_0-2$), 现在得到
+\[
+\begin{aligned}
+ h^1(\mathcal F(m_0))
+ &=h^0(\mathcal F(m_0))-\chi(\mathcal F(m_0))\\
+ &\leq p\binom{n+m_0}{n}-\sum_{i=0}^n a_i\binom{m_0}{i}\\
+ &=P(a_0,\ldots,a_n),
+\end{aligned}
+\]
+其中 $P(a_0,\ldots,a_n)$ 是 $a_0,\ldots,a_n$ 的多项式表达式, 由在上述 (不) 等式的第二行代入 $m_0=G(a_0,\ldots,a_n)$ 得到. 因而相应多项式 $P(x_0,\ldots,x_n)$ 的系数也不依赖于域 $k$ 和层 $\mathcal F$. 此外注意, 因为 $h^1(\mathcal F(m_0))\geq0$, 必有 $P(a_0,\ldots,a_n)\geq0$.
+
+代入先前的表达式, 得到
+\[
+ H^1(\mathcal F(m))=0\qquad\text{当 }m\geq G(a_0,\ldots,a_n)+P(a_0,\ldots,a_n).
+\]
+取 $F_{p,n}(x_0,\ldots,x_n)=G(x_0,\ldots,x_n)+P(x_0,\ldots,x_n)$, 并注意 $P(a_0,\ldots,a_n)\geq0$, 就知 $\mathcal F$ 为 $F_{p,n}(a_0,\ldots,a_n)$ 正则的. 定理得证.
+\end{proof}
+
+\textbf{习题.} 写出这样的多项式 $F_{p,n}$.
+% Source PDF 130, printed 118.
+\section{半连续性与基变换}\label{ch05:sec5.3}
+\subsection{无平坦性假设的基变换}\label{ch05:sec5.3.1}
+以下关于基变换的引理不需要任何平坦性假设. 代价在于整数 $r_0$ 可能依赖于 $\phi$.
+
+\begin{origstatement}{引理}{5.4}\label{ch05:lem5.4}
+设 $\phi:T\to S$ 是 Noether 概形间的态射, $\mathcal F$ 是 $\mathbb P^n_S$ 上的凝聚层, $\mathcal F_T$ 为 $\mathcal F$ 沿诱导态射 $\mathbb P^n_T\to\mathbb P^n_S$ 的拉回. 设 $\pi_S:\mathbb P^n_S\to S$ 和 $\pi_T:\mathbb P^n_T\to T$ 为投影. 则存在整数 $r_0$, 使得对所有 $r\geq r_0$, 基变换同态
+\[
+ \phi^*\pi_{S*}\mathcal F(r)\longrightarrow\pi_{T*}\mathcal F_T(r)
+\]
+为同构.
+\end{origstatement}
+\begin{proof}
+因为基变换对开浸入成立, 取 $S$ 的有限仿射开覆盖 $U_i$, 再对每个 $\phi^{-1}(U_i)$ 取有限仿射开覆盖 $V_{i,j}$ (由 Noether 假设, 这是可能的), 就只须考虑 $S$ 和 $T$ 都仿射的情形.
+
+注意对所有整数 $i$, 基变换同态
+\[
+ \phi^*\pi_{S*}\mathcal O_{\mathbb P^n_S}(i)\longrightarrow\pi_{T*}\mathcal O_{\mathbb P^n_T}(i)
+\]
+为同构. 此外, 若 $a,b$ 为任意整数, $f:\mathcal O_{\mathbb P^n_S}(a)\to\mathcal O_{\mathbb P^n_S}(b)$ 为任意同态, 而 $f_T:\mathcal O_{\mathbb P^n_T}(a)\to\mathcal O_{\mathbb P^n_T}(b)$ 为它到 $\mathbb P^n_T$ 的拉回, 则对所有 $i$, 有以下交换图, 其中竖直映射为基变换同构:
+\[
+\begin{tikzcd}[column sep=small]
+\phi^*\pi_{S*}\mathcal O_{\mathbb P^n_S}(a+i)\arrow[r,"\phi^*\pi_{S*}f(i)"]\arrow[d]
+ &\phi^*\pi_{S*}\mathcal O_{\mathbb P^n_S}(b+i)\arrow[d]\\
+\pi_{T*}\mathcal O_{\mathbb P^n_T}(a+i)\arrow[r,"\pi_{T*}f_T(i)"']
+ &\pi_{T*}\mathcal O_{\mathbb P^n_T}(b+i).
+\end{tikzcd}
+\]
+因 $S$ 为 Noether 仿射概形, 存在正合列
+\[
+ \oplus^p\mathcal O_{\mathbb P^n_S}(a)\xrightarrow{u}
+ \oplus^q\mathcal O_{\mathbb P^n_S}(b)\xrightarrow{v}\mathcal F\longrightarrow0,
+\]
+其中 $a,b,p\geq0,q\geq0$ 为某些整数. 它到 $\mathbb P^n_T$ 的拉回为正合列
+\[
+ \oplus^p\mathcal O_{\mathbb P^n_T}(a)\xrightarrow{u_T}
+ \oplus^q\mathcal O_{\mathbb P^n_T}(b)\xrightarrow{v_T}\mathcal F_T\longrightarrow0.
+\]
+令 $\mathcal G=\ker(v)$, $\mathcal H=\ker(v_T)$. 对任意整数 $r$, 得到正合列
+\[
+ \pi_{S*}\oplus^p\mathcal O_{\mathbb P^n_S}(a+r)\longrightarrow
+ \pi_{S*}\oplus^q\mathcal O_{\mathbb P^n_S}(b+r)\longrightarrow
+ \pi_{S*}\mathcal F(r)\longrightarrow R^1\pi_{S*}\mathcal G(r)
+\]
+和
+\[
+ \pi_{T*}\oplus^p\mathcal O_{\mathbb P^n_T}(a+r)\longrightarrow
+ \pi_{T*}\oplus^q\mathcal O_{\mathbb P^n_T}(b+r)\longrightarrow
+ \pi_{T*}\mathcal F_T(r)\longrightarrow R^1\pi_{T*}\mathcal H(r).
+\]
+存在整数 $r_0$, 使得对所有 $r\geq r_0$, 有 $R^1\pi_{S*}\mathcal G(r)=0$ 和 $R^1\pi_{T*}\mathcal H(r)=0$. 因而对所有 $r\geq r_0$, 有正合列
+\[
+ \pi_{S*}\oplus^p\mathcal O_{\mathbb P^n_S}(a+r)\xrightarrow{\pi_{S*}u(r)}
+ \pi_{S*}\oplus^q\mathcal O_{\mathbb P^n_S}(b+r)\xrightarrow{\pi_{S*}v(r)}
+ \pi_{S*}\mathcal F(r)\longrightarrow0
+\]
+和
+\[
+ \pi_{T*}\oplus^p\mathcal O_{\mathbb P^n_T}(a+r)\xrightarrow{\pi_{T*}u_T(r)}
+ \pi_{T*}\oplus^q\mathcal O_{\mathbb P^n_T}(b+r)\xrightarrow{\pi_{T*}v_T(r)}
+ \pi_{T*}\mathcal F_T(r)\longrightarrow0.
+\]
+% Source PDF 131, printed 119.
+把倒数第二个正合列沿 $\phi:T\to S$ 拉回, 得到行正合的交换图
+\[
+\begin{tikzcd}[column sep=small]
+\phi^*\pi_{S*}\oplus^p\mathcal O_{\mathbb P^n_S}(a+r)\arrow[r,"\phi^*\pi_{S*}u"]\arrow[d]
+ &\phi^*\pi_{S*}\oplus^q\mathcal O_{\mathbb P^n_S}(b+r)\arrow[r,"\phi^*\pi_{S*}v"]\arrow[d]
+ &\phi^*\pi_{S*}\mathcal F(r)\arrow[r]\arrow[d]&0\\
+\pi_{T*}\oplus^p\mathcal O_{\mathbb P^n_T}(a+r)\arrow[r,"\pi_{T*}u_T(r)"']
+ &\pi_{T*}\oplus^q\mathcal O_{\mathbb P^n_T}(b+r)\arrow[r,"\pi_{T*}v_T(r)"']
+ &\pi_{T*}\mathcal F_T(r)\arrow[r]&0.
+\end{tikzcd}
+\]
+其中第一行由张量积的右正合性可知正合. 竖直映射为基变换同态, 其前两个对所有 $r$ 都是同构. 因此由五引理, 对所有 $r\geq r_0$, $\phi^*\pi_{S*}\mathcal F(r)\to\pi_{T*}\mathcal F_T(r)$ 为同构.
+\end{proof}
+
+上述结论的以下初等证明取自 Mumford [Mum66]: 令 $M$ 为分次 $\mathcal O_S$ 模 $\bigoplus_{m\in\mathbb Z}\pi_{S*}\mathcal F(m)$, 于是 $\mathcal F=M^\sim$. 令 $\phi^*M$ 为 $M$ 拉回所得的分次 $\mathcal O_T$ 模, 则有 $\mathcal F_T=(\phi^*M)^\sim$. 另一方面, 令 $N=\bigoplus_{m\in\mathbb Z}\pi_{T*}\mathcal F_T(m)$, 则 $\mathcal F_T=N^\sim$. 因此, 在分次 $\mathcal O_T[x_0,\ldots,x_n]$ 模的范畴中, $\phi^*M$ 与 $N$ 之间有一个诱导的等价, 这意味着分次部分的自然同态 $(\phi^*M)_m\to N_m$ 对所有 $m\gg0$ 都是同构.\hfill$\square$
+
+\subsection{由 $\pi_*\mathcal F(r)$ 的局部自由性推出 $\mathcal F$ 的平坦性}\label{ch05:sec5.3.2}
+\begin{origstatement}{引理}{5.5}\label{ch05:lem5.5}
+设 $S$ 是 Noether 概形, $\mathcal F$ 是 $\mathbb P^n_S$ 上的凝聚层. 假设存在整数 $N$, 使得对所有 $r\geq N$, 正像 $\pi_*\mathcal F(r)$ 都局部自由. 则 $\mathcal F$ 在 $S$ 上平坦.
+\end{origstatement}
+\begin{proof}
+考虑 $\mathcal O_S$ 上的分次模 $M=\bigoplus_{r\geq N}M_r$, 其中 $M_r=\pi_*\mathcal F(r)$. 层 $\mathcal F$ 同构于 $\mathbb P^n_S=\chProj_S\mathcal O_S[x_0,\ldots,x_n]$ 上由分次 $\mathcal O_S$ 模层 $M$ 构造的层 $M^\sim$. 因为每个 $M_r$ 都在 $\mathcal O_S$ 上平坦, $M$ 也如此. 因而对任意 $x_i$, 局部化 $M_{x_i}$ 在 $\mathcal O_S$ 上平坦. 在 $M_{x_i}$ 上有以 $\mathbb Z$ 为指标的分次: 对 $v_p\in M_p$, 令 $\deg(v_p/x_i^q)=p-q$ (这有良好定义). 因此零次分量 $(M_{x_i})_0$ 是 $M_{x_i}$ 的直和因子, 仍在 $\mathcal O_S$ 上平坦. 但由 $M^\sim$ 的定义, 它就是 $\Gamma(U_i,\mathcal F)$, 其中 $U_i=\Spec_S\mathcal O_S[x_0/x_i,\ldots,x_n/x_i]\subset\mathbb P^n_S$. 由于 $U_i$ 构成 $\mathbb P^n_S$ 的开覆盖, 得到 $\mathcal F$ 在 $\mathcal O_S$ 上平坦.
+\end{proof}
+
+\textbf{习题.} 证明上述引理的逆命题成立: 若 $\mathcal F$ 在 $S$ 上平坦, 则对所有充分大的 $r$, $\pi_*\mathcal F(r)$ 都局部自由.
+
+\subsection{用于半连续性的 Grothendieck 复形}\label{ch05:sec5.3.3}
+以下是 Grothendieck 的一个非常重要的基本结果, 其中出现的复形 $K^\bullet$ 称为 \emph{Grothendieck 复形}.
+
+\begin{origstatement}{定理}{5.6}\label{ch05:thm5.6}
+设 $\pi:X\to S$ 为 Noether 概形间的固有态射, 其中 $S=\Spec A$ 为仿射概形, $\mathcal F$ 为在 $\mathcal O_S$ 上平坦的凝聚 $\mathcal O_X$ 模. 则存在有限生成投射 $A$ 模的有限复形
+\[
+ 0\longrightarrow K^0\longrightarrow K^1\longrightarrow\cdots\longrightarrow K^n\longrightarrow0,
+\]
+并在所有 $A$ 模 $M$ 的范畴上有一个函子性的 $A$ 线性同构
+\[
+ H^p(X,\mathcal F\otimes_A M)\xrightarrow{\sim}H^p(K^\bullet\otimes_A M).
+\]
+\end{origstatement}
+% Source PDF 132, printed 120.
+上述定理是关于平坦层族的正像与基变换的一切结果 (例如定理 5.10) 的基础.
+
+作为上述定理的另一个推论, 有以下结论.
+\begin{origstatement}{定理}{5.7}\label{ch05:thm5.7}
+([EGA] III 7.7.6) 设 $S$ 为 Noether 概形, $\pi:X\to S$ 为固有态射, $\mathcal F$ 为 $X$ 上在 $S$ 上平坦的凝聚层. 则存在 $S$ 上的凝聚层 $\mathcal Q$, 连同在 $S$ 上所有拟凝聚层 $\mathcal G$ 的范畴上的函子性 $\mathcal O_S$ 线性同构
+\[
+ \theta_{\mathcal G}:\pi_*(\mathcal F\otimes_{\mathcal O_X}\pi^*\mathcal G)
+ \longrightarrow\underline{\Hom}_{\mathcal O_S}(\mathcal Q,\mathcal G).
+\]
+由其泛性质, 二元组 $(\mathcal Q,\theta)$ 精确到唯一同构是唯一的.
+\end{origstatement}
+\begin{proof}
+若 $S=\Spec A$, 则可取 $\mathcal Q$ 为 $A$ 模 $Q$ 对应的凝聚层, 其中 $Q$ 是转置 $\partial^\vee:(K^1)^\vee\to(K^0)^\vee$ 的余核, $\partial:K^0\to K^1$ 为任取的层 $\mathcal F$ 的 Grothendieck $A$ 模复形 $0\to K^0\to K^1\to\cdots\to K^n\to0$ 的微分; 此复形的存在性由定理 5.6 保证. 对任意 $A$ 模 $M$, 对右正合列 $(K^1)^\vee\to(K^0)^\vee\to Q\to0$ 应用 $\Hom_A(-,M)$ 得到左正合列
+\[
+ 0\longrightarrow\Hom_A(Q,M)\longrightarrow K^0\otimes_A M\longrightarrow K^1\otimes_A M.
+\]
+因此由定理 5.6, 有同构
+\[
+ \theta^A_M:H^0(X_A,\mathcal F_A\otimes_A M)\longrightarrow\Hom_A(Q,M).
+\]
+所以当 $S=\Spec A$ 时, 二元组 $(\mathcal Q,\theta^A)$ 满足定理. 更一般地, 可用仿射开子概形覆盖 $S$, 然后在它们的交叠上, 所得二元组 $(\mathcal Q,\theta)$ 由唯一性粘合在一起.
+\end{proof}
+
+Noether 基概形 $S$ 上的\emph{线性概形} $V\to S$, 是形如 $\Spec\chSym_{\mathcal O_S}\mathcal Q$ 的概形, 其中 $\mathcal Q$ 为 $S$ 上的凝聚层. 它自然是群概形. 线性概形推广了 (几何) 向量丛的概念, 后者就是 $\mathcal Q$ 为常秩局部自由层的特例.
+
+线性概形 $V=\Spec\chSym_{\mathcal O_S}\mathcal Q$ 的\emph{零截面} $V_0\subset V$, 是由 $\mathcal Q$ 生成的理想定义的闭子概形. 注意投影 $V_0\to S$ 为同构, 而 $V_0$ 正是该群概形的零截面 $0:S\to V$ 的像.
+
+\begin{origstatement}{定理}{5.8}\label{ch05:thm5.8}
+([EGA] III 7.7.8, 7.7.9) 设 $S$ 为 Noether 概形, $\pi:X\to S$ 为射影态射, $\mathcal E,\mathcal F$ 为 $X$ 上的凝聚层. 考虑 $S$ 概形上的集合值反变函子 $\mathcal{H}om(\mathcal E,\mathcal F)$, 它将任意 $T\to S$ 对应到所有 $\mathcal O_{X_T}$ 线性同态组成的集合 $\Hom_{X_T}(\mathcal E_T,\mathcal F_T)$, 其中 $\mathcal E_T,\mathcal F_T$ 为 $\mathcal E,\mathcal F$ 沿投影 $X_T\to X$ 的拉回. 若 $\mathcal F$ 在 $S$ 上平坦, 则上述函子可由 $S$ 上的线性概形 $V$ 表示.
+\end{origstatement}
+\begin{proof}
+首先注意, 若 $\mathcal E$ 为局部自由 $\mathcal O_X$ 模, 则 $\mathcal{H}om(\mathcal E,\mathcal F)$ 就是函子 $T\mapsto H^0(X_T,(\mathcal F\otimes_{\mathcal O_X}\mathcal E^\vee)_T)$. 层 $\mathcal F\otimes_{\mathcal O_X}\mathcal E^\vee$ 仍在 $S$ 上平坦, 所以可应用定理 5.7 得到凝聚层 $\mathcal Q$, 使得对 $S$ 上所有拟凝聚层 $\mathcal G$, 都有
+\[
+ \pi_*(\mathcal F\otimes_{\mathcal O_X}\mathcal E^\vee\otimes_{\mathcal O_X}\pi^*\mathcal G)
+ =\underline{\Hom}_{\mathcal O_S}(\mathcal Q,\mathcal G).
+\]
+% Source PDF 133, printed 121.
+特别地, 若 $f:\Spec R\to S$ 为任意态射, 取 $\mathcal G=f_*\mathcal O_R$, 得到
+\[
+\begin{aligned}
+ \Mor_S(\Spec R,\Spec\chSym_{\mathcal O_S}\mathcal Q)
+ &=\Hom_{\mathcal O_S\text{-}\mathrm{mod}}(\mathcal Q,f_*\mathcal O_R)\\
+ &=H^0(X,\mathcal F\otimes_{\mathcal O_X}\mathcal E^\vee\otimes_{\mathcal O_X}\pi^*f_*\mathcal O_R)\\
+ &=H^0(X_R,(\mathcal F\otimes_{\mathcal O_X}\mathcal E^\vee)_R)\\
+ &=\Hom_{X_R}(\mathcal E_R,\mathcal F_R).
+\end{aligned}
+\]
+这表明当 $\mathcal E$ 在 $X$ 上局部自由时, $V=\Spec\chSym_{\mathcal O_S}\mathcal Q$ 就是所求线性概形. 更一般地, 对任意凝聚层 $\mathcal E$, 在任意仿射开集 $U\subset S$ 上, $X_U$ 上存在向量丛 $E_1,E_0$ 以及右正合列 $E_1\to E_0\to\mathcal E\to0$. (这正是需要 $X\to S$ 射影的地方. 也可以只假定固有, 再加上在 $S$ 上局部存在这样的 $\mathcal E$ 的消解这一条件.) 对函子 $\mathcal{H}om(E_1,\mathcal F)$ 和 $\mathcal{H}om(E_0,\mathcal F)$ 应用上述论证, 得到 $U$ 上的凝聚层 $\mathcal Q_1,\mathcal Q_0$; 由同态 $E_1\to E_0$ 诱导的自然变换 $\mathcal{H}om(E_0,\mathcal F)\to\mathcal{H}om(E_1,\mathcal F)$, 得到同态 $\mathcal Q_1\to\mathcal Q_0$. 令 $\mathcal Q_U$ 为其余核, 并令 $V_U=\Spec\chSym_{\mathcal O_U}\mathcal Q_U$. 由定义 (以及 $\Hom$ 的左正合性) 可知, 概形 $V_U$ 在 $U$ 上具有所求泛性质. 因此当 $U$ 遍历 $S$ 的一个仿射开覆盖时, 所有这样的 $V_U$ 可以粘合, 得到所求线性概形 $V$. (用层的语言来说, 层 $\mathcal Q_U$ 将粘合成 $S$ 上的凝聚层 $\mathcal Q$, 且 $V=\Spec\chSym_{\mathcal O_S}\mathcal Q$.)
+\end{proof}
+
+\begin{origstatement}{注}{5.9}\label{ch05:rem5.9}
+特别注意, 零截面 $V_0\subset V$ 是泛同态消失之处. 若 $f\in\Hom_{X_T}(\mathcal E_T,\mathcal F_T)$ 定义态射 $\varphi_f:T\to V$, 则逆像 $f^{-1}V_0$ 为 $T$ 的一个闭子概形 $T'$, 具有如下泛性质: 若 $U\to T$ 为任意概形态射, 且 $f$ 的拉回为零, 则 $U\to T$ 经由 $T'$ 分解.
+\end{origstatement}
+
+\subsection{平坦层的基变换}\label{ch05:sec5.3.4}
+以下是 Grothendieck 关于平坦层族的基变换的主要结果, 它是定理 5.6 的推论.
+\begin{origstatement}{定理}{5.10}\label{ch05:thm5.10}
+设 $\pi:X\to S$ 是 Noether 概形间的固有态射, $\mathcal F$ 是在 $\mathcal O_S$ 上平坦的凝聚 $\mathcal O_X$ 模. 则以下结论成立:
+\begin{enumerate}
+\item[(1)] 对任意整数 $i$, 函数 $s\mapsto\dim_{\kappa(s)}H^i(X_s,\mathcal F_s)$ 在 $S$ 上是上半连续的.
+\item[(2)] 函数 $s\mapsto\sum_i(-1)^i\dim_{\kappa(s)}H^i(X_s,\mathcal F_s)$ 在 $S$ 上局部常值.
+\item[(3)] 若对某个整数 $i$, 存在整数 $d\geq0$, 使得对所有 $s\in S$, 都有 $\dim_{\kappa(s)}H^i(X_s,\mathcal F_s)=d$, 则 $R^i\pi_*\mathcal F$ 局部自由且秩为 $d$, 并且对所有 $s\in S$, $(R^{i-1}\pi_*\mathcal F)_s\to H^{i-1}(X_s,\mathcal F_s)$ 为同构.
+\item[(4)] 若对某个整数 $i$ 和点 $s\in S$, 映射 $(R^i\pi_*\mathcal F)_s\to H^i(X_s,\mathcal F_s)$ 为满射, 则存在包含 $s$ 的开子概形 $U\subset S$, 使对任意拟凝聚 $\mathcal O_U$ 模 $\mathcal G$, 自然同态
+\[
+ (R^i\pi_{U*}\mathcal F_{X_U})\otimes_{\mathcal O_U}\mathcal G
+ \longrightarrow R^i\pi_{U*}(\mathcal F_{X_U}\otimes_{\mathcal O_{X_U}}\pi_U^*\mathcal G)
+\]
+为同构, 其中 $X_U=\pi^{-1}(U)$, $\pi_U:X_U\to U$ 由 $\pi$ 诱导. 特别地, 对 $U$ 中所有 $s'$, $(R^i\pi_*\mathcal F)_{s'}\to H^i(X_{s'},\mathcal F_{s'})$ 为同构.
+\item[(5)] 若对某个整数 $i$ 和点 $s\in S$, 映射 $(R^i\pi_*\mathcal F)_s\to H^i(X_s,\mathcal F_s)$ 为满射, 则下述条件 (a)、(b) 等价:
+\begin{enumerate}
+\item[(a)] 映射 $(R^{i-1}\pi_*\mathcal F)_s\to H^{i-1}(X_s,\mathcal F_s)$ 是满射.
+\item[(b)] 层 $R^i\pi_*\mathcal F$ 在 $S$ 中 $s$ 的一个邻域上局部自由.
+\end{enumerate}
+\end{enumerate}
+\end{origstatement}
+% Source PDF 134, printed 122 (opening, through end of section 5.3).
+证明例如见 [Har77, 第 III 章, 第 12 节]. 在证明上述结论 (4) 时, 可以不用 [Har77] 中的形式函数定理 (或 [EGA] 中基于完备化的原始论证), 而用一个初等论证替代, 即对 Grothendieck 复形应用 Nakayama 引理.
+\section{泛平坦性与平坦化分层}\label{ch05:sec5.4}
+\subsection{泛平坦性引理}\label{ch05:sec5.4.1}
+\begin{origstatement}{引理}{5.11}\label{ch05:lem5.11}
+设 $A$ 为 Noether 整环, $B$ 为有限型 $A$ 代数, $M$ 为有限 $B$ 模. 则存在 $f\in A$, $f\neq0$, 使得局部化 $M_f$ 为 $A_f$ 上的自由模.
+\end{origstatement}
+\begin{proof}
+在 $A$ 的分式域 $K$ 上, $K$ 代数 $B_K=K\otimes_A B$ 是有限型的, 而 $M_K=K\otimes_A M$ 是有限 $B_K$ 模. 令 $n$ 为 $M_K$ 在 $\Spec B_K$ 上的支集的维数. 对 $n$ 作归纳, 从 $n=-1$ 开始, 此即 $M_K=0$ 的情形. 此时, 由于 $K\otimes_A M=S^{-1}M$, 其中 $S=A-\{0\}$, 每个 $v\in M$ 都被 $A$ 的某个非零元素零化. 取有限生成元集, 以及相应零化元素的一个公倍数, 就知 $A$ 中存在 $f\neq0$, 使 $fM=0$. 因而 $M_f=0$, 证明了 $n=-1$ 时的引理.
+
+现在设 $n\geq0$, 并假设引理对较小的值已证. 因为 $B$ 为 Noether 环, 而且假定 $M$ 为有限 $B$ 模, 存在有限滤链
+\[
+ 0=M_0\subset\cdots\subset M_r=M,
+\]
+其中每个 $M_i$ 为 $M$ 的 $B$ 子模, 对每个 $i\geq1$, 商模 $M_i/M_{i-1}$ 都同构于 $B/\mathfrak p_i$, 其中 $\mathfrak p_i$ 是 $B$ 的某个素理想.
+
+注意, 若 $0\to M'\to M\to M''\to0$ 为 $B$ 模的短正合列, $f',f''$ 为 $A$ 的非零元素, 使 $M'_{f'}$ 和 $M''_{f''}$ 分别在 $A_{f'}$ 和 $A_{f''}$ 上自由, 则 $M_f$ 在 $A_f$ 上自由, 其中 $f=f'f''$. 我们将反复使用这一事实. 因而只须对形如 $M=B/\mathfrak p$ 的情形证明结论, 其中 $\mathfrak p$ 为 $B$ 的素理想. 于是化归到 $B$ 为整环且 $M=B$ 的情形.
+
+由于假定 $K\otimes_A B$ 的维数为 $n\geq0$ (即 $K\otimes_A B$ 非零), 映射 $A\to B$ 必为单射. 由 Noether 正规化引理, 存在元素 $b_1,\ldots,b_n\in B$, 使得 $K\otimes_A B$ 在其子代数 $K[b_1,\ldots,b_n]$ 上有限, 且 $b_1,\ldots,b_n$ 在 $K$ 上代数无关. (为简化记号, 将 $1\otimes b$ 简写为 $b$.) 在 $A$ 中选取 $g\neq0$, 为 $K\otimes_A B$ 在 $K[b_1,\ldots,b_n]$ 上的有限代数生成元集所满足的整依赖方程的系数取一个“公分母”, 就知 $B_g$ 在 $A_g[b_1,\ldots,b_n]$ 上有限.
+
+令 $m$ 为有限模 $B_g$ 在整环 $A_g[b_1,\ldots,b_n]$ 上的泛秩. 则有形如下式的 $A_g[b_1,\ldots,b_n]$ 模短正合列:
+\[
+ 0\longrightarrow A_g[b_1,\ldots,b_n]^{\oplus m}\longrightarrow B_g\longrightarrow T\longrightarrow0,
+\]
+其中 $T$ 为有限挠 $A_g[b_1,\ldots,b_n]$ 模. 因此 $K\otimes_{A_g}T$ 作为 $K\otimes_{A_g}(B_g)$ 模的支集的维数严格小于 $n$.
+% Source PDF 135, printed 123.
+所以由关于 $n$ 的归纳假设 (应用于数据 $A_g,B_g,T$), $A$ 中存在 $h\neq0$, 使得 $T_h$ 在 $A_{gh}$ 上自由. 取 $f=gh$, 引理由上述短正合列得到.
+\end{proof}
+
+将注意力限制到 $S$ 的一个非空仿射开子概形, 从上述定理可推出以下结论.
+\begin{origstatement}{定理}{5.12}\label{ch05:thm5.12}
+设 $S$ 为 Noether 整概形, $p:X\to S$ 为有限型态射, $\mathcal F$ 为凝聚 $\mathcal O_X$ 模层. 则存在非空开子概形 $U\subset S$, 使 $\mathcal F$ 在 $X_U=p^{-1}(U)$ 上的限制在 $\mathcal O_U$ 上平坦.
+\end{origstatement}
+
+\subsection{平坦化分层的存在性}\label{ch05:sec5.4.2}
+\begin{origstatement}{定理}{5.13}\label{ch05:thm5.13}
+设 $S$ 为 Noether 概形, $\mathcal F$ 为 $S$ 上射影空间 $\mathbb P^n_S$ 上的凝聚层. 则 $\mathcal F$ 在 $\mathbb P^n_S\to S$ 的各纤维上的限制的 Hilbert 多项式组成的集合 $I$ 是有限集. 此外, 对每个 $f\in I$, 存在 $S$ 的一个局部闭子概形 $S_f$, 满足下述条件.
+\begin{enumerate}
+\item[(i)] \textbf{点集:} $S_f$ 的底集 $|S_f|$ 由 $S$ 中使 $\mathcal F$ 在 $\mathbb P^n_s$ 上的限制的 Hilbert 多项式为 $f$ 的全部点 $s$ 组成. 特别地, 子集 $|S_f|\subset|S|$ 两两不交, 且其集合论并为 $|S|$.
+\item[(ii)] \textbf{泛性质:} 令 $S'=\coprod_f S_f$ 为 $S_f$ 的余积, $i:S'\to S$ 为包含 $S_f\hookrightarrow S$ 诱导的态射. 则 $\mathbb P^n_{S'}$ 上的层 $i^*(\mathcal F)$ 在 $S'$ 上平坦. 此外, $i:S'\to S$ 具有如下泛性质: 对任意态射 $\varphi:T\to S$, $\mathbb P^n_T$ 上的拉回 $\varphi^*(\mathcal F)$ 在 $T$ 上平坦, 当且仅当 $\varphi$ 经由 $i:S'\to S$ 分解. 子概形 $S_f$ 由多项式 $f$ 唯一确定.
+\item[(iii)] \textbf{层的闭包:} 在 Hilbert 多项式集合 $I$ 上赋予全序, 规定当对所有 $n\gg0$ 有 $f(n)<g(n)$ 时 $f<g$. 则子集 $|S_f|$ 在 $S$ 中的闭包, 包含于所有满足 $f\leq g$ 的 $|S_g|$ 的并.
+\end{enumerate}
+\end{origstatement}
+\begin{proof}
+只须对覆盖 $S$ 的开子概形证明定理, 因为所得的层将由其泛性质粘合.
+
+\textbf{特殊情形:} 设 $n=0$, 于是 $\mathbb P^n_S=S$. 对任意 $s\in S$, $\mathcal F$ 在 $s$ 上的\emph{纤维} $\mathcal F|_s$, 指 $\mathcal F$ 到子概形 $\Spec\kappa(s)$ 的拉回, 其中 $\kappa(s)$ 为 $s$ 处的剩余域. (它由 $\mathcal F$ 在 $s$ 处的茎与 $s$ 处的剩余域作张量积而得, 二者均视为 $\mathcal O_{S,s}$ 模.) $\mathcal F$ 在 $s$ 上的纤维上的限制的 Hilbert 多项式为零次多项式 $e\in\mathbb Q[\lambda]$, 其中 $e=\dim_{\kappa(s)}\mathcal F|_s$.
+
+由 Nakayama 引理, $\mathcal F|_s$ 的任意一组基均可延拓到 $s$ 的一个邻域 $U$, 给出 $\mathcal F|_U$ 的一组生成元. 重复这一论证, 可知存在 $s$ 的更小邻域 $V$, 其上有右正合列
+\[
+ \mathcal O_V^{\oplus m}\xrightarrow{\psi}\mathcal O_V^{\oplus e}
+ \xrightarrow{\phi}\mathcal F\longrightarrow0.
+\]
+令 $I_e\subset\mathcal O_V$ 为同态 $\mathcal O_V^{\oplus m}\xrightarrow{\psi}\mathcal O_V^{\oplus e}$ 的 $e\times m$ 矩阵 $(\psi_{i,j})$ 的各元素构成的理想层. 令 $V_e$ 为 $I_e$ 定义的 $V$ 的闭子概形. 对任意概形态射 $f:T\to V$, 由张量积的右正合性, 拉回序列
+\[
+ \mathcal O_T^{\oplus m}\xrightarrow{f^*\psi}\mathcal O_T^{\oplus e}
+ \xrightarrow{f^*\phi}f^*\mathcal F\longrightarrow0
+\]
+正合. 因而拉回 $f^*\mathcal F$ 为秩 $e$ 的局部自由 $\mathcal O_T$ 模, 当且仅当 $f^*\psi=0$, 即 $f$ 经由所有元素 $\psi_{i,j}$ 的消失所定义的子概形 $V_e\hookrightarrow V$ 分解.
+% Source PDF 136, printed 124.
+这样就证明了定理的结论 (i)、(ii).
+
+由于矩阵 $(\psi_{i,j})$ 的秩是下半连续的, 函数 $e$ 为上半连续, 这证明了定理的结论 (iii), 完成了 $n=0$ 时的证明.
+
+\textbf{一般情形:} 现在允许整数 $n$ 任意. 证明思路如下: 证明存在 $S$ 的一个分层, 它是正像 $\pi_*\mathcal F(i)$ 对所有 $i\geq N$ 的平坦化分层的一个“最大公因子”, 其中 $N$ 为某个整数 (由上面已处理的 $n=0$ 情形, $\pi_*\mathcal F(i)$ 的平坦化分层存在). 由引理 5.5, 这就是所求的 $\mathcal F$ 在 $S$ 上的平坦化分层.
+
+因为 $S$ 为 Noether 概形, 它是有限多个不可约分支的并, 且这些分支在 $S$ 中闭. 令 $Y$ 为 $S$ 的一个不可约分支, $U$ 为 $Y$ 中所有不在 $S$ 的任何其他不可约分支上的点组成的非空开子集. 赋予 $U$ 约化子概形结构. 注意这使 $U$ 成为整概形, 且为 $S$ 的局部闭子概形. 由泛平坦性定理 5.12, $U$ 有一个非空开子概形 $V$, 使 $\mathcal F$ 在 $\mathbb P^n_V$ 上的限制在 $\mathcal O_V$ 上平坦. 现在将 $S$ 替换为其约化闭子概形 $S-V$, 并重复这个论证; 由对 $S$ 的 Noether 归纳法, 存在有限多个约化、局部闭且两两不交的子概形 $V_i$, 使 $|S|$ 在集合论意义上为 $|V_i|$ 的并, 且 $\mathcal F$ 在 $\mathbb P^n_{V_i}$ 上的限制在 $\mathcal O_{V_i}$ 上平坦. 由于每个 $V_i$ 都是 Noether 概形, 且平坦层族的 Hilbert 多项式局部常值, 当 $s$ 遍历 $V_i$ 的点时, Hilbert 多项式族 $P_s(m)=\chi(\mathbb P^n_s,\mathcal F_s(m))$ 中仅出现有限多个多项式. 这使我们得到以下结论:
+
+\textbf{(A)} 当 $s$ 遍历整个 $S$ 时, 只出现有限多个不同的 Hilbert 多项式 $P_s(m)=\chi(\mathbb P^n_s,\mathcal F_s(m))$.
+
+对以有限多个 Noether 概形 $V_i$ 为参数的平坦族 $\mathcal F_{V_i}=\mathcal F|_{\mathbb P^n_{V_i}}$ 应用半连续性定理, 得到:
+
+\textbf{(B)} 存在整数 $N_1$, 使对所有 $r\geq1$ 且 $m\geq N_1$, 有 $R^r\pi_*\mathcal F(m)=0$, 而且对所有 $s\in S$, 有 $H^r(\mathbb P^n_s,\mathcal F_s(m))=0$.
+
+对每个 $V_i$, 由引理 5.4, 存在整数 $r_i\geq N_1$, 使对任意 $m\geq r_i$, 基变换同态
+\[
+ (\pi_*\mathcal F(m))|_{V_i}\longrightarrow\pi_{i*}\mathcal F_{V_i}(m)
+\]
+为同构, 其中 $\mathcal F_{V_i}$ 为 $\mathcal F$ 在 $\mathbb P^n_{V_i}$ 上的限制, $\pi_i:\mathbb P^n_{V_i}\to V_i$ 为投影. 由 (B), 所有纤维的高阶上同调 (特别是一次上同调) 为零, 因而由 $V_i$ 上平坦族 $\mathcal F_{V_i}$ 的半连续性理论, 对任意 $s\in V_i$, 基变换同态
+\[
+ (\pi_{i*}\mathcal F_{V_i}(m))|_s\longrightarrow H^0(\mathbb P^n_s,\mathcal F_s(m))
+\]
+当 $m\geq r_i$ 时为同构. 令 $N$ 为有限多个非空 $V_i$ 对应的所有 $r_i$ 的最大值, 并复合上述两个基变换同构, 得到以下结论.
+
+\textbf{(C)} 存在整数 $N\geq N_1$, 使对所有 $m\geq N$ 和 $s\in S$, 基变换同态
+\[
+ (\pi_*\mathcal F(m))|_s\longrightarrow H^0(\mathbb P^n_s,\mathcal F_s(m))
+\]
+为同构.
+% Source PDF 137, printed 125.
+\emph{注.} 现在忘掉子概形 $V_i$, 但保留利用 $V_i$ 证明的事实 (A)、(B)、(C).
+
+令 $\pi:\mathbb P^n_S\to S$ 为投影. 考虑 $S$ 上的凝聚层 $E_0,\ldots,E_n$, 定义为
+\[
+ E_i=\pi_*\mathcal F(N+i),\qquad i=0,\ldots,n.
+\]
+将定理的特殊情形 ($\mathbb P^n_S$ 的相对维数 $n$ 为 $0$) 应用于 $\mathbb P^0_S=S$ 上的层 $E_0$, 得到 $S$ 的一个以整数 $e_0$ 为指标的分层 $(W_{e_0})$, 使对任意态射 $f:T\to S$, 拉回 $f^*E_0$ 为秩 $e_0$ 的局部自由 $\mathcal O_T$ 模, 当且仅当 $f$ 经由 $W_{e_0}\hookrightarrow S$ 分解. 接着, 对每一层 $W_{e_0}$, 取 $E_1|_{W_{e_0}}$ 的平坦化分层 $(W_{e_0,e_1})$, 依此继续. 如此经过 $n+1$ 步, 得到有限多个局部闭子概形
+\[
+ W_{e_0,\ldots,e_n}\subset S,
+\]
+使对任意态射 $f:T\to S$, 对 $i=0,\ldots,n$, 拉回 $f^*E_i$ 为常秩 $e_i$ 的局部自由 $\mathcal O_T$ 模, 当且仅当 $f$ 经由 $W_{e_0,\ldots,e_n}\hookrightarrow S$ 分解.
+
+对任意整数 $N,n$, 其中 $n\geq0$, 次数 $\leq n$ 的数值多项式 $f\in\mathbb Q[\lambda]$ 的集合与 $\mathbb Z^{n+1}$ 之间有双射, 由下式给出:
+\[
+ f\longmapsto(e_0,\ldots,e_n),\qquad e_i=f(N+i).
+\]
+因此每个元组 $(e_0,\ldots,e_n)\in\mathbb Z^{n+1}$ 均可唯一地替换为一个次数 $\leq n$ 的数值多项式 $f\in\mathbb Q[\lambda]$, 从而可将 $W_{e_0,\ldots,e_n}\subset S$ 改记为 $W_f\subset S$.
+
+注意由 (B), 在任意点 $s\in S$, 对所有 $r\geq1$ 且 $m\geq N$, 有 $H^r(\mathbb P^n_s,\mathcal F_s(m))=0$. 多项式 $P_s(m)=\chi(\mathbb P^n_s,\mathcal F_s(m))$ 的次数 $\leq n$, 所以由其 $n+1$ 个值 $P_s(N),\ldots,P_s(N+n)$ 确定. 这表明在任意点 $s\in W_f$, Hilbert 多项式 $P_s(m)$ 等于 $f$. 定理断言存在的局部闭子概形 $S_f\subset S$, 将是某个闭子概形 $S_f\subset W_f$, 其底集为整个 $|W_f|$. $S_f$ 的概形结构 (一般可能不同于 $W_f$ 的结构) 定义如下.
+
+对任意 $i\geq0$ 和 $s\in S$, 由 (C), 基变换同态
+\[
+ (\pi_*\mathcal F(N+i))|_s\longrightarrow H^0(\mathbb P^n_s,\mathcal F_s(N+i))
+\]
+为同构. 因而每个 $\pi_*\mathcal F(N+i)$ 在子概形 $W_f$ 上的纤维都有常秩 $f(N+i)$. 然而这并不意味着 $\pi_*\mathcal F(N+i)$ 限制为秩 $f(N+i)$ 的局部常值层. 但这意味着 $W_f$ 有一个底集为整个 $|W_f|$ 的闭子概形 $W_f^i$, 使 $\pi_*\mathcal F(N+i)$ 限制到 $W_f^{(i)}$ 后局部自由且秩为 $f(N+i)$, 并且还具有如下性质: 任意使 $\pi_*\mathcal F(N+i)$ 拉回为秩 $f(N+i)$ 的局部自由层的基变换 $T\to S$, 均经由 $W_f^i$ 分解. $W_f^{(i)}$ 的概形结构由凝聚理想层 $I_i\subset\mathcal O_{W_f}$ 定义. 令 $I\subset\mathcal O_{W_f}$ 为所有 $i\geq0$ 的 $I_i$ 的和. 由 Noether 条件, 递增序列
+\[
+ I_0\subset I_0+I_1\subset I_0+I_1+I_2\subset\cdots
+\]
+在有限步后终止, 表明 $I$ 仍是凝聚理想层. 令 $S_f\subset W_f$ 为理想层 $I$ 定义的闭子概形. 因而注意 $|S_f|=|W_f|$, 且对所有 $i\geq0$, 层 $\pi_*\mathcal F(N+i)$ 限制到 $S_f$ 后局部自由且秩为 $f(N+i)$.
+% Source PDF 138, printed 126.
+由定义可知, $S_f$ 满足定理的性质 (i).
+
+现在证明态射 $\coprod_fS_f\to S$ 确实满足定理的性质 (ii). 由引理 5.4, 存在某个 $N'\geq N$, 使对所有 $i\geq N'$, 基变换 $(\pi_*\mathcal F(i))|_{S_f}\to(\pi_{S_f})_*\mathcal F_{S_f}(i)$ 对每个 $S_f$ 都是同构. 因为对所有 $i\geq N'$, 正像 $\pi_*\mathcal F(i)$ 在 $S_f$ 上局部自由, 由引理 5.5, $\mathcal F_{S_f}$ 在 $S_f$ 上平坦. 反过来, 若 $\phi:T\to S$ 为使 $\mathcal F_T$ 平坦的态射, 则 Hilbert 多项式在 $T$ 上局部常值. 令 $T_f$ 为 $T$ 中 Hilbert 多项式为 $f$ 的开闭子概形. 显然集合映射 $|T_f|\to|S|$ 经由 $|S_f|$ 分解. 但因正像 $\pi_{T*}\mathcal F_T(i)$ 在 $T_f$ 上局部自由且秩为 $f(i)$, 事实上概形态射 $T_f\to S$ 经由 $S_f$ 分解, 证明了定理的性质 (ii).
+
+由 (A), 仅出现有限多个多项式 $f$, 因此存在某个 $p\geq N$, 使得对任意两个出现的多项式 $f,g$, 有 $f<g$ 当且仅当 $f(p)<g(p)$. 由于 $S_f$ 为 $\pi_*\mathcal F(p)$ 的平坦化分层, 定理的性质 (iii) 可由 $n=0$ 情形中的相应性质应用于 $S$ 上的层 $\pi_*\mathcal F(p)$ 得到.
+
+这就完成了定理的证明.
+\end{proof}
+
+\textbf{习题.} 对 $S$ 上的凝聚层 $\mathcal O_{S^{\mathrm{red}}}$, $S$ 的平坦化分层是什么? 其中 $S^{\mathrm{red}}$ 为 $S$ 的底约化概形.
+\section{Quot 概形的构造}\label{ch05:sec5.5}
+\subsection{射影性的概念}\label{ch05:sec5.5.1}
+设 $S$ 为 Noether 概形. 回忆, 按 Grothendieck 的定义, 态射 $X\to S$ 称为\emph{射影态射}, 如果存在 $S$ 上的凝聚层 $E$, 连同 $S$ 上 $X$ 到 $\mathbb P(E)=\chProj\chSym_{\mathcal O_S}E$ 的一个闭浸入. 等价地, 当 $X\to S$ 固有, 且 $X$ 上存在相对于 $S$ 的相对甚丰沛线丛 $L$ 时, $X\to S$ 射影. 这些条件的联系是: 取 $L$ 为 $\mathcal O_{\mathbb P(E)}(1)$ 在 $X$ 上的限制; 反方向则取 $E$ 为 $L$ 在 $S$ 上的正像. 若态射 $X\to S$ 可以分解为一个开浸入 $X\hookrightarrow Y$, 后接一个射影态射 $Y\to S$, 则称它为\emph{拟射影态射}.
+
+Altman 与 Kleiman 引入了一个更强的射影性版本: Noether 概形间的态射 $X\to S$ 称为\emph{强射影的} (分别称为\emph{强拟射影的}), 如果存在 $S$ 上的向量丛 $E$, 连同 $S$ 上的闭浸入 (分别为局部闭浸入) $X\subset\mathbb P(E)$.
+
+最后, 最强版本的 (拟) 射影性如下 (例如 Hartshorne 的教科书 [Har77] 采用这一版本): 若 Noether 概形间的态射 $X\to S$ 中, $X$ 对某个 $n$ 有一个到 $\mathbb P^n_S$ 的 (局部) 闭浸入, 则它在最强意义下射影.
+
+注意, 这三种射影性都不是关于基底 $S$ 的局部性质.
+
+\textbf{习题.} (i) 举例说明上述三个射影性概念一般互不相同.
+
+(ii) 证明若 $X\to S$ 射影且平坦, 其中 $S$ 为 Noether 概形, 则 $X\to S$ 强射影.
+% Source PDF 139, printed 127.
+(iii) 注意若每个凝聚 $\mathcal O_S$ 模层都是一个向量丛的商, 则基底 $S$ 上的射影性等价于强射影性. 若 $S$ 有丰沛线丛 (例如 $S$ 在仿射基底上拟射影), 则 $S$ 上的全部三个射影性概念彼此等价.
+
+\subsection{主要存在性定理}\label{ch05:sec5.5.2}
+Grothendieck 关于 Quot 概形的原始定理如下, 其证明在 [FGA] TDTE-IV 中给出了梗概.
+\begin{origstatement}{定理}{5.14}\label{ch05:thm5.14}
+(Grothendieck) 设 $S$ 为 Noether 概形, $\pi:X\to S$ 为射影态射, $L$ 为 $X$ 上的相对甚丰沛线丛. 则对任意凝聚 $\mathcal O_X$ 模 $E$ 及任意多项式 $\Phi\in\mathbb Q[\lambda]$, 函子 $\chQuot^{\Phi,L}_{E/X/S}$ 可由射影 $S$ 概形 $\chQuotScheme^{\Phi,L}_{E/X/S}$ 表示.
+\end{origstatement}
+
+Altman 与 Kleiman 在 [AK80] 中给出了 Quot 概形存在性的完整详细证明. 他们得以去掉 Noether 假设, 代之以 $X\to S$ 的强 (拟) 射影性假设, 以及对凝聚层 $E$ 的性质的一个假设, 并推出概形 $\chQuotScheme^{\Phi,L}_{E/X/S}$ 此时在 $S$ 上强 (拟) 射影.
+
+为简便起见, 本讲义在 Noether 情形中陈述并证明 [AK80] 中的结果.
+\begin{origstatement}{定理}{5.15}\label{ch05:thm5.15}
+(Altman--Kleiman) 设 $S$ 为 Noether 概形, $X$ 为 $\mathbb P(V)$ 的闭子概形, 其中 $V$ 是 $S$ 上的某个向量丛; 设 $L=\mathcal O_{\mathbb P(V)}(1)|_X$, $E$ 为 $\pi^*(W)(\nu)$ 的凝聚商层, 其中 $W$ 为 $S$ 上的向量丛, $\nu$ 为整数; 并设 $\Phi\in\mathbb Q[\lambda]$. 则函子 $\chQuot^{\Phi,L}_{E/X/S}$ 可由概形 $\chQuotScheme^{\Phi,L}_{E/X/S}$ 表示, 后者可以在 $S$ 上作为闭子概形嵌入 $\mathbb P(F)$, 其中 $F$ 是 $S$ 上的某个向量丛.
+
+向量丛 $F$ 可以取为 $W$ 与 $V$ 的某个对称幂的张量积的一个外幂.
+\end{origstatement}
+
+在上述结论中取 $V,W$ 均为平凡丛, 得到以下结论.
+\begin{origstatement}{定理}{5.16}\label{ch05:thm5.16}
+若 $S$ 为 Noether 概形, $X$ 为某个 $n\geq0$ 的 $\mathbb P^n_S$ 的闭子概形, $L=\mathcal O_{\mathbb P^n}(1)|_X$, $E$ 为某些整数 $p\geq0$ 和 $\nu$ 的 $\oplus^p\mathcal O_X(\nu)$ 的凝聚商层, 且 $\Phi\in\mathbb Q[\lambda]$, 则函子 $\chQuot^{\Phi,L}_{E/X/S}$ 可由概形 $\chQuotScheme^{\Phi,L}_{E/X/S}$ 表示, 后者可以在 $S$ 上作为闭子概形嵌入某个 $r\geq0$ 的 $\mathbb P^r_S$.
+\end{origstatement}
+
+本节余下部分用于在额外的 Noether 假设下证明定理 5.15. 最后将说明此证明如何也给出 Grothendieck 的原始版本.
+
+\subsection{化归到 $\chQuot^{\Phi,L}_{\pi^*W/\mathbb P(V)/S}$ 的情形}\label{ch05:sec5.5.3}
+由下一个引理可知, 只须在特殊情形 $X=\mathbb P(V)$ 且 $E=\pi^*(W)$ 下证明定理 5.15, 其中 $V,W$ 为 $S$ 上的向量丛.
+\begin{origstatement}{引理}{5.17}\label{ch05:lem5.17}
+(i) 设 $\nu$ 为任意整数. 张量乘以 $L^\nu$ 给出从 $\chQuot^{\Phi,L}_{E/X/S}$ 到 $\chQuot^{\Psi,L}_{E(\nu)/X/S}$ 的函子同构, 其中多项式 $\Psi\in\mathbb Q[\lambda]$ 定义为 $\Psi(\lambda)=\Phi(\lambda+\nu)$.
+
+(ii) 设 $\phi:E\to G$ 为 $X$ 上凝聚层的满同态. 则相应的自然变换 $\chQuot^{\Phi,L}_{G/X/S}\to\chQuot^{\Phi,L}_{E/X/S}$ 为闭浸入.
+\end{origstatement}
+% Source PDF 140, printed 128.
+\begin{proof}
+结论 (i) 显然. 结论 (ii) 只是说, 给定任意局部 Noether 概形 $T$ 及族 $\langle\mathcal F,q\rangle\in\chQuot^{\Phi,L}_{E/X/S}(T)$, 存在闭子概形 $T'\subset T$, 具有以下泛性质: 对任意局部 Noether 概形 $U$ 及态射 $f:U\to T$, 拉回所得的 $\mathcal O_{X_U}$ 模同态 $q_U:E_U\to\mathcal F_U$ 经由拉回同态 $\phi_U:E_U\to G_U$ 分解, 当且仅当 $U\to T$ 经由 $T'\hookrightarrow T$ 分解. 取 $T'$ 为 $X_T$ 上凝聚层的复合同态
+\[
+ \ker(\phi)\hookrightarrow E\;\mathit{xrightarrowq}\longrightarrow\mathcal F
+\]
+的消失概形, 就满足这一性质 (见注 5.9); 这在此处有意义, 因为 $\ker(\phi)$ 与 $\mathcal F$ 都在 $X_T$ 上凝聚, 且 $\mathcal F$ 在 $T$ 上平坦.
+\end{proof}
+% Source prints the literal malformed arrow string ``xrightarrowq''; retained.
+因此若 $\chQuot^{\Phi,L}_{\pi^*W/\mathbb P(V)/S}$ 可表, 则对 $\pi^*W(\nu)|_X$ 的任意凝聚商 $E$, 可以取 $\chQuotScheme^{\Phi,L}_{E/X/S}$ 为 $\chQuotScheme^{\Phi,L}_{\pi^*W/\mathbb P(V)/S}$ 的闭子概形.
+
+\subsection{$m$ 正则性的运用}\label{ch05:sec5.5.4}
+考虑 $X=\mathbb P(V)$ 上的层 $E=\pi^*(W)$, 其中 $V$ 为 $S$ 上的向量丛, 并取 $L=\mathcal O_{\mathbb P(V)}(1)$. 对任意域 $k$ 及 $S$ 的一个 $k$ 值点 $s$, 有同构 $\mathbb P(V)_s\simeq\mathbb P^n_k$, 其中 $n=\operatorname{rank}(V)-1$, 而 $E$ 在 $\mathbb P(V)_s$ 上的限制层 $E_s$ 同构于 $\oplus^p\mathcal O_{\mathbb P(V)_s}$, 其中 $p=\operatorname{rank}(W)$. 由定理 5.3 可知, 给定任意 $\Phi\in\mathbb Q[\lambda]$, 存在仅依赖于 $\operatorname{rank}(V),\operatorname{rank}(W),\Phi$ 的整数 $m$, 使对任意域 $k$ 和 $S$ 的 $k$ 值点 $s$, $\mathbb P(V)_s$ 上的层 $E_s$ 都为 $m$ 正则的; 对 $\mathbb P(V)_s$ 上 Hilbert 多项式为 $\Phi$ 的任意凝聚商 $q:E_s\to\mathcal F$, 层 $\mathcal F$ 及 $q$ 的核层 $\mathcal G\subset E_s$ 都为 $m$ 正则的. 特别地, 由 Castelnuovo 引理 5.1 可知, 当 $r\geq m$ 时, 所有上同调
+\[
+ H^i(X_s,E_s(r)),\quad H^i(X_s,\mathcal F(r)),\quad H^i(X_s,\mathcal G(r))
+\]
+对 $i\geq1$ 都为零, 而 $H^0(X_s,E_s(r))$, $H^0(X_s,\mathcal F(r))$, $H^0(X_s,\mathcal G(r))$ 由其整体截面生成.
+
+由上述结果和定理 5.10 可知, 若 $T$ 为 $S$ 概形, $q:E_T\to\mathcal F$ 为 Hilbert 多项式为 $\Phi$ 的 $T$ 平坦凝聚商, 则有以下结论, 其中 $\mathcal G\subset E_T$ 为 $q$ 的核.
+
+\textbf{(*)} 层 $\pi_{T*}\mathcal G(r)$, $\pi_{T*}E_T(r)$, $\pi_{T*}\mathcal F(r)$ 均局部自由, 其固定秩由数据 $n,p,r,\Phi$ 确定; 同态
+\[
+ \pi_T^*\pi_{T*}(\mathcal G(r))\to\mathcal G(r),\quad
+ \pi_T^*\pi_{T*}(E_T(r))\to E_T(r),\quad
+ \pi_T^*\pi_{T*}(\mathcal F(r))\to\mathcal F(r)
+\]
+均为满射; 对所有 $r\geq m$ 和 $i\geq1$, 高阶正像 $R^i\pi_{T*}\mathcal G(r)$, $R^i\pi_{T*}E_T(r)$, $R^i\pi_{T*}\mathcal F(r)$ 均为零.
+
+\textbf{(**)} 特别地, 在 $X_T$ 上有如下局部自由层的交换图, 两行均正合, 且三个竖直映射均为满射:
+\[
+\begin{tikzcd}[column sep=small]
+0\arrow[r]\arrow[d]&\pi_T^*\pi_{T*}(\mathcal G(r))\arrow[r]\arrow[d]
+ &\pi_T^*\pi_{T*}(E_T(r))\arrow[r]\arrow[d]
+ &\pi_T^*\pi_{T*}(\mathcal F(r))\arrow[r]\arrow[d]&0\\
+0\arrow[r]&\mathcal G(r)\arrow[r]&E(r)\arrow[r]&\mathcal F(r)\arrow[r]&0.
+\end{tikzcd}
+\]
+
+\subsection{把 Quot 嵌入 Grassmann 概形}\label{ch05:sec5.5.5}
+现在固定一个正整数 $r$, 使 $r\geq m$. 注意 $\pi_{T*}\mathcal F(r)$ 的秩为 $\Phi(r)$, 且 $\pi_*E(r)=W\otimes_{\mathcal O_S}\chSym^rV$. 因此满同态 $\pi_{T*}E_T(r)\to\pi_{T*}\mathcal F(r)$ 定义集合 $\chGrass(W\otimes_{\mathcal O_S}\chSym^rV,\Phi(r))(T)$ 的一个元素. 从而得到函子态射
+\[
+ \alpha:\chQuot^{\Phi,L}_{E/X/S}\longrightarrow\chGrass(W\otimes_{\mathcal O_S}\chSym^rV,\Phi(r)).
+\]
+% Source PDF 141, printed 129.
+它把 $q:E_T\to\mathcal F$ 对应到商 $\pi_{T*}(q(r)):\pi_{T*}E_T(r)\to\pi_{T*}\mathcal F(r)$.
+
+上述态射 $\alpha$ 是单射, 因为商 $q:E_T\to\mathcal F$ 可以如下从 $\pi_{T*}(q(r)):\pi_{T*}E_T(r)\to\pi_{T*}\mathcal F(r)$ 恢复.
+
+若 $G=\chGrassScheme(W\otimes_{\mathcal O_S}\chSym^rV,\Phi(r))$, 其投影为 $p_G:G\to S$, $u:p_G^*E\to\mathcal U$ 为 $G$ 上的泛商, 核为 $v:\mathcal K\hookrightarrow p_G^*E$, 则同态 $\pi_T^*\pi_{T*}(\mathcal G(r))\to\pi_T^*\pi_{T*}E_T(r)$ 可以从态射 $T\to G$ 恢复为 $v:\mathcal K\hookrightarrow p_G^*E$ 的拉回. 令 $h$ 为复合 $\pi_T^*\pi_{T*}(\mathcal G(r))\to\pi_T^*\pi_{T*}(E_T(r))\to E_T(r)$. 由交换图 (**) 的性质, 下式为 $X_T$ 上的右正合列:
+\[
+ \pi_T^*\pi_{T*}(\mathcal G(r))\xrightarrow{h}E_T(r)\xrightarrow{q(r)}\mathcal F\longrightarrow0.
+\]
+所以 $q(r):E_T(r)\to\mathcal F(r)$ 可以恢复为 $h$ 的余核. 最后, 扭转 $-r$, 就恢复了 $q$, 证明函子态射
+\[
+ \alpha:\chQuot^{\Phi,L}_{E/X/S}\longrightarrow\chGrass(W\otimes_{\mathcal O_S}\chSym^rV,\Phi(r))
+\]
+具有所求单射性.
+
+\subsection{平坦化分层的运用}\label{ch05:sec5.5.6}
+接下来证明
+\[
+ \alpha:\chQuot^{\Phi,L}_{E/X/S}\longrightarrow\chGrass(W\otimes_{\mathcal O_S}\chSym^rV,\Phi(r))
+\]
+相对可表. 事实上, 将证明给定任意局部 Noether $S$ 概形 $T$ 和满同态 $f:W_T\otimes_{\mathcal O_T}\chSym^rV_T\to\mathcal J$, 其中 $\mathcal J$ 为秩 $\Phi(r)$ 的局部自由 $\mathcal O_T$ 模, 存在 $T$ 的局部闭子概形 $T'$, 具有以下泛性质 \textbf{(F)}:
+
+\textbf{(F)} 给定任意局部 Noether $S$ 概形 $Y$ 和 $S$ 态射 $\phi:Y\to T$, 令 $f_Y$ 为 $f$ 的拉回, $\mathcal K_Y=\ker(f_Y)=\phi^*\ker(f)$. 令 $\pi_Y:X_Y\to Y$ 为投影, $h:\pi_Y^*\mathcal K_Y\to E_Y$ 为复合映射
+\[
+ \pi_Y^*\mathcal K_Y\longrightarrow\pi_Y^*(W\otimes_{\mathcal O_S}\chSym^rV)
+ =\pi_Y^*\pi_{Y*}E_Y\longrightarrow E_Y.
+\]
+令 $q:E_Y\to\mathcal F$ 为 $h$ 的余核. 则 $\mathcal F$ 在 $Y$ 上平坦, 且所有纤维上的 Hilbert 多项式均为 $\Phi$, 当且仅当 $\phi:Y\to T$ 经由 $Y'\hookrightarrow Y$ 分解.
+
+这样的 $T$ 的局部闭子概形 $T'$ 的存在性由定理 5.13 给出, 该定理表明 $T'$ 为 $X_T$ 上层 $\mathcal F$ 在 $T$ 上的平坦化分层中对应于 Hilbert 多项式 $\Phi$ 的层.
+
+当取 $T$ 为 $\chGrassScheme(W\otimes_{\mathcal O_S}\chSym^rV,\Phi(r))$, 并带有泛商 $u:p_G^*E\to\mathcal U$ 时, 相应局部闭子概形 $T'$ 由构造可知表示函子 $\chQuot^{\Phi,L}_{E/X/S}$.
+
+所以已经证明, $\chQuot^{\Phi,L}_{E/X/S}$ 可由 $\chGrassScheme(W\otimes_{\mathcal O_S}\chSym^rV,\Phi(r))$ 的局部闭子概形表示. 因为 $\chGrassScheme(W\otimes_{\mathcal O_S}\chSym^rV,\Phi(r))$ 可作为闭子概形嵌入 $\mathbb P(\bigwedge^{\Phi(r)}W\otimes_{\mathcal O_S}\chSym^rV)$, 得到 $S$ 概形的局部闭浸入
+\[
+ \chQuotScheme^{\Phi,L}_{E/X/S}\subset
+ \mathbb P\left(\textstyle\bigwedge^{\Phi(r)}(W\otimes_{\mathcal O_S}\chSym^rV)\right).
+\]
+特别地, 态射 $\chQuotScheme^{\Phi,L}_{E/X/S}\to S$ 分离且为有限型.
+
+% Source PDF 142, printed 130.
+\subsection{固有性的赋值判别准则}\label{ch05:sec5.5.7}
+以下论证的原始参考文献为 EGA IV (2) 2.8.1.
+
+函子 $\chQuot^{\Phi,L}_{E/X/S}$ 在 $S$ 上满足以下固有性的赋值判别准则: 给定 $S$ 上任意离散赋值环 $R$, 其分式域为 $K$, 则限制映射
+\[
+ \chQuot^{\Phi,L}_{E/X/S}(\Spec R)\longrightarrow\chQuot^{\Phi,L}_{E/X/S}(\Spec K)
+\]
+为双射. 这可如下看出. 给定 $X_K$ 上任意凝聚商 $q:E_K\to\mathcal F$, 它定义 $\chQuot^{\Phi,L}_{E/X/S}(\Spec K)$ 的元素 $\langle\mathcal F,q\rangle$, 令 $\overline{\mathcal F}$ 为复合同态 $E_R\to j_*(E_K)\to j_*\mathcal F$ 的像, 其中 $j:X_K\hookrightarrow X_R$ 为开包含. 令 $\bar q:E_R\to\overline{\mathcal F}$ 为诱导满射. 验证 $\langle\overline{\mathcal F},\bar q\rangle$ 是 $\chQuot^{\Phi,L}_{E/X/S}(\Spec R)$ 中映至 $\langle\mathcal F,q\rangle$ 的元素, 且为唯一这样的元素, 留给读者. (使用基本事实: 在离散赋值环上平坦等同于无挠.)
+
+由于 $S$ 为 Noether 概形, 且已证明 $\chQuotScheme^{\Phi,L}_{E/X/S}\to S$ 为有限型, 可知 $\chQuotScheme^{\Phi,L}_{E/X/S}\to S$ 为固有态射. 因此 $\chQuotScheme^{\Phi,L}_{E/X/S}$ 到 $\mathbb P(\bigwedge^{\Phi(r)}(W\otimes_{\mathcal O_S}\chSym^rV))$ 的浸入是闭浸入.
+
+这就完成了定理 5.15 的证明.\hfill$\square$
+
+\subsection{Grothendieck 的版本}\label{ch05:sec5.5.8}
+现在说明如何从上述证明得到定理 5.14. 因为 $S$ 为 Noether 概形, 可以找到统一的 $m$, 使得给定任意域值点 $s:\Spec k\to S$ 和 $X_s$ 上 Hilbert 多项式为 $\Phi$ 的凝聚商 $q:E_s\to\mathcal F$, 当 $r\geq m$ 时, 层 $E_s(r),\mathcal F(r),\mathcal G(r)$ (其中 $\mathcal G=\ker(q)$) 都由整体截面生成, 且其全部高阶上同调为零. 这由 $m$ 正则性理论与半连续性得到.
+
+由于有这样的统一 $m$, 如前得到从函子 $\chQuot^{\Phi,L}_{E/X/S}$ 到 Grassmann 函子 $\chGrass(\pi_*E(r),\Phi(r))$ 的单射态射. 层 $\pi_*E(r)$ 凝聚, 但未必为 $S$ 上向量丛的商. 因此概形 $\chGrassScheme(\pi_*E(r),\Phi(r))$ 在基底上射影, 但未必强射影.
+
+最后, 运用可在 $S$ 的仿射开覆盖上进行的平坦化分层, 得到 $\chGrassScheme(\pi_*E(r),\Phi(r))$ 的一个局部闭子概形, 它表示 $\chQuot^{\Phi,L}_{E/X/S}$; 由赋值判别准则, 它事实上是闭子概形. 于是得到 $\chQuotScheme^{\Phi,L}_{E/X/S}$ 为 $S$ 上的射影概形.
+\section{若干变体与应用}\label{ch05:sec5.6}
+\subsection{拟射影情形中的 Quot 概形}\label{ch05:sec5.6.1}
+\textbf{习题.} 设 $\pi:Z\to S$ 为 Noether 概形间的固有态射, $Y\subset Z$ 为闭子概形, $\mathcal F$ 为 $Z$ 上的凝聚层. 则存在开子概形 $S'\subset S$, 具有如下泛性质: 态射 $T\to S$ 经由 $S'$ 分解, 当且仅当 $Z_T=Z\times_S T$ 上的拉回 $\mathcal F_T$ 的支集与 $Y_T=Y\times_S T$ 不交.
+
+\textbf{习题.} 作为上述结论的推论, 证明: 若 $\pi:Z\to S$ 为固有态射, $S$ 为 Noether 概形, $X\subset Z$ 为开子概形, $E$ 为 $Z$ 上的凝聚层, 则 $\chQuot_{E|_X/X/S}$ 为 $\chQuot_{E/Z/S}$ 的开子函子.
+% Source PDF 143, printed 131.
+经过上述准备, Quot 概形的构造可推广到强拟射影情形, 得到以下结论.
+\begin{origstatement}{定理}{5.18}\label{ch05:thm5.18}
+(Altman 与 Kleiman) 设 $S$ 为 Noether 概形, $X$ 为 $\mathbb P(V)$ 的局部闭子概形, 其中 $V$ 为 $S$ 上的某个向量丛; 设 $L=\mathcal O_{\mathbb P(V)}(1)|_X$, $E$ 为 $\pi^*(W)(\nu)|_X$ 的凝聚商层, 其中 $W$ 为 $S$ 上的向量丛, $\nu$ 为整数, 且 $\Phi\in\mathbb Q[\lambda]$. 则函子 $\chQuot^{\Phi,L}_{E/X/S}$ 可由概形 $\chQuotScheme^{\Phi,L}_{E/X/S}$ 表示, 后者可在 $S$ 上作为局部闭子概形嵌入 $\mathbb P(F)$, 其中 $F$ 为 $S$ 上的某个向量丛. 而且向量丛 $F$ 可取为 $W$ 与 $V$ 的一个对称幂的张量积的一个外幂.
+\end{origstatement}
+\begin{proof}
+令 $\overline X\subset\mathbb P(V)$ 为 $X\subset\mathbb P(V)$ 的概形论闭包, $\overline E$ 为 $\overline X$ 上由复合同态
+\[
+ \pi^*(W)(\nu)|_{\overline X}\longrightarrow
+ j_*(\pi^*(W)(\nu)|_X)\longrightarrow j_*E
+\]
+的像定义的凝聚层. 于是得到商 $\pi^*(W)(\nu)|_{\overline X}\to\overline E$, 它限制到 $X\subset\overline X$ 后为给定的商 $\pi^*(W)(\nu)|_X\to E$. 因而由上述习题, $\chQuot_{E/X/S}$ 为 $\chQuot_{\overline E/\overline X/S}$ 的开子函子. 现在结论由定理 5.15 得到.
+\end{proof}
+
+为了把 Grothendieck 的 Quot 概形构造推广到拟射影情形, 首先需要以下本身也有意义的引理.
+\begin{origstatement}{引理}{5.19}\label{ch05:lem5.19}
+Noether 概形 $S$ 的一个开子概形上的任意凝聚层, 均可延拓为整个 $S$ 上的凝聚层.
+\end{origstatement}
+\begin{proof}
+先考虑 $S=\Spec A$ 为仿射概形的情形, 令 $j:U\hookrightarrow S$ 为包含. 拟凝聚层 $j_*(\mathcal F)$ 对应于 $A$ 模 $M=H^0(S,j_*(\mathcal F))$, 即 $j_*(\mathcal F)=M^\sim$. 给定任意 $u\in U$, 存在有限多个元素 $e_1,\ldots,e_n\in M$, 生成视为剩余域 $\kappa(u)$ 上向量空间的纤维 $\mathcal F_u$. 由 Nakayama 引理, 这些元素在 $U$ 中 $u$ 的一个开邻域中生成 $\mathcal F$ 的各茎. 因而由 Noether 假设, 存在有限多个元素 $e_1,\ldots,e_r\in M$, 在 $U$ 的每一点生成 $\mathcal F$ 的茎. 若 $N\subset M$ 为这些元素生成的子模, 则 $\mathcal G=N^\sim$ 是 $\mathcal F$ 到 $S=\Spec A$ 的凝聚延拓, 证明了仿射情形的结论.
+
+在一般情形中, 由 Noether 条件, 存在 $\mathcal F$ 的极大凝聚延拓 $(U',\mathcal F')$. 除非 $U'=S$, 否则可利用仿射情形得到 $\mathcal F'$ 的进一步延拓. 因为若 $u\in S-U'$, 可取包含 $u$ 的仿射开子概形 $V$, 以及 $\mathcal F'|_{U'\cap V}$ 到整个 $V$ 的凝聚延拓 $\mathcal G'$, 然后沿 $U'\cap V$ 粘合 $\mathcal G'$ 与 $\mathcal F'$, 把 $\mathcal F'$ 进一步延拓到 $U'\cup V$, 这与 $(U',\mathcal F')$ 的极大性矛盾.
+\end{proof}
+
+\begin{origstatement}{定理}{5.20}\label{ch05:thm5.20}
+(Grothendieck) 设 $S$ 为 Noether 概形, $X$ 为 $S$ 上的拟射影概形, $L$ 为 $X$ 上相对于 $S$ 相对甚丰沛的线丛, $E$ 为 $X$ 上的商层, $\Phi\in\mathbb Q[\lambda]$. 则函子 $\chQuot^{\Phi,L}_{E/X/S}$ 可由 $S$ 上的拟射影概形 $\chQuotScheme^{\Phi,L}_{E/X/S}$ 表示.
+\end{origstatement}
+% Source PDF 144, printed 132.
+\begin{proof}
+由 $X\to S$ 拟射影的定义, 注意 $X$ 可以在 $S$ 上作为局部闭子概形嵌入 $\mathbb P(V)$, 其中 $V$ 为 $S$ 上的某个凝聚层, 并且 $L$ 同构于 $\mathcal O_{\mathbb P(V)}(1)|_X$. 令 $\overline X\subset\mathbb P(V)$ 为 $X$ 在 $\mathbb P(V)$ 中的概形论闭包. 这是 $S$ 上的射影概形, $X$ 作为开子概形嵌入其中. 由引理 5.19, 凝聚层 $E$ 有到 $\overline X$ 的凝聚延拓 $\overline E$. 对任意这样的延拓 $\overline E$, 函子 $\chQuot_{E/X/S}$ 是 $\chQuot_{\overline E/\overline X/S}$ 的开子函子. 因而所求结论由定理 5.14 得到.
+\end{proof}
+
+\subsection{态射概形}\label{ch05:sec5.6.2}
+回忆以下关于平坦性的基本事实.
+\begin{origstatement}{引理}{5.21}\label{ch05:lem5.21}
+(1) Noether 概形间的任意有限型平坦态射都是开映射.
+
+(2) 设 $\pi:Y\to X$ 为 Noether 概形间的有限型态射. 则使得 $\pi$ 在 $y$ 处平坦 (即 $\mathcal O_{Y,y}$ 为平坦 $\mathcal O_{X,\pi(y)}$ 模) 的全部 $y\in Y$ 构成 $Y$ 的开子集.
+
+(3) 设 $S$ 为 Noether 概形, $f:X\to S$ 与 $g:Y\to S$ 为有限型平坦态射, $\pi:Y\to X$ 为满足 $g=f\circ\pi$ 的任意态射. 令 $y\in Y$, $x=\pi(y)$, $s=g(y)=f(x)$. 若 $s$ 上纤维之间的限制态射 $\pi_s:Y_s\to X_s$ 在 $y\in Y_s$ 处平坦, 则 $\pi$ 在 $y\in Y$ 处平坦.
+\end{origstatement}
+\begin{proof}
+例如见 Altman 与 Kleiman [AK70] 第 V 章. 结论 (3) 是通常所谓\textbf{平坦性局部判别准则}的推论.
+\end{proof}
+
+\begin{origstatement}{定理}{5.22}\label{ch05:thm5.22}
+设 $S$ 为 Noether 概形, $f:X\to S$ 与 $g:Y\to S$ 为固有平坦态射, $\pi:Y\to X$ 为满足 $g=f\circ\pi$ 的任意射影态射. 则 $S$ 有开子概形 $S_2\subset S_1\subset S$, 具有以下泛性质:
+\begin{enumerate}
+\item[(a)] 对任意局部 Noether $S$ 概形 $T$, 基变换 $\pi_T:Y_T\to X_T$ 为平坦态射, 当且仅当结构态射 $T\to S$ 经由 $S_1$ 分解. (这不需要 $\pi$ 射影.)
+\item[(b)] 对任意局部 Noether $S$ 概形 $T$, 基变换 $\pi_T:Y_T\to X_T$ 为同构, 当且仅当结构态射 $T\to S$ 经由 $S_2$ 分解.
+\end{enumerate}
+\end{origstatement}
+\begin{proof}
+(a) 由引理 5.21(2), 使 $\pi$ 在 $y$ 处平坦的全部 $y\in Y$ 构成一个开子集 $Y'\subset Y$. 因为 $g$ 固有, $S_1=S-g(Y-Y')$ 为 $S$ 的开子集. 赋予 $S_1$ 由 $S$ 诱导的开子概形结构. 由平坦性的局部判别准则 (引理 5.21(3)), $S_1$ 恰好由使得 $s$ 上纤维间的限制态射 $\pi_s:Y_s\to X_s$ 平坦的全部 $s\in S$ 组成. 因而再次利用平坦性局部判别准则, $S_1$ 具有所求泛性质.
+
+(b) 令 $\pi_1:Y_1\to X_1$ 为 $\pi$ 沿包含 $S_1\hookrightarrow S$ 的拉回. 设 $L$ 为射影态射 $\pi_1:Y_1\to X_1$ 的相对甚丰沛线丛. 由 Noether 性, 存在整数 $m\geq1$, 使 $\pi_{1*}L^m$ 由整体截面生成, 且对所有 $i\geq1$, 有 $R^i\pi_{1*}L^m=0$. 由 $\pi_1$ 的平坦性, $\pi_{1*}L^m$ 为局部自由层. 令 $U\subset X_1$ 为使 $\pi_{1*}L^m$ 在其上秩为 $1$ 的开子概形. 最后, 令 $S_2=S_1-f(X_1-U)$, 因 $f$ 固有, 它是开集. 赋予 $S_2$ 诱导的开子概形结构, 它确实具有所求泛性质 (b) 的验证留给读者.
+\end{proof}
+% Source PDF 145, printed 133.
+若 $X,Y$ 为基底 $S$ 上的概形, 则对任意 $S$ 概形 $T$, 一个\textbf{以 $T$ 为参数的从 $X$ 到 $Y$ 的 $S$ 态射}, 是指从 $X\times_S T$ 到 $Y\times_S T$ 的一个 $T$ 态射. 所有这些态射的集合记为 $\mathcal{M}or_S(X,Y)(T)$. 对应 $T\mapsto\mathcal{M}or_S(X,Y)(T)$ 定义了一个从 $S$ 概形到 $\mathrm{Sets}$ 的反变函子 $\mathcal{M}or_S(X,Y)$.
+
+\textbf{习题.} 设 $k$ 为域, $S=\Spec k[[t]]$, $X=\Spec k=\Spec(k[[t]]/(t))$, $Y=\mathbb P^1_S$. $\mathcal{M}or_S(X,Y)$ 是否可表?
+
+\begin{origstatement}{定理}{5.23}\label{ch05:thm5.23}
+设 $S$ 为 Noether 概形, $X$ 为 $S$ 上的射影概形, $Y$ 为 $S$ 上的拟射影概形. 再假设 $X$ 在 $S$ 上平坦. 则函子 $\mathcal{M}or_S(X,Y)$ 可由 $\chHilbScheme_{X\times_S Y/S}$ 的一个开子概形 $\Mor_S(X,Y)$ 表示.
+\end{origstatement}
+\begin{proof}
+对每个态射 $f:X_T\to Y_T$ (其中 $T$ 为 $S$ 上的概形), 可以对应它的图形 $\Gamma_T(f)\subset(X\times_S Y)_T$; 由 $Y\to S$ 的分离性, 它在 $(X\times_S Y)_T$ 中闭. 将 $\Gamma_T(f)$ 视为 $(X\times_S Y)_T$ 的闭子概形, 它在图形态射 $(\id_X,f):X\to\Gamma_T(f)$ 和投影 $\Gamma_T(f)\to X$ 下同构于 $X$, 这两个态射互逆. 因为 $X$ 在 $S$ 上固有且平坦, $\Gamma_T(f)$ 也如此; 因而这定义了集合映射 $\Gamma_T:\mathcal{M}or_S(X,Y)(T)\to\chHilb_{X\times_S Y/S}(T)$, 它关于 $T$ 是函子性的, 所以得到函子态射
+\[
+ \Gamma:\mathcal{M}or_S(X,Y)\longrightarrow\chHilb_{X\times_S Y/S}.
+\]
+给定 $\chHilb_{X\times_S Y/S}(T)$ 的任意元素, 由族 $Z\subset(X\times_S Y)_T$ 表示, 将定理 5.22(b) 应用于投影 $Z\to X$, 可知 $T$ 有一个开子概形 $T'$, 具有以下泛性质: 对任意基变换 $U\to T$, 拉回 $Z_U\subset(X\times_S Y)_U$ 在投影 $p:(X\times_S Y)_U\to X_U$ 下同构地映到 $X_U$, 当且仅当 $U\to T$ 经由 $T'$ 分解. 因此注意, 在 $T'$ 上, 概形 $Z_{T'}$ 将是唯一确定的态射 $X_{T'}\to Y_{T'}$ 的图形.
+
+这表明函子态射 $\Gamma:\mathcal{M}or_S(X,Y)\to\chHilb_{X\times_S Y/S}$ 为可表态射, 且是开浸入. 因此 $\mathcal{M}or_S(X,Y)$ 的表示概形 $\Mor_S(X,Y)$ 作为 $\chHilbScheme_{X\times_S Y/S}$ 的开子概形存在.
+\end{proof}
+
+\textbf{习题.} 设 $S$ 为 Noether 概形, $X\to S$ 为平坦射影态射. 考虑局部 Noether $S$ 概形上的集合值反变函子 $\mathcal{A}ut_{X/S}$, 它把任意 $T$ 对应到 $X_T$ 在 $T$ 上的所有自同构组成的集合. 证明此函子可由 $\Mor_S(X,X)$ 的开子概形表示.
+
+\textbf{习题.} 设 $S$ 为 Noether 概形, $\pi:Z\to X$ 为 $S$ 概形的态射, 其中 $X$ 在 $S$ 上固有, $Z$ 在 $S$ 上拟射影. 考虑局部 Noether $S$ 概形上的集合值反变函子 $\Pi_{Z/X/S}$, 它把任意 $T$ 对应到 $\pi_T:Z_T\to X_T$ 的所有截面组成的集合. 证明此函子可由 $\chHilbScheme_{Z/S}$ 的开子概形表示.
+\subsection{对平坦射影等价关系取商}\label{ch05:sec5.6.3}
+设 $X$ 为基底 $S$ 上的概形. $S$ 上 $X$ 的一个\emph{概形论等价关系}, 是指一个 $S$ 概形 $R$, 连同 $S$ 上的态射 $f:R\to X\times_S X$, 使得对任意 $S$ 概形 $T$, 集合映射 $f(T):R(T)\to X(T)\times X(T)$ 为单射, 且其像为 $X(T)$ 上某个等价关系的图形. (这里用 $Z(T)$ 表示 $Z$ 的所有 $T$ 值点组成的集合 $\Mor_S(T,Z)=h_Z(T)$, 其中 $Z,T$ 为 $S$ 概形.)
+% Source PDF 146, printed 134.
+若 $S$ 概形的态射 $q:X\to Q$ 为 $S$ 上的概形论等价关系 $f:R\to X\times_S X$ 的分量态射 $f_1,f_2:R\rightrightarrows X$ 的余等化子, 则称它为该等价关系的一个\emph{商}. 这意味着 $q\circ f_1=q\circ f_2$, 且给定任意 $S$ 概形 $Z$ 和满足 $g\circ f_1=g\circ f_2$ 的 $S$ 态射 $g:X\to Z$, 都存在唯一的 $S$ 态射 $h:Q\to Z$, 使 $g=h\circ q$. 概形论商 $q:X\to Q$ 若存在, 则精确到唯一同构是唯一的. \textbf{习题:} 概形论商若存在, 则在 $S$ 概形范畴中必为满态射.
+
+\textbf{注意.} 即使 $q:X\to Q$ 是 $R$ 的概形论商, 对给定的 $T$, 映射 $q(T):X(T)\to Q(T)$ 也未必是集合范畴中 $R(T)$ 的商. 映射 $q(T)$ 可能不是满射, 而且可能将两个不同的等价类等同. \textbf{习题:} 举例说明这种现象会发生.
+
+若诱导态射 $(f_1,f_2):R\to X\times_Q X$ 为 $S$ 概形的同构, 则称商 $q:X\to Q$ 是\emph{有效的}. 特别地, 这保证在 $q(T):X(T)\to Q(T)$ 下不同等价类不会被等同. 但 $q(T)$ 仍可能不是满射, 如下例所示.
+
+\textbf{习题.} 设 $S=\Spec\mathbb Z$, $X\subset\mathbb A^n_{\mathbb Z}$ 为 $\mathbb A^n_{\mathbb Z}$ 的零截面的补. 注意对任意环 $B$, $X(\Spec B)$ 的一个元素是至少有一个分量在 $B$ 中可逆的向量 $u\in B^n$. 证明 $X\times_S X$ 有一个闭子概形 $R$, 对任意环 $B$, 其 $B$ 值点为所有满足如下条件的二元组 $(u,v)\in X(\Spec B)\times X(\Spec B)$: 存在可逆元素 $\lambda\in B^\times$, 使 $\lambda u=v$. 证明有效商 $q:X\to Q$ 存在, 其中 $Q=\mathbb P^{n-1}_{\mathbb Z}$. 然而, 证明 $q$ 没有整体截面, 因而 $q(Q):X(Q)\to Q(Q)$ 不是满射.
+
+Hironaka 的著名例子 (见 [Har77, 附录 B, 例 3.4.1]) 是 $\mathbb C$ 上的一个非射影光滑完备簇 $X$, 连同概形论等价关系 $R$ (态射 $f_i:R\to X$ 有限平坦, 事实上是次数为 $2$ 的平展态射), 它表明概形论商并不总存在. 但在射影性这一强有力的假设下, Grothendieck 证明了商的一个存在性结果, 本节余下部分将用于这一结果.
+
+需要用到 Grothendieck 忠实平坦下降理论中的以下初等引理 (这是 [SGA1, Expos\'e VIII, 推论 1.9] 的一个特例). 下降理论的说明可参阅第一部分.
+\begin{origstatement}{引理}{5.24}\label{ch05:lem5.24}
+(1) 任意忠实平坦拟紧的概形态射 $f:X\to Y$ 都是有效满态射, 即 $f$ 是投影 $p_1,p_2:X\times_Y X\rightrightarrows X$ 的余等化子.
+
+(2) 设 $p:D\to H$ 为忠实平坦拟紧态射, $Z\subset D$ 为满足
+\[
+ p_1^{-1}Z=p_2^{-1}Z\subset D\times_H D
+\]
+的闭子概形, 其中 $p_1,p_2:D\times_H D\rightrightarrows D$ 为投影, $p_i^{-1}Z$ 为 $Z$ 在 $p_i$ 下的概形论逆像. 则 $H$ 中存在唯一闭子概形 $Q$, 使 $Z=p^{-1}Q\subset D$. 由 $p:D\to H$ 作基变换可知, 诱导态射 $p|_Z:Z\to Q$ 忠实平坦且拟紧.\hfill$\square$
+\end{origstatement}
+
+使用 Hilbert 概形对平坦射影等价关系取商的想法归功于 Grothendieck, 他在构造相对 Picard 概形时运用了这一想法.
+% Source PDF 147, printed 135.
+用集合论语言说, 这个想法其实非常简单: 设 $X$ 为集合, $R\subset X\times X$ 为 $X$ 上的等价关系. 令 $H$ 为 $X$ 的幂集 (即 $X$ 的所有子集组成的集合), $\varphi:X\to H$ 为把 $x\in X$ 映至其等价类 $[x]\in H$ 的映射. 若 $Q\subset H$ 为 $\varphi$ 的像, 则诱导映射 $q:X\to Q$ 是集合范畴中 $X$ 模 $R$ 的商. 上述想法的概形论类似物就是以下 Grothendieck 定理, 其中 $X$ 的 Hilbert 概形扮演幂集的角色. 第一个详细证明见于 Altman 与 Kleiman [AK80].
+\begin{origstatement}{定理}{5.25}\label{ch05:thm5.25}
+设 $S$ 为 Noether 概形, $X\to S$ 为拟射影态射. 设 $f:R\to X\times_S X$ 为 $S$ 上 $X$ 的概形论等价关系, 使投影 $f_1,f_2:R\rightrightarrows X$ 固有且平坦. 则 $S$ 上的概形论商 $X\to Q$ 存在. 此外, $Q$ 在 $S$ 上拟射影, 态射 $X\to Q$ 忠实平坦且射影, 诱导态射 $(f_1,f_2):R\to X\times_Q X$ 为同构 (即此商有效).
+\end{origstatement}
+\begin{proof}
+(遵循 Altman 与 Kleiman [AK80].) $f_i$ 的固有性与 $X\to S$ 的分离性一起, 推出 $f:R\to X\times_S X$ 固有. 此外, 由概形论等价关系的定义, $f$ 在函子意义下单射. 因此 $f$ 是闭浸入, 从而可以将 $R$ 视为 $X\times_S X$ 的闭子概形 (\textbf{习题:} Noether 概形间在点函子层面单射的任意固有态射, 都是闭浸入). 由于投影 $p_2|_R=f_2$ 固有且平坦, 这定义了 $\chHilb_{X/S}(X)$ 的一个元素 $\langle R\rangle$.
+
+由定理 5.20, 存在表示函子 $\chHilb_{X/S}$ 的概形 $\chHilbScheme_{X/S}$. 因为参数概形 $X$ 为 Noether 概形, 且 Hilbert 多项式局部常值, 对于所选的 $X$ 上相对于 $S$ 的相对甚丰沛线丛 $L$, $f_2:R\to X$ 的纤维的 Hilbert 多项式只出现有限多个多项式 $\Phi$. 令 $H$ 为 $\chHilbScheme_{X/S}$ 中相应开子概形 $\chHilbScheme^{\Phi,L}_{X/S}$ 的有限不交并. 由定理 5.20, 每个 $\chHilbScheme^{\Phi,L}_{X/S}$ 都在 $S$ 上拟射影, 所以 $H$ 是 $S$ 上的拟射影概形. 因而族 $\langle R\rangle\in\chHilb_{X/S}(X)$ 定义分类态射 $\varphi:X\to H$, 满足 $\varphi^*D=R$, 其中 $D\subset X\times_S H$ 表示 $\chHilbScheme_{X/S}$ 上泛族在 $H$ 上的限制, $\varphi^*D$ 表示 $(\id_X\times\varphi)^{-1}D$. 还要注意, 投影 $p:D\to H$ 固有且平坦. 若 $X$ 非空, 由于对角线 $\Delta_X$ 包含于 $R$, $f_2:R\to X$ 的每个纤维也非空, 所以每个纤维的 Hilbert 多项式都非零. 因此 $p:D\to H$ 满射, 从而 $p$ 忠实平坦.
+
+对任意 $S$ 概形 $T$, 由定义可知 $D$ 的一个 $T$ 值点是二元组 $(x,V)$, 其中 $x\in X(T)$, $V\in H(T)$, 且
+\[
+ x\in V.
+\]
+这里记号“$x\in V$”更精确地指图形态射 $(x,\id_T):T\to X\times_S T$ 经由 $V\subset X\times_S T$ 分解. 使用这一记号, 我们将证明以下关键性质:
+
+\textbf{(***)} 对任意 $S$ 概形 $T$ 和 $T$ 值点 $x,y\in X(T)$, 有以下等价关系:
+\[
+ (x,y)\in R(T)\quad\Longleftrightarrow\quad x\in\varphi(y)
+ \quad\Longleftrightarrow\quad\varphi(x)=\varphi(y)\in H(T).
+\]
+为此, 注意对任意 $x,y\in X(T)$, 态射 $(x,y):T\to X\times_S X$ 分解为复合
+\[
+ T\xrightarrow{(x,\id_T)}X\times_S T\xrightarrow{\id_X\times y}X\times_S X.
+\]
+% Source PDF 148, printed 136.
+由于 $\varphi^*D=R$ 且 $(\varphi\circ y)^*D=\varphi(y)$, 得到 $y^*R=\varphi(y)$, 换言之, $R\subset X\times_S X$ 沿 $\id_X\times y:X\times_S T\to X\times_S X$ 的概形论逆像为 $\varphi(y)\subset X\times_S T$. 因而上述 $(x,y):T\to X\times_S X$ 的分解表明
+\[
+\begin{aligned}
+ (x,y)\in R(T)
+ &\Longleftrightarrow (x,\id_T):T\to X\times_S T\text{ 经由 }\varphi(y)\subset X\times_S T\text{ 分解}\\
+ &\Longleftrightarrow x\in\varphi(y).
+\end{aligned}
+\]
+此外, 由于 $\Delta_X\subset R$, 有 $x\in\varphi(x)$. 因而若 $\varphi(x)=\varphi(y)$, 则 $x\in\varphi(y)$.
+
+现在只须证明, 若 $(x,y)\in R(T)$, 则 $\varphi(x)=\varphi(y)$, 即 $X\times_S T$ 的子概形 $\varphi(x)$ 与 $\varphi(y)$ 相同. 注意 $\varphi(x)=(\varphi\circ x)^*D=x^*\varphi^*D=x^*R$, 同理 $\varphi(y)=y^*R$, 因而要证明 $x^*R=y^*R$. 为了用点函子说明这一点, 对任意 $T$ 概形 $u:U\to T$, 只须证明 $(x^*R)(U)=(y^*R)(U)$ 作为 $(X\times_S T)(U)$ 的子集相同. 因为 $x^*R$ 为 $R$ 沿 $\id_X\times x:X\times_S T\to X\times_S X$ 的逆像, $x^*R$ 的一个 $U$ 值点等同于满足 $(\id_X\times x)\circ(z,u)\in R(U)$ 的元素 $z\in X(U)$. 但因 $(\id_X\times x)\circ(z,u)=(z,x\circ u)$, 得到
+\[
+ z\in(x^*R)(U)\quad\Longleftrightarrow\quad(z,x\circ u)\in R(U).
+\]
+因为 $R(U)$ 为集合 $X(U)$ 上的等价关系, 且假定 $(x,y)\in R(T)$, 有 $(x\circ u,y\circ u)\in R(U)$, 所以由传递性得到
+\[
+\begin{aligned}
+ z\in(x^*R)(U)&\Longleftrightarrow(z,x\circ u)\in R(U)\\
+ &\Longleftrightarrow(z,y\circ u)\in R(U)
+ \Longleftrightarrow z\in(y^*R)(U).
+\end{aligned}
+\]
+所以对任意 $T$ 概形 $U$, $X\times_S T$ 的子概形 $x^*R$ 与 $y^*R$ 有相同的 $U$ 值点, 因而 $x^*R=y^*R$, 正是所求. 性质 (***) 得证.
+
+因为 $H$ 在 $S$ 上分离, 图形态射 $(\id_X,\varphi):X\to X\times_S H$ 是闭浸入. 因 $\Delta_X\subset R$ 且 $\varphi^*D=R$, $(\id_X,\varphi)$ 经由 $D\subset X\times_S H$ 分解. 于是得到闭子概形 $\Gamma_\varphi\subset D$, 它是 $X$ 在 $(\id_X,\varphi)$ 下的同构像. 我们要将引理 5.24(2) 应用于忠实平坦拟紧态射 $p:D\to H$ 及闭子概形 $Z=\Gamma_\varphi\subset D$.
+
+$\Gamma_\varphi$ 的任意 $T$ 值点都是一个二元组 $(x,\varphi(x))\in D(T)$, 其中 $x\in X(T)$. $D\times_H D$ 的任意 $T$ 值点是三元组 $(x,y,V)$, 其中 $x,y\in X(T)$, $V\in H(T)$, 且 $x,y\in V$. 在投影 $p_1,p_2:D\times_H D\rightrightarrows D$ 下, 有 $p_1(x,y,V)=(x,V)$, $p_2(x,y,V)=(y,V)$. 现在有
+\[
+\begin{aligned}
+ p_1(x,y,V)\in\Gamma_\varphi(T)
+ &\Longleftrightarrow (x,V)\in\Gamma_\varphi(T)\text{ 且 }y\in V\\
+ &\Longleftrightarrow V=\varphi(x)\text{ 且 }y\in V\\
+ &\Longleftrightarrow y\in\varphi(x)=V\\
+ &\Longleftrightarrow\varphi(y)=\varphi(x)=V\qquad\text{(由性质 (***)).}
+\end{aligned}
+\]
+同理有 $p_2(x,y,V)\in\Gamma_\varphi(T)$ 当且仅当 $\varphi(y)=\varphi(x)=V$. 因而 $p_1(x,y,V)\in\Gamma_\varphi(T)$ 当且仅当 $p_2(x,y,V)\in\Gamma_\varphi(T)$. 这对所有 $S$ 概形 $T$ 的全部 $T$ 值点成立, 所以 $p_1^{-1}\Gamma_\varphi=p_2^{-1}\Gamma_\varphi\subset D\times_H D$. 因而由引理 5.24(2), 存在唯一闭子概形 $Q\subset H$, 使 $\Gamma_\varphi$ 为 $Q$ 在 $D\to H$ 下的拉回. 令 $p:\Gamma_\varphi\to Q$ 为 $p:D\to H$ 限制到 $\Gamma_\varphi$ 后诱导的态射, $q:X\to Q$ 为复合
+\[
+ X\xrightarrow{(\id_X,\varphi)}\Gamma_\varphi\xrightarrow{p}Q.
+\]
+注意复合 $X\xrightarrow{q}Q\hookrightarrow H$ 等于 $\varphi$.
+% Source PDF 149, printed 137.
+现在证明如上定义的 $q:X\to Q$ 是所求的 $X$ 模 $R$ 的商, 并具有要求的各项性质.
+
+\textbf{(i) $Q\to S$ 的拟射影性:} 因为 $Q$ 在 $H$ 中闭, 且 $H$ 在 $S$ 上拟射影, 此性质成立.
+
+\textbf{(ii) $q$ 的忠实平坦性与射影性:} 这由忠实平坦射影态射 $p:D\to H$ 作基变换得到, 因为下方块是笛卡尔方块:
+\[
+\begin{tikzcd}
+ X\arrow[r,"(\id_X,\varphi)"]\arrow[d,"q"']&D\arrow[d,"p"]\\
+ Q\arrow[r]&H.
+\end{tikzcd}
+\]
+
+\textbf{(iii) $R\rightrightarrows X\to Q$ 的正合性以及同构 $R\to X\times_Q X$:}
+由 (***), 对任意 $T$ 值点 $x,y\in X(T)$, 有 $(x,y)\in R(T)$ 当且仅当 $\varphi(x)=\varphi(y)$. 在点函子层面验证这些陈述, 就表明复合 $R\xrightarrow{f_1}X\xrightarrow{q}Q$ 等于复合 $R\xrightarrow{f_2}X\xrightarrow{q}Q$, 且诱导态射 $(f_1,f_2):R\to X\times_Q X$ 是同构. 在同构 $R\to X\times_Q X$ 下, 态射 $f_1,f_2:R\rightrightarrows X$ 成为投影态射 $p_1,p_2:X\times_Q X\rightrightarrows X$. 由引理 5.24, 态射 $q:X\to Q$ 是 $p_1,p_2$ 的余等化子, 因而 $q$ 是 $f_1,f_2$ 的余等化子.
+
+这就完成了定理 5.25 的证明.
+\end{proof}
+
+Altman 与 Kleiman 在 [AK80] 中实际证明的是上述定理的强射影形式 (不带 Noether 假设). 在上述证明中, 强拟射影性假设用于以下各处: 若 $X\to S$ 强拟射影, 则由定理 5.18, $H\to S$ 也强拟射影, 因而 $Q$ 在 $S$ 上强拟射影. 此外, $D\to H$ 将强射影, 因而由基变换, $X\to Q$ 强射影. 在 Noether 情形中, 得到以下结果.
+\begin{origstatement}{定理}{5.26}\label{ch05:thm5.26}
+设 $S$ 为 Noether 概形, $X\to S$ 为强拟射影态射. 设 $f:R\to X\times_S X$ 为 $S$ 上 $X$ 的概形论等价关系, 使投影 $f_1,f_2:R\rightrightarrows X$ 固有且平坦. 则 $S$ 上的概形论商 $X\to Q$ 存在. 此外, 该商有效, 态射 $X\to Q$ 忠实平坦且强射影, $Q$ 在 $S$ 上强拟射影.
+\end{origstatement}
+% Source PDF 150, printed 138, is blank. End of Part 2 / Chapter 5.

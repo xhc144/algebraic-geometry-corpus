@@ -1,0 +1,530 @@
+% 原书 PDF 155，印刷页 143。
+\chapter{初等形变理论}
+本章初步介绍形变理论的开端。第四部分还将从更深入的角度讨论形变理论。
+
+\begin{origstatement}{约定}{6.0.1}
+设 $k$ 为域。在本章中，除非另有说明，所有概形都假定为 $k$ 上局部有限型概形，点指 $k$ 值点。
+\end{origstatement}
+设 $Y$ 为概形，$p\in Y$ 为一点。我们想研究 $Y$ 在 $p$ 附近的局部性质，例如切空间、（非）奇异性和维数。事实表明，这可以通过研究态射 $f:\Spec A\to Y$ 来实现，其中 $A$ 是局部 Artin 代数，且 $f$ 将闭点映到 $p$。
+
+我们尤其关心 Hilbert 概形的情形。设 $X$ 是域 $k$ 上的射影概形，$Z\subset X$ 是闭子概形（或更一般地，$X$ 拟射影，$Z\subset X$ 闭且固有），我们想研究 $\operatorname{Hilb}(X)$ 在由 $Z$ 给出的点 $[Z]$ 附近的局部性质。根据上面的讨论，这意味着需要研究 $Z$ 的无穷小形变，即 $\Spec A$ 上闭纤维为 $Z$ 的平坦族。
+
+\section{概形的无穷小研究}
+\begin{origstatement}{约定}{6.1.1}
+对于局部环 $A$，以 $m_A$ 表示它的极大理想。
+\end{origstatement}
+\begin{origstatement}{定义}{6.1.2}
+以 $(Art/k)$ 表示剩余域为 $k$ 的局部 Artin $k$ 代数所成的范畴。
+\end{origstatement}
+\begin{origstatement}{注}{6.1.3}
+设 $A$ 是剩余域为 $k$ 的局部 $k$ 代数。则下列条件等价：
+\begin{enumerate}
+\item $A$ 是 Artin 环；
+\item $A$ 作为 $k$ 向量空间是有限维的；
+\item $A$ 的极大理想有限生成且幂零，即存在 $N>0$ 使 $m_A^N=0$。
+\end{enumerate}
+从几何上说，$k$ 代数 $A$ 属于 $(Art/k)$，当且仅当 $S:=\Spec A$ 是满足 $S_{\mathrm{red}}=\Spec k$ 的有限型 $k$ 概形。
+\end{origstatement}
+\begin{origstatement}{定义}{6.1.4}
+\emph{形变函子}（deformation functor）$D$ 指协变函子
+\[
+(Art/k)\longrightarrow (Sets),
+\]
+其中 $D(k)$ 只有一个点。若 $\varphi:B\to A$ 是 $(Art/k)$ 中的同态，且 $\alpha\in D(A)$，则当 $\varphi_*(\beta)=\alpha$ 时，称 $\beta\in D(B)$ 是 $\alpha$ 的一个\emph{提升}（lifting 或 lift）。形变函子的\emph{态射} $D\to D'$ 指自然变换；若对每个 $A\in(Art/k)$，映射 $D(A)\to D'(A)$ 均为双射，则该态射为\emph{同构}。
+\end{origstatement}
+% 原书 PDF 156，印刷页 144。
+其思想是，$D(k)$ 是我们想要形变的对象，而 $D(A)$ 是 $S:=\Spec A$ 上形变的（同构类的）集合。
+
+\begin{origstatement}{例}{6.1.5}
+设 $X$ 是概形，$Z$ 是闭子概形；定义 $H_{Z,X}(A)$ 为 $Z$ 在 $X$ 中在 $S:=\Spec A$ 上的形变所成的集合，即 $X\times S$ 的 $S$ 平坦闭子概形 $Z_S$ 所成的集合，其中 $Z_S$ 在 $S_{\mathrm{red}}$ 上的纤维为 $Z$。显然 $H_{Z,X}(k)$ 是单元素集合（唯一的元素就是 $Z$ 本身），而函子性来自下列事实：若 $Z_S$ 在 $S$ 上平坦，$T\to S$ 为态射，则 $Z_T:=Z_S\times_S T\subset X\times T$ 在 $T$ 上平坦。
+\end{origstatement}
+\begin{origstatement}{例}{6.1.6}
+许多有趣的形变函子以如下方式作为模函子的无穷小局部版本出现。设 $F:(schemes)\to(sets)$ 是反变函子，$p\in F(\Spec k)$ 是 $F$ 的一点。可以为 $(F,p)$ 配备一个形变函子 $D_{F,p}$，令
+\[
+D_{F,p}(A):=\{\alpha\in F(\Spec A)\mid
+\alpha|_{\Spec(A/m_A)}=p\}.
+\]
+例如，上面定义的函子 $H_{Z,X}$ 就对应于 $X$ 的 Hilbert 函子 $H_X$ 的点 $[Z]$；这里 $H_X(S)$ 定义为 $X\times S$ 的 $S$ 平坦闭子概形 $W$ 所成的集合。
+\end{origstatement}
+\begin{origstatement}{例}{6.1.7}
+设 $X$ 为概形，$\mathcal F$ 为 $X$ 上的凝聚层。与 $\mathcal F$ 对应的 Quot 函子 $Q_{\mathcal F}$ 定义如下。对任意概形 $S$，令 $p:X\times S\to S$ 为投影；定义 $Q_{\mathcal F}(S)$ 为 $p^*\mathcal F$ 的凝聚子层 $\mathcal S$ 所成的集合，要求商 $p^*\mathcal F/\mathcal S$ 在 $S$ 上平坦；拉回以显然的方式定义。第二部分证明了，当 $X$ 射影时，这个函子可表。注意，Hilbert 概形是 $\mathcal F=\mathcal O_X$ 的特殊情形。我们稍后将研究所诱导的形变函子。
+% 原书投影确实写为 X×S→S，而后使用 p^*F；此处忠实保留，疑点见 evidence/part03-review.md。
+\end{origstatement}
+\begin{origstatement}{注}{6.1.8}
+特别地，若 $X$ 为概形，$p\in X$，则可将 $p$ 看成 $h_X(\Spec k)$ 中的一点，其中 $h_X$ 是 $X$ 的点函子，定义为 $h_X(S)=\Hom(S,X)$。我们以 $D_{X,p}$ 表示 $D_{h_X,p}$。
+\end{origstatement}
+要理解形变函子 $D$，关键是理解 $(Art/k)$ 中的满射 $\sigma:B\to A$ 所引起的情形。我们尤其着重回答下列问题。
+\begin{enumerate}
+\item 哪些形变 $F\in D(A)$ 可以提升为 $D(B)$ 的元素，即 $D(\sigma):D(B)\to D(A)$ 的像是什么？
+\item 这样的提升在多大程度上唯一，即 $D(\sigma)$ 的非空纤维有多大？
+\end{enumerate}
+\begin{origstatement}{定义}{6.1.9}
+\emph{小扩张}（small extension）
+\[
+0\longrightarrow M\longrightarrow B\longrightarrow A\longrightarrow0
+\]
+是 $(Art/k)$ 中的满射 $B\to A$，其核 $M$ 满足 $M\cdot m_B=0$。注意，这等价于说，$M$ 的 $B$ 模结构由其 $k$ 向量空间结构经自然映射 $B\to k$ 诱导。
+\end{origstatement}
+\begin{origstatement}{注}{6.1.10}
+容易证明，$(Art/k)$ 中每个满射都可以写成有限个小扩张的复合；因此，在回答上面的问题时，只需考虑 $\sigma$ 为小扩张的情形。
+\end{origstatement}
+\begin{origstatement}{注}{6.1.11}
+设 $D$ 为形变函子，$B\in(Art/k)$。则 $D(B)\to D(k)$ 为满射（即 $D(B)$ 非空）。事实上，$D(B)$ 含有一个特殊元素 $0$。由于 $B$ 是 $k$ 代数，有典范同态
+% 原书 PDF 157，印刷页 145；上段跨页续文。
+$k\to B$，使得 $k\to B\to k$ 为恒等映射：令 $0$ 为 $D(k)$ 的唯一元素在 $D(k)\to D(B)$ 下的像。
+\end{origstatement}
+形变函子 $D:(Art/k)\to Sets$ 的基本例子是由局部环定义的函子。
+
+\begin{origstatement}{定义}{6.1.12}
+以 $(Loc/k)$ 表示剩余域为 $k$ 的局部 $k$ 代数 $R$ 所成的范畴，要求\emph{切空间} $T_R=(m_R/m_R^2)^\vee$ 是有限维 $k$ 向量空间。对 $(Loc/k)$ 中的每个对象 $R$，可以配备形变函子 $h_R$，定义为 $h_R(A)=\Hom_k(R,A)$。容易验证，这给出了从 $(Loc/k)$ 到形变函子范畴的协变函子。对 $(Loc/k)$ 中的任一对象 $R$，可以考虑其\emph{完备化} $\widehat R=\varprojlim R/m_R^N$。有自然同态 $\varphi_R:R\to\widehat R$；若它为同构，就称 $R$ \emph{完备}。以 $(CLoc/k)$ 表示完备环所成的满子范畴。
+% 原书此处写 covariant；与随后习题6.1.13(4)的 contravariant 不一致，忠实保留并记录。
+\end{origstatement}
+\begin{origstatement}{习题}{6.1.13}
+\begin{enumerate}
+\item 证明，$(Loc/k)$ 中的任一同态 $\psi:R\to S$ 都是局部同态，即 $\psi(m_R)\subset m_S$。
+\item 设 $A$ 为 $(Art/k)$ 中的对象；证明 $A$ 完备。证明，$(Loc/k)$ 中的每个同态 $\psi:R\to A$，对某个 $N>0$ 都通过 $R/m_R^N$ 分解（提示：使用注 6.1.3(3)）。
+\item 证明，$(Loc/k)$ 中的任一同态 $\psi:R\to S$ 都诱导同态 $\widehat\psi:\widehat R\to\widehat S$，使得 $\varphi_S\circ\psi=\widehat\psi\circ\varphi_R$。
+\item 证明，$(Loc/k)$ 中的任一同态 $\varphi:R\to S$ 都诱导态射 $\varphi^*:h_S\to h_R$。事实上，$R\mapsto h_R$ 定义了从 $(Loc/k)$ 到形变函子范畴的反变函子 $h$。
+\item 证明，$h$ 在 $(CLoc/k)$ 上的限制是全忠实的，即它在态射集合之间诱导双射。
+\item 证明，对每个 $R\in(Loc/k)$，自然映射 $h_{\widehat R}\to h_R$ 是同构。
+\item 设 $\psi:R\to S$ 为 $(Loc/k)$ 中的态射；证明 $\psi^*:h_S\to h_R$ 为同构，当且仅当 $\widehat\psi:\widehat R\to\widehat S$ 为同构。
+\item 设 $S=k[[t_1,\ldots,t_n]]$ 为形式幂级数环；证明 $S$ 完备，且对每个 $R\in(CLoc/k)$，由 $\psi\mapsto(\psi(t_1),\ldots,\psi(t_n))$ 定义的映射 $\operatorname{Mor}(S,R)\to m_R\times\cdots\times m_R$ 为双射。
+\end{enumerate}
+\end{origstatement}
+\begin{origstatement}{注}{6.1.14}
+特别要注意 $R=\mathcal O_{X,p}$ 的情形，其中 $X$ 为概形，$p$ 为 $X$ 的一点。设 $A$ 为局部 Artin 环。则 $h_R(A)$ 就是将闭点映到 $p$ 的态射 $\Spec A\to X$ 所成的集合。换言之，$h_R=D_{X,p}$。
+\end{origstatement}
+\begin{origstatement}{注}{6.1.15}
+若 $R=\mathcal O_{X,p}$，容易看出，$d=\dim T_R$ 是包含 $X$ 中 $p$ 的一个开邻域作为闭子概形的光滑概形的最小维数。
+\end{origstatement}
+\begin{origstatement}{定义}{6.1.16}
+$R$ 的切空间的维数称为 $R$ 的\emph{嵌入维数}（embedding dimension）。
+\end{origstatement}
+\begin{origstatement}{引理}{6.1.17}
+$(CLoc/k)$ 中的同态 $\varphi:R\to S$ 为满射，当且仅当所诱导的线性映射 $T_S\to T_R$ 为单射。
+\end{origstatement}
+\begin{proof}
+由对偶性，$T_S\to T_R$ 单射等价于 $m_R/m_R^2\to m_S/m_S^2$ 满射；因此必要性是显然的。现在假定 $T_S\to T_R$ 为单射。
+% 原书 PDF 158，印刷页 146；引理6.1.17证明续。
+只需证明，对每个 $N>0$，所诱导的映射 $R/m_R^N\to S/m_S^N$ 都是满射（这可以直接验证，也可以应用 [Har77] 中的命题 II.9.1）。由假设，$N=2$ 的情形是清楚的。由于 $\operatorname{Sym}^{N-1}(m_S/m_S^2)\to m_S^{N-1}/m_S^N$ 为满射，可知对每个 $N>0$，$m_R^{N-1}/m_R^N\to m_S^{N-1}/m_S^N$ 都是满射；对 $N$ 归纳即完成证明。
+\end{proof}
+\begin{origstatement}{命题}{6.1.18}
+\begin{enumerate}
+\item 设 $R\in(Loc/k)$，$b:=(b_1,\ldots,b_d)$ 为 $m_R/m_R^2$ 的一组基；记 $S:=k[[t_1,\ldots,t_d]]$。则满足 $\psi(b)(t_i)=b_i$ 的同态 $\psi_b:S\to\widehat R$ 是满射，其核 $J$ 包含于 $m_S^2$。
+\item $R$ 正则，当且仅当对于 $m_R/m_R^2$ 的某一组（从而任一组）基 $b$，态射 $\varphi_b$ 为同构；这又等价于 $\widehat R$ 同构于一个自由幂级数环。
+\end{enumerate}
+% 原书(1)写psi_b、psi(b)，(2)写varphi_b，证明再写psi_b；保留原文符号差异。
+\end{origstatement}
+\begin{proof}
+(1) 是引理 6.1.17 和习题 6.1.13(8) 的推论。
+
+(2) 由 [AM69] 推论 11.24，$R$ 正则当且仅当 $\widehat R$ 正则。由于 $S$ 正则且 $\dim T_S=\dim T_R$，所以 $R$ 正则当且仅当 $\dim\widehat R=\dim S$，当且仅当 $\psi_b$ 为同构。
+\end{proof}
+为简化记号，下文经常以 $n$ 代替 $m_S$，表示 $S$ 的极大理想。现在我们要说明，$h_R$ 在小扩张下的行为可以用 $T$ 和 $J/nJ$ 很好地描述。这也意味着，考察 $h_R$ 就可以得到关于 $R$ 的大量信息。
+
+\begin{origstatement}{定理}{6.1.19}
+设 $R\in(Loc/k)$ 的嵌入维数为 $d$，并假定已经固定 $R$ 与 $S/J$ 的一个同构，其中 $S=k[[t_1,\ldots,t_d]]$，$J\subset m_S^2$。记 $n:=m_S$。对每个小扩张 $0\to M\to B\to A\to0$，有一个自然的集合正合列（其定义见下面的注 6.1.20(1)）
+\[
+0\longrightarrow T\otimes_k M\longrightarrow h_R(B)
+\longrightarrow h_R(A)\xrightarrow{ob}(J/nJ)^\vee\otimes_k M.
+\]
+此外，这一序列关于小扩张具有函子性。
+\end{origstatement}
+\begin{origstatement}{注}{6.1.20}
+\begin{enumerate}
+\item 序列在 $h_R(A)$ 处正合，意味着元素 $\alpha\in h_R(A)$ 可以提升到 $B$，当且仅当 $ob(\alpha)=0$，即 $ob(\alpha)$ 是提升的一个障碍。在 $h_R(B)$ 处正合，意味着若提升存在，则 $T\otimes_k M$ 在提升集合上的作用是传递的。最后，序列以 $0$ 开始，意味着提升集合是一个以 $T\otimes_k M$ 为平移空间的仿射空间。
+\item 序列的函子性含义如下：对任意小扩张的态射，即交换图
+\[
+\begin{tikzcd}[column sep=small]
+0\arrow[r]&M\arrow[r]\arrow[d,"\varphi_M"]&B\arrow[r]\arrow[d,"\varphi_B"]&A\arrow[r]\arrow[d,"\varphi_A"]&0\\
+0\arrow[r]&M'\arrow[r]&B'\arrow[r]&A'\arrow[r]&0,
+\end{tikzcd}
+\]
+可得交换图
+\[
+\begin{tikzcd}[column sep=small]
+0\arrow[r]&T\otimes_k M\arrow[r]\arrow[d,"id\otimes\varphi_M"]&h_R(B)\arrow[r]\arrow[d,"\varphi_{B*}"]&h_R(A)\arrow[r]\arrow[d,"\varphi_{A*}"]&(J/nJ)^\vee\otimes_k M\arrow[d,"id\otimes\varphi_M"]\\
+0\arrow[r]&T\otimes_k M'\arrow[r]&h_R(B')\arrow[r]&h_R(A')\arrow[r]&(J/nJ)^\vee\otimes_k M'.
+\end{tikzcd}
+\]
+% 原书 PDF 159，印刷页 147；注6.1.20续。
+注意，还要求 $\varphi_{B*}$ 为 $T\otimes_k M$ 等变映射，其中 $T\otimes B$ 在 $h_R(B')$ 上的作用，由 $T\otimes_k M'$ 的作用经 $id\otimes\varphi_M$ 诱导。
+% 原书这里确为T⊗B，疑为T⊗M，忠实保留。
+\end{enumerate}
+\end{origstatement}
+\begin{proof}
+设 $0\to M\to B\to A\to0$ 为小扩张。给定 $k$ 代数同态 $\varphi:R\to A$。与自然映射 $S\to S/J=R$ 复合，便诱导同态 $\varphi':S\to A$。由于 $S$ 为幂级数环，它可以提升为同态 $\widetilde\varphi:S\to B$。$\varphi$ 的提升 $\psi:R\to B$，与满足 $\widetilde\varphi|_J=0$ 的提升 $\widetilde\varphi:S\to B$ 一一对应。
+
+固定 $\varphi$ 的一个提升 $\alpha:S\to B$，另取一个提升 $\beta:S\to B$。则 $h:=(\beta-\alpha)$ 是线性映射 $S\to M$。由于 $M\cdot m_B=0$，对任意 $f\in S$、$x\in M$，有 $\alpha(f)x=\beta(f)x=f(0)x$，其中 $f(0)$ 为 $f$ 在 $k$ 中的剩余类。设 $f,g\in S$，则
+\[
+\begin{aligned}
+h(fg)&=\alpha(f)\alpha(g)-\beta(f)\alpha(g)
+       +\beta(f)\alpha(g)-\beta(f)\beta(g)\\
+&=h(f)g(0)+f(0)h(g).
+\end{aligned}
+\]
+因此 $h$ 是从 $S$ 到 $M$ 的导子；于是 $\varphi$ 的提升 $\widetilde\varphi:S\to B$ 所成的集合是一个仿射空间，其平移空间为从 $S$ 到 $M$ 的导子空间，即 $(n/n^2)^\vee\otimes_k M$。
+% 原书h=beta-alpha而随后展开为alpha-beta，符号不一致；此处未擅改。
+
+由于 $h$ 为导子且 $J\subset n^2$，故 $h|_J=0$。因此 $\widetilde\varphi|_J$ 不依赖于提升 $\widetilde\varphi$ 的选择；又由 $m_B\cdot M=0$，它的核包含 $nJ$。以 $ob(\varphi):J/nJ\to M$ 表示所诱导的映射。则 $\varphi$ 的提升 $\widetilde\varphi:S\to B$ 给出同态 $R\to B$，当且仅当 $ob(\varphi)=0$。
+
+正合列的函子性留作习题。
+\end{proof}
+对形变理论中出现的许多函子，都可以证明与定理 6.1.19 类似的性质（本章稍后会给出几个例子）。
+
+\begin{origstatement}{定义}{6.1.21}
+若存在有限维 $k$ 向量空间 $T_1$（又称切空间）、$T_2$（又称障碍空间），使下列性质成立，就称形变函子 $D$ 具有\emph{切空间与障碍理论}（tangent-obstruction theory）。
+\begin{enumerate}
+\item 对所有小扩张 $0\to M\to B\to A\to0$，都有集合正合列
+\[
+T_1\otimes_k M\longrightarrow D(B)\longrightarrow D(A)
+\xrightarrow{ob}T_2\otimes_k M.
+\]
+\item 当 $A=k$ 时，该序列为
+\[
+0\longrightarrow T_1\otimes_k M\longrightarrow D(B)\longrightarrow D(A)
+\xrightarrow{ob}T_2\otimes_k M.
+\]
+\item (1)、(2) 中的正合列按上面定义的意义，关于小扩张具有函子性。
+\end{enumerate}
+若去掉前一定义中的有限维条件，则称 $D$ 具有\emph{广义切空间与障碍理论}。
+\end{origstatement}
+\begin{origstatement}{注}{6.1.22}
+若 $D$ 是具有上述切空间与障碍理论的形变函子，$i:T_2\to T'_2$ 是线性单射，则令 $T'_1=T_1$、$ob':=(i\otimes id_M)\circ ob$，即可定义一个切空间与障碍理论。因此，障碍空间并不由 $D$ 唯一确定。另一方面，$T_1$ 由 $D$ 唯一确定。
+\end{origstatement}
+\begin{origstatement}{命题}{6.1.23}
+设 $D$ 是具有广义切空间与障碍理论 $T_1,T_2$ 的函子。则向量空间 $T_1$ 由 $D$ 确定到典范同构。
+\end{origstatement}
+% 原书 PDF 160，印刷页 148。
+\begin{proof}
+考虑小扩张 $0\to(\varepsilon)\to k[\varepsilon]/\varepsilon^2\to k\to0$。为简便，记 $A_1:=k[\varepsilon]/\varepsilon^2$。由定义中的 (2)，$D(A_1)$ 是以 $T_1$ 为平移空间的仿射空间（因为 $(\varepsilon)$ 典范同构于 $k$）。注 6.1.11 告诉我们，$D(A_1)$ 有特殊元素 $0$。因此存在典范双射 $\iota:D(A_1)\to T_1$。若 $\lambda\in K$，可用 $D(\varphi_\lambda)$ 定义 $D(A_1)$ 上乘以 $\lambda$ 的运算，其中 $\varphi_\lambda:A_1\to A_1$ 定义为 $\varphi_\lambda(\varepsilon)=\lambda\varepsilon$。请读者验证，由函子性，对每个 $\alpha\in D(A_1)$ 有 $\iota(\lambda\alpha)=\lambda\iota(\alpha)$。
+% 原书这里域字母写K而非k，忠实保留。
+
+令 $A_2=k[\varepsilon_1,\varepsilon_2]/(\varepsilon_1^2,\varepsilon_2^2,\varepsilon_1\varepsilon_2)$，定义映射 $p_1,p_2:A_2\to A_1$ 为 $p_i(\varepsilon_j)=\delta_{ij}\varepsilon$。由定义 6.1.21 及函子性，自然映射 $(D(p_1),D(p_2)):D(A_2)\to D(A_1)\times D(A_1)$ 为双射。将这一双射的逆映射与 $D(f):D(A_2)\to D(A_1)$ 复合，便定义了 $D(A_1)$ 上的加法，其中 $f:A_2\to A_1$ 定义为 $f(\varepsilon_i)=\varepsilon$。请读者再次验证，对每个 $\alpha,\alpha'\in D(A_1)$ 有 $\iota(\alpha+\alpha')=\iota(\alpha)+\iota(\alpha')$。
+\end{proof}
+在接下来的两节中，我们将考察，已知 $D$ 的切空间与障碍空间，能得到关于 $D$ 的哪些信息；先讨论 $D$ 普罗可表的情形，再讨论一般情形。还将讨论定义 6.1.21 中 $T_2$ 在何种程度上唯一。
+
+\section{普罗可表函子}
+\begin{origstatement}{定义}{6.2.1}
+若存在代数 $R\in(Loc/k)$，使形变函子 $D$ 同构于 $h_R$，则称 $D$ \emph{普罗可表}（pro-representable）。这时称 $R$ \emph{普罗表示} $D$。
+\end{origstatement}
+注意，若 $D$ 是对应于反变函子 $F:(schemes)\to(sets)$ 的一点 $p$ 的形变函子，则当 $F$ 可表时，$D$ 普罗可表；但反之不成立。
+
+\begin{origstatement}{注}{6.2.2}
+按通常的范畴论语言，$F$ 可表是指它对某个 $A\in(Art/k)$ 同构于 $h_A$。普罗可表通常是指它同构于 $h_R$，其中 $R$ 为普罗对象，即 $(Art/k)$ 中对象的逆极限。这比我们所用的概念更一般（即允许 $R$ 为剩余域为 $k$ 的任意完备局部 $k$ 代数，而不论其切空间是否有限维）。这一轻微的术语滥用是在 [Sch68] 中引入的，现已成为形变理论中的标准用法。
+\end{origstatement}
+\begin{origstatement}{注}{6.2.3}
+命题 6.1.18 表明，若 $D$ 为普罗可表形变函子，则 $D$ 同构于 $h_R$，其中 $R=S/J$、$S=k[[x_1,\ldots,x_d]]$、$J\subset m_S^2$。此外，由定理 6.1.19，函子 $h_R$ 具有自然的切空间与障碍理论 $T_1(R),T_2(R)$，其中 $T_1(R)=T_R=T_S$，$T_2(R)=(J/m_SJ)^\vee$。
+\end{origstatement}
+\begin{origstatement}{定理}{6.2.4}
+考虑注 6.2.3 中的函子 $h_R$。设 $T_1,T_2$ 为 $h_R$ 的一个切空间与障碍理论。则有典范同构 $T_1\to T_1(R)$，并有与障碍映射交换的典范线性单射 $T_2(R)\to T_2$。
+\end{origstatement}
+\begin{proof}
+第一个断言已在命题 6.1.23 中证明。因此只需构造线性单射 $T_2(R)\to T_2$。如前，为简便以 $n$ 代替 $m_S$。
+% 原书 PDF 161，印刷页 149。
+
+\textbf{第一步。} 为说明证明的思想，先作一个（错误的）假设：$T_2$ 也是完备局部环的小扩张的障碍空间。第二步再说明必要的修改。
+
+令 $M:=J/nJ$、$B:=S/nJ$。于是有小扩张 $0\to M\to B\to R\to0$。将 $id:R\to R$ 提升为映射 $\varphi:R\to B$ 的障碍，是典范元素
+\[
+o=ob(id)\in(J/nJ)\otimes_k T_2=\Hom((J/nJ)^\vee,T_2).
+\]
+假定 $o$ 不是单射。则存在余维为 $1$ 的向量子空间 $V\subset J/nJ$，使得在投影 $\pi:M\to M/V$ 下，$\pi(o)=0$。因此存在 $id:R\to R$ 的提升 $R\to B/V$。另一方面，在图
+\[
+\begin{tikzcd}[column sep=small]
+0\arrow[r]&J\arrow[r]\arrow[d]&S\arrow[r]\arrow[d]&R\arrow[r]\arrow[d,equal]&0\\
+0\arrow[r]&J/nJ=M\arrow[r]\arrow[d]&B\arrow[r]\arrow[d]&R\arrow[r]\arrow[d,equal]&0\\
+0\arrow[r]&M/V\arrow[r]&B/V\arrow[r]&R\arrow[r]&0
+\end{tikzcd}
+\]
+中，映射 $J\to M\to M/V$ 正是典范商映射，特别地，它非零。因此由定理 6.1.19，不存在提升。因此 $(J/nJ)^\vee\to T_2$ 为单射。
+
+\textbf{第二步。} 实际上需要在 Artin 代数的小扩张中工作。只需稍作修改，仍可使用基本相同的论证。
+
+由 Artin--Rees 定理（[AM69] 命题 10.9），存在 $i>0$，使 $n^i\cap J\subset nJ$。令 $M=(J+n^i)/(nJ+n^i)=J/nJ$、$B:=S/(nJ+n^i)$。于是有小扩张 $0\to M\to B\to R/n^i\to0$。将商映射 $p:R\to R/n^i$ 提升为 $\varphi:R\to B$ 的障碍为 $o:=ob(p)\in\Hom((J/nJ)^\vee,T_2)$。若 $o$ 不是单射，同样存在余维为 $1$ 的向量子空间 $V\subset M$，使得 $p$ 有提升 $R\to B/V$。另一方面，如上所述，所诱导的映射 $J\to M/V$ 仍是典范商映射，故非零。因此由定理 6.1.19，不存在提升，$o$ 为单射。
+\end{proof}
+现在说明，切空间与障碍理论如何用来得到关于 $R$ 结构的信息。
+
+若 $(Loc/k)$ 中的局部环 $A$ 可以写成 $A=R/I$，其中 $R$ 为正则局部环，$I$ 是由 $\operatorname{codim}(A,R)$ 个元素生成的理想，则称 $A$ 为\emph{完全交}（complete intersection）。若 $\mathcal O_{X,p}$ 为完全交，则称概形 $X$ 在点 $p$ 处为\emph{局部完全交}；等价地，存在 $p$ 在 $X$ 中的一个开邻域 $U$，以及闭嵌入 $i:U\to Y$，使得 $Y$ 光滑，$U$ 为纯维的，且 $\mathcal I_{U/Y}/\mathcal I_{U/Y}^2$ 为秩 $\operatorname{codim}_p(X,Y)$ 的局部自由层。
+
+\begin{origstatement}{推论}{6.2.5}
+在定理 6.2.4 的假设下，令 $d:=\dim(T_1)$、$r:=\dim(T_2)$。则 $d\geq\dim(R)\geq d-r$。此外，若 $\dim(R)=d-r$，则 $R$ 是完全交。若 $r=0$，则 $R\simeq k[[x_1,\ldots,x_d]]$。
+\end{origstatement}
+\begin{proof}
+有 $R=S/J$，其中 $S=k[[x_1,\ldots,x_d]]$。由定理 6.2.4，得 $\dim(J/nJ)\leq r$。因此，由 Nakayama 引理，$J$ 至多有 $r$ 个生成元。再由主理想定理，$\dim(R)\geq d-r$；若 $\dim(R)=d-r$，则 $R$ 是 $S$ 中的完全交。
+% 原书 PDF 162，印刷页 150。
+最后，若 $r=0$，则 $J=0$，故 $R=S=k[[x_1,\ldots,x_d]]$。
+\end{proof}
+\begin{origstatement}{推论}{6.2.6}
+若 $R$ 是概形在一点处的局部环的完备化 $\widehat{\mathcal O}_{V,p}$，则在定理 6.2.4 的假设下，有 $d\geq\dim_p(V)\geq d-r$。此外，若 $\dim_p(V)=d-r$，则 $V$ 在 $p$ 处为局部完全交；若 $r=0$，则 $V$ 在 $p$ 处非奇异。
+\end{origstatement}
+\begin{proof}
+已知 $\dim(R)=\dim(\mathcal O_{V,p})=\dim_p(V)$（[AM69] 推论 11.19）。此外，$\mathcal O_{V,p}$ 正则当且仅当 $\widehat{\mathcal O}_{V,p}$ 正则（[AM69] 推论 11.24）。最后，假定 $\mathcal O_{V,p}=A/I$，其中 $A$ 为正则局部环，$I$ 为理想。则 $R=\widehat A/\widehat I$，其中 $\widehat I$ 是 $I$ 的 $m_A$ 进完备化。于是 $I/m_AI=\widehat I/m_A\widehat I$。由 Nakayama 引理，若 $\widehat I$ 由 $s$ 个元素生成，则 $I$ 也是如此。
+\end{proof}
+\section{非普罗可表函子}
+上一节研究了函子 $D:(Art/k)\to(Sets)$ 普罗可表的情形；但形变理论中出现的许多函子并非如此（通常是因为所要形变的对象可能具有无穷小自同构，即自同构空间的切空间非零）。不过，若 $D$ 具有切空间与障碍理论，则它在下面的意义上接近于普罗可表。
+
+\begin{origstatement}{定义}{6.3.1}
+设 $\alpha:F\to G$ 为形变函子的态射。若对所有小扩张 $0\to M\to B\to A\to0$，典范映射 $F(B)\to F(A)\times_{G(A)}G(B)$ 均为满射，则称态射 $\alpha$ \emph{光滑}。这意味着，$a\in F(A)$ 可以提升到 $F(B)$，当且仅当 $\alpha(a)\in G(A)$ 可以提升到 $G(B)$。
+
+设 $F$ 为形变函子。若 $R\in(Loc/k)$，则当 $h_R(k[\varepsilon]/\varepsilon^2)\to F(k[\varepsilon]/\varepsilon^2)$ 为双射时，光滑态射 $h_R\to F$ 使 $h_R$ 成为 $F$ 的一个\emph{普罗可表包}（pro-representable hull）。
+\end{origstatement}
+\begin{origstatement}{注}{6.3.2}
+\begin{enumerate}
+\item 注意，由命题 6.1.23，若 $F$ 具有切空间与障碍理论，则 $F(k[\varepsilon]/\varepsilon^2)$ 可视为函子 $F$ 的切空间。因此，$\alpha:h_R\to F$ 为包，当且仅当它光滑，且在切空间上为同构。
+\item 光滑性的形式判别准则说，若 $p\in X$ 且 $f(p)$ 的剩余域为 $k$，则概形态射 $f:X\to Y$ 在 $p$ 处光滑，当且仅当相应的函子态射 $D_{X,p}\to D_{Y,f(p)}$ 光滑；光滑态射为平展态射，当且仅当它还在切空间上为同构。
+\end{enumerate}
+\end{origstatement}
+\begin{origstatement}{引理}{6.3.3}
+若 $F$ 是具有切空间与障碍理论 $T_1,T_2$ 的函子，$\alpha:h_R\to F$ 为普罗可表包，则 $T_1,T_2$ 也是 $h_R$ 的切空间与障碍理论。特别地，$T_1$ 典范同构于 $T_R$，且可将推论 6.2.5 的估计应用于 $R$ 的维数和奇性。
+\end{origstatement}
+\begin{proof}
+$T_1$ 自然同构于 $T_R$，这是由定义以及下列事实得到的：若 $F$ 具有切空间与障碍理论，则 $F(k[\varepsilon]/\varepsilon^2)$ 的向量空间结构由函子 $F$ 本身决定（如命题 6.1.23 的证明）。
+
+为证明 $T_2$ 给出 $h_R$ 的障碍理论，固定核为 $M$ 的小扩张 $B\to A$，定义 $o:h_R(A)\to T_2\otimes M$ 为 $ob_F\circ\alpha_{A*}$。设 $a\in h_R(A)$；则
+% 原书 PDF 163，印刷页 151。
+由光滑性，$a$ 可以提升到 $h_R(B)$，当且仅当 $\alpha_{A*}(a)$ 可以提升到 $F(B)$，当且仅当 $o(a)=0$。
+\end{proof}
+现在，主要结果是：具有切空间与障碍理论的函子 $D:(Art/k)\to(Sets)$ 有普罗可表包。
+
+\begin{origstatement}{定理}{6.3.4}
+（Schlessinger）设 $D:(Art/k)\to(Sets)$ 具有切空间与障碍理论。则存在一个普罗可表函子 $h_R$，它是 $D$ 的包。
+\end{origstatement}
+我们不证明这个定理：它的证明最早见于 Schlessinger 的学位论文；请读者参阅 [Sch68]，作者在那里还给出了形变函子具有普罗可表包的充要条件。这些条件比具有切空间与障碍理论更弱：一个例子见 [FM98]。Schlessinger 定理的阐释性证明还可参见 [Art74a]。
+
+实际中，验证一个形变函子具有切空间与障碍理论（或在文献中找到相应证明），往往比验证它满足 Schlessinger 公理更容易。主要原因在于，由 Artin 意义下的代数叠的局部研究所产生的函子，都具有切空间与障碍理论：代数叠与形变理论之间的联系，可追溯到 Artin 的原始论文 [Art74b]。
+
+$D$ 的包的存在，是复解析形变理论中 Kuranishi 族或极小万有形变的无穷小对应物。Schlessinger 定理有如下重要推论。注意，Schlessinger 在 [Sch68] 中给出了另一组普罗可表的充要条件。
+
+\begin{origstatement}{推论}{6.3.5}
+形变函子普罗可表，当且仅当它具有切空间与障碍理论，使定义 6.1.21 中的正合列 (2) 对每个小扩张均正合。
+\end{origstatement}
+\begin{proof}
+一个方向就是定理 6.2.4。为证明另一方向，假定 $\alpha:h_R\to F$ 为 $F$ 的普罗可表包。我们对 $\dim_k B$ 归纳，证明对每个 $B\in(Art/k)$，$h_R(B)\to F(B)$ 均为双射。$\dim_k B=1$ 的情形是清楚的，因为这意味着 $B=k$。
+
+一般地，令 $M:=\{b\in B\mid b\cdot m_B=0\}$、$A=B/M$。则 $B\to A$ 为小扩张，并可由假设认定 $h_R(A)\to F(A)$ 为双射。固定 $a\in h_R(A)$；由光滑性，$a$ 可以提升到 $h_R(B)$，当且仅当 $\alpha(a)\in F(A)$ 可以提升到 $F(B)$。
+
+假定确实如此，令 $h_R(B)_a:=\{b\in h_R(B)\mid b|_A=a\}$，并类似地定义 $F(B)_{\alpha(a)}$。由于映射 $\alpha:h_R(B)_a\to F(B)_{\alpha(a)}$ 为 $T_1\otimes M$ 等变映射，且定义域和目标都是以 $T_1\otimes M$ 为平移空间的仿射空间，它必为双射。
+\end{proof}
+\begin{origstatement}{注}{6.3.6}
+容易看出，包在如下意义下唯一到同构：若 $\alpha:h_R\to F$ 和 $\beta:h'_R\to F$ 是两个普罗可表包，则存在同构 $\gamma:h_R\to h'_R$，使 $\alpha=\beta\circ\gamma$。一般而言，这个同构并不唯一。
+\end{origstatement}
+% 原书 PDF 164，印刷页 152。
+如前所述，形变理论中出现的大多数函子并不普罗可表。我们不加证明地给出几个具有切空间与障碍理论、但不一定普罗可表的函子的例子。这些断言将在第四部分用稍有不同的语言证明。
+
+\begin{origstatement}{例}{6.3.7}
+\begin{enumerate}
+\item 设 $X$ 为光滑簇。$X$ 的形变函子定义如下：令 $\operatorname{Def}_X(A)$ 为二元组 $(W,\alpha)$ 的同构类所成的集合，其中 $W$ 为 $\Spec A$ 上的平坦概形，$\alpha:W\times_{\Spec A}\Spec k\to X$ 为同构；拉回由纤维积定义。
+
+此时 $T_1=H^1(X,T_X)$、$T_2=H^2(X,T_X)$（见第四部分，第 5.B 节）。若 $H^0(X,T_X)=0$，则函子 $\operatorname{Def}_X$ 普罗可表（但反之不成立）。
+\item 设 $\mathcal E$ 为簇 $X$ 上的凝聚层。$\mathcal E$ 的形变函子定义如下：令 $\operatorname{Def}_{\mathcal E}(A)$ 为二元组 $(\mathcal F,\alpha)$ 的同构类所成的集合，其中 $\mathcal F$ 为 $X\times\Spec A$ 上的凝聚层，在 $\Spec A$ 上平坦，$\alpha$ 为 $\mathcal F$ 在 $X\times\Spec k$ 上的限制与 $\mathcal E$ 之间的同构。
+
+此时 $T_1=\operatorname{Ext}^1(\mathcal E,\mathcal E)$、$T_2=\operatorname{Ext}^2(\mathcal E,\mathcal E)$；若 $\mathcal E$ 局部自由，则 $T_1=H^1(X,\operatorname{End}(\mathcal E))$、$T_2=H^2(X,\operatorname{End}(\mathcal E))$（见第四部分，第 8.5.A 节）。
+
+若（但不必仅当）$\mathcal E$ 为单层，即 $\Hom(\mathcal E,\mathcal E)=k\cdot id_{\mathcal E}$，则这个函子普罗可表。
+\end{enumerate}
+\end{origstatement}
+从这些例子可以看到，$T_i$ 通常是上同调群或 Ext 群。通常，若 $T_1$ 是指标为 $i$ 的群，则 $T_2$ 是指标为 $i+1$ 的群。此时，指标为 $i-1$ 的群通常就是无穷小自同构群；例如，$H^0(X,T_X)$ 是 $X$ 的自同构的切空间：它的消失通常蕴含函子的普罗可表性。
+
+\section{切空间与障碍理论的例子}
+设 $X$ 为 $k$ 上的概形，$Y\subset X$ 为固有闭子概形；以 $\mathcal I_Y$ 表示 $Y$ 在 $X$ 中的理想层。我们将证明，例 6.1.5 中 $Y$ 在 $X$ 中的形变函子 $H_{Y,X}$ 具有切空间与障碍理论，其中 $T_1=\Hom_{\mathcal O_X}(\mathcal I_Y,\mathcal O_Y)$、$T_2=\operatorname{Ext}^1_{\mathcal O_X}(\mathcal I_Y,\mathcal O_Y)$。当 $X$ 拟射影时，函子 $H_{Y,X}$ 普罗可表，因为它是对应于 $X$ 的 Hilbert 函子中点 $[Y]$ 的形变函子（见例 6.1.6），而根据第二部分，Hilbert 函子可表。因此推论 6.2.6 给出了关于 Hilbert 概形的局部结构的信息。
+
+这一结果将作为与 Quot 概形对应的形变函子的切空间与障碍理论的计算的推论得到。
+
+\begin{origstatement}{设定}{6.4.1}
+设 $X$ 为 $k$ 上的概形，$F$ 为 $X$ 上的凝聚层。设
+\[
+0\longrightarrow M\longrightarrow B\longrightarrow A\longrightarrow0
+\]
+为 $(Art/k)$ 中的短正合列，且 $M^2=0$；特别地，$M$ 自然是一个 $A$ 模（这是小扩张的推广，因为 $M\subset m_B$）。以 $\otimes$ 代替 $\otimes_k$，以 $\times$ 代替 $\times_{\Spec k}$；记 $X_A:=X\times\Spec A$、$X_B=X\times\Spec B$。
+\end{origstatement}
+% 原书 PDF 165，印刷页 153。
+\begin{origstatement}{定义}{6.4.2}
+假定给定 $X_A$ 上在 $\Spec A$ 上平坦的凝聚层的短正合列
+\[
+0\longrightarrow S\longrightarrow F\otimes A\longrightarrow Q\longrightarrow0
+\qquad(e).
+\]
+若 $S'\otimes_B A$ 与 $S$ 作为 $F\otimes A$ 的子层相同，则称 $X_B$ 上在 $\Spec B$ 上平坦的凝聚层的正合列
+\[
+0\longrightarrow S'\longrightarrow F\otimes B\longrightarrow Q'\longrightarrow0
+\qquad(e')
+\]
+为 $(e)$ 的一个\emph{扩张}。
+\end{origstatement}
+\begin{origstatement}{引理}{6.4.3}
+设 $Q'$ 为 $X_B$ 上的凝聚层。则 $Q'$ 在 $B$ 上平坦，当且仅当映射 $Q'\otimes_B M\to Q'$ 为单射，且 $Q'\otimes_B A$ 在 $A$ 上平坦。
+\end{origstatement}
+\begin{proof}
+可以假定 $B\to A$ 为小扩张（否则将其分解成有限个小扩张，并用归纳法）。回忆，$Q'$ 在 $B$ 上平坦，当且仅当对所有理想 $I\subset B$，映射 $Q'\otimes_B I\to Q'$ 均为单射（[Har77] III,9.1A(a)）。
+
+“$\Rightarrow$” 第一个断言是 $I=M$ 的特殊情形。第二个断言成立，是因为平坦性在基扩张下不变（[Har77]，III，9.1A(b)）。
+
+“$\Leftarrow$” 设 $I\subset B$ 为理想。以存在正合列
+\[
+0\longrightarrow M\cap I\longrightarrow I\longrightarrow I'\longrightarrow0
+\]
+为条件，定义理想 $I'\subset A$。应用 $Q'\otimes_B-$，得到具有正合行的交换图
+\[
+\begin{tikzcd}[column sep=small]
+&Q'\otimes_B(I\cap M)\arrow[r]\arrow[d,"\alpha"]&Q'\otimes_B I\arrow[r]\arrow[d,"\beta"]&(Q'\otimes_B A)\otimes_A I'\arrow[r]\arrow[d,"\gamma"]&0\\
+0\arrow[r]&Q'\otimes_B M\arrow[r]&Q'\arrow[r]&Q'\otimes_B A\arrow[r]&0.
+\end{tikzcd}
+\]
+由于 $Q'\otimes_B A$ 在 $A$ 上平坦，$\gamma$ 为单射。因此，$\alpha$ 单射蕴含 $\beta$ 单射。由于 $m_B\cdot M=0$，$M$ 作为 $B$ 模是 $k$ 向量空间，$I\cap M$ 也是如此。选取 $M$ 的向量子空间（从而也是 $B$ 子模）$C$，使 $M=(I\cap M)\oplus C$。于是 $Q'\otimes_B(I\cap M)\to Q'\otimes_B M$ 为单射，$Q'\otimes_B M\to Q'$ 为单射。
+\end{proof}
+回顾一个关于扩张的标准引理（例如见 [Har77] 习题 III.6.1）。
+
+\begin{origstatement}{引理}{6.4.4}
+设 $0\to\mathcal E\to\mathcal F\xrightarrow{\pi}\mathcal G\to0$ 为凝聚层的正合列。则 $\pi$ 有截面，当且仅当此序列在 $\operatorname{Ext}^1(\mathcal G,\mathcal F)$ 中的扩张类为零。此时，$\pi$ 的截面构成一个以 $\Hom(\mathcal G,\mathcal F)$ 为平移空间的仿射空间。
+% 原书Ext与Hom第二变量均印为F（非通常预期的E），忠实保留。
+\end{origstatement}
+\begin{origstatement}{定理}{6.4.5}
+(a) 可以为正合列 $(e)$ 配备元素 $ob(e)\in\operatorname{Ext}^1_{X_A}(S,Q\otimes_A M)$。
+
+(b) $(e)$ 存在扩张 $(e')$，当且仅当 $ob(e)=0$。若 $ob(e)=0$，则所有可能的扩张自然构成一个 $\Hom_{X_A}(S,Q\otimes_A M)$ 挠子。
+\end{origstatement}
+% 原书 PDF 166，印刷页 154。
+\begin{proof}
+步骤 (a)：构造 $ob(e)$。由于 $Q$ 在 $A$ 上平坦，下列 $\mathcal O_{X_B}$ 上的凝聚层所成的图的行和列都是正合的：
+\[
+\begin{tikzcd}[column sep=small,row sep=small]
+&0\arrow[d]&&0\arrow[d]&\\
+&S\otimes_A M\arrow[d]&&S\arrow[d]&\\
+0\arrow[r]&F\otimes M\arrow[r]\arrow[d]&F\otimes B\arrow[r]&F\otimes A\arrow[r]\arrow[d]&0\\
+&Q\otimes_A M\arrow[d]&&Q\arrow[d]&\\
+&0&&0&
+\end{tikzcd}
+\]
+考虑所诱导的映射 $\alpha:S\otimes_A M\to F\otimes B$ 和 $\beta:F\otimes B\to Q$；显然有 $\operatorname{im}\alpha\subset\operatorname{Ker}\beta$。定义 $\widetilde F:=\operatorname{Ker}(\beta)/\operatorname{im}(\alpha)$；容易看出，存在 $X_B$ 上凝聚层的正合列
+\begin{equation}
+0\longrightarrow Q\otimes_A M\longrightarrow\widetilde F
+\longrightarrow S\longrightarrow0.\tag{6.4.1}
+\end{equation}
+为完成步骤 (a)，只需证明 $(e)$ 实际上是一个 $\mathcal O_{X_A}$ 模的序列，即验证 $M\cdot\widetilde F=0$；然后便可定义 $ob(e)$ 为扩张 (6.4.1) 的类。
+
+固定 $m\in M$ 及 $f=\sum f_i\otimes b_i\in F\otimes B$。则 $m\cdot\sum f_i\otimes b_i=\sum f_i\otimes mb_i\in F\otimes M$。设 $a_i\in A$ 为 $b_i$ 的像。由于 $M^2=0$，得 $m\cdot\sum f_i\otimes b_i=\sum f_i\otimes ma_i$，这里将 $M$ 看成 $A$ 模。因此，$f\otimes m\in(F\otimes B)\otimes_B M$ 等于 $\bar f\otimes m\in(F\otimes A)\otimes_A M$，其中 $\bar f$ 是 $f$ 在 $F\otimes A$ 中的像。
+
+若 $f\in\operatorname{Ker}\beta$，则 $\bar f$ 为 $S$ 的截面；此时 $m\cdot f=m\cdot\bar f$ 包含于 $S\otimes_A M\subset F\otimes M$，因此它在 $F\otimes B$ 中的像包含于 $\operatorname{im}\alpha$。所以，乘以 $m$ 在 $\widetilde F$ 上为零映射，证明完成。
+
+步骤 (b)。只需证明，扩张与正合列 (6.4.1) 的分裂自然一一对应。假定给定一个分裂，即态射 $\xi:S\to\widetilde F$，它是满射 $\widetilde F\to S$ 的右逆。令 $S'$ 为 $\xi(S)$ 在 $\operatorname{Ker}\beta$ 中的逆像。可将上面的 H 形图补成行、列均正合的交换图
+\[
+\begin{tikzcd}[column sep=small,row sep=small]
+&0\arrow[d]&0\arrow[d]&0\arrow[d]&\\
+0\arrow[r]&S\otimes_A M\arrow[r]\arrow[d]&S'\arrow[r]\arrow[d]&S\arrow[r]\arrow[d]&0\\
+0\arrow[r]&F\otimes M\arrow[r]\arrow[d]&F\otimes B\arrow[r]\arrow[d]&F\otimes A\arrow[r]\arrow[d]&0\\
+0\arrow[r]&Q\otimes_A M\arrow[r]\arrow[d]&Q'\arrow[r]\arrow[d]&Q\arrow[r]\arrow[d]&0\\
+&0&0&0&
+\end{tikzcd}
+\]
+其中 $Q'$ 就是所求的扩张（为证明它在 $B$ 上平坦，使用引理 6.4.3）。
+
+反之，给定 $Q$ 的扩张 $Q'$，仅由正合性便可构造上图；而 $\widetilde F$ 的子层 $S'/\operatorname{im}(\alpha)$ 同构地映到 $S$，因而给出 $\widetilde F\to S$ 的一个分裂。
+\end{proof}
+% 原书 PDF 167，印刷页 155。
+\begin{origstatement}{注}{6.4.6}
+在上面断言 (b) 中，可以将 $\Hom_{X_A}(S,Q\otimes_A M)$ 换成 $\Hom_X(S\otimes_A k,Q\otimes_A M)$，因为这两个向量空间自然同构。
+\end{origstatement}
+\begin{origstatement}{命题}{6.4.7}
+若 $m_A\cdot M=0$，则在定理 6.4.5 的断言 (a) 中，可以将 $\operatorname{Ext}^1_{X_A}(S,Q\otimes_A M)$ 换成 $\operatorname{Ext}^1_X(S\otimes_A k,Q\otimes_A M)$。
+\end{origstatement}
+\begin{proof}
+由于序列 (6.4.1) 正合，且 $S$ 在 $A$ 上平坦，应用 $\otimes_A k$ 后，该序列仍然正合。这给出具有正合行及正合列的交换图：
+\[
+\begin{tikzcd}[column sep=small,row sep=small]
+&&&0\arrow[d]&\\
+&&&S\otimes_A m_A\arrow[d]&\\
+0\arrow[r]&Q\otimes_A M\arrow[r]\arrow[d,equal]&\widetilde F\arrow[r]\arrow[d]&S\arrow[r]\arrow[d]&0\\
+0\arrow[r]&Q\otimes_A M\arrow[r]&\widetilde F\otimes_A k\arrow[r]&S\otimes_A k\arrow[r]\arrow[d]&0\\
+&&&0&
+\end{tikzcd}
+\]
+这里右列正合（仍是由于 $S$ 在 $A$ 上平坦），且 $Q\otimes_A M\otimes_A k=Q\otimes_A M$（因为 $M\cdot m_A=0$ 蕴含 $M\otimes_A k=M$）。用初等的图表追踪，可以将上图补成行、列均正合的交换图
+\[
+\begin{tikzcd}[column sep=small,row sep=small]
+&&0\arrow[d]&0\arrow[d]&\\
+&&S\otimes_A m_A\arrow[r,equal]\arrow[d]&S\otimes_A m_A\arrow[d]&\\
+0\arrow[r]&Q\otimes_A M\arrow[r]\arrow[d,equal]&\widetilde F\arrow[r]\arrow[d]&S\arrow[r]\arrow[d]&0\\
+0\arrow[r]&Q\otimes_A M\arrow[r]&\widetilde F\otimes_A k\arrow[r]\arrow[d]&S\otimes_A k\arrow[r]\arrow[d]&0\\
+&&0&0&
+\end{tikzcd}
+\]
+从而可知，中间一行分裂，当且仅当最下一行分裂。注意，按定义，最下一行是 $\mathcal O_X$ 模层的序列，因此它是否分裂，由其在下列空间中的类决定：
+\[
+\operatorname{Ext}^1_X(S\otimes_A k,Q\otimes_A M)
+=\operatorname{Ext}^1_X(S|_X,Q|_X)\otimes M.
+\]
+\end{proof}
+\begin{origstatement}{定义}{6.4.8}
+设 $X$ 为 $k$ 上的概形，$F_0$ 为 $X$ 上的凝聚层，$S_0$ 为 $F_0$ 的凝聚子层，$Q_0=F_0/S_0$ 为商。定义形变函子 $D_{F_0,Q_0}$：令 $D_{F_0,Q_0}(A)$ 为 $F:=F_0\otimes A$ 的凝聚子层 $S$ 所成的集合，要求 $Q=F/S$ 在 $A$ 上平坦，且 $S\otimes_A k=S_0$ 作为 $F_0$ 的子层成立。若 $X$ 射影，则 $D_{F_0,Q_0}$ 是对应于 $F_0$ 的 Quot 概形在点 $Q_0$ 处的形变函子。
+\end{origstatement}
+\begin{origstatement}{定理}{6.4.9}
+刚才定义的形变函子 $D_{F_0,Q_0}$ 具有广义切空间与障碍理论，其中 $T_1=\Hom_{\mathcal O_X}(S_0,Q_0)$、$T_2=\operatorname{Ext}^1_{\mathcal O_X}(S_0,Q_0)$。定义 6.1.21 中的正合列 (2) 对任意 $A$ 均正合。
+\end{origstatement}
+% 原书 PDF 168，印刷页 156。
+\begin{proof}
+唯一尚需证明的是障碍的函子性。这一点留给读者。
+\end{proof}
+\begin{origstatement}{推论}{6.4.10}
+形变函子 $H_{Y,X}$ 具有广义切空间与障碍理论，其中 $T_1=\Hom_{\mathcal O_X}(\mathcal I_Y,\mathcal O_Y)$、$T_2=\operatorname{Ext}^1_{\mathcal O_X}(\mathcal I_Y,\mathcal O_Y)$。
+\end{origstatement}
+\begin{proof}
+这正是定理中 $F_0=\mathcal O_X$、$S_0=\mathcal I_Y$ 的特殊情形。
+\end{proof}
+应用推论 6.4.10 和推论 6.2.6，便得到关于 Hilbert 概形局部结构的信息。
+
+\begin{origstatement}{推论}{6.4.11}
+设 $X$ 拟射影，$[Z]\in\operatorname{Hilb}(X)$（即假定 $Z$ 是 $X$ 的固有闭子概形）。令 $d:=\dim(\Hom_{\mathcal O_X}(\mathcal I_Z,\mathcal O_Z))$、$r:=\dim(\operatorname{Ext}^1_{\mathcal O_X}(\mathcal I_Z,\mathcal O_Z))$。
+
+则 $d\geq\dim_{[Z]}\operatorname{Hilb}(X)\geq d-r$。此外，若 $\dim_{[Z]}\operatorname{Hilb}(X)=d$，则 $\operatorname{Hilb}(X)$ 在 $[Z]$ 处非奇异。若 $\dim_{[Z]}\operatorname{Hilb}(X)=d-r$，则 $\operatorname{Hilb}(X)$ 在 $[Z]$ 处为局部完全交。
+\end{origstatement}
+现在概述另一个具有切空间与障碍理论的函子的例子。设 $X,Y$ 为概形，且假定 $Y$ 非奇异。设 $f:X\to Y$ 为态射，以 $D_f$ 表示其形变函子，即
+\[
+D_f(A):=\{f_A:X\times\Spec A\to Y\mid f_A|_X=f\}.
+\]
+若 $X$ 射影，则可考虑开子集 $\operatorname{Mor}(X,Y)\subset\operatorname{Hilb}(X\times Y)$，它参数化从 $X$ 到 $Y$ 的态射的图像；此时 $D_f$ 是对应于点 $[f]\in\operatorname{Mor}(X,Y)$ 的形变函子。
+
+\begin{origstatement}{定理}{6.4.12}
+假定 $X$ 分离。则函子 $D_f$ 具有广义切空间与障碍理论，其中 $T_i=H^{i-1}(X,f^*T_Y)$。定义 6.1.21 中的正合列 (2) 对任意 $A$ 均正合。
+\end{origstatement}
+\begin{proof}
+先假定 $X$ 和 $Y$ 都是仿射的；此时的定理就是 [Har77] 中的习题 II.8.6。对于一般情形，选取 $Y$ 的仿射开覆盖 $Y_i$ 和 $X$ 的仿射开覆盖 $X_i$，使 $f(X_i)\subset Y_i$（习题：证明这样的覆盖存在）。令 $X_{ij}=X_i\cap X_j$。
+
+假定给定 $g:X\times\Spec A\to Y\in D_f(A)$，并设 $B\to A$ 为核为 $M$ 的小扩张。任意选取态射 $h_i:X_i\times\Spec B\to Y_i\subset Y$，使 $h_i|_{X_i\times\Spec A}=g|_{X_i\times\Spec A}$。由仿射情形，存在唯一元素 $\eta_{ij}\in\Gamma(X_{ij},f^*T_Y)\otimes M$，使得 $\eta_{ij}(h_i|_{X_{ij}\times\Spec B})=h_j|_{X_{ij}\times\Spec B}$。容易验证，如此定义的 $\eta_{ij}$ 构成一个 Čech 上闭链，且 $g$ 的整体扩张 $h:X\times\Spec B\to Y$ 存在，当且仅当此上闭链为上边缘。此外，这个上闭链的类不依赖于 $h_i$ 的具体选择，也不依赖于开覆盖 $X_i$ 和 $Y_i$ 的选择。论证的细节留给读者补全。
+\end{proof}
+% 原书 PDF 169，印刷页 157。
+\section{更多切空间与障碍理论}
+本节简要介绍更多具有切空间与障碍理论的形变函子的例子。因为后文不需要用到，我们不在这些情形中给出完整证明。
+
+\begin{origstatement}{命题}{6.5.1}
+设 $X$ 为射影概形，$\mathcal E$ 为 $X$ 上的凝聚层。则形变函子 $\operatorname{Def}_{\mathcal E}$ 具有由 $T_i=\operatorname{Ext}^i(\mathcal E,\mathcal E)$ 定义的切空间与障碍理论。
+\end{origstatement}
+\begin{proof}
+证明分为两步。切空间可以直接如下构造。设
+\[
+0\longrightarrow\mathcal E\xrightarrow{f}\mathcal E'
+\xrightarrow{p}\mathcal E\longrightarrow0
+\]
+为 $\mathcal E$ 被 $\mathcal E$ 的扩张。我们想赋予 $\mathcal E'$ 以 $X_\varepsilon:=X\times\Spec k[\varepsilon]/\varepsilon^2$ 上凝聚层的结构，使其在 $X_\varepsilon$ 上平坦，并使上面的序列由 $\mathcal E'$ 与正合列 $0\to k\xrightarrow{\cdot\varepsilon}k[\varepsilon]/\varepsilon^2\to k\to0$ 作张量积得到。这很容易：对 $\mathcal E'$ 的截面 $e'$，只需定义 $\varepsilon\cdot e':=f(p(e'))$。请读者验证，如此定义的映射 $\operatorname{Ext}^1(\mathcal E,\mathcal E)\to\operatorname{Def}_{\mathcal E}(k[\varepsilon]/\varepsilon^2)$ 在 $\operatorname{Ext}^1(\mathcal E,\mathcal E)$ 与 $T_1(\operatorname{Def}_{\mathcal E})$ 之间诱导同构（后者的向量空间结构如命题 6.1.23 中所定义）。所以，若 $\operatorname{Def}_{\mathcal E}$ 具有切空间与障碍理论，则它的切空间必为 $\operatorname{Ext}^1(\mathcal E,\mathcal E)$。
+% 原书确实说 flat over X_epsilon；未擅改为对Spec双数环平坦。
+
+对于障碍空间，固定 $X$ 上的极丰沛线丛 $\mathcal O_X(1)$。于是存在 $N\gg0$，使 $\mathcal E(N)$ 由整体截面生成，且没有高次上同调。第一个断言也就是说，可以将 $\mathcal E$ 写成 $\mathcal F:=\mathcal O_X(-N)\otimes V$ 的商，其中 $V$ 为向量空间 $H^0(X,\mathcal E(N))$。令 $S$ 为满射 $\mathcal F\to\mathcal E$ 的核。利用上同调与基变换（[Har77] 定理 III.12.11），可以证明自然态射 $D_{\mathcal F,\mathcal E}\to\operatorname{Def}_{\mathcal E}$ 光滑；因此 $\operatorname{Ext}^1(S,\mathcal E)$ 是 $\operatorname{Def}_{\mathcal E}$ 的一个障碍空间。现在容易验证，自然映射 $\operatorname{Ext}^1(S,\mathcal E)\to\operatorname{Ext}^2(\mathcal E,\mathcal E)$ 为同构。
+
+为完成证明，还需证明 $T_1$ 满足所声称的性质；这也可以通过研究形变函子的态射 $D_{\mathcal F,\mathcal E}\to\operatorname{Def}_{\mathcal E}$ 来实现，但我们不再展开。
+\end{proof}
+若对所有点 $p\in Z$，理想层 $\mathcal I_{Z/X}$ 局部由 $\operatorname{codim}_p(Z,X)$ 个元素生成，则称概形 $X$ 的子概形 $Z$ 为 $X$ 中的\emph{局部完全交}。对于 $X$ 中的局部完全交，可以将 Ext 群换成上同调群。设 $Z\subset X$ 是 $X$ 中的局部完全交。令 $N_{Z/X}=(\mathcal I_Z/\mathcal I_Z^2)^\vee$ 为 $Z$ 在 $X$ 中的法丛，它是局部自由的。
+
+\begin{origstatement}{命题}{6.5.2}
+若 $Z$ 是 $X$ 中的局部完全交，则 $H_{Z,X}$ 具有广义切空间与障碍理论，其中 $T_i=H^{i-1}(Z,N_{Z/X})$。
+\end{origstatement}
+\begin{proof}
+切空间的断言无需证明，因为对任意闭子概形 $Y$，都有 $\Hom_{\mathcal O_X}(\mathcal I_Y,\mathcal O_Y)=\Hom_{\mathcal O_Y}(\mathcal I_Y/\mathcal I_Y^2,\mathcal O_Y)$。障碍空间的证明可仿照定理 6.4.12 的证明（这里的断言实际上是该定理的推广）。第一步是证明 $X$ 从而 $Y$ 均仿射时的结果。我们不证明这一点，请参阅 [Art74a] §1.3 中的论证。
+
+对于一般情形，假定给定 $Z_S\subset X\times S$，它在 $S$ 上平坦，闭纤维为 $Z$。由于 $Z$ 是局部完全交，$Z_S$ 也是如此，且局部地
+% 原书 PDF 170，印刷页 158；命题6.5.2证明续。
+（在 $X$ 的每个仿射开子集上）形变函子没有障碍（论证见 [Art74a] §1.3）。因此，在 $X$ 上局部总存在提升。以仿射开集 $X^i$ 覆盖 $X$，并选取 $Z_S^i=Z_S\cap X^i$ 的提升 $Z_T^i$。在 $X^{ij}:=X^i\cap X^j$ 上，两个可能的提升 $Z_T^i\cap X^{ij}$ 与 $Z_T^j\cap X^{ij}$ 相差一个元素 $\eta_{ij}\in N_{Z/X}(Z^{ij})\otimes M$；容易验证，$\eta_{ij}$ 构成 Čech 上闭链，相应的上同调类 $\eta\in H^1(Z,N_{Z/X})\otimes M$ 定义良好（即改变提升 $Z_T^i$ 的选择，只会使上闭链改变一个上边缘），并且是整体提升存在性的一个障碍。请不熟悉此类论证的读者写出详细过程。
+\end{proof}
+\begin{origstatement}{注}{6.5.3}
+类似的 Čech 上同调论证可用来说明：若 $X$ 为分离光滑概形，则 $\operatorname{Def}_X$ 具有广义切空间与障碍空间，其中 $T_i=H^i(X,T_X)$；关键步骤是证明仿射情形（即光滑仿射簇的每个无穷小形变均平凡）。其证明可见 [Art74a]。一旦确立这一点，任意光滑分离概形 $X$ 的任意形变都可以在仿射开覆盖上平凡化，而粘合映射是恒等映射的形变；这时只需应用定理 6.4.12 即可完成证明。
+\end{origstatement}
+为研究一般的形变理论，需要考虑某种形式的余切复形；这一概念由 Illusie 在 [Ill71]、[Ill72a] 中定义；这两部著作也在平方零扩张（而非小扩张）这一更一般、在某种意义上也更自然的背景下，非常全面地研究了切空间与障碍。若仅关注局部完全交（lci）态射，则可像 [Vis97] 那样采用更初等的方法。

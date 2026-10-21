@@ -1,0 +1,391 @@
+% Source PDF 325–334, printed 313–322. Native reconstruction, no page overlays.
+\chapter*{附录 B\quad 基本相交理论}\label{appB}
+\addcontentsline{toc}{chapter}{附录 B\quad 基本相交理论}
+\markboth{9. Picard 概形}{附录 B. 基本相交理论}
+\begingroup
+\newcommand{\BF}{\mathbf F}
+\newcommand{\BK}{\mathbf K}
+\newcommand{\BL}{\mathcal L}
+\newcommand{\BM}{\mathcal M}
+
+本附录以初等方式介绍基本的相交理论, 对许多用途（包括第 9.6 节的需要）而言都绰绰有余. 这种方法由 Snapper 于 1959--60 年创立. 随后 Cartier [\textbf{Car60}] 立即推广了他的结果, 并简化了证明. 作者后来又陆续发展了他们的工作.
+
+指数定理由 Hodge 于 1937 年证明. 紧接着, B. Segre [\textbf{Seg37}, §1] 给出了曲面情形的代数证明, Grothendieck 又于 1958 年重新发现了这一证明. [\textbf{Kle71}, 第 662 页] 对他们的工作作了小幅推广, 下文定理 B.27 给出一个变式. Segre [\textbf{Seg37}, §6] 从指数定理推出了曲面情形下类似推论 B.29 的连通性陈述, 下面的证明基本上就是他的证明.
+
+% Source PDF 325, printed 313.
+\begin{origstatement}{定义}{B.1}\label{appB:1}
+以 $\BF(X/S)$ 或 $\BF$ 表示 $X$ 上凝聚层 $\cF$ 所成的 Abel 范畴, 其中要求支集 $\Supp\cF$ 在 $S$ 的某个 Artin 子概形（即一个零维 Noether 闭子概形）上固有. 对每个 $r\ge0$, 以 $\BF_r$ 表示满足 $\dim\Supp\cF\le r$ 的那些 $\cF$ 所成的满子范畴.
+
+以 $\BK(X/S)$ 或 $\BK$ 表示 $\BF$ 的“Grothendieck 群”, 即由这些 $\cF$ 自由生成的 Abel 群模去短正合序列给出的关系. 滥用记号, 仍以 $\cF$ 表示它的类. 若 $\cF=\cO_Y$, 其中 $Y\subset X$ 是子概形, 则也用 $[Y]$ 表示这个类. 以 $\BK_r$ 表示由 $\BF_r$ 生成的子群.
+
+以 $\chi\colon\BK\to\mathbb Z$ 表示 Euler 特征诱导的同态; Euler 特征就是各上同调群长度的交错和.
+
+给定 $\BL\in\Pic(X)$, 以 $c_1(\BL)$ 表示由下式定义的 $\BK$ 的自同态:
+\[c_1(\BL)\cF\defeq\cF-\BL^{-1}\otimes\cF.\]
+注意 $c_1(\BL)$ 是良定义的, 因为与 $\BL^{-1}$ 张量保持正合序列.
+\end{origstatement}
+
+\begin{origstatement}{引理}{B.2}\label{appB:2}
+设 $\BL\in\Pic(X)$. 设 $Y\subset X$ 是满足 $\cO_Y\in\BF$ 的闭子概形. 设 $D\subset Y$ 是满足 $\cO_Y(D)\simeq\BL|Y$ 的有效除子. 则
+\[c_1(\BL)\cdot[Y]=[D].\]
+\end{origstatement}
+\begin{proof}
+因 $\cO_Y\in\BF$, 左端有定义. 又因 $\cO_Y(-D)\simeq\BL^{-1}\otimes\cO_Y$, 等式由序列 $0\to\cO_Y(-D)\to\cO_Y\to\cO_D\to0$ 得到.
+\end{proof}
+
+\begin{origstatement}{引理}{B.3}\label{appB:3}
+设 $\BL,\BM\in\Pic(X)$. 则下列关系成立:
+\begin{gather*}
+c_1(\BL)c_1(\BM)=c_1(\BL)+c_1(\BM)-c_1(\BL\otimes\BM);\\
+c_1(\BL)c_1(\BL^{-1})=c_1(\BL)+c_1(\BL^{-1});\\
+c_1(\cO_X)=0.
+\end{gather*}
+此外, $c_1(\BL)$ 与 $c_1(\BM)$ 可交换.
+\end{origstatement}
+\begin{proof}
+设 $\cF\in\BK$. 由定义, $c_1(\cO_X)\cF=0$; 因而第三个关系成立. 显然, 第一个关系的两端都将 $\cF$ 映为
+\[\cF-\BL^{-1}\otimes\cF-\BM^{-1}\otimes\cF+\BL^{-1}\otimes\BM^{-1}\otimes\cF.\]
+所以第一个关系成立. 它与第三个关系一起推出第二个关系. 此外, 第一个关系也推出 $c_1(\BL)$ 与 $c_1(\BM)$ 可交换.
+\end{proof}
+
+% Source PDF 326, printed 314.
+\begin{origstatement}{引理}{B.4}\label{appB:4}
+给定 $\cF\in\BF_r$, 令 $Y_1,\ldots,Y_s$ 为 $\Supp\cF$ 的 $r$ 维不可约分支, 配备诱导的约化结构; 令 $l_i$ 为 $\cF$ 在 $Y_i$ 的泛点处茎的长度. 则在 $\BK_r$ 中,
+\[\cF\equiv\sum_i l_i\cdot[Y_i]\pmod{\BK_{r-1}}.\]
+\end{origstatement}
+\begin{proof}
+若将 $S$ 换成 $\Supp\cF$ 的像的一个邻域后结论成立, 则原结论也成立. 因而可以假定 $S$ 是 Noether 概形.
+
+以 $\BF'\subset\BF_r$ 表示使结论成立的 $\cF$ 所成的族. 由于 $\length(\bullet)$ 是可加函数, $\BF'$ 在下述意义下“正合”: 对任意短正合序列 $0\to\cF'\to\cF\to\cF''\to0$, 如果这三个层中有两个属于 $\BF'$, 则第三个也属于它. 显然, 对任意满足 $\cO_Y\in\BF_r$ 的整闭子概形 $Y\subset X$, 都有 $\cO_Y\in\BF'$. 因而由“逐层剖分引理”（Lemma of Dévissage）[\textbf{EGAIII1}, 定理 3.1.2], 有 $\BF'=\BF_r$.
+\end{proof}
+
+\begin{origstatement}{引理}{B.5}\label{appB:5}
+设 $\BL\in\Pic(X)$. 则对所有 $r$, 有 $c_1(\BL)\BK_r\subset\BK_{r-1}$.
+\end{origstatement}
+\begin{proof}
+设 $\cF\in\BF_r$. 则在 $\Supp\cF$ 的每个分支的泛点处, $\cF$ 与 $\BL^{-1}\otimes\cF$ 同构. 因而引理 B.4 推出 $c_1(\BL)\cF\in\BK_{r-1}$.
+\end{proof}
+
+\begin{origstatement}{引理}{B.6}\label{appB:6}
+设 $\BL\in\Pic(X)$, $\cF\in\BK_r$, $m\in\mathbb Z$. 则
+\[\BL^{\otimes m}\otimes\cF=\sum_{i=0}^r\binom{m+i-1}{i}c_1(\BL)^i\cF.\]
+\end{origstatement}
+\begin{proof}
+设 $x$ 为不定元, 考虑形式恒等式
+\[(1-x)^n=\sum_{i\ge0}(-1)^i\binom ni x^i.\]
+用 $1-y^{-1}$ 代替 $x$, 令 $n\defeq-m$, 并使用熟知的恒等式
+\[(-1)^i\binom ni=\binom{m+i-1}{i},\]
+得到形式恒等式
+\[y^m=\sum_i\binom{m+i-1}{i}(1-y^{-1})^i.\]
+由引理 B.5, 当 $i>r$ 时有 $c_1(\BL)^i\cF=0$, 因而上式给出所需结论.
+\end{proof}
+
+\begin{origstatement}{定理}{B.7（Snapper）}\label{appB:7}
+设 $\BL_1,\ldots,\BL_n\in\Pic(X)$, $m_1,\ldots,m_n\in\mathbb Z$, $\cF\in\BK_r$. 则 Euler 特征 $\chi(\BL_1^{\otimes m_1}\otimes\cdots\otimes\BL_n^{\otimes m_n}\otimes\cF)$ 由一个关于 $m_i$ 的次数至多为 $r$ 的多项式给出. 事实上,
+\[\chi(\BL_1^{\otimes m_1}\otimes\cdots\otimes\BL_n^{\otimes m_n}\otimes\cF)
+=\sum a(i_1,\ldots,i_n)\binom{m_1+i_1-1}{i_1}\cdots\binom{m_n+i_n-1}{i_n},\]
+其中 $i_j\ge0$, $\sum i_j\le r$, 且 $a(i_1,\ldots,i_n)\defeq\chi(c_1(\BL_1)^{i_1}\cdots c_1(\BL_n)^{i_n}\cF)$.
+\end{origstatement}
+\begin{proof}
+由引理 B.6 和 B.5 得到此定理.
+\end{proof}
+
+\begin{origstatement}{定义}{B.8}\label{appB:8}
+设 $\BL_1,\ldots,\BL_r\in\Pic(X)$, 允许重复, 且 $\cF\in\BK_r$. 用下式定义\emph{相交数}（intersection number）或\emph{相交符号}（intersection symbol）:
+\[\int c_1(\BL_1)\cdots c_1(\BL_r)\cF\defeq\chi(c_1(\BL_1)\cdots c_1(\BL_r)\cF)\in\mathbb Z.\]
+若 $\cF=\cO_X$, 则也将这个数写成 $\int c_1(\BL_1)\cdots c_1(\BL_r)$. 若对某个除子 $D_i$ 有 $\BL_i=\cO_X(D_i)$, 则也写作 $(D_1\cdots D_r\cdot\cF)$; 当 $\cF=\cO_X$ 时, 简写为 $(D_1\cdots D_r)$.
+\end{origstatement}
+
+% Source PDF 327, printed 315.
+\begin{origstatement}{定理}{B.9}\label{appB:9}
+设 $\BL_1,\ldots,\BL_r\in\Pic(X)$, $\cF\in\BK_r$.
+\begin{enumerate}[label=(\arabic*)]
+\item 若 $\cF\in\BF_{r-1}$, 则 $\int c_1(\BL_1)\cdots c_1(\BL_r)\cF=0$.
+\item （对称性与可加性）符号 $\int c_1(\BL_1)\cdots c_1(\BL_r)\cF$ 关于各 $\BL_j$ 对称. 此外, 它对每个 $\BL_j$ 以及 $\cF$ 分别都是同态.
+\item 令 $\cE\defeq\BL_1^{-1}\oplus\cdots\oplus\BL_r^{-1}$. 则
+\[\int c_1(\BL_1)\cdots c_1(\BL_r)\cF=\sum_{i=0}^r(-1)^i\chi\bigl((\mathop{\bigwedge}\nolimits^i\cE)\otimes\cF\bigr).\]
+\end{enumerate}
+\end{origstatement}
+\begin{proof}
+第 (1) 项来自引理 B.5. 因而由引理 B.3 中的关系, 该符号对每个 $\BL_j$ 都是同态. 此外, 由引理 B.3 中的交换性, 该符号是对称的. 第 (3) 项由定义得到.
+\end{proof}
+
+\begin{origstatement}{推论}{B.10}\label{appB:10}
+设 $\BL_1,\BL_2\in\Pic(X)$, $\cF\in\BK_2$. 则
+\begin{multline*}
+\int c_1(\BL_1)c_1(\BL_2)\cF=\chi(\cF)-\chi(\BL_1^{-1}\otimes\cF)\\
+-\chi(\BL_2^{-1}\otimes\cF)+\chi(\BL_1^{-1}\otimes\BL_2^{-1}\otimes\cF).
+\end{multline*}
+\end{origstatement}
+\begin{proof}
+此结论是命题 B.9 第 (3) 项的特殊情形.
+% SOURCE ISSUE: original calls Theorem B.9 a Proposition here and later.
+\end{proof}
+
+\begin{origstatement}{推论}{B.11}\label{appB:11}
+设 $D_1,\ldots,D_r$ 是 $X$ 上的有效除子, $\cF\in\BF_r$. 令 $Z\defeq D_1\cap\cdots\cap D_r$. 假定 $Z\cap\Supp\cF$ 有限, 且在其中每一点处 $\cF$ 都是 Cohen--Macaulay 的. 则
+\[(D_1\cdots D_r\cdot\cF)=\length H^0(\cF_Z),\qquad\text{其中 }\cF_Z\defeq\cF\otimes\cO_Z.\]
+\end{origstatement}
+\begin{proof}
+对每个 $j$, 令 $\BL_j\defeq\cO_X(D_j)$, 以 $\sigma_j\in H^0(\BL_j)$ 表示定义 $D_j$ 的截面. 令 $\cE\defeq\BL_1^{-1}\oplus\cdots\oplus\BL_r^{-1}$. 构造相应的 Koszul 复形 $(\bigwedge^\bullet\cE)\otimes\cF$ 及其上同调层 $\mathcal H^i((\bigwedge^\bullet\cE)\otimes\cF)$. 由命题 B.9 第 (3) 项及 $\chi$ 的可加性, 有
+\[\int c_1(\BL_1)\cdots c_1(\BL_r)\cF
+=\sum_{i=0}^r(-1)^i\chi\bigl(\mathcal H^i((\mathop{\bigwedge}\nolimits^\bullet\cE)\otimes\cF)\bigr).\]
+此外, 实质上由定义, $\mathcal H^0((\bigwedge^\bullet\cE)\otimes\cF)=\cF_Z$. 由标准的局部代数, 高阶 $\mathcal H^i$ 都消失. 因而结论成立.
+\end{proof}
+
+\begin{origstatement}{引理}{B.12}\label{appB:12}
+设 $\BL_1,\ldots,\BL_r\in\Pic(X)$, $\cF\in\BF_r$. 令 $Y_1,\ldots,Y_s$ 为 $\Supp\cF$ 的 $r$ 维不可约分支, 配备诱导的约化结构; 令 $l_i$ 为 $\cF$ 在 $Y_i$ 泛点处茎的长度. 则
+\[\int c_1(\BL_1)\cdots c_1(\BL_r)\cF=\sum_i l_i\int c_1(\BL_1)\cdots c_1(\BL_r)[Y_i].\]
+\end{origstatement}
+\begin{proof}
+应用引理 B.4 以及命题 B.9 的第 (1)、(2) 项.
+\end{proof}
+
+\begin{origstatement}{引理}{B.13}\label{appB:13}
+设 $\BL_1,\ldots,\BL_r\in\Pic(X)$, $Y\subset X$ 为满足 $\cO_Y\in\BF$ 的闭子概形. 设 $D\subset Y$ 为满足 $\cO_Y(D)\simeq\BL_r|Y$ 的有效除子. 则
+\[\int c_1(\BL_1)\cdots c_1(\BL_r)[Y]=\int c_1(\BL_1)\cdots c_1(\BL_{r-1})[D].\]
+\end{origstatement}
+\begin{proof}
+应用引理 B.2.
+\end{proof}
+
+\begin{origstatement}{命题}{B.14}\label{appB:14}
+设 $\BL_1,\ldots,\BL_r\in\Pic(X)$, $\cF\in\BF_r$. 若所有 $\BL_j$ 都相对丰沛, 且 $\cF\notin\BK_{r-1}$, 则
+\[\int c_1(\BL_1)\cdots c_1(\BL_r)\cF>0.\]
+\end{origstatement}
+% Source PDF 328, printed 316: proof of B.14.
+\begin{proof}
+对 $r$ 归纳. 当 $r=0$ 时, 实质上由定义, $\int\cF=\dim H^0(\cF)$; 又由假设 $\cF\notin\BK_{r-1}$, 有 $H^0(\cF)\ne0$.
+
+设 $r\ge1$. 由命题 B.12, 可以假定 $\cF=\cO_Y$, 其中 $Y$ 为整概形. 由定理 B.9 第 (2) 项, 可以将 $\BL_r$ 换成它的某个倍数, 从而假定它非常丰沛. 此时, 对应的 $Y$ 的嵌入的一个超平面截面 $D$ 是非空的有效除子, 满足 $\cO_Y(D)\simeq\BL_r|Y$. 因而由命题 B.13 和归纳假设得到结论.
+% SOURCE: B.12 and B.13 are labelled Lemma in source; source proof calls Proposition.
+\end{proof}
+
+\begin{origstatement}{引理}{B.15}\label{appB:15}
+设 $g\colon X'\to X$ 是 $S$-态射. 设 $\BL_1,\ldots,\BL_r\in\Pic(X)$, $\cF\in\BF_r(X'/S)$. 则
+\[\int c_1(g^*\BL_1)\cdots c_1(g^*\BL_r)\cF=\int c_1(\BL_1)\cdots c_1(\BL_r)g_*\cF.\]
+\end{origstatement}
+\begin{proof}
+设 $\cG\in\BF_r(X'/S)$. 由假设, $\Supp\cG$ 在 $S$ 的一个 Artin 子概形上固有, 且 $\dim\Supp\cG\le r$; 此外, $X/S$ 分离. 因而限制 $g|\Supp\cG$ 固有; 所以 $g(\Supp\cG)$ 为闭集. 由 Artin 概形上有限型概形的维数理论, $\dim g(\Supp\cG)\le r$. 故对所有 $i$, 有 $R^ig_*\cG\in\BF_r(X/S)$.
+
+以 $\cG\mapsto\sum_{i=0}^r(-1)^iR^ig_*\cG$ 定义映射 $\BF_r(X'/S)\to\BK_r(X/S)$. 它诱导同态 $Rg_*\colon\BK_r(X'/S)\to\BK_r(X/S)$. 由 Leray 谱序列 [\textbf{EGAIII1}, 0-12.2.4] 及 $\chi$ 的可加性 [\textbf{EGAIII1}, 0-11.10.3], 有 $\chi(Rg_*(\cG))=\chi(\cG)$. 此外, 由 [\textbf{EGAIII1}, 0-12.2.3.1], 对任意 $\BL\in\Pic(X)$ 有 $\BL\otimes R^ig_*(\cG)\simeq R^ig_*(g^*\BL\otimes\cG)$. 因而 $c_1(\BL)Rg_*(\cG)=Rg_*(c_1(g^*\BL)\cG)$. 于是,
+\[\int c_1(g^*\BL_1)\cdots c_1(g^*\BL_r)\cF=\int c_1(\BL_1)\cdots c_1(\BL_r)Rg_*\cF.\]
+
+最后, $Rg_*\cF\equiv g_*\cF\pmod{\BK_{r-1}(X/S)}$, 因为当 $i\ge1$ 时有 $R^ig_*\cF\in\BF_{r-1}$: 若 $W\subset X'$ 为 $\Supp\cF\to X$ 的纤维维数至少为 $1$ 的点所成之集, 则 $\dim g(W)\le r-1$. 因此定理 B.9 第 (1) 项给出所述公式.
+\end{proof}
+
+\begin{origstatement}{命题}{B.16（投影公式）}\label{appB:16}
+设 $g\colon X'\to X$ 是 $S$-态射. 设 $\BL_1,\ldots,\BL_r\in\Pic(X)$. 设 $Y'\subset X'$ 是满足 $\cO_{Y'}\in\BF_r(X'/S)$ 的整子概形. 令 $Y\defeq gY'\subset X$, 赋予诱导的约化结构; 定义 $\deg(Y'/Y)$ 为函数域扩张次数（若该次数有限）, 否则定义为 $0$. 则
+\[\int c_1(g^*\BL_1)\cdots c_1(g^*\BL_r)[Y']=\deg(Y'/Y)\int c_1(\BL_1)\cdots c_1(\BL_r)[Y].\]
+\end{origstatement}
+\begin{proof}
+引理 B.4 给出 $g_*\cO_{Y'}\equiv\deg(Y'/Y)[Y]\pmod{\BK_{r-1}(X/S)}$. 故结论由引理 B.15 及定理 B.9 第 (1) 项得到.
+\end{proof}
+
+\begin{origstatement}{命题}{B.17}\label{appB:17}
+假定 $S$ 是一个域的谱, $T$ 是某个扩域的谱. 设 $\BL_1,\ldots,\BL_r\in\Pic(X)$, $\cF\in\BF_r(X/S)$. 则
+\[\int c_1(\BL_{1,T})\cdots c_1(\BL_{r,T})\cF_T=\int c_1(\BL_1)\cdots c_1(\BL_r)\cF.\]
+\end{origstatement}
+\begin{proof}
+换基 $T\to S$ 保持短正合序列, 因而诱导同态 $\kappa\colon\BK_r(X/S)\to\BK_r(X_T/T)$. 显然 $\kappa$ 保持 Euler 特征. 结论随即得到.
+\end{proof}
+% Source PDF 329, printed 317.
+\begin{origstatement}{命题}{B.18}\label{appB:18}
+设 $\BL_1,\ldots,\BL_r\in\Pic(X)$. 设 $\cF$ 为 $X$ 上的平坦凝聚层. 假定 $\Supp\cF$ 固有且相对维数为 $r$. 则函数
+\[y\longmapsto\int c_1(\BL_1)\cdots c_1(\BL_r)\cF_y\]
+局部常值.
+\end{origstatement}
+\begin{proof}
+由定义 B.8 及 [\textbf{Mum70}, 第 50 页顶部的推论] 得到结论.
+\end{proof}
+
+\begin{origstatement}{定义}{B.19}\label{appB:19}
+设 $\BL,\mathcal N\in\Pic(X)$. 若对每条满足 $\cO_Y\in\BF_1$ 的整闭曲线 $Y\subset X$, 都有 $\int c_1(\BL)[Y]=\int c_1(\mathcal N)[Y]$, 则称它们\emph{数值等价}（numerically equivalent）.
+\end{origstatement}
+
+\begin{origstatement}{命题}{B.20}\label{appB:20}
+设 $\BL_1,\ldots,\BL_r;\mathcal N_1,\ldots,\mathcal N_r\in\Pic(X)$, $\cF\in\BK_r$. 若对每个 $j$, $\BL_j$ 与 $\mathcal N_j$ 数值等价, 则
+\[\int c_1(\BL_1)\cdots c_1(\BL_r)\cF=\int c_1(\mathcal N_1)\cdots c_1(\mathcal N_r)\cF.\]
+\end{origstatement}
+\begin{proof}
+若 $r=1$, 则由引理 B.12 得到结论. 设 $r\ge2$. 由引理 B.5, $c_1(\BL_2)\cdots c_1(\BL_r)\cF\in\BK_1$. 因而
+\[\int c_1(\BL_1)c_1(\BL_2)\cdots c_1(\BL_r)\cF=\int c_1(\mathcal N_1)c_1(\BL_2)\cdots c_1(\BL_r)\cF.\]
+类似地, $c_1(\mathcal N_1)c_1(\BL_3)\cdots c_1(\BL_r)\cF\in\BK_1$, 所以
+\[\int c_1(\mathcal N_1)c_1(\BL_2)c_1(\BL_3)\cdots c_1(\BL_r)\cF
+=\int c_1(\mathcal N_1)c_1(\mathcal N_2)c_1(\BL_3)\cdots c_1(\BL_r)\cF.\]
+如此继续即可得到结论.
+\end{proof}
+
+\begin{origstatement}{命题}{B.21}\label{appB:21}
+设 $g\colon X'\to X$ 为 $S$-态射. 设 $\BL,\mathcal N\in\Pic(X)$.
+\begin{enumerate}[label=(\arabic*)]
+\item 若 $\BL$ 与 $\mathcal N$ 数值等价, 则 $g^*\BL$ 与 $g^*\mathcal N$ 也数值等价.
+\item 反过来, 当 $g$ 固有且满射时, 若 $g^*\BL$ 与 $g^*\mathcal N$ 数值等价, 则 $\BL$ 与 $\mathcal N$ 也数值等价.
+\end{enumerate}
+\end{origstatement}
+\begin{proof}
+设 $Y'\subset X'$ 为满足 $\cO_{Y'}\in\BF_1(X'/S)$ 的整闭曲线. 令 $Y\defeq g(Y')$, 并赋予诱导的约化结构. 命题 B.16 给出
+\begin{align*}
+\int c_1(g^*\BL)[Y']&=\deg(Y'/Y)\int c_1(\BL)[Y],\\
+\int c_1(g^*\mathcal N)[Y']&=\deg(Y'/Y)\int c_1(\mathcal N)[Y].
+\end{align*}
+第 (1) 项随之得到.
+
+反过来, 设 $g$ 固有且满射. 设 $Y\subset X$ 为满足 $\cO_Y\in\BF_1(X/S)$ 的整闭曲线. 则 $Y$ 是 $S$ 的一个闭点 $s$ 上的纤维 $X_s$ 中的完备曲线. 因 $g$ 固有, $X'_s$ 中存在一条满射到 $Y$ 的完备曲线 $Y'$. 事实上, 令 $y\in Y$ 为泛点, $y'\in g^{-1}y$ 为一个闭点; 令 $Y'$ 为 $y'$ 的闭包, 赋予 $Y'$ 诱导的约化结构. 显然 $\cO_{Y'}\in\BF_1(X'/S)$, 且 $\deg(Y'/Y)\ne0$. 上面显示的两个等式便给出第 (2) 项.
+\end{proof}
+
+\begin{origstatement}{定义}{B.22}\label{appB:22}
+假定 $S$ 是 Artin 概形, $X$ 为固有曲线. 设 $\BL\in\Pic(X)$. 用下式定义它的\emph{次数}（degree）$\deg(\BL)$:
+\[\deg(\BL)\defeq\int c_1(\BL).\]
+设 $D$ 为 $X$ 上的除子. 定义它的\emph{次数} $\deg(D)$ 为 $\deg(D)\defeq\deg(\cO_X(D))$.
+\end{origstatement}
+
+% Source PDF 330, printed 318.
+\begin{origstatement}{命题}{B.23}\label{appB:23}
+假定 $S$ 是 Artin 概形, $X$ 为固有曲线.
+\begin{enumerate}[label=(\arabic*)]
+\item 映射 $\deg\colon\Pic(X)\to\mathbb Z$ 是同态.
+\item 设 $D\subset X$ 为有效除子. 则 $\deg(D)=\dim H^0(\cO_D)$.
+\item （Riemann 定理）设 $\BL\in\Pic(X)$. 则
+\[\chi(\BL)=\deg(\BL)+\chi(\cO_X).\]
+\item 设 $X$ 为整概形, $g\colon X'\to X$ 为正规化态射. 则 $\deg(\BL)=\deg(g^*\BL)$.
+\end{enumerate}
+\end{origstatement}
+\begin{proof}
+第 (1) 项由定理 B.9 (2) 得到. 第 (2) 项由引理 B.13 得到. 关于第 (3) 项, 注意由第 (1) 项有 $\deg(\BL^{-1})=-\deg(\BL)$. 由定义又有 $\deg(\BL^{-1})=\chi(\cO_X)-\chi(\BL)$. 因而第 (3) 项成立. 最后, 第 (3) 项由定义与投影公式得到.
+% SOURCE ISSUE: final “Part (3)” is printed; evidently refers to Part (4).
+\end{proof}
+
+\begin{origstatement}{定义}{B.24}\label{appB:24}
+假定 $S$ 是 Artin 概形, $X$ 为固有曲面. 给定 $X$ 上的除子 $D$, 令
+\[p_a(D)\defeq1-\chi\bigl(c_1(\cO_X(D))\cO_X\bigr).\]
+\end{origstatement}
+
+\begin{origstatement}{命题}{B.25}\label{appB:25}
+假定 $S$ 是 Artin 概形, $X$ 为固有曲面. 设 $D$ 和 $E$ 为 $X$ 上的除子. 则
+\[p_a(D+E)=p_a(D)+p_a(E)+(D\cdot E)-1.\]
+此外, 若 $D$ 有效, 则 $p_a(D)=1-\chi(\cO_D)$; 换言之, $p_a(D)$ 等于 $D$ 的算术亏格.
+\end{origstatement}
+\begin{proof}
+由引理 B.3 和 B.2 得到这些结论.
+\end{proof}
+
+\begin{origstatement}{命题}{B.26（曲面的 Riemann--Roch 定理）}\label{appB:26}
+假定 $S$ 是一个域的谱, $X$ 为约化、射影、等维的 Cohen--Macaulay 曲面. 设 $\omega$ 为对偶化层, 并令 $\mathcal K\defeq\omega-\cO_X$. 设 $D$ 为 $X$ 上的除子. 则 $\mathcal K\in\BK_1$; 此外,
+\[p_a(D)=\frac{(D^2)+(D\cdot\mathcal K)}2+1,\qquad
+\chi(\cO_X(D))=\frac{(D^2)-(D\cdot\mathcal K)}2+\chi(\cO_X).\]
+若 $X/S$ 为 Gorenstein 的, 即对某个“典范”除子 $K$ 有 $\omega=\cO_X(K)$, 则
+\[p_a(D)=\frac{(D\cdot(D+K))}2+1,\qquad
+\chi(\cO_X(D))=\frac{(D\cdot(D-K))}2+\chi(\cO_X).\]
+\end{origstatement}
+\begin{proof}
+因 $X$ 约化, 由 [\textbf{AK70}, (2.8), 第 8 页], 在 $X$ 的一个稠密开子集上 $\omega$ 同构于 $\cO_X$. 故 $\mathcal K\in\BK_1$.
+
+令 $\BL\defeq\cO_X(D)$. 由定理 B.9 的第 (1)、(2) 项,
+\[(D^2)\defeq\int c_1(\BL)^2=-\int c_1(\BL)c_1(\BL^{-1}).\]
+现在, 定义给出
+\begin{align*}
+c_1(\BL)\bigl(-c_1(\BL^{-1})\cO_X+\mathcal K\bigr)
+&=c_1(\BL)(\BL-2\cO_X+\omega)\\
+&=\BL+\omega-3\cO_X+2\BL^{-1}-\BL^{-1}\otimes\omega,
+\end{align*}
+以及
+\[c_1(\BL)\bigl(-c_1(\BL^{-1})\cO_X-\mathcal K\bigr)
+=c_1(\BL)(\BL-\omega)=\BL-\omega-\cO_X+\BL^{-1}\otimes\omega.\]
+% Source PDF 331, printed 319, continuation.
+但由对偶理论, $H^i(\BL)$ 与 $H^{2-i}(\BL^{-1}\otimes\omega)$ 对偶; 参见 [\textbf{Har77}, 推论 7.7, 第 244 页], 其中不必假定 $k$ 代数闭. 因而 $\chi(\BL)=\chi(\BL^{-1}\otimes\omega)$. 类似地, $\chi(\cO_X)=\chi(\omega)$. 所以
+\begin{gather*}
+(D^2)+(D\cdot\mathcal K)=2\bigl(\chi(\BL^{-1})-\chi(\cO_X)\bigr),\\
+(D^2)-(D\cdot\mathcal K)=2\bigl(\chi(\BL)-\chi(\cO_X)\bigr).
+\end{gather*}
+又 $-c_1(\cO_X(D))\cO_X=\BL^{-1}-\cO_X$. 第一部分结论随之得到.
+
+设 $\omega$ 可逆. 则由定义, $-c_1(\omega^{-1})\cO_X=\mathcal K$. 由定理 B.9 第 (2) 项, $-\int c_1(\BL)c_1(\omega^{-1})=\int c_1(\BL)c_1(\omega)$. 因而 $(D\cdot\mathcal K)=(D\cdot K)$. 于是由定理 B.9 第 (2) 项得到第二部分结论.
+\end{proof}
+
+\begin{origstatement}{定理}{B.27（Hodge 指数定理）}\label{appB:27}
+假定 $S$ 是一个域的谱, $X$ 为几何不可约的完备曲面. 假定存在 $\mathcal H\in\Pic(X)$, 使得 $\int c_1(\mathcal H)^2>0$. 设 $\BL\in\Pic(X)$. 假定 $\int c_1(\BL)c_1(\mathcal H)=0$, 且 $\int c_1(\BL)^2\ge0$. 则 $\BL$ 与 $\cO_X$ 数值等价.
+\end{origstatement}
+\begin{proof}
+由命题 B.17, 可以将底域扩张到其代数闭包. 此外, 可以将 $X$ 换成其约化概形; 事实上, 由引理 B.12, 假设保持不变, 而由定义 B.19, 结论也保持不变.
+
+由 Chow 引理, 存在满射 $g\colon X'\to X$, 其中 $X'$ 为整射影曲面. 此外, 可以将 $X'$ 换成它的正规化. 现在可以将 $X$ 换成 $X'$, 将 $\mathcal H$ 和 $\BL$ 换成 $g^*\mathcal H$ 和 $g^*\BL$. 事实上, 由投影公式即命题 B.16, 假设保持不变; 由命题 B.21 第 (2) 项, 结论保持不变.
+
+用反证法, 假定存在整闭子概形 $Y\subset X$, 使得 $\int c_1(\BL)\cO_Y\ne0$. 令 $g\colon X'\to X$ 为沿 $Y$ 的爆破, $E\defeq g^{-1}Y\subset X$ 为例外除子. 令 $E_1,\ldots,E_s$ 为 $E$ 的不可约分支, 并赋予诱导的约化结构.
+% SOURCE ISSUE: source prints E subset X although E is on X'.
+
+因 $X$ 正规, 它只有有限个奇点. 在这些奇点之外, $Y$ 是除子, $g$ 是同构. 因而其中一个 $E_i$, 不妨记作 $E_1$, 满射到 $Y$, 而其余的 $E_i$ 都映到点. 所以由投影公式,
+\[\int c_1(g^*\BL)[E_1]=\int c_1(g\BL)[Y],\qquad
+\int c_1(g^*\BL)[E_i]=0\quad(i\ge2).\]
+% SOURCE ISSUE: source p319 appears to print gL on RHS, rather than L; preserved.
+因此引理 B.12 给出 $\int c_1(g^*\BL)[E]=\int c_1(\BL)[Y]$. 根据新假设, 后者非零; 由引理 B.13, 前者等于 $\int c_1(g^*\BL)c_1(\cO_{X'}(E))$.
+
+令 $\BM\defeq\cO_{X'}(E)$. 则 $\int c_1(g^*\BL)c_1(\BM)\ne0$. 此外, 由投影公式,
+\[\int c_1(g^*\mathcal H)^2>0,\qquad
+\int c_1(g^*\BL)c_1(g^*\mathcal H)=0,\qquad
+\int c_1(g^*\BL)^2\ge0.\]
+我们来证明这种情形不可能. 先将 $X$ 换成 $X'$, 将 $\mathcal H$ 与 $\BL$ 换成 $g^*\mathcal H$ 与 $g^*\BL$.
+
+设 $\cG$ 是 $X$ 上的丰沛可逆层. 令 $\mathcal H_1\defeq\cG^{\otimes m}\otimes\BM$. 由可加性（参见定理 B.9 第 (2) 项）,
+\[\int c_1(\BL)c_1(\mathcal H_1)=m\int c_1(\BL)c_1(\cG)+\int c_1(\BL)c_1(\BM).\]
+又 $\int c_1(\BL)c_1(\BM)\ne0$. 所以存在 $m\gg0$, 使得 $\int c_1(\BL)c_1(\mathcal H_1)\ne0$, 且 $\mathcal H_1$ 丰沛.
+
+令 $\BL_1\defeq\BL^{\otimes p}\otimes\mathcal H^{\otimes q}$. 由于 $\int c_1(\BL)c_1(\mathcal H)=0$, 可加性给出
+\begin{align*}
+\int c_1(\BL_1)^2&=p^2\int c_1(\BL)^2+q^2\int c_1(\mathcal H)^2,\\
+\int c_1(\BL_1)c_1(\mathcal H_1)&=p\int c_1(\BL)c_1(\mathcal H_1)+q\int c_1(\mathcal H)c_1(\mathcal H_1).
+\end{align*}
+由于 $\int c_1(\BL)c_1(\mathcal H_1)\ne0$, 存在 $p,q$, 其中 $q\ne0$, 使 $\int c_1(\BL_1)c_1(\mathcal H_1)=0$. 又因 $\int c_1(\BL)^2\ge0$, $\int c_1(\mathcal H)^2>0$, 有 $\int c_1(\BL_1)^2>0$. 将 $\BL$ 换成 $\BL_1$, 将 $\mathcal H$ 换成 $\mathcal H_1$. 此时 $\mathcal H$ 丰沛, $\int c_1(\BL)c_1(\mathcal H)=0$, 且 $\int c_1(\BL)^2>0$.
+
+% Source PDF 332, printed 320, continuation of B.27.
+令 $\mathcal N\defeq\BL^{\otimes n}\otimes\mathcal H^{-1}$, $\mathcal H_1\defeq\BL\otimes\mathcal H^a$. 取 $a\gg0$, 使得 $\mathcal H_1$ 丰沛. 由可加性,
+\[\int c_1(\mathcal N)c_1(\mathcal H_1)=n\int c_1(\BL)^2-a\int c_1(\mathcal H)^2.\]
+取 $n\gg0$, 使 $\int c_1(\mathcal N)c_1(\mathcal H_1)>0$. 则由可加性和命题 B.14,
+\[\int c_1(\mathcal N)c_1(\mathcal H)=-\int c_1(\mathcal H)^2<0,\]
+\[\int c_1(\mathcal N)^2=n^2\int c_1(\BL)^2+\int c_1(\mathcal H)^2>0.\]
+但这种情形与下一个引理矛盾.
+\end{proof}
+
+\begin{origstatement}{引理}{B.28}\label{appB:28}
+假定 $S$ 是一个域的谱, $X$ 为整曲面. 设 $\mathcal N\in\Pic(X)$, 并假定 $\int c_1(\mathcal N)^2>0$. 则下列条件等价:
+\begin{enumerate}[label={}]
+\item (i) 对每个丰沛层 $\mathcal H$, 都有 $\int c_1(\mathcal N)c_1(\mathcal H)>0$.
+\item (i$'$) 对某个丰沛层 $\mathcal H$, 有 $\int c_1(\mathcal N)c_1(\mathcal H)>0$.
+\item (ii) 对某个 $n>0$, 有 $H^0(\mathcal N^{\otimes n})\ne0$.
+\end{enumerate}
+\end{origstatement}
+\begin{proof}
+设 (ii) 成立. 则存在有效除子 $D$, 使得 $\mathcal N^{\otimes n}\simeq\cO_X(D)$. 又因 $\int c_1(\mathcal N)^2>0$, 有 $D\ne0$. 所以由对称性、引理 B.13 及命题 B.14,
+\[\int c_1(\mathcal N)c_1(\mathcal H)=\int c_1(\mathcal H)c_1(\mathcal N)=\int c_1(\mathcal H)[D]>0,\]
+从而得到 (i).
+% SOURCE ISSUE: displayed proof omits factor n relating N^n and D; retained.
+
+显然 (i) 推出 (i$'$). 最后, 假定 (i$'$), 来证明 (ii). 设 $\omega$ 为 $X$ 的对偶化层; 则 $\omega$ 无挠且秩为 $1$, 并且对 $X$ 上的任意凝聚层 $\cF$, $H^2(\BL)$ 与 $\Hom(\BL,\omega)$ 对偶; 参见 [\textbf{FGA}, 第 149-17 页]、[\textbf{AK70}, (1.3), 第 5 页, 及 (2.8), 第 8 页] 和 [\textbf{Har77}, 命题 7.2, 第 241 页]. 令 $\mathcal K\defeq\omega-\cO_X\in\BK_1$.
+% SOURCE ISSUE: source says any coherent sheaf F while formula uses L.
+
+设 $\BL$ 可逆且 $H^2(\BL)$ 非零. 则存在非零映射 $\BL\to\omega$; 因 $X$ 为整概形, 它是单射. 设 $\cF$ 为它的余核. 则在 $\BK_1$ 中,
+\[\mathcal K=\cF-c_1(\BL^{-1})\cO_X.\]
+故命题 B.14、对称性及可加性给出
+\[\int c_1(\mathcal H)\mathcal K\ge\int c_1(\BL)c_1(\mathcal H).\]
+
+取 $\BL\defeq\mathcal N^{\otimes n}$. 由可加性,
+\[\int c_1(\mathcal H)c_1(\BL)=n\int c_1(\mathcal H)c_1(\mathcal N).\]
+但由假设, $\int c_1(\mathcal N)c_1(\mathcal H)>0$. 因而当 $n\gg0$ 时, $H^2(\mathcal N^{\otimes n})$ 消失. 又由 Snapper 定理即定理 B.7,
+\[\chi(\mathcal N^{\otimes n})=\int c_1(\mathcal N)^2\binom{n+1}{2}+a_1n+a_0,\]
+其中 $a_1,a_0$ 为某些常数. 但由假设, $\int c_1(\mathcal N)^2>0$. 因此 (ii) 成立.
+\end{proof}
+
+\begin{origstatement}{推论}{B.29}\label{appB:29}
+假定 $S$ 是一个域的谱, $X$ 为几何不可约的射影 $r$ 维簇, $r\ge2$. 设 $D,E$ 为有效除子, 允许 $E$ 为零. 假定 $D$ 丰沛. 则 $D+E$ 连通.
+\end{origstatement}
+% Source PDF 333, printed 321, proof of B.29. PDF334/printed322 blank.
+\begin{proof}
+显然可以假定底域代数闭且 $X$ 约化. 固定 $n\gg0$, 使 $nD+E$ 丰沛; 显然可以将 $D,E$ 换成 $nD+E$ 和 $0$. 用反证法, 假定 $D$ 是两个闭子概形 $D_1,D_2$ 的不交并. 显然 $D_1,D_2$ 都是除子; 所以 $D=D_1+D_2$.
+
+对 $r$ 归纳. 设 $r=2$. 因为 $D_1,D_2$ 不交, 由引理 B.13, $(D_1\cdot D_2)=0$. 又 $D$ 丰沛. 因而命题 B.14 给出
+\[(D_1^2)=(D\cdot D_1)>0,\qquad(D_2^2)=(D\cdot D_2)>0.\]
+取 $\mathcal H\defeq\cO_X(D_1)$, $\BL\defeq\cO_X(D_2)$, 这些结论便与定理 B.27 矛盾.
+
+最后, 设 $r\ge3$. 令 $H$ 为 $X$ 的一个一般超平面截面. 则由 Bertini 定理 [\textbf{Sei50}, 定理 12, 第 374 页], $H$ 为整概形. 且 $H$ 不是 $D$ 的分支. 令 $D'\defeq D\cap H$, $D_i'\defeq D_i\cap H$. 显然 $D_1'$ 与 $D_2'$ 不交, 且 $D'=D_1'+D_2'$; 此外, $D'$ 丰沛. 因而归纳假设给出所需的矛盾.
+\end{proof}
+\endgroup
