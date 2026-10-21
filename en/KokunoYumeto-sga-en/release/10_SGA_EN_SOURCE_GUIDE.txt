@@ -1,0 +1,30 @@
+Seminar in Algebraic Geometry - editable English edition
+
+This package contains the complete editable source for the nine volume readers and the linked 4,211-page cumulative reader. It preserves inherited authorship, licences, classes, styles, formulae, diagrams, bibliographies and build instructions. SGA 7 I contains Exposes I, II, VI, VII, VIII and IX, following the original numbering.
+
+The 3 October 2026 edition incorporates validated corrections and reference/typesetting repairs in SGA 1 and SGA 7 II. The seven other volume PDFs and their native sources retain their preceding published contents. This is a bounded integration release, not a claim that the separate Canon correction backlog is finished. Correction integration and this assembly: OpenAI Codex - GPT-6 Astra, Ultra effort. Earlier translation provenance is preserved. This AI-assisted working edition is not independently human-certified.
+
+Reading and rebuilding
+
+1. release/00_SGA_EN_CUMULATIVE_LINKED_READER.tex contains the complete text and preambles of nine native documents, not a thin master. The nine preambles are intentionally separate: split before compilation with
+   python split_cumulative_tex.py release/00_SGA_EN_CUMULATIVE_LINKED_READER.tex split
+The output files are byte-identical to the nine direct standalone LaTeX downloads.
+
+2. native/SGA1 through native/SGA7II contain the modular projects and dependencies. Follow the inherited engine/build instructions for each unchanged project. The complete SGA 1 and SGA 7 II direct LaTeX files preserve input boundaries using filecontents*. For either updated volume, copy its direct file into a fresh directory under its native master filename, then run pdfLaTeX three times. Those direct builds, native builds and independent replays were byte-identical. SGA 1 master: SGA1_English_source_sync_workpass.tex. SGA 7 II master: SGA7_II_English_source_first_workpass.tex.
+
+3. The verified updated-volume environment was MiKTeX 26.5 / pdfTeX 1.40.29, LaTeX2e 2025-11-01, SOURCE_DATE_EPOCH=1790294400, FORCE_SOURCE_DATE=1, TZ=UTC. Use -no-shell-escape -interaction=nonstopmode -halt-on-error -recorder. The package/ directories document standard TeX-distribution dependencies and preserve historical inventories separately. SGA 1 retains five modest overfull-box warnings; bounded full-page inspection found no clipping or overlap. It is not a warning-free build.
+
+4. The cumulative PDF is an assembly of the nine volume PDFs plus two navigation pages. Download the nine PDFs from this same release into release/, or reproduce them from the native projects. CUMULATIVE_INPUTS.json pins every input. With Python 3.13.9, pypdf==6.12.2 and reportlab==5.0.0, run
+   python cumulative_reconstruction/rebuild.py rebuilt.pdf
+The reconstruction verifies every body page stream, geometry, link destination and bookmark hierarchy. The editable navigation-page source is in that Python script. Two independent cumulative assemblies were byte-identical. On Windows, the reconstruction caps its process with a 3,221,225,472-byte Job Object; it launches no TeX process.
+
+5. TeX production in the original Windows workspace uses Global\InterlanguageTeXSlotV1 continuously through all engine passes and replay, with the same captured-tree memory cap. Supporting guarded scripts are included under validation/. No scans, build caches or unrelated temporary files are required by this source package.
+
+Edition access
+
+English DOI: https://doi.org/10.5281/zenodo.21925497
+English GitHub: https://github.com/KokunoYumeto/sga-en
+French Canon and original-source landing page: https://doi.org/10.5281/zenodo.20410947
+Spanish edition: https://doi.org/10.5281/zenodo.21923955
+
+The cumulative PDF is first for reading, the directly downloadable cumulative LaTeX is second, and this complete source ZIP is third. Each individual PDF is paired with a direct LaTeX download; all native dependencies are in this ZIP. Editable source is a primary deliverable. Historical public releases remain available.
