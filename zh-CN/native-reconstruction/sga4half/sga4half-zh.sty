@@ -3,6 +3,7 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{sga4half-zh}[2026/10/21 SGA 4half native Chinese edition]
 \RequirePackage{sga-style}
+\microtypesetup{kerning=false}
 \RequirePackage{fontspec}
 \setmainfont{Latin Modern Roman}
 \setsansfont{Latin Modern Sans}
@@ -10,12 +11,13 @@
 \setCJKmainfont{Noto Serif CJK SC}[BoldFont=Noto Serif CJK SC Bold,ItalicFont=Noto Serif CJK SC]
 \setCJKsansfont{Noto Sans CJK SC}[BoldFont=Noto Sans CJK SC Bold]
 \setCJKmonofont{Noto Sans Mono CJK SC}
-\geometry{paperwidth=461bp,paperheight=684bp,left=43bp,right=43bp,top=48bp,bottom=47bp,headheight=12pt,headsep=16pt,footskip=24pt}
+\geometry{reset,paperwidth=461bp,paperheight=684bp,left=43bp,right=43bp,top=48bp,bottom=47bp,headheight=12pt,headsep=16pt,footskip=24pt}
 \setlength{\emergencystretch}{1.5em}
 \setlength{\parskip}{5pt plus 1pt}
 \linespread{1.12}
 \ctexset{chapter={name={},number={},format=\normalfont\centering\normalsize,beforeskip=12pt,afterskip=24pt},section={format=\normalfont\centering\normalsize,beforeskip=16pt,afterskip=12pt},subsection={format=\normalfont\normalsize,beforeskip=12pt,afterskip=6pt},subsubsection={format=\normalfont\normalsize,beforeskip=8pt,afterskip=4pt}}
 \renewcommand{\contentsname}{目录}
+\renewcommand{\appendixname}{附录}
 \renewcommand{\bibname}{参考文献}
 \renewcommand{\proofname}{证明}
 \makeatletter
@@ -47,3 +49,12 @@
 % Backreferences are part of the inherited native source dependency.
 \renewcommand*{\backref}[1]{}
 \renewcommand*{\backrefalt}[4]{\ifcase #1\or（引于第 #2 页）\else（引于第 #2 页）\fi}
+
+% The 1977 book uses modest centred exposé headings, including unnumbered ones.
+\makeatletter
+\renewcommand{\@makechapterhead}[1]{\vspace*{12pt}{\parindent\z@\centering\normalfont\normalsize #1\par\nobreak\vskip24pt}}
+\renewcommand{\@makeschapterhead}[1]{\vspace*{12pt}{\parindent\z@\centering\normalfont\normalsize #1\par\nobreak\vskip24pt}}
+\makeatother
+
+% Ragged bibliography avoids stretched Latin spacing at the original narrow measure.
+\AddToHook{env/thebibliography/begin}{\raggedright}
