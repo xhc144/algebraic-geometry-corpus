@@ -1,0 +1,44 @@
+[book]
+authors = ["Jacob Reinhold"]
+title = "EGA — Éléments de Géométrie Algébrique (English Translation)"
+description = "Complete English translation of Grothendieck and Dieudonné's Éléments de Géométrie Algébrique (EGA I–V). Browser-readable HTML with the original numbering, original-page markers, and hyperlinked cross-references. LLM-generated translation."
+language = "en"
+src = "."
+
+[build]
+build-dir = "book"
+create-missing = false
+
+# Math is rendered to static HTML at build time. error-color marks any
+# unparseable expression inline (Material red) instead of aborting the build.
+[preprocessor.katex]
+error-color = "#b3261e"
+throw-on-error = false
+
+# Runs immediately after katex: HTML-encodes KaTeX's `~` and `\` glyphs so the
+# markdown parser doesn't mis-read them as strikethrough / escapes. See the
+# script's docstring for the full rationale.
+[preprocessor.katex-md-fix]
+after = ["katex"]
+command = "python3 scripts/katex-md-fix.py"
+
+[output.html]
+git-repository-url = "https://github.com/jcreinhold/ega"
+edit-url-template = "https://github.com/jcreinhold/ega/edit/main/{path}"
+preferred-dark-theme = "coal"
+additional-css = [
+  "theme/custom/typography.css",
+  "theme/custom/theorems.css",
+  "theme/custom/footnotes.css",
+  "theme/custom/print.css",
+  "theme/custom/sidebar.css",
+]
+additional-js = [
+  "theme/custom/theorems.js",
+  "theme/custom/footnotes.js",
+]
+
+[output.html.search]
+enable = true
+limit-results = 25
+use-boolean-and = true
