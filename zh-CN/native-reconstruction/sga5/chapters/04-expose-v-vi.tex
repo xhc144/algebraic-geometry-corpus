@@ -104,7 +104,7 @@ w_{sr}:X[s]\longrightarrow X[r],
 \]
 显然, 若第三个整数 $t$ 满足 $t\ge s\ge r$, 则有下式:
 \[
-w_{ts}\circ w_{sr}=w_{tr}.
+w_{sr}\circ w_{ts}=w_{tr}.
 \]
 换言之, 我们给 $X$ 配上了范畴 $\Hom(\NN^\circ,P)$ 的一个对象 $\overline X$. 此外, 若 $h:X\to Y$ 为 $P$ 的态射, 则以显然且函子性的方式得到从 $\overline X$ 到 $\overline Y$ 的态射 $\overline h$. 最后, 若
 \[
@@ -293,9 +293,9 @@ X \arrow[r,shift left,"f"] \arrow[r,shift right,"g"'] & Z[r] .
 \[
 \Hom_P(X,T)\longrightarrow\Hom_P(X[r],Y)
 \]
-是双射. 下述定义的投射系 $(T_n,w_n)$ 显然符合要求. 若 $Y=(Y_n,u_n)_{n\ge0}$, 则当 $n\ge r-1$ 时 $T_n$ 为 $\cC$ 的零对象, 否则为 $Y_{n-r}$, 并且
+是双射. 下述定义的投射系 $(T_n,w_n)$ 显然符合要求. 若 $Y=(Y_n,u_n)_{n\ge0}$, 则当 $n\le r-1$ 时 $T_n$ 为 $\cC$ 的零对象, 否则为 $Y_{n-r}$, 并且
 \[
-w_n=0\quad\text{当 }n\ge r-1,\qquad w_n=u_{n-r}.
+w_n=0\quad\text{当 }n\le r-1,\qquad w_n=u_{n-r}\quad\text{当 }n\ge r.
 \]
 
 在此基础上, 设给定下述类型的图, 证明它可按 (c') 的陈述补全:
@@ -330,7 +330,7 @@ X[r] \arrow[r,shift left,"{f[r]}"] \arrow[r,shift right,"{g[r]}"'] \arrow[d,"{v_
 X \arrow[r,shift left,"f"] \arrow[r,shift right,"g"'] & Y .
 \end{tikzcd}
 \]
-特别地, $v_{rY}\circ f[r]=v_{rY}\circ g[r]$. 现取在 (c') 证明开头给 $Y$ 与 $r$ 配上的投射系 $T$, 特别有 $Y=T[r]$. 态射 $v_{rT}\circ f$ 与 $v_{rT}\circ g$ 的 $r$ 次平移分别等于 $v_{rY}\circ f$ 与 $v_{rY}\circ g[r]$, 因而相等. 由于 $r$ 次平移在从 $X$ 到 $T$ 的态射上是单射, 下式成立, 故得所求结论:
+特别地, $v_{rY}\circ f[r]=v_{rY}\circ g[r]$. 现取在 (c') 证明开头给 $Y$ 与 $r$ 配上的投射系 $T$, 特别有 $Y=T[r]$. 态射 $v_{rT}\circ f$ 与 $v_{rT}\circ g$ 的 $r$ 次平移分别等于 $v_{rY}\circ f[r]$ 与 $v_{rY}\circ g[r]$, 因而相等. 由于 $r$ 次平移在从 $X$ 到 $T$ 的态射上是单射, 下式成立, 故得所求结论:
 \[
 v_{rT}\circ f=v_{rT}\circ g.
 \]
@@ -365,7 +365,7 @@ P=\Hom(\NN^\circ,\cC),\qquad P_{AR}=\Hom_{AR}(\NN^\circ,\cC).
 \[
 P'_{AR}=P(AR^{-1}),
 \]
-回忆它与 $P$ 有相同的对象. 设 $X,Y$ 为 $P$ 的两个对象, 用 $\Hom'_{AR}(X,Y)$ 表示 $P'_{AR}$ 中从 $X$ 到 $Y$ 的同构所成的集合. $\Hom_{AR}(X,Y)$ 的元素以显然的方式定义 $\Hom'_{AR}(X,Y)$ 的元素. 更准确地说, 由此定义一个函子
+回忆它与 $P$ 有相同的对象. 设 $X,Y$ 为 $P$ 的两个对象, 用 $\Hom'_{AR}(X,Y)$ 表示 $P'_{AR}$ 中从 $X$ 到 $Y$ 的态射所成的集合. $\Hom_{AR}(X,Y)$ 的元素以显然的方式定义 $\Hom'_{AR}(X,Y)$ 的元素. 更准确地说, 由此定义一个函子
 \[
 m:P_{AR}\longrightarrow P'_{AR}.
 \]
@@ -1397,7 +1397,7 @@ B_r^{pq}(X_\alpha)=B_{r+1}^{pq}(X_\alpha)\qquad(r>p),
 \end{equation}
 此后假设 \(X\) 严格. \(Z_r^{pq}(X_n)\) 与 \(B_r^{pq}(X_n)\) 的下述表达式:
 \[
-Z_r^{pq}(X_n)=
+B_r^{pq}(X_n)=
 \Im\!\left[
 T^{p+q-1}\bigl(F^{p-r+1}X_n/F^pX_n\bigr)
 \xrightarrow{\partial}
@@ -1405,7 +1405,7 @@ T^{p+q}\bigl(F^pX_n/F^{p+1}X_n\bigr)
 \right],
 \]
 \[
-B_r^{pq}(X_n)=
+Z_r^{pq}(X_n)=
 \Im\!\left[
 T^{p+q}\bigl(F^pX_n/F^{p+r}X_n\bigr)
 \longrightarrow
@@ -1416,8 +1416,8 @@ T^{p+q}\bigl(F^pX_n/F^{p+1}X_n\bigr)
 \begin{equation}
 \left\{
 \begin{array}{ll}
-Z_r^{pq}(X_m)\xrightarrow{\sim}Z_r^{pq}(X_n)&\text{当 }m\ge n\ge p,\\[3pt]
-B_r^{pq}(X_m)\xrightarrow{\sim}B_r^{pq}(X_n)&\text{当 }m\ge n\ge p+r-1,
+B_r^{pq}(X_m)\xrightarrow{\sim}B_r^{pq}(X_n)&\text{当 }m\ge n\ge p,\\[3pt]
+Z_r^{pq}(X_m)\xrightarrow{\sim}Z_r^{pq}(X_n)&\text{当 }m\ge n\ge p+r-1,
 \end{array}
 \right.
 \tag{\(d_1\)}
@@ -1564,7 +1564,7 @@ J.-P. Jouanolou 著
 \subsubsection*{1.1. 定义与一般论述}
 
 \begin{statement}{定义 1.1.1}
-\(X\) 上的可构造 \(\ell\) 进层是 \(X_{\mathrm{\acute et}}\) 上可构造阿贝尔层的一个 \((\ell\mathbb Z)\) 进投射系 (V 3.2.1).
+\(X\) 上的可构造 \(\ell\) 进层是 \(X_{\mathrm{\acute et}}\) 上可构造阿贝尔层的一个 \((\ell\mathbb Z)\) 进投射系 (V 3.1.1).
 \end{statement}
 
 要使 \(X_{\mathrm{\acute et}}\) 上阿贝尔层的 \((\ell\mathbb Z)\) 进投射系
@@ -1856,7 +1856,7 @@ F=(F_n)_{n\in\mathbb N}\quad\text{且}\quad G=(G_n)_{n\in\mathbb N},
 \[
 G_{n+1}\xrightarrow{\ell^{\,n+1}}G_{n+1}\longrightarrow G_n\longrightarrow 0
 \]
-由于 \(F_{n+1}\) 在 \((\mathbb Z/\ell^{\,n+1}\mathbb Z)_X\) 上局部自由, 给出正合列
+由于 \(F_{n+1}\) 在 \((\mathbb Z/\ell^{\,n+2}\mathbb Z)_X\) 上局部自由, 给出正合列
 \[
 \cHom(F_{n+1},G_{n+1})
  \xrightarrow{\ell^{\,n+1}}
@@ -1992,7 +1992,7 @@ u:\pi_1(X)\times V\longrightarrow V
 其中后者赋予其作为 \(\ell\) 进解析群的自然拓扑.
 
 \paragraph{1.4.3. 可构造 \(L\) 层 (\(L\) 为有限 \(\mathbb Q_\ell\) 代数).}
-设 \(L\) 为有限 \(\mathbb Q_\ell\) 代数. 类似于 (1.4.1) 中从可构造 \(\mathbb Z_\ell\) 层出发所作的构造, 从可构造 \(\mathbb Q_\ell\) 层范畴出发, 定义可构造 \(L\) 层范畴, 继而定义可构造扭常值 \(L\) 层范畴. 若 \(X\) 连通, 则可构造扭常值 \(L\) 层范畴等价于赋予 \(\pi_1(X)\) 的连续作用的有限维 \(L\) 向量空间范畴, 即 \(\pi_1(X)\) 在底层 \(\mathbb Q_\ell\) 向量空间上连续作用, 且与 \(L\) 的作用交换.
+设 \(L\) 为有限 \(\mathbb Q_\ell\) 代数. 类似于 (1.4.1) 中从可构造 \(\mathbb Z_\ell\) 层出发所作的构造, 从可构造 \(\mathbb Q_\ell\) 层范畴出发, 定义可构造 \(L\) 层范畴, 继而定义可构造扭常值 \(L\) 层范畴. 若 \(X\) 连通, 则可构造扭常值 \(L\) 层范畴等价于赋予 \(\pi_1(X)\) 的连续作用的有限型 \(L\) 模范畴, 即 \(\pi_1(X)\) 在底层 \(\mathbb Q_\ell\) 向量空间上连续作用, 且与 \(L\) 的作用交换.
 
 \subsubsection*{1.4.4}
 若 \(A\) 为有限交换 \(\mathbb Z_\ell\) 代数, \(F,G\) 为两个可构造 \(A\) 层, 则投射系
@@ -2026,7 +2026,7 @@ A\text{-}\fc(X)\times A\text{-}\fc(X)\longrightarrow A\text{-}\fc(X).
 \mathbb Q_\ell\text{-}\fc(X)\times \mathbb Q_\ell\text{-}\fc(X)
 \longrightarrow \mathbb Q_\ell\text{-}\fc(X).
 \]
-若 \(X\) 连通, \(F,G\) 为两个可构造扭常值 \(\mathbb Q_\ell\) 层, 分别对应 \(\pi_1(X)\) 在向量空间 \(V,W\) 上的表示, 则张量积 \(F\otimes G\) 仍为局部常值的, 并对应 \(\pi_1(X)\) 在 \(V\otimes W\) 上的对角表示.
+若 \(X\) 连通, \(F,G\) 为两个可构造扭常值 \(\mathbb Q_\ell\) 层, 分别对应 \(\pi_1(X)\) 在向量空间 \(V,W\) 上的表示, 则张量积 \(F\otimes G\) 仍为可构造扭常值层, 并对应 \(\pi_1(X)\) 在 \(V\otimes W\) 上的对角表示.
 
 \subsubsection*{1.4.6}
 设 \(F\) 为局部自由可构造 \(\mathbb Z_\ell\) 层 (1.3.3). \(p\) 与函子 \(G\mapsto\cHom(F,G)\) (1.3.2) 的复合, 使乘以 \(\mathbb Z_\ell\) 中元素的运算可逆, 因而定义函子
@@ -2039,11 +2039,11 @@ u:F\longrightarrow F'
 \]
 其核与余核均为挠的. 这立即表明, 从 \(\mathbb Q_\ell\text{-}\fc(X)\) 到自身的函子 \(\cHom(F,\cdot)\) 与 \(\cHom(F',\cdot)\) 同构.
 
-现设 \(F\) 为可构造扭常值 \(\mathbb Q_\ell\) 层. 若仍用 \(F\) 表示对应的 \(\mathbb Z_\ell\) 层, 则将 \(F\) 在 \(X\) 的连通分支 \(Y\) 上的限制解释为连续 \(\pi_1(Y)\) 模后, 可知 \(F\) 在同构意义下唯一地写成
+现设 \(F\) 为可构造扭常值 \(\mathbb Q_\ell\) 层, 仍用 \(F\) 表示所选的对应 \(\mathbb Z_\ell\) 层. 令 \(T\) 为其挠子层, 并取商层 \(P=F/T\), 从而有典范正合列
 \[
-F=P\oplus T,
+0\longrightarrow T\longrightarrow F\longrightarrow P\longrightarrow0,
 \]
-其中 \(P\) 局部自由, \(T\) 为挠的. 这使我们可以对每个 \(\mathbb Q_\ell\) 层 \(G\), 定义 \(\mathbb Q_\ell\) 层
+其中 \(P\) 局部自由, 而典范态射 \(F\to P\) 在 \(\mathbb Q_\ell\) 层范畴中为同构. 这使我们可以对每个 \(\mathbb Q_\ell\) 层 \(G\), 定义 \(\mathbb Q_\ell\) 层
 \[
 \cHom(F,G)=\cHom(P,G).
 \]
@@ -2059,11 +2059,11 @@ F=P\oplus T,
 其中 \(\mathbb Q_\ell\text{-}\fct(X)\) 表示可构造扭常值 \(\mathbb Q_\ell\) 层范畴. 该双函子具有通常的正合性.
 
 \subsubsection*{1.4.7}
-现设 \(L\) 为 \(\mathbb Q_\ell\) 的有限型扩张, 用 \(A\) 表示 \(\mathbb Z_\ell\) 在 \(L\) 中的整闭包, 从而 \(A\) 是有限型自由 \(\mathbb Z_\ell\) 代数, 且是 Dedekind 环. 可构造 \(L\) 层范畴, 同构于可构造 \(A\) 层范畴模去可构造挠 \(A\) 层范畴所得的商范畴. 因此可同 (1.4.6) 一样, 从 (1.4.4) 的张量积定义张量积:
+现设 \(L\) 为 \(\mathbb Q_\ell\) 的有限扩张, 用 \(A\) 表示 \(\mathbb Z_\ell\) 在 \(L\) 中的整闭包, 从而 \(A\) 是作为 \(\mathbb Z_\ell\) 模有限自由的代数, 且是 Dedekind 环. 可构造 \(L\) 层范畴, 同构于可构造 \(A\) 层范畴模去可构造挠 \(A\) 层范畴所得的商范畴. 因此可同 (1.4.6) 一样, 从 (1.4.4) 的张量积定义张量积:
 \[
 L\text{-}\fc(X)\times L\text{-}\fc(X)\longrightarrow L\text{-}\fc(X).
 \]
-由于 \(A\) 是 Dedekind 环, (1.4.6) 所用论证表明: 每个扭常值 \(A\) 层都是局部自由 \(A\) 层与挠 \(A\) 层的直和. 用 \(L\text{-}\fct(X)\) 表示可构造扭常值 \(L\) 层范畴, 再同 (1.4.6) 一样, 定义双函子
+由于 \(A\) 是 Dedekind 环, 每个可构造扭常值 \(A\) 层除去其挠子层后所得的商层局部自由, 且在 \(L\) 层范畴中与原层同构. 用 \(L\text{-}\fct(X)\) 表示可构造扭常值 \(L\) 层范畴, 再同 (1.4.6) 一样, 定义双函子
 \[
 \cHom:(L\text{-}\fct(X))^\circ\times L\text{-}\fc(X)
 \longrightarrow L\text{-}\fc(X),
@@ -2077,7 +2077,7 @@ L\text{-}\fc(X)\times L\text{-}\fc(X)\longrightarrow L\text{-}\fc(X).
 \[
 (U_i)_{i\in I}
 \]
-使 \(\Hom(\mathbb N^\circ,\Ab(X))\) 的对象 \(F\) 在每个 \(U_i\) 上的限制为 \((AR,\ell\mathbb Z)\) 诺特对象 (V 1.3), 则称 \(F\) 为可构造 \((AR,\mathbb Z_\ell)\) 层.
+使 \(\Hom(\mathbb N^\circ,\Ab(X))\) 的对象 \(F\) 在每个 \(U_i\) 上的限制为 \((AR,\ell\mathbb Z)\) 诺特对象 (V 5.1.3), 则称 \(F\) 为可构造 \((AR,\mathbb Z_\ell)\) 层.
 \end{statement}
 
 由 (V 5.2.1) 立即得到, \(\Hom(\mathbb N^\circ,\Ab(X))\) 中由可构造 \((AR,\mathbb Z_\ell)\) 层生成的满子范畴对于取核和余核稳定. 特别地, 它是阿贝尔范畴.

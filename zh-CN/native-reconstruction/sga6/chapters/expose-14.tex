@@ -109,3 +109,453 @@ A. Grothendieck 著
 
 \noindent\sgaStableTarget{sga6.e14.para.3-5}\textbf{3.5.}
 \hyperlink{sga6.e14.eq.3-1}{(3.1)} 的超越上同调版本的证明~[1] 本质上是超越性的, 并使用 $Y$ 在 $X$ 中的管状邻域. 这提示, 证明\hyperlink{sga6.e14.eq.3-1}{(3.1)} 型公式也许与系统地考虑支于 $Y$ 的 $K^\bullet$-群和上同调群有关; 这些群或许能提供\emph{在 $Y$ 周围局部化}的适当技术手段.
+
+\sgaStableTarget{sga6.e14.sec.4}\section*{4. $K^\bullet(X)$ 与 Chow 环 $A(X)$ 的关系}
+
+\noindent\sgaStableTarget{sga6.e14.para.4-1}\textbf{4.1.}
+为简便起见, 假设 $X$ 是域 $k$ 上的光滑拟射影概形 (更一般的情形见第 8 节), 因而有模有理等价的闭链类所成的 Chow 环 $A(X)$~[4]. 这一环的两个变体可在显著更一般的条件下定义: 一是 $K^\bullet(X)$ 的 $\lambda$-滤子的相伴分次环 $\operatorname{Gr}^\bullet(X)$, 二是 $K^\bullet(X)\simeq K_\bullet(X)$ 按支集余维定义的滤子的相伴分次环 $\Gtop^\bullet(X)$. 这三个环各有取值于其中的 Chern 类理论 (对 $A(X)$ 见 [9], 对映入 $\Gtop^\bullet(X)$ 的 $\operatorname{Gr}^\bullet(X)$ 见本讨论班). 还有 $\ell$ 进上同调理论 (SGA 5 VII). 因此, 当 $\ell$ 与 $k$ 的特征互素时,
+\[
+ c_i(E)\in H^{2i}(X,\Zell(i)),
+\]
+其中 $E$ 是 $X$ 上的向量丛, 或更一般地是 $K^\bullet(X)$ 的任意元素. 这些理论通过下列与乘法结构相容的典范同态联系:
+\sgaStableTarget{sga6.e14.eq.4-1}\begin{equation*}\tag{4.1}
+\begin{tikzcd}[column sep=large,row sep=large]
+ H^{2*}(X,\Zell(*)) & {} \\
+ A(X) \arrow[u,"\gamma"] \arrow[r,"\varphi"] & \Gtop^\bullet(X) \\
+ {} & \operatorname{Gr}^\bullet(X) \arrow[u,"j"']
+\end{tikzcd}
+\end{equation*}
+其中
+\[
+ H^{2*}(X,\Zell(*))=\bigoplus_i H^{2i}(X,\Zell(i)).
+\]
+
+同态 $j$ 来自如下事实: $K^\bullet(X)$ 的 $\lambda$-滤子比按支集余维定义的拓扑滤子更细 (\hyperlink{sga6.e10.expose}{第 X 讲}); 它模去挠元后是同构 (第 VII 讲 4.11). 同态 $\varphi$ 例如在 [RRR] 中定义, 它将闭子概形 $Y\subset X$ 所承载的余维 $i$ 闭链的类, 映为
+\[
+ \Filt_{\mathrm{top}}^i K^\bullet(X)/
+ \Filt_{\mathrm{top}}^{i+1}K^\bullet(X)
+\]
+中的元素 $\cl^i(\mathcal O_Y)$. 它满射, 并且将在\hyperlink{sga6.e14.para.4-2}{4.2} 看到, 它模去挠元后是同构. 因而模去挠元后, 三个环 $A(X)$、$\Gtop^\bullet(X)$ 和 $\operatorname{Gr}^\bullet(X)$ 典范同构; 所以用这些环中任一个与 $\Q$ 张量后写出的 Riemann--Roch 公式都等价.
+
+分次环 $\operatorname{Gr}^\bullet(X)$ 在本讨论班中主要作为 Chow 环的替代物, 其突出优点是对每个局部赋环拓扑斯都有定义, 特别对每个概形, 无论正则与否都有定义. 相对于 $A(X)$ 和 $\Gtop^\bullet(X)$, 它的缺点\hyperlink{sga6.e14.para.4-6}{(4.6)} 是本身对固有态射并不协变, 即使是域上光滑拟射影概形之间的固有态射也如此; 只有与 $\Q$ 张量后才获得这种协变性.
+
+$A(X)$ 相对于 $\Gtop^\bullet(X)$ 和 $\operatorname{Gr}^\bullet(X)$ 的另一个优点是存在同态
+\[
+ A(X)\longrightarrow H^{2*}(X,\Zell(*)),
+\]
+使上同调 Chern 类可解释为取值于 $A(X)$ 的 Chern 类的像. 一般这一同态不能通过 $\Gtop^\bullet(X)$ 分解\hyperlink{sga6.e14.para.4-7}{(4.7)}; 而一般是否存在将 Chern 类映为 Chern 类的同态
+\[
+ \operatorname{Gr}^\bullet(X)\longrightarrow H^{2*}(X,\Zell(*))
+\]
+至少是可疑的 (见第 5 节). 与 $\Q$ 张量后, 这些困难便消失, 并得到将 Chern 类映为 Chern 类的同态
+\sgaStableTarget{sga6.e14.eq.4-2}\begin{equation*}\tag{4.2}
+ \Gtop^\bullet(X)\longrightarrow H^{2*}(X,\Qell(*))
+ =H^{2*}(X,\Zell(*))\otimes_{\Zell}\Qell.
+\end{equation*}
+
+\noindent\sgaStableTarget{sga6.e14.para.4-2}\textbf{4.2.}
+为证明\hyperlink{sga6.e14.eq.4-1}{(4.1)} 中的满同态 $\varphi$ 模去挠元后是同构, 使用从 Chern 类理论~[9] 得到的 Chern 同态
+\[
+ K^\bullet(X)\longrightarrow \Ch(A(X)),
+\]
+其靶是\hyperlink{sga6.e05.expose}{第 V 讲}定义的 $A(X)$ 的 Chern 环. 这一同态与 $K^\bullet(X)$ 的拓扑滤子和 $\Ch(A(X))$ 的自然滤子相容, 因而诱导分次群同态
+\sgaStableTarget{sga6.e14.eq.4-3}\begin{equation*}\tag{4.3}
+ \psi:\Gtop^\bullet(X)\longrightarrow A(X).
+\end{equation*}
+可以证明公式
+\sgaStableTarget{sga6.e14.eq.4-4}\begin{equation*}\tag{4.4}
+\left\{
+\begin{aligned}
+ \psi\varphi(x)&=(-1)^{i-1}(i-1)!\,x
+   &&\pmod{\text{挠元}},\quad x\in A^i(X),\\
+ \varphi\psi(x)&=(-1)^{i-1}(i-1)!\,x
+   &&\pmod{\text{挠元}},\quad x\in \Gtop^i(X).
+\end{aligned}
+\right.
+\end{equation*}
+因 $\varphi$ 满射, 第一个公式蕴含第二个. 这些公式表明 $\varphi$ 和 $\psi$ 模去挠元后是同构, 并且除去 $i$ 次分量中的因子 $(-1)^{i-1}(i-1)!$, 两者互逆.
+
+要证明\hyperlink{sga6.e14.eq.4-4}{(4.4)} 的第一个公式, 可假设 $x$ 由 $X$ 的余维 $i$ 的不可约闭子概形 $Y$ 表示. 此时该公式等价于
+\sgaStableTarget{sga6.e14.eq.4-5}\begin{equation*}\tag{4.5}
+ c_i(\mathcal O_Y)=(-1)^{i-1}(i-1)!\,\cl(Y)
+   \quad\pmod{\text{挠元}}.
+\end{equation*}
+左边把 $\mathcal O_Y$ 看作 $X$ 上的凝聚层, 从而定义 $K^\bullet(X)$ 的元素; 右边 $\cl(Y)$ 表示 $Y$ 在 $A^i(X)$ 中的类. 因从 $X$ 中删去余维 $>i$ 的闭子集不改变 $A^i(X)$, 可化归到 $Y$ 正则的情形; 若基域 $k$ 完全, 则它在 $k$ 上光滑. 此时, \hyperlink{sga6.e14.eq.4-5}{(4.5)} 正是对包含映射 $Y\to X$ 和元素 $1\in K^\bullet(Y)$ 的 Riemann--Roch 公式, 用取值于 Chow 环 $A(X)$ 的 Chern 类写出. 在当前假设下, [2] 证明了这一公式, 其方法与本讨论班证明取值于 $\Gtop^\bullet(X)$ 的类似公式的方法十分接近.
+
+因此, 至少当 $k$ 完全时, \hyperlink{sga6.e14.eq.4-4}{(4.4)} 成立, 从而 $\varphi$ 模去挠元后是同构. 这又事后说明, 对 $k$ 上光滑代数概形间的固有态射, 无论像 [2] 那样用 $A(X)$, 还是像本讨论班那样用 $\Gtop^\bullet(X)$ 写出带分母的 Riemann--Roch 公式, 本质上都是同一个公式. 任意 $k$ 的情形容易化归到代数闭的情形: 对次数为 $n$ 的有限扩张 $k'/k$, 自然映射
+\[
+ A(X)\xrightarrow{f_X^*}A(X\otimes_k k')
+\]
+的核被 $n$ 消去. 事实上, 迹同态
+\[
+ f_{X*}:A(X\otimes_k k')\longrightarrow A(X)
+\]
+满足 $f_{X*}f_X^*=n\,\id$.\footnote{因此, 由于 P. Jouanolou 的工作, 对域上光滑拟射影的 $X$ 已建立了这个公式 (见第 5 页的注).}
+
+\noindent\sgaStableTarget{sga6.e14.para.4-3}\textbf{4.3.}
+公式\hyperlink{sga6.e14.eq.4-4}{(4.4)} 精确成立而不仅模去挠元后成立, 似乎颇可信; 等价地, 公式\hyperlink{sga6.e14.eq.4-5}{(4.5)} 不仅模去挠元后成立. 这是一个非常特殊的情形, 即浸入 $Y\to X$ 的无分母 Riemann--Roch 公式\hyperlink{sga6.e14.eq.3-1}{(3.1)} 在 $A(X)$ 中是否成立这一问题中 $i=d$ 的情形. 有理由期待这一特殊情形成立. 事实上, 第 3 节已经指出, 当 $k$ 的特征为零时, 无分母 Riemann--Roch 公式至少在 $\Gtop^\bullet(X)$ 中成立. 因而\hyperlink{sga6.e14.eq.4-5}{(4.5)} 的两边在 $\Gtop^\bullet(X)$ 中有相同的像; 等价地, \hyperlink{sga6.e14.eq.4-4}{(4.4)} 的第二个公式成立. 一旦第 1 节提出的问题得到满意解决, 这一结果就会自动扩展到任意特征. 为支持\hyperlink{sga6.e14.eq.4-5}{(4.5)} 在 $A(X)$ 本身中成立, 注意先验地显然左边在 $X-Y$ 上的限制为零. 因假设 $Y$ 不可约, 左边先验地必为 $\cl(Y)$ 的整数倍:
+\[
+ c_i(Y)=n(Y)\cl(Y).
+\]
+于是只要 $\cl(Y)$ 不是 $A^i(X)$ 的挠元, 就已证明精确公式\hyperlink{sga6.e14.eq.4-5}{(4.5)}. 若 $X$ 在域 $k$ 上射影 (而不仅拟射影), 立即可知确实如此: 若 $\xi\in A^1(X)$ 是 $X$ 的一个极化, 则 $\deg(Y\mathbin{\cdot}\xi^{\dim Y})>0$. 这就在该情形证明了所需公式. 从而只要 $X$ 同构于 $k$ 上光滑射影概形的一个开子概形, 公式仍成立; 当奇点消解问题有合适的解答时, 就是这种情形. 特别地, 由 Hironaka~[11], 当 $k$ 的特征为零时如此.
+% SGA-SRC-001450: source inference retained; audit records French verification.
+
+精确公式\hyperlink{sga6.e14.eq.4-5}{(4.5)}, 从而\hyperlink{sga6.e14.eq.4-4}{(4.4)} 的成立, 将蕴含
+\[
+ \varphi^i:A^i(X)\longrightarrow\Gtop^i(X)
+\]
+的核被 $(i-1)!$ 消去, 特别地, \emph{$\varphi^2:A^2(X)\to\Gtop^2(X)$ 是同构}. ($\varphi^1$ 是同构已可直接由\hyperlink{sga6.e10.thm.5-3-2}{X 5.3.2} 推出.) 如果我没有弄错, 目前即使在 $\dim X=3$ 的特殊情形, 也尚未证明 $\varphi^2$ 是同构. 所以, 无论如何, 整理者在 [9, 第 4 节, $3^\circ$] 中断言 (4.4) 和 (4.5) 成立, 都为时过早.
+
+\noindent\sgaStableTarget{sga6.e14.para.4-4}\textbf{4.4.}
+目前, 相比 Chow 环 $A(X)$, $\Gtop^\bullet(X)$ (或 $\operatorname{Gr}^\bullet(X)$) 的主要优点, 是在过剩相交即交的维数过大的情形, 更适于显式计算闭链之间的某些相交公式. 事实上, 借助 Chow 引理在其类内充分移动闭链来定义相交类, 并不便于计算. 这方面一个显著例子是如下基本公式 [\hyperlink{sga6.e07.expose}{第 VII 讲}\hyperlink{sga6.e07.para.2-6}{2.7}]: 对 $k$ 上光滑拟射影概形的闭浸入 $f:Y\to X$,
+\sgaStableTarget{sga6.e14.eq.4-6}\begin{equation*}\tag{4.6}
+ f^*f_*(y)=y\,c_d(\underline{N}).
+\end{equation*}
+此公式对 $y\in\Gtop^\bullet(Y)$ 在 $\Gtop^\bullet(Y)$ 中成立, 其中 $\underline{N}$ 是 $Y$ 在 $X$ 中的余法层, 假设它处处秩为 $d$. 在所引之处, 此公式由层 $\underline{\operatorname{Tor}}$ 的一个很简单的计算得到. 由\hyperlink{sga6.e14.para.4-2}{4.2}, 前述公式蕴含 $A(Y)$ 中的同一公式, 但只在模去挠元后成立. 颇为值得注意的是, 目前公式\hyperlink{sga6.e14.eq.4-6}{(4.6)} 在 $A(Y)$ 本身中尚未证明,\footnote{参见第 23 页的注.} 甚至取 $y=1$ 得到的 $Y$ 的自相交这一特殊情形
+\sgaStableTarget{sga6.e14.eq.4-7}\begin{equation*}\tag{4.7}
+ f^*(\cl(Y))=c_d(\underline{N})
+\end{equation*}
+也尚未证明, 即使 $k$ 是复数域也如此.
+
+模仿计算 $\operatorname{Gr}^\bullet(X')_{\Q}$ 的方法 [\hyperlink{sga6.e07.expose}{第 VII 讲}\hyperlink{sga6.e07.thm.4-8}{4.8}], 尝试计算沿 $Y$ 爆破 $X$ 所得簇 $X'$ 的 Chow 环时, 也遇到类似问题. 该方法同样可用于计算 $\Gtop^\bullet(X')$ (无须与 $\Q$ 张量). 用所引之处的记号, 这一计算的关键公式是
+\sgaStableTarget{sga6.e14.eq.4-8}\begin{equation*}\tag{4.8}
+ f^*(i_*(y))
+   =j_*\bigl(g^*(y)c_{d-1}(\check{\underline{F}})\bigr).
+\end{equation*}
+目前通过计算 $\underline{\operatorname{Tor}}$, 已在 $\Gtop^\bullet(X')$ 中对 $y\in\Gtop^\bullet(Y)$ 建立了这一公式 (\hyperlink{sga6.e07.expose}{第 VII 讲}\hyperlink{sga6.e07.prop.3-4}{3.4}); 而对 $y\in A(Y)$, 它在 $A(X')$ 中的成立性仍待证明.
+
+还须指出, 公式\hyperlink{sga6.e14.eq.4-6}{(4.6)}、\hyperlink{sga6.e14.eq.4-7}{(4.7)} 和\hyperlink{sga6.e14.eq.4-8}{(4.8)} 的 $\ell$ 进类似式也尚未证明; 当 $y$ 是某个代数闭链的上同调类时, 公式\hyperlink{sga6.e14.eq.4-6}{(4.6)} 和\hyperlink{sga6.e14.eq.4-8}{(4.8)} 无论如何在模去挠元后成立.
+
+\noindent\sgaStableTarget{sga6.e14.para.4-5}\textbf{4.5.}
+本节及以下几节将举例说明, 在图\hyperlink{sga6.e14.eq.4-1}{(4.1)} 中同态 $j$ 和同态 $\varphi$ 分别可能不是同构. 对给定的 $X$, 显然
+\[
+ j:\operatorname{Gr}^\bullet(X)\longrightarrow\Gtop^\bullet(X)
+\]
+是同构、单同态、满同态这三个说法彼此等价. 此外, $j$ 的像是 $\Gtop^\bullet(X)$ 中由 $X$ 上局部自由层的 Chern 类生成的子环. 若 $K^\bullet(X)$ 作为 $\Z$-代数由 $X$ 上可逆层的类生成, 则立即可见所述子环也就是由 $\Gtop^\bullet(X)$ 的一次分量 $\Gtop^1(X)$ 生成的子环.
+
+现在取 $X$ 为旗簇
+\[
+ X=G/B,
+\]
+其中 $G$ 是代数闭域 $k$ 上的单连通半单代数群, $B$ 是 Borel 子群~[5]. 当 $k=\C$ 时, $X$ 的 Bruhat 胞腔分解 [5, 第 13 讲] 蕴含典范同态
+\sgaStableTarget{sga6.e14.eq.unnamed}\begin{equation*}\tag{*}
+ K^\bullet(X)\longrightarrow K(X(\C))
+\end{equation*}
+是同构, 典范同态
+\sgaStableTarget{sga6.e14.eq.unnamed.occ2}\begin{equation*}\tag{**}
+ A(X)\longrightarrow H^*(X(\C),\Z)
+\end{equation*}
+也如此, 其中 $X(\C)$ 是 $X$ 的复点所成紧空间, 带有由 $\C$ 的拓扑诱导的通常拓扑. 另一方面, L. Hodgkin [12] 已证明 $K(X(\C))$ 由 $X$ 上可逆层的类生成. 因而 $K^\bullet(X)$ 本身也如此; 而且不难借助 $\Z$ 上分裂半单群 (SGA 3) 的特殊化论证, 推出此结果在每个代数闭域 $k$ 上仍成立. $X$ 的胞腔分解 (或当 $k=\C$ 时 $(**)$ 的双射性) 也容易蕴含 $A(X)$ 无挠. 因此由\hyperlink{sga6.e14.para.4-2}{4.2}, 同态
+\[
+ \varphi:A(X)\longrightarrow\Gtop^\bullet(X)
+\]
+是同构. 从而 $j$ 是同构, 当且仅当 $A(X)$ 由其 $1$ 次元素生成; 或当 $k=\C$ 时, 当且仅当 $X(\C)$ 的整上同调由其 $2$ 次元素生成, 即分类空间 $B_{G(\C)}$ 无挠. 已知 [15, 第 217 页, 定理 B, $(1)\Leftrightarrow(2)$, 及 2.5], 这成立当且仅当 $G$ 无挠, 等价地, 当且仅当 $G$ 同构于若干 $\operatorname{SL}(n)$ 和 $\operatorname{Sp}(m)$ 的乘积. 因而只须取 $G$ 为 $n\geq7$ 的群 $\operatorname{SO}(n)$, 或例外单群, 就得到 $j$ 非同构的例子.
+% French printed p678 / physical692 also prints SO(n); tension with the simply-connected hypothesis is retained and recorded in audit.
+
+\noindent\sgaStableTarget{sga6.e14.para.4-6}\textbf{4.6.}
+在这个例子中, 无疑好的环是无挠环
+\[
+ A(X)\simeq\Gtop^\bullet(X),
+\]
+其基由 Bruhat 分解的胞腔组成; 当 $k=\C$ 时, 它还同构于 $X(\C)$ 的整上同调. 相比之下, $\operatorname{Gr}^\bullet(X)$ 则显得是含有颇为病态的挠元的环. 所以这个例子支持如下观点: 不变量 $\operatorname{Gr}^\bullet(X)$ 除了模去挠元后, 即与 $\Q$ 张量后, 几乎没有什么意义. 同时, 它也说明 $\operatorname{Gr}^\bullet(X)$ 只有与 $\Q$ 张量后才对固有态射协变, 即使只限于光滑拟射影概形的闭浸入也如此. 事实上, 若 $X$ 使 $j$ 不是同构, 则 $X$ 中存在整闭子概形 $Y$, 使
+\[
+ \cl^\bullet(Y)\in K^\bullet(X)
+\]
+不属于 $\Filt^i(X)$, 其中 $i=\operatorname{codim}(Y,X)$. 可取 $Y$ 的维数最小, 因而
+\[
+ \Filt^{i+1}(X)=\Filt_{\mathrm{top}}^{i+1}(X).
+\]
+若 $Z$ 是 $Y$ 的奇异点集, $X'=X\setminus Z$, $Y'=Y\setminus Z$, 则推出
+\[
+ \cl^\bullet(Y')\in K^\bullet(X')
+\]
+不属于 $\Filt^i(X')$. 这里使用了 $K^\bullet(X)\to K^\bullet(X')$ 满射且与增广相容这一事实, 其核为
+\[
+ \operatorname{Im}\bigl(K^\bullet(Z)\longrightarrow K^\bullet(X)\bigr)
+ \subset
+ \Filt^{i+1}(X)=\Filt_{\mathrm{top}}^{i+1}(X).
+\]
+现在考虑包含映射
+\[
+ f:Y'\longrightarrow X',
+\]
+它是 $k$ 上光滑拟射影概形之间余维为 $i$ 的闭浸入, \emph{使得}
+\[
+ f_*:K^\bullet(Y')\longrightarrow K^\bullet(X')
+\]
+\emph{与 $\lambda$-滤子不相容, 即使允许移动 $i$ 次也如此}, 因为 $f_*(1)\notin\Filt^i(X')$.
+% Source SGA-SRC-001453: English K^bullet(Z) retained. French p679 prints unadorned K(Z); notation needs mathematical review.
+
+\noindent\sgaStableTarget{sga6.e14.para.4-7}\textbf{4.7.}
+沿用\hyperlink{sga6.e14.para.4-5}{4.5} 的记号, 注意\hyperlink{sga6.e09.expose}{第 IX 讲}表明, 上述 Hodgkin 定理等价于同构
+\[
+ K^\bullet(G)\simeq\Z,
+ \qquad\text{从而}\qquad
+ \Gtop^\bullet(G)\simeq\Z.
+\]
+同态 $K^\bullet(G/B)\to K^\bullet(G)$ 先验地满射, 其核是由元素 $\cl^\bullet(L)-1$ 生成的理想, 其中 $L$ 遍历 $X=G/B$ 上由表示 $B\to\Gm$ 关联的可逆层 (实际上这给出了 $X$ 上的全部可逆层 [5, 第 15 讲]). 类似的论证表明
+\[
+ A(G/B)\longrightarrow A(G)
+\]
+也满射, 其核是由表示 $B\to\Gm$ 定义的 $A^1(G/B)$ 中元素生成的理想, 从而就是由整个 $A^1(G/B)$ 生成的理想.\footnote{参见\hyperlink{sga6.e09.prop.3-4}{IX 3.4}, 2.2.} 因此, $A(G)$ 退化为 $A^0(G)=\Z$, 当且仅当 $G$ ``无挠'', 即当且仅当 $G$ 同构于若干 $\operatorname{Sl}(n)$ 和 $\operatorname{Sp}(m)$ 的乘积. 所以只有在这一情形, 同态
+\[
+ \varphi:A(G)\longrightarrow\Gtop^\bullet(G)
+\]
+才是同构. 因而若 $G$ 有挠, 它的底概形就提供了 $\varphi$ 非双射的例子.
+
+\noindent\sgaStableTarget{sga6.e14.para.4-8}\textbf{4.8.}
+同样可找到一个例子, 使\hyperlink{sga6.e14.eq.4-1}{(4.1)} 中的同态 $\gamma$
+\sgaStableTarget{sga6.e14.eq.4-9}\begin{equation}\tag{4.9}
+ \gamma:A(G)\longrightarrow H^{2*}(G,\Zell(*))
+\end{equation}
+不能通过 $\Gtop^\bullet(G)$ 分解; 在这里等价地, 也就是一个此同态在次数 $>0$ 上不为零的例子. 限于 $k=\C$ 的情形 (由适当的特殊化定理可以这样做), 就化归为研究同态
+\sgaStableTarget{sga6.e14.eq.4-10}\begin{equation}\tag{4.10}
+ A(G)\longrightarrow H^*(G(\C),\Z),
+\end{equation}
+它又由典范同态
+\[
+ A(G/B)\simeq H^*(G/B(\C),\Z)
+ \longrightarrow H^*(G(\C),\Z)
+\]
+取商得到. 很容易想到猜测\hyperlink{sga6.e14.eq.4-10}{(4.10)} 实际上为单射, 因为还知道 $G(\C)$ 的挠素数恰为整除有限群
+\[
+ A^+(G)=\coprod_{i>0}A^i(G)
+\]
+阶的素数. 若真如此, 只要 $G$ 有挠, \hyperlink{sga6.e14.eq.4-10}{(4.10)} 就不能通过 $\varphi$ 分解; 因而对适当的 $\ell$ (更精确地, 对整除 $A^+(G)$ 的阶的 $\ell$, 即 $G$ 的挠素数 $\ell$), \hyperlink{sga6.e14.eq.4-9}{(4.9)} 也如此. 至少可以断言, 对 $\C$ 上的群 $G=G_2$, \hyperlink{sga6.e14.eq.4-10}{(4.10)} 在次数 $>0$ 上不为零: 更精确地, $A^3(G)$ 中存在元素, 其在 $H^6(G(\C),\Z)$ 中的像阶为 $2$. 因此当 $\ell=2$ 时, \hyperlink{sga6.e14.eq.4-9}{(4.9)} 不能通过 $\varphi$ 分解. 这里使用的关于 $G_2$ 的事实, 等价于 $H^6(G/B(\C),\Z)$ 中存在元素, 其在 $H^6(G(\C),\Z)$ 中的像不为零; 借助复半单代数群与紧 Lie 群之间的熟知对应, 这一事实可在 [3] 中找到, J.-P. Serre 曾惠予告知.
+
+\sgaStableTarget{sga6.e14.sec.5}\section*{5. $\operatorname{Gr}^\bullet(X)$ 与 $H^{2*}(X,\Zell(*))$ 的关系}
+
+\noindent\sgaStableTarget{sga6.e14.para.5-1}\textbf{5.1.}
+\hyperlink{sga6.e14.para.4-8}{4.8} 的例子并未排除如下可能: 对任意概形 $X$, 可以找到环同态
+\[
+ g':\operatorname{Gr}^\bullet(X)
+ \longrightarrow H^{2*}(X,\Zell(*)),
+\]
+使对 $X$ 上每个局部自由模 $E$, $g^i$ 将第 V 讲中的 Chern 类 $c_i(E)$ 映为 SGA 5 VII 的上同调 Chern 类. 这里 $\ell$ 当然是与 $X$ 的剩余特征不同的素数. 因环 $\operatorname{Gr}^\bullet(X)$ 由 $c_i(E)$ 生成, 无论如何可知, 要求 $g'$ 与 Chern 类相容就唯一确定了它.
+
+\noindent\sgaStableTarget{sga6.e14.para.5-2}\textbf{5.2.}
+使用 Chern 同态
+\[
+ K^\bullet(X)\longrightarrow
+ \Ch\bigl(H^{2*}(X,\Zell(*))\bigr),
+\]
+分别对第一项的滤子和第二项按次数的滤子取相伴分次对象, 得到分次群同态 (但不是环同态!)
+\[
+ \psi:\operatorname{Gr}^\bullet(X)
+ \longrightarrow H^{2*}(X,\Zell(*)),
+\]
+它满足
+\[
+ \psi(c_i(E))=(-1)^{i-1}(i-1)!\,c_i^\ell(E),
+\]
+其中 $c_i^\ell(E)$ 表示 $\ell$ 进 Chern 类. 因而将分量 $\psi^i$ 除以所指出的因子, 给出环同态
+\[
+ g_\Q:\operatorname{Gr}^\bullet(X)
+ \longrightarrow H^{2*}(X,\Qell(*))
+ =H^{2*}(X,\Zell(*))\otimes_{\Zell}\Qell,
+\]
+它将 Chern 类映为 Chern 类, 且第一项的像包含于 $H^2(X,\Zell(*))$ 的像. 因而, 若以 $H^{2*}(X,\Zell(*))$ 对其挠子群的商替换它, 则 $g'$ 的存在问题有肯定回答. 定义假设中的同态 $g$ 的分量 $g^i$ 时, 第一个存疑情形是 $g^3$; 先验地只能定义 $2g^3=\psi^3$. 例如, 若能找到 $X$ 上的三个可逆层 $L_1,L_2,L_3$ 满足
+\[
+ (L_1-1)(L_2-1)(L_3-1)=0
+ \quad\text{在 }K^\bullet(X)\text{ 中},
+\]
+但
+\[
+ c_1(L_1)c_1(L_2)c_1(L_3)\ne0
+ \quad\text{在 }H^6(X,\mu_2^{\otimes3})\text{ 中},
+\]
+则 $g^3$ 的存在问题将有否定回答.
+% English source writes H^2 here rather than H^{2*}; retained, pending source/mathematical adjudication.
+
+\noindent\sgaStableTarget{sga6.e14.para.5-3}\textbf{5.3.}
+当 $X$ 在域 $k$ 上光滑且拟射影时, 同样可问是否存在取值于 Chow 环 $A(X)$ 并将 Chern 类映为 Chern 类的环同态
+\[
+ g:\operatorname{Gr}^\bullet(X)\longrightarrow A(X).
+\]
+前述讨论在这里可以重复; 特别地, 它们表明, 当 $g^i$ 本身尚无法定义时, 如何直接构造 $(-1)^{i-1}(i-1)!g^i$.
+
+\noindent\sgaStableTarget{sga6.e14.para.5-4}\textbf{5.4.}
+本节最后指出, 若不考虑概形 $X$, 而考虑例如紧拓扑空间 $X$, 则本质上有同样的问题. 仍可考虑带 $\lambda$-滤子的 $K^\bullet(X)$ 的相伴分次对象 $\operatorname{Gr}^\bullet(X)$, 并寻求将 Chern 类映为 Chern 类的环同态
+\[
+ \operatorname{Gr}^\bullet(X)\longrightarrow H^{2*}(X,\Z).
+\]
+
+\sgaStableTarget{sga6.e14.sec.6}\section*{6. 上同调 Riemann--Roch 定理与 Gysin 同态}
+
+\noindent\sgaStableTarget{sga6.e14.para.6-1}\textbf{6.1.}
+为简便起见, 这里只考虑有丰沛可逆模的概形 $X$, 因而无须区分朴素的 $K^\bullet(X)$ 与另一个版本. 先考虑固有完全相交态射 $f:X\longrightarrow Y$ 的 ``带分母'' Riemann--Roch 公式. 对与 $Y$ 的剩余特征互素的素数 $\ell$, 可定义局部自由模 $E$ 的 $\ell$ 进 Chern 类
+\[
+ c_i(E)\in H^{2i}(X,\Zell(i))
+\]
+(SGA 5 VII), 它对应于同态
+\sgaStableTarget{sga6.e14.eq.6-1}\begin{equation}\tag{6.1}
+ K^\bullet(X)\longrightarrow \Ch\bigl(H^{2*}(X,\Zell(*))\bigr).
+\end{equation}
+因而有给出 Riemann--Roch 公式的上同调版本的问题. 要使公式有意义, 唯一缺少的组成部分是 Gysin 同态
+\sgaStableTarget{sga6.e14.eq.6-2}\begin{equation}\tag{6.2}
+ H^n(X,\Qell(i))\longrightarrow H^{n-2d}(Y,\Qell(i-d)),
+\end{equation}
+其中 $d$ 是 $f$ 的虚相对维数. 假设这个同态已有定义, 并考虑\hyperlink{sga6.e08.expose}{第 VIII 讲}中取值于 $\operatorname{Gr}^\bullet(Y)_{\Q}$ 的 Riemann--Roch 公式, 可知态射 $f$ 的 $\ell$ 进 Riemann--Roch 公式的成立, 恰等价于方块
+\sgaStableTarget{sga6.e14.eq.6-3}\begin{equation}\tag{6.3}
+\begin{tikzcd}[column sep=large,row sep=large]
+ \operatorname{Gr}^\bullet(X)_{\Q} \arrow[r] \arrow[d]
+   & H^{2*}(X,\Qell(*)) \arrow[d] \\
+ \operatorname{Gr}^\bullet(Y)_{\Q} \arrow[r]
+   & H^{2*}(Y,\Qell(*)),
+\end{tikzcd}
+\end{equation}
+交换, 其中水平箭头由\hyperlink{sga6.e14.eq.6-1}{(6.1)} 取相伴分次对象再作除法得到, 使之将 Chern 类映为 Chern 类; 竖直箭头分别是\hyperlink{sga6.e08.expose}{第 VIII 讲}的箭头和上同调中的 Gysin 同态 (假设已给定).
+
+\noindent\sgaStableTarget{sga6.e14.para.6-2}\textbf{6.2.}
+注意, 若 $Y$ 在域 $k$ 上光滑, 则利用 $k$ 上的相对上同调纯性定理, Gysin 同态在一切情形下都有定义 (SGA 5 IV). 当 $Y$ 优秀、正则且特征为零时, 借助 SGA 4 XIX 的绝对上同调纯性定理, 同样的构造适用; 一旦绝对上同调纯性定理在完全一般的情形下证明, 这个构造就会自动适用于任意优秀正则 $Y$, 无须限制特征. 最后, 当 $X$ 和 $Y$ 都在同一概形 $S$ 上光滑且 $f$ 是 $S$-态射时, 借助相对上同调纯性定理 (SGA 4 XVI 3.7), 同样的构造适用. 自然可猜测, 在这些 Gysin 同态有定义的情形中, 图\hyperlink{sga6.e14.eq.6-3}{(6.3)} 都确实交换. 目前唯一已验证这一断言的情形, 是 $X$ 和 $Y$ 都在域 $k$ 上光滑的情形; 此时可由类似图
+\sgaStableTarget{sga6.e14.eq.6-4}\begin{equation}\tag{6.4}
+\begin{tikzcd}[column sep=large,row sep=large]
+ A(X) \arrow[r] \arrow[d]
+   & H^{2*}(X,\Zell(*)) \arrow[d] \\
+ A(Y) \arrow[r]
+   & H^{2*}(Y,\Zell(*)),
+\end{tikzcd}
+\end{equation}
+的交换性推出; 这里用的是模有理等价的闭链类环 $A(X)$ 和 $A(Y)$, 而图的交换性已在 SGA 5 IV 中建立.
+
+\noindent\sgaStableTarget{sga6.e14.para.6-3}\textbf{6.3.}
+注意, 在上述每一个能够定义 Gysin 同态的情形中, 实际上都得到系数为 $\Zell(*)$ 而不仅是 $\Qell(*)$ 的上同调构造. 因而当 $f$ 是\emph{浸入}时, 就可如第 3 节所述, 提出 ``无分母'' Riemann--Roch 公式是否成立的问题. 当 $X$ 和 $Y$ 都在域 $k$ 上光滑时, \hyperlink{sga6.e14.eq.6-4}{(6.4)} 的交换性表明只须在 Chow 环 $A(Y)$ 中证明无分母公式; 参见\hyperlink{sga6.e14.para.3-3}{(3.3)}.
+
+\noindent\sgaStableTarget{sga6.e14.para.6-4}\textbf{6.4.}
+若对 $Y$ 不作正则性假设, 即使 $X$ 和 $Y$ 在 $\C$ 上有限型, 也看不出上同调 Gysin 同态\hyperlink{sga6.e14.eq.6-2}{(6.2)} 有什么合理的定义, 甚至余维 $1$ 的正则浸入也如此. 尽管如此, 是否仍能找到具有合理性质的定义, 特别使方块\hyperlink{sga6.e14.eq.6-3}{(6.3)} 交换? 这个问题显然与下述问题有关: 对 $Y$ 中余维 $i$ 的完全相交 $X$, 定义 ``它的上同调类''
+\[
+ \gamma(X)\in H^{2i}(Y,\Zell(i)),
+\]
+使不含过剩分量的相交变为杯积. 至少模去挠元后, 即在 $H^{2*}(Y,\Qell(*))$ 中, 定义
+\[
+ \gamma(X)=\frac{1}{(-1)^{i-1}(i-1)!}\,c_i(\mathcal O_X)
+\]
+就使后一个问题得到肯定解答. 但我不知道 $c_i(\mathcal O_X)$ 在 $H^{2i}(Y,\Zell(i))$ 中是否可被 $(i-1)!$ 整除. 特别地, 例如 $Y$ 是复数域上的 $3$ 维射影概形, 而 $X$ 退化为 $Y$ 的一个 (奇异) 点, 则 $c_3(\mathcal O_X)$ 在 $H^6(Y,\mathbb Z_2(3))$ 中是否可被 $2$ 整除, 特别地, 这个 Chern 类在 $H^6(Y,\Z/2\Z)$ 中是否为零? 沿着同一方向, 再提出一个问题: 设 $Y$ 是 $4$ 维射影 (奇异) 概形, $X$ 是 $1$ 维闭子概形, 全局地为三个正除子 $D_1,D_2,D_3$ 的交. 考虑它们的模 $2$ Chern 类的乘积
+\[
+ c_1(D_1)c_1(D_2)c_1(D_3)\in H^6(Y,\Z/2\Z);
+\]
+这个 $H^6$ 中的元素是否与交为 $X$ 的 $D_i$ 的具体选取无关?
+% Cross-reference repair: English links (6.2),(6.3) to paragraphs; equations are intended here.
+
+\sgaStableTarget{sga6.e14.sec.7}\section*{7. 完美复形的 Chern 类}
+
+\noindent\sgaStableTarget{sga6.e14.para.7-1}\textbf{7.1.}
+若不采用所考虑概形上存在丰沛可逆模这一颇为人为的假设, 而提出建立带分母或无分母的上同调 Riemann--Roch 公式的问题, 就必然遇到如下问题: 对概形 $X$ 上的完美模复形 $L^\bullet$, 定义 Chern 类
+\[
+ c_i(L^\bullet)\in H^{2i}(X,\Zell(i)),
+\]
+使之推广局部自由模的 Chern 类 (SGA 5 VII). 此外, 对一般局部赋环拓扑斯也有同样的问题 (比较 [10]); 对以连续复值函数赋环的仿紧空间上的完美复形也如此, 此时用通常的整上同调. 对紧空间, 已知由完美复形构造的 $K^\bullet(X)$ 与由局部自由模构造的 ``朴素'' 版本相同 (\hyperlink{sga6.e04.expose}{第 IV 讲}), 因而在该情形可直接化归到经典定义. 但即使对局部紧空间, 所提问题也似乎并不平凡, 因为这种空间的整上同调未必是其紧子集的上同调的逆极限.
+
+\noindent\sgaStableTarget{sga6.e14.para.7-2}\textbf{7.2.}
+更精确地, 若 $Y$ 是 $X$ 的闭子集, 使 $L^\bullet|_{X-Y}$ 为零 (取导出范畴的意义), 即 $L^\bullet$ 的上同调层支于 $Y$, 则希望定义\emph{支于 $Y$ 的} Chern 类
+\[
+ c_i^Y(L^\bullet)\in H_Y^{2i}(X,\Zell(i))
+ \quad\text{分别地,}\quad H_Y^{2i}(X,\Z),
+\]
+使借助典范同态
+\[
+ H_Y^*(X,-)\longrightarrow H^*(X,-)
+\]
+可恢复\hyperlink{sga6.e14.para.7-1}{7.1} 中 ``通常'' (原文如此) 的 Chern 类.
+
+即使后者化归为局部自由模的 Chern 类 (当 $X$ 是有丰沛可逆模的概形, 或是紧空间时), 这些 ``带支集'' Chern 类的构造也尚未完成, 而且大概只有连同 7.1 中所设想的一般 Chern 类一起构造才有可能.\footnote{1968 年 10 月补记. L. Illusie 已在 Hodge 上同调的框架下解决这里提出的问题; 参见 [13].}
+
+带支集 Chern 类很可能将在无分母上同调 Riemann--Roch 公式的证明中发挥作用 (参见\hyperlink{sga6.e14.para.3-5}{3.5}). 另一方面, 它们应当使我们能在公式中引入支集族, 从而给出 Riemann--Roch 公式 (带分母或无分母) 的改进版本.
+
+\sgaStableTarget{sga6.e14.sec.8}\section*{8. 正则概形的 Chow 环}
+
+问题是: 对有丰沛可逆模的正则诺特概形 $X$, 定义闭链的有理等价, 并研究由此得到的类环 (特别是它的函子性质), 以推广 $X$ 在域上光滑时的已知理论 [4]. 关键的技术结果仍将是一个 ``移动引理'', 保证可以在一个闭链的类内移动该闭链, 使其与给定闭链以适当维数相交.
+
+这个问题先验地很自然, 特别是因为已经看到 (\hyperlink{sga6.e14.para.4-5}{4.5} 至\hyperlink{sga6.e14.para.4-8}{4.8}), 若不限于 ``模去挠元'' 的理论, Chow 环 $A(X)$ 的替代物 $\operatorname{Gr}^\bullet(X)$ 和 $\Gtop^\bullet(X)$ 就很难令人满意. 若 $X$ 由域 $k$ 上的光滑射影代数概形 $Y$ 如下得到: 取射影锥 $C$ 在顶点处的局部概形, 再删去原点, 则可得到 $A(X)$ 典范同构于商环
+\[
+ A(Y)/\xi A(Y),
+\]
+其中 $\xi\in A^1(Y)$ 由所选的 $Y$ 的射影嵌入诱导 (这里假设 $A(X)$ 确实是 $U-\{O\}$ 的 Chow 环的归纳极限, $U$ 遍历 $C$ 中顶点 $O$ 的开邻域). 这表明, 知道 $A(X)$ 这一非经典类型的 Chow 环, 等价于知道 $A(Y)/\xi A(Y)$; 后者可称为 Chow 环 $A(Y)$ 的 ``本原部分'' (其意义来自非奇异射影代数簇的 Lefschetz--Hodge 上同调理论的启示). 此例表明, 具有孤立奇点的局部环的 ``局部 Chow 环'' 是绝不平凡的几何不变量, 无疑将在这些局部环的 ``算术'' 研究中发挥作用.
+
+当然, 一旦对有丰沛可逆模的正则诺特概形有了合理的 Chow 环概念, 就应把第 4 节中这一环与 $\Gtop^\bullet(X)$ 之间已建立或猜测的关系推广到该情形, 并以这一环来陈述第 3 节提出的 ``无分母 Riemann--Roch 公式'' 问题.
+
+\sgaStableTarget{sga6.e14.bibliography-of-expose-xiv}\subsection*{第 XIV 讲参考文献}
+
+\begin{enumerate}[label={[\arabic*]},leftmargin=3.2em]
+\item M. F. Atiyah and F. Hirzebruch,
+  \emph{The Riemann--Roch theorem for analytic embeddings},
+  Topology, vol.~1, pp.~151--166 (1962).
+
+\item A. Borel and J.-P. Serre,
+  \emph{Le th\'eor\`eme de Riemann--Roch},
+  Bull. Soc. Math. France, vol.~86, pp.~97--136 (1958).
+
+\item R. Bott and H. Samelson,
+  Amer. Journ. of Math., vol.~80, p.~1004 (1958).
+
+\item C. Chevalley,
+  \emph{Les classes d'\'equivalence rationelle}, I 和 II,
+  S\'eminaire \`a l'ENS 1958, 第 2、3 讲.
+
+\item C. Chevalley,
+  \emph{Classification des groupes de Lie alg\'ebriques},
+  S\'eminaire \`a l'ENS 1956/58.
+
+\item A. Dold and D. Puppe,
+  \emph{Homologie nicht-additiver Funktoren. Anwendungen},
+  Annales de l'Inst. Fourier, t.~XI, pp.~201--312 (1961).
+
+\item H. Grauert,
+  \emph{Ein Theorem der analytischen Garbentheorie},
+  Pub. Math. no.~5, pp.~5--64 (1960).
+
+\item A. Grothendieck,
+  \emph{Classes de faisceaux et th\'eor\`eme de Riemann--Roch},
+  Institute for Advanced Study 编印的油印笔记, 1957
+  (本讲引用为 [RRR], 并在本讨论班第 0 讲后作为附录重印).
+
+\item A. Grothendieck,
+  \emph{La th\'eorie des classes de Chern},
+  Bull. Soc. Math. France, vol.~86, pp.~137--154 (1958).
+
+\item A. Grothendieck,
+  \emph{Classes de Chern et repr\'esentations lin\'eaires des groupes
+  discrets}, 载于 \emph{Dix expos\'es sur la cohomologie des sch\'emas},
+  Masson--North Holland Pub. Cie.
+
+\item H. Hironaka,
+  \emph{Resolution of singularities of an algebraic variety over a field of
+  characteristic zero}, Ann. of Math. 79, pp.~109--326 (1964).
+
+\item L. Hodgkin, 学位论文 (即将出版?).
+
+\item L. Illusie, 正在准备中的工作.
+
+\item J.-P. Serre, \emph{Alg\`ebre Locale, Multiplicit\'es},
+  Lecture Notes in Math. no.~11 (1965), Springer.
+
+\item A. Borel,
+  \emph{Sous-groupes commutatifs et torsion des groupes de Lie compacts
+  connexes}, Tohoku Math. Journal, vol.~13, pp.~216--240 (1961).
+
+\item[{[16]}(*)] P. Deligne, 第 XVIII 讲, 载于
+  \emph{Th\'eorie des topos et cohomologie \'etale des sch\'emas (SGA 6)},
+  M. Artin、A. Grothendieck 和 J. L. Verdier 著.
+% French printed p688 also says SGA 6; retained as printed bibliographic error, see audit.
+
+\item[{[17]}(*)] Yu. I. Manin,
+  \emph{Correspondances, motifs et transformations mono\"idales}
+  (俄文). Mat. Sborik, t.~77 (119), no.~4, 1968.
+\end{enumerate}
+
+\noindent{\footnotesize (*) 1969 年 2 月补入.}
+
+\sgaStableTarget{sga6.e14.note-for-page-1}\subsection*{第 1 页的注}
+
+$D^{-}(X)$ 中的运算 $\Lambda^i$ 和 $K^\bullet(X)$ 中的运算 $\lambda^i$ 的理论, 由 P. Deligne 于 1968 年写出. 他证明 $K^\bullet(X)$ 因而成为预 $\lambda$-环; 当 $\mathcal O_X$ 是某个域上的代数层时, $K^\bullet(X)$ 甚至是 $\lambda$-环. 很可能完善 Deligne 的方法就可去掉对 $\mathcal O_X$ 的这一限制性假设.
+
+\sgaStableTarget{sga6.e14.notes-for-page-11}\subsection*{第 11 页的注}
+
+\noindent(*) (1969 年 4 月) D. Mumford 告知我们, 他早在 1959 年 Harvard 的一个讨论班中就得到了\hyperlink{sga6.e14.eq.4-6}{(4.6)} 在 \emph{Chow 环}中的一个证明 (不略去挠元)!\SGAArchiveOnly{\footnote{\textbf{来源注 [SGA6-XIV-IDX702-XREF96-VS-XREF46-SRCDEF-001].} 法文印本的这一注写作 ``(9.6)''; 根据上下文所指的是公式\hyperlink{sga6.e14.eq.4-6}{(4.6)}.}} 读者可在 SGA 5 VII 9 中找到这一优美结果的证明. 此结果显然包含注 (**) 中提及的相应上同调结果. 不过, J.-P. Jouanolou 在更一般的条件下证明了上同调结果 (不作拟射影性假设, 并适用于任意基上的相对光滑情形).
+% Cross-reference repair: formula (4.6) targets eq.4-6 rather than para.4-6.
+
+\medskip
+
+\noindent(**) (1969 年 1 月) J.-P. Jouanolou 刚刚对每个 $y$ 证明了这些公式, 且不略去挠元; 参见 SGA 5 VII \S~4.9. 此前 Deligne 和 Manin [17] 已独立地以性质颇为不同的 (简单) 论证观察到, 只须对 ``代数的'' $y$, 甚至在 [16] 中只对 $y=1$ 建立公式, 就可推出一般情形的同一关系.
+
+\SGAArchiveOnly{\input{fragments/SGA6_XIV_idx685_702_Editorial_Source_Notes.tex}}

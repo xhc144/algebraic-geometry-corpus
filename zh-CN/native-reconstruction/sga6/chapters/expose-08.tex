@@ -1,0 +1,1071 @@
+% 第 VIII 讲中文译稿；来源、疑难和审校边界见 audits/expose-08.json。
+\sgaStableTarget{sga6.e08.expose}\section*{第 VIII 讲. Riemann--Roch 定理}
+\begin{center}
+Pierre Berthelot
+\end{center}
+
+\sgaStableTarget{sga6.e08.sec.1}\subsection*{1. 完全交态射}
+
+\sgaStableTarget{sga6.e08.def.1-1}\textbf{定义 1.1.} 设 $f:X\to Y$ 是概形态射。称 $f$ 为\emph{完全交态射}，是指对 $X$ 的每个点 $x$，存在 $x$ 的开邻域 $U$ 和光滑 $Y$-概形 $V$，使 $f$ 在 $U$ 上的限制分解为
+\[
+\begin{tikzcd}[column sep=tiny]
+U \arrow[r,"i"] \arrow[dr,"f"'] & V \arrow[d,"g"]\\
+& Y,
+\end{tikzcd}
+\]
+其中 $i$ 是正则浸入（\hyperlink{sga6.e07.def.1-4}{VII 1.4}）。把 $V$ 换成某个开子集后，可以假设 $i$ 是正则闭浸入。
+
+在此定义中，可将 $V$ 换成向量丛 $Y[T_1,\ldots,T_n]$。事实上，由于此概念是局部的，可假设 $V$ 仿射，其在 $Y$ 中的像包含于 $Y$ 的某个仿射开集 $W$。于是存在整数 $n$ 和闭 $W$-浸入
+\[
+V\longrightarrow W[T_1,\ldots,T_n],
+\]
+从而有 $Y$-浸入 $V\to Y[T_1,\ldots,T_n]$，由 \hyperlink{sga6.e07.prop.1-10}{VII 1.10}，它是正则的。由于两个正则浸入的复合正则，便得到正则 $Y$-浸入
+\[
+U\longrightarrow Y[T_1,\ldots,T_n]
+\]
+给出 $f$ 的分解。
+
+\sgaStableTarget{sga6.e08.prop.1-2}\textbf{命题 1.2.} 设 $f:X\to Y$ 是完全交态射。则 $X$ 到任意光滑 $Y$-概形的每个 $Y$-浸入 $i:X\to Z$ 都正则。
+
+我们先证明下述推论。
+
+\sgaStableTarget{sga6.e08.cor.1-3}\textbf{推论 1.3.} 设
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+& V' \arrow[d,"p"]\\
+X \arrow[ur,"j"] \arrow[r,"i"'] & V
+\end{tikzcd}
+\]
+是交换图，其中 $i,j$ 是浸入，$p$ 是光滑态射。则 $i$ 为正则浸入，当且仅当 $j$ 为正则浸入。
+
+(i) 假设 $i$ 正则。令 $X'=V'\times_V X$。$j$ 确定了 $X'$ 在 $X$ 上的一个截面 $j'$，使 $j=i'j'$：
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+X' \arrow[r,"i'"] \arrow[d,"p'"'] & V' \arrow[d,"p"]\\
+X \arrow[r,"i"'] \arrow[ur,"j"] & V .
+\end{tikzcd}
+\]
+此时 $j'$ 作为光滑态射的截面，是正则浸入（\hyperlink{sga6.e07.prop.1-10}{VII 1.10}）；$i'$ 由 $i$ 经光滑、因而平坦的基变换得到，也是正则浸入（\hyperlink{sga6.e07.prop.1-5}{VII 1.5}）。所以 $j$ 是正则浸入（\hyperlink{sga6.e07.prop.1-7}{VII 1.7}）。
+
+(ii) 假设 $j$ 正则，$p$ 平展。则 $j'$ 是开浸入（EGA IV 17.9.3），因而是 $X$ 到 $j'(X)$ 的同构；令 $U=j'(X)$。设 $i''$ 是 $i'$ 在 $U$ 上的限制，并取 $V'$ 的开子集 $U'$，使 $U=U'\cap X'$。则
+\[
+i''=j\circ(j')^{-1},
+\]
+所以 $i''$ 是从 $U$ 到 $U'$ 的正则浸入。而态射 $U'\to V$ 光滑，故平坦且局部有限表现，因而是开映射。所以它从 $U'$ 到 $V$ 中的 $X$ 的一个开邻域忠实平坦且拟紧。由 \hyperlink{sga6.e07.prop.1-5}{VII 1.5}，$i$ 是正则浸入。
+
+(iii) 假设 $j$ 正则，且 $V'$ 是 $V$ 上的向量丛。由于所要证明的性质在 $V$ 上是局部的，可假设 $V$ 仿射，$i$ 闭，且 $V'=V[T_1,\ldots,T_n]$。令 $V=\Spec(A)$，$X=\Spec(B)$。有交换图
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+& A[T_1,\ldots,T_n] \arrow[d,"v"]\\
+A \arrow[r] \arrow[ur,"u"] & B,
+\end{tikzcd}
+\]
+其中态射 $u,v$ 都满。取元素 $t_i\in A$，$1\leq i\leq n$，使对每个 $i$ 都有 $u(t_i)=v(T_i)$。定义同态
+\[
+w:A[T_1,\ldots,T_n]\longrightarrow A,
+\qquad w(T_i)=t_i.
+\]
+这给出闭浸入 $s:V\to V'$，它是 $p$ 的一个截面，并使 $j=s\circ i$。又因 $s$ 是光滑态射的截面，它是正则浸入（\hyperlink{sga6.e07.prop.1-10}{VII 1.10}）。由于 $s$ 和 $s\circ i$ 正则，只要证明序列
+\[
+0\longrightarrow i^*(K/K^2)\longrightarrow J/J^2\longrightarrow I/I^2\longrightarrow 0
+\]
+正合且局部分裂，即可推出 $i$ 正则；这里 $I,J,K$ 分别表示定义 $i,j,s$ 的理想（\hyperlink{sga6.e07.prop.1-7}{VII 1.7}）。只需证明 $i^*(K/K^2)$ 是 $J/J^2$ 的直和因子。但 $j'$ 由 $s$ 经基变换 $i':X'\to V'$ 得到，且 $j'$ 与 $s$ 均为正则浸入（\hyperlink{sga6.e07.prop.1-10}{VII 1.10}）。所以由 \hyperlink{sga6.e07.lem.1-2}{VII 1.2}，定义 $j'$ 的理想为 $i'^*(K)$，其余法层为 $i'^*(K/K^2)$。分解 $j=i'j'$ 的余法层正合列特别给出同态
+\[
+J/J^2\longrightarrow i^*(K/K^2).
+\]
+立即可验证，复合
+\[
+i^*(K/K^2)\longrightarrow J/J^2\longrightarrow i^*(K/K^2)
+\]
+为恒等映射。在仿射语言中，这对应于把 $J$ 分解为 $A$ 的某个理想与由各 $T_i-t_i$ 生成的理想的直和。这就给出了所需分裂。
+
+(iv) 最后假设 $j$ 正则，$p$ 光滑。对每个 $x\in X$，可以找到 $i(x)$ 的一个开邻域 $W$，在 $W$ 上方的 $j(x)$ 的一个开邻域 $W'$，以及交换图
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+W' \arrow[r,"q"] \arrow[d,"p"'] & W[T_1,\ldots,T_n] \arrow[d,"p_0"]\\
+W \arrow[r,equal] & W,
+\end{tikzcd}
+\]
+其中 $p_0$ 是结构态射，$q$ 是平展态射（EGA IV 17.11.4）。于是可假设 $V=W$，$V'=W'$。引入纤维积 $X[T_1,\ldots,T_n]$ 后，容易看出 $qj$ 是浸入。应用 (ii) 和 (iii)，推出 $qj$ 正则，从而 $i$ 正则。
+
+现在证明\hyperlink{sga6.e08.prop.1-2}{命题 1.2}。由于正则性在 $Z$ 上是局部的，可在一点 $x\in X$ 附近进行。此时存在 $x$ 在 $X$ 中的开邻域 $U$、光滑 $Y$-概形 $V$，以及正则 $Y$-浸入 $i':U\to V$。有交换图
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+U \arrow[r,"i'"] \arrow[d,"i"'] & V \arrow[d]\\
+Z \arrow[r] & Y,
+\end{tikzcd}
+\]
+其中未标记的竖箭头为结构态射。由此得到闭浸入
+\[
+i'':U\longrightarrow Z\times_Y V,
+\]
+以及交换图
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+& U \arrow[dl,"i"'] \arrow[dr,"i'"] &\\
+Z & Z\times_Y V \arrow[l,"p"'] \arrow[r,"p'"] & V.
+\end{tikzcd}
+\]
+由于 $i'$ 正则且 $p,p'$ 光滑，由推论得 $i''$ 和 $i$ 正则。
+
+下述命题不用于讨论班的后续部分。
+
+\sgaStableTarget{sga6.e08.prop.1-4}\textbf{命题 1.4.} 设 $f:X\to Y$ 是局部有限表现的平坦态射。$f$ 是 \hyperlink{sga6.e08.def.1-1}{1.1} 意义下的完全交态射，当且仅当它是 EGA IV 19.3.6 意义下的完全交态射。
+
+假设 $f$ 是 \hyperlink{sga6.e08.def.1-1}{1.1} 意义下的完全交态射，设 $x\in X$。则存在 $x$ 的一个开邻域 $U$ 和分解
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+U \arrow[r,"i"] \arrow[dr,"f"'] & V \arrow[d,"g"]\\
+& Y,
+\end{tikzcd}
+\]
+其中 $i$ 是正则浸入，$g$ 光滑。令 $y=f(x)$。则浸入 $i_y:U_y\to V_y$ 在 $x$ 处正则。事实上，必要时缩小 $V$，可假设存在有限型自由 $\mathcal O_V$-模 $E$ 和正则同态 $u:E\to\mathcal O_V$，使相应的 Koszul 复形是 $\mathcal O_U$ 的消解。设 $u_y$ 是在 $y$ 上的纤维上诱导的同态，$K_\bullet(u_y)=K_\bullet(u)_y$ 是相应的 Koszul 复形。由于 $g$ 光滑，因而平坦，$K_\bullet(u)$ 是 $\mathcal O_U$ 的一个 $Y$-平坦消解。所以 $K_\bullet(u)_y$ 的同调群为
+\[
+\Tor_i^{\mathcal O_Y}(\mathcal O_U,k(y)),
+\]
+其中 $k(y)$ 是 $\mathcal O_{Y,y}$ 的剩余域。由于 $f$ 平坦，这些群为零，故 $i_y$ 在 $x$ 处正则。由于 $g$ 光滑，$V_y$ 在 $x$ 处的局部环正则。因此，$U_y$ 在 $x$ 处的局部环是正则环除以正则理想所得的商，故为完全交环（EGA IV 19.3.2）。由此，$f$ 在 $x$ 处是 EGA IV 19.3.6 意义下的完全交。
+
+反之，假设 $f$ 是 EGA IV 19.3.6 意义下的完全交态射，设 $x\in X$。取 $x$ 的仿射邻域 $U$，使它位于 $y=f(x)$ 的某个仿射邻域 $U'$ 上方。于是可找到光滑 $U'$-概形 $V$ 和闭浸入 $U\to V$（例如取 $V$ 为 $U'$ 上的向量丛）。我们将证明 $i$ 正则。由 EGA IV 19.3.7，$i$ 在 $x$ 处横截正则，因为 $V$ 在 $Y$ 上光滑，从而 $V_y$ 在 $x$ 处正则，且 $U$ 在 $Y$ 上平坦。由 EGA IV 19.2.4, a)3c)，$i$ 在 $x$ 处正则。因此 $f$ 是 1.1 意义下的完全交态射。
+
+\sgaStableTarget{sga6.e08.prop.1-5}\textbf{命题 1.5.} 设 $f:X\to Y$ 和 $g:Y\to Z$ 是两个局部完全交态射。则 $gf$ 为局部完全交。
+
+设 $x\in X$。可以找到 $x,f(x)$ 的开邻域 $U,V$ 和正则浸入 $i,j$，使有分解
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+U \arrow[r,"i"] \arrow[dr,"f"'] & V[T_1,\ldots,T_n] \arrow[d]\\
+& V
+\end{tikzcd}
+\qquad
+\begin{tikzcd}[column sep=large,row sep=large]
+V \arrow[r,"j"] \arrow[dr,"g"'] & Z[T'_1,\ldots,T'_m] \arrow[d]\\
+& Z.
+\end{tikzcd}
+\]
+把此图补成交换方块
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+V[T_1,\ldots,T_n] \arrow[r,"j'"] \arrow[d] & Z[T'_1,\ldots,T'_m,T_1,\ldots,T_n] \arrow[d]\\
+V \arrow[r,"j"'] & Z[T'_1,\ldots,T'_m],
+\end{tikzcd}
+\]
+其中 $j'$ 由 $j$ 经基变换得到。此基变换平坦，故 $j'$ 是正则浸入，从而 $j'i$ 是 $U$ 到某个在 $W$ 上光滑的概形的正则浸入，其中 $W$ 是 $Z$ 的相应开集。断言得证。
+
+% SGA-SRC-001509
+\sgaStableTarget{sga6.e08.prop.1-6}\textbf{命题 1.6.} 设 $f:X\to Y$ 是态射，$g:Y'\to Y$ 是平坦基变换。若 $f$ 为完全交，则由 $f$ 导出的态射
+\[
+f':X\times_Y Y'\longrightarrow Y'
+\]
+为完全交。若进一步假设 $g$ 拟紧且满，则逆命题成立。
+
+可找到 $X$ 的开覆盖 $U_i$，使对每个 $i$，$f$ 在 $U_i$ 上的限制分解为
+\[
+U_i\longrightarrow V_i\longrightarrow Y,
+\]
+其中 $U_i\to V_i$ 是正则浸入，$V_i\to Y$ 光滑。各 $U_i\times_Y Y'$ 构成 $X\times_Y Y'$ 的开覆盖，浸入
+\[
+U_i\times_Y Y'\longrightarrow V_i\times_Y Y'
+\]
+由 \hyperlink{sga6.e07.prop.1-5}{VII 1.5} 正则，而态射 $V_i\times_Y Y'\to Y'$ 光滑，这就给出第一个断言。对于逆命题，EGA IV 2.7.1 (iv) 首先蕴涵 $f$ 局部有限表现；利用 \hyperlink{sga6.e08.prop.1-2}{1.2}，便容易归结到 $f$ 为闭浸入的情形。在此情形，断言就是 \hyperlink{sga6.e07.prop.1-5}{VII 1.5}。
+
+\sgaStableTarget{sga6.e08.prop.1-7}\textbf{命题 1.7.} 设 $f:X\to Y$ 是完全交态射。则 $f$ 是完美态射。
+
+由于此性质在 $X$ 上是局部的，可以在一点 $x\in X$ 附近进行，并假设存在包含 $x$ 的开子集 $U$ 和分解
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+U \arrow[r,"i"] \arrow[dr,"f"'] & V \arrow[d,"g"]\\
+& Y,
+\end{tikzcd}
+\]
+其中 $i$ 是正则浸入，$g$ 光滑。由于 $g$ 光滑，它是完美态射（\hyperlink{sga6.e03.def.4-1}{III 4.1}）。由 \hyperlink{sga6.e07.prop.1-9}{VII 1.9}，$i$ 也是完美态射。两个完美态射的复合完美（\hyperlink{sga6.e03.prop.4-5}{III 4.5}），所以命题成立。
+
+\sgaStableTarget{sga6.e08.prop.1-8}\textbf{命题 1.8.} 设 $f:X\to Y$ 是完全交态射，$x$ 是 $X$ 的点，且
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+U \arrow[r,"i"] \arrow[dr,"f"'] & V \arrow[d,"g"]\\
+& Y
+\end{tikzcd}
+\]
+是一个分解，其中 $U$ 是 $x$ 的开邻域，$i$ 是正则浸入，$g$ 光滑。设 $J$ 是 $\mathcal O_V$ 中定义 $U$ 的理想。则整数
+\[
+d_x=\operatorname{rank}\bigl((\Omega^1_{V/Y})_{i(x)}\bigr)-\operatorname{rank}\bigl((J/J^2)_x\bigr)
+\]
+与 $f$ 的所选分解无关。
+
+假设 $f$ 在 $U$ 上的限制通过两个光滑 $Y$-概形 $V,V'$ 分解，并令 $V''=V\times_Y V'$。则 $V''$ 在 $Y$ 上光滑，也在 $V,V'$ 上光滑。此外，浸入 $X\to V$ 和 $X\to V'$ 定义浸入 $X\to V''$，由 1.2，它正则。因此，只需比较两个通过光滑 $Y$-概形 $V,V'$ 的分解所附带的整数 $d_x$，且可假设存在 $Y$ 上的交换图
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+& V' \arrow[d,"p"]\\
+X \arrow[ur,"j"] \arrow[r,"i"'] & V,
+\end{tikzcd}
+\]
+其中 $p$ 光滑。还可假设 $\Omega^1_{V/Y}$、$\Omega^1_{V'/Y}$ 和 $\Omega^1_{V'/V}$ 均有常秩，$i,j$ 的余法层也有常秩。
+
+从所有态射都光滑的交换图
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+V' \arrow[r,"p"] \arrow[dr] & V \arrow[d]\\
+& Y,
+\end{tikzcd}
+\]
+推出
+\sgaStableTarget{sga6.e08.eq.1-8-1}\begin{equation}\tag{1.8.1}
+\operatorname{rank}(\Omega^1_{V'/Y})=
+\operatorname{rank}(\Omega^1_{V/Y})+
+\operatorname{rank}(\Omega^1_{V'/V}).
+\end{equation}
+令 $X'=V'\times_V X$；则 $\Omega^1_{V'/V}$ 的秩等于 $\Omega^1_{X'/X}$ 的秩。此外，$j$ 定义截面 $j':X\to X'$，这是余维数等于 $\Omega^1_{X'/X}$ 的秩的正则浸入（EGA IV 17.10.4）。若 $i'$ 是由 $i$ 经基变换 $V'\to V$ 得到的浸入，则 $j=i'j'$，因而（\hyperlink{sga6.e07.prop.1-7}{VII 1.7}）
+\sgaStableTarget{sga6.e08.eq.1-8-2}\begin{equation}\tag{1.8.2}
+\operatorname{rank}(N_{V'/X})=
+\operatorname{rank}(N_{V/X})+
+\operatorname{rank}(\Omega^1_{V'/V}).
+\end{equation}
+比较 \hyperlink{sga6.e08.eq.1-8-1}{(1.8.1)} 和 \hyperlink{sga6.e08.eq.1-8-2}{(1.8.2)} 即得命题。
+
+\sgaStableTarget{sga6.e08.def.1-9}\textbf{定义 1.9.} \hyperlink{sga6.e08.prop.1-8}{命题 1.8} 中的整数 $d_x$ 称为 $X$ 在 $Y$ 上（或 $f$）于点 $x$ 处的\emph{虚相对维数}。
+
+所以，$X$ 在 $Y$ 上的虚相对维数是 $X$ 上的一个局部常值整数值函数，可正可负。若 $f$ 是相对维数为 $n$ 的光滑态射，则其虚相对维数为 $n$。若 $f$ 是余维数为 $n$ 的正则浸入，则其虚相对维数为 $-n$。
+
+\sgaStableTarget{sga6.e08.prop.1-10}\textbf{命题 1.10.} 设 $f:X\to Y$ 和 $g:Y\to Z$ 是两个完全交态射，$x\in X$。则
+\[
+\operatorname{dim.rel.virt.}_x(gf)=
+\operatorname{dim.rel.virt.}_x(f)+
+\operatorname{dim.rel.virt.}_{f(x)}(g).
+\]
+这立即由 \hyperlink{sga6.e08.def.1-9}{1.9} 和 1.5 的证明得到。
+
+\sgaStableTarget{sga6.e08.sec.2}\subsection*{2. 相对余切复形}
+
+\sgaStableTarget{sga6.e08.para.2-1}\textbf{2.1.} 这里给出的余切复形的定义虽然不具有最大的普遍性（参见\hyperlink{sga6.e00.sec.4.4}{第 0 讲，4.4}），但足以满足 Riemann--Roch 定理的需要。当然，\hyperlink{sga6.e00.expose}{第 0 讲}的定义在其所考虑的情形下与这里的定义相同。
+
+设 $f:X\to Y$ 是可光滑化态射，即有一个分解
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+X \arrow[r,"i"] \arrow[dr,"f"'] & V \arrow[d,"g"]\\
+& Y,
+\end{tikzcd}
+\]
+其中 $g$ 光滑，$i$ 是浸入，可以假设为闭浸入。设 $J$ 是 $X$ 在 $V$ 中的理想。典范导子
+\[
+d:\mathcal O_V\longrightarrow\Omega^1_{V/Y}
+\]
+定义同态
+\[
+J\longrightarrow\mathcal O_V\xrightarrow{d}\Omega^1_{V/Y}\longrightarrow
+\Omega^1_{V/Y}\otimes_{\mathcal O_V}\mathcal O_X
+\]
+它在 $J^2$ 上为零，因而定义仍记为 $d$ 的同态
+\sgaStableTarget{sga6.e08.eq.2-1-1}\begin{equation}\tag{2.1.1}
+J/J^2\xrightarrow{d} i^*(\Omega^1_{V/Y}).
+\end{equation}
+容易验证，此同态为 $\mathcal O_X$-线性的。令
+\[
+L^{X/Y}_0=i^*(\Omega^1_{V/Y}),\qquad
+L^{X/Y}_1=J/J^2,
+\qquad
+L^{X/Y}_i=0\quad(i\neq 0,1),
+\]
+并取 \hyperlink{sga6.e08.eq.2-1-1}{(2.1.1)} 为 $L^{X/Y}_1\to L^{X/Y}_0$ 的同态，从而定义链复形 $L^{X/Y}_\bullet$。
+
+\sgaStableTarget{sga6.e08.prop.2-2}\textbf{命题 2.2.} 复形 $L^{X/Y}_\bullet$ 在导出范畴 $D(X)$ 中精确到典范同构，与所选的通过光滑 $Y$-概形的分解无关。
+
+设 $V,V'$ 是 $f$ 所通过的两个光滑 $Y$-概形。令 $V''=V\times_Y V'$。则 $V''$ 在 $Y$ 上光滑，也在 $V,V'$ 上光滑。此外，浸入 $X\to V$ 和 $X\to V'$ 定义一个给出 $f$ 的分解的浸入 $X\to V''$。因此，只需比较两个通过光滑 $Y$-概形 $V,V'$ 的分解所附带的复形 $L^{X/Y}_\bullet$，且可假设存在 $Y$ 上的交换图
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+& V' \arrow[d,"p"]\\
+X \arrow[ur,"j"] \arrow[r,"i"'] & V,
+\end{tikzcd}
+\]
+其中 $i,j$ 是闭浸入，$p$ 光滑。函子性给出同态
+\[
+I/I^2\longrightarrow J/J^2,
+\qquad
+p^*(\Omega^1_{V/Y})\longrightarrow\Omega^1_{V'/Y},
+\]
+从而给出图
+\sgaStableTarget{sga6.e08.eq.2-2-1}\begin{equation}\tag{2.2.1}
+\begin{tikzcd}[column sep=large,row sep=large]
+I/I^2 \arrow[r] \arrow[d,"d"'] & J/J^2 \arrow[d,"d"]\\
+i^*(\Omega^1_{V/Y}) \arrow[r] & j^*(\Omega^1_{V'/Y}).
+\end{tikzcd}
+\end{equation}
+由于 $V,V'$ 在 $Y$ 上光滑，得到正合列
+\[
+0\longrightarrow p^*(\Omega^1_{V/Y})\longrightarrow\Omega^1_{V'/Y}
+\longrightarrow\Omega^1_{V'/V}\longrightarrow0.
+\]
+所考虑的微分模都是局部自由的，故应用函子 $j^*$，得到正合列
+\sgaStableTarget{sga6.e08.eq.2-2-2}\begin{equation}\tag{2.2.2}
+0\longrightarrow i^*(\Omega^1_{V/Y})\longrightarrow j^*(\Omega^1_{V'/Y})
+\longrightarrow j^*(\Omega^1_{V'/V})\longrightarrow0.
+\end{equation}
+此外，$j$ 定义 $X'=V'\times_V X$ 的一个截面 $j'$：
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+X' \arrow[r,"i'"] \arrow[d,"p'"'] & V' \arrow[d,"p"]\\
+X \arrow[r,"i"'] \arrow[ur,"j"] & V .
+\end{tikzcd}
+\]
+% SGA-SRC-001513
+设 $I,J,K$ 是分别定义 $i,j,j'$ 的理想。则 $j=i'j'$，浸入 $j'$ 正则；又因 $p$ 平坦，$i'$ 由理想 $p^*(I)$ 定义，其余法层因而为
+\[
+i'^*(p^*(I))=p'^*(I/I^2).
+\]
+得到正合列
+\sgaStableTarget{sga6.e08.eq.2-2-3}\begin{equation}\tag{2.2.3}
+0\longrightarrow I/I^2\longrightarrow J/J^2\longrightarrow K/K^2\longrightarrow0.
+\end{equation}
+我们将证明：(a) 图 \hyperlink{sga6.e08.eq.2-2-1}{(2.2.1)} 交换；这给出一个从 $V$ 定义的复形 $L^{X/Y}_\bullet$ 到 $V'$ 定义的复形 $L^{X/Y}_\bullet$ 的复形同态 $\theta$；(b) 由 \hyperlink{sga6.e08.eq.2-2-2}{(2.2.2)}、\hyperlink{sga6.e08.eq.2-2-3}{(2.2.3)} 和 \hyperlink{sga6.e08.eq.2-2-1}{(2.2.1)} 定义的同态
+\[
+K/K^2\longrightarrow j^*(\Omega^1_{V'/V})
+\]
+是同构。这将蕴涵 $\theta$ 的映射锥无环，从而 $\theta$ 是拟同构，因而在导出范畴中定义同构。
+
+性质 (a)、(b) 在 $X$ 上是局部的。所以可假设 $X,Y,V,V'$ 仿射。令 $Y=\Spec(A)$，$V=\Spec(B)$，$V'=\Spec(B')$，$X=\Spec(C)$，对相应的同态和理想保持同样的字母。有图
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+B\otimes_A B \arrow[r,"p\otimes p"] \arrow[d,"\Delta"'] & B'\otimes_A B' \arrow[d,"\Delta"] & B'\otimes_B B' \arrow[l] \arrow[d]\\
+B \arrow[r,"p"] \arrow[dr,"i"'] & B' \arrow[d,"j"] & B'\otimes_B C = B'/IB' \arrow[dl,"p'" ]\\
+{} & C & {}
+\end{tikzcd}
+\]
+其中所显示的左、右两个方块分别记为 (1)、(2)。
+同态 $I/I^2\to J/J^2$ 由同态 $IB'\to J$ 导出，与由 $p:I\to J$ 导出的同态相同；同态
+\[
+i^*(\Omega^1_{V/Y})\longrightarrow j^*(\Omega^1_{V'/Y})
+\]
+由交换方块 (1) 导出。所以性质 (a) 显然。
+
+(b) 中所考虑的同态 $K/K^2\to j^*(\Omega^1_{V'/V})$ 可如下定义。设 $\overline x\in K/K^2$，取 $J$ 中提升 $\overline x$ 的元素 $x$（由 $K=J/IB'$，这样的元素存在）。把 $\overline x$ 送到 $x$ 在复合
+\[
+J\xrightarrow{d}\Omega^1_{B'/A}\otimes_{B'}C
+\longrightarrow\Omega^1_{B'/B}\otimes_{B'}C.
+\]
+下的像。另一方面，设 $H$ 是增广
+\[
+B'\otimes_B B'\longrightarrow B'.
+\]
+的理想。交换方块 (2) 给出同态 $H\to K$，从而给出同态
+\[
+H/H^2\otimes_{B'}C\longrightarrow K/K^2.
+\]
+但 $H/H^2=\Omega^1_{B'/B}$。只需验证如此构造的两个同态互逆，这可直接完成。
+
+\sgaStableTarget{sga6.e08.def.2-3}\textbf{定义 2.3.} 设 $f:X\to Y$ 是可光滑化态射。在导出范畴 $D(X)$ 中精确到典范同构所定义的复形 $L^{X/Y}_\bullet$，称为 $X$ 在 $Y$ 上（或 $f$）的\emph{相对余切复形}。
+
+\sgaStableTarget{sga6.e08.prop.2-4}\textbf{命题 2.4.} 设 $f:X\to Y$ 是可光滑化的完全交态射。则 $L^{X/Y}_\bullet$ 完美。更确切地，对 $f$ 的每个分解，只要它分解为一个浸入与一个光滑态射的复合，\hyperlink{sga6.e08.para.2-1}{2.1} 中定义的复形 $L^{X/Y}_\bullet$ 就是严格完美的。
+
+设 $f=g i$，其中 $g$ 光滑，$i$ 是浸入。由 \hyperlink{sga6.e08.prop.1-2}{1.2}，$i$ 是正则浸入。若 $J$ 是定义 $i$ 的理想，则 $J/J^2$ 是有限型局部自由 $\mathcal O_X$-模。同样，由于 $g:V\to Y$ 光滑，$i^*(\Omega^1_{V/Y})$ 有限型局部自由。这就证明了 2.4。
+
+\sgaStableTarget{sga6.e08.cor.2-5}\textbf{推论 2.5.} 设 $f:X\to Y$ 是可光滑化的完全交态射，$f=gi$ 是通过某个光滑 $Y$-概形 $V$ 的分解。设 $J$ 是 $\mathcal O_V$ 中定义 $i$ 的理想。若 $K^{\bullet}(X)$ 表示有限型局部自由 $\mathcal O_X$-模的 Grothendieck 群（或 $X$ 上完美复形的 Grothendieck 群），则由
+\[
+T_f=\operatorname{cl}(i^*\Omega^1_{V/Y})-\operatorname{cl}(J/J^2)
+\]
+或分别由
+\[
+T_f=\operatorname{cl}(L^{X/Y}_\bullet)
+\]
+定义的元素 $T_f\in K^{\bullet}(X)$ 与 $f$ 的所选分解无关。$T_f$ 的增广在 $X$ 的点 $x$ 处的值，恰好是 $X$ 在 $Y$ 上于 $x$ 处的虚相对维数 \hyperlink{sga6.e08.def.1-9}{(1.9)}。
+
+由 \hyperlink{sga6.e08.prop.2-4}{2.4}，元素 $T_f$ 在两种情形下都有定义；第二种情形由 \hyperlink{sga6.e08.prop.2-2}{2.2}，第一种情形由 \hyperlink{sga6.e08.prop.2-2}{2.2} 的证明，可知它在 $K^{\bullet}(X)$ 中的类与分解无关。最后的断言显然。
+
+\sgaStableTarget{sga6.e08.prop.2-6}\textbf{命题 2.6.} 设 $f:X\to Y$ 和 $g:Y\to Z$ 是两个可光滑化的完全交态射，并进一步假设满足下述条件：
+
+(G) 存在给出 $f$ 的分解的光滑 $Y$-概形 $V$，使对每个到光滑 $Z$-概形的闭浸入 $Y\to V'$，都可找到光滑 $V'$-概形 $V''$，使
+\[
+V \simeq V''\times_{V'}Y.
+\]
+特别地，若 $f$ 拟射影且 $Y$ 有丰沛层，取 $V$ 为某个 $\mathbb P^r_Y$，此条件便成立。
+
+则 $gf$ 是可光滑化的完全交态射，而且在导出范畴中有可区别三角形
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+& L^{X/Y}_\bullet \arrow[dl] \\
+f^*L^{Y/Z}_\bullet \arrow[rr] && L^{X/Z}_\bullet \arrow[ul]
+\end{tikzcd}
+\]
+
+
+设 $V'$ 是给出 $g$ 的分解的光滑 $Z$-概形。考虑交换图
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+X \arrow[r,"i"] \arrow[dr,"f"'] & V \arrow[r,"j'"] \arrow[d,"p"] & V'' \arrow[d,"p''"]\\
+& Y \arrow[r,"j"] \arrow[dr,"g"'] & V' \arrow[d,"p'"]\\
+& & Z .
+\end{tikzcd}
+\]
+则浸入 $j'$ 正则，因为它由 $j$ 经平坦基变换得到。因此，$j'i$ 是给出 $gf$ 的分解的正则浸入，所以 $gf$ 可光滑化且为完全交。此外，有余法层的正合列
+\[
+0\longrightarrow i^*(J'/J'^2)\longrightarrow K/K^2\longrightarrow I/I^2\longrightarrow0,
+\]
+其中 $I,J,J',K$ 分别表示定义浸入 $i,j,j',j'i$ 的层。由于 $p''$ 平坦，$J'=p''^*(J)$，此序列可写成
+\sgaStableTarget{sga6.e08.eq.2-6-1}\begin{equation}\tag{2.6.1}
+0\longrightarrow f^*(J/J^2)\longrightarrow K/K^2\longrightarrow I/I^2\longrightarrow0.
+\end{equation}
+此外，由于 $V',V''$ 在 $Z$ 上光滑，有正合列
+\[
+0\longrightarrow p''^*(\Omega^1_{V'/Z})\longrightarrow\Omega^1_{V''/Z}\longrightarrow\Omega^1_{V''/V'}\longrightarrow0.
+\]
+应用 $(j'i)^*$，得到正合列
+\[
+0\longrightarrow (p''ji)^*(\Omega^1_{V'/Z})\longrightarrow (j'i)^*(\Omega^1_{V''/Z})\longrightarrow (j'i)^*(\Omega^1_{V''/V'})\longrightarrow0.
+\]
+由假设 (G)，
+\[
+j'^*(\Omega^1_{V''/V'})=\Omega^1_{V/Y}
+\]
+所以得到
+\sgaStableTarget{sga6.e08.eq.2-6-2}\begin{equation}\tag{2.6.2}
+0\longrightarrow f^*(j^*\Omega^1_{V'/Z})\longrightarrow (j'i)^*(\Omega^1_{V''/Z})\longrightarrow i^*(\Omega^1_{V/Y})\longrightarrow0.
+\end{equation}
+结合 \hyperlink{sga6.e08.eq.2-6-1}{(2.6.1)} 与 \hyperlink{sga6.e08.eq.2-6-2}{(2.6.2)}，只需验证图
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+0 \arrow[r] & f^*(J/J^2) \arrow[r] \arrow[d,"f^*(d)"'] & K/K^2 \arrow[r] \arrow[d,"d"] & I/I^2 \arrow[r] \arrow[d,"d"] & 0\\
+0 \arrow[r] & f^*(j^*\Omega^1_{V'/Z}) \arrow[r] & (j'i)^*\Omega^1_{V''/Z} \arrow[r] & i^*\Omega^1_{V/Y} \arrow[r] & 0
+\end{tikzcd}
+\]
+交换。回到各同态的定义，在局部验证这一点并无困难。所述的可区别三角形便由所得的复形正合列得到。
+
+\sgaStableTarget{sga6.e08.cor.2-7}\textbf{推论 2.7.} 在 \hyperlink{sga6.e08.prop.2-6}{2.6} 的记号和假设下，$K^{\bullet}(X)$ 中有等式
+\[
+T_{gf}=T_f+f^*(T_g).
+\]
+
+\sgaStableTarget{sga6.e08.sec.3}\subsection*{3. Riemann--Roch 定理的陈述}
+
+\sgaStableTarget{sga6.e08.para.3-1}\textbf{3.1.} 在本节中，$Y$ 是有丰沛层的拟紧概形。
+
+设 $f:X\to Y$ 是射影完全交态射 \hyperlink{sga6.e08.def.1-1}{(1.1)}；再假设 $f$ 的虚相对维数 \hyperlink{sga6.e08.def.1-9}{(1.9)} 在 $X$ 上为常数。由于 $f$ 射影，存在闭浸入 $X\to P$，其中 $P$ 是 $Y$ 上的射影丛；由于 $Y$ 有丰沛层，可以假设 $P=\mathbb P^r_Y$。因此有分解
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+X \arrow[r,"i"] \arrow[dr,"f"'] & \mathbb P^r_Y \arrow[d,"g"]\\
+& Y.
+\end{tikzcd}
+\]
+由于 $f$ 是完全交，浸入 $i$ 正则 \hyperlink{sga6.e08.prop.1-2}{(1.2)}。
+
+由 \hyperlink{sga6.e08.prop.1-7}{1.7}，$f$ 是完美态射。此外，$Y$ 有丰沛层，所以 $X,P$ 也有丰沛层。因此可以定义加法同态
+\[
+f_*:K^{\bullet}(X)\longrightarrow K^{\bullet}(Y)
+\]
+（\hyperlink{sga6.e04.para.2-12}{IV 2.12}），此时以有限型局部自由层或以完美复形定义的 $K^{\bullet}$ 群相同。也可以定义加法同态
+\[
+i_*:K^{\bullet}(X)\longrightarrow K^{\bullet}(P),
+\qquad
+ g_*:K^{\bullet}(P)\longrightarrow K^{\bullet}(Y),
+\]
+且有 $f_*=g_*i_*$。
+
+设 $d$ 是 $X$ 在 $Y$ 上的虚相对维数。则 $i$ 的余维数为 $r-d$。由 \hyperlink{sga6.e07.thm.4-6}{VII 4.6}，与 $\mathbb Q$ 张量后，同态 $i_*$ 给出包含关系
+\[
+i_*\bigl(\Fil^kK^{\bullet}(X)_{\mathbb Q}\bigr)
+\subset
+\Fil^{k+r-d}K^{\bullet}(P)_{\mathbb Q}.
+\]
+由 \hyperlink{sga6.e06.cor.5-8}{VI 5.8}，同态 $g_*$ 给出包含关系
+\[
+g_*\bigl(\Fil^{k'}K^{\bullet}(P)\bigr)
+\subset
+\Fil^{k'-r}K^{\bullet}(Y).
+\]
+复合后，得到下述结论。
+
+\sgaStableTarget{sga6.e08.prop.3-2}\textbf{命题 3.2.} 设 $f:X\to Y$ 是虚相对维数 $d$ 为常数的射影完全交态射。假设 $Y$ 拟紧且有丰沛层。则对每个 $k\in\mathbb Z$，
+\[
+f_*\bigl(\Fil^kK^{\bullet}(X)_{\mathbb Q}\bigr)
+\subset
+\Fil^{k-d}K^{\bullet}(Y)_{\mathbb Q}.
+\]
+因此得到加法同态
+\[
+f^{\mathrm{gr}}_*:\Gr K^{\bullet}(X)_{\mathbb Q}\longrightarrow
+\Gr K^{\bullet}(Y)_{\mathbb Q}
+\]
+它把 $\Gr^kK^{\bullet}(X)_{\mathbb Q}$ 送到 $\Gr^{k-d}K^{\bullet}(Y)_{\mathbb Q}$。
+
+\sgaStableTarget{sga6.e08.para.3-3}\textbf{3.3.} 回顾一下，在 \hyperlink{sga6.e05.para.6-1}{V 6.1} 中，我们定义了函子
+\[
+A\longmapsto \operatorname{Ch}(A)
+\]
+从分次 $K$-代数范畴到增广 $K$-$\lambda$-代数范畴，其中 $K$ 是二项式环（\hyperlink{sga6.e05.def.2-7}{V 2.7}）。若 $A$ 是分次 $K$-代数，则
+\[
+\operatorname{Ch}(A)=K\times(1+\widehat A^+).
+\]
+对每个增广 $K$-$\lambda$-代数 $\Lambda$，我们定义了一个称为完备 Chern 类的 $K$-$\lambda$-同态（\hyperlink{sga6.e05.para.6-7}{V 6.7}）
+\[
+\widetilde c=(\varepsilon,c):\Lambda\longrightarrow\operatorname{Ch}(\Gr_{\Lambda}).
+\]
+最后，定义了一个关于 $A$ 具有函子性的环同态，称为 Chern 特征标（\hyperlink{sga6.e05.def.6-4}{V 6.4}），
+\[
+\ch:\operatorname{Ch}(A)\longrightarrow K\oplus\widehat A^+_{\mathbb Q},
+\]
+以及称为 Todd 特征标的群自同态（\hyperlink{sga6.e05.para.1-16}{V 1.16}）
+\[
+\Todd:1+\widehat A^+\longrightarrow 1+\widehat A^+.
+\]
+我们将把这些定义用于增广 $\lambda$-环 $K^{\bullet}(X)$ 和 $K^{\bullet}(Y)$；增广环 $H^0(X,\mathbb Z)$ 和 $H^0(Y,\mathbb Z)$ 是二项式环（\hyperlink{sga6.e05.ex.2-8}{V 2.8}）。为简化记号，对每个概形 $Z$ 和每个 $z\in K^{\bullet}(Z)$，写成
+\[
+\ch(z)=\ch(\widetilde c(z)),
+\qquad
+\Todd(z)=\Todd(c(z)).
+\]
+对每个分次代数 $A$，把群 $1+\widehat A^+$ 看作包含于 $\widehat A$ 中。最后，若 $f:A\to B$ 可加，并且精确到一个平移与分次相容，则从它导出的同态 $\widehat A\to\widehat B$ 仍记为 $f$。
+
+\sgaStableTarget{sga6.e08.para.3-4}\textbf{3.4.} 设 $X$ 是概形。对每个有限型局部自由 $\mathcal O_X$-模 $E$，用 $\check E$ 表示 $E$ 的对偶 $\check E$ 在 $K^{\bullet}(X)$ 中的类。显然，函数 $E\mapsto\check E$ 在有限型局部自由 $\mathcal O_X$-模范畴上可加，因而定义 $K^{\bullet}(X)$ 的自同态，记为 $x\mapsto\check x$。
+
+\sgaStableTarget{sga6.e08.prop.3-5}\textbf{命题 3.5.} 设 $X$ 是拟紧概形。则对所有 $x\in K^{\bullet}(X)$ 和所有 $i\geq0$，有
+\[
+c^i(\check x)=(-1)^i c^i(x).
+\]
+等价地，
+\[
+c_t(\check x)=c_{-t}(x),
+\qquad
+c_t(x)=\sum_{i\geq0}c^i(x)t^i.
+\]
+由可加性，可以假设 $x$ 是有限型局部自由 $\mathcal O_X$-模 $E$ 的类。此外，把 $X$ 换成 $E$ 的旗概形后，由于它在群 $\Gr K^{\bullet}$ 上给出单同态（\hyperlink{sga6.e06.cor.5-5}{VI 5.5}），可以假设 $E$ 可逆。则 $\check E=E^{-1}$，故 $\check x=x^{-1}$。
+
+当 $i,j\geq2$ 时，$c^i(\check x)$ 和 $c^j(x)$ 为零。因此只需证明
+\[
+c^1(x^{-1})=-c^1(x).
+\]
+而 $c^1(x)$ 是 $x-1$ 在 $\Gr^1K^{\bullet}(X)$ 中的类，$c^1(x^{-1})$ 则是 $x^{-1}-1$ 的类。等式
+\[
+x^{-1}-1=1-x+(x-1)(1-x^{-1})
+\]
+给出
+\[
+x^{-1}-1=1-x\pmod{\Fil^2K^{\bullet}(X)},
+\]
+由此即得结论。
+
+\sgaStableTarget{sga6.e08.thm.3-6}\textbf{定理 3.6（Riemann--Roch）.} 设 $f:X\to Y$ 是射影完全交态射 \hyperlink{sga6.e08.def.1-1}{(1.1)}，其虚相对维数 $d$ 为常数 \hyperlink{sga6.e08.def.1-9}{(1.9)}。假设 $Y$ 拟紧且有丰沛层。在 \hyperlink{sga6.e08.para.3-3}{3.3} 的记号下，对每个 $x\in K^{\bullet}(X)$，有
+\[
+\ch(f_*(x))=f^{\mathrm{gr}}_*\bigl(\ch(x)\Todd(\check T_f)\bigr),
+\]
+其中 $\check T_f$ 表示相对余切复形 $L^{X/Y}_\bullet$ 的类的对偶元素（\hyperlink{sga6.e08.cor.2-5}{2.5} 和 \hyperlink{sga6.e08.def.2-3}{2.3}）。
+
+换言之，图
+\[
+\begin{tikzcd}[column sep=huge,row sep=large]
+K^{\bullet}(X) \arrow[r,"\ch\circ\widetilde c"] \arrow[d,"f_*"'] & \Gr K^{\bullet}(X)_{\mathbb Q} \arrow[d,"x\mapsto f^{\mathrm{gr}}_*(x\Todd(\check T_f))"]\\
+K^{\bullet}(Y) \arrow[r,"\ch\circ\widetilde c"'] & \Gr K^{\bullet}(Y)_{\mathbb Q}
+\end{tikzcd}
+\]
+交换。
+
+
+
+\sgaStableTarget{sga6.e08.continuation-of-the-proof-of-theorem-3-6}\subsection*{定理 3.6 的证明（续）}
+
+\hyperlink{sga6.e08.thm.3-6}{定理 3.6} 的证明将占据本讲的余下部分。先给出若干准备。
+
+\sgaStableTarget{sga6.e08.prop.3-7}\textbf{命题 3.7.} 对任意
+\[
+x\in \Gr K^{\bullet}(X)_{\mathbb Q},\qquad
+y\in \Gr K^{\bullet}(Y)_{\mathbb Q},
+\]
+有
+\[
+ f^{\mathrm{gr}}_*\bigl(x\cdot f^{\mathrm{gr}}(y)\bigr)
+ =
+ f^{\mathrm{gr}}_*(x)\,y .
+\]
+
+由可加性，可假设 \(x,y\) 齐次；设
+\[
+x\in \Gr^iK^{\bullet}(X)_{\mathbb Q},\qquad
+y\in \Gr^jK^{\bullet}(Y)_{\mathbb Q}.
+\]
+取
+\[
+x'\in \Fil^iK^{\bullet}(X)_{\mathbb Q},\qquad
+y'\in \Fil^jK^{\bullet}(Y)_{\mathbb Q}
+\]
+分别提升 \(x,y\)。则投影公式给出
+\[
+ f_*\bigl(x'\cdot f^*(y')\bigr)=f_*(x')\,y'.
+\]
+由 \hyperlink{sga6.e08.prop.3-2}{3.2}，此等式成立于
+\(\Fil^{i+j-d}K^{\bullet}(Y)_{\mathbb Q}\) 中。由此推出
+\(\Gr^{i+j-d}K^{\bullet}(Y)_{\mathbb Q}\) 中的等式，立即可验证这就是所需的等式。
+
+\sgaStableTarget{sga6.e08.lem.3-8}\textbf{引理 3.8.} 设 \(f:X\to Y\) 和 \(g:Y\to Z\) 是两个满足 3.6 的假设的态射。则 \(g\circ f\) 也满足这些假设。若 \(x\) 是 \(K^{\bullet}(X)\) 的元素，\(f\) 对元素 \(x\) 满足 \hyperlink{sga6.e08.thm.3-6}{3.6}，且 \(g\) 对元素 \(f_*(x)\) 满足 \hyperlink{sga6.e08.thm.3-6}{3.6}，则 \(g\circ f\) 对元素 \(x\) 也满足它。
+
+由假设，
+\sgaStableTarget{sga6.e08.eq.3-8-1}\begin{equation}\tag{3.8.1}
+ \ch(f_*(x))=
+ f^{\mathrm{gr}}_*\bigl(\ch(x)\Todd(\check T_f)\bigr),
+\end{equation}
+以及
+\sgaStableTarget{sga6.e08.eq.3-8-2}\begin{equation}\tag{3.8.2}
+ \ch(g_*(f_*(x)))=
+ g^{\mathrm{gr}}_*\bigl(\ch(f_*(x))\Todd(\check T_g)\bigr).
+\end{equation}
+结合 \hyperlink{sga6.e08.eq.3-8-1}{(3.8.1)} 与 \hyperlink{sga6.e08.eq.3-8-2}{(3.8.2)}，得到
+\[
+\ch(g_*(f_*(x)))=
+g^{\mathrm{gr}}_*\!\left(
+ f^{\mathrm{gr}}_*\bigl(\ch(x)\Todd(\check T_f)\bigr)\cdot \Todd(\check T_g)
+\right).
+\]
+应用 \hyperlink{sga6.e08.prop.3-7}{3.7}，得到
+\[
+\ch(g_*(f_*(x)))=
+g^{\mathrm{gr}}_*\!\left(
+ f^{\mathrm{gr}}_*\bigl(\ch(x)\Todd(\check T_f)\cdot
+ f^{\mathrm{gr}}(\Todd(\check T_g))\bigr)
+\right).
+\]
+\(c\) 和 \(\Todd\) 的函子性蕴涵
+\[
+ f^{\mathrm{gr}}(\Todd(\check T_g))=\Todd(f^*(\check T_g)).
+\]
+由 \hyperlink{sga6.e08.cor.2-7}{2.7}，
+\[
+ \check T_{g\circ f}=\check T_f+f^*(\check T_g).
+\]
+因此，Todd 特征标的乘法性给出
+\[
+ \Todd(\check T_f)\,f^{\mathrm{gr}}(\Todd(\check T_g))
+ =
+ \Todd(\check T_{g\circ f}).
+\]
+Thus finally
+\[
+ \ch(g_*(f_*(x)))=
+ g^{\mathrm{gr}}_* f^{\mathrm{gr}}_*\bigl(\ch(x)\Todd(\check T_{g\circ f})\bigr),
+\]
+这就是所述结果。
+
+\sgaStableTarget{sga6.e08.para.3-9}\textbf{3.9.} 对 \hyperlink{sga6.e08.para.3-1}{3.1} 中给出的 \(f\) 的分解应用 \hyperlink{sga6.e08.lem.3-8}{3.8}，可以看到，为证明 Riemann--Roch 定理，只需在常余维数的正则浸入的情形，以及结构态射
+\[
+ \mathbb P^r_Y\longrightarrow Y .
+\]
+的情形下证明。此外，可假设浸入 \(i\) 满足 \hyperlink{sga6.e07.lem.4-1}{VII 4.1} 的条件。事实上，设 \(s\) 是 \hyperlink{sga6.e07.sec.4.2}{VII 4.2} 中引入的
+\[
+ \mathbb P^2_{\mathbb P^r_Y}
+\]
+的截面。则 \(s\circ i\) 是满足 \hyperlink{sga6.e07.lem.4-1}{VII 4.1} 的条件的正则浸入（\hyperlink{sga6.e07.sec.4.2}{VII 4.2}），且由 \hyperlink{sga6.e08.lem.3-8}{3.8}，只需对
+\[
+s\circ i,\qquad
+\mathbb P^2_{\mathbb P^r_Y}\longrightarrow\mathbb P^r_Y,\qquad
+\mathbb P^r_Y\longrightarrow Y .
+\]
+
+证明 \hyperlink{sga6.e08.thm.3-6}{3.6}。因此我们将通过证明如下两个特例，来证明 \hyperlink{sga6.e08.thm.3-6}{3.6}：
+\begin{enumerate}[label=\roman*)]
+\item \(f\) 是常余维数的正则浸入，满足 \hyperlink{sga6.e07.lem.4-1}{VII 4.1} 的条件；
+\item \(f\) 是结构态射 \(\mathbb P^r_Y\to Y\)。
+\end{enumerate}
+
+\sgaStableTarget{sga6.e08.sec.4}\section*{4. Riemann--Roch 定理：正则闭浸入的情形}
+
+\sgaStableTarget{sga6.e08.para.4-1}\textbf{4.1.} 设 \(i:Y\to X\) 是正则闭浸入。\(i\) 的 Riemann--Roch 定理本质上就是关系式 \hyperlink{sga6.e07.cor.4-4}{VII 4.4}，它使我们能由各 \(\gamma^p(N,x)\) 计算 \(i_*(x)\) 的 Chern 类。更确切地，若引入 \hyperlink{sga6.e05.para.5-5}{V 5.5} 定义的 \(\lambda\)-环 \(K^{\bullet}(Y)_{\mathbb Q N}\)，则由 \(i_*\) 导出的同态
+\[
+K^{\bullet}(Y)_{\mathbb Q N}\longrightarrow K^{\bullet}(X)_{\mathbb Q}
+\]
+由 \hyperlink{sga6.e07.cor.2-8}{VII 2.8} 和 \hyperlink{sga6.e07.thm.4-3}{VII 4.3} 可知是 \(\lambda\)-同态。于是 Riemann--Roch 定理归结为一个关于加法同态
+\[
+K^{\bullet}(Y)\longrightarrow K^{\bullet}(Y)_{\mathbb Q N}
+\]
+的类似公式，其中该同态由 \(y\mapsto(0,y)\) 定义；即归结为一个对每个 \(\lambda\)-环均成立的形式关系。为避免引入更多 \(\lambda\)-环形式理论，这里不展开此证明（参见 \(\RRR\)，I 1.5），而是回到 [1] 中使用爆破概形的方法。这也是证明 \hyperlink{sga6.e07.thm.4-3}{VII 4.3} 时所用的方法，以及 \(\RRR\) 末尾的方法。
+
+如 \hyperlink{sga6.e08.para.3-9}{3.9} 所述，可限于余维数为常数 \(d\)、满足 \hyperlink{sga6.e07.lem.4-1}{VII 4.1} 的正则浸入；一般正则浸入的情形再由 3.8 得到。本节沿用 \hyperlink{sga6.e07.para.3-1}{VII 3.1} 的记号。因此有笛卡尔方块
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+Y' \arrow[r,"j"] \arrow[d,"g"'] & X' \arrow[d,"f"]\\
+Y \arrow[r,"i"'] & X ,
+\end{tikzcd}
+\]
+其中 \(X'\) 是沿 \(Y\) 爆破所得的 \(X\)-概形。再假设 \(X\) 拟紧且有丰沛层。
+
+\sgaStableTarget{sga6.e08.prop.4-2}\textbf{命题 4.2.} 态射 \(f\) 射影，为完全交态射，且虚相对维数为零。此外，有关系
+\[
+ f^{\mathrm{gr}}_* f^{\mathrm{gr}}=\operatorname{Id}_{\Gr K^{\bullet}(X)_{\mathbb Q}} .
+\]
+第一个断言立即由 \hyperlink{sga6.e07.prop.1-8}{VII 1.8} 得到。第二个关系来自 \hyperlink{sga6.e07.prop.3-6}{VII 3.6} 中证明的关系
+\[
+ f_*f^*=\operatorname{Id}_{K^{\bullet}(X)}
+\]
+。
+
+\sgaStableTarget{sga6.e08.prop.4-3}\textbf{命题 4.3.} 对每个 \(y\in K^{\bullet}(Y)_{\mathbb Q}\)，有关系
+\[
+ f^{\mathrm{gr}}_* i^{\mathrm{gr}}_*(y)
+ =
+ j^{\mathrm{gr}}_*\bigl(g^{\mathrm{gr}}(y)\,c^{d-1}(\check F)\bigr),
+\]
+其中 \(c^{d-1}\) 表示第 \((d-1)\) 个 Chern 类。
+
+此关系包含在 \hyperlink{sga6.e07.thm.4-8}{VII 4.8} 中，因为它就是
+\[
+ v^{\mathrm{gr}}\circ u^{\mathrm{gr}}=0 .
+\]
+
+\sgaStableTarget{sga6.e08.prop.4-4}\textbf{命题 4.4.} 设 \(X\) 是拟紧概形。若 \(E\) 是 \(X\) 上的有限型局部自由层，在 \(K^{\bullet}(X)\) 中的类为 \(E\)，秩为 \(n\)，则
+\[
+ \ch(\lambda_{-1}(E))=c^n(\check E)\Todd(\check E)^{-1}.
+\]
+
+待证关系的两端都具有乘法性。对 \(\ch\circ\lambda_{-1}\) 和 \(\Todd\)，这是显然的；对 \(c^n\) 也是如此，它是 \((-1)^{\varepsilon(E)}\lambda_{-1}(\check E)\) 的类。因而过渡到 \(E\) 的旗丛后，可假设 \(E\) 是可逆层的类之和，并归结到对可逆层证明公式。设 \(\xi\) 是这种层的类。则
+\[
+ \ch(\lambda_{-1}(\xi))=\ch(1-\xi)=1-\ch(\xi).
+\]
+由于 \(\widetilde c(\xi)=(1,1+c^1(\xi))\)，由 \(\ch\) 的定义，
+\[
+ \ch(\lambda_{-1}(\xi))=1-\exp(c^1(\xi)).
+\]
+此外，\(\xi\) 的增广为 \(1\)；因而公式 \hyperlink{sga6.e08.prop.4-4}{4.4} 中对应于 \(\xi\) 的 Chern 类是 \(c^1\)。考虑到 \(\Todd\) 的定义及 \hyperlink{sga6.e08.prop.3-5}{3.5}，待证关系写成
+\[
+ 1-\exp(c^1(\xi))
+ =
+ -c^1(\xi)\left(\frac{-c^1(\xi)}{1-\exp(c^1(\xi))}\right)^{-1},
+\]
+所以此关系成立。
+
+\sgaStableTarget{sga6.e08.rem.4-4-1}\textbf{注 4.4.1.} 也可以由一个相应的纯代数命题推出 \hyperlink{sga6.e08.prop.4-4}{4.4}；参见 \(\RRR\)，\hyperlink{sga6.e01.sec.1.3}{I 1.3}。
+
+\sgaStableTarget{sga6.e08.para.4-5}\textbf{4.5.} 现在说明，为了证明本节所考虑情形下的 Riemann--Roch 定理，可以归结到 \(Y\) 是 \(X\) 的除子、且应用公式的元素是 \(K^{\bullet}(X)\) 中某个元素的逆像的情形。
+
+由 \hyperlink{sga6.e08.prop.3-2}{3.2}，待证公式
+\[
+ \ch(i_*(x))=
+ i^{\mathrm{gr}}_*\bigl(\ch(x)\Todd(\check T_i)\bigr),
+\]
+等价于公式
+\[
+ f^{\mathrm{gr}}\bigl(\ch(i_*(x))\bigr)
+ =
+ f^{\mathrm{gr}}i^{\mathrm{gr}}_*\bigl(\ch(x)\Todd(\check T_i)\bigr).
+\]
+考虑到 \(\ch\) 的函子性及 \hyperlink{sga6.e08.prop.4-3}{4.3}，还可将其写成
+\[
+ \ch\bigl(f^*(i_*(x))\bigr)
+ =
+ j^{\mathrm{gr}}_*\bigl(\ch(g^*(x))\Todd(g^*(\check T_i))\,c^{d-1}(\check F)\bigr),
+\]
+或由 \hyperlink{sga6.e07.prop.3-4}{VII 3.4} 写成
+\[
+ \ch\bigl(j_*(g^*(x)\lambda_{-1}(F))\bigr)
+ =
+ j^{\mathrm{gr}}_*\bigl(\ch(g^*(y))\Todd(g^*(\check T_i))\,c^{d-1}(\check F)\bigr).
+\]
+
+由定义，
+\[
+ T_i=-c^1(J/J^2)=-N,\qquad
+ T_j=-c^1(J'/J'^2)=-L.
+\]
+此外，正合列
+\[
+0\longrightarrow F\longrightarrow g^*(N)\longrightarrow \mathcal O_{Y'}(1)\longrightarrow0
+\]
+给出关系
+\[
+ g^*(T_i)=-(F+L),
+\]
+hence
+\[
+ \Todd(g^*(\check T_i))=\Todd(\check T_j)\Todd(\check F)^{-1}.
+\]
+考虑到 \hyperlink{sga6.e08.prop.4-4}{4.4}，待证关系因此写成
+\[
+ \ch\bigl(j_*(g^*(x)\lambda_{-1}(F))\bigr)
+ =
+ j^{\mathrm{gr}}_*\bigl(\ch(g^*(x)\lambda_{-1}(F))\Todd(\check T_j)\bigr).
+\]
+令
+\[
+z=g^*(x)\lambda_{-1}(F),
+\]
+此关系正是把 Riemann--Roch 定理应用于余维数为 \(1\) 的正则浸入 \(j\) 及元素 \(z\in K^{\bullet}(Y')\) 所得。
+
+此外，由于假设 \(i\) 满足 \hyperlink{sga6.e07.lem.4-1}{VII 4.1} 的条件，\(\lambda_{-1}(F)\) 可被 \(1-L\) 整除。因此可找到 \(z'\)，使 \(z=z'(1-L)\)，即
+\[
+ z=j^*(j_*(z'))
+\]
+（\hyperlink{sga6.e07.para.2-6}{第 VII 讲 2.7}）。因此归结到 \(Y\) 是除子、且对所考虑的元素 \(x\) 存在 \(y\) 使 \(x=i^*(y)\) 的情形。
+
+\sgaStableTarget{sga6.e08.para.4-6}\textbf{4.6.} 还需证明关系
+\[
+ \ch\bigl(i_*(i^*(y))\bigr)
+ =
+ i^{\mathrm{gr}}_*\bigl(\ch(i^*(y))\Todd(\check T_i)\bigr).
+\]
+投影公式给出
+\[
+ i_*(i^*(y))=y\,i_*(1),
+\]
+由正合列
+\[
+0\longrightarrow J\longrightarrow\mathcal O_X\longrightarrow\mathcal O_Y\longrightarrow0,
+\]
+（其中 \(J\) 在这里可逆），得到
+\[
+ i_*(1)=1-J.
+\]
+Thus
+\[
+ \ch(i_*(i^*(y)))=\ch(y)\,\ch(1-J).
+\]
+由于 \(J\) 可逆，有
+\[
+ \widetilde c(J)=(1,1+c^1(J)),\qquad \ch(J)=\exp(c^1(J)).
+\]
+因此
+\[
+ \ch(i_*(i^*(y)))=\ch(y)(1-\exp(c^1(J))).
+\]
+
+另一方面，\(\ch\) 的函子性及投影公式 \hyperlink{sga6.e08.prop.3-7}{3.7} 蕴涵
+\[
+ i^{\mathrm{gr}}_*\bigl(\ch(i^*(y))\Todd(\check T_i)\bigr)
+ =
+ \ch(y)\,i^{\mathrm{gr}}_*(\Todd(\check T_i)).
+\]
+Now
+\[
+T_i=-c^1(J/J^2)=-i^*(J).
+\]
+Hence
+\[
+ i^{\mathrm{gr}}_*(\Todd(\check T_i))
+ =
+ i^{\mathrm{gr}}_*\,i^{\mathrm{gr}}(\Todd(-\check J))
+ =
+ i^{\mathrm{gr}}_*(1)\Todd(-\check J).
+\]
+由于 \(i_*(1)=1-J\)，\(i^{\mathrm{gr}}_*(1)\) 是 \(1-J\) 在 \(\Gr^1K^{\bullet}(X)\) 中的像，所以等于 \(-c^1(J)\)。此外，
+\[
+ \Todd(-\check J)=\Todd(J)^{-1}
+ =
+ \frac{1-\exp(c^1(J))}{-c^1(J)}.
+\]
+Thus finally
+\[
+ i^{\mathrm{gr}}_*\bigl(\ch(i^*(y))\Todd(\check T_i)\bigr)
+ =
+ \ch(y)(1-\exp(c^1(J))),
+\]
+这就证明了待证关系。
+
+\sgaStableTarget{sga6.e08.sec.5}\section*{5. Riemann--Roch 定理：射影丛的结构态射的情形}
+
+\sgaStableTarget{sga6.e08.para.5-1}\textbf{5.1.} 由 \hyperlink{sga6.e08.para.3-9}{3.9}，为了证明 Riemann--Roch 定理，还需对结构态射
+\[
+f:\mathbb P^r_Y\longrightarrow Y,
+\]
+证明它，其中 \(Y\) 是有丰沛层的拟紧概形。令
+\[
+P=\mathbb P^r_Y,\qquad \xi=c^1(\mathcal O_P(1)),\qquad E=(\mathcal O_Y)^{r+1}.
+\]
+
+\sgaStableTarget{sga6.e08.prop.5-2}\textbf{命题 5.2.} 在 \(P\) 上有正合列
+\[
+0\longrightarrow\Omega^1_{P/Y}\longrightarrow f^*(E)(-1)\longrightarrow\mathcal O_P\longrightarrow0,
+\]
+即有同构
+\[
+\Omega^1_{P/Y}\simeq F(-1),
+\qquad
+F=\Ker\bigl(f^*(E)\longrightarrow\mathcal O_P(1)\bigr).
+\]
+
+考虑由 \(E\) 定义的 \(Y\) 上的向量丛，用 \(Z\) 表示该丛去掉零截面的补集。有交换图
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+P \arrow[d,"f"'] & Z \arrow[l,"h"'] \arrow[dl,"g"]\\
+Y &
+\end{tikzcd}
+\]
+态射 \(h\) 把 \(Z\) 等同为由代数层
+\[
+B=\bigoplus_{n\in\mathbb Z}\mathcal O_P(n);
+\]
+定义的仿射 \(P\)-概形；\(B\) 是分次 \(\mathcal O_P\)-代数。
+
+由于 \(f,g,h\) 都是光滑态射，可以写出相对微分层的正合列。由于 \(Z\) 在 \(P\) 上仿射，可以把此序列写成 \(B\)-模的序列；于是得到
+\sgaStableTarget{sga6.e08.eq.5-2-1}\begin{equation}\tag{5.2.1}
+0\longrightarrow
+ \Omega^1_{P/Y}\otimes_{\mathcal O_P}B
+\longrightarrow
+ \Omega^1_{B/Y}
+\longrightarrow
+ \Omega^1_{B/\mathcal O_P}
+\longrightarrow0 .
+\end{equation}
+此正合列是分次 \(B\)-模的正合列。事实上，它来自交换图
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+S(E) \arrow[rr] && \displaystyle\bigoplus_{n\in\mathbb Z}S(E)(n)\simeq S(E)[T,T^{-1}]\\
+& \mathcal O_X \arrow[ul] \arrow[ur] &
+\end{tikzcd}
+\]
+其中各箭头是代数同态，与 \(S(E)[T,T^{-1}]\) 的分次相容（分次由不定元 \(T\) 的次数给出），另外两个代数均视为集中于 \(0\) 次。
+
+微分模 \(\Omega^1_{B/\mathcal O_P}\) 同构于
+\[
+ B(-1)\otimes_{\mathcal O_P}\mathcal O_P(1),
+\]
+因为可以定义 \(S(E)\)-导子
+\[
+S(E)[T,T^{-1}]
+\longrightarrow
+S(E)[T,T^{-1}]\otimes_{S(E)}S(E)\,dT
+\]
+使其满足定义 \(\Omega^1_{B/\mathcal O_P}\) 的泛性质，方法是令
+\[
+ d(aT^n)=naT^{n-1}\otimes dT;
+\]
+此外，若把因子 \(S(E)\,dT\) 的次数定为 \(1\)，则 \(d\) 与分次相容。
+
+设 \(V\) 是 \(E\) 定义的 \(Y\) 上的向量丛。则 \(\Omega^1_{Z/Y}\) 是 \(\Omega^1_{V/Y}\) 在 \(Z\) 上的限制。而 \(V\) 是由 \(S(E)\) 定义的仿射 \(Y\)-概形，所以 \(\Omega^1_{V/Y}\) 由
+\[
+S(E)\otimes_{\mathcal O_Y}E
+\]
+（因为 \(E\) 有限型局部自由），因此 \(\Omega^1_{V/Y}\) 等于 \(g^*(E)\)。所以
+\[
+\Omega^1_{B/Y}=f^*(E)\otimes_{\mathcal O_P}B.
+\]
+定义。为看出其分次，在局部观察，立即可知 \(f^*(E)\) 必须视为次数为 \(1\)。在正合列 \hyperlink{sga6.e08.eq.5-2-1}{(5.2.1)} 中取 \(0\) 次项，就得到所述正合列。
+
+\sgaStableTarget{sga6.e08.rem.5-2-1}\textbf{注 5.2.1.} 利用关于 Hilbert 函子的微分研究的一般结果（[2], 5），从对每个 \(Y\)-态射 \(g:Y'\to P\) 所给出的 \(g^*(\Omega^1_{P/Y})\) 的函子性刻画，直接得到同构
+\[
+\Omega^1_{P/Y}\xrightarrow{\sim}F(-1)
+\]
+。
+
+\sgaStableTarget{sga6.e08.para.5-3}\textbf{5.3.} 由 \hyperlink{sga6.e08.prop.5-2}{5.2}，
+\[
+ T_f=c_1(\Omega^1_{P/Y})=f^*(E)\xi^{-1}-1.
+\]
+因此
+\[
+ \widetilde c(T_f)=\widetilde c(E)\,\widetilde c(\xi^{-1})-\widetilde c(1).
+\]
+由于 \(E=(\mathcal O_Y)^{r+1}\)，有 \(E=r+1\)，因此
+\[
+ \widetilde c(E)=(r+1,1).
+\]
+令
+\[
+ x=c^1_{\Gr^1K^{\bullet}(P)}(\xi-1)
+ =
+ c^1_{\Gr^1K^{\bullet}(P)}(1-\xi^{-1})
+ =
+ c^1(\xi).
+\]
+由于 \(\xi^{-1}=\check \xi\)，有
+\[
+ \widetilde c(\xi^{-1})=(1,1-x).
+\]
+由 \hyperlink{sga6.e05.eq.6-2-1}{V (6.2.1)}，推出
+\[
+ \widetilde c(T_f)=(r,(1-x)^{r+1}).
+\]
+考虑到 \hyperlink{sga6.e08.prop.3-5}{3.5}，最终得到
+\[
+ \widetilde c(\check T_f)=(r,(1+x)^{r+1}).
+\]
+因此，由 \(\Todd\) 的定义，
+\sgaStableTarget{sga6.e08.eq.5-3-1}\begin{equation}\tag{5.3.1}
+ \Todd(\check T_f)=
+ \left(\frac{x}{1-\exp(-x)}\right)^{r+1}.
+\end{equation}
+
+\sgaStableTarget{sga6.e08.para.5-4}\textbf{5.4.} 利用元素 \(\xi^k\)（\(-r\leq k\leq0\)）形成的 \(K^{\bullet}(P)\) 在 \(K^{\bullet}(Y)\) 上的基，由可加性可知，只需对形如
+\[
+ f^*(a)\xi^k .
+\]
+的元素证明定理。此时
+\[
+ \ch\bigl(f_*(f^*(a)\xi^k)\bigr)
+ =
+ \ch(a f_*(\xi^k))
+ =
+ \ch(a)\,\ch(f_*(\xi^k)).
+\]
+另一方面，
+\[
+\begin{aligned}
+ &f^{\mathrm{gr}}_*\bigl(\ch(f^*(a)\xi^k)\Todd(\check T_f)\bigr)\\
+ &\quad= f^{\mathrm{gr}}_*\bigl(f^{\mathrm{gr}}(\ch(a))\ch(\xi^k)\Todd(\check T_f)\bigr)\\
+ &\quad= \ch(a)\,f^{\mathrm{gr}}_*\bigl(\ch(\xi^k)\Todd(\check T_f)\bigr).
+\end{aligned}
+\]
+因此，只需对 \(\xi^k\)（\(-r\leq k\leq0\)）证明定理。由 \hyperlink{sga6.e06.sec.5.2}{VI (5.2.3)}，
+\[
+ f_*(\xi^k)=0\quad\text{当 }-r\leq k<0,\qquad f_*(1)=1.
+\]
+因此
+\sgaStableTarget{sga6.e08.eq.5-4-1}\begin{equation}\tag{5.4.1}
+ \ch(f_*(\xi^k))=0\quad\text{当 }-r\leq k<0,\qquad
+ \ch(f_*(1))=1.
+\end{equation}
+
+现在计算 Riemann--Roch 公式的第二端。对每个 \(k\)，由 \hyperlink{sga6.e05.eq.6-2-1}{V (6.2.1)}，有
+\[
+ \widetilde c(\xi^k)=(\widetilde c(\xi))^k=(1,1+x)^k=(1,1+kx)
+\]
+因此
+\sgaStableTarget{sga6.e08.eq.5-4-2}\begin{equation}\tag{5.4.2}
+ \ch(\xi^k)=\exp(kx).
+\end{equation}
+Riemann--Roch 公式的第二端为
+\sgaStableTarget{sga6.e08.eq.5-4-3}\begin{equation}\tag{5.4.3}
+ f^{\mathrm{gr}}_*\left(\exp(kx)\,
+ \frac{x^{r+1}}{(1-\exp(-x))^{r+1}}\right).
+\end{equation}
+由于 \(x\) 是 \(1-\xi^{-1}\) 在 \(\Gr^1K^{\bullet}(P)\) 中的类，对 \(0\leq n\leq r\)，\(f^{\mathrm{gr}}_*(x^n)\) 是 \(f_*((1-\xi^{-1})^n)=1\) 在
+\(\Gr^{n-r}K^{\bullet}(Y)\) 中的类。因此
+\sgaStableTarget{sga6.e08.eq.5-4-4}\begin{equation}\tag{5.4.4}
+ f^{\mathrm{gr}}_*(x^n)=0\quad\text{当 }0\leq n<r,\qquad
+ f^{\mathrm{gr}}_*(x^r)=1.
+\end{equation}
+最后，回顾一下，元素
+\[
+1,x,\ldots,x^{r+1}
+\]
+在 \(\Gr K^{\bullet}(Y)\) 上线性相关（\hyperlink{sga6.e06.cor.5-6}{VI 5.6}），并满足方程
+\sgaStableTarget{sga6.e08.eq.5-4-5}\begin{equation}\tag{5.4.5}
+ x^{r+1}=0,
+\end{equation}
+而 \(1,\ldots,x^r\) 在 \(\Gr K^{\bullet}(Y)\) 上线性无关。
+
+所以可将级数
+\[
+\varphi_k=\exp(kx)\,
+\frac{x^{r+1}}{(1-\exp(-x))^{r+1}}
+\]
+唯一地写成元素 \(1,\ldots,x^r\) 的线性组合，系数属于
+\(\Gr K^{\bullet}(Y)_{\mathbb Q}\)。由 \hyperlink{sga6.e08.eq.5-4-4}{(5.4.4)} 和 \hyperlink{sga6.e08.prop.3-7}{3.7}，\(\varphi_k\) 在 \(f^{\mathrm{gr}}_*\) 下的像，就是其 \(x^r\) 的系数。考虑到 \hyperlink{sga6.e08.eq.5-4-1}{(5.4.1)}，\(f\) 的 Riemann--Roch 定理因而等价于
+\sgaStableTarget{sga6.e08.eq.rr}\[
+\left\{
+\begin{array}{ll}
+\text{当 }-r\leq k<0\text{ 时，}\varphi_k\text{ 中 }x^r\text{ 的系数为 }0,\\
+\text{当 }k=0\text{ 时，}\varphi_k\text{ 中 }x^r\text{ 的系数为 }1.
+\end{array}
+\right.
+\tag{RR}
+\]
+此系数是微分形式
+\[
+ \frac{\exp(kx)\,dx}{(1-\exp(-x))^{r+1}}.
+\]
+的留数。令 \(y=1-\exp(-x)\)，便归结到计算
+\[
+ \frac{(1-y)^{-k-1}\,dy}{y^{r+1}},
+\]
+的留数，即 \((1-y)^{-k-1}\) 中 \(y^r\) 的系数。对 \(-r\leq k<0\)，它为零；对 \(k=0\)，它为 \(1\)。
+
+这就完成了 Riemann--Roch 定理的证明。
+
+\sgaStableTarget{sga6.e08.bibliography}\subsection*{参考文献}
+\begin{enumerate}[label={[\arabic*]}]
+\item A. Borel and J.-P. Serre, \emph{Le théorème de Riemann--Roch}, Bull. Soc. Math. de France, t. 86, 1958.
+\item A. Grothendieck, \emph{Techniques de construction et théorèmes d'existence en Géométrie Algébrique}, Sém. Bourbaki, 1960--61.
+\end{enumerate}
+
+
+

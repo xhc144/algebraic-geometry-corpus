@@ -1,0 +1,536 @@
+% Section 9.5: source PDF 287--302, printed pp.275--290.
+% PDF 287 begins with the end of section 9.4; excluded here by design.
+\section{单位元的连通分支}\label{ch09s05}
+% Source PDF 287, printed 275, from heading 9.5 onward.
+在讨论过 Picard 概形 $\mathbf{Pic}_{X/S}$ 的存在性之后, 现在转向其结构. 本节研究当 $s\in S$ 时, 单位元的连通分支 $\mathbf{Pic}^0_{X_s/k_s}$ 的并 $\mathbf{Pic}^0_{X/S}$. 我们建立若干基本性质, 特别讨论 $S$ 为域的谱的情形.
+
+令人瞩目的是, 仅凭一般原理, 就能形式地或近乎形式地证明 $\mathbf{Pic}^0_{X/S}$ 的许多性质. 特别地, 可以不使用下一节证明的有限性定理. 为强调论证的形式性质及相应的一般性, 大多数结果均在 $\mathbf{Pic}_{X/S}$ 存在这一一般假设下陈述, 而不列出保证其存在的具体假设.
+
+\begin{origstatement}{引理}{9.5.1}\label{ch09s05:lem9.5.1}
+设 $k$ 为域, $G$ 为局部有限型群概形. 令 $G^0$ 表示单位元 $e$ 的连通分支.
+\begin{enumerate}
+\item[(1)] $G$ 分离.
+\item[(2)] 若 $G$ 有一个几何约化的开子概形, 则 $G$ 光滑.
+\item[(3)] $G^0$ 为有限型的开闭群子概形; 它几何不可约, 且其形成与扩张 $k$ 相容.
+\end{enumerate}
+\end{origstatement}
+\begin{proof}
+因为 $e$ 为 $k$ 点, 它是闭点. 在 $T$ 值点上通过 $\alpha(g,h):=gh^{-1}$ 定义映射 $\alpha:G\times G\to G$. 则 $\alpha^{-1}e\subset G\times G$ 为闭子概形. 它的 $T$ 值点恰好为 $g\in G(T)$ 对应的二元组 $(g,g)$, 所以 $\alpha^{-1}e$ 是对角线. 因而 (1) 成立.
+
+假设 $G$ 有一个几何约化的开子概形 $V$. 为证明 $G$ 光滑, 可以将 $k$ 替换为其代数闭包. 此时 $V$ 包含非空光滑开子概形 $W$. 此外, 给定任意两个闭点 $g,h\in G$, 存在把 $g$ 变为 $h$ 的 $G$ 的自同构, 即乘以 $g^{-1}h$. 取 $g\in W$, 可得 $G$ 在 $h$ 处光滑. 所以 (2) 成立.
+
+考虑 (3). 按定义, $G^0$ 为包含 $e$ 的最大连通子空间. 但连通子空间的闭包显然连通, 所以 $G^0$ 闭. 由 [EGAI, 6.1.9], 任意局部 Noether 拓扑空间的连通分支均为开集. 因而 $G^0$ 也是开集.
+
+因为 $G^0$ 连通且有一个 $k$ 点, 由 [EGAIV2, 4.5.14], $G^0$ 几何连通. 因而 $G^0$ 的形成与扩张 $k$ 相容.
+
+此外, 由 [EGAIV2, 4.5.8], $G^0\times G^0$ 连通. 因而 $\alpha(G^0\times G^0)\subset G$ 连通且包含 $e$, 所以包含于 $G^0$. 因此 $G^0$ 为子群.
+% Source PDF 288, printed 276.
+为证明 $G^0$ 几何不可约且拟紧, 可以将 $k$ 替换为其代数闭包. 此时由 [EGAIV2, 4.6.1], $G^0_{\mathrm{red}}\times G^0_{\mathrm{red}}$ 约化. 因而 $\alpha$ 诱导从 $G^0_{\mathrm{red}}\times G^0_{\mathrm{red}}$ 到 $G^0_{\mathrm{red}}$ 的映射. 所以 $G^0_{\mathrm{red}}$ 是子群. 因此可将 $G^0$ 替换为 $G^0_{\mathrm{red}}$.
+
+因为 $G^0$ 约化且 $k$ 代数闭, $G^0$ 包含一个非空光滑仿射开子概形 $U$. 任取 $k$ 点 $g\in U$ 和 $h\in G^0$. 则 $hg^{-1}U$ 光滑、开且包含 $h$. 所以 $G^0$ 在 $h$ 处局部不可约. 但 $h$ 任意, 且 $G^0$ 连通, 因而由 [EGAI, 6.1.10], $G^0$ 不可约.
+
+因为 $G^0$ 不可约, 它的开子概形 $U$ 与 $hU$ 相交. 所以它们的交中有一个 $k$ 点 $g_1$, 因为 $k$ 代数闭. 于是对某个 $k$ 点 $h_1\in U$, 有 $g_1=hh_1$, 即 $h=g_1h_1^{-1}$. 但 $h\in G^0$ 任意, 所以 $\alpha(U\times U)=G^0$. 又因 $U\times U$ 仿射, 故拟紧. 因而 $G^0$ 拟紧. 按假设 $G$ 局部有限型, 所以 $G^0$ 为有限型. 于是 (3) 成立.
+\end{proof}
+
+\begin{origstatement}{注}{9.5.2}\label{ch09s05:rem9.5.2}
+设 $G$ 为域上的有限型群概形, $G_{\mathrm{red}}$ 为其约化概形. 则 $G_{\mathrm{red}}$ 未必为群子概形, 因为 $G_{\mathrm{red}}\times G_{\mathrm{red}}$ 未必约化. Waterhouse [Wat79, 第 53 页] 在习题 9 中给出了 $G$ 有限时等价于约化性的两个条件, 并在习题 10 中给出了反例.
+\end{origstatement}
+
+\begin{origstatement}{命题}{9.5.3}\label{ch09s05:prop9.5.3}
+假设 $S$ 为域 $k$ 的谱. 假设 $\mathbf{Pic}_{X/k}$ 存在且表示 $\operatorname{Pic}_{(X/k)\,\mathrm{(fppf)}}$. 则 $\mathbf{Pic}_{X/k}$ 分离, 且如果它有一个几何约化的开子概形, 就是光滑的. 此外, 单位元的连通分支 $\mathbf{Pic}^0_{X/k}$ 是有限型开闭群子概形; 它几何不可约, 且其形成与扩张 $k$ 相容.
+\end{origstatement}
+\begin{proof}
+命题 9.4.17 与引理 9.5.1 在形式上蕴含这一结果.
+\end{proof}
+
+\begin{origstatement}{定理}{9.5.4}\label{ch09s05:thm9.5.4}
+假设 $S$ 为域 $k$ 的谱. 假设 $X/k$ 射影且几何整. 则 $\mathbf{Pic}^0_{X/k}$ 存在且拟射影. 若 $X/k$ 还几何正规, 则 $\mathbf{Pic}^0_{X/k}$ 射影.
+\end{origstatement}
+\begin{proof}
+定理 9.4.8 蕴含 $\mathbf{Pic}_{X/k}$ 存在且表示 $\operatorname{Pic}_{(X/k)\,\text{(\'{e}t)}}$, 从而表示 $\operatorname{Pic}_{(X/k)\,\mathrm{(fppf)}}$. 因而由命题 9.5.3, $\mathbf{Pic}^0_{X/k}$ 存在且为有限型 (事实上, 这里在逻辑上不需要命题 9.4.17, 因为由定理 9.4.8, $\mathbf{Pic}_{X/k}$ 局部有限型). 所以由习题 9.4.11, $\mathbf{Pic}^0_{X/k}$ 拟射影.
+
+再假设 $X$ 几何正规. 因为 $\mathbf{Pic}^0_{X/k}$ 拟射影, 为证明它射影, 只须证明其固有性. 由引理 9.5.1, $\mathbf{Pic}^0_{X/k}$ 的形成与扩张 $k$ 相容. 而由 [EGAIV2, 2.7.1(vii)], $k$ 概形完备, 当且仅当其在扩张 $k$ 后完备. 所以可以且确实假设 $k$ 代数闭.
+
+回忆代数群 (即 $k$ 上有限型的约化连通群概形) 的 Chevalley 与 Rosenlicht 结构定理; 见 [Con02, 定理 1.1, 第 3 页]. 此定理说, 每个代数群都是一个 Abel 簇 (即完备代数群) 被一个线性 (即仿射) 代数群的扩张. 还要回忆, 每个可解线性代数 $k$ 群都可三角化 (Lie--Kolchin 定理), 因而若其非平凡, 则包含乘法群或加法群的一个拷贝; 见 [Bor69, (10.5) 与 (10.2)]. 现在 $\mathbf{Pic}_{X/k}$ 交换, 所以可解. 因此, 若 $T$ 表示去掉原点的仿射直线, 只须证明每个 $k$ 映射 $t:T\to(\mathbf{Pic}^0_{X/k})_{\mathrm{red}}$ 都是常值的.
+% Source PDF 289, printed 277.
+因为 $k$ 代数闭, $X/k$ 有截面. 所以由比较定理 (定理 9.2.5), $t$ 来自 $X\times T$ 上的可逆层 $\mathcal L$. 因为 $X\times T$ 整, 由 [Har77, 习题 II, 6.15, 第 145 页], 存在除子 $D$, 使 $\mathcal O(D)=\mathcal L$.
+
+作投影 $p:X\times T\to X$. 将 $\mathcal L$ 限制到其泛纤维. 因为 $T$ 是直线的一个开子集, 这一限制平凡. 因而 $X\times T$ 上存在有理函数 $\varphi$, 使 $(\varphi)+D$ 限制为平凡除子. 取截面 $s:X\to X\times T$. 令 $E:=s^*((\varphi)+D)$, 则 $E$ 是 $X$ 上良好定义的除子. 显然 $p^*E$ 与 $(\varphi)+D$ 作为循环相同; 因为 $X\times T$ 正规, 由 [AK70, 命题 (3.10), 第 139 页], 它们作为除子也相同. 因此 $\mathcal L=p^*\mathcal O(E)$. 所以 $t:T\to\mathbf{Pic}_{X/k}$ 为常值.
+\end{proof}
+
+\begin{origstatement}{推论}{9.5.5}\label{ch09s05:cor9.5.5}
+假设 $S$ 为代数闭域 $k$ 的谱. 假设 $X$ 射影且整. 令 $P:=\mathbf{Pic}^0_{X/k}$, $\mathcal P$ 为某个 Poincar\'e 层在 $X_P$ 上的限制. 则存在 Poincar\'e 族 $W$; 按定义, 它是 $X_P/P$ 上的一个相对有效除子, 使
+\[
+ \mathcal O_{X_P}(W-(W_0\times P))\simeq\mathcal P\otimes f_P^*\mathcal N,
+\]
+其中 $W_0$ 为 $0\in P$ 上的纤维, $\mathcal N$ 为 $P$ 上的可逆层.
+\end{origstatement}
+\begin{proof}
+注意由定理 9.5.4, $P$ 存在且拟射影; 由习题 9.3.11 和习题 9.4.3, $\mathcal P$ 存在. 因为 $P$ 为 Noether 概形, Serre 定理 [EGAIII1, 2.2.1] 蕴含存在 $N$, 使对所有 $i>0$ 和 $n\geq N$, 有 $R^if_{P*}\mathcal P(n)=0$. 回忆 (9.4.8.2) 蕴含 (9.4.8.3); 类似地, 对所有 $t\in P$, 有 $H^i(\mathcal P_t(n))=0$. 固定 $n\geq N$, 使 $\dim H^0(\mathcal O_X(n))>\dim P$.
+
+设 $\lambda\in\mathbf{Pic}_{X/k}$ 表示 $\mathcal O_X(n)$. 作 $\mathbf{Pic}_{X/k}$ 的乘以 $\lambda$ 的自同构. 显然 $P$ 被送到 $\lambda$ 的连通分支, 记为 $P'$. 令 $q:P\xrightarrow{\sim}P'$ 为诱导同构. 令 $\mathcal P'$ 为某个 Poincar\'e 层在 $X_{P'}$ 上的限制. 显然对某个可逆层 $\mathcal N$, 有 $(1\times q)^*\mathcal P'\simeq\mathcal P(n)\otimes f_P^*\mathcal N$.
+
+由习题 9.4.7, $P$ 上存在凝聚层 $\mathcal Q$, 使 $\mathbb P(\mathcal Q)=\mathbf{Div}_{X/S}$. 此外, 由小节 9.3.10, $\mathcal Q|_{P'}$ 局部自由, 其秩为 $\dim H^0(\mathcal O_X(n))$. 所以 $\mathcal Q|_{P'}$ 的秩至少为 $1+\dim P$. 现在存在 $m$, 使层 $\underline{\Hom}(\mathcal Q|_{P'},\mathcal O_P)(m)$ 由有限多个整体截面生成; 因而由一个归功于 Serre 的众所周知的引理 [Mum66, 第 148 页], 它们的一般线性组合处处不为零. 所以存在满射 $\mathcal Q|_{P'}\twoheadrightarrow\mathcal O_P(m)$. 相应地有 $P'$ 映射 $h':P'\to\mathbb P(\mathcal Q|_{P'})$; 换言之, $h'$ 是 Abel 映射 $A_{X/S}:\mathbf{Div}_{X/S}\to\mathbf{Pic}_{X/S}$ 在 $P'$ 上的限制的截面.
+
+令 $W'\subset X_{P'}$ 为泛相对有效除子沿 $1\times h'$ 的拉回. 因为 $h'$ 为 $A_{X/S}|_{P'}$ 的截面, 有 $\mathcal O_{X_{P'}}(W')=\mathcal P'$. 所以特别有 $\mathcal O_X(W'_\lambda)=\mathcal O_X(n)$. 令 $W:=(1\times q)^{-1}W'$. 显然 $W$ 为 Poincar\'e 族.
+\end{proof}
+
+\begin{origstatement}{注}{9.5.6}\label{ch09s05:rem9.5.6}
+更一般地, 只要 $X/k$ 固有, 定理 9.5.4 就成立, 无论 $X$ 是否整. 证明实质上相同, 但用推论 9.4.18.3 代替定理 9.4.8. 事实上, 拟射影性断言的证明更容易, 不需要命题 9.5.3, 因为已给出 $\mathbf{Pic}^0_{X/k}$ 包含于某个拟射影概形. 另一方面, 射影性断言的证明需要额外一步: 当 $k$ 代数闭时, 化归到 $X$ 不可约的情形. 思路如下: 因为 $X$ 正规, 它是不可约分支 $X_i$ 的不交并, 且显然 $\mathbf{Pic}_{X/k}=\prod\mathbf{Pic}_{X_i/k}$; 因而若各 $\mathbf{Pic}^0_{X_i/k}$ 完备, 则 $\mathbf{Pic}^0_{X/k}$ 也完备.
+% Source PDF 290, printed 278 (opening paragraph only so far).
+Chow [Cho57, 定理, 第 128 页] 证明, 每个代数群, 甚至每个齐性簇, 都是拟射影的. 因而在引理 9.5.1 中, 若 $G$ 约化, 则 $G^0$ 拟射影. 在特征 $0$ 中, 引人注目的是 $G$ 光滑, 所以约化; 此结果通常归功于 Cartier, 证明见 [Mum66, 第 167 页].
+
+由此可知, 在特征 $0$ 中, 只要 $X$ 为固有代数 $k$ 空间, 定理 9.5.4 就成立. 事实上, 由前面的讨论以及注 9.4.18 末尾的讨论, 拟射影性断言成立. 射影性断言的证明又多了一点复杂之处: 必须使用平展覆盖 $U\to X$, 其中 $U$ 为概形, 并使用 $U\times T$ 上的可逆层 $\mathcal L$. 不过此证明表明, 在任意特征中, 若 $X$ 为固有正规的代数 $k$ 空间, 则 $\mathbf{Pic}^0_{X/k}$ 固有.
+\end{origstatement}
+
+\begin{origstatement}{习题}{9.5.7}\label{ch09s05:ex9.5.7}
+假设 $X/S$ 射影且光滑, 其几何纤维不可约, 且 $S$ 为 Noether 概形. 使用赋值判别准则 [Har77, 定理 4.7, 第 101 页] 而非 Chevalley--Rosenlicht 结构定理, 证明闭子概形 $Z\subset\mathbf{Pic}_{X/S}$ 若为有限型, 则在 $S$ 上射影.
+\end{origstatement}
+
+\begin{origstatement}{注}{9.5.8}\label{ch09s05:rem9.5.8}
+定理 9.5.4 的第二个断言有三个有趣的替代证明. 第一个替代证明使用习题 9.5.7. Grothendieck [FGA, 第 236-12 页] 曾给出其梗概, 基本过程如下. 对 $X/k$ 的维数 $r$ 作归纳. 若 $r=0$, 则 $\mathbf{Pic}^0_{X/k}$ 为 $S$, 因而显然射影. 若 $r=1$, 则由习题 9.5.7, $\mathbf{Pic}^0_{X/k}$ 射影.
+
+设 $r\geq2$. 如定理的证明, 化归到 $k$ 代数闭的情形. 令 $Y$ 为 $X$ 的一般超平面截面. 则 $Y$ 也正规 [Sei50, 定理 7', 第 376 页]. 显然包含 $\varphi:Y\to X$ 诱导映射
+\[
+ \varphi^*:\mathbf{Pic}^0_{X/k}\longrightarrow\mathbf{Pic}^0_{Y/k}.
+\]
+由归纳假设, $\mathbf{Pic}^0_{Y/k}$ 射影. 所以若 $\varphi^*$ 有限, 则 $\mathbf{Pic}^0_{X/k}$ 也射影.
+
+为处理 $\varphi^*$, Grothendieck 建议使用“已知等价判别准则”的一个版本. 与此相关, 他 [FGA, 第 236-02 页] 宣布 [SGA2] 包含一些关键的预备结果, 必须将其与 Picard 概形的存在定理结合使用. 事实上, 当 $r\geq3$ 时, [SGA2, 推论 3.6, 第 153 页] 直接蕴含 $\varphi^*$ 为单射. 因而 $\varphi^*$ 泛有限. 因为 $\varphi^*$ 是齐性的, 所以它有限.
+
+对任意 $r\geq2$, [Kle73, 引理 3.11, 第 639 页及注 3.12, 第 640 页] 断言 $\ker\varphi^*$ 有限且幺幂, 因而在特征 $0$ 中平凡; 不过 [Kle73] 中的证明需要 $\mathbf{Pic}^0_{X/k}$ 的紧性. 最好能在 $r=2$ 时也给出这一断言的直接证明, 一个具有 [SGA2] 精神的证明.
+
+在特征 $0$ 中, Mumford [Mum67, 第 99 页] 如下证明了 $\ker\varphi^*$ 为零. 假设不然. 首先, 由 Cartier 定理, $\ker\varphi^*$ 约化. 所以 $\ker\varphi^*$ 包含一个阶为 $n>1$ 的点 $\lambda$. 而 $\lambda$ 定义群为 $\mathbb Z/n$ 的非分歧 Galois 覆盖 $X'/X$. 令 $Y':=Y\times_X X'$. 因为 $\lambda\in\ker\varphi^*$, $Y'$ 为 $n$ 个 $Y$ 的拷贝的不交并. 另一方面, 因为 $Y$ 丰沛, $Y'$ 也丰沛; 因而 $Y'$ 连通 (例如由推论 B.29). 矛盾. 所以 $\ker\varphi^*$ 为零.
+
+在特征 $0$ 中, $\varphi^*$ 的单射性还由 Kodaira 消没定理推出. 事实上, 如刚才所述, $\ker\varphi^*$ 约化. 所以 $\varphi^*$ 为单射, 当且仅当其微分为零. 由下文定理 9.5.11, 这一微分等于自然映射
+% Source PDF 291, printed 279.
+\[
+ H^1(\mathcal O_X)\longrightarrow H^1(\mathcal O_Y).
+\]
+由上同调长正合列, 其核等于 $H^1(\mathcal O_X(-1))$.
+
+在特征 $0$ 中, 若 $X$ 光滑, 则由 Kodaira 消没定理, $H^1(\mathcal O_X(-1))$ 为零. 若还满足 $r=2$, 则由伴随系正则性定理, 对偶群 $H^1(\Omega_X^2(1))$ 为零; 该定理由 Picard 于 1906 年用 Abel 积分证明, Severi 于 1908 年用代数几何方法证明. 更多信息见 [Zar71, 第 181、204--206 页] 与 [Mum67, 第 94--97 页].
+
+对任意 $r\geq2$, 如 Grothendieck [FGA, 第 236-12 页] 所建议的, 存在有限多条光滑不可约曲线 $Y_i\subset X$, 使诱导映射为单射:
+\[
+ \mathbf{Pic}^0_{X/k}\longrightarrow\prod_i\mathbf{Pic}^0_{Y_i/k}.
+\]
+因此, 由于 $\mathbf{Pic}^0_{Y_i/k}$ 射影, $\mathbf{Pic}^0_{X/k}$ 也射影.
+
+为寻找 $Y_i$, 使用 Weil [Wei54, 推论 2, 第 159 页] 证明的“等价判别准则”的最终版本; 换言之, 它说若 $W/T$ 为 $X$ 的光滑一维线性空间截面的族 (甚至任意非空开子族), 则诱导映射为单射:
+\[
+ \mathbf{Pic}^0_{X/k}(k)\longrightarrow\mathbf{Pic}^0_{W/T}(T).
+\]
+对 $T$ 的 $k$ 点组成的每个有限集 $F$, 令 $K_F$ 为映射
+\[
+ \mathbf{Pic}^0_{X/k}\longrightarrow\prod_{t\in F}\mathbf{Pic}_{W_t/k}
+\]
+的核. 因为 $K_F$ 为闭子概形, 由 Noether 归纳法, 可以假设 $K_F$ 不包含严格更小的 $K_G$. 假设 $K_F$ 有一个非零 $k$ 点. 它给出 $\mathbf{Pic}_{W/T}$ 的非零 $T$ 点, 从而对 $T$ 的某个 $k$ 点 $t$, 给出 $\mathbf{Pic}_{W_t/k}$ 的非零 $k$ 点. 令 $G$ 为 $F$ 与 $\{t\}$ 的并. 则 $K_G$ 严格小于 $K_F$. 因而 $K_F=0$. 取 $Y_i$ 为 $t\in F$ 对应的 $W_t$.
+
+在特征 $0$ 中或 $r=2$ 时, 另一种完成证明的方法是取一个奇点消解 $\vartheta:X'\to X$. 因为 $X$ 正规, 若 $\vartheta^*D$ 为主除子, 则 $X$ 上的除子 $D$ 也为主除子; 因而诱导映射
+\[
+ \vartheta^*:\mathbf{Pic}^0_{X/k}\longrightarrow\mathbf{Pic}^0_{X'/k}
+\]
+为单射. 但由习题 9.5.7, $\mathbf{Pic}^0_{X'/k}$ 射影, 所以 $\mathbf{Pic}^0_{X/k}$ 也射影.
+
+定理 9.5.4 的第二个替代证明与解答 9.5.7 中的证明相似. (它可能也归功于 Grothendieck, 见 [EGAIV4, 21.14.4, iv], 但作者是从 Mumford 在 1974 年的私人通信中得知的.) 再次化归到 $k$ 代数闭的情形. 然后, 利用赋值判别准则的更精细形式 (通过稍改 [Har77, 习题 4.11, 第 107 页] 得到), 只须验证如下陈述: 给定形如 $T=\Spec(C)$ 的 $k$ 概形, 其中 $C$ 为完备离散赋值环, 具有代数闭剩余域 $k_0$ 及分式域 $K$, 并给定 $X_K$ 上的除子 $D$, 则其闭包 $D'$ 为 $X_T$ 上的除子.
+
+这一陈述由 Ramanujam--Samuel 定理 [EGAIV4, 21.14.1] 这一交换代数结果推出. 应用它时, 取 $B$ 为 $X_T$ 的一个闭点的局部环, $A$ 为其在 $X_{k_0}$ 中的像点的局部环. 因为 $A,B$ 具有相同的剩余域 $k_0$, 各项假设成立. 由 Zariski 的一个定理 [ZS60, 定理 32, 第 320 页], 完备化 $\widehat A$ 为正规整环. 并且 $A\to B$ 形式光滑, 因为由 Cohen 的一个定理 [ZS60, 定理 32, 第 320 页], $C$ 为 $k_0$ 上的形式幂级数环.
+% Source PDF 292, printed 280.
+第三个替代证明与第二个有些相似, 但用某些几何代替 Ramanujam--Samuel 定理; 见 [AK74, 定理 19, 第 138 页]. 此外, $C$ 不必完备, 只须离散, 而 $k_0$ 不必代数闭. 思路如下. 令 $E\subset X_{k_0}$ 为 $D'/T$ 的闭纤维. 在 $\mathbf{Hilb}_{X_L/L}$ 中, 作集合 $U,V$, 分别参数化与形如 $D_L+H$ 和 $E_L+H$ 的循环线性等价的除子循环; 其中 $H$ 遍历其相伴层代数等价于 $\mathcal O_{X_L}(n)$ 的除子, $n$ 充分大.
+
+可以证明 $U,V$ 是 $\mathbf{Hilb}_{X_L/L}$ 的同一个不可约分支中的稠密开子集. 因而它们有公共点. 令 $I,J$ 为 $D,E$ 的理想. 则 $X_L$ 上存在可逆层 $\mathcal L,\mathcal M$, 使 $I_L\otimes\mathcal L$ 与 $J_L\otimes\mathcal M$ 同构. 因为 $I_L$ 可逆, $J_L$ 也可逆, 从而 $J$ 也可逆. 因此 $E$ 为除子, 正是所求.
+
+更一般地, 若 $X$ 未必射影, 而仅完备且正规, 则无论 $X$ 是概形还是代数空间, $\mathbf{Pic}^0_{X/k}$ 仍完备. 事实上, 原证明及其第二个替代证明无须实质改变就能适用. 第一个和第三个替代证明需要 $X$ 射影. 不过, 如下容易看出, 这一情形蕴含一般情形.
+
+即可以假设 $k$ 代数闭. 由 Chow 引理, 存在射影簇 $Y$ 与双有理映射 $\gamma:Y\to X$. 因为 $X,Y$ 正规, $X$ 上的除子 $D$ 为函数 $h$ 的除子, 当且仅当 $\gamma^*D$ 为 $\gamma^*h$ 的除子. 因而诱导映射 $\mathbf{Pic}^0_{X/k}\to\mathbf{Pic}^0_{Y/k}$ 为单射. 与前面一样, 因为 $\mathbf{Pic}^0_{Y/k}$ 完备, $\mathbf{Pic}^0_{X/k}$ 完备.
+\end{origstatement}
+
+\begin{origstatement}{定义}{9.5.9}\label{ch09s05:def9.5.9}
+假设 $S$ 为域 $k$ 的谱. 设 $\mathcal L,\mathcal N$ 为 $X$ 上的可逆层. 若对某个 $n$, 以及每个满足 $1\leq i\leq n$ 的 $i$, 存在有限型连通 $k$ 概形 $T_i$, 其域相同的几何点 $s_i,t_i$, 以及 $X_{T_i}$ 上的可逆层 $\mathcal M_i$, 使
+\[
+\begin{gathered}
+ \mathcal L_{s_1}\simeq\mathcal M_{1,s_1},\quad
+ \mathcal M_{1,t_1}\simeq\mathcal M_{2,s_2},\quad\ldots,\\
+ \mathcal M_{n-1,t_{n-1}}\simeq\mathcal M_{n,s_n},\quad
+ \mathcal M_{n,t_n}\simeq\mathcal N_{t_n},
+\end{gathered}
+\]
+则称 $\mathcal L$ 与 $\mathcal N$ \emph{代数等价}.
+\end{origstatement}
+
+\begin{origstatement}{命题}{9.5.10}\label{ch09s05:prop9.5.10}
+假设 $S$ 为域 $k$ 的谱. 假设 $\mathbf{Pic}_{X/k}$ 存在且表示 $\operatorname{Pic}_{(X/k)\,\mathrm{(fppf)}}$. 设 $\mathcal L$ 为 $X$ 上的可逆层, $\lambda\in\mathbf{Pic}_{X/k}$ 为相应的点. 则 $\mathcal L$ 与 $\mathcal O_X$ 代数等价, 当且仅当 $\lambda\in\mathbf{Pic}^0_{X/k}$.
+\end{origstatement}
+\begin{proof}
+设 $\mathcal L$ 与 $\mathcal O_X$ 代数等价, 使用定义 9.5.9 的记号. 则 $\mathcal M_i$ 定义映射 $\tau_i:T_i\to\mathbf{Pic}_{X/k}$. 现在 $\mathcal M_{n,t_n}\simeq\mathcal O_{X_{t_n}}$, 所以 $\tau_n(t_n)\in\mathbf{Pic}^0_{X/k}$. 假设 $\tau_i(t_i)\in\mathbf{Pic}^0_{X/k}$. 因为 $T_i$ 连通, $\tau_i(T_i)\subset\mathbf{Pic}^0_{X/k}$, 所以 $\tau_i(s_i)\in\mathbf{Pic}^0_{X/k}$. 但 $\mathcal M_{i,s_i}\simeq\mathcal M_{i-1,t_{i-1}}$, 所以 $\tau_{i-1}(t_{i-1})\in\mathbf{Pic}^0_{X/k}$. 递降归纳得到 $\tau_1(s_1)\in\mathbf{Pic}^0_{X/k}$. 又因 $\mathcal M_{1,s_1}\simeq\mathcal L_{s_1}$, 有 $\lambda\in\mathbf{Pic}^0_{X/k}$.
+
+反过来, 设 $\lambda\in\mathbf{Pic}^0_{X/k}$. 对某个 fppf 覆盖 $T\to\mathbf{Pic}^0_{X/k}$, 包含 $\mathbf{Pic}^0_{X/k}\hookrightarrow\mathbf{Pic}_{X/k}$ 由 $X_T$ 上的可逆层 $\mathcal M$ 定义. 令 $t_1,t_2$ 为 $T$ 中分别位于 $\lambda,0\in\mathbf{Pic}^0_{X/k}$ 上方的几何点. 令 $T_1,T_2\subset T$ 为分别包含 $t_1,t_2$ 的不可约分支, $T'_1,T'_2\subset\mathbf{Pic}^0_{X/k}$ 为它们的像. 因为由 [EGAIV2, 2.4.6], fppf 映射为开映射, 后两者都包含开子集. 由引理 9.5.1, $\mathbf{Pic}^0_{X/k}$ 不可约, 这些开子集包含公共点. 设它是 $T_1,T_2$ 的几何点 $t_1,s_2$ 的像. 则由习题 9.2.6, $\mathcal M_{1,t_1}\simeq\mathcal M_{2,s_2}$. 令 $\mathcal M_i:=\mathcal M|_{T_i}$. 因而 $\mathcal L$ 与 $\mathcal O_X$ 代数等价.
+\end{proof}
+% Source PDF 293, printed 281.
+\begin{origstatement}{定理}{9.5.11}\label{ch09s05:thm9.5.11}
+假设 $S$ 为域 $k$ 的谱. 假设 $\mathbf{Pic}_{X/k}$ 存在且表示 $\operatorname{Pic}_{(X/k)\,\text{(\'{e}t)}}$. 令 $\mathrm T_0\mathbf{Pic}_{X/k}$ 为 $0$ 处的切空间. 则
+\[
+ \mathrm T_0\mathbf{Pic}_{X/k}=H^1(\mathcal O_X).
+\]
+\end{origstatement}
+\begin{proof}
+设 $P$ 为任意局部有限型 $k$ 概形, $e\in P$ 为有理点, $A$ 为其局部环, $\mathfrak m$ 为其极大理想. 通常“切空间” $\mathrm T_eP$ 指 Zariski 切空间 $\Hom(\mathfrak m/\mathfrak m^2,k)$. 不过, 如在微分几何中一样, $\mathrm T_eP$ 可视为所有 $k$ 导子 $\delta:A\to k$ 组成的向量空间. 事实上, $\delta(\mathfrak m^2)=0$, 所以 $\delta$ 诱导线性映射 $\mathfrak m/\mathfrak m^2\to k$. 反过来, 每个这样的线性映射都来自某个 $\delta$, 且因 $\delta(1)=0$, $\delta$ 唯一.
+
+令 $k_\varepsilon$ 为“对偶数”环, 即对 $k$ 添加满足 $\varepsilon^2=0$ 的元素 $\varepsilon$ 所得的环. 则任意 (固定的) 导子 $\delta$ 均通过 $u(a):=\bar a+\delta(a)\varepsilon$ 诱导一个 $k$ 代数的局部同态 $u:A\to k_\varepsilon$, 其中 $\bar a\in k$ 为 $a$ 的剩余类. 反过来, 每个这样的 $u$ 均来自唯一的 $\delta$.
+
+另一方面, 给出 $u$, 等同于给出从“自由切向量” $\Spec(k_\varepsilon)$ 到 $P$ 的一个 $k$ 映射 $t_\varepsilon$, 使 $t_\varepsilon$ 的像的支集为 $e$. 将所有 $t_\varepsilon$ 的集合记为 $P(k_\varepsilon)_e$. 因而, 作为集合有
+\begin{equation}\tag{9.5.11.1}\label{ch09s05:eq9.5.11.1}
+ \mathrm T_eP=P(k_\varepsilon)_e.
+\end{equation}
+$\mathrm T_eP$ 上的向量空间结构如下转移. 给定 $a\in k$, 通过 $\mu_a\varepsilon:=a\varepsilon$ 定义 $k$ 代数同态 $\mu_a:k_\varepsilon\to k_\varepsilon$. 现在设 $\delta$ 为导子, $u$ 为相应同态. 则 $a\delta$ 对应于 $\mu_a u$. 因而乘以 $a$ 转移为 $P(\mu_a):P(k_\varepsilon)_e\to P(k_\varepsilon)_e$.
+
+令 $k_{\varepsilon,\varepsilon'}$ 为对 $k_\varepsilon$ 添加满足 $\varepsilon\varepsilon'=0$ 及 $(\varepsilon')^2=0$ 的元素 $\varepsilon'$ 得到的环. 通过 $\varepsilon\mapsto\varepsilon$, $\varepsilon'\mapsto0$ 定义同态 $\sigma_1:k_{\varepsilon,\varepsilon'}\to k_\varepsilon$. 另通过 $\varepsilon\mapsto0$, $\varepsilon'\mapsto\varepsilon$ 定义 $\sigma_2:k_{\varepsilon,\varepsilon'}\to k_\varepsilon$. 这些 $\sigma_i$ 诱导集合映射
+\[
+ \pi:P(k_{\varepsilon,\varepsilon'})_e\longrightarrow P(k_\varepsilon)_e\times P(k_\varepsilon)_e,
+\]
+其中 $P(k_{\varepsilon,\varepsilon'})_e$ 为像的支集为 $e$ 的映射的集合. 显然 $\pi$ 为双射.
+
+通过 $\varepsilon\mapsto\varepsilon$, $\varepsilon'\mapsto\varepsilon$ 定义第三个同态 $\sigma:k_{\varepsilon,\varepsilon'}\to k_\varepsilon$. 给定两个导子 $\delta,\delta'$, 通过 $v(a):=\bar a+\delta(a)\varepsilon+\delta'(a)\varepsilon'$ 定义同态 $v:A\to k_{\varepsilon,\varepsilon'}$. 则 $\delta+\delta'$ 对应于 $\sigma v$. 因而 $\mathrm T_eP$ 上的加法转移为
+\[
+ \alpha:P(k_\varepsilon)_e\times P(k_\varepsilon)_e\longrightarrow P(k_\varepsilon)_e,
+ \qquad\alpha:=P(\sigma)\pi^{-1}.
+\]
+假设 $P$ 为群概形, $e\in P$ 为单位元. 自然环同态 $\rho:k_\varepsilon\to k$ 诱导群同态 $P(\rho):P(k_\varepsilon)\to P(k)$. 显然
+\begin{equation}\tag{9.5.11.2}\label{ch09s05:eq9.5.11.2}
+ P(k_\varepsilon)_e=\ker P(\rho).
+\end{equation}
+左边 $\mathrm T_0P$ 为向量空间, 右边为群. 左边的加法是否与右边的乘法吻合? 的确如此! 已知 $\alpha$ 是加法映射, 必须证明 $\alpha$ 也是乘法映射. 下面来证明这一点.
+
+因为 $\pi$ 和 $P(\sigma)$ 均来自环同态, 它们都是群同态. 又因 $\alpha:=P(\sigma)\pi^{-1}$, $\alpha$ 也是群同态. 所以
+\[
+ \alpha(m,n)=\alpha(m,e)\cdot\alpha(e,n),
+\]
+其中 $e\in P(k_\varepsilon)_e$ 为单位元. 因而要证明 $\alpha(m,e)=m$ 且 $\alpha(e,n)=n$.
+
+考虑包含 $\iota:k_\varepsilon\hookrightarrow k_{\varepsilon,\varepsilon'}$. 显然 $\sigma_2\iota:k_\varepsilon\to k_\varepsilon$ 经由 $\rho:k_\varepsilon\to k$ 分解. 因而由公式 (9.5.11.2), 对任意 $m\in P(k_\varepsilon)_e$, 有 $P(\sigma_2)P(\iota)(m)=e$. 另一方面, $\sigma_1\iota$ 为 $k_\varepsilon$ 的恒等映射, 所以 $\pi P(\iota)(m)=(m,e)$.
+% Source PDF 294, printed 282.
+显然 $\sigma\iota:k_\varepsilon\to k_\varepsilon$ 也是 $k_\varepsilon$ 的恒等映射, 所以 $P(\sigma)P(\iota)(m)=m$. 因而
+\[
+ \alpha(m,e)=P(\sigma)\pi^{-1}\pi P(\iota)(m)=m.
+\]
+同理 $\alpha(e,n)=n$. 所以 $\alpha$ 就是乘法映射.
+
+取 $P:=\mathbf{Pic}_{X/k}$, 于是 $e=0$. 则公式 (9.5.11.1)、(9.5.11.2) 给出
+\begin{equation}\tag{9.5.11.3}\label{ch09s05:eq9.5.11.3}
+ \mathrm T_0\mathbf{Pic}_{X/k}=\ker(\mathbf{Pic}_{X/k}(k_\varepsilon)\longrightarrow\mathbf{Pic}_{X/k}(k)).
+\end{equation}
+为计算这个核, 令 $X_\varepsilon:=X\otimes_k k_\varepsilon$, 并作 Abel 群层的截断指数序列:
+\[
+ 0\longrightarrow\mathcal O_X\longrightarrow\mathcal O^*_{X_\varepsilon}
+ \longrightarrow\mathcal O_X^*\longrightarrow1,
+\]
+其中第一个映射把局部截面 $b$ 映为 $1+b\varepsilon$. 此序列由 $a\mapsto a+0\cdot\varepsilon$ 定义的映射 $\mathcal O_X^*\to\mathcal O_{X_\varepsilon}^*$ 分裂. 因而取上同调得到以下 Abel 群的分裂正合列:
+\[
+ 0\longrightarrow H^1(\mathcal O_X)\longrightarrow H^1(\mathcal O_{X_\varepsilon}^*)
+ \longrightarrow H^1(\mathcal O_X^*)\longrightarrow1.
+\]
+然而, $\mathbf{Pic}_{X/k}$ 表示 $\operatorname{Pic}_{(X/k)\,\text{(\'{e}t)}}$, 后者为预层 $T\mapsto H^1(\mathcal O_{X_T}^*)$ 的相伴层. 所以有自然的群交换方块
+\begin{equation}\tag{9.5.11.4}\label{ch09s05:eq9.5.11.4}
+\begin{tikzcd}[column sep=4em]
+ H^1(\mathcal O_{X_\varepsilon}^*)\arrow[r]\arrow[d]&H^1(\mathcal O_X^*)\arrow[d]\\
+ \mathbf{Pic}_{X/k}(k_\varepsilon)\arrow[r]&\mathbf{Pic}_{X/k}(k).
+\end{tikzcd}
+\end{equation}
+因而有两个水平核之间的诱导同态. 由公式 (9.5.11.3), 此同态为加性映射
+\[
+ v:H^1(\mathcal O_X)\longrightarrow\mathrm T_0\mathbf{Pic}_{X/k}.
+\]
+取 $a\in k$. 由公式 (9.5.11.1) 后的讨论, $\mathrm T_0\mathbf{Pic}_{X/k}$ 上的标量乘以 $a$ 是由 $\mu_a:k_\varepsilon\to k_\varepsilon$ 诱导的映射. 现在 $\mu_a$ 诱导上述方块的一个自同态. 在上排, 它来自由 $\varepsilon\mapsto a\varepsilon$ 定义的群层映射 $\mathcal O_X^*\to\mathcal O_X^*$. 所以 $H^1(\mathcal O_X)$ 上诱导的自同态是标量乘以 $a$. 因而 $v$ 是 $k$ 向量空间的映射.
+
+方块 (9.5.11.4) 映到作域扩张 $K/k$ 后所得的相应方块. 因为核为向量空间, 有诱导方块
+\[
+\begin{tikzcd}[column sep=4em]
+ H^1(\mathcal O_X)\otimes_k K\arrow[r]\arrow[d,"v\otimes_k K"']&H^1(\mathcal O_{X_K})\arrow[d]\\
+ \mathrm T_0\mathbf{Pic}_{X/k}\otimes_k K\arrow[r]&\mathrm T_0\mathbf{Pic}_{X_K/K}.
+\end{tikzcd}
+\]
+两个水平映射均为同构. 因而若右边的映射为同构, 则 $v$ 也为同构. 所以可以假设 $k$ 代数闭.
+
+在方块 (9.5.11.4) 中, 因为 $\mathbf{Pic}_{X/k}$ 表示 $\operatorname{Pic}_{(X/k)\,\text{(\'{e}t)}}$ 且 $k$ 代数闭, 由习题 9.2.3, 两个竖直映射都是同构. 因此 $v$ 也是同构, 正是所求.
+\end{proof}
+
+\begin{origstatement}{注}{9.5.12}\label{ch09s05:rem9.5.12}
+定理 9.5.11 有一个相对版本. 即假设 $\mathbf{Pic}_{X/S}$ 存在, 表示 $\operatorname{Pic}_{(X/S)\,\text{(\'{e}t)}}$, 且局部有限型, 但允许 $S$ 任意. 则 $R^1f_*\mathcal O_X$ 等于 $\mathbf{Pic}_{X/S}$ 沿单位截面的法层, 即其“Lie 代数”; 后者就是相对微分层限制到此截面所得的层的对偶. 更多信息见最近的论述 [LLR04, \S1] 及其中引用的文献.
+% Source PDF 295, printed 283, opening sentence.
+\end{origstatement}
+
+\begin{origstatement}{推论}{9.5.13}\label{ch09s05:cor9.5.13}
+假设 $S$ 为域 $k$ 的谱. 假设 $\mathbf{Pic}_{X/k}$ 存在且表示 $\operatorname{Pic}_{(X/k)\,\text{(\'{e}t)}}$. 则
+\[
+ \dim\mathbf{Pic}_{X/k}\leq\dim H^1(\mathcal O_X).
+\]
+等号成立, 当且仅当 $\mathbf{Pic}_{X/k}$ 在 $0$ 处光滑; 若如此, 则 $\mathbf{Pic}_{X/k}$ 处处光滑, 且维数为 $\dim H^1(\mathcal O_X)$.
+\end{origstatement}
+\begin{proof}
+显然可假设 $k$ 代数闭. 给定任意闭点 $\lambda\in\mathbf{Pic}_{X/k}$, 存在 $\mathbf{Pic}_{X/k}$ 的一个自同构把 $0$ 送到 $\lambda$, 即“乘以” $\lambda$. 因而 $\mathbf{Pic}_{X/k}$ 在 $\lambda$ 处与 $0$ 处具有相同维数, 且 $\mathbf{Pic}_{X/k}$ 在 $\lambda$ 处光滑, 当且仅当其在 $0$ 处光滑.
+
+由一般原理, $\dim_0\mathbf{Pic}_{X/k}\leq\dim\mathrm T_0\mathbf{Pic}_{X/k}$, 且等号成立当且仅当 $\mathbf{Pic}_{X/k}$ 在 $0$ 处正则. 又因 $k$ 代数闭, $\mathbf{Pic}_{X/k}$ 在 $0$ 处正则当且仅当其在 $0$ 处光滑. 因而此推论由定理 9.5.11 得到.
+\end{proof}
+
+\begin{origstatement}{推论}{9.5.14}\label{ch09s05:cor9.5.14}
+假设 $S$ 为域 $k$ 的谱. 假设 $\mathbf{Pic}_{X/k}$ 存在且表示 $\operatorname{Pic}_{(X/k)\,\text{(\'{e}t)}}$. 若 $k$ 的特征为 $0$, 则 $\mathbf{Pic}_{X/k}$ 处处光滑, 且维数为 $\dim H^1(\mathcal O_X)$.
+\end{origstatement}
+\begin{proof}
+因为 $k$ 的特征为 $0$, 由 Cartier 定理 [Mum66, 定理 1, 第 167 页], $k$ 上任意局部有限型群概形都光滑. 所以断言由推论 9.5.13 得到.
+\end{proof}
+
+\begin{origstatement}{注}{9.5.15}\label{ch09s05:rem9.5.15}
+在正特征域 $k$ 上, 即使 $X$ 为连通光滑射影曲面, $\mathbf{Pic}_{X/k}$ 也未必光滑. Igusa [Igu55] 与 Serre [Ser58, n\textsuperscript{o}20] 构造了例子.
+
+另一方面, Mumford [Mum66, 第 27 讲, 第 193--198 页] 证明 $\mathbf{Pic}_{X/k}$ 光滑, 当且仅当 Serre 的所有 Bockstein 运算 $\beta_i$ 均为零; 这里
+\[
+ \beta_1:H^1(\mathcal O_X)\longrightarrow H^2(\mathcal O_X),\qquad
+ \beta_i:\ker\beta_{i-1}\longrightarrow\operatorname{cok}\beta_{i-1}\quad(i\geq2).
+\]
+事实上, $\mathbf{Pic}_{X_{\mathrm{red}}/k}$ 的切空间为 $H^1(\mathcal O_X)$ 的以下子空间:
+\[
+ \mathrm T_0\mathbf{Pic}_{X_{\mathrm{red}}/k}=\bigcap_i\ker\beta_i.
+\]
+此外, 这里 $X$ 不必光滑或为二维.
+
+这些例子说明了进一步的病态现象. 令
+\[
+ g:=\dim\mathbf{Pic}_{X/k},\qquad
+ h^{0,1}:=\dim H^1(\mathcal O_X),\qquad
+ h^{1,0}:=\dim H^0(\Omega_X^1).
+\]
+在 Igusa 的例子中, $g=1$, $h^{0,1}=2$, $h^{1,0}=2$; 在 Serre 的例子中, $g=0$, $h^{0,1}=1$, $h^{1,0}=0$. 此外, Igusa 刚证明了无论如何都有 $g\leq h^{1,0}$.
+
+相比之下, 在特征 $0$ 中, Serre 比较定理 [Har77, 定理 2.1, 第 440 页] 说, $h^{0,1}$ 与 $h^{1,0}$ 可以通过将 $X$ 视为复解析流形来计算. 因而 Hodge 理论给出
+\[
+ h^{0,1}=h^{1,0},\qquad h^{0,1}+h^{1,0}=b,
+\]
+其中 $b$ 为第一 Betti 数; 见 [Zar71, 第 200 页]. 因此以下习题现在给出非正则曲面的基本定理 (9.1.4).
+\end{origstatement}
+% Source PDF 296, printed 284.
+\begin{origstatement}{习题}{9.5.16}\label{ch09s05:ex9.5.16}
+假设 $S$ 为域 $k$ 的谱. 假设 $X$ 为射影、光滑且几何不可约的曲面. 按用现代术语陈述的原始定义, $X$ 的“几何亏格”为数 $p_g:=\dim H^0(\Omega_X^2)$; 其“算术亏格”为数 $p_a:=\varphi(0)-1$, 其中 $\varphi(n)$ 为满足当 $n\gg0$ 时有 $\varphi(n)=\dim H^0(\Omega_X^2(n))$ 的多项式; 其“非正则数” $q$ 为两个亏格之差, $q:=p_g-p_a$.
+
+证明 $\dim\mathbf{Pic}_{X/k}\leq q$, 且在特征 $0$ 中等号成立.
+\end{origstatement}
+
+\begin{origstatement}{习题}{9.5.17}\label{ch09s05:ex9.5.17}
+假设 $S$ 为代数闭域 $k$ 的谱. 假设 $X$ 射影且整. 令 $q:=\dim H^1(\mathcal O_X)$.
+
+证明 $q=0$, 当且仅当每个曲线代数系都“完全包含于一个线性系中”. 后一个条件的意思只是说, 给定 $X_T/T$ 上任意相对有效除子 $D$, 其中 $T$ 为连通 $k$ 概形, 存在 $X$ 上的可逆层 $\mathcal L$ 和 $T$ 上的可逆层 $\mathcal N$, 使 $\mathcal O_{X_T}(D)\simeq\mathcal L_T\otimes f_T^*\mathcal N$. 此条件可更几何地表述: 沿用习题 9.3.14 的记号, 它意味着存在映射 $w:T\to L$, 此映射必唯一, 使 $(1\times w)^{-1}W=D$.
+
+在特征 $0$ 中, 证明若此条件对所有这样的光滑 $T$ 成立, 则 $q=0$.
+\end{origstatement}
+
+\begin{origstatement}{注}{9.5.18}\label{ch09s05:rem9.5.18}
+假设 $S$ 为域 $k$ 的谱. 假设 $X/k$ 射影且几何整. 令 $D\subset X$ 为有效除子, $\mathcal N_D$ 为其法层. 令 $\delta\in\mathbf{Div}_{X/k}$ 为表示 $D$ 的点, $\lambda\in\mathbf{Pic}_{X/k}$ 为表示 $\mathcal O_X(D)$ 的点.
+
+则 $\delta$ 处的切空间由公式
+\begin{equation}\tag{9.5.18.1}\label{ch09s05:eq9.5.18.1}
+ \mathrm T_\delta\mathbf{Div}_{X/k}=H^0(\mathcal N_D)
+\end{equation}
+给出, 并且此公式保持两边的向量空间结构. 此公式可由一个简单的初等计算证明; 见 [Mum66, 推论, 第 154 页].
+
+作层的基本正合列
+\[
+ 0\longrightarrow\mathcal O_X\longrightarrow\mathcal O_X(D)\longrightarrow\mathcal N_D\longrightarrow0,
+\]
+并考虑相应的上同调群长正合列
+\[
+\begin{aligned}
+0&\longrightarrow H^0(\mathcal O_X)\longrightarrow H^0(\mathcal O_X(D))\longrightarrow H^0(\mathcal N_D)\\
+ &\xrightarrow{\partial^0}H^1(\mathcal O_X)\longrightarrow H^1(\mathcal O_X(D))
+ \xrightarrow{u}H^1(\mathcal N_D)\xrightarrow{\partial^1}H^2(\mathcal O_X).
+\end{aligned}
+\]
+另一个初等计算表明, 边缘映射 $\partial^0$ 等于 Abel 映射的切映射 $\mathrm T_\delta\mathbf{Div}_{X/k}\to\mathrm T_\lambda\mathbf{Pic}_{X/k}$; 见 [Mum66, 命题, 第 165 页].
+
+按定义, 若边缘映射 $\partial^1$ 为单射, 则称 $D$ “半正则”. 显然这等价于 $u=0$, 因而等价于 $\dim H^0(\mathcal N_D)=R$, 其中
+\[
+ R:=\dim H^1(\mathcal O_X)+\dim H^0(\mathcal O_X(D))-1-\dim H^1(\mathcal O_X(D)).
+\]
+Severi 于 1944 年认识到, 半正则性恰好是旧的 (1904 年) 特征系完备性定理所需的正确正性条件, 尽管 Severi 用一种等价的对偶方式表述了该条件.
+
+特征系完备性定理的现代表述断言, 若特征为 $0$, 或更一般地 $\mathbf{Pic}_{X/k}$ 光滑, 则 $\mathbf{Div}_{X/k}$ 在 $\delta$ 处光滑且维数为 $R$, 当且仅当 $D$ 半正则. 事实上, 公式 (9.5.18.1) 表明, $\mathbf{Div}_{X/k}$ 在 $D$ 上的特征系总等于可逆层 $\mathcal N_D$ 的完全线性系. 但 $\mathbf{Div}_{X/k}$ 在 $\delta$ 处可能有幂零元或奇点. 因此, 实际上 Enriques 与 Severi 所寻求的, 只是保证 $\mathbf{Div}_{X/k}$ 在 $\delta$ 处光滑且维数为 $R$ 的条件.
+% Source PDF 297, printed 285.
+对这一定理的第一个纯代数讨论由 Grothendieck [FGA, 第 221-5.4 至 5.6 节] 作出, 他在两个最重要的情形中证明了它. 具体地说, 他注意到若 $H^1(\mathcal O_X(D))=0$, 则 Abel 映射光滑; 见定理 9.4.8 证明的末尾. 因而 $\mathbf{Div}_{X/k}$ 在 $\delta$ 处光滑, 当且仅当 $\mathbf{Pic}_{X/k}$ 光滑; 此外, 在特征零中, 由 Cartier 定理, $\mathbf{Pic}_{X/k}$ 光滑. Grothendieck 指出, Kodaira 于 1956 年已经用超越方法处理了这一情形.
+
+Grothendieck 还观察到, $H^1(\mathcal N_D)$ 容纳了在 $X$ 中变形 $D$ 的障碍. 因而若此群为零, 则在任意特征中 $\mathbf{Div}_{X/k}$ 都在 $\delta$ 处光滑. Mumford [Mum66, 第 157--159 页] 显式算出了此障碍及其在 $\partial^1$ 下的像. 若 $\partial^1=0$, 从而若 $D$ 半正则, 则当此像为零时 $\mathbf{Div}_{X/k}$ 光滑. 受 Kodaira 与 Spencer 在 1959 年的工作启发, Mumford 在特征 $0$ 中使用指数映射, 证明了此像为零. Mumford 没有使用 Cartier 定理, 所以后者由取满足 $H^1(\mathcal O_X(D))=0$ 的 $D$ 推出.
+
+完整的完备性定理的一个纯代数证明见 [Kle73, 定理, 第 307 页]. 这一证明受 Kempf 未发表的学位论文启发. 证明不使用障碍理论, 只使用形如 $\mathbb P(\mathcal Q)$ 的概形的一些简单形式性质, 其中 $\mathcal Q$ 如小节 9.3.10 那样由可逆层 $\mathcal F$ 产生. 更一般地, 当 $S$ 任意, 且 $X/S$ 射影、平坦并具有整几何纤维时, 此证明也成立. 这里 $D$ 为经过 $\delta$ 的几何纤维上的除子. 那么只要 $\mathbf{Pic}_{X/S}$ 光滑, $\mathbf{Div}_{X/S}$ 就在 $\delta$ 处光滑且相对维数为 $R$, 当且仅当 $D$ 半正则.
+
+有一个著名例子, 在任意特征的代数闭域 $k$ 上都成立, 其中 $\mathbf{Div}_{X/k}$ 在 $\delta$ 处非约化. 此例由 Severi 与 Zappa 在 1940 年代发现, 说明见 [Mum66, 第 155--156 页]. 思路如下. 设 $C$ 为椭圆曲线, $0\to\mathcal O_C\to\mathcal E\to\mathcal O_C\to0$ 为非平凡扩张; 令 $X:=\mathbb P(\mathcal E)$.
+
+令 $D$ 为 $\mathcal E\to\mathcal O_C$ 定义的 $X/C$ 的截面. 则由 [Har77, 命题 2.8, 第 372 页], $\mathcal N_D=\mathcal O_C$, 所以 $\dim\mathrm T_\delta\mathbf{Div}_{X/k}=1$. 然而 $\delta$ 是孤立点. 否则, $\delta$ 的连通分支包含第二个闭点, 它表示一条与 $D$ 代数等价的曲线 $D'$. 所以 $\deg\mathcal O_D(D')=\deg\mathcal N_D=0$, 因而 $D$ 与 $D'$ 不交. 令 $F$ 为一个纤维. 则 $\deg\mathcal O_F(D)=\deg\mathcal O_F(D')=1$, 从而 $D'$ 是第二个截面. 因此 $\mathcal E$ 可分解, 矛盾.
+\end{origstatement}
+
+\begin{origstatement}{命题}{9.5.19}\label{ch09s05:prop9.5.19}
+假设 $\mathbf{Pic}_{X/S}$ 存在且表示 $\operatorname{Pic}_{(X/S)\,\text{(\'{e}t)}}$. 设 $s\in S$ 为满足 $H^2(\mathcal O_{X_s})=0$ 的点. 则 $s$ 存在一个开邻域, 使 $\mathbf{Pic}_{X/S}$ 在该邻域上光滑.
+\end{origstatement}
+\begin{proof}
+由半连续性定理 [EGAIII2, 7.7.5-I], $s$ 存在开邻域 $U$, 使对所有 $t\in U$, 有 $H^2(\mathcal O_{X_t})=0$. 将 $S$ 替换为 $U$.
+
+由 [EGAIII1, 0-10.3.1, 第 20 页], 存在从 $\mathcal O_s$ 到某个剩余域代数闭的 Noether 局部环 $B$ 的平坦局部同态. 由 [EGAIV2, 6.8.3], 若 $f_B$ 光滑, 则 $f:X\to S$ 沿 $X_s$ 光滑. 将 $S$ 替换为 $\Spec(B)$.
+
+由光滑性的无穷小判别准则 [SGA1, 第 67 页], 只须证明如下陈述: 给定形如 $T=\Spec(A)$ 的任意 $S$ 概形, 其中 $A$ 为 Artin 局部环且为有限 $\mathcal O_s$ 代数, 并给定任意闭子概形 $R\subset T$, 其理想 $\mathcal I$ 的平方为 $0$, 则 $\mathbf{Pic}_{X/S}$ 的每个 $R$ 点均提升为 $T$ 点.
+
+$A$ 的剩余域为 $k_s$ 的有限扩张, 而 $k_s$ 代数闭, 所以二者相同. 因而由习题 9.2.3, 该 $R$ 点由 $X_R$ 上的一个可逆层定义. 所以要证明 $X_R$ 上的可逆层提升到 $X_T$.
+% Source PDF 298, printed 286.
+因为 $\mathcal I^2=0$, 可以作截断指数序列
+\[
+ 0\longrightarrow f_T^*\mathcal I\longrightarrow\mathcal O_{X_T}^*
+ \longrightarrow\mathcal O_{X_R}^*\longrightarrow1.
+\]
+它给出以下正合列:
+\[
+ H^1(\mathcal O_{X_T}^*)\longrightarrow H^1(\mathcal O_{X_R}^*)\longrightarrow H^2(f_T^*\mathcal I).
+\]
+因此只须证明 $H^2(f_T^*\mathcal I)=0$.
+
+因为 $T$ 仿射, 由 [Har77, 命题 8.5, 第 251 页], 有 $H^2(f_T^*\mathcal I)=H^0(R^2f_{T*}f_T^*\mathcal I)$. 但对所有 $t\in S$, 有 $H^2(\mathcal O_{X_t})=0$. 因而由交换性质 [EGAIII2, 7.7.5 II 与 7.7.10], $R^2(f_T^*\mathcal I)=0$. 所以 $H^2(f_T^*\mathcal I)=0$, 正是所求.
+\end{proof}
+
+\begin{origstatement}{命题}{9.5.20}\label{ch09s05:prop9.5.20}
+假设 $\mathbf{Pic}_{X/S}$ 存在且表示 $\operatorname{Pic}_{(X/S)\,\mathrm{(fppf)}}$. 假设对 $s\in S$, 所有 $\mathbf{Pic}^0_{X_s/k_s}$ 都光滑且维数相同. 则 $\mathbf{Pic}_{X/S}$ 有一个有限型开群子概形 $\mathbf{Pic}^0_{X/S}$, 其纤维为 $\mathbf{Pic}^0_{X_s/k_s}$. 此外, 若 $S$ 约化, 则 $\mathbf{Pic}^0_{X/S}$ 在 $S$ 上光滑. 而且, 若所有 $\mathbf{Pic}^0_{X_s/k_s}$ 都完备, 且 $\mathbf{Pic}_{X/S}$ 在 $S$ 上分离, 则 $\mathbf{Pic}^0_{X/S}$ 在 $\mathbf{Pic}_{X/S}$ 中闭, 并在 $S$ 上固有.
+\end{origstatement}
+\begin{proof}
+首先, 由命题 9.4.17, $\mathbf{Pic}_{X/S}$ 局部有限型. 现在对每个 $s\in S$, 由习题 9.4.4, 概形 $\mathbf{Pic}_{X/S}\otimes k_s$ 与 $\mathbf{Pic}_{X_s/k_s}$ 相同. 按假设, 各 $\mathbf{Pic}^0_{X_s/k_s}$ 光滑且维数相同. 因而由 [EGAIV3, 15.6.3 与 15.6.4], 各 $\mathbf{Pic}^0_{X_s/k_s}$ 构成 $\mathbf{Pic}_{X/S}$ 的一个开子概形 $\mathbf{Pic}^0_{X/S}$, 其结构映射 $\sigma:\mathbf{Pic}^0_{X/S}\to S$ 普遍开. 此外, 若 $S$ 约化, 则由 [EGAIV3, 15.6.7], $\sigma$ 平坦, 因而由 [EGAIV4, 17.5.1], 它光滑.
+
+通过 $\alpha(g,h):=gh^{-1}$ 定义映射 $\alpha:\mathbf{Pic}^0_{X/S}\times_S\mathbf{Pic}^0_{X/S}\to\mathbf{Pic}_{X/S}$. 因为 $\alpha$ 的形成与取纤维相容, $\alpha$ 经由开子概形 $\mathbf{Pic}^0_{X/S}$ 分解. 所以 $\mathbf{Pic}^0_{X/S}$ 为子群.
+
+为证明 $\mathbf{Pic}^0_{X/S}$ 为有限型, 可在 $S$ 上局部地工作, 从而假设 $S$ 为 Noether 概形. 因为 $\mathbf{Pic}_{X/S}$ 局部有限型, 只须证明 $\mathbf{Pic}^0_{X/S}$ 拟紧.
+
+设 $V\subset S$ 为非空仿射开子概形, $U\subset\sigma^{-1}V$ 为另一个非空仿射开子概形. 因为 $\sigma$ 为开映射, $\sigma U\subset S$ 为开集. 令 $U':=\sigma^{-1}\sigma U$. 则 $U'$ 为开集, 且 $\alpha$ 限制为映射 $\alpha':U\times_V U\to U'$. 事实上, $\alpha'$ 是满射, 因为由引理 9.5.1 证明末尾的论证, 它的几何纤维都是满射. 又因 $U\times_V U$ 拟紧, $U'$ 拟紧.
+
+令 $T:=S-\sigma U$. 由 Noether 归纳法, 可假设 $\sigma^{-1}T$ 拟紧. 因而 $U'\cup\sigma^{-1}T$ 拟紧. 但它等于 $\mathbf{Pic}^0_{X/S}$. 所以 $\mathbf{Pic}^0_{X/S}$ 拟紧, 正是所求.
+
+此外, 若所有 $\mathbf{Pic}^0_{X_s/k_s}$ 都完备, 且 $\mathbf{Pic}_{X/S}$ 在 $S$ 上分离, 则由 [EGAIV3, 15.7.11], $\mathbf{Pic}^0_{X/S}$ 在 $S$ 上固有. 最后考虑包含映射 $\mathbf{Pic}^0_{X/S}\hookrightarrow\mathbf{Pic}_{X/S}$. 因为 $\mathbf{Pic}^0_{X/S}$ 固有且 $\mathbf{Pic}_{X/S}$ 分离, 此映射固有, 所以 $\mathbf{Pic}^0_{X/S}$ 闭.
+\end{proof}
+
+\begin{origstatement}{注}{9.5.21}\label{ch09s05:rem9.5.21}
+假设特征为 $0$, $f:X\to S$ 光滑且固有. 如 Vistoli 在 2004 年 5 月初向作者解释的, 对前两个命题还能说得更多. 这些补充来自 Deligne 的文章 [Del68] 中第 123 页定理 (5.5) 的第 (i) 部分 (它在第 121 页使用了 Hodge 理论).
+% Source PDF 299, printed 287.
+Deligne 定理断言, 在当前条件下, 所有层 $R^qf_*\Omega^p_{X/S}$ 都为有限秩局部自由层, 且其形成与基变换相容.
+
+在命题 9.5.19 中, $\mathbf{Pic}_{X/S}$ 在 $s$ 的连通分支 $S_0$ 上光滑. 事实上, Deligne 定理蕴含 $R^2f_*\mathcal O_{X/S}|_{S_0}$ 为零, 因为它局部自由, 所以常秩, 且其形成与取每个纤维相容, 特别与取 $s\in S_0$ 上的纤维相容. 因而对每个 $t\in S_0$, 有 $H^2(\mathcal O_{X_t})=0$. 所以命题 9.5.19 按其现有陈述就蕴含 $\mathbf{Pic}_{X/S}$ 在 $S_0$ 上光滑.
+
+在命题 9.5.20 中, 无须假设所有 $\mathbf{Pic}^0_{X_s/k_s}$ 光滑且维数相同. 事实上, 由推论 9.5.13, 所有 $\mathbf{Pic}^0_{X_s/k_s}$ 都光滑, 维数为 $\dim H^1(\mathcal O_{X_s})$. 而由 Deligne 定理, $\dim H^1(\mathcal O_{X_s})$ 在 $S$ 的每个连通分支上常值.
+
+此外, 若 $f:X\to S$ 在 $S$ 上 Zariski 局部地光滑且射影, 则无论 $S$ 是否约化, $\mathbf{Pic}^0_{X/S}$ 都光滑. 事实上, 可假设 $S$ 为 $\mathbb C$ 上的有限型概形; 这一化归是标准的, Deligne 在其定理 (5.5) 证明的开头作了概述. 由光滑性无穷小判别准则 [SGA1, 第 67 页], 只须证明如下陈述: 给定形如 $T=\Spec(A)$ 的任意 $S$ 概形, 其中 $A$ 为 Artin 局部环且为有限 $\mathbb C$ 代数, 并给定任意闭子概形 $R\subset T$, $\mathbf{Pic}^0_{X/S}$ 的每个 $R$ 点均可提升为 $T$ 点. 但由上述论证, $\mathbf{Pic}^0_{X/S}$ 在 $\mathbf{Pic}_{X/S}$ 中开. 因而只须证明 $\mathbf{Pic}^0_{X/S}$ 的每个 $R$ 点均可提升为 $\mathbf{Pic}_{X/S}$ 的 $T$ 点.
+
+$A$ 的剩余域为 $\mathbb C$ 的有限扩张, 所以二者相同. 因而由习题 9.2.3, 该 $R$ 点由 $X_R$ 上的可逆层定义. 所以要证明 $X_R$ 上的每个可逆层 $\mathcal L$ 都提升到 $X_T$. 由 Serre 比较定理 [Har77, 定理 2.1, 第 440 页], 因 $f_T:X_T\to T$ 射影, 只须将 $\mathcal L$ 提升为解析可逆层. 所以现在转入解析范畴.
+
+令 $X_0$ 表示 $X_T$ 的闭纤维, 并作指数序列:
+\[
+ 0\longrightarrow\mathbb Z_{X_0}\longrightarrow\mathcal O_{X_0}
+ \longrightarrow\mathcal O_{X_0}^*\longrightarrow0.
+\]
+考虑 $\mathcal L_{X_0}$ 在 $H^1(\mathcal O_{X_0}^*)$ 中的类. 它在 $H^2(\mathbb Z_{X_0})$ 中映为 $0$, 因为此群离散, 且 $\mathcal L$ 定义 $\mathbf{Pic}^0_{X/S}$ 的一个 $R$ 点.
+
+作指数映射 $\mathcal O_{X_R}\to\mathcal O_{X_R}^*$, 取其核 $\mathcal Z$, 并作自然映射 $\kappa:\mathcal Z\to\mathbb Z_{X_0}$. 则 $\kappa$ 为双射. 事实上, 设 $a$ 为 $\mathcal Z$ 的一个局部截面, 则 $1+a+a^2/2+\cdots=1$. 令 $u:=1+a/2+\cdots$, 则 $au=0$. 假设 $a$ 映到 $\mathcal O_{X_0}$ 的局部截面 $0$, 则 $a$ 幂零, 所以 $u$ 可逆, 从而 $a=0$. 因此 $\kappa$ 为单射. 但 $\kappa$ 显然为满射, 所以 $\kappa$ 为双射.
+
+考虑 $\mathcal L$ 在 $H^1(\mathcal O_{X_R}^*)$ 中的类 $\lambda$. 可知 $\lambda$ 在 $H^2(\mathcal Z)$ 中映为 $0$, 所以 $\lambda$ 来自 $H^1(\mathcal O_{X_R})$ 中的一个类 $\gamma$. 由 Deligne 定理, $\gamma$ 提升为 $H^1(\mathcal O_{X_T})$ 中的类 $\gamma'$. $\gamma'$ 在 $H^1(\mathcal O_{X_T}^*)$ 中的像给出所求的 $\mathcal L$ 到 $X_T$ 的提升.
+\end{origstatement}
+\begin{origstatement}{例}{9.5.22}\label{ch09s05:ex9.5.22}
+以下例子补充命题 9.5.20, 由 Vistoli 于 2004 年 5 月初提供. 此例表明, 尽管 $\mathbf{Pic}_{X/S}$ 不光滑, $\mathbf{Pic}^0_{X/S}$ 仍可以在 $S$ 上光滑且固有, 并在 $\mathbf{Pic}_{X/S}$ 中开且闭. 事实上, $f:X\to S$ 光滑且射影, 其几何纤维整, $S$ 为任意特征的代数闭域 $k$ 上的光滑曲线. 此外, $\mathbf{Pic}_{X/S}$ 有一个分支是约化的 $k$ 点, 因而它在 $S$ 上不光滑, 甚至不平坦.
+
+为构造 $f:X\to S$, 令 $P:=\mathbb P^3_k$ 并固定 $d\geq4$. 令 $Q:=H^0(\mathcal O_P(d))^*$, 其中“$*$”表示对偶. 令 $H:=\mathbb P(Q)$. 则由习题 9.5.17 与定理 9.3.13, $H$ 表示如下函子 (定义于 $k$ 概形 $T$ 上): 其 $T$ 点为 $P_T$ 的 $T$ 平坦闭子概形, 其纤维为次数 $d$ 的曲面.
+% Source PDF 300, printed 288.
+令 $W\subset P\times H$ 为泛子概形. 由习题 9.3.14, 其理想 $\mathcal O_{P\times H}(-W)$ 等于 $\mathcal O_P(-d)$ 和 $\mathcal O_H(-1)$ 的拉回的张量积. 令 $N:=\dim H$.
+
+令 $G$ 为 $P$ 中直线的 Grassmann 概形, $L\subset P\times G$ 为泛直线, $\pi:L\to G$ 为投影. 作局部自由层的正合列
+\[
+ 0\longrightarrow\mathcal K\longrightarrow\pi_*\mathcal O_{P\times G}(d)
+ \longrightarrow\pi_*\mathcal O_L(d)\longrightarrow0,
+\]
+它定义了 $\mathcal K$; 右边的映射为满射, 因为其形成与取纤维相容, 而在纤维上它显然为满射. 令 $I:=\mathbb P(\mathcal K^*)$. 则 $I$ 光滑、不可约, 且维数为 $4+N-(d+1)$, 即 $N-d+3$.
+
+注意 $\pi_*\mathcal O_{P\times G}(d)=Q_G^*$. 所以有满射 $Q_G\to\mathcal K^*$, 诱导闭浸入 $I\subset G\times H$. 此外, 给定 $G\times H$ 的一个 $T$ 点, 它属于 $I$ 当且仅当 $L_T\subset W_T$. 事实上, 后一个条件意味着 $W_T\subset P_T$ 的理想在 $\mathcal O_{L_T}$ 中映为 $0$; 换言之, 复合
+\[
+ \mathcal O_{P_T}(-d)\otimes\mathcal O_H(-1)_{P_T}\longrightarrow\mathcal O_{P_T}
+ \longrightarrow\mathcal O_{L_T}
+\]
+为零. 等价地, 复合
+\[
+ \mathcal O_H(-1)_T\longrightarrow g_{T*}\mathcal O_{P_T}(d)
+ \longrightarrow g_{T*}\mathcal O_{L_T}(d)
+\]
+为零. 但第一个映射等于自然映射 $\mathcal O_H(-1)_T\to Q_T^*$. 所以这等价于该映射经由 $\mathcal K_T$ 分解, 或 $Q_T\to\mathcal O_H(1)_T$ 经由 $\mathcal K_T^*$ 分解. 等价地, $G\times H$ 的该 $T$ 点属于 $I$. 因而 $I$ 为关联对应的图形.
+
+令 $J\subset H$ 为 $I$ 的像. 注意 $J\neq H$, 因为 $\dim I=\dim H-d+3$ 且 $d\geq4$. 考虑使 $W\to H$ 在其上光滑的开集 $U\subset H$. 则 $U\cap J$ 非空. 事实上, 为 $P$ 选取坐标 $w,x,y,z$. 则当 $p\nmid d$ 时, $U\cap J$ 包含表示曲面 $\{w^d-x^d=y^d-z^d\}$ 的点; 当 $p\mid d$ 时, 它包含表示曲面 $\{wx^{d-1}=y^{d-1}\}$ 的点, 因为在两种情形中, 该曲面都光滑且包含直线, 分别为 $\{w=x,\ y=z\}$ 或 $\{w=0,\ y=0\}$.
+
+令 $s\in U\cap J$ 为单 $k$ 点. 取通过 $s$ 且与 $J$ 横截的直线 $S\subset H$. 将 $S$ 替换为 $S\cap U$. 令 $X\subset W$ 为 $S$ 的逆像, $f:X\to S$ 为诱导映射. 则 $f$ 光滑且射影, 其几何纤维整. 因而由定理 9.4.8, $\mathbf{Pic}_{X/S}$ 存在, 分离, 并表示 $\operatorname{Pic}_{(X/S)\,\text{(\'{e}t)}}$. 此外, 对每个 $t\in S$, 有 $H^1(\mathcal O_{X_t})=0$; 因而由推论 9.5.13, $\mathbf{Pic}_{X_t/k_t}$ 约化且离散. 特别地, $\mathbf{Pic}^0_{X_t/k_t}$ 光滑、零维且完备. 因此由命题 9.5.20, $\mathbf{Pic}^0_{X/S}$ 在 $S$ 上光滑且固有, 并在 $\mathbf{Pic}_{X/S}$ 中开且闭.
+
+因为 $s\in J$, 曲面 $X_s\subset P$ 包含一条直线 $M$. 又因 $s\in U$, $X_s$ 光滑, 所以 $M$ 是除子. 设 $\mathcal O_{X_s}(M)$ 定义 $k$ 点 $\mu\in\mathbf{Pic}_{X/S}$. 将 $\mu$ 视为约化闭子概形. 则 $\mu$ 为其纤维 $\mathbf{Pic}_{X_s/k}$ 的一个连通分支, 因为如刚才所述, 该纤维约化且离散. 还须证明 $\mu$ 为 $\mathbf{Pic}_{X/S}$ 的连通分支.
+
+假设不然, 寻求矛盾. 令 $Q$ 为 $\mu\in\mathbf{Pic}_{X/S}$ 的连通分支. 令 $k_\varepsilon$ 为“对偶数”环, $T:=\Spec(k_\varepsilon)$. 则存在支集为 $\mu$ 的闭浸入 $T\hookrightarrow\mathbf{Pic}_{X/S}$. 不过 $T$ 不能嵌入纤维 $\mathbf{Pic}_{X_s/k}$, 因为后者约化且离散. 所以结构映射 $\mathbf{Pic}_{X/S}\to S$ 将 $T$ 嵌入 $S$.
+% Source PDF 301, printed 289.
+由于 $k$ 代数闭, 由习题 9.2.3, 浸入 $T\hookrightarrow\mathbf{Pic}_{X/S}$ 对应于 $X_T$ 上的可逆层 $\mathcal M$. 此外, 因为浸入的支集为 $\mu$, 有 $\mathcal M|_{X_s}\simeq\mathcal O_{X_s}(M)$.
+
+注意 $H^1(\mathcal O_{X_s}(M))=0$. 事实上, 由 Serre 对偶 [Har77, 推论 7.7, 第 244 页及推论 7.12, 第 246 页], 只须证明 $H^1(\omega_{X_s}(-M))=0$. 作序列
+\[
+ 0\longrightarrow\omega_{X_s}(-M)\longrightarrow\omega_{X_s}
+ \longrightarrow\omega_{X_s}|_M\longrightarrow0.
+\]
+现在 $\omega_{X_s}\simeq\mathcal O_{X_s}(d-4)$, 因为由 [Har77, 命题 8.20, 第 182 页], $\omega_{X_s}\simeq\omega_P\otimes\mathcal O_{X_s}(X_s)$, 而由 [Har77, 例 8.20.1, 第 182 页], $\omega_P\simeq\mathcal O_P(-4)$. 但因 $X_s\subset P$ 为超曲面, $H^1(\mathcal O_{X_s}(d-4))=0$; 又因 $H^0(\mathcal O_P(d-4))\to H^0(\mathcal O_M(d-4))$ 为满射, $H^0(\mathcal O_{X_s}(d-4))\to H^0(\mathcal O_M(d-4))$ 为满射. 所以 $H^1(\mathcal O_{X_s}(M))=0$.
+
+因此由小节 9.3.10 中蕴含关系 (v)$\Rightarrow$(iv), $H^0(\mathcal M)\otimes k\to H^0(\mathcal O_{X_s}(M))$ 为满射. 所以定义 $M$ 的 $\mathcal O_{X_s}(M)$ 的截面延拓为 $\mathcal M$ 的截面. 由引理 9.3.4 的蕴含关系 (iii)$\Rightarrow$(i), 此延拓定义 $X_T$ 上的相对有效除子, 其限制为 $M$. 可知浸入 $T\hookrightarrow H$ 经由 $I$ 分解, 从而经由 $J$ 分解. 然而 $J$ 与 $S$ 在 $s$ 处横截, 所以 $T$ 不能嵌入 $J\cap S$. 这就是所求矛盾. 讨论至此完成.
+\end{origstatement}
+
+\begin{origstatement}{习题}{9.5.23}\label{ch09s05:ex9.5.23}
+假设 $X/S$ 射影且平坦, 其几何纤维为算术亏格 $p_a$ 的整曲线, 且 $S$ 为 Noether 概形. 证明“广义 Jacobian” $\mathbf{Pic}^0_{X_s/k_s}$ 构成相对维数为 $p_a$ 的光滑拟射影族. 并证明此族射影, 当且仅当 $X/S$ 光滑.
+\end{origstatement}
+
+\begin{origstatement}{注}{9.5.24}\label{ch09s05:rem9.5.24}
+假设 $X$ 为相对维数 $g$ 的 Abel $S$ 概形, 即 $X$ 是光滑固有的 $S$ 群概形, 其几何纤维连通且维数为 $g$. 则 $X$ 未必在 $S$ 上 Zariski 局部地射影.
+
+事实上, 据 Raynaud [Ray66, 注 8.c, 第 1315 页], Grothendieck 找到了两个这样的例子: 一个例子中 $S$ 约化且为一维; 另一个例子中 $S$ 为特征 $0$ 的域的对偶数环的谱. 在 [Ray70, 第 XII 章] 中, Raynaud 给出了类似例子的详细构造.
+
+假设 $X/S$ 射影, 且 $S$ 为 Noether 概形. 则 $\mathbf{Pic}^0_{X/S}$ 存在, 且也是相对维数 $g$ 的射影 Abel $S$ 概形. 令 $X^*:=\mathbf{Pic}^0_{X/S}$.
+
+事实上, 由主要定理即定理 9.4.8, $\mathbf{Pic}_{X/S}$ 存在, 表示 $\operatorname{Pic}_{(X/S)\,\text{(\'{e}t)}}$, 且局部有限型. 对 $s\in S$, 由 [Mum70, \S13], $\mathbf{Pic}^0_{X_s/k_s}$ 光滑且固有, 维数为 $g$. 因而由命题 9.5.20, $X^*$ 存在, 由习题 9.5.7, 它射影. 最后, $X^*$ 由命题 9.5.19 的证明的一个更深入版本可知光滑; 见 [Mum65, 第 117--118 页].
+
+因为 $f$ 有一个截面 $g$, 即单位截面, 由习题 9.4.3, $X\times\mathbf{Pic}_{X/S}$ 上存在泛层 $\mathcal P$. 通过将 $\mathcal P$ 与 $f_X^*g_X^*\mathcal P$ 张量相乘, 将其规范化. 则其在 $X\times X^*$ 上的限制定义一个映射, 它是“对偶性”同构
+\[
+ \pi:X\xrightarrow{\sim}X^{**}.
+\]
+事实上, $\pi$ 的形成与改变 $S$ 相容, 且由 [Mum70, 推论, 第 132 页], $\pi$ 的几何纤维为同构. 而 $X,X^{**}$ 都在 $S$ 上固有, 且 $X$ 平坦. 所以由 [EGAIII1, 4.6.7], $\pi$ 为同构.
+\end{origstatement}
+
+\begin{origstatement}{注}{9.5.25}\label{ch09s05:rem9.5.25}
+假设 $S$ 为代数闭域 $k$ 的谱, $X$ 正规、整且射影. 则由命题 9.5.3 和定理 9.5.4, $\mathbf{Pic}^0_{X/k}$ 不可约且射影. 令 $P:=(\mathbf{Pic}^0_{X/k})_{\mathrm{red}}$, $A:=\mathbf{Pic}^0_{P/k}$.
+% Source PDF 302, printed 290.
+则 $P$ 显然为 Abel 簇, 所以由注 9.5.24, $A$ 也为 Abel 簇.
+
+固定点 $x\in X(k)$. 设 $B$ 为 Abel 簇, $B^*:=\mathbf{Pic}^0_{B/k}$. 则 $B^*$ 也为 Abel 簇, 且由注 9.5.24, 有典范同构 $B\xrightarrow{\sim}B^{**}$. 令 $\xi:X\to X\times B^*$ 为 $0\in B^*(k)$ 定义的映射, $\beta:B^*\to X\times B^*$ 为 $x$ 定义的映射.
+
+考虑满足 $a(0)=0$ 的映射 $a:B^*\to P$. 由比较定理 (定理 9.2.5), 映射 $a$ 对应于 $X\times B^*$ 上满足 $\xi^*\mathcal L\simeq\mathcal O_X$ 的可逆层 $\mathcal L$. 将 $\mathcal L$ 与 $(\beta^*\mathcal L)_X$ 张量相乘, 将其规范化. 则 $\mathcal L$ 定义映射 $b:X\to B$, 使 $b(x)=0$.
+
+逆转上述论证, 可见每个这样的 $b$ 均来自唯一满足 $a(0)=0$ 的映射 $a:B^*\to\mathbf{Pic}_{X/k}$. 因为 $B^*$ 整, $a$ 经由 $P$ 分解. 因此映射 $a:B^*\to P$ 与 $b:X\to B$ 之间为双射对应. 显然, 此对应与满足 $b'(0)=0$ 的映射 $b':B\to B'$ 相容. 特别地, $1_P$ 对应于一个满足 $u(x)=0$ 的自然映射 $u:X\to A$, 且每个映射 $b:X\to B$ 都唯一地经由 $u$ 分解.
+\end{origstatement}
+
+\begin{origstatement}{注}{9.5.26}\label{ch09s05:rem9.5.26}
+假设 $X/S$ 射影且光滑, 其几何纤维为亏格 $g>0$ 的连通曲线, 且 $S$ 为 Noether 概形. 令 $J:=\mathbf{Pic}^0_{X/S}$; 由习题 9.5.23, 它存在且为射影 Abel $S$ 概形. 令 $J^*:=\mathbf{Pic}^0_{J/S}$; 由注 9.5.24, 它存在, 为射影 Abel 概形, 且与 $J$ “对偶”.
+
+假设 $X$ 有一个可逆层 $\mathcal L$, 其纤维 $\mathcal L_s$ 的次数为 $1$. 直接在 $T$ 值点上定义相应的“Abel”映射
+\[
+ A_{\mathcal L}:X\longrightarrow J
+\]
+如下. 给定 $t:T\to X$, 它的图形子概形 $\Gamma_t\subset X\times T$ 为相对有效除子; 见解答 9.4.13. 使用 $\mathcal L_T\otimes\mathcal O_{X_T}(-\Gamma_t)$ 定义 $A_{\mathcal L}(t)$.
+
+则 $A_{\mathcal L}$ 通过拉回诱导“自对偶性”同构
+\[
+ A_{\mathcal L}^*:J^*\xrightarrow{\sim}J.
+\]
+此同构与 $\mathcal L$ 的选择无关; 事实上, 即使没有这样的 $\mathcal L$, 它仍存在. 这些事实的证明见 [EGK02, 定理 2.1, 第 595 页]. 事实上那里证明了更一般的自对偶性结果: 当 $X$ 的几何纤维未必光滑, 而是整且至多有二重点时, 该结果适用于参数化无挠层的 $J$ 的自然紧化. 证明从头开始, 重新得出了域上一条光滑曲线这一原始情形.
+\end{origstatement}
+
+\begin{origstatement}{注}{9.5.27}\label{ch09s05:rem9.5.27}
+假设 $X/S$ 固有且平坦. 假设其几何纤维为曲线, 但未必整. 则有两个出色的定理断言 $\mathbf{Pic}_{X/S}$ 作为代数空间存在, $\mathbf{Pic}^0_{X/S}$ 作为分离 $S$ 概形存在. 这些定理在 N\'eron 模型理论中很重要; 因而 [BLR90, 第 9.4 节] 概述了它们的证明, 并引用了原始论文.
+
+一个定理归功于 Raynaud. 他还假设 $S$ 为离散赋值环的谱, $X$ 正规, 且 $\mathcal O_S\xrightarrow{\sim}f_*\mathcal O_X$. 此外, 给定 $X/S$ 的任意几何纤维, 他度量其各不可约分支的一般点处局部环的长度, 并假设这些长度的最大公因子为 $1$. 然后他证明了上述存在性断言.
+
+另一个定理归功于 Deligne. 他代之以额外假设 $X/S$ 半稳定, 即其几何纤维约化且连通, 至多具有普通二重点. 然后他还证明 $\mathbf{Pic}^0_{X/S}$ 光滑且拟射影; 事实上, 它带有典范的 $S$ 丰沛可逆层.
+\end{origstatement}
+% End of section 9.5, PDF 302 / printed p.290. Section 9.6 begins on PDF303.

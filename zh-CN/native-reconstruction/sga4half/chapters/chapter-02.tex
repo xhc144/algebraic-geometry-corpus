@@ -1,7 +1,7 @@
 % !TEX root = ../main.tex
 
 % SOURCE CORRECTION: French print76/PDF81: introductory reference is Expose XV, not XI.
-\chapter{迹公式报告}\label{II}
+\chapter[迹公式报告 {[Rapport]}]{迹公式报告}\label{II}
 
 在这篇文字中, 我试图尽可能直接地介绍 Grothendieck 的 $L$-函数上同调理论. 我紧密遵循 Grothendieck 于 1966 年春在 IHES 所作的若干次讲演. 按照本书的宗旨, 除了两处引用第 XV 讲中的段落之外, 我们不援引 SGA 5; 而第 XV 讲本身也独立于该讨论班的其余部分.
 
@@ -71,16 +71,18 @@ Frobenius 对应关于 $(X_0,\sF_0)$ 具有函子性. 若 $f_0:X_0\to Y_0$ 是 $
 \[
   \h^p(Y,\eR^q f_*\sF) \rightarrow \h^{p+q}(X,\sF) \text{.}
 \]
+% SOURCE CORRECTION (round 2): French printed p.79/PDF p.84 has R^q f_! in the compact-support spectral sequence.
 紧合支集上同调以及下列谱序列的情形也是如此:
 \[
-  \h_c^p(Y,\eR^q f_* \sF) \rightarrow \h_c^{p+q}(X,\sF)
+  \h_c^p(Y,\eR^q f_! \sF) \rightarrow \h_c^{p+q}(X,\sF)
 \]
 
+% SOURCE CORRECTION (round 2): French printed p.79/PDF p.84 has no stray parenthesis and uses [k(x):F_q].
 \subsection{有限域的变换}\label{II:1-5}
 
-设 $(X_0,\sF_0)$ 定义在 $\dF_q$ 上, $n$ 是整数, $\dF_{q^n}$ 上的 $(X_1,\sF_1)$ 由 $(X_0,\sF_0)$ 经标量扩张得到. 一方面有 Frobenius 对应 $F_{(q)}:X_0\to X_0)$, $F_{(q)}^*:F_{(q)}^*\sF_0\to \sF_0$, 另一方面有 $F_{(q^n)}:X_1\to X_1$, $F_{(q^n)}^*:F_{(q^n)}^*\sF_1\to\sF_1$. 容易验证, $F_{(q^n)}$ 是将 $F_{(q)}$ 的 $n$ 次幂从 $\dF_q$ 标量扩张到 $\dF_{q^n}$ 所得的; 在标量扩张到 $\dF$ 之后, $X$ 的自同态之间以及 $X$ 上的对应之间仍有同一等式 $F_{(q^n)}=F_{(q)}^n$.
+设 $(X_0,\sF_0)$ 定义在 $\dF_q$ 上, $n$ 是整数, $\dF_{q^n}$ 上的 $(X_1,\sF_1)$ 由 $(X_0,\sF_0)$ 经标量扩张得到. 一方面有 Frobenius 对应 $F_{(q)}:X_0\to X_0$, $F_{(q)}^*:F_{(q)}^*\sF_0\to \sF_0$, 另一方面有 $F_{(q^n)}:X_1\to X_1$, $F_{(q^n)}^*:F_{(q^n)}^*\sF_1\to\sF_1$. 容易验证, $F_{(q^n)}$ 是将 $F_{(q)}$ 的 $n$ 次幂从 $\dF_q$ 标量扩张到 $\dF_{q^n}$ 所得的; 在标量扩张到 $\dF$ 之后, $X$ 的自同态之间以及 $X$ 上的对应之间仍有同一等式 $F_{(q^n)}=F_{(q)}^n$.
 
-若 $x$ 是 $X_0$ 的闭点, 且 $[k(x),\dF_q]=n$, 而 $\bar x\in X_0(\dF) = X(\dF)$ 位于 $x$ 之上, 则 $\bar x$ 是 $F_{(q^n)}=F_{(q)}^n$ 的不动点. 以 $F_x^*$ 表示由 $F_{(q^n)}^*$ 诱导的 $\sF_{\bar x}$ 的自同态. 在相差一个同构的意义下, $(F_{\bar x}^*,\sF_{\bar x})$ 与 $\bar x$ 的选取无关. $F_x^*$ 的迹等用 $\tr(F_x^*,\sF)$ 等记号表示.
+若 $x$ 是 $X_0$ 的闭点, 且 $[k(x):\dF_q]=n$, 而 $\bar x\in X_0(\dF) = X(\dF)$ 位于 $x$ 之上, 则 $\bar x$ 是 $F_{(q^n)}=F_{(q)}^n$ 的不动点. 以 $F_x^*$ 表示由 $F_{(q^n)}^*$ 诱导的 $\sF_{\bar x}$ 的自同态. 在相差一个同构的意义下, $(F_{\bar x}^*,\sF_{\bar x})$ 与 $\bar x$ 的选取无关. $F_x^*$ 的迹等用 $\tr(F_x^*,\sF)$ 等记号表示.
 
 \subsection{\texorpdfstring{$L$}{L}-函数}\label{II:1-6}
 
@@ -142,7 +144,8 @@ $\dQ_\ell$-层的概念在 \cite[V,VI]{sga5} 中有详细论述. 我们只使用
 设 $\sF$ 是 Noether 概形 $X$ 上的 $\dZ_\ell$-层. 存在 $X$ 的有限局部闭分划 $X_i$, 使得各 $\sF|X_i$ 光滑.
 \end{proposition_}
 
-对 $m\geqslant n$, 置 $\gr_\ell^n\sF=\ell^n\sF_m/\ell^{m+1}\sF_m$, 并置 $\gr_\ell\sF=\bigoplus \gr_\ell^n\sF$. 它是 Noether 环 $\gr_\ell\dZ=\dZ/\ell[t]$ 上的模层, 该环是 $\dZ$ 关于 $\ell$-进滤过的分次环. 它是 $\gr_\ell^0\sF \otimes_{\dZ/\ell} \dZ/\ell[t]$ 的商, 因而是可构造 $\gr_\ell\dZ$-模层 \cite[IX.2]{sga4}; 存在 $X$ 的有限局部闭分划 $X_i$, 使 $\gr_\ell \sF|X_i$ 局部常值. 此时各层 $\gr_\ell^n\sF|X_i$ 都局部常值, 各 $\sF_m|X_i$ 作为它们的逐次扩张, 也局部常值.
+% SOURCE CORRECTION (round 2): French printed p.83/PDF p.88 has denominator ell^{n+1}, not ell^{m+1}.
+对 $m\geqslant n$, 置 $\gr_\ell^n\sF=\ell^n\sF_m/\ell^{n+1}\sF_m$, 并置 $\gr_\ell\sF=\bigoplus \gr_\ell^n\sF$. 它是 Noether 环 $\gr_\ell\dZ=\dZ/\ell[t]$ 上的模层, 该环是 $\dZ$ 关于 $\ell$-进滤过的分次环. 它是 $\gr_\ell^0\sF \otimes_{\dZ/\ell} \dZ/\ell[t]$ 的商, 因而是可构造 $\gr_\ell\dZ$-模层 \cite[IX.2]{sga4}; 存在 $X$ 的有限局部闭分划 $X_i$, 使 $\gr_\ell \sF|X_i$ 局部常值. 此时各层 $\gr_\ell^n\sF|X_i$ 都局部常值, 各 $\sF_m|X_i$ 作为它们的逐次扩张, 也局部常值.
 
 % SOURCE CORRECTION: French printed p.83 (PDF p.88), II 2.6: restore Hom after lim and replace + by =.
 \subsection{}\label{II:2-6}
@@ -186,10 +189,10 @@ $\dQ_\ell$-层 $\sF\otimes\dQ_\ell$ 在 $X$ 的几何点 $x$ 处的\emph{纤维}
 是有限维 $\dQ_\ell$-向量空间. 它只依赖于 $\sF$, 记为 $\h_c^q(X,\sF)$. 证明并未使用 $\ell$ 与特征互素这一事实, 但我们只关心这种情形.
 
 % SOURCE CORRECTION: II 2.11 cited SGA5 VI 2.2; replace wrongly targeted same-volume hyperref by citation.
-% TODO(核对): 法文原著 print85/PDF90 也将 F 写成 Y 上的层, 而 f 的源为 X; 保留原著, 待数学审定.
+% ORIGINAL ANOMALY (round 2): French printed p.85/PDF p.90 has Y. Preserve it and explain the domain of f_! in a visible note.
 \subsection{}\label{II:2-11}
 
-在本讲中, 所有重要计算都在 $\dZ/\ell^n$-层的层面上进行, 只在最后才过渡到 $\dQ_\ell$-层. 不过在实际应用中, 系统地使用 $\dQ_\ell$-层往往较为方便. 在 \cite{sga5} 第 V、VI 讲中, Jouanolou 建立了使之成为可能的形式体系. 一个基本结果 (\cite[VI 2.2]{sga5}) 是: 若 $f:X\to Y$ 是 Noether 概形之间的分离有限型态射, $\sF$ 是 $Y$ 上的 $\dZ_\ell$-层, 则对每个 $q$, pro-层 $\text{``}\varprojlim\text{''}\eR^q f_! (\sF\otimes\dZ/\ell^n)$ 都是 $Y$ 上的 $\dZ_\ell$-层. 他还证明了各 $\eR^q f_!(\sF\otimes\dZ/\ell^n)$ 构成的逆系统具有更强的正则性 (Artin--Rees 型).
+在本讲中, 所有重要计算都在 $\dZ/\ell^n$-层的层面上进行, 只在最后才过渡到 $\dQ_\ell$-层. 不过在实际应用中, 系统地使用 $\dQ_\ell$-层往往较为方便. 在 \cite{sga5} 第 V、VI 讲中, Jouanolou 建立了使之成为可能的形式体系. 一个基本结果 (\cite[VI 2.2]{sga5}) 是: 若 $f:X\to Y$ 是 Noether 概形之间的分离有限型态射, $\sF$ 是 $Y$ 上的 $\dZ_\ell$-层\footnote{译注: 法文原书此处也作 $Y$. 按 $f_!$ 的定义, 其自变量须为 $X$ 上的层; 若 $\sF$ 确为 $Y$ 上的层, 则须先取逆像 $f^*\sF$. 本处保留原书字样.}, 则对每个 $q$, pro-层 $\text{``}\varprojlim\text{''}\eR^q f_! (\sF\otimes\dZ/\ell^n)$ 都是 $Y$ 上的 $\dZ_\ell$-层. 他还证明了各 $\eR^q f_!(\sF\otimes\dZ/\ell^n)$ 构成的逆系统具有更强的正则性 (Artin--Rees 型).
 
 Jouanolou 甚至在更一般的情形下工作, 其中包括很有用的 $E_\lambda$-层的情形, 这里 $E_\lambda$ 是 $\dQ_\ell$ 的有限扩张. 它们的定义与 $\dQ_\ell$-层相同, 只须将 $\dQ_\ell$ 换成 $E_\lambda$, 将 $\dZ_\ell$ 换成赋值 $\lambda$ 的赋值环 $\sO_\lambda$, 将 $\dZ/\ell^n$ 换成 $\sO_\lambda/\pi^n$, 其中 $\pi$ 是素元. 也可以等价地将 $E_\lambda$-层定义为带有同态 $E_\lambda\to\operatorname{End}(\sF)$ 的 $\dQ_\ell$-层 $\sF$.
 
@@ -443,8 +446,8 @@ $\h^{-r-k}(N\lotimes_\Lambda K) = \h^{-r-k}(N\otimes_\Lambda K)
 \begin{enumerate}[\indent a)]
   \item 利用定义公式 $\eR f_! = \eR f_*\circ j_!$, 可归结为假设 $f$ 紧合.
   \item 以一个上有界复形表示 $\sK$, 其分量均对 $f_*$ 无上同调, 即当 $p>0$ 时 $\eR^p f_* \sK^q = 0$. 此时有 $\eR f_* K \sim f_* \sK$. 正因为 $f_*$ 的上同调维数有限, 才能这样使用上有界复形.
-  % TODO(核对): 法文原著 print96/PDF101 也在后句写 Lambda libre de type fini; 与本项的变量 L 不一致, 未猜测修正.
-  \item 若 $L$ 是自由右 $\Lambda$-模, 则有 $\eR^p f_*(L\otimes \sK^q) = L\otimes \eR^p f_* \sK^q$: 当 $\Lambda$ 为有限型自由模时这是平凡的, 一般情形则由取极限得到. 层 $L\otimes \sK^q$ 对 $f_*$ 无上同调, 且 $f_*(L\otimes \sK^q) = L\otimes f_* \sK^q$.
+  % ORIGINAL ANOMALY (round 2): French printed p.96/PDF p.101 has Lambda, although the finite-free reduction concerns L; preserve and explain.
+  \item 若 $L$ 是自由右 $\Lambda$-模, 则有 $\eR^p f_*(L\otimes \sK^q) = L\otimes \eR^p f_* \sK^q$: 当 $\Lambda$ 为有限型自由模时这是平凡的\footnote{译注: 法文原书也作 $\Lambda$. 本项的论证实际使用 $L$ 为有限型自由右 $\Lambda$-模的情形: 此时张量积是有限直和; 任意自由 $L$ 再由有限秩自由子模取滤过极限得到.}, 一般情形则由取极限得到. 层 $L\otimes \sK^q$ 对 $f_*$ 无上同调, 且 $f_*(L\otimes \sK^q) = L\otimes f_* \sK^q$.
   \item 设 $N_\bullet$ 是 $N$ 的自由消解. 有 $N\lotimes \sK\sim s(N_\bullet\otimes \sK)$ (双复形 $N_\bullet\otimes \sK$ 所对应的单复形). 由 c),
     \[
       \eR f_*(N\lotimes \sK) \sim \eR f_* (s(N_\bullet\otimes \sK)) \sim f_*(s(N_\bullet\otimes \sK)) \sim s(N_\bullet\otimes f_* \sK) \sim N\lotimes \eR f_* \sK \text{,}
@@ -513,12 +516,12 @@ $\h^{-r-k}(N\lotimes_\Lambda K) = \h^{-r-k}(N\otimes_\Lambda K)
 \end{enumerate}
 
 % SOURCE RESTORATION: French print98/PDF103 includes the finite-field-extension route omitted by English.
-% TODO(核对): 法文原著也在本段以 ell^n 定义 K_n, 但后式的范畴及后续公式使用 ell^{n+1}; 保留原著, 未猜测修正.
+% ORIGINAL ANOMALY (round 2): French printed p.98/PDF p.103 has n/n+1; preserve the original and explain the compatible indexing choices.
 \subsection{\texorpdfstring{(\ref{II:3-2})}{(3.2)} 的证明}\label{II:4-13}
 
 为简化记号, 只处理 (\ref{II:3-2}) 中 $n=1$ 的情形. 一般情形可通过将 $\dF_q$ 换成 $\dF_{q^n}$, 并将 $X_0$ 换成 $X_0\otimes_{\dF_q}\dF_{q^n}$ 得到. 也可将下文的 $F$ 换成 $F^n$ 得到一般情形.
 
-于是, 设 $X_0$ 在 $\dF_q$ 上分离且为有限型, $\sG_0$ 是 $X_0$ 上的 $\dQ_\ell$-层. 对适当选取的无挠 $\dZ_\ell$-层 $\sF_0$, 有 $\sG_0=\sF_0\otimes\dQ_\ell$. 令 $K_n=\eR\Gamma_c(X,\sF\otimes\dZ/\ell^n)$. Frobenius 态射诱导态射
+于是, 设 $X_0$ 在 $\dF_q$ 上分离且为有限型, $\sG_0$ 是 $X_0$ 上的 $\dQ_\ell$-层. 对适当选取的无挠 $\dZ_\ell$-层 $\sF_0$, 有 $\sG_0=\sF_0\otimes\dQ_\ell$. 令 $K_n=\eR\Gamma_c(X,\sF\otimes\dZ/\ell^n)$.\footnote{译注: 法文原书这里也作 $\ell^n$, 但下一式的系数环及后文计算均作 $\dZ/\ell^{n+1}$. 若沿用 (\ref{II:4-11}) 的索引, 此处应以 $\ell^{n+1}$ 定义 $K_n$; 若坚持本处定义, 则须相应平移后文的索引. 两种相容的索引给出同一逆极限, 但不能在单个 $K_n$ 上混用系数环.} Frobenius 态射诱导态射
 \[
   F^* : K_n\to K_n \qquad \text{(在 $\eD_\text{parf}(\dZ/\ell^{n+1})$ 中),}
 \]
@@ -713,7 +716,7 @@ $U_0$ 上的层 $f_* A$ 配备 $H$ 的自然作用, 是局部自由 (秩为一) 
   \eR\Gamma_c(U,\sG) \sim \left(\eR\Gamma_c(U,f_* A)\otimes_A M\right)\otimes_{\Lambda[H]} \Lambda \text{.}
 \]
 
-左边的自同态 $F^*$ 由 $\eR\Gamma_c(U,f_* A)$ 的自同态 $F^*$ 导出. 带有 $F^*$ 的 $\Lambda[H]$-模复形 $\eR\Gamma_c(U,f_* A)$ 可以视为 $\Lambda[G^+]$-模的复形, 其中 $G^+=H\times \dN$. 因此公式 \ref{II:5-10} 与 \eqref{II:eq:5-9-2}, 结合 \ref{II:5-11-1}, 给出
+左边的自同态 $F^*$ 由 $\eR\Gamma_c(U,f_* A)$ 的自同态 $F^*$ 导出. 带有 $F^*$ 的 $\Lambda[H]$-模复形 $\eR\Gamma_c(U,f_* A)$\footnote{译注: 法文原书也作 $\Lambda[H]$. 由前文构造, $\eR\Gamma_c(U,f_*A)$ 原为 $A[H]$-模复形; 与 $M$ 在 $A$ 上取张量积后, 才得到用于上式的 $\Lambda[H]$-模复形. 相应地, 张量前的 Frobenius 复形应视为 $A[G^+]$-模复形.} 可以视为 $\Lambda[G^+]$-模的复形, 其中 $G^+=H\times \dN$. 因此公式 \ref{II:5-10} 与 \eqref{II:eq:5-9-2}, 结合 \ref{II:5-11-1}, 给出
 \[
   \tr\left(F^*,\eR\Gamma_c(U,\sG)\right) = \sum_h' \tr_A^{Z_h}\left(h F^*,\eR\Gamma_c(U,f_* A)\right)\cdot \tr_\Lambda(h,M)
 \]
@@ -743,7 +746,8 @@ $U_0$ 上的层 $f_* A$ 配备 $H$ 的自然作用, 是局部自由 (秩为一) 
     \[
       \tr\left(F^*,\eR\Gamma_c(U,\sG)\right) = \tr\left(F^*,\eR\Gamma_c(U',\sG)\right) + \sum_{x\in U^F} \tr(F^*,\sG_x) \text{,}
     \]
-    而由于 ${U'}^F=0$, 右边的第一项为 $0$.
+    % SOURCE CORRECTION (round 2): French printed p.106/PDF p.111 has the empty set, not zero.
+    而由于 ${U'}^F=\varnothing$, 右边的第一项为 $0$.
 \end{enumerate}
 
 \section{\ref{II:4-10} 的证明的结束}\label{II:6}

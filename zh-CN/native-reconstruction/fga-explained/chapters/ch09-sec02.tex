@@ -1,0 +1,277 @@
+% Source printed pp.252--256 = PDF264--268, section9.2 in full.
+\section{几种 Picard 函子}
+\label{ch09s02:section}
+\begingroup
+\def\PZ{\Pic_{(X/S)(\mathrm{zar})}}
+\def\PE{\Pic_{(X/S)(\text{ét})}}
+\def\PF{\Pic_{(X/S)(\mathrm{fppf})}}
+\def\PQ{\Pic_{(X/S)(\mathrm{fpqc})}}
+\def\L{\mathcal L}\def\M{\mathcal M}\def\N{\mathcal N}
+\def\sHom{\mathcal H\!om}
+
+% Source PDF264 / printed252.
+我们的首要任务, 是为 Picard 概形的点函子找出一个可能的候选者. 事实上, 有几个合理的 Picard 函子, 且后一个总比前一个更有希望可表. 本节正式引入并比较这些函子.
+
+\begin{origstatement}{定义}{9.2.1}\label{ch09s02:def921}
+\emph{绝对 Picard 函子} (absolute Picard functor) $\Pic_X$ 是从 (局部 Noether) $S$-概形 $T$ 所成的范畴到Abel群范畴的函子, 由公式
+\[
+\Pic_X(T):=\Pic(X_T)
+\]
+定义, 其中 $\Pic(X_T)$ 就是 $X_T$, 即 $X\times_ST$ 上可逆层的同构类群.
+\end{origstatement}
+
+绝对 Picard 函子是一个“已作准备的预层” (prepared presheaf), 意思是: 给定任意一族 $S$-概形 $T_i$, 有
+\[
+\Pic_X\Bigl(\coprod T_i\Bigr)=\prod\Pic_X(T_i).
+\]
+因此, 给定 $S$-概形范畴上 Zariski 拓扑、平展拓扑或任意其他 Grothendieck 拓扑中的覆盖族 $\{T_i\to T\}$, 在考虑与 $\Pic_X$ 相关联的层时, 只使用一个映射 $T'\to T$ 并无妨碍, 其中 $T':=\coprod T_i$. 这样可以减轻记号负担, 使阅读更容易. 因此, 全文都采用这一做法, 将 $T'\to T$ 简称为给定拓扑中的一个\emph{覆盖}.
+
+绝对 Picard 函子 $\Pic_X$ 从来不是 Zariski 拓扑中的分离预层. 事实上, 取一个 $S$-概形 $T$, 其上有可逆层 $\N$, 使得 $f_T^*\N$ 非平凡. (例如, 取 $T:=\mathbf P_X^1$, $\N:=\mathcal O_T(1)$. 则对角映射 $X\to X\times X$ 诱导 $f_T$ 的一个截面 $g$; 即 $gf_T=1_T$. 所以 $f_T^*\N$ 非平凡.) 现在, 存在 Zariski 覆盖 $T'\to T$, 使得拉回 $\N|T'$ 平凡; 这里 $T'$ 就是 $T$ 的一个合适的通常开覆盖中各子集的不交并. 因而拉回 $f_T^*\N|X_{T'}$ 也平凡. 于是 $\Pic_X(T)$ 中有一个非零元素, 其在 $\Pic_X(T')$ 中的限制为零.
+% SOURCE ISSUE: source prints gf_T=1_T (not f_Tg=1_T); retained.
+
+根据下降理论, 每个可表函子都是 Zariski 拓扑中的层——事实上, 在平展拓扑与 fppf 拓扑中也都是层. 因此, 绝对 Picard 函子 $\Pic_X$ 从不可表. 为了得到一个与 $\Pic_X$ 尽可能接近的可表函子, 下面定义依次更有希望的三个相对函子.
+
+\begin{origstatement}{定义}{9.2.2}\label{ch09s02:def922}
+\emph{相对 Picard 函子} (relative Picard functor) $\Pic_{X/S}$ 定义为
+\[
+\Pic_{X/S}(T):=\Pic(X_T)/\Pic(T).
+\]
+将其在 Zariski 拓扑、平展拓扑与 fppf 拓扑中的相关联层分别记为
+\[
+\PZ,\qquad\PE,\qquad\PF.
+\]
+\end{origstatement}
+
+现在得到了五个 Picard 函子组成的一个序列, 每个函子都自然地映入下一个. 因而每个函子都自然地映入其后的任意一个函子. 如果后者是刚才列出的三个函子之一, 那么它就是所指拓扑中的层; 事实上, 它是其前任意一个函子的相关联层, 而它们之间的映射就是从预层到相关联层的自然映射, 这容易检验. 特别地, 所列的三个层既是绝对 Picard 函子 $\Pic_X$ 的相关联层, 也是相对 Picard 函子 $\Pic_{X/S}$ 的相关联层.
+
+% Source PDF265 / printed253.
+由于事先并不知道 $\Pic_{X/S}$ 是层, 它在实际中如此经常可表, 是一件值得注意的事.
+
+注意, 对每个 $S$-概形 $T$, $\PF$ 的每个 $T$-点, 即 $\PQ(T)$ 的每个元素, 都由某个 fppf 覆盖 $T'\to T$ 上 $X_{T'}$ 的一个可逆层 $\L'$ 表示. 此外, 必须存在 fppf 覆盖 $T''\to T'\times_TT'$, 使 $\L'$ 到 $X_{T''}$ 的两个拉回同构——非正式地说, $\L'$ 的限制必须在重叠部分的一个覆盖上一致.
+% SOURCE ISSUE: source switches from fppf to undefined fpqc subscript in the same sentence; retained.
+
+此外, 第二个这样的层 $\L_1$ (定义在 $X_{T_1}$ 上) 表示同一个 $T$-点, 当且仅当存在 fppf 覆盖 $T'_1\to T_1\times_TT'$, 使 $\L'$ 与 $\L_1$ 到 $X_{T'_1}$ 的拉回同构. 严格地说, 这个条件包含了前面的条件, 后者涉及 $T_1=T'$ 且 $\L_1=\L'$ 的情形, 因为 $\L'$ 必须与自身表示同一个 $T$-点. 当然, Zariski 与平展拓扑的 Picard 函子也有类似的考虑.
+
+\begin{origstatement}{习题}{9.2.3}\label{ch09s02:ex923}
+给定形如 $T=\Spec(A)$ 的 $S$-概形 $T$, 其中 $A$ 是局部环, 证明下列自然映射是同构:
+\[
+\Pic_X(A)\xrightarrow{\sim}\Pic_{X/S}(A)\xrightarrow{\sim}\PZ(A),
+\]
+其中 $\Pic_X(A):=\Pic_X(T)$, $\Pic_{X/S}(A):=\Pic_{X/S}(T)$, 其余类似.
+
+假设 $A$ 是剩余域代数闭的 Artin 局部环. 证明
+\[
+\Pic_X(A)\xrightarrow{\sim}\PE(A).
+\]
+假设 $A$ 是代数闭域 $k$. 证明
+\[
+\Pic_X(k)\xrightarrow{\sim}\PF(k).
+\]
+\end{origstatement}
+
+\begin{origstatement}{习题}{9.2.4}\label{ch09s02:ex924}
+证明自然映射
+\[
+\PZ\longrightarrow\PE
+\]
+未必是同构. 具体地, 取 $X$ 为实射影平面中的下列曲线:
+\[
+X:u^2+v^2+w^2=0\qquad\text{于 }\mathbf P_{\mathbf R}^2.
+\]
+则 $X$ 没有 $\mathbf R$-点, 但在复数域 $\mathbf C$ 上存在同构
+\[
+\varphi:X_{\mathbf C}\xrightarrow{\sim}\mathbf P_{\mathbf C}^1.
+\]
+证明 $\varphi^*\mathcal O(1)$ 定义了 $\Pic_{(X/\mathbf R)(\text{ét})}(\mathbf R)$ 的一个元素, 它不在 $\Pic_{(X/\mathbf R)(\mathrm{zar})}(\mathbf R)$ 的像中.
+\end{origstatement}
+
+本节的主要结果是下面的比较定理. 它找出两个有用的条件: 第一个保证前三个相对函子可以看作第四个的子函子; 两个条件合在一起保证四个函子全都相等. 第二个条件有三个依次更弱的形式. 在证明定理之前, 必须先发展一些理论.
+
+\begin{origstatement}{定理}{9.2.5 (比较)}\label{ch09s02:thm925}
+假设 $\mathcal O_S\xrightarrow{\sim}f_*\mathcal O_X$ 普遍成立; 即对任意 $S$-概形 $T$, $f_T$ 的余态射是同构 $\mathcal O_T\xrightarrow{\sim}f_{T*}\mathcal O_{X_T}$.
+\begin{enumerate}
+\item[1.] 则自然映射都是单射:
+\[
+\Pic_{X/S}\hookrightarrow\PZ\hookrightarrow\PE\hookrightarrow\PF.
+\]
+\item[2.] 如果另外 $f$ 有截面, 则三个映射全都是同构; 如果另外 $f$ 在 Zariski 拓扑下局部有截面, 则后两个映射是同构; 如果另外 $f$ 在平展拓扑下局部有截面, 则最后一个映射是同构.
+\end{enumerate}
+\end{origstatement}
+
+% Source PDF266 / printed254.
+\begin{origstatement}{习题}{9.2.6}\label{ch09s02:ex926}
+假设 $\mathcal O_S\xrightarrow{\sim}f_*\mathcal O_X$ 普遍成立. 利用定理 9.2.5, 证明其中的四个函子具有相同的几何点; 换言之, 对包含 $S$ 的某一点的剩余域的任意代数闭域 $k$, 这四个函子的 $k$-点自然地相同. 进一步证明, 这些 $k$-点就是 $\Pic(X_k)$ 的元素.
+
+如果 $\mathcal O_S\xrightarrow{\sim}f_*\mathcal O_X$ 未必普遍成立, 情形又如何?
+\end{origstatement}
+
+\begin{origstatement}{引理}{9.2.7}\label{ch09s02:lem927}
+假设 $\mathcal O_S\xrightarrow{\sim}f_*\mathcal O_X$. 则函子 $\N\mapsto f^*\N$, 从 $S$ 上有限秩局部自由层所成的范畴 $\mathcal C$ 到 $X$ 上相应范畴, 是全忠实的. 其本质像由 $X$ 上满足下列条件的层 $\M$ 组成: (i) 像 $f_*\M$ 属于 $\mathcal C$; (ii) 自然映射 $f^*f_*\M\to\M$ 是同构.
+\end{origstatement}
+\begin{proof}
+(参见 [EGAIV4, 21.13.2].) 对 $\mathcal C$ 中任意 $\N$, 有三个自然同构组成的链
+\begin{equation}
+\tag{9.2.7.1}\label{ch09s02:eq9271}
+\N\xrightarrow{\sim}\N\otimes f_*\mathcal O_X
+\xrightarrow{\sim}\N\otimes f_*f^*\mathcal O_S
+\xrightarrow{\sim}f_*f^*\N.
+\end{equation}
+第一个同构来自与 $f$ 的余态射作张量积; 该余态射由假设是同构. 第二个同构来自等同 $\mathcal O_X=f^*\mathcal O_S$. 第三个来自投影公式.
+
+对 $\mathcal C$ 中任意 $\N'$, $\sHom(\N,\N')$ 也属于 $\mathcal C$. 因而 (9.2.7.1) 给出同构
+\[
+\sHom(\N,\N')\xrightarrow{\sim}f_*f^*\sHom(\N,\N').
+\]
+现在, 由于 $\N,\N'$ 都局部自由且秩有限, 自然映射
+\[
+f^*\sHom(\N,\N')\longrightarrow\sHom(f^*\N,f^*\N')
+\]
+局部为同构, 因而整体为同构. 所以有群的同构
+\[
+\Hom(\N,\N')\xrightarrow{\sim}\Hom(f^*\N,f^*\N').
+\]
+换言之, $\N\mapsto f^*\N$ 是全忠实的.
+
+最后, 本质像由那些同构于某个 $\N\in\mathcal C$ 所给出的 $f^*\N$ 的层 $\M$ 组成. 给定这样的 $\M,\N$, 由 (9.2.7.1) 有同构 $f_*\M\simeq\N$. 所以 $f_*\M$ 属于 $\mathcal C$, 且 $f^*f_*\M\to\M$ 局部为同构, 因而整体为同构; 即 (i)、(ii) 成立. 反过来, 如果 (i)、(ii) 成立, 则按定义 $\M$ 属于本质像.
+\end{proof}
+
+\begin{proof}[定理 9.2.5 第 1 部分的证明]
+给定 $\lambda\in\Pic_{X/S}(T)$, 用 $X_T$ 上的可逆层 $\L$ 表示 $\lambda$. 假设 $\lambda$ 在 $\PF(T)$ 中映到 $0$. 则存在 fppf 覆盖 $p:T'\to T$, 以及同构 $p_X^*\L\simeq f_{T'}^*\N'$, 其中 $\N'$ 是 $T'$ 上的某个可逆层. 所以引理 9.2.7 意味着 $f_{T'*}p_X^*\L\simeq\N'$. 现在, $p$ 是平坦的, 所以 $p^*f_{T*}\L\xrightarrow{\sim}f_{T'*}p_X^*\L$. 于是 $p^*f_{T*}\L\simeq\N'$. 因而 $f_{T*}\L$ 可逆, 且自然映射 $f_T^*f_{T*}\L\to\L$ 是同构, 因为这两个断言都在沿忠实平坦映射 $p$ 拉回后成立. 所以 $\lambda=0$. 因而 $\Pic_{X/S}\hookrightarrow\PF$.
+
+其余是形式推论. 事实上, 取刚得到的单射, 在 Zariski 拓扑中取相关联层. 由一般 (Grothendieck) 拓扑理论, 这一操作是正合的, 且 $\PF$ 保持不变, 因为它已经是 Zariski 层. 因而 $\PZ\hookrightarrow\PF$. 类似地, $\PE\hookrightarrow\PF$.
+
+另一种方式是, 利用 $\PF$ 是 $\Pic_X$ 而不只是 $\Pic_{X/S}$ 的相关联层这一事实, 从而避免使用引理 9.2.7. 这样可以假设 $\N'=\mathcal O_{T'}$. 于是 $f_{T'*}p_X^*\L\simeq\N'$, 因为 $\mathcal O_S\xrightarrow{\sim}f_*\mathcal O_X$ 普遍成立. 接下来与前面完全一样.
+\end{proof}
+
+% Source PDF267 / printed255.
+\begin{origstatement}{定义}{9.2.8}\label{ch09s02:def928}
+假设 $f$ 有截面 $g$, 所以 $fg=1$. 设 $T$ 是 $S$-概形, $\L$ 是 $X_T$ 上的层. 则 $\L$ 的一个 \emph{$g$-刚性化} ($g$-rigidification), 就是选取一个同构 $u:\mathcal O_T\xrightarrow{\sim}g_T^*\L$, 假定这样的同构存在.
+\end{origstatement}
+
+\begin{origstatement}{引理}{9.2.9}\label{ch09s02:lem929}
+假设 $f$ 有截面 $g$, 设 $T$ 是 $S$-概形. 考虑二元组 $(\L,u)$ 的同构类群, 其中 $\L$ 是 $X_T$ 上的可逆层, $u$ 是 $\L$ 的一个 $g$-刚性化. 则由 $\rho(\L,u):=\L$ 定义的同态 $\rho$, 将这个群同构地映到 $\Pic_{X/S}(T)$.
+\end{origstatement}
+\begin{proof}
+给定 $\Pic_{X/S}(T)$ 中的 $\lambda$, 用 $X_T$ 上的一个可逆层 $\M$ 表示 $\lambda$. 置 $\L:=\M\otimes(f_T^*g_T^*\M)^{-1}$. 则 $\L$ 也表示 $\lambda$. 并且 $g_T^*\L=g_T^*\M\otimes g_T^*f_T^*g_T^*\M^{-1}$. 现在, 由于 $fg=1$, 有 $g_T^*f_T^*=1$. 因而自然同构 $g_T^*\M\otimes(g_T^*\M)^{-1}\xrightarrow{\sim}\mathcal O_T$ 诱导 $\L$ 的一个 $g$-刚性化. 所以 $\rho$ 是满射.
+
+为证明 $\rho$ 是单射, 设 $(\L,u)$ 表示其核中的一个元素. 则存在 $T$ 上的可逆层 $\N$ 和同构 $v:\L\xrightarrow{\sim}f_T^*\N$. 置 $w:=g_T^*v\circ u$, 即 $w:\mathcal O_T\xrightarrow{\sim}g_T^*\L\xrightarrow{\sim}\N$. 二元组之间的映射, 就是第一分量之间的映射 $w'$, 使得 $g_T^*w'$ 与两个 $g$-刚性化相容. 所以 $v:(\L,u)\xrightarrow{\sim}(f_T^*\N,w)$, 且 $f_T^*w:(\mathcal O_{X_T},1)\xrightarrow{\sim}(f_T^*\N,w)$. 因而 $\rho$ 是单射.
+\end{proof}
+
+\begin{origstatement}{引理}{9.2.10}\label{ch09s02:lem9210}
+假设 $f$ 有截面 $g$, 且 $\mathcal O_S\xrightarrow{\sim}f_*\mathcal O_X$ 普遍成立. 设 $T$ 是 $S$-概形, $\L$ 是 $X_T$ 上的可逆层, $u$ 是 $\L$ 的一个 $g$-刚性化. 则二元组 $(\L,u)$ 的每个自同构都是平凡的.
+\end{origstatement}
+\begin{proof}
+$(\L,u)$ 的自同构就是一个自同构 $v:\L\xrightarrow{\sim}\L$, 使得 $g_T^*v\circ u:\mathcal O_T\xrightarrow{\sim}g_T^*\L\xrightarrow{\sim}g_T^*\L$ 等于 $u$. 但这样 $g_T^*v=1$. 现在,
+\[
+v\in\Hom(\L,\L)=H^0(\sHom(\L,\L))=H^0(\mathcal O_{X_T})=H^0(\mathcal O_T);
+\]
+中间的等式成立, 因为自然映射 $\mathcal O_{X_T}\to\sHom(\L,\L)$ 局部为同构, 因而整体为同构; 最后一个等式成立, 因为 $\mathcal O_T\xrightarrow{\sim}f_{T*}\mathcal O_{X_T}$. 但 $g_T^*v=1$. 因此 $v=1$.
+\end{proof}
+
+\begin{proof}[定理 9.2.5(2) 的证明]
+假设 $f$ 有截面 $g$. 由第 1 部分, 只需证明每个 $\lambda\in\PF(T)$ 都属于 $\Pic_{X/S}(T)$. 用 $\lambda'\in\Pic_{X/S}(T')$ 表示 $\lambda$, 其中 $T'\to T$ 是 fppf 覆盖. 则存在 fppf 覆盖 $T''\to T'\times_TT'$, 使 $\lambda'$ 到 $X_{T''}$ 的两个拉回相等. 可以假设 $T''\xrightarrow{\sim}T'\times_TT'$, 因为同样由第 1 部分, $\Pic_{X/S}$ 在 fppf 拓扑中是分离的.
+
+由引理 9.2.9, 可以用二元组 $(\L',u')$ 表示 $\lambda'$, 其中 $\L'$ 是 $X_{T'}$ 上的可逆层, $u'$ 是 $\L'$ 的一个 $g$-刚性化. 此外, 在 $X_{T'\times_TT'}$ 上存在同构 $v'$, 从 $(\L',u')$ 沿第一投影的拉回映到沿第二投影的拉回.
+
+考虑三个投影 $X_{T'\times_TT'\times_TT'}\to X_{T'\times_TT'}$. 以 $v'_{ij}$ 表示 $v'$ 沿投到第 $i,j$ 个因子的投影的拉回. 则 ${v'_{13}}^{-1}v'_{23}v'_{12}$ 是 $(\L',u')$ 沿第一投影 $X_{T'\times_TT'\times_TT'}\to X_{T'}$ 的拉回的一个自同构. 所以由引理 9.2.10, 这个自同构是平凡的. 因而 $(\L',u')$ 下降为 $X_T$ 上的二元组 $(\L,u)$. 因此 $\lambda$ 属于 $\Pic_{X/S}(T)$.
+
+其余是形式推论. 事实上, 假设存在 Zariski 覆盖 $T'\to T$, 使 $f_{T'}$ 有截面. 则由上面所证, $\PZ|T'\xrightarrow{\sim}\PF|T'$. 所以由一般 (Grothendieck) 拓扑理论, $\PZ\xrightarrow{\sim}\PF$, 因为源与目标都是 Zariski 拓扑中的层, 而层之间的映射如果局部是同构,
+% Source PDF268 / printed256.
+就整体是同构. 类似地, 如果 $f$ 在平展拓扑下局部有截面, 则 $\PE\xrightarrow{\sim}\PF$.
+\end{proof}
+
+\begin{origstatement}{注}{9.2.11}\label{ch09s02:rem9211}
+定理 9.2.5 还有另一种证明. 这种方法更精巧, 还能给出一些我们用不到的额外信息. 其想法如下.
+
+回忆 [Har77, Ex.~II, 4.5, p.~224], 对任意赋环空间 $R$, 有自然同构
+\begin{equation}
+\tag{9.2.11.1}\label{ch09s02:eq92111}
+\Pic(R)=H^1(R,\mathcal O_R^*).
+\end{equation}
+现在, 给定任意 $S$-概形 $T$, 在 $T$ 上构造预层 $T'\mapsto H^1(X_{T'},\mathcal O_{X_{T'}}^*)$. 其相关联层 [Har77, Prp.~III, 8.1, p.~250] 就是 $R^1f_{T*}\mathcal O_{X_T}^*$. 因此,
+\begin{equation}
+\tag{9.2.11.2}\label{ch09s02:eq92112}
+\PZ(T)=H^0(T,R^1f_{T*}\mathcal O_{X_T}^*).
+\end{equation}
+考虑 Leray 谱序列 [God58, Thm.~II, 4.17.1, p.~201]
+\[
+E_2^{pq}:=H^p(T,R^qf_{T*}\mathcal O_{X_T}^*)\Longrightarrow H^{p+q}(X_T,\mathcal O_{X_T}^*),
+\]
+并取其低次项的正合列 [God58, Thm.~I, 4.5.1, p.~82]
+\begin{equation}
+\tag{9.2.11.3}\label{ch09s02:eq92113}
+\begin{aligned}
+0\longrightarrow H^1(T,f_{T*}\mathcal O_{X_T}^*)
+&\longrightarrow H^1(X_T,\mathcal O_{X_T}^*)
+\longrightarrow H^0(T,R^1f_{T*}\mathcal O_{X_T}^*)\\
+&\longrightarrow H^2(T,f_{T*}\mathcal O_{X_T}^*)
+\longrightarrow H^2(X_T,\mathcal O_{X_T}^*).
+\end{aligned}
+\end{equation}
+如果 $\mathcal O_S\xrightarrow{\sim}f_*\mathcal O_X$ 普遍成立, 则 $H^1(T,\mathcal O_T^*)\xrightarrow{\sim}H^1(T,f_{T*}\mathcal O_{X_T}^*)$. 因而 (9.2.11.3) 的开头变为
+\[
+0\longrightarrow\Pic(T)\longrightarrow\Pic(X_T)\longrightarrow\PZ(T).
+\]
+所以 $\Pic_{X/S}\hookrightarrow\PZ$.
+
+如果另外 $f$ 有截面 $g$, 则对每个 $p$, $g$ 都诱导由 $f$ 诱导的映射 $H^p(T,f_{T*}\mathcal O_{X_T}^*)\to H^p(X_T,\mathcal O_{X_T}^*)$ 的一个左逆. 因而后一个映射为单射. 所以映射
+\[
+H^1(X_T,\mathcal O_{X_T}^*)\longrightarrow H^0(T,R^1f_{T*}\mathcal O_{X_T}^*)
+\]
+为满射. 于是 $\Pic_{X/S}\xrightarrow{\sim}\PZ$.
+
+上述论证稍作改动, 也适用于平展拓扑与 fppf 拓扑. 首先, 考虑函子
+\[
+\mathbf G_{\mathrm m}(T):=H^0(T,\mathcal O_T^*).
+\]
+设 $u$ 是未定元. 则 $\mathbf G_{\mathrm m}(T)$ 由 $S$-概形
+\[
+\mathbf G_{\mathrm m}:=\Spec(\mathcal O_S[u,u^{-1}])
+\]
+表示. 事实上, 给定 $S$-映射 $T\to\mathbf G_{\mathrm m}$, 等同于给定从 $H^0(S,\mathcal O_S)[u,u^{-1}]$ 到 $H^0(T,\mathcal O_T)$ 的 $H^0(S,\mathcal O_S)$-同态; 而给定这样的同态, 又等同于给 $u$ 指定 $H^0(T,\mathcal O_T)$ 中的一个单位. 现在, 由于 $\mathbf G_{\mathrm m}(T)$ 可表, 它是平展拓扑与 fppf 拓扑中的层.
+
+Grothendieck 对 Hilbert 第 90 定理的推广 [FGA, p.~190-16] 断言公式
+\[
+\Pic(T)=H^1(T,\mathbf G_{\mathrm m}),
+\]
+其中 $H^1$ 可以在平展拓扑或 fppf 拓扑中计算. 证明很简单, 与 (9.2.11.1) 的证明相似. $H^1$ 可以作为 \v{C}ech 群计算. 而且, 基本上由定义, 对覆盖 $T'\to T$, 取值于 $\mathbf G_{\mathrm m}$ 的 \v{C}ech 上循环等同于 $\mathcal O_{T'}$ 上的下降数据. 由下降理论, 这组数据是有效的; 所得到的 $T$ 上的层可逆, 因为覆盖是忠实平坦的.
+
+% Source PDF269 / printed257, continuation of9.2.11 before section9.3.
+在当前情境中, 正合列 (9.2.11.3) 变为
+\begin{equation}
+\tag{9.2.11.4}\label{ch09s02:eq92114}
+\begin{aligned}
+0\longrightarrow H^1(T,f_{T*}\mathbf G_{\mathrm m})
+&\longrightarrow H^1(X_T,\mathbf G_{\mathrm m})
+\longrightarrow H^0(T,R^1f_{T*}\mathbf G_{\mathrm m})\\
+&\longrightarrow H^2(T,f_{T*}\mathbf G_{\mathrm m})
+\longrightarrow H^2(X_T,\mathbf G_{\mathrm m}).
+\end{aligned}
+\end{equation}
+此外, (9.2.11.2) 的证明例如在 fppf 拓扑中给出
+\[
+\PF(T)=H^0(T,R^1f_{T*}\mathbf G_{\mathrm m}).
+\]
+如果 $\mathcal O_S\xrightarrow{\sim}f_*\mathcal O_X$ 普遍成立, 则由定义得到 $f_{T*}\mathbf G_{\mathrm m}=\mathbf G_{\mathrm m}$. 因而 (9.2.11.4) 的开头变为
+\[
+0\longrightarrow\Pic(T)\longrightarrow\Pic(X_T)\longrightarrow\PF(T).
+\]
+所以 $\Pic_{X/S}\hookrightarrow\PF$. 而如果另外 $f$ 有截面, 则 $\Pic_{X/S}\xrightarrow{\sim}\PF$. 与前面一样, 定理 9.2.5 的其余部分是形式推论.
+
+Grothendieck [DIX68, pp.~46--188] 详细研究了平展群 $H^2(T,\mathbf G_{\mathrm m})$. 他证明, 它给出了域上中心单代数的 Brauer 群的两个重要推广之一. 另一个是 $T$ 上 Azumaya 代数所成的群. 他将后者记为 $\mathrm{Br}(T)$, 前者记为 $\mathrm{Br}'(T)$. 因而 [DIX68, pp.~127--128], 如果 $\mathcal O_S\xrightarrow{\sim}f_*\mathcal O_X$ 普遍成立, 则 (9.2.11.4) 变为
+\begin{equation}
+\tag{9.2.11.5}\label{ch09s02:eq92115}
+0\longrightarrow\Pic(T)\longrightarrow\Pic(X_T)\longrightarrow\PE(T)
+\longrightarrow\mathrm{Br}'(T)\longrightarrow\mathrm{Br}'(X_T);
+\end{equation}
+特别地, 用 $X_T$ 上可逆层表示 $\PE(T)$ 的一个元素的障碍, 由 $\mathrm{Br}'(T)$ 中映到 $\mathrm{Br}'(X_T)$ 的 $0$ 的一个元素给出.
+
+利用 $\mathbf G_{\mathrm m}$ 作为 $S$-概形的光滑性, Grothendieck [DIX68, p.~180] 证明, 从平展群 $H^p(T,\mathbf G_{\mathrm m})$ 到相应 fppf 群的自然同态都是同构. 因而, 如果 $\mathcal O_S\xrightarrow{\sim}f_*\mathcal O_X$ 普遍成立, 则由 (9.2.11.4) 和五引理得到, 无论 $f$ 是否在平展拓扑下局部有截面, 都有
+\[
+\PE\xrightarrow{\sim}\PF.
+\]
+不过, 当讨论采用尽可能一般的设定时, 通常使用 $\PF$, 并将它称为 \emph{Picard 函子}.
+\end{origstatement}
+
+% End of full section9.2, including its continuation on sourcePDF269.
+\endgroup

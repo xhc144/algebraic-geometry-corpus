@@ -1,0 +1,2246 @@
+% BEGIN INCLUDED SGA7I_English_current_buildable_source_20260823/components/63_expose_VII_opening_through_1_1_2_1.tex
+% SOURCE AUTHORITY:
+% expose_VII_body.tex lines 5--58; scan indices 144--147; source folios 133--136.
+% Hard stop before source line 60, paragraph 1.1.3.
+
+%%%%%%%%%%  scan idx 144  |  folio 133  %%%%%%%%%%
+
+\begin{center}
+\SGARefAliasTarget{sga7.sga7i.evii.nroot}SGA 7
+
+\vspace{1em}
+\underline{报告 VII}
+
+\vspace{1em}
+\underline{群层的双扩张}
+
+\vspace{1em}
+\underline{A. Grothendieck}
+\end{center}
+
+0. \underline{引言}
+
+\underline{双扩张}（biextension）的概念由 D.~Mumford [6] 在形式群的背景下引入，用以方便地表述一个阿贝尔概形及其对偶阿贝尔概形所联系的形式群之间的关系。本讲将在给定景上的群层这一一般背景下，系统研究这个概念。特别地，我们将说明，它能够极其简明地纳入 $\overset{\mathrm L}{\otimes}$ 和 $\underline{\mathrm{RHom}}$ 的经典上同调形式体系之中（\SGARefLink{sga7.sga7i.evii.n3-6-4}{3.6.4} 和 \SGARefLink{sga7.sga7i.evii.n3-6-5}{3.6.5}）。下一讲将具体讨论最有意义的若干特殊情形，尤其是群概形对乘法群 $\underline G_m$ 的双扩张（在 Zariski 景、fpqc 景或居于两者之间的景上进行讨论）。特别地，我们将看到，若 $A$ 和 $B$ 是概形 $S$ 上的两个阿贝尔概形，则 $(A,B)$ 对 $\underline G_m$ 的双扩张有一种值得注意的解释：它们本质上就是 $A,B$ 上经典的除子对应。这赋予除子对应概念一种特别方便而明确的上同调意义（这种意义已隐含在 $p$ 进域上阿贝尔簇的 Tate 对偶性中）。这种对除子对应的解释，还便于追踪当 $A$ 和 $B$（假设定义在离散赋值环的分式域上）借助 N\'eron 理论发生退化时，这样一个对应的变化。
+
+%%%%%%%%%%  scan idx 145  |  folio 134  %%%%%%%%%%
+
+例如，第 VIII 讲的结果将说明，我们得到两个 N\'eron 模型的单位分支所成之对的一个双扩张，从而得到它们的连通特殊纤维的一个双扩张，它起着原有除子对应的特殊化的作用。第 IX 讲将结合这些结果与单值定理（I~3），证明阿贝尔簇的 N\'eron 模型的一些结果，其中最重要的是 N\'eron 模型的“半稳定约化定理”。
+
+以下除非另有明确说明，始终在一个固定的 $\underline U$-拓扑斯 $\underline T$ 中工作；也就是说（SGA~4，第 IV 讲），$\underline T$ 是一个范畴，它等价于某个适当的 $\underline U$-景上的层范畴（如有需要，该景可取为赋予典范拓扑的 $\underline T$ 自身）。在用语上，我们常将 $\underline T$ 的对象与 $\underline T$ 上的集合层等同。以下考虑的所有群、群扩张等等，均相对于这个拓扑斯 $\underline T$ 而言。
+
+1. \underline{群扩张的补充}
+
+\SGARefTarget{sga7.sga7i.evii.n1-1}{1.1}. 设 $P$ 和 $G$ 是 $\underline T$ 中的两个群，且
+
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n1-1-1}{1.1.1}}
+\begin{tikzcd}[column sep=large]
+1 \arrow[r] & G \arrow[r, "i"] & E \arrow[r, "j"] & P \arrow[r] & 1
+\end{tikzcd}
+\end{equation}
+
+是 $P$ 对 $G$ 的一个扩张。因而 $E$ 是一个群，$j:E\longrightarrow P$ 是群的满态射，而 $i$ 诱导 $G$ 到 $\ker j$ 的同构。我们将用不同的方式重新解释给出这样一个扩张的数据，以便于双扩张的定义和研究。
+
+%%%%%%%%%%  scan idx 146  |  folio 135  %%%%%%%%%%
+
+\SGARefTarget{sga7.sga7i.evii.n1-1-2}{1.1.2}. 首先，同态 $i$ 使 $G$ 以左、右两种方式作用于 $E$，其定义为
+\[
+ gxg'=i(g)xi(g')
+\]
+其中 $g,g'\in G(S)$，$x\in E(S)$，而 $S$ 是 $\underline T$ 的任意对象。若借助 $j$ 将 $E$ 看作一个“在 $P$ 之上”的对象，即诱导拓扑斯 $\underline T_{/P}$ 的一个对象，则这就是说，由 $G$ 在 $\underline T_{/P}$ 中诱导的群 $G_P=G\times P$ 左右作用于 $E$。此外，众所周知，这两种作用分别使 $E$ 成为 $P$ 上结构群为 $G_P$ 的一个\underline{挠子}（torsor，分别为左挠子和右挠子）；更确切地说，它使 $E$ 成为一个 $(G_P,G_P)$-\underline{双挠子}（bitorsor）。回忆 [2]，这意味着 $E$ 在 $G_P$ 的右作用下是一个右挠子 $E_d$，而左作用诱导 $G_P$ 到 $E_d$ 的自同构群的同构（后者为 $E$ 的那些与 $G_P$ 在 $E$ 上的右作用可交换的自同构所成的群层）。该条件等价于对称的条件：$G_P$ 在 $E$ 上的左作用使 $E$ 成为一个左挠子 $E_s$，而右作用诱导反群 $G_P^{\mathrm o}$ 到 $E_s$ 的自同构群的同构。
+
+\SGARefTarget{sga7.sga7i.evii.n1-1-2-1}{1.1.2.1}. 当 $\underline T$ 是“点拓扑斯”，即集合范畴（它等价于单点拓扑空间上的层范畴）时，$P$ 和 $G$ 就是通常的群；此时给出一个 $(G_P,G_P)$-双挠子 $E$，显然等价于对每个 $p\in P$ 给出一个 $(G,G)$-双挠子 $E_p$，即 $E$ 在 $p$ 处的纤维。一般情形也有类似解释。事实上，给出一个 $(G_P,G_P)$-双挠子 $E$，等价于对每个“点” $p\in P(S)$（$S$ 为 $\underline T$ 的任意对象），给出 $S$ 上的一个 $(G_S,G_S)$-双挠子 $E_p$，使 $E_p$ 的形成“与沿任意态射 $S'\longrightarrow S$ 的基变换相容”。因此，若 $p':S'\longrightarrow P$ 是复合态射，还须给出从 $E_{p'}$ 到 $E_p$ 沿 $S'\longrightarrow S$ 的逆像的双挠子同构，而且这些同构满足复合 $S''\longrightarrow S'\longrightarrow S$ 所要求的通常的传递性条件。
+
+%%%%%%%%%%  scan idx 147  |  folio 136  %%%%%%%%%%
+
+用典范的语言表述（SGA~1，第 VI 讲），这归结为如下同义反复：给出 $P$ 上的一个 $(G_P,G_P)$-双挠子，等价于给出在可变底 $S\in\operatorname{ob}\underline T_{/P}$ 上的 $(G_S,G_S)$-双挠子所成纤维范畴在范畴 $\underline T_{/P}$ 上的一个笛卡儿截面。更确切地说，“在 $P$ 处取值”函子诱导所讨论的笛卡儿截面范畴与 $(G_P,G_P)$-双挠子范畴之间的一个等价。这直接来自如下事实：$P$ 是这个纤维范畴的底范畴 $\underline T_{/P}$ 的终对象；对于 $\underline T_{/P}$ 上的\underline{任意}纤维范畴，“在 $P$ 处取值”函子都是该纤维范畴的笛卡儿截面范畴与其在 $P$ 上的纤维范畴之间的等价。不过，尽管这个解释具有同义反复的性质，它仍有助于以接近集合论情形的语言表述某些相容性：只须用取值于对象 $S$ 的点代替通常的点。
+
+
+% END INCLUDED SGA7I_English_current_buildable_source_20260823/components/63_expose_VII_opening_through_1_1_2_1.tex
+
+% BEGIN INCLUDED SGA7I_English_current_buildable_source_20260823/components/64_expose_VII_1_1_3_through_1_1_4_2.tex
+% SOURCE AUTHORITY:
+% expose_VII_body.tex lines 60--137; scan indices 147--151; source folios 136--140.
+% Hard stop before source line 139, paragraph 1.1.5.
+% The print intermittently writes P_p where its own definitions and the
+% associativity diagram require E_p; the coherent E_p notation is retained.
+
+\SGARefTarget{sga7.sga7i.evii.n1-1-3}{1.1.3}. 对扩张结构（\SGARefLink{sga7.sga7i.evii.n1-1-1}{1.1.1}）而言，\SGARefLink{sga7.sga7i.evii.n1-1-2}{1.1.2} 中 $E$ 上的 $(G_P,G_P)$-双挠子结构只用到了 $E$ 的一部分乘法结构：即两个“点”的乘积，其中至少有一个（经由 $i$）来自 $G$ 的一个点。现在，我们要把 $E$ 的乘法结构解释成所考虑的双挠子上的一个附加结构。
+
+%%%%%%%%%%  scan idx 148  |  folio 137  %%%%%%%%%%
+
+为此，先考虑 $P$ 的两个截面 $p,p'$。按 \SGARefLink{sga7.sga7i.evii.n1-1-2-1}{1.1.2.1} 的记号，它们给出两个 $(G,G)$-双挠子 $E_p,E_{p'}$，即截面 $p,p':e\longrightarrow P$ 在 $E$ 中的逆像（这里 $e$ 表示 $\underline T$ 的终对象）。显然，$E$ 的乘法诱导 $\underline T$ 的对象之间的一个态射
+\[
+ \varphi:E_p\times E_{p'}\longrightarrow E_{pp'},
+\]
+用所涉及的三个双挠子的左右结构来表达（并且照常使用取值于任意对象 $S\in\operatorname{ob}\underline T$ 的点），它满足
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n1-1-3-0}{1.1.3.0}}
+\left\{
+\begin{aligned}
+ \varphi(gx,x')&=g\varphi(x,x'),
+ &\qquad \varphi(x,x'g')&=\varphi(x,x')g',\\
+ \varphi(xg,x')&=\varphi(x,gx').
+\end{aligned}
+\right.
+\end{equation}
+这里 $g,g'\in G(S)$，$x\in E_p(S)$，$x'\in E_{p'}(S)$。用缩积 [2]
+\[
+ E_p\mathbin{\overset{G}{\times}}E_{p'},
+\]
+来表达，第三个关系说明 $\varphi$ 分解为
+\[
+ E_p\times E_{p'}\longrightarrow
+ E_p\mathbin{\overset{G}{\times}}E_{p'}
+ \xrightarrow{\ \varphi_{p,p'}\ }E_{pp'},
+\]
+其中第一个箭头是典范的商态射。另一方面，前两个关系说明，由此所得的态射
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n1-1-3-1}{1.1.3.1}}
+ \varphi_{p,p'}:
+ E_p\mathbin{\overset{G}{\times}}E_{p'}\longrightarrow E_{pp'},
+\end{equation}
+是一个\underline{双挠子}同态，其中源的双挠子结构如下：$G$ 的左（相应地，右）作用来自 $G$ 在第一个因子 $E_p$ 上的左作用（相应地，在第二个因子 $E_{p'}$ 上的右作用）。
+
+%%%%%%%%%%  scan idx 149  |  folio 138  %%%%%%%%%%
+
+注意，和固定的一对群之下的任何双挠子同态一样，$\varphi_{p,p'}$ 必然是一个\underline{同构}。
+
+上述同构（\SGARefLink{sga7.sga7i.evii.n1-1-3-1}{1.1.3.1}）的定义立即推广到如下情形：$p,p'$ 是 $P$ 的取值于 $\underline T$ 中任意对象 $S$ 的点，而非 $P$ 的截面。只需把上述讨论应用于诱导拓扑斯 $\underline T_{/S}$ 及由（\SGARefLink{sga7.sga7i.evii.n1-1-1}{1.1.1}）经基变换得到的 $S$ 上的群扩张。同构 $\varphi_{p,p'}$ 的形成于是与任意基变换 $S'\longrightarrow S$ 相容。换言之，它对应于以 $P$ 为终点的箭头对 $p,p':S\rightrightarrows P$ 所成范畴 $\underline T_{/P\times P}$ 上的纤维范畴的笛卡儿截面之间的一个同态。
+
+当然，给出满足此条件的一族 $\varphi_{p,p'}$，等价于在“泛”情形 $S=P\times P$ 中给出 $\varphi_{p,p'}$；此时 $p,p'$ 为从 $P\times P$ 到 $P$ 的两个投影 $\operatorname{pr}_i$（$i=1,2$）。它于是成为一个 $(G_{P\times P},G_{P\times P})$-双挠子的同构：
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n1-1-3-2}{1.1.3.2}}
+ \varphi:\operatorname{pr}_1^*(E)\,\operatorname{pr}_2^*(E)
+ \overset{\sim}{\longrightarrow}\pi^*(E),
+\end{equation}
+其中
+\[
+ \pi:P\times P\longrightarrow P
+\]
+是定义群 $P$ 的乘法结构的 $\underline T$ 中对象的态射。不过，下面的相容性用数据（\SGARefLink{sga7.sga7i.evii.n1-1-3-1}{1.1.3.1}）来表述最为方便，这样可以避免使用不那么直观的图表。
+
+%%%%%%%%%%  scan idx 150  |  folio 139  %%%%%%%%%%
+
+\SGARefTarget{sga7.sga7i.evii.n1-1-4}{1.1.4}. 写出关系式（\SGARefLink{sga7.sga7i.evii.n1-1-3-0}{1.1.3.0}），从而用双挠子的同构（\SGARefLink{sga7.sga7i.evii.n1-1-3-1}{1.1.3.1}）表达 $E$ 上给定的合成律时，我们只对 $E$ 的三个“点”的乘积使用了这个合成律的结合性，其中至少一个点来自 $G$ 的点。要用 $\varphi_{p,p'}$ 表达完整的结合性，就必须要求，对 $P$ 的取值于 $\underline T$ 中对象 $S$ 的三个点 $p,p',p''$，下面的图表交换：
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n1-1-4-1}{1.1.4.1}}
+\begin{tikzcd}[column sep=huge, row sep=large]
+ & E_{pp'}E_{p''} \arrow[dr, "{\varphi_{pp',p''}}"] & \\
+ E_pE_{p'}E_{p''}
+   \arrow[ur, "{\varphi_{p,p'}\wedge\id}"]
+   \arrow[dr, "{\id\wedge\varphi_{p',p''}}"']
+ && E_{pp'p''} \\
+ & E_pE_{p'p''} \arrow[ur, "{\varphi_{p,p'p''}}"'] &
+\end{tikzcd}
+\end{equation}
+在此图中，我们省略了双挠子缩积的符号 $\mathbin{\overset{G_S}{\times}}$。应当理解，两个双挠子的缩积 $Q.R$ 是在 $Q\times R$ 中取商时，使用结构群 $G$ 在 $Q$ \underline{右边}和 $R$ \underline{左边}的作用而形成的。这个缩积运算在一个典范同构下满足结合律 [2]，我们作等同
+\[
+ (E_pE_{p'})E_{p''}\simeq E_p(E_{p'}E_{p''}),
+\]
+并把两端都简记为 $E_pE_{p'}E_{p''}$。在本讲余下部分，我们将一直采用这类显然的约定，而不每次明确说明。
+
+\SGARefTarget{sga7.sga7i.evii.n1-1-4-2}{1.1.4.2}. 正如（\SGARefLink{sga7.sga7i.evii.n1-1-3-1}{1.1.3.1}）中的同构 $\varphi_{p,p'}$ 由（\SGARefLink{sga7.sga7i.evii.n1-1-3-2}{1.1.3.2}）考虑的“泛”情形 $S=P\times P$、$p=\operatorname{pr}_1$、$p'=\operatorname{pr}_2$ 决定一样，结合性条件（\SGARefLink{sga7.sga7i.evii.n1-1-4-1}{1.1.4.1}）也只须在泛情形 $S=P\times P\times P$、$p=\operatorname{pr}_1$、$p'=\operatorname{pr}_2$、$p''=\operatorname{pr}_3$ 中检验。读者可用自己喜欢的记号写出这个图表。
+
+
+% END INCLUDED SGA7I_English_current_buildable_source_20260823/components/64_expose_VII_1_1_3_through_1_1_4_2.tex
+
+% BEGIN INCLUDED SGA7I_English_current_buildable_source_20260823/components/65_expose_VII_1_1_5_through_1_1_6.tex
+% SOURCE AUTHORITY:
+% expose_VII_body.tex lines 139--235; scan indices 151--154; source folios 140--143.
+% Hard stop before source line 237, paragraph 1.2.
+
+\SGARefTarget{sga7.sga7i.evii.n1-1-5}{1.1.5}. 反过来，设给定 $\underline T$ 中的群 $P$ 和 $G$，以及一个 $(G_P,G_P)$-双挠子
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n1-1-5-1}{1.1.5.1}}
+ j:E\longrightarrow P
+\end{equation}
+（记号中已包含 $G_P$ 在 $E$ 上的两个作用，或等价地，$G$ 在 $E$ 上的两个作用），再给定可变底 $S$ 上的一族双挠子同构
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n1-1-5-2}{1.1.5.2}}
+ \varphi_{p,p'}:E_pE_{p'}\overset{\sim}{\longrightarrow}E_{pp'}
+ \qquad (p,p'\in P(S)),
+\end{equation}
+它们与基变换 $S'\longrightarrow S$ 相容；换言之，给定一个双挠子同构（\SGARefLink{sga7.sga7i.evii.n1-1-3-2}{1.1.3.2}）。假设相应的图表（\SGARefLink{sga7.sga7i.evii.n1-1-4-1}{1.1.4.1}）交换。我们断言，\underline{$E$ 上存在唯一的 $P$ 对 $G$ 的扩张结构，使前面的数据由它通过 \SGARefLink{sga7.sga7i.evii.n1-1-2}{1.1.2} 和 \SGARefLink{sga7.sga7i.evii.n1-1-3}{1.1.3} 的构造得到}。
+
+首先注意，在（\SGARefLink{sga7.sga7i.evii.n1-1-5-2}{1.1.5.2}）中取 $p,p'$ 均为 $P$ 的单位截面 $1$，得到同构
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n1-1-5-3}{1.1.5.3}}
+ \varphi_{1,1}:E_1\overset{\sim}{\longleftarrow}
+ E_1\mathbin{\overset{G}{\times}}E_1.
+\end{equation}
+因而，把两端例如从左侧与 $E_1$ 的逆双挠子 $E_1^{-1}$ [2] 作缩积，便得到一个典范同构
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n1-1-5-4}{1.1.5.4}}
+ E_1\simeq\text{单位双挠子 }{}_sG_d
+\end{equation}
+（即 $G$ 以左右平移作用于自身），这里使用了同处给出的、对任意双挠子都成立的典范同构
+
+%%%%%%%%%%  scan idx 152  |  folio 141  %%%%%%%%%%
+
+
+\[
+ E_1^{-1}.E_1\simeq\text{单位双挠子 }{}_sG_d
+\]
+等价地，我们有 $E_1$ 的一个截面 $1_E$，从而也是 $E$ 的截面，
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n1-1-5-5}{1.1.5.5}}
+ 1_E\in\Gamma(E_1)=\operatorname{Hom}(e,E_1)\subset\Gamma(E),
+\end{equation}
+它就是 ${}_sG_d$ 的特定截面在（\SGARefLink{sga7.sga7i.evii.n1-1-5-4}{1.1.5.4}）下的像，满足
+\[
+ g.1_E=1_E.g\qquad(g\in G(S)).
+\]
+由构造，此截面由下式刻画：
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n1-1-5-6}{1.1.5.6}}
+ \varphi_{1,1}(1_E,1_E)=1_E.
+\end{equation}
+
+
+另一方面，给出（\SGARefLink{sga7.sga7i.evii.n1-1-3-2}{1.1.3.2}）中的挠子态射 $\varphi$，显然等价于给出一个态射
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n1-1-5-7}{1.1.5.7}}
+ \pi_E:E\times E\longrightarrow E,
+ \qquad\text{也记为 }(x,y)\longmapsto xy,
+\end{equation}
+它满足
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n1-1-5-8}{1.1.5.8}}
+ j(xy)=j(x)j(y)\qquad(x,y\in E(S)),
+\end{equation}
+使 $j$ 与 $E$ 的乘法结构 $\pi_E$ 及 $P$ 的乘法结构 $\pi$ 相容，并且满足三个关系式（\SGARefLink{sga7.sga7i.evii.n1-1-3-0}{1.1.3.0}）（最好先从最后一个关系式着手）。最后，定义 $\underline T$ 中对象的态射
+\[
+ i:G\longrightarrow E,
+\]
+其公式为
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n1-1-5-9}{1.1.5.9}}
+ i(g)=g.1_E=1_E.g.
+\end{equation}
+
+%%%%%%%%%%  scan idx 153  |  folio 142  %%%%%%%%%%
+
+最后两项相等，在构造 $1_E$ 时已经说明。现在断言，\underline{$E$ 上的乘法 $\pi_E$ 使 $E$ 成为以 $1_E$ 为单位截面的群，而且 $j:E\longrightarrow P$ 和 $i:G\longrightarrow E$ 是群同态，使 $E$ 成为 $P$ 对 $G$ 的扩张}。
+
+事实上，$E$ 上合成律的结合性正是图表（\SGARefLink{sga7.sga7i.evii.n1-1-4-1}{1.1.4.1}）的交换性。利用（\SGARefLink{sga7.sga7i.evii.n1-1-3-1}{1.1.3.1}）中的同构 $\varphi_{p,p'}$ 对 $\pi_E$ 的构造还表明，对于每个 $x\in E(S)$，$E(S)$ 中由 $x$ 给出的左、右平移都是单射。又由（\SGARefLink{sga7.sga7i.evii.n1-1-5-6}{1.1.5.6}）知 $1_E1_E=1_E$，于是立即得到 $1_E$ 是 $E$ 的双侧单位元。验证位于 $p\in P(S)$ 之上的 $x\in E(S)$ 有逆元这一点留给读者；这里使用由 $\varphi_{p,p^{-1}}$ 得到的典范同构
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n1-1-5-10}{1.1.5.10}}
+ E_{p^{-1}}\simeq(E_p)^{\mathrm o}.
+\end{equation}
+因此，$E$ 的确是一个\underline{群}。我们已经说明 $j$ 与合成律相容（\SGARefLink{sga7.sga7i.evii.n1-1-5-8}{1.1.5.8}），$i$ 也如此，因为对于 $g,g'\in G(S)$，有
+\begin{align*}
+ i(g)i(g')
+ &= (g.1_E)(g'.1_E)\\
+ &= (g.1_E.g')1_E &&\text{（由（\SGARefLink{sga7.sga7i.evii.n1-1-3-0}{1.1.3.0}）的最后一个关系）}\\
+ &= g.1_E.g' &&\text{($1_E$ 是单位元)}\\
+ &= g.(1_E.g')=g.(g'.1_E)\\
+ &= (gg').1_E &&\text{由 (\SGARefLink{sga7.sga7i.evii.n1-1-5-9}{1.1.5.9})}\\
+ &= i(gg').
+\end{align*}
+由于 $j$ 是挠子的结构投影，它是 $\underline T$ 的对象之间的满态射。只须再说明 $i$ 诱导 $G$ 到 $\ker j=E_1$ 的同构，而这由定义（\SGARefLink{sga7.sga7i.evii.n1-1-5-9}{1.1.5.9}）及 $1_E$ 的构造显然可知。
+
+%%%%%%%%%%  scan idx 154  |  folio 143  %%%%%%%%%%
+
+\SGARefTarget{sga7.sga7i.evii.n1-1-6}{1.1.6}. 我们承认，上述论证证明了以下结论。对于固定的拓扑斯 $\underline T$，上述构造给出\underline{$\underline T$ 中如（\SGARefLink{sga7.sga7i.evii.n1-1-1}{1.1.1}）所示的群扩张范畴}（其中 $P,G,E$ 都可以变化）\underline{与如下数据 $(P,G,E,\varphi)$ 的范畴之间的等价：$P$ 和 $G$ 是 $\underline T$ 中的群，$E$ 是 $P$ 上的一个 $(G_P,G_P)$-双挠子，而 $\varphi$ 是双挠子同构}（\SGARefLink{sga7.sga7i.evii.n1-1-3-2}{1.1.3.2}）（或等价地，是一族与基变换相容的双挠子同构（\SGARefLink{sga7.sga7i.evii.n1-1-3-1}{1.1.3.1}）），\underline{满足由图表（\SGARefLink{sga7.sga7i.evii.n1-1-4-2}{1.1.4.2}）的交换性表达的结合性条件}（或等价地，满足图表（\SGARefLink{sga7.sga7i.evii.n1-1-4-1}{1.1.4.1}）的交换性）。
+
+利用上述对应，读者可以自行详述扩张（\SGARefLink{sga7.sga7i.evii.n1-1-1}{1.1.1}）沿群同态
+\[
+ P'\longrightarrow P
+ \qquad\bigl(\text{相应地, }G\longrightarrow G'\bigr),
+\]
+的逆像（相应地，正像）这一显然的概念，或同时进行这两种操作。上述范畴等价与拓扑斯态射
+\[
+ f:\underline T'\longrightarrow\underline T.
+\]
+所联系的逆像函子 $f^*$ 的相容性，也留给读者说明。为此，应优先使用（\SGARefLink{sga7.sga7i.evii.n1-1-3-2}{1.1.3.2}）形式的数据 $\varphi$，而不是（\SGARefLink{sga7.sga7i.evii.n1-1-3-1}{1.1.3.1}）中的 $\varphi_{p,p'}$；它由此定义拓扑斯 $\underline T'$ 上的相应数据 $f^*(\varphi)$。
+
+
+% END INCLUDED SGA7I_English_current_buildable_source_20260823/components/65_expose_VII_1_1_5_through_1_1_6.tex
+
+% BEGIN INCLUDED SGA7I_English_current_buildable_source_20260823/components/66_expose_VII_section_1_2.tex
+% SOURCE AUTHORITY:
+% expose_VII_body.tex lines 237--261; scan indices 154--155; source folios 143--144.
+% Hard stop before source line 264, section 1.3.
+
+\SGARefTarget{sga7.sga7i.evii.n1-2}{1.2}. \underline{交换情形}。从 \SGARefLink{sga7.sga7i.evii.n1-4}{1.4} 起，我们只考虑\underline{交换}群的交换扩张。因此，我们假设 $P$ 和 $G$ 是交换群，并在此用扩张的双挠子描述 $(P,G,E,\varphi)$ 来明确表达 $E$ 为交换群的条件。
+
+%%%%%%%%%%  scan idx 155  |  folio 144  %%%%%%%%%%
+
+第一个显然必要的条件——它实际上表达 $i(G)$ 是 $E$ 的一个\underline{中心}子群——是：对于 $p\in P(S)$，双挠子 $E_p$ 都是通常的挠子；即 $G$ 在 $E_p$ 上的左、右作用必须相同。等价地，$P$ 上的 $E$ 是通常的 $G_P$-挠子。（因而以后不必再谈双挠子，我们将只考虑通常的挠子。）假设这个预备条件成立，则 $E$ 的交换性由下面的图表对 $p,p'\in P(S)$ 的交换性表达：
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n1-2-1}{1.2.1}}
+\begin{tikzcd}[column sep=large, row sep=large]
+ E_pE_{p'} \arrow[r, "{\varphi_{p,p'}}"] \arrow[d, "\mathrm{sym}"']
+   & E_{pp'} \arrow[d, "\id"] \\
+ E_{p'}E_p \arrow[r, "{\varphi_{p',p}}"]
+   & E_{p'p}.
+\end{tikzcd}
+\end{equation}
+这里第一个竖直箭头是典范的交换性同构（由于 $G$ 现在是交换群，它有定义）；又因 $P$ 交换，有 $pp'=p'p$。这个条件显然等价于泛情形 $S=P\times P$、$p=\operatorname{pr}_1$、$p'=\operatorname{pr}_2$ 中的相应条件，这里不再写出。
+
+
+% END INCLUDED SGA7I_English_current_buildable_source_20260823/components/66_expose_VII_section_1_2.tex
+
+
+
+% BEGIN INCLUDED SGA7I_English_current_buildable_source_20260823/components/67_expose_VII_1_3_1_through_1_3_3.tex
+% SOURCE AUTHORITY:
+% expose_VII_body.tex lines 264--286; scan indices 155--158; source folios 144--147.
+% Hard stop before source line 288, paragraph 1.3.4.
+
+\SGARefTarget{sga7.sga7i.evii.n1-3}{1.3}. \underline{与刚化挠子或双刚化挠子的关系}
+
+\SGARefTarget{sga7.sga7i.evii.n1-3-1-0}{\SGARefAliasTarget{sga7.sga7i.evii.n1-3-1}1.3.1.0}. 设 $P$ 是 $\underline T$ 中带有截面 $e_P$ 的一个对象，$G$ 是 $\underline T$ 中的一个群，$E$ 是一个 $G_P$-挠子。相对于 $P$ 的给定截面 $e_P$，$E$ 的一个\underline{刚化}（rigidification）是 $G$-挠子 $E_1=e_P^*(E)$ 的一个平凡化；
+
+%%%%%%%%%%  scan idx 156  |  folio 145  %%%%%%%%%%
+
+也就是这个挠子的一个截面。这一用语的启发来自 $G$ 交换且
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n1-3-1-1}{1.3.1.1}}
+ \operatorname{Hom}_{\mathrm{pt}}(P,G)\simeq(e),
+\end{equation}
+的情形，这里左端表示把 $e_P$ 映为 $G$ 的单位截面 $e_G$ 的态射所成的集合。这个关系等价于说，自然同态
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n1-3-1-2}{1.3.1.2}}
+ \Gamma(G)\xrightarrow{\ \sim\ }\operatorname{Hom}(P,G),
+\end{equation}
+是一个同构；此同态把 $G$ 的截面 $g$ 映为取值为 $g$ 的常态射 $P\longrightarrow G$。立即可知，这些等价条件还等价于说：挠子 $E$ 的每个保持给定刚化的自同构都是恒等自同构（这样的自同构恰好对应于（\SGARefLink{sga7.sga7i.evii.n1-3-1-1}{1.3.1.1}）左端的元素）。特别地，在条件（\SGARefLink{sga7.sga7i.evii.n1-3-1-1}{1.3.1.1}）下，相对于 $e_P$ 刚化的 $G_P$-挠子范畴是“刚性的”。
+
+\SGARefTarget{sga7.sga7i.evii.n1-3-2}{1.3.2}. 再设 $Q$ 是 $\underline T$ 中带有截面 $e_Q$ 的对象，现在以 $E$ 表示一个 $G_{P\times Q}$-挠子。由于 $e_Q$ 定义 $P\times Q$ 在 $P$ 上的一个截面 $e_{P\times Q/P}$，我们可在诱导拓扑斯 $\underline T_{/P}$ 中，考虑 $E$ 相对于这个截面的刚化 $\alpha$；具体说，它们是由 $E$ 在 $P\times e_Q$ 上诱导的挠子的截面。交换 $P$ 与 $Q$ 的角色，也可考虑 $E$ 相对于由 $e_P$ 定义的 $P\times Q$ 在 $Q$ 上的截面 $e_{P\times Q/Q}$ 的刚化 $\beta$。若这两个部分刚化所给的截面 $\alpha$ 与 $\beta$ 在 $e_P\times e_Q$ 上相同，就称它们\underline{相容}；也就是说，它们定义同一个截面，该截面属于 $G$-挠子 $E_{1,1}$；此挠子是 $E$ 沿 $P\times Q$ 的截面 $(e_P,e_Q)$ 所取的
+
+%%%%%%%%%%  scan idx 157  |  folio 146  %%%%%%%%%%
+
+逆像。挠子 $E$ 相对于截面对 $(e_P,e_Q)$ 的一个\underline{双刚化}（birigidification），就是一对相容的部分刚化。
+
+若 $G$ 是交换群，则 $E$ 有双刚化 $(\alpha,\beta)$，当且仅当它有部分刚化 $\alpha$ 和 $\beta$；此外，可找到一个双刚化，其中 $\alpha$（或 $\beta$）可以预先指定。事实上，只须用复合
+\[
+ Q\longrightarrow e\xrightarrow{\lambda}G,
+\]
+所得到的态射 $Q\longrightarrow G$ 修正 $\beta$，其中 $\lambda$ 由 $\beta e_Q=(\alpha e_P)\lambda$ 定义。
+
+仍在交换情形下，若 $E,E'$ 是两个双刚化的 $G_{P\times Q}$-挠子，则仅仅说它们作为 $G_{P\times Q}$-挠子同构，就等价于说它们作为双刚化的 $G_{P\times Q}$-挠子同构。换言之，若存在 $G_{P\times Q}$-挠子的同构 $u:E\longrightarrow E'$，则存在一个保持双刚化的同构 $v:E\longrightarrow E'$。事实上，衡量 $u$ 与给定双刚化的偏差，得到态射 $f:P\longrightarrow G$ 和 $g:Q\longrightarrow G$，使 $f(e_P)=g(e_Q)=a\in G(e)$。于是存在一个态射 $P\times Q\longrightarrow G$，它沿 $e_{P\times Q/P}$ 和 $e_{P\times Q/Q}$ 的限制分别是 $f$ 和 $g$，即
+\[
+ h(p,q)=f(p)g(q)a^{-1},
+\]
+并且可取 $v=uh$。
+
+\SGARefTarget{sga7.sga7i.evii.n1-3-3}{1.3.3}. \SGARefLink{sga7.sga7i.evii.n1-3-1}{1.3.1} 的用语立即推广到 $(G_P,G_P)$-\underline{双挠子} $E$ 的情形。此时要求双挠子 $E$ 的刚化是从 $e_P^*(E)$ 到平凡双挠子 ${}_sG_d$ 的同构；等价地，它由 $e_P^*(E)$ 的一个\underline{中心}截面 $e_E$ 定义，即满足
+\[
+ g.e_E=e_E.g\qquad(g\in G(S)).
+\]
+的截面。双刚化的用语以同样方式推广到双挠子。
+
+
+% END INCLUDED SGA7I_English_current_buildable_source_20260823/components/67_expose_VII_1_3_1_through_1_3_3.tex
+
+% BEGIN INCLUDED SGA7I_English_current_buildable_source_20260823/components/68_expose_VII_1_3_4.tex
+% SOURCE AUTHORITY:
+% expose_VII_body.tex lines 288--303; scan indices 158--159; source folios 147--148.
+% Hard stop before source line 305, Proposition 1.3.5.
+
+\SGARefTarget{sga7.sga7i.evii.n1-3-4}{1.3.4}. 回到给定两个群 $P$ 和 $G$ 的情形，选取单位截面 $e_P$，以定义 $P$ 上双挠子的刚化以及 $P\times P$ 上双挠子的双刚化。有自然函子
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n1-3-4-1}{1.3.4.1}}
+ \mathbf{EXT}(P;G)\xrightarrow{\ i\ }
+ \mathrm{BITORSRIG}(P,G)\xrightarrow{\ \delta\ }
+ \mathbf{BITORSBIRIG}(P,P;G),
+\end{equation}
+其中三项分别表示群 $P$ 对 $G$ 的扩张范畴、在 $e_P$ 处刚化的 $(G_P,G_P)$-双挠子范畴，以及在 $(e_P,e_P)$ 处双刚化的 $(G_{P\times P},G_{P\times P})$-双挠子范畴。函子 $i$ 将 $P$ 对 $G$ 的扩张 $E$ 映为相应的 $P$ 上双挠子（\SGARefLink{sga7.sga7i.evii.n1-1-6}{1.1.6}），并用 $E$ 的单位截面给出刚化。函子 $\delta$ 定义为
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n1-3-4-2}{1.3.4.2}}
+ \delta(E)=\pi^*(E)\,\pr_1^*(E)^{-1}\,\pr_2^*(E)^{-1},
+\end{equation}
+其中 $\pi:P\times P\longrightarrow P$ 是 $P$ 的合成律，$\pr_1,\pr_2$ 是两个投影。$\delta(E)$ 有一个\underline{典范的双刚化}。事实上，$\delta(E)$ 在 $P\times e_P$ 上的限制典范同构于
+\[
+ \id_P^*(E)\,\id_P^*(E)^{-1}\,e^*(E)^{-1},
+\]
+其中 $e=\pr_2\operatorname{inj}_1$ 是取值为 $e_P$ 的常态射 $P\longrightarrow P$。$E$ 的给定刚化提供 $e^*(E)$ 到平凡双挠子的同构，因而也提供 $\delta(E)$ 在 $P\times e_P$ 上的限制到平凡双挠子的同构。对称地可定义沿 $e_P\times P$ 的部分刚化，并立即可见这两个部分刚化相容。
+
+%%%%%%%%%%  scan idx 159  |  folio 148  %%%%%%%%%%
+
+\SGARefTarget{sga7.sga7i.evii.n1-3-4-3}{1.3.4.3}. 注意，（\SGARefLink{sga7.sga7i.evii.n1-3-4-1}{1.3.4.1}）中函子的复合 $\delta i$ 典范同构于平凡函子，即取值为 $P\times P$ 上的平凡双刚化双挠子的常函子。事实上，对 $P$ 对 $G$ 的每个扩张 $E$，（\SGARefLink{sga7.sga7i.evii.n1-1-3-2}{1.1.3.2}）中的同构 $\varphi$ 显然定义 $\delta i(E)$ 的一个与其典范双刚化相容的平凡化。
+
+
+% END INCLUDED SGA7I_English_current_buildable_source_20260823/components/68_expose_VII_1_3_4.tex
+
+% BEGIN INCLUDED SGA7I_English_current_buildable_source_20260823/components/69_expose_VII_proposition_1_3_5.tex
+% SOURCE AUTHORITY:
+% expose_VII_body.tex lines 305--358; scan indices 159--162; source folios 148--151.
+% Source-backed corrections: the proposition's opening Q is G throughout its statement;
+% E in part (b) is a bitorsor, as required by delta(E) and the ensuing sentence;
+% the final associativity specialization follows the three partial products stated in (b).
+% Hard stop before source line 360, Corollary 1.3.6.
+
+\underline{命题 \SGARefTarget{sga7.sga7i.evii.n1-3-5}{1.3.5}. 设 $P$ 和 $G$ 是 $\underline T$ 中的两个群。}
+
+a) \underline{假设每个在 $P\times e_P$ 和 $e_P\times P$ 上平凡的集合层态射 $P\times P\longrightarrow G$ 都是平凡的。那么（\SGARefLink{sga7.sga7i.evii.n1-3-4-1}{1.3.4.1}）中的函子 $i$ 是全忠实的。特别地，在相对于 $e_P$ 刚化的 $(G_P,G_P)$-双挠子 $E$ 上，即在带有 $E_1=e_P^*(E)$ 的中心截面 $e_E$ 的双挠子上，至多存在一个与其双挠子结构相容、且以 $e_E$ 为单位截面的 $P$ 对 $G$ 的扩张结构。}
+
+b) \underline{再假设每个在部分积 $P\times P\times e_P$、$P\times e_P\times P$ 和 $e_P\times P\times P$ 上平凡的集合层态射 $P\times P\times P\longrightarrow G$ 都是平凡的。设 $E$ 是一个 $(G_P,G_P)$-双挠子。$E$ 有与其双挠子结构相容的 $P$ 对 $G$ 的扩张结构的充要条件是：}
+\[
+ \delta(E)=\pi^*(E)\,\pr_1^*(E)^{-1}\,\pr_2^*(E)^{-1}
+\]
+\underline{底层的 $(G_{P\times P},G_{P\times P})$-双挠子平凡。当此条件成立时，对于 $E_1=e_P^*(E)$ 的每个中心截面 $e_E$，即 $E$ 相对于 $e_P$ 的每个刚化，$E$ 上存在唯一一个与其双挠子结构相容、且以 $e_E$ 为单位截面的扩张结构。换言之，将 $E$ 看作相对于 $e_P$ 刚化的双挠子，它属于 $i$ 的本质像。此外，双刚化双挠子 $\delta(E)$ 有且仅有一个平凡化。}
+
+%%%%%%%%%%  scan idx 160  |  folio 149  %%%%%%%%%%
+
+因此，用图表（\SGARefLink{sga7.sga7i.evii.n1-3-4-1}{1.3.4.1}）来说，全忠实函子 $i$ 的本质像是 $\delta$ 的“核”。更形象地说，图表（\SGARefLink{sga7.sga7i.evii.n1-3-4-1}{1.3.4.1}）是一个“带基点范畴的正合列”，甚至是带有伪群结构的范畴的正合列（采用下面 \SGARefLink{sga7.sga7i.evii.n2-5-1}{2.5.1} 中引入的用语）。
+
+现在证明 \SGARefLink{sga7.sga7i.evii.n1-3-5}{1.3.5}。对于 a)，设 $E,E'$ 是 $P$ 对 $G$ 的两个扩张，$f:E\longrightarrow E'$ 是底层刚化双挠子的一个态射。我们说明 $f$ 是扩张的态射，显然等价地说，是群同态。须证明 $f(xy)=f(x)f(y)$。若 $j':E'\longrightarrow P$ 表示 $P$ 上挠子 $E'$ 的结构态射，则 $j'f(xy)=j'(f(x)f(y))$：两端分别是 $j(xy)$ 和 $j(x)j(y)$，它们相等，因为 $j$ 与乘法相容。因此
+\begin{equation*}
+ f(xy)=u(j(x),j(y))f(x)f(y),
+\end{equation*}
+其中
+\begin{equation*}
+ u:P\times P\longrightarrow G
+\end{equation*}
+是唯一确定的态射。在上述关系中先令 $x=1$，再令 $y=1$，并利用 $f(1)=1$，得到
+\begin{equation*}
+ u(p,1)=u(1,p)=1.
+\end{equation*}
+所以 $u$ 在 $P\times e_P$ 和 $e_P\times P$ 上平凡；由假设它平凡，故 $f(xy)=f(x)f(y)$，这正是所需的。
+
+对于 b)，由 \SGARefLink{sga7.sga7i.evii.n1-3-4-3}{1.3.4.3} 立即得到：若 $E$ 有与其双挠子结构相容的扩张结构，则所述条件必要。第一项断言只须再证充分性。把 $\delta(E)$ 的一个平凡化 $\varphi$ 沿 $P\times P$ 的单位截面拉回，得到 $E_1=e_P^*(E)$ 的一个平凡化（比较 1.5.1），即 $E$ 相对于 $e_P$ 的一个刚化。固定这个刚化。$\delta(E)$ 的给定平凡化 $\varphi$ 未必与相应的双刚化相容。相对于 $\delta(E)$ 的自然部分刚化，它在 $P\times e_P$ 和 $e_P\times P$ 上的限制由中心态射
+\begin{equation*}
+ f:P\longrightarrow G,\qquad g:P\longrightarrow G,
+\end{equation*}
+描述，它们在 $P$ 的单位截面上的值相同：$f(1)=g(1)=a\in\Gamma G$。中心态射
+\begin{equation*}
+ h:P\times P\longrightarrow G,\qquad h(p,q)=f(p)g(q)a^{-1},
+\end{equation*}
+在 $P\times e_P$ 和 $e_P\times P$ 上的限制分别为 $f$ 和 $g$。因此，用 $h$ 修正 $\varphi$，即将其替换为 $\varphi(p,q)h(p,q)^{-1}$，就得到 $\delta(E)$ 的一个与其双刚化相容的平凡化。这样的平凡化唯一：其中任意两个相差一个在 $P\times e_P$ 和 $e_P\times P$ 上平凡的中心态射 $P\times P\longrightarrow G$，故由假设此态射平凡。这证明了 \SGARefLink{sga7.sga7i.evii.n1-3-5}{1.3.5} b) 的最后一项断言。
+
+只须再证明，把 $\varphi$ 看作（\SGARefLink{sga7.sga7i.evii.n1-1-3-2}{1.1.3.2}）形式的同构时，它满足结合性条件（\SGARefLink{sga7.sga7i.evii.n1-1-4-1}{1.1.4.1}）；由 $\varphi$ 的选取，$e_E$ 已经是由 $\varphi$ 定义的合成律的双侧单位元。（\SGARefLink{sga7.sga7i.evii.n1-1-4-1}{1.1.4.1}）中的两个复合都是 $(G_{P\times P\times P},G_{P\times P\times P})$-双挠子的同构，故它们相差一个中心态射
+\begin{equation*}
+ u:P\times P\times P\longrightarrow G
+\end{equation*}
+其关系为
+\begin{equation*}
+ (xy)z=u(jx,jy,jz)\,x(yz).
+\end{equation*}
+
+
+%%%%%%%%%%  scan idx 162  |  folio 151  %%%%%%%%%%
+
+依次令 $z=1$、$x=1$ 和 $y=1$，并利用 $1$ 是合成律的双侧单位元这一事实，就可知 $u$ 在三个部分积 $P\times P\times e_P$、$e_P\times P\times P$ 和 $P\times e_P\times P$ 上平凡。于是由假设 $u$ 平凡，故 $(xy)z=x(yz)$。证明完毕。
+
+
+% END INCLUDED SGA7I_English_current_buildable_source_20260823/components/69_expose_VII_proposition_1_3_5.tex
+
+% BEGIN INCLUDED SGA7I_English_current_buildable_source_20260823/components/70_expose_VII_1_3_6_through_1_3_7.tex
+% SOURCE AUTHORITY:
+% expose_VII_body.tex lines 360--398; scan indices 162--164; source folios 151--153.
+% Source-backed correction: the action in 1.3.6 is defined by the extension E, not G.
+% Hard stop before source line 400, paragraph 1.3.8.
+
+\underline{推论 \SGARefTarget{sga7.sga7i.evii.n1-3-6}{1.3.6}. 假设每个在 $P\times e_G$ 和 $e_P\times G$ 上平凡的集合层态射 $P\times G\longrightarrow G$ 都是平凡的。那么，若 $G$ 交换，则在 $P$ 对 $G$ 的每个扩张中，$G$ 都位于中心。若 $P$ 也交换且 \SGARefLink{sga7.sga7i.evii.n1-3-5}{1.3.5} a) 的假设成立，则 $P$ 对 $G$ 的每个扩张 $E$ 都交换。}
+
+对于第一项断言，须证明扩张 $E$ 所定义的 $P$ 在 $G$ 上的作用平凡。这个作用由态射 $u:P\times G\longrightarrow G$ 表达。相应的态射
+\[
+ (p,g)\longmapsto u(p,g)g^{-1}
+\]
+在 $P\times e_G$ 和 $e_P\times G$ 上的限制显然平凡。因此这个态射平凡，故 $u(p,g)=g$，正如所需。现在，若 $E$ 是 $P$ 对 $G$ 的扩张，则其反群 $E^{\mathrm o}$ 是 $P^{\mathrm o}$ 对 $G^{\mathrm o}$ 的扩张，并且 $i(E^{\mathrm o})$ 底层的双挠子结构由 $i(E)$ 交换左、右作用得到。因此，当 $E$ 为中心扩张时，有 $i(E)=i(E^{\mathrm o})$；若 $P$ 还交换，从而 $P=P^{\mathrm o}$，则唯一性断言 \SGARefLink{sga7.sga7i.evii.n1-3-5}{1.3.5} a) 给出 $E=E^{\mathrm o}$。所以 $E$ 交换，推论得证。
+
+%%%%%%%%%%  scan idx 163  |  folio 152  %%%%%%%%%%
+
+\SGARefTarget{sga7.sga7i.evii.n1-3-7}{1.3.7}. 一个使 \SGARefLink{sga7.sga7i.evii.n1-3-5}{1.3.5} 和 \SGARefLink{sga7.sga7i.evii.n1-3-6}{1.3.6} 的全部假设均成立的有意义的特殊情形是
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n1-3-7-1}{1.3.7.1}}
+ \underline{\operatorname{Hom}}_{\mathrm{pt}}(P,G)=e
+ \quad\text{(终层)},
+\end{equation}
+其中左端表示从 $P$ 到 $G$ 的带基点集合层态射所成的层。撇开指定截面，这个条件也可写成与（\SGARefLink{sga7.sga7i.evii.n1-3-1-2}{1.3.1.2}）类似的形式
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n1-3-7-2}{1.3.7.2}}
+ G\simeq\underline{\operatorname{Hom}}_{\mathrm{sets}}(P,G),
+\end{equation}
+其中第二项表示 $P$ 和 $G$ 的底层集合层之间的态射层。这些条件还意味着，对于 $\underline T$ 的每个对象 $Q$，映射 $u\longmapsto u\circ\pr_2$
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n1-3-7-3}{1.3.7.3}}
+ \operatorname{Hom}_{\mathrm{sets}}(Q,G)
+ \xrightarrow{\ \sim\ }
+ \operatorname{Hom}_{\mathrm{sets}}(P\times Q,G)
+\end{equation}
+为双射。$P$ 的这一性质（固定 $G$）在笛卡儿积下稳定；特别地，它蕴含 $P\times P$、$P\times P\times P$ 等也有同一性质。因此立即得到它蕴含 \SGARefLink{sga7.sga7i.evii.n1-3-5}{1.3.5} 和 \SGARefLink{sga7.sga7i.evii.n1-3-6}{1.3.6} 中所作的假设。它还蕴含（\SGARefLink{sga7.sga7i.evii.n1-3-4-1}{1.3.4.1}）中出现的全部范畴都是\underline{刚性的}，即其中任一范畴的任一对象的每个自同构都是恒等。
+
+此外，由于关于 $P,G$ 的条件（\SGARefLink{sga7.sga7i.evii.n1-3-7-1}{1.3.7.1}）在任意基变换 $S\longrightarrow e$ 下稳定，下降与唯一性结果 \SGARefLink{sga7.sga7i.evii.n1-3-5}{1.3.5} a) 一起说明：$P$ 上的刚化双挠子 $E$ 只要\underline{在 $e$ 上局部地}来自 $P$ 对 $G$ 的扩张，就来自这样的扩张。由 \SGARefLink{sga7.sga7i.evii.n1-3-5}{1.3.5} b)，也可将此表述为由 $\delta(E)$ 定义的截面
+\begin{equation*}
+ \underline{\delta}(E)\in\Gamma R^1h_*(G_{P\times P})
+\end{equation*}
+为零，其中
+\begin{equation*}
+ h:P\times P\longrightarrow e
+\end{equation*}
+是结构态射。
+
+
+% END INCLUDED SGA7I_English_current_buildable_source_20260823/components/70_expose_VII_1_3_6_through_1_3_7.tex
+
+% BEGIN INCLUDED SGA7I_English_current_buildable_source_20260823/components/71_expose_VII_1_3_8.tex
+% SOURCE AUTHORITY:
+% expose_VII_body.tex lines 400--418; scan indices 164--165; source folios 153--154.
+% Source-backed correction: final references 3.5 and 3.6 are 1.3.5 and 1.3.6.
+% Hard stop before source line 421, section 1.4.
+
+\SGARefTarget{sga7.sga7i.evii.n1-3-8}{1.3.8}. 设 $p:P\longrightarrow S$ 是一个\underline{凝聚}（即拟紧且拟分离）并且\underline{平坦}的概形态射，且假设
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n1-3-8-1}{1.3.8.1}}
+ p_*(\mathcal O_P)\xleftarrow{\ \sim\ }\mathcal O_S.
+\end{equation}
+由于 $p_*(\mathcal O_P)$ 的形成与任意平坦基变换可交换（由 $p$ 的凝聚性），相对概形 $P/S$ 的上述条件在笛卡儿积下稳定，因而特别地对笛卡儿幂 $P\times P$、$P\times P\times P$ 等成立。它们也在任意平坦基变换下稳定。
+
+现在设 $G$ 是 $S$ 上的一个\underline{仿射}概形。关系（\SGARefLink{sga7.sga7i.evii.n1-3-7-2}{1.3.7.2}）立即由（\SGARefLink{sga7.sga7i.evii.n1-3-8-1}{1.3.8.1}）得到，因为
+\[
+ \operatorname{Hom}_S(P,G)
+ =\operatorname{Hom}_{\mathrm{Alg}}(\underline A,p_*(\mathcal O_P))
+ \simeq\operatorname{Hom}_{\mathrm{Alg}}(\underline A,\mathcal O_S),
+\]
+其中 $\underline A$ 是 $S$ 上使 $G=\operatorname{Spec}(\underline A)$ 的拟凝聚代数。由上述观察，同一结论适用于 $P\times P$、$P\times P\times P$ 等。同样，若 $G$ 在 $S$ 上平坦，则同一结论适用于 $G$ 上的相对概形 $P_G$ 与 $G$ 上的相对概形 $G_G$。
+
+当 $P$ 和 $G$ 是 $S$ 上的群概形，并在 $(\mathrm{Sch})_{/S}$ 上使用比典范拓扑更粗的拓扑，从而可将 $P$ 和 $G$ 等同于该景上的层时，每个从 $P$、$P\times P$、$P\times P\times P$ 等到 $G$ 且与指定截面相容的态射都平凡。类似地，若 $G$ 平坦，则每个与指定截面相容的 $S$-态射 $P\times G\longrightarrow G$ 都平凡：把它解释为从 $P_G$ 到 $G_G$ 的 $G$-态射即可看出。因此 \SGARefLink{sga7.sga7i.evii.n1-3-5}{1.3.5} 的假设成立，而且当 $G$ 平坦时，\SGARefLink{sga7.sga7i.evii.n1-3-6}{1.3.6} 的假设也成立。此外，（\SGARefLink{sga7.sga7i.evii.n1-3-4-1}{1.3.4.1}）中出现的三个范畴都是刚性的。
+
+%%%%%%%%%%  scan idx 165  |  folio 154  %%%%%%%%%%
+
+\SGARefTarget{sga7.sga7i.evii.n1-3-8-2}{1.3.8.2}. 使（\SGARefLink{sga7.sga7i.evii.n1-3-8-1}{1.3.8.1}）成立，并在任意底扩张后仍成立的最有意义的情形，是 $P$ 为 $S$ 上的\underline{阿贝尔概形}的情形；此时 \SGARefLink{sga7.sga7i.evii.n1-3-7}{1.3.7} 本身的条件成立。因此在这种情形下，\SGARefLink{sga7.sga7i.evii.n1-3-5}{1.3.5} 和 \SGARefLink{sga7.sga7i.evii.n1-3-6}{1.3.6} 的结论对 $S$ 上的每个仿射群 $G$ 都有效。这是 J.~P. Serre 最初考虑的情形，上述讨论显然受其启发。一个使（\SGARefLink{sga7.sga7i.evii.n1-3-8-1}{1.3.8.1}）成立但不普遍成立的有意义的情形，是 $P$ 为某个离散赋值环（其谱为 $S$）的分式域上的阿贝尔概形的 \underline{N\'eron 模型}的情形。
+
+
+% END INCLUDED SGA7I_English_current_buildable_source_20260823/components/71_expose_VII_1_3_8.tex
+
+% BEGIN INCLUDED SGA7I_English_current_buildable_source_20260823/components/72_expose_VII_section_1_4.tex
+% SOURCE AUTHORITY:
+% expose_VII_body.tex lines 421--460; scan indices 165--167; source folios 154--156.
+% Hard stop before source line 465, section 2.
+
+\SGARefTarget{sga7.sga7i.evii.n1-4}{1.4}. \underline{自由交换群的扩张}
+
+设 $I$ 是 $\underline T$ 的对象，置
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n1-4-1}{1.4.1}}
+ P=\mathbb Z[I],
+\end{equation}
+即由 $I$ 生成的自由 $\mathbb Z$-模（SGA 4，IV，11）。对 $P$ 对给定 $\mathbb Z$-模 $G$ 的每个扩张 $E$（从现在起只出现交换群的交换扩张），先取相应的 $G_P$-挠子，再沿典范态射
+\[
+ I\longrightarrow P=\mathbb Z[I].
+\]
+把它限制到 $I$。
+
+%%%%%%%%%%  scan idx 166  |  folio 155  %%%%%%%%%%
+
+这给出典范函子
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n1-4-2}{1.4.2}}
+ \operatorname{EXT}(P,G)\longrightarrow
+ \operatorname{TORS}(I,G_I).
+\end{equation}
+我们断言此函子是一个\underline{范畴等价}。等价地，对每个 $G$，映射
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n1-4-3}{1.4.3}}
+ \operatorname{Hom}_{\mathbb Z}(P,G)\longrightarrow
+ H^0(I,G_I)=G(I)
+\end{equation}
+及
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n1-4-4}{1.4.4}}
+ \operatorname{Ext}^1_{\mathbb Z}(P,G)\longrightarrow H^1(I,G_I)
+\end{equation}
+都是同构。更一般地，若 $A$ 是 $\underline T$ 中的一个环（不必交换），$P=A[I]$ 是由 $I$ 生成的自由 $A$-模，则有对可变 $A$-模 $G$ 具有函子性的典范同构
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n1-4-5}{1.4.5}}
+ \operatorname{Ext}^i_A(A[I],G)\xrightarrow{\ \sim\ }H^i(I,G_I).
+\end{equation}
+当 $A=\mathbb Z$、$i=0,1$ 时，它们与（\SGARefLink{sga7.sga7i.evii.n1-4-3}{1.4.3}）及（\SGARefLink{sga7.sga7i.evii.n1-4-4}{1.4.4}）相同。为定义（\SGARefLink{sga7.sga7i.evii.n1-4-5}{1.4.5}），回忆它的左端是
+\[
+ G\longmapsto\operatorname{Hom}_A(A[I],G),
+\]
+的导出函子，而由 $A[I]$ 的定义，该函子同构于 $G\longmapsto G(I)=H^0(I,G_I)$。由于 $G\longmapsto G_I$ 把内射模映为 $\underline T_{/I}$ 中的内射模（SGA 4，V），断言随即得到。与（\SGARefLink{sga7.sga7i.evii.n1-4-3}{1.4.3}）及（\SGARefLink{sga7.sga7i.evii.n1-4-4}{1.4.4}）的上述相容性留给读者验证。
+
+最后，函子（\SGARefLink{sga7.sga7i.evii.n1-4-2}{1.4.2}）与拓扑斯态射
+\[
+ f:\underline T'\longrightarrow\underline T.
+\]
+下的逆像相容。
+
+
+% END INCLUDED SGA7I_English_current_buildable_source_20260823/components/72_expose_VII_section_1_4.tex
+
+
+
+% BEGIN INCLUDED SGA7I_English_current_buildable_source_20260823/components/73_expose_VII_section_2_0_phi.tex
+% SOURCE AUTHORITY:
+% expose_VII_body.tex lines 465--540; scan indices 167--169; source folios 156--158.
+% Source-backed correction: the printed prose interchanges the P- and Q-direction extension names;
+% the displayed phi laws unambiguously multiply the P-coordinate, hence define P_Q by G_Q.
+% The missing prime in the upper-left label of (2.0.5) is restored from its nodes and associativity.
+% Hard stop before the psi-law continuation on source line 540.
+
+2. \underline{阿贝尔层的双扩张概念}
+
+\SGARefTarget{sga7.sga7i.evii.n2-0}{2.0}. 本节始终以 $P,Q,G$ 表示拓扑斯 $\underline T$ 中的交换群。我们将经常使用笛卡儿图表
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n2-0-1}{2.0.1}}
+\begin{tikzcd}[column sep=4em,row sep=2.6em]
+ P \arrow[d] & P\times Q \arrow[l] \arrow[d] \\
+ e & Q \arrow[l]
+\end{tikzcd}
+\end{equation}
+以及由 $e$ 上的群 $G$ 通过逆像得到的、$P$（相应地，$Q$、$P\times Q$）上的群 $G_P$（相应地，$G_Q$、$G_{P\times Q}$）。我们把 $G_{P\times Q}$ 既等同于沿 $\pr_1$ 的逆像 $(G_P)_{P\times Q}$，也等同于沿 $\pr_2$ 的逆像 $(G_Q)_{P\times Q}$。在此记号中，$P,Q,P\times Q$ 的群结构不起作用；事实上，我们几乎从不使用 $P\times Q$ 上的积群结构。我们将在 $P\times Q$ 上使用由 $e$ 上的 $Q$ 通过逆像得到的 $P$ 上群结构，
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n2-0-2}{2.0.2}}
+ P\times Q=Q_P,
+\end{equation}
+以及类似地，由 $e$ 上的 $P$ 通过逆像得到的 $Q$ 上群结构，
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n2-0-3}{2.0.3}}
+ P\times Q=P_Q.
+\end{equation}
+因而在 $P$ 上有两个群 $G_P,Q_P$，在 $Q$ 上有两个群 $G_Q,P_Q$。
+
+若 $E$ 是 $P\times Q$ 上的 $G_{P\times Q}$-挠子，则既可把它看作 $Q_P$ 上的 $G_{P\times Q}=(G_P)_{Q_P}$-挠子，也可看作 $P_Q$ 上的 $G_{P\times Q}=(G_Q)_{P_Q}$-挠子。因此，赋予 $E$ 关于任一变量的交换扩张结构都是有意义的。在诱导拓扑斯 $\underline T_{/P}$ 和 $\underline T_{/Q}$ 中应用 \SGARefLink{sga7.sga7i.evii.n1-1-6}{1.1.6}，并使用典范同构
+\[
+ \underline T_{/P\times Q}\simeq
+ (\underline T_{/P})_{/P\times Q},\qquad
+ \underline T_{/P\times Q}\simeq
+ (\underline T_{/Q})_{/P\times Q}.
+\]
+就得到一个方便的具体描述。
+
+$P$ 方向的扩张结构，即 $P_Q$ 对 $G_Q$ 的扩张结构，等价于对 $\underline T$ 的每个对象 $S$ 以及元素 $p,p'\in P(S)$、$q\in Q(S)$，给出 $G_S$-挠子的一个同构
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n2-0-4}{2.0.4}}
+ \varphi_{p,p';q}:E_{p,q}E_{p',q}
+ \xrightarrow{\ \sim\ }E_{pp',q}.
+\end{equation}
+照常（参见 \SGARefLink{sga7.sga7i.evii.n1-1-2-1}{1.1.2.1}），对于 $(p,q)\in(P\times Q)(S)$，$E_{p,q}$ 表示由 $E$ 沿 $(p,q):S\longrightarrow P\times Q$ 取逆像得到的 $G_S$-挠子。数据（\SGARefLink{sga7.sga7i.evii.n2-0-4}{2.0.4}）必须\underline{对 $S$ 具有函子性}，并满足结合律和交换律。结合性条件是，对 $p,p',p''\in P(S)$、$q\in Q(S)$，图表
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n2-0-5}{2.0.5}}
+\begin{tikzcd}[column sep=5.1em,row sep=3.4em]
+ & E_{pp',q}E_{p'',q}
+   \arrow[rd,"{\varphi_{pp',p'';q}}"] & \\
+ E_{p,q}E_{p',q}E_{p'',q}
+   \arrow[ru,"{\varphi_{p,p';q}\wedge\mathrm{id}}"]
+   \arrow[rd,"{\mathrm{id}\wedge\varphi_{p',p'';q}}"']
+ && E_{pp'p'',q} \\
+ & E_{p,q}E_{p'p'',q}
+   \arrow[ru,"{\varphi_{p,p'p'';q}}"'] &
+\end{tikzcd}
+\end{equation}
+交换。交换性由下图表达：
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n2-0-6}{2.0.6}}
+\begin{tikzcd}[column sep=5em,row sep=3.1em]
+ E_{p,q}E_{p',q} \arrow[r,"{\varphi_{p,p';q}}"]
+   \arrow[d,"\mathrm{sym}"']
+ & E_{pp',q} \arrow[d,"\mathrm{id}"] \\
+ E_{p',q}E_{p,q} \arrow[r,"{\varphi_{p',p;q}}"']
+ & E_{p'p,q}.
+\end{tikzcd}
+\end{equation}
+这里 $p,p'\in P(S)$、$q\in Q(S)$。
+
+
+% END INCLUDED SGA7I_English_current_buildable_source_20260823/components/73_expose_VII_section_2_0_phi.tex
+
+% BEGIN INCLUDED SGA7I_English_current_buildable_source_20260823/components/74_expose_VII_psi_and_definition_2_1.tex
+% SOURCE AUTHORITY:
+% expose_VII_body.tex lines 540--658; scan indices 169--171; source folios 158--160.
+% Source-backed corrections: (2.0.7) targets E_{p,qq'}, not the impossible E_{pp',q};
+% the second structure is Q_P by G_P, not the printed reversal G_Q by P_Q.
+% Hard stop before source line 660, section 2.2.
+
+对称地，$Q$ 方向的扩张结构，即 $Q_P$ 对 $G_P$ 的扩张结构，由 $G_S$-挠子的同构
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n2-0-7}{2.0.7}}
+ \psi_{p;q,q'}:E_{p,q}E_{p,q'}
+ \xrightarrow{\ \sim\ }E_{p,qq'},
+\end{equation}
+描述，其中 $p\in P(S)$、$q,q'\in Q(S)$。它们对 $S$ 具有函子性，并满足对称的结合性和交换性条件
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n2-0-8}{2.0.8}}
+\begin{tikzcd}[column sep=5.1em,row sep=3.4em]
+ & E_{p,qq'}E_{p,q''}
+   \arrow[rd,"{\psi_{p;qq',q''}}"] & \\
+ E_{p,q}E_{p,q'}E_{p,q''}
+   \arrow[ru,"{\psi_{p;q,q'}\wedge\mathrm{id}}"]
+   \arrow[rd,"{\mathrm{id}\wedge\psi_{p;q',q''}}"']
+ && E_{p,qq'q''} \\
+ & E_{p,q}E_{p,q'q''}
+   \arrow[ru,"{\psi_{p;q,q'q''}}"'] &
+\end{tikzcd}
+\end{equation}
+其中 $p\in P(S)$、$q,q',q''\in Q(S)$，以及
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n2-0-9}{2.0.9}}
+\begin{tikzcd}[column sep=5em,row sep=3.1em]
+ E_{p,q}E_{p,q'} \arrow[r,"{\psi_{p;q,q'}}"]
+   \arrow[d,"\mathrm{sym}"']
+ & E_{p,qq'} \arrow[d,"\mathrm{id}"] \\
+ E_{p,q'}E_{p,q} \arrow[r,"{\psi_{p;q',q}}"']
+ & E_{p,q'q}.
+\end{tikzcd}
+\end{equation}
+这里 $p\in P(S)$、$q,q'\in Q(S)$。
+
+%%%%%%%%%%  scan idx 170  |  folio 159  %%%%%%%%%%
+
+\underline{定义 \SGARefTarget{sga7.sga7i.evii.n2-1}{2.1}. 设 $P,Q,G$ 是 $\underline T$ 中的阿贝尔群，$E$ 是一个 $G_{P\times Q}$-挠子，带有由同构（\SGARefLink{sga7.sga7i.evii.n2-0-4}{2.0.4}）定义的 $P$ 方向扩张结构，以及由同构（\SGARefLink{sga7.sga7i.evii.n2-0-7}{2.0.7}）定义的 $Q$ 方向扩张结构；两者均对 $S$ 具有函子性，并满足上述结合性和交换性条件。若对于 $\underline T$ 的每个对象 $S$ 以及 $p,p'\in P(S)$、$q,q'\in Q(S)$，下图交换，则称这两个结构相容：}
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n2-1-1}{2.1.1}}
+\begin{tikzcd}[column sep=2.7em,row sep=3.2em,font=\scriptsize]
+ && E_{p,qq'}E_{p',qq'}
+    \arrow[rrdd,"{\varphi_{p,p';qq'}}"] && \\
+ E_{p,q}E_{p,q'}E_{p',q}E_{p',q'}
+    \arrow[rru,"{\psi_{p;q,q'}\wedge\psi_{p';q,q'}}"]
+    \arrow[d,"{}"'] &&&& \\
+ E_{p,q}E_{p',q}E_{p,q'}E_{p',q'}
+    \arrow[rrd,"{\varphi_{p,p';q}\wedge\varphi_{p,p';q'}}"']
+ &&&& E_{pp',qq'} \\
+ && E_{pp',q}E_{pp',q'}
+    \arrow[rru,"{\psi_{pp';q,q'}}"'] &&
+\end{tikzcd}
+\end{equation}
+\underline{其中竖直箭头由对称同构}
+\[
+ E_{p,q'}E_{p',q}\xrightarrow{\ \sim\ }E_{p',q}E_{p,q'}.
+\]
+\underline{诱导。$(P,Q)$ 对 $G$ 的一个\emph{双扩张}，就是带有上述意义下相容的 $P$ 方向和 $Q$ 方向扩张结构的一个 $G_{P\times Q}$-挠子 $E$。}
+
+%%%%%%%%%%  scan idx 171  |  folio 160  %%%%%%%%%%
+
+\SGARefLink{sga7.sga7i.evii.n2-1-1}{2.1.1}. 等价地，$G_{P\times Q}$-挠子 $E$ 上的一个双扩张结构，由 $E$ 上的两个部分定义的合成律 $\varphi(x,y)$ 和 $\psi(x,y)$ 给出。第一个在 $\pr_2j(x)=\pr_2j(y)$ 时有定义，第二个在 $\pr_1j(x)=\pr_1j(y)$ 时有定义，其中 $j:E\longrightarrow P\times Q$ 是挠子的结构态射。除了形如
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n2-1-1-1}{2.1.1.1}}
+ \varphi(gx,y)=\varphi(x,gy)=g\varphi(x,y)
+ \qquad(x,y\in E(S),\ g\in G(S))
+\end{equation}
+的结合性关系以及 $\psi$ 的类似关系外，公理还要求这些部分合成律满足结合律、交换律，并满足
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n2-1-1-2}{2.1.1.2}}
+ \varphi(\psi(x,y),\psi(z,t))
+ =\psi(\varphi(x,z),\varphi(y,t)),
+\end{equation}
+其中 $x,y,z,t$ 分别属于 $E_{p,q}(S),E_{p,q'}(S),E_{p',q}(S),E_{p',q'}(S)$。
+
+
+% END INCLUDED SGA7I_English_current_buildable_source_20260823/components/74_expose_VII_psi_and_definition_2_1.tex
+
+% BEGIN INCLUDED SGA7I_English_current_buildable_source_20260823/components/75_expose_VII_section_2_2.tex
+% SOURCE AUTHORITY:
+% expose_VII_body.tex lines 660--683; scan indices 171--173; source folios 160--162.
+% Source-backed corrections: e_{E/P} trivializes over P x 1_Q and e_{E/Q} over 1_P x Q;
+% the final restricted torsor is an inverse image in E, not in G.
+% Hard stop before source line 688, section 2.3.
+
+\SGARefTarget{sga7.sga7i.evii.n2-2}{2.2}. \underline{单位截面}。先把 $E$ 看作 $Q_P$ 对 $G_P$ 的扩张，考虑其单位截面
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n2-2-1}{2.2.1}}
+ e_{E/P}\in\Gamma(E/P)=\operatorname{Hom}_P(P,E),
+\end{equation}
+并对称地，把 $E$ 看作 $P_Q$ 对 $G_Q$ 的扩张，考虑其单位截面
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n2-2-2}{2.2.2}}
+ e_{E/Q}\in\Gamma(E/Q)=\operatorname{Hom}_Q(Q,E).
+\end{equation}
+特别地，\underline{$P\times Q$ 上的 $G_{P\times Q}$-挠子 $E$ 在 $P\times1_Q$ 上由 $e_{E/P}$ 典范平凡化，在 $1_P\times Q$ 上由 $e_{E/Q}$ 典范平凡化。这些平凡化在 $P\times Q$ 的单位截面 $1_P\times1_Q$ 上相同}，因而定义同一截面
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n2-2-3}{2.2.3}}
+ e_E\in\Gamma(E),
+\end{equation}
+不妨略宽泛地称之为 $E$ 的\underline{单位截面}（或\underline{中性截面}）。
+
+%%%%%%%%%%  scan idx 172  |  folio 161  %%%%%%%%%%
+
+为证明所述相等性，设 $e,e'$ 是分别由 $e_{E/P}$ 和 $e_{E/Q}$ 得到的 $E$ 的两个截面。它们的刻画是：分别为 $E$ 沿 $P\times Q$ 的单位截面所取的逆像 $E_{1_P,1_Q}$ 上两个合成律 $\varphi$ 和 $\psi$ 的单位截面。将（\SGARefLink{sga7.sga7i.evii.n2-1-1-2}{2.1.1.2}）应用于 $E_{1,1}$ 的四个截面 $e,e',e',e$，左端得到 $e$，右端得到 $e'$；故 $e=e'$。此外还得到，\underline{$E_{1,1}$ 上两个合成律 $\varphi$ 与 $\psi$ 相同}。事实上，分别沿态射 $g\mapsto g.e$ 和 $g\mapsto g.e'$ 搬移结构时，两者都对应于 $G$ 的群律，而 $e=e'$。
+
+把底 $P$ 上的 $Q_P$ 对 $G_P$ 的扩张限制到 $P$ 的单位截面 $1_P$ 上，就在 $1_P\times Q$ 在 $E$ 中的逆像上得到一个 $Q$ 对 $G$ 的扩张。立即可见，同态 $e_{E/Q}$ 与这个扩张结构的乘法相容，故此扩张典范分裂。对称地，将 $Q$ 上的 $P_Q$ 对 $G_Q$ 的扩张限制到单位截面 $1_Q$，得到的 $P$ 对 $G$ 的扩张由 $e_{E/P}$ 典范分裂。
+
+
+% END INCLUDED SGA7I_English_current_buildable_source_20260823/components/75_expose_VII_section_2_2.tex
+
+% BEGIN INCLUDED SGA7I_English_current_buildable_source_20260823/components/76_expose_VII_section_2_3.tex
+% SOURCE AUTHORITY:
+% expose_VII_body.tex lines 688--725; scan indices 173--174; source folios 162--163.
+% The relative homomorphisms are retained exactly with the two bases made explicit.
+% Hard stop before source line 728, section 2.4.
+
+\SGARefTarget{sga7.sga7i.evii.n2-3}{2.3}. \underline{双扩张的态射}。设 $E$ 是 $(P,Q)$ 对 $G$ 的双扩张，$E'$ 同样是 $(P',Q')$ 对 $G'$ 的双扩张，其中 $P',Q',G'$ 也都是 $\underline T$ 中的交换群。从 $E$ 到 $E'$ 的一个\underline{双扩张态射}是一组数据 $(u,v,w,f)$，其中
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n2-3-1}{2.3.1}}
+ u:P\longrightarrow P',\qquad
+ v:Q\longrightarrow Q',\qquad
+ w:G\longrightarrow G'
+\end{equation}
+是群态射，而
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n2-3-2}{2.3.2}}
+ f:E\longrightarrow E'
+\end{equation}
+是 $E$ 和 $E'$ 的底层集合层之间的态射，使 $f$ 同时为分别在 $P$ 和 $P'$ 上、对应于相对群同态
+\[
+ u\times v:Q_P\longrightarrow Q'_{P'},
+ \qquad
+ u\times w:G_P\longrightarrow G'_{P'},
+\]
+的群扩张同态，以及分别在 $Q$ 和 $Q'$ 上、对应于相对群同态
+\[
+ u\times v:P_Q\longrightarrow P'_{Q'},
+ \qquad
+ v\times w:G_Q\longrightarrow G'_{Q'}.
+\]
+的群扩张同态。此外注意，$u,v,w$ 仅由 $f$ 确定。事实上，取商由 $f$ 恢复 $u\times v$，随后分别限制到 $P\times1_Q$ 和 $1_P\times Q$ 就恢复 $u$ 和 $v$；将 $f$ 限制到 $G.e_E$ 则恢复 $w$。因此把态射 $(u,v,w,f)$ 与 $f$ 等同不会产生歧义。
+
+照例谨慎地把源与靶附加到态射上（这番向典范性致敬的礼仪）以后，就看到\underline{拓扑斯 $\underline T$ 的双扩张构成一个范畴的对象}，其对象和态射分别由 \SGARefLink{sga7.sga7i.evii.n2-1}{2.1} 和 \SGARefLink{sga7.sga7i.evii.n2-3}{2.3} 定义，而态射的合成按显然方式定义。此外，$(P,Q,G,E)\mapsto(P,Q,G)$ 给出典范函子
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n2-3-3}{2.3.3}}
+ \operatorname{BIEXT}(\underline T)
+ \longrightarrow
+ \operatorname{GRAB}(\underline T)\times
+ \operatorname{GRAB}(\underline T)\times
+ \operatorname{GRAB}(\underline T),
+\end{equation}
+其中 $\operatorname{BIEXT}(\underline T)$ 表示 $\underline T$ 上的双扩张范畴，$\operatorname{GRAB}(\underline T)$ 表示 $\underline T$ 上的阿贝尔群范畴。将此典范函子分为两个函子是有用的，即 $E\mapsto(P,Q)$，
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n2-3-4}{2.3.4}}
+ \operatorname{BIEXT}(\underline T)
+ \longrightarrow
+ \operatorname{GRAB}(\underline T)\times
+ \operatorname{GRAB}(\underline T),
+\end{equation}
+以及 $E\mapsto G$，
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n2-3-5}{2.3.5}}
+ \operatorname{BIEXT}(\underline T)
+ \longrightarrow
+ \operatorname{GRAB}(\underline T).
+\end{equation}
+
+
+
+% END INCLUDED SGA7I_English_current_buildable_source_20260823/components/76_expose_VII_section_2_3.tex
+
+% BEGIN INCLUDED SGA7I_English_current_buildable_source_20260823/components/77_expose_VII_section_2_4.tex
+% SOURCE AUTHORITY:
+% expose_VII_body.tex lines 728--773; scan indices 174--176; source folios 163--165.
+% Source-backed corrections: the covariant construction begins with a biextension of
+% (P,Q), not the printed (P,G); (2.4.2) has BIEXT(P,Q;G x G'), not BIEXT(P,G;...).
+% The scanned source confirms the stray <<CONF marker is not mathematical content.
+% Hard stop before source line 776, section 2.5.
+
+\SGARefTarget{sga7.sga7i.evii.n2-4}{2.4}. \underline{$P,Q,G$ 可变时的范畴 $\operatorname{BIEXT}(P,Q;G)$}。
+
+我们断言，\underline{典范函子（\SGARefLink{sga7.sga7i.evii.n2-3-4}{2.3.4}）是纤维化的}，而\underline{典范函子（\SGARefLink{sga7.sga7i.evii.n2-3-5}{2.3.5}）是余纤维化的}。第一项断言特别意味着：若 $E$ 是 $(P,Q)$ 对 $G$ 的双扩张，并且
+\[
+ u:P'\longrightarrow P,\qquad v:Q'\longrightarrow Q
+\]
+是阿贝尔群态射，则存在 $(P',Q')$ 对 $G$ 的双扩张 $E'$ 和双扩张态射
+\[
+ f:E'\longrightarrow E
+\]
+它与 $u,v,\mathrm{id}_G$ 相容，并具有关于映入 $E$ 且与 $u,v,\mathrm{id}_G$ 相容的双扩张态射的通常的泛性质。
+
+第二项断言作类似表述。特别地，若 $E$ 是 $(P,Q)$ 对 $G$ 的双扩张，并且
+\[
+ w:G\longrightarrow G'
+\]
+是阿贝尔群态射，则存在 $(P,Q)$ 对 $G'$ 的双扩张 $E'$ 和双扩张态射
+\[
+ g:E\longrightarrow E'
+\]
+它与 $\mathrm{id}_P,\mathrm{id}_Q,w$ 相容，并具有关于从 $E$ 出发且与 $\mathrm{id}_P,\mathrm{id}_Q,w$ 相容的双扩张态射的通常的泛性质。上述两种已断言存在的构造，留给读者详述；仿照通常群扩张的熟知的类似构造，就容易得到它们。
+
+因此，对 $\underline T$ 的三个阿贝尔群 $P,Q,G$，以
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n2-4-1}{2.4.1}}
+ \operatorname{BIEXT}(P,Q;G)
+\end{equation}
+表示 $(P,Q)$ 对 $G$ 的双扩张范畴，定义为（\SGARefLink{sga7.sga7i.evii.n2-3-3}{2.3.3}）在 $(P,Q,G)$ 上的纤维范畴（故它的态射是与 $P,Q,G$ 的恒等态射相容的双扩张态射）。于是\underline{此范畴对 $G$ 协变，对 $P,Q$ 反变}。此外，按这些变性，\underline{范畴 $\operatorname{BIEXT}(P,Q;G)$ 对三个变元 $P,Q,G$ 中的每一个都具有加性}。例如，对变元 $G$，确切地说就是：
+
+\begin{enumerate}[label=\alph*)]
+\item $\operatorname{BIEXT}(P,Q;0)$ 等价于单点范畴；
+\item 对 $\underline T$ 的两个阿贝尔群 $G,G'$，由两个投影 $G\times G'\longrightarrow G$ 和 $G\times G'\longrightarrow G'$ 得到的函子
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n2-4-2}{2.4.2}}
+ \operatorname{BIEXT}(P,Q;G\times G')
+ \longrightarrow
+ \operatorname{BIEXT}(P,Q;G)\times
+ \operatorname{BIEXT}(P,Q;G')
+\end{equation}
+是一个\underline{范畴等价}。
+\end{enumerate}
+用 [4] 的语言也可说，对固定的 $P,Q$，$(P,Q)$ 对可变群 $G$ 的双扩张范畴，通过由（\SGARefLink{sga7.sga7i.evii.n2-3-5}{2.3.5}）诱导的函子 $E\mapsto G$，构成 $\operatorname{GRAB}(\underline T)$ 上的一个\underline{加性余纤维范畴}。
+
+\underline{注 \SGARefTarget{sga7.sga7i.evii.n2-4-3}{2.4.3}.} 用所引文献的用语，上述余纤维范畴不仅具有加性，甚至是\underline{左正合的} [4，\SGAExternalRef{sga7.sga7i.evii.n2-2}{2.2}{文献 4 的编号，非本报告内部编号}]。我们不在这里验证此性质，因为它将在下面 \SGARefLink{sga7.sga7i.evii.n3-6}{3.6} 中作为更精确事实的推论再次出现。这里只指出，所引文献的一般理论将用 $\operatorname{GRAB}(\underline T)$ 中的一个仅依赖 $P$ 和 $Q$ 的链复形 $L_\bullet$，在纤维范畴等价的意义下描述这个余纤维范畴的结构。下面还将直接构造这个复形，它就是
+\[
+ P\overset{\mathbb L}{\otimes}Q,
+\]
+即在导出范畴中所取的张量积。
+
+
+% END INCLUDED SGA7I_English_current_buildable_source_20260823/components/77_expose_VII_section_2_4.tex
+
+% BEGIN INCLUDED SGA7I_English_current_buildable_source_20260823/components/78_expose_VII_section_2_5.tex
+% SOURCE AUTHORITY:
+% expose_VII_body.tex lines 776--844; scan indices 176--179; source folios 165--168.
+% The scan confirms all displayed Biext groups and the derived tensor notation.
+% Hard stop before source line 846, section 2.6.
+
+\SGARefTarget{sga7.sga7i.evii.n2-5}{2.5}. \underline{范畴 $\operatorname{BIEXT}(P,Q;G)$ 的结构}。
+
+[4，第1节] 中一般的形式讨论，从范畴 $\operatorname{BIEXT}(P,Q;G)$ 对 $G$ 的加性依赖得到若干有用的推论。
+
+\SGARefTarget{sga7.sga7i.evii.n2-5-1}{2.5.1}. 首先，对固定的 $G$，范畴 $\operatorname{BIEXT}(P,Q;G)$ 有一个合成律，它以函子方式将 $(P,Q)$ 对 $G$ 的两个双扩张 $E,E'$ 映为一个\underline{积双扩张}，记为 $E.E'$。这个构造正是一个交换群对另一个交换群的两个扩张的熟知乘积的对应构造。无论将 $E,E'$ 看作 $Q_P$ 对 $G_P$ 的群扩张，还是看作 $P_Q$ 对 $G_Q$ 的群扩张，它都与相应的乘积构造相容。特别地，作为 $G_{P\times Q}$-挠子，$EE'$ 是 $E$ 和 $E'$ 所定义的 $G_{P\times Q}$-挠子的乘积。
+
+此外，$E.E'$ 的形成在典范同构下满足\underline{结合律与交换律}，而且 $\operatorname{BIEXT}(P,Q;G)$ 上这个合成律有一个双侧中性对象，称为\underline{$(P,Q)$ 对 $G$ 的平凡双扩张}。如所引文献中所述，可从在同构意义下唯一的 $(P,Q)$ 对零群 $0$ 的双扩张 $E_0$，借助同态 $0\longrightarrow G$ 构造它。由此立即得到平凡双扩张的另一种描述：它是平凡挠子
+\[
+ E=P\times Q\times G.
+\]
+它在 $P$ 和 $Q$ 上的两个群结构，分别由 $Q\times G$ 和 $P\times G$ 的积群结构沿基变换 $P\longrightarrow e$ 和 $Q\longrightarrow e$ 得到。
+
+最后，对于 $(P,Q)$ 对 $G$ 的每个双扩张 $E$，可以定义\underline{逆双扩张}，记为 $E^{-1}$，连同 $EE^{-1}$ 到平凡双扩张的一个同构。这在唯一同构意义下确定 $E^{-1}$，并使其对 $E$ 的依赖具有函子性。
+
+总之，范畴 $\operatorname{BIEXT}(P,Q;G)$ 的行为如同范畴的范畴 $\mathbf{Cat}$ 中的群对象，只是结合性、交换性、单位和逆元关系仅在指定同构下成立。可称它为2-范畴 $\mathbf{Cat}$ 中的一个\underline{伪群}（pseudo-group）。
+
+\SGARefTarget{sga7.sga7i.evii.n2-5-2}{2.5.2}. 对固定的 $P,Q,G$，上述性质蕴含以下事实。对 $(P,Q)$ 对 $G$ 的每个双扩张 $E$，$E$ 的自同态幺半群典范同构于平凡双扩张 $\underline 1$ 的自同态幺半群：$\underline 1$ 的一个自同态 $u$ 被映为 $\underline 1.E\simeq E$ 上的 $u.\mathrm{id}_E$。$\underline 1$ 的自同态幺半群实际上是一个\underline{交换群}，记为
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n2-5-2-1}{2.5.2.1}}
+ \operatorname{Biext}^{0}(P,Q;G).
+\end{equation}
+它的合成律也由 $(u,v)\mapsto u.v\in\operatorname{End}(\underline 1.\underline 1)\simeq\operatorname{End}(\underline 1)$ 给出。
+
+同样，合成律 $(E,E')\mapsto EE'$ 使 $(P,Q)$ 对 $G$ 的双扩张的同构类集合
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n2-5-2-2}{2.5.2.2}}
+ \operatorname{Biext}^{1}(P,Q;G)
+\end{equation}
+带有\underline{交换群}结构；$E$ 的类的逆元是 $E^{-1}$ 的类。
+
+\SGARefTarget{sga7.sga7i.evii.n2-5-3}{2.5.3}. 给定一个群同态 $G\longrightarrow G'$，相应的函子
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n2-5-3-1}{2.5.3.1}}
+ \operatorname{BIEXT}(P,Q;G)
+ \longrightarrow
+ \operatorname{BIEXT}(P,Q;G')
+\end{equation}
+在典范同构下与 \SGARefLink{sga7.sga7i.evii.n2-5-1}{2.5.1} 中的运算 $E.E'$ 和 $E^{-1}$ 相容。因此，两个显然的映射
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n2-5-3-2}{2.5.3.2}}
+ \operatorname{Biext}^{i}(P,Q;G)
+ \longrightarrow
+ \operatorname{Biext}^{i}(P,Q;G')
+ \qquad(i=0,1)
+\end{equation}
+都是\underline{群同态}。此外，若 $E$ 是 $(P,Q)$ 对 $G$ 的双扩张，$E'$ 是相应的对 $G'$ 的双扩张，则自然同态
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n2-5-3-3}{2.5.3.3}}
+ \operatorname{Hom}(E,E)=\operatorname{Aut}(E)
+ \longrightarrow
+ \operatorname{Hom}(E',E')=\operatorname{Aut}(E')
+\end{equation}
+正是 $i=0$ 时的（\SGARefLink{sga7.sga7i.evii.n2-5-3-2}{2.5.3.2}）。
+
+\SGARefTarget{sga7.sga7i.evii.n2-5-4}{2.5.4}. 群 $\operatorname{Biext}^{0}(P,Q;G)$ 有一个简单的具体描述。若 $E$ 是 $(P,Q)$ 对 $G$ 的双扩张，则 $E$ 的自同构 $u$ 首先是底层 $G_{P\times Q}$-挠子的自同构，因而由一个态射
+\[
+ u_0:P\times Q\longrightarrow G
+\]
+按公式
+\[
+ u(x)=u_0(j(x))x.
+\]
+给出。$u$ 与 $E$ 的第一个（相应地，第二个）扩张结构相容，等价于 $u_0$ 对第二个（相应地，第一个）变元具有加性。因此，\underline{$u$ 是 $E$ 的双扩张结构的自同构，当且仅当 $u_0$ 双线性}。这给出\underline{典范双射}
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n2-5-4-1}{2.5.4.1}}
+ \operatorname{Biext}^{0}(P,Q;G)
+ \simeq
+ \operatorname{Hom}(P\otimes Q,G).
+\end{equation}
+容易验证，这个双射与 $E$ 无关，保持群结构，并且按（\SGARefLink{sga7.sga7i.evii.n2-5-3-2}{2.5.3.2}）所述左端的函子性，对 $G$ 具有函子性。
+
+下面将确定 $\operatorname{Biext}^{1}(P,Q;G)$，并发现它典范地且对 $G$ 具有函子性地同构于
+\[
+ \operatorname{Ext}^{1}
+ \bigl(P\overset{\mathbb L}{\otimes}Q,G\bigr).
+\]
+
+
+
+% END INCLUDED SGA7I_English_current_buildable_source_20260823/components/78_expose_VII_section_2_5.tex
+
+% BEGIN INCLUDED SGA7I_English_current_buildable_source_20260823/components/79_expose_VII_sections_2_6_and_2_7.tex
+% SOURCE AUTHORITY:
+% expose_VII_body.tex lines 846--870; scan indices 179--181; source folios 168--170.
+% Source-backed corrections: the fibre in 2.6 is BIEXT(P,Q;G), not the printed
+% BIEXT(P,P';G); the symmetric biextension has structural target Q x P.
+% Hard stop before source line 873, section 2.8.
+
+\SGARefTarget{sga7.sga7i.evii.n2-6}{2.6}. 在 \SGARefLink{sga7.sga7i.evii.n2-5}{2.5} 中，只让 $G$ 变化而固定了 $P$ 和 $Q$。现在简单谈谈 $P,Q$ 的变化。其余事实可形式地从下述基本事实得到：$\operatorname{BIEXT}(P,Q;G)$ 对 $P,Q$ 的反变依赖与它对 $G$ 的协变依赖\underline{可交换}。因此，所讨论的范畴可视为一个\underline{余纤维范畴}
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n2-6-1}{2.6.1}}
+ \operatorname{BIEXT}'(\underline T)
+ \longrightarrow
+ \operatorname{GRAB}(\underline T)^{\mathrm{op}}\times
+ \operatorname{GRAB}(\underline T)^{\mathrm{op}}\times
+ \operatorname{GRAB}(\underline T),
+\end{equation}
+的纤维范畴，其中上标 $\mathrm{op}$ 表示反范畴，结构函子为 $E\mapsto(P,Q,G)$。这个余纤维范畴对它的三个变元中的每个均有加性，我们称之为\underline{三重加性}。
+
+仿照标准论证（这里不予复述），可知纤维范畴 $\operatorname{BIEXT}(P,Q;G)$ 中的合成 $E.E'$ 可用三个变元中任何一个的加性结构来描述：由此得到的三个伪群结构典范同构。因此，阿贝尔群
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n2-6-2}{2.6.2}}
+ \operatorname{Biext}^{i}(P,Q;G),\qquad i=0,1,
+\end{equation}
+可视为关于 $P,Q,G$ 的两个三线性函子，三个变元分别属于 $\operatorname{GRAB}(\underline T)^{\mathrm{op}}$、$\operatorname{GRAB}(\underline T)^{\mathrm{op}}$ 及 $\operatorname{GRAB}(\underline T)$。等价地，它们是 $\operatorname{GRAB}(\underline T)$ 中可变 $P,Q,G$ 的\underline{三线性函子}，对 $P,Q$ 反变、对 $G$ 协变，取值于阿贝尔群范畴。按此变性，同构（\SGARefLink{sga7.sga7i.evii.n2-5-4-1}{2.5.4.1}）对全部 $P,Q,G$ 都具有函子性，而不只是对 $G$。下面用 $\operatorname{Ext}^{1}$ 描述 $\operatorname{Biext}^{1}$ 时，类似断言也将成立。
+
+\SGARefTarget{sga7.sga7i.evii.n2-7}{2.7}. \underline{给定双扩张的对称双扩张}。
+
+若 $E$ 是 $(P,Q)$ 对 $G$ 的双扩张，定义其\underline{对称双扩张} $\,{}^{s}E$，它是 $(Q,P)$ 对 $G$ 的双扩张。$\,{}^{s}E$ 的底层集合层就是 $E$ 的底层集合层，而 $G$ 在 $E$ 和 $\,{}^{s}E$ 上的作用相同。结构态射
+\[
+ {}^{s}E\longrightarrow Q\times P
+\]
+是 $E\longrightarrow P\times Q$ 与对称 $P\times Q\longrightarrow Q\times P$ 的复合；最后，$\,{}^{s}E$ 的左、右扩张结构分别是 $E$ 的右、左扩张结构。显然 $E\mapsto{}^{s}E$ 是双扩张范畴 $\operatorname{BIEXT}(\underline T)$ 的自同构，而且是一个\underline{对合自同构}：
+\[
+ {}^{s}({}^{s}E)=E.
+\]
+因此，将关于双挠子 $E,\ldots$ 的每个命题应用于 $\,{}^{s}E,\ldots$，便得到一个对称命题。我们可称之为\emph{交换左右}所得到的命题。一般只详述两个对称命题中的一个，而左右的选择，例如，可以依照我们的政治偏好。
+
+
+% END INCLUDED SGA7I_English_current_buildable_source_20260823/components/79_expose_VII_sections_2_6_and_2_7.tex
+
+% BEGIN INCLUDED SGA7I_English_current_buildable_source_20260823/components/80_expose_VII_section_2_8.tex
+% SOURCE AUTHORITY:
+% expose_VII_body.tex lines 873--899; scan indices 181--182; source folios 170--171.
+% The conventional inverse-image notation f^* is used for the scan's typewritten f*.
+% Page-header tokens at source lines 889 and 904 are excluded as running matter.
+% Hard stop before source line 907, section 2.9.
+
+\SGARefTarget{sga7.sga7i.evii.n2-8}{2.8}. \underline{拓扑斯的变换。局部化。}
+
+设
+\[
+ f:\underline T'\longrightarrow\underline T
+\]
+是拓扑斯态射。逆像函子 $f^*$ 把 $(P,Q)$ 对 $G$ 的双扩张变为 $(f^*P,f^*Q)$ 对 $f^*G$ 的双扩张 $f^*(E)$；任何可用有限投射极限和任意归纳极限表达的结构都如此。为证明 $E$ 的两个扩张结构所诱导的 $f^*(E)$ 上的两个扩张结构相容，将此相容性表达为泛情形
+\[
+ S=P\times P\times Q\times Q,
+\]
+下（\SGARefLink{sga7.sga7i.evii.n2-1-1}{2.1.1}）的交换性，其中 $p,p',q,q'$ 是四个投影。如所预期，$E\mapsto f^*(E)$ 给出典范函子
+\[
+ f^*:\operatorname{BIEXT}(\underline T)
+ \longrightarrow
+ \operatorname{BIEXT}(\underline T').
+\]
+
+
+以下将不再另行说明，直接使用如下事实：对双扩张所作的每个构造都与沿拓扑斯态射的逆像相容。特别地，这适用于 \SGARefLink{sga7.sga7i.evii.n2-5}{2.5} 中考虑的乘积 $EE'$ 和逆 $E^{-1}$。
+
+可取 $\underline T'$ 为\underline{诱导拓扑斯} $\underline T_{/S'}$，并取 $f$ 为称作局部化态射的典范态射（SGA 4 IV 5），
+\[
+ f=i_{S'}:\underline T_{/S'}\longrightarrow\underline T.
+\]
+此时 $f^*(E)$ 称为由 $E$ 在 $S'$ 上\underline{诱导的双扩张}，也照常记为 $E|_{S'}$ 或 $E_{S'}$。
+
+由于限制具有通常的传递性，可变 $S\in\underline T$ 所对应的范畴 $\operatorname{BIEXT}(\underline T_{/S})$ 构成 $\underline T$ 上一个\underline{纤维范畴}的各个纤维（SGA 1 VI 8）。事实上，这个范畴甚至是 Giraud [2] 意义下 $\underline T$ 上的一个\underline{叠}：其纤维中的态射和对象都能粘合。例如，要在典范同构意义下给出 $S$ 上的一个双扩张，只须给出一个覆盖族（即满态射族）$S_i\longrightarrow S$，每个 $S_i$ 上的双扩张 $E_i$（$\underline T_{/S_i}$ 的对象），以及对每对 $(i,j)$ 给出 $E_i|_{S_j}$ 与 $E_j|_{S_i}$ 之间的同构，并满足通常的上闭链条件。
+
+我们称之为\underline{$\underline T$ 上的双扩张叠}。在（\SGARefLink{sga7.sga7i.evii.n2-3-3}{2.3.3}），从而也在（\SGARefLink{sga7.sga7i.evii.n2-3-4}{2.3.4}）及（\SGARefLink{sga7.sga7i.evii.n2-3-5}{2.3.5}）中，以可变 $S$ 对应的 $\underline T_{/S}$ 代替 $\underline T$，便得到 $\underline T$ 上的叠态射。同样适用于（\SGARefLink{sga7.sga7i.evii.n2-5-1}{2.5.1}）中，可变 $S$ 对应的范畴 $\operatorname{BIEXT}(P_S,Q_S;G_S)$ 内的运算 $E.E'$ 和 $E^{-1}$，其中 $P,Q,G$ 是 $\underline T$ 上固定的交换群。
+
+
+% END INCLUDED SGA7I_English_current_buildable_source_20260823/components/80_expose_VII_section_2_8.tex
+
+% BEGIN INCLUDED SGA7I_English_current_buildable_source_20260823/components/81_expose_VII_section_2_9_opening_and_proposition.tex
+% SOURCE AUTHORITY:
+% expose_VII_body.tex lines 907--939; scan indices 183--185; source folios 172--174.
+% Source-backed corrections: e_p is normalized to e_P; the second extension in
+% the proof is of P_Q by G_Q, not the printed G_P.
+% Hard stop before source line 941, Corollary 2.9.4.
+
+\SGARefTarget{sga7.sga7i.evii.n2-9}{2.9}. \underline{与双刚化挠子的关系}。
+
+采用 \SGARefLink{sga7.sga7i.evii.n1-3-2}{1.3.2} 的用语，在 \SGARefLink{sga7.sga7i.evii.n2-2}{2.2} 中已看到，对 $(P,Q)$ 对 $G$ 的每个双扩张 $E$，其底层 $G_{P\times Q}$-挠子结构相对于 $P$ 和 $Q$ 的单位截面对具有典范双刚化。这给出典范函子
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n2-9-1}{2.9.1}}
+ \operatorname{BIEXT}(P,Q;G)
+ \xrightarrow{\ i\ }
+ \operatorname{TORSBIRIG}(P,Q;G),
+\end{equation}
+其中右端的范畴由 $P\times Q$ 上双刚化的 $G_{P\times Q}$-挠子组成。
+
+利用 $P$ 和 $Q$ 的单位截面，对于 $n$ 个各同构于 $P$ 或 $Q$ 的对象的任意乘积，都得到从第 $i$ 个因子到此乘积的典范态射 $\operatorname{inj}_i$。因此，对于从这种乘积到 $G$ 的态射，可谈论它在第 $i$ 个因子上的限制。考虑以下乘积
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n2-9-2}{2.9.2}}
+ \left\{
+ \begin{array}{l}
+ P\times Q,\\[1mm]
+ P\times Q\times Q,\quad P\times Q\times Q\times Q,\\[1mm]
+ P\times P\times Q,\quad P\times P\times P\times Q,\\[1mm]
+ P\times P\times Q\times Q.
+ \end{array}
+ \right.
+\end{equation}
+
+
+\underline{命题 \SGARefTarget{sga7.sga7i.evii.n2-9-3}{2.9.3}. 假设从乘积（\SGARefLink{sga7.sga7i.evii.n2-9-2}{2.9.2}）中的任一个到 $G$ 的每个态射，若在该乘积的每个因子（按刚才说明，利用单位截面嵌入）上平凡，则平凡。那么：}
+
+\medskip
+\noindent
+a) \underline{典范函子（\SGARefLink{sga7.sga7i.evii.n2-9-1}{2.9.1}）是全忠实的，而（\SGARefLink{sga7.sga7i.evii.n2-9-1}{2.9.1}）的两端都是刚性范畴。特别地，若 $E$ 是相对于 $(e_P,e_Q)$ 双刚化的 $G_{P\times Q}$-挠子，则 $E$ 上至多存在一个与其双刚化挠子结构相容的双扩张结构。}
+
+\medskip
+\noindent
+b) \underline{$E$ 上存在这样的双扩张结构，当且仅当 $E$ 有与其 $G_P$-挠子结构相容的 $Q_P$ 对 $G_P$ 的扩张结构，以及与其 $G_Q$-挠子结构相容的 $P_Q$ 对 $G_Q$ 的扩张结构（参见 \SGARefLink{sga7.sga7i.evii.n1-3-5}{1.3.5}(b)）。此时，存在唯一一个与 $G_P$-挠子结构以及在 $P\times e_Q$ 上的给定刚化相容的 $Q_P$ 对 $G_P$ 的扩张结构，并存在唯一一个与 $G_Q$-挠子结构以及在 $e_P\times Q$ 上的给定刚化相容的 $P_Q$ 对 $G_Q$ 的扩张结构；这两个扩张结构在 \SGARefLink{sga7.sga7i.evii.n2-1}{2.1} 的意义下相容。}
+
+\underline{证明。} a) 若 $E$ 是 $P\times Q$ 上的双刚化挠子，其自同构群等同于在两个部分因子上平凡的态射 $P\times Q\longrightarrow G$ 所成的群。把假设应用于 $P\times Q$，可知此群只有恒等自同构，这证明刚性。现在设 $E,E'$ 是 $(P,Q)$ 对 $G$ 的双扩张。要说明双刚化挠子的每个态射 $f:E\longrightarrow E'$ 都是双扩张态射，只需分别对 $E,E'$ 在 $P$ 上及 $Q$ 上定义的两个扩张结构应用 \SGARefLink{sga7.sga7i.evii.n1-3-5}{1.3.5}(a)。这用到关于（\SGARefLink{sga7.sga7i.evii.n2-9-2}{2.9.2}）中 $P\times Q\times Q$ 和 $P\times P\times Q$ 的假设。
+
+\noindent
+b) 必要性显然。对于充分性，\SGARefLink{sga7.sga7i.evii.n1-3-5}{1.3.5}(b) 首先说明，所述条件给出唯一的 $Q_P$ 对 $G_P$ 和 $P_Q$ 对 $G_Q$ 的扩张结构，与挠子结构及刚化相容。这里用到关于 $P\times Q\times Q\times Q$ 和 $P\times P\times P\times Q$ 的假设。只须再证明两个扩张结构相容，即图表（\SGARefLink{sga7.sga7i.evii.n2-1-1}{2.1.1}）交换。其中两个复合是 $P\times P\times Q\times Q$ 上的挠子同构，因而相差一个态射
+\[
+ u:P\times P\times Q\times Q\longrightarrow G.
+\]
+由于 $E$ 的部分平凡化分别是合成律 $\varphi$ 和 $\psi$ 的单位截面，$u$ 在四个因子的每一个上都平凡。因此，关于 $P\times P\times Q\times Q$ 的假设使 $u$ 平凡。命题得证。
+
+
+% END INCLUDED SGA7I_English_current_buildable_source_20260823/components/81_expose_VII_section_2_9_opening_and_proposition.tex
+
+% BEGIN INCLUDED SGA7I_English_current_buildable_source_20260823/components/82_expose_VII_corollary_2_9_4_through_remark_2_9_6.tex
+% SOURCE AUTHORITY:
+% expose_VII_body.tex lines 941--984; scan indices 185--187; source folios 174--176.
+% Source-backed corrections: references to "2.9.2 b)" are to Proposition 2.9.3(b);
+% Biext in (2.9.6.1) is written Biext^1 to identify the group of isomorphism classes.
+% Hard stop before source line 986, section 2.10.
+
+\underline{推论 \SGARefTarget{sga7.sga7i.evii.n2-9-4}{2.9.4}. 设 $P,Q,G$ 是满足}
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n2-9-4-1}{2.9.4.1}}
+ \underline{\operatorname{Hom}}_{\mathrm{pt}}(P,G)=e,
+ \qquad
+ \underline{\operatorname{Hom}}_{\mathrm{pt}}(Q,G)=e
+\end{equation}
+\underline{的交换群（参见 \SGARefLink{sga7.sga7i.evii.n1-3-7}{1.3.7}）。那么命题 2.9.3 的假设满足，并且该命题的结论 (a) 与 (b) 成立。此外，若 $E$ 是相对于 $(e_P,e_Q)$ 双刚化的 $G_{P\times Q}$-挠子，则它有与给定结构相容的 $(P,Q)$ 对 $G$ 的双扩张结构，当且仅当它定义的两个带基点层态射}
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n2-9-4-2}{2.9.4.2}}
+ Q\longrightarrow R^1p_*(G_P),
+ \qquad
+ P\longrightarrow R^1q_*(G_Q),
+\end{equation}
+\underline{为群态射，其中 $p:P\longrightarrow e$ 和 $q:Q\longrightarrow e$ 是结构态射。}
+
+第一项断言已在 \SGARefLink{sga7.sga7i.evii.n1-3-7}{1.3.7} 中证明。对于第二项，必要性显然。为证明充分性，应用命题 \SGARefLink{sga7.sga7i.evii.n2-9-3}{2.9.3}(b) 和 \SGARefLink{sga7.sga7i.evii.n1-3-5}{1.3.5}(b)。（\SGARefLink{sga7.sga7i.evii.n2-9-4-2}{2.9.4.2}）中第一个态射与乘法相容，意味着刚化的 $G_P$-挠子 $E$ \underline{在 $P$ 上局部地}满足 \SGARefLink{sga7.sga7i.evii.n1-3-5}{1.3.5}(b) 的条件。如 \SGARefLink{sga7.sga7i.evii.n1-3-7}{1.3.7} 中所指出，此条件于是也在 $P$ 上整体成立，故 $E$ 有与其刚化挠子结构相容的 $Q_P$ 对 $G_P$ 的扩张结构。对称地，$E$ 有与其刚化的 $G_Q$-挠子结构相容的 $P_Q$ 对 $G_Q$ 的扩张结构。结论由命题 \SGARefLink{sga7.sga7i.evii.n2-9-3}{2.9.3}(b) 得到。
+
+\underline{例 \SGARefTarget{sga7.sga7i.evii.n2-9-5}{2.9.5}.} 设 $S$ 是概形，$P$ 和 $Q$ 是 $S$ 上的阿贝尔概形，$G=\underline G_{m,S}$ 是 $S$ 上的乘法群概形。在 \SGARefLink{sga7.sga7i.evii.n1-3-8}{1.3.8} 中已指出，此时（\SGARefLink{sga7.sga7i.evii.n2-9-4-1}{2.9.4.1}）成立。$P\times Q$ 上的双刚化挠子 $E$ 等价地就是 $P\times Q$ 上的双刚化可逆层。回忆，\underline{$P,Q$ 上的除子对应}是这样一个双刚化可逆层的同构类（例如参见 [1]）。在 fppf 拓扑中，态射（\SGARefLink{sga7.sga7i.evii.n2-9-4-2}{2.9.4.2}）就是由此除子对应定义的
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n2-9-5-1}{2.9.5.1}}
+ Q\longrightarrow\underline{\operatorname{Pic}}_{P/S},
+ \qquad
+ P\longrightarrow\underline{\operatorname{Pic}}_{Q/S},
+\end{equation}
+平方定理（所引文献）说明，这些态射必然保持群结构。因此 \SGARefLink{sga7.sga7i.evii.n2-9-4}{2.9.4} 表明，\underline{$(P,Q)$ 对 $G=\underline G_{m,S}$ 的双扩张范畴等价于 $P\times Q$ 上的双刚化可逆层范畴}；故它是刚性范畴，其同构类集合等同于 $(P,Q)$ 上的除子对应集合。此等同显然保持两个集合上的自然群律，第一个群律是（\SGARefLink{sga7.sga7i.evii.n2-5-2-2}{2.5.2.2}）中的群律。
+
+\underline{注 \SGARefTarget{sga7.sga7i.evii.n2-9-6}{2.9.6}.} （\SGARefLink{sga7.sga7i.evii.n2-9-4-2}{2.9.4.2}）中第一个态射的加性等价于第二个态射经过子层 $\underline{\operatorname{Ext}}^1(Q,G)$ 分解；注意，由 \SGARefLink{sga7.sga7i.evii.n1-3-5}{1.3.5}，典范态射
+\[
+ \underline{\operatorname{Ext}}^1(Q,G)
+ \longrightarrow R^1q_*(G_Q)
+\]
+是单射。同样，（\SGARefLink{sga7.sga7i.evii.n2-9-4-2}{2.9.4.2}）中第二个态射的加性意味着第一个态射经过 $\underline{\operatorname{Ext}}^1(P,G)$ 分解。这给出群同构
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n2-9-6-1}{2.9.6.1}}
+ \operatorname{Biext}^{1}(P,Q;G)
+ \simeq
+ \operatorname{Hom}\bigl(Q,\underline{\operatorname{Ext}}^1(P,G)\bigr)
+ \simeq
+ \operatorname{Hom}\bigl(P,\underline{\operatorname{Ext}}^1(Q,G)\bigr).
+\end{equation}
+在 \SGARefLink{sga7.sga7i.evii.n2-9-5}{2.9.5} 的情形中，它们归结为熟知的同构
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n2-9-6-2}{2.9.6.2}}
+ \operatorname{Corr}(P,Q)
+ \simeq \operatorname{Hom}(P,Q')
+ \simeq \operatorname{Hom}(Q,P'),
+\end{equation}
+其中
+\[
+ P'=\underline{\operatorname{Ext}}^1(P,\underline G_m),
+ \qquad
+ Q'=\underline{\operatorname{Ext}}^1(Q,\underline G_m)
+\]
+是 $P$ 和 $Q$ 的对偶阿贝尔概形，分别等同于 $\underline{\operatorname{Pic}}^0_{P/S}$ 和 $\underline{\operatorname{Pic}}^0_{Q/S}$。在这两个公式中，$\operatorname{Hom}$ 均表示\underline{群同态}所成的群。
+
+
+% END INCLUDED SGA7I_English_current_buildable_source_20260823/components/82_expose_VII_corollary_2_9_4_through_remark_2_9_6.tex
+
+% BEGIN INCLUDED SGA7I_English_current_buildable_source_20260823/components/83_expose_VII_section_2_10.tex
+% SOURCE AUTHORITY:
+% expose_VII_body.tex lines 986--1007; scan indices 187--190; source folios 176--179.
+% Source-backed corrections: in 2.10.2 the multiplicative group is G_{m,S};
+% in the A-linear dictionary the torsor is E_p, not the printed P_p.
+% Hard stop before source line 1010, section 3.
+
+\SGARefTarget{sga7.sga7i.evii.n2-10}{2.10}. \underline{双扩张概念的若干推广}。为完整起见提及这些推广，尽管我们不会使用它们。
+
+\SGARefTarget{sga7.sga7i.evii.n2-10-1}{2.10.1}. 可以不假设 $P$ 或 $Q$ 交换，仅假设 $G$ 交换，就定义 $(P,Q)$ 对 $G$ 的双扩张。它是一个 $G_{P\times Q}$-挠子，带有 $Q_P$ 对 $G_P$ 及 $P_Q$ 对 $G_Q$ 的中心扩张结构，两者分别与挠子结构相容，并且彼此相容，即使（\SGARefLink{sga7.sga7i.evii.n2-1-1}{2.1.1}）交换。对这一更一般的概念，上述大部分讨论作适当修改后仍有效。即使 $P,Q$ 交换，它也比 \SGARefLink{sga7.sga7i.evii.n2-1}{2.1} 的概念更一般，后者是 $E$ 上两个底层相对群结构都\underline{交换}的情形。在非交换情形，$(P,Q)$ 对 $G$ 的双扩张范畴仍对 $G$ 有加性，但对 $P$ 和 $Q$ 不再有加性。
+
+\SGARefTarget{sga7.sga7i.evii.n2-10-2}{2.10.2}. 仿照 \SGARefLink{sga7.sga7i.evii.n2-1}{2.1}，对固定整数 $n\geq1$，可定义\underline{$n$ 个交换群序列 $(P_1,P_2,\ldots,P_n)$ 对交换群 $G$ 的 $n$ 重扩张}。它由一个 $G_{P_1\times\cdots\times P_n}$-挠子 $E$ 组成，带有在 $n-1$ 个因子的部分积上的 $n$ 个部分扩张结构，而且对于 $1$ 至 $n$ 之间每对不同的指标，都有一个（\SGARefLink{sga7.sga7i.evii.n2-1-1}{2.1.1}）型的相容关系。
+
+若 $n\geq3$，$P_i$ 是概形 $S$ 上的阿贝尔概形，且 $G=\underline G_{m,S}$，则 $(P_1,\ldots,P_n)$ 对 $G$ 的每个 $n$ 重扩张都\underline{平凡}。
+
+\SGARefTarget{sga7.sga7i.evii.n2-10-3}{2.10.3}. \SGARefLink{sga7.sga7i.evii.n2-1}{2.1} 中的双扩张概念可视为交换群的交换扩张，即 $\mathbb Z$-模扩张概念的一种变式。设 $A$ 是 $\underline T$ 中的一个环，为简单起见假设交换，$P,Q,G$ 是三个 $A$-模。更一般地，可以定义 $(P,Q)$ 对 $G$ 的\underline{$A$-模双扩张}，作为 $A$-模扩张的一种变式。
+
+这样的双扩张是 \SGARefLink{sga7.sga7i.evii.n2-1}{2.1} 意义下的一个双扩张，其底层部分扩张结构分别被充实为 $A_P$-模和 $A_Q$-模的扩张结构，并与 $Q_P,G_P$ 和 $P_Q,G_Q$ 上已有的相对模结构相容。$E$ 上的两个相对模结构可解释为 $A$ 的底层乘法幺半群在 $E$ 的底层集合层上的两个作用，并要求这两个作用可交换。除了（\SGARefLink{sga7.sga7i.evii.n2-1-1}{2.1.1}）所表达的相容性外，还要加上此条件，它本身也可用一个类似图表表达，留给读者写出。最后，要求 $A$ 在 $E$ 上的第一个作用不仅对 $E$ 上的第一个合成律满足分配律，也对第二个合成律满足分配律；对第二个作用也作同样要求。
+
+\SGARefLink{sga7.sga7i.evii.n1-1-6}{1.1.6} 中的对应也有一个 $A$-线性变式。$A$-模 $P$ 对 $A$-模 $G$ 的一个扩张，等价于一族 $G_p$-挠子 $E_p$，以可变 $S\in\operatorname{ob}\underline T$ 对应的点 $p\in P(S)$ 为参数，并且 $E_p$ 对 $p$ 的变化是\underline{$A$-线性的}，而不仅具有加性。除（\SGARefLink{sga7.sga7i.evii.n1-1-3-1}{1.1.3.1}）的同构 $\varphi_{p,p'}$ 外，还用同构
+\[
+ \mu_{a,p}:\,{}^{a}E_p\xrightarrow{\ \sim\ }E_{ap}
+ \qquad(p\in P(S),\ a\in A(S)),
+\]
+来表达这一点，其中 $\,{}^{a}E_p$ 表示 $G_S$-挠子 $E_p$ 沿
+\[
+ g\longmapsto ag:G_S\longrightarrow G_S.
+\]
+作结构群扩张后的像。使这些数据对应于 $P$ 对 $G$ 的 $A$-模扩张 $E$ 所需的关于 $\varphi$ 和 $\mu$ 的条件，留给读者写出（参见 \SGARefLink{sga7.sga7i.evii.n3-5-4}{3.5.4}(b)）。
+
+
+% END INCLUDED SGA7I_English_current_buildable_source_20260823/components/83_expose_VII_section_2_10.tex
+
+
+
+% BEGIN INCLUDED SGA7I_English_current_buildable_source_20260823/components/84_expose_VII_section_3_1.tex
+% SOURCE AUTHORITY:
+% expose_VII_body.tex lines 1010--1110; scan indices 190--194; source folios 179--183.
+% Direct scan comparison: physical PDF pages 191--195 at 600 dpi; diagram 3.1.3 checked
+% node-by-node and arrow-by-arrow against physical page 192.
+% Transparent notation corrections: printed/typewritten subscript letter o is rendered as zero
+% throughout L_0, d_0, H_0 and degree 0; the erroneous prose reference 3.1.7.1 is 3.1.8.
+% Hard stop before source line 1116, section 3.2.
+
+\section*{\SGARefTarget{sga7.sga7i.evii.n3}{3}. 同调代数的补充}
+
+本节的主要目的，是定义前面宣布的同构
+\[
+ \Biext^1(P,Q;G)\simeq
+ \Ext^1(P\overset{\mathbb L}{\otimes}Q,G)
+\]
+为此，需要一些本身也有意义的同调代数讨论，它们将占据 \SGARefLink{sga7.sga7i.evii.n3-1}{3.1} 至 \SGARefLink{sga7.sga7i.evii.n3-4}{3.4} 各节。\SGARefLink{sga7.sga7i.evii.n3-1}{3.1} 与 \SGARefLink{sga7.sga7i.evii.n3-3}{3.3} 的讨论可视为 [4]，尤其是其中第6.9节的补充。
+
+\subsection*{\SGARefTarget{sga7.sga7i.evii.n3-1}{3.1}. 由阿贝尔范畴 $\underline C$ 中的链复形 $L_\bullet$ 构造加性余纤维范畴 $\underline\Psi_{L_\bullet}$}
+
+设 $\underline C$ 是阿贝尔范畴，$L_\bullet$ 是 $\underline C$ 中的链复形，
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n3-1-1}{3.1.1}}
+ L_2\longrightarrow L_1\longrightarrow L_0\longrightarrow0,
+\end{equation}
+采用下标次数的约定书写，因而微分的次数是 $-1$。于是 $i<0$ 时 $L_i=0$。我们将在 $\underline C$ 上定义一个余纤维范畴
+\[
+ \underline\Psi=\underline\Psi_{L_\bullet}
+\]
+在余纤维范畴的典范等价意义下，它就是 [4，6.9] 中的同名范畴。$\underline\Psi_{L_\bullet}$ 的对象是二元组
+\[
+ (X,\alpha),
+\]
+其中 $X$ 是 $L_0$ 对 $\underline C$ 的某个对象 $A$ 的扩张，该对象依赖于 $X$，
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n3-1-2}{3.1.2}}
+ 0\longrightarrow A\xrightarrow{i}X\xrightarrow{j}L_0
+ \longrightarrow0,
+\end{equation}
+而 $\alpha$ 是此扩张沿 $d_0:L_1\longrightarrow L_0$ 的逆像 $d_0^*(X)$ 的一个平凡化。要求沿 $d_1:L_2\longrightarrow L_1$ 的逆像 $d_1^*d_0^*(X)$ 的相应平凡化，就是由传递性同构
+\[
+ d_1^*d_0^*(X)\simeq(d_0d_1)^*(X)
+\]
+及关系 $d_0d_1=0$ 得到的显然的平凡化。
+
+等价地，$\alpha$ 是 $d_0:L_1\longrightarrow L_0$ 到态射 $\alpha:L_1\longrightarrow X$ 的一个提升，并满足 $\alpha d_1=0$：
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n3-1-3}{3.1.3}}
+\begin{tikzcd}[row sep=large,column sep=large]
+ &&0\arrow[d]\\
+ &&A\arrow[d,"i"]\\
+ &&X\arrow[d,"j"]\\
+ L_2\arrow[r,"d_1"']&L_1\arrow[r,"d_0"']\arrow[ru,"\alpha"]
+   &L_0\arrow[d]\\
+ &&0
+\end{tikzcd}
+\qquad,\qquad \alpha d_1=0.\quad(*)
+\end{equation}
+Deligne 指出一个更简单的描述：$\underline\Psi_{L_\bullet}(A)$ 是复形 $L_\bullet$ 对 $A$ 的扩张范畴，其中将后者看作集中于0次的复形。
+
+由这一形式可见，对象 $(X,\alpha)$ 的描述只依赖于\underline{在1次截断}的链复形 $[L_\bullet]$；它由 $L_\bullet$“消去 $i\geq2$ 的 $H_i(L_\bullet)$”得到：其至少 $2$ 次的各项为零，至多 $0$ 次的各项与 $L_\bullet$ 相同，而 $1$ 次项为 $d_1:L_2\longrightarrow L_1$ 的余核。
+
+从 $(X,\alpha)$ 到 $(X',\alpha')$ 的同态，是与 $L_0$ 上的恒等相容并满足 $u\alpha=\alpha'$ 的扩张同态 $u:X\longrightarrow X'$。同态的合成由相应扩张同态的合成给出。这就得到所宣布的范畴 $\underline\Psi_{L_\bullet}$。在典范同构意义下，它只依赖于 $L_\bullet$ 的 $1$ 次截断 $[L_\bullet]$。
+
+有一个显然的函子 $(X,\alpha)\longmapsto A$，
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n3-1-4}{3.1.4}}
+ \pi:\underline\Psi_{L_\bullet}\longrightarrow\underline C.
+\end{equation}
+\underline{此函子是余纤维化的}。事实上，设 $u:A\longrightarrow B$ 是 $\underline C$ 的态射，$(X,\alpha)$ 是纤维 $\underline\Psi_{L_\bullet}(A)$ 的对象。因此 $X$ 是 $L_0$ 对 $A$ 的扩张。构造 $L_0$ 对 $B$ 的扩张 $u_*(X)$，即 $X$ 沿 $u$ 的正像，并赋予它部分平凡化 $\beta=f\alpha$，其中 $f:X\longrightarrow u_*(X)$ 为典范态射。立即可知
+\[
+ f:(X,\alpha)\longrightarrow(u_*(X),\beta)
+\]
+对（\SGARefLink{sga7.sga7i.evii.n3-1-4}{3.1.4}）而言是余笛卡儿的：它对 $\underline\Psi_{L_\bullet}$ 中以 $(X,\alpha)$ 为源的 $u$-态射具有通常的泛性质。这正是 $f:X\longrightarrow u_*(X)$ 的熟知而初等的相应泛性质。
+
+最后，余纤维范畴 $\underline\Psi_{L_\bullet}$ 具有\underline{加性}；即它满足
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n3-1-5}{3.1.5}}
+ \underline\Psi_{L_\bullet}(0)
+ \quad\text{等价于单点范畴},
+\end{equation}
+并且，对 $\underline C$ 中任意的 $A,B$，
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n3-1-6}{3.1.6}}
+ \underline\Psi_{L_\bullet}(A\times B)
+ \longrightarrow
+ \underline\Psi_{L_\bullet}(A)\times
+ \underline\Psi_{L_\bullet}(B)
+ \quad\text{是一个等价}.
+\end{equation}
+这直接来自 $L_0$ 对 $\underline C$ 的可变对象的扩张所成余纤维范畴的相应性质。我们将自由使用 [4，1] 中建立、上面 \SGARefLink{sga7.sga7i.evii.n2-5}{2.5} 中回顾的 $\underline\Psi_{L_\bullet}$ 的加性所带来的推论。
+
+\SGARefTarget{sga7.sga7i.evii.n3-1-7}{3.1.7}. 这些推论之一是：对 $\underline C$ 的每个对象 $A$，范畴 $\underline\Psi_{L_\bullet}(A)$ 有一个\underline{零}对象，或称\underline{平凡}对象（\SGARefLink{sga7.sga7i.evii.n2-5-1}{2.5.1}）。它就是 $L_0$ 对 $A$ 的平凡扩张 $X=L_0+A$，带有分量为 $d_0$ 和 $0$ 的部分平凡化 $\alpha:L_1\longrightarrow X$。
+
+此外，由 \SGARefLink{sga7.sga7i.evii.n2-5-2}{2.5.2}，对 $\underline\Psi_{L_\bullet}(A)$ 中的每个 $(X,\alpha)$，此对象的自同构群典范同构于平凡对象的自同构群。将后一个交换群记为 $\Psi^0_{L_\bullet}(A)$。上述具体描述给出典范同构
+\begin{multline}\tag{\SGARefTarget{sga7.sga7i.evii.n3-1-8}{3.1.8}}
+ \Psi^0_{L_\bullet}(A)
+ =\Ker\bigl(\Hom(L_0,A)\longrightarrow\Hom(L_1,A)\bigr)
+ \simeq\Hom(H_0(L_\bullet),A)\\
+ \simeq\Ext^0(L_\bullet,A),
+\end{multline}
+它们由扩张 $X$ 的自同构群与 $\Hom(L_0,A)$ 的通常等同诱导。同构（\SGARefLink{sga7.sga7i.evii.n3-1-8}{3.1.8}）显然对 $A$ 具有函子性。
+
+\SGARefTarget{sga7.sga7i.evii.n3-1-9}{3.1.9}. 最后，回忆 \SGARefLink{sga7.sga7i.evii.n2-5-2}{2.5.2}，纤维范畴 $\underline\Psi_{L_\bullet}(A)$ 上的自然乘法结构赋予其同构类集合一个自然群结构。将此群记为 $\Psi^1_{L_\bullet}(A)$；它是 $A$ 的加性函子。
+
+
+% END INCLUDED SGA7I_English_current_buildable_source_20260823/components/84_expose_VII_section_3_1.tex
+
+% BEGIN INCLUDED SGA7I_English_current_buildable_source_20260823/components/85_expose_VII_section_3_2.tex
+% SOURCE AUTHORITY:
+% expose_VII_body.tex lines 1116--1243; scan indices 194--197; source folios 183--186.
+% Direct scan comparison: physical PDF pages 195--198 at 600 dpi.  Diagrams (3.2.3),
+% (*), and (3.2.5.2) were checked node-by-node, arrow-by-arrow, and label-by-label.
+% Transparent notation corrections: printed/typewritten subscript letter o is rendered as zero;
+% the source's erroneous ``j : L_0 -> X'' in the injectivity conclusion is rendered as the
+% mathematically required ``s : L_0 -> X'', consistently with (3.2.5.1).
+% The source's two distinct displays both numbered (3.2.3) are preserved as printed.
+% Hard stop before source line 1246, section 3.3.
+
+\subsection*{\SGARefTarget{sga7.sga7i.evii.n3-2}{3.2}. $\Psi^1_{L_\bullet}(A)$ 的确定}
+
+考虑 $\underline\Psi_{L_\bullet}(A)$ 的一个对象 $(X,\alpha)$（\SGARefLink{sga7.sga7i.evii.n3-1-3}{3.1.3}）。考虑由态射 $j:X\longrightarrow L_0$ 定义的长度为1的上链复形
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n3-2-1}{3.2.1}}
+ [X\longrightarrow L_0]:\quad
+ 0\longrightarrow X\longrightarrow L_0\longrightarrow0\longrightarrow
+ \cdots
+\end{equation}
+其0次分量为 $X$。它是 $A$ 的一个消解，因此在导出范畴 $D(\underline C)$ [5] 中可视为对象 $A$。图表（\SGARefLink{sga7.sga7i.evii.n3-1-3}{3.1.3}）于是给出一个1次的复形态射
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n3-2-2}{3.2.2}}
+ L_\bullet\longrightarrow[X\longrightarrow L_0],
+\end{equation}
+具体由以下各方块反交换的图表给出：
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n3-2-3}{3.2.3}}
+\begin{tikzcd}[column sep=large,row sep=huge]
+ \cdots & L_2\arrow[r,"d_1"]
+ & L_1\arrow[r,"d_0"]\arrow[d,"u^{-1}=-\alpha"']
+ & L_0\arrow[r]\arrow[d,"u^0=\mathrm{id}"'] & 0 & \cdots\\
+ \cdots & 0\arrow[r] & X\arrow[r,"j"] & L_0\arrow[r] & 0 & \cdots
+\end{tikzcd}
+\end{equation}
+（我们使用通常约定，将链复形 $L_\bullet$ 联系于一个微分次数为 $1$、$i$ 次分量为 $L_{-i}$ 的复形。）从而在导出范畴中得到一个1次态射
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n3-2-3.occ-2}{3.2.3}}
+ c(X,\alpha):L_\bullet\longrightarrow A
+ \qquad
+ \bigl(D(\underline C)\text{ 中的 1 次态射}\bigr),
+\end{equation}
+它显然只依赖于 $(X,\alpha)$ 的同构类。由此定义了典范映射
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n3-2-4}{3.2.4}}
+ \Psi^1_{L_\bullet}(A)\longrightarrow\Ext^1(L_\bullet,A)
+ \overset{\mathrm{def}}{=}
+ \Hom_{D(\underline C)}(L_\bullet,A[1]).
+\end{equation}
+
+
+\underline{定理} \SGARefTarget{sga7.sga7i.evii.n3-2-5}{3.2.5}. \underline{映射}（\SGARefLink{sga7.sga7i.evii.n3-2-4}{3.2.4}）\underline{是一个群同构，对 $\underline C$ 的对象 $A$ 具有函子性。}
+
+（\SGARefLink{sga7.sga7i.evii.n3-2-4}{3.2.4}）的加性和对 $A$ 的函子性留给读者验证，我们只证明其为双射。对于单射性，先说明：若（\SGARefLink{sga7.sga7i.evii.n3-2-3}{3.2.3}）中的复形态射 $u$ 在 $D(\underline C)$ 中为零，则它已在同伦范畴 $K(\underline C)$ 中为零；即存在态射
+\[
+ s:L_0\longrightarrow X
+\]
+使
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n3-2-5-1}{3.2.5.1}}
+ js=u^0=\mathrm{id}_{L_0},
+ \qquad sd_0=-u^{-1}=\alpha.
+\end{equation}
+事实上，假设意味着，所考虑的复形态射与一个适当的拟同构 $v$ 复合后，此结论成立：
+\begin{equation}\tag{*}
+\begin{tikzcd}[column sep=large,row sep=huge]
+ 0\arrow[r] & X\arrow[r,"j"]\arrow[d]
+ & L_0\arrow[r]\arrow[d] & 0\\
+ 0\arrow[r] & C^0\arrow[r,"j'"] & C^1\arrow[r] & C^2\arrow[r] & \cdots
+\end{tikzcd}
+\end{equation}
+（必要时，将 $i\geq2$ 时的 $C^i$ 换为 $0$，将 $C^1$ 换为 $\operatorname{Im}(C^0\longrightarrow C^1)=\operatorname{Ker}(C^1\longrightarrow C^2)$，因而可假设 $i\geq2$ 时 $C^i=0$）。但态射 (*) 在 $A$ 上诱导恒等，故将 $X$ 等同于 $L_0$ 和 $C^0$ 在 $C^1$ 上的纤维积。因此，定义同伦 $vu\sim0$、从而满足 $j's'=v^1u^0$ 的态射 $s':L_0\longrightarrow C^0$，分解经过一个满足 $js=u^0=\mathrm{id}_{L_0}$ 的态射 $s:L_0\longrightarrow X$。于是 $s$ 分裂 $L_0$ 对 $A$ 的扩张 $X$，故复形 $X\longrightarrow L_0$ \underline{在} $K(\underline C)$ \underline{中}同构于集中于 $A$ 的复形 $K^\bullet$。对后一个复形，显然
+\[
+ \Hom_{K(\underline C)}(L_\bullet,K^\bullet)
+ \longrightarrow
+ \Hom_{D(\underline C)}(L_\bullet,K^\bullet)
+\]
+为同构，这就证明了断言。
+
+现在，选取一个满足（\SGARefLink{sga7.sga7i.evii.n3-2-5-1}{3.2.5.1}）的态射 $s:L_0\longrightarrow X$，恰好等价于给出 $L_0$ 对 $A$ 的扩张 $X$ 的一个与部分平凡化 $\alpha$ 相容的平凡化。这证明了（\SGARefLink{sga7.sga7i.evii.n3-2-4}{3.2.4}）的单射性。
+
+对于满射性，从右端的一个元素出发。按定义，它可由一个1次的复形态射
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n3-2-5-2}{3.2.5.2}}
+\begin{tikzcd}[column sep=large,row sep=huge]
+ \ldots & L_2\arrow[r,"d_1"]
+ & L_1\arrow[r,"d_0"]\arrow[d,"u^{-1}"']
+ & L_0\arrow[r]\arrow[d,"u^0"'] & 0\\
+ & 0\arrow[r] & C^0\arrow[r] & C^1\arrow[r] & \ldots
+\end{tikzcd}
+\end{equation}
+描述，其中各方块反交换，$C^\bullet$ 为 $A$ 的消解，并且如上可假设 $i\geq2$ 时 $C^i=0$。于是 $C^0$ 是 $C^1$ 对 $A$ 的扩张，故可构造将其沿 $L_0\longrightarrow C^1$ 拉回所得的扩张 $X$。（\SGARefLink{sga7.sga7i.evii.n3-2-5-2}{3.2.5.2}）的反交换性说明，$-u^{-1}$ 分解经过态射 $\alpha:L_1\longrightarrow X$，它是一个部分分裂，即 $j\alpha=d_0$（$j$ 如（\SGARefLink{sga7.sga7i.evii.n3-1-2}{3.1.2}））。此外，（\SGARefLink{sga7.sga7i.evii.n3-2-5-2}{3.2.5.2}）中的关系 $u^{-1}d_1=0$ 蕴含 $\alpha d_1=0$。故 $(X,\alpha)$ 的确是 $\underline\Psi_{L_\bullet}(A)$ 的对象。由构造，态射（\SGARefLink{sga7.sga7i.evii.n3-2-5-2}{3.2.5.2}）是与 $(X,\alpha)$ 联系的态射（\SGARefLink{sga7.sga7i.evii.n3-2-3.occ-2}{3.2.3}）与态射
+\[
+ [X\longrightarrow L_0]\longrightarrow C^\bullet
+ =[C^0\longrightarrow C^1]
+\]
+的复合，后者的分量是 $(f,u^0)$，其中 $f:X\longrightarrow C^0$ 是由 $X$ 作为扩张 $C^0$ 的拉回的定义得到的典范态射。
+
+上述态射是 $A$ 的消解的态射，并在 $A$ 上诱导恒等。于是根据定义 $\Ext^1=\Hom^1_{D(\underline C)}$，由（\SGARefLink{sga7.sga7i.evii.n3-2-5-2}{3.2.5.2}）描述的给定 $\Ext^1(L_\bullet,A)$ 元素恰好是 $c(X,\alpha)$。这证明了（\SGARefLink{sga7.sga7i.evii.n3-2-4}{3.2.4}）的满射性，从而完成 \SGARefLink{sga7.sga7i.evii.n3-2-5}{3.2.5} 的证明。
+
+
+% END INCLUDED SGA7I_English_current_buildable_source_20260823/components/85_expose_VII_section_3_2.tex
+
+% BEGIN INCLUDED SGA7I_English_current_buildable_source_20260823/components/86_expose_VII_section_3_3.tex
+% R2 explicit source correction R2-VII-04 / R2-VII-05; see qa/FIDELITY-R2-CHANGES.json.
+% SOURCE AUTHORITY:
+% expose_VII_body.tex lines 1246--1352; scan indices 197--203; source folios 186--192.
+% Direct scan comparison: physical PDF pages 198--204 at 600 dpi.
+% Transparent source corrections: the two references printed as 3.2.3 in 3.3.2 are 3.3.2.1;
+% the quasi-maximal construction is written with the induced map \bar d_0:L'_1->L_0 rather
+% than the internally inconsistent printed d'_1/d_1 notation; the canonical map A->X is i,
+% not the printed j; and the boundary arrow in (3.3.6.1) is \partial, as the following prose
+% and (3.3.6.2) require.  The typo ``auticommutative'' is translated as anticommutative.
+% Hard stop before source line 1355, section 3.4.
+
+\subsection*{\SGARefTarget{sga7.sga7i.evii.n3-3}{3.3}. 余纤维范畴 $\underline\Psi_{L_\bullet}$ 的性质}
+
+本节并非理解后文所必需。我们将自由使用 [4] 中的概念，目的是把上述结果与该文献的结果作比较。
+
+\underline{定理} \SGARefTarget{sga7.sga7i.evii.n3-3-1}{3.3.1}. \underline{$\underline C$ 上的加性余纤维范畴 $\underline\Psi_{L_\bullet}$ 是左正合的}（[4，\SGAExternalRef{sga7.sga7i.evii.n2-2}{2.2}{文献 4 的编号，非本报告内部编号}]），\underline{有一个拟极大对象}（[4，4.4]），\underline{并且对此范畴的每个对象 $E=(X,\alpha)$，存在 $E$ 的一个典型复形 $L^E_\bullet$}（[4，\SGAExternalRef{sga7.sga7i.evii.n3-1}{3.1}{文献 4 的编号，非本报告内部编号}]）。\underline{此外，$\underline\Psi_{L_\bullet}$ 的典型 pro-复形}（[4，\SGAExternalRef{sga7.sga7i.evii.n3-7}{3.7}{文献 4 的编号，非本报告内部编号} 及 4.4]）\underline{在 $D(\underline C)$ 中典范同构于 \SGARefLink{sga7.sga7i.evii.n3-1}{3.1} 中考虑的截断复形 $[L_\bullet]$。}
+
+现在逐一详述 \SGARefLink{sga7.sga7i.evii.n3-3-1}{3.3.1} 各项断言的含义。
+
+\SGARefTarget{sga7.sga7i.evii.n3-3-2}{3.3.2}. 余纤维范畴 $\underline\Psi_{L_\bullet}$ \underline{左正合}，意味着它具有加性，并满足以下条件：
+
+\SGARefTarget{sga7.sga7i.evii.n3-3-2-1}{3.3.2.1}. 对 $\underline C$ 中的每个正合列
+\[
+ 0\longrightarrow A'\xrightarrow{u}A\xrightarrow{v}A''
+ \longrightarrow0
+\]
+自然函子（采用 [4，1.8] 的记号）
+\[
+ \underline\Psi_{L_\bullet}(A')
+ \longrightarrow
+ \underline\Psi_{L_\bullet}([A\longrightarrow A''])
+\]
+是一个范畴等价。
+
+回忆，若 $\underline\Psi$ 是 $\underline C$ 上的余纤维范畴，$v:A\longrightarrow A''$ 是 $\underline C$ 的态射，则 $\underline\Psi([A\longrightarrow A''])$ 是二元组 $(E,\rho)$ 的范畴，其中 $E$ 是 $\underline\Psi(A)$ 的对象，$\rho$ 是 $\underline\Psi(A'')$ 中的相应对象 $v_*(E)$ 的一个“平凡化”；即从它到 $\underline\Psi(A'')$ 的零对象（\SGARefLink{sga7.sga7i.evii.n2-5-1}{2.5.1}）的同构。\SGARefLink{sga7.sga7i.evii.n3-3-2-1}{3.3.2.1} 中的函子
+\[
+ \underline\Psi(A')\longrightarrow
+ \underline\Psi([A\longrightarrow A''])
+\]
+的定义显然。当 $\underline\Psi=\underline\Psi_{L_\bullet}$ 时，$\underline\Psi_{L_\bullet}([A\longrightarrow A''])$ 的对象具体是三元组 $(X,\alpha,\rho)$，其中 $(X,\alpha)$ 如（\SGARefLink{sga7.sga7i.evii.n3-1-3}{3.1.3}），$\rho:X\longrightarrow A''$ 是 $\underline C$ 的态射，满足
+\begin{equation}\tag{*}
+ \rho i=v,\qquad \rho\alpha=0.
+\end{equation}
+若 $v:A\longrightarrow A''$ 属于 \SGARefLink{sga7.sga7i.evii.n3-3-2-1}{3.3.2.1} 中的短正合列，则众所周知，由 $L_0$ 对 $\underline C$ 的可变对象的扩张所成余纤维范畴的左正合性，给出满足 (*) 第一个关系的态射，等价于给出 $L_0$ 对 $A'\simeq\Ker v$ 的扩张 $X'$，使之为 $X$ 的子扩张：只需取 $X'=\Ker\rho$。(*) 的第二个关系说明 $\alpha$ 分解经过态射 $\alpha':L_1\longrightarrow X'$。除去可立即验证的相容性之外，这就证明了 \SGARefLink{sga7.sga7i.evii.n3-3-2-1}{3.3.2.1} 中的左正合性。
+
+\SGARefTarget{sga7.sga7i.evii.n3-3-3}{3.3.3}. 回忆，$\underline C$ 上余纤维范畴 $\underline\Psi$ 的对象 $E_0$ 称为\underline{拟极大的}，若对于位于 $\underline C$ 的对象 $A$ 之上的 $\underline\Psi$ 的每个对象 $E$，都存在 $\underline\Psi$ 中的态射 $E\longrightarrow E'$，它在 $\underline C$ 中诱导\underline{单态射} $A\longrightarrow A'$，使 $E'$ \underline{被 $E_0$ 支配}，即存在态射 $E_0\longrightarrow E'$。若 $\underline C$ 有足够多的内射对象，这等价于说：$\underline\Psi$ 中位于 $\underline C$ 的内射对象之上的每个对象，都被 $E_0$ 支配。
+
+对 $\underline\Psi=\underline\Psi_{L_\bullet}$，有如下典范的拟极大对象。置
+\[
+ L'_1=\Coker(d_1:L_2\longrightarrow L_1)
+\]
+并以 $\bar d_0:L'_1\longrightarrow L_0$ 表示 $d_0:L_1\longrightarrow L_0$ 诱导的态射。设 $E_0=(X_0,\alpha_0)$ 是 $\underline\Psi_{L_\bullet}(L'_1)$ 的对象，其中 $X_0=L_0\oplus L'_1$ 是 $L_0$ 对 $L'_1$ 的平凡扩张，$\alpha_0$ 是复合
+\[
+ L_1\twoheadrightarrow L'_1
+ \xrightarrow{(\bar d_0,\,\mathrm{id}_{L'_1})}
+ L_0\oplus L'_1.
+\]
+
+
+为看出 $E_0$ 拟极大，注意对 $\underline\Psi_{L_\bullet}$ 的每个对象 $(X,\alpha)$，都可找到从它到某个对象 $(X',\alpha')$ 的态射，在 $\underline C$ 中诱导\underline{单态射} $A\longrightarrow A'$，并使 $L_0$ 对 $A'$ 的扩张 $X'$ \underline{分裂}。事实上，采用（\SGARefLink{sga7.sga7i.evii.n3-1-2}{3.1.2}）的记号，只需取 $A'=X$ 和 $(X',\alpha')=i_*(X,\alpha)$。另一方面，立即可知 $\underline\Psi$ 中扩张 $X'$ 分裂的任意对象 $(X',\alpha')$ 都被 $E_0$ 支配。
+
+\SGARefTarget{sga7.sga7i.evii.n3-3-4}{3.3.4}. 设 $E$ 是 $\underline C$ 上加性余纤维范畴 $\underline\Psi$ 的对象，位于 $\underline C$ 的对象 $A$ 之上，并考虑 $\underline C$ 的可变对象 $B$ 的如下函子：
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n3-3-4-1}{3.3.4.1}}
+ B\longmapsto\Hom(E,\theta_B),
+\end{equation}
+其中 $\theta_B$ 表示 $\underline\Psi(B)$ 的平凡对象。若此函子可由 $\underline C$ 的一个对象 $\Omega_E$ 表示，就称 $E$ \underline{有典型复形}。由于此函子典范地映入由 $A$ 表示的函子 $B\longmapsto\Hom(A,B)$，就得到典范态射
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n3-3-4-2}{3.3.4.2}}
+ A\longrightarrow\Omega_E,
+\end{equation}
+$\underline C$ 中相应的长度为1的\underline{链复形} $A\longrightarrow\Omega_E$ 称为 \underline{$E$ 的典型复形}。
+
+当 $\underline\Psi=\underline\Psi_{L_\bullet}$ 且 $E=(X,\alpha)$ 时，立即可验证函子（\SGARefLink{sga7.sga7i.evii.n3-3-4-1}{3.3.4.1}）由 $\Coker\alpha$ 表示，而典范态射（\SGARefLink{sga7.sga7i.evii.n3-3-4-2}{3.3.4.2}）就是复合
+\[
+ A\xrightarrow{i}X\xrightarrow{\mathrm{can}}\Coker\alpha.
+\]
+
+
+\SGARefTarget{sga7.sga7i.evii.n3-3-5}{3.3.5}. 若 $\underline C$ 上的加性余纤维范畴 $\underline\Psi$ 有拟极大对象（\SGARefLink{sga7.sga7i.evii.n3-3-3}{3.3.3}），而且其对象的典型复形存在，则一个拟极大对象 $E_0$ 的典型复形 $T_\bullet$，作为\underline{导出范畴} $D(\underline C)$ 的对象，在典范同构意义下与 $E_0$ 的选取无关（[4，4.4]）。称之为\underline{加性余纤维范畴 $\underline\Psi$ 的典型复形}。若此外 $\underline\Psi$ 左正合（\SGARefLink{sga7.sga7i.evii.n3-3-2}{3.3.2}），则可由典型复形 $T_\bullet$ 重建 $\underline\Psi$，所得到的 $\underline C$ 上纤维范畴等价在唯一同构意义下唯一（[4，6.10]）。还有对 $A\in\underline C$ 具有函子性的典范同构（[4，5.4]）
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n3-3-5-1}{3.3.5.1}}
+ \Psi^0(A)\xrightarrow{\sim}\Ext^0(T_\bullet,A),
+ \qquad
+ \Psi^1(A)\xrightarrow{\sim}\Ext^1(T_\bullet,A).
+\end{equation}
+
+
+为完成与 [4] 的比较，我们将证明，当 $\underline\Psi=\underline\Psi_{L_\bullet}$ 时，其典型复形是截断 $[L_\bullet]$。这通过（\SGARefLink{sga7.sga7i.evii.n3-3-5-1}{3.3.5.1}）给出同构（\SGARefLink{sga7.sga7i.evii.n3-1-8}{3.1.8}）和（\SGARefLink{sga7.sga7i.evii.n3-2-4}{3.2.4}）的另一定义，并可验证它与 \SGARefLink{sga7.sga7i.evii.n3-1}{3.1} 和 \SGARefLink{sga7.sga7i.evii.n3-2}{3.2} 中的定义相容。
+
+为证明此断言，显然可只考虑 $L_\bullet$ 已在 $1$ 次截断的情形，因为 \SGARefLink{sga7.sga7i.evii.n3-1}{3.1} 已指出，截断在余纤维范畴同构意义下不改变 $\underline\Psi_{L_\bullet}$。于是 \SGARefLink{sga7.sga7i.evii.n3-3-4}{3.3.4} 中的具体构造立即表明，\SGARefLink{sga7.sga7i.evii.n3-3-3}{3.3.3} 中所述拟极大对象的典型复形典范同构于 $L_\bullet$。
+
+\underline{注} \SGARefTarget{sga7.sga7i.evii.n3-3-6}{3.3.6}. 设
+\[
+ 0\longrightarrow A'\longrightarrow A\longrightarrow A''
+ \longrightarrow0
+\]
+是 $\underline C$ 中的正合列。它给出 $\Ext^i$ 群的正合列
+\[
+ 0\longrightarrow\Ext^0(L_\bullet,A')
+ \longrightarrow\Ext^0(L_\bullet,A)
+ \longrightarrow\cdots\longrightarrow\Ext^1(L_\bullet,A)
+ \longrightarrow\Ext^1(L_\bullet,A''),
+\]
+当然，引入 $i\geq2$ 的 $\Ext^i$ 后还可将其向右延长。使用同构（\SGARefLink{sga7.sga7i.evii.n3-1-8}{3.1.8}）和（\SGARefLink{sga7.sga7i.evii.n3-2-4}{3.2.4}），得到正合列
+\begin{multline}\tag{\SGARefTarget{sga7.sga7i.evii.n3-3-6-1}{3.3.6.1}}
+ 0\longrightarrow\Psi^0_{L_\bullet}(A')
+ \longrightarrow\Psi^0_{L_\bullet}(A)
+ \longrightarrow\Psi^0_{L_\bullet}(A'')
+ \xrightarrow{\partial}\Psi^1_{L_\bullet}(A')\\
+ \longrightarrow\Psi^1_{L_\bullet}(A)
+ \longrightarrow\Psi^1_{L_\bullet}(A'').
+\end{multline}
+除 $\partial$ 外，所有箭头都仅由 $\Psi^0_{L_\bullet}$ 和 $\Psi^1_{L_\bullet}$ 的函子性定义。另一方面，[4，\SGAExternalRef{sga7.sga7i.evii.n2-5-2}{2.5.2}{文献 4 的编号，非本报告内部编号}] 对 $\underline C$ 上的每个左正合余纤维范畴 $\underline\Psi$，通过态射
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n3-3-6-2}{3.3.6.2}}
+ \partial:\Psi^0(A'')\longrightarrow\Psi^1(A').
+\end{equation}
+定义正合列 (3.3.6.1)。它将左端元素 $u$ 映为右端中如下 $\underline\Psi(A')$ 对象的类：此对象在典范同构意义下确定，其在 $\underline\Psi([A\longrightarrow A''])$（3.3.2 的记号）中的像是二元组 $(X_0,u)$，其中 $X_0$ 是 $\underline\Psi(A)$ 的平凡对象。
+
+对 $\underline\Psi=\underline\Psi_{L_\bullet}$，由此\underline{“几何”构造定义的态射}（\SGARefLink{sga7.sga7i.evii.n3-3-6-2}{3.3.6.2}）\underline{是}（\SGARefLink{sga7.sga7i.evii.n3-3-6-1}{3.3.6.1}）\underline{中边缘态射 $\partial$ 的相反数}。因此，在作上述等同并改变 $\partial$ 的符号后，后一个正合列恰好就是 [4，\SGAExternalRef{sga7.sga7i.evii.n2-5-2}{2.5.2}{文献 4 的编号，非本报告内部编号}] 中的正合列。结合 \SGARefLink{sga7.sga7i.evii.n3-3-5}{3.3.5} 中指出的相容性，这来自 [4，5.4] 的最后一项断言。
+
+\underline{注} \SGARefTarget{sga7.sga7i.evii.n3-3-6-3}{3.3.6.3}. 借此机会澄清 [4，第3.11节] 中有关基本同构 (3.11.3) 和 (3.11.4) 的一点，这两个同构在 [4，5.4] 的证明中起着关键作用。[4] 第35页的图表是交换的，而不是反交换的，因此按原样它并不定义态射
+\[
+ u:[L^X_1\longrightarrow L^X_0]\longrightarrow K^\bullet[1].
+\]
+必须将 $u^1$ 换为 $-u^1$，使之反交换。也可采用相反的约定，将 $u^0$ 换为 $-u^0$；但只有上述把 $u^1$ 换为 $-u^1$ 的约定，才使 (3.11.3) 如该文所说，推广 [4] 中的同构（\SGARefLink{sga7.sga7i.evii.n3-5-3}{3.5.3}）。澄清这一点后，[4，5.4] 中的断言也须修正：那里考虑的两个边缘态射\underline{相差一个符号}。
+
+\SGARefTarget{sga7.sga7i.evii.n3-3-7}{3.3.7}. [4，6.13] 还明确讨论了当 $L_\bullet$ 变化时，$\underline C$ 上余纤维范畴 $\underline\Psi_{L_\bullet}$ 的变性，尤其是用链复形 $L_\bullet$ 和 $L'_\bullet$ 重建从 $\underline\Psi_{L_\bullet}$ 到 $\underline\Psi_{L'_\bullet}$ 的余笛卡儿函子范畴。这样的余笛卡儿函子的同构类集合典范地与
+\[
+ \Hom_{D(\underline C)}(L'_\bullet,L_\bullet).
+\]
+成双射。我们只使用这些结果中的一小部分，下一节将利用 \SGARefLink{sga7.sga7i.evii.n3-1}{3.1} 给出的 $\underline\Psi_{L_\bullet}$ 的简单描述来展开讨论。
+
+% END INCLUDED SGA7I_English_current_buildable_source_20260823/components/86_expose_VII_section_3_3.tex
+
+
+
+% BEGIN INCLUDED SGA7I_English_current_buildable_source_20260823/components/87_expose_VII_section_3_4_opening_through_3_4_7.tex
+% SOURCE AUTHORITY:
+% expose_VII_body.tex lines 1355--1434; scan indices 203--205; source folios 192--194.
+% Direct scan comparison: physical PDF pages 204--206 at 600 dpi.  Diagrams (3.4.2)
+% and (3.4.6) were checked node-by-node, arrow-by-arrow, and label-by-label.
+% Transparent corrections: typewritten subscript letter o is rendered as zero; the arrow
+% omitted by the working transcription in (3.4.5) is restored from the scan; and the proof's
+% unindexed f is rendered as the required f^1.
+% Hard stop before source line 1436, 3.4.8.
+
+\subsection*{\SGARefTarget{sga7.sga7i.evii.n3-4}{3.4}. $\underline\Psi_{L_\bullet}$ 对 $L_\bullet$ 的变性}
+
+考虑一个复形态射
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n3-4-1}{3.4.1}}
+ f:L'_\bullet\longrightarrow L_\bullet
+\end{equation}
+由交换图表
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n3-4-2}{3.4.2}}
+\begin{tikzcd}[column sep=large,row sep=large]
+ {}\arrow[r]&L'_2\arrow[r]\arrow[d,"f_2"']
+ &L'_1\arrow[r]\arrow[d,"f_1"']
+ &L'_0\arrow[r]\arrow[d,"f_0"']&0\\
+ {}\arrow[r]&L_2\arrow[r]&L_1\arrow[r]&L_0\arrow[r]&0.
+\end{tikzcd}
+\end{equation}
+给出。与之联系一个典范函子
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n3-4-3}{3.4.3}}
+ f^*:\underline\Psi_{L_\bullet}\longrightarrow
+ \underline\Psi_{L'_\bullet}.
+\end{equation}
+它实际上是 $\underline C$ 上余纤维范畴的余笛卡儿函子：它与到 $\underline C$ 的结构函子相容，并把余笛卡儿态射映为余笛卡儿态射；参见 SGA 1，第 VI 讲。
+
+若 $(X,\alpha)$ 是 $\underline\Psi_{L_\bullet}$ 的对象，如下定义 $f^*(X,\alpha)=(X',\alpha')$。$L'_0$ 对 $A$ 的扩张 $X'$ 是给定的 $L_0$ 对 $A$ 的扩张 $X$ 沿 $f_0$ 的拉回，而 $\alpha'$ 是由 $\alpha$ 利用（\SGARefLink{sga7.sga7i.evii.n3-4-2}{3.4.2}）第二个方块中的传递性得到的部分平凡化。$\alpha'$ 与关系 $d'_0d'_1=0$ 的相容性立即来自 $\alpha$ 的相应相容性。由构造，（\SGARefLink{sga7.sga7i.evii.n3-4-3}{3.4.3}）与到 $\underline C$ 的结构函子可交换。其余笛卡儿性质立即来自如下事实：在 $\underline C$ 中对象的扩张范畴中，扩张的正像与扩张的逆像可交换。
+
+函子（\SGARefLink{sga7.sga7i.evii.n3-4-3}{3.4.3}）诱导函子的态射
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n3-4-4}{3.4.4}}
+ f^i:\Psi^i_{L_\bullet}\longrightarrow\Psi^i_{L'_\bullet},
+ \qquad i=0,1
+\end{equation}
+（比较 \SGARefLink{sga7.sga7i.evii.n2-6}{2.6}）。另一方面，态射（\SGARefLink{sga7.sga7i.evii.n3-4-1}{3.4.1}）诱导态射
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n3-4-5}{3.4.5}}
+ f^i:\Ext^i(L_\bullet,-)\longrightarrow\Ext^i(L'_\bullet,-),
+ \qquad i\in\mathbb Z.
+\end{equation}
+对于 $i=0,1$，态射（\SGARefLink{sga7.sga7i.evii.n3-4-4}{3.4.4}）和（\SGARefLink{sga7.sga7i.evii.n3-4-5}{3.4.5}）与同构（\SGARefLink{sga7.sga7i.evii.n3-1-8}{3.1.8}）及（\SGARefLink{sga7.sga7i.evii.n3-2-4}{3.2.4}）相容。换言之，对于 $A\in\operatorname{Ob}\underline C$ 和 $i=0,1$，下图交换：
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n3-4-6}{3.4.6}}
+\begin{tikzcd}[column sep=large,row sep=large]
+ \Psi^i_{L_\bullet}(A)\arrow[r,"\sim"]\arrow[d]
+ &\Ext^i(L_\bullet,A)\arrow[d]\\
+ \Psi^i_{L'_\bullet}(A)\arrow[r,"\sim"]
+ &\Ext^i(L'_\bullet,A).
+\end{tikzcd}
+\end{equation}
+此相容性的验证基本上是直接的，留给读者。
+
+\underline{命题} \SGARefTarget{sga7.sga7i.evii.n3-4-7}{3.4.7}. \underline{函子}（\SGARefLink{sga7.sga7i.evii.n3-4-3}{3.4.3}）\underline{是忠实的}（\underline{相应地，全忠实的；相应地，是范畴等价}），\underline{当且仅当}
+\[
+ H_0(f):H_0(L'_\bullet)\longrightarrow H_0(L_\bullet)
+\]
+\underline{是满态射}（\underline{相应地，$H_0(f)$ 是同构且 $H_1(f)$ 是满态射；相应地，$H_0(f)$ 和 $H_1(f)$ 都是同构}）。
+
+事实上，以 $f^i$ 表示函子态射（\SGARefLink{sga7.sga7i.evii.n3-4-4}{3.4.4}），所需条件是 $f^0$ 为单态射（相应地，$f^0$ 为同构且 $f^1$ 为单态射；相应地，$f^0$ 和 $f^1$ 都为同构）。由（\SGARefLink{sga7.sga7i.evii.n3-4-6}{3.4.6}）的交换性，可用关于函子 $\Ext^i$、$i=0,1$ 的类似条件来表达这些条件。于是命题归结为同调代数的一个直接断言，留给读者作练习。
+
+
+% END INCLUDED SGA7I_English_current_buildable_source_20260823/components/87_expose_VII_section_3_4_opening_through_3_4_7.tex
+
+% BEGIN INCLUDED SGA7I_English_current_buildable_source_20260823/components/88_expose_VII_sections_3_4_8_and_3_4_9.tex
+% SOURCE AUTHORITY:
+% expose_VII_body.tex lines 1436--1542; scan indices 205--209; source folios 194--198.
+% Direct scan comparison: physical PDF pages 206--210 at 600 dpi, with the dense
+% diagram inspected separately at original detail.  The apparent second arrowhead
+% on the X'--L'_0 diagonal belongs to the crossing alpha' arrow: the source has the
+% single morphism j':X'->L'_0 required by the extension, not a bidirectional arrow.
+% Transparent corrections: 0_{L,A'} is rendered 0_{L,A}; unprimed j in the four
+% defining relations is rendered j'; the concluding Psi_L is rendered Psi_{L''};
+% and the missing comma in Ext^0(L',A) is restored.
+% Hard stop before source line 1545, section 3.5.
+
+\SGARefTarget{sga7.sga7i.evii.n3-4-8}{3.4.8}. 现在考虑链复形的正合列
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n3-4-8-1}{3.4.8.1}}
+ 0\longrightarrow L_\bullet\xrightarrow{f}L'_\bullet
+ \xrightarrow{g}L''_\bullet\longrightarrow0.
+\end{equation}
+它给出（\SGARefLink{sga7.sga7i.evii.n3-4-3}{3.4.3}）形式的函子，
+\[
+ \underline\Psi_{L''_\bullet}\xrightarrow{g^*}
+ \underline\Psi_{L'_\bullet}\xrightarrow{f^*}
+ \underline\Psi_{L_\bullet}.
+\]
+（\SGARefLink{sga7.sga7i.evii.n3-4-3}{3.4.3}）形式的函子所隐含的传递性给出函子的同构
+\[
+ f^*g^*\simeq(gf)^*=(0_{L_\bullet\to L''_\bullet})^*.
+\]
+最后一项显然典范同构于从 $\underline\Psi_{L''_\bullet}$ 到 $\underline\Psi_{L_\bullet}$ 的余笛卡儿零函子。因此上述同构定义一个典范函子
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n3-4-8-2}{3.4.8.2}}
+ \underline\Psi_{L''_\bullet}\longrightarrow
+ \underline\Psi_{[L_\bullet\longrightarrow L'_\bullet]}.
+\end{equation}
+这里 $\underline\Psi_{[L_\bullet\longrightarrow L'_\bullet]}$ 表示二元组 $(X',t)$ 的范畴，其中 $X'$ 是 $\underline\Psi_{L'_\bullet}$ 的对象，$t$ 是其逆像 $f^*(X')$ 的一个平凡化，即一个同构
+\[
+ f^*(X')\simeq0_{L_\bullet,A},
+\]
+其中 $0_{L_\bullet,A}$ 表示 $\underline\Psi_{L_\bullet}(A)$ 的零对象，而 $A$ 是 $X'$ 的底层 $\underline C$ 对象。我们断言，\underline{函子}（\SGARefLink{sga7.sga7i.evii.n3-4-8-2}{3.4.8.2}）\underline{是一个范畴等价}。连同 \SGARefLink{sga7.sga7i.evii.n3-3-1}{3.3.1} 中已建立的对 $A$ 的左正合性，这就补全了表达式 $\underline\Psi_{L_\bullet}(A)$ 对 $L_\bullet$ 的正合性质。
+
+简述其证明。给出（\SGARefLink{sga7.sga7i.evii.n3-4-8-2}{3.4.8.2}）靶中的一个对象，就是给出 $L'_0$ 对 $\underline C$ 的某个对象 $A$ 的扩张
+\[
+ 0\longrightarrow A\xrightarrow{i'}X'\xrightarrow{j'}L'_0
+ \longrightarrow0
+\]
+连同满足 $j'\alpha'=d'_0$ 和 $\alpha'd'_1=0$ 的态射 $\alpha':L'_1\longrightarrow X'$，以及满足 $j't=f_0$ 和 $td_0=\alpha'f_1$ 的态射 $t:L_0\longrightarrow X'$。这些数据示于下图：
+\begin{center}
+\begin{tikzpicture}[
+  x=1cm,y=1cm,>=Latex,
+  every node/.style={font=\small,inner sep=1.2pt}
+]
+  \node (z00) at (0,0) {$0$};
+  \node (l0)  at (1.3,0) {$L_0$};
+  \node (lp0) at (2.8,0) {$L'_0$};
+  \node (lpp0) at (4.3,0) {$L''_0$};
+  \node (z05) at (5.5,0) {$0$};
+
+  \node (z10) at (0,-1.35) {$0$};
+  \node (l1)  at (1.3,-1.35) {$L_1$};
+  \node (lp1) at (2.8,-1.35) {$L'_1$};
+  \node (lpp1) at (4.3,-1.35) {$L''_1$};
+  \node (z15) at (5.5,-1.35) {$0$};
+
+  \node (z20) at (0,-2.70) {$0$};
+  \node (l2)  at (1.3,-2.70) {$L_2$};
+  \node (lp2) at (2.8,-2.70) {$L'_2$};
+  \node (lpp2) at (4.3,-2.70) {$L''_2$};
+  \node (z25) at (5.5,-2.70) {$0$};
+
+  \node (xp) at (3.25,1.25) {$X'$};
+  \node (ap) at (4.0,2.25) {$A$};
+  \node (zap) at (4.75,3.25) {$0$};
+  \node (xpp) at (5.85,1.25) {$X''$};
+  \node (app) at (6.60,2.25) {$A$};
+  \node (zapp) at (7.35,3.25) {$0$};
+
+  \draw[->] (z00)--(l0);
+  \draw[->] (l0)--node[above]{$f_0$}(lp0);
+  \draw[->] (lp0)--node[above]{$g_0$}(lpp0);
+  \draw[->] (lpp0)--(z05);
+  \draw[->] (z10)--(l1);
+  \draw[->] (l1)--node[above]{$f_1$}(lp1);
+  \draw[->] (lp1)--node[above]{$g_1$}(lpp1);
+  \draw[->] (lpp1)--(z15);
+  \draw[->] (z20)--(l2);
+  \draw[->] (l2)--(lp2);
+  \draw[->] (lp2)--(lpp2);
+  \draw[->] (lpp2)--(z25);
+
+  \draw[->] (l1)--node[right]{$d_0$}(l0);
+  \draw[->] (lp1)--node[right]{$d'_0$}(lp0);
+  \draw[->] (lpp1)--node[right]{$d''_0$}(lpp0);
+  \draw[->] (l2)--(l1);
+  \draw[->] (lp2)--node[right]{$d'_1$}(lp1);
+  \draw[->] (lpp2)--node[right]{$d''_1$}(lpp1);
+
+  \draw[->] (zap)--(ap);
+  \draw[->] (ap)--node[left]{$i'$}(xp);
+  \draw[->,dashed] (zapp)--(app);
+  \draw[->,dashed] (app)--node[left]{$i''$}(xpp);
+  \draw[->] (l0) to[bend left=22] node[above]{$t$} (xp);
+  \draw[->] (xp)--node[left]{$j'$}(lp0);
+  \draw[->] (lp1)--node[pos=.82,right]{$\alpha'$}(xp);
+  \draw[->,dashed] (xpp)--node[above]{$j''$}(lpp0);
+  \draw[->,dashed] (lpp1) to[bend right=25]
+    node[pos=.82,right]{$\alpha''$} (xpp);
+
+  \node[anchor=west] at (7.55,-0.70) {$
+    \left\{
+    \begin{aligned}
+      j'\alpha'&=d'_0,\\
+      \alpha'd'_1&=0,\\
+      j't&=f_0,\\
+      td_0&=\alpha'f_1.
+    \end{aligned}
+    \right.$};
+\end{tikzpicture}
+\end{center}
+
+将一个对象 $L$ 对对象 $A$ 的扩张关于第一个变元的熟知左正合性应用于图表第一行，说明满足 $j't=f_0$ 的态射 $t$ 使我们可以把 $X'$ 解释为 $L''_0$ 对 $A$ 的一个扩张 $X''$ 的逆像。在这个解释下，$t$ 对应于此扩张沿 $g_0f_0=0$ 的逆像的自然平凡化。
+
+满足 $j'\alpha'=d'_0$ 和 $\alpha'f_1=td_0$ 的态射 $\alpha'$，通过将基本相同的对应应用于图表第二行，解释为来自一个满足 $j''\alpha''=d''_0$ 的态射 $\alpha'':L''_1\longrightarrow X''$。这里分别将 $\alpha'$ 和 $\alpha''$ 看作 $X'$ 和 $X''$ 沿 $d'_0$ 和 $d''_0$ 所取逆像的平凡化。最后，关系 $\alpha'd'_1=0$ 此时等价于 $\alpha''d''_1=0$。因此，作为 $\underline\Psi_{[L_\bullet\longrightarrow L'_\bullet]}$ 对象的数据 $(X',\alpha',t)$，等价于作为 $\underline\Psi_{L''_\bullet}$ 对象的数据 $(X'',\alpha'')$。这实质上证明了（\SGARefLink{sga7.sga7i.evii.n3-4-8-2}{3.4.8.2}）的确是一个范畴等价。
+
+\SGARefTarget{sga7.sga7i.evii.n3-4-9}{3.4.9}. 继续考虑正合列（\SGARefLink{sga7.sga7i.evii.n3-4-8-1}{3.4.8.1}）以及它定义的 $\Ext^i$ 群的正合列：
+\begin{multline}\tag{\SGARefTarget{sga7.sga7i.evii.n3-4-9-1}{3.4.9.1}}
+ 0\longrightarrow\Ext^0(L''_\bullet,A)
+ \xrightarrow{g^0}\Ext^0(L'_\bullet,A)
+ \xrightarrow{f^0}\Ext^0(L_\bullet,A)
+ \xrightarrow{\partial^0}\Ext^1(L''_\bullet,A)\\
+ \xrightarrow{g^1}\Ext^1(L'_\bullet,A)
+ \xrightarrow{f^1}\Ext^1(L_\bullet,A)\longrightarrow\cdots.
+\end{multline}
+（\SGARefLink{sga7.sga7i.evii.n3-1-8}{3.1.8}）和（\SGARefLink{sga7.sga7i.evii.n3-2-4}{3.2.4}）形式的典范同构，用范畴 $\underline\Psi_{L_\bullet}$、$\underline\Psi_{L'_\bullet}$ 和 $\underline\Psi_{L''_\bullet}$ 给出此正合列前六项的几何解释。相容性（\SGARefLink{sga7.sga7i.evii.n3-4-6}{3.4.6}）也给出箭头 $f^0,g^0,f^1,g^1$ 的几何解释。现在将利用刚证明的（\SGARefLink{sga7.sga7i.evii.n3-4-8-2}{3.4.8.2}）为范畴等价这一结果，给出 $\partial^0$ 的这种解释。
+
+设
+\[
+ u\in\Ext^0(L_\bullet,A),
+ \qquad\text{即}\qquad
+ u:L_0\longrightarrow A,\quad ud_0=0.
+\]
+考虑 $\underline\Psi_{[L_\bullet\to L'_\bullet]}$ 的对象 $(0,\overline u)$。这里 $0$ 是 $\underline\Psi_{L'_\bullet}$ 的零对象，故其沿 $f_0$ 的逆像等同于 $\underline\Psi_{L_\bullet}$ 的零对象，而 $\overline u$ 是由 $u$ 通过典范同构（\SGARefLink{sga7.sga7i.evii.n3-1-8}{3.1.8}）定义的后一个对象的自同构。由于（\SGARefLink{sga7.sga7i.evii.n3-4-8-2}{3.4.8.2}）是等价，$(0,\overline u)$ 来自 $\underline\Psi_{L''_\bullet}(A)$ 的一个在唯一同构意义下确定的对象。其同构类为
+\[
+ \Psi^1_{L''_\bullet}(A)\simeq\Ext^1(L''_\bullet,A).
+\]
+中的一个元素。\underline{我们断言此元素恰好是 $\partial^0(u)$}。
+
+通过将其归结为 [4，推论5.5] 中的类似相容性来证明此相容性，其中符号须按3.3.6.3所述修正。此论证也把（\SGARefLink{sga7.sga7i.evii.n3-4-8-2}{3.4.8.2}）归结为 [4，命题 \SGAExternalRef{sga7.sga7i.evii.n2-7}{2.7}{文献 4 的编号，非本报告内部编号}]，从而给出该等价的另一证明。考虑反范畴 $\underline C^{\mathrm o}$，并用 $\underline C^{\mathrm o}$ 以及 $\underline C^{\mathrm o}$ 上的余纤维范畴 $\underline E$，解释固定 $A$ 时 $\underline\Psi_{L_\bullet}(A)$ 的构造及 \SGARefLink{sga7.sga7i.evii.n3-4-8}{3.4.8} 与本节中的构造；其对象是 $\underline C^{\mathrm o}$ 的固定对象 $A$ 对 $\underline C^{\mathrm o}$ 的可变对象 $L$ 的扩张。这是 $\underline C^{\mathrm o}$ 上的加性余纤维范畴，甚至在那里左正合（按 [4，\SGAExternalRef{sga7.sga7i.evii.n2-2}{2.2}{文献 4 的编号，非本报告内部编号}] 的意义）。
+
+$\underline C$ 的一个链复形 $L_\bullet$ 可解释为 $\underline C^{\mathrm o}$ 的上链复形。在这一解释下，$\underline\Psi_{L_\bullet}(A)$ 的构造与 [4，1.8] 意义下范畴 $\underline{\widehat E}(L_\bullet)$ 的反范畴一致。函子（\SGARefLink{sga7.sga7i.evii.n3-4-8-2}{3.4.8.2}）于是等同于 [4，(2.1.2)] 形式的函子的反函子，其中以它到上链复形范畴的扩展 $\underline{\widehat E}$ 代替 $E$。因此，此函子为等价的断言就是 [4，\SGAExternalRef{sga7.sga7i.evii.n2-7}{2.7}{文献 4 的编号，非本报告内部编号}，a)$\Rightarrow$d)] 的特例。
+
+另一方面，正合列（\SGARefLink{sga7.sga7i.evii.n3-4-9-1}{3.4.9.1}）等同于群 $\Ext^i(A,L''_\bullet)$、$\Ext^i(A,L'_\bullet)$ 和 $\Ext^i(A,L_\bullet)$ 的正合列，只是 $\partial^i$ 上相差因子 $(-1)^i$（据 Verdier 所言）。同样，同构（\SGARefLink{sga7.sga7i.evii.n3-1-8}{3.1.8}）和（\SGARefLink{sga7.sga7i.evii.n3-2-4}{3.2.4}）等同于类似的同构 (3.11.5) 和 (3.11.4)。所以所述相容性就是按上述方式修正后的 [4，推论5.5] 的特例。
+
+\underline{注} \SGARefTarget{sga7.sga7i.evii.n3-4-9-2}{3.4.9.2}. 编者十分害怕符号问题，坦言对上述证明并无十足信心：他担心从 $C$ 转到 $C^{\mathrm o}$ 时可能遗漏了符号。他建议勇敢的读者直接验证所述相容性（或相应地，验证其反面）。幸而这些符号问题在后续各讲中不起作用。
+
+% END INCLUDED SGA7I_English_current_buildable_source_20260823/components/88_expose_VII_sections_3_4_8_and_3_4_9.tex
+
+% BEGIN INCLUDED SGA7I_English_current_buildable_source_20260823/components/89_expose_VII_section_3_5.tex
+% SOURCE AUTHORITY:
+% expose_VII_body.tex lines 1545--1662; scan indices 209--215; source folios 198--204.
+% Direct scan comparison: physical PDF pages 210--216 at 600 dpi.
+% Transparent corrections: the first overbrace in (3.5.1) is L_2 as printed, not
+% the working transcription's L_o; chain subscripts o are rendered as zero; the
+% chain-complex relation is written in compositional order d_0d_1=0 throughout;
+% and the display used later as (*) receives the tag visible in the scan.
+% Hard stop before source line 1668, section 3.6.
+
+\subsection*{\SGARefTarget{sga7.sga7i.evii.n3-5}{3.5}. 任意 $\mathbb Z$-模的一个典范部分平坦消解}
+
+将上述结果应用于 $\underline C$ 为拓扑斯 $\underline T$ 的交换群范畴，即 $\underline T$ 的 $\mathbb Z$-模范畴的情形。设 $P$ 是 $\underline C$ 的对象。我们将对 $P$ 具有函子性地定义一个增广到 $P$ 的链复形 $L_\bullet(P)$：
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n3-5-1}{3.5.1}}
+\begin{tikzcd}[column sep=small,row sep=large]
+ 0\arrow[r]&\overbrace{\mathbb Z[P\times P]\times
+   \mathbb Z[P\times P\times P]}^{L_2}
+   \arrow[r,"d_1"]
+ &\overbrace{\mathbb Z[P\times P]}^{L_1}
+   \arrow[r,"d_0"]
+ &\overbrace{\mathbb Z[P]}^{L_0}
+   \arrow[r]\arrow[d,"\varepsilon"']&0\\
+ &&&P&{}
+\end{tikzcd}
+\end{equation}
+其中 $i\geq3$ 时 $L_i(P)=0$。各分量用 \SGARefLink{sga7.sga7i.evii.n1-4}{1.4} 的记号显示在（\SGARefLink{sga7.sga7i.evii.n3-5-1}{3.5.1}）中。为描述微分 $d_0,d_1$ 和增广 $\varepsilon$，以 $[p]$ 表示由 $p\in P(S)$ 定义的 $\mathbb Z[P](S)$ 的截面，类似地，以 $[p,q]$ 和 $[p,q,r]$ 表示 $\mathbb Z[P\times P](S)$ 和 $\mathbb Z[P\times P\times P](S)$ 的相应截面。于是置
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n3-5-2}{3.5.2}}
+\left\{
+\begin{aligned}
+ \varepsilon[p]&=p,\\
+ d_0[p,q]&=[p+q]-[p]-[q],\\
+ d_1[p,q]&=[p,q]-[q,p],\\
+ d_1[p,q,r]&=[p+q,r]-[p,q+r]+[p,q]-[q,r].
+\end{aligned}
+\right.
+\end{equation}
+这些交换群同态的确定义增广到 $P$ 的复形 $L_\bullet(P)$：
+\[
+ \varepsilon d_0=0,\qquad d_0d_1=0.
+\]
+第一个关系显然。第二个关系按照 $L_2(P)$ 的两个因子分为两个关系；它们分别表达 $P$ 上合成律的交换性和结合性。
+
+此增广复形对 $P$ 具有函子性。态射 $u:P\longrightarrow P'$ 给出交换图表
+\[
+\begin{tikzcd}[column sep=huge,row sep=large]
+ L_\bullet(P)\arrow[r,"L_\bullet(u)"]\arrow[d]
+ &L_\bullet(P')\arrow[d]\\
+ P\arrow[r,"u"]&P'.
+\end{tikzcd}
+\]
+它的各分量都是平坦的，正如每个自由 $\mathbb Z$-模都是平坦的一样。
+
+\underline{命题} \SGARefTarget{sga7.sga7i.evii.n3-5-3}{3.5.3}. \underline{有 $H_1(L_\bullet(P))=0$，而且增广 $\varepsilon$ 诱导同构}
+\[
+ H_0(L_\bullet(P))\xrightarrow{\sim}P.
+\]
+
+
+证明时可按标准方法归结到 $\underline T$ 为集合范畴、$P$ 为通常 $\mathbb Z$-模的情形，此时（\SGARefLink{sga7.sga7i.evii.n3-5-1}{3.5.1}）大概已为读者熟知。我们改用不依赖此归结的直接证明，将 \SGARefLink{sga7.sga7i.evii.n3-4-7}{3.4.7} 应用于增广
+\[
+ \varepsilon:L_\bullet(P)\longrightarrow P,
+\]
+其中照常将 $P$ 看作集中于0次的链复形。只须证明，对 $\underline C$ 的每个对象 $G$，函子
+\begin{equation}\tag{*}
+ \varepsilon^*:\underline\Psi_P(G)\longrightarrow
+ \underline\Psi_{L_\bullet(P)}(G)
+\end{equation}
+是一个范畴等价。
+
+(*) 的源显然同构于 $\mathbb Z$-模 $P$ 对 $G$ 的扩张范畴。为描述其靶，利用 \SGARefLink{sga7.sga7i.evii.n1-4}{1.4}，将 $L_0,L_1,L_2$ 对 $G$ 的扩张范畴，分别等同于 $G_P$-挠子范畴、$G_{P\times P}$-挠子范畴，以及由一个 $G_{P\times P}$-挠子和一个 $G_{P\times P\times P}$-挠子组成的二元组范畴。
+
+因此 (*) 的靶的一个对象是二元组 $(E,\varphi)$，其中 $E$ 是 $G_P$-挠子，而 $\varphi$ 是 $P\times P$ 上挠子 $E'$ 的一个平凡化；后者对应于 $E$ 所定义的 $\mathbb Z[P]$ 对 $G$ 的扩张沿 $d_0$ 的逆像。此平凡化须满足下面所述与 $d_0d_1=0$ 的相容性。公式（\SGARefLink{sga7.sga7i.evii.n3-5-2}{3.5.2}）立即给出
+\[
+ E'=\pi^*E\,\pr_1^*(E)^{-1}\,\pr_2^*(E)^{-1},
+\]
+而此挠子的一个平凡化，等价于一个也记为 $\varphi$ 的同构
+\[
+ \varphi:\pr_1^*E\,\pr_2^*E\xrightarrow{\sim}\pi^*E.
+\]
+展开 $\varphi$ 与 $d_0d_1=0$ 的相容性，得到交换性条件（\SGARefLink{sga7.sga7i.evii.n1-2-1}{1.2.1}）和结合性条件（\SGARefLink{sga7.sga7i.evii.n1-1-4-1}{1.1.4.1}），对应于 $L_2$ 的两个因子。因此，(*) 为等价的断言恰好是 \SGARefLink{sga7.sga7i.evii.n1-1-6}{1.1.6} 中的对应。这证明了 \SGARefLink{sga7.sga7i.evii.n3-5-3}{3.5.3}。
+
+\underline{注} \SGARefTarget{sga7.sga7i.evii.n3-5-4}{3.5.4}. a) 一个有意义的问题，是加强 \SGARefLink{sga7.sga7i.evii.n3-5-3}{3.5.3}，构造 $P$ 的一个对 $P$ 具有函子性的消解 $L_\bullet(P)$，其各分量以函子方式同构于由 $P$ 的笛卡儿幂生成的自由 $\mathbb Z$-模的直和。鉴于（\SGARefLink{sga7.sga7i.evii.n1-4-5}{1.4.5}）形式的同构，这将给出一种部分计算 $\Ext^i(P,A)$ 的方法：把它视为某个谱序列的极限项，而谱序列的初始项用群
+\[
+ H^j(P\times P\times\cdots\times P,A).
+\]
+表达。在此我们只得到关于 $\Ext^1$ 的很不完全的信息，而没有关于更高 $\Ext^i$ 的信息。无论如何，有一种自然方法可将部分消解 $L_\bullet(P)$ 再延长一次。\footnote{L. Breen 构造了这样的消解（编者注）。}
+
+b) 在 $A$-模范畴中有（\SGARefLink{sga7.sga7i.evii.n3-5-1}{3.5.1}）和 \SGARefLink{sga7.sga7i.evii.n3-5-3}{3.5.3} 的一个变式，其中 $A$ 是 $\underline T$ 中的固定环。$L_\bullet(P)$ 的形式更复杂，因为必须扩充 \SGARefLink{sga7.sga7i.evii.n1-1-6}{1.1.6} 中的描述（比较 \SGARefLink{sga7.sga7i.evii.n2-10-3}{2.10.3}）。得到
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n3-5-5}{3.5.5}}
+\left\{
+\begin{aligned}
+ L_0={}&A[P],\\
+ L_1={}&A[P\times P]+A[A\times P],\\
+ L_2={}&A[P\times P\times P]+A[P\times P]
+       +A[A\times A\times P]+A[A\times P\times P].
+\end{aligned}
+\right.
+\end{equation}
+增广复形结构由（\SGARefLink{sga7.sga7i.evii.n3-5-2}{3.5.2}）补充以下公式给出：
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n3-5-6}{3.5.6}}
+\left\{
+\begin{aligned}
+ d_0[\lambda,p]={}&[\lambda p]-\lambda[p],\\
+ d_1[\lambda,\mu,p]={}&[\lambda,\mu p]-[\lambda\mu,p]
+                         +\lambda[\mu,p],\\
+ d_1[\lambda,p,q]={}&[\lambda,p+q]-[\lambda,p]-[\lambda,q]
+                       +\lambda[p,q]-[\lambda p,\lambda q].
+\end{aligned}
+\right.
+\end{equation}
+关系 $d_0d_1=0$ 来自（\SGARefLink{sga7.sga7i.evii.n3-5-2}{3.5.2}）中各分量上的类似关系——如前所见，它等价于 $P$ 上加法的结合性和交换性——再加上关系
+\[
+ d_0d_1[\lambda,\mu,p]=0,
+ \qquad d_0d_1[\lambda,p,q]=0.
+\]
+后两个关系分别表达 $A$ 在 $P$ 上给定作用的结合性
+\[
+ \lambda(\mu p)=(\lambda\mu)p,
+\]
+以及它对加法的分配性
+\[
+ \lambda(p+q)=\lambda p+\lambda q.
+\]
+
+
+对于 $G_P$-挠子 $E$，$d_0^*E$ 的一个平凡化等价于 $E$ 上的一个内部合成律（满足前面已述 $E$ 上的内律与其挠子结构之间的相容性条件），连同 $A$ 在 $E$ 上的一个与 $A$ 在 $P$ 及 $G$ 上的作用相容的外部合成律。此平凡化与 $d_1^*d_0^*E$ 的显然平凡化相容，等价于前面已述的条件，即 $E$ 上的内律为给出 $P$ 对 $G$ 的扩张的交换群律，加上外律的结合性，以及外律对内律的分配性。这些条件恰好说明，带有这两个合成律和挠子结构的 $E$ 是 $A$-模 $P$ 对 $G$ 的一个 $A$-模扩张。
+
+由与 \SGARefLink{sga7.sga7i.evii.n3-5-3}{3.5.3} 基本相同的方法可得，$L_\bullet$ 是模 $P$ 的部分消解，即 $H_1(L_\bullet)=0$。将此部分消解延长为同类的无限消解，其分量形如
+\[
+ A[A\times A\times\cdots\times P\times P\times\cdots].
+\]
+同样是有意义的问题。比较 a) 中关于交换群的类似问题。
+
+% END INCLUDED SGA7I_English_current_buildable_source_20260823/components/89_expose_VII_section_3_5.tex
+
+
+
+% BEGIN INCLUDED SGA7I_English_current_buildable_source_20260823/components/90_expose_VII_section_3_6.tex
+% SOURCE AUTHORITY:
+% expose_VII_body.tex lines 1668--1726; scan indices 215--219; source folios 204--208.
+% Direct scan comparison: physical PDF pages 216--220 at 600 dpi.
+% Transparent corrections: (3.6.3) and Theorem 3.6.4 use L'_\bullet(P,Q), not
+% the impossible L_\bullet(P',Q'); extension notation uses L_0(P,Q); the induced
+% maps from P x Q x Q have target P x Q; and the extension of P_Q is by G_Q.
+% Typewritten letter-o subscripts are rendered as zero.
+% Hard stop before source line 1729, section 3.7.
+
+\subsection*{\SGARefTarget{sga7.sga7i.evii.n3-6}{3.6}. 应用于给定交换群对 $(P,Q)$ 的双扩张余纤维范畴的描述}
+
+设 $P$ 和 $Q$ 是拓扑斯 $\underline T$ 的两个 $\mathbb Z$-模。选取 $P$ 的一个平坦消解 $L'_\bullet(P)$，使其在至多 $2$ 次与 \SGARefLink{sga7.sga7i.evii.n3-5}{3.5} 的增广复形 $L_\bullet(P)$ 相同。由 \SGARefLink{sga7.sga7i.evii.n3-5-3}{3.5.3}，以及 $\underline T$ 上的每个 $\mathbb Z$-模都是某个自由、因而平坦的 $\mathbb Z$-模的商，这样的选取是可能的。类似地，选取 $Q$ 的平坦消解 $L'_\bullet(Q)$，使其在至多 $2$ 次与 $L_\bullet(Q)$ 相同。我们有典范同态
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n3-6-1}{3.6.1}}
+ L_\bullet(P)\longrightarrow L'_\bullet(P),
+ \qquad
+ L_\bullet(Q)\longrightarrow L'_\bullet(Q),
+\end{equation}
+从而有典范同态
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n3-6-2}{3.6.2}}
+\begin{split}
+ L_\bullet(P,Q)
+ &\overset{\mathrm{def}}{=}L_\bullet(P)\otimes L_\bullet(Q)
+ \longrightarrow L'_\bullet(P,Q)\\
+ &\overset{\mathrm{def}}{=}L'_\bullet(P)\otimes L'_\bullet(Q)
+ \simeq P\mathbin{\overset{\mathbb L}{\otimes}}Q.
+\end{split}
+\end{equation}
+它在至多 $2$ 次的各分量上是同构。因此由定义，
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n3-6-3}{3.6.3}}
+ \underline\Psi_{L_\bullet(P,Q)}
+ =
+ \underline\Psi_{L'_\bullet(P,Q)}.
+\end{equation}
+
+
+\underline{定理} \SGARefTarget{sga7.sga7i.evii.n3-6-4}{3.6.4}. \underline{$\underline T$ 的交换群范畴}
+\[
+ \underline C=\operatorname{GRAB}(\underline T)
+\]
+\underline{上，由 $(P,Q)$ 对可变阿贝尔群 $G$ 的双扩张组成的加性余纤维范畴}（\SGARefLink{sga7.sga7i.evii.n2-4}{2.4}），\underline{典范等价于按 \SGARefLink{sga7.sga7i.evii.n3-1}{3.1} 由 $L_\bullet(P,Q)=L_\bullet(P)\otimes L_\bullet(Q)$ 定义的加性余纤维范畴}
+\[
+ \underline\Psi_{L_\bullet(P,Q)}
+ =
+ \underline\Psi_{L'_\bullet(P,Q)}
+\]
+
+
+由此和 \SGARefLink{sga7.sga7i.evii.n3-2-5}{3.2.5}，得到本节前面已宣布的主要结果：
+
+\underline{推论} \SGARefTarget{sga7.sga7i.evii.n3-6-5}{3.6.5}. \underline{对于固定的 $P$ 和 $Q$，存在对 $G$ 具有函子性的典范同构}
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n3-6-5-1}{3.6.5.1}}
+ \Biext^1(P,Q;G)
+ \xrightarrow{\sim}
+ \Ext^1(P\mathbin{\overset{\mathbb L}{\otimes}}Q,G).
+\end{equation}
+
+
+为证明 \SGARefLink{sga7.sga7i.evii.n3-6-5}{3.6.5}，先具体写出 $L_\bullet(P,Q)$ 的 $0,1,2$ 次分量：
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n3-6-6}{3.6.6}}
+\left\{
+\begin{aligned}
+ L_0(P,Q)
+  ={}&L_0(P)\otimes L_0(Q)
+     =\mathbb Z[P\times Q],\\
+ L_1(P,Q)
+  ={}&L_0(P)\otimes L_1(Q)+L_1(P)\otimes L_0(Q)\\
+  ={}&\mathbb Z[P\times Q\times Q]
+     +\mathbb Z[P\times P\times Q],\\
+ L_2(P,Q)
+  ={}&L_0(P)\otimes L_2(Q)+L_1(P)\otimes L_1(Q)
+     +L_2(P)\otimes L_0(Q)\\
+  ={}&\mathbb Z[P\times Q\times Q]
+     +\mathbb Z[P\times Q\times Q\times Q]\\
+   &+\mathbb Z[P\times P\times Q\times Q]\\
+   &+\mathbb Z[P\times P\times Q]
+     +\mathbb Z[P\times P\times P\times Q].
+\end{aligned}
+\right.
+\end{equation}
+
+
+为通过纤维 $\underline\Psi_{L_\bullet(P,Q)}(G)$ 描述余纤维范畴 $\underline\Psi_{L_\bullet(P,Q)}$，使用 \SGARefLink{sga7.sga7i.evii.n1-4}{1.4}，以挠子表达 $L_i(P,Q)$（$i=0,1,2$）对 $G$ 的扩张。$L_0(P,Q)$ 对 $G$ 的扩张是一个 $G_{P\times Q}$-挠子。$L_1(P,Q)$ 对 $G$ 的扩张是由一个 $G_{P\times Q\times Q}$-挠子与一个 $G_{P\times P\times Q}$-挠子组成的二元组。类似地，$L_2(P,Q)$ 对 $G$ 的扩张是一组五个挠子，其结构群由 $G$ 分别基变换到
+\[
+\begin{gathered}
+ P\times Q\times Q,\quad
+ P\times Q\times Q\times Q,\quad
+ P\times P\times Q\times Q,\\
+ P\times P\times Q,\quad
+ P\times P\times P\times Q.
+\end{gathered}
+\]
+而得到。
+
+在此对应下，由 $L_0(P,Q)$ 对 $G$ 的扩张及 $L_1(P,Q)$ 上 $d_0^*X$ 的平凡化组成的二元组 $(X,\alpha)$，成为 $P\times Q$ 上的挠子 $E$，带有两个平凡化 $(\varphi,\psi)$，分别平凡化 $P\times Q\times Q$ 与 $P\times P\times Q$ 上的挠子 $(E_1,E_2)$，后两者由 $E$ 沿
+\[
+ d_0:L_1(P,Q)\longrightarrow L_0(P,Q).
+\]
+取逆像得到。如 \SGARefLink{sga7.sga7i.evii.n3-5-3}{3.5.3} 的证明中那样，展开 $d_0$，就将 $\varphi$ 和 $\psi$ 等同于同构
+\[
+ \varphi:q_1^*E\,q_2^*E\xrightarrow{\sim}\pi_Q^*E,
+ \qquad
+ \psi:p_1^*E\,p_2^*E\xrightarrow{\sim}\pi_P^*E.
+\]
+这里 $\pi_Q,q_1,q_2:P\times Q\times Q\longrightarrow P\times Q$ 由 $Q\times Q\longrightarrow Q$ 的合成律以及第一、第二投影诱导；映射
+\[
+ \pi_P,p_1,p_2:P\times P\times Q\longrightarrow P\times Q
+\]
+对称地定义。因此 $\varphi$ 和 $\psi$ 是 \SGARefLink{sga7.sga7i.evii.n2-1}{2.1} 中出现的（\SGARefLink{sga7.sga7i.evii.n2-0-4}{2.0.4}）和（\SGARefLink{sga7.sga7i.evii.n2-0-7}{2.0.7}）形式的数据。
+
+最后，$(X,\alpha)$ 为 $\underline\Psi_{L_\bullet(P,Q)}(G)$ 的对象的条件，即部分平凡化 $\alpha$ 与 $d_0d_1=0$ 的相容性，变为结构 $(E,\varphi,\psi)$ 的五个相容关系，分别在
+\[
+\begin{gathered}
+ P\times Q\times Q,\quad
+ P\times Q\times Q\times Q,\quad
+ P\times P\times Q\times Q,\\
+ P\times P\times Q,\quad
+ P\times P\times P\times Q.
+\end{gathered}
+\]
+上的挠子上成立。它们对应于 $L_2(P,Q)$ 的表达式（\SGARefLink{sga7.sga7i.evii.n3-6-6}{3.6.6}）中的五项。如 \SGARefLink{sga7.sga7i.evii.n3-5-3}{3.5.3} 的证明中那样，前两个恰好是交换性关系（\SGARefLink{sga7.sga7i.evii.n2-0-6}{2.0.6}）和结合性关系（\SGARefLink{sga7.sga7i.evii.n2-0-5}{2.0.5}）；它们合起来说明 $\varphi$ 赋予 $E$ 一个 $Q_P$ 对 $G_P$ 的交换扩张结构。对称地，最后两个说明 $\psi$ 赋予 $E$ 一个 $P_Q$ 对 $G_Q$ 的交换扩张结构。在 $P\times P\times Q\times Q$ 上挠子上的中间关系，正是图表（\SGARefLink{sga7.sga7i.evii.n2-1-1}{2.1.1}）的交换性。它说明 $\varphi$ 和 $\psi$ 相容，故连同其余条件，它们在 $E$ 上定义 $(P,Q)$ 对 $G$ 的双扩张结构。
+
+这些解释的验证是直接的，留给读者。上述讨论的确定义了 \SGARefLink{sga7.sga7i.evii.n3-6-4}{3.6.4} 所断言的 $\underline C=\operatorname{GRAB}(\underline T)$ 上余纤维范畴的一个等价。
+
+\underline{注} \SGARefTarget{sga7.sga7i.evii.n3-6-7}{3.6.7}. \SGARefLink{sga7.sga7i.evii.n2-10}{2.10} 提及的三种双扩张推广，每一种都有 \SGARefLink{sga7.sga7i.evii.n3-6-4}{3.6.4}，从而也有 \SGARefLink{sga7.sga7i.evii.n3-6-5}{3.6.5} 的相应变式。推广到任意多个因子（\SGARefLink{sga7.sga7i.evii.n2-10-2}{2.10.2}）是直接的；构造 \SGARefLink{sga7.sga7i.evii.n3-5-4}{3.5.4} b) 所述 $L_\bullet(P)$ 的变式后，推广到 $A$-模双扩张（\SGARefLink{sga7.sga7i.evii.n2-10-3}{2.10.3}）同样直接。从同调代数的角度，更有意义的是不假设 $P$ 和 $Q$ 交换的情形（\SGARefLink{sga7.sga7i.evii.n2-10-1}{2.10.1}）。
+
+对 $\underline T$ 中不必交换的群 $P$，联系一个在 $2$ 次截断的复形 $K_\bullet(P)$。它的描述与 \SGARefLink{sga7.sga7i.evii.n3-5}{3.5} 中的 $L_\bullet(P)$ 相同，只是
+\[
+ K_2(P)=\mathbb Z[P\times P\times P],
+\]
+即去掉 $L_2(P)$ 中出现的第一个因子；$d_0$ 和 $d_1$ 如（\SGARefLink{sga7.sga7i.evii.n3-5-2}{3.5.2}）定义。于是
+\[
+ H_0(K_\bullet(P))=P/[P,P]
+ \simeq\underline H_1(P,\mathbb Z),
+\]
+并且类似地，
+\[
+ H_1(K_\bullet(P))\simeq\underline H_2(P,\mathbb Z).
+\]
+事实上，$K_\bullet(P)$ 恰好是 $P$ 的以 $\mathbb Z$ 为系数的链复形 $C_\bullet(P,\mathbb Z)$ 在 $2$ 次的截断。
+
+证明 \SGARefLink{sga7.sga7i.evii.n3-5-3}{3.5.3} 的论证还说明，$\underline C=\operatorname{GRAB}(\underline T)$ 上的余纤维范畴 $\underline\Psi_{K_\bullet(P)}$ 典范等价于 $P$ 对可变交换群 $G$ 的中心扩张范畴。同样，对两个群 $P,Q$，\SGARefLink{sga7.sga7i.evii.n2-10-1}{2.10.1} 意义下的 $(P,Q)$ 的双扩张余纤维范畴等价于 $\underline\Psi_{K_\bullet(P,Q)}$，其中
+\[
+ K_\bullet(P,Q)
+ =
+ K_\bullet(P)\mathbin{\overset{\mathbb L}{\otimes}}K_\bullet(Q).
+\]
+
+
+这些讨论提示，当 $P$ 交换时，\SGARefLink{sga7.sga7i.evii.n3-5-4}{3.5.4} a) 所求的典范消解，也许能由 $C_\bullet(P,\mathbb Z)$ 的适当修改得到。
+
+% END INCLUDED SGA7I_English_current_buildable_source_20260823/components/90_expose_VII_section_3_6.tex
+
+% BEGIN INCLUDED SGA7I_English_current_buildable_source_20260823/components/91_expose_VII_section_3_7.tex
+% SOURCE AUTHORITY:
+% expose_VII_body.tex lines 1729--1804; scan indices 219--223; source folios 208--212.
+% Direct scan comparison: physical PDF pages 220--224 at 600 dpi.
+% Transparent normalization: typewritten letter-o superscripts are rendered as zero;
+% the third factor of the base category in Proposition 3.7.6 is covariant, exactly as
+% printed; and the chain-complex subscripts use zero.  Hard stop before source line
+% 1810, section 3.8.
+
+\subsection*{\SGARefTarget{sga7.sga7i.evii.n3-7}{3.7}. 各种相容性}
+
+本节考察 \SGARefLink{sga7.sga7i.evii.n3-6-4}{3.6.4} 中的余纤维范畴等价对可变 $P$ 和 $Q$ 的行为。$(P,Q)$ 对可变 $G$ 的双扩张余纤维范畴关于可变 $P,Q$ 的变性，原则上已在 \SGARefLink{sga7.sga7i.evii.n2-4}{2.4} 定义；也可表达为有一个余纤维函子（\SGARefLink{sga7.sga7i.evii.n2-6-1}{2.6.1}）。注意，对 $P,Q$ 的变性是\underline{反变的}。余纤维范畴 $\underline\Psi_{L_\bullet(P,Q)}$ 对可变 $P,Q$ 的变性也很清楚，因为 $L_\bullet(P,Q)=L_\bullet(P)\otimes L_\bullet(Q)$ 对二元组 $(P,Q)$ 具有函子性，而 $\underline\Psi_{L_\bullet}$ 反变地依赖于 $L_\bullet$（\SGARefLink{sga7.sga7i.evii.n3-4}{3.4}）。在此理解下，第一个相容性表述如下：对每组三个态射
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n3-7-1}{3.7.1}}
+ P'\longrightarrow P,\qquad
+ Q'\longrightarrow Q,\qquad
+ G\longrightarrow G',
+\end{equation}
+函子图表
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n3-7-2}{3.7.2}}
+\begin{tikzcd}[column sep=huge,row sep=large]
+ \underline\Psi_{L_\bullet(P,Q)}(G)
+   \arrow[r]\arrow[d]
+ &\underline\Psi_{L_\bullet(P',Q')}(G')
+   \arrow[d]\\
+ \operatorname{BIEXT}(P,Q;G)
+   \arrow[r]
+ &\operatorname{BIEXT}(P',Q';G')
+\end{tikzcd}
+\end{equation}
+在一个典范同构下交换。我们承认此相容性：明确写出交换性同构，其显然程度和繁琐程度不相上下（它所预设的对 \SGARefLink{sga7.sga7i.evii.n3-6-4}{3.6.4} 中余纤维范畴等价的完整详述，当然也如此）。
+
+\SGARefTarget{sga7.sga7i.evii.n3-7-3}{3.7.3}. 特别地，上述相容性蕴含同构（\SGARefLink{sga7.sga7i.evii.n3-6-5-1}{3.6.5.1}）不仅对 $G$，而且对 $P$ 和 $Q$ 也具有函子性。类似地，可以更直接地表述通过（\SGARefLink{sga7.sga7i.evii.n3-1-8}{3.1.8}）定义的同构的相应函子性，正如（\SGARefLink{sga7.sga7i.evii.n3-6-5-1}{3.6.5.1}）通过（\SGARefLink{sga7.sga7i.evii.n3-2-4}{3.2.4}）定义一样：
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n3-7-4}{3.7.4}}
+ \Biext^0(P,Q;G)
+ \xrightarrow{\sim}
+ \Ext^0(P\mathbin{\overset{\mathbb L}{\otimes}}Q,G)
+ \simeq\Hom(P\otimes Q,G).
+\end{equation}
+不过，（\SGARefLink{sga7.sga7i.evii.n2-5-4-1}{2.5.4.1}）中已经得到这样的同构，且 \SGARefLink{sga7.sga7i.evii.n2-6}{2.6} 已指出它对三个变元都具有函子性。立即可以验证，同构（\SGARefLink{sga7.sga7i.evii.n3-7-4}{3.7.4}）和（\SGARefLink{sga7.sga7i.evii.n2-5-4-1}{2.5.4.1}）相等。
+
+\SGARefTarget{sga7.sga7i.evii.n3-7-5}{3.7.5}. \SGARefLink{sga7.sga7i.evii.n3-6-5}{3.6.5} 中同构的价值，在于它把具有几何来源的这个特殊群 $\Biext^1(P,Q;G)$ 表达为十分简单的同调代数不变量 $\Ext^1(P\mathbin{\overset{\mathbb L}{\otimes}}Q,G)$。后者属于不变量序列 $\Ext^i(P\mathbin{\overset{\mathbb L}{\otimes}}Q,G)$，可对它应用通常的同调代数形式体系。特别地，这些 $\Ext^i$ 所成的序列，对三个变元 $P,Q,G$ 中的每一个，都是 [3] 意义下的\underline{上同调函子}（或按 [5] 的用语，\underline{相连函子序列}）。因此，一个正合列
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n3-7-5-1}{3.7.5.1}}
+ 0\longrightarrow G'\longrightarrow G\longrightarrow G''
+ \longrightarrow0
+\end{equation}
+（相应地，
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n3-7-5-2}{3.7.5.2}}
+ 0\longrightarrow P'\longrightarrow P\longrightarrow P''
+ \longrightarrow0,\qquad\text{或}\qquad
+ 0\longrightarrow Q'\longrightarrow Q\longrightarrow Q''
+ \longrightarrow0)
+\end{equation}
+产生 $\Ext^i$ 的一个无限正合列。其前六项只涉及 $\Ext^0$ 和 $\Ext^1$，可由 \SGARefLink{sga7.sga7i.evii.n3-6-5}{3.6.5} 和 \SGARefLink{sga7.sga7i.evii.n3-7-4}{3.7.4} 用双扩张解释。在 \SGARefLink{sga7.sga7i.evii.n3-3-6}{3.3.6} 中，已在\underline{左正合余纤维范畴}的框架内，指出由（\SGARefLink{sga7.sga7i.evii.n3-7-5-1}{3.7.5.1}）得到的正合列，特别是其边缘映射
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n3-7-5-3}{3.7.5.3}}
+ \partial:\Biext^0(P,Q;G'')\longrightarrow
+ \Biext^1(P,Q;G'),
+\end{equation}
+的几何解释。可对（\SGARefLink{sga7.sga7i.evii.n3-7-5-2}{3.7.5.2}）中任一个短正合列，例如第一个，所联系的六项正合列寻求类似解释；由 \SGARefLink{sga7.sga7i.evii.n3-7-3}{3.7.3}，等价地，可寻求边缘同态
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n3-7-5-4}{3.7.5.4}}
+ \partial:\Biext^0(P',Q;G)\longrightarrow
+ \Biext^1(P'',Q;G).
+\end{equation}
+的几何解释。事实上有以下结果。
+
+\underline{命题} \SGARefTarget{sga7.sga7i.evii.n3-7-6}{3.7.6}. \underline{$P,Q,G$ 可变时，$(P,Q)$ 对 $G$ 的双扩张所成的}
+\[
+ \operatorname{GRAB}(\underline T)^{\mathrm{op}}
+ \times\operatorname{GRAB}(\underline T)^{\mathrm{op}}
+ \times\operatorname{GRAB}(\underline T)
+\]
+\underline{上的余纤维范畴}（参见（\SGARefLink{sga7.sga7i.evii.n2-6-1}{2.6.1}）），\underline{不仅对变元 $G$ 左正合，而且对 $P$ 和 $Q$ 中的每一个也左正合。此外，通过同构 \SGARefLink{sga7.sga7i.evii.n3-6-5}{3.6.5} 和 \SGARefLink{sga7.sga7i.evii.n3-7-4}{3.7.4}，由（\SGARefLink{sga7.sga7i.evii.n3-7-5-2}{3.7.5.2}）所联系的 $\Ext^i$ 正合列得到的边缘同态（\SGARefLink{sga7.sga7i.evii.n3-7-5-4}{3.7.5.4}），就是 \SGARefLink{sga7.sga7i.evii.n3-3-6}{3.3.6} 所回顾的 $\underline C=\operatorname{GRAB}(\underline T)^{\mathrm{op}}$ 上左正合余纤维范畴理论中的边缘同态，应用于 $Q$ 和 $G$ 固定而 $P$ 可变的 $(P,Q)$ 对 $G$ 的双扩张余纤维范畴}（但须容许 \SGARefLink{sga7.sga7i.evii.n3-4-9}{3.4.9} 中可能有符号错误；参见 \SGARefLink{sga7.sga7i.evii.n3-4-9-2}{3.4.9.2}）。
+
+简述 \SGARefLink{sga7.sga7i.evii.n3-7-6}{3.7.6} 的证明。由 \SGARefLink{sga7.sga7i.evii.n3-6-4}{3.6.4} 及相容性（\SGARefLink{sga7.sga7i.evii.n3-7-2}{3.7.2}），把 $(P,Q)$ 对 $G$ 的双扩张解释为 $\underline\Psi_{L_\bullet(P,Q)}(G)$ 的对象。考虑增广 $L_\bullet(P)\longrightarrow P$ 定义的同态
+\[
+ L_\bullet(P,Q)
+ =L_\bullet(P)\otimes L_\bullet(Q)
+ \longrightarrow P\otimes L_\bullet(Q)
+\]
+由 \SGARefLink{sga7.sga7i.evii.n3-5-3}{3.5.3} 和 $L_\bullet(Q)$ 的平坦性，此同态在 $H_0$ 和 $H_1$ 上诱导同构，从而由 \SGARefLink{sga7.sga7i.evii.n3-4-7}{3.4.7} 诱导等价
+\[
+ \underline\Psi_{P\otimes L_\bullet(Q)}
+ \longrightarrow
+ \underline\Psi_{L_\bullet(P,Q)}.
+\]
+故可将 $(P,Q)$ 对 $G$ 的双扩张解释为 $\underline\Psi_{P\otimes L_\bullet(Q)}(G)$ 的对象。正合列（\SGARefLink{sga7.sga7i.evii.n3-7-5-2}{3.7.5.2}）此时给出链复形的正合列
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n3-7-6-1}{3.7.6.1}}
+ 0\longrightarrow P'\otimes L_\bullet(Q)
+ \longrightarrow P\otimes L_\bullet(Q)
+ \longrightarrow P''\otimes L_\bullet(Q)
+ \longrightarrow0.
+\end{equation}
+将 \SGARefLink{sga7.sga7i.evii.n3-4-8}{3.4.8} 应用于此复形正合列，就得到所述左正合性。（无论如何，直接验证也是立即可得的。）此外，同态（\SGARefLink{sga7.sga7i.evii.n3-7-5-4}{3.7.5.4}）正是对此正合列取值于 $G$ 的 $\Ext^i$ 后得到的边缘同态 $\Ext^0\longrightarrow\Ext^1$。因此 \SGARefLink{sga7.sga7i.evii.n3-7-6}{3.7.6} 的最后一项断言是 \SGARefLink{sga7.sga7i.evii.n3-4-9}{3.4.9} 的特例。
+
+% END INCLUDED SGA7I_English_current_buildable_source_20260823/components/91_expose_VII_section_3_7.tex
+
+% BEGIN INCLUDED SGA7I_English_current_buildable_source_20260823/components/92_expose_VII_section_3_8_and_bibliography.tex
+% SOURCE AUTHORITY:
+% expose_VII_body.tex lines 1810--1977; scan indices 223--228; source folios 212--217.
+% Direct scan comparison: physical PDF pages 224--229 at 600 dpi.
+% Transparent normalization: typewritten letter-o subscripts are rendered as zero.
+% R2 disclosure: the print's diagonal in (3.8.2) has no visible arrowhead.
+% The native diagram supplies a head towards E, inferred from the explicitly
+% stated homomorphism s:L_0 x M_0 -> E; it is not a literal headless copy.
+% The derived-category
+% arrow in (3.8.10) follows the French authority, from P derived-tensor Q to
+% L_\bullet tensor M_\bullet; the inherited abridgment reversed it.  Hard stop at
+% the end of the Expose VII bibliography.
+
+\subsection*{\SGARefTarget{sga7.sga7i.evii.n3-8}{3.8}. 在 $P$ 和 $Q$ 的扩张上平凡化的 $(P,Q)$ 的双扩张}
+
+先考虑阿贝尔群的两个正合列
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n3-8-1}{3.8.1}}
+ 0\longrightarrow L_1\xrightarrow{\ i\ }L_0\xrightarrow{\ u\ }P
+ \longrightarrow0,\qquad
+ 0\longrightarrow M_1\xrightarrow{\ j\ }M_0\xrightarrow{\ v\ }Q
+ \longrightarrow0.
+\end{equation}
+我们将描述满足逆像 $(u,v)^*(E)$ 平凡的、$(P,Q)$ 对阿贝尔群 $G$ 的双扩张 $E$ 的范畴；即存在一个同态 $s$，使下列三角图交换：
+% SGA-SRC-001262 — reconstructed by mathematical inference; scan inconclusive
+
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n3-8-2}{3.8.2}}
+\begin{tikzcd}[column sep=huge,row sep=huge]
+ E\arrow[d]&\\
+ P\times Q&L_0\times M_0\arrow[l,"u\times v"']\arrow[ul,"s"]
+\end{tikzcd}
+\end{equation}
+并对其两个变元中的每一个满足所需的加性条件。因此，选取这样的 $s$ 就把 $(u,v)^*(E)$ 等同于 $(L_0,M_0)$ 对 $G$ 的平凡双扩张 $E_0=L_0\times M_0\times G$。固定 $G$ 时，$(P,Q)$ 的双扩张余纤维范畴对 $P,Q$ 的左正合性（\SGARefLink{sga7.sga7i.evii.n3-7-6}{3.7.6}）于是说明，给出 $(P,Q)$ 的双扩张 $E$ 及其逆像的平凡化 $s$，本质上等价于给出 $(L_0,M_0)$ 对 $G$ 的平凡双扩张 $E_0$ 的两个部分平凡化，分别在 $(L_1,M_0)$ 和 $(L_0,M_1)$ 上，并在 $(L_1,M_1)$ 上相同。由于 $E_0$ 在 $(L_1,M_0)$、$(L_0,M_1)$ 及 $(L_1,M_1)$ 上诱导的双扩张等同于平凡双扩张，在 $(L_1,M_0)$（相应地，$(L_0,M_1)$）上的一个部分平凡化等价于给出一个同态（或配对）
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n3-8-3}{3.8.3}}
+ f:L_1\otimes M_0\longrightarrow G
+ \qquad
+ \bigl(\text{相应地 }g:L_0\otimes M_1\longrightarrow G\bigr).
+\end{equation}
+所讨论的相容性仅意味着这两个同态在 $L_1\otimes M_1$ 上相同，即
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n3-8-4}{3.8.4}}
+ f(x_1\otimes y_1)=g(x_1\otimes y_1),
+\end{equation}
+其中 $x_1,y_1$ 是 $L_1,M_1$ 在 $\underline T$ 的某个对象上的截面。用（\SGARefLink{sga7.sga7i.evii.n3-8-2}{3.8.2}）的同态 $s$ 来表达，形式 $f$ 和 $g$ 由下式刻画：
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n3-8-5}{3.8.5}}
+ s(x_1,y_0)=f(x_1\otimes y_0)e_{E/Q}(y_0),\qquad
+ s(x_0,y_1)=g(x_0\otimes y_1)e_{E/P}(x_0),
+\end{equation}
+这也再次说明了条件（\SGARefLink{sga7.sga7i.evii.n3-8-4}{3.8.4}）的必要性。
+
+一旦选定平凡化 $s$，其他平凡化就是形如
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n3-8-6}{3.8.6}}
+ s'(x_0,y_0)=s(x_0,y_0)+h(x_0\otimes y_0),
+\end{equation}
+的态射 $s':L_0\times M_0\longrightarrow E$，其中
+\[
+ h:L_0\otimes M_0\longrightarrow G
+\]
+是任意的形式。于是由（\SGARefLink{sga7.sga7i.evii.n3-8-5}{3.8.5}）显然可知，$s$ 所定义的形式 $f,g$ 变成
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n3-8-7}{3.8.7}}
+\begin{aligned}
+ f'(x_1\otimes y_0)&=f(x_1\otimes y_0)+h(x_1\otimes y_0),\\
+ g'(x_0\otimes y_1)&=g(x_0\otimes y_1)+h(x_0\otimes y_1).
+\end{aligned}
+\end{equation}
+因此得到：
+
+\underline{命题} \SGARefTarget{sga7.sga7i.evii.n3-8-8}{3.8.8}.
+\underline{由沿 $(u,v)$ 的逆像为 $(L_0,M_0)$ 的平凡双扩张的那些双扩张的类所组成的 $\Biext^1(P,Q;G)$ 的子群}（即 $\Biext^1(P,Q;G)\longrightarrow\Biext^1(L_0,M_0;G)$ 的核），\underline{通过上述描述，典范同构于（\SGARefLink{sga7.sga7i.evii.n3-8-3}{3.8.3}）中满足相容性条件（\SGARefLink{sga7.sga7i.evii.n3-8-4}{3.8.4}）的形式对 $(f,g)$ 所成的群，模去由某个形式 $h:L_0\otimes M_0\longrightarrow G$ 限制得到的形式对的商群。}
+
+现在，结合 \SGARefLink{sga7.sga7i.evii.n3-6-5}{3.6.5} 中的典范同构
+\[
+ \Biext^1(P,Q;G)\simeq
+ \Ext^1(P\mathbin{\overset{\mathbb L}{\otimes}}Q,G)
+\]
+用同调代数解释此同构。为此，将数据（\SGARefLink{sga7.sga7i.evii.n3-8-1}{3.8.1}）解释为分别消解 $P$ 和 $Q$ 的两个复形：
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n3-8-9}{3.8.9}}
+ L_\bullet:\ 0\longrightarrow L_1\longrightarrow L_0
+ \longrightarrow0,\qquad
+ M_\bullet:\ 0\longrightarrow M_1\longrightarrow M_0
+ \longrightarrow0,
+\end{equation}
+并考虑张量积复形 $L_\bullet\otimes M_\bullet$
+\[
+ 0\longrightarrow L_1\otimes M_1
+ \xrightarrow{d_2}
+ L_1\otimes M_0+L_0\otimes M_1
+ \xrightarrow{d_1}
+ L_0\otimes M_0\longrightarrow0.
+\]
+此外，导出范畴中有一个典范同态
+\[
+ P\mathbin{\overset{\mathbb L}{\otimes}}Q
+ \longrightarrow L_\bullet\otimes M_\bullet,
+\]
+从而有一个同样典范的同态
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n3-8-10}{3.8.10}}
+ H^1\!\left(\Hom^{\cdot}(L_\bullet\otimes M_\bullet,G)\right)
+ \longrightarrow
+ \Ext^1(P\mathbin{\overset{\mathbb L}{\otimes}}Q,G).
+\end{equation}
+$\Hom^{\cdot}(L_\bullet\otimes M_\bullet,G)$ 的 $1$-上闭链群等同于（\SGARefLink{sga7.sga7i.evii.n3-8-3}{3.8.3}）中满足相容性条件（\SGARefLink{sga7.sga7i.evii.n3-8-4}{3.8.4}）的二元组 $(f,g)$ 所成的群：将这样的二元组联系于分量为 $(f,g)$ 的同态 $F:L_1\otimes M_0+L_0\otimes M_1\longrightarrow G$，
+\begin{equation}\tag{\SGARefTarget{sga7.sga7i.evii.n3-8-11}{3.8.11}}
+ F(x_1\otimes y_0+x_0\otimes y_1)
+ =f(x_1\otimes y_0)+g(x_0\otimes y_1).
+\end{equation}
+此外，$0$-上链 $h:L_0\otimes M_0\longrightarrow G$ 的上边缘恰好是它在 $L_1\otimes M_0$ 和 $L_0\otimes M_1$ 上的限制所成的二元组。因此，\SGARefLink{sga7.sga7i.evii.n3-8-8}{3.8.8} 所述二元组 $(f,g)$ 模去二元组 $(h,h)$ 的群，典范同构于（\SGARefLink{sga7.sga7i.evii.n3-8-10}{3.8.10}）的第一项。在此理解下，有如下相容性。
+
+\underline{命题} \SGARefTarget{sga7.sga7i.evii.n3-8-12}{3.8.12}.
+\underline{若}
+\[
+ \xi\in\Ker\!\left(
+ \Biext^1(P,Q;G)\longrightarrow\Biext^1(L_0,M_0;G)\right)
+\]
+\underline{按 \SGARefLink{sga7.sga7i.evii.n3-8-8}{3.8.8} 由二元组 $(f,g)$ 描述，则 $\xi$ 通过同构（\SGARefLink{sga7.sga7i.evii.n3-6-5-1}{3.6.5.1}）在 $\Ext^1(P\mathbin{\overset{\mathbb L}{\otimes}}Q,G)$ 中的像，是（\SGARefLink{sga7.sga7i.evii.n3-8-10}{3.8.10}）第一项中由上闭链（\SGARefLink{sga7.sga7i.evii.n3-8-11}{3.8.11}）定义的元素在该同态下的像}。
+
+此相容性的验证留给读者。
+
+\SGARefTarget{sga7.sga7i.evii.n3-8-13}{3.8.13}. 尤其将应用于以下情形
+\[
+ L_0=\mathbb Z[P],\qquad M_0=\mathbb Z[Q],
+\]
+其中 $L_1$ 和 $M_1$ 分别为典范同态 $\mathbb Z[P]\longrightarrow P$ 和 $\mathbb Z[Q]\longrightarrow Q$ 的核。注意典范同构
+\[
+ L_0\mathbin{\overset{\mathbb L}{\otimes}}M_0
+ \simeq L_0\otimes M_0
+ \simeq\mathbb Z[P\times Q].
+\]
+由于 $L_0$ 和 $M_0$ 平坦，（\SGARefLink{sga7.sga7i.evii.n1-4-5}{1.4.5}）给出典范同构
+\[
+ \Ext^i(L_0\mathbin{\overset{\mathbb L}{\otimes}}M_0,G)
+ \simeq H^i(P\times Q,G_{P\times Q}).
+\]
+由此及 \SGARefLink{sga7.sga7i.evii.n3-6-5}{3.6.5}，或直接由定义和 \SGARefLink{sga7.sga7i.evii.n1-4}{1.4}，得到如下函子是范畴等价：把 $(L_0,M_0)$ 对 $G$ 的每个双扩张映为它在 $P\times Q$ 上诱导的 $G_{P\times Q}$-挠子。（不使用 $P,Q$ 的加性结构，这一点仍成立。）因此，若 $E$ 是 $(P,Q)$ 对 $G$ 的双扩张，则给出其在 $(L_0,M_0)$ 上逆像的一个平凡化，等价于给出仅作为 $P\times Q$ 上对象的 $E$ 的一个截面，即给出将 $E$ 视为 $G_{P\times Q}$-挠子时的一个平凡化。
+
+因此，带有此附加结构的双扩张由（\SGARefLink{sga7.sga7i.evii.n3-8-3}{3.8.3}）中满足相容性（\SGARefLink{sga7.sga7i.evii.n3-8-4}{3.8.4}）的二元组 $(f,g)$ 描述，而其在同构意义下的分类由 \SGARefLink{sga7.sga7i.evii.n3-8-8}{3.8.8} 给出。
+
+采用 \SGARefLink{sga7.sga7i.evii.n3-5}{3.5} 的记号，也可将 $L_1$ 看作 $L_2(P)\longrightarrow L_1(P)$ 的余核，对 $M_1$ 同样如此。这使我们能用一组同态
+\[
+\left\{
+\begin{aligned}
+ f'&:L_1(P)\otimes L_0(Q)
+     =\mathbb Z(P\times P\times Q)\longrightarrow G,\\
+ g'&:L_0(P)\otimes L_1(Q)
+     =\mathbb Z(P\times Q\times Q)\longrightarrow G,
+\end{aligned}
+\right.
+\]
+表达数据 $(f,g)$，也就是满足五个相容性条件的\underline{集合}层的同态
+\[
+ P\times P\times Q\longrightarrow G,\qquad
+ P\times Q\times Q\longrightarrow G,
+\]
+这些条件表达 $f'$ 和 $g'$ 分解经过 $f$ 和 $g$——鉴于 $L_2(P)$ 和 $L_2(Q)$ 各表为两项之和，这给出 $2\times2$ 个等式——再加上条件（\SGARefLink{sga7.sga7i.evii.n3-8-4}{3.8.4}）。于是看到，$f'$ 和 $g'$ 恰好是定义一个双扩张的部分乘法数据，而这五个条件正是 \SGARefLink{sga7.sga7i.evii.n2-1}{2.1} 所考虑的双扩张的五条公理（参见 \SGARefLink{sga7.sga7i.evii.n3-6-4}{3.6.4} 的证明）。
+
+\subsection*{报告 VII参考文献}
+
+\begin{enumerate}[label={[\arabic*]}]
+\item M. Demazure, J. Giraud, M. Raynaud,
+\emph{Schémas abéliens}, Séminaire de la Faculté des Sciences
+d'Orsay 1967/68 （待刊）.
+\item J. Giraud, \emph{Cohomologie non abélienne}, 学位论文，Paris,
+1967 （待刊）.
+\item A. Grothendieck, \emph{Sur quelques points d'Algèbre
+homologique}, Tohoku Mathematical Journal 9 (1956), 119--221.
+\item A. Grothendieck, \emph{Catégories cofibrées additives et
+Complexe cotangent relatif}, Lecture Notes in Mathematics 79,
+Springer, 1968.
+\item J.-L. Verdier, \emph{Catégories dérivées des catégories
+abéliennes} （待刊）.
+\item D. Mumford, \emph{Biextensions of formal groups}, Tata
+Institute of Fundamental Research, 1968 （待刊）.
+\end{enumerate}
+
+% END INCLUDED SGA7I_English_current_buildable_source_20260823/components/92_expose_VII_section_3_8_and_bibliography.tex

@@ -1,0 +1,376 @@
+% 原书 PDF 274，印刷页 262：从9.4标题开始；此前习题9.3.14由9.3节文件负责。
+\section{Picard 概形}
+\label{ch09s04:section}
+\begingroup
+\def\PS{\mathbf{Pic}_{X/S}}
+\def\PE{\Pic_{(X/S)(\text{\'et})}}
+\def\PF{\Pic_{(X/S)(\mathrm{fppf})}}
+\def\L{\mathcal L}\def\N{\mathcal N}\def\Q{\mathcal Q}\def\PP{\mathcal P}
+本节证明 Grothendieck 关于 Picard 概形的主定理：若 $X/S$ 射影且平坦，几何纤维为整概形，则 Picard 概形存在；事实上，函子 $\PE$ 可表。证明采用 Grothendieck 利用函子规定拼接的方法。基本理论见 [EGAG，第 0 章，第 4.5 节，第 102--107 页]，并在 [EGAG，第 1 章，第 9 节，第 354--401 页] 中用于构造 Grassmann 簇及相关的参数概形。这里的构造也运用基本理论，但更精细、更复杂，因为它不只使用 Zariski 拓扑，还使用平展拓扑。
+
+\begin{origstatement}{定义}{9.4.1}\label{ch09s04:9.4.1}
+若定义 9.2.2 中四个相对 Picard 函子中的任一个可表，则称表示它的概形为 \emph{Picard 概形}，记为 $\PS$。此外，简单地说，Picard 概形 $\PS$ \emph{存在}。
+\end{origstatement}
+注意，尽管有四个相对 Picard 函子，Picard 概形至多只有一个。当然，若某个函子可表，则表示概形唯一确定到唯一同构，该同构保持给定函子与表示概形的点函子之间的等同。但是，这里还有更多内容。
+
+事实上，例如假定 $\PE$ 由 $\PS$ 表示。则由下降理论，$\PE$ 已经是 fppf 拓扑中的层；所以它等于其相关联层 $\PF$。因此，$\PF$ 也由 $\PS$ 表示。另一方面，$\Pic_{X/S}$ 可能可表，也可能不可表；但若可表，它也必由 $\PS$ 表示。
+
+\begin{origstatement}{习题}{9.4.2}\label{ch09s04:9.4.2}
+假定 $\PS$ 存在，且 $\mathcal O_S\xrightarrow{\sim}f_*\mathcal O_X$ 普遍成立。设 $T$ 为 $S$ 概形，$\L$ 为 $X_T$ 上可逆层。证明，存在子概形 $N\subset T$ 及 $N$ 上的可逆层 $\N$，具有以下三个性质：第一，$\L_N\simeq f_N^*\N$；第二，给定任意 $S$ 映射 $t:T'\to T$，若对 $T'$ 上某个可逆层 $\N'$ 有 $\L_{T'}\simeq f_{T'}^*\N'$，则 $t$ 必通过 $N$ 分解，且 $\N'\simeq t^*\N$；第三，若 $\PS$ 分离，则 $N$ 为闭子概形。还要证明，前两个性质唯一确定 $N$，并在同构意义下确定 $\N$。
+\end{origstatement}
+\begin{origstatement}{习题}{9.4.3}\label{ch09s04:9.4.3}
+假定 $\PS$ 存在。$X\times\PS$ 上的可逆层 $\PP$ 称为\emph{万有层}（universal sheaf）或 \emph{Poincaré 层}，若 $\PP$ 具有以下性质：给定任意 $S$ 概形 $T$ 以及 $X_T$ 上任意可逆层 $\L$，存在唯一 $S$ 映射 $h:T\to\PS$，使得对 $T$ 上某个可逆层 $\N$，有
+\[
+\L\simeq(1\times h)^*\PP\otimes f_T^*\N.
+\]
+证明，万有层 $\PP$ 存在，当且仅当 $\PS$ 表示 $\Pic_{X/S}$。
+% 原书 PDF 275，印刷页 263；习题9.4.3续。
+
+假定 $\mathcal O_S\xrightarrow{\sim}f_*\mathcal O_X$ 普遍成立。证明，若 $\PP$ 存在，则它在与 $\PS$ 上唯一一个可逆层的拉回作张量积的意义下唯一。
+
+证明，若 $f$ 还有一个截面，则万有层 $\PP$ 存在。
+
+找出一个不存在万有层 $\PP$ 的例子。
+\end{origstatement}
+\begin{origstatement}{习题}{9.4.4}\label{ch09s04:9.4.4}
+假定 $\PS$ 存在，并设 $S'$ 为 $S$ 概形。证明，$\mathbf{Pic}_{X_{S'}/S'}$ 也存在，且事实上
+\[
+\mathbf{Pic}_{X_{S'}/S'}=\PS\times_S S'.
+\]
+因此，Picard 概形的形成与基变换交换。
+
+找出一个例子，使 $\mathbf{Pic}_{X_{S'}/S'}$ 表示 $\Pic_{X_{S'}/S'}$，而 $\PS$ 不表示 $\Pic_{X/S}$。
+\end{origstatement}
+\begin{origstatement}{习题}{9.4.5}\label{ch09s04:9.4.5}
+假定 $\PS$ 存在，且它表示 $\PF$，或 $\mathcal O_S\xrightarrow{\sim}f_*\mathcal O_X$ 普遍成立。证明，$\PS$ 的概形点与 $X/S$ 的纤维上的可逆层 $\L$ 的类自然一一对应。按定义，一个类由某个 $X_k$ 上的 $\L$ 表示，其中 $k$ 是包含某个（概形）点 $s\in S$ 的剩余域 $k_s$ 的域；$X_{k'}$ 上的 $\L'$ 表示同一个类，当且仅当存在包含前两个域的第三个域 $k''$，使 $\L|X_{k''}\simeq\L'|X_{k''}$。
+\end{origstatement}
+\begin{origstatement}{定义}{9.4.6}\label{ch09s04:9.4.6}
+\emph{Abel 映射}是函子的自然映射
+\[
+A_{X/S}(T):\Div_{X/S}(T)\longrightarrow\Pic_{X/S}(T),
+\]
+定义为将 $X_T/T$ 上的相对有效除子 $D$ 映到层 $\mathcal O_{X_T}(D)$。目标 $\Pic_{X/S}$ 可以换成它的任一相关联层。若 $\PS$ 存在，则术语 Abel 映射也可指相应的概形映射
+\[
+\mathbf A_{X/S}:\mathbf{Div}_{X/S}\longrightarrow\PS.
+\]
+\end{origstatement}
+\begin{origstatement}{习题}{9.4.7}\label{ch09s04:9.4.7}
+假定 $X/S$ 固有且平坦，几何纤维为整概形。假定 $\PS$ 存在，以 $P$ 表示它。经 Abel 映射，将 $\mathbf{Div}_{X/S}$ 视为 $P$ 概形。假定存在万有层 $\PP$，并令 $\Q$ 为如第 9.3.10 小节中那样与 $\PP$ 配备的 $P$ 上的层。证明，作为 $P$ 概形，有 $\mathbb P(\Q)=\mathbf{Div}_{X/S}$。
+\end{origstatement}
+\begin{origstatement}{定理}{9.4.8}\label{ch09s04:9.4.8}
+（主定理）假定 $f:X\to S$ 在 $S$ 上 Zariski 局部地为射影态射，并且平坦，几何纤维为整概形。
+
+(1) 则 $\PS$ 存在，在 $S$ 上分离且局部有限型，并表示 $\PE$。
+
+(2) 若 $S$ 还为 Noether 概形，且 $X/S$ 射影，则 $\PS$ 为开子概形的不交并，其中每个开子概形又是递增的拟射影 $S$ 开子概形的并。
+\end{origstatement}
+\begin{proof}
+由 [EGAG，(0，4.5.5)，第 106 页]，表示 $S$ 概形范畴上的一个 Zariski 层，是 $S$ 上的局部问题。此外，证明 $S$ 概形分离且局部有限型，也是 $S$ 上的局部问题。因此，为证明 (1)，可以假定 $S$ 为 Noether 概形，且 $X/S$ 射影。
+
+显然，若一个 $S$ 概形是分离开子概形的不交并，或是分离开子概形的递增并，则它分离。因此 (1) 由 (2) 得到。
+
+为证明 (2)，由 Yoneda 引理，可以将概形 $T$ 与其点函子等同，从而将概形范畴看作函子范畴的满子范畴。为减轻记号，也以 $T$ 表示这一函子。
+% 原书 PDF 276，印刷页 264。
+并且，除了说函子可表之外，也说这个函子是概形。此外，置
+\[
+P:=\PE.
+\]
+注意 $P(T)=\Hom(T,P)$。
+
+给定多项式 $\varphi\in\mathbb Q[n]$，令 $P^\varphi\subset P$ 为下列预层的相关联平展子层：该预层的 $T$ 点由 $X_T$ 上的可逆层 $\L$ 表示，且满足
+\begin{equation}
+\chi(X_t,\L_t^{-1}(n))=\varphi(n)\qquad\text{对所有 }t\in T.\tag{9.4.8.1}
+\end{equation}
+注意，这个预层定义良好，因为在任意基变换 $p:T'\to T$ 后，(9.4.8.1) 仍然成立；事实上，对任意 $t'\in T'$、任意 $i$ 和任意 $n$，有
+\[
+H^i(X_{t'},\L_{t'}^{-1}(n))
+=H^i(X_{p(t')},\L_{p(t')}^{-1}(n))\otimes_{k_t}k_{t'},
+\]
+因为由 [Har77，命题 III，9.3，第 255 页]，上同调与平坦基变换交换。因此，$P^\varphi$ 也定义良好。
+
+固定映射 $T\to P$，以平展覆盖 $p:T'\to T$ 及 $X_{T'}$ 上的可逆层 $\L'$ 表示它。考虑如下定义的子集 $T'^\varphi\subset T'$：
+\[
+T'^\varphi:=\{t'\in T'\mid\chi(X_{t'},\L_{t'}'{}^{-1}(n))=\varphi(n)\}.
+\]
+则由 [EGAIII2，7.9.11]，$T'^\varphi$ 为开集。
+
+置 $T^\varphi:=p(T'^\varphi)$。则 $T^\varphi\subset T$ 为开集，因为 $T'^\varphi\subset T'$ 为开集且 $p$ 平展。此外，$T'^\varphi=p^{-1}(T^\varphi)$。事实上，设 $t'\in p^{-1}(T^\varphi)$，记 $p(t')=p(t'_1)$，其中 $t'_1\in T'^\varphi$。现在，存在平展覆盖 $T''\to T'\times_TT'$，使 $\L'$ 到 $X_{T''}$ 的两个拉回同构。取 $t''\in T''$，使其在第一个映射 $T''\to T'$ 下的像为 $t'\in T'$，在第二个映射下的像为 $t'_1\in T'$。则
+\[
+\chi(X_{t'},\L_{t'}'{}^{-1}(n))
+=\chi(X_{t''},\L_{t''}'{}^{-1}(n))
+=\chi(X_{t'_1},\L_{t'_1}'{}^{-1}(n))=\varphi(n).
+\]
+所以 $t'\in T'^\varphi$。因而 $T'^\varphi\supset p^{-1}(T^\varphi)$。故 $T'^\varphi=p^{-1}(T^\varphi)$。
+
+此外，$T^\varphi$ 是（表示）函子的纤维积 $P^\varphi\times_P T$。事实上，为验证它们有相同的 $R$ 点，设 $r:R\to T$ 为映射；形成 $R':=R\times_TT'$ 和 $r':R'\to T'$。假定 $r$ 通过 $T^\varphi$ 分解。则 $r'$ 通过 $T'^\varphi$ 分解。所以，基本上由定义，$R'\to T'\to P$ 通过 $P^\varphi$ 分解。现在，$R'\to R$ 为平展覆盖。因此，由于 $P^\varphi$ 是平展层，$R\to T\to P$ 通过 $P^\varphi$ 分解。
+
+反之，假定 $R\to T\to P$ 通过 $P^\varphi$ 分解。则 $R\to P$ 由平展覆盖 $R''\to R$ 及 $X_{R''}$ 上的可逆层 $\L''$ 定义，且对所有 $u\in R''$，有 $\chi(X_u,\L_u''{}^{-1}(n))=\varphi(n)$。由于 $\L''$ 与 $\L'$ 均定义 $R\to P$，存在平展覆盖 $R'''\to R''\times_RR'$，使 $\L''$ 和 $\L'$ 到 $X_{R'''}$ 的拉回同构。因此，$r':R'\to T'$ 的像位于 $T'^\varphi$ 中。但后者为开集，所以 $r'$ 通过它分解。因此，$r:R\to T$ 通过 $T^\varphi$ 分解。故 $T^\varphi$ 和 $P^\varphi\times_P T$ 有相同的 $R$ 点。
+
+令 $\varphi$ 变动。显然，各 $T'^\varphi$ 互不相交，并覆盖 $T'$。所以各 $T^\varphi$ 互不相交，并覆盖 $T$。因此，由一般结果 [EGAG，(0，4.5.4)，第 103 页]，若各 $P^\varphi$ 是（可由）概形（表示的函子），则 $P$ 为它们的不交并。于是，只需将每个 $P^\varphi$ 表示成拟射影 $S$ 开子概形的递增并。
+
+固定 $\varphi$。给定 $m\in\mathbb Z$，令 $P_m^\varphi\subset P^\varphi$ 为下列预层的相关联平展子层：其 $T$ 点由 $X_T$ 上的 $\L$ 表示，除 (9.4.8.1) 外，还要求
+\begin{equation}
+R^if_{T*}\L(n)=0\qquad\text{对所有 }i\geq1\text{ 及 }n\geq m.\tag{9.4.8.2}
+\end{equation}
+% 原书 PDF 277，印刷页 265。
+注意，这个预层定义良好，因为在任意基变换 $p:T'\to T$ 后，(9.4.8.2) 仍然成立；下面说明这一点。
+
+首先，说明 (9.4.8.2) 等价于下列条件：
+\begin{equation}
+H^i(X_t,\L_t(n))=0\quad\text{对所有 }i\geq1,\ n\geq m\text{ 及 }t\in T.\tag{9.4.8.3}
+\end{equation}
+事实上，(9.4.8.3) 蕴含 (9.4.8.2)；给定任意 $i,t,n$，若 $H^i(X_t,\L_t(n))=0$，则由 [EGAIII2，7.5.3] 或 [OB72，推论 2.1，第 68 页]，对 $T$ 上所有拟凝聚层 $\N$，有 $R^if_{T*}(\L(n)\otimes f_T^*\N)_t=0$。
+
+反之，假定 (9.4.8.2)。固定 $t,n$。对 $i$ 作降归纳，证明 $H^i(X_t,\L_t(n))$ 消失。由 Serre 定理 [EGAIII1，2.2.2]，当 $i\gg1$ 时它消失。假定对某个 $i\geq2$ 它消失。如刚才所述，则 $R^if_{T*}(\L(n)\otimes f_T^*\N)_t$ 对 $T$ 上所有拟凝聚层 $\N$ 都消失。因此，由高阶正像的长正合列，$R^{i-1}f_{T*}(\L(n)\otimes f_T^*\N)_t$ 关于 $\N$ 右正合。所以，根据一般原理，有函子的自然同构
+\[
+R^{i-1}f_{T*}(\L(n))_t\otimes\N_t
+\xrightarrow{\sim}R^{i-1}f_{T*}(\L(n)\otimes f_T^*\N)_t.
+\]
+由于 (9.4.8.2) 成立，定义域和目标均消失。取 $\N:=k_t$，便得 $H^{i-1}(X_t,\L_t(n))$ 的消失。因此，(9.4.8.2) 蕴含 (9.4.8.3)。
+
+最后，对任意 $t'\in T'$、任意 $i$ 及任意 $n$，有
+\[
+H^i(X_{t'},\L_{t'}(n))
+=H^i(X_{p(t')},\L_{p(t')}(n))\otimes_{k_t}k_{t'},
+\]
+因为上同调与平坦基变换交换。因此，基变换 $p:T'\to T$ 后，(9.4.8.3) 仍然成立；从而 (9.4.8.2) 也仍成立。所以预层定义良好，$P_m^\varphi$ 也定义良好。
+
+与考察 $P^\varphi\times_P T$ 时基本相同的论证表明：给定映射 $T\to P^\varphi$，当 $m$ 变动时，积 $P_m^\varphi\times_{P^\varphi}T$ 构成 $T$ 的开子概形的嵌套序列，其并为 $T$。论证中的关键变化在于证明开性。此时不使用 [EGAIII2，7.9.11]，而使用 Serre 定理 [EGAIII1，2.2.2] 的下列部分：给定 Noether 环 $A$ 上的射影概形上的凝聚层 $\mathcal F$，仅有有限多个 $i\geq1$、$n\geq m$，使得 $H^i(\mathcal F(n))$ 非零，且这些非零 $A$ 模都有限生成。因此，若存在 $A$ 的素理想 $\mathfrak p$，使得对所有 $i\geq1$、$n\geq m$ 均有 $H^i(\mathcal F(n))_{\mathfrak p}=0$，则存在 $a\notin\mathfrak p$，使得对所有 $i\geq1$、$n\geq m$ 均有 $H^i(\mathcal F(n))_a=0$。
+
+因此，再次由 [EGAG，(0，4.5.4)，第 103 页]，只需以拟射影 $S$ 概形表示每个 $P_m^\varphi$。
+
+固定 $\varphi,m$。置 $\varphi_0(n):=\varphi(m+n)$。则有函子同构 $P_m^\varphi\xrightarrow{\sim}P_0^{\varphi_0}$，定义如下。首先，定义 $\Pic_{X/S}$ 的自态射 $\varepsilon$，将 $X_T$ 上的可逆层 $\L$ 映到 $\L(m)$。显然，$\varepsilon$ 是自同构。所以 $\varepsilon$ 诱导相关联层 $P$ 的自同构 $\varepsilon^+$。显然，$\varepsilon^+$ 将 $P_m^\varphi$ 映到 $P_0^{\varphi_0}$ 上。因此，只需以拟射影 $S$ 概形表示 $P_0^{\varphi_0}$。
+
+由 [EGAIII2，7.9.11]，函数 $s\mapsto\chi(X_s,\mathcal O_{X_s}(n))$ 在 $S$ 上局部常值。因此，将 $S$ 换成一个既开又闭的子集，可以假定它为常值。置 $\psi(n):=\chi(X_s,\mathcal O_{X_s}(n))$。
+
+考虑 Abel 映射 $A_{X/S}:\mathbf{Div}_{X/S}\to P$。注意，由定理 9.3.7，$\mathbf{Div}_{X/S}$ 是概形，事实上是 Hilbert 概形 $\mathbf{Hilb}_{X/S}$ 的开子概形。形成积 $P_0^{\varphi_0}\times_P\mathbf{Div}_{X/S}$。根据上面已证明的内容，它是概形 $Z$，事实上是 $\mathbf{Div}_{X/S}$ 的开子概形。置 $\theta(n):=\psi(n)-\varphi_0(n)$。显然，$Z$ 位于 $\mathbf{Hilb}_{X/S}^{\theta(n)}$ 中，后者在 $S$ 上射影。因此 $Z$ 拟射影。
+% 原书 PDF 278，印刷页 266。
+
+现在证明投影 $\alpha:Z\to P_0^{\varphi_0}$ 为平展层的满射。换言之，给定 $T$ 及 $\lambda\in P_0^{\varphi_0}(T)$，需要找出平展覆盖 $T_1\to T$ 以及 $\lambda_1\in Z(T_1)$，使 $\alpha(\lambda_1)\in P_0^{\varphi_0}(T_1)$ 等于 $\lambda$ 的像。
+
+以平展覆盖 $p:T'\to T$ 及 $X_{T'}$ 上的可逆层 $\L'$ 表示 $\lambda$。几乎直接由定义，积 $T'\times_{P_0^{\varphi_0}}Z$ 等于 $\operatorname{LinSys}_{\L'/X_{T'}/T'}$。所以，由定理 9.3.13，这个积等于 $\mathbb P(\Q)$，其中 $\Q$ 是如第 9.3.10 小节中那样与 $\L'$ 配备的 $\mathcal O_{T'}$ 模。现在 $m=0$，因此由 (9.4.8.3)，对所有 $t\in T'$，有 $H^1(X_t,\L'_t)=0$。由于第 9.3.10 小节中的 (v) 蕴含 (i)，$\Q$ 局部自由。
+
+因此，$\mathbb P(\Q)$ 在 $T'$ 上光滑。所以由 [EGAIV4，17.16.3(ii)]，存在平展覆盖 $T_1\to T'$ 及 $T'$ 映射 $T_1\to\mathbb P(\Q)$。于是，复合 $T_1\to\mathbb P(\Q)\to Z\to P_0^{\varphi_0}$ 等于复合 $T_1\to T'\to T\to P_0^{\varphi_0}$。换言之，映射 $T_1\to Z$ 是 $\lambda_1\in Z(T_1)$，使 $\alpha(\lambda_1)\in P_0^{\varphi_0}(T_1)$ 等于 $\lambda$ 的像。由于复合 $T_1\to T'\to T$ 为平展覆盖，$\alpha$ 因而为平展层的满射。
+
+显然，映射 $\alpha:Z\to P_0^{\varphi_0}$ 由 $X_Z/Z$ 上万有相对有效除子所配备的可逆层定义。因此，在上面取 $T:=Z$、$T':=T$，可知积 $Z\times_{P_0^{\varphi_0}}Z$ 是概形，且第一投影光滑且射影。因此，定理由下列一般引理得到。
+\end{proof}
+\begin{origstatement}{引理}{9.4.9}\label{ch09s04:9.4.9}
+设 $\alpha:Z\to P$ 为平展层的映射，并置 $R:=Z\times_P Z$。假定 $\alpha$ 为满射，$Z$ 可由拟射影 $S$ 概形表示，$R$ 可由 $S$ 概形表示，且第一投影 $R\to Z$ 可由光滑固有映射表示。则 $P$ 可由拟射影 $S$ 概形表示，且 $\alpha$ 可由光滑映射表示。
+\end{origstatement}
+\begin{proof}
+为减轻记号，也以 $Z,R$ 表示相应的概形。由于结构映射 $Z\to S$ 拟射影，它分离；因而第一投影 $Z\times_S Z\to Z$ 也分离。但第一投影 $R\to Z$ 固有，并自然地通过映射 $h:R\to Z\times_S Z$ 分解。因此 $h$ 固有。又 $h$ 是单态射，即 $h$ 在 $T$ 点上单射。因此，由 [EGAIV3，8.11.5]，$h$ 为闭嵌入。
+
+显然，对每个 $S$ 概形 $T$，子集 $R(T)\subset Z(T)\times_{S(T)}Z(T)$ 是某个等价关系的图像。此外，概形映射 $R\to Z$ 平坦且固有，$Z$ 是拟射影 $S$ 概形。因此存在拟射影 $S$ 概形 $Q$，以及忠实平坦射影映射 $Z\to Q$，使 $R=Z\times_Q Z$。（换言之，拟射影概形上的平坦固有等价关系是有效的。）事实上，$R$ 定义从 $Z$ 到 Hilbert 概形 $\mathbf{Hilb}_{Z/S}$ 的映射，其图像作为闭子概形位于万有概形中，并下降为 $Q\subset\mathbf{Hilb}_{Z/S}$；更多细节见 [AK80，定理 (2.9)，第 70 页]。
+
+由于 $Z\to Q$ 平坦，若（且仅若）它的纤维光滑，则它光滑。但是，至多相差底域扩张，这些纤维与 $R\to Z$ 的纤维相同。由假设，$R\to Z$ 光滑。因此 $Z\to Q$ 光滑。
+
+还需证明 $Q$ 表示 $P$。首先注意，$Z\to Q$ 是（表示）平展层的满射。事实上，给定 $Q(T)$ 的元素，置 $A:=Z\times_Q T$。则 $A\to T$ 光滑。所以由 [EGAIV4，17.16.3(ii)]，存在平展覆盖 $T'\to T$ 以及 $T$ 映射 $T'\to A$。于是，$T'\to A\to Z$ 为 $Z(T')$ 的元素，映到由给定 $Q(T)$ 的元素所诱导的 $Q(T')$ 的元素。
+% 原书 PDF 279，印刷页 267；引理9.4.9证明续。
+
+由于 $Z\to Q$ 为平展层的满射，根据下面的习题 9.4.10，$Q$ 在平展层范畴中是映射对 $R\rightrightarrows Z$ 的余等化子；这是一般 Grothendieck 拓扑中的一道初等习题。由同一习题，$P$ 也是这对映射的余等化子。但是，在任意范畴中，余等化子唯一到唯一同构。因此，$Q$ 表示 $P$。
+\end{proof}
+\begin{origstatement}{习题}{9.4.10}\label{ch09s04:9.4.10}
+给定平展层的映射 $F\to G$，证明它为满射，当且仅当 $G$ 为映射对 $F\times_GF\rightrightarrows F$ 的余等化子。
+\end{origstatement}
+\begin{origstatement}{习题}{9.4.11}\label{ch09s04:9.4.11}
+假定 $X/S$ 射影且平坦，几何纤维为整概形，$S$ 为 Noether 概形。设 $Z\subset\PS$ 为有限型子概形。证明 $Z$ 拟射影。
+\end{origstatement}
+\begin{origstatement}{习题}{9.4.12}\label{ch09s04:9.4.12}
+假定 $f:X\to S$ 在 $S$ 上 Zariski 局部地射影，且平坦，几何纤维为整概形。首先证明，若万有层 $\PP$ 存在，则 Abel 映射 $\mathbf A_{X/S}:\mathbf{Div}_{X/S}\to\PS$ 在 $S$ 上 Zariski 局部地为射影态射。
+
+其次证明，一般地，$\mathbf A_{X/S}:\mathbf{Div}_{X/S}\to\PS$ 为固有态射。将这一情形归结到第一种情形来证明：只需用 $f:X\to S$ 本身作基变换。
+\end{origstatement}
+\begin{origstatement}{习题}{9.4.13}\label{ch09s04:9.4.13}
+假定 $f:X\to S$ 平坦，且在 $S$ 上 Zariski 局部地射影。假定其几何纤维 $X_k$ 为整曲线，算术亏格 $\dim H^1(\mathcal O_{X_k})$ 至少为 $1$。设 $X_0\subset X$ 为 $X/S$ 光滑的开子概形。证明存在自然闭嵌入 $A:X_0\hookrightarrow\PS$。
+\end{origstatement}
+\begin{origstatement}{例}{9.4.14}\label{ch09s04:9.4.14}
+在定理 9.4.8 中，假定 $f$ 的几何纤维为整概形。这个条件不仅是证明成立所必需的，也是结论成立所必需的。下列归于 Mumford 的例子说明了这一点，见 [FGA，第 236-1 页] 及 [BLR90，第 210 页]。
+
+设 $\mathbb R[[t]]$ 为形式幂级数环，$S$ 为其谱。设 $X\subset\mathbb P_S^2$ 为非齐次方程 $x^2+y^2=t$ 所定义的子概形，$f:X\to S$ 为结构映射。泛纤维 $X_\sigma$ 为非退化二次曲线。特殊纤维 $X_0$ 是一对共轭直线；$X_0$ 不可约且几何连通。因此，在引理 9.3.4 中取 $D:=X$，由蕴含关系 (iii)$\Rightarrow$(i)，$f$ 平坦。并且，由习题 9.3.11，$\mathcal O_S\xrightarrow{\sim}f_*\mathcal O_X$ 普遍成立。但是，正如将要看到的，$\PS$ 并不存在！
+
+另一方面，置 $S':=\mathbb C[[t]]$、$X':=X\times S'$。则 $f_{S'}$ 有截面：例如，令
+\[
+x:=\sqrt{-1},\qquad y:=\sqrt{1+t}=1+(1/2)t-(1/8)t^2+\cdots
+\]
+便定义一个截面 $g'$。因此，由比较定理即定理 9.2.5，$X'/S'$ 的四个相对 Picard 函子均相等。此外，正如将要看到的，$\mathbf{Pic}_{X'/S'}$ 存在，却不分离！
+
+事实上，$\mathbf{Pic}_{X'/S'}$ 是同构的非分离开子概形 $S'_n$（$n\in\mathbb Z$）的不交并。每个 $S'_n$ 都由 $S'$ 将原点重复无穷多次而得到；更准确地，为形成 $S'_n$，对每一对满足 $a+b=n$ 的 $a,b\in\mathbb Z$，取 $S'$ 的一个副本 $S'_{a,b}$，并将这些 $S'_{a,b}$ 在闭点之外黏合起来。每个 $S'_{a,b}$ 参数化泛纤维 $X'_\sigma$ 上次数为 $n$ 的可逆层的一种不同退化；退化后的层在第一条直线上次数为 $a$，在第二条上次数为 $b$。此外，复共轭交换这两条直线，所以也交换 $S'_{a,b}$ 与 $S'_{b,a}$。
+
+假定 $\PS$ 存在。则由习题 9.4.4，$\PS\times S'=\mathbf{Pic}_{X'/S'}$。由于 $S'_{a,b}$ 与 $S'_{b,a}$ 的闭点互为共轭，它们映到 $\PS$ 的同一个点。此点位于某个仿射开子概形 $U$ 中。因此，这两个闭点
+% 原书 PDF 280，印刷页 268；例9.4.14续。
+位于 $U$ 在 $\mathbf{Pic}_{X'/S'}$ 中的逆像 $U'$ 中。但 $U'$ 仿射，因为 $U,S,S'$ 都仿射。然而，若 $a\ne b$，则这两个闭点不同，因而不在任何共同的仿射开集 $U'$ 中。矛盾。因此 $\PS$ 不可能存在。
+
+最后证明，$\Pic_{X'/S'}$ 可由 $\coprod S'_n$ 表示。首先注意 $X'$ 正则；事实上，在 $\mathbb P_{\mathbb C}^2\times\mathbb A_{\mathbb C}^1$ 中，方程 $x^2+y^2=t$ 定义一个光滑曲面。因此，在 $X'$ 上，每条约化曲线都是有效除子。特别考虑下面三个：直线 $L:x=\sqrt{-1}y,t=0$，直线 $M:x=-\sqrt{-1}y,t=0$，以及上面定义的 $f_{S'}$ 的截面 $g$ 的像 $A$。
+
+置 $\PP'_{a,b}:=\mathcal O_{X'}(bL+nA)$，其中 $n=a+b$。它在泛纤维上的限制 $\PP'_{a,b}|X'_\sigma$ 的次数为 $n$，因为 $L\cap X'_\sigma$ 为空，而 $A$ 为一个截面的像。又 $\PP'_{a,b}|M$ 的次数为 $b$，因为 $A\cap M$ 为空，$L\cap M$ 为一个约化 $\mathbb C$ 有理点。$\PP'_{a,b}|L$ 的次数为 $a$，因为除此之外还有 $\mathcal O_{X'}(L)\otimes\mathcal O_{X'}(M)\simeq\mathcal O_{X'}$，这是由于 $L+M$ 的理想由 $t$ 生成。最后，$S'$ 上每个可逆层均平凡；固定一个 $g$ 刚化 $\mathcal O_{S'}\xrightarrow{\sim}g^*\PP'$，并用它等同这两个层。
+
+在 $X'\times_{S'}\coprod S'_n$ 上，通过在 $S'_{a,b}$ 上放置 $\PP'_{a,b}$，形成可逆层 $\PP'$；显然，这些 $\PP'_{a,b}$ 可拼接在一起。现在只需证明：给定任意 $S'$ 概形 $T$ 及 $X'_T$ 上任意可逆层 $\L$，存在唯一 $S'$ 映射 $q:T\to\coprod S'_n$，以及 $T$ 上某个可逆层 $\N$，使 $(1\times q)^*\PP'\simeq\L\otimes f_T^*\N$。
+
+以 $\L\otimes f_T^*g_T^*\L^{-1}$ 替换 $\L$。则 $g_T^*\L=\mathcal O_T$，因为 $g_T^*f_T^*=1$。因此，若 $q$ 和 $\N$ 存在，则必有 $\N\simeq\mathcal O_T$，因为 $g_T^*(1\times q)^*\PP'=q^*g^*\PP'$，且 $g^*\PP'=\mathcal O_{S'}$。
+
+显然，可以假定 $T$ 连通。则由 [EGAIII2，7.9.5]，函数 $s\mapsto\chi(X'_t,\L_t)$ 在 $T$ 上为常值。置 $n:=\chi(X'_t,\L_t)-1$。
+
+固定满足 $a+b=n$ 的 $a,b$。置
+\[
+\mathcal M:=\L^{-1}\otimes(1\times\tau)^*\PP'_{a,b},\qquad
+\N:=f_{T*}\mathcal M.
+\]
+显然，$g_T^*\mathcal M=\mathcal O_T$。形成自然映射 $u:f_T^*\N\to\mathcal M$。
+
+设 $T_\sigma$ 为结构映射 $\tau:T\to S'$ 的泛纤维。则 $T_\sigma\subset T$ 为开集。设 $t\in T_\sigma$，则 $X'_t$ 为带有有理点 $A_t$ 的非退化平面二次曲线。所以 $X'_t\simeq\mathbb P_{k_t}^1$。因此 $\L_t\simeq\mathcal O_{X'_t}(nA_t)$，故 $\mathcal M_t\simeq\mathcal O_{X'_t}$。由 Serre 的显式计算 [EGAIII1，2.1.12]，$H^1(X'_t,\mathcal M_t)=0$，且 $H^0(X'_t,\mathcal M_t)=k_t$。
+
+因此，由第 9.3.10 小节的理论，$\N$ 在 $t$ 处可逆，且 $\N$ 的形成与取到 $X'_t$ 上交换。所以 $u:f_T^*\N\to\mathcal M$ 的形成也与取到 $X'_t$ 上交换。而 $u$ 在 $X'_t$ 上为同构。因此由 Nakayama 引理，$u$ 沿 $X'_t$ 为满射。但 $u$ 的定义域和目标沿 $X'_t$ 均可逆。因此，$u$ 沿 $X'_t$ 为同构；由于 $t\in T_\sigma$ 任意，$u$ 在 $T_\sigma$ 上为同构。现在，$g_T^*\mathcal M=\mathcal O_T$，且 $g_T^*f_T^*=1$。所以 $\N|T_\sigma=\mathcal O_{T_\sigma}$。因此，$\L|X'_{T_\sigma}=(1\times\tau)^*\PP'_{a,b}|X'_{T_\sigma}$。
+
+设 $T'_{a,b}$ 为满足以下条件的 $t\in T$ 的集合：$\tau(t)\in S'$ 为闭点，$\L|L_t$ 的次数为 $a$，$\L|M_t$ 的次数为 $b$。固定 $t\in T'_{a,b}$。则 $\mathcal M|L_t$ 的次数为 $0$，所以 $\mathcal M|L_t\simeq\mathcal O_{L_t}$。类似地，$\mathcal M|M_t\simeq\mathcal O_{M_t}$。考虑自然短正合列
+\[
+0\longrightarrow\mathcal O_{L_t}(-1)\longrightarrow\mathcal O_{X'_t}
+\longrightarrow\mathcal O_{M_t}\longrightarrow0.
+\]
+用 $\mathcal M$ 扭转并取上同调，得 $H^1(X'_t,\mathcal M_t)=0$，且 $H^0(X'_t,\mathcal M_t)=k_t$。因此，在 $X'_t$ 上，映射 $u$ 成为映射 $\mathcal O_{X'_t}\to\mathcal M_t$。由于它限制到 $L_t$ 和 $M_t$ 后均为满射，所以这个映射为满射。因此，它为同构。
+
+如上，可知 $u$ 在 $X'_t$ 的一个开邻域 $V'$ 上为同构。置 $W':=f_T(X'_T-V')$。由于 $f$ 固有，$W'$ 为开集。又 $f^{-1}W'\subset V'$。所以，$u$ 在 $W'$ 上为同构。因此，对所有 $t'\in W'$，有 $\mathcal O_{X'_{t'}}\xrightarrow{\sim}\mathcal M_{t'}$。所以 $W'\subset T'_{a,b}\cup T_\sigma$。
+% SOURCE ISSUE：原书确实写W'=f_T(X'_T−V')，未印取补集，但随后称它开；未擅改。
+% 原书 PDF 281，印刷页 269；例9.4.14续。
+
+置 $T_{a,b}:=T'_{a,b}\cup T_\sigma$。则 $T_{a,b}\subset T$ 为开集，因为它包含其每一点的一个邻域。此外，$u$ 在 $T_{a,b}$ 上为同构。因此 $\N|T_\sigma=\mathcal O_{T_\sigma}$，仍是由于 $g_T^*\mathcal M=\mathcal O_T$ 且 $g_T^*f_T^*=1$。所以，$\L|X'_{T_{a,b}}=(1\times\tau)^*\PP'_{a,b}|X'_{T_{a,b}}$。
+% SOURCE ISSUE：此处仍印T_sigma，而结论针对T_a,b；忠实保留。
+
+令 $q_{a,b}:T_{a,b}\to\coprod S'_n$ 为结构映射 $\tau:T\to S'$ 与将 $S'$ 作为 $S'_{a,b}$ 包含到 $S'_n$ 中的包含映射的复合。显然，$(1\times q_{a,b})^*\PP'=\L|X'_{T_{a,b}}$。显然，当 $a,b,n$ 变动时，各 $q_{a,b}$ 拼接成映射 $q:T\to\coprod S'_n$，使 $(1\times q)^*\PP'=\L$。显然，这个映射 $q$ 是唯一的 $S'$ 映射，使得对 $T$ 上某个可逆层 $\N$，有 $(1\times q)^*\PP'\simeq\L\otimes f_T^*\N$。因此，$\coprod S'_n$ 表示 $\Pic_{X'/S'}$，且 $\PP'$ 是万有层。
+\end{origstatement}
+\begin{origstatement}{习题}{9.4.15}\label{ch09s04:9.4.15}
+假定 $X=\mathbb P(\mathcal E)$，其中 $\mathcal E$ 为 $S$ 上的局部自由层，处处秩至少为 $2$。证明 $\PS$ 存在，且表示 $\Pic_{X/S}$；事实上，$\PS=\mathbb Z_S$，其中 $\mathbb Z_S$ 表示以 $\mathbb Z$ 为指标的 $S$ 的副本的不交并。
+\end{origstatement}
+\begin{origstatement}{习题}{9.4.16}\label{ch09s04:9.4.16}
+考虑习题 9.2.4 中的曲线 $X$。证明 $\mathbf{Pic}_{X/\mathbb R}=\mathbb Z_{\mathbb R}$。
+\end{origstatement}
+\begin{origstatement}{命题}{9.4.17}\label{ch09s04:9.4.17}
+假定 $\PS$ 存在且表示 $\PF$。则 $\PS$ 局部有限型。
+\end{origstatement}
+\begin{proof}
+置 $P:=\PF$。由 [EGAIV3，8.14.2]，只需验证以下条件：对仿射 $S$ 概形的每个滤过逆系统 $T_i$，自然映射为双射：
+\[
+\varinjlim P(T_i)\xrightarrow{\sim}P(\varprojlim T_i).
+\]
+为验证单射性，置 $T:=\varprojlim T_i$。固定 $i$，取 $\lambda_i\in P(T_i)$。以 $X_{T'_i}$ 上的层 $\L'_i$ 表示 $\lambda_i$，其中 $T'_i\to T_i$ 为 fppf 覆盖。置 $T':=T'_i\times_{T_i}T$、$\L':=\L_i|X_{T'}$。设 $\lambda$ 为 $\lambda_i$ 在 $P(T)$ 中的像。则 $\L'$ 表示 $\lambda$。
+
+假定 $\lambda=0\in P(T)$。则存在 fppf 覆盖 $T''\to T'$，使 $\L'|X_{T''}\simeq\mathcal O_{X_{T''}}$。由 [EGAIV3，8.8.2、8.10.5(vi)、11.2.6、8.5.2(i) 及 8.5.2.4]，存在 $j\geq i$ 及 fppf 覆盖 $T''_j\to T'_j$，其中 $T'_j:=T'_i\times_{T_i}T$，使 $\L'|X_{T''_j}\simeq\mathcal O_{X_{T''_j}}$。所以，$\lambda_i$ 映到 $0\in P(T_j)$。因此，该映射为单射。
+% SOURCE ISSUE：原书此处L_i省略prime，T'_j定义末因子印T而非T_j；忠实保留。
+
+满射性可类似证明。
+\end{proof}
+\begin{origstatement}{注}{9.4.18}\label{ch09s04:9.4.18}
+关于 $\PS$，有三个重要的存在性定理，它们细化了定理 9.4.8。这些定理在主定理之后不久就被证明，每个都涉及新的思想。
+\end{origstatement}
+首先，Mumford 证明了定理 9.4.8 的下列推广，它与例 9.4.14 很好地相配合。
+
+\begin{origstatement}{定理}{9.4.18.1}\label{ch09s04:9.4.18.1}
+假定 $X/S$ 射影且平坦，几何纤维约化且连通；假定其普通纤维的不可约分支几何不可约。则 $\PS$ 存在。
+\end{origstatement}
+Mumford 在 [Mum66] 第 viii 页下部陈述了这个定理。他说，证明是 [Mum66，第 19--21 讲] 中证明的推广；那里考虑 $S$ 为代数闭域的谱、$X$ 为光滑曲面的情形。那个证明基于他的独立零维圈理论。[AK79，第 23--28 页] 进一步发展了这一理论，并用它证明了 [AK79，定理 (3.1)]；该定理断言，当 $X/S$ 平坦且局部射影，几何纤维为整概形时，$\PS$ 有自然紧化。
+
+另一方面，Grothendieck [FGA，第 236-1 页] 将一个略有不同的定理归于 Mumford；在那个版本中，既不假定几何纤维连通，也不假定普通
+% 原书 PDF 282，印刷页 270；上段续。
+纤维连通（另见 [BLR90，第 210 页]）。Grothendieck 说，证明基于 Mumford 商构造的一个细化，并引述了即将出版的、Mumford 和 Tate 于 1962 年春在 Harvard 举行的讨论班的讲义。
+
+2003 年 11 月，Mumford 好意将他个人保存的该讨论班手写笔记夹寄给本章作者；文件夹标有“Groth-Mumford-Tate”，包含三人各自报告的笔记，以及各自撰写的笔记。几乎全部内容都已在别处发表；Mumford 的部分见于他的著作 [Mum65]、[Mum66] 及 [Mum70]。
+
+笔记中有 Mumford 亲笔写下的定理的精确陈述及证明粗略梗概。这一陈述也与定理 9.4.18.1 略有不同：他划去了几何纤维连通的假设，改用较弱的普通纤维连通的假设。证明总体上类似于他在 [Mum66，第 19--21 讲] 中的证明。
+
+其次，Grothendieck 证明了下列“泛可表性”定理。
+
+\begin{origstatement}{定理}{9.4.18.2}\label{ch09s04:9.4.18.2}
+假定 $X/S$ 固有，$S$ 为整概形。则存在非空开子集 $V\subset S$，使得 $\mathbf{Pic}_{X_V/V}$ 存在，表示 $\Pic_{(X_V/V)(\mathrm{fppf})}$，并为拟射影开子概形的不交并。
+\end{origstatement}
+一个特别重要的特殊情形包含在下面的推论中。
+
+\begin{origstatement}{推论}{9.4.18.3}\label{ch09s04:9.4.18.3}
+假定 $S$ 为域 $k$ 的谱，$X$ 完备。则 $\mathbf{Pic}_{X/k}$ 存在，表示 $\Pic_{(X/k)(\mathrm{fppf})}$，并为拟射影开子概形的不交并。
+\end{origstatement}
+在 Grothendieck 发现定理 9.4.18.2 之前，他在假定 $X/k$ 射影的情形下证明了推论 9.4.18.3 [FGA，推论 6.6，第 232-17 页]。为此，他发展了“相对可表性”的方法，由定理 9.4.8 推出其他情形下 Picard 概形的存在性。这个方法结合了 Oort 的一种“逐层分解”（dévissage）[Oor62，§6]；后者将 Picard 概形给出为 $\mathbf{Pic}_{X_{\mathrm{red}}/k}$ 的一个群子概形被仿射群概形的扩张。
+
+在 [FGA，注 6.6，第 232-17 页] 中，Grothendieck 说，推论 9.4.18.3 在一般情形成立是“极其可信的”，并且可通过推广相对可表性的方法来证明，使它涵盖 $X'$ 射影的满射 $X'\to X$ 的情形，例如 Chow 引理 [EGAII，定理 5.6.1] 所给出的映射。此外，他在 [FGA，注 6.6，第 232-17 页] 中猜想，对域上固有概形之间的任意满射 $X'\to X$，所诱导的 Picard 概形之间的映射是仿射的。他说，这个猜想源自对“非平坦下降”的考虑；这是一种不要求映射平坦、而要求对象平坦的下降理论。
+
+Murre [Mur64，(II.15)] 在感谢 Grothendieck 的帮助的同时，给出了推论 9.4.18.3 核心部分的第一个证明：若 $X/k$ 固有，则 $\mathbf{Pic}_{X/k}$ 存在且局部有限型。Murre 没有使用相对可表性的方法，而是找出了七个条件 [Mur64，(1.2.1)]，它们是从域上概形到 Abel 群的函子可表的充要条件。随后，他证明，在 fpqc 拓扑中局部化的 Picard 函子满足这七个条件。为处理最后两个条件，他使用了 Chow 引理和定理 9.4.8。
+
+与此同时，据 Murre [Mur64，第 5 页]，Grothendieck 已经证明了定理 9.4.18.2。后来，证明分两部分发表。第一部分
+% 原书 PDF 283，印刷页 271；上段续。
+确立了一个关键的中间结果，即下列定理。
+
+\begin{origstatement}{定理}{9.4.18.4}\label{ch09s04:9.4.18.4}
+假定 $X/S$ 固有。设 $\mathcal F$ 为 $X$ 上的凝聚层，$S_{\mathcal F}\subset S$ 为由使 $\mathcal F_T$ 在 $T$ 上平坦的所有 $S$ 概形 $T$ 所成的子函子。则 $S_{\mathcal F}$ 可由有限型非分歧 $S$ 概形表示。
+\end{origstatement}
+Murre 在 [Mur95，推论 1，第 294-11 页] 中概述了 Grothendieck 对这一定理的证明。证明找出并验证了八个条件，它们是一个函子可由分离、非分歧、局部有限型 $S$ 概形表示的充要条件。如同 Murre 对推论 9.4.18.3 的证明，关键一步是证明函子“普罗可表”：存在某些自然的拓扑环，而且若函子由 $Y$ 表示，则这些环是 $Y$ 的那些在其 $S$ 上纤维中为闭点的点处的局部环的完备化。
+
+Grothendieck 对定理 9.4.18.2 的证明的第二部分，主要结果是下列相对可表性定理。
+
+\begin{origstatement}{定理}{9.4.18.5}\label{ch09s04:9.4.18.5}
+假定 $S$ 为整概形。设 $X'\to X$ 为固有 $S$ 概形的满射。则存在非空开子集 $V\subset S$，使映射
+\[
+\Pic_{(X_V/V)(\mathrm{fppf})}\longrightarrow
+\Pic_{(X'_V/V)(\mathrm{fppf})}
+\]
+可由有限型拟仿射映射表示。
+\end{origstatement}
+换言之，对每个 $S$ 概形 $T$ 及映射 $T\to\Pic_{(X_V/V)(\mathrm{fppf})}$，纤维积
+\[
+\Pic_{(X_V/V)(\mathrm{fppf})}
+\times_{\Pic_{(X'_V/V)(\mathrm{fppf})}}T
+\]
+可表，且其到 $T$ 的投影为概形之间的有限型拟仿射映射。
+% SOURCE ISSUE：原书前句T的目标印X_V/V，纤维积的底却为X'_V/V；忠实保留。
+
+Raynaud [Ray71，定理 1.1] 给出了 Grothendieck 对定理 9.4.18.5 的证明；主要工具确实是 Oort 逐层分解与非平坦下降。作为第一个推论，Raynaud [Ray71，推论 1.2] 推出了定理 9.4.18.2。为证明 $\PS$ 是拟射影开子概形的不交并，他使用了关于 $\PS$ 的一个有限性定理；Grothendieck 曾在 [FGA，第 C-08 页] 的 (v) 中陈述它，下文将作为定理 9.6.16 证明。作为定理 9.4.18.5 的第二个推论，Raynaud [Ray71，推论 1.5] 确立了 Grothendieck 的猜想：在域上，固有概形的满射诱导 Picard 概形之间的仿射映射。
+
+$\PS$ 的第三个重要存在性定理归于 M. Artin，他的工作极大地澄清了情况。Artin 证明，$\PS$ 在应当存在时确实存在，但未必作为概形存在；它作为一种更一般的对象存在，称为“代数空间”，其性质更接近于（复）解析空间。
+
+Grothendieck 曾在 [FGA，注 5.2，第 232-13 页] 中说：“不能排除这样的可能性：只要 $X/S$ 固有且平坦，并且 $\mathcal O_S\xrightarrow{\sim}f_*\mathcal O_X$ 普遍成立，$\PS$ 就存在。至少，当 $X/S$ 还射影时，这个断言已在解析空间背景下得到证明。” Mumford 的例子，即例 9.4.14，说明这一断言对概形不成立；Artin 的定理说明它对代数空间成立。
+
+代数空间由 Artin [Art69b，§1] 引入，理论由他与学生 Knutson [Knu71] 发展。这些空间通过沿平展拓扑下局部同构的开子集黏合概形而构造。在 $\mathbb C$ 上，这些开集局部解析同构；因此，代数空间是一种复解析空间。一般地，更形式地说，代数空间是平展层范畴中一个概形对某个平展等价关系的商。
+% 原书 PDF 284，印刷页 272。
+
+Artin [Art69a，定理 3.4，第 35 页] 继承 Grothendieck 和 Murre 的思路，找出了函子的五个条件，它们是函子为域或优 Dedekind 整环上局部有限型、局部分离代数空间的充要条件。必要性的证明中的关键新工具是 Artin 逼近定理；它蕴含由普罗可表性给出的拓扑环可以代数化。随后，再经平展等价关系将所得概形黏合在一起。
+
+通过验证这五个条件成立，Artin [Art69a，定理 7.3，第 67 页] 证明了下列定理。
+
+\begin{origstatement}{定理}{9.4.18.6}\label{ch09s04:9.4.18.6}
+设 $f:X\to S$ 为代数空间的平坦、固有、有限呈示映射。假定 $f_*\mathcal O_X$ 的形成与 $S$ 的变换交换（或称 $f$“在零维上上同调平坦”）。则 $\PS$ 作为代数空间存在，且在 $S$ 上局部有限呈示。
+\end{origstatement}
+由于 $f$ 为有限呈示，这个断言可归结到 $S$ 在域或优 Dedekind 整环上局部有限型的情形。Artin 对定理 9.4.18.6 的证明是直接的：完全不需要归结到定理 9.4.8。
+
+另一方面，一般情况下，尚不知道定理 9.4.18.6 是否蕴含断言 $\PS$ 为概形的定理 9.4.8。不过，在域上已知得更多。事实上，给定域上局部有限型的代数空间，Artin [Art69a，引理 4.2，第 43 页] 证明：若这个空间是群层，则它为群概形。因此，定理 9.4.18.6 蕴含推论 9.4.18.3 的核心部分。
+
+所以，在定理 9.4.18.6 中，代数空间 $\PS$ 在 $S$ 上的纤维是概形；它们是纤维 $X_s$ 的 Picard 概形，尽管 $X_s$ 未必是概形。特别地，若 $S$ 和 $X$ 都是概形，从而 $X_s$ 也是概形，则 $\mathbf{Pic}_{X_s/k_s}$ 为概形。此外，这时它们形成一个族；其总空间 $\PS$ 是代数空间，但未必是概形。
+
+\begin{origstatement}{注}{9.4.19}\label{ch09s04:9.4.19}
+在一系列颇为重要的工作中，Picard 概形理论在两种非标准情形下得到了发展：一种没有固有性，另一种没有平坦性。第一种是域上 Noether 局部代数的去心谱的情形；所得到的概形称为\emph{局部 Picard 概形}。第二种是完备局部环上固有但不平坦的概形的情形。值得注意的是，这两种情形密切相关；它们各自的结果，都是下面这个称为 \emph{Samuel 猜想}的纯代数断言的唯一已知证明中不可缺少的工具：给定剩余域代数闭的完备局部唯一分解整环（UFD）$A$，单变量幂级数环 $A[[t]]$ 也是唯一分解整环。
+
+Mumford 在著名论文 [Mum61b，§2(a)，第 13--16 页] 中开创了这一工作。他在正规复代数曲面 $F$ 的奇异点 $P$ 处作解析研究，构造了全纯函数的局部环 $\mathcal O^h_{F,P}$，并证明其理想类构成一个解析群。为此，他选取奇点消解 $\pi:F'\to F$，并分析 $(R^1\pi_*\mathcal O_{F'}^{h*})_P$。他证明，后者是解析群簇，其点表示沿例外轨迹 $\pi^{-1}P$ 定义的解析除子模去亚纯函数的除子所得的类。然后，他取这个群对由 $\pi^{-1}P$ 的分支的类生成的子群的商，并证明这个商参数化 $\mathcal O^h_{F,P}$ 的理想类。Mumford 将 §2(a) 命名为“Local analytic Picard varieties and unique factorization”，但他并没有谈论分解。不过，他确实提出，可以利用 $\mathcal O^h_{F,P}$ 与 $\mathcal O_{F,P}$ 的共同完备化，将他的工作
+% 原书 PDF 285，印刷页 273；注9.4.19续。
+代数化。
+
+Grothendieck 在 [SGA2，第 189--193 页] 中说，Mumford 在那篇论文中提出了如下“基本问题”：给定剩余域为 $k$ 的完备局部环 $A$ 的去心谱 $U$，构造局部代数群 $G_n/k$ 的一个射影系统，以及典范同构 $\Pic(U)=G(k)$，其中 $G(k):=\varprojlim G_n(k)$。Grothendieck 再次将这一想法归功于 Mumford，并说，可以如下尝试解决这个问题。
+
+假定 $U$ 正则且非空，$\Spec A$ 有在 $U$ 上同构于 $U$ 的奇点消解 $X$。则 $\Pic(U)=\Pic(X)/D$，其中 $D$ 为由例外轨迹的分支生成的子群。此外，形式几何的存在定理 [EGAIII1，5.1.6，第 150 页] 给出 $\Pic(X)=\varprojlim\Pic(X_n)$，其中 $X_n$ 为 $A$ 的极大理想的第 $n+1$ 次幂所定义的纤维。若 $A$ 包含一个代表域，也以 $k$ 表示，则至少当 $k$ 可分闭时，$\Pic(X_n)=\mathbf{Pic}_{X_n/k}(k)$。因此，在这种情形下，可以用 $\mathbf{Pic}_{X_n/k}/D$ 作为 $G_n$，且这个系统本质上是常值的。不过，它依赖于代表域的选择；根据 [EGAIV1，19.8.7，第 115 页]，当 $k$ 为正特征的完全域或数域时，这一选择唯一，而其他情形则不唯一。
+
+1969 年 5 月至 1970 年 3 月间，Grothendieck 与 Lipman 的通信进一步阐述了这些想法；Lipman 好意向本章作者提供了副本。特别地，Grothendieck 注意到，在前述情形下，由 Oort 逐层分解，过渡映射 $G_n\to G_{n-1}$ 是仿射的 [Ray71，命题 3.1，第 604 页]，另见注 9.4.18。因此，由 [EGAIV3，§8.2] 的理论，极限为群概形 $G$。此外，$G$ 的“Lie 代数”，即切空间 $T_0G$，等于 $H^1(\mathcal O_X)$。并且，为去掉 $U$ 正则和 $\Spec A$ 可消解的假设，Grothendieck 建议寻找固有满射 $f:X\to\Spec(A)$，它在 $U$ 上限制为同构，并诱导满射 $\Pic(X)\twoheadrightarrow\Pic(U)$。
+
+Grothendieck 还讨论了 $A$ 为混合特征而 $k$ 为完全域的情形。他建议，将 $A$ 换成任意 Artin 环，将 $X$ 换成固有 $A$ 概形，然后表示函子 $B\mapsto\Pic(X\otimes_A A(B))$ 的相关联 fppf 层 $P$，其中 $B$ 为 $k$ 代数，$A(B)$ 为 Greenberg 代数。若 Picard 概形 $\mathbf{Pic}_{X/A}$ 存在，则它的“Greenberg 实现”表示 $P$。但是，$\mathbf{Pic}_{X/A}$ 可能不存在；Lipman 在 [Lip76，第 16 页] 给出了一个例子。为在一般情况下表示 $P$，Grothendieck 建议验证 Artin 的“方便的”充要条件，即上面注 9.4.18 中提到的那些条件。
+
+Lipman 接续了 Grothendieck 的计划，在 [Lip76] 中表示了 $P$。不过，Lipman 认为，尽管两者等价，使用函子 $B\mapsto\Pic(X_B)$ 的相关联 fpqc 层更好，其中 $X_B:=X\otimes_{W(k)}W(B)$，$W(k)$ 与 $W(B)$ 为 Witt 向量环。此外，Lipman 没有验证 Artin 的条件，而是作如下论证。对每个 $m\geq0$，他取 $\mathcal O_X$ 的幂零根的第 $m$ 次幂、相应的 $X$ 的子概形 $X_m$，以及用 $X_m$ 替代 $X$ 所得的函子 $P_m$。则 $X_1$ 就是 $X_{\mathrm{red}}$，它是 $k$ 概形。所以 $P_1=\Pic_{(X_{\mathrm{red}}/k)(\mathrm{fppf})}$，由推论 9.4.18.3，$P_1$ 可表。为从 $P_{m-1}$ 过渡到 $P_m$，Lipman 发展了 Oort 逐层分解的一个适当版本。但当 $m\gg0$ 时，$X_m=X$。因此 $P$ 可表。最后，Lipman 在 $B$ 为完全环时研究了自然映射 $\Pic(X_B)\to P(B)$。他还计算了 $P$ 的 Lie 代数的维数；有趣的是，有 $\geq\operatorname{length}H^1(\mathcal O_X)$，但也可能严格大于。
+
+Lipman 随后在 [Lip74，§2、§3] 中研究了形式概形 $\mathfrak X$。他固定一个完备 Noether 局部环 $A$，其剩余域 $k$ 为任意
+% 原书 PDF 286，印刷页 274；注9.4.19续。
+特征 $p$ 的完全域。若 $p=0$，则置 $W(k):=k$，并固定映射 $W(k)\to A$；若 $p>0$，则如前，$W(k)$ 表示 Witt 向量环，并有典范映射 $W(k)\to A$。Lipman 考虑这样的 $\mathfrak X$：它是嵌套的 Noether 闭子概形序列 $X_m$ 的正极限，每个 $X_m$ 在 $A$ 上固有。给定 $k$ 代数 $B$，置 $\mathfrak W_B:=\operatorname{Spf}(W(B))$，$\mathfrak X_B:=\mathfrak X\times_{\mathfrak W_k}\mathfrak W_B$。Lipman 形成了函子 $B\mapsto\Pic(\mathfrak X_B)$ 的相关联 fpqc 层 $P$，并证明 $P$ 可由 $\varprojlim G_n$ 表示，其中，若 $p=0$，则 $G_n:=\mathbf{Pic}_{X_n/k}$；若 $p>0$，则 $G_n$ 为上一段取 $X:=X_n$ 时的表示概形。在这个取极限的过程中，使用 fpqc 拓扑很有帮助；甚至当 $\mathfrak X$ 是固有 $A$ 概形 $X$ 沿闭纤维的完备化时，除非 $X$ 在 $\Spec(A)$ 上泛有限，否则可能非用不可。此外，Lipman 证明，若 $K$ 为代数闭域，则 $\Pic(\mathfrak X_K)=P(K)$；并注意到，当 $\mathfrak X$ 为某个 $X$ 的完备化时，$\Pic(\mathfrak X_K)=\Pic(X_K)$。
+
+Boutot 的学位论文 [Bou78] 专门研究了局部 Picard 概形。他固定任意域 $k$ 以及剩余域为 $k$ 的 Noether 局部 $k$ 代数 $A$。他直接将局部 Picard 函子 $Q$ 定义为函子 $B\mapsto\Pic(\widetilde U_B)$ 的相关联平展层，其中 $B$ 为 $k$ 代数，$U$ 为 $A$ 的去心谱，$\widetilde U_B$ 为 $U$ 在 Hensel 化积 $A\mathbin{\widetilde\otimes}_k B$ 的谱中的逆像。他证明，若 $H^1(\mathcal O_U)$ 有限维，且 $\operatorname{depth}(A)\geq2$，则 $Q$ 可表，且 Lie 代数为 $H^1(\mathcal O_U)$；例如，当 $A$ 的完备化正规且 $\dim A\geq3$ 时，条件成立。他利用 Ramanujam--Samuel 定理的一个变体 [EGAIV4，21.14.1] 验证 Artin 条件，并使用 Elkik--Artin 逼近理论将形式形变代数化。此外，给定任意固有 $A$ 概形 $X$，他构造了 $\Pic(\mathfrak X_B)$ 的一个类似物，即 $\Pic(A\mathbin{\widetilde\otimes}_kB)$ 中那些在 $\widetilde U_B$ 上局部限制平凡的层所成的子群；随后，他研究了其相关联平展层，并将它与局部 Picard 函子联系起来。
+
+上述理论提供了证明 Samuel 猜想所需的工具。在 [Lip75，第 534、537 页] 中，Lipman 解释了背后的思想；这主要归功于 Grothendieck，并包含于他的通信中。思想如下。置 $R:=A[[t]]$。若 $\dim A=1$，则 $A$ 正则；显然，$R$ 也正则，从而由 Auslander--Buchsbaum 定理 [EGAIV4，定理 21.11.1，第 302 页]，它为唯一分解整环。假定 $\dim A\geq2$。由于 $A$ 为唯一分解整环，其理想类群 $\operatorname{Cl}(A)$ 平凡。先假定 $U$ 正则；则 $\operatorname{Cl}(A)=\Pic(U)$，因为 $A$ 正规且 $\dim A\geq2$。由于 $k$ 代数闭，有 $\Pic(U)=Q(k)$，其中 $Q$ 为局部 Picard 概形，假定它存在。于是 $Q$ 只有一个概形点。因此 $Q(k[[t]])=0$。所以 $\Pic(U')=0$，其中 $U'$ 为 $R$ 的去心谱。因 $R$ 正规且 $\dim R\geq2$，有 $\operatorname{Cl}(R)=0$。故 $R$ 为唯一分解整环。
+
+假定 $U$ 不一定正则，设 $I\subset R$ 为除子理想。则存在开集 $V\subset\Spec(A)$，其补集余维至少为 $2$，且层 $\widetilde I$ 在 $V$ 上的限制可逆。此外，Boutot 在 [Bou78，命题 2.4，第 143 页] 中证明，存在射影双有理映射 $\varphi:X\to\Spec(A)$，使 $\varphi^{-1}V\to V$ 为同构，且 $\widetilde I|\varphi^{-1}V$ 可扩张为 $X$ 上的可逆层。Lipman 使用 Boutot 的结果以及他自己关于 $X$ 的完备化 $\mathfrak X$ 的 Picard 概形的理论，而非局部 Picard 概形理论，在 [Lip74，§1] 中证明了上述完整形式的 Samuel 猜想。Lipman 在引言中讨论了 Scheja、Storch 和 Danilov 的相关工作，并用 [Lip75] 对完备局部环中的唯一分解作了广泛综述。特别地，他指出，Danilov 形式 [Dan70，第 228 页] 的 Samuel
+% 原书 PDF 287，印刷页 275，9.5标题前的两段续文，仍属9.4。
+猜想仍未解决：若 $A$ 的严格 Hensel 化是唯一分解整环，则 $A[[t]]$ 是唯一分解整环。
+
+Samuel 本人假定 $A$ 完备，但没有假定 $k$ 代数闭。在这种形式下，猜想是错的！Salmon 给出了第一个反例，见 [Lip75，第 537 页]：$A$ 为域 $k$ 上带有唯一有理点 $e$ 的光滑平面三次曲线 $E$ 的锥在顶点处的局部环的完备化。局部 Picard 概形就是 $E$。因此，$A$ 是唯一分解整环，而 $A\otimes_k\bar k$ 不是，其中 $\bar k$ 为代数闭包。现在，$E(k[[t]])\ne0$，因为 $\widehat{\mathcal O}_{E,e}=k[[t]]$。此外，由序列 9.2.11.5，Brauer 群 $\operatorname{Br}'(k[[t]])$ 容纳了将 $E(k[[t]])$ 的元素表示成 $\Spec(R)$ 的爆破上的可逆层，从而表示成 $\operatorname{Cl}(R)$ 的元素的障碍。由 [Mil80，注 3.11(a)，第 116 页]，有 $\operatorname{Br}'(k[[t]])\xrightarrow{\sim}\operatorname{Br}'(k)$。当 $k$ 为代数闭域上的单变量函数域时，由 Tsen 定理 [FK88，命题 1.15，第 15 页]，$\operatorname{Br}'(k)=0$。所以，在这种情形下，$A[[t]]$ 并非唯一分解整环。Danilov 在 [Dan70，§1] 中对本质上相同的例子作了更直接的分析，但适用的 $k$ 更多。
+\end{origstatement}
+\endgroup
+% 第9.4节完整结束；第9.5节从原书PDF287的实际标题开始，另文件负责。
