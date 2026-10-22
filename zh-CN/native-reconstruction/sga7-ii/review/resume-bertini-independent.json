@@ -1,0 +1,105 @@
+{
+  "task": "Independent mathematical review of XVIII 6.1.6 fixed-point generic-line assertion",
+  "reviewer": "resume_bertini_check",
+  "date": "2026-10-22",
+  "status": "proved, assuming T is nonempty; independent draft before reading any root candidate",
+  "write_scope": "Only this review JSON. No chapter/source/git operations.",
+  "actual_review_scope": {
+    "chinese_chapters": [
+      {
+        "path": "zh-CN/native-reconstruction/sga7-ii/chapters/expose-XVIII/128_expose_XVIII_section_6_opening_through_6_1_2_proof_opening-zh.tex",
+        "sha256_at_initial_read": "0ca140490c7a2d71a24b88b248ff72fbf274f89d558774ea60a0607a3b73a278"
+      },
+      {
+        "path": "zh-CN/native-reconstruction/sga7-ii/chapters/expose-XVIII/129_expose_XVIII_proof_6_1_through_bertini-zh.tex",
+        "sha256_at_initial_read": "142afeed409da77b8801a2581cca1537b63d17fa5515ba1085dd08906b52735e"
+      },
+      {
+        "path": "zh-CN/native-reconstruction/sga7-ii/chapters/expose-XVIII/130_expose_XVIII_completion_of_6_1-zh.tex",
+        "sha256_at_initial_read": "1e040f0c80263327b235413411de0b4eea041d8dbe8b279fef7d95c936a6ffbb"
+      }
+    ],
+    "ledger": "review/independent-xviii.json: read task/status, all reference_audit entries and components 128–130; initial whole-file output was truncated, relevant entries subsequently extracted and read completely.",
+    "english_release": "en/KokunoYumeto-sga-en/release/09_SGA7II_EN_COMPLETE_READER.tex lines15835–16091 read completely (components128–130).",
+    "french_primary": "SGA/SGA-7-2-Groupes-de-monodromie-2.pdf PDF pages324–326 read via embedded-text extraction; page325/printed315 explicitly has EGA V .... and s=1. No visual French-page inspection in this review.",
+    "independence": "The blowup/section argument was constructed independently before root sent its matching argument; no new root candidate supplement has been read yet."
+  },
+  "conclusion": {
+    "claim": "If T is nonempty, E×_U(D_eta minus Z) is geometrically integral over k(eta), in every characteristic.",
+    "strength": "The argument works for any nonempty open U of P^r containing a and finite étale connected E→U; neither hypersurface structure nor transversality nor tameness is needed for the generic-line assertion itself.",
+    "source_gap": "The displayed unrestricted Bertini theorem does not directly address lines through a fixed point. The following proof is a new editorial supplement, not recovered author text, and does not fill the historical EGA V locator."
+  },
+  "hypothesis_audit": [
+    {
+      "hypothesis": "T nonempty",
+      "finding": "Essential to define eta as in the question. Original Proposition6.1 supplies D_o, so o∈T ensures it. Do not claim nonemptiness for arbitrary Z,a in positive characteristic."
+    },
+    {
+      "hypothesis": "Counterexample to automatic T nonemptiness",
+      "finding": "In characteristic2, Z⊂P² defined by x0²+x1*x2=0 is a smooth conic and a=[1:0:0] lies outside it. Each line through a has fixed direction [x1:x2]=[u:v] and conic equation s²+uv*t²=0, a square over algebraically closed k, hence a double intersection. Thus no such line is transverse and T is empty. This does not contradict the proved assertion when T is nonempty."
+    },
+    {
+      "hypothesis": "k algebraically closed and E nonempty connected finite étale",
+      "finding": "E is smooth Noetherian connected, hence integral; the covering is surjective since U is connected and its finite-étale image is nonempty open and closed. E_a is therefore a nonempty disjoint union of k-points, providing a section after blowup."
+    },
+    {
+      "hypothesis": "a∈U",
+      "finding": "Needed for E_a and finite étale structure at the centre; guarantees the entire exceptional section lies in Bl_a(U)."
+    },
+    {
+      "hypothesis": "r≥2",
+      "finding": "Ensures E_a is a proper positive-codimension centre and the original family is positive dimensional. The argument also admits the trivial r=1 interpretation."
+    },
+    {
+      "hypothesis": "chosen basepoint is an arbitrary geometric point",
+      "finding": "For the fundamental-group surjectivity application, choose a closed k-point of D_o minus Z and its geometric lift; change of basepoint induces isomorphisms up to inner conjugacy, preserving surjectivity. A general nonclosed geometric point is not silently identified with a k-rational blowup centre."
+    }
+  ],
+  "short_complete_editorial_proof_zh": "【译校补证：固定点直线族】这里的 T 非空，因为原命题已给定 D_o。必要时沿 D_o−Z 中的道路改换基点；基本群满射性不受此影响，故可取 a∈(D_o−Z)(k)。记 S≅P^{r−1}_k 为经过 a 的全部直线的参数空间，则 T 是 S 的非空开集，k(T)=k(S)=K。经过 a 的通用直线族 B_0→S 是 P¹ 丛，且 B_0≅Bl_a(P^r)；在坐标 a=[1:0:⋯:0] 下，它是关系 x_i v_j=x_j v_i（1≤i,j≤r）定义的关联簇，方向 [v_1:⋯:v_r] 上的点可写作 [s:t v_1:⋯:t v_r]。因此 B=B_0×_{P^r}U=Bl_a(U)→S 光滑，其异常除子是映到 S 的恒等截面。令 E'=E×_U B。由爆破与平坦基变换相容，E'=Bl_{E_a}(E)。由于 E 光滑连通而整，且 E_a 为真闭子概形，E' 也整；又因 E'→B 平展，E'→S 光滑。取 e∈E_a(k)，异常除子中的 {e}×S 给出 E'→S 的截面。故该态射占优，其泛纤维 C=E'_η 整且光滑，并有 K-有理点。连通且有 K-有理点的 K-概形几何连通（Stacks Project, Lemma33.7.14, Tag04KV）；光滑概形几何正则，而连通的 Noether 正规概形为整概形（Tags056T、033M）。于是 C 几何整。由通用直线族的定义，B_η≅D_η−(D_η∩Z)，且 C≅E×_U(D_η−(D_η∩Z))，结论得证。此为译校补证，不是原书所缺引文的恢复。",
+  "proof_checks": [
+    "Blowup is used on U and E only; no projective normalization, Stein factorization, compactification, or unproved irreducibility theorem is needed.",
+    "Over the generic point, a nonempty fibre of a dominant morphism between integral schemes is integral: its affine charts are localizations of domains, and its underlying topology is irreducible.",
+    "The rational point is on C itself, not on a compactification boundary: B_eta maps its exceptional point to a∈D_eta minus Z. The incidence fibre is the whole line minus Z, including a.",
+    "Geometric connectedness plus geometric normality and Noetherianity proves geometric integrality, not merely ordinary integrality.",
+    "Positive characteristic and imperfect K=k(T) cause no gap: all smoothness and rational-point connectedness statements apply over arbitrary fields."
+  ],
+  "primary_sources_actually_read": [
+    {
+      "url": "https://stacks.math.columbia.edu/tag/0805",
+      "locator": "Lemma31.33.3",
+      "read": "Statement and proof in section31.33, including flatness explanation.",
+      "use": "Blowup commutes with flat base change; E→U is étale hence flat."
+    },
+    {
+      "url": "https://stacks.math.columbia.edu/tag/02ND",
+      "locator": "Lemma31.33.9",
+      "read": "Statement and proof, plus affine blowup/Rees description in Lemma31.33.2.",
+      "use": "Blowup of integral scheme in a nonzero ideal is integral."
+    },
+    {
+      "url": "https://stacks.math.columbia.edu/tag/04KV",
+      "locator": "Lemma33.7.14",
+      "read": "Exact statement and proof, also supporting Lemma33.7.13 in section33.7.",
+      "use": "Connected scheme over K with K-rational point is geometrically connected; no properness assumption."
+    },
+    {
+      "url": "https://stacks.math.columbia.edu/tag/056T",
+      "locator": "Lemma33.25.4",
+      "read": "Statement and proof in section33.25, together with Lemma33.25.3.",
+      "use": "Smooth over arbitrary field implies geometrically regular/normal/reduced."
+    },
+    {
+      "url": "https://stacks.math.columbia.edu/tag/033M",
+      "locator": "Lemma28.7.6",
+      "read": "Statement and proof, supporting Lemma28.7.5 and Remark28.7.8 in section28.7.",
+      "use": "Noetherian normal scheme is disjoint union of normal integral schemes; connected therefore integral."
+    }
+  ],
+  "limits": [
+    "This is a focused check of the fixed-point generic-line step, not a fresh independent review of all ExposéXVIII or every use of SGA1 specialization/inertia.",
+    "No claim to verify or recover any EGA V numbered reference. Existing literal source gap remains historical.",
+    "The incidence identification/P¹ local trivialization and generic-fibre localization argument are supplied explicitly here; no external historical citation for them is asserted.",
+    "No PDF compile or visual typesetting review is performed: only this JSON is written. Root candidate supplement remains to be reviewed if supplied."
+  ],
+  "blockers": []
+}
