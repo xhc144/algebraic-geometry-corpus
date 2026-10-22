@@ -1,6 +1,6 @@
 # 中文原生重建工作区
 
-当前状态：按用户指令暂停，不自动续写。以下目录为独立作者工作区，不能据目录存在推定已完成。各书保留自身版式；既有中文译本与原始源文件不改动。
+当前状态：用户于2026-10-22 23:42 UTC明确恢复本轮项目。协调者仅维护FGA、_coord及本索引，其余十个工作区由原作者续作。以下目录为独立作者工作区，不能据目录存在推定已完成。各书保留自身版式；既有中文译本与原始源文件不改动。
 
 冻结起点：`e76d5fc9c6f38bfa611da5d1b684b622f60e379c`。分工及源校验见 [_coord/WORK_MAP.json](_coord/WORK_MAP.json)。
 
@@ -28,4 +28,4 @@ FGA 由协调者负责；其余十个作者目录由父线程启动的任务独�
 - 各SGA与FGA Explained检查点、固定提交、原本覆盖风险和独立审查状态统一见[_coord/REVIEW_QUEUE.json](_coord/REVIEW_QUEUE.json)与[来源风险](_coord/COVERAGE_RISKS.json)。已有全篇初稿不代表最终审定；有些检查点仍在作者分支，保留至复核整合，不改写历史。
 - SGA3-a早期检查点及SGA7-II的独立重建/源文发现，见[_coord/reviews/](_coord/reviews/)。这些报告明确限制了审查范围。
 
-暂停总表与恢复缺口见 [_coord/PAUSED.md](_coord/PAUSED.md)。不自动继续翻译或审校。
+当前恢复差距表见 [_coord/RESUME_INVENTORY.json](_coord/RESUME_INVENTORY.json)。[_coord/PAUSED.md](_coord/PAUSED.md)及其JSON保留为2026-10-21历史暂停记录，不代表当前状态。SGA6最新424页为作者本地恢复目标，远端394页是历史稿，不能混同。
