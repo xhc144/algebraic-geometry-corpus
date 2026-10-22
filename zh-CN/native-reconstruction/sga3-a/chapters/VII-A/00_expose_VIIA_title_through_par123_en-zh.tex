@@ -1,0 +1,278 @@
+% SGA 3, Expose VII_A, 中文重构——第 1 轮。
+% 范围：权威底本本地页 1--5, 自标题至 1.2.3,
+% 止于此前： 1.3 on local page 5.
+% 合并阅读本页码： 454--458. 再版本印刷页码： 443--447.
+% 本段原版页边定位： 412--415.
+% 权威底本： Polo--Gille Exp7A-13oct24.pdf,
+% SHA-256 D46DB8C79D0385643B6EED4B96900613248375F9B73B4202478A4F57FD3E8522.
+% 参照了 Jacob Reinhold 的 CC BY 4.0 Markdown 作为比对谱系。
+
+\chapter*{报告 \texorpdfstring{VII\textsubscript{A}}{VII-A}\\
+群概形的无穷小研究}
+\phantomsection
+\label{sga3:VIIA:title}
+\addcontentsline{toc}{chapter}{报告 VII-A. 群概形的无穷小研究}
+\markboth{EXPOS\'E VII\textsubscript{A}. 群概形的无穷小研究}%
+  {EXPOS\'E VII\textsubscript{A}. 群概形的无穷小研究}
+
+\begin{center}
+  \textit{P. Gabriel 著}
+\end{center}
+
+% 权威底本： Exp7A 本地页 1; 合并阅读本页 454; 印刷页 443.
+在报告 II 中，我们只研究了一阶微分不变量，没有讨论特征 \(p>0\) 或特征零所特有的某些现象。本报告 A 部分的目的就是填补这一空缺。
+
+此外，群概形任意阶的无穷小研究与其对应形式群的研究有关；本报告第二部分的目的，是介绍形式群的初步定义和性质。
+
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+\setcounter{footnote}{0}
+\section*{A) 微分算子与限制
+  \texorpdfstring{\(p\)}{p}-Lie 代数\footnote{本报告的 A 部分在口头讨论班中未作认真讨论。}}
+\phantomsection
+\label{sga3:VIIA:A}
+\addcontentsline{toc}{section}{A) 微分算子与限制 p-Lie 代数}
+\renewcommand{\thefootnote}{\arabic{footnote}}
+\setcounter{footnote}{0}
+
+\section*{1. 微分算子}
+\phantomsection
+\label{sga3:VIIA:1}
+\addcontentsline{toc}{section}{1. 微分算子}
+
+在本节及\SGARefLink{sga3:VIIA:2}{第~2~节}和第~3~节中，\(S\) 表示一个固定概形，所考虑的一切积都是 \(S\)-概形范畴中的笛卡尔积。\footnote{特别地，若 \(X\) 和 \(Y\) 是两个 \(S\)-概形，则将 \(X\times_S Y\) 简记为 \(X\times Y\)。关于\SGARefLink{sga3:VIIA:1}{第~1~节}和第~2~节的内容，也可参阅 Demazure 和 Gabriel 的\emph{代数群〔Groupes alg\'ebriques〕}，II.4，第~5--6~目；另见 Jantzen，\emph{代数群的表示〔Representations of Algebraic Groups〕}，I.7。}
+若 \(X\) 是一个 \(S\)-概形，则将 \(X\) 到 \(S\) 的结构态射记为 \(p_{X/S}\)、\(p_X\)，或简记为 \(p\)。
+
+\medskip
+\noindent\textbf{1.1.}
+\phantomsection
+\label{sga3:VIIA:1.1}
+设 \(u:Y\to X\) 是 \(S\)-概形态射，赋予 \(Y\) 的结构层的正像 \(u_*(\mathcal O_Y)\) 由 \(u\) 诱导的 \(\mathcal O_X\)-模结构。于是，从 \(\mathcal O_X\) 到 \(u_*(\mathcal O_Y)\) 的 \(p_X^{-1}(\mathcal O_S)\)-模同态层
+\[
+  \mathcal H=
+  \mathcal Hom_{p_X^{-1}(\mathcal O_S)}
+    \bigl(\mathcal O_X,u_*(\mathcal O_Y)\bigr)
+\]
+自然是一个 \(\mathcal O_X\)-双模。若 \(U\) 是 \(X\) 的开子集，\(f\) 与 \(d\) 分别是 \(\mathcal O_X\) 与 \(\mathcal H\) 在 \(U\) 上的截面，则 \(fd\) 与 \(df\) 是从 \(\mathcal O_X\) 到 \(u_*(\mathcal O_Y)\) 的态射
+\[
+  g\longmapsto f\,d(g)
+  \qquad\text{与}\qquad
+  g\longmapsto d(fg)
+\]
+。今后用 \((\operatorname{ad}f)(d)\) 表示 \(fd-df\)。
+
+% 权威底本： Exp7A 本地页 2; 合并阅读本页 455; 印刷页 444.
+\medskip
+\noindent\textbf{定义 1.1.1.}
+\phantomsection
+\label{sga3:VIIA:1.1.1}
+\textit{一个阶数 \(\leq n\) 的 \(S\)-偏差是一个二元组 \(D=(u,d)\)，由一个 \(S\)-概形态射 \(u:Y\to X\) 和一个 \(p_X^{-1}(\mathcal O_S)\)-模态射
+\[
+  d:\mathcal O_X\longrightarrow u_*(\mathcal O_Y),
+\]
+组成，且对 \(X\) 的每个开子集 \(U\) 及每个由 \(n+1\) 个截面 \(f_0,\ldots,f_n\in\mathcal O_X(U)\) 构成的序列，都有}
+\begin{equation}
+  (\operatorname{ad}f_0)(\operatorname{ad}f_1)\cdots
+  (\operatorname{ad}f_n)(d)=0.
+  \tag{\(\ast_n\)}
+  \label{sga3:VIIA:eq:star-n}
+\end{equation}
+\footnote{等价地，对每个 \(x\in X\) and
+\(f_0,\ldots,f_n,g\in\mathcal O_{X,x}\),
+\[
+  (\operatorname{ad}f_0)\cdots(\operatorname{ad}f_n)(d_x)(g)=0.
+\]
+还要回顾，伴随同构
+\[
+ \theta:
+ \operatorname{Hom}_{p_X^{-1}(\mathcal O_S)}
+   \bigl(\mathcal O_X,u_*(\mathcal O_Y)\bigr)
+ \xrightarrow{\sim}
+ \operatorname{Hom}_{p_Y^{-1}(\mathcal O_S)}
+   \bigl(u^{-1}\mathcal O_X,\mathcal O_Y\bigr)
+\]
+将 \(d\) 映到 \(d'=\varepsilon\circ u^{-1}(d)\)，其中 \(\varepsilon:u^{-1}u_*(\mathcal O_Y)\to\mathcal O_Y\) 是典范态射。反之，
+\(\theta^{-1}(d')=u_*(d')\circ\eta\), 其中 \(\eta:\mathcal O_X\to u_*u^{-1}\mathcal O_X\) 是典范态射。因此，\(d\) 满足 \((\ast_n)\) 当且仅当 \(d'\) 对 \(u^{-1}\mathcal O_X\) 的所有局部截面都满足类似的恒等式。}
+
+这时也称 \(d\) 为 \(u\) 的阶数 \(\leq n\) 的 \(S\)-偏差。特别地，\(u\) 的阶数 \(\leq0\) 的 \(S\)-偏差，就是从 \(\mathcal O_X\) 到 \(u_*(\mathcal O_Y)\) 的一个 \(\mathcal O_X\)-模态射，也就是 \(\Gamma(Y,\mathcal O_Y)\) 的一个元素。
+
+\medskip
+\noindent\textbf{定义 1.1.2.}
+\phantomsection
+\label{sga3:VIIA:1.1.2}
+\textit{一个 \(p_X^{-1}(\mathcal O_S)\)-模态射
+\[
+  d:\mathcal O_X\longrightarrow u_*(\mathcal O_Y)
+\]
+称为 \(u\) 的一个 \(S\)-偏差，如果对每个点 \(y\in Y\)，存在 \(u(y)\) 在 \(X\) 中的开邻域 \(U\) 和 \(y\) 在 \(Y\) 中的开邻域 \(V\)，满足：
+\begin{enumerate}
+\item[\textup{a)}] \(u(V)\subset U\);
+\item[\textup{b)}] 若 \(v:V\to U\) 由 \(u\) 诱导，则存在整数 \(n\)，使由 \(d\) 诱导的态射 \(\mathcal O_U\to v_*(\mathcal O_V)\) 是 \(v\) 的阶数 \(\leq n\) 的 \(S\)-偏差。
+\end{enumerate}}\footnote{因此，若 \(X\) 与 \(u\) 拟紧，则 \(u\) 的每个 \(S\)-偏差的阶数都对某个整数 \(n\) 满足 \(\leq n\)。}
+
+若 \(d\) 是 \(u\) 的一个 \(S\)-偏差，也称二元组 \(D=(u,d)\) 为一个 \(S\)-偏差，并可写为
+\[
+  Y\xrightarrow{D}X
+  \qquad\text{或}\qquad
+  Y\mathop{\longrightarrow}^{d}_{u}X.
+\]
+当 \(d\) 是对应于态射 \(u:Y\to X\) 的代数同态
+\[
+  u^\natural:\mathcal O_X\longrightarrow u_*(\mathcal O_Y)
+\]
+时，也用 \(u\) 表示 \(D\)。
+
+\medskip
+\noindent\textbf{注记 1.1.3.}\footnote{这些注记由编者补入，因为它们在 \SGARefLink{sga3:VIIA:1.3}{1.3}、\SGARefLink{sga3:VIIA:1.4}{1.4} 和 \SGARefLink{sga3:VIIA:2.1}{2.1} 中会用到。}
+\phantomsection
+\label{sga3:VIIA:1.1.3}
+设 \(\operatorname{Dev}(u)\)（分别地，\(\operatorname{Dev}_{\leq n}(u)\)）为 \(u\) 的 \(S\)-偏差（分别地，阶数 \(\leq n\) 的偏差）所成的集合。它具有自然的 \(\mathcal O_Y(Y)\)-模结构：若 \(\lambda\in\mathcal O_Y(Y)\)，则 \(\lambda d\) 是将 \(\mathcal O_X\) 的每个局部截面 \(f\) 映到 \(\lambda d(f)\) 的偏差。
+
+对 \(Y\) 的每个开子集 \(V\)，置 \(\mathcal{Dev}(u)(V)=\operatorname{Dev}(u|_V)\)。于是 \(\mathcal{Dev}(u)(V)\) 是满足下述条件的
+\begin{align*}
+ d_V&\in
+ \operatorname{Hom}_{p_X^{-1}(\mathcal O_S)}
+   \bigl(\mathcal O_X,(u|_V)_*(\mathcal O_V)\bigr)\\
+ &\simeq
+ \operatorname{Hom}_{p_Y^{-1}(\mathcal O_S)}
+   \bigl((u|_V)^{-1}\mathcal O_X,\mathcal O_V\bigr)\\
+ &\simeq
+ \operatorname{Hom}_{p_Y^{-1}(\mathcal O_S)}
+   \bigl(u^{-1}\mathcal O_X,\mathcal O_Y\bigr)(V)
+\end{align*}
+所成的集合：对每个开集 \(U\subset X\)，映射
+\[
+ d_V(U):\mathcal O_X(U)\longrightarrow
+ \mathcal O_Y\bigl(u^{-1}(U)\cap V\bigr)
+\]
+满足 \((\ast_n)\)。这在 \(Y\) 上定义了一个 \(\mathcal O_Y\)-模预层，容易看出它是一个层（更确切地说，是 \(\mathcal Hom_{p_Y^{-1}(\mathcal O_S)}
+  (u^{-1}\mathcal O_X,\mathcal O_Y)\) 的子层）。
+
+% 权威底本： Exp7A 本地页 3; 合并阅读本页 456; 印刷页 445.
+\medskip
+\noindent\textbf{1.2.}
+\phantomsection
+\label{sga3:VIIA:1.2}
+考虑两个 \(S\)-偏差 \(D=(u,d)\) 和 \(E=(v,e)\)：
+\[
+  Z\mathop{\longrightarrow}^{e}_{v}Y
+  \mathop{\longrightarrow}^{d}_{u}X.
+\]
+当 \(U\) 遍历 \(X\) 的开子集时，复合映射
+\[
+ \Gamma(U,\mathcal O_X)
+ \xrightarrow{d(U)}
+ \Gamma(u^{-1}U,\mathcal O_Y)
+ \xrightarrow{e(u^{-1}U)}
+ \Gamma(v^{-1}u^{-1}U,\mathcal O_Z)
+\]
+定义了 \(uv\) 的一个 \(S\)-偏差，记为 \(de\)。若 \(d\) 的阶数 \(\leq m\)，且 \(e\) 的阶数 \(\leq n\)，则 \(de\) 的阶数 \(\leq m+n\)。我们也记
+\begin{equation}
+  D\circ E=(uv,de)
+  \tag{\(\dagger\)}
+  \label{sga3:VIIA:eq:composition}
+\end{equation}
+\footnote{在这一记号下，\(de\) 表示“先 \(d\) 后 \(e\)”的复合。}
+并称 \(D\circ E\)，或 \(DE\)，为\emph{复合 \(S\)-偏差}。当 \(d=u^\natural\) 时，按 \SGARefLink{sga3:VIIA:1.1}{1.1} 的约定有 \(D=u\)，这时也称 \(DE\) 为 \(E\) \emph{在 \(u\) 下的像}。
+
+映射 \((D,E)\mapsto D\circ E\) 使我们今后可以谈论\emph{\(S\)-偏差范畴}，其对象为 \(S\)-概形，态射为 \(S\)-偏差。\footnote{通常只考虑 \(\operatorname{id}_X\) 的 \(S\)-偏差；它们组成 \(X\) 上的 \(S\)-微分算子代数，参见下文 \SGARefLink{sga3:VIIA:1.4}{1.4}。较一般的框架为如下陈述提供了方便的函子语言：若 \(G\) 是一个 \(S\)-群，则 \(G\) 上的左平移不变 \(S\)-微分算子代数同构于单位截面 \(\varepsilon:S\to G\) 的 \(S\)-偏差代数；参见 \SGARefLink{sga3:VIIA:2.1}{2.1} 和 \SGARefLink{sga3:VIIA:2.4}{2.4}。}
+
+\medskip
+\noindent\textbf{定义 1.2.0.}\footnote{编者扩充了本段，并给此定义加上编号 \SGARefLink{sga3:VIIA:1.2.0}{1.2.0}，给随后的引理加上编号 1.2.1。}
+\phantomsection
+\label{sga3:VIIA:1.2.0}
+\textit{设 \(w:Z\to X\) 是一个 \(S\)-态射。\(w\) 的一个 \(S\)-导子，或 \(\mathcal O_X\) 到 \(w_*(\mathcal O_Z)\) 的一个 \(S\)-导子，是一个 \(p^{-1}(\mathcal O_S)\)-模态射
+\[
+  d:\mathcal O_X\longrightarrow w_*(\mathcal O_Z)
+\]
+使对每个开集 \(U\subset X\) 以及 \(f,g\in\mathcal O_X(U)\)，有
+\[
+  d(fg)=w^\natural(f)d(g)+w^\natural(g)d(f).
+\]
+于是 \(d\) 是 \(w\) 的阶数 \(\leq1\) 的偏差，并在 \(\mathcal O_X\) 的单位截面上为零。我们用 \(\operatorname{Der}_S(w)\) 表示 \(w\) 的 \(S\)-导子所成的集合；它是一个 \(\mathcal O(Z)\)-模。}
+
+沿用 \SGARefLink{sga3:VIIA:1.2}{1.2} 的记号，取
+\[
+  Y=I_Z=\operatorname{Spec}\mathcal O_Z[t],\qquad t^2=0,
+\]
+设 \(v\) 为零截面 \(\tau:Z\to I_Z\)，它由将 \(t\) 映到零的同态 \(\mathcal O_Z[t]\to\mathcal O_Z\) 定义；并设 \(e\) 为由 \(\sigma(1)=0\) 和 \(\sigma(t)=1\) 定义的 \(\mathcal O_Z\)-模态射 \(\sigma:\mathcal O_Z[t]\to\mathcal O_Z\)，将其记为 \(\partial_t\) 很方便。\footnote{记号 \(\partial_t\) 由编者补入。}
+
+若 \(u:I_Z\to X\) 是满足 \(w=u\circ\tau\) 的态射，则 \(\sigma\circ u^\natural\) 是从 \(\mathcal O_X\) 到 \(w_*(\mathcal O_Z)\) 的一个 \(S\)-导子。反之，一个 \(S\)-导子 \(d\) 确定一个态射 \(u:I_Z\to X\)，它在底层空间上等于 \(w\)，且对 \(\mathcal O_X\) 的每个局部截面 \(f\) 满足
+\[
+  u^\natural(f)=w^\natural(f)+d(f)t
+\]
+。
+
+% 权威底本： Exp7A 本地页 4; 合并阅读本页 457; 印刷页 446.
+\medskip
+\noindent\textbf{引理 1.2.1.}
+\phantomsection
+\label{sga3:VIIA:1.2.1}
+\textit{设 \(E=(\tau,\partial_t)\) 为上面定义的 \(\tau:Z\to I_Z\) 的偏差。对每个 \(S\)-态射 \(w:Z\to X\)，映射 \(u\mapsto u\circ E\) 给出满足 \(u\circ\tau=w\) 的 \(S\)-态射 \(u:I_Z\to X\) 与 \(w\) 的 \(S\)-导子之间的双射。}
+
+\medskip
+\noindent\textbf{1.2.2.}
+\phantomsection
+\label{sga3:VIIA:1.2.2}
+设 \(d\) 是 \(u:Y\to X\) 的一个 \(S\)-偏差。一方面，对每个态射 \(s:S\to S'\)，\(d\) 显然也是 \(u\) 的一个 \(S'\)-偏差。
+
+另一方面，设 \(t:T\to S\) 是以 \(S\) 为目标的态射，\(u_T:Y_T\to X_T\) 由 \(u\) 经基变换得到，\(t_Y:Y_T\to Y\) 和 \(t_X:X_T\to X\) 为典范投影。存在唯一的 \(u_T\) 的 \(T\)-偏差，记为 \(d_T\) 或 \(d\times T\)，使其按 \eqref{sga3:VIIA:eq:composition} 的意义满足
+\[
+  t_Xd_T=dt_Y
+\]
+。因此，对每个开集 \(U\subset X\)，下图交换：
+\begin{center}
+  \phantomsection
+  \label{sga3:VIIA:1.2.2-base-change-square}
+  % SGA3-VII-DIAG-001
+  \input{figures/exp7/viia_00_04/diag_001_base_change_square}
+\end{center}
+\footnote{具体地，若 \(V\) 是 \(S\) 的仿射开子集，\(U\)（分别地，\(U'\)）是 \(X\)（分别地，\(T\)）中位于 \(V\) 上方的仿射开子集，则
+\[
+ \mathcal O_{X\times T}(U\times U')
+ =\mathcal O_X(U)\otimes_{\mathcal O_S(V)}\mathcal O_T(U'),
+\]
+而 \(d_T(U\times U')\) 是复合映射
+\[
+ \mathcal O_X(U)\otimes_{\mathcal O_S(V)}\mathcal O_T(U')
+ \xrightarrow{d(U)\otimes\mathrm{id}}
+ \mathcal O_Y(u^{-1}U)\otimes_{\mathcal O_S(V)}\mathcal O_T(U')
+ \longrightarrow
+ \mathcal O_{Y\times T}(u^{-1}U\times U').
+\]
+作者将 \(d_T\) 良定义的验证留给读者，编者也如此。}
+若 \(D=(u,d)\)，也记 \(D_T=(u_T,d_T)\)，并称 \(d_T\) 和 \(D_T\) 是由 \(d\) 和 \(D\) 经基变换得到的。
+
+\medskip
+\noindent\textbf{1.2.3.}
+\phantomsection
+\label{sga3:VIIA:1.2.3}
+例如，设 \(u:Y\to X\) 和 \(v:Z\to T\) 是两个 \(S\)-态射，\(d\) 和 \(e\) 分别是 \(u\) 和 \(v\) 的 \(S\)-偏差。有交换图
+\begin{center}
+  \phantomsection
+  \label{sga3:VIIA:1.2.3-product-scheme-square}
+  % SGA3-VII-DIAG-002
+  \input{figures/exp7/viia_00_04/diag_002_product_scheme_square}
+\end{center}
+按 \eqref{sga3:VIIA:eq:composition} 的约定，将等于
+\[
+  d_Te_Y=e_Xd_Z
+\]
+的 \(u\times v\) 的 \(S\)-偏差记为 \(d\times e\)，称为 \(d\) 与 \(e\) 的\emph{积}。更具体地，对每个开集 \(U\subset X\times T\)，置
+\[
+  W=v_Y^{-1}u_T^{-1}U=u_Z^{-1}v_X^{-1}U.
+\]
+则下图交换：
+\begin{center}
+  \phantomsection
+  \label{sga3:VIIA:1.2.3-product-deviation-square}
+  % SGA3-VII-DIAG-003
+  \input{figures/exp7/viia_00_04/diag_003_product_deviation_square}
+\end{center}
+若 \(D=(u,d)\) 且 \(E=(v,e)\)，也记
+\[
+  D\times E=(u\times v,d\times e).
+\]
+\footnote{源文注：法文此处印为 \(E=(v,d)\)；已确定的记号是 \(E=(v,e)\)。}
+
+% 下一定位： Exp7A 本地页 5, 合并阅读本页 458,
+% re-edition 印刷页 447, 在标题处 1.3.
