@@ -115,7 +115,8 @@ def main():
         pdf_name = f'PDFs/{number:02d}_{label}-zh-CN.pdf'
         pdfs[pdf_name] = pdf
         row = {'id': book, 'label': label, 'content_commit': ref,
-               'author_checkpoint': states[book]['checkpoint'],
+               'accepted_checkpoint': states[book]['checkpoint'],
+               'author_checkpoint': states[book].get('author_checkpoint', states[book]['checkpoint']),
                'pages': len(doc), 'PDF_repository_path': base + pdf_rel,
                'PDF_member': pdf_name, 'PDF_sha256': digest(pdf),
                'source_archive_repository_path': base + zip_rel,
@@ -133,6 +134,8 @@ def main():
             name, data = info.filename, z.read(info)
             assert not SECRET.search(data), 'Credential-shaped bytes in ' + book + '/' + name
             assert not name.lower().endswith('.zip'), 'Unexpected nested source archive: ' + name
+            if data.lstrip().startswith(b'%PDF-'):
+                assert name.lower().endswith('.pdf'), 'Unexpected disguised PDF: ' + name
             if name.lower().endswith('.pdf'):
                 # The sole known PDF in the native source archives is an optional
                 # Chinese publisher-catalogue audit preview, never a build input.
