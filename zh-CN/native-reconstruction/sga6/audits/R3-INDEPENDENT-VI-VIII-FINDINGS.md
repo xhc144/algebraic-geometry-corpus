@@ -1,4 +1,4 @@
-# R3 independent VI–VIII audit — in progress
+# R3 independent VI–VIII audit — original-source pass complete
 
 Controlling original: `SGA/SGA-6-Theorie-des-intersections.pdf`, SHA256 `73fbbad41340c12eccdcfcf6c3a1656953fe3d712aa8e391678458ccd17b4baa`; physical = printed + 14. Bodies are read only to this worker. No English source used to certify fidelity. Coverage ledger distinguishes text comparison from detailed original-image inspection and pending native final-PDF visual review. This is not a completion certificate.
 
@@ -20,4 +20,4 @@ Controlling original: `SGA/SGA-6-Theorie-des-intersections.pdf`, SHA256 `73fbbad
 
 ## Scope limits
 
-At this checkpoint original365–415 full extracted text compared with native VI; original-image detail review is partial (p397 completed; additional pages pending). VII416–465 and VIII466–497 remain unreviewed in this independent pass. Native final frozen PDF has not been supplied, so native visual review is pending. Do not promote contact-sheet viewing to formula-level certification.
+Final scope update: original365–497 (all133pages) full extracted text and all individual original rasters compared with the complete native VI–VIII bodies. Additional findings and high-resolution glyph evidence are in R3-INDEPENDENT-VI-VIII-ADDENDUM.md; page ledger is R3-INDEPENDENT-VI-VIII-COVERAGE.tsv. Native final frozen PDF has not been supplied, so native typeset visual review remains pending. This audit does not certify the final rendered book.

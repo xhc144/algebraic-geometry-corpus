@@ -45,7 +45,7 @@ P. Berthelot
 \]
 对每个滤过 \(K\)-代数 \(A\) 和每个级数 \(\psi\in\Ghat(A)\), 存在唯一的同态
 \[
-  f_\psi\in K[X_i]_{i\geq 1}\longrightarrow A
+  f_\psi:K[X_i]_{i\geq 1}\longrightarrow A
 \]
 使得
 \[
@@ -962,19 +962,20 @@ K' \arrow[r,"\lambda_t"'] &
 \]
 其余关系由图
 \[
-\begin{tikzcd}[column sep=tiny]
+\begin{gathered}
+\begin{tikzcd}[column sep=3.2em,row sep=large]
 \Ghat^t\times\Ghat^t \arrow[r,"\lambda_u\times\lambda_u"] \arrow[d,"\circ"'] &
 (\Ghat^u\circ\Ghat^t)\times(\Ghat^u\circ\Ghat^t) \arrow[d,"\circ"]\\
 \Ghat^t \arrow[r,"\lambda_u"'] &
 \Ghat^u\circ\Ghat^t,
-\end{tikzcd}
-\qquad
-\begin{tikzcd}[column sep=tiny]
+\end{tikzcd}\\[1.3em]
+\begin{tikzcd}[column sep=3.2em,row sep=large]
 \Ghat^t \arrow[r,"\lambda_v"] \arrow[d,"\lambda_u"'] &
 \Ghat^v\circ\Ghat^t \arrow[d,"\Ghat^v(\lambda_u)"]\\
 \Ghat^u\circ\Ghat^t \arrow[r,"\lambda_v"'] &
 \Ghat^v\circ\Ghat^u\circ\Ghat^t,
 \end{tikzcd}
+\end{gathered}
 \]
 的交换性验证. 由 \hyperlink{sga6.e05.thm.1-10}{1.10}, 只需在元素 \(1+Xt\) 和 \(1+Yt\) 上检验这些交换图. 对于第一个图,
 \[
@@ -1456,14 +1457,15 @@ A \arrow[r,"\gamma_u"] \arrow[d,"\gamma_t"'] & \Gnabla^u(A) \arrow[d,"\Gnabla^u(
 \end{aligned}
 \]
 各 \(R_{n,a}\) 关于 \(\gamma^jX\) 为权 \(n\) 的等权多项式（\hyperlink{sga6.e05.para.3-8}{3.8}）; 将两者相乘即得引理.
-% 原书此处写 R_{n,a}; 其参数与 epsilon(a) 的关系记录于审计, 不静默改写原书记号.
+\footnote{译校注: 原书第 336 页此处写 \(R_{n,a}\). 按 3.8 中属于底环的参数及本式的展开, 此处应为 \(R_{n,\epsilon(a)}\); 正文保留原印.}
 
-\sgaStableTarget{sga6.e05.prop.4-12}\textbf{命题 4.12.} 对每个 \(k\ge0\),
+\sgaStableTarget{sga6.e05.prop.4-12}\textbf{命题 4.12.} 对每个 \(k\ge0\),\footnote{译校注: 原书第 336 页 4.10 将 \(M_j\) 定义为恰权 \(j\) 的单项式, 但此尾项若按通常生成理想解释则不足: 取 \(A=K=\mathbb Z\)、\(k=1\), 右端不含自由变量 \(\gamma^3X\). 所需尾部应包含所有权至少 \(k+1\) 的单项式, 即 \(\sum_{j\geq k+1}A M_j\). 第 337--338 页 4.13(i) 和 4.15 的同类简记有同一问题. 本文保留原式.}
 \sgaStableTarget{sga6.e05.eq.4-12-1}\begin{equation}\tag{4.12.1}
   \Fil^kB=
   \Fil^kA+\Fil^{k-1}A\,M_1+\cdots+\Fil^1A\,M_{k-1}
   +\Fil^0A\,M_k+B\,M_{k+1}.
 \end{equation}
+
 % 依据法文原书 PDF350--351 / 印刷页336--337 恢复完整证明.
 \emph{证明.} 显然, 右边的理想包含于左边的理想; 因而只需证明反向包含.
 
@@ -1476,7 +1478,8 @@ A \arrow[r,"\gamma_u"] \arrow[d,"\gamma_t"'] & \Gnabla^u(A) \arrow[d,"\Gnabla^u(
 最后, 多项式 \(P'_k\) 没有权 \(<k\) 的等权分量, 因而归结到 \(\gamma^k(\gamma^jX)\) 的情形; 而此情形本身来自多项式 \(Q'_{j,k}\) 没有权 \(<k\) 的等权分量这一事实（\hyperlink{sga6.e05.para.3-6}{3.6}）.
 
 % 依据法文原书 PDF351 / 印刷页337 恢复三项原注, 删除英文底稿的压缩改写.
-\sgaStableTarget{sga6.e05.rem.4-13}\textbf{注 4.13.}
+\newpage
+\sgaStableTarget{sga6.e05.rem.4-13}\textbf{注 4.13.}\nopagebreak[4]
 \begin{enumerate}[label=\roman*)]
 \item \hyperlink{sga6.e05.prop.4-12}{4.12} 中给出的 \(\Fil^kB\) 的分解是 \(A\)-模的直和分解. 换言之, 若 \(b\in\Fil^kB\), 并写成
 \[
@@ -1661,10 +1664,11 @@ A \arrow[r,"\gamma_u"] \arrow[d,"\gamma_t"'] & \Gnabla^u(A) \arrow[d,"\Gnabla^u(
 \]
 中 \(t^p\) 的系数.
 
-\sgaStableTarget{sga6.e05.prop.5-7}\textbf{命题 5.7.} 设 \(K\) 为二项式环, \(A\) 为增广 \(K\)-\(\lambda\)-代数, \(N\in A\) 满足 \(k>d\) 时 \(\lambda^k(N)=0\). 则对每个 \(x\in A\) 及每个 \(p\ge1\), 有
+\sgaStableTarget{sga6.e05.prop.5-7}\textbf{命题 5.7.} 设 \(K\) 为二项式环, \(A\) 为增广 \(K\)-\(\lambda\)-代数, \(N\in A\) 满足 \(k>d\) 时 \(\lambda^k(N)=0\). 则对每个 \(x\in A\) 及每个 \(p\ge1\), 有\footnote{译校注: 原书第 343--344 页未列出证明所需的条件 \(\epsilon(N)=d\). 例如在恒等增广的 \(A=K=\mathbb Z\) 中, 取 \(N=0,d=1,x=1,p=2\), 虽然高外幂消失, 却有 \(\gamma^2(0,1)=1\notin\Fil^1\mathbb Z=0\). 本文保留原命题的假设, 不擅加条件.}
 \sgaStableTarget{sga6.e05.eq.5-7-1}\begin{equation}\tag{5.7.1}
   \gamma^p(N,x)\in\Fil^{p-d}A.
 \end{equation}
+
 事实上, 设 \(A_0\) 为由 \(N'_0,X'_0\), 在 \(k>d\) 时 \(\gamma^k(N'_0)=0\) 的关系下生成的 \(K\)-\(\lambda\)-代数, 增广定义为 \(\epsilon(N'_0)=\epsilon(X'_0)=0\). 它是在 \(K\) 上以 \(\gamma^i(N'_0)\), \(1\le i\le d\), 及 \(\gamma^j(X'_0)\), \(j\ge1\), 为变量的多项式代数; 其 \(\lambda\)-滤过为权滤过, 其中赋予 \(\gamma^i(N'_0)\) 及 \(\gamma^i(X'_0)\) 权 \(i\)（\hyperlink{sga6.e05.prop.4-12}{4.12} 和 \hyperlink{sga6.e05.cor.4-15}{4.15}）. 置
 \[
   N_0=N'_0+d,
@@ -1796,7 +1800,7 @@ A \arrow[r,"\gamma_u"] \arrow[d,"\gamma_t"'] & \Gnabla^u(A) \arrow[d,"\Gnabla^u(
 
 \sgaStableTarget{sga6.e05.expose.occ2}
 
-\sgaStableTarget{sga6.e05.def.6-2}\textbf{定义 6.2.} 在 \hyperlink{sga6.e05.para.6-1}{6.1} 中定义的分次 \(K\)-代数范畴上取值于 \(K\)-\(\lambda\)-代数范畴的函子, 称为 \emph{Chern 环}; 它在 \(A\in\operatorname{Ob}(\mathscr C)\) 上的值记为 \(\Ch(A)\), 在可能混淆时记为 \(\Ch_K(A)\).
+\sgaStableTarget{sga6.e05.def.6-2}\textbf{定义 6.2.} 在 \hyperlink{sga6.e05.para.6-1}{6.1} 中定义的分次 \(K\)-代数范畴上取值于 \(K\)-\(\lambda\)-代数范畴的函子, 称为 \emph{Chern 环}; 它在 \(A\in\operatorname{Ob}(\mathscr C_g)\) 上的值记为 \(\Ch(A)\), 在可能混淆时记为 \(\Ch_K(A)\).
 
 由公式 \hyperlink{sga6.e05.eq.6-1-1}{(6.1.1)}, \hyperlink{sga6.e05.eq.6-1-2}{(6.1.2)}, \hyperlink{sga6.e05.eq.6-1-4}{(6.1.4)} 及 \hyperlink{sga6.e05.eq.3-6-2}{(3.6.2)}, 推出关系式
 \sgaStableTarget{sga6.e05.eq.6-2-1}\begin{equation}\tag{6.2.1}
@@ -2214,7 +2218,7 @@ A \arrow[r,"\gamma_t"] \arrow[d,"\widetilde c"'] &
 \[
   \Gr(\widetilde c)\bigl(\gamma^i(x)\bigr)
   =
-  \cl_{\Gr^i}\bigl(\gamma^i(c(x))\bigr).
+  \cl_{\Gr^i}\bigl(\gamma^i(\widetilde c(x))\bigr).
 \]
 但由 \hyperlink{sga6.e05.cor.6-6-4}{(6.6.4)}, \(\gamma^i(\widetilde c(x))=(0,1+(-1)^{i-1}(i-1)!c^i(x)+\cdots)\). 因此
 \[
@@ -2447,7 +2451,7 @@ K ,
 结论得证.
 
 % 法文 PDF377 / 印刷页363: 恢复原图的箭头方向及两条复合式, 英文稿对此有多处改坏.
-为证明最后一个关系式, 先注意图
+为证明最后一个关系式, 先注意图\footnote{译校注: 原书第 363 页 (7.5.3) 的底箭头从 \(K\) 指向 \(\widehat G^t(K)\), 标作 \(g^k\); 按 \(g^k\) 的定义及随后的复合式, 此处将该箭头反向绘出.}
 \sgaStableTarget{sga6.e05.eq.7-5-3}\begin{equation}\tag{7.5.3}
 \begin{tikzcd}[column sep=large,row sep=large]
 \widehat G^t(K) \arrow[r,"\lambda_u"] \arrow[d,"g^{kk'}"'] &
@@ -2455,6 +2459,7 @@ K ,
 K & \widehat G^t(K) \arrow[l,"g^k"]
 \end{tikzcd}
 \end{equation}
+
 交换. 与前面一样, 只需对 \(1+Xt\) 验证, 有
 \[
  \begin{aligned}
