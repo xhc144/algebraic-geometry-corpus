@@ -6,14 +6,14 @@
 
 | 工作区 | 书目 | 范围 | 状态 |
 |---|---|---|---|
-| `sga3-a/` | SGA 3 | I, II, III, IV, V, VI-A, VI-B, VII-A, VII-B, VIII, IX, X, XI, XII | 原作者续作；新交付待回执 |
+| `sga3-a/` | SGA 3 | I, II, III, IV, V, VI-A, VI-B, VII-A, VII-B, VIII, IX, X, XI, XII | 已交777页完整初译；语义错链／校验表补丁待回执 |
 | `sga3-b/` | SGA 3 | XIII, XIV, XV, XVI, XVII, XVIII, XIX, XX, XXI, XXII, XXIII, XXIV, XXV, XXVI | 已整合main；557页；完整英文源组件对读，原本／外引疑点保留 |
 | `sga4-a/` | SGA 4 | I, II, III, IV, V, V-bis, VI, VII, VIII, IX | 已整合main；463页；法中全文对读，原书残引保留 |
 | `sga4-b/` | SGA 4 | X, XI, XII, XIII, XIV, XV, XVI, XVII, XVIII, XIX | 已整合main；298页；英文源全范围对读，原著疑点保留 |
 | `sga4half/` | SGA 4½ | I, II, III, IV, V, VI, VII, VIII | 已整合main；200页；317页法文对读，原著疑点保留 |
 | `sga5/` | SGA 5 | I, III, III-B, V, VI, VII, VIII, X, XII, XV | 已整合验收记录；271页合格译文原字节保留 |
-| `sga6/` | SGA 6 | 0, RRR-appendix, I, II, III, IV, V, VI, VII, VIII, IX, X, XII, XIII, XIV | 原作者续作；已核实远端424页快照 |
-| `sga7-i/` | SGA 7-I | I, II, VI, VII, VIII, IX | 已整合main；297页；完整英文组件对读，原卷导言补缺待新回执 |
+| `sga6/` | SGA 6 | 0, RRR-appendix, I, II, III, IV, V, VI, VII, VIII, IX, X, XII, XIII, XIV | 已整合main；441页；原本补缺／校验表修复已验收 |
+| `sga7-i/` | SGA 7-I | I, II, VI, VII, VIII, IX | 已整合main；300页；原卷导言及目录补缺已验收 |
 | `sga7-ii/` | SGA 7-II | X, XI, XII, XIII, XIV, XV, XVI, XVII, XVIII, XIX, XX, XXI, XXII | 已整合main；289页；原Leitfaden关系图仍缺 |
 | `fga-explained/` | FGA Explained | 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, bibliography, index | 已整合main；313页；354页底本对读及索引核验 |
 | `fga/` | FGA | foreword, 1, 2, 3.I, 3.II, 3.III, 3.IV, 3.V, 3.VI, bibliography | 已整合main；124页修订稿；VI脚注正文继续查证 |
@@ -28,8 +28,8 @@ FGA 由协调者负责；其余十个作者目录由父线程启动的任务独�
 - 各SGA与FGA Explained检查点、固定提交、原本覆盖风险和独立审查状态统一见[_coord/REVIEW_QUEUE.json](_coord/REVIEW_QUEUE.json)与[来源风险](_coord/COVERAGE_RISKS.json)。已有全篇初稿不代表最终审定；有些检查点仍在作者分支，保留至复核整合，不改写历史。
 - SGA3-a早期检查点及SGA7-II的独立重建/源文发现，见[_coord/reviews/](_coord/reviews/)。这些报告明确限制了审查范围。
 
-当前恢复差距表见 [_coord/RESUME_INVENTORY.json](_coord/RESUME_INVENTORY.json)。[_coord/PAUSED.md](_coord/PAUSED.md)及其JSON保留为2026-10-21历史暂停记录，不代表当前状态。SGA6的424页快照已核实保存到恢复分支`translation/sga6-resume-20261022`（6ce4142），原作者仍在补缺；394页是历史稿。
+当前恢复差距表见 [_coord/RESUME_INVENTORY.json](_coord/RESUME_INVENTORY.json)。[_coord/PAUSED.md](_coord/PAUSED.md)及其JSON保留为2026-10-21历史暂停记录，不代表当前状态。SGA6的441页原本补缺与元数据修补已正常整合（97fd630）；394、424页均为历史稿。
 
-2026-10-23已正常整合main的恢复交付：SGA5（271页）、SGA4½（200页）、SGA3-b（557页）、SGA4-a（463页）、SGA4-b（298页）、SGA7-I（297页）、SGA7-II（289页）、FGA Explained（313页）、FGA（124页）。每卷原文覆盖、实际独立包重建及保留缺项见恢复总表和协调验收记录；不据编译成功宣称全部原著证明已重验。FGA修订稿及总协调记录已正常合入main（6be71ee）；没有覆盖其他作者目录。
+2026-10-23已正常整合main的恢复交付：SGA5（271页）、SGA4½（200页）、SGA3-b（557页）、SGA4-a（463页）、SGA4-b（298页）、SGA7-I（300页）、SGA7-II（289页）、FGA Explained（313页）、FGA（124页）、SGA6（441页）。每卷原文覆盖、实际独立包重建及保留缺项见恢复总表和协调验收记录；不据编译成功宣称全部原著证明已重验。FGA修订稿及总协调记录已正常合入main（6be71ee）；没有覆盖其他作者目录。
 
 当前逐卷已保存范围、审校口径与剩余缺项见[_coord/RESUMED_STATUS.md](_coord/RESUMED_STATUS.md)。历史暂停表不作当前完成状态依据。
