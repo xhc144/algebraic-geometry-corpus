@@ -23,3 +23,7 @@ Actually inspected rendered PDF pages 1, 4 (blank), 5 (bibliography), 6, 7 and 1
 6. Joking Bourbaki phrasing (“secret papers”, “Tribe”, “cannot possibly be useful”, “decanulate the ordered pair”) is translated rather than omitted. “去掉有序对的管子表示” follows the historical Bourbaki tau/couple terminology; mathematical content was not modernized.
 
 Chosen English source completeness and Springer-original completeness are distinct. This translator did not proofread the complete French original, nor verify source prefaces or missing front matter. Full book and final integrated PDF verification remain with the coordinator.
+
+## 2026-10-22续校更新
+
+张量积例的原扫描第一卷物理207页保有有限支撑括号，已恢复ZZ^{(X×Y)}。上次“重排文本亦同”不足以证明原扫描同形，相关疑点已据原扫描结案。

@@ -67,3 +67,13 @@
 \def\labelenumii{(\theenumii)}
 \def\labelenumiii{(\theenumiii)}
 \def\labelenumiv{(\theenumiv)}
+
+% Explicit translator-review notes have their own mark and do not renumber
+% author or inherited editor notes.
+\newcounter{sgazhreviewnote}
+\newcommand{\zhreviewnote}[1]{%
+  \stepcounter{sgazhreviewnote}%
+  \begingroup
+  \renewcommand{\thefootnote}{译校\arabic{sgazhreviewnote}}%
+  \footnote[\value{sgazhreviewnote}]{译校注：#1}%
+  \endgroup}

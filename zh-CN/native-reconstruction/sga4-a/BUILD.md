@@ -26,4 +26,4 @@ xelatex -no-shell-escape -interaction=nonstopmode -halt-on-error -file-line-erro
 
 原文中编号、箭头和残缺引文的疑点未批量“修正”；见各篇审校记录、`audit/REFERENCE_AUDIT.md` 与独立编号复核。`audit/FULL_CHUNK_MAP.json` 给出全部19正文区段的精确底本行界；`tools/check_full_scope.py` 可重现数学片段与结构差异盘点。
 
-当前项目已按用户指令暂停；不自动继续。精确暂停边界和恢复点见 `PAUSED.md`。最终独立源码包已实测两遍编译，463页，与工作目录PDF逐页提取文本完全一致。
+2026-10-22用户已明确恢复审校；历史暂停边界见 `PAUSED.md`，当前状态见 `PROGRESS.json`。最终独立源码包已实测两遍编译，463页，与工作目录PDF逐页提取文本完全一致。
