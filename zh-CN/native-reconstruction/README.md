@@ -35,3 +35,5 @@ FGA 由协调者负责；其余十个作者目录由父线程启动的任务独�
 当前逐卷已保存范围、审校口径与剩余缺项见[_coord/RESUMED_STATUS.md](_coord/RESUMED_STATUS.md)。历史暂停表不作当前完成状态依据。
 
 本轮汇总包使用上述最新已核验交付。SGA3现代再版卷首、SGA7-II原Leitfaden关系图、FGA VI脚注正文等未定位原件，及逐卷法文终校边界，均保留在当前总表；这些缺项不以新写文字冒充原文。
+
+汇总下载：[全部中文PDF（11卷、4033页）](_coord/distribution/AGC-zh-CN-all-PDFs-20261023.zip)、[全部原生LaTeX源码](_coord/distribution/AGC-zh-CN-all-sources-20261023.zip)，版本与校验信息见[交付页](_coord/distribution/README.md)。
