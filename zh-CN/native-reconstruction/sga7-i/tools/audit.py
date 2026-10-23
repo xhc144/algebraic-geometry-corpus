@@ -71,6 +71,8 @@ def main():
     assert hashlib.sha256(SOURCE.read_bytes()).hexdigest() == locked, 'Locked source changed'
     source = components(source_text)
     r2_repairs = json.loads((ROOT / 'qa/FIDELITY-R2-SOURCE-REPAIRS.json').read_text())
+    r3_refs = json.loads((ROOT / 'qa/FIDELITY-R3-REFERENCE-REPAIRS.json').read_text())
+    r3_math = json.loads((ROOT / 'qa/FIDELITY-R3-SOURCE-REPAIRS.json').read_text())
     chapters = sorted((ROOT / 'chapters').glob('*-zh.tex'))
     targets, duplicates = {}, []
     for chapter in chapters:
@@ -132,6 +134,22 @@ def main():
                                   'translation': repair['after'], 'count': repair['count'],
                                   'evidence': repair['evidence']})
             checked_original = checked_original.replace(repair['before'], repair['after'])
+        for entry in r3_refs:
+            if int(name.split('_')[0]) != entry['component']:
+                continue
+            tokens = list(re.finditer(r'\\SGA(?:RefLink|ExternalRef)\{([^}]+)\}\{([^}]+)\}', checked_original))
+            for patch in sorted(entry['patches'], key=lambda x: x['source_token_index'], reverse=True):
+                token = tokens[patch['source_token_index']]
+                assert token.group(0) == patch['source_token'], (name, patch)
+                checked_original = checked_original[:token.start()] + patch['expected_token'] + checked_original[token.end():]
+            named_repairs.append({'reference_repairs': entry, 'evidence': 'qa/FIDELITY-R3-CHANGES.json'})
+        for repair in r3_math:
+            if int(name.split('_')[0]) != repair['component']:
+                continue
+            assert checked_original.count(repair['before']) == repair['count'], repair['id']
+            checked_original = checked_original.replace(repair['before'], repair['after'])
+            named_repairs.append({'id': repair['id'], 'source': repair['before'], 'translation': repair['after'],
+                                  'count': repair['count'], 'evidence': repair['evidence']})
         layout_repairs = []
         if 'column sep=0.8em' in canonical_target:
             layout_repairs.append({'source': 'column sep=small', 'translation': 'column sep=0.8em', 'reason': '5.07216pt diagram overflow; symbols/arrows unchanged'})
@@ -156,7 +174,7 @@ def main():
             'unmatched_translation_formulas': summary_difference(normalized_target, normalized_original),
             'source_targets': re.findall(r'\\SGARef(?:Alias)?Target\{([^}]+)\}', original),
             'translation_targets': re.findall(r'\\SGARef(?:Alias)?Target\{([^}]+)\}', translated),
-            'references_same_multiset': Counter(re.findall(r'\\SGARefLink\{([^}]+)\}', original)) == Counter(re.findall(r'\\SGA(?:RefLink|ExternalRef)\{([^}]+)\}', translated)),
+            'references_same_multiset': Counter(re.findall(r'\\SGARefLink\{([^}]+)\}', checked_original)) == Counter(re.findall(r'\\SGA(?:RefLink|ExternalRef)\{([^}]+)\}', translated)),
             'environments_same_order': re.findall(r'\\begin\{([^}]+)\}', original) == re.findall(r'\\begin\{([^}]+)\}', translated),
             'source_footnote_count': len(re.findall(r'\\footnote(?:text|mark)?(?:\[.*?\])?\{', uncomment(original))),
             'translation_footnote_count': len(re.findall(r'\\footnote(?:text|mark)?(?:\[.*?\])?\{', uncomment(translated))),
