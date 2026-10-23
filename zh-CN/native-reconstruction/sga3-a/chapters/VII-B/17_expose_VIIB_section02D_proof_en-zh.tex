@@ -1,0 +1,153 @@
+% SGA 3，第 VII 篇_B，英文重建本——第 1 轮（中文译本）。
+% 范围：依据原文件第 4--6 页，从推论 0.2.D 的证明至命题 0.2.B 的证明结束。
+% 合并阅读版页码： 517--519. 再版印刷页码： 506--508.
+% 依据： Polo--Gille Exp7B-13oct24.pdf,
+% SHA-256 D303690E0195654BBE7C3DAA5D89EA23E24CD709A3575217234AC19AE8836694.
+% 曾参阅 Jacob Reinhold 的 CC BY 4.0 Markdown，作为对比版本来源。
+
+\medskip
+\noindent\textit{证明。}
+\phantomsection
+\label{sga3:VIIB:0.2.D-proof}
+设 \((L_j)\) 是 \(M\) 的所有开子模构成的滤过递减族。我们赋予 \(M/K\)
+商拓扑，即由开子模 \((K+L_j)/K\) 构成 \(0\) 的邻域基。
+由于 \(K\) 是闭的，它等于所有 \(K+L_j\) 的交，因此映射
+\[
+  \tau:M/K\longrightarrow\varprojlim_j M/(K+L_j)
+\]
+是单射。它也是开映射，因为右端是离散模 \(M/(K+L_j)\) 的逆极限。
+此外，对于每个 \(j\)，映射
+\[
+  t_j:M/L_j\longrightarrow M/(K+L_j)
+\]
+是满射，并具有 Artin 核。因此，由前面的引理，下列交换图中的映射 \(t\) 是满射：
+\begin{center}
+  \phantomsection
+  \label{sga3:VIIB:0.2.D-quotient-completion-square}
+  % SGA3-VII-DIAG-079
+  \input{figures/exp7/viib_15_95/diag_079}
+\end{center}
+由于 \(M\) 完备，\(p\) 是同构，故 \(\tau\) 是满射，从而是同构。这就证明了
+\textup{\SGARefLink{sga3:vii:paragraph:5-1:equation:i}{(i)}}.
+
+% 依据： Exp7B 原文件页码 5; 合并阅读版页码 518;
+% 再版印刷页码 507.
+\phantomsection
+\label{sga3:VIIB:0.2.D-proof-ii-a}
+下面证明 \textup{\SGARefLink{sga3:vii:paragraph:5-1:equation:ii}{(ii)}(a)}。
+由上述结论，对于每个 \(i\) 都有同构
+\[
+  M/M_i\xrightarrow{\sim}\varprojlim_j M/(M_i+L_j),
+\]
+所以下列交换图中的两条水平箭头都是同构：
+\begin{center}
+  \phantomsection
+  \label{sga3:VIIB:0.2.D-filtered-family-square}
+  % SGA3-VII-DIAG-080
+  \input{figures/exp7/viib_15_95/diag_080}
+\end{center}
+此外，对于每个 \(j\)，由于 \(M/L_j\) 是 Artin 模，子模族
+\((M_i+L_j)/L_j\) 有最小元。因此，态射
+\[
+  s_j:M/L_j\longrightarrow\varprojlim_i M/(L_j+M_i)
+\]
+是满射；因此，由前面的引理，\(s\) 是满射。于是 \(g\) 是满射。
+最后，\(g\) 的核是各 \(M_i\) 的逆极限，即它们的交。这就证明了 \textup{\SGARefLink{sga3:VIIB:0.2.D:item:a}{(a)}}.
+
+\phantomsection
+\label{sga3:VIIB:0.2.D-proof-ii-b}
+下面由此推出 \textup{(b)}。由于 \(N\) 是闭子模，因而分离且完备，
+它对于 \(M\) 的拓扑所诱导的拓扑是伪紧模。因此，由 \textup{(a)}，
+下列交换正合图中的态射 \(f\) 和 \(g\) 都是满射：
+\begin{center}
+  \phantomsection
+  \label{sga3:VIIB:0.2.D-snake-exact-diagram}
+  % SGA3-VII-DIAG-081
+  \input{figures/exp7/viib_15_95/diag_081}
+\end{center}
+于是“蛇引理”表明序列
+\[
+  0\longrightarrow\ker f\longrightarrow\ker g
+  \longrightarrow\ker h\longrightarrow 0
+\]
+正合，而等式
+\[
+  N+\bigcap_i M_i=\bigcap_i(N+M_i)
+\]
+随之成立。
+
+\phantomsection
+\label{sga3:VIIB:0.2.B-proof}
+现在可以证明\SGARefLink{sga3:vii:proposition:0-2-b}{命题~0.2.B}。
+设 \(f:M\to N\) 是伪紧 \(A\)-模的态射。则 \(K=\ker(f)\) 是 \(M\) 的闭子模，
+因而分离且完备；所以，赋予 \(M\) 的拓扑所诱导的拓扑的 \(K\) 是伪紧模。
+由 \SGARefLink{sga3:VIIB:0.2.D}{0.2.D}\,\textup{\SGARefLink{sga3:vii:paragraph:5-1:equation:i}{(i)}}，
+赋予商拓扑的模 \(M/K\) 是伪紧的。
+
+下面证明连续双射态射
+\[
+  M/K\longrightarrow\operatorname{Im}(f)
+\]
+是双连续的。将 \(M/K\) 与 \(\operatorname{Im}(f)\) 等同后，
+只须证明由 \(N\) 的拓扑诱导的拓扑 \(T\) 比商拓扑 \(Q\) 更细。\footnote{法文再版本在这里说 \(Q\) 比 \(T\) 更细；随后的论证证明了开集之间的反向包含关系，
+这才是证明双连续性所需的关系。} 设 \((L_j)\) 和 \((N_i)\) 分别是 \(M\) 和 \(N\) 的开子模的
+滤过递减族，并令
+\[
+  N_i'=N_i\cap\operatorname{Im}(f).
+\]
+设 \(P=(K+L_j)/K\) 是 \(M/K\) 的一个对 \(Q\) 开的子模。
+由于 \(M/(K+L_j)\) 是 Artin 模，族 \(N_i'+P\) 有最小元
+\(N_{i_0}'+P\)。各 \(N_i'\) 对 \(T\) 开，从而也对该拓扑闭，
+因此也对 \(Q\) 闭。由
+\SGARefLink{sga3:VIIB:0.2.D}{0.2.D}\,\textup{\SGARefLink{sga3:vii:paragraph:5-1:equation:ii}{(ii)}\SGARefLink{sga3:VIIB:0.2.D:item:b}{(b)}} 得
+\[
+  N_{i_0}'+P
+  =\bigcap_i(N_i'+P)
+  =P+\bigcap_i N_i'
+  =P,
+\]
+故 \(N_{i_0}'\subset P\)。于是 \(P\) 对 \(T\) 开，
+因此 \(M/K\to\operatorname{Im}(f)\) 是伪紧模的同构。
+
+特别地，\(\operatorname{Im}(f)\) 对 \(T\) 完备，从而在 \(N\) 中闭。
+再次由 \SGARefLink{sga3:VIIB:0.2.D}{0.2.D}\,\textup{\SGARefLink{sga3:vii:paragraph:5-1:equation:i}{(i)}}，
+赋予商拓扑的 \(\operatorname{Coker}(f)\) 是伪紧的。这证明了
+\(\operatorname{PC}(A)\) 是阿贝尔范畴。
+
+\(\operatorname{PC}(A)\) 中还存在任意逆极限：若 \((M_i)\) 是伪紧模的逆系，
+则其逆极限的
+% 依据： Exp7B 原文件页码 6; 合并阅读版页码 519;
+% 再版印刷页码 508.
+底模是各底模的逆极限，并赋予逆极限拓扑。此外，若在
+\(\operatorname{PC}(A)\) 中有一族正合列
+\[
+  0\longrightarrow K_i\longrightarrow M_i
+  \longrightarrow Q_i\longrightarrow 0,
+\]
+则序列
+\[
+  0\longrightarrow\prod_i K_i\longrightarrow\prod_i M_i
+  \longrightarrow\prod_i Q_i\longrightarrow 0
+\]
+正合。由此得到 \SGARefLink{sga3:vii:proposition:0-2-b}{0.2.B} 的断言
+\textup{\SGARefLink{sga3:vii:proposition:0-2-b:item:iii}{(iii)}}，因为在任意存在任意积的阿贝尔范畴中，
+\SGARefLink{sga3:VIIB:0.2.D}{0.2.D} 的条件
+\textup{\SGARefLink{sga3:VIIB:0.2.D:item:a}{(a)}} 与
+\textup{\SGARefLink{sga3:VIIB:0.2.D:item:b}{(b)}} 等价，并且都等价于滤过逆极限的正合性
+（\textup{参见}\ [Mi65]，III，\SGARefLink{sga3:iii:subsection:1-2}{1.2}--1.9，
+或 [Po73]，第~2 章，定理~8.6）。
+
+最后，每个伪紧模 \(M\) 都是积
+\[
+  \prod_L M/L,
+\]
+的子模，其中 \(L\) 遍历 \(M\) 的开子模。因此，有限长度的对象构成
+\(\operatorname{PC}(A)\) 的一族余生成元。（此外，每个长度为 \(n\) 的对象
+都同构于某个商 \(A^n/L\)，其中 \(L\) 是 \(A^n\) 的余长度为 \(n\) 的开子模；
+所以这些商构成一个余生成元\emph{集合}。）这就完成了
+\SGARefLink{sga3:vii:proposition:0-2-b}{0.2.B} 的证明。
+
+% 下一断点： Exp7B 原文件页码 6, 合并阅读版页码 519,
+% 再版印刷页码 508, 编者注 (10) 及下段之始：
+% 以“设 (Ab) 为阿贝尔群范畴”起。修订版
+% 依据在此处的 0.2.1 前插入了 0.2.E--0.2.G。

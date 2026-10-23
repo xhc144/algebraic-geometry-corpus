@@ -1,0 +1,391 @@
+% SGA 3，第 VII 篇_A，中文重构——第 1 轮。
+% 范围：权威底本本地第 9--14 页，第 2 节全文，止于本地第 15 页第 3 节标题之前。
+% 合并阅读本页码： 462--467. 再版本印刷页码： 451--456.
+% 本段原版页边定位： 419--425.
+% 权威底本：Polo--Gille Exp7A-13oct24.pdf,
+% SHA-256 D46DB8C79D0385643B6EED4B96900613248375F9B73B4202478A4F57FD3E8522.
+% 参照了 Jacob Reinhold 的 CC BY 4.0 Markdown 作为比对谱系。
+
+\SGAInlineRefTarget{sga3:VIIA:nde:2}\section*{2. 群概形上的不变微分算子}
+\phantomsection
+\label{sga3:VIIA:2}
+\addcontentsline{toc}{section}{2. 群概形上的不变微分算子}
+
+% 权威底本： Exp7A 本地页 9; 合并阅读本页 462; 印刷页 451.
+\medskip
+\noindent\textbf{2.1.}
+\phantomsection
+\label{sga3:VIIA:2.1}
+设 \(G\) 是一个 \(S\)-群概形；其单位截面记为 \(\varepsilon\)，或 \(\varepsilon_G:S\to G\)。
+
+\medskip
+\noindent\textbf{定义.}
+\textit{设 \(U(G)\) 是 \(\varepsilon_G\) 的 \(S\)-偏差（或原点的 \(S\)-偏差）所成的 \(\Gamma(\mathcal O_S)\)-模，参见 \SGARefLink{sga3:VIIA:1.1}{1.1}。}
+
+\textit{若 \(d,e\in U(G)\)，则 \(d\times e\) 是下述态射的一个 \(S\)-偏差：
+\[
+  \varepsilon\times\varepsilon:
+  S\simeq S\times S\longrightarrow G\times G.
+\]
+按照 \SGARefLink{sga3:VIIA:1.2}{1.2}，\(d\times e\) 在乘法态射 \(m:G\times G\to G\) 下的像称为 \(d\) 与 \(e\) 的\emph{积}，记为 \(d\cdot e\)。}
+
+\textit{由此，\(\Gamma(\mathcal O_S)\)-模 \(U(G)\) 成为以 \(\varepsilon_G\) 为单位元的结合 \(\Gamma(\mathcal O_S)\)-代数。称 \(U(G)\) 为 \(G\) 的\emph{无穷小代数}。}\footnote{现在通常称它为 \(G\) 的（原点处的）分布代数；见 Demazure--Gabriel，II.4，\SGARefLink{sga3:VIIA:6.1}{6.1}，以及 Jantzen，I.7.7。}
+
+当 \(T\) 遍历 \(S\) 上方的概形时，\(T\)-群 \(G\times T\) 的无穷小代数 \(U(G_T)\) 显然反变地依赖于 \(T\)；因此可以谈论\emph{无穷小代数函子}。
+
+将 \(T\) 限于 \(S\) 的开子集，就得到一个 \(\mathcal O_S\)-代数预层 \(T\mapsto U(G_T)\)。由 \SGARefLink{sga3:VIIA:1.1.3}{1.1.3}，它是一个层。将它记为 \(\mathcal U(G)\)，称为 \(G\) 的\emph{无穷小代数层}。
+
+代数 \(U(G)\) 关于 \(G\) 也具有协变函子性。事实上，若 \(u:G\to H\) 是 \(S\)-群同态，且 \(d\) 是 \(\varepsilon_G\) 的一个 \(S\)-偏差，则它在 \(u\) 下的像是 \(U(H)\) 的元素
+\[
+  U(u)(d)=u d
+\]
+。所得映射 \(U(u):U(G)\to U(H)\) 是 \(\Gamma(\mathcal O_S)\)-代数同态。类似地，得到同态 \(\mathcal U(u):\mathcal U(G)\to\mathcal U(H)\)。
+
+\medskip
+\noindent\textbf{2.2.}
+\phantomsection
+\label{sga3:VIIA:2.2}
+设 \(d\in U(G)\)，即 \(d\) 是 \(G\) 的原点的一个 \(S\)-偏差。\(d\) 的基变换是 \(\varepsilon\times G:G\simeq S\times G\to G\times G\) 的 \(S\)-偏差
+\[
+  d\times G
+\]
+，参见 \SGARefLink{sga3:VIIA:1.2.2}{1.2.2}。它在乘法 \(m:G\times G\to G\) 下的像是下述态射的 \(S\)-偏差：
+\[
+  m\circ(\varepsilon\times\operatorname{id}_G)
+  =\operatorname{id}_G,
+\]
+因而是 \(\operatorname{Dif}_{G/S}\) 的一个元素，记为 \(d^G\)。
+
+映射 \(d\mapsto d^G\) 显然是 \(\Gamma(\mathcal O_S)\)-线性的。下列交换图表明
+\[
+  (e\cdot d)^G=d^G\cdot e^G.
+\]
+\begin{center}
+  \phantomsection
+  \label{sga3:VIIA:2.2-right-translation-associativity}
+  % SGA3-VII-DIAG-006
+  \input{figures/exp7/viia_00_04/diag_006_right_translation_associativity}
+\end{center}
+\footnote{编者将原图中的 \(d\times G\times G\) 改为 \(G\times d\times G\)。于是上方三角图左侧的复合为 \((e\times d)\times G\)，而 \(d\mapsto d^G\) 成为从 \(U(G)\) 到右不变微分算子的反同构（\SGARefLink{sga3:VIIA:2.3}{2.3}--\SGARefLink{sga3:VIIA:2.4}{2.4}）。若改将 \({}^Gd\) 定义为 \(G\times d\) 在 \(m\) 下的像，则类似地得到到左不变微分算子的同构。\SGARefLink{sga3:VIIA:2.4}{2.4} 与 \SGARefLink{sga3:VIIA:2.5}{2.5} 已相应修正。}
+
+由 \(d^G\) 和 \(e^G\) 的定义，下方两个三角图交换。由 \SGARefLink{sga3:VIIA:1.2.2}{1.2.2}，\(e\times G\) 与 \(G\times d\times G\) 的复合 \(S\)-偏差是 \((e\times d)\times G\)。它在 \(m\times G\) 下的像是 \((e\cdot d)\times G\)，所以后者在 \(m\) 下的像是 \((e\cdot d)^G\)。
+
+于是得到 \(\Gamma(\mathcal O_S)\)-代数的反同态
+\[
+  U(G)\longrightarrow\operatorname{Dif}_{G/S}
+\]
+，称为\emph{右平移}。\footnote{称其为\emph{左作用}更妥。例如，若 \(d\) 是原点的一个 \(S\)-导子，则由 \SGARefLink{sga3:VIIA:1.2.1}{1.2.1}，它是 \((\tau,\partial_t):S\to I_S\) 与满足 \(x\circ\tau=\varepsilon\) 的态射 \(x:I_S\to G\) 的复合。\(\mathcal O_G\) 的导子 \(d^G\) 将局部截面 \(\varphi\) 映到截面 \(g\mapsto\partial_t\varphi(xg)\)。采用这一术语，就可说左作用与右平移交换。}
+
+若如 \SGARefLink{sga3:VIIA:1.4}{1.4} 以 \(\mathcal{Dif}_{G/S}\) 表示 \(G\) 上的 \(S\)-微分算子层，且 \(p:G\to S\) 是结构态射，则类似地定义右平移
+\[
+  \mathcal U(G)\longrightarrow p_*(\mathcal{Dif}_{G/S}).
+\]
+
+\medskip
+\noindent\textbf{2.3.}
+\phantomsection
+\label{sga3:VIIA:2.3}
+现刻画 \(G/S\) 上形如 \(d^G\) 的微分算子。设 \(g:S\to G\) 为结构态射的一个截面，并用 \(g_G\) 表示按 \(g\) 的右平移，即
+\[
+  g_G:
+  G\simeq G\times S
+  \xrightarrow{G\times g}G\times G
+  \xrightarrow{m}G.
+\]
+对 \(G/S\) 上的每个微分算子 \(D\)，复合
+\[
+  g_G^{-1}Dg_G
+\]
+仍是 \(\operatorname{id}_G\) 的一个 \(S\)-偏差，因而是 \(\operatorname{Dif}_{G/S}\) 的元素。记
+\[
+  D^g=g_G^{-1}Dg_G.
+\]
+称 \(D\) 是\emph{右不变的}，如果对每个基变换 \(t:T\to S\) 和每个截面 \(g:T\to G\times T\)，都有
+\[
+  (D_T)^g=D_T.
+\]
+
+\medskip
+\noindent\textbf{引理.}
+\phantomsection
+\label{sga3:VIIA:2.3-invariance-lemma}
+\textit{对 \(G/S\) 上的每个微分算子 \(D\)，下列断言等价，其中 \(m\) 为 \(G\) 的乘法态射：}
+\begin{enumerate}
+\item[\textit{(i)}] \textit{\(D\) 是右不变的。}
+\item[\textit{\SGAInlineRefTarget{sga3:VIIA:2.3-invariance-lemma:item:ii}(ii)}] \textit{\(m\) 的下述两个偏差相等：}
+\[
+  Dm=m(D\times G).
+\]
+\end{enumerate}
+
+\noindent\((ii)\Rightarrow(i)\).
+由于条件 \SGARefLink{sga3:VIIA:2.3-invariance-lemma:item:ii}{(ii)} 在基变换下稳定，只须证明它对每个截面 \(g:S\to G\) 都蕴涵 \(D^g=D\)。置
+\[
+  h=G\times g:G\simeq G\times S\longrightarrow G\times G,
+\]
+于是 \(m\circ h=g_G\)。等式 \(D^g=D\) 等价于 \(g_G\circ D=D\circ g_G\)，后者由下列交换图得到：
+\begin{center}
+  \phantomsection
+  \label{sga3:VIIA:2.3-ii-implies-i}
+  % SGA3-VII-DIAG-007
+  \input{figures/exp7/viia_00_04/diag_007_invariance_implication_square}
+\end{center}
+
+\noindent\((i)\Rightarrow(ii)\).
+取 \(t:T\to S\) 为结构态射 \(p:G\to S\)，并取截面 \(g:T\to G\times T\) 为对角态射 \(\Delta:G\to G\times G\)。于是右平移
+\[
+  \Delta_{G\times G}:G\times G\longrightarrow G\times G
+\]
+的分量是 \(m\) 和 \(\operatorname{pr}_2\)。等式 \((D_G)^\Delta=D_G\) 等价于下图中第一个方块交换：
+\begin{center}
+  \phantomsection
+  \label{sga3:VIIA:2.3-i-implies-ii}
+  % SGA3-VII-DIAG-008
+  \input{figures/exp7/viia_00_04/diag_008_delta_translation_square}
+\end{center}
+因为 \(m=\operatorname{pr}_1\circ\Delta_{G\times G}\)。这就证明了 \SGARefLink{sga3:VIIA:2.3-invariance-lemma:item:ii}{(ii)}。
+
+现考虑 \(d\in U(G)\)。下图中的每个方块都交换：
+\begin{center}
+  \phantomsection
+  \label{sga3:VIIA:2.3-origin-deviation-invariant}
+  % SGA3-VII-DIAG-009
+  \input{figures/exp7/viia_00_04/diag_009_invariant_operator_rectangle}
+\end{center}
+由于
+\[
+  m\circ(d\times G)=d^G
+  \qquad\text{且}\qquad
+  (m\times G)\circ(d\times G\times G)=d^G\times G,
+\]
+还有
+\[
+  d^G\circ m=m\circ(d^G\times G).
+\]
+因此，对原点的每个 \(S\)-偏差 \(d\)，\(d^G\) 都是右不变微分算子。
+
+\medskip
+\noindent\textbf{定理 2.4.}
+\phantomsection
+\label{sga3:VIIA:2.4}
+\begin{enumerate}
+\item[\textit{\SGAInlineRefTarget{sga3:VIIA:2.4:item:i}(i)}]
+\textit{映射 \(d\mapsto d^G\) 是从无穷小代数 \(U(G)\) 到 \(\operatorname{Dif}_{G/S}\) 中由右不变微分算子组成的子代数 \(\operatorname{Dif}^{G}_{G/S}\) 的反同构。}
+\item[\textit{\SGAInlineRefTarget{sga3:VIIA:2.4:item:ii}(ii)}]
+\textit{类似地，映射 \(d\mapsto{}^Gd\) 是从 \(U(G)\) 到 \(\operatorname{Dif}_{G/S}\) 中由左不变微分算子组成的子代数的同构。}
+\end{enumerate}
+\footnote{编者将“同构”改为“反同构”，并补入断言 \SGARefLink{sga3:VIIA:2.4:item:ii}{(ii)}；见前面的编者注。}
+
+设 \(D\) 是 \(G/S\) 上任意微分算子，用 \(D_0\) 表示它\emph{在原点处的值}，即复合偏差
+\[
+  S\xrightarrow{\varepsilon}G
+   \mathop{\longrightarrow}^{D}_{\operatorname{id}_G}G.
+\]
+右不变微分算子 \((D_0)^G\) 由下述复合得到：
+\begin{center}
+  \phantomsection
+  \label{sga3:VIIA:2.4-D0-composite}
+  % SGA3-VII-DIAG-010
+  \input{figures/exp7/viia_00_04/diag_010_D0_composition_sequence}
+\end{center}
+若 \(D\) 右不变，则 \(Dm=m(D\times G)\)，从而
+\[
+  D=Dm(\varepsilon\times G)
+   =m(D\times G)(\varepsilon\times G)
+   =(D_0)^G.
+\]
+所以 \(d\mapsto d^G\) 是满射。
+
+反之，对原点的每个 \(S\)-偏差 \(d\)，有交换方块图
+\begin{center}
+  \phantomsection
+  \label{sga3:VIIA:2.4-origin-value-square}
+  % SGA3-VII-DIAG-011
+  \input{figures/exp7/viia_00_04/diag_011_origin_value_square}
+\end{center}
+由此得到
+\[
+  d=m(G\times\varepsilon)d
+   =m(d\times G)\varepsilon
+   =(d^G)_0.
+\]
+\textit{因而}，\(d\mapsto d^G\) 是单射。定理得证。
+
+让 \(S\) 变化，\SGARefLink{sga3:VIIA:2.4}{定理~2.4} 还表明右平移
+\[
+  \mathcal U(G)\longrightarrow p_*(\mathcal{Dif}_{G/S})
+\]
+是从 \(\mathcal U(G)\) 到 \(\mathcal O_S\)-代数层
+\[
+  p_*(\mathcal{Dif}_{G/S})^G,
+\]
+的反同构，该层将每个开集 \(V\subset S\) 对应到代数 \(\operatorname{Dif}^{G_V}_{G_V/V}\)。
+
+\medskip
+\noindent\textbf{注记 2.4.1.}
+\phantomsection
+\label{sga3:VIIA:2.4.1}
+考虑交换图
+\begin{center}
+  \phantomsection
+  \label{sga3:VIIA:2.4.1-eta-cartesian-square}
+  % SGA3-VII-DIAG-012
+  \input{figures/exp7/viia_00_04/diag_012_eta_cartesian_square}
+\end{center}
+其中 \(\eta\) 表示态射 \((x,y)\mapsto yx^{-1}\)。\footnote{因此 \(G\) 通过右平移左作用于自身。}
+它诱导态射
+\[
+  \eta':\eta^{-1}(\mathcal O_G)\longrightarrow\mathcal O_{G\times G}
+\]
+以及
+\[
+  \Delta^{-1}(\eta'):
+  p^{-1}\varepsilon^{-1}(\mathcal O_G)
+  \longrightarrow\Delta^{-1}(\mathcal O_{G\times G}).
+\]
+
+对每个整数 \(n\geq1\)，置
+\[
+  \mathfrak p^n_{G/S}
+  =
+  \varepsilon^{-1}(\mathcal O_G)/
+  \mathcal I_\varepsilon^{\,n+1}.
+\]
+\footnote{编者在此修正了原文：有关的笛卡尔方块由 \(\varepsilon,\eta,\Delta,p\) 组成，而非由 \(p,p,\eta,\operatorname{pr}_1\) 组成。}
+由于 \(\varepsilon,\eta,\Delta,p\) 组成的方块是笛卡尔的，\(\Delta^{-1}(\eta')\) 诱导 \(\mathcal O_G\)-模同构
+\[
+  p^*(\mathfrak p^n_{G/S})
+  \xrightarrow{\sim}
+  \mathcal P^n_{G/S}.
+\]
+因此，\(G/S\) 上阶数 \(\leq n\) 的微分算子一一对应于 \(\mathcal O_G\)-模同态
+\[
+  p^*(\mathfrak p^n_{G/S})\longrightarrow\mathcal O_G,
+\]
+或等价地，对应于 \(\mathcal O_S\)-模同态
+\[
+  \mathfrak p^n_{G/S}\longrightarrow p_*(\mathcal O_G).
+\]
+在此双射下，右不变微分算子对应于复合
+\begin{center}
+  \phantomsection
+  \label{sga3:VIIA:2.4.1-invariant-factorization}
+  % SGA3-VII-DIAG-013
+  \input{figures/exp7/viia_00_04/diag_013_invariant_factorization_sequence}
+\end{center}
+这样就重新得到了\SGARefLink{sga3:VIIA:2.4}{定理~2.4} 的同构。
+
+\medskip
+\noindent\textbf{2.5.}
+\phantomsection
+\label{sga3:VIIA:2.5}
+\footnote{编者重新安排了本段的顺序，从 \(\alpha:\operatorname{Lie}(G)\to U(G)\) 的定义开始，并按 \SGARefLink{sga3:VIIA:2.2}{2.2} 的注中所述修正了原文。}
+设 \(\operatorname{Lie}(G)\) 为 \(G\) 的 Lie 代数。\footnote{本篇中，对于一个 \(S\)-群概形 \(G\)（分别地，一个 \(S\)-概形 \(X\)），\(\operatorname{Lie}(G)\)（分别地，\(\operatorname{Lie}(\operatorname{Aut}X)\)）按第 II 篇 的记号表示 \(\operatorname{Lie}(G/S)(S)\)（分别地，\(\operatorname{Lie}(\operatorname{Aut}_S(X)/S)(S)\)）。由 II，\SGARefLink{sga3:ii:subsection:4-11}{4.11} 和 \SGARefLink{sga3:ii:subsection:3-14}{3.14}，它是一个 \(\Gamma(\mathcal O_S)\)-Lie 代数。}
+我们将定义 \(\Gamma(\mathcal O_S)\)-Lie 代数同态
+\[
+  \alpha:\operatorname{Lie}(G)\longrightarrow U(G).
+\]
+
+设 \(s:S\to I_S\) 为零截面，\(\sigma\) 为 \SGARefLink{sga3:VIIA:1.2.0}{1.2.0} 中定义的 \(s\) 的偏差。回顾 II，\SGARefLink{sga3:ii:subsection:4-1}{4.1}，\(\operatorname{Lie}(G)\) 是满足 \(x\circ s=\varepsilon_G\) 的态射 \(x:I_S\to G\) 的集合。复合
+\begin{center}
+  \phantomsection
+  \label{sga3:VIIA:2.5-sigma-x}
+  % SGA3-VII-DIAG-014
+  \input{figures/exp7/viia_00_04/diag_014_sigma_x_sequence}
+\end{center}
+是 \(\varepsilon_G\) 的一个 \(S\)-偏差，因而是 \(U(G)\) 的元素；按 \SGARefLink{sga3:VIIA:1.2}{1.2} 的记号，它记为 \(\sigma x\)。此外，由 \SGARefLink{sga3:VIIA:1.2.1}{1.2.1}，映射
+\[
+  \alpha:x\longmapsto\sigma x
+\]
+是从 \(\operatorname{Lie}(G)\) 到由 \(\varepsilon_G\) 的 \(S\)-导子组成的子模 \(\operatorname{Der}(\varepsilon_G)\subset U(G)\) 的 \(\mathcal O_S(S)\)-模同构。我们证明 \(\alpha\) 是 Lie 代数同态。\footnote{另见\SGARefLink{sga3:ii:subsection:4-11}{第 II 篇，4.11}。}
+
+设
+\[
+  \rho':U(G)\longrightarrow\operatorname{Dif}_{G/S}
+\]
+为将 \(\varepsilon_G\) 的 \(S\)-偏差 \(d\) 映到左不变微分算子 \({}^Gd\) 的代数同态，参见 \SGARefLink{sga3:VIIA:2.2}{2.2}。
+
+设
+\[
+  \rho:G\longrightarrow\operatorname{Aut}_S(G)
+\]
+为将 \(S\)-态射 \(g:T\to G\) 映到 \(G_T\) 上按 \(g\) 的右平移的群函子同态，即
+\begin{center}
+  \phantomsection
+  \label{sga3:VIIA:2.5-rho-right-translation}
+  % SGA3-VII-DIAG-015
+  \input{figures/exp7/viia_00_04/diag_015_rho_translation_sequence}
+\end{center}
+还由 \SGARefLink{sga3:VIIA:1.5}{1.5} 和 II，\SGARefLink{sga3:ii:subsection:3-14}{3.14} 回顾，
+\[
+ \operatorname{Lie}(\operatorname{Aut}G)
+ =
+ \operatorname{Lie}(\operatorname{Aut}_S(G)/S)(S)
+\]
+可等同于 \(G\) 的无穷小自同构，即在 \(G\) 上诱导恒等态射的 \(I_S\times G\) 的自同构。
+
+由于 \(\rho\) 是单态射，
+\[
+ \operatorname{Lie}(\rho):
+ \operatorname{Lie}(G/S)
+ \longrightarrow
+ \operatorname{Lie}(\operatorname{Aut}_S(G)/S)
+\]
+也为单态射（例如见第 II 篇，编者注~50）。所以
+\[
+  \operatorname{Lie}(\rho):
+  \operatorname{Lie}(G)\longrightarrow
+  \operatorname{Lie}(\operatorname{Aut}G)
+\]
+是单射。
+
+另一方面，由 \SGARefLink{sga3:VIIA:1.5}{1.5}，将 \(G\) 的每个无穷小自同构 \(u\) 映到微分算子 \(D_u\) 的映射 \(\beta\)，
+\begin{center}
+  \phantomsection
+  \label{sga3:VIIA:2.5-beta-sequence}
+  % SGA3-VII-DIAG-016
+  \input{figures/exp7/viia_00_04/diag_016_beta_automorphism_sequence}
+\end{center}
+是从 \(\operatorname{Lie}(\operatorname{Aut}G)\) 到 \(\operatorname{Dif}_{G/S}\) 中由 \(\mathcal O_G\) 的 \(p^{-1}(\mathcal O_S)\)-导子组成的 Lie 子代数的同构。
+
+对每个 \(x\in\operatorname{Lie}(G)\)，下列交换方块确定 \(x\) 在 \(\operatorname{Lie}(\rho)\) 下的像：
+\begin{center}
+  \phantomsection
+  \label{sga3:VIIA:2.5-lie-rho-square}
+  % SGA3-VII-DIAG-017
+  \input{figures/exp7/viia_00_04/diag_017_lie_rho_square}
+\end{center}
+由此图得到，\(\operatorname{Lie}(\rho)(x)\) 在 \(\beta\) 下的像是复合偏差
+\begin{center}
+  \phantomsection
+  \label{sga3:VIIA:2.5-composite-deviation}
+  % SGA3-VII-DIAG-018
+  \input{figures/exp7/viia_00_04/diag_018_composite_deviation_sequence}
+\end{center}
+由 \SGARefLink{sga3:VIIA:2.2}{2.2} 的编者注，它恰好是
+\[
+  {}^G(\sigma x)=\rho'(\alpha(x)).
+\]
+于是得到交换图
+\begin{center}
+  \phantomsection
+  \label{sga3:VIIA:2.5-lie-algebra-square}
+  % SGA3-VII-DIAG-019
+  \input{figures/exp7/viia_00_04/diag_019_lie_algebra_square}
+\end{center}
+其中 \(\operatorname{Lie}(\rho)\)、\(\beta\) 和 \(\rho'\) 都是 Lie 代数同态。由于 \(\rho'\) 是单射，\(\alpha\) 也是 Lie 代数同态。故有：
+
+\medskip
+\noindent\textbf{命题.}
+\phantomsection
+\label{sga3:VIIA:2.5-proposition}
+\textit{映射 \(\alpha\) 是从 \(\operatorname{Lie}(G)\) 到 \(\varepsilon_G\) 的 \(S\)-导子 Lie 代数的 \(\mathcal O_S(S)\)-Lie 代数同构；后者又通过 \(\operatorname{Lie}(\rho)\) 同构于 \(G\) 的左不变 \(S\)-导子 Lie 代数。}
+\footnote{存在环 \(A\) 上的 Lie 代数 \(\mathfrak g\)，其典范映射 \(\mathfrak g\to U(\mathfrak g)\) 不是单射；见 Bourbaki，\emph{Lie 群与 Lie 代数〔Lie Groups and Lie Algebras〕}，I.2，习题~9。由于 \(\alpha\) 经由
+\[
+  \operatorname{Lie}(G)\longrightarrow
+  U(\operatorname{Lie}(G))\longrightarrow U(G),
+\]
+分解，上述结果表明这不可能发生于“代数的”Lie 代数，即对于某个 \(A\)-群概形 \(G\) 形如 \(\operatorname{Lie}(G)\) 的 Lie 代数。}
+
+% 下一定位： Exp7A 本地页 15, 合并阅读本页 468,
+% 再版本印刷页 457, 在第 3 节标题处。

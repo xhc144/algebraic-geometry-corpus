@@ -1,0 +1,122 @@
+% SGA 3，第 XI 篇；根据英文重建源翻译。
+% 范围：第 2 节全部，含命题 2.5 及证明；止于第 3 节之前。
+% 权威来源：Polo--Gille Expo11.pdf，组件局部页 7--9；合卷页 729--731；印刷／原文页边页 137--141。
+% Jacob Reinhold 的 CC BY 4.0 Markdown 谱系仅用于措辞比较；文字、公式、编号、注释及图均以 Polo--Gille PDF 为准。
+% 精确续接／终点：第 3 节，Expo11 局部页 10／合卷页 732／原文页边页 141。
+
+\SGARefTarget{sga3:xi:section:2}\section*{2. 乘法型群理论中的形式平滑函子实例}\addcontentsline{toc}{section}{2. 乘法型群理论中的形式平滑函子实例}
+
+我们将用前一节引入的语言解释第九讲第~3 节关于从乘法型群出发的同态的无穷小延拓的结果。这些结果是第一讲中所建立的这类群的 Hochschild 上同调消失的推论。
+
+\medskip\noindent\SGARefTarget{sga3:xi:proposition:2:1}\textbf{命题 2.1。} --- \textit{设 \(S\) 为预概形，\(H\) 为 \(S\) 上的乘法型群，\(G\) 为在 \(S\) 上平滑的 \(S\)-群预概形。考虑 \(S\) 上的函子} \SGARefTarget{sga3:xi:display:2:1:hom-functor} \[
+  M_H=\operatorname{Hom}_{S\text{-}\mathrm{gr}}(H,G).
+\]\textit{它在 \(S\) 上的 \(S'\) 处的值是从 \(H_{S'}\) 到 \(G_{S'}\) 的 \(S'\)-群同态的集合。\SGARefLink{sga3:xi:display:2:1:hom-functor}{此函子} 在 \(S\) 上形式平滑。}
+
+参见 \SGARefLink{sga3:ix:theorem:3:6}{第 IX 篇，3.6}。更一般地：
+
+\medskip\noindent\SGARefTarget{sga3:xi:corollary:2:2}\textbf{推论 2.2。} --- \textit{设 \(S\)、\(G\) 如上，并考虑 \(S\) 上的乘法型群概形同态 \(u:H_1\to H_2\)。用上述记号，它诱导 \(S\) 上的函子态射} \SGARefTarget{sga3:xi:display:2:2:restriction-map} \[
+  M_{H_2}\longrightarrow M_{H_1},
+  \qquad
+  M_{H_i}=\operatorname{Hom}_{S\text{-}\mathrm{gr}}(H_i,G),
+\]\textit{，由 \(w\mapsto w\circ u\) 给出。\SGARefLink{sga3:xi:display:2:2:restriction-map}{此态射} 形式平滑。}
+
+事实上，由 \SGARefLink{sga3:xi:remark:1:6}{1.6} 中的定义，这等价于下述断言。设 \(S\) 仿射，\(S_0\subset S\) 为幂零理想定义的子概形。设 \SGARefTarget{sga3:xi:display:2:2:v} \[
+  v:H_1\longrightarrow G
+\] 为 \(S\)-群同态，\SGARefTarget{sga3:xi:display:2:2:w-zero} \[
+  w_0:(H_2)_{S_0}\longrightarrow G_{S_0}
+\] 为 \(S_0\)-群同态，且 \[
+  w_0u_{S_0}=v_{S_0}.
+\]。则存在延拓 \(w_0\) 并满足 \(wu=v\) 的 \(S\)-群同态 \SGARefTarget{sga3:xi:display:2:2:w} \[
+  w:H_2\longrightarrow G
+\]。
+
+为此，先将 \(w_0\) 延拓为 \(S\)-群同态 \[
+  w':H_2\longrightarrow G,
+\]；由 \SGARefLink{sga3:xi:proposition:2:1}{2.1} 这是可能的。置 \[
+  v'=w'u:H_1\longrightarrow G.
+\]。由关于 \(w_0\) 的假设，有 \(v'_{S_0}=v_{S_0}\)。因此由\SGARefLink{sga3:ix:theorem:3:6}{第 IX 篇，3.6}，存在元素 \(g\in G(S)\)，其在 \(G(S_0)\) 中的像为单位元，并且 \[
+  v=\operatorname{int}(g)v'.
+\]。由此得到 \[
+  v=\bigl(\operatorname{int}(g)w'\bigr)u,
+\]，所以只需取 \[
+  w=\operatorname{int}(g)w'.
+\]。
+
+\medskip\noindent\SGARefTarget{sga3:xi:corollary:2:3}\textbf{推论 2.3。} --- \textit{用 \SGARefLink{sga3:xi:proposition:2:1}{2.1} 的记号，将 \(M_H=M\) 视为带算子群 \(G\) 的函子，其中 \(G\) 通过 \[
+  (v,g)\longmapsto\operatorname{int}(g)\circ v.
+\] 作用。则由 \[
+  (g,v)\longmapsto\bigl(\operatorname{int}(g)\circ v,v\bigr),
+\] 定义的相应态射} \SGARefTarget{sga3:xi:display:2:3:action-map} \[
+  R:G\times_S M\longrightarrow M\times_S M,
+\]\textit{形式平滑。}
+
+作基变换 \(S'\to S\) 后，这等价于下述断言。
+
+\medskip\noindent\SGARefTarget{sga3:xi:corollary:2:4}\textbf{推论 2.4。} --- \textit{用 \SGARefLink{sga3:xi:proposition:2:1}{2.1} 的记号，设 \(v_1,v_2:H\to G\) 为两个 \(S\)-群态射，\(\operatorname{Transp}(v_1,v_2)\) 为 \(G\) 中由满足 \[
+  \operatorname{int}(g)\circ v_1=v_2.
+\] 的 \(g\) 构成的子函子。则此函子在 \(S\) 上形式平滑。特别地，若 \(v_1=v_2=v\)，则函子 \(\operatorname{Centr}(v)\)，即 \(G\) 中由满足 \(\operatorname{int}(h)v=v\) 的 \(h\) 构成的子群，在 \(S\) 上形式平滑。}
+
+\emph{注意。}可将对 \((v_1,v_2)\) 视为 \SGARefLink{sga3:xi:corollary:2:3}{2.3} 中态射 \(R\) 的目标的第二个因子在 \(S\) 上的截面，并将 \(\operatorname{Transp}(v_1,v_2)\) 视为此截面在 \(R\) 下的逆像函子。
+
+\SGARefLink{sga3:xi:corollary:2:4}{2.4} 的断言本身等价于下述陈述。设 \(S\) 仿射，\(S_0\subset S\) 为幂零理想定义的子概形。若 \(g_0\in G(S_0)\) 满足 \[
+  \operatorname{int}(g_0)(v_1)_{S_0}=(v_2)_{S_0},
+\]，则 \(g_0\) 延拓为满足 \[
+  \operatorname{int}(g)v_1=v_2.
+\] 的元素 \(g\in G(S)\)。为证明这一点，先将 \(g_0\) 延拓为 \(G\) 在 \(S\) 上的截面 \(g'\)；由于 \(G\) 在 \(S\) 上平滑，这是可能的。置 \[
+  v'_2=\operatorname{int}(g')v_1.
+\]。态射 \(v_2\) 与 \(v'_2\) 在 \(S_0\) 上的限制相同。因此由 \SGARefLink{sga3:ix:theorem:3:6}{第 IX 篇，3.6}，存在 \(g''\in G(S)\)，它在 \(S_0\) 上诱导单位截面，且满足 \[
+  v_2=\operatorname{int}(g'')v'_2.
+\]。所以 \[
+  v_2
+  =\operatorname{int}(g'')\operatorname{int}(g')v_1
+  =\operatorname{int}(g''g')v_1,
+\]，只需取 \(g=g''g'\)。
+
+\medskip\noindent\SGARefTarget{sga3:xi:proposition:2:1:bis}\textbf{命题 2.1 bis。} --- \textit{设 \(S\) 为预概形，\(G\) 为在 \(S\) 上平滑的 \(S\)-群预概形。考虑函子} \SGARefTarget{sga3:xi:display:2:1:bis:functor} \[
+  M:(\mathbf{Sch})^\circ/S\longrightarrow(\mathbf{Ens}),
+\]\textit{，定义为} \SGARefTarget{sga3:xi:display:2:1:bis:value} \[
+  M(S')
+  =\left\{
+    \begin{array}{c}
+      \text{\(G_{S'}\) 的}\\[-2pt]
+      \text{乘法型子群}
+    \end{array}
+  \right\}.
+\]\textit{。则 \(M\) 在 \(S\) 上形式平滑。}
+
+参见 \SGARefLink{sga3:ix:theorem:3:6:bis}{第 IX 篇，3.6 bis}。
+
+\medskip\noindent\SGARefTarget{sga3:xi:corollary:2:2:bis}\textbf{推论 2.2 bis。} --- \textit{设 \(n\) 为整数，考虑函子态射} \SGARefTarget{sga3:xi:display:2:2:bis:phi} \[
+  \varphi_n:M\longrightarrow M
+\]\textit{，定义为} \SGARefTarget{sga3:xi:display:2:2:bis:kernel} \[
+  \varphi_n(H)={}_nH=\ker\!\bigl(n\cdot\operatorname{id}_H\bigr).
+\]\textit{。则 \(\varphi_n\) 形式平滑。对每个整数 \(p>0\)，以 \(M_p\) 表示 \(M\) 的子函子，使 \(M_p(S')\) 为 \(G_{S'}\) 中满足 \({}_pH=H\) 的乘法型子群 \(H\) 的集合。则 \(\varphi_n\) 诱导的态射} \SGARefTarget{sga3:xi:display:2:2:bis:restricted-map} \[
+  M_{np}\longrightarrow M_n
+\]\textit{形式平滑。}
+
+第二个断言显然包含在第一个断言中，列出它只是为了以后引用方便。第一个断言的证明与 \SGARefLink{sga3:xi:corollary:2:2}{2.2} 类似，此时使用 \SGARefLink{sga3:ix:theorem:3:6:bis}{第 IX 篇，3.6 bis}。
+
+\medskip\noindent\SGARefTarget{sga3:xi:corollary:2:3:bis}\textbf{推论 2.3 bis。} --- \textit{用 \SGARefLink{sga3:xi:proposition:2:1:bis}{2.1 bis} 的记号，将 \(M\) 视为带算子群 \(G\) 的函子，其中 \(G\) 通过 \[
+  (g,H)\longmapsto\operatorname{int}(g)(H).
+\] 作用。则由 \[
+  (g,v)\longmapsto\bigl(\operatorname{int}(g)v,v\bigr),
+\] 定义的相应态射} \SGARefTarget{sga3:xi:display:2:3:bis:action-map} \[
+  R:G\times_S M\longrightarrow M\times_S M,
+\]\textit{形式平滑。}
+
+这等价于下述断言。
+
+\medskip\noindent\SGARefTarget{sga3:xi:corollary:2:4:bis}\textbf{推论 2.4 bis。} --- \textit{用 \SGARefLink{sga3:xi:proposition:2:1:bis}{2.1 bis} 的记号，设 \(H_1\)、\(H_2\) 为 \(G\) 的两个乘法型子群，\(\operatorname{Transp}_G(H_1,H_2)\) 为 \(G\) 中由满足 \[
+  \operatorname{int}(g)H_1=H_2.
+\] 的 \(g\) 构成的子函子。则此函子在 \(S\) 上形式平滑。特别地，若 \(H_1=H_2=H\)，则 \(G\) 的子函子 \(\operatorname{Norm}_G(H)\)，即 \(H\) 的正规化子，在 \(S\) 上形式平滑。}
+
+证明与 \SGARefLink{sga3:xi:corollary:2:4}{2.4} 类似，仍使用 \SGARefLink{sga3:ix:theorem:3:6:bis}{第 IX 篇，3.6 bis}。
+
+\medskip\noindent\SGARefTarget{sga3:xi:proposition:2:5}\textbf{命题 2.5。} --- \textit{设 \(S\) 为预概形，\(G\) 为在 \(S\) 上平滑的 \(S\)-群预概形，\(K\) 为在 \(S\) 上平滑或为乘法型的 \(S\)-群子预概形，\(H\) 为乘法型 \(S\)-群预概形，\(u:H\to G\) 为 \(S\)-群同态。以 \(\operatorname{Transp}_G(u,K)\) 表示 \(G\) 的子函子，它在 \(S\) 上的 \(S'\) 处的值由使} \SGARefTarget{sga3:xi:display:2:5:transporter-condition} \[
+  \operatorname{int}(g)u_{S'}:
+  H_{S'}\longrightarrow G_{S'}
+\]\textit{通过 \(K_{S'}\) 分解的元素 \(g\in G(S')\) 构成。则此函子在 \(S\) 上形式平滑。}
+
+证明与 \SGARefLink{sga3:xi:corollary:2:2}{2.2} 类似，使用 \SGARefLink{sga3:ix:theorem:3:6}{第 IX 篇，3.6} 和 \SGARefLink{sga3:x:proposition:2:1}{第 X 篇，2.1}，其中在 \(K\) 为乘法型时使用后者。
+
+

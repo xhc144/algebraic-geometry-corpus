@@ -1,0 +1,110 @@
+% SGA 3，第 IX 篇，中文重构。
+% 范围：标题及第 1 节全文。
+% 权威底本：Polo--Gille Exp9-8nov09.pdf，组件本地第 1--3 页，
+% 完整阅读本第 647--649 页，印刷第 37--40 页。
+% Jacob Reinhold 的 CC BY 4.0 Markdown 谱系仅用于措辞比对。
+% 文字、公式、编号和注释均以 Polo--Gille PDF 为准。
+
+\setcounter{footnote}{-1}
+\SGARefTarget{sga3:ix:chapter:ix}\chapter*{第 IX 篇\\
+乘法型群：\\
+到群概形的同态}
+\addcontentsline{toc}{chapter}{第 IX 篇. 乘法型群：到群概形的同态}
+\markboth{第 IX 篇. 乘法型群 I（同态）}{第 IX 篇. 乘法型群 I（同态）}
+
+\begin{center}
+  \textit{A. Grothendieck 著}\footnote{编者注：2009 年 11 月 8 日的 1.0 版。在 \SGARefLink{sga3:ix:theorem:3:6:bis}{3.6 bis} 的证明，以及 \SGARefLink{sga3:ix:lemma:4:4}{4.4}--\SGARefLink{sga3:ix:theorem:4:7}{7}、\SGARefLink{sga3:ix:lemma:5:0}{5.0}--\SGARefLink{sga3:ix:theorem:5:6}{6}、\SGARefLink{sga3:ix:lemma:6:1}{6.1}、\SGARefLink{sga3:ix:theorem:7:1}{7.1} 和 \SGARefLink{sga3:ix:proposition:8:2}{8.2} 中有所增补。\SGARefLink{sga3:ix:proposition:8:1}{8.1} 和 \SGARefLink{sga3:ix:lemma:4:5}{4.5} 尚待修订。}
+\end{center}
+
+\SGARefTarget{sga3:ix:section:1}\section*{1. 定义}
+\addcontentsline{toc}{section}{1. 定义}
+
+% 源页：Exp9 组件本地第 1 页；完整阅读本第 647 页；印刷第 37 页。
+\medskip
+\noindent\SGARefTarget{sga3:ix:definition:1:1}\textbf{定义 1.1.} ---
+\textit{设 \(S\) 是预概形，\(G\) 是 \(S\) 上的群预概形。如果它对忠实平坦拟紧拓扑局部可对角化（参见 \SGARefLink{sga3:iv:subsection:6:3}{IV 6.3}），则称群 \(G\) 为\emph{乘法型}；也就是说，对每个 \(s\in S\)，存在 \(s\) 的开邻域 \(U\) 和忠实平坦拟紧态射 \(S'\to U\)，使得
+\[
+  G'=G\times_S S'
+\]
+是可对角化 \(S'\)-群（\SGARefLink{sga3:i:subsection:4-4}{I 4.4} 和 \SGARefLink{sga3:viii:definition:1:1}{VIII 1.1}）。}
+
+\textit{如果群 \(G\) 甚至对平展拓扑也局部可对角化（\SGARefLink{sga3:iv:subsection:6:3}{IV 6.3}），则称它为\emph{拟等平凡乘法型}；也就是说，在上述定义中可以取 \(S'\to U\) 为平展满射。等价地——将对应于各个 \(s\in S\) 的概形 \(S'\) 取不交并即可看出——存在平展满射 \(S'\to S\)，使 \(G'=G\times_S S'\) 是局部可对角化 \(S'\)-群。}
+
+\textit{如果还可以选取 \(S'\to S\) 为有限平展满射，则称 \(G\) 为\emph{等平凡乘法型}。}
+
+\textit{最后，如果每个 \(s\in S\) 都有开邻域 \(U\)，使 \(G\times_S U\) 是可对角化 \(U\)-群（分别地，是等平凡乘法型；换言之，存在有限平展满射 \(S'\to U\)，使 \(G\times_S S'\) 是可对角化 \(S'\)-群），则称 \(G\) 为\emph{局部平凡乘法型}（分别地，\emph{局部等平凡乘法型}）群。}
+
+\medskip
+\noindent\SGARefTarget{sga3:ix:comments:1:2}\textbf{说明 1.2.} ---
+上述五个概念都由可对角化群的概念，分别对与 \((\mathbf{Sch})\) 相关的五种不同“拓扑”作局部化而得。
+
+依照既有术语，通常约定：当“局部”一词未指明所考虑的拓扑时，即指 Zariski 拓扑。在此引入的术语中，“局部平凡乘法型”等价于 \SGARefLink{sga3:viii:definition:1:1}{VIII 1.1} 中的“局部可对角化”；同样，“平凡”即“可对角化”。上述五个概念之间有以下蕴含关系图，它由有关拓扑之间的相应关系得到：
+
+% 源页：Exp9 组件本地第 2 页；完整阅读本第 648 页；印刷第 38--39 页。
+\SGARefTarget{sga3:ix:diagram:1:2}
+\begin{center}
+\begin{tikzpicture}[>=stealth]
+  \node (general) at (0,4.0) {一般乘法型};
+  \node (quasi) at (0,3.0) {拟等平凡};
+  \node (lociso) at (0,2.0) {局部等平凡};
+  \node (iso) at (-2.7,1.0) {等平凡};
+  \node (loctriv) at (2.7,1.0) {局部平凡};
+  \node (triv) at (0,0) {平凡};
+  \draw[double,->] (quasi) -- (general);
+  \draw[double,->] (lociso) -- (quasi);
+  \draw[double,->] (iso) -- (lociso);
+  \draw[double,->] (loctriv) -- (lociso);
+  \draw[double,->] (triv) -- (iso);
+  \draw[double,->] (triv) -- (loctriv);
+\end{tikzpicture}
+\end{center}
+
+为实际应用起见，先指出我们将遇到的每个乘法型群都是拟等平凡的。下一篇报告（\SGARefLink{sga3:x:corollary:4-5}{X 4.5}）中将看到，当 \(G\) 在 \(S\) 上有限型时，它自动是拟等平凡的；不过我们仍会给出它并非局部等平凡的例子。也将看到，\(G\) 可以局部平凡而非等平凡，因而\emph{更不是}平凡的。这很容易说明\SGARefLink{sga3:ix:diagram:1:2}{上图}中的包含关系都是严格的。
+
+另一方面，我们还将在那里（\SGARefLink{sga3:x:theorem:5-16}{X 5.16}）看到，当 \(S\) 局部 Noether 且正规——或更一般地，几何单分支——时，\(S\) 上的每个有限型乘法型群必为等平凡；而且只要它局部平凡（甚至只在一个稠密开子集上平凡），它就平凡。这说明实际遇到的多数乘法型群无疑将是等平凡的，何况稍后还将看到，半单群概形的极大环面自动是等平凡的。
+
+\medskip
+\noindent\SGARefTarget{sga3:ix:definition:1:3}\textbf{定义 1.3.} ---
+\textit{设 \(S\) 和 \(G\) 如 \SGARefLink{sga3:ix:definition:1:1}{1.1}。如果群 \(G\) 对忠实平坦拟紧拓扑局部同构于形如 \(\mathbf G_m^r\) 的群，其中 \(r\) 是满足 \(r\geq 0\) 的整数，则称其为\emph{环面}。}
+
+沿用 \SGARefLink{sga3:ix:definition:1:1}{1.1} 的记号，这就是说可以选取 \(S'\)，使 \(G'\) 同构于形如 \((\mathbf G_{m,S'})^r\) 的群。整数 \(r\) 依赖于 \(s\in S\)：它是纤维
+\[
+  G_s=G\otimes_S\kappa(s).
+\]
+的维数。立即可见，它是 \(s\) 的局部常值函数。这一观察应推广如下。
+
+% 源页：Exp9 组件本地第 3 页；完整阅读本第 649 页；印刷第 39--40 页。
+\medskip
+\noindent\SGARefTarget{sga3:ix:definition:1:4}\textbf{定义 1.4.} ---
+\textit{设 \(G\) 是域 \(k\) 上的可对角化群概形。于是 \(G\) 同构于群 \(D_k(M)\)，其中 \(M\) 是一个由此条件确定到同构的通常交换群——更确切地，
+\[
+  M\simeq\operatorname{Hom}_{k\text{-}\mathrm{gr}}
+    (G,\mathbf G_{m,k})
+\]
+（\SGARefLink{sga3:viii:corollary:1:3}{VIII 1.3}）。\(M\) 的同构类称为可对角化群 \(G\) 的\emph{类型}；它显然在基域扩张下不变。}
+
+\textit{现设 \(G\) 是任意预概形 \(S\) 上的乘法型群概形。对每个 \(s\in S\)，存在 \(\kappa(s)\) 的扩域 \(k\)，使 \(G\times_S\operatorname{Spec}(k)\) 是可对角化 \(k\)-群。\footnote{编者注：事实上，由假设存在 \(s\) 的开邻域 \(U\) 和忠实平坦拟紧态射 \(S'\to U\)，使 \(G_{S'}\) 可对角化。对每个在 \(s\) 上方的 \(s'\in S'\)，域 \(\kappa(s')\) 是 \(\kappa(s)\) 的扩域，且 \(G_{s'}=G\times_S\operatorname{Spec}(\kappa(s'))\) 可对角化。}由前述观察，其类型不依赖所选扩域，称为 \(G\) \emph{在 \(s\) 处的类型}，或 \(G_s\) 的\emph{类型}。特别地，如果 \(G\) 本身可对角化，因而同构于形如 \(D_S(M)\) 的群，则对每个 \(s\in S\)，\(G\) 在 \(s\) 处的类型都是 \(M\) 的同构类。}
+
+\textit{更一般地，若 \(G\) 是 \(S\) 上的乘法型群，\(M\) 是通常交换群，则当它在每个点 \(s\in S\) 处均有类型 \(M\) 时，称 \(G\) \emph{具有类型 \(M\)}；等价地，\(G\) 对忠实平坦拟紧拓扑局部同构于 \(D_S(M)\)。}
+
+\medskip
+\noindent\SGARefTarget{sga3:ix:remark:1:4:1}\textbf{注记 1.4.1.}
+\footnote{编者注：为便于后文引用，给以下注记增添了编号 \SGARefLink{sga3:ix:remark:1:4:1}{1.4.1}。}
+\SGARefTarget{sga3:ix:remark:1:4:1:item:a}\textit{a) 对于 \(S\) 上的乘法型群 \(G\)，函数
+\[
+  s\longmapsto \text{类型：}G_s
+\]
+在 \(S\) 上局部常值。事实上，沿用 \SGARefLink{sga3:ix:definition:1:1}{1.1} 的记号，若 \(G'\) 具有类型 \(M\)，则 \(G\) 在 \(s\) 的邻域 \(U\) 上具有类型 \(M\)。因此 \(S\) 典范地分解成预概形 \(S_i\) 的不交并，使对每个 \(i\)，\(G_{S_i}\) 具有类型 \(M_i\)，其中交换群 \(M_i\) 两两不同构。}
+
+\SGARefTarget{sga3:ix:remark:1:4:1:item:b}\textit{b) 特别地，若 \(S\) 连通，则 \(G\) 的纤维的类型为常值；即存在交换群 \(M\)，使 \(G\) 具有类型 \(M\)。最后，如果 \(G\) 是环面，则 \(G\) 在 \(s\) 处的类型由整数 \(\dim G_s\) 确定：事实上，\(G_s\) 具有类型 \(\mathbb Z^n\)，其中 \(n=\dim G_s\)。}
+
+\medskip
+\noindent\SGARefTarget{sga3:ix:remark:1:5}\textbf{注记 1.5.} ---
+\SGARefTarget{sga3:ix:remark:1:5:item:a}\textit{a) 由定义 \SGARefLink{sga3:ix:definition:1:1}{1.1} 和 \SGARefLink{sga3:ix:definition:1:3}{1.3} 立即得到，这些概念“与基扩张相容”。因此，若 \(G\) 是 \(S\) 上的群预概形，\(S'\to S\) 是基变换态射，则只要 \(G\) 是乘法型（分别地，等平凡乘法型，等等），\(G'\) 也具有相同性质。}
+
+\SGARefTarget{sga3:ix:remark:1:5:item:b}\textit{b) 此外，若 \(S'\to S\) 忠实平坦且拟紧，则 \(G'\) 是乘法型（分别地，是环面）蕴涵 \(G\) 也如此。若 \(S'\to S\) 还平展（分别地，有限平展），则 \(G'\) 拟等平凡（分别地，等平凡）蕴涵 \(G\) 也如此。}
+
+\SGARefTarget{sga3:ix:remark:1:5:item:c}\textit{c) 最后，回到任意基变换态射 \(f:S'\to S\)。若 \(s'\in S'\) 且 \(s=f(s')\)，则 \(G'\) 在 \(s'\) 处的类型与 \(G\) 在 \(s\) 处的类型相同，因为
+\[
+  G'_{s'}=G_s\otimes_{\kappa(s)}\kappa(s').
+\]}

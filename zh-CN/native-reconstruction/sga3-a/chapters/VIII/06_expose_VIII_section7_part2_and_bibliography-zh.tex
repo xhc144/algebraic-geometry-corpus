@@ -1,0 +1,182 @@
+% SGA 3，第 VIII 篇，英文重建底本说明。
+% 范围：推论 7.5 至第 7.13 节及篇末书目。
+% 权威源：Polo--Gille Exp8-8nov09.pdf, 组件内第 26--30 页,
+% 完整合阅本第 642--646 页. 止于第 IX 篇之前。
+% 英文底本说明：每一陈述、公式、注释与
+% 图均以 Polo--Gille 权威源为准；对照译本仅用于措辞参考。
+
+% 源页码：Exp8 组件内第 26 页; 完整合阅本第 642 页.
+\medskip
+\noindent\SGARefTarget{sga3:viii:corollary:7:5}\textbf{推论 7.5.}
+\textit{再假设 \(G_0\) 在 \(k\) 上平滑，且 \(p\operatorname{id}_{G_0}\) 平坦。等价地，由代数闭域 \(\overline{k}\) 上的代数群结构理论，\(G_{\overline{k}}\) 不含同构于加法群的子群。则对每个 \(\nu\geq\nu_0\) 和每个 \(n>0\)，群 \({}_{p^\nu}H_n\) 在 \(S_n\) 上平坦。}
+
+事实上，\(p^{\nu_0}\operatorname{id}_{Q_n}=0\) 蕴含 \(p^\nu\operatorname{id}_{H_n}\) 经 \(G_n\) 分解，给出交换图
+\SGARefTarget{sga3:viii:diagram:7:5}
+\[
+\begin{tikzcd}[column sep=huge,row sep=large]
+H_n
+  \arrow[r,"p^\nu\operatorname{id}_{H_n}"]
+  \arrow[dr,"v_n"]
+&
+H_n
+\\
+G_n
+  \arrow[u,"u_n"]
+  \arrow[r,"p^\nu\operatorname{id}_{G_n}"]
+&
+G_n
+  \arrow[u,"u_n"']
+.
+\end{tikzcd}
+\]
+我们断言 \(v_n\) 平坦。由于 \(H_n\) 和 \(G_n\) 在 \(S_n\) 上平坦，只须验证 \(v_0\) 平坦（SGA~1，IV，5.9）。因此可以取 \(n=0\)，于是 \(S_n=\operatorname{Spec}(k)\)。由于 \(p\operatorname{id}_{G_0}\)，从而 \(p^\nu\operatorname{id}_{G_0}\)，是平坦的，其像为 \(G_0\) 的诱导开子群 \(G'_0\)。映射 \(u_0:G_0\to H_0\) 为满射，所以 \(v_0\) 取值于 \(G'_0\)，可视为到 \(G'_0\) 的同态。它与 \(u_0\) 的复合为满态射；因此 \(v_0\) 本身为满态射，从而为到 \(G'_0\) 的平坦同态，进而也是到 \(G_0\) 的平坦同态。所以 \(v_n\) 平坦，且
+% 英文底本说明：权威源此处将 S 上的对象印作 _{p^\nu}H；紧前的
+% v_n 的定义与 7.5 的陈述要求此处为 S_n 上的 _{p^\nu}H_n。
+\(\ker v_n={}_{p^\nu}H_n\)%
+\begingroup
+\renewcommand{\thefootnote}{\(\dagger\)}
+\footnote[0]{英文本编者注：原文此处印作 \(S\) 上的 \({}_{p^\nu}H\)，在\SGARefLink{sga3:viii:lemma:7:7}{引理 7.7} 的证明中印作 \(S_n\) 上的 \({}_{p^\nu}H\)。两处均补入下标 \(n\)，因为这些论证涉及 \(S_n\) 上经基变换所得的族。}
+\endgroup
+在 \(S_n\) 上平坦。\qed
+
+\medskip
+\noindent\SGARefTarget{sga3:viii:remark:7:5:after:01}\textbf{注。}
+我们并未明确使用 \(G_0\) 在 \(k\) 上平滑的假设。不过，它是
+\(p\operatorname{id}_{G_0}\)
+平坦的一个简单推论\emph{〔原文印作 \(p\operatorname{id}_{G}\)〕}；这就是在推论~\SGARefLink{sga3:viii:corollary:7:5}{7.5} 中明确列出此条件的原因。
+
+\medskip
+\noindent\SGARefTarget{sga3:viii:lemma:7:6}\textbf{引理 7.6.}
+\textit{设 \(u:G\to H\) 为特征 \(p>0\) 的域 \(k\) 上交换代数群的满射单态射，并置 \(Q=H/G\)，它是纯无穷小群。则存在整数 \(\nu_1\)，使得对每个 \(\nu\geq\nu_1\)，序列}
+\[
+  0\longrightarrow{}_{p^\nu}G
+  \longrightarrow{}_{p^\nu}H
+  \longrightarrow Q\longrightarrow0
+\]
+\textit{正合。}
+
+只须证明在 \(Q\) 处正合，这又相当于证明单位元处局部环的同态
+\SGARefTarget{sga3:viii:eq:7:6:x}
+\begin{equation}
+  \tag{x}
+  \mathscr O_{Q,e}\longrightarrow
+  \mathscr O_{{}_{p^\nu}H,e}
+\end{equation}
+为单射。回顾，\(Q\) 在集合意义下支于单点 \(e\)。有自然同态
+\SGARefTarget{sga3:viii:eq:7:6:xx}
+\begin{equation}
+  \tag{xx}
+  \mathscr O_{{}_{p^\nu}H,e}
+  \longrightarrow
+  \mathscr O_{H,e}/\mathfrak m^{p^\nu},
+\end{equation}
+其中 \(\mathfrak m\) 为 \(\mathscr O_{H,e}\) 的增广理想，也就是极大理想。事实上，\(p^\nu\operatorname{id}_H\) 在迭代 Frobenius 同态 \(F^\nu\) 的核上为零。\SGARefLink{sga3:viii:eq:7:6:x}{(x)} 和 \SGARefLink{sga3:viii:eq:7:6:xx}{(xx)} 的复合为自然复合
+\SGARefTarget{sga3:viii:eq:7:6:xxx}
+\begin{equation}
+  \tag{xxx}
+  \mathscr O_{Q,e}\longrightarrow
+  \mathscr O_{H,e}\longrightarrow
+  \mathscr O_{H,e}/\mathfrak m^{p^\nu}.
+\end{equation}
+而 \(\mathscr O_{Q,e}\to\mathscr O_{H,e}\) 为单射，因为 \(H\to Q\) 为满态射，从而平坦。此外，\(\mathscr O_{Q,e}\) 为 Artin 环，而在 \(\mathscr O_{H,e}\) 中有 \(\bigcap_\nu\mathfrak m^{p^\nu}=0\)，所以 \(\mathscr O_{Q,e}\) 中相应理想的交也为零。因此其中某个理想为零。于是 \SGARefLink{sga3:viii:eq:7:6:xxx}{(xxx)} 为单射，\SGARefLink{sga3:viii:eq:7:6:x}{(x)} 更为单射。
+
+% 源页码：Exp8 组件内第 28 页; 完整合阅本第 644 页.
+\medskip
+\noindent\SGARefTarget{sga3:viii:lemma:7:7}\textbf{引理 7.7.}
+\textit{在 \SGARefLink{sga3:viii:corollary:7:5}{7.5} 的假设下，存在整数 \(\nu_1\)，使得对每个 \(\nu\geq\nu_1\) 和每个 \(n\)，\(S_n\)-群列}
+\[
+  0\longrightarrow{}_{p^\nu}G_n
+  \longrightarrow{}_{p^\nu}H_n
+  \xrightarrow{\,w_n\,}Q_n
+  \longrightarrow0
+\]
+\textit{正合。更确切地说，\(w_n\) 忠实平坦，且其核为 \({}_{p^\nu}G_n\)。}
+
+将引理~\SGARefLink{sga3:viii:lemma:7:6}{7.6} 用于 \(u_0:G_0\to H_0\)，按其中方式取 \(\nu_1\)，并要求 \(\nu_1\geq\nu_0\)，其中 \(p^{\nu_0}=\operatorname{rank}Q_0\)。只须验证 \(w_n\) 忠实平坦。由推论~\SGARefLink{sga3:viii:corollary:7:5}{7.5}，
+% 英文底本说明：权威源此处将 S_n 上的对象印作 _{p^\nu}H；此处讨论的基变换族
+% 是 S_n 上的 _{p^\nu}H_n。
+\({}_{p^\nu}H_n\) 在 \(S_n\) 上平坦，\(Q_n\) 也如此；因此只须验证
+\[
+  w_0:{}_{p^\nu}H_0\longrightarrow Q_0
+\]
+忠实平坦，等价地为满态射。这由 \(\nu_1\) 的选取方式得出。
+
+\medskip
+\noindent\SGARefTarget{sga3:viii:corollary:7:8}\textbf{推论 7.8.}
+\textit{再假设 \(H\) 在 \(S\) 上分离，或更一般地，对每个 \(\nu\)，\({}_{p^\nu}H\) 在 \(S\) 上分离；并且对每个 \(\nu\)，\({}_{p^\nu}G\) 在 \(S\) 上有限。则对 \(\nu\geq\nu_1\)，群概形 \({}_{p^\nu}G\) 和 \({}_{p^\nu}H\) 在 \(S\) 上有限且平坦，并有正合列}
+\SGARefTarget{sga3:viii:corollary:7:8:display:exact-sequence:01}\[
+  0\longrightarrow{}_{p^\nu}G
+  \longrightarrow{}_{p^\nu}H
+  \xrightarrow{\,w\,}Q
+  \longrightarrow0.
+\]
+
+由于 \(u:G\to H\) 为满射，诱导态射 \({}_{p^\nu}G\to{}_{p^\nu}H\) 也为满射。源在 \(S\) 上有限，目标在 \(S\) 上分离，因此目标在 \(S\) 上有限。为证明 \({}_{p^\nu}G\) 和 \({}_{p^\nu}H\) 在 \(S\) 上平坦，只须在每次到 \(S_n\) 的基变换后证明；此时结论包含于推论~\SGARefLink{sga3:viii:corollary:7:5}{7.5}。最后，\SGARefLink{sga3:viii:corollary:7:8:display:exact-sequence:01}{上述正合列}由引理~\SGARefLink{sga3:viii:lemma:7:7}{7.7} 中随 \(n\) 变动的正合列得到。
+
+在推论~\SGARefLink{sga3:viii:corollary:7:8}{7.8} 的序列中取泛纤维，并注意 \(u_{s'}:G_{s'}\to H_{s'}\) 为同构，可知 \(Q_{s'}\) 为单位群。由于 \(Q\) 在 \(S\) 上平坦，\(Q\) 本身为单位群；因此 \(Q_s\) 也为单位群，且 \(u_s:G_s\to H_s\) 为同构。我们证明了：
+
+\medskip
+\noindent\SGARefTarget{sga3:viii:proposition:7:9}\textbf{命题 7.9.}
+\textit{设 \(u:G\to H\) 为预概形 \(S\) 上有限呈示群预概形的同态。假设：}
+\begin{enumerate}
+  \item[(a)]\SGARefTarget{sga3:viii:proposition:7:9:item:a}
+  \textit{\(u\) 为单态射；}
+  \item[(b)]\SGARefTarget{sga3:viii:proposition:7:9:item:b}
+  \textit{\(G\) 在 \(S\) 上平坦；}
+  \item[(c)]\SGARefTarget{sga3:viii:proposition:7:9:item:c}
+  \textit{对每个剩余域特征为 \(p>0\) 的 \(s\in S\)，令 \(S'=\operatorname{Spec}(\mathscr O_{S,s})\)，并令 \(u':G'\to H'\) 为 \(u\) 经到 \(S'\) 的基变换所得。则 \(G'\) 交换，特殊纤维 \(G'_0=G_s\) 在 \(\kappa(s)\) 上平滑，且对每个 \(\nu>0\)，群 \({}_{p^\nu}G'\) 在 \(S'\) 上有限，而 \({}_{p^\nu}H'\) 在 \(S'\) 上分离。}
+\end{enumerate}
+\textit{在这些假设下，\(u\) 为浸入。}
+
+事实上，\({}_pG'\) 在 \(S'\) 上有限蕴含其特殊纤维在 \(\kappa(s)\) 上有限。因此 \(G'_0\otimes_{\kappa(s)}\overline{\kappa(s)}\) 不含同构于加法群的子群，推论~\SGARefLink{sga3:viii:corollary:7:5}{7.5} 的假设适用。
+
+% 源页码：Exp8 组件内第 29 页; 完整合阅本第 645 页.
+\medskip
+\noindent\SGARefTarget{sga3:viii:remark:7:10}\textbf{注 7.10.}
+M. Raynaud 的例子（XVI，1.1(a)、\SGARefExternal{sga3:viii:proposition:7:9:item:b}{(b)}）表明，在条件 \SGARefLink{sga3:viii:proposition:7:9:item:c}{(c)} 中，既不能略去各 \({}_{p^\nu}G'\) 在 \(S'\) 上的有限性，也不能略去各 \({}_{p^\nu}H'\) 在 \(S'\) 上的分离性。
+
+现在寻求使 \(u\) 为闭浸入的条件。保留命题~\SGARefLink{sga3:viii:proposition:7:9}{7.9} 之前的假设，但不再假设 \(u\) 为满射；只假设它在泛纤维上为同构。我们已经知道 \(u:G\to H\) 为开浸入。因此 \(u_0:G_0\to H_0\) 也是如此，其像包含单位连通分支 \((H_0)^0\)。由于 \(G_0\) 在 \(k\) 上平滑，且扩张到 \(\overline{k}\) 后不含加法分支，\(H_0\) 也如此。利用：
+
+\medskip
+\noindent\SGARefTarget{sga3:viii:lemma:7:11}\textbf{引理 7.11.}
+\textit{设 \(H\) 为域 \(k\) 上的交换代数群，且 \(H\otimes_k\overline{k}\) 不含同构于 \(\mathbf G_a\) 的子群。若 \(n=\deg(H/H^0)\)，则}
+\[
+  {}_nH\longrightarrow H/H^0
+\]
+\textit{为满射。}
+
+可以假设 \(k\) 代数闭；此时结论来自熟知的事实：\(H^0(k)\) 是可除群。
+
+回到 \(u:G\to H\)，假设各 \({}_nG\)（\(n>0\)）在 \(S\) 上固有，而各 \({}_nH\) 在 \(S\) 上分离。各 \({}_nH\) 还在 \(S\) 上平坦。事实上，只须在 \(s\) 上方的点验证平坦性，从而只须验证 \(n\operatorname{id}_{H_0}\) 平坦。如上所述，这等价于 \((H_0)^0\) 在 \(k\) 上平滑\footnote{编者注：更新了术语，将“单纯”换为“平滑”；例如见 A. Grothendieck 在 SGA~1，第 II 篇的注 (1)。}，且在 \(\overline{k}\) 上不含 \(\mathbf G_a\)-分支。由于 \((H_0)^0=(G_0)^0\)，这由 \(G_0\) 的相应假设得出。
+
+由于 \(H\) 在 \(S\) 上分离，各 \({}_nH\) 也如此。态射 \({}_nG\to{}_nH\) 固有，因而其像闭。其像包含 \({}_nH\) 的泛纤维，因为 \(u_{s'}:G_{s'}\to H_{s'}\) 为同构。由于 \({}_nH\) 在 \(S\) 上平坦，它是其泛纤维的概形论闭包。因此 \({}_nG\to{}_nH\)，从而 \({}_nG_0\to{}_nH_0\)，为满射。结合 \(G_0\supset(H_0)^0\)，引理 \SGARefLink{sga3:viii:lemma:7:11}{7.11} 表明 \(G_0\to H_0\) 为满射。于是 \(u\) 为满射。得到：
+
+\medskip
+\noindent\SGARefTarget{sga3:viii:proposition:7:12}\textbf{命题 7.12.}
+\textit{采用 \SGARefLink{sga3:viii:proposition:7:9}{7.9} 的记号，假设条件 \SGARefLink{sga3:viii:proposition:7:9:item:a}{(a)} 和 \SGARefLink{sga3:viii:proposition:7:9:item:b}{(b)} 成立，并且满足由 \SGARefLink{sga3:viii:proposition:7:9:item:c}{(c)} 加强所得的条件 (c\(^{\prime}\))：对每个整数 \(n>0\)，而不仅仅是形如 \(p^\nu\) 的整数，要求 \({}_nG'\) 在 \(S'\) 上有限且 \({}_nH'\) 在 \(S'\) 上分离。则 \(u\) 为闭浸入。}
+
+\medskip
+\noindent\SGARefTarget{sga3:viii:remark:7:13}\textbf{注 7.13.}
+\begin{enumerate}
+  \item[(a)] 各 \({}_nH\) 的分离性假设容易推出 \(H\) 本身在 \(S\) 上分离。形式上，这也包含于命题~\SGARefLink{sga3:viii:proposition:7:12}{7.12} 中，只须取 \(G\) 为单位 \(S\)-群。若 \(S\) 局部 Noether，则在命题~\SGARefLink{sga3:viii:proposition:7:9}{7.9} 中，只须假设 \(H\) 在 \(S\) 上局部有限型，而不必有限型；证明逐字适用。对命题~\SGARefLink{sga3:viii:proposition:7:12}{7.12}，还假设 \(H\) 的纤维有限型。
+
+  % 源页码：Exp8 组件内第 30 页; 完整合阅本第 646 页.
+  \item[(b)]\SGAInlineRefTarget{sga3:viii:remark:7-13:item:b} 利用命题~\SGARefLink{sga3:viii:proposition:7:12}{7.12}，不难证明：若 \(u:G\to H\) 为 \(S\) 上有限呈示群预概形的单态射，\(G\) 可对角化——或更一般地为乘法型——且 \(H\) 在 \(S\) 上分离，则 \(u\) 为闭浸入。这是 \SGARefLink{sga3:viii:corollary:5:7}{5.7} 中第一个结论的令人满意的推广。若 \(G\) 在 \(S\) 上平滑，直接应用\SGARefLink{sga3:viii:proposition:7:12}{命题~7.12}；一般情形容易归结到这一情形。若不假设 \(H\) 在 \(S\) 上分离，仍可证明 \(u\) 为浸入；当 \(G\) 为环面时，这也可由后面的内容得出。
+
+  \item[(c)] 若在命题~\SGARefLink{sga3:viii:proposition:7:9}{7.9} 中假设 \(G\) 的纤维连通，则条件 \SGARefLink{sga3:viii:proposition:7:9:item:c}{(c)} 中可略去 \({}_{p^\nu}H'\) 在 \(S'\) 上分离的假设。事实上，经过证明中的归约，可以假设 \(H\) 在 \(S\) 上平坦，且 \(u\) 为双射。于是 \(H\) 的纤维连通，Raynaud 定理（VI\(_B\)，5.5）蕴含 \(H\) 在 \(S\) 上分离。\footnote{编者注：应在第 VI\(_B\) 讲，§5 中明确指出这一已见于 SGAD 1965 的归属，同时说明 SGAD 与 Lecture Notes 151 之间的变动。}
+\end{enumerate}
+
+\SGARefTarget{sga3:viii:bibliography}\section*{参考文献}
+\addcontentsline{toc}{section}{参考文献}
+\footnote{编者注：本篇所引的补充参考文献。}
+
+\begin{description}
+  \item[\SGARefTarget{sga3:viii:bib:rg71}{[RG71]}]
+  M. Raynaud 与 L. Gruson，\textit{平坦性与投射性的判据〔Crit\`eres de platitude et de projectivit\'e〕}，Invent. Math. \textbf{13} (1971)，1--89。
+
+  \item[\SGARefTarget{sga3:viii:bib:to70}{[TO70]}]
+  J. Tate 与 F. Oort，\textit{素数阶群概形〔Group schemes of prime order〕}，Ann. Sci. \'Ec. Norm. Sup\'er. (4) \textbf{3} (1970)，1--21。
+\end{description}
+
+% 范围终点：第 VIII 篇止于此。第 IX 篇始于完整合阅本第 647 页，
+% 不在本次冻结分工范围内。

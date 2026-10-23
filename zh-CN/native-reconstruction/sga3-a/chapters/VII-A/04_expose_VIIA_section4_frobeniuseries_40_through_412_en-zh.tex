@@ -1,0 +1,217 @@
+% SGA 3，第 VII 篇_A，中文重构——第 1 轮。
+% 范围：权威底本本地第 22--24 页，第 4 节开头至 4.1.2，止于本地第 25 页的 4.1.3 之前。
+% 合并阅读本页码： 475--477. 再版本印刷页码： 464--466.
+% 本段原版页边定位： 434--436.
+% 权威底本：Polo--Gille Exp7A-13oct24.pdf,
+% SHA-256 D46DB8C79D0385643B6EED4B96900613248375F9B73B4202478A4F57FD3E8522.
+% 参照了 Jacob Reinhold 的 CC BY 4.0 Markdown 作为比对谱系。
+
+\section*{4. “Frobenius 诸构造”}
+\phantomsection
+\label{sga3:VIIA:4}
+\addcontentsline{toc}{section}{4. “Frobenius 诸构造”}
+
+% 权威底本： Exp7A 本地页 22; 合并阅读本页 475; 印刷页 464.
+固定一个素数 \(p\)，设 \((\mathbf{Sch}/\mathbb F_p)\) 是特征 \(p\) 的概形范畴，即素域 \(\mathbb F_p\) 上的概形范畴。依照本讨论班的一般约定，借助\SGARefLink{sga3:i:subsection:1-1}{第 I 篇，1.1} 的函子 \(h\)，将 \((\mathbf{Sch}/\mathbb F_p)\) 等同于 \((\mathbf{Sch}/\mathbb F_p)^\wedge\) 的一个子范畴。同样，利用那里定义的同构
+\[
+  \operatorname{Hom}(h_X,F)\xrightarrow{\sim}F(X)
+\]
+在 \(X\) 是 \(\mathbb F_p\)-概形且 \(F\) 是 \((\mathbf{Sch}/\mathbb F_p)^\wedge\) 的对象时，将这两个集合等同。
+
+\medskip
+\noindent\textbf{记号 4.0.}
+\phantomsection
+\label{sga3:VIIA:4.0}
+\footnote{编者补入编号 \SGARefLink{sga3:VIIA:4.0}{4.0}，供后文引用。}
+\textit{若 \(T\) 是一个 \(\mathbb F_p\)-概形，则一个 \(T\)-函子是 \((\mathbf{Sch}/\mathbb F_p)^\wedge\) 中以 \(T\) 为目标的态射 \(q:F\to T\)。对每个 \(T\)-概形 \(r:X\to T\)，将 \(T\)-态射 \(X\to F\)，即满足 \(q\circ s=r\) 的 \(\mathbb F_p\)-态射 \(s:X\to F\)，所成的集合记为}
+\[
+  q(r),\qquad q(X/T),\qquad F(r),\qquad\text{或}\qquad F(X/T).
+\]
+\textit{在不会与 \(\operatorname{Hom}(h_X,F)\) 混淆时，也可记为 \(F(X)\)。}
+
+\medskip
+\noindent\textbf{4.1.}
+\phantomsection
+\label{sga3:VIIA:4.1}
+对每个特征 \(p\) 的概形 \(S\)，用 \(\operatorname{fr}(S)\)，或简记 \(\operatorname{fr}\)，表示 \(S\) 的如下自同态：它在底层拓扑空间上为恒等，并将 \(\mathcal O_S\) 在任一开子集上的截面 \(x\) 映到 \(x^p\)。
+
+对应
+\[
+  \operatorname{fr}:S\longmapsto\operatorname{fr}(S)
+\]
+是 \((\mathbf{Sch}/\mathbb F_p)\) 的恒等函子的自同态。\footnote{因此，对每个 \(\mathbb F_p\)-概形态射 \(f:Y\to X\)，下列方块交换：
+\par\noindent\parbox{\linewidth}{%
+  \centering
+  % SGA3-VII-DIAG-033
+  \input{figures/exp7/viia_00_04/diag_033_absolute_frobenius_naturality_square}
+  \par\vspace*{\baselineskip}
+  \vspace*{\baselineskip}
+}\par}
+由此有如下推论。若 \(E\) 是一个 \(\mathbb F_p\)-函子，则将每个 \(\mathbb F_p\)-概形 \(S\) 映到 \(E(S)\) 的自同态 \(E(\operatorname{fr}(S))\) 的对应，是 \(E\) 的一个函子性自同态，记为 \(\operatorname{fr}(E)\)，或简记为 \(\operatorname{fr}\)。这一记号与将 \((\mathbf{Sch}/\mathbb F_p)\) 等同于 \((\mathbf{Sch}/\mathbb F_p)^\wedge\) 的一个子范畴相容。此外，\(E\mapsto\operatorname{fr}(E)\) 本身是 \((\mathbf{Sch}/\mathbb F_p)^\wedge\) 的恒等函子的自同态，也记为 \(\operatorname{fr}\)。\footnote{态射 \(\operatorname{fr}(X)\) 称为 \(X\) 的\emph{绝对} Frobenius 态射，以区别于下文引入的相对 Frobenius 态射 \(\operatorname{Fr}(X/S)\)。}
+
+对每个 \(\mathbb F_p\)-概形 \(S\) 以及每个 \(S\)-函子 \(q:X\to S\)，用 \(X^{(p/S)}\)，或 \(X^{(p)}\)，表示 \(X\) 沿 \(\operatorname{fr}(S)\) 的拉回：
+\begin{center}
+  \phantomsection
+  \label{sga3:VIIA:4.1-frobenius-basechange-square}
+  % SGA3-VII-DIAG-034
+  \input{figures/exp7/viia_00_04/diag_034_frobenius_basechange_square}
+\end{center}
+
+% 权威底本： Exp7A 本地页 23; 合并阅读本页 476; 印刷页 465.
+交换方块图
+\begin{center}
+  \phantomsection
+  \label{sga3:VIIA:4.1-absolute-frobenius-square}
+  % SGA3-VII-DIAG-035
+  \input{figures/exp7/viia_00_04/diag_035_absolute_frobenius_square}
+\end{center}
+诱导一个 \(S\)-态射
+\[
+  \operatorname{Fr}(X/S):X\longrightarrow X^{(p/S)}
+\]
+满足
+\[
+  \operatorname{fr}(X)
+  =
+  \operatorname{pr}_X\circ\operatorname{Fr}(X/S):
+\]
+\begin{center}
+  \phantomsection
+  \label{sga3:VIIA:4.1-relative-frobenius-factorization}
+  % SGA3-VII-DIAG-036
+  \input{figures/exp7/viia_00_04/diag_036_relative_frobenius_factorization}
+\end{center}
+称 \(\operatorname{Fr}(X/S)\) 为 \(X\) \emph{相对于 \(S\) 的 Frobenius 态射}。显然，对应
+\[
+  \operatorname{Fr}:X\longmapsto\operatorname{Fr}(X/S)
+\]
+是函子性同态。
+
+\footnote{编者扩充了原文中本段的其余部分。}
+设 \(r:T\to S\) 是一个 \(S\)-概形。对每个
+\[
+  \varphi\in X(r)=\operatorname{Hom}_S(T,X),
+\]
+有交换图
+\begin{center}
+  \phantomsection
+  \label{sga3:VIIA:4.1-point-phi-diagram}
+  % SGA3-VII-DIAG-037
+  \input{figures/exp7/viia_00_04/diag_037_point_phi_relative_frobenius}
+\end{center}
+由 \(X^{(p/S)}\) 作为纤维积的定义，\(\operatorname{pr}_X\) 诱导双射
+\[
+ X^{(p/S)}(r)
+ =
+ \operatorname{Hom}_S(T,X^{(p/S)})
+ \xrightarrow{\sim}
+ \operatorname{Hom}_S(T,X)
+ =
+ X(\operatorname{fr}(S)\circ r).
+\]
+另一方面，
+\[
+  r\circ\operatorname{fr}(T)
+  =
+  \operatorname{fr}(S)\circ r,
+\]
+因为 \(\operatorname{fr}\) 是恒等函子的自同态。因此
+\[
+  \operatorname{Fr}(X/S)(r):
+  X(r)\longrightarrow X^{(p/S)}(r)
+\]
+由下图的交换性刻画：
+\begin{center}
+  \phantomsection
+  \label{sga3:VIIA:4.1-pointwise-frobenius-square}
+  % SGA3-VII-DIAG-038
+  \input{figures/exp7/viia_00_04/diag_038_pointwise_frobenius_square}
+\end{center}
+
+例如，若 \(X\) 是 \(S\) 的由拟凝聚理想 \(\mathcal I\) 定义的子概形，则 \(X^{(p)}\) 是由 \(\mathcal I\) 的局部截面的 \(p\) 次幂生成的理想 \(\mathcal I^{\{p\}}\) 定义的子概形。此外，\(\operatorname{Fr}(X/S)\) 是典范浸入
+\[
+  \operatorname{Spec}(\mathcal O_S/\mathcal I)
+  \longrightarrow
+  \operatorname{Spec}(\mathcal O_S/\mathcal I^{\{p\}}).
+\]
+\footnote{法文原文将此浸入的源印为 \(\operatorname{Spec}(\mathcal O_X/\mathcal I)\)。由于 \(X\subset S\) 由 \(\mathcal I\) 定义，所指的源应为此处采用的 \(\operatorname{Spec}(\mathcal O_S/\mathcal I)=X\)。}
+
+\medskip
+\noindent\textbf{4.1.1.}
+\phantomsection
+\label{sga3:VIIA:4.1.1}
+\footnote{编者扩充了原文的本段。}
+设 \(t:T\to S\) 是基变换，并置
+\[
+  X_T=X\times_{q,t}T.
+\]
+考虑 \(X_T\) 沿 \(\operatorname{fr}(T)\) 的拉回：
+\begin{center}
+  \phantomsection
+  \label{sga3:VIIA:4.1.1-basechange-rectangle}
+  % SGA3-VII-DIAG-039
+  \input{figures/exp7/viia_00_04/diag_039_basechange_rectangle}
+\end{center}
+由于
+\[
+  t\circ\operatorname{fr}(T)
+  =
+  \operatorname{fr}(S)\circ t,
+\]
+\((X_T)^{(p/T)}\) 可等同于 \(X^{(p/S)}\) 沿 \(t\) 的拉回。等价地，有典范同构
+\[
+  X_T^{(p/T)}
+  \xrightarrow{\sim}
+  \bigl(X^{(p/S)}\bigr)_T.
+\]
+在此等同下，\(\operatorname{Fr}(X_T/T)\) 可等同于拉回 \(\operatorname{Fr}(X/S)_T\)。
+
+\medskip
+\noindent\textbf{4.1.1.1.}
+\phantomsection
+\label{sga3:VIIA:4.1.1.1}
+特别地，若 \(S=\operatorname{Spec}\mathbb F_p\)，则 \(X^{(p/S)}=X\) 且 \(\operatorname{Fr}(X/S)=\operatorname{fr}(X)\)。因此，\(X_T^{(p/T)}\) 可等同于 \(X_T\)，\(\operatorname{Fr}(X_T/T)\) 可等同于 \(\operatorname{fr}(X)_T\)。
+
+例如，若 \(E\) 是集合，\(E_T\) 是类型为 \(E\) 的常值 \(T\)-概形，则
+\[
+  E_T^{(p/T)}\simeq E_T,
+  \qquad
+  \operatorname{Fr}(E_T/T)\simeq\operatorname{id}_{E_T}.
+\]
+
+\medskip
+\noindent\textbf{4.1.2.}
+\phantomsection
+\label{sga3:VIIA:4.1.2}
+函子 \(X\mapsto X^{(p/S)}\) 显然与积交换。因此它将 \(S\)-群 \(G\) 映为 \(S\)-群 \(G^{(p/S)}\)。由于 \(\operatorname{Fr}\) 具有函子性，
+\[
+  \operatorname{Fr}(G/S):G\longrightarrow G^{(p/S)}
+\]
+是 \(S\)-群同态。其核记为 \(\operatorname{Fr}G\)。
+
+若 \(r:T\to S\) 是一个 \(S\)-概形，则\hyperref[sga3:VIIA:4.1-pointwise-frobenius-square]{逐点 Frobenius 图}表明 \(\operatorname{Fr}G\) 在 \(r\) 处的值是下述映射的核：
+\[
+  G(\operatorname{fr}(T)):
+  G(r)\longrightarrow G(r\circ\operatorname{fr}(T)).
+\]
+
+当 \(T=I_R\) 是 \(S\)-概形 \(R\) 上的对偶数概形时，\(I_R\) 的绝对 Frobenius 分解为
+\begin{center}
+  \phantomsection
+  \label{sga3:VIIA:4.1.2-dual-numbers-factorization}
+  % SGA3-VII-DIAG-040
+  \input{figures/exp7/viia_00_04/diag_040_dual_numbers_frobenius_factorization}
+\end{center}
+其中 \(s\) 是零截面。由此得到，\((\operatorname{Fr}G)(I_R)\) 包含下述映射的核 \(\operatorname{Lie}(G/S)(R)\)：
+\[
+  G(s):G(I_R)\longrightarrow G(R),
+\]
+从而
+\[
+  \operatorname{Lie}(G/S)
+  =
+  \operatorname{Lie}(\operatorname{Fr}G/S).
+\]
+
+% 下一定位： Exp7A 本地页 25, 合并阅读本页 478,
+% 再版本印刷页 467, 在 4.1.3。

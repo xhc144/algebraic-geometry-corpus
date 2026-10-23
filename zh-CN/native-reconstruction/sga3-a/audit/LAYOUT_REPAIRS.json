@@ -1,0 +1,61 @@
+{
+  "repairs": [
+    {
+      "file": "chapters/VI-B/84_expose_VIB_def1180_through_cor1110_loop2_r1_en-zh.tex",
+      "source_location": "Proposition11.9 manually superscript-marked star note after projective-module hypothesis",
+      "problem": "footnotetext without footnotemark reused preceding numbered note Hfootnote.2376, causing duplicate destination",
+      "change": "Wrap this existing unlinked manual-star footnotetext in public NoHyper environment; all note text, star marker, numbered-footnote counter, formulas and reference keys unchanged",
+      "status": "verified in final successful777-page full-volume build; zero duplicate-destination warnings",
+      "audit_effect": "Two deliberate NoHyper begin/end additions; strict source environment multiset differs."
+    },
+    {
+      "file": "preamble.tex",
+      "problem": "ctex environment hook expands undefined endsamepage at VII-B29; standard samepage only declares entry penalties",
+      "change": "Provide empty endsamepage endpoint; keep source samepage grouping and content unchanged",
+      "status": "verified in final successful777-page full-volume build; zero duplicate-destination warnings",
+      "audit_effect": "No chapter content changed"
+    },
+    {
+      "file": "preamble.tex",
+      "problem": "Inherited inline reference macros wrote labels naming stable destinations but did not create PDF anchors; baseline435-page PDF contained dead internal links",
+      "change": "Create a hyperref raised anchor before assigning currentHref in SGAInlineRefTarget and SGAInlineEquationTarget; preserve visible text, reference keys and numbers",
+      "status": "verified in final successful777-page full-volume build; zero duplicate-destination warnings",
+      "audit_effect": "No component mathematics or reference keys changed"
+    },
+    {
+      "file": "chapters/XII/00_expose_XII_sections1_3_en-zh.tex",
+      "problem": "Full777-page converter warned duplicate Hfootnote.4449 because unmarked version footnotetext reused XI final anchor",
+      "change": "Wrap only existing version footnotetext in NoHyper; source counter-1 and first note0 remain unchanged",
+      "status": "verified in final successful777-page full-volume build; zero duplicate-destination warnings",
+      "audit_effect": "Deliberate NoHyper begin/end additions; source environment multiset differs; no text/math/key/counter change"
+    },
+    {
+      "file": "main.tex",
+      "problem": "XII native numbered section displayed0.1–0.9 under unnumbered chapter, although source paragraph and published expose hierarchy use1–9; large title broke约化 across lines",
+      "change": "Local thesection=arabic(section) for XII, explicit title break after Weyl group; TOC full wording retained",
+      "status": "verified in final successful777-page full-volume build; zero duplicate-destination warnings",
+      "audit_effect": "Wrapper layout/section display only; component numbers/counters/mathematics unchanged"
+    },
+    {
+      "file": "chapters/IX/05_expose_IX_section_8_and_bibliography-zh.tex",
+      "problem": "Unmarked standalone source footnotetext reused preceding note destination; full PDF emitted Hfootnote.3999/4039 duplicate warnings",
+      "change": "NoHyper only around existing standalone note; text, marker, counter and keys preserved",
+      "status": "verified in final successful777-page full-volume build; zero duplicate-destination warnings",
+      "audit_effect": "Deliberate NoHyper environment pair only"
+    },
+    {
+      "file": "chapters/X/01_expose_X_sections1_3-zh.tex",
+      "problem": "Unmarked standalone source footnotetext reused preceding note destination; full PDF emitted Hfootnote.3999/4039 duplicate warnings",
+      "change": "NoHyper only around existing standalone note; text, marker, counter and keys preserved",
+      "status": "verified in final successful777-page full-volume build; zero duplicate-destination warnings",
+      "audit_effect": "Deliberate NoHyper environment pair only"
+    },
+    {
+      "file": "preamble.tex",
+      "problem": "Book class prefixed X9 subsections with chapter0 (0.9.1–0.9.7); XII native bibliography title inherited English Bibliography",
+      "change": "Book-specific section display arabic(section) so X9 subsections9.1–9.7; Chinese bibname=参考文献. Original source counter settings and all displayed paragraph numbers remain unchanged",
+      "status": "verified in final successful777-page full-volume build; zero duplicate-destination warnings",
+      "audit_effect": "Preamble localization/layout only; no component mathematics, reference keys or counter operations changed"
+    }
+  ]
+}

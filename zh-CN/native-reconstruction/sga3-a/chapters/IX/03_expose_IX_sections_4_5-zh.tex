@@ -1,0 +1,787 @@
+% SGA 3，第 IX 篇，中文重构。
+% 范围：第 4、5 节全文。
+% 权威底本：Polo--Gille Exp9-8nov09.pdf，组件本地第 10--22 页（部分），
+% 完整阅读本第 656--668 页（部分），印刷第 50--63 页。
+% 起始位置：组件本地第 10 页“4. 稠密性定理”。
+% 结束位置：组件本地第 22 页“6. 乘法型群的单态射与分解”之前。
+% Jacob Reinhold 的 CC BY 4.0 Markdown 谱系仅用于措辞比对。
+% 正文、公式、编号、注释、引用和图均以 Polo--Gille PDF 为准。
+
+\setcounter{footnote}{10}
+
+% 源页：Exp9 组件本地第 10 页；完整阅读本第 656 页。
+\SGARefTarget{sga3:ix:section:4}\section*{4. 稠密性定理}
+\addcontentsline{toc}{section}{4. 稠密性定理}
+
+本定理（参见 \SGARefLink{sga3:ix:theorem:4:7}{下文 4.7}）%
+\begingroup
+\renewcommand{\thefootnote}{\(\ast\)}%
+\footnote{从 \SGARefLink{sga3:ix:definition:4:1}{4.1} 到 \SGARefLink{sga3:ix:corollary:4:6}{4.6} 的全部结果均包含于 EGA IV\(_3\)，11.10；关于概形稠密性的系统论述，请读者参阅该处。}%
+\addtocounter{footnote}{-1}%
+\endgroup，连同 \SGARefLink{sga3:ix:section:7}{第~7~节} 的定理\footnote{编者注：即“代数性”定理 \SGARefLink{sga3:ix:theorem:7:1}{7.1}。}，将是在本篇及随后两篇报告中，从上面建立的乘法型群的无穷小性质过渡到其“有限”性质的主要工具。
+
+\medskip
+\noindent\SGARefTarget{sga3:ix:definition:4:1}\textbf{定义 4.1.}
+\textit{设 \(X\) 是预概形。\(X\) 的一族子预概形 \((Z_i)_{i\in I}\) 称为\emph{概形稠密的}，如果对 \(X\) 的每个开子集 \(U\) 及 \(U\) 的每个包含所有 \(Z_i\cap U\) 的闭子预概形 \(U_0\)，均有 \(U_0=U\)。}
+
+\textit{\(X\) 的子预概形 \(Z\) 称为\emph{在 \(X\) 中概形稠密的}，如果由 \(Z\) 组成的单元素族是概形稠密的。}
+
+立即可见（参见 EGA IV\(_3\)，11.10.1），此定义等价于说：对 \(X\) 的每个开子集 \(U\)，\(\mathscr O_U\) 的每个在各个 \(Z_i\cap U\) 上为零的截面 \(f\) 均为零。等价地，典范同态
+\SGARefTarget{sga3:ix:definition:4:1:display:01}
+\[
+  u_i:\mathscr O_X\longrightarrow (v_i)_*(\mathscr O_{Z_i})
+\]
+的核的交为零，其中 \(v_i:Z_i\to X\) 是典范浸入。%
+\footnote{编者注：EGA IV\(_3\)，\S11.10 中关于概形稠密性的一切结果，都由\emph{同上} \S11.9 中证明的“同态的分离族”的结果推出；下文若干编者注会引用该节。}
+当 \(X\) 位于预概形 \(S\) 上方时，这还等价于以下断言：对 \(X\) 的每个开子集 \(U\)、每个在 \(S\) 上分离的 \(S\)-预概形 \(Y\)，以及每对在各 \(Z_i\cap U\) 上重合的态射 \(u,v:U\to Y\)，都有 \(u=v\)。事实上，\(u=v\) 等价于 \(U_0=U\)，其中 \(U_0\) 是 \(Y\times_S Y\) 中的对角线在由 \((u,v)\) 定义的 \(S\)-态射 \(U\to Y\times_S Y\) 下的逆像。对角线是 \(Y\times_S Y\) 的闭子预概形，所以 \(U_0\) 是 \(U\) 的包含所有 \(Z_i\cap U\) 的闭子预概形。于是由概形稠密性得到 \(U_0=U\)，从而 \(u=v\)。反之，取 \(Y=\operatorname{Spec}\mathscr O_S[T]\)。
+
+按 EGA I，9.5 末引入的术语，说子预概形 \(Z\) 在 \(X\) 中概形稠密，也意味着 \(X\) 是 \(Z\) 在 \(X\) 中的\emph{闭包子预概形}。
+
+% 源页：Exp9 组件本地第 11 页；完整阅读本第 657 页。
+\medskip
+\noindent\SGARefTarget{sga3:ix:lemma:4:2}\textbf{引理 4.2.}
+\textit{设 \(X\) 是平坦 \(S\)-预概形，\((Z_i)_{i\in I}\) 是 \(X\) 的一族在 \(S\) 上平坦的子预概形。设 \(S_0\) 是 \(S\) 的由幂零理想 \(\mathscr J\) 定义的子预概形，并假设模 \(\mathscr J^n/\mathscr J^{n+1}\) 在 \(S_0\) 上局部自由。设 \(X_0,Z_{i0}\) 由 \(X,Z_i\) 经基变换 \(S_0\to S\) 得到。若 \((Z_{i0})_{i\in I}\) 在 \(X_0\) 中概形稠密，则 \((Z_i)_{i\in I}\) 在 \(X\) 中概形稠密。}
+
+\emph{证明。}
+设 \(\mathscr J^{n+1}=0\)，其中 \(n\geq0\)，对 \(n\) 作归纳；\(n=0\) 时断言平凡。按惯例，以模 \(\mathscr J^{m+1}\) 约化来定义 \(S_m,X_m,Z_{im}\)。归纳假设已蕴涵 \((Z_{i,n-1})_{i\in I}\) 在 \(X_{n-1}\) 中概形稠密。以一个诱导开子集代替 \(X\) 后，只须证明 \(\mathscr O_X\) 的每个在所有 \(Z_i\) 上为零的截面 \(f\) 均为零。
+
+由 \(f\) 定义的
+\[
+  \mathscr O_{X_{n-1}}
+  =\mathscr O_X/\mathscr J^n\mathscr O_X
+\]
+的截面 \(f_{n-1}\) 在各 \(Z_{i,n-1}\) 上为零，故为零。因此 \(f\) 是 \(\mathscr J^n\mathscr O_X\) 的截面。由于 \(X\) 在 \(S\) 上平坦，有同构
+\SGARefTarget{sga3:ix:lemma:4:2:display:01}
+\[
+  \mathscr J^n\mathscr O_X
+  \xleftarrow{\ \sim\ }
+  \mathscr E\otimes_{\mathscr O_{S_0}}\mathscr O_{X_0},
+  \qquad
+  \mathscr E=\mathscr J^n=\mathscr J^n/\mathscr J^{n+1}.
+\]
+类似地，由于每个 \(Z_i\) 在 \(S\) 上平坦，\(f\) 在 \(Z_i\) 上的限制 \(f_i\) 可视为
+\SGARefTarget{sga3:ix:lemma:4:2:display:02}
+\[
+  \mathscr J^n\mathscr O_{Z_i}
+  \xleftarrow{\ \sim\ }
+  \mathscr E\otimes_{\mathscr O_{S_0}}\mathscr O_{Z_{i0}}.
+\]
+的截面。由假设，所有 \(f_i\) 均为零。模 \(\mathscr E\) 按假设局部自由，故
+\[
+  \mathscr F
+  =\mathscr E\otimes_{\mathscr O_{S_0}}\mathscr O_{X_0}.
+\]
+也局部自由。因此 \(f\) 是 \(X_0\) 上局部自由模 \(\mathscr F\) 的一个截面，且在每个 \(Z_{i0}\) 上的限制均为零。由于族 \((Z_{i0})_{i\in I}\) 在 \(X_0\) 中概形稠密，立即得到 \(f=0\)。\qed
+
+% 源页：Exp9 组件本地第 12 页；完整阅读本第 658 页。
+\medskip
+\noindent\SGARefTarget{sga3:ix:corollary:4:3}\textbf{推论 4.3.}
+\textit{设 \(X\) 是局部 Noether 的 \(S\)-预概形，在 \(S\) 上平坦；设 \((Z_i)_{i\in I}\) 是 \(X\) 的一族在 \(S\) 上平坦的子预概形。假设对每个 \(s\in S\)，纤维族 \((Z_{is})_{i\in I}\) 在 \(X_s\) 中概形稠密。则 \((Z_i)_{i\in I}\) 在 \(X\) 中概形稠密。}
+
+\emph{证明。}
+以一个诱导开子集代替 \(X\) 后，只须证明 \(\mathscr O_X\) 的每个在所有 \(Z_i\) 上限制为零的截面 \(f\) 本身为零。%
+\footnote{编者注：下文扩充了原文。}
+为此，只须说明对每个 \(x\in X\)，\(f\) 在 \(\mathscr O_{X,x}\) 中的像为零。设 \(\mathfrak m_x\) 为 \(\mathscr O_{X,x}\) 的极大理想，\(\mathfrak m_s\) 为 \(\mathscr O_{S,s}\) 的极大理想，其中 \(s\) 是 \(x\) 在 \(S\) 中的像。由于 \(\mathscr O_{X,x}\) 是 Noether 的，
+\[
+  \bigcap_{n\in\mathbb N}\mathfrak m_x^n=0,
+  \qquad\text{从而更有}\qquad
+  \bigcap_{n\in\mathbb N}\mathscr O_{X,x}\mathfrak m_s^n=0.
+\]
+因此只须对每个整数 \(n\) 证明 \(f\) 在
+\[
+  X\times_S
+  \operatorname{Spec}\bigl(\mathscr O_{S,s}/\mathfrak m_s^{n+1}\bigr)
+\]
+上诱导的截面为零。由假设，
+\[
+  Z_{is}=Z_i\otimes_{\mathscr O_{S,s}}\kappa(s)
+\]
+是在
+\[
+  X_s=X\otimes_{\mathscr O_{S,s}}\kappa(s).
+\]
+中的概形稠密族。于是归结到 \(S\) 为极大理想 \(\mathscr J\) 幂零的局部环之谱的情形，此时 \(S_0=\operatorname{Spec}\kappa(s)\)，且 \SGARefLink{sga3:ix:lemma:4:2}{引理~4.2} 的假设成立。结论由此得到。\qed
+
+\medskip
+\noindent\SGARefTarget{sga3:ix:lemma:4:4}\textbf{引理 4.4.}
+\textit{设 \(S\) 是局部 Noether 预概形，\(X\) 是局部 Noether 的 \(S\)-预概形，在 \(S\) 上平坦；设 \((Z_i)_{i\in I}\) 是 \(X\) 的一族在 \(S\) 上平坦的子预概形。假设对每个 \(s\in S\)，纤维族 \((Z_{is})_{i\in I}\) 在 \(X_s\) 中概形稠密。则对每个基变换 \(S'\to S\)，即使 \(S'\) 未必局部 Noether，族 \((Z_i')_{i\in I}\) 仍在 \(X'\) 中概形稠密。换言之，\((Z_i)_{i\in I}\) 相对于 \(S\) 在 \(X\) 中普遍概形稠密（参见 EGA IV\(_3\)，定义 11.10.8）。}
+
+\emph{证明。}%
+\footnote{编者注：另一证明将问题归结到 \(S'\) 局部 Noether 的情形，并像这里一样使用 \SGARefLink{sga3:ix:corollary:4:3}{4.3} 和 \SGARefLink{sga3:ix:lemma:4:5}{4.5}，见 EGA IV\(_3\)，11.9.16 和 11.9.12。在 11.9.16 的证明末行，应将 11.9.5 换成 11.9.12。}
+设 \(f'\) 是 \(\mathscr O_{X'}\) 在 \(X'\) 的开子集 \(U'\) 上的截面，在各 \(Z_i'\) 上为零；须证明 \(f'=0\)。固定 \(s'\in S'\)。只须证明 \(f'\) 在 \(s'\) 上方的 \(U'\) 的每个点处为零。若 \(s\) 是 \(s'\) 在 \(S\) 中的像，则以 \(S,S'\) 在 \(s,s'\) 处的局部环之谱代替它们后，可设 \(S,S'\) 是局部的，且 \(s,s'\) 是其闭点。还可设 \(X\) 仿射，从而
+\SGARefTarget{sga3:ix:lemma:4:4:display:01}
+\[
+  \begin{gathered}
+    S=\operatorname{Spec}(A),\qquad
+    S'=\operatorname{Spec}(A'),\\
+    X=\operatorname{Spec}(B),\qquad
+    X'=\operatorname{Spec}(B'),\qquad
+    B'=B\otimes_A A',
+  \end{gathered}
+\]
+其中 \(A,A'\) 是局部环，\(A\to A'\) 是局部同态，且 \(A,B\) 是 Noether 环。还可设 \(U'\) 仿射，形如 \(X'_{g'}\)，其中 \(g'\in B'\)。
+
+对 \(A'\) 的每个 \(A\)-子代数 \(A''\)，置
+\[
+  S''=\operatorname{Spec}(A'')
+\]
+并设 \(X'',Z_i''\) 由 \(X,Z_i\) 经基变换 \(S''\to S\) 得到。得到图
+\SGARefTarget{sga3:ix:lemma:4:4:diagram:01}
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+  % 英文底本说明：源稿上中、右上节点明确印有 n 下标；
+  % 尽管与周围正文有出入，仍予保留。
+  Z^i \arrow[d] & Z_n^{i''} \arrow[l]\arrow[d]
+    & Z_n^{i'} \arrow[l]\arrow[d] \\
+  X \arrow[d] & X'' \arrow[l]\arrow[d] & X' \arrow[l]\arrow[d] \\
+  S & S'' \arrow[l] & S' \arrow[l].
+\end{tikzcd}
+\]
+
+% 源页：Exp9 组件本地第 13 页；完整阅读本第 659 页。
+下文中，只考虑这样的 \(A''\)：它们是 \(A'\) 中在 \(A\) 上有限型的 \(A\)-子代数 \(A_1''\) 在 \(\mathfrak m'\cap A_1''\) 处的局部化，其中 \(\mathfrak m'\) 是 \(A'\) 的极大理想。于是同态 \(A\to A''\to A'\) 均为局部同态。这些 \(A''\) 构成一个递增滤过子代数族，其并，因而其正极限，为 \(A'\)。同样，
+\[
+  B'=\varinjlim_{A''}\bigl(B\otimes_A A''\bigr).
+\]
+因此存在这样的 \(A''\) 及元素 \(g''\in B''=B\otimes_A A''\)，其在 \(B'\) 中的像为 \(g'\)。
+
+由 \SGARefLink{sga3:ix:lemma:4:5}{下文引理~4.5}，\((Z_{is})_{i\in I}\) 在 \(X_s\) 中概形稠密这一性质，在每个基变换 \(S''\to S\) 下保持。%
+\footnote{编者注：前句为新增，下文扩充了原文。}
+因此，由于每个 \(S''\) 均局部 Noether，以适当的 \(S''\) 代替 \(S\)，并以 \(X'',Z_i''\) 代替 \(X,Z_i\)，仍保持 \SGARefLink{sga3:ix:lemma:4:4}{引理~4.4} 的假设。
+
+故可设 \(g'\) 来自元素 \(g\in B\)。以开子集 \(X_g=U\) 代替 \(X\) 后，可设 \(U'=X'\)。同样，可设 \(f'\) 来自 \(\mathscr O_X\) 在 \(X\) 上的截面 \(f\)。
+
+设 \(Y=V(f)\) 是 \(X\) 的由 \(f\) 定义的子概形，并置
+\[
+  Y_i=Z_i\times_XY.
+\]
+于是 \(Y_i\) 是 \(Z_i\) 的闭子概形 \(V(f_i)\)，其中 \(f_i\) 为 \(f\) 诱导的 \(\mathscr O_{Z_i}\) 的截面。用 \(Y',Y_i'\) 表示经基变换得到的 \(S'\)-概形，则有
+\SGARefTarget{sga3:ix:lemma:4:4:display:02}
+\[
+  Y'=V(f'),
+  \qquad
+  Y_i'=Z_i'\times_{X'}Y'=V(f_i'),
+\]
+对于 \(Y'',Y_i''\) 也有类似关系。\(f'\) 在各 \(Z_i'\) 上为零这一断言等价于
+\[
+  Y_i'=Z_i'\qquad\text{对每个 }i.
+\]
+\footnote{编者注：原文还加了“至少对 \(X'\) 中在 \(s'\) 上方的每个点 \(x'\)”，但这一限制似乎不必要。}
+
+设 \(\mathfrak m\) 为 \(A\) 的极大理想。对每个 \(n\geq0\)，引入 \(S\) 的闭子概形
+\[
+  S_n=\operatorname{Spec}(A/\mathfrak m^{n+1})
+\]
+并设 \(X_n,Y_n,Z_n^i,Y_n^i\) 由 \(X,Y,Z_i,Y_i\) 经基变换 \(S_n\to S\) 得到。更一般地，对每个 \(S\)-预概形 \(P\)，记 \(P_n=P\times_SS_n\)。
+
+对每个 \(n\) 和 \(i\in I\)，考虑函子
+\SGARefTarget{sga3:ix:lemma:4:4:display:03}
+\[
+  F_n^i
+  =\prod_{Z_n^i/S_n}Y_n^i/Z_n^i:
+  (\mathbf{Sch})_{/S_n}^{\circ}\longrightarrow\mathbf{Set},
+\]
+它对 \(S_n\) 上方的每个 \(P\) 定义为
+\SGARefTarget{sga3:ix:lemma:4:4:display:04}
+\[
+F_n^i(P)
+=\Gamma\bigl((Y_n^i)_P/(Z_n^i)_P\bigr)
+=
+\begin{cases}
+  \varnothing,&(Y_n^i)_P\ne(Z_n^i)_P,\\
+  \{\operatorname{id}\},&(Y_n^i)_P=(Z_n^i)_P.
+\end{cases}
+\]
+由于 \(S_n\) 是 Artin 局部概形，且 \(Z_n^i\) 在 \(S_n\) 上平坦、因而本质自由，\SGARefLink{sga3:viii:theorem:6:4}{VIII, 6.4} 表明每个 \(F_n^i\) 均由 \(S_n\) 的闭子预概形 \(T_n^i\) 表示。
+
+% 源页：Exp9 组件本地第 14 页；完整阅读本第 660 页。
+局部环 \(A\) 的完备化 \(\widehat A\) 是 Noether 的，因为 \(A\) 是 Noether 的；它是环 \(A_n\) 的投射极限。%
+\footnote{编者注：原文在此扩充并修正，以说明环 \(\mathscr O(T_n^i)\) 的投射极限定义 \(\operatorname{Spf}(\widehat A)\) 的闭形式子概形。}
+设 \(K_n^i\) 是
+\[
+  A_n=A/\mathfrak m^{n+1}
+\]
+中定义 \(T_n^i\) 的理想，并设 \(K^i=\varprojlim_nK_n^i\)；这是 \(\widehat A\) 的理想。
+
+固定 \(i\)，对整数 \(m\geq n\) 及任意 \(S_n\)-预概形 \(P\)，有
+\[
+  (Y_n^i)_P
+  =Y_i\times_SS_n\times_{S_n}P
+  =Y_i\times_SP
+  =(Y_m^i)_P,
+\]
+同样有 \((Z_n^i)_P=(Z_m^i)_P\)。由此得到，\(F_n^i\) 是 \(F_m^i\) 在 \((\mathbf{Sch})_{/S_n}\) 上的限制 \(F_m^i\times_{S_m}S_n\)，因此
+\[
+  T_n^i=T_m^i\times_{S_m}S_n.
+\]
+于是得到具有正合行的交换图：
+\SGARefTarget{sga3:ix:lemma:4:4:diagram:02}
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+  0 \arrow[r] & K_m^i \arrow[r]\arrow[d,two heads]
+    & A_m \arrow[r]\arrow[d,two heads]
+    & \mathscr O(T_m^i) \arrow[r]\arrow[d,two heads] & 0\\
+  0 \arrow[r] & K_n^i \arrow[r]
+    & A_n \arrow[r]
+    & \mathscr O(T_n^i) \arrow[r] & 0
+\end{tikzcd}
+\]
+所有竖直箭头均为满射。首先，这表明投射系统 \((K_n^i)_{n\in\mathbb N}\) 满足 Mittag--Leffler 条件，因而有拓扑环同构
+\[
+  \varprojlim_n\mathscr O(T_n^i)
+  \simeq\widehat A/K^i
+\]
+（参见 EGA \(0_{\mathrm{III}}\)，\S13.2）。其次，映射 \(K^i\to K_n^i\) 是满射（参见 \SGARefLink{sga3:ix:bib:bens}{[BEns]}，III，\S7.4，命题~5）。故
+\[
+  K_n^i\simeq
+  \frac{K^i+\mathfrak m^{n+1}\widehat A}
+       {\mathfrak m^{n+1}\widehat A},
+  \qquad
+  \mathscr O(T_n^i)\simeq
+  (\widehat A/K^i)\otimes_A(A/\mathfrak m^{n+1}).
+\]
+
+换言之，\((T_n^i)_n\) 是一个仿射 Artin 概形的归纳系统，其归纳极限
+\[
+  T^i=\varinjlim_nT_n^i
+\]
+是
+\[
+  \widehat S=\operatorname{Spf}(\widehat A)
+\]
+的闭形式子概形（参见 EGA I，\S10），模 \(\mathfrak m^{n+1}\) 的约化为 \(T_n^i\)。
+
+设 \(T\) 是 \(\widehat S\) 中由各 \(T^i\) 的交给出的闭形式子概形，即由
+\[
+  K=\sum_iK^i.
+\]
+定义。由于 \(\widehat A\) 是 Noether 的，存在 \(I\) 的有限子集 \(J\)，使
+\[
+  K=\sum_{i\in J}K^i,
+  \qquad\text{等价地}\qquad
+  T=\bigcap_{i\in J}T^i.
+\]
+因此对每个 \(n\)，
+\[
+  K_n=\sum_{i\in J}K_n^i,
+\]
+其中 \(K_n\) 是 \(K\) 在 \(A_n\) 中的像。
+
+回顾，\(f_i\) 是 \(f\in B=\mathscr O(X)\) 在 \(\mathscr O(Z_i)\) 中的像，而 \(f_i'\) 是它在
+\[
+  \mathscr O(Z_i')
+  =\mathscr O(Z_i)\otimes_AA'.
+\]
+中的像。关系 \(Y_i'=Z_i'\) 等价于 \(f_i'=0\)。而 \(\mathscr O(Z_i)\otimes_AA'\) 是上述 \(A''\) 所对应的子代数 \(\mathscr O(Z_i)\otimes_AA''\) 的正极限。因此存在 \(A''\) 使 \(Y_i''=Z_i''\)。先验地，\(A''\) 依赖于 \(i\)，但由于 \(J\) 有限，可选取同一个 \(A''\)，使其对每个 \(i\in J\) 都适用。置
+\[
+  S''=\operatorname{Spec}(A''),
+  \qquad
+  S''_{(n)}=S''\times_SS_n.
+\]
+\footnote{编者注：原文在此扩充并修正，区分了 \(S''_{(n)}\) 与下文引入的子概形 \(S_n''=S_n''(s'')\)。}
+
+% 源页：Exp9 组件本地第 15 页；完整阅读本第 661 页。
+对每个 \(i\in J\)，等式
+\[
+  Y_i''\times_{S''}S''_{(n)}
+  =(Y_n^i)_{S''_{(n)}}
+  =Z_i''\times_{S''}S''_{(n)}
+  =(Z_n^i)_{S''_{(n)}}
+\]
+由 \(T_n^i\) 的定义表明 \(S''_{(n)}\to S_n\) 经由 \(T_n^i\) 分解。因此它经由
+\[
+  T_n=\bigcap_{i\in J}T_n^i,
+\]
+分解，从而对每个 \(i\in I\) 均经由 \(T_n^i\) 分解。设 \(f''\) 为 \(f\) 在 \(B''=B\otimes_AA''\) 中的像，\(f''_{(n)}\) 为它在
+\[
+  B''_{(n)}=B''/\mathfrak m^{n+1}B''.
+\]
+中的像。前述分解意味着，对每个 \(n\)，截面 \(f''_{(n)}\) 在所有 \(Z_i\times_SS''_{(n)}\) 上为零。
+
+由于 \(A\to A''\to A'\) 是局部同态，\(s'\) 在 \(S''\) 中的像 \(s''\) 是 \(S''\) 的闭点，对应于 \(A''\) 的极大理想 \(\mathfrak m''\)，而其在 \(S\) 中的像为 \(s\)。\emph{〔源文此处印为 \(B''\)；由于 \(s''\in S''=\operatorname{Spec}(A'')\)，所指的环应为 \(A''\)。〕}固定 \(n\)，现以 \(S_n''\) 表示 \(s''\) 在 \(S''\) 中的第 \(n\) 个无穷小邻域：
+\[
+  S_n''=\operatorname{Spec}(A''/\mathfrak m''^{\,n+1}).
+\]
+置
+\[
+  B_n''=B''/\mathfrak m''^{\,n+1}B'',
+  \qquad
+  Z_{n}^{i''}=Z_i\times_SS_n''.
+\]
+\emph{〔源文还附有 \(Z_n^{i''}=\operatorname{Spec}(B_n'')\)；该等式会将每个 \(Z_n^{i''}\) 等同于 \(X_n''\)，故此处保留基变换定义。〕}
+于是 \(f''_{(n)}\) 在 \(B_n''\) 中的像 \(f_n''\) 在每个 \(Z_n^{i''}\) 上为零。由 \SGARefLink{sga3:ix:lemma:4:5}{下文引理~4.5}，纤维族
+\[
+  Z_0^{i'''}
+  =Z_n^{i''}\times_{S_n''}\kappa(s'')
+  =Z_{is}\times_{\kappa(s)}\kappa(s'')
+\]
+在
+\[
+  X_0'''
+  =X_n''\times_{S_n''}\kappa(s'')
+  =X_s\times_{\kappa(s)}\kappa(s'').
+\]
+中概形稠密。因此 \(S_n'',X_n'',(Z_n^{i''})_{i\in I}\) 和
+\[
+  S_0'''=\operatorname{Spec}\kappa(s'')
+\]
+满足 \SGARefLink{sga3:ix:lemma:4:2}{引理~4.2} 的假设。由此得到 \(f_n''=0\)，即
+\[
+  f''\in\mathfrak m''^{\,n+1}B''
+  \qquad\text{对每个 }n.
+\]
+
+由于 \(B\) 是 Noether 的，且 \(B''=B\otimes_AA''\) 是有限型 \(B\)-代数的局部化，\(B''\) 是 Noether 的。因此其局部环对通常拓扑是分离的。故 \(f''\) 在 \(X''\) 中每个使 \(\mathfrak m''B''\) 包含于 \(\mathscr O_{X'',x''}\) 的极大理想的点 \(x''\) 处为零，即在 \(X''\) 中位于 \(s''\) 上方的每个点处为零。更进一步，\(f'\) 在 \(X'\) 中位于 \(s'\) 上方的每个点处为零。\qed
+
+\medskip
+\noindent\SGARefTarget{sga3:ix:lemma:4:5:0}\textbf{引理 4.5.0.}%
+\footnote{编者注：此处插入本引理，因为 \SGARefLink{sga3:ix:lemma:4:5}{4.5} 和 \SGARefLink{sga3:ix:theorem:4:7}{4.7} 的证明要用到它。}
+\textit{设 \(X\) 是 \(S\)-预概形，\((Z_i)_{i\in I}\) 是 \(X\) 的一族子预概形，\(S'\to S\) 忠实平坦。若 \((Z_i')_{i\in I}\) 在 \(X'\) 中概形稠密，则 \((Z_i)_{i\in I}\) 在 \(X\) 中概形稠密。}
+
+这由 EGA IV\(_3\)，11.10.5(i) 和 11.9.10(i) 得到。尚须给出 \SGARefLink{sga3:ix:lemma:4:5}{以下引理} 的证明。
+
+\medskip
+\noindent\SGARefTarget{sga3:ix:lemma:4:5}\textbf{引理 4.5.}
+\textit{设 \(X\) 是域 \(k\) 上的局部 Noether 预概形}%
+\footnote{编者注：此假设实际上多余；参见 EGA IV\(_3\)，11.10.6 和 11.9.13。}
+\textit{，\((Z_i)_{i\in I}\) 是 \(X\) 的一族子预概形，\(k'/k\) 是扩域，\(X',Z_i'\) 由 \(X,Z_i\) 经基变换得到。则 \((Z_i)_{i\in I}\) 在 \(X\) 中概形稠密，当且仅当 \((Z_i')_{i\in I}\) 在 \(X'\) 中概形稠密。}
+
+\emph{证明。}
+“如果”方向由 \SGARefLink{sga3:ix:lemma:4:5:0}{引理~4.5.0} 推出；下面证明反向。%
+\footnote{编者注：下文扩充了原文。}
+首先，可设 \(X=\operatorname{Spec}(B)\) 仿射。对每个 \(i\)，设 \((Z_{ij})_{j\in J_i}\) 为 \(Z_i\) 的仿射开覆盖。以
+\((Z_{ij})_{(i,j)\in J}\)
+代替 \((Z_i)_{i\in I}\)，其中
+\[
+  J=\coprod_{i\in I}J_i,
+\]
+还可设每个 \(Z_i\) 仿射。
+
+设
+\[
+  g\in B'=B\otimes_kk',
+  \qquad
+  t'\in B_g'
+\]
+是 \(\mathscr O_{X'}\) 在仿射开集 \(U'=X_g'\) 上的截面，其在每个 \(Z_i'\cap U'\) 上的限制为零。因此它在每个
+\[
+  \bigl(\mathscr O(Z_i)\otimes_kk'\bigr)_g
+\]
+中的像为零。存在 \(k'\) 的有限型 \(k\)-子代数 \(A\)，使
+\[
+  g\in B_A=B\otimes_kA,
+  \qquad
+  t'\in(B_A)_g.
+\]
+映射
+\[
+  \mathscr O(Z_i)\otimes_kA
+  \longrightarrow
+  \mathscr O(Z_i)\otimes_kk'
+\]
+是单射，故
+\[
+  \bigl(\mathscr O(Z_i)\otimes_kA\bigr)_g
+  \longrightarrow
+  \bigl(\mathscr O(Z_i)\otimes_kk'\bigr)_g.
+\]
+也是单射。因此由假设，\(t'\) 在每个 \(\bigl(\mathscr O(Z_i)\otimes_kA\bigr)_g\) 中的像为零。只须再说明 \((Z_{iA})_{i\in I}\) 在 \(X_A\) 中概形稠密，这由 EGA IV\(_3\)，11.9.10(b) 推出。%
+\footnote{编者注：原文接着说：“对 \(X_{A'}\) 使用 \SGARefLink{sga3:ix:corollary:4:3}{4.3}，其中 \(A'\) 是 \(A\) 对某个极大理想的幂所取的商，再用 Hilbert 零点定理，就归结到 \(k'\) 是 \(k\) 的有限扩张的情形。”可以扩充此归约并继续原论证，因为有限扩张 \(k'/k\) 的情形比 EGA IV\(_3\)，11.9.10(b) 中处理的一般情形稍简单。}
+\qed
+
+顺便记下 \SGARefLink{sga3:ix:corollary:4:6}{以下结果}，它将在后面的一篇报告中使用。%
+\footnote{编者注：此引用尚待明确。}
+
+% 源页：Exp9 组件本地第 16 页；完整阅读本第 662 页。
+\medskip
+\noindent\SGARefTarget{sga3:ix:corollary:4:6}\textbf{推论 4.6.}
+\textit{设 \(X\) 是平坦 \(S\)-预概形，\(U\) 是 \(X\) 的开子集。假设对每个 \(s\in S\)，\(U_s\) 在 \(X_s\) 中概形稠密，且 \(X\) 局部 Noether 或 \(X\) 在 \(S\) 上局部有限呈示。则 \(U\) 在 \(X\) 中概形稠密。}
+
+\emph{证明。}
+为简单起见，假设 \(U\) 在 \(X\) 中反紧（一般情形参见 EGA IV\(_3\)，11.10.10 和 11.9.17）。局部 Noether 的情形仅供参考，它已包含在 \SGARefLink{sga3:ix:corollary:4:3}{4.3} 中。
+
+第二种情形中，显然可设 \(S\) 和 \(X\) 仿射。则 \(X\) 与 \(U\) 在 \(S=\operatorname{Spec}(A)\) 上有限呈示。环 \(A\) 是其有限型 \(\mathbb Z\)-子代数 \(A_i\) 的正极限。已用过的“标准程序”（参见 EGA IV\(_3\)，8.8.2 和 8.10.5(iii)）表明，存在指标 \(i\)、一个在
+\[
+  S_i=\operatorname{Spec}(A_i),
+\]
+上的仿射概形 \(X_i\) 以及 \(X_i\) 的开子集 \(U_i\)，使 \(X,U\) 由它们经基变换 \(S\to S_i\) 得到。设 \(E_i\) 是 \(S_i\) 中那些使 \((U_i)_s\) 在 \((X_i)_s\) 中概形稠密的 \(s\in S_i\) 所成的子集。
+
+由 EGA IV\(_2\)，5.9.9 和 5.10.2，\(E_i\) 是使 \((U_i)_s\) 包含 \((X_i)_s\) 的结构层的关联点集
+\[
+  \operatorname{Ass}\mathscr O_{(X_i)_s}
+\]
+的点 \(s\in S_i\) 所成的集合。由 EGA IV\(_3\)，11.9.17.1，这是可构造条件，故 \(E_i\) 可构造。%
+\footnote{编者注：本段及下段扩充了原文。}
+
+由 \SGARefLink{sga3:ix:lemma:4:5}{4.5}，\(E_i\) 在 \(S_j\to S_i\) 下的逆像是 \(E_j\)，而在 \(S\to S_i\) 下的逆像是使 \(U_s\) 在 \(X_s\) 中概形稠密的 \(s\in S\) 所成的集合 \(E\)。%
+\footnotemark[24]
+由假设，\(E=S\)；它也是 \(S_i\) 在每个 \(S\to S_i\) 下的逆像。因此 EGA IV\(_3\)，8.3.11 蕴涵存在 \(j\geq i\)，使 \(E_j=S_j\)；即对每个 \(s\in S_j\)，\((U_j)_s\) 在 \((X_j)_s\) 中概形稠密。
+
+对 \((S_j,X_j,U_j)\) 和基变换 \(S\to S_j\) 应用 \SGARefLink{sga3:ix:lemma:4:4}{4.4}。得到 \(U\) 在 \(X\) 中概形稠密。注意，这里仅对有限指标集（事实上，单元素集）的族使用 \SGARefLink{sga3:ix:lemma:4:4}{4.4}；在此情形下，其证明大为简化。\qed
+
+% 源页：Exp9 组件本地第 17 页；完整阅读本第 663 页。
+\medskip
+\noindent\SGARefTarget{sga3:ix:theorem:4:7}\textbf{定理 4.7.}
+\textit{设 \(S\) 是预概形，\(G\) 是 \(S\) 上的有限型乘法型群。对每个整数 \(n>0\)，设 \({}_nG\) 为 \(n\cdot\operatorname{id}_G\) 的核。则子预概形族 \(({}_nG)_{n>0}\) 在 \(G\) 中按 \SGARefLink{sga3:ix:definition:4:1}{定义~4.1} 的意义概形稠密。}
+
+\emph{证明。}
+分两种情形。
+
+\smallskip
+\SGARefTarget{sga3:ix:theorem:4:7:proof:item:a}\noindent\textit{(a) \(S\) 局部 Noether。}
+由 \SGARefLink{sga3:ix:corollary:4:3}{4.3}，可归结到 \(S\) 为域 \(k\) 的谱的情形。由 \SGARefLink{sga3:ix:lemma:4:5:0}{4.5.0}，可设 \(k\) 代数闭，且 \(G\) 可对角化，记为
+\[
+  G=D_k(M),
+\]
+其中 \(M\) 是有限型交换群。于是
+\[
+  M\simeq\Gamma\times\mathbb Z^r
+\]
+其中 \(\Gamma\) 有限，故
+\[
+  G\simeq G_1\times G_2,
+  \qquad
+  G_1=D(\Gamma),
+  \qquad
+  G_2=\mathbf G_m^r.
+\]
+当 \(n\) 充分可除时——即 \(n\) 是 \(\Gamma\) 的阶的倍数时——有
+\[
+  {}_nG=G_1\times{}_nG_2,
+  \qquad\text{因为}\qquad
+  {}_nG_1=G_1.
+\]
+再对投影 \(G\to G_1\) 应用 \SGARefLink{sga3:ix:corollary:4:3}{4.3}，便归结到 \(G_2\)，从而归结到 \(G=\mathbf G_m^r\) 的情形。由于这时 \(G\) 既约，\(({}_nG)_{n>0}\) 的概形稠密性等价于 \(\bigcup_n{}_nG\) 对通常拓扑的稠密性。由于
+\[
+  {}_nG=({}_n\mathbf G_m)^r,
+\]
+可归结到 \(G=\mathbf G_m\)，它是一个一维不可约群。现在断言由 \(\bigcup_n{}_nG\)，即 \(k\) 中的单位根集无限而得到。
+
+\smallskip
+\SGARefTarget{sga3:ix:theorem:4:7:proof:item:b}\noindent\textit{(b) 一般情形。}
+对每个 \(s\in S\)，存在 \(s\) 的开邻域 \(U\) 和忠实平坦拟紧态射 \(S'\to U\)，使 \(G'=G_{S'}\) 可对角化，记为 \(G'=D_{S'}(M)\)。由 \SGARefLink{sga3:ix:lemma:4:5:0}{4.5.0} 可归结到 \(G'\)，因此可设 \(G\) 本身可对角化。它由绝对群 \(H=D_{\mathbb Z}(M)\) 经基变换
+\[
+  S\longrightarrow\operatorname{Spec}(\mathbb Z)
+\]
+得到。由 \SGARefLink{sga3:ix:theorem:4:7:proof:item:a}{(a)}，对每个 \(s\in\operatorname{Spec}(\mathbb Z)\)，族 \(({}_nH_s)_{n>0}\) 在 \(H_s\) 中概形稠密。只须再应用 \SGARefLink{sga3:ix:lemma:4:4}{4.4}。%
+\footnote{编者注：在 X 的 \SGARefLink{sga3:x:lemma:4-3}{4.3} 中，将对非局部 Noether 基底使用 \SGARefLink{sga3:ix:theorem:4:7}{此结果}；该基底为 \(S=\operatorname{Spec}(\widehat A\otimes_A\widehat A)\)，其中 \(\widehat A\) 是 Noether 局部环 \(A\) 的完备化。}
+\qed
+
+\medskip
+\noindent\SGARefTarget{sga3:ix:corollary:4:8}\textbf{推论 4.8.}
+\begin{enumerate}
+  \item[(a)]\SGARefTarget{sga3:ix:corollary:4:8:item:a}
+  \textit{设 \(u,v:H\to G\) 是群 \(S\)-预概形的两个同态，其中 \(H\) 是乘法型}%
+  \footnote{编者注：将“可对角化”换成了“乘法型”。}
+  \textit{且有限型。假设对每个整数 \(n>0\)，\(u\) 与 \(v\) 在 \({}_nH\) 上的限制相等。则 \(u=v\)。}
+
+  \item[(b)]\SGARefTarget{sga3:ix:corollary:4:8:item:b}
+  \textit{设 \(H_1,H_2\) 是群预概形 \(G\) 的两个有限型乘法型子群。若对每个整数 \(n>0\) 均有 \({}_nH_1={}_nH_2\)，则 \(H_1=H_2\)。}
+\end{enumerate}
+
+\emph{证明。}
+考虑 \(H\times G\) 中作为 \(u,v\) 的图的子群 \(H_1,H_2\)，即可由 \SGARefLink{sga3:ix:corollary:4:8:item:b}{(b)} 推出 \SGARefLink{sga3:ix:corollary:4:8:item:a}{(a)}。对于 \SGARefLink{sga3:ix:corollary:4:8:item:b}{(b)}，置
+\[
+  H=H_1\cap H_2.
+\]
+这是 \(H_i\) 的子群预概形，其中 \(i=1,2\)，须证明它等于 \(H_i\)。假设恰好说 \(H\) 包含所有 \({}_nH_i\)。因此归结到 \SGARefLink{sga3:ix:corollary:4:9}{下一推论}。\qed
+
+\medskip
+\noindent\SGARefTarget{sga3:ix:corollary:4:9}\textbf{推论 4.9.}
+\textit{设 \(G\) 是有限型乘法型 \(S\)-群，\(H\) 是包含每个 \(n>0\) 所对应的 \({}_nG\) 的子群预概形。则 \(H=G\)。}
+
+\emph{证明。}
+由 \SGARefLink{sga3:ix:theorem:4:7}{4.7}，只须证明 \(H\) 是闭的，或等价地，在集合意义下等于 \(G\)。这将问题归结到 \(S\) 为域的谱的情形。这时 \(G\) 的每个子群预概形均为闭的，见 VI\(_B\)，\SGARefLink{cor:sga3-VIB-1.4.2}{1.4.2}。\qed
+
+% 源页：Exp9 组件本地第 18 页；完整阅读本第 664 页。
+\medskip
+\noindent\SGARefTarget{sga3:ix:remark:4:10}\textbf{注记 4.10.}
+在 \SGARefLink{sga3:ix:theorem:4:7}{4.7} 的假设下，设 \(m>0\) 是具有以下性质的整数：对每个 \(s\in S\)，\(m\) 不是 \(\kappa(s)\) 的特征的幂；且若 \(G_s\) 具有类型 \(M\)，则 \(M\) 的挠子群的每个素因子均整除 \(m\)。若 \(G\) 是环面，第二个条件自动满足。证明表明，在 \SGARefLink{sga3:ix:theorem:4:7}{定理~4.7}、\SGARefLink{sga3:ix:corollary:4:8}{推论~4.8} 和 \SGARefLink{sga3:ix:corollary:4:9}{推论~4.9} 中可只考虑子群
+\[
+  {}_{m^r}G,\qquad r>0.
+\]
+
+此外，若 \(G\) 在 \(S\) 上平滑，则对每个 \(s\in S\)，存在 \(s\) 的开邻域 \(U\) 及整数 \(m>0\)，它与 \(U\) 上的所有剩余特征互素，并对 \(G_U\) 满足上述条件。例如，取 \(m\) 为 \(G\) 在 \(s\) 处的类型的挠子群的阶（参见 \SGARefLink{sga3:ix:remark:1:4:1:item:a}{1.4.1(a)} 和 \SGARefLink{sga3:ix:proposition:2:1:item:e:01}{2.1(e)}）。限于 \(U\) 后，各群 \({}_{m^r}G\) 在 \(S\) 上有限平展，且其族概形稠密。在某些应用中——特别是涉及 \SGARefLink{sga3:ix:theorem:3:2}{定理~3.2} 和 \SGARefLink{sga3:ix:theorem:3:2:bis}{定理~3.2~bis} 的应用（参见 XI，6），但不包括涉及 \SGARefLink{sga3:ix:theorem:3:6}{定理~3.6} 和 \SGARefLink{sga3:ix:theorem:3:6:bis}{定理~3.6~bis} 的应用——这一观察可避免使用 \SGARefLink{sga3:ix:theorem:3:1}{定理~3.1} 及其所用的 Hochschild 上同调。
+
+\SGARefTarget{sga3:ix:section:5}\section*{5. 乘法型群的中心同态}
+\addcontentsline{toc}{section}{5. 乘法型群的中心同态}
+
+\medskip
+\noindent\SGARefTarget{sga3:ix:lemma:5:0}\textbf{引理 5.0.}%
+\footnote{编者注：本引理隐含于原文中；由于下文多次使用，特将其明确列出。}
+\textit{设 \((A,\mathfrak m)\) 是 Noether 局部环，置 \(S=\operatorname{Spec}(A)\)；设 \(H\) 是 \(S\) 上的有限概形，记为 \(H=\operatorname{Spec}(B)\)，其中 \(B\) 在 \(A\) 上有限。设 \(K\) 是 \(H\) 的子概形，使对每个 \(n\)，模 \(\mathfrak m^{n+1}\) 约化均有 \(K_n=H_n\)。则 \(K=H\)。}
+
+\emph{证明。}
+设 \(s\) 为 \(S\) 的闭点。首先，\(K\) 是 \(H\) 的闭子概形。事实上，先验地它是 \(H\) 的某个开子集 \(U\) 的闭子概形。但 \(K\)，因而 \(U\)，包含纤维
+\[
+  K_s=H_s.
+\]
+由于 \(H\to S\) 有限、因而为闭映射，\(U\) 的补集为空；所以 \(U=H\)。因此 \(K\) 由 \(B\) 的理想 \(I\) 定义。假设蕴涵
+\[
+  I\subset\mathfrak m^nB
+  \qquad\text{对每个 }n.
+\]
+由于 \(B\) 是有限 \(A\)-模，它对 \(\mathfrak m\)-进拓扑分离。因此 \(I=0\)。\qed
+
+\medskip
+\noindent\SGARefTarget{sga3:ix:theorem:5:1}\textbf{定理 5.1.}
+\textit{设 \(u,v:H\to G\) 是群 \(S\)-预概形的两个同态，其中 \(H\) 是有限型乘法型。假设 \(S\) 局部 Noether 或 \(G\) 在 \(S\) 上有限呈示。设 \(s\in S\) 满足 \(u_s=v_s\)，并假设 \(u_s\) 是中心的。则存在 \(s\) 的开邻域 \(U\)，使 \(u_U=v_U\)。}
+
+\emph{证明。}
+分两种情形。
+
+\smallskip
+\SGARefTarget{sga3:ix:theorem:5:1:proof:item:a}\noindent\textit{(a) \(S\) 局部 Noether。}%
+\footnote{编者注：下文扩充了原文。}
+设
+\[
+  K=\operatorname{Ker}(u,v)
+\]
+为 \(G\times_SG\) 的对角线在 \((u,v):H\to G\times_SG\) 下的逆像。它是 \(H\) 的子群预概形。我们要寻找使 \(K_U=H_U\) 的开集 \(U\)。由于 \(S\) 局部 Noether，且 \(H\) 在 \(S\) 上有限型，预概形 \(H\) 局部 Noether。因此浸入 \(K\hookrightarrow H\) 有限型（参见 EGA I，6.3.5），所以 \(K\) 在 \(S\) 上有限型，因而有限呈示。由 EGA IV\(_3\)，8.8.2.4，只须证明
+\[
+  K_{S_0}=H_{S_0},
+  \qquad
+  S_0=\operatorname{Spec}(\mathscr O_{S,s}).
+\]
+于是可设 \(S\) 是闭点为 \(s\) 的局部概形。如有需要，以完备化 \(\widehat A\) 代替 Noether 局部环 \(A\)，给出忠实平坦拟紧基变换 \(\widehat S\to S\)，从而可设 \(A\) 完备。%
+\footnote{编者注：这是因为若 \(K_{\widehat S}=H_{\widehat S}\) 则 \(K=H\)；参见 SGA~1，VIII，\SGARefLink{sga3:viii:corollary:5:4}{5.4}。下面的论证不使用 \(A\) 的完备性。}
+
+由 \SGARefLink{sga3:ix:corollary:3:4}{3.4}，对每个 \(n\) 均有 \(u_n=v_n\)，其中下标表示模 \(\mathfrak m^{n+1}\) 约化，\(\mathfrak m\) 是 \(A\) 的极大理想。对每个 \(m>0\)，设
+\[
+  {}_mu,{}_mv:{}_mH\longrightarrow G
+\]
+为 \(u,v\) 诱导的同态。则
+\[
+  ({}_mu)_n=({}_mv)_n
+  \qquad\text{对每个 }n.
+\]
+由 \SGARefLink{sga3:ix:proposition:2:2}{2.2}，群 \({}_mH\) 在 \(S\) 上有限，故由 \SGARefLink{sga3:ix:lemma:5:0}{5.0} 得到 \({}_mu={}_mv\)。这对每个 \(m\) 都成立，因此由 \SGARefLink{sga3:ix:theorem:4:7}{4.7} 得到 \(u=v\)。
+
+\smallskip
+\SGARefTarget{sga3:ix:theorem:5:1:proof:item:b}\noindent\textit{(b) \(G\) 有限呈示。}%
+\footnote{编者注：下文扩充了原文。}
+群 \(H\) 在 \(S\) 上也有限呈示。由 EGA IV\(_3\)，8.8.2，再次可设 \(S\) 是闭点为 \(s\) 的局部概形，只须证明 \(u=v\)。设 \(f:S'\to S\) 是忠实平坦拟紧态射。将所得态射记为
+\[
+  f_H:H'\to H,
+  \qquad
+  f_G:G'\to G,
+  \qquad
+  u',v':H'\to G'
+\]
+若 \(u'=v'\)，则
+\[
+  u\circ f_H=f_G\circ u'=f_G\circ v'=v\circ f_H,
+\]
+而且因为 \(f_H\) 是满态射，有 \(u=v\)。因此，经忠实平坦拟紧基扩张后，可设 \(H\) 可对角化：
+\[
+  H=D_S(M)
+\]
+其中 \(M\) 是有限型交换群。
+
+如 \SGARefLink{sga3:ix:corollary:4:6}{4.6} 的证明中一样，引入 \(A=\mathscr O_{S,s}\) 中有限型 \(\mathbb Z\)-子代数 \(A_i\) 所成的递增滤过族，并置
+\[
+  S_i=\operatorname{Spec}(A_i).
+\]
+\footnotemark[30]
+对每个 \(i\)，群 \(H=D_S(M)\) 来自
+\[
+  H_i=D_{S_i}(M).
+\]
+由于 \(G\) 在 \(S\) 上有限呈示，EGA IV\(_3\)，8.8.2（另见 VI\(_B\)，10.2 和 10.3）给出一个指标 \(i\)、有限呈示的 \(S_i\)-群预概形 \(G_i\)，以及同态
+\[
+  u_i,v_i:H_i\longrightarrow G_i
+\]
+其基变换为 \(u,v\)。设 \(s_i\) 为 \(s\) 在 \(S_i\) 中的像，并定义
+\[
+  \rho_i:H_i\times_{S_i}G_i\longrightarrow G_i,
+  \qquad
+  \rho_i(h,g)=u_i(h)g\,u_i(h)^{-1}.
+\]
+由于 \(u_s\) 是中心的，
+\[
+  \rho_s=\rho_i\times_{\kappa(s_i)}\kappa(s)
+\]
+是第二投影。扩张 \(\kappa(s_i)\to\kappa(s)\) 忠实平坦，所以 \(\rho_i\) 在 \(s_i\) 上也是第二投影；故 \((u_i)_{s_i}\) 是中心的。同样，\(u_s=v_s\) 蕴涵
+\[
+  (u_i)_{s_i}=(v_i)_{s_i}.
+\]
+现在在 \(S_i\) 上应用 \SGARefLink{sga3:ix:theorem:5:1:proof:item:a}{(a)}，即得结论。\qed
+
+\medskip
+\noindent\SGARefTarget{sga3:ix:corollary:5:2}\textbf{推论 5.2.}
+\textit{设 \(u:H\to G\) 是群 \(S\)-预概形的同态，其中 \(H\) 是有限型乘法型，并假设 \(S\) 局部 Noether 或 \(G\) 在 \(S\) 上有限呈示。若 \(s\in S\) 且 \(u_s\) 是单位同态，则存在 \(s\) 的开邻域 \(U\)，使 \(u_U\) 在其上为单位同态。}
+
+\medskip
+\noindent\SGARefTarget{sga3:ix:corollary:5:3}\textbf{推论 5.3.}
+\textit{设 \(u,H,G\) 如 \SGARefLink{sga3:ix:corollary:5:2}{5.2}，并再假设 \(G\) 在 \(S\) 上分离。设 \(U\) 为使 \(u_s\) 是单位同态的点 \(s\in S\) 所成的集合。则 \(U\) 在 \(S\) 中既开又闭，且 \(u_U:H_U\to G_U\) 是单位同态。}
+
+\emph{证明。}
+只须再证明闭性。置 \(K=\operatorname{Ker}(u)\)。由于 \(G\) 在 \(S\) 上分离，\(K\) 是 \(H\) 的闭子预概形，且 \(U\) 是使 \(K_s=H_s\) 的点 \(s\in S\) 所成的集合。很容易推出 \(U\) 是闭的；例如可用 \SGARefLink{sga3:viii:theorem:6:4}{VIII, 6.4}，因为由 VIII 的 \SGARefLink{sga3:viii:proposition:6:3}{6.3}，\(H\) 在 \(S\) 上本质自由。也可设 \(S\) 既约，且 \(U\) 在 \(S\) 中稠密，从而概形稠密。于是 \(H_U\) 在 \(H\) 中概形稠密，因为 \(H\) 在 \(S\) 上平坦，%
+\footnote{编者注：且在 \(S\) 上有限呈示；参见 EGA IV\(_3\)，11.10.5(ii) 和 11.9.10(ii)。}
+而 \(u\) 与单位同态在 \(H_U\) 上相等，故在 \(H\) 上相等。\qed
+
+% 源页：Exp9 组件本地第 20 页；完整阅读本第 666 页。
+\medskip
+\noindent\SGARefTarget{sga3:ix:corollary:5:4}\textbf{推论 5.4.}
+\textit{设 \(S\) 是预概形；\(H,G\) 是 \(S\)-群，其中 \(H\) 是有限型乘法型，\(G\) 在 \(S\) 上分离且有限呈示；设 \(\pi:S'\to S\) 是}%
+\footnote{编者注：将“忠实平坦拟紧拓扑的覆盖态射”换成“普遍有效满态射”，使结果适用于 \SGARefLink{sga3:ix:corollary:5:5}{5.5} 中的态射 \(K\to S\)；证明开头已相应修改。}
+\textit{一个纤维几何连通的普遍有效满态射——例如，忠实平坦拟紧态射或具有截面的态射（参见 IV，\SGARefLink{sga3:iv:proposition:1:12}{1.12}）。}%
+\footnote{编者注：例如，当 \(S=\operatorname{Spec}(k)\) 且 \(S'=\operatorname{Spec}(k')\)，其中 \(k\) 是域、\(k'/k\) 纯不可分时，此条件成立；参见 X，\SGARefLink{sga3:x:proposition:1:4}{命题~1.4}。}
+
+\textit{设 \(u':H'\to G'\) 是由 \(H,G\) 经基变换得到的 \(S'\)-群的中心同态。则存在唯一的 \(S\)-群同态 \(u:H\to G\)，使 \(u\times_SS'=u'\)。若 \(S'/S\) 具有截面 \(g\)，则 \(u\) 就是 \(u'\) 经基变换 \(g:S\to S'\) 得到的态射。}
+
+\emph{证明。}
+由于 \(\pi\) 是普遍有效满态射，\(H'\to H\) 也如此；唯一性如 \SGARefLink{sga3:ix:theorem:5:1:proof:item:b}{5.1(b)} 证明开头一样得到。若 \(\pi\) 具有截面 \(g\)，则
+\[
+  u'=\pi^*u
+  \quad\Longrightarrow\quad
+  u=g^*\pi^*u=g^*u'.
+\]
+
+关于存在性，IV 的 \SGARefLink{sga3:iv:proposition:2:3}{2.3} 将问题归结为说明由 \(u'\) 经两个基变换
+\[
+  \operatorname{pr}_1,\operatorname{pr}_2:
+  S''=S'\times_SS'\longrightarrow S'
+\]
+得到的两个 \(S''\)-群同态
+\[
+  u_1'',u_2'':H''\longrightarrow G''
+\]
+相等。它们沿对角线 \(S'\to S''\) 的拉回相等，因为两者都是 \(u'\)。%
+\footnote{编者注：前句为新增。}
+由于 \(u_1'',u_2''\) 是中心的，可对
+\[
+  u_1''(u_2'')^{-1}.
+\]
+应用 \SGARefLink{sga3:ix:corollary:5:3}{5.3}。因此存在 \(S''\) 的既开又闭子集 \(U\)，包含对角线，且 \(u_1''\) 和 \(u_2''\) 在其上重合。\(S'/S\) 的纤维几何连通，故 \(S''/S\) 的纤维也如此，特别地它们连通。由于 \(U\) 包含这些纤维的对角线，它包含每个纤维，故等于 \(S''\)。存在性得证。\qed
+
+\medskip
+\noindent\SGARefTarget{sga3:ix:corollary:5:5}\textbf{推论 5.5.}
+\textit{设 \(S\) 是预概形，\(K\) 是纤维连通的局部有限型 \(S\)-群预概形}%
+\footnote{编者注：为与 VI\(_A\) 的 \SGARefLink{prop:sga3-VIA-2.4}{2.4} 一致，增添了“局部有限型”假设。事实上，域上的每个连通群概形均几何连通。}
+\textit{，\(H\) 是 \(K\) 的有限型乘法型不变子群。则 \(H\) 是 \(K\) 的中心子群。}
+
+\emph{证明。}%
+\footnote{编者注：下文扩充了原文。}
+首先，\(\pi:K\to S\) 的纤维几何连通，因为对域上局部有限型群概形，连通蕴涵几何连通（参见 VI\(_A\)，\SGARefLink{prop:sga3-VIA-2.4}{2.4}）。取 \(G=H\) 和 \(S'=K\)，对 \(K\)-群同态
+\[
+  u':H_K\longrightarrow H_K,
+  \qquad
+  (h,k)\longmapsto(khk^{-1},k).
+\]
+应用 \SGARefLink{sga3:ix:corollary:5:4}{5.4}。由于 \(H\) 交换，此同态是中心的。它沿单位截面 \(\epsilon:S\to K\) 的拉回是 \(H\) 的恒等同态。
+\emph{〔源文此处印为“\(K\) 的”；所列 \(H_K\) 的自同态表明，此处所指应为 \(H\)。〕}
+因此由 \SGARefLink{sga3:ix:corollary:5:4}{推论~5.4}，\(u'\) 本身是 \(H_K\) 上的恒等态射。故 \(H\) 在 \(K\) 中为中心的。\qed
+
+下面陈述前述结果对于中心乘法型子群的变式。像上面一样论证，并使用 \SGARefLink{sga3:ix:theorem:3:2:bis}{3.2~bis}，得到：
+
+% 源页：Exp9 组件本地第 21 页；完整阅读本第 667 页。
+\medskip
+\noindent\SGARefTarget{sga3:ix:theorem:5:1:bis}\textbf{定理 5.1 bis.}
+\textit{设 \(G\) 是 \(S\)-群预概形，\(H_1,H_2\) 是两个有限型乘法型子群预概形，且 \((H_1)_s\) 是中心的。假设 \(S\) 局部 Noether 或 \(G\) 在 \(S\) 上有限呈示。对每个满足 \((H_1)_s=(H_2)_s\) 的 \(s\in S\)，存在 \(s\) 的开邻域 \(U\)，使 \(H_1|_U=H_2|_U\)。}
+
+\medskip
+\noindent\SGARefTarget{sga3:ix:corollary:5:3:bis}\textbf{推论 5.3 bis.}
+\textit{在上述假设下，再假设 \(G\) 在 \(S\) 上分离。设 \(U\) 为满足 \((H_1)_s=(H_2)_s\) 的点 \(s\in S\) 所成的集合。则 \(U\) 在 \(S\) 中既开又闭，且 \(H_1|_U=H_2|_U\)。}
+
+\medskip
+\noindent\SGARefTarget{sga3:ix:corollary:5:4:bis}\textbf{推论 5.4 bis.}
+\textit{设 \(S\) 是预概形，\(G\) 是在 \(S\) 上分离且有限呈示的群预概形，\(S'\to S\) 是忠实平坦拟紧拓扑的覆盖态射，具有几何连通纤维，\(H'\) 是 \(G'=G\times_SS'\) 的有限型乘法型子群。则存在 \(G\) 的唯一子群 \(H\)，使 \(H'=H\times_SS'\)。由 \SGARefLink{sga3:ix:definition:1:1}{1.1} 和 \SGARefLink{sga3:ix:proposition:2:1:item:b:01}{2.1(b)}，子群 \(H\) 在 \(S\) 上是有限型乘法型。若 \(S'\to S\) 具有截面 \(g\)，则 \(H=g^*H'\)。}
+
+\medskip
+\noindent\SGARefTarget{sga3:ix:theorem:5:6}\textbf{定理 5.6.}
+\textit{设 \(S\) 是预概形，\(u:H\to G\) 是群 \(S\)-预概形的同态，其中 \(H\) 是有限型乘法型，\(G\) 在 \(S\) 上有限呈示。}
+\begin{enumerate}
+  \item[(a)]\SGARefTarget{sga3:ix:theorem:5:6:item:a}
+  \textit{假设 \(G\) 的纤维连通。若 \(s\in S\) 且 \(u_s:H_s\to G_s\) 是中心的，则存在 \(s\) 的开邻域 \(U\)，使 \(u\) 诱导的同态 \(H|_U\to G|_U\) 是中心的。}
+
+  \item[(b)]\SGARefTarget{sga3:ix:theorem:5:6:item:b}
+  \textit{若对每个 \(s\in S\)，\(u_s:H_s\to G_s\) 都是中心的，则 \(u\) 是中心的。}
+\end{enumerate}
+
+\emph{证明。}
+先证明 \SGARefLink{sga3:ix:theorem:5:6:item:a}{(a)}。%
+\footnote{编者注：\SGARefLink{sga3:ix:theorem:5:6:item:a}{(a)} 的证明扩充了原文。}
+完全仿照 \SGARefLink{sga3:ix:theorem:5:1:proof:item:b}{5.1(b)} 证明中的论证，可先设 \(S\) 是闭点为 \(s\) 的局部概形，再设 \(H=D_S(M)\) 可对角化，最后设存在 \(A=\mathscr O_{S,s}\) 的有限型 \(\mathbb Z\)-子代数 \(A_i\)，以及同态
+\[
+  u_i:D_{S_i}(M)\longrightarrow G_i
+\]
+其基变换为 \(u\)，且 \((u_i)_{s_i}\) 是中心的，其中 \(s_i\) 是 \(s\) 在 \(S_i\) 中的像。由此归结到 \(S\) 是闭点为 \(s\) 的 Noether 局部概形的情形，须证明 \(u\) 是中心的。
+
+% 源页：Exp9 组件本地第 22 页；完整阅读本第 668 页。
+设 \(K=\operatorname{Ker}(v,w)\)，其中
+\[
+  v,w:H\times_SG\rightrightarrows G
+\]
+由
+\SGARefTarget{sga3:ix:theorem:5:6:display:01}
+\[
+  v(h,g)=g,
+  \qquad
+  w(h,g)=\operatorname{int}(u(h))\cdot g
+        =u(h)g\,u(h)^{-1}.
+\]
+定义。于是 \(K\) 是
+\[
+  H_G=H\times_SG,
+\]
+的 \(G\) 上的子群，须证明 \(K=H_G\)。由 \SGARefLink{sga3:ix:corollary:4:9}{4.9}，只须说明对每个 \(m>0\)，\(K\) 包含
+\[
+  {}_m(H_G)=({}_mH)\times_SG
+\]
+于是归结到 \(H={}_mH\) 的情形，从而 \(H\) 在 \(S\) 上有限。
+
+设 \(e\) 为纤维 \(G_s\) 的单位元，并置
+\[
+  S^0=\operatorname{Spec}(\mathscr O_{G,e}),
+  \qquad
+  S_n^0=S^0\times_SS_n,
+  \qquad
+  S_n=\operatorname{Spec}(A/\mathfrak m^{n+1}).
+\]
+概形 \(S^0\) 是 Noether 局部概形，因为 \(G\) 在 Noether 概形 \(S\) 上有限呈示。基变换
+\[
+  K_{S^0}=K\times_GS^0
+\]
+是
+\[
+  H_{S^0}=H\times_SS^0,
+\]
+的子概形，且由 \SGARefLink{sga3:ix:corollary:3:9}{3.9} 得到
+\[
+  K_{S_n^0}=H_{S_n^0}
+  \qquad\text{对每个 }n.
+\]
+\footnote{编者注：原文在此扩充并修正，将“\((G_H)_n\) 在 \(H_n\) 上的单位截面”换成 \(H_{S_n^0}\)。}
+由于 \(H_{S^0}\) 在 \(S^0\) 上有限，对 Noether 局部环 \(\mathscr O_{G,e}\) 应用 \SGARefLink{sga3:ix:lemma:5:0}{5.0}，得到
+\[
+  K_{S^0}=H_{S^0}.
+\]
+\emph{〔源文此处印为未定义的局部环 \(B\)；所指应为刚引入的 Noether 局部环 \(\mathscr O_{G,e}\)。〕}
+
+另一方面，\(H\times_SG\) 是 Noether 的，因为它在 Noether 概形 \(S\) 上有限呈示。因此浸入
+\[
+  K\hookrightarrow H\times_SG
+\]
+有限型（参见 EGA I，6.3.5），且 \(K\) 在 \(G\) 上有限呈示。因此由 EGA IV\(_3\)，8.8.2.4，等式
+\[
+  K_{S^0}=H_G\times_GS^0
+\]
+蕴涵存在 \(G\) 中 \(e\) 的开邻域 \(W\)，使
+\[
+  K\times_GW
+  =H_G\times_GW
+  =H\times_SW.
+\]
+故 \(K\) 包含 \(G_H=G\times_SH\) 在 \(H\) 上的单位截面的开邻域
+\[
+  V=H\times_SW
+\]
+
+对每个 \(t\in H\)，纤维 \(G_t\) 是 \(\kappa(t)\) 上的代数群，故由 VI\(_A\)，1.1.1，它是 Cohen--Macaulay 的，从而无嵌入分支。它还连通，故由 VI\(_A\)，2.4 不可约，因此其泛点是唯一关联点。于是 EGA IV\(_2\)，3.1.8 表明 \(V_t\) 在 \(G_t\) 中概形稠密。由 \SGARefLink{sga3:ix:corollary:4:3}{4.3}，\(V\) 在 \(G_H\) 中概形稠密。
+
+此外，由于 \(K\) 是 \(G_H\) 的 \(H\)-子群，它在每个纤维 \(G_h\) 上诱导子群 \(K_h\)。此子群包含单位元的一个开邻域；由于 \(G_h\) 连通，得到 \(K_h=G_h\)。因此 \(K=G_H\) 在集合意义下成立。最后，\(K\) 是 \(G_H\) 的包含概形稠密子预概形 \(V\) 的闭子预概形，故 \(K=G_H\)。这证明了 \SGARefLink{sga3:ix:theorem:5:6:item:a}{(a)}。
+
+\SGARefLink{sga3:ix:theorem:5:6:item:b}{(b)} 由 \SGARefLink{sga3:ix:corollary:3:9}{3.9} 直接推出：为验证 \(P=G\times_SH\) 的子预概形 \(K\) 等于 \(P\)，只须对每个基变换 \(S'\to S\) 验证 \(K'=P'\)，其中 \(S'\) 是 \(S\) 的某个局部环的 Artin 商环的谱。\qed
+
+% 结束位置：Exp9 组件本地第 22 页第 6 节之前；完整阅读本第 668 页。

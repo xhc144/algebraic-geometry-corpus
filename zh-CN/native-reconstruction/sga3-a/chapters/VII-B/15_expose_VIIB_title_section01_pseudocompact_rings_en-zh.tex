@@ -1,0 +1,195 @@
+% SGA 3，第 VII 篇_B，英文重建本——第 1 轮（中文译本）。
+% 范围：依据原文件第 1--3 页，从标题至 0.1.3；止于原文件第 3 页的 0.2 之前。
+% 合并阅读版页码： 514--516. 再版印刷页码： 503--505.
+% 本范围内的原版页边定位： 477--480.
+% 依据： Polo--Gille Exp7B-13oct24.pdf,
+% SHA-256 D303690E0195654BBE7C3DAA5D89EA23E24CD709A3575217234AC19AE8836694.
+% 曾参阅 Jacob Reinhold 的 CC BY 4.0 Markdown，作为对比版本来源。
+
+\chapter*{第 \texorpdfstring{VII\textsubscript{B}}{VII-B} 篇\\
+群概形的无穷小研究}
+\phantomsection
+\label{sga3:VIIB:title}
+\addcontentsline{toc}{chapter}{第 VII-B 篇. 群概形的无穷小研究}
+\markboth{第 VII\textsubscript{B} 篇．群概形的无穷小研究}%
+  {第 VII\textsubscript{B} 篇．群概形的无穷小研究}
+
+\begin{center}
+  \textit{P. Gabriel 著}
+\end{center}
+
+\setcounter{footnote}{-1}
+\section*{B) 形式群}
+\phantomsection
+\label{sga3:VIIB:B}
+\addcontentsline{toc}{section}{B) 形式群}
+
+% 依据： Exp7B 原文件页码 1; 合并阅读版页码 514; 印刷页码 503.
+\noindent\footnote{编者注：2024 年 10 月 13 日版本。}
+形式群的研究通常极为简单。如果读者从下面这些页中不能清楚地看出这一点，
+那应当归咎于一位声称了解“域以外的某些东西”上的形式群的算术学家。\footnote{例如，Lubin 和 Tate 的工作（参见\ \textup{[LT65]}）表明了完备
+Noether 局部环上的形式群的重要性。关于任意基上的形式群，以及提升与形变问题的研究，
+特别是关于 Barsotti--Tate 群（“\(p\)-可除群”）的研究，已经产生了大量文献；
+例如参见 \textup{[LT66, Ta67, Gr74, Me72, La75, Fo77, Il85, Br00]}。
+特别地，本篇的结果大多在 \textup{[Fo77]} 第~I 章中重新论述。}
+因此，我们对“在 Artin 环的投射极限上局部自由”的形式群，建立了通常针对
+域上形式群所陈述的一般理论。关于后者的更详细研究，请参阅 1964/65 年
+Heidelberg--Strasbourg 代数几何讨论班。\footnote{编者只找到了 1965/66 年题为“线性代数群〔Linear Algebraic Groups〕”的这一讨论班，
+其中并未出现形式群的概念；请改参阅 \textup{[De72]}。}
+
+\section*{0. 伪紧环与伪紧模回顾}
+\phantomsection
+\label{sga3:VIIB:0}
+\addcontentsline{toc}{section}{0. 伪紧环与伪紧模回顾}
+
+本节包含若干技术性准备知识。我们在这里回顾并补充 \textup{[CA]}
+（\emph{阿贝尔范畴〔Des cat\'egories ab\'eliennes〕}，Bull.\ Soc.\ Math.\ France
+\textbf{90} (1962)）中的若干结果。
+
+\medskip
+\noindent\textbf{0.1.}
+\phantomsection
+\label{sga3:VIIB:0.1}
+一个\emph{左伪紧环}是指带单位元的分离完备拓扑环，它具有由有限余长度的
+左理想 \(\mathfrak l\) 构成的 \(0\) 的邻域基，即
+\[
+  \operatorname{length}_A(A/\mathfrak l)<+\infty.
+\]
+这里我们假定 \(A\) 交换，因此不必区分“左和右”。
+
+特别地，商环 \(A/\mathfrak l\) 都是 Artin 环，而 \(A\) 等同于这些环
+各自赋予离散拓扑后所得的拓扑投射极限。
+
+完备 Noether 局部环 \((A,\mathfrak m)\) 显然是伪紧的。\footnote{这里赋予它 \(\mathfrak m\)-进拓扑。}
+
+% 依据： Exp7B 原文件页码 2; 合并阅读版页码 515; 印刷页码 504.
+\medskip
+\noindent\textbf{0.1.1.}
+\phantomsection
+\label{sga3:VIIB:0.1.1}
+\(A\) 的每个闭理想 \(I\) 都是包含它的所有开理想的交。\footnote{事实上，若 \(x\notin I\)，则存在开理想 \(\mathfrak l\) 使
+\((x+\mathfrak l)\cap I=\varnothing\)；于是 \(I+\mathfrak l\) 是不包含
+\(x\) 的开理想。在下文中，编者也明确说明了每个“闭极大”理想都是极大且开的。}
+因此，每个闭极大理想都是开的。此外，若 \(\mathfrak l\) 是 \(A\) 的开理想，
+则 \(A/\mathfrak l\) 的极大理想与 \(A\) 中包含 \(\mathfrak l\) 的极大理想
+\(\mathfrak m\) 一一对应；后者因而既开又闭。因此，每个闭极大理想都是开极大理想
+（从而是闭的），其逆命题显然成立。我们以 \(\Upsilon(A)\) 表示这些理想组成的集合。
+
+若 \(\mathfrak l\) 是 \(A\) 的开理想，且
+\(\mathfrak m\in\Upsilon(A)\)，则局部化
+\((A/\mathfrak l)_{\mathfrak m}\) 在 \(\mathfrak m\) 包含
+\(\mathfrak l\) 时是局部环，否则为零。由于 \(A/\mathfrak l\) 是 Artin 环，
+它是有限多个局部环的直积；因此
+\[
+  A/\mathfrak l
+  \simeq
+  \prod_{\mathfrak m\in\Upsilon(A)}
+    (A/\mathfrak l)_{\mathfrak m}.
+\]
+由此得到下列“典范”同构
+\[
+  A
+  \simeq \varprojlim_{\mathfrak l}(A/\mathfrak l)
+  \simeq \varprojlim_{\mathfrak l}
+    \prod_{\mathfrak m}(A/\mathfrak l)_{\mathfrak m}
+  \simeq \prod_{\mathfrak m}
+    \varprojlim_{\mathfrak l}(A/\mathfrak l)_{\mathfrak m}
+  \simeq \prod_{\mathfrak m}A_{\mathfrak m},
+\]
+其中
+\[
+  A_{\mathfrak m}
+  =
+  \varprojlim_{\mathfrak l}(A/\mathfrak l)_{\mathfrak m}.
+\]
+这个\emph{局部分量} \(A_{\mathfrak m}\) 是赋予离散拓扑的 Artin 局部环的
+滤过投射极限。因此，它是一个局部环，并且对于投射极限拓扑是伪紧的。\footnote{注意，\(A_{\mathfrak m}\) 是 \(A\) 在极大理想 \(\mathfrak m\) 处的局部化。
+事实上，\(A_{\mathfrak m}\) 的单位元 \(e_{\mathfrak m}\) 是 \(A\) 中不属于
+\(\mathfrak m\) 的幂等元。由于 \(A=A_{\mathfrak m}\times B\)，其中
+\(B=A(1-e_{\mathfrak m})\)，环 \(A_{\mathfrak m}\) 等同于局部化
+\(A_{e_{\mathfrak m}}\)，从而也等同于 \(S^{-1}A\)，其中
+\(S=A\setminus\mathfrak m\)。此外，\(e_{\mathfrak m}(1-e_{\mathfrak m})=0\)，
+故 \(\mathfrak m\) 包含 \(1-e_{\mathfrak m}\)，从而也包含 \(B\)；
+所以 \(\mathfrak m\) 等同于 \(\mathfrak mA_{\mathfrak m}\times B\)。}
+
+\medskip
+\noindent\textbf{0.1.2.}
+\phantomsection
+\label{sga3:VIIB:0.1.2}
+设 \(r(A)\) 是 \(A\) 的所有开极大理想的交，即在下列等同下各理想
+\(\mathfrak mA_{\mathfrak m}\) 的笛卡尔积
+\[
+  A=\prod_{\mathfrak m}A_{\mathfrak m}.
+\]
+对于 \(A\) 的每个开理想 \(\mathfrak l\)，\(r(A)\) 在
+\(A/\mathfrak l\) 中的像包含于 \(A/\mathfrak l\) 的根中。
+因此，这个像的某个幂为零，故对所有充分大的 \(n\) 都有
+\(r(A)^n\subset\mathfrak l\)。于是序列 \(r(A)^n\) 趋于 \(0\)。
+
+当 \(x\in r(A)\) 时，\(x^n\) 也如此。换言之，\(r(A)\) 的每个元素都是
+拓扑幂零的，逆命题显然成立。因此，当 \(x\in r(A)\) 时，通项为
+\[
+  1+x+\cdots+x^n
+\]
+的序列收敛，并且收敛到 \(1/(1-x)\)。这表明 \(r(A)\) 是 \(A\) 的
+Jacobson 根，即 \(A\) 的所有极大理想的交（参见\ Bourbaki，
+\emph{代数〔Alg\`ebre〕}，第~8 章，\S6，定理~1）。\footnote{事实上，设 \(x\in r(A)\)。若 \(\mathfrak m\) 是不包含 \(x\) 的极大理想，
+则存在 \(y\in A\) 使 \(1-xy\in\mathfrak m\)。但是 \(xy\in r(A)\)，
+故 \(1-xy\) 可逆，矛盾。注意如下推论：若
+\(\Upsilon(A)=\{\mathfrak m_1,\ldots,\mathfrak m_r\}\) 是有限集，
+则这些 \(\mathfrak m_i\) 就是 \(A\) 的全部极大理想。}
+
+\medskip
+\noindent\textbf{注记。}\footnote{编者添加这些注记，是为了将 1.1 中形式谱 \(\operatorname{Spf}(A)\) 的定义
+与 EGA~I，10.1.2 和 10.4.2 中的定义作比较。}
+
+\noindent\textit{a)} 若 \(\mathfrak p\) 是 \(A\) 的开素理想，则因 \(A/\mathfrak p\) 是 Artin 环，
+\(\mathfrak p\) 是极大理想。因此，\(\Upsilon(A)\) 是 \(A\) 的开素理想集。
+
+\smallskip
+\noindent\textit{b)} 每个 \(\mathfrak mA_{\mathfrak m}\) 都是 \(A_{\mathfrak m}\) 的定义理想，
+即满足 \(I^n\) 趋于 \(0\) 的开理想 \(I\)
+（参见\ EGA~0\textsubscript{I}，7.1.2）。因此，
+\[
+  \operatorname{Spec}
+    (A_{\mathfrak m}/\mathfrak mA_{\mathfrak m}),
+\]
+配备拓扑环 \(A_{\mathfrak m}\) 后，是 EGA~I，10.1.2 意义下的仿射形式概形。
+
+\smallskip
+\noindent\textit{c)} 拓扑环 \(A\) 是 EGA~0\textsubscript{I}，7.1.2 意义下的容许环，
+当且仅当 \(r(A)\) 是开的（从而是定义理想），而这又当且仅当
+\(\Upsilon(A)\) 是有限集。这时，仿射形式概形
+\[
+  \operatorname{Spf}(A)
+  =
+  \operatorname{Spec}(A/r(A))
+\]
+（参见\ EGA~I，10.1.2）的底空间是赋予离散拓扑的 \(\Upsilon(A)\)；
+其结构层在子集 \(E\subset\Upsilon(A)\) 上的截面构成环
+\[
+  \prod_{\mathfrak m\in E}A_{\mathfrak m}.
+\]
+
+\smallskip
+\noindent\textit{d)} 设 \(A\) 是任意伪紧环。在下文 \SGARefLink{sga3:VIIB:1.1}{1.1} 中，
+我们赋予空间 \(\Upsilon(A)\) 离散拓扑，以及在任意子集 \(E\) 上的截面环为
+\[
+  \prod_{\mathfrak m\in E}A_{\mathfrak m}.
+\]
+的环层。由 \textit{b)}，每个点都有一个为仿射形式概形的开邻域；
+因而这定义了一个形式概形（EGA~I，10.4.2），记作 \(\operatorname{Spf}(A)\)。
+这个形式概形若是仿射的，就必须拟紧，故 \(\Upsilon(A)\) 必须有限；
+这时 \(\operatorname{Spf}(A)\) 与 EGA~I，10.1.2 中的定义一致。
+
+% 依据： Exp7B 原文件页码 3; 合并阅读版页码 516; 印刷页码 505.
+\medskip
+\noindent\textbf{0.1.3.}
+\phantomsection
+\label{sga3:VIIB:0.1.3}
+若 \(A\) 和 \(B\) 是伪紧环，则从 \(A\) 到 \(B\) 的\emph{同态}，
+按定义是与加法、乘法及单位元相容的连续映射。这样的同态将 \(A\) 的拓扑幂零元素
+映为 \(B\) 的拓扑幂零元素；因此，它将根 \(r(A)\) 映入根 \(r(B)\)。
+
+% 下一断点： Exp7B 原文件页码 3, 合并阅读版页码 516,
+% 再版印刷页码 505, 0.2 处。

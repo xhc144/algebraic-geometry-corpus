@@ -1,0 +1,616 @@
+% SGA 3，第 IX 篇，中文重构。
+% 范围：第 6、7 节全文。
+% 权威底本：Polo--Gille Exp9-8nov09.pdf，组件本地第 22 页（部分）至第 30 页（部分），
+% 完整阅读本第 668 页（部分）至第 676 页（部分），印刷第 64--73 页及第 74 页开头。
+% 起始位置：组件本地第 22 页“6. 乘法型群的单态射……”
+% 结束位置：组件本地第 30 页“8. 子群、商群与扩张……”之前。
+% Jacob Reinhold 的 CC BY 4.0 Markdown 谱系仅用于措辞比对。
+% 正文、公式、编号、注释、引用和图均以 Polo--Gille PDF 为准。
+
+\setcounter{footnote}{38}
+
+% 源页：Exp9 组件本地第 22 页；完整阅读本第 668 页；印刷第 64 页。
+\SGARefTarget{sga3:ix:section:6}
+\section*{6. 乘法型群的单态射及来自这种群的同态的典范分解}
+\addcontentsline{toc}{section}{6. 乘法型群的单态射与典范分解}
+
+\medskip
+\noindent\SGARefTarget{sga3:ix:lemma:6:1}\textbf{引理 6.1.}
+\textit{设 \(S\) 是拟紧预概形，\(G\) 是交换 \(S\)-群预概形，在 \(S\) 上有限呈示且拟有限。则存在整数 \(n>0\)，使
+\[
+  n\cdot\operatorname{id}_G=0,
+  \qquad\text{即，}\qquad
+  G={}_nG.
+\]}
+
+\emph{证明。}
+若 \(S\) 是域 \(k\) 的谱，则 \(G\) 在 \(k\) 上有限，由 VII\textsubscript{A} 的 \SGARefLink{sga3:VIIA:8.5}{8.5}，只须取
+\[
+  n=\deg(G/k).
+\]
+现设 \(S=\operatorname{Spec}(A)\)，其中 \(A\) 是 Artin 局部环。设 \(k\) 为 \(A\) 的剩余域，置
+\[
+  G_0=G\otimes_A k,
+  \qquad
+  n_0=\deg(G_0/k),
+\]
+并分两种情形。
+
+\smallskip
+\SGARefTarget{sga3:ix:lemma:6:1:proof:item:a}\noindent\textit{(a) \(k\) 的特征为零。}
+则 \(G_0\) 在 \(k\) 上可分，从而 \(G\) 在 \(S\) 上非分歧。因此 \(G\) 的单位截面是开浸入，所以
+\[
+  {}_nG=\operatorname{Ker}(n\cdot\operatorname{id}_G)
+\]
+是 \(G\) 的开子概形。因而要使它等于 \(G\)，只须集合意义下相等；故可取 \(n=n_0\)。
+
+\smallskip
+\SGARefTarget{sga3:ix:lemma:6:1:proof:item:b}\noindent\textit{(b) \(k\) 的特征为 \(p>0\)。}
+设 \(\mathfrak m\) 为 \(A\) 的极大理想，并置
+\[
+  S_r=\operatorname{Spec}(A/\mathfrak m^{r+1})
+  \qquad (r\geq0).
+\]
+选取整数 \(m\)，使 \(\mathfrak m^{m+1}=0\)。我们断言可以取 \(n=p^mn_0\)。事实上，对 \(m\) 作归纳并置 \(n'=p^{m-1}n_0\)，可设 \(n'\cdot\operatorname{id}_G\) 在
+\[
+  G_{m-1}=G\times_S S_{m-1}.
+\]
+上诱导零自同态。
+\footnote{编者注：下文扩充了原文，并明确列出了所用第 III 篇 的结果。}
+设 \(E\) 是具有此性质的 \(G\) 的自同态 \(u\) 所成的集合，\(K\) 是群函子态射
+\[
+  G\longrightarrow \prod_{S_{m-1}/S}G
+\]
+的核（参见 \SGARefLink{sga3:iii:remark:0-1-2}{III 0.1.2}）。则
+\[
+  E=\operatorname{Hom}_{S\text{-}\mathrm{gr}}(G,K);
+\]
+特别地，\(E\) 的阿贝尔群运算由 \(K\) 的运算诱导。由 \SGARefLink{sga3:iii:corollary:0-9}{III 0.9}，\(K\) 是如下 \(S\)-群函子：它将每个 \(g:T\to S\) 对应到 \(k\)-向量空间
+\SGARefTarget{sga3:ix:lemma:6:1:display:01}
+\[
+  \operatorname{Hom}_{\mathscr O_{T_0}}
+  \bigl(
+    g_0^*(\Omega^1_{G_0/S_0}),
+    \mathfrak m^m\mathscr O_T
+  \bigr).
+\]
+因此，对每个 \(u\in E\) 均有 \(pu=0\)。于是
+\[
+  pn'\cdot\operatorname{id}_G=0,
+  \qquad\text{即，}\qquad
+  p^mn_0\cdot\operatorname{id}_G=0.
+\]
+
+现假设 \(S\) 是 Noether 的；通过通常的 Noether 归约，一般断言可归结到此情形。\footnote{编者注：由于 \(S\) 拟紧，它可由有限多个仿射开子集覆盖，故可归结到 \(S=\operatorname{Spec}(A)\)。由于 \(G\) 在 \(S\) 上有限呈示，此时可应用 EGA IV\(_3\)，8.8.2。}只须将上述论证与 \SGARefLink{sga3:ix:lemma:6:2}{以下引理} 结合。
+
+\medskip
+\noindent\SGARefTarget{sga3:ix:lemma:6:2}\textbf{引理 6.2.}
+\textit{设 \(X\) 是 Noether 预概形 \(S\) 上的拟有限预概形，\((X_i)_{i\in I}\) 是具有以下性质的递增滤过子预概形族：
+\[
+\left\{
+\begin{aligned}
+ &\text{对每个 \(s\in S\) 及每个 \(n\geq0\)，置}\\
+ &S_{s,n}
+   =\operatorname{Spec}
+      \bigl(\mathscr O_{S,s}/\mathfrak m^{n+1}\bigr),
+   \text{ 存在 \(i\in I\) 使}\\
+ &X_i\times_S S_{s,n}=X\times_S S_{s,n}.
+\end{aligned}
+\right.
+\]
+则存在 \(i\in I\)，使 \(X_i=X\)。}
+
+\emph{证明。}
+由于 \(S\) 是 Noether 的，存在极大开子集 \(U\)，使在其上对一切充分大的 \(i\) 均有
+\[
+  X|_U=X_i|_U
+\]
+我们将证明 \(U=S\)。换言之，若 \(U\neq S\)，我们将找到严格大于 \(U\) 的开子集 \(U'\) 及一个 \(i\)，使
+\[
+  X|_{U'}=X_i|_{U'}.
+\]
+在 \(S-U\) 的极大点 \(s\) 处局部化，可归结到 \(S\) 是闭点为 \(s\) 的局部概形且
+\[
+  U=S-\{s\}.
+\]
+的情形。事实上，置 \(S'=\operatorname{Spec}(\mathscr O_{S,s})\)。若对某个 \(i\) 有
+\[
+  X\times_S S'=X_i\times_S S'
+\]
+\footnote{编者注：上面已将 \(X-\{s\}\) 修正为 \(S-\{s\}\)。还要回顾，拟有限态射按约定为有限型；关于“局部拟有限”的定义，参见 EGA II，6.2.3，以及 EGA III\(_2\)，勘误 Err\textsubscript{III} 20。因此这里由于 \(S\) 是 Noether 的，\(X\) 在 \(S\) 上有限呈示；每个浸入 \(X_i\hookrightarrow X\) 由 EGA I，6.3.5 是有限型的，所以 \(X_i\) 在 \(S\) 上有限呈示，因而可应用 EGA IV\(_3\)，8.8.2。}
+则存在 \(s\) 的开邻域 \(V\)，使
+\[
+  X|_V=X_i|_V.
+\]
+取充分大的 \(i\) 使 \(X_i|_U=X|_U\)，就有
+\[
+  X|_W=X_i|_W,
+  \qquad W=U\cup V.
+\]
+
+对一切充分大的 \(i\)，等式 \(X|_U=X_i|_U\) 表明 \(X_i\) 是 \(X\) 的闭子预概形，由一个支集包含于
+\[
+  X_s=X_0=X\times_S S_0,
+\]
+的理想 \(\mathscr I^{(i)}\) 定义，其中
+\[
+  S_n=\operatorname{Spec}(A/\mathfrak m^{n+1}),
+  \qquad S=\operatorname{Spec}(A).
+\]
+由于 \(X_0\) 在 \(S_0\) 上拟有限，它是 Noether 预概形 \(X\) 的有限闭子集。因此 \(\mathscr I^{(i)}\) 是有限长度模。故存在整数 \(n\geq0\)，使
+\[
+  \mathscr I^{(i)}
+  \cap\mathfrak m^{n+1}\mathscr O_X=0.
+\]
+另一方面，由引理假设，必要时增大 \(i\) 后，可设 \(\mathscr I^{(i)}\) 在
+\[
+  \mathscr O_{X_n}
+  =\mathscr O_X/\mathfrak m^{n+1}\mathscr O_X
+\]
+中的像为零。于是 \(\mathscr I^{(i)}=0\)，从而 \(X_i=X\)。\qed
+
+\medskip
+\noindent\SGARefTarget{sga3:ix:lemma:6:3}\textbf{引理 6.3.}
+\textit{设 \(S\) 是预概形，\(K\) 是 \(S\) 上局部有限呈示的群预概形，\(s\in S\)。假设 \(K_s\) 在单位元处于 \(\kappa(s)\) 上拟有限（分别地，非分歧）。则存在 \(s\) 的开邻域 \(U\)，使 \(K|_U\) 在 \(U\) 上局部拟有限（分别地，非分歧）。}%
+\begingroup
+\renewcommand{\thefootnote}{\(\ast\)}%
+\footnote{更一般的陈述参见 VI\textsubscript{B}，\SGARefLink{concl:sga3-VIB-2.5-ii}{2.5(ii)}。}%
+\addtocounter{footnote}{-1}%
+\endgroup
+
+\emph{证明。}
+设 \(V\) 为具有下述性质的点 \(x\in K\) 所成的集合：若 \(t\) 是 \(x\) 在 \(S\) 中的像，则 \(K_t\) 在 \(x\) 处于 \(\kappa(t)\) 上拟有限（分别地，非分歧）；也就是说，\(x\) 在 \(K_t\) 中孤立（分别地，它孤立，且其在 \(K_t\) 中的局部环为 \(\kappa(t)\) 的可分扩域）。集合 \(V\) 是开的，因为 \(K\) 在 \(S\) 上局部有限呈示。\footnote{编者注：参见 EGA IV\(_3\)，13.1.4 和 EGA IV\(_4\)，17.4.1。此外，对 \(x\) 的像使用了 \(t\) 而非 \(s\)。}若以 \(\epsilon\) 表示 \(K\) 的单位截面，则 \(\epsilon^{-1}(V)\) 是开的。由假设它包含 \(s\)，故为 \(s\) 的开邻域 \(U\)。此 \(U\) 具有所需性质。事实上，若 \(t\in U\)，则 \(K_t\) 作为 \(\kappa(t)\) 上的局部有限型群，在 \(\kappa(t)\) 上局部拟有限（分别地，非分歧），因为它在 \(\epsilon(t)\) 处具有该性质；参见 VI\textsubscript{B}，\SGARefLink{prop:sga3-VIB-1.3}{1.3}。\qed
+
+结合 \SGARefLink{sga3:ix:lemma:6:1}{6.1} 和 \SGARefLink{sga3:ix:lemma:6:3}{6.3}，得到：
+
+\medskip
+\noindent\SGARefTarget{sga3:ix:theorem:6:4}\textbf{定理 6.4.}
+\textit{设 \(S\) 是预概形，\(H\) 是有限型乘法型 \(S\)-群，\(K\) 是 \(H\) 的闭群子预概形，在 \(S\) 上有限呈示。设 \(s\in S\) 使 \(K_s\) 有限。则存在 \(s\) 的开邻域 \(U\) 和整数 \(n>0\)，使
+\[
+  K|_U\subset {}_nH|_U.
+\]
+特别地，由于 \({}_nH\) 在 \(S\) 上有限，群 \(K|_U\) 在 \(U\) 上有限。}
+
+现在由 Nakayama 引理得到：
+
+\medskip
+\noindent\SGARefTarget{sga3:ix:corollary:6:5}\textbf{推论 6.5.}
+\textit{沿用上述记号，假设 \(K_s\) 是单位群。则存在 \(s\) 的开邻域 \(U\)，使 \(K|_U\) 是单位群。}
+
+\medskip
+\noindent\SGARefTarget{sga3:ix:corollary:6:6}\textbf{推论 6.6.}
+\textit{设 \(u:H\to G\) 是 \(S\)-群预概形的同态，其中 \(H\) 是有限型乘法型，\(G\) 在 \(S\) 上分离。再假设 \(S\) 局部 Noether 或 \(G\) 在 \(S\) 上局部有限呈示。\footnote{编者注：只须假设 \(G\) 在 \(S\) 上局部有限型。由 EGA IV\(_4\)，1.4.3(v)，由于 \(H\to S\) 有限呈示，这蕴涵 \(H\to G\) 局部有限呈示；由它经基变换得到的 \(K\to S\) 也如此。}若 \(s\in S\) 且
+\[
+  u_s:H_s\longrightarrow G_s
+\]
+是单态射，则存在 \(s\) 的开邻域 \(U\)，使 \(u\) 诱导单态射
+\[
+  H|_U\longrightarrow G|_U.
+\]}
+
+\emph{证明。}
+置 \(K=\operatorname{Ker}(u)\)。关于 \(u_s\) 的假设说明 \(K_s\) 是单位群，而所需结论说明，对适当的 \(U\)，\(K|_U\) 是单位群。由于 \(G\) 在 \(S\) 上分离，群 \(K\) 是 \(H\) 的闭子群。若不假设 \(S\) 局部 Noether，而假设 \(G\) 在 \(S\) 上局部有限呈示，则 \(K\) 在 \(S\) 上局部有限呈示。\footnotemark[43] 因此它在 \(S\) 上有限呈示，因为它在 \(S\) 上分离（\(H\) 亦然），且在 \(S\) 上拟紧（因为它闭于 \(H\)，后者在 \(S\) 上拟紧）。现在可应用推论 \SGARefLink{sga3:ix:corollary:6:5}{6.5}。\qed
+
+\medskip
+\noindent\SGARefTarget{sga3:ix:remark:6:6:1}\textbf{注记 6.6.1.}%
+\footnote{编者注：增添编号 \SGARefLink{sga3:ix:remark:6:6:1}{6.6.1}，供后文引用。}
+\textit{在 \SGARefLink{sga3:ix:corollary:6:6}{6.6} 的假设下，注意：若还假设 \(G\) 在 \(S\) 上仿射（分别地，在 \(S\) 上有限呈示），则
+\[
+  H|_U\longrightarrow G|_U
+\]
+甚至是闭浸入，如 \SGARefLink{sga3:ix:corollary:2:5}{2.5}（分别地，\SGARefLink{sga3:ix:remark:2:6}{2.6}）中已指出的。}
+
+\medskip
+\noindent\SGARefTarget{sga3:ix:corollary:6:7}\textbf{推论 6.7.}
+\textit{设 \(u:H\to G\) 是 \(S\)-群预概形的同态，其中 \(H\) 是有限型乘法型。假设 \(S\) 局部 Noether 或 \(G\) 在 \(S\) 上局部有限呈示。若每个纤维上的同态
+\[
+  u_s:H_s\longrightarrow G_s
+\]
+均为单态射，则 \(u\) 是单态射。}
+
+\emph{证明。}
+论证与 \SGARefLink{sga3:ix:corollary:6:6}{6.6} 相同。这里为确保 \(K=\operatorname{Ker}(u)\) 在 \(H\) 中闭，不必假设 \(G\) 在 \(S\) 上分离，因为所有 \(u_s\) 均为单态射的假设，蕴涵 \(K\) 在集合意义下缩为单位截面。\qed
+
+\medskip
+\noindent\SGARefTarget{sga3:ix:theorem:6:8}\textbf{定理 6.8.}
+\begin{itshape}
+设 \(u:H\to G\) 是 \(S\)-群预概形的同态，其中 \(H\) 是有限型乘法型，\(G\) 在 \(S\) 上分离。再假设 \(S\) 局部 Noether 或 \(G\) 在 \(S\) 上有限呈示。则
+\[
+  K=\operatorname{Ker}(u)
+\]
+是 \(H\) 的有限型乘法型子群，且 \(u\) 分解为
+\SGARefTarget{sga3:ix:theorem:6:8:diagram:01}
+\[
+\begin{tikzcd}[column sep=large]
+  H
+    \arrow[r,"u'"]
+  & H/K
+    \arrow[r,"u''"]
+  & G,
+\end{tikzcd}
+\]
+其中 \(H/K\) 是有限型乘法型，\(u'\) 是典范同态，且忠实平坦（并仿射），\(u''\) 是单态射。
+\end{itshape}
+
+\emph{注意。}
+如 \SGARefLink{sga3:ix:remark:6:6:1}{6.6.1} 所指出，若 \(G\) 在 \(S\) 上仿射，或 \(G\) 在 \(S\) 上有限呈示，则同态 \(u''\) 是闭浸入。
+
+\emph{证明。}
+只须证明 \(K\) 为乘法型；其余部分随即由 \SGARefLink{sga3:ix:proposition:2:7}{2.7} 和 \SGARefLink{sga3:iv:remark:5:2:6}{IV 5.2.6} 推出。
+
+先假设 \(G\) 在 \(S\) 上有限呈示。由于此假设在基变换下稳定，在证明 \(K\) 为乘法型时，可归结到 \(H\) 可对角化的情形：
+\[
+  H=D_S(M),
+\]
+其中 \(M\) 是有限型交换群。取 \(s\in S\)。群 \(K_s\) 是
+\[
+  H_s=D_{\kappa(s)}(M).
+\]
+的闭子群。因此由 \SGARefLink{sga3:ix:proposition:8:1}{8.1}，\footnote{编者注：已修正错误引用 IV 4.7.5。注意，本篇的 \SGARefLink{sga3:ix:section:8}{第 8 节} 不依赖第 \SGARefLink{sga3:ix:section:2}{2} 至 \SGARefLink{sga3:ix:section:7}{7} 节。}它形如 \(D_{\kappa(s)}(N)\)，其中 \(N\) 是 \(M\) 的商。置
+\[
+  K'=D_S(N).
+\]
+则 \(K'\) 是 \(H\) 的乘法型子群。设
+\[
+  v':K'\longrightarrow G
+\]
+为 \(u\) 诱导的同态。\footnote{编者注：将“由 \(G\) 诱导”修正为“由 \(u\) 诱导”。}由构造，\(v'_s\) 是单位同态。因此推论 \SGARefLink{sga3:ix:corollary:5:2}{5.2} 给出 \(s\) 的开邻域 \(U\)，使
+\[
+  v'|_U:K'|_U\longrightarrow G|_U
+\]
+是单位同态。以 \(U\) 代替 \(S\) 后，可设 \(v'\) 本身为单位同态，从而 \(u\) 分解为
+\SGARefTarget{sga3:ix:theorem:6:8:diagram:02}
+\[
+\begin{tikzcd}[column sep=large]
+  H
+    \arrow[r,"u'"]
+  & H/K'
+    \arrow[r,"u''"]
+  & G.
+\end{tikzcd}
+\]
+同态 \(u''_s\) 由 \(u_s\) 经由
+\[
+  H_s\longrightarrow H_s/\operatorname{Ker}(u_s),
+\]
+分解得到，故由 \SGARefLink{sga3:iv:remark:5:2:6}{IV 5.2.6} 是单态射。由 \SGARefLink{sga3:ix:corollary:6:6}{6.6}，限于 \(s\) 的适当开邻域 \(U\) 后，同态
+\[
+  u''|_U:(H/K')|_U\longrightarrow G|_U
+\]
+是单态射。因此，经此限制，
+\[
+  \operatorname{Ker}(u)
+  =\operatorname{Ker}(u')
+  =K',
+\]
+这证明 \(\operatorname{Ker}(u)\) 是乘法型。
+
+若不假设 \(G\) 在 \(S\) 上有限呈示，而假设 \(S\) 局部 Noether，则同一证明适用，至少在 \(H\) 可对角化时如此。若没有关于 \(H\) 的这一额外假设，须说明存在覆盖基变换
+\[
+  S'\longrightarrow S,
+\]
+其中 \(S'\) 局部 Noether，且它使 \(H\) 平凡化。这将在下一篇报告的 \SGARefLink{sga3:x:corollary:4-6}{X 4.6} 中证明。\qed
+
+% 源页：Exp9 组件本地第 26 页；完整阅读本第 672 页；印刷第 68--69 页。
+\SGARefTarget{sga3:ix:section:7}
+\section*{7. 到仿射群的形式同态的代数性}
+\addcontentsline{toc}{section}{7. 到仿射群的形式同态的代数性}
+
+\medskip
+\noindent\SGARefTarget{sga3:ix:theorem:7:1}\textbf{定理 7.1.}
+\textit{设 \(A\) 是 Noether 环，赋有理想 \(I\)，使 \(A\) 对 \(I\)-进拓扑分离且完备。置
+\[
+  S=\operatorname{Spec}(A),
+  \qquad
+  S_n=\operatorname{Spec}(A/I^{n+1}),
+\]
+设 \(H,G\) 为 \(S\)-群预概形，其中 \(H\) 为等平凡乘法型，\(G\) 仿射。则典范映射
+\SGARefTarget{sga3:ix:theorem:7:1:equation:x}
+\begin{equation}
+  \tag{x}
+  \theta:
+  \operatorname{Hom}_{S\text{-}\mathrm{gr}}(H,G)
+  \longrightarrow
+  \varprojlim_n
+  \operatorname{Hom}_{S_n\text{-}\mathrm{gr}}(H_n,G_n)
+\end{equation}
+是双射，其中 \(H_n,G_n\) 是 \(H,G\) 经基变换 \(S_n\to S\) 得到的 \(S_n\)-群。}
+
+\emph{证明。}
+先假设 \(H\) 可对角化，因而形如
+\[
+  H=\operatorname{Spec}A(M),
+\]
+其中 \(B=A(M)\) 是交换群 \(M\) 在 \(A\) 上的群代数。还可写成
+\[
+  G=\operatorname{Spec}(C),
+\]
+其中 \(C\) 是赋有满足通常公理的对角映射的 \(A\)-代数。\(S\)-群同态 \(H\to G\) 一一对应于与对角映射相容的 \(A\)-代数同态
+\[
+  \varphi:C\longrightarrow B
+\]
+即对每个 \(f\in C\)，满足
+\SGARefTarget{sga3:ix:theorem:7:1:display:01}
+\[
+  \Delta_H(\varphi(f))
+  =(\varphi\otimes\varphi)(\Delta_G(f)).
+\]
+对于 \(S_n\)-群同态 \(H_n\to G_n\) 有类似描述，由 \(A_n\)-代数同态
+\[
+  \varphi_n:C_n\longrightarrow B_n,
+\]
+给出，其中
+\[
+  A_n=A/I^{n+1},
+  \qquad
+  B_n=B\otimes_AA_n,
+  \qquad
+  C_n=C\otimes_AA_n.
+\]
+\emph{〔源文在最后一个等式中印为 \(C=C\otimes_AA_n\)；所指应为 \(C_n\)。〕}
+置
+\SGARefTarget{sga3:ix:theorem:7:1:display:02}
+\[
+  \widehat B=\varprojlim_n B_n,
+  \qquad
+  \widehat C=\varprojlim_n C_n.
+\]
+则
+\[
+  \widehat B=\varprojlim_n A_n(M)
+\]
+可等同于乘积 \(A^M\) 的一个子模，即由 \(A\) 中的元素组成、沿 \(M\) 的有限子集的补集所成滤子对 \(I\)-进拓扑趋于零的族 \((a_m)_{m\in M}\) 所成的子模。特别地，典范同态
+\[
+  B\longrightarrow\widehat B
+\]
+是单射。\footnote{编者注：下文论证已扩充。}
+投射系统
+\[
+  \theta(\varphi)=(\varphi_n)_{n\geq0}
+\]
+定义了同态
+\[
+  \widehat\varphi:\widehat C\longrightarrow\widehat B
+\]
+使 \SGARefLink{sga3:ix:theorem:7:1:diagram:01}{下图} 交换：
+\SGARefTarget{sga3:ix:theorem:7:1:diagram:01}
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+  C
+    \arrow[r,"\varphi"]
+    \arrow[d]
+  & B
+    \arrow[d]
+  \\
+  \widehat C
+    \arrow[r,"\widehat\varphi"]
+  & \widehat B.
+\end{tikzcd}
+\]
+
+证明 \(\theta\) 是满射。设 \((\varphi_n)_{n\geq0}\) 是投射系统；须说明它由 \SGARefLink{sga3:ix:theorem:7:1:equation:x}{\((x)\)} 左端的某个 \(\varphi\) 约化得到。先验地，系统 \((\varphi_n)\) 在完备化代数上定义同态
+\[
+  \widehat\varphi:\widehat C\longrightarrow\widehat B.
+\]
+只须证明复合
+\[
+  \Phi:
+  C\longrightarrow\widehat C
+   \xrightarrow{\widehat\varphi}\widehat B
+\]
+将 \(C\) 映入 \(B\)。事实上，这时它给出一个 \(A\)-代数同态
+\SGARefTarget{sga3:ix:theorem:7:1:display:phi:01}\[
+  \varphi:C\longrightarrow B
+\]
+其约化为各 \(\varphi_n\)。立即可见，\SGARefLink{sga3:ix:theorem:7:1:display:phi:01}{此同态} 与对角映射相容，因为各 \(\varphi_n\) 均相容，且
+\[
+  B\otimes_AB\longrightarrow\widehat{B\otimes_AB}
+\]
+是单射，这可由将 \(M\) 换成 \(M\times M\) 后的相同论证得到。
+
+过渡到完备化后，对角同态 \(\Delta_H\) 定义
+\SGARefTarget{sga3:ix:theorem:7:1:display:03}
+\[
+  \widehat\Delta_H:
+  \widehat B\longrightarrow\widehat{B\otimes_AB}.
+\]
+对各 \(\varphi_n\) 定义的类似图取投射极限，得到交换图
+\SGARefTarget{sga3:ix:theorem:7:1:diagram:02}
+\[
+\begin{tikzcd}[column sep=huge,row sep=large]
+  C
+    \arrow[r,"\Phi"]
+    \arrow[d,"\Delta_G"']
+  & \widehat B
+    \arrow[d,"\widehat\Delta_H"]
+  \\
+  C\otimes_A C
+    \arrow[r,"\Psi"]
+  & \widehat{B\otimes_A B},
+\end{tikzcd}
+\]
+其中 \(\Psi\) 是复合
+\SGARefTarget{sga3:ix:theorem:7:1:display:04}
+\[
+  C\otimes_A C
+  \xrightarrow{\ \Phi\otimes\Phi\ }
+  \widehat B\otimes_A\widehat B
+  \longrightarrow
+  \widehat{B\otimes_A B};
+\]
+最后一个箭头是显然的典范同态。因此，对每个 \(f\in C\)，元素 \(\Phi(f)\in\widehat B\) 具有如下性质：其在 \(\widehat\Delta_H\) 下的像是 \(\widehat{B\otimes_A B}\) 的“可分解”元素，即属于
+\(\widehat B\otimes_A\widehat B\)
+的像的元素。
+
+设 \((e_m)_{m\in M}\) 为 \(A(M)\) 的典范基，\((e_{m,m'})\) 为
+\[
+  A(M\times M)=A(M)\otimes_AA(M).
+\]
+的典范基。由于
+\[
+  \Delta_H(e_m)=e_m\otimes e_m=e_{m,m}
+  \qquad (m\in M),
+\]
+只须应用 \SGARefLink{sga3:ix:lemma:7:2}{以下引理}。
+
+\medskip
+\noindent\SGARefTarget{sga3:ix:lemma:7:2}\textbf{引理 7.2.}
+\begin{itshape}
+设 \(A\) 是 Noether 环，\(M\) 是集合，\((a_{m,m'})\) 是以 \(M\times M\) 为指标的 \(A\) 中元素族，满足：
+\begin{enumerate}
+  \item[(i)] \SGARefTarget{sga3:ix:lemma:7:2:item:i}
+  若 \(m\neq m'\) 则 \(a_{m,m'}=0\)；即此族的支集包含在 \(M\times M\) 的对角线中；
+
+  \item[(ii)] \SGARefTarget{sga3:ix:lemma:7:2:item:ii}
+  有
+  \SGARefTarget{sga3:ix:lemma:7:2:display:01}
+  \[
+    a_{m,m'}=\sum_i b_m^ic_{m'}^i,
+  \]
+  其中各 \(b^i,c^i\) 是 \(A^M\) 的有限多个元素；换言之，\((a_{m,m'})\) 属于典范同态
+  \[
+    A^M\otimes_AA^M\longrightarrow A^{M\times M}.
+  \]
+  的像。
+\end{enumerate}
+则 \((a_{m,m'})\) 的支集有限。
+\end{itshape}
+
+\emph{证明。}
+由 \SGARefLink{sga3:ix:lemma:7:2:item:i}{(i)}，族 \((a_{m,m'})\) 由元素
+\[
+  a_m=a_{m,m}.
+\]
+确定。对 \(x=(x_n)_{n\in M}\in A(M)\)，置
+\[
+  (u\cdot x)_m=\sum_{m'}a_{m,m'}x_{m'}.
+\]
+于是将 \((a_{m,m'})\) 视为同态
+\[
+  u:A(M)\longrightarrow A^M.
+\]
+的矩阵。条件 \SGARefLink{sga3:ix:lemma:7:2:item:i}{(i)} 仅仅给出
+\[
+  (u\cdot x)_m=a_mx_m.
+\]
+另一方面，条件 \SGARefLink{sga3:ix:lemma:7:2:item:ii}{(ii)} 给出
+\[
+  u\cdot x\in\sum_i A\cdot b^i.
+\]
+因此 \(u(A(M))\) 位于一个有限生成 \(A\)-模中。若以 \((e_m)_{m\in M}\) 表示
+\[
+  A(M)\subset A^M,
+\]
+的典范基，则所有元素 \(a_me_m\) 位于一个有限生成 \(A\)-模中。由于 \(A\) 是 Noether 的，这些元素生成的模本身有限生成。因为各 \(e_m\) 线性无关，除有限多个之外，所有 \(a_m\) 均为零。这证明了引理，因而证明了 \(H\) 可对角化时的定理 \SGARefLink{sga3:ix:theorem:7:1}{7.1}。\qed
+
+现证明 \SGARefLink{sga3:ix:theorem:7:1}{7.1} 的一般情形，即只假设 \(H\) 等平凡。于是存在有限平展满射
+\[
+  S'\longrightarrow S
+\]
+使
+\[
+  H'=H\times_SS'
+\]
+可对角化。我们仅使用 \(S'\to S\) 有限且为忠实平坦拟紧拓扑的覆盖，甚至只须它是 \((\mathbf{Sch})\) 上典范拓扑的覆盖。因此可将“平展”换成“平坦”。
+
+置
+\[
+  S''=S'\times_SS',
+\]
+并类似地引入
+\[
+  S'_n
+  \quad\text{且}\quad
+  S''_n
+  =S''\times_SS_n
+  =S'_n\times_{S_n}S'_n,
+\]
+以及由 \(H,G\) 经显然的基变换得到的 \(H',G',H'',G'',H'_n,G'_n,H''_n,G''_n\)。群 \(H'\) 和 \(H''\) 均可对角化。此外，\(S'\)，从而 \(S''\)，是仿射的。若
+\[
+  S'=\operatorname{Spec}(A'),
+  \qquad
+  S''=\operatorname{Spec}(A''),
+\]
+则 \(A'\) 与 \(A''\) 分别对由 \(IA'\) 和 \(IA''\) 定义的拓扑分离且完备，因为两者均在 \(A\) 上有限。
+
+由于 \(S'\to S\) 和 \(S'_n\to S_n\) 是覆盖态射，得到一个集合映射的交换图，两行均正合：
+\SGARefTarget{sga3:ix:theorem:7:1:diagram:03}
+\[
+\begin{tikzcd}[
+  column sep=small,
+  row sep=large,
+  cells={nodes={font=\small}}
+]
+  \operatorname{Hom}_{S\text{-}\mathrm{gr}}(H,G)
+    \arrow[r]
+    \arrow[d,"u"]
+  & \operatorname{Hom}_{S'\text{-}\mathrm{gr}}(H',G')
+    \arrow[r,shift left=.6ex]
+    \arrow[r,shift right=.6ex]
+    \arrow[d,"u'"]
+  & \operatorname{Hom}_{S''\text{-}\mathrm{gr}}(H'',G'')
+    \arrow[d,"u''"]
+  \\
+  \varprojlim_n
+    \operatorname{Hom}_{S_n\text{-}\mathrm{gr}}(H_n,G_n)
+    \arrow[r]
+  & \varprojlim_n
+    \operatorname{Hom}_{S'_n\text{-}\mathrm{gr}}(H'_n,G'_n)
+    \arrow[r,shift left=.6ex]
+    \arrow[r,shift right=.6ex]
+  & \varprojlim_n
+    \operatorname{Hom}_{S''_n\text{-}\mathrm{gr}}(H''_n,G''_n).
+\end{tikzcd}
+\]
+第二行正合，是因为它是对应于各 \(S'_n\to S_n\) 的正合图的投射极限。由已证明的可对角化情形，\(u'\) 和 \(u''\) 是双射。因此 \(u\) 也是双射，完成了 \SGARefLink{sga3:ix:theorem:7:1}{7.1} 的证明。\qed
+
+\medskip
+\noindent\SGARefTarget{sga3:ix:corollary:7:3}\textbf{推论 7.3.}
+\textit{在 \SGARefLink{sga3:ix:theorem:7:1}{7.1} 的假设下，再假设 \(G\) 在 \(S\) 上平滑，并设
+\[
+  u_0:H_0\longrightarrow G_0
+\]
+是 \(S_0\)-群同态。则存在提升 \(u_0\) 的 \(S\)-群同态
+\[
+  u:H\longrightarrow G
+\]
+任何两个这样的提升 \(u,u'\) 都由某个元素 \(g\in G(S)\) 共轭，且该元素约化为 \(G_0(S_0)\) 的单位元。}
+
+\emph{证明。}
+这由 \SGARefLink{sga3:ix:theorem:3:6}{3.6} 和 \SGARefLink{sga3:ix:theorem:7:1}{7.1} 结合得到。为构造 \(u\)，依次构造各 \(u_n\)，由 \SGARefLink{sga3:ix:theorem:3:6}{3.6} 这是可能的；\SGARefLink{sga3:ix:theorem:7:1}{定理 7.1} 随即表明系统 \((u_n)\) 来自某个 \(S\)-同态 \(u\)。给定两个提升 \(u,u'\)，依次构造元素 \(g_n\)，使
+\[
+  g_0=1,
+  \qquad
+  g_n\text{ 是下式的约化：}g_{n+1},
+  \qquad
+  u'_n=\operatorname{int}(g_n)u_n.
+\]
+由 \SGARefLink{sga3:ix:theorem:3:6}{3.6}，这同样是可能的。由于 \(A\) 分离且完备，各 \(g_n\) 来自一个元素 \(g\in G(S)\)。最后，由 \SGARefLink{sga3:ix:theorem:7:1}{7.1} 的单射性得到
+\[
+  u'=\operatorname{int}(g)u.
+\]
+\qed
+
+\medskip
+\noindent\SGARefTarget{sga3:ix:remark:7:4}\textbf{注记 7.4.}
+\textit{将 \SGARefLink{sga3:ix:theorem:7:1}{7.1} 与 EGA III，5.4.1 比较；后者蕴涵：若不假设 \(H\) 是乘法型且 \(G\) 仿射，而假设 \(H\) 在 \(S\) 上固有，且 \(G\) 在 \(S\) 上分离且局部有限型，则 \SGARefLink{sga3:ix:theorem:7:1}{7.1} 的陈述仍成立。像 \SGARefLink{sga3:ix:theorem:7:1}{7.1} 这样的不带固有性假设的陈述颇为特殊，此处应将它理解为乘法型群结构的高度“刚性”的一个方面。}
+
+\textit{将群换成
+\[
+  G=H=\mathbf G_a
+\]
+的类似陈述一般不成立。事实上，取 \(A\) 的特征为 \(p>0\)，并将加性形式幂级数
+\SGARefTarget{sga3:ix:remark:7:4:display:01}
+\[
+  u(T)=\sum_{n\geq0}a_nT^{p^n},
+\]
+模 \(I^{n+1}\) 约化来定义各 \(u_n\)，其中各 \(a_n\in A\) 对 \(I\)-进拓扑趋于零，但对离散拓扑并不趋于零。}
+
+\textit{若去掉 \(G\) 仿射的假设，则 \SGARefLink{sga3:ix:theorem:7:1}{7.1} 的陈述也不成立，即使 \(H=\mathbf G_m\) 也如此。可取一个 \(A\) 为完备离散赋值环的例子：从 \(A\) 的分式域 \(K\) 上的一条椭圆曲线出发，使它在例如 N\'eron--Kodaira 理论中的约化是剩余域 \(k\) 上的群 \(\mathbf G_m\)。\footnote{编者注：可将这样的例子明确写出。}于是有 \(S\) 上的平滑交换群概形 \(G\)，其特殊纤维为 \(\mathbf G_{m,k}\)。由 \SGARefLink{sga3:ix:theorem:3:6}{3.6}，这使我们可构造同构的投射系统
+\[
+  u_n:H_n\xrightarrow{\ \sim\ }G_n,
+  \qquad H=\mathbf G_{m,A},
+\]
+而 \(G\) 的一般纤维是阿贝尔簇。因此，除零同态以外，不存在 \(S\)-群同态 \(H\to G\)。}
+
+% 终止位置：Exp9 组件本地第 30 页第 8 节之前；完整阅读本第 676 页；印刷第 74 页。

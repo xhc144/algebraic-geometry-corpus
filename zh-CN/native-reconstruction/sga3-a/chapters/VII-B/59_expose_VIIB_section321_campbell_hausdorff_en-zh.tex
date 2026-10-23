@@ -1,0 +1,153 @@
+
+% SGA 3，第 VII 篇_B；英文重建本第一轮的中文译本。
+% 范围： 节 3.2.1 全文 依据文献局部页 68--69,
+% 止于下节之前： 节 3.3.
+% 合并阅读本页： 581--582. 重版印刷页： 570--571.
+% 范围内原版边码： 534.
+% 范围内编者注： 124.
+% 依据： Polo--Gille Exp7B-13oct24.pdf,
+% SHA-256 D303690E0195654BBE7C3DAA5D89EA23E24CD709A3575217234AC19AE8836694.
+% Jacob Reinhold 的 CC BY 4.0 Markdown 仅用作对照来源，不作为依据。
+% 本组件无图；所有数学内容均为原生 LaTeX。
+\subsubsection*{3.2.1}
+\phantomsection
+\label{sga3:VIIB:3.2.1}
+借助双射 \(\exp_{U(L(C))}\)，通过结构搬移，可在集合
+\[
+  L(C)\otimes_C\mathfrak r(C),
+\]
+上定义群运算；与 \SGARefLink{sga3:VIIB:3.2:prop}{3.2} 一样，将该集合与 \(U(L(C))\) 的一个子集等同。若 \(x\) 与 \(y\) 是 \(L(C)\otimes_C\mathfrak r(C)\) 的两个元素，这个运算由下式给出
+\phantomsection
+\label{sga3:VIIB:3.2.1:transported-product}
+\[
+\begin{aligned}
+  x\mathbin{\cdot}y
+  &=
+  \log\bigl((\exp x)(\exp y)\bigr)
+  =
+  \log\left(
+    1+\sum_{p+q>0}\frac{x^p y^q}{p!\,q!}
+  \right)
+  \\
+  &=
+  \sum_{m\geq1}
+  \sum_{p_i+q_i>0}
+  \frac{(-1)^{m-1}}{m}
+  \frac{x^{p_1}y^{q_1}}{p_1!\,q_1!}
+  \cdots
+  \frac{x^{p_m}y^{q_m}}{p_m!\,q_m!}
+  \\
+  &=
+  \sum_{\ell\geq1}P_\ell(x,y).
+\end{aligned}
+\]
+这里 \(P_\ell(x,y)\) 表示关于 \(x\) 和 \(y\) 的总次数为 \(\ell\) 的单项式之和。例如，
+\[
+  P_1(x,y)=x+y,
+\]
+以及
+\[
+\begin{aligned}
+  P_2(x,y)
+  &=
+  \underbrace{
+    \frac{x^2}{2}+xy+\frac{y^2}{2}
+  }_{m=1}
+  -
+  \underbrace{
+    \frac12\bigl(x^2+xy+yx+y^2\bigr)
+  }_{m=2}
+  \\
+  &=
+  \frac12(xy-yx)
+  =
+  \frac12[x,y].
+\end{aligned}
+\]
+此外，\(P_3(x,y)\) 是以下三项之和：
+\[
+\begin{aligned}
+  P_3(x,y)
+  ={}&
+  \underbrace{
+    \frac{x^3}{6}
+    +\frac{x^2y}{2}
+    +\frac{xy^2}{2}
+    +\frac{y^3}{6}
+  }_{m=1}
+  \\
+  &-
+  \underbrace{
+    \frac12\left(
+      x^3+\frac32x^2y+\frac12yx^2+xyx+yxy
+      +\frac12y^2x+\frac32xy^2+y^3
+    \right)
+  }_{m=2}
+  \\
+  &+
+  \underbrace{
+    \frac13\left(
+      x^3+x^2y+yx^2+xyx+yxy+y^2x+xy^2+y^3
+    \right)
+  }_{m=3}.
+\end{aligned}
+\]
+因此，
+\phantomsection
+\label{sga3:VIIB:3.2.1:P3}
+\[
+  P_3(x,y)
+  =
+  \frac1{12}
+  \bigl(
+    x^2y+yx^2-2xyx-2yxy+y^2x+xy^2
+  \bigr)
+  =
+  \frac1{12}
+  \bigl(
+    [[y,x],x]+[y,[y,x]]
+  \bigr).
+\]
+更一般地，可以证明 Campbell--Hausdorff 公式：\footnote{%
+\label{sga3:VIIB:nde:124}编者纠正了原文所给的错误公式，并添加了参考文献\textup{[BLie]}。}
+\phantomsection
+\label{sga3:VIIB:3.2.1:campbell-hausdorff}
+\[
+\begin{aligned}
+  P_\ell(x,y)
+  ={}&
+  \sum_{m=1}^{\ell}
+  \frac{(-1)^{m-1}}{m\cdot\ell}
+  \sum_{\substack{
+    p_1,\ldots,p_m\\
+    q_1,\ldots,q_{m-1}
+  }}
+  \left(
+    \prod_{i=1}^{m-1}
+    \frac{(\operatorname{ad}x)^{p_i}}{p_i!}
+    \frac{(\operatorname{ad}y)^{q_i}}{q_i!}
+  \right)
+  \frac{(\operatorname{ad}x)^{p_m}}{p_m!}(y)
+  \\
+  &+
+  \sum_{m=1}^{\ell}
+  \frac{(-1)^{m-1}}{m\cdot\ell}
+  \sum_{\substack{
+    p_1,\ldots,p_{m-1}\\
+    q_1,\ldots,q_{m-1}
+  }}
+  \left(
+    \prod_{i=1}^{m-1}
+    \frac{(\operatorname{ad}x)^{p_i}}{p_i!}
+    \frac{(\operatorname{ad}y)^{q_i}}{q_i!}
+  \right)(x).
+\end{aligned}
+\]
+这里 \(p_j,q_i\in\mathbb N\) 满足
+\[
+  p_i+q_i\geq1
+  \quad(1\leq i\leq m-1),
+  \qquad
+  p_m+\sum_{i=1}^{m-1}(p_i+q_i)=\ell-1.
+\]
+换言之，在上述求和中，每个非零“Lie 单项式”的总次数均为 \(\ell\)。证明见 N.~Jacobson，《Lie 代数》〔\emph{Lie Algebras}〕（Interscience，1962），\S V.5，或\textup{[BLie]}，II，\S6.4，定理 2。

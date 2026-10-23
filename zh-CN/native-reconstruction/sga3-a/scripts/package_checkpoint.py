@@ -25,7 +25,7 @@ def visit(path):
 visit(r/'main.tex')
 chapters=sorted(str(x.relative_to(r)) for x in seen if 'chapters' in x.parts)
 for extra in a.extra_source:visit(r/extra)
-d=json.loads((r/'PROGRESS.json').read_text());d.update({'state':'paused_partial_translation' if d.get('paused') else 'partial_translation_checkpoint','completed_exposes':a.completed,'unfinished_exposes':[x for x in d['assigned_exposes'] if x not in a.completed],'translated_components':[Path(x).stem.removesuffix('-zh') for x in chapters],'compile_status':'successful XeLaTeX/latexmk, '+str(pages)+' pages','scope_complete':len(a.completed)==len(d['assigned_exposes']) and not d.get('unfinished_ancillary_material'),'proofreading_complete':False,'pdf':'sga3-a-zh.pdf','source_zip':'sga3-a-source.zip','source_zip_frozen_components':chapters,'source_zip_unassembled_extra_files':a.extra_source,'last_durable_checkpoint':'Full translated text of exposés '+', '.join(a.completed)+' with native diagrams and bibliography; remaining assigned units unfinished.'})
+d=json.loads((r/'PROGRESS.json').read_text());d.update({'state':('paused_partial_translation' if d.get('paused') else ('complete_translation_first_pass' if len(a.completed)==len(d['assigned_exposes']) and not d.get('unfinished_ancillary_material') else 'partial_translation_checkpoint')),'completed_exposes':a.completed,'unfinished_exposes':[x for x in d['assigned_exposes'] if x not in a.completed],'translated_components':[Path(x).stem.removesuffix('-zh') for x in chapters],'compile_status':'successful XeLaTeX/latexmk, '+str(pages)+' pages','scope_complete':len(a.completed)==len(d['assigned_exposes']) and not d.get('unfinished_ancillary_material'),'proofreading_complete':False,'pdf':'sga3-a-zh.pdf','source_zip':'sga3-a-source.zip','source_zip_frozen_components':chapters,'source_zip_unassembled_extra_files':a.extra_source,'last_durable_checkpoint':'Full translated text of exposés '+', '.join(a.completed)+' with native diagrams and bibliography; '+('all assigned source units and ancillary index assembled; source doubts and final mathematical proofreading remain explicitly documented.' if len(a.completed)==len(d['assigned_exposes']) and not d.get('unfinished_ancillary_material') else 'remaining assigned units unfinished.')})
 (r/'PROGRESS.json').write_text(json.dumps(d,ensure_ascii=False,indent=2)+'\n')
 shutil.copyfile(r/'build/main.pdf',r/'sga3-a-zh.pdf')
 warnings=re.findall(r'LaTeX Warning: ((?:(?!\n\n).)*)',log,re.S)
@@ -37,6 +37,8 @@ for n in ['README.md','BUILD.md','PROGRESS.json','.gitignore','terminology.csv']
 for folder in ['scripts','audit']:
  for f in (r/folder).rglob('*'):
   if f.is_file() and f.suffix not in ['.pyc','.log']:seen.add(f.resolve())
+# Root SHA256SUMS and DELIVERY.json intentionally remain outside the archive:
+# they hash the final ZIP itself and must not create a checksum self-reference.
 with zipfile.ZipFile(r/'sga3-a-source.zip','w',zipfile.ZIP_DEFLATED,compresslevel=9) as z:
  for f in sorted(seen):z.write(f,f.relative_to(r))
 print(json.dumps({'pages':pages,'included_chapter_files':len(chapters),'source_files':len(seen),'completed_exposes':a.completed,'pdf_sha256':qa['pdf_sha256']},ensure_ascii=False))

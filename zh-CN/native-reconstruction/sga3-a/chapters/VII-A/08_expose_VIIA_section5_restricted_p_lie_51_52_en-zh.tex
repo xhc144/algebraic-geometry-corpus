@@ -1,0 +1,269 @@
+% SGA 3，第 VII 篇_A，中文重构——第 1 轮。
+% 范围：权威底本本地第 31--33 页，第 5 节开头至 5.2.1，止于本地第 33 页的 5.3 之前。
+% 合并阅读本页码： 484--486. 再版本印刷页码： 473--475.
+% 本段原版页边定位： 445--448.
+% 权威底本：Polo--Gille Exp7A-13oct24.pdf,
+% SHA-256 D46DB8C79D0385643B6EED4B96900613248375F9B73B4202478A4F57FD3E8522.
+% 参照了 Jacob Reinhold 的 CC BY 4.0 Markdown 作为比对谱系。
+
+\section*{5. 受限 \texorpdfstring{\(p\)}{p}-Lie 代数}
+\phantomsection
+\label{sga3:VIIA:5}
+\addcontentsline{toc}{section}{5. 受限 p-Lie 代数}
+
+先回顾\emph{Sophus Lie 讨论班〔S\'eminaire Sophus Lie〕}中的一些结果。\footnote{见 P.~Cartier，\emph{超代数的例子〔Exemples d'hyperalg\`ebres〕}，S\'eminaire Sophus Lie 1955/56，报告~3。}
+
+\medskip
+\noindent\textbf{5.1.}
+\phantomsection
+\label{sga3:VIIA:5.1}
+
+% 权威底本： Exp7A 本地页 31; 合并阅读本页 484; 印刷页 473.
+设 \(p\) 为素数，\(R\) 为特征 \(p\) 的交换环，\(A\) 为未必交换的结合 \(R\)-代数。对 \(a,b\in A\)，置
+\[
+  [a,b]=ab-ba,
+  \qquad
+  a\cdot b=L_a(b)=R_b(a).
+\]
+则
+\[
+\begin{aligned}
+  (\operatorname{ad}x^p)(y)
+  &=[x^p,y] \\
+  &=(L_x^p-R_x^p)(y) \\
+  &=(L_x-R_x)^p(y) \\
+  &=(\operatorname{ad}x)^p(y),
+\end{aligned}
+\]
+这给出 Jacobson 的第一个公式：
+\[
+  \tag{i}\label{sga3:vii:paragraph:5-1:equation:i}
+  \operatorname{ad}(x^p)
+  =
+  (\operatorname{ad}x)^p.
+\]
+
+若 \(a_1,\ldots,a_p\) 是 \(A\) 的任意元素，\(N\) 为对称化算子（参见 \SGARefLink{sga3:VIIA:4.2}{4.2}），则
+\begin{equation}
+  \tag{*}\label{sga3:vii:paragraph:5-1:equation:star}
+\begin{aligned}
+  N(a_1\otimes\cdots\otimes a_p)
+  &=
+  \sum_{\sigma\in\mathfrak S_p}
+    a_{\sigma(1)}\cdots a_{\sigma(p)} \\
+  &=
+  \sum_{\tau\in\mathfrak S_{p-1}}
+  [a_{\tau(1)},
+    [a_{\tau(2)},
+      [\cdots,
+        [a_{\tau(p-1)},a_p]
+      \cdots]
+    ]
+  ].
+\end{aligned}
+\end{equation}
+这里 \(\sigma\) 遍历 \(p\) 个字母的置换，\(\tau\) 遍历 \(p-1\) 个字母的置换。
+
+% 权威底本： Exp7A 本地页 32; 合并阅读本页 485; 印刷页 474.
+事实上，最后的表达式等于
+\[
+  \sum_{\tau}
+  \sum_{r=0}^{p-1}
+  \sum_{i_1<\cdots<i_r}
+  (-1)^s
+  a_{\tau(i_1)}\cdots a_{\tau(i_r)}
+  a_p
+  a_{\tau(j_s)}\cdots a_{\tau(j_1)},
+\]
+其中 \(\tau\) 遍历 \(p-1\) 个字母的置换；\(i_1,\ldots,i_r\) 遍历 \([1,p-1]\) 中的严格递增序列；而 \(j_1,\ldots,j_s\) 是 \([1,p-1]\) 中不同于 \(i_1,\ldots,i_r\) 的所有整数所成的严格递增序列。固定 \(r\) 时，各项
+\[
+  (-1)^s
+  a_{\tau(i_1)}\cdots a_{\tau(i_r)}
+  a_p
+  a_{\tau(j_s)}\cdots a_{\tau(j_1)}
+\]
+之和显然为
+\[
+  (-1)^s\binom{p-1}{s}
+  \sum_{\rho}
+  a_{\rho(1)}\cdots a_{\rho(r)}
+  a_p
+  a_{\rho(r+1)}\cdots a_{\rho(p-1)},
+\]
+其中 \(\rho\) 遍历 \(p-1\) 个字母的置换。然而
+\[
+  (-1)^s\binom{p-1}{s}=1
+  \quad\text{在 }\mathbb F_p,
+\]
+因为在 \(\mathbb F_p[x]\) 中，
+\[
+  (x-1)^p=x^p-1=(x-1)(x^{p-1}+\cdots+1),
+\]
+从而
+\[
+  (x-1)^{p-1}=x^{p-1}+\cdots+1.
+\]
+这证明了 \((*)\)。
+
+另一方面，若 \(x_0,x_1\in A\)，则
+\[
+  (x_0+x_1)^p
+  =
+  x_0^p+x_1^p+
+  \sum_z x_{z(1)}x_{z(2)}\cdots x_{z(p)},
+\]
+其中 \(z\) 遍历非常值映射 \([1,p]\to\{0,1\}\)。由此得到
+\[
+\begin{aligned}
+  (x_0+x_1)^p
+  ={}&
+  x_0^p+x_1^p \\
+  &+
+  \sum_{0<r<p}
+  \frac{1}{r!(p-r)!}\,
+  N(
+    \underbrace{x_0,\ldots,x_0}_{r},
+    \underbrace{x_1,\ldots,x_1}_{p-r}
+  ).
+\end{aligned}
+\]
+\footnote{编者从 \textup{[DG70]}，III.7，\SGARefExternal{sga3:VIIB:3.2:prop}{3.2} 补入下述说明。}
+由 \((*)\)，
+\[
+\begin{aligned}
+  &N(
+    \underbrace{x_0,\ldots,x_0}_{r},
+    \underbrace{x_1,\ldots,x_1}_{p-r}
+  ) \\
+  &\qquad =
+  r!(p-1-r)!
+  \sum_t
+  [x_{t(1)},
+    [x_{t(2)},
+      [\cdots,
+        [x_{t(p-1)},x_1]
+      \cdots]
+    ]
+  ],
+\end{aligned}
+\]
+其中 \(t\) 遍历恰好取 \(r\) 次值 \(0\) 的映射 \([1,p-1]\to\{0,1\}\)。我们得到 Jacobson 的第二个公式：
+\begin{equation}
+  \tag{ii}\label{sga3:vii:paragraph:5-1:equation:ii}
+\begin{aligned}
+  (x_0+x_1)^p
+  ={}&
+  x_0^p+x_1^p \\
+  &-
+  \sum_{0<r<p}\sum_t\frac1r
+  [x_{t(1)},
+    [x_{t(2)},
+      [\cdots,
+        [x_{t(p-1)},x_1]
+      \cdots]
+    ]
+  ],
+\end{aligned}
+\end{equation}
+其中 \(t\) 的意义同前。
+
+\medskip
+\noindent\textbf{5.2.}
+\phantomsection
+\label{sga3:VIIA:5.2}
+
+现设 \(\mathfrak g\) 是一个 \(R\)-Lie 代数。若从 \(\mathfrak g\) 到自身的映射
+\[
+  x\longmapsto x^{(p)}
+\]
+满足下列条件，则称它使 \(\mathfrak g\) 成为一个 \(R\) 上的\emph{受限 \(p\)-Lie 代数}：
+\[
+\begin{array}{ll}
+  \SGAInlineEquationTarget{sga3:VIIA:5.2:condition:0}(0) &
+  (\lambda x)^{(p)}
+  =
+  \lambda^p x^{(p)}
+  \quad
+  (\lambda\in R,\ x\in\mathfrak g), \\[0.4em]
+  \SGAInlineEquationTarget{sga3:VIIA:5.2:condition:i}(i) &
+  \operatorname{ad}x^{(p)}
+  =
+  (\operatorname{ad}x)^p
+  \quad
+  (x\in\mathfrak g),
+\end{array}
+\]
+以及
+\[
+\begin{aligned}
+  \SGAInlineEquationTarget{sga3:VIIA:5.2:condition:ii}(ii)\quad
+  (x_0+x_1)^{(p)}
+  ={}&
+  x_0^{(p)}+x_1^{(p)} \\
+  &-
+  \sum_{0<r<p}\sum_t\frac1r
+  [x_{t(1)},
+    [x_{t(2)},
+      [\cdots,
+        [x_{t(p-1)},x_1]
+      \cdots]
+    ]
+  ],
+\end{aligned}
+\]
+其中 \(t\) 遍历恰好取 \(r\) 次值 \(0\) 的映射 \([1,p-1]\to\{0,1\}\)，且 \(x_0,x_1\in\mathfrak g\)。映射 \(x\mapsto x^{(p)}\) 称为\emph{符号 \(p\) 次幂}。
+
+% 权威底本： Exp7A 本地页 33; 合并阅读本页 486; 印刷页 475.
+例如，若 \(A\) 是结合 \(R\)-代数，\SGARefLink{sga3:VIIA:5.1}{5.1} 表明 \(A\) 的底层 \(R\)-模赋予
+\[
+  [x,y]=xy-yx,
+  \qquad
+  x^{(p)}=x^p,
+\]
+后是一个 \(p\)-Lie 代数，记为 \(A_{\mathrm{Lie}}\)。称它为 \(A\) 的底层 \(p\)-Lie 代数。
+
+我们主要考虑形如 \(A_{\mathrm{Lie}}\) 的代数的受限 \(p\)-Lie 子代数。下面是一个例子。设 \(S\) 是特征 \(p>0\) 的概形，\(X\) 是一个 \(S\)-概形。回顾，\(X\) 在 \(S\) 上的一个导子，是阿贝尔群层 \(\mathcal O_X\) 的一个自同态 \(D\)，使得
+\[
+  D(\lambda s)=\lambda D(s),
+  \qquad
+  D(st)=(Ds)t+s(Dt),
+\]
+只要 \(\lambda\)、\(s,t\) 分别是 \(\mathcal O_S\)、\(\mathcal O_X\) 在使这些公式有意义的开子集上的截面，上式就成立。Leibniz 公式
+\[
+  D^n(st)
+  =
+  \sum_{i=0}^n
+  \binom ni
+  (D^is)(D^{n-i}t)
+\]
+表明 \(D^p\) 仍为 \(X\) 在 \(S\) 上的导子，因为
+\[
+  \binom pi\equiv0\pmod p
+  \qquad(i\ne0,p).
+\]
+由此得到：
+
+\begin{quote}
+\textit{\(X\) 在 \(S\) 上的导子代数 \(\operatorname{Der}_{X/S}\)，是 \(X\) 在 \(S\) 上的微分算子所成的 \(\Gamma(S,\mathcal O_S)\)-代数的一个受限 \(p\)-Lie 子代数。}
+\end{quote}
+
+\medskip
+\noindent\textbf{5.2.1.}
+\phantomsection
+\label{sga3:VIIA:5.2.1}
+若 \(\mathfrak g\) 和 \(\mathfrak h\) 是两个受限 \(p\)-Lie 代数，则一个\emph{同态}
+\[
+  h:\mathfrak g\longrightarrow\mathfrak h
+\]
+是一个 \(R\)-线性映射，对 \(x,y\in\mathfrak g\) 满足
+\[
+  h([x,y])=[h(x),h(y)],
+  \qquad
+  h(x^{(p)})=h(x)^{(p)}.
+\]
+两个同态的复合仍是同态，因此可以谈论 \(R\) 上的\emph{受限 \(p\)-Lie 代数范畴}。
+
+若 \((X,\mathcal R)\) 是带环空间，则称 \(\mathcal R\)-模 \(\mathfrak g\) 赋有 \(\mathcal R\) 上的受限 \(p\)-Lie 代数结构，如果对每个开子集 \(U\)，模 \(\Gamma(U,\mathfrak g)\) 是 \(\Gamma(U,\mathcal R)\) 上的受限 \(p\)-Lie 代数，并且所有限制映射都是同态。
+
+% 下一定位： Exp7A 本地页 33, 合并阅读本页 486,
+% 再版本印刷页 475, 在 5.3。

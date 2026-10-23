@@ -1,0 +1,1165 @@
+\section*{\SGAInlineRefTarget{sga3:x:section:4}4. 任意基的情形．拟等平凡性定理}
+\phantomsection
+\addcontentsline{toc}{section}{4. 任意基的情形．拟等平凡性定理}
+
+设 \(A\) 是局部环。依照 Nagata，回顾：若 \(A\) 上的每个有限代数 \(B\)
+都是 \(A\) 上有限的局部代数 \(B_i\) 的积，则称 \(A\) 为\emph{Hensel 环}。
+
+\par\medskip\noindent
+\textbf{\SGAInlineRefTarget{sga3:x:paragraph:4-0}回顾 4.0。}\footnote{\textit{编者注。}此回顾已详细展开，并添加了\SGARefLink{sga3:x:remark:4-0-1}{注记 4.0.1}。}\enspace
+\emph{设 \(A\) 是 Hensel 局部环，\(k\) 是其剩余域，\(S=\operatorname{Spec}(A)\)，
+\(S_0=\operatorname{Spec}(k)\)，\(\xi\) 是 \(S_0\) 的一个几何点。则函子}
+\[
+  X\longmapsto X_0=X\times_S S_0
+\]
+\emph{是 \(S\) 上的平展覆盖范畴与 \(S_0\) 上相应范畴之间的等价
+（参见\ EGA IV\(_4\)，\S~18.5）。因此（参见\ SGA 1，V），}
+\[
+  \pi_1(S_0,\xi)=\pi_1(S,\xi).
+\]
+
+再假定 \(A\) 是 Noether 环，以 \(A'\) 表示其完备化，令
+\(S'=\operatorname{Spec}(A')\)。则 \(A'\) 是完备 Noether 局部环，因而是 Hensel 环
+（\emph{同处}，18.5.14），而从 \(S\) 上的平展覆盖范畴到 \(S'\) 上相应范畴的函子
+\[
+  X\longmapsto X'=X\times_S S'
+\]
+纳入一个交换图
+\[
+  \input{figures/exp10/004_etale_cover_equivalence_triangle}
+\]
+因此它也是范畴等价，故 \(\pi_1(S_0,\xi)=\pi_1(S',\xi)\)。
+
+\par\medskip\noindent
+\textbf{\SGAInlineRefTarget{sga3:x:remark:4-0-1}注记 4.0.1.}\enspace
+由于 \(S\) 连通（因为 \(A\) 是局部环），由 \SGARefLink{sga3:x:corollary:1:2}{1.2}，
+\(S\) 上等平凡乘法型群的范畴等价于 \(S_0\) 上的相应范畴
+（若 \(A\) 是 Noether 环，也等价于 \(S'\) 上的相应范畴）。
+
+\par\medskip\noindent
+\textbf{\SGAInlineRefTarget{sga3:x:lemma:4-1}引理 4.1。}\enspace
+\begingroup\itshape
+设 \(A\) 是剩余域为 \(k\) 的 Hensel 局部环，\(S=\operatorname{Spec}(A)\)，
+\(S_0=\operatorname{Spec}(k)\)。
+
+\smallskip
+\noindent
+\(\mathrm{(i)}\) 函子
+\[
+  H\longmapsto H_0=H\times_S S_0
+\]
+是 \(S\) 上的有限乘法型群范畴与 \(S_0\) 上相应范畴之间的等价。
+
+\smallskip
+\noindent
+\(\mathrm{(ii)}\) 再假定 \(A\) 是 Noether 环，以 \(A'\) 表示其完备化，令 \(S'=\operatorname{Spec}(A')\)，则函子
+\[
+  H\longmapsto H'=H\times_S S'
+\]
+是 \(S\) 上的有限乘法型群范畴与 \(S'\) 上相应范畴之间的等价。
+\par\endgroup
+
+如同 \SGARefLink{sga3:x:paragraph:4-0}{4.0}，第二个断言由第一个推出；下面证明第一个。
+已知所考虑的函子是本质满射的：\(S_0=\operatorname{Spec}(k)\) 上的每个乘法型群
+\(H_0\) 因为有限，故在 \(k\) 上有限型，由 \SGARefLink{sga3:x:proposition:1:4}{1.4}
+是等平凡的，因而由 \SGARefLink{sga3:x:remark:4-0-1}{4.0.1} 来自 \(S\) 上的等平凡乘法型群。
+
+只须证明全忠实性，即对 \(S\) 上的两个有限乘法型群 \(G,H\)，下列映射是双射：
+\[
+  \operatorname{Hom}_{S\text{-gr.}}(G,H)
+  \longrightarrow
+  \operatorname{Hom}_{S_0\text{-gr.}}(G_0,H_0).
+\]
+换言之，\footnote{\textit{编者注。}下文为新增。}
+若 \(F\) 表示 \(S\)-函子 \(\operatorname{Hom}_{S\text{-gr.}}(G,H)\)，
+则由基变换 \(S_0\to S\) 诱导的自然映射
+\[
+  \operatorname{Hom}_S(S,F)
+  \longrightarrow
+  \operatorname{Hom}_{S_0}(S_0,F_0)
+\]
+是双射。由回顾 \SGARefLink{sga3:x:paragraph:4-0}{4.0}，只需证明下列引理。
+
+\par\medskip\noindent
+\textbf{\SGAInlineRefTarget{sga3:x:lemma:4-2}引理 4.2。}\enspace
+\emph{设 \(G,H\) 是预概形 \(S\) 上的两个有限乘法型群。
+则 \(F=\operatorname{Hom}_{S\text{-gr.}}(G,H)\) 可由 \(S\) 上的有限平展概形表示。}
+
+\footnote{\textit{编者注。}下文扩充了原文。}
+设 \(f:S'\to S\) 是使 \(G'\) 和 \(H'\) 可对角化的忠实平坦拟紧态射。
+只需证明 \(F_{S'}\) 由在 \(S'\) 上平展且有限（从而仿射）的预概形 \(X'\) 表示。
+事实上，\(X'\) 关于 \(f\) 的下降数据（参见\ VIII 1.7.2）于是有效（由 SGA 1，VIII 2.1），
+因而存在表示 \(F\) 的 \(S\)-预概形 \(X\)，使 \(X\times_S S'=X'\)，
+并且 \(X\) 在 \(S\) 上平展且有限（参见\ SGA 1，V 5.7 及 EGA IV\(_4\)，17.7.3 (ii)）。
+
+因此可以假定 \(G=D_S(M)\)、\(H=D_S(N)\)，其中 \(M\) 和 \(N\) 是有限交换群
+（参见\ \SGARefLink{sga3:viii:proposition:2:1}{VIII 2.1} c)）。
+则 \(K=\operatorname{Hom}_{\mathrm{gr.}}(N,M)\) 是有限阿贝尔群，且由
+\SGARefLink{sga3:viii:corollary:1:5}{VIII 1.5}，有同构
+\[
+  \operatorname{Hom}_{S\text{-gr.}}(G,H)\simeq K_S,
+\]
+这就完成了 \SGARefLink{sga3:x:lemma:4-2}{4.2} 以及
+\SGARefLink{sga3:x:lemma:4-1}{4.1} 的证明。
+
+\par\medskip\noindent
+\textbf{\SGAInlineRefTarget{sga3:x:proposition:4-3-0}命题 4.3.0。}\footnote{\textit{编者注。}此回顾为新增，将用于 4.3 的证明（对 EGA IV\(_4\)，18.5.11 的引用并非完全令人满意）。}\enspace
+\begingroup\itshape
+设 \(S\) 是 Hensel 局部概形，\(s\) 是其闭点，\(g:X\to S\) 是局部有限型态射，
+\(x\) 是纤维 \(X_s\) 的一个孤立点。
+
+\smallskip
+\noindent
+\(\mathrm{(i)}\) 则 \(\mathcal O_{X,x}\) 在 \(\mathcal O_{S,s}\) 上有限。
+（特别地，若剩余域扩张 \(\kappa(x)/\kappa(s)\) 平凡，则由 Nakayama 引理，
+\(\mathcal O_{S,s}\to\mathcal O_{X,x}\) 为满射。）
+
+\smallskip
+\noindent
+\(\mathrm{(ii)}\) 若 \(g\) 还分离，则 \(X'=\operatorname{Spec}(\mathcal O_{X,x})\)
+是 \(X\) 的既开又闭的子概形；即存在不交和分解 \(X=X'\amalg X''\)。
+\par\endgroup
+
+\par\smallskip\noindent
+\emph{证明。}
+由 [Pes66] 或 [Ray70，第~IV 章，定理~1] 中 Zariski 主定理的局部形式，
+\(x\) 有一个在 \(A=\mathcal O_{S,s}\) 上有限型且拟有限的仿射开邻域
+\(U=\operatorname{Spec}(B)\)，并存在开浸入 \(U\hookrightarrow Y=\operatorname{Spec}(C)\)，
+其中 \(C\) 是有限 \(A\)-代数。（注意：为得到此结论，也可先使用 Chevalley 的半连续性定理
+（EGA IV\(_3\)，13.1.4），再使用\emph{同处} 8.12.8 中给出的 Zariski 主定理形式。）
+
+由于 \(A\) 是 Hensel 环，\(Y\) 是局部概形 \(Y_1,\ldots,Y_n\) 的不交和，
+每个都在 \(S\) 上有限，且 \(Y\) 中位于 \(s\) 上方的点是它们的闭点
+\(y_1,\ldots,y_n\)。因此，对某个 \(i\) 有 \(x=y_i\)，且
+\(\mathcal O_{X,x}=\mathcal O_{U,x}=C_i\) 在 \(A\) 上有限。
+此外，\(X'=\operatorname{Spec}(C_i)\) 是 \(U\) 的开子概形，从而也是 \(X\) 的开子概形。
+
+再假定 \(g\) 分离。由于 \(X'\to S\) 有限（因 \(C_i\) 在 \(A\) 上有限），
+浸入 \(X'\to X\) 也有限（参见\ EGA II，6.1.5 (v)）；因此 \(X'\) 在 \(X\) 中也闭。
+\hfill\(\square\)
+
+\par\medskip\noindent
+\textbf{\SGAInlineRefTarget{sga3:x:lemma:4-3}引理 4.3。}\enspace
+\begingroup\itshape
+设 \(A\) 是 Noether Hensel 局部环，\(A'\) 是其完备化，
+\(S=\operatorname{Spec}(A)\)，\(S'=\operatorname{Spec}(A')\)，\(s\) 是 \(S\) 的闭点。
+设 \(G,H\) 是两个 \(S\)-群预概形，其中 \(G\) 为 \(S\) 上的有限型乘法型群，
+\(H\) 在 \(S\) 上局部有限型且分离，\(H_s\) 为乘法型，
+并且 \(H\) 在 \(H_s\) 的各点在 \(S\) 上平坦。
+
+设 \(G',H'\) 由 \(G,H\) 通过基变换 \(S'\to S\) 得到。
+则下列自然映射是双射：
+\par\endgroup
+\[
+  \operatorname{Hom}_{S\text{-gr.}}(G,H)
+  \xrightarrow{\ \sim\ }
+  \operatorname{Hom}_{S'\text{-gr.}}(G',H').
+\]
+
+由于 \(S'\) 在 \(S\) 上忠实平坦且拟紧，SGA 1，VIII 5.2 表明，
+此映射将第一项等同于第二项中由如下 \(u':G'\to H'\) 所成的子集：
+\(u'\) 沿投影 \(\operatorname{pr}_1,\operatorname{pr}_2:S''\to S'\)
+在 \(S''=S'\times_S S'\) 上的两个逆像 \(u''_1,u''_2:G''\to H''\) 相等。
+
+因此，只须证明对每个 \(S'\)-群同态 \(u':G'\to H'\)，都有 \(u''_1=u''_2\)。
+由稠密性定理 \SGARefLink{sga3:ix:corollary:4:8}{IX 4.8}，只需证明对每个整数
+\(n>0\)，\(u''_1\) 和 \(u''_2\) 在 \({}_nG''\) 上相等。
+（注意：这里稠密性定理实质上被用于基预概形 \(S''\) 非局部 Noether 的情形。）
+
+将 \(G\) 换成 \({}_nG\)，就归约到对某个整数 \(n>0\) 有
+\(n\cdot\operatorname{id}_G=0\) 的情形，因而 \(G\) 在 \(S\) 上有限。
+同样，令 \({}_nH\) 为 \(H\) 上 \(n\) 次幂态射 \(\varphi_n\) 的核。
+（注意：没有假定 \(H\) 交换，所以 \(\varphi_n\) 不一定是群同态，
+\({}_nH\) 也不一定是 \(H\) 的子群。）由于 \({}_nH\) 定义为
+\(\varphi_n:H\to H\) 与单位截面 \(\varepsilon:S\to H\) 的纤维积，
+其形成与每个基变换 \(T\to S\) 交换：
+\[
+  ({}_nH)_T={}_n(H_T).
+\]
+
+\footnote{\textit{编者注。}根据 M.\ Raynaud 的提示，扩充了以下原文。}
+使用右下标 \(m\) 表示模 \(\mathfrak m^{m+1}\) 的约化，其中 \(\mathfrak m\)
+是 \(A\) 的极大理想。则 \(H_m\) 在 \(S_m\) 上平坦（因为 \(H\) 在
+\(H_0\) 的各点在 \(S\) 上平坦）；因而由 \SGARefLink{sga3:x:corollary:2:4}{2.4}，
+\(H_m\) 为乘法型且有限型，因为 \(H_0\) 如此。因此，每个
+\(({}_nH)_m={}_n(H_m)\) 都是 \(H_m\) 的乘法型子群，在 \(S_m\) 上有限且平坦。
+
+特别地，\(({}_nH)_0={}_n(H_0)\) 在 \(S_0\) 上有限。
+由于 \(S\) 为 Hensel 局部概形，且 \({}_nH\) 如同 \(H\) 一样在 \(S\) 上局部有限型且分离，
+\SGARefLink{sga3:x:proposition:4-3-0}{命题 4.3.0} 表明，\({}_nH\) 在
+\(({}_nH)_0\) 的各点处的局部环在 \(S\) 上有限，并存在开子集的不交和分解
+\[
+  \tag{*}\label{sga3:x:lemma:4-3:equation:star}
+  {}_nH={}_nH^+\amalg{}_nH^-,
+\]
+其中 \(Z={}_nH^+\) 在 \(S\) 上有限，而 \({}_nH^-\) 位于 \(S-\{s\}\) 上方。
+
+注意，对于每个有限 \(S\)-概形 \(Y\)（例如 \(G\)），每个 \(S\)-态射
+\(Y\to{}_nH\) 都通过 \(Z\) 分解，且分解 \((*)\) 的形成与基变换 \(S'\to S\)
+交换，其中 \(S'=\operatorname{Spec}(A')\)，\(A'\) 是 \(A\) 的完备化。
+
+则 \(Z'=Z\times_S S'\) 在 \(S'\) 上有限，\(P'=Z'\times_{S'}Z'\) 也如此。
+以 \(\nu\) 表示 \(H'\) 的乘法在 \(P'\) 上的限制，\(\sigma\) 表示交换两因子的
+\(P'\) 的自同构。由于 \(P'\) 在 \(S'\) 上有限，而 \(H'\) 在 \(S'\) 上分离且局部有限型，
+EGA II 5.4.3 和 IV\(_1\) 1.1.3 表明，\(Y=\nu(P')\) 是 \(H'\) 的闭子概形，
+在 \(S'\) 上普遍闭且拟紧，因而有限型，从而固有。此外，\(Y\to S'\) 有有限纤维
+（因为 \(P'\to S'\) 如此）。由于 \(S'\) 为 Noether 概形，\(Y\to S'\) 因而有限
+（参见\ EGA III，4.4.2）。由于 \(Z'\subseteq Y\)，且对每个 \(m\) 有 \(Z'_m=Y_m\)，
+引理 IX 5.0 给出 \(Z'=Y\)；所以 \(Z'\) 是 \(H'\) 的子群。
+同样，核 \(K=\operatorname{Ker}(\nu,\nu\circ\sigma)\) 是 \(P'\) 的闭子概形，
+且对每个 \(m\) 有 \(K_m=P'_m\)（因为 \(Z'_m={}_nH_m\) 交换）。
+因此 \(K=P'\)，即 \(Z'\) 是 \(H'\) 的交换的子群。
+
+另一方面，每个约化 \(Z'_m={}_nH_m\) 在 \(S_m\) 上平坦。
+因此，“平坦性的局部判别法”（参见\ EGA \(0_{\mathrm{III}}\)，10.2.2，
+或 [BAC]，III \S~5，例 1 和定理~1）表明 \(Z'\) 在 \(S'\) 上平坦。
+此外，\(Z'_0={}_nH_0\) 是 \(S_0\) 上的有限乘法型群，从而由
+\SGARefLink{sga3:x:proposition:1:4}{1.4} 等平凡。由 \SGARefLink{sga3:x:corollary:3:8}{3.8} b)，
+\(Z'\) 是 \(S'\) 上的乘法型群（且等平凡）。由于 \(S'\to S\) 忠实平坦且拟紧，
+乘法 \(Z\times_S Z\to H\) 通过 \(Z\) 分解，使 \(Z\) 成为 \(H\) 的子群，
+在 \(S\) 上有限且为乘法型（因为 \(Z'\) 如此）。
+
+最后，由上面关于 \((*)\) 的观察，\(Z'\) 是 \({}_nH'\) 的“有限部分”，
+故 \(u':G'\to{}_nH'\) 取值于 \(Z'\)。由于 \(Z\) 和 \(G={}_nG\) 都在
+\(S\) 上有限且为乘法型，\SGARefLink{sga3:x:lemma:4-1}{引理 4.1} 表明 \(u'\)
+来自某个 \(u:G\to Z\)，故 \(u''_1=u''_2\)。这就完成了
+\SGARefLink{sga3:x:lemma:4-3}{4.3} 的证明。
+
+\par\medskip\noindent
+\textbf{\SGAInlineRefTarget{sga3:x:lemma:4-4-0}引理 4.4.0。}\footnote{\textit{编者注。}添加了以下多次用到的这个引理。}\enspace
+\begingroup\itshape
+设 \(A\) 是环，\(S=\operatorname{Spec}(A)\)，\(H\) 是拟等平凡（分别为等平凡）的
+有限型乘法型 \(S\)-群概形。设 \((A_i)\) 是 \(A\) 的子环的滤过族，
+其归纳极限为 \(A\)，令 \(S_i=\operatorname{Spec}(A_i)\)。
+
+则存在指标 \(i\) 及有限型乘法型 \(S_i\)-群概形 \(H_i\)，它是拟等平凡的
+（分别为等平凡的），使 \(H=H_i\times_{S_i}S\)。
+\par\endgroup
+
+\par\medskip\noindent
+\textbf{\SGAInlineRefTarget{sga3:x:theorem:4-4}定理 4.4。}\enspace
+\begingroup\itshape
+设 \(S\) 是预概形，\(H\) 是在 \(S\) 上有限呈示的仿射 \(S\)-群预概形，
+\(s\in S\)。假定：
+
+\smallskip
+\noindent
+\(\alpha)\) \(H\) 在 \(H_s\) 的各点在 \(S\) 上平坦；
+
+\smallskip
+\noindent
+\(\beta)\) \(H_s\) 为乘法型。
+
+\smallskip
+则存在平展态射 \(S'\to S\)、位于 \(s\) 上方且 \(\kappa(s')/\kappa(s)\)
+平凡的点 \(s'\in S'\)，以及 \(H'=H\times_S S'\) 的既开又闭子群 \(G'\)，
+它是乘法型、有限型且等平凡的，并满足 \(G'_{s'}=H'_{s'}\)。
+\par\endgroup
+
+\footnote{\textit{编者注。}下面的归约已详细展开
+（原文说：“立即归约到 \(S\) 为 Noether 局部环 \(A\) 的谱、且 \(s\) 为 \(S\) 的闭点的情形。”）}
+\noindent\textbf{a)}
+暂记 \(T=\operatorname{Spec}(\mathcal O_{S,s})\)，通过“下降结论”证明可归约到
+\(S=T\) 的情形。事实上，假定已经找到平展态射 \(g:T'\to T\)、点
+\(s'\in T'\)，以及 \(H'=H_{T'}\) 的子群 \(G'\)，满足陈述中的条件。
+将 \(T'\) 换成 \(s'\) 的仿射开邻域后，可假定 \(T'\) 在 \(T\) 上有限呈示。
+
+由于 \(G'\) 等平凡，存在有限平展满射态射 \(f:\widetilde T\to T'\)，
+使 \(\widetilde G=G'\times_{T'}\widetilde T\) 同构于 \(D_{\widetilde T}(M)\)，
+其中 \(M\) 是有限生成阿贝尔群。由于 \(T'\)、\(H\)、\(\widetilde T\) 和
+\(G'\) 在 \(T=\operatorname{Spec}(\mathcal O_{S,s})\) 上有限呈示，
+而 \(\mathcal O_{S,s}\) 是子代数 \(A_i=\mathcal O_S(S_i)\) 的归纳极限，
+其中 \(S_i\) 遍历 \(s\) 在 \(S\) 中的仿射开邻域，EGA IV\(_3\)，8.8.2
+（及第 VI 篇\(_{\mathrm B}\)，10.2 和 10.3）给出指标 \(i\)、有限呈示的
+\(S_i\)-预概形 \(S'_i,\widetilde T_i\)（以及有限呈示的 \(S_i\)-群预概形
+\(G'_i\)）与态射
+\[
+  g_i:S'_i\to S_i,\qquad f_i:\widetilde T_i\to S'_i,
+  \qquad
+  u_i:G'_i\to H\times_S S'_i,
+\]
+通过基变换得到 \(g,f\) 及 \(u:G'\to H'\)。取 \(i\) 充分大，
+\(g_i\) 平展，\(f_i\) 为有限平展满射，\(u_i\) 为既开又闭的浸入
+（参见\ EGA IV，8.10.5 和 17.7.8）。
+
+现在，\(\widetilde G\) 同时来自 \(\widetilde G_i=G'_i\times_{S'_i}\widetilde T_i\)
+和 \(D_{\widetilde T_i}(M)\)。由 EGA IV\(_3\)，8.8.2 (i)
+（及 VI\(_{\mathrm B}\)，10.2），存在指标 \(j\geq i\)，使
+\(\widetilde G_j\simeq D_{\widetilde T_j}(M)\)，所以 \(G'_j\) 是等平凡乘法型群。
+设 \(s'_j\) 是 \(s'\) 在 \(S'_j\) 中的像。则平展态射
+\(S'_j\to S_j\hookrightarrow S\)、点 \(s'_j\) 及 \(H\times_S S'_j\)
+的既开又闭子群 \(G'_j\) 满足陈述中的条件。因此可假定 \(S=\operatorname{Spec}(A)\)
+为局部概形，闭点为 \(s\)。
+
+\par\smallskip\noindent
+\textbf{b)}
+环 \(A\) 是局部环 \(A_i\) 的归纳极限，其中各环是有限生成
+\(\mathbb Z\)-代数的局部化；令 \(S_i=\operatorname{Spec}(A_i)\)。
+证明假设 \(\alpha\) 和 \(\beta\)“下降”到某个 \(A_i\)。由于 \(H\to S\)
+有限呈示，\(H\) 在 \(S\) 上平坦的点 \(x\in H\) 所成的集合是开集 \(W\)。
+由假设它包含 \(H_s\)，故包含一个包含 \(H_s\) 的拟紧开集 \(V\)
+（因为仿射概形 \(H_s\) 可以用包含于 \(W\) 的有限多个仿射开子集覆盖）。
+开浸入 \(\tau:V\hookrightarrow H\) 有限呈示，所以 \(V\to S\) 也有限呈示。
+
+由 EGA IV\(_3\)，8.8.2（及第 VI 篇\(_{\mathrm B}\)，10.2 和 10.3），
+存在指标 \(i\)、有限呈示的 \(S_i\)-预概形 \(V_i\)
+（以及有限呈示的 \(S_i\)-群预概形 \(H_i\)），与 \(S_i\)-态射 \(\tau_i:V_i\to H_i\)，
+它们通过基变换 \(S\to S_i\) 得到 \(V,H,\tau\)。取 \(i\) 充分大，
+由 EGA IV\(_3\)，8.10.5 和 11.2.6，\(\tau_i\) 为开浸入，且 \(V_i\) 在
+\(S_i\) 上平坦。设 \(s_i\) 是 \(s\) 在 \(S_i\) 中的像。
+由于开浸入 \((V_i)_{s_i}\hookrightarrow(H_i)_{s_i}\) 通过基变换
+\(\kappa(s_i)\to\kappa(s)\) 后给出等式 \(V_s=H_s\)，已经有
+\((V_i)_{s_i}=(H_i)_{s_i}\)。所以 \(H_i\) 在 \((H_i)_{s_i}\) 的各点在
+\(S_i\) 上平坦。最后，\((H_i)_{s_i}\) 为乘法型，因为
+\[
+  H_s=(H_i)_{s_i}\otimes_{\kappa(s_i)}\kappa(s)
+\]
+如此。因此 \((S_i,H_i,s_i)\) 满足 \SGARefLink{sga3:x:theorem:4-4}{4.4} 的假设，
+且若所需断言对此三元组成立，则通过基变换也对 \((S,H,s)\) 成立。
+这样归约到 \(A\) 为 Noether 局部环的情形。现在区分两种情况。
+
+\par\smallskip\noindent
+\(\mathbf{1^\circ}\) \emph{\(A\) 是 Noether Hensel 局部环。}
+设 \(\widehat A\) 是其完备化，\(\widehat S=\operatorname{Spec}(\widehat A)\)，
+\(\widehat H=H\times_S\widehat S\)。应用\SGARefLink{sga3:x:theorem:3:7}{定理 3.7}，
+得到等平凡有限型乘法型 \(\widehat S\)-群 \(\widehat G\) 及同态
+\[
+  \widehat u:\widehat G\longrightarrow\widehat H
+\]
+它既是开浸入又是闭浸入，并诱导同构
+\[
+  \widehat u_0:\widehat G_0\xrightarrow{\ \sim\ }\widehat H_0.
+\]
+由\SGARefLink{sga3:x:remark:4-0-1}{注记 4.0.1}，沿 \(\widehat S\to S\) 的基变换
+诱导 \(S\) 上与 \(\widehat S\) 上的等平凡乘法型群范畴之间的等价。
+特别地，\(\widehat G\) 来自一个等平凡有限型乘法型 \(S\)-群 \(G\)。
+由 \SGARefLink{sga3:x:lemma:4-3}{4.3}，\(\widehat u\) 来自同态
+\[
+  u:G\longrightarrow H.
+\]
+此外，\(u\) 是既开又闭的浸入，且诱导同构 \(u_0:G_0\to H_0\)，
+因为这些性质在忠实平坦拟紧基变换 \(\widehat S\to S\) 后成立。
+这证明了此情形下的 \SGARefLink{sga3:x:theorem:4-4}{4.4}
+（在其结论中取 \(S'=S\)、\(s'=s\)）。
+
+\par\smallskip\noindent
+\(\mathbf{2^\circ}\) \emph{\(A\) 是 Noether 局部环。}
+将情况 \(1^\circ\) 应用于 \(A\) 的 Hensel 化 \(A^h\)，立即归约到该情况。
+更确切地说，容易看出（使用 SGA 1，I \S~5%
+\begingroup
+\renewcommand{\thefootnote}{\(\ast\)}
+\footnote{或 EGA IV\(_4\)，\S~18.6。}
+\addtocounter{footnote}{-1}
+\endgroup）
+平展 \(S\)-预概形 \(S'\) 配备位于 \(s\) 上方且 \(\kappa(s')/\kappa(s)\)
+平凡的点 \(s'\)，其局部环 \(\mathcal O_{S',s'}\) 构成滤过归纳系，
+其归纳极限是 Noether Hensel 局部环 \(A^h\)（称为 \(A\) 的 Hensel 化）；
+这一构造在正规情形归于 Nagata，详情见 SGA 4，VIII \S~4。
+然后，EGA IV\(_3\)，\S~8 的标准论证，如 a) 部分一样，允许从
+\(\mathcal O_{S',s'}\) 的归纳极限 \(A^h\) 上的已知结果，推得某个对
+\((S',s')\) 上的类似结果。这证明了 \SGARefLink{sga3:x:theorem:4-4}{4.4}。
+
+\par\medskip\noindent
+\textbf{\SGAInlineRefTarget{sga3:x:corollary:4-5}推论 4.5。}\enspace
+\emph{设 \(S\) 是预概形，\(H\) 是有限型乘法型 \(S\)-群预概形。
+则 \(H\) 拟等平凡；即 \(H\) 由一个平展满射态射 \(S'\to S\) 分裂。}
+
+事实上，设 \(s\in S\)。由 \SGARefLink{sga3:x:theorem:4-4}{4.4}，存在平展态射
+\(S'\to S\)、位于 \(s\) 上方且 \(\kappa(s)=\kappa(s')\) 的点 \(s'\in S'\)，
+以及 \(H'\) 的等平凡有限型乘法型子群 \(G'\)，使 \(G'_{s'}=H'_{s'}\)。
+由于 \(G'\) 和 \(H'\) 都为有限型乘法型群，\SGARefLink{sga3:ix:corollary:2:9}{IX 2.9}
+给出 \(s'\) 的开邻域 \(U'\)，使 \(G'|_{U'}=H'|_{U'}\)。
+
+\footnote{\textit{编者注。}上文和下文扩充了原文。}
+再假定 \(S\) 是闭点为 \(s\) 的 Hensel 局部概形。由 EGA IV\(_4\)，18.5.11 b)，
+存在 \(S'\to S\) 的截面 \(\sigma\)，使 \(\sigma(s)=s'\)。（注意：可以如下直接看出
+\(B=\mathcal O_{S',s'}\) 等于 \(A=\mathcal O_{S,s}\)。由 4.3.0 (i)，
+\(B\simeq A/I\)。由于 \(B\) 是平坦有限呈示 \(A\)-代数，\(I\) 是有限生成理想
+（参见\ EGA IV\(_1\)，1.4.7），且 \(I=I\mathfrak m\)，其中 \(\mathfrak m\)
+是 \(A\) 的极大理想；因此 \(I=0\)。）所以 \(H\) 本身已等平凡。得到：
+
+\par\medskip\noindent
+\textbf{\SGAInlineRefTarget{sga3:x:corollary:4-6}推论 4.6。}\enspace
+\begingroup\itshape
+设 \(A\) 是 Hensel 局部环，\(k\) 是其剩余域，\(\pi\) 是 \(k\) 的一个代数闭包的拓扑 Galois 群。
+
+\smallskip
+\noindent
+\(\mathrm{(i)}\) \(S=\operatorname{Spec}(A)\) 上的每个有限型乘法型群都是等平凡的。
+
+\smallskip
+\noindent
+\(\mathrm{(ii)}\) 通过函子 \(H\mapsto H\otimes_A k\)，\(S\) 上这些群的范畴等价于
+\(S_0=\operatorname{Spec}(k)\) 上的相应范畴。因此，由
+\SGARefLink{sga3:x:proposition:1:4}{1.4}，它反等价于 \(\pi\) 下作为
+\(\mathbb Z\)-模有限生成的 Galois 模范畴。
+\par\endgroup
+
+\par\medskip\noindent
+\textbf{\SGAInlineRefTarget{sga3:x:corollary:4-7}推论 4.7。}\enspace
+\begingroup\itshape
+在 \SGARefLink{sga3:x:theorem:4-4}{4.4} 的假设下，再假定下列条件之一成立：
+
+\smallskip
+\noindent
+a) 对 \(s\) 的每个泛化 \(t\)，\(H_t\) 为乘法型，且与 \(H_s\) 具有相同的型；
+
+\smallskip
+\noindent
+b) \(H\) 交换，且各 \({}_nH\)，\(n>0\)，在 \(s\) 的某邻域中在 \(S\) 上有限；
+
+\smallskip
+\noindent
+c) 对 \(s\) 的每个泛化 \(t\)，纤维 \(H_t\) 连通。
+
+\smallskip
+则存在 \(s\) 的开邻域 \(U\)，使 \(H|_U\) 为乘法型。
+\par\endgroup
+
+由于平展态射是开映射，采用 \SGARefLink{sga3:x:theorem:4-4}{4.4} 结论中的记号，
+只须证明存在 \(s'\) 的开邻域 \(U'\)，使 \(G'|_{U'}=H'|_{U'}\)。
+令 \(S''=\operatorname{Spec}(\mathcal O_{S',s'})\)。由于 \(G'\) 和 \(H'\)
+在 \(S'\) 上有限呈示，EGA IV\(_3\)，8.8.2 将问题归约为证明 \(G''=H''\)。
+因此可假定 \(S=S''\)；这时条件 a)、b)、c) 成为下列引理中的条件，
+其证明与 \SGARefLink{sga3:x:corollary:3:8}{3.8} 相同。
+
+\par\medskip\noindent
+\textbf{\SGAInlineRefTarget{sga3:x:lemma:4-7-1}引理 4.7.1。}\enspace
+\begingroup\itshape
+设 \(S\) 是闭点为 \(s\) 的局部概形，\(H\) 是有限型 \(S\)-群概形，
+\(G\) 是 \(H\) 的既开又闭的乘法型子群，且 \(G_s=H_s\)。再假定下列条件之一成立：
+
+\smallskip
+\noindent
+a) \(H\) 的纤维为乘法型，且具有与 \(H_s\) 相同的型；
+
+\smallskip
+\noindent
+b) \(H\) 交换，且各 \({}_nH\)，\(n>0\)，在 \(S\) 上有限；
+
+\smallskip
+\noindent
+c) \(H\) 的纤维连通。
+
+\smallskip
+则 \(G=H\)。
+\par\endgroup
+
+\par\medskip\noindent
+\textbf{\SGAInlineRefTarget{sga3:x:corollary:4-8}推论 4.8。}\enspace
+\begingroup\itshape
+设 \(S\) 是预概形，\(H\) 是仿射 \(S\)-群预概形，在 \(S\) 上平坦且有限呈示，
+其纤维为乘法型。
+
+\(H\) 为乘法型的充要条件是满足下面两个条件之一（在前述假设下它们等价）：
+
+\smallskip
+\noindent
+\SGAInlineRefTarget{sga3:x:corollary:4-8:item:a}a) \(H_s\) 的型（参见\ \SGARefLink{sga3:ix:definition:1:4}{IX 1.4}）
+是 \(s\in S\) 的局部常值函数；
+
+\smallskip
+\noindent
+\SGAInlineRefTarget{sga3:x:corollary:4-8:item:b}b) \(H\) 交换，且各 \({}_nH\)，\(n>0\)，在 \(S\) 上有限。
+
+\smallskip
+此外，下面的条件蕴含 a) 和 b)：
+
+\smallskip
+\noindent
+c) \(H\) 的纤维连通。
+\par\endgroup
+
+特别地：
+
+\par\medskip\noindent
+\textbf{\SGAInlineRefTarget{sga3:x:corollary:4-9}推论 4.9。}\enspace
+\begingroup\itshape
+设 \(S\) 是预概形，\(H\) 是在 \(S\) 上平坦且有限呈示的 \(S\)-群预概形。
+再假定 \(H\) 在 \(S\) 上仿射，且纤维连通。\footnote{\textit{编者注。}此结果在
+\SGARefLink{sga3:x:theorem:8-1}{8.1} 中推广：只须假定 \(H\) 的纤维仿射且连通。}
+若 \(s\in S\) 使 \(H_s\) 为环面，则存在 \(s\) 的开邻域 \(U\)，使 \(H|_U\) 为环面。
+
+特别地，若 \(H\) 的所有纤维都是环面，则 \(H\) 是环面。
+\par\endgroup
+
+\section*{\SGAInlineRefTarget{sga3:x:section:5}5. 从一个乘法型群到另一个的同态概形．扭曲常群与乘法型群}
+\phantomsection
+\addcontentsline{toc}{section}{5. 从一个乘法型群到另一个的同态概形．扭曲常群与乘法型群}
+
+\par\medskip\noindent
+\textbf{\SGAInlineRefTarget{sga3:x:definition:5-1}定义 5.1。}\enspace
+\begingroup\itshape
+a) 设 \(S\) 是预概形，\(R\) 是 \(S\) 上的群预概形。
+若对于忠实平坦拟紧拓扑，其局部同构于常群概形，即对通常的群 \(M\)
+形如 \(M_S\) 的群概形，则称 \(R\) 是 \(S\) 上的\emph{扭曲常群}。
+
+\smallskip
+\noindent
+b) 若在前面的定义中，可将忠实平坦拟紧拓扑换成平展拓扑，
+分别换成整体有限平展拓扑、有限平展拓扑、Zariski 拓扑、最粗（或“混沌”）拓扑，
+则称 \(S\) 上的扭曲常群 \(R\) 为\emph{拟等平凡}的，分别为\emph{等平凡}、
+\emph{局部等平凡}、\emph{局部平凡}、\emph{平凡}的；参见\
+\SGARefLink{sga3:ix:definition:1:1}{IX 1.1} 和 \SGARefLink{sga3:x:corollary:1:2}{1.2}，
+以及 \SGARefLink{sga3:iv:subsection:6:6}{IV 6.6}。
+
+因此，说 \(R\) 拟等平凡（分别为等平凡），意味着存在平展满射
+（分别还要求有限）态射 \(S'\to S\)，使 \(R'=R\times_S S'\)
+是 \(S'\) 上的常群；说 \(R\) 平凡，意味着 \(R\) 是常群。
+
+\smallskip
+\noindent
+c) 如同 \SGARefLink{sga3:viii:corollary:1:4}{VIII 1.4}，可定义 \(S\) 上的扭曲常群
+\(R\) 在点 \(s\in S\) 处的\emph{型}。它是通常的群的一个同构类，
+并随 \(s\) 变化成为 \(s\) 的局部常值函数，因此若 \(S\) 连通就是常值函数。
+若 \(R\) 的全部纤维都具有型 \(M\)，也称 \(R\)“具有型 \(M\)”。
+
+应注意，只有当 \(R\) 在 \(S\) 上有限，即它在每个 \(s\in S\) 处的型
+都是有限群时，它才在 \(S\) 上拟紧。
+\footnote{\textit{编者注。}见下文\SGARefLink{sga3:x:lemma:5-12}{引理 5.12}。}
+
+\smallskip
+\noindent
+d) 最令人感兴趣的是 \(R\) 交换的情形。这时，若其在每点 \(s\in S\) 处的型
+由有限生成 \(\mathbb Z\)-模给出，则称 \(R\) \emph{有限生成}。
+此概念不能与概形论中的“\(R\) 在 \(S\) 上有限型”混淆（参见上文）。
+\par\endgroup
+
+\par\medskip\noindent
+\textbf{\SGAInlineRefTarget{sga3:x:remark:5-2}注记 5.2。}\enspace
+我们还须考虑不涉及群结构、对于忠实平坦拟紧拓扑局部同构于常预概形的
+\(S\)-预概形 \(X\)。这时称 \(X\) 为 \(S\) 上的\emph{扭曲常丛}，
+并将 \SGARefLink{sga3:x:definition:5-1}{5.1} 中引入的术语推广到这些预概形。
+当然，当 \(X\) 配备 \(S\)-群结构时，“扭曲常”“等平凡”等表达的含义，
+随是否考虑 \(S\) 上的群结构而改变。当 \(X\) 携带其他代数结构时也如此
+（例如下一节将考虑的 Galois 主丛结构）。
+
+\par\medskip\noindent
+\textbf{\SGAInlineRefTarget{sga3:x:proposition:5-3}命题 5.3。}\enspace
+\begingroup\itshape
+设 \(R\) 是 \(S\) 上的交换扭曲常群。
+
+\smallskip
+\noindent
+\(\mathrm{(i)}\) 函子 \(H=D_S(R)\)（参见\ VIII 1）可表，并且是 \(S\) 上的乘法型群。
+
+\smallskip
+\noindent
+\(\mathrm{(ii)}\) 对每个 \(s\in S\)，\(R\) 在 \(s\) 处的型等于 \(H\) 在 \(s\) 处的型。
+
+\smallskip
+\noindent
+\(\mathrm{(iii)}\) 群 \(R\) 拟等平凡（分别为等平凡、平凡、局部等平凡、局部平凡），当且仅当 \(H\) 如此。
+\par\endgroup
+
+\par\medskip\noindent
+\textbf{\SGAInlineRefTarget{sga3:x:remark:5-3-1}注记 5.3.1。}\footnote{\textit{编者注。}此注记原位于证明后，现移至此处。}\enspace
+读者或许担心，\SGARefLink{sga3:x:proposition:5-3}{5.3} 中的“型”一词指
+\(R\) 或 \(H\) 时具有两种不同含义。幸而当 \(S\)-群预概形 \(G\)
+既是扭曲常群又是乘法型群时，两种意义下的型相同，
+这是由于通常的有限交换群同构于它的对偶。
+
+\par\smallskip\noindent
+\emph{证明。}
+忠实平坦拟紧拓扑的覆盖族对于变动基预概形上的仿射群预概形的纤维范畴是有效下降族
+（SGA 1，VIII 2.1）。因此 \(H\) 可表（且在 \(S\) 上仿射），
+因为这在“局部”成立\footnote{\textit{编者注。}参见\ VIII \S~1.7。}
+（当 \(R\) 为常群时，\(H\) 是可对角化群）。
+
+由定义立即得到 \(H\) 为乘法型，\(R\) 与 \(H\) 在 \(s\in S\) 处的型相等也同样直接。
+最后，由于
+\[
+  H_{S'}=D_{S'}(R_{S'}),
+\]
+最后一个断言归约到“平凡”的情形，即验证 \(R\) 平凡当且仅当 \(H\) 平凡；
+这由双对偶定理 \SGARefLink{sga3:viii:theorem:1:2}{VIII 1.2} 立即推出。\hfill\(\square\)
+
+为完整描述扭曲常群与乘法型群之间的对应，必须从乘法型群 \(H\) 出发，研究
+\(R=D_S(H)\)。若 \(R\) 可表，它显然是扭曲常群，且 \(H\simeq D_S(R)\)。换言之：
+
+\par\medskip\noindent
+\textbf{\SGAInlineRefTarget{sga3:x:scholium:5-4-0}附论 5.4.0。}\enspace
+\emph{函子 \(R\mapsto D_S(R)\) 是 \(S\) 上的扭曲常群范畴与 \(S\) 上满足
+\(D_S(H)\) 可表的乘法型群 \(H\) 的范畴之间的反等价
+\footnote{\textit{编者注。}已将“等价”改为“反等价”。}。}
+
+我不知道 \(H\) 是否总满足此条件。然而将看到，当 \(H\) 拟等平凡时，
+特别是当 \(H\) 有限型时，此条件成立。
+
+\par\medskip\noindent
+\textbf{\SGAInlineRefTarget{sga3:x:lemma:5-4}引理 5.4。}\enspace
+\begingroup\itshape
+设 \(S'\to S\) 是忠实平坦且局部有限呈示的态射，\(X'\) 是在 \(S'\) 上
+分离、局部有限呈示且局部拟有限的 \(S'\)-预概形。
+
+则 \(X'\) 关于 \(S'\to S\) 的每个下降数据都有效：存在 \(S\)-预概形 \(X\)
+及与下降数据相容的 \(S'\)-同构 \(X\times_S S'\simeq X'\)。
+\par\endgroup
+
+已经注意到，关于 \(S'\to S\) 的假设意味着它是忠实平坦拟紧拓扑的覆盖态射
+（\SGARefLink{sga3:iv:proposition:6:3:1:item:iv:01}{IV 6.3.1 (iv)}），
+\emph{从而}是有效下降态射。
+
+当 \(X'\to S'\) 拟紧，从而有限呈示且拟有限时，它是拟仿射态射
+（参见\ SGA 1，VIII 6.2\footnote{\textit{编者注。}\(S'\) 局部 Noether 时；
+一般情形见 EGA IV\(_3\)，8.11.2。}），此时有效性由 SGA 1，VIII 7.9 得到。
+一般情形立即归约到 \(S\) 和 \(S'\) 仿射的情形。以仿射开子集 \(U'_i\)
+覆盖 \(X'\)，令 \(V'_i\) 为 \(U'_i\) 关于下降数据在 \(X'\) 上定义的等价关系的饱和：
+\[
+  V'_i=q_2\bigl(q_1^{-1}(U'_i)\bigr).
+\]
+这里 \(q_1,q_2\) 分别是下列两者到 \(X'\) 的投影
+\[
+  X''_1=X'\times_{S'}(S'',p_1)
+  \quad\text{和}\quad
+  X''_2=X'\times_{S'}(S'',p_2),
+\]
+即 \(q_1=\operatorname{pr}_1\)，而 \(q_2\) 通过给定的下降同构
+\(X''_1\simeq X''_2\) 从 \(X''_2\) 的第一投影得到。
+由于 \(S'\to S\) 忠实平坦、拟紧且局部有限呈示，
+\[
+  p_1:S''=S'\times_S S'\longrightarrow S',
+\]
+也如此，从而 \(q_1,q_2\) 也如此。因此它们是开态射
+（SGA 1，IV 6.6\footnote{\textit{编者注。}\(S'\) 局部 Noether 时；
+一般情形见 EGA IV\(_2\)，2.4.6。}）。所以 \(V'_i\) 是 \(X'\) 的拟紧开部分。
+由已证的情形，\(V'_i\) 上诱导的下降数据有效，故 \(X'\) 上的下降数据也有效
+（SGA 1，VIII 7.2）。
+
+\par\medskip\noindent
+\textbf{\SGAInlineRefTarget{sga3:x:corollary:5-5}推论 5.5。}\enspace
+\emph{有限呈示的忠实平坦态射 \(S'\to S\)，对于变动基预概形上的扭曲常群的纤维范畴，
+是有效下降态射。}
+
+事实上，这就是 \(X'\) 为常 \(S'\)-预概形时 \SGARefLink{sga3:x:lemma:5-4}{5.4} 的有效性断言。
+
+\par\medskip\noindent
+\textbf{\SGAInlineRefTarget{sga3:x:theorem:5-6}定理 5.6。}\enspace
+\begingroup\itshape
+设 \(S\) 是预概形，\(G,H\) 是两个拟等平凡乘法型 \(S\)-群预概形，
+且 \(G\)\footnote{\textit{编者注。}已将 \(H\) 改为 \(G\)。}有限型。
+
+则 \(\operatorname{Hom}_{S\text{-gr.}}(H,G)\) 可表，且是 \(S\) 上的拟等平凡扭曲常群；
+\footnote{\textit{编者注。}下文为新增。}对每个 \(s\in S\)，若 \(G\) 在 \(s\)
+处的型为 \(M\)，\(H\) 在 \(s\) 处的型为 \(N\)，则
+\(\operatorname{Hom}_{S\text{-gr.}}(H,G)\) 的型为 \(\operatorname{Hom}_{\mathrm{gr.}}(M,N)\)。
+\par\endgroup
+
+证明与 \SGARefLink{sga3:x:lemma:4-2}{4.2} 一样进行，利用 \(G\) 和 \(H\) 平凡时
+断言已知（\SGARefLink{sga3:viii:corollary:1:5}{VIII 1.5}）。
+所需的有效性判别法由 \SGARefLink{sga3:x:corollary:5-5}{5.5} 应用于平展满射态射
+\(S'\to S\) 给出。
+
+特别地，取 \(G=\mathbb G_{m,S}\)，得到：
+
+\par\medskip\noindent
+\textbf{\SGAInlineRefTarget{sga3:x:corollary:5-7}推论 5.7。}\enspace
+\begingroup\itshape
+\(\mathrm{(i)}\) 设 \(H\) 是拟等平凡乘法型 \(S\)-群。则 \(S\)-群 \(D_S(H)\)
+可表，且是 \(S\) 上的拟等平凡扭曲常群。
+
+\smallskip
+\noindent
+\(\mathrm{(ii)}\) 函子 \(R\mapsto D_S(R)\) 和 \(H\mapsto D_S(H)\)
+是拟等平凡扭曲常 \(S\)-群范畴与拟等平凡乘法型 \(S\)-群范畴之间互为拟逆的反等价。
+
+\smallskip
+\noindent
+\(\mathrm{(iii)}\) 这些函子在等平凡、分别为局部等平凡、局部平凡、平凡的群的子范畴之间诱导反等价。
+\par\endgroup
+
+最后一个断言仅为便于引用而列出，因为它已包含在 \SGARefLink{sga3:x:proposition:5-3}{5.3} 中。
+
+此外，由 \SGARefLink{sga3:x:corollary:4-5}{4.5}，每个有限型乘法型 \(S\)-群都拟等平凡。
+因此\SGARefLink{sga3:x:theorem:5-6}{定理 5.6} 给出：
+
+\par\medskip\noindent
+\textbf{\SGAInlineRefTarget{sga3:x:corollary:5-8}推论 5.8。}\enspace
+\emph{设 \(S\) 是预概形，\(G,H\) 是两个有限型乘法型 \(S\)-群预概形。
+则 \(\operatorname{Hom}_{S\text{-gr.}}(H,G)\) 可表，且是有限生成的拟等平凡扭曲常 \(S\)-群。}
+
+又，在 \SGARefLink{sga3:x:proposition:5-3}{5.3} 中，\(R\) 有限生成当且仅当
+\(H=D_S(R)\) 有限型（\SGARefLink{sga3:ix:proposition:2:1}{IX 2.1} b)）。
+由 \SGARefLink{sga3:x:corollary:4-5}{4.5}，这时 \(H\) 拟等平凡，故 \(R\) 也如此。因此：
+
+\par\medskip\noindent
+\textbf{\SGAInlineRefTarget{sga3:x:corollary:5-9}推论 5.9。}\enspace
+\emph{\SGARefLink{sga3:x:corollary:5-7}{5.7} 的函子在有限型乘法型 \(S\)-群 \(H\)
+的范畴与有限生成扭曲常 \(S\)-群 \(R\) 的范畴之间诱导互为拟逆的反等价。
+此外，每个这样的群 \(R\) 都拟等平凡。}
+
+\par\medskip\noindent
+\textbf{\SGAInlineRefTarget{sga3:x:corollary:5-10}推论 5.10。}\enspace
+\begingroup\itshape
+设 \(H,G\) 是两个有限型乘法型 \(S\)-群预概形。
+
+\smallskip
+\noindent
+\(\mathrm{(i)}\)
+\(\operatorname{Isom}_{S\text{-gr.}}(H,G)\) 可由
+\(\operatorname{Hom}_{S\text{-gr.}}(H,G)\) 的一个既开又闭的子预概形表示，
+且是一个扭曲常 \(S\)-预概形。
+
+\smallskip
+\noindent
+\(\mathrm{(ii)}\) 特别地，\(\operatorname{Aut}_{S\text{-gr.}}(H)\) 可表，且是一个一般不交换的扭曲常 \(S\)-群。
+\par\endgroup
+
+这由 \SGARefLink{sga3:x:corollary:5-8}{5.8} 和
+\SGARefLink{sga3:viii:corollary:1:6}{VIII 1.6} 得到。\footnote{\textit{编者注。}
+应通过在 VIII 增补 1.5.1 中处理函子 \(\operatorname{Isom}_{S\text{-gr.}}(H,G)\)
+来更正此引用 \ldots}
+
+\par\medskip\noindent
+\textbf{\SGAInlineRefTarget{sga3:x:paragraph:5-11-0}回顾 5.11.0。}\footnote{\textit{编者注。}此回顾为新增，下文将多次使用。另见 EGA I，6.1.9；
+不过，\emph{同处}的证明似乎不必要地复杂。}\enspace
+回顾：若 \(X\) 是局部 Noether 预概形，则其连通分量（它们总是闭的）是开的。
+事实上，设 \(C\) 是 \(X\) 的一个连通分量，\(x\in C\)，\(U\) 是 \(x\) 的一个
+Noether 开邻域。预概形 \(U\) 只有有限多个连通分量，所以 \(x\) 在 \(U\) 中的连通分量
+\(U_x\) 在 \(U\) 中开，从而在 \(X\) 中开。由于 \(U_x\subseteq C\)，这表明
+\(C\) 在 \(X\) 中开。
+
+\par\medskip\noindent
+\textbf{\SGAInlineRefTarget{sga3:x:proposition:5-11}命题 5.11。}\enspace
+\begingroup\itshape
+设 \(S\) 是预概形，\(R\) 是 \(S\) 上的交换扭曲常群，\(H=D_S(R)\)
+是它所定义的乘法型群。考虑下列条件：
+
+\smallskip
+\noindent
+\(\mathrm{(i)}\) \(H\) 等平凡（即 \(R\) 等平凡）；
+
+\smallskip
+\noindent
+\SGAInlineRefTarget{sga3:x:proposition:5-11:item:ii}\(\mathrm{(ii)}\) \(R\) 是一些既开又闭的子预概形 \(R_i\) 的并，它们在 \(S\) 上拟紧
+（因而必在 \(S\) 上有限）；
+
+\smallskip
+\noindent
+\(\mathrm{(iii)}\) \(R\) 的连通分量在 \(S\) 上有限。
+
+\smallskip
+\noindent
+a) 则 \(\mathrm{(i)}\Rightarrow\mathrm{(ii)}\Rightarrow\mathrm{(iii)}\)。
+\footnote{\textit{编者注。}比较 \SGARefLink{sga3:x:paragraph:1:6}{1.6} 的例子 \ldots}
+
+\smallskip
+\noindent
+b) 若 \(S\) 局部 Noether，则
+\(\mathrm{(i)}\Leftrightarrow\mathrm{(ii)}\Leftrightarrow\mathrm{(iii)}\)。
+
+\smallskip
+\noindent
+c) 最后，若 \(R\) 有限生成（即 \(H\) 在 \(S\) 上有限型），则至少在
+\(S\) 拟紧或其连通分量为开集时，有 \(\mathrm{(i)}\Leftrightarrow\mathrm{(ii)}\)。
+\par\endgroup
+
+先将 \(S\) 分解为预概形 \(S_i\) 的预概形和，使 \(H\) 在每个分量上具有恒定的型
+（参见\ \SGARefLink{sga3:ix:remark:1:4:1}{IX 1.4.1}）。归约到 \(H\)，从而 \(R\)，
+具有恒定的型 \(M\) 的情形。将使用：
+
+\par\medskip\noindent
+\textbf{\SGAInlineRefTarget{sga3:x:lemma:5-12}引理 5.12。}\enspace
+\emph{设 \(S\) 是预概形，\(R\) 是 \(S\) 上的扭曲常预概形。
+\(R\) 的每个在 \(S\) 上拟紧的闭子预概形 \(Z\)，都在 \(S\) 上有限。}
+
+事实上，归约到 \(R\) 为常预概形的情形，因而对某集合 \(I\)，形如 \(I_S\)。
+它是各 \(J_S\) 的滤过递增并，其中 \(J\) 遍历 \(I\) 的有限子集。
+还可假定 \(S\) 仿射。于是 \(Z\) 拟紧，因而包含于某个 \(J_S\)。
+由于 \(J_S\) 在 \(S\) 上有限，\(Z\) 也如此。
+
+\SGARefLink{sga3:x:lemma:5-12}{引理 5.12} 已证明
+\SGARefLink{sga3:x:proposition:5-11:item:ii}{5.11 (ii)} 中括号内的断言。
+\footnote{\textit{编者注。}下文扩充了原文。}
+由于 \(R\) 的连通分量闭，蕴含 \(\mathrm{(ii)}\Rightarrow\mathrm{(iii)}\) 显然成立。
+若 \(S\) 局部 Noether，由 \SGARefLink{sga3:x:paragraph:5-11-0}{5.11.0}，它们既开又闭
+（因为 \(R\) 平展，从而在 \(S\) 上局部有限型）；这在该情形下给出
+\(\mathrm{(iii)}\Rightarrow\mathrm{(ii)}\)。
+
+证明 \(\mathrm{(i)}\Rightarrow\mathrm{(ii)}\)。选择分裂 \(H\)，从而分裂 \(R\)
+的有限平展满射态射 \(S'\to S\)（参见\ \SGARefLink{sga3:x:proposition:5-3}{5.3}），使
+\[
+  R'\simeq M_{S'}=\coprod_{m\in M}R'_m,
+\]
+其中各 \(R'_m\) 是 \(R'\) 的互不相交的开子集，每个都 \(S'\)-同构于 \(S'\)。
+设 \(g:R'\to R\) 是投影。它是有限平展满射态射，因此既开又闭。
+故子集 \(R_m=g(R'_m)\) 是 \(R\) 的既开又闭部分，且显然在 \(S\) 上拟紧，
+因为各 \(R'_m\) 如此。
+
+最后，假定 \(H\) 在 \(S\) 上有限型，证明
+\(\mathrm{(ii)}\Rightarrow\mathrm{(i)}\)。若 \(S\) 的连通分量为开集，
+立即归约到 \(S\) 连通的情形；因此可假定 \(S\) 拟紧或连通。
+由于 \(M\) 有限生成，可写为
+\[
+  M=\mathbb Z^r\times N,
+\]
+其中 \(r\geq 0\)，\(N\) 是有限阿贝尔群。令 \(G=D_S(M)\)，并考虑预概形
+\[
+  P=\operatorname{Isom}_{S\text{-gr.}}(H,G)
+  \subset
+  \operatorname{Hom}_{S\text{-gr.}}(H,G)=Q
+\]
+（参见\ \SGARefLink{sga3:x:corollary:5-8}{5.8} 和
+\SGARefLink{sga3:x:corollary:5-10}{5.10}）。存在同构
+\begin{align*}
+  Q
+  &\simeq \operatorname{Hom}_{S\text{-gr.}}(M_S,R)\\
+  &\simeq
+    \operatorname{Hom}_{S\text{-gr.}}(\mathbb Z^r_S,R)
+    \times
+    \operatorname{Hom}_{S\text{-gr.}}(N_S,R)\\
+  &\simeq R^r\times E,
+\end{align*}
+其中
+\[
+  E=\operatorname{Hom}_{S\text{-gr.}}(N_S,R)
+\]
+在 \(S\) 上有限。\footnote{\textit{编者注。}事实上，它是型为
+\(\operatorname{End}_{\mathrm{gr.}}(N)\) 的扭曲常群；参见\
+\SGARefLink{sga3:x:theorem:5-6}{5.6} 和 \SGARefLink{sga3:x:corollary:5-8}{5.8}。}
+由此可知，\(Q\) 是在 \(S\) 上有限的既开又闭子预概形 \(Q_i\) 的并。
+故 \(P\) 是在 \(S\) 上有限的既开又闭子预概形 \(P_i=P\cap Q_i\) 的并。
+由于它们在 \(S\) 上平展，其在 \(S\) 中的像是既开又闭的部分 \(S_i\)，且这些部分覆盖
+\(S\)。若 \(S\) 连通或拟紧，就有有限个指标 \(i\)，使这些 \(S_i\) 覆盖 \(S\)。
+令 \(S'\) 为相应 \(P_i\) 的并。则 \(S'\to S\) 为有限平展满射。令
+\[
+  P'=P\times_S S'
+     =\operatorname{Isom}_{S'\text{-gr.}}(H',G'),
+\]
+可见 \(P'\) 在 \(S'\) 上有截面；因而存在 \(S'\)-群同构
+\[
+  H'=H\times_S S'
+  \xrightarrow{\ \sim\ }
+  G'=G\times_S S'=D_{S'}(M).
+\]
+因此 \(S'\) 分裂 \(H\)，完成了 \SGARefLink{sga3:x:proposition:5-11}{5.11} 的证明。
+\footnote{\textit{编者注。}这里尚须验证 \(S\) 局部 Noether 且 \(R\) 非有限生成时的
+\(\mathrm{(ii)}\Rightarrow\mathrm{(i)}\) \ldots}
+
+\par\medskip\noindent
+\textbf{\SGAInlineRefTarget{sga3:x:remark:5-11-bis}注记 5.11 bis。}\enspace
+若 \(H\) 在 \(S\) 上有限型且具有恒定的型，还可给出以下等平凡性判别法，
+对 \(S\) 无须任何限制：\(H=D_S(R)\) 等平凡，当且仅当 \(R\) 是在 \(S\)
+上有限的一列既开又闭部分的并。\footnote{\textit{编者注。}详细地说，由于 \(M\)
+是有限生成 \(\mathbb Z\)-模，它可数，而 \SGARefLink{sga3:x:proposition:5-11}{5.11}
+中 \(\mathrm{(i)}\Rightarrow\mathrm{(ii)}\) 的证明表明，\(R\) 是 \(S\) 上有限的
+可数个既开又闭部分的并。逆命题尚须核查 \ldots}
+
+\par\medskip\noindent
+\textbf{\SGAInlineRefTarget{sga3:x:lemma:5-13}引理 5.13。}\enspace
+\emph{设 \(S\) 是局部 Noether 连通预概形，\(P\) 是拟等平凡扭曲常 \(S\)-预概形，
+\(Z\) 是 \(P\) 的既开又闭部分。若对某个 \(s\in S\)，\(Z_s\) 有限，
+则 \(Z\) 在 \(S\) 上有限。}
+
+首先不假定 \(S\) 连通。令 \(U\) 为使 \(Z_s\) 有限的 \(s\in S\) 所成的集合。
+证明 \(U\) 既开又闭，且 \(Z|_U\) 在 \(U\) 上有限。
+此陈述实质上与 \SGARefLink{sga3:x:lemma:5-13}{5.13} 等价，但优点是关于
+\(S\) 对于例如平展拓扑是局部的。因此归约到 \(P\) 是常预概形、对某集合
+\(I\) 形如 \(I_S\) 的情形。（注意：局部 Noether 假设在平展基变换下保持；
+这里用到了 \(P\) 在 \(S\) 上的拟等平凡性。）
+
+由于其连通分量为开集（因为 \(S\) 局部 Noether），还可假定 \(S\) 连通。
+这时必有 \(Z=J_S\)，其中 \(J\subseteq I\)，且根据 \(J\) 无限或有限，
+分别有 \(U=\varnothing\) 或 \(U=S\)。断言得证。
+
+\par\medskip\noindent
+\textbf{\SGAInlineRefTarget{sga3:x:paragraph:5-14-0}回顾 5.14.0。}\footnote{\textit{编者注。}原文在 \SGARefLink{sga3:x:corollary:5-14}{5.14} 中处理
+\(S\) 局部 Noether 且正规的情形，并在注记 5.15 中指出，此论证更一般地适用于
+\(S\) 仅几何单分支而非正规的情形。因此修改了 \SGARefLink{sga3:x:corollary:5-14}{5.14}
+（以及 \SGARefLink{sga3:x:theorem:5-16}{5.16}）的陈述，并添加了这些取自
+EGA IV\(_4\)，18.10.6 和 18.10.7 的“回顾”；它们表明 5.14 的证明逐字适用于几何单分支情形。}\enspace
+设 \(S\) 是局部 Noether 预概形，\(\widetilde S\) 是 \(S_{\mathrm{red}}\) 的正规化
+（参见\ EGA II，6.3.8）。回顾：若典范态射 \(\widetilde S\to S\) 是纯不可分态射，
+从而是普遍同胚，则称 \(S\) \emph{几何单分支}
+（参见\ EGA \(0_{\mathrm{IV}}\)，\S~23.2 和 IV\(_2\)，\S~6.15）。
+特别地，\(S\) 的连通分量不可约。
+
+现在假定 \(S\) 连通，因而不可约。设 \(\eta\) 是其泛点，\(f:P\to S\)
+是平坦、局部拟有限态射。设 \(P_i\) 是 \(P\) 的不可约分量，泛点为 \(\xi_i\)。
+由于 \(P\) 在 \(S\) 上平坦，每个 \(\xi_i\) 位于 \(\eta\) 上方
+（参见\ EGA IV\(_2\)，2.3.4），且
+\[
+  (P_i)_\eta=P_i\cap P_\eta
+\]
+是 \(\xi_i\) 在 \(P_\eta\) 中的闭包。由于纤维 \(P_\eta\) 离散，
+有 \((P_i)_\eta=\{\xi_i\}\)。这特别适用于 \(f\) 平展时。
+这时 \(P\) 也局部 Noether 且几何单分支（参见\ EGA IV\(_4\)，17.5.7），
+所以其不可约分量就是其连通分量，并且是开的（也是闭的）。
+
+\par\medskip\noindent
+\textbf{\SGAInlineRefTarget{sga3:x:corollary:5-14}推论 5.14。}\enspace
+\emph{设 \(S\) 是局部 Noether 几何单分支预概形，\(P\) 是拟等平凡扭曲常
+\(S\)-预概形。则 \(P\) 的连通分量在 \(S\) 上有限。}
+
+显然可假定 \(S\) 连通，因而不可约，并以 \(\eta\) 表示其泛点。
+由上述回顾，\(P\) 的每个连通分量 \(P_i\) 既开又闭，且与纤维 \(P_\eta\)
+交于唯一一点。因此可应用\SGARefLink{sga3:x:lemma:5-13}{引理 5.13}，
+得到每个 \(P_i\) 在 \(S\) 上有限。
+
+\par\medskip\noindent
+\textbf{\SGAInlineRefTarget{sga3:x:theorem:5-16}定理 5.16。}\footnote{\textit{编者注。}由于添加 \SGARefLink{sga3:x:paragraph:5-14-0}{5.14.0}
+（参见前面的编者注），注记 5.15 已无必要，故删除；并在
+\SGARefLink{sga3:x:theorem:5-16}{5.16} 中将“正规”换为“几何单分支”。}\enspace
+\emph{设 \(S\) 是局部 Noether 几何单分支预概形。
+则每个有限型乘法型 \(S\)-群都是等平凡的。}
+
+事实上，可假定 \(S\) 连通，从而 \(H\) 具有恒定的型 \(M\)。只须将
+\SGARefLink{sga3:x:corollary:5-14}{5.14} 应用于
+\[
+  P=\operatorname{Isom}_{S\text{-gr.}}(H,G),
+  \qquad G=D_S(M),
+\]
+然后如 \SGARefLink{sga3:x:proposition:5-11}{5.11} 中
+\(\mathrm{(ii)}\Rightarrow\mathrm{(i)}\) 的证明一样论证。
+也可将 \SGARefLink{sga3:x:corollary:5-14}{5.14} 应用于 \(P=R=D_S(H)\)
+（参见\ \SGARefLink{sga3:x:corollary:5-9}{5.9}），再使用 \SGARefLink{sga3:x:proposition:5-11}{5.11}。
+
+\section*{\SGAInlineRefTarget{sga3:x:section:6}6. 无限 Galois 主丛与扩大基本群}
+\phantomsection
+\addcontentsline{toc}{section}{6. 无限 Galois 主丛与扩大基本群}
+
+（本节和下一节的结果不会在本讨论班的其余部分中再次使用。）
+
+设 \(S\) 是预概形。我们要确定 \(S\) 上结构群形如 \(G_S\) 的主齐性丛 \(P\)，
+其中它由不必有限的通常群 \(G\) 定义的常 \(S\)-群。
+也称它们为\emph{\(S\) 上群为 \(G\) 的 Galois 主丛}。
+“主丛”按忠实平坦拟紧拓扑的意义使用（参见\ 第 IV 篇，定义~\SGARefLink{sga3:iv:definition:5:1:5}{5.1.5}）。
+然而对于这样的 \(P\)，结构态射 \(P\to S\) 必为平展满射，从而是平展拓扑的覆盖；
+因此 \(P\) 对于平展拓扑也局部平凡（参见\ IV，命题~\SGARefLink{sga3:iv:proposition:5:1:6}{5.1.6}）。
+\footnote{\textit{编者注。}注意已假定 \(P\) 是预概形。
+在\emph{先验地}更一般的情形中，若 fpqc 层 \(P\) 是 \(G_S\)-挠子，\(P\) 是否必可表？}
+
+假定 \(S\) 是连通预概形的和，即其连通分量为开集；这立即归约到 \(S\) 连通的情形。
+选取 \(S\) 的一个“几何点” \(\xi\)，即一个是代数闭域 \(\Omega=\kappa(\xi)\)
+的谱的 \(S\)-概形 \(\xi\)。对 \(S\) 上群为 \(G\) 的每个 Galois 主丛 \(P\)，
+\(P_\xi\) 是代数闭域 \(\kappa(\xi)\) 上的 Galois 主丛，因而平凡。
+将最初的问题细化为求 \(S\) 上在 \(\xi\) 上方\emph{点化}的 Galois 主丛的范畴，
+即配备 \(S\)-态射 \(\xi\to P\)，或等价地配备 \(P_\xi\) 的平凡化。
+固定 \(G\)，以 \(\bar\pi^{\,1}(S,\xi;G)\) 表示这类丛在保持基点的同构意义下的类集。
+则 \(S\) 上群为 \(G\)、不指定基点的 Galois 主丛的同构类集
+\(\bar\pi^{\,1}(S;G)\)，是 \(G\) 在 \(\bar\pi^{\,1}(S,\xi;G)\) 中的轨道集。
+这里 \(G\) 通过平移点化 Galois 主丛的标记点自然作用：
+\[
+  \bar\pi^{\,1}(S;G)=\bar\pi^{\,1}(S,\xi;G)/G.
+\]
+
+设 \(S'\to S\) 是任意一个对于变动基上的扭曲常预概形的纤维范畴为普遍有效下降的态射
+（例如 \(S'\to S\) 忠实平坦且局部有限呈示，参见\ 5.4；其他例子见 SGA 1 IX）。
+希望确定前述集合的子集
+\[
+  \bar\pi^{\,1}(S'/S,\xi;G)
+  \quad\text{和}\quad
+  \bar\pi^{\,1}(S'/S;G)
+\]
+它们由 \(S\) 上在 \(S'\) 上成为平凡的 Galois 主丛组成，或称由 \(S'\)“分裂”的主丛组成。
+事实上，我们将确定 \(S\) 上由 \(S'\) 分裂的 Galois 主丛 \(P\) 的范畴。当然，
+\[
+  \bar\pi^{\,1}(S,\xi;G)
+  =
+  \varinjlim_{S'}\bar\pi^{\,1}(S'/S,\xi;G),
+\]
+其中 \(S'\) 遍历平展拓扑的覆盖 \(S'/S\) 中的一个共尾系
+（例如，若 \(S\) 拟紧，可取在 \(S\) 上拟紧、且结构态射为平展满射的 \(S'\)）。
+同样，\(S\) 上的 Galois 主丛范畴是各 \(S'\) 所定义的、由在 \(S'\) 上分裂的丛组成的子范畴的归纳极限。
+
+由关于 \(S'/S\) 的假设，\(S\) 上由 \(S'\) 分裂的 Galois 主丛范畴，
+等价于 \(S'\) 上平凡 Galois 主丛（因而形如 \(G_{S'}\)，其中 \(G\) 通过右平移作用）
+配备关于 \(S'\to S\) 的下降数据所成的范畴。
+用相应的 \(S'\) 上的平凡丛 \(P'\) 及其下降数据来表述，
+\(S\) 上由 \(S'\) 分裂的 Galois 主丛 \(P\) 的基点，等价于
+\(P'\times_{S'}S'_\xi\) 的一个与关于 \(S'_\xi\to\xi\) 的诱导下降数据相容的平凡化，
+其中 \(S'_\xi=S'\times_S\xi\)；等价地，它是 \(P'_\xi\) 在 \(S'_\xi\)
+上的一个与下降数据相容的截面 \(\sigma\)。
+
+因此，对于任意 \(S\)-预概形 \(S'\)，现在不再假定 \(S'\to S\) 对于扭曲常丛的
+纤维范畴为普遍有效下降态射，将 \(\bar\pi^{\,1}(S'/S;G)\) 和
+\(\bar\pi^{\,1}(S'/S,\xi;G)\) 定义为刚才所指定的带下降数据结构的同构类集，是有用的。
+于是这些关于 \(G\) 的函子，可以用 \(S'\) 在 \(S\) 上的纤维平方 \(S''\)
+和纤维立方 \(S'''\) 作非常简单的单纯描述；下文将简述之（参见\ \SGARefLink{sga3:x:paragraph:6-3}{6.3}）。
+
+重要的结论如下。
+
+\par\medskip\noindent
+\textbf{\SGAInlineRefTarget{sga3:x:proposition:6-1}命题 6.1。}\enspace
+\begingroup\itshape
+假定 \(S'\) 和 \(S''\) 的连通分量为开集，并且例如，\(\pi_0(S')\)
+关于由两个投影 \(\pi_0(S'')\to\pi_0(S')\) 诱导的等价关系的商为单点。
+\footnote{\textit{编者注。}添加了 \(S'\) 的连通分量为开集的假设及第二个假设。
+后者表示 \SGARefLink{sga3:x:paragraph:6-3}{6.3} 中定义的单纯集
+\(K_\bullet=\pi_0(S_\bullet)\) 连通。事实上，更弱的假设就够了：只需某个单纯集态射
+\(k_\bullet\to K_\bullet\) 的锥 \(\widetilde K_\bullet\) 连通（参见\ \emph{同处}）。}
+
+\smallskip
+\noindent
+\(\mathrm{(i)}\) 函子
+\[
+  G\longmapsto\bar\pi^{\,1}(S'/S,\xi;G)
+\]
+从群范畴到集合范畴可由一个群表示，该群记为 \(\pi_1(S'/S,\xi)\)，称为
+\emph{\(S\) 在 \(\xi\) 处关于 \(S'\to S\) 的基本群}。因此有函子性双射
+\[
+  \bar\pi^{\,1}(S'/S,\xi;G)
+  \simeq
+  \operatorname{Hom}_{\mathrm{gr.}}\bigl(\pi_1(S'/S,\xi),G\bigr).
+\]
+
+\smallskip
+\noindent
+\(\mathrm{(ii)}\) 此群有一个与 \(\pi_0(S'')\) 一一对应的生成元集合，且可用这些生成元及与
+\(\pi_0(S''')\) 的元素一一对应的关系来描述。\footnote{\textit{编者注。}
+删除了 \(S'''\) 的连通分量为开集这一多余假设。另一方面，后面的描述（参见\ \ldots）
+给出自然生成元集合 \(\pi_0(S'')\amalg\pi_0(S'_\xi)\)；来自 \(2\)-胞腔的
+生成元间关系再将它约化为 \(\pi_0(S'')\)。更精细的描述例如见 [Kan58]，\S~19。}
+特别地，若 \(\pi_0(S'')\) 有限，则 \(\pi_1(S'/S,\xi)\) 有限生成；
+若 \(\pi_0(S'')\) 和 \(\pi_0(S''')\) 都有限，则它有限呈示。
+
+\smallskip
+\noindent
+\(\mathrm{(iii)}\) \(S\) 上由 \(S'\) 分裂、基点位于 \(\xi\) 上方的 Galois 主丛的范畴，
+等价于配备同态 \(\pi_1(S'/S,\xi)\to G\) 的通常群 \(G\) 所成的范畴。
+\par\endgroup
+
+证明见下文；参见\ \ldots
+
+\par\medskip\noindent
+\textbf{\SGAInlineRefTarget{sga3:x:paragraph:6-2}6.2.}\enspace
+当 \(S\) 是连通局部 Noether 预概形时，\(S\) 上的每个平展预概形 \(S'\)
+都局部 Noether，因而具有开连通分量。由前述讨论
+\footnote{\textit{编者注。}此推导可以详细展开：\(I\) 与平展拓扑的覆盖态射
+\(S'\to S\) 的一个共尾集一一对应 \ldots}，函子
+\[
+  G\longmapsto\bar\pi^{\,1}(S,\xi;G)
+\]
+从通常群到集合是\emph{严格预可表}的（参见\ \emph{Bourbaki 讨论班〔Séminaire Bourbaki〕}，
+1960 年 2 月，第~195 号，\S\S~A.2 和 A.3）。因此有通常群的投射系
+\[
+  \Pi=\Pi_1(S;\xi)=(\pi_i)_{i\in I}
+\]
+其递增滤过指标集为 \(I\)，并且是“严格”的，即其过渡态射 \(\pi_j\to\pi_i\)
+为满射，同时配备一个关于 \(G\) 的函子同构
+\[
+  \bar\pi^{\,1}(S,\xi;G)
+  \simeq
+  \varinjlim_i\operatorname{Hom}_{\mathrm{gr.}}(\pi_i,G).
+\]
+右端也记为 \(\operatorname{Hom}_{\mathrm{pro\text{-}gr.}}(\Pi,G)\)
+（参见\ \emph{同处}）。
+
+若投射极限
+\[
+  \pi=\varprojlim_i\pi_i
+\]
+“充分大”，更准确地说，若典范同态 \(\pi\to\pi_i\) 都为满射，
+则自然应赋予 \(\pi\) 各 \(\pi_i\) 的离散拓扑的投射极限拓扑。
+于是前述同构也可写为
+\[
+  \bar\pi^{\,1}(S,\xi;G)
+  \simeq
+  \operatorname{Hom}_{\mathrm{gr.\,top.}}(\pi,G),
+\]
+其中右端是拓扑群同态的集合，而 \(G\) 赋予离散拓扑。
+
+众所周知，当各 \(\pi_i\) 为有限群时，投射系 \(\Pi\) 满足刚才提出的假设
+（参见\ [BEns]，III \S~\SGARefLink{sga3:x:remark:7-4}{7.4}，定理~1）。
+最后这个条件显然也意味着 \(S\) 上的每个 Galois 主丛等平凡，即由一个有限平展满射态射分裂。
+当 \(S\) 几何单分支（例如正规）时确实如此，这由
+\SGARefLink{sga3:x:corollary:5-14}{5.14} 立即推出。
+\footnote{\textit{编者注。}已将 \SGARefLink{sga3:x:lemma:5-13}{5.13} 改为
+\SGARefLink{sga3:x:corollary:5-14}{5.14}。}
+当各 \(\pi_i\) 有限时，\(\pi\) 也与 SGA 1，V 中引入的基本群 \(\pi_1(S,\xi)\) 一致。
+
+因此，在各映射 \(\pi\to\pi_i\) 为满射的有利情形中，可以称 \(\pi\)
+为\emph{\(S\) 在 \(\xi\) 处的扩大基本群}。在此有利情形之外，\(\pi\) 本身意义不大，
+通常基本群的角色由投射系 \(\Pi\) 本身承担，我们称它为
+\emph{\(S\) 在 \(\xi\) 处的扩大基本预群}。（欢迎提出比“扩大”更好的术语！
+\footnote{\textit{编者注。}某些作者称之为“真正”的基本群。}）
+对这个预群的了解比对 SGA 1，V 中通常基本群 \(\pi_1(S,\xi)\) 的了解更精细；
+更准确地说，后者是各 \(\pi_i\) 的有限商所成投射系的投射极限。
+
+\par\medskip\noindent
+\textbf{\SGAInlineRefTarget{sga3:x:paragraph:6-3}6.3.}\enspace
+简要说明 \(\pi_1(S'/S,\xi)\) 的“计算”。设 \(S_i\) 为 \(S'\) 在 \(S\)
+上的第 \((i+1)\) 个纤维幂，所以 \(S_0=S'\)、\(S_1=S''\)，依此类推。
+各 \(S_i\) 之间显然的单纯运算使 \((S_i)_{i\in\mathbb N}\)
+成为 \((\mathrm{Sch})/S\) 中的单纯对象。
+
+对这个单纯对象应用“连通分量集”函子
+\[
+  \pi_0:(\mathrm{Sch})/S\longrightarrow(\mathrm{Ens}),
+\]
+得到单纯集 \(K_\bullet=(K_i)_{i\in\mathbb N}\)，其中
+\[
+  K_i=\pi_0(S_i).
+\]
+
+同样，\(S'_\xi\) 在 \(\xi\) 上的第 \((i+1)\) 个纤维幂 \(S_{i,\xi}\)
+构成 \((\mathrm{Sch})/\xi\) 中的单纯对象，从而也构成 \((\mathrm{Sch})/S\) 中的单纯对象，
+并配备到 \((S_i)_{i\in\mathbb N}\) 的自然单纯对象态射。因此得到单纯集 \(k_\bullet\)，其中
+\[
+  k_i=\pi_0(S_{i,\xi}),
+\]
+以及典范态射
+\[
+  k_\bullet\longrightarrow K_\bullet.
+\]
+取此态射的锥（参见\ \SGARefLink{sga3:x:definition:9-5-1}{9.5.1}），构成新的单纯集
+\[
+  \widetilde K_\bullet
+  =
+  \operatorname{Cone}(k_\bullet\longrightarrow K_\bullet).
+\]
+
+\footnote{\textit{编者注。}已更正原文所取的 \(\widetilde K_\bullet=K_\bullet/k_\bullet\)：
+一方面，\(k_\bullet\) 已经可缩（参见\ \SGARefLink{sga3:x:proposition:9-7-1}{9.7.1}），
+另一方面，\(k_\bullet\to K_\bullet\) 一般不是单射。若 \(S'/S\) 有限平展，
+它是满态射（参见\ \SGARefLink{sga3:x:proposition:9-7-3}{9.7.3}）。}
+由此得到“点化单纯集” \(\widetilde K_\bullet\)，即配备一个态射的单纯集：
+\[
+  \widetilde\xi:e_\bullet\longrightarrow\widetilde K_\bullet,
+\]
+其中 \(e_\bullet\) 是终单纯集。可以构造其熟悉的组合不变量
+\[
+  \pi_0(\widetilde K_\bullet,\widetilde\xi)
+  \quad\text{和}\quad
+  \pi_1(\widetilde K_\bullet,\widetilde\xi),
+\]
+它们的构造分别只涉及次数至多为 \(1\) 和至多为 \(2\) 的分量。
+定义这些不变量对 \(S\) 或 \(S'\) 没有任何限制。当 \(S_0\) 和 \(S_1\)
+的连通分量为开集，且 \(\widetilde K_\bullet\) 连通时，
+\footnote{\textit{编者注。}已添加 \(\widetilde K_\bullet\) 连通的假设；证明见下文增补
+（\SGARefLink{sga3:x:section:9}{第 9 节}）。}
+不难验证 \(\pi_1(\widetilde K_\bullet,\widetilde\xi)\) 表示函子
+\(G\mapsto\bar\pi^{\,1}(S'/S,\xi;G)\)；即
+\[
+  \pi_1(S'/S;\xi)
+  \simeq
+  \pi_1(\widetilde K_\bullet,\widetilde\xi).
+\]
+
+还应注意，若 \(S'\to S\)“普遍淹没”（参见\ SGA 1，IV 2.1），且 \(S'\)
+的连通分量为开集，则单纯集 \(K_\bullet\)，从而 \(\widetilde K_\bullet\)，连通。
+\footnote{\textit{编者注。}为计入上述更正，修改了后文；参见编者注 (53)。
+（原文说：“\(\pi_0(\widetilde K_\bullet,\widetilde\xi)\) 还典范同构于
+\(S\) 的连通分量集 \(\pi_0(S,\xi)\)，其基点为 \(\xi\) 在 \(S\) 中的连通分量。”）}
+
+\par\medskip\noindent
+\textbf{\SGAInlineRefTarget{sga3:x:example:6-4}例 6.4。}\enspace
+还须给出扩大基本群的例子。回到 \SGARefLink{sga3:x:paragraph:1:6}{1.6} 的例子。
+设 \(k\) 是代数闭域；\(C_1\) 是 \(k\) 上的完备有理曲线，恰有一个奇点，且该点为普通二重点；
+\(C_2\) 是两个不可约分量的并，每个分量同构于 \(\mathbb P^1_k\)，它们恰交于两点，
+均为 \(C_2\) 的普通二重点。两种情形中，曲线的扩大基本群都同构于 \(\mathbb Z\)。
+\footnote{\textit{编者注。}此处可以详细展开。首先，由
+\SGARefLink{sga3:x:corollary:5-14}{5.14}，射影直线 \(\mathbb P^1_k\) 的扩大基本群为零；
+即 \(\mathbb P^1_k\)“真正”单连通。然后须将 SGA 1，IX 的推论 5.4 及其后的讨论，
+推广到扩大基本群及不必有限的主丛范畴。设 \(\Gamma_1,\Gamma_2\) 是
+\(\mathbb P^1_k\) 的两个副本，\(a_i,b_i\) 是 \(\Gamma_i\) 的两个不同点。
+设 \(C''_2\) 是 \(\Gamma_1\) 和 \(\Gamma_2\) 的不交并，\(C'_2\) 是将
+\(a_1\) 与 \(a_2\) 认同得到的曲线；则 \(C_2\) 由 \(C'_2\) 再将
+\(b_1\) 与 \(b_2\) 认同得到。将\emph{同处}之后的讨论推广到扩大情形，表明
+\(C'_2\) 与 \(C_2\) 的扩大基本群分别为零与 \(\mathbb Z\)。}
+
+更一般地，应在扩大基本群的框架中，简化、更正并重新研究 SGA 1，IX 5 的结果。
+\emph{同处} 5.5 的各例将给出同样多的非预有限扩大基本预群的例子。
+因此，若在第一个例子中将普通二重点换成具有 \(n\) 个不同分支的二重点，
+\footnote{\textit{编者注。}这里指具有 \(n\) 条不同切线的 \(n\) 重点，
+例如曲线 \(X^n-Y^n=X^{n+1}\)。}则扩大基本群将是 \(n-1\) 个生成元上的自由（离散！）群。

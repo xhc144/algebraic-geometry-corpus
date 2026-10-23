@@ -1,0 +1,210 @@
+% SGA 3，第 VII_B 篇，英文重建稿——第 1 轮。
+% 范围：权威底本分篇第 80--82 页，第 5 节标题以及第 5.0 节至定理 5.0.1 及其文献讨论，止于第 5.1 节之前。
+% 合并阅读本页码： 593--595.
+% 再版印刷页码： 582--584.
+% 本范围内原版页边定位： 551.
+% 本范围内编者注： 142.
+% 权威底本： Polo--Gille Exp7B-13oct24.pdf,
+% SHA-256 D303690E0195654BBE7C3DAA5D89EA23E24CD709A3575217234AC19AE8836694.
+% 曾参考 Jacob Reinhold 的 CC BY 4.0 Markdown 作为比对谱系。
+% 本组件没有图表；全部数学均为原生 LaTeX。
+
+\section*{5. 域上的无穷小形式群的齐性空间}
+\phantomsection
+\label{sga3:VIIB:5}
+\addcontentsline{toc}{section}{5. 域上的无穷小形式群的齐性空间}
+
+\subsection*{5.0}
+\phantomsection
+\label{sga3:VIIB:5.0}
+
+为简单起见，假设 \(k\) 为域。\footnote{%
+\label{sga3:VIIB:nde:142}编者增加了第 5.0 小节，以便用余交换 Hopf 代数的语言表述下面的 \SGARefLink{sga3:VIIB:5.1:proposition}{命题~5.1}，并引述后来在此方向上得到的结果。}
+设 \(G\) 为形式 \(k\)-群，仿射代数为
+\[
+  A=\mathscr A(G).
+\]
+令 \(A^+\) 为 \(A\) 的增广理想。对 \(a\in A\)，记
+\[
+  \overline a=a-\varepsilon_A(a)1_A
+\]
+为其在 \(A^+\) 上的投影。设 \(F\) 为 \(G\) 的形式子群，由 \(A\) 的闭理想 \(J\) 定义，令
+\[
+  \pi:A\longrightarrow A/J
+\]
+为投影。记
+\[
+  \overline\pi:A\longrightarrow A^+/J
+\]
+为投影
+\[
+  A\longrightarrow A^+\longrightarrow A^+/J.
+\]
+的复合。对每个 \(a\in A\)，\(\Delta_A(a)\) 在 \(A\widehat\otimes A^+\) 上的投影为
+\[
+  \Delta_A(a)-a\widehat\otimes1.
+\]
+
+由 \SGARefLink{sga3:VIIB:2.4:theorem}{定理~2.4}，商形式 \(k\)-簇 \(X=G/F\) 存在。其仿射代数为
+\[
+\begin{aligned}
+  B
+  &=
+  \operatorname{Eq}\!\left(
+    A
+    \mathrel{\mathop{\rightrightarrows}^{\tau_1}_{%
+      (\operatorname{id}_A\widehat\otimes\pi)\Delta_A}}
+    A\widehat\otimes_k(A/J)
+  \right)
+  \\
+  &=
+  \left\{
+    a\in A\ \middle|\
+    (\operatorname{id}_A\widehat\otimes\pi)\Delta_A(a)
+    =
+    a\widehat\otimes\pi(1)
+  \right\}
+  \\
+  &=
+  \ker\!\left(
+    (\operatorname{id}_A\widehat\otimes\overline\pi)\Delta_A
+  \right),
+\end{aligned}
+\]
+其中
+\[
+  \tau_1(a)=a\widehat\otimes\pi(1).
+\]
+
+等价地，\(B\) 为 \(A\) 中由满足下述条件的元素 \(\varphi\) 组成的子代数：对每个 \(C\in\operatorname{Alf}/k\)、\(g\in G(C)\) 和 \(h\in F(C)\)，有
+\[
+  \varphi(gh)=\varphi(g)
+\]
+对 \(g,g'\in G(C)\) 和 \(h\in F(C)\)，有
+\[
+  \varphi(gg'h)=\varphi(gg').
+\]
+因此 \(\Delta_A(\varphi)\) 属于
+\[
+  \operatorname{id}_A\widehat\otimes_k
+  \bigl((\operatorname{id}_A\widehat\otimes\overline\pi)
+        \Delta_A\bigr),
+\]
+的核。由于 \(A\) 在 \(k\) 上拓扑平坦，该核等于 \(A\widehat\otimes_kB\)。从而
+\[
+  \Delta_A(B)\subset A\widehat\otimes_kB;
+\]
+即闭子代数 \(B\) 也是一个左余理想。
+
+反过来，\(B\) 确定 \(F\)，因为 \SGARefLink{sga3:VIIB:2.4.1:corollary}{推论~2.4.1} 给出
+\[
+  J=AB^+,
+  \qquad
+  B^+=B\cap A^+;
+\]
+换言之，\(J\) 是由 \(B^+\) 生成的闭理想。因此得到从 \(G\) 的形式子群的集合 \(\mathcal F\) 到 \(A\) 中同时为左余理想的闭子代数的集合 \(\mathcal B\) 的单射
+\[
+  \mathcal Q:\mathcal F\longrightarrow\mathcal B
+\]
+下面的 \SGARefLink{sga3:VIIB:5.1:proposition}{命题~5.1} 表明，当 \(G\) 为无穷小时，\(\mathcal Q\) 为双射。事实上，对每个形式 \(k\)-群 \(G\)，它都是双射。
+
+回顾 \SGARefLink{sga3:VIIB:2.2.1}{2.2.1}，函子
+\[
+  G\longmapsto\mathbf H(G)
+\]
+给出形式 \(k\)-群与余交换 \(k\)-Hopf代数之间的等价。若 \(F\) 由闭理想 \(J\subset A\) 定义，则 Hopf 子代数
+\[
+  \mathbf H(F)\subset H=\mathbf H(G)
+\]
+是 \(J\) 关于对偶
+\[
+  A=H^*,
+  \qquad
+  H=A^\dagger
+\]
+的正交补\textup{（参见 \SGARefLink{sga3:VIIB:0.2.2}{0.2.2}）}。反过来，若 \(B\) 为 \(A\) 的闭子代数且也是左余理想，则
+\[
+  I=B^\perp
+\]
+是 \(H\) 的余理想兼左理想；明确地说，
+\[
+  \Delta_H(I)\subset I\otimes H+H\otimes I,
+  \qquad
+  \varepsilon_H(I)=0.
+\]
+
+令 \(\mathcal H\) 为 \(H\) 的 Hopf 子代数的集合，\(\mathcal I\) 为 \(H\) 中同时为余理想的左理想的集合。对 \(I\in\mathcal I\)，用
+\[
+  \pi_I:H\longrightarrow H/I
+\]
+表示投影，用
+\[
+  \overline\pi_I:H\longrightarrow H^+/I
+\]
+表示复合
+\[
+  H\longrightarrow H^+\longrightarrow H^+/I,
+\]
+其中 \(H^+\) 为 \(H\) 的增广理想。
+
+设 \(K\) 为 \(H\) 的 Hopf 子代数，并置
+\[
+  K^+=K\cap H^+.
+\]
+若 \(F\) 是与 \(K\) 对应的形式子群，则
+\[
+  J=K^\perp
+\]
+且 \(A^+/J\) 与 \(K^+\) 的对偶等同。由于 \(B=\mathcal Q(F)\) 为
+\[
+  A
+  \xrightarrow{\ \Delta_A\ }
+  A\widehat\otimes_kA
+  \xrightarrow{\ \operatorname{id}\widehat\otimes\overline\pi\ }
+  A\widehat\otimes_k(A^+/J),
+\]
+的核，对偶性将 \(\mathcal Q\) 与映射
+\[
+  \Phi:\mathcal H\longrightarrow\mathcal I,
+  \qquad
+  K\longmapsto HK^+.
+\]
+等同。事实上，\(HK^+\) 为
+\[
+  H\otimes_kK^+
+  \xrightarrow{\ \operatorname{id}\otimes\operatorname{can}\ }
+  H\otimes_kH
+  \xrightarrow{\ m_H\ }
+  H,
+\]
+的像，且既是左理想又是余理想。
+
+同样，将 \(B\in\mathcal B\) 映至 \(AB^+\) 的映射通过对偶性对应于
+\[
+  \Psi:\mathcal I\longrightarrow\mathcal H,
+\]
+其中
+\[
+  \Psi(I)
+  =
+  \left\{
+    x\in H\ \middle|\
+    (\operatorname{id}_H\otimes\pi_I)\Delta_H(x)
+    =
+    x\otimes\pi_I(1)
+  \right\}.
+\]
+
+\medskip
+\noindent\textbf{定理 5.0.1.}
+\phantomsection
+\label{sga3:VIIB:5.0.1}
+{\itshape 设 \(k\) 为域，\(H\) 为余交换 Hopf 代数。上述映射 \(\Phi\) 和 \(\Psi\) 是 \(H\) 的 Hopf 子代数与 \(H\) 中同时为余理想的左理想之间的互逆双射。}
+
+此定理首先由 K.~Newman 证明\textup{（[Ne75]，\SGARefLink{sga3:VIIB:4.1}{定理~4.1}，其中漏掉了“余交换”一词）}。Newman 的证明利用 Cartier--Gabriel--Kostant 定理\textup{（参见 \SGARefLink{sga3:VIIB:2.9}{2.9}）}归结到 \(H\) 连通的情形，再利用此时“Sweedler 基”的存在性\textup{（[Sw67]，定理~3）}；后者是下文 Dieudonn\'e--Cartier \SGARefLink{sga3:VIIB:5.2.2}{定理~5.2.2} 的对偶结果。H.~J.~Schneider 给出了第二个更短的证明\textup{（[Sch90]，定理~4.15）}。随后 A.~Masuoka 将结果推广到仅假设 \(H\) 的余根基 \(H_0\)（即其所有单子余代数之和）交换的情形\textup{（[Ma91]，定理~1.3\,(3)）}。
+
+最后，对应于仿射 \(k\)-群概形 \(G\) 的交换 \(k\)-Hopf代数，若无附加假设，就不能期待 \SGARefLink{sga3:VIIB:5.0.1}{定理~5.0.1} 的类似结果：对一个 \(k\)-子群 \(F\subset G\)，商 \(G/F\) 未必仿射。不过，M.~Takeuchi 建立了类似的双射。在 \textup{[Tak72]，\SGARefLink{sga3:VIIB:4.3}{定理~4.3}} 中，不变 \(k\)-子群 \(F\) 对应于满足
+\[
+  \Delta(B)\subset A\otimes B
+\]
+并在对极映射下稳定的子代数 \(B\subset\mathcal O(G)\)。在 \textup{[Tak79]，定理~3} 中，使 \(G/F\) 为仿射的 \(k\)-子群 \(F\) 对应于其中使 \(B\to A\) 忠实平坦的子代数 \(B\)。

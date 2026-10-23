@@ -1,0 +1,220 @@
+
+% SGA 3，第 VII 篇_B；英文重建本第一轮的中文译本。
+% 范围：依据文献局部页 59--61，第 2.6 节至 2.6.1 全文，起于推论 2.5.3.C 后，止于 2.6.2 前。
+% 合并阅读本页 572--574；重版印刷页 561--563；原版边码 525--527；编者注 107--109。
+% 依据：Polo--Gille Exp7B-13oct24.pdf。
+% SHA-256 D303690E0195654BBE7C3DAA5D89EA23E24CD709A3575217234AC19AE8836694。
+% Jacob Reinhold 的 CC BY 4.0 Markdown 仅用作对照来源，不作为依据。
+% 原英文 Loop 1 阶段说明：唯一一幅图为第一轮直接从 PDF 截取的原图，其余数学内容均为原生 LaTeX。（当前中文工程已采用原生图。）
+\subsection*{2.6}
+\phantomsection
+\label{sga3:VIIB:2.6}
+\addcontentsline{toc}{subsection}{\SGARefLink{sga3:VIIB:2.6}{2.6}. 形式群的 Lie 代数}
+现在我们开始研究无穷小形式群，以下各节都讨论这一问题。在这项研究中，Lie 代数起着根本作用。
+先设基环 \(k\) 是 Artin 环，\(G\) 是 \(k\) 上的形式群。\(G\) 的 Lie 代数有三种不同的解释，我们都将用到：
+\medskip
+\noindent\textbf{a)}
+令
+\[
+  D=k[d]/(d^2)
+\]
+为 \(k\) 上的对偶数代数，并令
+\[
+  \delta:D\longrightarrow k
+\]
+为将 \(d\) 映为零的同态。对 \(k\) 上的每个形式群 \(G\)，\(\operatorname{Lie}(G)\) 是 \(G(\delta)\) 的核。因此，由定义有群的正合列
+\begin{center}
+  \phantomsection
+  \label{sga3:VIIB:2.6:dual-numbers-exact-sequence}
+  % SGA3-VII-DIAG-118
+  \input{figures/exp7/viib_15_95/diag_118}
+\end{center}
+\medskip
+\noindent\textbf{b)}
+令 \(A\) 为 \(G\) 的仿射代数，并令
+\[
+  I_A=\ker\varepsilon_A
+\]
+为其增广理想。\(G(D)\) 的元素是预有限 \(k\)-代数态射
+\[
+  f:A\longrightarrow D.
+\]
+条件 \(G(\delta)(f)=1\) 等价于
+\[
+  \delta\circ f=\varepsilon_A.
+\]
+由于
+\[
+  x-\varepsilon_A(x)\cdot1_A\in I_A
+  \qquad\text{对每个 \(x\in A\)，}
+\]
+这等价于 \(f(I_A)\subset k\cdot d\)。故 \(\ker(f)\) 包含 \(I_A^2\)，从而也包含其闭包 \(\overline{I_A^2}\)。于是 \(f\) 诱导连续线性映射
+\[
+  f':
+  I_A/\overline{I_A^2}
+  =
+  \omega_{G/k}
+  \longrightarrow k
+\]
+使得对每个 \(x\in A\)，
+\[
+  f(x)
+  =
+  \varepsilon_A(x)\cdot1_D+f'(\bar x)\cdot d,
+\]
+其中 \(\bar x\) 表示 \(x-\varepsilon_A(x)\cdot1_A\) 在 \(I_A/\overline{I_A^2}\) 中的像。由此可得映射
+\[
+  f\longmapsto f'
+\]
+给出 \(\operatorname{Lie}(G)\) 到 \(\omega_{G/k}\) 的拓扑对偶
+\[
+  \omega_{G/k}^{\dagger}
+\]
+的双射\textup{（参见\ \SGARefLink{sga3:VIIB:0.2.2}{0.2.2}）}。
+这个双射保持群结构。事实上，设 \(f\) 与 \(g\) 是 \(\operatorname{Lie}(G)\) 的两个元素。其积 \(f\cdot g\) 为复合 \(h\circ\Delta_A\)，其中
+\[
+  h:A\widehat\otimes A\longrightarrow D
+\]
+由下式定义
+\[
+  h(b\widehat\otimes b')=f(b)g(b').
+\]
+若 \(a\in I_A\)，则由 \SGARefLink{sga3:VIIB:2.1}{2.1}\textup{\SGARefLink{sga3:VIIB:2.1:item:ii}{(ii)}}，
+\[
+  \Delta_A(a)-a\widehat\otimes1-1\widehat\otimes a
+  \in
+  I_A\widehat\otimes I_A.
+\]
+因此，
+\[
+  (f\cdot g)(a)=f(a)+g(a)
+\]
+\textup{（另参见 II，\SGARefLink{sga3:ii:lemma:3-10}{3.10}）}。
+此后通过刚才说明的双射 \(f\mapsto f'\) 作如下等同
+\[
+  \operatorname{Lie}(G)=\omega_{G/k}^{\dagger}
+\]
+。这样，群 \(\operatorname{Lie}(G)\) 就带有 \(k\)-模结构。
+\medskip
+\noindent\SGAInlineRefTarget{sga3:VIIB:2.6:item:c}\textbf{c)}
+令 \(A^\dagger\) 和 \(D^\dagger\) 为分别对偶于 \(A\) 和 \(D\) 的 \(k\)-模，并令
+\[
+  \{1_D^\dagger,d^\dagger\}
+\]
+为 \(D\) 的 \(k\)-基 \(\{1_D,d\}\) 的对偶基；于是 \(1_D^\dagger=\delta\)。\footnote{法文依据文献在将 \(1_D^\dagger\) 和 \(d^\dagger\) 定义为对偶基后，紧接着的两处分别印作 \(1_D^*\) 和 \(d^*\)。此处统一采用 \(\dagger\) 记号。}
+由于 \(D\) 是有限秩自由 \(k\)-模，典范映射
+\[
+  \operatorname{Hom}_c(A,D)
+  \longrightarrow
+  \operatorname{Hom}_k(D^\dagger,A^\dagger),
+  \qquad
+  f\longmapsto{}^t f,
+\]
+是双射。另一方面，\({}^t f\) 由以下取值决定
+\[
+  {}^t f(1_D^\dagger)
+  \qquad\text{与}\qquad
+  {}^t f(d^\dagger)=x.
+\]
+条件 \(G(\delta)(f)=1\) 等价于
+\[
+  {}^t f(1_D^\dagger)=\varepsilon_A.
+\]
+此外，容易看出，\(f\) 与乘法相容当且仅当\textup{（参见\ \SGARefLink{sga3:VIIB:2.3}{2.3}）}
+\[
+  \tag{*}
+  \label{sga3:VIIB:2.6:primitive-relation}
+  \delta_G(x)=\phi_G(x\otimes1+1\otimes x).
+\]
+最后，显然，一个与乘法相容且满足 \(\delta\circ f=\varepsilon_A\) 的连续线性映射
+\[
+  f:A\longrightarrow D
+\]
+将 \(A\) 的单位元映为 \(D\) 的单位元。\footnote{\label{sga3:VIIB:nde:107}事实上，由 \(\delta\circ f=\varepsilon_A\) 得 \(f(1)=1+\lambda d\)，其中 \(\lambda\in k\)，于是
+\[
+  f(1)=f(1)^2=1+2\lambda d
+\]
+给出 \(\lambda=0\)。}
+因此，映射 \(f\mapsto x\) 使我们能将 \(\operatorname{Lie}(G)\) 与 \(\mathbf H(G)\) 的“本原元素”集合等同，即与满足关系\textup{(*)} 的元素 \(x\in\mathbf H(G)\) 的集合等同。若 \(x\)、\(y\) 是两个这样的元素，则
+\[
+\begin{aligned}
+  \delta_G(xy)
+  &=
+  \delta_G(x)\delta_G(y)
+  \\
+  &=
+  \phi_G\bigl(
+    (x\otimes1+1\otimes x)
+    (y\otimes1+1\otimes y)
+  \bigr)
+  \\
+  &=
+  \phi_G\bigl(
+    xy\otimes1+x\otimes y+y\otimes x+1\otimes xy
+  \bigr),
+\end{aligned}
+\]
+从而
+\[
+  \delta_G(xy-yx)
+  =
+  \phi_G\bigl(
+    (xy-yx)\otimes1+1\otimes(xy-yx)
+  \bigr).
+\]
+这表明 \(k\)-模 \(\operatorname{Lie}(G)\) 可与 \(\mathbf H(G)\) 的一个 Lie 子代数等同；我们称 \(\operatorname{Lie}(G)\) 为 \(G\) 的 \emph{Lie 代数}。\footnote{\label{sga3:VIIB:nde:108}与 VII\textsubscript{A}，\SGARefLink{sga3:VIIB:2.5:proposition}{2.5} 比较可见，若 \(K\) 是 \(k\) 上有限型群概形，\(G\) 是 \(K\) 在单位元处的形式完备化，即 \(\mathcal A(G)\) 是局部环 \(\mathcal O_{K,e}\) 关于 \(\mathfrak m\)-进拓扑的完备化，其中
+\[
+  \mathfrak m=\ker\bigl(
+    \varepsilon:\mathcal O_{K,e}\longrightarrow k
+  \bigr)
+\]
+，则 \(\mathbf H(G)\) 可与分布代数 \(U(K)\) 等同，\(\operatorname{Lie}(G)\) 可与 \(\operatorname{Lie}(K)\) 等同。\(K\) 在 \(k\) 上有限型的假设保证 \(\mathfrak m/\mathfrak m^2\) 是有限长度的 \(k\)-模，从而是离散的，因此其拓扑对偶与通常对偶一致。特别地，当 \(G\) 是有限形式 \(k\)-群，即 \(\mathcal A(G)\) 是有限 \(k\)-模时，\(G\) 也可看成 \(k\)-群概形 \(\operatorname{Spec}\mathcal A(G)\)，此时 \(\operatorname{Lie}(G)\) 的两种定义一致。}
+\subsubsection*{2.6.1}
+\phantomsection
+\label{sga3:VIIB:2.6.1}
+现在设 \(k\) 是任意伪紧环，\(G\) 是 \(k\) 上的形式群。函子 \(\operatorname{Lie}(G)\) 将 \(\operatorname{Alf}/k\) 的每个对象 \(C\) 映为 \(C\)-形式群
+\[
+  G'=G\widehat\otimes_k C
+\]
+的 \(C\)-Lie 代数；我们称这个函子为 \emph{\(G\) 的 \(\mathbf O_k\)-Lie 代数}。\footnote{%
+\label{sga3:VIIB:nde:109}以下编者扩充了原文。}
+置
+\[
+  A'=A\widehat\otimes_k C.
+\]
+由于 \(I_A\) 是 \(A\) 的直因子，有
+\[
+  I_{A'}
+  =
+  I_A\widehat\otimes_k C
+  =
+  I_A\widehat\otimes_A A'.
+\]
+此外，
+\[
+  \omega_{G/k}=I_A\widehat\otimes_A k,
+  \qquad
+  \omega_{G'/C}=I_{A'}\widehat\otimes_{A'}C.
+\]
+由此可得
+\[
+  \omega_{G'/C}
+  =
+  \omega_{G/k}\widehat\otimes_A C,
+\]
+从而
+\[
+\begin{aligned}
+  \operatorname{Lie}(G)(C)
+  &=
+  \operatorname{Hom}_c\bigl(
+    \omega_{G/k}\widehat\otimes_A C,C
+  \bigr),
+  \\
+  \text{即}\qquad
+  \operatorname{Lie}(G)
+  &=
+  \mathbf V_k^f(\omega_{G/k}).
+\end{aligned}
+\]
+采用 \SGARefLink{sga3:VIIB:1.2.3.B}{1.2.3.B} 的记号，由\SGARefLink{sga3:VIIB:1.2.3.E}{命题 1.2.3.E} 可知，\(\operatorname{Lie}(G)\) 在 \(\mathbf O_k\) 上平坦当且仅当 \(\omega_{G/k}\) 是投射伪紧 \(k\)-模。

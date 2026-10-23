@@ -1,0 +1,549 @@
+% SGA 3，第 VII 篇_A，中文重构——第 1 轮。
+% 范围：权威底本本地第 15--21 页，第 3 节全文，止于本地第 22 页第 4 节标题之前。
+% 合并阅读本页码： 468--474. 再版本印刷页码： 457--463.
+% 本段原版页边定位： 426--433.
+% 权威底本：Polo--Gille Exp7A-13oct24.pdf,
+% SHA-256 D46DB8C79D0385643B6EED4B96900613248375F9B73B4202478A4F57FD3E8522.
+% 参照了 Jacob Reinhold 的 CC BY 4.0 Markdown 作为比对谱系。
+
+\section*{3. 余代数与 Cartier 对偶}
+\phantomsection
+\label{sga3:VIIA:3}
+\addcontentsline{toc}{section}{3. 余代数与 Cartier 对偶}
+
+% 权威底本： Exp7A 本地页 15; 合并阅读本页 468; 印刷页 457.
+\medskip
+\noindent\textbf{3.1.}
+\phantomsection
+\label{sga3:VIIA:3.1}
+设 \(S\) 是概形（或更一般地，是带环空间）。一个 \(\mathcal O_S\)-\emph{余代数}\footnote{也使用术语 \emph{cogebra}；见 Bourbaki，\emph{代数〔Algebra〕}，III，\S 11.1。还要注意，本篇以及第 VII 篇\(_B\) 中，我们均在余交换余代数范畴（即满足条件~\SGARefLink{sga3:VIIA:3.1:item:i}{(i)} 的余代数范畴）中工作。这对积与群余代数概念的定义至关重要；见 \SGARefLink{sga3:VIIA:3.1.0}{3.1.0} 和 \SGARefLink{sga3:VIIA:3.2}{3.2}。}
+是一个二元组 \((\mathcal U,\Delta_{\mathcal U})\)，由一个 \(\mathcal O_S\)-模 \(\mathcal U\) 和一个 \(\mathcal O_S\)-模态射
+\[
+  \Delta_{\mathcal U}:\mathcal U\longrightarrow
+  \mathcal U\otimes_{\mathcal O_S}\mathcal U,
+\]
+组成，后者称为\emph{对角态射}或\emph{余乘法}，并满足：
+
+\smallskip
+\noindent
+\SGAInlineRefTarget{sga3:VIIA:3.1:item:i}\SGARefLink{sga3:VIIA:3.1:item:i}{(i)} \(\sigma\circ\Delta_{\mathcal U}=\Delta_{\mathcal U}\), 其中 \(\sigma(a\otimes b)=b\otimes a\)。
+
+\smallskip
+\noindent
+\SGAInlineRefTarget{sga3:VIIA:3.1:item:ii}\SGARefLink{sga3:VIIA:3.1:item:ii}{(ii)} 方块图
+\begin{center}
+  \phantomsection
+  \label{sga3:VIIA:3.1-coassociativity-square}
+  % SGA3-VII-DIAG-020
+  \input{figures/exp7/viia_00_04/diag_020_coassociativity_square}
+\end{center}
+交换。
+
+\smallskip
+\noindent
+(iii) 存在 \(\mathcal O_S\)-模态射
+\[
+  \varepsilon_{\mathcal U}:\mathcal U\longrightarrow\mathcal O_S,
+\]
+称为\emph{增广}，使得两个复合
+\begin{center}
+  \phantomsection
+  \label{sga3:VIIA:3.1-augmentation-sequences}
+  % SGA3-VII-DIAG-021
+  \input{figures/exp7/viia_00_04/diag_021_augmentation_sequences}
+\end{center}
+都是 \(\mathcal U\) 的恒等态射。
+
+若 \(\varepsilon_{\mathcal U}\) 与 \(\varepsilon'_{\mathcal U}\) 是两个增广，则
+\[
+  \varepsilon_{\mathcal U}
+  =(\varepsilon_{\mathcal U}\otimes\varepsilon'_{\mathcal U})
+    \circ\Delta_{\mathcal U}
+  =\varepsilon'_{\mathcal U};
+\]
+所以增广由~(iii) 唯一确定。
+
+若 \((\mathcal U,\Delta_{\mathcal U})\) 和 \((\mathcal V,\Delta_{\mathcal V})\) 是两个 \(\mathcal O_S\)-余代数，则从前者到后者的一个\emph{态射}是使下图交换的 \(\mathcal O_S\)-模态射 \(f:\mathcal U\to\mathcal V\)：
+\begin{center}
+  \phantomsection
+  \label{sga3:VIIA:3.1-coalgebra-morphism-diagrams}
+  % SGA3-VII-DIAG-022
+  \input{figures/exp7/viia_00_04/diag_022_coalgebra_morphism_diagrams}
+\end{center}
+余代数态射的复合与 \(\mathcal O_S\)-模态射一样，因此可以谈论 \(\mathcal O_S\)-\emph{余代数范畴}。
+
+% 权威底本： Exp7A 本地页 16; 合并阅读本页 469; 印刷页 458.
+\medskip
+\noindent\textbf{3.1.0.}
+\phantomsection
+\label{sga3:VIIA:3.1.0}
+\footnote{编者补入编号 \SGARefLink{sga3:VIIA:3.1.0}{3.1.0}，供后文引用。}
+这一范畴有有限积：其终对象是以恒等态射为余乘法的 \(\mathcal O_S\)-模 \(\mathcal O_S\)。两个余代数 \((\mathcal U,\Delta_{\mathcal U})\) 与 \((\mathcal V,\Delta_{\mathcal V})\) 的积是张量积 \(\mathcal U\otimes_{\mathcal O_S}\mathcal V\)，其余乘法为复合
+\begin{center}
+  \phantomsection
+  \label{sga3:VIIA:3.1.0-product-comultiplication}
+  % SGA3-VII-DIAG-023
+  \input{figures/exp7/viia_00_04/diag_023_product_comultiplication_sequence}
+\end{center}
+其中 \(\sigma(a\otimes b)=b\otimes a\)。\(\mathcal U\otimes\mathcal V\) 到因子 \(\mathcal U\) 和 \(\mathcal V\) 的典范投影分别是 \(\operatorname{id}_{\mathcal U}\otimes\varepsilon_{\mathcal V}\) 和 \(\varepsilon_{\mathcal U}\otimes\operatorname{id}_{\mathcal V}\)。\footnote{前述断言由编者补入。还要回顾，为说明 \(\mathcal U\otimes\mathcal V\) 确为余交换 \(\mathcal O_S\)-余代数范畴中 \(\mathcal U\) 与 \(\mathcal V\) 的积，可如下论证。给定任意 \(\mathcal O_S\)-余代数 \(\mathcal E\) 及余代数态射 \(f:\mathcal E\to\mathcal U\)、\(g:\mathcal E\to\mathcal V\)，任何满足 \(\operatorname{pr}_{\mathcal U}\circ\varphi=f\) 及 \(\operatorname{pr}_{\mathcal V}\circ\varphi=g\) 的余代数态射 \(\varphi:\mathcal E\to\mathcal U\otimes\mathcal V\) 都必定等于 \((f\otimes g)\circ\Delta_{\mathcal E}\)；而它是余代数态射，当且仅当它还等于 \((g\otimes f)\circ\Delta_{\mathcal E}\)。}
+对应于二元组 \((\operatorname{id}_{\mathcal U},
+  \operatorname{id}_{\mathcal U})\) 的“对角态射” \(\mathcal U\to\mathcal U\otimes\mathcal U\) 恰好就是余乘法 \(\Delta_{\mathcal U}\)。
+
+\medskip
+\noindent\textbf{3.1.1.}
+\phantomsection
+\label{sga3:VIIA:3.1.1}
+设 \(\mathcal A\) 是一个作为 \(\mathcal O_S\)-模局部自由且有限型的交换 \(\mathcal O_S\)-代数。置
+\[
+  \mathcal A^{*}
+  =\mathcal Hom_{\mathcal O_S\text{-Mod.}}
+    (\mathcal A,\mathcal O_S).
+\]
+典范态射
+\[
+  \varphi:\mathcal A^{*}\otimes_{\mathcal O_S}\mathcal A^{*}
+  \longrightarrow
+  (\mathcal A\otimes_{\mathcal O_S}\mathcal A)^{*}
+\]
+可逆。若 \(m:\mathcal A\otimes\mathcal A\to\mathcal A\) 是定义 \(\mathcal A\) 的乘法的态射，则经复合得到对角态射
+\begin{center}
+  \phantomsection
+  \label{sga3:VIIA:3.1.1-dual-coalgebra-sequence}
+  % SGA3-VII-DIAG-024
+  \input{figures/exp7/viia_00_04/diag_024_dual_coalgebra_sequence}
+\end{center}
+此对角态射显然使 \(\mathcal A^{*}\) 成为一个 \(\mathcal O_S\)-余代数，其增广是由 \(\mathcal A\) 的单位截面定义的态射 \(\mathcal O_S\to\mathcal A\) 的转置。此外，显然有：
+
+\begin{quote}
+\itshape
+函子 \(\mathcal A\mapsto\mathcal A^{*}\) 给出一个反等价，从作为 \(\mathcal O_S\)-模局部自由且有限型的 \(\mathcal O_S\)-代数范畴，到作为 \(\mathcal O_S\)-模局部自由且有限型的 \(\mathcal O_S\)-余代数范畴。
+\end{quote}
+
+\medskip
+\noindent\textbf{3.1.2.}
+\phantomsection
+\label{sga3:VIIA:3.1.2}
+每个 \(\mathcal O_S\)-余代数 \(\mathcal U\) 都典范地对应一个 \(S\)-函子
+\begin{center}
+  \phantomsection
+  \label{sga3:VIIA:3.1.2-spec-star-functor}
+  % SGA3-VII-DIAG-025
+  \input{figures/exp7/viia_00_04/diag_025_spec_star_functor_sequence}
+\end{center}
+事实上，对每个 \(S\)-概形 \(q:T\to S\)，
+\[
+  q^{*}(\mathcal U\otimes_{\mathcal O_S}\mathcal U)
+  \simeq
+  q^{*}(\mathcal U)\otimes_{\mathcal O_T}q^{*}(\mathcal U),
+\]
+所以 \(q^{*}(\Delta_{\mathcal U})\) 使 \(\mathcal U_T=q^{*}(\mathcal U)\) 成为一个 \(\mathcal O_T\)-余代数。因此，由定义，并采用一个显然的记号滥用，\footnote{对于 \(x\otimes y\in
+ \Gamma(T,\mathcal U_T)\otimes_{\mathcal O(T)}
+ \Gamma(T,\mathcal U_T)\)，它在 \(\Gamma(T,\mathcal U_T\otimes_{\mathcal O_T}\mathcal U_T)\) 中的像仍记为 \(x\otimes y\)。}
+\[
+  (\operatorname{Spec}^{*}\mathcal U)(T)
+  =
+  \left\{
+    x\in\Gamma(T,\mathcal U_T)
+    \ \middle|\
+    \varepsilon_{\mathcal U_T}(x)=1,\quad
+    \Delta_{\mathcal U_T}(x)=x\otimes x
+  \right\}.
+\]
+
+% 权威底本： Exp7A 本地页 17; 合并阅读本页 470; 印刷页 459.
+\(\mathcal U_T\) 的截面 \(x\) 显然对应于 \(\mathcal O_T\)-模态射 \(\xi:\mathcal O_T\to\mathcal U_T\)。条件 \(\varepsilon(x)=1\) 和 \(\Delta(x)=x\otimes x\) 恰好表示 \(\xi\) 是余代数态射。因此还有
+\[
+  (\operatorname{Spec}^{*}\mathcal U)(T)
+  =
+  \operatorname{Hom}_{\mathcal O_T\text{-coalg.}}
+    (\mathcal O_T,\mathcal U_T).
+\]
+特别地：
+
+\medskip
+\noindent\textbf{命题 3.1.2.1.}
+\phantomsection
+\label{sga3:VIIA:3.1.2.1}
+\footnote{编者补入编号 \SGARefLink{sga3:VIIA:3.1.2.1}{3.1.2.1}，供后文引用。还要注意，\(S\)-函子 \(\operatorname{Spec}^{*}\mathcal U\) 是 Zariski 拓扑下的层；若 \(\mathcal U\) 是拟凝聚 \(\mathcal O_S\)-模，它甚至是 fpqc 层。}
+\textit{设 \(\mathcal A\) 是作为 \(\mathcal O_S\)-模局部自由且有限型的交换 \(\mathcal O_S\)-代数。则 \(S\)-函子 \(\operatorname{Spec}^{*}\mathcal A^{*}\) 由 \(\operatorname{Spec}\mathcal A\) 表示。}
+
+事实上，对每个 \(S\)-概形 \(T\)，有典范同构
+\[
+  \begin{aligned}
+  (\operatorname{Spec}^{*}\mathcal A^{*})(T)
+  &=
+  \operatorname{Hom}_{\mathcal O_T\text{-coalg.}}
+    (\mathcal O_T,\mathcal A_T^{*})                                      \\
+  &\simeq
+  \operatorname{Hom}_{\mathcal O_T\text{-alg.}}
+    (\mathcal A_T,\mathcal O_T)
+  \simeq
+  (\operatorname{Spec}\mathcal A)(T).
+  \end{aligned}
+\]
+
+\medskip
+\noindent\textbf{3.2.}
+\phantomsection
+\label{sga3:VIIA:3.2}
+一个 \(\mathcal O_S\)-\emph{群余代数}，即 \(\mathcal O_S\)-余代数范畴中的群，由一个 \(\mathcal O_S\)-余代数 \((\mathcal U,\Delta_{\mathcal U})\) 及三个 \(\mathcal O_S\)-余代数态射
+\[
+  m_{\mathcal U}:\mathcal U\otimes\mathcal U\longrightarrow\mathcal U,
+  \qquad
+  \eta_{\mathcal U}:\mathcal O_S\longrightarrow\mathcal U,
+  \qquad
+  c_{\mathcal U}:\mathcal U\longrightarrow\mathcal U,
+\]
+组成，满足下述条件 \((\mathrm{ii})^{*}\)、\((\mathrm{iii})^{*}\) 和~(vi)。要求 \(m_{\mathcal U}\) 是余代数态射，可用图~(iv) 和~(v) 的交换性来表示：
+\begin{center}
+  \phantomsection
+  \label{sga3:VIIA:3.2-compatibility-iv-v}
+  % SGA3-VII-DIAG-026
+  \input{figures/exp7/viia_00_04/diag_026_group_coalgebra_compatibility_iv_v}
+\end{center}
+
+\noindent
+\((\mathrm{ii})^{*}\) 方块图
+\begin{center}
+  \phantomsection
+  \label{sga3:VIIA:3.2-associativity-ii-star}
+  % SGA3-VII-DIAG-027
+  \input{figures/exp7/viia_00_04/diag_027_group_coalgebra_associativity_ii_star}
+\end{center}
+交换。
+
+% 权威底本： Exp7A 本地页 18; 合并阅读本页 471; 印刷页 460.
+\noindent
+\((\mathrm{iii})^{*}\) 两个复合
+\begin{center}
+  \phantomsection
+  \label{sga3:VIIA:3.2-unit-sequences-iii-star}
+  % SGA3-VII-DIAG-028
+  \input{figures/exp7/viia_00_04/diag_028_group_coalgebra_unit_sequences_iii_star}
+\end{center}
+都是 \(\mathcal U\) 的恒等态射。
+
+\smallskip
+\noindent
+(vi) 复合
+\begin{center}
+  \phantomsection
+  \label{sga3:VIIA:3.2-antipode-sequence-vi}
+  % SGA3-VII-DIAG-029
+  \input{figures/exp7/viia_00_04/diag_029_group_coalgebra_antipode_sequence_vi}
+\end{center}
+等于 \(\eta_{\mathcal U}\circ\varepsilon_{\mathcal U}\)。
+
+\medskip
+\noindent\textbf{3.2.1.}
+\phantomsection
+\label{sga3:VIIA:3.2.1}
+态射 \(\eta_{\mathcal U}\) 和 \(c_{\mathcal U}\) 由 \(m_{\mathcal U}\) 唯一确定。条件 \((\mathrm{ii})^{*}\) 和 \((\mathrm{iii})^{*}\) 仅表示 \(m_{\mathcal U}\) 使 \(\mathcal U\) 成为一个 \(\mathcal O_S\)-代数，其单位截面是 \(\mathcal O_S\) 的单位截面在 \(\eta_{\mathcal U}\) 下的像。条件~(iv) 还表示对角态射 \(\Delta_{\mathcal U}\) 与乘法相容。事实上，
+\[
+  \Delta_{\mathcal U}:\mathcal U\longrightarrow
+  \mathcal U\otimes\mathcal U
+\]
+必须是群余代数同态，这也蕴涵下列三角图交换：
+\begin{center}
+  \phantomsection
+  \label{sga3:VIIA:3.2.1-unit-triangle-v-star}
+  % SGA3-VII-DIAG-030
+  \input{figures/exp7/viia_00_04/diag_030_group_coalgebra_unit_triangle_v_star}
+\end{center}
+
+另一方面，与任意范畴中的情形一样，对极 \(c_{\mathcal U}\) 是从 \(\mathcal U\) 到其“反”群对象的同构；\footnote{即赋予乘法 \(m'_{\mathcal U}=m_{\mathcal U}\circ\sigma\) 的对象。}
+特别地，\(c_{\mathcal U}\) 诱导从 \(\mathcal U\) 到反代数 \(\mathcal U^{\circ}\) 的代数同构。
+
+\medskip
+\noindent\textbf{3.2.2.}
+\phantomsection
+\label{sga3:VIIA:3.2.2}
+由于函子 \(\mathcal U\mapsto\operatorname{Spec}^{*}\mathcal U\) 与有限积交换，它将群余代数映为群值 \(S\)-函子。事实上，对每个 \(S\)-概形 \(T\)，属于 \((\operatorname{Spec}^{*}\mathcal U)(T)\) 的元素
+\[
+  x\in\Gamma(T,\mathcal U_T)
+\]
+在代数 \(\Gamma(T,\mathcal U_T)\) 的乘法下组成一个群，且 \(x\) 的逆是 \(c_{\mathcal U}(x)\)。由 \SGARefLink{sga3:VIIA:3.1.2.1}{3.1.2.1}：
+
+\medskip
+\noindent\textbf{附论 3.2.2.1.}
+\phantomsection
+\label{sga3:VIIA:3.2.2.1}
+\footnote{此附论隐含于原文中，由编者补入。}
+\textit{设 \(\mathcal U\) 是一个作为 \(\mathcal O_S\)-模有限局部自由的 \(\mathcal O_S\)-群余代数。则群值 \(S\)-函子 \(\operatorname{Spec}^{*}\mathcal U\) 由有限局部自由 \(S\)-群 \(\operatorname{Spec}\mathcal U^{*}\) 表示。}
+
+\medskip
+\noindent\textbf{注记 3.2.2.2.}
+\phantomsection
+\label{sga3:VIIA:3.2.2.2}
+设 \(\mathcal L\) 是一个 \(\mathcal O_S\)-Lie 代数，\(\mathcal U(\mathcal L)\) 为其包络代数，即 \(S\) 上下述预层的伴随层：将每个开子集 \(V\) 映到 Lie 代数 \(\Gamma(V,\mathcal L)\) 的包络代数
+\[
+  U\bigl(\Gamma(V,\mathcal L)\bigr)
+\]
+。
+
+从 \(\mathcal L\) 到一个结合 \(\mathcal O_S\)-代数的底层 Lie 代数的每个同态，都唯一地经由典范态射 \(\mathcal L\to\mathcal U(\mathcal L)\) 分解。这一泛性质除了给出 \(\mathcal U(\mathcal L)\) 关于 \(\mathcal L\) 的函子性，还说明 Lie 代数之积的包络代数可等同于其包络代数的张量积。
+
+% 权威底本： Exp7A 本地页 19; 合并阅读本页 472; 印刷页 461.
+特别地，对角态射 \(\delta:\mathcal L\to\mathcal L\times\mathcal L\) 诱导代数同态
+\[
+  \Delta:\mathcal U(\mathcal L)\longrightarrow
+  \mathcal U(\mathcal L\times\mathcal L)
+  \simeq
+  \mathcal U(\mathcal L)\otimes\mathcal U(\mathcal L).
+\]
+零态射 \(\mathcal L\to0\) 诱导同态
+\[
+  \varepsilon:\mathcal U(\mathcal L)\longrightarrow
+  \mathcal U(0)\simeq\mathcal O_S.
+\]
+从 \(\mathcal L\) 到反 Lie 代数 \(\mathcal L^{\circ}\) 的同构 \(x\mapsto-x\) 诱导代数 \(\mathcal U(\mathcal L)\) 的一个反同构 \(c\)。于是容易验证，\(\mathcal U(\mathcal L)\) 的乘法 \(m\) 使 \((\mathcal U(\mathcal L),\Delta)\) 成为以 \(\varepsilon\) 为增广、以 \(c\) 为对极的 \(\mathcal O_S\)-群余代数。\footnote{群值 \(S\)-函子 \(\operatorname{Spec}^{*}\mathcal U(\mathcal L)\) 一般不可表。稍后在 \SGARefLink{sga3:VIIA:5.5}{5.5} 中将证明，若 \(S\) 是特征 \(p\) 的概形，\(\mathcal L\) 在 \(\mathcal O_S\) 上有限局部自由，而 \(\mathcal U_p(\mathcal L)\) 是它的受限包络代数（见 \SGARefLink{sga3:VIIA:5.3}{5.3}），则 \(\operatorname{Spec}^{*}\mathcal U_p(\mathcal L)\) 由一个有限局部自由 \(S\)-群表示。}
+
+\medskip
+\noindent\textbf{3.2.3.}
+\phantomsection
+\label{sga3:VIIA:3.2.3}
+\footnote{编者扩充了本段。}
+设 \(\mathcal U\) 是一个 \(\mathcal O_S\)-群余代数。我们将看到群值 \(S\)-函子
+\[
+  G=\operatorname{Spec}^{*}\mathcal U
+\]
+是\SGARefLink{sga3:ii:definition:4-6}{第 II 篇，4.6} 和 \SGARefLink{sga3:ii:definition:4-10}{4.10} 意义下的\emph{甚好}的函子。
+
+设 \(\mathcal M\) 是秩为 \(r\) 的自由 \(\mathcal O_S\)-模，\(T\to S\) 是一个 \(S\)-概形。由于
+\[
+  I_T(\mathcal M)=
+  \operatorname{Spec}(\mathcal O_T\oplus\mathcal M_T),
+\]
+态射 \(\pi:I_T(\mathcal M)\to T\) 是仿射的，且
+\[
+  \pi_{*}\bigl(\mathcal U_{I_T(\mathcal M)}\bigr)
+  =
+  \mathcal U_T\otimes_{\mathcal O_T}
+  \pi_{*}\bigl(\mathcal O_{I_T(\mathcal M)}\bigr)
+  =
+  \mathcal U_T\otimes_{\mathcal O_T}
+  (\mathcal O_T\oplus\mathcal M_T).
+\]
+因此，
+\begin{equation}
+  \Gamma\bigl(I_T(\mathcal M),\mathcal U_{I_T(\mathcal M)}\bigr)
+  \simeq
+  \Gamma(T,\mathcal U_T)\otimes_{\mathcal O(T)}
+  \bigl(\mathcal O(T)\oplus\Gamma(T,\mathcal M_T)\bigr).
+  \tag{1}
+  \label{sga3:VIIA:3.2.3-eq1}
+\end{equation}
+
+设 \((d_1,\ldots,d_r)\) 为 \(\mathcal M\) 的一组基。元素
+\[
+  u_0+\sum_i u_i d_i
+  \in
+  \Gamma\bigl(I_T(\mathcal M),\mathcal U_{I_T(\mathcal M)}\bigr)
+\]
+属于 \(G(I_T(\mathcal M))\)，当且仅当
+\[
+  1
+  =\varepsilon\left(u_0+\sum_i u_i d_i\right)
+  =\varepsilon(u_0)+\sum_i\varepsilon(u_i)d_i
+\]
+且
+\[
+  \left(u_0+\sum_i u_i d_i\right)
+  \otimes
+  \left(u_0+\sum_i u_i d_i\right)
+  =
+  \Delta\left(u_0+\sum_i u_i d_i\right)
+  =
+  \Delta(u_0)+\sum_i\Delta(u_i)d_i.
+\]
+等价地，
+\begin{equation}
+  \left\{
+  \begin{aligned}
+    \varepsilon(u_0)&=1,&
+    \Delta u_0&=u_0\otimes u_0
+      &&\bigl(\text{即，}u_0\in G(T)\bigr),\\
+    \varepsilon(u_i)&=0,&
+    \Delta(u_i)&=u_i\otimes u_0+u_0\otimes u_i
+      &&(i=1,\ldots,r).
+  \end{aligned}
+  \right.
+  \tag{2}
+  \label{sga3:VIIA:3.2.3-eq2}
+\end{equation}
+
+此外，对应于 \(I_T(\mathcal M)\to T\) 的零截面的态射 \(G(I_T(\mathcal M))\to G(T)\) 由下式给出
+\[
+  u_0+\sum_i u_i d_i\longmapsto u_0.
+\]
+将此与 (1)、(2) 结合可见，若 \(\mathcal N\) 是另一个有限秩自由 \(\mathcal O_S\)-模，则集合图
+\begin{center}
+  \phantomsection
+  \label{sga3:VIIA:3.2.3-condition-E-square}
+  % SGA3-VII-DIAG-031
+  \input{figures/exp7/viia_00_04/diag_031_condition_E_cartesian_square}
+\end{center}
+是笛卡尔的；即 \(G\) 满足\SGARefLink{sga3:ii:definition:3-5}{第 II 篇，3.5} 的条件~(E)。
+
+% 权威底本： Exp7A 本地页 20; 合并阅读本页 473; 印刷页 462.
+用
+\[
+  \operatorname{Prim}\Gamma(T,\mathcal U_T)
+\]
+表示 \(\Gamma(T,\mathcal U_T)\) 中由\emph{本原元素}组成的 \(\mathcal O(T)\)-子模，即满足下式的元素 \(u\)，此处采用 \SGARefLink{sga3:VIIA:3.1.2}{3.1.2} 所述的记号滥用：
+\[
+  \Delta u=u\otimes1+1\otimes u,
+  \qquad
+  \varepsilon(u)=0.
+\]
+\footnote{第二个条件由第一个推出，因为第一个给出 \(u=(\operatorname{id}\otimes\varepsilon)\Delta(u)
+=u+\varepsilon(u)\)，从而 \(\varepsilon(u)=0\)。}
+
+由于 \((\operatorname{Lie}G)(T)\) 是位于 \(G(T)\) 的单位元 \(u_0=1\) 上方的元素 \(u_0+ud\in G(I_T)\) 的集合，故有关于 \(T\) 函子性的 \(\mathcal O(T)\)-模同构，\footnote{\(\operatorname{Lie}G\) 的 \(\mathcal O_S\)-模结构定义于\SGARefLink{sga3:ii:proposition:3-6}{第 II 篇，命题 3.6}。}
+\[
+  (\operatorname{Lie}G)(T)
+  \simeq
+  \operatorname{Prim}\Gamma(T,\mathcal U_T).
+\]
+另一方面，\SGARefLink{sga3:VIIA:3.2.3-eq1}{(1)} 给出
+\[
+  \operatorname{Prim}
+    \Gamma\bigl(I_T(\mathcal M),
+      \mathcal U_{I_T(\mathcal M)}\bigr)
+  \simeq
+  \operatorname{Prim}\Gamma(T,\mathcal U_T)
+  \otimes_{\mathcal O(T)}\mathcal O(I_T(\mathcal M)).
+\]
+由此得到，自然的 \(\mathcal O(I_T(\mathcal M))\)-模态射
+\[
+  (\operatorname{Lie}G)(T)
+  \otimes_{\mathcal O(T)}\mathcal O(I_T(\mathcal M))
+  \longrightarrow
+  (\operatorname{Lie}G)(I_T(\mathcal M))
+\]
+是同构；因此 \(\operatorname{Lie}G\) 是良好的 \(\mathcal O_S\)-模（见第 II 篇，定义 4.4）。
+
+因此 \(G\) 是良好的群值 \(S\)-函子（见\SGARefLink{sga3:ii:definition:4-6}{第 II 篇，定义 4.6}），而由\SGARefLink{sga3:ii:definition:4-7-2}{第 II 篇，4.7.2}，\(\operatorname{Lie}G\) 带有满足 Jacobi 恒等式的 \(\mathcal O_S\)-双线性 Lie 括号。还须证明 \(G\) 是甚好的，即 \((\operatorname{Lie}G)(T)\) 上的括号对每个 \(u\in(\operatorname{Lie}G)(T)\) 满足 \([u,u]=0\)；见\SGARefLink{sga3:ii:definition:4-10}{第 II 篇，4.10}。
+
+设 \(u,v\) 是 \((\operatorname{Lie}G)(T)\) 的两个元素，即 \(\Gamma(T,\mathcal U_T)\) 的两个本原元素。置
+\[
+  I=\operatorname{Spec}\mathcal O_S[d]/(d^2),
+  \qquad
+  I'=\operatorname{Spec}\mathcal O_S[d']/(d'^2).
+\]
+由于 \(G(I\times I')\) 上的合成律由 \(\mathcal U_{I\times I'}\) 中的乘法诱导，在 \(G(I\times I')\) 中有
+\[
+  \begin{aligned}
+  &(1+ud)(1+vd')(1+ud)^{-1}(1+vd')^{-1}\\
+  &\qquad
+    =(1+ud)(1+vd')(1-ud)(1-vd')\\
+  &\qquad
+    =1+(uv-vu)dd'.
+  \end{aligned}
+\]
+\begin{quote}
+\small
+\phantomsection
+\label{sga3:VIIA:3.2.3-source-note-missing-prime}
+\emph{源文注。}再版本中间表达式的最后一个因子印为 \(1-vd\)，漏了撇号。由于此因子是 \(1+vd'\) 的逆，且所列结果与 \(dd'\) 成比例，英文重构本明确写出所需的读法 \(1-vd'\)。Reinhold 的比对 Markdown 也复现了印本漏撇号的情况。
+\end{quote}
+由第 II 篇 的\SGARefLink{sga3:ii:proposition:4-8}{命题 4.8} 之前对括号 \([u,v]\) 的描述，得到
+\[
+  [u,v]=uv-vu,
+\]
+其中右侧为代数 \(\Gamma(T,\mathcal U_T)\) 中 \(u\) 与 \(v\) 的交换子。因此 \([u,u]=0\)，并且我们已证明：
+
+\medskip
+\noindent\textbf{命题.}
+\phantomsection
+\label{sga3:VIIA:3.2.3-primitive-elements-proposition}
+\textit{设 \(\mathcal U\) 是一个 \(\mathcal O_S\)-群余代数。群值 \(S\)-函子 \(G=\operatorname{Spec}^{*}\mathcal U\) 是甚好的，并且有 \(\mathcal O_S\)-Lie 代数同构
+\[
+  \operatorname{Lie}G
+  \simeq
+  \operatorname{Prim}\mathcal W(\mathcal U)
+\]
+其中 \(\operatorname{Prim}\mathcal W(\mathcal U)\) 表示将每个 \(T\to S\) 映到 \(\mathcal W(\mathcal U)(T)=\Gamma(T,\mathcal U_T)\) 的本原元素所成的 \(\mathcal O(T)\)-Lie 代数的函子。}
+\footnote{编者补入此命题，以归纳前面的讨论。}
+
+% 权威底本： Exp7A 本地页 21; 合并阅读本页 474; 印刷页 463.
+\medskip
+\noindent\textbf{3.3.}
+\phantomsection
+\label{sga3:VIIA:3.3}
+最后假设 \(\mathcal U\) 是\emph{交换群余代数}，即三角图
+\begin{center}
+  \phantomsection
+  \label{sga3:VIIA:3.3-commutative-triangle-i-star}
+  % SGA3-VII-DIAG-032
+  \input{figures/exp7/viia_00_04/diag_032_commutative_group_coalgebra_triangle_i_star}
+\end{center}
+交换，或等价地，\(m_{\mathcal U}\) 使 \(\mathcal U\) 成为交换 \(\mathcal O_S\)-代数。条件 \SGARefLink{sga3:VIIA:3.1:item:i}{(i)}, \SGARefLink{sga3:VIIA:3.1:item:ii}{(ii)}, (iii), (iv), (v), (vi),
+\((\mathrm{i})^{*}\), \((\mathrm{ii})^{*}\),
+\((\mathrm{iii})^{*}\) 和 \((\mathrm{v})^{*}\) 这时也表示 \(\mathcal U\) 是交换 \(\mathcal O_S\)-代数范畴中的余群。因此，若 \(\mathcal U\) 还是拟凝聚 \(\mathcal O_S\)-模，则仿射 \(S\)-概形 \(\operatorname{Spec}\mathcal U\) 是交换 \(S\)-群概形。
+
+此时 \(\mathcal O_S[T,T^{-1}]\) 的对角态射 \(\Delta'\) 将 \(T\) 映到 \(T\otimes T\)。因此，从 \(\operatorname{Spec}\mathcal U\) 到 \(\mathbb G_{m,S}\)（第 I 篇，4.3.2）的 \(S\)-群态射一一对应于满足下述条件的含幺 \(\mathcal O_S\)-代数态射
+\[
+  \varphi:\mathcal O_S[T,T^{-1}]\longrightarrow\mathcal U
+\]
+条件为
+\[
+  (\varphi\otimes\varphi)\circ\Delta'
+  =\Delta_{\mathcal U}\circ\varphi.
+\]
+此时，\(\varepsilon_{\mathcal U}\circ\varphi\) 是 \(\mathbb G_{m,S}(S)\) 的单位元，即增广 \(\varepsilon'\)。这样的态射 \(\varphi\) 由像 \(\varphi(T)\) 确定，该像必须是满足下式的可逆元素 \(x\in\mathcal U\)：
+\[
+  \Delta_{\mathcal U}x=x\otimes x,
+  \qquad
+  \varepsilon_{\mathcal U}(x)=\varepsilon'(T)=1.
+\]
+因此
+\[
+  \operatorname{Hom}_{S\text{-gr.}}
+  (\operatorname{Spec}\mathcal U,\mathbb G_{m,S})
+  \simeq
+  (\operatorname{Spec}^{*}\mathcal U)(S).
+\]
+由于此公式在任意基变换后仍然成立，得到
+\[
+  \operatorname{Spec}^{*}\mathcal U
+  \simeq
+  \operatorname{Hom}_{S\text{-gr.}}
+  (\operatorname{Spec}\mathcal U,\mathbb G_{m,S}).
+\]
+因此我们证明了：
+
+\medskip
+\noindent\textbf{命题 3.3.0.}
+\phantomsection
+\label{sga3:VIIA:3.3.0}
+\textit{若 \(\mathcal U\) 是一个作为 \(\mathcal O_S\)-模拟凝聚的 \(\mathcal O_S\)-交换群余代数，则仿射 \(S\)-概形 \(G=\operatorname{Spec}\mathcal U\) 是交换 \(S\)-群概形，并且有群值 \(S\)-函子同构
+\[
+  \operatorname{Spec}^{*}\mathcal U
+  \simeq
+  \operatorname{Hom}_{S\text{-gr.}}(G,\mathbb G_{m,S}).
+\]}
+
+此外，若 \(\mathcal U\) 作为 \(\mathcal O_S\)-模局部自由且有限型，则由 \SGARefLink{sga3:VIIA:3.1.2.1}{3.1.2.1}，群值 \(S\)-函子 \(\operatorname{Spec}^{*}\mathcal U\) 由 \(\operatorname{Spec}\mathcal U^{*}\) 表示。故有：
+
+\medskip
+\noindent\textbf{命题 3.3.1 (Cartier 对偶).}
+\phantomsection
+\label{sga3:VIIA:3.3.1}
+\textit{函子
+\[
+  \mathscr A(G)\longmapsto
+  \mathscr A(G)^{*}
+  =
+  \mathcal Hom_{\mathcal O_S\text{-Mod.}}
+  (\mathscr A(G),\mathcal O_S)
+\]
+在交换有限局部自由 \(S\)-群概形范畴上诱导一个对偶\textsuperscript{\(\ast\)}；它将 \(G\) 映到 \(S\)-群 \(\operatorname{Hom}_{S\text{-gr.}}(G,\mathbb G_{m,S})\)。}
+
+\begingroup
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+\footnotetext[1]{范畴 \(\mathscr C\) 的一个对偶是二元组 \((D,\varphi)\)，由反变函子 \(D:\mathscr C\to\mathscr C\) 及自然同构 \(\varphi:\operatorname{Id}_{\mathscr C}\to DD\) 组成，满足同构 \(\varphi D:D\to DDD\) 与 \(D\varphi^{-1}:DDD\to D\) 互为逆。编者将 \(D\varphi\) 修正为 \(D\varphi^{-1}\)。}
+\endgroup
+
+% 下一定位： Exp7A 本地页 22, 合并阅读本页 475,
+% 再版本印刷页 464, 在第 4 节标题处。

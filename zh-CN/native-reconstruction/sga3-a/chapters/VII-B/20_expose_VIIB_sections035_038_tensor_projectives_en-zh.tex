@@ -1,0 +1,319 @@
+% SGA 3，第 VII 篇_B，英文重建本——第 1 轮（中文译本）。
+% 范围：依据原文件第 11--14 页，从 0.3.5 至 0.3.8；止于原文件第 14 页的 0.4 之前。
+% 合并阅读版页码： 524--527. 再版印刷页码： 513--516.
+% 本范围内的原版页边定位： 485--488.
+% 依据： Polo--Gille Exp7B-13oct24.pdf,
+% SHA-256 D303690E0195654BBE7C3DAA5D89EA23E24CD709A3575217234AC19AE8836694.
+% 曾参阅 Jacob Reinhold 的 CC BY 4.0 Markdown，作为对比版本来源。
+
+\medskip
+\noindent\textbf{0.3.5.}
+\phantomsection
+\label{sga3:VIIB:0.3.5}
+考虑三个伪紧 \(A\)-模 \(L,M,N\)，其中 \(N\) 长度有限。
+赋予 \(A\)-模 \(\operatorname{Hom}_c(M,N)\) 离散拓扑。每个元素
+\[
+  \psi\in
+  \operatorname{Hom}_c
+    \bigl(L,\operatorname{Hom}_c(M,N)\bigr)
+\]
+定义一个连续双线性映射
+\[
+  \psi':L\times M\longrightarrow N,
+  \qquad
+  (\ell,m)\longmapsto\psi(\ell)(m).
+\]
+由此得到自然同构
+\begin{equation}
+  \operatorname{Hom}_c
+    \bigl(L,\operatorname{Hom}_c(M,N)\bigr)
+  \xrightarrow{\sim}
+  \operatorname{Hom}_c
+    \bigl(L\widehat{\otimes}_A M,N\bigr).
+  \tag{1}
+  \label{sga3:VIIB:0.3.5-eq1}
+\end{equation}
+这是 \(\operatorname{Hom}_c(L\widehat{\otimes}_A M,N)\) 的另一种刻画。
+现在将它用于 \(M\) 是伪紧 \(A\)-模的滤过投射系 \((M_i)\) 的投射极限的情形。
+由 (1) 和 \SGARefLink{sga3:VIIB:0.2.F}{0.2.F}~\SGARefLink{sga3:vii:paragraph:5-1:equation:ii}{(ii)}，有自然同构
+\begin{align}
+  \operatorname{Hom}_c
+    \left(L\widehat{\otimes}_A\varprojlim_iM_i,N\right)
+  &\simeq
+  \operatorname{Hom}_c
+    \left(L,\operatorname{Hom}_c(\varprojlim_iM_i,N)\right)
+  \notag\\
+  &\simeq
+  \operatorname{Hom}_c
+    \left(L,\varinjlim_i\operatorname{Hom}_c(M_i,N)\right).
+  \tag{2}
+  \label{sga3:VIIB:0.3.5-eq2}
+\end{align}
+
+此外，由于 \(\varinjlim_i\operatorname{Hom}_c(M_i,N)\) 是离散的，
+从 \(L\) 到这个模的每个连续映射都经过 \(L\) 的一个有限长度商分解。
+因此，自然映射
+\begin{equation}
+  \varinjlim_i
+  \operatorname{Hom}_c
+    \bigl(L,\operatorname{Hom}_c(M_i,N)\bigr)
+  \xrightarrow{\sim}
+  \operatorname{Hom}_c
+    \left(L,\varinjlim_i\operatorname{Hom}_c(M_i,N)\right)
+  \tag{3}
+  \label{sga3:VIIB:0.3.5-eq3}
+\end{equation}
+是同构。最后，再由 (1) 和 \SGARefLink{sga3:VIIB:0.2.F}{0.2.F}~\SGARefLink{sga3:vii:paragraph:5-1:equation:ii}{(ii)} 得到自然同构
+\begin{align}
+  \varinjlim_i
+  \operatorname{Hom}_c
+    \bigl(L,\operatorname{Hom}_c(M_i,N)\bigr)
+  &\simeq
+  \varinjlim_i
+  \operatorname{Hom}_c
+    \bigl(L\widehat{\otimes}_A M_i,N\bigr)
+  \notag\\
+  &\simeq
+  \operatorname{Hom}_c
+    \left(\varprojlim_i
+      (L\widehat{\otimes}_A M_i),N\right).
+  \tag{4}
+  \label{sga3:VIIB:0.3.5-eq4}
+\end{align}
+结合 \SGARefLink{sga3:VIIB:0.3.5-eq2}{(2)}、\SGARefLink{sga3:VIIB:0.3.5-eq3}{(3)} 和
+\SGARefLink{sga3:VIIB:0.3.5-eq4}{(4)}，得到下列结果。
+
+\medskip
+\noindent\textbf{命题。}
+\phantomsection
+\label{sga3:VIIB:0.3.5-proposition}
+{\itshape 设 \((M_i)\) 是 \(\operatorname{PC}(A)\) 中对象的滤过投射系，
+\(L\in\operatorname{PC}(A)\)，且 \(N\in\operatorname{LF}(A)\)。
+则有关于 \(N\) 函子性的同构
+\[
+  \operatorname{Hom}_c
+    \left(L\widehat{\otimes}_A\varprojlim_iM_i,N\right)
+  \simeq
+  \operatorname{Hom}_c
+    \left(\varprojlim_i(L\widehat{\otimes}_A M_i),N\right),
+\]
+从而有同构
+\[
+  L\widehat{\otimes}_A\varprojlim_iM_i
+  \simeq
+  \varprojlim_i(L\widehat{\otimes}_A M_i).
+\]
+因此，完备化张量积与滤过投射极限交换。\footnote{这也重新得到了 \SGARefLink{sga3:VIIB:0.3.1.1}{0.3.1.1}：
+\[
+  L=L\widehat{\otimes}_A A
+  =
+  L\widehat{\otimes}_A
+    \varprojlim_{\mathfrak l}(A/\mathfrak l)
+  \simeq
+  \varprojlim_{\mathfrak l}L/\mathfrak lL,
+\]
+其中 \(\mathfrak l\) 遍历 \(A\) 的开理想。}}
+
+% 依据： Exp7B 原文件页码 12; 合并阅读版页码 525; 印刷页码 514.
+\medskip
+\noindent\textbf{0.3.6.}
+\phantomsection
+\label{sga3:VIIB:0.3.6}
+特别地，\footnote{参见\ 编者注~(12)。} 完备化张量积与任意积交换。例如，由于 \(A\) 是其局部分量
+\(A_{\mathfrak m}\) 的积（\SGARefLink{sga3:VIIB:0.1.1}{0.1.1}），每个伪紧 \(A\)-模
+\[
+  M\simeq A\widehat{\otimes}_A M
+\]
+等同于以下各模的积
+\[
+  M_{\mathfrak m}
+  =
+  A_{\mathfrak m}\widehat{\otimes}_A M,
+\]
+这些模称为 \(M\) 的局部分量。
+
+同样，设 \(M\) 和 \(N\) 是伪紧 \(A\)-模。回顾 \SGARefLink{sga3:VIIB:0.2.2}{0.2.2}，有
+\[
+  M^\dagger=\operatorname{Hom}_c(M,A).
+\]
+考虑映射
+\[
+  \varphi:
+  M^\dagger\otimes_A N^\dagger
+  \longrightarrow
+  (M\widehat{\otimes}_A N)^\dagger
+\]
+它将 \(f\otimes g\) 映到从 \(M\widehat{\otimes}_A N\) 到 \(A\) 的映射
+\[
+  m\widehat{\otimes}n\longmapsto f(m)g(n)
+\]
+。当 \(M\simeq A\) 时，映射 \(\varphi\) 是双射。
+
+\medskip
+\noindent\textbf{推论。}
+\phantomsection
+\label{sga3:VIIB:0.3.6-corollary}
+\textit{若 \(A\) 是 Artin 环，则只要 \(M\) 是拓扑自由的，或更一般地是投射对象，
+\(\varphi\) 就是同构。}
+
+事实上，固定 \(N\) 时，由前述结果和 \SGARefLink{sga3:VIIB:0.2.F}{0.2.F}，两个函子
+\[
+  M\longmapsto(M\widehat{\otimes}_A N)^\dagger
+  \qquad\text{和}\qquad
+  M\longmapsto M^\dagger\otimes_A N^\dagger
+\]
+都将任意积变为直和。
+
+\medskip
+\noindent\textbf{注记 0.3.6.A。}\footnote{编者添加了本注记，它将在 \SGARefLink{sga3:VIIB:2.3.1}{2.3.1} 中用到。}
+\phantomsection
+\label{sga3:VIIB:0.3.6.A}
+\textit{同样应用 \SGARefLink{sga3:VIIB:0.2.F}{0.2.F}，得到下列结果。设 \(A\) 是 Artin 环，
+\(M,Q\in\operatorname{PC}(A)\)，且 \(N\in\operatorname{LF}(A)\)。
+若 \(Q\) 是投射对象，则有自然同构}
+\[
+  \operatorname{Hom}_c(M,Q)
+  \xrightarrow{\sim}
+  \operatorname{Hom}_A(Q^\dagger,M^\dagger),
+  \qquad
+  Q^\dagger\otimes_A N
+  \xrightarrow{\sim}
+  \operatorname{Hom}_c(Q,N).
+\]
+
+\medskip
+\noindent\textbf{0.3.7.}
+\phantomsection
+\label{sga3:VIIB:0.3.7}
+对每个 \(\mathfrak m\in\Upsilon(A)\)，函子
+\[
+  M\longmapsto A_{\mathfrak m}\widehat{\otimes}_A M
+\]
+显然正合。由于每个投射伪紧 \(A\)-模 \(P\) 都是形如
+\(A_{\mathfrak m}\) 的模的积，得到
+\[
+  M\longmapsto P\widehat{\otimes}_A M
+\]
+只要 \(P\) 是投射对象就是正合的。逆命题也成立。
+
+\medskip
+\noindent\textbf{命题。}
+\phantomsection
+\label{sga3:VIIB:0.3.7-proposition}
+{\itshape 设 \(A\) 是伪紧环，\(P\) 是伪紧 \(A\)-模。下列条件等价：
+\begin{enumerate}
+  \item[\textup{(i)}]
+  \(P\) 是 \(\operatorname{PC}(A)\) 的投射对象；
+  \item[\textup{(ii)}]
+  每个局部分量 \(P_{\mathfrak m}\) 都是拓扑自由 \(A_{\mathfrak m}\)-模；
+  \item[\textup{(iii)}]
+  函子 \(M\mapsto P\widehat{\otimes}_A M\) 正合。
+\end{enumerate}}
+
+\SGARefLink{sga3:vii:paragraph:5-1:equation:i}{(i)} 与
+\SGARefLink{sga3:vii:paragraph:5-1:equation:ii}{(ii)} 的等价性由
+\SGARefLink{sga3:VIIB:0.2.F}{0.2.F}~\SGARefLink{sga3:VIIB:0.2.F:item:iii}{(iii)} 和
+\SGARefLink{sga3:VIIB:0.2.1}{0.2.1} 得到，而我们刚才已经证明了
+\SGARefLink{sga3:VIIB:0.2.1:item:ii}{(ii)}~\(\Rightarrow\)~\SGARefLink{sga3:VIIB:0.2.F:item:iii}{(iii)}。
+设函子 \(M\mapsto P\widehat{\otimes}_A M\) 正合。由于
+\(P\widehat{\otimes}_A M\) 是其局部分量的积，
+\[
+  (P\widehat{\otimes}_A M)_{\mathfrak m}
+  \simeq
+  P_{\mathfrak m}
+    \widehat{\otimes}_{A_{\mathfrak m}}M_{\mathfrak m},
+\]
+我们归约到 \(A\) 为局部环的情形。下面证明此时 \(P\) 是拓扑自由的。
+
+设 \(\mathfrak m\) 是 \(A\) 的极大理想。商
+\(P/\overline{\mathfrak m}P\) 是 \(A/\mathfrak m\) 上的线性紧向量空间，
+从而是 \(A/\mathfrak m\) 的副本的积（\SGARefLink{sga3:VIIB:0.2.2}{0.2.2}）。
+因此，存在一族 \(A\) 的副本 \((A_i)_{i\in I}\) 以及同构
+\[
+  \phi:
+  \prod_{i\in I}(A_i/\mathfrak m)
+  \xrightarrow{\sim}
+  P/\overline{\mathfrak m}P.
+\]
+由于 \(\prod_{i\in I}A_i\) 是投射对象，存在交换方块
+\begin{center}
+  \phantomsection
+  \label{sga3:VIIB:0.3.7-projective-lift-square}
+  % SGA3-VII-DIAG-082
+  \input{figures/exp7/viib_15_95/diag_082}
+\end{center}
+其中 \(p\) 和 \(q\) 是典范投影。将 Nakayama 引理应用于
+\(\operatorname{Coker}\psi\)。由于
+\[
+  (A/\mathfrak m)\widehat{\otimes}_A\psi
+\]
+恰为 \(\phi\)，映射 \(\psi\) 是满射。\footnote{这证明了编者注~(22) 中预告的结果：每个伪紧 \(A\)-模 \(M\) 都是某个拓扑自由
+\(A\)-模的商。由于 \(\operatorname{PC}(A)\) 中的积正合，可以归约到此处处理的局部情形。}
+
+% 依据： Exp7B 原文件页码 13; 合并阅读版页码 526; 印刷页码 515.
+令
+\[
+  B=\prod_{i\in I}A_i,
+  \qquad
+  N=\ker\psi.
+\]
+于是有下列交换正合图：
+\begin{center}
+  \phantomsection
+  \label{sga3:VIIB:0.3.7-nakayama-exact-diagram}
+  % SGA3-VII-DIAG-083
+  \input{figures/exp7/viib_15_95/diag_083}
+\end{center}
+对前两行应用蛇引理，表明最下面一行中的态射
+\[
+  (A/\mathfrak m)\widehat{\otimes}_A N
+  \longrightarrow
+  (A/\mathfrak m)\widehat{\otimes}_A B
+\]
+是单态射。但 \(\phi\) 是同构，所以 \((A/\mathfrak m)\widehat{\otimes}_A N=0\)。
+由 \SGARefLink{sga3:VIIB:0.3.3}{0.3.3} 得到 \(N=0\)，从而 \(\psi\) 是同构。\footnote{使用“幂零 Nakayama 引理”的完全类似的证明表明，若 \(A\) 是 Artin 环，且
+\(P\) 是平坦 \(A\)-模，则 \(P\) 的每个局部分量都是自由 \(A\)-模
+（参见\ \textup{[BAC]}，II，\S~\SGARefLink{sga3:VIIB:3.2:prop}{3.2}，
+命题~5 的\SGARefLink{sga3:VIIB:0.3.5-eq2}{推论~2}）。}
+
+\medskip
+\noindent\textbf{0.3.8. 推论。}
+\phantomsection
+\label{sga3:VIIB:0.3.8}
+\textit{设 \(A\) 是完备 Noether 局部环，\(P\) 是伪紧 \(A\)-模。
+则 \(P\) 是拓扑自由的，当且仅当 \(P\) 在 \(A\) 上平坦。}
+
+事实上，典范映射
+\[
+  M\otimes_A P\longrightarrow M\widehat{\otimes}_A P
+\]
+在 \(M=A\) 时为双射，因而在 \(M\) 为 Noether 模时也为双射：
+取 \(M\) 的一个有限呈示，并利用张量积和完备化张量积的右正合性即可。
+
+现在，\(P\) 平坦，当且仅当
+\[
+  M\longmapsto M\otimes_A P
+\]
+在 Noether 模上正合。同样，\SGARefLink{sga3:VIIB:0.3.7}{命题
+0.3.7} 的证明表明，只要序列
+\[
+  0\longrightarrow
+  \mathfrak m\widehat{\otimes}_A P
+  \longrightarrow
+  A\widehat{\otimes}_A P
+  \longrightarrow
+  (A/\mathfrak m)\widehat{\otimes}_A P
+  \longrightarrow0
+\]
+正合，\(P\) 就是拓扑自由的。因此，\(P\) 拓扑自由，当且仅当函子
+\[
+  M\longmapsto M\widehat{\otimes}_A P
+\]
+在 Noether 模上正合。由上面建立的等式
+\[
+  M\otimes_A P=M\widehat{\otimes}_A P
+\]
+即得推论。
+
+% 下一断点： Exp7B 原文件页码 14, 合并阅读版页码 527,
+% 再版印刷页码 516, 0.4 处。

@@ -1,0 +1,203 @@
+
+% SGA 3，第 VII 篇_B；英文重建本第一轮的中文译本。
+% 范围： 节 2.9 全文, 包括命题 2.9.1 与
+% 注 2.9.2, 依据文献局部页 65--66.
+% 止于下节之前： 节 3.
+% 合并阅读本页： 578--579. 重版印刷页： 567--568.
+% 范围内编者注： 118.
+% 依据： Polo--Gille Exp7B-13oct24.pdf,
+% SHA-256 D303690E0195654BBE7C3DAA5D89EA23E24CD709A3575217234AC19AE8836694.
+% 参照了 Jacob Reinhold 的 CC BY 4.0 Markdown，作为对照来源。
+% 本组件无图；所有数学内容均为原生 LaTeX。
+\subsection*{2.9. 域上的点化余交换 Hopf 代数}
+\phantomsection
+\label{sga3:VIIB:2.9}
+\addcontentsline{toc}{subsection}{\SGARefLink{sga3:VIIB:2.9}{2.9}. 域上的点化余交换 Hopf 代数}
+\footnote{\label{sga3:VIIB:nde:118}编者添加此小节，以余交换 Hopf 代数的语言表述命题 2.5.2 及编者注 100 中指出的变体。}
+设 \(k\) 是域，\(C\) 是 \(k\)-余代数，并赋予
+\[
+  A=C^*
+\]
+以 \SGARefLink{sga3:VIIB:2.8}{2.8} 所描述的不一定交换的预有限 \(k\)-代数结构。由 \SGARefLink{sga3:VIIB:0.2.2}{0.2.2}，
+\[
+  C=A^\dagger=\operatorname{Hom}_c(A,k).
+\]
+因此映射
+\[
+  D\longmapsto
+  D^\perp=\{f\in A\mid f(D)=0\}
+\]
+是从 \(C\) 的子余代数到 \(A\) 的闭双边理想\textup{（以下将简称为理想）}的双射。其逆为
+\[
+  I\longmapsto
+  I^\perp
+  =
+  \{x\in C=A^\dagger\mid x(I)=0\}.
+\]
+由于每个极大闭理想都是极大开理想\textup{（参见\ \SGARefLink{sga3:VIIB:0.2.1}{0.2.1}）}，每个子余代数都包含一个单子余代数，后者必为有限维。
+回顾，若子余代数 \(D\subset C\) 包含唯一的单子余代数 \(S_0\)，则称 \(D\) 是\emph{不可约的}。等价地，
+\[
+  \mathfrak m_0=S_0^\perp
+\]
+是包含 \(D^\perp\) 的唯一开极大理想；又等价地，
+\[
+  D^\perp+\mathfrak m=A
+  \qquad
+  \text{对每个开极大理想 }
+  \mathfrak m\ne\mathfrak m_0.
+\]
+特别地，这适用于 \(D=S_0\)。
+令 \(\Sigma_0\) 为包含 \(S_0\) 的所有不可约子余代数 \(C_i\) 的和。显然它是子余代数，且是不可约的，因为对每个 \(\mathfrak m\ne\mathfrak m_0\)，\SGARefLink{sga3:VIIB:0.2.D}{0.2.D} 给出
+\[
+  \mathfrak m+\bigcap_i C_i^\perp
+  =
+  \bigcap_i\bigl(\mathfrak m+C_i^\perp\bigr)
+  =
+  A.
+\]
+称余代数 \(\Sigma_0\) 为 \emph{\(C\) 中对应于 \(S_0\) 的不可约分量}。
+\textit{法文在最后一句印作 \(C_0\)；根据前面的定义，所指的单子余代数应为 \(S_0\)。}
+若余代数 \(C\) 的每个单 \(k\)-子余代数都是一维的，则称 \(C\) 是\emph{点化的}。等价地，对 \(A\) 的每个开极大理想 \(\mathfrak m\)，
+\[
+  A/\mathfrak m=k
+\]
+成立。还要回顾，若 \(C\) 是不可约且点化的，则称其为\emph{连通的}。若 \(C\) 为双代数，则它连通当且仅当它不可约，因为 \(k\cdot1_C\) 是单子余代数。
+此后设 \(C\) 是余交换的。则 \(A\) 是交换的，因而是其局部分量的积
+\[
+  A_{\mathfrak m},
+  \qquad
+  \mathfrak m\in\Upsilon(A);
+\]
+参见\ \SGARefLink{sga3:VIIB:0.1.1}{0.1.1}。置
+\[
+  S_{\mathfrak m}
+  =
+  \mathfrak m^\perp
+  \simeq
+  (A/\mathfrak m)^*,
+\]
+并令 \(\Sigma_{\mathfrak m}\) 为其不可约分量。可以明确描述这个分量。令
+\[
+  J_{\mathfrak m}
+  =
+  \ker\bigl(A\longrightarrow A_{\mathfrak m}\bigr).
+\]
+则 \(J_{\mathfrak m}\subset\mathfrak m\)，而且它是满足
+\[
+  I+\mathfrak m'=A
+  \qquad
+  \text{对每个开极大理想 }
+  \mathfrak m'\ne\mathfrak m.
+\]
+的最小闭理想 \(I\subset\mathfrak m\)。事实上，每个这样的 \(I\) 都包含所有 \(\mathfrak m'\ne\mathfrak m\) 对应的 \(A_{\mathfrak m'}\)，因而包含 \(J_{\mathfrak m}\)。由于
+\[
+  A=J_{\mathfrak m}\oplus A_{\mathfrak m},
+\]
+得到
+\[
+  \Sigma_{\mathfrak m}
+  =
+  J_{\mathfrak m}^{\perp}
+  \simeq
+  A_{\mathfrak m}^{\dagger}.
+\]
+现在可以证明：
+\medskip
+\noindent\textbf{命题 2.9.1。}
+\phantomsection
+\label{sga3:VIIB:2.9.1}
+{\itshape 设 \(k\) 是域。
+\begin{enumerate}
+\item[\textup{\SGAInlineRefTarget{sga3:VIIB:2.9.1:item:i}(i)}]
+设 \(G\) 是所有剩余域均等于 \(k\) 的形式 \(k\)-群。则 \(G_e\) 是常值 \(k\)-群 \(M_k\)，其中
+\[
+  M
+  =
+  G(k)
+  =
+  \left\{
+    x\in\mathbf H(G)
+    \,\middle|\,
+    \varepsilon(x)=1,\quad
+    \Delta(x)=x\otimes x
+  \right\},
+\]
+且 \(\mathbf H(G)\) 是 \(\mathbf H(G_0)\) 与群代数 \(kM\) 的半直积\textup{（参见\ \SGARefLink{sga3:VIIB:2.4.B}{2.4.B}）}。
+\item[\textup{\SGAInlineRefTarget{sga3:VIIB:2.9.1:item:ii}(ii)}]
+等价地，设 \(H\) 是点化余交换 Hopf \(k\)-代数。则 \(H\) 是单位元 \(1_H\) 的不可约分量 \(H_0\) 与 \(kM\) 的半直积，其中
+\[
+  M
+  =
+  \{x\in H\mid \varepsilon(x)=1,\ \Delta(x)=x\otimes x\}.
+\]
+\end{enumerate}}
+\textit{证明。}
+先证明\textup{\SGARefLink{sga3:VIIB:2.9.1:item:i}{(i)}}。由于 \(G\) 的每个剩余域都等于 \(k\)，投影
+\[
+  \pi:G\longrightarrow G_e
+\]
+有截面 \(s:G_e\to G\)，在每个点 \(g\in G\) 处定义为
+\[
+  \mathcal O_{G,g}\longrightarrow\kappa(g)=k.
+\]
+此外，对所有 \(g,h\in G\)，代数
+\[
+  \mathcal O_{G,g}
+  \widehat\otimes_k
+  \mathcal O_{G,h}
+\]
+是剩余域为 \(k\) 的局部代数。因此 \(s\times s\) 是
+\[
+  \pi\times\pi:
+  G\times G\longrightarrow
+  (G\times G)_e=G_e\times G_e.
+\]
+的截面。由于 \(\pi\) 是群态射，
+\[
+  \pi\circ m_G\circ(s\times s)
+  =
+  m_{G_e}
+  =
+  \pi\circ s\circ m_{G_e}.
+\]
+由于 \(\pi\) 是满态射，可知 \(s\) 是群态射。故
+\[
+  G=G_0\rtimes G_e,
+\]
+且 \(\mathbf H(G)\) 是 \(\mathbf H(G_0)\) 与 \(\mathbf H(G_e)\) 的半直积。
+由于 \(G\) 的每个剩余域都为 \(k\)，\(\mathbf H(G_e)\) 是群代数 \(kM\)，其中
+\[
+  M=G_e(k);
+\]
+参见\ \SGARefLink{sga3:VIIB:2.5.A}{2.5.A}。最后，由于 \(G_0\) 无穷小，映射
+\[
+  G(k)\longrightarrow G_e(k)
+\]
+是单射。它也是满射，因为它有由 \(s\) 诱导的截面。因此 \(M=G(k)\)，证明了\textup{\SGARefLink{sga3:VIIB:2.9.1:item:i}{(i)}}。
+对于\textup{\SGARefLink{sga3:VIIB:2.9.1:item:ii}{(ii)}}，只须再证明
+\[
+  H_0=\mathbf H(G_0).
+\]
+\(H\) 的单位元 \(1_H\) 是增广
+\[
+  \varepsilon_{\mathcal A}:\mathcal A\longrightarrow k,
+\]
+它是 \(G(k)\) 的单位截面。因此，仿射代数 \(\mathcal A(G)\) 中对应于 \(H_0\) 的局部分量恰好是 \(\mathcal A(G_0)\)。由上述描述，
+\[
+  H_0
+  =
+  \mathcal A(G_0)^\dagger
+  =
+  \mathbf H(G_0).
+\]
+命题得证。
+\medskip
+\noindent\textbf{注 2.9.2。}
+\phantomsection
+\label{sga3:VIIB:2.9.2}
+\begin{enumerate}
+\item[\textup{(a)}]
+上述命题隐含于 \SGARefLink{sga3:VIIB:2.5.2:proposition}{2.5.2}，B.\ Kostant 也曾独立得到它\textup{（参见 [Sw69]，序言）}。将其与下文 Cartier 的\SGARefLink{sga3:VIIB:3.3:cartier-theorem}{定理 3.3}\textup{（参见 [Ca62]，\S~12，定理 3）}结合——该定理 Kostant 也曾得到\textup{（参见 [Sw69]，同上）}——所得结果常称为 \emph{Cartier--Gabriel--Kostant 定理}。
+\item[\textup{(b)}]
+R.\ G.\ Heyneman 与 M.\ E.\ Sweedler 将\SGARefLink{sga3:VIIB:2.9.1}{命题 2.9.1} 的形式\textup{\SGARefLink{sga3:VIIB:2.9.1:item:ii}{(ii)}} 推广到假设 \(H\) 点化且是其不可约分量的直和、但不一定余交换的情形；参见 [HS69]，定理 3.5.8。
+\end{enumerate}

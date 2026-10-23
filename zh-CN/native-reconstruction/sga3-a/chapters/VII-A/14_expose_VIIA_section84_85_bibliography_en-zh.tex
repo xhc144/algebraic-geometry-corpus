@@ -1,0 +1,344 @@
+% SGA 3，第 VII_A 讲， 英文重建稿——第 1 轮。
+% 范围：权威底本局部页 56--60, 段落 8.4--8.5.3 以及
+% VIIA 末尾的参考文献。
+% 合并阅读本页码： 509--513. 再版印刷页码： 498--502.
+% 本范围内原版页边定位： 473--476.
+% 权威底本： Polo--Gille Exp7A-13oct24.pdf,
+% SHA-256 D46DB8C79D0385643B6EED4B96900613248375F9B73B4202478A4F57FD3E8522.
+% 曾参考 Jacob Reinhold 的 CC BY 4.0 Markdown 作为比对谱系。
+
+\medskip
+\noindent\textbf{8.4.}
+\phantomsection
+\label{sga3:VIIA:8.4}
+
+% 权威底本： Exp7A 局部页 56; 合并本页 509; 印刷页 498.
+在结束本篇的两个陈述中，我们回到任意特征的域 \(k\) 的情形。
+
+若 \(k\) 的特征为 \(0\)，取 \(n\ge1\)。若 \(k\) 的特征为 \(p>0\)，取与 \(p\) 互素的 \(n\ge1\)。在这两种情形中，均简称 \(n\) \emph{与 \(k\) 的特征互素}。若 \(G\) 是 \(k\) 上的群概形，以
+\[
+  n_G:G\longrightarrow G
+\]
+表示如下 \(k\)-概形态射：对于每个 \(k\)-概形 \(T\)，它将 \(x\in G(T)\) 映至 \(x^n\in G(T)\)。
+
+\medskip
+\noindent\textbf{命题。}
+\phantomsection
+\label{sga3:VIIA:8.4-proposition}
+\textit{设 \(G\) 是域 \(k\) 上的代数群，\(n\) 与 \(k\) 的特征互素。则
+\[
+  n_G:G\longrightarrow G
+\]
+是一个平展态射。}
+
+由 VIB，\SGARefLink{prop:sga3-VIB-1.3}{1.3}，只须证明 \(n_G\) 在原点处平展。\footnote{编者将陈述中的“在原点处平展”改为“平展”，并添加了前面这句话。}设 \(A\) 是 \(G\) 在原点处的局部环，\(I\) 是其极大理想。由 II，\SGARefLink{sga3:ii:corollary:3-9-4}{3.9.4}，由 \(n_G\) 诱导的映射
+\[
+  \operatorname{Lie}(n_G):
+  \operatorname{Lie}(G)\longrightarrow\operatorname{Lie}(G)
+\]
+是乘以 \(n\) 的映射。因此它是同构，由 \(n_G\) 在
+\[
+  I/I^2=\operatorname{Lie}(G)^*.
+\]
+
+上诱导的自同态也是同构。先假设 \(\operatorname{char}k=0\)。群 \(G\) 在 \(k\) 上平滑（VIB，1.6.1；另见 VIIB，3.3.1），且典范同态
+\[
+  \operatorname{Sym}(I/I^2)\longrightarrow
+  \operatorname{gr}_I(A)
+\]
+是同构，其中 \(\operatorname{gr}_I(A)\) 是与 \(I\)-进过滤相伴的分次环。因此 \(n_G\) 诱导出 \(\operatorname{gr}_I(A)\) 的自同构，从而也诱导出完备化 \(\widehat A\) 的自同构。故 \(n_G\) 在原点处平展（参见 EGA IV\(_4\)，17.6.3）。
+
+其次假设 \(\operatorname{char}k=p>0\)，且 \(G\) 的高度至多为 \(1\)。则 \(A\) 同构于下述模的对称代数
+\[
+  \omega_{G/k}=I/I^2
+\]
+对由 \(\omega_{G/k}\) 的元素的 \(p\) 次幂生成的理想所取的商（参见 7.4）。与特征 \(0\) 的情形相同的论证表明，\(n_G\) 诱导出 \(A\) 的自同构。
+
+假设 \(G\) 的高度至多为 \(r\)，且结果已对高度至多为 \(r-1\) 的群得证。令 \(B,A,A'\) 分别为 \(\operatorname{Fr}G,G\) 以及
+\[
+  G'=\operatorname{Fr}G\backslash G,
+\]
+的仿射代数，并令 \(n_B,n_A,n_{A'}\) 分别为由 \(n_{\operatorname{Fr}G},n_G,n_{G'}\) 诱导的自同态。令
+\[
+  I'=I\cap A',
+\]
+为 \(A'\) 的极大理想。笛卡尔方图
+\begin{center}
+  \phantomsection
+  \label{sga3:VIIA:8.4-height-induction-cartesian-square}
+  % SGA3-VII-DIAG-077
+  \input{figures/exp7/viia_05_14/diagram_077}
+\end{center}
+给出
+\[
+  B=A/I'A.
+\]
+\footnote{编者在下文中扩充了原文的论证。}
+自同态 \(n_{A'}\)、\(n_B\) 分别是由 \(n_A\) 在 \(A'\)、\(B\) 上诱导的自同态。由 VIA，\SGARefLink{thm:sga3-VIA-3.2}{3.2}，\(A\) 是忠实平坦 \(A'\)-模。由于 \(G'\) 是高度至多为 \(r-1\) 的代数 \(k\)-群，\(A'\) 是 Artin 局部环，因此 \(A\) 是自由 \(A'\)-模。\(n_A\) 在 \(A'\) 上的限制是 \(n_{A'}\)，由归纳假设它是同构。因此 Nakayama 引理表明，只要它在 \(A/I'A\) 上诱导的自同态是自同构，\(n_A\) 就是自同构。
+
+% 权威底本： Exp7A 局部页 57; 合并本页 510; 印刷页 499.
+这个自同态就是 \(n_B\)，由于 \(\operatorname{Fr}G\) 的高度至多为 \(1\)，它是自同构。因此 \(n_A\) 是自同构。
+
+最后，设 \(G\) 是特征为 \(p>0\) 的域上的任意代数群。前面的论证表明，\(n_G\) 诱导出 \(k\)-概形 \(\operatorname{Fr}^rG\) 的自同构。这些概形在 \(k\) 上仿射，其代数是局部代数 \(A\) 对理想
+\[
+  I^{\{p^r\}}
+\]
+所取的商，此理想由 \(I\) 的元素的 \(p^r\) 次幂生成。由于 \(n_G\) 在所有代数 \(A/I^{\{p^r\}}\) 上诱导自同构，取投射极限可知它在 \(\widehat A\) 上诱导自同构。因此 \(n_G\) 在原点处平展（EGA IV\(_4\)，17.6.3）。
+
+\medskip
+\noindent\textbf{8.5. 命题。}
+\phantomsection
+\label{sga3:VIIA:8.5}
+\textit{设 \(G\) 是域 \(k\) 上秩为 \(n\) 的有限代数群。则
+\[
+  n_G:G\longrightarrow G
+\]
+是 \(G\) 的零态射。}
+
+结合 8.4 和 8.5，立即得到下述推论。
+
+\medskip
+\noindent\textbf{推论 8.5.1。}
+\phantomsection
+\label{sga3:VIIA:8.5.1}
+\textit{设 \(G\) 是域 \(k\) 上秩为 \(n\) 的有限代数群。若 \(n\) 与 \(k\) 的特征互素，则 \(G\) 在 \(k\) 上平展。}
+\footnote{编者添加了此推论，原文以“参见 \SGARefLink{sga3:VIIA:8.4}{8.4}”隐含地指出了它。不使用 \SGARefLink{sga3:VIIA:8.5}{8.5} 的另一个证明见 \textup{[TO70]}，\SGARefExternal{sga3:VIIA:5}{引理~5}。}
+
+现在证明 \SGARefLink{sga3:VIIA:8.5}{8.5}。设 \(H\) 是 \(G\) 的正规子群，在 \(k\) 上的秩为 \(m\)，并令
+\[
+  \lambda:H\times G\longrightarrow G
+\]
+由 \(G\) 的乘法诱导。沿用 VIA，3.2 的记号，存在笛卡尔方图
+\begin{center}
+  \phantomsection
+  \label{sga3:VIIA:8.5-normal-subgroup-cartesian-square}
+  % SGA3-VII-DIAG-078
+  \input{figures/exp7/viia_05_14/diagram_078}
+\end{center}
+由于 \(\pi:G\to H\backslash G\) 忠实平坦且拟紧（VIA，3.2），而 \(\operatorname{pr}_2\) 局部自由、秩为 \(m\)，EGA IV\(_2\)，2.5.2 表明 \(G\to H\backslash G\) 局部自由、秩为 \(m\)。若
+\[
+  r=\operatorname{rk}_k(H\backslash G),
+\]
+则
+\[
+  n=\operatorname{rk}_k(G)=rm.
+\]
+
+另一方面，对于每个 \(k\)-概形 \(T\)，存在抽象群的正合列
+\[
+  1\longrightarrow H(T)\longrightarrow G(T)
+  \longrightarrow(H\backslash G)(T).
+\]
+因此显然，只要 \(m_H\) 和 \(r_{H\backslash G}\) 都为零，\(n_G\) 就为零。取 \(H=G^0\) 为单位连通分支，商 \(G^0\backslash G\) 是平展的（参见 VIA，\SGARefLink{prop:sga3-VIA-5.5.1}{5.5.1}）。因而可以假设 \(G\) 在 \(k\) 上平展，或者它是无穷小的（参见 \SGARefLink{sga3:VIIA:7.0}{7.0}）。
+
+若 \(G\) 平展，通过扩张基域可归结到 \(k\) 代数闭的情形。此时 \(G\) 是常值群（参见 I，\SGARefLink{sga3:i:subsection:4-1}{4.1}），而所要证明的断言是经典的。
+
+若 \(G\) 非零且无穷小，则 \(k\) 必有特征 \(p>0\)（参见 VIB，\SGARefLink{cor:sga3-VIB-1.6.1}{1.6.1} 或 VIIB，\SGARefLink{sga3:VIIB:3.3.1}{3.3.1}）。子群 \(\operatorname{Fr}^rG\) 构成 \(G\) 的一个合成列，其相邻商的高度至多为 \(1\)。
+
+% 权威底本： Exp7A 局部页 58; 合并本页 511; 印刷页 500.
+于是归结到 \(G\) 的高度至多为 \(1\) 的情形。令 \(A\)、\(L\) 分别为 \(G\) 的仿射代数、Lie 代数，并令
+\[
+  U=U_p(L).
+\]
+由 \SGARefLink{sga3:VIIA:7.4}{7.4}，\(G=\mathfrak G_p(L)\)，故 \(A=U^*\)。因此，若 \(\dim_kL=r\)，则 \(G\) 在 \(k\) 上的秩为 \(p^r\)（参见 \SGARefLink{sga3:VIIA:5.3.3}{5.3.3}）。我们将研究取 \(p\) 次幂所定义的态射
+\[
+  p_G:G\longrightarrow G
+\]
+。它诱导出 \(A\) 的自同态 \(p_A\)，并通过对偶诱导出 \(U\) 的自同态 \(p_U\)。
+
+令 \(I\) 为 \(A\) 的增广理想。我们将证明
+\[
+  \tag{*}\label{sga3:vii:corollary:8-5-1:equation:star}
+  p_A(I)\subset I^p.
+\]
+假设此式成立，就有
+\[
+  p_A^r(I)\subset I^{p^r}.
+\]
+此外，
+\[
+  I^{r(p-1)+1}=0,
+\]
+因为 \(I\) 由 \(r\) 个 \(p\) 次幂为零的元素生成。由于 \(p^r>r(p-1)\)，得到 \(p_A^r(I)=0\)，故 \(p_G^r\) 是零态射。
+
+对于每个整数 \(s\ge1\)，以
+\[
+  m_A^{s-1}:A^{\otimes s}\longrightarrow A,
+  \qquad
+  \Delta_U^{s-1}:U\longrightarrow U^{\otimes s},
+\]
+分别表示由 \(A\) 的乘法 \(m_A\) 和 \(U\) 的余乘法 \(\Delta_U\) 诱导的映射。则 \(p_A\) 是复合
+\[
+  A\xrightarrow{\Delta_A^{p-1}}
+  A^{\otimes p}
+  \xrightarrow{m_A^{p-1}}A.
+\]
+由于 \(m_A\)、\(\Delta_A\) 的转置分别是 \(\Delta_U\)、\(m_U\)，自同态
+\[
+  p_U={}^tp_A
+\]
+是复合
+\[
+  U\xrightarrow{\Delta_U^{p-1}}
+  U^{\otimes p}
+  \xrightarrow{m_U^{p-1}}U.
+\]
+
+令 \(J\) 为 \(U\) 的增广理想。\footnote{编者在本段中扩充了原文的论证。}则
+\[
+  U=k1_U\oplus J,
+\]
+并以 \(\pi:U\to J\) 表示核为 \(k1_U\) 的投影。对于 \(s\ge1\)，令 \((I^s)^\perp\) 为 \(I^s\) 在 \(A^*=U\) 中的正交补。因此，\((I^s)^\perp\) 由使下述复合为零的元素 \(u\in U\) 构成：
+\[
+  I^{\otimes s}
+  \xrightarrow{m_A^{s-1}}I
+  \xrightarrow{u}k
+\]
+由于 \(m_A\) 的转置是 \(\Delta_U\)，\((I^s)^\perp\) 是由使 \(\Delta_U^{s-1}(u)\) 在 \(I^{\otimes s}\) 上为零的 \(u\in U\) 构成的向量子空间 \(P_{s-1}\)。若
+\[
+  \overline\Delta_U^{s-1}
+  =
+  \pi^{\otimes s}\circ\Delta_U^{s-1},
+\]
+则
+\[
+  (I^s)^\perp
+  =
+  P_{s-1}
+  =
+  \ker\overline\Delta_U^{s-1}
+\]
+（另见 VIIB，\SGARefLink{sga3:VIIB:1.3.6}{1.3.6}）。
+
+为证明 \((*)\)，只须证明转置 \(p_U={}^tp_A\) 将 \(P_{p-1}\) 映入
+\[
+  I^\perp=k1_U.
+\]
+由于 \(p_U(1_U)=1_U\)，只须证明
+\[
+  \tag{**}\label{sga3:vii:corollary:8-5-1:equation:double-star}
+  p_U(P_{p-1}^+)=0,
+  \qquad
+  P_{p-1}^+=J\cap P_{p-1}.
+\]
+对 \(s\) 作简单归纳，可知 \(P_{s-1}^+\) 由如下乘积张成：
+\[
+  x_1\cdots x_t,
+  \qquad
+  1\le t\le s-1,\quad x_i\in L
+\]
+（参见 VIIB，\SGARefLink{sga3:VIIB:4.3}{4.3}）。
+
+% 权威底本： Exp7A 局部页 59; 合并本页 512; 印刷页 501.
+对于 \(x_1,\ldots,x_t\in L\)，有
+\[
+\begin{aligned}
+  p_U(x_1x_2\cdots x_t)
+  &=
+  m_U^{p-1}
+  \left(
+    \prod_{j=1}^t
+    \sum_{i=1}^p
+    1\otimes\cdots\otimes
+    \underset{\text{\scriptsize position \(i\)}}{x_j}
+    \otimes\cdots\otimes1
+  \right).
+\end{aligned}
+\]
+括号中的表达式是 \(p^t\) 项 \(x_h\) 的和，其指标为映射
+\[
+  h:\{1,\ldots,t\}\longrightarrow\{1,\ldots,p\}.
+\]
+。这样的映射确定了将 \(\{1,\ldots,t\}\) 分成至多 \(p\) 部分的一个有序分划 \(\mathcal P_h\)。\footnote{编者扩充了原文的论证，并用等价的有序分划概念替换了预序概念。}事实上，令
+\[
+  i_1<\cdots<i_q
+\]
+为 \(h\) 的像中的元素，令
+\[
+  I_a=h^{-1}(i_a)
+  \quad(1\le a\le q),
+  \qquad
+  x_{I_a}=\prod_{j\in I_a}x_j,
+\]
+其中乘积按递增顺序取。映射 \(h\) 对应于 \(p\) 重张量
+\[
+  1\otimes\cdots\otimes x_{I_1}\otimes\cdots\otimes
+  x_{I_q}\otimes\cdots\otimes1,
+\]
+其中 \(x_{I_a}\) 位于位置 \(i_a\)。它在迭代乘法下的像是乘积
+\[
+  x_{I_1}\cdots x_{I_q}.
+\]
+。此乘积只依赖于有序分划
+\[
+  \mathcal P=(I_1,\ldots,I_q);
+\]
+；将其记为 \(x_{\mathcal P}\)。固定 \(\mathcal P\) 后，对 \(\{1,\ldots,p\}\) 中 \(i_1<\cdots<i_q\) 的每种选取，得到的都是同一项。因此，
+\[
+  p_U(x_1x_2\cdots x_t)
+  =
+  \sum_{\mathcal P}
+  \binom{p}{n(\mathcal P)}x_{\mathcal P},
+\]
+其中 \(\mathcal P\) 遍历 \(\{1,\ldots,t\}\) 的至多分为 \(p\) 部分的有序分划，\(n(\mathcal P)\) 是其部分的个数。这里
+\[
+  1\le n(\mathcal P)\le\min(t,p).
+\]
+若 \(t<p\)，所有系数 \(\binom{p}{n(\mathcal P)}\) 在 \(k\) 中均为零，因而
+\[
+  p_U(x_1\cdots x_t)=0.
+\]
+因此 \(p_U\) 在 \(P_{p-1}^+\) 上为零。这证明了 \((**)\)，继而证明了 \((*)\)，并完成了 \SGARefLink{sga3:VIIA:8.5}{8.5} 的证明。
+
+\medskip
+\noindent\textbf{推论 8.5.2。}\footnote{编者添加了此推论；\SGARefLink{sga3:viii:remark:7:3:1}{第 VIII 篇，注 7.3.1} 中提到了它。}
+\phantomsection
+\label{sga3:VIIA:8.5.2}
+\textit{设 \(S\) 是既约概形，\(G\) 是秩为 \(n\) 的有限局部自由 \(S\)-群。则
+\[
+  n_G:G\longrightarrow G
+\]
+是 \(G\) 的零态射。}
+
+令 \(S'\) 为各个 \(\operatorname{Spec}\mathcal O_{S,\eta}\) 的不交并，其中 \(\eta\) 遍历 \(S\) 的极大点。由于 \(S\) 既约，态射 \(S'\to S\) 是概形支配的。因此
+\[
+  f:G_{S'}\longrightarrow G,
+\]
+也是概形支配的，因为 \(G\) 在 \(S\) 上有限局部自由（参见 EGA IV\(_3\)，11.10.5）。由于 \(G\to S\) 仿射，从而分离，\(n_G\) 与零态射的重合轨迹是 \(G\) 的闭子概形。由 8.5，它包含 \(f\) 的像，因而等于 \(G\)。因此 \(n_G\) 是零态射。
+
+\medskip
+\noindent\textbf{注 8.5.3。}
+\phantomsection
+\label{sga3:VIIA:8.5.3}
+
+P.~Deligne 的一个定理（见 \textup{[TO70]}，第~4~页）还断言：若 \(G\) 是任意基底 \(S\) 上秩为 \(n\) 的交换有限局部自由 \(S\)-群，则 \(n_G=0\)。
+
+\chapter*{参考文献}
+\phantomsection
+\label{sga3:VIIA:bibliography}
+\addcontentsline{toc}{chapter}{参考文献}
+
+% 权威底本： Exp7A 局部页 60; 合并本页 513; 印刷页 502.
+\begin{description}
+  \item[\textup{[BAlg]}] N.~Bourbaki，
+  \emph{代数〔Alg\`ebre〕}，第 I--III 章，Hermann，1974；第 X 章，Masson，1980。
+
+  \item[\textup{[BAC]}] N.~Bourbaki，
+  \emph{交换代数〔Alg\`ebre commutative〕}，第 I--IV 章，Masson，1985。
+
+  \item[\textup{[BLie]}] N.~Bourbaki，
+  \emph{Lie 群与 Lie 代数〔Groupes et alg\`ebres de Lie〕}，第 I 章，Hermann，1971。
+
+  \item[\textup{[DG70]}] M.~Demazure 和 P.~Gabriel，
+  \emph{代数群〔Groupes alg\'ebriques〕}，Masson \& North-Holland，1970。
+
+  \item[\textup{[Ja03]}] J.~C.~Jantzen，
+  \emph{代数群的表示〔Representations of Algebraic Groups〕}，Academic Press，1987；第 2 版，American Mathematical Society，2003。
+
+  \item[\textup{[TO70]}] J.~Tate 和 F.~Oort，
+  “素数阶群概形〔Group schemes of prime order〕”，
+  \emph{Annales scientifiques de l'\'Ecole Normale Sup\'erieure} \textbf{3} (1970)，1--21。
+\end{description}
+
+% VIIA 结束。 下一游标： Exp7B 局部页 1, 合并阅读本页
+% 514, 再版印刷页 503, 位于 VII_B 的标题处。

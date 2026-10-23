@@ -1,0 +1,115 @@
+% SGA 3，第 VII_B 篇，英文重建稿——第 1 轮。
+% 范围：权威底本分篇第 89--90 页，第 5.2 节开头、记号及 Dieudonne--Cartier 定理，止于第 5.2.1 节之前。
+% 合并阅读本页码： 602--603.
+% 再版印刷页码： 591--592.
+% 本范围内原版页边定位： 557--558.
+% 本范围内编者注： 153--154.
+% 权威底本： Polo--Gille Exp7B-13oct24.pdf,
+% SHA-256 D303690E0195654BBE7C3DAA5D89EA23E24CD709A3575217234AC19AE8836694.
+% 曾参考 Jacob Reinhold 的 CC BY 4.0 Markdown 作为比对谱系。
+% 本组件没有图表；全部数学均为原生 LaTeX。
+
+\subsection*{5.2}
+\phantomsection
+\label{sga3:VIIB:5.2}
+
+在\SGARefLink{sga3:VIIB:5}{第~5~节}的其余部分，\(k\) 始终表示特征 \(p>0\) 的完美域。
+
+置
+\[
+  \overline{\mathbb N}=\mathbb N\cup\{\infty\}.
+\]
+若 \(B\) 为预有限 \(k\)-代数且 \(r\in\overline{\mathbb N}\)，用
+\[
+  \bigl((x^{p^r})\bigr)_{x\in\mathfrak r(B)}
+\]
+表示 \(B\) 中由元素 \(x^{p^r}\) 生成的闭理想，其中 \(x\) 遍历 \(B\) 的根基 \(\mathfrak r(B)\)。若 \(r=\infty\)，沿用同一记号，约定
+\[
+  \bigl((x^{p^\infty})\bigr)_{x\in\mathfrak r(B)}
+\]
+为零理想。在这两种情形中，\(B_r\) 都表示商
+\[
+  B_r
+  =
+  B\big/\bigl((x^{p^r})\bigr)_{x\in\mathfrak r(B)}.
+\]
+
+若
+\[
+  \bigl((x^{p^r})\bigr)_{x\in\mathfrak r(B)}
+\]
+为零理想，就称 \(B\) \emph{高度至多为 \(r\)}。若此条件成立且 \(r\) 有限，就称 \(B\) \emph{高度有限}。
+
+特别考虑
+\[
+  B=k[[\omega]],
+\]
+的情形，其中 \(\omega\) 为伪紧 \(k\)-向量空间\textup{（参见 \SGARefLink{sga3:VIIB:1.2.5}{1.2.5}）}。\footnote{%
+\label{sga3:VIIB:nde:153}原文中作者使用“线性紧向量空间”，它等价于“伪紧向量空间”\textup{（参见 [BAC]，\S III.2，习题 15\,a)、19\,a) 和 20\,d)）}。编者倾向于保留此前一直使用的“伪紧”这一术语。}
+此时称 \(B\) 为\emph{形式幂级数代数}，称 \(B_r\) 为\emph{截断形式幂级数代数} \(\bigl(r\in\overline{\mathbb N}\bigr)\)；因此按约定，
+\[
+  B=B_\infty
+\]
+也称为“截断”的。若 \(B=k[[\omega]]\)，也用
+\[
+  \bigl((x^{p^r})\bigr)_{x\in\omega}
+\]
+代替
+\[
+  \bigl((x^{p^r})\bigr)_{x\in\mathfrak r(B)}.
+\]
+
+\medskip
+\noindent\textbf{记号。}
+设 \(\omega\) 为伪紧 \(k\)-向量空间，赋以由闭向量子空间的递增序列
+\[
+  0=\omega_0\subset\omega_1\subset\omega_2
+  \subset\omega_3\subset\cdots.
+\]
+给出的滤过。
+\begin{enumerate}
+\item[\textup{\SGAInlineRefTarget{sga3:VIIB:5.2:item:a}(a)}]
+\(k[[\omega]]\) 中由元素 \(x^{p^r}\) 生成的闭理想记作
+\[
+  \bigl((x^{p^r})\bigr)_{x\in\omega_r}.
+\]
+其中 \(r\) 遍历 \(\mathbb N\)，\(x\) 遍历 \(\omega_r\)。
+
+\item[\textup{(b)}]
+对 \(r\in\mathbb N\)，用 \({}^r\omega\) 表示由
+\[
+  {}^r\omega_i=\omega_i\quad\text{若 }i<r,
+  \qquad
+  {}^r\omega_i=\omega\quad\text{若 }i\geq r.
+\]
+定义的滤过伪紧向量空间。
+\end{enumerate}
+
+\phantomsection
+\label{sga3:VIIB:5.2:notation-source-note}
+\noindent\textit{底本说明。}\enspace
+在记号 \textup{\SGARefLink{sga3:VIIB:5.2:item:a}{(a)}} 中，法文 PDF 印出的下标为 \(r\in\omega_r\)。前面的定义句及随后所有用法都要求使用 \(x\in\omega_r\)；这里采用后者。
+
+\medskip
+\noindent\textbf{定理（Dieudonn\'e--Cartier）。}
+\phantomsection
+\label{sga3:VIIB:5.2:theorem}
+{\itshape 设
+\[
+  H\longrightarrow G
+\]
+为特征 \(p>0\) 的完美域 \(k\) 上的无穷小形式群的单态射。令 \(B\) 为齐性空间 \(G/H\) 的仿射代数，并假设下列三个条件之一成立：\footnote{%
+\label{sga3:VIIB:nde:154}编者将 \(H\backslash G\) 换为 \(G/H\)，并在证明中作了同样的替换；还增加了条件 \textup{\SGARefLink{sga3:VIIB:5.2:theorem:item:iii}{(iii)}}。}
+\begin{enumerate}
+\item[\textup{(i)}]
+\(B\) 高度有限\textup{（特别地，若 \(G\) 高度有限，此条件成立）}。
+
+\item[\textup{\SGAInlineRefTarget{sga3:VIIB:5.2:theorem:item:ii}(ii)}]
+\(B\) 为完备 Noether 局部环。
+
+\item[\textup{\SGAInlineRefTarget{sga3:VIIB:5.2:theorem:item:iii}(iii)}]
+\(B\) 为约化环。
+\end{enumerate}
+则 \(B\) 同构于有限族截断形式幂级数代数的完备化张量积。}
+
+此定理的证明见 \SGARefLink{sga3:VIIB:5.2.1:section-proposition}{5.2.1}--\SGARefLink{sga3:VIIB:5.2.5}{5.2.5}。

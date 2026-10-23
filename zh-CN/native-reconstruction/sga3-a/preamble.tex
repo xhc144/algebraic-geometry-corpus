@@ -7,6 +7,9 @@
 \renewcommand{\contentsname}{目录}
 \renewcommand{\figurename}{图}
 \renewcommand{\tablename}{表}
+\renewcommand{\bibname}{参考文献}
+% 每篇独立编号；无编号的篇题不应让section/subsection出现零章前缀。
+\renewcommand{\thesection}{\arabic{section}}
 \renewcommand{\proofname}{证明}
 \ctexset{chapter={format=\huge\bfseries,beforeskip=50pt,afterskip=40pt},section={format=\Large\bfseries},subsection={format=\large\bfseries}}
 \usepackage[a4paper,inner=30mm,outer=27mm,top=28mm,bottom=30mm]{geometry}
@@ -24,6 +27,8 @@
 }
 \usepackage{graphicx,float,adjustbox,enumitem,multicol}
 \usepackage{etoolbox}
+% 标准 samepage 只定义入口；给环境结束钩子提供空出口，兼容 ctex/LaTeX 环境钩子。
+\ifdefined\endsamepage\else\def\endsamepage{}\fi
 \usepackage{xcolor}
 \usepackage[hidelinks,hypertexnames=false,pdfstartview={},linktoc=page,
   pdftitle={SGA 3 群概形：简体中文原生重建工作稿},
@@ -36,19 +41,19 @@
 
 \theoremstyle{plain}
 \newtheorem{theorem}{定理}[section]
-\newtheorem{proposition}[theorem]{Proposition}
-\newtheorem{corollary}[theorem]{Corollary}
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{scholium}[theorem]{Scholium}
-\newtheorem{application}[theorem]{Application}
-\newtheorem{complements}[theorem]{Complements}
+\newtheorem{proposition}[theorem]{命题}
+\newtheorem{corollary}[theorem]{推论}
+\newtheorem{lemma}[theorem]{引理}
+\newtheorem{scholium}[theorem]{评注}
+\newtheorem{application}[theorem]{应用}
+\newtheorem{complements}[theorem]{补充}
 
 \theoremstyle{definition}
-\newtheorem{definition}[theorem]{Definition}
-\newtheorem{example}[theorem]{Example}
+\newtheorem{definition}[theorem]{定义}
+\newtheorem{example}[theorem]{例}
 
 \theoremstyle{remark}
-\newtheorem{remark}[theorem]{Remark}
+\newtheorem{remark}[theorem]{注}
 
 \providecommand{\Ga}{\mathbb G_a}
 \providecommand{\Gm}{\mathbb G_m}
@@ -104,11 +109,13 @@
 \providecommand{\SGARefTarget}[1]{\phantomsection\label{#1}}
 \providecommand{\SGAInlineRefTarget}[1]{%
   \begingroup
+    \Hy@raisedlink{\hyper@anchorstart{#1}\hyper@anchorend}%
     \def\@currentHref{#1}%
     \label{#1}%
   \endgroup}
 \providecommand{\SGAInlineEquationTarget}[1]{%
   \begingroup
+    \Hy@raisedlink{\hyper@anchorstart{#1}\hyper@anchorend}%
     \def\@currentHref{#1}%
     \ltx@label{#1}%
   \endgroup}
@@ -131,6 +138,8 @@
 }
 \pdfstringdefDisableCommands{%
   \def\SGARefLink#1#2{#2}%
+  \def\SGARefPending#1#2{#2〔引文待核〕}%
+  \def\SGARefExternal#1#2{#2}%
   \def\SGARefTarget#1{}%
   \def\SGAInlineRefTarget#1{}%
   \def\SGAInlineEquationTarget#1{}%
@@ -139,6 +148,11 @@
 \providecommand{\SGARefLink}[2]{%
   \@ifundefined{r@#1}{#2}{\hyperref[#1]{#2}}%
 }
+% 有界引用校订：疑点保留原显示文字并明标待核；外引不跳入本书同号条目。
+\DeclareRobustCommand{\SGARefPending}[2]{%
+  #2\ifmmode\text{\normalfont\scriptsize〔引文待核〕}%
+  \else{\normalfont\scriptsize〔引文待核〕}\fi}
+\DeclareRobustCommand{\SGARefExternal}[2]{#2}
 \providecommand{\GuideChapter}[2]{%
   \@dottedtocline{0}{0em}{0em}{#1}{#2}}
 \providecommand{\GuideChapterSplit}[3]{%

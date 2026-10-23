@@ -2,7 +2,7 @@
 """Compare translated components to the pinned native ZIP, without modifying sources."""
 from pathlib import Path
 import argparse, collections, hashlib, json, re, zipfile
-p=argparse.ArgumentParser();p.add_argument('archive',type=Path);p.add_argument('--through',type=int,default=99);a=p.parse_args()
+p=argparse.ArgumentParser();p.add_argument('archive',type=Path);p.add_argument('--through',type=int,default=99);p.add_argument('--draft-units',nargs='*',default=[]);a=p.parse_args()
 root=Path(__file__).resolve().parents[1]
 z=zipfile.ZipFile(a.archive)
 prefix='native/SGA3/SGA3_English_current_buildable_source_20260823/source/'
@@ -10,7 +10,18 @@ allnames=z.namelist()
 def prose(s):
     s=re.sub(r'\\text\{[^{}]*\}',r'\\text{LANG}',s)
     return re.sub(r'\s+','',s)
+def without_comments(s):
+    out=[]
+    for line in s.splitlines():
+        for i,ch in enumerate(line):
+            if ch=='%':
+                backslashes=0;j=i-1
+                while j>=0 and line[j]=='\\':backslashes+=1;j-=1
+                if backslashes%2==0:line=line[:i];break
+        out.append(line)
+    return '\n'.join(out)
 def math(s):
+    s=without_comments(s)
     pats=[r'\\\((.*?)\\\)',r'(?<!\\)\\\[(.*?)\\\]',r'(?<!\\)\$(?!\$)(.*?)(?<!\\)\$',r'\\begin\{(?:align\*?|equation\*?|gather\*?|multline\*?)\}(.*?)\\end\{(?:align\*?|equation\*?|gather\*?|multline\*?)\}']
     return [collections.Counter(prose(t) for t in re.findall(q,s,re.S)) for q in pats]
 def keys(s,cmd):
@@ -27,13 +38,16 @@ def inputs(f):
         if not q.suffix:q=q.with_suffix('.tex')
         if q.is_file():inputs(q)
 inputs(root/'main.tex')
-result=[];refs=[];targets=[]
+result=[];refs=[];targets=[];unmatched=[]
 for f in sorted((root/'chapters').rglob('*-zh.tex')):
-    if f.resolve() not in active:continue
+    if f.resolve() not in active and f.parent.name not in a.draft_units:continue
     if int(re.match(r'\d+',f.name).group())>a.through:continue
     name=f.name.replace('-zh.tex','.tex')
     matches=[n for n in allnames if n.startswith(prefix) and n.endswith('/'+name)]
-    if len(matches)!=1:raise ValueError((f,matches))
+    if len(matches)!=1:
+        if f.resolve() not in active:
+            unmatched.append(str(f.relative_to(root)));continue
+        raise ValueError((f,matches))
     src=z.read(matches[0]);s=src.decode('utf8').replace('\r\n','\n');t=f.read_text()
     sm,tm=math(s),math(t)
     diffs=[]
@@ -45,7 +59,16 @@ for f in sorted((root/'chapters').rglob('*-zh.tex')):
     refs.extend(keys(t,'SGARefLink'))
     for cmd in ['SGARefTarget','SGAInlineRefTarget','SGAInlineEquationTarget','SGANextSectionTarget','label']:targets.extend(keys(t,cmd))
     result.append({'file':str(f.relative_to(root)),'source_member':matches[0],'source_sha256':hashlib.sha256(src).hexdigest(),'translation_sha256':hashlib.sha256(f.read_bytes()).hexdigest(),'source_lines':len(s.splitlines()),'translation_lines':len(t.splitlines()),'math_counts_source':[sum(x.values()) for x in sm],'math_counts_translation':[sum(x.values()) for x in tm],'math_differences':diffs,'keys':k,'footnotes_source':len(re.findall(r'\\footnote\{',s)),'footnotes_translation':len(re.findall(r'\\footnote\{',t)),'footnote_commands_source':len(re.findall(r'\\footnote(?:\[[^\]]*\])?\{',s)),'footnote_commands_translation':len(re.findall(r'\\footnote(?:\[[^\]]*\])?\{',t)),'footnotetext_source':len(re.findall(r'\\footnotetext(?:\[[^\]]*\])?\{',s)),'footnotetext_translation':len(re.findall(r'\\footnotetext(?:\[[^\]]*\])?\{',t)),'environment_multisets_preserved':collections.Counter(re.findall(r'\\(begin|end)\{([^{}]+)\}',s))==collections.Counter(re.findall(r'\\(begin|end)\{([^{}]+)\}',t))})
-missing=collections.Counter(x for x in refs if x not in set(targets))
-report={'scope':'only translated component files in the current main.tex input closure; not a completeness or mathematical proof certification','math_comparison':'whitespace normalized; simple text{} natural-language arguments normalized; named source errata listed separately','components':result,'unresolved_sga_ref_links':dict(sorted(missing.items())),'reference_fallback_warning':'SGARefLink intentionally prints its text when a target is absent. Therefore zero LaTeX undefined-reference warnings does NOT mean every SGARefLink resolves. See this list and SOURCE_ISSUES.md.'}
-(root/'audit/COMPONENT_CHECKS.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
+compiled_aux=root/'build/main.aux'
+compiled_targets=[]
+if compiled_aux.exists():compiled_targets=re.findall(r'\\newlabel\{([^{}]+)\}',compiled_aux.read_text())
+# Figure wrapper labels are expanded at compile time and are not literal label calls.
+target_set=set(targets)|set(compiled_targets)
+missing=collections.Counter(x for x in refs if x not in target_set)
+report={'scope':('main.tex input closure plus saved unassembled draft units '+', '.join(a.draft_units) if a.draft_units else 'only translated component files in the current main.tex input closure')+'; not a completeness or mathematical proof certification','unmatched_saved_draft_files':unmatched,'target_inventory':{'literal_component_targets':len(set(targets)),'compiled_aux_targets':len(set(compiled_targets)),'compiled_aux_sha256':hashlib.sha256(compiled_aux.read_bytes()).hexdigest() if compiled_aux.exists() else None},'math_comparison':'non-rendering TeX comments removed from math comparison; whitespace normalized; simple text{} natural-language arguments normalized; named source errata listed separately','components':result,'unresolved_sga_ref_links':dict(sorted(missing.items())),'reference_fallback_warning':'SGARefLink intentionally prints its text when a target is absent. Therefore zero LaTeX undefined-reference warnings does NOT mean every SGARefLink resolves. See this list and SOURCE_ISSUES.md.'}
+ledger=root/'audit/reference-wrapup/APPLIED.json'
+if ledger.exists():
+    ld=json.loads(ledger.read_text())
+    report['documented_reference_repairs']={'ledger':str(ledger.relative_to(root)),'counts':ld['counts'],'new_anchors':len(ld['new_anchors']),'note':'Raw key-multiset differences remain reported as differences. Changed wrappers, corrected keys, new exact anchors and pending citations are deliberate ledgered repairs, not a claim of byte-identical source keys. Visible-content preservation is separately checked against the pre-patch translation.'}
+(root/('audit/DRAFT_COMPONENT_CHECKS.json' if a.draft_units else 'audit/COMPONENT_CHECKS.json')).write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
 print(json.dumps({'components':len(result),'math_difference_components':[r['file'] for r in result if r['math_differences']],'key_difference_components':[r['file'] for r in result if any(not k['same_key_multiset'] for k in r['keys'].values())],'unresolved_ref_keys':len(missing)},ensure_ascii=False))

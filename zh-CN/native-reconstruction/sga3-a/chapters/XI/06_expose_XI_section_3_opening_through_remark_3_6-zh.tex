@@ -1,0 +1,149 @@
+% SGA 3，第 XI 篇；根据英文重建源翻译。
+% 范围：第 3 节标题至注 3.6 后的证明；止于命题 3.7 之前。
+% 权威来源：Polo--Gille Expo11.pdf，组件局部页 10--13；合卷页 732--735；印刷／原文页边页 142--147。
+% Jacob Reinhold 的 CC BY 4.0 Markdown 谱系仅用于措辞比较；文字、公式、编号、注释及图均以 Polo--Gille PDF 为准。
+% 精确续接／终点：命题 3.7，Expo11 局部页 13／合卷页 735／原文页边页 147；另有正文定位：局部页 12／合卷页 734／原文页边页 145。
+
+\SGARefTarget{sga3:xi:section:3}\section*{3. 辅助可表性结果}\addcontentsline{toc}{section}{3. 辅助可表性结果}
+
+\medskip\noindent\SGARefTarget{sga3:xi:proposition:3:1}\textbf{命题 3.1。} --- \textit{设 \(F\to S\) 为预概形 \(S\) 上的函子。下列条件等价：}
+
+\begin{enumerate}\item[(i)]\SGARefTarget{sga3:xi:proposition:3:1:item:i}\textit{\(F\) 可表，且 \(F\to S\) 为开浸入（也简称 \(F\to S\) 为开浸入）。}
+
+\item[(ii)]\SGARefTarget{sga3:xi:proposition:3:1:item:ii}\textit{\(F\) 是忠实平坦拟紧拓扑的层，“与环的滤过直极限交换”，且 \(F\to S\) 为单态射。此外，下述条件成立：对每个 \(S\) 上的局部预概形 \(S'\)，设其剩余域为 \(k\)，则每个 \(S\)-态射 \[
+  \operatorname{Spec}(k)=S'_0\longrightarrow F,
+\] 都有延拓它的 \(S\)-态射 \(S'\to F\)。\footnote{法文再版印作 \(S'\to S\)。由于此态射须延拓所显示的态射 \(S'_0\to F\)，其目标应是 \(F\)。}}
+
+\item[(iii)]\SGARefTarget{sga3:xi:proposition:3:1:item:iii}\textit{假设 \(S\) 局部 Noether。则 \(F\) 是忠实平坦拟紧拓扑的层，与环的滤过直极限交换，与局部 Artin 环的理想进逆极限交换，且 \(F\to S\) 为单态射并且无穷小平展（参见 \SGARefLink{sga3:xi:remark:1:8}{1.8}）。}\end{enumerate}
+
+先明确两点术语。
+
+\medskip\noindent\SGARefTarget{sga3:xi:remark:3:2}\textbf{注 3.2。} --- \(S\) 上的函子\footnote{编者注：这里以及 \SGARefLink{sga3:xi:remark:3:3}{注 3.3} 中的函子均为反变函子。} \(F\) 称为\emph{与环的直极限交换}（此处指滤过直极限），若下述条件成立。设 \((S'_i)_{i\in I}\) 为落在 \(S\) 的某个仿射开子概形上方的仿射 \(S\)-概形的任意滤过逆系，\(A'_i\) 为它们的环。则自然同态
+
+\SGARefTarget{sga3:xi:display:3:2:direct-limit} \[
+  \tag{*}
+  \varinjlim_i F(S'_i)\longrightarrow F(S'),
+  \qquad
+  S'=\operatorname{Spec}(A'),
+  \quad
+  A'=\varinjlim_i A'_i
+\] 为双射。
+
+注意，\(S'\) 恰是各 \(S'_i\) 在预概形范畴中、甚至在所有赋环空间范畴中的逆极限。因此，这里考虑的条件具有右正合性条件的性质，即与 \((\mathbf{Sch})^\circ/S\) 中的某些直极限交换，正如某个拓扑的层条件一样。
+
+须注意，此条件本质上是相对的：它涉及态射 \(F\to S\)，而不仅仅是函子 \[
+  F:(\mathbf{Sch})^\circ\longrightarrow(\mathbf{Ens}).
+\]。更准确地说，在 \SGARefLink{sga3:xi:display:3:2:direct-limit}{\((*)\)} 中，\(F(S'_i)\) 和 \(F(S')\) 分别指 \(\operatorname{Hom}_S(S'_i,F)\) 和 \(\operatorname{Hom}_S(S',F)\)。因此，当 \(F\) 可表时，此条件就是 \(F\) 在 \(S\) 上局部有限呈示。前两讲中，我们曾多次使用以下事实：由局部有限呈示 \(S\)-预概形表示的函子与环的直极限交换。
+
+\medskip\noindent\SGARefTarget{sga3:xi:remark:3:3}\textbf{注 3.3。} --- \(S\) 上的函子 \(F\) 称为\emph{与局部 Artin 环的理想进逆极限交换}，若下述条件成立。对每个 \(S\) 上的 \(S'\)，它是完备 Noether 局部环 \(A'\) 的谱，置 \[
+  S'_n=\operatorname{Spec}
+  \bigl(A'/\operatorname{rad}(A')^{\,n+1}\bigr).
+\]。则要求自然映射
+
+\SGARefTarget{sga3:xi:display:3:3:adic-limit} \[
+  \tag{**}
+  F(S')\longrightarrow\varprojlim_n F(S'_n)
+\] 为双射。
+
+此条件具有左正合性条件的性质，且当 \(F\) 可表时总成立。与环的直极限交换不同，它是 \(F\) 作为 \(\widehat{\mathbf{Sch}}\) 的对象的内在性质，即不涉及态射 \(F\to S\)。
+
+\medskip\noindent\SGARefTarget{sga3:xi:remark:3:4}\textbf{注 3.4。} --- 设 \(F\) 为 \(S\) 上的函子，且为 Zariski 拓扑的层，也称为具有“局部性质”。为此，只需 \(F\) 是较细拓扑（如忠实平坦拟紧拓扑）的层。设 \((S_i)\) 为 \(S\) 的开覆盖。直接的粘合论证表明，\(F\) 可表当且仅当每个 \[
+  F_i=F\times_S S_i
+\] 可表；例如，由此可归约到 \(S\) 仿射的情形。
+
+设具有局部性质的函子 \(F\) 与环的直极限交换。则 \(F\) 可表，当且仅当它在 \(S\) 上局部有限呈示的预概形范畴上的限制可表。必要性已在 \SGARefLink{sga3:xi:remark:3:2}{3.2} 中说明。充分性归结为下述断言：若 \(X\) 为 \(S\) 上局部有限呈示的预概形，\(X\to F\) 为态射，且对每个在 \(S\) 上局部有限呈示的 \(S'\)，诱导映射
+
+\SGARefTarget{sga3:xi:display:3:4:hom-comparison} \[
+  \operatorname{Hom}_S(S',X)\longrightarrow
+  \operatorname{Hom}_S(S',F)
+\] 为双射，则 \(X\to F\) 为同构。这容易从 \(X\) 和 \(F\) 都是具有局部性质、与环的直极限交换的函子这一事实推出。
+
+\medskip\noindent\textit{\SGARefLink{sga3:xi:proposition:3:1}{命题 3.1} 的证明。}蕴含关系 \SGARefLink{sga3:xi:proposition:3:1:item:i}{(i)} \(\Rightarrow\) \SGARefLink{sga3:xi:proposition:3:1:item:ii}{(ii)} 及 \SGARefLink{sga3:xi:proposition:3:1:item:i}{(i)} \(\Rightarrow\) \SGARefLink{sga3:xi:proposition:3:1:item:iii}{(iii)} 直接成立。我们证明逆向蕴含。
+
+假设 \SGARefLink{sga3:xi:proposition:3:1:item:ii}{(ii)}。设 \(U\) 为使典范单态射 \[
+  \operatorname{Spec}\kappa(s)\longrightarrow S
+\] 通过 \(F\) 分解的点 \(s\in S\) 的集合。由 \SGARefLink{sga3:xi:proposition:3:1:item:ii}{(ii)} 的最后一个条件，对每个 \(s\in U\)，典范映射 \(\operatorname{Spec}\mathscr O_{S,s}\to S\)，等价地，它通过 \(U\) 的分解，通过 \(F\) 分解。局部环 \(\mathscr O_{S,s}\) 是 \(s\) 的仿射邻域的环的直极限。由于 \(F\) 与环的直极限交换，对每个 \(s\in U\)\footnote{法文再版此处印作 \(s\in S\)；论证及结论 \(U^s\subset U\) 要求应为 \(s\in U\)。}，存在开邻域 \(U^s\)，使典范浸入 \(U^s\to S\) 通过 \(F\) 分解。因此 \(U^s\subset U\)，从而 \(U\) 为开集。
+
+由于 \(F\to S\) 为单态射，且 \(F\) 具有局部性质，各 \(S\)-态射 \(U^s\to F\) 在交集 \(U^s\cap U^{s'}\) 上相同，其中 \(s,s'\in U\)，因而可粘合为 \(S\)-态射 \(U\to F\)。还须证明此态射为同构，或等价地，每个 \(S\)-态射 \(S'\to F\) 都唯一地通过 \(U\) 分解，其中 \(S'\) 为 \(S\)-预概形。由于 \(F\to S\) 和 \(U\to S\) 都是单态射，这等价于结构态射 \(S'\to S\) 通过 \(U\) 分解。
+
+由局部性，归约到 \(S'\) 为域的谱、因而只有一个点 \(s'\) 的情形。设 \(s\) 为 \(s'\) 下方的 \(S\) 的点。断言给定的 \(S\)-态射 \(S'\to F\) 通过 \[
+  \operatorname{Spec}\kappa(s)=S_0\longrightarrow F.
+\] 分解。这蕴含 \(s\in U\) 并证明断言。由于 \(S'\to S_0\) 为 fpqc 覆盖，且 \(F\) 为 fpqc 拓扑的层，只需下面两个复合
+
+\SGARefTarget{sga3:xi:display:3:1:fpqc-descent} \[
+  S''=S'\times_{S_0}S'
+  \rightrightarrows S'\longrightarrow F
+\] 相等。由于 \(F\to S\) 为单态射，它们确实相等。这就证明了 \SGARefLink{sga3:xi:proposition:3:1:item:ii}{(ii)} \(\Rightarrow\) \SGARefLink{sga3:xi:proposition:3:1:item:i}{(i)}。
+
+现在假设 \SGARefLink{sga3:xi:proposition:3:1:item:iii}{(iii)}，其中 \(S\) 局部 Noether。只需证明 \SGARefLink{sga3:xi:proposition:3:1:item:ii}{(ii)} 的最后一个条件；根据前面的证明，只需在对某个 \(s\in S\) 有 \[
+  S'=\operatorname{Spec}\mathscr O_{S,s}
+\] 时证明。置 \[
+  A=\mathscr O_{S,s},
+  \qquad
+  A_n=A/\mathfrak m^{\,n+1},
+  \qquad
+  S_n=\operatorname{Spec}(A_n).
+\]。由于 \(F\to S\) 无穷小平滑，给定态射 \(S'_0\to F\) 可延拓为态射 \(S_n\to F\)。由于 \(F\to S\) 为单态射，这些态射构成 \(\varprojlim_n F(S_n)\) 的一个元素。由于 \(F\) 与局部 Artin 环的理想进逆极限交换，它们来自态射 \[
+  \operatorname{Spec}(\widehat A)=\widehat S'\longrightarrow F.
+\]。最后，\(F\to S\) 为单态射，\(F\) 为 fpqc 层，\(\widehat S'\to S'\) 为 fpqc 覆盖。因此最后的态射下降到 \(S'\to F\)，从而完成 \SGARefLink{sga3:xi:proposition:3:1:item:iii}{(iii)} \(\Rightarrow\) \SGARefLink{sga3:xi:proposition:3:1:item:ii}{(ii)} 的证明。\hfill\(\square\)
+
+\medskip\noindent\SGARefTarget{sga3:xi:proposition:3:5}\textbf{命题 3.5。} --- \textit{设 \(S\) 为局部 Noether 预概形，\(F\to S\) 为 \(S\) 上的函子，\((X_i,u_i)_{i\in I}\) 为一族 \(S\)-态射 \(u_i:X_i\to F\)，其中各 \(X_i\) 为 \(S\) 上局部有限型的预概形。假设下列条件成立：}
+
+\begin{enumerate}\item[(a)]\SGARefTarget{sga3:xi:proposition:3:5:item:a}\textit{\(F\) 为忠实平坦拟紧拓扑的层，与环的直极限交换，并与局部 Artin 环的理想进逆极限交换。}
+
+\item[(b)]\SGARefTarget{sga3:xi:proposition:3:5:item:b}\textit{各态射 \(u_i:X_i\to F\) 为单态射且无穷小平展（参见 \SGARefLink{sga3:xi:remark:1:8}{1.8}）。}
+
+\item[(c)]\SGARefTarget{sga3:xi:proposition:3:5:item:c}\textit{族 \((u_i)\) “在集合意义下满射”。}\end{enumerate}
+
+\textit{在这些条件下，\(F\) 可由 \(S\) 上局部有限型的预概形表示。此外，各 \(u_i\) 为开浸入，族 \((X_i)\) 为 \(F\) 的开覆盖。}
+
+\medskip\noindent\SGARefTarget{sga3:xi:remark:3:6}\textbf{注 3.6。} --- 如 \SGARefLink{sga3:xi:remark:1:7}{注 1.7} 末尾那样，对每个函子 \[
+  F:(\mathbf{Sch})^\circ\longrightarrow(\mathbf{Ens}),
+\] 定义“底集合” \(\operatorname{ens}(F)\)：它是 \(F\) 的取值于域的点的集合对 \SGARefLink{sga3:xi:remark:1:7}{1.7} 所述等价关系的商。当 \(F\) 由 \(X\) 表示时，这就得到 \(X\) 的底集合。
+
+显然，\(\operatorname{ens}(F)\) 对 \(F\) 具有函子性。因此，若 \(G\to F\) 为函子态射，且诱导映射 \[
+  \operatorname{ens}(G)\longrightarrow\operatorname{ens}(F)
+\] 为满射，则称它\emph{在集合意义下满射}。等价地，\(F\) 的每个取值于域 \(k\) 的点，都“来自” \(G\) 的一个取值于 \(k\) 的适当扩张的点。此定义立即推广到一族态射 \(G_i\to F\)，从而明确了条件 \SGARefLink{sga3:xi:proposition:3:5:item:c}{(c)} 的含义。
+
+\medskip\noindent\textit{\SGARefLink{sga3:xi:proposition:3:5}{命题 3.5} 的证明。}对 \((i,j)\in I\times I\)，置
+
+\SGARefTarget{sga3:xi:display:3:5:fiber-product} \[
+  X_{i,j}=X_i\times_F X_j
+\]，并考虑投影
+
+\SGARefTarget{sga3:xi:display:3:5:projections} \[
+  v_{i,j}:X_{i,j}\longrightarrow X_i,
+  \qquad
+  w_{i,j}:X_{i,j}\longrightarrow X_j.
+\]。断言这些态射可由开浸入表示。应用判据 \SGARefLink{sga3:xi:proposition:3:1:item:iii}{3.1(iii)}。函子 \(X_{i,j}\) 满足三个正合性条件：它是层，与环的直极限交换，并与局部 Artin 环的理想进逆极限交换。事实上，\(F\)、\(X_i\) 和 \(X_j\) 满足这些条件，而这些条件在有限逆极限，特别是在纤维积下稳定。由于每个 \(X_i\to F\) 为单态射，两个投影都是单态射，因为各自均由这些映射之一经基变换得到。最后，无穷小平展性也在基变换下保持。因此满足 \SGARefLink{sga3:xi:proposition:3:1:item:iii}{3.1(iii)} 的假设。
+
+现在可以用 \(X_i\)、\(X_{i,j}\)、\(v_{i,j}\) 和 \(w_{i,j}\)，按通常方式构造 \(S\)-预概形 \(X\)，其中各 \(X_i\) 与开子概形等同，各 \(X_{i,j}\) 与交集 \(X_i\cap X_j\) 等同，\(v_{i,j}\)、\(w_{i,j}\) 与典范浸入等同。
+
+置\footnote{法文再版将此余积记为 \(X\)，后面又写 \(R=X\times_F X\)，同时使用 \(R\rightrightarrows Y\) 和 \(X=Y/R\)。此处采用一致的记号 \(Y=\coprod_iX_i\) 和 \(R=Y\times_FY\)。}
+
+\SGARefTarget{sga3:xi:display:3:5:coproduct} \[
+  Y=\coprod_i X_i.
+\]。则 \(X\) 也是 \(Y\) 对等价关系
+
+\SGARefTarget{sga3:xi:display:3:5:relation} \[
+  R=\coprod_{i,j}X_{i,j}
+  \rightrightarrows Y,
+\] 的商，其两个投影 \(v,w\) 分别由各 \(v_{i,j}\) 和 \(w_{i,j}\) 定义。
+
+更准确地说，由于 \(F\) 为 fpqc 层，各态射 \(u_i:X_i\to F\) 诱导态射 \(u:Y\to F\)，且
+
+\SGARefTarget{sga3:xi:display:3:5:kernel-relation} \[
+  R=Y\times_FY
+\] 恰为 \(u\) 定义的等价关系。商 \(X=Y/R\) 也是 fpqc 层范畴中、甚至 Zariski 层范畴中的商；这直接由商和层的定义得到。因此，\(u\) 唯一地通过态射
+
+\SGARefTarget{sga3:xi:display:3:5:induced-map} \[
+  \overline u:X\longrightarrow F,
+\] 分解，且 \SGARefLink{sga3:xi:display:3:5:induced-map}{此态射} 为单态射。
+
+还须说明 \(\overline u\) 为同构。由于 \(F\) 具有局部性质，可以假设 \(S\) 仿射。由于 \(F\) 也与环的直极限交换，由 \SGARefLink{sga3:xi:remark:3:4}{3.4}，只需验证：对每个 \(S\) 上有限型的仿射 \(T\)，每个态射 \(T\to F\) 都通过 \(X\) 分解。考虑
+
+\SGARefTarget{sga3:xi:display:3:5:base-change} \[
+  G=X\times_FT\longrightarrow T.
+\]。只需证明 \SGARefLink{sga3:xi:display:3:5:base-change}{此态射} 为同构。由于 \(T\) 为 Noether 概形，上述论证表明它为开浸入。这里使用了 \(X\to F\) 无穷小平展，这立即由诱导态射 \(u_i:X_i\to F\) 无穷小平展推出。由假设，\(X\to F\) 在集合意义下满射，而此条件在基变换下稳定。因此 \(G\to T\) 在集合意义下满射。它又是开浸入，故为同构。\hfill\(\square\)
+
+
