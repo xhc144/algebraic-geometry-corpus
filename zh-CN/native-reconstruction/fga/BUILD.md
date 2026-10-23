@@ -23,3 +23,5 @@ xelatex -no-shell-escape -interaction=nonstopmode -halt-on-error FGA-zh-working-
 source/en-latex/为恢复九个生成输入后的完整英文比对工程。上游build提交明确对应main，全部127个.tree blob与本库逐一一致；SOURCE_LOCK.json固定提交与散列。tools/recover_inputs.py仅用锁定本地XML/XSLT，禁用网络/外部实体，不碰中文正文。
 
 SOURCE_NOTES.json和source/reviews/区分法文有据修正与来源本身疑误。全书、源码包及单文件独立重建状态见PROGRESS.json。biblatex的BibTeX fallback提示是预期信息。源码包过程XML/映射尚未应用全部校改，以chapters/*.tex为排印源。
+
+本轮恢复核验：124页模块化稿及单文件稿均在空目录四轮实际重建，文字和渲染像素一致；535个标签与804个PDF目标逐一核对，无缺失或错页。当前依赖来源和散列见source/TEX_DEPENDENCIES_20261022.json；全书源页审阅和实际成品检查见source/reviews/resume-20261022/。最终ZIP的精确散列与独立重建回执在仓库协调目录中，避免源码包自散列循环。

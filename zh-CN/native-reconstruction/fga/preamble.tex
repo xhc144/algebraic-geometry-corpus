@@ -42,6 +42,9 @@
 
 
 
+% Load titlesec before hyperref so its heading destinations are emitted with the title.
+\usepackage{titlesec}
+
 % LINKS
 \ifthenelse{\equal{\mode}{WebMode}}{%
   \usepackage{xcolor}%
@@ -58,7 +61,6 @@
 
 
 % HEADINGS
-\usepackage{titlesec}
 
 \titleformat{\part}[display]{}{\huge FGA~\thepart}{8pt}{\huge}
 \titleclass{\part}{top}
@@ -117,6 +119,7 @@
   % third argument (mandatory) is the taxon
   % fourth argument (mandatory) is empty for non-italic
   \par\vspace{\topsep}\noindent%
+  \ifstrempty{#2}{\phantomsection}{}%
   \ifstrempty{#2}{%if no number
     \ifstrempty{#1}{%if no title
       \textbf{#3.}%
