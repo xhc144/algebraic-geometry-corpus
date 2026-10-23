@@ -15,3 +15,5 @@ SGA3现代再版卷首材料、SGA7-II原Leitfaden关系图、FGA VI脚注正文
 |---|---:|---|
 | AGC-zh-CN-all-PDFs-20261023.zip | 24811340 | `bfb62b22ca13711ddf095e16cba24a3c33a4e5122dcec65885446863362f4673` |
 | AGC-zh-CN-all-sources-20261023.zip | 13163028 | `b2ad6ed20c53cfa26dac887c95daa469f3fbf2be93da0ad641c97f17bd36cd8b` |
+
+Library保存未执行：准备上传助手的连接工具列表请求返回HTTP401，在prepare_uploads之前停止；两个Library文件均未创建，没有可提供的附件ID。未循环重试或更改凭据。仓库内以上下载包已保存并完成Git字节／CRC／SHA-256复核，详见[Library交付状态](LIBRARY_DELIVERY.json)。
