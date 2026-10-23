@@ -1,25 +1,22 @@
-# 构建
+# 构建与验收
 
-在本目录运行：
+在本目录先建立 `build/`，再运行三遍：
 
 ```sh
+mkdir -p build
 xelatex -no-shell-escape -interaction=nonstopmode -halt-on-error -output-directory=build main.tex
 xelatex -no-shell-escape -interaction=nonstopmode -halt-on-error -output-directory=build main.tex
 xelatex -no-shell-escape -interaction=nonstopmode -halt-on-error -output-directory=build main.tex
 ```
 
-先建立 `build/`。需要 XeLaTeX、CTeX/xeCJK、amsmath、amsthm、TikZ/TikZ-CD、mathrsfs、enumitem、fancyhdr、geometry、hyperref，以及 Latin Modern、Noto Serif CJK SC / Sans CJK SC / Sans Mono CJK SC 字体。它们都是标准 TeX 或自由字体依赖；源码包不捆绑字体。不能把缺失字体的替代构建当作验收通过。
+需要 XeLaTeX、CTeX/xeCJK、amsmath/amsthm、TikZ/TikZ-CD、mathrsfs、enumitem、fancyhdr、geometry、hyperref、zref-abspage/zref-user，以及 Latin Modern、Noto Serif CJK SC / Sans CJK SC / Sans Mono CJK SC 字体。源码不捆绑字体。直接编译不需要 Python、原扫描、OCR、网络或图片文件。
 
-`python3 scripts/build.py` 可执行三遍构建、冻结 TeX 哈希并检查日志与 PDF 页边界，生成本目录下的 `FGA-explained-zh-CN.pdf`；它额外需要 PyMuPDF。`python3 scripts/render_review.py` 渲染全部页面，需要 PyMuPDF 与 Pillow。直接使用上面的 XeLaTeX 命令编译不需要 Python。
+`python3 scripts/build.py` 执行三遍受限编译，冻结全部 TeX 哈希，核对缺字、未解析引用、溢出、字体警告和 PDF 边界，输出目录根部的交付 PDF。它额外需要 PyMuPDF。`python3 scripts/render_review.py` 渲染所有页面及编号接触表，需要 PyMuPDF 和 Pillow；实际打开查看的页须另记，不用“已渲染”冒充“已目视检查”。
 
-本执行环境已有 XeTeX（TeX Live 2025/dev，LaTeX 2024-11-01），但缺少 CTeX。为使验证可实际执行，CTeX、xeCJK、zhnumber 的 TeX Live 2024 tlnet-final 包已安装在临时目录 `/tmp/fga-texmf`，通过 `TEXMFHOME=/tmp/fga-texmf` 调用。最初尝试的 2026 当前 CTeX 与本环境旧 LaTeX 不兼容，未用于最终构建。临时缓存位置为 `XDG_CACHE_HOME=/tmp/fga-cache`，未修改系统路径或其他项目。
+本执行环境的 XeTeX 为 TeX Live 2025/dev、LaTeX 2024-11-01，原先缺少 CTeX。当前使用免费的 TeX Live 2024 tlnet-final 中 ctex、xecjk、zhnumber，安装于 `/tmp/fga-texmf`；公开来源、版本与哈希见 `evidence/tex-dependencies.json`。本环境验证调用方式为 `TEXMFHOME=/tmp/fga-texmf XDG_CACHE_HOME=/tmp/fga-cache python3 scripts/build.py`。未修改系统字体、凭据或其他工程。
 
-本地 OCR 命令：`python3 scripts/ocr_scan.py --workers 6`。只使用 Tesseract 本地免费识别，220 dpi 灰度，英文语言模型。数学和图形须另对照扫描；自动 OCR 不算校订。
+`python3 scripts/source_navigation.py prepare` 根据已经核对的 canonical 源页注释安装零宽锚点、保留并链接原索引页码、生成339行源页检索表。它先核对覆盖和重复，再写文件；维护源码或移动页界后才需要重跑。`python3 scripts/source_navigation.py audit` 在完成三遍构建后检查实际 PDF：所有339行数字、716个索引链接、339个回正文链接和所有物理页顶部目的地均须一致。正常从源码 ZIP 编译时，已生成的导航文件随包提供，不需要 Python。
 
-OCR 脚本仅用于重新识别，需仓库内原扫描；PDF 构建本身完全不依赖原扫描、OCR 输出、网络或图片文件。所有交换图与封面/条码均由原生 TikZ 生成。
+`python3 scripts/package_source.py` 生成确定性的源码 ZIP、内部逐文件 SHA-256 清单及外部 `SHA256SUMS`。ZIP 排除 `build/`、预编译 PDF、ZIP 自身和外部校验和；原扫描位于工程外，也不会打包。解包后在 `fga-explained/` 内按上述命令编译即可。独立重建的实际结果见 `evidence/replay-review.json`，不把旧版本的成功套用到修改后的源码。
 
-编译成功只说明语法和字体依赖可用。未译内容、原书疑似笔误、参考文献交叉引用、实际打开检查的页面、缺字和溢出等状态分别记录，不以一次编译代替内容完整性检查。
-
-运行 `python3 scripts/package_source.py` 可重新生成源码 ZIP、内部逐文件哈希清单及外部 `SHA256SUMS`。ZIP 排除 `build/`、原扫描和预编译 PDF；解包后在 `fga-explained/` 中按上面的三遍命令独立编译即可。`evidence/replay-review.json` 是初稿提交 `2b1f9f7` 的历史独立解包重建证据；此次暂停修订已经三遍编译，但为有界收尾未再次独立重放 ZIP，不能沿用历史证据冒充新验证。
-
-项目已按用户要求暂停。`source-navigation.tex` 和 `scripts/source_navigation.py` 为未集成、未验收的页码映射原型，不属于当前 `main.tex` 的编译依赖；暂停状态不应运行其 `prepare` 操作。恢复须由用户明确请求，再按 `evidence/PAUSED-CHECKPOINT.json` 继续未完成的审校与地图工作。
+OCR 仅作历史识别辅助：`python3 scripts/ocr_scan.py --workers 6` 使用本地免费 Tesseract，需要原始扫描；`evidence/ocr-uncorrected/` 明确不是已译内容。源文完整性和独立内容审校、机械编译、输出页面视觉检查、源码包重建是分别记录的验收项目。
