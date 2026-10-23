@@ -45,7 +45,7 @@ P. Berthelot
 \]
 对每个滤过 \(K\)-代数 \(A\) 和每个级数 \(\psi\in\Ghat(A)\), 存在唯一的同态
 \[
-  f_\psi\in K[X_i]_{i\geq 1}\longrightarrow A
+  f_\psi:K[X_i]_{i\geq 1}\longrightarrow A
 \]
 使得
 \[
@@ -629,7 +629,7 @@ H(f_n)\bigl(u_H^n(\theta)\bigr)\equiv u_H^n(\theta)
 \[
   \theta=\xi(1+X^{(1)}t,\ldots,1+X^{(k)}t)
 \]
-中 \(t^n\) 的系数为多项式, 其等权分量的权在 \(n\) 与 \(m\) 之间. 则 \(\xi\) 的第 \(k\) 个泛多项式的等权分量的权在 \(k\) 与 \(km\) 之间. 这立即由上述计算及对称函数定理得到.
+中 \(t^n\) 的系数为多项式, 其等权分量的权在 \(n\) 与 \(mn\) 之间. 则 \(\xi\) 的第 \(k\) 个泛多项式的等权分量的权在 \(k\) 与 \(km\) 之间. 这立即由上述计算及对称函数定理得到.
 
 特别地, 若 \(H=\Ghat\), 则 \(\xi\) 的第 \(n\) 个泛多项式没有权 \(<n\) 的分量. 现在考虑典范态射
 \[
@@ -770,13 +770,13 @@ K' \arrow[r,"\lambda_t"'] &
 \]
 为赋环拓扑斯的态射. 已知（\hyperlink{sga6.e04.para.2-7}{第 IV 讲, 2.7)}）, \(f\) 在相应的 \(K\) 上定义环态射, 即
 \[
-  f^*:K^*_{\mathrm{naif}}(T',A')\longrightarrow K^*_{\mathrm{naif}}(T,A).
+  f^*:K^{\bullet}_{\mathrm{naif}}(T',A')\longrightarrow K^{\bullet}_{\mathrm{naif}}(T,A).
 \]
 由于逆像与外幂交换, 在刚才定义的结构下, 相应的 \(K\) 上的态射 \(f^*\) 为 \(\lambda\)-同态.
 
 指出两个特例:
 \begin{itemize}
-\item 若 \(X\) 为概形, 则由此赋予 \(K^*_{\mathrm{naif}}(X)\) 预 \(\lambda\)-环结构. 这是讨论班后文将使用的情形, 可将它视为一般 \(\lambda\)-环理论的原型.
+\item 若 \(X\) 为概形, 则由此赋予 \(K^{\bullet}_{\mathrm{naif}}(X)\) 预 \(\lambda\)-环结构. 这是讨论班后文将使用的情形, 可将它视为一般 \(\lambda\)-环理论的原型.
 \item 若 \(A\) 为环, \(X=\operatorname{Spec}A\), \(G\) 为平凡地作用于 \(A\) 的群, 则取 \((T,A)\) 为 \(X\) 上带有 \(G\) 作用的集合层拓扑斯, 所得环 \(K\) 即为 \(G\) 在有限型投射 \(A\)-模中的表示环.
 \end{itemize}
 
@@ -891,7 +891,7 @@ K' \arrow[r,"\lambda_t"'] &
 为 \(\lambda\)-同态. 因此必须在 \(\Ghat\) 上定义运算, 使对所有 \(A\)-模 \(E,F\), 有
 \[
   \lambda_t(EF)=\lambda_t(E)\circ\lambda_t(F),\qquad
-  \lambda_u(\lambda_t(E))=\Ghat^u_{\lambda_t}\bigl(\lambda_t(\lambda_u(E))\bigr).
+  \lambda_u(\lambda_t(E))=\Ghat^u(\lambda_t)\bigl(\lambda_u(E)\bigr).
 \]
 关系式 \hyperlink{sga6.e05.eq.2-3-1}{(2.3.1)} 和 \hyperlink{sga6.e05.eq.2-3-3}{(2.3.3)} 正是将上述关系式应用于 \(E\) 和 \(F\) 为可逆模的情形.
 
@@ -909,13 +909,16 @@ K' \arrow[r,"\lambda_t"'] &
   \tag{2.4.1}
 \end{align}
 用映射 \(\lambda^i\) 表述, 后两个关系式等价于对 \(x,y\in K\) 及 \(i,j\in\mathbb N\), 有
-\sgaStableTarget{sga6.e05.eq.2-4-2}\sgaStableTarget{sga6.e05.eq.2-4-3}\begin{align}
-  \lambda^i(xy)
-  &=P_i(\lambda^1(x),\ldots,\lambda^i(x);
-       \lambda^1(y),\ldots,\lambda^i(y)), \tag{2.4.2}\\
-  \lambda^j(\lambda^i(x))
-  &=Q_{i,j}(\lambda^1(x),\ldots,\lambda^{ij}(x)). \tag{2.4.3}
-\end{align}
+% 法文原书 PDF334 / 印刷页320: 两条原关系共享式号2.4.2, 英文独立别名2-4-3保留.
+\sgaStableTarget{sga6.e05.eq.2-4-2}\sgaStableTarget{sga6.e05.eq.2-4-3}\begin{equation}\tag{2.4.2}
+ \begin{aligned}
+ \lambda^i(xy)
+ &=P_i(\lambda^1(x),\ldots,\lambda^i(x);
+       \lambda^1(y),\ldots,\lambda^i(y)),\\
+ \lambda^j(\lambda^i(x))
+ &=Q_{i,j}(\lambda^1(x),\ldots,\lambda^{ij}(x)).
+ \end{aligned}
+\end{equation}
 
 注意, 这里偏离了通常的术语（参见 [1]）: 通常把我们所谓的预 \(\lambda\)-环称为 \(\lambda\)-环, 把我们的 \(\lambda\)-环称为“特殊”\(\lambda\)-环. 原因在于实践中只有“特殊”\(\lambda\)-环才有用.
 
@@ -959,19 +962,20 @@ K' \arrow[r,"\lambda_t"'] &
 \]
 其余关系由图
 \[
-\begin{tikzcd}[column sep=tiny]
+\begin{gathered}
+\begin{tikzcd}[column sep=3.2em,row sep=large]
 \Ghat^t\times\Ghat^t \arrow[r,"\lambda_u\times\lambda_u"] \arrow[d,"\circ"'] &
 (\Ghat^u\circ\Ghat^t)\times(\Ghat^u\circ\Ghat^t) \arrow[d,"\circ"]\\
 \Ghat^t \arrow[r,"\lambda_u"'] &
 \Ghat^u\circ\Ghat^t,
-\end{tikzcd}
-\qquad
-\begin{tikzcd}[column sep=tiny]
+\end{tikzcd}\\[1.3em]
+\begin{tikzcd}[column sep=3.2em,row sep=large]
 \Ghat^t \arrow[r,"\lambda_v"] \arrow[d,"\lambda_u"'] &
 \Ghat^v\circ\Ghat^t \arrow[d,"\Ghat^v(\lambda_u)"]\\
 \Ghat^u\circ\Ghat^t \arrow[r,"\lambda_v"'] &
 \Ghat^v\circ\Ghat^u\circ\Ghat^t,
 \end{tikzcd}
+\end{gathered}
 \]
 的交换性验证. 由 \hyperlink{sga6.e05.thm.1-10}{1.10}, 只需在元素 \(1+Xt\) 和 \(1+Yt\) 上检验这些交换图. 对于第一个图,
 \[
@@ -983,6 +987,8 @@ K' \arrow[r,"\lambda_t"'] &
 &=\lambda_u((1+Xt)\circ(1+Yt)).
 \end{aligned}
 \]
+\emph{译校注.} 上面计算第一行的 \(\{Xt\}\) 依原书照录; 根据 \hyperlink{sga6.e05.eq.2-3-3}{(2.3.3)}, 应读作 \(\{1+Xt\}\).
+
 对于第二个图,
 \[
   \lambda_v(\lambda_u(1+Xt))
@@ -999,9 +1005,11 @@ K' \arrow[r,"\lambda_t"'] &
 \[
 \begin{array}{ll}
 \text{i)}& K\text{ 无挠},\\
-\text{ii)}& \forall x\in K,\ \forall n\in\mathbb N,\quad \binom{x}{n}\in K .
+\text{ii)}& \forall x\in K,\ \forall n\in\mathbb N,\quad \frac{x}{n}\in K .
 \end{array}
 \]
+\emph{译校注.} 条件 ii) 中原书确实印作分数 \(x/n\), 此处照录. 根据前面的 \hyperlink{sga6.e05.eq.2-5-1}{(2.5.1)}、紧随其后的定义及 \hyperlink{sga6.e05.eq.2-6-1}{(2.6.1)}, 应为二项式系数 \(\binom{x}{n}\in K\); 若照分数理解, \(n=0\) 时无定义, 且 \(\mathbb Z\) 不满足这一条件.
+
 则对所有 \(x\in K\) 和所有 \(n\in\mathbb N\), 置
 \[
   \lambda^n(x)=\binom{x}{n},
@@ -1053,7 +1061,7 @@ K' \arrow[r,"\lambda_t"'] &
 \providecommand{\Mon}{\operatorname{Mon}}
 
 
-\sgaStableTarget{sga6.e05.continuation-of-2-9}\subsection*{2.9 的续文}
+\sgaStableTarget{sga6.e05.continuation-of-2-9}
 
 仍假设 \(K\) 为二项式环. 对 \(a\in K\), 按运算 \(\circ\) 乘以 \(\lambda_t(a)\), 定义函子态射
 \[
@@ -1087,7 +1095,8 @@ K' \arrow[r,"\lambda_t"'] &
 
 仍在范畴 \(\mathscr C_0\) 上讨论.
 
-\sgaStableTarget{sga6.e05.para.3-1}\textbf{3.1.} 设 \(K\) 为 \(\lambda\)-环. 将由运算 \(\lambda^i\) 定义新的运算, 记为 \(\gamma^i\). 这些运算适用于 Chern 类. 若 \(E\) 为秩 \(d\) 的向量丛, 则用 \(K\) 理论的语言, \(E\) 的最高次 Chern 类由各外幂的交错和表示. 为得到第 \(n\) 类, 先将 \(E\) 替换为 \(E\oplus\mathbf1^{\,n-d}\), 于是可以应用同一最高次类的公式. 这就引出了下面的公式.
+% 法文原书 PDF338--339 / 印刷页324--325, 恢复原动机, 不将虚类改成实际直和丛.
+\sgaStableTarget{sga6.e05.para.3-1}\textbf{3.1.} 设 \(K\) 为 \(\lambda\)-环. 将从 \(K\) 的运算 \(\lambda\) 定义新的运算, 记为 \(\gamma\). 这些运算旨在引进 Chern 类的概念, 所需条件将在后面说明. 现在先给下面的定义一个“理由”: 若 \(E\) 为秩为 \(d\) 的向量丛, 则 \(E\) 的第 \(d\) 个 Chern 类应该是“\(E\) 的各外幂的交错和”, 无论所考察的是何种 Chern 类理论. 为定义第 \(n\) 个 Chern 类, 将类似地处理: 考虑 \((\operatorname{cl}(E)-d)+n\), 把 \(E\) 化到秩 \(n\), 并取所得元素的各外幂的交错和. 在下面命题中取 \(x=\operatorname{cl}(E)-d\), 便得到这一“解释”.
 
 \sgaStableTarget{sga6.e05.prop.3-2}\textbf{命题 3.2.} 设 \(K\) 为 \(\lambda\)-环.
 \begin{enumerate}[label=\roman*)]
@@ -1164,11 +1173,13 @@ K' \arrow[r,"\lambda_t"'] &
                       {(1+(X+1)t)(1+(Y+1)t)}\right) \notag\\
  &=\frac{1+(1+X+Y+XY)t}{(1+Xt)(1+Yt)} . \tag{3.5.1}
 \end{align}
+\emph{译校注.} 原书 \hyperlink{sga6.e05.eq.3-5-1}{(3.5.1)} 最后一个分子的 \(t\) 系数印有额外的常数 \(1\). 由上一行代入 \(t/(1-t)\) 直接计算, 该分子应为 \(1+(X+Y+XY)t\); 这也使 \(X=0\) 或 \(Y=0\) 时的乘积为加法零元 \(1\). 上式保留原书印文.
+
 因此, 对 \(x,y\in K\), 有
 \sgaStableTarget{sga6.e05.eq.3-5-2}\begin{equation}\tag{3.5.2}
   \gamma_t(xy)=\gamma_t(x)\nabla\gamma_t(y).
 \end{equation}
-将此运算的次数为 \(n\) 的泛多项式记为 \(P'_n\). 关于两组变量中的每一组, 其等权分量的权均在 \(n\) 和 \(2n\) 之间, 且
+将此运算的第 \(n\) 个泛多项式记为 \(P'_n\). 它为 \(\mathbb Z[X_1,\ldots,X_n,Y_1,\ldots,Y_n]\) 中的多项式; 关于全部变量 \(X_i,Y_j\), 其等权分量的权在 \(n\) 与 \(2n\) 之间（\hyperlink{sga6.e05.para.1-15}{1.15}）, 且关于这两组变量对称. 因而对 \(x,y\in K\), 有
 \sgaStableTarget{sga6.e05.eq.3-5-3}\begin{equation}\tag{3.5.3}
   \gamma^n(xy)
   =P'_n(\gamma^1(x),\ldots,\gamma^n(x),
@@ -1179,7 +1190,6 @@ K' \arrow[r,"\lambda_t"'] &
 \sgaStableTarget{sga6.e05.para.3-6}\textbf{3.6.} 搬运所得结构的运算 \(\lambda'\) 由下图定义:
 \sgaStableTarget{sga6.e05.eq.3-6-1}\[
 \begin{tikzcd}[column sep=tiny]
-\Ghat \\[-0.6em]
 1+K[[t]]^+ \arrow[r,"\lambda_u"] \arrow[d,"\rho_t"'] &
 1+\{1+K[[t]]^+\}[[u]]^+ \arrow[d,"\Ghat(\rho_t)"]\\
 1+K[[t]]^+ \arrow[r,"\lambda'_u"'] &
@@ -1187,9 +1197,30 @@ K' \arrow[r,"\lambda_t"'] &
 \end{tikzcd}
 \tag{3.6.1}
 \]
+即由如下复合的函子态射定义:
+\[
+ \lambda':\widehat G\xrightarrow{\rho_t^{-1}}\widehat G
+ \xrightarrow{\lambda_u}\widehat G\circ\widehat G
+ \xrightarrow{\widehat G(\rho_t)}\widehat G\circ\widehat G.
+\]
+将这些运算记为 \(\lambda'\). 它们由在 \(1+Xt\) 上的值所确定, 有
+\[
+ \begin{aligned}
+ \lambda'_u(1+Xt)
+ &=\widehat G(\rho_t)\bigl(\lambda_u(\rho_t^{-1}(1+Xt))\bigr)\\
+ &=\widehat G(\rho_t)\!\left(
+       \lambda_u\!\left(\frac{1+(X+1)t}{1+t}\right)\right)\\
+ &=\widehat G(\rho_t)\!\left(
+       \frac{\mathbf1_{\circ}+\{1+(X+1)t\}u}
+            {\mathbf1_{\circ}+\{1+t\}u}\right)\\
+ &=\mathbf1_{\nabla}
+       +\frac{\{1+Xt\}u}{\mathbf1_{\nabla}+\mathbf1_{\nabla}u}\\
+ &=\rho_u^{-1}\bigl(\mathbf1_{\nabla}+\{1+Xt\}u\bigr).
+ \end{aligned}
+\]
 若 \(\gamma'\) 表示附属于这些运算 \(\lambda'\) 的 \(\gamma\)-运算, 则
 \sgaStableTarget{sga6.e05.eq.3-6-2}\begin{equation}\tag{3.6.2}
-  \gamma'_u(1+Xt)=\frac1{1-u}+\{1+Xt\}u .
+  \gamma'_u(1+Xt)=\mathbf1_{\nabla}+\{1+Xt\}u .
 \end{equation}
 设 \(Q'_{i,j}\) 为 \(\gamma'^i(1+X_1t+X_2t^2+\cdots)\) 中 \(t^j\) 的系数. 它是 \(\mathbb Z[X_1,\ldots,X_{ij}]\) 中的多项式, 其等权分量的权从 \(j\) 到 \(ij\). 对 \(\lambda\)-环 \(K\) 及 \(x\in K\), 有
 \sgaStableTarget{sga6.e05.eq.3-6-3}\begin{equation}\tag{3.6.3}
@@ -1202,7 +1233,7 @@ K' \arrow[r,"\lambda_t"'] &
   \gamma^j(\gamma^i(x))
   =Q'_{i,j}(\gamma^1(x),\ldots,\gamma^{ij}(x)).
 \end{equation}
-搬运得到的 \(\Ghat\) 上的预 \(\lambda\)-环结构本身为 \(\lambda\)-环结构.
+最后指出, 刚在 \(\widehat G\) 上定义的预 \(\lambda\)-环结构本身为 \(\lambda\)-环结构, 因为它是由\hyperlink{sga6.e05.eq.2-3-1}{2.3} 中定义的结构经同构 \(\rho\) 搬运得到的.
 
 \sgaStableTarget{sga6.e05.para.3-7}\textbf{3.7.} 用 \(\Gcirc\) 表示赋以第 2 节结构的函子 \(\Ghat\), 用 \(\Gnabla\) 表示赋以第 3 节结构的同一函子. 在环 \(A\) 上给定 \(\lambda\)-环结构, 等价于给定环同态 \(A\to\Gcirc(A)\), 满足 \(\lambda_t\) 的通常交换图; 也等价于给定环同态 \(A\to\Gnabla(A)\), 满足 \(\gamma_t\) 的相应交换图. 具体而言, 两个图为
 \sgaStableTarget{sga6.e05.eq.3-7-1}\[
@@ -1227,6 +1258,14 @@ A \arrow[r,"\gamma_u"] \arrow[d,"\gamma_t"'] & \Gnabla^u(A) \arrow[d,"\Gnabla^u(
   =\exp(-x\Log(1-t)).
 \end{equation}
 对 \(a\in K\), 按运算 \(\nabla\) 乘以 \(\gamma_t(a)\), 由其在 \(1+Xt\) 上的值刻画:
+\[
+ \begin{aligned}
+ \gamma_t(a)\nabla(1+Xt)
+ &=\rho_t\!\left(\lambda_t(a)\circ
+                 \frac{1+(X+1)t}{1+t}\right)\\
+ &=\rho_t\!\left(\left(\frac{1+(X+1)t}{1+t}\right)^a\right).
+ \end{aligned}
+\]
 \sgaStableTarget{sga6.e05.eq.3-8-2}\begin{equation}\tag{3.8.2}
   \gamma_t(a)\nabla(1+Xt)
   =(1+Xt)^a
@@ -1241,7 +1280,10 @@ A \arrow[r,"\gamma_u"] \arrow[d,"\gamma_t"'] & \Gnabla^u(A) \arrow[d,"\Gnabla^u(
 \]
 态射为与增广相容的 \(\lambda\)-同态.
 
-\sgaStableTarget{sga6.e05.ex.3-9-1}\textbf{例 3.9.1.} 设 \((X,A)\) 为局部赋环拓扑斯. 有限型局部自由 \(A\)-模的 Grothendieck 群 \(K^\circ(X)\) 通过外幂具有自然的预 \(\lambda\)-环结构. 从 \(H^0(X,\mathbb Z)\) 到 \(K^\circ(X)\) 有自然的 \(\lambda\)-同态: 常值层 \(\mathbb Z\) 的截面 \(a\) 将终对象分割为开对象 \(U_n\), 在其上 \(a=n\); 将它映到在 \(n\ge0\) 的 \(U_n\) 上为 \(A^n\) 的局部自由模的类, 减去负值部分上相应的类. 秩映射为增广. 以下使用的就是此增广结构.
+% 法文原书 PDF344 / 印刷页330, 恢复例子的全部构造及检验.
+\sgaStableTarget{sga6.e05.ex.3-9-1}\textbf{例 3.9.1.} 设 \((X,A)\) 为赋交换局部环拓扑斯, \(K^{\bullet}(X)\) 为 \(X\) 上有限型局部自由 \(A\)-模层范畴的 Grothendieck 群. 已经看到, 可在 \(K^{\bullet}(X)\) 上赋予预 \(\lambda\)-环结构（\hyperlink{sga6.e05.ex.2-2}{2.2.b}, 因为有限型自由模的每个直和因子此时均为有限型局部自由模）, 且 \(H^0(X,\mathbb Z)\) 典范地赋有二项式环结构. 如下定义从 \(H^0(X,\mathbb Z)\) 到 \(K^{\bullet}(X)\) 的 \(\lambda\)-同态. 设 \(a\) 为 \(X\) 上常值层 \(\mathbb Z\) 的截面; 它把 \(X\) 的终对象分割为两两不交开对象 \(U_n\) 的和, 截面 \(a\) 在开对象 \(U_n\) 上取值为 \(n\). 设 \(F\) 为在 \(n>0\) 时的 \(U_n\) 上等于 \(A^n\)、在 \(n\le0\) 时的 \(U_n\) 上等于 \(0\) 的层; 设 \(F'\) 为在 \(n<0\) 时的 \(U_n\) 上等于 \(A^{-n}\)、在 \(n\ge0\) 时的 \(U_n\) 上等于 \(0\) 的层. 将 \(a\) 对应到 \(K^{\bullet}(X)\) 的元素 \(F-F'\).
+
+立即验证, 这样确实得到从 \(H^0(X,\mathbb Z)\) 到 \(K^{\bullet}(X)\) 的 \(\lambda\)-同态. 随后可定义从 \(K^{\bullet}(X)\) 到 \(H^0(X,\mathbb Z)\) 的增广: 将每个有限型局部自由层对应到它的秩, 后者为 \(\mathbb Z\) 的截面; 秩的可加性保证这样在 \(K^{\bullet}(X)\) 上定义了取值于 \(H^0(X,\mathbb Z)\) 的函数. 因而在 \(K^{\bullet}(X)\) 上赋予了增广预 \(\lambda\)-代数结构. 后文中所说的总是这一结构.
 
 \sgaStableTarget{sga6.e05.para.3-10}\textbf{3.10.} 设 \(A\) 为增广 \(K\)-\(\lambda\)-代数. 对 \(n>0\), 定义 \(\Fil^n A\) 为由乘积
 \sgaStableTarget{sga6.e05.eq.3-10-1}\begin{equation}\tag{3.10.1}
@@ -1255,75 +1297,144 @@ A \arrow[r,"\gamma_u"] \arrow[d,"\gamma_t"'] & \Gnabla^u(A) \arrow[d,"\Gnabla^u(
   \gamma^{i_k}(x_{\alpha_k}-\epsilon(x_{\alpha_k})),
   \qquad i_1+\cdots+i_k\ge n.
 \end{equation}
-生成. 此滤过递减且具有乘法性, 并且
+生成. 事实上, 若 \(x\) 为 \(A\) 中增广为零的元素, 且写成 \(x=\sum_i x_{\alpha_i}\), 则 \(\sum_i\epsilon(x_{\alpha_i})=0\), 从而
+\[
+ x=\sum_i\bigl(x_{\alpha_i}-\epsilon(x_{\alpha_i})\bigr).
+\]
+另一方面, 若 \(a\in A\), 可写成
+\[
+ a=(a-\epsilon(a))+\epsilon(a)
+   =\gamma^1(a-\epsilon(a))+\epsilon(a).
+\]
+使用关系式 \hyperlink{sga6.e05.eq.3-4-1}{(3.4.1)}, 因而可知 \(\Fil^nA\) 的元素均为 \hyperlink{sga6.e05.eq.3-10-2}{(3.10.2)} 中元素的 \(K\)-系数线性组合; 而这些元素属于 \(\Fil^nA\), 由此得到所需结论.
+
+这样定义的滤过为递减的环滤过, 并且
 \[
   \Fil^0A=A,
   \qquad \Fil^1A=\Ker\epsilon.
 \]
-它对增广 \(K\)-\(\lambda\)-代数同态具有函子性.
+此外, 它关于 \(A\) 是函子性的: 每个增广 \(K\)-\(\lambda\)-代数的 \(\lambda\)-同态都与滤过相容. 在将增广 \(\lambda\)-环看作赋有滤过时, 除非另有明文说明, 所指的均为上述滤过.
 
-\sgaStableTarget{sga6.e05.prop.3-11}\textbf{命题 3.11.} 设 \(A\) 为 \(\lambda\)-环, \(y_1,\ldots,y_n\) 为 \(A\) 中满足 \(j\ge2\) 时 \(\lambda^j(y_i)=0\) 的元素. 置 \(x=\sum_i y_i\). 则当 \(k>n\) 时, \(\gamma^k(x-n)=0\); 当 \(1\le k\le n\) 时, \(\gamma^k(x-n)\) 为 \(y_i-1\) 的第 \(k\) 个初等对称函数. 这由下式得到: % 法文原书 PDF346 核对: 假设为 lambda, 英文误为 gamma; 原书证明尚待完整恢复.
+% 法文原书 PDF346 / 印刷页332: 恢复完整陈述和证明.
+\sgaStableTarget{sga6.e05.prop.3-11}\textbf{命题 3.11.} 设 \(A\) 为 \(\lambda\)-环, \(y_i\), \(i=1,\ldots,n\), 为 \(A\) 中满足 \(j\ge2\) 时 \(\lambda^j(y_i)=0\) 的元素. 置 \(x=\sum_{i=1}^n y_i\). 则:
+\begin{enumerate}[label=\roman*)]
+\item 当 \(k>n\) 时, 有 \(\gamma^k(x-n)=0\).
+\item 当 \(1\le k\le n\) 时, \(\gamma^k(x-n)\) 为 \(y_i-1\) 的第 \(k\) 个对称函数.
+\end{enumerate}
+
+\emph{证明.} 设 \(j\ge2\). 则
 \[
-  \gamma_t(x-n)=\prod_{i=1}^{n}\gamma_t(y_i-1).
+ \gamma^j(y_i-1)=\lambda^j(y_i+j-2)
+   =\sum_{p+q=j}\lambda^p(y_i)\lambda^q(j-2).
+\]
+由于当 \(p\ge2\) 时, \(\lambda^p(y_i)=0\), 且当 \(q>j-2\) 时, \(\lambda^q(j-2)=0\), 故 \(\gamma^j(y_i-1)=0\). 命题于是由下式得到:
+\[
+ \gamma_t(x-n)=\prod_{i=1}^n\gamma_t(y_i-1).
 \]
 
 \sgaStableTarget{sga6.e05.sec.4}\section*{4. 用生成元与关系定义的 \(\lambda\)-环}
 
-\sgaStableTarget{sga6.e05.para.4-1}\textbf{4.1.} 设 \(K\) 为 \(\lambda\)-环, \((X_i)_{i\in I}\) 为不定元. 置
+仍在 \(\mathcal C_0\) 上讨论.
+
+% 法文原书 PDF346 / 印刷页332: 恢复4.1的原论证.
+\sgaStableTarget{sga6.e05.para.4-1}\textbf{4.1.} 设 \(K\) 为 \(\lambda\)-环. 考虑一族不定元 \((X_i)_{i\in I}\), 并置
 \[
-  A=K[X_i,{}^nX_i]_{i\in I,\ n\ge2}.
+ A=K[X_i,{}^nX_i]_{i\in I,\ n\ge2}.
 \]
-定义
+要在 \(A\) 上定义延拓 \(K\) 的结构的 \(\lambda\)-环结构.
+
+为给出同态 \(\lambda_t:A\to\Ghat(A)\), 只需给出 \(X_i,{}^nX_i\) 的像, 由此定义环同态 \(A\to\Ghat(A)\). 为使它定义 \(A\) 上的 \(\lambda\)-环结构, 必须验证图 \hyperlink{sga6.e05.eq.3-7-1}{(3.7.1)} 交换. 因而置
 \sgaStableTarget{sga6.e05.eq.4-1-1}\begin{equation}\tag{4.1.1}
-  \lambda_t(X_i)=1+X_it+\sum_{n\ge2}{}^nX_i t^n,
-  \qquad
-  \lambda_t({}^nX_i)=\lambda^n(\lambda_t(X_i)).
+ \lambda_t(X_i)=1+X_it+\sum_{n\ge2}{}^nX_i t^n,
+ \qquad
+ \lambda_t({}^nX_i)=\lambda^n(\lambda_t(X_i)).
 \end{equation}
-这给出 \(A\) 上延拓 \(K\) 的结构的 \(\lambda\)-环结构.
+图 \hyperlink{sga6.e05.eq.3-7-1}{(3.7.1)} 为环同态的图, 所以只需对 \(X_i,{}^nX_i\) 验证其交换性（由假设, 它在 \(K\) 的元素上已知）; 由定义 \hyperlink{sga6.e05.eq.4-1-1}{(4.1.1)} 及 \(\lambda_u\) 和 \(\Ghat^u(\lambda_t)\) 为 \(\lambda\)-同态这一事实, 容易得到此点.
 
-\sgaStableTarget{sga6.e05.prop.4-2}\textbf{命题 4.2.} 对每个 \(K\)-\(\lambda\)-代数 \(B\) 和 \(B\) 中每族 \((b_i)_{i\in I}\), 存在唯一的 \(K\)-\(\lambda\)-同态 \(A\to B\), 将 \(X_i\) 映到 \(b_i\). 它必然将 \({}^nX_i\) 映到 \(\lambda^n(b_i)\), 且此条件充分.
+% 法文原书 PDF347--350 / 印刷页333--336, 恢复泛性质及商构造的完整论证.
+\(\lambda\)-环 \(A\) 由如下泛性质刻画:
 
-\sgaStableTarget{sga6.e05.para.4-3}\textbf{4.3.} 同一构造也可使用 \(\gamma\) 进行. 设
+\sgaStableTarget{sga6.e05.prop.4-2}\textbf{命题 4.2.} 对每个 \(K\)-\(\lambda\)-代数 \(B\) 和 \(B\) 中的每族元素 \((b_i)_{i\in I}\), 存在唯一的 \(K\)-\(\lambda\)-同态 \(f:A\to B\), 使得对每个 \(i\in I\), 有 \(f(X_i)=b_i\).
+
+\emph{证明.} 为使 \(f\) 为 \(\lambda\)-同态, 必须对所有 \(i,j\) 有 \(f({}^jX_i)=\lambda^j(b_i)\); 这唯一地确定了 \(f\). 所得同态确为 \(\lambda\)-同态, 因为验证 \(\lambda_t\circ f=\widehat G(f)\circ\lambda_t\) 时, 只需在 \(A\) 在 \(K\) 上的一组生成元上验证, 而此点由 \(f\) 的定义和关系式 \hyperlink{sga6.e05.eq.2-4-2}{(2.4.2)} 得到.
+
+\sgaStableTarget{sga6.e05.para.4-3}\textbf{4.3.} 使用 \(\gamma\) 代替 \(\lambda\), 可作同样的构造. 设
 \[
-  A'=K[X_i,{}^\gamma_nX_i]_{i\in I,\ n\ge2},
+ A'=K[X_i,{}^\gamma_nX_i]_{i\in I,\ n\ge2}.
 \]
-并定义
+为定义 \(A'\) 的 \(\lambda\)-环结构, 以下式给出环同态 \(A'\to\widehat G(A')\):
 \sgaStableTarget{sga6.e05.eq.4-3-1}\begin{equation}\tag{4.3.1}
-  \gamma_t(X_i)=1+X_it+\sum_{n\ge2}{}^\gamma_nX_i t^n,
-  \qquad
-  \gamma_t({}^\gamma_nX_i)=\gamma'^n(\gamma_t(X_i)).
+ \gamma_t(X_i)=1+X_it+\sum_{n\ge2}{}^\gamma_nX_i t^n,
+ \qquad
+ \gamma_t({}^\gamma_nX_i)=\gamma'^n(\gamma_t(X_i)).
 \end{equation}
-这给出满足同一泛性质的 \(\lambda\)-环, 因而它与 \(A\) 典范同构.
+然后验证 \hyperlink{sga6.e05.eq.3-7-2}{(3.7.2)} 的交换性, 从而说明所得确为 \(\lambda\)-环结构.
 
-\sgaStableTarget{sga6.e05.def.4-4}\textbf{定义 4.4.} 上述 \(\lambda\)-环称为在 \(K\) 上由族 \((X_i)\) 生成的\emph{自由 \(\lambda\)-环}.
+\(\lambda\)-环 \(A'\) 也满足泛性质 \hyperlink{sga6.e05.prop.4-2}{4.2}; 因而它作为 \(\lambda\)-环与 \(A\) 典范同构.
 
-\sgaStableTarget{sga6.e05.def.4-5}\textbf{定义 4.5.} \(\lambda\)-环 \(A\) 的理想 \(J\) 称为 \emph{\(\lambda\)-理想}, 如果对每个 \(x\in J\) 及 \(n>1\), 有 \(\lambda^n(x)\in J\). \(\lambda\)-同态的核为 \(\lambda\)-理想; 反过来, 若 \(J\) 为 \(\lambda\)-理想, 则 \(A/J\) 获得唯一的 \(\lambda\)-环结构. \(\lambda\)-理想的交仍为 \(\lambda\)-理想. 因此, 每族元素都有一个包含它的最小 \(\lambda\)-理想, 它由这些元素及其全部迭代的 \(\lambda^n\) 生成.
+\sgaStableTarget{sga6.e05.def.4-4}\textbf{定义 4.4.} 称 \(\lambda\)-环 \(A\) 为在 \(K\) 上由生成元族 \((X_i)_{i\in I}\) 生成的\emph{自由 \(\lambda\)-环}.
 
-\sgaStableTarget{sga6.e05.def.4-6}\textbf{定义 4.6.} 自由 \(\lambda\)-环对由指定关系 \((P_i)\) 生成的 \(\lambda\)-理想的商, 称为由生成元 \((X_i)\) 在关系 \((P_i)\) 下生成的 \(\lambda\)-环. 等价地, 可用 \(\gamma\)-运算表述同一构造.
+\sgaStableTarget{sga6.e05.def.4-5}\textbf{定义 4.5.} 设 \(A\) 为 \(\lambda\)-环, \(J\) 为 \(A\) 的理想. 若对每个 \(x\in J\) 及每个 \(n\ge1\), 有 \(\lambda^n(x)\in J\), 则称 \(J\) 为 \(A\) 的 \emph{\(\lambda\)-理想}.
 
-\sgaStableTarget{sga6.e05.prop.4-7}\textbf{命题 4.7.} 此商具有预期的泛性质: \(K\)-\(\lambda\)-代数中每族满足关系 \((P_i)\) 的元素 \((b_i)\), 确定从此商到该代数的唯一 \(K\)-\(\lambda\)-同态.
+若 \(f:A\to B\) 为 \(\lambda\)-同态, 则 \(f\) 的核为 \(\lambda\)-理想.
 
-\sgaStableTarget{sga6.e05.prop.4-8}\textbf{命题 4.8.} 设 \(n\ge0\). 在 \(K\) 上单生成元 \(X\) 的自由 \(\lambda\)-环中, 由 \(k>n\) 时的 \(\lambda^kX\) 生成的理想为 \(\lambda\)-理想. 事实上, 取商后, 只需检验若 \(\varphi\in\Ghat(C)\) 没有次数 \(>n\) 的项, 则对 \(k>n\), 有 \(\lambda^k(\varphi)=0\). 由分裂原理, 只需写成
+设 \(J\) 为 \(\lambda\)-理想. 复合同态
 \[
-  \varphi=\prod_{i=1}^{n}(1+T_it),
+ A\xrightarrow{\lambda_t}\widehat G(A)\longrightarrow\widehat G(A/J)
 \]
-于是
-\[
-  \lambda_u(\varphi)=\prod_{i=1}^{n}\bigl(1+\{1+T_it\}u\bigr),
-\]
-它关于 \(u\) 的次数为 \(n\).
+在 \(J\) 上为零, 因而经由 \(A/J\) 分解. 于是 \(A/J\) 赋有 \(\lambda\)-环结构, 因为关系式 \hyperlink{sga6.e05.eq.2-4-2}{(2.4.2)} 可传到商上.
 
-\sgaStableTarget{sga6.e05.cor.4-9}\textbf{推论 4.9.} 在 \(K\) 上由元素 \(X\), 在 \(k>n\) 时 \(\lambda^k(X)=0\) 的关系下生成的 \(\lambda\)-环为
-\[
-  K[X,\lambda^2X,\ldots,\lambda^nX].
-\]
-更一般地, 对具有界 \((n_i)\) 的一族 \((X_i)\), 加入关系 \(k>n_i\) 时 \(\lambda^k(X_i)=0\) 后的商, 为由 \(X_i,\lambda^2X_i,\ldots,\lambda^{n_i}X_i\) 生成的多项式环. % 英文源含误植双反斜杠, 此处修复命令.
+任意族 \(\lambda\)-理想之交仍为 \(\lambda\)-理想. 特别地, 存在包含给定元素族 \((x_i)_{i\in I}\) 的最小 \(\lambda\)-理想; 根据关系式 \hyperlink{sga6.e05.eq.2-4-2}{(2.4.2)}, 它就是由 \(\lambda^n(x_i)\), \(n\ge1\), 生成的通常理想.
 
-\sgaStableTarget{sga6.e05.para.4-10}\textbf{4.10.} 设 \(K\) 为二项式环, \(A\) 为增广 \(K\)-\(\lambda\)-代数. 置
+仍设 \(K\) 为 \(\lambda\)-环, \((X_i)_{i\in I}\) 为不定元族, \(A=K[X_i,{}^nX_i]\). 设 \((P_j)_{j\in L}\) 为 \(A\) 中的元素族, \(J\) 为各 \(P_j\) 生成的 \(\lambda\)-理想.
+
+\sgaStableTarget{sga6.e05.def.4-6}\textbf{定义 4.6.} 称 \(\lambda\)-环 \(A/J\) 为在 \(K\) 上由生成元族 \((X_i)_{i\in I}\) 在关系 \((P_j)_{j\in L}\) 下生成的 \(\lambda\)-环.
+
+也可给定 \(X_i,{}^\gamma_nX_i\) 之间的关系, 并作同样的构造; 这里用到如下事实: 一个理想为 \(\lambda\)-理想当且仅当它在各运算 \(\gamma^n\), \(n\ge1\), 下稳定, 这是关系式 \hyperlink{sga6.e05.prop.3-2}{3.2} 的推论.
+
+设 \(B\) 为 \(K\)-\(\lambda\)-代数, \((b_i)_{i\in I}\) 为 \(B\) 中的元素族. 各 \(P_j\) 为关于不定元 \(X_i,{}^nX_i\) 的多项式, 因而可将这些不定元分别代为 \(b_i,\lambda^n(b_i)\). 若所得元素为零, 就说各 \(b_i\) 满足关系 \(P_j\). 此时, \(K\)-\(\lambda\)-代数 \(A/J\) 由如下泛性质刻画:
+
+\sgaStableTarget{sga6.e05.prop.4-7}\textbf{命题 4.7.} 对每个 \(K\)-\(\lambda\)-代数 \(B\), 和每族满足关系 \((P_j)_{j\in L}\) 的元素 \((b_i)_{i\in I}\), 存在唯一的 \(K\)-\(\lambda\)-同态 \(f':A/J\to B\), 使得对每个 \(i\), 有 \(f'(X_i)=b_i\).
+
+\emph{证明.} 在 \hyperlink{sga6.e05.prop.4-2}{4.2} 中定义的同态 \(f\) 的核包含各 \(P_j\); 因为此核为 \(\lambda\)-理想, 它也包含 \(J\). 因而 \(f\) 可传到商上, 定义出显然唯一的 \(f'\).
+
+\sgaStableTarget{sga6.e05.prop.4-8}\textbf{命题 4.8.} 设 \(n\ge0\) 为整数. 在 \(K\) 上由一个不定元 \(X\) 生成的自由 \(\lambda\)-环中, 由 \(k>n\) 时的各 \(\lambda^kX\) 生成的理想为 \(\lambda\)-理想.
+
+\emph{证明.} 置 \(A=K[X,{}^kX]_{k\ge2}\), 设 \(J\) 为由 \(k>n\) 时的各 \({}^kX\) 生成的理想, 并置 \(B=A/J\). 必须证明复合同态
 \[
-  B=A[X,\gamma^2X,\gamma^3X,\ldots],
+ A\xrightarrow{\lambda_t}\widehat G(A)\longrightarrow\widehat G(B)
 \]
-即在 \(A\) 上由 \(X\) 生成的自由 \(\lambda\)-代数, 用 \(\gamma\) 坐标写出. 通过令 \(\epsilon(X)=0\) 延拓增广, 因而对 \(i>0\), 有 \(\epsilon(\gamma^iX)=0\). 令 \(M_k\) 为变量 \(\gamma^jX\) 的总权为 \(k\) 的单项式集合, 其中各变量按其指标 \(j\) 计权, 并置 \(M_0=\{1\}\).
+在 \(J\) 上为零, 即各 \({}^kX\), \(k>n\), 在 \(\widehat G(B)\) 中的像为 \(1\). 而 \(\lambda_t({}^kX)=\lambda^k(\lambda_t(X))\), 且 \(\widehat G(A)\to\widehat G(B)\) 为 \(\lambda\)-同态; 因而只需证明, 对任意环 \(C\) 和任意次数 \(>n\) 的系数为零的级数 \(\varphi\in\widehat G(C)\), 当 \(k>n\) 时有 \(\lambda^k\varphi=1\).
+
+为证明后一性质, 只需对 \(C=K[X_1,\ldots,X_n]\) 和 \(\varphi=1+X_1t+\cdots+X_nt^n\) 证明. 通过初等对称函数将 \(K[X_1,\ldots,X_n]\) 嵌入 \(K[T_1,\ldots,T_n]\), 可写成
+\[
+ 1+X_1t+\cdots+X_nt^n=\prod_{i=1}^n(1+T_it),
+\]
+从而
+\[
+ \lambda_u(1+X_1t+\cdots+X_nt^n)
+ =\prod_{i=1}^n\lambda_u(1+T_it)
+ =\prod_{i=1}^n\bigl(1+\{1+T_it\}u\bigr),
+\]
+其关于 \(u\) 的次数为 \(n\).
+
+\sgaStableTarget{sga6.e05.cor.4-9}\textbf{推论 4.9.} 在 \(K\) 上由生成元 \(X\), 在 \(k>n\) 时 \(\lambda^k(X)=0\) 的关系下生成的 \(\lambda\)-环同构于
+\[
+ K[X,\lambda^2X,\ldots,\lambda^nX].
+\]
+
+\sgaStableTarget{sga6.e05.para.4-9-1}\textbf{4.9.1.} 将 \(\lambda\) 换成 \(\gamma\), 仍有同样的陈述. 也可将 \(X\) 换成一族不定元 \((X_i)_{i\in I}\), 并给定关系: 当 \(k>n_i\) 时 \(\lambda^k(X_i)=0\), 其中 \(n_i\) 为整数, \(n_i\ge2\). 此时所得的 \(\lambda\)-环为
+\[
+ K[X_i,\lambda^kX_i]_{i\in I,\ 2\le k\le n_i}.
+\]
+
+\sgaStableTarget{sga6.e05.para.4-10}\textbf{4.10.} 设 \(K\) 为二项式环, \(A\) 为增广 \(K\)-\(\lambda\)-代数. 以
+\[
+ B=A[X,\gamma^2X,\gamma^3X,\ldots]
+\]
+表示在 \(A\) 上由 \(X\) 生成的自由 \(\lambda\)-环. 令 \(X\) 映到 \(0\), 定义延拓 \(A\) 的增广的 \(\lambda\)-同态 \(B\to K\), 从而使 \(B\) 赋有增广 \(K\)-\(\lambda\)-代数结构. 要用 \(A\) 的滤过来确定 \(B\) 的滤过（\hyperlink{sga6.e05.para.3-10}{3.10}）.
+
+将各 \(\gamma^kX\) 赋以权 \(k\), 按关于 \(\gamma^kX\) 的权给 \(B\) 分次; 以 \(M_k\) 表示关于这些不定元的权为 \(k\) 的单项式集合.
 
 % 依据法文原书 PDF350 / 印刷页336 恢复; 英文源9196的陈述及其缺失证明不能作为底本.
 \sgaStableTarget{sga6.e05.lem.4-11}\textbf{引理 4.11.} 设 \(a\in A\). 在
@@ -1346,14 +1457,15 @@ A \arrow[r,"\gamma_u"] \arrow[d,"\gamma_t"'] & \Gnabla^u(A) \arrow[d,"\Gnabla^u(
 \end{aligned}
 \]
 各 \(R_{n,a}\) 关于 \(\gamma^jX\) 为权 \(n\) 的等权多项式（\hyperlink{sga6.e05.para.3-8}{3.8}）; 将两者相乘即得引理.
-% 原书此处写 R_{n,a}; 其参数与 epsilon(a) 的关系记录于审计, 不静默改写原书记号.
+\footnote{译校注: 原书第 336 页此处写 \(R_{n,a}\). 按 3.8 中属于底环的参数及本式的展开, 此处应为 \(R_{n,\epsilon(a)}\); 正文保留原印.}
 
-\sgaStableTarget{sga6.e05.prop.4-12}\textbf{命题 4.12.} 对每个 \(k\ge0\),
+\sgaStableTarget{sga6.e05.prop.4-12}\textbf{命题 4.12.} 对每个 \(k\ge0\),\footnote{译校注: 原书第 336 页 4.10 将 \(M_j\) 定义为恰权 \(j\) 的单项式, 但此尾项若按通常生成理想解释则不足: 取 \(A=K=\mathbb Z\)、\(k=1\), 右端不含自由变量 \(\gamma^3X\). 所需尾部应包含所有权至少 \(k+1\) 的单项式, 即 \(\sum_{j\geq k+1}A M_j\). 第 337--338 页 4.13(i) 和 4.15 的同类简记有同一问题. 本文保留原式.}
 \sgaStableTarget{sga6.e05.eq.4-12-1}\begin{equation}\tag{4.12.1}
   \Fil^kB=
   \Fil^kA+\Fil^{k-1}A\,M_1+\cdots+\Fil^1A\,M_{k-1}
   +\Fil^0A\,M_k+B\,M_{k+1}.
 \end{equation}
+
 % 依据法文原书 PDF350--351 / 印刷页336--337 恢复完整证明.
 \emph{证明.} 显然, 右边的理想包含于左边的理想; 因而只需证明反向包含.
 
@@ -1366,7 +1478,8 @@ A \arrow[r,"\gamma_u"] \arrow[d,"\gamma_t"'] & \Gnabla^u(A) \arrow[d,"\Gnabla^u(
 最后, 多项式 \(P'_k\) 没有权 \(<k\) 的等权分量, 因而归结到 \(\gamma^k(\gamma^jX)\) 的情形; 而此情形本身来自多项式 \(Q'_{j,k}\) 没有权 \(<k\) 的等权分量这一事实（\hyperlink{sga6.e05.para.3-6}{3.6}）.
 
 % 依据法文原书 PDF351 / 印刷页337 恢复三项原注, 删除英文底稿的压缩改写.
-\sgaStableTarget{sga6.e05.rem.4-13}\textbf{注 4.13.}
+\newpage
+\sgaStableTarget{sga6.e05.rem.4-13}\textbf{注 4.13.}\nopagebreak[4]
 \begin{enumerate}[label=\roman*)]
 \item \hyperlink{sga6.e05.prop.4-12}{4.12} 中给出的 \(\Fil^kB\) 的分解是 \(A\)-模的直和分解. 换言之, 若 \(b\in\Fil^kB\), 并写成
 \[
@@ -1388,6 +1501,13 @@ A \arrow[r,"\gamma_u"] \arrow[d,"\gamma_t"'] & \Gnabla^u(A) \arrow[d,"\Gnabla^u(
 
 \sgaStableTarget{sga6.e05.cor.4-15}\textbf{推论 4.15.} 若 \(B'=K[X,\gamma^2X,\ldots,\gamma^nX]\) 为单个元素在 \(k>n\) 时 \(\gamma^k(X)=0\) 的关系下生成的 \(K\)-\(\lambda\)-代数, 则 \(B'\) 的 \(\lambda\)-环滤过正是变量 \(\gamma^jX\) 的权滤过.
 
+% 法文原书 PDF352 / 印刷页338 的完整原证明.
+\emph{证明.} 根据\hyperlink{sga6.e05.prop.4-12}{命题 4.12}、\hyperlink{sga6.e05.rem.4-13}{注 4.13} ii), 以及 \(A=K\) 这一事实,
+\[
+ \Fil^kB'=K\,M_k+B'\,M_{k+1},
+\]
+所以 \(\Fil^kB'\) 为由关于 \(\gamma^jX\) 的权 \(\ge k\) 的单项式生成的理想.
+
 \sgaStableTarget{sga6.e05.sec.5}\section*{5. 元素 \(\lambda^p(N,x)\)}
 
 本节仅在\hyperlink{sga6.e07.expose}{第 VII 讲}第 4 节研究正则浸入时使用; 初读时可以略过.
@@ -1404,18 +1524,44 @@ A \arrow[r,"\gamma_u"] \arrow[d,"\gamma_t"'] & \Gnabla^u(A) \arrow[d,"\Gnabla^u(
 
 \sgaStableTarget{sga6.e05.lem.5-2}\textbf{引理 5.2.} 对每个 \(p\ge1\), 元素 \(\lambda^p(x\lambda_{-1}(N))\) 被 \(\lambda_{-1}(N)\) 整除.
 
-由等权性, 只需对 \(\lambda^p(\lambda_{-1}(N))\) 证明. 设 \(B\) 为由 \(N_1,\ldots,N_d\), 在 \(i\ge2\) 时 \(\lambda^i(N_j)=0\) 的关系下生成的 \(\lambda\)-环. 映射 \(N\mapsto\sum_iN_i\) 将 \(A\) 等同于 \(N_i\) 的对称多项式环, 且
+% 法文原书 PDF352--354 / 印刷页338--340, 恢复原证明及关于 d 的相容性论证.
+\emph{证明.} 由\hyperlink{sga6.e05.eq.2-3-1}{2.3} 知道,
 \[
-  \lambda_{-1}(N)=\prod_{i=1}^{d}(1-N_i).
+ \lambda^p(x\lambda_{-1}(N))
+ =P_p\bigl(\lambda^ix,\lambda^j(\lambda_{-1}(N))\bigr)
 \]
-若某个 \(N_i=1\), 则 \(\lambda_t(\lambda_{-1}(N))=\lambda_t(0)=1\), 所以每个正次系数均为零. 因而每个 \(\lambda^p(\lambda_{-1}(N))\) 被每个 \(1-N_i\) 整除, 从而被它们的乘积整除.
+是关于 \(\lambda^j(\lambda_{-1}(N))\) 的权为 \(p\) 的等权多项式; 因而只需对 \(\lambda^p(\lambda_{-1}(N))\) 证明引理.
 
-\sgaStableTarget{sga6.e05.def.5-3}\textbf{定义 5.3.} 因为 \(A\) 为整环, 用下式定义 \(\lambda^p(N,x)\):
+设 \(B\) 为在 \(\mathbb Z\) 上由不定元 \(N_1,\ldots,N_d\), 在 \(i\ge2\) 时 \(\lambda^i(N_j)=0\) 的关系下生成的 \(\lambda\)-环. 显然, 当 \(k>d\) 时, \(\lambda^k(\sum_{i=1}^dN_i)=0\). 因而可定义 \(\lambda\)-同态 \(f:A\to B\), 将 \(N\) 映到 \(\sum_{i=1}^dN_i\); 此时
+\[
+ \widehat G(f)(\lambda_t(N))
+ =\prod_{i=1}^d\lambda_t(N_i)
+ =\prod_{i=1}^d(1+N_it).
+\]
+这表明, 对 \(1\le k\le d\), \(\lambda^kN\) 映到各 \(N_i\) 的第 \(k\) 个初等对称函数, 从而 \(f\) 是单射, 并将 \(A\) 等同于关于 \(N_i\) 的对称多项式环.
+
+于是有
+\[
+ \lambda_{-1}(N)=\prod_{i=1}^d(1-N_i),\qquad
+ \lambda_t(\lambda_{-1}(N))
+ =\lambda_t\!\left(\prod_{i=1}^d(1-N_i)\right).
+\]
+各 \(\lambda^p(\lambda_{-1}(N))\) 为关于 \(N_i\) 的多项式. 若对某个指标 \(i\) 令 \(N_i=1\), 则 \(\lambda_t(\lambda_{-1}(N))\) 成为 \(\lambda_t(0)=1\), 所以各 \(\lambda^p(\lambda_{-1}(N))\) 在 \(N_i=1\) 时为零, 从而以 \(1-N_i\) 为因子. 因此它们以各 \(1-N_i\) 的乘积为因子, 即在 \(B\) 中被 \(\lambda_{-1}(N)\) 整除, 因而在 \(A\) 中也被它整除, 因为两个对称多项式的商显然仍为对称多项式.
+
+\emph{译校注.} 原书在本证明化归到只涉及 \(N\) 的情形后, 仍以 \(A\) 表示所考察的环; 上述关于对称多项式环的断言指由 \(N\) 生成的 \(\lambda\)-子环. 含独立生成元 \(x\) 的整个 \(A\) 并非仅关于 \(N_i\) 的对称多项式环.
+
+\sgaStableTarget{sga6.e05.def.5-3}\textbf{5.3.} 因为 \(A\) 为整环, 以如下等式无歧义地定义元素 \(\lambda^p(N,x)\), 其中 \(p\ge1\):
 \sgaStableTarget{sga6.e05.eq.5-3-1}\begin{equation}\tag{5.3.1}
-  \lambda^p(N,x)\lambda_{-1}(N)=\lambda^p(x\lambda_{-1}(N)),
-  \qquad p\ge1.
+  \lambda^p(N,x)\lambda_{-1}(N)=\lambda^p(x\lambda_{-1}(N)).
 \end{equation}
-因此 \(\lambda^p(N,x)\) 是 \(\lambda^i(x)\) 和 \(\lambda^j(N)\) 的多项式, 关于 \(\lambda^i(x)\) 为权 \(p\) 的等权多项式. 若 \(\lambda\)-环 \(B\) 包含满足 \(k>d\) 时 \(\lambda^k(N')=0\) 的元素 \(N'\), 则以代入定义 \(\lambda^p(N',x')\); 它与所选的界 \(d\) 无关.
+因此, 元素 \(\lambda^p(N,x)\) 是关于 \(\lambda^i(x)\)、\(\lambda^j(N)\) 的多项式, 关于 \(\lambda^i(x)\) 为权为 \(p\) 的等权多项式; 因为根据\hyperlink{sga6.e05.eq.2-3-1}{2.3}, \(\lambda^p(x\lambda_{-1}(N))\) 也具有这一性质.
+
+设整数 \(d'\ge d\), 设 \(A'\) 为由生成元 \(N'\) 与 \(x'\), 在 \(i>d'\) 时 \(\lambda^i(N')=0\) 的关系下生成的 \(\mathbb Z\)-\(\lambda\)-代数. 根据\hyperlink{sga6.e05.prop.4-7}{命题 4.7}, 存在唯一的 \(\lambda\)-同态 \(f:A'\to A\), 将 \(N'\) 映到 \(N\), 将 \(x'\) 映到 \(x\). 由定义 \hyperlink{sga6.e05.eq.5-3-1}{(5.3.1)} 可知, 对每个 \(p\ge1\),
+\[
+ f(\lambda^p(N',x'))=\lambda^p(N,x).
+\]
+
+若 \(B\) 为 \(\lambda\)-环, \(N''\) 为 \(B\) 中满足 \(k>d\) 时 \(\lambda^k(N'')=0\) 的元素, 则对每个 \(x''\in B\), 可通过代入定义元素 \(\lambda^p(N'',x'')\), 或者使用将 \(N\) 映到 \(N''\)、\(x\) 映到 \(x''\) 的唯一 \(\lambda\)-同态 \(A\to B\) 来定义它. 根据前面的说明, 所得元素不依赖于满足 \(k>d\) 时 \(\lambda^k(N'')=0\) 的整数 \(d\). 使用同一个同态, 还可看出 \(N''\)、\(x''\) 满足关系式 \hyperlink{sga6.e05.eq.5-3-1}{(5.3.1)}.
 
 \sgaStableTarget{sga6.e05.para.5-4}\textbf{5.4.} 在 \(\mathbb Z\) 上由 \(N,x,y\), 在 \(k>d\) 时 \(\lambda^k(N)=0\) 的关系下生成的 \(\lambda\)-环中, 公式 \hyperlink{sga6.e05.eq.5-3-1}{(5.3.1)} 给出
 \begin{align*}
@@ -1447,37 +1593,82 @@ A \arrow[r,"\gamma_u"] \arrow[d,"\gamma_t"'] & \Gnabla^u(A) \arrow[d,"\Gnabla^u(
   =\lambda^p\bigl(N',x\lambda_{-1}(N)\bigr).
 \end{equation}
 
-\sgaStableTarget{sga6.e05.para.5-5}\textbf{5.5.} 设 \(A\) 为 \(\lambda\)-环, \(N\in A\) 满足 \(k>d\) 时 \(\lambda^k(N)=0\). 在 \(A\) 的底层 Abel 群上, 由下式定义新乘法:
-\[
-  x\cdot_N y=xy\lambda_{-1}(N).
-\]
-添入单位元后, 得到环 \(\mathbb Z\times A\), 其中
-\[
-  (n,x)(m,y)=(nm,ny+mx+x\cdot_N y).
-\]
-公式
-\sgaStableTarget{sga6.e05.eq.5-5-1}\begin{equation}\tag{5.5.1}
-  \lambda_t(n,x)=(1+t)^n\left(1+
-  \sum_{p\ge1}\lambda^p(N,x)t^p\right)
-\end{equation}
-定义预 \(\lambda\)-环结构. 事实上, 当 \(A\) 为 \(\lambda\)-环时, 它为 \(\lambda\)-环结构; 它是通过乘以 \(\lambda_{-1}(N)\) 从原结构搬运得到的结构. 将此增广 \(\lambda\)-环记为 \(\widehat A_N\). 其 \(\gamma\)-运算满足
-\sgaStableTarget{sga6.e05.eq.5-5-2}\begin{equation}\tag{5.5.2}
-  \gamma^p(N,x)\lambda_{-1}(N)=\gamma^p(x\lambda_{-1}(N)).
-\end{equation}
+% 法文原书 PDF355--357 / 印刷页341--343, 恢复5.5--5.6及原书编号.
+\sgaStableTarget{sga6.e05.para.5-5}\textbf{5.5.} 现在设 \(A\) 为任意 \(\lambda\)-环, \(N\) 为 \(A\) 中满足 \(k>d\) 时 \(\lambda^k(N)=0\) 的元素. 将给 \(A\) 对应一个新的 \(\lambda\)-环 \(A_N\).
 
-\sgaStableTarget{sga6.e05.para.5-6}\textbf{5.6.} 再假设 \(L\) 为满足 \(k>1\) 时 \(\lambda^k(L)=0\) 的元素. 则 \(\lambda^p(N+L,x)\) 为级数
-\sgaStableTarget{sga6.e05.eq.5-6-1}\begin{equation}\tag{5.6.1}
+首先在 \(A\) 上定义新的乘法, 对 \(x,y\in A\) 置
+\sgaStableTarget{sga6.e05.eq.5-5-1}\begin{equation}\tag{5.5.1}
+ x\cdot_N y=xy\lambda_{-1}(N).
+\end{equation}
+赋以此乘法的环 \(A\) 不再有单位元; 因而考虑向 \(A\) 添入单位元所得的环 \(\mathbb Z\times A\). 它的运算由下式定义:
+\sgaStableTarget{sga6.e05.eq.5-5-2}\begin{equation}\tag{5.5.2}
+ \begin{aligned}
+ (n,x)+(n',x')&=(n+n',x+x'),\\
+ (n,x)(n',x')&=(nn',nx'+n'x+x\cdot_N y).
+ \end{aligned}
+\end{equation}
+\emph{译校注.} 原书第二式末项印作 \(x\cdot_N y\), 其中 \(y\) 未出现于左边. 按本段所定义的添单位乘法, 此项应为 \(x\cdot_N x'\).
+
+通过 \(x\mapsto(0,x)\) 将 \(A\) 看作嵌入此环. 以如下公式定义预 \(\lambda\)-环结构:
+\sgaStableTarget{sga6.e05.eq.5-5-3}\begin{equation}\tag{5.5.3}
+ \lambda_t(n,x)=(1+t)^n\sum_{p=0}^{\infty}\lambda^p(N,x)t^p.
+\end{equation}
+由 \hyperlink{sga6.e05.eq.5-4-1}{(5.4.1)}, 这确为预 \(\lambda\)-环结构. 将所得预 \(\lambda\)-环记为 \(A_N\). 为证明它为 \(\lambda\)-环, 通过代入, 只需在 \(A\) 为由生成元 \(N,X,Y\), 在 \(k>d\) 时 \(\lambda^k(N)=0\) 的关系下生成的 \(\mathbb Z\)-\(\lambda\)-代数这一情形证明. 定义同态 \(A_N\to A\), 将 \((1,0)\) 映到 \(1\), 将 \((0,x)\) 映到 \(x\lambda_{-1}(N)\). 由 \hyperlink{sga6.e05.eq.5-5-1}{(5.5.1)} 和 \hyperlink{sga6.e05.eq.5-3-1}{(5.3.1)} 立即看出, 它为 \(\lambda\)-同态; 且在所考虑的情形 \(A\) 为整环, 随即验证它为单射. 因为 \(A\) 为 \(\lambda\)-环, 由此得到所需结论.
+
+在 \(\lambda\)-环 \(A_N\) 中可定义 \(\gamma\)-运算（\hyperlink{sga6.e05.prop.3-2}{3.2}）. 对 \(x\in A\), 在 \(A_N\) 的元素 \((0,x)\) 上计算的 \(\gamma^p\) 值为
+\[
+ \gamma^p(0,x)=\sum_{i=0}^{p-1}\binom{p-1}{i}\lambda^i(N,x),
+\]
+所以它为 \(A\) 的元素; 它由关系式
+\sgaStableTarget{sga6.e05.eq.5-5-4}\begin{equation}\tag{5.5.4}
+ \gamma^p(N,x)\lambda_{-1}(N)=\gamma^p(x\lambda_{-1}(N))
+\end{equation}
+及由此得到的泛多项式所定义.
+
+\emph{译校注.} 上面的二项式和依原书保留. 按 \(\gamma_t=\lambda_{t/(1-t)}\) 取 \(t^p\) 的系数, 被加项中的 \(\lambda^i(N,x)\) 应为 \(\lambda^{p-i}(N,x)\); 例如 \(p=1\) 时应得 \(\gamma^1(0,x)=x\).
+
+\sgaStableTarget{sga6.e05.para.5-6}\textbf{5.6.} 设 \(A\) 为在 \(\mathbb Z\) 上由生成元 \(N,L,x\), 在 \(k>d\) 时 \(\lambda^k(N)=0\)、在 \(k>1\) 时 \(\lambda^k(L)=0\) 的关系下生成的 \(\lambda\)-环. 现在要用各 \(\lambda^i(N,x)\) 计算 \(\lambda^p(N+L,x)\).
+
+根据定义,
+\[
+ \lambda^p(N+L,x)\lambda_{-1}(N)\lambda_{-1}(L)
+ =\lambda^p\bigl(x\lambda_{-1}(N)\lambda_{-1}(L)\bigr),
+\]
+即
+\[
+ \begin{aligned}
+ &1+\lambda_{-1}(N)\lambda_{-1}(L)
+       \sum_{k\ge1}\lambda^k(N+L,x)t^k\\
+ &\quad=\lambda_t(x\lambda_{-1}(N))\circ\lambda_t(1-L)\\
+ &\quad=\frac{\lambda_t(x\lambda_{-1}(N))}
+                 {\lambda_{Lt}(x\lambda_{-1}(N))},
+ \end{aligned}
+\]
+因为 \(\lambda_t(1-L)=\lambda_t(1)/\lambda_t(L)=(1+t)/(1+Lt)\); 这里使用了 \hyperlink{sga6.e05.eq.2-3-2}{(2.3.2)}. 继续计算为
+\[
+ \begin{aligned}
+ &\frac{1+\cdots+\lambda^k(x\lambda_{-1}(N))t^k+\cdots}
+        {1+\cdots+\lambda^k(x\lambda_{-1}(N))L^kt^k+\cdots}\\
+ &\quad=1+\frac{\displaystyle\sum_{k\ge1}
+        \lambda^k(N,x)\lambda_{-1}(N)(1-L^k)t^k}
+        {\displaystyle1+\sum_{k\ge1}
+        \lambda^k(N,x)\lambda_{-1}(N)L^kt^k}.
+ \end{aligned}
+\]
+所以 \(\lambda^p(N+L,x)\) 为级数
+\sgaStableTarget{sga6.e05.eq.5-6-1}\[
   \frac{\displaystyle\sum_{k\ge1}\lambda^k(N,x)
         (1+L+\cdots+L^{k-1})t^k}
        {\displaystyle 1+\sum_{k\ge1}\lambda^k(N,x)
-        \lambda_{-1}(N)L^k t^k}.
-\end{equation}
-中 \(t^p\) 的系数. 这是将 \hyperlink{sga6.e05.eq.5-4-2}{(5.4.2)} 应用于 \(N+L\), 并使用 \(\lambda_{-1}(L)=1-L\) 得到的.
+        \lambda_{-1}(N)L^k t^k}
+\]
+中 \(t^p\) 的系数.
 
-\sgaStableTarget{sga6.e05.prop.5-7}\textbf{命题 5.7.} 设 \(K\) 为二项式环, \(A\) 为增广 \(K\)-\(\lambda\)-代数, \(N\in A\) 满足 \(k>d\) 时 \(\lambda^k(N)=0\). 则对每个 \(x\in A\) 及每个 \(p\ge1\), 有
+\sgaStableTarget{sga6.e05.prop.5-7}\textbf{命题 5.7.} 设 \(K\) 为二项式环, \(A\) 为增广 \(K\)-\(\lambda\)-代数, \(N\in A\) 满足 \(k>d\) 时 \(\lambda^k(N)=0\). 则对每个 \(x\in A\) 及每个 \(p\ge1\), 有\footnote{译校注: 原书第 343--344 页未列出证明所需的条件 \(\epsilon(N)=d\). 例如在恒等增广的 \(A=K=\mathbb Z\) 中, 取 \(N=0,d=1,x=1,p=2\), 虽然高外幂消失, 却有 \(\gamma^2(0,1)=1\notin\Fil^1\mathbb Z=0\). 本文保留原命题的假设, 不擅加条件.}
 \sgaStableTarget{sga6.e05.eq.5-7-1}\begin{equation}\tag{5.7.1}
   \gamma^p(N,x)\in\Fil^{p-d}A.
 \end{equation}
+
 事实上, 设 \(A_0\) 为由 \(N'_0,X'_0\), 在 \(k>d\) 时 \(\gamma^k(N'_0)=0\) 的关系下生成的 \(K\)-\(\lambda\)-代数, 增广定义为 \(\epsilon(N'_0)=\epsilon(X'_0)=0\). 它是在 \(K\) 上以 \(\gamma^i(N'_0)\), \(1\le i\le d\), 及 \(\gamma^j(X'_0)\), \(j\ge1\), 为变量的多项式代数; 其 \(\lambda\)-滤过为权滤过, 其中赋予 \(\gamma^i(N'_0)\) 及 \(\gamma^i(X'_0)\) 权 \(i\)（\hyperlink{sga6.e05.prop.4-12}{4.12} 和 \hyperlink{sga6.e05.cor.4-15}{4.15}）. 置
 \[
   N_0=N'_0+d,
@@ -1491,31 +1682,106 @@ A \arrow[r,"\gamma_u"] \arrow[d,"\gamma_t"'] & \Gnabla^u(A) \arrow[d,"\Gnabla^u(
 \[
   (-1)^d\gamma^p\bigl(X_0\gamma^d(N'_0)\bigr)\in\Fil^pA_0,
 \]
-这是由 \hyperlink{sga6.e05.eq.5-5-2}{(5.5.4)} 得到的. 因为 \(\gamma^d(N'_0)\) 的增广为零, 故此式成立. 由 \hyperlink{sga6.e05.prop.4-7}{4.7}, 存在与增广相容的 \(K\)-\(\lambda\)-同态 \(A_0\to A\), 将 \(N'_0\) 映到 \(N-d\), 将 \(X'_0\) 映到 \(x-\epsilon(x)\), 因而将 \(N_0\) 映到 \(N\), 将 \(X_0\) 映到 \(x\). 由滤过的相容性得到结论.
+这是由 \hyperlink{sga6.e05.eq.5-5-4}{(5.5.4)} 得到的. 因为 \(\gamma^d(N'_0)\) 的增广为零, 故此式成立. 由 \hyperlink{sga6.e05.prop.4-7}{4.7}, 存在与增广相容的 \(K\)-\(\lambda\)-同态 \(A_0\to A\), 将 \(N'_0\) 映到 \(N-d\), 将 \(X'_0\) 映到 \(x-\epsilon(x)\), 因而将 \(N_0\) 映到 \(N\), 将 \(X_0\) 映到 \(x\). 由滤过的相容性得到结论.
 
-\sgaStableTarget{sga6.e05.sec.6}\section*{6. Chern 环: 开始}
+\sgaStableTarget{sga6.e05.sec.6}\section*{6. Chern 环}
 
-本节中基环固定为二项式环 \(K\). 使用 \hyperlink{sga6.e05.para.1-1}{1.1} 的函子 \(G\), 并恢复第 1 节的记号: \(G\) 表示在那里定义的函子, \(G_i\) 表示它在 \(\mathscr C_0\) 上的限制.
+本节中将基环固定为二项式环 \(K\)（\hyperlink{sga6.e05.def.2-7}{2.7}）. 使用范畴 \(\mathcal C\)（\hyperlink{sga6.e05.para.1-1}{1.1}）, 因而恢复第 1 节的记号: 将 \(\widehat G\) 留作在 \(\mathcal C\) 上定义的函子（\hyperlink{sga6.e05.para.1-1}{1.1}）, 并将其在 \(\mathcal C_0\) 上的限制记为 \(\widehat G\circ i\)（\hyperlink{sga6.e05.para.1-8}{1.8}）.
 
+% 法文原书 PDF358--360 / 印刷页344--346, 恢复原书完整构造和6.1.1--6.1.4.
 \sgaStableTarget{sga6.e05.para.6-1}\textbf{6.1.} 在 \hyperlink{sga6.e05.para.3-5}{3.5} 和 \hyperlink{sga6.e05.para.3-6}{3.6} 中定义了函子态射
 \[
-  G_i\times G_i\xrightarrow{\star}G_i,
-  \qquad
-  G_i^\circ\xrightarrow{\gamma'}G_i^\circ\circ G_S,
-  \qquad
-  G_i\xrightarrow{a}G_i,
+ \begin{gathered}
+ (\widehat G\circ i)\times(\widehat G\circ i)
+     \xrightarrow{\nabla}\widehat G\circ i,\\
+ \widehat G^t\circ i\xrightarrow{\gamma'}
+     (\widehat G^u\circ i)\circ(\widehat G^t\circ i)_{\nabla},\\
+ \widehat G\circ i\xrightarrow{a}\widehat G\circ i,
+ \end{gathered}
 \]
-其中最后一个映射为按运算 \(\nabla\) 乘以 \(\gamma_t(a)\), \(a\in K\). 由 \hyperlink{sga6.e05.lem.1-9}{1.9}, 它们给出态射
+其中最后一个映射为按运算 \(\nabla\) 乘以 \(\gamma_t(a)\), \(a\in K\).
+
+由 \hyperlink{sga6.e05.lem.1-9}{1.9}, 从中得到态射
 \[
-  G\times G\xrightarrow{\star}G,
-  \qquad
-  G\xrightarrow{\gamma'}G\circ G_S,
-  \qquad
-  G\xrightarrow{a}G.
+ \begin{gathered}
+ \widehat G\times\widehat G\xrightarrow{\nabla}\widehat G_g,\\
+ \widehat G^t\xrightarrow{\gamma'}
+     \widehat G^u\circ i\circ\widehat G^t_{g\nabla},\\
+ \widehat G\xrightarrow{a}\widehat G_g.
+ \end{gathered}
 \]
-所涉及泛多项式的等权性蕴含: 第一个及第三个像属于 \(G\), 第二个像属于关于 \(u\) 的形式级数中非零项具有规定次数的子群.
+由多项式 \(P'_n,Q'_{i,j},R_{n,a}\) 的等权性质（\hyperlink{sga6.e05.para.3-5}{3.5}, \hyperlink{sga6.e05.para.3-6}{3.6}, \hyperlink{sga6.e05.para.2-9}{2.9}）可知, 第一及第三个态射的像包含于 \(\widehat G\), 第二个态射的像包含于关于 \(u\) 的形式级数中所有非零次数的系数属于 \(\widehat G^t\) 的子群.
 
+将第一及第三个态射与典范态射
+\[
+ \widehat G\longrightarrow1+\widehat{\operatorname{Gr}}_{\bullet}^{+}
+\]
+复合（\hyperlink{sga6.e05.para.1-11}{1.11}）, 根据 \hyperlink{sga6.e05.lem.1-12}{1.12}, 得到分次代数范畴 \(\mathcal C_g\) 上的两个函子态射
+\[
+ (1+\widehat{\vphantom A\cdot}^{+})\times
+ (1+\widehat{\vphantom A\cdot}^{+})
+ \xrightarrow{*}1+\widehat{\vphantom A\cdot}^{+},
+ \qquad
+ 1+\widehat{\vphantom A\cdot}^{+}
+ \xrightarrow{a}1+\widehat{\vphantom A\cdot}^{+},
+\]
+它们在函子 \(1+\widehat{\vphantom A\cdot}^{+}\) 上定义乘法及 \(K\) 的运算. 根据 \hyperlink{sga6.e05.thm.1-13}{1.13}, 乘法由它在 \((1+\widehat{K[X,Y]}^{+})^2\) 的元素 \((1+X,1+Y)\) 上的值所确定; 将它记为 \(*\), 因而有
+\sgaStableTarget{sga6.e05.eq.6-1-1}\begin{equation}\tag{6.1.1}
+ (1+X)*(1+Y)=\frac{1+X+Y}{(1+X)(1+Y)}.
+\end{equation}
+此运算的第 \(n\) 个泛多项式为 \(P'_n\) 的权为 \(n\) 的等权分量（\hyperlink{sga6.e05.para.1-15}{1.15}）, 记为 \(P''_n\).
 
+\(K\) 的运算仍用指数记号表示（\hyperlink{sga6.e05.para.3-8}{3.8}）. 定义这些运算的泛多项式为各 \(R_{n,a}\) 的最低次等权分量（\hyperlink{sga6.e05.para.1-15}{1.15}）; 而这些多项式本来就是等权的, 所以就是 \(R_{n,a}\) 本身.
+
+设 \(A\in\operatorname{Ob}(\mathcal C_g)\). 由上述运算所定义的环 \(1+\widehat A^+\) 一般没有单位元; 因而向它添入 \(K\) 的标量, 引进新环 \(K\times(1+\widehat A^+)\), 其运算如下定义: 对所有 \(a,a'\in A\), \(\varphi,\varphi'\in1+\widehat A^+\),
+\sgaStableTarget{sga6.e05.eq.6-1-2}\begin{equation}\tag{6.1.2}
+ \begin{aligned}
+ (a,\varphi)+(a',\varphi')&=(a+a',\varphi\varphi'),\\
+ (a,\varphi)(a',\varphi')&=
+   (aa',\varphi^{a'}\varphi'^{a}(\varphi*\varphi')).
+ \end{aligned}
+\end{equation}
+\emph{译校注.} 原书在式前写 \(a,a'\in A\); 按此处的底集 \(K\times(1+\widehat A^+)\), 应读作 \(a,a'\in K\).
+
+这样构造的环以 \((1,1)\) 为单位元, \(1+\widehat A^+\) 等同于理想 \((0)\times(1+\widehat A^+)\). 它自然地赋有 \(K\)-代数结构, 使得
+\sgaStableTarget{sga6.e05.eq.6-1-3}\begin{equation}\tag{6.1.3}
+ a(a',\varphi)=(a,1)(a',\varphi)=(aa',\varphi^a).
+\end{equation}
+
+以下述方式在它上面赋予 \(K\)-\(\lambda\)-代数结构. 前面已指出, 函子
+\[
+ \gamma':\widehat G^t\longrightarrow
+ \widehat G^u\circ i\circ\widehat G^t_g
+\]
+的像包含于关于 \(u\) 的形式级数中所有非零次数的系数属于 \(\widehat G^t\) 的子群. 使用典范态射
+\[
+ \widehat G\longrightarrow1+\widehat{\operatorname{Gr}}_{\bullet}^{+},
+ \quad\text{它给出}\quad
+ \widehat G\longrightarrow K\times
+          (1+\widehat{\operatorname{Gr}}_{\bullet}^{+}),
+\]
+最终得到态射
+\[
+ \widehat G^t\xrightarrow{\gamma'}
+ \widehat G^u\circ i\circ
+      \bigl(K\times(1+\widehat{\operatorname{Gr}}_{\bullet}^{+})\bigr).
+\]
+根据 \hyperlink{sga6.e05.lem.1-12}{1.12}, 它在 \(\mathcal C_g\) 上定义函子态射
+\[
+ 1+\widehat{\vphantom A\cdot}^{+}\xrightarrow{\gamma'}
+ \widehat G^u\circ i\circ
+      \bigl(K\times(1+\widehat{\vphantom A\cdot}^{+})\bigr).
+\]
+定义此态射的泛多项式为各 \(\gamma'^i(1+X_1+\cdots+X_n+\cdots)\) 的系数; 第 \(j\) 个系数为 \(Q'_{i,j}\) 的权为 \(j\) 的等权分量（证明类似于 \hyperlink{sga6.e05.para.1-15}{1.15}）, 记为 \(Q''_{i,j}\).
+
+最后, 使用 \(K\) 的 \(\lambda\)-结构, 将所构造的态射自然地延拓到 \(K\times(1+\widehat{\vphantom A\cdot}^{+})\). 于是得到 \(K\times(1+\widehat{\vphantom A\cdot}^{+})\) 上的预 \(\lambda\)-环结构; 它由相应的 \(\gamma\)-运算定义, 满足
+\sgaStableTarget{sga6.e05.eq.6-1-4}\begin{equation}\tag{6.1.4}
+ \gamma_t(a,\varphi)=\gamma_t(a)
+      \left(1+\sum_{p\ge1}\gamma'^p(\varphi)t^p\right).
+\end{equation}
+这些运算将记为 \(\gamma\) 而不是 \(\gamma'\), 因为不会产生混淆.
+
+为验证这确为 \(\lambda\)-环结构, 验证 \hyperlink{sga6.e05.eq.3-7-2}{(3.7.2)} 的交换性. 它在 \(K\) 的元素上已知; 对 \(1+\widehat{\vphantom A\cdot}^{+}\) 的元素, 它由 \(\widehat G\) 的图 \hyperlink{sga6.e05.eq.3-7-2}{(3.7.2)} 的交换性传到商上而得. 随即得到所需结论.
 
 % 第 V 讲第 6--7 节的局部宏
 \providecommand{\Ghat}{\widehat G}
@@ -1532,17 +1798,17 @@ A \arrow[r,"\gamma_u"] \arrow[d,"\gamma_t"'] & \Gnabla^u(A) \arrow[d,"\Gnabla^u(
 \providecommand{\Sym}{\operatorname{Sym}}
 
 
-\sgaStableTarget{sga6.e05.expose.occ2}\section*{第 V 讲, 6. Chern 环: 续完}
+\sgaStableTarget{sga6.e05.expose.occ2}
 
-\sgaStableTarget{sga6.e05.def.6-2}\textbf{定义 6.2.} 在 \hyperlink{sga6.e05.para.6-1}{6.1} 中定义的分次 \(K\)-代数范畴上取值于 \(K\)-\(\lambda\)-代数范畴的函子, 称为 \emph{Chern 环}; 它在 \(A\in\operatorname{Ob}(\mathscr C)\) 上的值记为 \(\Ch(A)\), 在可能混淆时记为 \(\Ch_K(A)\).
+\sgaStableTarget{sga6.e05.def.6-2}\textbf{定义 6.2.} 在 \hyperlink{sga6.e05.para.6-1}{6.1} 中定义的分次 \(K\)-代数范畴上取值于 \(K\)-\(\lambda\)-代数范畴的函子, 称为 \emph{Chern 环}; 它在 \(A\in\operatorname{Ob}(\mathscr C_g)\) 上的值记为 \(\Ch(A)\), 在可能混淆时记为 \(\Ch_K(A)\).
 
-由公式 \hyperlink{sga6.e05.para.6-1}{(6.1.1)}, \hyperlink{sga6.e05.para.6-1}{(6.1.2)}, \hyperlink{sga6.e05.para.6-1}{(6.1.4)} 及 \hyperlink{sga6.e05.eq.3-6-2}{(3.6.2)}, 推出关系式
+由公式 \hyperlink{sga6.e05.eq.6-1-1}{(6.1.1)}, \hyperlink{sga6.e05.eq.6-1-2}{(6.1.2)}, \hyperlink{sga6.e05.eq.6-1-4}{(6.1.4)} 及 \hyperlink{sga6.e05.eq.3-6-2}{(3.6.2)}, 推出关系式
 \sgaStableTarget{sga6.e05.eq.6-2-1}\begin{equation}\tag{6.2.1}
  (1,1+X)(1,1+Y)=(1,1+X+Y),
  \qquad
  \lambda^i(1,1+X)=0\quad\text{当 }i\ge2,
 \end{equation}
-即 [1] 中用于定义 Chern 环的关系式. 反之, 由这些公式可恢复关系式 \hyperlink{sga6.e05.para.6-1}{(6.1.1)} 和 \hyperlink{sga6.e05.para.6-1}{(6.1.4)}.
+即 [1] 中用于定义 Chern 环的关系式. 反之, 由这些公式可恢复关系式 \hyperlink{sga6.e05.eq.6-1-1}{(6.1.1)} 和 \hyperlink{sga6.e05.eq.6-1-4}{(6.1.4)}.
 
 说明一下引入 Chern 环的原因. 考虑\hyperlink{sga6.e05.ex.3-9-1}{例 3.9} 的情形, 用 \(A\) 表示赋交换局部环拓扑斯的 \(K^\bullet\) 依照 \hyperlink{sga6.e05.para.3-10}{3.10} 所定义滤过的相伴分次环; 为简单起见, 假设 \(K^\bullet\) 为 \(\lambda\)-环. 增广环为 \(K\). 下面将会看到, 可以对增广 \(\lambda\)-环的每个元素定义取值于其相伴分次环的 Chern 类 \hyperlink{sga6.e05.para.6-7}{(6.7)}. 因而, 对每个有限型局部自由层, 可对应 \(\Ch(A)\) 的一个元素, 其在因子 \(K\) 上的分量为层的秩, 在因子 \(1+\widehat A^+\) 上的分量为各 Chern 类之和. 此时公式 \hyperlink{sga6.e05.eq.6-2-1}{(6.2.1)} 就是给出两个可逆层的张量积及可逆层的各外幂的 Chern 类与秩的通常公式; 换言之, 刚才定义的从 \(K^\bullet\) 到 \(\Ch(A)\) 的映射为 \(\lambda\)-同态.
 
@@ -1651,6 +1917,8 @@ A \arrow[r,"\gamma_u"] \arrow[d,"\gamma_t"'] & \Gnabla^u(A) \arrow[d,"\Gnabla^u(
 \]
 比较最低次项, 即得所述的 \(Z_p\) 值.
 
+\emph{译校注.} 上一显示等式中的三个常数项 \(1\) 依原书保留. 由 \hyperlink{sga6.e05.eq.6-5-2}{(6.5.2)} 的 Chern 特征展开式, 三个常数项均应删去; 删去后比较最低次项才给出 \hyperlink{sga6.e05.eq.6-5-3}{(6.5.3)}.
+
 \sgaStableTarget{sga6.e05.para.6-6}\textbf{6.6.} \(\lambda\)-环 \(\Ch A\) 在 \(K\) 上增广: 通过 \((a,\varphi)\mapsto a\) 定义 \(\lambda\)-同态 \(\Ch A\to K\). 因而它具有增广 \(\lambda\)-环的典范滤过. 将此滤过与刚才定义的滤过作比较.
 
 \sgaStableTarget{sga6.e05.prop.6-6-1}\textbf{命题 6.6.1.} 设 \(x\in\Ch A\) 为形如 \(x=(n,1+\cdots+a_n)\) 的元素. 则:
@@ -1665,7 +1933,7 @@ A \arrow[r,"\gamma_u"] \arrow[d,"\gamma_t"'] & \Gnabla^u(A) \arrow[d,"\Gnabla^u(
 其中未写出的项的次数 \(>n\).
 
 由函子性, 只需在以下情形证明:
-\(A=K[X_1,\ldots,X_n]\), 按关于 \(X_i\) 的权作滤过, 其中 \(X_i\) 权为 \(i\), 并取元素 \((n,1+X_1+\cdots+X_n)\). 通过对称函数把 \(A\) 嵌入 \(A'=K[T_1,\ldots,T_n]\). 则
+\(A=K[X_1,\ldots,X_n]\), 按关于 \(X_i\) 的权作滤过, 其中 \(X_i\) 权为 \(i\), 并取元素 \((n,1+X_1+\cdots+X_n)\). 通过对称函数把 \(A\) 嵌入 \(A'=K[T_1,\ldots,T_n]\), 从而得到单射同态 \(\Ch A\to\Ch A'\). 此时
 \[
  (n,1+X_1+\cdots+X_n)
  =
@@ -1689,6 +1957,8 @@ A \arrow[r,"\gamma_u"] \arrow[d,"\gamma_t"'] & \Gnabla^u(A) \arrow[d,"\Gnabla^u(
   =\prod_{i=1}^n\bigl(1-(1,1+T_i)\bigr)
   =(-1)^n\prod_{i=1}^n(0,1+T_i).
 \]
+\emph{译校注.} 原书上一式的求和下限为 \(i=1\), 此处照录; 若要等于 \(\lambda_{-1}(x)\), 下限应为 \(i=0\), 与 \hyperlink{sga6.e05.prop.6-6-1}{6.6.1} iii) 的陈述一致.
+
 由 \hyperlink{sga6.e05.eq.6-5-3}{(6.5.3)},
 \[
   \prod_{i=1}^n(0,1+T_i)
@@ -1706,11 +1976,13 @@ A \arrow[r,"\gamma_u"] \arrow[d,"\gamma_t"'] & \Gnabla^u(A) \arrow[d,"\Gnabla^u(
 
 \sgaStableTarget{sga6.e05.lem.6-6-3}\textbf{引理 6.6.3.} 对每个 \(n\), \((\Ch A)_n\) 是 \(\Ch A\) 的 \(\lambda\)-理想.
 
-可假设 \(n>1\). 设 \(x=(0,\varphi)\in(\Ch A)_n\), 并写成
+% 法文 PDF365--366 / 印刷页351--352: gamma 与 Q'' 下标按原书恢复.
+可假设 \(n\ge1\). 设 \(x=(0,\varphi)\in(\Ch A)_n\). 可写成
 \[
-  \lambda^i(0,\varphi)=(0,1+Q^i_{i,1}+\cdots+Q^i_{i,j}+\cdots),
+ \gamma^i(0,\varphi)
+   =(0,1+Q''_{i,1}+\cdots+Q''_{i,j}+\cdots),
 \]
-其中 \(Q^i_{i,j}\) 为 \hyperlink{sga6.e05.para.3-6}{(3.6)} 的 \(Q^i_i\) 的权 \(j\) 等权分量. 对每个 \(j\), 多项式 \(Q^i_{i,j}\) 为 \(\varphi\) 的前 \(j\) 个系数的多项式. 若 \(j<n\), 则这些系数均为零; 因而各 \(Q^i_{i,j}\) 为零, 所以各 \(\lambda^i(x)\) 属于 \((\Ch A)_n\). 于是 \((\Ch A)_n\) 为 \(\lambda\)-理想.
+其中 \(Q''_{i,j}\) 为 \(Q'_{i,j}\) 的权为 \(j\) 的等权分量（\hyperlink{sga6.e05.para.3-6}{3.6}）. 因而对每个 \(j\), 各 \(Q''_{i,j}\) 为关于 \(\varphi\) 的前 \(j\) 个系数的多项式. 若 \(j<n\), 则它们为零, 所以各 \(\gamma^i(x)\) 属于 \((\Ch A)_n\), 从而 \((\Ch A)_n\) 为 \(\lambda\)-理想.
 
 设 \(x=(n,1+a_1+\cdots+a_n+\cdots)\) 为 \(\Ch A\) 中增广为 \(n\) 的元素. 则
 \[
@@ -1784,10 +2056,10 @@ A \arrow[r,"\gamma_u"] \arrow[d,"\gamma_t"'] & \Gnabla^u(A) \arrow[d,"\Gnabla^u(
   \gamma_t\bigl((x-\epsilon(x))(y-\epsilon(y))\bigr)\\
 &=\bigl(\gamma_t(x-\epsilon(x))\bigr)^{\epsilon(y)}
   \bigl(\gamma_t(y-\epsilon(y))\bigr)^{\epsilon(x)}
-  \bigl(\gamma_t(x-\epsilon(x))\circ\gamma_t(y-\epsilon(y))\bigr),
+  \bigl(\gamma_t(x-\epsilon(x))\nabla\gamma_t(y-\epsilon(y))\bigr),
 \end{aligned}
 \]
-取商后由 \hyperlink{sga6.e05.para.6-1}{(6.1.2)} 得到结论. 若 \(a\in K\), 则 \(\widetilde c(a)=(a,1)\), 所以 \(\widetilde c\) 为 \(K\)-代数同态; 此外, 它与增广相容.
+取商后由 \hyperlink{sga6.e05.eq.6-1-2}{(6.1.2)} 得到结论. 若 \(a\in K\), 则 \(\widetilde c(a)=(a,1)\), 所以 \(\widetilde c\) 为 \(K\)-代数同态; 此外, 它与增广相容.
 
 还需说明它为 \(\lambda\)-同态. 必须证明图
 \[
@@ -1798,7 +2070,9 @@ A \arrow[r,"\gamma_t"] \arrow[d,"\widetilde c"'] &
 \Ghat(\Ch A).
 \end{tikzcd}
 \]
-交换. 由可加性, 只需对 \(K\) 的元素及 \(A\) 中增广为零的元素证明; 前者显然, 后者由 \(c\) 的定义和 \hyperlink{sga6.e05.para.6-1}{(6.1.4)}, 根据图 \hyperlink{sga6.e05.eq.3-7-2}{(3.7.2)} 得到.
+交换. \emph{译校注.} 原图中的 \(\Ch A\) 依原书保留; 由命题中态射的目标, 此处应为 \(\Ch(\Gr A)\).
+
+由可加性, 只需对 \(K\) 的元素及 \(A\) 中增广为零的元素证明; 前者显然, 后者由 \(c\) 的定义和 \hyperlink{sga6.e05.eq.6-1-4}{(6.1.4)}, 根据图 \hyperlink{sga6.e05.eq.3-7-2}{(3.7.2)} 得到.
 
 \sgaStableTarget{sga6.e05.prop.6-9}\textbf{命题 6.9.} 设 \(A\) 为增广 \(K\)-\(\lambda\)-代数, \(z\in\Fil^mA\). 则
 \[
@@ -1853,6 +2127,11 @@ A \arrow[r,"\gamma_t"] \arrow[d,"\widetilde c"'] &
 \]
 断言得证.
 
+\emph{译校注.} 此证明中原书将 \(a\in A\) 的完备 Chern 类简写为 \(\widetilde c(a)=(a,1)\). 按定义应为 \((\epsilon(a),c(a))\); 在所计算的最低次项中, 只需它的增广分量 \(\epsilon(a)\), 系数 \(a\) 亦按 \(A/\Fil^1A=K\) 中的类理解. 上文保留原书记法.
+
+% PDF369--370 / 印刷页355--356 校勘: 原书 z/x 及 N0 等式的歧异在正文保留, 另附可见译校注.
+% 原书 N'_0=N_0+d 保留于正文; 紧随原证明的可见译校注明示一致性修正.
+% 英文底稿另将 gamma^{d+i} 的单个乘积变元误分成两个变元; 已按法文原式恢复.
 \sgaStableTarget{sga6.e05.prop.6-10}\textbf{命题 6.10.} 设 \(K\) 为二项式环, \(R\) 为增广 \(K\)-\(\lambda\)-代数, \(N\in R\) 满足 \(k>d\) 时 \(\lambda^k(N)=0\), 且 \(x\in\Fil^iR\). 则
 \[
   \gamma^{d+i}(N,x)-(-1)^{d+i-1}(d+i-1)!x\in\Fil^{i+1}R.
@@ -1868,7 +2147,7 @@ A \arrow[r,"\gamma_t"] \arrow[d,"\widetilde c"'] &
 \[
   \gamma^k(N'_0)=0\quad\text{当 }k>d.
 \]
-下生成的 \(K\)-\(\lambda\)-代数. 通过 \(\epsilon(N'_0)=\epsilon(X_{\alpha,j})=0\) 定义增广同态 \(R_0\to K\). 由 \hyperlink{sga6.e05.cor.4-9}{(4.9.1)}, \(R_0\) 为系数属于 \(K\)、以 \(\gamma^k(N'_0)\), \(1\le k\le d\), 和 \(\gamma^p(X_{\alpha,j})\), \(p\ge1\), 为不定元的多项式环; \(R_0\) 的 \(\lambda\)-滤过为权滤过, 其中 \(\gamma^k(N'_0)\) 和 \(\gamma^k(X_{\alpha,j})\) 的权为 \(k\)（\hyperlink{sga6.e05.prop.4-12}{4.12} 及 \hyperlink{sga6.e05.cor.4-15}{4.15}）.
+下生成的 \(K\)-\(\lambda\)-代数. 通过 \(\epsilon(N'_0)=\epsilon(X_{\alpha,j})=0\) 定义增广同态 \(R_0\to K\). 由 \hyperlink{sga6.e05.para.4-9-1}{(4.9.1)}, \(R_0\) 为系数属于 \(K\)、以 \(\gamma^k(N'_0)\), \(1\le k\le d\), 和 \(\gamma^p(X_{\alpha,j})\), \(p\ge1\), 为不定元的多项式环; \(R_0\) 的 \(\lambda\)-滤过为权滤过, 其中 \(\gamma^k(N'_0)\) 和 \(\gamma^k(X_{\alpha,j})\) 的权为 \(k\)（\hyperlink{sga6.e05.prop.4-12}{4.12} 及 \hyperlink{sga6.e05.cor.4-15}{4.15}）.
 
 置
 \[
@@ -1885,7 +2164,7 @@ A \arrow[r,"\gamma_t"] \arrow[d,"\widetilde c"'] &
 \]
 但 \(\lambda_{-1}(N_0)=(-1)^d\gamma^d(N'_0)\). 所以此关系成为
 \[
-  (-1)^d\gamma^{d+i}(X_0,(-1)^d\gamma^d(N'_0))
+  (-1)^d\gamma^{d+i}\bigl(X_0(-1)^d\gamma^d(N'_0)\bigr)
   -
   (-1)^{d+i-1}(d+i-1)!X_0\gamma^d(N'_0)
   \in\Fil^{d+i+1}R_0 .
@@ -1897,6 +2176,8 @@ A \arrow[r,"\gamma_t"] \arrow[d,"\widetilde c"'] &
 这正是 6.9.
 
 为由此特例推出 \hyperlink{sga6.e05.prop.6-10}{6.10}, 考虑 \(K\)-\(\lambda\)-同态 \(R_0\to R\), 对每个 \(\alpha\) 和 \(j\), 将 \(N'_0\) 映到 \(N-d\), 将 \(X_{\alpha,j}\) 映到 \(x_{\alpha,j}\). 此同态与 \(\lambda\)-滤过相容, 并将 \(N_0\) 映到 \(N\), 将 \(X_0\) 映到 \(x\). 结论随即得到.
+
+\emph{译校注.} 原书先记 \(z_{\alpha,j}\), 随后在分解式及其后文使用 \(x_{\alpha,j}\). 原书还写 \(N'_0=N_0+d\); 后文的映射为 \(N'_0\mapsto N-d\)、\(N_0\mapsto N\), 与该式不相容. 按这两个映射, 相容的定义应读作 \(N_0=N'_0+d\). 此外, 原证明使用从增广为零的生成元 \(N'_0\) 到 \(N-d\) 的、与增广相容的映射; 这还要求 \(\epsilon(N)=d\), 而原命题未明列此条件. 上文照录原命题及证明, 未补入这一假设; 这里分别标明原书等式的一致性问题和增广相容性缺口.
 
 \sgaStableTarget{sga6.e05.prop.6-11}\textbf{命题 6.11.} 假设 \(K\) 为特征零的, \(n\ge0\) 为整数. 则函子 \(\Ch\) 给出满足 \(A_0=K\) 及 \(k>n\) 时 \(A_k=0\) 的分次 \(K\)-代数 \(A\) 所成范畴, 到满足 \(\Fil^{n+1}\Lambda=0\) 的增广 \(K\)-\(\lambda\)-代数 \(\Lambda\) 所成范畴的等价. 准逆函子为 \(\Lambda\mapsto\Gr\Lambda\).
 
@@ -1937,7 +2218,7 @@ A \arrow[r,"\gamma_t"] \arrow[d,"\widetilde c"'] &
 \[
   \Gr(\widetilde c)\bigl(\gamma^i(x)\bigr)
   =
-  \cl_{\Gr^i}\bigl(\gamma^i(c(x))\bigr).
+  \cl_{\Gr^i}\bigl(\gamma^i(\widetilde c(x))\bigr).
 \]
 但由 \hyperlink{sga6.e05.cor.6-6-4}{(6.6.4)}, \(\gamma^i(\widetilde c(x))=(0,1+(-1)^{i-1}(i-1)!c^i(x)+\cdots)\). 因此
 \[
@@ -1997,7 +2278,7 @@ A \arrow[r,"\gamma_t"] \arrow[d,"\widetilde c"'] &
 \]
 所加的关系表明, 这是取值于 \(\Omega\) 的 \(\Lambda\) 的 Chern 理论. 反之, 若 \(f\) 为取值于分次 \(K\)-代数 \(A\) 的 Chern 理论, 则存在唯一的同态 \(\Omega\to A\), 使 \(f\) 经 \(\Ch(\Omega)\) 分解: 对每个 \(i\ge1\) 和每个 \(x\in\Fil^1\Lambda\), 它将元素 \(c^i(x)\) 映到 \(f(x)\) 的第 \(i\) 个系数. 因为 \(f\) 为 \(\lambda\)-同态, 此定义良好.
 
-现在假设 \(K\) 为特征零的, 且 \(\Lambda\) 具有离散滤过. 取 \(n\) 使 \(\Fil^n\Lambda=0\). 则分次代数 \(\Omega\) 在次数 \(>n\) 时为零. 为说明此点, 只需证明, 对
+现在假设 \(K\) 为特征零的, 且 \(\Lambda\) 具有离散滤过. 取 \(n\) 使 \(\Fil^n\Lambda=0\). 则分次代数 \(\Omega\) 在次数 \(\ge n\) 时为零. 为说明此点, 只需证明, 对
 \[
   x_1,\ldots,x_p\in\Fil^1\Lambda
   \quad\text{且}\quad
@@ -2042,16 +2323,16 @@ A \arrow[r,"\gamma_t"] \arrow[d,"\widetilde c"'] &
 \Lambda \arrow[r,"\widetilde c_0"] \arrow[d,"\widetilde c"'] &
 \Ch(\Omega) \arrow[d,"\widetilde c"]\\
 \Ch(\Gr\Lambda) \arrow[r,"\Ch(\widetilde c_0)"'] &
-\Ch\bigl(\Gr_\Lambda(\Ch(\Omega))\bigr).
+\Ch\bigl(\Gr_\lambda(\Ch(\Omega))\bigr).
 \end{tikzcd}
 \]
 由于 \(\Omega\) 次数有界, 由 \hyperlink{sga6.e05.cor.6-12}{(6.12)}, 右侧竖直箭头为同构. 因而由 \hyperlink{sga6.e05.prop.6-11}{6.11} 得到态射
 \[
   \Gr\Lambda\longrightarrow\Omega
 \]
-由 \(\Omega\) 的泛性质, 它与 \(\Omega\to\Gr\Lambda\) 的两个复合均为恒等.
+由 \(\Omega\) 的泛性质, 它与 \(\Omega\to\Gr\Lambda\) 的复合为恒等.
 
-\sgaStableTarget{sga6.e05.sec.7}\section*{7. 附录: Adams 运算 \(\psi^k\)}
+\sgaStableTarget{sga6.e05.sec.7}\section*{附录: Adams 运算 \(\psi^k\)}
 
 这里采用 J.-P. Serre 的一种叙述.
 
@@ -2106,7 +2387,7 @@ A \arrow[r,"\gamma_t"] \arrow[d,"\widetilde c"'] &
 \]
 因此, 各 \(\psi^k\) 均等于 \(\mathbb Z\) 的恒等映射.
 
-ii) 在 \(\mathbb Z\)-代数范畴 \(\mathscr C_0\) \hyperlink{sga6.e05.para.1-8}{(1.8)} 中讨论. 由 \hyperlink{sga6.e05.para.7-3}{7.3}, 运算 \(\psi^k\) 在 \(\lambda\)-环上定义函子 \(G\) 的可加自同态. 由 \hyperlink{sga6.e05.thm.1-10}{1.10}, 它们由其在 \(1+Xt\) 上的值刻画. 有
+ii) 在 \(\mathbb Z\)-代数范畴 \(\mathscr C_0\) \hyperlink{sga6.e05.para.1-8}{(1.8)} 中讨论. 由 \hyperlink{sga6.e05.para.7-3}{7.3}, 运算 \(\psi^k\) 在 \(\lambda\)-环上定义函子 \(\widehat G\) 的可加自同态. 由 \hyperlink{sga6.e05.thm.1-10}{1.10}, 它们由其在 \(1+Xt\) 上的值刻画. 有
 \[
   \frac{d}{dt}(\lambda_u(1+Xt))/\lambda_u(1+Xt)
   =
@@ -2114,6 +2395,8 @@ ii) 在 \(\mathbb Z\)-代数范畴 \(\mathscr C_0\) \hyperlink{sga6.e05.para.1-8
   =
   \sum_{k=1}^{\infty}(-1)^{k-1}\{1+Xt\}^{\circ k}u^{k-1}.
 \]
+\emph{译校注.} 上式左边原书写 \(d/dt\); 因 \(\lambda_u\) 的展开变量为 \(u\), 此处应读作 \(d/du\). 右边分母中的 \(1\) 是环 \(\widehat G(K)_{\circ}\) 的单位元 \(\mathbf1_{\circ}=1+t\).
+
 因此
 \sgaStableTarget{sga6.e05.eq.7-4-1}\begin{equation}\tag{7.4.1}
   \psi^k(1+Xt)=1+X^k t.
@@ -2148,7 +2431,7 @@ K \arrow[r,"\lambda_t"'] &
 K ,
 \end{tikzcd}
 \end{equation}
-其中竖直箭头由乘法定义, 映射 \(g^k\) 如下定义: 对数导数为从 \(G(K)\) 到 \(K[[t]]\) 的群同态, 将级数对应到其第 \((k-1)\) 个系数乘以 \((-1)^{k-1}\) 所得的映射, 是从 \(K[[t]]\) 到 \(K\) 的可加同态; \(g^k\) 即为两者的复合. 由\hyperlink{sga6.e05.eq.7-1-1}{定义 (7.1.1)}, 显然 \(g^k\circ\lambda_t=\psi^k\).
+其中竖直箭头由乘法定义, 映射 \(g^k\) 如下定义: 对数导数为从 \(\widehat G(K)\) 到 \(K[[t]]\) 的群同态, 将级数对应到其第 \((k-1)\) 个系数乘以 \((-1)^{k-1}\) 所得的映射, 是从 \(K[[t]]\) 到 \(K\) 的可加同态; \(g^k\) 即为两者的复合. 由\hyperlink{sga6.e05.eq.7-1-1}{定义 (7.1.1)}, 显然 \(g^k\circ\lambda_t=\psi^k\).
 
 因此, 公式 \hyperlink{sga6.e05.eq.7-5-1}{(7.5.1)} 的第二式表达的正是刚才所写图的交换性. 若 \(K\) 为 \(\lambda\)-环, 则左侧方块交换, 只需验证右侧方块交换. 这是 \(\mathscr C_0\) 上以 \(\widehat G\times\widehat G\) 为源的函子同态的图. 由 \hyperlink{sga6.e05.thm.1-10}{1.10}, 只需在 \((1+Xt,1+Yt)\) 上验证交换性. 则
 \[
@@ -2167,44 +2450,38 @@ K ,
 \]
 结论得证.
 
-为证明最后一个关系式, 先注意图
+% 法文 PDF377 / 印刷页363: 恢复原图的箭头方向及两条复合式, 英文稿对此有多处改坏.
+为证明最后一个关系式, 先注意图\footnote{译校注: 原书第 363 页 (7.5.3) 的底箭头从 \(K\) 指向 \(\widehat G^t(K)\), 标作 \(g^k\); 按 \(g^k\) 的定义及随后的复合式, 此处将该箭头反向绘出.}
 \sgaStableTarget{sga6.e05.eq.7-5-3}\begin{equation}\tag{7.5.3}
 \begin{tikzcd}[column sep=large,row sep=large]
-\widehat G_t(K) \arrow[r,"\lambda_u"] \arrow[d,"g^k"'] &
-\widehat G_u\widehat G_t(K) \arrow[d,"g^k_u"]\\
-K \arrow[r,"\lambda_u"'] &
-\widehat G^u(K)
+\widehat G^t(K) \arrow[r,"\lambda_u"] \arrow[d,"g^{kk'}"'] &
+\widehat G^u\circ\widehat G^t(K) \arrow[d,"g^{k'}_u"]\\
+K & \widehat G^t(K) \arrow[l,"g^k"]
 \end{tikzcd}
 \end{equation}
+
 交换. 与前面一样, 只需对 \(1+Xt\) 验证, 有
 \[
-  g^{k'}_u\lambda_u(1+Xt)
-  =
-  g^{k'}_u(1+\{1+Xt\}u)
-  =
-  (1+Xt)^{\circ k'}
-  =
-  1+X^{k'}t,
+ \begin{aligned}
+ g^{k'}_u(\lambda_u(1+Xt))
+ &=g^{k'}_u(1+\{1+Xt\}u)\\
+ &=(1+Xt)^{\circ k'}=1+X^{k'}t,
+ \end{aligned}
 \]
-于是
+并且
 \[
-  g^k(1+X^{k'}t)=X^{kk'}=g^k(1+Xt).
+ g^k(1+X^{k'}t)=X^{kk'}=g^{kk'}(1+Xt).
 \]
 因此
 \[
-  \psi^k\circ\psi^{k'}
-  =
-  g^k\circ g^{k'}_u\circ\lambda_u\circ\lambda_t
-  =
-  g^k\circ\lambda_t\circ\psi^{k'}.
+ \psi^{kk'}=g^k\circ g^{k'}_u\circ\lambda_u\circ\lambda_t
+           =g^k\circ\psi^{k'}\circ\lambda_t.
 \]
-此外
+此外,
 \[
-  \psi^k\circ\psi^{k'}
-  =
-  g^k\circ\lambda_t\circ\psi^{k'}
-  =
-  \psi^k\circ\lambda_t\circ\psi^{k'}.
+ \psi^k\circ\psi^{k'}
+ =g^k\circ\lambda_t\circ g^{k'}\circ\lambda_t
+ =g^k\circ\lambda_t\circ\psi^{k'}.
 \]
 若 \(K\) 为 \(\lambda\)-环, 则图
 \sgaStableTarget{sga6.e05.eq.7-5-4}\begin{equation}\tag{7.5.4}

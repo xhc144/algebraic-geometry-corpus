@@ -1,3 +1,11 @@
+% French reconciliation: internal sheaf-Hom is underlined in the original.
+\providecommand{\sgaIHom}{\underline{\operatorname{Hom}}}
+\providecommand{\sgaIRHom}{\mathrm R\!\underline{\operatorname{Hom}}}
+\providecommand{\sgaIGRHom}{\mathrm R\!\operatorname{Hom}}
+\providecommand{\sgaIExt}{\underline{\operatorname{Ext}}}
+\providecommand{\sgaIParff}{\underline{\mathrm{parf}}}
+\providecommand{\sgaIS}{\underline S}
+\providecommand{\otL}{\mathop{\otimes}^{\mathrm L}}
 \sgaStableTarget{sga6.e01.expose}\section*{第 I 讲. 导出范畴中有限性条件的一般性质}
 \begin{center}
 L. Illusie
@@ -8,13 +16,13 @@ L. Illusie
 
 正如\hyperlink{sga6.e00.expose}{第 0 讲}所说, 为了在任意概形上定义具有良好变性性质的“Grothendieck 群”, 我们必须推广并放宽迄今所用的有限性概念.
 
-赋环空间 \((X,\mathcal O_X)\) 上的凝聚层这样的经典概念, 只有在 \(\mathcal O_X\) 凝聚时才有意义. 人们或许会想到用有限表示的概念取代它. 但这样做有一个不便: 两个有限表示模之间满态射的核, 一般不再是有限表示的. 注意到当 \(\mathcal O_X\) 凝聚时, 凝聚层 \(F\) 不仅是有限表示的, 而且对每个 \(n\in\mathbb N\) 都是 \(n\)-有限表示的, 就能得到令人满意的概念; 这里 \(n\)-有限表示是指局部存在正合列
+赋环空间 \((X,\mathcal O_X)\) 上的凝聚层这样的经典概念, 一旦 \(\mathcal O_X\) 不再凝聚, 便不再有多大意义. 人们或许会想到用有限表示的概念取代它. 但这样做有一个不便: 两个有限表示模之间满态射的核, 一般不再是有限表示的. 注意到当 \(\mathcal O_X\) 凝聚时, 凝聚层 \(F\) 不仅是有限表示的, 而且对每个 \(n\in\mathbb N\) 都是 \(n\)-有限表示的, 就能得到令人满意的概念; 这里 \(n\)-有限表示是指局部存在正合列
 \[
   L_n\longrightarrow L_{n-1}\longrightarrow \cdots \longrightarrow L_0\longrightarrow F\longrightarrow 0,
 \]
 其中各 \(L_i\) 都是有限型自由模. 当不再假设 \(\mathcal O_X\) 凝聚时, 若 \(\mathcal O_X\)-模 \(F\) 满足上述条件, 即对每个 \(n\) 都是 \(n\)-有限表示的, 就称 \(F\) 为\emph{伪凝聚的} (pseudo-coherent). 于是伪凝聚性对于短正合列具有与凝聚性相同的稳定性: 若 \(\mathcal O_X\)-模的一个短正合列中有两项伪凝聚, 则第三项也伪凝聚.
 
-上述概念很容易推广到层的复形. 若一个 \(\mathcal O_X\)-模复形 \(F\) 对每个 \(n\in\mathbb Z\) 都是 \(n\)-伪凝聚的, 就称它为\emph{伪凝聚的}; 这里 \(n\)-伪凝聚是指局部存在拟同构 \(L\to F\), 其中 \(L\) 是上有界复形, 且在次数 \(>n\) 处的各分量都是有限型自由模. 若复形 \(F\) 仅集中在次数 \(0\), 则将 \(F\) 视为复形或视为模时, 伪凝聚性的含义相同.
+上述概念很容易推广到层的复形. 若一个 \(\mathcal O_X\)-模复形 \(F\) 对每个 \(n\in\mathbb Z\) 都是 \(n\)-伪凝聚的, 就称它为\emph{伪凝聚的}; 这里 \(n\)-伪凝聚是指局部存在拟同构 \(L\to F\), 其中 \(L\) 是上有界复形, 且在次数 \(\geq n\) 处的各分量都是有限型自由模. 若复形 \(F\) 仅集中在次数 \(0\), 则将 \(F\) 视为复形或视为模时, 伪凝聚性的含义相同.
 
 伪凝聚复形的概念具有优良的稳定性, 见\hyperlink{sga6.e01.expose}{第 I 讲}第 1、2 节. 首先, 它在 \(\mathcal O_X\)-模范畴的导出范畴 \(\Db(X)\) 中的同构下稳定; 更进一步, 若 \(\Db(X)\) 中一个特异三角的两个对象伪凝聚, 则第三个也伪凝聚. 换言之, \(\Db(X)\) 中由伪凝聚复形构成的满子范畴 \(\Db(X)_{\mathrm{coh}}\) 是一个三角子范畴. 此外, 逆像和导出张量积都保持伪凝聚性. 在 \(\mathcal O_X\) 凝聚的情形, 说复形 \(F\) 伪凝聚, 就是说 \(F\) 的上同调局部上有界, 且所有 \(H^i(F)\) 都凝聚.
 
@@ -33,13 +41,13 @@ L \arrow[rr] && F \arrow[dl]\\
 & R \arrow[ul] &
 \end{tikzcd}
 \]
-其中 \(L\) 完美, \(R\) 在次数 \(>n\) 处无上同调. 反过来, 借助一个附加的正则性条件, 可由伪凝聚性恢复完美性: 一个复形完美, 当且仅当它伪凝聚且局部具有有限 Tor 维数 (\hyperlink{sga6.e01.expose}{第 I 讲}第 5 节). 这样就重新得到如下事实: 若局部环正则, 则每个凝聚层都完美; 更一般地, 每个上同调局部有界的伪凝聚复形都完美.
+其中 \(L\) 完美, \(R\) 在次数 \(\geq n\) 处无上同调. 反过来, 借助一个附加的正则性条件, 可由伪凝聚性恢复完美性: 一个复形完美, 当且仅当它伪凝聚且局部具有有限 Tor 维数 (\hyperlink{sga6.e01.expose}{第 I 讲}第 5 节). 这样就重新得到如下事实: 若局部环正则, 则每个凝聚层都完美; 更一般地, 每个上同调局部有界的伪凝聚复形都完美.
 
 伪凝聚性与完美性是本讨论班使用的两个基本有限性概念. \hyperlink{sga6.e01.expose}{第 I 讲}第 1 至 5 节将定义它们, 并建立其基本稳定性. 为此, 只需用到有限型自由模范畴相对于全体模范畴的两三个局部性质. 因而把这种情形公理化, 在一个景上纤维化的范畴中, 相对于满足适当条件的纤维子范畴引入伪凝聚性 (相应地, 完美性), 既方便又有用, 尤其是在\hyperlink{sga6.e02.expose}{第 II 讲}中.
 
 \hyperlink{sga6.e01.expose}{第 I 讲}第 6 至 8 节将有限型局部自由层的若干熟知概念推广到完美复形: 秩、对偶性以及自同态的迹.
 
-\hyperlink{sga6.e02.expose}{第 II 讲}考察“整体消解”的存在性问题: 在赋环拓扑斯 \((X,\mathcal O_X)\) 上, 一个伪凝聚 (相应地, 完美) 复形在什么条件下, 在 \(\Db(X)\) 中整体同构于由有限型局部自由模构成的复形? 这个问题的重要性主要在于, 目前尚不知道如何将局部自由模上的某些通常构造, 例如外幂、对称幂或 Chern 类, 推广到完美复形. 因此, 给出整体消解存在的实用充分判据是有用的; 这些判据可把关于伪凝聚 (相应地, 完美) 复形的某些问题, 化为关于有限型局部自由层的类似问题. \hyperlink{sga6.e02.expose}{第 II 讲}将给出这样的判据.
+\hyperlink{sga6.e02.expose}{第 II 讲}考察“整体消解”的存在性问题: 在赋环拓扑斯 \((X,\mathcal O_X)\) 上, 一个伪凝聚 (相应地, 完美) 复形在什么条件下, 在 \(\Db(X)\) 中整体同构于由有限型局部自由模构成的复形? 这个问题的重要性主要在于, 目前尚不知道如何将局部自由模上的某些通常构造, 例如外幂、对称幂或 Chern 类, 推广到完美复形 (关于这一点的更多说明, 见第 XIV 讲). 因此, 给出整体消解存在的实用充分判据是有用的; 这些判据可把关于伪凝聚 (相应地, 完美) 复形的某些问题, 化为关于有限型局部自由层的类似问题. \hyperlink{sga6.e02.expose}{第 II 讲}将给出这样的判据.
 
 特别地, 将证明下列情形中存在整体消解: \(X\) 是仿射概形的 Zariski 拓扑斯, 或更一般地, 是具有丰沛可逆层的拟紧概形的 Zariski 拓扑斯, 乃至具有 Kleiman 意义下丰沛可逆层族的拟紧概形的 Zariski 拓扑斯, 例如正则概形的情形; 又或者, \(X\) 是紧拓扑空间上集合层的拓扑斯, 而 \(\mathcal O_X\) 是复值连续函数层. 作为例子, 也为了展示所引入概念的灵活性, 附录将给出一族椭圆算子之指标的“纯粹层论”定义.
 
@@ -47,21 +55,21 @@ L \arrow[rr] && F \arrow[dl]\\
 
 \hyperlink{sga6.e03.expose}{第 III 讲}的核心定理是如下有限性定理, 后面会以稍精确的形式陈述: 若 \(f:X\to Y\) 是局部有限型 \(S\)-概形之间的固有态射, 则函子 \(Rf_*\) 把相对于 \(S\) 伪凝聚的复形变为相对于 \(S\) 伪凝聚的复形. 这个定理实际上是一个猜想, 但在 \(S\) 局部 Noether 和 \(f\) 射影这两个特殊情形中已有证明. 不幸的是, 推广到一般情形似乎与解析几何中相应的定理, 即 Grauert 定理, 同样困难. 把有限性定理与一个本质上平凡、称为投影公式的公式结合起来, 就得到相对完美性在正像下稳定的实用判据. 作为推论, 可重新得到 Grauert 的连续性与半连续性定理 (EGA III 7.6).
 
-\hyperlink{sga6.e04.expose}{第 IV 讲}把\hyperlink{sga6.e01.expose}{第 I 讲}至第 III 讲的结果译成“Grothendieck 群”的语言. 在赋环拓扑斯 \((X,\mathcal O_X)\) 上, 用 \(K^*(X)\) (相应地, \(K_\bullet(X)\)) 表示完美复形及有限 Tor 维数复形的范畴 (相应地, 同调有界的伪凝聚复形的范畴) 的 Grothendieck 群. 群 \(K^*(X)\) 是一个环, 而 \(K_\bullet(X)\) 是 \(K^*(X)\) 上的模. 如上所示, 函子 \(K^*\) 是反变的; 而在有限性定理成立的前提下, 对于概形或解析空间的固有伪凝聚态射, \(K_\bullet\) 是协变的. 对满足适当正则性假设的态射, 还存在不寻常的变体: \(K^*\) 的协变性及 \(K_\bullet\) 的反变性. 最后, \hyperlink{sga6.e02.expose}{第 II 讲}的整体化判据, 可将这些群与直接用凝聚层或有限型局部自由层定义的“Grothendieck 群”联系起来.
+\hyperlink{sga6.e04.expose}{第 IV 讲}把\hyperlink{sga6.e01.expose}{第 I 讲}至第 III 讲的结果译成“Grothendieck 群”的语言. 在赋环拓扑斯 \((X,\mathcal O_X)\) 上, 用 \(K^\bullet(X)\) (相应地, \(K_\bullet(X)\)) 表示完美且具有有限 Tor 维数的复形所成的范畴 (相应地, 同调有界的伪凝聚复形的范畴) 的 Grothendieck 群. 群 \(K^\bullet(X)\) 是一个环, 而 \(K_\bullet(X)\) 是 \(K^\bullet(X)\) 上的模. 如上所示, 函子 \(K^\bullet\) 是反变的; 而在有限性定理成立的前提下, 对于概形或解析空间的固有伪凝聚态射, \(K_\bullet\) 是协变的. 对满足适当正则性假设的态射, 还存在不寻常的变体: \(K^\bullet\) 的协变性及 \(K_\bullet\) 的反变性. 最后, \hyperlink{sga6.e02.expose}{第 II 讲}的整体化判据, 可将这些群与直接用凝聚层或有限型局部自由层定义的“Grothendieck 群”联系起来.
 
 \sgaStableTarget{sga6.e01.sec.1}\section*{1. 预备定义}
 
 \sgaStableTarget{sga6.e01.sec.1.1}\subsection*{1.1. 纤维为加性范畴 (相应地, Abel 范畴、三角范畴) 的纤维范畴}
 
-\sgaStableTarget{sga6.e01.para.1-1-1}\textbf{1.1.1.} 设 \(S\) 为范畴, \(\mathcal C\) 为纤维是加性 (相应地, 三角) 范畴的纤维 \(S\)-范畴 (SGA 1 VI 6.1). 若对 \(S\) 的每个箭头 \(f:X\to Y\), 逆像函子
+\sgaStableTarget{sga6.e01.para.1-1-1}\textbf{1.1.1.} 设 \(\sgaIS\) 为范畴, \(\mathcal C\) 为纤维是加性 (相应地, 三角) 范畴的纤维 \(\sgaIS\)-范畴 (SGA 1 VI 6.1). 若对 \(\sgaIS\) 的每个箭头 \(f:X\to Y\), 逆像函子
 \[
   f^*:\mathcal C_Y\longrightarrow \mathcal C_X
 \]
-(在唯一同构的意义下确定) 都是加性的 (相应地, 正合的), 则称 \(\mathcal C\) 为\emph{加性} (相应地, \emph{三角}) \(S\)-范畴, 或称 \(\mathcal C\) 在 \(S\) 上加性 (相应地, 三角). 若 \(\mathcal C\) 是纤维为 Abel 范畴的加性 \(S\)-范畴, 则称它为 \emph{Abel} \(S\)-范畴; 若逆像函子还都是正合的, 则称它为\emph{平坦 Abel} \(S\)-范畴.
+(在唯一同构的意义下确定) 都是加性的 (相应地, 正合的), 则称 \(\mathcal C\) 为\emph{加性} (相应地, \emph{三角}) \(\sgaIS\)-范畴, 或称 \(\mathcal C\) 在 \(\sgaIS\) 上加性 (相应地, 三角). 若 \(\mathcal C\) 是纤维为 Abel 范畴的加性 \(\sgaIS\)-范畴, 则称它为 \emph{Abel} \(\sgaIS\)-范畴; 若逆像函子还都是正合的, 则称它为\emph{平坦 Abel} \(\sgaIS\)-范畴.
 
-\sgaStableTarget{sga6.e01.para.1-1-2}\textbf{1.1.2.} 设 \(\mathcal C\) 为三角 \(S\)-范畴. 例如, 借助 \(\mathcal C\) 的一个劈裂 (SGA 1 VI 7.1), 可以定义一个纤维 \(S\)-范畴 \(\Trc(\mathcal C)\), 它在每个 \(X\in \ob(S)\) 上的纤维为 \(\mathcal C_X\) 的特异三角所构成的范畴 \(\Trc(\mathcal C_X)\).
+\sgaStableTarget{sga6.e01.para.1-1-2}\textbf{1.1.2.} 设 \(\mathcal C\) 为三角 \(\sgaIS\)-范畴. 例如, 借助 \(\mathcal C\) 的一个劈裂 (SGA 1 VI 7.1), 可以定义一个纤维 \(\sgaIS\)-范畴 \(\Trc(\mathcal C)\), 它在每个 \(X\in \ob(\sgaIS)\) 上的纤维为 \(\mathcal C_X\) 的特异三角所构成的范畴 \(\Trc(\mathcal C_X)\).
 
-\sgaStableTarget{sga6.e01.para.1-1-3}\textbf{1.1.3.} 设 \(\mathcal C\) 与 \(\mathcal C'\) 为加性 (相应地, 三角) \(S\)-范畴, \(F:\mathcal C\to\mathcal C'\) 为函子. 若 \(F\) 是 Cartesian \(S\)-函子, 且在每个纤维上均加性 (相应地, 正合), 就称 \(F\) 为加性 (相应地, 正合) \(S\)-函子.
+\sgaStableTarget{sga6.e01.para.1-1-3}\textbf{1.1.3.} 设 \(\mathcal C\) 与 \(\mathcal C'\) 为加性 (相应地, 三角) \(\sgaIS\)-范畴, \(F:\mathcal C\to\mathcal C'\) 为函子. 若 \(F\) 是 Cartesian \(\sgaIS\)-函子, 且在每个纤维上均加性 (相应地, 正合), 就称 \(F\) 为加性 (相应地, 正合) \(\sgaIS\)-函子.
 
 
 
@@ -87,20 +95,20 @@ L \arrow[rr] && F \arrow[dl]\\
 \providecommand{\qis}{\xrightarrow{\sim}}
 
 
-\sgaStableTarget{sga6.e01.para.1-1-3.occ2}\textbf{1.1.3 (续).} 若 \(\mathcal C\) 与 \(\mathcal C'\) 为三角 \(S\)-范畴, 且 \(F\) 是正合 \(S\)-函子, 则 \(F\) 定义一个 Cartesian \(S\)-函子
+\sgaStableTarget{sga6.e01.para.1-1-3.occ2}若 \(\mathcal C\) 与 \(\mathcal C'\) 为三角 \(\sgaIS\)-范畴, 且 \(F\) 是正合 \(\sgaIS\)-函子, 则 \(F\) 定义一个 Cartesian \(\sgaIS\)-函子
 \[
   \Trc(\mathcal C)\longrightarrow \Trc(\mathcal C').
 \]
 
-\sgaStableTarget{sga6.e01.para.1-1-4}\textbf{1.1.4.} 设 \(\mathcal C\) 为三角 \(S\)-范畴, \(\mathcal C'\) 为 \(\mathcal C\) 的满纤维子 \(S\)-范畴. 若对每个 \(X\in\Ob S\), \(\mathcal C'_X\) 都是 \(\mathcal C_X\) 的三角子范畴 (\([V]\), 第 I 章第 1 节, 2.3), 则称 \(\mathcal C'\) 为 \(\mathcal C\) 的\emph{三角子 \(S\)-范畴}.
+\sgaStableTarget{sga6.e01.para.1-1-4}\textbf{1.1.4.} 设 \(\mathcal C\) 为三角 \(\sgaIS\)-范畴, \(\mathcal C'\) 为 \(\mathcal C\) 的满纤维子 \(\sgaIS\)-范畴. 若对每个 \(X\in\Ob \sgaIS\), \(\mathcal C'_X\) 都是 \(\mathcal C_X\) 的三角子范畴 (\([V]\), 第 I 章第 1 节, 2.3), 则称 \(\mathcal C'\) 为 \(\mathcal C\) 的\emph{三角子 \(\sgaIS\)-范畴}.
 
 % SGA-SRC-001475: verified against French physical page 99; original notation footnotes restored below.
 % The object/arrow abbreviation uses ob / Fl; no mathematical inference is substituted for the scan.
-\sgaStableTarget{sga6.e01.para.1-1-5}\textbf{1.1.5.} 设 \(\mathcal C\) 为加性 \(S\)-范畴. 可以定义 (SGA 4 XVII 2.2, 2.4) 加性 (相应地, 三角) \(S\)-范畴
+\sgaStableTarget{sga6.e01.para.1-1-5}\textbf{1.1.5.} 设 \(\mathcal C\) 为加性 \(\sgaIS\)-范畴. 可以定义 (SGA 4 XVII 2.2, 2.4) 加性 (相应地, 三角) \(\sgaIS\)-范畴
 \[
   \Cpx(\mathcal C)\qquad\text{相应地}\qquad \Kpx(\mathcal C),
 \]
-它在 \(X\in\Ob S\) 上的纤维是复形\footnote{微分的次数为 \(+1\).}所成范畴 \(\Cpx(\mathcal C_X)\) (相应地, \(\mathcal C_X\) 中复形“在同伦意义下”所成范畴 \(\Kpx(\mathcal C_X)\)). 若 \(\mathcal C\) 为平坦 Abel \(S\)-范畴, 则同处定义了三角 \(S\)-范畴 \(\Dpx(\mathcal C)\), 它在 \(X\in\Ob S\) 上的纤维是导出范畴 \(\Dpx(\mathcal C_X)\); 若 \(f:X\to Y\) 是 \(S\) 的箭头, 则用
+它在 \(X\in\Ob \sgaIS\) 上的纤维是复形\footnote{微分的次数为 \(+1\).}所成范畴 \(\Cpx(\mathcal C_X)\) (相应地, \(\mathcal C_X\) 中复形“在同伦意义下”所成范畴 \(\Kpx(\mathcal C_X)\)). 若 \(\mathcal C\) 为平坦 Abel \(\sgaIS\)-范畴, 则同处定义了三角 \(\sgaIS\)-范畴 \(\Dpx(\mathcal C)\), 它在 \(X\in\Ob \sgaIS\) 上的纤维是导出范畴 \(\Dpx(\mathcal C_X)\); 若 \(f:X\to Y\) 是 \(\sgaIS\) 的箭头, 则用
 \[
   f^*:\Dpx(\mathcal C_Y)\longrightarrow \Dpx(\mathcal C_X)
 \]
@@ -108,24 +116,25 @@ L \arrow[rr] && F \arrow[dl]\\
 \[
   f^*:\Kpx(\mathcal C_Y)\longrightarrow \Kpx(\mathcal C_X)
 \]
-取商得到的逆像函子.\footnote{若 \(a\in\operatorname{ob}\Dpx(\mathcal C_Y)\) (相应地, \(a\in\operatorname{Fl}\Dpx(\mathcal C_Y)\)), 常将 \(f^*(a)\) 简记为 \(a_X\).} 利用通常的次数条件, 可定义满三角子 \(S\)-范畴
+取商得到的逆像函子.\footnote{若 \(a\in\operatorname{ob}\Dpx(\mathcal C_Y)\) (相应地, \(a\in\operatorname{Fl}\Dpx(\mathcal C_Y)\)), 常将 \(f^*(a)\) 简记为 \(a_X\).} 利用通常的次数条件, 可定义满三角子 \(\sgaIS\)-范畴
 \[
   \Kpx^*(\mathcal C)\qquad\text{相应地}\qquad \Dpx^*(\mathcal C)
   \quad (*=+,-,b)
-\]
 .
+\]
+
 
 \sgaStableTarget{sga6.e01.sec.1.2}\subsection*{1.2. 术语}
 
-设 \(S\) 为景 (site), \(\mathcal C\) 为平坦 Abel \(S\)-范畴 \hyperlink{sga6.e01.sec.1.1}{(1.1)}, \(\mathcal C_0\) 为严格满纤维子 \(S\)-范畴.
+设 \(\sgaIS\) 为景 (site), \(\mathcal C\) 为平坦 Abel \(\sgaIS\)-范畴 \hyperlink{sga6.e01.sec.1.1}{(1.1)}, \(\mathcal C_0\) 为严格满纤维子 \(\sgaIS\)-范畴.
 
-设 \(F\in\Ob \mathcal C_X\), 其中 \(X\in\Ob S\). \(S/X\) 中满足存在满态射
+设 \(F\in\Ob \mathcal C_X\), 其中 \(X\in\Ob \sgaIS\). \(\sgaIS/X\) 中满足存在满态射
 \[
   E\longrightarrow f^*F,\qquad E\in\Ob \mathcal C_{0,U},
 \]
 的箭头 \(f:U\to X\) 的集合, 是 \(X\) 上的一个筛. 若该筛是覆盖筛, 就称 \(F\) 为 \(\mathcal C_0\)-\emph{有限型} (不致混淆时简称有限型).
 
-若满足下列条件, 就称 \(\mathcal C_0\) \emph{局部对满态射的核稳定}: 对每个 \(X\in\Ob S\) 以及 \(\mathcal C_X\) 中每个满态射
+若满足下列条件, 就称 \(\mathcal C_0\) \emph{局部对满态射的核稳定}: 对每个 \(X\in\Ob \sgaIS\) 以及 \(\mathcal C_X\) 中每个满态射
 \[
   u:E\longrightarrow F
 \]
@@ -133,9 +142,9 @@ L \arrow[rr] && F \arrow[dl]\\
 \[
   f^*\Ker(u)\in\Ob\mathcal C_{0,U}
 \]
-的 \(S/X\) 中箭头 \(f:U\to X\) 的集合是 \(X\) 的加细.
+的 \(\sgaIS/X\) 中箭头 \(f:U\to X\) 的集合是 \(X\) 的加细.
 
-通过将长正合列分解为短正合列的通常方法, 可见上述条件等价于如下表面上更强的条件: 对每个 \(X\in\Ob S\) 以及 \(\mathcal C_X\) 中每个正合列
+通过将长正合列分解为短正合列的通常方法, 可见上述条件等价于如下表面上更强的条件: 对每个 \(X\in\Ob \sgaIS\) 以及 \(\mathcal C_X\) 中每个正合列
 \sgaStableTarget{sga6.e01.eq.unnamed}\begin{equation}\tag{*}
   0\longrightarrow E^0\longrightarrow E^1\longrightarrow\cdots\longrightarrow E^n\longrightarrow 0
 \end{equation}
@@ -143,11 +152,11 @@ L \arrow[rr] && F \arrow[dl]\\
 
 若对每个如 \((*)\) 的正合列, \(E^0\) 都是 \(\mathcal C_0\)-有限型的, 就称 \(\mathcal C_0\) \emph{局部对满态射的核拟稳定}.
 
-另一方面, 若对每个 \(X\in\Ob S\), \(\mathcal C_X\) 中每个满态射
+另一方面, 若对每个 \(X\in\Ob \sgaIS\), \(\mathcal C_X\) 中每个满态射
 \[
   u:E\longrightarrow F
 \]
-只要 \(F\in\Ob\mathcal C_{0,X}\), 就局部具有截面, 则称 \(\mathcal C_0\) \emph{在 \(\mathcal C\) 中局部可提升}. 等价地, \(\mathcal C_0\) 在 \(\mathcal C\) 中局部可提升的充要条件是: 对 \(\mathcal C_X\) 中的每个图 (\(X\in\Ob S\))
+只要 \(F\in\Ob\mathcal C_{0,X}\), 就局部具有截面, 则称 \(\mathcal C_0\) \emph{在 \(\mathcal C\) 中局部可提升}. 等价地, \(\mathcal C_0\) 在 \(\mathcal C\) 中局部可提升的充要条件是: 对 \(\mathcal C_X\) 中的每个图 (\(X\in\Ob \sgaIS\))
 \[
 \begin{tikzcd}
 & H \arrow[d]\\
@@ -157,13 +166,13 @@ E \arrow[r,"u"'] & F
 其中 \(u\) 为满态射, \(H\in\Ob\mathcal C_0\), 在 \(X\) 上满足存在交换图
 \[
 \begin{tikzcd}
-& H_U \arrow[d]\\
-E_U \arrow[r,"u_U"'] \arrow[ur] & F_U
+& H_U \arrow[d] \arrow[dl,"u"']\\
+E_U \arrow[r,"u_U"'] & F_U
 \end{tikzcd}
 \]
 的 \(U\) 的集合, 是 \(X\) 的加细.
 
-若满足如下较弱条件, 就称 \(\mathcal C_0\) \emph{在 \(\mathcal C\) 中局部拟可提升}: 对每个 \(X\in\Ob S\) 以及 \(\mathcal C_X\) 中每个满态射
+若满足如下较弱条件, 就称 \(\mathcal C_0\) \emph{在 \(\mathcal C\) 中局部拟可提升}: 对每个 \(X\in\Ob \sgaIS\) 以及 \(\mathcal C_X\) 中每个满态射
 \[
   u:E\longrightarrow F
 \]
@@ -171,7 +180,7 @@ E_U \arrow[r,"u_U"'] \arrow[ur] & F_U
 \[
   v:F'\longrightarrow f^*E,\qquad F'\in\Ob\mathcal C_{0,U},
 \]
-且 \(f^*(u)v\) 为满态射的 \(S/X\) 中箭头 \(f:U\to X\) 的集合, 是 \(X\) 的加细. 此条件等价于: 对 \(\mathcal C_X\) 中每个图
+且 \(f^*(u)v\) 为满态射的 \(\sgaIS/X\) 中箭头 \(f:U\to X\) 的集合, 是 \(X\) 的加细. 此条件等价于: 对 \(\mathcal C_X\) 中每个图
 \[
 \begin{tikzcd}
 & H \arrow[d]\\
@@ -187,49 +196,49 @@ E_U \arrow[r,"u_U"'] & F_U
 \]
 且 \(G\in\Ob\mathcal C_0\)、\(v\) 为满态射的 \(U\) 的集合, 是 \(X\) 的加细.
 
-若 \(S\) 是混沌景, 例如单点景 (一个对象, 一个态射), 则在以上定义中省去副词“局部”.
+若 \(\sgaIS\) 是混沌景, 例如单点景 (一个对象, 一个态射), 则在以上定义中省去副词“局部”.
 
 \sgaStableTarget{sga6.e01.sec.1.3}\subsection*{1.3. 例}
 
-\textbf{a)} 设 \(S\) 为单点景, \(A\) 为环, \(\mathcal C\) 为左 \(A\)-模范畴. \(\mathcal C\) 中由有限型投射 \(A\)-模构成的满子范畴 \(\mathcal C_0\), 对满态射的核稳定, 且在 \(\mathcal C\) 中可提升; 一个 \(A\)-模是 \(\mathcal C_0\)-有限型的, 当且仅当它在通常意义下有限型. \(\mathcal C\) 中由有限型 \(A\)-模构成的满子范畴 \(\mathcal C_1\), 在 \(\mathcal C\) 中拟可提升, 但一般不可提升; 若 \(A\) 是 Noether 环, 则 \(\mathcal C_1\) 对满态射的核稳定. \(\mathcal C\) 中由有限型自由 \(A\)-模构成的满子范畴 \(\mathcal C'_0\), 在 \(\mathcal C\) 中可提升, 且对满态射的核拟稳定, 但一般不稳定.
+\textbf{a)} 设 \(\sgaIS\) 为单点景, \(A\) 为环, \(\mathcal C\) 为左 \(A\)-模范畴. \(\mathcal C\) 中由有限型投射 \(A\)-模构成的满子范畴 \(\mathcal C_0\), 对满态射的核稳定, 且在 \(\mathcal C\) 中可提升; 一个 \(A\)-模是 \(\mathcal C_0\)-有限型的, 当且仅当它在通常意义下有限型. \(\mathcal C\) 中由有限型 \(A\)-模构成的满子范畴 \(\mathcal C_1\), 在 \(\mathcal C\) 中拟可提升, 但一般不可提升; 若 \(A\) 是 Noether 环, 则 \(\mathcal C_1\) 对满态射的核稳定. \(\mathcal C\) 中由有限型自由 \(A\)-模构成的满子范畴 \(\mathcal C'_0\), 在 \(\mathcal C\) 中可提升, 且对满态射的核拟稳定, 但一般不稳定.
 
-\textbf{b)} 设 \((S,\mathcal O_S)\) 为局部赋环空间, \(S\) 为 \(S\) 的开集景, \(\mathcal C\) 为如下函子定义的纤维 \(S\)-范畴, 它甚至是分裂的 (SGA 1 VI 9):
+\textbf{b)} 设 \((S,\mathcal O_{S})\) 为局部赋环空间, \(\sgaIS\) 为 \(S\) 的开集景, \(\mathcal C\) 为如下函子定义的纤维 \(\sgaIS\)-范畴, 它甚至是分裂的 (SGA 1 VI 9):
 \[
   U\longmapsto \{\text{左 }\mathcal O_U\text{-模的范畴}\}.
 \]
-于是 \(\mathcal C\) 是平坦 Abel \(S\)-范畴 \hyperlink{sga6.e01.sec.1.1}{(1.1)}. 设 \(\mathcal C_0\) 为 \(\mathcal C\) 的严格满加性子 \(S\)-范畴, 定义为
+于是 \(\mathcal C\) 是平坦 Abel \(\sgaIS\)-范畴 \hyperlink{sga6.e01.sec.1.1}{(1.1)}. 设 \(\mathcal C_0\) 为 \(\mathcal C\) 的严格满加性子 \(\sgaIS\)-范畴, 定义为
 \[
   U\longmapsto \{\text{有限型自由 }\mathcal O_U\text{-模的范畴}\}.
 \]
-一个 \(\mathcal O_S\)-模 \(M\) 局部为 \(\mathcal C_0\)-有限型, 当且仅当 \(M\) 在通常意义下有限型 (EGA \(0_{\mathrm I}\), 5.2). 由 EGA \(0_{\mathrm I}\), 5.2.7 和 5.4.9 可知, \(\mathcal C_0\) 局部对满态射的核稳定, 且在 \(\mathcal C\) 中局部可提升.
+一个 \(\mathcal O_{S}\)-模 \(M\) 局部为 \(\mathcal C_0\)-有限型, 当且仅当 \(M\) 在通常意义下有限型 (EGA \(0_{\mathrm I}\), 5.2). 由 EGA \(0_{\mathrm I}\), 5.2.7 和 5.4.9 可知, \(\mathcal C_0\) 局部对满态射的核稳定, 且在 \(\mathcal C\) 中局部可提升.
 
-\textbf{c)} 设 \(G\) 为群, \(S\) 为 \(G\)-集合的拓扑斯 (SGA 4 V 3.11), \(k\) 为域, 视为 \(S\) 上的常值环. 设 \(\mathcal C\) 为如下定义的分裂 \(S\)-范畴
+\textbf{c)} 设 \(G\) 为群, \(\sgaIS\) 为 \(G\)-集合的拓扑斯 (SGA 4 V 3.11), \(k\) 为域, 视为 \(\sgaIS\) 上的常值环. 设 \(\mathcal C\) 为如下定义的分裂 \(\sgaIS\)-范畴
 \[
   U\longmapsto \{\text{左 }k_U\text{-模的范畴}\};
 \]
-则 \(\mathcal C\) 是平坦 Abel \(S\)-范畴. 设 \(\mathcal C_0\) 为 \(\mathcal C\) 的严格满加性子 \(S\)-范畴, 定义为
+则 \(\mathcal C\) 是平坦 Abel \(\sgaIS\)-范畴. 设 \(\mathcal C_0\) 为 \(\mathcal C\) 的严格满加性子 \(\sgaIS\)-范畴, 定义为
 \[
   U\longmapsto \{\text{有限型自由 }k_U\text{-模的范畴}\}.
 \]
-由于 \(S\) 中的局部化等价于忘掉 \(G\) 的作用, 显然一个 \(G\)-\(k\)-模 \(M\) 局部为 \(\mathcal C_0\)-有限型, 当且仅当 \(M\) 作为 \(k\) 上的向量空间是有限维的; 而且 \(\mathcal C_0\) 局部对满态射的核稳定, 且在 \(\mathcal C\) 中局部可提升.
+由于 \(\sgaIS\) 中的局部化等价于忘掉 \(G\) 的作用, 显然一个 \(G\)-\(k\)-模 \(M\) 局部为 \(\mathcal C_0\)-有限型, 当且仅当 \(M\) 作为 \(k\) 上的向量空间是有限维的; 而且 \(\mathcal C_0\) 局部对满态射的核稳定, 且在 \(\mathcal C\) 中局部可提升.
 
-把 c) 的“Galois”变体留给读者考察, 其中 \(G\) 为预有限群, \(S\) 为 \(G\) 连续作用的集合所成的拓扑斯.
+把 c) 的“Galois”变体留给读者考察, 其中 \(G\) 为预有限群, \(\sgaIS\) 为 \(G\) 连续作用的集合所成的拓扑斯.
 
 事实上, 例 b) 与 c) 是下面这个例的特殊情形.
 
-\textbf{d)} 设 \((S,\mathcal O_S)\) 为赋环拓扑斯 (参见 SGA 4 IV 2.10), \(\mathcal C\) 为如下定义的分裂 \(S\)-范畴
+\textbf{d)} 设 \((\sgaIS,\mathcal O_{\sgaIS})\) 为赋环拓扑斯 (参见 SGA 4 IV 2.10)\footnote{这里 \(\mathcal O_{\sgaIS}\) 是拓扑斯 \(\sgaIS\) 中有单位元的环, 不必交换.}, \(\mathcal C\) 为如下定义的分裂 \(\sgaIS\)-范畴
 \[
   U\longmapsto \{\text{左 }\mathcal O_U\text{-模的范畴}\};
 \]
-则 \(\mathcal C\) 是平坦 Abel \(S\)-范畴. 设 \(\mathcal C_0\) 为 \(\mathcal C\) 的严格满加性子 \(S\)-范畴, 定义为
+则 \(\mathcal C\) 是平坦 Abel \(\sgaIS\)-范畴. 设 \(\mathcal C_0\) 为 \(\mathcal C\) 的严格满加性子 \(\sgaIS\)-范畴, 定义为
 \[
   U\longmapsto \{\text{有限型自由 }\mathcal O_U\text{-模的范畴}\}.
 \]
-局部为 \(\mathcal C_0\)-有限型的 \(\mathcal O_S\)-模, 简称为\emph{有限型}模. 范畴 \(\mathcal C_0\) 局部对满态射的核拟稳定, 且在 \(\mathcal C\) 中局部可提升, 这是下述引理的结果:
+局部为 \(\mathcal C_0\)-有限型的 \(\mathcal O_{\sgaIS}\)-模, 简称为\emph{有限型}模. 范畴 \(\mathcal C_0\) 局部对满态射的核拟稳定, 且在 \(\mathcal C\) 中局部可提升, 这是下述引理的结果:
 
-\sgaStableTarget{sga6.e01.lem.1-3-1}\textbf{引理 1.3.1.} 设 \(P\) 为 \(\mathcal O_S\)-模. 下列条件等价:
+\sgaStableTarget{sga6.e01.lem.1-3-1}\textbf{引理 1.3.1.} 设 \(P\) 为 \(\mathcal O_{\sgaIS}\)-模. 下列条件等价:
 \begin{enumerate}[label=(\roman*)]
-\item \(P\) 有限型, 且函子 \(\Hom(P,\cdot)\) 正合;
+\item \(P\) 有限型, 且函子 \(\sgaIHom(P,\cdot)\) 正合;
 \item \(P\) 有限型, 且每个满态射 \(M\to P\) 都局部具有截面;
 \item \(P\) 局部是某个有限型自由模的直和因子.
 \end{enumerate}
@@ -237,11 +246,11 @@ E_U \arrow[r,"u_U"'] & F_U
 
 \sgaStableTarget{sga6.e01.sec.1.4}\subsection*{1.4. 一个“延拓”引理 (参见 EGA \(0_{\mathrm{III}}\), 11.9.1)}
 
-\sgaStableTarget{sga6.e01.prop.1-4-1}\textbf{命题 1.4.1.} 设 \(S\) 为景, \(\mathcal C\) 为平坦 Abel \(S\)-范畴 \hyperlink{sga6.e01.sec.1.1}{(1.1)}, \(\mathcal C_0\) 为 \(\mathcal C\) 的严格满加性子 \(S\)-范畴. 假设 \(\mathcal C_0\) 在 \(\mathcal C\) 中局部拟可提升 \hyperlink{sga6.e01.sec.1.2}{(1.2)}. 设 \(S\in\Ob S\),
+\sgaStableTarget{sga6.e01.prop.1-4-1}\textbf{命题 1.4.1.} 设 \(\sgaIS\) 为景, \(\mathcal C\) 为平坦 Abel \(\sgaIS\)-范畴 \hyperlink{sga6.e01.sec.1.1}{(1.1)}, \(\mathcal C_0\) 为 \(\mathcal C\) 的严格满加性子 \(\sgaIS\)-范畴. 假设 \(\mathcal C_0\) 在 \(\mathcal C\) 中局部拟可提升 \hyperlink{sga6.e01.sec.1.2}{(1.2)}. 设 \(S\in\Ob\sgaIS\),
 \[
   u:E\longrightarrow F
 \]
-为 \(\mathcal C_S\) 中复形之间次数为 \(0\) 的态射 (微分次数为 \(+1\)), \(G\) 为 \(u\) 的锥 (参见 [V], 第 I 章第 1 节, 2.1), \(n\in\mathbb Z\), 并假设 \(\Ho^n(G)\) 为 \(\mathcal C_0\)-有限型 \hyperlink{sga6.e01.sec.1.2}{(1.2)}. 则满足以下性质 \((P)\) 的 \(X\in\Ob(S/S)\) 的集合是 \(S\) 的加细.
+为 \(\mathcal C_S\) 中复形之间次数为 \(0\) 的态射 (微分次数为 \(+1\)), \(G\) 为 \(u\) 的锥 (参见 [V], 第 I 章第 1 节, 2.1), \(n\in\mathbb Z\), 并假设 \(\Ho^n(G)\) 为 \(\mathcal C_0\)-有限型 \hyperlink{sga6.e01.sec.1.2}{(1.2)}. 则满足以下性质 \((P)\) 的 \(X\in\Ob(\sgaIS/S)\) 的集合是 \(S\) 的加细.
 
 \((P)\): 存在对象 \(M\in\mathcal C_{0,X}\) 及 \(\mathcal C_X\) 中的箭头
 \[
@@ -365,7 +374,7 @@ F_X^{n+1} \arrow[r] &
 \[
   M\xrightarrow{s}Z^n(F_X)\longrightarrow \Ho^n(F_X)\longrightarrow \Ho^n(G_X).
 \]
-显然, 取 \(r=0\), 如 \hyperlink{sga6.e01.prop.1-4-1}{(1.4.1)} 中定义的 \(u'\) 是复形态射, 并且
+显然, 取 \(r=0\), 如 \hyperlink{sga6.e01.prop.1-4-1}{(1.4.1)} 中定义的 \(u'\) 是复形态射, 且 \(\Ho^{n+1}(u')=\Ho^{n+1}(u_X)\). 另一方面, 由刚才的上同调正合列立即得到
 \[
   \Ho^n(u'):\Ho^n(E_X)\oplus M\longrightarrow \Ho^n(F_X)
 \]
@@ -382,7 +391,7 @@ F_X^{n+1} \arrow[r] &
 
 于是由 \hyperlink{sga6.e01.prop.1-4-1}{(1.4.1)} 立即推出:
 
-\sgaStableTarget{sga6.e01.cor.1-4-4}\textbf{推论 1.4.4.} 设 \(S,S,\mathcal C,\mathcal C_0\) 如 \hyperlink{sga6.e01.prop.1-4-1}{(1.4.1)}. 固定 \(n\in\mathbb Z\), 设 \(u:E\to F\) 为 \(\mathcal C_S\) 中复形的 \((n+1)\)-拟同构, 且 \(\Ho^n(G)\) 为 \(\mathcal C_0\)-有限型. 则在 \(S\) 上满足存在如 \hyperlink{sga6.e01.prop.1-4-1}{(1.4.1)} 中的 \((M,r,s)\), 使 \(u'\) 为 \(n\)-拟同构的 \(X\) 的集合, 是 \(S\) 的加细.
+\sgaStableTarget{sga6.e01.cor.1-4-4}\textbf{推论 1.4.4.} 设 \(\sgaIS,S,\mathcal C,\mathcal C_0\) 如 \hyperlink{sga6.e01.prop.1-4-1}{(1.4.1)}. 固定 \(n\in\mathbb Z\), 设 \(u:E\to F\) 为 \(\mathcal C_S\) 中复形的 \((n+1)\)-拟同构, 且 \(\Ho^n(G)\) 为 \(\mathcal C_0\)-有限型. 则在 \(S\) 上满足存在如 \hyperlink{sga6.e01.prop.1-4-1}{(1.4.1)} 中的 \((M,r,s)\), 使 \(u'\) 为 \(n\)-拟同构的 \(X\) 的集合, 是 \(S\) 的加细.
 
 形象地说, 利用 \(\Ho^n(G)\) 的有限性条件, 可在局部“前进一步”: 在 \(E^n\) 上添加一个 \(\mathcal C_0\) 中的对象, 从而局部改变 \(u\) 在次数 \(n\) 处的部分, 使 \(u\) 成为 \(n\)-拟同构.
 
@@ -398,7 +407,7 @@ F &
   E'^i=E^i,\qquad v^i=\id(E^i)\qquad\text{当 }i\geq n.
 \]
 
-\emph{证明.} 在 \(S\) 为单点景、\(\mathcal C_0=\mathcal C\) 的情形应用 \hyperlink{sga6.e01.cor.1-4-4}{(1.4.4)}, 得到 \(\Cpx(\mathcal C)\) 中的交换三角
+\emph{证明.} 在 \(\sgaIS\) 为单点景、\(\mathcal C_0=\mathcal C\) 的情形应用 \hyperlink{sga6.e01.cor.1-4-4}{(1.4.4)}, 得到 \(\Cpx(\mathcal C)\) 中的交换三角
 \[
 \begin{tikzcd}
 E \arrow[r,"v_{n-1}"] \arrow[d,"u"'] & E'_{\,n-1} \arrow[dl,"u'_{n-1}"]\\
@@ -426,13 +435,13 @@ F &
 \]
 立即可验证这样定义的 \(E'\)、\(v\) 和 \(u'\) 满足要求.
 
-简言之, 可以将一个 \(n\)-拟同构延拓为拟同构, 而“不改变在次数 \(>n\) 处给定的任何内容”.
+简言之, 可以将一个 \(n\)-拟同构延拓为拟同构, 而“不改变在次数 \(\geq n\) 处给定的任何内容”.
 
 \sgaStableTarget{sga6.e01.sec.2}\section*{2. 伪凝聚复形}
 
-\sgaStableTarget{sga6.e01.para.2-0}\textbf{2.0.} 本节中, \(S\) 表示景, \(S\) 表示 \(S\) 的一个对象, \(\mathcal C\) 表示平坦 Abel \(S\)-范畴 \hyperlink{sga6.e01.sec.1.1}{(1.1)}, \(\mathcal C_0\) 表示 \(\mathcal C\) 的严格满加性子 \(S\)-范畴. 假设 \(\mathcal C_0\) 局部对满态射的核拟稳定 \hyperlink{sga6.e01.sec.1.2}{(1.2)}, 且在 \(\mathcal C\) 中局部拟可提升 \hyperlink{sga6.e01.sec.1.2}{(1.2)}.
+\sgaStableTarget{sga6.e01.para.2-0}\textbf{2.0.} 本节中, \(\sgaIS\) 表示景, \(S\) 表示 \(\sgaIS\) 的一个对象, \(\mathcal C\) 表示平坦 Abel \(\sgaIS\)-范畴 \hyperlink{sga6.e01.sec.1.1}{(1.1)}, \(\mathcal C_0\) 表示 \(\mathcal C\) 的严格满加性子 \(\sgaIS\)-范畴. 假设 \(\mathcal C_0\) 局部对满态射的核拟稳定 \hyperlink{sga6.e01.sec.1.2}{(1.2)}, 且在 \(\mathcal C\) 中局部拟可提升 \hyperlink{sga6.e01.sec.1.2}{(1.2)}.
 
-\sgaStableTarget{sga6.e01.def.2-1}\textbf{定义 2.1.} 设 \(X\in\Ob S\), \(E\) 为 \(\mathcal C_X\) 中的复形, \(n\in\mathbb Z\). 若对充分大的 \(i\), 有 \(E^i=0\), 且对 \(i\geq n\) (相应地, 对每个 \(i\); 相应地, 对每个 \(i\), 并且除有限多个 \(i\) 外均有 \(E^i=0\)) 有 \(E^i\in\Ob\mathcal C_{0,S}\), 则称 \(E\) 为\emph{严格 \(\mathcal C_0\)-\(n\)-伪凝聚} (相应地, 严格 \(\mathcal C_0\)-伪凝聚; 相应地, 严格 \(\mathcal C_0\)-完美) 复形.
+\sgaStableTarget{sga6.e01.def.2-1}\textbf{定义 2.1.} 设 \(X\in\Ob\sgaIS\), \(E\) 为 \(\mathcal C_X\) 中的复形, \(n\in\mathbb Z\). 若对充分大的 \(i\), 有 \(E^i=0\), 且对 \(i\geq n\) (相应地, 对每个 \(i\); 相应地, 对每个 \(i\), 并且除有限多个 \(i\) 外均有 \(E^i=0\)) 有 \(E^i\in\Ob\mathcal C_{0,S}\),\footnote{译校注: 原书第 95 页此处写作 \(\mathcal C_{0,S}\), 但复形位于 \(X\) 上, 应为 \(\mathcal C_{0,X}\).} 则称 \(E\) 为\emph{严格 \(\mathcal C_0\)-\(n\)-伪凝聚} (相应地, 严格 \(\mathcal C_0\)-伪凝聚; 相应地, 严格 \(\mathcal C_0\)-完美) 复形.
 
 不致混淆时, 有时将“严格 \(\mathcal C_0\)-\(n\)-伪凝聚”简称为“严格 \(n\)-伪凝聚” (其余术语亦然).
 
@@ -531,7 +540,7 @@ E && F ,
 \]
 其中 \(E'''\) 严格 \(n\)-伪凝聚. 这就证明了 \((\mathrm{ii}')\Rightarrow(\mathrm{i})\), 并完成了 \hyperlink{sga6.e01.prop.2-2}{(2.2)} 的证明.
 
-\sgaStableTarget{sga6.e01.def.2-3}\textbf{定义 2.3.} 在 \hyperlink{sga6.e01.prop.2-2}{(2.2)} 的假设下, 若 \(F\in\Ob\Dpx^-(\mathcal C_S)\) 满足 \hyperlink{sga6.e01.prop.2-2}{(2.2)} b) 中的等价条件, 就称 \(F\) 为 \(n\)-\(\mathcal C_0\)-伪凝聚复形. 若 \(F\) 对每个 \(n\) 都是 \(n\)-\(\mathcal C_0\)-伪凝聚的, 就称 \(F\) 为 \(\mathcal C_0\)-伪凝聚复形.
+\sgaStableTarget{sga6.e01.def.2-3}\textbf{定义 2.3.} 在 \hyperlink{sga6.e01.prop.2-2}{(2.2)} 的假设下, 若 \(F\in\Ob\Dpx(\mathcal C_S)\) 满足 \hyperlink{sga6.e01.prop.2-2}{(2.2)} b) 中的等价条件, 就称 \(F\) 为 \(n\)-\(\mathcal C_0\)-伪凝聚复形. 若 \(F\) 对每个 \(n\) 都是 \(n\)-\(\mathcal C_0\)-伪凝聚的, 就称 \(F\) 为 \(\mathcal C_0\)-伪凝聚复形.
 
 不致混淆时, 有时把 \(n\)-\(\mathcal C_0\)-伪凝聚、\(\mathcal C_0\)-伪凝聚分别简称为 \(n\)-伪凝聚、伪凝聚.
 
@@ -614,13 +623,13 @@ n&\underline n&n\\
   \quad\text{相应地}\quad
   \Dpx(\mathcal C)_{\mathcal C_0\text{-}\mathrm{coh}}
 \]
-表示 \(\Dpx(\mathcal C)\) 的严格满纤维子范畴, 其在每个 \(X\in\Ob S\) 上的纤维由 \(\Dpx(\mathcal C_X)\) 中相对于 \(\mathcal C_0\) 为 \(n\)-伪凝聚 (相应地, 伪凝聚) 的对象组成. 由 \hyperlink{sga6.e01.prop.2-5}{(2.5)}, 范畴
+表示 \(\Dpx(\mathcal C)\) 的严格满纤维子范畴, 其在每个 \(X\in\Ob\sgaIS\) 上的纤维由 \(\Dpx(\mathcal C_X)\) 中相对于 \(\mathcal C_0\) 为 \(n\)-伪凝聚 (相应地, 伪凝聚) 的对象组成. 由 \hyperlink{sga6.e01.prop.2-5}{(2.5)}, 范畴
 \[
   \Dpx(\mathcal C)_{\mathcal C_0\text{-}\mathrm{coh}}
 \]
-是 \(\Dpx(\mathcal C)\) 的三角子 \(S\)-范畴 \hyperlink{sga6.e01.sec.1.1}{(1.1)}.
+是 \(\Dpx(\mathcal C)\) 的三角子 \(\sgaIS\)-范畴 \hyperlink{sga6.e01.sec.1.1}{(1.1)}.
 
-\sgaStableTarget{sga6.e01.prop.2-7}\textbf{命题 2.7.} 假设 \(S\) 为单点景, 因而
+\sgaStableTarget{sga6.e01.prop.2-7}\textbf{命题 2.7.} 假设 \(\sgaIS\) 为单点景, 因而
 \[
   \mathcal C=\mathcal C_S,\qquad \mathcal C_0=\mathcal C_{0,S}.
 \]
@@ -683,7 +692,7 @@ F &
 \item \(F\) 为 \(n\)-有限表示 (相应地, \(\infty\)-有限表示) 的;
 \item \(F\) 为 \((-n)\)-伪凝聚 (相应地, 伪凝聚) 的.
 \end{enumerate}
-在 \(S\) 为单点景的情形, \(F\) 伪凝聚的充要条件是存在正合列
+在 \(\sgaIS\) 为单点景的情形, \(F\) 伪凝聚的充要条件是存在正合列
 \[
   \cdots\longrightarrow E^i\longrightarrow\cdots\longrightarrow E^0\longrightarrow F\longrightarrow 0,
 \qquad E^i\in\Ob\mathcal C_0\quad\text{对所有 }i.
@@ -693,13 +702,13 @@ F &
 \[
   E\longrightarrow F
 \]
-其中 \(E\) 严格 \((-n)\)-伪凝聚, 且对 \(i\geq 1\), 有 \(E^i=0\), 即得 \(F\) 的一个 \(n\)-有限表示. 第二个断言同样用 \hyperlink{sga6.e01.prop.2-7-1}{(2.7.1)} 证明.
+其中 \(E\) 严格 \(n\)-伪凝聚,\footnote{译校注: 原书第 103 页此处原作“严格 \(n\)-伪凝聚”; 与命题中 (ii) 及所需的左解消相应, 应为“严格 \((-n)\)-伪凝聚”.} 且对 \(i\geq 1\), 有 \(E^i=0\), 即得 \(F\) 的一个 \(n\)-有限表示. 第二个断言同样用 \hyperlink{sga6.e01.prop.2-7-1}{(2.7.1)} 证明.
 
 \sgaStableTarget{sga6.e01.prop.2-10}\textbf{命题 2.10.} \textbf{a)} 设 \(m,n\in\mathbb Z\), \(n\leq m\). 若 \(F\in\Ob\Dpx^-(\mathcal C_S)\) 是 \(n\)-伪凝聚复形, 且在次数 \(\geq m\) 处无上同调, 则局部存在拟同构
 \[
   E\longrightarrow F
 \]
-其中 \(E\) 严格 \(n\)-伪凝聚, 且对 \(i\geq m\), 有 \(E^i=0\). 若 \(S\) 为单点景, 且 \(F\) 伪凝聚并在次数 \(\geq m\) 处无上同调, 则存在拟同构
+其中 \(E\) 严格 \(n\)-伪凝聚, 且对 \(i\geq m\), 有 \(E^i=0\). 若 \(\sgaIS\) 为单点景, 且 \(F\) 伪凝聚并在次数 \(\geq m\) 处无上同调, 则存在拟同构
 \[
   E\longrightarrow F
 \]
@@ -712,14 +721,15 @@ F &
 b) 在 \(\Dpx^-(\mathcal C_S)\) 中存在特异三角:
 \[
 \begin{tikzcd}
-F \arrow[rr] && F' \arrow[dl]\\
-& \Ho^n(F)[-n] \arrow[ul,"+1"] &
+F \arrow[rr] && \Ho^n(F)[-n] \arrow[dl]\\
+& F' \arrow[ul,"+1"] &
 \end{tikzcd}
 \]
-(为看出这一点, 先截断 \(F\), 将 \(F^n\) 换成 \(Z^n(F)\), 并对 \(i>n\) 将 \(F^i\) 换成 \(0\)). 上同调正合列给出
+(为看出这一点, 先截断 \(F\), 将 \(F^n\) 换成 \(Z^n(F)\), 并对 \(i>n\) 将 \(F^i\) 换成 \(0\)). 上同调正合列给出\footnote{译校注: 原书第 103 页此处确印 \(i\geq n-1\); 由前述截断三角, 应为 \(i\geq n\)（即 \(i>n-1\)）. 取 \(F\) 集中在次数 \(n-1\) 即可看出原不等式的问题.}
 \[
   \Ho^i(F')=0\quad\text{当 }i\geq n-1,
 \]
+
 所以 \(F'\) 为 \((n-1)\)-伪凝聚复形. 由 \hyperlink{sga6.e01.prop.2-5}{(2.5)} 和 \hyperlink{sga6.e01.schol.2-6}{(2.6)} 即得结论.
 
 
@@ -741,13 +751,13 @@ F \arrow[rr] && F' \arrow[dl]\\
 \providecommand{\amp}{\operatorname{amp}}
 
 
-\sgaStableTarget{sga6.e01.expose.occ2}\section*{第 I 讲 (续): 伪凝聚复形与完美复形}
+\sgaStableTarget{sga6.e01.expose.occ2}
 
 \sgaStableTarget{sga6.e01.prop.2-11}\textbf{命题 2.11.} 设 \(n\in\mathbb Z\).
 
 \textbf{a)} 设 \(F\in\Ob\Cpx^-(\mathcal C_S)\). 若对每个 \(i\geq n\) (相应地, 每个 \(i\)), \(F^i\) 为 \((i-n)\)-有限表示 (相应地, \(\infty\)-有限表示) 的, 则 \(F\) 为 \(n\)-伪凝聚 (相应地, 伪凝聚) 的.
 
-\textbf{b)} 设 \(F\in\Ob\Dpx^-(\mathcal C_S)\). 若对每个 \(i\geq n\) (相应地, 每个 \(i\)), \(\Ho^i(F)\) 为 \((i-n)\)-有限表示 (相应地, \(\infty\)-有限表示) 的, 则 \(F\) 伪凝聚.
+\textbf{b)} 设 \(F\in\Ob\Dpx^-(\mathcal C_S)\). 若对每个 \(i\geq n\) (相应地, 每个 \(i\)), \(\Ho^i(F)\) 为 \((i-n)\)-有限表示 (相应地, \(\infty\)-有限表示) 的, 则 \(F\) 伪凝聚.\footnote{译校注: 原书第 104 页的非括号结论漏掉 \(n\); 此时结论应为 \(n\)-伪凝聚, 括号情形才为伪凝聚.}
 
 \emph{证明.} 只需处理非括号中的断言.
 
@@ -773,7 +783,7 @@ F \arrow[rr] && F' \arrow[dl]\\
 
 \sgaStableTarget{sga6.e01.rem.2-11-1}\textbf{注 2.11.1.} 若 \(F\) 伪凝聚, 则各 \(F^i\) (相应地, 各 \(\Ho^i(F)\)) 一般不伪凝聚, 甚至不一定有限型. 不过, 在下一节关于凝聚性概念的讨论中, 将看到一些重要例子, 其中 \(F\) 的伪凝聚性蕴涵各 \(\Ho^i(F)\) 的伪凝聚性.
 
-\sgaStableTarget{sga6.e01.prop.2-12}\textbf{命题 2.12.} 设 \(F',F''\in\Ob\Dpx^-(\mathcal C_S)\), \(F=F'\oplus F''\). \(F\) 为 \(n\)-伪凝聚 (相应地, 伪凝聚) 的充要条件, 是 \(F'
+\sgaStableTarget{sga6.e01.prop.2-12}\textbf{命题 2.12.} 设 \(F',F''\in\Ob\Dpx(\mathcal C_S)\), \(F=F'\oplus F''\). \(F\) 为 \(n\)-伪凝聚 (相应地, 伪凝聚) 的充要条件, 是 \(F'
 \) 和 \(F''\) 均为 \(n\)-伪凝聚 (相应地, 伪凝聚) 的.
 
 \emph{证明.} 只需证明非括号中的断言. 充分性显然; 下面证明必要性. 由归纳法, 可设已经证明了 \(F'\) 和 \(F''\) 均为 \((n+1)\)-伪凝聚的. 局部化后, 甚至可设 \(F'\) 与 \(F''\) 都严格 \((n+1)\)-伪凝聚, 且在 \(\Cpx^-(\mathcal C_S)\) 中有 \(F=F'\oplus F''\). 用 \(F'_{>n}\) (相应地, \(F'_{\leq n}\)) 表示把 \(F'\) 中 \(i\leq n\) (相应地, \(i>n\)) 处的 \(F'^i\) 换成 \(0\) 得到的复形; 类似地定义 \(F''_{>n}\) 和 \(F''_{\leq n}\). 有正合列
@@ -796,11 +806,11 @@ F \arrow[rr] && F' \arrow[dl]\\
 \]
 (对 \(F''\) 同样处理), 可得 \(F'\) 与 \(F''\) 均为 \(n\)-伪凝聚的.
 
-\sgaStableTarget{sga6.e01.prop.2-13}\textbf{命题 2.13.} 设三元组 \((S',\mathcal C',\mathcal C'_0)\) 与 \((S,\mathcal C,\mathcal C_0)\) 满足相同的假设 \hyperlink{sga6.e01.para.2-0}{(2.0)}. 设 \(f:S'\to S\) 为景的态射, 对应的底层函子为 \(f^{-1}:S\to S'\), 又设
+\sgaStableTarget{sga6.e01.prop.2-13}\textbf{命题 2.13.} 设三元组 \((\sgaIS',\mathcal C',\mathcal C'_0)\) 与 \((\sgaIS,\mathcal C,\mathcal C_0)\) 满足相同的假设 \hyperlink{sga6.e01.para.2-0}{(2.0)}. 设 \(f:\sgaIS'\to\sgaIS\) 为景的态射 ([G] I 1.4), 对应的底层函子为 \(f^{-1}:\sgaIS\to\sgaIS'\), 又设
 \[
   u:\Dpx^*(\mathcal C)\longrightarrow \Dpx^*(\mathcal C')\qquad (*=+,-,b)
 \]
-为 \(f\) 之上的 Cartesian 函子, 且在每个纤维上正合. 假设存在 \(a,b\in\mathbb Z\), 使对每个 \(S\in\Ob S\) 均满足下列条件:
+为 \(f\) 之上的 Cartesian 函子, 即一个 Cartesian \(\sgaIS\)-函子 \(\Dpx^*(\mathcal C\prime)\times_{\sgaIS\prime}\sgaIS\longleftarrow\Dpx^*(\mathcal C)\), 且在每个纤维上正合. 假设存在 \(a,b\in\mathbb Z\), 使对每个 \(S\in\Ob\sgaIS\) 均满足下列条件:
 
 \begin{enumerate}[label=(\roman*)]
 \item 若 \(E\in\Ob\mathcal C_{0,S}\), 则 \(u(E)\) 为 \(a\)-\(\mathcal C'_0\)-伪凝聚 (相应地, \(\mathcal C'_0\)-伪凝聚) 的;
@@ -817,7 +827,7 @@ F \arrow[rr] && F' \arrow[dl]\\
 \[
   0\longrightarrow F'\longrightarrow F\longrightarrow F''\longrightarrow 0,
 \]
-其中 \(F'\) 与 \(F''\) 为长度 \(<N-1\) 的严格完美复形, 且对 \(i>n\) 有 \(F'^i=F''^i=0\). 对特异三角
+其中 \(F'\) 与 \(F''\) 为长度 \(\leq N-1\) 的严格完美复形, 且对 \(i>n\) 有 \(F'^i=F''^i=0\). 对特异三角
 \[
   u(F')\longrightarrow u(F)\longrightarrow u(F'')\longrightarrow u(F')[1].
 \]
@@ -831,9 +841,9 @@ F \arrow[rr] && F' \arrow[dl]\\
 \[
   u(F')\longrightarrow u(F)\longrightarrow u(F'')\longrightarrow u(F')[1].
 \]
-中, 对象 \(u(F'')\) 在次数 \(>m+b\) 处无上同调, 因而为 \((m+b)\)-伪凝聚的, 而由刚才的证明, \(u(F')\) 为 \((n+a)\)-伪凝聚的. 由 (\hyperlink{sga6.e01.prop.2-5}{2.5} b) 即得结论.
+中, 对象 \(u(F'')\) 在次数 \(\geq m+b\) 处无上同调, 因而为 \((m+b)\)-伪凝聚的, 而由刚才的证明, \(u(F')\) 为 \((n+a)\)-伪凝聚的. 由 (\hyperlink{sga6.e01.prop.2-5}{2.5} b) 即得结论.
 
-\sgaStableTarget{sga6.e01.cor.2-14}\textbf{推论 2.14.} 设 \(\mathcal C_1\) 为 \(\mathcal C\) 的严格满加性子 \(S\)-范畴, 满足
+\sgaStableTarget{sga6.e01.cor.2-14}\textbf{推论 2.14.} 设 \(\mathcal C_1\) 为 \(\mathcal C\) 的严格满加性子 \(\sgaIS\)-范畴, 满足
 \[
   \mathcal C_0\subset \mathcal C_1\subset \mathcal C.
 \]
@@ -841,25 +851,25 @@ F \arrow[rr] && F' \arrow[dl]\\
 
 \begin{enumerate}[label=(\roman*)]
 \item \(\mathcal C_1\) 在 \(\mathcal C\) 中局部拟可提升 \hyperlink{sga6.e01.sec.1.2}{(1.2)}, 且局部对满态射的核拟稳定 \hyperlink{sga6.e01.sec.1.2}{(1.2)};
-\item 对 \(S\in\Ob S\) 及 \(F\in\Ob\Dpx(\mathcal C_S)\), \(F\) 相对于 \(\mathcal C_1\) 为 \(n\)-伪凝聚 (相应地, 伪凝聚) 的充要条件, 是它相对于 \(\mathcal C_0\) 具有同一性质.
+\item 对 \(S\in\Ob\sgaIS\) 及 \(F\in\Ob\Dpx(\mathcal C_S)\), \(F\) 相对于 \(\mathcal C_1\) 为 \(n\)-伪凝聚 (相应地, 伪凝聚) 的充要条件, 是它相对于 \(\mathcal C_0\) 具有同一性质.
 \end{enumerate}
 
 \emph{证明.} 对于 (i), 设 \(E\to F\) 为 \(\mathcal C_S\) 中的满态射, 其中 \(F\in\Ob\mathcal C_{1,S}\). 由于 \(F\) 为 \(\mathcal C_0\)-伪凝聚的, 从而更是 \(\mathcal C_0\)-有限型的, 局部化后存在满态射 \(E'\to F\), 其中 \(E'\in\Ob\mathcal C_{0,S}\). 利用 \(\mathcal C_0\) 在 \(\mathcal C\) 中的拟可提升性, 再次局部化后, 可设该满态射经由 \(E\) 分解; 这就得到 \(\mathcal C_1\) 的拟可提升性. 另一方面, 若 \(E\in\Ob\mathcal C_S\) 具有由 \(\mathcal C_1\) 的对象组成的有限右消解, 则由 (\hyperlink{sga6.e01.prop.2-11}{2.11} a), \(E\) 为 \(\mathcal C_0\)-伪凝聚的, 从而更是 \(\mathcal C_1\)-有限型的.
 
-对于 (ii), 只需证明必要性. 为此, 可任选 (\hyperlink{sga6.e01.prop.2-11}{2.11} a) 或 \hyperlink{sga6.e01.prop.2-13}{(2.13)} 来应用, 取 \(S'=S\)、\(\mathcal C'=\mathcal C\)、\(f=\Id\)、\(u=\Id\), 并将 \(\mathcal C'_0\) 与 \(\mathcal C_0\) 分别换成 \(\mathcal C_0\) 和 \(\mathcal C_1\).
+对于 (ii), 只需证明必要性. 为此, 可任选 (\hyperlink{sga6.e01.prop.2-11}{2.11} a) 或 \hyperlink{sga6.e01.prop.2-13}{(2.13)} 来应用, 取 \(\sgaIS'=\sgaIS\)、\(\mathcal C'=\mathcal C\)、\(f=\Id\)、\(u=\Id\), 并将 \(\mathcal C'_0\) 与 \(\mathcal C_0\) 分别换成 \(\mathcal C_0\) 和 \(\mathcal C_1\).
 
-\sgaStableTarget{sga6.e01.schol.2-14-1}\textbf{说明 2.14.1.} 因此, 存在 \(\mathcal C\) 的一个最大的严格满加性子 \(S\)-范畴, 它给出与 \(\mathcal C_0\) 相同的 \(n\)-伪凝聚性 (相应地, 伪凝聚性) 概念; 这就是由 \(\mathcal C_0\)-伪凝聚对象构成的范畴. 后一个范畴局部对满态射的核稳定.
+\sgaStableTarget{sga6.e01.schol.2-14-1}\textbf{说明 2.14.1.} 因此, 存在 \(\mathcal C\) 的一个最大的严格满加性子 \(\sgaIS\)-范畴, 它给出与 \(\mathcal C_0\) 相同的 \(n\)-伪凝聚性 (相应地, 伪凝聚性) 概念; 这就是由 \(\mathcal C_0\)-伪凝聚对象构成的范畴. 后一个范畴局部对满态射的核稳定.
 
-\sgaStableTarget{sga6.e01.ex.2-15}\textbf{例 2.15.} 设 \((S,A)\) 为赋环拓扑斯, \(\mathcal C,\mathcal C_0\) 为 (\hyperlink{sga6.e01.sec.1.3}{1.3} d) 中考虑的 \(S\)-范畴. 纤维范畴 \(\Dpx(\mathcal C)\) 常记为 \(\Dpx(S,A)\), 或在要强调模为左 \(A\)-模时记为 \(\Dpx_A(S)\), 若 \(A\) 不致引起歧义, 甚至简称为 \(\Dpx(S)\). 用 \(S\) 表示 \(S\) 的终对象, 并令 \(\Dpx(\mathcal C_S)=\Dpx_A(S)\) (或 \(\Dpx(S)\)). 若 \(\Dpx(S)\) 的对象为 \(n\)-\(\mathcal C_0\)-伪凝聚 (相应地, \(\mathcal C_0\)-伪凝聚) 的, 就称它为 \(n\)-伪凝聚 (相应地, 伪凝聚) 的; 严格的概念也采用同样约定. 在 \hyperlink{sga6.e01.schol.2-6}{(2.6)} 中记为 \(\Dpx(\mathcal C)_{n-\mathcal C_0-\coh}\) (相应地, \(\Dpx(\mathcal C)_{\mathcal C_0-\coh}\)) 的 \(\Dpx(\mathcal C)\) 的纤维子范畴, 将记为 \(\Dpx_A(S)_{n-\coh}\) (相应地, \(\Dpx_A(S)_{\coh}\)). 注意到由 \hyperlink{sga6.e01.cor.2-14}{(2.14)}, 将 \(\mathcal C_0\) 换成如下定义的 \(S\)-范畴 \(\mathcal C_1\), 得到相同的伪凝聚性概念:
+\sgaStableTarget{sga6.e01.ex.2-15}\textbf{例 2.15.} 设 \((\sgaIS,A)\) 为赋环拓扑斯, \(\mathcal C,\mathcal C_0\) 为 (\hyperlink{sga6.e01.sec.1.3}{1.3} d) 中考虑的 \(\sgaIS\)-范畴. 纤维范畴 \(\Dpx(\mathcal C)\) 常记为 \(\Dpx(\sgaIS,A)\), 或在要强调模为左 \(A\)-模时记为 \(\Dpx_A(\sgaIS)\), 若 \(A\) 不致引起歧义, 甚至简称为 \(\Dpx(\sgaIS)\). 用 \(S\) 表示 \(\sgaIS\) 的终对象, 并令 \(\Dpx(\mathcal C_S)=\Dpx_A(S)\) (或 \(\Dpx(S)\)). 若 \(\Dpx(S)\) 的对象为 \(n\)-\(\mathcal C_0\)-伪凝聚 (相应地, \(\mathcal C_0\)-伪凝聚) 的, 就称它为 \(n\)-伪凝聚 (相应地, 伪凝聚) 的; 严格的概念也采用同样约定. 在 \hyperlink{sga6.e01.schol.2-6}{(2.6)} 中记为 \(\Dpx(\mathcal C)_{n-\mathcal C_0-\coh}\) (相应地, \(\Dpx(\mathcal C)_{\mathcal C_0-\coh}\)) 的 \(\Dpx(\mathcal C)\) 的纤维子范畴, 将记为 \(\Dpx_A(\sgaIS)_{n-\coh}\) (相应地, \(\Dpx_A(\sgaIS)_{\coh}\)). 注意到由 \hyperlink{sga6.e01.cor.2-14}{(2.14)}, 将 \(\mathcal C_0\) 换成如下定义的 \(\sgaIS\)-范畴 \(\mathcal C_1\), 得到相同的伪凝聚性概念:
 \[
   U\longmapsto \text{局部为有限型自由模直和因子的左 }A_U\text{-模所成的范畴}.
 \]
 若一个 \(A\)-模 \(M\) 是有限型自由 \(A\)-模的直和因子, 一般不能推出 \(M\) 局部自由有限型. 不过有下述结果.
 
-\sgaStableTarget{sga6.e01.lem.2-15-1}\textbf{引理 2.15.1.} 假设 \(S\) 满足下列两个假设之一:
+\sgaStableTarget{sga6.e01.lem.2-15-1}\textbf{引理 2.15.1.} 假设 \(\sgaIS\) 满足下列两个假设之一:
 \begin{enumerate}[label=(\roman*)]
-\item \(S\) 有足够多的点 (SGA 4 IV 6.4), 且对 \(S\) 的每个点 \(s\), 有限型投射左 \(A_s\)-模均自由; 例如, 若 \(A_s/\Rad(A_s)\) 为域, 或 \(\Rad(A_s)\) 幂零, 就满足后一条件;
-\item \((S,A)\) 是 [1] 意义下的“局部赋环”拓扑斯, 即 \(A\) 交换, 且对每个 \(X\in\Ob S\) 及每个 \(f\in\Gamma(X,A)\), 有
+\item \(\sgaIS\) 有足够多的点 (SGA 4 IV 6.4), 且对 \(\sgaIS\) 的每个点 \(s\), 有限型投射左 \(A_s\)-模均自由; 例如 (Bourbaki, \emph{Alg. Comm.}, 第 II 章第 3 节第 2 小节, 命题 5 的推论 2), 若 \(A_s/\Rad(A_s)\) 为域, 或 \(\Rad(A_s)\) 幂零, 就满足后一条件;\footnote{译校注: 原书第 109 页的后一充分条件仅要求根基幂零, 一般并不足够. 例如 \(A_s=k\times k\) 的根基为零, 但有限型投射模 \((k,0)\) 并不自由. 此处保留原书的“或”字句, 不另加原文没有的假设.}
+\item \((\sgaIS,A)\) 是 [1] 意义下的“局部赋环”拓扑斯, 即 \(A\) 交换, 且对每个 \(X\in\Ob\sgaIS\) 及每个 \(f\in\Gamma(X,A)\), 有
 \[
   X=X_f\cup X_{1-f},
 \]
@@ -867,11 +877,11 @@ F \arrow[rr] && F' \arrow[dl]\\
 \end{enumerate}
 则每个有限型自由左 \(A\)-模的直和因子, 都是有限型局部自由模.
 
-\emph{证明.} 先假设 (i) 成立. 注意到, 若 \(E\) 和 \(F\) 为两个 \(A\)-模, 且 \(E\) 有限表示, 则对 \(S\) 的每个点 \(s\), 典范箭头
+\emph{证明.} 先假设 (i) 成立. 注意到, 若 \(E\) 和 \(F\) 为两个 \(A\)-模, 且 \(E\) 有限表示, 则对 \(\sgaIS\) 的每个点 \(s\), 典范箭头
 \[
-  \Hom(E,F)_s\longrightarrow \Hom(E_s,F_s)
+  \sgaIHom(E,F)_s\longrightarrow \Hom(E_s,F_s)
 \]
-是同构. 因此, 若 \(E\) 与 \(F\) 都有限表示, 且在 \(S\) 的某点 \(s\) 有 \(E_s\qis F_s\), 则存在 \(S\) 的一个带 \(s\)-点的对象 \(U\), 使 \(E|U\qis F|U\). 结论立即得出.
+是同构. 因此, 若 \(E\) 与 \(F\) 都有限表示, 且在 \(\sgaIS\) 的某点 \(s\) 有 \(E_s\qis F_s\), 则存在 \(\sgaIS\) 的一个带 \(s\)-点的对象 \(U\)\footnote{即 \(s\) 可经由 \(\sgaIS/U\) 分解.}, 使 \(E|U\qis F|U\). 结论立即得出.
 
 再假设 (ii) 成立. 设 \(n\in\mathbb N\), 用 \(\mathbb D^n\) 表示在属于某个固定宇宙的局部赋环拓扑斯的范畴上, 由下式定义的函子
 \[
@@ -888,13 +898,13 @@ F \arrow[rr] && F' \arrow[dl]\\
 \]
 为投影子. 下面证明 \(p(A^n)\) 局部自由有限型. 由上述结果, 存在局部赋环拓扑斯的态射
 \[
-  s:S\longrightarrow M_n
+  s:\sgaIS\longrightarrow M_n
 \]
-使 \(s^*(u_n)=p\). 可以把 \(s\) 解释为 \(M_n\) 的一个取值于 \(\Gamma(S,A)\) 的点, 即一个系数在 \(\Gamma(S,A)\) 中的 \(n\) 阶矩阵. 由于该矩阵是投影子, \(s\) 经由闭子概形
+使 \(s^*(u_n)=p\). 可以把 \(s\) 解释为 \(M_n\) 的一个取值于 \(\Gamma(\sgaIS,A)\) 的点, 即一个系数在 \(\Gamma(\sgaIS,A)\) 中的 \(n\) 阶矩阵. 由于该矩阵是投影子, \(s\) 经由闭子概形
 \[
   i:P_n\hookrightarrow M_n
 \]
-分解; 记为 \(S\xrightarrow{s'}P_n\xrightarrow{i}M_n\). 因而
+分解; 记为 \(\sgaIS\xrightarrow{s'}P_n\xrightarrow{i}M_n\). 因而
 \[
   p=s'^* i^*(u_n),
 \]
@@ -902,28 +912,28 @@ F \arrow[rr] && F' \arrow[dl]\\
 
 \sgaStableTarget{sga6.e01.cor.2-16}\textbf{推论 2.16.} 设
 \[
-  f:(S',A')\longrightarrow (S,A)
+  f:(\sgaIS\prime,A\prime)\longrightarrow (\sgaIS,A)
 \]
-为赋环拓扑斯的态射, 由函子 \(f^{-1}:S\to S'\) 及环层态射 \(f^{-1}(A)\to A'\) 定义. 用 \(\Dpx(_{A'}S'_A)\) 表示 \(A'\)-\(A\)-双模的导出范畴, 其中 \(A'\) 从左作用、\(A\) 从右作用, 并设
+为赋环拓扑斯的态射, 由函子 \(f^{-1}:\sgaIS\to \sgaIS'\) 及环层态射 \(f^{-1}(A)\to A'\) 定义. 用 \(\Dpx(_{A'}\sgaIS'_A)\) 表示 \(A'\)-\(A\)-双模的导出范畴, 其中 \(A'\) 从左作用、\(A\) 从右作用, 并设
 \[
-  \otimes_A^{\mathrm L}:\Dpx^-(_{A'}S'_A)\times_{S'}\Dpx^-(_A S)
-  \longrightarrow \Dpx^-(_{A'}S')
+  \otimes_A^{\mathrm L}:\Dpx^-(_{A'}\sgaIS'_A)\times_{\sgaIS'}\Dpx^-(_A \sgaIS)
+  \longrightarrow \Dpx^-(_{A'}\sgaIS')
 \]
 为张量积
 \[
-  (E',E)\longmapsto E'\otimes_A f^{-1}(E).
+  (E',E)\longmapsto E'\otimes_{f^{-1}(A)} f^{-1}(E).
 \]
-的导出函子. 设 \(X\in\Ob S\), 令 \(X'=u(X)\), 又设 \(E'\in\Ob\Dpx^-(_{A'}X'_A)\)、\(E\in\Ob\Dpx^-(_A X)\). 若 \(E'\) 为 \(m'\)-伪凝聚的 (视为 \(\Dpx^-(_A S')\) 中的对象), 且在次数 \(>n'\) 处无上同调, 而 \(E\) 为 \(m\)-伪凝聚的, 且在次数 \(>n\) 处无上同调, 则
+的导出函子. 设 \(X\in\Ob\sgaIS\), 令 \(X'=u(X)\),\footnote{译校注: 原书第 111 页此处采用 \(u\), 但此前未定义这一记号; 本文保留原印.} 又设 \(E'\in\Ob\Dpx^-(_{A'}X'_A)\)、\(E\in\Ob\Dpx^-(_A X)\). 若 \(E'\) 为 \(m'\)-伪凝聚的 (视为 \(\Dpx^-(_{A'}\sgaIS')\) 中的对象), 且在次数 \(>n'\) 处无上同调, 而 \(E\) 为 \(m\)-伪凝聚的, 且在次数 \(>n\) 处无上同调, 则
 \[
   E'\otimes_A^{\mathrm L}E
 \]
 为 \(\sup(m+n',m'+n)\)-伪凝聚的, 且在次数 \(>n+n'\) 处无上同调.
 
-\emph{证明.} 将 \(S\) 换成 \(S/X\), 可设 \(X=S\); 在 \hyperlink{sga6.e01.prop.2-13}{(2.13)} 中取
+\emph{证明.} 将 \(\sgaIS\) 换成 \(\sgaIS/X\), 可设 \(X=S\); 在 \hyperlink{sga6.e01.prop.2-13}{(2.13)} 中取
 \[
-  u=E'\otimes_A^{\mathrm L}:\Dpx^-(_A S)\longrightarrow \Dpx^-(_{A'}S').
+  u=E'\otimes_A^{\mathrm L}:\Dpx^-(_A \sgaIS)\longrightarrow \Dpx^-(_{A'}\sgaIS').
 \]
-设 \(U\in\Ob S\)、\(U'=f^{-1}(U)\), \(E\) 为左 \(A_U\)-模的复形. 若 \(E\) 在次数 \(>n\) 处无上同调, 则由 \(\otimes_A^{\mathrm L}\) 的定义, \(E'\otimes_A^{\mathrm L}E\) 在次数 \(>n+n'\) 处无上同调. 另一方面, 若 \(E=(A_U)^p\), 则
+设 \(U\in\Ob\sgaIS\)、\(U'=f^{-1}(U)\), \(E\) 为左 \(A_U\)-模的复形. 若 \(E\) 在次数 \(>n\) 处无上同调, 则由 \(\otimes_A^{\mathrm L}\) 的定义, \(E'\otimes_A^{\mathrm L}E\) 在次数 \(>n+n'\) 处无上同调. 另一方面, 若 \(E=(A_U)^p\), 则
 \[
   E'\otimes_A^{\mathrm L}E=(E'|U')^p,
 \]
@@ -935,33 +945,33 @@ F \arrow[rr] && F' \arrow[dl]\\
 
 \textbf{a)} 函子
 \[
-  \mathrm L f^*: \Dpx^-(_A S)\longrightarrow \Dpx^-(_{A'}S')
+  \mathrm L f^*: \Dpx^-(_A \sgaIS)\longrightarrow \Dpx^-(_{A'}\sgaIS')
 \]
 (它就是函子 \(A'\otimes_A^{\mathrm L}\)) 诱导函子
 \[
-  \mathrm L f^*: \Dpx^-(_A S)_{\coh}\longrightarrow \Dpx^-(_{A'}S')_{\coh}
+  \mathrm L f^*: \Dpx^-(_A \sgaIS)_{\coh}\longrightarrow \Dpx^-(_{A'}\sgaIS')_{\coh}
 \]
 (采用 \hyperlink{sga6.e01.schol.2-6}{(2.6)} 中的记号).
 
 \textbf{b)} 若 \(A\) 交换, 则函子
 \[
-  \otimes_A^{\mathrm L}:\Dpx^-(S)\times_S\Dpx^-(S)
-  \longrightarrow \Dpx^-(S)
+  \otimes_A^{\mathrm L}:\Dpx^-(\sgaIS)\times_{\sgaIS}\Dpx^-(\sgaIS)
+  \longrightarrow \Dpx^-(\sgaIS)
 \]
 诱导函子
 \[
-  \otimes_A^{\mathrm L}:\Dpx^-(S)_{\coh}\times_S\Dpx^-(S)_{\coh}
-  \longrightarrow \Dpx^-(S)_{\coh} .
+  \otimes_A^{\mathrm L}:\Dpx^-(\sgaIS)_{\coh}\times_{\sgaIS}\Dpx^-(\sgaIS)_{\coh}
+  \longrightarrow \Dpx^-(\sgaIS)_{\coh} .
 \]
 
-\sgaStableTarget{sga6.e01.exercise.2-16-2}\textbf{习题 2.16.2.} 设 \(S\) 为拓扑斯, \(A\to A'\) 为 \(S\) 中的环态射. 假设满足下列条件之一:
+\sgaStableTarget{sga6.e01.exercise.2-16-2}\textbf{习题 2.16.2.} 设 \(\sgaIS\) 为拓扑斯, \(A\to A'\) 为 \(\sgaIS\) 中的环态射. 假设满足下列条件之一:
 \begin{enumerate}[label=(\roman*)]
 \item \(A\to A'\) 满射, 且其核为幂零理想;
 \item 左 \(A\)-模范畴上的函子 \(A'\otimes_A-\) 正合且忠实.
 \end{enumerate}
-证明 \(E\in\Ob\Dpx^-(_A S)\) 为 \(n\)-伪凝聚 (相应地, 伪凝聚) 的充要条件是
+证明 \(E\in\Ob\Dpx^-(_A \sgaIS)\) 为 \(n\)-伪凝聚 (相应地, 伪凝聚) 的充要条件是
 \[
-  A'\otimes_A E\in\Ob\Dpx^-(_{A'}S)
+  A'\otL_A E\in\Ob\Dpx^-(_{A'}\sgaIS)
 \]
 为 \(n\)-伪凝聚 (相应地, 伪凝聚) 的.
 
@@ -975,9 +985,8 @@ F \arrow[rr] && F' \arrow[dl]\\
 \[
   u:E\longrightarrow F|U,
 \]
-其中 \(E\in\Ob\mathcal C_{0,U}\), \(\Ker(u)\) 都为 \(\mathcal C_0\)-有限型 \hyperlink{sga6.e01.sec.1.2}{(1.2)}, 则称 \(F\) 相对于 \(\mathcal C_0\) \emph{预凝聚} (precoherent). 若 \(F\) 预凝聚且有限型, 则称 \(F\) 相对于 \(\mathcal C_0\) \emph{凝聚}.
+其中 \(E\in\Ob\mathcal C_{0,U}\), \(\Ker(u)\) 都为 \(\mathcal C_0\)-有限型 \hyperlink{sga6.e01.sec.1.2}{(1.2)}, 则称 \(F\) 相对于 \(\mathcal C_0\) \emph{预凝聚} (precoherent)\footnote{这里引入此概念仅作为技术性的中间环节; 需要记住的只有凝聚性概念.}. 若 \(F\) 预凝聚且有限型, 则称 \(F\) 相对于 \(\mathcal C_0\) \emph{凝聚}.
 
-\emph{技术说明.} 这里引入预凝聚概念仅作为技术性的中间环节; 需要记住的只有凝聚性概念.
 
 \sgaStableTarget{sga6.e01.rem.3-2}\textbf{注 3.2.} 设 \(F\in\Ob\mathcal C_S\). 由定义显然可知, 若 \(F\) 预凝聚 (相应地, 有限型), 则 \(F\) 的每个子对象 (相应地, 商对象) 也预凝聚 (相应地, 有限型).
 
@@ -1053,7 +1062,7 @@ c) 先证明非括号中的断言. 改换记号后, 只需证明: 若 \(g:G'\to 
 
 立即得到:
 
-\sgaStableTarget{sga6.e01.cor.3-4}\textbf{推论 3.4.} \(\mathcal C_S\) 中由凝聚对象构成的满 (相应地, 严格满) 子范畴, 在有限射影 (相应地, 归纳) 极限下稳定. 特别地, 两个凝聚对象之间箭头的核、余核及像都凝聚. 设
+\sgaStableTarget{sga6.e01.cor.3-4}\textbf{推论 3.4.} \(\mathcal C_S\) 中由凝聚对象构成的严格满子范畴, 在有限射影 (相应地, 归纳) 极限下稳定. 特别地, 两个凝聚对象之间箭头的核、余核及像都凝聚. 设
 \[
   E^0\longrightarrow E^1\longrightarrow E^2\longrightarrow E^3\longrightarrow E^4
 \]
@@ -1081,76 +1090,82 @@ F\text{ 为 }n\text{-伪凝聚复形}
 
 \emph{证明.} 断言 a) 与 b) 中的蕴涵 \(\Rightarrow\), 由 \hyperlink{sga6.e01.cor.3-4}{(3.4)} 平凡地得出. b) 中的蕴涵 \(\Leftarrow\) 由 a) 和 (\hyperlink{sga6.e01.prop.2-11}{2.11} b) 立即得出.
 
-\sgaStableTarget{sga6.e01.ex.3-6}\textbf{例 3.6.} 设 \((S,A)\) 为赋环拓扑斯, \(\mathcal C,\mathcal C_0\) 为 (\hyperlink{sga6.e01.sec.1.3}{1.3} d) 中的 \(S\)-范畴, 亦如 \hyperlink{sga6.e01.ex.2-15}{(2.15)}. \(\mathcal C_0\) 的对象都凝聚的充要条件是 \(A\) 凝聚, 即预凝聚. 下面是满足此条件的例子:
+\sgaStableTarget{sga6.e01.ex.3-6}\textbf{例 3.6.} 设 \((\sgaIS,A)\) 为赋环拓扑斯, \(\mathcal C,\mathcal C_0\) 为 (\hyperlink{sga6.e01.sec.1.3}{1.3} d) 中的 \(\sgaIS\)-范畴, 亦如 \hyperlink{sga6.e01.ex.2-15}{(2.15)}. \(\mathcal C_0\) 的对象都凝聚的充要条件是 \(A\) 凝聚, 即预凝聚. 下面是满足此条件的例子:
 \begin{itemize}
 \item \(A\) 为以左 Noether 环为值的常值环 (SGA 4 IX 2.1);
-\item \(S\) 为局部 Noether 概形 \(S\) 上 Zariski 拓扑的集合层拓扑斯, 且 \(A=\mathcal O_S\);
-\item \(S\) 为复解析空间 \(S\) 上集合层的拓扑斯, 且 \(A=\mathcal O_S\).
+\item \(\sgaIS\) 为局部 Noether 概形 \(S\) 上 Zariski 拓扑的集合层拓扑斯\footnote{按照新的约定, 这里用“概形”代替“预概形”, 用“分离概形”代替旧称的“概形”.}, 且 \(A=\mathcal O_S\);
+\item \(\sgaIS\) 为复解析空间 \(S\) 上集合层的拓扑斯, 且 \(A=\mathcal O_S\).
 \end{itemize}
 另一方面, 拓扑空间上的复值连续函数层一般不凝聚.
 
-当然, 若 \((S,A)\) 由赋环空间定义, 则这里的凝聚性概念与 Serre 的通常概念相同 (EGA \(0_I\), 5.3.1).
+当然, 若 \((\sgaIS,A)\) 由赋环空间定义, 则这里的凝聚性概念与 Serre 的通常概念相同 (EGA \(0_I\), 5.3.1).
 
 \sgaStableTarget{sga6.e01.prop.3-7}\textbf{命题 3.7.} \textbf{a)} 设
 \[
-  f:(S',A')\longrightarrow(S,A)
+  f:(\sgaIS\prime,A\prime)\longrightarrow(\sgaIS,A)
 \]
 为赋环拓扑斯的态射. 假设 \(f\) 右平坦, 即函子 \(f^*=A'\otimes_A-\) 正合. 对 \(F\in\Ob\Dpx_A^-(S)\) 及 \(G\in\Ob\Dpx_A^+(S)\), 存在函子性的典范箭头
 \[
-  f^*\RHom(F,G)\longrightarrow \RHom(f^*(F),f^*(G)).
+  f^*\sgaIRHom(F,G)\longrightarrow \sgaIRHom(f^*(F),f^*(G)).
 \]
 当 \(F\) 伪凝聚时, 这个箭头是同构.
 
-\textbf{b)} 假设 \(A\) 交换且凝聚, 又设 \(F\in\Ob\Dpx^-(S)\)、\(G\in\Ob\Dpx^+(S)\). 若对所有 \(i\), \(\Ho^i(F)\) 和 \(\Ho^i(G)\) 都凝聚, 则 \(\Ext^i(F,G)\) 也都凝聚.
+\textbf{b)} 假设 \(A\) 交换且凝聚, 又设 \(F\in\Ob\Dpx^-(S)\)、\(G\in\Ob\Dpx^+(S)\). 若对所有 \(i\), \(\Ho^i(F)\) 和 \(\Ho^i(G)\) 都凝聚, 则 \(\sgaIExt^i(F,G)\) 也都凝聚.
 
 \emph{证明.} a) 为定义此箭头 (参见 SGA 4 XVII), 可设 \(G\) 的各分量为内射对象, 然后取复合箭头
 \[
-  f^*\Hom(F,G)\longrightarrow \Hom(f^*F,f^*G)
-  \longrightarrow \RHom(f^*F,f^*G).
+  f^*\sgaIHom(F,G)\longrightarrow \sgaIHom(f^*F,f^*G)
+  \longrightarrow \sgaIRHom(f^*F,f^*G).
 \]
-下面证明, 当 \(F\) 伪凝聚时它是同构. 为简便, 用 \(T\) (相应地, \(T'\)) 表示函子 \(f^*\RHom(\cdot,G)\) (相应地, \(\RHom(f^*\cdot,f^*G)\)), 取 \(a\in\mathbb Z\), 使当 \(i<a\) 时 \(\Ho^i(G)=0\). 显然有 \(TA\qis T'A\), 因而由分解论证, 对严格完美的 \(F\) \hyperlink{sga6.e01.def.2-1}{(2.1)}, 有 \(TF\qis T'F\). 另一方面, 若 \(F\) 在次数 \(>n\) 处无上同调, 则 \(TF\) 和 \(T'F\) 在次数 \(<a-n\) 处无上同调. 为验证伪凝聚的 \(F\) 满足 \(TF\qis T'F\), 由于问题是局部的, 可设 \(F\) 严格 \(n\)-伪凝聚; 即存在特异三角
+下面证明, 当 \(F\) 伪凝聚时它是同构. 为简便, 用 \(T\) (相应地, \(T'\)) 表示函子 \(f^*\sgaIRHom(\cdot,G)\) (相应地, \(\sgaIRHom(f^*\cdot,f^*G)\)), 取 \(a\in\mathbb Z\), 使当 \(i<a\) 时 \(\Ho^i(G)=0\). 显然有 \(TA\qis T'A\), 因而由分解论证, 对严格完美的 \(F\) \hyperlink{sga6.e01.def.2-1}{(2.1)}, 有 \(TF\qis T'F\). 另一方面, 若 \(F\) 在次数 \(>n\) 处无上同调, 则 \(TF\) 和 \(T'F\) 在次数 \(<a-n\) 处无上同调. 为验证伪凝聚的 \(F\) 满足 \(TF\qis T'F\), 由于问题是局部的, 可设 \(F\) 严格 \(n\)-伪凝聚; 即存在特异三角
 \[
   F'\longrightarrow F\longrightarrow F''\longrightarrow F'[1].
 \]
 其中 \(F'\) 严格完美, \(F''\) 在次数 \(>n-1\) 处无上同调. 由此得到特异三角之间的态射
 \[
-\begin{tikzcd}[column sep=tiny]
-TF'' \arrow[r] \arrow[d] & TF \arrow[r] \arrow[d] & TF' \arrow[d] \\
-T'F'' \arrow[r] & T'F \arrow[r] & T'F' .
+\begin{tikzcd}[column sep=small]
+& TF'' \arrow[dr] & \\
+TF' \arrow[ur,"-1"] && TF \arrow[ll]
+\end{tikzcd}
+\quad\longrightarrow\quad
+\begin{tikzcd}[column sep=small]
+& T'F'' \arrow[dr] & \\
+T'F' \arrow[ur,"-1"] && T'F \arrow[ll] .
 \end{tikzcd}
 \]
 由于 \(F'\) 严格完美, 有 \(TF'\qis T'F'\); 而 \(TF''\) 及 \(T'F''\) 在次数 \(\leq a-n\) 处无上同调. 写出上述三角的上同调正合列之间所诱导的态射, 可得 \(TF\to T'F\) 对 \(i\leq a-n\) 诱导同构
 \[
   \Ho^i(TF)\qis \Ho^i(T'F)
+.
 \]
-. 由于 \(n\) 可以取得任意小, 断言得证.
+ 由于 \(n\) 可以取得任意小, 断言得证.
 
 b) 证明留给读者作为习题; 例如参见 [H] II 3.3.
 
-\sgaStableTarget{sga6.e01.rem.3-7-1}\textbf{注 3.7.1.} 后面 \hyperlink{sga6.e01.prop.7-1-2}{(7.1.2)} 将看到 \(\RHom\) 与 \(\mathrm L f^*\) 相容的另一个情形.
+\sgaStableTarget{sga6.e01.rem.3-7-1}\textbf{注 3.7.1.} 后面 \hyperlink{sga6.e01.prop.7-1-2}{(7.1.2)} 将看到 \(\sgaIRHom\) 与 \(\mathrm L f^*\) 相容的另一个情形.
 
-\sgaStableTarget{sga6.e01.cor.3-7-2}\textbf{推论 3.7.2.} (参见 EGA \(0_I\), 5.2.7.) 设 \((S,A)\) 为赋环拓扑斯, \(s\) 为 \(S\) 的一个点 (SGA 4 VIII 7.8), 又设
+\sgaStableTarget{sga6.e01.cor.3-7-2}\textbf{推论 3.7.2.} (参见 EGA \(0_I\), 5.2.7.) 设 \((\sgaIS,A)\) 为赋环拓扑斯, \(s\) 为 \(\sgaIS\) 的一个点 (SGA 4 VIII 7.8), 又设
 \[
   E,F\in\Ob\D^b_{A,\coh}(S).
 \]
-若 \(E_s\qis F_s\), 则存在 \(S\) 的一个带 \(s\)-点的对象 \(U\), 使
+若 \(E_s\qis F_s\), 则存在 \(\sgaIS\) 的一个带 \(s\)-点的对象 \(U\), 使
 \[
   E|U\qis F|U.
 \]
 
-\emph{证明.} 设 \(\alpha:E_s\to F_s\) 及 \(\beta:F_s\to E_s\) 为互逆同构. 由 (\hyperlink{sga6.e01.prop.3-7}{2.22} a), 有
+\emph{证明.} 设 \(\alpha:E_s\to F_s\) 及 \(\beta:F_s\to E_s\) 为互逆同构. 由 (\hyperlink{sga6.e01.prop.3-7}{2.22} a),\footnote{译校注: 原书第 118 页此处引作 2.22 a); 所用结论应为 3.7 a).} 有
 \[
-  \Hom(E,F)_s\qis\Hom(E_s,F_s),
+  \sgaIHom(E,F)_s\qis\Hom(E_s,F_s),
   \qquad
-  \Hom(F,E)_s\qis\Hom(F_s,E_s).
+  \sgaIHom(F,E)_s\qis\Hom(F_s,E_s).
 \]
-因此存在 \(s\) 的邻域 \(U\) 及 \(\Hom(E,F)\) (相应地, \(\Hom(F,E)\)) 在 \(U\) 上的截面 \(u\) (相应地, \(v\)), 使 \(u_s=\alpha\) (相应地, \(v_s=\beta\)). 态射 \(vu:E|U\to E|U\) 及 \(uv:F|U\to F|U\) 在 \(s\) 处诱导恒等; 因而在 \(U\) 上某个适当的 \(V\) 上也是恒等, 如所欲证.
+因此存在 \(s\) 的邻域 \(U\) 及 \(\sgaIHom(E,F)\) (相应地, \(\sgaIHom(F,E)\)) 在 \(U\) 上的截面 \(u\) (相应地, \(v\)), 使 \(u_s=\alpha\) (相应地, \(v_s=\beta\)). 态射 \(vu:E|U\to E|U\) 及 \(uv:F|U\to F|U\) 在 \(s\) 处诱导恒等; 因而在 \(U\) 上某个适当的 \(V\) 上也是恒等, 如所欲证.
 
 \sgaStableTarget{sga6.e01.sec.4}\section*{4. 完美复形}
 
-\sgaStableTarget{sga6.e01.para.4-0}\textbf{4.0.} 本节中, \(S\) 表示景, \(S\) 表示 \(S\) 的一个对象, \(\mathcal C\) 表示平坦 Abel \(S\)-范畴, \(\mathcal C_0\) 表示 \(\mathcal C\) 的严格满加性子 \(S\)-范畴 \hyperlink{sga6.e01.sec.1.1}{(1.1)}. 除非另有说明, 假设 \(\mathcal C_0\) 在 \(\mathcal C\) 中局部可提升, 且局部对满态射的核稳定 \hyperlink{sga6.e01.sec.1.2}{(1.2)}.
+\sgaStableTarget{sga6.e01.para.4-0}\textbf{4.0.} 本节中, \(\sgaIS\) 表示景, \(S\) 表示 \(\sgaIS\) 的一个对象, \(\mathcal C\) 表示平坦 Abel \(\sgaIS\)-范畴, \(\mathcal C_0\) 表示 \(\mathcal C\) 的严格满加性子 \(\sgaIS\)-范畴 \hyperlink{sga6.e01.sec.1.1}{(1.1)}. 除非另有说明, 假设 \(\mathcal C_0\) 在 \(\mathcal C\) 中局部可提升, 且局部对满态射的核稳定 \hyperlink{sga6.e01.sec.1.2}{(1.2)}.
 
-\sgaStableTarget{sga6.e01.lem.4-1}\textbf{引理 4.1.} 设
+\sgaStableTarget{sga6.e01.lem.4-1}\textbf{引理 4.1.}\footnote{此引理由 D. Ferrand 告知本讲撰稿人.} 设
 \[
   u:E\longrightarrow F
 \]
@@ -1160,11 +1175,12 @@ b) 证明留给读者作为习题; 例如参见 [H] II 3.3.
 \[
   u=dk+kd.
 \]
-由于 \(E\) 严格完美, 存在 \(a,b\in\mathbb Z\), \(a\leq b\), 使当 \(i\notin[a,b]\) 时 \(E^i=0\). 所以对 \(i\notin[a,b]\), 可取 \(k^i=0\). 对 \(i>a\), 按 \(i\) 递减归纳构造 \(k^i\). 假设已构造 \(k^i:E^i\to F^{i-1}\), 使对 \(i>n>a\) 有
+由于 \(E\) 严格完美, 存在 \(a,b\in\mathbb Z\), \(a\leq b\), 使当 \(i\notin[a,b]\) 时 \(E^i=0\). 所以对 \(i\notin[a,b]\), 可取 \(k^i=0\). 对 \(i\geq a\), 按 \(i\) 递减归纳构造 \(k^i\). 假设已构造 \(k^i:E^i\to F^{i-1}\), 使对 \(i\geq n>a\) 有
 \[
   u^i=k^{i+1}d_E^i+d_F^{i-1}k^i
+.
 \]
-. 我们证明, 局部化后存在
+ 我们证明, 局部化后存在
 \[
   k^{n-1}:E^{n-1}\longrightarrow F^{n-2}
 \]
@@ -1192,8 +1208,8 @@ F & E \arrow[l,"f"]
 使图
 \[
 \begin{tikzcd}
-& P_X \arrow[d,"v_X"]\\
-E_X \arrow[r,"f_X"'] \arrow[ur,"u"] & F_X
+& P_X \arrow[d,"v_X"] \arrow[dl,"u"']\\
+E_X \arrow[r,"f_X"'] & F_X
 \end{tikzcd}
 \]
 在 \(\Kpx(\mathcal C_X)\) 中交换的 \(X\) 的集合, 是 \(S\) 的加细.
@@ -1215,13 +1231,13 @@ E_X \arrow[r,"f_X"'] \arrow[ur,"u"] & F_X
 
 \emph{证明.} 这是 \hyperlink{sga6.e01.cor.4-2}{(4.2)} 的特殊情形.
 
-\sgaStableTarget{sga6.e01.schol.4-4}\textbf{说明 4.4.} 设 \(F\in\Ob\Kpx(\mathcal C_S)\). 例如, 借助 \(\mathcal C\) 的一个劈裂 (SGA 1 VI 7.1), 可定义在 \(S/S\) 上纤维化的范畴 \((\Qis/F)\), 它在 \(S\) 上每个 \(X\) 处的纤维, 为以 \(F_X\) 为靶的拟同构所成范畴的对偶范畴 \((\Qis/F_X)^\circ\). 于是 \hyperlink{sga6.e01.cor.4-3}{(4.3)} 可以表述为: 若 \(F\) 严格完美, 则箭头 \(\Id_F\) 在 \((\Qis/F)\) 中局部共尾.
+\sgaStableTarget{sga6.e01.schol.4-4}\textbf{说明 4.4.} 设 \(F\in\Ob\Kpx(\mathcal C_S)\). 例如, 借助 \(\mathcal C\) 的一个劈裂 (SGA 1 VI 7.1), 可定义在 \(\sgaIS/S\) 上纤维化的范畴 \((\Qis/F)\), 它在 \(S\) 上每个 \(X\) 处的纤维, 为以 \(F_X\) 为靶的拟同构所成范畴的对偶范畴 \((\Qis/F_X)^\circ\). 于是 \hyperlink{sga6.e01.cor.4-3}{(4.3)} 可以表述为: 若 \(F\) 严格完美, 则箭头 \(\Id_F\) 在 \((\Qis/F)\) 中局部共尾.
 
-\sgaStableTarget{sga6.e01.notation.4-5}\textbf{记号 4.5.} 设 \(\mathcal M\) 为纤维 \(S\)-范畴, \(X\in\Ob S\), \(E,F\in\Ob\mathcal M_X\). 用
+\sgaStableTarget{sga6.e01.notation.4-5}\textbf{记号 4.5.} 设 \(\mathcal M\) 为纤维 \(\sgaIS\)-范畴, \(X\in\Ob\sgaIS\), \(E,F\in\Ob\mathcal M_X\). 用
 \[
   \underline{\Hom}_{\mathcal M}(E,F)
 \]
-表示 \(\mathcal M\) 中从 \(E\) 到 \(F\) 的 \(S\)-态射预层所关联的 \(S/X\) 上的层. 此预层的定义见 [G] I 2.6. 须注意, 即使 \(\mathcal C\) 是叠 ([G]), 当 \(\mathcal M=\Kpx(\mathcal C)\) 或 \(\Dpx(\mathcal C)\) 时, 相应的预层一般也不是层.
+表示 \(\mathcal M\) 中从 \(E\) 到 \(F\) 的 \(\sgaIS\)-态射预层所关联的 \(\sgaIS/X\) 上的层. 此预层的定义见 [G] I 2.6. 须注意, 即使 \(\mathcal C\) 是叠 ([G]), 当 \(\mathcal M=\Kpx(\mathcal C)\) 或 \(\Dpx(\mathcal C)\) 时, 相应的预层一般也不是层.
 
 \sgaStableTarget{sga6.e01.cor.4-6}\textbf{推论 4.6.} 设 \(E,F\in\Ob\Cpx(\mathcal C_S)\), 其中 \(E\) 严格完美. 典范箭头
 \[
@@ -1233,8 +1249,8 @@ E_X \arrow[r,"f_X"'] \arrow[ur,"u"] & F_X
 
 \emph{证明.} 这是 \hyperlink{sga6.e01.schol.4-4}{(4.4)} 及对 \(S\) 上的 \(X\) 成立的公式
 \[
-  \underline{\Hom}_{\Dpx(\mathcal C_X)}(E_X,F_X)
-  = \lim_{(\Qis/E_X)^\circ}\underline{\Hom}_{\Kpx(\mathcal C_X)}(\,\cdot\,,F_X)
+  \Hom_{\Dpx(\mathcal C_X)}(E_X,F_X)
+  = \varinjlim_{(\Qis/E_X)^\circ}\Hom_{\Kpx(\mathcal C_X)}(\,\cdot\,,F_X)
 \]
 的直接结果.
 
@@ -1246,21 +1262,21 @@ E_X \arrow[r,"f_X"'] \arrow[ur,"u"] & F_X
 \[
   F'\longrightarrow F
 \]
-于 \(\Cpx(\mathcal C_X)\) 中, 其中 \(F'\) 严格 \(\mathcal C_0\)-完美 (2.1), 且当 \(i\notin[a,b]\) 时 \(F'{}^i=0\), 的 \(X\) 的集合, 是 \(S\) 的加细. 由 \hyperlink{sga6.e01.cor.4-3}{(4.3)}, 此条件等价于把“\(\Cpx(\mathcal C_X)\) 中的拟同构”换成“\(\Dpx(\mathcal C_X)\) 中的同构”得到的条件. 若存在整数 \(a\)、\(b\), 使 \(\mathcal C_0\)-\(\Parf\)-\(\amp(F)\subset[a,b]\), 则称 \(F\) 具有有限 \(\mathcal C_0\)-完美幅度. 若 \(F\) 局部具有有限 \(\mathcal C_0\)-完美幅度, 则称 \(F\) 为 \(\mathcal C_0\)-完美复形.
+于 \(\Cpx(\mathcal C_X)\) 中, 其中 \(F'\) 严格 \(\mathcal C_0\)-完美 (2.1), 且当 \(i\notin[a,b]\) 时 \(F'{}^i=0\), 的 \(X\) 的集合, 是 \(S\) 的加细. 由 \hyperlink{sga6.e01.cor.4-3}{(4.3)}, 此条件等价于把“\(\Cpx(\mathcal C_X)\) 中的拟同构”换成“\(\Dpx(\mathcal C_X)\) 中的同构”得到的条件. 若存在整数 \(a\)、\(b\), 使 \(\mathcal C_0\)-\(\Parf\)-\(\amp(F)\subset[a,b]\), 则称 \(F\) 具有有限 \(\mathcal C_0\)-完美幅度. 若 \(F\) 局部具有有限 \(\mathcal C_0\)-完美幅度, 则称 \(F\) 为 \(\mathcal C_0\)-完美复形.\footnote{当然, 不致混淆时, 在上述表述中省去 \(\mathcal C_0\).}
 
-\sgaStableTarget{sga6.e01.ex.4-8}\textbf{例 4.8.} 设 \((S,A)\) 为赋环拓扑斯, \(\mathcal C\) 为如下定义的 \(S\)-范畴
+\sgaStableTarget{sga6.e01.ex.4-8}\textbf{例 4.8.} 设 \((\sgaIS,A)\) 为赋环拓扑斯, \(\mathcal C\) 为如下定义的 \(\sgaIS\)-范畴
 \[
   U\longmapsto \text{左 }A_U\text{-模的范畴},
 \]
-\(\mathcal C_0\) 为如下定义的子 \(S\)-范畴
+\(\mathcal C_0\) 为如下定义的子 \(\sgaIS\)-范畴
 \[
   U\longmapsto \text{为有限型自由模直和因子的左 }A_U\text{-模的范畴}.
 \]
-由 \hyperlink{sga6.e01.lem.1-3-1}{(1.3.1)}, 对 \((\mathcal C,\mathcal C_0)\) 满足假设 \hyperlink{sga6.e01.para.4-0}{(4.0)}. 若 \(\Dpx_A(S)\) 的对象 \(F\) (参见 \hyperlink{sga6.e01.ex.2-15}{(2.15)}) 的 \(\mathcal C_0\)-完美幅度包含于 \([a,b]\) (相应地, 具有对应性质), 就称 \(F\) 的完美幅度包含于 \([a,b]\) (相应地, 具有有限完美幅度; 相应地, 完美). 当有限型自由模的直和因子局部自由时 (参见 \hyperlink{sga6.e01.lem.2-15-1}{(2.15.1)}), 说 \(F\) 完美, 就是说 \(F\) 在 \(\Dpx(S)\) 中局部同构于一个各分量为有限型自由模的有界复形.
+由 \hyperlink{sga6.e01.lem.1-3-1}{(1.3.1)}, 对 \((\mathcal C,\mathcal C_0)\) 满足假设 \hyperlink{sga6.e01.para.4-0}{(4.0)}. 若 \(\Dpx_A(\sgaIS)\) 的对象 \(F\) (参见 \hyperlink{sga6.e01.ex.2-15}{(2.15)}) 的 \(\mathcal C_0\)-完美幅度包含于 \([a,b]\) (相应地, 具有对应性质), 就称 \(F\) 的完美幅度包含于 \([a,b]\) (相应地, 具有有限完美幅度; 相应地, 完美). 当有限型自由模的直和因子局部自由时 (参见 \hyperlink{sga6.e01.lem.2-15-1}{(2.15.1)}), 说 \(F\) 完美, 就是说 \(F\) 在 \(\Dpx(\sgaIS)\) 中局部同构于一个各分量为有限型自由模的有界复形.
 
-\sgaStableTarget{sga6.e01.notation.4-9}\textbf{记号 4.9.} 用 \(\Dpx(\mathcal C)_{\mathcal C_0\text{-}\Parf}\) 或 \(\Parf(\mathcal C,\mathcal C_0)\) 表示 \(\Dpx(\mathcal C)\) 中由 \(\mathcal C_0\)-完美对象构成的严格满子 \(S\)-范畴. 在\hyperlink{sga6.e01.ex.4-8}{例 (4.8)} 的情形, 记为 \(\Dpx_A(S)_{\Parf}\) 或 \(\Parf_A(S)\); 若 \(A\) 不致引起歧义, 则简称 \(\Parf(S)\).
+\sgaStableTarget{sga6.e01.notation.4-9}\textbf{记号 4.9.} 用 \(\Dpx(\mathcal C)_{\mathcal C_0\text{-}\Parf}\) 或 \(\Parf(\mathcal C,\mathcal C_0)\) 表示 \(\Dpx(\mathcal C)\) 中由 \(\mathcal C_0\)-完美对象构成的严格满子 \(\sgaIS\)-范畴. 在\hyperlink{sga6.e01.ex.4-8}{例 (4.8)} 的情形, 记为 \(\Dpx_A(\sgaIS)_{\mathrm{parf}}\) 或 \(\Parf_A(\sgaIS)\); 若 \(A\) 不致引起歧义, 则简称 \(\Parf(\sgaIS)\).
 
-\sgaStableTarget{sga6.e01.prop.4-10}\textbf{命题 4.10.} 范畴 \(\Parf(\mathcal C,\mathcal C_0)\) 是 \(\Dpx(\mathcal C)\) 的三角子 \(S\)-范畴 \hyperlink{sga6.e01.para.1-1-4}{(1.1.4)}. 典范函子
+\sgaStableTarget{sga6.e01.prop.4-10}\textbf{命题 4.10.} 范畴 \(\Parf(\mathcal C,\mathcal C_0)\) 是 \(\Dpx(\mathcal C)\) 的三角子 \(\sgaIS\)-范畴 \hyperlink{sga6.e01.para.1-1-4}{(1.1.4)}. 典范函子
 \[
   \Kpx^b(\mathcal C_0)\longrightarrow \Parf(\mathcal C,\mathcal C_0)
 \]
@@ -1268,30 +1284,30 @@ E_X \arrow[r,"f_X"'] \arrow[ur,"u"] & F_X
 \[
   \Tr(\Kpx^b(\mathcal C_0))\longrightarrow \Tr(\Parf(\mathcal C,\mathcal C_0))
 \]
-\hyperlink{sga6.e01.para.1-1-3}{(1.1.3)}) 在关联叠之间诱导一个 \(S\)-等价 ([G] II 2.2.4), 即:
+\hyperlink{sga6.e01.para.1-1-3}{(1.1.3)}) 在关联叠之间诱导一个 \(\sgaIS\)-等价 ([G] II 2.2.4), 即:
 
 \begin{enumerate}[label=(\roman*)]
-\item 对每个 \(X\in\Ob S\) 及所有 \(E,F\in\Ob\Kpx^b(\mathcal C_{0,X})\) (相应地, \(\Tr(\Kpx^b(\mathcal C_{0,X}))\)), 典范箭头
+\item 对每个 \(X\in\Ob\sgaIS\) 及所有 \(E,F\in\Ob\Kpx^b(\mathcal C_{0,X})\) (相应地, \(\Tr(\Kpx^b(\mathcal C_{0,X}))\)), 典范箭头
 \[
-  \Hom_{\Kpx^b(\mathcal C_0)}(E,F)
+  \sgaIHom_{\Kpx^b(\mathcal C_0)}(E,F)
   \longrightarrow
-  \Hom_{\Dpx(\mathcal C)}(E,F)
+  \sgaIHom_{\Dpx(\mathcal C)}(E,F)
 \]
 (相应地,
 \[
-  \Hom_{\Tr(\Kpx^b(\mathcal C_0))}(E,F)
+  \sgaIHom_{\Tr(\Kpx^b(\mathcal C_0))}(E,F)
   \longrightarrow
-  \Hom_{\Tr(\Dpx(\mathcal C))}(E,F)
+  \sgaIHom_{\Tr(\Dpx(\mathcal C))}(E,F)
 \]) 为同构; 并且
 \item \(\Parf(\mathcal C,\mathcal C_0)\) (相应地, \(\Tr(\Parf(\mathcal C,\mathcal C_0))\)) 的每个对象, 在 \(\Dpx(\mathcal C)\) (相应地, \(\Tr(\Dpx(\mathcal C))\)) 中局部同构于 \(\Kpx^b(\mathcal C_0)\) (相应地, \(\Tr(\Kpx^b(\mathcal C_0))\)) 的某个对象.
 \end{enumerate}
 
-\emph{证明.} 非括号中的断言 (i) 是 \hyperlink{sga6.e01.cor.4-6}{(4.6)} 的特殊情形; 非括号中的断言 (ii) 则由\hyperlink{sga6.e01.def.4-7}{定义 (4.7)} 与 \hyperlink{sga6.e01.notation.4-9}{(4.9)} 成立. 此外, 显然 \(\Parf(\mathcal C,\mathcal C_0)\) 在次数平移下稳定. 为证明 \(\Parf(\mathcal C,\mathcal C_0)\) 是 \(\Dpx(\mathcal C)\) 的三角子 \(S\)-范畴, 只需证明: 若
+\emph{证明.} 非括号中的断言 (i) 是 \hyperlink{sga6.e01.cor.4-6}{(4.6)} 的特殊情形; 非括号中的断言 (ii) 则由\hyperlink{sga6.e01.def.4-7}{定义 (4.7)} 与 \hyperlink{sga6.e01.notation.4-9}{(4.9)} 成立. 此外, 显然 \(\Parf(\mathcal C,\mathcal C_0)\) 在次数平移下稳定. 为证明 \(\Parf(\mathcal C,\mathcal C_0)\) 是 \(\Dpx(\mathcal C)\) 的三角子 \(\sgaIS\)-范畴, 只需证明: 若
 \sgaStableTarget{sga6.e01.eq.unnamed.occ3}\[
   E\xrightarrow{u}F\longrightarrow G\longrightarrow E[1].
   \tag{*}
 \]
-为 \(\Dpx(\mathcal C)\) 中的特异三角, 且 \(E\) 和 \(F\) 完美, 则 \(G\) 完美. 局部化后, 可设 \(E\) 和 \(F\) 为 \(\Kpx^b(\mathcal C_0)\) 的对象. 再次局部化后, 由非括号中的断言 (i), 可设 \(u\) 为 \(\Kpx^b(\mathcal C_0)\) 中的箭头; 于是 \(G\) 完美, 因为它同构于 \(u\) 的锥, 而该锥严格完美. 因此 \(\Parf(\mathcal C,\mathcal C_0)\) 确实是 \(\Dpx(\mathcal C)\) 的三角子 \(S\)-范畴. 上述论证也证明了括号中的断言 (ii). 还需证明括号中的断言 (i). 设 \(X\in\Ob S\),
+为 \(\Dpx(\mathcal C)\) 中的特异三角, 且 \(E\) 和 \(F\) 完美, 则 \(G\) 完美. 局部化后, 可设 \(E\) 和 \(F\) 为 \(\Kpx^b(\mathcal C_0)\) 的对象. 再次局部化后, 由非括号中的断言 (i), 可设 \(u\) 为 \(\Kpx^b(\mathcal C_0)\) 中的箭头; 于是 \(G\) 完美, 因为它同构于 \(u\) 的锥, 而该锥严格完美. 因此 \(\Parf(\mathcal C,\mathcal C_0)\) 确实是 \(\Dpx(\mathcal C)\) 的三角子 \(\sgaIS\)-范畴. 上述论证也证明了括号中的断言 (ii). 还需证明括号中的断言 (i). 设 \(X\in\Ob\sgaIS\),
 \[
 E=(E_1\xrightarrow{a_1}E_2\xrightarrow{a_2}E_3\xrightarrow{a_3}E_1[+1]),
 \quad
@@ -1299,9 +1315,9 @@ F=(F_1\xrightarrow{b_1}F_2\xrightarrow{b_2}F_3\xrightarrow{b_3}F_1[+1])
 \]
 为 \(\Kpx^b(\mathcal C_{0,X})\) 中的特异三角. 须证明
 \sgaStableTarget{sga6.e01.eq.unnamed.occ4}\[
-  \Hom_{\Tr(\Kpx^b(\mathcal C_0))}(E,F)
+  \sgaIHom_{\Tr(\Kpx^b(\mathcal C_0))}(E,F)
   \longrightarrow
-  \Hom_{\Tr(\Dpx(\mathcal C))}(E,F)
+  \sgaIHom_{\Tr(\Dpx(\mathcal C))}(E,F)
   \tag{**}
 \]
 是同构. 由非括号中的断言 (i), 已知 \((**)\) 是单射. 设 \((u_i):E\to F\) 为 \(\Dpx(\mathcal C)\) 中的三角态射. 局部化后, 非括号中的断言 (i) 使我们可设当 \(1\leq i\leq3\) 时, \(u_i\) 为 \(\Kpx^b(\mathcal C_0)\) 中的箭头. 对 \(1\leq i\leq3\) (约定 \(u_4=u_1\)), 箭头
@@ -1335,7 +1351,7 @@ E&F&G\\[0.3em]
 \]
 由 \hyperlink{sga6.e01.prop.4-10}{(4.10)} 立即推出:
 
-\sgaStableTarget{sga6.e01.cor.4-12}\textbf{推论 4.12.} 假设 \(S\) 为单点景. \(F\in\Ob\Dpx(\mathcal C)\) 相对于 \(\mathcal C_0\) 的完美幅度包含于 \([a,b]\) 的充要条件是存在拟同构 \(F'\to F\), 其中 \(F'\) 严格完美, 且当 \(i\notin[a,b]\) 时 \(F'^i=0\). 典范函子
+\sgaStableTarget{sga6.e01.cor.4-12}\textbf{推论 4.12.} 假设 \(\sgaIS\) 为单点景. \(F\in\Ob\Dpx(\mathcal C)\) 相对于 \(\mathcal C_0\) 的完美幅度包含于 \([a,b]\) 的充要条件是存在拟同构 \(F'\to F\), 其中 \(F'\) 严格完美, 且当 \(i\notin[a,b]\) 时 \(F'^i=0\). 典范函子
 \[
   \Kpx^b(\mathcal C_0)\longrightarrow\Parf(\mathcal C,\mathcal C_0)
 \]
@@ -1345,7 +1361,7 @@ E&F&G\\[0.3em]
 \]
 均为范畴等价.
 
-\sgaStableTarget{sga6.e01.rem.4-12-1}\textbf{注 4.12.1.} 当 \(S\) 为单点景时, \(\mathcal C_0\) 的对象均为投射对象. 若 \(\mathcal C_0\) 包含 \(\mathcal C\) 的全部投射对象, 则把“\(\mathcal C_0\)-完美幅度”称为“投射幅度”.
+\sgaStableTarget{sga6.e01.rem.4-12-1}\textbf{注 4.12.1.} 当 \(\sgaIS\) 为单点景时, \(\mathcal C_0\) 的对象均为投射对象. 若 \(\mathcal C_0\) 包含 \(\mathcal C\) 的全部投射对象, 则把“\(\mathcal C_0\)-完美幅度”称为“投射幅度”.
 
 
 
@@ -1374,7 +1390,7 @@ E&F&G\\[0.3em]
 \providecommand{\Mod}{\operatorname{Mod}}
 
 
-\sgaStableTarget{sga6.e01.expose.occ3}\section*{第 I 讲 (续): 完美幅度、有限 Tor 维数和秩}
+\sgaStableTarget{sga6.e01.expose.occ3}
 
 \sgaStableTarget{sga6.e01.rem.4-12-2}\textbf{注 4.12.2.} 设 \(\mathcal C\) 为 Abel 范畴 (可视为在单点景上纤维化), \(\mathcal C_0\) 为严格满加性子范畴. 假设 \(\mathcal C_0\) 对满态射的核稳定, 且在 \(\mathcal C\) 中拟可提升. 则 \(\Kpx^b(\mathcal C_0)\) 中无上同调的对象一般不为零, 因而不能指望函子
 \[
@@ -1423,7 +1439,7 @@ E&F&G\\[0.3em]
 
 \sgaStableTarget{sga6.e01.def.4-14-1}\textbf{定义 4.14.1.} 若 \(F\) 满足 \hyperlink{sga6.e01.cor.4-14}{(4.14)} 的等价条件, 则称 \(F\) 的完美维数 \(\leq n\), 并记为 \(\perfdim(F)\leq n\). 满足 \(\perfdim(F)\leq n\) 的最小整数 \(n\) 称为 \(F\) 的完美维数; 若不存在这样的整数, 就称 \(F\) 的完美维数无穷.
 
-当 \(S\) 为单点景, \(\mathcal C_0\) 为 \(\mathcal C\) 中由投射对象构成的满子范畴时, 完美维数就是通常的投射维数.
+当 \(\sgaIS\) 为单点景, \(\mathcal C_0\) 为 \(\mathcal C\) 中由投射对象构成的满子范畴时, 完美维数就是通常的投射维数.
 
 \sgaStableTarget{sga6.e01.prop.4-15}\textbf{命题 4.15.} 设 \(a,b,n\in\mathbb Z\), \(a\leq b\)、\(n\geq0\), \(F\in\Ob\Dpx(\mathcal C)\), 且当 \(i\notin[a,b]\) 时 \(F^i=0\) (相应地, \(\Ho^i(F)=0\)). 若对每个 \(i\in[a,b]\), \(F^i\) (相应地, \(\Ho^i(F)\)) 的完美维数 \(\leq n+(i-a)\), 则 \(F\) 的完美幅度包含于 \([a-n,b]\). 因此, 若对每个 \(i\in[a,b]\), \(F^i\) (相应地, \(\Ho^i(F)\)) 都完美, 则 \(F\) 完美.
 
@@ -1442,11 +1458,11 @@ E&F&G\\[0.3em]
 \item \(\perfamp(F')\subset[a,b]\) 且 \(\perfamp(F'')\subset[a,b]\);
 \item \(\perfamp(F'\oplus F'')\subset[a,b]\).
 \end{enumerate}
-则 (i) 蕴涵 (ii). 若 \(\mathcal C_0\) 局部对直和因子稳定, 即对 \(E',E''\in\Ob\mathcal C_X\)、\(X\in\Ob S\), 关系 \(E'\oplus E''\in\Ob\mathcal C_0\) 蕴涵 \(E'\) 与 \(E''\) 局部均为 \(\mathcal C_0\) 的对象, 则 (i) 与 (ii) 等价.
+则 (i) 蕴涵 (ii). 若 \(\mathcal C_0\) 局部对直和因子稳定, 即对 \(E',E''\in\Ob\mathcal C_X\)、\(X\in\Ob\sgaIS\), 关系 \(E'\oplus E''\in\Ob\mathcal C_0\) 蕴涵 \(E'\) 与 \(E''\) 局部均为 \(\mathcal C_0\) 的对象, 则 (i) 与 (ii) 等价.
 
 \emph{证明.} 蕴涵 (i) \(\Rightarrow\) (ii) 为 \hyperlink{sga6.e01.complement.4-11}{(4.11)} 的特殊情形. 下面证明逆命题. 令 \(F=F'\oplus F''\). 由于 \(F\) 伪凝聚, \(F'\) 与 \(F''\) 也伪凝聚 \hyperlink{sga6.e01.prop.2-12}{(2.12)}. 另一方面, 当 \(i\notin[a,b]\) 时 \(\Ho^i(F)=0\), 蕴涵当 \(i\notin[a,b]\) 时 \(\Ho^i(F')=\Ho^i(F'')=0\). 因此由 (\hyperlink{sga6.e01.prop.2-10}{2.10} a), 局部化后可设当 \(i\geq a+1\) 时, \(F'^i\) 与 \(F''^i\) 都属于 \(\Ob\mathcal C_0\), 且当 \(i>b\) 时, \(F'^i=F''^i=0\). 再经截断, 得到当 \(i<a\) 时 \(F'^i=F''^i=0\). 由于 \(\perfamp(F)\subset[a,b]\), 由 \hyperlink{sga6.e01.lem.4-16}{(4.16)}, \(F^a\) 局部为 \(\mathcal C_0\) 的对象. 然而 \(F^a=F'^a\oplus F''^a\), 所以由 \(\mathcal C_0\) 局部对直和因子稳定, \(F'^a\) 与 \(F''^a\) 局部均为 \(\mathcal C_0\) 的对象.
 
-\sgaStableTarget{sga6.e01.prop.4-18}\textbf{命题 4.18.} 设三元组 \((S',\mathcal C',\mathcal C'_0)\) 与 \((S,\mathcal C,\mathcal C_0)\) 满足同样的假设 \hyperlink{sga6.e01.para.4-0}{(4.0)}. 设 \(f:S'\to S\) 为由 \(f^{-1}:S\to S'\) 定义的景态射, 又设
+\sgaStableTarget{sga6.e01.prop.4-18}\textbf{命题 4.18.} 设三元组 \((\sgaIS',\mathcal C',\mathcal C'_0)\) 与 \((\sgaIS,\mathcal C,\mathcal C_0)\) 满足同样的假设 \hyperlink{sga6.e01.para.4-0}{(4.0)}. 设 \(f:\sgaIS'\to\sgaIS\) 为由 \(f^{-1}:\sgaIS\to\sgaIS'\) 定义的景态射, 又设
 \[
   u:\Dpx^*(\mathcal C)\longrightarrow \Dpx^*(\mathcal C')\qquad (*=-,+,b)
 \]
@@ -1473,41 +1489,41 @@ E&F&G\\[0.3em]
 \]
 证明留给读者作为习题 (利用 \hyperlink{sga6.e01.complement.4-11}{(4.11)}).
 
-\sgaStableTarget{sga6.e01.cor.4-19}\textbf{推论 4.19.} 在 \hyperlink{sga6.e01.cor.2-16}{(2.16)} 的假设下, 若 \(E'\in\Ob\Dpx^-(A,S')\) 作为 \(\Dpx^-(A,S')\) 的对象完美, 且 \(E\in\Ob\Dpx^-(A,S)\) 完美, 则
+\sgaStableTarget{sga6.e01.cor.4-19}\textbf{推论 4.19.} 在 \hyperlink{sga6.e01.cor.2-16}{(2.16)} 的假设下, 若 \(E'\in\Ob\Dpx^-(_{A'}\sgaIS'_A)\) 作为 \(\Dpx^-(_{A'}\sgaIS')\) 的对象完美, 且 \(E\in\Ob\Dpx^-(A,\sgaIS)\) 完美, 则
 \[
   E'\overset{\mathrm L}{\otimes}_A E
 \]
 完美.
 
-\emph{证明.} 可设 \(E'\in\Ob\Dpx^-(A,S'_A)\), 其中 \(S'\) 为 \(S'\) 的终对象, 然后对
+\emph{证明.} 可设 \(E'\in\Ob\Dpx^-(_{A'}S'_A)\), 其中 \(S'\) 为 \(\sgaIS'\) 的终对象, 然后对
 \[
   u=E'\overset{\mathrm L}{\otimes}_A:
-  \Dpx^-(A,S)\longrightarrow \Dpx^-(A,S').
+  \Dpx^-(A,\sgaIS)\longrightarrow \Dpx^-(A',\sgaIS').
 \]
 应用 \hyperlink{sga6.e01.prop.4-18}{(4.18)}. 特别地:
 
 \sgaStableTarget{sga6.e01.cor.4-19-1}\textbf{推论 4.19.1.} \textbf{a)} 函子
 \[
-  \mathrm L f^*:\Dpx^-(A,S)\longrightarrow \Dpx^-(A,S')
+  \mathrm L f^*:\Dpx^-(A,\sgaIS)\longrightarrow \Dpx^-(A',\sgaIS')
 \]
 诱导函子
 \[
-  \mathrm L f^*:\Dpx^-(A,S)_{\mathrm{parf}}
+  \mathrm L f^*:\Dpx^-(A,\sgaIS)_{\mathrm{parf}}
   \longrightarrow
-  \Dpx^-(A,S')_{\mathrm{parf}}.
+  \Dpx^-(A',\sgaIS')_{\mathrm{parf}}.
 \]
 
 \textbf{b)} 若 \(A\) 交换, 则函子
 \[
   \overset{\mathrm L}{\otimes}_A:
-  \Dpx^-(S)\times_S\Dpx^-(S)
-  \longrightarrow \Dpx^-(S)
+  \Dpx^-(\sgaIS)\times_{\sgaIS}\Dpx^-(\sgaIS)
+  \longrightarrow \Dpx^-(\sgaIS)
 \]
 诱导函子
 \[
   \overset{\mathrm L}{\otimes}_A:
-  \Dpx^-(S)_{\mathrm{parf}}\times_S\Dpx^-(S)_{\mathrm{parf}}
-  \longrightarrow \Dpx^-(S)_{\mathrm{parf}}.
+  \Dpx^-(\sgaIS)_{\mathrm{parf}}\times_{\sgaIS}\Dpx^-(\sgaIS)_{\mathrm{parf}}
+  \longrightarrow \Dpx^-(\sgaIS)_{\mathrm{parf}}.
 \]
 
 \sgaStableTarget{sga6.e01.rem.4-19-2}\textbf{注 4.19.2.} 利用完美幅度, 可将 \hyperlink{sga6.e01.cor.4-19}{(4.19)} 精确为:
@@ -1530,7 +1546,7 @@ E&F&G\\[0.3em]
 
 \sgaStableTarget{sga6.e01.para.5-0}\textbf{5.0.} 读者想必已经问过: 一个伪凝聚复形 \(E\) 还缺少什么条件才会完美? 例如, \(E\) 的上同调有界是否就已足够? 答案是否定的. 事实上, 取 \(\mathcal C\) 为交换 Noether 环 \(A\) 上的模范畴, \(\mathcal C_0\) 为有限型投射 \(A\)-模构成的满子范畴. 每个有限型 \(A\)-模 \(E\) 都伪凝聚且上同调有界, 但 \(E\) 完美还必须有有限投射维数 (或等价地, 有限 Tor 维数). 这一例子表明, 伪凝聚复形与完美复形的差异在于上同调维数的问题. 下面将在赋环拓扑斯的模范畴情形中考察这一点 (参见 \hyperlink{sga6.e01.lem.3-3}{(3.3)}). 先要对有限 Tor 维数的概念作一些预备讨论. 因为文献中已有此问题, 这里从简; 参见 [H] II 4 及 SGA 4 XVII 4.1.9.
 
-\sgaStableTarget{sga6.e01.prop.5-1}\textbf{命题 5.1.} 设 \((S,A)\) 为赋环拓扑斯, \(X\in\Ob S\)、\(F\in\Ob\Dpx^-(A,X)\), 又设 \(m,n\in\mathbb Z\)、\(m\leq n\). 下列条件等价:
+\sgaStableTarget{sga6.e01.prop.5-1}\textbf{命题 5.1.} 设 \((\sgaIS,A)\) 为赋环拓扑斯, \(X\in\Ob\sgaIS\)、\(F\in\Ob\Dpx^-(A,X)\), 又设 \(m,n\in\mathbb Z\)、\(m\leq n\). 下列条件等价:
 \begin{enumerate}[label=(\roman*)]
 \item \(F\) 在 \(\Dpx^-(A,X)\) 中同构于复形 \(F'\), 使每个 \(F'^i\) 都平坦, 且当 \(i\notin[m,n]\) 时为零;
 \item 对每个右 \(A_X\)-模 \(E\), 有
@@ -1552,57 +1568,57 @@ F' \arrow[rr] && F \arrow[dl]\\
 \]
 其中 \(F'\) 的各分量平坦, 且在区间 \([m+1,n]\) 外为零 (设 \(m<n\)). 对任意右 \(A_X\)-模 \(E\) 应用函子 \(E\overset{\mathrm L}{\otimes}_A\cdot\), 并写出上同调正合列即可.
 
-\sgaStableTarget{sga6.e01.def.5-2}\textbf{定义 5.2.} 若 \(\Dpx^-(A,S)\) 的对象 \(F\) 满足 \hyperlink{sga6.e01.prop.5-1}{(5.1)} 的等价条件, 就称 \(F\) 的平坦幅度包含于区间 \([m,n]\), 记为
+\sgaStableTarget{sga6.e01.def.5-2}\textbf{定义 5.2.} 若 \(\Dpx^-(A,\sgaIS)\) 的对象 \(F\) 满足 \hyperlink{sga6.e01.prop.5-1}{(5.1)} 的等价条件, 就称 \(F\) 的平坦幅度包含于区间 \([m,n]\), 记为
 \[
   \toramp(F)\subset[m,n].
 \]
 若存在整数 \(m\) 和 \(n\) 使上述条件成立, 就称 \(F\) 具有有限平坦幅度, 或称 \(F\) 具有有限 Tor 维数.
 
-\sgaStableTarget{sga6.e01.para.5-3}\textbf{5.3.} 设 \(X\in\Ob S\). 用 \(\Dpx^-(A,X)_{\torf}\) 表示 \(\Dpx^-(A,X)\) 中由有限 Tor 维数对象构成的满子范畴. 由 \hyperlink{sga6.e01.prop.5-1}{(5.1)} 的判据 (ii), 它是 \(\Dpx^-(A,X)\) 的三角子范畴. 当 \(X\) 变化时, 各范畴 \(\Dpx^-(A,X)_{\torf}\) 构成 \(\Dpx^-(A,S)\) 的三角子 \(S\)-范畴 \hyperlink{sga6.e01.para.1-1-4}{(1.1.4)}, 记为 \(\Dpx^-(S)_{A\text{-}\torf}\). 函子 \(\overset{\mathrm L}{\otimes}_A\) 诱导正合 \(S\)-函子
+\sgaStableTarget{sga6.e01.para.5-3}\textbf{5.3.} 设 \(X\in\Ob\sgaIS\). 用 \(\Dpx^-(A,X)_{\torf}\) 表示 \(\Dpx^-(A,X)\) 中由有限 Tor 维数对象构成的满子范畴. 由 \hyperlink{sga6.e01.prop.5-1}{(5.1)} 的判据 (ii), 它是 \(\Dpx^-(A,X)\) 的三角子范畴. 当 \(X\) 变化时, 各范畴 \(\Dpx^-(A,X)_{\torf}\) 构成 \(\Dpx^-(A,\sgaIS)\) 的三角子 \(\sgaIS\)-范畴 \hyperlink{sga6.e01.para.1-1-4}{(1.1.4)}, 记为 \(\Dpx^-(\sgaIS)_{A\text{-}\torf}\). 函子 \(\overset{\mathrm L}{\otimes}_A\) 诱导正合 \(\sgaIS\)-函子
 \[
   \overset{\mathrm L}{\otimes}_A:
-  \Dpx^b(S_A)\times_S \Dpx(A/S)_{\torf}
-  \longrightarrow \Dpx^b(S_{\mathbb Z}).
+  \Dpx^b(\sgaIS_A)\times_{\sgaIS} \Dpx_A(\sgaIS)_{\torf}
+  \longrightarrow \Dpx^b(\sgaIS_{\mathbb Z}).
 \]
 
 \sgaStableTarget{sga6.e01.para.5-4}\textbf{5.4.} 左 \(A\)-模 \(F\) 的平坦幅度包含于 \([-n,0]\) (\(n\in\mathbb N\)) 的充要条件是, \(F\) 在通常意义下的 Tor 维数 \(\leq n\), 即 \(F\) 具有由平坦 \(A\)-模构成的长度为 \(n\) 的左消解.
 
-\sgaStableTarget{sga6.e01.para.5-5}\textbf{5.5.} 设 \(X\in\Ob S\), \(m,n\in\mathbb Z\)、\(m\leq n\). \(F\in\Ob\Dpx^-(A,X)\) 的平坦幅度包含于 \([m,n]\) 的充要条件是, 存在覆盖族 \((X_i\to X)\), 使 \(F|X_i\) 的平坦幅度包含于 \([m,n]\). 特别地, 若 \(S/X\) 有限型 (SGA 4 VI 1.7), 且 \(F\) 局部具有有限 Tor 维数, 则 \(F\) 具有有限 Tor 维数.
+\sgaStableTarget{sga6.e01.para.5-5}\textbf{5.5.} 设 \(X\in\Ob\sgaIS\), \(m,n\in\mathbb Z\)、\(m\leq n\). \(F\in\Ob\Dpx^-(A,X)\) 的平坦幅度包含于 \([m,n]\) 的充要条件是, 存在覆盖族 \((X_i\to X)\), 使 \(F|X_i\) 的平坦幅度包含于 \([m,n]\). 特别地, 若 \(\sgaIS/X\) 有限型 (SGA 4 VI 1.7), 且 \(F\) 局部具有有限 Tor 维数, 则 \(F\) 具有有限 Tor 维数.
 
-\sgaStableTarget{sga6.e01.prop.5-6}\textbf{命题 5.6.} 在 \hyperlink{sga6.e01.cor.2-16}{(2.16)} 的假设下, 若 \(E'\) 作为 \(\Dpx^-(A,S')\) 的对象, 其平坦幅度包含于 \([m',n']\), 而 \(E\) 的平坦幅度包含于 \([m,n]\), 则
+\sgaStableTarget{sga6.e01.prop.5-6}\textbf{命题 5.6.} 在 \hyperlink{sga6.e01.cor.2-16}{(2.16)} 的假设下, 若 \(E'\) 作为 \(\Dpx^-(A',\sgaIS')\) 的对象, 其平坦幅度包含于 \([m',n']\), 而 \(E\) 的平坦幅度包含于 \([m,n]\), 则
 \[
   E'\overset{\mathrm L}{\otimes}_A E
 \]
 的平坦幅度包含于 \([m+m',n+n']\).
 
-\emph{证明.} 这是直接的: 利用有限 Tor 维数概念的形式 \hyperlink{sga6.e01.prop.5-1}{(5.1 (i))}, 以及若 \(E\) 是平坦左 \(A\)-模, 则 \(f^{-1}(E)\) 是平坦左 \(f^{-1}(A)\)-模这一事实 (SGA 4 IV, 附录).
+\emph{证明.} 这是直接的: 利用有限 Tor 维数概念的形式 \hyperlink{sga6.e01.prop.5-1}{(5.1 (i))}, 以及若 \(E\) 是平坦左 \(A\)-模, 则 \(f^{-1}(E)\) 是平坦左 \(f^{-1}(A)\)-模这一事实 (SGA 4 IV, 附录 I).
 
 特别地:
 
 \sgaStableTarget{sga6.e01.cor.5-6-1}\textbf{推论 5.6.1.} \textbf{a)} 函子
 \[
-  \mathrm L f^*:\Dpx^-(A,S)\longrightarrow \Dpx^-(A,S')
+  \mathrm L f^*:\Dpx^-(A,\sgaIS)\longrightarrow \Dpx^-(A',\sgaIS')
 \]
 诱导函子
 \[
-  \mathrm L f^*:\Dpx(A,S)_{\torf}\longrightarrow \Dpx(A,S')_{\torf}.
+  \mathrm L f^*:\Dpx(A,\sgaIS)_{\torf}\longrightarrow \Dpx(A',\sgaIS')_{\torf}.
 \]
 
 \textbf{b)} 若 \(A\) 交换, 则函子
 \[
   \overset{\mathrm L}{\otimes}_A:
-  \Dpx^-(S)\times_S\Dpx^-(S)\longrightarrow \Dpx^-(S)
+  \Dpx^-(\sgaIS)\times_{\sgaIS}\Dpx^-(\sgaIS)\longrightarrow \Dpx^-(\sgaIS)
 \]
 诱导函子
 \[
   \overset{\mathrm L}{\otimes}_A:
-  \Dpx(S)_{\torf}\times_S\Dpx(S)_{\torf}
-  \longrightarrow \Dpx(S)_{\torf}.
+  \Dpx(\sgaIS)_{\torf}\times_{\sgaIS}\Dpx(\sgaIS)_{\torf}
+  \longrightarrow \Dpx(\sgaIS)_{\torf}.
 \]
 
-\sgaStableTarget{sga6.e01.rem.5-6-2}\textbf{注 5.6.2.} 设 \(E\in\Ob\Dpx^-(A,S)\), 其中 \(S\) 为 \(S\) 的终对象, 又设 \(m,n\in\mathbb Z\)、\(m\leq n\). 若 \(E\) 的平坦幅度包含于 \([m,n]\), 则对 \(S\) 的每个点 \(s\), \(E_s\) 也有此性质. 若 \(S\) 有足够多的点, 则逆命题成立; 利用平坦幅度概念的形式 \hyperlink{sga6.e01.prop.5-1}{(5.1(ii))}, 以及 \(\overset{\mathrm L}{\otimes}_A\) 与取纤维可交换这一事实.
+\sgaStableTarget{sga6.e01.rem.5-6-2}\textbf{注 5.6.2.} 设 \(E\in\Ob\Dpx^-(A,S)\), 其中 \(S\) 为 \(\sgaIS\) 的终对象, 又设 \(m,n\in\mathbb Z\)、\(m\leq n\). 若 \(E\) 的平坦幅度包含于 \([m,n]\), 则对 \(\sgaIS\) 的每个点 \(s\), \(E_s\) 也有此性质. 若 \(\sgaIS\) 有足够多的点, 则逆命题成立; 利用平坦幅度概念的形式 \hyperlink{sga6.e01.prop.5-1}{(5.1(ii))}, 以及 \(\overset{\mathrm L}{\otimes}_A\) 与取纤维可交换这一事实.
 
-\sgaStableTarget{sga6.e01.exercise.5-7}\textbf{习题 5.7.} \textbf{a)} 假设 \(A\) 交换, 且 \((S',A')\) 在 \((S,A)\) 上忠实平坦 (参见 \hyperlink{sga6.e01.exercise.2-16-2}{(2.16.2)}). \(E\in\Ob\Dpx^-(A,S)\)\footnote{这里 \(S\) 表示拓扑斯 \(S\) 的终对象.} 的平坦幅度包含于 \([m,n]\) 的充要条件是 \(f^*(E)\) 具有此性质.
+\sgaStableTarget{sga6.e01.exercise.5-7}\textbf{习题 5.7.} \textbf{a)} 假设 \(A\) 交换, 且 \((\sgaIS\prime,A\prime)\) 在 \((\sgaIS,A)\) 上忠实平坦 (参见 \hyperlink{sga6.e01.exercise.2-16-2}{(2.16.2)}). \(E\in\Ob\Dpx^-(A,S)\)\footnote{这里 \(S\) 表示拓扑斯 \(\sgaIS\) 的终对象.} 的平坦幅度包含于 \([m,n]\) 的充要条件是 \(f^*(E)\) 具有此性质.
 
 \textbf{b)} 设 \(F\in\Ob\Dpx^+(A,S)\)\textsuperscript{\thefootnote}. 证明下列条件等价:
 \begin{enumerate}[label=(\roman*)]
@@ -1611,17 +1627,17 @@ F' \arrow[rr] && F \arrow[dl]\\
 \end{enumerate}
 若 \(F\) 满足上述条件, 则称 \(F\) 的内射幅度包含于 \([m,n]\). \(\Dpx^+(A,S)\) 中由有限内射幅度对象构成的满子范畴是三角子范畴, 记为 \(\Dpx^+(A,S)_{\injf}\). 证明若 \(A\) 交换, 则函子
 \[
-  \mathrm R\Hom:\Dpx(S)^\circ\times\Dpx^+(S)\longrightarrow \Dpx(S)
+  \sgaIRHom:\Dpx(S)^\circ\times\Dpx^+(S)\longrightarrow \Dpx(S)
 \]
 诱导函子
 \[
-  \mathrm R\Hom:\Dpx(S)^\circ_{\torf}\times\Dpx(S)_{\injf}
+  \sgaIRHom:\Dpx(S)^\circ_{\torf}\times\Dpx(S)_{\injf}
   \longrightarrow \Dpx(S)_{\injf}.
 \]
 
 现在可以回答 \hyperlink{sga6.e01.para.5-0}{(5.0)} 的问题, 并陈述本节的主要结果.
 
-\sgaStableTarget{sga6.e01.thm.5-8}\textbf{定理 5.8.} 设 \((S,A)\) 为赋环拓扑斯, \(E\in\Ob\Dpx(A,S)\), 又设 \(m,n\in\mathbb Z\)、\(m\leq n\). 下列条件等价:
+\sgaStableTarget{sga6.e01.thm.5-8}\textbf{定理 5.8.} 设 \((\sgaIS,A)\) 为赋环拓扑斯, \(E\in\Ob\Dpx(A,\sgaIS)\), 又设 \(m,n\in\mathbb Z\)、\(m\leq n\). 下列条件等价:
 \begin{enumerate}[label=(\roman*)]
 \item \(\perfamp(E)\subset[m,n]\) \hyperlink{sga6.e01.ex.4-8}{(4.8)};
 \item \(E\) 为 \((m-1)\)-伪凝聚的 \hyperlink{sga6.e01.ex.2-15}{(2.15)}, 且 \(\toramp(E)\subset[m,n]\) \hyperlink{sga6.e01.def.5-2}{(5.2)}.
@@ -1632,31 +1648,31 @@ F' \arrow[rr] && F \arrow[dl]\\
 
 为证明定理, 需要几个引理.
 
-\sgaStableTarget{sga6.e01.lem.5-8-2}\textbf{引理 5.8.2.} 设 \(B\) 为 \(S\) 中的环. 若 \(E\) 为左 \(A\)-模, \(G\) 为右 \(B\)-模, \(F\) 为 \(A\)-\(B\)-双模 (\(A\) 从左作用, \(B\) 从右作用), 则存在函子性的典范同态
+\sgaStableTarget{sga6.e01.lem.5-8-2}\textbf{引理 5.8.2.} 设 \(B\) 为 \(\sgaIS\) 中的环. 若 \(E\) 为左 \(A\)-模, \(G\) 为右 \(B\)-模, \(F\) 为 \(A\)-\(B\)-双模 (\(A\) 从左作用, \(B\) 从右作用), 则存在函子性的典范同态
 \sgaStableTarget{sga6.e01.eq.5-8-2-1}\begin{equation}\tag{5.8.2.1}
-  \Hom_B(F,G)\otimes_A E
+  \sgaIHom_B(F,G)\otimes_A E
   \longrightarrow
-  \Hom_B(\Hom_A(E,F),G).
+  \sgaIHom_B(\sgaIHom_A(E,F),G).
 \end{equation}
 当 \(G\) 内射且 \(E\) 有限表示时, 它是同构.
 
 \emph{证明.} 先定义此箭头. 根据 Cartan 所喜用的伴随公式, 这等价于定义一个 \(B\)-模同态:
 \stepcounter{footnote}
 \sgaStableTarget{sga6.e01.eq.unnamed.occ5}\begin{equation}\tag{*}
-  \Hom_B(F,G)\otimes_A E\otimes_{\mathbb Z_S}\Hom_A(E,F)
+  \sgaIHom_B(F,G)\otimes_A E\otimes_{\mathbb Z_{\sgaIS}}\sgaIHom_A(E,F)
   \longrightarrow G.\text{\textsuperscript{\thefootnote}}
 \end{equation}
 \begin{NoHyper}
-\footnotetext[\value{footnote}]{用 \(S\) 表示拓扑斯 \(S\) 的终对象, 用 \(\mathbb Z_S\) 表示以 \(\mathbb Z\) 为值的常值层.}
+\footnotetext[\value{footnote}]{用 \(S\) 表示拓扑斯 \(\sgaIS\) 的终对象, 用 \(\mathbb Z_{\sgaIS}\) 表示以 \(\mathbb Z\) 为值的常值层.}
 \end{NoHyper}
 存在典范的 \(A\)-\(B\)-双模同态
 \sgaStableTarget{sga6.e01.eq.unnamed.occ6}\begin{equation}\tag{**}
-  E\otimes_{\mathbb Z_S}\Hom_A(E,F)
+  E\otimes_{\mathbb Z_{\sgaIS}}\sgaIHom_A(E,F)
   \longrightarrow F
 \end{equation}
-由 \(\Hom_A(E,F)\) 的恒等箭头通过伴随得到. 类似地, 存在典范的 \(B\)-模同态
+由 \(\sgaIHom_A(E,F)\) 的恒等箭头通过伴随得到. 类似地, 存在典范的 \(B\)-模同态
 \sgaStableTarget{sga6.e01.eq.unnamed.occ7}\begin{equation}\tag{***}
-  \Hom_B(F,G)\otimes_A F\longrightarrow G.
+  \sgaIHom_B(F,G)\otimes_A F\longrightarrow G.
 \end{equation}
 然后将 (*) 定义为 (**) 与 (***) 的复合. 要看出当 \(G\) 内射且 \(E\) 有限表示时, 箭头 \hyperlink{sga6.e01.eq.5-8-2-1}{(5.8.2.1)} 为同构, 只需注意: 若 \(G\) 内射, 此箭头的源与靶都是关于 \(E\) 的右正合函子, 且在 \(E=A\) 时该箭头诱导恒等.
 
@@ -1668,20 +1684,20 @@ F' \arrow[rr] && F \arrow[dl]\\
 \item \(E\) 平坦且有限表示.
 \end{enumerate}
 
-\emph{证明} (依 Bourbaki, \emph{Alg. comm.}, 第 I 章第 2 节习题 15). 显然 (i) 蕴涵 (ii). 下面证明 (ii) \(\Rightarrow\) (i). 由 \hyperlink{sga6.e01.lem.1-3-1}{(1.3.1)}, 只需证明函子 \(\Hom_A(E,\cdot)\) 正合. 设
+\emph{证明} (依 Bourbaki, \emph{Alg. comm.}, 第 I 章第 2 节习题 15). 显然 (i) 蕴涵 (ii). 下面证明 (ii) \(\Rightarrow\) (i). 由 \hyperlink{sga6.e01.lem.1-3-1}{(1.3.1)}, 只需证明函子 \(\sgaIHom_A(E,\cdot)\) 正合. 设
 \[
   F\longrightarrow F''\longrightarrow 0
 \]
 为左 \(A\)-模的正合列. 须证明序列
 \[
-  \Hom_A(E,F)\longrightarrow \Hom_A(E,F'')\longrightarrow 0
+  \sgaIHom_A(E,F)\longrightarrow \sgaIHom_A(E,F'')\longrightarrow 0
 \]
-正合. 为此, 只需证明对每个内射 \(\mathbb Z_S\)-模 \(I\), 应用函子 \(\Hom_{\mathbb Z_S}(\cdot,I)\) 后得到的序列正合. 然而有如下交换图, 其中竖直箭头为 \hyperlink{sga6.e01.eq.5-8-2-1}{(3.17.1)} 中的典范箭头:
+正合. 为此, 只需证明对每个内射 \(\mathbb Z_{\sgaIS}\)-模 \(I\), 应用函子 \(\sgaIHom_{\mathbb Z_{\sgaIS}}(\cdot,I)\) 后得到的序列正合. 然而有如下交换图, 其中竖直箭头为 \hyperlink{sga6.e01.eq.5-8-2-1}{(3.17.1)} 中的典范箭头:\footnote{译校注: 原书第 136 页此处引作 (3.17.1), 所指应为 (5.8.2.1).}
 \[
 \begin{array}{ccccccccc}
-0&\to&\Hom_{\mathbb Z_S}(F'',I)\otimes_A E&\to&\Hom_{\mathbb Z_S}(F,I)\otimes_A E\\
+0&\to&\sgaIHom_{\mathbb Z_{\sgaIS}}(F'',I)\otimes_A E&\to&\sgaIHom_{\mathbb Z_{\sgaIS}}(F,I)\otimes_A E\\
 &&\downarrow&&\downarrow\\
-0&\to&\Hom_{\mathbb Z_S}(\Hom_A(E,F''),I)&\to&\Hom_{\mathbb Z_S}(\Hom_A(E,F),I).
+0&\to&\sgaIHom_{\mathbb Z_{\sgaIS}}(\sgaIHom_A(E,F''),I)&\to&\sgaIHom_{\mathbb Z_{\sgaIS}}(\sgaIHom_A(E,F),I).
 \end{array}
 \]
 由 \hyperlink{sga6.e01.lem.5-8-2}{(5.8.2)}, 竖直箭头均为同构. 上行由于 \(E\) 平坦而正合. 因而下行正合, 证毕.
@@ -1703,39 +1719,39 @@ E'' \arrow[rr] && E' \arrow[ul]
 \]
 其中 \(E''\) 严格完美. 由 \hyperlink{sga6.e01.schol.2-6}{(2.6)}, \(E'^m[-m]\) 为 \((m-1)\)-伪凝聚的; 即由 \hyperlink{sga6.e01.prop.2-9}{(2.9)}, \(E'^m\) 有限表示. 由 \hyperlink{sga6.e01.lem.5-8-3}{(5.8.3)} 可得, \(E'^m\) 局部为有限型自由模的直和因子, 因而 \(\perfamp(E)\subset[m,n]\).
 
-\sgaStableTarget{sga6.e01.rem.5-8-4}\textbf{注 5.8.4.} \textbf{a)} 利用 \hyperlink{sga6.e01.prop.2-5}{(2.5)}, 可重新得到完美复形构成 \(\Dpx(A,S)\) 的三角子范畴这一事实.
+\sgaStableTarget{sga6.e01.rem.5-8-4}\textbf{注 5.8.4.} \textbf{a)} 利用 \hyperlink{sga6.e01.prop.2-5}{(2.5)}, 可重新得到完美复形构成 \(\Dpx(A,\sgaIS)\) 的三角子范畴这一事实.
 
-\textbf{b)} 完美复形即使上同调有界, 也不一定具有有限 Tor 维数. 不过若 \(S\) 有限型, 就具有有限 Tor 维数 \hyperlink{sga6.e01.para.5-5}{(5.5)}. 用 \(\Dpx(A,S)_{\mathrm{parf}}\) 表示 \(\Dpx^b(A,S)\) 中由有限 Tor 维数完美复形构成的满子 \(S\)-范畴. 由 (\hyperlink{sga6.e01.cor.2-16-1}{2.16.1} b) 和 \hyperlink{sga6.e01.para.5-3}{(5.3)} 立即得出: 若 \(A\) 交换, 则函子 \(\overset{\mathrm L}{\otimes}_A\) 诱导函子
+\textbf{b)} 完美复形即使上同调有界, 也不一定具有有限 Tor 维数. 不过若 \(\sgaIS\) 有限型, 就具有有限 Tor 维数 \hyperlink{sga6.e01.para.5-5}{(5.5)}. 用 \(\Dpx(A,\sgaIS)_{\sgaIParff}\) 表示 \(\Dpx^b(A,\sgaIS)\) 中由有限 Tor 维数完美复形构成的满子 \(\sgaIS\)-范畴. 由 (\hyperlink{sga6.e01.cor.2-16-1}{2.16.1} b) 和 \hyperlink{sga6.e01.para.5-3}{(5.3)} 立即得出: 若 \(A\) 交换, 则函子 \(\overset{\mathrm L}{\otimes}_A\) 诱导函子
 \[
   \overset{\mathrm L}{\otimes}_A:
-  \Dpx(S)_{\mathrm{parf}}\times_S \Dpx^b(S)_{\mathrm{coh}}
-  \longrightarrow \Dpx^b(S)_{\mathrm{coh}}.
+  \Dpx(\sgaIS)_{\sgaIParff}\times_{\sgaIS} \Dpx^b(\sgaIS)_{\mathrm{coh}}
+  \longrightarrow \Dpx^b(\sgaIS)_{\mathrm{coh}}.
 \]
 此公式是概形上相交理论的出发点. 另一方面须注意, 两个上同调有界的伪凝聚复形的导出张量积, 一般不具有有界上同调.
 
-\sgaStableTarget{sga6.e01.cor.5-9}\textbf{推论 5.9.} 假设 \(S=(\mathrm{Ens})\) (因而 \(A\) “是”一个通常的环), 且每个左 \(A\)-模都具有有限 Tor 维数; 例如, 若 \(A\) 具有有限整体上同调维数就满足此条件, 参见 (MULT VI 2.6) 及 (EGA \(0_{\mathrm{IV}}\) 17.2.8). 则
+\sgaStableTarget{sga6.e01.cor.5-9}\textbf{推论 5.9.} 假设 \(\sgaIS=(\mathrm{Ens})\) (因而 \(A\) “是”一个通常的环), 且每个左 \(A\)-模都具有有限 Tor 维数; 例如, 若 \(A\) 具有有限整体上同调维数就满足此条件, 参见 (MULT VI 2.6) 及 (EGA \(0_{\mathrm{IV}}\) 17.2.8). 则
 \[
-\text{(i)}\quad \Dpx^b(A,S)=\Dpx(A,S)_{\torf},
+\text{(i)}\quad \Dpx^b(A,\sgaIS)=\Dpx(A,\sgaIS)_{\torf},
 \qquad
 \text{以及}
 \qquad
-\text{(ii)}\quad \Dpx^b(A,S)_{\mathrm{coh}}=\Dpx(A,S)_{\mathrm{parf}}.
+\text{(ii)}\quad \Dpx^b(A,\sgaIS)_{\mathrm{coh}}=\Dpx(A,\sgaIS)_{\sgaIParff}.
 \]
-换言之, \(E\in\Ob\Dpx(A,S)\) 具有有限 Tor 维数 (相应地, 具有有限 Tor 维数且完美) 的充要条件是, \(E\) 的上同调有界 (相应地, 上同调有界且伪凝聚).
+换言之, \(E\in\Ob\Dpx(A,\sgaIS)\) 具有有限 Tor 维数 (相应地, 具有有限 Tor 维数且完美) 的充要条件是, \(E\) 的上同调有界 (相应地, 上同调有界且伪凝聚).
 
-\emph{证明.} 由 \hyperlink{sga6.e01.thm.5-8}{(5.8)}, 只需证明 (i). 设 \(E\in\Ob\Dpx^b(A,S)\). 将 \(E\) 作 \(0\) 延拓后, 可设 \(E\in\Ob\Dpx^b(A,S)\), 其中 \(S\) 为 \(S\) 的终对象. 对 \(E\) 的非零上同调对象个数作归纳, 通过分解归结到 \(E\) 为通常 \(A\)-模的情形; 此时结论成立.
+\emph{证明.} 由 \hyperlink{sga6.e01.thm.5-8}{(5.8)}, 只需证明 (i). 设 \(E\in\Ob\Dpx^b(A,\sgaIS)\). 将 \(E\) 作 \(0\) 延拓后, 可设 \(E\in\Ob\Dpx^b(A,S)\), 其中 \(S\) 为 \(\sgaIS\) 的终对象. 对 \(E\) 的非零上同调对象个数作归纳, 通过分解归结到 \(E\) 为通常 \(A\)-模的情形; 此时结论成立.
 
 更一般地, 可陈述为:
 
-\sgaStableTarget{sga6.e01.cor.5-10}\textbf{推论 5.10.} 设 \(X\in\Ob S\). 假设 \(S/X\) 有足够多的点 (SGA 4 IV 6.4.1), 且对 \(S/X\) 的每个点 \(s\), 每个左 \(A_s\)-模都具有有限 Tor 维数. 则
+\sgaStableTarget{sga6.e01.cor.5-10}\textbf{推论 5.10.} 设 \(X\in\Ob\sgaIS\). 假设 \(\sgaIS/X\) 有足够多的点 (SGA 4 IV 6.4.1), 且对 \(\sgaIS/X\) 的每个点 \(s\), 每个左 \(A_s\)-模都具有有限 Tor 维数. 则
 \[
   \Dpx^b(A,X)_{\mathrm{coh}}=\Dpx^b(A,X)_{\mathrm{parf}}.
 \]
 等价地, \(E\in\Ob\Dpx^b(A,X)\) 伪凝聚的充要条件是 \(E\) 完美.
 
-\emph{证明.} 设 \(E\in\Ob\Dpx^b(A,X)_{\mathrm{coh}}\), \(s\) 为 \(S/X\) 的点. 须证明 \(E\) 在 \(s\) 的某个邻域内完美, 即存在 \(S\) 中在 \(X\) 上的一个带 \(s\)-点的对象 \(U\), 使 \(E|U\) 完美. 由于函子 \(s^*\) 正合, (\hyperlink{sga6.e01.cor.2-16-1}{2.16.1} a) 给出 \(E_s\in\Ob\Dpx^b(A_s)_{\mathrm{coh}}\). 所以由 \hyperlink{sga6.e01.cor.5-9}{(5.9)}, \(E_s\) 完美. 因此断言由 \hyperlink{sga6.e01.cor.3-7-2}{(3.7.2)} 及下述引理得出.
+\emph{证明.} 设 \(E\in\Ob\Dpx^b(A,X)_{\mathrm{coh}}\), \(s\) 为 \(\sgaIS/X\) 的点. 须证明 \(E\) 在 \(s\) 的某个邻域内完美, 即存在 \(\sgaIS\) 中在 \(X\) 上的一个带 \(s\)-点的对象 \(U\), 使 \(E|U\) 完美. 由于函子 \(s^*\) 正合, (\hyperlink{sga6.e01.cor.2-16-1}{2.16.1} a) 给出 \(E_s\in\Ob\Dpx^b(A_s)_{\mathrm{coh}}\). 所以由 \hyperlink{sga6.e01.cor.5-9}{(5.9)}, \(E_s\) 完美. 因此断言由 \hyperlink{sga6.e01.cor.3-7-2}{(3.7.2)} 及下述引理得出.
 
-\sgaStableTarget{sga6.e01.lem.5-10-1}\textbf{引理 5.10.1.} 设 \(s\) 为 \(S\) 的点, \(F\in\Ob\Dpx(A_s)_{\mathrm{parf}}\). 则存在 \(S\) 的一个带 \(s\)-点的对象 \(U\), 以及 \(F'\in\Ob\Dpx(A_U)_{\mathrm{parf}}\), 使 \(F'_s=F\).
+\sgaStableTarget{sga6.e01.lem.5-10-1}\textbf{引理 5.10.1.} 设 \(s\) 为 \(\sgaIS\) 的点, \(F\in\Ob\Dpx(A_s)_{\mathrm{parf}}\). 则存在 \(\sgaIS\) 的一个带 \(s\)-点的对象 \(U\), 以及 \(F'\in\Ob\Dpx(A_U)_{\mathrm{parf}}\), 使 \(F'_s=F\).
 
 \emph{证明.} 若 \(F\) 是有限型自由 \(A_s\)-模, 结论显然. 现设 \(F\) 为有限型投射模, 因而为一个投影子
 \[
@@ -1743,7 +1759,7 @@ E'' \arrow[rr] && E' \arrow[ul]
 \]
 的像, 其中 \(L\) 自由有限型. 于是存在 \(s\) 的一个邻域 \(U\)、一个自由 \(A_U\)-模 \(L'\), 以及同态 \(p':L'\to L'\), 使 \(p'_s=p\). 由于 \(p_s^2=p_s\), 缩小 \(U\) 后可设 \(p'^2=p'\). 因此 \(F'=\operatorname{Im}(p')\) 是 \(L'\) 的直和因子, 且满足 \(F'_s=F\). \(F\) 严格完美, 即是一个由有限型投射模组成的有界复形的情形, 随即得出.
 
-\sgaStableTarget{sga6.e01.ex.5-11}\textbf{例 5.11.} \hyperlink{sga6.e01.cor.5-10}{推论 (5.10)} 特别适用于 \((S,A)\) 由正则局部环所赋环的局部赋环空间定义的情形, 例如正则概形或 \(\mathbb C\) 上的光滑复解析空间.
+\sgaStableTarget{sga6.e01.ex.5-11}\textbf{例 5.11.} \hyperlink{sga6.e01.cor.5-10}{推论 (5.10)} 特别适用于 \((\sgaIS,A)\) 由正则局部环所赋环的局部赋环空间定义的情形, 例如正则概形或 \(\mathbb C\) 上的光滑复解析空间.
 
 \sgaStableTarget{sga6.e01.sec.6}\section*{6. 完美复形的秩}
 
@@ -1783,8 +1799,9 @@ L' \arrow[rr] && L \arrow[ul]
 特别地, \(f(0)=0\), 且若 \(L\simeq M\), 则 \(f(L)=f(M)\). 另一方面, 对所有 \(L\in\Ob(\mathcal C)\) 及 \(n\in\mathbb Z\), 有
 \[
   f(L[n])=(-1)^n f(L)
-\]
 .
+\]
+
 
 \sgaStableTarget{sga6.e01.para.6-3}\textbf{6.3.} 设 \(\mathcal C\) 为加性 (相应地, 三角) 范畴. 群 \(\Add(\mathcal C,F)\) 函子性地依赖于 \(F\). 函子 \(\Add(\mathcal C,\cdot)\) 可由一个 Abel 群 \(k(\mathcal C)\)\footnote{这里不采用通常的记号 \(K(\mathcal C)\), 因为当 \(\mathcal C\) 加性时, \(K(\mathcal C)\) 已表示 \(\mathcal C\) 中复形“在同伦意义下”所成的范畴.} 连同加性映射
 \[
@@ -1818,15 +1835,15 @@ L' \arrow[rr] && L \arrow[ul]
 \end{equation}
 其中 \(L\in\Ob\Kpx^b(\mathcal C)\), \(f\) 为 \(\Kpx^b(\mathcal C)\) 上的加性函数.
 
-\sgaStableTarget{sga6.e01.def.6-5}\textbf{定义 6.5.} 设 \(S\) 为范畴, \(\mathcal C\) 为加性 (相应地, 三角) \(S\)-范畴 \hyperlink{sga6.e01.para.1-1-1}{(1.1.1)}, \(F\) 为 \(S\) 上的 Abel 预层. 若函数族
+\sgaStableTarget{sga6.e01.def.6-5}\textbf{定义 6.5.} 设 \(\sgaIS\) 为范畴, \(\mathcal C\) 为加性 (相应地, 三角) \(\sgaIS\)-范畴 \hyperlink{sga6.e01.para.1-1-1}{(1.1.1)}, \(F\) 为 \(\sgaIS\) 上的 Abel 预层. 若函数族
 \[
   f_X:\Ob(\mathcal C_X)\longrightarrow F(X),
-  \qquad X\in\Ob S,
+  \qquad X\in\Ob\sgaIS,
 \]
-满足下列条件, 就称其为从 \(\mathcal C\) 到 \(F\) 的加性 \(S\)-函数:
+满足下列条件, 就称其为从 \(\mathcal C\) 到 \(F\) 的加性 \(\sgaIS\)-函数:
 \begin{enumerate}[label=(\roman*)]
-\item 对每个 \(X\in\Ob S\), \(f_X\) 都是加性函数 \hyperlink{sga6.e01.def.6-1}{(6.1)};
-\item 对 \(S\) 的每个箭头 \(u:X\to Y\), 下图交换:
+\item 对每个 \(X\in\Ob\mathcal C_X\),\footnote{译校注: 原书第 142 页将量词的范围印作 \(\Ob\mathcal C_X\); 这里的 \(X\) 应遍历底景 \(\sgaIS\) 的对象.} \(f_X\) 都是加性函数 \hyperlink{sga6.e01.def.6-1}{(6.1)};
+\item 对 \(\sgaIS\) 的每个箭头 \(u:X\to Y\), 下图交换:
 \[
 \begin{tikzcd}
 \Ob\mathcal C_Y \arrow[r,"f_Y"] \arrow[d,"u^*"'] & F(Y) \arrow[d,"F(u)"]\\
@@ -1834,125 +1851,126 @@ L' \arrow[rr] && L \arrow[ul]
 \end{tikzcd}
 \]
 \end{enumerate}
-从 \(\mathcal C\) 到 \(F\) 的加性 \(S\)-函数构成 Abel 群, 记为 \(\Add_S(\mathcal C,F)\).
+从 \(\mathcal C\) 到 \(F\) 的加性 \(\sgaIS\)-函数构成 Abel 群, 记为 \(\Add_{\sgaIS}(\mathcal C,F)\).
 
-\sgaStableTarget{sga6.e01.rem.6-6}\textbf{注 6.6.} \textbf{a)} 用 \(\mathcal C^{\is}\) 表示如下纤维 \(S\)-范畴: 它在 \(X\in\Ob S\) 上的纤维与 \(\mathcal C_X\) 有相同对象, 但箭头仅取 \(\mathcal C_X\) 中的同构. 用 \(\underline F\) 表示如下纤维 \(S\)-范畴: 它在 \(X\in\Ob S\) 上的纤维为离散范畴 (即唯一的箭头为恒等) \(F(X)\), 沿 \(u\in\mathrm{Fl}(S)\) 的逆像函子为 \(F(u)\). 则从 \(\mathcal C\) 到 \(F\) 的加性 \(S\)-函数, 就是从 \(\mathcal C^{\is}\) 到 \(\underline F\) 的 Cartesian \(S\)-函子, 且在每个纤维上诱导 \hyperlink{sga6.e01.def.6-1}{(6.1)} 意义下的加性函数. 把加性解释如下将很方便. 为确定起见, 假设 \(\mathcal C\) 三角. 从 \(\mathcal C^{\is}\) (相应地, \(\Tr(\mathcal C)^{\is}\)) 到 \(\underline F\) 的 Cartesian \(S\)-函子所成范畴
+\sgaStableTarget{sga6.e01.rem.6-6}\textbf{注 6.6.} \textbf{a)} 用 \(\mathcal C^{\is}\) 表示如下纤维 \(\sgaIS\)-范畴: 它在 \(X\in\Ob\sgaIS\) 上的纤维与 \(\mathcal C_X\) 有相同对象, 但箭头仅取 \(\mathcal C_X\) 中的同构. 用 \(\underline F\) 表示如下纤维 \(\sgaIS\)-范畴: 它在 \(X\in\Ob\sgaIS\) 上的纤维为离散范畴 (即唯一的箭头为恒等) \(F(X)\), 沿 \(u\in\mathrm{Fl}(\sgaIS)\) 的逆像函子为 \(F(u)\). 则从 \(\mathcal C\) 到 \(F\) 的加性 \(\sgaIS\)-函数, 就是从 \(\mathcal C^{\is}\) 到 \(\underline F\) 的 Cartesian \(\sgaIS\)-函子, 且在每个纤维上诱导 \hyperlink{sga6.e01.def.6-1}{(6.1)} 意义下的加性函数. 把加性解释如下将很方便. 为确定起见, 假设 \(\mathcal C\) 三角. 从 \(\mathcal C^{\is}\) (相应地, \(\Tr(\mathcal C)^{\is}\)) 到 \(\underline F\) 的 Cartesian \(\sgaIS\)-函子所成范畴
 \[
-  \Cart_S(\mathcal C^{\is},\underline F)
+  \Cart_{\sgaIS}(\mathcal C^{\is},\underline F)
 \]
-(相应地, \(\Cart_S(\Tr(\mathcal C)^{\is},\underline F)\) \hyperlink{sga6.e01.para.1-1-2}{(1.1.2)}) 是一个 Abel 群所关联的离散范畴, 并且有同态
+(相应地, \(\Cart_{\sgaIS}(\Tr(\mathcal C)^{\is},\underline F)\) \hyperlink{sga6.e01.para.1-1-2}{(1.1.2)}) 是一个 Abel 群所关联的离散范畴, 并且有同态
 \[
-  \rho:\Cart_S(\mathcal C^{\is},\underline F)
+  \rho:\Cart_{\sgaIS}(\mathcal C^{\is},\underline F)
   \longrightarrow
-  \Cart_S(\Tr(\mathcal C)^{\is},\underline F),
+  \Cart_{\sgaIS}(\Tr(\mathcal C)^{\is},\underline F),
 \]
-对 \(f\in\Cart_S(\mathcal C^{\is},\underline F)\) 及 \(T=(L'\to L\to L''\to L'[1])\in\Ob\Tr(\mathcal C)\), 定义为
+对 \(f\in\Cart_{\sgaIS}(\mathcal C^{\is},\underline F)\) 及 \(T=(L'\to L\to L''\to L'[1])\in\Ob\Tr(\mathcal C)\), 定义为
 \[
   \rho(f)(T)=f(L)-f(L')-f(L'')
+.
 \]
-. 说 \(f\in\Cart_S(\mathcal C^{\is},\underline F)\) 加性, 就是说 \(\rho(f)=0\); 等价地, 存在函子性的典范正合列
+ 说 \(f\in\Cart_{\sgaIS}(\mathcal C^{\is},\underline F)\) 加性, 就是说 \(\rho(f)=0\); 等价地, 存在函子性的典范正合列
 \sgaStableTarget{sga6.e01.eq.6-6-1}\begin{equation}\tag{6.6.1}
-  0\longrightarrow \Add_S(\mathcal C,F)
-  \longrightarrow \Cart_S(\mathcal C^{\is},\underline F)
+  0\longrightarrow \Add_{\sgaIS}(\mathcal C,F)
+  \longrightarrow \Cart_{\sgaIS}(\mathcal C^{\is},\underline F)
   \xrightarrow{\rho}
-  \Cart_S(\Tr(\mathcal C)^{\is},\underline F).
+  \Cart_{\sgaIS}(\Tr(\mathcal C)^{\is},\underline F).
 \end{equation}
 
-\textbf{b)} 设 \(u:X\to Y\) 为 \(S\) 的箭头. 沿 \(u\) 的各逆像函子彼此同构, 因而由 \hyperlink{sga6.e01.para.6-3}{(6.3)} 定义唯一的同态
+\textbf{b)} 设 \(u:X\to Y\) 为 \(\sgaIS\) 的箭头. 沿 \(u\) 的各逆像函子彼此同构, 因而由 \hyperlink{sga6.e01.para.6-3}{(6.3)} 定义唯一的同态
 \[
   k(Y)\longrightarrow k(X).
 \]
-因此, \(X\mapsto k(X)\) 定义 \(S\) 上的 Abel 预层, 记为 \(k(\mathcal C)\). 于是从 \(\mathcal C\) 到 \(F\) 的加性 \(S\)-函数, 就可解释为预层同态
+因此, \(X\mapsto k(X)\) 定义 \(\sgaIS\) 上的 Abel 预层, 记为 \(k(\mathcal C)\). 于是从 \(\mathcal C\) 到 \(F\) 的加性 \(\sgaIS\)-函数, 就可解释为预层同态
 \[
   k(\mathcal C)\longrightarrow F,
 \]
 换言之,
 \[
-  \Add_S(\mathcal C,F)=\Hom(k(\mathcal C),F).
+  \Add_{\sgaIS}(\mathcal C,F)=\Hom(k(\mathcal C),F).
 \]
-当然, 预层 \(k(\mathcal C)\) 对加性 (相应地, 正合) \(S\)-函子, 函子性地依赖于 \(\mathcal C\).
+当然, 预层 \(k(\mathcal C)\) 对加性 (相应地, 正合) \(\sgaIS\)-函子, 函子性地依赖于 \(\mathcal C\).
 
-\sgaStableTarget{sga6.e01.prop.6-7}\textbf{命题 6.7.} 设 \(S\) 为景, \(\mathcal C\) 为平坦 Abel \(S\)-范畴, \(\mathcal C_0\) 为 \(\mathcal C\) 的严格满加性子 \(S\)-范畴, 满足假设 \hyperlink{sga6.e01.para.4-0}{(4.0)}. 则由 \(\mathcal C_0\) 到 \(\Parf(\mathcal C,\mathcal C_0)\) 的包含所诱导的 Abel 预层态射
+\sgaStableTarget{sga6.e01.prop.6-7}\textbf{命题 6.7.} 设 \(\sgaIS\) 为景, \(\mathcal C\) 为平坦 Abel \(\sgaIS\)-范畴, \(\mathcal C_0\) 为 \(\mathcal C\) 的严格满加性子 \(\sgaIS\)-范畴, 满足假设 \hyperlink{sga6.e01.para.4-0}{(4.0)}. 则由 \(\mathcal C_0\) 到 \(\Parf(\mathcal C,\mathcal C_0)\) 的包含所诱导的 Abel 预层态射
 \[
   k(\mathcal C_0)\longrightarrow k(\Parf(\mathcal C,\mathcal C_0))\qquad(\text{参见 }\hyperlink{sga6.e01.notation.4-9}{(4.9)})
 \]
-在关联层之间定义同构. 换言之, 对 \(S\) 上的每个 Abel 层 \(F\), 限制同态
+在关联层之间定义同构. 换言之, 对 \(\sgaIS\) 上的每个 Abel 层 \(F\), 限制同态
 \[
-  \Add_S(\Parf(\mathcal C,\mathcal C_0),F)
+  \Add_{\sgaIS}(\Parf(\mathcal C,\mathcal C_0),F)
   \longrightarrow
-  \Add_S(\mathcal C_0,F)
+  \Add_{\sgaIS}(\mathcal C_0,F)
 \]
 是同构.
 
-\emph{证明.} 设 \(F\) 为 \(S\) 上的 Abel 层. 下面证明箭头
+\emph{证明.} 设 \(F\) 为 \(\sgaIS\) 上的 Abel 层. 下面证明箭头
 \[
-  \Add_S(\Parf(\mathcal C,\mathcal C_0),F)
+  \Add_{\sgaIS}(\Parf(\mathcal C,\mathcal C_0),F)
   \longrightarrow
-  \Add_S(\mathcal C_0,F)
+  \Add_{\sgaIS}(\mathcal C_0,F)
 \]
 是同构. 它分解为
 \[
-\Add_S(\Parf(\mathcal C,\mathcal C_0),F)
+\Add_{\sgaIS}(\Parf(\mathcal C,\mathcal C_0),F)
  \xrightarrow{a}
-\Add_S(\Kpx^b(\mathcal C_0),F)
+\Add_{\sgaIS}(\Kpx^b(\mathcal C_0),F)
  \xrightarrow{b}
-\Add_S(\mathcal C_0,F).
+\Add_{\sgaIS}(\mathcal C_0,F).
 \]
 由 \hyperlink{sga6.e01.lem.6-4}{(6.4)}, 箭头 \(b\) 为同构. 因而只需证明 \(a\) 为同构.
 
 考虑如下交换图, 其各行由 \hyperlink{sga6.e01.eq.6-6-1}{(6.6.1)} 正合, 竖直箭头为限制箭头:
 \[
 \begin{array}{@{}ccccccc@{}}
-0&\to&\Add_S(\Parf(\mathcal C),F)&\to&\Cart_S(\Parf(\mathcal C)^{\is},\underline F)&\to&\Cart_S(\Tr(\Parf(\mathcal C))^{\is},\underline F)\\
+0&\to&\Add_{\sgaIS}(\Parf(\mathcal C),F)&\to&\Cart_{\sgaIS}(\Parf(\mathcal C)^{\is},\underline F)&\to&\Cart_{\sgaIS}(\Tr(\Parf(\mathcal C))^{\is},\underline F)\\
 &&\downarrow a&&\downarrow&&\downarrow\\
-0&\to&\Add_S(\Kpx^b(\mathcal C_0),F)&\to&\Cart_S(\Kpx^b(\mathcal C_0)^{\is},\underline F)&\to&\Cart_S(\Tr(\Kpx^b(\mathcal C_0))^{\is},\underline F).
+0&\to&\Add_{\sgaIS}(\Kpx^b(\mathcal C_0),F)&\to&\Cart_{\sgaIS}(\Kpx^b(\mathcal C_0)^{\is},\underline F)&\to&\Cart_{\sgaIS}(\Tr(\Kpx^b(\mathcal C_0))^{\is},\underline F).
 \end{array}
 \]
 由于 \(F\) 为层, \(\underline F\) 为叠 (G \hyperlink{sga6.e02.def.2-2-4}{II 2.2.4}); 因而由 \hyperlink{sga6.e01.prop.4-10}{(4.10)}, 右边两个竖直箭头均为同构. 所以 \(a\) 也为同构, 证毕.
 
 \sgaStableTarget{sga6.e01.rem.6-7-1}\textbf{注 6.7.1} (参见 \hyperlink{sga6.e01.rem.4-10-1}{4.10.1}). 在 \hyperlink{sga6.e01.prop.6-7}{(6.7)} 中, 可以把 \(\Parf(\mathcal C,\mathcal C_0)\) 换成 \(\Dpx^*(\mathcal C)_{\mathcal C_0\text{-}\mathrm{parf}}\) (\(*=-\) 或 \(b\)).
 
-\sgaStableTarget{sga6.e01.para.6-8}\textbf{6.8.} 设 \((S,A)\) 为赋环拓扑斯, \(\mathcal C\) 和 \(\mathcal C_0\) 为 \hyperlink{sga6.e01.ex.4-8}{(4.8)} 中考虑的纤维 \(S\)-范畴. 存在 Abel 预层同态
+\sgaStableTarget{sga6.e01.para.6-8}\textbf{6.8.} 设 \((\sgaIS,A)\) 为赋环拓扑斯, \(\mathcal C\) 和 \(\mathcal C_0\) 为 \hyperlink{sga6.e01.ex.4-8}{(4.8)} 中考虑的纤维 \(\sgaIS\)-范畴. 存在 Abel 预层同态
 \[
   k(\mathcal C_0)
   \xrightarrow{\alpha}
-  k(\Dpx^-(A,S)_{\mathrm{parf}})
+  k(\Dpx^-(A,\sgaIS)_{\mathrm{parf}})
   \xrightarrow{\beta}
-  k(\Parf(A,S)),
+  k(\Parf(A,\sgaIS)),
 \]
 由 \hyperlink{sga6.e01.prop.6-7}{(6.7)}, 它们在关联层上诱导同构. 同态 \(\alpha\) 与逆像相容: 即若
 \[
-  u:(S',A')\longrightarrow(S,A)
+  u:(\sgaIS\prime,A\prime)\longrightarrow(\sgaIS,A)
 \]
 为赋环拓扑斯的态射, 则有如下交换图, 其中竖直箭头由函子 \(\mathrm L u^*\) 诱导 (参见 \hyperlink{sga6.e01.cor.4-19-1}{(4.19.1)}):
 \[
 \begin{tikzcd}
- k(\mathcal C_0) \arrow[r] \arrow[d] & k(\Dpx^-(A,S)_{\mathrm{parf}}) \arrow[d]\\
- k(\mathcal C'_0) \arrow[r] & k(\Dpx^-(A',S')_{\mathrm{parf}}),
+ k(\mathcal C_0) \arrow[r] \arrow[d] & k(\Dpx^-(A,\sgaIS)_{\mathrm{parf}}) \arrow[d]\\
+ k(\mathcal C'_0) \arrow[r] & k(\Dpx^-(A',\sgaIS')_{\mathrm{parf}}),
 \end{tikzcd}
 \]
-其中 \(\mathcal C'_0\) 仿照 \(\mathcal C_0\) 定义. 若 \(A\) 交换, 则导出张量积赋予 \(k(\mathcal C_0)\) 和 \(k(\Dpx^-(A,S)_{\mathrm{parf}})\) 以环预层的结构 (参见 \hyperlink{sga6.e01.cor.4-19-1}{(4.19.1)}), 且 \(\alpha\) 为环预层同态.
+其中 \(\mathcal C'_0\) 仿照 \(\mathcal C_0\) 定义. 若 \(A\) 交换, 则导出张量积赋予 \(k(\mathcal C_0)\) 和 \(k(\Dpx^-(A,\sgaIS)_{\mathrm{parf}})\) 以环预层的结构 (参见 \hyperlink{sga6.e01.cor.4-19-1}{(4.19.1)}), 且 \(\alpha\) 为环预层同态.
 
-\sgaStableTarget{sga6.e01.para.6-9}\textbf{6.9.} 在 \hyperlink{sga6.e01.para.6-8}{(6.8)} 的情形下, 假设 \((S,A)\) 局部赋环 (参见 \hyperlink{sga6.e01.lem.2-15-1}{(2.15.1)}). 则对每个 \(X\in\Ob S\), \(\mathcal C_{0,X}\) 为有限型局部自由 \(A_X\)-模的范畴. 设 \(\mathcal C_1\) 为如下定义的纤维 \(S\)-范畴
+\sgaStableTarget{sga6.e01.para.6-9}\textbf{6.9.} 在 \hyperlink{sga6.e01.para.6-8}{(6.8)} 的情形下, 假设 \((\sgaIS,A)\) 局部赋环 (参见 \hyperlink{sga6.e01.lem.2-15-1}{(2.15.1)}). 则对每个 \(X\in\Ob\sgaIS\), \(\mathcal C_{0,X}\) 为有限型局部自由 \(A_X\)-模的范畴. 设 \(\mathcal C_1\) 为如下定义的纤维 \(\sgaIS\)-范畴
 \[
   X\longmapsto\text{有限型自由 }A_X\text{-模的范畴}.
 \]
-显然 \(\mathcal C_1\) 满足假设 \hyperlink{sga6.e01.para.4-0}{(4.0)}. \(\Dpx(S)\) 的对象完美, 当且仅当它相对于 \(\mathcal C_1\) 完美. 有 Abel 预层同态
+显然 \(\mathcal C_1\) 满足假设 \hyperlink{sga6.e01.para.4-0}{(4.0)}. \(\Dpx(\sgaIS)\) 的对象完美, 当且仅当它相对于 \(\mathcal C_1\) 完美. 有 Abel 预层同态
 \[
   k(\mathcal C_1)\longrightarrow k(\mathcal C_0)\longrightarrow
-  k(\Dpx^-(S)_{\mathrm{parf}})\longrightarrow k(\Parf(S))
+  k(\Dpx^-(\sgaIS)_{\mathrm{parf}})\longrightarrow k(\Parf(\sgaIS))
 \]
-(左边两个为环预层同态), 由 \hyperlink{sga6.e01.prop.6-7}{(6.7)}, 它们在关联层上诱导同构. 下面将证明, 这些关联层事实上典范同构于常值层 \(\mathbb Z_S\).
+(左边两个为环预层同态), 由 \hyperlink{sga6.e01.prop.6-7}{(6.7)}, 它们在关联层上诱导同构. 下面将证明, 这些关联层事实上典范同构于常值层 \(\mathbb Z_{\sgaIS}\).
 
-\sgaStableTarget{sga6.e01.lem.6-10}\textbf{引理 6.10.} 设 \((S,A)\) 为局部赋环拓扑斯, \(U\) 为 \(S\) 中异于空对象的对象, \(p,q\in\mathbb N\). 若
+\sgaStableTarget{sga6.e01.lem.6-10}\textbf{引理 6.10.} 设 \((\sgaIS,A)\) 为局部赋环拓扑斯, \(U\) 为 \(\sgaIS\) 中异于空对象的对象, \(p,q\in\mathbb N\). 若
 \[
   A_U^p\simeq A_U^q,
 \]
 则 \(p=q\).
 
-\emph{证明.} 通过与 \hyperlink{sga6.e01.lem.2-15-1}{(2.15.1)} 的证明类似的论证, 可归结到 \((S,A)\) 为一个预概形所定义的局部赋环拓扑斯的情形; 在此情形, 断言是平凡的: 在 \(U\) 中取一点即可.
+\emph{证明.} 通过与 \hyperlink{sga6.e01.lem.2-15-1}{(2.15.1)} 的证明类似的论证, 可归结到 \((\sgaIS,A)\) 为一个预概形所定义的局部赋环拓扑斯的情形; 在此情形, 断言是平凡的: 在 \(U\) 中取一点即可.
 
-\sgaStableTarget{sga6.e01.def.6-11}\textbf{定义 6.11.} 秩, 记为 \(\rg\), 是从 \(\mathcal C_1\) 到 \(\mathbb Z_S\) 的加性 \(S\)-函数, 定义为
+\sgaStableTarget{sga6.e01.def.6-11}\textbf{定义 6.11.} 秩, 记为 \(\rg\), 是从 \(\mathcal C_1\) 到 \(\mathbb Z_{\sgaIS}\) 的加性 \(\sgaIS\)-函数, 定义为
 \[
   \rg(L)=p\quad\text{若 } L\simeq A_X^p,
   \qquad X\ne\varnothing,
@@ -1961,24 +1979,24 @@ L' \arrow[rr] && L \arrow[ul]
   \rg(L)=0\quad\text{若 } L\in\Ob\mathcal C_{1,X},
   \qquad X=\varnothing.
 \]
-由 \hyperlink{sga6.e01.prop.6-7}{(6.7)}, 秩函数唯一地延拓为从 \(\Parf(S)\) 到 \(\mathbb Z_S\) 的加性 \(S\)-函数, 仍称为秩, 记为 \(\rg\).
+由 \hyperlink{sga6.e01.prop.6-7}{(6.7)}, 秩函数唯一地延拓为从 \(\Parf(\sgaIS)\) 到 \(\mathbb Z_{\sgaIS}\) 的加性 \(\sgaIS\)-函数, 仍称为秩, 记为 \(\rg\).
 
-\sgaStableTarget{sga6.e01.prop.6-12}\textbf{命题 6.12.} \textbf{a)} 对 \(L,M\in\Ob\Dpx^-(X)_{\mathrm{parf}}\), 其中 \(X\in\Ob S\), 有
+\sgaStableTarget{sga6.e01.prop.6-12}\textbf{命题 6.12.} \textbf{a)} 对 \(L,M\in\Ob\Dpx^-(X)_{\mathrm{parf}}\), 其中 \(X\in\Ob\sgaIS\), 有
 \[
   \rg(L\overset{\mathrm L}{\otimes} M)=\rg(L)\,\rg(M).
 \]
 
 \textbf{b)} 设
 \[
-  u:(S',A')\longrightarrow(S,A)
+  u:(\sgaIS\prime,A\prime)\longrightarrow(\sgaIS,A)
 \]
-为局部赋环拓扑斯的态射. 对 \(M\in\Ob\Dpx^-(S)_{\mathrm{parf}}\), 有
+为局部赋环拓扑斯的态射. 对 \(M\in\Ob\Dpx^-(\sgaIS)_{\mathrm{parf}}\), 有
 \[
   \rg(\mathrm L u^*(M))=u^*(\rg(M)).
 \]
 换言之, 秩同态
 \[
-  \rg:k(\Dpx^-(S)_{\mathrm{parf}})\longrightarrow \mathbb Z_S
+  \rg:k(\Dpx^-(\sgaIS)_{\mathrm{parf}})\longrightarrow \mathbb Z_{\sgaIS}
 \]
 是与逆像相容的环预层同态.
 
@@ -2007,7 +2025,7 @@ L' \arrow[rr] && L \arrow[ul]
 \providecommand{\Ker}{\operatorname{Ker}}
 \providecommand{\Im}{\operatorname{Im}}
 \providecommand{\cH}{\mathcal H}
-\providecommand{\Zs}{\mathbb Z_S}
+\providecommand{\Zs}{\mathbb Z_{\sgaIS}}
 \providecommand{\A}{\mathcal A}
 \providecommand{\cC}{\mathcal C}
 \providecommand{\cCzero}{\mathcal C_0}
@@ -2025,138 +2043,144 @@ L' \arrow[rr] && L \arrow[ul]
 \providecommand{\End}{\operatorname{End}}
 \providecommand{\tr}{\operatorname{tr}}
 
-\emph{证明.} 只需证明, 秩在 \(k(\Dpx^-(S)_{\Parf})\) 的关联层上诱导的同态, 是与逆像相容的环层同态. 由 \hyperlink{sga6.e01.para.6-9}{(6.9)}, 可将 \(k(\Dpx^-(S)_{\Parf})\) 换成 \(k(\mathcal C_1)\). 这样就归结到对有限型自由模验证 a) 和 b), 这是平凡的.
+\emph{证明.} 只需证明, 秩在 \(k(\Dpx^-(\sgaIS)_{\mathrm{parf}})\) 的关联层上诱导的同态, 是与逆像相容的环层同态. 由 \hyperlink{sga6.e01.para.6-9}{(6.9)}, 可将 \(k(\Dpx^-(\sgaIS)_{\mathrm{parf}})\) 换成 \(k(\mathcal C_1)\). 这样就归结到对有限型自由模验证 a) 和 b), 这是平凡的.
 
-\sgaStableTarget{sga6.e01.para.6-13}\textbf{6.13.} 仍用 \((S,A)\) 表示局部赋环拓扑斯, 设 \(X\in\Ob S\)、\(n\in H^0(X,\mathbb Z_S)\). 如下定义 \(\Parf(X)\) 的一个对象, 记为 \(A_X^n\). 若 \(n\) 常值为整数 \(n\geq0\) (相应地, \(n<0\)), 令 \(A_X^n=A_X^{\oplus n}\) (相应地, \(A_X^n=A_X^{-n}[1]\)). 一般情形, 把 \(X\) 分解为互不相交的部分 \(X_i\), 使 \(n|X_i\) 为常值, 再把 \(A_X^n\) 定义为 \(\Parf(X)\) 中在各 \(X_i\) 上诱导 \(A_{X_i}^{n|X_i}\) 的唯一对象. 更一般地, 对 \(L\in\Ob\Parf(X)\), 可令 \(L^n=A_X^n\otimes_A L\), 以此定义 \(L^n\).
+\sgaStableTarget{sga6.e01.para.6-13}\textbf{6.13.} 仍用 \((\sgaIS,A)\) 表示局部赋环拓扑斯, 设 \(X\in\Ob\sgaIS\)、\(\underline n\in H^0(X,\mathbb Z_{\sgaIS})\). 如下定义 \(\Parf(X)\) 的一个对象, 记为 \(A_X^{\underline n}\). 若 \(\underline n\) 常值为整数 \(n\geq0\) (相应地, \(n<0\)), 令 \(A_X^{\underline n}=A_X^{\oplus n}\) (相应地, \(A_X^{\underline n}=A_X^{-n}[1]\)). 一般情形, 把 \(X\) 分解为互不相交的部分 \(X_i\), 使 \(\underline n|X_i\) 为常值, 再把 \(A_X^{\underline n}\) 定义为 \(\Parf(X)\) 中在各 \(X_i\) 上诱导 \(A_{X_i}^{\underline n|X_i}\) 的唯一对象. 更一般地, 对 \(L\in\Ob\Parf(X)\), 可令 \(L^{\underline n}=A_X^{\underline n}\otL_A L\), 以此定义 \(L^{\underline n}\).
 
 映射
 \[
-  i_X:H^0(X,\mathbb Z_S)\longrightarrow k(\Parf(X)),
-  \qquad i_X(n)=\cl(A_X^n),
+  i_X:H^0(X,\mathbb Z_{\sgaIS})\longrightarrow k(\Parf(X)),
+  \qquad i_X(\underline n)=\cl(A_X^{\underline n}),
 \]
 是环同态, 且 \(i_X(1)=1\); 当 \(X\) 变化时, 它定义环预层同态
 \[
-  i:\mathbb Z_S\longrightarrow k(\Parf(S)).
+  i:\mathbb Z_{\sgaIS}\longrightarrow k(\Parf(\sgaIS)).
 \]
 
 \sgaStableTarget{sga6.e01.prop.6-14}\textbf{命题 6.14.} 在 \hyperlink{sga6.e01.para.6-13}{(6.13)} 的假设下, 有
 \[
-  \rg\circ i=\Id(\mathbb Z_S).
+  \rg\circ i=\Id(\mathbb Z_{\sgaIS}).
 \]
-换言之, 借助 \(i\) 将 \(k(\Parf(S))\) 视为 \(\mathbb Z_S\)-代数预层时, 秩给出它到 \(\mathbb Z_S\) 的增广. 此外, 秩
+换言之, 借助 \(i\) 将 \(k(\Parf(\sgaIS))\) 视为 \(\mathbb Z_{\sgaIS}\)-代数预层时, 秩给出它到 \(\mathbb Z_{\sgaIS}\) 的增广. 此外, 秩
 \[
-  \rg:k(\Parf(S))\longrightarrow \mathbb Z_S
+  \rg:k(\Parf(\sgaIS))\longrightarrow \mathbb Z_{\sgaIS}
 \]
 在关联层上定义同构.
 
 \emph{证明.} 第一个断言由关系
 \[
   \cl(L[1])=-\cl(L),\qquad \cl(L^n)=n\cl(L),
-  \qquad L\in\Ob\Parf(S).
+  \qquad L\in\Ob\Parf(\sgaIS).
 \]
-平凡地得出. 下面证明第二个断言. 先注意到, \(i\) 以显然的方式经由 \(k(\mathcal C_1)\) 分解. 由于 \(\rg\circ i\) 为恒等, 由 \hyperlink{sga6.e01.para.6-9}{(6.9)}, 只需证明同态
+平凡地得出. 下面证明第二个断言. 先注意到, \(i\) 以显然的方式经由 \(k(\mathcal C_0)\) 分解. 由于 \(\rg\circ i\) 为恒等, 由 \hyperlink{sga6.e01.para.6-9}{(6.9)}, 只需证明同态
 \[
-  i\circ\rg:k(\mathcal C_1)\longrightarrow k(\mathcal C_1)
+  i\circ\rg:k(\mathcal C_0)\longrightarrow k(\mathcal C_0)
 \]
-在关联层上诱导同构; 等价地, 对 \(L\in\Ob\mathcal C_1\), \(i(\rg(L))\) 局部同构于 \(L\). 这是直接的.
+在关联层上诱导同构; 等价地, 对 \(L\in\Ob\mathcal C_0\), \(i(\rg(L))\) 局部同构于 \(L\). 这是直接的.
 
 由 (\hyperlink{sga6.e01.rem.6-6}{6.6} b) 可得:
 
-\sgaStableTarget{sga6.e01.cor.6-15}\textbf{推论 6.15.} 在 \hyperlink{sga6.e01.para.6-13}{(6.13)} 的假设下, 对 \(S\) 上每个 Abel 层 \(F\), 从 \(\Parf(S)\) 到 \(F\) 的加性 \(S\)-函数群, 典范等同于 \(H^0(S,F)\), 其中 \(S\) 为 \(S\) 的终对象. 当 \(F=\mathbb Z_S\) 时, 秩函数对应于 \(\mathbb Z_S\) 的单位截面.
+\sgaStableTarget{sga6.e01.cor.6-15}\textbf{推论 6.15.} 在 \hyperlink{sga6.e01.para.6-13}{(6.13)} 的假设下, 对 \(\sgaIS\) 上每个 Abel 层 \(F\), 从 \(\Parf(\sgaIS)\) 到 \(F\) 的加性 \(\sgaIS\)-函数群, 典范等同于 \(H^0(S,F)\), 其中 \(S\) 为 \(\sgaIS\) 的终对象. 当 \(F=\mathbb Z_{\sgaIS}\) 时, 秩函数对应于 \(\mathbb Z_{\sgaIS}\) 的单位截面.
 
 \sgaStableTarget{sga6.e01.sec.7}\section*{7. 完美复形的对偶性}
 
-\sgaStableTarget{sga6.e01.para.7-0}\textbf{7.0.} 本节中, \((S,A)\) 表示由交换环赋环的拓扑斯, \(S\) 也表示 \(S\) 的终对象. 我们将把有限型局部自由层的熟知对偶概念推广到完美复形.
+\sgaStableTarget{sga6.e01.para.7-0}\textbf{7.0.} 本节中, \((\sgaIS,A)\) 表示由交换环赋环的拓扑斯, \(S\) 也表示 \(\sgaIS\) 的终对象. 我们将把有限型局部自由层的熟知对偶概念推广到完美复形.
 
-\sgaStableTarget{sga6.e01.prop.7-1}\textbf{命题 7.1.} 设 \(E\in\Ob\Dpx^-(S)_{\Parf}\)、\(F\in\Ob\Dpx^+(S)\).
+\sgaStableTarget{sga6.e01.prop.7-1}\textbf{命题 7.1.} 设 \(E\in\Ob\Dpx(S)_{\mathrm{parf}}\)、\(F\in\Ob\Dpx^+(S)\).
 
-\textbf{a)} 若 \(F\) 的上同调局部有界, 则 \(\RHom(E,F)\) 也如此. 若 \(F\) 伪凝聚 (相应地, 局部具有有限 Tor 维数; 相应地, 完美), 则 \(\RHom(E,F)\) 也具有相应性质.
+\textbf{a)} 若 \(F\) 的上同调局部有界, 则 \(\sgaIRHom(E,F)\) 也如此. 若 \(F\) 伪凝聚 (相应地, 局部具有有限 Tor 维数; 相应地, 完美), 则 \(\sgaIRHom(E,F)\) 也具有相应性质.
 
-\textbf{b)} 此外, 假设 \(E\) 具有有限 Tor 维数; 若 \(S\) 有限型, 则此条件满足. 于是, 若 \(F\) 的上同调有界 (相应地, 具有有限 Tor 维数), 则 \(\RHom(E,F)\) 也如此. 更精确地, 设整数 \(a,b,m,n\) 满足
+\textbf{b)} 此外, 假设 \(E\) 具有有限 Tor 维数; 若 \(\sgaIS\) 有限型, 则此条件满足. 于是, 若 \(F\) 的上同调有界 (相应地, 具有有限 Tor 维数), 则 \(\sgaIRHom(E,F)\) 也如此. 更精确地, 设整数 \(a,b,m,n\) 满足
 \[
   \tamp(E)\subset[a,b]
 \]
 (或由 \hyperlink{sga6.e01.thm.5-8}{(5.8)}, 等价地满足 \(\pamp(E)\subset[a,b]\)), 且对 \(i\notin[m,n]\) 有 \(\Ho^i(F)=0\) (相应地, \(\tamp(F)\subset[m,n]\)). 则
 \[
-  \Ho^i(\RHom(E,F))=0\quad(i\notin[m-b,n-a]),
+  \Ho^i(\sgaIRHom(E,F))=0\quad(i\notin[m-b,n-a]),
 \]
 相应地,
 \[
-  \tamp(\RHom(E,F))\subset[m-b,n-a].
+  \tamp(\sgaIRHom(E,F))\subset[m-b,n-a].
 \]
 
 \emph{证明.} 断言 a) 是局部的, 因而可设 \(E\) 严格完美, 再对 \(E\) 作分解论证, 归结到 \(E=A\). 对于断言 b), 可设 \(E\) 严格完美, 当 \(i\notin[a,b]\) 时 \(E^i=0\), 且当 \(i\notin[m,n]\) 时 \(F^i=0\) (相应地, 对每个 \(i\), \(F^i\) 平坦, 且当 \(i\notin[m,n]\) 时 \(F^i=0\)). 然后应用下述引理即可.
 
 \sgaStableTarget{sga6.e01.lem.7-1-1}\textbf{引理 7.1.1.} 设 \(E\in\Ob\Dpx^-(S)\)、\(F\in\Ob\Dpx^+(S)\). 若 \(E\) 严格伪凝聚, 即在 \hyperlink{sga6.e01.def.2-1}{(2.1)} 的意义下各分量均为有限型自由模的直和因子, 则 \(\Dpx^+(S)\) 中的典范箭头
 \[
-  \Hom^\bullet(E,F)\longrightarrow \RHom(E,F)
+  \sgaIHom^\bullet(E,F)\longrightarrow \sgaIRHom(E,F)
 \]
 是同构.
 
 \emph{证明.} 谱序列
 \[
-  E_2^{p0}=\Ho^p(\Hom^\bullet(E,F))
-  \Longrightarrow \Ext^p(E,F)
+  E_2^{pq}=\Ho^p\bigl(\sgaIExt^q(E,F)^\bullet\bigr)
+  \Longrightarrow \sgaIExt^*(E,F),
 \]
-由于对每个 \(q>0\), 由 \hyperlink{sga6.e01.lem.1-3-1}{(1.3.1)} 有 \(\Ext^q(E^i,F^j)=0\), 因而退化. 得到同构
+其中
 \[
-  E_2^{p0}=\Ho^p(\Hom^\bullet(E,F))
-  \xrightarrow{\sim}\Ext^p(E,F)=\Ho^p(\RHom(E,F)),
+  \sgaIExt^q(E,F)^i
+  =\prod_{i_2-i_1=i}\sgaIExt^q(E^{i_1},F^{i_2}),
+\]
+由于对每个 \(q>0\), 由 \hyperlink{sga6.e01.lem.1-3-1}{(1.3.1)} 有
+\(\sgaIExt^q(E,F)^\bullet=0\), 因而退化. 得到同构
+\[
+  E_2^{p0}=\Ho^p(\sgaIHom^\bullet(E,F))
+  \xrightarrow{\sim}\sgaIExt^p(E,F)=\Ho^p(\sgaIRHom(E,F)),
 \]
 断言得证.
 
 \sgaStableTarget{sga6.e01.prop.7-1-2}\textbf{命题 7.1.2.} 设
 \[
-  f:(S',A')\longrightarrow(S,A)
+  f:(\sgaIS\prime,A\prime)\longrightarrow(\sgaIS,A)
 \]
-为赋环拓扑斯的态射. 设 \(E\in\Ob\Dpx^-(S)\)、\(F\in\Ob\Dpx^b(S)\), 满足 \(\RHom(E,F)\in\Ob\Dpx^b(S)\) 及 \(\mathrm Lf^*(F)\in\Ob\Dpx^b(S')\). 则有函子性的典范箭头
+为赋环拓扑斯的态射. 设 \(E\in\Ob\Dpx^-(S)\)、\(F\in\Ob\Dpx^b(S)\), 满足 \(\sgaIRHom(E,F)\in\Ob\Dpx^b(S)\) 及 \(\mathrm Lf^*(F)\in\Ob\Dpx^b(S')\). 则有函子性的典范箭头
 \[
-  \mathrm Lf^*\RHom(E,F)
+  \mathrm Lf^*\sgaIRHom(E,F)
   \longrightarrow
-  \RHom(\mathrm Lf^*E,\mathrm Lf^*F).
+  \sgaIRHom(\mathrm Lf^*E,\mathrm Lf^*F).
 \]
 若 \(E\) 完美, 则它为同构.
 
 \emph{证明.} 由 \(\mathrm Lf^*\) 与 \(\mathrm Rf_*\) 的伴随性, 只需定义一个箭头
 \[
-  \RHom(E,F)
+  \sgaIRHom(E,F)
   \longrightarrow
-  \mathrm Rf_*\RHom(\mathrm Lf^*E,\mathrm Lf^*F).
+  \mathrm Rf_*\sgaIRHom(\mathrm Lf^*E,\mathrm Lf^*F).
 \]
 为此使用伴随箭头 \(F\to\mathrm Rf_*\mathrm Lf^*F\) 及对偶同构
 \[
-  \mathrm Rf_*\RHom(\mathrm Lf^*E,\mathrm Lf^*F)
+  \mathrm Rf_*\sgaIRHom(\mathrm Lf^*E,\mathrm Lf^*F)
   \xrightarrow{\sim}
-  \RHom(E,\mathrm Rf_*\mathrm Lf^*F).
+  \sgaIRHom(E,\mathrm Rf_*\mathrm Lf^*F).
 \]
 为看出当 \(E\) 完美时 \hyperlink{sga6.e01.prop.7-1-2}{(7.1.2)} 的箭头为同构, 通过局部化及分解论证, 平凡地归结到 \(E=A\) 的情形; 此时结论为同义反复.
 
 \sgaStableTarget{sga6.e01.prop.7-2}\textbf{命题 7.2.} 对 \(E\in\Ob\Dpx(S)\) 及 \(F\in\Ob\Dpx^+(S)\), 存在 (参见 SGA 5 I 1.6) 函子性的典范箭头
 \[
-  E\longrightarrow\RHom(\RHom(E,F),F).
+  E\longrightarrow\sgaIRHom(\sgaIRHom(E,F),F).
 \]
-若 \(E\in\Ob\Dpx(S)_{\Parf}\) 且 \(F=A\), 则它为同构.
+若 \(E\in\Ob\Dpx(S)_{\mathrm{parf}}\) 且 \(F=A\), 则它为同构.
 
 \emph{证明.} 取 \(F\) 的内射消解, 并利用 \(\Kpx(S)\) 中的典范箭头
 \[
-  E\longrightarrow \Hom^\bullet(\Hom^\bullet(E,F),F).
+  E\longrightarrow \sgaIHom^\bullet(\sgaIHom^\bullet(E,F),F).
 \]
 以此定义所需箭头. 为看出当 \(E\) 完美且 \(F=A\) 时该箭头为同构, 通过局部化及分解论证归结到 \(E=A\), 此时结论显然.
 
 \sgaStableTarget{sga6.e01.def.7-3}\textbf{定义 7.3.} 设 \(E\in\Ob\Dpx(S)\). 令
 \[
-  \RHom(E,A)=E^\vee,
+  \sgaIRHom(E,A)=E^\vee,
 \]
 称 \(E^\vee\) 为 \(E\) 的对偶.
 
-由 \hyperlink{sga6.e01.prop.7-1}{(7.1)} 和 \hyperlink{sga6.e01.prop.7-2}{(7.2)}, 若 \(E\in\Ob\Dpx(S)\) 完美 (相应地, 完美且具有有限 Tor 维数), 则 \(E^\vee\) 也有此性质, 且典范箭头 \(E\to E^{\vee\vee}\) 为同构. 换言之, 函子 \(\RHom(\,\cdot\,,A)\) 定义范畴 \(\Dpx(S)_{\Parf}\) (相应地, \(\Dpx(S)_{\parf}\), 参见 (\hyperlink{sga6.e01.rem.5-8-4}{5.8.4} b)) 到自身的反自等价.
+由 \hyperlink{sga6.e01.prop.7-1}{(7.1)} 和 \hyperlink{sga6.e01.prop.7-2}{(7.2)}, 若 \(E\in\Ob\Dpx(S)\) 完美 (相应地, 完美且具有有限 Tor 维数), 则 \(E^\vee\) 也有此性质, 且典范箭头 \(E\to E^{\vee\vee}\) 为同构. 换言之, 函子 \(\sgaIRHom(\,\cdot\,,A)\) 定义范畴 \(\Dpx(S)_{\mathrm{parf}}\) (相应地, \(\Dpx(S)_{\sgaIParff}\), 参见 (\hyperlink{sga6.e01.rem.5-8-4}{5.8.4} b)) 到自身的反自等价.
 
 \sgaStableTarget{sga6.e01.lem.7-4}\textbf{引理 7.4} (Cartan 同构) (参见 [H] II 5.15). 对 \(E\in\Ob\Dpx(S)\)、\(F\in\Ob\Dpx^-(S)\)、\(G\in\Ob\Dpx^+(S)\), 有函子性的典范同构
 \[
 \begin{aligned}
-\RHom(E\otL F,G)&\xrightarrow{\sim}\RHom(E,\RHom(F,G)),\\
-\RHom(E\otimes F,G)&\xrightarrow{\sim}\RHom(E,\RHom(F,G)),\\
-\Hom(E\otimes F,G)&\xrightarrow{\sim}\Hom(E,\RHom(F,G)).
+\sgaIRHom(E\otL F,G)&\xrightarrow{\sim}\sgaIRHom(E,\sgaIRHom(F,G)),\\
+\sgaIGRHom(E\otL F,G)&\xrightarrow{\sim}\sgaIGRHom(E,\sgaIRHom(F,G)),\\
+\Hom(E\otL F,G)&\xrightarrow{\sim}\Hom(E,\sgaIRHom(F,G)).
 \end{aligned}
 \]
 
@@ -2164,7 +2188,7 @@ L' \arrow[rr] && L \arrow[ul]
 
 \sgaStableTarget{sga6.e01.lem.7-5}\textbf{引理 7.5.} 对 \(E\in\Ob\Dpx^-(S)\) 及 \(F\in\Ob\Dpx^+(S)\), 存在函子性的典范同态
 \[
-  E\otL \RHom(E,F)\longrightarrow F.
+  E\otL \sgaIRHom(E,F)\longrightarrow F.
 \]
 
 \sgaStableTarget{sga6.e01.prop.7-6}\textbf{命题 7.6} (参见 [H] II 5.13). 设 \(E\in\Ob\Dpx(S)\)、\(F\in\Ob\Dpx^+(S)\)、\(G\in\Ob\Dpx^+(S)\). 在以下任一假设下:
@@ -2174,42 +2198,42 @@ L' \arrow[rr] && L \arrow[ul]
 \end{enumerate}
 存在函子性的典范同态
 \[
-  \RHom(E,F)\otL G
+  \sgaIRHom(E,F)\otL G
   \longrightarrow
-  \RHom(E,F\otL G).
+  \sgaIRHom(E,F\otL G).
 \]
 当 \(E\) 完美时, 它是同构.
 
 \emph{证明.} 先定义此箭头. 在假设 (i) 下, 取 \(F\) 的内射消解和 \(G\) 的平坦消解即可. 在假设 (ii) 下, 由 \hyperlink{sga6.e01.lem.7-4}{(7.4)}, 等价于定义箭头
 \[
-  E\otL\RHom(E,F)\otL G\longrightarrow F\otL G.
+  E\otL\sgaIRHom(E,F)\otL G\longrightarrow F\otL G.
 \]
 对 \hyperlink{sga6.e01.lem.7-5}{(7.5)} 的箭头应用函子 \(-\otL G\) 即得.
 
 要看出当 \(E\) 完美时该箭头为同构, 利用通常方法 (参见 \hyperlink{sga6.e01.prop.7-2}{(7.2)} 的证明): 通过局部化及分解论证归结到 \(E=A\) 的情形.
 
-\sgaStableTarget{sga6.e01.cor.7-7}\textbf{推论 7.7.} 对 \(E\in\Ob\Dpx(S)_{\Parf}\) 及 \(F\in\Ob\Dpx^+(S)\), 存在函子性同构
+\sgaStableTarget{sga6.e01.cor.7-7}\textbf{推论 7.7.} 对 \(E\in\Ob\Dpx(S)_{\sgaIParff}\) 及 \(F\in\Ob\Dpx^+(S)\), 存在函子性同构
 \[
-  E^\vee\otL F\xrightarrow{\sim}\RHom(E,F),
+  E^\vee\otL F\xrightarrow{\sim}\sgaIRHom(E,F),
 \]
 这里采用 \hyperlink{sga6.e01.def.7-3}{(7.3)} 的记号.
 
-\emph{证明.} 将 \hyperlink{sga6.e01.prop.7-6}{(7.6)} 中的 \(F\)、\(G\) 分别换成 \(A\)、\(F\) 后应用该命题, 并利用 \(E^\vee\in\Ob\Dpx(S)_{\Parf}\) 这一事实 \hyperlink{sga6.e01.prop.7-1}{(7.1)}.
+\emph{证明.} 将 \hyperlink{sga6.e01.prop.7-6}{(7.6)} 中的 \(F\)、\(G\) 分别换成 \(A\)、\(F\) 后应用该命题, 并利用 \(E^\vee\in\Ob\Dpx(S)_{\sgaIParff}\) 这一事实 \hyperlink{sga6.e01.prop.7-1}{(7.1)}.
 
-\sgaStableTarget{sga6.e01.cor.7-8}\textbf{推论 7.8.} 设 \(E,F\in\Ob\Dpx(S)_{\Parf}\). 存在自然箭头
+\sgaStableTarget{sga6.e01.cor.7-8}\textbf{推论 7.8.} 设 \(E,F\in\Ob\Dpx(S)_{\sgaIParff}\). 存在自然箭头
 \[
-  \RHom(E,F)\otL \RHom(F,E)\longrightarrow A,
+  \sgaIRHom(E,F)\otL \sgaIRHom(F,E)\longrightarrow A,
 \]
-它是“完美对偶”, 即借助 \hyperlink{sga6.e01.lem.7-4}{(7.4)}, 它把复形 \(\RHom(E,F)\) 和 \(\RHom(F,E)\) 中的每一个都与另一个在 \hyperlink{sga6.e01.def.7-3}{(7.3)} 意义下的对偶等同.
+它是“完美对偶”, 即借助 \hyperlink{sga6.e01.lem.7-4}{(7.4)}, 它把复形 \(\sgaIRHom(E,F)\) 和 \(\sgaIRHom(F,E)\) 中的每一个都与另一个在 \hyperlink{sga6.e01.def.7-3}{(7.3)} 意义下的对偶等同.
 
 \emph{证明.} 由 \hyperlink{sga6.e01.lem.7-5}{(7.5)}, 有自然配对 \(E^\vee\otL E\to A\) 及 \(F^\vee\otL F\to A\). 因而取张量积, 得到自然配对
 \[
   E^\vee\otL F\otL F^\vee\otL E\longrightarrow A,
 \]
-利用 \hyperlink{sga6.e01.cor.7-7}{(7.7)}, 就得到所述 \(\RHom\) 之间的配对. 下面证明它是完美对偶. 有典范同构
+利用 \hyperlink{sga6.e01.cor.7-7}{(7.7)}, 就得到所述 \(\sgaIRHom\) 之间的配对. 下面证明它是完美对偶. 有典范同构
 \[
 \begin{aligned}
-\RHom(F^\vee\otL E,A)&\xrightarrow{\sim}\RHom(F^\vee,E^\vee) &&\hyperlink{sga6.e01.lem.7-4}{(7.4)}\\
+\sgaIRHom(F^\vee\otL E,A)&\xrightarrow{\sim}\sgaIRHom(F^\vee,E^\vee) &&\hyperlink{sga6.e01.lem.7-4}{(7.4)}\\
 &\xrightarrow{\sim} F^{\vee\vee}\otL E^\vee &&\hyperlink{sga6.e01.prop.7-6}{(7.6)}\\
 &\xrightarrow{\sim} F\otL E^\vee &&\hyperlink{sga6.e01.prop.7-2}{(7.2)}.
 \end{aligned}
@@ -2217,7 +2241,7 @@ L' \arrow[rr] && L \arrow[ul]
 于是, 只需再核对相容性, 结论即得. 也可以通过局部化和分解论证, 归结到 \(E=F=A\).
 
 
-\sgaStableTarget{sga6.e01.exercise.7-9}\textbf{习题 7.9.} 设 \(E,F\in\Ob\Dpx(S)_{\Parf}\). 证明存在典范同构
+\sgaStableTarget{sga6.e01.exercise.7-9}\textbf{习题 7.9.} 设 \(E,F\in\Ob\Dpx(S)_{\sgaIParff}\). 证明存在典范同构
 \[
   E^\vee\otL F^\vee \xrightarrow{\sim} (E\otL F)^\vee .
 \]
@@ -2226,21 +2250,21 @@ L' \arrow[rr] && L \arrow[ul]
 
 \sgaStableTarget{sga6.e01.para.8-0}\textbf{8.0.} 本节把有限型投射模自同态的迹的概念推广到完美复形 (应用见 SGA 5 III). 假设和记号与 \hyperlink{sga6.e01.para.7-0}{(7.0)} 相同.
 
-\sgaStableTarget{sga6.e01.para.8-1}\textbf{8.1.} 设 \(E\in\Ob\Dpx(S)_{\parf}\) (\hyperlink{sga6.e01.rem.5-8-4}{5.8.4} b). 有自然箭头
+\sgaStableTarget{sga6.e01.para.8-1}\textbf{8.1.} 设 \(E\in\Ob\Dpx(S)_{\sgaIParff}\) (\hyperlink{sga6.e01.rem.5-8-4}{5.8.4} b). 有自然箭头
 \[
-  \tau:\RHom(E,E)\longrightarrow A,
+  \tau:\sgaIRHom(E,E)\longrightarrow A,
 \]
 由同构 \hyperlink{sga6.e01.cor.7-7}{(7.7)} 的逆
 \[
-  \RHom(E,E)\xrightarrow{\sim}E^\vee\otL E
+  \sgaIRHom(E,E)\xrightarrow{\sim}E^\vee\otL E
 \]
 与典范箭头 \hyperlink{sga6.e01.lem.7-5}{(7.5)} \(E^\vee\otL E\to A\) 复合而得.
 
-设 \(U\in\Ob S\). 对 \(\tau\) 应用函子 \(H^0(U,\cdot)\), 并利用 \(H^0(U,\RHom(E,E))\) 与 \(\Hom_{\Dpx(U)}(E|U,E|U)\) 等同这一事实, 得到 \(H^0(U,A)\)-模同态
+设 \(U\in\Ob\sgaIS\). 对 \(\tau\) 应用函子 \(H^0(U,\cdot)\), 并利用 \(H^0(U,\sgaIRHom(E,E))\) 与 \(\Hom_{\Dpx(U)}(E|U,E|U)\) 等同这一事实, 得到 \(H^0(U,A)\)-模同态
 \[
   \Tr_{E|U}:\Hom_{\Dpx(U)}(E|U,E|U)\longrightarrow H^0(U,A),
 \]
-称为迹同态. 事实上, 定义 \(\Tr_{E|U}\) 时不需要 \(E\) 的有限 Tor 维数假设; 见 \hyperlink{sga6.e01.rem.8-5}{(8.5)}.
+称为迹同态.\footnote{事实上, 定义 \(\Tr_{E|U}\) 时不需要 \(E\) 的有限 Tor 维数假设; 见 \hyperlink{sga6.e01.rem.8-5}{(8.5)}.}
 
 继续讨论之前, 先列出由定义立即得出的迹的若干性质.
 
@@ -2261,7 +2285,7 @@ L' \arrow[rr] && L \arrow[ul]
   \Tr_{(E+F)|U}(u)=\Tr_{E|U}(a)+\Tr_{F|U}(d).
 \]
 
-\sgaStableTarget{sga6.e01.para.8-1-2}\textbf{8.1.2.} 设 \(E\) 为严格完美复形, \(U\in\Ob S\),
+\sgaStableTarget{sga6.e01.para.8-1-2}\textbf{8.1.2.} 设 \(E\) 为严格完美复形, \(U\in\Ob\sgaIS\),
 \[
   u:E|U\longrightarrow E|U
 \]
@@ -2271,7 +2295,7 @@ L' \arrow[rr] && L \arrow[ul]
 \]
 事实上, 问题是局部的, 可设 \(u\) 由 \(H^0(E^\vee\otimes E)\) 的一个截面定义, 甚至可设此截面形如
 \[
-  \sum_{i,j}x_{ij}^\vee\otimes x_{ij},
+  \coprod_i\sum_j x_{ij}^\vee\otimes x_{ij},
 \]
 其中 \(x_{ij}\) (相应地, \(x_{ij}^\vee\)) 是 \(E^i\) (相应地, \(E^{i\vee}\)) 的截面. 展开箭头 \hyperlink{sga6.e01.lem.7-5}{(7.5)} \(E^\vee\otL E\to A\), 得到
 \[
@@ -2279,24 +2303,24 @@ L' \arrow[rr] && L \arrow[ul]
   =\sum_i(-1)^i\Tr_{E^i|U}(u^i).
 \]
 
-\sgaStableTarget{sga6.e01.para.8-2}\textbf{8.2.} 设 \(E,F\in\Ob\Dpx(S)_{\Parf}\). 在 \hyperlink{sga6.e01.cor.7-8}{(7.8)} 中已经看到, 存在典范同态
+\sgaStableTarget{sga6.e01.para.8-2}\textbf{8.2.} 设 \(E,F\in\Ob\Dpx(S)_{\sgaIParff}\). 在 \hyperlink{sga6.e01.cor.7-8}{(7.8)} 中已经看到, 存在典范同态
 \[
-  \chi:\RHom(E,F)\otL\RHom(F,E)\longrightarrow A.
+  \chi:\sgaIRHom(E,F)\otL\sgaIRHom(F,E)\longrightarrow A.
 \]
-设 \(U\in\Ob S\), 又设
+设 \(U\in\Ob\sgaIS\), 又设
 \[
-  u\in H^0(U,\RHom(E,F)),\qquad v\in H^0(U,\RHom(F,E)).
+  u\in H^0(U,\sgaIRHom(E,F)),\qquad v\in H^0(U,\sgaIRHom(F,E)).
 \]
-可将 \(u\) (相应地, \(v\)) 解释为 \(\Dpx(U)\) 中从 \(A|U\) 到 \(\RHom(E,F)|U\) (相应地, \(\RHom(F,E)|U\)) 的同态, 并构成
+可将 \(u\) (相应地, \(v\)) 解释为 \(\Dpx(U)\) 中从 \(A|U\) 到 \(\sgaIRHom(E,F)|U\) (相应地, \(\sgaIRHom(F,E)|U\)) 的同态, 并构成
 \[
-  u\otL v:A|U\longrightarrow(\RHom(E,F)\otL\RHom(F,E))|U.
+  u\otL v:A|U\longrightarrow(\sgaIRHom(E,F)\otL\sgaIRHom(F,E))|U.
 \]
 映射 \((u,v)\mapsto\langle u,v\rangle=\chi\circ(u\otL v)\) 定义 \(H^0(U,A)\)-双线性配对
 \[
   \Hom_{\Dpx(U)}(E|U,F|U)\otimes_{H^0(U,A)}\Hom_{\Dpx(U)}(F|U,E|U)
   \longrightarrow H^0(U,A),
 \]
-称为杯积. 关于 \(\Tr_{E|U}\) 定义所作的说明在这里同样适用.
+称为杯积.\footnote{关于迹的定义所作的说明在这里同样适用.}
 
 迹与杯积之间的关系由下述命题表达.
 
@@ -2322,18 +2346,18 @@ L' \arrow[rr] && L \arrow[ul]
 另一方面, 已经看到 \(vu:A\to E^\vee\otL E\) 及 \(uv:A\to F^\vee\otL F\). 命题由下列图的交换性得出; 其验证纯属机械计算:
 \[
 \begin{tikzcd}[column sep=large,row sep=large]
- A \arrow[r,"u\otL v"] \arrow[dr,"vu"'] & E^\vee\otL F\otL F^\vee\otL E \arrow[d,"\Id\otimes\tau_F"] \\
+ A \arrow[r,"u\otL v"] \arrow[dr,"vu"'] & E^\vee\otL F\otL F^\vee\otL E \arrow[d,"\Id\otL\tau_F"] \\
  & E^\vee\otL E
 \end{tikzcd}
 \qquad
 \begin{tikzcd}[column sep=large,row sep=large]
- A \arrow[r,"u\otL v"] \arrow[dr,"uv"'] & E^\vee\otL F\otL F^\vee\otL E \arrow[d,"\tau_E\otimes\Id"] \\
+ A \arrow[r,"u\otL v"] \arrow[dr,"uv"'] & E^\vee\otL F\otL F^\vee\otL E \arrow[d,"\tau_E\otL\Id"] \\
  & F^\vee\otL F
 \end{tikzcd}
 \]
 \[
 \begin{tikzcd}[column sep=large,row sep=large]
-E^\vee\otL F\otL F^\vee\otL E \arrow[r,"\Id\otimes\tau_E"] \arrow[d,"\Id\otimes\tau_F"'] & F^\vee\otL F \arrow[d,"\tau_F"]\\
+E^\vee\otL F\otL F^\vee\otL E \arrow[r,"\Id\otL\tau_E"] \arrow[d,"\Id\otL\tau_F"'] & F^\vee\otL F \arrow[d,"\tau_F"]\\
 E^\vee\otL E \arrow[r,"\tau_E"'] & A .
 \end{tikzcd}
 \]
@@ -2345,21 +2369,21 @@ E^\vee\otL E \arrow[r,"\tau_E"'] & A .
 
 \emph{证明.} 直接可得.
 
-\sgaStableTarget{sga6.e01.rem.8-5}\textbf{注 8.5.} 若 \(\mathcal C\) 为纤维 \(S\)-范畴, 用 \(\mathcal E(\mathcal C)\) 表示如下纤维 \(S\)-范畴: 其在 \(U\in\Ob S\) 上的纤维为对象是二元组 \((L,u)\) 的范畴, 其中 \(L\in\Ob\mathcal C_U\)、\(u\in\operatorname{End}_S(L)\), 而从 \((L,u)\) 到 \((M,v)\) 的箭头是满足 \(fu=vf\) 的箭头 \(f:L\to M\). 由 \hyperlink{sga6.e01.cor.8-4}{(8.4)}, 可将迹同态视为从 \(\mathcal E(\Dpx(S)_{\Parf})^{\mathrm{is}}\) 到 \(\mathcal A\) 的 \(S\)-函子, 其中上标 \(\mathrm{is}\) 表示仅考虑同构, 而 \(\mathcal A\) 是由 \(A\) 定义、各纤维离散的 \(S\)-范畴 (参见 (\hyperlink{sga6.e01.rem.6-6}{6.6} a)). 由于每个完美复形都局部具有有限 Tor 维数, 遗忘 \(S\)-函子
+\sgaStableTarget{sga6.e01.rem.8-5}\textbf{注 8.5.} 若 \(\mathcal C\) 为纤维 \(\sgaIS\)-范畴, 用 \(\mathcal E(\mathcal C)\) 表示如下纤维 \(\sgaIS\)-范畴: 其在 \(U\in\Ob\sgaIS\) 上的纤维为对象是二元组 \((L,u)\) 的范畴, 其中 \(L\in\Ob\mathcal C_U\)、\(u\in\operatorname{End}_{\sgaIS}(L)\), 而从 \((L,u)\) 到 \((M,v)\) 的箭头是满足 \(fu=vf\) 的箭头 \(f:L\to M\). 由 \hyperlink{sga6.e01.cor.8-4}{(8.4)}, 可将迹同态视为从 \(\mathcal E(\Dpx(\sgaIS)_{\sgaIParff})^{\mathrm{is}}\) 到 \(\mathcal A\) 的 \(\sgaIS\)-函子, 其中上标 \(\mathrm{is}\) 表示仅考虑同构, 而 \(\mathcal A\) 是由 \(A\) 定义、各纤维离散的 \(\sgaIS\)-范畴 (参见 (\hyperlink{sga6.e01.rem.6-6}{6.6} a)). 由于每个完美复形都局部具有有限 Tor 维数, 遗忘 \(\sgaIS\)-函子
 \[
-  \mathcal E(\Dpx(S)_{\Parf})^{\mathrm{is}}
+  \mathcal E(\Dpx(\sgaIS)_{\sgaIParff})^{\mathrm{is}}
   \longrightarrow
-  \mathcal E(\Dpx(S)_{\parf})^{\mathrm{is}}
+  \mathcal E(\Dpx(\sgaIS)_{\mathrm{parf}})^{\mathrm{is}}
 \]
-在关联叠上诱导同构. 因此, 迹同态唯一地延拓为从 \(\mathcal E(\Dpx(S)_{\Parf})^{\mathrm{is}}\) 到 \(\mathcal A\) 的 \(S\)-函子.
+在关联叠上诱导同构. 因此, 迹同态唯一地延拓为从 \(\mathcal E(\Dpx(\sgaIS)_{\mathrm{parf}})^{\mathrm{is}}\) 到 \(\mathcal A\) 的 \(\sgaIS\)-函子.
 
-对 \(E\in\Ob\Parf(U)\)、\(U\in\Ob S\), 仍用
+对 \(E\in\Ob\Parf(U)\)、\(U\in\Ob\sgaIS\), 仍用
 \[
   \Tr_E:\Hom(E,E)\longrightarrow H^0(U,A)
 \]
 表示相应的同态, 它是 \(H^0(U,A)\)-模同态. 同样可见, 杯积的定义 \hyperlink{sga6.e01.para.8-2}{(8.2)}, 以及断言 \hyperlink{sga6.e01.prop.8-3}{(8.3)} 和 \hyperlink{sga6.e01.cor.8-4}{(8.4)}, 都可推广到不一定具有有限 Tor 维数的完美复形.
 
-\sgaStableTarget{sga6.e01.prop.8-6}\textbf{命题 8.6.} 设 \(U\in\Ob S\)、\(E,F\in\Parf(U)\), 又设 \(u\in\Hom(E,E)\)、\(v\in\Hom(F,F)\); 因而 \(u\otL v\in\Hom(E\otL F,E\otL F)\). 则
+\sgaStableTarget{sga6.e01.prop.8-6}\textbf{命题 8.6.} 设 \(U\in\Ob\sgaIS\)、\(E,F\in\Parf(U)\), 又设 \(u\in\Hom(E,E)\)、\(v\in\Hom(F,F)\); 因而 \(u\otL v\in\Hom(E\otL F,E\otL F)\). 则
 \[
   \Tr_{E\otL F}(u\otL v)=\Tr_E(u)\,\Tr_F(v).
 \]
@@ -2375,7 +2399,7 @@ E^\vee\otL E \arrow[r,"\tau_E"'] & A .
 \item[{SGA 5}] \emph{Cohomologie \(\ell\)-adique et fonctions L}, A. Grothendieck 著, 将由 North-Holland Publishing Company 出版.
 \item[{[1]}] Hakim, M. \emph{Topos annelés et schémas relatifs}, 学位论文 (撰写中).
 \item[{[2]}] Verdier, J.-L. \emph{Les catégories dérivées des catégories abéliennes}, 将由 North-Holland Publishing Company 出版.
-\item[{[MUL]}] Cartan, H. and Eilenberg, S. \emph{Homological Algebra}, Princeton, 1956.
+\item[{[MULT]}] Cartan, H. 和 Eilenberg, S. \emph{Homological Algebra}, Princeton, 1956.
 \end{description}
 
 
