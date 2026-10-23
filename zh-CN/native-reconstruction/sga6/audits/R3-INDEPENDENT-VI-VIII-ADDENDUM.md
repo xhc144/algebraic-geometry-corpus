@@ -1,15 +1,15 @@
 # R3 VI–VIII full-text review addendum
 
-Full controlling French original printed365–497 (all133pages) extracted text has been read and compared with all native VI/VII/VIII body text. Native bodies were read-only to this worker. Image-detail review is incomplete and the final frozen native PDF has not been supplied. This is not a completion certificate.
+Full controlling French original printed365–497 (all133pages) extracted text has been read and compared with all native VI/VII/VIII body text. Native bodies were read-only to this worker. All 133 original pages have now also been individually inspected at readable raster resolution. The final frozen native PDF has not been supplied; native typeset visual review remains pending. This is an original-source comparison completion, not a final-book completion certificate.
 
-Original detailed images actually viewed at this checkpoint: printed365–390,397,403,455,465,467,469,478,483,485,494 (36pages). The 365–374 contact sheet does not count as formula-resolution inspection. Physical page = printed page+14.
+Final original-image scope: printed365–497 inclusive, 133/133 pages individually inspected, including formulas, arrows, indices, headings, numbered prose and bibliography. Contact sheets were not counted as formula-resolution inspection. Physical page = printed page+14. Historical progress milestones below describe earlier checkpoints only.
 
 The coverage TSV now records the full133page text comparison and individual-image work separately. A temporary exec-server transport disconnection was recovered; the addendum was read back and verified.
 
 ## Confirmed native errors and omissions
 
 - VII4.11, native `expose-07.tex:1282–1285`; original465/physical479: native displays `cl(O_Z) ≡ i_*(1_{O_{Z∩U}})` in incompatible ambient rings. Original explicitly gives `u^*(O_Z)=i_*(O_{Z∩U})`. Restore `u^*(cl(O_Z))=i_*(1_{O_{Z∩U}})` in K(U)_Q. Individual original465 image checked.
-- VIII1.3, native `expose-08.tex:45`; original467/physical481: square omits upward section arrow j′:X→X′ shown alongside p′:X′→X. Add a shifted upward arrow, retaining both arrows. Same omission in native VIII2.2 at305, corresponding to original477/physical491 (text compared; original477 detailed image still pending).
+- VIII1.3, native `expose-08.tex:45`; original467/physical481: square omits upward section arrow j′:X→X′ shown alongside p′:X′→X. Add a shifted upward arrow, retaining both arrows. Same omission in native VIII2.2 at305, corresponding to original477/physical491 (original477 detailed image now inspected and omission confirmed).
 - VIII1.3 last diagram, native `expose-08.tex:105`; original469/physical483: vertical i″:U→Z×_YV is missing. Add `arrow[d,"i''"]`. Individual original469 image checked.
 
 ## Original errors requiring visible 译校注
@@ -63,3 +63,21 @@ VIII1.8 original474/physical488 draws p:V→V′ in the all-smooth triangle, alt
 VIII2.1 original475/physical489 chain before(2.1.1) ends in Ω¹_{V/X}⊗O_X while its preceding module and intended target use Ω¹_{V/Y}. Native correctly uses V/Y twice, but identify the original V/X subscript slip visibly. Same page source `(1.5.1)` reference slip is already listed.
 
 VIII1.5 original472/physical486 last sentence says smooth over undefined W (the displayed diagram uses Z). Native adds an unsupported explanation “其中W是Z的相应开集”. Remove this invented clause; retain original W with visible note that W is not introduced and the diagram indicates Z is intended, or use corrected Z with an explicit original-print note.
+
+
+## Final original-image pass (133/133 pages)
+
+VIII466–497 (all32pages) now individually viewed and compared against the complete native text already read. This completes the original image pass for VI51 + VII50 + VIII32 =133pages. Native frozen-PDF visual review is still pending. No body file was edited by this worker.
+
+- VIII3.3, native `expose-08.tex:496`, original483/physical497: original high-resolution crop `/tmp/sga6-r3-p483-chern-crop.png` clearly prints `Ch(Gr_λ Λ)`: **lowercase lambda subscript and separate baseline capital Lambda**. Native `\operatorname{Ch}(\Gr_{\Lambda})` drops λ and moves Λ into the subscript. Minimal correction: `\operatorname{Ch}(\Gr_\lambda\Lambda)`. An earlier tentative γ reading was explicitly withdrawn before implementation.
+- VIII2.6, original480/physical494, transitivity triangle: its left bottom object is `Lf^*(L^{Y/Z}_•)`; native ordinary `f^*` drops the derived-functor L. Restore the initial L (root notified).
+- VIII5.2, native `expose-08.tex:925–933`, original494/physical508: Chinese syntax is broken by displaced “定义。” after the displayed Ω¹_{B/Y} formula. Minimal repair: change the first fragment “所以 \(\Omega^1_{V/Y}\) 由” to “所以 \(\Omega^1_{V/Y}\) 由下列模定义：”, then delete the stray “定义。” before “为看出其分次”. Preserve the separate visible note about the original V/Z slip.
+
+All exposé and section titles, descriptive subsection additions, named-statement headings, numbered paragraphs and bibliography titles were compared with the original. The precise 27-change, body-read-only proposal is saved in `R3-INDEPENDENT-VI-VIII-HEADINGS.patch` and JSON. These proposals retain semantic stable targets while removing unoriginal visible heading text/numbers. Root is integrating them; the proposal is a snapshot, not an instruction to reapply already integrated edits.
+
+
+## Final remaining-item patch handoff
+
+`R3-INDEPENDENT-VI-VIII-REMAINING.patch` contains20 exact replacement proposals against the root's current native text snapshot; `patch --dry-run -p1` passes for all three body files. The worker did not write body files. JSON records individual source pages and exact old/new strings; the audit-only generator preserves reproducibility.
+
+The patch restores all previously reported missing citations, identifies VII2.5's reversed conormal indices and VII3.4's printed f_* slip, restores the explicit VII3.7 calculation chain on original445–446 with visible x/y and sign notes, identifies original447's unsupported extension of regularity to all X′, and restores both local cases of perfection and the cohomology-class argument. It also moves VIII1.8's reversed-arrow note to the all-smooth triangle and identifies VIII2.1's printed V/X slip. Original445–447 rasters were revisited for this patch. No claims of final native-PDF inspection are made here.
