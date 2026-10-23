@@ -37,6 +37,8 @@ for n in ['README.md','BUILD.md','PROGRESS.json','.gitignore','terminology.csv']
 for folder in ['scripts','audit']:
  for f in (r/folder).rglob('*'):
   if f.is_file() and f.suffix not in ['.pyc','.log']:seen.add(f.resolve())
+# Root SHA256SUMS and DELIVERY.json intentionally remain outside the archive:
+# they hash the final ZIP itself and must not create a checksum self-reference.
 with zipfile.ZipFile(r/'sga3-a-source.zip','w',zipfile.ZIP_DEFLATED,compresslevel=9) as z:
  for f in sorted(seen):z.write(f,f.relative_to(r))
 print(json.dumps({'pages':pages,'included_chapter_files':len(chapters),'source_files':len(seen),'completed_exposes':a.completed,'pdf_sha256':qa['pdf_sha256']},ensure_ascii=False))

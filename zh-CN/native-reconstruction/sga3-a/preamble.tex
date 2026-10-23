@@ -138,6 +138,8 @@
 }
 \pdfstringdefDisableCommands{%
   \def\SGARefLink#1#2{#2}%
+  \def\SGARefPending#1#2{#2〔引文待核〕}%
+  \def\SGARefExternal#1#2{#2}%
   \def\SGARefTarget#1{}%
   \def\SGAInlineRefTarget#1{}%
   \def\SGAInlineEquationTarget#1{}%
@@ -146,6 +148,11 @@
 \providecommand{\SGARefLink}[2]{%
   \@ifundefined{r@#1}{#2}{\hyperref[#1]{#2}}%
 }
+% 有界引用校订：疑点保留原显示文字并明标待核；外引不跳入本书同号条目。
+\DeclareRobustCommand{\SGARefPending}[2]{%
+  #2\ifmmode\text{\normalfont\scriptsize〔引文待核〕}%
+  \else{\normalfont\scriptsize〔引文待核〕}\fi}
+\DeclareRobustCommand{\SGARefExternal}[2]{#2}
 \providecommand{\GuideChapter}[2]{%
   \@dottedtocline{0}{0em}{0em}{#1}{#2}}
 \providecommand{\GuideChapterSplit}[3]{%
