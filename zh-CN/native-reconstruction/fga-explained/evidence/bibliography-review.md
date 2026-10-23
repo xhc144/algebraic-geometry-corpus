@@ -8,3 +8,5 @@ Person names, work titles, publisher/journal information, years, original keys, 
 Other actual printed anomalies preserved: God58 prints “Actualit'es”; the Nakajima1999 entry's printed key is Naq99; SGA1 prints year1964; SGA4 lists volumes270,305,569. These are not silently repaired using external bibliographic data. Umlaut/caron citation labels (Göt90, Göt01, Göt02, RŠ76) match the source and remain native Unicode text in XeLaTeX.
 
 Entry counts verified against each source page: 17,20,22,22,20,21,23,19,17 for PDF335–343, total181; PDF344blank.
+
+Resume independent audit supersedes the earlier Naq99 source claim: sourcePDF341 clearly prints Nak99 (k), now corrected. See resume-independent-bibliography.md.

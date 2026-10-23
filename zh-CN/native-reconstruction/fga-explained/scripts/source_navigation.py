@@ -18,6 +18,7 @@ def prepare():
     coverage = json.loads((ROOT / 'evidence/source-coverage.json').read_text())
     blanks = set(coverage['blank_pdf_pages'])
     records = []
+    pending_writes = []
     for path in sorted(ROOT.rglob('*.tex')):
         if 'build' in path.relative_to(ROOT).parts:
             continue
@@ -31,13 +32,15 @@ def prepare():
                             if not re.match(r'\s*\\sourcepage\{' + m[1] + r'\}',
                                             text[m.end():]) else m[0], text)
         if text != path.read_text():
-            path.write_text(text)
+            pending_writes.append((path, text))
     counts = Counter(row['source_pdf_page'] for row in records)
     duplicate = [n for n, count in counts.items() if count != 1]
     required = set(range(13, 352)) - blanks
     missing = sorted(required - set(counts))
     if duplicate or missing:
         raise RuntimeError(f'Duplicate anchors {duplicate}; missing body source pages {missing}')
+    for path, text in pending_writes:
+        path.write_text(text)
     index = ROOT / 'backmatter/index.tex'
     text = index.read_text()
     source_text = re.sub(r'\\sourceindex\{(\d+)\}', r'\1', text)
@@ -107,7 +110,7 @@ def audit():
     for row in plan['map_rows']:
         a, b = row['previous_source_anchor'], row['next_source_anchor']
         assert a in native and b in native and a in absolute and b in absolute, row
-        lo, hi = max(1, absolute[a] - 1), absolute[b] + 1
+        lo, hi = max(absolute[13], absolute[a] - 1), absolute[b] + 1
         assert 1 <= lo <= hi <= len(doc), row
         mapping.append({**row, 'chinese_printed_range': [max(1, native[a] - 1), native[b] + 1],
                         'chinese_pdf_range': [lo, hi]})
@@ -128,6 +131,45 @@ def audit():
               'original_index_references_all_mapped': True, 'mapping': mapping,
               'policy': plan['mapping_policy']}
     (ROOT / 'evidence/source-page-map.json').write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n')
+    map_start = next(page for _, title, page in doc.get_toc() if title == '原书页码对照')
+    map_text = '\n'.join(page.get_text() for page in list(doc)[map_start - 1:])
+    visible_rows = re.findall(
+        r'(\d+)\*?\s*\(PDF\s+(\d+)\)\s+(\d+)[–-](\d+)\s+(\d+)[–-](\d+)', map_text)
+    assert len(visible_rows) == 339, 'Displayed map row count differs from plan'
+    for values, row in zip(visible_rows, mapping):
+        n, pdf, a, b, c, d = map(int, values)
+        assert n == row['original_printed_page'] and pdf == row['source_pdf_page']
+        assert [a, b] == row['chinese_printed_range'] and [c, d] == row['chinese_pdf_range'], row
+    index_links = [link for page in doc for link in page.get_links()
+                   if link.get('nameddest', '').startswith('origmap.')]
+    index_numbers = [int(link['nameddest'].split('.')[1]) for link in index_links]
+    assert Counter(index_numbers) == Counter(plan['index_page_references_preserved'])
+    assert all(map_start - 1 <= link.get('page', -1) < len(doc) for link in index_links)
+    range_links = [link for page in list(doc)[map_start - 1:] for link in page.get_links()
+                   if link.get('nameddest', '').startswith('nativeabs.')]
+    assert len(range_links) == 339
+    for link, row in zip(range_links, mapping):
+        assert link.get('page', -2) + 1 == row['chinese_pdf_range'][0], row
+    physical = {int(name.split('.')[1]): value for name, value in doc.resolve_names().items()
+                if name.startswith('nativeabs.')}
+    assert set(physical) == set(range(1, len(doc) + 1))
+    for n, destination in physical.items():
+        assert destination['page'] == n - 1
+        x, y = destination['to']  # Named destinations use PDF bottom-left coordinates.
+        assert abs(x) < 1 and abs(y - doc[n - 1].rect.height) < 1, (n, destination)
+    entry_count = len(re.findall(r'^\\(?:item|subitem|subsubitem)\b',
+                                (ROOT / 'backmatter/index.tex').read_text(), re.M))
+    assert entry_count == 736
+    pdf_report = {
+        'pdf_sha256': report['pdf_sha256'], 'pdf_pages': len(doc),
+        'all339printed_map_rows_equal_computed_ranges': True,
+        'original_index_entries': entry_count, 'original_index_page_links': len(index_links),
+        'all716index_links_target_valid_map_destinations': True,
+        'all339range_links_target_stated_start_page': True,
+        'dedicated_physical_page_destinations': len(physical),
+        'all_physical_page_destinations_at_actual_page_top': True,
+    }
+    (ROOT / 'evidence/pdf-navigation-audit.json').write_text(json.dumps(pdf_report, indent=2) + '\n')
     print(f'Navigation verified: {len(anchors)} anchors; 339 original pages; all {plan["index_page_reference_count"]} index references mapped.')
 
 
