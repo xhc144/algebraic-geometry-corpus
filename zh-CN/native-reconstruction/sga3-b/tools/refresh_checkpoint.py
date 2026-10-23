@@ -28,9 +28,12 @@ for u in units:
  if u=='XXI':text.append('\\counterwithin{theorem}{section}')
 (p/'chapters-current.tex').write_text('\n'.join(text)+'\n')
 translation_complete=all(s['translation_complete'] for s in status)
+review_path=p/'review/20261022/STATUS.json'
+review=json.loads(review_path.read_text()) if review_path.exists() else {}
+review_complete=bool(review.get('independent_fidelity_reading_complete',False))
 parts=[]
 for cf in sorted((p/'coverage-parts').glob('*.json')):
  c=json.loads(cf.read_text())
  parts.append({'file':str(cf.relative_to(p)),'coverage':c})
-(p/'PROGRESS.json').write_text(json.dumps({'complete':False,'translation_complete':translation_complete,'independent_proofreading_complete':False,'state':'translation_complete_review_pending' if translation_complete else 'partial_translation_in_progress','scope':'XIII--XXVI; GUIDE; TERMINAL_INDEX','source_lines':sum(s['source_lines'] for s in status),'translated_source_lines':sum(s['translated_source_lines'] for s in status),'units':status,'separate_part_checkpoints':parts,'source_coverage_and_proofreading_distinct':True,'complete_explanation':'The translation draft may cover all assigned source while independent mathematical proofreading remains incomplete.'},ensure_ascii=False,indent=2)+'\n')
+(p/'PROGRESS.json').write_text(json.dumps({'complete':translation_complete and review_complete,'translation_complete':translation_complete,'independent_fidelity_reading_complete':review_complete,'independent_proofreading_complete':review_complete,'mathematical_source_validity_certified':False,'state':'independently_reviewed_translation' if review_complete else 'translation_complete_review_pending' if translation_complete else 'partial_translation_in_progress','review_record':'review/20261022/STATUS.json' if review else None,'scope':'XIII--XXVI; GUIDE; TERMINAL_INDEX','source_lines':sum(s['source_lines'] for s in status),'translated_source_lines':sum(s['translated_source_lines'] for s in status),'units':status,'separate_part_checkpoints':parts,'source_coverage_and_proofreading_distinct':True,'complete_explanation':'Complete means assigned translation coverage and independent bilingual fidelity reading. It does not certify every mathematical statement in the inherited source or every external citation.'},ensure_ascii=False,indent=2)+'\n')
 print('Included',sum(s['file_exists'] for s in status),'actual translated files')

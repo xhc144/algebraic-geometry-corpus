@@ -37,5 +37,13 @@ all_targets=set(targets)
 unresolved=Counter(x for x in links if x not in all_targets)
 log=(p/'build/main.log').read_text(errors='replace') if (p/'build/main.log').exists() else ''
 result={'translation_coverage_complete':all(r['complete'] for r in records),'independent_proofreading_complete':False,'units':records,'total_assigned_source_lines':sum(x['lines'] for x in units.values()),'translated_source_lines':sum(r['translated_source_lines'] for r in records),'duplicate_translated_targets':{k:v for k,v in Counter(targets).items() if v>1},'unresolved_reference_targets_in_checkpoint':dict(sorted(unresolved.items())),'unresolved_reference_explanation':'See REFERENCE_AUDIT.json for exact target classification. SGARefLink falls back to visible text. Existence does not establish semantic correctness.','last_live_build_log':{'missing_character_lines':re.findall(r'^Missing character:.*$',log,re.M),'overfull_lines':re.findall(r'^Overfull.*$',log,re.M),'undefined_reference_warning_lines':re.findall(r'^.*(?:undefined|multiply defined).*$' ,log,re.M)},'independent_mathematical_proofreading':'not completed','source_and_translation_prose_completeness':'only the declared translated intervals are represented; no summarization or placeholders count as completion'}
+review_path=p/'review/20261022/STATUS.json'
+if review_path.exists():
+ review=json.loads(review_path.read_text())
+ result['independent_proofreading_complete']=review['independent_fidelity_reading_complete']
+ result['independent_fidelity_reading_complete']=review['independent_fidelity_reading_complete']
+ result['independent_mathematical_proofreading']='Full bilingual fidelity reading complete; mathematical validity of every inherited source statement is not certified.' if review['independent_fidelity_reading_complete'] else 'Fidelity reading in progress; see per-unit ledgers.'
+ result['annotated_source_emendations']='review/20261022/VERIFIED_EMENDATIONS.json'
+ result['additional_anchor_explanation']='New zh:sga3 targets mark pre-existing mathematical items only; exact insertions are listed in review/20261022/*-reference-corrections.json.'
 (p/'evidence/CHECKPOINT_AUDIT.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n')
 print('Source lines',result['translated_source_lines'],'/',result['total_assigned_source_lines'],'completed units',sum(r['complete'] for r in records),'/',len(records),'unresolved target identities',len(unresolved))
