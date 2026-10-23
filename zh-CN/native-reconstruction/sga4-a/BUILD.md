@@ -1,6 +1,6 @@
 # SGA 4 前半部原生中文重建
 
-授权范围与唯一输出目录为 `zh-CN/native-reconstruction/sga4-a/`。分配的是完整出版次序前 10 篇：I、II、III、IV、V、V bis、VI、VII、VIII、IX（全书 20 篇，含 V bis）。X 起属于另一作者。本目录已完成这十篇的全文翻译，含定义、陈述、证明、例子、附录、注释及参考文献，并补回英文工程漏收的两篇序言和前两卷全部索引。它是有审校记录的译稿，尚非完成全文法文对勘的定本。
+授权范围与唯一输出目录为 `zh-CN/native-reconstruction/sga4-a/`。分配的是完整出版次序前 10 篇：I、II、III、IV、V、V bis、VI、VII、VIII、IX（全书 20 篇，含 V bis）。X 起属于另一作者。本目录已完成这十篇的全文翻译，含定义、陈述、证明、例子、附录、注释及参考文献，并补回英文工程漏收的两篇序言和前两卷全部索引。它已完成一轮独立法中全文对读，数学疑点按证据订正或明示保留；不声称所有证明均重新证明或全部原扫描均已逐字视觉通校。
 
 底本为仓库内通过发布清单 SHA-256 验证的 `00_SGA_EN_CUMULATIVE_SOURCE_PROJECTS.zip` 内 SGA 4 原生源工程及整合稿。松散 TeX 与 ZIP 内稿的唯一差别是 554 处 CRLF 被改为 LF；正文逐字相同。原文件未改动。精确哈希、闭包和篇目见 `audit/SOURCE_AUDIT.json`。
 
@@ -27,3 +27,5 @@ xelatex -no-shell-escape -interaction=nonstopmode -halt-on-error -file-line-erro
 原文中编号、箭头和残缺引文的疑点未批量“修正”；见各篇审校记录、`audit/REFERENCE_AUDIT.md` 与独立编号复核。`audit/FULL_CHUNK_MAP.json` 给出全部19正文区段的精确底本行界；`tools/check_full_scope.py` 可重现数学片段与结构差异盘点。
 
 2026-10-22用户已明确恢复审校；历史暂停边界见 `PAUSED.md`，当前状态见 `PROGRESS.json`。最终独立源码包已实测两遍编译，463页，与工作目录PDF逐页提取文本完全一致。
+
+本轮续校已完成全分配范围的一轮独立法中逐段对读，详见 `audit/review-20261022/STATUS.md` 与六份分章报告。它们区分完整文字对读、原扫描定点视觉核验和未裁定的原版数学问题。新 `zhreviewnote` 使用单独的“译校”脚注标记，不改变作者和既有编者注的编号。旧的审校记录保留为历史，后续结案以本轮报告为准。
