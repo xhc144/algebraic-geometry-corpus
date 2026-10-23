@@ -1,3 +1,5 @@
+> 本文是2026-10-21的字面引用盘点快照，不代表续校后的最终链接状态。2026-10-22/23已完成全文独立对读、三项优先引用的内容定位及新增译校注；准确改动见 `review-20261022/APPLIED.json`，最终编译与4107个PDF链接验收见 `VALIDATION.json`。其中旧IV9.20.1的历史编号对应尚未恢复，内容构造已有证据；原始残缺引用未猜补。
+
 # 全英文源引用目标审计（本分册 I–IX）
 
 审计日期：2026-10-21（UTC）。只读解析所选归档 reader `/tmp/sga4-archive-reader.tex`，完整覆盖 20 个已出版单元：I、II、III、IV、V、Vbis、VI、VII、VIII、IX、X、XI、XII、XIII、XIV、XV、XVI、XVII、XVIII、XIX。I 的 Bourbaki 附录包含在 I 内。本审计仅写 `audit/REFERENCE_AUDIT.md` 与 `.json`；未改正文、支持宏或原始源稿，未提交 Git。
