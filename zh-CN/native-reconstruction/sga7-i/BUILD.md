@@ -37,4 +37,6 @@ latexmk -xelatex -interaction=nonstopmode -halt-on-error -outdir=build main.tex
 在仓库内还可运行 `python3 tools/review_coverage.py` 检查逐项审校证据及哈希。
 源文比较程序需要仓库的英文底本；独立源码包的中文编译不读取原始英文或法文文件。
 
-恢复轮最终全卷与真正脱离仓库的16个TeX文件副本均已成功构建为297页；16个输入逐一同哈希，所有页面抽取文本一致，独立构建记录不含仓库路径。最终297页视觉证据由完整快照逐页查看、277页110dpi像素一致和20个变化页重新打开共同组成。详见 `qa/FIDELITY-R3-FINAL-VERIFICATION.json` 与 `qa/FIDELITY-R3-FINAL-VISUAL-COVERAGE.json`。
+第三轮历史全卷与真正脱离仓库的16个生产TeX文件副本曾成功构建为297页；16个输入逐一同哈希，所有页面抽取文本一致，独立构建记录不含仓库路径。最终297页视觉证据由完整快照逐页查看、277页110dpi像素一致和20个变化页重新打开共同组成。详见 `qa/FIDELITY-R3-FINAL-VERIFICATION.json` 与 `qa/FIDELITY-R3-FINAL-VISUAL-COVERAGE.json`。
+
+原卷卷首补充后的当前成品为300页，完整导言3页和原卷总目录已直接法中对读。生产源共18个TeX文件，另有1个法文校读转录TeX仅存于qa、不读入PDF；主卷实际读取17个项目TeX，main-II.tex是备用独立入口。当前独立构建、全页同一性与新增页面实际查看记录见 `qa/FRONTMATTER-INDEPENDENT-BUILD-VERIFICATION.json`、`qa/FRONTMATTER-FINAL-PAGE-COMPARISON.json` 和 `qa/FRONTMATTER-FINAL-VISUAL-REVIEW.json`。历史R3记录明确另存，当前 `qa/BUILD_STATUS.json` 与 `qa/PDF_CHECK.json` 绑定300页文件。

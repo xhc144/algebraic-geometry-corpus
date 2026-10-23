@@ -1,34 +1,21 @@
 # SGA 6 简体中文原生重建工作稿
 
-交付为**覆盖指定英文底稿全卷的首译工作稿**, 不是原书完整校订版. 原书逐段完整性核对与删节恢复仍未完成, 详见 `ORIGINAL-RECONCILIATION.md`、`PROGRESS.json` 及 `audits/`. 原书第十一讲未写成、未出版, 不作为漏译或已译正文计数. 所有原始资料与既有中译均保持不变.
+已完成原书全部可识别内容的原生重建，并完成一轮全卷独立逐页保真对读及排版核验。交付入口为 `main.tex`、`build/SGA6-zh-CN.pdf`（441页）和 `SGA6-zh-CN-source.zip`。第XI讲历史上未写成、未出版，保留原书说明和后续编号；不计作已译，也未补造。准确覆盖及审校边界见 `PROGRESS.json`。
 
-## 文件与构建
+在本目录执行 `sh build.sh`，以禁止shell escape的XeLaTeX编译两遍。需TeX Live2025或兼容环境，安装fontspec、amsmath/mathtools、mathrsfs、tikz-cd、enumitem、longtable/booktabs、hyperref/hyperxmp、microtype，以及Noto Serif/Sans/Mono CJK SC、Latin Modern Roman字体。固定版ctex、xeCJK、zhnumber及LPPL源文件位于 `dependencies/`；字体未捆绑。解包后无需原扫描PDF或联网即可编译。31个本版原生TeX文件及所有依赖均在源码包内。
 
-- 主文件: `main.tex`; 各讲、附录和书末: `chapters/`.
-- 编译产物: `build/SGA6-zh-CN.pdf`, 394 页.
-- 独立源码包: `SGA6-zh-CN-source.zip`.
-- 逐段来源范围: `COVERAGE.tsv`; 底本与 ZIP 校验: `audits/SOURCES.json`.
+版式依本书LNM225黑黄封面、开本比例与讲次层级适配中文。正文、数学、图式、丛书题名页、出版说明、196条丛书目录和封底均为原生LaTeX/TikZ；最终PDF没有栅格图像资源。封二被贴纸遮挡部分据同年LNM228原版封二逐行核对恢复，证据见 `audits/R3-PUBLISHER-WITNESS.json`。原始扫描件、既有中文资料及其他作者目录未改。
 
-在本目录运行:
+全部700个原印页（含原印空白690页）、前置材料、参考文献、234项术语及符号索引均已逐页对读，台账见 `audits/R3-ORIGINAL-COVERAGE.json`。原书自身的疑误以相邻译校注说明，未补造假设或证明。一次独立保真审读不等于对原书全部数学论证作出有效性认证，本稿仍称工作稿。
 
-```sh
-./build.sh
-```
+最终合卷和源码ZIP独立解包构建都实际完成两遍、退出0；全部441页的提取文字和108dpi RGB像素逐页一致。两份PDF的二进制哈希因构建元数据不同而不同，不冒称PDF逐字节相同。构建记录见 `audits/R3-REPLAY.json` 与 `R3-REPLAY-PAGEHASHES.json`。最终打包只更新审计/状态元数据；115项冻结TeX、依赖和构建脚本逐字节与实际重编译包相同，核验见 `audits/FINAL_ARTIFACTS.json`。
 
-脚本以禁用 shell escape 的 XeLaTeX 连续编译两遍. 标准 TeX Live 需提供 amsmath、mathtools、mathrsfs、tikz-cd、enumitem、longtable、booktabs、hyperref、hyperxmp、microtype、fontspec. 中文依赖 ctex/xeCJK/zhnumber 已置于 `dependencies/`, 来自官方 ctex-kit 的固定 2022 标签并保留源文件及 LPPL 声明. 不需要原始 PDF 或联网才能构建本稿.
+缺字、未定义控制序列、未定义引用、横纵溢出及越出纸页的文字块均为零。全部1492个英文稳定目标保留；中文1525个目标无重复或悬空引用，已在实际PDF目的地复核。保留5条字体替代/字号提示、12条Underfull提示及3条固定依赖包的名称提示；对应页面均已看图，没有据这些警告声称“零警告”。见 `audits/MECHANICAL.json` 及重编译日志计数。
 
-系统字体需有 Noto Serif CJK SC、Noto Sans CJK SC、Noto Sans Mono CJK SC 与 Latin Modern Roman. 字体不捆绑. 本次使用 TeX Live 2025, LaTeX2e 2024-11-01. `audit-project.py` 使用 Python3; PDF 边界检查还使用 PyMuPDF, 与编译本身无关.
+视觉核验先实际逐页查看442页冻结稿，再复看441页修订版的98个变动页和最后7个变动页；未变页以逐像素相同比对承接真实查看记录。全部431个编号页页脚顺序另作机械核验。已报告的游离标记、标点、孤立标题和图标签拥挤均解决；脚注157在正常行首随“所以”出现，清楚可读，作为非阻断换行观察保留。完整证据链见 `audits/R3-NATIVE-VISUAL-COMPLETION.json`。
 
-## 原书样式与原生内容
+用户2026-10-21的暂停及旧424页验证只作历史记录保存在 `PAUSED.md`、`audits/R2-REPLAY.json` 等；项目于2026-10-22获明确恢复。旧394/424/434页审计不能代替当前441页证据。当前无已识别未译原页或访问阻断。父线程负责全局索引与合入，本目录不修改全局文件。
 
-封面采用 LNM225 原书的黑黄分区、编号和题名层级, 全部用 TikZ 矢量元素重建; 未复制藏书贴纸. 书页为 170×248mm 的窄开本, 保留简洁讲次、题名、作者和原有数学编号, 中文用宋体正文. 没有扫描页覆盖、图像数学或通用讲义模板. 交换图均为原生 TeX/TikZ. 原书目录列原页码, 其中英文误列的第四讲起始页222已依法文纠正为274.
+## 当前产物校验
 
-## 本次实际验证
-
-- 合卷连续两遍 XeLaTeX 编译成功, 394 页.
-- 从源码 ZIP 解压至独立 `/tmp` 目录, 连续两遍编译也成功, 394 页; 原生 TeX 文件逐字节相同, 两份 PDF 的全部页面提取文本 SHA-256 一致. 见 `audits/REPLAY.json`.
-- 英文的全部1492个稳定锚点均保留; 中文含1496个锚点（4个原文恢复新增）, 无重复锚点或悬空链接. PDF有2321个链接注释, 内部页目标均有效.
-- 缺字、未定义控制序列、未定义 LaTeX 引用、纵向溢出均为0. 有一处1.98pt横向正文宽度溢出, 未越过纸页边界; 保留真实日志, 未抑制警告. 另有中文斜体回退正体与最多1pt字号替代提示.
-- 全394页文字块边界检查未发现超出纸页. 最终PDF实际查看13个样页, 包括封面、译稿说明、目录、公式/证明、恢复的V4.11–4.14、VI/VII/VIII及索引. 另有逐讲独立样稿检查. 抽查范围见 `audits/RENDER_PLAN.json`; 未宣称逐页视觉校对.
-
-这些结果只说明上述构建与机械项目, 不证明数学正确、翻译完美或原书完整. 第V等讲仍有已知原书删节待恢复, 第III等讲仍有来源疑点. 此稿不可标为 SGA6 原书完整重建完成.
+根目录 `DELIVERABLES.sha256` 按当前实际文件字节生成，覆盖主文件、PDF、源码ZIP、进度和覆盖表。它和 `audits/FINAL_ARTIFACTS.json` 是库外层产物记录，不嵌入源码ZIP，以避免ZIP包含自身哈希。源码包仍保留全部冻结编译输入；独立解包编译按上文命令执行。

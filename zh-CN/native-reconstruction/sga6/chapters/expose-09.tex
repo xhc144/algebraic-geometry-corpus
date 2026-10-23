@@ -75,15 +75,20 @@ K_\bullet(X_{S'}) \arrow[r,"u_*"] & K_\bullet(X) \arrow[r,"v^*"] & K_\bullet(X_U
 \]
 其中 $i$ 和 $j$ 分别为 $S'$ 和 $U$ 到 $S$ 的浸入, $u$ 和 $v$ 分别为 $X_{S'}$ 和 $X_U$ 到 $X$ 的浸入. 我们证明: 若 $\varphi_{S'}$ 和 $\varphi_U$ 为满射, 则 $\varphi$ 也是满射.
 
-由 1.1, 两个横行均正合. 因此, 为证 $\varphi$ 为满射, 只需证明两个方块交换. 对 $x_i\in K_\bullet(S')$, 有
+% FR printed 501 / physical PDF 515: restore the base-changed pullback.
+由 1.1, 两个横行均正合. 因此, 为证 $\varphi$ 为满射, 只需证明两个方块交换. 设 $(x'_i)_{i\in I}\in K_\bullet(S')^{(I)}$, 则
 \[
- \varphi(i_*(x_i))=\sum_i \xi_i f^*i_*(x_i),
+ \varphi\circ i_*((x'_i))=\varphi((i_*(x'_i)))=\sum_i \xi_i f^*(i_*(x'_i)),
 \]
 另一方面,
 \[
- u_*\varphi_{S'}((x_i))=u_*\left(\sum_i\xi_i u^*f^*(x_i)\right)=\sum_i \xi_i u_*(u^*f^*(x_i)),
+\begin{aligned}
+ u_*\circ\varphi_{S'}((x'_i))
+ &=u_*\left(\sum_i\xi_i f_{S'}^*(x'_i)\right)\\
+ &=\sum_i \xi_i u_*\bigl(f_{S'}^*(x'_i)\bigr),
+\end{aligned}
 \]
-最后的等式来自投影公式\hyperlink{sga6.e04.eq.2-11-1-2}{IV 2.11.1.2}. 因此, 等式 $\varphi i_*=u_*\varphi_{S'}$ 来自 $f^*i_*=u_*u^*f^*$; 后者由\hyperlink{sga6.e04.prop.3-1-1}{IV 3.1.1} 成立, 因为 $i$ 固有且 $f$ 平坦. 同样, 对 $(x_i)\in K_\bullet(S)^{(I)}$, 有
+最后的等式来自投影公式\hyperlink{sga6.e04.eq.2-11-1-2}{IV 2.11.1.2}. 因此, 等式 $\varphi i_*=u_*\varphi_{S'}$ 来自 $f^*i_*=u_*f_{S'}^*$; 后者由\hyperlink{sga6.e04.prop.3-1-1}{IV 3.1.1} 成立, 因为 $i$ 固有且 $f$ 平坦. 同样, 对 $(x_i)\in K_\bullet(S)^{(I)}$, 有
 \[
  \varphi_U(j^*(x_i))=\sum_i\xi_i f_U^*j^*(x_i),
 \]
@@ -139,7 +144,11 @@ K_\bullet(X_{S_{\mathrm{red}}}) \arrow[r] & K_\bullet(X)
 \[
  \varphi:K_\bullet(S)^{(K^\circ(X))}\longrightarrow K_\bullet(X)
 \]
-为满射. 按 $\varphi$ 的定义, 这等价于上述张量积同态为满射.
+为满射. 按 $\varphi$ 的定义, 这等价于同态
+\[
+ K_\bullet(S)\otimes_{K^\circ(S)}K^\circ(X)\longrightarrow K_\bullet(X)
+\]
+为满射.
 
 \sgaStableTarget{sga6.e09.cor.1-4}\textbf{推论 1.4.} 设 $f:X\to S$ 为诺特概形间的平坦态射. 假定对 $S$ 的每个点 $s$, 典范同态 $\mathbb Z\to K_\bullet(X_s)$ 均为同构. 则
 \[
@@ -287,11 +296,12 @@ K_\bullet(X_{S_{\mathrm{red}}}) \arrow[r] & K_\bullet(X)
 \]
 为同构.
 
-沿用\hyperlink{sga6.e06.sec.4.5}{VI 4.5} 的记号. 于是 $L_i$ 为 $E$ 在 $X$ 上的逆像的典范商, $F_j$ 为 $L_j\to L_{j-1}$ 的核, $\lambda_i^{(j)}$ 为 $\Lambda^i(F_j)$ 在 $K^\circ(X)$ 中的类. 则各 $\lambda_i^{(j)}$ 生成 $K^\circ(S)$ 代数 $K^\circ(X)$ (\hyperlink{sga6.e06.thm.4-6}{VI 4.6}). 同样, 对 $S$ 的每个点 $s$, 各 $\lambda_i^{(j)}$ 在 $K^\circ(X_s)$ 中的像生成 $K^\circ(k(s))=\mathbb Z$ 代数 $K^\circ(X_s)$. 由于 $X_s$ 是域上的旗概形, 它正则, 因而 $K^\circ(X_s)\to K_\bullet(X_s)$ 为同构. 从而 $K^\circ(X)\to K_\bullet(X_s)$ 为满射. 由\hyperlink{sga6.e09.cor.1-3}{1.3}, 这蕴含
+沿用\hyperlink{sga6.e06.sec.4.5}{VI 4.5} 的记号. 于是 $L_i$ 为 $E$ 在 $X$ 上的逆像的典范商, $F_j$ 为 $L_j\to L_{j-1}$ 的核 ($j=1,\ldots,k$), $\lambda_i^{(j)}$ 为 $\Lambda^i(F_j)$ 在 $K^\circ(X)$ 中的类. 则各 $\lambda_i^{(j)}$ 生成 $K^\circ(S)$ 代数 $K^\circ(X)$ (\hyperlink{sga6.e06.thm.4-6}{VI 4.6}). 同样, 对 $S$ 的每个点 $s$, 各 $\lambda_i^{(j)}$ 在 $K^\circ(X_s)$ 中的像生成 $K^\circ(k(s))=\mathbb Z$ 代数 $K^\circ(X_s)$. 由于 $X_s$ 是域上的旗概形, 它正则, 因而 $K^\circ(X_s)\to K_\bullet(X_s)$ 为同构. 从而 $K^\circ(X)\to K_\bullet(X_s)$ 为满射. 由\hyperlink{sga6.e09.cor.1-3}{1.3}, 这蕴含
+% FR printed 510 prints K^circ(S) as the second factor. Preserve and flag it visibly.
 \[
- K_\bullet(S)\otimes_{K^\circ(S)}K^\circ(X)\longrightarrow K_\bullet(X)
+ K_\bullet(S)\otimes_{K^\circ(S)}K^\circ(S)\longrightarrow K_\bullet(X)
 \]
-为满射, 其中第二个因子为 $K^\circ(X)$.
+为满射.\footnote{译校注: 原书第 510 页此式的第二个因子印作 $K^\circ(S)$. 按命题及上下文, 相容的写法应为 $K^\circ(X)$; 此处保留原书印法.}
 
 为证单射性, 可先归结为完全旗丛 $D(E)$ 的情形. 事实上, 假定
 \[
@@ -354,7 +364,7 @@ K_\bullet(X_{S_{\mathrm{red}}}) \arrow[r] & K_\bullet(X)
 它等同于次数 $0$ 的齐次分式环 $S(F)_{(s)}$. 因此 $P$ 等同于 $\mathbb P(F)$ 的开集 $D_+(s)$. $P$ 在 $\mathbb P(F)$ 中的补集为 $\operatorname{Proj}(S(F)/sS(F))$, 由\hyperlink{sga6.e09.eq.3-3-1}{(3.3.1)} 可将其等同于 $\mathbb P(E)$. 因而有浸入
 \[
 \begin{tikzcd}[column sep=large,row sep=small]
-\mathbb P(E) \arrow[r,hook] \arrow[dr] & \mathbb P(F) & P \arrow[l,hook'] \arrow[dl]\\
+\mathbb P(E) \arrow[r,hook] \arrow[dr] & \mathbb P(F) \arrow[d] & P \arrow[l,hook'] \arrow[dl]\\
 & S &
 \end{tikzcd}
 \]
@@ -423,7 +433,7 @@ $K_\bullet$ 群间的同态可由 $K^\circ$ 群间的同态与 $K_\bullet(S)$ �
 \]
 
 % SGA-SRC-001466
-此外, $B$ 为其幺幂根基 $U$ 与保持各 $e_i$ 不变的极大子环面 $T$ 的半直积. 设 $Y_0=G/U$. 则 $Y_0$ 是 $X_0$ 上群 $T_{X_0}$ 下的挠子. 若 $S'$ 为 $S$ 概形, 给定 $Y_0$ 的一个 $S'$ 点等价于在某个忠实平坦且拟紧的 $S'$ 概形 $S''$ 上给定一个 $E_{0,S''}$ 的自同构模去 $U_{S''}$ 的幺幂元素; 亦即给定由自由子模构成的 $E_{0,S''}$ 的旗, 并对每个 $i$ 给定一类在 $\mathcal O_{S''}$ 上自由的元素 $f_i^\alpha$, 使得 $f_i^\alpha-f_i^\beta\in G_{0,S''}^{(i)}$. 等价地, 给定 $E_{0,S''}$ 的旗以及对每个 $i$ 给定 $F_{0,S''}^{(i)}$ 的一组基, 这些数据须满足 $S''\times_{S'}S''$ 上的黏合条件. 由 fpqc 下降, 这等价于在 $S'$ 上给定同样的数据. 因此 $Y_0$ 为代数
+此外, $B$ 为其幺幂根基 $U$ 与保持各 $e_i$ 不变的极大子环面 $T$ 的半直积. 设 $Y_0=G/U$. 则 $Y_0$ 是 $X_0$ 上群 $T_{X_0}$ 下的挠子. 若 $S'$ 为 $S$ 概形, 给定 $Y_0$ 的一个 $S'$ 点等价于在某个忠实平坦且拟紧的 $S'$ 概形 $S''$ 上给定一个 $E_{0,S''}$ 的自同构模去 $U_{S''}$ 的幺幂元素; 亦即给定由自由子模构成的 $E_{0,S''}$ 的旗, 并对每个 $i$ 给定一类在 $\mathcal O_{S''}$ 上自由的元素 $f_i^\alpha$, 使得 $f_i^\alpha-f_i^\beta\in G_{0,S''}^{(i+1)}$\footnote{译校注: 原书第 515 页此处印作 $(i+1)$. 按前文 $F_0^{(i)}=G_0^{(i-1)}/G_0^{(i)}$ 的定义, 相容的指标应为 $(i)$; 此处保留原书印法.}. 等价地, 给定 $E_{0,S''}$ 的旗以及对每个 $i$ 给定 $F_{0,S''}^{(i)}$ 的一组基, 这些数据须满足 $S''\times_{S'}S''$ 上的黏合条件. 由 fpqc 下降, 这等价于在 $S'$ 上给定同样的数据. 因此 $Y_0$ 为代数
 \[
  A_0=\bigoplus_{k_i\in\mathbb Z}(F_0^{(1)})^{\otimes k_1}\otimes\cdots\otimes(F_0^{(n)})^{\otimes k_n}.
 \]
