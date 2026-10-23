@@ -1,0 +1,160 @@
+% SGA 3, Exposé VIII, English reconstruction.
+% Scope: opening and §1 through the proof of Corollary 1.3.
+% Authority: Polo--Gille Exp8-8nov09.pdf, component-local pp. 1--4 (partial),
+% complete-reader pp. 617--620 (partial).
+% Jacob Reinhold's CC BY 4.0 Markdown lineage was used only as a phrasing
+% comparison. The Polo--Gille PDF controls text, formulas, numbering, and notes.
+
+\setcounter{footnote}{-1}
+\SGARefTarget{sga3:viii:chapter:viii}\chapter*{第 VIII 讲\\可对角化群}
+\addcontentsline{toc}{chapter}{第 VIII 讲. 可对角化群}
+\markboth{第 VIII 讲. 可对角化群}%
+  {第 VIII 讲. 可对角化群}
+
+\begin{center}
+  \textit{A. Grothendieck 著}\footnote{编者注：2009 年 11 月 8 日第 \SGARefLink{sga3:viii:definition:1:1}{1.1} 版。在 \SGARefLink{sga3:viii:theorem:1:2}{1.2}、\SGARefLink{sga3:viii:corollary:1:4}{1.4}、\SGARefLink{sga3:viii:paragraph:1-7}{1.7}、\SGARefLink{sga3:viii:theorem:3:1}{3.1}、\SGARefLink{sga3:viii:corollary:3:4}{3.4}、\SGARefLink{sga3:viii:remark:4:5:1}{4.5.1}、\SGARefLink{sga3:viii:theorem:6:4}{6.4} 和 \SGARefLink{sga3:viii:remark:6:8}{6.8} 中作了增补；1.5.1 和\SGARefLink{sga3:viii:section:7}{第~7~节}尚待修订。}
+\end{center}
+
+\SGARefTarget{sga3:viii:section:1}\section*{1. 双对偶}
+\addcontentsline{toc}{section}{1. 双对偶}
+
+% Source page: Exp8 component-local p. 1; complete-reader p. 617.
+设 \(\mathscr C\) 为范畴，照例将它与
+\[
+  \widehat{\mathscr C}
+  =\operatorname{Hom}(\mathscr C^{\circ},\mathbf{Set})
+\]
+的一个全子范畴等同（参见第 I 讲）。设 \(I\) 为交换群函子，即 \(\widehat{\mathscr C}\) 中带有交换群结构的对象（参见 I，\SGARefLink{sga3:i:subsection:2-1}{2.1}）。\footnote{编者注：以下扩充了原文。}对每个 \(X\in\operatorname{Ob}(\widehat{\mathscr C})\)，对象 \(\operatorname{Hom}(X,I)\) 带有由 \(I\) 的交换群结构诱导的交换群结构。对 \(\widehat{\mathscr C}\) 中的每个群 \(G\)，置
+\[
+  D(G)=\operatorname{Hom}_{\mathrm{gr}}(G,I),
+\]
+即 \(\operatorname{Hom}(G,I)\) 中对每个 \(S\in\operatorname{Ob}(\mathscr C)\) 由
+\SGARefTarget{sga3:viii:eq:1:x}
+\begin{equation}
+  \tag{x}
+  D(G)(S)=\operatorname{Hom}_{S\text{-}\mathrm{gr}}(G_S,I_S),
+\end{equation}
+定义的子对象，其中将 \(G_S=G\times S\) 和 \(I_S=I\times S\) 看作 \(S\)-群，即 \(\widehat{\mathscr C}_{/S}\) 中的群。因此 \(D(G)\) 为 \(\operatorname{Hom}(G,I)\) 的 \(\widehat{\mathscr C}\)-子群。这样便得到从 \(\widehat{\mathscr C}\)-群范畴到交换 \(\widehat{\mathscr C}\)-群范畴的反变函子 \(D\)。
+
+\(\SGARefLink{sga3:viii:eq:1:x}{(x)}\) 的右边还可解释为 \(\operatorname{Hom}(G\times S,I)\) 中由“关于第一个变元 \(G\) 满足乘法性”的态射 \(G\times S\to I\) 组成的子集。此外，当 \(S\) 为 \(\widehat{\mathscr C}\) 的任意对象，不一定来自 \(\mathscr C\) 时，上述公式仍成立。
+
+现在取 \(S\) 为 \(\widehat{\mathscr C}\) 中的群，记为 \(G'\)。在 \(\SGARefLink{sga3:viii:eq:1:x}{(x)}\) 左边的 \(\operatorname{Hom}(G',D(G))\) 中，考虑由保持 \(G'\) 和 \(D(G)\) 的群结构的态射组成的子集 \(\operatorname{Hom}_{\mathrm{gr}}(G',D(G))\)。
+
+% Source page: Exp8 component-local p. 2; complete-reader p. 618.
+它对应于 \(\operatorname{Hom}(G\times G',I)\) 中由关于两个变元分别满足乘法性的态射组成的子集——可称为\emph{从 \(G\times G'\) 到 \(I\) 的双线性态射}，或\emph{\(G\) 与 \(G'\) 取值于 \(I\) 的配对}。因此有
+\SGARefTarget{sga3:viii:eq:1:xx}
+\begin{equation}
+  \tag{xx}
+  \operatorname{Hom}_{\mathrm{gr}}(G',D(G))
+  \xrightarrow{\ \sim\ }
+  \operatorname{Hom}_{\mathrm{bil}}(G\times G',I),
+\end{equation}
+且关于对 \((G,G')\) 是函子性的。由于右边关于 \(G\) 与 \(G'\) 对称，得到函子性双射
+\SGARefTarget{sga3:viii:eq:1:xxx}
+\begin{equation}
+  \tag{xxx}
+  \operatorname{Hom}_{\mathrm{gr}}(G',D(G))
+  \xrightarrow{\ \sim\ }
+  \operatorname{Hom}_{\mathrm{gr}}(G,D(G')).
+\end{equation}
+换言之，给定群同态 \(G'\to D(G)\) 与给定群同态 \(G\to D(G')\)“是一回事”：二者都相当于给定配对 \(G\times G'\to I\)。
+
+将此用于 \(G'=D(G)\) 和恒等同态 \(G'\to D(G)\)，得到典范同态
+\SGARefTarget{sga3:viii:eq:1:xxxx}
+\begin{equation}
+  \tag{xxxx}
+  G\longrightarrow D(D(G)).
+\end{equation}
+
+\medskip
+\noindent\SGARefTarget{sga3:viii:definition:1:0}\textbf{定义 1.0.}
+\footnote{编者注：增加了编号 \SGARefLink{sga3:viii:definition:1:0}{1.0}、\SGARefLink{sga3:viii:proposition:1:0:1}{1.0.1} 等，以明确列出这里所含的定义和陈述。}
+\textit{若\SGARefLink{sga3:viii:eq:1:xxxx}{上述同态}为同构，则称群 \(G\) 为\emph{自反的}（相对于 \(I\)）。特别地，这蕴含 \(G\) 交换。}
+
+因此有：
+
+\medskip
+\noindent\SGARefTarget{sga3:viii:proposition:1:0:1}\textbf{命题 1.0.1.}
+\textit{函子 \(D\) 在自反 \(\widehat{\mathscr C}\)-群范畴与自身之间诱导反等价。}
+
+特别地，若 \(G\) 与 \(H\) 为自反群，则 \(D\) 诱导同构
+\[
+  \operatorname{Hom}_{\mathrm{gr}}(G,H)
+  \xrightarrow{\ \sim\ }
+  \operatorname{Hom}_{\mathrm{gr}}(D(H),D(G)).
+\]
+事实上，由 \(\SGARefLink{sga3:viii:eq:1:xxx}{(xxx)}\)，只需 \(H\) 自反就够了。
+
+\medskip
+\noindent\SGARefTarget{sga3:viii:definition:1:0:2}\textbf{定义 1.0.2.}
+\textit{照例，若一个 \(\mathscr C\)-群 \(G\) 作为 \(\widehat{\mathscr C}\)-群是自反的，就称其为\emph{自反的}，不论 \(D(G)\) 是否可表。}
+
+因此，\(D\) 在使 \(D(G)\) 可表的自反 \(\mathscr C\)-群 \(G\) 的范畴与自身之间给出反等价。
+
+\medskip
+\noindent\SGARefTarget{sga3:viii:remark:1:0:3}\textbf{注 1.0.3.}
+最后指出，对偶 \(D(G)\) 的构造与基扩张交换，因而基扩张将自反群变为自反群。
+
+此后在如下背景下工作。令 \(\mathscr C=(\mathbf{Sch})_{/S}\) 为 \(S\) 上的预概形范畴，令 \(I=\mathbf G_{m,S}\) 为“\(S\) 上的乘法群”（参见第 I 讲）。对每个通常的群 \(M\)，考虑常值 \(S\)-群 \(M_S\)。对 \(S\) 上的每个群预概形 \(J\)，有关于 \(M\) 和 \(J\) 函子性且与基扩张相容的典范同构
+\[
+  \operatorname{Hom}_{S\text{-}\mathrm{gr}}(M_S,J)
+  =\operatorname{Hom}_{\mathrm{gr}}(M,J(S)).
+\]
+
+% Source page: Exp8 component-local p. 3; complete-reader p. 619.
+将此用于 \(J=I=\mathbf G_{m,S}\) 以及 \(S\) 上变动的 \(S'\)，得到函子性同构
+\SGARefTarget{sga3:viii:eq:1:0:4}
+\begin{equation}
+  \tag{1.0.4}
+  D(M_S)(S')
+  \xrightarrow{\ \sim\ }
+  \operatorname{Hom}_{\mathrm{gr}}(M,\mathbf G_m(S')).
+\end{equation}
+这样就重新得到了 I，\SGARefLink{sga3:i:subsection:4-4}{4.4} 中已考虑的函子，也记为 \(D_S(M)\)。当 \(M\) 交换时，它是可表的，因为
+\[
+  D_S(M)=D(M_S)=\operatorname{Spec}\mathscr O_S(M),
+\]
+其中 \(\mathscr O_S(M)\) 表示 \(M\) 在 \(\mathscr O_S\) 上的群代数。此外，一般地，将 \(M\) 换为其阿贝尔化时 \(D(M)\) 不变，所以假设 \(M\) 交换并不损失任何信息。
+
+\medskip
+\noindent\SGARefTarget{sga3:viii:definition:1:1}\textbf{定义 1.1.}
+\textit{若 \(S\) 上的群预概形 \(G\) 同构于形如}
+\[
+  D_S(M)=D(M_S)
+  =\operatorname{Hom}_{S\text{-}\mathrm{gr}}(M_S,\mathbf G_m)
+\]
+\textit{的概形，其中 \(M\) 为适当的交换群，就称其为\emph{可对角化的}。若 \(S\) 的每个点都有开邻域 \(U\)，使 \(G|_U\) 可对角化，就称其为\emph{局部可对角化的}。}
+
+\medskip
+\noindent\SGARefTarget{sga3:viii:theorem:1:2}\textbf{定理 1.2.}
+\textit{设 \(\Gamma\) 为 \(S\) 上的常值交换群概形，即假设它同构于形如 \(M_S\) 的群概形，其中 \(M\) 为通常的交换群。则 \(\Gamma\) 自反：典范同态}
+\[
+  \Gamma\longrightarrow D(D(\Gamma))
+\]
+\textit{为同构。\footnote{编者注：增加了下句。}因此，可对角化群 \(D(M_S)\) 也自反。}
+
+根据定义，将\SGARefLink{sga3:viii:corollary:1:3}{下一个陈述}用于 \(S\) 上的预概形 \(S'\) 即可得出此结论。
+
+\medskip
+\noindent\SGARefTarget{sga3:viii:corollary:1:3}\textbf{推论 1.3.}
+\textit{设 \(G=D(M_S)\)。每个 \(S\)-群同态}
+\[
+  u:G\longrightarrow\mathbf G_{m,S}
+\]
+\textit{都由 \(M_S\) 在 \(S\) 上的唯一截面定义，等价地，由从 \(S\) 到 \(M\) 的唯一局部常值映射定义。}
+
+\emph{证明。}
+由定义，
+\[
+  \mathbf G_{m,S}
+  =\operatorname{GL}(1)_S
+  =\operatorname{Aut}_{\mathscr O_S\text{-}\mathrm{mod}}(\mathscr O_S).
+\]
+因此，给定群同态 \(G\to\mathbf G_{m,S}\)，等价于给 \(\mathscr O_S\) 赋予与其自然 \(\mathscr O_S\)-模结构相容的 \(G\)-\(\mathscr O_S\)-模结构（参见 I，\SGARefLink{sga3:i:subsection:4-7}{4.7}）。由 I，\SGARefLink{sga3:i:proposition:4-7-3}{4.7.3}，这也等价于在 \(\mathscr O_S\) 上给定 \(M\)-分次，即直和分解
+\[
+  \mathscr O_S=\bigoplus_{m\in M}\mathscr L_m.
+\]
+众所周知，有限型局部自由模的直和项仍为有限型局部自由模。因此，在 \(S\) 的每一点附近，每个 \(\mathscr L_m\) 或为零，或为秩一自由模；在后一种情形下，它在该邻域上与 \(\mathscr O_S\) 等同。令 \(S_m\) 为 \(S\) 中后一种情形成立的开子集。直和分解表明，各 \(S_m\) 覆盖 \(S\) 且两两不交。
+
+% Source page: Exp8 component-local p. 4 (opening); complete-reader p. 620.
+因此，给定群同态 \(G\to\mathbf G_{m,S}\) 等价于给定 \(S\) 分解为两两不交的开子集 \(S_m\)（\(m\in M\)）之并，从而等价于给定从 \(S\) 到 \(M\) 的局部常值映射。这就证明了\SGARefLink{sga3:viii:corollary:1:3}{推论~1.3}，从而也证明了\SGARefLink{sga3:viii:theorem:1:2}{定理~1.2}。\qed

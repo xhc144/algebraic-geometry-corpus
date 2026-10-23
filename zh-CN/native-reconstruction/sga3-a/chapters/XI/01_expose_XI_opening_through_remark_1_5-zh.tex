@@ -1,0 +1,81 @@
+\setcounter{footnote}{-1} \SGARefTarget{sga3:xi:chapter:xi}\chapter*{第 XI 讲\\可表性判据\\在仿射群概形的\\乘法型子群上的应用}\addcontentsline{toc}{chapter}{第 XI 讲．可表性判据与乘法型子群}\markboth{第 XI 讲．可表性判据}{第 XI 讲．可表性判据}
+
+\begin{center}\textit{A. Grothendieck 著}\footnote{编者注：2008 年 12 月 5 日 xy 版本。}\end{center}
+
+\SGARefTarget{sga3:xi:section:0}\section*{0. 引言}\addcontentsline{toc}{section}{0. 引言}
+
+如第 X 讲第~4、5 节所见，某些函子的可表性，例如形如 \(\operatorname{Hom}_S(X,Y)\) 的函子及各种相关构造的可表性，在关于群预概形的许多问题中起着重要作用。
+
+在对这一理论特别有用的结果中，除了第五讲、第 \(\mathrm{VI}_{\mathrm B}\) 讲及第八讲第~5 节所研究的商的可表性，还应提到形如 \[
+  \prod_{X/S} Y/X ,
+\] 的函子的可表性，其中 \(Y\) 是 \(X\) 的子对象。第八讲第~6 节在非常初等的情形中研究过这一问题；本讲第~\SGARefLink{sga3:xi:section:6}{6} 节将给出若干变体。这些结果给出各种中心化子、正规化子和输送子的可表性。
+
+\SGARefLink{sga3:xi:remark:6:12}{6.12} 以及第 XV、XVI 讲指出了较不初等的可表性判据，它们使用将发表于 EGA VI 的结果。那里将对前几讲未涵盖的情形给出商 \(G/H\) 的可表性判据；口头报告中没有展开这一判据。
+
+本讲的主要目的是证明定理 \SGARefLink{sga3:xi:theorem:4:1}{4.1} 和 \SGARefLink{sga3:xi:corollary:4:2}{4.2}，它们给出了非射影构造技术的典型例子，接近 EGA VI 将要展开的技术。自口头报告及本文写成以来，已经进一步发现，\SGARefLink{sga3:xi:theorem:4:1}{4.1} 和 \SGARefLink{sga3:xi:corollary:4:2}{4.2} 中的仿射假设在很大程度上可以去掉（参见第 XV 讲），而下一讲所展开的理论的主要部分也可以不用 \SGARefLink{sga3:xi:theorem:4:1}{4.1} 和 \SGARefLink{sga3:xi:corollary:4:2}{4.2}。最后，将乘法型群换成一般的约化群预概形（例如半单群），证明这些结果的类似结论，可能很有意义；在这种情形下，\SGARefLink{sga3:xi:theorem:4:1}{4.1} 和 \SGARefLink{sga3:xi:corollary:4:2}{4.2} 无疑将是证明中的关键结果。
+
+\SGARefTarget{sga3:xi:section:1}\section*{1. 平滑、平展与非分歧态射回顾}\addcontentsline{toc}{section}{1. 平滑、平展与非分歧态射回顾}
+
+请读者参阅 EGA IV，§§17、18；在其出版之前，可参阅 SGA 1，第 I、II、III 讲。不过，其中使用的某些 Noether 性假设在应用中不方便，应当换成有限呈示假设。
+
+\medskip\noindent\SGARefTarget{sga3:xi:definition:1:1}\textbf{定义 1.1。} --- \textit{设 \(S\) 为预概形，\[
+  F:(\mathbf{Sch})^\circ/S\longrightarrow(\mathbf{Ens})
+\] 为函子。若对每个在绝对意义下仿射的 \(S\)-预概形 \(S'\) 及每个由幂零理想 \(\mathscr J\) 定义的子概形 \(S'_0\subset S'\)，映射 \[
+  F(S')\longrightarrow F(S'_0)
+\] 均为满射（分别为单射、双射），则称函子 \(F\) 为\emph{形式平滑}的（分别为\emph{形式非分歧}\footnote{原文指出，现在更愿意用“净”（net）代替“非分歧”。}的、\emph{形式平展}的）。}
+
+\textit{若 \(S\)-预概形 \(X\) 对应的函子具有该性质，则称它在 \(S\) 上形式平滑（分别为在 \(S\) 上形式非分歧、在 \(S\) 上形式平展）。若它满足上述条件，且在 \(S\) 上局部有限呈示，则称它在 \(S\) 上平滑（分别为在 \(S\) 上非分歧、在 \(S\) 上平展）。}
+
+对 \(X\) 而言，这些定义的作用，一方面在于它们可用 \(X\) 所表示的函子极其简单地表达（实际中，\(X\) 往往正是作为表示某个明确描述的函子的 \(S\) 上的对象给出的），另一方面在于它们表达了突出的局部结构性质。下面回顾这些性质；证明见刚才引用的文献。
+
+\medskip\noindent\SGARefTarget{sga3:xi:proposition:1:2}\textbf{命题 1.2。} --- \textit{设 \(X\) 为 \(S\) 上局部有限呈示的预概形。则：}
+
+\begin{enumerate}\item[(i)]\SGARefTarget{sga3:xi:proposition:1:2:item:i}\textit{\(X\) 在 \(S\) 上平滑，当且仅当它在 \(S\) 上平坦，且其几何纤维 \[
+  X\otimes_S\operatorname{Spec}\kappa(s)
+\] 为正则概形。更一般地，\(X\) 在 \(x\in X\) 的某个邻域内于 \(S\) 上平滑（这时称 \(X\) 在点 \(x\) 处于 \(S\) 上平滑），当且仅当 \(X\) 在 \(x\) 处于 \(S\) 上平坦，且 \(X_s\) 在 \(x\) 处于 \(\kappa(s)\) 上平滑；即 \[
+  X_s\otimes_{\kappa(s)}\overline{\kappa(s)}
+\] 在位于 \(x\) 上方的各点处（或只在其中一点处）正则。}
+
+\item[(ii)]\SGARefTarget{sga3:xi:proposition:1:2:item:ii}\textit{假设 \(S\)，因而 \(X\)，局部 Noether。设 \(x\in X\)，\(s\in S\) 为其像。于是 \(X\) 在 \(x\) 处于 \(S\) 上的平滑性可以从 Noether 局部环的局部同态 \[
+  A=\mathscr O_{S,s}\longrightarrow B=\mathscr O_{X,x}
+\]（甚至从其完备化之间的局部同态 \(\widehat A\to\widehat B\)）由下述特征性质判定：\(B\) 在 \(A\) 上平坦，且 \(B\otimes_A k\) 在 \(A\) 的剩余域 \(k\) 上几何正则。等价地，对 \(k\) 的每个有限扩张 \(k'\)，\[
+  (B\otimes_A k)\otimes_k k'=B\otimes_A k'
+\] 是正则半局部环。当剩余域扩张 \(k(B)/k(A)\) 平凡时，这些条件还等价于：\(\widehat B\) 作为 \(\widehat A\)-代数，同构于形式幂级数代数 \[
+  \widehat A[[t_1,\ldots,t_n]].
+\]。}\end{enumerate}
+
+因此，从“形式”的观点看，\(X\) 在 \(S\) 上的结构就是 \(S\) 上的标准仿射空间 \(S[t_1,\ldots,t_n]\) 的结构。
+
+\medskip\noindent\SGARefTarget{sga3:xi:proposition:1:3}\textbf{命题 1.3。} --- \textit{设 \(X\) 为 \(S\) 上局部有限呈示的预概形。则：}
+
+\begin{enumerate}\item[(i)]\SGARefTarget{sga3:xi:proposition:1:3:item:i}\textit{下列条件等价：}\begin{enumerate}\item[(a)]\SGARefTarget{sga3:xi:proposition:1:3:item:i:item:a}\textit{\(X\) 在 \(S\) 上非分歧。}\item[(b)]\SGARefTarget{sga3:xi:proposition:1:3:item:i:item:b}\textit{对角态射 \(X\to X\times_S X\) 为开浸入。}\item[(c)]\SGARefTarget{sga3:xi:proposition:1:3:item:i:item:c}\textit{\(\Omega^1_{X/S}=0\)。}\item[(d)]\SGARefTarget{sga3:xi:proposition:1:3:item:i:item:d}\textit{\(X/S\) 的几何纤维离散且约化，即它们同构于基域的若干副本的不交和。}\item[(e)]\SGARefTarget{sga3:xi:proposition:1:3:item:i:item:e}\textit{对每个 \(s\in S\)，纤维 \[
+    X\otimes_S\operatorname{Spec}\kappa(s)=X_s
+  \] 在 \(\kappa(s)\) 上非分歧，或等价地，它同构于 \(\kappa(s)\) 的有限可分扩张的谱的不交和。}\end{enumerate}
+
+\item[(ii)]\SGARefTarget{sga3:xi:proposition:1:3:item:ii}\textit{\(X\) 在给定点 \(x\) 处，即在该点的某个邻域内，于 \(S\) 上非分歧，也有类似的逐点条件。例如，充要条件为 \(\mathscr O_{X_s,x}\) 是 \(\kappa(s)\) 的有限可分扩张。用局部同态 \[
+  A=\mathscr O_{S,s}\longrightarrow B=\mathscr O_{X,x},
+\] 表达，这就是说 \(B\otimes_A k\) 是 \(A\) 的剩余域 \(k\) 的有限可分扩张；等价地，\[
+  \mathfrak r(A)B=\mathfrak r(B)
+  \quad\text{and}\quad
+  k(B)/k(A)\ \text{is finite separable}.
+\]。当 \(A\)，因而 \(B\)，为 Noether 环且 \(k(A)\xrightarrow{\sim}k(B)\) 时，这还等价于 \(\widehat A\to\widehat B\) 为满射。}\end{enumerate}
+
+因此，从“形式”的观点看，称 \(X\) 在 \(S\) 上非分歧，就是说 \(X\) 本质上是 \(S\) 的子预概形。还需注意，条件 \SGARefLink{sga3:xi:proposition:1:3:item:i:item:d}{(d)} 和 \SGARefLink{sga3:xi:proposition:1:3:item:i:item:e}{(e)} 仅用 \(X/S\) 的纤维来表达。
+
+\medskip\noindent\SGARefTarget{sga3:xi:proposition:1:4}\textbf{命题 1.4。} --- \textit{设 \(X\) 为 \(S\) 上局部有限呈示的预概形。则 \(X\) 在 \(S\) 上平展，当且仅当它在 \(S\) 上平滑且非分歧（由定义立即可得），因而 \SGARefLink{sga3:xi:proposition:1:2}{1.2} 和 \SGARefLink{sga3:xi:proposition:1:3}{1.3} 中的判据适用。特别地：}
+
+\begin{enumerate}\item[(i)]\SGARefTarget{sga3:xi:proposition:1:4:item:i}\textit{\(X\) 在 \(S\) 上平展，当且仅当它在 \(S\) 上平坦且非分歧。\(X\) 在给定点 \(x\) 处于 \(S\) 上平展，也有类似的局部判据。}
+
+\item[(ii)]\SGARefTarget{sga3:xi:proposition:1:4:item:ii}\textit{再假设 \(S\)，因而 \(X\)，局部 Noether。则 \(X\) 在 \(x\) 处于 \(S\) 上平展，可从局部同态 \[
+  A=\mathscr O_{S,s}\longrightarrow B=\mathscr O_{X,x}
+\]\footnote{原文印作 \(\mathscr O_{X,s}\)；\(X\) 上该点的局部环为 \(\mathscr O_{X,x}\)。}（甚至从 \(\widehat A\to\widehat B\)）由下述特征性质判定：\(B\) 在 \(A\) 上平坦，且 \(B\otimes_A k\) 是 \(A\) 的剩余域\footnote{编者注：将“剩余扩张”改为“剩余域”。} \(k\) 的有限可分扩张。当 \(k(A)\xrightarrow{\sim}k(B)\) 时，这个条件仅仅是说 \(\widehat A\to\widehat B\) 为同构。}\end{enumerate}
+
+因此，从“形式”的观点看，称 \(X\) 在 \(S\) 上平展，仅仅是说 \(X\) 局部同构于 \(S\)。
+
+\medskip\noindent\SGARefTarget{sga3:xi:remark:1:5}\textbf{注 1.5。} --- 当 \(X\) 在 \(S\) 上局部有限呈示，且给定一点 \(x\in X\) 时，\(X\) 在 \(x\) 处，即在 \(x\) 的某个邻域内，于 \(S\) 上平滑（分别为非分歧、平展），也可从函子 \[
+  X:(\mathbf{Sch})^\circ/S\longrightarrow(\mathbf{Ens})
+\] 由下述性质判定。对每个为局部环的谱的 \(S\)-概形 \(S'\)、每个由幂零理想定义的子概形 \(S'_0\subset S'\)，以及每个将 \(S'\) 的闭点 \(s'\) 映到 \(x\) 的 \(S\)-态射 \(u_0:S'_0\to X\)，存在至少一个（分别为至多一个、恰好一个）延拓 \(u_0\) 的 \(S\)-态射 \(u:S'\to X\)。
+
+这一陈述特别表明，在 \SGARefLink{sga3:xi:definition:1:1}{定义 1.1} 中，只要所考虑的函子可由 \(S\) 上局部有限呈示的预概形表示，便可只考虑局部概形 \(S'\)。此外，当 \(S\) 局部 Noether 时，上述逐点判据甚至可以只取局部 Artin 概形 \(S'\)；因此，只要 \(S\) 局部 Noether 且所讨论的函子可由 \(S\) 上局部有限型的预概形表示，在 \SGARefLink{sga3:xi:definition:1:1}{定义 1.1} 中也可作同样限制。
+
+

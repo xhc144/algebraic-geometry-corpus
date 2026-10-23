@@ -1,0 +1,174 @@
+% SGA 3，报告 VII_A，中文重构——第 1 轮。
+% 范围：权威底本本地第 25--26 页，4.1.3--4.1.4，止于本地第 27 页的 4.2 之前。
+% 合并阅读本页码： 478--479. 再版本印刷页码： 467--468.
+% 本段原版页边定位： 437--439.
+% 权威底本：Polo--Gille Exp7A-13oct24.pdf,
+% SHA-256 D46DB8C79D0385643B6EED4B96900613248375F9B73B4202478A4F57FD3E8522.
+% 参照了 Jacob Reinhold 的 CC BY 4.0 Markdown 作为比对谱系。
+
+\medskip
+\noindent\textbf{4.1.3.}
+\phantomsection
+\label{sga3:VIIA:4.1.3}
+
+% 权威底本： Exp7A 本地页 25; 合并阅读本页 478; 印刷页 467.
+更一般地，对每个 \(S\)-函子 \(X\)，按 \(n\) 递归定义 \(S\)-函子 \(X^{(p^n)}\) 如下
+\[
+  X^{(p)}=X^{(p/S)}
+  \qquad\text{且}\qquad
+  X^{(p^n)}
+  =
+  \bigl(X^{(p^{n-1})}\bigr)^{(p)}.
+\]
+类似地，用 \(\operatorname{Fr}^n(X/S)\)，或简记 \(\operatorname{Fr}^n\)，表示复合函子性同态
+\begin{center}
+  \phantomsection
+  \label{sga3:VIIA:4.1.3-iterated-relative-frobenius-chain}
+  % SGA3-VII-DIAG-041
+  \input{figures/exp7/viia_05_14/diagram_041}
+\end{center}
+由 \SGARefLink{sga3:VIIA:4.1.1}{4.1.1}，\(\operatorname{Fr}(X^{(p)}/S)\) 与 \(\operatorname{Fr}(X/S)^{(p)}\) 一致；换言之，下图交换：
+\begin{center}
+  \phantomsection
+  \label{sga3:VIIA:4.1.3-iterated-frobenius-naturality-square}
+  % SGA3-VII-DIAG-042
+  \input{figures/exp7/viia_05_14/diagram_042}
+\end{center}
+
+若 \(G\) 是群 \(S\)-函子，则 \(G^{(p^n)}\) 仍是群 \(S\)-函子，且 \(\operatorname{Fr}^n(G/S)\) 是群 \(S\)-函子同态。
+
+\medskip
+\noindent\textbf{定义.}
+\phantomsection
+\label{sga3:VIIA:4.1.3-height-definition}
+\textit{将 \(\operatorname{Fr}^n(G/S)\) 的核记为 \(\operatorname{Fr}^nG\)；若 \(\operatorname{Fr}^n(G/S)\) 为零，即若 \(\operatorname{Fr}^nG=G\)，则称 \(G\) 的高度 \(\leq n\)。}
+
+\medskip
+\noindent\textbf{引理.}
+\phantomsection
+\label{sga3:VIIA:4.1.3-characteristic-kernel-lemma}
+\textit{\(G\) 的群子函子 \(\operatorname{Fr}^nG\) 是特征的：对每个 \(S\)-概形 \(T\)，群 \(T\)-函子 \(G_T\) 的每个自同态 \(\varphi\) 都诱导 \((\operatorname{Fr}^nG)_T\) 的一个自同态。}
+
+\begin{proof}
+由 \SGARefLink{sga3:VIIA:4.1.1}{4.1.1}，\(G^{(p^n)}\) 和 \(\operatorname{Fr}^n(G/S)\) 的构造与基变换交换。因此可设 \(T=S\)。此时断言由 \(\operatorname{Fr}^n(G/S)\) 是函子性同态这一事实得到。
+\end{proof}
+
+\medskip
+\noindent\textbf{4.1.4. 例.}
+\phantomsection
+\label{sga3:VIIA:4.1.4}
+
+\smallskip
+\noindent\textit{a)}
+先设 \(M\) 是一个“抽象”阿贝尔群，设
+\[
+  G=D_S(M)
+\]
+为类型 \(M\) 的可对角化群（I，\SGARefLink{sga3:i:subsection:4-4}{4.4}）。对每个 \(S\)-概形 \(T\)，
+\[
+  G(T)
+  =
+  \operatorname{Hom}_{(\mathbf{Ab})}
+    \bigl(M,\Gamma(T,\mathcal O_T)^\times\bigr).
+\]
+由于 \(G\) 是 \(\mathbb F_p\) 上的可对角化群 \(D(M)\) 的拉回，\(G^{(p)}\) 可等同于 \(G\)，而 \(\operatorname{Fr}(G/S)(T)\) 可等同于 \(G(T)\) 的自同态 \(x\mapsto x^p\)（\SGARefLink{sga3:VIIA:4.1.1}{4.1.1}）。特别地，当 \(M=\mathbb Z\) 时，有 \(D_S(M)=\mathbb G_{m,S}\)。故有：
+
+\begin{quote}
+\(\operatorname{Fr}\mathbb G_{m,S}\) 是 \(S\)-群 \(\boldsymbol\mu_{p,S}\)，它将每个 \(S\)-概形 \(T\) 映到 \(\Gamma(T,\mathcal O_T)^\times\) 中的 \(p\) 次单位根群。
+\end{quote}
+
+\smallskip
+\noindent\textit{b)}
+现设 \(S\) 是特征 \(p\) 的概形，\(\mathcal E\) 是 \(S\) 上的模层。由 I，\SGARefLink{sga3:i:proposition:4-6-2}{4.6.2}，有典范同构
+\[
+  \mathcal W(\mathcal E)^{(p)}
+  \xrightarrow{\sim}
+  \mathcal W(\mathcal E^{(p)}),
+\]
+其中 \(\mathcal E^{(p)}\) 是 \(\mathcal E\) 沿 \(\operatorname{fr}(S)\) 的拉回。对每个 \(S\)-概形 \(\pi:T\to S\)，由 \SGARefLink{sga3:VIIA:4.1}{4.1}~\((\dagger)\)，映射 \(\operatorname{Fr}(\mathcal W(\mathcal E)/S)(\pi)\) 由下列交换三角图确定：
+\begin{center}
+  \phantomsection
+  \label{sga3:VIIA:4.1.4-vector-group-frobenius-triangle}
+  % SGA3-VII-DIAG-043
+  \input{figures/exp7/viia_05_14/diagram_043}
+\end{center}
+其中 \(f'\) 为 \(\operatorname{fr}(T)\) 诱导的映射。
+
+% 权威底本： Exp7A 本地页 26; 合并阅读本页 479; 印刷页 468.
+特别地，若 \(\mathcal E=\mathcal O_S\)，则 \(\mathcal W(\mathcal E)\) 可等同于加法群 \(\mathbb G_{a,S}\)。此时 \(\mathcal E^{(p)}=\mathcal E=\mathcal O_S\)，且 Frobenius 态射 \(\operatorname{Fr}(\mathbb G_{a,S}/S)\) 将 \(x\in\Gamma(T,\mathcal O_T)\) 映到 \(x^p\)。因此：
+
+\begin{quote}
+\(\operatorname{Fr}\mathbb G_{a,S}\) 是 \(S\)-群 \(\boldsymbol\alpha_{p,S}\)，它将每个 \(S\)-概形 \(T\) 映到群
+\[
+  \bigl\{x\in\Gamma(T,\mathcal O_T)\mid x^p=0\bigr\}.
+\]
+\end{quote}
+
+\smallskip
+\noindent\textit{c)}
+类似地，对每个拟凝聚 \(\mathcal O_S\)-代数 \(\mathcal A\)，概形 \((\operatorname{Spec}\mathcal A)^{(p)}\) 可等同于 \(\operatorname{Spec}\mathcal A^{(p)}\)，即 \(\mathcal A\) 沿 \(\operatorname{fr}(S)\) 的拉回的谱。若 \(\pi\) 表示环层 \(\mathcal O_S\) 的自同态 \(x\mapsto x^p\)，则
+\[
+  \mathcal A^{(p)}
+  =
+  \mathcal A\otimes_\pi\mathcal O_S,
+  \tag{44}\label{sga3:vii:paragraph:4-1-4:equation:44}
+\]
+且 \(\operatorname{Fr}((\operatorname{Spec}\mathcal A)/S)\) 由 \(\mathcal O_S\)-代数态射
+\[
+  \mathcal A\otimes_\pi\mathcal O_S
+  \longrightarrow
+  \mathcal A,
+  \qquad
+  a\otimes_\pi x\longmapsto a^p x.
+\]
+诱导。
+\footnote{\(\mathcal A\otimes_\pi\mathcal O_S\) 表示沿 \(\pi:\mathcal O_S\to\mathcal O_S\) 扩张标量所得的 \(\mathcal O_S\)-代数；因此 \(ax\otimes_\pi1=a\otimes_\pi x^p\) 且 \(x\cdot(a\otimes_\pi1)=a\otimes_\pi x\)。}
+
+最后，对每个拟凝聚 \(\mathcal O_S\)-模 \(\mathcal E\)，有典范同构
+\[
+  \mathcal V(\mathcal E)^{(p)}
+  \xrightarrow{\sim}
+  \mathcal V(\mathcal E^{(p)})
+  \qquad\text{及}\qquad
+  \mathcal S(\mathcal E)^{(p)}
+  \xrightarrow{\sim}
+  \mathcal S(\mathcal E^{(p)}),
+\]
+其中 \(\mathcal S(\mathcal E)\) 表示 \(\mathcal O_S\)-模 \(\mathcal E\) 的对称代数。
+
+\smallskip
+\noindent\textit{d)}
+设 \(\mathcal U\) 是一个 \(\mathcal O_S\)-余代数（\SGARefLink{sga3:VIIB:3.1:lemma}{3.1}），\(S\) 是特征 \(p\) 的概形。若以 \(\mathcal U^{(p/S)}\)，或 \(\mathcal U^{(p)}\)，表示余代数 \(\mathcal U\) 沿 \(\operatorname{fr}(S)\) 的拉回，则如 \textit{b)} 中一样，有典范同构
+\[
+  \bigl(\operatorname{Spec}^{*}\mathcal U\bigr)^{(p)}
+  \xrightarrow{\sim}
+  \operatorname{Spec}^{*}\mathcal U^{(p)}.
+\]
+若 \(\mathcal U\) 是群余代数，则对 \(S\)-概形 \(T\)，\(\operatorname{Fr}(\operatorname{Spec}^{*}\mathcal U)\)，即 Frobenius 态射
+\[
+  \operatorname{Spec}^{*}\mathcal U
+  \longrightarrow
+  \bigl(\operatorname{Spec}^{*}\mathcal U\bigr)^{(p)},
+\]
+的核，其值是下列集合中的元素 \(\gamma\) 所成的集合：
+\[
+  \bigl(\operatorname{Spec}^{*}\mathcal U\bigr)(T)
+  =
+  \left\{
+    x\in\Gamma(T,\mathcal U_T)
+    \,\middle|\,
+    \varepsilon_{\mathcal U_T}(x)=1,\ 
+    \Delta_{\mathcal U_T}x=x\otimes x
+  \right\}
+\]
+这些元素满足：元素
+\[
+  \gamma\otimes_{\operatorname{fr}(T)}1
+  \in
+  \Gamma(T,\mathcal U_T)\otimes_{\operatorname{fr}(T)}
+    \mathcal O(T)
+\]
+在 \(\Gamma(T,\mathcal U_T\otimes_{\operatorname{fr}(T)}\mathcal O_T)\) 中的像等于 \(1\)。
+
+% 下一定位： Exp7A 本地页 27, 合并阅读本页 480,
+% 再版本印刷页 469, 在 4.2。

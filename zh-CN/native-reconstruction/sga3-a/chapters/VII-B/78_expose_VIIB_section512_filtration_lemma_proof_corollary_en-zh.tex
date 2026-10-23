@@ -1,0 +1,128 @@
+% SGA 3, Expose VII_B, English reconstruction -- Loop 1.
+% Scope: Proof and corollary completing Section 5.1.2 on authority
+% local pages 84--85; stops immediately before Section 5.1.3.
+% Combined-reader pages: 597--598. Re-edition printed pages: 586--587.
+% Original-edition marginal locator in scope: 554.
+% Editorial note in scope: 148.
+% Authority: Polo--Gille Exp7B-13oct24.pdf,
+% SHA-256 D303690E0195654BBE7C3DAA5D89EA23E24CD709A3575217234AC19AE8836694.
+% Jacob Reinhold's CC BY 4.0 Markdown was consulted as comparison lineage.
+% The genuine exact-rows proof diagram is an exact PDF-derived Loop 1 crop.
+
+\noindent\textit{证明。}
+对每个 \(i,j\geq0\)，置
+\[
+  W_{i,j}=U_i\widehat\otimes V_j,
+  \qquad
+  \overline W_{i,j}
+  =
+  (U_i/U_{i+1})\widehat\otimes_k(V_j/V_{j+1}).
+\]
+我们对 \(n\) 归纳，证明自然映射
+\[
+  \pi_n:W_n\longrightarrow
+  \bigoplus_{i+j=n}\overline W_{i,j}
+\]
+为满射，且包含关系
+\[
+  W_{n+1}\subset\ker(\pi_n)
+\]
+为等号。当 \(n=0\) 时，投影
+\[
+  \pi_0:
+  U_0\widehat\otimes_kV_0
+  \longrightarrow
+  (U_0/U_1)\widehat\otimes_k(V_0/V_1)
+\]
+为满射。由于 \(U_0\)、\(U_0/U_1\)，从而 \(U_1\) 都在 \(k\) 上拓扑平坦，有
+\[
+  \ker(\pi_0)
+  =
+  U_0\widehat\otimes_kV_1
+  +
+  U_1\widehat\otimes_kV_0,
+\]
+并且
+\[
+  \bigl(U_0\widehat\otimes_kV_1\bigr)
+  \cap
+  \bigl(U_1\widehat\otimes_kV_0\bigr)
+  =
+  U_1\widehat\otimes_kV_1.
+\]
+
+现在假设 \(n>0\)，且已对 \(n-1\) 证明了结果。置
+\[
+  M_0=U_0\widehat\otimes_kV_n,
+  \qquad
+  S_0=\sum_{i=1}^{n}U_i\widehat\otimes_kV_{n-i}.
+\]
+有 \(S_0\subset U_1\widehat\otimes_kV_0\)。将上述论证用于 \(V_0\supset V_n\) 代替 \(V_0\supset V_1\)，得到
+\[
+  M_0\cap S_0
+  \subset
+  \bigl(U_0\widehat\otimes_kV_n\bigr)
+  \cap
+  \bigl(U_1\widehat\otimes_kV\bigr)
+  =
+  U_1\widehat\otimes_kV_n.
+\]
+由此可得
+\[
+  M_0\cap S_0=U_1\widehat\otimes_kV_n.
+\]
+由于 \(W_n=M_0+S_0\)，得到如下各行正合的交换图，其中
+\[
+  U'_i=U_{i+1},
+  \qquad
+  W'_{i,n-1-i}=W_{i+1,n-1-i}
+  \quad(0\leq i\leq n-1):
+\]
+\begin{center}
+  \phantomsection
+  \label{sga3:VIIB:5.1.2:filtration-exact-rows-diagram}
+  % SGA3-VII-DIAG-125
+  \input{figures/exp7/viib_15_95/diag_125}
+\end{center}
+
+\phantomsection
+\label{sga3:VIIB:5.1.2:diagram-source-notation-note}
+\noindent\textit{底本说明。}\enspace
+法文图中下行中间的项印作 \(\bigoplus_{i=0}^{n}\overline W_{i,n-1}\)；而紧接其上定义的自然映射 \(\pi_n\) 的目标为 \(\bigoplus_{i+j=n}\overline W_{i,j}\)，这将给出 \(\bigoplus_{i=0}^{n}\overline W_{i,n-i}\)。规范记录 \texttt{SGA-SRC-000840} 接受这个互补指标；上图采用此指标，同时在此保留印本的读法。
+
+于是 \(p\) 为满射，其核为
+\[
+  (U_0/U_1)\widehat\otimes_kV_{n+1}.
+\]
+此外，将归纳假设用于序列 \((U'_i)\)，可知映射 \(\pi'_{n-1}\) 为满射，其核为
+\[
+  W'_n
+  =
+  \sum_{i=1}^{n}W_{i,n+1-i}.
+\]
+由此可知 \(\pi_n\) 为满射，且
+\[
+  W_{n+1}\subset\ker(\pi_n)
+\]
+为等号。引理得证。
+
+回到 \(\mathcal C\) 的对象 \((A,J)\)。由 \SGARefLink{sga3:VIIB:0.2.G}{0.2.G}，每个
+\[
+  \overline{J^n}/\overline{J^{n+1}}
+\]
+都在 \(k\) 上拓扑平坦的假设，等价于 \(\operatorname{Gr}_J(A)\) 在 \(k\) 上拓扑平坦。
+
+\medskip
+\noindent\textbf{推论。}
+\phantomsection
+\label{sga3:VIIB:5.1.2:corollary}
+{\itshape 令 \(\mathcal P\) 为 \(\mathcal C\) 的全子范畴，其对象为使 \(A\) 和 \(\operatorname{Gr}_J(A)\) 在 \(k\) 上拓扑平坦的对象 \((A,J)\)。则函子
+\[
+  \mathcal P\longrightarrow\mathbf{Alpg}/k,
+  \qquad
+  (A,J)\longmapsto\operatorname{Gr}_J(A),
+\]
+与有限余积交换，因而将 \(\mathcal P\) 的余群映至 \(\mathbf{Alpg}/k\) 的余群。
+
+特别地，若 \(k\) 为域，则对 \(\mathcal C\) 的每个余群 \((A,J)\)，代数 \(\operatorname{Gr}_J(A)\) 为 \(\mathbf{Alpg}/k\) 的余群。}
+\footnote{\label{sga3:VIIB:nde:148}因此，对形式 \(k\)-群对 \(H\subset G\)，可以联系一个“\(G\) 沿 \(H\) 的形式完备化 \(\widehat G_H\)”，它是形式 \(k\)-群。此外，我们将在 \SGARefLink{sga3:VIIB:5.1.3}{5.1.3}--\SGARefLink{sga3:VIIB:5.1.4}{5.1.4} 中看到，包含映射 \(\sigma:H\hookrightarrow\widehat G_H\) 有一个收缩映射 \(\pi:\widehat G_H\to H\)，而形式 \(k\)-群 \(N=\ker(\pi)\) 作为形式簇，与齐性空间 \(G/H\) 沿单位截面的完备化等同。这将在 \SGARefLink{sga3:VIIB:5.2.2}{5.2.2} 中用到。}

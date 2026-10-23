@@ -1,0 +1,659 @@
+% SGA 3，第 VII_A 讲， 英文重建稿——第 1 轮。
+% 范围：权威底本局部页 45--52, 全部 节 7,
+% including Remark 7.5 and 止于其前： 节 8.
+% 合并阅读本页码： 498--505. 再版印刷页码： 487--494.
+% 本范围内原版页边定位： 461--469.
+% 权威底本： Polo--Gille Exp7A-13oct24.pdf,
+% SHA-256 D46DB8C79D0385643B6EED4B96900613248375F9B73B4202478A4F57FD3E8522.
+% 曾参考 Jacob Reinhold 的 CC BY 4.0 Markdown 作为比对谱系。
+
+\section*{7. 高度为 1 的纯不可分群（radicial 群）}
+\phantomsection
+\label{sga3:VIIA:7}
+\addcontentsline{toc}{section}{7. 高度为 1 的纯不可分群（radicial 群）}
+
+% 权威底本： Exp7A 局部页 45; 合并本页 498; 印刷页 487.
+设 \(S\) 是特征为 \(p>0\) 的概形。\footnote{关于本节的结果，也可参阅 [DG70]，\S~II.7，第~3--4~段。}
+若 \(\mathcal O_S\)-代数 \(\mathcal A\)（分别地，\(\mathcal O_S\)-\(p\)-Lie 代数 \(\mathcal L\)）的底层 \(\mathcal O_S\)-模局部自由且为有限型，则称它\emph{有限局部自由}。若 \(\mathcal L\) 是有限局部自由 \(\mathcal O_S\)-\(p\)-Lie 代数，我们知道（参见 \SGARefLink{sga3:VIIA:5.5.2}{5.5.2}），群 \(S\)-函子
+\[
+  \operatorname{Spec}^{*}\mathcal U_p(\mathcal L)
+\]
+由一个有限局部自由 \(S\)-群概形 \(\mathfrak G_p(\mathcal L)\) 表示。我们将看到，此 \(S\)-群概形解决了一个泛问题（\SGARefLink{sga3:VIIA:7.2}{7.2}），并将刻画形如 \(\mathfrak G_p(\mathcal L)\) 的 \(S\)-群概形（\SGARefLink{sga3:VIIA:7.4}{7.4}）。
+
+\medskip
+\noindent\textbf{定义 7.0。}\footnote{编者添加了这个定义（参见 [DG70]，\S~II.4，\SGARefLink{sga3:VIIA:7.1}{7.1}），它将在 \SGARefLink{sga3:VIIA:7.2.1}{7.2.1} 中使用。}
+\phantomsection
+\label{sga3:VIIA:7.0}
+\textit{设 \(H=\operatorname{Spec}\mathcal A\) 是有限局部自由 \(S\)-群概形。若其单位截面 \(\varepsilon_H:S\to H\) 是同胚，则称 \(H\) 是\emph{无穷小的}；等价地，\(\mathcal A\) 的增广理想局部幂零。}
+
+\medskip
+\noindent\textbf{7.1.}\footnote{编者考虑了 \SGARefLink{sga3:VIIA:5.5}{5.5} 中增加的内容，简化了原文。}
+\phantomsection
+\label{sga3:VIIA:7.1}
+
+设 \(\mathcal L\) 是有限局部自由 \(\mathcal O_S\)-\(p\)-Lie 代数，并令 \(\mathfrak G_p(\mathcal L)\) 为仿射 \(S\)-群 \(\operatorname{Spec}\mathcal U_p(\mathcal L)\)。由 \SGARefLink{sga3:VIIA:5.5}{5.5}，\(\mathcal L\) 等同于 \(\operatorname{Lie}\mathfrak G_p(\mathcal L)\)。
+
+现在设 \(G\) 是满足 \SGARefLink{sga3:VIIA:6.3}{6.3} 的条件 (F) 的甚好 \(S\)-群函子，并设
+\[
+  \varphi:\mathfrak G_p(\mathcal L)\longrightarrow G
+\]
+是群 \(S\)-函子的态射。由 \SGARefLink{sga3:VIIA:6.3}{6.3}，\(\mathcal O_S\)-Lie 代数态射
+\[
+  \operatorname{Lie}\varphi:
+  \operatorname{Lie}\mathfrak G_p(\mathcal L)
+  \longrightarrow
+  \operatorname{Lie}G
+\]
+与符号 \(p\) 次幂相容。若以 \(\operatorname{Hom}_p(\mathcal L,\operatorname{Lie}G)\) 表示与符号 \(p\) 次幂相容的 \(\mathcal O_S\)-Lie 代数态射所成的集合，则得到映射
+\[
+  \operatorname{Lie}:
+  \operatorname{Hom}_{S\text{-Gr.}}
+    \bigl(\mathfrak G_p(\mathcal L),G\bigr)
+  \longrightarrow
+  \operatorname{Hom}_p
+    \bigl(\mathcal L,\operatorname{Lie}G\bigr),
+  \qquad
+  \varphi\longmapsto\operatorname{Lie}\varphi.
+\]
+
+\medskip
+\noindent\textbf{7.2. 定理。}
+\phantomsection
+\label{sga3:VIIA:7.2}
+
+\textit{若 \(\mathcal L\) 是有限局部自由 \(\mathcal O_S\)-\(p\)-Lie 代数，则映射}
+\[
+  \operatorname{Hom}_{S\text{-gr.}}
+    \bigl(\mathfrak G_p(\mathcal L),G\bigr)
+  \longrightarrow
+  \operatorname{Hom}_p
+    \bigl(\mathcal L,\operatorname{Lie}G\bigr)
+\]
+\textit{在下列各情形中都是双射：}
+\begin{enumerate}
+  \item[\textit{(i)}]
+  \textit{\(G\) 是 \(S\)-群概形；}
+  \item[\textit{\SGAInlineRefTarget{sga3:VIIA:7.2:item:ii}(ii)}]
+  \textit{\(G\) 形如 \(\operatorname{Aut}_S X\)，其中 \(X\) 是 \(S\)-概形；}
+  \item[\textit{(iii)}]
+  \textit{\(G\) 具有 \(\mathcal W(\mathcal F)\) 或 \(\operatorname{Aut}_{\mathcal O_S\text{-mod.}}\mathcal W(\mathcal F)\) 这两种形式之一，其中 \(\mathcal F\) 是拟凝聚 \(\mathcal O_S\)-模。}
+\end{enumerate}
+
+定理的证明基于下述引理。
+
+\medskip
+\noindent\textbf{引理。}
+\phantomsection
+\label{sga3:VIIA:7.2-frobenius-lemma}
+
+\textit{若 \(\mathcal L\) 是有限局部自由 \(\mathcal O_S\)-\(p\)-Lie 代数，则 \(S\)-群
+\[
+  G=\mathfrak G_p(\mathcal L)
+\]
+被 Frobenius 态射 \(\operatorname{Fr}:G\to G^{(p)}\) 零化。特别地，\(G\) 是无穷小的。}
+
+% 权威底本： Exp7A 局部页 46; 合并本页 499; 印刷页 488.
+事实上，令 \(\mathcal U\) 为 \(\mathcal L\) 的受限包络代数，\(\mathcal A=\mathcal U^{*}\) 为 \(G\) 的仿射代数，并令 \(\mathcal I=\ker\varepsilon_{\mathcal A}\) 为 \(\mathcal A\) 的增广理想。\footnote{编者在下文中补充了细节。另一个证明见 [DG70]，\S~II.7，3.9。}有
+\begin{equation}\SGAInlineEquationTarget{sga3:viia:paragraph:7-2:equation:1}
+  \mathcal A
+  =
+  \mathcal I\oplus\eta_{\mathcal A}(\mathcal O_S),
+  \tag{1}
+  \label{sga3:VIIA:7.2-lemma-decomposition-A}
+\end{equation}
+其中 \(\eta_{\mathcal A}\) 表示 \(\mathcal A\) 的单位截面。由于 \(\varepsilon_{\mathcal A}\)（分别地，\(\eta_{\mathcal A}\)）是 \(\eta_{\mathcal U}\)（分别地，\(\varepsilon_{\mathcal U}\)）的转置，此分解通过对偶对应于
+\begin{equation}\SGAInlineEquationTarget{sga3:viia:paragraph:7-2:equation:2}
+  \mathcal U
+  =
+  \mathcal J\oplus\eta_{\mathcal U}(\mathcal O_S),
+  \tag{2}
+  \label{sga3:VIIA:7.2-lemma-decomposition-U}
+\end{equation}
+其中 \(\mathcal J\) 是 \(\mathcal U\) 的增广理想；因此 \(\mathcal J=\mathcal I^{*}\)。
+
+以 \(\pi\) 表示 \(\mathcal O_S\) 的自同态 \(x\mapsto x^p\)。须证明 \(\operatorname{Fr}:G\to G^{(p)}\) 通过 \(G^{(p)}\) 的单位截面分解。由 \SGARefLink{sga3:VIIA:4.1.4}{4.1.4}~(c)，这等价于说态射
+\[
+  \Phi:
+  \mathcal I\otimes_{\pi}\mathcal O_S
+  \longrightarrow
+  \mathcal A,
+  \qquad
+  a\otimes_{\pi}x\longmapsto a^p x,
+\]
+为零。由于 \(\mathcal A\) 在 \(\mathcal O_S\) 上有限局部自由，只须证明转置 \({}^{t}\Phi\) 为零。
+
+而 \(\Phi\) 恰好是下述复合：
+\begin{center}
+  \phantomsection
+  \label{sga3:VIIA:7.2-frobenius-phi-composite}
+  % SGA3-VII-DIAG-064
+  \input{figures/exp7/viia_05_14/diagram_064}
+\end{center}
+这里 \(\tau\) 由包含映射 \(\mathcal I\hookrightarrow\mathcal A\) 诱导，\(b(\mathcal A)\) 和 \(j(\mathcal A)\) 如 \SGARefLink{sga3:VIIA:4.3.3}{4.3.3} 中所定义：\(b(\mathcal A)\) 由 \(\mathcal A\) 的乘法诱导，而 \(j(\mathcal A)\) 将 \(a\otimes_{\pi}1\) 映至 \(a\otimes\cdots\otimes a\) 在 \(\mathrm S^p\mathcal A\) 中的像。\(\mathrm S^p\mathcal A\) 的 \(\mathcal O_S\)-对偶是 \(\bigotimes^p\mathcal U\) 中由在 \(p\) 次对称群下不变的截面构成的子模 \(\Sigma^p\mathcal U\)。因此 \({}^{t}\Phi\) 是下述复合：
+\begin{center}
+  \phantomsection
+  \label{sga3:VIIA:7.2-transposed-phi-composite}
+  % SGA3-VII-DIAG-065
+  \input{figures/exp7/viia_05_14/diagram_065}
+\end{center}
+这里 \(q\) 由核为 \(\eta_{\mathcal U}(\mathcal O_S)\) 的投影 \(\mathcal U\to\mathcal J\) 诱导，\(a(\mathcal U)\) 由 \(\mathcal U\) 的余乘法诱导，而 \(r(\mathcal U)\) 在对称化张量上为零，并将截面 \(x\otimes\cdots\otimes x\) 映至 \(x\otimes_{\pi}1\)（参见 \SGARefLink{sga3:VIIA:4.3.3}{4.3.3}）。
+
+显然 \({}^{t}\Phi\circ\eta_{\mathcal U}=0\)；由 (2)，只须证明 \({}^{t}\Phi\) 零化增广理想 \(\mathcal J\)。由于 \({}^{t}\Phi\) 是代数态射，且 \(\mathcal J\) 由等同于其在 \(\mathcal U\) 中的像的 \(\mathcal L\) 生成，只须证明对于 \(\mathcal L\) 的每个截面 \(x\) 都有 \({}^{t}\Phi(x)=0\)。但是
+\[
+  -a(\mathcal U)(x)=(p-1)!\,a(\mathcal U)(x)
+\]
+是 \(x\otimes1\otimes\cdots\otimes1\) 的对称化，因此它在 \(r(\mathcal U)\) 下的像为零。这证明了引理的第一个断言。
+
+第二个断言由此推出。\(\mathcal I\) 的每个局部截面的 \(p\) 次幂都为零，且 \(\mathcal I\) 是有限型 \(\mathcal O_S\)-模；因此 \(\mathcal I\) 局部幂零。具体地，若 \(V\) 是 \(S\) 的一个仿射开子集，使得
+\[
+  I=\Gamma(V,\mathcal I)
+\]
+由 \(r\) 个元素生成，则
+\[
+  I^{r(p-1)+1}=0.
+\]
+因此 \(G_{\mathrm{red}}=S_{\mathrm{red}}\)，且单位截面 \(\varepsilon_G:S\to G\) 是同胚。
+
+\medskip
+\noindent\textbf{7.2.1.}\footnote{编者在下文中补充了细节。}
+\phantomsection
+\label{sga3:VIIA:7.2.1}
+
+先证明 \SGARefLink{sga3:VIIA:7.2}{定理 7.2} 的断言 \SGARefLink{sga3:vii:paragraph:5-1:equation:ii}{(ii)}。设 \(\pi:X\to S\) 是 \(S\)-概形，并先考虑任意无穷小 \(S\)-群 \(H\)。
+
+% 权威底本： Exp7A 局部页 47; 合并本页 500; 印刷页 489.
+态射 \(\varphi:H\to\operatorname{Aut}X\) 与 \(H\) 在 \(X\) 上的左作用 \(\mu:H\times X\to X\) 一一对应。对于这样的作用，若 \(\varepsilon\) 是 \(H\) 的单位截面，则复合
+\begin{center}
+  \phantomsection
+  \label{sga3:VIIA:7.2.1-action-unit-composite}
+  % SGA3-VII-DIAG-066
+  \input{figures/exp7/viia_05_14/diagram_066}
+\end{center}
+必须是恒等映射。由于 \((H\times X)_{\mathrm{red}}\) 等同于 \(X_{\mathrm{red}}\)，态射 \(\mu\) 必须在相伴的既约概形上诱导恒等映射。特别地，\(\mu\) 在 \(X\) 的每个开子集上诱导 \(H\) 的作用。因此，对于每个在 \(S\) 上仿射的开子集 \(U\subset X\)，得到含幺结合代数的态射
+\[
+  \mathcal A(U)
+  \longrightarrow
+  \mathcal A(H)\otimes\mathcal A(U)
+\]
+它使 \(\mathcal A(U)\) 成为左 \(\mathcal A(H)\)-余模，并且限制映射
+\[
+  \mathcal A(U)\longrightarrow\mathcal A(U'),
+  \qquad U'\subset U,
+\]
+是余模态射。反之，每个这样的数据都来自唯一的左作用 \(\mu:H\times X\to X\)。
+
+还有下述引理。
+
+\medskip
+\noindent\textbf{引理。}
+\phantomsection
+\label{sga3:VIIA:7.2.1-action-representation-lemma}
+
+\textit{设 \(X=\operatorname{Spec}\mathcal C\) 是仿射 \(S\)-概形，\(H=\operatorname{Spec}\mathcal A\) 是无穷小 \(S\)-群，并令
+\[
+  \mathcal U
+  =
+  \mathcal A^{*}
+  =
+  \operatorname{Hom}_{\mathcal O_S}
+    (\mathcal A,\mathcal O_S).
+\]
+\(H\) 在 \(X\) 上的左作用与代数 \(\mathcal U\) 在 \(\mathcal O_S\)-模 \(\mathcal C\) 中满足下述条件的表示一一对应：}
+\begin{align*}
+  \textit{(a)}\quad&
+  u(1_{\mathcal C})
+  =
+  \varepsilon(u)\,1_{\mathcal C},
+  \\
+  \textit{(b)}\quad&
+  u(xy)
+  =
+  \sum_i v_i(x)w_i(y)
+  \quad\textit{若}\quad
+  \Delta u
+  =
+  \sum_i v_i\otimes w_i.
+\end{align*}
+\textit{这里 \(u\) 是 \(\mathcal U\) 在 \(S\) 的一个仿射开子集 \(V\) 上的任意截面，而 \(x\) 和 \(y\) 是 \(\mathcal C\) 在 \(V\) 上的截面。符号 \(1_{\mathcal C}\) 表示 \(\mathcal C\) 的单位截面，\(\varepsilon\) 和 \(\Delta\) 分别表示 \(\mathcal U\) 的增广和对角态射。}
+
+事实上，\(H\) 在 \(X\) 上的左作用 \(\mu\) 由含幺结合代数态射
+\[
+  \lambda:\mathcal C\longrightarrow\mathcal A\otimes\mathcal C
+\]
+定义，此态射使 \(\mathcal C\) 成为左 \(\mathcal A\)-余模。令 \(\alpha\) 为复合
+\begin{center}
+  \phantomsection
+  \label{sga3:VIIA:7.2.1-action-contraction-composite}
+  % SGA3-VII-DIAG-067
+  \input{figures/exp7/viia_05_14/diagram_067}
+\end{center}
+其中 \(\gamma\) 是从 \(\mathcal A^{*}\otimes_{\mathcal O_S}\mathcal A\) 到 \(\mathcal O_S\) 的“缩并”。由于 \(\mathcal A\) 在 \(\mathcal O_S\) 上有限局部自由，映射
+\[
+  \lambda
+  \longmapsto
+  (\gamma\otimes\mathcal C)(\mathcal U\otimes\lambda)
+\]
+是下列集合之间的双射：
+\[
+  \operatorname{Hom}_{\mathcal O_S}
+    (\mathcal C,\mathcal A\otimes\mathcal C)
+  \quad\text{onto}\quad
+  \operatorname{Hom}_{\mathcal O_S}
+    (\mathcal U\otimes\mathcal C,\mathcal C).
+\]
+此外，由对偶性，\(\lambda\) 定义左 \(\mathcal A\)-余模结构（分别地，是含幺结合代数态射）的条件，等价于 \(\alpha\) 是 \(\mathcal U\) 在 \(\mathcal C\) 中的表示（分别地，满足条件 (a) 和 (b)）的条件。引理得证。
+
+对于 \(\mathcal U\) 在 \(\mathcal O_S\)-模 \(\mathcal C\) 中的任意表示，同样显然的是，\(\mathcal U\) 中满足条件 (a) 和 (b) 的截面 \(u\) 构成 \(\mathcal U\) 的子代数。
+
+在我们所关心的特殊情形
+\[
+  H=\mathfrak G_p(\mathcal L)
+\]
+中，只要这些条件对 \(\mathcal L\) 的截面 \(u\) 成立（将其等同于其在 \(\mathcal U_p(\mathcal L)\) 中的像），它们就对 \(\mathcal U=\mathcal U_p(\mathcal L)\) 的每个截面 \(u\) 成立。
+
+% 权威底本： Exp7A 局部页 48; 合并本页 501; 印刷页 490.
+若 \(u\) 是 \(\mathcal L\) 的截面，条件 (a) 和 (b) 仅意味着
+\[
+  u(1_{\mathcal C})=0,
+  \qquad
+  u(xy)=u(x)y+xu(y);
+\]
+，即 \(\alpha(u)\) 是 \(\mathcal C=\mathcal A(X)\) 的 \(\mathcal O_S\)-导子。由此得到 \SGARefLink{sga3:VIIA:7.2}{7.2} 的断言 \SGARefLink{sga3:VIIA:7.2:item:ii}{(ii)}。事实上，每个态射
+\[
+  \varphi:\mathfrak G_p=\mathfrak G_p(\mathcal L)
+  \longrightarrow\operatorname{Aut}X
+\]
+定义了从 \(\mathcal L=\operatorname{Lie}\mathfrak G_p\) 到
+\[
+  \pi_*
+  \bigl(
+    \operatorname{Der}_{\mathcal O_S}\mathcal O_X
+  \bigr),
+\]
+的 \(p\)-Lie 代数态射 \(\operatorname{Lie}\varphi\)，反之，由上述讨论，每个这样的数据都来自唯一的作用 \(\mu:\mathfrak G_p(\mathcal L)\times X\to X\)。
+
+\medskip
+\noindent\textbf{7.2.2.}
+\phantomsection
+\label{sga3:VIIA:7.2.2}
+
+现在说明 \SGARefLink{sga3:VIIA:7.2}{定理 7.2} 的断言 \SGARefLink{sga3:vii:paragraph:5-1:equation:i}{(i)} 如何由 \SGARefLink{sga3:vii:paragraph:5-1:equation:ii}{(ii)} 推出。设 \(G\) 是 \(S\)-群概形。若 \(T\) 是 \(S\)-概形且 \(x\in G(T)\)，以 \(\ell_x^T\)（分别地，\(r_x^T\)）表示由 \(x\) 定义的 \(G_T\) 的左（分别地，右）平移。因此映射
+\[
+  \ell^T:x\longmapsto\ell_x^T
+\]
+确定同态 \(\ell:G\to\operatorname{Aut}G\)。
+
+另一方面，设 \(f\) 是 \(G_T\) 的 \(T\)-自同构，并定义
+\[
+  {}^x f=(r_x^T)^{-1}fr_x^T;
+\]
+；于是对于每个 \(T'\to T\) 和 \(g\in G(T')\)，
+\[
+  ({}^x f)(g)=f(gx)x^{-1}.
+\]
+这样，\(G\) 在群 \(S\)-函子 \(\operatorname{Aut}G\) 上左作用，因而也在函子
+\[
+  T\longmapsto
+  \operatorname{Hom}_{T\text{-Gr.}}
+    \bigl(\mathfrak G_p(\mathcal L_T),
+          \operatorname{Aut}G_T\bigr)
+\]
+以及
+\[
+  T\longmapsto
+  \operatorname{Hom}_p
+    \bigl(
+      \mathcal L_T,
+      \operatorname{Lie}(\operatorname{Aut}G_T/T)
+    \bigr).
+\]
+
+上左作用。态射 \(\ell^T:G_T\to\operatorname{Aut}G_T\) 将 \(G_T\) 等同于 \(T\)-概形 \(G_T\) 的与右平移交换的自同构所成的群。其导出态射 \(\operatorname{Lie}(\ell^T)\) 将 \(\operatorname{Lie}G_T\) 等同于 \(\mathcal O_{G_T}\) 的与右平移交换的 \(\mathcal O_T\)-导子所成的 \(p\)-Lie 代数（参见 II，\SGARefLink{sga3:ii:scholium:4-11-1}{4.11.1}）。因此它们诱导出交换方图
+\begin{center}
+  \phantomsection
+  \label{sga3:VIIA:7.2.2-lie-invariant-commutative-squares}
+  % SGA3-VII-DIAG-068
+  \input{figures/exp7/viia_05_14/diagram_068}
+\end{center}
+两个竖直箭头的像是在 \(S\)-群 \(G\) 的作用下不变的元素所构成的子函子。由于下方水平箭头由 \SGARefLink{sga3:VIIA:7.2.1}{7.2.1} 可逆，且与 \(G\) 的作用相容，上方水平箭头也可逆。这证明了 \SGARefLink{sga3:VIIA:7.2}{7.2}~\SGARefLink{sga3:vii:paragraph:5-1:equation:i}{(i)}。
+
+\medskip
+\noindent\textbf{7.2.3.}
+\phantomsection
+\label{sga3:VIIA:7.2.3}
+
+考虑
+\(
+  G=
+  \operatorname{Aut}_{\mathcal O_S\text{-mod.}}
+    \mathcal W(\mathcal F)
+\)
+的情形。\footnote{在下文中，编者考虑了 VIB，\SGARefLink{prop:sga3-VIB-11.6.1}{11.6.1}，扩充并简化了原文。}令
+\[
+  \mathcal U=\mathcal U_p(\mathcal L),
+  \qquad
+  \mathcal A=\mathcal U^{*},
+  \qquad
+  H=\mathfrak G_p(\mathcal L)=\operatorname{Spec}\mathcal A.
+\]
+由于 \(H\) 在 \(S\) 上仿射，VIB，\SGARefLink{prop:sga3-VIB-11.6.1}{11.6.1} 表明，从 \(H\) 到 \(\operatorname{Aut}_{\mathcal O_S\text{-mod.}}\mathcal W(\mathcal F)\) 的 \(S\)-群态射与右 \(\mathcal A\)-余模结构
+\[
+  \mu:\mathcal F\longrightarrow\mathcal F\otimes\mathcal A.
+\]
+是同一回事。由于 \(\mathcal A\) 在 \(\mathcal O_S\) 上有限局部自由，这又等价于给出 \(\mathcal U\) 在 \(\mathcal F\) 中的表示
+\[
+  \alpha:
+  \mathcal U
+  \longrightarrow
+  \operatorname{End}_{\mathcal O_S}(\mathcal F)
+\]
+。最后，由 \(\mathcal U=\mathcal U_p(\mathcal L)\) 的泛性质，给出这样的态射 \(\alpha\)，等价于给出它在 \(\mathcal L\) 上的限制 \(\rho\)（将其等同于其在 \(\mathcal U\) 中的像），且 \(\rho\) 是从 \(\mathcal L\) 到 \(\operatorname{End}_{\mathcal O_S}(\mathcal F)\) 的 \(p\)-Lie 代数态射。
+
+% 权威底本： Exp7A 局部页 49; 合并本页 502; 印刷页 491.
+最后，沿用上述记号，考虑 \(G=\mathcal W(\mathcal F)\) 的情形。\footnote{编者添加了以下内容。原文说“\(\mathcal W(\mathcal F)\) 的情形类似”。}
+给出 \(S\)-函子的态射 \(\varphi:H\to\mathcal W(\mathcal F)\)，首先等价于给出 \(\Gamma(H,\mathcal F\otimes\mathcal O_H)\) 的一个元素 \(\theta\)。由于 \(H\) 在 \(S\) 上有限局部自由，有
+\[
+  \Gamma(H,\mathcal F\otimes\mathcal O_H)
+  =
+  \Gamma(S,\mathcal F\otimes\mathcal A)
+  =
+  \operatorname{Hom}_{\mathcal O_S}(\mathcal U,\mathcal F).
+\]
+\(\varphi\) 是群态射的条件意味着：将 \(\theta\) 看作 \(\mathcal O_S\)-模态射 \(\mathcal U\to\mathcal F\) 时，它在 \(1_{\mathcal U}\) 和 \(\mathcal J^2\) 上为零，其中 \(\mathcal J\) 是 \(\mathcal U\) 的增广理想。因此，
+\begin{equation}
+  \operatorname{Hom}_{S\text{-gr.}}
+    \bigl(H,\mathcal W(\mathcal F)\bigr)
+  =
+  \operatorname{Hom}_{\mathcal O_S}
+    \bigl(\mathcal J/\mathcal J^2,\mathcal F\bigr).
+  \tag{1}
+  \label{sga3:VIIA:7.2.3-hom-group-additive}
+\end{equation}
+
+其次考虑拟凝聚层 \([\mathcal L,\mathcal L]\)，它是态射
+\[
+  \mathcal L\otimes\mathcal L
+  \longrightarrow
+  \mathcal L,
+  \qquad
+  x\otimes y\longmapsto[x,y].
+\]
+的像。对于 \(S\) 的每个仿射开子集 \(V\)，有
+\[
+  [\mathcal L,\mathcal L](V)
+  =
+  [\mathcal L(V),\mathcal L(V)].
+\]
+存在正合列
+\begin{center}
+  \phantomsection
+  \label{sga3:VIIA:7.2.3-augmentation-quotient-exact-sequence}
+  % SGA3-VII-DIAG-069
+  \input{figures/exp7/viia_05_14/diagram_069}
+\end{center}
+其中 \(\pi\) 是包含映射 \(\mathcal L\hookrightarrow\mathcal J\) 与投影 \(\mathcal J\to\mathcal J/\mathcal J^2\) 的复合。
+
+事实上，问题在 \(S\) 上是局部的，因此可以假设 \(S\) 是环为 \(R\) 的仿射概形，且
+\[
+  L=\mathcal L(S)
+\]
+是以 \((x_1,\ldots,x_r)\) 为基的自由模。将 \(L\) 等同于其在 \(U=U_p(L)\) 中的像，并令 \(K\) 为 \(U\) 的如下 \(R\)-子模：它是 \([L,L]\) 与以如下单项式为基的子模的直和：
+\[
+  x_1^{n_1}\cdots x_r^{n_r}
+  \quad\text{such that}\quad
+  n_1+\cdots+n_r\geq2.
+\]
+可以验证 \(K\) 是 \(U\) 的双边理想。由于 \(K\) 包含在 \(J^2\) 中（其中 \(J\) 是 \(U\) 的增广理想），并包含生成 \(J^2\) 的所有乘积 \(x_ix_j\)，可知 \(K=J^2\)。因此
+\[
+  J^2\cap L=[L,L],
+\]
+，上述列正合。
+
+由 \SGARefLink{sga3:VIIA:6.4.2}{6.4.2}，\(\operatorname{Lie}\mathcal W(\mathcal F)\) 就是配备零 Lie 括号和零符号 \(p\) 次幂的 \(\mathcal W(\mathcal F)\)。由此及前面的讨论，得到
+\begin{equation}
+  \operatorname{Hom}_p(\mathcal L,\mathcal F)
+  =
+  \operatorname{Hom}_{\mathcal O_S}
+    \bigl(\mathcal L/[\mathcal L,\mathcal L],\mathcal F\bigr)
+  =
+  \operatorname{Hom}_{\mathcal O_S}
+    \bigl(\mathcal J/\mathcal J^2,\mathcal F\bigr).
+  \tag{2}
+  \label{sga3:VIIA:7.2.3-hom-p-additive}
+\end{equation}
+结合 \SGARefLink{sga3:VIIA:7.2.3-hom-group-additive}{(1)}，便完成了 \SGARefLink{sga3:VIIA:7.2}{定理 7.2} 的证明。
+
+\medskip
+\noindent\textbf{7.3. 引理。}
+\phantomsection
+\label{sga3:VIIA:7.3}
+
+\textit{若 \(\mathcal L\) 是有限局部自由 \(\mathcal O_S\)-\(p\)-Lie 代数，则 \SGARefLink{sga3:VIIA:5.5}{5.5} 的态射}
+\[
+  j_{\mathcal L}:
+  \mathcal L
+  \longrightarrow
+  \operatorname{Lie}\mathfrak G_p(\mathcal L)
+\]
+\textit{可逆。}\footnote{为避免更改编号，编者保留了陈述 \SGARefLink{sga3:VIIA:7.3}{7.3}，尽管已将其连同证明一起纳入 \SGARefLink{sga3:VIIA:5.5.1}{5.5.1}。}
+
+证明见 \SGARefLink{sga3:VIIA:5.5.1}{5.5.1}。
+
+\medskip
+\noindent\textbf{7.4.}
+\phantomsection
+\label{sga3:VIIA:7.4}
+
+作为本节的结束，我们给出形如 \(\mathfrak G_p(\mathcal L)\) 的 \(S\)-群概形的一个刻画，其中 \(\mathcal L\) 是有限局部自由 \(\mathcal O_S\)-\(p\)-Lie 代数。
+
+设 \(G\) 是 \(S\)-群概形，\(\varepsilon_G\) 是其单位截面，并令 \(\mathcal I'\) 为对应于 \(\varepsilon_G\) 的态射
+\[
+  \varepsilon_G^{-1}(\mathcal O_G)
+  \longrightarrow
+  \mathcal O_S
+\]
+的核。由 \SGARefLink{sga3:VIIB:2.5:proposition}{2.5} 和 \SGARefLink{sga3:VIIA:1.3.1}{1.3.1}，\(\operatorname{Lie}(G/S)(S)\) 在 \(\mathrm U(G)\) 中的像等同于从 \(\varepsilon_G^{-1}(\mathcal O_G)\) 到 \(\mathcal O_S\) 的如下 \(\mathcal O_S\)-模态射：它们在 \(\varepsilon_G^{-1}(\mathcal O_G)\) 的单位截面上及在 \(\mathcal I'^{\,2}\) 上为零。
+
+% 权威底本： Exp7A 局部页 50; 合并本页 503; 印刷页 492.
+由此重新得到 II，\SGARefLink{sga3:VIIA:3.3}{3.3} 和 \SGARefLink{sga3:ii:remark:4-11-4}{4.11.4} 的典范同构
+\[
+  \operatorname{Lie}(G/S)(S)
+  \xrightarrow{\sim}
+  \operatorname{Hom}_{\mathcal O_S}
+    (\mathcal I'/\mathcal I'^{\,2},\mathcal O_S)
+\]
+。\footnote{若 \(G\) 在 \(S\) 上仿射，且以 \(\mathcal I\) 表示 \(\mathcal A(G)\) 的增广理想，则 \(\mathcal I'/\mathcal I'^{\,2}\) 等同于 \(\varepsilon_G^{*}(\mathcal I/\mathcal I^2)\)；参见同上。}与所引段落一样，令
+\[
+  \omega_{G/S}=\mathcal I'/\mathcal I'^{\,2}.
+\]
+于是层 \(\operatorname{Lie}(G/S)\) 等同于
+\[
+  \omega_{G/S}^{*}
+  =
+  \operatorname{Hom}_{\mathcal O_S}
+    (\omega_{G/S},\mathcal O_S).
+\]
+此外，\footnote{编者添加了下面这句话。}若 \(G=\mathfrak G_p(\mathcal L)\)，其中 \(\mathcal L\) 是有限局部自由 \(\mathcal O_S\)-\(p\)-Lie 代数，则由 \SGARefLink{sga3:VIIA:5.5.3}{5.5.3} 得到
+\[
+  \omega_{G/S}=\mathcal L^{*}.
+\]
+
+\medskip
+\noindent\textbf{定理。}
+\phantomsection
+\label{sga3:VIIA:7.4-theorem}
+
+\textit{若 \(G\) 是特征为 \(p>0\) 的概形 \(S\) 上的群概形，则下列断言等价：}
+\begin{enumerate}
+  \item[\textit{\SGAInlineRefTarget{sga3:VIIA:7.4-theorem:item:i}(i)}]
+  \textit{存在有限局部自由 \(\mathcal O_S\)-\(p\)-Lie 代数 \(\mathcal L\)，使得 \(G\simeq\mathfrak G_p(\mathcal L)\)。}
+
+  \item[\textit{(i\(^{\prime}\))}]
+  \textit{\(\mathcal O_S\)-\(p\)-Lie 代数 \(\operatorname{Lie}(G)\) 有限局部自由，且 \(G\simeq\mathfrak G_p(\operatorname{Lie}(G))\)。}
+
+  \item[\textit{(ii)}]
+  \textit{\(G\) 在 \(S\) 上仿射，\(\mathcal O_S\)-模 \(\omega_{G/S}\) 局部自由且为有限型，且 \(G\) 的仿射代数局部同构于对称代数 \(\mathrm S_{\mathcal O_S}(\omega_{G/S})\) 对由 \(\omega_{G/S}\) 的截面的 \(p\) 次幂生成的理想所取的商。}
+
+  \item[\textit{\SGAInlineRefTarget{sga3:VIIA:7.4-theorem:item:iii}(iii)}]
+  \textit{\(G\) 在 \(S\) 上局部有限呈示，高度 \(\leq1\)，且 \(\omega_{G/S}\) 局部自由。}
+
+  \item[\textit{(iii\(^{\prime}\))}]
+  \textit{\(G\) 在 \(S\) 上局部有限型，高度 \(\leq1\)，且 \(\omega_{G/S}\) 局部自由。}
+
+  \item[\textit{\SGAInlineRefTarget{sga3:VIIA:7.4-theorem:item:iv}(iv)}]
+  \textit{\(G\) 在 \(S\) 上局部有限呈示且平坦，高度 \(\leq1\)。}\footnote{编者添加了原文中隐含的断言 (i\(^{\prime}\))，以及 O.~Gabber 指出的断言 (iii\(^{\prime}\)) 和 \SGARefLink{sga3:VIIA:7.4-theorem:item:iv}{(iv)}。断言 \SGARefLink{sga3:VIIA:7.4-theorem:item:iv}{(iv)} 承接了原文的一条脚注，其内容是：“关于 \(\omega_{G/S}\) 的条件实际上是不必要的，这容易通过归结到 \(S\) 是剩余域为 \(k\) 的局部概形的情形，并对 \(G_k\) 应用定理而看出。”正如 Gabber 所指出的，若没有平坦性假设，这一说法不正确。事实上，设 \(A\) 是特征为 \(p>0\) 的 Artin 局部环，\(J\) 是 \(A\) 的一个非零真理想，并令 \(H\) 为 \(\alpha_{p,A}\) 的如下子群：
+  \[
+    \operatorname{Spec}A[x]/(x^p,Jx)
+  \]
+  也就是说，对于每个 \(A\)-代数 \(R\)，
+  \[
+    H(R)=\{x\in R\mid x^p=0\ \text{及}\ Jx=0\}.
+  \]
+  则 \(H\) 在 \(A\) 上不平坦，因而不具有 \(\mathfrak G_p(\mathcal L)\) 的形式，其中 \(\mathcal L\) 是 \(A\) 上的有限秩自由 \(p\)-Lie 代数。}
+\end{enumerate}
+
+\medskip
+\noindent\textbf{7.4.1.}
+\phantomsection
+\label{sga3:VIIA:7.4.1}
+
+等价关系 \SGARefLink{sga3:vii:paragraph:5-1:equation:i}{(i)} \(\Leftrightarrow\) (i\(^{\prime}\)) 由 \SGARefLink{sga3:VIIA:5.5.3}{5.5.3}~\SGARefLink{sga3:vii:paragraph:5-1:equation:i}{(i)} 推出，而蕴含关系 \SGARefLink{sga3:VIIA:5.5.3:item:ii}{(ii)} \(\Rightarrow\) \SGARefLink{sga3:VIIA:7.4-theorem:item:iii}{(iii)} \(\Rightarrow\) (iii\(^{\prime}\)) 是显然的。还有 \SGARefLink{sga3:VIIA:5.5.3:item:i}{(i)} \(\Rightarrow\) \SGARefLink{sga3:VIIA:7.4-theorem:item:iv}{(iv)}，因为由 \SGARefLink{sga3:VIIA:5.5.2}{5.5.2} 和 \SGARefLink{sga3:VIIA:7.2}{7.2} 的引理，\(\mathfrak G_p(\mathcal L)\) 有限局部自由且高度 \(\leq1\)。下面证明 \SGARefLink{sga3:vii:paragraph:5-1:equation:i}{(i)} 蕴含 \SGARefLink{sga3:vii:paragraph:5-1:equation:ii}{(ii)}。
+
+令 \(\mathcal I\) 为
+\[
+  \mathcal A=\mathcal U_p(\mathcal L)^{*}.
+\]
+的增广理想。在 \SGARefLink{sga3:VIIA:5.5.3}{5.5.3}~\SGARefLink{sga3:vii:paragraph:5-1:equation:ii}{(ii)} 中已经看到，\(\omega_{G/S}=\mathcal I/\mathcal I^2\) 等同于 \(\mathcal L^{*}\)，因而有限局部自由。
+
+现在假设 \(S\) 是仿射的。投影 \(\mathcal I\to\mathcal I/\mathcal I^2\) 有一个截面
+\[
+  \sigma:\omega_{G/S}\longrightarrow\mathcal I
+\]
+，它诱导出代数态射
+\[
+  \sigma':
+  \mathrm S_{\mathcal O_S}(\omega_{G/S})
+  \longrightarrow
+  \mathcal A,
+\]
+，并且由 \SGARefLink{sga3:VIIA:7.2}{7.2} 的引理，\(\sigma'\) 通过一个态射分解为
+\[
+  \varphi:
+  \mathrm S_{\mathcal O_S}(\omega_{G/S})/\mathcal K
+  \longrightarrow
+  \mathcal A,
+\]
+其中 \(\mathcal K\) 表示由 \(\omega_{G/S}\) 的截面的 \(p\) 次幂生成的理想。用 \(\mathcal I\) 的幂过滤 \(\mathcal A\)，并用由 \(\omega_{G/S}\) 生成的理想的幂过滤 \(\mathrm S_{\mathcal O_S}(\omega_{G/S})/\mathcal K\)。态射 \(\varphi\) 显然在相伴分次模上诱导满态射。因此 \(\varphi\) 是相同秩的局部自由 \(\mathcal O_S\)-模之间的满态射（参见 \SGARefLink{sga3:VIIA:5.3.3}{5.3.3}），因而是同构。这证明了 \SGARefLink{sga3:vii:paragraph:5-1:equation:i}{(i)} 蕴含 \SGARefLink{sga3:vii:paragraph:5-1:equation:ii}{(ii)}。
+
+\medskip
+\noindent\textbf{7.4.2.}
+\phantomsection
+\label{sga3:VIIA:7.4.2}
+
+% 权威底本： Exp7A 局部页 51; 合并本页 504; 印刷页 493.
+现在假设 \(G\) 的高度 \(\leq1\)，且在 \(S\) 上局部有限呈示。\footnote{编者在下文中补充了细节并简化了原文。}
+Frobenius 态射 \(\operatorname{Fr}:G\to G^{(p)}\) 是整态射，并通过 \(G^{(p)}\) 的单位截面分解；因而 \(G\) 在 \(S\) 上是整的，从而是仿射的。令 \(\mathcal A=\mathcal A(G)\)。由于 \(G\) 在 \(S\) 上局部有限呈示，可知 \(G\) 在 \(S\) 上有限且有限呈示，因而 \(\mathcal A(G)\) 是有限呈示 \(\mathcal O_S\)-模（参见 EGA IV\(_1\)，1.4.7）。
+
+令 \(\mathcal I\) 为 \(\mathcal A\) 的增广理想。由于
+\[
+  \mathcal A
+  =
+  \eta_{\mathcal A}(\mathcal O_S)\oplus\mathcal I,
+\]
+其中 \(\eta_{\mathcal A}\) 为 \(\mathcal A\) 的单位截面，模 \(\mathcal I\) 在 \(\mathcal O_S\) 上有限呈示，\(\omega_G=\mathcal I/\mathcal I^2\) 也是如此。若改为假设 \(G\) 的高度 \(\leq1\)，且在 \(S\) 上局部有限型，则同样的论证表明，\(\mathcal A(G)\)、\(\mathcal I\) 和 \(\omega_G=\mathcal I/\mathcal I^2\) 是有限型 \(\mathcal O_S\)-模。
+
+因此，在假设 (iii\(^{\prime}\)) 下，\(\omega_{G/S}\) 在 \(\mathcal O_S\) 上有限局部自由，下面的模也是如此：
+\[
+  \mathcal L
+  =
+  \operatorname{Lie}(G/S)
+  =
+  \omega_{G/S}^{*}.
+\]
+令
+\[
+  \mathcal B=\mathcal U_p(\mathcal L)^{*},
+  \qquad
+  H=\mathfrak G_p(\mathcal L)=\operatorname{Spec}\mathcal B.
+\]
+由 \SGARefLink{sga3:VIIA:7.2}{定理 7.2}，\(\mathcal L\) 的恒等映射对应于从 \(H=\mathfrak G_p(\mathcal L)\) 到 \(G\) 的群态射，因而对应于 \(\mathcal O_S\)-代数态射
+\[
+  \theta:\mathcal A\longrightarrow\mathcal B.
+\]
+由定义，\(\theta\) 诱导出从 \(\omega_{G/S}\) 到 \(\omega_{H/S}\) 的同构；须证明 \(\theta\) 本身是同构。
+
+可以限于 \(S\) 仿射的情形。此时投影 \(\mathcal I\to\omega_{G/S}\) 有一个截面 \(\tau\)，它诱导出代数态射
+\[
+  \tau':
+  \mathrm S_{\mathcal O_S}(\omega_{G/S})
+  \longrightarrow
+  \mathcal A.
+\]
+由于 \(\operatorname{Fr}:G\to G^{(p)}\) 通过 \(G^{(p)}\) 的单位截面分解，\(\mathcal I\) 的每个局部截面的 \(p\) 次幂都为零。因此 \(\tau'\) 诱导出 \(\mathcal O_S\)-代数态射 \(\psi\)，使得下图交换：
+\begin{center}
+  \phantomsection
+  \label{sga3:VIIA:7.4.2-height-one-characterization-triangle}
+  % SGA3-VII-DIAG-070
+  \input{figures/exp7/viia_05_14/diagram_070}
+\end{center}
+其中 \(\mathcal K\) 是由 \(\omega_{G/S}\) 的截面的 \(p\) 次幂生成的理想。与 \SGARefLink{sga3:VIIA:7.4.1}{7.4.1} 中一样，\(\psi\) 是 \(\mathcal O_S\)-模的满态射。另一方面，\SGARefLink{sga3:VIIA:7.4.1}{7.4.1} 表明 \(\varphi=\theta\circ\psi\) 是同构。因此 \(\theta\) 也是同构。这证明了 (iii\(^{\prime}\)) \(\Rightarrow\) \SGARefLink{sga3:VIIA:7.4-theorem:item:i}{(i)}。
+
+\medskip
+\noindent\textbf{7.4.3.}\footnote{编者添加本段，以证明 \SGARefLink{sga3:VIIA:7.4-theorem:item:iv}{(iv)} \(\Rightarrow\) \SGARefLink{sga3:VIIA:7.4-theorem:item:iii}{(iii)}；参见编者注 \SGARefLink{sga3:VIIB:nde:71}{(71)}。}
+\phantomsection
+\label{sga3:VIIA:7.4.3}
+
+最后证明 \SGARefLink{sga3:VIIA:7.4-theorem:item:iv}{(iv)} 蕴含 \SGARefLink{sga3:VIIA:7.4-theorem:item:iii}{(iii)}。只须证明 \(\omega_{G/S}\) 局部自由，因此可以假设 \(S\) 是环为 \(R\) 的仿射概形。如 \SGARefLink{sga3:VIIA:7.4.2}{7.4.2} 开头所述，假设 \SGARefLink{sga3:VIIA:7.4-theorem:item:iv}{(iv)} 此时蕴含 \(G=\operatorname{Spec}A\)，其中 \(A\) 是作为 \(R\)-模有限呈示的 \(R\)-代数，下面的模也是有限呈示的：
+\[
+  \omega_{G/S}=I/I^2,
+\]
+其中 \(I\) 是 \(A\) 的增广理想。由于还假设了 \(G\) 在 \(S\) 上平坦，代数 \(A\) 是有限局部自由 \(R\)-模（参见 [BAC] II，\S~\SGARefLink{sga3:VIIB:5.2:theorem}{5.2}，定理~1 和推论~2）。由所引结果，为证明 \(\omega_{G/S}\) 局部自由且秩有限，只须证明
+\[
+  (\omega_{G/S})_{\mathfrak m}
+\]
+对于 \(R\) 的每个极大理想 \(\mathfrak m\) 都是平坦的。因此可以假设 \(R\) 是局部环，且 \(A\) 是秩为 \(n+1\) 的自由模；此时 \(I\) 是秩为 \(n\) 的自由模。令 \(\mathfrak m\) 为 \(R\) 的极大理想，并令
+\[
+  k=R/\mathfrak m.
+\]
+
+% 权威底本： Exp7A 局部页 52; 合并本页 505; 印刷页 494.
+令 \(I_k\) 为 \(A_k\) 的增广理想，\(r\) 为下述空间的维数：
+\[
+  \omega_{G_k/k}=I_k/I_k^2.
+\]
+选取 \(I_k\) 的一组基 \((e_1,\ldots,e_n)\)，使 \((e_{r+1},\ldots,e_n)\) 为 \(I_k^2\) 的一组基，并选取 \(I\) 中提升 \(e_i\) 的元素 \(x_1,\ldots,x_n\)。Nakayama 引理表明，\((x_1,\ldots,x_n)\) 是 \(I\) 在 \(R\) 上的一组基。
+
+令 \(N\) 为 \(I\) 中以 \((x_1,\ldots,x_r)\) 为基的 \(R\)-子模，令 \(B\) 为 \(N\) 的对称代数对由元素 \(x^p\)（\(x\in N\)）生成的理想所取的商。由于 \(I\) 的每个元素的 \(p\) 次幂为零，得到 \(R\)-代数态射
+\[
+  \psi:B\longrightarrow A.
+\]
+由 \SGARefLink{sga3:VIIA:7.4.2}{7.4.2}，\(\psi\otimes k\) 是同构。由此可知 \(\operatorname{Coker}\psi=0\)，并且若 \(K=\ker\psi\)，则态射
+\[
+  \tau:K\otimes k\longrightarrow B\otimes k
+\]
+为零。但 \(\psi\) 是满射，且 \(A\) 在 \(R\) 上平坦，因此 \(\tau\) 也是单射。故 \(K\otimes k=0\)。
+
+由于 \(A\) 是有限呈示 \(R\)-模，\(K\) 是有限型 \(R\)-模（参见 [BAC] I，\S~\SGARefLink{sga3:VIIB:2.8}{2.8}，引理~9）。现在由 Nakayama 引理得到 \(K=0\)。因此 \(\psi\) 是 \(R\)-代数同构。由于 \(\psi^{-1}(I)\) 包含 \(B\) 的增广理想 \(J\)，可知 \(\psi^{-1}(I)=J\)。因此 \(\psi^{-1}\) 诱导出 \(R\)-模同构
+\[
+  I/I^2
+  \xrightarrow{\sim}
+  J/J^2=N.
+\]
+这证明了 \(\omega_{G/S}\) 有限局部自由，因而证明了 \SGARefLink{sga3:VIIA:7.4-theorem:item:iv}{(iv)} \(\Rightarrow\) \SGARefLink{sga3:VIIA:7.4-theorem:item:iii}{(iii)}。\SGARefLink{sga3:VIIA:7.4}{定理 7.4} 的证明完成。
+
+\medskip
+\noindent\textbf{注 7.5。}\footnote{编者添加了此注。}
+\phantomsection
+\label{sga3:VIIA:7.5}
+
+由 \SGARefLink{sga3:VIIA:7.2}{定理 7.2} 和 \SGARefLink{sga3:VIIA:7.4}{7.4} 立即可知，函子
+\[
+  G\longmapsto\operatorname{Lie}(G),
+  \qquad
+  \mathcal L\longmapsto\mathfrak G_p(\mathcal L)
+\]
+在局部有限呈示、平坦且高度 \(\leq1\) 的 \(S\)-群的范畴，与 \(\mathcal O_S\)-\(p\)-Lie 代数范畴中由有限局部自由 \(\mathcal O_S\)-\(p\)-Lie 代数构成的全子范畴之间，诱导出互为拟逆的范畴等价。
+
+% 下一游标： Exp7A 局部页 52, 合并阅读本页 505,
+% 再版印刷页 494, original marginal locator 470,
+% 位于 标题“8. 基底为域的情形”处。

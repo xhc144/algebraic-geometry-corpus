@@ -1,0 +1,319 @@
+% SGA 3，报告 VII_A，中文重构——第 1 轮。
+% 范围：权威底本本地第 5--8 页，自 1.3 至 1.5 末，止于本地第 9 页第 2 节标题之前。
+% 合并阅读本页码： 458--461. 再版本印刷页码： 447--450.
+% 本段原版页边定位： 415--418.
+% 权威底本：Polo--Gille Exp7A-13oct24.pdf,
+% SHA-256 D46DB8C79D0385643B6EED4B96900613248375F9B73B4202478A4F57FD3E8522.
+% 参照了 Jacob Reinhold 的 CC BY 4.0 Markdown 作为比对谱系。
+
+% 权威底本续于 Exp7A 本地页 5; 合并阅读本页 458; 印刷页 447.
+\medskip
+\noindent\textbf{1.3.}\footnote{编者扩充了原文的本段；另见他们对\SGARefLink{sga3:VIIA:1.1.1}{定义~1.1.1} 所作的\SGARefLink{sga3:VIIA:nde:2}{注~2}。}
+\phantomsection
+\label{sga3:VIIA:1.3}
+设 \(u:Y\to X\) 是 \(S\)-概形态射。回顾，伴随同构
+\[
+ \operatorname{Hom}_{p_X^{-1}(\mathcal O_S)}
+   \bigl(\mathcal O_X,u_*(\mathcal O_Y)\bigr)
+ \xrightarrow{\sim}
+ \operatorname{Hom}_{p_Y^{-1}(\mathcal O_S)}
+   \bigl(u^{-1}\mathcal O_X,\mathcal O_Y\bigr)
+\]
+将 \(p^{-1}(\mathcal O_S)\)-模态射
+\[
+  d:\mathcal O_X\longrightarrow u_*(\mathcal O_Y)
+\]
+映到 \(d'=\varepsilon\circ u^{-1}(d)\)，其中 \(\varepsilon:u^{-1}u_*(\mathcal O_Y)\to\mathcal O_Y\) 为典范态射。
+
+用 \(\mathcal J_u\)（分别地，\(\mathcal I_u\)）表示代数同态
+\[
+ u^\natural:\mathcal O_X\longrightarrow u_*(\mathcal O_Y)
+ \quad
+ \left(\text{分别地，}
+ u^{\natural\prime}:u^{-1}\mathcal O_X\longrightarrow\mathcal O_Y
+ \right),
+\]
+的核，并设 \(d:\mathcal O_X\to u_*(\mathcal O_Y)\) 是一个 \(p^{-1}(\mathcal O_S)\)-模态射。若 \(U\subset X\) 是开集且 \(f_0,\ldots,f_n,g\in\mathcal O_X(U)\)，则对 \(n\) 归纳可知条件 \((\ast_n)\) 等价于
+\begin{equation}
+  0=
+  \sum_{I\subset\{0,\ldots,n\}}
+  (-1)^{|I|}
+  u^\natural\bigl(f_{\{0,\ldots,n\}\setminus I}\bigr)d(f_Ig),
+  \tag{\(\ast\ast_n\)}
+  \label{sga3:VIIA:eq:starstar-n}
+\end{equation}
+其中 \(f_I\) 表示所有 \(i\in I\) 的 \(f_i\) 的乘积。因此，若 \(d\) 满足 \((\ast_n)\)，则 \(d\) 在理想 \(\mathcal J_u^{\,n+1}\) 上为零。
+
+现设 \(Y=S\)。则 \(u:S\to X\) 是 \(p:X\to S\) 的一个截面，因而是一个浸入。一方面，
+\[
+ \varepsilon:u^{-1}u_*\mathcal O_S\longrightarrow\mathcal O_S
+\]
+是同构，因此 \(u^{-1}\mathcal J_u=\mathcal I_u\)。另一方面，有同构
+\begin{equation}
+  u^{-1}\mathcal O_X\simeq\mathcal O_S\oplus\mathcal I_u.
+  \tag{\(\star\)}
+  \label{sga3:VIIA:eq:section-splitting}
+\end{equation}
+假设 \(d\) 在 \(\mathcal J_u^{\,n+1}\) 上为零。则 \(d'=\varepsilon\circ u^{-1}(d)\) 在 \(\mathcal I_u^{\,n+1}\) 上为零，故当
+\[
+ f_0,\ldots,f_n\in\mathcal I_u\bigl(u^{-1}(U)\bigr).
+\]
+时，满足与 \((\ast\ast_n)\)、\((\ast_n)\) 相应的 \((\ast\ast'_n)\)、\((\ast'_n)\)。此外，
+\[
+  (\operatorname{ad}a)(\varphi)=0
+\]
+对每个 \(a\in\mathcal O_S(u^{-1}U)\) 和每个 \(\mathcal O_{u^{-1}U}\)-模态射 \(\varphi:u^{-1}\mathcal O_U\to\mathcal O_{u^{-1}U}\) 成立。因此，分裂 \eqref{sga3:VIIA:eq:section-splitting} 蕴涵 \(d'\) 满足 \((\ast'_n)\)，从而 \(d\) 满足 \((\ast_n)\)。
+
+\medskip
+\noindent\textbf{引理.}
+\phantomsection
+\label{sga3:VIIA:1.3-section-lemma}
+\textit{若 \(u:S\to X\) 是 \(p:X\to S\) 的一个截面，则 \(d\) 是 \(u\) 的阶数 \(\leq n\) 的 \(S\)-偏差，当且仅当 \(d'\) 在 \(\mathcal I_u^{\,n+1}\) 上为零。}
+
+这一解释可推广如下。设 \(u:Y\to X\) 是任意 \(S\)-态射，\(\Gamma_u:Y\to Y\times X\) 为其图，其分量为 \(\operatorname{id}_Y\) 和 \(u\)。\(u\) 的每个阶数 \(\leq n\) 的 \(S\)-偏差 \(d\)，经复合
+\[
+  Y\xrightarrow{\mathrm{diag}}Y\times Y
+   \mathop{\longrightarrow}^{d_Y}_{u_Y}Y\times X,
+\]
+给出 \(\Gamma_u\) 的一个阶数 \(\leq n\) 的 \(Y\)-偏差，记为 \(\Gamma_d\)，称为 \(d\) 的图。
+
+反之，\(\Gamma_u\) 的一个 \(Y\)-偏差 \(e\) 给出复合 \(S\)-偏差
+\[
+ e_X=\operatorname{pr}_2\circ e:
+ \qquad
+ Y\mathop{\longrightarrow}^{e}_{\Gamma_u}Y\times X
+  \xrightarrow{\operatorname{pr}_2}X.
+\]
+立即有 \((\Gamma_d)_X=d\)。恒等式 \(\Gamma_{e_X}=e\) 则由 \(e\) 的 \(\mathcal O_Y\)-线性得到。\footnote{若 \(\lambda\) 和 \(f\) 分别是 \(\mathcal O_Y\) 和 \(\mathcal O_X\) 的局部截面，则
+\[
+ (\Gamma_{e_X})(\lambda\otimes f)
+ =\lambda\,e(1\otimes f)
+ =e(\lambda\otimes f).
+\]
+法文注中右侧两个张量表达式印为 \(g\)；依刚引入的变量，此处应为 \(f\)。}
+因此有 \(\mathcal O_Y(Y)\)-模同构
+\[
+\left\{
+\begin{array}{c}
+S\text{-偏差，其对应态射为 }u\\[-2pt]
+\text{阶数为 }\leq n
+\end{array}
+\right\}
+\xrightarrow{\sim}
+\left\{
+\begin{array}{c}
+Y\text{-偏差，其对应态射为 }\Gamma_u\\[-2pt]
+\text{阶数为 }\leq n
+\end{array}
+\right\},
+\qquad d\longmapsto\Gamma_d.
+\]
+此外，\(d\) 是 \(u\) 的一个 \(S\)-导子，当且仅当 \(\Gamma_d\) 是 \(\Gamma_u\) 的一个 \(Y\)-导子。
+
+% 权威底本： Exp7A 本地页 6; 合并阅读本页 459; 印刷页 448.
+用 \(\mathcal I_{\Gamma_u}\) 表示对应于 \(\Gamma_u\) 的代数同态
+\[
+  \Gamma_u^{-1}\mathcal O_{Y\times X}\longrightarrow\mathcal O_Y
+\]
+的核。前一引理给出：
+
+\medskip
+\noindent\textbf{命题.}
+\phantomsection
+\label{sga3:VIIA:1.3-graph-proposition}
+\textit{设 \(u:Y\to X\) 是一个 \(S\)-态射，\(\Gamma_u:Y\to Y\times X\) 为其图。\(u\) 的阶数 \(\leq n\) 的 \(S\)-偏差可等同于 \(\Gamma_u\) 的阶数 \(\leq n\) 的 \(Y\)-偏差，而后者与下列集合一一对应：}
+\[
+ \operatorname{Hom}_{\mathcal O_Y}
+ \left(
+  \frac{\Gamma_u^{-1}\mathcal O_{Y\times X}}
+       {\mathcal I_{\Gamma_u}^{\,n+1}},
+  \mathcal O_Y
+ \right).
+\]
+
+\medskip
+\noindent\textbf{1.3.1.}\footnote{本段由编者补入。}
+\phantomsection
+\label{sga3:VIIA:1.3.1}
+回到 \(u:S\to X\) 是 \(p:X\to S\) 的截面的情形。同态
+\[
+ \varphi:u^{-1}\mathcal O_X\longrightarrow\mathcal O_S
+\]
+有一个截面，简记为 \(g\mapsto g\cdot1\)。因此，沿用 \SGARefLink{sga3:VIIA:1.3}{1.3} 的记号，
+\[
+  u^{-1}\mathcal O_X\simeq\mathcal O_S\oplus\mathcal I_u,
+\]
+且对 \(u^{-1}\mathcal O_X\) 的每个截面 \(f\)，
+\[
+  f-\varphi(f)\cdot1\in\mathcal I_u.
+\]
+
+设 \(d\) 是 \(u\) 的一个阶数 \(\leq1\) 的 \(S\)-偏差，\(d':u^{-1}\mathcal O_X\to\mathcal O_S\) 为与 \(d\) 对应的 \(\mathcal O_S\)-态射。若 \(a,b\) 是 \(u^{-1}\mathcal O_X\) 的截面，则
+\begin{align*}
+0
+ &=d'\bigl((a-\varphi(a)\cdot1)(b-\varphi(b)\cdot1)\bigr)\\
+ &=d'(ab)-\varphi(a)d'(b)-\varphi(b)d'(a)+\varphi(ab)d'(1).
+\end{align*}
+所以，\(d\) 是 \(u\) 的一个 \(S\)-导子，当且仅当 \(d'(1)=0\)。
+
+% 权威底本： Exp7A 本地页 7; 合并阅读本页 460; 印刷页 449.
+\medskip
+\noindent\textbf{引理.}
+\phantomsection
+\label{sga3:VIIA:1.3.1-derivation-lemma}
+\textit{\(u\) 的 \(S\)-导子恰好是在 \(\mathcal O_X\) 的单位截面上为零的、\(u\) 的 \(1\) 阶 \(S\)-偏差。它们对应于 \(\mathcal O_S(S)\)-模}
+\[
+  \operatorname{Hom}_{\mathcal O_S}
+  \bigl(\mathcal I_u/\mathcal I_u^2,\mathcal O_S\bigr),
+\]
+\textit{并且有 \(\mathcal O_S(S)\)-模同构}
+\[
+ \operatorname{Dev}_{\leq1}(u)
+ \simeq
+ \mathcal O_S(S)\oplus\operatorname{Der}_S(u).
+\]
+
+回到一般情形得到：
+
+\medskip
+\noindent\textbf{推论.}
+\phantomsection
+\label{sga3:VIIA:1.3.1-graph-corollary}
+\textit{设 \(u:Y\to X\) 是一个 \(S\)-态射，\(\Gamma_u:Y\to Y\times X\) 为其图。有典范的 \(\mathcal O_Y(Y)\)-模同构}
+\[
+ \operatorname{Der}_S(u)
+ \simeq
+ \operatorname{Der}_Y(\Gamma_u)
+ \simeq
+ \operatorname{Hom}_{\mathcal O_Y}
+ \bigl(\mathcal I_{\Gamma_u}/\mathcal I_{\Gamma_u}^2,\mathcal O_Y\bigr).
+\]
+
+\medskip
+\noindent\textbf{定义 1.4.}
+\phantomsection
+\label{sga3:VIIA:1.4}
+\textit{设 \(X\) 是一个 \(S\)-概形。\(X\) 上的一个 \(S\)-微分算子（分别地，一个阶数 \(\leq n\) 的 \(S\)-微分算子）是 \(X\) 的恒等态射的一个 \(S\)-偏差（分别地，一个阶数 \(\leq n\) 的 \(S\)-偏差）。}
+
+由 \SGARefLink{sga3:VIIA:1.1}{1.1}，阶数 \(\leq n\) 的 \(S\)-微分算子就是 \(p^{-1}(\mathcal O_S)\)-模 \(\mathcal O_X\) 的一个自同态，满足 \SGARefLink{sga3:VIIA:1.1}{1.1} 的恒等式 \((\ast_n)\)。用 \(\operatorname{Dif}^n_{X/S}\) 表示阶数 \(\leq n\) 的 \(S\)-微分算子所成的 \(\Gamma(\mathcal O_S)\)-模\footnote{本报告中将环 \(\Gamma(S,\mathcal O_S)=\mathcal O_S(S)\) 记为 \(\Gamma(\mathcal O_S)\)。}
+，用 \(\operatorname{Dif}_{X/S}\) 表示所有 \(S\)-微分算子所成的模。
+
+如 \SGARefLink{sga3:VIIA:1.2}{1.2} 所见，\(\operatorname{id}_X\) 的 \(S\)-偏差可以复合。这使 \(\operatorname{Dif}_{X/S}\) 成为一个 \(\Gamma(\mathcal O_S)\)-代数，称为 \(X/S\) 的\emph{微分算子代数}。
+
+类似地，对每个开子集 \(V\subset X\)，置
+\[
+ \mathcal{Dif}_{X/S}(V)
+ =\operatorname{Dif}_{V/S}
+ =\operatorname{Dev}(\operatorname{id}_V).
+\]
+由 \SGARefLink{sga3:VIIA:1.1.3}{1.1.3}，这定义了一个 \(\mathcal O_X\)-模层，称为 \(X\) 上的 \(S\)-\emph{微分算子层}。\footnote{编者在此修改了原文。原文提到层 \(U\mapsto\operatorname{Dif}_{X_U/U}\)，其中 \(U\) 遍历 \(S\) 的开子集；该层是 \(\mathcal{Dif}_{X/S}\) 在 \(p_X:X\to S\) 下的正像。}
+
+\medskip
+\noindent\textbf{1.4.1.}
+\phantomsection
+\label{sga3:VIIA:1.4.1}
+如 \SGARefLink{sga3:VIIB:1.3.prop}{1.3}，可用 \(X\) 的恒等态射的图，即对角态射，来解释 \(X/S\) 上的微分算子：
+\[
+  \Delta=\Delta_{X/S}:X\longrightarrow X\times X.
+\]
+赋予 \(\mathcal O_{X\times X}\) 由 \(\operatorname{pr}_1\) 定义的 \(\operatorname{pr}_1^{-1}(\mathcal O_X)\)-代数结构。则 \(\Delta^{-1}\mathcal O_{X\times X}\) 是下述环上的代数：
+\[
+  \mathcal O_X=\Delta^{-1}\operatorname{pr}_1^{-1}\mathcal O_X.
+\]
+设 \(\mathcal I_{X/S}\) 为同态
+\[
+ \Delta^{-1}\mathcal O_{X\times X}
+ \xrightarrow{m}
+ \mathcal O_X
+\]
+的核，该同态伴随于 \(\mathcal O_{X\times X}\to\Delta_*(\mathcal O_X)\)，并置
+\[
+  \mathcal P^m_{X/S}
+  =
+  \Delta^{-1}\mathcal O_{X\times X}/\mathcal I_{X/S}^{\,m+1}.
+\]
+若 \(V\subset S\) 和 \(U\subset X\) 是仿射开子集，\(U\) 位于 \(V\) 上方，且
+\[
+  k=\Gamma(V,\mathcal O_S),
+  \qquad
+  A=\Gamma(U,\mathcal O_X),
+\]
+则
+\[
+  \Gamma(U,\mathcal P^m_{X/S})
+  =(A\otimes_kA)/I^{m+1},
+\]
+其中 \(I\) 由所有 \(a\in A\) 对应的元素 \(a\otimes1-1\otimes a\) 生成。
+
+% 权威底本： Exp7A 本地页 8; 合并阅读本页 461; 印刷页 450.
+由 \SGARefLink{sga3:VIIB:1.3.prop}{1.3}，有 \(\mathcal O_X(X)\)-模同构
+\[
+ j_X:\operatorname{Dif}^m_{X/S}
+ \xrightarrow{\sim}
+ \operatorname{Hom}_{\mathcal O_X}
+   (\mathcal P^m_{X/S},\mathcal O_X).
+\]
+它具体给出如下：若 \(d\in\operatorname{Dif}^m_{X/S}\)，且 \(\mathcal P^m_{X/S}\) 在 \(U\) 上的截面 \(c\) 形如
+\[
+  c=a\otimes b+I^{m+1},
+\]
+则 \(j_X(d)(c)=a\,d(b)\)。\footnote{在这一同构下，由 \SGARefLink{sga3:VIIA:1.3.1}{1.3.1}，\(\Delta_{X/S}\) 的 \(X\)-导子对应于 \(\operatorname{id}_X\) 的 \(S\)-导子，即 \(\mathcal O_X\) 的 \(p^{-1}(\mathcal O_S)\)-导子。}
+
+\medskip
+\noindent\textbf{1.4.2.}
+\phantomsection
+\label{sga3:VIIA:1.4.2}
+设 \(d\) 是微分算子，\(u\) 是 \(X\) 在 \(S\) 上的截面。\(d\) \emph{在 \(u\) 处的值}是复合 \(S\)-偏差
+\[
+  S\xrightarrow{u}X
+  \mathop{\longrightarrow}^{d}_{\operatorname{id}_X}X.
+\]
+由 \SGARefLink{sga3:VIIB:1.3.prop}{1.3} 和 \SGARefLink{sga3:VIIA:1.4.1}{1.4.1}，若 \(d\) 的阶数 \(\leq m\)，则 \(du\)（分别地，\(d\)）典范地对应于一个 \(\mathcal O_S\)-模态射
+\[
+ d':u^{-1}\mathcal O_X/\mathcal I_u^{\,m+1}\longrightarrow\mathcal O_S
+\]
+（分别地，一个 \(\mathcal O_X\)-模态射 \(d'':\mathcal P^m_{X/S}\to\mathcal O_X\)）。
+
+可从 \(d''\) 如下恢复态射 \(d'\)。方块图
+\begin{center}
+  \phantomsection
+  \label{sga3:VIIA:1.4.2-value-cartesian-square}
+  % SGA3-VII-DIAG-004
+  \input{figures/exp7/viia_00_04/diag_004_value_cartesian_square}
+\end{center}
+是笛卡尔的。因此可将 \(X\) 等同于 \(S\times_X(X\times X)\)，将 \(u\) 等同于 \(S\times_X\Delta\)，将 \(u^*(\mathcal P^m_{X/S})\) 等同于 \(u^{-1}\mathcal O_X/\mathcal I_u^{\,m+1}\)。在这些等同下，\(u^*(d'')\) 是态射
+\[
+  u^{-1}\mathcal O_X/\mathcal I_u^{\,m+1}\longrightarrow\mathcal O_S
+\]
+它恰好就是 \(d'\)。
+
+\medskip
+\noindent\textbf{1.5.}
+\phantomsection
+\label{sga3:VIIA:1.5}
+像往常一样，置
+\[
+  I_S=\operatorname{Spec}\mathcal O_S[T]/(T^2).
+\]
+设 \(\tau:S\to I_S\) 为零截面，\(\sigma\) 为 \SGARefLink{sga3:VIIA:1.2.0}{1.2.0} 中定义的 \(\tau\) 的典范偏差：它是一个 \(\mathcal O_S\)-模同态，在 \(\mathcal O_S[T]/(T^2)\) 的单位截面上为零，并将 \(T\) 模 \(T^2\) 的类 \(t\) 映到 \(\mathcal O_S\) 的单位截面。
+
+设 \(X\) 是一个 \(S\)-概形。\(I_S\times X\) 的每个在 \(X\) 上诱导恒等态射的 \(I_S\)-自同构 \(u\)，经复合确定 \(X\) 上的一个微分算子 \(D_u\)：
+\begin{center}
+  \phantomsection
+  \label{sga3:VIIA:1.5-infinitesimal-automorphism-sequence}
+  % SGA3-VII-DIAG-005
+  \input{figures/exp7/viia_00_04/diag_005_infinitesimal_automorphism_sequence}
+\end{center}
+由\SGARefLink{sga3:ii:subsection:3-14}{报告 II，3.14}，映射 \(u\mapsto D_u\) 是从 \(\Gamma(\mathcal O_S)\)-Lie 代数
+\[
+  \operatorname{Lie}(\operatorname{Aut}X)
+  :=\operatorname{Lie}(\operatorname{Aut}X)(S)
+\]
+到 \(\mathcal O_X\) 的 \(p^{-1}(\mathcal O_S)\)-导子所成的 \(\Gamma(\mathcal O_S)\)-Lie 代数的同构。其逆将导子 \(D\) 映到 \(I_S\times X\) 的自同构，该自同构对应于 \(\mathcal O_X[T]/(T^2)\) 上的映射
+\[
+  a+bt\longmapsto a+(Da+b)t
+\]
+。
+
+% 下一定位： Exp7A 本地页 9, 合并阅读本页 462,
+% 再版本印刷页 451, 在第 2 节标题处。

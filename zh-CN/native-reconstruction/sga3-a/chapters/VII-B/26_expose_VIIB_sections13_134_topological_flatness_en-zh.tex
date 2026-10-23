@@ -1,0 +1,321 @@
+% SGA 3，报告 VII_B，英文重建本——第 1 轮（中文译本）。
+% 范围：依据原文件第 26--29 页，从第 1.3 节至 1.3.4 结束；止于 1.3.5 之前。
+% 合并阅读版页码： 539--542. 再版印刷页码： 528--531.
+% 原版页边定位： 499--503.
+% 依据： Polo--Gille Exp7B-13oct24.pdf,
+% SHA-256 D303690E0195654BBE7C3DAA5D89EA23E24CD709A3575217234AC19AE8836694.
+% 曾参阅 Jacob Reinhold 的 CC BY 4.0 Markdown，作为对比版本来源。
+
+\subsection*{1.3}
+\phantomsection
+\label{sga3:VIIB:1.3}
+\addcontentsline{toc}{subsection}{1.3. 单态射与拓扑平坦性}
+
+\noindent\textbf{命题 1.3。}
+\phantomsection
+\label{sga3:VIIB:1.3.prop}
+{\itshape 设 \(f:X\to Y\) 是 \(k\) 上的形式簇态射，\(A\) 和 \(B\) 分别是
+\(X\) 和 \(Y\) 的仿射代数，\(g:B\to A\) 是 \(f\) 诱导的态射。
+则 \(f\) 是 \(\operatorname{Vaf}/k\) 中的单态射，当且仅当 \(g\) 是满射。}
+
+由 \SGARefLink{sga3:VIIB:1.1}{1.1}，\footnote{编者展开了证明的开头部分。}
+函子 \(A\mapsto\operatorname{Spf}(A)\) 是从 \(\operatorname{Alp}/k\) 到
+\(\operatorname{Vaf}/k\) 的反等价。因此，\(f\) 为单态射当且仅当 \(g\) 为满态射，
+而当 \(g\) 为满射时它当然是满态射。
+
+反之，假定 \(g\) 是满态射。对每个 \(\mathfrak n\in\Upsilon(B)\)，令
+\[
+  A_{\mathfrak n}
+  =
+  A\widehat{\otimes}_B B_{\mathfrak n}.
+\]
+由 \SGARefLink{sga3:VIIB:0.4}{0.4}，\(A\) 是伪紧 \(B\)-模，
+从而是各 \(A_{\mathfrak n}\) 的积\textup{（\SGARefLink{sga3:VIIB:0.3.6}{0.3.6}）}。
+所以态射 \(g\) 是以下由 \(g\) 通过基变换得到的态射的积：
+\[
+  g_{\mathfrak n}:B_{\mathfrak n}\longrightarrow A_{\mathfrak n}
+\]
+这些态射仍是满态射。因此归约到 \(B\) 为极大理想是 \(\mathfrak n\) 的局部环的情形；
+令 \(K=B/\mathfrak n\)。
+
+由 Nakayama \SGARefLink{sga3:VIIB:0.3.3}{引理 0.3.3}，只需证明
+\[
+  g\widehat{\otimes}_B K
+\]
+是满射。这个映射由 \(g\) 通过基变换得到，因而是 \(\operatorname{Alp}/K\) 中的满态射。
+所以可以假定 \(B=K\) 是域。此时 \(f\) 为单态射当且仅当对角映射
+\[
+  X\longrightarrow X\times_YX
+\]
+是同构；等价地，同态
+\[
+  A\widehat{\otimes}_K A\longrightarrow A,
+  \qquad
+  x\widehat{\otimes}_Kx'\longmapsto xx',
+\]
+是同构。由于 \(K\) 是域，这给出 \(A=K\)。
+
+\medskip
+\noindent\textbf{注记。}
+\phantomsection
+\label{sga3:VIIB:1.3.remark}
+{\itshape 由命题可知，形式簇的每个单态射 \(f:X\to Y\) 都是从 \(X\) 到
+\(Y\) 的一个形式子簇的同构，而且这个形式子簇必为闭的。}\footnote{本注记由编者添加。}
+
+\subsubsection*{1.3.1}
+\phantomsection
+\label{sga3:VIIB:1.3.1}
+\addcontentsline{toc}{subsubsection}{\SGARefLink{sga3:VIIA:1.3.1}{1.3.1}. 有效满态射}
+
+前面的命题特别表明，\(\operatorname{Vaf}/k\) 中的每个单态射 \(f:X\to Y\)
+都是有效的\textup{（参见\ \SGARefLink{sga3:iv:definition:1:3}{IV 1.3}）}。
+\footnote{在反范畴 \((\operatorname{Vaf}/k)^\circ=\operatorname{Alp}/k\) 中，
+相应的映射 \(g:B\to A\) 是有效满态射：由于它是满射，它诱导预有限 \(k\)-代数的同构
+\(B/I\xrightarrow{\sim}A\)，其中 \(I=\ker g\)。因此，\(\operatorname{Alp}/k\)
+中每个在 \(I\) 上为零的态射 \(\phi:B\to C\) 都下降为态射 \(\bar\phi:A\to C\)，
+使 \(\phi=\bar\phi\circ g\)。}
+对于满态射，这一点并不成立，稍微修改报告 V，\S~2.c) 的反例即可看出。
+\footnote{设 \(k\) 是域，\(X=\operatorname{Spf}(k[[T]])\)，
+\(Y=\operatorname{Spf}(B)\)，其中 \(B\) 是 \(A=k[[T]]\) 中由 \(T^3\) 和
+\(T^4\) 拓扑生成的 \(k\)-子代数；因而 \(B\) 由在 \(n=1,2,5\) 时满足
+\(a_n=0\) 的级数 \(\sum a_nT^n\) 组成。则 \(X\to Y\) 是非有效的满态射：
+\(X\times_YX\rightrightarrows X\) 的余核是 \(\operatorname{Spf}(B')\)，其中
+\[
+  B'=\{a\in A\mid
+       a\widehat{\otimes}1=1\widehat{\otimes}a\},
+\]
+且 \(B'\) 包含 \(T^5\)。}
+因此，我们现在考虑一类有用的有效满态射。
+
+\medskip
+\noindent\textbf{引理。}
+\phantomsection
+\label{sga3:VIIB:1.3.1.flatness-criterion}
+\footnote{编者添加了这个引理，它解释了“拓扑平坦”这个术语。}
+{\itshape 设 \(f:X\to Y\) 是形式 \(k\)-簇的态射，\(A\) 和 \(B\) 分别是
+\(X\) 和 \(Y\) 的仿射代数，\(f^\natural:B\to A\) 是由 \(f\) 诱导的态射。
+下列条件等价：}
+\begin{enumerate}
+  \item[\textup{(i)}]
+  {\itshape 对每个 \(x\in X\)，同态
+  \[
+    f_x^\natural:
+    \mathcal O_{Y,f(x)}
+    \longrightarrow
+    \mathcal O_{X,x}
+  \]
+  使 \(\mathcal O_{X,x}\) 成为拓扑自由的伪紧
+  \(\mathcal O_{Y,f(x)}\)-模。}
+
+  \item[\textup{(ii)}]
+  {\itshape 对每个 \(y\in Y\)，局部分量
+  \[
+    A_y=\prod_{f(x)=y}\mathcal O_{X,x}
+  \]
+  是拓扑自由的伪紧 \(B_y\)-模。}
+
+  \item[\textup{(iii)}]
+  {\itshape 映射 \(f^\natural:B\to A\) 使 \(A\) 成为投射伪紧 \(B\)-模。}
+
+  \item[\textup{(iv)}]
+  {\itshape 函子
+  \[
+    \operatorname{PC}(B)\longrightarrow\operatorname{PC}(A),
+    \qquad
+    M\longmapsto M\widehat{\otimes}_B A,
+  \]
+  正合。}
+\end{enumerate}
+{\itshape 当这些条件成立时，称 \(f\) 为\emph{拓扑平坦}的。}
+
+蕴含关系
+\[
+  \textup{(i)}\Longrightarrow\textup{(ii)}
+  \Longleftrightarrow\textup{(iii)}
+  \Longleftrightarrow\textup{(iv)}
+\]
+由 \SGARefLink{sga3:VIIB:0.2.F}{0.2.F}\,\textup{\SGARefLink{sga3:VIIB:0.2.F:item:iii}{(iii)}}
+和 \SGARefLink{sga3:VIIB:0.3.7}{0.3.7} 得到。反之，假设
+\textup{\SGARefLink{sga3:VIIB:0.2.F:item:ii}{(ii)}} 成立，并令 \(x\in X\)、\(y=f(x)\)。
+由于 \(\mathcal O_{X,x}\) 是 \(A_y\) 的直因子，它是投射伪紧 \(B_y\)-模，
+又因 \(B_y\) 是局部环，由 \SGARefLink{sga3:VIIB:0.2.1}{0.2.1} 知它是拓扑自由的。
+
+若形式 \(k\)-簇的态射 \(f:X\to Y\) 诱导底集间的满射，则称其为\emph{满射}。
+
+\medskip
+\noindent\textbf{命题。}
+\phantomsection
+\label{sga3:VIIB:1.3.1.effective-epi}
+{\itshape 设 \(f:X\to Y\) 是形式 \(k\)-簇的满射且拓扑平坦的态射。
+则 \(f\) 是有效满态射\textup{（参见\ \SGARefLink{sga3:iv:definition:1:3}{IV 1.3}）}。}
+
+设 \(A\) 和 \(B\) 分别是 \(X\) 和 \(Y\) 的仿射代数，\(g:B\to A\)
+是由 \(f\) 诱导的态射。需要证明 \(Y\) 等同于
+\[
+  X\times_YX\rightrightarrows X;
+\]
+的余核；即对于每个 \(\mathfrak n\in\Upsilon(B)\)，\(B_{\mathfrak n}\) 必须等同于
+\[
+  A_{\mathfrak n}
+  =
+  A\widehat{\otimes}_B B_{\mathfrak n}
+\]
+中由满足下式的元素 \(a\) 组成的子环：
+\[
+  a\widehat{\otimes}1=1\widehat{\otimes}a.
+\]
+
+可以假定 \(B\) 是极大理想为 \(\mathfrak n\) 的局部环。
+这时假设意味着 \(g\) 使 \(A\) 成为非零的拓扑自由 \(B\)-模。
+由 Nakayama \SGARefLink{sga3:VIIB:0.3.3}{引理 0.3.3}，
+\(A/\overline{\mathfrak nA}\ne0\)，故诱导态射
+\[
+  g':B/\mathfrak n\longrightarrow
+     A/\overline{\mathfrak nA}
+\]
+是单射。由下文的\SGARefLink{sga3:VIIB:1.3.2}{引理 1.3.2}，\(B\) 作为 \(B\)-模
+是 \(A\) 的直因子；记 \(A=B\oplus A'\)。由此可知，\(B\) 等同于满足下式的
+\(a\in A\) 所成的集合：
+\[
+  a\widehat{\otimes}_B1
+  =
+  1\widehat{\otimes}_B a.
+\]
+
+\subsubsection*{1.3.2}
+\phantomsection
+\label{sga3:VIIB:1.3.2}
+
+\noindent\textbf{引理 1.3.2。}
+{\itshape 设 \(B\) 是局部伪紧环，\(\mathfrak n\) 是其极大理想，\(M,N\) 是投射伪紧
+\(B\)-模，\(g:M\to N\) 是态射。若
+\[
+  (B/\mathfrak n)\widehat{\otimes}_B g
+\]
+是单射，则 \(g\) 是从 \(M\) 到 \(N\) 的一个直因子的同构。}
+
+事实上，假定
+\[
+  g'=(B/\mathfrak n)\widehat{\otimes}_B g
+\]
+是单射。由于 \(B/\mathfrak n\) 是域，\(g'\) 有一个收缩 \(r'\)。
+设 \(p\) 和 \(q\) 是从 \(M\) 和 \(N\) 分别到
+\[
+  M/\overline{\mathfrak nM}
+  \qquad\text{和}\qquad
+  N/\overline{\mathfrak nN}.
+\]
+的典范投影。由于 \(N\) 是投射对象，存在 \(r:N\to M\) 使
+\[
+  p\circ r=r'\circ q;
+\]
+因此，\(r'\) 是由 \(r\) 通过取商得到的。由于 \(r'\circ g'\) 是同构，
+且 \(M\) 是投射对象，\SGARefLink{sga3:VIIB:0.3.4}{0.3.4} 表明
+\(r\circ g\) 也为同构。若 \(s\) 表示 \(r\circ g\) 的逆，
+则 \(s\circ r\) 是 \(g\) 的收缩。
+
+\subsubsection*{1.3.3}
+\phantomsection
+\label{sga3:VIIB:1.3.3}
+
+\noindent\textbf{命题 1.3.3。}
+{\itshape 设 \(f:X\to Y\) 和 \(g:Y\to Z\) 是形式 \(k\)-簇的态射。}
+\begin{enumerate}
+  \item[\textup{(i)}]
+  {\itshape 若 \(f\) 和 \(g\) 拓扑平坦，则 \(g\circ f\) 也拓扑平坦。}
+
+  \item[\textup{\SGAInlineRefTarget{sga3:VIIB:1.3.3:item:ii}(ii)}]
+  {\itshape 若 \(f\) 和 \(g\circ f\) 拓扑平坦，且 \(f\) 是满射，则 \(g\) 拓扑平坦。}
+
+  \item[\textup{\SGAInlineRefTarget{sga3:VIIB:1.3.3:item:iii}(iii)}]
+  {\itshape 若 \(f\) 拓扑平坦，则在每个基变换 \(Y'\to Y\) 后，\(f\times_YY'\) 也拓扑平坦。}
+\end{enumerate}
+
+断言 \textup{\SGARefLink{sga3:vii:paragraph:5-1:equation:i}{(i)}} 和
+\textup{\SGARefLink{sga3:VIIB:1.3.3:item:iii}{(iii)}} 显然成立。
+为证明 \textup{\SGARefLink{sga3:VIIB:1.3.3:item:ii}{(ii)}}，设 \(A,B,C\) 是
+\(X,Y,Z\) 的仿射代数，\(f':B\to A\)、\(g':C\to B\) 是 \(f,g\) 诱导的同态。
+由于 \(g\circ f\) 拓扑平坦，\(f'\circ g'\) 使 \(A\) 成为投射伪紧 \(C\)-模。
+同样，\(f'\) 使 \(A\) 成为忠实投射伪紧 \(B\)-模。因此，当 \(P\) 遍历伪紧
+\(C\)-模，\(N\) 遍历伪紧 \(B\)-模时，函子
+\[
+  P\longmapsto P\widehat{\otimes}_C A,
+  \qquad
+  N\longmapsto N\widehat{\otimes}_B A
+\]
+正合；第二个函子还是忠实的。因此，函子
+\[
+  P\longmapsto P\widehat{\otimes}_C B
+\]
+正合，由 \SGARefLink{sga3:VIIB:0.3.7}{0.3.7} 得到 \(B\) 是投射伪紧 \(C\)-模。
+
+\subsubsection*{1.3.4}
+\phantomsection
+\label{sga3:VIIB:1.3.4}
+
+\noindent\textbf{命题 1.3.4。}
+{\itshape 设 \(S\) 是概形，\(Y\) 是局部 Noether 的 \(S\)-概形，\(f:X\to Y\)
+是局部有限型的忠实平坦 \(S\)-态射。因此 \(f\) 是有效满态射；等价地，下列序列正合
+\textup{（参见\ \SGARefLink{sga3:iv:proposition:6:3:1}{IV 6.3.1}\,\textup{\SGARefLink{sga3:iv:proposition:6:3:1:item:iv:01}{(iv)}}
+和 \SGARefLink{sga3:iv:definition:1:3}{IV 1.3}）}：}
+
+\begin{center}
+  % SGA3-VII-DIAG-085
+  \input{figures/exp7/viib_15_95/diag_085}
+\end{center}
+
+{\itshape 则形式 \(\widehat S\)-簇态射
+\[
+  \widehat f:
+  \widehat X/\widehat S
+  \longrightarrow
+  \widehat Y/\widehat S
+\]
+\textup{（参见\ \SGARefLink{sga3:VIIB:1.2.6}{1.2.6}）}是满射且拓扑平坦的，
+而由前一序列得到的下列序列正合：}
+
+\begin{center}
+  % SGA3-VII-DIAG-086
+  \input{figures/exp7/viib_15_95/diag_086}
+\end{center}
+
+设 \(y\) 是 \(Y\) 的一点，\(s\) 是其在 \(S\) 中的像，且 \(\kappa(y)\)
+是剩余域 \(\kappa(s)\) 的有限扩张。由于 \(f\) 是满射且局部有限型，
+\(f^{-1}(y)\) 非空，且在 \(\kappa(y)\) 上局部有限型。
+其闭点恰是 \(\widehat X/\widehat S\) 中映到 \(y\) 的点。这证明 \(\widehat f\) 是满射。
+
+设 \(x\) 是 \(f^{-1}(y)\) 的闭点。\footnote{编者展开了后面的论证，
+然后使用了在 \SGARefLink{sga3:VIIB:1.2.6}{1.2.6} 中添加的材料。}
+由于 \(Y\) 局部 Noether，且 \(f\) 局部有限型，局部环 \(\mathcal O_{Y,y}\)
+和 \(\mathcal O_{X,x}\) 都是 Noether 环。因此，其极大理想的幂具有有限余长度，
+而 \(\widehat Y/\widehat S\) 在 \(y\) 处和 \(\widehat X/\widehat S\) 在
+\(x\) 处的局部环是它们对于进拓扑的完备化
+\[
+  \widehat{\mathcal O}_{Y,y}
+  \qquad\text{和}\qquad
+  \widehat{\mathcal O}_{X,x}
+\]
+由于 \(f\) 平坦，由 SGA~1，IV 5.8，\(\widehat{\mathcal O}_{X,x}\)
+在 \(\widehat{\mathcal O}_{Y,y}\) 上平坦。因此，由 \SGARefLink{sga3:VIIB:0.3.8}{0.3.8}，
+它是拓扑自由的 \(\widehat{\mathcal O}_{Y,y}\)-模。所以 \(\widehat f\) 拓扑平坦。
+
+现在，\SGARefLink{sga3:VIIB:1.3.1}{命题 1.3.1} 表明 \(\widehat f\) 是有效满态射。
+换言之，下列序列正合，其中将 \(\widehat X/\widehat S\) 简记为 \(\widehat X\)：
+
+\begin{center}
+  % SGA3-VII-DIAG-087
+  \input{figures/exp7/viib_15_95/diag_087}
+\end{center}
+
+此外，\SGARefLink{sga3:VIIB:1.2.6}{1.2.6} 给出自然同构，特别地它与到
+\(\widehat X\) 的投影相容：
+
+\begin{center}
+  % SGA3-VII-DIAG-088
+  \input{figures/exp7/viib_15_95/diag_088}
+\end{center}
+
+因此，命题中展示的完备化序列正合。
+
+% 下一断点： Exp7B 原文件页码 29, 合并阅读版页码 542,
+% 再版印刷页码 531, 紧接其前： 1.3.5.

@@ -1,0 +1,296 @@
+% SGA 3，报告 VII_B，英文重建本——第 1 轮（中文译本）。
+% 范围：依据原文件第 17--20 页，从第 1 节至 1.2.2 结束；止于原文件第 20 页的 1.2.3 之前。
+% 合并阅读版页码： 530--533. 再版印刷页码： 519--522.
+% 本范围内的原版页边定位： 492--495.
+% 本范围内的编者注： 37--44.
+% 依据： Polo--Gille Exp7B-13oct24.pdf,
+% SHA-256 D303690E0195654BBE7C3DAA5D89EA23E24CD709A3575217234AC19AE8836694.
+% 曾参阅 Jacob Reinhold 的 CC BY 4.0 Markdown，作为对比版本来源。
+% 1.2.C 中的原生双箭头图是与源文绑定的 PDF 裁片；
+% 其他所有陈列数学均为原生 LaTeX。
+
+% 依据： Exp7B 原文件页码 17; 合并阅读版页码 530; 印刷页码 519.
+\section*{1. 伪紧环上的形式簇}
+\phantomsection
+\label{sga3:VIIB:1}
+\addcontentsline{toc}{section}{1. 伪紧环上的形式簇}
+
+\medskip
+\noindent\textbf{1.1.}
+\phantomsection
+\label{sga3:VIIB:1.1}
+可以如下将一个形式概形（EGA~I，10.4.2）对应于每个伪紧环 \(A\)。
+其底拓扑空间是 \(A\) 的开素理想（因而是极大理想）所成的集合 \(\Upsilon(A)\)，
+赋予离散拓扑。对于每个子集 \(E\subset\Upsilon(A)\)，结构层在 \(E\) 上的截面空间是笛卡尔积
+\[
+  \prod_{\mathfrak m\in E}A_{\mathfrak m}.
+\]
+% 依据： Exp7B 原文件页码 18; 合并阅读版页码 531; 印刷页码 520.
+如此得到的形式概形记为 \(\operatorname{Spf}(A)\)，称为 \(A\) 的
+\emph{形式谱}。\footnote{\label{sga3:VIIB:nde:37}%
+参见\ \SGARefLink{sga3:VIIB:0.1.2}{注记 0.1.2}。}
+
+若 \(A\) 和 \(B\) 是两个伪紧环，则从 \(\operatorname{Spf}(B)\) 到
+\(\operatorname{Spf}(A)\) 的\emph{态射}由一个映射
+\[
+  f:\Upsilon(B)\longrightarrow\Upsilon(A)
+\]
+和一族连续同态
+\[
+  f_y^\natural:A_{f(y)}\longrightarrow B_y,
+  \qquad y\in\Upsilon(B).
+\]
+组成。这样的态射诱导连续同态
+\[
+  f^\natural:
+  A=\prod_{x\in\Upsilon(A)}A_x
+  \longrightarrow
+  B=\prod_{y\in\Upsilon(B)}B_y.
+\]
+逆命题也成立：
+
+\medskip
+\noindent\textbf{命题。}
+\phantomsection
+\label{sga3:VIIB:1.1-spf-fully-faithful}
+\textit{反变函子 \(A\mapsto\operatorname{Spf}(A)\) 是全忠实的。}
+
+事实上，设 \(\phi:A\to B\) 是连续同态。\(B\) 的开极大理想的逆像
+\(\phi^{-1}(\mathfrak n)\) 是 \(A\) 的开素理想，从而是 \(A\) 的极大理想。
+因此，得到从 \(\Upsilon(B)\) 到 \(\Upsilon(A)\) 的映射
+\[
+  \mathfrak n\longmapsto\phi^{-1}(\mathfrak n)
+\]
+且 \(\phi\) 诱导连续同态
+\[
+  A_{\phi^{-1}(\mathfrak n)}\longrightarrow B_{\mathfrak n}.
+\]
+所以 \(\phi\) 诱导形式概形态射
+\[
+  \operatorname{Spf}(\phi):
+  \operatorname{Spf}(B)\longrightarrow\operatorname{Spf}(A).
+\]
+容易验证
+\[
+  \operatorname{Spf}(\phi)^\natural=\phi,
+  \qquad
+  \operatorname{Spf}(f^\natural)=f
+\]
+对每个态射 \(f:\operatorname{Spf}(B)\to\operatorname{Spf}(A)\) 成立，这就证明了命题。
+
+尽管这里仅讨论形如 \(\operatorname{Spf}(A)\) 的形式概形，我们仍将使用形式概形的语言，
+以便将我们的论断建立在几何直观上。
+
+\medskip
+\noindent\textbf{1.2.}
+\phantomsection
+\label{sga3:VIIB:1.2}
+设 \(k\) 是伪紧环。
+
+\medskip
+\noindent\textbf{定义 1.2.A。}\footnote{%
+\label{sga3:VIIB:nde:38}编者添加了编号 \SGARefLink{sga3:VIIB:1.2.A}{1.2.A}--\SGARefLink{sga3:VIIB:1.2.E}{1.2.E}，以供下文引用。}
+\phantomsection
+\label{sga3:VIIB:1.2.A}
+一个\emph{\(k\) 上的形式簇}是 \(\operatorname{Spf}(k)\) 上的形式概形 \(X\)，
+它同构于某个预有限 \(k\)-代数 \(A\) 的形式 \(k\)-概形 \(\operatorname{Spf}(A)\)。
+这时，代数 \(A\) 同构于 \(X\) 的\emph{仿射代数}，即 \(X\) 的结构层
+\(\mathcal O_X\) 的截面代数。
+
+以 \(\operatorname{Vaf}/k\) 表示 \(\operatorname{Spf}(k)\) 上的形式概形范畴中，
+由形式 \(k\)-簇作为对象的满子范畴。\footnote{%
+\label{sga3:VIIB:nde:39}由 \SGARefLink{sga3:VIIB:1.1}{1.1} 中态射的定义，
+每个 \(X\in\operatorname{Ob}(\operatorname{Vaf}/k)\) 都是各单点形式簇
+\(\operatorname{Spf}(\mathcal O_{X,x})\)（\(x\in X\)）在
+\(\operatorname{Vaf}/k\) 中的直和。}
+
+由 \SGARefLink{sga3:VIIB:1.1}{1.1}，函子 \(A\mapsto\operatorname{Spf}(A)\)
+是从 \(\operatorname{Alp}/k\)（\SGARefLink{sga3:VIIB:0.4.1}{0.4.1}）到
+\(\operatorname{Vaf}/k\) 的反等价。因此，由 \SGARefLink{sga3:VIIB:0.4.2}{0.4.2} 的推论：
+
+\medskip
+\noindent\textbf{命题 1.2.B。}
+\phantomsection
+\label{sga3:VIIB:1.2.B}
+\textit{范畴 \(\operatorname{Vaf}/k\) 有投射极限和直极限。}\footnote{
+\label{sga3:VIIB:nde:40}特别地，\(\operatorname{Vaf}/k\) 中存在余核；见下文。
+此外，\(\operatorname{Vaf}/k\) 中过渡态射全为满射的滤过投射极限也可能为空；
+参见\ 编者注~(34)。}
+
+例如，设 \(X\in\operatorname{Ob}(\operatorname{Vaf}/k)\)，设
+\[
+  f:Y\longrightarrow X,
+  \qquad
+  g:Z\longrightarrow X
+\]
+是 \(X\) 上的两个形式 \(k\)-簇，且 \(A,B,C\) 分别是 \(X,Y,Z\) 的仿射代数。
+% 依据：Exp7B 原文件第 19 页；合并阅读版第 532 页；印刷页码 521。
+由 \SGARefLink{sga3:VIIB:0.4.1}{0.4.1}，纤维积 \(Y\times_X Z\) 的仿射代数等同于
+\(B\widehat{\otimes}_A C\)，\footnote{%
+\label{sga3:VIIB:nde:41}形式簇 \(Y\times_X Z\) 是各形式簇
+\(B_x\widehat{\otimes}_{\mathcal O_{X,x}}C_x\) 对 \(x\in X\) 的直和，
+其中 \(B_x\) 是满足 \(f(y)=x\) 的 \(y\in Y\) 所对应的
+\(\mathcal O_{Y,y}\) 的积，\(C_x\) 类似定义。这将在
+\SGARefLink{sga3:VIIB:2.5.1:corollary}{2.5.1} 中用到。}
+因此，\(\operatorname{Vaf}/k\) 到所有形式 \(k\)-概形范畴的包含函子与有限投射极限交换
+（参见\ EGA~I，10.7）。
+
+形式 \(k\)-簇的直极限对应于其仿射代数的投射极限。
+
+\medskip
+\noindent\textbf{例 1.2.C（余核）。}
+\phantomsection
+\label{sga3:VIIB:1.2.C}
+设 \(d,e:X\rightrightarrows Y\) 是 \(\operatorname{Vaf}/k\) 中的双箭头。
+\(\operatorname{Coker}(d,e)\) 的仿射代数同构于在 \(X\) 和 \(Y\) 的仿射代数上
+诱导的同态的核。\(\operatorname{Coker}(d,e)\) 还可以如下构造。
+其底拓扑空间是底空间的余核。\footnote{%
+\label{sga3:VIIB:nde:42}即 \(Y\) 关于对每个 \(x\in X\) 作认同
+\(d(x)=e(x)\) 所得的商集，赋予商拓扑，此处该拓扑是离散的。}
+设 \(p\) 是从 \(Y\) 的底集到此余核的典范投影，\(z\) 是余核的一点。
+\(\operatorname{Coker}(d,e)\) 在 \(z\) 处的局部代数是以下双箭头的核
+\begin{center}
+  \phantomsection
+  \label{sga3:VIIB:1.2.C-cokernel-double-arrow}
+  % SGA3-VII-DIAG-084
+  \input{figures/exp7/viib_15_95/diag_084}
+\end{center}
+其中
+\[
+  q=p\circ d=p\circ e,
+\]
+且 \(d^\natural\) 和 \(e^\natural\) 由同态
+\(d_x^\natural\) 和 \(e_x^\natural\) 诱导，所用记号见 \SGARefLink{sga3:VIIB:1.1}{1.1}。
+
+\medskip
+\noindent\textbf{定义 1.2.D。}
+\phantomsection
+\label{sga3:VIIB:1.2.D}
+设 \(\phi:k\to\ell\) 是伪紧环同态，\(X\) 是仿射代数为 \(A\) 的形式
+\(k\)-簇。通过基变换得到的形式概形
+\[
+  X\times_{\operatorname{Spf}(k)}\operatorname{Spf}(\ell),
+\]
+是形式 \(\ell\)-簇。我们也将它记为
+\[
+  X\widehat{\otimes}_k\ell.
+\]
+其仿射代数是完备化张量积 \(A\widehat{\otimes}_k\ell\)
+（参见\ 0.5 和 EGA~I，\S~10）。
+
+\medskip
+\noindent\textbf{注记 1.2.E。}
+\phantomsection
+\label{sga3:VIIB:1.2.E}
+由于 \(k\) 上的每个形式簇都分解为 \(k\) 的局部分量上的形式簇，
+\emph{在某些证明中我们将假定 \(k\) 是局部伪紧环}。
+
+现在给出一些例子，同时确定我们的术语。
+
+\medskip
+\noindent\textbf{1.2.1.}
+\phantomsection
+\label{sga3:VIIB:1.2.1}
+一个 \(k\)-\emph{函子}，按定义是从 \(\operatorname{Alf}/k\) 到
+\((\mathbf{Sets})\) 的协变函子。由 \SGARefLink{sga3:VIIB:1.1}{1.1} 和
+\SGARefLink{sga3:VIIB:0.4.2}{0.4.2}，我们可以通过将每个形式 \(k\)-簇 \(X\)
+对应于如下函子，把
+\[
+  \operatorname{Vaf}/k
+  \simeq
+  (\operatorname{Alp}/k)^\circ
+\]
+等同于 \(k\)-函子范畴的一个满子范畴：
+\[
+  \operatorname{Alf}/k\longrightarrow(\mathbf{Sets}),
+  \qquad
+  C\longmapsto
+  X(C)=
+  \operatorname{Hom}_{\operatorname{Vaf}/k}
+    \bigl(\operatorname{Spf}(C),X\bigr).
+\]
+
+% 依据： Exp7B 原文件页码 20; 合并阅读版页码 533; 印刷页码 522.
+下文将遇到这样的 \(k\)-函子 \(\mathbf F\)：它将
+\(\operatorname{Alf}/k\) 的每个对象 \(C\) 对应于一个 \(C\)-模 \(\mathbf F(C)\)，
+并将 \(\operatorname{Alf}/k\) 的每个态射 \(\phi:C\to D\) 对应于一个 \(k\)-线性映射
+\[
+  \mathbf F(\phi):\mathbf F(C)\longrightarrow\mathbf F(D)
+\]
+使得对 \(x\in\mathbf F(C)\) 及 \(\lambda\in C\)，
+\[
+  \mathbf F(\phi)(\lambda x)
+  =
+  \phi(\lambda)\mathbf F(\phi)(x).
+\]
+由\SGARefLink{sga3:i:definition:3-1}{报告 I，3.1}，这样的 \(\mathbf F\)
+配备一个 \(\mathbf O_k\)-模结构，其中 \(\mathbf O_k\) 表示将
+\(\operatorname{Alf}/k\) 的每个对象 \(C\) 对应于其底环的环值 \(k\)-函子。
+
+\medskip
+\noindent\textbf{定义。}
+\phantomsection
+\label{sga3:VIIB:1.2.1-definitions}
+
+\noindent\textit{\SGARefLink{sga3:vii:paragraph:5-1:equation:i}{(i)}}
+若 \(\operatorname{Alf}/k\) 的每个态射 \(\phi:C\to D\) 都诱导从
+\(D\otimes_C\mathbf F(C)\) 到 \(\mathbf F(D)\) 的双射，则称
+\(\mathbf O_k\)-模 \(\mathbf F\) 为\emph{容许}的。\footnote{%
+\label{sga3:VIIB:nde:43}编者引入了这个术语；参见\ \SGARefLink{sga3:VIIB:1.2.3}{1.2.3}
+的编者注~(47)。}
+
+\smallskip
+\noindent\textit{\SGARefLink{sga3:vii:paragraph:5-1:equation:ii}{(ii)}}
+若模 \(\mathbf F\) 是容许的，且对 \(\operatorname{Alf}/k\) 的每个对象
+\(C\)，\(C\)-模 \(\mathbf F(C)\) 都平坦，则称其为\emph{平坦}的。\footnote{%
+\label{sga3:VIIB:nde:44}由于 \(C\) 是 Artin 环，它因而是投射模。}
+
+例如，若 \(M\) 是一个不一定伪紧的 \(k\)-模，我们如同
+\SGARefLink{sga3:i:definition:4-6-1}{报告 I，4.6.1} 那样，用 \(\mathbf W(M)\)
+表示 \(\mathbf O_k\)-模
+\[
+  C\longmapsto C\otimes_kM.
+\]
+于是，只要 \(M\) 在 \(k\) 上平坦，\(\mathbf W(M)\) 就平坦。
+
+此外，函子 \(M\mapsto\mathbf W(M)\) 的右伴随是将每个
+\(\mathbf O_k\)-模 \(\mathbf F\) 对应于如下 \(k\)-模的函子
+\[
+  \varprojlim_{\mathfrak l}\mathbf F(k/\mathfrak l),
+\]
+其中 \(\mathfrak l\) 遍历 \(k\) 的开理想。
+
+\medskip
+\noindent\textbf{1.2.2.}
+\phantomsection
+\label{sga3:VIIB:1.2.2}
+下文总用诸如 \(\mathbf F\) 的粗体字母表示 \(\mathbf O_k\)-模。
+当 \(k\) 是 Artin 环时，我们将 \(\mathbf F(k)\) 简记为 \(F\)。
+这时，显然函子
+\[
+  \mathbf F\longmapsto F
+\]
+诱导从平坦 \(\mathbf O_k\)-模范畴到平坦 \(k\)-模范畴的等价！
+采用这个术语，仅仅是为了使我们能够“仿佛 \(k\) 总是 Artin 环一样”进行推理。
+
+按照报告 I，\S~\SGARefLink{sga3:i:definition:3-1}{3.1}，对于其他代数结构也采用类似约定。
+因此，一个 \(\mathbf O_k\)-代数，或分别为 \(\mathbf O_k\)-余代数、
+\(\mathbf O_k\)-Lie 代数、\(\mathbf O_k\)-\(p\)-Lie 代数，是由一个
+\(\mathbf O_k\)-模 \(\mathbf M\) 及 \(\operatorname{Alf}/k\) 的每个对象 \(C\) 所对应的
+\(\mathbf M(C)\) 上的 \(C\)-代数结构，或分别为 \(C\)-余代数、\(C\)-Lie 代数、
+\(C\)-\(p\)-Lie 代数结构组成。我们还要求，对 \(\operatorname{Alf}/k\)
+中的每个态射 \(\phi:C\to D\)，由 \(\mathbf M(\phi)\) 诱导的映射
+\[
+  D\otimes_C\mathbf M(C)\longrightarrow\mathbf M(D)
+\]
+是 \(D\)-代数同态，或分别为 \(D\)-余代数同态，等等。
+
+最后，若 \(\mathbf F\) 和 \(\mathbf G\) 是两个 \(\mathbf O_k\)-模，
+则 \(\mathbf F\otimes_k\mathbf G\) 表示 \(\mathbf O_k\)-模
+\[
+  C\longmapsto\mathbf F(C)\otimes_C\mathbf G(C).
+\]
+
+% 下一断点： Exp7B 原文件页码 20, 合并阅读版页码 533,
+% 再版印刷页码 522, 1.2.3 及编者注 (45) 处，
+% 以“先从下列引理开始”起。

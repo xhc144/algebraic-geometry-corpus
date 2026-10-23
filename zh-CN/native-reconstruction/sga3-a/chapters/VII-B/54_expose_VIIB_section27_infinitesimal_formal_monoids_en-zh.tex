@@ -1,0 +1,138 @@
+
+% SGA 3，报告 VII_B；英文重建本第一轮的中文译本。
+% 范围： 节 2.7 全文 依据文献局部页 62--63,
+% 止于下节之前： 节 2.8.
+% 合并阅读本页： 575--576. 重版印刷页： 564--565.
+% 范围内原版边码： 530.
+% 范围内编者注： 112--114.
+% 依据： Polo--Gille Exp7B-13oct24.pdf,
+% SHA-256 D303690E0195654BBE7C3DAA5D89EA23E24CD709A3575217234AC19AE8836694.
+% 参照了 Jacob Reinhold 的 CC BY 4.0 Markdown，作为对照来源。
+% 本组件无图；所有数学内容均为原生 LaTeX。
+% 印本 c_U/c_n 及 x/u 的不一致记载于下文原文说明；在那里统一了全局对极与带指标的归纳。
+\subsection*{2.7}
+\phantomsection
+\label{sga3:VIIB:2.7}
+\addcontentsline{toc}{subsection}{\SGARefLink{sga3:VIIB:2.7:prop}{2.7}. 无穷小形式幺半群}
+我们用一个可追溯到 S.~Lie 的命题结束这些一般性讨论，该命题将用于 \SGARefLink{sga3:VIIB:5.1}{5.1}。按照定义，\(k\) 上的\emph{形式幺半群}是一个对 \((M,m)\)，由形式簇 \(M\) 和态射
+\[
+  m:M\times M\longrightarrow M
+\]
+组成，使得对 \(\operatorname{Alf}/k\) 的每个对象 \(C\)，\(m(C)\) 都使 \(M(C)\) 成为幺半群。\footnote{%
+\label{sga3:VIIB:nde:112}这里及下文，编者用“幺半群”代替“具有单位元的幺半群”\textup{（回顾：幺半群按定义是带有结合运算且具有单位元的集合）}。}
+特别地，将每个对象 \(C\) 映为 \(M(C)\) 的单位元的“单位截面”，定义了典范投影 \(M\to\operatorname{Spf}(k)\) 的截面
+\[
+  \varepsilon_M:\operatorname{Spf}(k)\longrightarrow M
+\]
+。若 \(\varepsilon_M\) 在底集合上诱导双射，则称形式幺半群 \(M\) 是\emph{无穷小的}。
+\medskip
+\noindent\textbf{命题。}
+\phantomsection
+\label{sga3:VIIB:2.7:prop}
+{\itshape 每个拓扑平坦的无穷小形式 \(k\)-幺半群 \(M\) 都是形式 \(k\)-群。}\footnote{%
+\label{sga3:VIIB:nde:113}由 \SGARefLink{sga3:VIIB:1.3.5.D}{1.3.5.D} 的范畴等价，拓扑平坦形式 \(k\)-簇范畴中的幺半群，与平坦余交换 \(\mathbf O_k\)-余代数范畴中的幺半群“是一回事”，也就是余交换 \(\mathbf O_k\)-双代数\textup{（按通常意义，故不一定带有对极）}。此外，由 \SGARefLink{sga3:VIIB:1.3.6}{1.3.6}，\(M\) 无穷小的假设等价于对应双代数连通。因此，当 \(k\) 为 Artin 环时，命题等价于：每个在 \(k\) 上平坦的连通余交换 \(k\)-双代数，都是 \(k\)-Hopf 代数，即具有对极。事实上，余交换假设是多余的；参见证明。}
+\textit{证明。}
+必须证明，对 \(\operatorname{Alf}/k\) 的每个对象 \(C\)，\(M(C)\) 都是群。因此可立即归约到 \(k\) 为 Artin 环的情形。令
+\[
+  U=\mathbf H(M)
+\]
+为 \(M\) 的余代数\textup{（\SGARefLink{sga3:VIIB:1.3.5}{1.3.5}）}。乘法
+\[
+  m:M\times M\longrightarrow M
+\]
+诱导余代数态射
+\[
+  m_U:U\otimes U\longrightarrow U
+\]
+使 \(U\) 成为 \(k\) 上的结合代数。这个代数的单位元，是 \(k\) 的单位元在 \(M\) 的单位截面 \(\varepsilon_M\) 所诱导的映射 \(k\to U\) 下的像。同样，投影
+\[
+  M\longrightarrow\operatorname{Spf}(k)
+\]
+诱导同态
+\[
+  \varepsilon_U:U\longrightarrow k;
+\]
+将 \(\varepsilon_U\) 的核记为 \(U^+\)。
+我们必须证明存在对极，即余代数态射
+\[
+  c_U:U\longrightarrow U
+\]
+使得对每个 \(u\in U\)，
+\begin{equation}
+  \bigl(m_U\circ(c_U\otimes\operatorname{id}_U)
+    \circ\Delta_U\bigr)(u)
+  =
+  \varepsilon_U(u)\,1_U.
+  \tag{*}
+  \label{sga3:VIIB:2.7:antipode-left-identity}
+\end{equation}
+\phantomsection
+\label{sga3:VIIB:2.7:antipode-source-note}
+\noindent\textit{原文说明。}\enspace
+在\textup{(*)} 中，法文重版将 \(c_U\) 印作 \(c_n\)，左边作用于 \(x\)，在对 \(u\) 量化后，右边仍保留变量 \(u\)。证明结尾又印作 \(m_U\circ(c_n\otimes\operatorname{id}_U)\circ\Delta_U=\eta\)，同时称其为右逆恒等式。因此，上述全局恒等式采用 \(c_U\) 和同一变量 \(u\)；以下 \(c_n\) 表示归纳第 \(n\) 步的相容映射，最后的右逆恒等式则按该断言所要求的次序排列张量因子。
+令 \((U_n)\) 为 \SGARefLink{sga3:VIIB:1.3.6}{1.3.6} 中定义的 \(U\) 的滤过，置
+\[
+  U_n^+=U^+\cap U_n.
+\]
+由于 \(M\) 无穷小，\(U^+\) 是子模 \(U_n^+\) 的并。\footnote{%
+\label{sga3:VIIB:nde:114}原文接着说：“于是对 \(n\) 归纳，容易证明存在唯一的线性映射 \(c_n:U_n\to U_n\)，使复合
+\[
+  m_U\circ(c_n\otimes\operatorname{id}_U)\circ\Delta_U:
+  U_n^+\longrightarrow U
+\]
+为零。”编者补充了证明细节，这依赖于\SGARefLink{sga3:VIIB:1.3.6.A}{引理 1.3.6.A} 的证明。}
+置
+\[
+  c_0(1)=1
+\]
+以及
+\[
+  c_1(x)=-x
+  \qquad\text{若 }x\in U_1^+,
+\]
+即 \(x\) 为本原元素时如此定义。设已构造
+\[
+  c_{n-1}:U_{n-1}\longrightarrow U
+\]
+使得对每个 \(x\in U_{n-1}\)，以 \(c_{n-1}\) 代替 \(c_U\) 时满足\textup{(*)}，并取 \(x\in U_n^+\)。由\SGARefLink{sga3:VIIB:1.3.6.A}{引理 1.3.6.A} 的证明，
+\[
+  \Delta_U(x)-x\otimes1
+  \in
+  U_{n-1}\otimes U^+;
+\]
+这里用到了 \(U\) 在 \(k\) 上平坦的假设。因此可写为
+\[
+  \Delta_U(x)
+  =
+  x\otimes1+\sum_i y_i\otimes z_i,
+  \qquad
+  y_i\in U_{n-1},
+\]
+然后置
+\[
+  c_n(x)
+  =
+  -\sum_i c_{n-1}(y_i)z_i.
+\]
+结合 \(c_n(1)=1\)，这个规定将 \(c_{n-1}\) 相容地延拓到 \(U_n\)。这样得到 \(k\)-线性映射
+\[
+  c:U\longrightarrow U
+\]
+它是 \(\operatorname{id}_U\) 关于 \(\operatorname{End}_k(U)\) 上如下幺半群运算的左逆
+\[
+  f\mathbin{\cdot}g
+  =
+  m_U\circ(f\otimes g)\circ\Delta_U;
+\]
+其单位元为映射
+\[
+  \eta:u\longmapsto\varepsilon_U(u)\,1_U.
+\]
+由此可得 \(c\) 唯一确定，且也是 \(\operatorname{id}_U\) 的右逆；即
+\[
+  m_U\circ(\operatorname{id}_U\otimes c)\circ\Delta_U
+  =
+  \eta,
+\]
+这里不必假设 \(U\) 余交换。因此 \(c_U:=c\) 是所求对极，\(M\) 是形式 \(k\)-群。
+% 下一位置：第 2.8 节，依据文献局部页 63，合并阅读本页 576，重版印刷页 565。

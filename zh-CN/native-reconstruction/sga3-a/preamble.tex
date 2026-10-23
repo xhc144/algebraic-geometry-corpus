@@ -24,6 +24,8 @@
 }
 \usepackage{graphicx,float,adjustbox,enumitem,multicol}
 \usepackage{etoolbox}
+% 标准 samepage 只定义入口；给环境结束钩子提供空出口，兼容 ctex/LaTeX 环境钩子。
+\ifdefined\endsamepage\else\def\endsamepage{}\fi
 \usepackage{xcolor}
 \usepackage[hidelinks,hypertexnames=false,pdfstartview={},linktoc=page,
   pdftitle={SGA 3 群概形：简体中文原生重建工作稿},
@@ -36,19 +38,19 @@
 
 \theoremstyle{plain}
 \newtheorem{theorem}{定理}[section]
-\newtheorem{proposition}[theorem]{Proposition}
-\newtheorem{corollary}[theorem]{Corollary}
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{scholium}[theorem]{Scholium}
-\newtheorem{application}[theorem]{Application}
-\newtheorem{complements}[theorem]{Complements}
+\newtheorem{proposition}[theorem]{命题}
+\newtheorem{corollary}[theorem]{推论}
+\newtheorem{lemma}[theorem]{引理}
+\newtheorem{scholium}[theorem]{评注}
+\newtheorem{application}[theorem]{应用}
+\newtheorem{complements}[theorem]{补充}
 
 \theoremstyle{definition}
-\newtheorem{definition}[theorem]{Definition}
-\newtheorem{example}[theorem]{Example}
+\newtheorem{definition}[theorem]{定义}
+\newtheorem{example}[theorem]{例}
 
 \theoremstyle{remark}
-\newtheorem{remark}[theorem]{Remark}
+\newtheorem{remark}[theorem]{注}
 
 \providecommand{\Ga}{\mathbb G_a}
 \providecommand{\Gm}{\mathbb G_m}
@@ -104,11 +106,13 @@
 \providecommand{\SGARefTarget}[1]{\phantomsection\label{#1}}
 \providecommand{\SGAInlineRefTarget}[1]{%
   \begingroup
+    \Hy@raisedlink{\hyper@anchorstart{#1}\hyper@anchorend}%
     \def\@currentHref{#1}%
     \label{#1}%
   \endgroup}
 \providecommand{\SGAInlineEquationTarget}[1]{%
   \begingroup
+    \Hy@raisedlink{\hyper@anchorstart{#1}\hyper@anchorend}%
     \def\@currentHref{#1}%
     \ltx@label{#1}%
   \endgroup}
