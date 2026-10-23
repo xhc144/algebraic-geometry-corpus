@@ -2,7 +2,7 @@
 
 当前状态：用户于2026-10-22 23:42 UTC明确恢复本轮项目。协调者仅维护FGA、_coord及本索引，其余十个工作区由原作者续作。以下目录为独立作者工作区，不能据目录存在推定已完成。各书保留自身版式；既有中文译本与原始源文件不改动。
 
-冻结起点：`e76d5fc9c6f38bfa611da5d1b684b622f60e379c`。分工及源校验见 [_coord/WORK_MAP.json](_coord/WORK_MAP.json)。
+原始底本盘点起点：`e76d5fc9c6f38bfa611da5d1b684b622f60e379c`。分工及源校验见 [_coord/WORK_MAP.json](_coord/WORK_MAP.json)。
 
 | 工作区 | 书目 | 范围 | 状态 |
 |---|---|---|---|
@@ -13,7 +13,7 @@
 | `sga4half/` | SGA 4½ | I, II, III, IV, V, VI, VII, VIII | 已整合main；200页；317页法文对读，原著疑点保留 |
 | `sga5/` | SGA 5 | I, III, III-B, V, VI, VII, VIII, X, XII, XV | 已整合验收记录；271页合格译文原字节保留 |
 | `sga6/` | SGA 6 | 0, RRR-appendix, I, II, III, IV, V, VI, VII, VIII, IX, X, XII, XIII, XIV | 原作者续作；已核实远端424页快照 |
-| `sga7-i/` | SGA 7-I | I, II, VI, VII, VIII, IX | 作者已交付297页；完整组件对读，整合核验中 |
+| `sga7-i/` | SGA 7-I | I, II, VI, VII, VIII, IX | 已整合main；297页；完整英文组件对读，原卷导言仍缺 |
 | `sga7-ii/` | SGA 7-II | X, XI, XII, XIII, XIV, XV, XVI, XVII, XVIII, XIX, XX, XXI, XXII | 已整合main；289页；原Leitfaden关系图仍缺 |
 | `fga-explained/` | FGA Explained | 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, bibliography, index | 已整合main；313页；354页底本对读及索引核验 |
 | `fga/` | FGA | foreword, 1, 2, 3.I, 3.II, 3.III, 3.IV, 3.V, 3.VI, bibliography | 124页修订稿在协调分支；VI脚注正文缺口保留 |
@@ -30,6 +30,6 @@ FGA 由协调者负责；其余十个作者目录由父线程启动的任务独�
 
 当前恢复差距表见 [_coord/RESUME_INVENTORY.json](_coord/RESUME_INVENTORY.json)。[_coord/PAUSED.md](_coord/PAUSED.md)及其JSON保留为2026-10-21历史暂停记录，不代表当前状态。SGA6的424页快照已核实保存到恢复分支`translation/sga6-resume-20261022`（6ce4142），原作者仍在补缺；394页是历史稿。
 
-2026-10-23已正常整合main的恢复交付：SGA5（271页）、SGA4½（200页）、SGA3-b（557页）、SGA4-a（463页）、SGA4-b（298页）、SGA7-II（289页）、FGA Explained（313页）。每卷原文覆盖、实际独立包重建及保留缺项见恢复总表和协调验收记录；不据编译成功宣称全部原著证明已重验。FGA修订稿在独立分支，交父线程合入。
+2026-10-23已正常整合main的恢复交付：SGA5（271页）、SGA4½（200页）、SGA3-b（557页）、SGA4-a（463页）、SGA4-b（298页）、SGA7-I（297页）、SGA7-II（289页）、FGA Explained（313页）。每卷原文覆盖、实际独立包重建及保留缺项见恢复总表和协调验收记录；不据编译成功宣称全部原著证明已重验。FGA修订稿在独立分支，交父线程合入。
 
 当前逐卷已保存范围、审校口径与剩余缺项见[_coord/RESUMED_STATUS.md](_coord/RESUMED_STATUS.md)。历史暂停表不作当前完成状态依据。
