@@ -4464,10 +4464,26 @@ X
 \AtBeginDocument{\let\SGAoriginalref\ref\renewcommand{\ref}[1]{\ifcsname SGAsource@#1\endcsname\csname SGAsource@#1\endcsname\else\SGAoriginalref{#1}\fi}}
 
 % END native input: style/external-references.tex
-% Localize the inherited editorial-note prefix without changing counters.
+% Keep editorial note numbers local. The inherited macros let thefootnote
+% escape, making later original notes [1], [2], [3] all show the last cnote.
 \makeatletter
-\patchcmd{\nde}{N.D.E.:}{编者注:}{}{}
-\patchcmd{\ndetext}{N.D.E.:}{编者注:}{}{}
+\renewcommand{\nde}[1]{\ifthenelse{\boolean{original}}{}{%
+  \stepcounter{cnote}\begingroup
+  \def\thefootnote{\arabic{cnote}}%
+  \protect\footnote[\value{cnote}]{编者注: #1}\endgroup}}
+\renewcommand{\ndemark}{\ifthenelse{\boolean{original}}{}{%
+  \stepcounter{cnote}\begingroup
+  \def\thefootnote{\arabic{cnote}}%
+  \protect\footnotemark[\value{cnote}]\endgroup}}
+\renewcommand{\ndetext}[1]{\ifthenelse{\boolean{original}}{}{%
+  \begingroup\def\thefootnote{\arabic{cnote}}%
+  \protect\footnotetext[\value{cnote}]{编者注: #1}\endgroup}}
+% The two inherited repeated-author-note calls both refer to original note i.
+% Explicit note numbers do not advance the ordinary footnote counter.
+\renewcommand{\sgarepeatedfootnotemark}[2][1]{%
+  \begingroup\c@footnote=#1\relax
+  \edef\@thefnmark{\roman{footnote}}%
+  \hyperlink{#2}{\@makefnmark}\endgroup}
 \makeatother
 \renewcommand{\nderef}[1]{第~\ref{#1}~条编者注（第~\pageref{#1}~页）}
 
@@ -4626,8 +4642,8 @@ Alg.~Comm.~III 4.5）。尚须证明此函子全忠实（忠实性显然），�
 若 $K'$ 是\emph{域}，则 $\widehat{K}'$ 也是域。设 $R'$ 是 $R$ 在 $K'$ 中的正规化；
 由于 $K'/K$ 可分，$R'$ 在 $R$ 上有限。环 $R'$ 是离散赋值环，其完备化为
 $\widehat{R}'=R'\otimes_R \widehat{R}$。因此 $\widehat{R}'$ 是离散赋值环，
-% TODO(核对底本): 此处底本写 K' 是其全分式环，疑应为完备化的分式域；暂保留原文。
-而 $K'$ 是它的全分式环，所以确实是域。
+% 源文校订：此处全分式域为完备化后的 $\widehat{K}'$。
+而 $\widehat{K}'$ 是它的全分式环，所以确实是域。
 
 考虑 \sisi{\eqhyperref[X.eq3.1]{3.1}}{\hyperref[X.thm2.2]{2.2}} 的断言 (i)。
 若 $\cd_{\ell}k<\infty$，由 \hyperref[X.lem2.2.1]{2.2.1} 又可归结到
@@ -4704,8 +4720,8 @@ $$
 由于 $\cd_{\ell}G<\infty$ 蕴含 $\cd_{\ell}G'<\infty$，当 $n$ 足够大时，
 此图中所有态射都是同构。但诱导箭头 $\epsilon$ 的态射
 $$
-% TODO(核对底本): 此处源公式的 r 未定义，疑为 ell；暂保留原式。
-\ZZ/r=H^1(H,𝛍_{\ell})\longrightarrow
+% 源文校订：由 (2.2.2)，分母应为 $\ell$。
+\ZZ/\ell=H^1(H,𝛍_{\ell})\longrightarrow
 H^1(H',𝛍_{\ell})=\ZZ/\ell
 $$
 显然为零，所以 $H^{n-1}(\bar{G},\ZZ/\ell)=0$，\cqfd
@@ -4757,8 +4773,8 @@ $\cd_{\ell}k'=\cd_{\ell}R(A/(x))$（\cf VIII 1），并设 $P$ %% 𝔭
 是 $A\rightarrow k'$ 的核这一素理想。环 $A_P$ 的维数为 $1$。
 因而只须对局部环 $A_P$ 证明此推论，也就是说，归结到 $\dim A=1$ 的情形。
 设 $\widetilde{A}$ 是 $A$ 的 Hensel 化。$R(\widetilde{A})$ 的每个剩余域
-% TODO(核对底本): 下式前的 R(tilde A)=K 疑应为 R(A)=K；暂保留原式。
-都可以等同于 $R(\widetilde{A})=K$ 的一个可分扩张，所以
+% 源文校订：这里扩张的基域是先前定义的 $R(A)=K$。
+都可以等同于 $R(A)=K$ 的一个可分扩张，所以
 $$
 \cd_{\ell}R(A)=\cd_{\ell}K\geq \cd_{\ell}R(\widetilde{A}){\quoi}.
 $$
@@ -5046,8 +5062,8 @@ $$
 考虑到当 $f$ 是有限态射且 $F$ 是阿贝尔层（VIII \hyperref[VIII.prop5.5]{5.5}）
 %% reference \XXX
 （\resp 拟凝聚层 $F$）时，$R^q f_{\ast}F$ 对 $q>0$ 为零，
-% TODO(核对底本): 所求消失范围疑应为 q>cdqc X+1，底本为 q>cdqc X；暂保留原式。
-只须证明：若 $i:U\rightarrow X$ 是开浸入且 $q>\cdqc X$，
+% 源文校订：由下述正合列，所需范围为 $q>\cdqc X+1$。
+只须证明：若 $i:U\rightarrow X$ 是开浸入且 $q>\cdqc X+1$，
 则 $H^q(X,\sisi{i_1}{i_!}(\ZZ/p)_U)=0$。
 
 设 $Y$ 是 $X$ 中支集为 $X-U$ 的闭子概形，$J$ 是定义 $Y$ 的凝聚理想层。
@@ -5333,7 +5349,7 @@ a_0 &+ \sum^n_{i=1} a_i x_i =0
 $$
 f:\PP^n-\{P\}\longrightarrow \PP^N{\quoi}.
 $$
-设 $V''=V'-(\{P\}\cap V')$，$\bar{V}{}''=\sisi{f}{F}(V'')$，并设 $L_i$ 是 $\PP^N$ 中对应于超曲面 $H_i$ 的超平面 $(i=1,\ldots,s)$。则 $V''$ 与 $\bar{V}{}''$ 同构，而且根据 $f$ 的定义，$Y$ 与 $V''$ 横截相交，等价于 $L_1\cap\ldots \cap L_s$ 与 $\bar{V}{}''$ 横截相交。令 $\bar{V}=$ $\bar{V}{}''$ 的闭包，便归结为对 $\bar{V}$ 应用断言 (i)，由此得到将 $V'$ 换成 $V''$ 后的 (ii)。还需考虑点 $P$（如果它是 $V$ 的光滑点）。但显然，若 $\{H_1,\ldots,H_s\}$ 充分一般且 $P$ 是 $V$ 的光滑点，则 $Y$ 在 $P$ 与 $V$ 横截相交，结论得证。
+设 $V''=V'-(\{P\}\cap V')$，$\bar{V}{}''=\sisi{f}{f}(V'')$，并设 $L_i$ 是 $\PP^N$ 中对应于超曲面 $H_i$ 的超平面 $(i=1,\ldots,s)$。则 $V''$ 与 $\bar{V}{}''$ 同构，而且根据 $f$ 的定义，$Y$ 与 $V''$ 横截相交，等价于 $L_1\cap\ldots \cap L_s$ 与 $\bar{V}{}''$ 横截相交。令 $\bar{V}=$ $\bar{V}{}''$ 的闭包，便归结为对 $\bar{V}$ 应用断言 (i)，由此得到将 $V'$ 换成 $V''$ 后的 (ii)。还需考虑点 $P$（如果它是 $V$ 的光滑点）。但显然，若 $\{H_1,\ldots,H_s\}$ 充分一般且 $P$ 是 $V$ 的光滑点，则 $Y$ 在 $P$ 与 $V$ 横截相交，结论得证。
 
 
 \section{良好邻域的构造}\etiquette[3]{XI.sec3}
@@ -5480,11 +5496,11 @@ $X_{\cl}$ 中的一族态射 $\{U_{\nu}\rightarrow U\}$ 称为\emph{覆盖}的�
 
 我们把 (i) 作为已知结果接受。例如，它可由 (GAGA)
 %\ref
-\cite{sga4.exp.XI.bib.4} 推出。断言 (ii) 容易由 (i) 得到。事实上，为了验证 (ii) 中包含的满射性断言，设 $\varphi:X'(\CC)\rightarrow X''(\CC)$ 是一个 $X(\CC)$-态射。可以假定所有概形都是连通仿射的，因而是分离的。于是，$\varphi$ 的图像 $\Gamma$ 是 $\fprod{X'}{X''}{X}(\CC)$ 的一个连通分支，由 (i)，存在 $\fprod{X'}{X''}{X}$ 的某个连通分支 $Y$，使得 $\Gamma=Y(\CC)$。于是 $Y$ 是诱导 $\varphi$ 的一个态射 $f:X'\rightarrow X''$ 的图像，即投影 $Y\rightarrow X'$ 是同构：事实上，$Y(\CC)\rightarrow X(\CC)$ 是同构，由此容易推出 $Y\rightarrow X'$ 也是同构（它是平展、根性（radicial）且满的！）。对于 (iii)，由 (ii)，问题完全归结为证明 $X(\CC)$ 的每个有限覆盖都形如 $X'(\CC)$，其中 $X'\rightarrow X$\pageoriginale 是平展的。
+\cite{sga4.exp.XI.bib.4} 推出。断言 (ii) 容易由 (i) 得到。事实上，为了验证 (ii) 中包含的满射性断言，设 $\varphi:X'(\CC)\rightarrow X''(\CC)$ 是一个 $X(\CC)$-态射。可以假定所有概形都是连通仿射的，因而是分离的。于是，$\varphi$ 的图像 $\Gamma$ 是 $\fprod{X'}{X''}{X}(\CC)$ 的一个连通分支，由 (i)，存在 $\fprod{X'}{X''}{X}$ 的某个连通分支 $Y$，使得 $\Gamma=Y(\CC)$。于是 $Y$ 是诱导 $\varphi$ 的一个态射 $f:X'\rightarrow X''$ 的图像，即投影 $Y\rightarrow X'$ 是同构：事实上，$Y(\CC)\rightarrow X'(\CC)$ 是同构，由此容易推出 $Y\rightarrow X'$ 也是同构（它是平展、根性（radicial）且满的！）。对于 (iii)，由 (ii)，问题完全归结为证明 $X(\CC)$ 的每个有限覆盖都形如 $X'(\CC)$，其中 $X'\rightarrow X$\pageoriginale 是平展的。
 
 为此，利用下降（\SGA 1 IX 4.7）立即归结为
 %\ref
-$X$ 连通且正规的情形。该问题关于 $X$ 是局部的（对 Zariski 拓扑而言），因此可以假定 $X$ 是仿射的。设 $f:X\rightarrow \EE^n$ 是有限态射，$T'\rightarrow X(\CC)$ 是连通有限覆盖。立即可验证，复合态射 $\eta':T'\rightarrow \EE^n(\CC)$ 是（\cite{sga4.exp.XI.bib.2} \S \hyperref[XI.sec2]{2}，定义~\hyperref[XI.sec3]{3}）意义下的“解析覆盖”（analytic covering）。由（\cite{sga4.exp.XI.bib.2} \S \hyperref[XI.sec2]{2}，Satz 8），\sisi{$\eta'$}{}可扩张为一个“解析覆盖” $\eta:T\rightarrow \PP^n(\CC)$，而只需证明 $\eta$ 是由适当的概形态射 $f:Y\rightarrow \PP^n$ \sisi{诱导}{诱导}的，其中 $Y$ 正规。现在，基本定理（\cite{sga4.exp.XI.bib.2} \S 13 Satz 42）断言，$T$ 上存在一个典范的正规解析结构，使得 $\eta$ 诱导一个解析空间态射。由于此时 $\eta$ 是有限态射，$T$ 上结构层的正像是 $\PP^n$ 上的一个凝聚解析代数层 $\mathfrak{a}$。由 \sisi{(GAGA)}{GAGA} \cite{sga4.exp.XI.bib.4} % \ref
+$X$ 连通且正规的情形。该问题关于 $X$ 是局部的（对 Zariski 拓扑而言），因此可以假定 $X$ 是仿射的。设 $f:X\rightarrow \EE^n$ 是有限态射，$T'\rightarrow X(\CC)$ 是连通有限覆盖。立即可验证，复合态射 $\eta':T'\rightarrow \EE^n(\CC)$ 是（\cite{sga4.exp.XI.bib.2} \S 2，定义~3）意义下的“解析覆盖”（analytic covering）。由（\cite{sga4.exp.XI.bib.2} \S 2，Satz 8），\sisi{$\eta'$}{}可扩张为一个“解析覆盖” $\eta:T\rightarrow \PP^n(\CC)$，而只需证明 $\eta$ 是由适当的概形态射 $f:Y\rightarrow \PP^n$ \sisi{诱导}{诱导}的，其中 $Y$ 正规。现在，基本定理（\cite{sga4.exp.XI.bib.2} \S 13 Satz 42）断言，$T$ 上存在一个典范的正规解析结构，使得 $\eta$ 诱导一个解析空间态射。由于此时 $\eta$ 是有限态射，$T$ 上结构层的正像是 $\PP^n$ 上的一个凝聚解析代数层 $\mathfrak{a}$。由 \sisi{(GAGA)}{GAGA} \cite{sga4.exp.XI.bib.4} % \ref
 可知，$\mathfrak{a}$ 是与 $\PP^n$ 上某个代数层 $A$ 关联的解析层，于是取 $Y=\sheaf{\Spec}A$。
 
 现在可以证明以下结果：
@@ -5494,7 +5510,7 @@ $X$ 连通且正规的情形。该问题关于 $X$ 是局部的（对 Zariski �
 \begin{enumerate}
 \renewcommand{\theenumi}{\roman{enumi}}
 \renewcommand{\labelenumi}{(\theenumi)}
-\item $X_{\et}$ 上的可构造局部常值挠层范畴，与 $X_{\cl}$ 上具有有限纤维的局部常值挠层范畴之间存在等价，此等价由互为拟逆的函子 ${}_{\ast}$ 和 ${}^{\ast}$ 给出。
+\item $X_{\et}$ 上的可构造局部常值挠层范畴，与 $X_{\cl}$ 上具有有限纤维的局部常值挠层范畴之间存在等价，此等价由互为拟逆的函子 $\epsilon_{\ast}$ 和 $\epsilon^{\ast}$ 给出。
 
 \item 设 $F$ 是 $X_{\cl}$ 上具有有限纤维的局部常值挠层，并仍以 $F$ 表示 $X_{\et}$ 上诱导的层 $\epsilon_{\ast}F$。则
 $$
@@ -5567,7 +5583,7 @@ R^1f_{\cl\!\ast}F)\longrightarrow\tag{$\ast$}
 事实上，若 $X\rightarrow S$ 是一个初等纤维化，其中 $S$ 是良好邻域，则由归纳法，可以假定 (i)、(ii) 对 $S$ 成立。现在，容易看出 $X(\CC)\rightarrow S(\CC)$ 是局部平凡纤维空间，其纤维同构于 $X_0(\CC)$，其中 $X_0$ 为 $X/S$ 的任意一个纤维。此时 $X_0$ 是连通非奇异的\emph{非完备}曲线，而众所周知，这蕴含当 $n>1$ 时 $\pi_n(X_0(\CC))=0$，且 $\pi_1(X_0(\CC))$ 是自由群。 % \ref
 于是 (i)、(ii) 可由同伦正合列得到：
 $$
-\longrightarrow \pi_0(X_0(\CC))\longrightarrow
+\longrightarrow \pi_n(X_0(\CC))\longrightarrow
 \pi_n (X(\CC))\longrightarrow \pi_n
 (S(\CC))\longrightarrow\ldots
 $$
@@ -5586,11 +5602,11 @@ $$
 Bourbaki, Exposé nᵒ~256.
 
 \bibitem{sga4.exp.XI.bib.2} GRAUERT H\sisi{.}{} and REMMERT R., ``Komplexe Räume'',
-Math, Ann. Bd. 136, p. 245 (1958).
+Math, Ann. Bd. 136, p. 345 (1958).
 
 \bibitem{sga4.exp.XI.bib.3} HIRONAKA H., ``Resolution of singularities of an
 algebraic variety over a field of characteristic zero'' Annals of
-Math. Vol. 39, nᵒ~1, 2 (1964).
+Math. Vol. 79, nᵒ~1, 2 (1964).
 
 \bibitem{sga4.exp.XI.bib.4} SERRE J.P., ``Géométrie Algébrique et Géométrie
 Analytique'', Annales de l'Institut Fourier, t. VI, p. 1-12 (1956).
@@ -5708,7 +5724,7 @@ g^{\ast}f_{\ast}\xrightarrow{\varphi}f'_{\ast}{g'}^{\ast}\tag{4.1}
 \begin{equation*}
 f_{\ast}\longrightarrow g_{\ast}{f'}_{\ast}{g'}^{\ast}{\quoi}.
 \tag{4.1 adj}
-\end{equation*}\MakeLinkTarget*{sga4.exp.XII.equation.4.1-adj}\label{4.1 adj}
+\end{equation*}\MakeLinkTarget*{sga4.exp.XII.equation.4.1-adj}\etiquette[4.1 adj]{4.1 adj}
 我们取为如下态射:
 $$
 f_{\ast}\xrightarrow{(\id\rightarrow {g'}_{\ast}{g'}^{\ast})}
@@ -5745,7 +5761,7 @@ g^{\ast}(R^qf_{\ast})\xrightarrow{\varphi^q}
 (R^qf_{\ast})\longrightarrow
 g_{\ast}(R^q{f'}_{\ast}){g'}^{\ast}{\quoi},
 \tag{4.2 adj}
-\end{equation*}\MakeLinkTarget*{sga4.exp.XII.equation.4.2-adj}\label{4.2 adj}
+\end{equation*}\MakeLinkTarget*{sga4.exp.XII.equation.4.2-adj}\etiquette[4.2 adj]{4.2 adj}
 而有如下“显然”的态射:
 \begin{gather*}
 (R^qf_{\ast})\xrightarrow{a}
@@ -5904,7 +5920,7 @@ $$
 考虑到 \hyperrefext[X][X.cor4.3]{4.3} 及 \hyperrefext[X][X.cor5.2]{5.2}, 得到:
 
 \begin{enonce*}{推论 5.3}\etiquette[5.3]{XII.cor5.3}
-在 \hyperrefext[X][X.cor5.2]{5.2} 的假设下, 设 $n$ 为纤维 $X_{\xi}$ 的维数. 则对 $X$ 上的每个挠阿贝尔层 $F$, 茎 $(R^qf_{\ast}F)_{\xi}$ 在 $q>2n$ 时为零. 若 $F$ 为 $p$ 挠群层, 其中 $p$ 是 $\xi$ 的特征, 则 $R^qf_{\ast}F$ 在 $\xi$ 处的茎在 $q>n$ 时为零.
+在 \hyperref[XII.cor5.2]{5.2} 的假设下, 设 $n$ 为纤维 $X_{\xi}$ 的维数. 则对 $X$ 上的每个挠阿贝尔层 $F$, 茎 $(R^qf_{\ast}F)_{\xi}$ 在 $q>2n$ 时为零. 若 $F$ 为 $p$ 挠群层, 其中 $p$ 是 $\xi$ 的特征, 则 $R^qf_{\ast}F$ 在 $\xi$ 处的茎在 $q>n$ 时为零.
 \end{enonce*}
 
 回顾一下, 若每个纤维的维数均 $\leq n$, 就称 \emph{$X/S$ 的相对维数} $\leq n$. 因而有:
@@ -7724,7 +7740,7 @@ $$
 \end{enonce*}
 
 \noindent
-\emph{证明}。当 $d=0$ 时这是显然的，此时 $\supp F$ 在 $k$ 上有限，应用（\hyperrefext[VIII][VIII.prop5.5]{5.5}）即可。设 $F$ 和 $f:X\rightarrow Y$ 如 \hyperref[XIV.thm3.1]{3.1} 的陈述所述，并设 $d(F)\leq1$。用 $F$ 的一个可构造子层代替它（\hyperrefext[IX][IX.prop2.9]{2.9} 和 \hyperrefext[VII][VII.prop3.3]{3.3}），便归结为 $F$ 可构造的情形。于是 $F$ 的支集\pageoriginale 包含于 $X$ 的一个维数 $\leq1$ 的闭子概形中（\hyperrefext[IX][IX.def2.3]{2.3}\sisi{ (ii)}{}），可以用这个子概形代替 $X$；即可以假设 $\dim X\leq1$。由 \hyperrefext[IX][IX.cor5.7]{5.7}，可分闭域上维数为 $1$ 的仿射代数概形的上同调维数 $\leq1$。此外，只需处理 $k$ 可分闭的情形。事实上，设 $\bar f:\bar X\rightarrow\bar Y$ 为由 $f$ 经基变换 $\Spec\bar k\rightarrow\Spec k$ 得到的态射，其中 $\bar k$ 是 $k$ 的可分闭包。对于 $Y$ 的几何点 $\xi$，$f$ 在 $\xi$ 处的严格局部化 $f':X'\rightarrow Y'$ 可视为 $\bar f$ 的一个严格局部化，因而纤维 $(R^{q}f_{\ast}F)_\xi$ 可视为 $R^{q}\bar f_{\ast}\bar F$ 的一个纤维。由于 $f$ 仿射，得到当 $q>1$ 时 $R^{q}f_{\ast}F=0$。显然还有 $d(f_{\ast}F)\leq1$。对于 $q=1$，注意假设 $\dim X\leq1$ 蕴含 $Y$ 有一个有限闭子集 $Z$，使 $f$ 在 $Y-Z$ 上有限。由此，$R^{1}f_{\ast}F$ 在 $Y-Z$ 上为零（\hyperrefext[VIII][VIII.cor5.6]{5.6}），因而 $d(R^{1}f_{\ast}F)\leq1$。引理得证。
+\emph{证明}。当 $d=0$ 时这是显然的，此时 $\supp F$ 在 $k$ 上有限，应用（\hyperrefext[VIII][VIII.prop5.5]{5.5}）即可。设 $F$ 和 $f:X\rightarrow Y$ 如 \hyperref[XIV.thm3.1]{3.1} 的陈述所述，并设 $d(F)\leq1$。用 $F$ 的一个可构造子层代替它（\hyperrefext[IX][IX.prop2.9]{2.9} 和 \hyperrefext[VII][VII.prop3.3]{3.3}），便归结为 $F$ 可构造的情形。于是 $F$ 的支集\pageoriginale 包含于 $X$ 的一个维数 $\leq1$ 的闭子概形中（\hyperrefext[IX][IX.def2.3]{2.3}\sisi{ (ii)}{}），可以用这个子概形代替 $X$；即可以假设 $\dim X\leq1$。由 \hyperrefext[IX][IX.cor5.7]{5.7}，可分闭域上维数为 $1$ 的仿射代数概形的上同调维数 $\leq1$。此外，只需处理 $k$ 可分闭的情形。事实上，设 $\bar f:\bar X\rightarrow\bar Y$ 为由 $f$ 经基变换 $\Spec\bar k\rightarrow\Spec k$ 得到的态射，其中 $\bar k$ 是 $k$ 的可分闭包。对于 $Y$ 的几何点 $\xi$，$f$ 在 $\xi$ 处的严格局部化 $f':X'\rightarrow Y'$ 可视为 $\bar f$ 的一个严格局部化，因而纤维 $(R^{q}f_{\ast}F)_\xi$ 可视为 $R^{q}\bar f_{\ast}\bar F$ 的一个纤维。由于 $f$ 仿射，得到当 $q>1$ 时 $R^{q}f_{\ast}F=0$。显然还有 $d(f_{\ast}F)\leq1$。对于 $q=1$，注意假设 $\dim X\leq1$ 蕴含 $Y$ 有一个有限闭子集 $Z$，使 $f$ 在 $Y-Z$ 上有限。由此，$R^{1}f_{\ast}F$ 在 $Y-Z$ 上为零（\hyperrefext[VIII][VIII.cor5.6]{5.6}），因而 $d(R^{1}f_{\ast}F)\leq0$。引理得证。
 
 设 $d\geq2$，现在假设对于 $d'<d$，\hyperref[XIV.thm3.1]{3.1}~(d')（或等价地，\hyperref[XIV.cor3.4]{3.4}~(d')）成立。
 
@@ -7733,7 +7749,7 @@ $$
 \end{enonce*}
 
 \noindent
-\emph{证明}。显然可设对于某个适当的 $N$，有 $X'=\EE^N_{Y'}$，因为 $X'$ 可嵌入某个 $\EE^N_{Y'}$。设 $N>1$，且对于每个 $Y'$ 和 $r<N$，结论对于 $\EE^r_{Y'}$ 已知。设 $F'$ 是 $\EE^N_{Y'}$ 上的挠层，满足\pageoriginale $d(F')\leq d$。考虑图
+\emph{证明}。显然可设对于某个适当的 $N$，有 $X'=\EE^N_{Y'}$，因为 $X'$ 可嵌入某个 $\EE^N_{Y'}$。设 $N>1$，且对于每个 $Y'$ 和 $r<N$，结论对于 $\EE^r_{Y'}$ 已知。设 $F'$ 是 $\EE^N_{Y'}$ 上的挠层，满足\pageoriginale $\delta(F')\leq d$。考虑图
 $$
 \xymatrix@=1.5cm{
 \EE^{N}_{Y'} \ar[rd]_{f'}       \ar[rr]^{g'}&      &
@@ -8084,7 +8100,7 @@ $$
 H^{q}(\widetilde{Y}'',\widetilde{F})\longrightarrow
 H^{q}(\widetilde{X}'',{\widetilde{g}''}{}^{\ast}\widetilde{F})
 $$
-以及所考察的 $q$ 的取值应用 \hyperref[XV.prop1.1]{1.1} (iii) (\resp \hyperref[XV.cor1.5]{1.5} (iii)), 这就证明了 (i) $\Rightarrow$ (iii).
+以及所考察的 $q$ 的取值应用 \hyperref[XV.prop1.1]{1.1} (iii) (\resp \hyperref[XV.prop1.6]{1.6} (iii)), 这就证明了 (i) $\Rightarrow$ (iii).
 
 (ii) $\Rightarrow$ (i). 假设 (ii), 我们对态射 $\widetilde{g}:\widetilde{X}\rightarrow \widetilde{Y}$ 验证无上同调性判据 \hyperref[XV.prop1.6]{1.6} (ii). 设 $\widetilde{Y}'\rightarrow \widetilde{Y}$ 平展, $\widetilde{Y}'$ 仿射, 且 $\widetilde{F}$ 为 $\widetilde{Y}'$ 上的集合层 (\resp 阿贝尔 $\LL$-挠层, \resp ind-$\LL$-群层). 必须证明
 $$
@@ -8159,7 +8175,7 @@ ${g'}^{\ast}({i'}_{\ast}(F))\rightarrow {j'}_{\ast}({g''}^{\ast}(F))$
 设 $g:X\rightarrow Y$ 为预概形态射, $\LL\subset \PP$ 为素数集合, $n$ 为自然数 (\resp $n=1$). 要使 $g$ 局部
 
 关于 $\LL$ 为 $n$-无上同调的 (\resp 关于 $\LL$ 局部 $1$-非球面的), 充分必要条件是: 对 $X$ 的每个几何点 $\bar{x}$, 若 $\widetilde{g}:\widetilde{X}\rightarrow
-\widetilde{Y}$ 为 $g$ 诱导的 $X$ 与 $Y$ 的严格局部化之间的态射 (局部化分别在 $\bar{x}$ 及 $Y$ 中相应的几何点 $\bar{y}$ 处进行), 则对 $Y$ 的每个在 $Y$ 的某一点 $z$ 上代数的几何点 $\bar{z}$, $g$ 的每个相应几何纤维 $X_{\bar{z}}$ 都关于 $\LL$ 为 $n$-无上同调的 (\resp 关于 $\LL$ 为 $1$-非球面的).
+\widetilde{Y}$ 为 $g$ 诱导的 $X$ 与 $Y$ 的严格局部化之间的态射 (局部化分别在 $\bar{x}$ 及 $Y$ 中相应的几何点 $\bar{y}$ 处进行), 则对 $\widetilde{Y}$ 的每个在 $\widetilde{Y}$ 的某一点 $z$ 上代数的几何点 $\bar{z}$, $\widetilde{g}$ 的每个相应几何纤维 $\widetilde{X}_{\bar{z}}$ 都关于 $\LL$ 为 $n$-无上同调的 (\resp 关于 $\LL$ 为 $1$-非球面的).
 \end{enonce*}
 
 必要性来自判据 \hyperref[XV.prop1.10]{1.10} (i) 及 \hyperref[XV.cor1.9.1]{1.9.1}. 为\pageoriginale 证明充分性, 对 $n$ 归纳; 这使我们在 $n\geq 1$ 时可以假设 $g$ 已经关于 $\LL$ 局部 $(n-1)$-无上同调. 态射 $\widetilde{g}$ 于是也如此, 而 \hyperref[XV.cor1.16]{1.16} 蕴含 $\widetilde{g}$ 为 $n$-无上同调的 (\resp 关于 $\LL$ 为 $1$-非球面的); 由判据 \hyperref[XV.prop1.10]{1.10} (i), 这就蕴含 $g$ 关于 $\LL$ 局部 $n$-无上同调 (\resp 局部 $1$-非球面).
@@ -8427,7 +8443,7 @@ $$
 假设 $g$ 满射且满足 \hyperref[XV.thm4.1]{4.1} 或 \hyperref[XV.cor4.2]{4.2} 的假设; 在 \hyperref[XV.thm4.1]{4.1} 的非括号情形, 再假设 $g$ 或者拟紧且拟分离, 或者普遍开. 则对于以变动预概形上的平展层组成的纤维范畴（fibered category）, $g$ 是普遍有效下降（universal effective descent）态射.
 \end{enonce*}
 
-在所考察的情形, $g$ 普遍为商映射, 由 \hyperrefext[VIII][VIII.prop9.1]{9.1}, $g$ 是有关纤维范畴的普遍下降态射. 因而就有效性问题而言, 只须处理 $Y$ 仿射的情形. 此外, 在所考察的每种情形, 都可选取\emph{有限}个仿射开子集 $X_i$, 其像覆盖 $Y$, 以覆盖 $X$. 用 $X_i$ 的不交并代替 $X$, 因而可假设 $X$ 仿射, 从而更是 $Y$ 上拟紧且拟分离的. 此时可按 \hyperrefext[VIII][VIII.subsubsec9.4.1]{9.4.1} 的论证得出结论, 这里用到以下事实 \hyperrefext[XVI][XVI.thm1.1]{1.1}: 对拟紧且拟分离态射 $g$, $g_{\ast}(F)$ 的构造 (其中 $F$ 为 $X$ 上的平展层) 与每个局部 $0$-无上同调的基变换 $Y'\rightarrow Y$ 可交换.
+在所考察的情形, $g$ 普遍为商映射, 由 \hyperrefext[VIII][VIII.prop9.1]{9.1}, $g$ 是有关纤维范畴的普遍下降态射. 因而就有效性问题而言, 只须处理 $Y$ 仿射的情形. 此外, 在所考察的每种情形, 都可选取 $X$ 的\emph{有限}个仿射开子集 $X_i$, 使其像覆盖 $Y$. 用 $X_i$ 的不交并代替 $X$, 因而可假设 $X$ 仿射, 从而更是 $Y$ 上拟紧且拟分离的. 此时可按 \hyperrefext[VIII][VIII.subsubsec9.4.1]{9.4.1} 的论证得出结论, 这里用到以下事实 \hyperrefext[XVI][XVI.thm1.1]{1.1}: 对拟紧且拟分离态射 $g$, $g_{\ast}(F)$ 的构造 (其中 $F$ 为 $X$ 上的平展层) 与每个局部 $0$-无上同调的基变换 $Y'\rightarrow Y$ 可交换.
 
 \begin{enonce*}[remark]{注 4.4}\etiquette[4.4]{XV.rems4.4}
 \begin{enumerate}
@@ -8470,7 +8486,7 @@ Y     & \ar[l]_{g} Y'
 }}\leqno{(*)}
 $$
 是 Cartesian 图, 其中 $f$ 拟紧且拟分离\nde{即原文术语中的凝聚态射.}, $g$ 普遍局部 $0$-无上同调 (universally locally 0-acyclic) (\resp 对 $\LL$ 普遍局部 $1$-非球面, \resp 对 $\LL$ \sisi{普遍局部}{普遍局部} $n$-无上同调) \emph{(\hyperrefext[XV][XV.def1.11]{1.11}).} 则对于 $X$ 上任意集合层 $F$ (\resp \emph{ind}-$\LL$-群层, \resp $\LL$-挠阿贝尔层), 基变换态射
-\emph{(XII \hyperref[XII.eq4.2]{4.1.2})}
+\emph{(XII \hyperref[XII.eq4.2]{4.2})}
 $$
 \varphi^{q}:g^{\ast}(R^{q}f_{\ast})F\longrightarrow
 (R^{q}f'_{\ast}){g'}^{\ast}F
@@ -8825,7 +8841,7 @@ $$
 f_{\ast}(R^{q}j_{\ast})(F|U)\xrightarrow{\sim}
 (R^{q+1}f_{\ast})(F)\quad\mbox{\rm 若}\quad q>0{\quoi}.
 $$
-但 $(R^{q}f_{\ast})(F)$ 可逐纤维计算 (\hyperrefext[XII][XII.cor5.2]{5.2}); 因而除 $q=0,2$ 外均为零, 并且当 $q=2$ 时是局部同构于 $G$ 的层, 这容易从 \hyperrefext[XII][XII.cor5.2]{5.2} 和 \hyperrefext[IX][IX.cor4.7]{4.7} 得出. 因此当 $q\neq 1$ 时 $(R^{q}j_{\ast})(F|U)=0$, 当 $q=1$ 时它是局部同构于 $i^{\ast}(F)$ 的层.
+但 $(R^{q}f_{\ast})(F)$ 可逐纤维计算 (\hyperrefext[XII][XII.cor5.2]{5.2}); 因而除 $q=0,2$ 外均为零, 并且当 $q=2$ 时是局部同构于 $G$ 的层, 这容易从 \hyperrefext[XII][XII.cor5.2]{5.2} 和 \hyperrefext[IX][IX.cor4.7]{4.7} 得出. 因此当 $q\neq 0,1$ 时 $(R^{q}j_{\ast})(F|U)=0$, 当 $q=1$ 时它是局部同构于 $i^{\ast}(F)$ 的层.
 
 现在通过归纳很容易处理 $c>1$ 的情形: 设 $(Y,X)$ 为余维数 $c>1$ 的光滑 $S$-对. 显然在 $X$ 上局部地可以找到 $X$ 的余维数为 $1$、包含 $Y$ 且在 $S$ 上光滑的子概形 $Z$, 从而有交换图
 $$
@@ -9230,7 +9246,7 @@ $$
 algebraic variety over a field of characteristic zero, Annals of
 Math., vol. 79 (1964), p. 109.
 
-\bibitem{sga4.exp.XVI.bib.2} Godement,\pageoriginale P. Théorie des
+\bibitem{sga4.exp.XVI.bib.2} Godement,\pageoriginale R. Théorie des
 \sisi{Faisceaux}{faisceaux}, Paris, 1958\sisi{}{.}
 
 \bibitem{sga4.exp.XVI.bib.3} Abhyankar, S. Local uniformization on algebraic
@@ -9296,16 +9312,16 @@ Nagata 紧化定理保证，目标拟紧且拟分离的每个有限型分离态�
 “Erratum for `Deligne's notes on Nagata compactifications'”，
 \emph{J. Ramanujan Math.\ Soc.} \textbf{24} (2009)，427--428。}
 
-\S \hyperref[XVII.sec5]{5} 第 ${\rm n^{\circ}}$ \hyperref[XVII.sec5]{5} 节
+\S \hyperref[XVII.sec5]{5} 第 ${\rm n^{\circ}}$ \hyperref[XVII.subsec5.5]{5} 节
 （对称积的上同调）在本讨论班的后文中不再使用。它将在 \SGA 5 中用于加强
 $L$-函数的有理性定理。\nde{见 \SGA 4$\frac{1}{2}$，
 模 $\ell^n$ 和模 $p$ 的 $L$-函数。}
 
-\S \hyperref[XVII.sec6]{6} 第 ${\rm n^{\circ}}$ \hyperref[XVII.sec3]{3} 节
+\S \hyperref[XVII.sec6]{6} 第 ${\rm n^{\circ}}$ \hyperref[XVII.subsec6.3]{3} 节
 （\emph{连续}系数的迹理论）在第 XVIII 讲中仅用于光滑群这一相对简单的情形。
 若读者关心 Poincaré 对偶定理（整体对偶），并愿意接受一个超越论证，
 甚至可以完全不读此 \S \hyperref[XVII.sec6]{6} 第 ${\rm n^{\circ}}$
-\hyperref[XVII.sec3]{3} 节，以及 XVIII 中 \S \refnoexpose{XVIII.sec1} 的大部分内容。
+\hyperref[XVII.subsec6.3]{3} 节，以及 XVIII 中 \S \refnoexpose{XVIII.sec1} 的大部分内容。
 
 \setcounter{section}{-1}
 \section{术语预备}\etiquette[0]{XVII.sec0}
@@ -9549,7 +9565,7 @@ $$
 $$\etiquette[1.1.4.4]{XVII.eq1.1.4.4}
 \begin{cases}
 K[1_i]^{\sheafk } = K^{\sheafk +1_i}\\
-d_j[1_i]^{\sheafk } = -d_j[1_i]^{\sheafk +1_i}\sisi{}{.}
+d_j[1_i]^{\sheafk } = -d_j^{\sheafk +1_i}\sisi{}{.}
 \end{cases}\leqno{(1.1.4.4)}
 $$
 
@@ -10496,7 +10512,7 @@ X   \ar[rru]^{u} \ar[rrrr]_{f}&             &          &  &   X'   \ar[rru]^{u'}
 读者可仿照 \textsc{Verdier} \cite{sga4.exp.XVII.bib.CD} 第~4 页证明这一命题。下面的命题的含义及其验证也留给读者：
 
 \begin{enonce*}{命题 2.2.5}\etiquette[2.2.5]{XVII.prop2.2.5}
-设 $\Aa$ 是 $\Bb$ 上的加性（\resp 阿贝尔，\resp 三角）范畴。对于每个靶为 $\Bb$ 的函子 $\Bb'\rightarrow \Bb$，范畴 $\Aa'=\fprod{\Aa}{\Bb'}{\Bb}$ 是 $\Bb$ 上的加性（\resp 阿贝尔，\resp 三角）范畴。
+设 $\Aa$ 是 $\Bb$ 上的加性（\resp 阿贝尔，\resp 三角）范畴。对于每个靶为 $\Bb$ 的函子 $\Bb'\rightarrow \Bb$，范畴 $\Aa'=\fprod{\Aa}{\Bb'}{\Bb}$ 是 $\Bb'$ 上的加性（\resp 阿贝尔，\resp 三角）范畴。
 \end{enonce*}
 
 \begin{enonce*}[remark]{例 2.2.6}\etiquette[2.2.6]{XVII.exem2.2.6}
@@ -10638,7 +10654,7 @@ $\xymatrix@C=1em{
 设 $\Bb'\rightarrow \Bb$ 为函子；以 $\Aa'$ 表示纤维积 $\fprod{\Aa}{\Bb'}{\Bb}$，以 $S'$ 表示 $S$ 在 $\Aa'$ 中的逆像。复合函子 $\Aa'\rightarrow \Aa\rightarrow \Aa(S^{-1})$ 使 $S'$ 的箭头可逆，因而通过 $\Aa'({S'}^{-1})$ 分解。于是得到如下的典范 $\Bb'$-函子：
 $$\etiquette[2.3.1]{XVII.eq2.3.1}
 \Aa'(S^{-1})\longrightarrow
-\fprod{\Bb'}{\Aa(\sisi{S}{{S'}}^{-1})}{\Bb}{\quoi}.\leqno(2.3.1)
+\fprod{\Bb'}{\Aa(S^{-1})}{\Bb}{\quoi}.\leqno(2.3.1)
 $$
 
 \begin{enonce*}{引理 2.3.2}\etiquette[2.3.2]{XVII.lem2.3.2}
@@ -10800,11 +10816,11 @@ $\Phi:\Aa\sisi{_1}{^1}(\sisi{{S^1}}{(S^1)}^{-1})\rightarrow\Aa(S^{-1})$
 都是范畴等价。
 \end{enonce*}
 
-构造 $\Phi$ 的一个拟逆。对于每个 $A\in\Ob\Aa$，选择以 $A$ 为靶、以 $A^1\in\Ob\Aa^{1}$ 为源的 $s_A\in S$，并且当 $A\in\Ob\Aa^{1}$ 时取 $s_A=\Id_A$。设 $f$ 是 $\Aa$ 中以 $A$ 为靶、以 $B$ 为源、在 $\Bb$ 中的像为 $F$ 的箭头。由于 $s_B\in S$ 以及 $F_{\ast}A^{1}\in\Ob\Aa^{1}$，可以找到 $B\sisi{^{1}}{'}$、\sisi{$v$ 和 $s\in S^{1}$}{$s\in S^1$ 和 $u$} 使下图交换：
+构造 $\Phi$ 的一个拟逆。对于每个 $A\in\Ob\Aa$，选择以 $A$ 为靶、以 $A^1\in\Ob\Aa^{1}$ 为源的 $s_A\in S$，并且当 $A\in\Ob\Aa^{1}$ 时取 $s_A=\Id_A$。设 $f$ 是 $\Aa$ 中以 $B$ 为靶、以 $A$ 为源、在 $\Bb$ 中的像为 $F$ 的箭头。由于 $s_B\in S$ 以及 $F_{\ast}A^{1}\in\Ob\Aa^{1}$，可以找到 $B\sisi{^{1}}{'}$、\sisi{$v$ 和 $s\in S^{1}$}{$s\in S^1$ 和 $u$} 使下图交换：
 $$\etiquette[2.4.1.4]{XVII.eq2.4.1.4}
 \vcenter{
 \xymatrix{
-A      \ar[r]^{f} &  B      \ar[r]_{s_B} & B\sisi{_1}{^1}       \\
+A      \ar[r]^{f} &  B      \ar@{<-}[r]_{s_B} & B\sisi{_1}{^1}       \\
 A\sisi{_1}{^1} \ar[u]_{s_A}\ar[r]^{a} & F_{\ast}A\sisi{_1}{^1}  \ar[u]& B'\rlap{.} \ar[l]_{s} \ar[u]_u
 }}\leqno{(2.4.1.4)}
 $$
@@ -10873,7 +10889,7 @@ Rf_{!}=Rg_{!}Rh_{!}
 \]
 ，而这最宜用余纤维化范畴的语言表述。对于“零延拓”和固有态射下的\pageoriginale 正像，分别已有这样的形式体系，问题在于将它们粘合。为避免以后陷入无谓的计算，本\S 拟列出完成这一粘合所需的初等验证。我们将在比实际需要稍抽象一些的框架下进行，希望结果以后还能用到。
 
-上面概述的 $Rf_{!}$ 的构造要求态射 $f$ 能分解为开浸入后接固有态射。依照 \textsc{Hartshorne} \cite[III 8 第~189 页]{sga4.exp.XVII.bib.RD}，在第 \hyperref[XVII.sec2]{2} 号中引入适当的可紧化态射概念。
+上面概述的 $Rf_{!}$ 的构造要求态射 $f$ 能分解为开浸入后接固有态射。依照 \textsc{Hartshorne} \cite[III 8 第~189 页]{sga4.exp.XVII.bib.RD}，在第 \hyperref[XVII.subsec3.2]{2} 号中引入适当的可紧化态射概念。
 
 \subsection{可紧化态射}\etiquette[3.2]{XVII.subsec3.2}
 
@@ -10933,7 +10949,7 @@ X \ar[rrrdd]\ar[rru] \ar[rr]^{h}&& Y \sisi{\ar[rru]}{\ar[rru]|(.2)\hole} \ar[rdd
   &&                &S&                   &,
 }
 \]
-并且\pageoriginale $f=fh$ 通过一个映到 $\fprod{(\fprod{Q}{P}{S})}{Z}{S}$ 的分离拟有限态射分解。
+并且\pageoriginale $f=gh$ 通过一个映到 $\fprod{(\fprod{Q}{P}{S})}{Z}{S}$ 的分离拟有限态射分解。
 
 Nagata 在 \sisi{[5]}{\cite{sga4.exp.XVII.bib.Na}} 中断言，分离整 Noether 概形之间的每个有限型态射都可紧化。\nde{更一般地，靶拟紧且拟分离的每个有限型分离态射都可紧化。见 \nderef{XVII.ndeConrad}。}撰稿人承认自己未能理解这一证明。
 
@@ -11288,7 +11304,7 @@ Z \ar[r]^{j}& T
 
 \begin{enonce*}{命题 3.3.4}\etiquette[3.3.4]{XVII.prop3.3.4}
 若资料 {\rm (i bis) (ii bis) (${\rm i'}$ bis) (${\rm ii'}$ bis) (iii bis)} 满足条件 {\rm (a bis) (b bis) (${\rm
-a'}$ bis) (${\rm b'}$ bis) (c bis) (${\rm c'}$ bis)}，则存在一个且本质上唯一的 $S$ 上余纤维化的范畴 $F$，赋有同构 $\fprod{F}{(S,i)}{S}=F_i$、$\fprod{F}{(S,p)}{S}=F_p$；这些同构与等同 $F_{iX}=F_{pX}$ $(X\in \Ob S)$ 相容，并使 {\rm (iii bis)} 中的同构 $d(D)$ 成为复合同构 ${p'}^{\ast}j^{\ast}=(jp')^{\ast}=(pj')^{\ast}={j'}^{\ast}p^{\ast}$。
+a'}$ bis) (${\rm b'}$ bis) (c bis) (${\rm c'}$ bis)}，则存在一个且本质上唯一的 $S$ 上纤维化的范畴 $F$，赋有同构 $\fprod{F}{(S,i)}{S}=F_i$、$\fprod{F}{(S,p)}{S}=F_p$；这些同构与等同 $F_{iX}=F_{pX}$ $(X\in \Ob S)$ 相容，并使 {\rm (iii bis)} 中的同构 $d(D)$ 成为复合同构 ${p'}^{\ast}j^{\ast}=(jp')^{\ast}=(pj')^{\ast}={j'}^{\ast}p^{\ast}$。
 \end{enonce*}
 
 然而应注意，\hyperref[XVII.prop3.3.4]{3.3.4} 并不与 \hyperref[XVII.prop3.3.2]{3.3.2} 对偶，因为对 $(S,i)$ 和 $(S,p)$ 所加的假设并不自对偶。
@@ -11741,8 +11757,8 @@ u' &: K_{1}\xrightarrow{u} f_{\ast}K\rightarrow Rf_{\ast}K\\
 v' &: L\overset{\LL}{\otimes}\LL{g'}^{\ast}K\rightarrow
 L\otimes {g'}^{\ast}K\xrightarrow{v} K_{2}\\
 c'_{u,v} &:
-L\overset{\LL}{\otimes}\LL{g'}^{\ast}K_{1}\rightarrow
-L\otimes {g'}^{\ast}K_{1}
+L\overset{\LL}{\otimes}\LL g^{\ast}K_{1}\rightarrow
+L\otimes g^{\ast}K_{1}
 \xrightarrow{c_{uv}}f'_{\ast}K_{2}\rightarrow Rf'_{\ast}K_{2}{\quoi}.
 \end{align*}
 下图\pageoriginale 交换:
@@ -11820,7 +11836,7 @@ K_2^{a}\ar[rru]\ar[rdd]^{\approx}\ar[rrrrrr]^(.75){\approx} &         &      &  
 
 对于 $\sisi{C}{c}'_{uv}$: 各态射 \ding{195} 的复合.
 
-在一般情形下, 置 $K'_{1}=f_{\ast}K$ 及 $K'_{2}={f'}^{\ast}L\otimes g^{\ast}K$. 于是有图表
+在一般情形下, 置 $K'_{1}=f_{\ast}K$ 及 $K'_{2}={f'}^{\ast}L\otimes {g'}^{\ast}K$. 于是有图表
 \[
 \xymatrix{
 &L \overset{\LL}{\otimes} \sisi{L}{\LL}g^{\ast}Rf_{\ast}K
@@ -12861,7 +12877,7 @@ m\longmapsto (\gamma^{n'}m\otimes \gamma^{n''}m)_{n'+n''=n}
 \]
 定义一个称为典范同构的同构 (\textsc{Roby} \cite[III \sisi{4}{9 p.~262}]{sga4.exp.XVII.bib.Ro})
 $$\etiquette[5.5.2.6.1]{XVII.eq5.5.2.6.1}
-\Gamma^{n}(M)\isomto \sisi{\sum}{\bigoplus}_{n'+n''=n} \Gamma^{n'}(M)\otimes \Gamma^{n''}(M){\quoi}.\leqno(5.5.2.6.1)
+\Gamma^{n}(M)\isomto \sisi{\sum}{\bigoplus}_{n'+n''=n} \Gamma^{n'}(M')\otimes \Gamma^{n''}(M''){\quoi}.\leqno(5.5.2.6.1)
 $$
 
 若 $\Sigma$ 为正合列
@@ -13298,7 +13314,7 @@ L\Gamma^k_{\ext}(\lvert\Delta\rvert){\quoi}.{}_{\ast}
 \renewcommand{\labelenumi}{(\theenumi)}
 \item 条件\pageoriginale (\hyperref[XVII.par5.5.13.1]{5.5.13.1}).
 
-\item 复形 $K$ 适合于每个关于拓扑斯同构 $f:\widetilde X_{\text{\rm et}}\rightarrow T$ 的上同调维数 $\leq N$ 的正像函子.
+\item 复形 $K$ 适合于每个关于拓扑斯态射 $f:\widetilde X_{\text{\rm et}}\rightarrow T$ 的上同调维数 $\leq N$ 的正像函子.
 \end{enumerate}
 \end{enonce*}
 
@@ -13666,9 +13682,9 @@ $$
 \setcounter{subsubsection}{25}
 \setcounter{paragraph}{0}
 \paragraph{}\etiquette[5.5.25.1]{XVII.par5.5.25.1}
-继续在 \hyperref[XVII.prop5.5.23]{5.5.23} 处中断的 \hyperref[XVII.lem5.5.22]{5.5.22} 的证明. 由相容性 \hyperref[XVII.par5.5.20.3]{5.5.20.3} ${\rm(iv'')}$ 以及 \hyperref[XVII.cor5.5.24]{5.5.24}, 与 $K\in \Ob D^{b,\tor\geq 0}(X,A)$ 相伴的态射 $k^{n}$ 为同构, 当且仅当对 $x\in
+继续在 \hyperref[XVII.prop5.5.23]{5.5.23} 处中断的 \hyperref[XVII.lem5.5.22]{5.5.22} 的证明. 由相容性 \hyperref[XVII.par5.5.20.3]{5.5.20.3} ${\rm(iv'')}$ 以及 \hyperref[XVII.cor5.5.24]{5.5.24}, 与 $K\in \Ob D^{b,\tor\leq 0}(X,A)$ 相伴的态射 $k^{n}$ 为同构, 当且仅当对 $x\in
 \Spec(A)$, 与 $K\overset{\LL}{\otimes}_{A}k(x)\in \Ob
-D^{b,\tor\geq 0}(X,k(x))$ 相伴的态射 $k^{n}$ 为同构. 这将问题化为 $A$ \emph{为特征} $\ell > 0$ \emph{的域}的情形.
+D^{b,\tor\leq 0}(X,k(x))$ 相伴的态射 $k^{n}$ 为同构. 这将问题化为 $A$ \emph{为特征} $\ell > 0$ \emph{的域}的情形.
 
 \paragraph{}\etiquette[5.5.25.2]{XVII.par5.5.25.2}
 正合列 (其中 $C$ 表示一个锥)
@@ -13682,7 +13698,7 @@ $$
 正合列\pageoriginale
 $$
 0\longrightarrow \sigma_{\geq n} K\longrightarrow K\longrightarrow
-\sigma_{\leq n} K\longrightarrow 0
+\sigma_{\leq n-1} K\longrightarrow 0
 $$
 表明, 要使 $K$ 为平坦复形时的 Künneth 态射为同构, 只须它们对 $K$ 的各分量放在次数 $0$ 处时为同构 (\hyperref[XVII.lem5.5.22.2]{5.5.22.2}\sisi{)}{} 及 \sisi{(}{}\hyperref[XVII.par5.5.25.2]{5.5.25.2}).
 
@@ -13810,7 +13826,7 @@ TS^{n}_{\ext}(ℱ)=(\sigma_{\ast}\bigotimes^{n}ℱ)^{\Sf^{n}}{\quoi}.\leqno(5.5.
 $$
 \end{enumerate}
 
-\emph{假设\pageoriginale $p$ 平坦}; 如 \hyperref[XVII.subsubsec5.5.8]{5.5.8} 中那样, 将函子 $\Gamma^{m}_{\text{\rm ext}}$ 定义为 $TS^{n}_{\ext}$ 的第 $0$\sisi{阶}{阶}左导出函子. 用 \hyperref[XVII.par5.5.2.5]{5.5.2.5} 及 \hyperref[XVII.subsubsec5.5.8]{5.5.8} 的记号, 若
+\emph{假设\pageoriginale $p$ 平坦}; 如 \hyperref[XVII.subsubsec5.5.8]{5.5.8} 中那样, 将函子 $\Gamma^{n}_{\text{\rm ext}}$ 定义为 $TS^{n}_{\ext}$ 的第 $0$\sisi{阶}{阶}左导出函子. 用 \hyperref[XVII.par5.5.2.5]{5.5.2.5} 及 \hyperref[XVII.subsubsec5.5.8]{5.5.8} 的记号, 若
 $$
 P_{1}\longrightarrow P_{0}\longrightarrow ℱ\longrightarrow 0
 $$
@@ -13895,7 +13911,7 @@ L\Gamma^{n}_{\Oo} Ru_{\ast}(\Oo) \ar[r]^{k^n}& R
 
 \item 对 $\Sym^{n}_{S}(Y)$ 的每个点 $x$, 存在 $Y$ 的一个仿射开集 $Y_{1}$, 使 $x$ 属于 $\Sym^{n}_{S}(Y_{1})$. 因而通过局部化可以假设 $Y$ 仿射.
 
-\item 所考察类型的每个\pageoriginale 复形 $K$ 都可表示为 $S$ 上的一个拟凝聚模复形 $K_{0}$, 在次数 $<0$ 处为零. 若 $\mathcal{U}$ 为 $X$ 的一个仿射覆盖, 则 $K$ 容许由形如 $j_{\ast}j^{\ast}K$ 的复形的和组成的有限消解, 其中 $j$ 为仿射开集的包含映射 (交错 Čech 复形). 利用分解归约引理 \hyperref[XVII.lem5.5.22.2]{5.5.22.2} 的拟凝聚类似物, 可化为存在 $X$ 的仿射开集 $j:X_{1}\hookrightarrow X$ 及 $K_{1}\in D^{b,\tor_{S}\leq 0}_{\text{\rm
+\item 所考察类型的每个\pageoriginale 复形 $K$ 都可表示为 $X$ 上的一个拟凝聚模复形 $K_{0}$, 在次数 $<0$ 处为零. 若 $\mathcal{U}$ 为 $X$ 的一个仿射覆盖, 则 $K$ 容许由形如 $j_{\ast}j^{\ast}K$ 的复形的和组成的有限消解, 其中 $j$ 为仿射开集的包含映射 (交错 Čech 复形). 利用分解归约引理 \hyperref[XVII.lem5.5.22.2]{5.5.22.2} 的拟凝聚类似物, 可化为存在 $X$ 的仿射开集 $j:X_{1}\hookrightarrow X$ 及 $K_{1}\in D^{b,\tor_{S}\leq 0}_{\text{\rm
 qcoh}}(X_{1},\Oo)$ 使 $K=Rj_{\ast}K_{1}$ 的情形.
 
 \item 根据传递性 \hyperref[XVII.par5.5.20.2]{5.5.20.2} 的拟凝聚类似物, 只须对 $uj$ 与 $j$ 证明 \hyperref[XVII.prop5.5.34]{5.5.34}. 将归约 b) 应用于 $j$, 最终可化为 $X$, $Y$ 及 $S$ 仿射的情形. 此时可将 $K$ 表示为分量为 \sisi{}{$S$-}平坦拟凝聚模的复形 $K_{2}\in C^{b,\geq
@@ -14141,7 +14157,7 @@ $$
 设\pageoriginale $f:X\rightarrow S$ 是\emph{拟有限分离}态射。
 对每个 $U\in \Ob S^{\et}$，以 $\Psi_{f}(U)$ 表示下述二元组所成的范畴：
 一个有限带点集 $I$，其指定点记为 $0$；以及将 $f^{\ast}U$ 分成开闭子集的一个分解
-$f^{\ast}U=\prod_{i\in I}V_{i}$，其中当 $i\neq 0$ 时 $V_{i}$ 在 $U$ 上有限。
+$f^{\ast}U=\coprod_{i\in I}V_{i}$，其中当 $i\neq 0$ 时 $V_{i}$ 在 $U$ 上有限。
 从 $\varphi=(V_{i})_{i\in I}$ 到 $\varphi'=(V'_{i})_{i\in I'}$ 的态射，
 是从 $I'$ 到 $I$ 的一个映射 $\sigma$，使对 $i\in I$ 有
 $V_{i}=\bigcup_{j\in \sigma^{-1}(i)}V'_{j}$。
@@ -14171,7 +14187,7 @@ $$
 \xymatrix@R=1.25cm{
 \Ff^{I^{\ast}}|U \ar[rr]^{\leftexp{t}{\sigma}}   \ar[rd] \ar[rd]_{\tau_{\varphi}}&&
 \Ff^{I'^{\ast}}|U     \ar[ld]^{\tau_{\varphi'}}\\
-      &          f_{!}f^{\ast}\Tt|U  &
+      &          f_{!}f^{\ast}\Ff|U  &
 }}\leqno{(6.2.1.2)}
 $$
 \pageoriginale 交换。此外，${}^{t}(\sigma\rho)={}^{t}\rho{}^{t}\sigma$。
@@ -14211,7 +14227,7 @@ $\varphi\in\Psi_{f}(S)$，$X=\coprod_{i\in I}X_{i}$，以带点集 $I$ 为指标
 其中 $U$ 遍历 $x$ 的平展邻域。设 $S_{x}$ 是 $S$ 在 $x$ 处的严格局部化，
 $X_{x}=\fprod{X}{S_{x}}{S}$，$f_{x}:X_{x}\rightarrow S_{x}$。
 标准的极限论证表明\pageoriginale，范畴 $\Psi_{x}$ 等价于范畴
-$\Phi_{f_{x}}(S_{x})$，因而向右滤过。由此，$\Psi\sisi{}{_f}$ 局部向右滤过。
+$\Psi_{f_{x}}(S_{x})$，因而向右滤过。由此，$\Psi\sisi{}{_f}$ 局部向右滤过。
 此外，$\tau$ 在 $x$ 处的纤维等同于箭头
 $$
 \tau_{x}:\varinjlim_{\Psi_{x}}\Ff _{x}^{I_{x}}\longrightarrow
@@ -14250,7 +14266,7 @@ $$
 \ie 若 $f$ 是两个分离、平坦、有限表现且拟有限的态射的复合 $f=gh$，则下图交换：
 $$
 \xymatrix{
-f_{!}f^{\ast}\ar[rrdd]_{\Tr_f} \ar@{=}[rr]& & g_{!}h_{!} h^{\ast}g_{\ast}\ar[d]^{g_{!}\ast\mathord{\Tr_{h}}\ast g^\ast}\\
+f_{!}f^{\ast}\ar[rrdd]_{\Tr_f} \ar@{=}[rr]& & g_{!}h_{!} h^{\ast}g^{\ast}\ar[d]^{g_{!}\ast\mathord{\Tr_{h}}\ast g^\ast}\\
               & &  g_{!}g^{\ast} \ar[d]^{\Tr_g}\\
               & & \Id .
 }
@@ -14274,7 +14290,7 @@ $$
 f_{!}f^{\ast}\Ff =f'_{!}{f'}^{\ast}\Ff \oplus
 f''_{!}{f''}^{\ast}\Ff \longrightarrow \Ff
 $$
-是 $\Tr_{f!}$ 和 $\Tr_{f''}$ 之和。
+是 $\Tr_{f'}$ 和 $\Tr_{f''}$ 之和。
 $$
 \xymatrix@C=2.25cm@R=.75cm{
   X' \ar@{^{(}->}[rd]^{j'}&           &\\
@@ -14606,7 +14622,7 @@ TS^{n''}(Y){\quoi}.
 \[
 \xymatrix@C=1cm@R=1.5cm{
   TS^{n}(\End\sisi{)}{} (E)) \ar[d] \ar[r]^(.4){TS^{n}(\alpha)} & TS^{n}(\End(L')\oplus
-\Ens(L''))  \ar[r]^(.45){\beta} & TS^{n_1} (\End(L')) \otimes TS^{n_2}
+\End(L''))  \ar[r]^(.45){\beta} & TS^{n_1} (\End(L')) \otimes TS^{n_2}
 (\End(L'')) \ar[d]^{\det \otimes \det}\\
 TS^{n}(\sisi{L}{\End(L)})         \ar[rr]^{\det} &                 & A.
 }
@@ -14653,7 +14669,7 @@ $u\in \End_{B}(F)$ 表示。要验证它们相等，可以先用它在 $\End(E)$
 $$\vcenter{\etiquette[6.3.3.1]{XVII.eq6.3.3.1}
 \xymatrix@C=3cm@R=1.5cm{
 \Gamma^{n}_A (B)  \ar[d]^{\det_E}& \Gamma^{n}_A
-\Gamma^n_{B}(C) \ar[l]_{\Gamma_A^{n}(\det_F)}\\
+\Gamma^m_{B}(C) \ar[l]_{\Gamma_A^{n}(\det_F)}\\
 A            & \ar[l]_{\det_{E\otimes_B F}}  \Gamma^{nm}_A (C) \ar[u]_{\sigma}.
 }}\leqno{(6.3.3.1)}
 $$
@@ -14948,7 +14964,7 @@ N_{\sisi{X'/X}{X/X'}}(\det u){\quoi}.
 \]
 它\emph{等价于}所要建立的公式 \eqhyperref[XVII.eq6.3.11.3]{6.3.11.3}。
 由此可见，后者是否成立仅依赖于 $\Oo_{X}$ 的截面 $\det u$；
-等价地，它等价于将 $M$ 换成 $\Oo_{X}$、将 $\varphi$ 换成 $\det u$ 时的同一公式。
+等价地，它等价于将 $M$ 换成 $\Oo_{X}$、将 $u$ 换成 $\det u$ 时的同一公式。
 但当 $M=\Oo_{X}$ 时，公式 \eqhyperref[XVII.eq6.3.11.3]{6.3.11.3} 是重言式！
 证明至此完成。
 \end{enumerate}
@@ -15136,7 +15152,7 @@ $$
 下面迹态射 \hyperref[XVII.thm6.2.3]{6.2.3} 与 \hyperref[XVII.prop6.3.17]{6.3.17}
 的相容性的验证，留给读者。对 $S_{\text{\rm fppf}}$ 上满足
 （\hyperref[XVII.par6.3.13.1]{6.3.13.1}）的 $G$，下图交换：
-$$\MakeLinkTarget*{sga4.exp.XVII.equation.6.3.17.1}\label{XVII.eq6.3.17.1}
+$$\MakeLinkTarget*{sga4.exp.XVII.equation.6.3.17.1}\etiquette[6.3.17.1]{XVII.eq6.3.17.1}
 \vcenter{\xymatrix{
 f_{\et!}f^{\ast}_{\et}\alpha_{\ast} G \ar[r]^{f_{!}c} \ar[d]_{\Tr_f}^{\hyperref[XVII.thm6.2.3]{(6.2.3)}}&
 f_{\et!}\alpha_{\ast}f^{\ast}G  \ar@{<->}[r]^{\sim}&
@@ -15367,7 +15383,7 @@ $$
 经基变换得到，所以只须考虑后者。
 半单纯系统 $(X^{h}_{u^{-1}(Z)}/Y^{h}_{Z})^{k+1}$ 与常值系统 $Y^{h}_{Z}$
 半单纯同伦，因为 $X^{h}_{u^{-1}(Z)}/Y^{h}_{Z}$ 有截面。
-所以系统 $\Sym^{h\,n}_{T}((X^{h}_{u^{-1}(Z)}/Y^{h}_{Z})^{h+1})$
+所以系统 $\Sym^{h\,n}_{T}((X^{h}_{u^{-1}(Z)}/Y^{h}_{Z})^{k+1})$
 也同伦于 $\Sym^{h\, n}_{T} (Y^{h}_{Z})$，特别地，是它的一个超覆盖。
 这就证明了 \sisi{6.3.2.3}{\hyperref[XVII.prop6.3.23]{6.3.23}}。
 \end{enumerate}
@@ -15382,7 +15398,7 @@ $K$ 是 $Y$ 上的 $G_{Y}$-挠子。考虑下述问题：
 对每个态射 $u:X\rightarrow Y$，其中 $X$ 在 $T$ 上平坦、拟射影且有限表现，
 定义 $\Sym^{n}_{T}(X)$ 上的一个挠子 $(u^{\ast}K)_{n}$；
 并对每个 $v:X'\rightarrow X$ 定义同构
-$c_{v}:(v^{\ast}u^{\ast}K)_{n}\simeq \Sym^{n}_{T}(v)^{\ast}\sisi{K}{(u^K)}_{n}$，使得
+$c_{v}:(v^{\ast}u^{\ast}K)_{n}\simeq \Sym^{n}_{T}(v)^{\ast}(u^{\ast}K)_{n}$，使得
 \begin{enumerate}
 \renewcommand{\theenumi}{\roman{enumi}}
 \renewcommand{\labelenumi}{(\theenumi)}
@@ -15401,7 +15417,7 @@ $c_{v}:(v^{\ast}u^{\ast}K)_{n}\simeq \Sym^{n}_{T}(v)^{\ast}\sisi{K}{(u^K)}_{n}$�
 
 现在假设 $G$ 满足：
 
-\paragraph*{(6.3.24.1)}\MakeLinkTarget*{sga4.exp.XVII.paragraph.6.3.24.1}\label{XVII.par6.3.24.1}
+\paragraph*{(6.3.24.1)}\MakeLinkTarget*{sga4.exp.XVII.paragraph.6.3.24.1}\etiquette[6.3.24.1]{XVII.par6.3.24.1}
 \emph{对每个整数 $n$ 和每个仿射 $S$-概形图
 \[
 \xymatrix{
@@ -15431,7 +15447,7 @@ $G_{Y}$-挠子 $K$，按定义存在忠实平坦的有限表现态射 $u:X\right
 （\hyperref[XVII.lem6.3.22.1]{6.3.22.1}），在这一增广到 $\Sym^{n}_{T}(Y)$
 的半单纯概形上组成一个下降数据 $(i=0,1,2)$。假设 $G$ 满足条件：
 
-\paragraph*{(6.3.24.2)}\MakeLinkTarget*{sga4.exp.XVII.paragraph.6.3.24.2}\label{XVII.par6.3.24.2}
+\paragraph*{(6.3.24.2)}\MakeLinkTarget*{sga4.exp.XVII.paragraph.6.3.24.2}\etiquette[6.3.24.2]{XVII.par6.3.24.2}
 \emph{上述构造的下降数据均有效}（\cf \ref{XVII.par6.3.24.1}）。
 
 此时，以 $K_{n}$ 表示该下降数据所定义的 $\Sym^{n}_{T}(Y)$ 上的挠子
@@ -15451,7 +15467,7 @@ T' \ar[rr]_{g}& & T.
 }
 \]
 是交换方形。以 $g'_{n}$ 表示从 $\Sym^{n}_{T'}(X')$ 到 $\Sym^{n}_{T}(X)$ 的箭头。
-对于 $X$ 上的一个 $G$-挠子 $X$，有
+对于 $X$ 上的一个 $G$-挠子 $K$，有
 \[
 {g'_n}^{\ast} K_{n}\simeq ({g'}^{\ast}K)_{n}{\quoi}.
 \]
@@ -15802,11 +15818,11 @@ j_{1!}\circ R^{+}\bar{u}_{f_{1}}}{R^+\bar{u}_{f_1*}\circ j_{1!} \circ L^+\bar{u}
 \item 令
 \[
 [[X_{1},X_{2}|X]]_{[n]\times [m]}=[X_{1}|X]_{n}\times
-[X_{2}|X]_{n}
+[X_{2}|X]_{m}
 \]
 以定义双单纯系统 $[[X_{1},X_{2}|X]]$。类似地，令
 \[
-[[X_{1}|X]]_{[n]\times[m]}=[X_{1}|S]_{n}{\quoi},
+[[X_{1}|X]]_{[n]\times[m]}=[X_{1}|X]_{n}{\quoi},
 \]
 ，其中由态射 $[m']\rightarrow [m]$ 诱导的所有态射 $[[X_{1}|X]]_{[n]\times [m]}\rightarrow
 [[X_{1}|X]]_{[n]\times [m']}$ 均为恒等态射。以相同方式定义双单纯系统 $[[T_{1},T_{2}|S]]$ 和 $[[T_{1}|S]]$，由此有交换图
@@ -16126,14 +16142,14 @@ L^{+}\bar{u}_{p_{1}}^{\sisi{+}{*}}(K^{\bigdot})$ 的典范松弛消解（\cf XVI
 \[
 K^{n}_{\mathcal{U}}=\bigoplus_{|P|=\sisi{}{-}n+1} j_{P!}j^{*}_{P}(F)
 \]
-即定义（\hyperref[XVII.prop6.2.9]{6.2.9}）$F$ 的一个左消解 $K^{\bigdot}_{\mathcal{U}}\rightarrow F$，其中对于 $I$ 的每个子集 $P$，$j_{P}$ 为 $\cup_{i\in P} U_{i}$ 到 $X$ 的包含态射。
+即定义（\hyperref[XVII.prop6.2.9]{6.2.9}）$F$ 的一个左消解 $K^{\bigdot}_{\mathcal{U}}\rightarrow F$，其中对于 $I$ 的每个子集 $P$，$j_{P}$ 为 $\cap_{i\in P} U_{i}$ 到 $X$ 的包含态射。
 
 由 \eqhyperref[XVII.eq7.1.9.1]{7.1.9.1} 得到谱序列
 \[
-E^{pq}_{1}=\bigoplus_{\substack{|P|=\sisi{}{-}p+1\\ P\sisi{\in}{\subset} I\sisi{}{\text{ 非空}}}} R^{p}(fj_{P})_{!}
+E^{pq}_{1}=\bigoplus_{\substack{|P|=\sisi{}{-}p+1\\ P\sisi{\in}{\subset} I\sisi{}{\text{ 非空}}}} R^{q}(fj_{P})_{!}
 j^{\ast}_{P}(F)\Longrightarrow R^{p+q}f_{!}(F)
 \]
-，而 $fj_{P}$ 可紧化这一事实（第 XVII 讲已处理的情形）表明，当 $p>0$ 且 $q>2d$ 时，$E^{pq}_{1}=0$；由此，当 $n>2d$ 时 $R^{n}f_{!}(F)=0$，这正是所要证明的。
+，而 $fj_{P}$ 可紧化这一事实（第 XVII 讲已处理的情形）表明，当 $p>0$ 或 $q>2d$ 时，$E^{pq}_{1}=0$；由此，当 $n>2d$ 时 $R^{n}f_{!}(F)=0$，这正是所要证明的。
 
 \begin{enonce*}{命题 7.2.2}\etiquette[7.2.2]{XVII.prop7.2.2}
 设 $f:X\rightarrow Y$ 为 $\Sch_{!R}$ 中的态射，$K^{\bigdot}$ 为 $D^{b}(X,\mathcal{A}_{X})$ 中有限 \tTor-维数的对象。那么 $R^{+}f_{!}(K^{\bigdot})$ 具有有限 \tTor-维数。
@@ -16216,7 +16232,7 @@ R^{q}(f'\circ \pi'^{p}_1)_! (\pi'^{p\ast}_1 (g'^{\ast}(K^{\bigdot})))  \ar[r] &
 设 $(p_{1}, j_{1}, f_{1})$ 为 $f$ 的伪紧化，$F$ 为 $\mathcal{A}_{X}$-模。取 $j_{1!}\circ L\bar{u}_{p_{1}}^{\ast}(F)$ 的典范松弛消解（\cf \hyperref[XVII.subsec4.2]{4.2}），再取其在 $f_{1}$ 下的正像，最后取所得双复形的伴随单复形，就得到 $\mathcal{A}_{Y}$-模的复形：
 $$\etiquette[7.3.1.1]{XVII.eq7.3.1.1}
 0\longrightarrow
-\Xx^{0}(F)\xrightarrow{S^{1}(F)}\Xx^{1}(F)\ldots
+\Xx^{0}(F)\xrightarrow{S^{0}(F)}\Xx^{1}(F)\ldots
 \Xx^{n}(F)\xrightarrow{S^{n}(F)}
 \Xx^{n+1}(F)\ldots.\leqno(7.3.1.1)
 $$
@@ -16609,7 +16625,7 @@ $$
 
 态射 $\Tr_{f}$ 是逐纤维指定的；因此其唯一性是显然的。
 
-设 $p:\PP^{1}_{S}\rightarrow S$ 为 $S$ 上的射影直线，$n$ 是在 $S$ 上可逆的整数。有 $\sheafPic_{S}(\PP^{1}_{S})=\ZZ_{S}$，因而 Kummer 理论（\hyperrefext[IX][IX.Thr3.2]{3.2}）给出一个态射 $\ZZ/n\rightarrow R^{1}p_{\ast}\ZZ/n(1)$，逐纤维验证（\hyperrefext[XII][XII.cor5.2]{5.2}）可知它是同构。其逆 $\Tr_{p}$ 逐纤维诱导迹态射 \eqhyperref[XVIII.eq1.1.3.4]{1.1.3.4}。
+设 $p:\PP^{1}_{S}\rightarrow S$ 为 $S$ 上的射影直线，$n$ 是在 $S$ 上可逆的整数。有 $\sheafPic_{S}(\PP^{1}_{S})=\ZZ_{S}$，因而 Kummer 理论（\hyperrefext[IX][IX.Thr3.2]{3.2}）给出一个态射 $\ZZ/n\rightarrow R^{2}p_{\ast}\ZZ/n(1)$，逐纤维验证（\hyperrefext[XII][XII.cor5.2]{5.2}）可知它是同构。其逆 $\Tr_{p}$ 逐纤维诱导迹态射 \eqhyperref[XVIII.eq1.1.3.4]{1.1.3.4}。
 
 设 $f:X\rightarrow S$ 是 $S$ 上的平坦曲线，使得存在从 $X$ 到 $\PP^1_S$ 的拟有限平坦 $S$-态射 $u$。由 \hyperref[XVIII.lem1.1.5]{1.1.5}，复合态射 $\Tr_{p}\circ \Tr_{u}$（\hyperrefext[XVII][XVII.thm6.2.3]{6.2.3}）在 $S$ 的每个几何点的纤维都是迹态射 \eqhyperref[XVIII.eq1.1.3.4]{1.1.3.4}。特别地，它不依赖于 $u$ 的选择。
 
@@ -16718,7 +16734,7 @@ G\xrightarrow{\sim} p_{\ast}p^{\ast}G\quad\mbox{\rm 且}\\
 
 在一般情形，$G$ 是一个阿贝尔概形 $A$ 由一个仿射群 $G_0$ 的扩张。前面的结果使我们归结为 $A=0$ 的情形，此时
 $$
-\Hom_{S}(\Spec (H^0(X,\Oo_{X}),G)\xrightarrow{\sim}
+\Hom_{S}(\Spec (H^0(X,\Oo_{X})),G)\xrightarrow{\sim}
 \Hom_{S}(X,G){\quoi}.
 $$
 
@@ -16770,7 +16786,7 @@ $$
 则 $\varphi=e$，且 $\Psi$ 通过从 $\PP(\epsilon)$ 到 $S$ 的投影 $p$ 分解。
 \end{enonce*}
 
-只需证明第二个断言。立即归结为 $S$ 是 Noether 概形的情形，再由（\SGA 3 IX 5.1）及应用于 $\PP(\epsilon)$ 的刚性引理（\textsc{Mumford} \cite[6.1 p.~115]{sga4.exp.XVIII.bib.6}），归结为 $S$ 是域的谱的情形。设 $n$ 是一个整数，$W_{n}$、$G_{n}$ 分别为 $\VV(\epsilon)$、$G$ 中零截面的第 $n^{\text{\rm th}}$ 个无穷小邻域，$\mathfrak{g}_{n}$ 是 $G_{n}$ 的仿射代数，$P_{n}(\Psi):\VV(\epsilon)^{\ast}\rightarrow \Hhom_{S}(W_{n},G)$ 是 $\Psi$ 的 $n^{\text{\rm th}}$ 阶主部\nde{更具体地，$P_n(\Psi)$ 是通过伴随对应于如下态射的态射：$\VV(\epsilon)^{\ast}\times_S W_n\to G$（我们也将其记作 $P_n$），它是将 $\Psi$ 与 $\VV(\epsilon)$ 上的加法在这些子概形上诱导的态射 $\VV(\epsilon)^{\ast}\times_{S} W_n\to \VV(\epsilon)^\ast$ 复合得到的。用这些 $S$-概形的点函子来表述，可更具体地解释为：若 $v$ 是 $\VV(\epsilon)^{\ast}$ 的一个截面，$t$ 是 $W_n$ 的一个截面，则 $P_n(\Psi)(v,t)=\Psi(v+t)$。}。
+只需证明第二个断言。立即归结为 $S$ 是 Noether 概形的情形，再由（\SGA 3 IX 5.1）及应用于 $\PP(\epsilon)$ 的刚性引理（\textsc{Mumford} \cite[6.1 p.~115]{sga4.exp.XVIII.bib.4}），归结为 $S$ 是域的谱的情形。设 $n$ 是一个整数，$W_{n}$、$G_{n}$ 分别为 $\VV(\epsilon)$、$G$ 中零截面的第 $n^{\text{\rm th}}$ 个无穷小邻域，$\mathfrak{g}_{n}$ 是 $G_{n}$ 的仿射代数，$P_{n}(\Psi):\VV(\epsilon)^{\ast}\rightarrow \Hhom_{S}(W_{n},G)$ 是 $\Psi$ 的 $n^{\text{\rm th}}$ 阶主部\nde{更具体地，$P_n(\Psi)$ 是通过伴随对应于如下态射的态射：$\VV(\epsilon)^{\ast}\times_S W_n\to G$（我们也将其记作 $P_n$），它是将 $\Psi$ 与 $\VV(\epsilon)$ 上的加法在这些子概形上诱导的态射 $\VV(\epsilon)^{\ast}\times_{S} W_n\to \VV(\epsilon)^\ast$ 复合得到的。用这些 $S$-概形的点函子来表述，可更具体地解释为：若 $v$ 是 $\VV(\epsilon)^{\ast}$ 的一个截面，$t$ 是 $W_n$ 的一个截面，则 $P_n(\Psi)(v,t)=\Psi(v+t)$。}。
 $\Hhom_{S}(W_{n},G)$ 的每个截面，通过按零截面的像的逆作右平移，都定义一个从 $W_{n}$ 到 $G_{n}$ 的将 $0$ 映到 $e$ 的态射；由此定义
 $$
 \Psi_{1}=P_{n}(\Psi).\Psi^{-1}:\VV(\epsilon)^{\ast}\longrightarrow
@@ -16881,7 +16897,7 @@ $$
 \widehat{\Oo(1)}\xrightarrow{\sim}
 \widehat{K}{\quoi}.
 $$
-由唯一性断言 \hyperref[XVIII.subsubsec1.2.7]{1.2.7}，$\widehat{\varphi_{L}}$ 与从 $\varphi_{L}$ 得到的映射等同。因此，\hyperref[XVIII.subsubsec1.2.11]{1.2.11} 的形式态射 $\widehat{\Psi}$ 在 $𝛍_{n}$ 上诱导一个映射，它与从代数映射 $\varphi_{L}:\GG_{m}\rightarrow G$ 得到的映射一致。
+由唯一性断言 \hyperref[XVIII.subsubsec1.2.7]{1.2.7}，$\widehat{\varphi_{L}}$ 与从 $\varphi_{L}$ 得到的映射等同。因此，\hyperref[XVIII.subsubsec1.2.11]{1.2.11} 的形式态射 $\widehat{\varphi}$ 在 $𝛍_{n}$ 上诱导一个映射，它与从代数映射 $\varphi_{L}:\GG_{m}\rightarrow G$ 得到的映射一致。
 \end{itemize}
 
 \subsubsection{$\widehat{\varphi}$ 的代数性}\etiquette[1.2.13]{XVIII.subsubsec1.2.13}
@@ -17134,7 +17150,7 @@ $$ 同样，\pageoriginale 对 $g\in G(S)$ 有 $\langle \Ll,g]=\deg(\Ll).g$。
 \langle \Ll, u^{\ast}K]\xrightarrow{\sim}\langle N_{X/Y}(\Ll),K]{\quoi}.
 $$
 
-\item[--] 对 $X$ 上的可逆层 $\Ll$ 及 $X$ 上的 $G_{X}$-挠子 $K$，有 $$
+\item[--] 对 $Y$ 上的可逆层 $\Ll$ 及 $X$ 上的 $G_{X}$-挠子 $K$，有 $$
 \langle u^{\ast}\Ll,K]\xrightarrow{\sim}
 \langle \Ll,\Tr_{X/Y}K]{\quoi}.
 $$ \end{itemize} 此外，这些同构对曲线态射的复合 $uv$ 满足显然的相容性；对 $\Ll=\Oo(E)$，它们与同构（\hyperrefext[XVII][XVII.const6.3.27.2]{6.3.27.2}）等同： \begin{align*}
@@ -18078,17 +18094,17 @@ $$
 在 \hyperref[XVIII.subsubsec1.5.8]{1.5.8} 的假设下，设 $S$ 仿射\nde{实际上，必须假定 $S$ 是闭点为 $s$ 的局部概形。若要保留原来的假设，则在结论中应要求 $m$ 只在 $s$ 在 $S$ 中的一个开邻域的逆像上有定义，如下文 \hyperref[XVIII.par1.5.10.1]{1.5.10.1} 中的情形。}；设 $\Oo_{\bar{X}}(1)$ 是 $\bar{X}$ 上沿 $Y$ 被平凡化的相对丰沛可逆层，$\Mm$ 是 $\bar{X}$ 上沿 $Y$ 被平凡化的可逆层。对于每一点 $s\in S$，存在整数 $n_{0}$，使得对每个整数 $n\geq n_{0}$ 和纤维 $\bar{X}_{s}$ 上 $\Mm(n)\otimes k(s)$ 的每个在 $Y_{s}$ 上等于 $1$ 的截面 $m_{s}$，都存在 $\Mm(n)$ 的一个在 $Y$ 上等于 $1$ 的截面 $m$，提升 $m_{s}$。
 \end{enonce*}
 
-归结为 $S$ 是 Noether 概形的情形（因为一族满态射在基变换之后仍是一族满态射\nde{去掉这一 Noether 假设，比乍看起来要微妙一些，因为问题是仿射的，而非线性的。若 $\bar{X}$、$Y$、$\Mm$ 是由 Noether 概形 $S_0$ 上的相应数据 $\bar{X}_0$、$Y_0$、$\Mm_0$ 通过基变换 $S\to S_0$ 得到的（假定这是局部概形之间的局部态射）（\cf \EGA IV 8），且已知所需断言在这一 Noether 情形成立，则可通过一次令人不快的图追踪得到 $S$ 上所需的结果；在追踪过程中，可能需要考虑所需断言的一个变体，要求截面在 $Y_s$ 或 $Y$ 上等于 $0$，而不是 $1$。}）。设 $\Nn$ 为 $\Mm$ 中在\pageoriginale $\bar{X}_{s}$ 和 $Y$ 上消失的局部截面组成的凝聚层。对于每个 $n$，问题的局部解组成 $\Nn(n)$ 下的一个主齐性空间，因此提升 $m_{s}$ 的障碍属于 $H^{1}(X,\Nn(n))=H^{0}(S,R^{1}\bar{f}_{\ast}\Nn(n))$。但当 $n$ 充分大时，$R^{1}\bar{f}_{\ast}\Nn(n)=0$（\EGA III 2.2.1）。
+归结为 $S$ 是 Noether 概形的情形（因为一族满态射在基变换之后仍是一族满态射\nde{去掉这一 Noether 假设，比乍看起来要微妙一些，因为问题是仿射的，而非线性的。若 $\bar{X}$、$Y$、$\Mm$ 是由 Noether 概形 $S_0$ 上的相应数据 $\bar{X}_0$、$Y_0$、$\Mm_0$ 通过基变换 $S\to S_0$ 得到的（假定这是局部概形之间的局部态射）（\cf \EGA IV 8），且已知所需断言在这一 Noether 情形成立，则可通过一次令人不快的图追踪得到 $S$ 上所需的结果；在追踪过程中，可能需要考虑所需断言的一个变体，要求截面在 $Y_s$ 或 $Y$ 上等于 $0$，而不是 $1$。}）。设 $\Nn$ 为 $\Mm$ 中在\pageoriginale $\bar{X}_{s}$ 和 $Y$ 上消失的局部截面组成的凝聚层。对于每个 $n$，问题的局部解组成 $\Nn(n)$ 下的一个主齐性空间，因此提升 $m_{s}$ 的障碍属于 $H^{1}(\bar{X},\Nn(n))=H^{0}(S,R^{1}\bar{f}_{\ast}\Nn(n))$。但当 $n$ 充分大时，$R^{1}\bar{f}_{\ast}\Nn(n)=0$（\EGA III 2.2.1）。
 
 \setcounter{subsubsection}{9}
 \subsubsection{}\etiquette[1.5.10]{XVIII.subsubsec1.5.10}
 设 $\Ll$ 是 $\bar{X}$ 上沿 $Y$ 被平凡化的可逆层，并设 $s\in S$。考虑以下条件
 
 \paragraph{}\etiquette[1.5.10.1]{XVIII.par1.5.10.1}
-$X_{s}$ 上 $\Ll\otimes k(s)$ 的每个在 $Y_{s}$ 上等于 1 的截面，都可提升为 $s$ 的一个邻域的逆像 $U$ 上 $\Ll$ 的一个截面，它在 $\fprod{Y}{U}{S}$ 上等于 1。
+$\bar{X}_{s}$ 上 $\Ll\otimes k(s)$ 的每个在 $Y_{s}$ 上等于 1 的截面，都可提升为 $s$ 的一个邻域的逆像 $U$ 上 $\Ll$ 的一个截面，它在 $\fprod{Y}{U}{S}$ 上等于 1。
 
 \paragraph{}\etiquette[1.5.10.2]{XVIII.par1.5.10.2}
-存在 $X_{s}$ 上 $\Ll\otimes k(s)$ 的四个截面 $m_{i}$，它们在 $Y_s$ 上等于 1，且在 $X_{s}$ 的每个不可约分支的一般点线性无关。
+存在 $\bar{X}_{s}$ 上 $\Ll\otimes k(s)$ 的四个截面 $m_{i}$，它们在 $Y_s$ 上等于 1，且在 $X_{s}$ 的每个不可约分支的一般点线性无关。
 
 考虑下面的条件，它们分别涉及 $\Ll$ 的一个截面 $m$、一对截面 $(m_{1},m_{2})$ 及 $\Ll$ 的三个截面 $(m_{1},m_{2},m_{3})$。
 
@@ -18104,7 +18120,7 @@ $m$ 在 $Y$ 上等于 1，且由 $m=0$ 定义的 $X$ 的子概形 $Z(m)$ 是 $S$
 下面的引理留给读者用一般位置论证来验证\nde{这里应注意，考虑到（\hyperref[XVIII.par1.5.10.1]{1.5.10.1}）以及在局部情形只考察 $s$ 上的纤维就能验证条件（\hyperref[XVIII.par1.5.10.3]{1.5.10.3}）的第二部分这一事实，引理现在只涉及 $\Ll$ 在纤维 $X_s$ 上的限制的截面。例如，对于 (I)，条件（\hyperref[XVIII.par1.5.10.2]{1.5.10.2}）给出一个维数为 $3$ 的\emph{仿射}空间 $V$，其中的元素是 $X_s$ 上 $\Ll\otimes k(s)$ 的在 $Y_s$ 上等于 $1$ 的截面，而且属于这个空间 $V$ 的截面在 $X_s$ 的任何一般点都不为零。我们要确定 $k\in V$，使对每个 $i$，$(m_i,k)$ 满足（\hyperref[XVIII.par1.5.10.4]{1.5.10.4}），即使连接点 $m_i$ 与 $k$ 的仿射直线不经过原点（在原点与 $X_s$ 的不同不可约分支相联系的各个表现中均如此）；换言之，只需 $k$ 不属于连接 $m_i$ 与原点的直线。于是得到一组同时要求的条件，它们分别在 $V$ 的非空开子集上满足。为了完全严格，并考虑到不可约分支未必几何不可约这一事实，当必须在一个扩张中取 $V$ 的点时（若 $k(s)$ 为有限域），实际上需要引入一个有限 Galois 扩张 $s'\to s$，使得 $X_{s'}$ 的不可约分支几何不可约。在 $X_{s'}$ 上作上述论证得到的 $V_{s'}$ 的稠密开子集，是 Galois 不变的，因而定义了所需的 $V$ 的稠密开子集。}。
 
 \begin{enonce*}{引理 1.5.11}\etiquette[1.5.11]{XVIII.lem1.5.11}
-设 $\Ll$ 是 $X$ 上沿 $Y$ 被平凡化的可逆层，$\bar{s}$ 是 $S$ 的一个几何点，其在 $S$ 中的像为 $s$。若 $\Ll$ 在 $s$ 满足（\hyperref[XVIII.par1.5.10.1]{1.5.10.1}）和（\hyperref[XVIII.par1.5.10.2]{1.5.10.2}），则：
+设 $\Ll$ 是 $\bar{X}$ 上沿 $Y$ 被平凡化的可逆层，$\bar{s}$ 是 $S$ 的一个几何点，其在 $S$ 中的像为 $s$。若 $\Ll$ 在 $s$ 满足（\hyperref[XVIII.par1.5.10.1]{1.5.10.1}）和（\hyperref[XVIII.par1.5.10.2]{1.5.10.2}），则：
 \begin{enumerate}
 \renewcommand{\theenumi}{\Roman{enumi}}
 \renewcommand{\labelenumi}{(\theenumi)}
@@ -18178,7 +18194,7 @@ $$
 显然 $j^{\ast}e\sim \Id$。如 \hyperref[XVIII.thm1.3.10]{1.3.10} 和 \hyperref[XVIII.thm1.5.2]{1.5.2} 中一样，可验证对于 fppf 拓扑，有
 
 \begin{enonce*}{命题 1.5.14}\etiquette[1.5.14]{XVIII.prop1.5.14}
-在 \hyperref[XVIII.subsubsec1.5.8]{1.5.8} 的假设下，\hyperref[XVIII.subsubsec1.5.13]{1.5.13} 中的函子 $e$、$j$ 是互为拟逆的等价。由 \hyperref[XVIII.const1.4.19]{1.4.19} 和 \hyperref[XVIII.prop1.4.23]{1.4.23}，得到一个同构
+在 \hyperref[XVIII.subsubsec1.5.8]{1.5.8} 的假设下，\hyperref[XVIII.subsubsec1.5.13]{1.5.13} 中的函子 $e$、$j^{\ast}$ 是互为拟逆的等价。由 \hyperref[XVIII.const1.4.19]{1.4.19} 和 \hyperref[XVIII.prop1.4.23]{1.4.23}，得到一个同构
 $$
 \Ext^{1}(R^{1}\bar{f}_{\ast}\GG_{m}(\mathfrak{m}),G)\xrightarrow{\sim}
 H^{1}(X,G){\quoi}.
@@ -18204,7 +18220,7 @@ H^1(X_2,G).
 }}\leqno{(1.5.15.1)}
 $$
 
-若 $\bar{u}:\bar{X}_{1}\rightarrow \bar{X}_{2}$ 有限平坦，且满足 $Y_{1}=\bar{u}^{-1}Y_{2}$（作为概形），则对 $X_{1}$ 上沿 $Y_1$ 刚化的可逆层 $\Ll$ 及 $X_{2}$ 上的挠子 $K$，有
+若 $\bar{u}:\bar{X}_{1}\rightarrow \bar{X}_{2}$ 有限平坦，且满足 $Y_{1}=\bar{u}^{-1}Y_{2}$（作为概形），则对 $\bar{X}_{1}$ 上沿 $Y_1$ 刚化的可逆层 $\Ll$ 及 $X_{2}$ 上的挠子 $K$，有
 $$
 \langle \Ll,u^{\ast}K]\xrightarrow{\sim}
 \langle N_{\bar{X}_{1}/\bar{X}_{2}}\Ll,K]
@@ -18225,7 +18241,7 @@ H^{1}(X_1, G).
 
 \subsection{一个消没定理}\etiquette[1.6]{XVIII.subsec1.6}
 
-本节从 \hyperref[XVIII.lem1.6.6]{1.6.6}（第二种证明）到末尾，可以独立于第 \hyperref[XVIII.sec2]{2} 至 5 节阅读。
+本节从 \hyperref[XVIII.lem1.6.6]{1.6.6}（第二种证明）到末尾，可以独立于第 \hyperref[XVIII.subsec1.2]{1.2} 至 \hyperref[XVIII.subsec1.5]{1.5} 小节阅读。
 
 \begin{enonce*}{引理 1.6.1}\etiquette[1.6.1]{XVIII.lem1.6.1}
 设 $X$ 是概形，$Y$ 是 $X$ 的一个由理想 $\mathfrak{m}$ 定义的闭子概形，其补集为 $U$。
@@ -18321,7 +18337,7 @@ H^{1}_{c}(U,𝛍_{n})\xrightarrow{\sim}
 \subsubsection{}\etiquette[1.6.5]{XVIII.subsubsec1.6.5}
 设\pageoriginale $X$ 是代数闭域 $k$ 上的光滑曲线，$\bar{X}$ 是以 $X$ 为稠密开子概形的光滑射影曲线，$Y$ 是 $\bar{X}$ 的一个闭子概形，使得 $X=\bar{X}-Y$，$\mathfrak{m}$ 是定义 $Y$ 的理想，$n$ 是在 $k$ 中可逆的整数，$G$ 是被 $n$ 零化的有限阿贝尔群。
 
-群 $\sheafPic_{\mathfrak{m},X/k}$ 非典范地是子群 $\sheafPic^{0}_{\mathfrak{m},\bar{X}/k}$ 与一个自由阿贝尔群的积。因此，由 \eqhyperref[XVIII.eq1.6.4.1]{1.6.4.1}、\eqhyperref[XVIII.eq1.6.2.2]{1.6.2.2} 及 \hyperref[XVIII.prop1.5.14]{1.5.14}，有一个典范的复合同构
+群 $\sheafPic_{\mathfrak{m},\bar{X}/k}$ 非典范地是子群 $\sheafPic^{0}_{\mathfrak{m},\bar{X}/k}$ 与一个自由阿贝尔群的积。因此，由 \eqhyperref[XVIII.eq1.6.4.1]{1.6.4.1}、\eqhyperref[XVIII.eq1.6.2.2]{1.6.2.2} 及 \hyperref[XVIII.prop1.5.14]{1.5.14}，有一个典范的复合同构
 \begin{gather*}
 \Hom(H^{1}_{c}(X,𝛍_{n}),G)\xleftarrow{\sim}
 \Hom({}_{n}\sheafPic^{\tau}_{\mathfrak{m},\bar{X}/k}(k),G)=\Hom({}_{n}\sheafPic^{0}_{\mathfrak{m},\bar{X}/k},G)\\
@@ -19634,7 +19650,7 @@ E^{pq}_{2}=\varinjlim_{U\in \Ob V(x)}
 ℋ^{p+q}(RK^{!}L)_{x}{\quoi}.\tag{3.1.17.2}
 \end{equation*}\etiquette[3.1.17.2]{XVIII.eq3.1.17.2}
 
-\item 若 $X^{0}$ 为 $X$ 的一个保守点集, 且 $u:K_{1}\rightarrow K_{2}$ 为对象 \eqhyperref[XVIII.eq3.1.11.1]{3.1.11.1} 的一个态射, 则要使
+\item 若 $X^{0}$ 为 $X$ 的一个保守点集, 且 $u:K_{1}\rightarrow K_{2}$ 为对象 \hyperref[XVIII.par3.1.16.1]{3.1.16.1} 的一个态射, 则要使
 $$
 {}^{t}u:RK^{!}_{2}\longrightarrow RK^{!}_{1}
 $$
@@ -20000,7 +20016,7 @@ M. Artin
 $U\subset X$ 为正则开子集。则存在一个固有双有理态射
 $f:X'\rightarrow X$ 及 $X$ 上的开浸入
 $U\rightarrow X'$，使 $X'$ 正则，而
-$Y=X'-U$ 处处为余维 \hyperref[XIX.sec1]{1}，且具有正规交叉。
+$Y=X'-U$ 处处为余维 1，且具有正规交叉。
 
 \emph{因此，这些证明“目前”只在特征零时有效}
 \cite{sga4.exp.XIX.bib.4}。也可以由这些证明推出
@@ -20011,7 +20027,7 @@ $Y=X'-U$ 处处为余维 \hyperref[XIX.sec1]{1}，且具有正规交叉。
 我们将得到或多或少令人满意的结果（\cf \hyperref[XIX.thm3.2]{3.2}，\hyperref[XIX.thm4.1]{4.1}，
 \hyperref[XIX.thm5.1]{5.1}，\hyperref[XIX.thm6.1]{6.1}）。另一方面，对于一般混合特征预概形的上同调，
 几乎一无所知；即使在已有奇点消解的
-\hyperref[XIX.sec2]{2} 维情形也是如此 \cite{sga4.exp.XIX.bib.2}。
+2 维情形也是如此 \cite{sga4.exp.XIX.bib.2}。
 例如，对任何维数 $>1$ 的混合特征完备环，
 纯性定理 \hyperref[XIX.thm2.1]{2.1} 仍是未知的。
 这一结果在形式幂级数环 $k[[x_{1},\ldots, x_{n}]]$ 上的情形
@@ -20222,14 +20238,14 @@ $A^{0}$-代数 $B^{0}_{j}$ 及 $C^{0}_{j}$，以及 $A$-同构
 B^{0}_{j}\otimes_{A^{0}}A &\xrightarrow{\sim} B_{j}\\
 C^{0}_{j}\otimes_{A^{0}}A &\xrightarrow{\sim} C_{j}{\quoi}.
 \end{align*}
-事实上，由（\cite{sga4.exp.XIX.bib.3}~\hyperref[XIX.subsec1.4]{1.4}），
+事实上，由（\cite{sga4.exp.XIX.bib.3}~1.4），
 态射 $B_{j}\rightarrow C_{j}$ 由一个态射
 $B^{0}_{j}\rightarrow C^{0}_{j}$ 诱导，故开子集 $W_{j}\subset
 \Spec B_{j}$ 由某个开子集 $W^{0}_{j}\subset \Spec
 B^{0}_{j}$ 诱导。此外，各 $W_{j}$ 之间的 $U$-态射
 由各 $A$-代数 $B_{j}$ 之间的态射诱导，从而
 由各 $B^{0}_{j}$ 之间的态射诱导
-（\cite{sga4.exp.XIX.bib.3}~\hyperref[XIX.subsec1.4]{1.4}），
+（\cite{sga4.exp.XIX.bib.3}~1.4），
 因而也由各 $W^{0}_{j}$ 之间的 $U^{0}$-态射诱导。
 所以，这些 $W^{0}_{j}$ 构成 $U^{0}$ 上的一个单纯形对象
 $\UU^{0}$ 的连通分支集，且它诱导出 $\UU$；
@@ -20265,7 +20281,7 @@ $f^{0}_{j}\in A^{0}$ $[Y]$，使在 $A$ $[Y]$ 中有
 $$
 f_{j}\equiv f^{0}_{j}(\text{\rm 模 } d_{j}{}^{2}\rad A){\quoi}.
 $$
-由（\cite{sga4.exp.XIX.bib.3}，\hyperref[XIX.lem1.3]{1.3}），$A[Y]/(f_{j})\simeq A[Y]/(f^{0}_{j})$，
+由（\cite{sga4.exp.XIX.bib.3}，1.3），$A[Y]/(f_{j})\simeq A[Y]/(f^{0}_{j})$，
 引理得证。
 
 \section{严格局部环的情形}\etiquette[2]{XIX.sec2}
@@ -20496,11 +20512,11 @@ $Y'=X'-U'$ 纯为余维 1 并具有正规交叉。
 由于 $Y$ 在 $X$ 中具有正规交叉，存在元素
 $x_{1},\ldots,x_{r}\in O_{X,p}$，使 $\{x_{1},\ldots,x_{r}\}$
 为 $O_{X,p}$ 的一个参数系的一部分，且 $\Spec
-O_{X,p}\cap Y=V(x_{1},\ldots,x_{r})$。
+O_{X,p}\cap Y=V(x_{1}\cdots x_{r})$。
 此外，由 $g:X'\rightarrow X$ 正则立即可知，
 各 $x_{i}$ 在 $O_{X',p'}$ 中的像 $x'_{i}$ 构成该环的
 一个参数系的一部分，且 $\Spec O_{X',p'}\cap
-Y'=V(x'_{1},\ldots,x'_{r})$。
+Y'=V(x'_{1}\cdots x'_{r})$。
 
 设 $B'$ 为 $O_{X',p'}$ 在 $p'$ 上方的一个几何点
 $\bar{p}$ 处的严格局部化，$B$ 为
@@ -20774,9 +20790,9 @@ $(Y',X')\rightarrow (Y,X)$ 为一个态射，设 $g:Y'\rightarrow Y$ 为
 $$
 \xymatrix{
 \ZZ/n  \ar[rr]^{\varphi(Y',X')} & &
-(R^{2c}i^{!})𝛍_n^{{\boxtimes}c}\\
+(R^{2c}i^{!})𝛍_n^{{\otimes}c}\\
 g^{\ast}(\ZZ/n) \ar[u]\ar[rr]^{g^{\ast}\varphi(Y,X)}& &
-g^{\ast}(R^{2c}i^{!})𝛍_n^{{\boxtimes}c} \ar[u]
+g^{\ast}(R^{2c}i^{!})𝛍_n^{{\otimes}c} \ar[u]
 }
 $$
 交换（特别地，这意味着右边的竖箭头为同构）。
@@ -21310,7 +21326,7 @@ $V(x_{d})$ 不包含在 $Y$ 在 $\Spec A$ 中的像内，
 并且在情形 (ii) 中，$V(x_{d})$ 也不包含在 $V(\epsilon)$ 中。
 
 \hypertarget{sga4.exp.XIX.lemma.6.8}{}\begin{enonce*}{引理 6.8}\etiquette[6.8]{XIX.lem6.8}
-设 $A_{0}=k[[x_{1},\ldots,x_{d-1}]]$ $\{x_{d}\}$ 为
+设 $A^{0}=k[[x_{1},\ldots,x_{d-1}]]$ $\{x_{d}\}$ 为
 $k[[x_{1},\ldots,x_{d-1}]]$ $[x_{d}]$ 在点
 $x_{1}=x_{2}=\ldots=x_{d}=0$ 处的严格局部化。
 在上述条件下，存在一个 $A^{0}$-代数 $B^{0}$、
@@ -21324,13 +21340,13 @@ $x_{1}=x_{2}=\ldots=x_{d}=0$ 处的严格局部化。
 $A\otimes_{A^{0}}B^{0}\simeq B$、$A\otimes_{A^{0}}C^{0}\simeq C$，
 因为此时存在唯一的（满射）态射 $B^{0}\rightarrow C^{0}$，
 诱导出态射 $B\rightarrow C$
-（\cite{sga4.exp.XIX.bib.3}~\hyperref[XIX.subsec1.4]{1.4}）。
+（\cite{sga4.exp.XIX.bib.3}~1.4）。
 因此取 $U^{0}=\Spec B^{0}-\{(\Spec C^{0})\cup V(x_{1})\}$，
 立即验证 $U$ 由 $U^{0}$ 诱导。
 $C^{0}$ 的存在性，以及情形 (ii) 中 $B^{0}$ 的存在性，
 均与 \hyperref[XIX.lem1.5]{1.5} 中一样证明。
 情形 (i) 中 $B^{0}$ 的存在性由
-（\cite{sga4.exp.XIX.bib.3} \hyperref[XIX.thm5.1]{5.1}）得到。
+（\cite{sga4.exp.XIX.bib.3} 5.1）得到。
 （也可以将 Abhyankar 引理应用于沿 $\{x_{1}=0\}$ 的分歧，
 再使用下降，直接证明。）
 
@@ -21368,7 +21384,7 @@ R^{q}f^{0}_{\alpha\ast}(\ZZ/\ell)=0\quad\text{\rm 在点}\quad v\quad\text{\rm �
 $$
 即若 $q>d-\dim\bar{v}$。
 因此，$R^{q}f^{0}_{\alpha\ast}(\ZZ/\ell)\neq 0$ 在点 $v$ 处成立
-意味着 $\dim\bar{v}\geq d-q$。
+意味着 $\dim\bar{v}\leq d-q$。
 于是，对于包含 $i:V^{0}\rightarrow \Spec
 k[[x_{1},\ldots, x_{d-1}]]$（\cf \eqhyperref[XIX.eq6.0]{6.0}），有
 $$
@@ -21383,7 +21399,7 @@ $$
 因此 Leray 谱序列
 $$
 E^{pq}_{2}=H^{p}(V^{0},R^{q}f^{0}_{\alpha\ast}(\ZZ/\ell))\Longrightarrow
-H^{p+q}(U^{0},\ZZ/\ell)
+H^{p+q}(U^{0}_{\alpha},\ZZ/\ell)
 $$
 表明 $n>d$ 时 $H^{n}(U^{0}_{\alpha},\ZZ/\ell)=0$；
 由于 $U^{0}$ 是各 $U^{0}_{\alpha}$ 的极限，同样得到
@@ -21581,7 +21597,7 @@ p>d{\quoi}.\tag{7.7}
 
 开浸入 $\Spec B[y/x]\xrightarrow{j}Z$ 由从 $Z$ 中去掉
 “无穷远处”的闭子集 $C$ 得到，而在 $Z$ 的另一个开子集
-$\Spec B[x/y]$ 中，它与开子集 $C=V(x/y)$ 等同。
+$\Spec B[x/y]$ 中，它与闭子集 $C=V(x/y)$ 等同。
 各 $R^{q}j_{\ast}\ZZ/\ell$ 集中在 $C$ 上，
 且态射 $C\rightarrow \Spec B$ 为闭浸入。
 因此，当 $p>0$ 且 $q>0$ 时有 $H^{p}(Z,R^{q}j_{\ast}\ZZ/\ell)=0$。
