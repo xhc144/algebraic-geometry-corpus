@@ -6,7 +6,7 @@
 
 | 工作区 | 书目 | 范围 | 状态 |
 |---|---|---|---|
-| `sga3-a/` | SGA 3 | I, II, III, IV, V, VI-A, VI-B, VII-A, VII-B, VIII, IX, X, XI, XII | 已交777页完整初译；语义错链／校验表补丁待回执 |
+| `sga3-a/` | SGA 3 | I, II, III, IV, V, VI-A, VI-B, VII-A, VII-B, VIII, IX, X, XI, XII | 已交777页指定英文底本初译；错链补丁待验收，另缺再版卷首材料 |
 | `sga3-b/` | SGA 3 | XIII, XIV, XV, XVI, XVII, XVIII, XIX, XX, XXI, XXII, XXIII, XXIV, XXV, XXVI | 已整合main；557页；完整英文源组件对读，原本／外引疑点保留 |
 | `sga4-a/` | SGA 4 | I, II, III, IV, V, V-bis, VI, VII, VIII, IX | 已整合main；463页；法中全文对读，原书残引保留 |
 | `sga4-b/` | SGA 4 | X, XI, XII, XIII, XIV, XV, XVI, XVII, XVIII, XIX | 已整合main；298页；英文源全范围对读，原著疑点保留 |

@@ -100,10 +100,18 @@ def main():
     status = checked_blob(args.repo, ref, PREFIX + '_coord/RESUMED_STATUS.md')
     pdfs, sources, rows, omissions, source_files = {}, {}, [], [], []
     for number, (book, label, pdf_rel, zip_rel) in enumerate(BOOKS, 1):
+        assert 'integrated' in states[book]['resume_state'], 'Unintegrated handoff: ' + book
+        subprocess.run(['git', '-C', str(args.repo), 'merge-base', '--is-ancestor',
+                        states[book]['checkpoint'], ref], check=True)
         base = PREFIX + book + '/'
         pdf = checked_blob(args.repo, ref, base + pdf_rel)
         archive = checked_blob(args.repo, ref, base + zip_rel)
         doc = fitz.open(stream=pdf, filetype='pdf')
+        assert len(doc) == states[book]['pages'], 'Outdated PDF page count: ' + book
+        if states[book].get('pdf_sha256'):
+            assert digest(pdf) == states[book]['pdf_sha256'], book
+        if states[book].get('source_zip_sha256'):
+            assert digest(archive) == states[book]['source_zip_sha256'], book
         pdf_name = f'PDFs/{number:02d}_{label}-zh-CN.pdf'
         pdfs[pdf_name] = pdf
         row = {'id': book, 'label': label, 'content_commit': ref,
@@ -113,6 +121,7 @@ def main():
                'source_archive_repository_path': base + zip_rel,
                'source_archive_sha256': digest(archive),
                'review_and_source_limits': states[book]['remaining'],
+               'original_frontmatter_gap': states[book].get('original_frontmatter_gap'),
                'source_entrypoints': []}
         z = zipfile.ZipFile(io.BytesIO(archive))
         assert z.testzip() is None
