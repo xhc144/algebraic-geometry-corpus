@@ -4,6 +4,7 @@ Run from any directory. No network, TeX execution or source mutation.
 """
 from pathlib import Path
 from collections import Counter
+from difflib import SequenceMatcher
 import argparse, hashlib, json, re, zipfile
 ROOT=Path(__file__).resolve().parents[1]
 REPO=ROOT.parents[2]
@@ -30,6 +31,31 @@ def reference_keys(s):
         else:
             keys.append(re.findall(r'\[([^\]]*)\]',m.group())[-1])
     return Counter(keys)
+def corrected_comparison_source(original, corrections):
+    """Apply documented edits against the frozen text, never global substitutions.
+
+    Context windows may overlap; their actual changed character intervals may
+    not conflict. All contexts are checked against the unchanged frozen source.
+    """
+    edits={}
+    for c in corrections:
+        before=c['source_before'];after=c['source_comparison_after']
+        if original.count(before)!=1:
+            raise ValueError('Source correction context not unique: '+c['id'])
+        offset=original.index(before)
+        for op,i,j,k,l in SequenceMatcher(None,before,after,autojunk=False).get_opcodes():
+            if op=='equal':continue
+            key=(offset+i,offset+j)
+            if key in edits and edits[key][0]!=after[k:l]:
+                raise ValueError('Conflicting source corrections: '+c['id'])
+            edits[key]=(after[k:l],c['id'])
+    intervals=sorted(edits)
+    for previous,current in zip(intervals,intervals[1:]):
+        if current[0]<previous[1]:
+            raise ValueError('Overlapping changed source intervals')
+    result=original
+    for i,j in reversed(intervals):result=result[:i]+edits[(i,j)][0]+result[j:]
+    return result
 def norm(s):
     # Normalize translated prose inside text boxes, retaining every nested
     # dollar-delimited mathematical expression. Mathematical operators such
@@ -84,27 +110,20 @@ for i in ROMAN:
     if not files[0].exists():files=sorted((ROOT/'chapters').glob(f'exp-{i:02}-part*-zh.tex'))
     t='\n'.join(f.read_text() for f in files)
     original_a=Counter(norm(x) for x in math(src[i]));b=Counter(norm(x) for x in math(t))
-    comparison_source=src[i]
-    corrections=[]
-    for correction in json.loads((ROOT/'evidence/SOURCE_CORRECTIONS.json').read_text())['corrections']:
-        if correction['expose']==i and 'source_before' in correction:
-            before=correction['source_before'];after=correction['source_comparison_after']
-            if comparison_source.count(before)!=1:
-                raise ValueError('Source correction context not unique: '+correction['id'])
-            comparison_source=comparison_source.replace(before,after,1)
-            corrections.append(correction['id'])
+    applicable=[c for c in json.loads((ROOT/'evidence/SOURCE_CORRECTIONS.json').read_text())['corrections'] if c['expose']==i and 'source_before' in c]
+    layout=[c for c in json.loads((ROOT/'evidence/LAYOUT_NUMBERING_REPAIRS_20261022.json').read_text())['label_repairs'] if c['expose']==i]
+    comparison_source=corrected_comparison_source(src[i],applicable+layout)
+    corrections=[c['id'] for c in applicable]
     a=Counter(norm(x) for x in math(comparison_source))
     pats={'semantic_labels':r'\\etiquette\[[^]]*\]\{[^}]+\}','bibliography_keys':r'\\bibitem(?:\[[^\]]*\])?\{[^}]+\}','environments':r'\\(?:begin|end)\{[^}]+\}'}
     entry={'expose':ROMAN[i],'source_expanded_sha256':sha(src[i].encode()),'source_lines':len(src[i].splitlines()),'translation_files':[str(f.relative_to(ROOT)) for f in files],'translation_hashes':{str(f.relative_to(ROOT)):sha(f.read_bytes()) for f in files},'math_blocks_source':sum(a.values()),'math_blocks_output':sum(b.values()),'original_frozen_math_multiset_normalized_equal':original_a==b,'original_frozen_math_source_only_count':sum((original_a-b).values()),'original_frozen_math_output_only_count':sum((b-original_a).values()),'documented_source_corrections_for_comparison':corrections,'math_multiset_normalized_equal':a==b,'math_source_only_count':sum((a-b).values()),'math_output_only_count':sum((b-a).values())}
-    ra=reference_keys(src[i]);rb=reference_keys(t);expected=ra.copy()
-    ref_corrections=[]
-    if i==12:
-        expected['XII.prop3.1']-=1
-        ref_corrections.append('XII-5.10-Artin-link')
-    if i==15:
-        expected['XV.prop1.6']-=1;expected['XV.prop1.1']+=1
-        ref_corrections.append('XV-1.10-proof-reference')
-    entry['reference_keys']={'original_source_count':sum(ra.values()),'output_count':sum(rb.values()),'original_multiset_equal':ra==rb,'documented_corrections':ref_corrections,'equal_after_documented_corrections':expected==rb,'unexplained_source_only':dict(expected-rb),'unexplained_output_only':dict(rb-expected)}
+    entry['documented_layout_repairs_for_comparison']=[c['id'] for c in layout]
+    source_label_keys=Counter(re.findall(r'\\(?:label|etiquette\[[^]]*\])\{([^}]+)\}',clean(src[i])))
+    output_label_keys=Counter(re.findall(r'\\(?:label|etiquette\[[^]]*\])\{([^}]+)\}',clean(t)))
+    entry['all_label_keys']={'source_count':sum(source_label_keys.values()),'output_count':sum(output_label_keys.values()),'multiset_equal':source_label_keys==output_label_keys}
+    ra=reference_keys(src[i]);rb=reference_keys(t)
+    expected=reference_keys(comparison_source)
+    entry['reference_keys']={'original_source_count':sum(ra.values()),'output_count':sum(rb.values()),'original_multiset_equal':ra==rb,'documented_corrections':corrections,'equal_after_documented_corrections':expected==rb,'unexplained_source_only':dict(expected-rb),'unexplained_output_only':dict(rb-expected)}
     display_pat=r'\\\[.*?\\\]|\\begin\{(equation\*?|align\*?|gather\*?|multline\*?|eqnarray\*?|displaymath)\}.*?\\end\{\1\}'
     def displays(t):
         return [m.group() for m in re.finditer(display_pat,clean(t),re.S)]
@@ -112,11 +131,12 @@ for i in ROMAN:
         v=norm(v)
         if r'\xymatrix' not in v:v=v.replace('&','')
         return v
-    da=Counter(dn(v) for v in displays(src[i]));db=Counter(dn(v) for v in displays(t))
-    entry['additional_display_environments']={'source_count':sum(da.values()),'output_count':sum(db.values()),'normalized_multiset_equal':da==db,'source_only_count':sum((da-db).values()),'output_only_count':sum((db-da).values())}
+    original_da=Counter(dn(v) for v in displays(src[i]))
+    da=Counter(dn(v) for v in displays(comparison_source));db=Counter(dn(v) for v in displays(t))
+    entry['additional_display_environments']={'source_count':sum(da.values()),'output_count':sum(db.values()),'original_frozen_multiset_normalized_equal':original_da==db,'original_frozen_source_only_count':sum((original_da-db).values()),'original_frozen_output_only_count':sum((db-original_da).values()),'normalized_multiset_equal':da==db,'source_only_count':sum((da-db).values()),'output_only_count':sum((db-da).values())}
     for name,pat in pats.items():
-        ac=Counter(re.findall(pat,clean(src[i])));bc=Counter(re.findall(pat,clean(t)))
-        entry[name]={'source_count':sum(ac.values()),'output_count':sum(bc.values()),'multiset_equal':ac==bc}
+        original_ac=Counter(re.findall(pat,clean(src[i])));ac=Counter(re.findall(pat,clean(comparison_source)));bc=Counter(re.findall(pat,clean(t)))
+        entry[name]={'source_count':sum(original_ac.values()),'output_count':sum(bc.values()),'original_frozen_multiset_equal':original_ac==bc,'comparison_count_after_documented_repairs':sum(ac.values()),'multiset_equal':ac==bc}
     report['chapters'].append(entry)
 (ROOT/'evidence/SOURCE_AND_REFERENCE_AUDIT.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
 print(json.dumps({'manifest_failures':fail,'static_unknown_keys_including_inactive_original_alternatives':unknown,'exposes_audited':len(report['chapters'])},ensure_ascii=False))

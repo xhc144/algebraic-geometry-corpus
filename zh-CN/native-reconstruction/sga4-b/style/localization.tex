@@ -31,9 +31,25 @@
 \AtBeginDocument{\def\chaptername{第}\def\contentsname{目录}\def\bibname{参考文献}\def\proofname{证明}}
 \input{style/external-references.tex}
 
-% Localize the inherited editorial-note prefix without changing counters.
+% Keep editorial note numbers local. The inherited macros let thefootnote
+% escape, making later original notes [1], [2], [3] all show the last cnote.
 \makeatletter
-\patchcmd{\nde}{N.D.E.:}{编者注:}{}{}
-\patchcmd{\ndetext}{N.D.E.:}{编者注:}{}{}
+\renewcommand{\nde}[1]{\ifthenelse{\boolean{original}}{}{%
+  \stepcounter{cnote}\begingroup
+  \def\thefootnote{\arabic{cnote}}%
+  \protect\footnote[\value{cnote}]{编者注: #1}\endgroup}}
+\renewcommand{\ndemark}{\ifthenelse{\boolean{original}}{}{%
+  \stepcounter{cnote}\begingroup
+  \def\thefootnote{\arabic{cnote}}%
+  \protect\footnotemark[\value{cnote}]\endgroup}}
+\renewcommand{\ndetext}[1]{\ifthenelse{\boolean{original}}{}{%
+  \begingroup\def\thefootnote{\arabic{cnote}}%
+  \protect\footnotetext[\value{cnote}]{编者注: #1}\endgroup}}
+% The two inherited repeated-author-note calls both refer to original note i.
+% Explicit note numbers do not advance the ordinary footnote counter.
+\renewcommand{\sgarepeatedfootnotemark}[2][1]{%
+  \begingroup\c@footnote=#1\relax
+  \edef\@thefnmark{\roman{footnote}}%
+  \hyperlink{#2}{\@makefnmark}\endgroup}
 \makeatother
 \renewcommand{\nderef}[1]{第~\ref{#1}~条编者注（第~\pageref{#1}~页）}

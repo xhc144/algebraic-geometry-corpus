@@ -42,3 +42,7 @@ Except for the confirmed arrow restoration above, the following readings were pr
 Selected French-reference text checks used physical pages 80–81, 87, 93, 97, 101, 119 and 122 of the read-only PDF. Only page 80 was visually inspected in this final pass; these checks do not constitute complete French/English collation or independent proof verification.
 
 No original source, existing Chinese translation, root index, unrelated mounted repository or another author's directory was modified. No paid API was used. No commit or push was performed by this translator.
+
+## 2026-10-22续校更新
+
+上次对1.3.10.2单箭头的裁定撤回：原始扫描第二卷物理100页清楚为双箭头，已恢复Rightarrow；参见audit/review-20261022/V-Vbis.md。
