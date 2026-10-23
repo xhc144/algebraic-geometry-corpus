@@ -5,7 +5,8 @@ import zipfile
 root=Path(__file__).resolve().parent
 out=root/'SGA6-zh-CN-source.zip'
 exclude={'build','__pycache__','.git'}
-skip={'SGA6-zh-CN-source.zip','audits/FINAL_ARTIFACTS.json'}
+# External artifact checksums include the ZIP hash and must not be embedded in that ZIP.
+skip={'SGA6-zh-CN-source.zip','audits/FINAL_ARTIFACTS.json','DELIVERABLES.sha256'}
 with zipfile.ZipFile(out,'w',zipfile.ZIP_DEFLATED,compresslevel=9) as z:
  for p in sorted(root.rglob('*')):
   if not p.is_file():continue
