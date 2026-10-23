@@ -12,19 +12,25 @@
 \newcount\sourceEndNative
 \newcount\sourceStartAbsolute
 \newcount\sourceEndAbsolute
+\newcount\sourceMainAbsolute
+% Dedicated physical-page targets also cover pages where standard page.N targets
+% are absent. Shipout numbers are independent of roman/Arabic printed counters.
+\AddToHook{shipout/foreground}{\put(0,0){%
+  \hyper@anchorstart{nativeabs.\the\ReadonlyShipoutCounter}\hyper@anchorend}}
 \newcommand{\sourcewindow}[2]{%
   \sourceStartNative=\numexpr\getpagerefnumber{origpdf:#1}-1\relax
   \sourceEndNative=\numexpr\getpagerefnumber{origpdf:#2}+1\relax
   \sourceStartAbsolute=\numexpr\zref@extractdefault{origabs:#1}{abspage}{0}-1\relax
   \sourceEndAbsolute=\numexpr\zref@extractdefault{origabs:#2}{abspage}{0}+1\relax
-  \ifnum\sourceStartNative<1 \sourceStartNative=1\fi
-  \ifnum\sourceStartAbsolute<1 \sourceStartAbsolute=1\fi
-  \ifnum\sourceEndNative<1 \sourceEndNative=1\fi
-  \ifnum\sourceEndAbsolute<1 \sourceEndAbsolute=1\fi}
+  \sourceMainAbsolute=\numexpr\zref@extractdefault{origabs:13}{abspage}{1}\relax
+  \ifnum\sourceStartNative<1 \sourceStartNative=1\relax\fi
+  \ifnum\sourceStartAbsolute<\sourceMainAbsolute \sourceStartAbsolute=\sourceMainAbsolute\relax\fi
+  \ifnum\sourceEndNative<1 \sourceEndNative=1\relax\fi
+  \ifnum\sourceEndAbsolute<1 \sourceEndAbsolute=1\relax\fi}
 \newcommand{\sourcemaprow}[5]{%
   \hypertarget{origmap.#1}{}#1#5\ (PDF #2)&%
   \begingroup\sourcewindow{#3}{#4}%
-  \hyperlink{page.\the\sourceStartNative}{\the\sourceStartNative--\the\sourceEndNative}%
+  \hyperlink{nativeabs.\the\sourceStartAbsolute}{\the\sourceStartNative--\the\sourceEndNative}%
   \endgroup&%
   \begingroup\sourcewindow{#3}{#4}%
   \the\sourceStartAbsolute--\the\sourceEndAbsolute

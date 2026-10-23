@@ -23,6 +23,14 @@ for n in range(1,5):
   if 'Rerun to get' not in log and 'Label(s) may have changed' not in log and 'File `main.out\' has changed' not in log:break
 log=(work/'build/main.log').read_text(errors='replace');pdf=work/'build/main.pdf'
 evidence={'source_commit':commit,'source_subtree':rel,'immutable_build_directory':str(work),'passes':passes,'compile_success':all(x['exit_code']==0 for x in passes),'missing_glyph_lines':re.findall(r'^Missing character:.*$',log,re.M),'overfull_lines':re.findall(r'^Overfull.*$',log,re.M),'reference_warning_lines':re.findall(r'^.*(?:undefined|multiply defined|Rerun to get|Label\(s\)).*$',log,re.M),'font_warning_lines':re.findall(r'^LaTeX Font Warning:.*$',log,re.M),'proofreading':'Not independently completed; exact source coverage is recorded separately.','visual_review':'pending inspection of this immutable build'}
+review_path=work/'review/20261022/STATUS.json'
+if review_path.exists():
+ review=json.loads(review_path.read_text())
+ evidence['independent_fidelity_reading_complete']=review['independent_fidelity_reading_complete']
+ evidence['reviewed_source_lines']=review['reviewed_source_lines']
+ evidence['review_record']='review/20261022/STATUS.json'
+ evidence['mathematical_source_validity_certified']=False
+ if review['independent_fidelity_reading_complete']:evidence['proofreading']='Full independent bilingual fidelity reading complete; inherited mathematical source concerns and external-citation limits remain explicit.'
 if evidence['compile_success']:
  import fitz
  doc=fitz.open(pdf);evidence['pdf_pages']=len(doc);evidence['pdf_sha256']=hashlib.sha256(pdf.read_bytes()).hexdigest();shutil.copyfile(pdf,p/'SGA3-b-zh.pdf')

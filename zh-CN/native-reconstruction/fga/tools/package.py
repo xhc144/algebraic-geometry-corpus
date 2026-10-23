@@ -32,6 +32,11 @@ def included(path):
         return False
     if rel.parts[0] == "outputs":
         return rel.name == "FGA-zh-working-standalone.tex"
+    # Generated TeX outputs may also sit next to a driver; keep the source ZIP clean.
+    if path.suffix.lower() in {".pdf", ".aux", ".bbl", ".blg", ".fls", ".log", ".out", ".toc", ".xdv", ".synctex", ".gz"}:
+        return False
+    if rel.name.endswith(("-blx.bib", ".run.xml", ".fdb_latexmk")):
+        return False
     return rel.name not in {"SOURCE_PACKAGE_MANIFEST.json", "SHA256SUMS.txt"} and path.suffix != ".pyc"
 
 files = sorted(p for p in ROOT.rglob("*") if included(p))

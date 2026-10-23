@@ -1,0 +1,65 @@
+{
+  "review_type": "Finite source-diagram postcheck only",
+  "timestamp_utc": "2026-10-23T00:03:12.457497+00:00",
+  "target_file": "chapters/fga1.tex",
+  "actual_resulting_sha256": "6a4c0a9393dad2368da32bfb940f02ee90ac04050d2a589aa3b003200ef3324b",
+  "authority": {
+    "file": "/tmp/FGA-french-20261022.pdf",
+    "physical_page": 25,
+    "printed_page": "149-11",
+    "visual_evidence": "/tmp/fga25-diagram-detail.png",
+    "inspection": "3x rendered crop; independent visual inspection"
+  },
+  "source_objects_left_to_right": [
+    "(\\operatorname{R}^p\\Gamma)(\\Omega_X^p)",
+    "(\\underline{\\operatorname{R}}^p\\Gamma)(\\mathscr{H}om_{\\mathcal{O}_X}(\\mathscr{L}_\\bullet,\\Omega_X^p))",
+    "\\Gamma(\\operatorname{H}^p(\\mathscr{H}om_{\\mathcal{O}_X}(\\mathscr{L}_\\bullet,\\Omega_X^p)))"
+  ],
+  "source_arrows": [
+    {
+      "from": "middle",
+      "to": "left",
+      "label": "alpha",
+      "isomorphism_mark": false,
+      "observation": "Only alpha appears above plain left arrow; no separate tilde. Do not add alpha-isomorphism: alpha need not be invertible."
+    },
+    {
+      "from": "middle",
+      "to": "right",
+      "label": "beta",
+      "isomorphism_mark": true,
+      "observation": "Separate beta above tilde over right arrow; succeeding prose also says beta is isomorphism."
+    }
+  ],
+  "current_discrepancies": [
+    "Three source objects arranged as triangle rather than original horizontal row",
+    "Literal period after vertical alpha arrow creates an extra printed dot",
+    "Beta arrow lacks original isomorphism tilde"
+  ],
+  "proposal": {
+    "edit_type": "replace_complete_unnumbered_CD_block_with_native_one_row_math",
+    "old_tex": "\\begin {CD}           (\\underline {\\operatorname {R}}^p\\Gamma )\\big (\\mathscr {H}\\kern  -2.5pt\\mathit {om}_{\\mathcal {O}_X}(\\mathscr {L}_\\bullet ,\\Omega _X^p)\\big ) @>\\beta >> \\Gamma \\big (\\operatorname {H}^p\\big (\\mathscr {H}\\kern  -2.5pt\\mathit {om}_{\\mathcal {O}_X}(\\mathscr {L}_\\bullet ,\\Omega _X^p)\\big )\\big )         \\\\@V\\alpha  VV .         \\\\(\\operatorname {R}^p\\Gamma )(\\Omega _X^p)         \\end {CD}",
+    "new_tex": "\\begin{gathered}\n(\\operatorname{R}^p\\Gamma)(\\Omega_X^p)\n\\xleftarrow{\\alpha}\n(\\underline{\\operatorname{R}}^p\\Gamma)\n\\bigl(\\mathscr{H}\\kern-2.5pt\\mathit{om}_{\\mathcal{O}_X}(\\mathscr{L}_\\bullet,\\Omega_X^p)\\bigr)\n\\overset{\\beta}{\\xrightarrow{\\sim}}\n\\Gamma\\bigl(\\operatorname{H}^p\\bigl(\\mathscr{H}\\kern-2.5pt\\mathit{om}_{\\mathcal{O}_X}(\\mathscr{L}_\\bullet,\\Omega_X^p)\\bigr)\\bigr)\n\\end{gathered}",
+    "keep_surrounding_display_delimiters": true,
+    "explanation": "All three mathematical objects and alpha/beta names retained. Only beta marked invertible; no invented fourth object or additional edge. Overset nests beta above tilde-arrow, reflecting original hierarchy. Uses ordinary editable TeX, no overlay or raster image."
+  },
+  "object_coverage": {
+    "all_three_objects_present_in_current_CD": true,
+    "missing_objects": [],
+    "extra_nonobject": "literal period",
+    "other_unnumbered_CD_on_French25": "None. Only this unnumbered comparison diagram occurs on sourcepage25; (4.5) is numbered and is outside this finite correction request. No inference about other pages is made."
+  },
+  "execution": {
+    "chapter_writes": false,
+    "builds": false,
+    "git_mutations": false,
+    "writes": [
+      "source/reviews/resume-20261022/report1-diagram-postcheck.json"
+    ],
+    "blockers": []
+  },
+  "limits": [
+    "No finalPDF re-render or compile performed; coordinator owns build.",
+    "This confirms sourcepage25 only and does not reopen full-book review."
+  ]
+}
