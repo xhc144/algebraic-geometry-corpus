@@ -41,8 +41,8 @@ X \arrow[ur,"j"] \arrow[r,"i"'] & V
 (i) 假设 $i$ 正则。令 $X'=V'\times_V X$。$j$ 确定了 $X'$ 在 $X$ 上的一个截面 $j'$，使 $j=i'j'$：
 \[
 \begin{tikzcd}[column sep=large,row sep=large]
-X' \arrow[r,"i'"] \arrow[d,"p'"'] & V' \arrow[d,"p"]\\
-X \arrow[r,"i"'] \arrow[ur,"j"] & V .
+X' \arrow[r,"i'"] \arrow[d,shift right=.6ex,"p'"'] & V' \arrow[d,"p"]\\
+X \arrow[u,shift right=.6ex,"j'"'] \arrow[r,"i"'] \arrow[ur,"j"] & V .
 \end{tikzcd}
 \]
 此时 $j'$ 作为光滑态射的截面，是正则浸入（\hyperlink{sga6.e07.prop.1-10}{VII 1.10}）；$i'$ 由 $i$ 经光滑、因而平坦的基变换得到，也是正则浸入（\hyperlink{sga6.e07.prop.1-5}{VII 1.5}）。所以 $j$ 是正则浸入（\hyperlink{sga6.e07.prop.1-7}{VII 1.7}）。
@@ -86,7 +86,7 @@ W' \arrow[r,"q"] \arrow[d,"p"'] & W[T_1,\ldots,T_n] \arrow[d,"p_0"]\\
 W \arrow[r,equal] & W,
 \end{tikzcd}
 \]
-其中 $p_0$ 是结构态射，$q$ 是平展态射（EGA IV 17.11.4）。于是可假设 $V=W$，$V'=W'$。引入纤维积 $X[T_1,\ldots,T_n]$ 后，容易看出 $qj$ 是浸入。应用 (ii) 和 (iii)，推出 $qj$ 正则，从而 $i$ 正则。
+其中 $p_0$ 是结构态射，$q$ 是平展态射（EGA IV 17.11.4）。于是可假设 $V=W$，$V'=W'$。引入纤维积 $X[T_1,\ldots,T_n]$ 后，容易看出 $qj$ 是浸入。应用 (ii) 和 (iii)，推出 $qj$ 正则，从而 $i$ 正则。\footnote{译校注：原书第 469 页后一处将 $qj$ 误排为 $qi$。}
 
 现在证明\hyperlink{sga6.e08.prop.1-2}{命题 1.2}。由于正则性在 $Z$ 上是局部的，可在一点 $x\in X$ 附近进行。此时存在 $x$ 在 $X$ 中的开邻域 $U$、光滑 $Y$-概形 $V$，以及正则 $Y$-浸入 $i':U\to V$。有交换图
 \[
@@ -102,7 +102,7 @@ i'':U\longrightarrow Z\times_Y V,
 以及交换图
 \[
 \begin{tikzcd}[column sep=large,row sep=large]
-& U \arrow[dl,"i"'] \arrow[dr,"i'"] &\\
+& U \arrow[dl,"i"'] \arrow[d,"i''"] \arrow[dr,"i'"] &\\
 Z & Z\times_Y V \arrow[l,"p"'] \arrow[r,"p'"] & V.
 \end{tikzcd}
 \]
@@ -125,7 +125,7 @@ U \arrow[r,"i"] \arrow[dr,"f"'] & V \arrow[d,"g"]\\
 \]
 其中 $k(y)$ 是 $\mathcal O_{Y,y}$ 的剩余域。由于 $f$ 平坦，这些群为零，故 $i_y$ 在 $x$ 处正则。由于 $g$ 光滑，$V_y$ 在 $x$ 处的局部环正则。因此，$U_y$ 在 $x$ 处的局部环是正则环除以正则理想所得的商，故为完全交环（EGA IV 19.3.2）。由此，$f$ 在 $x$ 处是 EGA IV 19.3.6 意义下的完全交。
 
-反之，假设 $f$ 是 EGA IV 19.3.6 意义下的完全交态射，设 $x\in X$。取 $x$ 的仿射邻域 $U$，使它位于 $y=f(x)$ 的某个仿射邻域 $U'$ 上方。于是可找到光滑 $U'$-概形 $V$ 和闭浸入 $U\to V$（例如取 $V$ 为 $U'$ 上的向量丛）。我们将证明 $i$ 正则。由 EGA IV 19.3.7，$i$ 在 $x$ 处横截正则，因为 $V$ 在 $Y$ 上光滑，从而 $V_y$ 在 $x$ 处正则，且 $U$ 在 $Y$ 上平坦。由 EGA IV 19.2.4, a)$\Rightarrow$c)，$i$ 在 $x$ 处正则。因此 $f$ 是 1.1 意义下的完全交态射。
+反之，假设 $f$ 是 EGA IV 19.3.6 意义下的完全交态射，设 $x\in X$。取 $x$ 的仿射邻域 $U$，使它位于 $y=f(x)$ 的某个仿射邻域 $U'$ 上方。于是可找到光滑 $U'$-概形 $V$ 和闭浸入 $U\to V$（例如取 $V$ 为 $U'$ 上的向量丛）。我们将证明 $i$ 正则。由 EGA IV 19.3.7，$i$ 在 $x$ 处横截正则，因为 $V$ 在 $Y$ 上光滑，从而 $V_y$ 在 $x$ 处正则，且 $U$ 在 $Y$ 上平坦。\footnote{译校注：原书第 471 页此处将 $U$ 误排为 $U'$。}由 EGA IV 19.2.4, a)$\Rightarrow$c)，$i$ 在 $x$ 处正则。因此 $f$ 是 1.1 意义下的完全交态射。
 
 \sgaStableTarget{sga6.e08.prop.1-5}\textbf{命题 1.5.} 设 $f:X\to Y$ 和 $g:Y\to Z$ 是两个局部完全交态射。则 $gf$ 为局部完全交。
 
@@ -264,7 +264,7 @@ L^{X/Y}_1=J/J^2,
 \qquad
 L^{X/Y}_i=0\quad(i\neq 0,1),
 \]
-并取 \hyperlink{sga6.e08.eq.2-1-1}{(2.1.1)} 为 $L^{X/Y}_1\to L^{X/Y}_0$ 的同态，从而定义链复形 $L^{X/Y}_\bullet$。
+并取 \hyperlink{sga6.e08.eq.2-1-1}{(2.1.1)}\footnote{译校注：原书第 475 页此处将 (2.1.1) 误排为 (1.5.1)。} 为 $L^{X/Y}_1\to L^{X/Y}_0$ 的同态，从而定义链复形 $L^{X/Y}_\bullet$。
 
 \sgaStableTarget{sga6.e08.prop.2-2}\textbf{命题 2.2.} 复形 $L^{X/Y}_\bullet$ 在导出范畴 $D(X)$ 中精确到典范同构，与所选的通过光滑 $Y$-概形的分解无关。
 
@@ -301,8 +301,8 @@ i^*(\Omega^1_{V/Y}) \arrow[r] & j^*(\Omega^1_{V'/Y}).
 此外，$j$ 定义 $X'=V'\times_V X$ 的一个截面 $j'$：
 \[
 \begin{tikzcd}[column sep=large,row sep=large]
-X' \arrow[r,"i'"] \arrow[d,"p'"'] & V' \arrow[d,"p"]\\
-X \arrow[r,"i"'] \arrow[ur,"j"] & V .
+X' \arrow[r,"i'"] \arrow[d,shift right=.6ex,"p'"'] & V' \arrow[d,"p"]\\
+X \arrow[u,shift right=.6ex,"j'"'] \arrow[r,"i"'] \arrow[ur,"j"] & V .
 \end{tikzcd}
 \]
 % 法文原书第477页在此包含下述正则性断言，正文照录并加译校注。
@@ -503,6 +503,7 @@ A\longmapsto \operatorname{Ch}(A)
 \[
 \Todd:1+\widehat A^+\longrightarrow 1+\widehat A^+.
 \]
+\footnote{译校注：原书第 483 页此式未写有理化。一般 Todd 级数含有理系数；这里的自同态应在 \(1+\widehat A^+_{\mathbb Q}\) 上理解，参见下文 5.3.1。}
 我们将把这些定义用于增广 $\lambda$-环 $K^{\bullet}(X)$ 和 $K^{\bullet}(Y)$；增广环 $H^0(X,\mathbb Z)$ 和 $H^0(Y,\mathbb Z)$ 是二项式环（\hyperlink{sga6.e05.ex.2-8}{V 2.8}）。为简化记号，对每个概形 $Z$ 和每个 $z\in K^{\bullet}(Z)$，写成
 \[
 \ch(z)=\ch(\widetilde c(z)),
@@ -925,7 +926,7 @@ S(E)[T,T^{-1}]\otimes_{S(E)}S(E)\,dT
 \[
 S(E)\otimes_{\mathcal O_Y}E
 \]
-（因为 \(E\) 有限型局部自由），因此 \(\Omega^1_{V/Y}\) 等于 \(g^*(E)\)。所以
+（因为 \(E\) 有限型局部自由），因此 \(\Omega^1_{V/Y}\) 等于 \(g^*(E)\)。\footnote{译校注：原书第 494 页此处左端印作 \(\Omega^1_{V/Y}\)，但 \(g\) 定义在 \(Z\) 上；应为其限制 \(\Omega^1_{Z/Y}=g^*E\)。正文保留原印。}所以
 \[
 \Omega^1_{B/Y}=f^*(E)\otimes_{\mathcal O_P}B.
 \]
