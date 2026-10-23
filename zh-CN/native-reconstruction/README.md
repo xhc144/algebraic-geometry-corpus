@@ -6,7 +6,7 @@
 
 | 工作区 | 书目 | 范围 | 状态 |
 |---|---|---|---|
-| `sga3-a/` | SGA 3 | I, II, III, IV, V, VI-A, VI-B, VII-A, VII-B, VIII, IX, X, XI, XII | 已交777页指定英文底本初译；错链补丁待验收，另缺再版卷首材料 |
+| `sga3-a/` | SGA 3 | I, II, III, IV, V, VI-A, VI-B, VII-A, VII-B, VIII, IX, X, XI, XII | 已整合main；777页指定英文底本修订稿；另缺再版卷首材料 |
 | `sga3-b/` | SGA 3 | XIII, XIV, XV, XVI, XVII, XVIII, XIX, XX, XXI, XXII, XXIII, XXIV, XXV, XXVI | 已整合main；557页；完整英文源组件对读，原本／外引疑点保留 |
 | `sga4-a/` | SGA 4 | I, II, III, IV, V, V-bis, VI, VII, VIII, IX | 已整合main；463页；法中全文对读，原书残引保留 |
 | `sga4-b/` | SGA 4 | X, XI, XII, XIII, XIV, XV, XVI, XVII, XVIII, XIX | 已整合main；298页；英文源全范围对读，原著疑点保留 |
@@ -25,11 +25,13 @@ FGA 由协调者负责；其余十个作者目录由父线程启动的任务独�
 ## 可检查的工作稿与待审队列
 
 - [FGA：前言及全八篇报告，124页中文修订稿](fga/outputs/FGA-zh-working.pdf)，另有[单文件TeX](fga/outputs/FGA-zh-working-standalone.tex)和[原生源码ZIP](fga/outputs/FGA-zh-working-source.zip)。实际合卷编译及独立包重建状态见[FGA记录](fga/PROGRESS.json)；本轮独立模型对照已覆盖八篇全部源页，并完成订正回读；原刊疑误及VI脚注正文缺口仍保留；[后续原件检索](_coord/reviews/fga-VI-footnote-primary-search-20261023.md)明确实际可读边界，未作专业人工审定。
-- 各SGA与FGA Explained检查点、固定提交、原本覆盖风险和独立审查状态统一见[_coord/REVIEW_QUEUE.json](_coord/REVIEW_QUEUE.json)与[来源风险](_coord/COVERAGE_RISKS.json)。已有全篇初稿不代表最终审定；有些检查点仍在作者分支，保留至复核整合，不改写历史。
+- 各SGA与FGA Explained检查点、固定提交、原本覆盖风险和独立审查状态统一见[_coord/REVIEW_QUEUE.json](_coord/REVIEW_QUEUE.json)与[来源风险](_coord/COVERAGE_RISKS.json)。已有全篇初稿不代表最终审定；最新交付均已正常合入main；早期作者分支与历史记录保留，不改写历史。
 - SGA3-a早期检查点及SGA7-II的独立重建/源文发现，见[_coord/reviews/](_coord/reviews/)。这些报告明确限制了审查范围。
 
 当前恢复差距表见 [_coord/RESUME_INVENTORY.json](_coord/RESUME_INVENTORY.json)。[_coord/PAUSED.md](_coord/PAUSED.md)及其JSON保留为2026-10-21历史暂停记录，不代表当前状态。SGA6的441页原本补缺与元数据修补已正常整合（97fd630）；394、424页均为历史稿。
 
-2026-10-23已正常整合main的恢复交付：SGA5（271页）、SGA4½（200页）、SGA3-b（557页）、SGA4-a（463页）、SGA4-b（298页）、SGA7-I（300页）、SGA7-II（289页）、FGA Explained（313页）、FGA（124页）、SGA6（441页）。每卷原文覆盖、实际独立包重建及保留缺项见恢复总表和协调验收记录；不据编译成功宣称全部原著证明已重验。FGA修订稿及总协调记录已正常合入main（6be71ee）；没有覆盖其他作者目录。
+2026-10-23已正常整合main的恢复交付共9种书、11份PDF、4033页：SGA3-a（777页）、SGA5（271页）、SGA4½（200页）、SGA3-b（557页）、SGA4-a（463页）、SGA4-b（298页）、SGA7-I（300页）、SGA7-II（289页）、FGA Explained（313页）、FGA（124页）、SGA6（441页）。每卷原文覆盖、实际独立包重建及保留缺项见恢复总表和协调验收记录；不据编译成功宣称全部原著证明已重验。FGA修订稿及总协调记录已正常合入main（6be71ee）；没有覆盖其他作者目录。
 
 当前逐卷已保存范围、审校口径与剩余缺项见[_coord/RESUMED_STATUS.md](_coord/RESUMED_STATUS.md)。历史暂停表不作当前完成状态依据。
+
+本轮汇总包使用上述最新已核验交付。SGA3现代再版卷首、SGA7-II原Leitfaden关系图、FGA VI脚注正文等未定位原件，及逐卷法文终校边界，均保留在当前总表；这些缺项不以新写文字冒充原文。
