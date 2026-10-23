@@ -13,7 +13,7 @@
 | `sga4half/` | SGA 4½ | I, II, III, IV, V, VI, VII, VIII | 已整合main；200页；317页法文对读，原著疑点保留 |
 | `sga5/` | SGA 5 | I, III, III-B, V, VI, VII, VIII, X, XII, XV | 已整合验收记录；271页合格译文原字节保留 |
 | `sga6/` | SGA 6 | 0, RRR-appendix, I, II, III, IV, V, VI, VII, VIII, IX, X, XII, XIII, XIV | 原作者续作；已核实远端424页快照 |
-| `sga7-i/` | SGA 7-I | I, II, VI, VII, VIII, IX | 已整合main；297页；完整英文组件对读，原卷导言仍缺 |
+| `sga7-i/` | SGA 7-I | I, II, VI, VII, VIII, IX | 已整合main；297页；完整英文组件对读，原卷导言补缺待新回执 |
 | `sga7-ii/` | SGA 7-II | X, XI, XII, XIII, XIV, XV, XVI, XVII, XVIII, XIX, XX, XXI, XXII | 已整合main；289页；原Leitfaden关系图仍缺 |
 | `fga-explained/` | FGA Explained | 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, bibliography, index | 已整合main；313页；354页底本对读及索引核验 |
 | `fga/` | FGA | foreword, 1, 2, 3.I, 3.II, 3.III, 3.IV, 3.V, 3.VI, bibliography | 已整合main；124页修订稿；VI脚注正文继续查证 |
