@@ -2,7 +2,7 @@
 
 格罗滕迪克学派代数几何基础文献的整理库。这里收录 **EGA、SGA、FGA、FGA Explained 与 Stacks Project** 的原书 PDF、已出版和社区的中英文译本及 LaTeX 源码、相关讲义与预印本，以及本库新译的 SGA 3–7、FGA、FGA Explained 中文稿。
 
-仓库为私有，下载文件需要登录有权限的 GitHub 账号。图形化的概览页在 [docs/index.html](docs/index.html)，下载后用浏览器打开。
+**概览页：<https://xhc144.github.io/algebraic-geometry-corpus/>**（GitHub Pages，源文件在 [docs/](docs/)）
 
 ## 一览
 
@@ -32,7 +32,7 @@
 | [en/](en/) | 英文译本与源码 |
 | [extra/](extra/) | 参考资料：SGA 历史扫描、英文读者版、讲义、预印本、其他中译 |
 | [翻译工作流/](翻译工作流/) | 翻译提示词与原则 |
-| [docs/](docs/) | 仓库概览页 |
+| [docs/](docs/) | GitHub Pages 概览页 |
 
 ## 原典
 
@@ -187,6 +187,6 @@ A. J. de Jong 等编写、持续更新的在线参考书。
 
 ## 来源、版权与许可
 
-本仓库是私有的研究与翻译资料库。原著、出版译本、社区译文和代码的权利归各自作者与出版方，收录在这里不代表授予公开传播、再许可或商业使用的权利。
+本仓库是个人研究与翻译资料库，仅供研究与学习使用。原著、出版译本、社区译文和代码的权利归各自作者与出版方，收录在这里不代表授予公开传播、再许可或商业使用的权利。
 
 EGA、SGA、FGA 及 FGA Explained 的原著涉及 Springer、IHÉS、North-Holland、AMS 等机构；周健译本由高等教育出版社出版。英文和社区项目的许可只适用于其说明界定的贡献，例如 [EGA 英译许可](en/KokunoYumeto-ega-en/LICENSE)、[SGA 英文权利说明](en/KokunoYumeto-sga-en/LICENSE_AND_RIGHTS.md)、[jcreinhold SGA 许可](extra/jcreinhold-sga/LICENSE)。Stacks Project 及其中文版按各自附带的许可和署名要求使用。
