@@ -5,15 +5,22 @@
       "source_location": "Proposition11.9 manually superscript-marked star note after projective-module hypothesis",
       "problem": "footnotetext without footnotemark reused preceding numbered note Hfootnote.2376, causing duplicate destination",
       "change": "Wrap this existing unlinked manual-star footnotetext in public NoHyper environment; all note text, star marker, numbered-footnote counter, formulas and reference keys unchanged",
-      "status": "implemented; awaiting next actual compile",
+      "status": "verified in successful622-page XeLaTeX build; no duplicate-destination warning or samepage error",
       "audit_effect": "Two deliberate NoHyper begin/end additions; strict source environment multiset differs."
     },
     {
       "file": "preamble.tex",
       "problem": "ctex environment hook expands undefined endsamepage at VII-B29; standard samepage only declares entry penalties",
       "change": "Provide empty endsamepage endpoint; keep source samepage grouping and content unchanged",
-      "status": "implemented; awaiting build",
+      "status": "verified in successful622-page XeLaTeX build; no duplicate-destination warning or samepage error",
       "audit_effect": "No chapter content changed"
+    },
+    {
+      "file": "preamble.tex",
+      "problem": "Inherited inline reference macros wrote labels naming stable destinations but did not create PDF anchors; baseline435-page PDF contained dead internal links",
+      "change": "Create a hyperref raised anchor before assigning currentHref in SGAInlineRefTarget and SGAInlineEquationTarget; preserve visible text, reference keys and numbers",
+      "status": "verified in isolated2-page heading/paragraph/equation test and full622-page build; all5236 PDF link annotations have existing named destinations",
+      "audit_effect": "No component mathematics or reference keys changed"
     }
   ]
 }
