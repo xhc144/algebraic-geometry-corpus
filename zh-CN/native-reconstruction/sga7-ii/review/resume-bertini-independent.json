@@ -2,7 +2,7 @@
   "task": "Independent mathematical review of XVIII 6.1.6 fixed-point generic-line assertion",
   "reviewer": "resume_bertini_check",
   "date": "2026-10-22",
-  "status": "proved, assuming T is nonempty; independent draft before reading any root candidate",
+  "status": "proved; exact root candidate independently accepted without required mathematical correction",
   "write_scope": "Only this review JSON. No chapter/source/git operations.",
   "actual_review_scope": {
     "chinese_chapters": [
@@ -99,7 +99,88 @@
     "This is a focused check of the fixed-point generic-line step, not a fresh independent review of all ExposéXVIII or every use of SGA1 specialization/inertia.",
     "No claim to verify or recover any EGA V numbered reference. Existing literal source gap remains historical.",
     "The incidence identification/P¹ local trivialization and generic-fibre localization argument are supplied explicitly here; no external historical citation for them is asserted.",
-    "No PDF compile or visual typesetting review is performed: only this JSON is written. Root candidate supplement remains to be reviewed if supplied."
+    "Exact root supplement candidate was subsequently read and accepted; only this JSON updated. Compilation/visual rendering remains outside this reviewer scope."
   ],
-  "blockers": []
+  "blockers": [],
+  "exact_candidate_review": {
+    "status": "accepted",
+    "candidate_path": "zh-CN/native-reconstruction/sga7-ii/chapters/expose-XVIII/129_expose_XVIII_proof_6_1_through_bertini-zh.tex",
+    "candidate_sha256": "69b4435729e767afe95f825da83ebb4f1d00a6bde642fd1d104fc6ad8d46363b",
+    "candidate_sha256_matches_root_message": true,
+    "read_scope": "Read entire exact chapter129 and entire review/resume-bertini-edit.json after root explicitly supplied the candidate; this is subsequent to the independent proof.",
+    "checks": [
+      {
+        "item": "T and hypotheses",
+        "verdict": "pass",
+        "reason": "D_o gives T nonempty; T is nonempty open in irreducible P_a, so its function field is k(P_a). k algebraically closed and finite étale connected nonempty E ensure E_a has k-points."
+      },
+      {
+        "item": "a and change of geometric basepoint",
+        "verdict": "pass",
+        "reason": "A closed k-point exists on nonempty D_o minus Z. Replacing the original geometric basepoint changes the fundamental-group maps through path isomorphisms, up to inner conjugacy, preserving surjectivity. The proof explicitly makes this reduction rather than assuming an arbitrary geometric point is rational."
+      },
+      {
+        "item": "incidence family and smoothness",
+        "verdict": "pass",
+        "reason": "Bl_a(P^r) is the universal P¹ family of lines through a. Its inverse image of U is open, so B→P_a smooth in every characteristic. B_eta is D_eta minus Z including a."
+      },
+      {
+        "item": "flat base change and blowup integrality",
+        "verdict": "pass",
+        "reason": "Étale implies flat, so E×_U B=Bl_{E_a}E by0805. E is smooth connected Noetherian, hence integral; E_a is proper closed, so its ideal is nonzero and02ND applies."
+      },
+      {
+        "item": "exceptional divisor and section",
+        "verdict": "pass",
+        "reason": "Because E→U is étale, tangent map at e is an isomorphism. The projectivized tangent exceptional divisor maps isomorphically to P_a; equivalently the cartesian description gives {e}×P_a over a. Thus a section exists."
+      },
+      {
+        "item": "dominance and generic fibre integrality",
+        "verdict": "pass",
+        "reason": "Section implies surjectivity, hence dominance. Generic fibre of dominant morphism from integral E′ to integral P_a is nonempty integral: localization of affine domains gives reduced local charts, and the generic point of E′ specializes to every point of the generic fibre, proving irreducibility. The candidate compact wording is adequate."
+      },
+      {
+        "item": "rational point in actual target",
+        "verdict": "pass",
+        "reason": "The section point of the generic fibre maps to a∈U. The entire B_eta is the punctured line, so the point belongs to C itself; no compactification boundary is used."
+      },
+      {
+        "item": "all-characteristic geometric inference",
+        "verdict": "pass",
+        "reason": "C is smooth over arbitrary K and has K-rational point. Connectedness plus04KV gives geometric connectedness. Smoothness gives geometric regularity056T. For every field extension K′/K, C_K′ is finite type over a field, hence Noetherian; it is connected and normal, hence integral by033M. This covers imperfect K and positive characteristic without a separability shortcut."
+      },
+      {
+        "item": "authorship and source locator",
+        "verdict": "pass",
+        "reason": "Both editorialnote blocks clearly identify the new proof as translator editorial material and preserve the incomplete EGA V locator as unresolved; no missing author text is invented."
+      }
+    ],
+    "body_preservation": {
+      "exact_added_tex_occurrences": 1,
+      "exact_replacement_note_occurrences": 1,
+      "reconstruct_before_operation": "Remove the one exact added_editorial_proof_tex and replace the one exact new_editorial_note with old_editorial_note.",
+      "reconstructed_before_sha256": "142afeed409da77b8801a2581cca1537b63d17fa5515ba1085dd08906b52735e",
+      "reconstruction_matches_frozen_pre_edit_hash": true,
+      "after_stripping_editorialnotes_exact_equality": false,
+      "after_stripping_editorialnotes_equality_ignoring_trailing_whitespace": true,
+      "difference": "Only three extra terminal blank lines remain after stripping explicit editorialnote environments. Every original author-body character before terminal whitespace, formula, tag, and diagram is unchanged."
+    },
+    "required_corrections": [],
+    "remaining_limits": "Acceptance concerns mathematics, explicit editorial attribution, source citation suitability, and body preservation; no PDF compilation or visual typesetting check by this reviewer."
+  },
+  "final_wording_review": {
+    "date": "2026-10-23",
+    "status": "accepted",
+    "current_chapter_sha256": "91dd764e86a2c731d6c2813c6dabbe5fa90777973b5c9bc26442f5cd18bf8389",
+    "matches_requested_sha256": true,
+    "old_exact_sentence": "这里的有理点位于 $C$ 本身, 并非紧化边界上的点.",
+    "new_exact_sentence": "所取有理点在 $C$ 内, 不在紧化边界上.",
+    "new_sentence_occurrences": 1,
+    "old_sentence_occurrences": 0,
+    "reverse_sentence_replacement_sha256": "69b4435729e767afe95f825da83ebb4f1d00a6bde642fd1d104fc6ad8d46363b",
+    "reverse_change_restores_previous_accepted_candidate_exactly": true,
+    "mathematical_assessment": "Equivalent shorter wording. The chosen K-rational point belongs to the actual generic open fibre C, rather than any compactification boundary. No hypothesis, construction, inference, author body or citation changes. Prior mathematical acceptance remains applicable.",
+    "visual_confirmation": "Final PDF206 displays the entire shorter sentence on one line and all concluding standard-reference prose before the page footer. Final PDF207 begins original proof6.1.2; no isolated 点. remains.",
+    "required_corrections": []
+  }
 }
